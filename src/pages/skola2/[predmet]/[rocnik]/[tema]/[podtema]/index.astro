@@ -34,8 +34,14 @@ const { predmet, rocnik, tema, podtema } = Astro.props;
 	<body>
 		<main>
 			<p><a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/`}>&larr; Zpět na {tema.nazev}</a></p>
-			<h1>{podtema.nazev}</h1>
-			<p>Obsah připravujeme.</p>
+			{podtema.obsah ? (
+				<Fragment set:html={podtema.obsah} />
+			) : (
+				<>
+					<h1>{podtema.nazev}</h1>
+					<p>Obsah připravujeme.</p>
+				</>
+			)}
 		</main>
 		<style>
 			main {
@@ -43,6 +49,10 @@ const { predmet, rocnik, tema, podtema } = Astro.props;
 				margin: 4rem auto;
 				font-family: system-ui, sans-serif;
 				padding: 0 1.5rem;
+				line-height: 1.6;
+			}
+			main :global(h2) {
+				margin-top: 0;
 			}
 		</style>
 	</body>
