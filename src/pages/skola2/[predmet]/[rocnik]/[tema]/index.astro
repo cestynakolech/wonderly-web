@@ -33,7 +33,18 @@ const { predmet, rocnik, tema } = Astro.props;
 		<main>
 			<p><a href={`/${predmet.slug}/${rocnik.slug}/`}>&larr; Zpět na {predmet.nazev} – {rocnik.nazev}</a></p>
 			<h1>{tema.nazev}</h1>
-			<p>Obsah připravujeme.</p>
+			{tema.podtemata && tema.podtemata.length > 0 ? (
+				<>
+					<p>Vyber si podtéma.</p>
+					<ul>
+						{tema.podtemata.map((pt) => (
+							<li><a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}/`}>{pt.nazev}</a></li>
+						))}
+					</ul>
+				</>
+			) : (
+				<p>Obsah připravujeme.</p>
+			)}
 		</main>
 		<style>
 			main {
@@ -41,6 +52,11 @@ const { predmet, rocnik, tema } = Astro.props;
 				margin: 4rem auto;
 				font-family: system-ui, sans-serif;
 				padding: 0 1.5rem;
+			}
+			ul {
+				font-size: 1.1rem;
+				line-height: 2.2;
+				padding-left: 1.2rem;
 			}
 		</style>
 	</body>
