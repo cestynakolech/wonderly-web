@@ -68,4 +68,82 @@ export const temata: Record<string, Tema[]> = {
 			],
 		},
 	],
+	'fyzika/8-rocnik': [
+		{
+			slug: 'prace-a-energie',
+			nazev: 'Práce a energie',
+			podtemata: [
+				{ slug: 'mechanicka-prace', nazev: 'Mechanická práce' },
+				{ slug: 'energie-a-zakon-zachovani-energie', nazev: 'Energie a zákon zachování energie' },
+			],
+		},
+		{
+			slug: 'teplo-a-vnitrni-energie',
+			nazev: 'Teplo a vnitřní energie',
+			podtemata: [
+				{ slug: 'vnitrni-energie', nazev: 'Vnitřní energie' },
+				{ slug: 'teplo-a-teplota', nazev: 'Teplo a teplota' },
+			],
+		},
+		{
+			slug: 'sireni-tepla',
+			nazev: 'Šíření tepla',
+			podtemata: [
+				{ slug: 'zpusoby-sireni-tepla', nazev: 'Šíření tepla' },
+				{ slug: 'teplo-a-premeny-skupenstvi', nazev: 'Teplo a přeměny skupenství' },
+				{ slug: 'lavinove-nebezpeci', nazev: 'Lavinové nebezpečí' },
+			],
+		},
+		{
+			slug: 'tepelne-motory',
+			nazev: 'Tepelné motory',
+			podtemata: [
+				{ slug: 'tepelny-motor', nazev: 'Tepelný motor' },
+				{ slug: 'spalovaci-motory', nazev: 'Spalovací motory' },
+				{ slug: 'raketovy-motor-proudovy-motor', nazev: 'Raketový motor, proudový motor' },
+			],
+		},
+		{
+			slug: 'motory-a-pohony-budoucnosti',
+			nazev: 'Motory a pohony budoucnosti',
+			podtemata: [
+				{ slug: 'wankeluv-motor', nazev: 'Wankelův motor' },
+				{ slug: 'alternativni-pohony-pro-automobily', nazev: 'Alternativní pohony pro automobily' },
+				{ slug: 'souhrn-motory', nazev: 'Souhrn: motory' },
+			],
+		},
+		{
+			slug: 'elektricky-naboj-a-pole',
+			nazev: 'Elektrický náboj a pole',
+			podtemata: [
+				{ slug: 'elektricky-naboj', nazev: 'Elektrický náboj' },
+				{ slug: 'elektricke-pole', nazev: 'Elektrické pole' },
+			],
+		},
+		{
+			slug: 'elektricky-proud-a-obvody',
+			nazev: 'Elektrický proud a obvody',
+			podtemata: [
+				{ slug: 'elektricky-proud-a-napeti', nazev: 'Elektrický proud a napětí' },
+				{ slug: 'zaklady-a-zapojeni-elektrickych-obvodu', nazev: 'Základy a zapojení elektrických obvodů' },
+			],
+		},
+		{
+			slug: 'elektricka-prace-a-spotrebice',
+			nazev: 'Elektrická práce a spotřebiče',
+			podtemata: [
+				{ slug: 'elektricka-prace-a-vykon', nazev: 'Elektrická práce a výkon' },
+				{ slug: 'zapojeni-spotrebicu-v-domacnosti', nazev: 'Zapojení spotřebičů v domácnosti' },
+			],
+		},
+		{
+			slug: 'zvuk-a-kmitani',
+			nazev: 'Zvuk a kmitání',
+			podtemata: [
+				{ slug: 'kmitani-a-vlneni', nazev: 'Kmitání a vlnění' },
+				{ slug: 'vznik-a-sireni-zvuku', nazev: 'Vznik a šíření zvuku' },
+				{ slug: 'cesta-zvuku', nazev: 'Cesta zvuku' },
+			],
+		},
+	],
 };
