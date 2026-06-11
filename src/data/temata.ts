@@ -146,4 +146,75 @@ export const temata: Record<string, Tema[]> = {
 			],
 		},
 	],
+	'fyzika/9-rocnik': [
+		{
+			slug: 'stavba-atomu',
+			nazev: 'Stavba atomu',
+			podtemata: [
+				{ slug: 'fyzika-atomy-a-modely', nazev: 'Fyzika – Atomy a modely' },
+				{ slug: 'atom-iont-izotop', nazev: 'Atom, iont, izotop' },
+				{ slug: 'atomove-jadro', nazev: 'Atomové jádro' },
+			],
+		},
+		{
+			slug: 'jaderna-fyzika',
+			nazev: 'Jaderná fyzika',
+			podtemata: [
+				{ slug: 'radioaktivita', nazev: 'Radioaktivita' },
+				{ slug: 'stepeni-jader', nazev: 'Štěpení jader' },
+				{ slug: 'jaderny-reaktor', nazev: 'Jaderný reaktor' },
+			],
+		},
+		{
+			slug: 'elektromagneticka-indukce',
+			nazev: 'Elektromagnetická indukce',
+			podtemata: [
+				{ slug: 'elektromagneticka-indukce-zaklady', nazev: 'Elektromagnetická indukce' },
+				{ slug: 'generator', nazev: 'Generátor' },
+			],
+		},
+		{
+			slug: 'elektricke-stroje',
+			nazev: 'Elektrické stroje',
+			podtemata: [
+				{ slug: 'elektromotor', nazev: 'Elektromotor' },
+				{ slug: 'transformator', nazev: 'Transformátor' },
+			],
+		},
+		{
+			slug: 'elektrina-v-domacnosti',
+			nazev: 'Elektřina v domácnosti',
+			podtemata: [
+				{ slug: 'prenos-elektricke-energie-energeticka-rozvodna-sit', nazev: 'Přenos elektrické energie, energetická rozvodná síť' },
+				{ slug: 'schema-domovni-elektroinstalace', nazev: 'Schéma domovní elektroinstalace' },
+				{ slug: 'ucinky-elektrickeho-proudu', nazev: 'Účinky elektrického proudu' },
+			],
+		},
+		{
+			slug: 'vedeni-proudu-v-latkach',
+			nazev: 'Vedení proudu v látkách',
+			podtemata: [
+				{ slug: 'chemicke-zdroje-elektrickeho-napeti', nazev: 'Chemické zdroje elektrického napětí' },
+				{ slug: 'vedeni-elektrickeho-proudu-v-kapalinach', nazev: 'Vedení elektrického proudu v kapalinách' },
+				{ slug: 'vedeni-elektrickeho-proudu-v-plynech', nazev: 'Vedení elektrického proudu v plynech' },
+			],
+		},
+		{
+			slug: 'polovodice',
+			nazev: 'Polovodiče',
+			podtemata: [
+				{ slug: 'polovodice-a-jejich-vlastnosti', nazev: 'Polovodiče a jejich vlastnosti' },
+				{ slug: 'polovodice-typu-n-a-p', nazev: 'Polovodiče typu N a P' },
+			],
+		},
+		{
+			slug: 'vesmir-a-zareni',
+			nazev: 'Vesmír a záření',
+			podtemata: [
+				{ slug: 'elektromagneticke-vlny', nazev: 'Elektromagnetické vlny' },
+				{ slug: 'slunecni-soustava', nazev: 'Sluneční soustava' },
+				{ slug: 'galaxie', nazev: 'Galaxie' },
+			],
+		},
+	],
 };
