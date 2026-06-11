@@ -8,6 +8,8 @@ export default {
 				url.pathname = '/fox/';
 			} else if (host.startsWith('lab.')) {
 				url.pathname = '/skola2/';
+			} else if (host.startsWith('cesty.')) {
+				url.pathname = '/cesty/';
 			}
 		}
 
