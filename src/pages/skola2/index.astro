@@ -1,0 +1,55 @@
+---
+import { predmety } from '../../data/predmety';
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>2. stupeň – Wonderly</title>
+	</head>
+	<body>
+		<main>
+			<p><a href="/">&larr; Zpět na úvod</a></p>
+			<h1>2. stupeň ZŠ</h1>
+			<p>Vyber si předmět.</p>
+			<div class="grid">
+				{predmety.map((p) => (
+					<a class="dlazdice" href={`/${p.slug}/`} style={`background:${p.barva}`}>
+						{p.nazev}
+					</a>
+				))}
+			</div>
+		</main>
+		<style>
+			main {
+				max-width: 60rem;
+				margin: 4rem auto;
+				font-family: system-ui, sans-serif;
+				padding: 0 1.5rem;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+			.dlazdice {
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: #fff;
+				font-size: 1.4rem;
+				font-weight: 700;
+				text-decoration: none;
+				border-radius: 1rem;
+				padding: 1rem;
+				box-sizing: border-box;
+			}
+		</style>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+---
+import { predmety, rocniky } from '../../../../data/predmety';
+
+export function getStaticPaths() {
+	const paths = [];
+	for (const p of predmety) {
+		for (const r of rocniky) {
+			paths.push({ params: { predmet: p.slug, rocnik: r.slug }, props: { predmet: p, rocnik: r } });
+		}
+	}
+	return paths;
+}
+
+const { predmet, rocnik } = Astro.props;
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{predmet.nazev} – {rocnik.nazev} – Wonderly</title>
+	</head>
+	<body>
+		<main>
+			<p><a href={`/${predmet.slug}/`}>&larr; Zpět na {predmet.nazev}</a></p>
+			<h1>{predmet.nazev} – {rocnik.nazev}</h1>
+			<p>Témata připravujeme.</p>
+		</main>
+		<style>
+			main {
+				max-width: 60ch;
+				margin: 4rem auto;
+				font-family: system-ui, sans-serif;
+				padding: 0 1.5rem;
+			}
+		</style>
+	</body>
+</html>
