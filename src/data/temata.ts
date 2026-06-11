@@ -17,6 +17,7 @@ export const temata: Record<string, Tema[]> = {
 
 						<h3>Posuvný pohyb</h3>
 						<p>Každý bod tělesa se pohybuje stejným směrem a stejnou rychlostí po stejné trajektorii.</p>
+						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-pohyb.jpg" alt="Posuvný pohyb trojúhelníkového pravítka" />
 
 						<h3>Trajektorie pohybu</h3>
 						<ul>
@@ -26,6 +27,7 @@ export const temata: Record<string, Tema[]> = {
 
 						<h3>Otáčivý pohyb</h3>
 						<p>Při otáčivém pohybu se jednotlivé body tělesa pohybují po kružnicích se středem na ose otáčení.</p>
+						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/otacivy-pohyb.jpg" alt="Otáčivý pohyb trojúhelníkového pravítka" />
 					`,
 				},
 				{
@@ -53,6 +55,8 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>rovnoměrný pohyb</strong> – graf je přímka (rychlost se nemění)</li>
 							<li><strong>nerovnoměrný pohyb</strong> – graf není přímka (rychlost se mění)</li>
 						</ul>
+						<p>Jestliže těleso urazí za stejné doby vždy stejné dráhy, koná rovnoměrný pohyb:</p>
+						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/rovnomerny-pohyb.jpg" alt="Nerovnoměrný a rovnoměrný pohyb automobilu" />
 					`,
 				},
 				{
