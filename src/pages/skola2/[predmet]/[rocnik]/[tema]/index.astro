@@ -1,0 +1,47 @@
+---
+import { predmety, rocniky } from '../../../../../data/predmety';
+import { temata } from '../../../../../data/temata';
+
+export function getStaticPaths() {
+	const paths = [];
+	for (const [klic, seznam] of Object.entries(temata)) {
+		const [predmetSlug, rocnikSlug] = klic.split('/');
+		const predmet = predmety.find((p) => p.slug === predmetSlug);
+		const rocnik = rocniky.find((r) => r.slug === rocnikSlug);
+		for (const tema of seznam) {
+			paths.push({
+				params: { predmet: predmetSlug, rocnik: rocnikSlug, tema: tema.slug },
+				props: { predmet, rocnik, tema },
+			});
+		}
+	}
+	return paths;
+}
+
+const { predmet, rocnik, tema } = Astro.props;
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{tema.nazev} – {predmet.nazev} {rocnik.nazev} – Wonderly</title>
+	</head>
+	<body>
+		<main>
+			<p><a href={`/${predmet.slug}/${rocnik.slug}/`}>&larr; Zpět na {predmet.nazev} – {rocnik.nazev}</a></p>
+			<h1>{tema.nazev}</h1>
+			<p>Obsah připravujeme.</p>
+		</main>
+		<style>
+			main {
+				max-width: 60ch;
+				margin: 4rem auto;
+				font-family: system-ui, sans-serif;
+				padding: 0 1.5rem;
+			}
+		</style>
+	</body>
+</html>

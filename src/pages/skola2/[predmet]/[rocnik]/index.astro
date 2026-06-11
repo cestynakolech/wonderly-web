@@ -1,5 +1,6 @@
 ---
 import { predmety, rocniky } from '../../../../data/predmety';
+import { temata } from '../../../../data/temata';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const { predmet, rocnik } = Astro.props;
+const seznamTemat = temata[`${predmet.slug}/${rocnik.slug}`] ?? [];
 ---
 
 <html lang="cs">
@@ -26,14 +28,47 @@ const { predmet, rocnik } = Astro.props;
 		<main>
 			<p><a href={`/${predmet.slug}/`}>&larr; Zpět na {predmet.nazev}</a></p>
 			<h1>{predmet.nazev} – {rocnik.nazev}</h1>
-			<p>Témata připravujeme.</p>
+			{seznamTemat.length > 0 ? (
+				<>
+					<p>Vyber si téma.</p>
+					<div class="grid">
+						{seznamTemat.map((t) => (
+							<a class="dlazdice" href={`/${predmet.slug}/${rocnik.slug}/${t.slug}/`} style={`background:${predmet.barva}`}>
+								{t.nazev}
+							</a>
+						))}
+					</div>
+				</>
+			) : (
+				<p>Témata připravujeme.</p>
+			)}
 		</main>
 		<style>
 			main {
-				max-width: 60ch;
+				max-width: 60rem;
 				margin: 4rem auto;
 				font-family: system-ui, sans-serif;
 				padding: 0 1.5rem;
+			}
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+			.dlazdice {
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: #fff;
+				font-size: 1.4rem;
+				font-weight: 700;
+				text-decoration: none;
+				border-radius: 1rem;
+				padding: 1rem;
+				box-sizing: border-box;
 			}
 		</style>
 	</body>
