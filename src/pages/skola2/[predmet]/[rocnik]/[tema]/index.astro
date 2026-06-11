@@ -36,11 +36,13 @@ const { predmet, rocnik, tema } = Astro.props;
 			{tema.podtemata && tema.podtemata.length > 0 ? (
 				<>
 					<p>Vyber si podtéma.</p>
-					<ul>
+					<div class="grid">
 						{tema.podtemata.map((pt) => (
-							<li><a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}/`}>{pt.nazev}</a></li>
+							<a class="dlazdice" href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}/`} style={`background:${predmet.barva}`}>
+								{pt.nazev}
+							</a>
 						))}
-					</ul>
+					</div>
 				</>
 			) : (
 				<p>Obsah připravujeme.</p>
@@ -48,15 +50,30 @@ const { predmet, rocnik, tema } = Astro.props;
 		</main>
 		<style>
 			main {
-				max-width: 60ch;
+				max-width: 60rem;
 				margin: 4rem auto;
 				font-family: system-ui, sans-serif;
 				padding: 0 1.5rem;
 			}
-			ul {
-				font-size: 1.1rem;
-				line-height: 2.2;
-				padding-left: 1.2rem;
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+			.dlazdice {
+				aspect-ratio: 1 / 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: #fff;
+				font-size: 1.4rem;
+				font-weight: 700;
+				text-decoration: none;
+				border-radius: 1rem;
+				padding: 1rem;
+				box-sizing: border-box;
 			}
 		</style>
 	</body>
