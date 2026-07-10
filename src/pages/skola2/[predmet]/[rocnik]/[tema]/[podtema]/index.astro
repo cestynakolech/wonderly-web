@@ -1,6 +1,7 @@
 ---
 import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
 import Kviz from '../../../../../../components/skola2/Kviz.astro';
+import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -83,16 +84,8 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			</section>
 		)
 	}
+	{podtema.interakce === 'hydraulika' && <HydraulikaSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
-	{
-		otazky && (
-			<p class="pro-ucitele">
-				<a href="test/">
-					🖨️ Tisknutelný test pro učitele
-				</a>
-			</p>
-		)
-	}
 </SkolaLayout>
 
 <style is:global>
@@ -122,15 +115,5 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		color: var(--ztlumena);
 		font-size: 1rem;
 		margin-top: 0.4rem;
-	}
-	.pro-ucitele {
-		text-align: right;
-		font-size: 1rem;
-	}
-	.pro-ucitele a {
-		color: var(--ztlumena);
-	}
-	.pro-ucitele a:hover {
-		color: var(--oranzova);
 	}
 </style>

@@ -34,7 +34,43 @@ const POCET_V_TESTU = 7;
 		<meta name="viewport" content="width=device-width" />
 		<title>Test: {podtema.nazev} – tisk – Wonderly</title>
 	</head>
-	<body>
+	<body class="zamceno">
+		<section class="zamek" id="zamek">
+			<h1>🔒 Stránka pro učitele</h1>
+			<p>Tato stránka slouží k tisku testů. Zadej učitelské heslo:</p>
+			<form id="zamek-formular">
+				<input type="password" id="zamek-heslo" autocomplete="off" autofocus />
+				<button type="submit">Odemknout</button>
+			</form>
+			<p class="zamek-chyba" id="zamek-chyba" hidden>Špatné heslo, zkus to znovu.</p>
+		</section>
+		<script is:inline>
+			(() => {
+				const OTISK = '8c0a8e314ec61cb5d61faea8ffa0dbded53adc2aa21f138cfcf90979f40a81fb';
+				const odemkni = () => {
+					document.body.classList.remove('zamceno');
+					document.getElementById('zamek').remove();
+				};
+				if (sessionStorage.getItem('ucitelsky-test') === '1') {
+					odemkni();
+					return;
+				}
+				document.getElementById('zamek-formular').addEventListener('submit', async (udalost) => {
+					udalost.preventDefault();
+					const heslo = document.getElementById('zamek-heslo').value;
+					const data = new TextEncoder().encode(heslo);
+					const otisk = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', data)))
+						.map((b) => b.toString(16).padStart(2, '0'))
+						.join('');
+					if (otisk === OTISK) {
+						sessionStorage.setItem('ucitelsky-test', '1');
+						odemkni();
+					} else {
+						document.getElementById('zamek-chyba').hidden = false;
+					}
+				});
+			})();
+		</script>
 		<section class="ovladani">
 			<h1>🖨️ Tisknutelný test: {podtema.nazev}</h1>
 			<p>
@@ -127,6 +163,35 @@ const POCET_V_TESTU = 7;
 				margin: 0;
 				background: #e9e6de;
 				font-family: system-ui, sans-serif;
+			}
+			/* dokud není zadané učitelské heslo, obsah je skrytý */
+			body.zamceno .ovladani,
+			body.zamceno .arch,
+			body.zamceno .oznaceni-archu {
+				display: none;
+			}
+			.zamek {
+				max-width: 26rem;
+				margin: 15vh auto 0;
+				padding: 2rem;
+				background: #fff;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+				text-align: center;
+			}
+			.zamek input {
+				font-size: 1.1rem;
+				padding: 0.5rem;
+				width: 60%;
+			}
+			.zamek button {
+				font-size: 1.1rem;
+				padding: 0.5rem 1rem;
+				margin-left: 0.5rem;
+				cursor: pointer;
+			}
+			.zamek-chyba {
+				color: #c92a2a;
 			}
 			.ovladani {
 				max-width: 52rem;

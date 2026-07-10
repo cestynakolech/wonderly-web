@@ -3,7 +3,14 @@ export type Material = {
 	nazev: string;
 	cesta: string;
 };
-export type Podtema = { slug: string; nazev: string; obsah?: string; materialy?: Material[] };
+export type Podtema = {
+	slug: string;
+	nazev: string;
+	obsah?: string;
+	materialy?: Material[];
+	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
+	interakce?: 'hydraulika';
+};
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
 export const temata: Record<string, Tema[]> = {
@@ -394,8 +401,87 @@ export const temata: Record<string, Tema[]> = {
 						},
 					],
 				},
-				{ slug: 'pascaluv-zakon', nazev: 'Pascalův zákon' },
-				{ slug: 'hydrostaticky-tlak', nazev: 'Hydrostatický tlak' },
+				{
+					slug: 'pascaluv-zakon',
+					nazev: 'Pascalův zákon',
+					interakce: 'hydraulika',
+					obsah: `
+						<h2>Pascalův zákon</h2>
+						<p><strong>Tlak vyvolaný vnější silou působící na kapalinu v uzavřené nádobě se přenáší rovnoměrně do všech směrů.</strong> Tlak se tedy zvětší ve všech místech kapaliny stejně.</p>
+						<p>Když zatlačíme na píst uzavřené baňky s otvory naplněné vodou, voda nestříká jen ve směru síly, ale <strong>všemi směry kolmo ke stěnám nádoby</strong>.</p>
+						<p><strong>Proč to funguje?</strong> Kapaliny jsou téměř dokonale nestlačitelné — jejich částice jsou tak blízko u sebe, že je nelze více stlačit, a tak tlak výborně přenášejí.</p>
+						<h3>Hydraulická zařízení — násobení síly</h3>
+						<p>Základem jsou <strong>dvě propojené nádoby s písty o různých plochách</strong> (S₁ malý, S₂ velký) a uzavřenou kapalinou (obvykle olejem). Tlak je v celém systému stejný:</p>
+						<ul>
+							<li><strong>p = F₁ : S₁ = F₂ : S₂</strong></li>
+							<li>výsledná síla: <strong>F₂ = F₁ · (S₂ : S₁)</strong></li>
+						</ul>
+						<p>👉 <strong>Zlaté pravidlo hydrauliky:</strong> Kolikrát je druhý píst větší než první, přesně tolikrát větší síla na něj působí. Plocha 100× větší = síla 100× větší.</p>
+						<h3>Příklad (z hodiny)</h3>
+						<p>Na malý píst o obsahu 3 m² působí síla 24 N → tlak p = 24 : 3 = <strong>8 Pa</strong>. Velký píst má obsah 12 m² → F₂ = 8 · 12 = <strong>96 N</strong>.</p>
+						<h3>Příklad: zubařské křeslo</h3>
+						<p>Zubař tlačí na malý píst (S₁ = 5 cm²) silou 20 N. Velký píst má S₂ = 400 cm², tedy 80× víc → síla je 80 × 20 = <strong>1 600 N</strong>, což uzvedne 160 kg. Když křeslo váží 30 kg, pacient může vážit až <strong>130 kg</strong>.</p>
+						<h3>Kde všude hydraulika pracuje</h3>
+						<p>hydraulické zvedáky a lisy, brzdy automobilů, bagry a jeřáby, zubařská a lékařská křesla, hydraulické výtahy</p>
+						<h3>Hodí se vědět</h3>
+						<p>Obsah kruhového pístu o poloměru r: <strong>S = π · r²</strong> (π ≈ 3,14).</p>
+					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Síla kapaliny: Pascalův zákon a hydraulická zařízení',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/infografika-pascaluv-zakon.jpg',
+						},
+						{
+							druh: 'pdf',
+							nazev: 'Síla kapalin: Pascalův zákon a hydraulika (infografiky v PDF)',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/sila-kapalin-pascaluv-zakon.pdf',
+						},
+						{
+							druh: 'video',
+							nazev: 'Píseň: Pascalův zákon 🎵',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon/pisen-pascaluv-zakon.mp4',
+						},
+					],
+				},
+				{
+					slug: 'hydrostaticky-tlak',
+					nazev: 'Hydrostatický tlak',
+					obsah: `
+						<h2>Hydrostatický tlak</h2>
+						<p><strong>Hydrostatický tlak vzniká působením gravitační síly Země.</strong> Kapalina působí na dno i stěny nádoby a také na tělesa ponořená v kapalině — na potápěče, ryby i ponorky.</p>
+						<p>Čím jsme <strong>hlouběji pod hladinou</strong> a čím je kapalina <strong>hustší</strong>, tím větší tlak na nás působí.</p>
+						<h3>Vzorec</h3>
+						<ul>
+							<li><strong>p<sub>h</sub> = h · ρ · g</strong></li>
+							<li>h … hloubka pod hladinou (v metrech)</li>
+							<li>ρ … hustota kapaliny (v kg/m³); voda má 1000 kg/m³</li>
+							<li>g … gravitační konstanta (10 N/kg)</li>
+						</ul>
+						<p>Například v hloubce 10 m pod vodou: p<sub>h</sub> = 10 · 1000 · 10 = <strong>100 000 Pa</strong>.</p>
+						<h3>Tlaková síla vody</h3>
+						<p>Síla na plochu (třeba dno nebo stěnu tělesa): <strong>F = S · h · ρ · g</strong>. Například na starý most (6 × 8 m) v hloubce 5 m působí voda silou F = 48 · 5 · 1000 · 10 = <strong>2 400 000 N</strong>.</p>
+						<h3>Hydrostatický paradox</h3>
+						<p>Tlak u dna <strong>nezávisí na tvaru nádoby ani množství vody</strong> — jen na hloubce a hustotě. Nádoby se stejným dnem a stejnou výškou hladiny mají u dna stejný tlak i sílu na dno.</p>
+						<h3>Spojené nádoby</h3>
+						<p>Hladina kapaliny je ve všech částech spojených nádob <strong>vodorovná a ve stejné výšce</strong>, bez ohledu na jejich tvar.</p>
+						<h3>Využití v praxi</h3>
+						<ul>
+							<li><strong>hráz přehrady</strong> — u dna je mnohem širší, protože s hloubkou roste tlak</li>
+							<li><strong>vodojem</strong> — staví se výš než okolní budovy; voda teče z kohoutku díky výšce hladiny</li>
+							<li><strong>hadicová vodováha</strong> — spojené nádoby ukazují stejnou výšku</li>
+							<li><strong>sifon u umyvadla a WC</strong> — vodní zátka brání zápachu z odpadu</li>
+							<li><strong>plavební komora (zdymadlo)</strong> — pomáhá lodím překonat výškové rozdíly hladin</li>
+						</ul>
+					`,
+					materialy: [
+						{
+							druh: 'pdf',
+							nazev: 'Hydrostatický tlak: od rovnic k přehradám (infografiky v PDF)',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak/hydrostaticky-tlak-od-rovnic-k-prehradam.pdf',
+						},
+					],
+				},
 			],
 		},
 		{

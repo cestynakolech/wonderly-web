@@ -1,0 +1,167 @@
+---
+// Interaktivní hydraulické zařízení: posuvníkem se mění průměr velkého pístu,
+// vozidlo na pístu roste podle toho, kolik zařízení uzvedne. Vše se počítá
+// z Pascalova zákona: p = F1/S1 = F2/S2.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej si hydrauliku! 🕹️</span></h2>
+	<p>
+		Na malý píst (průměr 8 cm) tlačíme pořád stejnou silou <strong>500 N</strong>. Posuvníkem měň
+		průměr velkého pístu a sleduj, jak roste síla — a co všechno zvedneš.
+	</p>
+	<svg viewBox="0 0 620 330" role="img" aria-label="Model hydraulického zařízení s dvěma písty">
+		<!-- kapalina: spodní kanál + oba válce (kreslí se skriptem) -->
+		<path id="sim-kapalina" fill="#a5d8f3" stroke="none" d="" />
+		<!-- stěny malého válce -->
+		<line x1="80" y1="90" x2="80" y2="266" stroke="#2b2a26" stroke-width="3" />
+		<line x1="124" y1="90" x2="124" y2="222" stroke="#2b2a26" stroke-width="3" />
+		<!-- stěny velkého válce (posouvá skript) -->
+		<line id="sim-stena-l" x1="0" y1="120" x2="0" y2="222" stroke="#2b2a26" stroke-width="3" />
+		<line id="sim-stena-p" x1="0" y1="120" x2="0" y2="266" stroke="#2b2a26" stroke-width="3" />
+		<!-- dno kanálu -->
+		<path id="sim-dno" fill="none" stroke="#2b2a26" stroke-width="3" d="" />
+		<!-- písty -->
+		<rect x="76" y="130" width="52" height="13" fill="#8a867c" stroke="#2b2a26" stroke-width="2.5" rx="3" />
+		<rect id="sim-pist2" x="0" y="150" width="0" height="13" fill="#8a867c" stroke="#2b2a26" stroke-width="2.5" rx="3" />
+		<!-- síla F1 -->
+		<line x1="102" y1="70" x2="102" y2="122" stroke="#e8590c" stroke-width="5" />
+		<path d="M94 112 L102 128 L110 112 Z" fill="#e8590c" />
+		<text x="102" y="58" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26">F₁ = 500 N</text>
+		<!-- vozidlo na velkém pístu -->
+		<text id="sim-vozidlo" x="430" y="145" text-anchor="middle" font-size="40">🚗</text>
+		<!-- popisky průměrů -->
+		<text x="102" y="290" text-anchor="middle" font-size="14" fill="#8a867c">průměr 8 cm</text>
+		<text id="sim-popisek-d2" x="430" y="290" text-anchor="middle" font-size="14" fill="#8a867c"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Průměr velkého pístu: <output id="sim-d2-hodnota"></output>
+		<input type="range" id="sim-d2" min="8" max="80" step="1" value="24" />
+	</label>
+	<div class="sim-okynka">
+		<div class="okynko"><span class="okynko-nazev">plocha malého pístu S₁</span><span id="sim-s1"></span></div>
+		<div class="okynko"><span class="okynko-nazev">plocha velkého pístu S₂</span><span id="sim-s2"></span></div>
+		<div class="okynko"><span class="okynko-nazev">kolikrát větší plocha</span><span id="sim-pomer"></span></div>
+		<div class="okynko"><span class="okynko-nazev">síla na velkém pístu F₂</span><span id="sim-f2"></span></div>
+		<div class="okynko okynko-vysledek"><span class="okynko-nazev">uzvedne až</span><span id="sim-hmotnost"></span></div>
+	</div>
+	<p class="sim-pouceni">
+		👉 Kolikrát je plocha velkého pístu větší než malého, <strong>tolikrát větší síla</strong> na něm
+		vzniká: F₂ = F₁ · (S₂ : S₁)
+	</p>
+</section>
+
+<script is:inline>
+	(() => {
+		const F1 = 500; // N
+		const D1 = 8; // cm
+		const S1 = Math.PI * (D1 / 2) ** 2; // cm²
+		const MERITKO = 3.4; // px na cm
+		const STRED = 430;
+		const el = (id) => document.getElementById(id);
+		const cz = (n, des = 0) => n.toLocaleString('cs-CZ', { maximumFractionDigits: des, minimumFractionDigits: des });
+
+		function vozidloPodle(kg) {
+			if (kg < 150) return '🚲';
+			if (kg < 1500) return '🚗';
+			if (kg < 3500) return '🚐';
+			return '🚛';
+		}
+
+		function prekresli() {
+			const d2 = Number(el('sim-d2').value);
+			const S2 = Math.PI * (d2 / 2) ** 2;
+			const pomer = S2 / S1;
+			const F2 = F1 * pomer;
+			const kg = F2 / 10;
+
+			const w2 = d2 * MERITKO;
+			const l = STRED - w2 / 2;
+			const p = STRED + w2 / 2;
+
+			// geometrie velkého válce a pístu
+			el('sim-stena-l').setAttribute('x1', l);
+			el('sim-stena-l').setAttribute('x2', l);
+			el('sim-stena-p').setAttribute('x1', p);
+			el('sim-stena-p').setAttribute('x2', p);
+			el('sim-pist2').setAttribute('x', l - 4);
+			el('sim-pist2').setAttribute('width', w2 + 8);
+			el('sim-dno').setAttribute('d', `M80 266 L${p} 266`);
+			el('sim-kapalina').setAttribute(
+				'd',
+				`M82 143 L82 264 L${p - 2} 264 L${p - 2} 163 L${l + 2} 163 L${l + 2} 224 L122 224 L122 143 Z`
+			);
+
+			// vozidlo roste s poměrem ploch
+			const velikost = 22 + Math.sqrt(pomer) * 5.5;
+			const vozidlo = el('sim-vozidlo');
+			vozidlo.setAttribute('font-size', velikost);
+			vozidlo.textContent = vozidloPodle(kg);
+
+			// okýnka
+			el('sim-d2-hodnota').textContent = `${d2} cm`;
+			el('sim-popisek-d2').textContent = `průměr ${d2} cm`;
+			el('sim-s1').textContent = `${cz(S1, 1)} cm²`;
+			el('sim-s2').textContent = `${cz(S2, 1)} cm²`;
+			el('sim-pomer').textContent = `${cz(pomer, 1)}×`;
+			el('sim-f2').textContent = `${cz(F2)} N`;
+			el('sim-hmotnost').textContent = `${cz(kg)} kg`;
+		}
+
+		el('sim-d2').addEventListener('input', prekresli);
+		prekresli();
+	})();
+</script>
+
+<style is:global>
+	.simulace svg {
+		width: 100%;
+		height: auto;
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 12px;
+	}
+	.sim-posuvnik {
+		display: block;
+		margin: 0.8rem 0;
+		font-size: 1.15rem;
+	}
+	.sim-posuvnik output {
+		font-weight: 700;
+		color: var(--oranzova);
+	}
+	.sim-posuvnik input {
+		width: 100%;
+		accent-color: var(--oranzova);
+	}
+	.sim-okynka {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		gap: 0.7rem;
+		margin: 1rem 0;
+	}
+	.okynko {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.15rem;
+		padding: 0.55rem 0.4rem;
+		border: 2px solid var(--inkoust);
+		border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+		background: rgba(255, 255, 255, 0.65);
+		font-weight: 700;
+		font-size: 1.15rem;
+	}
+	.okynko-nazev {
+		font-weight: 400;
+		font-size: 0.85rem;
+		color: var(--ztlumena);
+		text-align: center;
+	}
+	.okynko-vysledek {
+		border-color: var(--oranzova);
+		color: var(--oranzova);
+	}
+	.sim-pouceni {
+		margin-bottom: 0;
+	}
+</style>
