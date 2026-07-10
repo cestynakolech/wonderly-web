@@ -33,10 +33,10 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 <SkolaLayout
 	titulek={`${podtema.nazev} – ${tema.nazev} – Wonderly`}
 	drobky={[
-		{ text: '2. stupeň', href: '/skola2/' },
-		{ text: predmet.nazev, href: `/${predmet.slug}/` },
-		{ text: rocnik.nazev, href: `/${predmet.slug}/${rocnik.slug}/` },
-		{ text: tema.nazev, href: `/${predmet.slug}/${rocnik.slug}/${tema.slug}/` },
+		{ text: '2. stupeň', href: '../../../../' },
+		{ text: predmet.nazev, href: '../../../' },
+		{ text: rocnik.nazev, href: '../../' },
+		{ text: tema.nazev, href: '../' },
 	]}
 >
 	<h1><span class="podtrh">{podtema.nazev}</span></h1>
@@ -87,7 +87,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{
 		otazky && (
 			<p class="pro-ucitele">
-				<a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}/test/`}>
+				<a href="test/">
 					🖨️ Tisknutelný test pro učitele
 				</a>
 			</p>

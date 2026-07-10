@@ -9,14 +9,14 @@ export function getStaticPaths() {
 const { predmet } = Astro.props;
 ---
 
-<SkolaLayout titulek={`${predmet.nazev} – 2. stupeň – Wonderly`} drobky={[{ text: '2. stupeň', href: '/skola2/' }]}>
+<SkolaLayout titulek={`${predmet.nazev} – 2. stupeň – Wonderly`} drobky={[{ text: '2. stupeň', href: '../' }]}>
 	<h1><span class="ikona">{predmet.ikona}</span> <span class="podtrh">{predmet.nazev}</span></h1>
 	<p class="uvodni-text">Vyber si ročník.</p>
 	<ul class="karty">
 		{
 			rocniky.map((r, i) => (
 				<li>
-					<a class="karta" href={`/${predmet.slug}/${r.slug}/`}>
+					<a class="karta" href={`${r.slug}/`}>
 						<span class="cislo">{i + 1}</span>
 						<span class="nazev">{r.nazev}</span>
 					</a>

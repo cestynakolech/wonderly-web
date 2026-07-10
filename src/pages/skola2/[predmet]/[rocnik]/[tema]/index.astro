@@ -25,9 +25,9 @@ const { predmet, rocnik, tema } = Astro.props;
 <SkolaLayout
 	titulek={`${tema.nazev} – ${predmet.nazev} ${rocnik.nazev} – Wonderly`}
 	drobky={[
-		{ text: '2. stupeň', href: '/skola2/' },
-		{ text: predmet.nazev, href: `/${predmet.slug}/` },
-		{ text: rocnik.nazev, href: `/${predmet.slug}/${rocnik.slug}/` },
+		{ text: '2. stupeň', href: '../../../' },
+		{ text: predmet.nazev, href: '../../' },
+		{ text: rocnik.nazev, href: '../' },
 	]}
 >
 	<h1><span class="podtrh">{tema.nazev}</span></h1>
@@ -38,7 +38,7 @@ const { predmet, rocnik, tema } = Astro.props;
 				<ul class="karty">
 					{tema.podtemata.map((pt, i) => (
 						<li>
-							<a class="karta" href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}/`}>
+							<a class="karta" href={`${pt.slug}/`}>
 								<span class="cislo">{i + 1}</span>
 								<span class="nazev">{pt.nazev}</span>
 							</a>

@@ -10,7 +10,7 @@ import { predmety } from '../../data/predmety';
 		{
 			predmety.map((p, i) => (
 				<li>
-					<a class="karta" href={`/${p.slug}/`}>
+					<a class="karta" href={`${p.slug}/`}>
 						<span class="cislo">{i + 1}</span>
 						<span class="ikona">{p.ikona}</span>
 						<span class="nazev">{p.nazev}</span>
@@ -19,5 +19,5 @@ import { predmety } from '../../data/predmety';
 			))
 		}
 	</ul>
-	<footer><a href="/">wonderly.cz</a></footer>
+	<footer><a href="https://wonderly.cz">wonderly.cz</a></footer>
 </SkolaLayout>

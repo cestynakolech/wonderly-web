@@ -20,8 +20,8 @@ const seznamTemat = temata[`${predmet.slug}/${rocnik.slug}`] ?? [];
 <SkolaLayout
 	titulek={`${predmet.nazev} – ${rocnik.nazev} – Wonderly`}
 	drobky={[
-		{ text: '2. stupeň', href: '/skola2/' },
-		{ text: predmet.nazev, href: `/${predmet.slug}/` },
+		{ text: '2. stupeň', href: '../../' },
+		{ text: predmet.nazev, href: '../' },
 	]}
 >
 	<h1><span class="podtrh">{predmet.nazev} – {rocnik.nazev}</span></h1>
@@ -32,7 +32,7 @@ const seznamTemat = temata[`${predmet.slug}/${rocnik.slug}`] ?? [];
 				<ul class="karty">
 					{seznamTemat.map((t, i) => (
 						<li>
-							<a class="karta" href={`/${predmet.slug}/${rocnik.slug}/${t.slug}/`}>
+							<a class="karta" href={`${t.slug}/`}>
 								<span class="cislo">{i + 1}</span>
 								<span class="nazev">{t.nazev}</span>
 							</a>
