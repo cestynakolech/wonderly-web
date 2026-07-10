@@ -1,6 +1,8 @@
 ---
+import CestyLayout from '../../layouts/CestyLayout.astro';
 import { roky } from '../../data/cesty/roky';
 import type { Rok } from '../../data/cesty/typy';
+import { MAPA_SIRKA, MAPA_VYSKA, spocitejVyrez } from '../../data/cesty/mapa';
 
 export function getStaticPaths() {
 	return roky.map((r) => ({ params: { rok: String(r.rok) }, props: { data: r } }));
@@ -12,37 +14,7 @@ interface Props {
 
 const { data } = Astro.props;
 
-const MAPA_SIRKA = 680;
-const MAPA_VYSKA = 520;
-
-/** Výřez mapy: ruční z dat, jinak automaticky obálka měst + okraj (funguje pro libovolné země). */
-function spocitejVyrez(rok: Rok) {
-	if (rok.vyrez) return rok.vyrez;
-	const okraj = 30;
-	const xs = rok.mesta.map((m) => m.x);
-	const ys = rok.mesta.map((m) => m.y);
-	const minX = Math.min(...xs) - okraj;
-	const maxX = Math.max(...xs) + okraj;
-	const minY = Math.min(...ys) - okraj;
-	const maxY = Math.max(...ys) + okraj;
-	const pomer = 4 / 3;
-	let sirka = maxX - minX;
-	let vyska = maxY - minY;
-	if (sirka / vyska > pomer) {
-		vyska = sirka / pomer;
-	} else {
-		sirka = vyska * pomer;
-	}
-	const stredX = (minX + maxX) / 2;
-	const stredY = (minY + maxY) / 2;
-	let x = stredX - sirka / 2;
-	let y = stredY - vyska / 2;
-	x = Math.max(0, Math.min(x, MAPA_SIRKA - sirka));
-	y = Math.max(0, Math.min(y, MAPA_VYSKA - vyska));
-	return { x, y, sirka, vyska };
-}
-
-const vyrez = spocitejVyrez(data);
+const vyrez = data.vyrez ?? spocitejVyrez(data.mesta);
 // Velikost pinů a písma se škáluje s výřezem, aby na obrazovce vypadaly vždy stejně
 const pinR = vyrez.sirka / 45;
 const pismo = vyrez.sirka / 30;
@@ -50,117 +22,68 @@ const pismo = vyrez.sirka / 30;
 const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 ---
 
-<html lang="cs">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Cesty na kolech {data.rok} – Wonderly</title>
-	</head>
-	<body>
-		<main>
-			<p><a href="/cesty">&larr; Všechny roky</a></p>
-			<h1>{data.rok} – {data.zeme}</h1>
-			<svg
-				viewBox={`${vyrez.x} ${vyrez.y} ${vyrez.sirka} ${vyrez.vyska}`}
-				role="img"
-				aria-label={`Mapa navštívených měst v roce ${data.rok}`}
-			>
-				<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
-				{
-					data.mesta.map((m, i) => (
-						<a href={`#${m.slug}`}>
-							<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
-							<text
-								class="pin-popisek"
-								x={m.x}
-								y={i % 2 === 0 ? m.y - pinR * 2 : m.y + pinR * 2 + pismo * 0.8}
-								text-anchor="middle"
-								font-size={pismo}
-								stroke-width={pismo / 5}
-							>
-								{m.nazev}
-							</text>
-						</a>
-					))
-				}
-			</svg>
-			<section class="mesta">
-				{
-					data.mesta.map((m) => {
-						const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
-						return (
-							<article id={m.slug}>
-								<h2>{m.nazev}</h2>
-								<p class="meta">
-									{m.zeme} · {m.datum}
-								</p>
-								<p>{m.popis}</p>
-								{video && (
-									<p>
-										<a href={video.odkaz} rel="noopener">
-											🎬 {video.nazev}
-										</a>
-									</p>
-								)}
-								{m.stellplatze && m.stellplatze.length > 0 && (
-									<>
-										<h3>Stellplatz</h3>
-										<ul>
-											{m.stellplatze.map((s) => (
-												<li>
-													{s.odkaz ? <a href={s.odkaz} rel="noopener">{s.nazev}</a> : s.nazev}
-													{s.poznamka && ` – ${s.poznamka}`}
-												</li>
-											))}
-										</ul>
-									</>
-								)}
-							</article>
-						);
-					})
-				}
-			</section>
-		</main>
-		<style>
-			main {
-				max-width: 820px;
-				margin: 3rem auto;
-				font-family: system-ui, sans-serif;
-				padding: 0 1rem;
-				color: #1c1c1c;
-			}
-			svg {
-				width: 100%;
-				height: auto;
-				display: block;
-				border-radius: 8px;
-				background: #fff;
-			}
-			.pin {
-				fill: #d33;
-				stroke: #fff;
-				cursor: pointer;
-			}
-			a:hover .pin {
-				fill: #a00;
-			}
-			.pin-popisek {
-				font-weight: 700;
-				fill: #1c1c1c;
-				paint-order: stroke;
-				stroke: #fff;
-			}
-			.mesta article {
-				border-top: 1px solid #e3e3e3;
-				margin-top: 1.5rem;
-				padding-top: 0.5rem;
-			}
-			.meta {
-				color: #777;
-				font-size: 0.9rem;
-			}
-		</style>
-	</body>
-</html>
+<CestyLayout titulek={`Cesty na kolech ${data.rok} – Wonderly`}>
+	<p><a href="/cesty">&larr; Všechny roky</a></p>
+	<h1>{data.rok} – {data.zeme}</h1>
+	<svg
+		class="mapa"
+		viewBox={`${vyrez.x} ${vyrez.y} ${vyrez.sirka} ${vyrez.vyska}`}
+		role="img"
+		aria-label={`Mapa navštívených měst v roce ${data.rok}`}
+	>
+		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
+		{
+			data.mesta.map((m, i) => (
+				<a href={`#${m.slug}`}>
+					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
+					<text
+						class="pin-popisek"
+						x={m.x}
+						y={i % 2 === 0 ? m.y - pinR * 2 : m.y + pinR * 2 + pismo * 0.8}
+						text-anchor="middle"
+						font-size={pismo}
+						stroke-width={pismo / 5}
+					>
+						{m.nazev}
+					</text>
+				</a>
+			))
+		}
+	</svg>
+	<section class="mesta">
+		{
+			data.mesta.map((m) => {
+				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
+				return (
+					<article id={m.slug}>
+						<h2>{m.nazev}</h2>
+						<p class="meta">
+							{m.zeme} · {m.datum}
+						</p>
+						<p>{m.popis}</p>
+						{video && (
+							<p>
+								<a href={video.odkaz} rel="noopener">
+									🎬 {video.nazev}
+								</a>
+							</p>
+						)}
+						{m.stellplatze && m.stellplatze.length > 0 && (
+							<>
+								<h3>Stellplatz</h3>
+								<ul>
+									{m.stellplatze.map((s) => (
+										<li>
+											{s.odkaz ? <a href={s.odkaz} rel="noopener">{s.nazev}</a> : s.nazev}
+											{s.poznamka && ` – ${s.poznamka}`}
+										</li>
+									))}
+								</ul>
+							</>
+						)}
+					</article>
+				);
+			})
+		}
+	</section>
+</CestyLayout>

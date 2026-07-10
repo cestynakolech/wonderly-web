@@ -1,102 +1,46 @@
 ---
+import CestyLayout from '../../layouts/CestyLayout.astro';
 import { roky } from '../../data/cesty/roky';
+import { MAPA_SIRKA, MAPA_VYSKA } from '../../data/cesty/mapa';
 ---
 
-<html lang="cs">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Cesty na kolech – Wonderly</title>
-	</head>
-	<body>
-		<main>
-			<h1>Cesty na kolech</h1>
-			<p>
-				Cestovatelský deník z cyklovýprav po Evropě. Vyber rok na mapě a podívej se,
-				kudy jsme jeli.
-			</p>
-			<svg viewBox="0 0 680 520" role="img" aria-label="Mapa Evropy s roky výprav">
-				<image href="/cesty/mapa-evropa.svg" width="680" height="520" />
-				{
-					roky.map((r) => (
-						<a href={`/cesty/${r.rok}`}>
-							<circle class="pin" cx={r.pinEvropa.x} cy={r.pinEvropa.y} r="7" />
-							<text class="pin-popisek" x={r.pinEvropa.x} y={r.pinEvropa.y - 12} text-anchor="middle">
-								{r.rok}
-							</text>
-						</a>
-					))
-				}
-			</svg>
-			<ul class="seznam-roku">
-				{
-					roky.map((r) => (
-						<li>
-							<a href={`/cesty/${r.rok}`}>
-								{r.rok} – {r.zeme}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-			<footer>
-				Mapový podklad:
-				<a
-					href="https://commons.wikimedia.org/wiki/File:Blank_map_of_Europe_(with_disputed_regions).svg"
-					rel="license noopener"
-					>Blank map of Europe</a
-				>, autor maix (Wikimedia Commons), licence
-				<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener"
-					>CC BY-SA 3.0</a
-				> – upraveno (přidány piny).
-			</footer>
-		</main>
-		<style>
-			main {
-				max-width: 820px;
-				margin: 3rem auto;
-				font-family: system-ui, sans-serif;
-				padding: 0 1rem;
-				color: #1c1c1c;
-			}
-			svg {
-				width: 100%;
-				height: auto;
-				display: block;
-				border-radius: 8px;
-				background: #fff;
-			}
-			.pin {
-				fill: #d33;
-				stroke: #fff;
-				stroke-width: 2;
-				cursor: pointer;
-			}
-			a:hover .pin {
-				fill: #a00;
-			}
-			.pin-popisek {
-				font-size: 16px;
-				font-weight: 700;
-				fill: #1c1c1c;
-				paint-order: stroke;
-				stroke: #fff;
-				stroke-width: 3;
-			}
-			.seznam-roku {
-				font-size: 1.1rem;
-				line-height: 1.9;
-			}
-			footer {
-				margin-top: 2.5rem;
-				font-size: 0.8rem;
-				color: #777;
-			}
-			footer a {
-				color: #777;
-			}
-		</style>
-	</body>
-</html>
+<CestyLayout titulek="Cesty na kolech – Wonderly">
+	<h1>Cesty na kolech</h1>
+	<p>
+		Cestovatelský deník z cyklovýprav po Evropě. Vyber rok na mapě nebo tlačítkem a podívej se,
+		kudy jsme jeli.
+	</p>
+	<ul class="tlacitka">
+		{
+			roky.map((r) => (
+				<li>
+					<a href={`/cesty/${r.rok}`}>{r.rok} – {r.zeme}</a>
+				</li>
+			))
+		}
+		<li><a href="/cesty/vse">Všechna místa</a></li>
+	</ul>
+	<svg class="mapa" viewBox={`0 0 ${MAPA_SIRKA} ${MAPA_VYSKA}`} role="img" aria-label="Mapa Evropy s roky výprav">
+		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
+		{
+			roky.map((r) => (
+				<a href={`/cesty/${r.rok}`}>
+					<circle class="pin" cx={r.pinEvropa.x} cy={r.pinEvropa.y} r="7" stroke-width="2" />
+					<text class="pin-popisek" x={r.pinEvropa.x} y={r.pinEvropa.y - 12} text-anchor="middle" font-size="16" stroke-width="3">
+						{r.rok}
+					</text>
+				</a>
+			))
+		}
+	</svg>
+	<footer>
+		Mapový podklad:
+		<a
+			href="https://commons.wikimedia.org/wiki/File:Blank_map_of_Europe_(with_disputed_regions).svg"
+			rel="license noopener"
+			>Blank map of Europe</a
+		>, autor maix (Wikimedia Commons), licence
+		<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener">CC BY-SA 3.0</a>
+		– upraveno (přidány piny).
+	</footer>
+</CestyLayout>

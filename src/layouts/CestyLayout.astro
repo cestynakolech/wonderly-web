@@ -1,0 +1,152 @@
+---
+interface Props {
+	titulek: string;
+}
+
+const { titulek } = Astro.props;
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{titulek}</title>
+		<script is:inline>
+			// nastavit vzhled dřív, než se stránka vykreslí (žádné bliknutí)
+			const ulozeny = localStorage.getItem('vzhled');
+			if (ulozeny === 'dark' || (!ulozeny && matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.dataset.theme = 'dark';
+			}
+		</script>
+	</head>
+	<body>
+		<button id="prepinac-vzhledu" aria-label="Přepnout světlý/tmavý režim" title="Světlý/tmavý režim">◐</button>
+		<main>
+			<slot />
+		</main>
+		<script is:inline>
+			document.getElementById('prepinac-vzhledu').addEventListener('click', () => {
+				const koren = document.documentElement;
+				const tmavy = koren.dataset.theme === 'dark';
+				if (tmavy) {
+					delete koren.dataset.theme;
+				} else {
+					koren.dataset.theme = 'dark';
+				}
+				localStorage.setItem('vzhled', tmavy ? 'light' : 'dark');
+			});
+		</script>
+		<style is:global>
+			:root {
+				--pozadi: #ffffff;
+				--text: #1c1c1c;
+				--ztlumeny: #777777;
+				--cara: #e3e3e3;
+				--plocha: #f4f2ee;
+				--odkaz: #0b57d0;
+				--pin: #d33;
+				--pin-hover: #a00;
+			}
+			:root[data-theme='dark'] {
+				--pozadi: #16181c;
+				--text: #e8e6e3;
+				--ztlumeny: #9a9a9a;
+				--cara: #33363c;
+				--plocha: #22252b;
+				--odkaz: #8ab4f8;
+				--pin: #e5484d;
+				--pin-hover: #ff6b6b;
+			}
+			html,
+			body {
+				margin: 0;
+				background: var(--pozadi);
+				color: var(--text);
+			}
+			main {
+				max-width: 820px;
+				margin: 3rem auto;
+				font-family: system-ui, sans-serif;
+				padding: 0 1rem;
+			}
+			a {
+				color: var(--odkaz);
+			}
+			#prepinac-vzhledu {
+				position: fixed;
+				top: 0.8rem;
+				right: 0.8rem;
+				z-index: 10;
+				font-size: 1.25rem;
+				line-height: 1;
+				padding: 0.45rem 0.55rem;
+				border: 1px solid var(--cara);
+				border-radius: 999px;
+				background: var(--plocha);
+				color: var(--text);
+				cursor: pointer;
+			}
+			svg.mapa {
+				width: 100%;
+				height: auto;
+				display: block;
+				border-radius: 8px;
+				background: var(--plocha);
+			}
+			.pin {
+				fill: var(--pin);
+				stroke: var(--pozadi);
+				cursor: pointer;
+			}
+			a:hover .pin {
+				fill: var(--pin-hover);
+			}
+			.pin-popisek {
+				font-weight: 700;
+				fill: var(--text);
+				paint-order: stroke;
+				stroke: var(--pozadi);
+			}
+			.tlacitka {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.6rem;
+				margin: 1.2rem 0;
+				padding: 0;
+				list-style: none;
+			}
+			.tlacitka a {
+				display: inline-block;
+				padding: 0.55rem 1.1rem;
+				border: 1px solid var(--cara);
+				border-radius: 999px;
+				background: var(--plocha);
+				color: var(--text);
+				text-decoration: none;
+				font-weight: 600;
+			}
+			.tlacitka a:hover {
+				border-color: var(--ztlumeny);
+			}
+			.mesta article {
+				border-top: 1px solid var(--cara);
+				margin-top: 1.5rem;
+				padding-top: 0.5rem;
+			}
+			.meta {
+				color: var(--ztlumeny);
+				font-size: 0.9rem;
+			}
+			footer {
+				margin-top: 2.5rem;
+				font-size: 0.8rem;
+				color: var(--ztlumeny);
+			}
+			footer a {
+				color: var(--ztlumeny);
+			}
+		</style>
+	</body>
+</html>
