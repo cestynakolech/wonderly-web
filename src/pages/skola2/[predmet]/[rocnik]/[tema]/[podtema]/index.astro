@@ -1,6 +1,9 @@
 ---
+import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
+import Kviz from '../../../../../../components/skola2/Kviz.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
+import { kvizy } from '../../../../../../data/kvizy';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -21,46 +24,113 @@ export function getStaticPaths() {
 }
 
 const { predmet, rocnik, tema, podtema } = Astro.props;
+const klicKvizu = `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`;
+const otazky = kvizy[klicKvizu];
+
+const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 ---
 
-<html lang="cs">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{podtema.nazev} – {tema.nazev} – Wonderly</title>
-	</head>
-	<body>
-		<main>
-			<p><a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/`}>&larr; Zpět na {tema.nazev}</a></p>
-			{podtema.obsah ? (
-				<Fragment set:html={podtema.obsah} />
-			) : (
-				<>
-					<h1>{podtema.nazev}</h1>
-					<p>Obsah připravujeme.</p>
-				</>
-			)}
-		</main>
-		<style>
-			main {
-				max-width: 60ch;
-				margin: 4rem auto;
-				font-family: system-ui, sans-serif;
-				padding: 0 1.5rem;
-				line-height: 1.6;
-			}
-			main :global(h2) {
-				margin-top: 0;
-			}
-			main :global(img) {
-				max-width: 100%;
-				height: auto;
-				border-radius: 0.5rem;
-				display: block;
-				margin: 1rem auto;
-			}
-		</style>
-	</body>
-</html>
+<SkolaLayout
+	titulek={`${podtema.nazev} – ${tema.nazev} – Wonderly`}
+	drobky={[
+		{ text: '2. stupeň', href: '/skola2/' },
+		{ text: predmet.nazev, href: `/${predmet.slug}/` },
+		{ text: rocnik.nazev, href: `/${predmet.slug}/${rocnik.slug}/` },
+		{ text: tema.nazev, href: `/${predmet.slug}/${rocnik.slug}/${tema.slug}/` },
+	]}
+>
+	<h1><span class="podtrh">{podtema.nazev}</span></h1>
+	{
+		podtema.obsah ? (
+			<article class="ramecek vyklad" set:html={podtema.obsah} />
+		) : (
+			<p class="uvodni-text">Obsah připravujeme.</p>
+		)
+	}
+	{
+		podtema.materialy && podtema.materialy.length > 0 && (
+			<section>
+				<h2><span class="podtrh">Materiály k tématu 📚</span></h2>
+				{podtema.materialy
+					.filter((m) => m.druh === 'infografika')
+					.map((m) => (
+						<figure class="infografika">
+							<img src={m.cesta} alt={m.nazev} loading="lazy" />
+							<figcaption>{m.nazev}</figcaption>
+						</figure>
+					))}
+				{podtema.materialy
+					.filter((m) => m.druh === 'video')
+					.map((m) => (
+						<figure class="video">
+							<video src={m.cesta} controls preload="metadata" />
+							<figcaption>{m.nazev}</figcaption>
+						</figure>
+					))}
+				<ul class="karty">
+					{podtema.materialy
+						.filter((m) => m.druh === 'pdf')
+						.map((m) => (
+							<li>
+								<a class="karta" href={m.cesta} target="_blank" rel="noopener">
+									<span class="ikona">{ikonyDruhu[m.druh]}</span>
+									<span class="nazev">{m.nazev}</span>
+									<span class="popisek">otevřít PDF</span>
+								</a>
+							</li>
+						))}
+				</ul>
+			</section>
+		)
+	}
+	{otazky && <Kviz otazky={otazky} />}
+	{
+		otazky && (
+			<p class="pro-ucitele">
+				<a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}/test/`}>
+					🖨️ Tisknutelný test pro učitele
+				</a>
+			</p>
+		)
+	}
+</SkolaLayout>
+
+<style is:global>
+	.vyklad h2 {
+		margin-top: 0;
+	}
+	.infografika,
+	.video {
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+	.infografika img {
+		max-width: min(100%, 34rem);
+		height: auto;
+		border: 2.5px solid var(--inkoust);
+		border-radius: 12px;
+		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+	}
+	.video video {
+		max-width: min(100%, 34rem);
+		border: 2.5px solid var(--inkoust);
+		border-radius: 12px;
+		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+	}
+	.infografika figcaption,
+	.video figcaption {
+		color: var(--ztlumena);
+		font-size: 1rem;
+		margin-top: 0.4rem;
+	}
+	.pro-ucitele {
+		text-align: right;
+		font-size: 1rem;
+	}
+	.pro-ucitele a {
+		color: var(--ztlumena);
+	}
+	.pro-ucitele a:hover {
+		color: var(--oranzova);
+	}
+</style>

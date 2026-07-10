@@ -1,0 +1,249 @@
+---
+import { predmety, rocniky } from '../../../../../../../data/predmety';
+import { temata } from '../../../../../../../data/temata';
+import { kvizy } from '../../../../../../../data/kvizy';
+
+export function getStaticPaths() {
+	const paths = [];
+	for (const [klic, seznamTemat] of Object.entries(temata)) {
+		const [predmetSlug, rocnikSlug] = klic.split('/');
+		const predmet = predmety.find((p) => p.slug === predmetSlug);
+		const rocnik = rocniky.find((r) => r.slug === rocnikSlug);
+		for (const tema of seznamTemat) {
+			for (const podtema of tema.podtemata ?? []) {
+				if (!kvizy[`${predmetSlug}/${rocnikSlug}/${tema.slug}/${podtema.slug}`]) continue;
+				paths.push({
+					params: { predmet: predmetSlug, rocnik: rocnikSlug, tema: tema.slug, podtema: podtema.slug },
+					props: { predmet, rocnik, tema, podtema },
+				});
+			}
+		}
+	}
+	return paths;
+}
+
+const { predmet, rocnik, tema, podtema } = Astro.props;
+const otazky = kvizy[`${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`];
+const POCET_V_TESTU = 7;
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Test: {podtema.nazev} – tisk – Wonderly</title>
+	</head>
+	<body>
+		<section class="ovladani">
+			<h1>🖨️ Tisknutelný test: {podtema.nazev}</h1>
+			<p>
+				Z {otazky.length} procvičovacích otázek je náhodně vybráno {POCET_V_TESTU}. Na jednu A4 se
+				vejdou <strong>4 stejné testy</strong> — po vytištění list rozstříhej na čtvrtiny. Přední
+				strana má hlavičku a otázky 1–4, zadní strana otázky 5–7.
+			</p>
+			<p>
+				<strong>Nastavení tisku:</strong> oboustranně, <em>otáčet po dlouhé straně</em>, měřítko
+				100 % (bez přizpůsobení stránce), okraje „žádné".
+			</p>
+			<p>
+				<button id="prehazet">🎲 Vybrat jiných {POCET_V_TESTU} otázek</button>
+				<label><input type="checkbox" id="tisk-klice" checked /> vytisknout i list s klíčem správných odpovědí</label>
+				<button id="tisk">🖨️ Vytisknout</button>
+			</p>
+			<p><a href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}/`}>&larr; Zpět na {podtema.nazev}</a></p>
+			<hr />
+			<p class="napoveda">Náhled — takto vyjdou stránky z tiskárny:</p>
+		</section>
+
+		<p class="oznaceni-archu">1. stránka (přední strany testů)</p>
+		<div class="arch" id="arch-predni"></div>
+		<p class="oznaceni-archu">2. stránka (zadní strany testů)</p>
+		<div class="arch" id="arch-zadni"></div>
+		<p class="oznaceni-archu" id="oznaceni-klice">3. stránka (klíč pro učitele)</p>
+		<div class="arch arch-klic" id="arch-klic"></div>
+
+		<script is:inline define:vars={{ otazky, POCET_V_TESTU, nazevTestu: podtema.nazev }}>
+			const zamichej = (pole) => {
+				const kopie = [...pole];
+				for (let i = kopie.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[kopie[i], kopie[j]] = [kopie[j], kopie[i]];
+				}
+				return kopie;
+			};
+
+			const pismena = ['a', 'b', 'c'];
+
+			function vygeneruj() {
+				const vybrane = zamichej(otazky).slice(0, POCET_V_TESTU);
+				// zamíchat odpovědi a zapamatovat si správné písmeno
+				const testove = vybrane.map((otazka) => {
+					const spravna = otazka.odpovedi[0];
+					const odpovedi = zamichej(otazka.odpovedi);
+					return { text: otazka.text, odpovedi, spravne: pismena[odpovedi.indexOf(spravna)] };
+				});
+
+				const otazkaHtml = (otazka, i) =>
+					`<div class="otazka"><p class="zneni">${i + 1}) ${otazka.text}</p><p class="moznosti">${otazka.odpovedi
+						.map((o, j) => `<span>${pismena[j]}) ${o}</span>`)
+						.join(' ')}</p></div>`;
+
+				const predni = `
+					<div class="hlavicka">
+						<strong>Test: ${nazevTestu}</strong>
+						<span class="pole">Příjmení: ______________________</span>
+						<span class="pole">Datum: ____________ Skupina: _______</span>
+					</div>
+					${testove.slice(0, 4).map(otazkaHtml).join('')}`;
+				const zadni = `
+					<div class="hlavicka zadni-hlavicka"><strong>${nazevTestu} — pokračování</strong></div>
+					${testove.slice(4).map((otazka, i) => otazkaHtml(otazka, i + 4)).join('')}
+					<p class="pocet-bodu">Počet bodů: ______ / ${POCET_V_TESTU}</p>`;
+
+				document.getElementById('arch-predni').innerHTML = Array(4)
+					.fill(`<div class="listek">${predni}</div>`)
+					.join('');
+				document.getElementById('arch-zadni').innerHTML = Array(4)
+					.fill(`<div class="listek">${zadni}</div>`)
+					.join('');
+				document.getElementById('arch-klic').innerHTML = `<div class="klic">
+					<h2>Klíč správných odpovědí — ${nazevTestu}</h2>
+					<ol>${testove.map((otazka) => `<li><strong>${otazka.spravne})</strong> — ${otazka.text}</li>`).join('')}</ol>
+					<p>Vygenerováno na wonderly.cz · Tento list dětem nedávat 🙂</p>
+				</div>`;
+			}
+
+			document.getElementById('prehazet').addEventListener('click', vygeneruj);
+			document.getElementById('tisk').addEventListener('click', () => window.print());
+			document.getElementById('tisk-klice').addEventListener('change', (udalost) => {
+				document.body.classList.toggle('bez-klice', !udalost.target.checked);
+			});
+			vygeneruj();
+		</script>
+
+		<style is:global>
+			body {
+				margin: 0;
+				background: #e9e6de;
+				font-family: system-ui, sans-serif;
+			}
+			.ovladani {
+				max-width: 52rem;
+				margin: 0 auto;
+				padding: 1.5rem;
+			}
+			.ovladani h1 {
+				font-size: 1.5rem;
+			}
+			.ovladani button {
+				font-size: 1rem;
+				padding: 0.5rem 1rem;
+				margin-right: 0.8rem;
+				cursor: pointer;
+			}
+			.ovladani label {
+				margin-right: 0.8rem;
+			}
+			.napoveda,
+			.oznaceni-archu {
+				text-align: center;
+				color: #777;
+				font-size: 0.9rem;
+			}
+			/* arch = jedna stránka A4 */
+			.arch {
+				width: 210mm;
+				height: 297mm;
+				margin: 0 auto 1.5rem;
+				background: #fff;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+				display: grid;
+				grid-template-columns: 105mm 105mm;
+				grid-template-rows: 148.5mm 148.5mm;
+			}
+			.listek {
+				box-sizing: border-box;
+				padding: 8mm 9mm;
+				font-size: 9.5pt;
+				line-height: 1.35;
+				color: #000;
+			}
+			/* střihové čáry jen na vnitřních hranách */
+			.listek:nth-child(odd) {
+				border-right: 1px dashed #bbb;
+			}
+			.listek:nth-child(-n + 2) {
+				border-bottom: 1px dashed #bbb;
+			}
+			.hlavicka {
+				display: flex;
+				flex-direction: column;
+				gap: 1.6mm;
+				border-bottom: 1.5px solid #000;
+				padding-bottom: 2mm;
+				margin-bottom: 3mm;
+			}
+			.zadni-hlavicka {
+				border-bottom: 1px solid #999;
+			}
+			.otazka {
+				margin-bottom: 3mm;
+			}
+			.zneni {
+				margin: 0 0 1mm;
+				font-weight: 600;
+			}
+			.moznosti {
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 0.6mm;
+			}
+			.pocet-bodu {
+				margin-top: 6mm;
+				font-weight: 600;
+			}
+			.arch-klic {
+				display: block;
+			}
+			.klic {
+				padding: 15mm;
+				font-size: 11pt;
+			}
+			.klic ol li {
+				margin-bottom: 2mm;
+			}
+			body.bez-klice .arch-klic,
+			body.bez-klice #oznaceni-klice {
+				display: none;
+			}
+			@media print {
+				body {
+					background: #fff;
+				}
+				.ovladani,
+				.oznaceni-archu,
+				.napoveda {
+					display: none;
+				}
+				.arch {
+					margin: 0;
+					box-shadow: none;
+					page-break-after: always;
+				}
+				@page {
+					size: A4 portrait;
+					margin: 0;
+				}
+			}
+			@media (max-width: 220mm) {
+				.arch {
+					transform: scale(0.45);
+					transform-origin: top center;
+					margin-bottom: calc(-297mm * 0.55 + 1.5rem);
+				}
+			}
+		</style>
+	</body>
+</html>

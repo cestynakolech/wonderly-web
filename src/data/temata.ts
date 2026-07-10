@@ -1,4 +1,9 @@
-export type Podtema = { slug: string; nazev: string; obsah?: string };
+export type Material = {
+	druh: 'infografika' | 'pdf' | 'video';
+	nazev: string;
+	cesta: string;
+};
+export type Podtema = { slug: string; nazev: string; obsah?: string; materialy?: Material[] };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
 export const temata: Record<string, Tema[]> = {
@@ -335,7 +340,60 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'tlak-v-kapalinach',
 			nazev: 'Tlak v kapalinách',
 			podtemata: [
-				{ slug: 'tlak', nazev: 'Tlak' },
+				{
+					slug: 'tlak',
+					nazev: 'Tlak',
+					obsah: `
+						<h2>Tlak</h2>
+						<p><strong>Tlaková síla</strong> působí při dotyku dvou těles, vždy <strong>kolmo na plochu</strong> tělesa. Její účinky se mohou projevit deformací (změnou tvaru) tělesa.</p>
+						<p><strong>Tlak</strong> vyjadřuje míru účinku tlakové síly na těleso — říká nám, jak moc je síla „zkoncentrovaná" na jednom místě.</p>
+						<ul>
+							<li>značka: <strong>p</strong></li>
+							<li>základní jednotka: <strong>pascal (Pa)</strong></li>
+							<li>vzorec: <strong>p = F : S</strong> (tlak = síla děleno plocha)</li>
+						</ul>
+						<p>Tlak 1 Pa vyvolá síla 1 N působící kolmo na plochu 1 m². Představ si to jako 100 g nastrouhané čokolády rovnoměrně rozsypané na ploše 1 × 1 metr.</p>
+						<h3>Násobky jednotky</h3>
+						<ul>
+							<li>1 kPa (kilopascal) = 1 000 Pa</li>
+							<li>1 MPa (megapascal) = 1 000 000 Pa</li>
+							<li>1 hPa (hektopascal) = 100 Pa — používá se v meteorologii</li>
+						</ul>
+						<h3>Na čem tlak závisí</h3>
+						<ul>
+							<li><strong>přímo úměrně na síle</strong> — čím větší síla, tím větší tlak</li>
+							<li><strong>nepřímo úměrně na ploše</strong> — čím větší plocha, tím menší tlak (proto jehlový podpatek bolí víc než teniska)</li>
+						</ul>
+						<h3>Zvětšování tlaku (koncentrovat sílu na malou plochu)</h3>
+						<p>nůž, sekera, šicí a injekční jehla, vosí žihadlo — plochu zmenšujeme broušením ostří či bodců</p>
+						<h3>Zmenšování tlaku (rozložit sílu na velkou plochu)</h3>
+						<p>sněžnice a lyže, pásy bagru a tanku, široké pneumatiky traktoru, více kol u nákladních aut, velbloudí ploché nohy, ležení na tenkém ledu při záchraně</p>
+						<h3>Další vzorce a jednotky</h3>
+						<ul>
+							<li>tlaková síla: <strong>F = p · S</strong></li>
+							<li>plocha: <strong>S = F : p</strong></li>
+							<li>plochu S dosazujeme vždy v <strong>metrech čtverečních (m²)</strong></li>
+							<li>převody: 1 m² = 100 dm², 1 dm² = 100 cm², 1 cm² = 100 mm²</li>
+						</ul>
+					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Co je to tlak a jak funguje?',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/infografika-co-je-to-tlak.jpg',
+						},
+						{
+							druh: 'pdf',
+							nazev: 'Tlak: skrytá síla (infografiky v PDF)',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/tlak-skryta-sila.pdf',
+						},
+						{
+							druh: 'video',
+							nazev: 'Píseň: Dneska jedeme tlak 🎵',
+							cesta: '/materialy/fyzika/7-rocnik/tlak-v-kapalinach/tlak/pisen-dneska-jedeme-tlak.mp4',
+						},
+					],
+				},
 				{ slug: 'pascaluv-zakon', nazev: 'Pascalův zákon' },
 				{ slug: 'hydrostaticky-tlak', nazev: 'Hydrostatický tlak' },
 			],

@@ -1,4 +1,5 @@
 ---
+import SkolaLayout from '../../../layouts/SkolaLayout.astro';
 import { predmety, rocniky } from '../../../data/predmety';
 
 export function getStaticPaths() {
@@ -8,54 +9,19 @@ export function getStaticPaths() {
 const { predmet } = Astro.props;
 ---
 
-<html lang="cs">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{predmet.nazev} – 2. stupeň – Wonderly</title>
-	</head>
-	<body>
-		<main>
-			<p><a href="/">&larr; Zpět na 2. stupeň</a></p>
-			<h1>{predmet.nazev}</h1>
-			<p>Vyber si ročník.</p>
-			<div class="grid">
-				{rocniky.map((r) => (
-					<a class="dlazdice" href={`/${predmet.slug}/${r.slug}/`} style={`background:${predmet.barva}`}>
-						{r.nazev}
+<SkolaLayout titulek={`${predmet.nazev} – 2. stupeň – Wonderly`} drobky={[{ text: '2. stupeň', href: '/skola2/' }]}>
+	<h1><span class="ikona">{predmet.ikona}</span> <span class="podtrh">{predmet.nazev}</span></h1>
+	<p class="uvodni-text">Vyber si ročník.</p>
+	<ul class="karty">
+		{
+			rocniky.map((r, i) => (
+				<li>
+					<a class="karta" href={`/${predmet.slug}/${r.slug}/`}>
+						<span class="cislo">{i + 1}</span>
+						<span class="nazev">{r.nazev}</span>
 					</a>
-				))}
-			</div>
-		</main>
-		<style>
-			main {
-				max-width: 60rem;
-				margin: 4rem auto;
-				font-family: system-ui, sans-serif;
-				padding: 0 1.5rem;
-			}
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-				gap: 1.5rem;
-				margin-top: 2rem;
-			}
-			.dlazdice {
-				aspect-ratio: 1 / 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				color: #fff;
-				font-size: 1.4rem;
-				font-weight: 700;
-				text-decoration: none;
-				border-radius: 1rem;
-				padding: 1rem;
-				box-sizing: border-box;
-			}
-		</style>
-	</body>
-</html>
+				</li>
+			))
+		}
+	</ul>
+</SkolaLayout>

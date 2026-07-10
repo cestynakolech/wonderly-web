@@ -1,4 +1,5 @@
 ---
+import SkolaLayout from '../../../../../layouts/SkolaLayout.astro';
 import { predmety, rocniky } from '../../../../../data/predmety';
 import { temata } from '../../../../../data/temata';
 
@@ -21,60 +22,32 @@ export function getStaticPaths() {
 const { predmet, rocnik, tema } = Astro.props;
 ---
 
-<html lang="cs">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{tema.nazev} – {predmet.nazev} {rocnik.nazev} – Wonderly</title>
-	</head>
-	<body>
-		<main>
-			<p><a href={`/${predmet.slug}/${rocnik.slug}/`}>&larr; Zpět na {predmet.nazev} – {rocnik.nazev}</a></p>
-			<h1>{tema.nazev}</h1>
-			{tema.podtemata && tema.podtemata.length > 0 ? (
-				<>
-					<p>Vyber si podtéma.</p>
-					<div class="grid">
-						{tema.podtemata.map((pt) => (
-							<a class="dlazdice" href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}/`} style={`background:${predmet.barva}`}>
-								{pt.nazev}
+<SkolaLayout
+	titulek={`${tema.nazev} – ${predmet.nazev} ${rocnik.nazev} – Wonderly`}
+	drobky={[
+		{ text: '2. stupeň', href: '/skola2/' },
+		{ text: predmet.nazev, href: `/${predmet.slug}/` },
+		{ text: rocnik.nazev, href: `/${predmet.slug}/${rocnik.slug}/` },
+	]}
+>
+	<h1><span class="podtrh">{tema.nazev}</span></h1>
+	{
+		tema.podtemata && tema.podtemata.length > 0 ? (
+			<>
+				<p class="uvodni-text">Vyber si podtéma.</p>
+				<ul class="karty">
+					{tema.podtemata.map((pt, i) => (
+						<li>
+							<a class="karta" href={`/${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}/`}>
+								<span class="cislo">{i + 1}</span>
+								<span class="nazev">{pt.nazev}</span>
 							</a>
-						))}
-					</div>
-				</>
-			) : (
-				<p>Obsah připravujeme.</p>
-			)}
-		</main>
-		<style>
-			main {
-				max-width: 60rem;
-				margin: 4rem auto;
-				font-family: system-ui, sans-serif;
-				padding: 0 1.5rem;
-			}
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-				gap: 1.5rem;
-				margin-top: 2rem;
-			}
-			.dlazdice {
-				aspect-ratio: 1 / 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				color: #fff;
-				font-size: 1.4rem;
-				font-weight: 700;
-				text-decoration: none;
-				border-radius: 1rem;
-				padding: 1rem;
-				box-sizing: border-box;
-			}
-		</style>
-	</body>
-</html>
+						</li>
+					))}
+				</ul>
+			</>
+		) : (
+			<p class="uvodni-text">Obsah připravujeme.</p>
+		)
+	}
+</SkolaLayout>

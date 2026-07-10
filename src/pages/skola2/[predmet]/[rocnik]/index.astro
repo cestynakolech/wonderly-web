@@ -1,4 +1,5 @@
 ---
+import SkolaLayout from '../../../../layouts/SkolaLayout.astro';
 import { predmety, rocniky } from '../../../../data/predmety';
 import { temata } from '../../../../data/temata';
 
@@ -16,60 +17,31 @@ const { predmet, rocnik } = Astro.props;
 const seznamTemat = temata[`${predmet.slug}/${rocnik.slug}`] ?? [];
 ---
 
-<html lang="cs">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{predmet.nazev} – {rocnik.nazev} – Wonderly</title>
-	</head>
-	<body>
-		<main>
-			<p><a href={`/${predmet.slug}/`}>&larr; Zpět na {predmet.nazev}</a></p>
-			<h1>{predmet.nazev} – {rocnik.nazev}</h1>
-			{seznamTemat.length > 0 ? (
-				<>
-					<p>Vyber si téma.</p>
-					<div class="grid">
-						{seznamTemat.map((t) => (
-							<a class="dlazdice" href={`/${predmet.slug}/${rocnik.slug}/${t.slug}/`} style={`background:${predmet.barva}`}>
-								{t.nazev}
+<SkolaLayout
+	titulek={`${predmet.nazev} – ${rocnik.nazev} – Wonderly`}
+	drobky={[
+		{ text: '2. stupeň', href: '/skola2/' },
+		{ text: predmet.nazev, href: `/${predmet.slug}/` },
+	]}
+>
+	<h1><span class="podtrh">{predmet.nazev} – {rocnik.nazev}</span></h1>
+	{
+		seznamTemat.length > 0 ? (
+			<>
+				<p class="uvodni-text">Vyber si téma.</p>
+				<ul class="karty">
+					{seznamTemat.map((t, i) => (
+						<li>
+							<a class="karta" href={`/${predmet.slug}/${rocnik.slug}/${t.slug}/`}>
+								<span class="cislo">{i + 1}</span>
+								<span class="nazev">{t.nazev}</span>
 							</a>
-						))}
-					</div>
-				</>
-			) : (
-				<p>Témata připravujeme.</p>
-			)}
-		</main>
-		<style>
-			main {
-				max-width: 60rem;
-				margin: 4rem auto;
-				font-family: system-ui, sans-serif;
-				padding: 0 1.5rem;
-			}
-			.grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-				gap: 1.5rem;
-				margin-top: 2rem;
-			}
-			.dlazdice {
-				aspect-ratio: 1 / 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				text-align: center;
-				color: #fff;
-				font-size: 1.4rem;
-				font-weight: 700;
-				text-decoration: none;
-				border-radius: 1rem;
-				padding: 1rem;
-				box-sizing: border-box;
-			}
-		</style>
-	</body>
-</html>
+						</li>
+					))}
+				</ul>
+			</>
+		) : (
+			<p class="uvodni-text">Témata připravujeme.</p>
+		)
+	}
+</SkolaLayout>

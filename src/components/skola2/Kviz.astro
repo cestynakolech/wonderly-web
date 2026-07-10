@@ -1,0 +1,177 @@
+---
+import type { Otazka } from '../../data/kvizy';
+
+interface Props {
+	otazky: Otazka[];
+}
+
+const { otazky } = Astro.props;
+---
+
+<section class="ramecek kviz" id="kviz">
+	<h2><span class="podtrh">Procvič si to! ✏️</span></h2>
+	<p class="kviz-uvod">
+		Kvíz má {otazky.length} otázek, u každé jsou tři odpovědi a právě jedna je správná. Klikni na tu,
+		kterou považuješ za správnou — hned uvidíš výsledek.
+	</p>
+	<button class="kviz-tlacitko" id="kviz-start">Spustit kvíz 🚀</button>
+	<div id="kviz-telo" hidden>
+		<p class="kviz-postup"><span id="kviz-cislo"></span> <span id="kviz-skore-prubezne"></span></p>
+		<p class="kviz-otazka" id="kviz-otazka"></p>
+		<div class="kviz-odpovedi" id="kviz-odpovedi"></div>
+		<button class="kviz-tlacitko" id="kviz-dalsi" hidden>Další otázka →</button>
+	</div>
+	<div id="kviz-konec" hidden>
+		<p class="kviz-vysledek" id="kviz-vysledek"></p>
+		<p class="kviz-motivace" id="kviz-motivace"></p>
+		<button class="kviz-tlacitko" id="kviz-znovu">Zkusit znovu 🔄</button>
+	</div>
+</section>
+
+<script is:inline define:vars={{ otazky }}>
+	const zamichej = (pole) => {
+		const kopie = [...pole];
+		for (let i = kopie.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[kopie[i], kopie[j]] = [kopie[j], kopie[i]];
+		}
+		return kopie;
+	};
+
+	let poradi = [];
+	let aktualni = 0;
+	let spravne = 0;
+
+	const el = (id) => document.getElementById(id);
+
+	function ukazOtazku() {
+		const otazka = poradi[aktualni];
+		el('kviz-cislo').textContent = `Otázka ${aktualni + 1} z ${poradi.length}`;
+		el('kviz-skore-prubezne').textContent = aktualni > 0 ? `· zatím ${spravne} správně` : '';
+		el('kviz-otazka').textContent = otazka.text;
+		const spravnaOdpoved = otazka.odpovedi[0];
+		const odpovedi = zamichej(otazka.odpovedi);
+		const kontejner = el('kviz-odpovedi');
+		kontejner.innerHTML = '';
+		odpovedi.forEach((odpoved) => {
+			const tlacitko = document.createElement('button');
+			tlacitko.className = 'kviz-odpoved';
+			tlacitko.textContent = odpoved;
+			tlacitko.addEventListener('click', () => {
+				if (kontejner.dataset.zodpovezeno) return;
+				kontejner.dataset.zodpovezeno = '1';
+				const jeSpravne = odpoved === spravnaOdpoved;
+				if (jeSpravne) spravne++;
+				for (const t of kontejner.children) {
+					t.disabled = true;
+					if (t.textContent === spravnaOdpoved) t.classList.add('spravna');
+					else if (t === tlacitko) t.classList.add('spatna');
+				}
+				tlacitko.insertAdjacentText('beforeend', jeSpravne ? '  ✔' : '  ✘');
+				el('kviz-dalsi').hidden = false;
+				el('kviz-dalsi').textContent = aktualni + 1 < poradi.length ? 'Další otázka →' : 'Vyhodnotit 🏁';
+			});
+			kontejner.appendChild(tlacitko);
+		});
+		delete kontejner.dataset.zodpovezeno;
+		el('kviz-dalsi').hidden = true;
+	}
+
+	function vyhodnot() {
+		el('kviz-telo').hidden = true;
+		el('kviz-konec').hidden = false;
+		const procenta = Math.round((spravne / poradi.length) * 100);
+		el('kviz-vysledek').textContent = `Máš ${spravne} z ${poradi.length} správně (${procenta} %).`;
+		let motivace;
+		if (procenta === 100) motivace = '🏆 Paráda! Máš to v malíku — jsi připraven(a) na test!';
+		else if (procenta >= 80) motivace = '🎉 Skvělá práce! Ještě jednou si projdi, co ti uteklo, a bude to na jedničku.';
+		else if (procenta >= 60) motivace = '👍 Dobrá práce! Základ umíš, zkus si kvíz ještě jednou.';
+		else if (procenta >= 40) motivace = '💪 Nevzdávej to! Mrkni znovu na výklad nahoře a zkus to znovu — příště to bude lepší.';
+		else motivace = '🌱 Začátky bývají těžké. Projdi si materiály na této stránce a pak to zkus znovu — zvládneš to!';
+		el('kviz-motivace').textContent = motivace;
+	}
+
+	function start() {
+		poradi = zamichej(otazky);
+		aktualni = 0;
+		spravne = 0;
+		el('kviz-start').hidden = true;
+		el('kviz-konec').hidden = true;
+		el('kviz-telo').hidden = false;
+		ukazOtazku();
+	}
+
+	el('kviz-start').addEventListener('click', start);
+	el('kviz-znovu').addEventListener('click', start);
+	el('kviz-dalsi').addEventListener('click', () => {
+		aktualni++;
+		if (aktualni < poradi.length) ukazOtazku();
+		else vyhodnot();
+	});
+</script>
+
+<style is:global>
+	.kviz-uvod {
+		margin-top: 0;
+	}
+	.kviz-tlacitko {
+		font-family: inherit;
+		font-size: 1.15rem;
+		padding: 0.55rem 1.4rem;
+		background: var(--oranzova);
+		color: #fff;
+		border: 2.5px solid var(--inkoust);
+		border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.18);
+		cursor: pointer;
+	}
+	.kviz-tlacitko:hover {
+		transform: rotate(-0.6deg);
+	}
+	.kviz-postup {
+		color: var(--ztlumena);
+		margin-bottom: 0.3rem;
+	}
+	.kviz-otazka {
+		font-size: 1.35rem;
+		font-weight: 700;
+		margin-top: 0;
+	}
+	.kviz-odpovedi {
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+		margin: 1rem 0;
+	}
+	.kviz-odpoved {
+		font-family: inherit;
+		font-size: 1.1rem;
+		text-align: left;
+		padding: 0.6rem 1rem;
+		background: rgba(255, 255, 255, 0.75);
+		color: var(--inkoust);
+		border: 2px solid var(--inkoust);
+		border-radius: 18px 255px 18px 225px / 225px 18px 255px 18px;
+		cursor: pointer;
+	}
+	.kviz-odpoved:hover:not(:disabled) {
+		border-color: var(--oranzova);
+		transform: translateX(3px);
+	}
+	.kviz-odpoved.spravna {
+		background: #d3f2d3;
+		border-color: #2f9e44;
+	}
+	.kviz-odpoved.spatna {
+		background: #ffe0dd;
+		border-color: #d33;
+	}
+	.kviz-vysledek {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 0.3rem;
+	}
+	.kviz-motivace {
+		font-size: 1.2rem;
+	}
+</style>

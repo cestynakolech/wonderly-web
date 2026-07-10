@@ -1,7 +1,7 @@
 export const predmety = [
-	{ slug: 'fyzika', nazev: 'Fyzika', barva: '#2563eb' },
-	{ slug: 'informatika', nazev: 'Informatika', barva: '#16a34a' },
-	{ slug: 'pracovni-cinnosti', nazev: 'Pracovní činnosti', barva: '#ea580c' },
+	{ slug: 'fyzika', nazev: 'Fyzika', barva: '#2563eb', ikona: '🧲' },
+	{ slug: 'informatika', nazev: 'Informatika', barva: '#16a34a', ikona: '💻' },
+	{ slug: 'pracovni-cinnosti', nazev: 'Pracovní činnosti', barva: '#ea580c', ikona: '🔨' },
 ];
 
 export const rocniky = [

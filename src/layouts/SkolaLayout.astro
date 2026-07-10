@@ -1,0 +1,201 @@
+---
+import '@fontsource/patrick-hand';
+import '@fontsource/caveat/700.css';
+
+interface Drobek {
+	text: string;
+	href: string;
+}
+
+interface Props {
+	titulek: string;
+	/** Navigační drobečky (odkazy zpět nahoru v hierarchii) */
+	drobky?: Drobek[];
+}
+
+const { titulek, drobky = [] } = Astro.props;
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{titulek}</title>
+	</head>
+	<body>
+		<main>
+			{
+				drobky.length > 0 && (
+					<nav class="drobky">
+						{drobky.map((d) => (
+							<a href={d.href}>&larr; {d.text}</a>
+						))}
+					</nav>
+				)
+			}
+			<slot />
+		</main>
+		<style is:global>
+			:root {
+				--papir: #f7f4ec;
+				--inkoust: #2b2a26;
+				--oranzova: #e8590c;
+				--oranzova-svetla: #f9c59b;
+				--ztlumena: #8a867c;
+			}
+			html,
+			body {
+				margin: 0;
+				background:
+					url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")
+						repeat,
+					var(--papir);
+				color: var(--inkoust);
+				font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+				font-size: 1.15rem;
+				line-height: 1.55;
+			}
+			main {
+				max-width: 62rem;
+				margin: 0 auto;
+				padding: 2.5rem 1.5rem 4rem;
+			}
+			h1,
+			h2 {
+				font-family: 'Caveat', 'Patrick Hand', cursive;
+				font-weight: 700;
+				line-height: 1.15;
+				margin: 0.6em 0 0.4em;
+			}
+			h1 {
+				font-size: 3rem;
+				text-align: center;
+			}
+			h3 {
+				margin: 1.2em 0 0.4em;
+			}
+			/* oranžové ručně kreslené podtržení nadpisu */
+			h1 > .podtrh,
+			h2 > .podtrh {
+				background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M3 7 Q 30 3, 60 6 T 117 5' fill='none' stroke='%23e8590c' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E")
+					no-repeat bottom / 100% 0.32em;
+				padding-bottom: 0.18em;
+			}
+			h2 {
+				font-size: 2.1rem;
+			}
+			a {
+				color: var(--oranzova);
+			}
+			.drobky {
+				display: flex;
+				gap: 1.2rem;
+				flex-wrap: wrap;
+				margin-bottom: 0.5rem;
+			}
+			.drobky a {
+				color: var(--ztlumena);
+				text-decoration: none;
+			}
+			.drobky a:hover {
+				color: var(--oranzova);
+			}
+			.uvodni-text {
+				text-align: center;
+				max-width: 40rem;
+				margin: 0 auto 1.5rem;
+			}
+			/* mřížka ručně kreslených karet */
+			.karty {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+				gap: 1.4rem;
+				margin: 1.8rem 0;
+				padding: 0;
+				list-style: none;
+			}
+			.karta {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5rem;
+				min-height: 7.5rem;
+				padding: 1.4rem 1.1rem 1.1rem;
+				background: rgba(255, 255, 255, 0.6);
+				border: 2.5px solid var(--inkoust);
+				/* nepravidelné rohy = kreslený rámeček */
+				border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+				box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+				color: var(--inkoust);
+				text-decoration: none;
+				text-align: center;
+				font-size: 1.3rem;
+				transition: transform 0.12s ease;
+			}
+			.karta:hover {
+				transform: rotate(-0.8deg) translateY(-2px);
+				box-shadow: 3px 5px 0 rgba(43, 42, 38, 0.18);
+			}
+			.karta .nazev {
+				border-bottom: 3px solid var(--oranzova);
+				padding-bottom: 0.1em;
+			}
+			.karta .popisek {
+				font-size: 0.95rem;
+				color: var(--ztlumena);
+			}
+			/* číslo v kroužku (jako v kreslených návodech) */
+			.cislo {
+				position: absolute;
+				top: 0.6rem;
+				left: 0.8rem;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 1.7rem;
+				height: 1.7rem;
+				border: 2px solid var(--inkoust);
+				border-radius: 50% 45% 55% 48% / 48% 55% 45% 52%;
+				color: var(--oranzova);
+				font-weight: 700;
+				font-size: 1.05rem;
+			}
+			/* ikonka s "jiskřičkami" jako na kreslených návodech */
+			.ikona {
+				font-size: 2rem;
+				line-height: 1;
+			}
+			/* obsahový rámeček pro výklad */
+			.ramecek {
+				background: rgba(255, 255, 255, 0.6);
+				border: 2.5px solid var(--inkoust);
+				border-radius: 18px 255px 18px 225px / 225px 18px 255px 18px;
+				box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+				padding: 1.4rem 1.6rem;
+				margin: 1.5rem 0;
+			}
+			.ramecek img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+				margin: 1rem auto;
+				border-radius: 8px;
+			}
+			footer {
+				margin-top: 3rem;
+				text-align: center;
+				font-size: 0.9rem;
+				color: var(--ztlumena);
+			}
+			@media (max-width: 500px) {
+				h1 {
+					font-size: 2.3rem;
+				}
+			}
+		</style>
+	</body>
+</html>
