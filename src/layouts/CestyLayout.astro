@@ -1,12 +1,18 @@
 ---
+import type { Jazyk } from '../data/cesty/typy';
+import { JAZYKY, TEXTY, cestaCesty } from '../data/cesty/preklady';
+
 interface Props {
 	titulek: string;
+	jazyk?: Jazyk;
+	/** Část adresy za /cesty (např. "2026" nebo "vse") — pro odkazy přepínače jazyků */
+	podcesta?: string;
 }
 
-const { titulek } = Astro.props;
+const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 ---
 
-<html lang="cs">
+<html lang={jazyk}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,7 +28,22 @@ const { titulek } = Astro.props;
 		</script>
 	</head>
 	<body>
-		<button id="prepinac-vzhledu" aria-label="Přepnout světlý/tmavý režim" title="Světlý/tmavý režim">◐</button>
+		<div class="horni-panel">
+			<nav class="jazyky" aria-label="Jazyk / Language / Sprache">
+				{
+					JAZYKY.map((j) => (
+						<a
+							href={cestaCesty(j, podcesta)}
+							class={j === jazyk ? 'aktivni' : undefined}
+							aria-current={j === jazyk ? 'page' : undefined}
+						>
+							{j.toUpperCase()}
+						</a>
+					))
+				}
+			</nav>
+			<button id="prepinac-vzhledu" aria-label={TEXTY[jazyk].prepnoutVzhled} title={TEXTY[jazyk].prepnoutVzhled}>◐</button>
+		</div>
 		<main>
 			<slot />
 		</main>
@@ -74,11 +95,40 @@ const { titulek } = Astro.props;
 			a {
 				color: var(--odkaz);
 			}
-			#prepinac-vzhledu {
+			.horni-panel {
 				position: fixed;
 				top: 0.8rem;
 				right: 0.8rem;
 				z-index: 10;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.jazyky {
+				display: flex;
+				gap: 0.15rem;
+				padding: 0.2rem;
+				border: 1px solid var(--cara);
+				border-radius: 999px;
+				background: var(--plocha);
+			}
+			.jazyky a {
+				font-family: system-ui, sans-serif;
+				font-size: 0.75rem;
+				font-weight: 600;
+				color: var(--ztlumeny);
+				text-decoration: none;
+				padding: 0.3rem 0.5rem;
+				border-radius: 999px;
+			}
+			.jazyky a:hover {
+				color: var(--text);
+			}
+			.jazyky a.aktivni {
+				color: var(--text);
+				background: var(--pozadi);
+			}
+			#prepinac-vzhledu {
 				font-size: 1.25rem;
 				line-height: 1;
 				padding: 0.45rem 0.55rem;

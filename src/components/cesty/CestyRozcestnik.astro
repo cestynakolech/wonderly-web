@@ -1,0 +1,52 @@
+---
+import CestyLayout from '../../layouts/CestyLayout.astro';
+import { roky } from '../../data/cesty/roky';
+import { MAPA_SIRKA, MAPA_VYSKA } from '../../data/cesty/mapa';
+import { TEXTY, cestaCesty, prelozZemi } from '../../data/cesty/preklady';
+import type { Jazyk } from '../../data/cesty/typy';
+
+interface Props {
+	jazyk: Jazyk;
+}
+
+const { jazyk } = Astro.props;
+const t = TEXTY[jazyk];
+---
+
+<CestyLayout titulek={`${t.nadpis} – Wonderly`} jazyk={jazyk} podcesta="">
+	<h1>{t.nadpis}</h1>
+	<p>{t.uvod}</p>
+	<ul class="tlacitka">
+		{
+			roky.map((r) => (
+				<li>
+					<a href={cestaCesty(jazyk, String(r.rok))}>{r.rok} – {prelozZemi(r.zeme, jazyk)}</a>
+				</li>
+			))
+		}
+		<li><a href={cestaCesty(jazyk, 'vse')}>{t.vsechnaMista}</a></li>
+	</ul>
+	<svg class="mapa" viewBox={`0 0 ${MAPA_SIRKA} ${MAPA_VYSKA}`} role="img" aria-label={t.mapaEvropy}>
+		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
+		{
+			roky.map((r) => (
+				<a href={cestaCesty(jazyk, String(r.rok))}>
+					<circle class="pin" cx={r.pinEvropa.x} cy={r.pinEvropa.y} r="7" stroke-width="2" />
+					<text class="pin-popisek" x={r.pinEvropa.x} y={r.pinEvropa.y - 12} text-anchor="middle" font-size="16" stroke-width="3">
+						{r.rok}
+					</text>
+				</a>
+			))
+		}
+	</svg>
+	<footer>
+		{t.podklad}
+		<a
+			href="https://commons.wikimedia.org/wiki/File:Blank_map_of_Europe_(with_disputed_regions).svg"
+			rel="license noopener"
+			>Blank map of Europe</a
+		>{t.autorLicence}
+		<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener">CC BY-SA 3.0</a>
+		{t.upraveno}
+	</footer>
+</CestyLayout>

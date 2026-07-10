@@ -1,0 +1,17 @@
+---
+import CestyRok from '../../../components/cesty/CestyRok.astro';
+import { roky } from '../../../data/cesty/roky';
+import type { Rok } from '../../../data/cesty/typy';
+
+export function getStaticPaths() {
+	return roky.map((r) => ({ params: { rok: String(r.rok) }, props: { data: r } }));
+}
+
+interface Props {
+	data: Rok;
+}
+
+const { data } = Astro.props;
+---
+
+<CestyRok data={data} jazyk="de" />

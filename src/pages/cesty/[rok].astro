@@ -1,8 +1,7 @@
 ---
-import CestyLayout from '../../layouts/CestyLayout.astro';
+import CestyRok from '../../components/cesty/CestyRok.astro';
 import { roky } from '../../data/cesty/roky';
 import type { Rok } from '../../data/cesty/typy';
-import { MAPA_SIRKA, MAPA_VYSKA, spocitejVyrez } from '../../data/cesty/mapa';
 
 export function getStaticPaths() {
 	return roky.map((r) => ({ params: { rok: String(r.rok) }, props: { data: r } }));
@@ -13,77 +12,6 @@ interface Props {
 }
 
 const { data } = Astro.props;
-
-const vyrez = data.vyrez ?? spocitejVyrez(data.mesta);
-// Velikost pinů a písma se škáluje s výřezem, aby na obrazovce vypadaly vždy stejně
-const pinR = vyrez.sirka / 45;
-const pismo = vyrez.sirka / 30;
-
-const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 ---
 
-<CestyLayout titulek={`Cesty na kolech ${data.rok} – Wonderly`}>
-	<p><a href="/cesty">&larr; Všechny roky</a></p>
-	<h1>{data.rok} – {data.zeme}</h1>
-	<svg
-		class="mapa"
-		viewBox={`${vyrez.x} ${vyrez.y} ${vyrez.sirka} ${vyrez.vyska}`}
-		role="img"
-		aria-label={`Mapa navštívených měst v roce ${data.rok}`}
-	>
-		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
-		{
-			data.mesta.map((m, i) => (
-				<a href={`#${m.slug}`}>
-					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
-					<text
-						class="pin-popisek"
-						x={m.x}
-						y={i % 2 === 0 ? m.y - pinR * 2 : m.y + pinR * 2 + pismo * 0.8}
-						text-anchor="middle"
-						font-size={pismo}
-						stroke-width={pismo / 5}
-					>
-						{m.nazev}
-					</text>
-				</a>
-			))
-		}
-	</svg>
-	<section class="mesta">
-		{
-			data.mesta.map((m) => {
-				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
-				return (
-					<article id={m.slug}>
-						<h2>{m.nazev}</h2>
-						<p class="meta">
-							{m.zeme} · {m.datum}
-						</p>
-						<p>{m.popis}</p>
-						{video && (
-							<p>
-								<a href={video.odkaz} rel="noopener">
-									🎬 {video.nazev}
-								</a>
-							</p>
-						)}
-						{m.stellplatze && m.stellplatze.length > 0 && (
-							<>
-								<h3>Stellplatz</h3>
-								<ul>
-									{m.stellplatze.map((s) => (
-										<li>
-											{s.odkaz ? <a href={s.odkaz} rel="noopener">{s.nazev}</a> : s.nazev}
-											{s.poznamka && ` – ${s.poznamka}`}
-										</li>
-									))}
-								</ul>
-							</>
-						)}
-					</article>
-				);
-			})
-		}
-	</section>
-</CestyLayout>
+<CestyRok data={data} jazyk="cs" />

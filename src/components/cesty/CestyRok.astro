@@ -1,0 +1,87 @@
+---
+import CestyLayout from '../../layouts/CestyLayout.astro';
+import type { Jazyk, Rok } from '../../data/cesty/typy';
+import { MAPA_SIRKA, MAPA_VYSKA, spocitejVyrez } from '../../data/cesty/mapa';
+import { TEXTY, cestaCesty, formatujDatum, prelozPopis, prelozZemi } from '../../data/cesty/preklady';
+
+interface Props {
+	data: Rok;
+	jazyk: Jazyk;
+}
+
+const { data, jazyk } = Astro.props;
+const t = TEXTY[jazyk];
+
+const vyrez = data.vyrez ?? spocitejVyrez(data.mesta);
+// Velikost pinů a písma se škáluje s výřezem, aby na obrazovce vypadaly vždy stejně
+const pinR = vyrez.sirka / 45;
+const pismo = vyrez.sirka / 30;
+
+const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
+---
+
+<CestyLayout titulek={`${t.nadpis} ${data.rok} – Wonderly`} jazyk={jazyk} podcesta={String(data.rok)}>
+	<p><a href={cestaCesty(jazyk)}>&larr; {t.vsechnyRoky}</a></p>
+	<h1>{data.rok} – {prelozZemi(data.zeme, jazyk)}</h1>
+	<svg
+		class="mapa"
+		viewBox={`${vyrez.x} ${vyrez.y} ${vyrez.sirka} ${vyrez.vyska}`}
+		role="img"
+		aria-label={`${t.mapaRoku} ${data.rok}`}
+	>
+		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
+		{
+			data.mesta.map((m, i) => (
+				<a href={`#${m.slug}`}>
+					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
+					<text
+						class="pin-popisek"
+						x={m.x}
+						y={i % 2 === 0 ? m.y - pinR * 2 : m.y + pinR * 2 + pismo * 0.8}
+						text-anchor="middle"
+						font-size={pismo}
+						stroke-width={pismo / 5}
+					>
+						{m.nazev}
+					</text>
+				</a>
+			))
+		}
+	</svg>
+	<section class="mesta">
+		{
+			data.mesta.map((m) => {
+				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
+				return (
+					<article id={m.slug}>
+						<h2>{m.nazev}</h2>
+						<p class="meta">
+							{prelozZemi(m.zeme, jazyk)} · {formatujDatum(m.datum, jazyk)}
+						</p>
+						<p>{prelozPopis(m.popis, jazyk)}</p>
+						{video && (
+							<p>
+								<a href={video.odkaz} rel="noopener">
+									🎬 {video.nazev}
+								</a>
+							</p>
+						)}
+						{m.stellplatze && m.stellplatze.length > 0 && (
+							<>
+								<h3>Stellplatz</h3>
+								<ul>
+									{m.stellplatze.map((s) => (
+										<li>
+											{s.odkaz ? <a href={s.odkaz} rel="noopener">{s.nazev}</a> : s.nazev}
+											{s.poznamka && ` – ${s.poznamka}`}
+										</li>
+									))}
+								</ul>
+							</>
+						)}
+					</article>
+				);
+			})
+		}
+	</section>
+</CestyLayout>

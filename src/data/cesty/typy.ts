@@ -1,3 +1,12 @@
+export type Jazyk = 'cs' | 'en' | 'de';
+
+/** Popis ve více jazycích; en/de jsou nepovinné, web spadne zpět na češtinu */
+export type PrelozenyPopis = {
+	cs: string;
+	en?: string;
+	de?: string;
+};
+
 export type Stellplatz = {
 	nazev: string;
 	souradnice?: string;
@@ -13,7 +22,7 @@ export type Mesto = {
 	/** Pozice pinu v souřadnicích mapy (viewBox 0 0 680 520) */
 	x: number;
 	y: number;
-	popis: string;
+	popis: PrelozenyPopis;
 	videoId?: string;
 	stellplatze?: Stellplatz[];
 };
