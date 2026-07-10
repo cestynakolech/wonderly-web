@@ -72,7 +72,7 @@ export function formatujDatum(datum: string, jazyk: Jazyk): string {
 export const TEXTY = {
 	cs: {
 		nadpis: 'Cesty na kolech',
-		uvod: 'Cestovatelský deník z cyklovýprav po Evropě. Vyber rok na mapě nebo tlačítkem a podívej se, kudy jsme jeli.',
+		uvod: 'Cestovatelský deník z výprav obytným autem po Evropě. Vyber rok na mapě nebo tlačítkem a podívej se, kudy jsme jeli.',
 		vsechnaMista: 'Všechna místa',
 		vsechnaMistaUvod: 'Všechna navštívená města ze všech roků na jedné mapě.',
 		zpetNaRoky: 'Zpět na roky',
@@ -86,8 +86,8 @@ export const TEXTY = {
 		prepnoutVzhled: 'Světlý/tmavý režim',
 	},
 	en: {
-		nadpis: 'Bike Journeys',
-		uvod: 'A travel diary from bike trips across Europe. Pick a year on the map or with a button and see where we rode.',
+		nadpis: 'Journeys on Wheels',
+		uvod: 'A travel diary from our motorhome trips across Europe. Pick a year on the map or with a button and see where we went.',
 		vsechnaMista: 'All places',
 		vsechnaMistaUvod: 'All visited places from all years on one map.',
 		zpetNaRoky: 'Back to years',
@@ -101,8 +101,8 @@ export const TEXTY = {
 		prepnoutVzhled: 'Light/dark mode',
 	},
 	de: {
-		nadpis: 'Radreisen',
-		uvod: 'Ein Reisetagebuch von Radtouren durch Europa. Wähle ein Jahr auf der Karte oder über die Schaltflächen und schau, wo wir unterwegs waren.',
+		nadpis: 'Reisen auf Rädern',
+		uvod: 'Ein Reisetagebuch von unseren Wohnmobilreisen durch Europa. Wähle ein Jahr auf der Karte oder über die Schaltflächen und schau, wo wir unterwegs waren.',
 		vsechnaMista: 'Alle Orte',
 		vsechnaMistaUvod: 'Alle besuchten Orte aus allen Jahren auf einer Karte.',
 		zpetNaRoky: 'Zurück zu den Jahren',
