@@ -19,6 +19,7 @@ const { otazky } = Astro.props;
 		<p class="kviz-postup"><span id="kviz-cislo"></span> <span id="kviz-skore-prubezne"></span></p>
 		<p class="kviz-otazka" id="kviz-otazka"></p>
 		<div class="kviz-odpovedi" id="kviz-odpovedi"></div>
+		<p class="kviz-vysvetleni" id="kviz-vysvetleni" hidden></p>
 		<button class="kviz-tlacitko" id="kviz-dalsi" hidden>Další otázka →</button>
 	</div>
 	<div id="kviz-konec" hidden>
@@ -68,12 +69,17 @@ const { otazky } = Astro.props;
 					else if (t === tlacitko) t.classList.add('spatna');
 				}
 				tlacitko.insertAdjacentText('beforeend', jeSpravne ? '  ✔' : '  ✘');
+				if (!jeSpravne && otazka.vysvetleni) {
+					el('kviz-vysvetleni').textContent = '💡 ' + otazka.vysvetleni;
+					el('kviz-vysvetleni').hidden = false;
+				}
 				el('kviz-dalsi').hidden = false;
 				el('kviz-dalsi').textContent = aktualni + 1 < poradi.length ? 'Další otázka →' : 'Vyhodnotit 🏁';
 			});
 			kontejner.appendChild(tlacitko);
 		});
 		delete kontejner.dataset.zodpovezeno;
+		el('kviz-vysvetleni').hidden = true;
 		el('kviz-dalsi').hidden = true;
 	}
 
@@ -165,6 +171,14 @@ const { otazky } = Astro.props;
 	.kviz-odpoved.spatna {
 		background: #ffe0dd;
 		border-color: #d33;
+	}
+	.kviz-vysvetleni {
+		background: #fff7e6;
+		border: 2px dashed var(--oranzova);
+		border-radius: 12px;
+		padding: 0.7rem 1rem;
+		margin: 0 0 1rem;
+		font-size: 1.05rem;
 	}
 	.kviz-vysledek {
 		font-size: 1.5rem;
