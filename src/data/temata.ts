@@ -736,9 +736,100 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'svetlo-a-jeho-sireni',
 			nazev: 'Světlo a jeho šíření',
 			podtemata: [
-				{ slug: 'svetlo-jeho-zdroje', nazev: 'Světlo a jeho zdroje' },
-				{ slug: 'lom-svetla', nazev: 'Lom světla' },
-				{ slug: 'stin-faze-mesice', nazev: 'Stín a fáze Měsíce' },
+				{
+					slug: 'svetlo-jeho-zdroje',
+					nazev: 'Světlo a jeho zdroje',
+					obsah: `
+						<h2>Světlo, zdroje světla, šíření světla</h2>
+						<h3>Zdroje světla</h3>
+						<p>Předměty světlo buď <strong>vyrábějí</strong> (zdroje světla), nebo jen <strong>odrážejí</strong> (vidíme je díky cizímu světlu — Měsíc, zrcadlo, tento papír).</p>
+						<ul>
+							<li><strong>přirozené zdroje</strong>: Slunce, oheň, blesk, světluška</li>
+							<li><strong>umělé zdroje</strong>: žárovka, zářivka, LED, svíčka, displej</li>
+							<li>podle velikosti: <strong>bodové</strong> a <strong>plošné</strong> zdroje</li>
+						</ul>
+						<h3>Šíření světla</h3>
+						<p>Světlo se šíří prostorem všemi směry jako vlnění. Vlny si rozkládáme na <strong>paprsky</strong>, které se ve stejnorodém prostředí šíří <strong>přímočaře</strong> — po dokonalých přímkách.</p>
+						<h3>Rychlost světla</h3>
+						<ul>
+							<li>ve vakuu: <strong>300 000 km/s</strong> — největší rychlost ve vesmíru</li>
+							<li>ve vzduchu: téměř stejná; ve vodě ~225 000 km/s; ve skle ~200 000 km/s; v diamantu ~125 000 km/s</li>
+						</ul>
+						<h3>Optické prostředí</h3>
+						<ul>
+							<li><strong>průhledné</strong> — světlo prochází bez rozptylu (čiré sklo)</li>
+							<li><strong>průsvitné</strong> — prochází, ale zčásti se rozptyluje (matné sklo)</li>
+							<li><strong>neprůhledné</strong> — světlo se pohlcuje nebo odráží (zeď, zrcadlo)</li>
+						</ul>
+					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Světelný proud 🎵', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/pisen-svetelny-proud.mp4' },
+					],
+				},
+				{
+					slug: 'odraz-svetla',
+					nazev: 'Odraz světla, zákon odrazu',
+					obsah: `
+						<h2>Odraz světla, zákon odrazu</h2>
+						<p>Dopadne-li paprsek na rozhraní dvou prostředí, může nastat <strong>odraz</strong>, <strong>lom</strong>, nebo <strong>pohlcení</strong> světla.</p>
+						<h3>Odraz na různých površích</h3>
+						<ul>
+							<li><strong>nerovná plocha</strong> → rozptyl světla (díky němu vidíme i do stínu)</li>
+							<li><strong>rovná lesklá plocha</strong> → svazek zůstane rovnoběžný (zrcadlo, klidná hladina)</li>
+						</ul>
+						<h3>Zákon odrazu</h3>
+						<p><strong>„Úhel odrazu je roven úhlu dopadu."</strong> — zapisujeme α' = α</p>
+						<ul>
+							<li>oba úhly měříme <strong>od kolmice dopadu</strong> (kolmice k ploše v bodě dopadu)</li>
+							<li>dopadající i odražený paprsek leží <strong>v jedné rovině</strong></li>
+							<li>kolmici umíme sestrojit i pro zakřivené plochy — u koule je to spojnice středu s bodem dopadu</li>
+						</ul>
+						<h3>Zrcadla</h3>
+						<p>Tělesa s hladkým lesklým povrchem (vyleštěný kov chráněný sklem). Podle tvaru: <strong>rovinná, kulová, válcová</strong>.</p>
+					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: odraz světla', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/odraz-svetla/infografika-prehled.jpg' },
+					],
+				},
+				{
+					slug: 'lom-svetla',
+					nazev: 'Lom světla',
+					obsah: `
+						<h2>Lom světla</h2>
+						<p>Při přechodu do jiného optického prostředí světlo <strong>mění rychlost</strong> — a proto se <strong>láme</strong> (mění směr).</p>
+						<h3>Dva případy lomu</h3>
+						<ul>
+							<li><strong>lom KE kolmici</strong> — z prostředí opticky řidšího do hustšího (vzduch → voda/sklo); úhel lomu β je <strong>menší</strong> než úhel dopadu α</li>
+							<li><strong>lom OD kolmice</strong> — z hustšího do řidšího (voda → vzduch); úhel lomu je <strong>větší</strong> než úhel dopadu</li>
+						</ul>
+						<h3>Úplný odraz</h3>
+						<p>Při přechodu z hustšího do řidšího prostředí se s rostoucím úhlem dopadu zvětšuje úhel lomu. Při <strong>mezním úhlu</strong> se paprsek už nezlomí ven — nastává <strong>úplný (totální) odraz</strong>. Využívají ho optická vlákna a odrazky.</p>
+						<h3>Proč brčko ve sklenici vypadá zlomené?</h3>
+						<p>Paprsky od ponořené části se na hladině lámou — oko je prodlouží rovně a brčko se zdá zalomené. Ze stejného důvodu vypadá bazén mělčí, než je.</p>
+					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Index lomu 🎵', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/pisen-index-lomu.mp4' },
+					],
+				},
+				{
+					slug: 'stin-faze-mesice',
+					nazev: 'Stín a fáze Měsíce',
+					obsah: `
+						<h2>Stín, fáze Měsíce, zatmění</h2>
+						<h3>Stín a polostín</h3>
+						<p>Za neprůhledným tělesem vzniká <strong>stín</strong> — prostor, kam světlo nedopadá (světlo se šíří přímočaře). U plošných zdrojů vzniká kolem plného stínu ještě <strong>polostín</strong>, kam dopadá světlo jen z části zdroje.</p>
+						<h3>Fáze Měsíce</h3>
+						<p>Měsíc sám nesvítí — vidíme jeho osvětlenou polovinu z různých úhlů:</p>
+						<ul>
+							<li><strong>nov</strong> → <strong>první čtvrť</strong> (dorůstá, tvar D) → <strong>úplněk</strong> → <strong>poslední čtvrť</strong> (couvá, tvar C) → nov</li>
+							<li>celý cyklus fází trvá přibližně <strong>29,5 dne</strong></li>
+						</ul>
+						<h3>Zatmění Měsíce</h3>
+						<p>Nastane, když se <strong>Země dostane mezi Slunce a Měsíc</strong> — Země vrhá stín na Měsíc, který ztmavne nebo zčervená. Lze bezpečně pozorovat pouhým okem.</p>
+						<h3>Zatmění Slunce</h3>
+						<p>Nastane, když se <strong>Měsíc dostane mezi Zemi a Slunce</strong> a zakryje ho. Pozorovat jen se <strong>speciálními ochrannými brýlemi</strong> — nikdy přímo!</p>
+					`,
+				},
 			],
 		},
 		{
