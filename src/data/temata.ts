@@ -26,21 +26,70 @@ export const temata: Record<string, Tema[]> = {
 						<h2>Klid a pohyb tělesa</h2>
 						<p><strong>Pohyb tělesa</strong> je změna polohy tělesa vzhledem k jinému tělesu.</p>
 						<p>Těleso je vzhledem k jinému tělesu <strong>v klidu</strong>, pokud se vzhledem k němu nepohybuje.</p>
-
-						<h3>Posuvný pohyb</h3>
-						<p>Každý bod tělesa se pohybuje stejným směrem a stejnou rychlostí po stejné trajektorii.</p>
-						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-pohyb.jpg" alt="Posuvný pohyb trojúhelníkového pravítka" />
-
-						<h3>Trajektorie pohybu</h3>
+						<p>👉 Vždy záleží na pozorovateli: cestující ve vlaku je <strong>v klidu vzhledem k sedadlu</strong>, ale <strong>v pohybu vzhledem k lidem na nástupišti</strong>. Klid a pohyb jsou relativní.</p>
+						<h3>Trajektorie a dráha</h3>
 						<ul>
-							<li>Pohyb posuvný přímočarý</li>
-							<li>Pohyb posuvný křivočarý</li>
+							<li><strong>Trajektorie</strong> je čára, po které se těleso pohybuje — může být viditelná (stopa lyžaře) i myšlená (let letadla)</li>
+							<li><strong>Dráha (s)</strong> je délka trajektorie; fyzikální veličina se základní jednotkou <strong>metr (m)</strong></li>
 						</ul>
-
-						<h3>Otáčivý pohyb</h3>
-						<p>Při otáčivém pohybu se jednotlivé body tělesa pohybují po kružnicích se středem na ose otáčení.</p>
-						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/otacivy-pohyb.jpg" alt="Otáčivý pohyb trojúhelníkového pravítka" />
+						<h3>Druhy pohybu podle tvaru trajektorie</h3>
+						<ul>
+							<li><strong>přímočarý</strong> — trajektorií je přímka (jedoucí výtah)</li>
+							<li><strong>křivočarý</strong> — trajektorií je křivka (slalom lyžaře, hod míčem)</li>
+						</ul>
 					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Základy pohybu tělesa: Jak se věci hýbou?',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa/infografika-zaklady-pohybu.jpg',
+						},
+					],
+				},
+				{
+					slug: 'posuvny-otacivy-pohyb',
+					nazev: 'Posuvný a otáčivý pohyb',
+					obsah: `
+						<h2>Posuvný a otáčivý pohyb</h2>
+						<p>Existují <strong>dva základní jednoduché pohyby</strong> těles. Všechny složitější pohyby jsou z nich složené.</p>
+						<h3>Posuvný pohyb</h3>
+						<p>Každý bod tělesa se pohybuje <strong>stejným směrem a stejnou rychlostí</strong> po úplně stejné trajektorii — každý bod urazí stejnou dráhu.</p>
+						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-pohyb.jpg" alt="Posuvný pohyb trojúhelníkového pravítka" />
+						<p>Příklady: vlak na rovné trati, zboží na pokladním pásu, letadlo při dálkovém letu.</p>
+						<h3>Otáčivý pohyb</h3>
+						<p>Body tělesa se pohybují <strong>po kružnicích</strong> se středy na <strong>ose otáčení</strong>. Osa může být uvnitř tělesa (krasobruslařka při piruetě) i mimo něj (auto na kruhovém objezdu).</p>
+						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/otacivy-pohyb.jpg" alt="Otáčivý pohyb trojúhelníkového pravítka" />
+						<p>👉 <strong>Čím dál je bod od osy otáčení, tím větší kružnici opisuje a pohybuje se rychleji</strong> — konec hodinové ručičky je rychlejší než její střed.</p>
+						<h3>Složený pohyb</h3>
+						<p>Kombinace jednoduchých pohybů:</p>
+						<ul>
+							<li><strong>Země</strong> — otáčí se kolem vlastní osy a zároveň obíhá kolem Slunce</li>
+							<li><strong>šroub</strong> — otáčí se a přitom se posouvá; trajektorie má tvar <strong>šroubovice</strong></li>
+							<li>horská dráha, akrobatický let, gymnasta na hrazdě</li>
+						</ul>
+					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Jak se tělesa pohybují: posuvný, otáčivý a složený pohyb',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb/infografika-jak-se-telesa-pohybuji.jpg',
+						},
+						{
+							druh: 'infografika',
+							nazev: 'Druhy pohybu: přehled s příklady',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb/infografika-druhy-pohybu.jpg',
+						},
+						{
+							druh: 'infografika',
+							nazev: 'Tahák: posuvný a otáčivý pohyb',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb/infografika-prehled.jpg',
+						},
+						{
+							druh: 'video',
+							nazev: 'Píseň: Posuvný a otáčivý 🎵',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb/pisen-posuvny-otacivy.m4a',
+						},
+					],
 				},
 				{
 					slug: 'rychlost-draha-cas',
@@ -69,7 +118,35 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Jestliže těleso urazí za stejné doby vždy stejné dráhy, koná rovnoměrný pohyb:</p>
 						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/rovnomerny-pohyb.jpg" alt="Nerovnoměrný a rovnoměrný pohyb automobilu" />
+						<h3>Okamžitá a průměrná rychlost</h3>
+						<ul>
+							<li><strong>okamžitá rychlost</strong> — jak rychle se těleso pohybuje právě teď; ukazuje ji tachometr nebo policejní radar</li>
+							<li><strong>průměrná rychlost</strong> — celková dráha děleno celkový čas celého pohybu</li>
+						</ul>
+						<h3>Druhy pohybu podle rychlosti</h3>
+						<ul>
+							<li><strong>rovnoměrný</strong> — rychlost se nemění (eskalátor, hodinová ručička, auto na dálnici)</li>
+							<li><strong>nerovnoměrný</strong> — rychlost se mění; <strong>zrychlený</strong> (start rakety, rozjíždění autobusu) nebo <strong>zpomalený</strong> (brždění vlaku)</li>
+						</ul>
+						<p>⚠️ Pozor: mezi m/s a km/h se <strong>neposouvá desetinná čárka</strong>! Hodina má 3 600 s a kilometr 1 000 m — proto koeficient 3,6 (10 m/s = 36 km/h).</p>
 					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Rychlost: základy fyziky v pohybu',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas/infografika-zaklady-rychlosti.jpg',
+						},
+						{
+							druh: 'infografika',
+							nazev: 'Tahák: rychlost pohybu',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas/infografika-prehled.jpg',
+						},
+						{
+							druh: 'video',
+							nazev: 'Píseň: Rychlost na plný! 🎵',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas/pisen-rychlost.m4a',
+						},
+					],
 				},
 				{
 					slug: 'priklady-na-vypocet-rychlosti',
@@ -112,7 +189,23 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Příklad 9: Dopravní letadlo</strong><br>
 						Dopravní letadlo uletělo vzdálenost 585 km za 1 hodinu 18 minut. Vypočti jeho průměrnou rychlost.</p>
 						<p>18 min = 0,3 h, takže celkový čas je 1 h + 0,3 h = 1,3 h<br>v = s : t = 585 : 1,3 = <strong>450 km/h</strong></p>
+						<p>⚠️ <strong>Pozor na častou chybu:</strong> kdo u příkladu 9 vydělí dráhu jen 0,3 h (zapomene na celou hodinu), vyjde mu nesmyslných 1950 km/h — tak rychle dopravní letadla nelétají! Minuty vždy převeď (děleno 60) a přičti k celým hodinám.</p>
+						<h3>Pravidla pro kreslení grafů</h3>
+						<ol>
+							<li>dvě kolmé osy se šipkami; <strong>časová osa je vždy vodorovná</strong></li>
+							<li>popiš osy značkami veličin a jednotkami</li>
+							<li>na osy rovnoměrné stupnice podle naměřených hodnot</li>
+							<li>vynes body z tabulky a spoj je</li>
+						</ol>
+						<p>Graf rychlosti rovnoměrného pohybu je <strong>vodorovná přímka</strong>; graf dráhy je <strong>přímka stoupající vzhůru</strong>.</p>
 					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Tahák: rovnoměrný pohyb — vzorce a grafy',
+							cesta: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/infografika-prehled.jpg',
+						},
+					],
 				},
 			],
 		},
