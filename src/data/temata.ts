@@ -599,17 +599,137 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'vztlakova-sila-a-plovani-teles',
 			nazev: 'Vztlaková síla a plování těles',
 			podtemata: [
-				{ slug: 'archimeduv-zakon', nazev: 'Archimédův zákon' },
-				{ slug: 'telesa-stejnoroda-a-nestejnoroda', nazev: 'Tělesa stejnorodá a nestejnorodá' },
+				{
+					slug: 'archimeduv-zakon',
+					nazev: 'Archimédův zákon',
+					obsah: `
+						<h2>Vztlaková síla a Archimédův zákon</h2>
+						<p>Na těleso ponořené do kapaliny působí svisle vzhůru <strong>vztlaková síla Fvz</strong> — proto nám věci pod vodou připadají lehčí.</p>
+						<h3>Archimédův zákon</h3>
+						<p><strong>Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořeného tělesa.</strong></p>
+						<ul>
+							<li>vzorec: <strong>Fvz = V · ρ · g</strong></li>
+							<li>V … objem ponořené části tělesa (m³)</li>
+							<li>ρ … hustota kapaliny (kg/m³)</li>
+							<li>g … gravitační konstanta (10 N/kg)</li>
+						</ul>
+						<h3>Příklad z hodiny (měřeno pěti způsoby)</h3>
+						<p>Těleso „vážilo" na závěsné váze na vzduchu 0,5 kg, ve vodě jen 0,425 kg. Rozdíl m = 0,075 kg → vztlaková síla Fvz = 0,075 · 10 = <strong>0,75 N</strong>. Dalšími metodami vyšlo 0,81 N, 0,76 N, 0,88 N a 0,86 N — průměr <strong>0,812 N</strong>. Měření není nikdy úplně přesné (bublinky, vlnky, zaokrouhlování).</p>
+						<h3>Potápění, vznášení, plování</h3>
+						<p>Porovnáváme vztlakovou sílu s tíhovou silou tělesa (nebo hustotu tělesa s hustotou kapaliny):</p>
+						<ul>
+							<li><strong>potápí se</strong> — Fg &gt; Fvz (hustota tělesa větší než kapaliny; kámen)</li>
+							<li><strong>vznáší se</strong> — Fg = Fvz (stejné hustoty; ryba v akváriu)</li>
+							<li><strong>plove</strong> — Fg &lt; Fvz (menší hustota; korek, led, loď)</li>
+						</ul>
+					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Archimédes 🎵', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/pisen-archimedes.mp4' },
+					],
+				},
+				{
+					slug: 'telesa-stejnoroda-a-nestejnoroda',
+					nazev: 'Tělesa stejnorodá a nestejnorodá',
+					obsah: `
+						<h2>Tělesa stejnorodá a nestejnorodá</h2>
+						<h3>Stejnorodá tělesa</h3>
+						<ul>
+							<li>jsou z <strong>jedné jediné látky</strong></li>
+							<li>v celém objemu mají stejné vlastnosti (hustotu, barvu, tvrdost)</li>
+							<li>příklady: ocelový hřebík, skleněná kulička</li>
+						</ul>
+						<h3>Nestejnorodá tělesa</h3>
+						<ul>
+							<li>skládají se ze <strong>dvou nebo více různých látek</strong></li>
+							<li>v různých částech mají odlišné vlastnosti</li>
+							<li>příklady: tužka (dřevo + tuha), žula (křemen + živec + slída), železobetonový panel</li>
+						</ul>
+						<p>👉 U nestejnorodých těles neurčujeme hustotu látky, ale počítáme jejich <strong>průměrnou hustotu ρp</strong>. Podle ní se řídí i plování — loď z oceli plove, protože její průměrná hustota (ocel + vzduch uvnitř) je menší než hustota vody.</p>
+					`,
+				},
 			],
 		},
 		{
 			slug: 'atmosfera-a-tlak-vzduchu',
 			nazev: 'Atmosféra a tlak vzduchu',
 			podtemata: [
-				{ slug: 'atmosfericky-tlak', nazev: 'Atmosférický tlak' },
-				{ slug: 'pretlak-podtlak-vakuum', nazev: 'Přetlak, podtlak, vakuum' },
-				{ slug: 'meteorologie-a-mereni-tlaku', nazev: 'Meteorologie a měření tlaku' },
+				{
+					slug: 'atmosfericky-tlak',
+					nazev: 'Atmosférický tlak',
+					obsah: `
+						<h2>Atmosférický tlak</h2>
+						<p><strong>Atmosféra</strong> je plynný obal Země tvořený vzduchem: přibližně <strong>78 % dusíku, 21 % kyslíku</strong> a 1 % dalších plynů.</p>
+						<p>Na částice vzduchu působí gravitační síla Země — horní vrstvy tlačí na spodní, a tak vzniká <strong>atmosférický tlak</strong>.</p>
+						<h3>Vlastnosti</h3>
+						<ul>
+							<li>značka <strong>pa</strong>, jednotka pascal (Pa); v meteorologii <strong>hPa</strong> (1 hPa = 100 Pa)</li>
+							<li>největší je u povrchu Země, <strong>s výškou klesá</strong> (ve velehorách je „řídký vzduch")</li>
+							<li>hustota vzduchu u povrchu je přibližně 1,29 kg/m³ a s výškou také klesá</li>
+						</ul>
+						<h3>Normální tlak</h3>
+						<p>Dohodnutá hodnota <strong>101 325 Pa ≈ 1 013 hPa</strong> — průměrný tlak u hladiny moře; odpovídá 760 mm rtuťového sloupce (mmHg).</p>
+						<h3>Torricelliho pokus (1643)</h3>
+						<p>Evangelista Torricelli naplnil trubici rtutí a obrátil ji do misky — rtuť klesla na výšku asi 760 mm. Sloupec drží právě atmosférický tlak. Na tomto principu funguje <strong>rtuťový barometr</strong>; kovový barometr se jmenuje <strong>aneroid</strong> a zapisovací <strong>barograf</strong>.</p>
+						<h3>Využití v praxi</h3>
+						<p>Přísavky drží na hladkém povrchu díky tlaku atmosféry (pod přísavkou vzduch není). Tlak vzduchu souvisí i s počasím — viz Meteorologie.</p>
+					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Kolem Země vzduch se točí 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/atmosfericky-tlak/pisen-atmosfericky-tlak.mp4' },
+					],
+				},
+				{
+					slug: 'pretlak-podtlak-vakuum',
+					nazev: 'Přetlak, podtlak, vakuum',
+					obsah: `
+						<h2>Přetlak, podtlak, vakuum</h2>
+						<p>Je-li v uzavřené nádobě jiný tlak než v okolí, vzniká přetlak, podtlak, nebo dokonce vakuum.</p>
+						<h3>Přetlak — uvnitř VÍC než venku</h3>
+						<ul>
+							<li>nafouknutý míč, pneumatika, sprej, tlakové lahve potápěčů, kabina letadla, plíce po nádechu</li>
+							<li>vytváří ho <strong>hustilka nebo kompresor</strong>, měří ho <strong>manometr</strong> (trubička se při tlaku narovnává jako papírová frkačka)</li>
+							<li>manometry mívají stupnici v barech: <strong>1 bar = 100 000 Pa</strong> ≈ tlak jedné atmosféry; pneumatika se hustí asi na 2,5 baru přetlaku</li>
+						</ul>
+						<h3>Podtlak — uvnitř MÍŇ než venku</h3>
+						<ul>
+							<li>vzniká odsátím vzduchu nebo zvětšením prostoru; okolí se <strong>nasává dovnitř</strong> (tlak se chce vyrovnat)</li>
+							<li>pití brčkem, vysavač, přísavky, gumový zvon na odpad, pumpa u studny, plíce před nádechem</li>
+						</ul>
+						<h3>Vakuum — téměř NIC</h3>
+						<ul>
+							<li>téměř všechen vzduch odčerpán <strong>vývěvou</strong>, tlak skoro nulový</li>
+							<li>baňka žárovky, vakuově balené potraviny, vesmírný prostor</li>
+						</ul>
+					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: přetlak, podtlak, vakuum', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum/infografika-prehled.jpg' },
+						{ druh: 'video', nazev: 'Píseň: Podtlak & mrak 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum/pisen-podtlak-a-mrak.mp4' },
+					],
+				},
+				{
+					slug: 'meteorologie-a-mereni-tlaku',
+					nazev: 'Meteorologie a měření tlaku',
+					obsah: `
+						<h2>Meteorologie a měření tlaku</h2>
+						<p>Hodnoty atmosférického tlaku jsou důležité pro <strong>předpověď počasí</strong>. Porovnáváme je s normálem 1 013 hPa:</p>
+						<ul>
+							<li><strong>tlaková výše</strong> — tlak vyšší než normál → obvykle jasné, slunečné počasí</li>
+							<li><strong>tlaková níže</strong> — tlak nižší než normál → oblačnost a srážky; při hlubokém poklesu pod 1 000 hPa hrozí bouřky a vichřice</li>
+						</ul>
+						<p>👉 Rozdíly tlaku uvádí vzduch do pohybu: <strong>vítr</strong> proudí z místa s vyšším tlakem do místa s nižším tlakem.</p>
+						<h3>Čím se tlak měří</h3>
+						<ul>
+							<li><strong>rtuťový barometr</strong> — sloupec rtuti jako u Torricelliho</li>
+							<li><strong>aneroid</strong> — kovový tlakoměr s pružnou krabičkou</li>
+							<li><strong>barograf</strong> — barometr se zapisovačem, kreslí průběh tlaku v čase</li>
+						</ul>
+						<p>Přibližně platí, že v blízkosti hladiny moře klesne tlak o <strong>1 hPa na každých 8 metrů výšky</strong>.</p>
+						<h3>Meteorologická pozorování</h3>
+						<p>Meteorologové sledují kromě tlaku i teplotu, vlhkost, srážky, vítr a oblačnost — z pozemních stanic, balonů i družic. Předpověď počasí pomáhá dopravě, zemědělství, energetice i záchranářům.</p>
+					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Šumí satelit 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku/pisen-sumi-satelit.mp4' },
+					],
+				},
 			],
 		},
 		{
