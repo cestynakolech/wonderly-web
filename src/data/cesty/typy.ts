@@ -23,6 +23,8 @@ export type Mesto = {
 	x: number;
 	y: number;
 	popis: PrelozenyPopis;
+	/** Předpona fotogalerie v úložišti R2, např. "cesty/2026/landshut" */
+	galerie?: string;
 	videoId?: string;
 	stellplatze?: Stellplatz[];
 };
