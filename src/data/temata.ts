@@ -1,5 +1,5 @@
 export type Material = {
-	druh: 'infografika' | 'pdf' | 'video';
+	druh: 'infografika' | 'pdf' | 'video' | 'audio';
 	nazev: string;
 	cesta: string;
 };
@@ -236,6 +236,9 @@ export const temata: Record<string, Tema[]> = {
 						<p>Směr síly udává směr šipky, <strong>působiště</strong> je bod, ve kterém síla na těleso působí.</p>
 						<p>Podle umístění působiště na tělese může mít síla <strong>posuvné</strong> nebo <strong>otáčivé</strong> účinky.</p>
 					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: síla a její znázornění', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-prehled.jpg' },
+					],
 				},
 				{
 					slug: 'gravitacni-sila',
@@ -275,6 +278,9 @@ export const temata: Record<string, Tema[]> = {
 						<p>5) Těleso o hmotnosti 12 t (12 000 kg)<br>
 						Fg = 12 000 · 10 = 120 000 N = <strong>120 kN</strong></p>
 					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: gravitační síla', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila/infografika-prehled.jpg' },
+					],
 				},
 				{
 					slug: 'treci-sila',
@@ -320,6 +326,9 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Výhody:</strong> brzdění, posyp silnic (bezpečnost), psaní po tabuli/papíře</p>
 						<p><strong>Nevýhody:</strong> brzdění (ztráty), zahřívání součástí strojů, odírání styčných ploch</p>
 					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: tření a třecí síly', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-prehled.jpg' },
+					],
 				},
 				{
 					slug: 'skladani-sil',
@@ -338,6 +347,9 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>F = F₁ − F₂</strong></p>
 						<p>Výsledná síla má směr té větší ze sil. Pokud jsou síly stejně velké a míří proti sobě, jsou v <strong>rovnováze</strong> a výslednice je nulová – těleso zůstává v klidu (např. přetahování lanem, kdy ani jedno družstvo nevyhrává).</p>
 					`,
+					materialy: [
+						{ druh: 'audio', nazev: 'Poslech: jak složit síly do jedné výslednice 🎧', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/audio-pravidlo-rovnobezniku.mp3' },
+					],
 				},
 				{
 					slug: 'teziste',
@@ -359,6 +371,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Volná (indiferentní)</strong> – těleso zůstává v jakékoli nové poloze (těžiště zůstává ve stejné výšce, např. valící se koule)</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: těžiště a stabilita', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/teziste/infografika-prehled.jpg' },
+					],
 				},
 			],
 		},
@@ -433,6 +448,9 @@ export const temata: Record<string, Tema[]> = {
 						<p>F<sub>2</sub> = (F<sub>1</sub> &middot; a<sub>1</sub>) : a<sub>2</sub> = (20 &middot; 2) : 4 = 10 N</p>
 						<p>Na delší rameno tedy stačí poloviční síla.</p>
 					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Tahák: moment síly', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-moment-sily.jpg' },
+					],
 				},
 			],
 		},

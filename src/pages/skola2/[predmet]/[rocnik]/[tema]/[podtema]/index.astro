@@ -68,6 +68,14 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 							<figcaption>{m.nazev}</figcaption>
 						</figure>
 					))}
+				{podtema.materialy
+					.filter((m) => m.druh === 'audio')
+					.map((m) => (
+						<figure class="audio">
+							<audio src={m.cesta} controls preload="metadata" />
+							<figcaption>{m.nazev}</figcaption>
+						</figure>
+					))}
 				<ul class="karty">
 					{podtema.materialy
 						.filter((m) => m.druh === 'pdf')
@@ -110,7 +118,15 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		border-radius: 12px;
 		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
 	}
+	.audio {
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+	.audio audio {
+		width: min(100%, 34rem);
+	}
 	.infografika figcaption,
+	.audio figcaption,
 	.video figcaption {
 		color: var(--ztlumena);
 		font-size: 1rem;
