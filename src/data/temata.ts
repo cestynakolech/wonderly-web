@@ -568,6 +568,7 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'elektricky-naboj-a-pole',
 			nazev: 'Elektrický náboj a pole',
 			podtemata: [
+				{ slug: 'atom-iont-molekula', nazev: 'Atom, iont, molekula — opakování' },
 				{ slug: 'elektricky-naboj', nazev: 'Elektrický náboj' },
 				{ slug: 'elektricke-pole', nazev: 'Elektrické pole' },
 			],
@@ -595,6 +596,7 @@ export const temata: Record<string, Tema[]> = {
 				{ slug: 'kmitani-a-vlneni', nazev: 'Kmitání a vlnění' },
 				{ slug: 'vznik-a-sireni-zvuku', nazev: 'Vznik a šíření zvuku' },
 				{ slug: 'cesta-zvuku', nazev: 'Cesta zvuku' },
+				{ slug: 'ton-hlasitost-ultrazvuk', nazev: 'Tón, hlasitost, ultrazvuk' },
 			],
 		},
 	],
@@ -615,6 +617,7 @@ export const temata: Record<string, Tema[]> = {
 				{ slug: 'radioaktivita', nazev: 'Radioaktivita' },
 				{ slug: 'stepeni-jader', nazev: 'Štěpení jader' },
 				{ slug: 'jaderny-reaktor', nazev: 'Jaderný reaktor' },
+				{ slug: 'elektrarny-a-jaderne-havarie', nazev: 'Elektrárny a jaderné havárie' },
 			],
 		},
 		{
@@ -640,6 +643,7 @@ export const temata: Record<string, Tema[]> = {
 				{ slug: 'prenos-elektricke-energie-energeticka-rozvodna-sit', nazev: 'Přenos elektrické energie, energetická rozvodná síť' },
 				{ slug: 'schema-domovni-elektroinstalace', nazev: 'Schéma domovní elektroinstalace' },
 				{ slug: 'ucinky-elektrickeho-proudu', nazev: 'Účinky elektrického proudu' },
+				{ slug: 'bezpecnost-a-prvni-pomoc', nazev: 'Bezpečnost a první pomoc při úrazu proudem' },
 			],
 		},
 		{
@@ -666,6 +670,7 @@ export const temata: Record<string, Tema[]> = {
 				{ slug: 'elektromagneticke-vlny', nazev: 'Elektromagnetické vlny' },
 				{ slug: 'slunecni-soustava', nazev: 'Sluneční soustava' },
 				{ slug: 'galaxie', nazev: 'Galaxie' },
+				{ slug: 'kosmonautika', nazev: 'Kosmonautika' },
 			],
 		},
 	],
