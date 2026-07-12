@@ -8,8 +8,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `ad7a321`. Souběžně čti `
    ```
    cd ~/Desktop/wonderly-web && git log --oneline -5
    ```
-3. **Čím začít: dodělat zbytek Fyziky 7** (viz „ZBÝVÁ" níže) — Zrcadla a čočky, Oko, Rozklad světla, Vnímání barev + 2 chybějící kvízy. Materiály jsou už nakopírované v `public/`, jen chybí stránky.
-4. Pak Fyzika 8 (až budou podklady staženy z Google Disku do `/Users/Shared/Škola/8/`).
+3. **Čím začít: Fyzika 8** — podklady se dotřiďují do `/Users/Shared/Škola/8/` (část už připravil učitel, zbytek se stahuje z Google Disku). Postup stejný jako u 7. ročníku: ověřit fakta → obsah do `temata.ts` → kvízy do `kvizy.ts` → média do `public/`.
+4. **Fyzika 7 je KOMPLETNÍ** (viz „HOTOVÉ") — tag `fyzika-7-hotova`.
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
 ### Funkce
@@ -19,23 +19,19 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `ad7a321`. Souběžně čti `
 - Interaktivní simulace hydrauliky (`HydraulikaSimulace.astro`) na stránce Pascalova zákona
 - Materiály: infografiky (jpg), písničky (mp3/m4a/mp4)
 
-### Fyzika 7 — 22 podtémat KOMPLET (výklad + kvíz s vysvětleními + materiály), ~441 otázek
+### Fyzika 7 — 30 podtémat KOMPLET (výklad + kvíz s vysvětleními + materiály)
 - **Pohyb a rychlost** (4/4): klid-a-pohyb-telesa, posuvny-otacivy-pohyb, rychlost-draha-cas, priklady-na-vypocet-rychlosti
 - **Síly kolem nás** (5/5): sila, gravitacni-sila, treci-sila, skladani-sil, teziste
-- **Jednoduché stroje**: jednoduche-stroje-paky (páka+moment). `pusobeni-teles-a-deformace` má obsah, CHYBÍ kvíz.
+- **Jednoduché stroje** (2/2): jednoduche-stroje-paky (páka+moment), pusobeni-teles-a-deformace (+kvíz)
 - **Tlak v kapalinách** (3/3): tlak, pascaluv-zakon (+simulace), hydrostaticky-tlak
-- **Vztlak**: archimeduv-zakon (hotové). `telesa-stejnoroda-a-nestejnoroda` má obsah, CHYBÍ kvíz.
+- **Vztlak** (2/2): archimeduv-zakon, telesa-stejnoroda-a-nestejnoroda (+kvíz)
 - **Atmosféra a tlak** (3/3): atmosfericky-tlak, pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku
 - **Světlo a jeho šíření** (4/4): svetlo-jeho-zdroje, odraz-svetla, lom-svetla, stin-faze-mesice
+- **Zrcadla a čočky** (6/6): optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka (+píseň), oko-vady-oka, rozklad-svetla-duha, vnimani-barev (oko/rozklad/barvy = infografiky). Pozn.: oko-historie-brýlí, rozklad, barvy jsou „nad rámec RVP".
 
-## 🔜 ZBÝVÁ dodělat (Fyzika 7 — poslední kus)
-Materiály (písničky, infografiky) jsou **už nakopírované v `public/materialy/fyzika/7-rocnik/zrcadla-a-cocky/`** — jen přidat stránky do `temata.ts` + kvízy do `kvizy.ts`:
-1. **Zrcadla a čočky** (téma `zrcadla-a-cocky`): podtémata `opticka-cocka` (píseň `opticka-cocka/pisen-opticka-jizda.mp4` hotová), `optika-rovinneho-zrcadla`, `kulova-zrcadla-dute-zrcadlo`
-2. **Nová podtémata** (26–29, infografiky hotové v public/): oko a vady oka (`oko-vady-oka/infografika-oko.jpg`, `…historie-bryli.jpg`), rozklad světla/duha (`rozklad-svetla-duha/infografika-prehled.jpg`), vnímání barev RGB/CMYK (`vnimani-barev/infografika-prehled.jpg`). Pozn.: 27,28,29 jsou „nad rámec RVP".
-3. **2 chybějící kvízy**: `pusobeni-teles-a-deformace`, `telesa-stejnoroda-a-nestejnoroda`
-4. Zdroj textů (ověřených) pro tato podtémata: `/Users/Shared/Škola/7/4 Světlo/<číslo>/informace-pro-podcast.txt`
-
-Pozn.: v `public/` jsou staged (necommitnuté) obrázky/písně pro čočky/oko/rozklad/barvy — commitnou se se stránkami.
+## 🔜 ZBÝVÁ dodělat
+**Fyzika 7 — HOTOVO (100 %).** Milník: tag `fyzika-7-hotova`.
+Další na řadě = **Fyzika 8** (viz níže) — až budou dotříděné podklady.
 
 ## 📋 Fyzika 8 a 9 (další fáze)
 - Podklady zatím NEJSOU stažené. Uživatel stáhne ZIPy z Google Disku do `/Users/Shared/Škola/8/` (a `/9/`), asistent rozbalí (`ditto -x -k`) a roztřídí podle podtémat.
@@ -78,6 +74,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-12 (2)** — **Fyzika 7 DOKONČENA (100 %)**. Doplněno téma „Zrcadla a čočky" — 6 podtémat (rovinné zrcadlo, kulová/duté zrcadlo, čočka spojka/rozptylka, oko a vady, rozklad světla a duha, vnímání barev RGB/CMYK) s výkladem + kvízy, + doplněny 2 chybějící kvízy (deformace, stejnorodá tělesa). Celkem 8 nových kvízů. Zdroje: SmartBooks PDF (zrcadla, čočky) + ověřené texty pro podcast (oko/rozklad/barvy). **Chyba v podkladu**: SmartBooks „23 Kulová zrcadla" str. 4 má prohozené definice dutého/vypuklého zrcadla — na webu uvedeno správně, zapsáno do kontrola-podkladu-fyzika7.md. Milník: tag `fyzika-7-hotova`.
 - **2026-07-12** — Fyzika 7 hotová z ~90 % (Pohyb, Síly, Tlak, Vztlak, Atmosféra, Světlo A). Přidán tančící profesor, vysvětlení v kvízech, R2 úložiště pro deník, časové plány 7B/8B/9, kontrola ŠVP. Založeny CLAUDE.md + PROGRESS.md. Milník: tag `fyzika-7-zaklad`.
 - _(sem přidávej další záznamy)_
 

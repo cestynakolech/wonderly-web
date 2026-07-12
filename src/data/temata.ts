@@ -836,9 +836,172 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'zrcadla-a-cocky',
 			nazev: 'Zrcadla a čočky',
 			podtemata: [
-				{ slug: 'opticka-cocka', nazev: 'Optická čočka' },
-				{ slug: 'optika-rovinneho-zrcadla', nazev: 'Optika rovinného zrcadla' },
-				{ slug: 'kulova-zrcadla-dute-zrcadlo', nazev: 'Kulová zrcadla a duté zrcadlo' },
+				{
+					slug: 'optika-rovinneho-zrcadla',
+					nazev: 'Optika rovinného zrcadla',
+					obsah: `
+						<h2>Optika rovinného zrcadla</h2>
+						<p>Naše oko vytvoří obraz těles, která buď <strong>sama svítí</strong> (Slunce, hvězdy, žárovka), nebo jsou <strong>osvětlená a odrážejí světlo</strong> do našich očí (kniha, stůl, hory, Měsíc). Když se světlo odrazí od zrcadla, vzniká <strong>obraz tělesa</strong>. Pro odražené paprsky přitom platí <strong>zákon odrazu</strong> (úhel odrazu = úhel dopadu).</p>
+						<h3>Jaký obraz vidí naše oko</h3>
+						<p>Obraz předmětu je určen paprsky, které do oka přicházejí — <strong>obraz vidíme vždy ve směru přicházejících paprsků</strong>. Zda jde o skutečný předmět, nebo jen jeho obraz v zrcadle, vyhodnotí teprve náš mozek podle zkušeností.</p>
+						<h3>Vlastnosti obrazu v rovinném zrcadle</h3>
+						<ul>
+							<li><strong>zdánlivý</strong> — nevzniká skutečnými paprsky, je „za zrcadlem", nejde zachytit na stínítko (vytvoří ho jen náš zrak)</li>
+							<li><strong>stejně velký</strong> jako předmět</li>
+							<li><strong>stejně vzdálený</strong> od zrcadla jako předmět</li>
+							<li><strong>stranově převrácený</strong> — pravá strana se jeví jako levá a naopak</li>
+							<li><strong>vzpřímený</strong> — není obrácený vzhůru nohama</li>
+						</ul>
+						<p>Obraz sestrojíme pomocí <strong>osové souměrnosti</strong> podle roviny zrcadla.</p>
+						<h3>Využití</h3>
+						<p>Kosmetická a estetická zrcadla (opticky zvětšují místnost), <strong>periskop</strong> ponorky, zrcadlové nápisy. Proto se na sanitkách píše nápis <strong>AMBULANCE zrcadlově</strong> — ve zpětném zrcátku ho pak řidič vpředu přečte správně.</p>
+					`,
+				},
+				{
+					slug: 'kulova-zrcadla-dute-zrcadlo',
+					nazev: 'Kulová zrcadla a duté zrcadlo',
+					obsah: `
+						<h2>Kulová zrcadla, duté a vypuklé zrcadlo</h2>
+						<p>Lesklá koule odráží světlo a může fungovat jako zrcadlo. U vyráběných <strong>kulových zrcadel</strong> tvoří odraznou plochu jen malá část povrchu koule.</p>
+						<h3>Popis kulového zrcadla</h3>
+						<ul>
+							<li><strong>střed křivosti S</strong> — střed kulové plochy, z níž je zrcadlo vyrobeno</li>
+							<li><strong>poloměr křivosti r</strong> — poloměr této kulové plochy (r = |SV|)</li>
+							<li><strong>vrchol V</strong> — nejvyšší bod zrcadla (na optické ose)</li>
+							<li><strong>optická osa o</strong> — spojnice středu křivosti a vrcholu</li>
+							<li><strong>ohnisko F</strong> — leží přesně uprostřed mezi středem křivosti a vrcholem</li>
+							<li><strong>ohnisková vzdálenost f</strong> — vzdálenost ohniska od vrcholu (základní parametr zrcadla)</li>
+						</ul>
+						<h3>Duté zrcadlo</h3>
+						<p>Odraznou plochou je <strong>vnitřní</strong> (vydutá) strana kulové plochy. Střed i ohnisko leží <strong>před zrcadlem</strong> a jsou <strong>skutečné</strong> — paprsky jimi opravdu procházejí.</p>
+						<ul>
+							<li>paprsky rovnoběžné s osou se po odrazu setkají <strong>v ohnisku</strong> (lze zapálit oheň, soustředit sluneční energii v solární elektrárně)</li>
+							<li>naopak paprsky vycházející z ohniska se po odrazu šíří jako <strong>rovnoběžný svazek</strong> → reflektory světel aut a svítilen</li>
+						</ul>
+						<p>Obraz v dutém zrcadle závisí na vzdálenosti předmětu:</p>
+						<ul>
+							<li>předmět <strong>dál než poloměr r</strong> → obraz skutečný, převrácený, <strong>zmenšený</strong></li>
+							<li>předmět <strong>mezi r a ohniskem f</strong> → obraz skutečný, převrácený, <strong>zvětšený</strong></li>
+							<li>předmět <strong>blíž než ohnisko f</strong> → obraz zdánlivý, vzpřímený, <strong>zvětšený</strong> (kosmetické a zubní zrcátko)</li>
+						</ul>
+						<h3>Vypuklé zrcadlo</h3>
+						<p>Odraznou plochou je <strong>vnější</strong> (vypouklá) strana. Ohnisko leží <strong>za zrcadlem</strong> a je <strong>zdánlivé</strong> — paprsky jím nikdy neprocházejí. Vypuklé zrcadlo vytváří <strong>vždy</strong> obraz <strong>zdánlivý, vzpřímený a zmenšený</strong>, zato zachytí velkou část prostoru.</p>
+						<p>Využití: <strong>dopravní zrcadla</strong> u nepřehledných křižovatek, zpětná zrcátka, bezpečnostní zrcadla v obchodech.</p>
+						<p>💡 Kulová zrcadla se snadno vyrábějí, ale ostře zobrazují jen předměty u osy. Přesnější jsou <strong>parabolická zrcadla</strong> — používají je dalekohledy, radioteleskopy i Hubbleův a Webbův teleskop.</p>
+					`,
+				},
+				{
+					slug: 'opticka-cocka',
+					nazev: 'Optická čočka (spojky a rozptylky)',
+					obsah: `
+						<h2>Optická čočka — spojky a rozptylky</h2>
+						<p><strong>Čočky</strong> jsou tělesa z průhledné látky (sklo, plast) ohraničená jednou nebo dvěma kulovými plochami. Využívají <strong>lomu světla</strong> při průchodu čočkou. Podle tvaru je dělíme na dvě skupiny:</p>
+						<h3>Spojné čočky (spojky)</h3>
+						<ul>
+							<li>uprostřed <strong>nejširší</strong>, na okrajích nejtenčí</li>
+							<li>rovnoběžný svazek paprsků <strong>spojují</strong> do jednoho bodu — do <strong>ohniska</strong></li>
+							<li>mají <strong>skutečná</strong> ohniska (paprsky jimi procházejí), <strong>kladnou</strong> ohniskovou vzdálenost i kladný počet dioptrií</li>
+							<li>značka: dvě šipky směřující ven</li>
+						</ul>
+						<h3>Rozptylné čočky (rozptylky)</h3>
+						<ul>
+							<li>uprostřed <strong>nejtenčí</strong>, na okrajích nejširší</li>
+							<li>rovnoběžný svazek paprsků <strong>rozptylují</strong> — jako by vycházely z jednoho bodu</li>
+							<li>mají <strong>zdánlivá</strong> ohniska, <strong>zápornou</strong> ohniskovou vzdálenost i záporný počet dioptrií</li>
+						</ul>
+						<p><strong>Optická mohutnost</strong> udává počet dioptrií: čím víc dioptrií, tím je čočka zakřivenější a víc láme paprsky.</p>
+						<h3>Význačné paprsky a obraz</h3>
+						<p>Obraz sestrojíme pomocí tří paprsků: <strong>rovnoběžný</strong> s osou se láme do ohniska, <strong>ohniskový</strong> (jde ohniskem) se láme rovnoběžně s osou a <strong>středový</strong> (prochází středem čočky) se neláme.</p>
+						<p>Spojka vytvoří tři druhy obrazů podle vzdálenosti předmětu:</p>
+						<ul>
+							<li>předmět <strong>dál než 2f</strong> → skutečný, převrácený, <strong>zmenšený</strong> (oko, objektiv fotoaparátu)</li>
+							<li>předmět <strong>mezi f a 2f</strong> → skutečný, převrácený, <strong>zvětšený</strong> (dataprojektor)</li>
+							<li>předmět <strong>blíž než f</strong> → zdánlivý, vzpřímený, <strong>zvětšený</strong> (lupa)</li>
+						</ul>
+						<p>Rozptylka vytváří <strong>vždy</strong> obraz zdánlivý, vzpřímený a zmenšený (např. dveřní kukátko).</p>
+						<h3>Využití</h3>
+						<p>Spojka: lupa, mikroskop, dalekohled, objektiv, brýle. Rozptylka: kukátko, brýle, složitější optické soustavy.</p>
+					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Optická jízda 🎵', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/pisen-opticka-jizda.mp4' },
+					],
+				},
+				{
+					slug: 'oko-vady-oka',
+					nazev: 'Oko a vady oka',
+					obsah: `
+						<h2>Oko a vady oka</h2>
+						<p><strong>Oko</strong> je optická soustava — zachytí svazek paprsků od okolních předmětů a vytvoří jejich obraz na citlivé vrstvě (sítnici).</p>
+						<h3>Čím světlo v oku prochází</h3>
+						<p>rohovka → komorová voda → <strong>zornice</strong> (otvor v duhovce, funguje jako clona fotoaparátu) → <strong>čočka</strong> (pružná dvojvypuklá spojka) → sklivec → <strong>sítnice</strong></p>
+						<p>Na sítnici jsou dva druhy světločivých buněk: <strong>tyčinky</strong> (vidění v šeru) a <strong>čípky</strong> (barvy — tři druhy: červená, zelená, modrá). V místě nejostřejšího vidění (žluté skvrně) jsou nahuštěné <strong>čípky</strong>.</p>
+						<h3>Vznik obrazu</h3>
+						<p>Nejdůležitější jsou čočka a sítnice. Obraz na sítnici je vždy <strong>skutečný, zmenšený a převrácený</strong>. Podráždění se zrakovým nervem přenese do mozku, který vjem zpracuje (a obraz „otočí").</p>
+						<h3>Akomodace — zaostřování</h3>
+						<p>Oko zaostřuje na různé vzdálenosti <strong>změnou zakřivení pružné čočky</strong> (mění tak její ohniskovou vzdálenost). Zdravé oko zaostří na blízko asi na 10–15 cm; „na dálku" až do nekonečna. Nejvhodnější vzdálenost pro čtení je <strong>25–30 cm</strong>. S věkem čočka tuhne a schopnost akomodace klesá.</p>
+						<h3>Zrakové vady a jejich korekce</h3>
+						<ul>
+							<li><strong>Dalekozrakost</strong> — ostře vidí do dálky, blízké rozmazaně; obraz vzniká <strong>za sítnicí</strong> (oko láme málo). Korekce: brýle se <strong>spojkami</strong> (kladné dioptrie, +).</li>
+							<li><strong>Krátkozrakost</strong> — ostře vidí zblízka, dálku rozmazaně; obraz vzniká <strong>před sítnicí</strong> (oko láme příliš). Korekce: brýle s <strong>rozptylkami</strong> (záporné dioptrie, −).</li>
+						</ul>
+						<p>Dvě oči umožňují <strong>prostorové vidění</strong> — mozek spojí dva obrazy do jednoho vjemu.</p>
+					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Oko jako optická soustava', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-oko.jpg' },
+						{ druh: 'infografika', nazev: 'Historie brýlí (nad rámec RVP)', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-historie-bryli.jpg' },
+					],
+				},
+				{
+					slug: 'rozklad-svetla-duha',
+					nazev: 'Rozklad světla a duha',
+					obsah: `
+						<h2>Rozklad bílého světla, duha</h2>
+						<p>Sluneční světlo vnímáme jako <strong>bílé</strong>. Při průchodu <strong>optickým hranolem</strong> se rozkládá na barevné paprsky. Jev poprvé popsal roku <strong>1671 Isaac Newton</strong> a pruh barev nazval <strong>spektrum</strong>; spojkou barvy zase složil zpět do bílé — důkaz, že bílé světlo je složené.</p>
+						<h3>Barevné spektrum</h3>
+						<ul>
+							<li>příčinou rozkladu je, že <strong>každá barva se láme jinak</strong> — <strong>červená nejméně, fialová nejvíce</strong></li>
+							<li>vzniká spojitý pás <strong>sedmi</strong> barev v pořadí: <strong>červená, oranžová, žlutá, zelená, modrá, indigová, fialová</strong></li>
+						</ul>
+						<h3>Duha — přirozený rozklad světla</h3>
+						<ul>
+							<li>vzniká rozkladem slunečního světla na <strong>dešťových kapkách</strong></li>
+							<li>vidíme ji, když máme <strong>Slunce za zády</strong> a déšť před sebou; <strong>červená je nahoře</strong>, fialová dole</li>
+							<li>bílé světlo vstoupí do kapky (láme se a rozkládá), uvnitř se <strong>jednou odrazí</strong> a při výstupu se spektrum ještě rozšíří</li>
+							<li><strong>dvojitá duha</strong>: slabší vedlejší duha vzniká <strong>dvěma</strong> odrazy v kapce a má <strong>opačné pořadí barev</strong></li>
+						</ul>
+						<p>💡 Podstatu duhy správně vysvětlil lomem paprsků český fyzik a lékař <strong>Jan Marcus Marci</strong> (17. století).</p>
+					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Rozklad světla a duha — přehled', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/rozklad-svetla-duha/infografika-prehled.jpg' },
+					],
+				},
+				{
+					slug: 'vnimani-barev',
+					nazev: 'Vnímání barev (RGB a CMYK)',
+					obsah: `
+						<h2>Vnímání barev, skládání světel a míchání barviv</h2>
+						<p>Na sítnici jsou <strong>tři druhy čípků</strong> — každý citlivý na jednu barvu: červenou, zelenou nebo modrou. Výsledná barva vzniká až <strong>v mozku</strong> složením vjemů. Na barvu tělesa má vliv <strong>odraz a pohlcení (absorpce)</strong> světla.</p>
+						<h3>Skládání barevných světel — RGB</h3>
+						<p>Používají ho obrazovky, displeje a reflektory.</p>
+						<ul>
+							<li><strong>RGB</strong> = red, green, blue (červená, zelená, modrá) — základní barvy <strong>světla</strong></li>
+							<li><strong>bílé</strong> světlo vznikne složením všech tří základních barev se stejnou intenzitou</li>
+							<li>doplňkové barvy (dvě základní dohromady): žlutá, purpurová (magenta), azurová</li>
+							<li><strong>černé světlo neexistuje</strong> — černá je nepřítomnost světla (tma)</li>
+						</ul>
+						<h3>Barva těles</h3>
+						<p>Oko vnímá barvu tělesa podle toho, které barvy těleso <strong>odráží</strong>. Bílé těleso odráží všechny barvy, černé všechno pohltí. Barva tělesa proto závisí i na <strong>barvě dopadajícího světla</strong>.</p>
+						<h3>Míchání barviv — CMYK</h3>
+						<p>Míchání temper nebo inkoustů je opačné než skládání světel: mícháme látky, které barvy <strong>pohlcují</strong>, takže čím víc barviv, tím <strong>tmavší</strong> výsledek.</p>
+						<ul>
+							<li><strong>CMYK</strong> = cyan (azurová), magenta (purpurová), yellow (žlutá) + <strong>K</strong> = black (černá)</li>
+							<li>černá se do tiskáren přidává navíc — kvůli sytosti a úspoře barevných inkoustů</li>
+						</ul>
+					`,
+					materialy: [
+						{ druh: 'infografika', nazev: 'Vnímání barev, RGB a CMYK — přehled', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/vnimani-barev/infografika-prehled.jpg' },
+					],
+				},
 			],
 		},
 	],
