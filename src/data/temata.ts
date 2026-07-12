@@ -1407,21 +1407,355 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'elektrina',
 			nazev: 'Elektřina',
 			podtemata: [
-				{ slug: 'elektricky-naboj', nazev: 'Elektrický náboj, elektrování těles, elektrická síla' },
-				{ slug: 'elektricke-pole', nazev: 'Elektrické pole' },
-				{ slug: 'vznik-elektrickeho-proudu', nazev: 'Vznik elektrického proudu ve vodiči' },
-				{ slug: 'chemicke-zdroje-napeti', nazev: 'Chemické zdroje elektrického napětí' },
-				{ slug: 'elektricke-obvody', nazev: 'Elektrické obvody' },
-				{ slug: 'elektricky-proud-mereni', nazev: 'Elektrický proud a jeho měření' },
-				{ slug: 'elektricke-napeti-mereni', nazev: 'Elektrické napětí a jeho měření' },
-				{ slug: 'elektricky-proud-v-kovech-odpor', nazev: 'Elektrický proud v kovech, odpor vodiče' },
-				{ slug: 'zavislost-odporu-na-vodici', nazev: 'Závislost odporu na vlastnostech vodiče (nad rámec RVP)' },
-				{ slug: 'ohmuv-zakon', nazev: 'Ohmův zákon' },
-				{ slug: 'zapojeni-spotrebicu-za-sebou', nazev: 'Zapojení spotřebičů za sebou (sériově)' },
-				{ slug: 'zapojeni-spotrebicu-vedle-sebe', nazev: 'Zapojení spotřebičů vedle sebe (paralelně)' },
-				{ slug: 'rezistor-s-promennym-odporem', nazev: 'Rezistor s proměnným odporem' },
-				{ slug: 'elektricka-prace-a-vykon', nazev: 'Elektrická práce a energie, výkon proudu' },
-				{ slug: 'ucinky-proudu-a-bezpecnost', nazev: 'Účinky proudu na člověka, bezpečnost' },
+				{
+						slug: 'elektricky-naboj',
+						nazev: 'Elektrický náboj, elektrování těles, elektrická síla',
+						obsah: `
+							<h2>Elektrický náboj</h2>
+							<p>Když si češeš umyté vlasy plastovým hřebenem, vlasy se zvednou a lepí se k hřebenu. Tělesa se <strong>zelektrizovala</strong> a působí mezi nimi <strong>elektrická síla</strong>. Její příčinou je <strong>elektrický náboj</strong>.</p>
+							<h3>Dva druhy náboje</h3>
+							<ul>
+								<li><strong>kladný</strong> — nese ho <strong>proton</strong> (p⁺) v jádře atomu; při běžném zacházení jádro neopouští</li>
+								<li><strong>záporný</strong> — nese ho <strong>elektron</strong> (e⁻) v obalu atomu; ten se dá snadno uvolnit a přesouvat</li>
+								<li><strong>neutron</strong> (n⁰) v jádře je bez náboje</li>
+							</ul>
+							<p>Náboj protonu a elektronu je <strong>stejně velký, ale opačný</strong>. Náboj nelze vyrobit ani zničit — jen <strong>přesouvat</strong> spolu s elektrony.</p>
+							<h3>Neutrální a nabité těleso</h3>
+							<ul>
+								<li><strong>neutrální</strong>: stejný počet protonů a elektronů → navenek se náboje vyruší</li>
+								<li><strong>nabité (iont)</strong>: převažuje jeden náboj. <strong>Kationt (+)</strong> = atom, který elektron ztratil; <strong>aniont (−)</strong> = atom, který elektron navíc přijal. Pozor: iont nevzniká odtržením protonů, mění se jen počet elektronů.</li>
+							</ul>
+							<h3>Náboj jako veličina</h3>
+							<p>Značka <strong>Q</strong>, jednotka <strong>coulomb (C)</strong>. Nejmenší náboj je <strong>elementární náboj</strong> e = 1,6·10⁻¹⁹ C (náboj jednoho elektronu i protonu). Nabité těleso zjistí <strong>elektroskop</strong>, porovná elektrometr.</p>
+							<h3>Elektrování a přenos náboje</h3>
+							<ul>
+								<li><strong>třením</strong> se přesouvají elektrony: plast se nabíjí vždy <strong>záporně</strong>, sklo <strong>kladně</strong></li>
+								<li><strong>vodiče</strong> (všechny kovy) náboj snadno přenášejí; <strong>izolanty</strong> (suché dřevo, plast, guma) ne</li>
+								<li>nabité těleso lze <strong>vybít uzemněním</strong> — vodivým spojením se Zemí (bleskosvod, ochrana před úrazem)</li>
+							</ul>
+							<p><strong>Zákon zachování náboje:</strong> celkový náboj se v izolované soustavě elektrováním nemění.</p>
+							<h3>Elektrická síla</h3>
+							<p><strong>Souhlasné náboje se odpuzují, nesouhlasné přitahují.</strong> Síla je tím větší, čím <strong>větší jsou náboje</strong> a čím <strong>menší je vzdálenost</strong> mezi nimi. Proto se rozčesané vlasy lepí k hřebenu, ale navzájem se rozestupují.</p>
+						`,
+					},
+				{
+						slug: 'elektricke-pole',
+						nazev: 'Elektrické pole',
+						obsah: `
+							<h2>Elektrické pole</h2>
+							<p><strong>Elektrické pole</strong> vzniká <strong>kolem každého nabitého tělesa</strong>. Projevuje se tím, že působí <strong>elektrickou silou</strong> na jiná tělesa — i <strong>na dálku</strong>, bez dotyku.</p>
+							<ul>
+								<li>nesouhlasně nabitá tělesa (+ a −) se <strong>přitahují</strong> (hřeben a vlasy)</li>
+								<li>souhlasně nabitá tělesa se <strong>odpuzují</strong> (jednotlivé vlasy mezi sebou)</li>
+							</ul>
+							<h3>Vodič v elektrickém poli</h3>
+							<p>V nenabitém kovu se působením pole <strong>přesunou volné elektrony</strong> na jednu stranu — nastane <strong>elektrostatická indukce</strong>. Jedna strana je pak záporná, druhá kladná, i když je těleso jako celek neutrální. Proto se neutrální plechovka rozkutálí k zelektrovanému pravítku.</p>
+							<h3>Izolant v elektrickém poli</h3>
+							<p>V izolantu elektrony atom neopustí, jen se uvnitř atomů nakloní — nastane <strong>polarizace</strong>. Těleso je také přitahováno (kousky papíru, pramínek vody z kohoutku k pravítku), ale náboj z něj <strong>nelze odvést</strong>.</p>
+							<h3>Siločáry</h3>
+							<ul>
+								<li>ukazují <strong>směr síly na kladný náboj</strong>, orientace <strong>od + k −</strong></li>
+								<li>čím <strong>hustší</strong> siločáry, tím <strong>silnější</strong> pole; dál od tělesa síla slábne a siločáry řídnou</li>
+								<li>mezi dvěma rovnoběžnými deskami je pole <strong>stejnorodé (homogenní)</strong> — siločáry jsou rovnoběžné</li>
+							</ul>
+						`,
+					},
+				{
+						slug: 'vznik-elektrickeho-proudu',
+						nazev: 'Vznik elektrického proudu ve vodiči',
+						obsah: `
+							<h2>Vznik elektrického proudu ve vodiči</h2>
+							<p>Aby přístroj fungoval, musí jím <strong>téct elektrický proud</strong>. K tomu ho zapojíme do <strong>elektrického obvodu se zdrojem napětí</strong>.</p>
+							<h3>Co je elektrický proud</h3>
+							<p><strong>Elektrický proud je uspořádaný pohyb volných nabitých částic.</strong> Nesou ho:</p>
+							<ul>
+								<li><strong>volné elektrony v kovech</strong> (část elektronů se uvolní z atomů)</li>
+								<li><strong>ionty</strong> v roztocích solí a kyselin (proto je vodičem i pot a tělní tekutiny → člověk vede proud)</li>
+								<li>za zvláštních podmínek i částice ve vzduchu (blesk, jiskření)</li>
+							</ul>
+							<h3>Podmínky průchodu proudu</h3>
+							<ul>
+								<li>musí být <strong>elektrické napětí</strong> mezi konci vodiče (mezi svorkami zdroje) — to žene částice</li>
+								<li>proud prochází jen <strong>vodiči</strong> (kovy, roztoky), <strong>neprochází izolanty</strong> (dřevo, plast, guma)</li>
+								<li>záporné částice míří ke <strong>kladné</strong> svorce, kladné ionty k <strong>záporné</strong> svorce</li>
+							</ul>
+							<h3>Napětí jako příčina proudu</h3>
+							<p><strong>Elektrické napětí</strong> vzniká rozdílem nábojů mezi dvěma body: záporná svorka má přebytek elektronů, kladná jejich nedostatek. Napětí je <strong>příčinou</strong> proudu a získáme ho ze <strong>zdroje napětí</strong> (zásuvka z elektrárny, baterie, akumulátor).</p>
+							<h3>Dva druhy proudu</h3>
+							<ul>
+								<li><strong>stejnosměrný (DC)</strong> — teče stále stejným směrem; z baterií a akumulátorů. U některých spotřebičů na směru záleží (LED dioda, elektronika), u jiných ne (žárovka)</li>
+								<li><strong>střídavý (AC)</strong> — pravidelně mění směr; z elektráren, máme ho v zásuvce; pohání velké spotřebiče (pračka, fén)</li>
+							</ul>
+						`,
+					},
+				{
+						slug: 'chemicke-zdroje-napeti',
+						nazev: 'Chemické zdroje elektrického napětí',
+						obsah: `
+							<h2>Chemické zdroje napětí — galvanické články</h2>
+							<p><strong>Galvanický článek</strong> vyrábí napětí <strong>chemickou reakcí</strong>. Do vodivého roztoku (<strong>elektrolytu</strong> — sůl nebo kyselina) se ponoří <strong>dvě elektrody z různých kovů</strong>. Reakce způsobí, že se na jedné elektrodě hromadí elektrony (nabíjí se <strong>záporně</strong>), na druhé jich ubývá (nabíjí se <strong>kladně</strong>) — vzniká napětí.</p>
+							<ul>
+								<li>záporná elektroda: např. zinek, lithium, kadmium</li>
+								<li>kladná elektroda: např. uhlík (grafit) nebo měď</li>
+							</ul>
+							<h3>Nejznámější články</h3>
+							<ul>
+								<li><strong>Suchý článek</strong> — zinková nádoba (−) a uhlíková tyčinka (+), elektrolyt = salmiaková pasta. Napětí <strong>1,5 V</strong>, na jedno použití (hračky). Vybitý může vytéct.</li>
+								<li><strong>Plochá baterie</strong> — tři suché články za sebou → <strong>4,5 V</strong></li>
+								<li><strong>Alkalické články</strong> — větší kapacita a životnost (blesk fotoaparátu)</li>
+								<li><strong>Lithiové články</strong> — kvalitní i po dlouhém skladování (mobil, notebook)</li>
+								<li><strong>Olověný akumulátor</strong> — velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie)</li>
+							</ul>
+							<p><strong>Baterie</strong> = jednorázová (nedobíjecí), <strong>akumulátor</strong> = dobíjecí (opakovaně použitelný).</p>
+						`,
+					},
+				{
+						slug: 'elektricke-obvody',
+						nazev: 'Elektrické obvody',
+						obsah: `
+							<h2>Elektrické obvody</h2>
+							<p><strong>Elektrický obvod</strong> vzniká vodivým spojením více prvků. Musí obsahovat <strong>zdroj napětí</strong>, <strong>vodiče</strong> a <strong>spotřebič</strong> (žárovka, zvonek, motor…). Může mít i <strong>spínač, měřidla, pojistku</strong>. <strong>Proud teče jen uzavřeným obvodem</strong> — všechny části musí být vodivě spojené.</p>
+							<h3>Schéma obvodu</h3>
+							<p>Přehledné zakreslení pomocí <strong>schematických značek</strong>; vodiče kreslíme přímými nebo pravoúhlými čarami. Místo, kde je víc vodičů spojeno, je <strong>uzel</strong>. Značky: zdroj (baterie), žárovka (kolečko s křížkem), spínač otevřený/zavřený, pojistka, zvonek.</p>
+							<h3>Jednoduchý a složený obvod</h3>
+							<ul>
+								<li><strong>jednoduchý</strong> — jeden spotřebič (zdroj, vodiče, spínač, žárovka). U tužkové baterie je výčnělek +, rovná plocha −.</li>
+								<li><strong>složený</strong> — víc spotřebičů, zapojených <strong>za sebou (sériově)</strong> nebo <strong>vedle sebe (paralelně)</strong></li>
+							</ul>
+							<h3>Zkrat — pozor!</h3>
+							<p>Když vodivě spojíme svorky zdroje <strong>bez spotřebiče</strong> (nebo proud najde cestu mimo spotřebič), vznikne <strong>zkrat</strong>: teče velký proud, vodiče se přehřejí a <strong>hrozí požár</strong>. Chrání před ním <strong>pojistka</strong> — tenký drátek, který se při velkém proudu přetaví a přeruší obvod.</p>
+							<h3>Bezpečné zapojování</h3>
+							<p>Nejdřív sestav obvod <strong>bez zdroje</strong> a se spínačem <strong>vypnutým</strong>, zkontroluj vodiče i žárovku, teprve pak připoj zdroj a nakonec sepni spínač.</p>
+						`,
+					},
+				{
+						slug: 'elektricky-proud-mereni',
+						nazev: 'Elektrický proud a jeho měření',
+						obsah: `
+							<h2>Elektrický proud a jeho měření</h2>
+							<p><strong>Elektrický proud</strong> udává, kolik náboje projde vodičem za 1 sekundu. Značka <strong>I</strong>, jednotka <strong>ampér (A)</strong>. Platí <strong>I = Q / t</strong>.</p>
+							<ul>
+								<li>1 A = 1 000 mA (miliampér)</li>
+								<li>1 A = 1 000 000 µA (mikroampér)</li>
+							</ul>
+							<h3>Dohodnutý směr proudu</h3>
+							<p>Dohodnutý směr proudu je <strong>od + k −</strong>. Pozor: je <strong>opačný</strong> než skutečný pohyb elektronů (dohodnut byl dřív, než se elektrony objevily).</p>
+							<p>💡 Kapacita baterie se udává v <strong>ampérhodinách (Ah, mAh)</strong> — vychází z Q = I·t. Baterie 1000 mAh dodá proud 1 A po dobu 1 hodiny.</p>
+							<h3>Měření ampérmetrem</h3>
+							<ul>
+								<li>měřidlo je <strong>ampérmetr</strong>, do obvodu se zapojuje <strong>sériově</strong> (obvod rozpojíme a ampérmetr vložíme do cesty proudu)</li>
+								<li>celý měřený proud musí projít ampérmetrem, proto se obvod v tom místě nesmí rozvětvit</li>
+								<li>nastavíme druh proudu (stejnosměrný/střídavý) a <strong>rozsah</strong>, <strong>svorku + přístroje</strong> spojíme se <strong>svorkou + zdroje</strong></li>
+								<li>při špatném zapojení hrozí <strong>poškození ampérmetru</strong></li>
+							</ul>
+						`,
+					},
+				{
+						slug: 'elektricke-napeti-mereni',
+						nazev: 'Elektrické napětí a jeho měření',
+						obsah: `
+							<h2>Elektrické napětí a jeho měření</h2>
+							<p><strong>Elektrické napětí</strong> je hlavní charakteristika zdrojů i spotřebičů. Značka <strong>U</strong>, jednotka <strong>volt (V)</strong>.</p>
+							<ul>
+								<li>1 kV = 1 000 V, 1 MV = 1 000 000 V, 1 mV = 0,001 V</li>
+							</ul>
+							<h3>Napětí běžných zdrojů</h3>
+							<ul>
+								<li>zásuvka ze sítě <strong>230 V</strong> (nebezpečné!)</li>
+								<li>monočlánek <strong>1,5 V</strong>, plochá baterie <strong>4,5 V</strong>, autobaterie <strong>12 V</strong>, USB-C nabíjení ~5–20 V</li>
+							</ul>
+							<h3>Zapojení více zdrojů za sebou</h3>
+							<p>Když spojíme <strong>+ svorku jedné baterie s − svorkou druhé</strong>, napětí se <strong>sčítá</strong>. Tři články po 1,5 V dají 4,5 V. Zařízení funguje jen při správném počtu a <strong>správné orientaci</strong> baterií.</p>
+							<h3>Měření voltmetrem</h3>
+							<ul>
+								<li>měřidlo je <strong>voltmetr</strong>, zapojuje se <strong>paralelně</strong> — vedle spotřebiče (nebo ke svorkám zdroje)</li>
+								<li>voltmetr <strong>nezapojujeme do hlavního obvodu</strong>, aby jím netekl proud</li>
+								<li>nastavíme druh napětí a rozsah, <strong>+ přístroje</strong> ke <strong>+ zdroje</strong></li>
+							</ul>
+							<p>💡 <strong>Multimetr</strong> umí měřit proud i napětí, ale vždy jen <strong>jednu veličinu</strong> — pro každou se jinak nastaví i zapojí.</p>
+						`,
+					},
+				{
+						slug: 'elektricky-proud-v-kovech-odpor',
+						nazev: 'Elektrický proud v kovech, odpor vodiče',
+						obsah: `
+							<h2>Elektrický proud v kovech a odpor vodiče</h2>
+							<p>Kovy jsou <strong>krystalické látky</strong> — atomy jsou pravidelně uspořádány v <strong>krystalové mřížce</strong> a mají spoustu <strong>volných elektronů</strong>.</p>
+							<ul>
+								<li><strong>bez proudu:</strong> volné elektrony se pohybují neuspořádaně všemi směry (tepelný pohyb)</li>
+								<li><strong>s proudem:</strong> zdroj napětí vytvoří elektrické pole, které elektrony usměrní — pohybují se od − k + (to je elektrický proud)</li>
+							</ul>
+							<h3>Proč vzniká odpor</h3>
+							<p>Letící elektrony <strong>narážejí do atomů</strong> mřížky, mění směr a zpomalují — vodič tak <strong>klade odpor</strong> průchodu proudu. Při srážkách předají část energie atomům, které začnou víc kmitat → <strong>vodič se zahřívá</strong>.</p>
+							<h3>Elektrický odpor</h3>
+							<ul>
+								<li>značka <strong>R</strong>, jednotka <strong>ohm (Ω)</strong>; 1 kΩ = 1 000 Ω, 1 MΩ = 1 000 000 Ω</li>
+								<li><strong>malý odpor</strong> = dobrý vodič (stříbro, měď, zlato, hliník), málo se zahřívá — proto se z mědi dělá vedení</li>
+								<li><strong>velký odpor</strong> = špatný vodič, silně se zahřívá (konstantan = slitina mědi a niklu → topné spirály, rezistory)</li>
+								<li><strong>izolanty</strong> (keramika, plast) mají odpor obrovský; žádný kov není izolant</li>
+							</ul>
+							<h3>Tepelné účinky proudu</h3>
+							<p>Zahřívání vodiče proudem <strong>využíváme</strong> (žárovka — wolframové vlákno 2200–3000 °C, vařič, konvice, žehlička, pojistka), ale má i <strong>nebezpečné důsledky</strong> — při přetížení nebo zkratu se dráty roztaví a hrozí <strong>požár</strong>.</p>
+						`,
+					},
+				{
+						slug: 'zavislost-odporu-na-vodici',
+						nazev: 'Závislost odporu na vlastnostech vodiče (nad rámec RVP)',
+						obsah: `
+							<h2>Na čem závisí odpor vodiče</h2>
+							<p>Elektrický odpor vodiče (R, jednotka <strong>ohm Ω</strong>) závisí na čtyřech věcech:</p>
+							<ul>
+								<li><strong>délka</strong> — čím <strong>delší</strong> vodič, tím <strong>větší</strong> odpor (elektrony narazí do víc atomů)</li>
+								<li><strong>tloušťka (průřez)</strong> — čím <strong>tenčí</strong> vodič, tím <strong>větší</strong> odpor (méně místa pro pohyb)</li>
+								<li><strong>materiál</strong> — popisuje ho <strong>měrný odpor (rezistivita) ρ</strong>, jednotka Ω·m; nejmenší mají nejlepší vodiče (stříbro, měď, zlato, hliník)</li>
+								<li><strong>teplota</strong> — čím <strong>vyšší</strong> teplota, tím <strong>větší</strong> odpor (atomy víc kmitají)</li>
+							</ul>
+							<h3>Výpočet odporu</h3>
+							<p>Pro vodič délky <strong>l</strong> a průřezu <strong>S</strong> platí <strong>R = ρ · l / S</strong>. Všechny veličiny dosazujeme v základních jednotkách (m, m², Ω·m). U kruhového průřezu je S = π·r².</p>
+							<h3>Rezistor</h3>
+							<p><strong>Rezistor</strong> je součástka s přesnou hodnotou odporu — tenký odporový drát (konstantan) navinutý na keramickém válečku. Hodnotu udávají <strong>barevné proužky</strong>. Slouží k <strong>regulaci proudu</strong> v obvodu.</p>
+						`,
+					},
+				{
+						slug: 'ohmuv-zakon',
+						nazev: 'Ohmův zákon',
+						obsah: `
+							<h2>Ohmův zákon</h2>
+							<p>Připojíš-li žárovku k vybité baterii, svítí slabě; k nabité svítí jasně. Napětí a proud spolu souvisí. Dokázal to roku 1826 německý fyzik <strong>Georg Simon Ohm</strong>.</p>
+							<h3>Znění</h3>
+							<p><strong>Elektrický proud I procházející vodičem je přímo úměrný napětí U mezi konci vodiče.</strong> Kolikrát se zvětší napětí, tolikrát se zvětší proud. Konstantou úměrnosti je <strong>elektrický odpor R</strong>.</p>
+							<h3>Vzorce</h3>
+							<ul>
+								<li><strong>I = U / R</strong></li>
+								<li><strong>U = R · I</strong></li>
+								<li><strong>R = U / I</strong></li>
+							</ul>
+							<p>Odpor tak měříme <strong>nepřímo</strong> — změříme U a I a dopočítáme. (Přímo měří <strong>ohmmetr</strong>.) Při stejném napětí: čím <strong>větší odpor</strong>, tím <strong>menší proud</strong>.</p>
+							<h3>Příklad</h3>
+							<p>Vodičem při napětí 10 V teče proud 0,2 A. Odpor: R = U / I = 10 / 0,2 = <strong>50 Ω</strong>. (Horší vodič se stejným napětím propustí jen 0,05 A → R = 10 / 0,05 = 200 Ω.)</p>
+							<h3>Pozor na teplotu</h3>
+							<p>Ohmův zákon platí přesně jen <strong>za stálé teploty</strong>. Odpor kovů s teplotou <strong>roste</strong> (rozžhavené vlákno žárovky), takže tam už proud není přímo úměrný napětí. Výjimkou je slitina <strong>konstantan</strong>, jejíž odpor se s teplotou skoro nemění — proto se z ní dělají rezistory.</p>
+						`,
+					},
+				{
+						slug: 'zapojeni-spotrebicu-za-sebou',
+						nazev: 'Zapojení spotřebičů za sebou (sériově)',
+						obsah: `
+							<h2>Zapojení spotřebičů za sebou (sériově)</h2>
+							<p>Spotřebiče (pro výpočty je nahradíme <strong>rezistory</strong>) jsou v sériovém obvodu zapojeny <strong>jeden za druhým</strong>. Obvod se <strong>nerozvětvuje</strong>.</p>
+							<h3>Proud</h3>
+							<p>Proud se <strong>nedělí</strong> — je ve všech částech obvodu (i ve všech rezistorech) <strong>stejný</strong>. Všechny elektrony procházejí každou částí obvodu.</p>
+							<h3>Napětí</h3>
+							<ul>
+								<li>napětí zdroje se <strong>rozdělí mezi rezistory</strong> — <strong>U = U₁ + U₂</strong></li>
+								<li>rozdělí se ve <strong>stejném poměru jako odpory</strong>: na větším odporu je větší napětí</li>
+								<li>na jednotlivém rezistoru z Ohmova zákona: U₁ = R₁ · I, U₂ = R₂ · I</li>
+							</ul>
+							<h3>Celkový odpor</h3>
+							<p>Rezistory za sebou tvoří <strong>delší odporový drát</strong>, proto se odpory <strong>sčítají</strong>: <strong>R = R₁ + R₂</strong> — celkový odpor je <strong>větší</strong> než jednotlivé.</p>
+							<h3>Pomůcka</h3>
+							<p>Když se proud <strong>nedělí</strong> → dělí se napětí. Nevýhoda série: přeruší-li se jeden spotřebič (vánoční řetěz), <strong>zhasne celý obvod</strong>.</p>
+						`,
+					},
+				{
+						slug: 'zapojeni-spotrebicu-vedle-sebe',
+						nazev: 'Zapojení spotřebičů vedle sebe (paralelně)',
+						obsah: `
+							<h2>Zapojení spotřebičů vedle sebe (paralelně)</h2>
+							<p>V paralelním obvodu je <strong>každý spotřebič připojen přímo ke zdroji</strong>. Obvod je <strong>rozvětvený</strong>, vodiče se spojují v <strong>uzlech</strong>. Takto jsou zapojené zásuvky v domácnosti.</p>
+							<h3>Napětí</h3>
+							<p>Všechny rezistory jsou svými konci připojené na póly zdroje → <strong>napětí na všech je stejné</strong> jako napětí zdroje.</p>
+							<h3>Proud</h3>
+							<ul>
+								<li>v uzlu se proud <strong>rozdělí do větví</strong> — <strong>I = I₁ + I₂</strong></li>
+								<li>rozdělí se v <strong>opačném poměru než odpory</strong>: větším odporem teče menší proud</li>
+								<li>na jednotlivé větvi z Ohmova zákona: I₁ = U / R₁, I₂ = U / R₂</li>
+							</ul>
+							<h3>Celkový odpor</h3>
+							<p>Rezistory vedle sebe tvoří <strong>větší plochu průřezu</strong>, takže <strong>celkový odpor klesá</strong> (je menší než nejmenší z nich). Platí <strong>1/R = 1/R₁ + 1/R₂</strong>.</p>
+							<h3>Pomůcka</h3>
+							<p>Když se proud <strong>dělí</strong> → napětí se nedělí. Výhoda paralelu: když jeden spotřebič vypadne, <strong>ostatní fungují dál</strong>.</p>
+						`,
+					},
+				{
+						slug: 'rezistor-s-promennym-odporem',
+						nazev: 'Rezistor s proměnným odporem',
+						obsah: `
+							<h2>Rezistor s proměnným odporem — reostat a potenciometr</h2>
+							<p>Je to rezistor, u kterého lze <strong>měnit odpor</strong>. Tvoří ho odporový drát a <strong>posuvný jezdec</strong>, který určuje, jak velká část drátu je zapojena. Podle konstrukce je <strong>posuvný</strong> nebo <strong>otočný</strong>. Podle způsobu zapojení se mu říká reostat, nebo potenciometr.</p>
+							<h3>Reostat — regulace proudu</h3>
+							<ul>
+								<li>zapojí se jednou svorkou konstrukce a svorkou jezdce (využívá <strong>jednu část</strong> drátu)</li>
+								<li>slouží k <strong>regulaci proudu</strong>: čím menší odpor, tím větší proud a výkon</li>
+								<li>dnes se moc nepoužívá (velké ztráty tepla) — nahradily ho polovodiče; dřív ovládal tramvaje</li>
+							</ul>
+							<h3>Potenciometr — dělič napětí</h3>
+							<ul>
+								<li>zapojí se <strong>obě svorky konstrukce i jezdec</strong> (využívá obě části)</li>
+								<li>slouží k <strong>regulaci napětí</strong>: jezdec rozdělí drát na dva sériové rezistory a napětí se mezi ně rozdělí</li>
+								<li>využití: ovládání <strong>hlasitosti, jasu, otáček</strong>; jako <strong>snímač polohy či úhlu</strong> v robotice a průmyslu</li>
+							</ul>
+						`,
+					},
+				{
+						slug: 'elektricka-prace-a-vykon',
+						nazev: 'Elektrická práce a energie, výkon proudu',
+						obsah: `
+							<h2>Elektrická práce, energie a výkon</h2>
+							<p>Když proud prochází vodičem, konají síly elektrického pole <strong>elektrickou práci</strong> (značka <strong>W</strong>, jednotka <strong>joule J</strong>, v praxi <strong>kilowatthodina kWh</strong>). Proud tak přenáší obvodem <strong>elektrickou energii</strong> ze zdroje ke spotřebiči.</p>
+							<h3>Přeměny elektrické energie</h3>
+							<ul>
+								<li>na <strong>mechanickou práci</strong> (mixér, vrtačka, výtah)</li>
+								<li>na <strong>teplo</strong> (vařič, topení, konvice)</li>
+								<li>na <strong>světlo</strong> (žárovka, televize)</li>
+								<li>na <strong>chemickou energii</strong> (nabíjení akumulátoru, elektrolýza)</li>
+							</ul>
+							<h3>Výkon a příkon</h3>
+							<ul>
+								<li><strong>Výkon P</strong> = energie za sekundu, jednotka <strong>watt (W)</strong>. Vzorec <strong>P = U · I</strong>.</li>
+								<li><strong>Práce: W = P · t = U · I · t</strong></li>
+								<li><strong>Příkon P₀</strong> = kolik spotřebič odebírá ze sítě (na štítku). Je vždy <strong>větší</strong> než užitečný výkon — část energie uniká jako <strong>teplo (ztráty)</strong>.</li>
+							</ul>
+							<h3>Jednotky energie</h3>
+							<p>1 Wh = 3 600 J; <strong>1 kWh = 3 600 000 J</strong>. Spotřeba elektřiny doma se počítá v kWh.</p>
+							<h3>Účinnost</h3>
+							<p>Udává, kolik % energie se přemění na užitečnou práci — vždy <strong>méně než 100 %</strong>. Klasická žárovka má jen ~5 % (zbytek je teplo), <strong>LED žárovka ~70 %</strong> — proto se dnes používají LED.</p>
+						`,
+					},
+				{
+						slug: 'ucinky-proudu-a-bezpecnost',
+						nazev: 'Účinky proudu na člověka, bezpečnost',
+						obsah: `
+							<h2>Účinky proudu na člověka a bezpečnost</h2>
+							<p><strong>Lidské tělo je vodič.</strong> Průchod proudu tělem může způsobit popáleniny, křeče svalů, <strong>fibrilaci (rozhození rytmu) až zástavu srdce</strong>, poškození nervů a mozku.</p>
+							<h3>Míra poškození podle proudu</h3>
+							<ul>
+								<li>~1 mA — práh vnímání</li>
+								<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong></li>
+								<li>~25 mA — křeč dýchacích svalů</li>
+								<li>~60 mA — fibrilace srdce; <strong>nad 80 mA</strong> — trvalá zástava srdce</li>
+							</ul>
+							<h3>Co velikost proudu ovlivňuje</h3>
+							<ul>
+								<li><strong>odpor člověka</strong>: v suchu a suché obuvi ~150 000 Ω, ve vlhku jen ~2000 Ω → <strong>mokrý člověk je mnohem víc ohrožen</strong></li>
+								<li><strong>cesta proudu</strong>: nejnebezpečnější přes ruku do srdce nebo přes hlavu</li>
+								<li>bezpečné napětí dle normy: stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong> (zásuvka 230 V je nebezpečná)</li>
+							</ul>
+							<h3>Bezpečná pravidla</h3>
+							<ul>
+								<li>nesahat na vypínač/kabely <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše</li>
+								<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat předměty</li>
+								<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení</li>
+							</ul>
+							<h3>První pomoc při úrazu proudem</h3>
+							<ol>
+								<li><strong>vypni proud</strong> (vypínač, jistič, pojistky)</li>
+								<li>dbej na <strong>vlastní bezpečnost</strong> — zraněného odsuň <strong>suchou dřevěnou/plastovou tyčí</strong>, ne holou rukou</li>
+								<li>zkontroluj dech a tep, případně <strong>masáž srdce a umělé dýchání</strong></li>
+								<li>zavolej záchrannou službu <strong>155</strong></li>
+							</ol>
+						`,
+					},
 			],
 		},
 		{
