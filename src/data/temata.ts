@@ -1007,81 +1007,128 @@ export const temata: Record<string, Tema[]> = {
 	],
 	'fyzika/8-rocnik': [
 		{
-			slug: 'prace-a-energie',
-			nazev: 'Práce a energie',
+			slug: 'mechanicka-prace-a-vykon',
+			nazev: 'Mechanická práce a výkon',
 			podtemata: [
-				{ slug: 'mechanicka-prace', nazev: 'Mechanická práce' },
-				{ slug: 'energie-a-zakon-zachovani-energie', nazev: 'Energie a zákon zachování energie' },
+				{
+					slug: 'mechanicka-prace',
+					nazev: 'Mechanická práce',
+					obsah: `
+						<h2>Mechanická práce</h2>
+						<p>Ve fyzice <strong>těleso koná práci</strong>, právě když působí na jiné těleso silou a tím způsobí, že se toto těleso <strong>posune ve směru síly</strong>. Musí být splněné <strong>obě podmínky</strong> — síla i posunutí.</p>
+						<ul>
+							<li>práci konáme, když tlačíme rozjeté auto, zvedáme činku, jeřáb zvedá náklad</li>
+							<li>práci může vykonat i <strong>silové pole</strong> — gravitační síla koná práci, když jablko spadne ze stromu</li>
+							<li>👉 když paní ve frontě jen <strong>drží</strong> těžký nákup, práci nekoná — působí silou, ale nákup se neposune</li>
+						</ul>
+						<h3>Práce jako fyzikální veličina</h3>
+						<ul>
+							<li>značka <strong>W</strong>, jednotka <strong>joule (J)</strong> (čti „džaul")</li>
+							<li>těleso vykoná práci 1 J, když silou 1 N posune těleso po dráze 1 m</li>
+							<li>násobky: <strong>1 kJ = 1 000 J</strong>, <strong>1 MJ = 1 000 000 J</strong></li>
+						</ul>
+						<h3>Výpočet</h3>
+						<p>Práce = síla (ve směru posunutí) × dráha:</p>
+						<p style="font-size:1.3rem"><strong>W = F · s</strong></p>
+						<p>Odvozené vztahy: <strong>s = W : F</strong> a <strong>F = W : s</strong>. Do vzorce dosazujeme vždy v základních jednotkách — sílu v <strong>newtonech</strong>, dráhu v <strong>metrech</strong>.</p>
+						<h3>Práce při zvedání tělesa</h3>
+						<p>Abychom těleso zvedli, musíme působit silou o velikosti tíhové síly <strong>F<sub>g</sub> = m · g</strong> (g = 10 N/kg).</p>
+						<p><strong>Příklad:</strong> Máma zvedá hračku o hmotnosti 600 g do výšky 150 cm.<br>
+						m = 0,6 kg → F = m · g = 0,6 · 10 = <strong>6 N</strong>; s = 1,5 m<br>
+						W = F · s = 6 · 1,5 = <strong>9 J</strong></p>
+						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4,5 km vykoná práci 900 MJ?<br>
+						s = 4 500 m, W = 900 000 000 J → F = W : s = 900 000 000 : 4 500 = <strong>200 000 N = 200 kN</strong></p>
+					`,
+				},
+				{
+					slug: 'vykon',
+					nazev: 'Výkon',
+					obsah: `
+						<h2>Výkon</h2>
+						<p>Někdy je důležité nejen <em>jak velkou</em> práci vykonáme, ale i <strong>jak rychle</strong>. Bagr i dělník vykopou stejnou jámu (stejná práce), ale bagr to zvládne rychleji — má větší výkon. <strong>Výkon</strong> slouží k porovnávání strojů a lidí při konání práce.</p>
+						<h3>Výkon jako fyzikální veličina</h3>
+						<ul>
+							<li>popisuje <strong>rychlost konání práce</strong> — jak velká práce se vykoná za 1 sekundu</li>
+							<li>značka <strong>P</strong> (velké P — pozor, malé p je tlak!), jednotka <strong>watt (W)</strong></li>
+							<li>násobky: <strong>1 kW = 1 000 W</strong>, <strong>1 MW = 1 000 000 W</strong></li>
+							<li>těleso s výkonem 1 W vykoná za 1 s práci 1 J</li>
+						</ul>
+						<h3>Výpočet</h3>
+						<p style="font-size:1.3rem"><strong>P = W : t</strong></p>
+						<p>Dosazujeme v základních jednotkách — práci v <strong>joulech</strong>, čas v <strong>sekundách</strong>. Odvozené vztahy: <strong>W = P · t</strong>, <strong>t = W : P</strong>. Mezi výkonem a rychlostí platí <strong>P = F · v</strong>.</p>
+						<p><strong>Příklad:</strong> Motor jeřábu vynese betonový panel 6 t do výšky 80 m za 1 minutu.<br>
+						m = 6 000 kg → F<sub>g</sub> = 60 000 N; W = F · s = 60 000 · 80 = 4 800 000 J; t = 60 s<br>
+						P = W : t = 4 800 000 : 60 = <strong>80 000 W = 80 kW</strong></p>
+						<h3>Kilowatthodina (kWh)</h3>
+						<p>Pro elektrické spotřebiče se práce (spotřebovaná energie) udává v <strong>kilowatthodinách</strong>: 1 kWh = práce stroje o výkonu 1 kW za 1 hodinu. Platí <strong>1 kWh = 3 600 000 J</strong>. V kWh se účtuje elektřina.</p>
+						<p><strong>Příklad:</strong> Elektromotor o výkonu 9 kW běží 16 hodin.<br>
+						W = P · t = 9 kW · 16 h = <strong>144 kWh</strong></p>
+						<p>💡 Starší jednotka výkonu motorů je <strong>koňská síla</strong> (hp): 1 hp = 0,735 kW.</p>
+					`,
+				},
 			],
 		},
 		{
-			slug: 'teplo-a-vnitrni-energie',
-			nazev: 'Teplo a vnitřní energie',
+			slug: 'energie',
+			nazev: 'Energie',
 			podtemata: [
-				{ slug: 'vnitrni-energie', nazev: 'Vnitřní energie' },
-				{ slug: 'teplo-a-teplota', nazev: 'Teplo a teplota' },
-			],
-		},
-		{
-			slug: 'sireni-tepla',
-			nazev: 'Šíření tepla',
-			podtemata: [
-				{ slug: 'zpusoby-sireni-tepla', nazev: 'Šíření tepla' },
-				{ slug: 'teplo-a-premeny-skupenstvi', nazev: 'Teplo a přeměny skupenství' },
-				{ slug: 'lavinove-nebezpeci', nazev: 'Lavinové nebezpečí' },
+				{ slug: 'energie-a-jeji-premeny', nazev: 'Energie a její přeměny' },
+				{ slug: 'pohybova-a-polohova-energie', nazev: 'Pohybová a polohová energie tělesa' },
+				{ slug: 'zakon-zachovani-mechanicke-energie', nazev: 'Zákon zachování mechanické energie' },
+				{ slug: 'energeticka-hodnota-potravin', nazev: 'Energetická hodnota potravin' },
+				{ slug: 'vnitrni-energie-telesa', nazev: 'Vnitřní energie tělesa' },
+				{ slug: 'tepelna-vymena-a-teplo', nazev: 'Tepelná výměna, teplo, měrná tepelná kapacita' },
 			],
 		},
 		{
 			slug: 'tepelne-motory',
 			nazev: 'Tepelné motory',
 			podtemata: [
-				{ slug: 'tepelny-motor', nazev: 'Tepelný motor' },
+				{ slug: 'tepelny-motor-parni-stroj', nazev: 'Tepelný motor, parní stroj, parní turbína' },
 				{ slug: 'spalovaci-motory', nazev: 'Spalovací motory' },
-				{ slug: 'raketovy-motor-proudovy-motor', nazev: 'Raketový motor, proudový motor' },
 			],
 		},
 		{
-			slug: 'motory-a-pohony-budoucnosti',
-			nazev: 'Motory a pohony budoucnosti',
+			slug: 'teplo-a-zmeny-skupenstvi',
+			nazev: 'Teplo a změny skupenství',
 			podtemata: [
-				{ slug: 'wankeluv-motor', nazev: 'Wankelův motor' },
-				{ slug: 'alternativni-pohony-pro-automobily', nazev: 'Alternativní pohony pro automobily' },
-				{ slug: 'souhrn-motory', nazev: 'Souhrn: motory' },
+				{ slug: 'teplo-a-premeny-skupenstvi', nazev: 'Teplo a přeměny skupenství látek' },
+				{ slug: 'tani', nazev: 'Tání' },
+				{ slug: 'tuhnuti', nazev: 'Tuhnutí' },
+				{ slug: 'vyparovani', nazev: 'Vypařování' },
+				{ slug: 'var', nazev: 'Var' },
+				{ slug: 'kondenzace', nazev: 'Kondenzace (kapalnění)' },
+				{ slug: 'skupenske-zmeny-vody-v-prirode', nazev: 'Skupenské změny vody v přírodě' },
 			],
 		},
 		{
-			slug: 'elektricky-naboj-a-pole',
-			nazev: 'Elektrický náboj a pole',
+			slug: 'elektrina',
+			nazev: 'Elektřina',
 			podtemata: [
-				{ slug: 'atom-iont-molekula', nazev: 'Atom, iont, molekula — opakování' },
-				{ slug: 'elektricky-naboj', nazev: 'Elektrický náboj' },
+				{ slug: 'elektricky-naboj', nazev: 'Elektrický náboj, elektrování těles, elektrická síla' },
 				{ slug: 'elektricke-pole', nazev: 'Elektrické pole' },
+				{ slug: 'vznik-elektrickeho-proudu', nazev: 'Vznik elektrického proudu ve vodiči' },
+				{ slug: 'chemicke-zdroje-napeti', nazev: 'Chemické zdroje elektrického napětí' },
+				{ slug: 'elektricke-obvody', nazev: 'Elektrické obvody' },
+				{ slug: 'elektricky-proud-mereni', nazev: 'Elektrický proud a jeho měření' },
+				{ slug: 'elektricke-napeti-mereni', nazev: 'Elektrické napětí a jeho měření' },
+				{ slug: 'elektricky-proud-v-kovech-odpor', nazev: 'Elektrický proud v kovech, odpor vodiče' },
+				{ slug: 'zavislost-odporu-na-vodici', nazev: 'Závislost odporu na vlastnostech vodiče (nad rámec RVP)' },
+				{ slug: 'ohmuv-zakon', nazev: 'Ohmův zákon' },
+				{ slug: 'zapojeni-spotrebicu-za-sebou', nazev: 'Zapojení spotřebičů za sebou (sériově)' },
+				{ slug: 'zapojeni-spotrebicu-vedle-sebe', nazev: 'Zapojení spotřebičů vedle sebe (paralelně)' },
+				{ slug: 'rezistor-s-promennym-odporem', nazev: 'Rezistor s proměnným odporem' },
+				{ slug: 'elektricka-prace-a-vykon', nazev: 'Elektrická práce a energie, výkon proudu' },
+				{ slug: 'ucinky-proudu-a-bezpecnost', nazev: 'Účinky proudu na člověka, bezpečnost' },
 			],
 		},
 		{
-			slug: 'elektricky-proud-a-obvody',
-			nazev: 'Elektrický proud a obvody',
+			slug: 'zvuk',
+			nazev: 'Zvuk',
 			podtemata: [
-				{ slug: 'elektricky-proud-a-napeti', nazev: 'Elektrický proud a napětí' },
-				{ slug: 'zaklady-a-zapojeni-elektrickych-obvodu', nazev: 'Základy a zapojení elektrických obvodů' },
-			],
-		},
-		{
-			slug: 'elektricka-prace-a-spotrebice',
-			nazev: 'Elektrická práce a spotřebiče',
-			podtemata: [
-				{ slug: 'elektricka-prace-a-vykon', nazev: 'Elektrická práce a výkon' },
-				{ slug: 'zapojeni-spotrebicu-v-domacnosti', nazev: 'Zapojení spotřebičů v domácnosti' },
-			],
-		},
-		{
-			slug: 'zvuk-a-kmitani',
-			nazev: 'Zvuk a kmitání',
-			podtemata: [
-				{ slug: 'kmitani-a-vlneni', nazev: 'Kmitání a vlnění' },
-				{ slug: 'vznik-a-sireni-zvuku', nazev: 'Vznik a šíření zvuku' },
-				{ slug: 'cesta-zvuku', nazev: 'Cesta zvuku' },
-				{ slug: 'ton-hlasitost-ultrazvuk', nazev: 'Tón, hlasitost, ultrazvuk' },
+				{ slug: 'kmitani-a-vlneni', nazev: 'Kmitání a vlnění (nad rámec RVP)' },
+				{ slug: 'zvuk-vznik-a-sireni', nazev: 'Zvuk, vznik a šíření zvuku' },
+				{ slug: 'vnimani-zvuku-a-hlasitost', nazev: 'Vnímání zvuku, hlasitost zvuku' },
 			],
 		},
 	],
