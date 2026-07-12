@@ -1209,8 +1209,51 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'tepelne-motory',
 			nazev: 'Tepelné motory',
 			podtemata: [
-				{ slug: 'tepelny-motor-parni-stroj', nazev: 'Tepelný motor, parní stroj, parní turbína' },
-				{ slug: 'spalovaci-motory', nazev: 'Spalovací motory' },
+				{
+					slug: 'tepelny-motor-parni-stroj',
+					nazev: 'Tepelný motor, parní stroj, parní turbína',
+					obsah: `
+						<h2>Tepelný motor, parní stroj, parní turbína</h2>
+						<p><strong>Tepelný motor</strong> je stroj, který přeměňuje <strong>teplo na pohyb</strong>. Patří sem parní stroje, spalovací motory a reaktivní motory. Liší se <strong>účinností</strong> — kolik vstupní energie promění na pohyb.</p>
+						<h3>Parní stroje — historie</h3>
+						<ul>
+							<li><strong>Hérón z Alexandrie</strong> (1. stol.) — první parní stroj („Hérónova baňka"); pára roztáčela kouli, ale sloužil jen pro zábavu</li>
+							<li><strong>Denis Papin</strong> (17. stol.) — tlaková nádoba (Papinův hrnec); pára zvedala píst</li>
+							<li><strong>Thomas Newcomen</strong> (18. stol.) — čerpal vodu z dolů</li>
+							<li><strong>James Watt</strong> (1784) — zdokonalil parní stroj a <strong>nastartoval průmyslovou revoluci</strong>: klikovým mechanismem změnil přímočarý pohyb pístu na otáčení kola, přidal setrvačník (plynulý chod) a šoupátko (pára tlačí píst oběma směry)</li>
+						</ul>
+						<h3>Využití a nevýhody parního stroje</h3>
+						<p>Použití: průmysl (pohon strojů, čerpání vody), doprava (lokomotivy, parníky), zemědělství. Čech <strong>Josef Božek</strong> postavil první český parní automobil (1815) i parník (1817).</p>
+						<p>Nevýhody: velké a těžké, náročná údržba, riziko výbuchu kotle, <strong>malá účinnost jen ~15 %</strong>, znečišťování prostředí.</p>
+						<h3>Parní turbína</h3>
+						<p>Vodní <strong>pára roztáčí lopatky turbíny</strong> — energie páry se mění na otáčivý pohyb. Používá se v <strong>tepelných elektrárnách</strong> k pohonu generátorů (výkon 200–600 MW). Účinnost <strong>max. ~35 %</strong> — vyšší než u parního stroje.</p>
+					`,
+				},
+				{
+					slug: 'spalovaci-motory',
+					nazev: 'Spalovací motory',
+					obsah: `
+						<h2>Spalovací motory</h2>
+						<p><strong>Spalovací motor</strong> získává teplo <strong>spalováním paliva uvnitř motoru</strong>. Přeměňuje chemickou energii → tepelnou → pohybovou.</p>
+						<h3>Hlavní části pístového motoru</h3>
+						<p>Pracovní <strong>válec</strong> s pohyblivým <strong>pístem</strong>, který přes <strong>klikový hřídel</strong> pohání kola. Přívod paliva řídí <strong>sací ventil</strong>, odvod spalin <strong>výfukový ventil</strong>.</p>
+						<p>Motory dělíme podle paliva a zapálení na <strong>zážehové</strong> a <strong>vznětové</strong>, podle chodu na <strong>čtyřtaktní</strong> a <strong>dvoutaktní</strong>.</p>
+						<h3>Zážehový čtyřtaktní motor (Otto, 1876)</h3>
+						<p>Palivo <strong>benzín</strong>; směs par a vzduchu zapálí <strong>elektrická jiskra ze svíčky</strong>. Pracuje ve <strong>4 taktech</strong>:</p>
+						<ol>
+							<li><strong>sání</strong> — píst dolů, nasává se palivová směs (sací ventil otevřen)</li>
+							<li><strong>stlačení (komprese)</strong> — oba ventily zavřené, píst stlačuje směs</li>
+							<li><strong>výbuch a rozpínání (expanze)</strong> — jiskra zapálí směs, horké plyny tlačí píst dolů — <strong>jediný pracovní takt</strong> (palivo koná práci)</li>
+							<li><strong>výfuk</strong> — píst nahoru, vytlačí spaliny (výfukový ventil otevřen)</li>
+						</ol>
+						<p>Účinnost <strong>20–33 %</strong>. Použití: osobní auta, malá letadla. Často 4válcový motor (vždy je jeden válec v pracovní době).</p>
+						<h3>Zážehový dvoutaktní motor</h3>
+						<p>Jednodušší, <strong>bez ventilů</strong> (řídí ho píst); cyklus ve 2 fázích (sání+stlačení, výbuch+výfuk). Menší a lehčí — motocykly, sekačky, křovinořezy. Nevýhoda: do benzínu se přidává olej, více emisí, nižší účinnost.</p>
+						<h3>Vznětový motor (Diesel)</h3>
+						<p>Palivo <strong>nafta</strong> (nebo zemní plyn). <strong>Nemá svíčku</strong> — směs se stlačením prudce zahřeje a <strong>sama se vznítí</strong>. Použití: auta, náklaďáky, autobusy, lokomotivy. Účinnost <strong>30–40 %</strong>. Výhody: větší výkon při rozjezdu, nižší spotřeba; nevýhody: těžší, dražší, více emisí (filtr pevných částic), často turbodmychadlo.</p>
+						<p>👉 Každý motor je nutné <strong>nastartovat</strong> (roztočit setrvačník), <strong>chladit</strong> (voda/vzduch) a <strong>mazat</strong> olejem.</p>
+					`,
+				},
 			],
 		},
 		{
