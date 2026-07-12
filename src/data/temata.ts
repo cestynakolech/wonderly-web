@@ -1260,13 +1260,147 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'teplo-a-zmeny-skupenstvi',
 			nazev: 'Teplo a změny skupenství',
 			podtemata: [
-				{ slug: 'teplo-a-premeny-skupenstvi', nazev: 'Teplo a přeměny skupenství látek' },
-				{ slug: 'tani', nazev: 'Tání' },
-				{ slug: 'tuhnuti', nazev: 'Tuhnutí' },
-				{ slug: 'vyparovani', nazev: 'Vypařování' },
-				{ slug: 'var', nazev: 'Var' },
-				{ slug: 'kondenzace', nazev: 'Kondenzace (kapalnění)' },
-				{ slug: 'skupenske-zmeny-vody-v-prirode', nazev: 'Skupenské změny vody v přírodě' },
+				{
+					slug: 'teplo-a-premeny-skupenstvi',
+					nazev: 'Teplo a přeměny skupenství látek',
+					obsah: `
+						<h2>Teplo a přeměny skupenství látek</h2>
+						<p>Látka se běžně vyskytuje ve <strong>třech skupenstvích</strong> — pevném, kapalném, plynném. Ve všech je tvořena <strong>stejnými částicemi</strong>, liší se jen jejich <strong>pohybem a silovým působením</strong>.</p>
+						<h3>Struktura částic</h3>
+						<ul>
+							<li><strong>pevné</strong> — částice blízko u sebe, velké síly → pevnost; jen kmitají kolem stálých poloh → stálý tvar</li>
+							<li><strong>kapalné</strong> — částice blízko (nestlačitelné), ale kloužou po sobě → tekuté, nemají stálý tvar, tvoří hladinu</li>
+							<li><strong>plynné</strong> — částice daleko od sebe, bez vazeb → stlačitelné, rozpínavé, bez tvaru, velmi rychlé</li>
+						</ul>
+						<p>Pevné látky dělíme na <strong>krystalické</strong> (pravidelné uspořádání, tají při jedné teplotě — led, sůl, kovy) a <strong>amorfní</strong> (nepravidelné, při zahřátí postupně měknou — sklo, vosk, plast, čokoláda).</p>
+						<h3>Změny skupenství</h3>
+						<p>Nejvíc je ovlivňuje <strong>teplota</strong> (mění rychlost částic). Také <strong>vnější tlak</strong> má vliv.</p>
+						<ul>
+							<li><strong>dodáváme teplo</strong> (roste teplota): pevné → kapalné (<strong>tání</strong>) → plynné (<strong>vypařování, var</strong>)</li>
+							<li><strong>odebíráme teplo</strong> (klesá teplota): plynné → kapalné (<strong>kapalnění</strong>) → pevné (<strong>tuhnutí</strong>)</li>
+						</ul>
+						<p>💡 U některých látek se pevné skupenství mění <strong>rovnou na plynné</strong> — to je <strong>sublimace</strong> (např. jód, tvorba ohonu komet); opačný děj je <strong>desublimace</strong>.</p>
+					`,
+				},
+				{
+					slug: 'tani',
+					nazev: 'Tání',
+					obsah: `
+						<h2>Tání</h2>
+						<p>Když pevnou látku zahříváme, teplota roste. Jakmile dosáhne <strong>teploty tání</strong>, začne se dodávaným teplem měnit z <strong>pevného skupenství na kapalné</strong>. U kovů se tomu říká <strong>tavení</strong>.</p>
+						<h3>Průběh</h3>
+						<ul>
+							<li>při tání se částice uvolňují z vazeb a začínají se volně pohybovat</li>
+							<li><strong>během tání se teplota nemění</strong>, dokud se všechna pevná látka nepřemění na kapalinu; teprve pak teplota kapaliny zase roste</li>
+						</ul>
+						<h3>Teplota tání t<sub>t</sub></h3>
+						<p>Každá látka taje při jiné teplotě. <strong>Led taje při 0 °C.</strong> Příklady: cín 232 °C, olovo 327 °C, hliník 658 °C, měď 1084 °C, železo 1535 °C.</p>
+						<ul>
+							<li>krystalické látky tají při <strong>jedné</strong> teplotě; amorfní v <strong>rozmezí</strong> teplot (postupně měknou)</li>
+							<li>teplotu tání lze ovlivnit <strong>příměsemi</strong> (sůl na silnici — voda zůstane kapalná i při −20 °C) a <strong>tlakem</strong> (pod ostřím brusle led taje už při ~−8 °C)</li>
+						</ul>
+						<h3>Skupenské teplo tání</h3>
+						<p>Teplo potřebné, aby látka roztála; nemění teplotu, jen uvolní částice. <strong>L<sub>t</sub> = l<sub>t</sub> · m</strong> (l<sub>t</sub> = měrné skupenské teplo tání, J/kg). Pro led je l<sub>t</sub> = <strong>332 kJ/kg</strong>. Měrné teplo tání a tuhnutí téže látky je stejné.</p>
+					`,
+				},
+				{
+					slug: 'tuhnuti',
+					nazev: 'Tuhnutí',
+					obsah: `
+						<h2>Tuhnutí</h2>
+						<p>Když kapalinu ochlazujeme, teplota klesá. Při <strong>teplotě tuhnutí</strong> se odebíráním tepla mění z <strong>kapalného skupenství na pevné</strong>. U vody se tomu říká <strong>mrznutí</strong>. Tuhnutí je <strong>opačný děj k tání</strong>.</p>
+						<h3>Průběh</h3>
+						<ul>
+							<li>částice zpomalují a vytvářejí pevné vazby; tuhnutí začíná od <strong>pevného jádra</strong> (led od břehu, kroupy na smítku prachu)</li>
+							<li><strong>během tuhnutí se teplota nemění</strong>, dokud vše neztuhne; přitom se <strong>uvolňuje skupenské teplo</strong> do okolí</li>
+							<li>u krystalických látek je teplota tuhnutí <strong>stejná jako teplota tání</strong> (voda a led — 0 °C)</li>
+						</ul>
+						<h3>Změna objemu — voda je výjimka</h3>
+						<p>Většina látek při tuhnutí <strong>zmenšuje objem</strong>. <strong>Voda naopak objem zvětšuje</strong> — proto má led <strong>menší hustotu</strong> než voda a plave.</p>
+						<ul>
+							<li>+ v přírodě: led plave, ryby přežijí pod ním</li>
+							<li>− v technice: praská vodovodní potrubí, beton i asfalt; proto se potrubí vede pod <strong>nezámrznou hloubkou</strong> (asi 90–140 cm) a na zimu se z trubek vypouští voda</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'vyparovani',
+					nazev: 'Vypařování',
+					obsah: `
+						<h2>Vypařování</h2>
+						<p><strong>Vypařování</strong> je změna kapalného skupenství na plynné. Probíhá <strong>na povrchu</strong> kapaliny a <strong>při každé teplotě</strong>.</p>
+						<h3>Co vypařování urychlí</h3>
+						<ul>
+							<li><strong>vyšší teplota</strong> kapaliny (prádlo na slunci, fén)</li>
+							<li><strong>větší povrch</strong> (ručník rozložený, ne smotaný)</li>
+							<li><strong>odvádění par</strong> nad kapalinou (vítr, průvan)</li>
+							<li><strong>druh kapaliny</strong> — líh se vypařuje rychleji než voda; <strong>těkavé látky</strong> (benzín, aceton, líh) velmi rychle a jejich páry jsou často <strong>hořlavé</strong> (u pumpy se nekouří!)</li>
+						</ul>
+						<h3>Vypařování ochlazuje</h3>
+						<p>Částice potřebují k uvolnění energii, proto vypařující se kapalina <strong>odebírá okolí teplo</strong> → ochlazuje se. Proto je plavci po vylezení z vody zima, tělo se chladí <strong>pocením</strong>, pes vyplazením jazyka, při horečce pomáhají mokré zábaly.</p>
+						<p>Vodní pára je <strong>neviditelná</strong> — co „vidíme" je mlha (drobné kapičky). Vlhkost vzduchu měří <strong>vlhkoměr</strong>.</p>
+					`,
+				},
+				{
+					slug: 'var',
+					nazev: 'Var',
+					obsah: `
+						<h2>Var</h2>
+						<p><strong>Var</strong> je také změna kapalného skupenství na plynné, ale je mnohem <strong>intenzivnější</strong>: probíhá <strong>v celém objemu</strong> kapaliny a jen při <strong>teplotě varu</strong>.</p>
+						<h3>Průběh</h3>
+						<ul>
+							<li>uvnitř kapaliny vznikají <strong>bubliny páry</strong>, stoupají k hladině a pára uniká</li>
+							<li><strong>během varu se teplota nemění</strong>, dokud se všechna kapalina nevyvaří</li>
+						</ul>
+						<p>👉 Rozdíl: <strong>vypařování</strong> = jen na povrchu, za všech teplot; <strong>var</strong> = v celém objemu, jen při teplotě varu.</p>
+						<h3>Teplota varu t<sub>v</sub></h3>
+						<p>Každá látka vře jinak. <strong>Voda vře při 100 °C</strong> (za normálního tlaku); ethanol 78 °C, rtuť 357 °C.</p>
+						<ul>
+							<li>závisí na <strong>tlaku</strong>: při nízkém tlaku je nižší (na Himálaji vře voda při ~80 °C), při vysokém vyšší (Papinův hrnec ~130 °C — vaří rychleji)</li>
+							<li>ovlivní ji i <strong>příměsi</strong> (slaná voda vře při vyšší teplotě)</li>
+						</ul>
+						<p><strong>Destilace</strong> odděluje složky směsi podle různé teploty varu (destilovaná voda, líh, zpracování ropy).</p>
+						<p>Skupenské teplo varu: <strong>L<sub>v</sub> = l<sub>v</sub> · m</strong>; pro vodu l<sub>v</sub> = <strong>2 260 kJ/kg</strong>.</p>
+					`,
+				},
+				{
+					slug: 'kondenzace',
+					nazev: 'Kondenzace (kapalnění)',
+					obsah: `
+						<h2>Kondenzace (kapalnění)</h2>
+						<p>Když plyn (páru) ochlazujeme, teplota klesá a pára se mění z <strong>plynného skupenství na kapalné</strong>. Tomu říkáme <strong>kapalnění (kondenzace)</strong> — je to <strong>opačný děj k vypařování</strong>.</p>
+						<h3>Průběh</h3>
+						<ul>
+							<li>ochlazené částice páry zpomalí, přitažlivé síly je zadrží u sebe → <strong>shlukují se do kapiček</strong></li>
+							<li>kondenzace začíná od <strong>pevného jádra</strong> (smítko prachu → dešťová kapka; studený povrch → rosa, orosená plechovka)</li>
+						</ul>
+						<h3>Rosný bod</h3>
+						<p><strong>Rosný bod</strong> je stav, kdy je vzduch <strong>nasycený</strong> vodní parou a ta začne kondenzovat. Čím teplejší vzduch, tím víc páry unese. Vznikají tak <strong>rosa, mlha i mraky</strong>.</p>
+						<p>Kondenzaci vidíme i u orosených brýlí (z chladna do tepla) nebo jako obláček páry z úst v zimě. Plyny lze zkapalnit i <strong>silným ochlazením</strong> (kapalný dusík) nebo <strong>stlačením</strong> (tlakové lahve).</p>
+					`,
+				},
+				{
+					slug: 'skupenske-zmeny-vody-v-prirode',
+					nazev: 'Skupenské změny vody v přírodě',
+					obsah: `
+						<h2>Skupenské změny vody v přírodě</h2>
+						<p>V přírodě probíhají všechny skupenské změny vody najednou — dohromady tvoří <strong>koloběh vody</strong>.</p>
+						<h3>Vypařování a sublimace</h3>
+						<p>Voda se vypařuje z <strong>vodních ploch, rostlin, půdy i kůže</strong> a stoupá jako vodní pára. Sníh a led se mohou i v mrazu pomalu měnit rovnou na páru — <strong>sublimace</strong>.</p>
+						<h3>Přeměny páry u země</h3>
+						<ul>
+							<li>při ochlazení pod <strong>rosný bod</strong> pára kondenzuje → <strong>rosa</strong></li>
+							<li>při ochlazení pod <strong>0 °C</strong> pára desublimuje → <strong>jinovatka</strong></li>
+						</ul>
+						<h3>Oblaka a srážky</h3>
+						<ul>
+							<li>teplý vlhký vzduch stoupá, ve výšce se ochladí; na <strong>kondenzačních jádrech</strong> (prach, sůl) vznikají kapičky → <strong>oblaka</strong> (čím víc kapek, tím tmavší)</li>
+							<li>kapky se spojují, těžknou a padají jako <strong>déšť</strong>; ve výšce zmrznou na <strong>kroupy</strong></li>
+							<li>vysoko a v zimě vzniká z páry desublimací <strong>led a sněhové vločky</strong> (bílá oblaka typu cirrus)</li>
+						</ul>
+						<p>Voda ze srážek se znovu vypaří — a <strong>koloběh</strong> se opakuje. Srážky měří <strong>srážkoměr</strong> (v mm = výška vodního sloupce). V průmyslových oblastech mohou vznikat <strong>kyselé deště</strong>, které škodí přírodě.</p>
+					`,
+				},
 			],
 		},
 		{

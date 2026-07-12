@@ -38,7 +38,7 @@ Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učite
 1. **mechanicka-prace-a-vykon** ✅ HOTOVO (mechanicka-prace, vykon)
 2. **energie** ✅ HOTOVO (energie-a-jeji-premeny, pohybova-a-polohova-energie, zakon-zachovani-mechanicke-energie, energeticka-hodnota-potravin, vnitrni-energie-telesa, tepelna-vymena-a-teplo)
 3. **tepelne-motory** ✅ HOTOVO (tepelny-motor-parni-stroj, spalovaci-motory)
-4. **teplo-a-zmeny-skupenstvi** 🔜 ZBÝVÁ (teplo-a-premeny-skupenstvi, tani, tuhnuti, vyparovani, var, kondenzace, skupenske-zmeny-vody-v-prirode) — zdroj `Škola/8/4 Teplo teplota/`
+4. **teplo-a-zmeny-skupenstvi** ✅ HOTOVO (teplo-a-premeny-skupenstvi, tani, tuhnuti, vyparovani, var, kondenzace, skupenske-zmeny-vody-v-prirode) — pozor: opraveny 3 chyby v podkladu (sublimace, var „z pevného", voda vře „0 °C")
 5. **elektrina** 🔜 ZBÝVÁ (15 podtémat 18–32) — zdroj `Škola/8/5 Elektřina /`
 6. **zvuk** 🔜 ZBÝVÁ (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost) — zdroj `Škola/8/6 Zvuk/`
 
