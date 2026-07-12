@@ -33,11 +33,20 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `ad7a321`. Souběžně čti `
 **Fyzika 7 — HOTOVO (100 %).** Milník: tag `fyzika-7-hotova`.
 Další na řadě = **Fyzika 8** (viz níže) — až budou dotříděné podklady.
 
-## 📋 Fyzika 8 a 9 (další fáze)
-- Podklady zatím NEJSOU stažené. Uživatel stáhne ZIPy z Google Disku do `/Users/Shared/Škola/8/` (a `/9/`), asistent rozbalí (`ditto -x -k`) a roztřídí podle podtémat.
-- Struktura témat 8 a 9 už na webu existuje (prázdné dlaždice „Obsah připravujeme"), viz `temata.ts` klíče `fyzika/8-rocnik`, `fyzika/9-rocnik`.
-- Celky 8: Energie, Teplo, Motory, Elektřina, Zvuk. Celky 9: atom/jádro, elektro/indukce, vesmír/kosmonautika.
-- Časové plány 8B (59 h) a 9 (41 h) hotové v `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/`.
+## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
+Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učitele `/Users/Shared/Škola/8/` — 6 celků:
+1. **mechanicka-prace-a-vykon** ✅ HOTOVO (mechanicka-prace, vykon)
+2. **energie** ✅ HOTOVO (energie-a-jeji-premeny, pohybova-a-polohova-energie, zakon-zachovani-mechanicke-energie, energeticka-hodnota-potravin, vnitrni-energie-telesa, tepelna-vymena-a-teplo)
+3. **tepelne-motory** 🔜 ZBÝVÁ (tepelny-motor-parni-stroj, spalovaci-motory) — zdroj `Škola/8/3 Motor/`
+4. **teplo-a-zmeny-skupenstvi** 🔜 ZBÝVÁ (teplo-a-premeny-skupenstvi, tani, tuhnuti, vyparovani, var, kondenzace, skupenske-zmeny-vody-v-prirode) — zdroj `Škola/8/4 Teplo teplota/`
+5. **elektrina** 🔜 ZBÝVÁ (15 podtémat 18–32) — zdroj `Škola/8/5 Elektřina /`
+6. **zvuk** 🔜 ZBÝVÁ (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost) — zdroj `Škola/8/6 Zvuk/`
+
+Postup: číst PDF (lokálně nebo přes Google Drive MCP text) → obsah do temata.ts + kvízy do kvizy.ts → build → push. Média (infografiky/písně) dodá uživatel lokálně; videa řeší YouTube automat.
+- **Google Disk čitelný pro text** (search_files vrací contentSnippet), binárky ne. Přehled ke stažení: `Omega/dokumenty/fyzika8-ke-stazeni.md`. Kontrola chyb: `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
+- **Fyzika 9** zatím nezpracována; struktura `fyzika/9-rocnik` je zatím starý placeholder (přestavět dle `Škola/9/` až budou podklady).
+- Časové plány 8B (59 h) a 9 (41 h) v `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/`.
+- **Kvíz: profesor je nově VIDEO** (`public/video/profesor/tanci.mp4` a `lomi-rukama.mp4`) — správně = tančí, špatně = lomí rukama.
 
 ## 🎬 Videa (později, dávkově)
 Velká výkladová videa (>25 MB) → učitel nahraje na YouTube jako „nezařazená", dá odkazy (do txt souborů u zvuku ve sdílené složce). Pak se hromadně vloží do stránek (přidat do `materialy` u podtématu jako druh `video` s YouTube embedem, nebo malé mp4 přímo).
@@ -74,6 +83,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-12 (3)** — Zahájena **Fyzika 8**. Struktura přestavěna dle skutečného učiva (6 celků, témata 1–35). Hotové: celek 1 (Mechanická práce, Výkon) a celek 2 (Energie — 6 podtémat: přeměny, pohybová/polohová, ZZE, energetická hodnota potravin, vnitřní energie, tepelná výměna+měrná kapacita). Vše obsah + kvízy z ověřených SmartBooks PDF (+ text z Google Disku). Kontrola: nesrovnalost 54/90 km/h v příkladu Výkon.pdf (kontrola-podkladu-fyzika8.md). **Kvíz: profesor nově jako VIDEO** (tančí/lomí rukama) místo SVG. Přehled ke stažení médií 8. roč.: fyzika8-ke-stazeni.md. Uložena paměť [[youtube-fyzika-automat]].
 - **2026-07-12 (2)** — **Fyzika 7 DOKONČENA (100 %)**. Doplněno téma „Zrcadla a čočky" — 6 podtémat (rovinné zrcadlo, kulová/duté zrcadlo, čočka spojka/rozptylka, oko a vady, rozklad světla a duha, vnímání barev RGB/CMYK) s výkladem + kvízy, + doplněny 2 chybějící kvízy (deformace, stejnorodá tělesa). Celkem 8 nových kvízů. Zdroje: SmartBooks PDF (zrcadla, čočky) + ověřené texty pro podcast (oko/rozklad/barvy). **Chyba v podkladu**: SmartBooks „23 Kulová zrcadla" str. 4 má prohozené definice dutého/vypuklého zrcadla — na webu uvedeno správně, zapsáno do kontrola-podkladu-fyzika7.md. Milník: tag `fyzika-7-hotova`.
 - **2026-07-12** — Fyzika 7 hotová z ~90 % (Pohyb, Síly, Tlak, Vztlak, Atmosféra, Světlo A). Přidán tančící profesor, vysvětlení v kvízech, R2 úložiště pro deník, časové plány 7B/8B/9, kontrola ŠVP. Založeny CLAUDE.md + PROGRESS.md. Milník: tag `fyzika-7-zaklad`.
 - _(sem přidávej další záznamy)_
