@@ -60,6 +60,27 @@ git push origin main                   # Cloudflare deploy ~1 min
 for i in $(seq 8); do curl -s https://lab.wonderly.cz/fyzika/7-rocnik/<tema>/<podtema>/ | grep -c "Spustit kvíz" | grep -q 1 && echo OK && break; sleep 10; done
 ```
 
+## 🔄 Jak se vrátit zpět, když se něco nepovede
+Každý `git push` = uložená verze na GitHubu (restore point). Web jde vrátit do libovolného dřívějšího stavu:
+```
+cd ~/Desktop/wonderly-web
+git log --oneline -20                 # seznam verzí (nahoře nejnovější)
+git revert <hash>                     # vrátí konkrétní změnu (bezpečné, vytvoří nový commit)
+git push origin main                  # nasadí návrat
+```
+Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
+**Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
+
+## 📝 Pravidlo aktualizace (na konci každé session)
+1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).
+2. Aktualizuj sekce „HOTOVÉ" a „ZBÝVÁ" výše podle reálného stavu.
+3. `git add -A && git commit && git push` (i PROGRESS.md se tím uloží na GitHub jako verze).
+4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
+
+## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-12** — Fyzika 7 hotová z ~90 % (Pohyb, Síly, Tlak, Vztlak, Atmosféra, Světlo A). Přidán tančící profesor, vysvětlení v kvízech, R2 úložiště pro deník, časové plány 7B/8B/9, kontrola ŠVP. Založeny CLAUDE.md + PROGRESS.md. Milník: tag `fyzika-7-zaklad`.
+- _(sem přidávej další záznamy)_
+
 ## ⚠️ Pasti
 - Cesty do složek `/Users/Shared/Škola/...` mají mezery a diakritiku → v bashi vždy do uvozovek, u `find`/`cp` pozor na globbing.
 - Fonty v headless Chrome pro generování infografik se nemusí načíst → radši používat infografiky od učitele (NotebookLM) zmenšené přes PIL.

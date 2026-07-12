@@ -2,6 +2,7 @@
 
 > **Komunikuj vždy česky** (uživatel je učitel-laik; před spouštěním příkazů krátce vysvětli, co dělají).
 > **Na začátku každé session si přečti i `PROGRESS.md`** — je v něm aktuální stav a čím navázat.
+> **Na KONCI každé session `PROGRESS.md` aktualizuj** (přidej datovaný záznam do sekce Historie, uprav HOTOVÉ/ZBÝVÁ) a **commitni + pushni** — tím se stav i historie uloží na GitHub jako vratná verze. Po dokončení celého ročníku přidej git tag jako milník.
 
 ## Co to je
 Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři části na subdoménách:
