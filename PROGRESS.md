@@ -1,6 +1,6 @@
 # PROGRESS.md — technický stav práce
 
-_Aktualizováno 12. 7. 2026. Nejnovější commit: `ad7a321`. Souběžně čti `CLAUDE.md` (trvalý kontext)._
+_Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `CLAUDE.md` (trvalý kontext)._
 
 ## ⏩ Jak navázat v nové session
 1. Přečti `CLAUDE.md` a tento `PROGRESS.md`.
@@ -8,7 +8,7 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `ad7a321`. Souběžně čti `
    ```
    cd ~/Desktop/wonderly-web && git log --oneline -5
    ```
-3. **Čím začít: Fyzika 8** — podklady se dotřiďují do `/Users/Shared/Škola/8/` (část už připravil učitel, zbytek se stahuje z Google Disku). Postup stejný jako u 7. ročníku: ověřit fakta → obsah do `temata.ts` → kvízy do `kvizy.ts` → média do `public/`.
+3. **Čím začít: Fyzika 8 — celek 6 Zvuk** (poslední celek 8. roč., 3 podtémata: kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost). Zdroj `/Users/Shared/Škola/8/6 Zvuk/`. Celky 1–5 hotové. Postup stejný: ověřit fakta → obsah do `temata.ts` → kvízy do `kvizy.ts` → build → push.
 4. **Fyzika 7 je KOMPLETNÍ** (viz „HOTOVÉ") — tag `fyzika-7-hotova`.
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
@@ -39,7 +39,7 @@ Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učite
 2. **energie** ✅ HOTOVO (energie-a-jeji-premeny, pohybova-a-polohova-energie, zakon-zachovani-mechanicke-energie, energeticka-hodnota-potravin, vnitrni-energie-telesa, tepelna-vymena-a-teplo)
 3. **tepelne-motory** ✅ HOTOVO (tepelny-motor-parni-stroj, spalovaci-motory)
 4. **teplo-a-zmeny-skupenstvi** ✅ HOTOVO (teplo-a-premeny-skupenstvi, tani, tuhnuti, vyparovani, var, kondenzace, skupenske-zmeny-vody-v-prirode) — pozor: opraveny 3 chyby v podkladu (sublimace, var „z pevného", voda vře „0 °C")
-5. **elektrina** 🔜 ZBÝVÁ (15 podtémat 18–32) — zdroj `Škola/8/5 Elektřina /`
+5. **elektrina** ✅ HOTOVO (15 podtémat: náboj, pole, vznik proudu, chemické zdroje, obvody, proud+měření, napětí+měření, proud v kovech+odpor, závislost odporu, Ohmův zákon, sériové/paralelní zapojení, reostat/potenciometr, práce+výkon, účinky+bezpečnost) — výklad + kvízy z SmartBooks PDF 18–32. Bez chyb v podkladu.
 6. **zvuk** 🔜 ZBÝVÁ (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost) — zdroj `Škola/8/6 Zvuk/`
 
 Postup: číst PDF (lokálně nebo přes Google Drive MCP text) → obsah do temata.ts + kvízy do kvizy.ts → build → push. Média (infografiky/písně) dodá uživatel lokálně; videa řeší YouTube automat.
@@ -83,6 +83,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-12 (4)** — **Fyzika 8, celek 5 Elektřina HOTOVO** (15 podtémat). Výklad + kvíz (12–13 otázek každý) pro: elektrický náboj, elektrické pole, vznik proudu, chemické zdroje napětí, elektrické obvody, proud+měření (ampérmetr sériově), napětí+měření (voltmetr paralelně), proud v kovech+odpor, závislost odporu na vodiči, Ohmův zákon, sériové/paralelní zapojení, reostat/potenciometr, práce+energie+výkon, účinky proudu na člověka+bezpečnost. Zdroj: SmartBooks PDF 18–32 (lokálně synced). Přepočítány příklady Ohmova zákona (10V/0,2A→50Ω) a převody kWh (1 kWh=3,6 MJ) — bez chyb v podkladu. Nasazeno, ověřeno živě. Commit `f602bfe`. Zbývá už jen celek 6 Zvuk (3 podtémata).
 - **2026-07-12 (3)** — Zahájena **Fyzika 8**. Struktura přestavěna dle skutečného učiva (6 celků, témata 1–35). Hotové: celek 1 (Mechanická práce, Výkon) a celek 2 (Energie — 6 podtémat: přeměny, pohybová/polohová, ZZE, energetická hodnota potravin, vnitřní energie, tepelná výměna+měrná kapacita). Vše obsah + kvízy z ověřených SmartBooks PDF (+ text z Google Disku). Kontrola: nesrovnalost 54/90 km/h v příkladu Výkon.pdf (kontrola-podkladu-fyzika8.md). **Kvíz: profesor nově jako VIDEO** (tančí/lomí rukama) místo SVG. Přehled ke stažení médií 8. roč.: fyzika8-ke-stazeni.md. Uložena paměť [[youtube-fyzika-automat]].
 - **2026-07-12 (2)** — **Fyzika 7 DOKONČENA (100 %)**. Doplněno téma „Zrcadla a čočky" — 6 podtémat (rovinné zrcadlo, kulová/duté zrcadlo, čočka spojka/rozptylka, oko a vady, rozklad světla a duha, vnímání barev RGB/CMYK) s výkladem + kvízy, + doplněny 2 chybějící kvízy (deformace, stejnorodá tělesa). Celkem 8 nových kvízů. Zdroje: SmartBooks PDF (zrcadla, čočky) + ověřené texty pro podcast (oko/rozklad/barvy). **Chyba v podkladu**: SmartBooks „23 Kulová zrcadla" str. 4 má prohozené definice dutého/vypuklého zrcadla — na webu uvedeno správně, zapsáno do kontrola-podkladu-fyzika7.md. Milník: tag `fyzika-7-hotova`.
 - **2026-07-12** — Fyzika 7 hotová z ~90 % (Pohyb, Síly, Tlak, Vztlak, Atmosféra, Světlo A). Přidán tančící profesor, vysvětlení v kvízech, R2 úložiště pro deník, časové plány 7B/8B/9, kontrola ŠVP. Založeny CLAUDE.md + PROGRESS.md. Milník: tag `fyzika-7-zaklad`.
