@@ -8,8 +8,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `
    ```
    cd ~/Desktop/wonderly-web && git log --oneline -5
    ```
-3. **Čím začít: Fyzika 9 — celek 2** (Elektromagnetická indukce a střídavý proud: pusobeni-pole-na-vodic-elektromotor, elektromagneticka-indukce, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator). Celek 1 (Magnetické pole) je HOTOVÝ. **Podklady 9. roč. jsou POUZE na Google Disku** (lokální `Škola/9/` je prázdná!) — číst přes MCP `search_files`/contentSnippet, parent folder ID `1q8kWtshe-EahjEQaxnP1xb87-4sght3e`, témata 01–22. Postup: text PDF z Disku → obsah do `temata.ts` → kvízy do `kvizy.ts` → build → push.
-4. **Fyzika 7 i 8 jsou KOMPLETNÍ** — tagy `fyzika-7-hotova`, `fyzika-8-hotova`. Fyzika 9 rozpracovaná (celek 1/6 hotový).
+3. **Čím začít: Fyzika 9 — doplnit 6 témat, kterým CHYBÍ PODKLADY** (jejich složky na Disku jsou prázdné): `04 Elektromotor`, `08 Transformátor` (celek 2); `09 Přenos elektrické energie` (celek 3); `17 Jádro atomu`, `18 Radioaktivita` (celek 5); `22 Sluneční soustava` (celek 6). Jakmile učitel nahraje PDF do těch složek, vyplnit stejným postupem. **Zbytek Fyziky 9 (16 z 22 témat) je HOTOVÝ.** Podklady 9. roč. jsou POUZE na Google Disku (lokální `Škola/9/` prázdná) — MCP `search_files`/contentSnippet, parent ID `1q8kWtshe-EahjEQaxnP1xb87-4sght3e`.
+4. **Fyzika 7 i 8 jsou KOMPLETNÍ** — tagy `fyzika-7-hotova`, `fyzika-8-hotova`. Fyzika 9 rozpracovaná (16/22 témat, chybí 6 s prázdnými složkami).
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
 ### Funkce
@@ -83,6 +83,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-13 (7)** — **Fyzika 9, celek 6** (Zdroje energie a vesmír) — hotové obnovitelné/neobnovitelné zdroje (výklad + kvíz, PDF 21). Sluneční soustava (22) = prázdná složka → dlaždice. **HOTOVO vše, co má podklady: 16 z 22 témat Fyziky 9.** Chybí 6 témat s prázdnými složkami na Disku (04 elektromotor, 08 transformátor, 09 přenos energie, 17 jádro atomu, 18 radioaktivita, 22 sluneční soustava) — čekají na PDF od učitele. Build OK (213 str.).
 - **2026-07-13 (6)** — **Fyzika 9, celek 5** (Jaderná fyzika) — hotová **2 ze 4**: jaderná energie a reakce, jaderný reaktor + elektrárna (výklad + kvízy, SmartBooks PDF 19–20 z Disku). **⚠️ Chybí podklady**: složky `17 Jádro atomu` a `18 Radioaktivita` na Disku PRÁZDNÉ → dlaždice. Build OK (212 str.).
 - **2026-07-13 (5)** — **Fyzika 9, celek 4 HOTOVÝ (2/2)** — elektrická energie a její přeměny, účinky proudu na organismus + bezpečnost (výklad + kvízy). Zdroj: SmartBooks PDF 15–16 z Disku. Build OK (210 str.).
 - **2026-07-13 (4)** — **Fyzika 9, celek 3** (Elektrický proud v látkách) — hotová **5 z 6 podtémat**: vedení proudu v kapalinách/elektrolýza, chemické zdroje napětí, vedení proudu v plynech, polovodiče vlastní vodivost, polovodiče N a P + dioda (výklad + kvízy 11–12 ot.). Zdroj: SmartBooks PDF z Disku (témata 10–14). **⚠️ Chybí podklad**: složka `09 Přenos elektrické energie` na Disku PRÁZDNÁ → zůstává dlaždice. Build OK (208 str.).

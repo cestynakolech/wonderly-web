@@ -1738,4 +1738,17 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu ještě slouží jaderné reaktory?', odpovedi: ['pohon ponorek a sond, výroba radiofarmak', 'jen k topení v domech', 'k výrobě benzínu'], vysvetleni: 'Mají obrovskou hustotu energie.' },
 		{ text: 'Proč je voda v primárním okruhu pod vysokým tlakem?', odpovedi: ['aby zůstala kapalná i při ~300 °C', 'aby rychleji vřela', 'aby zmrzla'], vysvetleni: 'Vysoký tlak zvyšuje bod varu.' },
 	],
+	'fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje': [
+		{ text: 'Které zdroje energie jsou obnovitelné?', odpovedi: ['sluneční záření, vítr, voda', 'uhlí, ropa, plyn', 'jaderné palivo'], vysvetleni: 'Jsou nevyčerpatelné.' },
+		{ text: 'Čím jsou typické obnovitelné zdroje?', odpovedi: ['nelze je vyčerpat', 'brzy dojdou', 'jsou jen pod zemí'], vysvetleni: 'Na Zemi jsou v neomezeném množství.' },
+		{ text: 'Které zdroje jsou neobnovitelné?', odpovedi: ['fosilní paliva a jaderné palivo', 'vítr a slunce', 'tekoucí voda'], vysvetleni: 'Za určitou dobu se vyčerpají.' },
+		{ text: 'Co patří mezi fosilní paliva?', odpovedi: ['uhlí, ropa, zemní plyn', 'vítr, slunce, voda', 'biomasa a vodík'], vysvetleni: 'Vznikla ze zbytků odumřelých organismů.' },
+		{ text: 'Jak vznikla fosilní paliva?', odpovedi: ['ze zbytků organismů bez přístupu vzduchu', 'ze slunečního světla přímo', 'ze skal a písku'], vysvetleni: 'V zemské kůře po dlouhou dobu.' },
+		{ text: 'Je biomasa obnovitelný zdroj?', odpovedi: ['ano', 'ne', 'jen v zimě'], vysvetleni: 'Patří mezi obnovitelné zdroje spolu s bioplynem.' },
+		{ text: 'Jaké palivo využívá tepelná elektrárna?', odpovedi: ['fosilní paliva', 'uran 235', 'vítr'], vysvetleni: 'Spaluje uhlí, ropu nebo plyn.' },
+		{ text: 'Jaký zdroj využívá fotovoltaická elektrárna?', odpovedi: ['sluneční záření', 'vítr', 'uhlí'], vysvetleni: 'Mění světlo na elektřinu.' },
+		{ text: 'Co dělá přečerpávací elektrárna v noci (přebytek energie)?', odpovedi: ['přečerpá vodu z dolní nádrže do horní', 'vypustí vodu dolů', 'vypne se'], vysvetleni: 'Uloží tak energii jako polohovou energii vody.' },
+		{ text: 'Kdy přečerpávací elektrárna vyrábí elektřinu?', odpovedi: ['ve špičce vypustí vodu z horní nádrže na turbínu', 'nikdy nevyrábí', 'jen v noci'], vysvetleni: 'Příklad je elektrárna Dlouhé stráně.' },
+		{ text: 'Je jaderné palivo obnovitelný zdroj?', odpovedi: ['ne, je neobnovitelné', 'ano', 'částečně'], vysvetleni: 'Uranu je omezené množství.' },
+	],
 };

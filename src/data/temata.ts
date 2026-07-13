@@ -2311,7 +2311,29 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'energie-a-vesmir',
 			nazev: 'Zdroje energie a vesmír',
 			podtemata: [
-				{ slug: 'obnovitelne-a-neobnovitelne-zdroje', nazev: 'Obnovitelné a neobnovitelné zdroje energie' },
+				{
+					slug: 'obnovitelne-a-neobnovitelne-zdroje',
+					nazev: 'Obnovitelné a neobnovitelné zdroje energie',
+					obsah: `
+						<h2>Obnovitelné a neobnovitelné zdroje energie</h2>
+						<p>Přírodní zdroje energie, ze kterých vyrábíme elektřinu nebo poháníme stroje, dělíme do dvou skupin.</p>
+						<h3>Obnovitelné zdroje</h3>
+						<ul>
+							<li>jsou na Zemi v <strong>neomezeném množství</strong> a nelze je vyčerpat,</li>
+							<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální teplo, biomasa a bioplyn, vodík</strong>.</li>
+						</ul>
+						<h3>Neobnovitelné zdroje</h3>
+						<ul>
+							<li>jsou jen v <strong>omezeném množství</strong> a za určitou dobu se vyčerpají,</li>
+							<li><strong>fosilní paliva</strong> — uhlí, ropa, zemní plyn (vznikla ze zbytků odumřelých organismů v zemské kůře bez přístupu vzduchu),</li>
+							<li>ropné břidlice a písky, <strong>jaderné palivo</strong>.</li>
+						</ul>
+						<h3>Druhy elektráren</h3>
+						<p>Podle využitého zdroje stavíme elektrárny <strong>jaderné</strong> (uran 235), <strong>tepelné</strong> (spalují fosilní paliva), <strong>sluneční</strong> (fotovoltaické), <strong>větrné</strong>, <strong>vodní</strong> a <strong>geotermální</strong>.</p>
+						<h3>Přečerpávací elektrárna (Dlouhé stráně)</h3>
+						<p>Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>; v době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>
+					`,
+				},
 				{ slug: 'slunecni-soustava', nazev: 'Sluneční soustava' },
 			],
 		},
