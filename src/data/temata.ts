@@ -1905,77 +1905,137 @@ export const temata: Record<string, Tema[]> = {
 			],
 		},
 	],
+	// Struktura 9. ročníku PŘESTAVĚNA dle skutečných složek učitele na Google Disku (témata 01–22).
+	// Celek 1 (Magnetické pole) HOTOVÝ; ostatní celky zatím dlaždice — doplní se výkladem + kvízy.
 	'fyzika/9-rocnik': [
 		{
-			slug: 'stavba-atomu',
-			nazev: 'Stavba atomu',
+			slug: 'magneticke-pole',
+			nazev: 'Magnetické pole',
 			podtemata: [
-				{ slug: 'fyzika-atomy-a-modely', nazev: 'Fyzika – Atomy a modely' },
-				{ slug: 'atom-iont-izotop', nazev: 'Atom, iont, izotop' },
-				{ slug: 'atomove-jadro', nazev: 'Atomové jádro' },
+				{
+					slug: 'magnety-magneticke-pole-opakovani',
+					nazev: 'Magnety a magnetické pole (opakování)',
+					obsah: `
+						<h2>Magnety a magnetické pole</h2>
+						<h3>Jak látky reagují na magnet</h3>
+						<ul>
+							<li><strong>Feromagnetické</strong> — silně se přitahují k magnetu a lze je zmagnetovat (železo a jeho slitiny = ocel, <strong>kobalt, nikl</strong>).</li>
+							<li><strong>Nemagnetické</strong> — na magnet téměř nereagují (dřevo, papír, korek i některé kovy: hliník, měď, zinek, stříbro).</li>
+							<li><strong>Diamagnetické</strong> — magnet je nepatrně odpuzuje (uhlík, měď, zlato).</li>
+						</ul>
+						<h3>Magnety a jejich póly</h3>
+						<ul>
+							<li><strong>Přírodní</strong> magnet — nerost s železem (magnetit), <strong>umělé permanentní</strong> — feritový, neodymový; tvary: tyčový, podkova, magnetka (střelka kompasu).</li>
+							<li>Každý magnet má <strong>severní pól (N)</strong> a <strong>jižní pól (S)</strong>. I když magnet rozlomíme, každá část má zase oba póly.</li>
+							<li>Na pólech je magnetická síla <strong>nejsilnější</strong>, uprostřed je <strong>netečné pásmo</strong>, kde je nejslabší.</li>
+						</ul>
+						<h3>Magnetické pole</h3>
+						<ul>
+							<li>Vzniká v okolí magnetu a projevuje se <strong>silovým působením</strong> na magnety a feromagnetické látky.</li>
+							<li><strong>Stejné póly se odpuzují, opačné přitahují.</strong> Se vzdáleností síla slábne.</li>
+							<li>Jeho přítomnost zjistíme <strong>magnetkou</strong> (kompasem).</li>
+						</ul>
+						<h3>Zviditelnění pole</h3>
+						<p>Na papír nad magnetem nasypeme <strong>železné piliny</strong> — uspořádají se do <strong>pilinového obrazce</strong>. Graficky pole kreslíme jako <strong>magnetické indukční čáry</strong>: jsou to uzavřené křivky, které vychází ze <strong>severního pólu (N)</strong> a míří k <strong>jižnímu (S)</strong>; jejich směr udává severní pól magnetky.</p>
+					`,
+				},
+				{
+					slug: 'magneticke-pole-vodice-a-civky',
+					nazev: 'Magnetické pole vodiče a cívky s proudem',
+					obsah: `
+						<h2>Magnetické pole vodiče a cívky s proudem</h2>
+						<p>Roku <strong>1820</strong> dánský fyzik <strong>H. Ch. Oersted</strong> zjistil, že se magnetka vychýlí, když blízkým vodičem začne procházet proud. <strong>Kolem vodiče s proudem tedy vzniká magnetické pole.</strong> Jeho účinky dál zkoumal <strong>A. M. Ampère</strong>.</p>
+						<h3>Přímý vodič s proudem</h3>
+						<ul>
+							<li>Příčinou pole je <strong>pohyb elektronů</strong> (proud).</li>
+							<li>Magnetické indukční čáry mají tvar <strong>soustředných kružnic</strong> se středem ve vodiči.</li>
+							<li>Směr čar určíme <strong>pravidlem pravé ruky</strong>.</li>
+							<li>Pole působí na vodič <strong>silou</strong> — tím větší, čím větší je proud a silnější pole. Dva rovnoběžné vodiče se stejným směrem proudu se <strong>přitahují</strong>, s opačným <strong>odpuzují</strong>. Využití: <strong>elektromotory</strong>.</li>
+						</ul>
+						<h3>Cívka s proudem</h3>
+						<ul>
+							<li><strong>Cívka</strong> = dlouhý izolovaný (lakovaný měděný) drát navinutý na válci. Silnější pole získáme navinutím vodiče do mnoha závitů.</li>
+							<li>Vložením <strong>železného jádra</strong> účinky ještě zesílíme.</li>
+							<li>Cívka s proudem se chová jako <strong>tyčový magnet</strong>; <strong>nejsilnější pole je uvnitř</strong>. Její póly závisí na směru proudu (pravidlo pravé ruky). Využití: <strong>elektromagnet</strong>.</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'elektromagnet',
+					nazev: 'Elektromagnet a jeho využití',
+					obsah: `
+						<h2>Elektromagnet a jeho využití</h2>
+						<p><strong>Elektromagnet</strong> je cívka s jádrem z <strong>magneticky měkké oceli</strong>. Ta se při zapnutí proudu rychle zmagnetuje a po vypnutí proudu její magnetické pole rychle zaniká. Pole má stejný tvar jako u tyčového magnetu.</p>
+						<h3>Co ovlivňuje sílu elektromagnetu</h3>
+						<ul>
+							<li>Čím <strong>více závitů</strong> cívka má, tím silnější je pole.</li>
+							<li>Čím <strong>větší proud</strong> cívkou teče, tím silnější je pole.</li>
+						</ul>
+						<h3>Výhody oproti permanentnímu magnetu</h3>
+						<ul>
+							<li>lze ho <strong>zapnout a vypnout</strong> (spolu s proudem),</li>
+							<li>lze <strong>prohodit póly</strong> (změnou pólů zdroje),</li>
+							<li>bývá <strong>mnohem silnější</strong>.</li>
+						</ul>
+						<h3>Kde se využívá</h3>
+						<ul>
+							<li><strong>jeřáby</strong> na nakládání železného šrotu,</li>
+							<li><strong>elektromotor</strong>,</li>
+							<li><strong>jistič</strong> — při přetížení silné pole přitáhne kotvu a rozpojí obvod (na rozdíl od pojistky lze znovu zapnout),</li>
+							<li><strong>zvonek</strong> a <strong>relé</strong> (spínač řízený slabým signálem, např. závory u kolejí),</li>
+							<li>oční lékařství — vytahování kovových pilin z oka.</li>
+						</ul>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'indukce-a-stridavy-proud',
+			nazev: 'Elektromagnetická indukce a střídavý proud',
+			podtemata: [
+				{ slug: 'pusobeni-pole-na-vodic-elektromotor', nazev: 'Působení magnetického pole na vodič s proudem, elektromotor' },
+				{ slug: 'elektromagneticka-indukce', nazev: 'Elektromagnetická indukce' },
+				{ slug: 'vznik-stridaveho-proudu-alternator', nazev: 'Vznik střídavého proudu, alternátor' },
+				{ slug: 'vlastnosti-stridaveho-proudu', nazev: 'Vlastnosti střídavého proudu' },
+				{ slug: 'transformator', nazev: 'Transformátor' },
+			],
+		},
+		{
+			slug: 'elektricky-proud-v-latkach',
+			nazev: 'Elektrický proud v látkách',
+			podtemata: [
+				{ slug: 'prenos-elektricke-energie', nazev: 'Přenos elektrické energie, energetická rozvodná síť' },
+				{ slug: 'vedeni-proudu-v-kapalinach', nazev: 'Vedení elektrického proudu v kapalinách, elektrolýza' },
+				{ slug: 'chemicke-zdroje-napeti', nazev: 'Chemické zdroje elektrického napětí' },
+				{ slug: 'vedeni-proudu-v-plynech', nazev: 'Vedení elektrického proudu v plynech' },
+				{ slug: 'polovodice-vlastni-vodivost', nazev: 'Polovodiče, vlastní vodivost polovodičů' },
+				{ slug: 'polovodice-typu-n-a-p-dioda', nazev: 'Polovodiče typu N a P, dioda' },
+			],
+		},
+		{
+			slug: 'elektricka-energie-a-bezpecnost',
+			nazev: 'Elektrická energie a bezpečnost',
+			podtemata: [
+				{ slug: 'elektricka-energie-a-premeny', nazev: 'Elektrická energie a její přeměny' },
+				{ slug: 'ucinky-proudu-bezpecnost', nazev: 'Účinky proudu na organismus, bezpečnost' },
 			],
 		},
 		{
 			slug: 'jaderna-fyzika',
 			nazev: 'Jaderná fyzika',
 			podtemata: [
-				{ slug: 'radioaktivita', nazev: 'Radioaktivita' },
-				{ slug: 'stepeni-jader', nazev: 'Štěpení jader' },
-				{ slug: 'jaderny-reaktor', nazev: 'Jaderný reaktor' },
-				{ slug: 'elektrarny-a-jaderne-havarie', nazev: 'Elektrárny a jaderné havárie' },
+				{ slug: 'jadro-atomu', nazev: 'Jádro atomu' },
+				{ slug: 'radioaktivita', nazev: 'Radioaktivita, ochrana před zářením' },
+				{ slug: 'jaderna-energie-a-reakce', nazev: 'Jaderná energie, jaderná reakce' },
+				{ slug: 'jaderny-reaktor-elektrarna', nazev: 'Jaderný reaktor, jaderná elektrárna' },
 			],
 		},
 		{
-			slug: 'elektromagneticka-indukce',
-			nazev: 'Elektromagnetická indukce',
+			slug: 'energie-a-vesmir',
+			nazev: 'Zdroje energie a vesmír',
 			podtemata: [
-				{ slug: 'elektromagneticka-indukce-zaklady', nazev: 'Elektromagnetická indukce' },
-				{ slug: 'generator', nazev: 'Generátor' },
-			],
-		},
-		{
-			slug: 'elektricke-stroje',
-			nazev: 'Elektrické stroje',
-			podtemata: [
-				{ slug: 'elektromotor', nazev: 'Elektromotor' },
-				{ slug: 'transformator', nazev: 'Transformátor' },
-			],
-		},
-		{
-			slug: 'elektrina-v-domacnosti',
-			nazev: 'Elektřina v domácnosti',
-			podtemata: [
-				{ slug: 'prenos-elektricke-energie-energeticka-rozvodna-sit', nazev: 'Přenos elektrické energie, energetická rozvodná síť' },
-				{ slug: 'schema-domovni-elektroinstalace', nazev: 'Schéma domovní elektroinstalace' },
-				{ slug: 'ucinky-elektrickeho-proudu', nazev: 'Účinky elektrického proudu' },
-				{ slug: 'bezpecnost-a-prvni-pomoc', nazev: 'Bezpečnost a první pomoc při úrazu proudem' },
-			],
-		},
-		{
-			slug: 'vedeni-proudu-v-latkach',
-			nazev: 'Vedení proudu v látkách',
-			podtemata: [
-				{ slug: 'chemicke-zdroje-elektrickeho-napeti', nazev: 'Chemické zdroje elektrického napětí' },
-				{ slug: 'vedeni-elektrickeho-proudu-v-kapalinach', nazev: 'Vedení elektrického proudu v kapalinách' },
-				{ slug: 'vedeni-elektrickeho-proudu-v-plynech', nazev: 'Vedení elektrického proudu v plynech' },
-			],
-		},
-		{
-			slug: 'polovodice',
-			nazev: 'Polovodiče',
-			podtemata: [
-				{ slug: 'polovodice-a-jejich-vlastnosti', nazev: 'Polovodiče a jejich vlastnosti' },
-				{ slug: 'polovodice-typu-n-a-p', nazev: 'Polovodiče typu N a P' },
-			],
-		},
-		{
-			slug: 'vesmir-a-zareni',
-			nazev: 'Vesmír a záření',
-			podtemata: [
-				{ slug: 'elektromagneticke-vlny', nazev: 'Elektromagnetické vlny' },
+				{ slug: 'obnovitelne-a-neobnovitelne-zdroje', nazev: 'Obnovitelné a neobnovitelné zdroje energie' },
 				{ slug: 'slunecni-soustava', nazev: 'Sluneční soustava' },
-				{ slug: 'galaxie', nazev: 'Galaxie' },
-				{ slug: 'kosmonautika', nazev: 'Kosmonautika' },
 			],
 		},
 	],
