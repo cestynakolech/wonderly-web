@@ -188,24 +188,27 @@ const POCET_V_TESTU = 7;
 		<script is:inline define:vars={{ temaKlic: `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}` }}>
 			(function () {
 				const KLIC = 'propustka-webapp-url';
+				// Výchozí adresa Apps Scriptu (nasazená učitelem). Lze přepsat přes „změnit adresu skriptu".
+				const VYCHOZI = 'https://script.google.com/macros/s/AKfycbyH_IAKSpufNdE6bhiiYPQbWrg9EOhSs5gZqdVYjOV-gpZAXahGgR_XqFc7jAQ9IdP2/exec';
 				const nastaveni = document.getElementById('prop-nastaveni');
 				const akce = document.getElementById('prop-akce');
 				const poleUrl = document.getElementById('prop-url');
+				const ucinnaUrl = () => localStorage.getItem(KLIC) || VYCHOZI;
 				function stav() {
-					const url = localStorage.getItem(KLIC);
-					nastaveni.hidden = !!url;
-					akce.hidden = !url;
+					const jeUrl = !!ucinnaUrl();
+					nastaveni.hidden = jeUrl;
+					akce.hidden = !jeUrl;
 				}
 				document.getElementById('prop-ulozit').addEventListener('click', () => {
 					const v = poleUrl.value.trim();
 					if (v) { localStorage.setItem(KLIC, v); stav(); }
 				});
 				document.getElementById('prop-zmenit').addEventListener('click', () => {
-					poleUrl.value = localStorage.getItem(KLIC) || '';
+					poleUrl.value = localStorage.getItem(KLIC) || VYCHOZI;
 					nastaveni.hidden = false; akce.hidden = true;
 				});
 				document.getElementById('prop-vytvorit').addEventListener('click', () => {
-					const url = localStorage.getItem(KLIC);
+					const url = ucinnaUrl();
 					if (!url) return;
 					const odd = url.indexOf('?') > -1 ? '&' : '?';
 					window.open(url + odd + 'tema=' + encodeURIComponent(temaKlic), '_blank');
