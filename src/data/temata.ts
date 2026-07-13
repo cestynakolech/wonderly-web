@@ -2255,8 +2255,56 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{ slug: 'jadro-atomu', nazev: 'Jádro atomu' },
 				{ slug: 'radioaktivita', nazev: 'Radioaktivita, ochrana před zářením' },
-				{ slug: 'jaderna-energie-a-reakce', nazev: 'Jaderná energie, jaderná reakce' },
-				{ slug: 'jaderny-reaktor-elektrarna', nazev: 'Jaderný reaktor, jaderná elektrárna' },
+				{
+					slug: 'jaderna-energie-a-reakce',
+					nazev: 'Jaderná energie, jaderná reakce',
+					obsah: `
+						<h2>Jaderná energie a jaderná reakce</h2>
+						<p><strong>Jaderná energie</strong> je energie „uložená" v jádře atomu. Uvolní se při vhodné jaderné reakci jako pohybová energie unikajících částic a projevuje se hlavně jako <strong>teplo</strong>. (Nesprávně se jí říká „atomová".)</p>
+						<h3>Jaderná reakce</h3>
+						<ul>
+							<li>Je to <strong>vyvolaná přeměna jádra</strong> stabilního prvku — spustí ji srážka s jinou částicí (neutron, proton, α, β). Vždy vzniká <strong>nové jádro jiného prvku</strong>.</li>
+							<li>První jadernou reakci pozoroval <strong>E. Rutherford</strong> (dusík ostřelovaný částicemi α → kyslík).</li>
+							<li><strong>Reakce × radioaktivita:</strong> reakce je vyvolaná přeměna stabilních jader, radioaktivita je <strong>samovolná</strong> přeměna nestabilních jader.</li>
+							<li>Při jaderných reakcích platí <strong>zákon zachování nukleonového i protonového čísla</strong> (součty na obou stranách rovnice jsou stejné).</li>
+						</ul>
+						<h3>Slučování a štěpení jader</h3>
+						<ul>
+							<li><strong>Slučování (fúze)</strong> — lehčí jádra se spojí na těžší, uvolní se obrovská energie; potřebuje <strong>miliony °C</strong> (termonukleární reakce). Probíhá ve <strong>hvězdách</strong> (v jádru Slunce ~15 mil. °C, vodík → helium). Využití: <strong>tokamak</strong>, vodíková bomba.</li>
+							<li><strong>Štěpení</strong> — těžké jádro (uran 235) po zásahu neutronem se rozpadne na dvě lehčí jádra a uvolní další neutrony i obrovskou energii.</li>
+						</ul>
+						<h3>Řetězová reakce</h3>
+						<ul>
+							<li>Uvolněné neutrony štěpí další jádra — vzniká <strong>řetězová reakce</strong> (za podmínky <strong>kritického množství</strong>).</li>
+							<li><strong>Neřízená</strong> — všechny neutrony reagují, energie se uvolní naráz → <strong>atomová bomba</strong>.</li>
+							<li><strong>Řízená</strong> — část neutronů se pohltí → stálý výkon → <strong>jaderný reaktor</strong>.</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'jaderny-reaktor-elektrarna',
+					nazev: 'Jaderný reaktor, jaderná elektrárna',
+					obsah: `
+						<h2>Jaderný reaktor a jaderná elektrárna</h2>
+						<p><strong>Jaderný reaktor</strong> je zařízení, ve kterém probíhá <strong>řízená řetězová reakce</strong>. Nejrozšířenější je <strong>vodní tlakový reaktor</strong>.</p>
+						<h3>Části reaktoru</h3>
+						<ul>
+							<li><strong>Aktivní zóna</strong> — v ocelové tlakové nádobě, ukrytá v ochranném obalu (<strong>kontejnment</strong> z oceli a betonu) proti úniku záření.</li>
+							<li><strong>Palivo</strong> — obohacený <strong>uran 235</strong> (oxid uraničitý) v tyčích. V 1 kg uranu je energie jako v celém vagonu uhlí.</li>
+							<li><strong>Moderátor</strong> — zpomaluje neutrony na rychlost vhodnou pro štěpení (voda, těžká voda, grafit).</li>
+							<li><strong>Chladivo</strong> — odvádí teplo (voda ~300 °C při vysokém tlaku ~16 MPa, aby zůstala kapalná).</li>
+							<li><strong>Regulační tyče</strong> — pohlcují neutrony (bórová ocel) a řídí výkon; <strong>havarijní tyče</strong> (kadmium) reakci rychle zastaví.</li>
+						</ul>
+						<p>Výkon řídíme zasouváním a vysouváním tyčí: zasunutí hlouběji reakci tlumí, vysunutí zvyšuje.</p>
+						<h3>Jaderná elektrárna</h3>
+						<ul>
+							<li>Funguje podobně jako tepelná, jen teplo pochází z <strong>řízeného štěpení</strong>. Teplo vyrábí páru → pára roztáčí <strong>turbínu s generátorem</strong> → vzniká elektřina.</li>
+							<li>Má <strong>tři oddělené vodní okruhy</strong>: primární (radioaktivní, u reaktoru), sekundární (pára pro turbínu), terciární (chlazení).</li>
+							<li>V ČR vyrábějí elektřinu jaderné elektrárny <strong>Temelín</strong> a <strong>Dukovany</strong>.</li>
+							<li>Reaktory pohánějí i ponorky, ledoborce a kosmické sondy a vyrábějí radiofarmaka pro lékařství.</li>
+						</ul>
+					`,
+				},
 			],
 		},
 		{
