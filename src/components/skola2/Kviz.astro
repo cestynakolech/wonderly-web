@@ -25,6 +25,9 @@ const { otazky } = Astro.props;
 		</div>
 		<p class="kviz-vysvetleni" id="kviz-vysvetleni" hidden></p>
 		<button class="kviz-tlacitko" id="kviz-dalsi" hidden>Další otázka →</button>
+		<p class="kviz-ukoncit-radek">
+			<button type="button" class="kviz-ukoncit" id="kviz-ukoncit">✕ Ukončit kvíz</button>
+		</p>
 	</div>
 	<div id="kviz-konec" hidden>
 		<p class="kviz-vysledek" id="kviz-vysledek"></p>
@@ -161,8 +164,16 @@ const { otazky } = Astro.props;
 		ukazOtazku();
 	}
 
+	function ukonci() {
+		el('kviz-telo').hidden = true;
+		el('kviz-konec').hidden = true;
+		el('kviz-start').hidden = false;
+		skryjVedce();
+	}
+
 	el('kviz-start').addEventListener('click', start);
 	el('kviz-znovu').addEventListener('click', start);
+	el('kviz-ukoncit').addEventListener('click', ukonci);
 	el('kviz-dalsi').addEventListener('click', () => {
 		aktualni++;
 		if (aktualni < poradi.length) ukazOtazku();
@@ -271,6 +282,22 @@ const { otazky } = Astro.props;
 	.kviz-skala summary {
 		cursor: pointer;
 		font-weight: 600;
+	}
+	.kviz-ukoncit-radek {
+		margin: 0.8rem 0 0;
+	}
+	.kviz-ukoncit {
+		font-family: inherit;
+		font-size: 0.95rem;
+		background: none;
+		border: none;
+		color: var(--ztlumena);
+		text-decoration: underline;
+		cursor: pointer;
+		padding: 0.2rem;
+	}
+	.kviz-ukoncit:hover {
+		color: var(--oranzova);
 	}
 	.kviz-skala ul {
 		margin: 0.4rem 0 0;
