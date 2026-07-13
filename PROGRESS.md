@@ -8,8 +8,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `
    ```
    cd ~/Desktop/wonderly-web && git log --oneline -5
    ```
-3. **Čím začít: Fyzika 8 — celek 6 Zvuk** (poslední celek 8. roč., 3 podtémata: kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost). Zdroj `/Users/Shared/Škola/8/6 Zvuk/`. Celky 1–5 hotové. Postup stejný: ověřit fakta → obsah do `temata.ts` → kvízy do `kvizy.ts` → build → push.
-4. **Fyzika 7 je KOMPLETNÍ** (viz „HOTOVÉ") — tag `fyzika-7-hotova`.
+3. **Čím začít: Fyzika 9** — celá Fyzika 8 je HOTOVÁ (tag `fyzika-8-hotova`). Struktura `fyzika/9-rocnik` je zatím starý placeholder — přestavět dle `/Users/Shared/Škola/9/` až budou dotříděné podklady. Postup stejný: ověřit fakta z PDF → obsah do `temata.ts` → kvízy do `kvizy.ts` → build → push.
+4. **Fyzika 7 i 8 jsou KOMPLETNÍ** — tagy `fyzika-7-hotova`, `fyzika-8-hotova`.
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
 ### Funkce
@@ -30,8 +30,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `
 - **Zrcadla a čočky** (6/6): optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka (+píseň), oko-vady-oka, rozklad-svetla-duha, vnimani-barev (oko/rozklad/barvy = infografiky). Pozn.: oko-historie-brýlí, rozklad, barvy jsou „nad rámec RVP".
 
 ## 🔜 ZBÝVÁ dodělat
-**Fyzika 7 — HOTOVO (100 %).** Milník: tag `fyzika-7-hotova`.
-Další na řadě = **Fyzika 8** (viz níže) — až budou dotříděné podklady.
+**Fyzika 7 — HOTOVO (100 %)** (tag `fyzika-7-hotova`). **Fyzika 8 — HOTOVO (100 %)** (tag `fyzika-8-hotova`).
+Další na řadě = **Fyzika 9** — až budou dotříděné podklady ze `Škola/9/` (struktura `fyzika/9-rocnik` je zatím starý placeholder).
 
 ## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
 Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učitele `/Users/Shared/Škola/8/` — 6 celků:
@@ -40,7 +40,7 @@ Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učite
 3. **tepelne-motory** ✅ HOTOVO (tepelny-motor-parni-stroj, spalovaci-motory)
 4. **teplo-a-zmeny-skupenstvi** ✅ HOTOVO (teplo-a-premeny-skupenstvi, tani, tuhnuti, vyparovani, var, kondenzace, skupenske-zmeny-vody-v-prirode) — pozor: opraveny 3 chyby v podkladu (sublimace, var „z pevného", voda vře „0 °C")
 5. **elektrina** ✅ HOTOVO (15 podtémat: náboj, pole, vznik proudu, chemické zdroje, obvody, proud+měření, napětí+měření, proud v kovech+odpor, závislost odporu, Ohmův zákon, sériové/paralelní zapojení, reostat/potenciometr, práce+výkon, účinky+bezpečnost) — výklad + kvízy z SmartBooks PDF 18–32. Bez chyb v podkladu.
-6. **zvuk** 🔜 ZBÝVÁ (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost) — zdroj `Škola/8/6 Zvuk/`
+6. **zvuk** ✅ HOTOVO (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost) — výklad + kvízy + YouTube videa z automatu. Bez chyb v podkladu (SmartBooks PDF 33–35).
 
 Postup: číst PDF (lokálně nebo přes Google Drive MCP text) → obsah do temata.ts + kvízy do kvizy.ts → build → push. Média (infografiky/písně) dodá uživatel lokálně; videa řeší YouTube automat.
 - **Google Disk čitelný pro text** (search_files vrací contentSnippet), binárky ne. Přehled ke stažení: `Omega/dokumenty/fyzika8-ke-stazeni.md`. Kontrola chyb: `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
@@ -83,6 +83,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-13** — **Fyzika 8 DOKONČENA (100 %)**. Doplněn poslední celek 6 **Zvuk** — 3 podtémata (Kmitání a vlnění, Zvuk vznik a šíření, Vnímání zvuku a hlasitost) s výkladem + kvízy (14 otázek každé). Zdroj: SmartBooks PDF 33–35 (lokálně). Ověřena fakta (f=1/T, λ=v·T=v/f; rychlost zvuku 340/1500/5000 m/s; ozvěna 0,1 s → 17 m; infra/ultrazvuk 16 Hz/16 kHz; práh slyšitelnosti 0 dB, bolesti 130 dB, poškození >90 dB) — bez chyb v podkladu. **Nový druh materiálu `youtube`** (Material.druh + iframe embed přes youtube-nocookie v index.astro) — poprvé použity YouTube odkazy z automatu (uložené v .txt u témat ve sdílené složce): oP6IJtosIp0, irfetAid_y0, 4uaNca3El9A, 109chWMF7RI. Build OK (201 stránek). Milník: tag `fyzika-8-hotova`.
 - **2026-07-12 (4)** — **Fyzika 8, celek 5 Elektřina HOTOVO** (15 podtémat). Výklad + kvíz (12–13 otázek každý) pro: elektrický náboj, elektrické pole, vznik proudu, chemické zdroje napětí, elektrické obvody, proud+měření (ampérmetr sériově), napětí+měření (voltmetr paralelně), proud v kovech+odpor, závislost odporu na vodiči, Ohmův zákon, sériové/paralelní zapojení, reostat/potenciometr, práce+energie+výkon, účinky proudu na člověka+bezpečnost. Zdroj: SmartBooks PDF 18–32 (lokálně synced). Přepočítány příklady Ohmova zákona (10V/0,2A→50Ω) a převody kWh (1 kWh=3,6 MJ) — bez chyb v podkladu. Nasazeno, ověřeno živě. Commit `f602bfe`. Zbývá už jen celek 6 Zvuk (3 podtémata).
 - **2026-07-12 (3)** — Zahájena **Fyzika 8**. Struktura přestavěna dle skutečného učiva (6 celků, témata 1–35). Hotové: celek 1 (Mechanická práce, Výkon) a celek 2 (Energie — 6 podtémat: přeměny, pohybová/polohová, ZZE, energetická hodnota potravin, vnitřní energie, tepelná výměna+měrná kapacita). Vše obsah + kvízy z ověřených SmartBooks PDF (+ text z Google Disku). Kontrola: nesrovnalost 54/90 km/h v příkladu Výkon.pdf (kontrola-podkladu-fyzika8.md). **Kvíz: profesor nově jako VIDEO** (tančí/lomí rukama) místo SVG. Přehled ke stažení médií 8. roč.: fyzika8-ke-stazeni.md. Uložena paměť [[youtube-fyzika-automat]].
 - **2026-07-12 (2)** — **Fyzika 7 DOKONČENA (100 %)**. Doplněno téma „Zrcadla a čočky" — 6 podtémat (rovinné zrcadlo, kulová/duté zrcadlo, čočka spojka/rozptylka, oko a vady, rozklad světla a duha, vnímání barev RGB/CMYK) s výkladem + kvízy, + doplněny 2 chybějící kvízy (deformace, stejnorodá tělesa). Celkem 8 nových kvízů. Zdroje: SmartBooks PDF (zrcadla, čočky) + ověřené texty pro podcast (oko/rozklad/barvy). **Chyba v podkladu**: SmartBooks „23 Kulová zrcadla" str. 4 má prohozené definice dutého/vypuklého zrcadla — na webu uvedeno správně, zapsáno do kontrola-podkladu-fyzika7.md. Milník: tag `fyzika-7-hotova`.

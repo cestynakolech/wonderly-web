@@ -1,6 +1,7 @@
 export type Material = {
-	druh: 'infografika' | 'pdf' | 'video' | 'audio';
+	druh: 'infografika' | 'pdf' | 'video' | 'audio' | 'youtube';
 	nazev: string;
+	/** U druhu 'youtube' je zde ID videa (např. 'oP6IJtosIp0'), jinak cesta k souboru. */
 	cesta: string;
 };
 export type Podtema = {
@@ -1762,9 +1763,145 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'zvuk',
 			nazev: 'Zvuk',
 			podtemata: [
-				{ slug: 'kmitani-a-vlneni', nazev: 'Kmitání a vlnění (nad rámec RVP)' },
-				{ slug: 'zvuk-vznik-a-sireni', nazev: 'Zvuk, vznik a šíření zvuku' },
-				{ slug: 'vnimani-zvuku-a-hlasitost', nazev: 'Vnímání zvuku, hlasitost zvuku' },
+				{
+					slug: 'kmitani-a-vlneni',
+					nazev: 'Kmitání a vlnění (nad rámec RVP)',
+					obsah: `
+						<h2>Kmitání a vlnění</h2>
+						<p>Příkladem <strong>kmitavého pohybu</strong> je dítě na houpačce, kyvadlo nebo skokan na bungee laně. Těleso se opakovaně vychyluje na obě strany a vrací se zpět.</p>
+						<h3>Základní pojmy kmitání</h3>
+						<ul>
+							<li><strong>Rovnovážná poloha</strong> — poloha, ve které je těleso v klidu.</li>
+							<li><strong>Kmitání</strong> — pohyb, při kterém se těleso opakovaně vychyluje z rovnovážné polohy a zase se do ní vrací; výchylka pravidelně střídá strany.</li>
+							<li><strong>Kmit</strong> — nejmenší pravidelně se opakující část pohybu (z jedné krajní výchylky přes rovnovážnou polohu do druhé krajní výchylky a zpět).</li>
+							<li><strong>Amplituda</strong> — velikost největší výchylky z rovnovážné polohy. Bez tření je výchylka na obě strany stejně velká.</li>
+						</ul>
+						<h3>Perioda a frekvence</h3>
+						<ul>
+							<li><strong>Perioda T</strong> — doba jednoho kmitu; jednotka <strong>sekunda (s)</strong>.</li>
+							<li><strong>Frekvence f</strong> — počet kmitů za 1 sekundu; jednotka <strong>hertz (Hz)</strong>.</li>
+							<li>Perioda a frekvence jsou <strong>převrácené hodnoty</strong>: <strong>f = 1 / T</strong> a <strong>T = 1 / f</strong>.</li>
+						</ul>
+						<p>Příklad: houpačka udělá <strong>2 kmity za sekundu</strong> → f = 2 Hz, jeden kmit trvá půl sekundy → T = 0,5 s.</p>
+						<p>V běžném životě jde většinou o <strong>tlumené kmitání</strong> — výchylka se kvůli tření (o vzduch i uvnitř tělesa) postupně zmenšuje, až se těleso zastaví.</p>
+						<h3>Vlnění</h3>
+						<p>Když hodíme kamínek do vody, rozkmitají se molekuly v místě dopadu a se zpožděním i molekuly sousední — kmitání se šíří dál a vznikají <strong>vlny</strong>. <strong>Vlnění</strong> tedy vzniká šířením kmitavého pohybu látkovým prostředím. Všechny částice kmitají se stejnou frekvencí (a bez ztrát i se stejnou amplitudou), ale každá s malým zpožděním.</p>
+						<ul>
+							<li><strong>Vlnová délka λ</strong> — nejmenší vzdálenost dvou bodů, které kmitají stejně (ve stejné fázi); jednotka <strong>metr (m)</strong>.</li>
+							<li><strong>Rychlost šíření vlnění v</strong> — jednotka <strong>metr za sekundu (m/s)</strong>. Vlnění se nejrychleji šíří pevnými látkami, nejpomaleji plyny.</li>
+							<li>Vztah: <strong>λ = v · T = v / f</strong>.</li>
+						</ul>
+						<h3>Druhy mechanického vlnění</h3>
+						<ul>
+							<li><strong>Vlnění příčné</strong> — částice kmitají <strong>kolmo</strong> na směr šíření (vlny na hladině, struna kytary). Vlnu je vidět jako „kopečky a údolí".</li>
+							<li><strong>Vlnění podélné</strong> — částice kmitají <strong>ve směru</strong> šíření, vzniká nahuštěním a zředěním částic (např. <strong>zvuk</strong>, padající kostky domina). Existuje ve všech skupenstvích.</li>
+						</ul>
+					`,
+					materialy: [
+						{
+							druh: 'youtube',
+							nazev: 'Video: Kmitání a vlnění',
+							cesta: 'oP6IJtosIp0',
+						},
+					],
+				},
+				{
+					slug: 'zvuk-vznik-a-sireni',
+					nazev: 'Zvuk, vznik a šíření zvuku',
+					obsah: `
+						<h2>Zvuk, vznik a šíření zvuku</h2>
+						<p><strong>Zvuk je mechanické vlnění, které vnímáme sluchem.</strong> Vzniká <strong>chvěním těles</strong> (rozkmitaná struna, blána bubnu, hlasivky). K šíření zvuku je vždy potřeba <strong>látkové prostředí</strong>.</p>
+						<h3>Jak zvuk vzniká a šíří se</h3>
+						<ul>
+							<li>Chvějící se těleso stlačuje a zřeďuje částice okolního prostředí (vzduchu, vody, pevné látky).</li>
+							<li>Tyto změny hustoty se šíří látkou dál od zdroje jako <strong>tlaková vlna</strong>.</li>
+							<li><strong>Ve vakuu se zvuk nešíří</strong> — nejsou tam žádné částice, které by se zhušťovaly a zřeďovaly.</li>
+						</ul>
+						<h3>Frekvence a výška tónu</h3>
+						<ul>
+							<li><strong>Frekvence f</strong> (starší název kmitočet) udává počet kmitů zdroje za 1 sekundu; jednotka <strong>hertz (Hz)</strong>.</li>
+							<li>Frekvence určuje <strong>výšku tónu</strong>: nízká frekvence = hluboký tón, vysoká frekvence = vysoký tón. Komorní tón <em>a</em> má 440 Hz — podle něj se ladí nástroje.</li>
+							<li>Lidské ucho slyší přibližně <strong>16 Hz až 16 000 Hz</strong> (nejcitlivější je na 2000–4000 Hz).</li>
+							<li><strong>Infrazvuk</strong> — pod 16 Hz (dorozumívají se jím sloni, velryby).</li>
+							<li><strong>Ultrazvuk</strong> — nad 16 kHz (delfíni, netopýři — echolokace).</li>
+						</ul>
+						<h3>Zdroje zvuku, tón a hluk</h3>
+						<p>Zvuk vzniká chvěním pružných těles — rozkmitat je lze úderem, drnkáním, smýkáním, prouděním vzduchu (píšťala) i prudkou změnou tlaku (výstřel, hrom).</p>
+						<ul>
+							<li><strong>Tón</strong> (hudební zvuk) vzniká <strong>pravidelným</strong> kmitáním (struna, hlasivky).</li>
+							<li><strong>Hluk</strong> vzniká <strong>nepravidelným</strong> kmitáním (šramot, vrzání, praskání).</li>
+						</ul>
+						<h3>Rychlost zvuku</h3>
+						<p>Rychlost zvuku závisí na prostředí — nejrychleji se šíří v pevných látkách, nejpomaleji v plynech:</p>
+						<ul>
+							<li>ve vzduchu <strong>≈ 340 m/s</strong> (mírně kolísá s teplotou a vlhkostí)</li>
+							<li>ve vodě <strong>≈ 1500 m/s</strong></li>
+							<li>v oceli <strong>≈ 5000 m/s</strong></li>
+							<li>ve vakuu <strong>0 m/s</strong> (zvuk se nešíří)</li>
+						</ul>
+						<h3>Odraz zvuku: ozvěna a dozvuk</h3>
+						<ul>
+							<li><strong>Ozvěna</strong> — odražený zvuk uslyšíme zvlášť, má-li zpoždění aspoň <strong>0,1 s</strong>; to odpovídá překážce vzdálené aspoň <strong>17 m</strong>.</li>
+							<li><strong>Dozvuk</strong> — u bližší překážky (méně než 17 m) původní a odražený zvuk splynou, zvuk se rozléhá a je zesílený (kostel, prázdná místnost).</li>
+							<li><strong>Odraz ultrazvuku</strong> se využívá: <strong>sonar</strong> (hloubka moře), <strong>sonografie</strong> (zobrazení orgánů, miminka), defektoskopie (trhliny v materiálu).</li>
+						</ul>
+						<h3>Ohyb a pohlcování zvuku</h3>
+						<ul>
+							<li>Zvuk se <strong>ohýbá</strong> za překážky — hluboké tóny i za velké (proto z kapely o pár ulic dál slyšíme jen basu a buben).</li>
+							<li>Měkké porézní materiály (molitan, pěna, textil) zvuk <strong>pohlcují</strong> — využití: zvuková izolace, protihlukové stěny.</li>
+						</ul>
+						<p>Obor fyziky, který zkoumá vznik, šíření a vnímání zvuku, se nazývá <strong>akustika</strong>.</p>
+					`,
+					materialy: [
+						{
+							druh: 'youtube',
+							nazev: 'Video: Fyzika zvuku – vysvětlení',
+							cesta: 'irfetAid_y0',
+						},
+						{
+							druh: 'youtube',
+							nazev: 'Video: Akustický diktát',
+							cesta: '4uaNca3El9A',
+						},
+					],
+				},
+				{
+					slug: 'vnimani-zvuku-a-hlasitost',
+					nazev: 'Vnímání zvuku, hlasitost zvuku',
+					obsah: `
+						<h2>Vnímání zvuku a hlasitost</h2>
+						<p>Člověk vnímá zvuk <strong>sluchem</strong>. Zvuková vlna projde uchem a nakonec ji jako zvuk vyhodnotí mozek.</p>
+						<h3>Cesta zvuku uchem</h3>
+						<ol>
+							<li><strong>Ušní boltec</strong> zachytí zvuk z okolí a nasměruje ho do zvukovodu.</li>
+							<li><strong>Zvukovod</strong> vede zvuk dál k bubínku.</li>
+							<li><strong>Ušní bubínek</strong> se dopadem zvukové vlny rozkmitá (pohyb od 0,0001 mm až po 1 mm).</li>
+							<li><strong>Kůstky</strong> (kladívko, kovadlinka, třmínek) přenesou kmity přes pružné okénko do vnitřního ucha.</li>
+							<li><strong>Hlemýžď</strong> — kmity se přenesou do kapaliny uvnitř.</li>
+							<li><strong>Vláskové buňky</strong> rozkmitá kapalina a vyšlou nervový signál. Jsou velmi jemné — <strong>při poškození se už neobnoví</strong>.</li>
+							<li><strong>Sluchový nerv</strong> pošle signál do mozku, který ho vnímá jako zvuk.</li>
+						</ol>
+						<h3>Hlasitost zvuku</h3>
+						<p>Vnímání hlasitosti je <strong>subjektivní</strong> (každý má jinou citlivost). Objektivně ji popisuje <strong>hladina intenzity zvuku</strong> — měří tlak zvukové vlny; jednotka <strong>decibel (dB)</strong>.</p>
+						<ul>
+							<li><strong>Práh slyšitelnosti</strong> — nejslabší slyšitelný zvuk; hladina <strong>0 dB</strong> (odtud se stupnice měří).</li>
+							<li><strong>Práh bolesti</strong> — nejsilnější zvuk, který ucho snese; hladina <strong>130 dB</strong>, při překročení hrozí protržení bubínku.</li>
+						</ul>
+						<h3>Rizika hluku a ochrana sluchu</h3>
+						<ul>
+							<li>Dlouhodobý pobyt nad <strong>90 dB</strong> <strong>trvale a nevratně</strong> poškozuje nervové (vláskové) buňky.</li>
+							<li>Nadměrný hluk zhoršuje psychický i fyzický stav — nesoustředěnost, bolesti hlavy, nevolnost.</li>
+							<li><strong>Ochrana:</strong> protihluková sluchátka a špunty, dostatečná vzdálenost od zdroje, rozumná hlasitost ve sluchátkách, tlumiče a protihlukové stěny, ohleduplnost.</li>
+						</ul>
+					`,
+					materialy: [
+						{
+							druh: 'youtube',
+							nazev: 'Video: Jak slyšíme a chráníme sluch',
+							cesta: '109chWMF7RI',
+						},
+					],
+				},
 			],
 		},
 	],
