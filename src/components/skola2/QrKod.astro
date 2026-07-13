@@ -1,0 +1,53 @@
+---
+import QRCode from 'qrcode';
+
+interface Props {
+	/** Absolutní odkaz, na který QR vede */
+	url: string;
+	/** Velikost obrázku v px (výchozí 150) */
+	velikost?: number;
+	/** Popisek pod QR (nepovinný) */
+	popis?: string;
+}
+
+const { url, velikost = 150, popis } = Astro.props;
+
+// QR se vykreslí jako SVG už při sestavení webu (žádný běh v prohlížeči)
+const svg = await QRCode.toString(url, {
+	type: 'svg',
+	margin: 1,
+	errorCorrectionLevel: 'M',
+});
+---
+
+<figure class="qrkod" style={`--qr-velikost:${velikost}px`}>
+	<div class="qrkod-obraz" set:html={svg} />
+	{popis && <figcaption>{popis}</figcaption>}
+</figure>
+
+<style is:global>
+	.qrkod {
+		margin: 0;
+		text-align: center;
+	}
+	.qrkod-obraz {
+		display: inline-block;
+		width: var(--qr-velikost);
+		max-width: 100%;
+		padding: 8px;
+		background: #fff;
+		border: 2.5px solid var(--inkoust);
+		border-radius: 12px;
+		box-shadow: 2px 3px 0 rgba(43, 42, 38, 0.14);
+	}
+	.qrkod-obraz svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.qrkod figcaption {
+		margin-top: 0.5rem;
+		font-size: 0.95rem;
+		color: var(--ztlumena);
+	}
+</style>

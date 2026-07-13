@@ -1,5 +1,6 @@
 ---
 import SkolaLayout from '../../layouts/SkolaLayout.astro';
+import QrKod from '../../components/skola2/QrKod.astro';
 import { predmety } from '../../data/predmety';
 ---
 
@@ -19,5 +20,20 @@ import { predmety } from '../../data/predmety';
 			))
 		}
 	</ul>
+	<section class="qr-pristup">
+		<h2><span class="podtrh">📱 Rychlý přístup</span></h2>
+		<p>Naskenuj telefonem a jsi rovnou na webu — nic nemusíš psát.</p>
+		<QrKod url="https://lab.wonderly.cz/" velikost={170} popis="lab.wonderly.cz" />
+	</section>
 	<footer><a href="https://wonderly.cz">wonderly.cz</a></footer>
 </SkolaLayout>
+
+<style>
+	.qr-pristup {
+		margin-top: 2.5rem;
+		text-align: center;
+	}
+	.qr-pristup p {
+		margin-bottom: 1rem;
+	}
+</style>

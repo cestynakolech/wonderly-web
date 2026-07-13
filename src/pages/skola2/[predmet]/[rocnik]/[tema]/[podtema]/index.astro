@@ -1,6 +1,7 @@
 ---
 import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
 import Kviz from '../../../../../../components/skola2/Kviz.astro';
+import QrKod from '../../../../../../components/skola2/QrKod.astro';
 import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
@@ -27,6 +28,7 @@ export function getStaticPaths() {
 const { predmet, rocnik, tema, podtema } = Astro.props;
 const klicKvizu = `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`;
 const otazky = kvizy[klicKvizu];
+const absolutniUrl = `https://lab.wonderly.cz/${klicKvizu}/`;
 
 const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 ---
@@ -41,6 +43,11 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	]}
 >
 	<h1><span class="podtrh">{podtema.nazev}</span></h1>
+	<details class="qr-podtema">
+		<summary>📱 QR na toto téma (pro promítnutí)</summary>
+		<p>Naskenuj a máš toto téma rovnou v telefonu.</p>
+		<QrKod url={absolutniUrl} velikost={150} popis={podtema.nazev} />
+	</details>
 	{
 		podtema.obsah ? (
 			<article class="ramecek vyklad" set:html={podtema.obsah} />
@@ -115,6 +122,18 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 <style is:global>
 	.vyklad h2 {
 		margin-top: 0;
+	}
+	.qr-podtema {
+		margin: 0 0 1.2rem;
+		font-size: 0.95rem;
+		color: var(--ztlumena);
+	}
+	.qr-podtema summary {
+		cursor: pointer;
+		font-weight: 600;
+	}
+	.qr-podtema p {
+		margin: 0.5rem 0;
 	}
 	.infografika,
 	.video {

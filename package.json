@@ -14,6 +14,7 @@
   "dependencies": {
     "@fontsource/caveat": "^5.2.8",
     "@fontsource/patrick-hand": "^5.2.8",
-    "astro": "^6.4.5"
+    "astro": "^6.4.5",
+    "qrcode": "^1.5.4"
   }
 }
