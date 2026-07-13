@@ -2070,11 +2070,118 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Elektrický proud v látkách',
 			podtemata: [
 				{ slug: 'prenos-elektricke-energie', nazev: 'Přenos elektrické energie, energetická rozvodná síť' },
-				{ slug: 'vedeni-proudu-v-kapalinach', nazev: 'Vedení elektrického proudu v kapalinách, elektrolýza' },
-				{ slug: 'chemicke-zdroje-napeti', nazev: 'Chemické zdroje elektrického napětí' },
-				{ slug: 'vedeni-proudu-v-plynech', nazev: 'Vedení elektrického proudu v plynech' },
-				{ slug: 'polovodice-vlastni-vodivost', nazev: 'Polovodiče, vlastní vodivost polovodičů' },
-				{ slug: 'polovodice-typu-n-a-p-dioda', nazev: 'Polovodiče typu N a P, dioda' },
+				{
+					slug: 'vedeni-proudu-v-kapalinach',
+					nazev: 'Vedení elektrického proudu v kapalinách, elektrolýza',
+					obsah: `
+						<h2>Vedení elektrického proudu v kapalinách</h2>
+						<p><strong>Destilovaná voda proud nevede</strong> — žárovka v obvodu nesvítí. Jakmile do ní přisypeme <strong>kuchyňskou sůl</strong>, žárovka se rozsvítí. (Sůl v pevném stavu ale vodivá není.)</p>
+						<h3>Proč roztok soli vede proud</h3>
+						<ul>
+							<li>Molekuly vody naruší krystalovou mřížku soli a vzniknou <strong>ionty</strong>: kladné kationty Na⁺ a záporné anionty Cl⁻.</li>
+							<li>Po zapojení zdroje se <strong>kationty pohybují k záporné elektrodě</strong> a <strong>anionty ke kladné</strong>. Tento usměrněný pohyb iontů je elektrický proud.</li>
+						</ul>
+						<h3>Elektrody a elektrolyty</h3>
+						<ul>
+							<li><strong>Katoda</strong> přitahuje kladné kationty, <strong>anoda</strong> přitahuje záporné anionty. <strong>Pozor:</strong> elektrody se jmenují podle iontů, které přitahují, ne podle svého náboje.</li>
+							<li><strong>Elektrolyt</strong> = kapalina, která vede proud (roztoky solí, kyselin, zásad). Vodivá je i pitná voda (obsahuje minerály).</li>
+						</ul>
+						<h3>Elektrolýza a její využití</h3>
+						<p><strong>Elektrolýza</strong> je děj, při kterém průchodem proudu elektrolytem nastávají <strong>látkové změny</strong>.</p>
+						<ul>
+							<li>výroba čistých látek (chlor a vodík rozkladem, čisté kovy z rudy),</li>
+							<li><strong>pokovování</strong> — pozlacení, pochromování, pozinkování (kvůli vzhledu, ceně a ochraně proti korozi).</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'chemicke-zdroje-napeti',
+					nazev: 'Chemické zdroje elektrického napětí',
+					obsah: `
+						<h2>Chemické zdroje elektrického napětí</h2>
+						<p>Chemický zdroj napětí získáme, když do <strong>elektrolytu</strong> (vodivého roztoku) ponoříme <strong>dvě elektrody z různých kovů</strong>. Chemické reakce přesunou náboj — na jedné elektrodě se hromadí elektrony (záporná), na druhé ubývají (kladná).</p>
+						<ul>
+							<li><strong>Anoda</strong> — záporná elektroda (zinek, lithium).</li>
+							<li><strong>Katoda</strong> — kladná elektroda (uhlík/grafit, měď).</li>
+						</ul>
+						<h3>Nejznámější články</h3>
+						<ul>
+							<li><strong>Suchý článek</strong> — zinková nádoba (−), uhlíková tyčinka (+), salmiaková pasta; napětí <strong>1,5 V</strong>, jednorázový (v hračkách).</li>
+							<li><strong>Plochá baterie</strong> — tři suché články za sebou, napětí <strong>4,5 V</strong>.</li>
+							<li><strong>Alkalické</strong> — vyšší kapacita a životnost (blesk fotoaparátu).</li>
+							<li><strong>Lithiové</strong> — kvalitní i po dlouhém skladování (mobil, notebook).</li>
+							<li><strong>Olověný akumulátor</strong> — velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie).</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'vedeni-proudu-v-plynech',
+					nazev: 'Vedení elektrického proudu v plynech',
+					obsah: `
+						<h2>Vedení elektrického proudu v plynech</h2>
+						<p>Vzduch je za běžných podmínek <strong>špatný vodič</strong>, ale ne dokonalý izolant — nabitý elektroskop se časem sám vybíjí, protože ve vzduchu je malé množství nabitých částic. <strong>Horký vzduch vede mnohem lépe</strong> (plamen svíčky elektroskop vybije rychle).</p>
+						<h3>Ionizace plynu</h3>
+						<ul>
+							<li>Při vysoké teplotě se molekuly rychle srážejí, uvolní se elektron a vznikne <strong>kladný iont</strong>; elektron se přidá k jiné molekule a vznikne <strong>záporný iont</strong>.</li>
+							<li>Vlivem kosmického záření je vzduch ve výšce vodivější (ve 50 km už velmi dobrý vodič).</li>
+						</ul>
+						<h3>Výboje v plynech</h3>
+						<ul>
+							<li><strong>Blesk</strong> (jiskrový výboj) — dlouhý 2–3 km, v kanálu až <strong>20 000–30 000 °C</strong>; hrom vzniká rychlým rozpínáním ohřátého vzduchu. Blesk vidíme dřív, než slyšíme hrom (zvuk je pomalejší). Ochrana: <strong>bleskosvod</strong> (B. Franklin a Prokop Diviš).</li>
+							<li><strong>Elektrický oblouk</strong> — mezi uhlíkovými elektrodami; využití při <strong>svařování</strong> (nutná ochrana zraku).</li>
+							<li><strong>Výboj ve zředěných plynech</strong> — barva světla závisí na plynu; využití: <strong>světelné reklamy</strong>.</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'polovodice-vlastni-vodivost',
+					nazev: 'Polovodiče, vlastní vodivost polovodičů',
+					obsah: `
+						<h2>Polovodiče a jejich vlastní vodivost</h2>
+						<p>Nejznámější polovodiče jsou <strong>křemík (Si)</strong> a germanium. Nechovají se ani jako vodič, ani jako izolant — jsou „napůl".</p>
+						<h3>Odpor závisí na teplotě opačně než u kovů</h3>
+						<ul>
+							<li>Kovy: s rostoucí teplotou <strong>roste odpor</strong>.</li>
+							<li>Polovodiče: při nízké teplotě mají <strong>velký odpor</strong> (skoro nevedou), s rostoucí teplotou <strong>odpor klesá a vodivost roste</strong>. Čím teplejší polovodič, tím lepší vodič.</li>
+						</ul>
+						<h3>Vlastní vodivost</h3>
+						<ul>
+							<li>Křemík (IV. skupina) má 4 valenční elektrony a v krystalu tvoří pevné vazby.</li>
+							<li>Zahřátím se elektron vytrhne z vazby → vznikne <strong>volný elektron</strong> a na jeho místě <strong>díra</strong>. Vzniká vždy pár elektron–díra.</li>
+							<li><strong>Díra se chová jako kladná částice</strong> a pohybuje se opačným směrem než elektrony.</li>
+							<li>Proud v polovodiči tvoří pohyb <strong>volných elektronů a děr</strong>.</li>
+						</ul>
+						<h3>Využití</h3>
+						<ul>
+							<li><strong>Termistor</strong> — mění odpor s teplotou (elektronické teploměry, měření vysokých teplot).</li>
+							<li><strong>Fotorezistor</strong> — mění odpor podle osvětlení (fotobuňka, optická závora).</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'polovodice-typu-n-a-p-dioda',
+					nazev: 'Polovodiče typu N a P, dioda',
+					obsah: `
+						<h2>Polovodiče typu N a P, dioda</h2>
+						<p>Vodivost polovodiče zvýšíme přidáním nepatrné <strong>příměsi</strong> — prvku s jiným počtem valenčních elektronů než křemík. Vznikne <strong>nevlastní polovodič</strong>.</p>
+						<ul>
+							<li><strong>Typ N</strong> (negativní) — příměs z V. skupiny (fosfor, arsen, antimon) má o 1 elektron víc → <strong>volné elektrony navíc</strong>, elektronová vodivost.</li>
+							<li><strong>Typ P</strong> (pozitivní) — příměs z III. skupiny (bor, hliník, galium, indium) má o 1 elektron míň → <strong>díry navíc</strong>, děrová vodivost.</li>
+						</ul>
+						<h3>Přechod PN</h3>
+						<ul>
+							<li><strong>Propustný směr</strong> (N k zápornému, P ke kladnému pólu) — proud <strong>prochází</strong>.</li>
+							<li><strong>Závěrný směr</strong> (obráceně) — proud <strong>neprochází</strong>, polovodič se chová jako vypnutý spínač.</li>
+						</ul>
+						<h3>Součástky s přechodem PN</h3>
+						<ul>
+							<li><strong>Dioda</strong> — propouští proud jen jedním směrem; mění střídavý proud na stejnosměrný. Šipka ve značce udává propustný směr.</li>
+							<li><strong>Fotodioda</strong> — mění světlo na elektřinu; základ fotovoltaických článků.</li>
+							<li><strong>LED (svítivá dioda)</strong> — mění elektřinu na světlo, jen v propustném zapojení; nízká spotřeba, dlouhá životnost.</li>
+							<li><strong>Tranzistor</strong> — dva přechody PN, funguje jako rychlý spínač; základ veškeré elektroniky.</li>
+						</ul>
+					`,
+				},
 			],
 		},
 		{
