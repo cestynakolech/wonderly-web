@@ -75,8 +75,9 @@ const POCET_V_TESTU = 7;
 			<h1>🖨️ Tisknutelný test: {podtema.nazev}</h1>
 			<p>
 				Z {otazky.length} procvičovacích otázek je náhodně vybráno {POCET_V_TESTU}. Na jednu A4 se
-				vejdou <strong>4 stejné testy</strong> — po vytištění list rozstříhej na čtvrtiny. Přední
-				strana má hlavičku a otázky 1–4, zadní strana otázky 5–7.
+				vejdou <strong>4 testy</strong> — <strong>horní dva jsou skupina A, dolní dva skupina B</strong>
+				(stejné otázky, ale navzájem zamíchané, aby sousedé neopisovali). Po vytištění list rozstříhej
+				na čtvrtiny. Přední strana má hlavičku a otázky 1–4, zadní strana otázky 5–7.
 			</p>
 			<p>
 				<strong>Nastavení tisku:</strong> oboustranně, <em>otáčet po dlouhé straně</em>, měřítko
@@ -111,41 +112,49 @@ const POCET_V_TESTU = 7;
 
 			const pismena = ['a', 'b', 'c'];
 
-			function vygeneruj() {
-				const vybrane = zamichej(otazky).slice(0, POCET_V_TESTU);
-				// zamíchat odpovědi a zapamatovat si správné písmeno
-				const testove = vybrane.map((otazka) => {
+			const otazkaHtml = (otazka, i) =>
+				`<div class="otazka"><p class="zneni">${i + 1}) ${otazka.text}</p><p class="moznosti">${otazka.odpovedi
+					.map((o, j) => `<span>${pismena[j]}) ${o}</span>`)
+					.join(' ')}</p></div>`;
+
+			// z vybraných otázek vyrobí jednu verzi testu: zamíchá pořadí otázek i odpovědí
+			const pripravVerzi = (vybrane) =>
+				zamichej(vybrane).map((otazka) => {
 					const spravna = otazka.odpovedi[0];
 					const odpovedi = zamichej(otazka.odpovedi);
 					return { text: otazka.text, odpovedi, spravne: pismena[odpovedi.indexOf(spravna)] };
 				});
 
-				const otazkaHtml = (otazka, i) =>
-					`<div class="otazka"><p class="zneni">${i + 1}) ${otazka.text}</p><p class="moznosti">${otazka.odpovedi
-						.map((o, j) => `<span>${pismena[j]}) ${o}</span>`)
-						.join(' ')}</p></div>`;
+			const listekPredni = (testove, skupina) =>
+				`<div class="listek"><div class="hlavicka">
+					<strong>Test: ${nazevTestu} — skupina ${skupina}</strong>
+					<span class="pole">Příjmení: ______________________</span>
+					<span class="pole">Datum: ____________</span>
+				</div>${testove.slice(0, 4).map(otazkaHtml).join('')}</div>`;
 
-				const predni = `
-					<div class="hlavicka">
-						<strong>Test: ${nazevTestu}</strong>
-						<span class="pole">Příjmení: ______________________</span>
-						<span class="pole">Datum: ____________ Skupina: _______</span>
-					</div>
-					${testove.slice(0, 4).map(otazkaHtml).join('')}`;
-				const zadni = `
-					<div class="hlavicka zadni-hlavicka"><strong>${nazevTestu} — pokračování</strong></div>
+			const listekZadni = (testove, skupina) =>
+				`<div class="listek"><div class="hlavicka zadni-hlavicka"><strong>${nazevTestu} — skupina ${skupina} (pokračování)</strong></div>
 					${testove.slice(4).map((otazka, i) => otazkaHtml(otazka, i + 4)).join('')}
-					<p class="pocet-bodu">Počet bodů: ______ / ${POCET_V_TESTU}</p>`;
+					<p class="pocet-bodu">Počet bodů: ______ / ${POCET_V_TESTU}</p></div>`;
 
-				document.getElementById('arch-predni').innerHTML = Array(4)
-					.fill(`<div class="listek">${predni}</div>`)
-					.join('');
-				document.getElementById('arch-zadni').innerHTML = Array(4)
-					.fill(`<div class="listek">${zadni}</div>`)
-					.join('');
+			function vygeneruj() {
+				// vylosujeme 7 otázek a z NICH uděláme dvě navzájem zamíchané verze
+				const vybrane = zamichej(otazky).slice(0, POCET_V_TESTU);
+				const verzeA = pripravVerzi(vybrane);
+				const verzeB = pripravVerzi(vybrane);
+
+				// horní řada lístků = skupina A, dolní řada = skupina B (na líci i rubu)
+				document.getElementById('arch-predni').innerHTML =
+					listekPredni(verzeA, 'A') + listekPredni(verzeA, 'A') + listekPredni(verzeB, 'B') + listekPredni(verzeB, 'B');
+				document.getElementById('arch-zadni').innerHTML =
+					listekZadni(verzeA, 'A') + listekZadni(verzeA, 'A') + listekZadni(verzeB, 'B') + listekZadni(verzeB, 'B');
+
 				document.getElementById('arch-klic').innerHTML = `<div class="klic">
 					<h2>Klíč správných odpovědí — ${nazevTestu}</h2>
-					<ol>${testove.map((otazka) => `<li><strong>${otazka.spravne})</strong> — ${otazka.text}</li>`).join('')}</ol>
+					<h3>Skupina A</h3>
+					<ol>${verzeA.map((otazka) => `<li><strong>${otazka.spravne})</strong> — ${otazka.text}</li>`).join('')}</ol>
+					<h3>Skupina B</h3>
+					<ol>${verzeB.map((otazka) => `<li><strong>${otazka.spravne})</strong> — ${otazka.text}</li>`).join('')}</ol>
 					<p>Vygenerováno na wonderly.cz · Tento list dětem nedávat 🙂</p>
 				</div>`;
 			}
@@ -276,6 +285,10 @@ const POCET_V_TESTU = 7;
 				padding: 15mm;
 				font-size: 11pt;
 			}
+			.klic h3 {
+				margin: 5mm 0 2mm;
+				font-size: 12pt;
+			}
 			.klic ol li {
 				margin-bottom: 2mm;
 			}
@@ -302,7 +315,8 @@ const POCET_V_TESTU = 7;
 					margin: 0;
 				}
 			}
-			@media (max-width: 220mm) {
+			/* jen NÁHLED na obrazovce zmenšíme, aby se A4 vešla do okna; TISK necháme v plné velikosti */
+			@media screen and (max-width: 220mm) {
 				.arch {
 					transform: scale(0.45);
 					transform-origin: top center;
