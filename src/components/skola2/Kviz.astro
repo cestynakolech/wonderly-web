@@ -28,7 +28,19 @@ const { otazky } = Astro.props;
 	</div>
 	<div id="kviz-konec" hidden>
 		<p class="kviz-vysledek" id="kviz-vysledek"></p>
+		<p class="kviz-znamka" id="kviz-znamka"></p>
 		<p class="kviz-motivace" id="kviz-motivace"></p>
+		<details class="kviz-skala">
+			<summary>Jak se počítá orientační známka?</summary>
+			<p>Podle úspěšnosti v procentech, rozděleno přibližně podle Gaussovy křivky (nejvíc žáků se trefí do trojky):</p>
+			<ul>
+				<li><strong>1 – výborný:</strong> 90–100 %</li>
+				<li><strong>2 – chvalitebný:</strong> 74–89 %</li>
+				<li><strong>3 – dobrý:</strong> 55–73 %</li>
+				<li><strong>4 – dostatečný:</strong> 40–54 %</li>
+				<li><strong>5 – nedostatečný:</strong> 0–39 %</li>
+			</ul>
+		</details>
 		<button class="kviz-tlacitko" id="kviz-znovu">Zkusit znovu 🔄</button>
 	</div>
 </section>
@@ -120,6 +132,16 @@ const { otazky } = Astro.props;
 		el('kviz-konec').hidden = false;
 		const procenta = Math.round((spravne / poradi.length) * 100);
 		el('kviz-vysledek').textContent = `Máš ${spravne} z ${poradi.length} správně (${procenta} %).`;
+		// orientační známka podle Gaussovy křivky (hranice v %)
+		const znamky = [
+			[90, '1', 'výborný'],
+			[74, '2', 'chvalitebný'],
+			[55, '3', 'dobrý'],
+			[40, '4', 'dostatečný'],
+			[0, '5', 'nedostatečný'],
+		];
+		const znamka = znamky.find(([hranice]) => procenta >= hranice);
+		el('kviz-znamka').textContent = `Orientační známka: ${znamka[1]} (${znamka[2]})`;
 		let motivace;
 		if (procenta === 100) motivace = '🏆 Paráda! Máš to v malíku — jsi připraven(a) na test!';
 		else if (procenta >= 80) motivace = '🎉 Skvělá práce! Ještě jednou si projdi, co ti uteklo, a bude to na jedničku.';
@@ -230,9 +252,28 @@ const { otazky } = Astro.props;
 	.kviz-vysledek {
 		font-size: 1.5rem;
 		font-weight: 700;
-		margin-bottom: 0.3rem;
+		margin-bottom: 0.2rem;
+	}
+	.kviz-znamka {
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--oranzova);
+		margin: 0 0 0.4rem;
 	}
 	.kviz-motivace {
 		font-size: 1.2rem;
+	}
+	.kviz-skala {
+		margin: 0.8rem 0;
+		font-size: 0.95rem;
+		color: var(--ztlumena);
+	}
+	.kviz-skala summary {
+		cursor: pointer;
+		font-weight: 600;
+	}
+	.kviz-skala ul {
+		margin: 0.4rem 0 0;
+		padding-left: 1.2rem;
 	}
 </style>
