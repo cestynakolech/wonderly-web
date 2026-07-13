@@ -93,6 +93,24 @@ const POCET_V_TESTU = 7;
 			<p class="napoveda">Náhled — takto vyjdou stránky z tiskárny:</p>
 		</section>
 
+		<section class="propustka">
+			<h2>📝 Propustka z hodiny (Google formulář)</h2>
+			<p>
+				Vytvoří <strong>anonymní</strong> Google formulář k tomuto tématu: sebehodnocení
+				(nerozumím / rozumím / rozumím a umím vysvětlit) + jedna otázka z tématu. Souhrn
+				v procentech pak uvidíš v Googlu (záložka „Odpovědi").
+			</p>
+			<div id="prop-nastaveni" hidden>
+				<p class="prop-napoveda">Jednou vlož adresu svého skriptu (dostaneš ji při nastavení Apps Scriptu, končí na <code>/exec</code>):</p>
+				<input id="prop-url" type="url" placeholder="https://script.google.com/macros/s/…/exec" />
+				<button id="prop-ulozit">Uložit adresu</button>
+			</div>
+			<p id="prop-akce" hidden>
+				<button id="prop-vytvorit">📝 Vytvořit propustku k tomuto tématu</button>
+				<button id="prop-zmenit" class="prop-odkaz">změnit adresu skriptu</button>
+			</p>
+		</section>
+
 		<p class="oznaceni-archu">1. stránka (přední strany testů)</p>
 		<div class="arch" id="arch-predni"></div>
 		<p class="oznaceni-archu">2. stránka (zadní strany testů)</p>
@@ -167,6 +185,35 @@ const POCET_V_TESTU = 7;
 			vygeneruj();
 		</script>
 
+		<script is:inline define:vars={{ temaKlic: `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}` }}>
+			(function () {
+				const KLIC = 'propustka-webapp-url';
+				const nastaveni = document.getElementById('prop-nastaveni');
+				const akce = document.getElementById('prop-akce');
+				const poleUrl = document.getElementById('prop-url');
+				function stav() {
+					const url = localStorage.getItem(KLIC);
+					nastaveni.hidden = !!url;
+					akce.hidden = !url;
+				}
+				document.getElementById('prop-ulozit').addEventListener('click', () => {
+					const v = poleUrl.value.trim();
+					if (v) { localStorage.setItem(KLIC, v); stav(); }
+				});
+				document.getElementById('prop-zmenit').addEventListener('click', () => {
+					poleUrl.value = localStorage.getItem(KLIC) || '';
+					nastaveni.hidden = false; akce.hidden = true;
+				});
+				document.getElementById('prop-vytvorit').addEventListener('click', () => {
+					const url = localStorage.getItem(KLIC);
+					if (!url) return;
+					const odd = url.indexOf('?') > -1 ? '&' : '?';
+					window.open(url + odd + 'tema=' + encodeURIComponent(temaKlic), '_blank');
+				});
+				stav();
+			})();
+		</script>
+
 		<style is:global>
 			body {
 				margin: 0;
@@ -175,6 +222,7 @@ const POCET_V_TESTU = 7;
 			}
 			/* dokud není zadané učitelské heslo, obsah je skrytý */
 			body.zamceno .ovladani,
+			body.zamceno .propustka,
 			body.zamceno .arch,
 			body.zamceno .oznaceni-archu {
 				display: none;
@@ -218,6 +266,40 @@ const POCET_V_TESTU = 7;
 			}
 			.ovladani label {
 				margin-right: 0.8rem;
+			}
+			.propustka {
+				max-width: 52rem;
+				margin: 0 auto 1.5rem;
+				padding: 1.2rem 1.5rem;
+				background: #fff7e6;
+				border: 2px dashed #e0922f;
+				border-radius: 14px;
+			}
+			.propustka h2 {
+				font-size: 1.25rem;
+				margin-top: 0;
+			}
+			.propustka button {
+				font-size: 1rem;
+				padding: 0.5rem 1rem;
+				margin: 0.3rem 0.8rem 0.3rem 0;
+				cursor: pointer;
+			}
+			.propustka input {
+				font-size: 1rem;
+				padding: 0.45rem 0.6rem;
+				width: min(100%, 30rem);
+				margin-right: 0.5rem;
+			}
+			.propustka .prop-odkaz {
+				background: none;
+				border: none;
+				text-decoration: underline;
+				color: #777;
+				padding: 0.3rem;
+			}
+			.prop-napoveda {
+				margin-bottom: 0.5rem;
 			}
 			.napoveda,
 			.oznaceni-archu {
