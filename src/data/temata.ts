@@ -1994,9 +1994,74 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Elektromagnetická indukce a střídavý proud',
 			podtemata: [
 				{ slug: 'pusobeni-pole-na-vodic-elektromotor', nazev: 'Působení magnetického pole na vodič s proudem, elektromotor' },
-				{ slug: 'elektromagneticka-indukce', nazev: 'Elektromagnetická indukce' },
-				{ slug: 'vznik-stridaveho-proudu-alternator', nazev: 'Vznik střídavého proudu, alternátor' },
-				{ slug: 'vlastnosti-stridaveho-proudu', nazev: 'Vlastnosti střídavého proudu' },
+				{
+					slug: 'elektromagneticka-indukce',
+					nazev: 'Elektromagnetická indukce',
+					obsah: `
+						<h2>Elektromagnetická indukce</h2>
+						<p>Víme, že kolem vodiče s proudem vzniká magnetické pole. Anglický fyzik <strong>Michael Faraday</strong> hledal opačnou cestu — jak <strong>pomocí magnetického pole vytvořit ve vodiči proud</strong>.</p>
+						<h3>Pokus a princip</h3>
+						<p>Když k cívce připojené k voltmetru <strong>pohybujeme magnetem</strong>, na svorkách cívky se objeví napětí; v uzavřeném obvodu pak teče proud. <strong>Elektromagnetická indukce</strong> je jev, který nastává při <strong>změně magnetického pole</strong> v okolí vodiče nebo cívky — vzniká <strong>indukované napětí</strong> a <strong>indukovaný proud</strong>.</p>
+						<ul>
+							<li>Změnu pole zajistíme <strong>pohybem magnetu</strong> nebo <strong>změnou proudu v elektromagnetu</strong> (zapnutím, vypnutím, změnou směru či velikosti).</li>
+							<li>Pokud se pole <strong>nemění</strong> (magnet stojí), <strong>nic se neindukuje</strong>.</li>
+							<li>Platí <strong>zákon zachování energie</strong>: pohybová energie magnetu se mění na energii elektrickou.</li>
+						</ul>
+						<h3>Na čem závisí velikost a směr indukovaného napětí</h3>
+						<ul>
+							<li><strong>rychlost pohybu</strong> magnetu — rychleji = větší napětí,</li>
+							<li><strong>směr pohybu</strong> — opačný směr = opačná polarita,</li>
+							<li><strong>síla magnetu</strong> a <strong>počet závitů</strong> cívky — víc = větší napětí,</li>
+							<li>rychlost změny pole (největší při zapnutí a vypnutí elektromagnetu).</li>
+						</ul>
+						<h3>Kde se využívá</h3>
+						<p>Alternátor a dynamo v elektrárnách, zapalovací svíčky motorů, „protřepávací" svítilny, <strong>indukční brzdy</strong>, <strong>indukční varná deska</strong>, indukční pec na tavení kovů, <strong>bezdrátové nabíječky</strong>, transformátor i elektrická kytara.</p>
+					`,
+				},
+				{
+					slug: 'vznik-stridaveho-proudu-alternator',
+					nazev: 'Vznik střídavého proudu, alternátor',
+					obsah: `
+						<h2>Vznik střídavého proudu a alternátor</h2>
+						<p>Při pohybu magnetu u cívky se indukuje proud a napětí. Protože <strong>směr pohybu určuje směr proudu</strong>, při otáčení se proud pravidelně obrací. Takovému proudu říkáme <strong>střídavý proud</strong> — odebíráme ho ze zásuvky.</p>
+						<p>Graf střídavého proudu ukazuje, jak jeho velikost <strong>kolísá mezi nulou a maximem</strong> a jak se mění směr (opačný směr = záporná hodnota).</p>
+						<h3>Alternátor</h3>
+						<ul>
+							<li>Je to <strong>elektrický generátor</strong> — točivý stroj, který vyrábí <strong>střídavý proud</strong> na principu elektromagnetické indukce.</li>
+							<li>Přeměňuje <strong>pohybovou (rotační) energii na elektrickou</strong>.</li>
+							<li>Největší napětí se indukuje tehdy, když se pole v závitu mění <strong>nejrychleji</strong>. <strong>Kroužky</strong> zajišťují kontakt s otáčející se cívkou.</li>
+						</ul>
+						<h3>Rotor a stator</h3>
+						<ul>
+							<li><strong>Rotor</strong> — otáčející se část, vytváří proměnlivé magnetické pole (magnet nebo elektromagnet).</li>
+							<li><strong>Stator</strong> — pevná část s cívkami, kde se indukuje napětí. Tři cívky = <strong>třífázové napětí</strong> (vyrábí se v elektrárnách).</li>
+							<li>Kdybychom místo kroužků použili <strong>komutátor</strong>, získáme stejnosměrný proud — takový generátor je <strong>dynamo</strong>.</li>
+						</ul>
+						<h3>Kde se využívá</h3>
+						<p>V <strong>automobilu</strong> (za jízdy nabíjí akumulátor), v <strong>elektrocentrále</strong> (záložní zdroj) a ve <strong>všech elektrárnách kromě solárních</strong> — turbína roztáčí rotor alternátoru.</p>
+					`,
+				},
+				{
+					slug: 'vlastnosti-stridaveho-proudu',
+					nazev: 'Vlastnosti střídavého proudu',
+					obsah: `
+						<h2>Vlastnosti střídavého proudu</h2>
+						<p>Při rovnoměrném otáčení cívky v magnetickém poli vzniká <strong>pravidelně proměnné napětí</strong> a obvodem teče proud se stejným průběhem. Zdrojem je nejčastěji <strong>zásuvka</strong>. Elektrony ve vodiči přitom <strong>opakovaně mění směr</strong> podle polarity zdroje.</p>
+						<h3>Perioda a frekvence</h3>
+						<ul>
+							<li>Grafem střídavého proudu je <strong>sinusoida</strong>.</li>
+							<li><strong>Perioda T</strong> — nejkratší doba, za kterou se průběh opakuje (= doba jedné otočky cívky); jednotka <strong>sekunda (s)</strong>.</li>
+							<li><strong>Frekvence f</strong> — počet period za sekundu (= počet otoček cívky za sekundu); jednotka <strong>hertz (Hz)</strong>. Platí <strong>f = 1 / T</strong>.</li>
+						</ul>
+						<h3>Maximální a efektivní hodnota</h3>
+						<ul>
+							<li><strong>Maximální hodnota</strong> (I<sub>m</sub>, U<sub>m</sub>) — největší okamžitá hodnota; nastává dvakrát za periodu.</li>
+							<li><strong>Efektivní hodnota</strong> (I, U) — odpovídá stejnosměrnému proudu se <strong>stejnými účinky</strong>; právě tu měří přístroje. Je rovna zhruba <strong>70 % maximální hodnoty</strong>.</li>
+						</ul>
+						<h3>Výkon a síť</h3>
+						<p>Výkon se počítá z efektivních hodnot: <strong>P = U · I</strong>. V rozvodné síti používáme napětí s efektivní hodnotou <strong>230 V</strong> a frekvencí <strong>50 Hz</strong>.</p>
+					`,
+				},
 				{ slug: 'transformator', nazev: 'Transformátor' },
 			],
 		},
