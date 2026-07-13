@@ -34,11 +34,11 @@ const { otazky } = Astro.props;
 			<summary>Jak se počítá orientační známka?</summary>
 			<p>Podle úspěšnosti v procentech, rozděleno přibližně podle Gaussovy křivky (nejvíc žáků se trefí do trojky):</p>
 			<ul>
-				<li><strong>1 – výborný:</strong> 90–100 %</li>
-				<li><strong>2 – chvalitebný:</strong> 74–89 %</li>
-				<li><strong>3 – dobrý:</strong> 55–73 %</li>
-				<li><strong>4 – dostatečný:</strong> 40–54 %</li>
-				<li><strong>5 – nedostatečný:</strong> 0–39 %</li>
+				<li><strong>1 – výborný:</strong> 91–100 %</li>
+				<li><strong>2 – chvalitebný:</strong> 66–90 %</li>
+				<li><strong>3 – dobrý:</strong> 36–65 %</li>
+				<li><strong>4 – dostatečný:</strong> 11–35 %</li>
+				<li><strong>5 – nedostatečný:</strong> 0–10 %</li>
 			</ul>
 		</details>
 		<button class="kviz-tlacitko" id="kviz-znovu">Zkusit znovu 🔄</button>
@@ -134,10 +134,10 @@ const { otazky } = Astro.props;
 		el('kviz-vysledek').textContent = `Máš ${spravne} z ${poradi.length} správně (${procenta} %).`;
 		// orientační známka podle Gaussovy křivky (hranice v %)
 		const znamky = [
-			[90, '1', 'výborný'],
-			[74, '2', 'chvalitebný'],
-			[55, '3', 'dobrý'],
-			[40, '4', 'dostatečný'],
+			[91, '1', 'výborný'],
+			[66, '2', 'chvalitebný'],
+			[36, '3', 'dobrý'],
+			[11, '4', 'dostatečný'],
 			[0, '5', 'nedostatečný'],
 		];
 		const znamka = znamky.find(([hranice]) => procenta >= hranice);
