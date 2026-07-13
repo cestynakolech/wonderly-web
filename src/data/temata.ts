@@ -2188,8 +2188,65 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'elektricka-energie-a-bezpecnost',
 			nazev: 'Elektrická energie a bezpečnost',
 			podtemata: [
-				{ slug: 'elektricka-energie-a-premeny', nazev: 'Elektrická energie a její přeměny' },
-				{ slug: 'ucinky-proudu-bezpecnost', nazev: 'Účinky proudu na organismus, bezpečnost' },
+				{
+					slug: 'elektricka-energie-a-premeny',
+					nazev: 'Elektrická energie a její přeměny',
+					obsah: `
+						<h2>Elektrická energie a její přeměny</h2>
+						<p>Elektrická energie je výhodná tím, že se snadno mění na jiné druhy energie i naopak.</p>
+						<h3>Elektrická energie se mění na…</h3>
+						<ul>
+							<li><strong>tepelnou</strong> — proud zahřívá vodič (větší odpor a proud = více tepla): vařič, žehlička, topení, pájka;</li>
+							<li><strong>světelnou</strong> — žárovka, výbojka (reklamy, zářivky), <strong>LED</strong>;</li>
+							<li><strong>magnetickou</strong> — kolem vodiče či cívky vzniká pole: elektromagnet;</li>
+							<li><strong>pohybovou</strong> — na vodič v magnetickém poli působí síla: elektromotor, reproduktor;</li>
+							<li><strong>chemickou</strong> — elektrolýza a pokovování.</li>
+						</ul>
+						<h3>…a naopak vzniká z jiné energie</h3>
+						<ul>
+							<li><strong>pohybová → elektrická</strong> — elektromagnetická indukce v <strong>alternátoru</strong> (elektrárny);</li>
+							<li><strong>magnetická → elektrická</strong> — indukce v <strong>transformátoru</strong>;</li>
+							<li><strong>světelná → elektrická</strong> — <strong>solární panely</strong>, fotovoltaika;</li>
+							<li><strong>chemická → elektrická</strong> — galvanické články a akumulátory.</li>
+						</ul>
+						<p>Platí přitom <strong>zákon zachování energie</strong> — energie se jen přeměňuje, nevzniká ani nezaniká.</p>
+					`,
+				},
+				{
+					slug: 'ucinky-proudu-bezpecnost',
+					nazev: 'Účinky proudu na organismus, bezpečnost',
+					obsah: `
+						<h2>Účinky proudu na organismus a bezpečnost</h2>
+						<p><strong>Lidské tělo je vodič.</strong> Účinky proudu bývají negativní (poškození zdraví), ale i pozitivní (elektroléčba ve fyzioterapii). Průchod proudu tělem způsobuje <strong>popáleniny, křeče svalů, fibrilaci srdce</strong> (u střídavého proudu) a poškození nervů a mozku.</p>
+						<h3>Míra poškození podle velikosti proudu</h3>
+						<ul>
+							<li>0,5–1 mA — práh vnímání,</li>
+							<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong>,</li>
+							<li>25 mA — křeč dýchacích svalů,</li>
+							<li>60 mA — fibrilace (chvění) srdce,</li>
+							<li><strong>nad 80 mA — zpravidla trvalá zástava srdce.</strong></li>
+						</ul>
+						<h3>Co velikost proudu ovlivňuje</h3>
+						<ul>
+							<li><strong>Odpor člověka:</strong> v suchu a suché obuvi asi <strong>150 000 Ω</strong>, ve vlhku jen asi <strong>2000 Ω</strong> → mokrý člověk je mnohem víc ohrožen.</li>
+							<li><strong>Cesta proudu:</strong> nejnebezpečnější je přes <strong>ruku do srdce</strong> nebo přes hlavu (mozek).</li>
+							<li><strong>Bezpečné napětí</strong> dle normy: stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong> (zásuvka 230 V je nebezpečná).</li>
+						</ul>
+						<h3>Bezpečná pravidla</h3>
+						<ul>
+							<li>na vypínač ani kabely nesahat <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše,</li>
+							<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat předměty,</li>
+							<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení.</li>
+						</ul>
+						<h3>První pomoc při úrazu proudem</h3>
+						<ol>
+							<li><strong>vypni proud</strong> (vypínač, jistič, pojistky),</li>
+							<li>dbej na <strong>vlastní bezpečnost</strong> — zraněného odsuň <strong>suchou dřevěnou/plastovou tyčí</strong>, ne holou rukou,</li>
+							<li>zkontroluj dech a tep, případně <strong>masáž srdce a umělé dýchání</strong>,</li>
+							<li>zavolej <strong>155</strong>.</li>
+						</ol>
+					`,
+				},
 			],
 		},
 		{
