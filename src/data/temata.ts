@@ -1993,7 +1993,30 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'indukce-a-stridavy-proud',
 			nazev: 'Elektromagnetická indukce a střídavý proud',
 			podtemata: [
-				{ slug: 'pusobeni-pole-na-vodic-elektromotor', nazev: 'Působení magnetického pole na vodič s proudem, elektromotor' },
+				{
+					slug: 'pusobeni-pole-na-vodic-elektromotor',
+					nazev: 'Působení magnetického pole na vodič s proudem, elektromotor',
+					obsah: `
+						<h2>Působení magnetického pole na vodič s proudem</h2>
+						<p>Vodič nebo cívka s proudem se chová jako magnet — proto na něj <strong>magnetické pole působí silou</strong>.</p>
+						<h3>Magnetická síla na vodič</h3>
+						<ul>
+							<li><strong>Směr síly</strong> závisí na orientaci indukčních čar (pólů) a na <strong>směru proudu</strong> ve vodiči (určíme <strong>Flemingovým pravidlem levé ruky</strong>).</li>
+							<li><strong>Velikost síly</strong> je tím větší, čím větší je proud.</li>
+							<li>Největší síla působí na vodič <strong>kolmý</strong> k indukčním čarám; na vodič <strong>rovnoběžný</strong> s nimi nepůsobí síla žádná.</li>
+						</ul>
+						<h3>Cívka v magnetickém poli</h3>
+						<p>Na cívku, která se může otáčet mezi póly magnetu, působí <strong>dvojice sil, které ji roztáčejí</strong>. Čím víc závitů, tím větší síla. Tento jev využívá <strong>reproduktor, ampérmetr</strong> a hlavně <strong>elektromotor</strong>.</p>
+						<h3>Elektromotor</h3>
+						<ul>
+							<li>Mění <strong>elektrickou energii na mechanickou (pohybovou)</strong>.</li>
+							<li><strong>Stator</strong> — vnější pevná část s magnety nebo elektromagnety.</li>
+							<li><strong>Rotor (kotva)</strong> — otáčející se část s cívkami uvnitř.</li>
+							<li><strong>Stejnosměrný motor</strong> potřebuje <strong>komutátor</strong> — dělený kroužek s kartáčky, který každou půlotočku obrátí směr proudu v cívce, aby se rotor točil stále dál.</li>
+							<li>Využití: vysavač, výtah, elektromobil, elektrické nářadí, tramvaje, hračky.</li>
+						</ul>
+					`,
+				},
 				{
 					slug: 'elektromagneticka-indukce',
 					nazev: 'Elektromagnetická indukce',
@@ -2062,14 +2085,57 @@ export const temata: Record<string, Tema[]> = {
 						<p>Výkon se počítá z efektivních hodnot: <strong>P = U · I</strong>. V rozvodné síti používáme napětí s efektivní hodnotou <strong>230 V</strong> a frekvencí <strong>50 Hz</strong>.</p>
 					`,
 				},
-				{ slug: 'transformator', nazev: 'Transformátor' },
+				{
+					slug: 'transformator',
+					nazev: 'Transformátor',
+					obsah: `
+						<h2>Transformátor</h2>
+						<p><strong>Transformátor</strong> slouží k přenosu elektrické energie a zároveň ke <strong>změně (transformaci) velikosti napětí</strong>.</p>
+						<h3>Jak funguje</h3>
+						<ul>
+							<li>Má <strong>dva obvody</strong>, každý se svou cívkou, na <strong>společném ocelovém jádře</strong>.</li>
+							<li><strong>Primární cívka</strong> je na zdroji střídavého napětí; v <strong>sekundární</strong> se <strong>indukuje</strong> střídavé napětí.</li>
+							<li>Pracuje <strong>jen na střídavé napětí</strong> — indukce potřebuje proměnlivé magnetické pole. Účinnost bývá až <strong>98 %</strong>.</li>
+						</ul>
+						<h3>Rovnice transformátoru</h3>
+						<p>Napětí se mění ve stejném poměru jako počty závitů: <strong>U₂ / U₁ = N₂ / N₁</strong>.</p>
+						<ul>
+							<li><strong>Transformace nahoru</strong> (k > 1) — sekundární cívka má víc závitů, napětí <strong>roste</strong> (např. 400 kV pro dálkový přenos, zapalovací svíčka).</li>
+							<li><strong>Transformace dolů</strong> (k < 1) — méně závitů, napětí <strong>klesá</strong> (nabíječky, rozvod 230 V do domácnosti).</li>
+							<li><strong>Proud</strong> se mění v <strong>opačném poměru</strong> než napětí (výkon P = U·I zůstává stejný): kolikrát klesne napětí, tolikrát vzroste proud.</li>
+						</ul>
+						<p>Transformace velkého proudu se využívá v <strong>indukční peci</strong>, při <strong>svařování obloukem</strong> (nízké napětí, velký proud) a v pistolové páječce.</p>
+					`,
+				},
 			],
 		},
 		{
 			slug: 'elektricky-proud-v-latkach',
 			nazev: 'Elektrický proud v látkách',
 			podtemata: [
-				{ slug: 'prenos-elektricke-energie', nazev: 'Přenos elektrické energie, energetická rozvodná síť' },
+				{
+					slug: 'prenos-elektricke-energie',
+					nazev: 'Přenos elektrické energie, energetická rozvodná síť',
+					obsah: `
+						<h2>Přenos elektrické energie</h2>
+						<h3>Výroba a fáze</h3>
+						<ul>
+							<li>Elektřina se vyrábí ve velkých <strong>alternátorech</strong> jako <strong>střídavý proud</strong>.</li>
+							<li>Alternátor má <strong>tři cívky</strong> → vzniká <strong>trojfázový proud</strong> (napětí každé fáze je posunuté o třetinu periody). Proto se při dálkovém přenosu vedou <strong>tři vodiče</strong>.</li>
+							<li>Napětí mezi fázovým vodičem a zemí je <strong>230 V</strong>, mezi dvěma fázemi <strong>400 V</strong>.</li>
+						</ul>
+						<h3>Přenosová a distribuční soustava</h3>
+						<ul>
+							<li><strong>Přenosová soustava</strong> — dopravuje energii na velké vzdálenosti nadzemním vedením za <strong>velmi vysokého napětí 220 kV nebo 400 kV</strong>. Vysoké napětí znamená <strong>malý proud</strong>, a tím <strong>malé ztráty</strong> ve vedení.</li>
+							<li><strong>Distribuční soustava</strong> — rozvádí energii k odběratelům (napětí <strong>22 kV</strong>), nakonec transformované na <strong>230 V</strong> do zásuvky.</li>
+						</ul>
+						<h3>Prvky sítě a spotřebitel</h3>
+						<ul>
+							<li><strong>Vedení</strong> (měděné vodiče, při dálkovém přenosu neizolované dráty vysoko nad zemí), <strong>transformátory</strong>, <strong>rozvodny</strong> a ochranná zařízení.</li>
+							<li>Domácnost využívá <strong>jednu fázi (230 V)</strong>; velké stroje všechny tři fáze (3×400 V). V zásuvce je <strong>fázový</strong> vodič, <strong>nulovací</strong> (uzemněný) a <strong>ochranný kolík</strong>.</li>
+						</ul>
+					`,
+				},
 				{
 					slug: 'vedeni-proudu-v-kapalinach',
 					nazev: 'Vedení elektrického proudu v kapalinách, elektrolýza',
@@ -2253,8 +2319,52 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'jaderna-fyzika',
 			nazev: 'Jaderná fyzika',
 			podtemata: [
-				{ slug: 'jadro-atomu', nazev: 'Jádro atomu' },
-				{ slug: 'radioaktivita', nazev: 'Radioaktivita, ochrana před zářením' },
+				{
+					slug: 'jadro-atomu',
+					nazev: 'Jádro atomu',
+					obsah: `
+						<h2>Jádro atomu</h2>
+						<p>Atom je velice malý (velikost řádově <strong>10⁻¹⁰ m</strong>) a skládá se z <strong>jádra</strong> a <strong>obalu</strong>.</p>
+						<ul>
+							<li><strong>Obal</strong> tvoří <strong>elektrony</strong> — záporně nabité částice. V kovech tvoří volné elektrony elektrický proud.</li>
+							<li><strong>Jádro</strong> tvoří <strong>protony</strong> (kladné) a <strong>neutrony</strong> (bez náboje). Společně se nazývají <strong>nukleony</strong>.</li>
+							<li>Jádro je maličké, ale je v něm soustředěna <strong>téměř všechna hmotnost</strong> atomu.</li>
+							<li>Za normálních podmínek je atom <strong>elektricky neutrální</strong> — počet protonů v jádře a elektronů v obalu je stejný.</li>
+						</ul>
+						<h3>Popis jádra</h3>
+						<ul>
+							<li><strong>Protonové číslo Z</strong> — počet protonů; <strong>určuje, o jaký prvek jde</strong> (najdeme v periodické tabulce).</li>
+							<li><strong>Nukleonové číslo A</strong> — počet nukleonů (protonů + neutronů); určuje hmotnost jádra.</li>
+							<li>Počet neutronů = <strong>A − Z</strong> (např. uran ²³⁸U: 92 protonů, 238 − 92 = 146 neutronů).</li>
+						</ul>
+						<h3>Izotopy</h3>
+						<p><strong>Izotopy</strong> téhož prvku mají stejné protonové číslo, ale <strong>různé nukleonové číslo</strong> (různý počet neutronů). Mají stejné chemické vlastnosti, ale liší se hmotností a chováním při jaderných reakcích. Např. uhlík ¹²C, ¹³C, ¹⁴C nebo vodík (lehký, deuterium, tritium).</p>
+						<h3>Jaderné síly</h3>
+						<p><strong>Jaderné síly</strong> jsou velmi silné přitažlivé síly, které působí jen na krátkou vzdálenost (uvnitř jádra) a drží nukleony pohromadě — překonávají odpudivou elektrickou sílu mezi protony. Čím je jádro větší, tím je <strong>méně stabilní</strong> a snáz se rozpadá.</p>
+					`,
+				},
+				{
+					slug: 'radioaktivita',
+					nazev: 'Radioaktivita, ochrana před zářením',
+					obsah: `
+						<h2>Radioaktivita</h2>
+						<p>Roku <strong>1896</strong> objevil <strong>Henri Becquerel</strong>, že z uranové rudy vychází neviditelné záření. Manželé <strong>Curieovi</strong> zjistili, že má tři složky, a <strong>Rutherford</strong> dokázal, že vychází z jádra atomu.</p>
+						<p><strong>Radioaktivita</strong> je <strong>samovolný rozpad nestabilních jader</strong> — jádra těžších prvků se samovolně mění na jiná a uvolňují <strong>ionizující záření</strong>. Nelze ho nijak ovlivnit. Látky, které záření vydávají, se nazývají <strong>radionuklidy</strong> (uran, radium, radon…).</p>
+						<h3>Druhy záření</h3>
+						<ul>
+							<li><strong>Záření α (alfa)</strong> — proud jader helia (2 protony + 2 neutrony), kladné; protonové číslo se sníží o 2. <strong>Zastaví ho list papíru</strong> (dolet ve vzduchu jen ~5 cm).</li>
+							<li><strong>Záření β (beta)</strong> — proud rychlých elektronů z jádra (neutron se změní na proton a elektron); protonové číslo se zvětší o 1. Zastaví ho <strong>hliníkový plech</strong>.</li>
+							<li><strong>Záření γ (gama)</strong> — elektromagnetické záření s velmi vysokou energií, <strong>nejpronikavější a nejnebezpečnější</strong>; zastaví ho jen silná vrstva <strong>olova nebo betonu</strong>.</li>
+						</ul>
+						<h3>Poločas rozpadu</h3>
+						<p><strong>Poločas rozpadu T</strong> je doba, za kterou se rozpadne <strong>přesně polovina</strong> jader. Různé radionuklidy ho mají různý — uran 238 přes 4,5 miliardy let, radon 222 jen 3,5 dne. Po každém poločasu klesne množství na polovinu.</p>
+						<h3>Využití a ochrana</h3>
+						<ul>
+							<li><strong>Využití:</strong> určování stáří (uhlík ¹⁴C), léčba nádorů ozařováním, detektory kouře, defektoskopie, zdroj energie pro vesmírné sondy.</li>
+							<li><strong>Ochrana:</strong> <strong>stínění</strong> (olovo, beton), <strong>bezpečná vzdálenost</strong> a <strong>zkrácení doby</strong> vystavení. Dávku záření měříme v <strong>sievertech (Sv)</strong> dozimetrem.</li>
+						</ul>
+					`,
+				},
 				{
 					slug: 'jaderna-energie-a-reakce',
 					nazev: 'Jaderná energie, jaderná reakce',
@@ -2334,7 +2444,39 @@ export const temata: Record<string, Tema[]> = {
 						<p>Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>; v době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>
 					`,
 				},
-				{ slug: 'slunecni-soustava', nazev: 'Sluneční soustava' },
+				{
+					slug: 'slunecni-soustava',
+					nazev: 'Sluneční soustava',
+					obsah: `
+						<h2>Sluneční soustava</h2>
+						<p>Sluneční soustavu tvoří hvězda <strong>Slunce</strong> v centru a tělesa, která se pohybují v jejím <strong>gravitačním poli</strong> — planety a jejich měsíce, trpasličí planety, planetky, komety a meteoroidy.</p>
+						<h3>Slunce</h3>
+						<ul>
+							<li>Žhavá koule <strong>plazmatu</strong> o průměru asi <strong>1,4 milionu km</strong> (váží jako 330 tisíc Zemí).</li>
+							<li>V jádru je teplota <strong>15 milionů °C</strong> a probíhají <strong>termonukleární reakce</strong> (vodík se slučuje na helium) — to je zdroj veškeré energie Slunce.</li>
+							<li>Svítí už 4,5 miliardy let a ještě stejně dlouho bude.</li>
+						</ul>
+						<h3>Osm planet</h3>
+						<p>Merkur, Venuše, Země, Mars, Jupiter, Saturn, Uran, Neptun.</p>
+						<ul>
+							<li><strong>Kamenné planety</strong> (Merkur, Venuše, Země, Mars) — mají <strong>pevný povrch</strong> a málo nebo žádné měsíce. <strong>Země</strong> je jediná planeta s podmínkami pro život; <strong>Mars</strong> je „rudá planeta".</li>
+							<li><strong>Plynné planety</strong> (Jupiter, Saturn, Uran, Neptun) — „plynní obři" bez pevného povrchu, složené hlavně z vodíku a helia, s mnoha měsíci. <strong>Jupiter</strong> je největší, <strong>Saturn</strong> má výrazné prstence.</li>
+						</ul>
+						<h3>Další tělesa</h3>
+						<ul>
+							<li><strong>Trpasličí planety</strong> — např. Pluto a Ceres.</li>
+							<li><strong>Planetky (asteroidy)</strong> — drobná tělesa, většina v pásu mezi Marsem a Jupiterem.</li>
+							<li><strong>Komety</strong> — obíhají po protáhlých elipsách, mají jádro z ledu a prachu a při přiblížení ke Slunci jim vzniká <strong>ohon</strong> (Halleyova kometa se vrací každých 76 let).</li>
+							<li><strong>Meteor</strong> („padající hvězda") vzniká, když těleso shoří v atmosféře; co dopadne na zem, je <strong>meteorit</strong>.</li>
+						</ul>
+						<h3>Vzdálenosti a pohyb</h3>
+						<ul>
+							<li><strong>Astronomická jednotka (AU)</strong> = střední vzdálenost Země–Slunce, asi <strong>150 milionů km</strong>.</li>
+							<li><strong>Světelný rok (ly)</strong> = vzdálenost, kterou urazí světlo za rok (9,46 bilionu km).</li>
+							<li>Pohyb planet popisují <strong>Keplerovy zákony</strong>: planety obíhají po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.</li>
+						</ul>
+					`,
+				},
 			],
 		},
 	],

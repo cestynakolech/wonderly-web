@@ -8,8 +8,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `
    ```
    cd ~/Desktop/wonderly-web && git log --oneline -5
    ```
-3. **Čím začít: Fyzika 9 — doplnit 6 témat, kterým CHYBÍ PODKLADY** (jejich složky na Disku jsou prázdné): `04 Elektromotor`, `08 Transformátor` (celek 2); `09 Přenos elektrické energie` (celek 3); `17 Jádro atomu`, `18 Radioaktivita` (celek 5); `22 Sluneční soustava` (celek 6). Jakmile učitel nahraje PDF do těch složek, vyplnit stejným postupem. **Zbytek Fyziky 9 (16 z 22 témat) je HOTOVÝ.** Podklady 9. roč. jsou POUZE na Google Disku (lokální `Škola/9/` prázdná) — MCP `search_files`/contentSnippet, parent ID `1q8kWtshe-EahjEQaxnP1xb87-4sght3e`.
-4. **Fyzika 7 i 8 jsou KOMPLETNÍ** — tagy `fyzika-7-hotova`, `fyzika-8-hotova`. Fyzika 9 rozpracovaná (16/22 témat, chybí 6 s prázdnými složkami).
+3. **Čím začít: Fyzika 9 je KOMPLETNÍ (22/22, tag `fyzika-9-hotova`)** — celá 2. stupeň fyziky (7, 8 i 9) hotová! Další možné kroky: doplnit média (infografiky/písně/videa z YouTube automatu), roční/časové plány, nebo revize a vylepšení hotových stránek. Podklady 9. roč. jsou lokálně v `/Users/Shared/Škola/9/` (celky 1 Elektřina, 2 Atom, 3. Vesmír + záloha `vše`); text jde číst i z Google Disku (parent ID `1q8kWtshe-EahjEQaxnP1xb87-4sght3e`).
+4. **Fyzika 7, 8 i 9 jsou KOMPLETNÍ** — tagy `fyzika-7-hotova`, `fyzika-8-hotova`, `fyzika-9-hotova`.
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
 ### Funkce
@@ -83,6 +83,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-13 (8)** — **Fyzika 9 DOKONČENA (22/22, 100 %)!** Uživatel dodal chybějící podklady lokálně do `/Users/Shared/Škola/9/` (roztřídil je do celků 1 Elektřina, 2 Atom, 3. Vesmír + záloha `vše`). Doplněno posledních 6 témat (výklad + kvízy z lokálních SmartBooks PDF): **elektromotor** (síla na vodič, komutátor), **transformátor** (U₂/U₁=N₂/N₁, nahoru/dolů), **přenos elektrické energie** (3 fáze, 220/400 kV, distribuce 22 kV), **jádro atomu** (nukleony, Z/A, izotopy, jaderné síly), **radioaktivita** (α/β/γ, poločas rozpadu, ochrana, Sv), **sluneční soustava** (8 planet, komety/meteory, AU/ly, Keplerovy zákony). Struktura webu zachována (6 celků). Tím je hotová celá fyzika 2. stupně (7+8+9). Build OK (219 str.). Milník: tag `fyzika-9-hotova`.
 - **2026-07-13 (7)** — **Fyzika 9, celek 6** (Zdroje energie a vesmír) — hotové obnovitelné/neobnovitelné zdroje (výklad + kvíz, PDF 21). Sluneční soustava (22) = prázdná složka → dlaždice. **HOTOVO vše, co má podklady: 16 z 22 témat Fyziky 9.** Chybí 6 témat s prázdnými složkami na Disku (04 elektromotor, 08 transformátor, 09 přenos energie, 17 jádro atomu, 18 radioaktivita, 22 sluneční soustava) — čekají na PDF od učitele. Build OK (213 str.).
 - **2026-07-13 (6)** — **Fyzika 9, celek 5** (Jaderná fyzika) — hotová **2 ze 4**: jaderná energie a reakce, jaderný reaktor + elektrárna (výklad + kvízy, SmartBooks PDF 19–20 z Disku). **⚠️ Chybí podklady**: složky `17 Jádro atomu` a `18 Radioaktivita` na Disku PRÁZDNÉ → dlaždice. Build OK (212 str.).
 - **2026-07-13 (5)** — **Fyzika 9, celek 4 HOTOVÝ (2/2)** — elektrická energie a její přeměny, účinky proudu na organismus + bezpečnost (výklad + kvízy). Zdroj: SmartBooks PDF 15–16 z Disku. Build OK (210 str.).
