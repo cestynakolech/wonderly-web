@@ -106,7 +106,23 @@ const POCET_V_TESTU = 7;
 				<button id="prop-ulozit">Uložit adresu</button>
 			</div>
 			<p id="prop-akce" hidden>
-				<button id="prop-vytvorit">📝 Vytvořit propustku k tomuto tématu</button>
+				<label class="prop-trida-label">Třída:
+					<select id="prop-rocnik">
+						<option value="6">6.</option>
+						<option value="7">7.</option>
+						<option value="8">8.</option>
+						<option value="9">9.</option>
+					</select>
+					<select id="prop-pismeno">
+						<option value="">—</option>
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+					</select>
+				</label>
+				<button id="prop-vytvorit">📝 Vytvořit propustku</button>
+				<button id="prop-prehled" class="prop-odkaz">📋 přehled všech propustek</button>
 				<button id="prop-zmenit" class="prop-odkaz">změnit adresu skriptu</button>
 			</p>
 		</section>
@@ -185,20 +201,28 @@ const POCET_V_TESTU = 7;
 			vygeneruj();
 		</script>
 
-		<script is:inline define:vars={{ temaKlic: `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}` }}>
+		<script is:inline define:vars={{ temaKlic: `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`, aktualniRocnik: rocnik.slug.replace('-rocnik', '') }}>
 			(function () {
 				const KLIC = 'propustka-webapp-url';
+				const KLIC_PISMENO = 'propustka-pismeno';
 				// Výchozí adresa Apps Scriptu (nasazená učitelem). Lze přepsat přes „změnit adresu skriptu".
 				const VYCHOZI = 'https://script.google.com/macros/s/AKfycbyH_IAKSpufNdE6bhiiYPQbWrg9EOhSs5gZqdVYjOV-gpZAXahGgR_XqFc7jAQ9IdP2/exec';
 				const nastaveni = document.getElementById('prop-nastaveni');
 				const akce = document.getElementById('prop-akce');
 				const poleUrl = document.getElementById('prop-url');
+				const selRocnik = document.getElementById('prop-rocnik');
+				const selPismeno = document.getElementById('prop-pismeno');
 				const ucinnaUrl = () => localStorage.getItem(KLIC) || VYCHOZI;
 				function stav() {
 					const jeUrl = !!ucinnaUrl();
 					nastaveni.hidden = jeUrl;
 					akce.hidden = !jeUrl;
 				}
+				// přednastavení ročníku podle tématu a zapamatovaného písmene třídy
+				if ([...selRocnik.options].some((o) => o.value === aktualniRocnik)) selRocnik.value = aktualniRocnik;
+				const ulozenePismeno = localStorage.getItem(KLIC_PISMENO);
+				if (ulozenePismeno) selPismeno.value = ulozenePismeno;
+				const tridaText = () => (selPismeno.value ? selRocnik.value + '.' + selPismeno.value : '');
 				document.getElementById('prop-ulozit').addEventListener('click', () => {
 					const v = poleUrl.value.trim();
 					if (v) { localStorage.setItem(KLIC, v); stav(); }
@@ -210,8 +234,18 @@ const POCET_V_TESTU = 7;
 				document.getElementById('prop-vytvorit').addEventListener('click', () => {
 					const url = ucinnaUrl();
 					if (!url) return;
+					localStorage.setItem(KLIC_PISMENO, selPismeno.value);
 					const odd = url.indexOf('?') > -1 ? '&' : '?';
-					window.open(url + odd + 'tema=' + encodeURIComponent(temaKlic), '_blank');
+					let cil = url + odd + 'tema=' + encodeURIComponent(temaKlic);
+					const t = tridaText();
+					if (t) cil += '&trida=' + encodeURIComponent(t);
+					window.open(cil, '_blank');
+				});
+				document.getElementById('prop-prehled').addEventListener('click', () => {
+					const url = ucinnaUrl();
+					if (!url) return;
+					const odd = url.indexOf('?') > -1 ? '&' : '?';
+					window.open(url + odd + 'prehled=1', '_blank');
 				});
 				stav();
 			})();
@@ -303,6 +337,15 @@ const POCET_V_TESTU = 7;
 			}
 			.prop-napoveda {
 				margin-bottom: 0.5rem;
+			}
+			.prop-trida-label {
+				margin-right: 0.8rem;
+				font-weight: 600;
+			}
+			.propustka select {
+				font-size: 1rem;
+				padding: 0.35rem 0.4rem;
+				margin: 0 0.15rem;
 			}
 			.napoveda,
 			.oznaceni-archu {
