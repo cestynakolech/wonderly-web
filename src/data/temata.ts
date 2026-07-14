@@ -15,6 +15,238 @@ export type Podtema = {
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
 export const temata: Record<string, Tema[]> = {
+	'fyzika/6-rocnik': [
+		{
+			slug: 'latka-a-teleso',
+			nazev: 'Látka a těleso',
+			podtemata: [
+				{
+					slug: 'uvod-do-fyziky',
+					nazev: 'Úvod do fyziky — co je fyzika?',
+					obsah: `
+						<h2>Co je fyzika?</h2>
+						<p><strong>Fyzika je přírodní věda.</strong> Název vznikl z řeckého slova <strong>physis</strong> = příroda.</p>
+						<p>👉 Fyzika zkoumá, popisuje a vysvětluje zákonitosti přírodních jevů — vlastnosti a chování hmoty, přírodních sil, světla i neviditelného záření, tepla, zvuku…</p>
+						<h3>Jak pracuje fyzik?</h3>
+						<ul>
+							<li><strong>Pozorování</strong> — zkoumá, jak se příroda chová</li>
+							<li><strong>Pokus (experiment)</strong> — vytváří různé podmínky a sleduje výsledky, aby své myšlenky o fungování přírody (<strong>hypotézy</strong>) potvrdil, nebo vyvrátil</li>
+							<li><strong>Měření</strong> — popisuje vlastnosti čísly</li>
+						</ul>
+						<p>Z ověřených poznatků pak fyzici vysloví <strong>fyzikální zákony</strong>.</p>
+						<h3>Jak se fyzik vyjadřuje?</h3>
+						<ul>
+							<li><strong>odborné pojmy a značky</strong> — např. hmotnost, objem, hustota, tlak…</li>
+							<li><strong>grafy a vzorce</strong> — matematické vyjádření vztahů pomocí písmen a čísel</li>
+						</ul>
+						<h3>Proč je dobré znát fyziku?</h3>
+						<ul>
+							<li>umíme <strong>vysvětlit</strong>, proč a jak se něco děje</li>
+							<li>umíme <strong>předvídat</strong>, co se stane, když… (např. když auto vjede v dešti rychle do zatáčky)</li>
+							<li>umíme přírodu <strong>využít v náš prospěch</strong> — jak žít v suchu a teple, jak si ulehčit práci, jak dělat věci bezpečně, jak se dostat do vesmíru…</li>
+							<li>můžeme vymýšlet <strong>nové vynálezy</strong></li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'telesa-a-latky',
+					nazev: 'Tělesa a látky',
+					obsah: `
+						<h2>Tělesa a látky</h2>
+						<h3>Látka</h3>
+						<p><strong>Látka</strong> je fyzikální pojem pro <strong>materiál</strong>. Z určitého množství látky můžeme vytvořit konkrétní věc určitého tvaru.</p>
+						<p>Příklady látek: dřevo, papír, mléko, voda, sůl, kyslík, oxid uhličitý, vzduch, sklo, železo, ocel.</p>
+						<h3>Těleso</h3>
+						<p><strong>Těleso</strong> je fyzikální pojem pro <strong>živý či neživý předmět</strong>.</p>
+						<ul>
+							<li>těleso má určitý <strong>tvar</strong> (je ohraničené), velikost, hmotnost, polohu…</li>
+							<li>těleso může být tvořeno <strong>z jedné nebo více látek</strong></li>
+						</ul>
+						<p>Příklady těles: stůl (ze dřeva), kniha (z papíru), mléko v lahvi (z mléka), vzduch v balónku (ze vzduchu), hřebík (ze železa), oblak (z vody), okno (část ze skla, část ze dřeva a část ze železa).</p>
+						<h3>Vlastnosti látek</h3>
+						<p>Různé látky se od sebe odlišují svými vlastnostmi — např. barva, chuť, vůně, tvrdost, pružnost, rozpustnost, křehkost, sypkost, tvárnost, tekutost…</p>
+						<h3>Vlastnosti těles</h3>
+						<ul>
+							<li>tělesa mají vlastnosti látek, ze kterých jsou vyrobena</li>
+							<li>mají ale i vlastnosti navíc — <strong>tvar, velikost, hmotnost…</strong></li>
+						</ul>
+						<p>👉 Vlastnosti těles, které můžeme <strong>změřit</strong>, se nazývají <strong>fyzikální veličiny</strong> (délka, výška, hmotnost, objem, hustota…).</p>
+					`,
+				},
+				{
+					slug: 'casticove-slozeni-latek',
+					nazev: 'Částicové složení látek, Brownův pohyb, difuze',
+					obsah: `
+						<h2>Částicové složení látek</h2>
+						<h3>První myšlenka</h3>
+						<p>Už v 5. století př. n. l. napadlo řecké učence (Démokritos), že látku nepůjde dělit na menší části donekonečna — jednou narazíme na nejmenší, již nedělitelné částice. Nazvali je <strong>atomy</strong> (řecky <em>atomos</em> = nedělitelný). Myšlenka tehdy nešla dokázat, a tak upadla v zapomnění.</p>
+						<h3>Brownův pohyb</h3>
+						<p>V 19. století pozoroval Robert Brown pod mikroskopem <strong>chaotický pohyb pylových zrnek na vodě</strong>. Proč se neživá zrníčka pohybují?</p>
+						<p>👉 Vysvětlení: <strong>částice vody se neustále chaoticky pohybují a vrážejí do zrníček</strong>. Dnes tak nazýváme každý pohyb malých pevných částeček v kapalině.</p>
+						<p>👉 Závěr: <strong>Všechny látky jsou složeny z částic.</strong> Speciálním elektronovým mikroskopem dnes umíme atomy dokonce vidět i posunovat.</p>
+						<h3>Vlastnosti částic</h3>
+						<ul>
+							<li><strong>Pohyb částic</strong> — je <strong>neustálý</strong> (nikdy se nezastaví!) a <strong>neuspořádaný</strong> (chaotický). Říká se mu také <strong>tepelný pohyb</strong> — s rostoucí teplotou se zrychluje (molekuly vzduchu: při 0 °C asi 1 700 km/h, při 100 °C asi 2 000 km/h).</li>
+							<li><strong>Částice na sebe působí silami</strong> — <strong>přitažlivé síly</strong> přitáhnou částice k sobě, pokud se vzdálí (cítíme je při natažení pružiny); <strong>odpudivé síly</strong> je oddálí, pokud se moc přiblíží (cítíme je při stlačení míče). Tyto síly dělají materiál pružným.</li>
+						</ul>
+						<h3>Jevy způsobené pohybem částic</h3>
+						<p><strong>Difuze</strong> — samovolné pronikání částic jedné látky mezi částice druhé látky (částice se samy od sebe promíchají).</p>
+						<ul>
+							<li>probíhá v tekutinách, příčinou je neustálý pohyb částic</li>
+							<li>např. vyluhování čaje bez míchání, šíření vůně i za bezvětří; díky difuzi ucítí žralok kapku krve na kilometry daleko</li>
+							<li>👉 čím vyšší teplota, tím rychleji probíhá — čaj se rychleji vyluhuje v horké vodě</li>
+						</ul>
+						<p><strong>Tlak plynu</strong> — nárazy částic do stěn nádoby. Čím je plyn teplejší, tím rychleji se částice pohybují a tím větší silou narážejí (člun vyhřátý na slunci je natlakovaný, ve studené vodě se jakoby sfoukne).</p>
+						<h3>Jevy způsobené silovým působením částic</h3>
+						<ul>
+							<li><strong>kapaliny tvoří kapky</strong> — silné přitažlivé síly drží molekuly u sebe</li>
+							<li><strong>přilnavost</strong> — přitažlivé síly působí i mezi částicemi různých látek: tuha drží na papíře, křída na tabuli, dvě hladká zrcátka k sobě přilnou</li>
+							<li><strong>nepřilnavost</strong> — odpudivé síly mohou převážit: kapky vody nepřilnou k mastnému povrchu; využití: impregnace bot, nepřilnavé nádobí</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'atomy-a-molekuly',
+					nazev: 'Atomy a molekuly, prvek, sloučenina, směs',
+					obsah: `
+						<h2>Atomy a molekuly</h2>
+						<h3>Atom</h3>
+						<ul>
+							<li><strong>základní stavební částice látek</strong></li>
+							<li>dlouho byl považován za nejmenší nedělitelnou částici — dnes víme, že se skládá z ještě menších částeček</li>
+							<li>atomy jsou velice malé, nelze je vidět lupou ani běžným mikroskopem</li>
+							<li>💡 Kdybychom natlačili atomy těsně za sebou do řady dlouhé 1 mm, vešlo by se jich tam 10 milionů</li>
+						</ul>
+						<h3>Prvek (chemický prvek)</h3>
+						<ul>
+							<li><strong>látka tvořená stejnými atomy</strong></li>
+							<li>dnešní věda zná 118 různých prvků, v přírodě se jich vyskytuje 92</li>
+							<li>každý prvek má svůj <strong>název</strong> a <strong>chemickou značku</strong>: železo Fe, vodík H, kyslík O, zlato Au, uhlík C, chlor Cl, sodík Na, dusík N…</li>
+							<li>všechny známé prvky jsou zapsány v <strong>periodické soustavě prvků</strong></li>
+						</ul>
+						<h3>Molekuly</h3>
+						<p><strong>Molekuly vznikají spojením dvou a více atomů.</strong> Atomy se téměř vždy spojují do molekul.</p>
+						<ul>
+							<li><strong>molekuly ze stejných atomů</strong> — např. molekula kyslíku O₂ (2 atomy kyslíku), vodíku H₂, dusíku N₂</li>
+							<li><strong>molekuly z různých atomů</strong> — např. molekula vody H₂O (2 atomy vodíku + 1 atom kyslíku), oxid uhličitý CO₂ (1 atom uhlíku + 2 atomy kyslíku)</li>
+						</ul>
+						<h3>Sloučenina</h3>
+						<p><strong>Látka složená ze stejných molekul, které vznikly z různých atomů</strong> — např. voda (H₂O), sůl (chlorid sodný NaCl), oxid uhličitý (CO₂).</p>
+						<h3>Směs</h3>
+						<p><strong>Látka, která vznikne smícháním více látek</strong> — je složena z různých druhů molekul a atomů. Např. vzduch (molekuly dusíku N₂ + kyslíku O₂ + oxidu uhličitého CO₂ + vody H₂O + …).</p>
+						<h3>👉 Shrnutí</h3>
+						<ul>
+							<li>Všechny látky jsou tvořeny z atomů.</li>
+							<li>Molekuly vznikají spojením dvou a více atomů — stejných, nebo různých.</li>
+							<li><strong>Prvek</strong> = látka tvořená stejnými atomy.</li>
+							<li><strong>Sloučenina</strong> = látka tvořená stejnými molekulami z více druhů atomů.</li>
+							<li><strong>Směs</strong> = smíchání různých látek.</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'skupenstvi-latek',
+					nazev: 'Skupenství látek a jejich vlastnosti',
+					obsah: `
+						<h2>Skupenství látek</h2>
+						<p>Voda může mít tři podoby — led, tekutou vodu a vodní páru. Pro jednotlivé podoby látek používáme pojem <strong>skupenství</strong>. Látky se mohou vyskytovat ve <strong>třech základních skupenstvích</strong>:</p>
+						<h3>Pevné skupenství</h3>
+						<ul>
+							<li>zachovává si svou velikost (objem) i tvar</li>
+							<li>nejde snadno dělit (s výjimkou sypkých látek)</li>
+							<li>můžeme určovat tvrdost, křehkost, pružnost, tvárnost, barvu…</li>
+						</ul>
+						<h3>Kapalné skupenství</h3>
+						<ul>
+							<li>nemění svůj objem, ale <strong>mění tvar</strong> podle dna a stěn nádoby</li>
+							<li>lze přelévat ➪ je <strong>tekuté</strong>; lze snadno dělit</li>
+							<li>tvoří <strong>vodorovnou hladinu</strong></li>
+							<li>je <strong>nestlačitelné</strong></li>
+						</ul>
+						<h3>Plynné skupenství</h3>
+						<ul>
+							<li>nemá vlastní tvar ani objem — mění obojí podle nádoby</li>
+							<li>lze přelévat ➪ je <strong>tekuté</strong>; lze snadno dělit</li>
+							<li>je <strong>rozpínavé</strong> ➪ vyplní celý volný prostor</li>
+							<li>je <strong>lehce stlačitelné</strong></li>
+						</ul>
+						<p>👉 Plyny i kapaliny lze přelévat — jsou tekuté, proto pro ně používáme společný název <strong>TEKUTINY</strong>.</p>
+						<p>💡 Existuje i čtvrté skupenství — <strong>plazma</strong>. Existuje za velmi vysokých teplot: plamen, Slunce, hvězdy. Příklad svíčky: vosk je pevný, při zahřátí kapalný, při hoření se mění na plyn a plamen je plazma.</p>
+						<h2>Uspořádání částic v látkách</h2>
+						<p>👉 Látka má v různých skupenstvích <strong>stejné složení</strong> (stejné atomy či molekuly) — liší se <strong>pohybem a silovým působením částic</strong>.</p>
+						<h3>Částice pevných těles</h3>
+						<ul>
+							<li>jsou blízko u sebe, působí na sebe velkými silami ⇨ <strong>pevnost</strong></li>
+							<li>nemohou se volně pohybovat — jen <strong>kmitají kolem pevných poloh</strong> ⇨ stálý tvar</li>
+							<li><strong>krystalické látky</strong> — pravidelné uspořádání částic, velice tvrdé, tvoří krystaly (led, sůl, cukr, křemen, diamant)</li>
+							<li><strong>amorfní (beztvaré) látky</strong> — nepravidelné uspořádání, méně tvrdé, při zahřátí postupně měknou (parafín, plasty, čokoláda, sklo, asfalt)</li>
+							<li>💡 cukr roztátý na pánvičce zchladne jako amorfní karamel — složení je stejné, změnilo se jen uspořádání částic</li>
+						</ul>
+						<h3>Částice kapalných těles</h3>
+						<ul>
+							<li>jsou blízko u sebe ⇨ <strong>nestlačitelné</strong></li>
+							<li>působí na sebe velkými silami ⇨ soudržnost (tvoří kapky)</li>
+							<li>mění často své polohy, kloužou po sobě ⇨ <strong>tekuté</strong>, bez stálého tvaru, v klidu vodorovná hladina</li>
+						</ul>
+						<h3>Částice plynných těles</h3>
+						<ul>
+							<li>jsou velice daleko od sebe ⇨ <strong>lehce stlačitelné</strong></li>
+							<li>nejsou vázány silami ⇨ nemají svůj tvar</li>
+							<li>pohybují se zcela volně, neuspořádaně a velice rychle ⇨ <strong>rozpínavé</strong></li>
+						</ul>
+						<h2>Využití vlastností látek v běžném životě</h2>
+						<ul>
+							<li><strong>tvrdost nerostů</strong> — Mohsova stupnice tvrdosti (tvrdší nerost zanechá v měkčím vryp); diamant je nejtvrdší látka na Zemi, používá se k broušení a řezání</li>
+							<li><strong>tekutost</strong> — čerpání pohonných hmot (benzín, nafta, LPG)</li>
+							<li><strong>vodorovná hladina</strong> — vodováha: kapalina udržuje hladinu ve stejné rovině i ve spojených nádobách (stavebnictví)</li>
+							<li><strong>nestlačitelnost kapalin</strong> — hydraulická zařízení přenášejí sílu z jednoho pístu na druhý: zvedáky v autodílnách, lisy, brzdy automobilů, bagry, vyklápěcí korby</li>
+						</ul>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'sila',
+			nazev: 'Síla',
+			podtemata: [
+				{ slug: 'vzajemne-pusobeni-teles-sila', nazev: 'Vzájemné působení těles, síla' },
+				{ slug: 'gravitacni-sila', nazev: 'Gravitační síla a gravitační pole' },
+			],
+		},
+		{
+			slug: 'fyzikalni-veliciny',
+			nazev: 'Fyzikální veličiny',
+			podtemata: [
+				{ slug: 'delka', nazev: 'Délka' },
+				{ slug: 'hmotnost', nazev: 'Hmotnost' },
+				{ slug: 'objem', nazev: 'Objem' },
+				{ slug: 'hustota', nazev: 'Hustota' },
+				{ slug: 'souhrnne-opakovani-velicin', nazev: 'Souhrnné opakování fyzikálních veličin' },
+			],
+		},
+		{
+			slug: 'cas',
+			nazev: 'Čas',
+			podtemata: [{ slug: 'cas-a-jeho-mereni', nazev: 'Čas a jeho měření' }],
+		},
+		{
+			slug: 'teplota',
+			nazev: 'Teplota',
+			podtemata: [
+				{ slug: 'teplota-a-jeji-mereni', nazev: 'Teplota a její měření' },
+				{ slug: 'teplotni-roztaznost', nazev: 'Teplotní roztažnost' },
+			],
+		},
+		{
+			slug: 'elektrina-a-magnetismus',
+			nazev: 'Elektřina a magnetismus',
+			podtemata: [
+				{ slug: 'magneticke-vlastnosti-latek', nazev: 'Magnetické vlastnosti látek, magnetické pole' },
+				{ slug: 'elektricke-vlastnosti-latek', nazev: 'Elektrické vlastnosti látek, stavba atomu, elektrické pole' },
+				{ slug: 'jednoduche-elektricke-obvody', nazev: 'Jednoduché elektrické obvody' },
+			],
+		},
+	],
 	'fyzika/7-rocnik': [
 		{
 			slug: 'pohyb-a-rychlost',

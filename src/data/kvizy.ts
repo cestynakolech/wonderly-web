@@ -12,6 +12,427 @@ export type Otazka = {
  * (kontrolní protokoly: Omega/dokumenty/kontrola-podkladu-*.md).
  */
 export const kvizy: Record<string, Otazka[]> = {
+	'fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky': [
+		{
+			text: 'Co je fyzika?',
+			odpovedi: ['přírodní věda', 'společenská věda', 'druh umění'],
+			vysvetleni: 'Fyzika je přírodní věda — zkoumá, popisuje a vysvětluje zákonitosti přírodních jevů.',
+		},
+		{
+			text: 'Z jakého slova vznikl název fyzika?',
+			odpovedi: ['z řeckého physis = příroda', 'z latinského fysio = tělo', 'z anglického physics = pokus'],
+			vysvetleni: 'Název fyzika pochází z řeckého slova physis, které znamená příroda.',
+		},
+		{
+			text: 'Co fyzika zkoumá?',
+			odpovedi: ['zákonitosti přírodních jevů', 'pravidla lidské společnosti', 'historii států'],
+			vysvetleni: 'Fyzika zkoumá přírodní jevy — vlastnosti hmoty, síly, světlo, teplo, zvuk a další.',
+		},
+		{
+			text: 'Která z těchto činností patří mezi hlavní pracovní metody fyzika?',
+			odpovedi: ['pozorování', 'hlasování', 'malování'],
+			vysvetleni: 'Fyzik pracuje pozorováním, pokusem (experimentem) a měřením.',
+		},
+		{
+			text: 'Co dělá fyzik při pokusu (experimentu)?',
+			odpovedi: [
+				'vytváří různé podmínky a sleduje výsledky',
+				'pouze si čte v učebnici',
+				'odhaduje výsledek bez zkoušení',
+			],
+			vysvetleni: 'Při pokusu fyzik vytváří různé podmínky a sleduje, co se stane — tak ověřuje své hypotézy.',
+		},
+		{
+			text: 'Jak se nazývá myšlenka o fungování přírody, kterou fyzik teprve ověřuje?',
+			odpovedi: ['hypotéza', 'pohádka', 'definice'],
+			vysvetleni: 'Hypotéza je zatím neověřená myšlenka. Pokusy ji fyzik potvrdí, nebo vyvrátí.',
+		},
+		{
+			text: 'K čemu slouží fyzikům měření?',
+			odpovedi: ['k popisu vlastností pomocí čísel', 'ke zkrášlení pokusu', 'k ničemu — měřit netřeba'],
+			vysvetleni: 'Měřením fyzik popisuje vlastnosti těles a jevů přesnými čísly.',
+		},
+		{
+			text: 'Co vysloví fyzici z ověřených poznatků?',
+			odpovedi: ['fyzikální zákony', 'státní zákony', 'přísloví'],
+			vysvetleni: 'Z poznatků ověřených pozorováním, pokusy a měřením fyzici formulují fyzikální zákony.',
+		},
+		{
+			text: 'Jak se fyzik vyjadřuje?',
+			odpovedi: ['odbornými pojmy, značkami, grafy a vzorci', 'jen dlouhými slohovými pracemi', 'pouze obrázky'],
+			vysvetleni: 'Fyzik používá odborné pojmy a značky (hmotnost, objem…) a vztahy zapisuje grafy a vzorci.',
+		},
+		{
+			text: 'Co je příkladem fyzikálního pojmu se značkou?',
+			odpovedi: ['hmotnost', 'krása', 'radost'],
+			vysvetleni: 'Hmotnost je fyzikální veličina se značkou m. Krása ani radost se ve fyzice měřit nedají.',
+		},
+		{
+			text: 'Proč je dobré znát fyziku?',
+			odpovedi: [
+				'umíme vysvětlit a předvídat přírodní děje',
+				'nemusíme pak chodit do školy',
+				'abychom uměli zpaměti všechna čísla',
+			],
+			vysvetleni: 'Díky fyzice umíme vysvětlit, proč se věci dějí, předvídat, co se stane, a využít přírodu v náš prospěch.',
+		},
+		{
+			text: 'Co nám znalost fyziky umožňuje?',
+			odpovedi: ['vymýšlet nové vynálezy', 'měnit minulost', 'ovládat počasí myšlenkami'],
+			vysvetleni: 'Poznání přírodních zákonů umožňuje vymýšlet vynálezy — od jednoduchých strojů po rakety.',
+		},
+	],
+	'fyzika/6-rocnik/latka-a-teleso/telesa-a-latky': [
+		{
+			text: 'Co je látka?',
+			odpovedi: ['fyzikální pojem pro materiál', 'fyzikální pojem pro předmět', 'jednotka hmotnosti'],
+			vysvetleni: 'Látka = materiál (dřevo, voda, železo…). Z látky lze vytvořit těleso určitého tvaru.',
+		},
+		{
+			text: 'Co je těleso?',
+			odpovedi: ['fyzikální pojem pro živý či neživý předmět', 'jen neživý předmět', 'jiný název pro látku'],
+			vysvetleni: 'Těleso je předmět (živý i neživý) — má tvar, velikost, hmotnost a polohu.',
+		},
+		{
+			text: 'Které z následujících je látka?',
+			odpovedi: ['sklo', 'okno', 'kniha'],
+			vysvetleni: 'Sklo je materiál (látka). Okno a kniha jsou tělesa z látek vyrobená.',
+		},
+		{
+			text: 'Které z následujících je těleso?',
+			odpovedi: ['hřebík', 'železo', 'ocel'],
+			vysvetleni: 'Hřebík je předmět (těleso) vyrobený z látky — železa či oceli.',
+		},
+		{
+			text: 'Z kolika látek může být těleso tvořeno?',
+			odpovedi: ['z jedné nebo více látek', 'vždy jen z jedné látky', 'nejvýše ze dvou látek'],
+			vysvetleni: 'Těleso může být z jedné látky (hřebík ze železa) i z více látek (okno ze skla, dřeva a železa).',
+		},
+		{
+			text: 'Okno se skleněnou výplní, dřevěným rámem a železnou klikou je…',
+			odpovedi: ['těleso z více látek', 'látka z více těles', 'směs kapalin'],
+			vysvetleni: 'Okno je těleso tvořené několika látkami: sklem, dřevem a železem.',
+		},
+		{
+			text: 'Čím se od sebe odlišují různé látky?',
+			odpovedi: ['svými vlastnostmi', 'pouze cenou', 'pouze barvou'],
+			vysvetleni: 'Látky se liší vlastnostmi — barvou, tvrdostí, pružností, rozpustností, tekutostí a dalšími.',
+		},
+		{
+			text: 'Která z těchto vlastností je vlastností látky?',
+			odpovedi: ['tvrdost', 'poloha', 'tvar'],
+			vysvetleni: 'Tvrdost je vlastnost látky. Poloha a tvar jsou vlastnosti tělesa.',
+		},
+		{
+			text: 'Které vlastnosti mají tělesa navíc oproti látkám?',
+			odpovedi: ['tvar, velikost, hmotnost', 'chuť, vůni', 'rozpustnost, sypkost'],
+			vysvetleni: 'Těleso má kromě vlastností své látky navíc tvar, velikost, hmotnost či polohu.',
+		},
+		{
+			text: 'Jak se nazývají vlastnosti těles, které můžeme změřit?',
+			odpovedi: ['fyzikální veličiny', 'fyzikální zákony', 'hypotézy'],
+			vysvetleni: 'Měřitelné vlastnosti těles jsou fyzikální veličiny — délka, hmotnost, objem, hustota…',
+		},
+		{
+			text: 'Která z následujících je fyzikální veličina?',
+			odpovedi: ['objem', 'vůně', 'křehkost'],
+			vysvetleni: 'Objem můžeme změřit — je to fyzikální veličina. Vůně a křehkost se číslem přesně změřit nedají.',
+		},
+		{
+			text: 'Mléko v lahvi — co je zde látka a co těleso?',
+			odpovedi: [
+				'mléko je látka, láhev s mlékem je těleso',
+				'mléko je těleso, láhev je látka',
+				'obojí jsou látky',
+			],
+			vysvetleni: 'Mléko je materiál (látka); láhev i mléko v ní (konkrétní ohraničené množství) jsou tělesa.',
+		},
+	],
+	'fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek': [
+		{
+			text: 'Z čeho jsou složeny všechny látky?',
+			odpovedi: ['z částic', 'ze světla', 'z tepla'],
+			vysvetleni: 'Všechny látky jsou složeny z částic (atomů a molekul), které se neustále pohybují.',
+		},
+		{
+			text: 'Který řecký učenec přišel s myšlenkou nedělitelných částic — atomů?',
+			odpovedi: ['Démokritos', 'Pythagoras', 'Archimédes'],
+			vysvetleni: 'Démokritos v 5. století př. n. l. usoudil, že látku nelze dělit donekonečna. Slovo atomos = nedělitelný.',
+		},
+		{
+			text: 'Co pozoroval Robert Brown pod mikroskopem?',
+			odpovedi: [
+				'chaotický pohyb pylových zrnek na vodě',
+				'růst rostlinných buněk',
+				'krystalizaci soli',
+			],
+			vysvetleni: 'Brown pozoroval neustálý chaotický pohyb pylových zrnek na vodní hladině — dnes mu říkáme Brownův pohyb.',
+		},
+		{
+			text: 'Jak vysvětlujeme Brownův pohyb?',
+			odpovedi: [
+				'částice vody neustále vrážejí do zrníček',
+				'zrníčka jsou živá a plavou',
+				'zrníčka pohání vítr',
+			],
+			vysvetleni: 'Částice vody se neustále chaoticky pohybují a nárazy postrkují pylová zrnka.',
+		},
+		{
+			text: 'Jaký je pohyb částic v látkách?',
+			odpovedi: ['neustálý a neuspořádaný', 'občasný a pravidelný', 'žádný — částice stojí'],
+			vysvetleni: 'Částice se pohybují neustále (nikdy se nezastaví) a chaoticky — proto mluvíme o tepelném pohybu.',
+		},
+		{
+			text: 'Co se stane s pohybem částic, když látku zahřejeme?',
+			odpovedi: ['zrychlí se', 'zpomalí se', 'nezmění se'],
+			vysvetleni: 'S rostoucí teplotou se tepelný pohyb částic zrychluje — molekuly vzduchu letí při 0 °C asi 1 700 km/h, při 100 °C asi 2 000 km/h.',
+		},
+		{
+			text: 'Jakými silami na sebe částice působí?',
+			odpovedi: ['přitažlivými a odpudivými', 'pouze přitažlivými', 'žádnými silami'],
+			vysvetleni: 'Přitažlivé síly částice přitáhnou, když se vzdálí; odpudivé je oddálí, když se moc přiblíží.',
+		},
+		{
+			text: 'Kdy cítíme odpudivé síly mezi částicemi?',
+			odpovedi: ['při stlačení míče', 'při natažení pružiny', 'při zahřátí vody'],
+			vysvetleni: 'Při stlačování se částice dostávají příliš blízko a odpudivé síly je tlačí zpět. Při natažení pružiny naopak cítíme síly přitažlivé.',
+		},
+		{
+			text: 'Co je difuze?',
+			odpovedi: [
+				'samovolné pronikání částic jedné látky mezi částice druhé',
+				'rychlé míchání lžičkou',
+				'změna skupenství látky',
+			],
+			vysvetleni: 'Difuze = částice různých látek se samy od sebe promíchají díky neustálému pohybu částic.',
+		},
+		{
+			text: 'Který jev je příkladem difuze?',
+			odpovedi: [
+				'šíření vůně po místnosti i za bezvětří',
+				'pád jablka ze stromu',
+				'odraz světla v zrcadle',
+			],
+			vysvetleni: 'Vůně se šíří difuzí — částice voňavé látky pronikají mezi částice vzduchu. Patří sem i vyluhování čaje bez míchání.',
+		},
+		{
+			text: 'Proč se čaj vyluhuje rychleji v horké vodě?',
+			odpovedi: [
+				'částice se při vyšší teplotě pohybují rychleji',
+				'horká voda je lehčí',
+				'horká voda obsahuje více vzduchu',
+			],
+			vysvetleni: 'Čím vyšší teplota, tím rychlejší pohyb částic — a tím rychleji probíhá difuze.',
+		},
+		{
+			text: 'Čím je tvořen tlak plynu na stěny nádoby?',
+			odpovedi: ['nárazy částic do stěn', 'váhou plynu', 'barvou plynu'],
+			vysvetleni: 'Částice plynu neustále narážejí do stěn nádoby — tím vzniká tlak. Teplejší plyn = rychlejší částice = větší tlak.',
+		},
+		{
+			text: 'Proč drží tuha na papíře a křída na tabuli?',
+			odpovedi: ['díky přilnavosti (přitažlivým silám mezi částicemi)', 'díky magnetismu', 'díky elektrickému proudu'],
+			vysvetleni: 'Přitažlivé síly působí i mezi částicemi různých látek — tomu říkáme přilnavost.',
+		},
+		{
+			text: 'Proč kapky vody nepřilnou k mastnému povrchu?',
+			odpovedi: [
+				'převažují odpudivé síly mezi molekulami různých látek',
+				'mastnota je příliš studená',
+				'voda je těžší než tuk',
+			],
+			vysvetleni: 'Odpudivé síly mezi molekulami vody a tuku převáží — využíváme to u impregnace bot a nepřilnavého nádobí.',
+		},
+	],
+	'fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly': [
+		{
+			text: 'Co je základní stavební částicí látek?',
+			odpovedi: ['atom', 'kapka', 'krystal'],
+			vysvetleni: 'Atom je základní stavební částice látek. Slovo pochází z řeckého atomos = nedělitelný.',
+		},
+		{
+			text: 'Je atom skutečně nedělitelný?',
+			odpovedi: [
+				'ne — skládá se z ještě menších částeček',
+				'ano — nic menšího neexistuje',
+				'ano, ale jen u kovů',
+			],
+			vysvetleni: 'Dlouho se to myslelo, ale dnes víme, že atom se skládá z ještě menších částic.',
+		},
+		{
+			text: 'Lze atomy vidět lupou nebo běžným mikroskopem?',
+			odpovedi: ['ne, jsou příliš malé', 'ano, lupou snadno', 'ano, každým mikroskopem'],
+			vysvetleni: 'Atomy jsou tak malé, že je uvidíme jen speciálním elektronovým mikroskopem. Do řady 1 mm by se jich vešlo 10 milionů.',
+		},
+		{
+			text: 'Co je chemický prvek?',
+			odpovedi: ['látka tvořená stejnými atomy', 'látka tvořená různými atomy', 'směs více látek'],
+			vysvetleni: 'Prvek tvoří jen stejné atomy — např. železo, kyslík, zlato.',
+		},
+		{
+			text: 'Kolik prvků se vyskytuje v přírodě?',
+			odpovedi: ['92', '10', '1 000'],
+			vysvetleni: 'V přírodě se vyskytuje 92 prvků; další byly vyrobeny v laboratořích (věda jich dnes zná 118).',
+		},
+		{
+			text: 'Jaká je chemická značka železa?',
+			odpovedi: ['Fe', 'Že', 'Ir'],
+			vysvetleni: 'Železo má značku Fe (z latinského ferrum). Každý prvek má svůj název a značku.',
+		},
+		{
+			text: 'Jaká je chemická značka kyslíku?',
+			odpovedi: ['O', 'K', 'Ky'],
+			vysvetleni: 'Kyslík má značku O (z latinského oxygenium). K je značka draslíku.',
+		},
+		{
+			text: 'Kde jsou zapsány všechny známé prvky?',
+			odpovedi: ['v periodické soustavě prvků', 'v telefonním seznamu', 've slovníku cizích slov'],
+			vysvetleni: 'Periodická soustava prvků obsahuje všechny známé prvky — přírodní i vyrobené v laboratoři.',
+		},
+		{
+			text: 'Jak vzniká molekula?',
+			odpovedi: ['spojením dvou a více atomů', 'rozdělením atomu', 'zahřátím látky'],
+			vysvetleni: 'Molekuly vznikají spojením atomů — stejných (O₂) nebo různých (H₂O).',
+		},
+		{
+			text: 'Z čeho se skládá molekula vody H₂O?',
+			odpovedi: [
+				'ze 2 atomů vodíku a 1 atomu kyslíku',
+				'z 1 atomu vodíku a 2 atomů kyslíku',
+				'ze 2 atomů kyslíku',
+			],
+			vysvetleni: 'H₂O = 2 atomy vodíku (H) + 1 atom kyslíku (O).',
+		},
+		{
+			text: 'Co je sloučenina?',
+			odpovedi: [
+				'látka ze stejných molekul vzniklých z různých atomů',
+				'látka tvořená jen stejnými atomy',
+				'jakákoli smíchaná látka',
+			],
+			vysvetleni: 'Sloučenina = stejné molekuly složené z různých druhů atomů — voda H₂O, sůl NaCl, oxid uhličitý CO₂.',
+		},
+		{
+			text: 'Co je směs?',
+			odpovedi: [
+				'látka vzniklá smícháním více látek',
+				'látka tvořená jen jedním prvkem',
+				'jiný název pro molekulu',
+			],
+			vysvetleni: 'Směs obsahuje různé druhy molekul a atomů — např. vzduch (dusík, kyslík, oxid uhličitý, vodní pára…).',
+		},
+		{
+			text: 'Vzduch je příkladem…',
+			odpovedi: ['směsi', 'prvku', 'sloučeniny'],
+			vysvetleni: 'Vzduch je směs různých plynů: dusíku N₂, kyslíku O₂, oxidu uhličitého CO₂ a dalších.',
+		},
+		{
+			text: 'Molekula kyslíku O₂ je tvořena…',
+			odpovedi: ['2 stejnými atomy kyslíku', '2 různými atomy', '1 atomem kyslíku a 1 atomem vodíku'],
+			vysvetleni: 'O₂ jsou dva spojené stejné atomy kyslíku — molekula ze stejných atomů.',
+		},
+	],
+	'fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek': [
+		{
+			text: 'Ve kterých třech základních skupenstvích se látky vyskytují?',
+			odpovedi: ['pevném, kapalném a plynném', 'tvrdém, měkkém a tekutém', 'studeném, teplém a horkém'],
+			vysvetleni: 'Tři základní skupenství jsou pevné, kapalné a plynné. Za velmi vysokých teplot existuje i plazma.',
+		},
+		{
+			text: 'Co si zachovává těleso v pevném skupenství?',
+			odpovedi: ['objem i tvar', 'jen objem', 'jen tvar'],
+			vysvetleni: 'Pevné těleso si drží svou velikost (objem) i tvar.',
+		},
+		{
+			text: 'Co platí pro kapaliny?',
+			odpovedi: [
+				'nemění objem, ale mění tvar podle nádoby',
+				'mění objem i tvar',
+				'nemění objem ani tvar',
+			],
+			vysvetleni: 'Kapalina zachovává objem, ale tvar přizpůsobí dnu a stěnám nádoby. Tvoří vodorovnou hladinu.',
+		},
+		{
+			text: 'Jakou hladinu tvoří kapalina v klidu?',
+			odpovedi: ['vodorovnou', 'svislou', 'šikmou'],
+			vysvetleni: 'Kapaliny v klidu tvoří vždy vodorovnou hladinu — využívá toho vodováha.',
+		},
+		{
+			text: 'Co platí pro plyny?',
+			odpovedi: [
+				'nemají vlastní tvar ani objem, vyplní celý prostor',
+				'mají stálý objem',
+				'mají stálý tvar',
+			],
+			vysvetleni: 'Plyn je rozpínavý — vyplní celý volný prostor a přizpůsobí se nádobě.',
+		},
+		{
+			text: 'Které skupenství je lehce stlačitelné?',
+			odpovedi: ['plynné', 'kapalné', 'pevné'],
+			vysvetleni: 'Částice plynu jsou daleko od sebe, proto jde plyn snadno stlačit. Kapaliny jsou nestlačitelné.',
+		},
+		{
+			text: 'Jak nazýváme společně kapaliny a plyny?',
+			odpovedi: ['tekutiny', 'roztoky', 'směsi'],
+			vysvetleni: 'Kapaliny i plyny lze přelévat — jsou tekuté, proto společný název tekutiny.',
+		},
+		{
+			text: 'Jak se nazývá čtvrté skupenství látek?',
+			odpovedi: ['plazma', 'pára', 'rosol'],
+			vysvetleni: 'Plazma existuje za velmi vysokých teplot — plamen, Slunce a hvězdy.',
+		},
+		{
+			text: 'Čím je určeno skupenství látky?',
+			odpovedi: [
+				'pohybem a silovým působením částic',
+				'barvou látky',
+				'velikostí tělesa',
+			],
+			vysvetleni: 'Látka má ve všech skupenstvích stejné částice — liší se jen jejich pohyb a vzájemné síly.',
+		},
+		{
+			text: 'Jak se pohybují částice v pevných látkách?',
+			odpovedi: [
+				'kmitají kolem svých pevných poloh',
+				'volně létají prostorem',
+				'vůbec se nepohybují',
+			],
+			vysvetleni: 'Částice pevné látky jsou blízko u sebe, drží je velké síly a jen kmitají kolem pevných poloh — proto stálý tvar.',
+		},
+		{
+			text: 'Jaké uspořádání částic mají krystalické látky?',
+			odpovedi: ['geometricky pravidelné', 'zcela náhodné', 'žádné — částice nemají'],
+			vysvetleni: 'Krystalické látky (led, sůl, cukr, diamant) mají pravidelně uspořádané částice a tvoří krystaly.',
+		},
+		{
+			text: 'Které látky patří mezi amorfní (beztvaré)?',
+			odpovedi: ['sklo, plasty, čokoláda, asfalt', 'led, sůl, diamant', 'železo, zlato, měď'],
+			vysvetleni: 'Amorfní látky mají nepravidelné uspořádání částic a při zahřátí postupně měknou.',
+		},
+		{
+			text: 'Proč jsou kapaliny nestlačitelné?',
+			odpovedi: [
+				'jejich částice jsou blízko u sebe',
+				'jejich částice jsou daleko od sebe',
+				'jejich částice se nepohybují',
+			],
+			vysvetleni: 'Částice kapaliny jsou těsně u sebe (jako v pevné látce) — není je kam stlačit.',
+		},
+		{
+			text: 'Která látka je nejtvrdší na Zemi?',
+			odpovedi: ['diamant', 'ocel', 'křemen'],
+			vysvetleni: 'Diamant je nejtvrdší látka — používá se k broušení a řezání všech ostatních látek.',
+		},
+		{
+			text: 'Co využívá hydraulické zařízení?',
+			odpovedi: [
+				'nestlačitelnost kapalin',
+				'rozpínavost plynů',
+				'tvrdost pevných látek',
+			],
+			vysvetleni: 'Hydraulika přenáší sílu z jednoho pístu na druhý pomocí nestlačitelné kapaliny — zvedáky, lisy, brzdy aut.',
+		},
+	],
 	'fyzika/7-rocnik/tlak-v-kapalinach/tlak': [
 		{
 			text: 'Jak působí tlaková síla na plochu tělesa?',
