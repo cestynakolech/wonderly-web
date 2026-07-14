@@ -1,6 +1,6 @@
 # PROGRESS.md — technický stav práce
 
-_Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `CLAUDE.md` (trvalý kontext)._
+_Aktualizováno 14. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
 
 ## ⏩ Jak navázat v nové session
 1. Přečti `CLAUDE.md` a tento `PROGRESS.md`.
@@ -8,8 +8,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `
    ```
    cd ~/Desktop/wonderly-web && git log --oneline -5
    ```
-3. **Čím začít: Fyzika 9 je KOMPLETNÍ (22/22, tag `fyzika-9-hotova`)** — celá 2. stupeň fyziky (7, 8 i 9) hotová! Další možné kroky: doplnit média (infografiky/písně/videa z YouTube automatu), roční/časové plány, nebo revize a vylepšení hotových stránek. Podklady 9. roč. jsou lokálně v `/Users/Shared/Škola/9/` (celky 1 Elektřina, 2 Atom, 3. Vesmír + záloha `vše`); text jde číst i z Google Disku (parent ID `1q8kWtshe-EahjEQaxnP1xb87-4sght3e`).
-4. **Fyzika 7, 8 i 9 jsou KOMPLETNÍ** — tagy `fyzika-7-hotova`, `fyzika-8-hotova`, `fyzika-9-hotova`.
+3. **CELÁ FYZIKA 2. STUPNĚ (6, 7, 8 i 9) JE KOMPLETNÍ** — tagy `fyzika-6-hotova`, `fyzika-7-hotova`, `fyzika-8-hotova`, `fyzika-9-hotova`. Každý ročník má navíc celek **„Shrnutí a opakování"** (pololetní + roční shrnutí s automaticky skládaným souhrnným kvízem a tisknutelným testem).
+4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu), předměty Informatika a Pracovní činnosti, nebo revize hotových stránek. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
 ### Funkce
@@ -30,8 +30,8 @@ _Aktualizováno 12. 7. 2026. Nejnovější commit: `f602bfe`. Souběžně čti `
 - **Zrcadla a čočky** (6/6): optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka (+píseň), oko-vady-oka, rozklad-svetla-duha, vnimani-barev (oko/rozklad/barvy = infografiky). Pozn.: oko-historie-brýlí, rozklad, barvy jsou „nad rámec RVP".
 
 ## 🔜 ZBÝVÁ dodělat
-**Fyzika 7 — HOTOVO (100 %)** (tag `fyzika-7-hotova`). **Fyzika 8 — HOTOVO (100 %)** (tag `fyzika-8-hotova`).
-Další na řadě = **Fyzika 9** — až budou dotříděné podklady ze `Škola/9/` (struktura `fyzika/9-rocnik` je zatím starý placeholder).
+**Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
+Zbývá: média k Fyzice 6 (infografiky/písně/videa), předměty Informatika a Pracovní činnosti (zatím prázdné dlaždice).
 
 ## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
 Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učitele `/Users/Shared/Škola/8/` — 6 celků:
@@ -83,6 +83,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-14** — **Fyzika 6 DOKONČENA (18/18, 100 %) + Shrnutí pro všechny ročníky!** (1) Roztříděny SmartBooks PDF v `/Users/Shared/Škola/6/` do tématických složek učitele (01 Látka … 06 Teplota + nová „08 Elektřina a magnetismus"); záloha `SmartBooks` ponechána. Odhalen prohozený soubor Hmotnost/Objem (viz `Omega/dokumenty/kontrola-podkladu-fyzika6.md`). (2) Fyzika 6 postavena v 6 celcích dle složek učitele: Látka a těleso (5), Síla (2), Fyzikální veličiny (5), Čas (1), Teplota (2), Elektřina a magnetismus (3) — výklad + kvízy 12–17 otázek z lokálních SmartBooks PDF 1–18. Opraveny chyby podkladu: 116→118 prvků, chybné vysvětlení beztíže na ISS. Tag `fyzika-6-hotova`. (3) **Nová funkce: celek „Shrnutí a opakování" v každém ročníku 6–9** — podstránky Pololetní a Roční shrnutí (přehled učiva s odkazy na celky + klíčové vztahy). Souhrnné kvízy se skládají AUTOMATICKY z otázek podtémat (funkce `slozSouhrnnyKviz` na konci `kvizy.ts`, round-robin napříč celky; pololetí 24, rok 30 otázek) — při doplnění otázek k tématům se souhrny samy aktualizují. Tisknutelný test `/test/` funguje i pro shrnutí (náhodných 7 otázek z celého souhrnu). Build OK (281 stránek), nasazeno a ověřeno živě.
 - **2026-07-13 (8)** — **Fyzika 9 DOKONČENA (22/22, 100 %)!** Uživatel dodal chybějící podklady lokálně do `/Users/Shared/Škola/9/` (roztřídil je do celků 1 Elektřina, 2 Atom, 3. Vesmír + záloha `vše`). Doplněno posledních 6 témat (výklad + kvízy z lokálních SmartBooks PDF): **elektromotor** (síla na vodič, komutátor), **transformátor** (U₂/U₁=N₂/N₁, nahoru/dolů), **přenos elektrické energie** (3 fáze, 220/400 kV, distribuce 22 kV), **jádro atomu** (nukleony, Z/A, izotopy, jaderné síly), **radioaktivita** (α/β/γ, poločas rozpadu, ochrana, Sv), **sluneční soustava** (8 planet, komety/meteory, AU/ly, Keplerovy zákony). Struktura webu zachována (6 celků). Tím je hotová celá fyzika 2. stupně (7+8+9). Build OK (219 str.). Milník: tag `fyzika-9-hotova`.
 - **2026-07-13 (7)** — **Fyzika 9, celek 6** (Zdroje energie a vesmír) — hotové obnovitelné/neobnovitelné zdroje (výklad + kvíz, PDF 21). Sluneční soustava (22) = prázdná složka → dlaždice. **HOTOVO vše, co má podklady: 16 z 22 témat Fyziky 9.** Chybí 6 témat s prázdnými složkami na Disku (04 elektromotor, 08 transformátor, 09 přenos energie, 17 jádro atomu, 18 radioaktivita, 22 sluneční soustava) — čekají na PDF od učitele. Build OK (213 str.).
 - **2026-07-13 (6)** — **Fyzika 9, celek 5** (Jaderná fyzika) — hotová **2 ze 4**: jaderná energie a reakce, jaderný reaktor + elektrárna (výklad + kvízy, SmartBooks PDF 19–20 z Disku). **⚠️ Chybí podklady**: složky `17 Jádro atomu` a `18 Radioaktivita` na Disku PRÁZDNÉ → dlaždice. Build OK (212 str.).
