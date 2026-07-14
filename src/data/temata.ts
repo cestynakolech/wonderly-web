@@ -657,9 +657,165 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'elektrina-a-magnetismus',
 			nazev: 'Elektřina a magnetismus',
 			podtemata: [
-				{ slug: 'magneticke-vlastnosti-latek', nazev: 'Magnetické vlastnosti látek, magnetické pole' },
-				{ slug: 'elektricke-vlastnosti-latek', nazev: 'Elektrické vlastnosti látek, stavba atomu, elektrické pole' },
-				{ slug: 'jednoduche-elektricke-obvody', nazev: 'Jednoduché elektrické obvody' },
+				{
+					slug: 'magneticke-vlastnosti-latek',
+					nazev: 'Magnetické vlastnosti látek, magnetické pole',
+					obsah: `
+						<h2>Magnetické vlastnosti látek</h2>
+						<p>Magnet působí silou na některé předměty — kolem magnetu vzniká <strong>magnetické pole</strong>. Čím jsou tělesa od magnetu dál, tím je magnetická síla slabší.</p>
+						<h3>Rozdělení látek podle reakce na magnetické pole</h3>
+						<ul>
+							<li><strong>feromagnetické</strong> — silně reagují, jsou přitahovány k magnetu a lze je <strong>zmagnetovat</strong>: železo a jeho sloučeniny (ocel), kobalt, nikl</li>
+							<li><strong>nemagnetické</strong> — téměř nereagují: dřevo, papír, korek, plast; z kovů hliník, nerezová ocel, měď, zinek, stříbro</li>
+						</ul>
+						<p>💡 Existují i látky, které magnet nepatrně odpuzuje — <strong>diamagnetické</strong> (uhlík, měď, zlato). Tuha z tužky umí levitovat nad silnými magnety.</p>
+						<h3>Magnety</h3>
+						<ul>
+							<li><strong>přírodní</strong> — nerost magnetit (magnetovec)</li>
+							<li><strong>umělé</strong> — silnou magnetizací feromagnetického tělesa: feritový, neodymový</li>
+							<li>tvary: tyčový, podkova, magnetka (střelka kompasu)…</li>
+						</ul>
+						<h3>Popis magnetu</h3>
+						<ul>
+							<li>každý magnet má <strong>dva magnetické póly</strong>: severní (N — north, značí se červeně) a jižní (S — south)</li>
+							<li>i po rozdělení magnetu má každá část zase dva póly</li>
+							<li><strong>na pólech je magnetická síla nejsilnější</strong>, mezi póly je <strong>netečné pásmo</strong> (síla nejslabší)</li>
+						</ul>
+						<h3>Chování těles v magnetickém poli</h3>
+						<ul>
+							<li>nemagnetické látky — síla na ně nepůsobí</li>
+							<li>magnety — <strong>stejné póly se odpuzují, opačné se přitahují</strong></li>
+							<li>feromagnetické látky — jsou vždy přitahovány; mohou se <strong>zmagnetovat</strong>:
+								<ul>
+									<li><strong>dočasný magnet</strong> — po oddálení magnetu magnetismus zaniká (magneticky měkká ocel)</li>
+									<li><strong>trvalý magnet</strong> — magnetismus zůstává (magneticky tvrdá ocel)</li>
+								</ul>
+							</li>
+							<li>odmagnetování: třením opačným pólem, cívkou se střídavým proudem nebo <strong>zahřátím</strong></li>
+						</ul>
+						<h3>Magnetické pole a indukční čáry</h3>
+						<ul>
+							<li>existenci pole zjišťujeme <strong>magnetkou</strong>; zviditelníme ho <strong>železnými pilinami</strong> — vznikne pilinový obrazec</li>
+							<li>graficky pole znázorňují <strong>magnetické indukční čáry</strong> — uzavřené křivky od severního pólu (N) k jižnímu (S)</li>
+							<li>ukazují směr magnetické síly (směr udává severní pól magnetky); nejhustší jsou u pólů</li>
+							<li>magnety opačnými póly k sobě: nejsilnější pole mezi nimi — přitahují se; stejnými póly: pole mezi nimi nejslabší — odpuzují se</li>
+						</ul>
+						<h3>Využití magnetismu</h3>
+						<p>Nástěnka, držáky a těsnění dveří ledničky, kompas a buzola, reproduktory, magnetické stavebnice, pevný disk počítače, malé elektromotory (stěrače), sběrač kovových štěpin. 👉 POZOR: magnet může poškodit hodinky, elektroniku i data na disku!</p>
+						<h3>Magnetické pole Země</h3>
+						<ul>
+							<li>Země se chová jako velký tyčový magnet — vzniká díky rotaci tekutého železného jádra</li>
+							<li>střelka kompasu ukazuje severním pólem na sever ⇨ <strong>na severním zeměpisném pólu je jižní magnetický pól</strong> (póly neleží přesně na zeměpisných a pomalu se pohybují)</li>
+							<li>👉 magnetické pole Země nás <strong>chrání před slunečním větrem a kosmickým zářením</strong> — nebezpečné nabité částice odkloní; částice, které proniknou, vytvářejí u pólů <strong>polární záři</strong></li>
+							<li>💡 mořeplavci se orientovali lodním kompasem; stěhovaví ptáci i lišky mají magnetoreceptory</li>
+						</ul>
+						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs" target="_blank" rel="noopener">simulace Magnet a kompas</a> — pohybuj kompasem kolem magnetu, pak si zvol Zemi.</p>
+					`,
+				},
+				{
+					slug: 'elektricke-vlastnosti-latek',
+					nazev: 'Elektrické vlastnosti látek, stavba atomu, elektrické pole',
+					obsah: `
+						<h2>Elektrické vlastnosti látek</h2>
+						<p>Když se češeš plastovým hřebenem nebo skáčeš na trampolíně, vlasy začnou vstávat — <strong>zelektrizovaly se</strong>. Příčinou silového působení je <strong>elektrický náboj</strong>. Známe dva druhy: kladný a záporný.</p>
+						<h3>Stavba atomu</h3>
+						<p>Každý atom se skládá z <strong>jádra a obalu</strong>:</p>
+						<ul>
+							<li><strong>jádro</strong>: <strong>protony</strong> — kladně nabité částice (+), a <strong>neutrony</strong> — bez náboje; jádro je vzhledem k atomu velice maličké</li>
+							<li><strong>obal</strong>: <strong>elektrony</strong> — záporně nabité částice (−)</li>
+						</ul>
+						<ul>
+							<li><strong>počet protonů určuje chemický prvek</strong> (protonové číslo, najdeme v periodické tabulce)</li>
+							<li>počet protonů a neutronů v jádře běžným zacházením změnit nelze; <strong>počet elektronů lze měnit jednoduše — třeba třením</strong></li>
+							<li>za normálních podmínek je protonů a elektronů stejně; jejich náboje jsou stejně velké, ale opačné</li>
+						</ul>
+						<h3>Neutrální a nabité těleso</h3>
+						<ul>
+							<li><strong>elektricky neutrální těleso</strong> — počty protonů a elektronů jsou stejné, působení nábojů se navenek vyruší</li>
+							<li><strong>elektricky nabité těleso</strong> — obsahuje atomy s převažujícím nábojem = <strong>ionty</strong>:
+								<ul>
+									<li><strong>kladný iont</strong> — atom, ze kterého se při tření odtrhl jeden nebo více elektronů (protonů je pak víc než elektronů)</li>
+									<li><strong>záporný iont</strong> — atom, který přijal do obalu jeden nebo více elektronů</li>
+								</ul>
+							</li>
+						</ul>
+						<p>👉 Pozor: záporný iont nevznikne odtržením protonů — měnit lze jen elektrony v obalu!</p>
+						<h3>Elektrování těles</h3>
+						<ul>
+							<li>nabití těles při vzájemném <strong>tření</strong> (vlasy a hřeben, dítě a skluzavka)</li>
+							<li>vždy se nabijí <strong>obě tělesa</strong> — jedno kladně, druhé záporně (plast vždy záporně, sklo kladně)</li>
+							<li>zelektrovaná tělesa na sebe působí <strong>elektrickou silou</strong></li>
+						</ul>
+						<h3>Vodiče a izolanty</h3>
+						<ul>
+							<li><strong>elektrické vodiče</strong> — snadno přijímají či odevzdávají elektrony, přenášejí náboj: všechny kovy; využití k vedení proudu</li>
+							<li><strong>izolanty (nevodiče)</strong> — brání přenosu náboje: suché dřevo, plast, guma; ochrana před úrazem</li>
+						</ul>
+						<p><strong>Uzemnění</strong> = vodivé spojení nabitého tělesa se Zemí — Země přijme volné elektrony a těleso se vybije (bezpečnost zařízení, ochrana před bleskem). 👉 Při přeskoku elektronů vznikají jiskry — statická elektřina (svetr, karoserie auta); proto se při tankování vypíná motor.</p>
+						<h3>Elektrické pole</h3>
+						<ul>
+							<li>vzniká <strong>kolem každého nabitého tělesa</strong>, působí elektrickou silou i bez dotyku</li>
+							<li><strong>nesouhlasně nabitá tělesa se přitahují</strong> (hřeben − a vlasy +), <strong>souhlasně nabitá se odpuzují</strong> (vlasy mezi sebou)</li>
+							<li><strong>elektrostatická indukce</strong> — v nenabitém kovovém tělese se volné elektrony přesunou na jednu stranu ⇨ jedna část záporná, druhá kladná</li>
+							<li><strong>polarizace izolantu</strong> — elektrony se posunou jen uvnitř atomů</li>
+						</ul>
+						<p>Pole znázorňujeme <strong>elektrickými siločarami</strong> — ukazují směr síly na kladný náboj, směřují od + k −; čím silnější pole, tím hustší siločáry.</p>
+						<h3>Určování elektrického stavu tělesa</h3>
+						<ul>
+							<li><strong>elektroskop</strong> — je-li těleso nabité, vnitřní tyčinka a ručička se nabijí souhlasně, odpuzují se a <strong>ručička se vychýlí</strong>; před dalším měřením elektroskop vybijeme uzemněním</li>
+							<li><strong>elektrometr</strong> — elektroskop se stupnicí; velikosti nábojů jen <strong>porovnává</strong> (čím větší výchylka, tím větší náboj)</li>
+							<li><strong>znaménko náboje</strong> — podle reakce na nabité těleso z plastu (−): přitahuje se ⇨ opačný náboj (+), odpuzuje se ⇨ stejný (−)</li>
+						</ul>
+						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/john-travoltage/latest/john-travoltage_all.html?locale=cs" target="_blank" rel="noopener">simulace John Travoltage</a> (nabíjení a vybíjení) a <a href="https://phet.colorado.edu/cs/simulations/balloons-and-static-electricity" target="_blank" rel="noopener">Balónek a statická elektřina</a>.</p>
+					`,
+				},
+				{
+					slug: 'jednoduche-elektricke-obvody',
+					nazev: 'Jednoduché elektrické obvody',
+					obsah: `
+						<h2>Elektrický proud ve vodiči</h2>
+						<ul>
+							<li>vzniká při <strong>uspořádaném pohybu volných nabitých částic</strong>: volné elektrony v kovech, ionty v roztocích solí či kyselin, výjimečně i ve vzduchu (blesk, jiskření)</li>
+							<li>příčinou pohybu částic je elektrické pole, které vzniká díky <strong>elektrickému napětí</strong> mezi konci vodiče</li>
+							<li>proud prochází jen <strong>vodiči</strong> (kovy, roztoky); <strong>izolanty</strong> (dřevo, plast, guma) neprochází</li>
+							<li>účinky proudu: <strong>zahřívání vodiče</strong> (topení, varná deska, žhavé vlákno žárovky svítí) a <strong>magnetické účinky</strong> (elektromagnet)</li>
+							<li>jednotka: <strong>ampér (A)</strong>, měřidlo: <strong>ampérmetr</strong></li>
+						</ul>
+						<h2>Elektrické napětí</h2>
+						<ul>
+							<li>vzniká rozdílem nábojů na koncích vodiče — je <strong>příčinou elektrického proudu</strong></li>
+							<li>jednotka: <strong>volt (V)</strong>, měřidlo: <strong>voltmetr</strong></li>
+						</ul>
+						<h3>Zdroje elektrického napětí</h3>
+						<ul>
+							<li><strong>elektrárna</strong> ➪ zásuvky ve zdi (230 V — při špatném zacházení velmi nebezpečné!)</li>
+							<li><strong>elektrocentrála</strong> — náhradní zdroj (práce na silnicích, záloha v nemocnici)</li>
+							<li><strong>přenosné zdroje</strong> — baterie a akumulátory: tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie 12,6 V</li>
+						</ul>
+						<h2>Elektrický obvod</h2>
+						<ul>
+							<li>musí obsahovat: <strong>zdroj napětí, vodiče a spotřebič</strong> (žárovka, motor, fén…); dále může mít spínač, měřidla, pojistku</li>
+							<li><strong>proud prochází, jen když je obvod uzavřen</strong> — všechny části vodivě spojeny</li>
+							<li><strong>schéma obvodu</strong> — přehledný obrázek zapojení; každý prvek má dohodnutou <strong>schematickou značku</strong>; místo spojení vodičů je <strong>uzel</strong></li>
+						</ul>
+						<h3>Směr proudu a baterie</h3>
+						<ul>
+							<li>baterie má <strong>kladnou a zápornou svorku</strong>; na záporné je přebytek elektronů</li>
+							<li>volné elektrony jsou odpuzovány od záporné svorky a přitahovány ke kladné</li>
+							<li>u žárovky na směru proudu nezáleží; u LED diody a elektroniky <strong>záleží na orientaci baterie</strong></li>
+							<li>více baterií za sebou ➪ vyšší napětí (3 × 1,5 V = 4,5 V); dodržet orientaci (+ k −)</li>
+						</ul>
+						<h3>Zkrat a ochranné prvky</h3>
+						<p>👉 <strong>Zkrat</strong> = vodivé propojení svorek zdroje bez spotřebiče — protéká velký proud, vodiče se zahřívají a hrozí požár! Ochranu zajišťuje <strong>tavná pojistka</strong> — tenký drátek se při silném proudu roztaví a přeruší obvod (elektronika, auta, domácnost).</p>
+						<h3>Bezpečnost práce s obvody</h3>
+						<ol>
+							<li>obvod zapojíme nejprve <strong>bez zdroje</strong></li>
+							<li>zkontrolujeme neporušenou izolaci vodičů a zašroubovanou žárovku</li>
+							<li>spínač zapojíme ve vypnuté poloze</li>
+							<li>teprve po kontrole připojíme zdroj a nakonec sepneme spínač</li>
+						</ol>
+					`,
+				},
 			],
 		},
 	],

@@ -1334,6 +1334,332 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Horká voda má menší hustotu než okolní chladnější voda, proto balónek stoupá.',
 		},
 	],
+	'fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek': [
+		{
+			text: 'Které látky patří mezi feromagnetické?',
+			odpovedi: ['železo, kobalt, nikl', 'hliník, měď, zinek', 'dřevo, papír, korek'],
+			vysvetleni: 'Feromagnetické látky silně reagují na magnetické pole a lze je zmagnetovat: železo (a ocel), kobalt, nikl.',
+		},
+		{
+			text: 'Jak reaguje těleso z nemagnetické látky na magnet?',
+			odpovedi: ['téměř nereaguje', 'je silně přitahováno', 'je silně odpuzováno'],
+			vysvetleni: 'Nemagnetické látky (dřevo, plast, hliník, měď…) na magnetické pole téměř nereagují.',
+		},
+		{
+			text: 'Jak se jmenuje přírodní magnet — nerost s obsahem železa?',
+			odpovedi: ['magnetit (magnetovec)', 'diamant', 'křemen'],
+			vysvetleni: 'Magnetit (magnetovec) je přírodní magnet. Umělé magnety jsou např. feritové a neodymové.',
+		},
+		{
+			text: 'Kolik pólů má každý magnet?',
+			odpovedi: ['dva — severní a jižní', 'jeden', 'čtyři'],
+			vysvetleni: 'Každý magnet má severní (N) a jižní (S) pól — i po rozdělení má každá část zase oba póly.',
+		},
+		{
+			text: 'Co se stane, když magnet rozřízneme na dvě části?',
+			odpovedi: [
+				'každá část bude mít opět dva póly',
+				'jedna část bude jen severní, druhá jen jižní',
+				'obě části přestanou být magnety',
+			],
+			vysvetleni: 'Samostatný magnetický pól neexistuje — každý kousek magnetu má vždy oba póly.',
+		},
+		{
+			text: 'Kde je magnetická síla magnetu nejsilnější?',
+			odpovedi: ['na pólech', 'uprostřed (v netečném pásmu)', 'všude stejná'],
+			vysvetleni: 'Nejsilnější je na pólech; mezi póly je netečné pásmo, kde je síla nejslabší.',
+		},
+		{
+			text: 'Jak se chovají dva stejné (souhlasné) póly magnetů?',
+			odpovedi: ['odpuzují se', 'přitahují se', 'nereagují na sebe'],
+			vysvetleni: 'Souhlasné póly se odpuzují, nesouhlasné (opačné) se přitahují.',
+		},
+		{
+			text: 'Co je dočasný magnet z magneticky měkké oceli?',
+			odpovedi: [
+				'po oddálení magnetu jeho magnetismus zaniká',
+				'magnet, který funguje jen v zimě',
+				'magnet, který nikdy neztratí magnetismus',
+			],
+			vysvetleni: 'Magneticky měkká ocel se zmagnetuje jen dočasně; magneticky tvrdá ocel zůstane trvalým magnetem.',
+		},
+		{
+			text: 'Jak lze magnet odmagnetovat?',
+			odpovedi: ['zahřátím na vyšší teplotu', 'ochlazením', 'namočením do vody'],
+			vysvetleni: 'Odmagnetování: zahřátím, třením opačným pólem nebo cívkou se střídavým proudem.',
+		},
+		{
+			text: 'Čím zviditelníme magnetické pole?',
+			odpovedi: ['železnými pilinami (pilinový obrazec)', 'vodou', 'papírem'],
+			vysvetleni: 'Piliny se v poli zmagnetují a uspořádají — ukazují směr magnetické síly. Pole zjišťujeme i magnetkou.',
+		},
+		{
+			text: 'Co jsou magnetické indukční čáry?',
+			odpovedi: [
+				'uzavřené křivky od severního pólu k jižnímu',
+				'přímky od jihu na sever',
+				'kruhy kolem středu magnetu',
+			],
+			vysvetleni: 'Indukční čáry graficky znázorňují pole — vycházejí z N a směřují k S; jejich směr udává severní pól magnetky.',
+		},
+		{
+			text: 'Který magnetický pól je na severním zeměpisném pólu Země?',
+			odpovedi: ['jižní magnetický pól', 'severní magnetický pól', 'žádný'],
+			vysvetleni: 'Střelka ukazuje severním pólem na sever — přitahuje ji opačný, tedy jižní magnetický pól Země.',
+		},
+		{
+			text: 'Před čím nás chrání magnetické pole Země?',
+			odpovedi: [
+				'před slunečním větrem a kosmickým zářením',
+				'před deštěm',
+				'před zemětřesením',
+			],
+			vysvetleni: 'Pole odkloní proud nebezpečných nabitých částic ze Slunce. Částice u pólů vytvářejí polární záři.',
+		},
+		{
+			text: 'Díky čemu vzniká magnetické pole Země?',
+			odpovedi: [
+				'rotaci tekutého železného jádra',
+				'množství magnetů v zemské kůře',
+				'přitažlivosti Měsíce',
+			],
+			vysvetleni: 'Pole vytváří rotující tekuté železné jádro Země. Magnetické póly se pomalu pohybují.',
+		},
+		{
+			text: 'Co může magnet poškodit?',
+			odpovedi: ['hodinky, elektroniku a data na disku', 'dřevěný nábytek', 'skleněné nádobí'],
+			vysvetleni: 'Magnet ničí data na discích a kazetách a poškozuje hodinky či obrazovky — pozor na něj u elektroniky.',
+		},
+	],
+	'fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek': [
+		{
+			text: 'Z čeho se skládá atom?',
+			odpovedi: ['z jádra a obalu', 'jen z jádra', 'z molekul'],
+			vysvetleni: 'Atom má maličké jádro (protony + neutrony) a obal (elektrony).',
+		},
+		{
+			text: 'Jaký náboj nesou protony?',
+			odpovedi: ['kladný (+)', 'záporný (−)', 'žádný'],
+			vysvetleni: 'Protony v jádře jsou kladné, elektrony v obalu záporné, neutrony bez náboje.',
+		},
+		{
+			text: 'Jaký náboj nesou elektrony?',
+			odpovedi: ['záporný (−)', 'kladný (+)', 'žádný'],
+			vysvetleni: 'Elektrony v obalu atomu nesou záporný náboj — stejně velký jako proton, ale opačný.',
+		},
+		{
+			text: 'Které částice atomu nemají žádný náboj?',
+			odpovedi: ['neutrony', 'protony', 'elektrony'],
+			vysvetleni: 'Neutrony jsou neutrální — na elektrické vlastnosti těles nemají vliv.',
+		},
+		{
+			text: 'Co určuje počet protonů v jádře?',
+			odpovedi: ['o jaký chemický prvek se jedná', 'barvu látky', 'teplotu atomu'],
+			vysvetleni: 'Počet protonů = protonové číslo určuje prvek (7 protonů = dusík). Najdeme ho v periodické tabulce.',
+		},
+		{
+			text: 'Počet kterých částic lze v atomu jednoduše měnit (např. třením)?',
+			odpovedi: ['elektronů', 'protonů', 'neutronů'],
+			vysvetleni: 'Elektrony lze z obalu odtrhnout nebo přijmout. Protony a neutrony běžným zacházením měnit nelze.',
+		},
+		{
+			text: 'Co je kladný iont?',
+			odpovedi: [
+				'atom, ze kterého se odtrhl jeden či více elektronů',
+				'atom, který přijal elektrony navíc',
+				'atom s více neutrony',
+			],
+			vysvetleni: 'Po odtržení elektronů převažuje kladný náboj protonů. Záporný iont naopak elektrony přijal.',
+		},
+		{
+			text: 'Jak se nabíjejí tělesa při vzájemném tření?',
+			odpovedi: [
+				'jedno kladně a druhé záporně',
+				'obě kladně',
+				'jen jedno se nabije',
+			],
+			vysvetleni: 'Elektrony přejdou z jednoho tělesa na druhé — nabijí se vždy obě, opačně. Plast vždy záporně, sklo kladně.',
+		},
+		{
+			text: 'Co jsou elektrické vodiče?',
+			odpovedi: [
+				'látky, které snadno přenášejí náboj — všechny kovy',
+				'látky, které brání přenosu náboje',
+				'jen kapaliny',
+			],
+			vysvetleni: 'Vodiče (kovy) snadno přijímají a odevzdávají elektrony. Izolanty (dřevo, plast, guma) přenosu brání.',
+		},
+		{
+			text: 'K čemu slouží izolanty?',
+			odpovedi: [
+				'k ochraně před úrazem elektrickým proudem',
+				'k vedení proudu',
+				'k výrobě magnetů',
+			],
+			vysvetleni: 'Izolanty nepropouštějí náboj — proto jsou kabely obalené plastem či gumou.',
+		},
+		{
+			text: 'Co je uzemnění?',
+			odpovedi: [
+				'vodivé spojení nabitého tělesa se Zemí',
+				'zakopání tělesa do země',
+				'nabití tělesa třením',
+			],
+			vysvetleni: 'Země přijme volné elektrony a těleso se vybije — ochrana zařízení i lidí (např. před bleskem).',
+		},
+		{
+			text: 'Jak na sebe působí nesouhlasně nabitá tělesa?',
+			odpovedi: ['přitahují se', 'odpuzují se', 'nepůsobí na sebe'],
+			vysvetleni: 'Opačné náboje se přitahují (hřeben − a vlasy +), souhlasné se odpuzují (vlasy mezi sebou).',
+		},
+		{
+			text: 'Kde vzniká elektrické pole?',
+			odpovedi: ['kolem každého nabitého tělesa', 'jen kolem magnetů', 'jen v drátech'],
+			vysvetleni: 'Elektrické pole obklopuje každé nabité těleso a působí elektrickou silou i na dálku.',
+		},
+		{
+			text: 'Jakým směrem kreslíme elektrické siločáry?',
+			odpovedi: ['od + k −', 'od − k +', 'vždy kruhově'],
+			vysvetleni: 'Dohoda: siločáry ukazují směr síly na kladný náboj — od plusu k minusu. Hustší siločáry = silnější pole.',
+		},
+		{
+			text: 'Čím zjistíme, zda je těleso nabité?',
+			odpovedi: ['elektroskopem', 'teploměrem', 'siloměrem'],
+			vysvetleni: 'U nabitého tělesa se ručička elektroskopu vychýlí (tyčinka a ručička se souhlasně nabijí a odpuzují).',
+		},
+		{
+			text: 'Co umí elektrometr?',
+			odpovedi: [
+				'porovnávat velikosti nábojů podle výchylky',
+				'přesně změřit náboj v jednotkách',
+				'vyrábět elektřinu',
+			],
+			vysvetleni: 'Elektrometr je elektroskop se stupnicí bez jednotek — čím větší výchylka, tím větší náboj.',
+		},
+		{
+			text: 'Proč se při tankování benzínu vypíná motor?',
+			odpovedi: [
+				'kvůli jiskrám statické elektřiny',
+				'aby se ušetřilo palivo',
+				'kvůli hluku',
+			],
+			vysvetleni: 'Při přesunu elektronů mohou přeskočit jiskry — u hořlavin hrozí požár. Cisterny mají uzemňovací proužek.',
+		},
+	],
+	'fyzika/6-rocnik/elektrina-a-magnetismus/jednoduche-elektricke-obvody': [
+		{
+			text: 'Čím vzniká elektrický proud ve vodiči?',
+			odpovedi: [
+				'uspořádaným pohybem volných nabitých částic',
+				'chaotickým pohybem všech atomů',
+				'zahřátím vodiče',
+			],
+			vysvetleni: 'Proud = uspořádaný pohyb volných elektronů (v kovech) nebo iontů (v roztocích).',
+		},
+		{
+			text: 'Co je příčinou elektrického proudu v obvodu?',
+			odpovedi: ['elektrické napětí', 'magnetické pole Země', 'teplota vodiče'],
+			vysvetleni: 'Napětí mezi konci vodiče vytváří elektrické pole, které uvádí nabité částice do pohybu.',
+		},
+		{
+			text: 'Jaká je jednotka elektrického proudu a čím ho měříme?',
+			odpovedi: ['ampér (A), ampérmetrem', 'volt (V), voltmetrem', 'newton (N), siloměrem'],
+			vysvetleni: 'Proud se měří v ampérech ampérmetrem. Napětí ve voltech voltmetrem.',
+		},
+		{
+			text: 'Jaká je jednotka elektrického napětí?',
+			odpovedi: ['volt (V)', 'ampér (A)', 'watt (W)'],
+			vysvetleni: 'Napětí měříme ve voltech voltmetrem.',
+		},
+		{
+			text: 'Jaké napětí je v zásuvce ve zdi?',
+			odpovedi: ['230 V', '12 V', '4,5 V'],
+			vysvetleni: 'Síťové napětí je 230 V — při špatném zacházení velmi nebezpečné!',
+		},
+		{
+			text: 'Jaké napětí má tužková baterie?',
+			odpovedi: ['1,5 V', '4,5 V', '12 V'],
+			vysvetleni: 'Tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie 12,6 V.',
+		},
+		{
+			text: 'Jaké jsou účinky průchodu proudu vodičem?',
+			odpovedi: [
+				'zahřívání vodiče a magnetické účinky',
+				'jen ochlazování vodiče',
+				'změna barvy vodiče',
+			],
+			vysvetleni: 'Proud vodič zahřívá (topení, vlákno žárovky svítí) a má magnetické účinky (elektromagnet).',
+		},
+		{
+			text: 'Co musí obsahovat každý elektrický obvod?',
+			odpovedi: [
+				'zdroj napětí, vodiče a spotřebič',
+				'jen baterii',
+				'pouze spínač a žárovku',
+			],
+			vysvetleni: 'Bez zdroje, vodičů a spotřebiče obvod nefunguje. Navíc může mít spínač, měřidla či pojistku.',
+		},
+		{
+			text: 'Kdy prochází obvodem proud?',
+			odpovedi: [
+				'jen když je obvod uzavřen',
+				'vždy, i s rozpojeným spínačem',
+				'jen v noci',
+			],
+			vysvetleni: 'Všechny části musí být vodivě spojeny — sepnutý spínač, zašroubovaná žárovka, nepoškozené kabely.',
+		},
+		{
+			text: 'Co je schéma obvodu?',
+			odpovedi: [
+				'přehledný obrázek zapojení se schematickými značkami',
+				'fotografie obvodu',
+				'seznam cen součástek',
+			],
+			vysvetleni: 'Každý prvek má dohodnutou značku; vodiče kreslíme přímými čarami, spojení vodičů je uzel.',
+		},
+		{
+			text: 'Co je na záporné svorce baterie?',
+			odpovedi: ['přebytek elektronů', 'nedostatek elektronů', 'přebytek protonů'],
+			vysvetleni: 'Na záporné svorce je přebytek elektronů — ty jsou od ní odpuzovány a přitahovány ke kladné svorce.',
+		},
+		{
+			text: 'U kterého zařízení záleží na směru proudu (orientaci baterie)?',
+			odpovedi: ['u LED diody', 'u klasické žárovky', 'u topné spirály'],
+			vysvetleni: 'LED dioda a elektronika potřebují správnou orientaci; žárovce s kovovým vláknem je směr jedno.',
+		},
+		{
+			text: 'Jaké napětí dají 3 tužkové baterie zapojené za sebou?',
+			odpovedi: ['4,5 V', '1,5 V', '9 V'],
+			vysvetleni: '3 × 1,5 V = 4,5 V. Při zapojení za sebou se napětí sčítá (+ připojíme k −).',
+		},
+		{
+			text: 'Co je zkrat?',
+			odpovedi: [
+				'vodivé propojení svorek zdroje bez spotřebiče',
+				'rozpojení obvodu spínačem',
+				'vybitá baterie',
+			],
+			vysvetleni: 'Při zkratu protéká velký proud, vodiče se zahřívají a hrozí požár!',
+		},
+		{
+			text: 'Jak funguje tavná pojistka?',
+			odpovedi: [
+				'tenký drátek se při silném proudu roztaví a přeruší obvod',
+				'vypne obvod pomocí magnetu',
+				'ochladí vodiče vodou',
+			],
+			vysvetleni: 'Pojistka chrání obvod před přetížením — drátek se přepálí dřív, než se vodiče nebezpečně zahřejí.',
+		},
+		{
+			text: 'Jak správně postupujeme při zapojování obvodu?',
+			odpovedi: [
+				'zapojíme vše bez zdroje, zkontrolujeme a teprve pak připojíme zdroj',
+				'nejdřív připojíme zdroj, pak zapojujeme prvky',
+				'na pořadí nezáleží',
+			],
+			vysvetleni: 'Bezpečnost: nejprve obvod bez zdroje, kontrola izolace a žárovky, spínač vypnutý — zdroj až nakonec.',
+		},
+	],
 	'fyzika/7-rocnik/tlak-v-kapalinach/tlak': [
 		{
 			text: 'Jak působí tlaková síla na plochu tělesa?',
