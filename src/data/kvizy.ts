@@ -433,6 +433,211 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Hydraulika přenáší sílu z jednoho pístu na druhý pomocí nestlačitelné kapaliny — zvedáky, lisy, brzdy aut.',
 		},
 	],
+	'fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila': [
+		{
+			text: 'Jaké je působení těles?',
+			odpovedi: ['vždy vzájemné', 'vždy jednostranné', 'náhodné'],
+			vysvetleni: 'Působí-li jedno těleso na druhé, působí i druhé těleso na první — brankář zastaví míč a míč tlačí do jeho rukou.',
+		},
+		{
+			text: 'Kopneš do míče. Působí míč také na tvou nohu?',
+			odpovedi: ['ano, zatlačí do nohy stejně velkou silou', 'ne, působí jen noha na míč', 'jen když je míč těžký'],
+			vysvetleni: 'Působení je vždy vzájemné — proto kopnutí do těžkého míče „cítíme" v noze.',
+		},
+		{
+			text: 'Který z těchto účinků síly je pohybový?',
+			odpovedi: ['změna rychlosti cyklisty při brzdění', 'promáčknutí plastelíny', 'natažení pružiny'],
+			vysvetleni: 'Pohybové účinky: uvedení do pohybu, změna směru, změna rychlosti, zastavení. Změny tvaru jsou účinky deformační.',
+		},
+		{
+			text: 'Jaká je deformace matrace, která se po zvednutí člověka vrátí do původního tvaru?',
+			odpovedi: ['dočasná', 'trvalá', 'žádná'],
+			vysvetleni: 'Dočasná deformace — těleso se vrátí do původního tvaru. Plastelína se nevrátí — to je deformace trvalá.',
+		},
+		{
+			text: 'Existuje síla sama o sobě?',
+			odpovedi: [
+				'ne — vždy existuje těleso, které je příčinou působení',
+				'ano — síla je samostatná věc',
+				'jen ve vesmíru',
+			],
+			vysvetleni: 'Síla jen zkráceně vyjadřuje, že jedno těleso působí na druhé. Bez těles není síla.',
+		},
+		{
+			text: '„Síla zvyku" je síla ve fyzikálním smyslu?',
+			odpovedi: ['ne', 'ano', 'jen o víkendu'],
+			vysvetleni: 'Ve fyzice síla vyjadřuje vzájemné působení těles s pohybovými nebo deformačními účinky. Síla zvyku mezi ně nepatří.',
+		},
+		{
+			text: 'Jak mohou tělesa působit na dálku?',
+			odpovedi: ['pomocí silových polí', 'pouze dotykem', 'křikem'],
+			vysvetleni: 'Na dálku působí gravitační, magnetická a elektrická síla — prostřednictvím silových polí.',
+		},
+		{
+			text: 'Která síla působí mezi magnety?',
+			odpovedi: ['magnetická', 'gravitační', 'jaderná'],
+			vysvetleni: 'Mezi magnety působí magnetická síla. Gravitační působí mezi hmotnými tělesy, jaderná drží jádro atomu.',
+		},
+		{
+			text: 'Která síla drží pohromadě jádro atomu?',
+			odpovedi: ['jaderná', 'magnetická', 'elektrická'],
+			vysvetleni: 'Jaderná síla drží jádro atomu pohromadě. Působí jen na velmi malé vzdálenosti.',
+		},
+		{
+			text: 'Jakou značku má síla?',
+			odpovedi: ['F', 'S', 'N'],
+			vysvetleni: 'Síla má značku F (z anglického force). N (newton) je její jednotka.',
+		},
+		{
+			text: 'Jaká je základní jednotka síly?',
+			odpovedi: ['newton (N)', 'kilogram (kg)', 'metr (m)'],
+			vysvetleni: 'Jednotka síly je newton (N) — na počest Isaaca Newtona, objevitele gravitačního zákona.',
+		},
+		{
+			text: 'Kolik newtonů je 1 kilonewton (kN)?',
+			odpovedi: ['1 000 N', '100 N', '1 000 000 N'],
+			vysvetleni: 'Kilo- znamená tisíc: 1 kN = 1 000 N. Mega- znamená milion: 1 MN = 1 000 000 N.',
+		},
+		{
+			text: 'Čím měříme sílu?',
+			odpovedi: ['siloměrem', 'teploměrem', 'odměrným válcem'],
+			vysvetleni: 'Sílu měříme siloměrem — pružina se protáhne úměrně působící síle.',
+		},
+		{
+			text: 'Na jakém principu funguje pružinový siloměr?',
+			odpovedi: [
+				'protažení pružiny je přímo úměrné síle',
+				'pružina mění barvu podle síly',
+				'pružina se silou zkracuje',
+			],
+			vysvetleni: 'Kolikrát větší síla, tolikrát větší prodloužení pružiny. Při překročení rozsahu se pružina trvale poškodí.',
+		},
+		{
+			text: 'Jak se znázorňuje směr síly?',
+			odpovedi: ['úsečkou se šipkou z působiště', 'kroužkem', 'vlnovkou'],
+			vysvetleni: 'Síla se kreslí jako úsečka se šipkou: začíná v působišti a její délka odpovídá velikosti síly.',
+		},
+		{
+			text: 'Jaké síle přibližně odpovídá 1 N?',
+			odpovedi: [
+				'síle, kterou Země přitahuje těleso o hmotnosti 100 g',
+				'síle, kterou Země přitahuje těleso o hmotnosti 1 kg',
+				'síle stisku ruky dospělého',
+			],
+			vysvetleni: '1 N ≈ gravitační síla Země na těleso o hmotnosti 100 g (0,1 kg) — třeba na menší jablko.',
+		},
+	],
+	'fyzika/6-rocnik/sila/gravitacni-sila': [
+		{
+			text: 'Mezi kterými tělesy působí gravitační síla?',
+			odpovedi: ['mezi všemi tělesy s hmotností', 'jen mezi planetami', 'jen mezi magnety'],
+			vysvetleni: 'Gravitační silou na sebe působí všechna tělesa s hmotností — jen u malých těles je nepatrná.',
+		},
+		{
+			text: 'Jaká je gravitační síla?',
+			odpovedi: ['vždy přitažlivá', 'vždy odpudivá', 'někdy přitažlivá, někdy odpudivá'],
+			vysvetleni: 'Gravitační síla je vždy přitažlivá — tělesa se jí navzájem přitahují.',
+		},
+		{
+			text: 'Kdo popsal zákony gravitace?',
+			odpovedi: ['Isaac Newton', 'Robert Brown', 'Démokritos'],
+			vysvetleni: 'Anglický fyzik Isaac Newton v 17. století. Je po něm pojmenována i jednotka síly.',
+		},
+		{
+			text: 'Jak závisí gravitační síla na hmotnosti těles?',
+			odpovedi: ['čím větší hmotnosti, tím větší síla', 'čím větší hmotnosti, tím menší síla', 'na hmotnosti nezávisí'],
+			vysvetleni: 'Větší hmotnosti = větší gravitační síla. Proto ji pozorujeme hlavně u obrovské Země, ne mezi knihami na stole.',
+		},
+		{
+			text: 'Jak závisí gravitační síla na vzdálenosti těles?',
+			odpovedi: ['čím dál od sebe, tím menší síla', 'čím dál od sebe, tím větší síla', 'na vzdálenosti nezávisí'],
+			vysvetleni: 'S rostoucí vzdáleností gravitační síla slábne.',
+		},
+		{
+			text: 'Země a padající míč se přitahují stejně velkou silou. Proč vidíme padat jen míč?',
+			odpovedi: [
+				'lehký míč se uvede do pohybu snadno, obrovskou Zemí síla nepohne znatelně',
+				'Země žádnou silou nepůsobí',
+				'míč je k Zemi přitahován větší silou než Země k míči',
+			],
+			vysvetleni: 'Síly jsou stejně velké, ale Země je nesrovnatelně těžší, takže její pohyb nepozorujeme.',
+		},
+		{
+			text: 'Jak velká gravitační síla působí u povrchu Země na 1 kg hmotnosti?',
+			odpovedi: ['přibližně 10 N', 'přibližně 1 N', 'přibližně 100 N'],
+			vysvetleni: 'Na každý 1 kg působí síla asi 10 N. Hmotnost v kg × 10 = gravitační síla v N.',
+		},
+		{
+			text: 'Jakou silou přitahuje Země spolužáka o hmotnosti 58 kg?',
+			odpovedi: ['580 N', '58 N', '5,8 N'],
+			vysvetleni: '58 kg × 10 = 580 N.',
+		},
+		{
+			text: 'Jaká gravitační síla působí na auto o hmotnosti 15 t?',
+			odpovedi: ['150 kN', '15 kN', '1,5 kN'],
+			vysvetleni: '15 t = 15 000 kg; 15 000 × 10 = 150 000 N = 150 kN.',
+		},
+		{
+			text: 'Kam směřuje gravitační síla Země?',
+			odpovedi: ['do středu Země', 'k severnímu pólu', 'na západ'],
+			vysvetleni: 'Všechna tělesa jsou přitahována do středu Země — tento směr nazýváme svislý.',
+		},
+		{
+			text: 'Čím prakticky určíme svislý směr?',
+			odpovedi: ['olovnicí', 'vodováhou', 'kompasem'],
+			vysvetleni: 'Olovnice = závažíčko na provázku; provázek ukáže svislý směr. Vodováha určuje směr vodorovný.',
+		},
+		{
+			text: 'Jaký úhel svírá svislý a vodorovný směr?',
+			odpovedi: ['jsou na sebe kolmé (90°)', '45°', 'jsou rovnoběžné'],
+			vysvetleni: 'Svislý směr (olovnice) a vodorovný směr (hladina) jsou na sebe kolmé.',
+		},
+		{
+			text: 'Proč se astronauti na vesmírné stanici vznášejí?',
+			odpovedi: [
+				'stanice i astronauti neustále volně padají po oběžné dráze kolem Země',
+				've výšce 400 km už žádná gravitace není',
+				'jsou příliš lehcí',
+			],
+			vysvetleni: 'Gravitace je tam stále téměř tak silná jako na povrchu — ale stanice s astronauty kolem Země volně „padá" po oběžné dráze, proto se vůči sobě vznášejí.',
+		},
+		{
+			text: 'Proč se astronaut na Měsíci jakoby vznáší při chůzi?',
+			odpovedi: [
+				'na Měsíci na něj působí 6× menší gravitační síla než na Zemi',
+				'na Měsíci není žádná gravitace',
+				'má speciální nadnášející skafandr',
+			],
+			vysvetleni: 'Měsíc je menší a lehčí než Země, jeho gravitační síla je asi 6× menší.',
+		},
+		{
+			text: 'Proč planety obíhají kolem Slunce?',
+			odpovedi: [
+				'Slunce má díky obrovské hmotnosti silné gravitační pole',
+				'Slunce planety odpuzuje',
+				'planety pohání sluneční vítr',
+			],
+			vysvetleni: 'Čím hmotnější těleso, tím silnější gravitační pole — gravitace Slunce drží planety na oběžných drahách.',
+		},
+		{
+			text: 'Proč měsíce obíhají kolem planet, a ne kolem Slunce?',
+			odpovedi: [
+				'jsou planetám mnohem blíž, takže je planety přitahují větší silou',
+				'Slunce o nich neví',
+				'měsíce jsou příliš rychlé',
+			],
+			vysvetleni: 'Gravitační síla klesá se vzdáleností — blízká planeta přitahuje svůj měsíc silněji než vzdálené Slunce.',
+		},
+		{
+			text: 'Co způsobuje příliv a odliv?',
+			odpovedi: [
+				'gravitační síla Měsíce působící na vodu v oceánech',
+				'vítr na moři',
+				'otáčení lodních šroubů',
+			],
+			vysvetleni: 'Měsíc přitahuje vodu v oceánech — vzniká příliv a odliv (slapové jevy).',
+		},
+	],
 	'fyzika/7-rocnik/tlak-v-kapalinach/tlak': [
 		{
 			text: 'Jak působí tlaková síla na plochu tělesa?',

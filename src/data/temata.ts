@@ -209,8 +209,99 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'sila',
 			nazev: 'Síla',
 			podtemata: [
-				{ slug: 'vzajemne-pusobeni-teles-sila', nazev: 'Vzájemné působení těles, síla' },
-				{ slug: 'gravitacni-sila', nazev: 'Gravitační síla a gravitační pole' },
+				{
+					slug: 'vzajemne-pusobeni-teles-sila',
+					nazev: 'Vzájemné působení těles, síla',
+					obsah: `
+						<h2>Vzájemné působení těles</h2>
+						<p>Všude kolem sebe vidíme, jak na sebe tělesa působí: rukou natáhnu pružinu, stlačím pěnový míček, brankář chytí letící míč, vystřelím lukem šíp, při česání se vlasy přitahují k hřebenu, Měsíc obíhá okolo Země…</p>
+						<p>👉 <strong>Působení těles je vždy vzájemné.</strong> Působí-li jedno těleso na druhé, působí i to druhé těleso na to první!</p>
+						<ul>
+							<li>brankář zastaví míč — a míč při tom tlačí brankáři do rukou</li>
+							<li>kopnu do míče — a míč zatlačí do mé nohy</li>
+							<li>Země přitahuje Měsíc — a Měsíc přitahuje vodu v mořích (příliv a odliv)</li>
+						</ul>
+						<h3>Účinky vzájemného působení</h3>
+						<ul>
+							<li><strong>Pohybové</strong> — uvedení do pohybu (vykopnutí míče), změna směru (přihrávka), změna rychlosti (cyklista šlape/brzdí), zastavení pohybu (brankář chytne míč)</li>
+							<li><strong>Deformační</strong> — změna tvaru tělesa: <strong>dočasná</strong> (matrace se vrátí do původního tvaru) nebo <strong>trvalá</strong> (plastelína zůstane zmáčknutá)</li>
+						</ul>
+						<h3>Síla</h3>
+						<p>Pro vyjádření vzájemného působení těles používáme pojem <strong>síla</strong>.</p>
+						<p>👉 Pozor: síla neexistuje sama o sobě — <strong>vždy existuje těleso, které je příčinou silového působení</strong> na jiné těleso. „Síla zvyku" nebo „silné emoce" nejsou síly ve fyzikálním smyslu.</p>
+						<h3>Způsoby vzájemného působení</h3>
+						<ul>
+							<li><strong>při vzájemném dotyku</strong> těles (tlak, tah)</li>
+							<li><strong>na dálku</strong> — vlivem silového pole:
+								<ul>
+									<li><strong>gravitační síla</strong> — mezi tělesy s velkou hmotností</li>
+									<li><strong>magnetická síla</strong> — mezi magnety</li>
+									<li><strong>elektrická síla</strong> — mezi elektricky nabitými tělesy</li>
+									<li><strong>jaderná síla</strong> — drží jádro atomu pohromadě</li>
+								</ul>
+							</li>
+						</ul>
+						<h3>Síla jako fyzikální veličina</h3>
+						<ul>
+							<li>popisuje vzájemné působení těles — určuje <strong>velikost i směr</strong></li>
+							<li>značka: <strong>F</strong>, jednotka: <strong>newton (N)</strong> /čte se ňůtn/ — na počest Isaaca Newtona</li>
+							<li>další jednotky: <strong>1 kN = 1 000 N</strong>, <strong>1 MN = 1 000 000 N</strong></li>
+							<li>velikost síly zapisujeme číslem s jednotkou (F = 35 N)</li>
+							<li>směr síly znázorňujeme <strong>úsečkou se šipkou</strong> — začátek v <strong>působišti síly</strong>, délka šipky odpovídá velikosti síly</li>
+						</ul>
+						<h3>Měření síly — siloměr</h3>
+						<p>Klasický <strong>pružinový siloměr</strong> tvoří pružina s háčkem a stupnice. Princip: <strong>protažení pružiny je přímo úměrné působící síle</strong> — kolikrát větší síla, tolikrát větší prodloužení. Při překročení rozsahu se pružina trvale poškodí a měřit už nelze.</p>
+						<p>Pravidla měření: zkontrolovat nulu, zjistit jednotky stupnice, hodnotu nejmenšího dílku a rozsah; odchylka měření = polovina nejmenšího dílku.</p>
+						<p>💡 Síla 1 N odpovídá přibližně síle, kterou Země přitahuje těleso o hmotnosti 100 g. Na tomto principu fungují pružinové váhy.</p>
+					`,
+				},
+				{
+					slug: 'gravitacni-sila',
+					nazev: 'Gravitační síla a gravitační pole',
+					obsah: `
+						<h2>Gravitační síla</h2>
+						<p>Kapky deště, šiška ze stromu i upuštěný hrneček padají k zemi. 👉 <strong>Země přitahuje všechna tělesa ve svém okolí.</strong></p>
+						<ul>
+							<li>gravitační silou na sebe působí <strong>všechna tělesa s hmotností</strong></li>
+							<li>je <strong>vždy přitažlivá</strong> a působení je vždy vzájemné</li>
+							<li>zákony gravitace popsal anglický fyzik <strong>Isaac Newton</strong></li>
+						</ul>
+						<h3>Na čem závisí velikost gravitační síly?</h3>
+						<ul>
+							<li><strong>Na hmotnostech těles</strong> — čím větší hmotnosti, tím větší síla. Mezi planetami jsou obrovské gravitační síly; mezi malými tělesy (dvě knihy na stole) je síla zanedbatelná, proto ji běžně pozorujeme jen ve vztahu k Zemi.</li>
+							<li><strong>Na vzdálenosti těles</strong> — čím jsou tělesa dál od sebe, tím je gravitační síla menší.</li>
+						</ul>
+						<p>🔎 Země a míč se přitahují navzájem stejně velkou silou — proč vidíme padat míč, a ne Zemi? Lehký míč se uvede do pohybu snadno, zatímco obrovskou Zemi stejná síla pohne jen neznatelně.</p>
+						<p>🔎 A proč se astronauti na vesmírné stanici vznášejí? Ve výšce 400 km je gravitace stále téměř tak silná jako na povrchu — stanice i astronauti ale kolem Země <strong>neustále volně padají po oběžné dráze</strong>, a proto se vůči sobě vznášejí.</p>
+						<h3>Výpočet u povrchu Země</h3>
+						<p>Na každý <strong>1 kg</strong> hmotnosti tělesa působí u povrchu Země gravitační síla přibližně <strong>10 N</strong>.</p>
+						<ul>
+							<li>spolužák o hmotnosti 58 kg → gravitační síla 580 N</li>
+							<li>auto o hmotnosti 15 t (15 000 kg) → gravitační síla 150 kN</li>
+						</ul>
+						<h3>Směr gravitační síly</h3>
+						<ul>
+							<li>gravitační síla směřuje vždy <strong>do středu Země</strong> — tomu říkáme <strong>svislý směr</strong></li>
+							<li>svislý směr prakticky určíme <strong>olovnicí</strong> (závažíčko na provázku) — důležité pro stabilitu staveb</li>
+							<li>svislý a vodorovný směr jsou na sebe <strong>kolmé</strong></li>
+						</ul>
+						<h2>Gravitační pole</h2>
+						<ul>
+							<li>vzniká v okolí <strong>každého</strong> hmotného tělesa; význam má u těles s obrovskou hmotností (hvězdy, planety, měsíce)</li>
+							<li>projevuje se působením gravitační síly na tělesa v okolí</li>
+							<li>čím větší hmotnost, tím „silnější" pole — Slunce má silnější pole než Země, proto planety obíhají kolem Slunce</li>
+							<li>Měsíc je menší a lehčí než Země — na astronauta na Měsíci působí <strong>6× menší</strong> gravitační síla, proto se při chůzi jakoby vznáší</li>
+						</ul>
+						<p>🔎 Proč měsíce obíhají kolem planet, a ne kolem Slunce? Jsou planetám <strong>mnohem blíž</strong>, takže je planety přitahují větší silou než vzdálené Slunce.</p>
+						<h3>Důsledky gravitační síly</h3>
+						<ul>
+							<li><strong>pád těles</strong> — neupevněná tělesa padají svisle dolů, ke středu Země</li>
+							<li><strong>vodorovná hladina kapalin</strong> — molekuly jsou přitahovány dolů a kloužou po sobě, proto se srovnají do stejné výšky</li>
+							<li><strong>pohyb vesmírných těles</strong> — gravitace Slunce drží planety na oběžných drahách, gravitace Země drží Měsíc a družice</li>
+							<li><strong>příliv a odliv</strong> — gravitační síla Měsíce působí na vodu v oceánech</li>
+						</ul>
+					`,
+				},
 			],
 		},
 		{
