@@ -3482,3 +3482,88 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co říká Keplerův zákon o rychlosti planety?', odpovedi: ['čím blíž ke Slunci, tím rychleji se pohybuje', 'všechny planety jsou stejně rychlé', 'daleko od Slunce je rychlejší'], vysvetleni: 'Planety obíhají po elipsách.' },
 	],
 };
+
+/**
+ * Souhrnné kvízy (pololetní a roční shrnutí) se skládají automaticky z otázek
+ * jednotlivých podtémat daného ročníku — kolo po kole (nejdřív 1. otázka každého
+ * podtématu, pak 2. …), aby byla pokryta všechna témata rovnoměrně.
+ * Díky tomu se při doplnění otázek k tématům aktualizují i souhrny.
+ */
+function slozSouhrnnyKviz(rocnik: string, celky: string[], maxOtazek: number): Otazka[] {
+	const zdroje = Object.entries(kvizy)
+		.filter(([klic]) => {
+			const [predmet, r, tema] = klic.split('/');
+			return predmet === 'fyzika' && r === rocnik && celky.includes(tema);
+		})
+		.map(([, seznam]) => seznam);
+	const vysledek: Otazka[] = [];
+	for (let kolo = 0; vysledek.length < maxOtazek; kolo++) {
+		let pridano = false;
+		for (const seznam of zdroje) {
+			if (kolo < seznam.length && vysledek.length < maxOtazek) {
+				vysledek.push(seznam[kolo]);
+				pridano = true;
+			}
+		}
+		if (!pridano) break;
+	}
+	return vysledek;
+}
+
+// 1. pololetí = celky probírané do pololetí (dle časových plánů učitele)
+kvizy['fyzika/6-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'6-rocnik',
+	['latka-a-teleso', 'sila', 'fyzikalni-veliciny'],
+	24,
+);
+kvizy['fyzika/6-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'6-rocnik',
+	['latka-a-teleso', 'sila', 'fyzikalni-veliciny', 'cas', 'teplota', 'elektrina-a-magnetismus'],
+	30,
+);
+kvizy['fyzika/7-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'7-rocnik',
+	['pohyb-a-rychlost', 'sily-kolem-nas', 'jednoduche-stroje', 'tlak-v-kapalinach'],
+	24,
+);
+kvizy['fyzika/7-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'7-rocnik',
+	[
+		'pohyb-a-rychlost',
+		'sily-kolem-nas',
+		'jednoduche-stroje',
+		'tlak-v-kapalinach',
+		'vztlakova-sila-a-plovani-teles',
+		'atmosfera-a-tlak-vzduchu',
+		'svetlo-a-jeho-sireni',
+		'zrcadla-a-cocky',
+	],
+	30,
+);
+kvizy['fyzika/8-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'8-rocnik',
+	['mechanicka-prace-a-vykon', 'energie', 'tepelne-motory', 'teplo-a-zmeny-skupenstvi'],
+	24,
+);
+kvizy['fyzika/8-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'8-rocnik',
+	['mechanicka-prace-a-vykon', 'energie', 'tepelne-motory', 'teplo-a-zmeny-skupenstvi', 'elektrina', 'zvuk'],
+	30,
+);
+kvizy['fyzika/9-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'9-rocnik',
+	['magneticke-pole', 'indukce-a-stridavy-proud', 'elektricky-proud-v-latkach'],
+	24,
+);
+kvizy['fyzika/9-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'9-rocnik',
+	[
+		'magneticke-pole',
+		'indukce-a-stridavy-proud',
+		'elektricky-proud-v-latkach',
+		'elektricka-energie-a-bezpecnost',
+		'jaderna-fyzika',
+		'energie-a-vesmir',
+	],
+	30,
+);

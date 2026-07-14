@@ -818,6 +818,80 @@ export const temata: Record<string, Tema[]> = {
 				},
 			],
 		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co máš umět za 1. pololetí</h2>
+						<p>Přehled učiva prvního pololetí 6. ročníku. Dole na stránce si můžeš dát <strong>souhrnný kvíz</strong> složený z otázek všech probraných témat.</p>
+						<h3>1. <a href="../../latka-a-teleso/">Látka a těleso</a></h3>
+						<ul>
+							<li>co je fyzika a jak pracuje fyzik (pozorování, pokus, měření)</li>
+							<li>látka × těleso, vlastnosti látek a těles, fyzikální veličiny</li>
+							<li>částicové složení látek, Brownův pohyb, difuze</li>
+							<li>atomy a molekuly, prvek, sloučenina, směs</li>
+							<li>skupenství látek a jejich vlastnosti</li>
+						</ul>
+						<h3>2. <a href="../../sila/">Síla</a></h3>
+						<ul>
+							<li>vzájemné působení těles, účinky síly (pohybové, deformační), síla F, newton, siloměr</li>
+							<li>gravitační síla a gravitační pole, 1 kg ≈ 10 N, svislý směr a olovnice</li>
+						</ul>
+						<h3>3. <a href="../../fyzikalni-veliciny/">Fyzikální veličiny</a></h3>
+						<ul>
+							<li>délka (m), hmotnost (kg), objem (m³, litry), hustota (kg/m³)</li>
+							<li>měřidla, pravidla měření, odchylka měření, převody jednotek</li>
+							<li>vztahy: ρ = m : V, V = m : ρ, m = ρ · V, 1 l = 1 dm³</li>
+						</ul>
+						<h3>📋 Klíčové hodnoty</h3>
+						<ul>
+							<li>hustota vody 1 000 kg/m³, 1 litr vody = 1 kg</li>
+							<li>gravitační síla na 1 kg ≈ 10 N</li>
+							<li>1 kN = 1 000 N, 1 t = 1 000 kg, 1 q = 100 kg, 1 dag = 10 g</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co máš umět za celý 6. ročník</h2>
+						<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>
+						<h3>1. <a href="../../latka-a-teleso/">Látka a těleso</a></h3>
+						<ul><li>fyzika jako věda; látka × těleso; částice, atomy a molekuly; prvek, sloučenina, směs; skupenství látek</li></ul>
+						<h3>2. <a href="../../sila/">Síla</a></h3>
+						<ul><li>vzájemné působení těles; síla F (newton), siloměr; gravitační síla a pole (1 kg ≈ 10 N)</li></ul>
+						<h3>3. <a href="../../fyzikalni-veliciny/">Fyzikální veličiny</a></h3>
+						<ul><li>délka, hmotnost, objem, hustota — značky, jednotky, měřidla, převody; ρ = m : V</li></ul>
+						<h3>4. <a href="../../cas/">Čas</a></h3>
+						<ul><li>sekunda, minuta, hodina; historické i moderní hodiny; u času se čárka neposouvá (1 h = 60 min)!</li></ul>
+						<h3>5. <a href="../../teplota/">Teplota</a></h3>
+						<ul><li>°C, Celsiova stupnice (0 °C tání ledu, 100 °C var vody), druhy teploměrů; teplotní roztažnost a její využití i potíže (dilatační spáry)</li></ul>
+						<h3>6. <a href="../../elektrina-a-magnetismus/">Elektřina a magnetismus</a></h3>
+						<ul><li>magnety, póly, indukční čáry, magnetické pole Země; stavba atomu, náboj, vodiče a izolanty, elektrické pole; jednoduchý obvod, proud (A), napětí (V), zkrat a bezpečnost</li></ul>
+						<h3>📋 Přehled veličin roku</h3>
+						<table>
+							<thead><tr><th>Veličina</th><th>Značka</th><th>Jednotka</th><th>Měřidlo</th></tr></thead>
+							<tbody>
+								<tr><td>délka</td><td>l, d</td><td>m</td><td>metr, pásmo…</td></tr>
+								<tr><td>hmotnost</td><td>m</td><td>kg</td><td>váhy</td></tr>
+								<tr><td>objem</td><td>V</td><td>m³ (l)</td><td>odměrný válec</td></tr>
+								<tr><td>hustota</td><td>ρ</td><td>kg/m³</td><td>hustoměr</td></tr>
+								<tr><td>čas</td><td>t</td><td>s</td><td>hodiny, stopky</td></tr>
+								<tr><td>teplota</td><td>t</td><td>°C</td><td>teploměr</td></tr>
+								<tr><td>síla</td><td>F</td><td>N</td><td>siloměr</td></tr>
+								<tr><td>el. proud</td><td>—</td><td>A</td><td>ampérmetr</td></tr>
+								<tr><td>el. napětí</td><td>—</td><td>V</td><td>voltmetr</td></tr>
+							</tbody>
+						</table>
+					`,
+				},
+			],
+		},
 	],
 	'fyzika/7-rocnik': [
 		{
@@ -1809,6 +1883,58 @@ export const temata: Record<string, Tema[]> = {
 				},
 			],
 		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co máš umět za 1. pololetí</h2>
+						<p>Přehled učiva prvního pololetí 7. ročníku. Dole na stránce si dej <strong>souhrnný kvíz</strong> složený z otázek všech probraných témat.</p>
+						<h3>1. <a href="../../pohyb-a-rychlost/">Pohyb a rychlost</a></h3>
+						<ul><li>klid a pohyb tělesa, trajektorie a dráha; posuvný a otáčivý pohyb; rychlost v = s : t a výpočty dráhy a času</li></ul>
+						<h3>2. <a href="../../sily-kolem-nas/">Síly kolem nás</a></h3>
+						<ul><li>síla a její měření; gravitační síla; třecí síla; skládání sil; těžiště tělesa</li></ul>
+						<h3>3. <a href="../../jednoduche-stroje/">Jednoduché stroje</a></h3>
+						<ul><li>působení těles a deformace; páka a moment síly</li></ul>
+						<h3>4. <a href="../../tlak-v-kapalinach/">Tlak v kapalinách</a></h3>
+						<ul><li>tlak p = F : S (pascal); Pascalův zákon a hydraulika; hydrostatický tlak</li></ul>
+						<h3>📋 Klíčové vztahy</h3>
+						<ul>
+							<li>rychlost v = s : t (m/s, km/h; 1 m/s = 3,6 km/h)</li>
+							<li>tlak p = F : S (Pa)</li>
+							<li>gravitační síla na 1 kg ≈ 10 N</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co máš umět za celý 7. ročník</h2>
+						<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>
+						<h3>1. <a href="../../pohyb-a-rychlost/">Pohyb a rychlost</a></h3>
+						<ul><li>klid a pohyb, trajektorie, dráha; druhy pohybu; rychlost a výpočty (v = s : t)</li></ul>
+						<h3>2. <a href="../../sily-kolem-nas/">Síly kolem nás</a></h3>
+						<ul><li>síla, gravitační a třecí síla, skládání sil, těžiště</li></ul>
+						<h3>3. <a href="../../jednoduche-stroje/">Jednoduché stroje</a></h3>
+						<ul><li>deformace; páka, moment síly, rovnováha na páce</li></ul>
+						<h3>4. <a href="../../tlak-v-kapalinach/">Tlak v kapalinách</a></h3>
+						<ul><li>tlak, Pascalův zákon, hydraulické zařízení, hydrostatický tlak</li></ul>
+						<h3>5. <a href="../../vztlakova-sila-a-plovani-teles/">Vztlaková síla a plování těles</a></h3>
+						<ul><li>Archimédův zákon; kdy těleso plave, vznáší se, nebo klesá</li></ul>
+						<h3>6. <a href="../../atmosfera-a-tlak-vzduchu/">Atmosféra a tlak vzduchu</a></h3>
+						<ul><li>atmosférický tlak; přetlak, podtlak, vakuum; meteorologie a měření tlaku</li></ul>
+						<h3>7. <a href="../../svetlo-a-jeho-sireni/">Světlo a jeho šíření</a></h3>
+						<ul><li>zdroje světla; odraz a lom světla; stín a fáze Měsíce</li></ul>
+						<h3>8. <a href="../../zrcadla-a-cocky/">Zrcadla a čočky</a></h3>
+						<ul><li>rovinné a kulová zrcadla; čočky (spojka, rozptylka); oko a jeho vady; rozklad světla, duha a vnímání barev</li></ul>
+					`,
+				},
+			],
+		},
 	],
 	'fyzika/8-rocnik': [
 		{
@@ -2708,6 +2834,59 @@ export const temata: Record<string, Tema[]> = {
 				},
 			],
 		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co máš umět za 1. pololetí</h2>
+						<p>Přehled učiva prvního pololetí 8. ročníku. Dole na stránce si dej <strong>souhrnný kvíz</strong> složený z otázek všech probraných témat.</p>
+						<h3>1. <a href="../../mechanicka-prace-a-vykon/">Mechanická práce a výkon</a></h3>
+						<ul><li>práce W = F · s (joule); výkon P = W : t (watt)</li></ul>
+						<h3>2. <a href="../../energie/">Energie</a></h3>
+						<ul><li>přeměny energie; pohybová a polohová energie; zákon zachování mechanické energie; energetická hodnota potravin; vnitřní energie; tepelná výměna a teplo</li></ul>
+						<h3>3. <a href="../../tepelne-motory/">Tepelné motory</a></h3>
+						<ul><li>parní stroj; spalovací motory</li></ul>
+						<h3>4. <a href="../../teplo-a-zmeny-skupenstvi/">Teplo a změny skupenství</a></h3>
+						<ul><li>tání a tuhnutí; vypařování a var; kondenzace; skupenské změny vody v přírodě</li></ul>
+						<h3>📋 Klíčové vztahy</h3>
+						<ul>
+							<li>práce W = F · s (J), výkon P = W : t (W)</li>
+							<li>1 kWh = 3,6 MJ</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co máš umět za celý 8. ročník</h2>
+						<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>
+						<h3>1. <a href="../../mechanicka-prace-a-vykon/">Mechanická práce a výkon</a></h3>
+						<ul><li>W = F · s, P = W : t</li></ul>
+						<h3>2. <a href="../../energie/">Energie</a></h3>
+						<ul><li>pohybová a polohová energie, zákon zachování, vnitřní energie, tepelná výměna</li></ul>
+						<h3>3. <a href="../../tepelne-motory/">Tepelné motory</a></h3>
+						<ul><li>parní stroj, spalovací motory</li></ul>
+						<h3>4. <a href="../../teplo-a-zmeny-skupenstvi/">Teplo a změny skupenství</a></h3>
+						<ul><li>tání, tuhnutí, vypařování, var, kondenzace; koloběh vody</li></ul>
+						<h3>5. <a href="../../elektrina/">Elektřina</a></h3>
+						<ul><li>elektrický náboj a pole; vznik proudu, zdroje napětí; obvody; měření proudu (A) a napětí (V); odpor a Ohmův zákon; sériové a paralelní zapojení; reostat a potenciometr; práce a výkon proudu; účinky proudu a bezpečnost</li></ul>
+						<h3>6. <a href="../../zvuk/">Zvuk</a></h3>
+						<ul><li>kmitání a vlnění; vznik a šíření zvuku; vnímání zvuku a hlasitost (decibely)</li></ul>
+						<h3>📋 Klíčové vztahy</h3>
+						<ul>
+							<li>W = F · s, P = W : t, 1 kWh = 3,6 MJ</li>
+							<li>Ohmův zákon: I = U : R</li>
+							<li>rychlost zvuku ve vzduchu ≈ 340 m/s</li>
+						</ul>
+					`,
+				},
+			],
+		},
 	],
 	// Struktura 9. ročníku PŘESTAVĚNA dle skutečných složek učitele na Google Disku (témata 01–22).
 	// Celek 1 (Magnetické pole) HOTOVÝ; ostatní celky zatím dlaždice — doplní se výkladem + kvízy.
@@ -3278,6 +3457,57 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Astronomická jednotka (AU)</strong> = střední vzdálenost Země–Slunce, asi <strong>150 milionů km</strong>.</li>
 							<li><strong>Světelný rok (ly)</strong> = vzdálenost, kterou urazí světlo za rok (9,46 bilionu km).</li>
 							<li>Pohyb planet popisují <strong>Keplerovy zákony</strong>: planety obíhají po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.</li>
+						</ul>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co máš umět za 1. pololetí</h2>
+						<p>Přehled učiva prvního pololetí 9. ročníku. Dole na stránce si dej <strong>souhrnný kvíz</strong> složený z otázek všech probraných témat.</p>
+						<h3>1. <a href="../../magneticke-pole/">Magnetické pole</a></h3>
+						<ul><li>magnety (opakování); magnetické pole vodiče s proudem a cívky; elektromagnet a jeho využití</li></ul>
+						<h3>2. <a href="../../indukce-a-stridavy-proud/">Elektromagnetická indukce a střídavý proud</a></h3>
+						<ul><li>elektromagnetická indukce; vznik střídavého proudu a alternátor; vlastnosti střídavého proudu; elektromotor; transformátor (U₂ : U₁ = N₂ : N₁)</li></ul>
+						<h3>3. <a href="../../elektricky-proud-v-latkach/">Elektrický proud v látkách</a></h3>
+						<ul><li>vedení proudu v kapalinách (elektrolýza) a plynech; chemické zdroje napětí; polovodiče a dioda; přenos elektrické energie</li></ul>
+						<h3>📋 Klíčové vztahy</h3>
+						<ul>
+							<li>transformátor: U₂ : U₁ = N₂ : N₁</li>
+							<li>střídavý proud v síti: 50 Hz, 230 V</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co máš umět za celý 9. ročník</h2>
+						<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>
+						<h3>1. <a href="../../magneticke-pole/">Magnetické pole</a></h3>
+						<ul><li>magnety, pole vodiče a cívky, elektromagnet</li></ul>
+						<h3>2. <a href="../../indukce-a-stridavy-proud/">Elektromagnetická indukce a střídavý proud</a></h3>
+						<ul><li>indukce, alternátor, vlastnosti střídavého proudu, elektromotor, transformátor</li></ul>
+						<h3>3. <a href="../../elektricky-proud-v-latkach/">Elektrický proud v látkách</a></h3>
+						<ul><li>kapaliny, plyny, polovodiče a dioda, chemické zdroje, přenos elektrické energie</li></ul>
+						<h3>4. <a href="../../elektricka-energie-a-bezpecnost/">Elektrická energie a bezpečnost</a></h3>
+						<ul><li>přeměny elektrické energie; účinky proudu na organismus a bezpečnost</li></ul>
+						<h3>5. <a href="../../jaderna-fyzika/">Jaderná fyzika</a></h3>
+						<ul><li>jádro atomu (protony, neutrony, izotopy); radioaktivita (α, β, γ, poločas rozpadu); jaderná energie a reakce; reaktor a jaderná elektrárna</li></ul>
+						<h3>6. <a href="../../energie-a-vesmir/">Zdroje energie a vesmír</a></h3>
+						<ul><li>obnovitelné a neobnovitelné zdroje energie; sluneční soustava (8 planet, AU, světelný rok, Keplerovy zákony)</li></ul>
+						<h3>📋 Klíčové vztahy a hodnoty</h3>
+						<ul>
+							<li>transformátor: U₂ : U₁ = N₂ : N₁</li>
+							<li>záření α (helium), β (elektrony), γ (elektromagnetické) — ochrana vzdáleností, stíněním a časem</li>
+							<li>1 AU = 150 milionů km; světelný rok = vzdálenost, kterou světlo urazí za rok</li>
 						</ul>
 					`,
 				},
