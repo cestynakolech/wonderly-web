@@ -522,14 +522,135 @@ export const temata: Record<string, Tema[]> = {
 		{
 			slug: 'cas',
 			nazev: 'Čas',
-			podtemata: [{ slug: 'cas-a-jeho-mereni', nazev: 'Čas a jeho měření' }],
+			podtemata: [
+				{
+					slug: 'cas-a-jeho-mereni',
+					nazev: 'Čas a jeho měření',
+					obsah: `
+						<h2>Čas jako fyzikální veličina</h2>
+						<ul>
+							<li>značka: <strong>t</strong></li>
+							<li>základní jednotka: <strong>sekunda (s)</strong></li>
+							<li>další jednotky: minuta (min), hodina (h), den (d), rok</li>
+							<li>měřidla: <strong>hodiny, stopky</strong></li>
+						</ul>
+						<p>👉 V běžné mluvě se říká „vteřina" — fyzika ale tento pojem nezná, používá mezinárodní název <strong>sekunda</strong>. Pozor na značky: sekunda se neznačí „sec" a minuta se neznačí „m" (to je metr).</p>
+						<p>💡 Pro velmi krátké děje se používá <strong>milisekunda (ms)</strong> = tisícina sekundy.</p>
+						<h3>Historické metody měření času</h3>
+						<ul>
+							<li><strong>sluneční hodiny</strong> — tyč vrhá stín na stupnici (nevýhoda: Slunce nesvítí každý den v roce na stejném místě)</li>
+							<li><strong>svíčkové hodiny</strong> — svíčka s vyrytou stupnicí uhořívá stále stejně rychle</li>
+							<li><strong>vodní hodiny</strong> — voda odkapává stejně rychle, hmotnost odkapané vody udává čas</li>
+							<li><strong>přesýpací hodiny</strong> — písek se přesýpá stejnou rychlostí (musí se pravidelně otáčet)</li>
+						</ul>
+						<h3>Moderní hodiny</h3>
+						<ul>
+							<li><strong>mechanický hodinový stroj</strong> s ciferníkem — Pražský orloj (1410)</li>
+							<li><strong>kyvadlové hodiny</strong> (17. století) — první spolehlivé hodiny, u nás „pendlovky"</li>
+							<li><strong>mechanické hodinky</strong> — strojek pohání natažená pružina; krok zajišťuje pravidelný posun ručiček a působí tikot</li>
+							<li><strong>atomové hodiny</strong> — nejpřesnější měření času</li>
+						</ul>
+						<h3>Princip fungování hodin</h3>
+						<p>Moderní hodiny využívají <strong>pravidelně se opakující děje</strong>:</p>
+						<ul>
+							<li>kyvadlové hodiny — kmitání kyvadla (natahují se, aby klesající závaží kyvadlo nezastavilo)</li>
+							<li>hodinový strojek — kmitání součástky zvané <strong>nepokoj</strong> (pohání ji natažená pružina)</li>
+							<li>atomové hodiny — vnitřní kmitání atomů; není ovlivněno vnějšími vlivy</li>
+						</ul>
+						<h3>Jednotky času a převody</h3>
+						<ul>
+							<li><strong>1 min = 60 s</strong></li>
+							<li><strong>1 h = 60 min = 3 600 s</strong></li>
+							<li><strong>1 d = 24 h</strong></li>
+						</ul>
+						<p>👉 POZOR — častá chyba: u času <strong>neposouváme desetinnou čárku</strong>! 0,75 h není 75 minut, ale 45 minut (0,75 × 60).</p>
+						<h3>Výpočet doby trvání</h3>
+						<p>Známe-li čas začátku t₁ a konce t₂ události, doba trvání <strong>t = t₂ − t₁</strong> (např. jak dlouho trvala cesta vlakem).</p>
+					`,
+				},
+			],
 		},
 		{
 			slug: 'teplota',
 			nazev: 'Teplota',
 			podtemata: [
-				{ slug: 'teplota-a-jeji-mereni', nazev: 'Teplota a její měření' },
-				{ slug: 'teplotni-roztaznost', nazev: 'Teplotní roztažnost' },
+				{
+					slug: 'teplota-a-jeji-mereni',
+					nazev: 'Teplota a její měření',
+					obsah: `
+						<h2>Teplota jako fyzikální veličina</h2>
+						<ul>
+							<li>popisuje <strong>tepelný stav tělesa</strong> — vnímáme ho jako studené, teplé či horké</li>
+							<li>značka: <strong>t</strong>, jednotka: <strong>stupeň Celsia (°C)</strong>, měřidlo: <strong>teploměr</strong></li>
+						</ul>
+						<p>💡 Vědci používají také <strong>termodynamickou teplotu</strong> (značka T, jednotka kelvin K) — její stupnice začíná <strong>absolutní nulou</strong>, teoreticky nejnižší teplotou hmoty. Potkáte ji na střední škole.</p>
+						<h3>Historie měření teploty</h3>
+						<ul>
+							<li>dlouho se teplota určovala podle tělesných pocitů či barvy rozžhavených předmětů</li>
+							<li><strong>Galileo Galilei</strong> (17. století) sestrojil vzduchový přístroj ukazující změny teploty a teploměr s plovoucími baňkami</li>
+							<li><strong>Daniel Gabriel Fahrenheit</strong> — velice přesný rtuťový teploměr a vlastní stupnice (teplota lidského těla ≈ 98 °F); používá se v anglicky mluvících zemích</li>
+							<li><strong>Anders Celsius</strong> (18. století) — stupnice podle tuhnutí a varu vody, dnes nejpoužívanější (původně byla obrácená!)</li>
+							<li>lékařský teploměr — až 19. století; ve 20. století elektrické a zářením snímající teploměry</li>
+						</ul>
+						<h3>Celsiova stupnice</h3>
+						<ul>
+							<li><strong>0 °C — teplota, při které taje led</strong></li>
+							<li><strong>100 °C — teplota, při které voda vře</strong></li>
+						</ul>
+						<p>👉 Při zápisu teploty vždy uvádíme jednotky — „30 stupňů" může znamenat horko (°C) i mráz (°F ≈ −1 °C).</p>
+						<h3>Jak fungují teploměry?</h3>
+						<ol>
+							<li><strong>teplotní roztažnost látek</strong> — při zahřátí se objem zvětší, při ochlazení zmenší; v kapalinových teploměrech rtuť (dnes zakázaná) nebo obarvený líh; bimetalový pásek ze dvou kovů s různou roztažností</li>
+							<li><strong>elektrické vlastnosti látek</strong></li>
+							<li><strong>záření vzdálených těles</strong></li>
+						</ol>
+						<h3>Druhy teploměrů</h3>
+						<ul>
+							<li><strong>kapalinový laboratorní</strong> — rtuťový či lihový, odečítání na stupnici</li>
+							<li><strong>lékařský</strong> — rozsah 35–42 °C, hodnotu ukazuje i po sundání (rtuť se musí „střepat"); dnes se kvůli riziku otravy moc nepoužívá</li>
+							<li><strong>bimetalový</strong> — pásek se při změně teploty stáčí a pohybuje ručičkou</li>
+							<li><strong>digitální s elektronickým čidlem</strong> — přesný, bezpečný, dnes nejčastější</li>
+							<li><strong>bezkontaktní</strong> — snímá tepelné záření (čelo, uši)</li>
+							<li><strong>termokamera</strong> — tepelné záření převádí na obraz (úniky tepla z budov, prokrvení těla)</li>
+						</ul>
+						<p>📌 Každý teploměr má svůj <strong>měřicí rozsah</strong> — pro měření si musíme vybrat správný teploměr!</p>
+						<h3>Měření teploty vzduchu v čase</h3>
+						<p>Změny teplot zaznamenáváme do tabulek a grafů. V pražském <strong>Klementinu</strong> se teplota měří nepřetržitě od roku 1775 — nejdéle v Evropě (rekordy: +37,8 °C v červenci 1983, −27,6 °C v březnu 1785). <strong>Termograf</strong> v meteostanici zapisuje teplotu ručkou na otáčející se kotouč papíru.</p>
+					`,
+				},
+				{
+					slug: 'teplotni-roztaznost',
+					nazev: 'Teplotní roztažnost',
+					obsah: `
+						<h2>Teplotní roztažnost látek</h2>
+						<p>Látky <strong>všech skupenství</strong> při změně teploty mění svůj objem a rozměry:</p>
+						<ul>
+							<li>👉 <strong>ZAHŘÁTÍ ⇨ zvětšení</strong> rozměrů a objemu</li>
+							<li>👉 <strong>OCHLAZENÍ ⇨ zmenšení</strong> rozměrů a objemu</li>
+						</ul>
+						<h3>Využití v praxi</h3>
+						<ul>
+							<li><strong>kapalinové teploměry</strong> — rtuťový, lihový</li>
+							<li><strong>bimetalový pásek</strong> — dva pevně spojené pásy z různých kovů; každý se roztahuje jinak, pásek se proto kroutí a může spínat obvody nebo hýbat ručičkou</li>
+							<li><strong>bimetalový teploměr</strong> — stočený pásek se při zahřátí odmotává</li>
+							<li><strong>elektrický jistič</strong> — ochrana vedení před požárem: pásek se při silném proudu zahřeje a vypne obvod</li>
+							<li><strong>bimetalový termostat</strong> — udržuje nastavenou teplotu (žehlička, trouba, topení): při dosažení teploty rozpojí obvod, při poklesu ho zase sepne</li>
+							<li><strong>termostatický ventil u topení</strong> — kapalinový: při dosažení teploty v místnosti se zvětší objem kapaliny a zaškrtí přívod horké vody do radiátoru</li>
+						</ul>
+						<h3>Negativní dopady a jejich řešení</h3>
+						<ul>
+							<li><strong>kolejnice a mosty</strong> — v horku se protahují (kroucení kolejnic), v mrazu zkracují (praskání); řešení: <strong>dilatační spáry</strong>, konce mostů na válcích</li>
+							<li><strong>dráty vedení a troleje</strong> — napínají se závažím, staví se prověšené</li>
+							<li><strong>kotle a teplovodní potrubí</strong> — kotle volně v prostoru, do potrubí se vkládají ohebná kolena</li>
+							<li><strong>sklo</strong> — běžné sklo při kontaktu s horkou tekutinou praskne; řešení: <strong>varné sklo</strong> s jiným složením</li>
+							<li><strong>zubní plomby</strong> musí mít stejnou roztažnost jako zuby; ocelové pruty v železobetonu stejnou jako beton</li>
+						</ul>
+						<h3>Vliv teploty na hustotu</h3>
+						<p>🧪 Pokus: balónek s horkou vodou vystoupá v nádobě s vodou výš než balónek s vodou pokojovou; se studenou vodou klesne níž.</p>
+						<p>👉 Při vyšší teplotě se částice pohybují rychleji ⇨ mají mezi sebou větší mezery ⇨ <strong>hustota látky se zmenšuje</strong>.</p>
+						<p>📌 Shrnutí: s rostoucí teplotou se objem tělesa <strong>zvětšuje</strong> a hustota <strong>zmenšuje</strong>; s klesající teplotou naopak.</p>
+					`,
+				},
 			],
 		},
 		{

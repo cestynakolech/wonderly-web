@@ -1053,6 +1053,287 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Sílu měříme siloměrem — pružina se protahuje úměrně síle.',
 		},
 	],
+	'fyzika/6-rocnik/cas/cas-a-jeho-mereni': [
+		{
+			text: 'Jaká je základní jednotka času?',
+			odpovedi: ['sekunda (s)', 'minuta (min)', 'hodina (h)'],
+			vysvetleni: 'Základní jednotkou času je sekunda. Minuta, hodina, den a rok jsou další jednotky.',
+		},
+		{
+			text: 'Jakou značku má čas?',
+			odpovedi: ['t', 'č', 'T'],
+			vysvetleni: 'Čas značíme malým t. Pozor: sekunda se neznačí „sec" a minuta se neznačí „m" (to je metr).',
+		},
+		{
+			text: 'Zná fyzika pojem „vteřina"?',
+			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, je to základní jednotka', 'ano, je to tisícina sekundy'],
+			vysvetleni: 'Vteřina je jen běžná mluva; fyzika používá sekundu.',
+		},
+		{
+			text: 'Co je milisekunda (ms)?',
+			odpovedi: ['tisícina sekundy', 'setina sekundy', 'milion sekund'],
+			vysvetleni: 'Mili- = tisícina: 1 ms = 0,001 s. Používá se pro velmi krátké děje.',
+		},
+		{
+			text: 'Jaká byla nevýhoda slunečních hodin?',
+			odpovedi: [
+				'Slunce nesvítí každý den v roce na stejném místě',
+				'stín se pohyboval příliš rychle',
+				'fungovaly jen v zimě',
+			],
+			vysvetleni: 'Sluneční hodiny závisí na slunci — v noci a při zatažené obloze nefungují a poloha Slunce se během roku mění.',
+		},
+		{
+			text: 'Jak fungovaly vodní hodiny?',
+			odpovedi: [
+				'voda odkapávala stejně rychle a její množství udávalo čas',
+				'voda se vařila přesně hodinu',
+				'hladina stoupala s přílivem',
+			],
+			vysvetleni: 'Voda odkapávala stálou rychlostí — hmotnost odkapané vody udávala uplynulý čas.',
+		},
+		{
+			text: 'Co se muselo pravidelně dělat s přesýpacími hodinami?',
+			odpovedi: ['otáčet je', 'dosypávat písek', 'mazat je olejem'],
+			vysvetleni: 'Když se písek přesypal, hodiny se musely otočit — to je jejich nevýhoda.',
+		},
+		{
+			text: 'Z kterého roku pochází mechanický stroj Pražského orloje?',
+			odpovedi: ['1410', '1610', '1910'],
+			vysvetleni: 'Pražský orloj má mechanický hodinový stroj z roku 1410.',
+		},
+		{
+			text: 'Jak se u nás říkalo kyvadlovým hodinám?',
+			odpovedi: ['pendlovky', 'digitálky', 'kukačky'],
+			vysvetleni: 'Kyvadlové hodiny (17. století) byly první spolehlivé hodiny — lidově pendlovky.',
+		},
+		{
+			text: 'Co využívají moderní hodiny k měření času?',
+			odpovedi: ['pravidelně se opakující děje', 'náhodné děje', 'sílu gravitace'],
+			vysvetleni: 'Kmitání kyvadla, nepokoje či atomů — vždy jde o pravidelně se opakující děj.',
+		},
+		{
+			text: 'Jak se jmenuje kmitající součástka hodinového strojku?',
+			odpovedi: ['nepokoj', 'neklid', 'kyvadlo'],
+			vysvetleni: 'Nepokoj kmitá díky natažené pružině a řídí chod mechanických hodinek.',
+		},
+		{
+			text: 'Které hodiny měří čas nejpřesněji?',
+			odpovedi: ['atomové', 'kyvadlové', 'sluneční'],
+			vysvetleni: 'Atomové hodiny využívají kmitání atomů, které není ovlivněno vnějšími vlivy.',
+		},
+		{
+			text: 'Kolik sekund má 1 hodina?',
+			odpovedi: ['3 600 s', '360 s', '6 000 s'],
+			vysvetleni: '1 h = 60 min = 60 × 60 = 3 600 s.',
+		},
+		{
+			text: 'Kolik minut je 0,75 hodiny?',
+			odpovedi: ['45 minut', '75 minut', '7,5 minuty'],
+			vysvetleni: 'U času neposouváme desetinnou čárku! 0,75 × 60 = 45 minut.',
+		},
+		{
+			text: 'Vlak vyjel v 8:15 a přijel v 10:05. Jak dlouho jela cesta?',
+			odpovedi: ['1 h 50 min', '2 h 10 min', '1 h 90 min'],
+			vysvetleni: 't = t₂ − t₁: od 8:15 do 10:05 je 1 hodina a 50 minut.',
+		},
+	],
+	'fyzika/6-rocnik/teplota/teplota-a-jeji-mereni': [
+		{
+			text: 'Co popisuje fyzikální veličina teplota?',
+			odpovedi: ['tepelný stav tělesa', 'množství látky v tělese', 'rychlost tělesa'],
+			vysvetleni: 'Teplota popisuje tepelný stav tělesa — vnímáme ho jako studené, teplé či horké.',
+		},
+		{
+			text: 'Jaká je značka a jednotka teploty?',
+			odpovedi: ['t, stupeň Celsia (°C)', 'T, newton (N)', 'm, kilogram (kg)'],
+			vysvetleni: 'Teplota má značku t a jednotku °C. Měříme ji teploměrem.',
+		},
+		{
+			text: 'Co platí při 0 °C?',
+			odpovedi: ['taje led', 'vře voda', 'taje železo'],
+			vysvetleni: '0 °C = tání ledu, 100 °C = var vody. Tak Celsius sestavil svou stupnici.',
+		},
+		{
+			text: 'Co platí při 100 °C?',
+			odpovedi: ['vře voda', 'taje led', 'mrzne rtuť'],
+			vysvetleni: '100 °C je teplota varu vody (při běžném tlaku).',
+		},
+		{
+			text: 'Kdo navrhl dnes nejpoužívanější teplotní stupnici?',
+			odpovedi: ['Anders Celsius', 'Isaac Newton', 'Robert Brown'],
+			vysvetleni: 'Celsiova stupnice (18. století) vychází z tuhnutí a varu vody. Původně byla obrácená!',
+		},
+		{
+			text: 'Kde se dodnes používá Fahrenheitova stupnice?',
+			odpovedi: ['v anglicky mluvících zemích', 'v celé Evropě', 'jen v laboratořích'],
+			vysvetleni: 'Fahrenheit sestrojil přesný rtuťový teploměr a vlastní stupnici — teplota těla je asi 98 °F.',
+		},
+		{
+			text: 'Jak se jmenuje teplota, kterou používají vědci, se základní jednotkou kelvin?',
+			odpovedi: ['termodynamická teplota', 'absolutní teplota Celsia', 'laboratorní teplota'],
+			vysvetleni: 'Termodynamická teplota (značka T, jednotka K) začíná absolutní nulou — nejnižší možnou teplotou.',
+		},
+		{
+			text: 'Na čem jsou založeny kapalinové teploměry?',
+			odpovedi: [
+				'na teplotní roztažnosti kapalin',
+				'na elektrickém proudu',
+				'na tlaku vzduchu',
+			],
+			vysvetleni: 'Kapalina (rtuť či obarvený líh) při zahřátí zvětší objem a stoupá v trubičce.',
+		},
+		{
+			text: 'Jaký rozsah má lékařský teploměr?',
+			odpovedi: ['35 až 42 °C', '0 až 100 °C', '20 až 25 °C'],
+			vysvetleni: 'Lékařský teploměr měří jen tělesné teploty 35–42 °C; rtuťový se musel před měřením „střepat".',
+		},
+		{
+			text: 'Proč se rtuťové teploměry dnes už moc nepoužívají?',
+			odpovedi: ['při rozbití hrozí otrava rtutí', 'jsou málo přesné', 'rtuť je příliš drahá'],
+			vysvetleni: 'Rtuť je jedovatá — dnes se používají hlavně digitální teploměry: přesné a bezpečné.',
+		},
+		{
+			text: 'Jak funguje bimetalový teploměr?',
+			odpovedi: [
+				'pásek ze dvou kovů se při změně teploty stáčí a hýbe ručičkou',
+				'kapalina stoupá v trubičce',
+				'snímá tepelné záření',
+			],
+			vysvetleni: 'Dva kovy mají různou roztažnost — spojený pásek se kroutí a pohybuje ručičkou.',
+		},
+		{
+			text: 'Který teploměr měří bez dotyku?',
+			odpovedi: ['bezkontaktní (snímá tepelné záření)', 'lihový', 'lékařský rtuťový'],
+			vysvetleni: 'Bezkontaktní teploměr snímá tepelné záření — v lékařství se měří na čele nebo v uchu.',
+		},
+		{
+			text: 'K čemu slouží termokamera?',
+			odpovedi: [
+				'převádí tepelné záření okolí na obraz',
+				'měří teplotu jen jednoho bodu',
+				'promítá filmy',
+			],
+			vysvetleni: 'Termokamera zobrazí teploty v celém okolí — odhalí úniky tepla z budov či prokrvení těla.',
+		},
+		{
+			text: 'Kde se v Evropě měří teplota nepřetržitě nejdéle?',
+			odpovedi: ['v pražském Klementinu (od roku 1775)', 'v Londýně', 'v Paříži'],
+			vysvetleni: 'Klementinum měří od roku 1775. Rekordy: +37,8 °C (1983) a −27,6 °C (1785).',
+		},
+		{
+			text: 'Proč musíme při zápisu teploty uvádět jednotky?',
+			odpovedi: [
+				'„30 stupňů" může znamenat horko (°C) i mráz (°F)',
+				'bez jednotek je zápis hezčí',
+				'jednotky se uvádět nemusí',
+			],
+			vysvetleni: '30 °C je horký den, ale 30 °F je asi −1 °C — mráz! Jednotka je nutná.',
+		},
+	],
+	'fyzika/6-rocnik/teplota/teplotni-roztaznost': [
+		{
+			text: 'Co se děje s tělesem při zahřátí?',
+			odpovedi: ['zvětší své rozměry a objem', 'zmenší své rozměry a objem', 'nic se nemění'],
+			vysvetleni: 'Zahřátí = zvětšení rozměrů a objemu, ochlazení = zmenšení. Platí pro všechna skupenství.',
+		},
+		{
+			text: 'Kterých skupenství se teplotní roztažnost týká?',
+			odpovedi: ['všech — pevných, kapalných i plynných', 'jen kapalin', 'jen kovů'],
+			vysvetleni: 'Objem při změně teploty mění látky všech skupenství.',
+		},
+		{
+			text: 'Z čeho se skládá bimetalový pásek?',
+			odpovedi: [
+				'ze dvou spojených pásů z různých kovů',
+				'z jednoho kusu železa',
+				'ze skla a plastu',
+			],
+			vysvetleni: 'Dva kovy s různou roztažností jsou pevně spojeny — při změně teploty se pásek kroutí.',
+		},
+		{
+			text: 'Proč se bimetalový pásek při zahřátí kroutí?',
+			odpovedi: [
+				'každý z kovů mění rozměry jinak',
+				'kov se bojí tepla',
+				'pásek se taví',
+			],
+			vysvetleni: 'Jeden kov se roztáhne víc než druhý, a protože jsou spojené, pásek se ohne.',
+		},
+		{
+			text: 'Co dělá elektrický jistič?',
+			odpovedi: [
+				'chrání vedení před požárem při přetížení',
+				'zrychluje elektrický proud',
+				'měří spotřebu elektřiny',
+			],
+			vysvetleni: 'Bimetalový pásek se při silném proudu zahřeje a vypne obvod — zabrání požáru.',
+		},
+		{
+			text: 'K čemu slouží termostat?',
+			odpovedi: [
+				'udržuje nastavenou teplotu zařízení',
+				'zvyšuje teplotu bez omezení',
+				'měří čas ohřevu',
+			],
+			vysvetleni: 'Termostat (žehlička, trouba, topení) při dosažení teploty rozpojí obvod a při poklesu ho zase sepne.',
+		},
+		{
+			text: 'Jak funguje termostatický ventil u radiátoru?',
+			odpovedi: [
+				'kapalina uvnitř zvětší objem a zaškrtí přívod horké vody',
+				'elektromotor zavře kohoutek',
+				'ventil se roztaví a ucpe potrubí',
+			],
+			vysvetleni: 'Při dosažení požadované teploty v místnosti se kapalina roztáhne a omezí průtok topné vody.',
+		},
+		{
+			text: 'Proč se mezi kolejnicemi nechávají mezery (dilatační spáry)?',
+			odpovedi: [
+				'aby se kolejnice v horku mohly protáhnout a nekroutily se',
+				'aby vlak lépe drncal',
+				'kvůli úspoře oceli',
+			],
+			vysvetleni: 'V letním horku se kolejnice protahují — bez mezer by se zkroutily; v mrazu by mohly prasknout.',
+		},
+		{
+			text: 'Proč se dráty elektrického vedení staví prověšené?',
+			odpovedi: [
+				'v mrazu se zkracují a napnuté by se přetrhly',
+				'aby na nich mohli sedět ptáci',
+				'pro lepší vzhled',
+			],
+			vysvetleni: 'Ochlazením se dráty zkracují — prověšení (nebo napínání závažím u trolejí) tomu dává prostor.',
+		},
+		{
+			text: 'Proč běžná sklenice praskne při nalití vroucí vody?',
+			odpovedi: [
+				'sklo se prudkou změnou teploty roztáhne nerovnoměrně',
+				'voda je pro sklo jedovatá',
+				'sklenice je příliš čistá',
+			],
+			vysvetleni: 'Běžné sklo velké změny teploty nesnese — proto existuje varné sklo s jiným složením.',
+		},
+		{
+			text: 'Jakou vlastnost musí mít zubní plomba?',
+			odpovedi: [
+				'stejnou teplotní roztažnost jako zub',
+				'větší roztažnost než zub',
+				'žádnou roztažnost',
+			],
+			vysvetleni: 'Plomba musí reagovat na horké a studené jídlo stejně jako zub, jinak by vypadla nebo zub roztrhla. Stejné pravidlo platí pro ocel v železobetonu.',
+		},
+		{
+			text: 'Co se stane s hustotou látky při zahřátí?',
+			odpovedi: ['zmenší se', 'zvětší se', 'nezmění se'],
+			vysvetleni: 'Částice se pohybují rychleji, mají mezi sebou větší mezery — objem roste a hustota klesá.',
+		},
+		{
+			text: 'Balónek s horkou vodou ve vodě pokojové teploty…',
+			odpovedi: ['vystoupá výš', 'klesne ke dnu', 'zůstane na dně'],
+			vysvetleni: 'Horká voda má menší hustotu než okolní chladnější voda, proto balónek stoupá.',
+		},
+	],
 	'fyzika/7-rocnik/tlak-v-kapalinach/tlak': [
 		{
 			text: 'Jak působí tlaková síla na plochu tělesa?',
