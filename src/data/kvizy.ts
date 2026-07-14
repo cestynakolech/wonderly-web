@@ -638,6 +638,421 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Měsíc přitahuje vodu v oceánech — vzniká příliv a odliv (slapové jevy).',
 		},
 	],
+	'fyzika/6-rocnik/fyzikalni-veliciny/delka': [
+		{
+			text: 'Co popisuje fyzikální veličina délka?',
+			odpovedi: ['rozměry těles nebo vzdálenosti', 'množství látky v tělese', 'teplotu tělesa'],
+			vysvetleni: 'Délka popisuje rozměry a vzdálenosti — i šířka, výška či tloušťka jsou délky.',
+		},
+		{
+			text: 'Jaká je základní jednotka délky?',
+			odpovedi: ['metr (m)', 'kilometr (km)', 'centimetr (cm)'],
+			vysvetleni: 'Základní jednotkou délky je metr. Kilometr a centimetr jsou jeho násobky a díly.',
+		},
+		{
+			text: 'Kolik milimetrů je 1 centimetr?',
+			odpovedi: ['10 mm', '100 mm', '1 000 mm'],
+			vysvetleni: '1 cm = 10 mm. Dále platí 1 dm = 10 cm, 1 m = 10 dm.',
+		},
+		{
+			text: 'Kolik metrů je 1 kilometr?',
+			odpovedi: ['1 000 m', '100 m', '10 000 m'],
+			vysvetleni: 'Kilo- znamená tisíc: 1 km = 1 000 m.',
+		},
+		{
+			text: 'Co uděláme s desetinnou čárkou při převodu na menší jednotky?',
+			odpovedi: ['posuneme doprava (přidáme nuly)', 'posuneme doleva (škrtáme nuly)', 'nic se nemění'],
+			vysvetleni: 'Na menší jednotky = větší číslo → čárka doprava. Na větší jednotky = menší číslo → čárka doleva.',
+		},
+		{
+			text: 'Jaká byla nevýhoda starých jednotek jako loket nebo stopa?',
+			odpovedi: ['v každém městě byly jinak velké', 'byly příliš přesné', 'nedaly se sčítat'],
+			vysvetleni: 'Jednotky odvozené z lidského těla se lišily místo od místa — proto vznikl jednotný metr.',
+		},
+		{
+			text: 'Co je astronomická jednotka (AU)?',
+			odpovedi: ['vzdálenost Země–Slunce (150 milionů km)', 'vzdálenost Země–Měsíc', 'průměr Slunce'],
+			vysvetleni: '1 AU = 150 milionů km, vzdálenost Země od Slunce. Jupiter je od Slunce asi 5 AU.',
+		},
+		{
+			text: 'Co udává světelný rok?',
+			odpovedi: [
+				'vzdálenost, kterou světlo urazí za 1 rok',
+				'dobu, za kterou Země oběhne Slunce',
+				'stáří hvězdy',
+			],
+			vysvetleni: 'Světelný rok je jednotka VZDÁLENOSTI — Polárka je od nás 433 světelných let, její světlo k nám letí 433 let.',
+		},
+		{
+			text: 'Kterým měřidlem změříš obvod hlavy?',
+			odpovedi: ['krejčovským metrem', 'pravítkem', 'mikrometrem'],
+			vysvetleni: 'Krejčovský metr je ohebný — hodí se na nerovná tělesa jako obvod hlavy či pasu.',
+		},
+		{
+			text: 'Jak se lidově říká posuvnému měřítku?',
+			odpovedi: ['šuplera', 'metrák', 'vodováha'],
+			vysvetleni: 'Posuvné měřítko („šuplera") měří s přesností na desetiny milimetru — dutiny, průměry kulatých těles.',
+		},
+		{
+			text: 'Kterým měřidlem změříš tloušťku vlasu?',
+			odpovedi: ['mikrometrem', 'pásmem', 'svinovacím metrem'],
+			vysvetleni: 'Mikrometr měří s přesností na setiny milimetru — tenká vlákna, vlasy.',
+		},
+		{
+			text: 'Jak se díváme na stupnici měřidla při odečítání?',
+			odpovedi: ['kolmo', 'šikmo zleva', 'shora pod úhlem 45°'],
+			vysvetleni: 'Na stupnici se vždy díváme kolmo, jinak odečteme špatnou hodnotu.',
+		},
+		{
+			text: 'Co nesmí chybět u zapsané naměřené hodnoty?',
+			odpovedi: ['jednotka', 'podpis', 'datum'],
+			vysvetleni: 'Hodnota bez jednotky nemá smysl — správně např. l = 72 mm.',
+		},
+		{
+			text: 'Jak velká je odchylka měření?',
+			odpovedi: [
+				'polovina nejmenšího dílku stupnice',
+				'celý nejmenší dílek stupnice',
+				'desetina rozsahu měřidla',
+			],
+			vysvetleni: 'Odchylka = polovina nejmenšího dílku. Čím menší dílek, tím přesnější měření.',
+		},
+		{
+			text: 'Kolik je 532 cm v metrech?',
+			odpovedi: ['5,32 m', '53,2 m', '0,532 m'],
+			vysvetleni: '532 cm = 5,32 m = 5 m 32 cm. Na větší jednotky posouváme čárku doleva.',
+		},
+	],
+	'fyzika/6-rocnik/fyzikalni-veliciny/hmotnost': [
+		{
+			text: 'Co popisuje fyzikální veličina hmotnost?',
+			odpovedi: ['množství látky v tělese', 'velikost tělesa', 'prostor, který těleso zaplňuje'],
+			vysvetleni: 'Hmotnost (značka m) popisuje množství látky v tělese.',
+		},
+		{
+			text: 'Jaká je základní jednotka hmotnosti?',
+			odpovedi: ['kilogram (kg)', 'gram (g)', 'tuna (t)'],
+			vysvetleni: 'Základní jednotka je kilogram — jediná základní jednotka s předponou kilo-.',
+		},
+		{
+			text: 'Proč je špatně říkat „váha tělesa"?',
+			odpovedi: [
+				'těleso má hmotnost, váha je měřidlo',
+				'váha je zastaralé slovo pro objem',
+				'není to špatně',
+			],
+			vysvetleni: 'Ve fyzice: těleso má HMOTNOST a VÁHA slouží k jejímu měření.',
+		},
+		{
+			text: 'Podle čeho byl stanoven 1 kilogram?',
+			odpovedi: ['podle litru vody', 'podle kilogramu železa', 'podle hmotnosti Země'],
+			vysvetleni: '1 litr vody váží 1 kg. Pozor — pro jiné kapaliny to neplatí!',
+		},
+		{
+			text: 'Kolik gramů je 1 kilogram?',
+			odpovedi: ['1 000 g', '100 g', '10 000 g'],
+			vysvetleni: '1 kg = 1 000 g. Také 1 g = 1 000 mg a 1 t = 1 000 kg.',
+		},
+		{
+			text: 'Kolik kilogramů je 1 tuna?',
+			odpovedi: ['1 000 kg', '100 kg', '10 000 kg'],
+			vysvetleni: '1 t = 1 000 kg. Metrický cent („metrák") je 100 kg.',
+		},
+		{
+			text: 'Kolik gramů je „10 deka" salámu?',
+			odpovedi: ['100 g', '10 g', '1 000 g'],
+			vysvetleni: '1 dag = 10 g, takže 10 dag = 100 g.',
+		},
+		{
+			text: 'Kolik kilogramů je 1 metrický cent (metrák)?',
+			odpovedi: ['100 kg', '1 000 kg', '50 kg'],
+			vysvetleni: '1 q = 100 kg. Používá se ve stavebnictví a zemědělství.',
+		},
+		{
+			text: 'Na jakém principu pracují rovnoramenné váhy?',
+			odpovedi: [
+				'porovnávají hmotnost tělesa a závaží',
+				'natahují pružinu',
+				'měří elektrický proud',
+			],
+			vysvetleni: 'Na misky se dává těleso a závaží, dokud nenastane rovnováha — pak se hmotnosti rovnají.',
+		},
+		{
+			text: 'Jak funguje pružinová váha?',
+			odpovedi: [
+				'těleso natahuje pružinu a ta pohybuje ručičkou',
+				'porovnává dvě misky',
+				'posouvá závaží po rameni',
+			],
+			vysvetleni: 'Pružinová váha (osobní, mincíř, rybářská) — natažení pružiny odpovídá hmotnosti.',
+		},
+		{
+			text: 'Kde musí stát váhy při měření?',
+			odpovedi: ['na vodorovném povrchu', 'na šikmé podložce', 'kdekoli'],
+			vysvetleni: 'Váhy musí stát vodorovně a předmět dáváme doprostřed misky.',
+		},
+		{
+			text: 'Jak zvážíme kapalinu?',
+			odpovedi: [
+				'zvážíme prázdnou a pak plnou nádobu a hodnoty odečteme',
+				'nalijeme ji přímo na váhu',
+				'kapalina se zvážit nedá',
+			],
+			vysvetleni: 'm = m₂ − m₁: od hmotnosti nádoby s kapalinou odečteme hmotnost prázdné nádoby.',
+		},
+		{
+			text: 'Jak určíme hmotnost jedné kapky léku?',
+			odpovedi: [
+				'zvážíme třeba 100 kapek a vydělíme',
+				'zvážíme jednu kapku na osobní váze',
+				'odhadneme podle barvy',
+			],
+			vysvetleni: 'Velmi malá tělesa vážíme ve větším počtu a hmotnost jednoho kusu určíme výpočtem.',
+		},
+	],
+	'fyzika/6-rocnik/fyzikalni-veliciny/objem': [
+		{
+			text: 'Co vyjadřuje fyzikální veličina objem?',
+			odpovedi: [
+				'jak velký prostor těleso zaplňuje',
+				'množství látky v tělese',
+				'rozměr tělesa v jednom směru',
+			],
+			vysvetleni: 'Objem (značka V) vyjadřuje, jak velký prostor těleso zaplňuje.',
+		},
+		{
+			text: 'Jakou značku má objem?',
+			odpovedi: ['velké V', 'malé v', 'O'],
+			vysvetleni: 'Objem značíme velkým V — malým v budeme značit rychlost!',
+		},
+		{
+			text: 'Jaká je základní jednotka objemu?',
+			odpovedi: ['metr krychlový (m³)', 'litr (l)', 'metr (m)'],
+			vysvetleni: 'Základní jednotka je m³ — objem krychle s hranou 1 metr. Litr patří mezi duté míry.',
+		},
+		{
+			text: 'Kolik dm³ je 1 m³?',
+			odpovedi: ['1 000 dm³', '100 dm³', '10 dm³'],
+			vysvetleni: 'Krychlové jednotky se převádí po tisících: 1 m³ = 1 000 dm³, 1 dm³ = 1 000 cm³.',
+		},
+		{
+			text: 'Kolik mililitrů je 1 litr?',
+			odpovedi: ['1 000 ml', '100 ml', '10 ml'],
+			vysvetleni: '1 l = 10 dl = 100 cl = 1 000 ml.',
+		},
+		{
+			text: 'Kolik litrů je 1 hektolitr?',
+			odpovedi: ['100 l', '1 000 l', '10 l'],
+			vysvetleni: 'Hekto- znamená sto: 1 hl = 100 l.',
+		},
+		{
+			text: 'Jaký je „most" mezi krychlovými a dutými jednotkami?',
+			odpovedi: ['1 l = 1 dm³', '1 l = 1 m³', '1 l = 1 cm³'],
+			vysvetleni: '1 litr = 1 decimetr krychlový. Díky tomu převedeme litry na krychlové jednotky a zpět.',
+		},
+		{
+			text: 'Čím měříme objem kapalin?',
+			odpovedi: ['odměrným válcem', 'pravítkem', 'siloměrem'],
+			vysvetleni: 'Odměrný válec má na skle stupnici, nejčastěji v mililitrech.',
+		},
+		{
+			text: 'Kde odečítáme hladinu v odměrném válci?',
+			odpovedi: [
+				'v nejnižší poloze hladiny, kolmo',
+				'na okraji, kde je hladina nejvýš',
+				'kdekoli na hladině',
+			],
+			vysvetleni: 'U stěn je hladina zaoblená vzhůru — odečítáme nejnižší polohu, oči v úrovni hladiny.',
+		},
+		{
+			text: 'Jak změříme objem malého kamene?',
+			odpovedi: [
+				'ponoříme ho do odměrného válce s vodou a odečteme rozdíl objemů',
+				'změříme ho pravítkem ze všech stran',
+				'zvážíme ho',
+			],
+			vysvetleni: 'V = V₂ − V₁: objem s tělesem minus objem samotné vody. Těleso musí být celé ponořené.',
+		},
+		{
+			text: 'Jak vypočítáme objem krychle s hranou a?',
+			odpovedi: ['V = a · a · a', 'V = a + a + a', 'V = 6 · a'],
+			vysvetleni: 'Objem krychle = a³. U kvádru V = a · b · c.',
+		},
+		{
+			text: 'Jak vypočítáme objem kvádru?',
+			odpovedi: ['V = a · b · c', 'V = a + b + c', 'V = 2 · (a + b + c)'],
+			vysvetleni: 'Objem kvádru = délka × šířka × výška.',
+		},
+		{
+			text: 'Krabice má rozměry 2 m, 1 m a 0,5 m. Jaký má objem?',
+			odpovedi: ['1 m³', '3,5 m³', '2,5 m³'],
+			vysvetleni: 'V = a · b · c = 2 · 1 · 0,5 = 1 m³.',
+		},
+	],
+	'fyzika/6-rocnik/fyzikalni-veliciny/hustota': [
+		{
+			text: 'Co určuje hustota látky?',
+			odpovedi: [
+				'jakou hmotnost má jednotka objemu látky',
+				'jak velké je těleso',
+				'jak rychle látka teče',
+			],
+			vysvetleni: 'Hustota říká, kolik váží 1 m³ (nebo 1 cm³) dané látky.',
+		},
+		{
+			text: 'Jakou značku má hustota?',
+			odpovedi: ['ρ (řecké ró)', 'h', 'm'],
+			vysvetleni: 'Hustota se značí řeckým písmenem ρ (ró).',
+		},
+		{
+			text: 'Jaká je základní jednotka hustoty?',
+			odpovedi: ['kg/m³', 'kg', 'm³'],
+			vysvetleni: 'Kilogram na metr krychlový — kolik kilogramů váží jeden metr krychlový látky.',
+		},
+		{
+			text: 'Jaká je hustota vody?',
+			odpovedi: ['1 000 kg/m³', '100 kg/m³', '10 000 kg/m³'],
+			vysvetleni: 'Hustota vody = 1 000 kg/m³ — důležitá hodnota k zapamatování (1 litr vody = 1 kg).',
+		},
+		{
+			text: 'Podle jakého vztahu vypočítáme hustotu?',
+			odpovedi: ['ρ = m : V', 'ρ = m · V', 'ρ = V : m'],
+			vysvetleni: 'Hustota = hmotnost děleno objem.',
+		},
+		{
+			text: 'Co znamená hodnota hustoty 1 300 kg/m³?',
+			odpovedi: [
+				'1 m³ látky váží 1 300 kg',
+				'1 kg látky zabere 1 300 m³',
+				'látka je 1 300× hustší než voda',
+			],
+			vysvetleni: 'Hustota udává hmotnost jednotky objemu — zde 1 300 kg na každý metr krychlový.',
+		},
+		{
+			text: 'Kolik kg/m³ je 1 g/cm³?',
+			odpovedi: ['1 000 kg/m³', '1 kg/m³', '100 kg/m³'],
+			vysvetleni: '1 g/cm³ = 1 000 kg/m³. Jednotka g/cm³ se používá v chemii a farmacii.',
+		},
+		{
+			text: 'Kde najdeme hustoty jednotlivých látek?',
+			odpovedi: ['ve fyzikálních a chemických tabulkách', 'v telefonním seznamu', 'musíme je vždy měřit'],
+			vysvetleni: 'Hustoty prvků i sloučenin jsou v tabulkách — podle vypočtené hustoty poznáme i neznámou látku.',
+		},
+		{
+			text: 'Proč zabere kilogram peří víc místa než kilogram železa?',
+			odpovedi: [
+				'peří má mnohem menší hustotu',
+				'peří je těžší',
+				'železo obsahuje vzduch',
+			],
+			vysvetleni: 'Při stejné hmotnosti je největší těleso z látky s nejmenší hustotou.',
+		},
+		{
+			text: 'Co udělá těleso s větší hustotou, než má voda?',
+			odpovedi: ['klesne ke dnu', 'plave na hladině', 'vznáší se uprostřed'],
+			vysvetleni: 'Větší hustota než okolní tekutina = klesá (cihla). Menší = plave (dřevo). Stejná = vznáší se (medúza).',
+		},
+		{
+			text: 'Proč stoupá teplý vzduch vzhůru?',
+			odpovedi: [
+				'má menší hustotu než studený vzduch',
+				'má větší hustotu než studený vzduch',
+				'je lehčí, protože obsahuje méně kyslíku',
+			],
+			vysvetleni: 'Teplý vzduch má menší hustotu, proto stoupá — nese ptáky i horkovzdušné balony.',
+		},
+		{
+			text: 'Jak se ponorka potopí?',
+			odpovedi: [
+				'napustí do nádrží vodu a zvýší svou hustotu',
+				'vypustí vodu z nádrží',
+				'zapne silnější motor',
+			],
+			vysvetleni: 'Načerpáním vody zvětší hmotnost při stejném objemu — její hustota převýší hustotu okolní vody.',
+		},
+		{
+			text: 'Čím měříme hustotu kapalin?',
+			odpovedi: ['hustoměrem', 'siloměrem', 'pásmem'],
+			vysvetleni: 'Hustoměr je baňka se zátěží a stupnicí — čím hustší kapalina, tím méně se ponoří.',
+		},
+		{
+			text: 'Těleso má hmotnost 2 kg a objem 0,001 m³. Jaká je jeho hustota?',
+			odpovedi: ['2 000 kg/m³', '200 kg/m³', '0,002 kg/m³'],
+			vysvetleni: 'ρ = m : V = 2 : 0,001 = 2 000 kg/m³.',
+		},
+		{
+			text: 'Která kapalina má největší hustotu?',
+			odpovedi: ['rtuť (13 500 kg/m³)', 'voda (1 000 kg/m³)', 'benzín (700 kg/m³)'],
+			vysvetleni: 'Rtuť je nejhustší běžná kapalina — 13 500 kg/m³.',
+		},
+	],
+	'fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin': [
+		{
+			text: 'Jaká je značka a základní jednotka délky?',
+			odpovedi: ['l (nebo d), metr', 'm, kilogram', 'V, litr'],
+			vysvetleni: 'Délka: značky d, l, h, s, o, r; základní jednotka metr (m).',
+		},
+		{
+			text: 'Jaká je značka a základní jednotka hmotnosti?',
+			odpovedi: ['m, kilogram (kg)', 'h, gram (g)', 'F, newton (N)'],
+			vysvetleni: 'Hmotnost: značka m, jednotka kilogram, měřidlo váhy.',
+		},
+		{
+			text: 'Jaká je značka a základní jednotka objemu?',
+			odpovedi: ['V, metr krychlový (m³)', 'v, litr (l)', 'O, metr (m)'],
+			vysvetleni: 'Objem: značka velké V, základní jednotka m³, měřidlo odměrný válec.',
+		},
+		{
+			text: 'Jaká je značka a jednotka hustoty?',
+			odpovedi: ['ρ, kg/m³', 'h, kg', 'p, Pa'],
+			vysvetleni: 'Hustota: řecké ρ (ró), jednotka kilogram na metr krychlový.',
+		},
+		{
+			text: 'Jaká je značka a jednotka teploty?',
+			odpovedi: ['t, stupeň Celsia (°C)', 'T, newton (N)', 'č, sekunda (s)'],
+			vysvetleni: 'Teplota: značka t, jednotka °C, měřidlo teploměr.',
+		},
+		{
+			text: 'Jaká je značka a základní jednotka času?',
+			odpovedi: ['t, sekunda (s)', 't, hodina (h)', 's, minuta (min)'],
+			vysvetleni: 'Čas: značka t, základní jednotka sekunda. Další: minuta, hodina, den, rok.',
+		},
+		{
+			text: 'Jaká je značka a jednotka síly?',
+			odpovedi: ['F, newton (N)', 'S, kilogram (kg)', 'F, metr (m)'],
+			vysvetleni: 'Síla: značka F, jednotka newton, měřidlo siloměr.',
+		},
+		{
+			text: 'Čím měříme objem kapaliny?',
+			odpovedi: ['odměrným válcem', 'siloměrem', 'pásmem'],
+			vysvetleni: 'Objem kapalin měříme odměrným válcem (nejčastěji v ml).',
+		},
+		{
+			text: 'Jak vypočítáme objem kvádru?',
+			odpovedi: ['V = a · b · c', 'V = a + b + c', 'V = m : ρ · 2'],
+			vysvetleni: 'Objem kvádru = součin tří rozměrů. Krychle: V = a · a · a.',
+		},
+		{
+			text: 'Jak vypočítáme objem tělesa ze znalosti hmotnosti a hustoty?',
+			odpovedi: ['V = m : ρ', 'V = ρ : m', 'V = m · ρ'],
+			vysvetleni: 'Z ρ = m : V plyne V = m : ρ a m = ρ · V.',
+		},
+		{
+			text: 'U kterých jednotek NIKDY neposouváme desetinnou čárku?',
+			odpovedi: ['u jednotek času', 'u jednotek délky', 'u jednotek objemu'],
+			vysvetleni: 'Čas se nepřevádí po desítkách: 1 h = 60 min, 1 min = 60 s!',
+		},
+		{
+			text: 'Kolik sekund je 1 minuta?',
+			odpovedi: ['60 s', '100 s', '10 s'],
+			vysvetleni: '1 min = 60 s, 1 h = 60 min = 3 600 s.',
+		},
+		{
+			text: 'Které měřidlo patří k síle?',
+			odpovedi: ['siloměr', 'hustoměr', 'teploměr'],
+			vysvetleni: 'Sílu měříme siloměrem — pružina se protahuje úměrně síle.',
+		},
+	],
 	'fyzika/7-rocnik/tlak-v-kapalinach/tlak': [
 		{
 			text: 'Jak působí tlaková síla na plochu tělesa?',

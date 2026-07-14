@@ -308,11 +308,215 @@ export const temata: Record<string, Tema[]> = {
 			slug: 'fyzikalni-veliciny',
 			nazev: 'Fyzikální veličiny',
 			podtemata: [
-				{ slug: 'delka', nazev: 'Délka' },
-				{ slug: 'hmotnost', nazev: 'Hmotnost' },
-				{ slug: 'objem', nazev: 'Objem' },
-				{ slug: 'hustota', nazev: 'Hustota' },
-				{ slug: 'souhrnne-opakovani-velicin', nazev: 'Souhrnné opakování fyzikálních veličin' },
+				{
+					slug: 'delka',
+					nazev: 'Délka',
+					obsah: `
+						<h2>Délka jako fyzikální veličina</h2>
+						<ul>
+							<li>popisuje <strong>rozměry těles nebo vzdálenosti</strong> (i šířka či tloušťka jsou délky)</li>
+							<li>značky: <strong>d, l</strong>, h (hloubka nebo výška), s (dráha pohybu), o (obvod), r (poloměr kruhu)</li>
+							<li>základní jednotka: <strong>metr (m)</strong></li>
+						</ul>
+						<h3>Násobky a díly metru</h3>
+						<ul>
+							<li>1 cm = 10 mm</li>
+							<li>1 dm = 10 cm</li>
+							<li>1 m = 10 dm</li>
+							<li>1 km = 1 000 m</li>
+						</ul>
+						<p>👉 Při převodu na <strong>menší</strong> jednotky přidáváme nuly (čárka doprava), při převodu na <strong>větší</strong> jednotky nuly škrtáme (čárka doleva).</p>
+						<h3>Starší a jiné jednotky</h3>
+						<p>Dříve se měřilo podle lidského těla — lokty, stopy, pídě, palce. Nevýhoda: v každém městě byly jinak velké. V anglicky mluvících zemích se dodnes používá palec (inch), stopa (ft), yard (yd) a míle (mi).</p>
+						<p>💡 Ve vesmíru se používá <strong>astronomická jednotka</strong> (AU) = vzdálenost Země–Slunce = 150 milionů km (Jupiter je od Slunce asi 5 AU). A <strong>světelný rok</strong> = vzdálenost, kterou světlo urazí za 1 rok (Polárka je od nás 433 světelných let).</p>
+						<h3>Měřidla délky</h3>
+						<ul>
+							<li><strong>pravítko</strong> — na milimetry, do 50 cm</li>
+							<li><strong>svinovací nebo skládací metr</strong> — na milimetry, rovné vzdálenosti, až několik metrů</li>
+							<li><strong>krejčovský metr</strong> — na centimetry, nerovná tělesa (obvod hlavy, pasu)</li>
+							<li><strong>pásmo</strong> — až do 100 m, atletika</li>
+							<li><strong>posuvné měřítko</strong> (lidově „šuplera") — na desetiny milimetru, dutiny a průměry</li>
+							<li><strong>mikrometr</strong> — na setiny milimetru, tloušťka vlákna či vlasu</li>
+							<li><strong>laserový měřič vzdáleností</strong> — nejpřesnější, princip odrazu světelného paprsku</li>
+						</ul>
+						<h3>Pravidla pro měření délky</h3>
+						<ol>
+							<li>zvolíme vhodné měřidlo (jednotky stupnice)</li>
+							<li>určíme délku nejmenšího dílku</li>
+							<li>určíme měřicí rozsah stupnice</li>
+							<li>nula stupnice přesně na začátek tělesa</li>
+							<li>měřidlo těsně přiléhá k tělesu</li>
+							<li>na stupnici se díváme <strong>kolmo</strong></li>
+							<li>délku odečteme na nejbližším dílku</li>
+							<li>zapíšeme číslem <strong>s jednotkou</strong>, např. l = 72 mm</li>
+						</ol>
+						<p>💡 Zápis lze kombinovat: 532 cm = 5,32 m = 5 m 32 cm.</p>
+						<h3>Odchylka měření</h3>
+						<p>Naměřená hodnota je „zaokrouhlená" na nejbližší dílek. <strong>Odchylka = polovina nejmenšího dílku stupnice.</strong> Čím menší dílek, tím přesnější měření.</p>
+					`,
+				},
+				{
+					slug: 'hmotnost',
+					nazev: 'Hmotnost',
+					obsah: `
+						<h2>Hmotnost jako fyzikální veličina</h2>
+						<ul>
+							<li>popisuje <strong>množství látky v tělese</strong></li>
+							<li>značka: <strong>m</strong>, základní jednotka: <strong>kilogram (kg)</strong>, měřidla: <strong>váhy</strong></li>
+						</ul>
+						<p>👉 POZOR: Ve fyzice nepoužíváme pojem „váha tělesa"! <strong>Těleso má hmotnost — váha slouží k jejímu měření.</strong></p>
+						<p>💡 1 kilogram byl stanoven podle litru vody: 1 litr vody váží 1 kg (pro jiné kapaliny to neplatí!). Kilogram je jediná základní jednotka s předponou kilo- (gram byl příliš malý).</p>
+						<h3>Další jednotky hmotnosti</h3>
+						<ul>
+							<li>1 kg = 1 000 g</li>
+							<li>1 g = 1 000 mg</li>
+							<li>1 t = 1 000 kg</li>
+						</ul>
+						<p>Z historických důvodů se používají i jednotky, které fyzika nepoužívá:</p>
+						<ul>
+							<li><strong>dekagram</strong> (lidově „deka", značka dag) — 1 dag = 10 g; 10 deka salámu = 100 g</li>
+							<li><strong>metrický cent</strong> (lidově „metrák", značka q) — 1 q = 100 kg; stavebnictví, zemědělství</li>
+						</ul>
+						<h3>Druhy vah</h3>
+						<ul>
+							<li><strong>rovnoramenné váhy</strong> — porovnávají hmotnost tělesa a závaží na dvou miskách; rovnováha = hmotnosti se rovnají; měření zdlouhavé, dnes se nepoužívá</li>
+							<li><strong>nerovnoramenná váha</strong> — poměr určený délkami ramen: decimálka (těleso váží 10× víc než závaží), přezmen (závaží se posouvá po rameni; vážili se tak pacienti u lékaře)</li>
+							<li><strong>pružinová váha</strong> — těleso natahuje pružinu s ručičkou: osobní váha, mincíř, rybářská váha</li>
+							<li><strong>kyvadlová váha</strong> — jazýček na stupnici; dopisy a drobné cennosti</li>
+							<li><strong>digitální váha</strong> — elektronická s displejem, nejjednodušší měření</li>
+						</ul>
+						<h3>Pravidla pro měření hmotnosti</h3>
+						<ol>
+							<li>zvolíme vhodné měřidlo (jednotky, nejmenší dílek, rozsah)</li>
+							<li>váhy musí stát na <strong>vodorovném povrchu</strong></li>
+							<li>předmět dáváme <strong>doprostřed misky</strong></li>
+							<li>počkáme na ustálení hodnoty</li>
+							<li>zapíšeme číslem s jednotkou, např. m = 72 g</li>
+						</ol>
+						<p>👉 Pozor na rozsah stupnice — těžší předmět může váhu zničit.</p>
+						<h3>Vážení kapalin a plynů</h3>
+						<p>Nejdřív zvážíme prázdnou nádobu (m₁), pak nádobu s kapalinou či plynem (m₂). <strong>Hmotnost tekutiny m = m₂ − m₁.</strong></p>
+						<h3>Vážení velmi malých těles</h3>
+						<p>Zvážíme větší počet kusů (např. 100 kapek) a hmotnost jednoho kusu určíme výpočtem — dělením.</p>
+					`,
+				},
+				{
+					slug: 'objem',
+					nazev: 'Objem',
+					obsah: `
+						<h2>Objem jako fyzikální veličina</h2>
+						<ul>
+							<li>vyjadřuje, <strong>jak velký prostor těleso zaplňuje</strong></li>
+							<li>značka: <strong>V</strong> (velké tiskací! — malým v budeme značit rychlost)</li>
+							<li>základní jednotka: <strong>metr krychlový (m³)</strong></li>
+						</ul>
+						<h3>1. Krychlové jednotky</h3>
+						<p>Metr krychlový = objem krychle s hranou 1 m (V = 1 m × 1 m × 1 m).</p>
+						<ul>
+							<li>1 m³ = 1 000 dm³</li>
+							<li>1 dm³ = 1 000 cm³</li>
+							<li>1 cm³ = 1 000 mm³</li>
+						</ul>
+						<h3>2. Dutá míra</h3>
+						<p>Objem kapalin (voda, olej, benzín…) měříme v litrech a jejich násobcích a dílech:</p>
+						<ul>
+							<li>1 l = 10 dl = 100 cl = 1 000 ml</li>
+							<li>1 hl = 100 l</li>
+						</ul>
+						<p>👉 Důležitý „most" mezi krychlovými a dutými jednotkami: <strong>1 litr = 1 decimetr krychlový (1 l = 1 dm³)</strong>.</p>
+						<h3>Měření objemu kapalin — odměrný válec</h3>
+						<ol>
+							<li>zvolíme vhodný válec (rozsah stupnice, nejmenší dílek — určuje přesnost)</li>
+							<li>válec postavíme na <strong>vodorovnou podložku</strong> a opatrně vlijeme kapalinu</li>
+							<li>odečítáme <strong>po ustálení hladiny</strong>, v <strong>nejnižší poloze hladiny</strong> (u stěn je zaoblená vzhůru) a <strong>kolmo</strong> — oči v úrovni hladiny</li>
+							<li>zapíšeme s jednotkou: V = 50 ml nebo V = 50 cm³</li>
+						</ol>
+						<h3>Měření objemu pevného tělesa</h3>
+						<p>Menší pevné těleso změříme pomocí vody a odměrného válce:</p>
+						<ol>
+							<li>do válce nalijeme vodu a přečteme objem V₁</li>
+							<li>těleso na provázku <strong>celé ponoříme</strong> pod hladinu a přečteme objem V₂</li>
+							<li><strong>objem tělesa V = V₂ − V₁</strong></li>
+						</ol>
+						<h3>Výpočet objemu pravidelných těles</h3>
+						<p>Z matematiky: objem krychle V = a · a · a, objem kvádru V = a · b · c.</p>
+					`,
+				},
+				{
+					slug: 'hustota',
+					nazev: 'Hustota',
+					obsah: `
+						<h2>Hustota jako fyzikální veličina</h2>
+						<ul>
+							<li>vlastnost látky: určuje, <strong>jakou hmotnost má jednotka objemu dané látky</strong></li>
+							<li>značka: řecké písmeno <strong>ρ (ró)</strong></li>
+							<li>základní jednotka: <strong>kilogram na metr krychlový (kg/m³)</strong></li>
+							<li>hodnota 1 300 kg/m³ říká: 1 m³ dané látky váží 1 300 kg</li>
+							<li>hustoty látek najdeme ve <strong>fyzikálních a chemických tabulkách</strong></li>
+							<li>📌 k zapamatování: <strong>hustota vody = 1 000 kg/m³</strong></li>
+						</ul>
+						<h3>Výpočet hustoty</h3>
+						<p><strong>ρ = m : V</strong> (hmotnost děleno objem). Ze známé hustoty pak umíme vypočítat hmotnost (m = ρ · V) nebo objem (V = m : ρ).</p>
+						<p>Postup: vypíšeme zadané hodnoty → hustotu látky případně najdeme v tabulkách → převedeme na základní jednotky (kg, m³, kg/m³) → zapíšeme vztah, dosadíme, vypočítáme → k výsledku jednotky a odpověď.</p>
+						<h3>Další jednotka: g/cm³</h3>
+						<p>V chemii a farmacii se používá <strong>gram na centimetr krychlový</strong>: 1 g/cm³ = 1 000 kg/m³. Pozor — dosazujeme vždy jednotky, které spolu souvisí: kg a m³, nebo g a cm³.</p>
+						<h3>Porovnávání těles</h3>
+						<ul>
+							<li>tělesa <strong>stejné velikosti</strong> — nejtěžší je to s největší hustotou</li>
+							<li>tělesa <strong>stejné hmotnosti</strong> — nejmenší je to s největší hustotou (kilogram peří zabere víc místa než kilogram železa)</li>
+						</ul>
+						<h3>Chování těles v tekutinách</h3>
+						<ul>
+							<li><strong>větší hustota než okolí ⇨ klesá</strong> — cihla ve vodě, sirup na dně sklenice, studený vzduch u podlahy</li>
+							<li><strong>stejná hustota ⇨ vznáší se</strong> — medúza v moři</li>
+							<li><strong>menší hustota ⇨ stoupá/plave</strong> — dřevo na hladině, teplý vzduch nese balony vzhůru</li>
+						</ul>
+						<p>Využití: <strong>ponorka</strong> při ponoru napustí do nádrží vodu (zvýší svou hustotu), při vynoření ji odčerpá. <strong>Ryby</strong> mění objem vzduchového měchýře — nemění hmotnost, ale objem.</p>
+						<h3>Určování hustoty</h3>
+						<ul>
+							<li><strong>výpočtem</strong> — ρ = m : V ze změřené hmotnosti a objemu</li>
+							<li><strong>měřením</strong> — hustotu kapalin měří <strong>hustoměr</strong>: čím hustší kapalina, tím méně se ponoří (jako plavec v moři vs. v bazénu)</li>
+						</ul>
+						<h3>Proč se hustoty látek liší?</h3>
+						<ul>
+							<li><strong>hmotnost částic</strong> — atom železa je 56× těžší než atom vodíku a 3,5× těžší než atom kyslíku</li>
+							<li><strong>skupenství</strong> — pevné látky a kapaliny mají částice blízko u sebe ⇨ velká hustota (rtuť 13 500 kg/m³, benzín 700 kg/m³, osmium 22 660 kg/m³, lithium 534 kg/m³); plyny mají částice daleko od sebe ⇨ malá hustota (vzduch jen 1,3 kg/m³)</li>
+						</ul>
+					`,
+				},
+				{
+					slug: 'souhrnne-opakovani-velicin',
+					nazev: 'Souhrnné opakování fyzikálních veličin',
+					obsah: `
+						<h2>Přehled fyzikálních veličin 6. ročníku</h2>
+						<table>
+							<thead>
+								<tr><th>Veličina</th><th>Značka</th><th>Základní jednotka</th><th>Měřidlo</th></tr>
+							</thead>
+							<tbody>
+								<tr><td><strong>Délka</strong></td><td>d, l (h, s, o, r)</td><td>metr (m)</td><td>pravítko, metr, pásmo, posuvné měřítko, mikrometr</td></tr>
+								<tr><td><strong>Hmotnost</strong></td><td>m</td><td>kilogram (kg)</td><td>váhy</td></tr>
+								<tr><td><strong>Objem</strong></td><td>V</td><td>metr krychlový (m³)</td><td>odměrný válec</td></tr>
+								<tr><td><strong>Hustota</strong></td><td>ρ (ró)</td><td>kg/m³</td><td>hustoměr / výpočet</td></tr>
+								<tr><td><strong>Teplota</strong></td><td>t</td><td>stupeň Celsia (°C)</td><td>teploměr</td></tr>
+								<tr><td><strong>Čas</strong></td><td>t</td><td>sekunda (s)</td><td>hodiny, stopky</td></tr>
+								<tr><td><strong>Síla</strong></td><td>F</td><td>newton (N)</td><td>siloměr</td></tr>
+							</tbody>
+						</table>
+						<h3>Důležité vztahy</h3>
+						<ul>
+							<li>objem krychle V = a · a · a, objem kvádru V = a · b · c</li>
+							<li>hustota ρ = m : V, objem z hustoty V = m : ρ, hmotnost m = ρ · V</li>
+							<li>1 l = 1 dm³ (most mezi dutými a krychlovými jednotkami)</li>
+						</ul>
+						<h3>Převody jednotek</h3>
+						<ul>
+							<li>na menší jednotky: přidáváme nuly (čárka doprava)</li>
+							<li>na větší jednotky: škrtáme nuly (čárka doleva)</li>
+							<li>👉 <strong>POZOR u času nikdy neposouváme desetinnou čárku</strong> — hodina má 60 minut, minuta 60 sekund!</li>
+						</ul>
+					`,
+				},
 			],
 		},
 		{
