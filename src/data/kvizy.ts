@@ -709,6 +709,11 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Hodnota bez jednotky nemá smysl — správně např. l = 72 mm.',
 		},
 		{
+			text: 'Jak se nazývá největší délka, kterou měřidlo dokáže změřit?',
+			odpovedi: ['měřicí rozsah', 'přesnost měřidla', 'odchylka měření'],
+			vysvetleni: 'Rozsah = nejmenší a největší hodnota na stupnici. Přesnost určuje nejmenší dílek, odchylka je polovina dílku.',
+		},
+		{
 			text: 'Jak velká je odchylka měření?',
 			odpovedi: [
 				'polovina nejmenšího dílku stupnice',
@@ -1475,6 +1480,11 @@ export const kvizy: Record<string, Otazka[]> = {
 				'atom s více neutrony',
 			],
 			vysvetleni: 'Po odtržení elektronů převažuje kladný náboj protonů. Záporný iont naopak elektrony přijal.',
+		},
+		{
+			text: 'Jak se odborně nazývá kladný iont — atom, který odevzdal elektron?',
+			odpovedi: ['kation', 'anion', 'neutron'],
+			vysvetleni: 'Kladný iont = kation (odevzdal elektron), záporný iont = anion (přijal elektron navíc). Neutron je částice jádra.',
 		},
 		{
 			text: 'Jak se nabíjejí tělesa při vzájemném tření?',
