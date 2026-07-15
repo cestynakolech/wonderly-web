@@ -847,11 +847,22 @@ export const temata: Record<string, Tema[]> = {
 							<li>měřidla, pravidla měření, odchylka měření, převody jednotek</li>
 							<li>vztahy: ρ = m : V, V = m : ρ, m = ρ · V, 1 l = 1 dm³</li>
 						</ul>
+						<h3>4. Základy elektřiny a magnetismu (<a href="../../elektrina-a-magnetismus/">celek Elektřina a magnetismus</a>)</h3>
+						<ul>
+							<li>stavba atomu (jádro: protony a neutrony; obal: elektrony), vznik iontů</li>
+							<li>souhlasné náboje se odpuzují, opačné se přitahují; elektrická síla</li>
+							<li>magnetické póly: souhlasné se odpuzují, opačné se přitahují</li>
+						</ul>
 						<h3>📋 Klíčové hodnoty</h3>
 						<ul>
 							<li>hustota vody 1 000 kg/m³, 1 litr vody = 1 kg</li>
 							<li>gravitační síla na 1 kg ≈ 10 N</li>
 							<li>1 kN = 1 000 N, 1 t = 1 000 kg, 1 q = 100 kg, 1 dag = 10 g</li>
+						</ul>
+						<h3>🎮 Další procvičování (Wordwall)</h3>
+						<p>Interaktivní cvičení od tvého učitele:</p>
+						<ul>
+							<li><a href="https://wordwall.net/cs/resource/65119886" target="_blank" rel="noopener">Cvičení 1</a> · <a href="https://wordwall.net/cs/resource/63448418" target="_blank" rel="noopener">2</a> · <a href="https://wordwall.net/cs/resource/61873638" target="_blank" rel="noopener">3</a> · <a href="https://wordwall.net/cs/resource/60691456" target="_blank" rel="noopener">4</a> · <a href="https://wordwall.net/cs/resource/60691133" target="_blank" rel="noopener">5</a> · <a href="https://wordwall.net/cs/resource/60691009" target="_blank" rel="noopener">6</a> · <a href="https://wordwall.net/cs/resource/60690930" target="_blank" rel="noopener">7</a> · <a href="https://wordwall.net/cs/resource/60690669" target="_blank" rel="noopener">8</a> · <a href="https://wordwall.net/cs/resource/80876088" target="_blank" rel="noopener">9</a> · <a href="https://wordwall.net/cs/resource/57607972" target="_blank" rel="noopener">10</a></li>
 						</ul>
 					`,
 				},
@@ -888,6 +899,46 @@ export const temata: Record<string, Tema[]> = {
 								<tr><td>el. napětí</td><td>—</td><td>V</td><td>voltmetr</td></tr>
 							</tbody>
 						</table>
+					`,
+				},
+				{
+					slug: 'pokusy',
+					nazev: '20 jednoduchých pokusů',
+					obsah: `
+						<h2>20 jednoduchých fyzikálních pokusů</h2>
+						<p>Krátké, levné pokusy na doma i do třídy. 👉 Vždy s dohledem dospělého a bezpečně (horká voda → opatrně, rukavice)!</p>
+						<h3>Stavba látek, elektřina a magnetismus</h3>
+						<ol>
+							<li><strong>Model atomu</strong> — z plastelíny 3 barev a párátek postav „planetární" model: protony a neutrony do středu, elektrony na oběžné dráhy. Uvidíš, že atom má jádro a obal — základ pro pochopení iontů.</li>
+							<li><strong>Balónek a papírky</strong> — balónek tři o vlasy a přibliž k papírovým konfetám. Papírky „skáčou" k balónku — opačné náboje se přitahují.</li>
+							<li><strong>Balónek proti balónku</strong> — dva nafouknuté balónky třené o vlasy zavěs vedle sebe. Stejné náboje se odpuzují.</li>
+							<li><strong>Magnetický řetěz</strong> — k magnetu přilož sponku, k ní další… Magnet do sponek „indukuje" póly a řetěz ukáže dosah magnetické síly.</li>
+							<li><strong>Kompas vs. magnet</strong> — pomalu přibližuj magnet ke střelce kompasu. Střelka se vychýlí — blízký magnet převáží nad zemským polem.</li>
+						</ol>
+						<h3>Síly a čas</h3>
+						<ol start="6">
+							<li><strong>Padající tělesa</strong> — pusť z výšky hlavy list papíru a stejný papír zmuchlaný. Zmuchlaný padá rychleji — má menší odpor vzduchu, gravitace působí na oba stejně.</li>
+							<li><strong>Kyvadlo a čas</strong> — na provázku měř stopkami periody krátkého a dlouhého kyvadla. Delší kyvadlo kmitá pomaleji — perioda závisí hlavně na délce, ne na hmotnosti.</li>
+							<li><strong>Gumička jako siloměr</strong> — zavěšuj na silnou gumičku závaží a měř pravítkem prodloužení. Větší síla → větší prodloužení (princip siloměru).</li>
+						</ol>
+						<h3>Objem a hustota</h3>
+						<ol start="9">
+							<li><strong>Archimédův pohár</strong> — do odměrného válce s vodou vlož kámen a odečti nový objem. Rozdíl hladin = objem kamene.</li>
+							<li><strong>Plovoucí vejce</strong> — do sklenice s vodou postupně přisypávej sůl. Až hustota roztoku vzroste, vejce vyplave.</li>
+							<li><strong>Slámkový hustoměr</strong> — brčko dole utěsni modelínou se závažím a označ rysky ve vodě a slané vodě. V hustší kapalině se ponoří méně — jako opravdový hustoměr.</li>
+							<li><strong>Vrstvené kapaliny</strong> — opatrně nalij do sklenice med, jar, obarvenou vodu a olej. Kapaliny vytvoří vrstvy podle hustoty.</li>
+							<li><strong>Led v oleji a ve vodě</strong> — kostku ledu vhoď do vody a do oleje. Ve vodě plave (má menší hustotu), v oleji klesá (olej je ještě lehčí).</li>
+						</ol>
+						<h3>Teplota, teplo a skupenství</h3>
+						<ol start="14">
+							<li><strong>Chladicí líh</strong> — kápni na ruku vodu a vedle líh. Líh chladí víc — rychlejší odpařování odebírá teplo.</li>
+							<li><strong>Pára a kondenzace</strong> — nad párou z konvice přidrž (bezpečně!) kovové víčko. Na víčku vznikají kapky — pára kondenzuje.</li>
+							<li><strong>Balónek na lahvi</strong> — PET láhev s navlečeným balónkem střídavě vkládej do horké a studené vody. Teplý vzduch se roztáhne a balónek nafoukne, studený se stáhne.</li>
+							<li><strong>Barevný teploměr</strong> — brčko s obarvenou vodou utěsni plastelínou ve skleničce a sleduj hladinu v teple a chladu — tepelná roztažnost kapaliny.</li>
+							<li><strong>Zaseknuté víčko</strong> — šroubovací víčko sklenice nahřej v teplé vodě. Kov se roztáhne a víčko jde snáz otevřít.</li>
+							<li><strong>Slunce vs. stín</strong> — jeden teploměr zabal do černého papíru na slunci, druhý nech ve stínu. Černý povrch pohlcuje více záření — vyšší teplota.</li>
+							<li><strong>Vodivost tepla</strong> — kovovou a plastovou lžíci ponoř do horké vody a po minutě sáhni na horní konce. Kov vede teplo mnohem lépe než plast.</li>
+						</ol>
 					`,
 				},
 			],

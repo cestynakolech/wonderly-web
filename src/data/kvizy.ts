@@ -888,6 +888,11 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['1 m³', '3,5 m³', '2,5 m³'],
 			vysvetleni: 'V = a · b · c = 2 · 1 · 0,5 = 1 m³.',
 		},
+		{
+			text: 'Odměrný válec ukazoval 250 ml, po odlití vody ukazuje 200 ml. Kolik vody bylo odlito?',
+			odpovedi: ['50 ml', '450 ml', '200 ml'],
+			vysvetleni: 'Odečteme: 250 − 200 = 50 ml. Stejným rozdílem hladin měříme i objem ponořeného tělesa.',
+		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/hustota': [
 		{
@@ -1535,6 +1540,11 @@ export const kvizy: Record<string, Otazka[]> = {
 				'vyrábět elektřinu',
 			],
 			vysvetleni: 'Elektrometr je elektroskop se stupnicí bez jednotek — čím větší výchylka, tím větší náboj.',
+		},
+		{
+			text: 'Co udělá zelektrizované pravítko s malými papírky?',
+			odpovedi: ['přitáhne je', 'odpudí je', 'nic se nestane'],
+			vysvetleni: 'Nabité pravítko působí elektrickou silou — papírky k němu „vyskočí". Stejný pokus funguje s balónkem třeným o vlasy.',
 		},
 		{
 			text: 'Proč se při tankování benzínu vypíná motor?',
@@ -3511,9 +3521,10 @@ function slozSouhrnnyKviz(rocnik: string, celky: string[], maxOtazek: number): O
 }
 
 // 1. pololetí = celky probírané do pololetí (dle časových plánů učitele)
+// Pozn.: dle pololetního testu učitele patří do 1. pololetí i základy elektřiny a magnetismu (ionty, náboje, póly)
 kvizy['fyzika/6-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'6-rocnik',
-	['latka-a-teleso', 'sila', 'fyzikalni-veliciny'],
+	['latka-a-teleso', 'sila', 'fyzikalni-veliciny', 'elektrina-a-magnetismus'],
 	24,
 );
 kvizy['fyzika/6-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
