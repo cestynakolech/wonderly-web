@@ -1,4 +1,35 @@
 ---
+// fox.wonderly.cz — 1. stupeň (paní Lišková). Úvod = video s liškou, pod ním okénka předmětů.
+// Aktivity Wordwall: přidávat jen zkontrolované (viz PROGRESS.md); hry se otvírají přímo na Wordwallu.
+const matematika = [
+	{
+		odkaz: 'https://wordwall.net/cs/resource/92234789',
+		nazev: 'Kladná a záporná čísla',
+		hra: '🍎 létající ovoce',
+	},
+	{
+		odkaz: 'https://wordwall.net/cs/resource/92234553',
+		nazev: 'Poznáš kladná a záporná čísla?',
+		hra: '🔨 práskni krtka',
+	},
+	{
+		odkaz: 'https://wordwall.net/cs/resource/92186447',
+		nazev: 'Porovnávání procent a zlomků',
+		hra: '🏆 soutěžní kvíz',
+	},
+	{
+		odkaz: 'https://wordwall.net/cs/resource/92186092',
+		nazev: 'Procenta, desetinná čísla a zlomky',
+		hra: '🍏 létající ovoce',
+	},
+	{
+		odkaz: 'https://wordwall.net/cs/resource/91899120',
+		nazev: 'Procenta — jednoduché úlohy',
+		hra: '✏️ kvíz',
+	},
+];
+
+const pripravujeme = ['Český jazyk', 'Čtení a literární výchova', 'Hry jen tak'];
 ---
 
 <html lang="cs">
@@ -14,12 +45,63 @@
 			<source src="/video/liska-1.mp4" type="video/mp4" />
 		</video>
 		<main>
-			<p><a href="/">&larr; Zpět na úvod</a></p>
-			<h1>fox.wonderly</h1>
-			<p>Materiály a kvízy připravujeme.</p>
+			<section class="uvod">
+				<p><a href="/">&larr; Zpět na úvod</a></p>
+				<h1>fox.wonderly</h1>
+				<p class="podtitul">Hry a procvičování pro 1. stupeň</p>
+				<p class="sipka">⬇︎ vyber si předmět</p>
+			</section>
+
+			<section class="okenka">
+				<article class="okenko">
+					<h2>
+						<svg class="liska" viewBox="0 0 64 64" aria-hidden="true">
+							<polygon points="10,6 26,14 14,28" fill="#e8842c" />
+							<polygon points="54,6 38,14 50,28" fill="#e8842c" />
+							<polygon points="13,10 24,16 16,24" fill="#7a3d10" />
+							<polygon points="51,10 40,16 48,24" fill="#7a3d10" />
+							<ellipse cx="32" cy="34" rx="24" ry="22" fill="#e8842c" />
+							<polygon points="12,34 32,58 52,34 32,44" fill="#fff" opacity="0.9" />
+							<circle cx="23" cy="30" r="3" fill="#2b1a0e" />
+							<circle cx="41" cy="30" r="3" fill="#2b1a0e" />
+							<ellipse cx="32" cy="44" rx="4.5" ry="3.5" fill="#2b1a0e" />
+						</svg>
+						Matematika
+					</h2>
+					<ul>
+						{matematika.map((a) => (
+							<li>
+								<a href={a.odkaz} target="_blank" rel="noopener">
+									{a.nazev}
+								</a>
+								<span class="hra">{a.hra}</span>
+							</li>
+						))}
+					</ul>
+				</article>
+
+				{pripravujeme.map((nazev) => (
+					<article class="okenko pripravujeme">
+						<h2>
+							<svg class="liska" viewBox="0 0 64 64" aria-hidden="true">
+								<polygon points="10,6 26,14 14,28" fill="#c9c9c9" />
+								<polygon points="54,6 38,14 50,28" fill="#c9c9c9" />
+								<ellipse cx="32" cy="34" rx="24" ry="22" fill="#c9c9c9" />
+								<polygon points="12,34 32,58 52,34 32,44" fill="#fff" opacity="0.9" />
+								<circle cx="23" cy="30" r="3" fill="#6b6b6b" />
+								<circle cx="41" cy="30" r="3" fill="#6b6b6b" />
+								<ellipse cx="32" cy="44" rx="4.5" ry="3.5" fill="#6b6b6b" />
+							</svg>
+							{nazev}
+						</h2>
+						<p class="pozn">Připravujeme…</p>
+					</article>
+				))}
+			</section>
 		</main>
 		<style>
-			html, body {
+			html,
+			body {
 				height: 100%;
 				margin: 0;
 				background: #000;
@@ -35,17 +117,91 @@
 			main {
 				position: relative;
 				z-index: 1;
-				min-height: 100vh;
+				font-family: system-ui, sans-serif;
+				color: #fff;
+				box-sizing: border-box;
+			}
+			.uvod {
+				min-height: 92vh;
 				max-width: 60ch;
 				margin: 0 auto;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: flex-start;
-				font-family: system-ui, sans-serif;
-				color: #fff;
 				padding: 1.5rem;
-				box-sizing: border-box;
+			}
+			.podtitul {
+				font-size: 1.2rem;
+				opacity: 0.9;
+			}
+			.sipka {
+				margin-top: 2rem;
+				font-size: 1.1rem;
+				animation: houp 1.6s ease-in-out infinite;
+			}
+			@keyframes houp {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(6px);
+				}
+			}
+			.okenka {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 1rem;
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 1.5rem 1.5rem 4rem;
+			}
+			.okenko {
+				background: rgba(255, 250, 240, 0.94);
+				color: #2b1a0e;
+				border-radius: 16px;
+				padding: 1rem 1.2rem;
+				box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+			}
+			.okenko h2 {
+				display: flex;
+				align-items: center;
+				gap: 0.6rem;
+				margin: 0 0 0.6rem;
+				font-size: 1.25rem;
+			}
+			.liska {
+				width: 38px;
+				height: 38px;
+				flex: none;
+			}
+			.okenko ul {
+				margin: 0;
+				padding-left: 1.1rem;
+			}
+			.okenko li {
+				margin: 0.45rem 0;
+			}
+			.okenko a {
+				color: #b34700;
+				font-weight: 600;
+				text-decoration: none;
+			}
+			.okenko a:hover {
+				text-decoration: underline;
+			}
+			.hra {
+				display: block;
+				font-size: 0.85rem;
+				color: #7a5a3a;
+			}
+			.pripravujeme {
+				opacity: 0.75;
+			}
+			.pozn {
+				margin: 0;
+				color: #6b6b6b;
 			}
 			a {
 				color: #fff;
