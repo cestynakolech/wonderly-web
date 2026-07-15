@@ -27,6 +27,8 @@ export type Mesto = {
 	galerie?: string;
 	videoId?: string;
 	stellplatze?: Stellplatz[];
+	/** Bertíkův report — delší zápisek psího reportéra; odstavce oddělené prázdným řádkem (jen česky) */
+	report?: string;
 };
 
 export type Video = {

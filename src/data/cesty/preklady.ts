@@ -84,6 +84,7 @@ export const TEXTY = {
 		autorLicence: ', autor maix (Wikimedia Commons), licence',
 		upraveno: '– upraveno (přidány piny).',
 		prepnoutVzhled: 'Světlý/tmavý režim',
+		bertikReport: '🐾 Bertíkův čmuchací report',
 	},
 	en: {
 		nadpis: 'Journeys on Wheels',
@@ -99,6 +100,7 @@ export const TEXTY = {
 		autorLicence: ' by maix (Wikimedia Commons), licensed under',
 		upraveno: '– modified (pins added).',
 		prepnoutVzhled: 'Light/dark mode',
+		bertikReport: "🐾 Bertík's sniffing report (Czech)",
 	},
 	de: {
 		nadpis: 'Reisen auf Rädern',
@@ -114,5 +116,6 @@ export const TEXTY = {
 		autorLicence: ' von maix (Wikimedia Commons), Lizenz',
 		upraveno: '– bearbeitet (Pins hinzugefügt).',
 		prepnoutVzhled: 'Hell/Dunkel-Modus',
+		bertikReport: '🐾 Bertíks Schnüffelreport (Tschechisch)',
 	},
 } satisfies Record<Jazyk, Record<string, string>>;

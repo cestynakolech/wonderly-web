@@ -66,6 +66,18 @@ const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 								</a>
 							</p>
 						)}
+						{m.report && (
+							<details class="bertik-report">
+								<summary>{t.bertikReport}</summary>
+								{m.report
+									.split('\n')
+									.map((odstavec) => odstavec.trim())
+									.filter(Boolean)
+									.map((odstavec) => (
+										<p>{odstavec}</p>
+									))}
+							</details>
+						)}
 						{m.galerie && (
 							<div class="galerie" data-slozka={m.galerie}>
 								<p class="galerie-nacitani">Načítám fotky…</p>
@@ -144,5 +156,18 @@ const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 	.galerie-nacitani {
 		color: var(--ztlumeny);
 		font-size: 0.9rem;
+	}
+	.bertik-report {
+		margin: 1rem 0;
+		padding: 0.6rem 1rem;
+		border: 1px dashed var(--ztlumeny, #999);
+		border-radius: 10px;
+	}
+	.bertik-report summary {
+		cursor: pointer;
+		font-weight: bold;
+	}
+	.bertik-report p {
+		margin: 0.6rem 0;
 	}
 </style>
