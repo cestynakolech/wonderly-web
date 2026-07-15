@@ -862,7 +862,11 @@ export const temata: Record<string, Tema[]> = {
 						<h3>🎮 Další procvičování (Wordwall)</h3>
 						<p>Interaktivní cvičení od tvého učitele:</p>
 						<ul>
-							<li><a href="https://wordwall.net/cs/resource/65119886" target="_blank" rel="noopener">Cvičení 1</a> · <a href="https://wordwall.net/cs/resource/63448418" target="_blank" rel="noopener">2</a> · <a href="https://wordwall.net/cs/resource/61873638" target="_blank" rel="noopener">3</a> · <a href="https://wordwall.net/cs/resource/60691456" target="_blank" rel="noopener">4</a> · <a href="https://wordwall.net/cs/resource/60691133" target="_blank" rel="noopener">5</a> · <a href="https://wordwall.net/cs/resource/60691009" target="_blank" rel="noopener">6</a> · <a href="https://wordwall.net/cs/resource/60690930" target="_blank" rel="noopener">7</a> · <a href="https://wordwall.net/cs/resource/60690669" target="_blank" rel="noopener">8</a> · <a href="https://wordwall.net/cs/resource/80876088" target="_blank" rel="noopener">9</a> · <a href="https://wordwall.net/cs/resource/57607972" target="_blank" rel="noopener">10</a></li>
+							<li><a href="https://wordwall.net/cs/resource/63448418" target="_blank" rel="noopener">Gravitační síla Země — kvíz</a></li>
+							<li><a href="https://wordwall.net/cs/resource/61873638" target="_blank" rel="noopener">Skupenství látek — kvíz</a></li>
+							<li><a href="https://wordwall.net/cs/resource/60691133" target="_blank" rel="noopener">Atom, molekula, sloučenina — spojovačka</a></li>
+							<li><a href="https://wordwall.net/cs/resource/60691009" target="_blank" rel="noopener">Atom — pravda, nebo lež</a></li>
+							<li><a href="https://wordwall.net/cs/resource/60690669" target="_blank" rel="noopener">Atom — práskni krtka</a></li>
 						</ul>
 					`,
 				},
@@ -1957,6 +1961,10 @@ export const temata: Record<string, Tema[]> = {
 							<li>rychlost v = s : t (m/s, km/h; 1 m/s = 3,6 km/h)</li>
 							<li>tlak p = F : S (Pa)</li>
 							<li>gravitační síla na 1 kg ≈ 10 N</li>
+						</ul>
+						<h3>🎮 Další procvičování (Wordwall)</h3>
+						<ul>
+							<li><a href="https://wordwall.net/cs/resource/80876088" target="_blank" rel="noopener">Skládání sil — kvíz</a></li>
 						</ul>
 					`,
 				},
