@@ -1,0 +1,243 @@
+---
+import SkolaLayout from '../../layouts/SkolaLayout.astro';
+import { otazkyNapricRocniky } from '../../data/hry';
+
+// 120 otázek napříč ročníky — hra si z nich bere náhodně podle nastavení
+const banka = otazkyNapricRocniky(120, 2026);
+---
+
+<SkolaLayout titulek="Fyzikální liga — týmová soutěž">
+	<div id="liga" data-banka={JSON.stringify(banka)}>
+		<!-- NASTAVENÍ -->
+		<section id="nastaveni">
+			<h1><span class="podtrh">🏆 Fyzikální liga</span></h1>
+			<p class="popis">
+				Týmová soutěž pro celou třídu. Rozdejte týmům karty A/B/C
+				(<a href="/hry/karty" target="_blank">vytisknout karty</a>), otázky pouštějte na projektor.
+				Po odpočtu týmy zvednou karty a vy klepnutím označíte, kdo odpověděl správně.
+			</p>
+			<div class="volby">
+				<label>Počet týmů
+					<select id="pocet-tymu">{[2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === 4}>{n}</option>)}</select>
+				</label>
+				<label>Počet otázek
+					<select id="pocet-otazek"><option>10</option><option selected>15</option><option>20</option></select>
+				</label>
+				<label>Čas na otázku
+					<select id="cas-otazky"><option value="15">15 s</option><option value="20" selected>20 s</option><option value="30">30 s</option></select>
+				</label>
+			</div>
+			<div id="jmena-tymu"></div>
+			<button id="start" class="velke-tlacitko">Spustit hru ▶</button>
+		</section>
+
+		<!-- HRA -->
+		<section id="hra" hidden>
+			<header class="hlavicka-hry">
+				<span id="poradi-otazky"></span>
+				<span id="riskove" class="riskove" hidden>⭐ RISKOVACÍ KOLO — za 2 body!</span>
+				<span id="odpocet-cislo"></span>
+			</header>
+			<div id="odpocet-pruh"><div id="odpocet-vypln"></div></div>
+			<h2 id="text-otazky"></h2>
+			<ol id="odpovedi" class="odpovedi"></ol>
+			<div id="vyhodnoceni" hidden>
+				<p class="pokyn">Klepni na týmy, které zvedly správnou kartu, pak pokračuj:</p>
+				<div id="tymy-tlacitka"></div>
+				<button id="dalsi" class="velke-tlacitko">Další otázka ▶</button>
+			</div>
+			<aside id="tabulka"></aside>
+		</section>
+
+		<!-- VÝSLEDKY -->
+		<section id="vysledky" hidden>
+			<h1><span class="podtrh">🎉 Konečné pořadí</span></h1>
+			<ol id="podium"></ol>
+			<button id="znovu" class="velke-tlacitko">Nová hra 🔄</button>
+		</section>
+	</div>
+</SkolaLayout>
+
+<script>
+	const koren = document.getElementById('liga');
+	const banka = JSON.parse(koren.dataset.banka);
+	const $ = (id) => document.getElementById(id);
+
+	let tymy = [];
+	let otazky = [];
+	let cisloOtazky = 0;
+	let casNaOtazku = 20;
+	let odpocetId = null;
+
+	function zamichej(pole) {
+		const p = [...pole];
+		for (let i = p.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[p[i], p[j]] = [p[j], p[i]];
+		}
+		return p;
+	}
+
+	function vykresliJmena() {
+		const n = +$('pocet-tymu').value;
+		$('jmena-tymu').innerHTML = Array.from({ length: n }, (_, i) =>
+			`<input class="jmeno-tymu" value="Tým ${i + 1}" maxlength="18">`
+		).join('');
+	}
+	$('pocet-tymu').addEventListener('change', vykresliJmena);
+	vykresliJmena();
+
+	$('start').addEventListener('click', () => {
+		tymy = [...document.querySelectorAll('.jmeno-tymu')].map((el) => ({ jmeno: el.value || 'Tým', body: 0 }));
+		otazky = zamichej(banka).slice(0, +$('pocet-otazek').value);
+		casNaOtazku = +$('cas-otazky').value;
+		cisloOtazky = 0;
+		$('nastaveni').hidden = true;
+		$('hra').hidden = false;
+		dalsiOtazka();
+	});
+
+	function jeRiskova() {
+		return (cisloOtazky + 1) % 5 === 0;
+	}
+
+	function dalsiOtazka() {
+		if (cisloOtazky >= otazky.length) return konec();
+		const otazka = otazky[cisloOtazky];
+		$('poradi-otazky').textContent = `Otázka ${cisloOtazky + 1} / ${otazky.length}`;
+		$('riskove').hidden = !jeRiskova();
+		$('text-otazky').textContent = otazka.text;
+		const spravna = otazka.odpovedi[0];
+		const zamichane = zamichej(otazka.odpovedi);
+		otazka._spravnyIndex = zamichane.indexOf(spravna);
+		$('odpovedi').innerHTML = zamichane
+			.map((o, i) => `<li class="odpoved odpoved-${i}"><b>${'ABC'[i]}</b> ${o}</li>`)
+			.join('');
+		$('vyhodnoceni').hidden = true;
+		vykresliTabulku();
+		spustOdpocet();
+	}
+
+	function spustOdpocet() {
+		let zbyva = casNaOtazku;
+		$('odpocet-cislo').textContent = zbyva + ' s';
+		$('odpocet-vypln').style.transition = 'none';
+		$('odpocet-vypln').style.width = '100%';
+		requestAnimationFrame(() => {
+			$('odpocet-vypln').style.transition = `width ${casNaOtazku}s linear`;
+			$('odpocet-vypln').style.width = '0%';
+		});
+		clearInterval(odpocetId);
+		odpocetId = setInterval(() => {
+			zbyva--;
+			$('odpocet-cislo').textContent = zbyva + ' s';
+			if (zbyva <= 3 && zbyva > 0) pipni(600);
+			if (zbyva <= 0) {
+				clearInterval(odpocetId);
+				pipni(880, 0.4);
+				odhal();
+			}
+		}, 1000);
+	}
+
+	function pipni(frekvence, delka = 0.12) {
+		try {
+			const ctx = (pipni._ctx ??= new AudioContext());
+			const osc = ctx.createOscillator();
+			const gain = ctx.createGain();
+			osc.frequency.value = frekvence;
+			gain.gain.value = 0.15;
+			osc.connect(gain).connect(ctx.destination);
+			osc.start();
+			osc.stop(ctx.currentTime + delka);
+		} catch {}
+	}
+
+	function odhal() {
+		const otazka = otazky[cisloOtazky];
+		document.querySelectorAll('.odpoved').forEach((el, i) => {
+			el.classList.toggle('spravna', i === otazka._spravnyIndex);
+			el.classList.toggle('spatna', i !== otazka._spravnyIndex);
+		});
+		$('tymy-tlacitka').innerHTML = tymy
+			.map((t, i) => `<button class="tym-tlacitko" data-i="${i}">${t.jmeno}</button>`)
+			.join('');
+		document.querySelectorAll('.tym-tlacitko').forEach((btn) =>
+			btn.addEventListener('click', () => btn.classList.toggle('oznaceny'))
+		);
+		$('vyhodnoceni').hidden = false;
+	}
+
+	$('dalsi').addEventListener('click', () => {
+		const body = jeRiskova() ? 2 : 1;
+		document.querySelectorAll('.tym-tlacitko.oznaceny').forEach((btn) => {
+			tymy[+btn.dataset.i].body += body;
+		});
+		cisloOtazky++;
+		dalsiOtazka();
+	});
+
+	function vykresliTabulku() {
+		const serazene = [...tymy].sort((a, b) => b.body - a.body);
+		$('tabulka').innerHTML =
+			'<h3>Průběžné pořadí</h3>' +
+			serazene.map((t) => `<div class="radek-tabulky"><span>${t.jmeno}</span><b>${t.body}</b></div>`).join('');
+	}
+
+	function konec() {
+		$('hra').hidden = true;
+		$('vysledky').hidden = false;
+		const medaile = ['🥇', '🥈', '🥉'];
+		$('podium').innerHTML = [...tymy]
+			.sort((a, b) => b.body - a.body)
+			.map((t, i) => `<li class="podium-radek">${medaile[i] ?? '🏅'} <b>${t.jmeno}</b> — ${t.body} b.</li>`)
+			.join('');
+		for (let i = 0; i < 40; i++) {
+			const k = document.createElement('span');
+			k.className = 'konfeta';
+			k.textContent = ['🎉', '⭐', '🎊', '⚡'][i % 4];
+			k.style.left = Math.random() * 100 + 'vw';
+			k.style.animationDelay = Math.random() * 2 + 's';
+			document.body.appendChild(k);
+		}
+	}
+
+	$('znovu').addEventListener('click', () => location.reload());
+</script>
+
+<style>
+	#liga { max-width: 900px; margin: 0 auto; }
+	.popis { font-size: 1.05rem; }
+	.volby { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
+	.volby label { display: flex; flex-direction: column; font-weight: 700; gap: 0.3rem; }
+	.volby select { font-size: 1.1rem; padding: 0.3rem; }
+	#jmena-tymu { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+	.jmeno-tymu { font-size: 1.05rem; padding: 0.4rem; border: 2px solid #333; border-radius: 8px; width: 9rem; }
+	.velke-tlacitko { font-size: 1.4rem; padding: 0.7rem 2rem; border-radius: 12px; border: 3px solid #333;
+		background: #ffe066; cursor: pointer; font-weight: 800; }
+	.velke-tlacitko:hover { transform: scale(1.04); }
+	.hlavicka-hry { display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: 800; }
+	.riskove { color: #d9480f; animation: blik 0.8s infinite alternate; }
+	@keyframes blik { from { opacity: 1; } to { opacity: 0.4; } }
+	#odpocet-pruh { height: 14px; background: #eee; border-radius: 7px; overflow: hidden; margin: 0.6rem 0 1rem; }
+	#odpocet-vypln { height: 100%; width: 100%; background: linear-gradient(90deg, #40c057, #ffd43b, #fa5252); }
+	#text-otazky { font-size: 2rem; min-height: 5rem; }
+	.odpovedi { list-style: none; padding: 0; display: grid; gap: 0.8rem; }
+	.odpoved { font-size: 1.5rem; padding: 0.8rem 1rem; border-radius: 12px; border: 3px solid #333; }
+	.odpoved b { display: inline-block; width: 2.2rem; height: 2.2rem; text-align: center; border-radius: 50%;
+		color: #fff; margin-right: 0.7rem; }
+	.odpoved-0 b { background: #e03131; }
+	.odpoved-1 b { background: #1971c2; }
+	.odpoved-2 b { background: #2f9e44; }
+	.odpoved.spravna { background: #d3f9d8; border-color: #2f9e44; }
+	.odpoved.spatna { opacity: 0.45; }
+	.pokyn { font-weight: 700; }
+	.tym-tlacitko { font-size: 1.2rem; margin: 0.3rem; padding: 0.5rem 1.1rem; border-radius: 10px;
+		border: 3px solid #333; background: #fff; cursor: pointer; }
+	.tym-tlacitko.oznaceny { background: #d3f9d8; border-color: #2f9e44; }
+	#tabulka { margin-top: 1.5rem; padding: 0.8rem 1rem; border: 3px dashed #999; border-radius: 12px; }
+	.radek-tabulky { display: flex; justify-content: space-between; font-size: 1.15rem; padding: 0.15rem 0; }
+	.podium-radek { font-size: 1.7rem; margin: 0.5rem 0; }
+	:global(.konfeta) { position: fixed; top: -3rem; font-size: 1.8rem; animation: pad 3.2s linear infinite; z-index: 99; }
+	@keyframes pad { to { transform: translateY(110vh) rotate(360deg); } }
+</style>

@@ -1,0 +1,47 @@
+---
+import SkolaLayout from '../../layouts/SkolaLayout.astro';
+---
+
+<SkolaLayout titulek="Hry — stránka pro učitele">
+	<h1><span class="podtrh">🎮 Hry pro třídu</span></h1>
+	<p>
+		Tahle stránka je <b>pro učitele</b> — žákům ji neposílejte (v menu webu není).
+		Žáci dostanou jen vytištěné QR kódy nebo sledují projektor.
+	</p>
+	<ul class="karty-her">
+		<li>
+			<a class="karta-hry" href="/hry/liga">
+				<span class="ikona-hry">🏆</span>
+				<b>Fyzikální liga</b>
+				<span>Týmový kvíz na projektor. Týmy odpovídají kartami A/B/C, body počítá web.</span>
+			</a>
+		</li>
+		<li>
+			<a class="karta-hry" href="/hry/unikovka">
+				<span class="ikona-hry">🔐</span>
+				<b>Úniková laborka</b>
+				<span>QR stanoviště po učebně, týmy sbírají číslice tajného kódu a otvírají trezor.</span>
+			</a>
+		</li>
+		<li>
+			<a class="karta-hry" href="/hry/karty">
+				<span class="ikona-hry">🖨️</span>
+				<b>Karty A/B/C k tisku</b>
+				<span>Hlasovací karty pro Ligu — vytiskněte sadu pro každý tým.</span>
+			</a>
+		</li>
+	</ul>
+	<p class="pozn">Otázky obou her se skládají automaticky napříč ročníky fyziky 6–9
+		z banky ověřených kvízů webu.</p>
+</SkolaLayout>
+
+<style>
+	.karty-her { list-style: none; padding: 0; display: grid; gap: 1rem; max-width: 640px; }
+	.karta-hry { display: grid; grid-template-columns: 3.2rem 1fr; grid-template-rows: auto auto;
+		gap: 0.1rem 0.8rem; align-items: center; padding: 1rem 1.2rem; border: 3px solid #333;
+		border-radius: 14px; text-decoration: none; color: inherit; background: #fff; }
+	.karta-hry:hover { transform: translateY(-2px); box-shadow: 3px 3px 0 #333; }
+	.ikona-hry { grid-row: span 2; font-size: 2.2rem; }
+	.karta-hry b { font-size: 1.25rem; }
+	.pozn { color: #666; font-style: italic; }
+</style>

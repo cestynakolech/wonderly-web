@@ -1,0 +1,69 @@
+---
+import SkolaLayout from '../../../layouts/SkolaLayout.astro';
+import QrKod from '../../../components/skola2/QrKod.astro';
+import { STANICE, TAJNY_KOD } from '../../../data/hry';
+const zaklad = 'https://lab.wonderly.cz/hry/unikovka';
+---
+
+<SkolaLayout titulek="Úniková laborka — příprava pro učitele">
+	<div class="jen-obrazovka">
+		<h1><span class="podtrh">🔐 Úniková laborka</span></h1>
+		<h2>Jak na to (5 minut přípravy)</h2>
+		<ol class="postup">
+			<li><b>Vytiskněte</b> tuto stránku (⌘P) — vyjede 6 kartiček stanovišť s QR kódy.</li>
+			<li><b>Schovejte kartičky</b> po učebně/laboratoři (k váhám, obvodům, magnetům…).</li>
+			<li>Třídu rozdělte na týmy, každý tým má <b>jeden tablet</b> a papír na poznámky.
+				Ať každý tým začne u jiného stanoviště — nebudou se mačkat.</li>
+			<li>Tým na stanovišti naskenuje QR → odpoví na 3 otázky → získá <b>jednu číslici
+				tajného kódu</b> (a její pořadí). Celkem 6 stanovišť = 6 číslic.</li>
+			<li>S kompletním kódem běží k <b>trezoru</b> — QR trezoru dejte na katedru.
+				Web měří čas od prvního stanoviště; vyhrává nejrychlejší tým.</li>
+		</ol>
+		<p><label><input type="checkbox" id="ukaz-reseni"> zobrazit řešení (jen pro vás)</label>
+			<b id="reseni" hidden>Tajný kód: {TAJNY_KOD}</b></p>
+		<button class="velke-tlacitko" onclick="print()">Vytisknout kartičky 🖨️</button>
+	</div>
+
+	<div class="kartice">
+		{STANICE.map((s, i) => (
+			<div class="kartka">
+				<span class="ikona">{s.ikona}</span>
+				<b class="nazev">Stanoviště {s.nazev}</b>
+				<QrKod url={`${zaklad}/${s.slug}`} velikost={150} />
+				<span class="poradi">ukrývá {i + 1}. číslici kódu</span>
+			</div>
+		))}
+		<div class="kartka trezor-kartka">
+			<span class="ikona">🧰</span>
+			<b class="nazev">TREZOR</b>
+			<QrKod url={`${zaklad}/trezor`} velikost={150} />
+			<span class="poradi">sem zadejte celý kód</span>
+		</div>
+	</div>
+</SkolaLayout>
+
+<script>
+	document.getElementById('ukaz-reseni').addEventListener('change', (e) => {
+		document.getElementById('reseni').hidden = !e.target.checked;
+	});
+</script>
+
+<style>
+	.postup li { margin: 0.4rem 0; font-size: 1.05rem; }
+	.velke-tlacitko { font-size: 1.2rem; padding: 0.6rem 1.6rem; border-radius: 12px;
+		border: 3px solid #333; background: #ffe066; cursor: pointer; font-weight: 800; }
+	#reseni { margin-left: 1rem; color: #d9480f; }
+	.kartice { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+		gap: 1rem; margin-top: 1.5rem; }
+	.kartka { border: 4px dashed #999; border-radius: 16px; padding: 1rem;
+		display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-align: center; }
+	.trezor-kartka { border-color: #d9480f; }
+	.ikona { font-size: 2.4rem; }
+	.nazev { font-size: 1.3rem; }
+	.poradi { color: #666; }
+	@media print {
+		.jen-obrazovka, :global(header), :global(nav), :global(footer) { display: none !important; }
+		.kartice { grid-template-columns: repeat(2, 1fr); }
+		.kartka { page-break-inside: avoid; }
+	}
+</style>

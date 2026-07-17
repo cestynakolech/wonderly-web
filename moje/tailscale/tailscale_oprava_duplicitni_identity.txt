@@ -1,0 +1,58 @@
+pokuOprava duplicitní Tailscale identity (MacBook Pro M5)
+
+Kontext
+Tailscale admin konzole hlásí "Duplicate node key" na zařízeních macbook-pro-2
+a macbook-pro-2-1. Příčina: MacBook a Mac mini mají zkopírovaný (klonovaný)
+interní stav appky, takže běží se stejným kryptografickým klíčem identity.
+Proto padá TCP spojení (např. SSH) mezi nimi přes Tailscale IP adresy.
+
+Appka na tomto MacBooku je nainstalovaná jako systémová verze
+(io.tailscale.ipn.macsys), stav drží pod rootem v /Library/Tailscale/.
+Prosté odhlášení a přihlášení nestačí — appka si "pamatuje" starý (klonovaný)
+profil i s klíčem. Je potřeba smazat stav a nechat vygenerovat úplně nový.
+
+Bezpečnost: maže se jen lokální síťová identita Tailscale appky na tomto
+MacBooku. Žádná osobní data, dokumenty ani jiná nastavení macOS se nemažou.
+Po dobu resetu bude MacBook chvíli nedostupný přes Tailscale (LAN/wifi/internet
+běží dál bez přerušení). Je to plně reverzibilní — appku lze kdykoli znovu
+přihlásit jako při prvním nastavení.
+
+Postup
+
+Každý příkaz spusť v promptu Claude Code s "!" na začátku (spustí se přímo ve
+tvém terminálu, ne přes mě — potřeba kvůli sudo heslu).
+
+1. Zastavit systémového daemona:
+sudo launchctl bootout system/com.tailscale.tailscaled
+
+2. Smazat uložený stav a cache profilů:
+sudo rm -f /Library/Tailscale/tailscaled.state
+sudo rm -rf /Library/Tailscale/profile-data
+
+3. Znovu nastartovat daemona:
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.tailscale.tailscaled.plist
+
+4. Spustit přihlášení (vypíše se odkaz do prohlížeče):
+/Applications/Tailscale.app/Contents/MacOS/Tailscale up
+
+Otevři vypsaný odkaz https://login.tailscale.com/a/... v prohlížeči a přihlas
+se účtem cesty.na.kolech@gmail.com.
+
+Ověření po dokončení
+
+/Applications/Tailscale.app/Contents/MacOS/Tailscale status
+/Applications/Tailscale.app/Contents/MacOS/Tailscale ip -4
+
+- Nová IP adresa MacBooku by se měla lišit od 100.113.130.91 i od mini.
+- V admin konzoli (https://login.tailscale.com/admin/machines) by u tohoto
+  MacBooku měl zmizet štítek "Duplicate node key".
+- Otestovat SSH přes novou Tailscale IP mini (100.114.89.73):
+  nc -z -v -G 5 100.114.89.73 22
+  Mělo by projít (ne "Connection refused").
+
+Po úspěšné opravě
+
+- Aktualizovat tabulku Tailscale IP v CLAUDE.md (MacBook dostane novou adresu).
+- Pokud i mini má stejný problém (Tailscale IP tam koliduje s MacBookem),
+  bude potřeba stejný postup zopakovat i na mini — tam ale appka může být
+  nainstalovaná jinak (ověřit cestu ke stavu, zatím neprozkoumáno).

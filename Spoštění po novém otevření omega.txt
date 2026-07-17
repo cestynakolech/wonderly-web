@@ -1,0 +1,6 @@
+
+▎ „Přečti si CLAUDE.md a PROGRESS.md a pokračuj v práci — dodělej 7. ročník fyziky."
+
+Opus si načte stav a naváže. Konkrétně začne posledním kusem Fyziky 7: Zrcadla a čočky, Oko a vady oka, Rozklad světla/duha, Vnímání barev (RGB/CMYK) — infografiky i písničky jsou už nakopírované a připravené v public/, takže se jen dopíšou stránky a kvízy. Pak přijdou 2 chybějící kvízy a tím bude 7. ročník kompletní. Následuje 8. ročník (až stáhneš podklady z Google Disku do /Users/Shared/Škola/8/).
+
+Jedna drobnost: v příkladu commitů jsem uvedl spoluautora „Opus 4.8" — od teď to sedí, protože jsi na Opus přepnul. Teď můžeš bezpečně vyčistit kontext. 👍

@@ -1,0 +1,39 @@
+---
+import SkolaLayout from '../../layouts/SkolaLayout.astro';
+const pismena = [
+	{ znak: 'A', barva: '#e03131' },
+	{ znak: 'B', barva: '#1971c2' },
+	{ znak: 'C', barva: '#2f9e44' },
+];
+---
+
+<SkolaLayout titulek="Hlasovací karty A/B/C — tisk">
+	<div class="jen-obrazovka">
+		<h1><span class="podtrh">🖨️ Hlasovací karty</span></h1>
+		<p>Vytiskněte <b>jednu stránku pro každý tým</b> (⌘P), rozstříhejte podle čar.
+			Karty se hodí zalaminovat — vydrží celý rok.</p>
+		<button class="velke-tlacitko" onclick="print()">Vytisknout 🖨️</button>
+	</div>
+	<div class="archy">
+		{pismena.map((p) => (
+			<div class="karta-tisk" style={`--barva:${p.barva}`}>
+				<span class="pismeno">{p.znak}</span>
+				<span class="popisek">Fyzikální liga · lab.wonderly.cz</span>
+			</div>
+		))}
+	</div>
+</SkolaLayout>
+
+<style>
+	.velke-tlacitko { font-size: 1.2rem; padding: 0.6rem 1.6rem; border-radius: 12px;
+		border: 3px solid #333; background: #ffe066; cursor: pointer; font-weight: 800; }
+	.archy { display: grid; gap: 1rem; margin-top: 1.5rem; }
+	.karta-tisk { border: 4px dashed #999; border-radius: 16px; height: 8.6cm;
+		display: flex; flex-direction: column; align-items: center; justify-content: center; }
+	.pismeno { font-size: 6cm; line-height: 1; font-weight: 900; color: var(--barva); }
+	.popisek { color: #888; margin-top: 0.4rem; }
+	@media print {
+		.jen-obrazovka, :global(header), :global(nav), :global(footer) { display: none !important; }
+		.karta-tisk { page-break-inside: avoid; height: 8.4cm; }
+	}
+</style>
