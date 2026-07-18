@@ -1,0 +1,135 @@
+---
+// Interaktivní přetahování lanem = skládání sil.
+// Na každé straně přidáváš/ubíráš táhnoucí. Lidé na STEJNÉ straně se SČÍTAJÍ
+// (stejný směr), obě strany proti sobě dávají VÝSLEDNICI = rozdíl sil.
+// Uzel na laně se posouvá k silnější straně; při rovnosti je uprostřed.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Přetahování lanem 🕹️</span></h2>
+	<p>Každý táhnoucí zabere silou <strong>100 N</strong>. Přidávej lidi na obě strany a sleduj <strong>výslednici</strong>: lidé na stejné straně se <em>sčítají</em>, obě strany proti sobě se <em>odečítají</em>. Kam se pohne uzel?</p>
+
+	<svg id="tah-svg" viewBox="0 0 600 220" role="img" aria-label="Přetahování lanem">
+		<!-- terén -->
+		<line x1="0" y1="170" x2="600" y2="170" stroke="#adb5bd" stroke-width="2" stroke-dasharray="4 4" />
+		<!-- středová čára (výchozí pozice uzlu) -->
+		<line x1="300" y1="40" x2="300" y2="180" stroke="#ced4da" stroke-width="2" />
+		<!-- lano -->
+		<line id="tah-lano-l" x1="60" y1="120" x2="300" y2="120" stroke="#c9a227" stroke-width="6" />
+		<line id="tah-lano-p" x1="300" y1="120" x2="540" y2="120" stroke="#c9a227" stroke-width="6" />
+		<!-- uzel/praporek uprostřed -->
+		<g id="tah-uzel">
+			<circle cx="300" cy="120" r="9" fill="#e03131" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="300" y1="120" x2="300" y2="88" stroke="#2b2a26" stroke-width="2" />
+			<path d="M300 88 l22 7 -22 7 z" fill="#e03131" />
+		</g>
+		<!-- táhnoucí (kreslí skript) -->
+		<g id="tah-lide-l"></g>
+		<g id="tah-lide-p"></g>
+		<!-- šipky sil -->
+		<g id="tah-sipka-l"></g>
+		<g id="tah-sipka-p"></g>
+	</svg>
+
+	<div class="tah-ovladace">
+		<div class="tah-strana">
+			<span class="tah-nadpis" style="color:#c92a2a">🔴 Levá strana</span>
+			<div>
+				<button class="tah-btn" data-strana="l" data-krok="-1">−</button>
+				<output id="tah-pocet-l">1</output> ×&nbsp;💪
+				<button class="tah-btn" data-strana="l" data-krok="1">+</button>
+			</div>
+		</div>
+		<div class="tah-strana">
+			<span class="tah-nadpis" style="color:#1971c2">🔵 Pravá strana</span>
+			<div>
+				<button class="tah-btn" data-strana="p" data-krok="-1">−</button>
+				<output id="tah-pocet-p">1</output> ×&nbsp;💪
+				<button class="tah-btn" data-strana="p" data-krok="1">+</button>
+			</div>
+		</div>
+	</div>
+	<p class="tah-stav" id="tah-stav"></p>
+</section>
+
+<script>
+	const SILA = 100; // N na osobu
+	const svg = document.getElementById('tah-svg');
+	const stavEl = document.getElementById('tah-stav');
+	let pocet = { l: 1, p: 1 };
+	let uzelX = 300, cilX = 300;
+
+	function lide(id, n, zleva) {
+		let g = '';
+		for (let i = 0; i < n; i++) {
+			const x = zleva ? 50 - i * 26 : 550 + i * 26;
+			g += `<text x="${x}" y="130" font-size="26" text-anchor="middle">${zleva ? '💪' : '💪'}</text>`;
+		}
+		document.getElementById(id).innerHTML = g;
+	}
+
+	function sipka(id, silaN, zleva, stred) {
+		if (silaN === 0) { document.getElementById(id).innerHTML = ''; return; }
+		const delka = Math.min(silaN / 100 * 34, 150);
+		const x2 = zleva ? stred - 20 - delka : stred + 20 + delka;
+		const x1 = zleva ? stred - 20 : stred + 20;
+		const barva = zleva ? '#e03131' : '#1971c2';
+		const hrot = zleva ? `M${x2} 60 l14 -7 0 14 z` : `M${x2} 60 l-14 -7 0 14 z`;
+		document.getElementById(id).innerHTML =
+			`<line x1="${x1}" y1="60" x2="${x2}" y2="60" stroke="${barva}" stroke-width="6"/>` +
+			`<path d="${hrot}" fill="${barva}"/>` +
+			`<text x="${(x1 + x2) / 2}" y="48" text-anchor="middle" font-size="15" font-weight="bold" fill="${barva}">${silaN} N</text>`;
+	}
+
+	function prekresli() {
+		const sl = pocet.l * SILA, sp = pocet.p * SILA;
+		const vyslednice = sl - sp; // + = doleva
+		cilX = 300 - vyslednice * 0.6; // posun uzlu úměrně výslednici
+		cilX = Math.max(120, Math.min(480, cilX));
+		lide('tah-lide-l', pocet.l, true);
+		lide('tah-lide-p', pocet.p, false);
+		sipka('tah-sipka-l', sl, true, uzelX);
+		sipka('tah-sipka-p', sp, false, uzelX);
+		document.getElementById('tah-pocet-l').textContent = pocet.l;
+		document.getElementById('tah-pocet-p').textContent = pocet.p;
+
+		let text;
+		if (vyslednice === 0) text = `⚖️ Rovnováha! Obě strany táhnou stejně (${sl} N = ${sp} N), výslednice = 0 N. Uzel se nehýbe.`;
+		else {
+			const kam = vyslednice > 0 ? 'DOLEVA 🔴' : 'DOPRAVA 🔵';
+			text = `Výslednice = |${sl} − ${sp}| = ${Math.abs(vyslednice)} N ${kam}. Silnější strana přetahuje!`;
+		}
+		stavEl.textContent = text;
+	}
+
+	function animuj() {
+		uzelX += (cilX - uzelX) * 0.12;
+		document.getElementById('tah-uzel').setAttribute('transform', `translate(${uzelX - 300},0)`);
+		document.getElementById('tah-lano-l').setAttribute('x2', uzelX);
+		document.getElementById('tah-lano-p').setAttribute('x1', uzelX);
+		sipka('tah-sipka-l', pocet.l * SILA, true, uzelX);
+		sipka('tah-sipka-p', pocet.p * SILA, false, uzelX);
+		requestAnimationFrame(animuj);
+	}
+
+	document.querySelectorAll('.tah-btn').forEach((b) =>
+		b.addEventListener('click', () => {
+			const s = b.dataset.strana;
+			pocet[s] = Math.max(0, Math.min(6, pocet[s] + +b.dataset.krok));
+			prekresli();
+		})
+	);
+	prekresli();
+	animuj();
+</script>
+
+<style>
+	#tah-svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #eafaf1; }
+	.tah-ovladace { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: space-between; margin: 0.8rem 0; }
+	.tah-strana { text-align: center; font-size: 1.15rem; }
+	.tah-nadpis { display: block; font-weight: 800; margin-bottom: 0.3rem; }
+	.tah-btn { font-size: 1.4rem; font-weight: 900; width: 2.4rem; height: 2.4rem; border: 3px solid #2b2a26;
+		border-radius: 10px; background: #ffe066; cursor: pointer; vertical-align: middle; }
+	.tah-strana output { font-size: 1.3rem; font-weight: 800; }
+	.tah-stav { font-size: 1.05rem; font-weight: 700; min-height: 3rem; }
+</style>
