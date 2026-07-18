@@ -48,8 +48,10 @@
 	const C = teziste(poly);
 
 	let pouzite = [];        // indexy už použitých závěsů
-	let uhel = 0, cilUhel = 0;
 	let aktivniZaves = zavesy[0];
+	// úhel, aby vektor závěs→těžiště mířil svisle dolů
+	const uhelProBod = (idx) => (Math.PI / 2 - Math.atan2(C[1] - poly[idx][1], C[0] - poly[idx][0])) * 180 / Math.PI;
+	let uhel = uhelProBod(aktivniZaves), cilUhel = uhel; // už na startu visí správně
 
 	function vykresli() {
 		const P = poly[aktivniZaves];
@@ -71,10 +73,11 @@
 			const hotovo = pouzite.includes(idx);
 			obsah += `<circle class="tez-bod" data-idx="${idx}" cx="${x}" cy="${y}" r="8" fill="${hotovo ? '#adb5bd' : '#e03131'}" stroke="#2b2a26" stroke-width="2" style="cursor:pointer"/>`;
 		});
-		// těžiště (až po dvou čarách)
-		if (pouzite.length >= 2) {
+		// zelený bod těžiště — ukáže se hned po prvním zavěšení (leží přesně na olovnici)
+		if (pouzite.length >= 1) {
 			obsah += `<circle cx="${C[0]}" cy="${C[1]}" r="7" fill="#2f9e44" stroke="#2b2a26" stroke-width="2"/>`;
-			obsah += `<text x="${C[0] + 12}" y="${C[1] + 4}" font-size="14" font-weight="bold" fill="#2f9e44">těžiště</text>`;
+			if (pouzite.length >= 2)
+				obsah += `<text x="${C[0] + 12}" y="${C[1] + 4}" font-size="14" font-weight="bold" fill="#2f9e44">těžiště</text>`;
 		}
 		telo.innerHTML = obsah;
 		telo.querySelectorAll('.tez-bod').forEach((b) =>
@@ -84,15 +87,13 @@
 	function zaves(idx) {
 		if (pouzite.includes(idx)) return;
 		aktivniZaves = idx;
-		const P = poly[idx];
-		// úhel, aby vektor P→těžiště mířil dolů (svisle)
-		cilUhel = (Math.PI / 2 - Math.atan2(C[1] - P[1], C[0] - P[0])) * 180 / Math.PI;
+		cilUhel = uhelProBod(idx);
 		olovnice.setAttribute('opacity', '1');
 		animuj(() => {
 			pouzite.push(idx);
 			vykresli();
-			if (pouzite.length === 1) stavEl.textContent = 'Podle olovnice je nakreslená 1. čára. Teď klikni na DALŠÍ bod.';
-			else stavEl.textContent = '✅ Hotovo! Obě čáry se protínají v těžišti (zelený bod). Těžiště leží tam, i když je mimo materiál.';
+			if (pouzite.length === 1) stavEl.textContent = 'Zelený bod (těžiště) leží přesně na olovnici — těleso se samo otočilo tak, aby těžiště bylo pod závěsem. Klikni na DALŠÍ bod.';
+			else stavEl.textContent = '✅ Hotovo! Obě čáry se protínají v těžišti (zelený bod). Pozor: strany nemají stejnou plochu — vyvažují se MOMENTY (páky) jako na houpačce.';
 		});
 	}
 
@@ -106,7 +107,7 @@
 	}
 
 	document.getElementById('tez-reset').addEventListener('click', () => {
-		pouzite = []; uhel = 0; cilUhel = 0; aktivniZaves = zavesy[0];
+		pouzite = []; aktivniZaves = zavesy[0]; uhel = uhelProBod(aktivniZaves); cilUhel = uhel;
 		olovnice.setAttribute('opacity', '0');
 		stavEl.textContent = 'Klikni na některý červený bod a zavěs těleso.';
 		vykresli();
