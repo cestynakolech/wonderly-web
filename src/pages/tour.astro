@@ -21,6 +21,11 @@ const JEZDCI = [
 		<main>
 			<h1>🇨🇿 Češi na Tour de France</h1>
 			<p id="zive" class="zive">Načítám…</p>
+			<div id="ziva-tabulka" hidden>
+				<div class="ziva-hlava">🔴 ŽIVĚ NA TRATI <span id="do-cile"></span></div>
+				<div id="ziva-jezdci"></div>
+				<p id="komentar" class="komentar"></p>
+			</div>
 			<div id="karty">
 				{JEZDCI.map((j) => (
 					<article class="karta" id={`karta-${j.klic}`}>
@@ -46,9 +51,29 @@ const JEZDCI = [
 				try {
 					const data = await (await fetch('/api/tour')).json();
 					const dokoncena = data.vysledkyPoEtape ?? data.etapa;
-					$('#zive').textContent = data.etapa && dokoncena && data.etapa > dokoncena
-						? `🔴 Právě se jede ${data.etapa}. etapa! (čísla níže = stav po ${dokoncena}. etapě, dojezd se propíše sám)`
-						: `Stav po ${dokoncena ?? '?'}. etapě`;
+					const JMENA = { VACEK: 'Vacek', OTRUBA: 'Otruba', BITTNER: 'Bittner' };
+
+					// ŽIVÁ tabulka na trati (jede-li se)
+					if (data.zavodSeJede) {
+						$('#ziva-tabulka').hidden = false;
+						$('#do-cile').textContent = data.doCileKm != null ? `· ${data.doCileKm} km do cíle` : '';
+						const radky = Object.entries(data.jezdci)
+							.filter(([, j]) => j.zive)
+							.sort((a, b) => a[1].zive.poziceNaTrati - b[1].zive.poziceNaTrati)
+							.map(([k, j]) => {
+								const z = j.zive;
+								const odstup = z.odstupVterin === 0 ? 've vedení'
+									: `+${Math.floor(z.odstupVterin / 60)}:${String(z.odstupVterin % 60).padStart(2, '0')}`;
+								return `<div class="ziva-radek"><b>${z.poziceNaTrati}.</b> ${JMENA[k] ?? k}
+									<span class="ziva-odstup">${odstup}</span> <span class="ziva-kmh">${z.rychlost ?? '–'} km/h</span></div>`;
+							}).join('');
+						$('#ziva-jezdci').innerHTML = radky || '<p>Naši jezdci zrovna nejsou v telemetrii…</p>';
+						$('#komentar').textContent = data.komentar?.[0]?.text ?? '';
+						$('#zive').textContent = `🔴 Právě se jede ${data.etapa}. etapa!`;
+					} else {
+						$('#ziva-tabulka').hidden = true;
+						$('#zive').textContent = `Stav po ${dokoncena ?? '?'}. etapě`;
+					}
 					for (const [klic, j] of Object.entries(data.jezdci ?? {})) {
 						const karta = document.getElementById('karta-' + klic);
 						if (!karta) continue;
@@ -66,7 +91,7 @@ const JEZDCI = [
 				}
 			}
 			obnov();
-			setInterval(obnov, 60_000);
+			setInterval(obnov, 30_000);
 		</script>
 
 		<style>
@@ -85,6 +110,13 @@ const JEZDCI = [
 			.popisek { font-size: 0.72rem; font-weight: 700; color: #866; letter-spacing: 0.05em; }
 			.hodnota { font-size: 1.9rem; font-weight: 900; }
 			.detail { font-size: 0.9rem; color: #555; }
+			#ziva-tabulka { background: #fff; border: 3px solid #c92a2a; border-radius: 16px; padding: 0.8rem 1rem; margin-bottom: 0.9rem; }
+			.ziva-hlava { font-weight: 900; color: #c92a2a; font-size: 1.05rem; margin-bottom: 0.5rem; }
+			.ziva-radek { display: flex; align-items: baseline; gap: 0.5rem; font-size: 1.2rem; padding: 0.25rem 0; border-top: 1px solid #f1dede; }
+			.ziva-radek b { font-size: 1.4rem; min-width: 2.4rem; }
+			.ziva-odstup { font-weight: 700; color: #1971c2; }
+			.ziva-kmh { margin-left: auto; color: #777; font-size: 0.95rem; }
+			.komentar { font-style: italic; color: #444; margin-top: 0.6rem; border-top: 1px dashed #ccc; padding-top: 0.5rem; }
 			.zive-tlacitko { display: block; text-align: center; background: #c92a2a; color: #fff; font-weight: 800;
 				text-decoration: none; border-radius: 14px; padding: 0.8rem; margin: 0.9rem 0; border: 3px solid #222; }
 			.pata { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }

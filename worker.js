@@ -165,15 +165,42 @@ export default {
 			} catch (e) {
 				odpoved.chyba = 'letour.fr nedostupný: ' + e.message;
 			}
+			// ŽIVÁ TELEMETRIE během jedoucí etapy (racecenter.letour.fr, veřejné API bez tokenu)
+			const BIBY = { 37: 'VACEK', 227: 'OTRUBA', 213: 'BITTNER' };
 			try {
-				const zivy = await (await fetch('https://racecenter.letour.fr/livetracking', { headers: UA })).text();
-				const titulek = (zivy.match(/"title":"([^"]+)"/) ?? [])[1];
-				const info = (zivy.match(/"homeStage":\{[\s\S]{0,400}?"endTime":"([^"]*)"[\s\S]{0,600}?"label":"([^"]*)"/) ?? []);
-				odpoved.zive = { titulek: titulek ?? null };
-			} catch {}
+				const rc = 'https://racecenter.letour.fr/api';
+				const etapaCislo = odpoved.etapa ?? 14;
+				const tel = await (await fetch(`${rc}/telemetryCompetitor-2026`, { headers: UA })).json();
+				const riders = tel?.[0]?.Riders ?? [];
+				let kdokoliZive = false;
+				for (const r of riders) {
+					const jm = BIBY[r.Bib];
+					if (!jm) continue;
+					kdokoliZive = true;
+					(odpoved.jezdci[jm] ??= {}).zive = {
+						poziceNaTrati: r.Pos,
+						odstupVterin: r.secToFirstRider,
+						rychlost: r.kph != null ? Math.round(r.kph) : null,
+						stav: r.Status,
+					};
+				}
+				odpoved.zavodSeJede = kdokoliZive;
+				const koment = await (await fetch(`${rc}/publication_cs-2026-${etapaCislo}`, { headers: UA })).json();
+				const zive = (Array.isArray(koment) ? koment : []).filter((k) => k.type === 'liv');
+				odpoved.komentar = zive.slice(0, 3).map((k) => ({
+					text: Array.isArray(k.text) ? k.text.join(' ') : k.text, cas: k.publicationAt || k.createdAt,
+				}));
+				const pack = await (await fetch(`${rc}/pack-2026-${etapaCislo}`, { headers: UA })).json();
+				const c1 = pack?.[0]?.groups?.[0];
+				if (c1?.computedRemainingDistance != null) odpoved.doCileKm = Math.round(c1.computedRemainingDistance / 1000);
+			} catch (e) {
+				odpoved.zive = { chyba: e.message };
+			}
 
+			// při jedoucím závodu obnovovat rychleji (30 s), jinak 60 s
+			const ttl = odpoved.zavodSeJede ? 30 : 60;
 			const json = new Response(JSON.stringify(odpoved), {
-				headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=60' },
+				headers: { 'content-type': 'application/json', 'cache-control': `public, max-age=${ttl}` },
 			});
 			await cache.put(klicCache, json.clone());
 			return json;
