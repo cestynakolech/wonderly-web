@@ -42,16 +42,17 @@ const JEZDCI = [
 			async function obnov() {
 				try {
 					const data = await (await fetch('/api/tour')).json();
-					$('#zive').textContent = data.zive?.titulek
-						? '🔴 ' + data.zive.titulek.replace('live', '— právě se jede')
-						: `Po ${data.etapa ?? '?'}. etapě`;
+					const dokoncena = data.vysledkyPoEtape ?? data.etapa;
+					$('#zive').textContent = data.etapa && dokoncena && data.etapa > dokoncena
+						? `🔴 Právě se jede ${data.etapa}. etapa! (čísla níže = stav po ${dokoncena}. etapě, dojezd se propíše sám)`
+						: `Stav po ${dokoncena ?? '?'}. etapě`;
 					for (const [klic, j] of Object.entries(data.jezdci ?? {})) {
 						const karta = document.getElementById('karta-' + klic);
 						if (!karta) continue;
 						const nastav = (pole, text) => (karta.querySelector(`[data-pole="${pole}"]`).textContent = text);
 						nastav('gc-pozice', j.celkove ? `${j.celkove.pozice}.` : '–');
 						nastav('gc-ztrata', j.celkove ? j.celkove.ztrata : '');
-						nastav('etapa-popisek', `${data.etapa ?? ''}. ETAPA`);
+						nastav('etapa-popisek', `${dokoncena ?? ''}. ETAPA`);
 						nastav('et-pozice', j.etapa ? `${j.etapa.pozice}.` : '–');
 						nastav('et-ztrata', j.etapa ? j.etapa.ztrata : '');
 					}

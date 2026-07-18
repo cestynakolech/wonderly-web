@@ -126,14 +126,40 @@ export default {
 					return new Response(JSON.stringify({ adresy, etapa: odpoved.etapa, delka: stranka.length }), {
 						headers: { 'content-type': 'application/json' } });
 				}
-				if (adresy.ite) {
-					const etapaHtml = await (await fetch('https://www.letour.fr' + adresy.ite, { headers: UA })).text();
-					for (const j of JEZDCI) odpoved.jezdci[j] = { etapa: vyparsuj(etapaHtml, j) };
+				// během jedoucí etapy jsou tabulky aktuální etapy prázdné —
+				// pak sáhneme po poslední funkční adrese (pamatujeme si ji v cache)
+				const ZALOZNI = {
+					itg: '/en/ajax/ranking/13/itg/8532e10a8f49261c752759b02dc5d296/none',
+					ite: '/en/ajax/ranking/13/ite/c7494bafb75f0694614b45fdd3eaec86/subtab',
+				};
+				const nactiTabulku = async (typ) => {
+					const kandidati = [adresy[typ]];
+					const ulozenaUrl = await cache.match(new Request('https://cache.wonderly.cz/tour-url-' + typ));
+					if (ulozenaUrl) kandidati.push(await ulozenaUrl.text());
+					kandidati.push(ZALOZNI[typ]);
+					for (const cesta of kandidati) {
+						if (!cesta) continue;
+						try {
+							const htmlTab = await (await fetch('https://www.letour.fr' + cesta, { headers: UA })).text();
+							if (JEZDCI.some((j) => htmlTab.toUpperCase().includes(j))) {
+								await cache.put(new Request('https://cache.wonderly.cz/tour-url-' + typ),
+									new Response(cesta, { headers: { 'cache-control': 'public, max-age=604800' } }));
+								const m = cesta.match(/\/ranking\/(\d+)\//);
+								return { html: htmlTab, poEtape: m ? +m[1] : null };
+							}
+						} catch {}
+					}
+					return null;
+				};
+				const etapaTab = await nactiTabulku('ite');
+				if (etapaTab) {
+					odpoved.vysledkyPoEtape = etapaTab.poEtape;
+					for (const j of JEZDCI) odpoved.jezdci[j] = { etapa: vyparsuj(etapaTab.html, j) };
 				}
-				if (adresy.itg) {
-					const gcHtml = await (await fetch('https://www.letour.fr' + adresy.itg, { headers: UA })).text();
-					for (const j of JEZDCI) (odpoved.jezdci[j] ??= {}).celkove = vyparsuj(gcHtml, j);
-					const m = gcHtml.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
+				const gcTab = await nactiTabulku('itg');
+				if (gcTab) {
+					for (const j of JEZDCI) (odpoved.jezdci[j] ??= {}).celkove = vyparsuj(gcTab.html, j);
+					const m = gcTab.html.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
 					odpoved.lidr = m ? m[1].trim() : null;
 				}
 			} catch (e) {
