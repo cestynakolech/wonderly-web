@@ -159,7 +159,7 @@ export default {
 				const gcTab = await nactiTabulku('itg');
 				if (gcTab) {
 					for (const j of JEZDCI) (odpoved.jezdci[j] ??= {}).celkove = vyparsuj(gcTab.html, j);
-					const m = gcTab.html.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
+					const m = gcTab.html.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,1600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
 					odpoved.lidr = m ? m[1].trim() : null;
 				}
 			} catch (e) {
