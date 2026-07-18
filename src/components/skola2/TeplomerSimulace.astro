@@ -56,14 +56,36 @@
 		sloupec.setAttribute('y', yOmez);
 		sloupec.setAttribute('height', 280 - yOmez);
 
-		// bimetalový: pásek visí z bodu (340,70) dolů; teplem se ohýbá do strany.
-		// ohyb = f(teplota): za studena rovně dolů, za tepla se stáčí doprava.
-		const ohyb = (t - 20) * 1.6; // px vychýlení konce
-		const x0 = 340, y0 = 70, delka = 150;
-		const xk = x0 + ohyb, yk = y0 + delka - Math.abs(ohyb) * 0.25;
-		const cx = x0 + ohyb * 0.4, cy = y0 + delka * 0.6;
-		kov1.setAttribute('d', `M${x0 - 4} ${y0} Q${cx - 4} ${cy} ${xk - 4} ${yk}`);
-		kov2.setAttribute('d', `M${x0 + 4} ${y0} Q${cx + 4} ${cy} ${xk + 4} ${yk}`);
+		// bimetalový: pásek má STÁLOU délku a teplem se stáčí do oblouku.
+		// Oba kovy sdílejí střednici; vnitřní kov je na vnitřní (kratší) straně ohybu,
+		// vnější na vnější straně. Konec je proto vždy stejně dlouhý — pásek se jen zakřivuje.
+		const x0 = 340, y0 = 70, L = 150, tloustka = 3.6;
+		const kappa = (t - 20) * 0.00013; // zakřivení roste s teplotou (kladné = doprava)
+		const N = 28;
+		const bod = (s, smer) => {
+			// střednice: rovně dolů (úhel π/2), heading = π/2 + kappa·s
+			let cx, cy, hx, hy;
+			if (Math.abs(kappa) < 1e-6) {
+				cx = x0; cy = y0 + s; hx = 0; hy = 1;
+			} else {
+				const h = Math.PI / 2 + kappa * s;
+				cx = x0 + (Math.cos(kappa * s) - 1) / kappa;
+				cy = y0 + Math.sin(kappa * s) / kappa;
+				hx = Math.cos(h); hy = Math.sin(h);
+			}
+			const nx = -hy, ny = hx; // normála (kolmá na směr)
+			return [cx + nx * smer * tloustka, cy + ny * smer * tloustka];
+		};
+		const drah = (smer) => {
+			let d = '';
+			for (let i = 0; i <= N; i++) {
+				const [px, py] = bod((i / N) * L, smer);
+				d += (i ? 'L' : 'M') + px.toFixed(1) + ' ' + py.toFixed(1) + ' ';
+			}
+			return d;
+		};
+		kov1.setAttribute('d', drah(-1)); // vnitřní kov (oranžový)
+		kov2.setAttribute('d', drah(1));  // vnější kov (šedý)
 
 		let popis;
 		if (t <= 0) popis = '❄️ Chlad: látky se smršťují — sloupec je nízko, pásek skoro rovně.';
