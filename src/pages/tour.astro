@@ -50,7 +50,7 @@ const JEZDCI = [
 			const $ = (v) => document.querySelector(v);
 			async function obnov() {
 				try {
-					const data = await (await fetch('/api/tour')).json();
+					const data = await (await fetch('/api/tour?t=' + Date.now(), { cache: 'no-store' })).json();
 					const dokoncena = data.vysledkyPoEtape ?? data.etapa;
 					const JMENA = { VACEK: 'Vacek', OTRUBA: 'Otruba', BITTNER: 'Bittner' };
 
