@@ -114,7 +114,13 @@ export default {
 			};
 
 			try {
-				const stranka = await (await fetch('https://www.letour.fr/en/rankings', { headers: UA })).text();
+				const odezva = await fetch('https://www.letour.fr/en/rankings', { headers: UA });
+				const stranka = await odezva.text();
+				if (url.searchParams.has('debug')) {
+					return new Response(JSON.stringify({ status: odezva.status, delka: stranka.length,
+						vacek: stranka.toUpperCase().includes('VACEK'), zacatek: stranka.slice(0, 300) }), {
+						headers: { 'content-type': 'application/json' } });
+				}
 				const cisloEtapy = (stranka.match(/\/en\/ajax\/ranking\/(\d+)\//) ?? [])[1];
 				odpoved.etapa = cisloEtapy ? +cisloEtapy : null;
 				for (const j of JEZDCI) odpoved.jezdci[j] = { etapa: vyparsuj(stranka, j) };
