@@ -10,7 +10,7 @@ export type Podtema = {
 	obsah?: string;
 	materialy?: Material[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -622,6 +622,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'teplotni-roztaznost',
+					interakce: 'teplomer',
 					nazev: 'Teplotní roztažnost',
 					obsah: `
 						<h2>Teplotní roztažnost látek</h2>
