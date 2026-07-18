@@ -1,0 +1,88 @@
+---
+// Živé sledování českých jezdců na Tour de France — mobilní mini-aplikace.
+// Data: /api/tour (worker čte veřejné tabulky letour.fr, obnovuje se každou minutu).
+const JEZDCI = [
+	{ klic: 'VACEK', jmeno: 'Mathias Vacek', tym: 'Lidl-Trek', emoji: '🚀' },
+	{ klic: 'OTRUBA', jmeno: 'Jakub Otruba', tym: 'Caja Rural', emoji: '⛰️' },
+	{ klic: 'BITTNER', jmeno: 'Pavel Bittner', tym: 'Picnic PostNL', emoji: '⚡' },
+];
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="theme-color" content="#ffd43b" />
+		<title>🇨🇿 Češi na Tour</title>
+	</head>
+	<body>
+		<main>
+			<h1>🇨🇿 Češi na Tour de France</h1>
+			<p id="zive" class="zive">Načítám…</p>
+			<div id="karty">
+				{JEZDCI.map((j) => (
+					<article class="karta" id={`karta-${j.klic}`}>
+						<header><span class="emoji">{j.emoji}</span> <b>{j.jmeno}</b> <span class="tym">{j.tym}</span></header>
+						<div class="udaje">
+							<div class="udaj"><span class="popisek">CELKOVĚ</span><span class="hodnota" data-pole="gc-pozice">–</span><span class="detail" data-pole="gc-ztrata"></span></div>
+							<div class="udaj"><span class="popisek" data-pole="etapa-popisek">POSLEDNÍ ETAPA</span><span class="hodnota" data-pole="et-pozice">–</span><span class="detail" data-pole="et-ztrata"></span></div>
+						</div>
+					</article>
+				))}
+			</div>
+			<p id="lidr" class="pata"></p>
+			<p id="cas" class="pata"></p>
+			<p class="pata tip">📱 Tip: v Safari klepněte na <b>Sdílet → Přidat na plochu</b> a máte nás jako aplikaci.</p>
+		</main>
+
+		<script>
+			const $ = (v) => document.querySelector(v);
+			async function obnov() {
+				try {
+					const data = await (await fetch('/api/tour')).json();
+					$('#zive').textContent = data.zive?.titulek
+						? '🔴 ' + data.zive.titulek.replace('live', '— právě se jede')
+						: `Po ${data.etapa ?? '?'}. etapě`;
+					for (const [klic, j] of Object.entries(data.jezdci ?? {})) {
+						const karta = document.getElementById('karta-' + klic);
+						if (!karta) continue;
+						const nastav = (pole, text) => (karta.querySelector(`[data-pole="${pole}"]`).textContent = text);
+						nastav('gc-pozice', j.celkove ? `${j.celkove.pozice}.` : '–');
+						nastav('gc-ztrata', j.celkove ? j.celkove.ztrata : '');
+						nastav('etapa-popisek', `${data.etapa ?? ''}. ETAPA`);
+						nastav('et-pozice', j.etapa ? `${j.etapa.pozice}.` : '–');
+						nastav('et-ztrata', j.etapa ? j.etapa.ztrata : '');
+					}
+					$('#lidr').textContent = data.lidr ? `Ve žlutém: ${data.lidr}` : '';
+					$('#cas').textContent = 'Aktualizováno ' + new Date().toLocaleTimeString('cs-CZ');
+				} catch {
+					$('#cas').textContent = 'Bez spojení — zkusím to za minutu znovu.';
+				}
+			}
+			obnov();
+			setInterval(obnov, 60_000);
+		</script>
+
+		<style>
+			* { box-sizing: border-box; margin: 0; }
+			body { font-family: -apple-system, system-ui, sans-serif; background: #fff8e1; color: #222; }
+			main { max-width: 480px; margin: 0 auto; padding: 1rem; }
+			h1 { font-size: 1.5rem; margin: 0.4rem 0; }
+			.zive { font-weight: 700; color: #c92a2a; margin-bottom: 0.8rem; }
+			.karta { background: #fff; border: 3px solid #222; border-radius: 16px; padding: 0.9rem 1rem; margin: 0.7rem 0;
+				box-shadow: 3px 3px 0 #22222233; }
+			.karta header { font-size: 1.15rem; display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+			.emoji { font-size: 1.3rem; }
+			.tym { color: #777; font-size: 0.9rem; }
+			.udaje { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.7rem; }
+			.udaj { display: flex; flex-direction: column; background: #fff3bf; border-radius: 12px; padding: 0.5rem 0.7rem; }
+			.popisek { font-size: 0.72rem; font-weight: 700; color: #866; letter-spacing: 0.05em; }
+			.hodnota { font-size: 1.9rem; font-weight: 900; }
+			.detail { font-size: 0.9rem; color: #555; }
+			.pata { color: #666; font-size: 0.9rem; margin-top: 0.5rem; }
+			.tip { border-top: 2px dashed #ccc; padding-top: 0.6rem; margin-top: 1rem; }
+		</style>
+	</body>
+</html>

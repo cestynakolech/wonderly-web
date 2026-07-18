@@ -92,6 +92,58 @@ export default {
 			return env.LIGA.get(id).fetch(request);
 		}
 
+		// živé pořadí českých jezdců na Tour de France (čte veřejné tabulky letour.fr, mezipaměť 60 s)
+		if (url.pathname === '/api/tour') {
+			const cache = caches.default;
+			const klicCache = new Request('https://cache.wonderly.cz/api/tour');
+			const ulozene = await cache.match(klicCache);
+			if (ulozene) return ulozene;
+
+			const JEZDCI = ['VACEK', 'OTRUBA', 'BITTNER'];
+			const UA = { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)' };
+			const odpoved = { jezdci: {}, etapa: null, zive: null, aktualizovano: new Date().toISOString() };
+
+			const vyparsuj = (html, prijmeni) => {
+				const poz = html.toUpperCase().indexOf(prijmeni);
+				if (poz < 0) return null;
+				const radek = html.slice(html.lastIndexOf('<tr', poz), html.indexOf('</tr>', poz));
+				const bunky = [...radek.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) =>
+					m[1].replace(/<[^>]+>/g, ' ').replace(/&#0?39;/g, "'").replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+				);
+				return { pozice: bunky[0], tym: bunky[3], cas: bunky[4], ztrata: bunky[5] === '-' ? 'vede' : bunky[5] };
+			};
+
+			try {
+				const stranka = await (await fetch('https://www.letour.fr/en/rankings', { headers: UA })).text();
+				const cisloEtapy = (stranka.match(/\/en\/ajax\/ranking\/(\d+)\//) ?? [])[1];
+				odpoved.etapa = cisloEtapy ? +cisloEtapy : null;
+				for (const j of JEZDCI) odpoved.jezdci[j] = { etapa: vyparsuj(stranka, j) };
+				const itg = (stranka.match(/\\?\/en\\?\/ajax\\?\/ranking\\?\/\d+\\?\/itg\\?\/[a-f0-9]+\\?\/none/) ?? [])[0];
+				if (itg) {
+					const gcHtml = await (await fetch('https://www.letour.fr' + itg.replace(/\\\//g, '/'), { headers: UA })).text();
+					for (const j of JEZDCI) odpoved.jezdci[j].celkove = vyparsuj(gcHtml, j);
+					odpoved.lidr = (() => {
+						const m = gcHtml.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
+						return m ? m[1].trim() : null;
+					})();
+				}
+			} catch (e) {
+				odpoved.chyba = 'letour.fr nedostupný: ' + e.message;
+			}
+			try {
+				const zivy = await (await fetch('https://racecenter.letour.fr/livetracking', { headers: UA })).text();
+				const titulek = (zivy.match(/"title":"([^"]+)"/) ?? [])[1];
+				const info = (zivy.match(/"homeStage":\{[\s\S]{0,400}?"endTime":"([^"]*)"[\s\S]{0,600}?"label":"([^"]*)"/) ?? []);
+				odpoved.zive = { titulek: titulek ?? null };
+			} catch {}
+
+			const json = new Response(JSON.stringify(odpoved), {
+				headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=60' },
+			});
+			await cache.put(klicCache, json.clone());
+			return json;
+		}
+
 		// /media/... = soubory z úložiště R2 (fotogalerie apod.)
 		if (url.pathname.startsWith('/media/')) {
 			// výpis souborů se zadanou předponou (pro galerie): /media/seznam?slozka=cesty/2026/landshut

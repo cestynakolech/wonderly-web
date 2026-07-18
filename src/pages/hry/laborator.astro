@@ -1,0 +1,193 @@
+---
+import SkolaLayout from '../../layouts/SkolaLayout.astro';
+import { PREDMETY_LABORATORE, ROCNIKY_LABORATORE, otazkyProLaborator } from '../../data/hry';
+
+const otazky = otazkyProLaborator();
+const predmety = PREDMETY_LABORATORE.map(({ slug, nazev, ikona, x, y }) => ({ slug, nazev, ikona, x, y }));
+---
+
+<SkolaLayout titulek="Tajemná laboratoř">
+	<div id="laborator" data-otazky={JSON.stringify(otazky)} data-predmety={JSON.stringify(predmety)}>
+		<!-- VÝBĚR ROČNÍKU -->
+		<section id="vyber">
+			<h1><span class="podtrh">🔬 Tajemná laboratoř</span></h1>
+			<p class="popis">V laboratoři je schováno <b>8 předmětů</b> a každý ukrývá tři otázky.
+				Klikni na předmět, odpovídej — a posbírej všech 8 razítek! Otázky jsou podle ročníku.</p>
+			<p class="popis"><b>Vyber svůj ročník:</b></p>
+			<div class="rocniky">
+				{ROCNIKY_LABORATORE.map((r) => <button class="rocnik" data-rocnik={r}>{r}. ročník</button>)}
+			</div>
+		</section>
+
+		<!-- SCÉNA -->
+		<section id="scena" hidden>
+			<header class="lista">
+				<span id="titulek-rocniku"></span>
+				<span id="razitka"></span>
+			</header>
+			<div class="obraz-obal">
+				<img src="/materialy/hry/laborator.png" alt="Fyzikální laboratoř" />
+				<div id="predmety"></div>
+			</div>
+		</section>
+
+		<!-- OTÁZKY (panel) -->
+		<dialog id="panel">
+			<h2 id="panel-nazev"></h2>
+			<p id="panel-stav"></p>
+			<h3 id="panel-otazka"></h3>
+			<div id="panel-odpovedi" class="odpovedi"></div>
+			<p id="panel-zprava" class="zprava" hidden></p>
+			<div id="panel-hotovo" hidden>
+				<p class="velky-text">✅ Předmět prozkoumán — razítko získáno!</p>
+				<button id="panel-zavrit" class="velke-tlacitko">Zpět do laboratoře</button>
+			</div>
+		</dialog>
+
+		<!-- FINÁLE -->
+		<section id="finale" hidden>
+			<h1><span class="podtrh">🏅 Laboratoř prozkoumána!</span></h1>
+			<p class="velky-text">Všech 8 předmětů odhaleno. Skvělá práce, fyziku máš v malíku!</p>
+			<p id="finale-cas" class="velky-text"></p>
+			<button class="velke-tlacitko" onclick="location.reload()">Hrát znovu 🔄</button>
+		</section>
+	</div>
+</SkolaLayout>
+
+<script>
+	const koren = document.getElementById('laborator');
+	const OTAZKY = JSON.parse(koren.dataset.otazky);
+	const PREDMETY = JSON.parse(koren.dataset.predmety);
+	const $ = (id) => document.getElementById(id);
+
+	let rocnik = '6';
+	let hotove = new Set();
+	let aktivni = null; // { slug, poradi }
+	let start = 0;
+
+	document.querySelectorAll('.rocnik').forEach((btn) =>
+		btn.addEventListener('click', () => {
+			rocnik = btn.dataset.rocnik;
+			start = Date.now();
+			$('titulek-rocniku').textContent = `🔬 Laboratoř — ${rocnik}. ročník`;
+			$('vyber').hidden = true;
+			$('scena').hidden = false;
+			vykresliPredmety();
+		})
+	);
+
+	function vykresliPredmety() {
+		$('predmety').innerHTML = '';
+		for (const predmet of PREDMETY) {
+			const btn = document.createElement('button');
+			btn.className = 'predmet' + (hotove.has(predmet.slug) ? ' hotovy' : '');
+			btn.style.left = predmet.x + '%';
+			btn.style.top = predmet.y + '%';
+			btn.title = predmet.nazev;
+			btn.textContent = hotove.has(predmet.slug) ? '✅' : '❓';
+			btn.addEventListener('click', () => otevri(predmet));
+			$('predmety').appendChild(btn);
+		}
+		$('razitka').textContent = `Razítka: ${hotove.size} / ${PREDMETY.length}`;
+	}
+
+	function zamichej(pole) {
+		const p = [...pole];
+		for (let i = p.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[p[i], p[j]] = [p[j], p[i]];
+		}
+		return p;
+	}
+
+	function otevri(predmet) {
+		if (hotove.has(predmet.slug)) return;
+		aktivni = { slug: predmet.slug, poradi: 0 };
+		$('panel-nazev').textContent = `${predmet.ikona} ${predmet.nazev}`;
+		$('panel-hotovo').hidden = true;
+		$('panel').showModal();
+		vykresliOtazku();
+	}
+
+	function vykresliOtazku() {
+		const sada = OTAZKY[rocnik][aktivni.slug];
+		if (aktivni.poradi >= sada.length) {
+			hotove.add(aktivni.slug);
+			$('panel-otazka').textContent = '';
+			$('panel-odpovedi').innerHTML = '';
+			$('panel-stav').textContent = '';
+			$('panel-zprava').hidden = true;
+			$('panel-hotovo').hidden = false;
+			return;
+		}
+		const otazka = sada[aktivni.poradi];
+		$('panel-stav').textContent = `Otázka ${aktivni.poradi + 1} ze ${sada.length}`;
+		$('panel-otazka').textContent = otazka.text;
+		$('panel-zprava').hidden = true;
+		const spravna = otazka.odpovedi[0];
+		$('panel-odpovedi').innerHTML = '';
+		zamichej(otazka.odpovedi).forEach((odpoved) => {
+			const btn = document.createElement('button');
+			btn.className = 'odpoved';
+			btn.textContent = odpoved;
+			btn.addEventListener('click', () => {
+				if (odpoved === spravna) {
+					aktivni.poradi++;
+					vykresliOtazku();
+				} else {
+					vykresliOtazku(); // stejná otázka, přemíchané odpovědi
+					$('panel-zprava').textContent = '❌ Zkus to znovu!';
+					$('panel-zprava').hidden = false;
+				}
+			});
+			$('panel-odpovedi').appendChild(btn);
+		});
+	}
+	// přemíchání téže otázky po chybě
+	function vykresliOtazku0() {
+		const zprava = $('panel-zprava');
+		const bylo = zprava.hidden;
+		vykresliOtazku();
+		zprava.hidden = bylo && zprava.hidden;
+		zprava.hidden = false;
+	}
+
+	$('panel-zavrit').addEventListener('click', () => {
+		$('panel').close();
+		vykresliPredmety();
+		if (hotove.size === PREDMETY.length) {
+			$('scena').hidden = true;
+			$('finale').hidden = false;
+			const vteriny = Math.round((Date.now() - start) / 1000);
+			$('finale-cas').textContent = `⏱️ Tvůj čas: ${Math.floor(vteriny / 60)} min ${vteriny % 60} s`;
+		}
+	});
+	$('panel').addEventListener('cancel', (e) => e.preventDefault()); // ESC nezavírá rozdělanou otázku omylem
+</script>
+
+<style>
+	#laborator { max-width: 1000px; margin: 0 auto; }
+	.popis { font-size: 1.1rem; }
+	.rocniky { display: flex; gap: 1rem; flex-wrap: wrap; }
+	.rocnik { font-size: 1.5rem; font-weight: 800; padding: 0.8rem 1.6rem; border: 3px solid #333;
+		border-radius: 14px; background: #d0ebff; cursor: pointer; }
+	.rocnik:hover { transform: scale(1.05); }
+	.lista { display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 800; margin-bottom: 0.6rem; }
+	.obraz-obal { position: relative; border: 3px solid #333; border-radius: 14px; overflow: hidden; }
+	.obraz-obal img { display: block; width: 100%; height: auto; }
+	.predmet { position: absolute; transform: translate(-50%, -50%); width: 3.4rem; height: 3.4rem;
+		border-radius: 50%; border: 3px solid #333; background: #ffe066; font-size: 1.5rem; cursor: pointer;
+		animation: pulz 1.6s infinite; }
+	.predmet.hotovy { background: #d3f9d8; animation: none; cursor: default; }
+	@keyframes pulz { 50% { box-shadow: 0 0 0 10px rgba(255, 224, 102, 0.35); } }
+	dialog { border: 4px solid #333; border-radius: 16px; padding: 1.4rem; max-width: 560px; width: 92%; }
+	dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+	.odpovedi { display: grid; gap: 0.7rem; }
+	.odpoved { font-size: 1.15rem; text-align: left; padding: 0.7rem 1rem; border-radius: 12px;
+		border: 3px solid #333; background: #fff; cursor: pointer; }
+	.odpoved:hover { background: #fff3bf; }
+	.zprava { font-weight: 700; color: #d9480f; }
+	.velky-text { font-size: 1.25rem; font-weight: 700; }
+	.velke-tlacitko { font-size: 1.2rem; padding: 0.6rem 1.6rem; border-radius: 12px; border: 3px solid #333;
+		background: #ffe066; cursor: pointer; font-weight: 800; }
+</style>

@@ -57,3 +57,52 @@ export function otazkyProStanice(): Otazka[][] {
 	const vse = otazkyNapricRocniky(STANICE.length * 3, 777);
 	return STANICE.map((_, i) => vse.slice(i * 3, i * 3 + 3));
 }
+
+/** Klikací laboratoř: předměty na obrázku + k jakým tématům patří. */
+export const PREDMETY_LABORATORE = [
+	{ slug: 'hodiny', nazev: 'Nástěnné hodiny', ikona: '🕐', x: 17, y: 24,
+		temata: ['cas', 'pohyb-a-rychlost', 'mechanicka-prace-a-vykon', 'indukce-a-stridavy-proud'] },
+	{ slug: 'teplomer', nazev: 'Teploměr', ikona: '🌡️', x: 43, y: 25,
+		temata: ['teplota', 'teplo-a-zmeny-skupenstvi', 'tepelne-motory', 'energie'] },
+	{ slug: 'lupa', nazev: 'Lupa', ikona: '🔍', x: 62, y: 27,
+		temata: ['svetlo-a-jeho-sireni', 'zrcadla-a-cocky', 'energie-a-vesmir'] },
+	{ slug: 'kyvadlo', nazev: 'Kyvadlo na stojanu', ikona: '⚙️', x: 79, y: 33,
+		temata: ['sila', 'sily-kolem-nas', 'pohyb-a-rychlost', 'energie', 'mechanicka-prace-a-vykon'] },
+	{ slug: 'vahy', nazev: 'Rovnoramenné váhy', ikona: '⚖️', x: 12, y: 66,
+		temata: ['fyzikalni-veliciny', 'latka-a-teleso', 'jednoduche-stroje', 'mechanicka-prace-a-vykon'] },
+	{ slug: 'merak', nazev: 'Měřicí přístroj', ikona: '📟', x: 36, y: 68,
+		temata: ['elektrina-a-magnetismus', 'elektrina', 'elektricky-proud-v-latkach', 'elektricka-energie-a-bezpecnost'] },
+	{ slug: 'kadinka', nazev: 'Kádinka s vodou', ikona: '🧪', x: 60, y: 71,
+		temata: ['latka-a-teleso', 'tlak-v-kapalinach', 'vztlakova-sila-a-plovani-teles', 'atmosfera-a-tlak-vzduchu', 'teplo-a-zmeny-skupenstvi'] },
+	{ slug: 'magnet', nazev: 'Magnet', ikona: '🧲', x: 80, y: 71,
+		temata: ['elektrina-a-magnetismus', 'sila', 'magneticke-pole', 'zvuk'] },
+];
+
+export const ROCNIKY_LABORATORE = ['6', '7', '8', '9'];
+
+/** Pro každý ročník a předmět vybere 3 otázky z odpovídajících témat (jinak z celého ročníku). */
+export function otazkyProLaborator(): Record<string, Record<string, Otazka[]>> {
+	const vysledek: Record<string, Record<string, Otazka[]>> = {};
+	for (const rocnik of ROCNIKY_LABORATORE) {
+		vysledek[rocnik] = {};
+		const vseRocniku: Otazka[] = [];
+		const poTematu: Record<string, Otazka[]> = {};
+		for (const [klic, otazky] of Object.entries(kvizy)) {
+			const [predmet, r, tema] = klic.split('/');
+			if (predmet !== 'fyzika' || r !== `${rocnik}-rocnik` || tema === 'shrnuti') continue;
+			(poTematu[tema] ??= []).push(...otazky);
+			vseRocniku.push(...otazky);
+		}
+		PREDMETY_LABORATORE.forEach((predmet, i) => {
+			const nahoda = rng(3000 + +rocnik * 100 + i);
+			const tematicke = predmet.temata.flatMap((t) => poTematu[t] ?? []);
+			const zdroj = [...(tematicke.length >= 3 ? tematicke : vseRocniku)];
+			const tri: Otazka[] = [];
+			for (let k = 0; k < 3 && zdroj.length; k++) {
+				tri.push(zdroj.splice(Math.floor(nahoda() * zdroj.length), 1)[0]);
+			}
+			vysledek[rocnik][predmet.slug] = tri;
+		});
+	}
+	return vysledek;
+}
