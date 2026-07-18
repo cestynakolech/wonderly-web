@@ -57,17 +57,24 @@ const JEZDCI = [
 					if (data.zavodSeJede) {
 						$('#ziva-tabulka').hidden = false;
 						$('#do-cile').textContent = data.doCileKm != null ? `· ${data.doCileKm} km do cíle` : '';
+						const poradi = { VACEK: 1, OTRUBA: 2, BITTNER: 3 };
 						const radky = Object.entries(data.jezdci)
-							.filter(([, j]) => j.zive)
-							.sort((a, b) => a[1].zive.poziceNaTrati - b[1].zive.poziceNaTrati)
+							.sort((a, b) => {
+								const pa = a[1].zive?.poziceNaTrati ?? 9999, pb = b[1].zive?.poziceNaTrati ?? 9999;
+								return pa - pb || (poradi[a[0]] ?? 9) - (poradi[b[0]] ?? 9);
+							})
 							.map(([k, j]) => {
 								const z = j.zive;
+								if (!z) {
+									return `<div class="ziva-radek mimo"><b>–</b> ${JMENA[k] ?? k}
+										<span class="ziva-odstup">mimo živé měření</span></div>`;
+								}
 								const odstup = z.odstupVterin === 0 ? 've vedení'
 									: `+${Math.floor(z.odstupVterin / 60)}:${String(z.odstupVterin % 60).padStart(2, '0')}`;
 								return `<div class="ziva-radek"><b>${z.poziceNaTrati}.</b> ${JMENA[k] ?? k}
 									<span class="ziva-odstup">${odstup}</span> <span class="ziva-kmh">${z.rychlost ?? '–'} km/h</span></div>`;
 							}).join('');
-						$('#ziva-jezdci').innerHTML = radky || '<p>Naši jezdci zrovna nejsou v telemetrii…</p>';
+						$('#ziva-jezdci').innerHTML = radky;
 						$('#komentar').textContent = data.komentar?.[0]?.text ?? '';
 						$('#zive').textContent = `🔴 Právě se jede ${data.etapa}. etapa!`;
 					} else {
@@ -116,6 +123,8 @@ const JEZDCI = [
 			.ziva-radek b { font-size: 1.4rem; min-width: 2.4rem; }
 			.ziva-odstup { font-weight: 700; color: #1971c2; }
 			.ziva-kmh { margin-left: auto; color: #777; font-size: 0.95rem; }
+			.ziva-radek.mimo { opacity: 0.55; }
+			.ziva-radek.mimo .ziva-odstup { color: #999; font-weight: 400; font-size: 0.85rem; }
 			.komentar { font-style: italic; color: #444; margin-top: 0.6rem; border-top: 1px dashed #ccc; padding-top: 0.5rem; }
 			.zive-tlacitko { display: block; text-align: center; background: #c92a2a; color: #fff; font-weight: 800;
 				text-decoration: none; border-radius: 14px; padding: 0.8rem; margin: 0.9rem 0; border: 3px solid #222; }
