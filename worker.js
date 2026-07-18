@@ -114,24 +114,27 @@ export default {
 			};
 
 			try {
-				const odezva = await fetch('https://www.letour.fr/en/rankings', { headers: UA });
-				const stranka = await odezva.text();
+				const stranka = (await (await fetch('https://www.letour.fr/en/rankings', { headers: UA })).text())
+					.replace(/\\\//g, '/').replace(/&quot;/g, '"');
+				// posbírat ajax adresy tabulek (ite = etapa, itg = celkově)
+				const adresy = {};
+				for (const m of stranka.matchAll(/\/en\/ajax\/ranking\/(\d+)\/(i[a-z]g|i[a-z]e)\/[a-f0-9]+\/(?:subtab|none|tab)/g)) {
+					adresy[m[2]] ??= m[0];
+					odpoved.etapa = +m[1];
+				}
 				if (url.searchParams.has('debug')) {
-					return new Response(JSON.stringify({ status: odezva.status, delka: stranka.length,
-						vacek: stranka.toUpperCase().includes('VACEK'), zacatek: stranka.slice(0, 300) }), {
+					return new Response(JSON.stringify({ adresy, etapa: odpoved.etapa, delka: stranka.length }), {
 						headers: { 'content-type': 'application/json' } });
 				}
-				const cisloEtapy = (stranka.match(/\/en\/ajax\/ranking\/(\d+)\//) ?? [])[1];
-				odpoved.etapa = cisloEtapy ? +cisloEtapy : null;
-				for (const j of JEZDCI) odpoved.jezdci[j] = { etapa: vyparsuj(stranka, j) };
-				const itg = (stranka.match(/\\?\/en\\?\/ajax\\?\/ranking\\?\/\d+\\?\/itg\\?\/[a-f0-9]+\\?\/none/) ?? [])[0];
-				if (itg) {
-					const gcHtml = await (await fetch('https://www.letour.fr' + itg.replace(/\\\//g, '/'), { headers: UA })).text();
-					for (const j of JEZDCI) odpoved.jezdci[j].celkove = vyparsuj(gcHtml, j);
-					odpoved.lidr = (() => {
-						const m = gcHtml.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
-						return m ? m[1].trim() : null;
-					})();
+				if (adresy.ite) {
+					const etapaHtml = await (await fetch('https://www.letour.fr' + adresy.ite, { headers: UA })).text();
+					for (const j of JEZDCI) odpoved.jezdci[j] = { etapa: vyparsuj(etapaHtml, j) };
+				}
+				if (adresy.itg) {
+					const gcHtml = await (await fetch('https://www.letour.fr' + adresy.itg, { headers: UA })).text();
+					for (const j of JEZDCI) (odpoved.jezdci[j] ??= {}).celkove = vyparsuj(gcHtml, j);
+					const m = gcHtml.match(/__position[^>]*>\s*<span>1<\/span>[\s\S]{0,600}?profile--name[^>]*>[^<]*?([A-ZÀ-Ž]\.\s*[A-ZÀ-Ž][^<]{1,30})</);
+					odpoved.lidr = m ? m[1].trim() : null;
 				}
 			} catch (e) {
 				odpoved.chyba = 'letour.fr nedostupný: ' + e.message;
