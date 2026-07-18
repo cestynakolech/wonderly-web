@@ -1,0 +1,145 @@
+---
+import SkolaLayout from '../../../layouts/SkolaLayout.astro';
+---
+
+<SkolaLayout titulek="Fyzikální liga — tým">
+	<div id="tym">
+		<section id="prihlaseni">
+			<h1><span class="podtrh">🏆 Fyzikální liga</span></h1>
+			<label>Kód místnosti (z tabule)
+				<input id="kod" maxlength="4" autocapitalize="characters" autocomplete="off" placeholder="ABCD" />
+			</label>
+			<label>Jméno týmu
+				<input id="jmeno" maxlength="24" placeholder="např. Blesky" />
+			</label>
+			<button id="pripojit" class="velke-tlacitko">Připojit se ▶</button>
+			<p id="chyba" class="chyba" hidden></p>
+		</section>
+
+		<section id="cekani" hidden>
+			<h1 id="nazev-tymu"></h1>
+			<p class="velky-text">Jste přihlášeni! ✅</p>
+			<p>Sledujte tabuli — hra začne za chvíli.</p>
+		</section>
+
+		<section id="otazka" hidden>
+			<p id="riskova" class="riskova" hidden>⭐ RISKOVACÍ KOLO — za 2 body!</p>
+			<p class="velky-text">Vyberte odpověď podle tabule:</p>
+			<div class="tlacitka">
+				<button class="volba volba-0" data-volba="0">A</button>
+				<button class="volba volba-1" data-volba="1">B</button>
+				<button class="volba volba-2" data-volba="2">C</button>
+			</div>
+			<p id="odeslano" class="velky-text" hidden>✔ Odesláno — sledujte tabuli!</p>
+		</section>
+
+		<section id="vysledek" hidden>
+			<p id="verdikt" class="verdikt"></p>
+			<p id="moje-poradi" class="velky-text"></p>
+		</section>
+
+		<section id="konec" hidden>
+			<h1>🏁 Konec hry</h1>
+			<p id="finalni-poradi" class="verdikt"></p>
+		</section>
+	</div>
+</SkolaLayout>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	let ws = null;
+	let mojeJmeno = '';
+	let aktualniOtazka = null;
+	let odpovezeno = false;
+
+	// předvyplnění z minula
+	$('kod').value = localStorage.getItem('liga-kod') ?? '';
+	$('jmeno').value = localStorage.getItem('liga-jmeno') ?? '';
+
+	function ukaz(id) {
+		for (const s of ['prihlaseni', 'cekani', 'otazka', 'vysledek', 'konec']) $(s).hidden = s !== id;
+	}
+
+	$('pripojit').addEventListener('click', () => {
+		const kod = $('kod').value.trim().toUpperCase();
+		mojeJmeno = $('jmeno').value.trim();
+		if (!/^[A-Z]{4}$/.test(kod)) return chyba('Kód místnosti jsou 4 písmena z tabule.');
+		if (!mojeJmeno) return chyba('Vyplňte jméno týmu.');
+		localStorage.setItem('liga-kod', kod);
+		localStorage.setItem('liga-jmeno', mojeJmeno);
+		const protokol = location.protocol === 'https:' ? 'wss' : 'ws';
+		ws = new WebSocket(`${protokol}://${location.host}/api/liga/ws?mistnost=${kod}&role=tym`);
+		ws.addEventListener('open', () => ws.send(JSON.stringify({ typ: 'prihlaseni', jmeno: mojeJmeno })));
+		ws.addEventListener('message', (u) => zpracuj(JSON.parse(u.data)));
+		ws.addEventListener('close', () => chyba('Spojení spadlo — klepněte na Připojit se znovu.'));
+	});
+
+	function chyba(text) {
+		ukaz('prihlaseni');
+		$('chyba').textContent = text;
+		$('chyba').hidden = false;
+	}
+
+	function zpracuj(zprava) {
+		if (zprava.typ === 'prijat') {
+			$('nazev-tymu').textContent = zprava.jmeno;
+			ukaz('cekani');
+		} else if (zprava.typ === 'faze') {
+			if (zprava.faze === 'otazka') {
+				aktualniOtazka = zprava.otazka;
+				odpovezeno = false;
+				$('riskova').hidden = !zprava.riskova;
+				$('odeslano').hidden = true;
+				document.querySelectorAll('.volba').forEach((b) => (b.disabled = false));
+				ukaz('otazka');
+			} else if (zprava.faze === 'vysledek') {
+				const moje = zprava.vysledky?.[mojeJmeno];
+				$('verdikt').textContent = !moje || moje.volba === null
+					? '💤 Bez odpovědi'
+					: moje.spravne ? '✅ SPRÁVNĚ!' : '❌ Tentokrát ne';
+				const poradi = zprava.tabulka.findIndex((t) => t.jmeno === mojeJmeno) + 1;
+				const mojeBody = zprava.tabulka.find((t) => t.jmeno === mojeJmeno)?.body ?? 0;
+				$('moje-poradi').textContent = poradi ? `Jste ${poradi}. z ${zprava.tabulka.length} (${mojeBody} b.)` : '';
+				ukaz('vysledek');
+			} else if (zprava.faze === 'konec') {
+				const poradi = zprava.tabulka.findIndex((t) => t.jmeno === mojeJmeno) + 1;
+				const medaile = ['🥇', '🥈', '🥉'][poradi - 1] ?? '🏅';
+				$('finalni-poradi').textContent = poradi
+					? `${medaile} Skončili jste ${poradi}. z ${zprava.tabulka.length}!`
+					: 'Hra skončila.';
+				ukaz('konec');
+			}
+		}
+	}
+
+	document.querySelectorAll('.volba').forEach((btn) =>
+		btn.addEventListener('click', () => {
+			if (odpovezeno) return;
+			odpovezeno = true;
+			document.querySelectorAll('.volba').forEach((b) => (b.disabled = true));
+			$('odeslano').hidden = false;
+			ws.send(JSON.stringify({ typ: 'odpoved', otazka: aktualniOtazka, volba: +btn.dataset.volba }));
+		})
+	);
+</script>
+
+<style>
+	#tym { max-width: 480px; margin: 0 auto; text-align: center; }
+	label { display: block; text-align: left; font-weight: 700; margin: 1rem 0; }
+	input { display: block; width: 100%; font-size: 1.6rem; padding: 0.5rem; border: 3px solid #333;
+		border-radius: 12px; margin-top: 0.3rem; box-sizing: border-box; }
+	#kod { text-transform: uppercase; letter-spacing: 0.5rem; text-align: center; }
+	.velke-tlacitko { font-size: 1.4rem; padding: 0.7rem 2rem; border-radius: 12px; border: 3px solid #333;
+		background: #ffe066; cursor: pointer; font-weight: 800; width: 100%; }
+	.chyba { color: #e03131; font-weight: 700; }
+	.velky-text { font-size: 1.3rem; font-weight: 700; }
+	.riskova { color: #d9480f; font-size: 1.2rem; font-weight: 800; }
+	.tlacitka { display: grid; gap: 1rem; }
+	.volba { font-size: 3.4rem; font-weight: 900; color: #fff; border: 4px solid #333; border-radius: 18px;
+		padding: 1.1rem; cursor: pointer; }
+	.volba:disabled { opacity: 0.45; }
+	.volba-0 { background: #e03131; }
+	.volba-1 { background: #1971c2; }
+	.volba-2 { background: #2f9e44; }
+	.verdikt { font-size: 2.2rem; font-weight: 900; }
+</style>

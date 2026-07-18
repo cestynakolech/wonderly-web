@@ -1,22 +1,25 @@
 ---
 import SkolaLayout from '../../layouts/SkolaLayout.astro';
-import QrKod from '../../components/skola2/QrKod.astro';
 import { otazkyNapricRocniky } from '../../data/hry';
 
 // 120 otázek napříč ročníky — hra si z nich bere náhodně podle nastavení
 const banka = otazkyNapricRocniky(120, 2026);
 ---
 
-<SkolaLayout titulek="Fyzikální liga — tabule">
+<SkolaLayout titulek="Fyzikální liga — verze s kartami">
 	<div id="liga" data-banka={JSON.stringify(banka)}>
 		<!-- NASTAVENÍ -->
 		<section id="nastaveni">
 			<h1><span class="podtrh">🏆 Fyzikální liga</span></h1>
 			<p class="popis">
-				Živá týmová soutěž: <b>tuto stránku promítejte</b>, týmy odpovídají na tabletech.
-				Body se počítají samy — nejrychlejší správný tým má bod k dobru.
+				Týmová soutěž pro celou třídu. Rozdejte týmům karty A/B/C
+				(<a href="/hry/karty" target="_blank">vytisknout karty</a>), otázky pouštějte na projektor.
+				Po odpočtu týmy zvednou karty a vy klepnutím označíte, kdo odpověděl správně.
 			</p>
 			<div class="volby">
+				<label>Počet týmů
+					<select id="pocet-tymu">{[2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === 4}>{n}</option>)}</select>
+				</label>
 				<label>Počet otázek
 					<select id="pocet-otazek"><option>10</option><option selected>15</option><option>20</option></select>
 				</label>
@@ -24,27 +27,8 @@ const banka = otazkyNapricRocniky(120, 2026);
 					<select id="cas-otazky"><option value="15">15 s</option><option value="20" selected>20 s</option><option value="30">30 s</option></select>
 				</label>
 			</div>
-			<button id="vytvorit" class="velke-tlacitko">Vytvořit hru ▶</button>
-			<p class="pozn">Bez tabletů? <a href="/hry/liga-karty">Verze s tištěnými kartami</a>.</p>
-		</section>
-
-		<!-- ČEKÁRNA -->
-		<section id="cekarna" hidden>
-			<h1><span class="podtrh">Připojte se!</span></h1>
-			<div class="pripojeni">
-				<div>
-					<p class="krok">1️⃣ Na tabletu otevřete:</p>
-					<p class="adresa">lab.wonderly.cz/hry/liga/tym</p>
-					<QrKod url="https://lab.wonderly.cz/hry/liga/tym" velikost={190} popis="nebo naskenujte" />
-				</div>
-				<div>
-					<p class="krok">2️⃣ Zadejte kód místnosti:</p>
-					<div id="kod-mistnosti" class="kod-mistnosti">····</div>
-				</div>
-			</div>
-			<h2>Přihlášené týmy: <span id="pocet-tymu-text">0</span></h2>
-			<div id="seznam-tymu" class="seznam-tymu"></div>
-			<button id="start" class="velke-tlacitko" disabled>Spustit hru ▶</button>
+			<div id="jmena-tymu"></div>
+			<button id="start" class="velke-tlacitko">Spustit hru ▶</button>
 		</section>
 
 		<!-- HRA -->
@@ -57,9 +41,9 @@ const banka = otazkyNapricRocniky(120, 2026);
 			<div id="odpocet-pruh"><div id="odpocet-vypln"></div></div>
 			<h2 id="text-otazky"></h2>
 			<ol id="odpovedi" class="odpovedi"></ol>
-			<p id="odpovedelo" class="odpovedelo"></p>
-			<div id="mezivysledek" hidden>
-				<div id="kdo-jak" class="kdo-jak"></div>
+			<div id="vyhodnoceni" hidden>
+				<p class="pokyn">Klepni na týmy, které zvedly správnou kartu, pak pokračuj:</p>
+				<div id="tymy-tlacitka"></div>
 				<button id="dalsi" class="velke-tlacitko">Další otázka ▶</button>
 			</div>
 			<aside id="tabulka"></aside>
@@ -79,14 +63,11 @@ const banka = otazkyNapricRocniky(120, 2026);
 	const banka = JSON.parse(koren.dataset.banka);
 	const $ = (id) => document.getElementById(id);
 
-	let ws = null;
-	let tymy = {}; // jmeno -> { body: number }
+	let tymy = [];
 	let otazky = [];
 	let cisloOtazky = 0;
 	let casNaOtazku = 20;
 	let odpocetId = null;
-	let odpovedi = {}; // jmeno -> { volba, cas }
-	let faze = 'cekarna';
 
 	function zamichej(pole) {
 		const p = [...pole];
@@ -97,59 +78,32 @@ const banka = otazkyNapricRocniky(120, 2026);
 		return p;
 	}
 
-	function posli(zprava) {
-		if (ws?.readyState === 1) ws.send(JSON.stringify(zprava));
+	function vykresliJmena() {
+		const n = +$('pocet-tymu').value;
+		$('jmena-tymu').innerHTML = Array.from({ length: n }, (_, i) =>
+			`<input class="jmeno-tymu" value="Tým ${i + 1}" maxlength="18">`
+		).join('');
 	}
-
-	$('vytvorit').addEventListener('click', async () => {
-		const odpoved = await fetch('/api/liga/nova');
-		const { mistnost } = await odpoved.json();
-		$('kod-mistnosti').textContent = mistnost;
-		const protokol = location.protocol === 'https:' ? 'wss' : 'ws';
-		ws = new WebSocket(`${protokol}://${location.host}/api/liga/ws?mistnost=${mistnost}&role=tabule`);
-		ws.addEventListener('message', (u) => zpracuj(JSON.parse(u.data)));
-		otazky = zamichej(banka).slice(0, +$('pocet-otazek').value);
-		casNaOtazku = +$('cas-otazky').value;
-		$('nastaveni').hidden = true;
-		$('cekarna').hidden = false;
-	});
-
-	function zpracuj(zprava) {
-		if (zprava.typ === 'prihlaseni') {
-			tymy[zprava.jmeno] ??= { body: 0 };
-			vykresliCekarnu();
-		} else if (zprava.typ === 'odpojeni') {
-			// tým se může vrátit se stejným jménem — body mu držíme
-		} else if (zprava.typ === 'odpoved' && faze === 'otazka') {
-			if (zprava.otazka !== cisloOtazky) return;
-			if (odpovedi[zprava.jmeno]) return; // počítá se první odpověď
-			odpovedi[zprava.jmeno] = { volba: zprava.volba, cas: zprava.cas };
-			$('odpovedelo').textContent = `Odpovědělo ${Object.keys(odpovedi).length} z ${Object.keys(tymy).length} týmů`;
-			if (Object.keys(odpovedi).length >= Object.keys(tymy).length) odhal();
-		}
-	}
-
-	function vykresliCekarnu() {
-		const jmena = Object.keys(tymy);
-		$('pocet-tymu-text').textContent = jmena.length;
-		$('seznam-tymu').innerHTML = jmena.map((j) => `<span class="tym-stitek">${j}</span>`).join('');
-		$('start').disabled = jmena.length === 0;
-	}
+	$('pocet-tymu').addEventListener('change', vykresliJmena);
+	vykresliJmena();
 
 	$('start').addEventListener('click', () => {
-		$('cekarna').hidden = true;
-		$('hra').hidden = false;
+		tymy = [...document.querySelectorAll('.jmeno-tymu')].map((el) => ({ jmeno: el.value || 'Tým', body: 0 }));
+		otazky = zamichej(banka).slice(0, +$('pocet-otazek').value);
+		casNaOtazku = +$('cas-otazky').value;
 		cisloOtazky = 0;
-		polozOtazku();
+		$('nastaveni').hidden = true;
+		$('hra').hidden = false;
+		dalsiOtazka();
 	});
 
-	const jeRiskova = () => (cisloOtazky + 1) % 5 === 0;
+	function jeRiskova() {
+		return (cisloOtazky + 1) % 5 === 0;
+	}
 
-	function polozOtazku() {
+	function dalsiOtazka() {
 		if (cisloOtazky >= otazky.length) return konec();
 		const otazka = otazky[cisloOtazky];
-		odpovedi = {};
-		faze = 'otazka';
 		$('poradi-otazky').textContent = `Otázka ${cisloOtazky + 1} / ${otazky.length}`;
 		$('riskove').hidden = !jeRiskova();
 		$('text-otazky').textContent = otazka.text;
@@ -159,10 +113,8 @@ const banka = otazkyNapricRocniky(120, 2026);
 		$('odpovedi').innerHTML = zamichane
 			.map((o, i) => `<li class="odpoved odpoved-${i}"><b>${'ABC'[i]}</b> ${o}</li>`)
 			.join('');
-		$('odpovedelo').textContent = `Odpovědělo 0 z ${Object.keys(tymy).length} týmů`;
-		$('mezivysledek').hidden = true;
+		$('vyhodnoceni').hidden = true;
 		vykresliTabulku();
-		posli({ typ: 'faze', faze: 'otazka', otazka: cisloOtazky, riskova: jeRiskova() });
 		spustOdpocet();
 	}
 
@@ -180,7 +132,11 @@ const banka = otazkyNapricRocniky(120, 2026);
 			zbyva--;
 			$('odpocet-cislo').textContent = zbyva + ' s';
 			if (zbyva <= 3 && zbyva > 0) pipni(600);
-			if (zbyva <= 0) odhal();
+			if (zbyva <= 0) {
+				clearInterval(odpocetId);
+				pipni(880, 0.4);
+				odhal();
+			}
 		}, 1000);
 	}
 
@@ -198,63 +154,44 @@ const banka = otazkyNapricRocniky(120, 2026);
 	}
 
 	function odhal() {
-		if (faze !== 'otazka') return;
-		faze = 'vysledek';
-		clearInterval(odpocetId);
-		pipni(880, 0.4);
 		const otazka = otazky[cisloOtazky];
-		const spravny = otazka._spravnyIndex;
 		document.querySelectorAll('.odpoved').forEach((el, i) => {
-			el.classList.toggle('spravna', i === spravny);
-			el.classList.toggle('spatna', i !== spravny);
+			el.classList.toggle('spravna', i === otazka._spravnyIndex);
+			el.classList.toggle('spatna', i !== otazka._spravnyIndex);
 		});
-
-		const body = jeRiskova() ? 2 : 1;
-		const spravneTymy = Object.entries(odpovedi)
-			.filter(([, o]) => o.volba === spravny)
-			.sort((a, b) => a[1].cas - b[1].cas);
-		const vysledky = {};
-		for (const jmeno of Object.keys(tymy)) {
-			const odpovedel = odpovedi[jmeno];
-			vysledky[jmeno] = { spravne: odpovedel?.volba === spravny, volba: odpovedel?.volba ?? null };
-		}
-		spravneTymy.forEach(([jmeno], poradi) => {
-			tymy[jmeno].body += body + (poradi === 0 ? 1 : 0); // nejrychlejší správný +1
-		});
-
-		$('kdo-jak').innerHTML = Object.entries(vysledky)
-			.map(([jmeno, v]) =>
-				`<span class="tym-stitek ${v.spravne ? 'ok' : 'ne'}">${v.spravne ? '✅' : v.volba === null ? '💤' : '❌'} ${jmeno}${spravneTymy[0]?.[0] === jmeno ? ' ⚡' : ''}</span>`
-			)
+		$('tymy-tlacitka').innerHTML = tymy
+			.map((t, i) => `<button class="tym-tlacitko" data-i="${i}">${t.jmeno}</button>`)
 			.join('');
-		$('mezivysledek').hidden = false;
-		vykresliTabulku();
-		posli({ typ: 'faze', faze: 'vysledek', spravny, vysledky, tabulka: tabulkaPole() });
+		document.querySelectorAll('.tym-tlacitko').forEach((btn) =>
+			btn.addEventListener('click', () => btn.classList.toggle('oznaceny'))
+		);
+		$('vyhodnoceni').hidden = false;
 	}
 
 	$('dalsi').addEventListener('click', () => {
+		const body = jeRiskova() ? 2 : 1;
+		document.querySelectorAll('.tym-tlacitko.oznaceny').forEach((btn) => {
+			tymy[+btn.dataset.i].body += body;
+		});
 		cisloOtazky++;
-		polozOtazku();
+		dalsiOtazka();
 	});
 
-	const tabulkaPole = () =>
-		Object.entries(tymy).map(([jmeno, t]) => ({ jmeno, body: t.body })).sort((a, b) => b.body - a.body);
-
 	function vykresliTabulku() {
+		const serazene = [...tymy].sort((a, b) => b.body - a.body);
 		$('tabulka').innerHTML =
 			'<h3>Průběžné pořadí</h3>' +
-			tabulkaPole().map((t) => `<div class="radek-tabulky"><span>${t.jmeno}</span><b>${t.body}</b></div>`).join('');
+			serazene.map((t) => `<div class="radek-tabulky"><span>${t.jmeno}</span><b>${t.body}</b></div>`).join('');
 	}
 
 	function konec() {
-		faze = 'konec';
 		$('hra').hidden = true;
 		$('vysledky').hidden = false;
 		const medaile = ['🥇', '🥈', '🥉'];
-		$('podium').innerHTML = tabulkaPole()
+		$('podium').innerHTML = [...tymy]
+			.sort((a, b) => b.body - a.body)
 			.map((t, i) => `<li class="podium-radek">${medaile[i] ?? '🏅'} <b>${t.jmeno}</b> — ${t.body} b.</li>`)
 			.join('');
-		posli({ typ: 'faze', faze: 'konec', tabulka: tabulkaPole() });
 		for (let i = 0; i < 40; i++) {
 			const k = document.createElement('span');
 			k.className = 'konfeta';
@@ -269,27 +206,16 @@ const banka = otazkyNapricRocniky(120, 2026);
 </script>
 
 <style>
-	#liga { max-width: 960px; margin: 0 auto; }
+	#liga { max-width: 900px; margin: 0 auto; }
 	.popis { font-size: 1.05rem; }
 	.volby { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
 	.volby label { display: flex; flex-direction: column; font-weight: 700; gap: 0.3rem; }
 	.volby select { font-size: 1.1rem; padding: 0.3rem; }
+	#jmena-tymu { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+	.jmeno-tymu { font-size: 1.05rem; padding: 0.4rem; border: 2px solid #333; border-radius: 8px; width: 9rem; }
 	.velke-tlacitko { font-size: 1.4rem; padding: 0.7rem 2rem; border-radius: 12px; border: 3px solid #333;
 		background: #ffe066; cursor: pointer; font-weight: 800; }
-	.velke-tlacitko:disabled { opacity: 0.4; cursor: default; }
-	.velke-tlacitko:not(:disabled):hover { transform: scale(1.04); }
-	.pozn { color: #666; }
-	.pripojeni { display: flex; gap: 3rem; flex-wrap: wrap; align-items: start; }
-	.krok { font-size: 1.3rem; font-weight: 700; }
-	.adresa { font-size: 1.5rem; font-weight: 800; background: #fff3bf; padding: 0.3rem 0.7rem;
-		border-radius: 10px; display: inline-block; }
-	.kod-mistnosti { font-size: 6rem; font-weight: 900; letter-spacing: 1rem; border: 4px solid #333;
-		border-radius: 20px; padding: 0.4rem 1.4rem; display: inline-block; background: #d0ebff; }
-	.seznam-tymu { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.8rem 0 1.4rem; min-height: 2.4rem; }
-	.tym-stitek { font-size: 1.2rem; font-weight: 700; border: 3px solid #333; border-radius: 999px;
-		padding: 0.25rem 1rem; background: #fff; }
-	.tym-stitek.ok { background: #d3f9d8; border-color: #2f9e44; }
-	.tym-stitek.ne { background: #ffe3e3; border-color: #e03131; }
+	.velke-tlacitko:hover { transform: scale(1.04); }
 	.hlavicka-hry { display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: 800; }
 	.riskove { color: #d9480f; animation: blik 0.8s infinite alternate; }
 	@keyframes blik { from { opacity: 1; } to { opacity: 0.4; } }
@@ -305,8 +231,10 @@ const banka = otazkyNapricRocniky(120, 2026);
 	.odpoved-2 b { background: #2f9e44; }
 	.odpoved.spravna { background: #d3f9d8; border-color: #2f9e44; }
 	.odpoved.spatna { opacity: 0.45; }
-	.odpovedelo { font-size: 1.15rem; font-weight: 700; color: #1971c2; }
-	.kdo-jak { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+	.pokyn { font-weight: 700; }
+	.tym-tlacitko { font-size: 1.2rem; margin: 0.3rem; padding: 0.5rem 1.1rem; border-radius: 10px;
+		border: 3px solid #333; background: #fff; cursor: pointer; }
+	.tym-tlacitko.oznaceny { background: #d3f9d8; border-color: #2f9e44; }
 	#tabulka { margin-top: 1.5rem; padding: 0.8rem 1rem; border: 3px dashed #999; border-radius: 12px; }
 	.radek-tabulky { display: flex; justify-content: space-between; font-size: 1.15rem; padding: 0.15rem 0; }
 	.podium-radek { font-size: 1.7rem; margin: 0.5rem 0; }

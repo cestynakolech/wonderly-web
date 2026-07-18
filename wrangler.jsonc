@@ -12,5 +12,19 @@
 			"binding": "MEDIA",
 			"bucket_name": "wonderly-media"
 		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "LIGA",
+				"class_name": "LigaMistnost"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"tag": "liga-v1",
+			"new_sqlite_classes": ["LigaMistnost"]
+		}
 	]
 }
