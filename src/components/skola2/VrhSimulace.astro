@@ -1,0 +1,117 @@
+---
+// Interaktivní vrh kamene = skládání sil za letu.
+// Na kámen působí GRAVITAČNÍ síla (dolů) a ODPOR VZDUCHU (proti pohybu).
+// Jejich složení zakřivuje dráhu do balistické křivky. Mění se úhel i rychlost,
+// jde hodit i kolmo vzhůru. Přepínač odporu vzduchu ukáže rozdíl (parabola × balistická křivka).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proč kámen neletí rovně? 🕹️</span></h2>
+	<p>Hoď kámen a sleduj šipky sil: <strong style="color:#1971c2">gravitační síla</strong> ho táhne k zemi, <strong style="color:#e8590c">odpor vzduchu</strong> ho brzdí proti směru letu. Jejich <strong>složení</strong> zakřiví dráhu — vznikne <strong>balistická křivka</strong>.</p>
+	<canvas id="vrh-platno" width="600" height="360" role="img" aria-label="Vrh kamene s šipkami sil"></canvas>
+	<div class="vrh-ovladace">
+		<label>Úhel: <output id="vrh-uhel-h">45°</output>
+			<input type="range" id="vrh-uhel" min="0" max="90" step="5" value="45" /></label>
+		<label>Rychlost: <output id="vrh-rychlost-h">střední</output>
+			<input type="range" id="vrh-rychlost" min="8" max="18" step="1" value="13" /></label>
+		<label class="vrh-check"><input type="checkbox" id="vrh-odpor" checked /> odpor vzduchu</label>
+		<button id="vrh-hod" class="vrh-btn">Hoď kámen 🪨</button>
+	</div>
+	<p class="vrh-stav" id="vrh-stav">Nastav úhel a rychlost a klikni „Hoď kámen".</p>
+</section>
+
+<script>
+	const platno = document.getElementById('vrh-platno');
+	const ctx = platno.getContext('2d');
+	const W = platno.width, H = platno.height, ZEM = H - 30;
+	const uhelEl = document.getElementById('vrh-uhel');
+	const rychEl = document.getElementById('vrh-rychlost');
+	const odporEl = document.getElementById('vrh-odpor');
+	const stavEl = document.getElementById('vrh-stav');
+	const G = 0.22; // gravitační zrychlení (px/snímek²)
+	let kamen = null, drahaBody = [], anim = null;
+
+	function pozadi() {
+		ctx.clearRect(0, 0, W, H);
+		ctx.fillStyle = '#e9f5e9'; ctx.fillRect(0, 0, W, ZEM);
+		ctx.fillStyle = '#d3b98c'; ctx.fillRect(0, ZEM, W, H - ZEM);
+		ctx.strokeStyle = '#8a867c'; ctx.lineWidth = 2; ctx.beginPath();
+		ctx.moveTo(0, ZEM); ctx.lineTo(W, ZEM); ctx.stroke();
+	}
+
+	function sipka(x, y, dx, dy, barva, popis) {
+		const d = Math.hypot(dx, dy); if (d < 2) return;
+		const ex = x + dx, ey = y + dy;
+		ctx.strokeStyle = barva; ctx.fillStyle = barva; ctx.lineWidth = 4;
+		ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex, ey); ctx.stroke();
+		const uh = Math.atan2(dy, dx);
+		ctx.beginPath(); ctx.moveTo(ex, ey);
+		ctx.lineTo(ex - 10 * Math.cos(uh - 0.4), ey - 10 * Math.sin(uh - 0.4));
+		ctx.lineTo(ex - 10 * Math.cos(uh + 0.4), ey - 10 * Math.sin(uh + 0.4));
+		ctx.closePath(); ctx.fill();
+		if (popis) { ctx.font = 'bold 13px sans-serif'; ctx.fillText(popis, ex + 4, ey); }
+	}
+
+	function hod() {
+		cancelAnimationFrame(anim);
+		const uhel = +uhelEl.value * Math.PI / 180;
+		const v = +rychEl.value;
+		kamen = { x: 40, y: ZEM - 8, vx: v * Math.cos(uhel), vy: -v * Math.sin(uhel) };
+		drahaBody = [];
+		let maxV = -Infinity;
+		function krok() {
+			// síly: gravitace (dolů) + odpor vzduchu (proti pohybu)
+			kamen.vy += G;
+			if (odporEl.checked) {
+				const rychlost = Math.hypot(kamen.vx, kamen.vy);
+				const k = 0.005;
+				kamen.vx -= k * rychlost * kamen.vx;
+				kamen.vy -= k * rychlost * kamen.vy;
+			}
+			kamen.x += kamen.vx; kamen.y += kamen.vy;
+			drahaBody.push([kamen.x, kamen.y]);
+			maxV = Math.max(maxV, ZEM - kamen.y);
+
+			pozadi();
+			// dráha
+			ctx.strokeStyle = '#adb5bd'; ctx.lineWidth = 2; ctx.setLineDash([4, 4]); ctx.beginPath();
+			drahaBody.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.stroke(); ctx.setLineDash([]);
+			// kámen
+			ctx.fillStyle = '#6b4f2a'; ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2;
+			ctx.beginPath(); ctx.arc(kamen.x, kamen.y, 9, 0, 7); ctx.fill(); ctx.stroke();
+			// šipky sil
+			sipka(kamen.x, kamen.y, 0, 34, '#1971c2', 'gravitace');
+			if (odporEl.checked) {
+				const rychlost = Math.hypot(kamen.vx, kamen.vy) || 1;
+				const m = rychlost * 2.4;
+				sipka(kamen.x, kamen.y, -kamen.vx / rychlost * m, -kamen.vy / rychlost * m, '#e8590c', 'odpor');
+			}
+			if (kamen.y < ZEM - 8 && kamen.x < W - 10) { anim = requestAnimationFrame(krok); }
+			else {
+				const dalka = Math.round((kamen.x - 40) / 6);
+				const vyska = Math.round(maxV / 6);
+				stavEl.textContent = `🪨 Dopad! Kámen doletěl ${dalka} m daleko a vystoupal ${vyska} m vysoko. `
+					+ (+uhelEl.value === 90 ? 'Kolmo vzhůru = spadne zpět skoro na místo.' :
+					   odporEl.checked ? 'S odporem vzduchu klesá strměji — balistická křivka.' : 'Bez odporu je dráha souměrná parabola.');
+			}
+		}
+		stavEl.textContent = 'Kámen letí…';
+		krok();
+	}
+
+	uhelEl.addEventListener('input', () => { document.getElementById('vrh-uhel-h').textContent = uhelEl.value + '°'; });
+	rychEl.addEventListener('input', () => document.getElementById('vrh-rychlost-h').textContent =
+		+rychEl.value < 9 ? 'malá' : +rychEl.value > 13 ? 'velká' : 'střední');
+	document.getElementById('vrh-hod').addEventListener('click', hod);
+	pozadi();
+</script>
+
+<style>
+	#vrh-platno { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.vrh-ovladace { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; margin: 0.7rem 0; }
+	.vrh-ovladace label { font-weight: 700; }
+	.vrh-check { display: flex; align-items: center; gap: 0.35rem; }
+	.vrh-btn { font-size: 1.15rem; font-weight: 800; padding: 0.5rem 1.3rem; border: 3px solid #2b2a26;
+		border-radius: 12px; background: #ffe066; cursor: pointer; }
+	.vrh-stav { font-size: 1.05rem; font-weight: 700; min-height: 3rem; }
+</style>
