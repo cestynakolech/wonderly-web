@@ -24,6 +24,7 @@ const JEZDCI = [
 			<div id="ziva-tabulka" hidden>
 				<div class="ziva-hlava">🔴 ŽIVĚ NA TRATI <span id="do-cile"></span></div>
 				<div id="ziva-jezdci"></div>
+				<div id="skupiny"></div>
 				<p id="komentar" class="komentar"></p>
 			</div>
 			<div id="karty">
@@ -65,16 +66,29 @@ const JEZDCI = [
 							})
 							.map(([k, j]) => {
 								const z = j.zive;
+								const vskupine = j.skupina ? ` · ${j.skupina.nazev}` : '';
 								if (!z) {
 									return `<div class="ziva-radek mimo"><b>–</b> ${JMENA[k] ?? k}
-										<span class="ziva-odstup">mimo živé měření</span></div>`;
+										<span class="ziva-odstup">mimo živé měření${vskupine}</span></div>`;
 								}
 								const odstup = z.odstupVterin === 0 ? 've vedení'
 									: `+${Math.floor(z.odstupVterin / 60)}:${String(z.odstupVterin % 60).padStart(2, '0')}`;
 								return `<div class="ziva-radek"><b>${z.poziceNaTrati}.</b> ${JMENA[k] ?? k}
-									<span class="ziva-odstup">${odstup}</span> <span class="ziva-kmh">${z.rychlost ?? '–'} km/h</span></div>`;
+									<span class="ziva-odstup">${odstup}</span> <span class="ziva-kmh">${z.rychlost ?? '–'} km/h</span>
+									<div class="ziva-skupina">${j.skupina ? j.skupina.nazev : ''}</div></div>`;
 							}).join('');
 						$('#ziva-jezdci').innerHTML = radky;
+
+						// přehled skupin (únik → peloton → …)
+						const skupiny = (data.skupiny ?? []).map((s) => {
+							const odstup = s.odstupVterin === 0 ? 've vedení'
+								: `+${Math.floor(s.odstupVterin / 60)}:${String(s.odstupVterin % 60).padStart(2, '0')}`;
+							const pocet = s.pocet != null ? `${s.pocet} j.` : 'velká skupina';
+							const nasi = s.nasi?.length ? ` 🇨🇿 ${s.nasi.map((n) => JMENA[n] ?? n).join(', ')}` : '';
+							return `<div class="skup-radek${nasi ? ' s-nasimi' : ''}"><span class="skup-nazev">${s.nazev}</span>
+								<span class="skup-odstup">${odstup}</span> <span class="skup-pocet">${pocet}</span>${nasi}</div>`;
+						}).join('');
+						$('#skupiny').innerHTML = skupiny ? `<div class="skup-nadpis">Skupiny na trati (odstup od čela):</div>${skupiny}` : '';
 						$('#komentar').textContent = data.komentar?.[0]?.text ?? '';
 						$('#zive').textContent = `🔴 Právě se jede ${data.etapa}. etapa!`;
 					} else {
@@ -125,6 +139,14 @@ const JEZDCI = [
 			.ziva-kmh { margin-left: auto; color: #777; font-size: 0.95rem; }
 			.ziva-radek.mimo { opacity: 0.55; }
 			.ziva-radek.mimo .ziva-odstup { color: #999; font-weight: 400; font-size: 0.85rem; }
+			.ziva-skupina { flex-basis: 100%; font-size: 0.8rem; color: #888; padding-left: 2.9rem; }
+			#skupiny { margin-top: 0.8rem; }
+			.skup-nadpis { font-size: 0.85rem; font-weight: 700; color: #866; margin-bottom: 0.3rem; }
+			.skup-radek { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; font-size: 0.98rem; padding: 0.25rem 0; border-top: 1px solid #f1dede; }
+			.skup-radek.s-nasimi { background: #fff3bf; border-radius: 8px; padding: 0.3rem 0.5rem; font-weight: 700; }
+			.skup-nazev { font-weight: 700; }
+			.skup-odstup { color: #1971c2; font-weight: 700; }
+			.skup-pocet { color: #888; font-size: 0.85rem; }
 			.komentar { font-style: italic; color: #444; margin-top: 0.6rem; border-top: 1px dashed #ccc; padding-top: 0.5rem; }
 			.zive-tlacitko { display: block; text-align: center; background: #c92a2a; color: #fff; font-weight: 800;
 				text-decoration: none; border-radius: 14px; padding: 0.8rem; margin: 0.9rem 0; border: 3px solid #222; }

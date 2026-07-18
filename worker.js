@@ -191,8 +191,25 @@ export default {
 					text: Array.isArray(k.text) ? k.text.join(' ') : k.text, cas: k.publicationAt || k.createdAt,
 				}));
 				const pack = await (await fetch(`${rc}/pack-2026-${etapaCislo}`, { headers: UA })).json();
-				const c1 = pack?.[0]?.groups?.[0];
+				const skupiny = pack?.[0]?.groups ?? [];
+				const c1 = skupiny[0];
 				if (c1?.computedRemainingDistance != null) odpoved.doCileKm = Math.round(c1.computedRemainingDistance / 1000);
+				const cisloBibu = (b) => (typeof b === 'object' ? b.bib : b);
+				odpoved.skupiny = [...skupiny]
+					.sort((a, b) => (a.computedRelative ?? 0) - (b.computedRelative ?? 0))
+					.map((sk) => {
+						const biby = (sk.bibs ?? []).map(cisloBibu);
+						return {
+							nazev: sk.name,
+							odstupVterin: sk.computedRelative ?? 0,
+							pocet: sk.size >= 999 ? null : sk.size, // 999 = velké pole (peloton)
+							nasi: biby.filter((b) => BIBY[b]).map((b) => BIBY[b]),
+						};
+					});
+				// ke každému jezdci doplnit, v jaké je skupině
+				for (const sk of odpoved.skupiny) {
+					for (const jm of sk.nasi) (odpoved.jezdci[jm] ??= {}).skupina = { nazev: sk.nazev, odstupVterin: sk.odstupVterin };
+				}
 			} catch (e) {
 				odpoved.zive = { chyba: e.message };
 			}
