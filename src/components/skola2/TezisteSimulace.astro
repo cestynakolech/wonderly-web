@@ -1,0 +1,123 @@
+---
+// Interaktivní hledání těžiště zavěšováním a olovnicí.
+// Klikni na závěsný bod → těleso se otočí a visí tak, že těžiště je přesně pod
+// bodem závěsu. Podle svislé olovnice se na těleso nakreslí čára. Ze dvou bodů
+// vzniknou dvě čáry a jejich PRŮSEČÍK je těžiště.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Najdi těžiště! 🕹️</span></h2>
+	<p>U tělesa nepravidelného tvaru najdeme těžiště pokusem: <strong>zavěsíme</strong> ho za nějaký bod a spustíme <strong>olovnici</strong> (svislou šňůru se závažím). Podle ní nakreslíme čáru. Uděláme to ze <strong>dvou různých bodů</strong> — kde se čáry protnou, tam je <strong>těžiště</strong>. Klikni na červené body.</p>
+	<svg id="tez-svg" viewBox="0 0 460 380" role="img" aria-label="Hledání těžiště zavěšením a olovnicí">
+		<!-- hák -->
+		<line x1="230" y1="20" x2="230" y2="46" stroke="#2b2a26" stroke-width="4" />
+		<path d="M222 46 a8 8 0 1 0 16 0" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<!-- olovnice (svislá šňůra + závaží) -->
+		<g id="tez-olovnice" opacity="0">
+			<line x1="230" y1="50" x2="230" y2="330" stroke="#495057" stroke-width="2" stroke-dasharray="3 3" />
+			<path d="M224 330 l6 16 6 -16 z" fill="#495057" />
+		</g>
+		<!-- těleso (otáčí skript) -->
+		<g id="tez-telo"></g>
+	</svg>
+	<div class="tez-ovladace">
+		<span id="tez-stav" class="tez-stav">Klikni na některý červený bod a zavěs těleso.</span>
+		<button id="tez-reset" class="tez-btn">Začít znovu 🔄</button>
+	</div>
+</section>
+
+<script>
+	const svg = document.getElementById('tez-svg');
+	const telo = document.getElementById('tez-telo');
+	const olovnice = document.getElementById('tez-olovnice');
+	const stavEl = document.getElementById('tez-stav');
+	const HÁK = { x: 230, y: 50 };
+
+	// nepravidelný mnohoúhelník (lokální souřadnice) a jeho závěsné body
+	const poly = [[-80, -40], [-15, -72], [72, -48], [88, 22], [34, 74], [-52, 62], [-92, 8]];
+	const zavesy = [0, 2, 5]; // indexy vrcholů = závěsné body
+
+	function teziste(p) {
+		let A = 0, cx = 0, cy = 0;
+		for (let i = 0; i < p.length; i++) {
+			const [x0, y0] = p[i], [x1, y1] = p[(i + 1) % p.length];
+			const cr = x0 * y1 - x1 * y0; A += cr; cx += (x0 + x1) * cr; cy += (y0 + y1) * cr;
+		}
+		A /= 2; return [cx / (6 * A), cy / (6 * A)];
+	}
+	const C = teziste(poly);
+
+	let pouzite = [];        // indexy už použitých závěsů
+	let uhel = 0, cilUhel = 0;
+	let aktivniZaves = zavesy[0];
+
+	function vykresli() {
+		const P = poly[aktivniZaves];
+		// transform: závěsný bod P → hák, otočení o `uhel` kolem P
+		telo.setAttribute('transform',
+			`translate(${HÁK.x} ${HÁK.y}) rotate(${uhel}) translate(${-P[0]} ${-P[1]})`);
+
+		let obsah = `<polygon points="${poly.map((p) => p.join(',')).join(' ')}" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3"/>`;
+		// už nakreslené čáry (lokální, procházejí závěsem a těžištěm)
+		for (const idx of pouzite) {
+			const Q = poly[idx];
+			const dx = C[0] - Q[0], dy = C[1] - Q[1], d = Math.hypot(dx, dy) || 1;
+			const ux = dx / d, uy = dy / d, L = 260;
+			obsah += `<line x1="${Q[0] - ux * L}" y1="${Q[1] - uy * L}" x2="${Q[0] + ux * L}" y2="${Q[1] + uy * L}" stroke="#1971c2" stroke-width="2.5" stroke-dasharray="6 4"/>`;
+		}
+		// závěsné body (klikací)
+		zavesy.forEach((idx) => {
+			const [x, y] = poly[idx];
+			const hotovo = pouzite.includes(idx);
+			obsah += `<circle class="tez-bod" data-idx="${idx}" cx="${x}" cy="${y}" r="8" fill="${hotovo ? '#adb5bd' : '#e03131'}" stroke="#2b2a26" stroke-width="2" style="cursor:pointer"/>`;
+		});
+		// těžiště (až po dvou čarách)
+		if (pouzite.length >= 2) {
+			obsah += `<circle cx="${C[0]}" cy="${C[1]}" r="7" fill="#2f9e44" stroke="#2b2a26" stroke-width="2"/>`;
+			obsah += `<text x="${C[0] + 12}" y="${C[1] + 4}" font-size="14" font-weight="bold" fill="#2f9e44">těžiště</text>`;
+		}
+		telo.innerHTML = obsah;
+		telo.querySelectorAll('.tez-bod').forEach((b) =>
+			b.addEventListener('click', () => zaves(+b.dataset.idx)));
+	}
+
+	function zaves(idx) {
+		if (pouzite.includes(idx)) return;
+		aktivniZaves = idx;
+		const P = poly[idx];
+		// úhel, aby vektor P→těžiště mířil dolů (svisle)
+		cilUhel = (Math.PI / 2 - Math.atan2(C[1] - P[1], C[0] - P[0])) * 180 / Math.PI;
+		olovnice.setAttribute('opacity', '1');
+		animuj(() => {
+			pouzite.push(idx);
+			vykresli();
+			if (pouzite.length === 1) stavEl.textContent = 'Podle olovnice je nakreslená 1. čára. Teď klikni na DALŠÍ bod.';
+			else stavEl.textContent = '✅ Hotovo! Obě čáry se protínají v těžišti (zelený bod). Těžiště leží tam, i když je mimo materiál.';
+		});
+	}
+
+	function animuj(hotovo) {
+		function tik() {
+			const rozdil = cilUhel - uhel;
+			if (Math.abs(rozdil) < 0.4) { uhel = cilUhel; vykresli(); hotovo && hotovo(); return; }
+			uhel += rozdil * 0.12; vykresli(); requestAnimationFrame(tik);
+		}
+		tik();
+	}
+
+	document.getElementById('tez-reset').addEventListener('click', () => {
+		pouzite = []; uhel = 0; cilUhel = 0; aktivniZaves = zavesy[0];
+		olovnice.setAttribute('opacity', '0');
+		stavEl.textContent = 'Klikni na některý červený bod a zavěs těleso.';
+		vykresli();
+	});
+	vykresli();
+</script>
+
+<style>
+	#tez-svg { width: 100%; max-width: 460px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.tez-ovladace { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-top: 0.7rem; }
+	.tez-stav { font-size: 1.05rem; font-weight: 700; flex: 1; min-width: 60%; }
+	.tez-btn { font-size: 1rem; font-weight: 800; padding: 0.45rem 1rem; border: 3px solid #2b2a26;
+		border-radius: 10px; background: #ffe066; cursor: pointer; }
+</style>

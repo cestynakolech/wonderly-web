@@ -9,6 +9,7 @@ import HustotaSimulace from '../../../../../../components/skola2/HustotaSimulace
 import TeplomerSimulace from '../../../../../../components/skola2/TeplomerSimulace.astro';
 import SkladaniSilSimulace from '../../../../../../components/skola2/SkladaniSilSimulace.astro';
 import VrhSimulace from '../../../../../../components/skola2/VrhSimulace.astro';
+import TezisteSimulace from '../../../../../../components/skola2/TezisteSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -128,6 +129,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'teplomer' && <TeplomerSimulace />}
 	{podtema.interakce === 'skladani-sil' && <SkladaniSilSimulace />}
 	{podtema.interakce === 'vrh' && <VrhSimulace />}
+	{podtema.interakce === 'teziste' && <TezisteSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

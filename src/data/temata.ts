@@ -10,7 +10,7 @@ export type Podtema = {
 	obsah?: string;
 	materialy?: Material[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -1293,6 +1293,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'teziste',
+					interakce: 'teziste',
 					nazev: 'Těžiště',
 					obsah: `
 						<h2>Těžiště</h2>
