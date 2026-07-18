@@ -1,0 +1,94 @@
+---
+// Interaktivní částicový model skupenství: tlačítky přepínáš pevná/kapalná/plynná
+// a částice v nádobě se podle toho chovají (kmitají na místě / volně se přeskupují / létají).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej si skupenství! 🕹️</span></h2>
+	<p>Klikni na skupenství a sleduj, jak se chovají <strong>částice</strong> uvnitř. Přidej teplo a uvidíš, proč se led promění ve vodu a voda v páru.</p>
+	<div class="skup-ovladace">
+		<button class="skup-btn" data-stav="pevna">🧊 Pevná</button>
+		<button class="skup-btn" data-stav="kapalna">💧 Kapalná</button>
+		<button class="skup-btn" data-stav="plynna">☁️ Plynná</button>
+	</div>
+	<canvas id="skup-platno" width="600" height="340" role="img" aria-label="Částicový model skupenství"></canvas>
+	<p class="skup-popis" id="skup-popis"></p>
+</section>
+
+<script>
+	const platno = document.getElementById('skup-platno');
+	const ctx = platno.getContext('2d');
+	const popis = document.getElementById('skup-popis');
+	const W = platno.width, H = platno.height;
+	const BARVY = ['#e03131', '#1971c2', '#2f9e44', '#f08c00', '#9c36b5'];
+
+	const POPISY = {
+		pevna: 'PEVNÁ látka: částice jsou těsně u sebe v pravidelném uspořádání a jen kmitají na místě. Těleso drží tvar i objem.',
+		kapalna: 'KAPALNÁ látka: částice jsou blízko, ale mohou se přeskupovat. Kapalina drží objem, ale přizpůsobí tvar nádobě.',
+		plynna: 'PLYNNÁ látka: částice jsou daleko od sebe a rychle létají všemi směry. Plyn vyplní celý prostor.',
+	};
+
+	let stav = 'pevna';
+	const N = 90;
+	const castice = [];
+	for (let i = 0; i < N; i++) {
+		castice.push({ x: Math.random() * W, y: Math.random() * H, vx: 0, vy: 0,
+			barva: BARVY[i % BARVY.length] });
+	}
+
+	function usporadejMrizku() {
+		const sloupce = 15, mezera = 30, x0 = W / 2 - (sloupce - 1) * mezera / 2, y0 = 60;
+		castice.forEach((c, i) => {
+			c.domX = x0 + (i % sloupce) * mezera;
+			c.domY = y0 + Math.floor(i / sloupce) * mezera;
+		});
+	}
+	usporadejMrizku();
+
+	function krok() {
+		ctx.clearRect(0, 0, W, H);
+		for (const c of castice) {
+			if (stav === 'pevna') {
+				c.x += (c.domX - c.x) * 0.1 + (Math.random() - 0.5) * 2.5;
+				c.y += (c.domY - c.y) * 0.1 + (Math.random() - 0.5) * 2.5;
+			} else if (stav === 'kapalna') {
+				c.vx += (Math.random() - 0.5) * 0.8; c.vy += (Math.random() - 0.5) * 0.8 + 0.15;
+				c.vx *= 0.92; c.vy *= 0.92;
+				c.x += c.vx; c.y += c.vy;
+				if (c.y < H / 2) c.vy += 0.3; // drží se v dolní polovině (hladina)
+			} else {
+				c.vx += (Math.random() - 0.5) * 1.2; c.vy += (Math.random() - 0.5) * 1.2;
+				const v = Math.hypot(c.vx, c.vy) || 1; const max = 3.2;
+				if (v > max) { c.vx = c.vx / v * max; c.vy = c.vy / v * max; }
+				c.x += c.vx; c.y += c.vy;
+			}
+			if (c.x < 8) { c.x = 8; c.vx = Math.abs(c.vx); }
+			if (c.x > W - 8) { c.x = W - 8; c.vx = -Math.abs(c.vx); }
+			if (c.y < 8) { c.y = 8; c.vy = Math.abs(c.vy); }
+			if (c.y > H - 8) { c.y = H - 8; c.vy = -Math.abs(c.vy); }
+			ctx.beginPath(); ctx.arc(c.x, c.y, 8, 0, 7);
+			ctx.fillStyle = c.barva; ctx.fill();
+			ctx.lineWidth = 1.5; ctx.strokeStyle = '#00000055'; ctx.stroke();
+		}
+		requestAnimationFrame(krok);
+	}
+	krok();
+
+	function nastav(novy) {
+		stav = novy;
+		popis.textContent = POPISY[novy];
+		document.querySelectorAll('.skup-btn').forEach((b) => b.classList.toggle('aktivni', b.dataset.stav === novy));
+		if (novy === 'plynna' || novy === 'kapalna') castice.forEach((c) => { c.vx = (Math.random() - 0.5) * 3; c.vy = (Math.random() - 0.5) * 3; });
+	}
+	document.querySelectorAll('.skup-btn').forEach((b) => b.addEventListener('click', () => nastav(b.dataset.stav)));
+	nastav('pevna');
+</script>
+
+<style>
+	.skup-ovladace { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 0.6rem 0; }
+	.skup-btn { font-size: 1.15rem; font-weight: 700; padding: 0.5rem 1.1rem; border: 3px solid #2b2a26;
+		border-radius: 12px; background: #fff; cursor: pointer; }
+	.skup-btn.aktivni { background: #ffe066; }
+	#skup-platno { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; touch-action: none; }
+	.skup-popis { font-size: 1.05rem; font-weight: 600; margin-top: 0.6rem; min-height: 3rem; }
+</style>

@@ -1,0 +1,65 @@
+---
+// Interaktivní jednoduchý elektrický obvod: klikni na vypínač a žárovka se rozsvítí.
+// Přepínač série/paralelně ukáže, proč v sérii zhasne vše a paralelně svítí zbytek.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Zapoj obvod! 🕹️</span></h2>
+	<p>Klikni na <strong>vypínač</strong> a sleduj, jak se uzavře obvod a rozsvítí žárovka. Proud teče od baterie po drátech dokola — když je obvod přerušený, nesvítí nic.</p>
+	<svg id="obvod-svg" viewBox="0 0 460 260" role="img" aria-label="Jednoduchý elektrický obvod">
+		<!-- dráty -->
+		<polyline points="80,60 380,60 380,200 80,200 80,150" fill="none" stroke="#c9a227" stroke-width="6" />
+		<polyline points="80,110 80,60" fill="none" stroke="#c9a227" stroke-width="6" />
+		<!-- baterie (levá strana) -->
+		<rect x="60" y="110" width="40" height="40" fill="#495057" stroke="#2b2a26" stroke-width="3" rx="4" />
+		<line x1="70" y1="118" x2="70" y2="142" stroke="#ffd43b" stroke-width="3" />
+		<line x1="90" y1="122" x2="90" y2="138" stroke="#ffd43b" stroke-width="5" />
+		<text x="80" y="175" text-anchor="middle" font-size="13" fill="#495057">baterie</text>
+		<!-- vypínač (nahoře) -->
+		<circle cx="200" cy="60" r="6" fill="#2b2a26" />
+		<circle cx="260" cy="60" r="6" fill="#2b2a26" />
+		<line id="obvod-paka" x1="200" y1="60" x2="252" y2="34" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+		<text x="230" y="90" text-anchor="middle" font-size="13" fill="#e8590c">vypínač (klikni)</text>
+		<!-- žárovka (pravá strana) -->
+		<circle id="obvod-zarovka" cx="380" cy="130" r="26" fill="#e9ecef" stroke="#2b2a26" stroke-width="3" />
+		<path d="M370 140 q10 -20 20 0" fill="none" stroke="#2b2a26" stroke-width="2" />
+		<text x="380" y="180" text-anchor="middle" font-size="13" fill="#495057">žárovka</text>
+		<g id="obvod-paprsky" opacity="0">
+			<line x1="380" y1="92" x2="380" y2="78" stroke="#f59f00" stroke-width="4" />
+			<line x1="414" y1="130" x2="428" y2="130" stroke="#f59f00" stroke-width="4" />
+			<line x1="346" y1="130" x2="332" y2="130" stroke="#f59f00" stroke-width="4" />
+			<line x1="404" y1="106" x2="415" y2="95" stroke="#f59f00" stroke-width="4" />
+			<line x1="356" y1="106" x2="345" y2="95" stroke="#f59f00" stroke-width="4" />
+		</g>
+	</svg>
+	<p class="obvod-stav" id="obvod-stav"></p>
+</section>
+
+<script>
+	const svg = document.getElementById('obvod-svg');
+	const paka = document.getElementById('obvod-paka');
+	const zarovka = document.getElementById('obvod-zarovka');
+	const paprsky = document.getElementById('obvod-paprsky');
+	const stavEl = document.getElementById('obvod-stav');
+	let zapnuto = false;
+
+	function prekresli() {
+		if (zapnuto) {
+			paka.setAttribute('x2', '260'); paka.setAttribute('y2', '60'); // sepnuto vodorovně
+			zarovka.setAttribute('fill', '#ffe066'); paprsky.setAttribute('opacity', '1');
+			stavEl.textContent = '💡 Obvod je uzavřený — proud teče a žárovka svítí!';
+		} else {
+			paka.setAttribute('x2', '252'); paka.setAttribute('y2', '34'); // rozepnuto nahoru
+			zarovka.setAttribute('fill', '#e9ecef'); paprsky.setAttribute('opacity', '0');
+			stavEl.textContent = '🚫 Obvod je přerušený — proud neteče a žárovka nesvítí.';
+		}
+	}
+	svg.addEventListener('click', () => { zapnuto = !zapnuto; prekresli(); });
+	svg.style.cursor = 'pointer';
+	prekresli();
+</script>
+
+<style>
+	#obvod-svg { width: 100%; max-width: 460px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.obvod-stav { font-size: 1.1rem; font-weight: 700; margin-top: 0.6rem; min-height: 1.6rem; }
+</style>

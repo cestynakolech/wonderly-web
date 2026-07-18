@@ -10,7 +10,7 @@ export type Podtema = {
 	obsah?: string;
 	materialy?: Material[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -146,6 +146,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'skupenstvi-latek',
+					interakce: 'skupenstvi',
 					nazev: 'Skupenství látek a jejich vlastnosti',
 					obsah: `
 						<h2>Skupenství látek</h2>
@@ -444,6 +445,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'hustota',
+					interakce: 'hustota',
 					nazev: 'Hustota',
 					obsah: `
 						<h2>Hustota jako fyzikální veličina</h2>
@@ -771,6 +773,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'jednoduche-elektricke-obvody',
+					interakce: 'obvod',
 					nazev: 'Jednoduché elektrické obvody',
 					obsah: `
 						<h2>Elektrický proud ve vodiči</h2>

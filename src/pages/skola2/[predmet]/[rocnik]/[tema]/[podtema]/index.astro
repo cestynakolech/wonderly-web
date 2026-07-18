@@ -3,6 +3,9 @@ import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
 import Kviz from '../../../../../../components/skola2/Kviz.astro';
 import QrKod from '../../../../../../components/skola2/QrKod.astro';
 import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
+import SkupenstviSimulace from '../../../../../../components/skola2/SkupenstviSimulace.astro';
+import ObvodSimulace from '../../../../../../components/skola2/ObvodSimulace.astro';
+import HustotaSimulace from '../../../../../../components/skola2/HustotaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -116,6 +119,9 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		)
 	}
 	{podtema.interakce === 'hydraulika' && <HydraulikaSimulace />}
+	{podtema.interakce === 'skupenstvi' && <SkupenstviSimulace />}
+	{podtema.interakce === 'obvod' && <ObvodSimulace />}
+	{podtema.interakce === 'hustota' && <HustotaSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

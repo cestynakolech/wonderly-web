@@ -1,0 +1,62 @@
+---
+// Interaktivní hustota: posuvníkem měň hustotu tělesa a sleduj, jestli v vodě
+// plave, vznáší se, nebo klesá ke dnu. Voda má hustotu 1000 kg/m³.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Bude to plavat? 🕹️</span></h2>
+	<p>Voda má hustotu <strong>1000 kg/m³</strong>. Posuvníkem měň hustotu tělesa a sleduj: co je <em>řidší</em> než voda, plave; co je <em>hustší</em>, klesá ke dnu.</p>
+	<svg id="hustota-svg" viewBox="0 0 460 300" role="img" aria-label="Těleso ve vodě">
+		<rect x="40" y="70" width="380" height="210" fill="#a5d8f3" stroke="#2b2a26" stroke-width="3" rx="6" />
+		<line x1="40" y1="95" x2="420" y2="95" stroke="#4dabf7" stroke-width="2" stroke-dasharray="6 5" />
+		<text x="428" y="99" font-size="12" fill="#1971c2">hladina</text>
+		<rect id="hustota-teleso" x="200" y="90" width="60" height="60" fill="#e8590c" stroke="#2b2a26" stroke-width="3" rx="4" />
+		<text id="hustota-popisek" x="230" y="55" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Hustota tělesa: <output id="hustota-hodnota"></output>
+		<input type="range" id="hustota-slider" min="200" max="2000" step="50" value="600" />
+	</label>
+	<p class="hustota-stav" id="hustota-stav"></p>
+</section>
+
+<script>
+	const teleso = document.getElementById('hustota-teleso');
+	const popisek = document.getElementById('hustota-popisek');
+	const slider = document.getElementById('hustota-slider');
+	const hodnota = document.getElementById('hustota-hodnota');
+	const stavEl = document.getElementById('hustota-stav');
+	const VODA = 1000;
+
+	function prekresli() {
+		const h = +slider.value;
+		hodnota.textContent = h + ' kg/m³';
+		popisek.textContent = h + ' kg/m³';
+		let y, barva, text;
+		if (h < VODA) {
+			// plave: část nad hladinou podle poměru hustot
+			const ponor = h / VODA; // 0–1
+			y = 95 - 60 * (1 - ponor);
+			barva = '#40c057';
+			text = '⬆️ Těleso PLAVE — je řidší než voda (' + h + ' < 1000).';
+		} else if (h === VODA) {
+			y = 95; barva = '#fab005';
+			text = '↔️ Těleso se VZNÁŠÍ — má stejnou hustotu jako voda.';
+		} else {
+			y = 220; barva = '#e8590c';
+			text = '⬇️ Těleso KLESÁ ke dnu — je hustší než voda (' + h + ' > 1000).';
+		}
+		teleso.setAttribute('y', y);
+		teleso.setAttribute('fill', barva);
+		stavEl.textContent = text;
+	}
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#hustota-svg { width: 100%; max-width: 460px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 460px; display: block; margin-top: 0.3rem; }
+	.hustota-stav { font-size: 1.1rem; font-weight: 700; min-height: 1.6rem; }
+</style>
