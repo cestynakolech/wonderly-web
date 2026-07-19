@@ -102,6 +102,10 @@ const banka = bankaProLigu();
 	let odpovedi = {}; // jmeno -> { volba, cas }
 	let faze = 'cekarna';
 
+	// Ošetření textu od žáků před vložením do stránky (ochrana tabule před XSS)
+	const bezpecne = (t) =>
+		String(t).replace(/[&<>"']/g, (z) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[z]);
+
 	function zamichej(pole) {
 		const p = [...pole];
 		for (let i = p.length - 1; i > 0; i--) {
@@ -191,7 +195,7 @@ const banka = bankaProLigu();
 	function vykresliCekarnu() {
 		const jmena = Object.keys(tymy);
 		$('pocet-tymu-text').textContent = jmena.length;
-		$('seznam-tymu').innerHTML = jmena.map((j) => `<span class="tym-stitek">${j}</span>`).join('');
+		$('seznam-tymu').innerHTML = jmena.map((j) => `<span class="tym-stitek">${bezpecne(j)}</span>`).join('');
 		$('start').disabled = jmena.length === 0;
 	}
 
@@ -289,7 +293,7 @@ const banka = bankaProLigu();
 
 		$('kdo-jak').innerHTML = Object.entries(vysledky)
 			.map(([jmeno, v]) =>
-				`<span class="tym-stitek ${v.spravne ? 'ok' : 'ne'}">${v.spravne ? '✅' : v.volba === null ? '💤' : '❌'} ${jmeno}${spravneTymy[0]?.[0] === jmeno ? ' ⚡' : ''}</span>`
+				`<span class="tym-stitek ${v.spravne ? 'ok' : 'ne'}">${v.spravne ? '✅' : v.volba === null ? '💤' : '❌'} ${bezpecne(jmeno)}${spravneTymy[0]?.[0] === jmeno ? ' ⚡' : ''}</span>`
 			)
 			.join('');
 		$('mezivysledek').hidden = false;
@@ -308,7 +312,7 @@ const banka = bankaProLigu();
 	function vykresliTabulku() {
 		$('tabulka').innerHTML =
 			'<h3>Průběžné pořadí</h3>' +
-			tabulkaPole().map((t) => `<div class="radek-tabulky"><span>${t.jmeno}</span><b>${t.body}</b></div>`).join('');
+			tabulkaPole().map((t) => `<div class="radek-tabulky"><span>${bezpecne(t.jmeno)}</span><b>${t.body}</b></div>`).join('');
 	}
 
 	function konec() {
@@ -317,7 +321,7 @@ const banka = bankaProLigu();
 		$('vysledky').hidden = false;
 		const medaile = ['🥇', '🥈', '🥉'];
 		$('podium').innerHTML = tabulkaPole()
-			.map((t, i) => `<li class="podium-radek">${medaile[i] ?? '🏅'} <b>${t.jmeno}</b> — ${t.body} b.</li>`)
+			.map((t, i) => `<li class="podium-radek">${medaile[i] ?? '🏅'} <b>${bezpecne(t.jmeno)}</b> — ${t.body} b.</li>`)
 			.join('');
 		posli({ typ: 'faze', faze: 'konec', tabulka: tabulkaPole() });
 		for (let i = 0; i < 40; i++) {
