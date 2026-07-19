@@ -3777,11 +3777,11 @@ export const kvizy: Record<string, Otazka[]> = {
  * podtématu, pak 2. …), aby byla pokryta všechna témata rovnoměrně.
  * Díky tomu se při doplnění otázek k tématům aktualizují i souhrny.
  */
-function slozSouhrnnyKviz(rocnik: string, celky: string[], maxOtazek: number): Otazka[] {
+function slozSouhrnnyKviz(rocnik: string, celky: string[], maxOtazek: number, predmet = 'fyzika'): Otazka[] {
 	const zdroje = Object.entries(kvizy)
 		.filter(([klic]) => {
-			const [predmet, r, tema] = klic.split('/');
-			return predmet === 'fyzika' && r === rocnik && celky.includes(tema);
+			const [p, r, tema] = klic.split('/');
+			return p === predmet && r === rocnik && celky.includes(tema);
 		})
 		.map(([, seznam]) => seznam);
 	const vysledek: Otazka[] = [];
@@ -3856,3 +3856,17 @@ kvizy['fyzika/9-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
 	],
 	30,
 );
+
+// Souhrnné kvízy informatiky (pololetí dle časových plánů 2026/27)
+kvizy['informatika/7-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'7-rocnik', ['programovani-podminky-udalosti', 'modelovani-grafy-schemata'], 18, 'informatika');
+kvizy['informatika/7-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'7-rocnik', ['programovani-podminky-udalosti', 'modelovani-grafy-schemata', 'programovani-vetveni-promenne', 'pocitace'], 24, 'informatika');
+kvizy['informatika/8-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'8-rocnik', ['roboticka-stavebnice'], 18, 'informatika');
+kvizy['informatika/8-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'8-rocnik', ['roboticka-stavebnice', 'microbit', 'hromadne-zpracovani-dat'], 24, 'informatika');
+kvizy['informatika/9-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
+	'9-rocnik', ['programovaci-projekty'], 18, 'informatika');
+kvizy['informatika/9-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'9-rocnik', ['programovaci-projekty', 'digitalni-technologie', 'zaverecne-projekty'], 24, 'informatika');

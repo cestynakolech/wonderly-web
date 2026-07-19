@@ -3858,6 +3858,37 @@ export const temata: Record<string, Tema[]> = {
 				},
 			],
 		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co umíme po 1. pololetí</h2>
+						<ul>
+							<li><strong>Programování ve Scratchi:</strong> opakování s podmínkou, události (myš, klávesnice), posílání zpráv mezi postavami</li>
+							<li><strong>Modelování:</strong> modely a schémata, ohodnocené grafy (nejkratší cesta, kostra), orientované grafy a automaty, souběžné činnosti</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co umíme po 7. ročníku</h2>
+						<ul>
+							<li><strong>Programování:</strong> podmínky, události, zprávy, větvení, souřadnice, vlastní bloky s parametry, proměnné</li>
+							<li><strong>Modelování:</strong> schémata, grafy, automaty</li>
+							<li><strong>Počítače:</strong> soubory a aplikace, sítě a internet, e-mail, zabezpečení a digitální stopa</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže prověří celý ročník. Trénovat můžeš i v archivu <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Benjamin).</p>
+					`,
+				},
+			],
+		},
 	],
 	'informatika/8-rocnik': [
 		{
@@ -4068,6 +4099,36 @@ export const temata: Record<string, Tema[]> = {
 				},
 			],
 		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co umíme po 1. pololetí</h2>
+						<ul>
+							<li><strong>Robotická stavebnice LEGO:</strong> sestavení a oživení robota, jízda a výstupy (motory, displej, zvuk), senzory (dotyk, vzdálenost, barva), jízda po čáře, projekt Můj robot</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co umíme po 8. ročníku</h2>
+						<ul>
+							<li><strong>Robotika:</strong> LEGO robot — motory, senzory, rozhodování, projekt</li>
+							<li><strong>micro:bit:</strong> displej, tlačítka a senzory, rádio, externí zařízení</li>
+							<li><strong>Tabulky:</strong> adresy buněk, vzorce, funkce (PRŮMĚR, MAX, KDYŽ…), řazení, filtrování, velká data</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže prověří celý ročník. Trénovat můžeš i v archivu <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Kadet).</p>
+					`,
+				},
+			],
+		},
 	],
 	'informatika/9-rocnik': [
 		{
@@ -4247,6 +4308,35 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>prezentace</strong> — srozumitelné předvedení a vysvětlení, jak to funguje</li>
 						</ol>
 						<p>👉 Projekt je tvoje <strong>vizitka z informatiky</strong> — vyber si téma, které tě opravdu baví.</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'pololetni-shrnuti',
+					nazev: 'Pololetní shrnutí',
+					obsah: `
+						<h2>Co umíme po 1. pololetí</h2>
+						<ul>
+							<li><strong>Programovací projekty (Scratch II):</strong> plán projektu, testování a ladění, seznamy a proměnné, klonování, animace, tvorba vlastní hry</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
+					`,
+				},
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co umíme po 9. ročníku</h2>
+						<ul>
+							<li><strong>Projekty:</strong> plánování, ladění, seznamy, klony, hry — a vlastní závěrečný projekt</li>
+							<li><strong>Digitální technologie:</strong> hardware a software, komprese, sítě a internet, bezpečnost, digitální stopa a identita</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže prověří celý ročník — dobrá příprava i na střední školu. Trénink: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Kadet).</p>
 					`,
 				},
 			],
