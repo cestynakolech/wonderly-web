@@ -1,6 +1,6 @@
 # PROGRESS.md — technický stav práce
 
-_Aktualizováno 14. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
+_Aktualizováno 19. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
 
 ## ⏩ Jak navázat v nové session
 1. Přečti `CLAUDE.md` a tento `PROGRESS.md`.
@@ -93,6 +93,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-19** — **Liga: výběr učiva + oprava zpoždění tabletů + kvíz pneumatika.** (1) Z praxe: na pomalé wifi doletí otázka na iPad pozdě a odpočet už běží → tabule nyní po odeslání otázky čeká **2 s „Připravte se…"** a teprve pak spustí odpočet (liga.astro). (2) **Obě verze ligy (tablety i karty) mají výběr Ročník (6–9/mix) a Učivo (celek)** — nová `bankaProLigu()` v hry.ts vkládá do stránky úplnou banku fyziky po celcích (26 celků, 1558 otázek, HTML 453 kB; bez shrnutí-složenin); při mixu se bere rovnoměrně z ročníků, počítadlo „V bance je N otázek". (3) Kvíz teplotní roztažnosti (F6): nová otázka „Proč je zahřátá pneumatika tvrdší a v horku může prasknout" (dotaz učitele; roztažnost plynů). Pozn.: otázka „jen kovy" byla v datech správně — jde o distraktor. (4) Návod `Škola/Hry/NAVOD-hry-pro-tridu.md` přepsán: tabletová verze (doporučená) + kartová, výběr učiva, tip na výpadek spojení.
 - **2026-07-18 (7)** — **Fyzika 7: interaktivní těžiště** (`TezisteSimulace.astro`, interakce 'teziste' u sily-kolem-nas/teziste): nepravidelný mnohoúhelník, klik na závěsný bod → SVG transform otočí těleso tak, že těžiště (area-centroid) je svisle pod hákem, svislá olovnice, čára závěs→těžiště; dva body → průsečík = těžiště. Zelený bod těžiště se ukáže hned po 1. zavěšení přímo na olovnici (na námitku uživatele „není otočené podle těžiště"). Ověřeno výpočtem: CG vždy x=hák; strany mají rovné MOMENTY (355059=355059), plochy jen ≈ (9530/9570) — v textu vysvětleno (páka/houpačka, ne plochy). Interaktivních prvků: 8 (hydraulika, skupenstvi, hustota, obvod, teplomer, skladani-sil, vrh, teziste).
 - **2026-07-18 (6)** — **Fyzika 7: interaktivní vrh kamene** (`VrhSimulace.astro`, interakce 'vrh' u gravitacni-sila): canvas, posuvník úhlu 0–90° (i kolmo) a rychlosti, přepínač odporu vzduchu. Za letu šipky sil (gravitace dolů + odpor proti pohybu), dráha se kreslí jako balistická křivka; s odporem klesá strměji, bez odporu souměrná parabola. Fyzika ověřena výpočtem (45° odpor 18 m × bez odporu 91 m; 90° = 0 m dolet). Interaktivních prvků: 7 (hydraulika, skupenstvi, hustota, obvod, teplomer, skladani-sil, vrh).
 - **2026-07-18 (5)** — **Fyzika 7: interaktivní skládání sil (přetahování lanem).** `SkladaniSilSimulace.astro` (interakce 'skladani-sil' u F7 sily-kolem-nas/skladani-sil): +/− táhnoucí na obě strany (100 N/os.), šipky sil, animovaný uzel se posouvá k silnější straně, text výslednice = |L−P|. Ukazuje sčítání sil stejného směru i výslednici opačných. Ověřeno živě. Interaktivních prvků celkem: hydraulika(F7), skupenstvi/hustota/obvod/teplomer(F6), skladani-sil(F7).
