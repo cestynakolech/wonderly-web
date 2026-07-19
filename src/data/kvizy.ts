@@ -1325,6 +1325,15 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Běžné sklo velké změny teploty nesnese — proto existuje varné sklo s jiným složením.',
 		},
 		{
+			text: 'Proč je zahřátá pneumatika tvrdší a v horku může i prasknout?',
+			odpovedi: [
+				'vzduch uvnitř se roztahuje a víc tlačí na stěny',
+				'guma se teplem smršťuje a stahuje se',
+				'vzduch se uvnitř teplem vypaří',
+			],
+			vysvetleni: 'Plyny se roztahují ze všech skupenství nejvíc. Zahřátý vzduch v uzavřené pneumatice tlačí víc na stěny (roste tlak) — pneumatika ztvrdne a ve velkém horku může prasknout. Proto se tlak v pneumatikách měří, dokud jsou studené.',
+		},
+		{
 			text: 'Jakou vlastnost musí mít zubní plomba?',
 			odpovedi: [
 				'stejnou teplotní roztažnost jako zub',

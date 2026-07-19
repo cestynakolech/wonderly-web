@@ -85,6 +85,7 @@ const banka = otazkyNapricRocniky(120, 2026);
 	let cisloOtazky = 0;
 	let casNaOtazku = 20;
 	let odpocetId = null;
+	let prodlevaId = null;
 	let odpovedi = {}; // jmeno -> { volba, cas }
 	let faze = 'cekarna';
 
@@ -163,7 +164,13 @@ const banka = otazkyNapricRocniky(120, 2026);
 		$('mezivysledek').hidden = true;
 		vykresliTabulku();
 		posli({ typ: 'faze', faze: 'otazka', otazka: cisloOtazky, riskova: jeRiskova() });
-		spustOdpocet();
+		// Krátká prodleva, než se rozběhne odpočet — ať otázka doletí i na tablety s pomalou wifi
+		$('odpocet-cislo').textContent = 'Připravte se…';
+		$('odpocet-vypln').style.transition = 'none';
+		$('odpocet-vypln').style.width = '100%';
+		clearInterval(odpocetId);
+		clearTimeout(prodlevaId);
+		prodlevaId = setTimeout(spustOdpocet, 2000);
 	}
 
 	function spustOdpocet() {
