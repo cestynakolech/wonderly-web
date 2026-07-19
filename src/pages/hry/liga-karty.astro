@@ -1,9 +1,9 @@
 ---
 import SkolaLayout from '../../layouts/SkolaLayout.astro';
-import { otazkyNapricRocniky } from '../../data/hry';
+import { bankaProLigu } from '../../data/hry';
 
-// 120 otázek napříč ročníky — hra si z nich bere náhodně podle nastavení
-const banka = otazkyNapricRocniky(120, 2026);
+// Úplná banka fyziky 6–9 po celcích — hra si vybírá podle ročníku a učiva
+const banka = bankaProLigu();
 ---
 
 <SkolaLayout titulek="Fyzikální liga — verze s kartami">
@@ -17,6 +17,18 @@ const banka = otazkyNapricRocniky(120, 2026);
 				Po odpočtu týmy zvednou karty a vy klepnutím označíte, kdo odpověděl správně.
 			</p>
 			<div class="volby">
+				<label>Ročník
+					<select id="rocnik">
+						<option value="">Všechny (mix 6–9)</option>
+						<option value="6">6. ročník</option>
+						<option value="7">7. ročník</option>
+						<option value="8">8. ročník</option>
+						<option value="9">9. ročník</option>
+					</select>
+				</label>
+				<label>Učivo
+					<select id="celek" disabled><option value="">Celý ročník</option></select>
+				</label>
 				<label>Počet týmů
 					<select id="pocet-tymu">{[2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === 4}>{n}</option>)}</select>
 				</label>
@@ -27,6 +39,7 @@ const banka = otazkyNapricRocniky(120, 2026);
 					<select id="cas-otazky"><option value="15">15 s</option><option value="20" selected>20 s</option><option value="30">30 s</option></select>
 				</label>
 			</div>
+			<p id="v-bance" class="pozn"></p>
 			<div id="jmena-tymu"></div>
 			<button id="start" class="velke-tlacitko">Spustit hru ▶</button>
 		</section>
@@ -87,9 +100,54 @@ const banka = otazkyNapricRocniky(120, 2026);
 	$('pocet-tymu').addEventListener('change', vykresliJmena);
 	vykresliJmena();
 
+	// Výběr otázek podle ročníku a učiva; při mixu bere rovnoměrně z každého ročníku
+	function vyberOtazky(pocet) {
+		const rocnik = $('rocnik').value;
+		const celek = $('celek').value;
+		const poRocniku = {};
+		for (const b of banka) {
+			if (rocnik && b.rocnik !== rocnik) continue;
+			if (celek && b.celek !== celek) continue;
+			(poRocniku[b.rocnik] ??= []).push(...b.otazky);
+		}
+		const fronty = Object.values(poRocniku).map(zamichej);
+		const vybrane = [];
+		while (vybrane.length < pocet && fronty.some((f) => f.length)) {
+			for (const f of fronty) {
+				if (f.length && vybrane.length < pocet) vybrane.push(f.pop());
+			}
+		}
+		return zamichej(vybrane);
+	}
+
+	function obnovCelky() {
+		const rocnik = $('rocnik').value;
+		$('celek').disabled = !rocnik;
+		$('celek').innerHTML =
+			'<option value="">Celý ročník</option>' +
+			banka
+				.filter((b) => b.rocnik === rocnik)
+				.map((b) => `<option value="${b.celek}">${b.nazev} (${b.otazky.length})</option>`)
+				.join('');
+		spocitejBanku();
+	}
+
+	function spocitejBanku() {
+		const rocnik = $('rocnik').value;
+		const celek = $('celek').value;
+		const n = banka
+			.filter((b) => (!rocnik || b.rocnik === rocnik) && (!celek || b.celek === celek))
+			.reduce((s, b) => s + b.otazky.length, 0);
+		$('v-bance').textContent = `V bance je ${n} otázek.`;
+	}
+
+	$('rocnik').addEventListener('change', obnovCelky);
+	$('celek').addEventListener('change', spocitejBanku);
+	spocitejBanku();
+
 	$('start').addEventListener('click', () => {
 		tymy = [...document.querySelectorAll('.jmeno-tymu')].map((el) => ({ jmeno: el.value || 'Tým', body: 0 }));
-		otazky = zamichej(banka).slice(0, +$('pocet-otazek').value);
+		otazky = vyberOtazky(+$('pocet-otazek').value);
 		casNaOtazku = +$('cas-otazky').value;
 		cisloOtazky = 0;
 		$('nastaveni').hidden = true;
@@ -211,6 +269,7 @@ const banka = otazkyNapricRocniky(120, 2026);
 	.volby { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1rem 0; }
 	.volby label { display: flex; flex-direction: column; font-weight: 700; gap: 0.3rem; }
 	.volby select { font-size: 1.1rem; padding: 0.3rem; }
+	.pozn { color: #666; }
 	#jmena-tymu { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
 	.jmeno-tymu { font-size: 1.05rem; padding: 0.4rem; border: 2px solid #333; border-radius: 8px; width: 9rem; }
 	.velke-tlacitko { font-size: 1.4rem; padding: 0.7rem 2rem; border-radius: 12px; border: 3px solid #333;

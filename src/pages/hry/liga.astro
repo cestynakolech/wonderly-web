@@ -1,10 +1,10 @@
 ---
 import SkolaLayout from '../../layouts/SkolaLayout.astro';
 import QrKod from '../../components/skola2/QrKod.astro';
-import { otazkyNapricRocniky } from '../../data/hry';
+import { bankaProLigu } from '../../data/hry';
 
-// 120 otázek napříč ročníky — hra si z nich bere náhodně podle nastavení
-const banka = otazkyNapricRocniky(120, 2026);
+// Úplná banka fyziky 6–9 po celcích — hra si vybírá podle ročníku a učiva
+const banka = bankaProLigu();
 ---
 
 <SkolaLayout titulek="Fyzikální liga — tabule">
@@ -17,6 +17,18 @@ const banka = otazkyNapricRocniky(120, 2026);
 				Body se počítají samy — nejrychlejší správný tým má bod k dobru.
 			</p>
 			<div class="volby">
+				<label>Ročník
+					<select id="rocnik">
+						<option value="">Všechny (mix 6–9)</option>
+						<option value="6">6. ročník</option>
+						<option value="7">7. ročník</option>
+						<option value="8">8. ročník</option>
+						<option value="9">9. ročník</option>
+					</select>
+				</label>
+				<label>Učivo
+					<select id="celek" disabled><option value="">Celý ročník</option></select>
+				</label>
 				<label>Počet otázek
 					<select id="pocet-otazek"><option>10</option><option selected>15</option><option>20</option></select>
 				</label>
@@ -24,6 +36,7 @@ const banka = otazkyNapricRocniky(120, 2026);
 					<select id="cas-otazky"><option value="15">15 s</option><option value="20" selected>20 s</option><option value="30">30 s</option></select>
 				</label>
 			</div>
+			<p id="v-bance" class="pozn"></p>
 			<button id="vytvorit" class="velke-tlacitko">Vytvořit hru ▶</button>
 			<p class="pozn">Bez tabletů? <a href="/hry/liga-karty">Verze s tištěnými kartami</a>.</p>
 		</section>
@@ -102,6 +115,51 @@ const banka = otazkyNapricRocniky(120, 2026);
 		if (ws?.readyState === 1) ws.send(JSON.stringify(zprava));
 	}
 
+	// Výběr otázek podle ročníku a učiva; při mixu bere rovnoměrně z každého ročníku
+	function vyberOtazky(pocet) {
+		const rocnik = $('rocnik').value;
+		const celek = $('celek').value;
+		const poRocniku = {};
+		for (const b of banka) {
+			if (rocnik && b.rocnik !== rocnik) continue;
+			if (celek && b.celek !== celek) continue;
+			(poRocniku[b.rocnik] ??= []).push(...b.otazky);
+		}
+		const fronty = Object.values(poRocniku).map(zamichej);
+		const vybrane = [];
+		while (vybrane.length < pocet && fronty.some((f) => f.length)) {
+			for (const f of fronty) {
+				if (f.length && vybrane.length < pocet) vybrane.push(f.pop());
+			}
+		}
+		return zamichej(vybrane);
+	}
+
+	function obnovCelky() {
+		const rocnik = $('rocnik').value;
+		$('celek').disabled = !rocnik;
+		$('celek').innerHTML =
+			'<option value="">Celý ročník</option>' +
+			banka
+				.filter((b) => b.rocnik === rocnik)
+				.map((b) => `<option value="${b.celek}">${b.nazev} (${b.otazky.length})</option>`)
+				.join('');
+		spocitejBanku();
+	}
+
+	function spocitejBanku() {
+		const rocnik = $('rocnik').value;
+		const celek = $('celek').value;
+		const n = banka
+			.filter((b) => (!rocnik || b.rocnik === rocnik) && (!celek || b.celek === celek))
+			.reduce((s, b) => s + b.otazky.length, 0);
+		$('v-bance').textContent = `V bance je ${n} otázek.`;
+	}
+
+	$('rocnik').addEventListener('change', obnovCelky);
+	$('celek').addEventListener('change', spocitejBanku);
+	spocitejBanku();
+
 	$('vytvorit').addEventListener('click', async () => {
 		const odpoved = await fetch('/api/liga/nova');
 		const { mistnost } = await odpoved.json();
@@ -109,7 +167,7 @@ const banka = otazkyNapricRocniky(120, 2026);
 		const protokol = location.protocol === 'https:' ? 'wss' : 'ws';
 		ws = new WebSocket(`${protokol}://${location.host}/api/liga/ws?mistnost=${mistnost}&role=tabule`);
 		ws.addEventListener('message', (u) => zpracuj(JSON.parse(u.data)));
-		otazky = zamichej(banka).slice(0, +$('pocet-otazek').value);
+		otazky = vyberOtazky(+$('pocet-otazek').value);
 		casNaOtazku = +$('cas-otazky').value;
 		$('nastaveni').hidden = true;
 		$('cekarna').hidden = false;
