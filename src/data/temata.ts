@@ -4504,4 +4504,102 @@ export const temata: Record<string, Tema[]> = {
 			],
 		},
 	],
+	'pracovni-cinnosti/6-rocnik': [
+		{
+			slug: '3d-modelovani',
+			nazev: '3D modelování',
+			podtemata: [
+				{
+					slug: 'tinkercad',
+					nazev: 'Návod: Tinkercad — 3D kreslení pro začátečníky',
+					obsah: `
+						<h2>Co je Tinkercad?</h2>
+						<p><strong>Tinkercad</strong> je 3D kreslení zdarma přímo v prohlížeči — nic se neinstaluje. Skládáš hotová tělesa jako stavebnici a za pár minut máš vlastní 3D model, který jde i vytisknout na 3D tiskárně.</p>
+						<p>ℹ️ <em>Toto téma nejede podle časového plánu — vracíme se k němu průběžně, kdykoli zbyde čas nebo chuť tvořit.</em></p>
+						<h3>1️⃣ Přihlášení</h3>
+						<ol>
+							<li>Otevři <strong>tinkercad.com</strong> (QR dole)</li>
+							<li>Klikni na <strong>Přihlásit se / Join now</strong> — použij přístup od učitele (kód třídy a přezdívka, vlastní e-mail není potřeba)</li>
+							<li>Vlevo zvol <strong>3D návrhy → Vytvořit nový návrh</strong></li>
+						</ol>
+						<h3>2️⃣ Ovládání pracovní plochy</h3>
+						<ul>
+							<li>🖱️ <strong>pravé tlačítko + tažení</strong> — otáčení pohledu kolem modelu</li>
+							<li><strong>kolečko myši</strong> — přiblížení/oddálení</li>
+							<li><strong>levé tlačítko</strong> — vybírání a přetahování těles</li>
+							<li>kostka vlevo nahoře — rychlé pohledy (shora, zepředu…)</li>
+						</ul>
+						<h3>3️⃣ Základní postup — stavebnice těles</h3>
+						<ol>
+							<li>Z pravého panelu <strong>přetáhni těleso</strong> (kvádr, válec, střecha…) na plochu</li>
+							<li><strong>Bílé úchyty</strong> v rozích = změna rozměrů (klikni na číslo a napiš přesnou hodnotu v mm)</li>
+							<li><strong>Černá šipka nahoře</strong> = zvednutí tělesa nad plochu</li>
+							<li><strong>Zakřivené šipky</strong> = otočení kolem osy</li>
+						</ol>
+						<h3>4️⃣ Kouzlo Tinkercadu: DÍRA</h3>
+						<p>Každé těleso může být <strong>plné</strong>, nebo <strong>díra</strong> (šrafované). Když díru překryješ s plným tělesem a dáš <strong>Seskupit (Ctrl+G)</strong>, díra se z tělesa „vykousne". Tak vzniknou otvory, nápisy, klíčenky…</p>
+						<h3>5️⃣ Užitečné nástroje</h3>
+						<ul>
+							<li><strong>Zarovnat (L)</strong> — vybraná tělesa srovná na střed či hranu</li>
+							<li><strong>Zrcadlit (M)</strong> — převrátí těleso</li>
+							<li><strong>Ctrl+D</strong> — duplikát; <strong>Ctrl+Z</strong> — krok zpět (nejdůležitější klávesa 🙂)</li>
+						</ul>
+						<h3>🎯 Úkoly na vyzkoušení (od nejlehčího)</h3>
+						<ol>
+							<li><strong>Jmenovka na lavici</strong> — kvádr + 3D text se jménem (seskupit)</li>
+							<li><strong>Klíčenka</strong> — placka s textem a dírkou na kroužek (válec jako díra)</li>
+							<li><strong>Domeček</strong> — kvádr + střecha + díry jako okna a dveře</li>
+							<li><strong>Hrací kostka</strong> — krychle + zapuštěné puntíky (koule jako díry)</li>
+						</ol>
+						<h3>💾 Uložení a 3D tisk</h3>
+						<p>Návrh se ukládá sám. Pro tisk: <strong>Export → .STL</strong> — soubor pak učitel pošle do 3D tiskárny.</p>
+					`,
+					odkazy: [
+						{ nazev: 'Tinkercad — spustit v prohlížeči', url: 'https://www.tinkercad.com' },
+						{ nazev: 'Tinkercad — galerie a lekce', url: 'https://www.tinkercad.com/learn/designs' },
+					],
+				},
+				{
+					slug: 'sketchup',
+					nazev: 'Návod: SketchUp — přesnější 3D kreslení',
+					obsah: `
+						<h2>Co je SketchUp?</h2>
+						<p><strong>SketchUp</strong> je druhý krok po Tinkercadu. Nekreslíš skládáním hotových těles, ale <strong>od čáry</strong>: nakreslíš půdorys a <strong>vytáhneš ho do výšky</strong>. Používají ho architekti a návrháři — webová verze <strong>SketchUp Free</strong> je zdarma v prohlížeči.</p>
+						<p>ℹ️ <em>I toto téma děláme průběžně, bez pevného plánu. Nejdřív zvládni Tinkercad — SketchUp je přesnější, ale méně odpouští.</em></p>
+						<h3>1️⃣ Spuštění</h3>
+						<ol>
+							<li>Otevři <strong>app.sketchup.com</strong> (QR dole)</li>
+							<li>Přihlas se účtem od učitele a zvol <strong>Create new</strong> (šablona v milimetrech/metrech)</li>
+						</ol>
+						<h3>2️⃣ Nejdůležitější nástroje</h3>
+						<ul>
+							<li>✏️ <strong>Čára (L)</strong> — kreslí hrany; uzavřený obrys vytvoří plochu</li>
+							<li>▭ <strong>Obdélník (R)</strong> a ⭕ <strong>Kružnice (C)</strong></li>
+							<li>⬆️ <strong>Tlač/Táhni — Push/Pull (P)</strong> — KOUZLO SketchUpu: chytneš plochu a vytáhneš ji do 3D (zatlačení = díra)</li>
+							<li>🔄 <strong>Orbit (O)</strong> + kolečko myši — otáčení a zoom pohledu</li>
+							<li>📏 <strong>Metr (T)</strong> — měření a vodicí čáry</li>
+						</ul>
+						<h3>3️⃣ Přesné rozměry</h3>
+						<p>Během kreslení prostě <strong>napiš čísla</strong> a stiskni Enter. Obdélník: táhni, napiš <strong>100;50</strong>, Enter → přesně 100 × 50 mm. Stejně funguje výška u Push/Pull.</p>
+						<h3>🎯 Úkol: domeček se střechou</h3>
+						<ol>
+							<li>Obdélník 6 × 4 m → Push/Pull do výšky 3 m</li>
+							<li>Čárou rozděl horní plochu uprostřed → nástrojem <strong>Přesun (M)</strong> zvedni čáru nahoru → sedlová střecha</li>
+							<li>Na stěny nakresli obdélníky jako okna a dveře → Push/Pull mírně dovnitř</li>
+						</ol>
+						<h3>💡 Rady</h3>
+						<ul>
+							<li><strong>Ctrl+Z</strong> vrací krok — experimentuj beze strachu</li>
+							<li>drž se <strong>barevných os</strong> (červená/zelená/modrá) — kreslíš pak rovně</li>
+							<li>ulož přes <strong>Save</strong> — příště pokračuješ, kde jsi skončil</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'SketchUp Free — spustit v prohlížeči', url: 'https://app.sketchup.com' },
+						{ nazev: 'SketchUp — výuková videa (anglicky)', url: 'https://learn.sketchup.com' },
+					],
+				},
+			],
+		},
+	],
 };
