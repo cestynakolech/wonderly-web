@@ -3580,4 +3580,676 @@ export const temata: Record<string, Tema[]> = {
 			],
 		},
 	],
+	'informatika/7-rocnik': [
+		{
+			slug: 'programovani-podminky-udalosti',
+			nazev: 'Programování — podmínky, postavy a události',
+			podtemata: [
+				{
+					slug: 'opakovani-s-podminkou',
+					nazev: 'Opakování s podmínkou',
+					obsah: `
+						<h2>Opakuj, dokud…</h2>
+						<p>Ve Scratchi už umíme blok <strong>opakuj 10krát</strong>. Jenže co když dopředu nevíme, kolikrát je potřeba něco zopakovat?</p>
+						<p>👉 Na to je blok <strong>opakuj dokud nenastane &lt;podmínka&gt;</strong> — program opakuje příkazy tak dlouho, dokud podmínka není splněna.</p>
+						<h3>Podmínka = otázka s odpovědí ANO/NE</h3>
+						<ul>
+							<li><strong>dotýká se okraje?</strong> — postava došla na kraj scény</li>
+							<li><strong>dotýká se barvy?</strong> — kulička narazila na čáru</li>
+							<li><strong>je stisknuta klávesa mezerník?</strong></li>
+						</ul>
+						<p>Počítač podmínku vyhodnotí <strong>pokaždé znovu</strong> — proto se program umí sám zastavit ve správnou chvíli.</p>
+						<h3>Kde se to hodí?</h3>
+						<ul>
+							<li>postava jde vpřed, <em>dokud</em> nenarazí na zeď</li>
+							<li>hra běží, <em>dokud</em> hráči nedojdou životy</li>
+							<li>odpočet běží, <em>dokud</em> čas nedojde na nulu</li>
+						</ul>
+						<h3>Pozor na nekonečnou smyčku</h3>
+						<p>Když podmínka nemůže nikdy nastat, program se opakuje donekonečna. To někdy chceme (kulisy hry), ale jindy je to <strong>chyba</strong>, kterou je potřeba najít a opravit.</p>
+						<p>🐭 Vyzkoušej na <a href="https://scratch.mit.edu" target="_blank" rel="noopener">scratch.mit.edu</a> — učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi</a>, kapitola 4.</p>
+					`,
+				},
+				{
+					slug: 'udalosti-a-vstupy',
+					nazev: 'Události a vstupy — myš a klávesnice',
+					obsah: `
+						<h2>Program, který poslouchá</h2>
+						<p><strong>Událost</strong> je okamžik, na který program čeká a hned na něj zareaguje. Ve Scratchi události poznáš podle žlutých bloků „<strong>po kliknutí…</strong>", „<strong>po stisku klávesy…</strong>".</p>
+						<h3>Jaké události známe?</h3>
+						<ul>
+							<li>🖱️ <strong>kliknutí myší</strong> na postavu nebo na zelenou vlajku</li>
+							<li>⌨️ <strong>stisk klávesy</strong> — šipky pro pohyb, mezerník pro výstřel</li>
+							<li>📩 <strong>přijetí zprávy</strong> od jiné postavy</li>
+						</ul>
+						<h3>Ovládání postavy klávesnicí</h3>
+						<p>Každá šipka má vlastní scénář: <em>po stisku šipky doprava → změň x o 10</em>. Tak vznikne ovládání jako ve hře.</p>
+						<h3>Sledování myši</h3>
+						<p>Postava se umí <strong>otáčet za ukazatelem myši</strong> nebo jít na pozici myši — základ pro chytání, míření a kreslení.</p>
+						<p>💡 Program řízený událostmi nedělá věci „od začátku do konce", ale <strong>reaguje na to, co uděláš</strong> — stejně jako mobil čeká na tvé ťuknutí.</p>
+						<p>📗 Učebnice Scratch, kapitola 5 (Myš a klávesnice).</p>
+					`,
+				},
+				{
+					slug: 'posilani-zprav',
+					nazev: 'Objekty a posílání zpráv',
+					obsah: `
+						<h2>Postavy si povídají</h2>
+						<p>Ve větším programu je víc postav a každá má své scénáře. Jak zařídit, aby spolupracovaly? Pošlou si <strong>zprávu</strong>.</p>
+						<h3>Jak to funguje?</h3>
+						<ul>
+							<li>Jedna postava použije blok <strong>vyšli zprávu</strong> (např. „start závodu")</li>
+							<li>Ostatní mají scénář <strong>po přijetí zprávy</strong> — a v tu chvíli se rozběhnou</li>
+						</ul>
+						<p>👉 Zpráva je jako <strong>startovní výstřel</strong>: kdo ji slyší, začne dělat svou práci. Odesílatel nemusí vědět, kdo všechno poslouchá.</p>
+						<h3>K čemu je to dobré?</h3>
+						<ul>
+							<li>vypravěč dořekne větu → pošle zprávu → objeví se další scéna</li>
+							<li>hráč sebere klíč → zpráva „otevři dveře"</li>
+							<li>tlačítko START spustí celou hru</li>
+						</ul>
+						<h3>Mini-projekt: interaktivní scénka</h3>
+						<p>Vytvoř scénku se dvěma postavami, které se střídají v dialogu pomocí zpráv — přesně tak se programují animované příběhy.</p>
+						<p>📗 Učebnice Scratch, kapitola 6 (Posílání zpráv).</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'modelovani-grafy-schemata',
+			nazev: 'Modelování pomocí grafů a schémat',
+			podtemata: [
+				{
+					slug: 'modely-a-schemata',
+					nazev: 'Modely a schémata kolem nás',
+					obsah: `
+						<h2>Model = zjednodušený obraz skutečnosti</h2>
+						<p>Plánek metra, mapa, rodokmen, schéma zapojení — to všechno jsou <strong>modely</strong>. Vynechávají nepodstatné a nechávají jen to, co potřebujeme k řešení.</p>
+						<h3>Proč modely používáme?</h3>
+						<ul>
+							<li>skutečnost je moc složitá — model ji <strong>zjednoduší</strong></li>
+							<li>v modelu rychle najdeme <strong>odpověď na otázku</strong> (kudy jet, kdo je čí bratranec)</li>
+							<li>model můžeme <strong>zkontrolovat a opravit</strong> — chybí v něm něco? přebývá?</li>
+						</ul>
+						<h3>Dobrý model odpovídá na otázku</h3>
+						<p>👉 Stejná skutečnost může mít různé modely. Plánek metra neukazuje skutečné vzdálenosti — a přesto je pro cestování nejlepší. Pro stavbaře tunelů by byl k ničemu.</p>
+						<h3>Vyzkoušej si</h3>
+						<p>Nakresli schéma cesty do školy: kroužky = místa, čáry = cesty. Právě jsi vytvořil(a) <strong>graf</strong> — víc v další kapitole!</p>
+						<p>🦫 Úlohy s modely najdeš v archivu soutěže <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobřík informatiky</a> (kategorie Benjamin).</p>
+					`,
+				},
+				{
+					slug: 'ohodnocene-grafy',
+					nazev: 'Ohodnocené grafy — nejkratší cesta',
+					obsah: `
+						<h2>Graf: kroužky a čáry</h2>
+						<p>V informatice je <strong>graf</strong> obrázek z <strong>vrcholů</strong> (kroužky = města, křižovatky, lidé) a <strong>hran</strong> (čáry = silnice, vztahy, spojení).</p>
+						<h3>Ohodnocený graf</h3>
+						<p>Když ke každé hraně připíšeme <strong>číslo</strong> (kilometry, minuty, cenu), vznikne <strong>ohodnocený graf</strong>.</p>
+						<ul>
+							<li><strong>Nejkratší (minimální) cesta</strong> — kudy se dostat z A do B s nejmenším součtem čísel? Přesně tohle počítá navigace v autě!</li>
+							<li><strong>Kostra grafu</strong> — které hrany stačí ponechat, aby vše zůstalo propojené co nejlevněji? Tak se plánují rozvody elektřiny nebo internetu.</li>
+						</ul>
+						<h3>Jak hledat nejkratší cestu?</h3>
+						<p>👉 Systematicky: postupuj od startu, u každého vrcholu si zapisuj <strong>nejmenší dosažený součet</strong> a škrtej horší možnosti. Nezkoušej cesty náhodně — přesnost vyhrává nad rychlostí.</p>
+						<p>🦫 V testech <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> jsou grafové úlohy každý rok.</p>
+					`,
+				},
+				{
+					slug: 'orientovane-grafy-a-automaty',
+					nazev: 'Orientované grafy a automaty',
+					obsah: `
+						<h2>Když má čára šipku</h2>
+						<p>Někdy jde spojení jen jedním směrem: jednosměrka, řeka, „kdo koho porazil". Hrany se šipkami tvoří <strong>orientovaný graf</strong>.</p>
+						<h3>Automat = graf stavů</h3>
+						<p><strong>Automat</strong> v informatice není hrací skříň — je to model, který má <strong>stavy</strong> (kroužky) a <strong>přechody</strong> (šipky s podmínkou):</p>
+						<ul>
+							<li>turniket: stav <em>zamčeno</em> → (vhozená mince) → stav <em>odemčeno</em></li>
+							<li>semafor: červená → červená+oranžová → zelená → oranžová → červená…</li>
+							<li>postava ve hře: stojí → (šipka) → běží → (mezerník) → skáče</li>
+						</ul>
+						<p>👉 Automat přesně říká, <strong>co se smí stát v jaké situaci</strong> — proto se s ním navrhují programy, hry i pračky.</p>
+						<h3>Souběžné (paralelní) činnosti</h3>
+						<p>Model umí zachytit i činnosti běžící <strong>zároveň</strong>: zatímco se vaří těstoviny, krájíme zeleninu. Ve Scratchi běží scénáře postav také souběžně — každá postava si jede ten svůj.</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'programovani-vetveni-promenne',
+			nazev: 'Programování — větvení, parametry a proměnné',
+			podtemata: [
+				{
+					slug: 'vetveni-programu',
+					nazev: 'Větvení — když… tak… jinak…',
+					obsah: `
+						<h2>Program se rozhoduje</h2>
+						<p>Blok <strong>když &lt;podmínka&gt; tak … jinak …</strong> rozdělí program na dvě větve. Splněno → první větev, nesplněno → druhá.</p>
+						<h3>Příklady rozhodování</h3>
+						<ul>
+							<li>když se <em>dotýká okraje</em> → otoč se</li>
+							<li>když je <em>skóre &gt; 10</em> → řekni „Vyhráls!" <em>jinak</em> hraj dál</li>
+							<li>když je <em>stisknuta mezera</em> → vystřel</li>
+						</ul>
+						<h3>Rozhodování v opakování</h3>
+						<p>Nejčastěji je <strong>když</strong> schované uvnitř smyčky <strong>opakuj stále</strong>: program pořád dokola kontroluje, co se děje, a reaguje. Tak funguje každá hra.</p>
+						<p>👉 Podmínky jde skládat: <strong>a zároveň</strong>, <strong>nebo</strong>, <strong>ne</strong> — např. <em>když se dotýká čáry A ZÁROVEŇ je rychlost &gt; 5</em>.</p>
+						<p>📗 Učebnice Scratch, kapitola 7 (Rozhodování).</p>
+					`,
+				},
+				{
+					slug: 'souradnice-a-kresleni',
+					nazev: 'Souřadnice a kreslení',
+					obsah: `
+						<h2>Kde přesně postava je?</h2>
+						<p>Scéna ve Scratchi je mřížka: <strong>x</strong> (vodorovně, −240 až 240) a <strong>y</strong> (svisle, −180 až 180). Střed je (0, 0).</p>
+						<ul>
+							<li><strong>skoč na x: … y: …</strong> — přesun na přesné místo</li>
+							<li><strong>změň x o 10</strong> — posun doprava; <strong>změň y o −10</strong> — dolů</li>
+						</ul>
+						<h3>Kreslení perem</h3>
+						<p>Rozšíření <strong>Pero</strong> umí za postavou kreslit čáru. Se souřadnicemi pak nakreslíš čtverec, hvězdu nebo celé obrazce — a s opakováním vzniknou krásné <strong>geometrické vzory</strong>.</p>
+						<h3>Kde se souřadnice používají?</h3>
+						<ul>
+							<li>mapy a GPS (zeměpisná šířka a délka)</li>
+							<li>obrázky v počítači (každý pixel má souřadnice)</li>
+							<li>hry — pozice hráčů, střel i překážek</li>
+						</ul>
+						<p>📗 Učebnice Scratch, kapitola 8 (Souřadnice).</p>
+					`,
+				},
+				{
+					slug: 'vlastni-bloky-s-parametry',
+					nazev: 'Vlastní bloky s parametry',
+					obsah: `
+						<h2>Vyrob si vlastní příkaz</h2>
+						<p>Když stejný kus programu potřebuješ víckrát, vytvoř <strong>vlastní blok</strong> — pojmenovaný podprogram. Program se zkrátí a zpřehlední.</p>
+						<h3>Parametr = nastavitelná hodnota</h3>
+						<p>Blok <strong>nakresli čtverec</strong> je fajn. Blok <strong>nakresli čtverec (velikost)</strong> je lepší — jedním blokem nakreslíš malý i velký čtverec, jen změníš číslo v okénku.</p>
+						<ul>
+							<li><em>nakresli čtverec (50)</em> → malý čtverec</li>
+							<li><em>nakresli čtverec (120)</em> → velký čtverec</li>
+						</ul>
+						<p>👉 Rozdělení programu na vlastní bloky = <strong>rozklad problému na části</strong>. To je jedna z nejdůležitějších dovedností programátora (a hodí se i mimo informatiku).</p>
+						<p>📗 Učebnice Scratch, kapitola 9 (Parametry).</p>
+					`,
+				},
+				{
+					slug: 'promenne',
+					nazev: 'Proměnné',
+					obsah: `
+						<h2>Krabička na hodnotu</h2>
+						<p><strong>Proměnná</strong> je pojmenovaná krabička v paměti, do které si program ukládá hodnotu — číslo nebo text. Krabička má <strong>jméno</strong> (skóre, životy, rychlost) a <strong>obsah</strong>, který se může měnit.</p>
+						<h3>Tři základní operace</h3>
+						<ul>
+							<li><strong>nastav skóre na 0</strong> — vložení hodnoty</li>
+							<li><strong>změň skóre o 1</strong> — úprava hodnoty</li>
+							<li><strong>použij hodnotu</strong> — např. <em>když skóre = 10, tak…</em></li>
+						</ul>
+						<h3>K čemu proměnné slouží?</h3>
+						<ul>
+							<li>🎮 skóre a životy ve hře</li>
+							<li>⏱️ odpočet času</li>
+							<li>🔢 zapamatování odpovědi hráče</li>
+						</ul>
+						<p>👉 Dobré jméno proměnné říká, co je uvnitř. <em>skore</em> je lepší než <em>x</em> — za měsíc budeš vědět, co program dělá.</p>
+						<p>📗 Učebnice Scratch, kapitola 10 (Proměnné).</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'pocitace',
+			nazev: 'Počítače',
+			podtemata: [
+				{
+					slug: 'soubory-slozky-aplikace',
+					nazev: 'Soubory, složky a aplikace',
+					obsah: `
+						<h2>Kam se ukládá naše práce</h2>
+						<p><strong>Soubor</strong> = pojmenovaná data na disku (text, obrázek, zvuk, video, program). <strong>Složka</strong> = pořadač, který soubory uspořádává.</p>
+						<h3>Přípona prozradí druh</h3>
+						<ul>
+							<li><strong>.docx .pdf .txt</strong> — texty a dokumenty</li>
+							<li><strong>.jpg .png</strong> — obrázky; <strong>.mp3</strong> — zvuk; <strong>.mp4</strong> — video</li>
+							<li>operační systém podle přípony pozná, <strong>kterou aplikací</strong> soubor otevřít</li>
+						</ul>
+						<h3>Aplikace se instalují — a aktualizují</h3>
+						<p><strong>Instalace</strong> = nakopírování programu do počítače (z oficiálního obchodu či webu výrobce!). <strong>Aktualizace</strong> opravují chyby a bezpečnostní díry — neodkládej je. Nepoužívané aplikace <strong>odinstaluj</strong>.</p>
+						<h3>Pořádek se vyplatí</h3>
+						<p>👉 Promyšlená struktura složek (Škola → Informatika → Projekty) + rozumné názvy souborů = za půl roku najdeš, co hledáš. „bezejmenný_final2_OPRAVDU.docx" ne. 🙂</p>
+					`,
+				},
+				{
+					slug: 'site-internet-email',
+					nazev: 'Síť doma i ve škole, internet a e-mail',
+					obsah: `
+						<h2>Počítače propojené dohromady</h2>
+						<p><strong>Počítačová síť</strong> = zařízení, která si vyměňují data. Doma: router (Wi-Fi) spojuje mobily, počítače i televizi a připojuje je k internetu. Ve škole: učebny propojené kabely přes společné prvky.</p>
+						<h3>Internet — síť sítí</h3>
+						<ul>
+							<li>zpráva se rozdělí na <strong>balíčky (pakety)</strong>, které putují sítí samostatně</li>
+							<li>každé zařízení má <strong>adresu</strong>, aby balíčky trefily cíl</li>
+							<li>u cíle se balíčky zase složí dohromady</li>
+						</ul>
+						<h3>Jak putuje e-mail?</h3>
+						<p>Napíšeš zprávu → tvůj poštovní server ji předá <strong>serveru adresáta</strong> → tam čeká, dokud si ji adresát nestáhne. Je to jako pošta: schránka, třídírna, doručení. 📬</p>
+						<p>👉 Vyzkoušej nakreslit <strong>model své domácí sítě</strong>: co všechno je u vás připojené k routeru?</p>
+						<p>📺 Pěkně to vysvětluje seriál <a href="https://decko.ceskatelevize.cz/datova-lhota" target="_blank" rel="noopener">Datová Lhota</a> (ČT :D).</p>
+					`,
+				},
+				{
+					slug: 'zabezpeceni-a-digitalni-stopa',
+					nazev: 'Zabezpečení, práva a digitální stopa',
+					obsah: `
+						<h2>Chraň svůj účet</h2>
+						<ul>
+							<li><strong>Silné heslo</strong> — dlouhé, nejde uhodnout, pro každou službu jiné</li>
+							<li><strong>Dvoufázové ověření</strong> — heslo + kód z mobilu; i ukradené heslo pak zloději nestačí</li>
+							<li>heslo <strong>nikomu nesděluj</strong> — ani „kamarádovi", ani „správci z e-mailu"</li>
+						</ul>
+						<h3>Přístupová práva</h3>
+						<p>U sdílených souborů se nastavuje, kdo smí co: <strong>vidět</strong> → <strong>číst</strong> → <strong>měnit obsah</strong> → <strong>měnit práva</strong>. Sdílej vždy jen to nejnutnější.</p>
+						<h3>Digitální stopa</h3>
+						<p>👉 Všechno, co na internetu uděláš, někde <strong>zanechá záznam</strong>: fotky, komentáře, lajky, poloha mobilu. Stopa se <strong>nedá spolehlivě smazat</strong> — než něco pošleš, rozmysli si, jestli to může vidět kdokoli a navždy.</p>
+						<h3>Když počítač zlobí</h3>
+						<p>Program bez odezvy? Zkontroluj propojení kabelů, zkus program ukončit vynuceně, restartuj. Postupuj klidně a <strong>po krocích</strong> — většina „záhad" má jednoduchou příčinu.</p>
+					`,
+				},
+			],
+		},
+	],
+	'informatika/8-rocnik': [
+		{
+			slug: 'roboticka-stavebnice',
+			nazev: 'Programování robotické stavebnice',
+			podtemata: [
+				{
+					slug: 'sestaveni-a-oziveni-robota',
+					nazev: 'Sestavení a oživení robota',
+					obsah: `
+						<h2>Ze stavebnice živý robot</h2>
+						<p>Robot ze stavebnice (LEGO) má tři části: <strong>kostku s počítačem</strong> (mozek), <strong>motory</strong> (svaly) a <strong>senzory</strong> (smysly). My mu dodáme <strong>program</strong> — myšlenky.</p>
+						<h3>Postup oživení</h3>
+						<ol>
+							<li>sestav robota podle návodu (nebo vlastní konstrukci)</li>
+							<li>připoj motory a senzory do správných portů</li>
+							<li>v programovacím prostředí sestav z bloků program</li>
+							<li>nahraj program do kostky a spusť</li>
+						</ol>
+						<p>👉 Robot udělá <strong>přesně to, co mu program říká</strong> — ne to, co sis přál(a). Když jede jinam, chyba je v programu (nebo v zapojení), a to je dobrá zpráva: dá se najít a opravit.</p>
+						<h3>První jízda</h3>
+						<p>Rozjeď oba motory na 2 sekundy vpřed, pak zastav. Přidej otočku: jeden motor vpřed, druhý vzad. Hotovo — robot poslouchá!</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a>, kap. 1–2.</p>
+					`,
+				},
+				{
+					slug: 'motory-displej-zvuk',
+					nazev: 'Jízda, displej a zvuk',
+					obsah: `
+						<h2>Výstupy robota</h2>
+						<p><strong>Výstupní zařízení</strong> = vše, čím robot působí na okolí: motory, displej, reproduktor, světla.</p>
+						<h3>Přesná jízda</h3>
+						<ul>
+							<li>jízda <strong>na čas</strong> (2 s vpřed) × jízda <strong>na otáčky</strong> (přesnější — 1 otáčka kola = přesná vzdálenost)</li>
+							<li>zatáčení: různé rychlosti levého a pravého motoru</li>
+							<li><strong>opakování</strong>: čtverec = 4× (rovně + otočka o 90°)</li>
+						</ul>
+						<h3>Displej a zvuk</h3>
+						<p>Robot umí na displeji ukázat obrázek či text a přehrát zvuk — skvělé pro hlášení stavu: „našel jsem čáru!", smajlík při cíli, houkání při couvání. 🤖</p>
+						<p>👉 Vyzkoušej: robot objede čtverec a v každém rohu pípne. Kolik bloků ti stačí s opakováním?</p>
+						<p>📗 Učebnice LEGO, kap. 3–6.</p>
+					`,
+				},
+				{
+					slug: 'senzory-robota',
+					nazev: 'Senzory — robot vnímá svět',
+					obsah: `
+						<h2>Smysly robota</h2>
+						<ul>
+							<li>👆 <strong>dotykový senzor</strong> — narazil jsem? (tlačítko)</li>
+							<li>📏 <strong>ultrazvukový senzor</strong> — jak daleko je překážka? (jako netopýr)</li>
+							<li>🎨 <strong>senzor barvy/světla</strong> — jakou barvu vidím? kolik světla se odráží?</li>
+						</ul>
+						<h3>Senzor + rozhodování = chytrý robot</h3>
+						<p>Hodnotu senzoru čte program v podmínce:</p>
+						<ul>
+							<li><em>opakuj dokud vzdálenost &gt; 10 cm: jeď vpřed</em> → robot zastaví před zdí</li>
+							<li><em>když vidí černou → toč doleva, jinak → toč doprava</em> → robot sleduje čáru!</li>
+						</ul>
+						<p>👉 <strong>Jízda po čáře</strong> je královská úloha: robot se podél okraje čáry „vlní" — pořád dokola měří a opravuje směr. Stejný princip řídí i skutečná auta na dálnici.</p>
+						<p>📗 Učebnice LEGO, kap. 7–9.</p>
+					`,
+				},
+				{
+					slug: 'projekt-muj-robot',
+					nazev: 'Projekt Můj robot',
+					obsah: `
+						<h2>Vyřeš problém robotem</h2>
+						<p>Závěr robotiky: navrhni, sestav a naprogramuj robota, který <strong>splní úkol</strong>. Třeba:</p>
+						<ul>
+							<li>projede bludiště a nenarazí</li>
+							<li>najde a odtlačí předmět z kruhu</li>
+							<li>zaparkuje do garáže podle barevné značky</li>
+							<li>hlídá čáru stolu a nikdy nespadne</li>
+						</ul>
+						<h3>Jak na projekt?</h3>
+						<ol>
+							<li><strong>rozděl problém na části</strong> (jízda, hledání, reakce na senzor)</li>
+							<li>každou část vyřeš a <strong>otestuj zvlášť</strong></li>
+							<li>spoj dohromady, testuj a <strong>laď</strong> — napoprvé to nejede nikomu 🙂</li>
+							<li>předveď a vysvětli, <strong>jak program funguje</strong></li>
+						</ol>
+						<p>👉 Hodnotí se nejen výsledek, ale hlavně <strong>postup řešení</strong>: rozklad, testování, opravy chyb.</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'microbit',
+			nazev: 'Programování micro:bitu',
+			podtemata: [
+				{
+					slug: 'oziveni-a-led-displej',
+					nazev: 'Oživení desky a LED displej',
+					obsah: `
+						<h2>Počítač do dlaně</h2>
+						<p><strong>micro:bit</strong> je malá programovatelná deska: displej 5×5 LED, dvě tlačítka, senzory pohybu a teploty, rádio. Programuje se z bloků v prostředí <a href="https://makecode.microbit.org" target="_blank" rel="noopener">MakeCode</a> — funguje i <strong>simulátor</strong> přímo v prohlížeči, deska není nutná.</p>
+						<h3>První program</h3>
+						<ol>
+							<li>blok <strong>po spuštění</strong> → zobraz ikonu ❤️</li>
+							<li>blok <strong>opakuj stále</strong> → střídej dva obrázky = animace</li>
+							<li>stáhni program do desky (nebo sleduj simulátor)</li>
+						</ol>
+						<h3>Co umí displej?</h3>
+						<ul>
+							<li>ikony a vlastní obrázky (rozsvěcení jednotlivých LED)</li>
+							<li>posouvající se text — jmenovka, vzkaz</li>
+							<li>čísla — teplota, skóre, odpočet</li>
+						</ul>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a>, kap. 1.</p>
+					`,
+				},
+				{
+					slug: 'tlacitka-naklon-zvuk',
+					nazev: 'Tlačítka, náklon a zvuk',
+					obsah: `
+						<h2>Deska reaguje</h2>
+						<h3>Vstupy</h3>
+						<ul>
+							<li><strong>tlačítka A a B</strong> — <em>po stisku A</em> → udělej…</li>
+							<li><strong>akcelerometr</strong> — pozná zatřesení, naklonění, otočení logem dolů i volný pád</li>
+							<li>👉 events jako ve Scratchi: program čeká na událost a reaguje</li>
+						</ul>
+						<h3>Zvuk a hudba</h3>
+						<p>Po připojení sluchátek či bzučáku umí micro:bit přehrávat tóny a melodie — jde naprogramovat <strong>hudební nástroj</strong>: náklonem měníš výšku tónu, tlačítkem hraješ. 🎵</p>
+						<h3>Nápady na vyzkoušení</h3>
+						<ul>
+							<li><strong>kámen–nůžky–papír</strong>: po zatřesení ukaž náhodný symbol</li>
+							<li><strong>elektronická kostka</strong>: zatřes a padne 1–6</li>
+							<li><strong>krokoměr</strong>: každé zatřesení přičte krok do proměnné</li>
+						</ul>
+						<p>📗 Učebnice micro:bit, kap. 2–4.</p>
+					`,
+				},
+				{
+					slug: 'propojeni-a-externi-zarizeni',
+					nazev: 'Rádio a externí zařízení',
+					obsah: `
+						<h2>Desky si povídají</h2>
+						<p>Dva micro:bity se propojí <strong>bezdrátově rádiem</strong>: jeden vyšle zprávu (číslo nebo text), druhý ji přijme a zareaguje — stejný princip jako posílání zpráv ve Scratchi, jen vzduchem.</p>
+						<h3>Co s tím?</h3>
+						<ul>
+							<li>📡 tajná vysílačka — posílání znaků mezi lavicemi</li>
+							<li>🚪 dálkové ovládání — tlačítko u jedné desky rozsvítí druhou</li>
+							<li>🏁 měření času na trati — start a cíl si pošlou signál</li>
+						</ul>
+						<h3>Připojení dalších zařízení</h3>
+						<p>Přes <strong>piny</strong> na spodní hraně jde k desce připojit LED pásek, motorek, čidlo vlhkosti… micro:bit je pak mozkem vlastního vynálezu — zalévací hlídač květin, poplašné zařízení na šuplík, semafor pro lego-město. 💡</p>
+						<h3>Mini-projekt</h3>
+						<p>Navrhni a předveď vlastní zařízení s micro:bitem — od nápadu přes program po ukázku. Postup jako u robota: rozděl, testuj, dolaď.</p>
+						<p>📗 Učebnice micro:bit, kap. 5–6.</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'hromadne-zpracovani-dat',
+			nazev: 'Hromadné zpracování dat',
+			podtemata: [
+				{
+					slug: 'adresy-bunek-a-vzorce',
+					nazev: 'Adresy buněk a vzorce',
+					obsah: `
+						<h2>Tabulka, která počítá</h2>
+						<p>Tabulkový procesor (Excel, Google Tabulky, LibreOffice Calc) je mřížka <strong>buněk</strong>. Každá buňka má <strong>adresu</strong>: sloupec + řádek, třeba <strong>B3</strong>.</p>
+						<h3>Vzorec začíná =</h3>
+						<ul>
+							<li><code>=B2+B3</code> — součet dvou buněk</li>
+							<li><code>=B2*1.21</code> — cena s DPH</li>
+							<li>změníš-li vstupní buňku, výsledek se <strong>přepočítá sám</strong> — v tom je síla tabulek</li>
+						</ul>
+						<h3>Relativní × absolutní adresa</h3>
+						<p>Když vzorec <strong>kopíruješ</strong> dolů, adresy se posouvají s ním (<em>relativní</em>: z B2 se stane B3). Když má adresa zůstat na místě, <strong>ukotvi ji dolarem</strong>: <code>$B$1</code> (<em>absolutní</em>).</p>
+						<p>👉 Typická úloha: sloupec cen × jeden kurz eura v buňce <code>$B$1</code>. Kurz se ukotví, ceny se posouvají.</p>
+					`,
+				},
+				{
+					slug: 'funkce-v-tabulkach',
+					nazev: 'Funkce — průměr, počet, KDYŽ',
+					obsah: `
+						<h2>Hotové výpočty na zavolání</h2>
+						<p><strong>Funkce</strong> je připravený výpočet se jménem. Do závorky patří, s čím má pracovat — nejčastěji <strong>oblast buněk</strong> (např. B2:B31 = sloupec třiceti hodnot).</p>
+						<h3>Nejužitečnější funkce</h3>
+						<ul>
+							<li><code>=SUMA(B2:B31)</code> — součet; <code>=PRŮMĚR(B2:B31)</code> — průměr</li>
+							<li><code>=MAX(…)</code>, <code>=MIN(…)</code> — největší a nejmenší hodnota</li>
+							<li><code>=POČET(…)</code> — kolik je čísel; <code>=RANK(…)</code> — pořadí</li>
+							<li>textové: <code>=ZLEVA(A2;3)</code> — první 3 znaky, <code>=DÉLKA(A2)</code> — počet znaků</li>
+							<li><code>=KDYŽ(B2&gt;=50;"prospěl";"neprospěl")</code> — rozhodování jako ve Scratchi!</li>
+						</ul>
+						<p>👉 Všimni si: <strong>KDYŽ</strong> je stejné větvení, jaké znáš z programování. Tabulka je vlastně program — jen zapsaný do buněk.</p>
+					`,
+				},
+				{
+					slug: 'razeni-filtrovani-velka-data',
+					nazev: 'Řazení, filtrování a velká data',
+					obsah: `
+						<h2>Tabulka jako evidence</h2>
+						<p>Tabulka dat = <strong>záznamy</strong> (řádky) se <strong>stejnými údaji</strong> (sloupce): žáci, knihy, státy světa. Nový záznam = nový řádek se všemi údaji.</p>
+						<h3>Řazení</h3>
+						<p>Podle libovolného sloupce: abecedně, podle velikosti, data. Pozor — řadí se <strong>celé řádky</strong>, ne jen jeden sloupec!</p>
+						<h3>Filtrování</h3>
+						<p><strong>Filtr</strong> dočasně skryje řádky, které nesplňují podmínku: <em>ukaž jen státy Evropy s počtem obyvatel nad 10 milionů</em>. Data se nemažou, jen se nezobrazují.</p>
+						<h3>Ověř hypotézu daty</h3>
+						<p>👉 „Velké státy mají víc obyvatel než malé — platí to vždy?" S tabulkou stovek států to zjistíš za minutu: seřaď, filtruj, spočítej průměr, vytvoř graf. <strong>Odpovídej na základě dat, ne dojmů.</strong></p>
+						<p>🗂️ Cvičná data: <a href="http://simandl.asp2.cz/Online.aspx" target="_blank" rel="noopener">online přípravna souborů dat</a> (geografie států světa).</p>
+					`,
+				},
+			],
+		},
+	],
+	'informatika/9-rocnik': [
+		{
+			slug: 'programovaci-projekty',
+			nazev: 'Programovací projekty',
+			podtemata: [
+				{
+					slug: 'plan-projektu-a-ladeni',
+					nazev: 'Plán projektu, testování a ladění',
+					obsah: `
+						<h2>Od nápadu k hotovému programu</h2>
+						<p>V 9. ročníku už neprogramujeme cvičení, ale <strong>projekty</strong> — větší programy podle vlastního plánu (učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Scratch II — projekty</a>).</p>
+						<h3>Postup profesionálů</h3>
+						<ol>
+							<li><strong>Popiš problém</strong> — co přesně má program dělat? co uvidí uživatel?</li>
+							<li><strong>Rozděl na části</strong> — pozadí, postavy, ovládání, skóre… (vlastní bloky!)</li>
+							<li><strong>Tvoř po částech</strong> a každou hned <strong>otestuj</strong></li>
+							<li><strong>Odlaď chyby</strong> — chyba je normální součást práce, ne selhání</li>
+							<li><strong>Předveď</strong> a nech ostatní program vyzkoušet</li>
+						</ol>
+						<p>👉 Mysli i na <strong>uživatele</strong>: pochopí ovládání? je text čitelný? zvládne hru i začátečník? Dobrý program je ohleduplný k lidem, kteří ho používají.</p>
+						<h3>První projekty</h3>
+						<p><strong>Souřadnice</strong> (pohyb po scéně) a <strong>Kulička</strong> (ovládání myší, posílání zpráv) — rozcvička na velké hry.</p>
+					`,
+				},
+				{
+					slug: 'seznamy-a-promenne-v-projektech',
+					nazev: 'Seznamy — mnoho hodnot najednou',
+					obsah: `
+						<h2>Proměnná × seznam</h2>
+						<p>Proměnná uchová <strong>jednu</strong> hodnotu. <strong>Seznam</strong> jich uchová <strong>mnoho</strong> — očíslovaných za sebou (1., 2., 3. prvek…).</p>
+						<h3>Co se seznamem umíme?</h3>
+						<ul>
+							<li><strong>přidat prvek</strong> („rohlíky" do nákupního seznamu)</li>
+							<li><strong>přečíst prvek číslo x</strong> nebo najít, kde prvek je</li>
+							<li><strong>smazat, přepsat, projít celý seznam</strong> v opakování</li>
+						</ul>
+						<h3>Projekty se seznamy</h3>
+						<ul>
+							<li>🛒 <strong>Nákupní seznam</strong> — přidávání a mazání položek</li>
+							<li>🎹 <strong>Klavír</strong> — seznam tónů = melodie, kterou program přehraje</li>
+							<li>🌍 <strong>Světadíly</strong> — dvojice seznamů otázka–odpověď = kvíz</li>
+						</ul>
+						<p>👉 Kombinace <strong>seznam + opakování + proměnná</strong> je základ skoro každé skutečné aplikace (kontakty, playlist, chat…).</p>
+					`,
+				},
+				{
+					slug: 'klonovani-animace-hry',
+					nazev: 'Klonování, animace a tvorba hry',
+					obsah: `
+						<h2>Velké finále: vlastní hra</h2>
+						<h3>Klonování</h3>
+						<p><strong>Klon</strong> = kopie postavy vytvořená za běhu programu. Ohňostroj z desítek jisker, déšť mincí, hejno nepřátel — vše z jedné postavy, kterou program klonuje. Každý klon si běží podle svého scénáře.</p>
+						<h3>Animace</h3>
+						<p>Postava střídá <strong>kostýmy</strong> → běží, mává, bliká. Pozadí se střídají → měníš úrovně hry. Import a úprava kostýmů dává hře vlastní tvář.</p>
+						<h3>Návrh hry (Bludiště, Piano tiles…)</h3>
+						<ol>
+							<li>pravidla: co je cíl? kdy hráč vyhraje / prohraje?</li>
+							<li>ovládání, překážky, skóre a životy (proměnné)</li>
+							<li>úrovně (pozadí), zvuky, úvodní a závěrečná obrazovka</li>
+						</ol>
+						<p>👉 Dobrá hra vzniká <strong>postupným přidáváním</strong>: nejdřív se hýbe postava, pak přibude cíl, pak překážky… Po každém kroku hru otestuj!</p>
+						<p>🦫 Trénink logiky: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (kategorie Kadet).</p>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'digitalni-technologie',
+			nazev: 'Digitální technologie',
+			podtemata: [
+				{
+					slug: 'hardware-a-software',
+					nazev: 'Hardware, software a operační systémy',
+					obsah: `
+						<h2>Z čeho se skládá počítač</h2>
+						<h3>Hardware — co si můžeš osahat</h3>
+						<ul>
+							<li><strong>procesor (CPU)</strong> — počítá, vykonává příkazy programů</li>
+							<li><strong>operační paměť (RAM)</strong> — rychlá pracovní deska; po vypnutí se maže</li>
+							<li><strong>disk (SSD)</strong> — trvalé úložiště souborů</li>
+							<li>vstupy (klávesnice, myš, mikrofon) a výstupy (monitor, reproduktory)</li>
+						</ul>
+						<h3>Software — programy</h3>
+						<p><strong>Operační systém</strong> (Windows, macOS, Linux, Android, iOS) řídí celý počítač: spouští aplikace, spravuje soubory, paměť i připojená zařízení. <strong>Aplikace</strong> pak dělají konkrétní práci.</p>
+						<h3>Komprese dat</h3>
+						<p>👉 <strong>Komprese</strong> zmenšuje soubory: bezeztrátová (ZIP — vše jde obnovit) × ztrátová (JPG, MP3 — zahodí, co oko/ucho nepozná). Proto se fotka vejde do zprávy.</p>
+						<h3>Technologie kolem nás</h3>
+						<p>Umělá inteligence, internet věcí, virtuální realita — diskutujeme, <strong>jak fungují a co mění</strong> (učebnice <a href="https://opocitacich.cz" target="_blank" rel="noopener">opocitacich.cz</a>).</p>
+					`,
+				},
+				{
+					slug: 'pocitacove-site-a-internet',
+					nazev: 'Počítačové sítě, internet a web',
+					obsah: `
+						<h2>Jak spolu počítače mluví</h2>
+						<h3>Základní pojmy</h3>
+						<ul>
+							<li><strong>klient</strong> — zařízení, které o něco žádá (tvůj mobil)</li>
+							<li><strong>server</strong> — počítač, který službu poskytuje (uchovává web, poštu, hru)</li>
+							<li><strong>paket</strong> — balíček dat; <strong>IP adresa</strong> — číselná adresa zařízení</li>
+							<li><strong>switch/router</strong> — křižovatky, které pakety posílají správným směrem</li>
+						</ul>
+						<h3>Internet a web</h3>
+						<p><strong>Internet</strong> = celosvětové propojení sítí. <strong>Web</strong> je jedna z jeho služeb: prohlížeč (klient) si řekne o stránku na adrese <strong>URL</strong>, webový <strong>server</strong> ji pošle, prohlížeč vykreslí. Další služby: e-mail, streamování, hry, cloud.</p>
+						<h3>Cloud a datacentra</h3>
+						<p>👉 „Cloud" nejsou obláčky — jsou to <strong>obrovské haly plné serverů</strong> (datacentra). Tvoje fotky „v cloudu" leží na konkrétních discích, jen ne u tebe doma.</p>
+					`,
+				},
+				{
+					slug: 'bezpecnost-pocitace-a-dat',
+					nazev: 'Bezpečnost — útoky a obrana',
+					obsah: `
+						<h2>Kdo útočí a proč</h2>
+						<p>Útočníkům jde nejčastěji o <strong>peníze a data</strong>. Nejslabší článek? Většinou <strong>člověk</strong>, ne technika.</p>
+						<h3>Nejčastější útoky</h3>
+						<ul>
+							<li><strong>phishing</strong> — podvodná zpráva „z banky/školy": klikni, přihlas se → heslo je pryč</li>
+							<li><strong>škodlivé programy</strong> — vir/ransomware zašifruje soubory a chce výkupné</li>
+							<li><strong>uhodnutí hesla</strong> — slabá a opakovaná hesla padnou za vteřiny</li>
+						</ul>
+						<h3>Vrstvy obrany</h3>
+						<ul>
+							<li>🔄 <strong>aktualizace</strong> systému i aplikací (záplaty děr)</li>
+							<li>🛡️ <strong>antivir</strong> a <strong>firewall</strong> (hlídač příchozích spojení)</li>
+							<li>🔑 silná hesla + <strong>dvoufázové ověření</strong></li>
+							<li>💾 <strong>zálohování</strong> — kopie důležitých dat jinde (druhý disk, cloud); jediná spolehlivá obrana proti ransomwaru</li>
+						</ul>
+						<p>👉 Žádná obrana není stoprocentní — cíl je útočníkovi práci co nejvíc <strong>ztížit</strong> a mít <strong>zálohu</strong> pro případ nejhoršího.</p>
+					`,
+				},
+				{
+					slug: 'digitalni-stopa-a-identita',
+					nazev: 'Digitální stopa a identita',
+					obsah: `
+						<h2>Co o tobě internet ví</h2>
+						<p><strong>Digitální stopa</strong> = všechny záznamy, které po sobě v digitálním světě necháváš:</p>
+						<ul>
+							<li>co sám zveřejníš — fotky, komentáře, profily</li>
+							<li>co se sbírá samo — poloha mobilu, historie vyhledávání, <strong>cookies</strong>, metadata fotek (kdy a kde vznikly)</li>
+						</ul>
+						<h3>Algoritmy sociálních sítí</h3>
+						<p>👉 Sítě ti ukazují to, u čeho <strong>zůstaneš nejdéle</strong> — ne to, co je pravdivé nebo důležité. Vědět to = první krok, jak se nenechat vodit.</p>
+						<h3>Zásady digitální sebeobrany</h3>
+						<ul>
+							<li>sdílej s rozmyslem — internet <strong>nezapomíná</strong></li>
+							<li>kontroluj nastavení soukromí a oprávnění aplikací</li>
+							<li>nevěř všemu — ověřuj zdroje, pozor na podvržené fotky a videa</li>
+							<li>svou <strong>digitální identitu</strong> (účty, přezdívky, pověst) si buduj jako vizitku — jednou ji uvidí i budoucí zaměstnavatel</li>
+						</ul>
+					`,
+				},
+			],
+		},
+		{
+			slug: 'zaverecne-projekty',
+			nazev: 'Závěrečné projekty',
+			podtemata: [
+				{
+					slug: 'zaverecny-projekt',
+					nazev: 'Závěrečný projekt',
+					obsah: `
+						<h2>Ukaž, co umíš</h2>
+						<p>Na závěr základní školy vytvoříš <strong>vlastní tvůrčí projekt</strong> — sám/sama nebo ve dvojici. Cíl: vyřešit skutečný problém a předvést tvůrčí přístup.</p>
+						<h3>Náměty</h3>
+						<ul>
+							<li>🎮 dokončení větší hry ve Scratchi</li>
+							<li>🤖 robot či micro:bit vynález (chytrá domácnost, měřicí stanice)</li>
+							<li>🌐 webová stránka třídy, kroužku, obce</li>
+							<li>📊 datový projekt — sesbírej data, zpracuj v tabulce, vytvoř grafy a závěry</li>
+							<li>🏆 příprava na soutěž (robotika, programování, <a href="https://www.ibobr.cz" target="_blank" rel="noopener">Bobřík informatiky</a>)</li>
+						</ul>
+						<h3>Co se hodnotí</h3>
+						<ol>
+							<li><strong>návrh</strong> — popsání problému a plán řešení</li>
+							<li><strong>realizace</strong> — funkčnost, rozklad na části, testování</li>
+							<li><strong>prezentace</strong> — srozumitelné předvedení a vysvětlení, jak to funguje</li>
+						</ol>
+						<p>👉 Projekt je tvoje <strong>vizitka z informatiky</strong> — vyber si téma, které tě opravdu baví.</p>
+					`,
+				},
+			],
+		},
+	],
 };
