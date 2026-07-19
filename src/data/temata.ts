@@ -3639,7 +3639,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
 						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Code.org — kurzy zdarma', url: 'https://studio.code.org/courses' },
+						{ nazev: 'Code.org — kurzy zdarma (i česky)', url: 'https://studio.code.org/courses' },
 					],
 				},
 				{
@@ -3842,7 +3842,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
 						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Code.org — kurzy zdarma', url: 'https://studio.code.org/courses' },
+						{ nazev: 'Code.org — kurzy zdarma (i česky)', url: 'https://studio.code.org/courses' },
 					],
 				},
 			],
@@ -4097,7 +4097,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-						{ nazev: 'LEGO Education — lekce', url: 'https://education.lego.com/en-us/lessons/' },
 					],
 				},
 				{
@@ -4119,7 +4118,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-						{ nazev: 'LEGO Education — lekce', url: 'https://education.lego.com/en-us/lessons/' },
 					],
 				},
 				{
@@ -4169,7 +4167,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
-						{ nazev: 'LEGO Education — lekce', url: 'https://education.lego.com/en-us/lessons/' },
 						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
 					],
 				},
@@ -4471,7 +4468,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
-						{ nazev: 'VEX IQ — znalostní báze (návody)', url: 'https://kb.vex.com/hc/en-us/categories/360002333191' },
+						{ nazev: 'Návod česky: první program ve VEXcode', url: 'https://lab.wonderly.cz/informatika/8-rocnik/vex-iq/vexcode-prvni-program/' },
 						{ nazev: 'vexrobotics.com — stavebnice VEX IQ', url: 'https://www.vexrobotics.com/iq' },
 					],
 				},
@@ -4501,9 +4498,63 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 					`,
 					odkazy: [
-						{ nazev: 'VEX IQ — znalostní báze (návody)', url: 'https://kb.vex.com/hc/en-us/categories/360002333191' },
 						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
-						{ nazev: 'VEX STEM Labs — hotové lekce', url: 'https://education.vex.com/stemlabs/iq' },
+						{ nazev: 'Návod česky: první program ve VEXcode', url: 'https://lab.wonderly.cz/informatika/8-rocnik/vex-iq/vexcode-prvni-program/' },
+					],
+				},
+				{
+					slug: 'vexcode-prvni-program',
+					nazev: 'Návod česky: první program ve VEXcode IQ',
+					obsah: `
+						<h2>🧑‍💻 První program pro robota — česky krok za krokem</h2>
+						<p>Prostředí VEXcode IQ je anglicky — ale bloky vypadají jako Scratch a s tímto návodem je zvládneš levou zadní.</p>
+						<h3>1️⃣ Otevři projekt</h3>
+						<ol>
+							<li>Na počítači otevři <strong>codeiq.vex.com</strong> (QR dole)</li>
+							<li><strong>New Blocks Project</strong> = nový projekt s bloky</li>
+							<li>Nahoře projekt pojmenuj (např. PrvniJizda)</li>
+						</ol>
+						<h3>2️⃣ Řekni programu, co má robot za díly (Devices)</h3>
+						<ol>
+							<li>vpravo nahoře ikona 🔌 <strong>Devices → Add a device</strong></li>
+							<li>zvol <strong>Drivetrain</strong> (podvozek) → vyber porty levého a pravého motoru (podle zapojení kabelů)</li>
+							<li>stejně přidej čidla: <strong>Distance, Optical/Color, Bumper, Touch LED</strong> — vždy port, do kterého jsou zapojená</li>
+						</ol>
+						<h3>3️⃣ Slovníček nejdůležitějších bloků</h3>
+						<ul>
+							<li><strong>when started</strong> = po spuštění (začátek programu)</li>
+							<li><strong>drive forward / reverse</strong> = jeď vpřed / vzad</li>
+							<li><strong>drive for 200 mm</strong> = ujeď přesně 200 mm</li>
+							<li><strong>turn right / left for 90 degrees</strong> = otoč se vpravo / vlevo o 90°</li>
+							<li><strong>set drive velocity</strong> = nastav rychlost jízdy (v %)</li>
+							<li><strong>wait 1 seconds</strong> = čekej 1 s; <strong>wait until</strong> = čekej, dokud…</li>
+							<li><strong>repeat / forever</strong> = opakuj ×krát / opakuj stále</li>
+							<li><strong>if … then … else</strong> = když … tak … jinak</li>
+							<li><strong>distance found object / distance in mm</strong> = hodnoty čidla vzdálenosti</li>
+							<li><strong>print</strong> = vypiš na displej mozku (skvělé na ladění!)</li>
+						</ul>
+						<h3>4️⃣ První program — čtverec</h3>
+						<ol>
+							<li><strong>when started</strong></li>
+							<li><strong>repeat 4</strong>: uvnitř <strong>drive for 300 mm</strong> + <strong>turn right for 90 degrees</strong></li>
+							<li>přidej na konec zvuk (<strong>play sound</strong>) jako oslavu 🎉</li>
+						</ol>
+						<h3>5️⃣ Nahraj a spusť</h3>
+						<ol>
+							<li>připoj mozek robota <strong>USB kabelem</strong> k počítači a zapni ho</li>
+							<li>klikni na <strong>Download</strong> — program se nahraje do mozku (do vybrané pozice 1–4)</li>
+							<li>odpoj kabel, polož robota na zem a na mozku program <strong>spusť tlačítkem</strong></li>
+						</ol>
+						<h3>6️⃣ Druhý program — zastav před zdí</h3>
+						<ol>
+							<li><strong>when started</strong> → <strong>drive forward</strong> (bez vzdálenosti = jede pořád)</li>
+							<li><strong>wait until</strong> distance in mm &lt; 100</li>
+							<li><strong>stop driving</strong> + zvuk</li>
+						</ol>
+						<p>👉 Nefunguje to? Zkontroluj: správné porty v Devices, zapnutý mozek, vybraný správný program. A hodnoty čidel si nech vypisovat blokem <strong>print</strong>.</p>
+					`,
+					odkazy: [
+						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
 					],
 				},
 			],
@@ -4792,8 +4843,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
-						{ nazev: 'VEX IQ — znalostní báze (návody)', url: 'https://kb.vex.com/hc/en-us/categories/360002333191' },
-						{ nazev: 'VEX STEM Labs — hotové lekce', url: 'https://education.vex.com/stemlabs/iq' },
+						{ nazev: 'Návod česky: první program ve VEXcode', url: 'https://lab.wonderly.cz/informatika/8-rocnik/vex-iq/vexcode-prvni-program/' },
 					],
 				},
 			],
@@ -4848,7 +4898,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>ℹ️ <em>Toto téma nejede podle časového plánu — vracíme se k němu průběžně, kdykoli zbyde čas nebo chuť tvořit.</em></p>
 						<h3>1️⃣ Přihlášení</h3>
 						<ol>
-							<li>Otevři <strong>tinkercad.com</strong> (QR dole)</li>
+							<li>Otevři <strong>tinkercad.com</strong> (QR dole) — prostředí jde dole na stránce <strong>přepnout do češtiny</strong></li>
 							<li>Klikni na <strong>Přihlásit se / Join now</strong> — použij přístup od učitele (kód třídy a přezdívka, vlastní e-mail není potřeba)</li>
 							<li>Vlevo zvol <strong>3D návrhy → Vytvořit nový návrh</strong></li>
 						</ol>
@@ -4886,7 +4936,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'Tinkercad — spustit v prohlížeči', url: 'https://www.tinkercad.com' },
-						{ nazev: 'Tinkercad — galerie a lekce', url: 'https://www.tinkercad.com/learn/designs' },
 					],
 				},
 				{
@@ -4898,7 +4947,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>ℹ️ <em>I toto téma děláme průběžně, bez pevného plánu. Nejdřív zvládni Tinkercad — SketchUp je přesnější, ale méně odpouští.</em></p>
 						<h3>1️⃣ Spuštění</h3>
 						<ol>
-							<li>Otevři <strong>app.sketchup.com</strong> (QR dole)</li>
+							<li>Otevři <strong>app.sketchup.com</strong> (QR dole) — prostředí je anglicky, ale vystačíš si s tímto českým návodem</li>
 							<li>Přihlas se účtem od učitele a zvol <strong>Create new</strong> (šablona v milimetrech/metrech)</li>
 						</ol>
 						<h3>2️⃣ Nejdůležitější nástroje</h3>
@@ -4926,7 +4975,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					odkazy: [
 						{ nazev: 'SketchUp Free — spustit v prohlížeči', url: 'https://app.sketchup.com' },
-						{ nazev: 'SketchUp — výuková videa (anglicky)', url: 'https://learn.sketchup.com' },
 					],
 				},
 			],
