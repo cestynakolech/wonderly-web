@@ -41,7 +41,7 @@ Na webu je 8 interaktivních simulací (canvas/SVG, čistě v prohlížeči, sty
 
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
-Zbývá: média k Fyzice 6 (infografiky/písně/videa), předmět Pracovní činnosti (prázdné dlaždice). Informatika 7–9 KOMPLET (výklad+kvízy+testy, 19. 7.).
+Zbývá: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
 
 ## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
 Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učitele `/Users/Shared/Škola/8/` — 6 celků:
