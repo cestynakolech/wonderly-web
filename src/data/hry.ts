@@ -42,24 +42,26 @@ export function otazkyNapricRocniky(pocet: number, seed = 2026): Otazka[] {
 }
 
 /** Jedna položka úplné banky ligy: otázky jednoho celku daného ročníku. */
-export type CelekBanky = { rocnik: string; celek: string; nazev: string; otazky: Otazka[] };
+export type CelekBanky = { predmet: string; rocnik: string; celek: string; nazev: string; otazky: Otazka[] };
 
 /**
- * Úplná banka pro Fyzikální ligu: VŠECHNY otázky fyziky 6–9 seskupené po
- * celcích (bez složených shrnutí). Učitel si na tabuli vybere ročník a celek —
- * soutěž tak jde postavit jen z probrané látky.
+ * Úplná banka pro ligu: VŠECHNY otázky fyziky a informatiky 6–9 seskupené po
+ * celcích (bez složených shrnutí). Učitel si na tabuli vybere předmět, ročník
+ * a celek — soutěž tak jde postavit jen z probrané látky.
  */
 export function bankaProLigu(): CelekBanky[] {
 	const vysledek: CelekBanky[] = [];
-	for (const rocnik of ['6', '7', '8', '9']) {
-		for (const celek of temata[`fyzika/${rocnik}-rocnik`] ?? []) {
-			if (celek.slug === 'shrnuti') continue; // složeniny — duplikáty podtémat
-			const otazky: Otazka[] = [];
-			for (const [klic, ot] of Object.entries(kvizy)) {
-				if (klic.startsWith(`fyzika/${rocnik}-rocnik/${celek.slug}/`)) otazky.push(...ot);
-			}
-			if (otazky.length) {
-				vysledek.push({ rocnik, celek: celek.slug, nazev: celek.nazev, otazky });
+	for (const predmet of ['fyzika', 'informatika']) {
+		for (const rocnik of ['6', '7', '8', '9']) {
+			for (const celek of temata[`${predmet}/${rocnik}-rocnik`] ?? []) {
+				if (celek.slug === 'shrnuti') continue; // složeniny — duplikáty podtémat
+				const otazky: Otazka[] = [];
+				for (const [klic, ot] of Object.entries(kvizy)) {
+					if (klic.startsWith(`${predmet}/${rocnik}-rocnik/${celek.slug}/`)) otazky.push(...ot);
+				}
+				if (otazky.length) {
+					vysledek.push({ predmet, rocnik, celek: celek.slug, nazev: celek.nazev, otazky });
+				}
 			}
 		}
 	}

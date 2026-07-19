@@ -17,6 +17,12 @@ const banka = bankaProLigu();
 				Po odpočtu týmy zvednou karty a vy klepnutím označíte, kdo odpověděl správně.
 			</p>
 			<div class="volby">
+				<label>Předmět
+					<select id="predmet">
+						<option value="fyzika">Fyzika</option>
+						<option value="informatika">Informatika</option>
+					</select>
+				</label>
 				<label>Ročník
 					<select id="rocnik">
 						<option value="">Všechny (mix 6–9)</option>
@@ -102,10 +108,12 @@ const banka = bankaProLigu();
 
 	// Výběr otázek podle ročníku a učiva; při mixu bere rovnoměrně z každého ročníku
 	function vyberOtazky(pocet) {
+		const predmet = $('predmet').value;
 		const rocnik = $('rocnik').value;
 		const celek = $('celek').value;
 		const poRocniku = {};
 		for (const b of banka) {
+			if (b.predmet !== predmet) continue;
 			if (rocnik && b.rocnik !== rocnik) continue;
 			if (celek && b.celek !== celek) continue;
 			(poRocniku[b.rocnik] ??= []).push(...b.otazky);
@@ -126,7 +134,7 @@ const banka = bankaProLigu();
 		$('celek').innerHTML =
 			'<option value="">Celý ročník</option>' +
 			banka
-				.filter((b) => b.rocnik === rocnik)
+				.filter((b) => b.predmet === $('predmet').value && b.rocnik === rocnik)
 				.map((b) => `<option value="${b.celek}">${b.nazev} (${b.otazky.length})</option>`)
 				.join('');
 		spocitejBanku();
@@ -136,11 +144,12 @@ const banka = bankaProLigu();
 		const rocnik = $('rocnik').value;
 		const celek = $('celek').value;
 		const n = banka
-			.filter((b) => (!rocnik || b.rocnik === rocnik) && (!celek || b.celek === celek))
+			.filter((b) => b.predmet === $('predmet').value && (!rocnik || b.rocnik === rocnik) && (!celek || b.celek === celek))
 			.reduce((s, b) => s + b.otazky.length, 0);
 		$('v-bance').textContent = `V bance je ${n} otázek.`;
 	}
 
+	$('predmet').addEventListener('change', obnovCelky);
 	$('rocnik').addEventListener('change', obnovCelky);
 	$('celek').addEventListener('change', spocitejBanku);
 	spocitejBanku();
