@@ -3922,6 +3922,118 @@ export const temata: Record<string, Tema[]> = {
 			],
 		},
 		{
+			slug: 'hry-ve-scratchi',
+			nazev: 'Hry ve Scratchi — návody',
+			podtemata: [
+				{
+					slug: 'hra-chytej-jablka',
+					nazev: 'Hra 1: Chytej jablka',
+					obsah: `
+						<h2>🍎 Chytej jablka</h2>
+						<p>Košík dole chytá padající jablka. Naše první opravdová hra — stačí 2 postavy a proměnná!</p>
+						<h3>Připrav si</h3>
+						<ul>
+						<li>postava <strong>Košík</strong> (miska, klobouk…) dole na scéně</li>
+						<li>postava <strong>Jablko</strong></li>
+						<li>proměnná <strong>skóre</strong></li>
+						</ul>
+						<h3>Scénář Košíku</h3>
+						<ol>
+						<li>po kliknutí na vlajku → opakuj stále:</li>
+						<li>když je stisknuta šipka doprava → změň x o 10</li>
+						<li>když je stisknuta šipka doleva → změň x o −10</li>
+						</ol>
+						<h3>Scénář Jablka</h3>
+						<ol>
+						<li>po kliknutí na vlajku → nastav skóre na 0</li>
+						<li>skoč na náhodné x, y = 170 (nahoru)</li>
+						<li>opakuj stále: změň y o −5 (padá)</li>
+						<li>když se dotýká Košíku → změň skóre o 1, zahraj zvuk, skoč zpět nahoru na náhodné x</li>
+						<li>když y &lt; −170 (spadlo na zem) → skoč zpět nahoru na náhodné x</li>
+						</ol>
+						<h3>💡 Vylepšení pro šikovné</h3>
+						<ul>
+						<li>jablko padá rychleji s rostoucím skóre (změň y o −(5 + skóre/10))</li>
+						<li>přidej <strong>shnilé jablko</strong> — když ho chytíš, skóre −2</li>
+						<li>hra na čas: proměnná čas, po 60 sekundách konec</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+					],
+				},
+				{
+					slug: 'hra-bludiste',
+					nazev: 'Hra 2: Bludiště',
+					obsah: `
+						<h2>🌀 Bludiště</h2>
+						<p>Projdi bludištěm k cíli — a nesmíš se dotknout zdi!</p>
+						<h3>Připrav si</h3>
+						<ul>
+						<li><strong>pozadí</strong>: nakresli bludiště — chodby bílé, zdi jednou barvou (např. černou)</li>
+						<li>malá postava <strong>Hráč</strong> (zmenši na 30–50 %)</li>
+						<li>postava <strong>Cíl</strong> (dveře, poklad…)</li>
+						</ul>
+						<h3>Scénář Hráče — pohyb</h3>
+						<ol>
+						<li>po stisku šipky nahoru → změň y o 5 (a stejně pro další 3 šipky)</li>
+						</ol>
+						<h3>Scénář Hráče — zdi</h3>
+						<ol>
+						<li>po kliknutí na vlajku → skoč na start, opakuj stále:</li>
+						<li>když se dotýká černé barvy → jdi zpět (změň x/y opačně, nebo skoč na start — přísnější verze!)</li>
+						<li>když se dotýká Cíle → řekni „Vyhráls!", zastav vše</li>
+						</ol>
+						<h3>💡 Vylepšení pro šikovné</h3>
+						<ul>
+						<li>přidej <strong>stopky</strong> (proměnná čas) — kdo projde nejrychleji?</li>
+						<li>více úrovní: po dosažení cíle přepni na další pozadí s těžším bludištěm</li>
+						<li>přidej hlídače, který se pohybuje po chodbě klouzáním (blok „klouzej") — dotyk = návrat na start</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+					],
+				},
+				{
+					slug: 'hra-honicka',
+					nazev: 'Hra 3: Honička',
+					obsah: `
+						<h2>🐱 Honička</h2>
+						<p>Kočka honí myš, kterou ovládáš ty. Jak dlouho jí utečeš?</p>
+						<h3>Připrav si</h3>
+						<ul>
+						<li>postava <strong>Myš</strong> (ovládá hráč)</li>
+						<li>postava <strong>Kočka</strong></li>
+						<li>proměnná <strong>čas</strong></li>
+						</ul>
+						<h3>Scénář Myši</h3>
+						<ol>
+						<li>po kliknutí na vlajku → opakuj stále: jdi na ukazatel myši (postava běhá za tvou myší)</li>
+						</ol>
+						<h3>Scénář Kočky</h3>
+						<ol>
+						<li>po kliknutí na vlajku → nastav čas na 0, skoč do rohu</li>
+						<li>opakuj stále: otoč se k Myši, dopředu o 3 kroky, změň čas o 0,1 + čekej 0,1 s</li>
+						<li>když se dotýká Myši → řekni „Mám tě! Vydržels " + čas + " sekund", zastav vše</li>
+						</ol>
+						<h3>💡 Vylepšení pro šikovné</h3>
+						<ul>
+						<li>kočka postupně <strong>zrychluje</strong>: dopředu o (3 + čas/10)</li>
+						<li>přidej druhou kočku z jiného rohu</li>
+						<li>na scéně se objevuje sýr — sebrání přidá body</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+					],
+				},
+			],
+		},
+		{
 			slug: 'shrnuti',
 			nazev: 'Shrnutí a opakování',
 			podtemata: [
@@ -3969,7 +4081,8 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Sestavení a oživení robota',
 					obsah: `
 						<h2>Ze stavebnice živý robot</h2>
-						<p>Robot ze stavebnice (LEGO) má tři části: <strong>kostku s počítačem</strong> (mozek), <strong>motory</strong> (svaly) a <strong>senzory</strong> (smysly). My mu dodáme <strong>program</strong> — myšlenky.</p>
+						<p>🏫 <em>U nás ve škole používáme stavebnici <strong>VEX IQ</strong> — konkrétní návody najdeš v celku „Robotika VEX IQ". Principy na této stránce platí pro každou stavebnici.</em></p>
+						<p>Robot ze stavebnice má tři části: <strong>kostku s počítačem</strong> (mozek), <strong>motory</strong> (svaly) a <strong>senzory</strong> (smysly). My mu dodáme <strong>program</strong> — myšlenky.</p>
 						<h3>Postup oživení</h3>
 						<ol>
 							<li>sestav robota podle návodu (nebo vlastní konstrukci)</li>
@@ -4207,6 +4320,190 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
 						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
+				},
+			],
+		},
+		{
+			slug: 'hry-ve-scratchi',
+			nazev: 'Hry ve Scratchi — návody',
+			podtemata: [
+				{
+					slug: 'hra-ping-pong',
+					nazev: 'Hra 1: Ping-pong',
+					obsah: `
+						<h2>🏓 Ping-pong</h2>
+						<p>Klasika: odrážej míček pálkou, ať nespadne dolů.</p>
+						<h3>Připrav si</h3>
+						<ul>
+						<li>postava <strong>Pálka</strong> (protáhlý obdélník) dole</li>
+						<li>postava <strong>Míček</strong></li>
+						<li>proměnné <strong>skóre</strong> a <strong>životy</strong></li>
+						</ul>
+						<h3>Scénář Pálky</h3>
+						<ol>
+						<li>po kliknutí na vlajku → opakuj stále: nastav x na x ukazatele myši (pálka jezdí za myší, y se nemění)</li>
+						</ol>
+						<h3>Scénář Míčku</h3>
+						<ol>
+						<li>po kliknutí na vlajku → nastav skóre 0, životy 3, skoč do středu, nastav směr 45°</li>
+						<li>opakuj stále: dopředu o 10, odraz se, když se dotýká okraje</li>
+						<li>když se dotýká Pálky → otoč se o 180° + náhodně −20 až 20 (ať to není nuda), změň skóre o 1</li>
+						<li>když y &lt; −175 (proletěl dolů) → změň životy o −1, skoč do středu, čekej 1 s</li>
+						<li>když životy = 0 → řekni „Konec hry! Skóre: " + skóre, zastav vše</li>
+						</ol>
+						<h3>💡 Vylepšení pro šikovné</h3>
+						<ul>
+						<li>míček zrychluje se skóre (dopředu o 10 + skóre/5)</li>
+						<li>dvouhráčová verze: druhá pálka nahoře na klávesy A/D</li>
+						<li>bonusové cihly nahoře, které mizí po zásahu (jako Arkanoid)</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
+					],
+				},
+				{
+					slug: 'hra-vesmirna-strilecka',
+					nazev: 'Hra 2: Vesmírná střílečka',
+					obsah: `
+						<h2>🚀 Vesmírná střílečka</h2>
+						<p>Raketa střílí na padající meteory. Naučíš se <strong>klonování</strong> — nejdůležitější trik větších her!</p>
+						<h3>Připrav si</h3>
+						<ul>
+						<li>postava <strong>Raketa</strong> dole (šipky doleva/doprava)</li>
+						<li>postava <strong>Střela</strong> (malá tečka), postava <strong>Meteor</strong></li>
+						<li>proměnné <strong>skóre</strong> a <strong>životy</strong></li>
+						</ul>
+						<h3>Scénář Střely</h3>
+						<ol>
+						<li>po startu se <strong>schovej</strong> (originál nikdy nevidíme — létají jen klony)</li>
+						<li>po stisku mezerníku → vytvoř klon sebe sama</li>
+						<li>když startuji jako klon → ukaž se, skoč na Raketu, opakuj: změň y o 15; když y &gt; 175 → smaž klon</li>
+						</ol>
+						<h3>Scénář Meteoru</h3>
+						<ol>
+						<li>po startu se schovej; opakuj stále: čekej 1 s, vytvoř klon</li>
+						<li>klon: ukaž se, skoč nahoru na náhodné x, opakuj: změň y o −4</li>
+						<li>když se klon dotýká Střely → změň skóre o 1, smaž klon (střela zmizí sama dole)</li>
+						<li>když se klon dotýká Rakety → změň životy o −1, smaž klon</li>
+						<li>když y &lt; −175 → smaž klon</li>
+						</ol>
+						<h3>💡 Vylepšení pro šikovné</h3>
+						<ul>
+						<li>meteory se objevují stále rychleji (čekej 1/(1 + skóre/20) s)</li>
+						<li>zvuky výstřelu a výbuchu, pozadí s hvězdami</li>
+						<li>velký meteor vydrží dva zásahy (klonová proměnná „síla")</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
+					],
+				},
+				{
+					slug: 'hra-skakacka',
+					nazev: 'Hra 3: Skákačka',
+					obsah: `
+						<h2>🦖 Skákačka</h2>
+						<p>Postava přeskakuje běžící překážky — jako dinosaurus v Chromu. Naučíš se udělat <strong>gravitaci</strong>.</p>
+						<h3>Připrav si</h3>
+						<ul>
+						<li>postava <strong>Běžec</strong> vlevo dole (stojí na místě, „běží" svět kolem)</li>
+						<li>postava <strong>Kaktus</strong> (překážka)</li>
+						<li>proměnné <strong>rychlostY</strong> a <strong>skóre</strong></li>
+						</ul>
+						<h3>Scénář Běžce — gravitace</h3>
+						<ol>
+						<li>po kliknutí na vlajku → nastav rychlostY na 0</li>
+						<li>opakuj stále: změň rychlostY o −1 (tíže táhne dolů), změň y o rychlostY</li>
+						<li>když se dotýká země (čára dole) → nastav rychlostY na 0, srovnej y</li>
+						<li>po stisku mezerníku → když stojí na zemi → nastav rychlostY na 12 (výskok!)</li>
+						</ol>
+						<h3>Scénář Kaktusu</h3>
+						<ol>
+						<li>po kliknutí na vlajku → opakuj stále: skoč vpravo (x = 240), klouzej doleva; když x &lt; −240, skoč zase vpravo</li>
+						<li>když se dotýká Běžce → řekni „Konec! Skóre: " + skóre, zastav vše</li>
+						<li>skóre roste s časem (změň skóre o 1 každou sekundu)</li>
+						</ol>
+						<h3>💡 Vylepšení pro šikovné</h3>
+						<ul>
+						<li>překážky zrychlují se skóre; občas letí i pták (nutné se přikrčit)</li>
+						<li>střídání dne a noci (pozadí), rekord v localStorage… tedy v proměnné „rekord" 🙂</li>
+						</ul>
+					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
+					],
+				},
+			],
+		},
+		{
+			slug: 'vex-iq',
+			nazev: 'Robotika VEX IQ',
+			podtemata: [
+				{
+					slug: 'co-umi-vex-iq',
+					nazev: 'Co robot VEX IQ umí',
+					obsah: `
+						<h2>🤖 Seznam se: VEX IQ</h2>
+						<p>Ve škole stavíme roboty ze stavebnice <strong>VEX IQ</strong>. Díly se spojují bez šroubování (zacvakávací plastové nosníky a piny) — robot vznikne rychle a jde kdykoli přestavět.</p>
+						<h3>Mozek robota (Robot Brain)</h3>
+						<ul>
+						<li>displej a tlačítka — spouštění programů přímo na robotu</li>
+						<li><strong>12 portů</strong> na motory a čidla (kabely stačí zacvaknout)</li>
+						<li>rádio pro spojení s ovladačem a počítačem</li>
+						</ul>
+						<h3>Co všechno robot umí</h3>
+						<ul>
+						<li>🚗 <strong>jezdit</strong> — dva hnací motory (tank drive), přesné otáčky</li>
+						<li>🦾 <strong>zvedat a chytat</strong> — další motory pro rameno a klepeta</li>
+						<li>👀 <strong>vnímat okolí</strong> — čidla vzdálenosti, barvy, náklonu, dotyku (viz další stránka)</li>
+						<li>🎮 <strong>poslouchat ovladač</strong> — režim řízení (Driver Control) jako RC autíčko</li>
+						<li>🧠 <strong>jednat sám</strong> — program rozhoduje podle čidel (autonomní režim)</li>
+						</ul>
+						<h3>Programování — VEXcode IQ</h3>
+						<p>Programuje se v prohlížeči přes <strong>VEXcode IQ</strong> — bloky vypadají <strong>skoro stejně jako Scratch</strong>: opakování, podmínky, události, proměnné. Co umíš ze Scratche, použiješ i tady! Kdo chce víc, může přepnout na Python.</p>
+						<h3>Soutěže</h3>
+						<p>S roboty VEX IQ se jezdí i celosvětová soutěž <strong>VEX IQ Robotics Competition</strong> — každý rok nová hra, týmy sbírají body jízdou i autonomními programy.</p>
+					`,
+					odkazy: [
+						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
+						{ nazev: 'VEX IQ — znalostní báze (návody)', url: 'https://kb.vex.com/hc/en-us/categories/360002333191' },
+						{ nazev: 'vexrobotics.com — stavebnice VEX IQ', url: 'https://www.vexrobotics.com/iq' },
+					],
+				},
+				{
+					slug: 'cidla-vex-iq',
+					nazev: 'Čidla VEX IQ — návod k použití',
+					obsah: `
+						<h2>👀 Čidla — smysly robota</h2>
+						<p>Čidlo (senzor) zapoj kabelem do libovolného portu mozku a v programu ho přidej v nastavení zařízení (Devices). Pak můžeš jeho hodnoty číst v podmínkách — stejné „když… tak…" jako ve Scratchi.</p>
+						<h3>🔴 Nárazník (Bumper Switch)</h3>
+						<p>Tlačítko — pozná náraz. <em>Použití: jeď dopředu, dokud není nárazník stisknutý → zastav a couvni.</em></p>
+						<h3>💡 Dotykové LED (Touch LED)</h3>
+						<p>Svítící tlačítko — reaguje na dotyk prstu a umí svítit barvami. <em>Použití: start programu dotykem; barva ukazuje stav robota (zelená = hotovo).</em></p>
+						<h3>📏 Čidlo vzdálenosti (Distance Sensor)</h3>
+						<p>Měří vzdálenost k překážce (ultrazvuk/laser). <em>Použití: zastav 10 cm před zdí; objeď překážku; najdi nejbližší předmět otáčením.</em></p>
+						<h3>🎨 Čidlo barvy (Color/Optical Sensor)</h3>
+						<p>Pozná barvu a odstín pod sebou nebo před sebou. <em>Použití: jízda po černé čáře; zastav na červené značce; roztřiď kostky podle barvy.</em></p>
+						<h3>🧭 Gyro / Inertial</h3>
+						<p>Měří natočení robota. <em>Použití: otoč se přesně o 90° (bez gyra robot zatáčí pokaždé jinak!); jeď rovně i po nárazu.</em></p>
+						<h3>⚙️ Čidla v motorech</h3>
+						<p>Každý chytrý motor sám měří otáčky → „jeď 2 otáčky dopředu" je přesné na stupně, bez dalšího čidla.</p>
+						<h3>Jak čidla použít v programu</h3>
+						<ol>
+						<li>blok <strong>čekej, dokud</strong> — jeď, <em>čekej dokud vzdálenost &lt; 10 cm</em>, zastav</li>
+						<li>blok <strong>když… tak… jinak</strong> — <em>když vidím černou → toč doleva, jinak doprava</em> (jízda po čáře!)</li>
+						<li>hodnoty čidel si nech <strong>vypisovat na displej</strong> mozku — nejrychlejší ladění</li>
+						</ol>
+					`,
+					odkazy: [
+						{ nazev: 'VEX IQ — znalostní báze (návody)', url: 'https://kb.vex.com/hc/en-us/categories/360002333191' },
+						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
+						{ nazev: 'VEX STEM Labs — hotové lekce', url: 'https://education.vex.com/stemlabs/iq' },
 					],
 				},
 			],
@@ -4464,6 +4761,39 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
 						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
 						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
+				},
+			],
+		},
+		{
+			slug: 'vex-iq',
+			nazev: 'Robotika VEX IQ',
+			podtemata: [
+				{
+					slug: 'vex-iq-navody',
+					nazev: 'VEX IQ — návody a odkazy',
+					obsah: `
+						<h2>🤖 Roboti VEX IQ v 9. ročníku</h2>
+						<p>Pokračujeme s roboty VEX IQ — složitější konstrukce, přesná jízda s gyrem a autonomní úlohy.</p>
+						<h3>Návody (z 8. ročníku)</h3>
+						<ul>
+						<li><a href="/informatika/8-rocnik/vex-iq/co-umi-vex-iq/">Co robot VEX IQ umí</a> — mozek, motory, ovladač, VEXcode</li>
+						<li><a href="/informatika/8-rocnik/vex-iq/cidla-vex-iq/">Čidla VEX IQ — návod k použití</a> — nárazník, vzdálenost, barva, gyro + jak je číst v programu</li>
+						</ul>
+						<h3>Výzvy pro deváťáky</h3>
+						<ol>
+						<li><strong>Přesný čtverec</strong> — objeď čtverec 50×50 cm s gyrem (otáčky přesně 90°)</li>
+						<li><strong>Parkování</strong> — zajeď do garáže a zastav 5 cm před zdí (čidlo vzdálenosti)</li>
+						<li><strong>Sledovač čáry</strong> — projeď dráhu po černé čáře co nejrychleji (čidlo barvy)</li>
+						<li><strong>Třídička</strong> — najdi kostky a roztřiď je podle barvy (rameno + čidlo barvy)</li>
+						<li><strong>Soutěžní úloha</strong> — sestav a naprogramuj robota na letošní hru VIQRC</li>
+						</ol>
+						<p>👉 U každé výzvy: nejdřív <strong>plán na papír</strong> (rozklad na části), pak program po kouscích testuj — jako u každého projektu.</p>
+					`,
+					odkazy: [
+						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },
+						{ nazev: 'VEX IQ — znalostní báze (návody)', url: 'https://kb.vex.com/hc/en-us/categories/360002333191' },
+						{ nazev: 'VEX STEM Labs — hotové lekce', url: 'https://education.vex.com/stemlabs/iq' },
 					],
 				},
 			],
