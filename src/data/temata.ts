@@ -9,6 +9,8 @@ export type Podtema = {
 	nazev: string;
 	obsah?: string;
 	materialy?: Material[];
+	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
+	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
 	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste';
 };
@@ -3609,6 +3611,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>Když podmínka nemůže nikdy nastat, program se opakuje donekonečna. To někdy chceme (kulisy hry), ale jindy je to <strong>chyba</strong>, kterou je potřeba najít a opravit.</p>
 						<p>🐭 Vyzkoušej na <a href="https://scratch.mit.edu" target="_blank" rel="noopener">scratch.mit.edu</a> — učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi</a>, kapitola 4.</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
+					],
 				},
 				{
 					slug: 'udalosti-a-vstupy',
@@ -3629,6 +3636,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Program řízený událostmi nedělá věci „od začátku do konce", ale <strong>reaguje na to, co uděláš</strong> — stejně jako mobil čeká na tvé ťuknutí.</p>
 						<p>📗 Učebnice Scratch, kapitola 5 (Myš a klávesnice).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Code.org — kurzy zdarma', url: 'https://studio.code.org/courses' },
+					],
 				},
 				{
 					slug: 'posilani-zprav',
@@ -3652,6 +3664,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>Vytvoř scénku se dvěma postavami, které se střídají v dialogu pomocí zpráv — přesně tak se programují animované příběhy.</p>
 						<p>📗 Učebnice Scratch, kapitola 6 (Posílání zpráv).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -3677,6 +3694,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>Nakresli schéma cesty do školy: kroužky = místa, čáry = cesty. Právě jsi vytvořil(a) <strong>graf</strong> — víc v další kapitole!</p>
 						<p>🦫 Úlohy s modely najdeš v archivu soutěže <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobřík informatiky</a> (kategorie Benjamin).</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 				{
 					slug: 'ohodnocene-grafy',
@@ -3694,6 +3715,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Systematicky: postupuj od startu, u každého vrcholu si zapisuj <strong>nejmenší dosažený součet</strong> a škrtej horší možnosti. Nezkoušej cesty náhodně — přesnost vyhrává nad rychlostí.</p>
 						<p>🦫 V testech <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> jsou grafové úlohy každý rok.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
+					],
 				},
 				{
 					slug: 'orientovane-grafy-a-automaty',
@@ -3712,6 +3738,10 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Souběžné (paralelní) činnosti</h3>
 						<p>Model umí zachytit i činnosti běžící <strong>zároveň</strong>: zatímco se vaří těstoviny, krájíme zeleninu. Ve Scratchi běží scénáře postav také souběžně — každá postava si jede ten svůj.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -3736,6 +3766,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Podmínky jde skládat: <strong>a zároveň</strong>, <strong>nebo</strong>, <strong>ne</strong> — např. <em>když se dotýká čáry A ZÁROVEŇ je rychlost &gt; 5</em>.</p>
 						<p>📗 Učebnice Scratch, kapitola 7 (Rozhodování).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
+					],
 				},
 				{
 					slug: 'souradnice-a-kresleni',
@@ -3757,6 +3792,11 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>📗 Učebnice Scratch, kapitola 8 (Souřadnice).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Blockly Games — hry s bloky', url: 'https://blockly.games/?lang=cs' },
+					],
 				},
 				{
 					slug: 'vlastni-bloky-s-parametry',
@@ -3773,6 +3813,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Rozdělení programu na vlastní bloky = <strong>rozklad problému na části</strong>. To je jedna z nejdůležitějších dovedností programátora (a hodí se i mimo informatiku).</p>
 						<p>📗 Učebnice Scratch, kapitola 9 (Parametry).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+					],
 				},
 				{
 					slug: 'promenne',
@@ -3795,6 +3839,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Dobré jméno proměnné říká, co je uvnitř. <em>skore</em> je lepší než <em>x</em> — za měsíc budeš vědět, co program dělá.</p>
 						<p>📗 Učebnice Scratch, kapitola 10 (Proměnné).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Code.org — kurzy zdarma', url: 'https://studio.code.org/courses' },
+					],
 				},
 			],
 		},
@@ -3819,6 +3868,10 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Pořádek se vyplatí</h3>
 						<p>👉 Promyšlená struktura složek (Škola → Informatika → Projekty) + rozumné názvy souborů = za půl roku najdeš, co hledáš. „bezejmenný_final2_OPRAVDU.docx" ne. 🙂</p>
 					`,
+					odkazy: [
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
+					],
 				},
 				{
 					slug: 'site-internet-email',
@@ -3837,6 +3890,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Vyzkoušej nakreslit <strong>model své domácí sítě</strong>: co všechno je u vás připojené k routeru?</p>
 						<p>📺 Pěkně to vysvětluje seriál <a href="https://decko.ceskatelevize.cz/datova-lhota" target="_blank" rel="noopener">Datová Lhota</a> (ČT :D).</p>
 					`,
+					odkazy: [
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 				{
 					slug: 'zabezpeceni-a-digitalni-stopa',
@@ -3855,6 +3913,11 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Když počítač zlobí</h3>
 						<p>Program bez odezvy? Zkontroluj propojení kabelů, zkus program ukončit vynuceně, restartuj. Postupuj klidně a <strong>po krocích</strong> — většina „záhad" má jednoduchou příčinu.</p>
 					`,
+					odkazy: [
+						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
+						{ nazev: 'kurzy NÚKIB — osveta.nukib.cz', url: 'https://osveta.nukib.cz' },
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+					],
 				},
 			],
 		},
@@ -3873,6 +3936,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
 					`,
+					odkazy: [
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -3886,6 +3952,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže prověří celý ročník. Trénovat můžeš i v archivu <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Benjamin).</p>
 					`,
+					odkazy: [
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -3913,6 +3982,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>Rozjeď oba motory na 2 sekundy vpřed, pak zastav. Přidej otočku: jeden motor vpřed, druhý vzad. Hotovo — robot poslouchá!</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a>, kap. 1–2.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
+						{ nazev: 'LEGO Education — lekce', url: 'https://education.lego.com/en-us/lessons/' },
+					],
 				},
 				{
 					slug: 'motory-displej-zvuk',
@@ -3931,6 +4004,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Vyzkoušej: robot objede čtverec a v každém rohu pípne. Kolik bloků ti stačí s opakováním?</p>
 						<p>📗 Učebnice LEGO, kap. 3–6.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
+						{ nazev: 'LEGO Education — lekce', url: 'https://education.lego.com/en-us/lessons/' },
+					],
 				},
 				{
 					slug: 'senzory-robota',
@@ -3951,6 +4028,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 <strong>Jízda po čáře</strong> je královská úloha: robot se podél okraje čáry „vlní" — pořád dokola měří a opravuje směr. Stejný princip řídí i skutečná auta na dálnici.</p>
 						<p>📗 Učebnice LEGO, kap. 7–9.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 				{
 					slug: 'projekt-muj-robot',
@@ -3973,6 +4054,11 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 						<p>👉 Hodnotí se nejen výsledek, ale hlavně <strong>postup řešení</strong>: rozklad, testování, opravy chyb.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
+						{ nazev: 'LEGO Education — lekce', url: 'https://education.lego.com/en-us/lessons/' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -4000,6 +4086,11 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a>, kap. 1.</p>
 					`,
+					odkazy: [
+						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
+						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
+						{ nazev: 'microbit.org — nápady na projekty', url: 'https://microbit.org/cs/projects/' },
+					],
 				},
 				{
 					slug: 'tlacitka-naklon-zvuk',
@@ -4022,6 +4113,11 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>📗 Učebnice micro:bit, kap. 2–4.</p>
 					`,
+					odkazy: [
+						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
+						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
+						{ nazev: 'microbit.org — nápady na projekty', url: 'https://microbit.org/cs/projects/' },
+					],
 				},
 				{
 					slug: 'propojeni-a-externi-zarizeni',
@@ -4041,6 +4137,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>Navrhni a předveď vlastní zařízení s micro:bitem — od nápadu přes program po ukázku. Postup jako u robota: rozděl, testuj, dolaď.</p>
 						<p>📗 Učebnice micro:bit, kap. 5–6.</p>
 					`,
+					odkazy: [
+						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
+						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
+						{ nazev: 'microbit.org — nápady na projekty', url: 'https://microbit.org/cs/projects/' },
+					],
 				},
 			],
 		},
@@ -4064,6 +4165,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>Když vzorec <strong>kopíruješ</strong> dolů, adresy se posouvají s ním (<em>relativní</em>: z B2 se stane B3). Když má adresa zůstat na místě, <strong>ukotvi ji dolarem</strong>: <code>$B$1</code> (<em>absolutní</em>).</p>
 						<p>👉 Typická úloha: sloupec cen × jeden kurz eura v buňce <code>$B$1</code>. Kurz se ukotví, ceny se posouvají.</p>
 					`,
+					odkazy: [
+						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+					],
 				},
 				{
 					slug: 'funkce-v-tabulkach',
@@ -4081,6 +4186,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Všimni si: <strong>KDYŽ</strong> je stejné větvení, jaké znáš z programování. Tabulka je vlastně program — jen zapsaný do buněk.</p>
 					`,
+					odkazy: [
+						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
+					],
 				},
 				{
 					slug: 'razeni-filtrovani-velka-data',
@@ -4096,6 +4204,10 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 „Velké státy mají víc obyvatel než malé — platí to vždy?" S tabulkou stovek států to zjistíš za minutu: seřaď, filtruj, spočítej průměr, vytvoř graf. <strong>Odpovídej na základě dat, ne dojmů.</strong></p>
 						<p>🗂️ Cvičná data: <a href="http://simandl.asp2.cz/Online.aspx" target="_blank" rel="noopener">online přípravna souborů dat</a> (geografie států světa).</p>
 					`,
+					odkazy: [
+						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -4113,6 +4225,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
 					`,
+					odkazy: [
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -4126,6 +4241,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže prověří celý ročník. Trénovat můžeš i v archivu <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Kadet).</p>
 					`,
+					odkazy: [
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -4153,6 +4271,10 @@ export const temata: Record<string, Tema[]> = {
 						<h3>První projekty</h3>
 						<p><strong>Souřadnice</strong> (pohyb po scéně) a <strong>Kulička</strong> (ovládání myší, posílání zpráv) — rozcvička na velké hry.</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+					],
 				},
 				{
 					slug: 'seznamy-a-promenne-v-projektech',
@@ -4174,6 +4296,10 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Kombinace <strong>seznam + opakování + proměnná</strong> je základ skoro každé skutečné aplikace (kontakty, playlist, chat…).</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+					],
 				},
 				{
 					slug: 'klonovani-animace-hry',
@@ -4193,6 +4319,11 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Dobrá hra vzniká <strong>postupným přidáváním</strong>: nejdřív se hýbe postava, pak přibude cíl, pak překážky… Po každém kroku hru otestuj!</p>
 						<p>🦫 Trénink logiky: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (kategorie Kadet).</p>
 					`,
+					odkazy: [
+						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -4219,6 +4350,11 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Technologie kolem nás</h3>
 						<p>Umělá inteligence, internet věcí, virtuální realita — diskutujeme, <strong>jak fungují a co mění</strong> (učebnice <a href="https://opocitacich.cz" target="_blank" rel="noopener">opocitacich.cz</a>).</p>
 					`,
+					odkazy: [
+						{ nazev: 'opocitacich.cz — digitální technologie', url: 'https://opocitacich.cz' },
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
+					],
 				},
 				{
 					slug: 'pocitacove-site-a-internet',
@@ -4237,6 +4373,11 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Cloud a datacentra</h3>
 						<p>👉 „Cloud" nejsou obláčky — jsou to <strong>obrovské haly plné serverů</strong> (datacentra). Tvoje fotky „v cloudu" leží na konkrétních discích, jen ne u tebe doma.</p>
 					`,
+					odkazy: [
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+						{ nazev: 'opocitacich.cz — digitální technologie', url: 'https://opocitacich.cz' },
+						{ nazev: 'Datová Lhota (ČT :D)', url: 'https://decko.ceskatelevize.cz/datova-lhota' },
+					],
 				},
 				{
 					slug: 'bezpecnost-pocitace-a-dat',
@@ -4259,6 +4400,11 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Žádná obrana není stoprocentní — cíl je útočníkovi práci co nejvíc <strong>ztížit</strong> a mít <strong>zálohu</strong> pro případ nejhoršího.</p>
 					`,
+					odkazy: [
+						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
+						{ nazev: 'kurzy NÚKIB — osveta.nukib.cz', url: 'https://osveta.nukib.cz' },
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+					],
 				},
 				{
 					slug: 'digitalni-stopa-a-identita',
@@ -4280,6 +4426,11 @@ export const temata: Record<string, Tema[]> = {
 							<li>svou <strong>digitální identitu</strong> (účty, přezdívky, pověst) si buduj jako vizitku — jednou ji uvidí i budoucí zaměstnavatel</li>
 						</ul>
 					`,
+					odkazy: [
+						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
+						{ nazev: 'kurzy NÚKIB — osveta.nukib.cz', url: 'https://osveta.nukib.cz' },
+						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
+					],
 				},
 			],
 		},
@@ -4309,6 +4460,11 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 						<p>👉 Projekt je tvoje <strong>vizitka z informatiky</strong> — vyber si téma, které tě opravdu baví.</p>
 					`,
+					odkazy: [
+						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
+						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},
@@ -4326,6 +4482,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek probraných podtémat.</p>
 					`,
+					odkazy: [
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -4338,6 +4497,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Souhrnný kvíz níže prověří celý ročník — dobrá příprava i na střední školu. Trénink: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (Kadet).</p>
 					`,
+					odkazy: [
+						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
+					],
 				},
 			],
 		},

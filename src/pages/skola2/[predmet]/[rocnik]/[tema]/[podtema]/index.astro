@@ -63,6 +63,22 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		)
 	}
 	{
+		podtema.odkazy && podtema.odkazy.length > 0 && (
+			<section class="ramecek odkazy-sekce">
+				<h2><span class="podtrh">🔗 Odkazy k tématu</span></h2>
+				<p class="odkazy-pokyn">Klikni, nebo naskenuj QR tabletem či telefonem.</p>
+				<div class="odkazy-mrizka">
+					{podtema.odkazy.map((o) => (
+						<a class="odkaz-karta" href={o.url} target="_blank" rel="noopener">
+							<QrKod url={o.url} velikost={110} />
+							<span>{o.nazev}</span>
+						</a>
+					))}
+				</div>
+			</section>
+		)
+	}
+	{
 		podtema.materialy && podtema.materialy.length > 0 && (
 			<section>
 				<h2><span class="podtrh">Materiály k tématu 📚</span></h2>
@@ -134,6 +150,28 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 </SkolaLayout>
 
 <style is:global>
+	.odkazy-pokyn {
+		margin-top: 0;
+		color: #555;
+	}
+	.odkazy-mrizka {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.2rem;
+	}
+	.odkaz-karta {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.4rem;
+		width: 10rem;
+		text-align: center;
+		text-decoration: none;
+		font-weight: 700;
+	}
+	.odkaz-karta:hover {
+		transform: scale(1.04);
+	}
 	.vyklad h2 {
 		margin-top: 0;
 	}
