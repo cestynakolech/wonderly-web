@@ -15,6 +15,7 @@ import BinarniSimulace from '../../../../../../components/skola2/BinarniSimulace
 import PaketySimulace from '../../../../../../components/skola2/PaketySimulace.astro';
 import PakaSimulace from '../../../../../../components/skola2/PakaSimulace.astro';
 import MagnetSimulace from '../../../../../../components/skola2/MagnetSimulace.astro';
+import KladkaSimulace from '../../../../../../components/skola2/KladkaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -156,6 +157,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'pakety' && <PaketySimulace />}
 	{podtema.interakce === 'paka' && <PakaSimulace />}
 	{podtema.interakce === 'magnet' && <MagnetSimulace />}
+	{podtema.interakce === 'kladka' && <KladkaSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

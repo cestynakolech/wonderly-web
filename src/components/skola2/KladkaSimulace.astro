@@ -1,0 +1,163 @@
+---
+// Interaktivní kladka: přepínání mezi pevnou (mění směr, síla stejná) a volnou
+// kladkou (síla poloviční, ale táhneme dvakrát delší dráhu). Zvedni břemeno.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: pevná a volná kladka 🕹️</span></h2>
+	<p>
+		<strong>Pevná kladka</strong> jen mění směr síly — táhneš dolů stejnou silou, jako je tíha břemene.
+		<strong>Volná kladka</strong> zvedá břemeno <strong>poloviční silou</strong>, ale lano musíš vytáhnout
+		<strong>dvakrát delší</strong>. Vyber druh kladky a táhni za lano.
+	</p>
+	<div class="kl-prepinac">
+		<button id="kl-pevna" class="kl-akt" type="button">Pevná kladka</button>
+		<button id="kl-volna" type="button">Volná kladka</button>
+	</div>
+	<svg id="kl-svg" viewBox="0 0 420 340" role="img" aria-label="Kladka s břemenem">
+		<!-- strop -->
+		<rect x="0" y="0" width="420" height="18" fill="#868e96" />
+		<line x1="0" y1="18" x2="420" y2="18" stroke="#2b2a26" stroke-width="2" />
+		<g id="kl-obsah"></g>
+	</svg>
+	<div class="kl-ovladani">
+		<button id="kl-tahni" type="button">⬇️ Táhni za lano</button>
+		<button id="kl-reset" type="button">↺ Zpět</button>
+	</div>
+	<p id="kl-info" class="kl-info"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const TIHA = 100; // N (břemeno 10 kg)
+	let volna = false;
+	let zvednuto = 0; // 0..1
+
+	function prekresli() {
+		const sila = volna ? TIHA / 2 : TIHA;
+		const drahaLana = volna ? 'dvakrát delší' : 'stejná jako zdvih';
+		// pozice břemene: nahoře podle zvednuto
+		const bremenoY = 250 - zvednuto * 150;
+
+		let svg = '';
+		if (!volna) {
+			// PEVNÁ kladka: kolo u stropu, lano přes něj, břemeno vlevo, tah vpravo
+			const kx = 210, ky = 60;
+			svg += `<circle cx="${kx}" cy="${ky}" r="28" fill="#c9a227" stroke="#2b2a26" stroke-width="3" />`;
+			svg += `<circle cx="${kx}" cy="${ky}" r="5" fill="#2b2a26" />`;
+			svg += `<line x1="${kx}" y1="18" x2="${kx}" y2="32" stroke="#2b2a26" stroke-width="3" />`;
+			// lano levá strana (k břemenu)
+			svg += `<line x1="${kx - 28}" y1="${ky}" x2="${kx - 28}" y2="${bremenoY}" stroke="#495057" stroke-width="3" />`;
+			// břemeno vlevo
+			svg += bremeno(kx - 28, bremenoY);
+			// lano pravá strana (ruka táhne dolů) — táhne se tak, jak se zvedá břemeno
+			const tahY = 120 + zvednuto * 150;
+			svg += `<line x1="${kx + 28}" y1="${ky}" x2="${kx + 28}" y2="${tahY}" stroke="#495057" stroke-width="3" />`;
+			svg += sipkaDolu(kx + 28, tahY, sila);
+		} else {
+			// VOLNÁ kladka: jeden konec lana u stropu, kolo drží břemeno, druhý konec táhneme
+			const kx = 210;
+			const ky = bremenoY - 40; // kladka nad břemenem, stoupá s ním
+			// pevný konec lana u stropu
+			svg += `<line x1="${kx - 26}" y1="18" x2="${kx - 26}" y2="${ky}" stroke="#495057" stroke-width="3" />`;
+			// kolo (volné)
+			svg += `<circle cx="${kx}" cy="${ky}" r="26" fill="#c9a227" stroke="#2b2a26" stroke-width="3" />`;
+			svg += `<circle cx="${kx}" cy="${ky}" r="5" fill="#2b2a26" />`;
+			// závěs břemene z osy kladky
+			svg += `<line x1="${kx}" y1="${ky + 5}" x2="${kx}" y2="${bremenoY}" stroke="#495057" stroke-width="3" />`;
+			svg += bremeno(kx, bremenoY);
+			// tažný konec lana jde z pravé strany kladky nahoru? U volné kladky vede přes strop.
+			// Zjednodušení pro žáky: druhý konec táhneme nahoru u stropu vpravo.
+			const tahY = 120 + zvednuto * 300; // dvakrát delší dráha
+			svg += `<line x1="${kx + 26}" y1="${ky}" x2="${kx + 26}" y2="18" stroke="#495057" stroke-width="3" />`;
+			svg += `<circle cx="${kx + 26}" cy="18" r="7" fill="#868e96" stroke="#2b2a26" stroke-width="2" />`;
+			// ruka táhne dolů za volný konec (naznačíme šipku u kladky)
+			svg += sipkaDolu(kx + 55, ky, sila);
+		}
+		$('kl-obsah').innerHTML = svg;
+
+		$('kl-info').innerHTML = zvednuto >= 1
+			? `✅ Břemeno (${TIHA} N) zvednuto! Potřebná síla: <strong>${sila} N</strong>. Dráha lana: ${drahaLana}.`
+			: `Břemeno váží <strong>${TIHA} N</strong>. Touto kladkou stačí síla <strong>${sila} N</strong> (dráha lana: ${drahaLana}). Klikni „Táhni".`;
+	}
+
+	function bremeno(x, y) {
+		return `<rect x="${x - 24}" y="${y}" width="48" height="44" rx="5" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />` +
+			`<text x="${x}" y="${y + 28}" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">10 kg</text>`;
+	}
+	function sipkaDolu(x, y, sila) {
+		return `<line x1="${x}" y1="${y - 30}" x2="${x}" y2="${y}" stroke="#e03131" stroke-width="4" />` +
+			`<polygon points="${x - 6},${y - 6} ${x + 6},${y - 6} ${x},${y + 4}" fill="#e03131" />` +
+			`<text x="${x + 8}" y="${y - 10}" font-size="14" font-weight="bold" fill="#e03131">${sila} N</text>`;
+	}
+
+	$('kl-pevna').addEventListener('click', () => {
+		volna = false; zvednuto = 0;
+		$('kl-pevna').classList.add('kl-akt'); $('kl-volna').classList.remove('kl-akt');
+		prekresli();
+	});
+	$('kl-volna').addEventListener('click', () => {
+		volna = true; zvednuto = 0;
+		$('kl-volna').classList.add('kl-akt'); $('kl-pevna').classList.remove('kl-akt');
+		prekresli();
+	});
+	$('kl-tahni').addEventListener('click', () => {
+		if (zvednuto >= 1) return;
+		const cil = 1;
+		const animuj = () => {
+			zvednuto = Math.min(cil, zvednuto + 0.04);
+			prekresli();
+			if (zvednuto < cil) requestAnimationFrame(animuj);
+		};
+		animuj();
+	});
+	$('kl-reset').addEventListener('click', () => { zvednuto = 0; prekresli(); });
+	prekresli();
+</script>
+
+<style>
+	.kl-prepinac {
+		display: flex;
+		gap: 0.6rem;
+		margin: 0.6rem 0;
+	}
+	.kl-prepinac button {
+		font-weight: 700;
+		padding: 0.4rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.kl-prepinac button.kl-akt {
+		background: #ffd43b;
+	}
+	#kl-svg {
+		width: 100%;
+		max-width: 420px;
+		display: block;
+		margin: 0 auto;
+		background: #f8f9fa;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.kl-ovladani {
+		display: flex;
+		gap: 0.8rem;
+		margin: 0.6rem 0;
+	}
+	.kl-ovladani button {
+		font-weight: 700;
+		padding: 0.4rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.kl-info {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+	}
+</style>

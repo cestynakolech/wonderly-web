@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -1396,6 +1396,37 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'infografika', nazev: 'Tahák: moment síly', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-moment-sily.jpg' },
 					],
+				},
+				{
+					slug: 'kladka',
+					interakce: 'kladka',
+					nazev: 'Kladka — pevná a volná',
+					obsah: `
+						<h2>Kladka</h2>
+						<p><strong>Kladka</strong> je kolo s drážkou, přes které je vedeno lano. Patří mezi <strong>jednoduché stroje</strong> — usnadňuje nám zvedání břemen. Rozlišujeme dva základní druhy: <strong>pevnou</strong> a <strong>volnou</strong> kladku.</p>
+
+						<h3>Pevná kladka</h3>
+						<p><strong>Pevná kladka</strong> je připevněná (např. ke stropu) a neposouvá se. <strong>Nemění velikost síly</strong> — táhneme stejnou silou, jako je tíha břemene — ale <strong>mění její směr</strong>. Místo abychom břemeno zvedali nahoru, můžeme lano táhnout dolů, což je pohodlnější (a můžeme se do lana i opřít vlastní vahou).</p>
+						<ul>
+							<li>síla na lano = tíha břemene (<strong>F = F<sub>G</sub></strong>)</li>
+							<li>dráha lana = výška zdvihu</li>
+							<li>výhoda: pohodlný <strong>směr</strong> tahu (např. vlajka na stožár, studna s okovem)</li>
+						</ul>
+
+						<h3>Volná kladka</h3>
+						<p><strong>Volná kladka</strong> se pohybuje spolu s břemenem — břemeno visí na její ose. Břemeno je neseno <strong>dvěma částmi lana</strong>, takže na každou připadá jen polovina tíhy. <strong>Zvedneme ho poloviční silou</strong>, ale lano musíme vytáhnout <strong>dvakrát delší</strong>.</p>
+						<ul>
+							<li>síla na lano = polovina tíhy břemene (<strong>F = F<sub>G</sub> / 2</strong>)</li>
+							<li>dráha lana = <strong>dvojnásobek</strong> výšky zdvihu</li>
+							<li>výhoda: menší <strong>síla</strong> (co ušetříme na síle, doplatíme na dráze — to platí u všech strojů)</li>
+						</ul>
+
+						<h3>Kladkostroj</h3>
+						<p>Spojením několika pevných a volných kladek vznikne <strong>kladkostroj</strong>. S ním zvedneme velmi těžká břemena malou silou — používá se u jeřábů, na lodích nebo v dílnách. Kolik částí lana břemeno nese, tolikrát menší silou ho zvedneme.</p>
+
+						<h3>Zlaté pravidlo mechaniky</h3>
+						<p>U každého jednoduchého stroje platí: <strong>kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat.</strong> Práci si nikdy neušetříme — jen ji rozložíme pohodlněji.</p>
+					`,
 				},
 			],
 		},

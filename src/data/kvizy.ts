@@ -2321,6 +2321,16 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kdy tření škodí?', odpovedi: ['opotřebovává stroje a zvyšuje spotřebu energie', 'při brzdění', 'při psaní'], vysvetleni: 'Ve strojích se součástky odírají a zahřívají — proto se mažou.' },
 		{ text: 'Čím větší poloměr kola, tím je valivé tření…', odpovedi: ['menší', 'větší', 'stejné'], vysvetleni: 'Velká kola se valí přes nerovnosti snáz — koloběžka s velkými koly jede líp.' },
 	],
+	'fyzika/7-rocnik/jednoduche-stroje/kladka': [
+		{ text: 'Co je kladka?', odpovedi: ['kolo s drážkou, přes které vede lano', 'druh páky bez osy', 'zdroj elektřiny'], vysvetleni: 'Kladka je jednoduchý stroj — kolo s drážkou pro lano.' },
+		{ text: 'Co dělá pevná kladka se silou?', odpovedi: ['nemění velikost, jen mění směr síly', 'zmenší sílu na polovinu', 'sílu zdvojnásobí'], vysvetleni: 'Pevná kladka jen otočí směr — táhneme dolů stejnou silou, jako je tíha.' },
+		{ text: 'Jak velkou silou zvedneme břemeno na volné kladce?', odpovedi: ['poloviční, než je tíha břemene', 'stejnou jako tíha', 'dvojnásobnou'], vysvetleni: 'Břemeno nesou dvě části lana, na každou připadá polovina.' },
+		{ text: 'Co „zaplatíme" za poloviční sílu u volné kladky?', odpovedi: ['lano vytáhneme dvakrát delší', 'nic, je to zadarmo', 'kladka se zahřeje'], vysvetleni: 'Zlaté pravidlo: co ušetříme na síle, doplatíme na dráze.' },
+		{ text: 'Proč se u vlajkového stožáru používá pevná kladka?', odpovedi: ['abychom mohli táhnout dolů místo šplhání nahoru', 'aby vlajka vážila méně', 'aby se ušetřila polovina síly'], vysvetleni: 'Pevná kladka mění směr — pohodlně táhneme lano dolů.' },
+		{ text: 'Co je kladkostroj?', odpovedi: ['spojení více pevných a volných kladek', 'kladka s motorem', 'velmi velká páka'], vysvetleni: 'Kombinací kladek zvedneme velmi těžká břemena malou silou (jeřáby).' },
+		{ text: 'Co říká zlaté pravidlo mechaniky?', odpovedi: ['kolikrát si usnadníme sílu, tolikrát delší dráhu překonáme', 'stroje vyrobí práci navíc', 'síla je vždy stejná jako dráha'], vysvetleni: 'Práci si strojem neušetříme — jen ji rozložíme pohodlněji.' },
+		{ text: 'Břemeno váží 200 N. Jakou silou ho zvednu na jedné volné kladce?', odpovedi: ['100 N', '200 N', '400 N'], vysvetleni: 'Volná kladka = poloviční síla: 200 : 2 = 100 N.' },
+	],
 	'fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky': [
 		{ text: 'K čemu slouží jednoduché stroje?', odpovedi: ['usnadňují práci — menší silou zvedáme těžká tělesa', 'vyrábějí energii z ničeho', 'jen zdobí dílny'], vysvetleni: 'Páka, kladka či nakloněná rovina mění velikost potřebné síly.' },
 		{ text: 'Co je páka?', odpovedi: ['tuhá tyč otáčivá kolem pevného bodu (osy)', 'pružná guma', 'druh motoru'], vysvetleni: 'Páka je tyč otáčející se kolem osy — jako houpačka.' },
