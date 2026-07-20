@@ -58,37 +58,41 @@
 			// VOLNÁ kladka: jeden konec lana u stropu, kolo drží břemeno, druhý konec táhneme
 			const kx = 210;
 			const ky = bremenoY - 40; // kladka nad břemenem, stoupá s ním
-			// pevný konec lana u stropu
+			// pevný konec lana u stropu — TENTO drží strop silou 50 N
 			svg += `<line x1="${kx - 26}" y1="18" x2="${kx - 26}" y2="${ky}" stroke="#495057" stroke-width="3" />`;
+			svg += `<text x="${kx - 30}" y="${(18 + ky) / 2}" text-anchor="end" font-size="13" font-weight="bold" fill="#1971c2">strop drží ${sila} N</text>`;
 			// kolo (volné)
 			svg += `<circle cx="${kx}" cy="${ky}" r="26" fill="#c9a227" stroke="#2b2a26" stroke-width="3" />`;
 			svg += `<circle cx="${kx}" cy="${ky}" r="5" fill="#2b2a26" />`;
 			// závěs břemene z osy kladky
 			svg += `<line x1="${kx}" y1="${ky + 5}" x2="${kx}" y2="${bremenoY}" stroke="#495057" stroke-width="3" />`;
 			svg += bremeno(kx, bremenoY);
-			// tažný konec lana jde z pravé strany kladky nahoru? U volné kladky vede přes strop.
-			// Zjednodušení pro žáky: druhý konec táhneme nahoru u stropu vpravo.
-			const tahY = 120 + zvednuto * 300; // dvakrát delší dráha
+			// tažný konec lana vede u stropu vpravo, člověk táhne silou 50 N
 			svg += `<line x1="${kx + 26}" y1="${ky}" x2="${kx + 26}" y2="18" stroke="#495057" stroke-width="3" />`;
 			svg += `<circle cx="${kx + 26}" cy="18" r="7" fill="#868e96" stroke="#2b2a26" stroke-width="2" />`;
-			// ruka táhne dolů za volný konec (naznačíme šipku u kladky)
-			svg += sipkaDolu(kx + 55, ky, sila);
+			svg += sipkaDolu(kx + 55, ky, sila, 'táhneš ');
 		}
 		$('kl-obsah').innerHTML = svg;
 
-		$('kl-info').innerHTML = zvednuto >= 1
-			? `✅ Břemeno (${TIHA} N) zvednuto! Potřebná síla: <strong>${sila} N</strong>. Dráha lana: ${drahaLana}.`
-			: `Břemeno váží <strong>${TIHA} N</strong>. Touto kladkou stačí síla <strong>${sila} N</strong> (dráha lana: ${drahaLana}). Klikni „Táhni".`;
+		if (!volna) {
+			$('kl-info').innerHTML = zvednuto >= 1
+				? `✅ Zvednuto! Táhl jsi silou <strong>${sila} N</strong> po dráze stejné jako zdvih. Pevná kladka jen otočila směr.`
+				: `Břemeno váží <strong>${TIHA} N</strong>. Pevná kladka mění jen směr — táhneš <strong>${sila} N</strong> dolů. Klikni „Táhni".`;
+		} else {
+			$('kl-info').innerHTML = zvednuto >= 1
+				? `✅ Zvednuto poloviční silou! Břemeno ${TIHA} N nesou <strong>dvě</strong> části lana — <strong>${sila} N drží strop</strong> a <strong>${sila} N táhneš ty</strong> (${sila}+${sila}=${TIHA} N). Zato jsi lano vytáhl dvakrát delší. 🎒 Buď poneseš 10 kg v jednom balíku, nebo půjdeš 20× s jedním — práce je stejná!`
+				: `Břemeno ${TIHA} N visí na <strong>dvou</strong> částech lana: <strong>strop drží ${sila} N</strong>, <strong>ty táhneš ${sila} N</strong> (${sila}+${sila}=${TIHA} N). Ušetříš polovinu síly, ale lano vytáhneš dvakrát delší. Klikni „Táhni".`;
+		}
 	}
 
 	function bremeno(x, y) {
 		return `<rect x="${x - 24}" y="${y}" width="48" height="44" rx="5" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />` +
 			`<text x="${x}" y="${y + 28}" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">10 kg</text>`;
 	}
-	function sipkaDolu(x, y, sila) {
+	function sipkaDolu(x, y, sila, prefix = '') {
 		return `<line x1="${x}" y1="${y - 30}" x2="${x}" y2="${y}" stroke="#e03131" stroke-width="4" />` +
 			`<polygon points="${x - 6},${y - 6} ${x + 6},${y - 6} ${x},${y + 4}" fill="#e03131" />` +
-			`<text x="${x + 8}" y="${y - 10}" font-size="14" font-weight="bold" fill="#e03131">${sila} N</text>`;
+			`<text x="${x + 8}" y="${y - 10}" font-size="14" font-weight="bold" fill="#e03131">${prefix}${sila} N</text>`;
 	}
 
 	$('kl-pevna').addEventListener('click', () => {

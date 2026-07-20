@@ -1414,12 +1414,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 
 						<h3>Volná kladka</h3>
-						<p><strong>Volná kladka</strong> se pohybuje spolu s břemenem — břemeno visí na její ose. Břemeno je neseno <strong>dvěma částmi lana</strong>, takže na každou připadá jen polovina tíhy. <strong>Zvedneme ho poloviční silou</strong>, ale lano musíme vytáhnout <strong>dvakrát delší</strong>.</p>
+						<p><strong>Volná kladka</strong> se pohybuje spolu s břemenem — břemeno visí na její ose. Břemeno je neseno <strong>dvěma částmi lana</strong>, takže se jeho tíha <strong>rozdělí na polovinu</strong> mezi obě části.</p>
+						<p>Představ si břemeno o tíze <strong>100 N</strong> (10 kg): jednu část lana <strong>drží strop silou 50 N</strong> a za druhou <strong>táhneš ty silou 50 N</strong>. Obě síly se <strong>skládají</strong> — dohromady <strong>50 N + 50 N = 100 N</strong> udrží celé břemeno. Ty tak zvedneš 100 N pouhými <strong>50 N</strong>, ale lano musíš vytáhnout <strong>dvakrát delší</strong>.</p>
 						<ul>
 							<li>síla na lano = polovina tíhy břemene (<strong>F = F<sub>G</sub> / 2</strong>)</li>
 							<li>dráha lana = <strong>dvojnásobek</strong> výšky zdvihu</li>
 							<li>výhoda: menší <strong>síla</strong> (co ušetříme na síle, doplatíme na dráze — to platí u všech strojů)</li>
 						</ul>
+						<p>🎒 <strong>Jako pytlíky do schodů:</strong> deset kilo vyneseš buď <strong>najednou v jednom balíku</strong> (velká síla, jedna cesta), nebo <strong>dvacetkrát po jednom kile</strong> (malá síla, ale mnohem delší chození). <strong>Práce je v obou případech stejná</strong> — vždycky je něco za něco.</p>
 
 						<h3>Kladkostroj</h3>
 						<p>Spojením několika pevných a volných kladek vznikne <strong>kladkostroj</strong>. S ním zvedneme velmi těžká břemena malou silou — používá se u jeřábů, na lodích nebo v dílnách. Kolik částí lana břemeno nese, tolikrát menší silou ho zvedneme.</p>
