@@ -1,0 +1,152 @@
+---
+// Interaktivní přenos dat po síti: zpráva se rozdělí na pakety, ty putují přes
+// uzly (routery) k cíli a tam se složí. Ukazuje, proč se data posílají po balíčcích.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: jak putují data internetem 🕹️</span></h2>
+	<p>
+		Napiš krátkou zprávu a stiskni <strong>Odeslat</strong>. Zpráva se rozdělí na
+		<strong>pakety</strong> (malé balíčky), které samostatně proletí přes
+		<strong>routery</strong> až k příjemci — a tam se zase složí dohromady.
+	</p>
+	<div class="pak-vstup">
+		<input id="pak-text" maxlength="16" value="AHOJ" />
+		<button id="pak-odeslat" type="button">📨 Odeslat</button>
+	</div>
+	<canvas id="pak-platno" width="700" height="260"></canvas>
+	<p id="pak-stav" class="pak-stav">Napiš zprávu a klikni na Odeslat.</p>
+	<div class="pak-prijato">Přijato: <strong id="pak-vysledek">—</strong></div>
+</section>
+
+<script>
+	const platno = document.getElementById('pak-platno');
+	const ctx = platno.getContext('2d');
+	const W = platno.width, H = platno.height;
+
+	// odesílatel vlevo, příjemce vpravo, dva routery uprostřed (dvě cesty)
+	const odesilatel = { x: 60, y: 130 };
+	const prijemce = { x: 640, y: 130 };
+	const routery = [{ x: 260, y: 60 }, { x: 260, y: 200 }, { x: 460, y: 60 }, { x: 460, y: 200 }];
+
+	let pakety = [];
+	let bezi = false;
+	let prijato = [];
+
+	function nakresliSit() {
+		ctx.clearRect(0, 0, W, H);
+		// spoje
+		ctx.strokeStyle = '#ced4da';
+		ctx.lineWidth = 3;
+		const spoj = (a, b) => { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); };
+		spoj(odesilatel, routery[0]); spoj(odesilatel, routery[1]);
+		spoj(routery[0], routery[2]); spoj(routery[1], routery[3]);
+		spoj(routery[0], routery[3]); spoj(routery[1], routery[2]);
+		spoj(routery[2], prijemce); spoj(routery[3], prijemce);
+		// routery
+		ctx.fillStyle = '#868e96';
+		routery.forEach((r) => { ctx.beginPath(); ctx.arc(r.x, r.y, 16, 0, 7); ctx.fill(); });
+		// koncové uzly
+		const uzel = (u, popis, barva) => {
+			ctx.fillStyle = barva;
+			ctx.beginPath(); ctx.arc(u.x, u.y, 26, 0, 7); ctx.fill();
+			ctx.fillStyle = '#2b2a26'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+			ctx.fillText(popis, u.x, u.y + 46);
+		};
+		uzel(odesilatel, 'ty', '#4dabf7');
+		uzel(prijemce, 'kamarád', '#69db7c');
+	}
+
+	function odeslat() {
+		if (bezi) return;
+		const text = (document.getElementById('pak-text').value || 'AHOJ').toUpperCase();
+		prijato = new Array(text.length).fill(null);
+		document.getElementById('pak-vysledek').textContent = '—';
+		// každé písmeno = jeden paket, náhodná cesta (horní/dolní router)
+		pakety = [...text].map((zn, i) => {
+			const horni = Math.random() < 0.5;
+			const cesta = horni ? [odesilatel, routery[0], routery[2], prijemce]
+			                    : [odesilatel, routery[1], routery[3], prijemce];
+			return { znak: zn, index: i, cesta, usek: 0, t: Math.random() * 0.3, hotovo: false };
+		});
+		bezi = true;
+		document.getElementById('pak-stav').textContent =
+			`Zpráva rozdělena na ${pakety.length} paketů — letí sítí…`;
+		requestAnimationFrame(krok);
+	}
+
+	function krok() {
+		nakresliSit();
+		let vsePrislo = true;
+		for (const p of pakety) {
+			if (p.hotovo) continue;
+			vsePrislo = false;
+			const a = p.cesta[p.usek], b = p.cesta[p.usek + 1];
+			p.t += 0.02;
+			if (p.t >= 1) { p.t = 0; p.usek++; if (p.usek >= p.cesta.length - 1) { p.hotovo = true; prijato[p.index] = p.znak; continue; } }
+			const x = a.x + (b.x - a.x) * p.t;
+			const y = a.y + (b.y - a.y) * p.t;
+			// paket = barevný čtvereček s písmenem
+			ctx.fillStyle = '#ffa94d';
+			ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2;
+			ctx.beginPath(); ctx.roundRect(x - 12, y - 12, 24, 24, 5); ctx.fill(); ctx.stroke();
+			ctx.fillStyle = '#2b2a26'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+			ctx.fillText(p.znak, x, y + 5);
+		}
+		if (vsePrislo) {
+			bezi = false;
+			document.getElementById('pak-vysledek').textContent = prijato.join('');
+			document.getElementById('pak-stav').textContent =
+				'✅ Všechny pakety dorazily a zpráva se složila ve správném pořadí!';
+			return;
+		}
+		requestAnimationFrame(krok);
+	}
+
+	document.getElementById('pak-odeslat').addEventListener('click', odeslat);
+	nakresliSit();
+</script>
+
+<style>
+	.pak-vstup {
+		display: flex;
+		gap: 0.8rem;
+		margin: 0.6rem 0;
+	}
+	.pak-vstup input {
+		font-size: 1.2rem;
+		padding: 0.4rem 0.6rem;
+		border: 3px solid #2b2a26;
+		border-radius: 8px;
+		text-transform: uppercase;
+		width: 10rem;
+	}
+	.pak-vstup button {
+		font-weight: 800;
+		padding: 0.4rem 1.2rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	#pak-platno {
+		width: 100%;
+		max-width: 700px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #fff;
+	}
+	.pak-stav {
+		font-weight: 700;
+		color: #495057;
+		min-height: 1.4rem;
+	}
+	.pak-prijato {
+		font-size: 1.2rem;
+	}
+	.pak-prijato strong {
+		font-family: monospace;
+		font-size: 1.4rem;
+		letter-spacing: 0.15rem;
+	}
+</style>

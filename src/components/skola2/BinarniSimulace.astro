@@ -1,0 +1,126 @@
+---
+// Interaktivní binární kódování: 8 žárovek (bitů), klikáním se rozsvěcují.
+// Ukazuje, jak z jedniček a nul vznikne číslo 0–255 i písmeno (ASCII).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: jak počítač počítá v jedničkách a nulách 🕹️</span></h2>
+	<p>
+		Počítač zná jen dva stavy: <strong>zapnuto (1)</strong> a <strong>vypnuto (0)</strong> — jako žárovka.
+		Klikni na žárovky a slož vlastní číslo. Každá má svou <strong>hodnotu</strong> (128, 64, 32…);
+		rozsvícené se sečtou. Osm žárovek = jeden <strong>bajt</strong> = číslo 0 až 255.
+	</p>
+	<div id="bin-zarovky" class="bin-zarovky"></div>
+	<div class="bin-vysledek">
+		<div>Binárně: <strong id="bin-kod">00000000</strong></div>
+		<div>Číslo: <strong id="bin-cislo">0</strong></div>
+		<div>Znak (ASCII): <strong id="bin-znak">—</strong></div>
+	</div>
+	<div class="bin-tlacitka">
+		<button id="bin-nula" type="button">Zhasnout vše</button>
+		<button id="bin-a" type="button">Ukázat „A" (65)</button>
+		<button id="bin-max" type="button">Rozsvítit vše (255)</button>
+	</div>
+</section>
+
+<script>
+	const HODNOTY = [128, 64, 32, 16, 8, 4, 2, 1];
+	let bity = [0, 0, 0, 0, 0, 0, 0, 0];
+
+	const wrap = document.getElementById('bin-zarovky');
+	HODNOTY.forEach((h, i) => {
+		const b = document.createElement('button');
+		b.className = 'bin-zarovka';
+		b.type = 'button';
+		b.dataset.i = i;
+		b.innerHTML = `<span class="bin-svetlo">💡</span><span class="bin-hodnota">${h}</span>`;
+		b.addEventListener('click', () => {
+			bity[i] = bity[i] ? 0 : 1;
+			prekresli();
+		});
+		wrap.appendChild(b);
+	});
+
+	function prekresli() {
+		const cislo = bity.reduce((s, b, i) => s + b * HODNOTY[i], 0);
+		document.querySelectorAll('.bin-zarovka').forEach((el, i) => {
+			el.classList.toggle('sviti', !!bity[i]);
+		});
+		document.getElementById('bin-kod').textContent = bity.join('');
+		document.getElementById('bin-cislo').textContent = cislo;
+		// tisknutelné znaky ASCII 32–126
+		document.getElementById('bin-znak').textContent =
+			cislo >= 32 && cislo <= 126 ? String.fromCharCode(cislo) : '—';
+	}
+
+	const nastav = (n) => { for (let i = 0; i < 8; i++) bity[i] = (n >> (7 - i)) & 1; prekresli(); };
+	document.getElementById('bin-nula').addEventListener('click', () => nastav(0));
+	document.getElementById('bin-a').addEventListener('click', () => nastav(65));
+	document.getElementById('bin-max').addEventListener('click', () => nastav(255));
+	prekresli();
+</script>
+
+<style>
+	.bin-zarovky {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 1rem 0;
+	}
+	.bin-zarovka {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.2rem;
+		width: 4.2rem;
+		padding: 0.5rem 0;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #495057;
+		cursor: pointer;
+	}
+	.bin-svetlo {
+		font-size: 1.8rem;
+		filter: grayscale(1) brightness(0.6);
+	}
+	.bin-zarovka.sviti {
+		background: #fff3bf;
+	}
+	.bin-zarovka.sviti .bin-svetlo {
+		filter: none;
+		text-shadow: 0 0 12px #ffd43b;
+	}
+	.bin-hodnota {
+		font-weight: 800;
+		font-size: 0.95rem;
+		color: #fff;
+	}
+	.bin-zarovka.sviti .bin-hodnota {
+		color: #2b2a26;
+	}
+	.bin-vysledek {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+		font-size: 1.2rem;
+		margin: 0.5rem 0;
+	}
+	.bin-vysledek strong {
+		font-family: monospace;
+		font-size: 1.3rem;
+	}
+	.bin-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		flex-wrap: wrap;
+	}
+	.bin-tlacitka button {
+		font-weight: 700;
+		padding: 0.4rem 1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+</style>

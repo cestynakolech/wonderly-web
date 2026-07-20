@@ -10,6 +10,9 @@ import TeplomerSimulace from '../../../../../../components/skola2/TeplomerSimula
 import SkladaniSilSimulace from '../../../../../../components/skola2/SkladaniSilSimulace.astro';
 import VrhSimulace from '../../../../../../components/skola2/VrhSimulace.astro';
 import TezisteSimulace from '../../../../../../components/skola2/TezisteSimulace.astro';
+import CaraSimulace from '../../../../../../components/skola2/CaraSimulace.astro';
+import BinarniSimulace from '../../../../../../components/skola2/BinarniSimulace.astro';
+import PaketySimulace from '../../../../../../components/skola2/PaketySimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -146,6 +149,9 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'skladani-sil' && <SkladaniSilSimulace />}
 	{podtema.interakce === 'vrh' && <VrhSimulace />}
 	{podtema.interakce === 'teziste' && <TezisteSimulace />}
+	{podtema.interakce === 'cara' && <CaraSimulace />}
+	{podtema.interakce === 'binarni' && <BinarniSimulace />}
+	{podtema.interakce === 'pakety' && <PaketySimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

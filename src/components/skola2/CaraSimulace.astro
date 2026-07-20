@@ -1,0 +1,163 @@
+---
+// Interaktivní jízda po čáře: robot se dvěma čidly barvy sleduje černou dráhu.
+// Žák vidí, jak bang-bang řízení "vlní" robota podél čáry, a může ho rozladit rychlostí.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: jízda po čáře 🕹️</span></h2>
+	<p>
+		Robot má vpředu <strong>dvě čidla barvy</strong> (barevné tečky). Program je jednoduchý:
+		<em>když levé čidlo vidí černou → toč doleva; když pravé → toč doprava; jinak jeď rovně.</em>
+		Sleduj, jak se robot podél čáry „vlní" — a zkus, co udělá moc velká rychlost!
+	</p>
+	<canvas id="cara-platno" width="700" height="400"></canvas>
+	<div class="cara-ovladani">
+		<button id="cara-start" type="button">▶ Start</button>
+		<label>Rychlost <input id="cara-rychlost" type="range" min="1" max="6" step="0.5" value="2" /> <span id="cara-rychlost-text">2</span></label>
+		<span id="cara-stav" class="cara-stav">Čidla: ⚪ ⚪</span>
+	</div>
+</section>
+
+<script>
+	const platno = document.getElementById('cara-platno');
+	const ctx = platno.getContext('2d');
+
+	// Dráha se nakreslí do neviditelného plátna — z něj čidla „čtou barvu"
+	const draha = document.createElement('canvas');
+	draha.width = platno.width;
+	draha.height = platno.height;
+	const dctx = draha.getContext('2d');
+	dctx.fillStyle = '#fff';
+	dctx.fillRect(0, 0, draha.width, draha.height);
+	dctx.strokeStyle = '#000';
+	dctx.lineWidth = 14;
+	dctx.beginPath();
+	// zvlněný ovál
+	for (let t = 0; t <= 2 * Math.PI + 0.05; t += 0.05) {
+		const r = 130 + 30 * Math.sin(3 * t);
+		const x = 350 + (r + 60) * Math.cos(t);
+		const y = 200 + r * Math.sin(t);
+		if (t === 0) dctx.moveTo(x, y);
+		else dctx.lineTo(x, y);
+	}
+	dctx.closePath();
+	dctx.stroke();
+	const pixely = dctx.getImageData(0, 0, draha.width, draha.height).data;
+
+	const jeCerna = (x, y) => {
+		const xi = Math.round(x), yi = Math.round(y);
+		if (xi < 0 || yi < 0 || xi >= draha.width || yi >= draha.height) return false;
+		return pixely[(yi * draha.width + xi) * 4] < 100;
+	};
+
+	// robot startuje na čáře vpravo
+	let rx = 540, ry = 200, uhel = Math.PI / 2;
+	let bezi = false;
+
+	function krok() {
+		const rychlost = +document.getElementById('cara-rychlost').value;
+		// poloha čidel: kousek před robotem, vlevo a vpravo od osy
+		const cidlo = (strana) => ({
+			x: rx + 24 * Math.cos(uhel) + strana * 10 * Math.cos(uhel + Math.PI / 2),
+			y: ry + 24 * Math.sin(uhel) + strana * 10 * Math.sin(uhel + Math.PI / 2),
+		});
+		const leve = cidlo(-1);
+		const prave = cidlo(1);
+		const levaCerna = jeCerna(leve.x, leve.y);
+		const pravaCerna = jeCerna(prave.x, prave.y);
+
+		// jednoduché rozhodování — stejné jako v programu robota
+		if (levaCerna && !pravaCerna) uhel -= 0.06 * rychlost;
+		else if (pravaCerna && !levaCerna) uhel += 0.06 * rychlost;
+		rx += rychlost * Math.cos(uhel);
+		ry += rychlost * Math.sin(uhel);
+
+		// vykreslení
+		ctx.drawImage(draha, 0, 0);
+		ctx.save();
+		ctx.translate(rx, ry);
+		ctx.rotate(uhel);
+		ctx.fillStyle = '#4dabf7';
+		ctx.strokeStyle = '#2b2a26';
+		ctx.lineWidth = 3;
+		ctx.beginPath();
+		ctx.roundRect(-20, -14, 40, 28, 6);
+		ctx.fill();
+		ctx.stroke();
+		// kola
+		ctx.fillStyle = '#2b2a26';
+		ctx.fillRect(-14, -19, 14, 5);
+		ctx.fillRect(-14, 14, 14, 5);
+		// čidla (barva podle toho, co vidí)
+		ctx.fillStyle = levaCerna ? '#2b2a26' : '#ffd43b';
+		ctx.beginPath(); ctx.arc(24, -10, 5, 0, 7); ctx.fill(); ctx.stroke();
+		ctx.fillStyle = pravaCerna ? '#2b2a26' : '#ffd43b';
+		ctx.beginPath(); ctx.arc(24, 10, 5, 0, 7); ctx.fill(); ctx.stroke();
+		ctx.restore();
+
+		document.getElementById('cara-stav').textContent =
+			`Čidla: ${levaCerna ? '⚫' : '⚪'} ${pravaCerna ? '⚫' : '⚪'}` +
+			(levaCerna && !pravaCerna ? ' → točím doleva' : pravaCerna && !levaCerna ? ' → točím doprava' : ' → jedu rovně');
+
+		// ztratil čáru → zastavíme s hláškou
+		if (!levaCerna && !pravaCerna && !jeCerna(rx + 24 * Math.cos(uhel), ry + 24 * Math.sin(uhel))
+			&& !jeCerna(rx, ry) && rychlost > 4.5) {
+			// při velké rychlosti může vyletět — nech ho jet, ať je vidět důsledek
+		}
+		if (rx < -30 || ry < -30 || rx > draha.width + 30 || ry > draha.height + 30) {
+			bezi = false;
+			document.getElementById('cara-start').textContent = '▶ Start';
+			document.getElementById('cara-stav').textContent = '💥 Robot vyletěl z dráhy! Zkus menší rychlost.';
+			rx = 540; ry = 200; uhel = Math.PI / 2;
+			return;
+		}
+		if (bezi) requestAnimationFrame(krok);
+	}
+
+	document.getElementById('cara-start').addEventListener('click', () => {
+		bezi = !bezi;
+		document.getElementById('cara-start').textContent = bezi ? '⏸ Stop' : '▶ Start';
+		if (bezi) requestAnimationFrame(krok);
+	});
+	document.getElementById('cara-rychlost').addEventListener('input', (u) => {
+		document.getElementById('cara-rychlost-text').textContent = u.target.value;
+	});
+	// úvodní vykreslení
+	ctx.drawImage(draha, 0, 0);
+</script>
+
+<style>
+	#cara-platno {
+		width: 100%;
+		max-width: 700px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #fff;
+	}
+	.cara-ovladani {
+		display: flex;
+		gap: 1.2rem;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 0.6rem;
+	}
+	.cara-ovladani button {
+		font-size: 1.1rem;
+		font-weight: 800;
+		padding: 0.4rem 1.2rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.cara-ovladani label {
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.cara-stav {
+		font-weight: 700;
+		color: #495057;
+	}
+</style>

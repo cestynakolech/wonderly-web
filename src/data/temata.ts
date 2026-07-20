@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -3853,6 +3853,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'soubory-slozky-aplikace',
+					interakce: 'binarni',
 					nazev: 'Soubory, složky a aplikace',
 					obsah: `
 						<h2>Kam se ukládá naše práce</h2>
@@ -3875,6 +3876,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'site-internet-email',
+					interakce: 'pakety',
 					nazev: 'Síť doma i ve škole, internet a e-mail',
 					obsah: `
 						<h2>Počítače propojené dohromady</h2>
@@ -4474,6 +4476,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'cidla-vex-iq',
+					interakce: 'cara',
 					nazev: 'Čidla VEX IQ — návod k použití',
 					obsah: `
 						<h2>👀 Čidla — smysly robota</h2>
@@ -4706,6 +4709,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'pocitacove-site-a-internet',
+					interakce: 'pakety',
 					nazev: 'Počítačové sítě, internet a web',
 					obsah: `
 						<h2>Jak spolu počítače mluví</h2>
