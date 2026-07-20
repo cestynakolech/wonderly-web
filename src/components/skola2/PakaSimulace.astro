@@ -1,0 +1,136 @@
+---
+// Interaktivní páka (houpačka): posouváním závaží a jejich vzdáleností od osy
+// se hledá rovnováha. Ukazuje moment síly M = F · r a rovnovážnou podmínku.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: páka a moment síly 🕹️</span></h2>
+	<p>
+		Páka je v rovnováze, když se <strong>momenty sil</strong> na obou stranách rovnají:
+		<strong>M = F · r</strong> (síla krát rameno). Nastav hmotnosti a jejich vzdálenosti
+		od osy a najdi rovnováhu — jako na houpačce.
+	</p>
+	<svg id="paka-svg" viewBox="0 0 600 320" role="img" aria-label="Páka na ose">
+		<!-- podstavec -->
+		<polygon points="300,250 275,300 325,300" fill="#868e96" stroke="#2b2a26" stroke-width="3" />
+		<!-- břevno (otáčí se) -->
+		<g id="paka-brevno">
+			<rect x="70" y="242" width="460" height="16" rx="6" fill="#c9a227" stroke="#2b2a26" stroke-width="3" />
+			<!-- značky vzdáleností -->
+			<g id="paka-znacky"></g>
+			<!-- závaží vlevo -->
+			<g id="paka-zavazi-l"></g>
+			<!-- závaží vpravo -->
+			<g id="paka-zavazi-p"></g>
+		</g>
+		<!-- osa -->
+		<circle cx="300" cy="250" r="8" fill="#2b2a26" />
+	</svg>
+	<div class="paka-ovladani">
+		<div class="paka-strana">
+			<strong>⬅️ Levá strana</strong>
+			<label>hmotnost <input id="paka-ml" type="range" min="1" max="10" value="4" /> <span id="paka-ml-t">4</span> kg</label>
+			<label>vzdálenost <input id="paka-rl" type="range" min="1" max="5" value="3" /> <span id="paka-rl-t">3</span> dílků</label>
+		</div>
+		<div class="paka-strana">
+			<strong>Pravá strana ➡️</strong>
+			<label>hmotnost <input id="paka-mp" type="range" min="1" max="10" value="3" /> <span id="paka-mp-t">3</span> kg</label>
+			<label>vzdálenost <input id="paka-rp" type="range" min="1" max="5" value="2" /> <span id="paka-rp-t">2</span> dílků</label>
+		</div>
+	</div>
+	<p id="paka-vysledek" class="paka-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const OSA_X = 300, OSA_Y = 250, DILEK = 44;
+
+	function prekresli() {
+		const ml = +$('paka-ml').value, rl = +$('paka-rl').value;
+		const mp = +$('paka-mp').value, rp = +$('paka-rp').value;
+		$('paka-ml-t').textContent = ml; $('paka-rl-t').textContent = rl;
+		$('paka-mp-t').textContent = mp; $('paka-rp-t').textContent = rp;
+
+		const momL = ml * rl, momP = mp * rp;
+		// úhel náklonu: kladný = klesá pravá strana; omezíme na ±12°
+		const rozdil = momP - momL;
+		const uhel = Math.max(-12, Math.min(12, rozdil * 1.2));
+		$('paka-brevno').setAttribute('transform', `rotate(${uhel} ${OSA_X} ${OSA_Y})`);
+
+		// značky dílků
+		let znacky = '';
+		for (let d = -5; d <= 5; d++) {
+			if (d === 0) continue;
+			znacky += `<line x1="${OSA_X + d * DILEK}" y1="238" x2="${OSA_X + d * DILEK}" y2="262" stroke="#2b2a26" stroke-width="1.5" opacity="0.5" />`;
+		}
+		$('paka-znacky').innerHTML = znacky;
+
+		// závaží (krychličky, výška podle hmotnosti)
+		const zavazi = (m, r, strana) => {
+			const x = OSA_X + strana * r * DILEK;
+			const v = 14 + m * 5;
+			return `<rect x="${x - 16}" y="${242 - v}" width="32" height="${v}" rx="4" fill="${strana < 0 ? '#4dabf7' : '#e8590c'}" stroke="#2b2a26" stroke-width="2" />` +
+				`<text x="${x}" y="${242 - v / 2 + 5}" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">${m}</text>`;
+		};
+		$('paka-zavazi-l').innerHTML = zavazi(ml, rl, -1);
+		$('paka-zavazi-p').innerHTML = zavazi(mp, rp, 1);
+
+		// výsledek
+		let text;
+		if (momL === momP) text = `✅ ROVNOVÁHA! Moment vlevo (${ml}·${rl}=${momL}) = moment vpravo (${mp}·${rp}=${momP}).`;
+		else if (momL > momP) text = `⬅️ Klesá levá strana. Vlevo ${ml}·${rl}=${momL} > vpravo ${mp}·${rp}=${momP}.`;
+		else text = `➡️ Klesá pravá strana. Vpravo ${mp}·${rp}=${momP} > vlevo ${ml}·${rl}=${momL}.`;
+		const el = $('paka-vysledek');
+		el.textContent = text;
+		el.classList.toggle('rovnovaha', momL === momP);
+	}
+
+	['paka-ml', 'paka-rl', 'paka-mp', 'paka-rp'].forEach((id) =>
+		$(id).addEventListener('input', prekresli));
+	prekresli();
+</script>
+
+<style>
+	#paka-svg {
+		width: 100%;
+		max-width: 600px;
+		display: block;
+		margin: 0 auto;
+	}
+	#paka-brevno {
+		transition: transform 0.4s ease;
+	}
+	.paka-ovladani {
+		display: flex;
+		gap: 2rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.paka-strana {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		padding: 0.8rem 1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		min-width: 15rem;
+	}
+	.paka-strana label {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 600;
+	}
+	.paka-vysledek {
+		font-weight: 700;
+		font-size: 1.1rem;
+		text-align: center;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+	}
+	.paka-vysledek.rovnovaha {
+		background: #d3f9d8;
+	}
+</style>

@@ -13,6 +13,7 @@ import TezisteSimulace from '../../../../../../components/skola2/TezisteSimulace
 import CaraSimulace from '../../../../../../components/skola2/CaraSimulace.astro';
 import BinarniSimulace from '../../../../../../components/skola2/BinarniSimulace.astro';
 import PaketySimulace from '../../../../../../components/skola2/PaketySimulace.astro';
+import PakaSimulace from '../../../../../../components/skola2/PakaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -152,6 +153,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'cara' && <CaraSimulace />}
 	{podtema.interakce === 'binarni' && <BinarniSimulace />}
 	{podtema.interakce === 'pakety' && <PaketySimulace />}
+	{podtema.interakce === 'paka' && <PakaSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
