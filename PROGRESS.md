@@ -12,13 +12,13 @@ _Aktualizováno 19. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
 4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu), předměty Informatika a Pracovní činnosti, nebo revize hotových stránek. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
 
 ### 🕹️ Interaktivní infografiky — jak přidat další (kladka…)
-Na webu je **13 interaktivních simulací** (canvas/SVG, čistě v prohlížeči, styl viz existující). **Vzor přidání nové:**
+Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči, styl viz existující). **Vzor přidání nové:**
 1. Vytvoř komponentu `src/components/skola2/<Nazev>Simulace.astro` (podívej se na `TezisteSimulace`, `VrhSimulace`, `SkupenstviSimulace` — stejný rámeček `<section class="ramecek simulace">`, ovládání, `<script>` bez importů).
 2. V `src/data/temata.ts`: rozšiř typ `interakce?: … | 'novy-klic'` a přidej `interakce: 'novy-klic',` k danému podtématu.
 3. V `src/pages/skola2/[predmet]/[rocnik]/[tema]/[podtema]/index.astro`: přidej import + řádek `{podtema.interakce === 'novy-klic' && <NazevSimulace />}`.
 4. `npm run build` → `git push`. Ověř `curl` na živé URL.
 **Hotové interakce (klíč → podtéma):** hydraulika→pascaluv-zakon(F7), skupenstvi→skupenstvi-latek(F6), hustota→hustota(F6), obvod→jednoduche-elektricke-obvody(F6), teplomer→teplotni-roztaznost(F6), skladani-sil→skladani-sil(F7), vrh→gravitacni-sila(F7), teziste→teziste(F7), **paka→jednoduche-stroje-paky(F7)**, **magnet→magneticke-vlastnosti-latek(F6)**, **cara→cidla-vex-iq(Inf8)**, **binarni→soubory-slozky-aplikace(Inf7)**, **pakety→site-internet-email(Inf7) + pocitacove-site-a-internet(Inf9)**.
-**Nápady na příště:** kladka (pevná/volná) — chybí jí samostatné podtéma (nová stránka v jednoduche-stroje).
+**Nápady na příště:** vyčerpány (páka, magnet, kladka hotové). Případně nakloněná rovina, kolo na hřídeli.
 **Pozn. k testování:** v náhledovém prohlížeči (preview) se `requestAnimationFrame` zpomaluje → animace ověřuj VÝPOČTEM v konzoli, ne okem; na reálném zařízení běží plynule.
 
 ## ✅ HOTOVÉ a funkční na webu (lab.wonderly.cz)
@@ -93,6 +93,7 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-20 (8)** — **Nová stránka Kladka (Fyzika 7).** Celek jednoduche-stroje měl jen páku + deformaci; přidáno plné podtéma `kladka`: výklad (pevná × volná kladka, kladkostroj, zlaté pravidlo mechaniky), interaktivní `KladkaSimulace` (přepínač pevná/volná, zvedání břemene, pevná = plná síla, volná = F/2 ale dvojnásobná dráha) a kvíz 8 otázek + auto tisknutelný test. Tím vyřešen poslední „nápad na příště". Celkem 14 interaktivních simulací, 406 stránek.
 - **2026-07-20 (7)** — **Zásoba pokračuje: fyzikální simulace + vyhledávání.** (1) **PakaSimulace** (moment síly M=F·r, houpačka, hledání rovnováhy → interakce 'paka' u fyzika/7 jednoduche-stroje-paky). (2) **MagnetSimulace** (magnetické pole tyčového magnetu, železné piliny podél siločar, přepnutí pólů, reakce na myš/dotek → 'magnet' u fyzika/6 magneticke-vlastnosti-latek). (3) **Vyhledávání na hlavní stránce školy** (skola2/index.astro): živý filtr přes 162 podtémat, hledá bez diakritiky, výstup escapovaný, klientský index (žádný server). Celkem 13 interaktivních simulací. Vše auto-deploy (nic nečeká na kliknutí uživatele).
 - **2026-07-20 (6)** — **Zlepšení do zásoby (uživatel spí, povolil vše dopředu).** (1) **Liga i pro informatiku** — přepínač Předmět Fyzika/Informatika v obou verzích; `bankaProLigu()` v hry.ts nyní prochází fyziku i informatiku (pole `predmet` u CelekBanky). (2) **3 nové interaktivní simulace pro informatiku** (celkem už 11): `CaraSimulace` (jízda robota po čáře, 2 čidla barvy, bang-bang řízení → interakce 'cara' u informatika/8 vex-iq/cidla-vex-iq), `BinarniSimulace` (8 žárovek-bitů, číslo 0–255 + ASCII znak → 'binarni' u informatika/7 pocitace/soubory-slozky-aplikace), `PaketySimulace` (zpráva → pakety přes routery → složení → 'pakety' u informatika/7 site-internet-email i informatika/9 pocitacove-site-a-internet). Typ interakce rozšířen, importy v [podtema]/index.astro.
 - **2026-07-20 (5)** — **Bezpečnost: liga — escapování jmen týmů** (funkce `bezpecne()` v liga.astro; jména z tabletů šla do innerHTML tabule neošetřená → XSS). Zhodnocení bezpečnosti webu: statický web bez dat a přihlašování + Cloudflare = malý povrch útoku; heslo testů je jen závora (je v klientském kódu); kód místnosti ligy zná jen třída.
