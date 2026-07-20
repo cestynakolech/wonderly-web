@@ -1421,7 +1421,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>dráha lana = <strong>dvojnásobek</strong> výšky zdvihu</li>
 							<li>výhoda: menší <strong>síla</strong> (co ušetříme na síle, doplatíme na dráze — to platí u všech strojů)</li>
 						</ul>
-						<p>🎒 <strong>Jako pytlíky do schodů:</strong> deset kilo vyneseš buď <strong>najednou v jednom balíku</strong> (velká síla, jedna cesta), nebo <strong>dvacetkrát po jednom kile</strong> (malá síla, ale mnohem delší chození). <strong>Práce je v obou případech stejná</strong> — vždycky je něco za něco.</p>
+						<p>🎒 <strong>Jako pytlíky do schodů:</strong> deset kilo vyneseš buď <strong>najednou v jednom balíku</strong> (velká síla, jedna cesta), nebo <strong>desetkrát po jednom kile</strong> (malá síla, ale mnohem delší chození). <strong>Práce je v obou případech stejná</strong> — vždycky je něco za něco.</p>
 
 						<h3>Kladkostroj</h3>
 						<p>Spojením několika pevných a volných kladek vznikne <strong>kladkostroj</strong>. S ním zvedneme velmi těžká břemena malou silou — používá se u jeřábů, na lodích nebo v dílnách. Kolik částí lana břemeno nese, tolikrát menší silou ho zvedneme.</p>
