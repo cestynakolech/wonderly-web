@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -664,6 +664,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'magneticke-vlastnosti-latek',
+					interakce: 'magnet',
 					nazev: 'Magnetické vlastnosti látek, magnetické pole',
 					obsah: `
 						<h2>Magnetické vlastnosti látek</h2>

@@ -1,0 +1,154 @@
+---
+// Interaktivní magnetické pole: tyčový magnet a železné piliny, které se
+// natáčejí podél siločar. Piliny sledují myš/prst, ať je vidět, jak pole zeslabuje.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: magnetické pole a piliny 🕹️</span></h2>
+	<p>
+		Kolem magnetu je <strong>magnetické pole</strong>. Když kolem něj nasypeme
+		<strong>železné piliny</strong>, natočí se podél <strong>siločar</strong> — od
+		severního pólu (N) k jižnímu (S). Čím dál od magnetu, tím je pole slabší.
+		Pohybuj myší (nebo prstem) nad obrázkem a sleduj, jak se piliny chovají.
+	</p>
+	<canvas id="mag-platno" width="640" height="380"></canvas>
+	<div class="mag-ovladani">
+		<button id="mag-prepni" type="button">🔄 Otočit magnet (prohodit póly)</button>
+		<label><input id="mag-silocary" type="checkbox" checked /> ukázat siločáry</label>
+	</div>
+</section>
+
+<script>
+	const platno = document.getElementById('mag-platno');
+	const ctx = platno.getContext('2d');
+	const W = platno.width, H = platno.height;
+	const cx = W / 2, cy = H / 2;
+	const D = 70; // půl-vzdálenost pólů
+	let polarita = 1; // 1 = N vlevo, -1 = N vpravo
+
+	// pozice pólů
+	const poly = () => [
+		{ x: cx - D, y: cy, q: polarita },   // levý
+		{ x: cx + D, y: cy, q: -polarita },  // pravý
+	];
+
+	let mys = null; // dočasný „magnetický špendlík" pod kurzorem
+
+	// pole v bodě = součet příspěvků od obou pólů (jako "náboje") + volitelně myš
+	function poleV(x, y) {
+		let bx = 0, by = 0;
+		const zdroje = poly();
+		if (mys) zdroje.push({ x: mys.x, y: mys.y, q: 0.6 });
+		for (const p of zdroje) {
+			const dx = x - p.x, dy = y - p.y;
+			const r2 = dx * dx + dy * dy;
+			const r = Math.sqrt(r2) + 6;
+			const s = p.q / (r2 + 200);
+			bx += s * dx / r;
+			by += s * dy / r;
+		}
+		return { bx, by, sila: Math.hypot(bx, by) };
+	}
+
+	function nakresli() {
+		ctx.clearRect(0, 0, W, H);
+
+		// siločáry
+		if (document.getElementById('mag-silocary').checked) {
+			ctx.strokeStyle = 'rgba(120,120,120,0.45)';
+			ctx.lineWidth = 1.5;
+			const N = poly().find((p) => p.q > 0);
+			for (let a = 0; a < Math.PI * 2; a += Math.PI / 8) {
+				let x = N.x + 26 * Math.cos(a);
+				let y = N.y + 26 * Math.sin(a);
+				ctx.beginPath();
+				ctx.moveTo(x, y);
+				for (let krok = 0; krok < 260; krok++) {
+					const f = poleV(x, y);
+					if (f.sila < 1e-6) break;
+					x += (f.bx / f.sila) * 3;
+					y += (f.by / f.sila) * 3;
+					if (x < 0 || x > W || y < 0 || y > H) break;
+					ctx.lineTo(x, y);
+				}
+				ctx.stroke();
+			}
+		}
+
+		// piliny v mřížce
+		const KROK = 26;
+		for (let x = KROK / 2; x < W; x += KROK) {
+			for (let y = KROK / 2; y < H; y += KROK) {
+				// nekreslit uvnitř magnetu
+				if (Math.abs(y - cy) < 22 && x > cx - D - 20 && x < cx + D + 20) continue;
+				const f = poleV(x, y);
+				const uhel = Math.atan2(f.by, f.bx);
+				const delka = Math.min(11, 4 + f.sila * 9000);
+				const jas = Math.min(1, f.sila * 3000);
+				ctx.strokeStyle = `rgba(60,60,70,${0.25 + jas * 0.6})`;
+				ctx.lineWidth = 2;
+				ctx.beginPath();
+				ctx.moveTo(x - Math.cos(uhel) * delka, y - Math.sin(uhel) * delka);
+				ctx.lineTo(x + Math.cos(uhel) * delka, y + Math.sin(uhel) * delka);
+				ctx.stroke();
+			}
+		}
+
+		// magnet (dvě poloviny)
+		const N = poly().find((p) => p.q > 0);
+		const levyN = N.x < cx;
+		ctx.fillStyle = levyN ? '#e03131' : '#1971c2';
+		ctx.fillRect(cx - D - 20, cy - 20, D + 20, 40);
+		ctx.fillStyle = levyN ? '#1971c2' : '#e03131';
+		ctx.fillRect(cx, cy - 20, D + 20, 40);
+		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 3;
+		ctx.strokeRect(cx - D - 20, cy - 20, 2 * (D + 20), 40);
+		ctx.fillStyle = '#fff'; ctx.font = 'bold 22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+		ctx.fillText(levyN ? 'N' : 'S', cx - D / 2 - 10, cy);
+		ctx.fillText(levyN ? 'S' : 'N', cx + D / 2 + 10, cy);
+	}
+
+	// piliny reagují i na myš/dotek — nastavíme špendlík a překreslíme
+	platno.addEventListener('pointermove', (e) => {
+		const r = platno.getBoundingClientRect();
+		mys = { x: (e.clientX - r.left) * (W / r.width), y: (e.clientY - r.top) * (H / r.height) };
+		nakresli();
+	});
+	platno.addEventListener('pointerleave', () => { mys = null; nakresli(); });
+
+	document.getElementById('mag-prepni').addEventListener('click', () => { polarita *= -1; nakresli(); });
+	document.getElementById('mag-silocary').addEventListener('change', nakresli);
+	nakresli();
+</script>
+
+<style>
+	#mag-platno {
+		width: 100%;
+		max-width: 640px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #f8f9fa;
+		touch-action: none;
+	}
+	.mag-ovladani {
+		display: flex;
+		gap: 1.5rem;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 0.6rem;
+	}
+	.mag-ovladani button {
+		font-weight: 700;
+		padding: 0.4rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.mag-ovladani label {
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+</style>
