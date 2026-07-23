@@ -26,6 +26,9 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - [ ] Projít prezentace /Users/Shared/Škola/8/ — dtto
 - [ ] Projít prezentace /Users/Shared/Škola/9/ — dtto
 
+## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
+(zatím nic — pravidlo: po 3 neúspěšných pokusech změny vrátit, sem zapsat co selhalo a co bylo vyzkoušeno, a vzít další úkol z fronty)
+
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
