@@ -1,0 +1,154 @@
+---
+// Interaktivní rychlost–dráha–čas: auto jede po 500 m dlouhé silnici, posuvníkem
+// měníš rychlost (km/h ↔ m/s, dělení/násobení 3,6) i BĚHEM jízdy. Živě se kreslí
+// graf s–t: stálá rychlost = přímka (rovnoměrný pohyb), změna rychlosti = lomená
+// čára (nerovnoměrný). V cíli se spočítá průměrná rychlost = celá dráha / celý čas.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rozjeď auto: v = s / t 🕹️</span></h2>
+	<p>Silnice měří <strong>500 m</strong>. Nastav rychlost (můžeš ji měnit i za jízdy!) a sleduj <strong>graf dráhy a času</strong>: při stálé rychlosti je to přímka — <strong>rovnoměrný pohyb</strong>. Změníš-li rychlost, čára se zlomí. Čas běží zrychleně (×5).</p>
+	<svg id="rych-svg" viewBox="0 0 520 330" role="img" aria-label="Auto na silnici a graf závislosti dráhy na čase">
+		<!-- silnice -->
+		<rect x="30" y="52" width="460" height="34" fill="#495057" rx="6" />
+		<line x1="40" y1="69" x2="480" y2="69" stroke="#ffd43b" stroke-width="3" stroke-dasharray="18 14" />
+		<text x="30" y="44" font-size="12" fill="#868e96">0 m</text>
+		<text x="490" y="44" text-anchor="end" font-size="12" fill="#868e96">500 m</text>
+		<!-- auto (skupina se posouvá skriptem) -->
+		<g id="rych-auto">
+			<rect x="-18" y="-14" width="36" height="14" rx="4" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<rect x="-10" y="-24" width="19" height="11" rx="3" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="-9" cy="1" r="5" fill="#2b2a26" />
+			<circle cx="10" cy="1" r="5" fill="#2b2a26" />
+		</g>
+		<!-- údaje -->
+		<text id="rych-udaj-v" x="30" y="112" font-size="14" font-weight="bold" fill="#1971c2"></text>
+		<text id="rych-udaj-st" x="30" y="132" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+
+		<!-- graf s–t -->
+		<g font-size="11" fill="#868e96">
+			<line x1="60" y1="300" x2="490" y2="300" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="60" y1="300" x2="60" y2="150" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="490" y="314" text-anchor="end">t (s)</text>
+			<text x="56" y="146" text-anchor="end">s (m)</text>
+			<text x="60" y="314" text-anchor="middle">0</text>
+			<text x="275" y="314" text-anchor="middle">45</text>
+			<text x="490" y="314" text-anchor="end">90</text>
+			<text x="56" y="304" text-anchor="end">0</text>
+			<text x="56" y="229" text-anchor="end">250</text>
+			<text x="56" y="158" text-anchor="end">500</text>
+			<line x1="60" y1="225" x2="490" y2="225" stroke="#dee2e6" stroke-width="1" />
+			<line x1="60" y1="150" x2="490" y2="150" stroke="#dee2e6" stroke-width="1" />
+		</g>
+		<polyline id="rych-cara" fill="none" stroke="#1971c2" stroke-width="3" points="" />
+	</svg>
+	<label class="sim-posuvnik">
+		Rychlost: <output id="rych-out"></output>
+		<input type="range" id="rych-slider" min="20" max="130" step="5" value="60" />
+	</label>
+	<p>
+		<button id="rych-start" type="button" class="rych-tl">▶ Start</button>
+		<button id="rych-reset" type="button" class="rych-tl">↺ Znovu</button>
+	</p>
+	<p class="rych-stav" id="rych-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('rych-slider');
+	const out = document.getElementById('rych-out');
+	const auto = document.getElementById('rych-auto');
+	const udajV = document.getElementById('rych-udaj-v');
+	const udajST = document.getElementById('rych-udaj-st');
+	const cara = document.getElementById('rych-cara');
+	const stavEl = document.getElementById('rych-stav');
+	const btnStart = document.getElementById('rych-start');
+	const btnReset = document.getElementById('rych-reset');
+
+	const DRAHA = 500;           // m
+	const TMAX = 90;             // s (rozsah grafu)
+	const ZRYCHLENI_CASU = 5;    // 1 s doopravdy = 5 s simulace
+	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+	// mapování: silnice 0–500 m → x 40–480; graf t 0–90 s → x 60–490, s 0–500 m → y 300–150
+	const autoX = (s) => 40 + (s / DRAHA) * 440;
+	const gx = (t) => 60 + (Math.min(t, TMAX) / TMAX) * 430;
+	const gy = (s) => 300 - (Math.min(s, DRAHA) / DRAHA) * 150;
+
+	let s = 0, t = 0, bezi = false, hotovo = false;
+	let body = '';           // body polyline grafu
+	let posledniBod = -1;    // čas posledního přidaného bodu
+	let minule = performance.now();
+
+	function vKmh() { return +slider.value; }
+	function vMs() { return vKmh() / 3.6; }
+
+	function ukazPosuvnik() {
+		out.textContent = vKmh() + ' km/h = ' + cz(vMs(), 1) + ' m/s (÷ 3,6)';
+	}
+	function prekresli() {
+		auto.setAttribute('transform', `translate(${autoX(s).toFixed(1)} 66)`);
+		udajV.textContent = 'okamžitá rychlost: ' + vKmh() + ' km/h = ' + cz(vMs(), 1) + ' m/s';
+		udajST.textContent = 'dráha s = ' + Math.round(s) + ' m   |   čas t = ' + cz(t, 1) + ' s';
+	}
+	function pridejBodGrafu() {
+		if (t - posledniBod < 0.4 && s < DRAHA) return; // graf stačí zhušťovat po ~0,4 s
+		posledniBod = t;
+		body += gx(t).toFixed(1) + ',' + gy(s).toFixed(1) + ' ';
+		cara.setAttribute('points', body);
+	}
+
+	function krok(ted) {
+		const dtReal = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		if (bezi && !hotovo) {
+			const dt = dtReal * ZRYCHLENI_CASU;
+			s += vMs() * dt;
+			t += dt;
+			if (s >= DRAHA || t >= TMAX) {
+				s = Math.min(s, DRAHA);
+				hotovo = true; bezi = false;
+				const prumMs = s / t, prumKmh = prumMs * 3.6;
+				stavEl.textContent = `🏁 Cíl! s = ${Math.round(s)} m, t = ${cz(t, 1)} s → průměrná rychlost = ${Math.round(s)} / ${cz(t, 1)} = ${cz(prumMs, 1)} m/s = ${cz(prumKmh, 0)} km/h.`
+					+ (jelStale ? ' Jel jsi pořád stejně — graf je přímka (rovnoměrný pohyb) a průměrná rychlost = okamžité.' : ' Rychlost jsi měnil — graf je lomená čára (nerovnoměrný pohyb), průměr počítáme z CELÉ dráhy a CELÉHO času.');
+				btnStart.textContent = '▶ Start';
+			}
+			pridejBodGrafu();
+			prekresli();
+		}
+		requestAnimationFrame(krok);
+	}
+
+	let jelStale = true, rychlostPriStartu = 60;
+	btnStart.addEventListener('click', () => {
+		if (hotovo) return;
+		bezi = !bezi;
+		btnStart.textContent = bezi ? '⏸ Pauza' : '▶ Start';
+		if (bezi && t === 0) { rychlostPriStartu = vKmh(); jelStale = true; body = '60,300 '; posledniBod = 0; }
+	});
+	btnReset.addEventListener('click', () => {
+		s = 0; t = 0; bezi = false; hotovo = false; body = ''; posledniBod = -1;
+		cara.setAttribute('points', '');
+		btnStart.textContent = '▶ Start';
+		stavEl.textContent = 'Nastav rychlost a zmáčkni Start.';
+		prekresli();
+	});
+	slider.addEventListener('input', () => {
+		ukazPosuvnik();
+		if (bezi && vKmh() !== rychlostPriStartu) jelStale = false;
+		if (!bezi && !hotovo) stavEl.textContent = 'Nastav rychlost a zmáčkni Start.';
+		prekresli();
+	});
+
+	ukazPosuvnik();
+	prekresli();
+	stavEl.textContent = 'Nastav rychlost a zmáčkni Start.';
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#rych-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.rych-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe8cc; cursor: pointer; margin-right: 0.5rem; }
+	.rych-tl:active { transform: translateY(1px); }
+	.rych-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

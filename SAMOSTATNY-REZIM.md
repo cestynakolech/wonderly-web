@@ -5,7 +5,6 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 ## Fronta nápadů (seřazeno podle priority)
 
 ### Kandidáti na simulace (z auditu temata.ts, 23. 7. 2026)
-- [ ] F7 rychlost-draha-cas — auto na dráze + graf s–t (posuvník rychlosti)
 - [ ] F7 odraz-svetla — paprsek a zrcadlo, úhel dopadu = úhel odrazu (posuvník úhlu)
 - [ ] F7 lom-svetla — lom na rozhraní vzduch/voda/sklo
 - [ ] F7 stin-faze-mesice — fáze Měsíce (oběh, pohled ze Země)
@@ -33,4 +32,5 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-23 (kolo 2): **RychlostSimulace** — rychlost–dráha–čas (F7 pohyb-a-rychlost/rychlost-draha-cas): auto na 500m silnici, rychlost měnitelná za jízdy, živý graf s–t, průměrná rychlost v cíli, převod ÷3,6. Ověřeno výpočtem.
 - 2026-07-23 (kolo 1): **OhmSimulace** — interaktivní Ohmův zákon (F8 elektrina/ohmuv-zakon): posuvníky U (0–24 V) a R (20–240 Ω), obvod s animovanými částicemi (rychlost ~ I), ampérmetr, graf I–U s přímkou úměrnosti. Ověřeno výpočtem (rohy dráhy teček, bod grafu 12 V/60 Ω → 0,2 A).
