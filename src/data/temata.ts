@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -2653,6 +2653,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'ohmuv-zakon',
 						nazev: 'Ohmův zákon',
+						interakce: 'ohm',
 						obsah: `
 							<h2>Ohmův zákon</h2>
 							<p>Připojíš-li žárovku k vybité baterii, svítí slabě; k nabité svítí jasně. Napětí a proud spolu souvisí. Dokázal to roku 1826 německý fyzik <strong>Georg Simon Ohm</strong>.</p>
