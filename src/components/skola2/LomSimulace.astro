@@ -74,17 +74,21 @@
 	function prekresli() {
 		const a = +slider.value;
 		out.textContent = a + '°';
-		horni.setAttribute('fill', BARVY[rezim.z]);
-		dolni.setAttribute('fill', BARVY[rezim.do]);
-		horniText.textContent = rezim.z + ' (n = ' + cz(rezim.n1, 2) + ')';
-		dolniText.textContent = rezim.do + ' (n = ' + cz(rezim.n2, 2) + ')';
+		// LOGICKY: hustší prostředí (voda, sklo) je VŽDY DOLE. Jde-li světlo
+		// z hustšího do řidšího, vychází zdola nahoru (jako od potápěče k hladině).
+		const odspoda = rezim.n1 > rezim.n2;
+		const s = odspoda ? -1 : 1; // 1 = paprsek jde shora, -1 = zdola
+		horni.setAttribute('fill', BARVY[odspoda ? rezim.do : rezim.z]);
+		dolni.setAttribute('fill', BARVY[odspoda ? rezim.z : rezim.do]);
+		horniText.textContent = (odspoda ? rezim.do + ' (n = ' + cz(rezim.n2, 2) + ')' : rezim.z + ' (n = ' + cz(rezim.n1, 2) + ')');
+		dolniText.textContent = (odspoda ? rezim.z + ' (n = ' + cz(rezim.n1, 2) + ')' : rezim.do + ' (n = ' + cz(rezim.n2, 2) + ')');
 
-		// dopadající paprsek shora zleva pod úhlem α od kolmice
+		// dopadající paprsek zleva pod úhlem α od kolmice (shora, nebo zdola)
 		dopad.setAttribute('x1', CX - L * Math.sin(rad(a)));
-		dopad.setAttribute('y1', CY - L * Math.cos(rad(a)));
+		dopad.setAttribute('y1', CY - s * L * Math.cos(rad(a)));
 		dopad.setAttribute('x2', CX); dopad.setAttribute('y2', CY);
 		uhelA.setAttribute('x', CX - 85 * Math.sin(rad(Math.max(a, 16) / 2)));
-		uhelA.setAttribute('y', CY - 85 * Math.cos(rad(a / 2)));
+		uhelA.setAttribute('y', CY - s * 85 * Math.cos(rad(a / 2)) + 5);
 		uhelA.textContent = 'α = ' + a + '°';
 
 		const sinB = (rezim.n1 * Math.sin(rad(a))) / rezim.n2;
@@ -95,15 +99,16 @@
 			lomeny.style.display = '';
 			lomeny.setAttribute('x1', CX); lomeny.setAttribute('y1', CY);
 			lomeny.setAttribute('x2', CX + L * Math.sin(rad(b)));
-			lomeny.setAttribute('y2', CY + L * Math.cos(rad(b)));
+			lomeny.setAttribute('y2', CY + s * L * Math.cos(rad(b)));
 			uhelB.setAttribute('x', CX + 85 * Math.sin(rad(Math.max(b, 16) / 2)));
-			uhelB.setAttribute('y', CY + 92 * Math.cos(rad(b / 2)));
+			uhelB.setAttribute('y', CY + s * 92 * Math.cos(rad(b / 2)) + 5);
 			uhelB.textContent = 'β = ' + cz(b, 1) + '°';
 			// slabý částečný odraz kreslíme jen mimo kolmý dopad
+			odrazeny.setAttribute('opacity', '0.45');
 			odrazeny.style.display = a === 0 ? 'none' : '';
 			odrazeny.setAttribute('x1', CX); odrazeny.setAttribute('y1', CY);
 			odrazeny.setAttribute('x2', CX + L * 0.75 * Math.sin(rad(a)));
-			odrazeny.setAttribute('y2', CY - L * 0.75 * Math.cos(rad(a)));
+			odrazeny.setAttribute('y2', CY - s * L * 0.75 * Math.cos(rad(a)));
 			if (a === 0) {
 				stavEl.textContent = 'Kolmý dopad: paprsek se neláme, jen zpomalí/zrychlí a pokračuje rovně (β = 0°).';
 			} else if (doHustsiho) {
@@ -117,10 +122,11 @@
 			const mezni = st(Math.asin(rezim.n2 / rezim.n1));
 			lomeny.style.display = 'none';
 			uhelB.textContent = '';
+			odrazeny.setAttribute('opacity', '1');
 			odrazeny.style.display = '';
 			odrazeny.setAttribute('x1', CX); odrazeny.setAttribute('y1', CY);
 			odrazeny.setAttribute('x2', CX + L * Math.sin(rad(a)));
-			odrazeny.setAttribute('y2', CY - L * Math.cos(rad(a)));
+			odrazeny.setAttribute('y2', CY - s * L * Math.cos(rad(a)));
 			stavEl.textContent = `🔦 ÚPLNÝ ODRAZ! α = ${a}° je za mezním úhlem ${cz(mezni, 1)}° — paprsek se do řidšího prostředí vůbec nedostane a celý se odrazí (α' = α). Takhle vedou světlo optická vlákna a odrazky.`;
 		}
 	}
