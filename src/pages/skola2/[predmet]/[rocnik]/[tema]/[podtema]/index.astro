@@ -25,6 +25,7 @@ import HydrostatikaSimulace from '../../../../../../components/skola2/Hydrostati
 import VlneniSimulace from '../../../../../../components/skola2/VlneniSimulace.astro';
 import ZapojeniSimulace from '../../../../../../components/skola2/ZapojeniSimulace.astro';
 import TransformatorSimulace from '../../../../../../components/skola2/TransformatorSimulace.astro';
+import RozpadSimulace from '../../../../../../components/skola2/RozpadSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -176,6 +177,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'vlneni' && <VlneniSimulace />}
 	{podtema.interakce === 'zapojeni' && <ZapojeniSimulace />}
 	{podtema.interakce === 'transformator' && <TransformatorSimulace />}
+	{podtema.interakce === 'rozpad' && <RozpadSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

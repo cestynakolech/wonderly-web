@@ -1,0 +1,146 @@
+---
+// Interaktivní poločas rozpadu: 400 jader radionuklidu se náhodně rozpadá —
+// nikdy nevíme KTERÉ jádro, ale za každý poločas T se rozpadne přesně POLOVINA.
+// Pravděpodobnost za dt: p = 1 − 2^(−dt/T). Graf porovnává skutečná (náhodná)
+// data s teoretickou křivkou N = N₀ · (1/2)^(t/T).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Sleduj poločas rozpadu 🕹️</span></h2>
+	<p>Máš <strong>400 jader</strong> radionuklidu. Rozpad je <strong>náhodný</strong> — nejde říct, které jádro se rozpadne. Ale za každý <strong>poločas T</strong> se rozpadne <strong>polovina zbývajících</strong>. Spusť čas a porovnej tečky s křivkou.</p>
+	<svg id="roz-svg" viewBox="0 0 520 320" role="img" aria-label="Mřížka rozpadajících se jader a graf úbytku s teoretickou křivkou">
+		<rect x="0" y="0" width="520" height="320" fill="#f8f9fa" />
+		<g id="roz-jadra"></g>
+		<text id="roz-pocet" x="140" y="308" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<!-- graf -->
+		<g font-size="11" fill="#868e96">
+			<line x1="300" y1="270" x2="500" y2="270" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="300" y1="270" x2="300" y2="40" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="500" y="286" text-anchor="end">čas (poločasy)</text>
+			<text x="296" y="36" text-anchor="end">jader</text>
+			<text x="300" y="284" text-anchor="middle">0</text>
+			<text x="350" y="284" text-anchor="middle">1T</text>
+			<text x="400" y="284" text-anchor="middle">2T</text>
+			<text x="450" y="284" text-anchor="middle">3T</text>
+			<text x="496" y="284" text-anchor="middle">4T</text>
+			<text x="296" y="54" text-anchor="end">400</text>
+			<text x="296" y="164" text-anchor="end">200</text>
+			<text x="296" y="220" text-anchor="end">100</text>
+			<line x1="300" y1="160" x2="500" y2="160" stroke="#dee2e6" stroke-width="1" />
+			<line x1="300" y1="215" x2="500" y2="215" stroke="#dee2e6" stroke-width="1" />
+		</g>
+		<path id="roz-teorie" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="6 5" />
+		<polyline id="roz-data" fill="none" stroke="#e03131" stroke-width="3" />
+		<text x="400" y="30" text-anchor="middle" font-size="12" fill="#868e96">čárkovaně teorie: N = N₀ · (½)^(t/T)</text>
+	</svg>
+	<label class="sim-posuvnik">
+		Poločas rozpadu T: <output id="roz-t-out"></output>
+		<input type="range" id="roz-t" min="1" max="6" step="1" value="3" />
+	</label>
+	<p>
+		<button id="roz-start" type="button" class="roz-tl">▶ Spusť čas</button>
+		<button id="roz-reset" type="button" class="roz-tl">↺ Znovu</button>
+	</p>
+	<p class="roz-stav" id="roz-stav"></p>
+</section>
+
+<script>
+	const tSlider = document.getElementById('roz-t');
+	const tOut = document.getElementById('roz-t-out');
+	const jadraG = document.getElementById('roz-jadra');
+	const pocetEl = document.getElementById('roz-pocet');
+	const teorie = document.getElementById('roz-teorie');
+	const dataCara = document.getElementById('roz-data');
+	const stavEl = document.getElementById('roz-stav');
+	const btnStart = document.getElementById('roz-start');
+	const btnReset = document.getElementById('roz-reset');
+
+	const N0 = 400, SLOUPCU = 20;
+	// mřížka jader 20×20 vlevo (13px rozteč)
+	const jadra = [];
+	for (let i = 0; i < N0; i++) {
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('cx', 22 + (i % SLOUPCU) * 13);
+		c.setAttribute('cy', 30 + Math.floor(i / SLOUPCU) * 13);
+		c.setAttribute('r', '5');
+		jadraG.appendChild(c);
+		jadra.push({ el: c, zive: true });
+	}
+
+	// graf: x 0–4 poločasy → 300–500, y 0–400 jader → 270–50
+	const gx = (pol) => 300 + Math.min(pol, 4) * 50;
+	const gy = (n) => 270 - (n / N0) * 220;
+	// teoretická křivka (pevná — v poločasech je vždy stejná)
+	let dTeorie = '';
+	for (let p = 0; p <= 4.001; p += 0.1) {
+		dTeorie += (p ? 'L' : 'M') + gx(p).toFixed(1) + ' ' + gy(N0 * Math.pow(0.5, p)).toFixed(1) + ' ';
+	}
+	teorie.setAttribute('d', dTeorie);
+
+	let bezi = false, cas = 0, body = '', minule = performance.now(), hlaseno = 0;
+
+	function obnovJadra() {
+		let zivych = 0;
+		for (const j of jadra) {
+			j.el.setAttribute('fill', j.zive ? '#f59f00' : '#ced4da');
+			if (j.zive) zivych++;
+		}
+		pocetEl.textContent = `zbývá ${zivych} jader z ${N0}`;
+		return zivych;
+	}
+	function reset() {
+		bezi = false; cas = 0; body = ''; hlaseno = 0;
+		for (const j of jadra) j.zive = true;
+		dataCara.setAttribute('points', '');
+		btnStart.textContent = '▶ Spusť čas';
+		tOut.textContent = tSlider.value + ' s';
+		obnovJadra();
+		stavEl.textContent = 'Nastav poločas a spusť čas. Které jádro se rozpadne, neví nikdo — ani fyzika!';
+	}
+
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		if (bezi) {
+			const T = +tSlider.value;
+			cas += dt;
+			const p = 1 - Math.pow(2, -dt / T);
+			for (const j of jadra) if (j.zive && Math.random() < p) j.zive = false;
+			const zivych = obnovJadra();
+			const poloc = cas / T;
+			body += gx(poloc).toFixed(1) + ',' + gy(zivych).toFixed(1) + ' ';
+			dataCara.setAttribute('points', body);
+			// hlášky po celých poločasech
+			if (poloc >= hlaseno + 1) {
+				hlaseno++;
+				const ocek = Math.round(N0 * Math.pow(0.5, hlaseno));
+				stavEl.textContent = `Po ${hlaseno}. poločasu (${hlaseno * T} s): zbývá ${zivych} jader, teorie říká ${ocek}. Každý poločas = polovina zbytku!`;
+			}
+			if (poloc >= 4) {
+				bezi = false;
+				btnStart.textContent = '▶ Spusť čas';
+				stavEl.textContent += ' — Konec: po 4 poločasech zbývá jen ~6 % jader. U uranu 238 by to trvalo 18 miliard let, u radonu 222 dva týdny.';
+			}
+		}
+		requestAnimationFrame(krok);
+	}
+
+	btnStart.addEventListener('click', () => {
+		if (cas / +tSlider.value >= 4) reset();
+		bezi = !bezi;
+		btnStart.textContent = bezi ? '⏸ Pauza' : '▶ Spusť čas';
+	});
+	btnReset.addEventListener('click', reset);
+	tSlider.addEventListener('input', () => { if (!bezi && cas === 0) tOut.textContent = tSlider.value + ' s'; });
+	reset();
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#roz-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.roz-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe8cc; cursor: pointer; margin-right: 0.5rem; }
+	.roz-tl:active { transform: translateY(1px); }
+	.roz-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

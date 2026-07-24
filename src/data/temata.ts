@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -3442,6 +3442,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'radioaktivita',
 					nazev: 'Radioaktivita, ochrana před zářením',
+					interakce: 'rozpad',
 					obsah: `
 						<h2>Radioaktivita</h2>
 						<p>Roku <strong>1896</strong> objevil <strong>Henri Becquerel</strong>, že z uranové rudy vychází neviditelné záření. Manželé <strong>Curieovi</strong> zjistili, že má tři složky, a <strong>Rutherford</strong> dokázal, že vychází z jádra atomu.</p>
