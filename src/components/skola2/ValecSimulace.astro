@@ -1,0 +1,119 @@
+---
+// Interaktivní odměrný válec: nalij vodu (V1), vhoď pevné těleso — hladina
+// stoupne na V2 a objem tělesa je V = V2 − V1 (1 ml = 1 cm³). Odečítá se
+// po ustálení, v nejnižším bodě hladiny, oči kolmo v úrovni hladiny.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Změř objem kamene 🕹️</span></h2>
+	<p>Objem nepravidelného tělesa změříš vodou: 1) odečti hladinu <strong>V₁</strong>, 2) těleso opatrně ponoř, 3) odečti <strong>V₂</strong>. Objem tělesa je <strong>V = V₂ − V₁</strong> (a protože 1 ml = 1 cm³, vyjde rovnou v cm³).</p>
+	<svg id="val-svg" viewBox="0 0 520 320" role="img" aria-label="Odměrný válec s vodou a vhozeným tělesem">
+		<rect x="0" y="0" width="520" height="320" fill="#f8f9fa" />
+		<!-- stůl -->
+		<rect x="0" y="292" width="520" height="28" fill="#d2a679" />
+		<line x1="0" y1="292" x2="520" y2="292" stroke="#2b2a26" stroke-width="3" />
+		<!-- válec: 0–250 ml → y 272–42 -->
+		<path d="M 210 40 V 284 H 310 V 40" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect id="val-voda" x="214" y="180" width="92" height="92" fill="#a5d8ff" opacity="0.85" />
+		<!-- těleso (kreslí skript) -->
+		<g id="val-teleso"></g>
+		<!-- stupnice -->
+		<g id="val-stupnice" font-size="11" fill="#495057"></g>
+		<!-- ukazatel hladiny s okem -->
+		<line id="val-hladina-cara" x1="180" x2="330" stroke="#e03131" stroke-width="2" stroke-dasharray="6 4" />
+		<text id="val-oko" x="165" text-anchor="middle" font-size="16">👁️</text>
+		<text id="val-odecet" x="360" font-size="15" font-weight="bold" fill="#e03131"></text>
+		<text x="260" y="26" text-anchor="middle" font-size="12" fill="#868e96">odměrný válec 250 ml (dílek 10 ml)</text>
+	</svg>
+	<label class="sim-posuvnik">
+		Nalitá voda: <output id="val-out"></output>
+		<input type="range" id="val-slider" min="50" max="200" step="10" value="120" />
+	</label>
+	<p id="val-telesa">
+		<button type="button" class="val-tl val-vhod" data-v="40" data-nazev="kámen" data-emoji="🪨">🪨 Vhoď kámen</button>
+		<button type="button" class="val-tl val-vhod" data-v="15" data-nazev="ocelová matice" data-emoji="🔩">🔩 Vhoď matici</button>
+		<button type="button" class="val-tl val-vhod" data-v="25" data-nazev="skleněná kulička" data-emoji="🟢">🟢 Vhoď kuličku</button>
+		<button id="val-vyndat" type="button" class="val-tl">🫳 Vyndej těleso</button>
+	</p>
+	<p class="val-stav" id="val-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('val-slider');
+	const out = document.getElementById('val-out');
+	const voda = document.getElementById('val-voda');
+	const telesoG = document.getElementById('val-teleso');
+	const stupniceG = document.getElementById('val-stupnice');
+	const hladinaCara = document.getElementById('val-hladina-cara');
+	const oko = document.getElementById('val-oko');
+	const odecetEl = document.getElementById('val-odecet');
+	const stavEl = document.getElementById('val-stav');
+	const btnVyndat = document.getElementById('val-vyndat');
+
+	const DNO = 272, MLPX = 230 / 250; // 0–250 ml → y 272–42
+	const yProMl = (ml) => DNO - ml * MLPX;
+	let teleso = null; // {v, nazev, emoji}
+
+	// stupnice po 10 ml, popisky po 50
+	for (let ml = 0; ml <= 250; ml += 10) {
+		const y = yProMl(ml);
+		const velka = ml % 50 === 0;
+		const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+		l.setAttribute('x1', 310); l.setAttribute('x2', velka ? 296 : 302);
+		l.setAttribute('y1', y); l.setAttribute('y2', y);
+		l.setAttribute('stroke', '#495057'); l.setAttribute('stroke-width', velka ? 2 : 1.2);
+		stupniceG.appendChild(l);
+		if (velka && ml > 0) {
+			const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+			t.setAttribute('x', 322); t.setAttribute('y', y + 4);
+			t.textContent = ml;
+			stupniceG.appendChild(t);
+		}
+	}
+
+	function prekresli() {
+		const v1 = +slider.value;
+		const hladina = v1 + (teleso ? teleso.v : 0);
+		out.textContent = 'V₁ = ' + v1 + ' ml';
+		const yH = yProMl(hladina);
+		voda.setAttribute('y', yH);
+		voda.setAttribute('height', DNO - yH);
+		hladinaCara.setAttribute('y1', yH); hladinaCara.setAttribute('y2', yH);
+		oko.setAttribute('y', yH + 6);
+		odecetEl.setAttribute('y', yH + 5);
+		odecetEl.textContent = '← čtu ' + hladina + ' ml';
+
+		while (telesoG.firstChild) telesoG.removeChild(telesoG.firstChild);
+		if (teleso) {
+			const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+			t.setAttribute('x', 260); t.setAttribute('y', 266);
+			t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', String(14 + teleso.v * 0.35));
+			t.textContent = teleso.emoji;
+			telesoG.appendChild(t);
+			stavEl.textContent = `Hladina stoupla z ${v1} ml na ${hladina} ml → objem (${teleso.nazev}): V = V₂ − V₁ = ${hladina} − ${v1} = ${teleso.v} cm³. Oči drž kolmo v úrovni hladiny (červená čára)!`;
+		} else {
+			stavEl.textContent = `Hladina je ustálená na V₁ = ${v1} ml. Teď vhoď nějaké těleso a sleduj, o kolik hladina stoupne.`;
+		}
+	}
+
+	document.querySelectorAll('#val-telesa .val-vhod').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			teleso = { v: +tl.dataset.v, nazev: tl.dataset.nazev, emoji: tl.dataset.emoji };
+			prekresli();
+		});
+	});
+	btnVyndat.addEventListener('click', () => { teleso = null; prekresli(); });
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#val-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.val-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.val-tl { font: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.3rem 0.7rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.val-tl:active { transform: translateY(1px); }
+</style>
