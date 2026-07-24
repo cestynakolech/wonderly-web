@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -2680,6 +2680,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'zapojeni-spotrebicu-za-sebou',
 						nazev: 'Zapojení spotřebičů za sebou (sériově)',
+						interakce: 'zapojeni',
 						obsah: `
 							<h2>Zapojení spotřebičů za sebou (sériově)</h2>
 							<p>Spotřebiče (pro výpočty je nahradíme <strong>rezistory</strong>) jsou v sériovém obvodu zapojeny <strong>jeden za druhým</strong>. Obvod se <strong>nerozvětvuje</strong>.</p>
@@ -2700,6 +2701,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'zapojeni-spotrebicu-vedle-sebe',
 						nazev: 'Zapojení spotřebičů vedle sebe (paralelně)',
+						interakce: 'zapojeni',
 						obsah: `
 							<h2>Zapojení spotřebičů vedle sebe (paralelně)</h2>
 							<p>V paralelním obvodu je <strong>každý spotřebič připojen přímo ke zdroji</strong>. Obvod je <strong>rozvětvený</strong>, vodiče se spojují v <strong>uzlech</strong>. Takto jsou zapojené zásuvky v domácnosti.</p>

@@ -1,0 +1,153 @@
+---
+// Interaktivní sériové × paralelní zapojení: dvě žárovky (rezistory R1, R2)
+// na zdroji 12 V. Sériově: společný proud I = U/(R1+R2), napětí se dělí
+// (U1 = R1·I). Paralelně: společné napětí, proud se dělí (I1 = U/R1, I = I1+I2).
+// Tlačítko „přepal žárovku 1": v sérii zhasne vše, v paralelu druhá svítí dál.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Sériově, nebo paralelně? 🕹️</span></h2>
+	<p>Zdroj má <strong>U = 12 V</strong>. Měň odpory žárovek a přepínej zapojení. Jas žárovky odpovídá jejímu výkonu. Pak zkus <strong>přepálit žárovku 1</strong> — uvidíš rozdíl mezi vánočním řetězem (sériově) a zásuvkami doma (paralelně).</p>
+	<p>
+		<button id="zap-rezim-serie" type="button" class="zap-tl zap-aktivni">→→ Za sebou (sériově)</button>
+		<button id="zap-rezim-paralel" type="button" class="zap-tl">⇉ Vedle sebe (paralelně)</button>
+		<button id="zap-prepal" type="button" class="zap-tl zap-prepal">💥 Přepal žárovku 1</button>
+	</p>
+	<svg id="zap-svg" viewBox="0 0 520 300" role="img" aria-label="Obvod se dvěma žárovkami zapojeny sériově nebo paralelně">
+		<rect x="0" y="0" width="520" height="300" fill="#f8f9fa" />
+		<!-- zdroj -->
+		<rect x="30" y="120" width="44" height="60" fill="#fff" stroke="#2b2a26" stroke-width="3" rx="6" />
+		<line x1="41" y1="136" x2="63" y2="136" stroke="#2b2a26" stroke-width="5" />
+		<line x1="46" y1="150" x2="58" y2="150" stroke="#2b2a26" stroke-width="3" />
+		<line x1="41" y1="164" x2="63" y2="164" stroke="#2b2a26" stroke-width="5" />
+		<text x="52" y="112" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">12 V</text>
+		<!-- dráty: sériově -->
+		<g id="zap-serie-draty" fill="none" stroke="#2b2a26" stroke-width="4">
+			<path d="M 52 120 V 60 H 150" /><path d="M 210 60 H 300" /><path d="M 360 60 H 470 V 240 H 52 V 180" />
+		</g>
+		<!-- dráty: paralelně -->
+		<g id="zap-paralel-draty" fill="none" stroke="#2b2a26" stroke-width="4">
+			<path d="M 52 120 V 60 H 190" /><path d="M 250 60 H 470 V 240 H 52 V 180" />
+			<path d="M 130 60 V 150 H 190" /><path d="M 250 150 H 410 V 60" />
+		</g>
+		<!-- žárovky (elipsy s vláknem), popisky U/I -->
+		<g id="zap-z1">
+			<circle id="zap-z1-glow" r="26" fill="#ffd43b" opacity="0" />
+			<circle r="17" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<path id="zap-z1-vlakno" d="M -8 6 Q 0 -10 8 6" fill="none" stroke="#e8590c" stroke-width="2.5" />
+			<text y="-24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Ž1</text>
+			<text id="zap-z1-udaj" y="36" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2"></text>
+		</g>
+		<g id="zap-z2">
+			<circle id="zap-z2-glow" r="26" fill="#ffd43b" opacity="0" />
+			<circle r="17" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<path id="zap-z2-vlakno" d="M -8 6 Q 0 -10 8 6" fill="none" stroke="#e8590c" stroke-width="2.5" />
+			<text y="-24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Ž2</text>
+			<text id="zap-z2-udaj" y="36" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2"></text>
+		</g>
+		<text id="zap-celkem" x="260" y="282" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Odpor žárovky 1 (R₁): <output id="zap-r1-out"></output>
+		<input type="range" id="zap-r1" min="10" max="100" step="10" value="20" />
+	</label>
+	<label class="sim-posuvnik">
+		Odpor žárovky 2 (R₂): <output id="zap-r2-out"></output>
+		<input type="range" id="zap-r2" min="10" max="100" step="10" value="40" />
+	</label>
+	<p class="zap-stav" id="zap-stav"></p>
+</section>
+
+<script>
+	const r1S = document.getElementById('zap-r1');
+	const r2S = document.getElementById('zap-r2');
+	const r1Out = document.getElementById('zap-r1-out');
+	const r2Out = document.getElementById('zap-r2-out');
+	const serieDraty = document.getElementById('zap-serie-draty');
+	const paralelDraty = document.getElementById('zap-paralel-draty');
+	const z1 = document.getElementById('zap-z1');
+	const z2 = document.getElementById('zap-z2');
+	const z1Glow = document.getElementById('zap-z1-glow');
+	const z2Glow = document.getElementById('zap-z2-glow');
+	const z1Vlakno = document.getElementById('zap-z1-vlakno');
+	const z1Udaj = document.getElementById('zap-z1-udaj');
+	const z2Udaj = document.getElementById('zap-z2-udaj');
+	const celkemEl = document.getElementById('zap-celkem');
+	const stavEl = document.getElementById('zap-stav');
+	const btnSerie = document.getElementById('zap-rezim-serie');
+	const btnParalel = document.getElementById('zap-rezim-paralel');
+	const btnPrepal = document.getElementById('zap-prepal');
+
+	const U = 12;
+	let rezim = 'serie', prepalena = false;
+	const cz = (x, d) => x.toFixed(d).replace('.', ',');
+	const MAXP = 14.4; // výkon 12 V / 10 Ω = 14,4 W → plný jas
+
+	function prekresli() {
+		const R1 = +r1S.value, R2 = +r2S.value;
+		r1Out.textContent = R1 + ' Ω';
+		r2Out.textContent = R2 + ' Ω';
+		serieDraty.style.display = rezim === 'serie' ? '' : 'none';
+		paralelDraty.style.display = rezim === 'paralel' ? '' : 'none';
+		// polohy žárovek
+		if (rezim === 'serie') {
+			z1.setAttribute('transform', 'translate(180 60)');
+			z2.setAttribute('transform', 'translate(330 60)');
+		} else {
+			z1.setAttribute('transform', 'translate(220 60)');
+			z2.setAttribute('transform', 'translate(220 150)');
+		}
+
+		let i1, i2, u1, u2, celkem, stav;
+		if (rezim === 'serie') {
+			if (prepalena) {
+				i1 = i2 = u1 = u2 = 0;
+				celkem = 'Obvod je PŘERUŠENÝ — proud nemá kudy téct.';
+				stav = '💥 V sériovém obvodu stačí jedna přepálená žárovka a ZHASNE VŠECHNO (jako vánoční řetěz).';
+			} else {
+				const R = R1 + R2, I = U / R;
+				i1 = i2 = I; u1 = R1 * I; u2 = R2 * I;
+				celkem = `R = R₁ + R₂ = ${R} Ω;  I = U / R = ${cz(I, 2)} A všude stejný`;
+				stav = `Proud se NEDĚLÍ (${cz(I, 2)} A všude). Napětí se rozdělí podle odporů: U₁ + U₂ = ${cz(u1, 1)} + ${cz(u2, 1)} = 12 V. Větší odpor → větší napětí.`;
+			}
+		} else {
+			i1 = prepalena ? 0 : U / R1;
+			i2 = U / R2;
+			u1 = prepalena ? 0 : U; u2 = U;
+			const R = (R1 * R2) / (R1 + R2);
+			if (prepalena) {
+				celkem = `Ž1 přepálená — větev 1 bez proudu. I = I₂ = ${cz(i2, 2)} A`;
+				stav = '💥 V paralelním obvodu druhá žárovka SVÍTÍ DÁL — každá větev je připojena ke zdroji zvlášť (jako zásuvky doma).';
+			} else {
+				celkem = `1/R = 1/R₁ + 1/R₂ → R = ${cz(R, 1)} Ω (menší než R₁ i R₂);  I = I₁ + I₂ = ${cz(i1 + i2, 2)} A`;
+				stav = `Napětí se NEDĚLÍ (na obou 12 V). Proud se v uzlu rozdělí: I₁ = ${cz(i1, 2)} A, I₂ = ${cz(i2, 2)} A — větším odporem teče menší proud.`;
+			}
+		}
+		z1Udaj.textContent = prepalena ? 'přepálená' : `U₁ = ${cz(u1, 1)} V; I₁ = ${cz(i1, 2)} A`;
+		z2Udaj.textContent = `U₂ = ${cz(u2, 1)} V; I₂ = ${cz(i2, 2)} A`;
+		z1Glow.setAttribute('opacity', Math.min(1, (u1 * i1) / MAXP).toFixed(2));
+		z2Glow.setAttribute('opacity', Math.min(1, (u2 * i2) / MAXP).toFixed(2));
+		z1Vlakno.setAttribute('stroke', prepalena ? '#adb5bd' : '#e8590c');
+		z1Vlakno.setAttribute('d', prepalena ? 'M -8 6 Q -2 -6 2 2' : 'M -8 6 Q 0 -10 8 6');
+		celkemEl.textContent = celkem;
+		stavEl.textContent = stav;
+	}
+
+	btnSerie.addEventListener('click', () => { rezim = 'serie'; btnSerie.classList.add('zap-aktivni'); btnParalel.classList.remove('zap-aktivni'); prekresli(); });
+	btnParalel.addEventListener('click', () => { rezim = 'paralel'; btnParalel.classList.add('zap-aktivni'); btnSerie.classList.remove('zap-aktivni'); prekresli(); });
+	btnPrepal.addEventListener('click', () => { prepalena = !prepalena; btnPrepal.textContent = prepalena ? '🔧 Vyměň žárovku 1' : '💥 Přepal žárovku 1'; prekresli(); });
+	r1S.addEventListener('input', prekresli);
+	r2S.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#zap-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.zap-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.zap-tl.zap-aktivni { background: #ffe8cc; }
+	.zap-tl.zap-prepal { background: #ffe3e3; }
+	.zap-tl:active { transform: translateY(1px); }
+	.zap-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
