@@ -22,6 +22,7 @@ import OdrazSimulace from '../../../../../../components/skola2/OdrazSimulace.ast
 import LomSimulace from '../../../../../../components/skola2/LomSimulace.astro';
 import MesicSimulace from '../../../../../../components/skola2/MesicSimulace.astro';
 import HydrostatikaSimulace from '../../../../../../components/skola2/HydrostatikaSimulace.astro';
+import VlneniSimulace from '../../../../../../components/skola2/VlneniSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -170,6 +171,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'lom' && <LomSimulace />}
 	{podtema.interakce === 'mesic' && <MesicSimulace />}
 	{podtema.interakce === 'hydrostatika' && <HydrostatikaSimulace />}
+	{podtema.interakce === 'vlneni' && <VlneniSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

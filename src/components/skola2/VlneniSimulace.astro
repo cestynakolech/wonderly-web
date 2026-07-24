@@ -1,0 +1,154 @@
+---
+// Interaktivní vlnění: příčná vlna na laně (kopečky a údolí) a podélné vlnění
+// (zhuštění/zředění částic jako u zvuku). Posuvníky frekvence a amplitudy,
+// rychlost šíření v = 2 m/s pevná → λ = v / f (větší frekvence = kratší vlna).
+// Červená částice ukazuje: hmota jen kmitá na místě, dál se šíří JEN kmitání.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rozvlň lano 🕹️</span></h2>
+	<p>Vlnění = šíření kmitání prostředím. Částice (červená) <strong>kmitá na místě</strong>, vlna běží dál rychlostí <strong>v = 2 m/s</strong>. Platí <strong>λ = v / f</strong> — zvyš frekvenci a sleduj, jak se vlnová délka zkrátí.</p>
+	<p>
+		<button id="vln-rezim-pricne" type="button" class="vln-tl vln-aktivni">〰️ Příčné (lano)</button>
+		<button id="vln-rezim-podelne" type="button" class="vln-tl">➡️ Podélné (zvuk)</button>
+	</p>
+	<svg id="vln-svg" viewBox="0 0 520 300" role="img" aria-label="Animace příčného a podélného vlnění">
+		<rect x="0" y="0" width="520" height="300" fill="#f8f9fa" />
+		<!-- ruka/zdroj kmitání vlevo -->
+		<text x="14" y="30" font-size="13" fill="#495057">zdroj kmitání</text>
+		<circle id="vln-zdroj" cx="40" cy="150" r="7" fill="#495057" />
+		<!-- příčná vlna -->
+		<polyline id="vln-lano" fill="none" stroke="#1971c2" stroke-width="4" stroke-linecap="round" />
+		<!-- podélné vlnění: částice kreslí skript -->
+		<g id="vln-castice" fill="#1971c2"></g>
+		<!-- sledovaná částice + vodítko -->
+		<line id="vln-voditko" stroke="#adb5bd" stroke-width="2" stroke-dasharray="5 5" />
+		<circle id="vln-bod" r="8" fill="#e03131" stroke="#fff" stroke-width="2" />
+		<!-- vlnová délka: oboustranná šipka -->
+		<line id="vln-lambda" y1="252" y2="252" stroke="#2f9e44" stroke-width="3" />
+		<text id="vln-lambda-text" y="272" font-size="14" font-weight="bold" fill="#2f9e44" text-anchor="middle"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Frekvence f: <output id="vln-f-out"></output>
+		<input type="range" id="vln-f" min="0.5" max="3" step="0.5" value="1" />
+	</label>
+	<label class="sim-posuvnik">
+		Amplituda: <output id="vln-a-out"></output>
+		<input type="range" id="vln-a" min="10" max="40" step="5" value="25" />
+	</label>
+	<p class="vln-stav" id="vln-stav"></p>
+</section>
+
+<script>
+	const fSlider = document.getElementById('vln-f');
+	const aSlider = document.getElementById('vln-a');
+	const fOut = document.getElementById('vln-f-out');
+	const aOut = document.getElementById('vln-a-out');
+	const lano = document.getElementById('vln-lano');
+	const casticeG = document.getElementById('vln-castice');
+	const bod = document.getElementById('vln-bod');
+	const voditko = document.getElementById('vln-voditko');
+	const zdroj = document.getElementById('vln-zdroj');
+	const lambdaCara = document.getElementById('vln-lambda');
+	const lambdaText = document.getElementById('vln-lambda-text');
+	const stavEl = document.getElementById('vln-stav');
+	const btnPricne = document.getElementById('vln-rezim-pricne');
+	const btnPodelne = document.getElementById('vln-rezim-podelne');
+
+	const V = 2;                 // rychlost šíření (m/s)
+	const MERITKO = 40;          // 1 m = 40 px
+	const X0 = 40, X1 = 480, Y0 = 150;
+	const BODX = 260;            // sledovaná částice
+	const cz = (x, d) => x.toFixed(d).replace('.', ',');
+	let rezim = 'pricne';
+
+	// částice podélného vlnění (60 sloupců × 3 řady)
+	const podelne = [];
+	for (let i = 0; i < 60; i++) {
+		for (let r = 0; r < 3; r++) {
+			const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+			c.setAttribute('r', '3.4');
+			c.setAttribute('cy', 120 + r * 30);
+			casticeG.appendChild(c);
+			podelne.push({ el: c, x: X0 + (i / 59) * (X1 - X0) });
+		}
+	}
+
+	function ukazPosuvniky() {
+		const f = +fSlider.value;
+		fOut.textContent = cz(f, 1) + ' Hz (T = ' + cz(1 / f, 2) + ' s)';
+		aOut.textContent = aSlider.value + ' cm';
+		const lam = V / f;
+		lambdaText.textContent = 'λ = v / f = 2 / ' + cz(f, 1) + ' = ' + cz(lam, 2) + ' m';
+		const lamPx = lam * MERITKO;
+		lambdaCara.setAttribute('x1', X0);
+		lambdaCara.setAttribute('x2', X0 + lamPx);
+		lambdaText.setAttribute('x', X0 + lamPx / 2);
+		stavEl.textContent = (rezim === 'pricne'
+			? 'PŘÍČNÉ vlnění: částice kmitají KOLMO na směr šíření (nahoru a dolů) — vidíš kopečky a údolí. '
+			: 'PODÉLNÉ vlnění: částice kmitají VE SMĚRU šíření — vzniká zhuštění a zředění (takhle se šíří zvuk). ')
+			+ `Za 1 s vlna urazí 2 m a zdroj udělá ${cz(f, 1)} kmitů → jedna vlna měří ${cz(lam, 2)} m.`;
+	}
+
+	let cas = 0, minule = performance.now();
+	function faze(x, t) {
+		const f = +fSlider.value;
+		return 2 * Math.PI * f * (t - (x - X0) / MERITKO / V);
+	}
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		cas += dt;
+		const A = +aSlider.value;
+		if (rezim === 'pricne') {
+			let body = '';
+			for (let x = X0; x <= X1; x += 5) {
+				body += x + ',' + (Y0 - A * Math.sin(faze(x, cas))).toFixed(1) + ' ';
+			}
+			lano.setAttribute('points', body);
+			const by = Y0 - A * Math.sin(faze(BODX, cas));
+			bod.setAttribute('cx', BODX);
+			bod.setAttribute('cy', by.toFixed(1));
+			voditko.setAttribute('x1', BODX); voditko.setAttribute('x2', BODX);
+			voditko.setAttribute('y1', Y0 - 45); voditko.setAttribute('y2', Y0 + 45);
+			zdroj.setAttribute('cy', (Y0 - A * Math.sin(faze(X0, cas))).toFixed(1));
+		} else {
+			const Ax = A * 0.55; // vodorovná výchylka
+			for (const p of podelne) {
+				p.el.setAttribute('cx', (p.x + Ax * Math.sin(faze(p.x, cas))).toFixed(1));
+			}
+			const bx = BODX + Ax * Math.sin(faze(BODX, cas));
+			bod.setAttribute('cx', bx.toFixed(1));
+			bod.setAttribute('cy', Y0);
+			voditko.setAttribute('x1', BODX - 45); voditko.setAttribute('x2', BODX + 45);
+			voditko.setAttribute('y1', Y0); voditko.setAttribute('y2', Y0);
+			zdroj.setAttribute('cy', Y0);
+		}
+		requestAnimationFrame(krok);
+	}
+
+	function prepni(novy) {
+		rezim = novy;
+		btnPricne.classList.toggle('vln-aktivni', novy === 'pricne');
+		btnPodelne.classList.toggle('vln-aktivni', novy === 'podelne');
+		lano.style.display = novy === 'pricne' ? '' : 'none';
+		casticeG.style.display = novy === 'podelne' ? '' : 'none';
+		ukazPosuvniky();
+	}
+	btnPricne.addEventListener('click', () => prepni('pricne'));
+	btnPodelne.addEventListener('click', () => prepni('podelne'));
+	fSlider.addEventListener('input', ukazPosuvniky);
+	aSlider.addEventListener('input', ukazPosuvniky);
+	prepni('pricne');
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#vln-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.vln-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.9rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin-right: 0.5rem; }
+	.vln-tl.vln-aktivni { background: #ffe8cc; }
+	.vln-tl:active { transform: translateY(1px); }
+	.vln-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
