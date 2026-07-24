@@ -1,0 +1,108 @@
+---
+// Interaktivní fáze Měsíce: vlevo pohled shora (Slunce svítí zleva, Měsíc obíhá
+// Zemi — přivrácená polovina k Slunci je VŽDY osvětlená), vpravo pohled ze Země
+// (jakou část osvětlené poloviny vidíme). Osvětlená část k = (1 − cos φ) / 2.
+// Česká pomůcka: Dorůstá jako D, Couvá jako C.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proč má Měsíc fáze? 🕹️</span></h2>
+	<p>Měsíc <strong>sám nesvítí</strong> — jen odráží sluneční světlo. Polovina přivrácená ke Slunci je osvětlená pořád; my ze Země ale vidíme <strong>jen část</strong> této poloviny. Posuvníkem obíhej Měsícem kolem Země.</p>
+	<svg id="mes-svg" viewBox="0 0 520 340" role="img" aria-label="Pohled shora na oběh Měsíce kolem Země a výsledná fáze při pohledu ze Země">
+		<rect x="0" y="0" width="520" height="340" fill="#101426" />
+		<!-- sluneční paprsky zleva -->
+		<g stroke="#ffd43b" stroke-width="3">
+			<line x1="6" y1="70" x2="52" y2="70" /><line x1="6" y1="130" x2="52" y2="130" />
+			<line x1="6" y1="190" x2="52" y2="190" /><line x1="6" y1="250" x2="52" y2="250" />
+		</g>
+		<text x="10" y="52" font-size="14" font-weight="bold" fill="#ffd43b">☀️ Slunce</text>
+		<!-- oběžná dráha + Země -->
+		<circle cx="185" cy="170" r="95" fill="none" stroke="#3b4368" stroke-width="2" stroke-dasharray="5 6" />
+		<circle cx="185" cy="170" r="20" fill="#4dabf7" stroke="#a5d8ff" stroke-width="2" />
+		<text x="185" y="212" text-anchor="middle" font-size="12" fill="#a5d8ff">Země</text>
+		<!-- Měsíc v pohledu shora: tmavý kotouč + osvětlená polovina směrem ke Slunci -->
+		<g id="mes-mesic">
+			<circle r="14" fill="#3b4046" stroke="#868e96" stroke-width="1.5" />
+			<path d="M 0 -14 A 14 14 0 0 0 0 14 Z" fill="#f1f3f5" />
+		</g>
+		<!-- pohled ze Země -->
+		<text x="425" y="52" text-anchor="middle" font-size="14" font-weight="bold" fill="#f1f3f5">Pohled ze Země</text>
+		<circle cx="425" cy="140" r="60" fill="#23272f" stroke="#868e96" stroke-width="2" />
+		<path id="mes-faze" fill="#f1f3f5" />
+		<text id="mes-nazev" x="425" y="232" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffd43b"></text>
+		<text id="mes-procenta" x="425" y="254" text-anchor="middle" font-size="13" fill="#ced4da"></text>
+		<text x="425" y="292" text-anchor="middle" font-size="13" fill="#74c0fc">pomůcka: Dorůstá jako D,</text>
+		<text x="425" y="310" text-anchor="middle" font-size="13" fill="#74c0fc">Couvá jako C</text>
+	</svg>
+	<label class="sim-posuvnik">
+		Poloha Měsíce na dráze: <output id="mes-out"></output>
+		<input type="range" id="mes-slider" min="0" max="360" step="5" value="90" />
+	</label>
+	<p class="mes-stav" id="mes-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('mes-slider');
+	const out = document.getElementById('mes-out');
+	const mesic = document.getElementById('mes-mesic');
+	const faze = document.getElementById('mes-faze');
+	const nazevEl = document.getElementById('mes-nazev');
+	const procentaEl = document.getElementById('mes-procenta');
+	const stavEl = document.getElementById('mes-stav');
+
+	const EX = 185, EY = 170, ORBITA = 95; // Země a dráha (pohled shora)
+	const FX = 425, FY = 140, R = 60;      // kotouč fáze
+	const rad = (s) => (s * Math.PI) / 180;
+
+	function nazevFaze(f) {
+		if (f < 22.5 || f >= 337.5) return 'nov';
+		if (f < 67.5) return 'dorůstající srpek';
+		if (f < 112.5) return 'první čtvrť';
+		if (f < 157.5) return 'dorůstající Měsíc';
+		if (f < 202.5) return 'úplněk';
+		if (f < 247.5) return 'couvající Měsíc';
+		if (f < 292.5) return 'poslední čtvrť';
+		return 'couvající srpek';
+	}
+
+	function prekresli() {
+		const f = +slider.value;
+		out.textContent = f + '°';
+		// pohled shora: φ=0 → Měsíc mezi Zemí a Sluncem (vlevo)
+		const mx = EX - ORBITA * Math.cos(rad(f));
+		const my = EY - ORBITA * Math.sin(rad(f));
+		mesic.setAttribute('transform', `translate(${mx.toFixed(1)} ${my.toFixed(1)})`);
+
+		// pohled ze Země: osvětlená část k = (1 − cos φ)/2, terminátor rx = R·cos φ
+		const c = Math.cos(rad(f));
+		const k = (1 - c) / 2;
+		const dorusta = f > 0 && f < 180; // po novu dorůstá (svítí pravá strana = D)
+		let d;
+		if (f === 0 || f === 360) {
+			d = ''; // nov — nic není vidět
+		} else if (dorusta) {
+			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 1 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 1 : 0} ${FX} ${FY - R} Z`;
+		} else {
+			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 0 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 0 : 1} ${FX} ${FY - R} Z`;
+		}
+		faze.setAttribute('d', d);
+		nazevEl.textContent = nazevFaze(f);
+		procentaEl.textContent = 'osvětleno ' + Math.round(k * 100) + ' % kotouče';
+
+		let popis;
+		if (f < 22.5 || f >= 337.5) popis = 'NOV: osvětlená polovina je odvrácená od Země — Měsíc na obloze nevidíme.';
+		else if (f < 180) popis = 'Měsíc DORŮSTÁ (svítí pravá strana, jako písmeno D) — osvětlené části přibývá.';
+		else if (f < 202.5) popis = 'ÚPLNĚK: Země je mezi Sluncem a Měsícem, vidíme celou osvětlenou polovinu.';
+		else popis = 'Měsíc COUVÁ (svítí levá strana, jako písmeno C) — osvětlené části ubývá.';
+		stavEl.textContent = popis + ' Všimni si vlevo: osvětlená polovina Měsíce míří pořád ke Slunci.';
+	}
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#mes-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.mes-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

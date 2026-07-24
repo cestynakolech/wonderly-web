@@ -20,6 +20,7 @@ import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
 import RychlostSimulace from '../../../../../../components/skola2/RychlostSimulace.astro';
 import OdrazSimulace from '../../../../../../components/skola2/OdrazSimulace.astro';
 import LomSimulace from '../../../../../../components/skola2/LomSimulace.astro';
+import MesicSimulace from '../../../../../../components/skola2/MesicSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -166,6 +167,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'rychlost' && <RychlostSimulace />}
 	{podtema.interakce === 'odraz' && <OdrazSimulace />}
 	{podtema.interakce === 'lom' && <LomSimulace />}
+	{podtema.interakce === 'mesic' && <MesicSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
