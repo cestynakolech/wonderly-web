@@ -1,0 +1,116 @@
+---
+// Interaktivní hydrostatický tlak: posuvníkem posíláš potápěče do hloubky
+// a sleduješ p = h·ρ·g na tlakoměru. Šipky ukazují, že tlak působí ze všech
+// stran a s hloubkou roste (každých 10 m ≈ +100 kPa ≈ +1 atmosféra).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Pošli potápěče do hloubky 🕹️</span></h2>
+	<p>Hydrostatický tlak roste s <strong>hloubkou</strong>: <strong>p<sub>h</sub> = h · ρ · g</strong> (voda ρ = 1000 kg/m³, g = 10 N/kg). Působí <strong>ze všech stran</strong> — sleduj šipky kolem potápěče.</p>
+	<svg id="hyd-svg" viewBox="0 0 520 340" role="img" aria-label="Potápěč v různé hloubce, tlakoměr a šipky hydrostatického tlaku">
+		<defs>
+			<linearGradient id="hyd-voda" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0" stop-color="#74c0fc" />
+				<stop offset="1" stop-color="#1057a8" />
+			</linearGradient>
+			<marker id="hyd-sipka" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+				<path d="M0,0 L7,4 L0,8 z" fill="#ffd43b" />
+			</marker>
+		</defs>
+		<!-- nebe, hladina, voda, dno -->
+		<rect x="0" y="0" width="520" height="52" fill="#e7f5ff" />
+		<text x="12" y="30" font-size="13" fill="#495057">☀️ hladina (h = 0 m)</text>
+		<rect x="0" y="52" width="520" height="256" fill="url(#hyd-voda)" />
+		<rect x="0" y="308" width="520" height="32" fill="#e9c46a" />
+		<!-- stupnice hloubky vlevo -->
+		<g font-size="11" fill="#e7f5ff">
+			<text x="10" y="136">10 m</text><line x1="40" y1="132" x2="52" y2="132" stroke="#e7f5ff" stroke-width="2" />
+			<text x="10" y="216">20 m</text><line x1="40" y1="212" x2="52" y2="212" stroke="#e7f5ff" stroke-width="2" />
+			<text x="10" y="296">30 m</text><line x1="40" y1="292" x2="52" y2="292" stroke="#e7f5ff" stroke-width="2" />
+		</g>
+		<!-- potápěč (posouvá skript) -->
+		<g id="hyd-potapec">
+			<circle cx="0" cy="-16" r="9" fill="#ffe8cc" stroke="#2b2a26" stroke-width="2" />
+			<rect x="-9" y="-8" width="18" height="26" rx="6" fill="#2b6cb0" stroke="#2b2a26" stroke-width="2" />
+			<rect x="-13" y="-6" width="4" height="16" rx="2" fill="#adb5bd" />
+			<line x1="-4" y1="18" x2="-7" y2="30" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+			<line x1="4" y1="18" x2="7" y2="30" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+			<!-- šipky tlaku ze všech stran (délku mění skript) -->
+			<line id="hyd-s1" y1="0" y2="0" stroke="#ffd43b" stroke-width="3" marker-end="url(#hyd-sipka)" />
+			<line id="hyd-s2" y1="0" y2="0" stroke="#ffd43b" stroke-width="3" marker-end="url(#hyd-sipka)" />
+			<line id="hyd-s3" x1="0" x2="0" stroke="#ffd43b" stroke-width="3" marker-end="url(#hyd-sipka)" />
+			<line id="hyd-s4" x1="0" x2="0" stroke="#ffd43b" stroke-width="3" marker-end="url(#hyd-sipka)" />
+		</g>
+		<!-- tlakoměr vpravo -->
+		<g font-size="12" fill="#2b2a26">
+			<rect x="420" y="60" width="66" height="250" rx="10" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" />
+			<text x="453" y="80" text-anchor="middle" font-weight="bold">tlakoměr</text>
+			<rect id="hyd-bar" x="432" y="290" width="42" height="0" fill="#e03131" />
+			<rect x="432" y="90" width="42" height="200" fill="none" stroke="#868e96" stroke-width="1.5" />
+			<text id="hyd-kpa" x="453" y="305" text-anchor="middle" font-weight="bold" font-size="13"></text>
+		</g>
+	</svg>
+	<label class="sim-posuvnik">
+		Hloubka potápěče: <output id="hyd-out"></output>
+		<input type="range" id="hyd-slider" min="0" max="30" step="1" value="10" />
+	</label>
+	<p class="hyd-stav" id="hyd-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('hyd-slider');
+	const out = document.getElementById('hyd-out');
+	const potapec = document.getElementById('hyd-potapec');
+	const bar = document.getElementById('hyd-bar');
+	const kpaEl = document.getElementById('hyd-kpa');
+	const stavEl = document.getElementById('hyd-stav');
+	const s1 = document.getElementById('hyd-s1');
+	const s2 = document.getElementById('hyd-s2');
+	const s3 = document.getElementById('hyd-s3');
+	const s4 = document.getElementById('hyd-s4');
+
+	const RO = 1000, G = 10;             // voda, g = 10 N/kg (jako ve výkladu)
+	const X = 220;                        // vodorovná poloha potápěče
+	const yProHloubku = (h) => 52 + h * 8; // 0 m = hladina y52, 30 m = y292
+	const cz = (x) => x.toLocaleString('cs-CZ');
+
+	function prekresli() {
+		const h = +slider.value;
+		const p = h * RO * G;             // Pa
+		out.textContent = h + ' m';
+		potapec.setAttribute('transform', `translate(${X} ${yProHloubku(h) + (h === 0 ? 14 : 0)})`);
+
+		// šipky tlaku: délka roste s tlakem (8–56 px)
+		const L = 8 + h * 1.6;
+		s1.setAttribute('x1', -22 - L); s1.setAttribute('x2', -22); // zleva
+		s2.setAttribute('x1', 22 + L); s2.setAttribute('x2', 22);   // zprava
+		s3.setAttribute('y1', -32 - L); s3.setAttribute('y2', -32); // shora
+		s4.setAttribute('y1', 40 + L); s4.setAttribute('y2', 40);   // zdola
+		const videt = h === 0 ? 'none' : '';
+		[s1, s2, s3, s4].forEach((s) => (s.style.display = videt));
+
+		// tlakoměr: 0–300 kPa → 0–200 px
+		const vyska = (p / 300000) * 200;
+		bar.setAttribute('y', 290 - vyska);
+		bar.setAttribute('height', vyska);
+		kpaEl.textContent = Math.round(p / 1000) + ' kPa';
+
+		if (h === 0) {
+			stavEl.textContent = 'Na hladině je hydrostatický tlak nulový (h = 0 m). Ponoř potápěče!';
+		} else {
+			const atm = p / 100000;
+			stavEl.textContent = `p = h · ρ · g = ${h} · 1000 · 10 = ${cz(p)} Pa = ${p / 1000} kPa. ` +
+				`To je navíc k atmosférickému tlaku zhruba ${atm.toLocaleString('cs-CZ', { maximumFractionDigits: 1 })}× tlak atmosféry` +
+				(h >= 10 ? ' — proto se potápěč musí vynořovat pomalu!' : '.');
+		}
+	}
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#hyd-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.hyd-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

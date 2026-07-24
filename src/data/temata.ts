@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -1537,6 +1537,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'hydrostaticky-tlak',
 					nazev: 'Hydrostatický tlak',
+					interakce: 'hydrostatika',
 					obsah: `
 						<h2>Hydrostatický tlak</h2>
 						<p><strong>Hydrostatický tlak vzniká působením gravitační síly Země.</strong> Kapalina působí na dno i stěny nádoby a také na tělesa ponořená v kapalině — na potápěče, ryby i ponorky.</p>
