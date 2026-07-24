@@ -1,0 +1,123 @@
+---
+// Interaktivní elektrování těles: třením o hadřík přeskočí elektrony na plastové
+// pravítko (plast se nabíjí VŽDY záporně, hadřík zůstane kladný — obě tělesa!).
+// Nabité pravítko pak přibližuješ k neutrálním papírkům — elektrická síla roste
+// s nábojem a klesá se vzdáleností (model f ~ q/d²), papírky přiskakují.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Zelektruj pravítko 🕹️</span></h2>
+	<p>1) <strong>Tři pravítko o hadřík</strong> — elektrony (−) přeskočí z hadříku na plast. 2) Pak pravítko <strong>přibliž k papírkům</strong>. Čím větší náboj a menší vzdálenost, tím větší elektrická síla.</p>
+	<p>
+		<button id="ele-trit" type="button" class="ele-tl">🧦 Tři o hadřík</button>
+		<button id="ele-vybit" type="button" class="ele-tl">🖐️ Vybij (sáhni na topení)</button>
+	</p>
+	<svg id="ele-svg" viewBox="0 0 520 320" role="img" aria-label="Pravítko, hadřík a papírky na stole">
+		<rect x="0" y="0" width="520" height="320" fill="#f8f9fa" />
+		<!-- stůl dole -->
+		<rect x="0" y="270" width="520" height="50" fill="#d2a679" />
+		<line x1="0" y1="270" x2="520" y2="270" stroke="#2b2a26" stroke-width="3" />
+		<!-- hadřík vlevo -->
+		<g id="ele-hadrik">
+			<path d="M 40 210 q 15 -18 30 0 q 15 18 30 0 q 15 -18 30 0 V 262 H 40 Z" fill="#ffc9c9" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="105" y="298" text-anchor="middle" font-size="12" fill="#495057">hadřík</text>
+			<text id="ele-hadrik-naboj" x="105" y="245" text-anchor="middle" font-size="15" font-weight="bold" fill="#e03131"></text>
+		</g>
+		<!-- pravítko (výška dle posuvníku) -->
+		<g id="ele-pravitko">
+			<rect x="-90" y="-12" width="180" height="24" rx="5" fill="#ffe066" stroke="#2b2a26" stroke-width="2.5" />
+			<g stroke="#2b2a26" stroke-width="1.5">
+				<line x1="-70" y1="-12" x2="-70" y2="-2" /><line x1="-40" y1="-12" x2="-40" y2="-2" />
+				<line x1="-10" y1="-12" x2="-10" y2="-2" /><line x1="20" y1="-12" x2="20" y2="-2" />
+				<line x1="50" y1="-12" x2="50" y2="-2" />
+			</g>
+			<text id="ele-pravitko-naboj" y="6" text-anchor="middle" font-size="15" font-weight="bold" fill="#1971c2"></text>
+		</g>
+		<!-- papírky na stole -->
+		<g id="ele-papirky"></g>
+		<text id="ele-sila" x="380" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#2f9e44"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Vzdálenost pravítka od papírků: <output id="ele-out"></output>
+		<input type="range" id="ele-slider" min="1" max="10" step="1" value="8" />
+	</label>
+	<p class="ele-stav" id="ele-stav"></p>
+</section>
+
+<script>
+	const btnTrit = document.getElementById('ele-trit');
+	const btnVybit = document.getElementById('ele-vybit');
+	const slider = document.getElementById('ele-slider');
+	const out = document.getElementById('ele-out');
+	const pravitko = document.getElementById('ele-pravitko');
+	const pravitkoNaboj = document.getElementById('ele-pravitko-naboj');
+	const hadrikNaboj = document.getElementById('ele-hadrik-naboj');
+	const papirkyG = document.getElementById('ele-papirky');
+	const silaEl = document.getElementById('ele-sila');
+	const stavEl = document.getElementById('ele-stav');
+
+	const PX = 380;                       // vodorovná poloha pravítka a papírků
+	const yProD = (d) => 258 - d * 19;    // d = 1..10 cm → y pravítka 239..68
+	const PRAHY = [1, 2, 3, 5, 8];        // každý papírek potřebuje jinou sílu
+	let q = 0;                            // náboj 0–6
+
+	// papírky (malé obdélníčky na stole)
+	const papirky = [];
+	PRAHY.forEach((prah, i) => {
+		const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+		r.setAttribute('width', 18); r.setAttribute('height', 10);
+		r.setAttribute('rx', 2);
+		r.setAttribute('fill', '#fff'); r.setAttribute('stroke', '#868e96'); r.setAttribute('stroke-width', '1.5');
+		papirkyG.appendChild(r);
+		papirky.push({ el: r, prah, x: PX - 70 + i * 32 });
+	});
+
+	function prekresli() {
+		const d = +slider.value;
+		out.textContent = d + ' cm';
+		pravitko.setAttribute('transform', `translate(${PX} ${yProD(d)})`);
+		pravitkoNaboj.textContent = q === 0 ? 'neutrální' : '−'.repeat(q);
+		hadrikNaboj.textContent = q === 0 ? '' : '+'.repeat(q);
+
+		const f = (10 * q) / (d * d);
+		let prichycene = 0;
+		for (const p of papirky) {
+			const drzi = f >= p.prah;
+			if (drzi) {
+				prichycene++;
+				p.el.setAttribute('x', p.x - 9);
+				p.el.setAttribute('y', yProD(d) + 14);           // visí pod pravítkem
+				p.el.setAttribute('transform', `rotate(${(p.prah * 37) % 30 - 15} ${p.x} ${yProD(d) + 19})`);
+			} else {
+				p.el.setAttribute('x', p.x - 9);
+				p.el.setAttribute('y', 258);                      // leží na stole
+				p.el.setAttribute('transform', '');
+			}
+		}
+		silaEl.textContent = q === 0 ? '' : `elektrická síla: ${'▮'.repeat(Math.max(1, Math.min(8, Math.round(f))))}`;
+
+		if (q === 0) {
+			stavEl.textContent = 'Pravítko je NEUTRÁLNÍ (protonů a elektronů stejně) — papírky nic nepřitahuje. Tři o hadřík!';
+		} else if (prichycene === 0) {
+			stavEl.textContent = `Pravítko má náboj (přijalo ${q} ${q === 1 ? 'elektron' : q < 5 ? 'elektrony' : 'elektronů'}, hadřík zůstal kladný — nabila se OBĚ tělesa). Ale síla rychle klesá se vzdáleností — přibliž pravítko!`;
+		} else if (prichycene < papirky.length) {
+			stavEl.textContent = `Přiskočilo ${prichycene} z 5 papírků! Elektrická síla přitahuje i NEUTRÁLNÍ papírky. Víc náboje nebo menší vzdálenost = víc papírků.`;
+		} else {
+			stavEl.textContent = '⚡ Všech 5 papírků visí na pravítku! Přesně tohle dělá zelektrizovaný hřeben s vlasy.';
+		}
+	}
+
+	btnTrit.addEventListener('click', () => { if (q < 6) q++; prekresli(); });
+	btnVybit.addEventListener('click', () => { q = 0; prekresli(); });
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#ele-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.ele-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe8cc; cursor: pointer; margin-right: 0.5rem; }
+	.ele-tl:active { transform: translateY(1px); }
+	.ele-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

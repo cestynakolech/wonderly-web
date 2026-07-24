@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -721,6 +721,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'elektricke-vlastnosti-latek',
 					nazev: 'Elektrické vlastnosti látek, stavba atomu, elektrické pole',
+					interakce: 'elektrovani',
 					obsah: `
 						<h2>Elektrické vlastnosti látek</h2>
 						<p>Když se češeš plastovým hřebenem nebo skáčeš na trampolíně, vlasy začnou vstávat — <strong>zelektrizovaly se</strong>. Příčinou silového působení je <strong>elektrický náboj</strong>. Známe dva druhy: kladný a záporný.</p>

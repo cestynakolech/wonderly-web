@@ -28,6 +28,7 @@ import TransformatorSimulace from '../../../../../../components/skola2/Transform
 import RozpadSimulace from '../../../../../../components/skola2/RozpadSimulace.astro';
 import SoustavaSimulace from '../../../../../../components/skola2/SoustavaSimulace.astro';
 import OhrevSimulace from '../../../../../../components/skola2/OhrevSimulace.astro';
+import ElektrovaniSimulace from '../../../../../../components/skola2/ElektrovaniSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -182,6 +183,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'rozpad' && <RozpadSimulace />}
 	{podtema.interakce === 'soustava' && <SoustavaSimulace />}
 	{podtema.interakce === 'ohrev' && <OhrevSimulace />}
+	{podtema.interakce === 'elektrovani' && <ElektrovaniSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
