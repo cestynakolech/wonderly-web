@@ -30,6 +30,7 @@ import SoustavaSimulace from '../../../../../../components/skola2/SoustavaSimula
 import OhrevSimulace from '../../../../../../components/skola2/OhrevSimulace.astro';
 import ElektrovaniSimulace from '../../../../../../components/skola2/ElektrovaniSimulace.astro';
 import ValecSimulace from '../../../../../../components/skola2/ValecSimulace.astro';
+import PlanetyVahaSimulace from '../../../../../../components/skola2/PlanetyVahaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -186,6 +187,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'ohrev' && <OhrevSimulace />}
 	{podtema.interakce === 'elektrovani' && <ElektrovaniSimulace />}
 	{podtema.interakce === 'valec' && <ValecSimulace />}
+	{podtema.interakce === 'planety-vaha' && <PlanetyVahaSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

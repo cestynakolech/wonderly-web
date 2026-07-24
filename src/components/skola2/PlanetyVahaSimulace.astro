@@ -1,0 +1,105 @@
+---
+// Interaktivní „kolik bys vážil na jiných planetách": posuvník hmotnosti,
+// sloupce ukazují údaj osobní váhy na 10 tělesech sluneční soustavy.
+// Koeficienty převzaty z tabulky učitele (Síla 6.pptx, člověk 75 kg → Měsíc
+// 12,4 kg, Jupiter 177 kg…). KLÍČOVÁ MYŠLENKA: hmotnost (kg) se NEMĚNÍ,
+// mění se gravitační síla (N) — na 1 kg působí na Zemi ~10 N.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kolik bys vážil na jiných planetách? 🕹️</span></h2>
+	<p>Nastav svou hmotnost a klikni na těleso. <strong>Pozor:</strong> tvoje <strong>hmotnost se nikde nezmění</strong> — jsi pořád ze stejné hmoty! Mění se <strong>gravitační síla</strong>, kterou tě těleso přitahuje (a tu ukazuje osobní váha).</p>
+	<svg id="pla-svg" viewBox="0 0 520 300" role="img" aria-label="Sloupcový graf údajů váhy na tělesech sluneční soustavy">
+		<rect x="0" y="0" width="520" height="300" fill="#101426" />
+		<line x1="10" y1="240" x2="510" y2="240" stroke="#3b4368" stroke-width="2" />
+		<g id="pla-sloupce"></g>
+		<text id="pla-detail" x="260" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffd43b"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Tvoje hmotnost: <output id="pla-out"></output>
+		<input type="range" id="pla-slider" min="30" max="120" step="1" value="50" />
+	</label>
+	<p class="pla-stav" id="pla-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('pla-slider');
+	const out = document.getElementById('pla-out');
+	const sloupceG = document.getElementById('pla-sloupce');
+	const detailEl = document.getElementById('pla-detail');
+	const stavEl = document.getElementById('pla-stav');
+
+	// koeficient = kolikrát jiná gravitační síla než na Zemi (tabulka učitele)
+	const TELESA = [
+		{ n: 'Merkur', pad: 'na Merkuru', k: 0.373, e: '☿', pozn: 'malá planeta → malá síla' },
+		{ n: 'Venuše', pad: 'na Venuši', k: 0.907, e: '♀', pozn: 'skoro jako doma' },
+		{ n: 'Země', pad: 'na Zemi', k: 1, e: '🌍', pozn: 'tady je to „normální"' },
+		{ n: 'Měsíc', pad: 'na Měsíci', k: 0.165, e: '🌙', pozn: 'asi 6× menší síla — proto astronauti poskakují' },
+		{ n: 'Mars', pad: 'na Marsu', k: 0.373, e: '♂', pozn: 'stejně jako na Merkuru' },
+		{ n: 'Jupiter', pad: 'na Jupiteru', k: 2.36, e: '🟠', pozn: 'největší planeta — víc než dvojnásobek!' },
+		{ n: 'Saturn', pad: 'na Saturnu', k: 1.067, e: '🪐', pozn: 'obr, ale hodně „nadýchaný"' },
+		{ n: 'Uran', pad: 'na Uranu', k: 0.893, e: '🔵', pozn: 'o kousek méně než na Zemi' },
+		{ n: 'Neptun', pad: 'na Neptunu', k: 1.12, e: '🔷', pozn: 'o něco víc než doma' },
+		{ n: 'Pluto', pad: 'na Plutu', k: 0.059, e: '🇵', pozn: 'trpasličí planeta — skoro nic!' },
+	];
+	const cz = (x, d) => x.toLocaleString('cs-CZ', { maximumFractionDigits: d });
+	let vybrane = TELESA[3]; // Měsíc
+
+	const SIRKA = 34, MEZERA = 50, X0 = 32, MAXV = 285; // výška sloupce pro koef 2,36
+	const prvky = [];
+	TELESA.forEach((t, i) => {
+		const x = X0 + i * MEZERA;
+		const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+		g.style.cursor = 'pointer';
+		const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+		bar.setAttribute('x', x - SIRKA / 2);
+		bar.setAttribute('width', SIRKA);
+		bar.setAttribute('rx', 4);
+		g.appendChild(bar);
+		const kg = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		kg.setAttribute('x', x); kg.setAttribute('text-anchor', 'middle');
+		kg.setAttribute('font-size', '11'); kg.setAttribute('font-weight', 'bold');
+		kg.setAttribute('fill', '#f1f3f5');
+		g.appendChild(kg);
+		const em = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		em.setAttribute('x', x); em.setAttribute('y', 258); em.setAttribute('text-anchor', 'middle');
+		em.setAttribute('font-size', '14'); em.setAttribute('fill', '#f1f3f5');
+		em.textContent = t.e;
+		g.appendChild(em);
+		const nm = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		nm.setAttribute('x', x); nm.setAttribute('y', 276); nm.setAttribute('text-anchor', 'middle');
+		nm.setAttribute('font-size', '9.5'); nm.setAttribute('fill', '#ced4da');
+		nm.textContent = t.n;
+		g.appendChild(nm);
+		g.addEventListener('click', () => { vybrane = t; prekresli(); });
+		sloupceG.appendChild(g);
+		prvky.push({ bar, kg });
+	});
+
+	function prekresli() {
+		const m = +slider.value;
+		out.textContent = m + ' kg';
+		const skala = 170 / 2.36; // koef 2,36 (Jupiter) = 170 px
+		TELESA.forEach((t, i) => {
+			const vyska = Math.max(6, t.k * skala);
+			prvky[i].bar.setAttribute('y', 240 - vyska);
+			prvky[i].bar.setAttribute('height', vyska);
+			prvky[i].bar.setAttribute('fill', t === vybrane ? '#ffd43b' : t.n === 'Země' ? '#4dabf7' : '#5c7cfa');
+			prvky[i].kg.setAttribute('y', 240 - vyska - 6);
+			prvky[i].kg.textContent = cz(m * t.k, 1);
+		});
+		const udaj = m * vybrane.k;
+		const sila = udaj * 10; // na 1 kg údaje váhy ~10 N (jako na Zemi ve výkladu)
+		detailEl.textContent = `${vybrane.e} ${vybrane.n}: váha by ukázala ${cz(udaj, 1)} kg — ${vybrane.pozn}`;
+		stavEl.textContent = `Tvoje hmotnost je VŠUDE ${m} kg. Ale gravitační síla ${vybrane.pad} je ${cz(vybrane.k, 2)}× zemská → váha ukáže ${cz(udaj, 1)} kg (gravitační síla asi ${cz(Math.round(sila / 10) * 10, 0)} N).`;
+	}
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#pla-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.pla-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
