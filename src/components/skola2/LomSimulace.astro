@@ -1,0 +1,148 @@
+---
+// Interaktivní lom světla: paprsek prochází rozhraním dvou prostředí (vzduch,
+// voda, sklo — oběma směry). Snellův zákon n₁·sin α = n₂·sin β; do hustšího
+// prostředí lom KE kolmici, do řidšího OD kolmice, za mezním úhlem úplný odraz.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej lom světla 🕹️</span></h2>
+	<p>Vyber dvojici prostředí a měň <strong>úhel dopadu α</strong> (od kolmice). Sleduj, kam se paprsek zlomí — a u přechodu do řidšího prostředí zkus najít <strong>mezní úhel</strong>, za kterým nastane <strong>úplný odraz</strong>.</p>
+	<p id="lom-rezimy">
+		<button type="button" class="lom-tl lom-aktivni" data-rezim="0">vzduch → voda</button>
+		<button type="button" class="lom-tl" data-rezim="1">vzduch → sklo</button>
+		<button type="button" class="lom-tl" data-rezim="2">voda → vzduch</button>
+		<button type="button" class="lom-tl" data-rezim="3">sklo → vzduch</button>
+	</p>
+	<svg id="lom-svg" viewBox="0 0 520 340" role="img" aria-label="Lom světelného paprsku na rozhraní dvou prostředí">
+		<defs>
+			<marker id="lom-sipka" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+				<path d="M0,0 L8,4.5 L0,9 z" fill="#f08c00" />
+			</marker>
+		</defs>
+		<!-- horní a dolní prostředí -->
+		<rect id="lom-horni" x="0" y="0" width="520" height="170" />
+		<rect id="lom-dolni" x="0" y="170" width="520" height="170" />
+		<line x1="0" y1="170" x2="520" y2="170" stroke="#2b2a26" stroke-width="3" />
+		<text id="lom-horni-text" x="14" y="26" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<text id="lom-dolni-text" x="14" y="326" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<!-- kolmice -->
+		<line x1="260" y1="20" x2="260" y2="320" stroke="#868e96" stroke-width="2.5" stroke-dasharray="8 6" />
+		<text x="268" y="34" font-size="12" fill="#868e96">kolmice</text>
+		<!-- paprsky -->
+		<line id="lom-dopad" stroke="#f08c00" stroke-width="3.5" marker-end="url(#lom-sipka)" />
+		<line id="lom-lomeny" stroke="#f08c00" stroke-width="3.5" marker-end="url(#lom-sipka)" />
+		<line id="lom-odrazeny" stroke="#f08c00" stroke-width="2" opacity="0.45" marker-end="url(#lom-sipka)" />
+		<!-- popisky úhlů -->
+		<text id="lom-uhel-a" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="middle"></text>
+		<text id="lom-uhel-b" font-size="15" font-weight="bold" fill="#e03131" text-anchor="middle"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Úhel dopadu α: <output id="lom-out"></output>
+		<input type="range" id="lom-slider" min="0" max="85" step="1" value="40" />
+	</label>
+	<p class="lom-stav" id="lom-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('lom-slider');
+	const out = document.getElementById('lom-out');
+	const horni = document.getElementById('lom-horni');
+	const dolni = document.getElementById('lom-dolni');
+	const horniText = document.getElementById('lom-horni-text');
+	const dolniText = document.getElementById('lom-dolni-text');
+	const dopad = document.getElementById('lom-dopad');
+	const lomeny = document.getElementById('lom-lomeny');
+	const odrazeny = document.getElementById('lom-odrazeny');
+	const uhelA = document.getElementById('lom-uhel-a');
+	const uhelB = document.getElementById('lom-uhel-b');
+	const stavEl = document.getElementById('lom-stav');
+
+	const BARVY = { vzduch: '#e7f5ff', voda: '#a5d8ff', sklo: '#b2f2bb' };
+	const REZIMY = [
+		{ z: 'vzduch', do: 'voda', n1: 1.0, n2: 1.33 },
+		{ z: 'vzduch', do: 'sklo', n1: 1.0, n2: 1.5 },
+		{ z: 'voda', do: 'vzduch', n1: 1.33, n2: 1.0 },
+		{ z: 'sklo', do: 'vzduch', n1: 1.5, n2: 1.0 },
+	];
+	let rezim = REZIMY[0];
+
+	const CX = 260, CY = 170, L = 150;
+	const rad = (s) => (s * Math.PI) / 180;
+	const st = (r) => (r * 180) / Math.PI;
+	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+
+	function prekresli() {
+		const a = +slider.value;
+		out.textContent = a + '°';
+		horni.setAttribute('fill', BARVY[rezim.z]);
+		dolni.setAttribute('fill', BARVY[rezim.do]);
+		horniText.textContent = rezim.z + ' (n = ' + cz(rezim.n1, 2) + ')';
+		dolniText.textContent = rezim.do + ' (n = ' + cz(rezim.n2, 2) + ')';
+
+		// dopadající paprsek shora zleva pod úhlem α od kolmice
+		dopad.setAttribute('x1', CX - L * Math.sin(rad(a)));
+		dopad.setAttribute('y1', CY - L * Math.cos(rad(a)));
+		dopad.setAttribute('x2', CX); dopad.setAttribute('y2', CY);
+		uhelA.setAttribute('x', CX - 85 * Math.sin(rad(Math.max(a, 16) / 2)));
+		uhelA.setAttribute('y', CY - 85 * Math.cos(rad(a / 2)));
+		uhelA.textContent = 'α = ' + a + '°';
+
+		const sinB = (rezim.n1 * Math.sin(rad(a))) / rezim.n2;
+		const doHustsiho = rezim.n2 > rezim.n1;
+		if (sinB <= 1) {
+			// lomený paprsek dolů, na druhou stranu kolmice nesměřuje — pokračuje doprava
+			const b = st(Math.asin(sinB));
+			lomeny.style.display = '';
+			lomeny.setAttribute('x1', CX); lomeny.setAttribute('y1', CY);
+			lomeny.setAttribute('x2', CX + L * Math.sin(rad(b)));
+			lomeny.setAttribute('y2', CY + L * Math.cos(rad(b)));
+			uhelB.setAttribute('x', CX + 85 * Math.sin(rad(Math.max(b, 16) / 2)));
+			uhelB.setAttribute('y', CY + 92 * Math.cos(rad(b / 2)));
+			uhelB.textContent = 'β = ' + cz(b, 1) + '°';
+			// slabý částečný odraz kreslíme jen mimo kolmý dopad
+			odrazeny.style.display = a === 0 ? 'none' : '';
+			odrazeny.setAttribute('x1', CX); odrazeny.setAttribute('y1', CY);
+			odrazeny.setAttribute('x2', CX + L * 0.75 * Math.sin(rad(a)));
+			odrazeny.setAttribute('y2', CY - L * 0.75 * Math.cos(rad(a)));
+			if (a === 0) {
+				stavEl.textContent = 'Kolmý dopad: paprsek se neláme, jen zpomalí/zrychlí a pokračuje rovně (β = 0°).';
+			} else if (doHustsiho) {
+				stavEl.textContent = `Do hustšího prostředí → lom KE kolmici: β = ${cz(b, 1)}° je MENŠÍ než α = ${a}°. (${cz(rezim.n1, 2)} · sin ${a}° = ${cz(rezim.n2, 2)} · sin ${cz(b, 1)}°)`;
+			} else {
+				const mezni = st(Math.asin(rezim.n2 / rezim.n1));
+				stavEl.textContent = `Do řidšího prostředí → lom OD kolmice: β = ${cz(b, 1)}° je VĚTŠÍ než α = ${a}°. Mezní úhel je ${cz(mezni, 1)}° — zkus ho překročit!`;
+			}
+		} else {
+			// úplný odraz: lomený paprsek není, odražený plnou čarou
+			const mezni = st(Math.asin(rezim.n2 / rezim.n1));
+			lomeny.style.display = 'none';
+			uhelB.textContent = '';
+			odrazeny.style.display = '';
+			odrazeny.setAttribute('x1', CX); odrazeny.setAttribute('y1', CY);
+			odrazeny.setAttribute('x2', CX + L * Math.sin(rad(a)));
+			odrazeny.setAttribute('y2', CY - L * Math.cos(rad(a)));
+			stavEl.textContent = `🔦 ÚPLNÝ ODRAZ! α = ${a}° je za mezním úhlem ${cz(mezni, 1)}° — paprsek se do řidšího prostředí vůbec nedostane a celý se odrazí (α' = α). Takhle vedou světlo optická vlákna a odrazky.`;
+		}
+	}
+
+	document.querySelectorAll('#lom-rezimy .lom-tl').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('#lom-rezimy .lom-tl').forEach((t) => t.classList.remove('lom-aktivni'));
+			tl.classList.add('lom-aktivni');
+			rezim = REZIMY[+tl.dataset.rezim];
+			prekresli();
+		});
+	});
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#lom-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.lom-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.lom-tl.lom-aktivni { background: #ffe8cc; }
+	.lom-tl:active { transform: translateY(1px); }
+	.lom-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
