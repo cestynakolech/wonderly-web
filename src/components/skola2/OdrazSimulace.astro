@@ -1,0 +1,167 @@
+---
+// Interaktivní zákon odrazu: posuvníkem měníš úhel dopadu α (od kolmice) a vidíš,
+// že úhel odrazu α' je vždy stejný. Druhý režim ukazuje NEROVNÝ povrch — každý
+// paprsek se řídí zákonem odrazu, ale místní kolmice míří různě → rozptyl světla.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Zákon odrazu: α' = α 🕹️</span></h2>
+	<p>Posuvníkem měň <strong>úhel dopadu α</strong> — měří se <strong>od kolmice</strong> (čárkovaná čára), ne od zrcadla! Pak přepni na nerovný povrch a sleduj, proč se světlo <strong>rozptýlí</strong>.</p>
+	<p>
+		<button id="odr-rezim-zrcadlo" type="button" class="odr-tl odr-aktivni">🪞 Zrcadlo (rovná plocha)</button>
+		<button id="odr-rezim-rozptyl" type="button" class="odr-tl">🪨 Nerovný povrch</button>
+	</p>
+	<svg id="odr-svg" viewBox="0 0 520 300" role="img" aria-label="Odraz světelného paprsku na zrcadle a rozptyl na nerovném povrchu">
+		<defs>
+			<marker id="odr-sipka" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+				<path d="M0,0 L8,4.5 L0,9 z" fill="#f08c00" />
+			</marker>
+		</defs>
+		<!-- povrch: zrcadlo (rovná čára) nebo hrbolatý terén (kreslí skript) -->
+		<path id="odr-povrch" fill="#dee2e6" stroke="#2b2a26" stroke-width="4" />
+		<!-- kolmice dopadu -->
+		<line id="odr-kolmice" stroke="#868e96" stroke-width="2.5" stroke-dasharray="8 6" />
+		<text id="odr-kolmice-text" font-size="12" fill="#868e96" text-anchor="middle">kolmice</text>
+		<!-- paprsky (kreslí skript) -->
+		<g id="odr-paprsky"></g>
+		<!-- oblouky a popisky úhlů -->
+		<path id="odr-oblouk1" fill="none" stroke="#1971c2" stroke-width="2.5" />
+		<path id="odr-oblouk2" fill="none" stroke="#e03131" stroke-width="2.5" />
+		<text id="odr-uhel1" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="middle"></text>
+		<text id="odr-uhel2" font-size="15" font-weight="bold" fill="#e03131" text-anchor="middle"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Úhel dopadu α: <output id="odr-out"></output>
+		<input type="range" id="odr-slider" min="0" max="80" step="5" value="40" />
+	</label>
+	<p class="odr-stav" id="odr-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('odr-slider');
+	const out = document.getElementById('odr-out');
+	const povrch = document.getElementById('odr-povrch');
+	const kolmice = document.getElementById('odr-kolmice');
+	const kolmiceText = document.getElementById('odr-kolmice-text');
+	const paprskyG = document.getElementById('odr-paprsky');
+	const oblouk1 = document.getElementById('odr-oblouk1');
+	const oblouk2 = document.getElementById('odr-oblouk2');
+	const uhel1 = document.getElementById('odr-uhel1');
+	const uhel2 = document.getElementById('odr-uhel2');
+	const stavEl = document.getElementById('odr-stav');
+	const btnZrc = document.getElementById('odr-rezim-zrcadlo');
+	const btnRoz = document.getElementById('odr-rezim-rozptyl');
+
+	const CX = 260, CY = 235;   // bod dopadu prostředního paprsku
+	const rad = (st) => (st * Math.PI) / 180;
+	let rezim = 'zrcadlo';
+
+	function cara(x1, y1, x2, y2, sirka, sipka) {
+		const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+		l.setAttribute('x1', x1); l.setAttribute('y1', y1);
+		l.setAttribute('x2', x2); l.setAttribute('y2', y2);
+		l.setAttribute('stroke', '#f08c00');
+		l.setAttribute('stroke-width', sirka || 3.5);
+		if (sipka) l.setAttribute('marker-end', 'url(#odr-sipka)');
+		paprskyG.appendChild(l);
+	}
+	function smaz() { while (paprskyG.firstChild) paprskyG.removeChild(paprskyG.firstChild); }
+
+	// odraz směru d podle jednotkové normály n: r = d − 2(d·n)n
+	function odrazSmer(dx, dy, nx, ny) {
+		const skal = dx * nx + dy * ny;
+		return [dx - 2 * skal * nx, dy - 2 * skal * ny];
+	}
+
+	function prekresliZrcadlo() {
+		const a = +slider.value;
+		const L = 175;
+		// dopadající paprsek zleva (úhel α od svislé kolmice), odražený doprava
+		const x0 = CX - L * Math.sin(rad(a)), y0 = CY - L * Math.cos(rad(a));
+		const x1 = CX + L * Math.sin(rad(a)), y1 = CY - L * Math.cos(rad(a));
+		smaz();
+		cara(x0, y0, CX, CY, 3.5, true);       // dopadající (šipka do bodu dopadu)
+		cara(CX, CY, x1, y1, 3.5, true);       // odražený (šipka ven)
+		// oblouky úhlů (poloměr 55) od kolmice k paprskům
+		const R = 55;
+		const ob = (znam) => {
+			const kx = CX, ky = CY - R;
+			const px = CX + znam * R * Math.sin(rad(a)), py = CY - R * Math.cos(rad(a));
+			return a === 0 ? '' : `M ${kx} ${ky} A ${R} ${R} 0 0 ${znam > 0 ? 1 : 0} ${px.toFixed(1)} ${py.toFixed(1)}`;
+		};
+		oblouk1.setAttribute('d', ob(-1));
+		oblouk2.setAttribute('d', ob(1));
+		uhel1.setAttribute('x', CX - 78 * Math.sin(rad(Math.max(a, 14) / 2)));
+		uhel1.setAttribute('y', CY - 78 * Math.cos(rad(a / 2)));
+		uhel2.setAttribute('x', CX + 78 * Math.sin(rad(Math.max(a, 14) / 2)));
+		uhel2.setAttribute('y', CY - 78 * Math.cos(rad(a / 2)));
+		uhel1.textContent = a === 0 ? '' : `α = ${a}°`;
+		uhel2.textContent = a === 0 ? '' : `α' = ${a}°`;
+		stavEl.textContent = a === 0
+			? 'Kolmý dopad (α = 0°): paprsek se odrazí přímo zpátky.'
+			: `Úhel dopadu α = ${a}° → úhel odrazu α' = ${a}°. Oba měříme od kolmice a oba paprsky leží v jedné rovině.`;
+	}
+
+	// nerovný povrch: 3 rovnoběžné paprsky, místní kolmice míří různě
+	// náklony volené tak, aby odražený paprsek mířil vzhůru i při α = 80° (α + 2·náklon < 90°)
+	const HRBOLY = [
+		{ x: 180, naklon: -25 },
+		{ x: 260, naklon: -8 },
+		{ x: 340, naklon: 4 },
+	];
+	function prekresliRozptyl() {
+		const a = +slider.value;
+		const L = 165;
+		smaz();
+		oblouk1.setAttribute('d', ''); oblouk2.setAttribute('d', '');
+		uhel1.textContent = ''; uhel2.textContent = '';
+		// směr dopadu (jednotkový): doprava-dolů pod úhlem α od svislice
+		const dx = Math.sin(rad(a)), dy = Math.cos(rad(a));
+		for (const h of HRBOLY) {
+			const y = CY; // body dopadu na střední výšce hrbolů
+			cara(h.x - L * dx, y - L * dy, h.x, y, 3, true);
+			// místní kolmice nakloněná o `naklon`
+			const nx = Math.sin(rad(h.naklon)), ny = -Math.cos(rad(h.naklon));
+			const [rx, ry] = odrazSmer(dx, dy, nx, ny);
+			cara(h.x, y, h.x + L * rx, y + L * ry, 3, true);
+		}
+		stavEl.textContent = `Každý paprsek se odráží PŘESNĚ podle zákona odrazu (α' = α od místní kolmice) — ale hrbolky natáčejí kolmice různě, takže se svazek rozptýlí. Díky rozptylu vidíme i tam, kam slunce přímo nesvítí.`;
+	}
+
+	function prekresli() {
+		out.textContent = slider.value + '°';
+		if (rezim === 'zrcadlo') {
+			povrch.setAttribute('d', `M 40 ${CY} H 480 V ${CY + 22} H 40 Z`);
+			kolmice.setAttribute('x1', CX); kolmice.setAttribute('y1', CY);
+			kolmice.setAttribute('x2', CX); kolmice.setAttribute('y2', CY - 185);
+			kolmice.style.display = '';
+			kolmiceText.setAttribute('x', CX); kolmiceText.setAttribute('y', CY - 192);
+			kolmiceText.style.display = '';
+			prekresliZrcadlo();
+		} else {
+			// hrbolatý povrch (vlnovka)
+			let d = `M 40 ${CY + 8}`;
+			for (let x = 40; x < 480; x += 40) d += ` Q ${x + 20} ${CY + (((x / 40) % 2) ? -18 : 26)} ${x + 40} ${CY + 8}`;
+			d += ` V ${CY + 40} H 40 Z`;
+			povrch.setAttribute('d', d);
+			kolmice.style.display = 'none';
+			kolmiceText.style.display = 'none';
+			prekresliRozptyl();
+		}
+	}
+
+	btnZrc.addEventListener('click', () => { rezim = 'zrcadlo'; btnZrc.classList.add('odr-aktivni'); btnRoz.classList.remove('odr-aktivni'); prekresli(); });
+	btnRoz.addEventListener('click', () => { rezim = 'rozptyl'; btnRoz.classList.add('odr-aktivni'); btnZrc.classList.remove('odr-aktivni'); prekresli(); });
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#odr-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.odr-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin-right: 0.5rem; }
+	.odr-tl.odr-aktivni { background: #ffe8cc; }
+	.odr-tl:active { transform: translateY(1px); }
+	.odr-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

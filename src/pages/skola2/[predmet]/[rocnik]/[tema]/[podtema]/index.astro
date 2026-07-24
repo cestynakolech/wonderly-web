@@ -18,6 +18,7 @@ import MagnetSimulace from '../../../../../../components/skola2/MagnetSimulace.a
 import KladkaSimulace from '../../../../../../components/skola2/KladkaSimulace.astro';
 import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
 import RychlostSimulace from '../../../../../../components/skola2/RychlostSimulace.astro';
+import OdrazSimulace from '../../../../../../components/skola2/OdrazSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -162,6 +163,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'kladka' && <KladkaSimulace />}
 	{podtema.interakce === 'ohm' && <OhmSimulace />}
 	{podtema.interakce === 'rychlost' && <RychlostSimulace />}
+	{podtema.interakce === 'odraz' && <OdrazSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
