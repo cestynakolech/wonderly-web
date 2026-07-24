@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -3544,6 +3544,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'slunecni-soustava',
 					nazev: 'Sluneční soustava',
+					interakce: 'soustava',
 					obsah: `
 						<h2>Sluneční soustava</h2>
 						<p>Sluneční soustavu tvoří hvězda <strong>Slunce</strong> v centru a tělesa, která se pohybují v jejím <strong>gravitačním poli</strong> — planety a jejich měsíce, trpasličí planety, planetky, komety a meteoroidy.</p>

@@ -1,0 +1,113 @@
+---
+// Interaktivní sluneční soustava: 8 planet obíhá Slunce se SPRÁVNÝMI poměry
+// oběžných dob (Merkur 88 dní × Neptun 165 let) — Keplerovo „čím blíž, tím
+// rychleji" je vidět na první pohled. Vzdálenosti na obrazovce jsou stlačené
+// (jinak by se Neptun nevešel), doby oběhu jsou věrné. Klik na planetu = údaje.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Roztoč sluneční soustavu 🕹️</span></h2>
+	<p>Planety obíhají v gravitačním poli Slunce — <strong>čím blíž Slunci, tím rychleji</strong> (Keplerovy zákony). Doby oběhu jsou ve správném poměru; vzdálenosti jsou kvůli velikosti obrazovky stlačené. <strong>Klikni na planetu</strong> a zjisti o ní víc.</p>
+	<svg id="sou-svg" viewBox="0 0 520 340" role="img" aria-label="Animovaná sluneční soustava s osmi planetami">
+		<rect x="0" y="0" width="520" height="340" fill="#101426" />
+		<g id="sou-drahy" fill="none" stroke="#2c3253" stroke-width="1.5"></g>
+		<circle cx="260" cy="170" r="16" fill="#ffd43b" stroke="#f59f00" stroke-width="3" />
+		<text x="260" y="200" text-anchor="middle" font-size="11" fill="#ffd43b">Slunce</text>
+		<g id="sou-planety"></g>
+		<text id="sou-cas" x="12" y="24" font-size="13" font-weight="bold" fill="#ced4da"></text>
+	</svg>
+	<p id="sou-tlacitka"></p>
+	<label class="sim-posuvnik">
+		Rychlost času: <output id="sou-out"></output>
+		<input type="range" id="sou-slider" min="1" max="5" step="1" value="2" />
+	</label>
+	<p class="sou-stav" id="sou-stav"></p>
+</section>
+
+<script>
+	const drahyG = document.getElementById('sou-drahy');
+	const planetyG = document.getElementById('sou-planety');
+	const tlacitkaP = document.getElementById('sou-tlacitka');
+	const slider = document.getElementById('sou-slider');
+	const out = document.getElementById('sou-out');
+	const casEl = document.getElementById('sou-cas');
+	const stavEl = document.getElementById('sou-stav');
+
+	const CX = 260, CY = 170;
+	// a = vzdálenost (AU), T = doba oběhu (roky) — skutečné hodnoty
+	const PLANETY = [
+		{ n: 'Merkur', a: 0.39, T: 0.24, r: 3.5, barva: '#adb5bd', druh: 'kamenná', fakt: 'nejblíž Slunci, oběhne ho za pouhých 88 dní' },
+		{ n: 'Venuše', a: 0.72, T: 0.62, r: 5, barva: '#ffe066', druh: 'kamenná', fakt: 'nejžhavější planeta, hustá atmosféra' },
+		{ n: 'Země', a: 1, T: 1, r: 5, barva: '#4dabf7', druh: 'kamenná', fakt: 'jediná planeta s podmínkami pro život; 1 oběh = 1 rok' },
+		{ n: 'Mars', a: 1.52, T: 1.88, r: 4, barva: '#e8590c', druh: 'kamenná', fakt: '„rudá planeta"' },
+		{ n: 'Jupiter', a: 5.2, T: 11.86, r: 11, barva: '#f4a261', druh: 'plynný obr', fakt: 'největší planeta soustavy' },
+		{ n: 'Saturn', a: 9.58, T: 29.5, r: 9, barva: '#e9c46a', druh: 'plynný obr', fakt: 'výrazné prstence', prstenec: true },
+		{ n: 'Uran', a: 19.2, T: 84, r: 7, barva: '#66d9e8', druh: 'plynný obr', fakt: 'oběhne Slunce jednou za lidský život (84 let)' },
+		{ n: 'Neptun', a: 30.1, T: 165, r: 7, barva: '#5c7cfa', druh: 'plynný obr', fakt: 'nejvzdálenější planeta (30 AU)' },
+	];
+	const RYCHLOSTI = { 1: 2, 2: 6, 3: 20, 4: 60, 5: 200 }; // dny za sekundu
+	const polomer = (a) => 26 + 36 * Math.log(1 + a);
+	const cz = (x, d) => x.toLocaleString('cs-CZ', { maximumFractionDigits: d });
+
+	for (const p of PLANETY) {
+		const draha = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		draha.setAttribute('cx', CX); draha.setAttribute('cy', CY);
+		draha.setAttribute('r', polomer(p.a));
+		drahyG.appendChild(draha);
+
+		const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+		g.style.cursor = 'pointer';
+		if (p.prstenec) {
+			const e = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+			e.setAttribute('rx', p.r + 7); e.setAttribute('ry', p.r * 0.45);
+			e.setAttribute('fill', 'none'); e.setAttribute('stroke', '#e9c46a'); e.setAttribute('stroke-width', '2');
+			g.appendChild(e);
+		}
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('r', p.r); c.setAttribute('fill', p.barva);
+		g.appendChild(c);
+		g.addEventListener('click', () => vyber(p));
+		planetyG.appendChild(g);
+		p.el = g;
+		p.uhel = Math.random() * 2 * Math.PI;
+
+		const tl = document.createElement('button');
+		tl.type = 'button'; tl.className = 'sou-tl'; tl.textContent = p.n;
+		tl.addEventListener('click', () => vyber(p));
+		tlacitkaP.appendChild(tl);
+	}
+
+	function vyber(p) {
+		const obeh = p.T < 1 ? Math.round(p.T * 365) + ' dní' : cz(p.T, 1) + (p.T === 1 ? ' rok' : ' let');
+		stavEl.textContent = `${p.n} — ${p.druh} planeta, vzdálenost od Slunce ${cz(p.a, 2)} AU (1 AU = 150 mil. km), oběh trvá ${obeh}. ${p.fakt.charAt(0).toUpperCase() + p.fakt.slice(1)}.`;
+	}
+
+	let dny = 0, minule = performance.now();
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		const tempo = RYCHLOSTI[+slider.value];
+		out.textContent = '1 s = ' + tempo + ' dní';
+		dny += tempo * dt;
+		casEl.textContent = 'uplynulo: ' + (dny < 365 ? Math.floor(dny) + ' dní' : cz(dny / 365, 1) + ' let');
+		for (const p of PLANETY) {
+			p.uhel += ((2 * Math.PI) / (p.T * 365)) * tempo * dt;
+			const R = polomer(p.a);
+			p.el.setAttribute('transform', `translate(${(CX + R * Math.cos(p.uhel)).toFixed(1)} ${(CY + R * Math.sin(p.uhel)).toFixed(1)})`);
+		}
+		requestAnimationFrame(krok);
+	}
+	stavEl.textContent = 'Sleduj: Merkur sviští, Neptun se skoro nehne. Klikni na planetu nebo tlačítko a zjisti proč.';
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#sou-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.sou-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.sou-tl { font: inherit; font-weight: 700; font-size: 0.85rem; padding: 0.2rem 0.6rem; border: 2px solid #2b2a26; border-radius: 8px; background: #fff; cursor: pointer; margin: 0 0.3rem 0.3rem 0; }
+	.sou-tl:active { transform: translateY(1px); }
+</style>
