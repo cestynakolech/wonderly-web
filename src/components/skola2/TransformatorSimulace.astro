@@ -1,0 +1,105 @@
+---
+// Interaktivní transformátor: posuvníky počtu závitů primární (N1) a sekundární
+// (N2) cívky na společném jádře. U2/U1 = N2/N1 — závity se kreslí podle posuvníků,
+// výstupní napětí se počítá živě; proud se mění v opačném poměru (P = U·I).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Postav si transformátor 🕹️</span></h2>
+	<p>Primární cívka je na <strong>střídavém</strong> napětí <strong>U₁ = 230 V</strong>. Napětí se mění ve stejném poměru jako počty závitů: <strong>U₂ / U₁ = N₂ / N₁</strong>. Přidávej a ubírej závity a sleduj výstup.</p>
+	<svg id="tra-svg" viewBox="0 0 520 320" role="img" aria-label="Transformátor se dvěma cívkami na společném jádře">
+		<rect x="0" y="0" width="520" height="320" fill="#f8f9fa" />
+		<!-- jádro -->
+		<path d="M 170 60 H 350 V 260 H 170 Z M 210 100 H 310 V 220 H 210 Z" fill-rule="evenodd" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+		<text x="260" y="50" text-anchor="middle" font-size="13" fill="#495057">ocelové jádro</text>
+		<!-- přívod se střídavým zdrojem -->
+		<circle cx="80" cy="160" r="22" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<path d="M 66 160 q 7 -12 14 0 q 7 12 14 0" fill="none" stroke="#1971c2" stroke-width="2.5" />
+		<line x1="80" y1="138" x2="80" y2="112" stroke="#2b2a26" stroke-width="3" />
+		<line x1="80" y1="182" x2="80" y2="208" stroke="#2b2a26" stroke-width="3" />
+		<line x1="80" y1="112" x2="176" y2="112" stroke="#2b2a26" stroke-width="3" />
+		<line x1="80" y1="208" x2="176" y2="208" stroke="#2b2a26" stroke-width="3" />
+		<text x="80" y="240" text-anchor="middle" font-size="14" font-weight="bold" fill="#1971c2">U₁ = 230 V ~</text>
+		<!-- vývody sekundáru -->
+		<line x1="344" y1="112" x2="452" y2="112" stroke="#2b2a26" stroke-width="3" />
+		<line x1="344" y1="208" x2="452" y2="208" stroke="#2b2a26" stroke-width="3" />
+		<circle cx="452" cy="112" r="5" fill="#2b2a26" />
+		<circle cx="452" cy="208" r="5" fill="#2b2a26" />
+		<!-- závity (kreslí skript) -->
+		<g id="tra-prim" fill="none" stroke="#e8590c" stroke-width="4" stroke-linecap="round"></g>
+		<g id="tra-sek" fill="none" stroke="#2f9e44" stroke-width="4" stroke-linecap="round"></g>
+		<text id="tra-n1-text" x="176" y="290" text-anchor="middle" font-size="14" font-weight="bold" fill="#e8590c"></text>
+		<text id="tra-n2-text" x="344" y="290" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44"></text>
+		<text id="tra-u2" x="452" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#2f9e44"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Závity primární cívky N₁: <output id="tra-n1-out"></output>
+		<input type="range" id="tra-n1" min="5" max="50" step="5" value="20" />
+	</label>
+	<label class="sim-posuvnik">
+		Závity sekundární cívky N₂: <output id="tra-n2-out"></output>
+		<input type="range" id="tra-n2" min="5" max="50" step="5" value="10" />
+	</label>
+	<p class="tra-stav" id="tra-stav"></p>
+</section>
+
+<script>
+	const n1S = document.getElementById('tra-n1');
+	const n2S = document.getElementById('tra-n2');
+	const n1Out = document.getElementById('tra-n1-out');
+	const n2Out = document.getElementById('tra-n2-out');
+	const primG = document.getElementById('tra-prim');
+	const sekG = document.getElementById('tra-sek');
+	const n1Text = document.getElementById('tra-n1-text');
+	const n2Text = document.getElementById('tra-n2-text');
+	const u2El = document.getElementById('tra-u2');
+	const stavEl = document.getElementById('tra-stav');
+
+	const U1 = 230;
+	const cz = (x, d) => x.toLocaleString('cs-CZ', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+	// nakreslí cívku: N/5 viditelných závitů kolem svislého sloupku jádra
+	function nakresli(g, N, x) {
+		while (g.firstChild) g.removeChild(g.firstChild);
+		const zavitu = N / 5;                 // 1–10 smyček
+		const vyska = 140, y0 = 110;
+		const krok = vyska / zavitu;
+		for (let i = 0; i < zavitu; i++) {
+			const y = y0 + krok * (i + 0.5);
+			const e = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+			e.setAttribute('cx', x); e.setAttribute('cy', y);
+			e.setAttribute('rx', 26); e.setAttribute('ry', Math.min(10, krok * 0.42));
+			g.appendChild(e);
+		}
+	}
+
+	function prekresli() {
+		const N1 = +n1S.value, N2 = +n2S.value;
+		n1Out.textContent = N1 + ' závitů';
+		n2Out.textContent = N2 + ' závitů';
+		nakresli(primG, N1, 190);
+		nakresli(sekG, N2, 330);
+		n1Text.textContent = 'N₁ = ' + N1;
+		n2Text.textContent = 'N₂ = ' + N2;
+
+		const k = N2 / N1;
+		const U2 = U1 * k;
+		u2El.textContent = 'U₂ = ' + cz(U2, U2 < 100 ? 1 : 0) + ' V';
+
+		let druh;
+		if (k > 1) druh = `TRANSFORMACE NAHORU (k = ${cz(k, 2)} > 1): sekundár má víc závitů, napětí roste — takhle se zvyšuje napětí pro dálkový přenos.`;
+		else if (k < 1) druh = `TRANSFORMACE DOLŮ (k = ${cz(k, 2)} < 1): sekundár má míň závitů, napětí klesá — jako v nabíječce telefonu.`;
+		else druh = 'k = 1: stejný počet závitů, napětí se nemění (jen oddělení obvodů).';
+		stavEl.textContent = `U₂ = U₁ · N₂/N₁ = 230 · ${N2}/${N1} = ${cz(U2, 1)} V. ${druh} Proud se mění OPAČNĚ: ${k < 1 ? 'napětí kleslo → proud může být větší (svařování).' : k > 1 ? 'napětí vzrostlo → proud je menší (menší ztráty ve vedení).' : 'proud zůstává stejný.'}`;
+	}
+	n1S.addEventListener('input', prekresli);
+	n2S.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#tra-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.tra-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
