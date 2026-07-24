@@ -1,0 +1,147 @@
+---
+// Interaktivní křivka ohřevu vody: 1 kg ledu od −20 °C se zahřívá stálým
+// příkonem. Teplota roste, ale při TÁNÍ (0 °C) a VARU (100 °C) se zastaví —
+// dodávané teplo se spotřebuje na změnu skupenství (l_t = 332, l_v = 2260 kJ/kg;
+// c ledu 2,1; c vody 4,2 kJ/(kg·°C) — hodnoty shodné s výkladem).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Uvař kilo ledu 🕹️</span></h2>
+	<p>Zahříváš <strong>1 kg ledu</strong> o teplotě <strong>−20 °C</strong>. Sleduj graf: teplota roste, ale při <strong>0 °C</strong> a <strong>100 °C</strong> se zastaví — teplo se spotřebovává na <strong>změnu skupenství</strong>, ne na ohřívání!</p>
+	<svg id="ohr-svg" viewBox="0 0 520 320" role="img" aria-label="Kádinka s ledem a vodou a graf závislosti teploty na dodaném teple">
+		<rect x="0" y="0" width="520" height="320" fill="#f8f9fa" />
+		<!-- kádinka -->
+		<path d="M 30 100 V 250 H 130 V 100" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect id="ohr-obsah" x="34" y="150" width="92" height="96" fill="#a5d8ff" />
+		<g id="ohr-ledy" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2">
+			<rect x="45" y="180" width="24" height="24" rx="4" /><rect x="85" y="195" width="26" height="26" rx="4" />
+			<rect x="60" y="215" width="24" height="24" rx="4" />
+		</g>
+		<g id="ohr-bubliny" fill="#fff" opacity="0.9" style="display:none">
+			<circle cx="55" cy="230" r="4" /><circle cx="80" cy="215" r="5" /><circle cx="105" cy="235" r="4" />
+			<circle cx="70" cy="185" r="3" /><circle cx="95" cy="170" r="4" />
+		</g>
+		<text id="ohr-para" x="80" y="88" text-anchor="middle" font-size="16" style="display:none">♨️♨️</text>
+		<!-- vařič -->
+		<rect x="26" y="256" width="108" height="14" rx="6" fill="#e8590c" />
+		<text x="80" y="290" text-anchor="middle" font-size="12" fill="#495057">vařič (stálý příkon)</text>
+		<text id="ohr-teplomer" x="80" y="130" text-anchor="middle" font-size="17" font-weight="bold" fill="#e03131"></text>
+		<!-- graf: Q 0–3054 kJ → x 190–500; t −20–100 °C → y 260–70 -->
+		<g font-size="11" fill="#868e96">
+			<line x1="190" y1="260" x2="500" y2="260" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="190" y1="260" x2="190" y2="55" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="500" y="276" text-anchor="end">dodané teplo (kJ)</text>
+			<text x="186" y="52" text-anchor="end">°C</text>
+			<text x="186" y="247" text-anchor="end">−20</text>
+			<text x="186" y="216" text-anchor="end">0</text>
+			<text x="186" y="88" text-anchor="end">100</text>
+			<line x1="190" y1="212" x2="500" y2="212" stroke="#dee2e6" stroke-width="1" />
+			<line x1="190" y1="84" x2="500" y2="84" stroke="#dee2e6" stroke-width="1" />
+			<text x="228" y="206" fill="#1971c2" font-weight="bold">tání (0 °C)</text>
+			<text x="400" y="78" fill="#e03131" font-weight="bold">var (100 °C)</text>
+		</g>
+		<polyline id="ohr-cara" fill="none" stroke="#e8590c" stroke-width="3.5" />
+		<circle id="ohr-bod" r="6" fill="#e8590c" stroke="#fff" stroke-width="2" />
+	</svg>
+	<label class="sim-posuvnik">
+		Rychlost ohřevu: <output id="ohr-out"></output>
+		<input type="range" id="ohr-slider" min="50" max="300" step="50" value="150" />
+	</label>
+	<p>
+		<button id="ohr-start" type="button" class="ohr-tl">▶ Zapni vařič</button>
+		<button id="ohr-reset" type="button" class="ohr-tl">↺ Znovu</button>
+	</p>
+	<p class="ohr-stav" id="ohr-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('ohr-slider');
+	const out = document.getElementById('ohr-out');
+	const obsah = document.getElementById('ohr-obsah');
+	const ledy = document.getElementById('ohr-ledy');
+	const bubliny = document.getElementById('ohr-bubliny');
+	const para = document.getElementById('ohr-para');
+	const teplomerEl = document.getElementById('ohr-teplomer');
+	const cara = document.getElementById('ohr-cara');
+	const bod = document.getElementById('ohr-bod');
+	const stavEl = document.getElementById('ohr-stav');
+	const btnStart = document.getElementById('ohr-start');
+	const btnReset = document.getElementById('ohr-reset');
+
+	// energie fází pro 1 kg (kJ): led −20→0: 42; tání 332; voda 0→100: 420; var 2260
+	const Q1 = 42, Q2 = 374, Q3 = 794, QMAX = 3054;
+	const teplota = (Q) => Q < Q1 ? -20 + Q / 2.1 : Q < Q2 ? 0 : Q < Q3 ? (Q - Q2) / 4.2 : 100;
+	const gx = (Q) => 190 + (Q / QMAX) * 310;
+	const gy = (t) => 260 - ((t + 20) / 120) * 190;
+	const cz = (x, d) => x.toFixed(d).replace('.', ',');
+
+	let Q = 0, bezi = false, body = '', minule = performance.now(), faze = '';
+
+	function prekresli() {
+		const t = teplota(Q);
+		teplomerEl.textContent = cz(t, 0) + ' °C';
+		bod.setAttribute('cx', gx(Q).toFixed(1));
+		bod.setAttribute('cy', gy(t).toFixed(1));
+
+		// kádinka podle fáze
+		const tajici = Q >= Q1 && Q < Q2;
+		const vre = Q >= Q3 && Q < QMAX;
+		const vyvareno = Q >= QMAX;
+		ledy.style.display = Q < Q2 ? '' : 'none';
+		ledy.setAttribute('opacity', Q < Q1 ? '1' : String(1 - (Q - Q1) / (Q2 - Q1)));
+		obsah.setAttribute('fill', Q < Q1 ? '#e7f5ff' : '#a5d8ff');
+		bubliny.style.display = vre ? '' : 'none';
+		para.style.display = (vre || vyvareno) ? '' : 'none';
+		// hladina klesá během varu
+		const podil = vyvareno ? 0 : vre ? 1 - (Q - Q3) / (QMAX - Q3) : 1;
+		obsah.setAttribute('y', 246 - 96 * podil);
+		obsah.setAttribute('height', 96 * podil);
+
+		let f, hlaska;
+		if (Q < Q1) { f = 'led'; hlaska = '🧊 Ohříváš LED: teplota roste (−20 → 0 °C).'; }
+		else if (tajici) { f = 'tani'; hlaska = '🫠 TÁNÍ při 0 °C: teplota STOJÍ, teplo uvolňuje částice z vazeb (332 kJ na 1 kg ledu).'; }
+		else if (Q < Q3) { f = 'voda'; hlaska = '💧 Ohříváš VODU: teplota zase roste (0 → 100 °C).'; }
+		else if (vre) { f = 'var'; hlaska = '♨️ VAR při 100 °C: teplota zase STOJÍ, bubliny páry vznikají v celém objemu (2 260 kJ na 1 kg — nejvíc energie ze všech fází!).'; }
+		else { f = 'konec'; hlaska = '✅ Vše se vyvařilo. Všimni si: var spotřeboval víc tepla než všechny ostatní fáze dohromady. Celkem 3 054 kJ.'; bezi = false; btnStart.textContent = '▶ Zapni vařič'; }
+		if (f !== faze) { faze = f; stavEl.textContent = hlaska + ` (dodáno ${cz(Q, 0)} kJ)`; }
+	}
+
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		if (bezi) {
+			Q = Math.min(QMAX, Q + +slider.value * dt);
+			body += gx(Q).toFixed(1) + ',' + gy(teplota(Q)).toFixed(1) + ' ';
+			cara.setAttribute('points', body);
+			prekresli();
+		}
+		requestAnimationFrame(krok);
+	}
+
+	function reset() {
+		Q = 0; bezi = false; faze = ''; body = gx(0) + ',' + gy(-20) + ' ';
+		cara.setAttribute('points', body);
+		btnStart.textContent = '▶ Zapni vařič';
+		out.textContent = slider.value + ' kJ/s (zrychleně)';
+		prekresli();
+		stavEl.textContent = 'Zapni vařič a sleduj, kde se křivka zastaví.';
+	}
+	btnStart.addEventListener('click', () => {
+		if (Q >= QMAX) reset();
+		bezi = !bezi;
+		btnStart.textContent = bezi ? '⏸ Pauza' : '▶ Zapni vařič';
+	});
+	btnReset.addEventListener('click', reset);
+	slider.addEventListener('input', () => { out.textContent = slider.value + ' kJ/s (zrychleně)'; });
+	reset();
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#ohr-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.ohr-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe8cc; cursor: pointer; margin-right: 0.5rem; }
+	.ohr-tl:active { transform: translateY(1px); }
+	.ohr-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

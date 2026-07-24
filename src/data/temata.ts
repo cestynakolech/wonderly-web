@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -2324,6 +2324,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'tani',
 					nazev: 'Tání',
+					interakce: 'ohrev',
 					obsah: `
 						<h2>Tání</h2>
 						<p>Když pevnou látku zahříváme, teplota roste. Jakmile dosáhne <strong>teploty tání</strong>, začne se dodávaným teplem měnit z <strong>pevného skupenství na kapalné</strong>. U kovů se tomu říká <strong>tavení</strong>.</p>
@@ -2383,6 +2384,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'var',
 					nazev: 'Var',
+					interakce: 'ohrev',
 					obsah: `
 						<h2>Var</h2>
 						<p><strong>Var</strong> je také změna kapalného skupenství na plynné, ale je mnohem <strong>intenzivnější</strong>: probíhá <strong>v celém objemu</strong> kapaliny a jen při <strong>teplotě varu</strong>.</p>
