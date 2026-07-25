@@ -569,6 +569,16 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>mechanické hodinky</strong> — strojek pohání natažená pružina; krok zajišťuje pravidelný posun ručiček a působí tikot</li>
 							<li><strong>atomové hodiny</strong> — nejpřesnější měření času</li>
 						</ul>
+						<h3>🕰️ Cesta dějinami hodin</h3>
+						<ul>
+							<li><strong>~13. století př. n. l.</strong> — nejstarší nalezené <strong>sluneční hodiny</strong> (Egypt, Údolí králů); čas ukazoval pohybující se stín</li>
+							<li><strong>5. století př. n. l.</strong> — řecké <strong>vodní hodiny</strong> (klepsydra): čas odměřovala odkapávající voda, třeba řečníkům u soudu</li>
+							<li><strong>14. století</strong> — první doložená zobrazení <strong>přesýpacích hodin</strong> v Evropě; hodily se i na lodě, kde kyvadlo ani stín nefungují</li>
+							<li><strong>1410</strong> — poprvé doložen <strong>Pražský orloj</strong>, jeden z nejstarších dosud fungujících mechanických strojů světa</li>
+							<li><strong>1656</strong> — holandský fyzik <strong>Christiaan Huygens</strong> sestrojil první <strong>kyvadlové hodiny</strong> — skoro ideálním oscilátorem je kyvadlo</li>
+							<li><strong>1949</strong> — první <strong>atomové hodiny</strong> (USA); dnešní atomové hodiny se nezpozdí ani o sekundu za miliony let. Bez nich by nefungovala <strong>GPS navigace</strong> ani světový čas <strong>UTC</strong></li>
+						</ul>
+						<p>💡 Časová pásma světa se počítají od <strong>nultého poledníku</strong>, který prochází observatoří v Greenwichi ve Velké Británii.</p>
 						<h3>Princip fungování hodin</h3>
 						<p>Moderní hodiny využívají <strong>pravidelně se opakující děje</strong>:</p>
 						<ul>

@@ -91,7 +91,8 @@
 		});
 		titulek.textContent = `${prvek.zn} — ${prvek.nazev} (${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'})`;
 		popis.textContent = '🔴 protony a ⚪ neutrony v jádru; 🔵 elektrony obíhají v obalu';
-		stavEl.textContent = `POČET PROTONŮ URČUJE PRVEK: ${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'} = ${prvek.nazev}. Elektronů je stejně jako protonů, proto je atom navenek neutrální.`;
+		stavEl.textContent = `POČET PROTONŮ URČUJE PRVEK: ${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'} = ${prvek.nazev}. Elektronů je stejně jako protonů, proto je atom navenek neutrální.`
+			+ (prvek.p === 1 ? ' ZAJÍMAVOST: vodík je jediný prvek BEZ NEUTRONU — jádro tvoří jen jeden proton. To není chyba!' : '');
 	}
 
 	const MOLEKULY = {
