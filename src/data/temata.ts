@@ -146,6 +146,18 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Směs</strong> = smíchání různých látek.</li>
 						</ul>
 					`,
+					materialy: [
+						{
+							druh: 'infografika',
+							nazev: 'Model atomu: jádro a obíhající elektrony',
+							cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atom-3d-model.jpg',
+						},
+						{
+							druh: 'infografika',
+							nazev: 'Molekuly vody H₂O: 1 kyslík + 2 vodíky',
+							cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/molekuly-vody.jpg',
+						},
+					],
 				},
 				{
 					slug: 'skupenstvi-latek',
