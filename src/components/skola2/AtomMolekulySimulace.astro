@@ -69,12 +69,22 @@
 	function postavAtom() {
 		smaz(drahyG); smaz(jadroG); smaz(elektronyG);
 		elektrony = [];
-		// jádro: protony (červené) + neutrony (šedé) v chumlu
+		// jádro: protony (červené, se znaménkem +) + neutrony (šedé, bez znaménka)
 		const castic = prvek.p + prvek.n;
 		for (let i = 0; i < castic; i++) {
 			const a = (i / castic) * 2 * Math.PI;
 			const r = castic === 1 ? 0 : 9 + (i % 2) * 5;
-			kruh(jadroG, CX + r * Math.cos(a), CY + r * Math.sin(a), 8, i < prvek.p ? '#e03131' : '#868e96', '#101426');
+			const px = CX + r * Math.cos(a), py = CY + r * Math.sin(a);
+			const proton = i < prvek.p;
+			kruh(jadroG, px, py, 8, proton ? '#e03131' : '#868e96', '#101426');
+			if (proton) {
+				const t = document.createElementNS(NS, 'text');
+				t.setAttribute('x', px); t.setAttribute('y', py + 4);
+				t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', '12');
+				t.setAttribute('font-weight', 'bold'); t.setAttribute('fill', '#fff');
+				t.textContent = '+';
+				jadroG.appendChild(t);
+			}
 		}
 		// slupky: první max 2 elektrony, zbytek na druhé
 		const slupky = prvek.p <= 2 ? [prvek.p] : [2, prvek.p - 2];
@@ -85,12 +95,21 @@
 			el.setAttribute('rx', R); el.setAttribute('ry', R * 0.62);
 			drahyG.appendChild(el);
 			for (let i = 0; i < pocet; i++) {
-				const e = kruh(elektronyG, CX, CY, 5.5, '#4dabf7', '#e7f5ff');
-				elektrony.push({ el: e, R, uhel: (i / pocet) * 2 * Math.PI, rychlost: 1.6 - s * 0.5 });
+				// elektron = sytě modrá kulička se znaménkem −, ať se neplete s bílým neutronem
+				const g = document.createElementNS(NS, 'g');
+				kruh(g, 0, 0, 6.5, '#1971c2', '#a5d8ff');
+				const t = document.createElementNS(NS, 'text');
+				t.setAttribute('y', 4); t.setAttribute('text-anchor', 'middle');
+				t.setAttribute('font-size', '12'); t.setAttribute('font-weight', 'bold');
+				t.setAttribute('fill', '#fff');
+				t.textContent = '−';
+				g.appendChild(t);
+				elektronyG.appendChild(g);
+				elektrony.push({ el: g, R, uhel: (i / pocet) * 2 * Math.PI, rychlost: 1.6 - s * 0.5 });
 			}
 		});
 		titulek.textContent = `${prvek.zn} — ${prvek.nazev} (${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'})`;
-		popis.textContent = '🔴 protony a ⚪ neutrony v jádru; 🔵 elektrony obíhají v obalu';
+		popis.textContent = '🔴 protony (+) a ⚪ neutrony (bez náboje) v jádru; 🔵 elektrony (−) obíhají v obalu';
 		stavEl.textContent = `POČET PROTONŮ URČUJE PRVEK: ${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'} = ${prvek.nazev}. Elektronů je stejně jako protonů, proto je atom navenek neutrální.`
 			+ (prvek.p === 1 ? ' ZAJÍMAVOST: vodík je jediný prvek BEZ NEUTRONU — jádro tvoří jen jeden proton. To není chyba!' : '');
 	}
@@ -139,8 +158,7 @@
 		if (rezim === 'atom') {
 			for (const e of elektrony) {
 				e.uhel += e.rychlost * dt * 2;
-				e.el.setAttribute('cx', (CX + e.R * Math.cos(e.uhel)).toFixed(1));
-				e.el.setAttribute('cy', (CY + e.R * 0.62 * Math.sin(e.uhel)).toFixed(1));
+				e.el.setAttribute('transform', `translate(${(CX + e.R * Math.cos(e.uhel)).toFixed(1)} ${(CY + e.R * 0.62 * Math.sin(e.uhel)).toFixed(1)})`);
 			}
 		}
 		requestAnimationFrame(krok);
