@@ -3455,6 +3455,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>Jádro je maličké, ale je v něm soustředěna <strong>téměř všechna hmotnost</strong> atomu.</li>
 							<li>Za normálních podmínek je atom <strong>elektricky neutrální</strong> — počet protonů v jádře a elektronů v obalu je stejný.</li>
 						</ul>
+						<h3>🔬 Jak jsme objevovali atom (modely atomu)</h3>
+						<ul>
+							<li><strong>Daltonův model (1803)</strong> — atom jako malá, nedělitelná kulička; každý prvek má své vlastní atomy</li>
+							<li><strong>Thomsonův model (1897)</strong> — „rozinky v pudinku": J. J. Thomson objevil elektron; atom si představoval jako kladnou hmotu (pudink) s rozptýlenými elektrony (rozinkami)</li>
+							<li><strong>Rutherfordův model (1911)</strong> — pokus s ostřelováním zlaté fólie ukázal, že téměř všechna hmota je v malém kladném <strong>jádře</strong> a elektrony obíhají kolem</li>
+							<li><strong>Bohrův model (1913)</strong> — elektrony obíhají jen po určitých drahách (slupkách) s danou energií, „jako planety kolem Slunce"</li>
+							<li><strong>Moderní kvantový model</strong> — elektron nemá přesnou dráhu; známe jen oblasti (<strong>orbitaly</strong>), kde se nejpravděpodobněji nachází</li>
+						</ul>
+						<p>👉 Každý nový pokus model vylepšil — věda se vyvíjí postupným zpřesňováním.</p>
 						<h3>Popis jádra</h3>
 						<ul>
 							<li><strong>Protonové číslo Z</strong> — počet protonů; <strong>určuje, o jaký prvek jde</strong> (najdeme v periodické tabulce).</li>
@@ -3487,6 +3496,13 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><strong>Využití:</strong> určování stáří (uhlík ¹⁴C), léčba nádorů ozařováním, detektory kouře, defektoskopie, zdroj energie pro vesmírné sondy.</li>
 							<li><strong>Ochrana:</strong> <strong>stínění</strong> (olovo, beton), <strong>bezpečná vzdálenost</strong> a <strong>zkrácení doby</strong> vystavení. Dávku záření měříme v <strong>sievertech (Sv)</strong> dozimetrem.</li>
+						</ul>
+						<h3>🏠 Radon v domě</h3>
+						<p><strong>Radon</strong> je přírodní radioaktivní plyn, který stoupá z podloží a může pronikat prasklinami do domů. Není vidět ani cítit — pozná se <strong>jen měřením</strong>. V Česku je radonu v podloží hodně (žula), proto se s ním počítá při každé stavbě.</p>
+						<ul>
+							<li><strong>Nechat změřit</strong> — měřicí detektory zjistí, kolik radonu doma je (hádání nestačí)</li>
+							<li><strong>Často větrat</strong> — čerstvý vzduch množství radonu v místnosti snižuje</li>
+							<li><strong>Utěsnit a opravit dům</strong> — uzavřít praskliny v podlaze a odvést radon mimo dům</li>
 						</ul>
 					`,
 				},
