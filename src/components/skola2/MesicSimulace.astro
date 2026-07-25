@@ -16,6 +16,8 @@
 			<line x1="6" y1="190" x2="52" y2="190" /><line x1="6" y1="250" x2="52" y2="250" />
 		</g>
 		<text x="10" y="52" font-size="14" font-weight="bold" fill="#ffd43b">☀️ Slunce</text>
+		<!-- stín Země (kužel směřující od Slunce) -->
+		<polygon points="185,148 320,162 320,178 185,192" fill="#000" opacity="0.35" />
 		<!-- oběžná dráha + Země -->
 		<circle cx="185" cy="170" r="95" fill="none" stroke="#3b4368" stroke-width="2" stroke-dasharray="5 6" />
 		<circle cx="185" cy="170" r="20" fill="#4dabf7" stroke="#a5d8ff" stroke-width="2" />
@@ -77,6 +79,7 @@
 		const c = Math.cos(rad(f));
 		const k = (1 - c) / 2;
 		const dorusta = f > 0 && f < 180; // po novu dorůstá (svítí pravá strana = D)
+		const zatmeniMesice = f >= 172 && f <= 188; // Měsíc ve stínu Země (úplněk + zákryt)
 		let d;
 		if (f === 0 || f === 360) {
 			d = ''; // nov — nic není vidět
@@ -86,15 +89,17 @@
 			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 0 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 0 : 1} ${FX} ${FY - R} Z`;
 		}
 		faze.setAttribute('d', d);
-		nazevEl.textContent = nazevFaze(f);
-		procentaEl.textContent = 'osvětleno ' + Math.round(k * 100) + ' % kotouče';
+		faze.setAttribute('fill', zatmeniMesice ? '#8a2f2f' : '#f1f3f5');
+		nazevEl.textContent = zatmeniMesice ? '🌑 ZATMĚNÍ MĚSÍCE' : nazevFaze(f);
+		procentaEl.textContent = zatmeniMesice ? 'Měsíc je ve stínu Země — ztmavne a zčervená' : 'osvětleno ' + Math.round(k * 100) + ' % kotouče';
 
 		let popis;
-		if (f < 22.5 || f >= 337.5) popis = 'NOV: osvětlená polovina je odvrácená od Země — Měsíc na obloze nevidíme.';
+		if (zatmeniMesice) popis = 'ZATMĚNÍ MĚSÍCE: Země je přesně mezi Sluncem a Měsícem a vrhá na něj stín (šedý kužel vlevo). Lze bezpečně pozorovat okem. Dráha Měsíce je ale mírně nakloněná, proto zatmění nenastává při každém úplňku.';
+		else if (f < 22.5 || f >= 337.5) popis = 'NOV: osvětlená polovina je odvrácená od Země — Měsíc nevidíme. Když Měsíc přesně zakryje Slunce, nastane ZATMĚNÍ SLUNCE (pozorovat jen se speciálními brýlemi!).';
 		else if (f < 180) popis = 'Měsíc DORŮSTÁ (svítí pravá strana, jako písmeno D) — osvětlené části přibývá.';
 		else if (f < 202.5) popis = 'ÚPLNĚK: Země je mezi Sluncem a Měsícem, vidíme celou osvětlenou polovinu.';
 		else popis = 'Měsíc COUVÁ (svítí levá strana, jako písmeno C) — osvětlené části ubývá.';
-		stavEl.textContent = popis + ' Všimni si vlevo: osvětlená polovina Měsíce míří pořád ke Slunci.';
+		stavEl.textContent = popis + (zatmeniMesice ? '' : ' Všimni si vlevo: osvětlená polovina Měsíce míří pořád ke Slunci.');
 	}
 	slider.addEventListener('input', prekresli);
 	prekresli();
