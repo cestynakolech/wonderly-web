@@ -1,0 +1,180 @@
+---
+// Interaktivní izotopy a ionty (dle prezentace učitele „9 Atom, izotopy"):
+// vyber vodík/helium, přidávej NEUTRONY (vzniká izotop — prvek se NEMĚNÍ)
+// a přidávej/ubírej ELEKTRONY (vzniká iont — kation/anion). Ukazuje zápis
+// (nukleonové číslo A, protonové Z), název izotopu a stabilitu
+// (tritium radioaktivní ~12 let; helium-5 se rozpadá za ~10⁻²¹ s).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyrob si izotop a iont 🕹️</span></h2>
+	<p><strong>Počet protonů určuje prvek</strong> — ten měnit nejde. Ale zkus přidat <strong>neutrony</strong> (vznikne <strong>izotop</strong>) nebo ubrat/přidat <strong>elektrony</strong> (vznikne <strong>iont</strong>) a sleduj, co se stane.</p>
+	<p>
+		<button id="izo-prvek-h" type="button" class="izo-tl izo-aktivni">H vodík (1 proton)</button>
+		<button id="izo-prvek-he" type="button" class="izo-tl">He helium (2 protony)</button>
+	</p>
+	<p>
+		<button id="izo-n-plus" type="button" class="izo-tl">⚪ + neutron</button>
+		<button id="izo-n-minus" type="button" class="izo-tl">⚪ − neutron</button>
+		<button id="izo-e-plus" type="button" class="izo-tl">🔵 + elektron</button>
+		<button id="izo-e-minus" type="button" class="izo-tl">🔵 − elektron</button>
+	</p>
+	<svg id="izo-svg" viewBox="0 0 520 300" role="img" aria-label="Model jádra s protony a neutrony, elektrony v obalu a zápis izotopu">
+		<rect x="0" y="0" width="520" height="300" fill="#101426" />
+		<g id="izo-drahy" fill="none" stroke="#3b4368" stroke-width="1.5"></g>
+		<g id="izo-jadro"></g>
+		<g id="izo-elektrony"></g>
+		<!-- zápis: A (nahoře) a Z (dole) před značkou -->
+		<g id="izo-zapis" font-weight="bold" fill="#f1f3f5">
+			<text id="izo-znacka" x="440" y="80" font-size="42"></text>
+			<text id="izo-a" x="415" y="58" font-size="19" text-anchor="end" fill="#ffd43b"></text>
+			<text id="izo-z" x="415" y="92" font-size="19" text-anchor="end" fill="#e03131"></text>
+			<text id="izo-naboj" x="490" y="58" font-size="19" fill="#4dabf7"></text>
+		</g>
+		<text id="izo-nazev" x="260" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffd43b"></text>
+		<text id="izo-stav-castic" x="260" y="288" text-anchor="middle" font-size="12.5" fill="#ced4da"></text>
+	</svg>
+	<p class="izo-stav" id="izo-stav"></p>
+</section>
+
+<script>
+	const NS = 'http://www.w3.org/2000/svg';
+	const CX = 230, CY = 158;
+	const drahyG = document.getElementById('izo-drahy');
+	const jadroG = document.getElementById('izo-jadro');
+	const elektronyG = document.getElementById('izo-elektrony');
+	const znackaEl = document.getElementById('izo-znacka');
+	const aEl = document.getElementById('izo-a');
+	const zEl = document.getElementById('izo-z');
+	const nabojEl = document.getElementById('izo-naboj');
+	const nazevEl = document.getElementById('izo-nazev');
+	const casticEl = document.getElementById('izo-stav-castic');
+	const stavEl = document.getElementById('izo-stav');
+
+	let p = 1, n = 0, e = 1;
+	let elektrony = [];
+
+	// názvy a stabilita izotopů (dle prezentace + ověřeno)
+	function izotopInfo() {
+		if (p === 1) {
+			if (n === 0) return ['vodík-1 (protium)', 'stabilní — nejběžnější vodík'];
+			if (n === 1) return ['vodík-2 (deuterium)', 'stabilní — „těžký vodík"'];
+			if (n === 2) return ['vodík-3 (tritium)', 'RADIOAKTIVNÍ — poločas ~12 let'];
+			return ['vodík-4', 'extrémně nestabilní — rozpadne se okamžitě'];
+		}
+		if (n === 1) return ['helium-3', 'stabilní, ale vzácný'];
+		if (n === 2) return ['helium-4', 'stabilní — běžné helium (např. v balóncích)'];
+		if (n === 3) return ['helium-5', 'NESTABILNÍ — rozpadá se za ~10⁻²¹ s na helium-4'];
+		return ['helium-2', 'nestabilní — samotné protony se odpuzují'];
+	}
+
+	function kruh(g, cx, cy, r, fill, stroke) {
+		const c = document.createElementNS(NS, 'circle');
+		c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', r);
+		c.setAttribute('fill', fill);
+		if (stroke) { c.setAttribute('stroke', stroke); c.setAttribute('stroke-width', '1.5'); }
+		g.appendChild(c);
+		return c;
+	}
+	function znak(g, x, y, text, velikost) {
+		const t = document.createElementNS(NS, 'text');
+		t.setAttribute('x', x); t.setAttribute('y', y);
+		t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', velikost || 12);
+		t.setAttribute('font-weight', 'bold'); t.setAttribute('fill', '#fff');
+		t.textContent = text;
+		g.appendChild(t);
+		return t;
+	}
+	const smaz = (g) => { while (g.firstChild) g.removeChild(g.firstChild); };
+
+	function prekresli() {
+		smaz(jadroG); smaz(elektronyG); smaz(drahyG);
+		elektrony = [];
+		// jádro
+		const castic = p + n;
+		for (let i = 0; i < castic; i++) {
+			const a = (i / castic) * 2 * Math.PI + 0.6;
+			const r = castic === 1 ? 0 : 10 + (i % 2) * 4;
+			const px = CX + r * Math.cos(a), py = CY + r * Math.sin(a);
+			const proton = i < p;
+			kruh(jadroG, px, py, 9, proton ? '#e03131' : '#adb5bd', '#101426');
+			if (proton) znak(jadroG, px, py + 4, '+');
+		}
+		// elektrony (max 2 na 1. slupce, zbytek na 2.)
+		const slupky = e <= 2 ? [e] : [2, e - 2];
+		slupky.forEach((pocet, s) => {
+			if (pocet <= 0) return;
+			const R = 66 + s * 42;
+			const el = document.createElementNS(NS, 'ellipse');
+			el.setAttribute('cx', CX); el.setAttribute('cy', CY);
+			el.setAttribute('rx', R); el.setAttribute('ry', R * 0.6);
+			drahyG.appendChild(el);
+			for (let i = 0; i < pocet; i++) {
+				const g = document.createElementNS(NS, 'g');
+				kruh(g, 0, 0, 6.5, '#1971c2', '#a5d8ff');
+				znak(g, 0, 4, '−');
+				elektronyG.appendChild(g);
+				elektrony.push({ el: g, R, uhel: (i / pocet) * 2 * Math.PI, rychlost: 1.5 - s * 0.5 });
+			}
+		});
+		// zápis
+		znackaEl.textContent = p === 1 ? 'H' : 'He';
+		aEl.textContent = String(p + n);
+		zEl.textContent = String(p);
+		const naboj = p - e;
+		nabojEl.textContent = naboj === 0 ? '' : (Math.abs(naboj) > 1 ? Math.abs(naboj) : '') + (naboj > 0 ? '+' : '−');
+
+		const [nazev, stabilita] = izotopInfo();
+		const iont = naboj === 0 ? '' : naboj > 0 ? ' → KATION (+)' : ' → ANION (−)';
+		nazevEl.textContent = nazev + iont;
+		casticEl.textContent = `${p} ${p === 1 ? 'proton' : 'protony'} · ${n} ${n === 1 ? 'neutron' : n >= 2 && n <= 4 ? 'neutrony' : 'neutronů'} · ${e} ${e === 1 ? 'elektron' : e >= 2 && e <= 4 ? 'elektrony' : 'elektronů'} — A = ${p + n}, Z = ${p}`;
+
+		const pTvar = p === 1 ? '1 proton' : p + ' protony';
+		const eTvar = e === 1 ? '1 elektron' : e >= 2 && e <= 4 ? e + ' elektrony' : e + ' elektronů';
+		let veta;
+		if (naboj > 0) veta = `Odtržením elektronu vznikl KATION — převažuje kladný náboj (${pTvar} × ${eTvar}). Pozor: záporný iont nikdy nevznikne odtržením protonů!`;
+		else if (naboj < 0) veta = `Přijetím elektronu vznikl ANION — převažuje záporný náboj (${pTvar} × ${eTvar}).`;
+		else veta = `Atom je elektricky neutrální (protonů i elektronů je ${p}).`;
+		stavEl.textContent = `${nazev}: ${stabilita}. ${veta} Izotopy = stejné Z, jiný počet neutronů.`;
+	}
+
+	let minule = performance.now();
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		for (const el of elektrony) {
+			el.uhel += el.rychlost * dt * 2;
+			el.el.setAttribute('transform', `translate(${(CX + el.R * Math.cos(el.uhel)).toFixed(1)} ${(CY + el.R * 0.6 * Math.sin(el.uhel)).toFixed(1)})`);
+		}
+		requestAnimationFrame(krok);
+	}
+
+	document.getElementById('izo-prvek-h').addEventListener('click', function () {
+		p = 1; n = 0; e = 1;
+		this.classList.add('izo-aktivni');
+		document.getElementById('izo-prvek-he').classList.remove('izo-aktivni');
+		prekresli();
+	});
+	document.getElementById('izo-prvek-he').addEventListener('click', function () {
+		p = 2; n = 2; e = 2;
+		this.classList.add('izo-aktivni');
+		document.getElementById('izo-prvek-h').classList.remove('izo-aktivni');
+		prekresli();
+	});
+	document.getElementById('izo-n-plus').addEventListener('click', () => { if (n < 3) n++; prekresli(); });
+	document.getElementById('izo-n-minus').addEventListener('click', () => { if (n > 0) n--; prekresli(); });
+	document.getElementById('izo-e-plus').addEventListener('click', () => { if (e < 4) e++; prekresli(); });
+	document.getElementById('izo-e-minus').addEventListener('click', () => { if (e > 0) e--; prekresli(); });
+	prekresli();
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#izo-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.izo-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.izo-tl { font: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.3rem 0.7rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.izo-tl.izo-aktivni { background: #ffe8cc; }
+	.izo-tl:active { transform: translateY(1px); }
+</style>
