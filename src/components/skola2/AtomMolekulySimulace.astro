@@ -1,0 +1,187 @@
+---
+// Interaktivní atom a molekuly (podle animace atomu v prezentaci učitele
+// „Stavba látek"): režim ATOM — jádro (protony červené, neutrony šedé)
+// a elektrony obíhající po slupkách (2 + zbytek), výběr prvku H/He/C/O;
+// režim MOLEKULY — stavebnice H₂, O₂, H₂O, CO₂, NaCl s rozlišením
+// prvek (stejné atomy) × sloučenina (různé atomy).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Prohlédni si atom a slož molekulu 🕹️</span></h2>
+	<p><strong>Atom</strong> je základní stavební částice látek — do řady dlouhé 1 mm by se jich vešlo 10 milionů! Prohlédni si, jak vypadá uvnitř, a pak zkus <strong>skládat molekuly</strong>.</p>
+	<p>
+		<button id="atm-rezim-atom" type="button" class="atm-tl atm-aktivni">⚛️ Atom zblízka</button>
+		<button id="atm-rezim-molekuly" type="button" class="atm-tl">🧩 Stavebnice molekul</button>
+	</p>
+	<p id="atm-vyber-atom">
+		<button type="button" class="atm-tl atm-prvek atm-aktivni" data-p="1" data-n="0" data-nazev="vodík" data-zn="H">H vodík</button>
+		<button type="button" class="atm-tl atm-prvek" data-p="2" data-n="2" data-nazev="helium" data-zn="He">He helium</button>
+		<button type="button" class="atm-tl atm-prvek" data-p="6" data-n="6" data-nazev="uhlík" data-zn="C">C uhlík</button>
+		<button type="button" class="atm-tl atm-prvek" data-p="8" data-n="8" data-nazev="kyslík" data-zn="O">O kyslík</button>
+	</p>
+	<p id="atm-vyber-mol" style="display:none">
+		<button type="button" class="atm-tl atm-mol atm-aktivni" data-mol="H2">H₂ vodík</button>
+		<button type="button" class="atm-tl atm-mol" data-mol="O2">O₂ kyslík</button>
+		<button type="button" class="atm-tl atm-mol" data-mol="H2O">H₂O voda</button>
+		<button type="button" class="atm-tl atm-mol" data-mol="CO2">CO₂ oxid uhličitý</button>
+		<button type="button" class="atm-tl atm-mol" data-mol="NaCl">NaCl sůl</button>
+	</p>
+	<svg id="atm-svg" viewBox="0 0 520 320" role="img" aria-label="Model atomu s obíhajícími elektrony a modely molekul">
+		<rect x="0" y="0" width="520" height="320" fill="#101426" />
+		<g id="atm-atom">
+			<g id="atm-drahy" fill="none" stroke="#3b4368" stroke-width="1.5"></g>
+			<g id="atm-jadro"></g>
+			<g id="atm-elektrony"></g>
+		</g>
+		<g id="atm-molekula" style="display:none"></g>
+		<text id="atm-titulek" x="260" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffd43b"></text>
+		<text id="atm-popis" x="260" y="304" text-anchor="middle" font-size="12.5" fill="#ced4da"></text>
+	</svg>
+	<p class="atm-stav" id="atm-stav"></p>
+</section>
+
+<script>
+	const CX = 260, CY = 165;
+	const drahyG = document.getElementById('atm-drahy');
+	const jadroG = document.getElementById('atm-jadro');
+	const elektronyG = document.getElementById('atm-elektrony');
+	const atomG = document.getElementById('atm-atom');
+	const molekulaG = document.getElementById('atm-molekula');
+	const titulek = document.getElementById('atm-titulek');
+	const popis = document.getElementById('atm-popis');
+	const stavEl = document.getElementById('atm-stav');
+	const NS = 'http://www.w3.org/2000/svg';
+
+	let rezim = 'atom';
+	let prvek = { p: 1, n: 0, nazev: 'vodík', zn: 'H' };
+	let elektrony = []; // {el, r, uhel, rychlost}
+
+	function kruh(g, cx, cy, r, fill, stroke) {
+		const c = document.createElementNS(NS, 'circle');
+		c.setAttribute('cx', cx); c.setAttribute('cy', cy); c.setAttribute('r', r);
+		c.setAttribute('fill', fill);
+		if (stroke) { c.setAttribute('stroke', stroke); c.setAttribute('stroke-width', '1.5'); }
+		g.appendChild(c);
+		return c;
+	}
+	const smaz = (g) => { while (g.firstChild) g.removeChild(g.firstChild); };
+
+	function postavAtom() {
+		smaz(drahyG); smaz(jadroG); smaz(elektronyG);
+		elektrony = [];
+		// jádro: protony (červené) + neutrony (šedé) v chumlu
+		const castic = prvek.p + prvek.n;
+		for (let i = 0; i < castic; i++) {
+			const a = (i / castic) * 2 * Math.PI;
+			const r = castic === 1 ? 0 : 9 + (i % 2) * 5;
+			kruh(jadroG, CX + r * Math.cos(a), CY + r * Math.sin(a), 8, i < prvek.p ? '#e03131' : '#868e96', '#101426');
+		}
+		// slupky: první max 2 elektrony, zbytek na druhé
+		const slupky = prvek.p <= 2 ? [prvek.p] : [2, prvek.p - 2];
+		slupky.forEach((pocet, s) => {
+			const R = 62 + s * 46;
+			const el = document.createElementNS(NS, 'ellipse');
+			el.setAttribute('cx', CX); el.setAttribute('cy', CY);
+			el.setAttribute('rx', R); el.setAttribute('ry', R * 0.62);
+			drahyG.appendChild(el);
+			for (let i = 0; i < pocet; i++) {
+				const e = kruh(elektronyG, CX, CY, 5.5, '#4dabf7', '#e7f5ff');
+				elektrony.push({ el: e, R, uhel: (i / pocet) * 2 * Math.PI, rychlost: 1.6 - s * 0.5 });
+			}
+		});
+		titulek.textContent = `${prvek.zn} — ${prvek.nazev} (${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'})`;
+		popis.textContent = '🔴 protony a ⚪ neutrony v jádru; 🔵 elektrony obíhají v obalu';
+		stavEl.textContent = `POČET PROTONŮ URČUJE PRVEK: ${prvek.p} ${prvek.p === 1 ? 'proton' : prvek.p < 5 ? 'protony' : 'protonů'} = ${prvek.nazev}. Elektronů je stejně jako protonů, proto je atom navenek neutrální.`;
+	}
+
+	const MOLEKULY = {
+		H2: { druh: 'prvek', text: 'molekula vodíku — 2 STEJNÉ atomy → PRVEK', atomy: [['H', -30, 0], ['H', 30, 0]] },
+		O2: { druh: 'prvek', text: 'molekula kyslíku — 2 STEJNÉ atomy → PRVEK', atomy: [['O', -34, 0], ['O', 34, 0]] },
+		H2O: { druh: 'sloučenina', text: 'voda — 2 vodíky + 1 kyslík (RŮZNÉ atomy) → SLOUČENINA', atomy: [['O', 0, -10], ['H', -46, 26], ['H', 46, 26]] },
+		CO2: { druh: 'sloučenina', text: 'oxid uhličitý — 1 uhlík + 2 kyslíky → SLOUČENINA', atomy: [['C', 0, 0], ['O', -70, 0], ['O', 70, 0]] },
+		NaCl: { druh: 'sloučenina', text: 'kuchyňská sůl — sodík + chlor → SLOUČENINA', atomy: [['Na', -38, 0], ['Cl', 40, 0]] },
+	};
+	const VZHLED = { H: ['#f1f3f5', 16, '#2b2a26'], O: ['#e03131', 26, '#fff'], C: ['#343a40', 24, '#fff'], Na: ['#f59f00', 22, '#fff'], Cl: ['#2f9e44', 26, '#fff'] };
+
+	function postavMolekulu(klic) {
+		smaz(molekulaG);
+		const m = MOLEKULY[klic];
+		// spoje
+		for (let i = 1; i < m.atomy.length; i++) {
+			const l = document.createElementNS(NS, 'line');
+			l.setAttribute('x1', CX + m.atomy[0][1]); l.setAttribute('y1', CY + m.atomy[0][2]);
+			l.setAttribute('x2', CX + m.atomy[i][1]); l.setAttribute('y2', CY + m.atomy[i][2]);
+			l.setAttribute('stroke', '#868e96'); l.setAttribute('stroke-width', '6');
+			molekulaG.appendChild(l);
+		}
+		for (const [zn, dx, dy] of m.atomy) {
+			const [barva, r, txt] = VZHLED[zn];
+			kruh(molekulaG, CX + dx, CY + dy, r, barva, '#101426');
+			const t = document.createElementNS(NS, 'text');
+			t.setAttribute('x', CX + dx); t.setAttribute('y', CY + dy + 5);
+			t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', '14');
+			t.setAttribute('font-weight', 'bold'); t.setAttribute('fill', txt);
+			t.textContent = zn;
+			molekulaG.appendChild(t);
+		}
+		titulek.textContent = klic.replace(/(\d)/g, '$1') + ' — ' + (m.druh === 'prvek' ? 'PRVEK' : 'SLOUČENINA');
+		popis.textContent = m.text;
+		stavEl.textContent = m.druh === 'prvek'
+			? 'Molekula ze STEJNÝCH atomů → látka je PRVEK. (Prvek = látka tvořená stejnými atomy.)'
+			: 'Molekula z RŮZNÝCH atomů → látka je SLOUČENINA. Směs by naproti tomu obsahovala VÍCE druhů molekul (jako vzduch).';
+	}
+
+	let minule = performance.now();
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		if (rezim === 'atom') {
+			for (const e of elektrony) {
+				e.uhel += e.rychlost * dt * 2;
+				e.el.setAttribute('cx', (CX + e.R * Math.cos(e.uhel)).toFixed(1));
+				e.el.setAttribute('cy', (CY + e.R * 0.62 * Math.sin(e.uhel)).toFixed(1));
+			}
+		}
+		requestAnimationFrame(krok);
+	}
+
+	function prepni(novy) {
+		rezim = novy;
+		document.getElementById('atm-rezim-atom').classList.toggle('atm-aktivni', novy === 'atom');
+		document.getElementById('atm-rezim-molekuly').classList.toggle('atm-aktivni', novy === 'molekuly');
+		atomG.style.display = novy === 'atom' ? '' : 'none';
+		molekulaG.style.display = novy === 'molekuly' ? '' : 'none';
+		document.getElementById('atm-vyber-atom').style.display = novy === 'atom' ? '' : 'none';
+		document.getElementById('atm-vyber-mol').style.display = novy === 'molekuly' ? '' : 'none';
+		if (novy === 'atom') postavAtom(); else postavMolekulu(document.querySelector('#atm-vyber-mol .atm-aktivni').dataset.mol);
+	}
+	document.getElementById('atm-rezim-atom').addEventListener('click', () => prepni('atom'));
+	document.getElementById('atm-rezim-molekuly').addEventListener('click', () => prepni('molekuly'));
+	document.querySelectorAll('#atm-vyber-atom .atm-prvek').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('#atm-vyber-atom .atm-prvek').forEach((t) => t.classList.remove('atm-aktivni'));
+			tl.classList.add('atm-aktivni');
+			prvek = { p: +tl.dataset.p, n: +tl.dataset.n, nazev: tl.dataset.nazev, zn: tl.dataset.zn };
+			postavAtom();
+		});
+	});
+	document.querySelectorAll('#atm-vyber-mol .atm-mol').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('#atm-vyber-mol .atm-mol').forEach((t) => t.classList.remove('atm-aktivni'));
+			tl.classList.add('atm-aktivni');
+			postavMolekulu(tl.dataset.mol);
+		});
+	});
+	postavAtom();
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#atm-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.atm-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.atm-tl { font: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.3rem 0.7rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.atm-tl.atm-aktivni { background: #ffe8cc; }
+	.atm-tl:active { transform: translateY(1px); }
+</style>
