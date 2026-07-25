@@ -84,9 +84,11 @@
 		if (f === 0 || f === 360) {
 			d = ''; // nov — nic není vidět
 		} else if (dorusta) {
-			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 1 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 1 : 0} ${FX} ${FY - R} Z`;
+			// svítí PRAVÁ strana; terminátor se u srpku klene doprava (k okraji), u vypouklého doleva
+			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 1 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 0 : 1} ${FX} ${FY - R} Z`;
 		} else {
-			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 0 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 0 : 1} ${FX} ${FY - R} Z`;
+			// svítí LEVÁ strana — zrcadlově
+			d = `M ${FX} ${FY - R} A ${R} ${R} 0 0 0 ${FX} ${FY + R} A ${(Math.abs(c) * R).toFixed(1)} ${R} 0 0 ${c > 0 ? 1 : 0} ${FX} ${FY - R} Z`;
 		}
 		faze.setAttribute('d', d);
 		faze.setAttribute('fill', zatmeniMesice ? '#8a2f2f' : '#f1f3f5');
