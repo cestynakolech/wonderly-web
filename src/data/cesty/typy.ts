@@ -22,6 +22,9 @@ export type Mesto = {
 	/** Pozice pinu v souřadnicích mapy (viewBox 0 0 680 520) */
 	x: number;
 	y: number;
+	/** Ruční posun popisku pinu (v jednotkách mapy) pro těsné shluky měst;
+	 *  kotva = zarovnání textu vůči bodu (start = text vpravo od bodu, end = vlevo) */
+	popisekPosun?: { dx: number; dy: number; kotva?: 'start' | 'middle' | 'end' };
 	popis: PrelozenyPopis;
 	/** Předpona fotogalerie v úložišti R2, např. "cesty/2026/landshut" */
 	galerie?: string;

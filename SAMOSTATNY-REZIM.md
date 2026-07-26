@@ -1,5 +1,19 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩ KDE POKRAČOVAT (po vypnutí Macu 26. 7. 2026 ráno)
+**Rozpracované kolo 23 — video k Teplotě (F6):** uživatel poslal screenshot svého
+výukového videa „Teplota a její měření – Fyzika 6" (YouTube, ~15 min; jeho snímky
+jsou i v prezentaci TEPLOTA.pptx). Na kanálu nalezeno `YLiXzSWoRRg` „Teplo, teplota"
+(neveřejné) — NEJDŘÍV OVĚŘIT, zda jde o totéž video (název se liší; může být i pod
+jiným ID — zeptat se uživatele nebo projít kanál). Pak vložit YouTube embed do
+`materialy` u fyzika/6-rocnik/teplota/teplota-a-jeji-mereni (druh 'video').
+Podobně `fKLqHBIS1Xk` „Meteorologie a měření počasí" → F7 meteorologie-a-mereni-tlaku.
+**Další ve frontě:** obrázkové snímky TEPLOTA (dilatační spára — foto máme ve
+scratchpadu, bimetal, kompenzátor → možná infografika/simulace bimetalu);
+„Fyzika opakování rok 6"; prezentace F7 Síla/Světelné jevy/Kapaliny; F8 Mechanická
+práce; F9 Elektřina + Vesmír; média k Fyzice 6 (písně/videa z automatu).
+Kola jedou hned za sebou (noční pokyn); spouštět přes /wonderly + /loop.
+
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
 ## Fronta nápadů (seřazeno podle priority)
