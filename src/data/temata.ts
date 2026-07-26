@@ -270,6 +270,9 @@ export const temata: Record<string, Tema[]> = {
 						<p>Pravidla měření: zkontrolovat nulu, zjistit jednotky stupnice, hodnotu nejmenšího dílku a rozsah; odchylka měření = polovina nejmenšího dílku.</p>
 						<p>💡 Síla 1 N odpovídá přibližně síle, kterou Země přitahuje těleso o hmotnosti 100 g. Na tomto principu fungují pružinové váhy.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Síla', cesta: 'Y340hJrbpU8' },
+					],
 				},
 				{
 					slug: 'gravitacni-sila',
@@ -1309,6 +1312,7 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Nevýhody:</strong> brzdění (ztráty), zahřívání součástí strojů, odírání styčných ploch</p>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Třecí síla', cesta: '7JG_JbKRw70' },
 						{ druh: 'infografika', nazev: 'Tahák: tření a třecí síly', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/treci-sila/infografika-prehled.jpg' },
 					],
 				},
@@ -1331,6 +1335,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Výsledná síla má směr té větší ze sil. Pokud jsou síly stejně velké a míří proti sobě, jsou v <strong>rovnováze</strong> a výslednice je nulová – těleso zůstává v klidu (např. přetahování lanem, kdy ani jedno družstvo nevyhrává).</p>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Skládání sil', cesta: 'GWJnn_4_zHc' },
 						{ druh: 'audio', nazev: 'Poslech: jak složit síly do jedné výslednice 🎧', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/audio-pravidlo-rovnobezniku.mp3' },
 					],
 				},
@@ -1398,6 +1403,10 @@ export const temata: Record<string, Tema[]> = {
 						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/pruzna-deformace.jpg" alt="Pružná deformace – tenisový míček a raketa" />
 						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/trvala-deformace.jpg" alt="Trvalá deformace – havarované auto" />
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Porozumění síle a deformaci', cesta: '0vmDKVXisgE' },
+						{ druh: 'youtube', nazev: 'Video: Síla a interakce', cesta: 'RRSRb_6VXt0' },
+					],
 				},
 				{
 					slug: 'jednoduche-stroje-paky',
@@ -1434,6 +1443,8 @@ export const temata: Record<string, Tema[]> = {
 						<p>Na delší rameno tedy stačí poloviční síla.</p>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Páky — nadlidská síla', cesta: 'aXsCK4BXLe4' },
+						{ druh: 'youtube', nazev: 'Video: Páka — opakování', cesta: 'qLAoiYEeaSA' },
 						{ druh: 'infografika', nazev: 'Tahák: moment síly', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-moment-sily.jpg' },
 					],
 				},
@@ -1513,6 +1524,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Porozumění tlaku', cesta: 'Pzxvvf0fbTg' },
 						{
 							druh: 'infografika',
 							nazev: 'Co je to tlak a jak funguje?',
@@ -1556,6 +1568,8 @@ export const temata: Record<string, Tema[]> = {
 						<p>Obsah kruhového pístu o poloměru r: <strong>S = π · r²</strong> (π ≈ 3,14).</p>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Pascalův zákon — síla kapalin', cesta: 'pTdNlwI_0aY' },
+						{ druh: 'youtube', nazev: 'Video: Pascalův zákon 2', cesta: '1WUlh2HBpwA' },
 						{
 							druh: 'infografika',
 							nazev: 'Síla kapaliny: Pascalův zákon a hydraulická zařízení',
@@ -1605,6 +1619,8 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Skrytá síla vody', cesta: 'xJMpwGyOibQ' },
+						{ druh: 'youtube', nazev: 'Video: Hydrostatický tlak', cesta: 'Tx5X_3g1sHE' },
 						{
 							druh: 'pdf',
 							nazev: 'Hydrostatický tlak: od rovnic k přehradám (infografiky v PDF)',
@@ -1665,6 +1681,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 U nestejnorodých těles neurčujeme hustotu látky, ale počítáme jejich <strong>průměrnou hustotu ρp</strong>. Podle ní se řídí i plování — loď z oceli plove, protože její průměrná hustota (ocel + vzduch uvnitř) je menší než hustota vody.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Ocelový paradox — tajemství vztlaku', cesta: 'XvJnyVH_WMk' },
+					],
 				},
 			],
 		},
@@ -1720,6 +1739,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Neviditelná síla tlaku', cesta: 'vWIJeVNdiyM' },
 						{ druh: 'infografika', nazev: 'Tahák: přetlak, podtlak, vakuum', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum/infografika-prehled.jpg' },
 						{ druh: 'video', nazev: 'Píseň: Podtlak & mrak 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum/pisen-podtlak-a-mrak.mp4' },
 					],
@@ -1746,6 +1766,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Meteorologové sledují kromě tlaku i teplotu, vlhkost, srážky, vítr a oblačnost — z pozemních stanic, balonů i družic. Předpověď počasí pomáhá dopravě, zemědělství, energetice i záchranářům.</p>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Meteorologická pozorování', cesta: 'fKLqHBIS1Xk' },
 						{ druh: 'video', nazev: 'Píseň: Šumí satelit 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku/pisen-sumi-satelit.mp4' },
 					],
 				},
@@ -1782,6 +1803,8 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Světlo — od plamene ke hvězdám', cesta: 'v4EdVxeZ9J0' },
+						{ druh: 'youtube', nazev: 'Video: Odhalený svět světla', cesta: 'JkgrUOUgZ7Q' },
 						{ druh: 'video', nazev: 'Píseň: Světelný proud 🎵', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/pisen-svetelny-proud.mp4' },
 					],
 				},
@@ -1851,6 +1874,9 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zatmění Slunce</h3>
 						<p>Nastane, když se <strong>Měsíc dostane mezi Zemi a Slunce</strong> a zakryje ho. Pozorovat jen se <strong>speciálními ochrannými brýlemi</strong> — nikdy přímo!</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Stíny, fáze a zatmění', cesta: '2_f7R5E_rrY' },
+					],
 				},
 			],
 		},
@@ -1878,6 +1904,9 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Využití</h3>
 						<p>Kosmetická a estetická zrcadla (opticky zvětšují místnost), <strong>periskop</strong> ponorky, zrcadlové nápisy. Proto se na sanitkách píše nápis <strong>AMBULANCE zrcadlově</strong> — ve zpětném zrcátku ho pak řidič vpředu přečte správně.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Iluze reality — rovinná zrcadla', cesta: 'JsleRYDXXwM' },
+					],
 				},
 				{
 					slug: 'kulova-zrcadla-dute-zrcadlo',
@@ -1911,6 +1940,9 @@ export const temata: Record<string, Tema[]> = {
 						<p>Využití: <strong>dopravní zrcadla</strong> u nepřehledných křižovatek, zpětná zrcátka, bezpečnostní zrcadla v obchodech.</p>
 						<p>💡 Kulová zrcadla se snadno vyrábějí, ale ostře zobrazují jen předměty u osy. Přesnější jsou <strong>parabolická zrcadla</strong> — používají je dalekohledy, radioteleskopy i Hubbleův a Webbův teleskop.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Fyzika kulových zrcadel', cesta: 'xkCEjfT11L8' },
+					],
 				},
 				{
 					slug: 'opticka-cocka',
@@ -1945,6 +1977,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Spojka: lupa, mikroskop, dalekohled, objektiv, brýle. Rozptylka: kukátko, brýle, složitější optické soustavy.</p>
 					`,
 					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Svět skrz čočku', cesta: 'cERyrQE-PBQ' },
 						{ druh: 'video', nazev: 'Píseň: Optická jízda 🎵', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/pisen-opticka-jizda.mp4' },
 					],
 				},
@@ -2210,6 +2243,9 @@ export const temata: Record<string, Tema[]> = {
 						<h3>V běžném životě</h3>
 						<p>Každá přeměna je spojená se <strong>ztrátami</strong> — část energie se třením mění na <strong>teplo</strong>, které už na pohyb nevyužijeme. Proto skateboardista na U-rampě nevyjede do stejné výšky, ze které vyjel.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
+					],
 				},
 				{
 					slug: 'energeticka-hodnota-potravin',
@@ -2280,6 +2316,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>nízké c</strong> (kovy): ohřívají i chladnou rychle → dobré tepelné vodiče (žebra chladičů)</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Teplo a teplota (ústřední topení)', cesta: 'YLiXzSWoRRg' },
+					],
 				},
 			],
 		},
@@ -3152,6 +3191,9 @@ export const temata: Record<string, Tema[]> = {
 							<li>Využití: vysavač, výtah, elektromobil, elektrické nářadí, tramvaje, hračky.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Jak se točí elektromotory', cesta: 'Hi-Tc84eglY' },
+					],
 				},
 				{
 					slug: 'elektromagneticka-indukce',
@@ -3176,6 +3218,10 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Kde se využívá</h3>
 						<p>Alternátor a dynamo v elektrárnách, zapalovací svíčky motorů, „protřepávací" svítilny, <strong>indukční brzdy</strong>, <strong>indukční varná deska</strong>, indukční pec na tavení kovů, <strong>bezdrátové nabíječky</strong>, transformátor i elektrická kytara.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
+						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 2', cesta: 'gn-CN3StDUs' },
+					],
 				},
 				{
 					slug: 'vznik-stridaveho-proudu-alternator',
@@ -3199,6 +3245,9 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Kde se využívá</h3>
 						<p>V <strong>automobilu</strong> (za jízdy nabíjí akumulátor), v <strong>elektrocentrále</strong> (záložní zdroj) a ve <strong>všech elektrárnách kromě solárních</strong> — turbína roztáčí rotor alternátoru.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Příběh střídavého proudu (generátor)', cesta: '3Y_USuTTVbw' },
+					],
 				},
 				{
 					slug: 'vlastnosti-stridaveho-proudu',
@@ -3243,6 +3292,9 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Transformace velkého proudu se využívá v <strong>indukční peci</strong>, při <strong>svařování obloukem</strong> (nízké napětí, velký proud) a v pistolové páječce.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Transformátor — skrytý motor našeho světa', cesta: 'Zme6eL0Mzr8' },
+					],
 				},
 			],
 		},
@@ -3272,6 +3324,9 @@ export const temata: Record<string, Tema[]> = {
 							<li>Domácnost využívá <strong>jednu fázi (230 V)</strong>; velké stroje všechny tři fáze (3×400 V). V zásuvce je <strong>fázový</strong> vodič, <strong>nulovací</strong> (uzemněný) a <strong>ochranný kolík</strong>.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Cesta elektřiny', cesta: 'fimbeSGx8iY' },
+					],
 				},
 				{
 					slug: 'vedeni-proudu-v-kapalinach',
@@ -3296,6 +3351,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>pokovování</strong> — pozlacení, pochromování, pozinkování (kvůli vzhledu, ceně a ochraně proti korozi).</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Vedení proudu v kapalinách', cesta: 'D_aMAsD-EKM' },
+					],
 				},
 				{
 					slug: 'chemicke-zdroje-napeti',
@@ -3335,6 +3393,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Výboj ve zředěných plynech</strong> — barva světla závisí na plynu; využití: <strong>světelné reklamy</strong>.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Jak funguje blesk', cesta: 'rTo2z2xTOGk' },
+					],
 				},
 				{
 					slug: 'polovodice-vlastni-vodivost',
@@ -3360,6 +3421,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Fotorezistor</strong> — mění odpor podle osvětlení (fotobuňka, optická závora).</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Polovodiče pohánějí náš svět', cesta: 'W7V0PBb97eY' },
+					],
 				},
 				{
 					slug: 'polovodice-typu-n-a-p-dioda',
@@ -3384,6 +3448,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Tranzistor</strong> — dva přechody PN, funguje jako rychlý spínač; základ veškeré elektroniky.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Polovodiče — srdce elektroniky', cesta: 'uoLW-OHBDls' },
+					],
 				},
 			],
 		},
@@ -3449,6 +3516,10 @@ export const temata: Record<string, Tema[]> = {
 							<li>zavolej <strong>155</strong>.</li>
 						</ol>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Elektrická bezpečnost', cesta: 'VfCqvZDHUWQ' },
+						{ druh: 'youtube', nazev: 'Video: Domovní elektroinstalace', cesta: 'jhqpxSjUCMk' },
+					],
 				},
 			],
 		},
@@ -3489,6 +3560,11 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Jaderné síly</h3>
 						<p><strong>Jaderné síly</strong> jsou velmi silné přitažlivé síly, které působí jen na krátkou vzdálenost (uvnitř jádra) a drží nukleony pohromadě — překonávají odpudivou elektrickou sílu mezi protony. Čím je jádro větší, tím je <strong>méně stabilní</strong> a snáz se rozpadá.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Jádro atomu a síly v jádře', cesta: 'gbUMqax9SMs' },
+						{ druh: 'youtube', nazev: 'Video: Atom, iont, izotop', cesta: '5WUfEMAbwQM' },
+						{ druh: 'youtube', nazev: 'Video: Atomy a modely', cesta: 'uszDiE3FDQk' },
+					],
 				},
 				{
 					slug: 'radioaktivita',
@@ -3519,6 +3595,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Utěsnit a opravit dům</strong> — uzavřít praskliny v podlaze a odvést radon mimo dům</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Radioaktivita — neviditelná síla', cesta: '8QArttMYsHA' },
+					],
 				},
 				{
 					slug: 'jaderna-energie-a-reakce',
@@ -3569,6 +3648,9 @@ export const temata: Record<string, Tema[]> = {
 							<li>Reaktory pohánějí i ponorky, ledoborce a kosmické sondy a vyrábějí radiofarmaka pro lékařství.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Jak funguje jaderná elektrárna', cesta: 'BJbAvgpwCWc' },
+					],
 				},
 			],
 		},
