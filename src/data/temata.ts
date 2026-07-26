@@ -2124,6 +2124,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'mechanicka-prace',
 					nazev: 'Mechanická práce',
+					interakce: 'prace',
 					obsah: `
 						<h2>Mechanická práce</h2>
 						<p>Ve fyzice <strong>těleso koná práci</strong>, právě když působí na jiné těleso silou a tím způsobí, že se toto těleso <strong>posune ve směru síly</strong>. Musí být splněné <strong>obě podmínky</strong> — síla i posunutí.</p>

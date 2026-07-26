@@ -1,0 +1,116 @@
+---
+// Interaktivní mechanická práce (dle prezentace „8 Mechanická práce"):
+// 1) hra „Koná se práce?" — 5 situací, žák tipne ANO/NE, pak vysvětlení
+//    (práce se koná, jen když NENULOVÁ síla působí po NENULOVÉ dráze
+//    a není na ni kolmá); 2) kalkulačka W = F · s s příkladem z hodiny.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Koná se práce? 🕹️</span></h2>
+	<p>Fyzikální práce se koná, jen když <strong>nenulová síla</strong> působí po <strong>nenulové dráze</strong> a <strong>není k ní kolmá</strong>. Tipni si u každé situace!</p>
+	<p id="prc-situace"></p>
+	<svg id="prc-svg" viewBox="0 0 520 170" role="img" aria-label="Obrázek situace a vyhodnocení, zda se koná práce">
+		<rect x="0" y="0" width="520" height="170" fill="#f8f9fa" />
+		<text id="prc-emoji" x="90" y="105" text-anchor="middle" font-size="64">🏋️</text>
+		<text id="prc-verdikt" x="310" y="70" text-anchor="middle" font-size="26" font-weight="bold"></text>
+		<text id="prc-duvod" x="310" y="105" text-anchor="middle" font-size="13.5" fill="#495057"></text>
+		<text id="prc-duvod2" x="310" y="126" text-anchor="middle" font-size="13.5" fill="#495057"></text>
+	</svg>
+	<p>
+		<button id="prc-ano" type="button" class="prc-tl">✅ ANO, koná</button>
+		<button id="prc-ne" type="button" class="prc-tl">❌ NE, nekoná</button>
+	</p>
+	<h2><span class="podtrh">Spočítej práci: W = F · s</span></h2>
+	<label class="sim-posuvnik">
+		Síla F: <output id="prc-f-out"></output>
+		<input type="range" id="prc-f" min="10" max="200" step="10" value="50" />
+	</label>
+	<label class="sim-posuvnik">
+		Dráha s: <output id="prc-s-out"></output>
+		<input type="range" id="prc-s" min="0" max="10" step="0.5" value="1" />
+	</label>
+	<p class="prc-stav" id="prc-vysledek"></p>
+</section>
+
+<script>
+	const SITUACE = [
+		{ emoji: '🏋️', text: 'Zvedáš činku nad hlavu', kona: true, duvod: 'Síla působí vzhůru a činka se vzhůru POHYBUJE', duvod2: 'síla i dráha jsou nenulové a mají stejný směr → W = F · s.' },
+		{ emoji: '🧍', text: 'Držíš činku nehybně nad hlavou', kona: false, duvod: 'Síla působí, ale dráha s = 0 (nic se nepohybuje)', duvod2: 'i když tě to unaví, fyzikální práce je nulová!' },
+		{ emoji: '🚶', text: 'Neseš tašku vodorovně po rovině', kona: false, duvod: 'Síla drží tašku SVISLE, ale pohyb je VODOROVNÝ', duvod2: 'síla je kolmá na směr pohybu → práci nekoná.' },
+		{ emoji: '🚲', text: 'Jedeš na kole z kopce bez šlapání', kona: false, duvod: 'TY nepůsobíš žádnou silou (veze tě gravitace)', duvod2: 'tvoje síla F = 0 → tvoje práce W = 0.' },
+		{ emoji: '📦', text: 'Tlačíš těžkou bednu po podlaze', kona: true, duvod: 'Tlačíš ve směru pohybu a bedna se posouvá', duvod2: 'překonáváš tření po celé dráze → konáš práci.' },
+	];
+	const situaceP = document.getElementById('prc-situace');
+	const emojiEl = document.getElementById('prc-emoji');
+	const verdiktEl = document.getElementById('prc-verdikt');
+	const duvodEl = document.getElementById('prc-duvod');
+	const duvod2El = document.getElementById('prc-duvod2');
+	let aktualni = 0;
+
+	SITUACE.forEach((s, i) => {
+		const tl = document.createElement('button');
+		tl.type = 'button';
+		tl.className = 'prc-tl prc-vyber' + (i === 0 ? ' prc-aktivni' : '');
+		tl.textContent = s.emoji + ' ' + (i + 1);
+		tl.title = s.text;
+		tl.addEventListener('click', () => {
+			aktualni = i;
+			document.querySelectorAll('.prc-vyber').forEach((t, j) => t.classList.toggle('prc-aktivni', j === i));
+			ukaz();
+		});
+		situaceP.appendChild(tl);
+	});
+
+	function ukaz() {
+		const s = SITUACE[aktualni];
+		emojiEl.textContent = s.emoji;
+		verdiktEl.textContent = s.text;
+		verdiktEl.setAttribute('fill', '#2b2a26');
+		verdiktEl.setAttribute('font-size', '17');
+		duvodEl.textContent = 'Tipni si tlačítky dole…';
+		duvod2El.textContent = '';
+	}
+	function vyhodnot(tipAno) {
+		const s = SITUACE[aktualni];
+		const spravne = tipAno === s.kona;
+		verdiktEl.textContent = (spravne ? '✅ Správně! ' : '❌ Pozor: ') + (s.kona ? 'PRÁCE SE KONÁ' : 'práce se NEKONÁ');
+		verdiktEl.setAttribute('fill', s.kona ? '#2f9e44' : '#e03131');
+		verdiktEl.setAttribute('font-size', '20');
+		duvodEl.textContent = s.duvod + ' —';
+		duvod2El.textContent = s.duvod2;
+	}
+	document.getElementById('prc-ano').addEventListener('click', () => vyhodnot(true));
+	document.getElementById('prc-ne').addEventListener('click', () => vyhodnot(false));
+
+	// kalkulačka W = F · s
+	const fS = document.getElementById('prc-f');
+	const sS = document.getElementById('prc-s');
+	const fOut = document.getElementById('prc-f-out');
+	const sOut = document.getElementById('prc-s-out');
+	const vysledekEl = document.getElementById('prc-vysledek');
+	const cz = (x, d) => x.toLocaleString('cs-CZ', { maximumFractionDigits: d });
+	function spocitej() {
+		const F = +fS.value, s = +sS.value, W = F * s;
+		fOut.textContent = F + ' N' + (F === 50 ? ' (např. závaží 5 kg)' : '');
+		sOut.textContent = cz(s, 1) + ' m';
+		vysledekEl.textContent = s === 0
+			? 'W = ' + F + ' · 0 = 0 J — bez dráhy není práce!'
+			: `W = F · s = ${F} · ${cz(s, 1)} = ${cz(W, 0)} J${W >= 1000 ? ' = ' + cz(W / 1000, 1) + ' kJ' : ''}${F === 50 && s === 1 ? ' (přesně příklad z hodiny: závaží 5 kg do výšky 1 m)' : ''}`;
+	}
+	fS.addEventListener('input', spocitej);
+	sS.addEventListener('input', spocitej);
+	ukaz();
+	spocitej();
+</script>
+
+<style>
+	#prc-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.prc-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.prc-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.prc-tl.prc-aktivni { background: #ffe8cc; }
+	.prc-tl:active { transform: translateY(1px); }
+</style>
