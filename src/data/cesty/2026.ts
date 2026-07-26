@@ -2,7 +2,7 @@ import type { Rok } from './typy';
 
 export const rok2026: Rok = {
 	rok: 2026,
-	zeme: 'Německo',
+	zeme: 'Německo a Francie',
 	pinEvropa: { x: 312, y: 363 },
 	mesta: [
 		{
@@ -12,6 +12,7 @@ export const rok2026: Rok = {
 			datum: '6. 7. 2026',
 			x: 324.1,
 			y: 360.7,
+			videoId: 'u4NmKbMRhiE',
 			popis: {
 				cs: 'Historické město na řece Isar v Dolním Bavorsku. Nad městem se tyčí hrad Trausnitz a kostel sv. Martina s nejvyšší cihlovou věží na světě (130,6 m).',
 				en: "A historic town on the Isar river in Lower Bavaria. Trausnitz Castle towers above the town, along with St. Martin's Church and the world's tallest brick tower (130.6 m).",
@@ -25,6 +26,7 @@ export const rok2026: Rok = {
 			datum: '7. 7. 2026',
 			x: 315.3,
 			y: 364.2,
+			videoId: 'u4NmKbMRhiE',
 			popis: {
 				cs: 'Středověké městečko na řece Lech s dochovanými hradbami, leží na trase Romantické cesty (Romantische Straße).',
 				en: 'A medieval town on the Lech river with well-preserved town walls, located on the Romantic Road (Romantische Straße).',
@@ -38,12 +40,89 @@ export const rok2026: Rok = {
 			datum: '8. 7. 2026',
 			x: 300.2,
 			y: 364.8,
+			videoId: 'u4NmKbMRhiE',
 			popis: {
 				cs: 'Městečko na horním toku Dunaje v Bádensku-Württembersku, nedaleko místa, kde Dunaj po část roku mizí v podzemí (Donauversinkung).',
 				en: 'A small town on the upper Danube in Baden-Württemberg, close to the spot where the Danube disappears underground for part of the year (Donauversinkung).',
 				de: 'Städtchen an der oberen Donau in Baden-Württemberg, unweit der Stelle, an der die Donau zeitweise im Untergrund versickert (Donauversinkung).',
 			},
 		},
+		{
+			slug: 'salbert',
+			nazev: 'Salbert',
+			zeme: 'Francie',
+			datum: '10. 7. 2026',
+			x: 281.4,
+			y: 365.8,
+			videoId: '9Sv4exafb-c',
+			popis: {
+				cs: 'Obec na severozápadním okraji Belfortu ve Franche-Comté. Nad ní se zvedá zalesněný vrch Salbert s pevností Fort du Salbert ze 70. let 19. století (součást belfortského opevnění) a výhledem na město i Vogézy.',
+				en: 'A village on the north-western edge of Belfort in Franche-Comté. Above it rises the wooded Salbert hill with Fort du Salbert, built in the 1870s as part of the Belfort fortifications, overlooking the town and the Vosges.',
+				de: 'Gemeinde am nordwestlichen Rand von Belfort in der Franche-Comté. Darüber erhebt sich der bewaldete Hügel Salbert mit dem Fort du Salbert aus den 1870er Jahren (Teil der Belforter Befestigungen) mit Blick auf die Stadt und die Vogesen.',
+			},
+		},
+		{
+			slug: 'le-thillot',
+			nazev: 'Le Thillot',
+			zeme: 'Francie',
+			datum: 'červenec 2026',
+			x: 281.1,
+			y: 363.2,
+			videoId: 'Tlnc-YigfTw',
+			popis: {
+				cs: 'Městečko na horním toku Mosely ve Vogézách. Proslulo měděnými doly lotrinských vévodů (Les Hautes-Mynes), kde se těžilo od 16. do 18. století — dnes se dají navštívit.',
+				en: 'A small town on the upper Moselle in the Vosges. It is known for the copper mines of the Dukes of Lorraine (Les Hautes-Mynes), worked from the 16th to the 18th century and open to visitors today.',
+				de: 'Städtchen an der oberen Mosel in den Vogesen. Bekannt für die Kupferbergwerke der Herzöge von Lothringen (Les Hautes-Mynes), betrieben vom 16. bis 18. Jahrhundert — heute zu besichtigen.',
+			},
+		},
+		{
+			slug: 'rupt-sur-moselle',
+			nazev: 'Rupt-sur-Moselle',
+			zeme: 'Francie',
+			datum: '14. 7. 2026',
+			x: 280.3,
+			y: 362.6,
+			videoId: 'nBnRJsLpsCg',
+			popis: {
+				cs: 'Obec roztažená podél horní Mosely mezi Remiremontem a Le Thillot. Zastihli jsme tu oslavy státního svátku 14. července — výročí dobytí Bastily — s průvodem místních hasičů.',
+				en: 'A village stretched along the upper Moselle between Remiremont and Le Thillot. We caught the celebrations of Bastille Day (14 July) with a parade of the local fire brigade.',
+				de: 'Ein Dorf entlang der oberen Mosel zwischen Remiremont und Le Thillot. Wir erlebten die Feiern zum Nationalfeiertag am 14. Juli — dem Jahrestag des Sturms auf die Bastille — mit einem Umzug der örtlichen Feuerwehr.',
+			},
+		},
+		{
+			slug: 'saint-maurice-sur-moselle',
+			nazev: 'Saint-Maurice-sur-Moselle',
+			zeme: 'Francie',
+			datum: '17. 7. 2026',
+			x: 281.6,
+			y: 363.5,
+			videoId: 'swDAmX8BRJA',
+			popis: {
+				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo: reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',
+				en: 'A village in the southern Vosges at the foot of the Ballon d’Alsace (1,247 m). The climb starting here was the first mountain ascent in Tour de France history (1905) — and this year we experienced the Tour live: the publicity caravan and the riders passing through (see the chaptered video).',
+				de: 'Ein Dorf in den Südvogesen am Fuß des Ballon d’Alsace (1 247 m). Der hier beginnende Anstieg war 1905 die erste Bergwertung der Tour-de-France-Geschichte — und dieses Jahr erlebten wir die Tour live: Werbekarawane und Fahrerfeld (siehe Video mit Kapiteln).',
+			},
+		},
+		{
+			slug: 'ornans',
+			nazev: 'Ornans',
+			zeme: 'Francie',
+			datum: 'červenec 2026',
+			x: 275.4,
+			y: 372.4,
+			videoId: 'swDAmX8BRJA',
+			popis: {
+				cs: 'Městečko v údolí řeky Loue v departementu Doubs, přezdívané „malé Benátky Franche-Comté" — domy tu stojí přímo nad vodou. Rodiště malíře Gustava Courbeta (1819), jemuž je věnováno zdejší muzeum.',
+				en: 'A small town in the Loue valley in the Doubs department, nicknamed the "little Venice of Franche-Comté" — its houses stand right above the water. Birthplace of the painter Gustave Courbet (1819), honoured by a local museum.',
+				de: 'Städtchen im Tal der Loue im Département Doubs, genannt „Klein-Venedig der Franche-Comté" — die Häuser stehen direkt über dem Wasser. Geburtsort des Malers Gustave Courbet (1819), dem ein Museum gewidmet ist.',
+			},
+		},
 	],
-	videa: [],
+	videa: [
+		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
+		{ id: '9Sv4exafb-c', nazev: '10. 07. · Salbert (Francie)', odkaz: 'https://youtu.be/9Sv4exafb-c' },
+		{ id: 'Tlnc-YigfTw', nazev: 'Le Thillot (Francie)', odkaz: 'https://youtu.be/Tlnc-YigfTw' },
+		{ id: 'nBnRJsLpsCg', nazev: 'Rupt-sur-Moselle (Francie)', odkaz: 'https://youtu.be/nBnRJsLpsCg' },
+		{ id: 'swDAmX8BRJA', nazev: 'Saint-Maurice-sur-Moselle (Francie) — Tour de France, s kapitolami', odkaz: 'https://youtu.be/swDAmX8BRJA' },
+	],
 };

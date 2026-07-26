@@ -1166,6 +1166,19 @@ export const temata: Record<string, Tema[]> = {
 							<li>vynes body z tabulky a spoj je</li>
 						</ol>
 						<p>Graf rychlosti rovnoměrného pohybu je <strong>vodorovná přímka</strong>; graf dráhy je <strong>přímka stoupající vzhůru</strong>.</p>
+						<h3>✏️ Procvič si: příklady z hodiny</h3>
+						<p>Nejdřív počítej sám (v = s / t), pak si rozklikni řešení.</p>
+						<ol>
+							<li>Auto ujelo 200 km za 4 hodiny. Jaká byla průměrná rychlost? <details><summary>řešení</summary>v = 200 / 4 = <strong>50 km/h</strong></details></li>
+							<li>Běžec na lyžích urazil 30 km za 2 hodiny. <details><summary>řešení</summary>v = 30 / 2 = <strong>15 km/h</strong></details></li>
+							<li>Cyklisté ujeli 45 km za 3 hodiny. <details><summary>řešení</summary>v = 45 / 3 = <strong>15 km/h</strong></details></li>
+							<li>Vlak ujel 360 km za 4 hodiny. <details><summary>řešení</summary>v = 360 / 4 = <strong>90 km/h</strong></details></li>
+							<li>Turista ušel 6 km za 120 minut. Rychlost v km/h? <details><summary>řešení</summary>120 min = 2 h; v = 6 / 2 = <strong>3 km/h</strong></details></li>
+							<li>Žák uběhl 100 m za 20 s. Rychlost v m/s? <details><summary>řešení</summary>v = 100 / 20 = <strong>5 m/s</strong> (= 18 km/h)</details></li>
+							<li>Cyklista urazil etapu 231 km za 5 h 30 min. <details><summary>řešení</summary>5 h 30 min = 5,5 h; v = 231 / 5,5 = <strong>42 km/h</strong></details></li>
+							<li>Turisté ušli 3 km za 36 minut. <details><summary>řešení</summary>36 min = 0,6 h; v = 3 / 0,6 = <strong>5 km/h</strong></details></li>
+							<li>Letadlo uletělo 585 km za 1 h 18 min. <details><summary>řešení</summary>18 min = 0,3 h → celkem 1,3 h; v = 585 / 1,3 = <strong>450 km/h</strong>. ⚠️ Častá chyba: dělit jen 0,3 h — vyšlo by nesmyslných 1950 km/h!</details></li>
+						</ol>
 					`,
 					materialy: [
 						{
