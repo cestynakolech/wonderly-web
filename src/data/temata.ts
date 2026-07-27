@@ -3292,6 +3292,11 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Proud</strong> se mění v <strong>opačném poměru</strong> než napětí (výkon P = U·I zůstává stejný): kolikrát klesne napětí, tolikrát vzroste proud.</li>
 						</ul>
 						<p>Transformace velkého proudu se využívá v <strong>indukční peci</strong>, při <strong>svařování obloukem</strong> (nízké napětí, velký proud) a v pistolové páječce.</p>
+						<h3>✏️ Příklady z hodiny</h3>
+						<ol>
+							<li>Primární cívka má <strong>500 závitů</strong> a napětí <strong>200 V</strong>; sekundární má <strong>100 závitů</strong>. Jaké je výstupní napětí? <details><summary>řešení</summary>k = N₂/N₁ = 100/500 = 0,2 → U₂ = 0,2 · 200 = <strong>40 V</strong> (transformace dolů)</details></li>
+							<li>Primární cívka má <strong>100 závitů</strong> a napětí <strong>200 V</strong>; sekundární má <strong>500 závitů</strong>. Jaké je výstupní napětí? <details><summary>řešení</summary>k = N₂/N₁ = 500/100 = 5 → U₂ = 5 · 200 = <strong>1 000 V</strong> (transformace nahoru)</details></li>
+						</ol>
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Transformátor — skrytý motor našeho světa', cesta: 'Zme6eL0Mzr8' },
@@ -3508,6 +3513,14 @@ export const temata: Record<string, Tema[]> = {
 							<li>na vypínač ani kabely nesahat <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše,</li>
 							<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat předměty,</li>
 							<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení.</li>
+						</ul>
+						<h3>⚡ Bezpečné vzdálenosti od elektrického vedení</h3>
+						<p>Čím vyšší napětí, tím dál dokáže elektřina <strong>přeskočit vzduchem</strong> — proto se od vedení (i spadlých drátů) drž dál:</p>
+						<ul>
+							<li>do 1 kV (dráty na ulici): <strong>7 metrů</strong></li>
+							<li>do 35 kV (venkovské vedení): <strong>10 metrů</strong></li>
+							<li>do 110 kV: <strong>12 metrů</strong> · do 220 kV: <strong>15 metrů</strong></li>
+							<li>do 400 kV (velké stožáry dálkového přenosu): <strong>20 metrů</strong>, nad 400 kV až <strong>25 metrů</strong></li>
 						</ul>
 						<h3>První pomoc při úrazu proudem</h3>
 						<ol>
