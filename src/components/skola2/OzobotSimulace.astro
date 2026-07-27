@@ -1,0 +1,171 @@
+---
+// Dráha ozobota — podle zadání praktické hodiny učitele („Dráha puzzle.pptx",
+// složka 6/05 Čas): postav dráhu ve tvaru obdélníku ze stavebnicových dílků,
+// změř rozměry dílku, spočítej obvod (= dráhu) i obsah a změř čas průjezdu.
+// Simulace ukazuje rozdíl mezi OBVODEM (po čem robot jede) a OBSAHEM (co dráha
+// uzavírá) — právě tady děti nejčastěji chybují — a dopočítá rychlost.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Postav dráhu pro ozobota 🕹️</span></h2>
+	<p>Robot jede <strong>po obvodu</strong> obdélníku — obvod je tedy <strong>dráha</strong>, kterou urazí. <strong>Obsah</strong> je plocha uvnitř, po té robot nejede. Změř čas průjezdu a vyjde ti rychlost.</p>
+	<svg id="ozo-svg" viewBox="0 0 700 360" role="img" aria-label="Obdélníková dráha ze stavebnicových dílků s jedoucím ozobotem">
+		<g id="ozo-plocha"></g>
+		<g id="ozo-drahaG"></g>
+		<g id="ozo-znacky"></g>
+		<circle id="ozo-robot" r="11" fill="#f03e3e" stroke="#2b2a26" stroke-width="3" />
+	</svg>
+	<label class="sim-posuvnik">
+		Dílků na šířku: <output id="ozo-out-a"></output>
+		<input type="range" id="ozo-a" min="2" max="9" step="1" value="6" />
+	</label>
+	<label class="sim-posuvnik">
+		Dílků na výšku: <output id="ozo-out-b"></output>
+		<input type="range" id="ozo-b" min="2" max="6" step="1" value="4" />
+	</label>
+	<label class="sim-posuvnik">
+		Délka jednoho dílku: <output id="ozo-out-d"></output>
+		<input type="range" id="ozo-d" min="2" max="10" step="0.5" value="4" />
+	</label>
+	<label class="sim-posuvnik">
+		Naměřený čas průjezdu: <output id="ozo-out-t"></output>
+		<input type="range" id="ozo-t" min="5" max="90" step="1" value="30" />
+	</label>
+	<p class="ozo-vysledek" id="ozo-vysledek"></p>
+	<p class="ozo-pozor" id="ozo-pozor"></p>
+	<p class="ozo-legenda">
+		<span class="ozo-tecka" style="background:#2f9e44"></span> start &nbsp;
+		<span class="ozo-tecka" style="background:#e03131"></span> cíl &nbsp;
+		<span class="ozo-tecka" style="background:#1971c2"></span> zrychlit &nbsp;
+		<span class="ozo-tecka" style="background:#f08c00"></span> zpomalit &nbsp;
+		<span class="ozo-tecka" style="background:#adb5bd"></span> plocha uvnitř (tam robot nejede)
+	</p>
+</section>
+
+<script>
+	const svgNS = 'http://www.w3.org/2000/svg';
+	const plochaG = document.getElementById('ozo-plocha');
+	const drahaG = document.getElementById('ozo-drahaG');
+	const znackyG = document.getElementById('ozo-znacky');
+	const robot = document.getElementById('ozo-robot');
+	const vysledekEl = document.getElementById('ozo-vysledek');
+	const pozorEl = document.getElementById('ozo-pozor');
+	const sa = document.getElementById('ozo-a'), sb = document.getElementById('ozo-b');
+	const sd = document.getElementById('ozo-d'), st = document.getElementById('ozo-t');
+	const outA = document.getElementById('ozo-out-a'), outB = document.getElementById('ozo-out-b');
+	const outD = document.getElementById('ozo-out-d'), outT = document.getElementById('ozo-out-t');
+
+	const cz = (x, des = 1) => x.toFixed(des).replace('.', ',');
+	const KROK = 46, X0 = 60, Y0 = 60;      // velikost dílku v pixelech a levý horní roh
+
+	let a = 6, b = 4, dilek = 4, cas = 30;
+	let obvodDilku = 0;
+
+	function el(kam, jmeno, atributy) {
+		const e = document.createElementNS(svgNS, jmeno);
+		for (const [k, v] of Object.entries(atributy)) e.setAttribute(k, v);
+		kam.appendChild(e);
+		return e;
+	}
+
+	// dráha vede po obvodu obdélníku a·b dílků; vrací bod po ujetí s dílků
+	function bodNaDraze(s) {
+		const o = obvodDilku;
+		let t = ((s % o) + o) % o;
+		if (t < a) return [X0 + t * KROK, Y0];                          // horní strana doprava
+		t -= a;
+		if (t < b) return [X0 + a * KROK, Y0 + t * KROK];               // pravá strana dolů
+		t -= b;
+		if (t < a) return [X0 + (a - t) * KROK, Y0 + b * KROK];         // dolní strana doleva
+		t -= a;
+		return [X0, Y0 + (b - t) * KROK];                               // levá strana nahoru
+	}
+
+	function umistiRobota(s) {
+		const [x, y] = bodNaDraze(s);
+		robot.setAttribute('cx', x);
+		robot.setAttribute('cy', y);
+	}
+
+	function prekresli() {
+		a = +sa.value; b = +sb.value; dilek = +sd.value; cas = +st.value;
+		obvodDilku = 2 * (a + b);
+		umistiRobota(0);      // robot stojí na startu i tam, kde se animace nespustí
+		outA.textContent = a + ' dílků';
+		outB.textContent = b + ' dílků';
+		outD.textContent = cz(dilek) + ' cm';
+		outT.textContent = cas + ' s';
+
+		// plocha uvnitř (obsah) — robot po ní NEJEDE
+		plochaG.textContent = '';
+		el(plochaG, 'rect', { x: X0, y: Y0, width: a * KROK, height: b * KROK, fill: '#dee2e6', opacity: '0.55' });
+		for (let i = 1; i < a; i++) el(plochaG, 'line', { x1: X0 + i * KROK, y1: Y0, x2: X0 + i * KROK, y2: Y0 + b * KROK, stroke: '#adb5bd', 'stroke-width': 1 });
+		for (let j = 1; j < b; j++) el(plochaG, 'line', { x1: X0, y1: Y0 + j * KROK, x2: X0 + a * KROK, y2: Y0 + j * KROK, stroke: '#adb5bd', 'stroke-width': 1 });
+
+		// dráha = obvod, poskládaný z dílků
+		drahaG.textContent = '';
+		el(drahaG, 'rect', { x: X0, y: Y0, width: a * KROK, height: b * KROK, fill: 'none', stroke: '#2b2a26', 'stroke-width': 12, 'stroke-linejoin': 'round' });
+		el(drahaG, 'rect', { x: X0, y: Y0, width: a * KROK, height: b * KROK, fill: 'none', stroke: '#ffec99', 'stroke-width': 6, 'stroke-linejoin': 'round' });
+		for (let i = 0; i <= a; i++) {                                  // předěly mezi dílky
+			el(drahaG, 'line', { x1: X0 + i * KROK, y1: Y0 - 6, x2: X0 + i * KROK, y2: Y0 + 6, stroke: '#2b2a26', 'stroke-width': 2 });
+			el(drahaG, 'line', { x1: X0 + i * KROK, y1: Y0 + b * KROK - 6, x2: X0 + i * KROK, y2: Y0 + b * KROK + 6, stroke: '#2b2a26', 'stroke-width': 2 });
+		}
+		for (let j = 0; j <= b; j++) {
+			el(drahaG, 'line', { x1: X0 - 6, y1: Y0 + j * KROK, x2: X0 + 6, y2: Y0 + j * KROK, stroke: '#2b2a26', 'stroke-width': 2 });
+			el(drahaG, 'line', { x1: X0 + a * KROK - 6, y1: Y0 + j * KROK, x2: X0 + a * KROK + 6, y2: Y0 + j * KROK, stroke: '#2b2a26', 'stroke-width': 2 });
+		}
+
+		// značky podle zadání: start, hned za ním zrychlit a zatáčka, uprostřed zpomalit
+		znackyG.textContent = '';
+		const znacky = [
+			[0, '#2f9e44', 'start'],
+			[1, '#1971c2', 'zrychlit'],
+			[a, '#7048e8', 'zatáčka'],
+			[a + Math.floor(b / 2), '#f08c00', 'zpomalit'],
+			[obvodDilku - 0.001, '#e03131', 'cíl'],
+		];
+		znacky.forEach(([s, barva, popis]) => {
+			const [x, y] = bodNaDraze(s);
+			el(znackyG, 'circle', { cx: x, cy: y, r: 8, fill: barva, stroke: '#fff', 'stroke-width': 2 });
+			const t = el(znackyG, 'text', { x, y: y < Y0 + 10 ? y - 14 : y + 24, 'font-size': 12, 'font-weight': 'bold', fill: barva, 'text-anchor': 'middle' });
+			t.textContent = popis;
+		});
+
+		// výpočty
+		const draha = obvodDilku * dilek;                 // cm
+		const obsah = a * b * dilek * dilek;              // cm²
+		const rychlost = draha / cas;                     // cm/s
+		vysledekEl.innerHTML =
+			`<strong>Dráha (obvod):</strong> o = 2 · (${a} + ${b}) = <strong>${obvodDilku} dílků</strong>`
+			+ ` &nbsp;→&nbsp; ${obvodDilku} · ${cz(dilek)} cm = <strong>${cz(draha)} cm</strong> = ${cz(draha / 100, 2)} m<br>`
+			+ `<strong>Obsah (plocha uvnitř):</strong> S = ${a} · ${b} = ${a * b} dílků² &nbsp;→&nbsp; <strong>${cz(obsah)} cm²</strong><br>`
+			+ `<strong>Rychlost:</strong> v = s / t = ${cz(draha)} cm : ${cas} s = <strong>${cz(rychlost, 2)} cm/s</strong>`
+			+ ` = ${cz(rychlost / 100, 3)} m/s = ${cz(rychlost * 0.036, 2)} km/h`;
+		pozorEl.innerHTML = a === b
+			? '⚠️ Máš čtverec — zkus různé strany, ať je vidět, že obvod a obsah jsou dvě různé věci.'
+			: `💡 Kdyby robot jel po delší straně tam a zpět, ujel by ${cz(2 * a * dilek)} cm — a to je něco jiného než celý obvod ${cz(draha)} cm.`;
+	}
+
+	// animace: robot objede celou dráhu právě za naměřený čas
+	let start = null;
+	function krok(cas_ms) {
+		if (start === null) start = cas_ms;
+		const ubehlo = ((cas_ms - start) / 1000) % cas;      // sekundy od startu kola
+		umistiRobota((ubehlo / cas) * obvodDilku);
+		requestAnimationFrame(krok);
+	}
+
+	[sa, sb, sd, st].forEach((s) => s.addEventListener('input', () => { start = null; prekresli(); }));
+	prekresli();
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#ozo-svg { width: 100%; max-width: 700px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 700px; display: block; margin-top: 0.3rem; }
+	.ozo-vysledek { font-size: 1.02rem; background: #f1f3f5; border-radius: 8px; padding: 0.6rem 0.7rem; line-height: 1.9; }
+	.ozo-pozor { font-weight: 700; }
+	.ozo-legenda { font-size: 0.9rem; font-weight: 700; }
+	.ozo-tecka { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid #2b2a26; vertical-align: middle; }
+</style>
