@@ -148,7 +148,7 @@
 		// paprsek 1 — rovnoběžný s osou, po čočce míří do F' (spojka) / od F (rozptylka)
 		const smerX = spojka ? fx : fx, smerY = spojka ? OSA - Y0 : Y0 - OSA;
 		const k1 = naOkraj(CX, Y0, smerX, smerY);
-		p1.setAttribute('points', body([0, Y0], [CX, Y0], k1));
+		p1.setAttribute('points', body([X0, Y0], [CX, Y0], k1));
 
 		// paprsek 2 — středový, prochází středem čočky bez lomu
 		const k2 = naOkraj(CX, OSA, CX - X0, OSA - Y0);

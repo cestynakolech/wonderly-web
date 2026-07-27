@@ -1,11 +1,13 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (po restartu Claude 27. 7. 2026)
-Hotovo 27 kol (33 simulací, 37 videí, nové podtéma Vesmír). DALŠÍ KOLO (28):
-projít „SVĚTELNÉ JEVY 7 [Automaticky uloženo].pptx" (Škola/7/4 Světlo) — poslední
-velká neprojitá prezentace F7 → jedno vylepšení. Pak fronta níže.
-POZOR: náhledový panel (port 8788) drží jiná session — simulace ověřovat
-výpočtem + curl na živém webu; vizuálně až bude panel volný.
+## ⏩ KDE POKRAČOVAT (27. 7. 2026)
+Hotovo 28 kol (34 simulací, 37 videí). DALŠÍ KOLO (29): z prezentace „SVĚTELNÉ
+JEVY 7" zbývá **kulová zrcadla** (snímky 39–51) — podtéma kulova-zrcadla-dute-zrcadlo
+má bohatý výklad, ale žádnou interakci → simulace dutého/vypuklého zrcadla
+(předmět mezi C a F, za C, před F) podle vzoru CockaSimulace. Pak fronta níže.
+Náhledový panel (port 8788) je VOLNÝ — simulace ověřovat i vizuálně.
+POZOR na past: v SVG souřadnicích musí být desetinná TEČKA (funkce cz() dělá
+českou čárku pro text — v points/atributech ji nepoužívat!).
 ČEKÁ NA UŽIVATELE: odkaz na video „Teplota a její měření – F6" (není v soupisu
 kanálu) → pak vložit k F6 teplota-a-jeji-mereni.
 Spouštění: /wonderly + /loop, kola hned za sebou. Vše ostatní viz fronta níže.
@@ -33,6 +35,12 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-27 (kolo 28): **CockaSimulace** — zobrazení čočkou (F7 zrcadla-a-cocky/opticka-cocka,
+  dle prezentace „SVĚTELNÉ JEVY 7" snímky 28–34): spojka i rozptylka, posuvníky vzdálenosti
+  předmětu a ohniskové vzdálenosti, tři význačné paprsky, zobrazovací rovnice 1/f = 1/a + 1/a′
+  a zvětšení, popis obrazu (fotoaparát / dataprojektor / lupa / kukátko), čárkovaná prodloužení
+  u zdánlivého obrazu. Ověřeno výpočtem (a=24, f=8 → a′=12 cm, Z=0,5; rozptylka a′=−6 cm,
+  Z=0,25 — všechny tři paprsky se protínají přesně v bodě obrazu) i vizuálně ve všech režimech.
 - 2026-07-27 (kolo 27): **TlakSimulace** — p = F/S (F7 tlak-v-kapalinach/tlak, dle prezentace Mechanické vlastnosti kapalin 7): postava na sněhu, posuvník hmotnosti, sněžnice/boty/podpatky → boření dle tlaku (1,5 kPa / 15 kPa / 1,5 MPa při 60 kg — ověřeno). Panel náhledu blokován jinou session → ověřeno curl.
 - 2026-07-27 (kolo 26): **Příklady transformátoru + bezpečné vzdálenosti** (z Elektřina 9.pptx): 2 řešené příklady (500/100 závitů → 40 V; 100/500 → 1000 V, ověřeno) na transformator; tabulka bezpečných vzdáleností od vedení (7–25 m dle kV) na ucinky-proudu-bezpecnost. Analýza Ollamy zapsána do ollama-log.md + paměti.
 - 2026-07-27 (kolo 25): **Nové podtéma Vesmír a galaxie** (F9 energie-a-vesmir, dle prezentace 9 vesmir_a_jeho_vznik): velký třesk v 6 krocích (13,8 mld let, atomy po 380 000 letech), galaxie a tvary, Mléčná dráha (spirální s příčkou, ~100 000 ly), rudý posuv + Hubbleův zákon; kvíz 10 otázek; k sluneční soustavě 2 ČESKÁ videa (Petr Němec, fyzika 9 ZŠ — z prezentace, jazyk ověřen přes oEmbed). Build 408 stránek. Pozn.: náhled. panel blokován jinou session (port 8788) → ověřeno curl na živém webu.
