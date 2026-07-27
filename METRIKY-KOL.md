@@ -13,6 +13,20 @@ Vysvětlení sloupců:
 |---|---|---|---|---|---|---|
 | 2026-07-27 | 28 | F6 difuze + Brownův pohyb (simulace, výklad, 4 kvízové otázky, média) | diamond (4 workeři) | 1 | ANO | zrnko pylu sedimentovalo na dno → opraveno při verify |
 
+### Nezávislý kontrolor (poprvé nasazen v kole 28) — velmi se vyplatil
+
+Pátý worker dostal hotový výsledek a zadání „hledej chyby", BEZ informace, co bylo zamýšleno.
+Našel 11 nálezů, z toho **4 opraveny hned** (posuvník teploty pokus nerestartoval → naměřený
+čas patřil jiné teplotě; rozsah 0–100 °C na mezích varu a tuhnutí → 5–95 °C; osminásobné
+zveličení rychlosti částic nebylo přiznané; dva tipovatelné rozptylovače v kvízu)
+a **6 nálezů míří do PŮVODNÍHO výkladu učitele** (žralok jako příklad difuze, příliš široká
+definice Brownova pohybu, nesmáčivost vysvětlená odpudivými silami, stlačení nafouknutého
+míče jako příklad odpudivých sil, pyl „na hladině" místo „ve vodě", elektronový vs.
+tunelový mikroskop) — ty se NEOPRAVUJÍ potichu, čekají na rozhodnutí učitele.
+
+ZÁVĚR: kontrolor našel víc než já sám i než build. Kdo práci vyrobil, hodnotí ji mírně.
+Nasazovat u každého nového učiva — je to nejlevnější krok s největším dopadem na kvalitu.
+
 ### Poznatky z prvního diamondu (28. kolo)
 
 - **Workeři běželi 45 s – 11 min současně** (média 45 s, kvíz 1,5 min, výklad 2,5 min, kód 11 min).
