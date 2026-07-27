@@ -162,11 +162,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co pozoroval Robert Brown pod mikroskopem?',
 			odpovedi: [
-				'chaotický pohyb pylových zrnek na vodě',
+				'chaotický pohyb pylových zrnek rozptýlených ve vodě',
 				'růst rostlinných buněk',
 				'krystalizaci soli',
 			],
-			vysvetleni: 'Brown pozoroval neustálý chaotický pohyb pylových zrnek na vodní hladině — dnes mu říkáme Brownův pohyb.',
+			vysvetleni: 'Brown pozoroval neustálý chaotický pohyb pylových zrnek rozptýlených ve vodě — dnes mu říkáme Brownův pohyb.',
 		},
 		{
 			text: 'Jak vysvětlujeme Brownův pohyb?',
@@ -194,7 +194,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kdy cítíme odpudivé síly mezi částicemi?',
-			odpovedi: ['při stlačení míče', 'při natažení pružiny', 'při zahřátí vody'],
+			odpovedi: ['při stlačení pružiny nebo zmáčknutí gumy', 'při natažení pružiny', 'při zahřátí vody'],
 			vysvetleni: 'Při stlačování se částice dostávají příliš blízko a odpudivé síly je tlačí zpět. Při natažení pružiny naopak cítíme síly přitažlivé.',
 		},
 		{
@@ -237,11 +237,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč kapky vody nepřilnou k mastnému povrchu?',
 			odpovedi: [
-				'převažují odpudivé síly mezi molekulami různých látek',
+				'voda drží silněji sama u sebe než u mastnoty, proto se stáhne do kapky',
 				'mastnota je příliš studená',
 				'voda je těžší než tuk',
 			],
-			vysvetleni: 'Odpudivé síly mezi molekulami vody a tuku převáží — využíváme to u impregnace bot a nepřilnavého nádobí.',
+			vysvetleni: 'Přitažlivé síly mezi částicemi vody navzájem jsou silnější než mezi vodou a mastnotou — voda se proto stáhne do kapky a povrch nesmáčí. Využíváme to u impregnace bot a nepřilnavého nádobí.',
 		},
 		{
 			text: 'Proč se pohyb částic v látce nazývá neuspořádaný?',

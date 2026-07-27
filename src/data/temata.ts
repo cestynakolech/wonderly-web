@@ -84,19 +84,20 @@ export const temata: Record<string, Tema[]> = {
 						<h3>První myšlenka</h3>
 						<p>Už v 5. století př. n. l. napadlo řecké učence (Démokritos), že látku nepůjde dělit na menší části donekonečna — jednou narazíme na nejmenší, již nedělitelné částice. Nazvali je <strong>atomy</strong> (řecky <em>atomos</em> = nedělitelný). Myšlenka tehdy nešla dokázat, a tak upadla v zapomnění.</p>
 						<h3>Brownův pohyb</h3>
-						<p>V 19. století pozoroval Robert Brown pod mikroskopem <strong>chaotický pohyb pylových zrnek na vodě</strong>. Proč se neživá zrníčka pohybují?</p>
-						<p>👉 Vysvětlení: <strong>částice vody se neustále chaoticky pohybují a vrážejí do zrníček</strong>. Dnes tak nazýváme každý pohyb malých pevných částeček v kapalině.</p>
-						<p>👉 Závěr: <strong>Všechny látky jsou složeny z částic.</strong> Speciálním elektronovým mikroskopem dnes umíme atomy dokonce vidět i posunovat.</p>
+						<p>V 19. století pozoroval Robert Brown pod mikroskopem <strong>chaotický pohyb pylových zrnek rozptýlených ve vodě</strong>. Proč se neživá zrníčka pohybují?</p>
+						<p>👉 Vysvětlení: <strong>částice vody se neustále chaoticky pohybují a vrážejí do zrníček</strong>. Brownovým pohybem dnes nazýváme <strong>neustálý neuspořádaný pohyb velmi malých částeček rozptýlených v kapalině nebo v plynu, který způsobují nárazy částic okolní látky</strong> (ve vzduchu ho je vidět třeba na částečkách kouře nebo prachu).</p>
+						<p>👉 Závěr: <strong>Všechny látky jsou složeny z částic.</strong> Speciálními mikroskopy dnes umíme atomy dokonce vidět i posunovat.</p>
 						<h3>Vlastnosti částic</h3>
 						<ul>
 							<li><strong>Pohyb částic</strong> — je <strong>neustálý</strong> (nikdy se nezastaví!) a <strong>neuspořádaný</strong> (chaotický). Říká se mu také <strong>tepelný pohyb</strong> — s rostoucí teplotou se zrychluje (molekuly vzduchu: při 0 °C asi 1 700 km/h, při 100 °C asi 2 000 km/h).</li>
-							<li><strong>Částice na sebe působí silami</strong> — <strong>přitažlivé síly</strong> přitáhnou částice k sobě, pokud se vzdálí (cítíme je při natažení pružiny); <strong>odpudivé síly</strong> je oddálí, pokud se moc přiblíží (cítíme je při stlačení míče). Tyto síly dělají materiál pružným.</li>
+							<li><strong>Částice na sebe působí silami</strong> — <strong>přitažlivé síly</strong> přitáhnou částice k sobě, pokud se vzdálí (cítíme je při natažení pružiny); <strong>odpudivé síly</strong> je oddálí, pokud se moc přiblíží (cítíme je při stlačení pružiny nebo zmáčknutí gumy). Tyto síly dělají materiál pružným.</li>
 						</ul>
 						<h3>Jevy způsobené pohybem částic</h3>
-						<p><strong>Difuze</strong> — samovolné pronikání částic jedné látky mezi částice druhé látky, až se rovnoměrně promíchají. Probíhá <strong>v kapalinách i v plynech</strong> — všude tam, kde se částice mohou volně pohybovat.</p>
+						<p><strong>Difuze</strong> — samovolné pronikání částic jedné látky mezi částice druhé látky, až se rovnoměrně promíchají. Probíhá <strong>v kapalinách i v plynech</strong> — všude tam, kde se částice mohou volně pohybovat. (V pevných látkách probíhá také, ale tak pomalu, že si jí nevšimneme.)</p>
 						<ul>
 							<li><strong>difuze v kapalině</strong> — vyluhování čaje bez míchání (barvivo z čajového sáčku se samo rozptýlí po celém hrnku); i kapka inkoustu se ve sklenici sama rozptýlí, i když vůbec nemícháme</li>
-							<li><strong>difuze v plynu</strong> — šíření vůně jídla nebo parfému po místnosti i za bezvětří; díky difuzi ucítí žralok kapku krve ve vodě na kilometry daleko</li>
+							<li><strong>difuze v plynu</strong> — šíření vůně jídla nebo parfému po místnosti i za bezvětří; po otevření lahvičky s octem ucítíme zápach za chvíli i na druhém konci kuchyně</li>
+							<li>👉 pozor: difuze je pomalá a na krátké vzdálenosti. Když žralok ucítí kapku krve na kilometry daleko, donesou mu ji hlavně <strong>mořské proudy</strong> — samotná difuze by na to potřebovala celé roky</li>
 							<li>👉 v plynech probíhá difuze <strong>rychleji</strong> než v kapalinách — částice plynu se pohybují rychleji a mají mezi sebou víc volného místa (vůni z kuchyně ucítíme za pár vteřin, čaj se louhuje minuty)</li>
 							<li>👉 čím vyšší teplota, tím rychleji difuze probíhá, protože se částice pohybují rychleji — čaj se vyluhuje rychleji v horké vodě než ve studené</li>
 						</ul>
@@ -105,7 +106,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><strong>kapaliny tvoří kapky</strong> — silné přitažlivé síly drží molekuly u sebe</li>
 							<li><strong>přilnavost</strong> — přitažlivé síly působí i mezi částicemi různých látek: tuha drží na papíře, křída na tabuli, dvě hladká zrcátka k sobě přilnou</li>
-							<li><strong>nepřilnavost</strong> — odpudivé síly mohou převážit: kapky vody nepřilnou k mastnému povrchu; využití: impregnace bot, nepřilnavé nádobí</li>
+							<li><strong>nesmáčivost (nepřilnavost)</strong> — přitažlivé síly mezi částicemi vody navzájem jsou <strong>silnější</strong> než mezi vodou a mastnotou, proto se voda radši stáhne do kapky a povrch nesmáčí; využití: impregnace bot, nepřilnavé nádobí</li>
 						</ul>
 					`,
 				},
