@@ -36,9 +36,15 @@ const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
 					<text
 						class="pin-popisek"
-						x={m.x}
-						y={i % 2 === 0 ? m.y - pinR * 2 : m.y + pinR * 2 + pismo * 0.8}
-						text-anchor="middle"
+						x={m.x + (m.popisekPosun?.dx ?? 0)}
+						y={
+							m.popisekPosun
+								? m.y + m.popisekPosun.dy
+								: i % 2 === 0
+									? m.y - pinR * 2
+									: m.y + pinR * 2 + pismo * 0.8
+						}
+						text-anchor={m.popisekPosun?.kotva ?? 'middle'}
 						font-size={pismo}
 						stroke-width={pismo / 5}
 					>

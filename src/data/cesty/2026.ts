@@ -40,6 +40,7 @@ export const rok2026: Rok = {
 			datum: '8. 7. 2026',
 			x: 300.2,
 			y: 364.8,
+			popisekPosun: { dx: 0, dy: 3.6, kotva: 'middle' },
 			videoId: 'u4NmKbMRhiE',
 			popis: {
 				cs: 'Městečko na horním toku Dunaje v Bádensku-Württembersku, nedaleko místa, kde Dunaj po část roku mizí v podzemí (Donauversinkung).',
@@ -54,6 +55,7 @@ export const rok2026: Rok = {
 			datum: '10. 7. 2026',
 			x: 281.4,
 			y: 365.8,
+			popisekPosun: { dx: 2.2, dy: 1.2, kotva: 'start' },
 			videoId: '9Sv4exafb-c',
 			popis: {
 				cs: 'Obec na severozápadním okraji Belfortu ve Franche-Comté. Nad ní se zvedá zalesněný vrch Salbert s pevností Fort du Salbert ze 70. let 19. století (součást belfortského opevnění) a výhledem na město i Vogézy.',
@@ -68,6 +70,7 @@ export const rok2026: Rok = {
 			datum: 'červenec 2026',
 			x: 281.1,
 			y: 363.2,
+			popisekPosun: { dx: 2.2, dy: 0.6, kotva: 'start' },
 			videoId: 'Tlnc-YigfTw',
 			popis: {
 				cs: 'Městečko na horním toku Mosely ve Vogézách. Proslulo měděnými doly lotrinských vévodů (Les Hautes-Mynes), kde se těžilo od 16. do 18. století — dnes se dají navštívit.',
@@ -82,6 +85,7 @@ export const rok2026: Rok = {
 			datum: '14. 7. 2026',
 			x: 280.3,
 			y: 362.6,
+			popisekPosun: { dx: -2.2, dy: 0.6, kotva: 'end' },
 			videoId: 'nBnRJsLpsCg',
 			popis: {
 				cs: 'Obec roztažená podél horní Mosely mezi Remiremontem a Le Thillot. Zastihli jsme tu oslavy státního svátku 14. července — výročí dobytí Bastily — s průvodem místních hasičů.',
@@ -96,6 +100,7 @@ export const rok2026: Rok = {
 			datum: '17. 7. 2026',
 			x: 281.6,
 			y: 363.5,
+			popisekPosun: { dx: -6, dy: -2.9, kotva: 'middle' },
 			videoId: 'swDAmX8BRJA',
 			popis: {
 				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo: reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',

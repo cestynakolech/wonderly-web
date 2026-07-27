@@ -3521,6 +3521,18 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je světelný rok?', odpovedi: ['vzdálenost, kterou světlo urazí za rok', 'doba jednoho roku', 'stáří hvězdy'], vysvetleni: 'Je to jednotka vzdálenosti (9,46 bilionu km).' },
 		{ text: 'Co říká Keplerův zákon o rychlosti planety?', odpovedi: ['čím blíž ke Slunci, tím rychleji se pohybuje', 'všechny planety jsou stejně rychlé', 'daleko od Slunce je rychlejší'], vysvetleni: 'Planety obíhají po elipsách.' },
 	],
+	'fyzika/9-rocnik/energie-a-vesmir/vesmir-a-galaxie': [
+		{ text: 'Kdy vznikl vesmír?', odpovedi: ['před ~13,8 miliardami let', 'před 4,5 miliardami let', 'před 100 000 lety'], vysvetleni: '4,5 miliardy let je stáří Slunce a Země, ne celého vesmíru.' },
+		{ text: 'Jak se jmenuje událost, kterou vesmír vznikl?', odpovedi: ['velký třesk', 'supernova', 'velké slučování'], vysvetleni: 'Vesmír vznikl z extrémně hustého a horkého stavu.' },
+		{ text: 'Které prvky ve vesmíru vznikly jako první?', odpovedi: ['vodík a helium', 'železo a zlato', 'kyslík a uhlík'], vysvetleni: 'Nejlehčí prvky; těžší vznikají až ve hvězdách.' },
+		{ text: 'Kdy vznikly neutrální atomy?', odpovedi: ['asi 380 000 let po velkém třesku', 'okamžitě při velkém třesku', 'až se vznikem Země'], vysvetleni: 'Elektrony se spojily s jádry a vesmír se stal průhledným.' },
+		{ text: 'Co je galaxie?', odpovedi: ['obrovské seskupení hvězd, plynu a prachu', 'jiné jméno pro sluneční soustavu', 'mlhovina kolem jedné hvězdy'], vysvetleni: 'Drží ji pohromadě gravitace.' },
+		{ text: 'Co drží galaxii pohromadě?', odpovedi: ['gravitace', 'magnetická síla', 'tlak světla'], vysvetleni: 'Stejná síla, která drží planety u Slunce.' },
+		{ text: 'Jaká je naše galaxie Mléčná dráha?', odpovedi: ['spirální s příčkou', 'eliptická', 'nepravidelná'], vysvetleni: 'Slunce leží v jednom ze spirálních ramen.' },
+		{ text: 'Jaký průměr má Mléčná dráha?', odpovedi: ['asi 100 000 světelných let', 'asi 100 000 kilometrů', 'asi 8 světelných minut'], vysvetleni: '8 světelných minut je vzdálenost Země–Slunce.' },
+		{ text: 'Co bývá ve středu mnoha galaxií?', odpovedi: ['obří černá díra', 'největší planeta', 'prázdný prostor'], vysvetleni: 'I v centru Mléčné dráhy je supermasivní černá díra.' },
+		{ text: 'Co dokazuje, že se vesmír rozpíná?', odpovedi: ['rudý posuv světla vzdálených galaxií', 'modrá barva oblohy', 'střídání dne a noci'], vysvetleni: 'Čím dál galaxie je, tím rychleji se vzdaluje (Hubbleův zákon).' },
+	],
 	'informatika/7-rocnik/programovani-podminky-udalosti/opakovani-s-podminkou': [
 		{ text: 'Co je v programování podmínka?', odpovedi: ['otázka, na kterou je odpověď ANO/NE', 'libovolné číslo', 'název programu'], vysvetleni: 'Např. „dotýká se okraje?" — je splněna, nebo ne.' },
 		{ text: 'Co dělá blok „opakuj, dokud nenastane…"?', odpovedi: ['opakuje příkazy, dokud podmínka není splněna', 'opakuje příkazy přesně 10krát', 'ukončí program'], vysvetleni: 'Počet opakování dopředu neznáme — rozhoduje podmínka.' },

@@ -3715,6 +3715,42 @@ export const temata: Record<string, Tema[]> = {
 							<li>Pohyb planet popisují <strong>Keplerovy zákony</strong>: planety obíhají po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.</li>
 						</ul>
 					`,
+					odkazy: [
+						{ nazev: 'Video: Planety vnitřní (kamenné) — fyzika 9 ZŠ (Petr Němec)', url: 'https://www.youtube.com/watch?v=9K0boEQVY-s' },
+						{ nazev: 'Video: Planety vnější (plynní obři) — fyzika 9 ZŠ (Petr Němec)', url: 'https://www.youtube.com/watch?v=FVnJjclojns' },
+					],
+				},
+				{
+					slug: 'vesmir-a-galaxie',
+					nazev: 'Vesmír a jeho vznik, galaxie',
+					obsah: `
+						<h2>Vesmír a jeho vznik</h2>
+						<p>Vesmír vznikl před přibližně <strong>13,8 miliardami let</strong> z extrémně hustého a horkého stavu. Této události říkáme <strong>velký třesk</strong>.</p>
+						<h3>Jak šel vývoj vesmíru za sebou</h3>
+						<ol>
+							<li><strong>Velký třesk</strong> — vesmír vznikl z velmi malého, hustého a horkého bodu</li>
+							<li><strong>Rychlé rozpínání</strong> — vesmír se okamžitě začal zvětšovat (a rozpíná se dodnes)</li>
+							<li><strong>Vznik částic</strong> — po krátké chvíli se vytvořily protony a neutrony</li>
+							<li><strong>Tvorba lehkých prvků</strong> — z částic vznikala jádra nejlehčích prvků, hlavně vodíku a helia</li>
+							<li><strong>Horké plazma</strong> — vesmír byl dlouho plný směsi nabitých částic a světla</li>
+							<li><strong>Vznik atomů</strong> — asi po 380 000 letech se elektrony spojily s jádry do neutrálních atomů a vesmír se stal průhledným</li>
+						</ol>
+						<h3>Galaxie</h3>
+						<ul>
+							<li><strong>Galaxie</strong> je obrovské seskupení hvězd, plynu a prachu, které drží pohromadě <strong>gravitace</strong>.</li>
+							<li>Ve středu mnoha galaxií se nachází obří <strong>černá díra</strong>.</li>
+							<li>Podle tvaru rozlišujeme galaxie <strong>spirální, eliptické, čočkovité a nepravidelné</strong>.</li>
+						</ul>
+						<h3>Naše galaxie — Mléčná dráha</h3>
+						<ul>
+							<li>je to <strong>spirální galaxie s příčkou</strong></li>
+							<li>průměr má zhruba <strong>100 000 světelných let</strong></li>
+							<li>obsahuje řádově <strong>stovky miliard hvězd</strong> (uvádí se kolem 300 miliard)</li>
+							<li><strong>Slunce</strong> leží v jednom ze spirálních ramen — je to jedna obyčejná hvězda z mnoha</li>
+						</ul>
+						<h3>Vesmír se rozpíná</h3>
+						<p>Vzdálené galaxie se od nás vzdalují — jejich světlo je posunuté k červené barvě (<strong>rudý posuv</strong>). Čím je galaxie dál, tím rychleji se vzdaluje (<strong>Hubbleův zákon</strong>). Právě to je hlavní důkaz, že se vesmír stále <strong>rozpíná</strong>.</p>
+					`,
 				},
 			],
 		},
