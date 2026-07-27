@@ -41,3 +41,17 @@ Vysvětlení sloupců:
 2. Podíl kol, kde build prošel na první pokus.
 3. Počet odložených úkolů („zaseklo se").
 4. Kolik kol skončilo bez zásahu učitele (cíl: co nejvíc).
+5. **Podíl přijaté práce** — kolik z toho, co workeři vyrobili, se opravdu použilo
+   (kolo 28: kvíz 4 ze 6 = 67 %, výklad 100 %, simulace 100 % po 1 opravě).
+   Když podíl spadne pod 50 %, paralelní workeři se přestávají vyplácet — kontrola
+   a přepisování sežerou víc, než se ušetřilo. Tohle je hlavní číslo retrospektivy.
+
+## Co NEpřebírat z článků o „loops" (rozhodnuto 27. 7.)
+
+- **Cizí služby typu Mira/Telegram** — placené nadstavby, které náš projekt nepotřebuje;
+  automaty deníku (LaunchAgenty) už dělají totéž a zdarma.
+- **Desítky agentů naráz** — RAM Macu i cena; strop zůstává 4 workeři.
+- **Cron/plán pro kola webu** — obsah pro děti chce dohled učitele; automatizované jsou
+  jen technické úlohy (fotky, videa, nahrávání), ne tvorba učiva.
+- Naopak PŘEVZATO: tvrdá brána před buildem (`zkontroluj.mjs`) a oddělení
+  autora od kontrolora (pátý worker po merge) — obojí zapsáno ve skillu `/simulace`.
