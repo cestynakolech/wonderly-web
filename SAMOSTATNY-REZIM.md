@@ -1,12 +1,14 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
 ## ⏩ KDE POKRAČOVAT (27. 7. 2026)
-Hotovo 32 kol (38 simulací, 37 videí). Vytěženo: „SVĚTELNÉ JEVY 7" celá,
-z „Fyzika opakování rok 6" čtení stupnice (30) i převody jednotek (31),
-„Dráha puzzle" jako simulace ozobota (32).
-DALŠÍ KOLO (33): zbývají prezentace F6 **„Stavba látek" (snímky 4+) a „TEPLOTA"
+Hotovo 33 kol (38 simulací, 347 kvízových otázek, 37 videí). Vytěženo:
+„SVĚTELNÉ JEVY 7" celá, z „Fyzika opakování rok 6" čtení stupnice (30)
+i převody jednotek (31), „Dráha puzzle" jako simulace ozobota (32),
+kvízy F6 dorovnány na nové učivo (33).
+DALŠÍ KOLO (34): zbývají prezentace F6 **„Stavba látek" (snímky 4+) a „TEPLOTA"
 (snímky 2–10)** — obojí jsou jen obrázky bez textu, takže je nutné je otevřít
 přes vision (skill pptx nebo export snímků) a najít, co web ještě nemá.
+**Doporučeno začít v ČERSTVÉ session** — obrázky spotřebují hodně kontextu.
 Pozn.: dilatační spáry a mosty už výklad `teplotni-roztaznost` obsahuje, chybí
 jen kompenzátor (expanzní smyčka) na potrubí — malý doplněk, ne celé kolo.
 Dále: média k Fyzice 6 (infografiky/písně).
@@ -50,6 +52,13 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-27 (kolo 33): **Kvízy F6 doplněny o učivo nových simulací** (+15 otázek, celkem 347):
+  délka 16→21 (hodnota dílku, dělí se MEZERAMI ne čárkami, nula stupnice u začátku tělesa,
+  2,5 dm = 25 cm), hmotnost 13→18 (směr převodu — na menší jednotku číslo roste, dag, mg, t),
+  čas 15→20 (obvod = dráha robota × obsah = plocha uvnitř, délka dráhy z dílků, rychlost 80 cm
+  za 20 s, 2,5 min = 150 s, 0,5 dne = 12 h). Všech 12 výpočtů ověřeno, správná odpověď vždy
+  první, každá otázka má vysvětlení. Pravidlo z METRIKY-KOL: co přidá simulace, musí umět
+  i kvíz.
 - 2026-07-27 (kolo 32): **OzobotSimulace** — dráha ozobota (F6 cas/cas-a-jeho-mereni, dle zadání
   praktické hodiny „Dráha puzzle.pptx" ze složky 6/05 Čas): obdélníková dráha ze stavebnicových
   dílků, posuvníky rozměrů, délky dílku a naměřeného času; počítá obvod (= dráhu), obsah (plocha
