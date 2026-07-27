@@ -55,7 +55,7 @@ export const rok2026: Rok = {
 			datum: '10. 7. 2026',
 			x: 281.4,
 			y: 365.8,
-			popisekPosun: { dx: 2.2, dy: 1.2, kotva: 'start' },
+			popisekPosun: { dx: 0, dy: 3.6, kotva: 'middle' },
 			videoId: '9Sv4exafb-c',
 			popis: {
 				cs: 'Obec na severozápadním okraji Belfortu ve Franche-Comté. Nad ní se zvedá zalesněný vrch Salbert s pevností Fort du Salbert ze 70. let 19. století (součást belfortského opevnění) a výhledem na město i Vogézy.',
