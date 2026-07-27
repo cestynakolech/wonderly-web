@@ -1,0 +1,211 @@
+---
+// Čtení stupnice měřidla — procvičení dovednosti z prezentace učitele
+// „Fyzika opakování rok 6" (snímek 16 měřidla a rozsah, snímek 19 odměrný válec:
+// 250 − 200 = 50 ml, 10 dílků → 50 : 10 = 5 ml).
+// Žák nejprve určí hodnotu nejmenšího dílku, potom teprve odečte naměřenou hodnotu.
+// Scény odpovídají skutečnosti: pravítko leží pod měřeným předmětem, voda ve válci
+// je dole, teploměr má baňku dole a sloupec stoupá vzhůru.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Nauč se číst stupnici měřidla 🕹️</span></h2>
+	<p>Než něco odečteš, musíš vědět, <strong>kolik znamená jeden dílek</strong>. Postup je vždy stejný: vezmi dvě <em>popsané</em> čárky, odečti je od sebe a vyděl <strong>počtem mezer</strong> mezi nimi (ne počtem čárek!).</p>
+	<svg id="stup-svg" viewBox="0 0 700 320" role="img" aria-label="Měřidlo se stupnicí — pravítko, odměrný válec nebo teploměr">
+		<g id="stup-scena"></g>
+	</svg>
+	<p class="stup-zadani" id="stup-zadani"></p>
+
+	<div class="stup-krok" id="stup-krok1">
+		<p class="stup-otazka"><strong>1. krok:</strong> Jakou hodnotu má jeden nejmenší dílek?</p>
+		<p id="stup-volby1"></p>
+	</div>
+	<div class="stup-krok" id="stup-krok2" hidden>
+		<p class="stup-otazka"><strong>2. krok:</strong> <span id="stup-otazka2"></span></p>
+		<p id="stup-volby2"></p>
+	</div>
+
+	<p class="stup-hlaska" id="stup-hlaska"></p>
+	<p><button type="button" class="stup-tl stup-dalsi" id="stup-dalsi">Další příklad 🎲</button></p>
+</section>
+
+<script>
+	const scena = document.getElementById('stup-scena');
+	const zadaniEl = document.getElementById('stup-zadani');
+	const volby1El = document.getElementById('stup-volby1');
+	const volby2El = document.getElementById('stup-volby2');
+	const krok2El = document.getElementById('stup-krok2');
+	const otazka2El = document.getElementById('stup-otazka2');
+	const hlaskaEl = document.getElementById('stup-hlaska');
+
+	const SVG = 'http://www.w3.org/2000/svg';
+	// české číslo: desetinná čárka a typografické minus (−20 °C, ne -20 °C)
+	const cz = (x) => (Math.round(x * 100) / 100).toString().replace('.', ',').replace('-', '−');
+
+	// sady měřidel: krokHlavni = rozestup popsaných čárek, dilku = počet mezer mezi nimi
+	const SADY = [
+		{ druh: 'pravitko', nazev: 'pravítko', jednotka: 'mm', min: 0, max: 150, krokHlavni: 10, dilku: 10, popisJedn: 'cm', delitelPopisu: 10, velicina: 'délku tužky', znacka: 'l' },
+		{ druh: 'pravitko', nazev: 'pravítko', jednotka: 'mm', min: 0, max: 150, krokHlavni: 10, dilku: 5, popisJedn: 'cm', delitelPopisu: 10, velicina: 'délku tužky', znacka: 'l' },
+		{ druh: 'valec', nazev: 'odměrný válec', jednotka: 'ml', min: 0, max: 250, krokHlavni: 50, dilku: 10, popisJedn: 'ml', delitelPopisu: 1, velicina: 'objem vody', znacka: 'V' },
+		{ druh: 'valec', nazev: 'odměrný válec', jednotka: 'ml', min: 0, max: 500, krokHlavni: 100, dilku: 5, popisJedn: 'ml', delitelPopisu: 1, velicina: 'objem vody', znacka: 'V' },
+		{ druh: 'teplomer', nazev: 'teploměr', jednotka: '°C', min: -20, max: 50, krokHlavni: 10, dilku: 5, popisJedn: '°C', delitelPopisu: 1, velicina: 'teplotu', znacka: 't' },
+		{ druh: 'teplomer', nazev: 'teploměr', jednotka: '°C', min: 0, max: 50, krokHlavni: 5, dilku: 5, popisJedn: '°C', delitelPopisu: 1, velicina: 'teplotu', znacka: 't' },
+	];
+
+	let sada, dilek, hodnota, krok1Hotov;
+
+	function el(jmeno, atributy, text) {
+		const e = document.createElementNS(SVG, jmeno);
+		for (const [k, v] of Object.entries(atributy)) e.setAttribute(k, v);
+		if (text !== undefined) e.textContent = text;
+		scena.appendChild(e);
+		return e;
+	}
+
+	// ── vykreslení scény ────────────────────────────────────────────────────
+	function nakresli() {
+		scena.textContent = '';
+		const { druh, min, max, krokHlavni, delitelPopisu, popisJedn } = sada;
+		const pocet = Math.round((max - min) / dilek);
+
+		if (druh === 'pravitko') {
+			const X0 = 60, DELKA = 580, Y = 210;                 // pravítko leží vodorovně
+			const poz = (v) => X0 + ((v - min) / (max - min)) * DELKA;
+			// měřená tužka leží NA pravítku (nad ním), začíná přesně u nuly
+			const xk = poz(hodnota);
+			el('line', { x1: X0, y1: 150, x2: xk - 14, y2: 150, stroke: '#f59f00', 'stroke-width': 16, 'stroke-linecap': 'butt' });
+			el('polygon', { points: `${(xk - 14).toFixed(1)},142 ${(xk - 14).toFixed(1)},158 ${xk.toFixed(1)},150`, fill: '#495057' });
+			el('rect', { x: X0, y: 118, width: 26, height: 64, fill: '#e8590c', opacity: '0.9' });
+			el('text', { x: X0 + DELKA / 2, y: 108, 'font-size': 13, 'font-weight': 'bold', fill: '#495057', 'text-anchor': 'middle' }, 'měřená tužka leží na pravítku, začátek přesně u nuly');
+			// těleso pravítka
+			el('rect', { x: X0 - 12, y: Y, width: DELKA + 24, height: 62, fill: '#ffec99', stroke: '#2b2a26', 'stroke-width': 3, rx: 6 });
+			for (let i = 0; i <= pocet; i++) {
+				const v = min + i * dilek;
+				const hlavni = Math.abs(v % krokHlavni) < 1e-9;
+				const x = poz(v);
+				el('line', { x1: x, y1: Y, x2: x, y2: Y + (hlavni ? 24 : 12), stroke: '#2b2a26', 'stroke-width': hlavni ? 2.5 : 1.5 });
+				if (hlavni) el('text', { x, y: Y + 44, 'font-size': 14, 'font-weight': 'bold', fill: '#2b2a26', 'text-anchor': 'middle' }, String(v / delitelPopisu));
+			}
+			el('text', { x: X0 + DELKA + 6, y: Y + 44, 'font-size': 13, 'font-weight': 'bold', fill: '#495057' }, popisJedn);
+			return;
+		}
+
+		// svislá měřidla: dole minimum, nahoře maximum (voda i sloupec stoupají vzhůru)
+		const X = 300, Y0 = 285, VYSKA = 240;
+		const poz = (v) => Y0 - ((v - min) / (max - min)) * VYSKA;
+		const yh = poz(hodnota);
+
+		if (druh === 'valec') {
+			el('rect', { x: X - 45, y: yh, width: 90, height: Y0 - yh, fill: '#74c0fc', opacity: '0.85' });
+			el('ellipse', { cx: X, cy: yh, rx: 45, ry: 6, fill: '#4dabf7' });   // hladina
+			el('rect', { x: X - 45, y: Y0 - VYSKA - 14, width: 90, height: VYSKA + 14, fill: 'none', stroke: '#2b2a26', 'stroke-width': 3, rx: 4 });
+			el('text', { x: X, y: 32, 'font-size': 13, 'font-weight': 'bold', fill: '#495057', 'text-anchor': 'middle' }, 'na hladinu se dívej kolmo, ne shora');
+		} else {
+			el('circle', { cx: X, cy: Y0 + 18, r: 20, fill: '#e03131' });        // baňka dole
+			el('rect', { x: X - 6, y: yh, width: 12, height: Y0 + 18 - yh, fill: '#e03131' });
+			el('rect', { x: X - 10, y: Y0 - VYSKA - 14, width: 20, height: VYSKA + 22, fill: 'none', stroke: '#2b2a26', 'stroke-width': 3, rx: 8 });
+		}
+		for (let i = 0; i <= pocet; i++) {
+			const v = min + i * dilek;
+			const hlavni = Math.abs(v % krokHlavni) < 1e-9;
+			const y = poz(v);
+			const x1 = druh === 'valec' ? X + 45 : X + 10;
+			el('line', { x1, y1: y, x2: x1 + (hlavni ? 22 : 11), y2: y, stroke: '#2b2a26', 'stroke-width': hlavni ? 2.5 : 1.5 });
+			if (hlavni) el('text', { x: x1 + 28, y: y + 5, 'font-size': 14, 'font-weight': 'bold', fill: '#2b2a26' }, String(v / delitelPopisu));
+		}
+		el('text', { x: X + (druh === 'valec' ? 45 : 10) + 28, y: poz(max) - 14, 'font-size': 13, 'font-weight': 'bold', fill: '#495057' }, popisJedn);
+	}
+
+	// ── nové zadání ─────────────────────────────────────────────────────────
+	function nahodne(pole) { return pole[Math.floor(Math.random() * pole.length)]; }
+
+	function novyPriklad() {
+		sada = nahodne(SADY);
+		dilek = sada.krokHlavni / sada.dilku;
+		const kroku = Math.round((sada.max - sada.min) / dilek);
+		// hodnota nesmí padnout přesně na okraj (u válce ani na dno)
+		const od = sada.druh === 'valec' ? Math.ceil(kroku * 0.15) : 2;
+		// hodnota nesmí padnout přesně na popsanou čárku — jinak by se dílky nemusely počítat
+		do {
+			hodnota = sada.min + (od + Math.floor(Math.random() * (kroku - od - 1))) * dilek;
+		} while (Math.abs(hodnota % sada.krokHlavni) < 1e-9);
+		krok1Hotov = false;
+
+		nakresli();
+		zadaniEl.innerHTML = `Před tebou je <strong>${sada.nazev}</strong> s měřicím rozsahem `
+			+ `<strong>${cz(sada.min / sada.delitelPopisu)} až ${cz(sada.max / sada.delitelPopisu)} ${sada.popisJedn}</strong>. `
+			+ `Mezi dvěma popsanými čárkami je <strong>${sada.dilku} ${sada.dilku < 5 ? 'mezery' : 'mezer'}</strong>.`;
+		otazka2El.textContent = `Urči ${sada.velicina}.`;
+		krok2El.hidden = true;
+		hlaskaEl.textContent = '';
+
+		// možnosti pro dílek: správně + dvě typické chyby
+		const chybaPolovina = dilek * 2;            // přehlédl polovinu dílků (počítal jen dlouhé čárky)
+		const chybaBezDeleni = sada.krokHlavni;     // dílek = rozestup popsaných čárek (zapomněl dělit)
+		nabidka(volby1El, dilek, [chybaPolovina, chybaBezDeleni], sada.jednotka, overDilek);
+	}
+
+	function nabidka(kam, spravne, chyby, jednotka, akce) {
+		const mozne = [spravne, ...chyby.filter((c) => Math.abs(c - spravne) > 1e-9)];
+		const unikatni = [...new Set(mozne.map((m) => Math.round(m * 1000)))].map((m) => m / 1000).slice(0, 3);
+		unikatni.sort(() => Math.random() - 0.5);
+		kam.textContent = '';
+		unikatni.forEach((v) => {
+			const b = document.createElement('button');
+			b.type = 'button';
+			b.className = 'stup-tl';
+			b.textContent = cz(v) + ' ' + jednotka;
+			b.addEventListener('click', () => akce(v, b));
+			kam.appendChild(b);
+		});
+	}
+
+	function overDilek(v, tlacitko) {
+		if (Math.abs(v - dilek) > 1e-9) {
+			tlacitko.classList.add('stup-spatne');
+			hlaskaEl.innerHTML = Math.abs(v - sada.krokHlavni) < 1e-9
+				? `❌ To je rozestup <strong>popsaných</strong> čárek. Ten se musí ještě vydělit počtem mezer mezi nimi (${sada.dilku}).`
+				: `❌ To ne. Přepočítej mezery mezi dvěma popsanými čárkami — jsou tam i krátké čárky mezi nimi.`;
+			return;
+		}
+		tlacitko.classList.add('stup-dobre');
+		krok1Hotov = true;
+		hlaskaEl.innerHTML = `✅ Správně! Dvě popsané čárky se liší o ${cz(sada.krokHlavni)} ${sada.jednotka}`
+			+ ` a je mezi nimi ${sada.dilku} mezer &nbsp;→&nbsp; <strong>${cz(sada.krokHlavni)} : ${sada.dilku} = ${cz(dilek)} ${sada.jednotka}</strong>.`;
+		krok2El.hidden = false;
+		// možnosti pro naměřenou hodnotu: správně + o dílek vedle + o celý hlavní krok vedle
+		nabidka(volby2El, hodnota, [hodnota + dilek, hodnota - sada.krokHlavni], sada.jednotka, overHodnotu);
+	}
+
+	function overHodnotu(v, tlacitko) {
+		if (!krok1Hotov) return;
+		if (Math.abs(v - hodnota) > 1e-9) {
+			tlacitko.classList.add('stup-spatne');
+			hlaskaEl.innerHTML = `❌ Ještě ne. Najdi nejbližší <strong>popsanou</strong> čárku pod hodnotou a odtud přičítej po ${cz(dilek)} ${sada.jednotka}.`;
+			return;
+		}
+		tlacitko.classList.add('stup-dobre');
+		const hlavniPod = Math.floor(hodnota / sada.krokHlavni) * sada.krokHlavni;
+		const kolik = Math.round((hodnota - hlavniPod) / dilek);
+		const postup = kolik === 0
+			? `Hodnota leží přesně na popsané čárce`
+			: `Od popsané čárky ${cz(hlavniPod / sada.delitelPopisu)} ${sada.popisJedn}`
+			  + ` je to ještě ${kolik} ${kolik === 1 ? 'dílek' : kolik < 5 ? 'dílky' : 'dílků'} po ${cz(dilek)} ${sada.jednotka}`;
+		hlaskaEl.innerHTML = `🎉 Přesně tak! ${postup} &nbsp;→&nbsp; zápis <strong>${sada.znacka} = ${cz(hodnota)} ${sada.jednotka}</strong>.`;
+	}
+
+	document.getElementById('stup-dalsi').addEventListener('click', novyPriklad);
+	novyPriklad();
+</script>
+
+<style>
+	#stup-svg { width: 100%; max-width: 700px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.stup-zadani { font-size: 1.05rem; margin-top: 0.8rem; }
+	.stup-krok { margin: 0.6rem 0; }
+	.stup-otazka { margin-bottom: 0.3rem; }
+	.stup-tl { font: inherit; font-weight: 700; padding: 0.35rem 0.9rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.stup-tl:active { transform: translateY(1px); }
+	.stup-tl.stup-dobre { background: #b2f2bb; }
+	.stup-tl.stup-spatne { background: #ffc9c9; }
+	.stup-dalsi { background: #ffe8cc; }
+	.stup-hlaska { font-size: 1.05rem; font-weight: 700; min-height: 2.4rem; }
+</style>
