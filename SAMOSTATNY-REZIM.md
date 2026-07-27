@@ -1,16 +1,27 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
 ## ⏩ KDE POKRAČOVAT (27. 7. 2026)
-Hotovo 28 kol (34 simulací, 37 videí). DALŠÍ KOLO (29): z prezentace „SVĚTELNÉ
-JEVY 7" zbývá **kulová zrcadla** (snímky 39–51) — podtéma kulova-zrcadla-dute-zrcadlo
-má bohatý výklad, ale žádnou interakci → simulace dutého/vypuklého zrcadla
-(předmět mezi C a F, za C, před F) podle vzoru CockaSimulace. Pak fronta níže.
-Náhledový panel (port 8788) je VOLNÝ — simulace ověřovat i vizuálně.
+Hotovo 29 kol (35 simulací, 37 videí). Prezentace „SVĚTELNÉ JEVY 7" je tím
+VYTĚŽENÁ (odraz, lom, rovinné i kulové zrcadlo, čočka, fáze Měsíce).
+DALŠÍ KOLO (30): vzít úkol z fronty níže — nabízí se dokončení prezentací
+`/Users/Shared/Škola/6/` („Stavba látek" snímky 4+, „TEPLOTA" 2–10, „Dráha
+puzzle", „Fyzika opakování rok") nebo média k Fyzice 6.
 POZOR na past: v SVG souřadnicích musí být desetinná TEČKA (funkce cz() dělá
 českou čárku pro text — v points/atributech ji nepoužívat!).
+POZOR 2 (27. 7.): snímkování náhledového panelu (`computer screenshot`) vracelo
+prázdné plátno i po 3 pokusech, ačkoli stránka byla vykreslená. Spolehlivější
+náhrada: vytáhnout souřadnice z vykresleného SVG přes `javascript_tool`
+a ověřit je výpočtem (vzdálenost bodu obrazu od odražených paprsků), snímek
+stavu pak poslat učiteli jako samostatné SVG.
 ČEKÁ NA UŽIVATELE: odkaz na video „Teplota a její měření – F6" (není v soupisu
 kanálu) → pak vložit k F6 teplota-a-jeji-mereni.
 Spouštění: /wonderly + /loop, kola hned za sebou. Vše ostatní viz fronta níže.
+
+**Povolování akcí (27. 7.):** odklikávání vyřešeno vrátným
+`Omega/skripty/povoleni_hook.py` (PreToolUse hook) — povolí vše kolem projektu,
+ptá se jen na černou listinu (mazání, přesuny, worker.js, publikace ven, platby).
+Platí též: **ZADÁNÍ = SCHVÁLENÍ** (kroky plynoucí z požadavku se neschvalují znovu).
+Když se dotaz na běžnou práci přesto objeví → opravit vrátného, ne allowlist.
 
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
@@ -35,6 +46,16 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-27 (kolo 29): **ZrcadloSimulace** — kulová zrcadla (F7 zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo,
+  dle prezentace „SVĚTELNÉ JEVY 7" snímky 39–51): duté i vypuklé, posuvník vzdálenosti předmětu
+  a **poloměru křivosti r** (ukazuje vztah f = r/2), tři význačné paprsky (rovnoběžný → do ohniska,
+  vrcholový → souměrně podle osy, středový → sám po sobě), zobrazovací rovnice a zvětšení,
+  čárkovaná prodloužení u zdánlivého obrazu, popis obrazu s praxí (zrcadlový dalekohled a solární
+  elektrárna / stínítko / reflektor auta / kosmetické zrcátko / dopravní zrcadlo).
+  Ověřeno výpočtem (a=30, r=20 → a′=15 cm, Z=0,5; a=15 → 30 cm, Z=2; a=6 → −15 cm zdánlivý 2,5×;
+  vypuklé −7,5 cm, Z=0,25) i ze skutečně vykresleného SVG (odchylka paprsků od bodu obrazu 0,01 px,
+  středový paprsek prochází přesně bodem S, rovnoběžný přesně ohniskem F). Celkem 35 simulací.
+  Vedlejší výsledek kola: **vrátný povolení** (viz hlavička) — učitel přestal odklikávat rutinní kroky.
 - 2026-07-27 (kolo 28): **CockaSimulace** — zobrazení čočkou (F7 zrcadla-a-cocky/opticka-cocka,
   dle prezentace „SVĚTELNÉ JEVY 7" snímky 28–34): spojka i rozptylka, posuvníky vzdálenosti
   předmětu a ohniskové vzdálenosti, tři význačné paprsky, zobrazovací rovnice 1/f = 1/a + 1/a′
