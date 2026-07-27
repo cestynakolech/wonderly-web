@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
 ## ⏩ KDE POKRAČOVAT (27. 7. 2026)
-Hotovo 31 kol (37 simulací, 37 videí). Prezentace „SVĚTELNÉ JEVY 7" VYTĚŽENÁ;
-z „Fyzika opakování rok 6" vytěženo čtení stupnice (kolo 30) i převody jednotek
-(kolo 31).
-DALŠÍ KOLO (32): z „Fyzika opakování rok 6" zbývají snímky 32 a 34 — **dilatační
-spára u kolejnic a kompenzátor (expanzní smyčka) na potrubí**, konkrétní praktické
-příklady teplotní roztažnosti; na webu jsou jen 2 zmínky, u F6 teplota-a-jeji-mereni
-by se hodil rozšířený výklad (případně s jednoduchou animací mostu/kolejnic).
-Pak „Stavba látek" snímky 4+ a „TEPLOTA" 2–10 (obojí jen obrázky → potřeba vision)
-a média k Fyzice 6.
+Hotovo 32 kol (38 simulací, 37 videí). Vytěženo: „SVĚTELNÉ JEVY 7" celá,
+z „Fyzika opakování rok 6" čtení stupnice (30) i převody jednotek (31),
+„Dráha puzzle" jako simulace ozobota (32).
+DALŠÍ KOLO (33): zbývají prezentace F6 **„Stavba látek" (snímky 4+) a „TEPLOTA"
+(snímky 2–10)** — obojí jsou jen obrázky bez textu, takže je nutné je otevřít
+přes vision (skill pptx nebo export snímků) a najít, co web ještě nemá.
+Pozn.: dilatační spáry a mosty už výklad `teplotni-roztaznost` obsahuje, chybí
+jen kompenzátor (expanzní smyčka) na potrubí — malý doplněk, ne celé kolo.
+Dále: média k Fyzice 6 (infografiky/písně).
 POZOR na past: v SVG souřadnicích musí být desetinná TEČKA (funkce cz() dělá
 českou čárku pro text — v points/atributech ji nepoužívat!).
 POZOR 2 (27. 7.): snímkování náhledového panelu (`computer screenshot`) vracelo
@@ -50,6 +50,15 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-27 (kolo 32): **OzobotSimulace** — dráha ozobota (F6 cas/cas-a-jeho-mereni, dle zadání
+  praktické hodiny „Dráha puzzle.pptx" ze složky 6/05 Čas): obdélníková dráha ze stavebnicových
+  dílků, posuvníky rozměrů, délky dílku a naměřeného času; počítá obvod (= dráhu), obsah (plocha
+  uvnitř, po které robot NEjede — právě tady děti chybují) a rychlost v cm/s, m/s i km/h. Značky
+  start / zrychlit / zatáčka / zpomalit / cíl přesně podle zadání. Robot objede obvod právě za
+  nastavený čas. Ověřeno: 4 sady výpočtů přesně, dráha ověřena výpočtem (rohy sedí, pohyb spojitý
+  max skok 0,9 px, za kolo ujede 920 px = přesně obvod). **Poznatek:** náhled běží jako skrytá
+  záložka (`visibilityState: hidden`), takže `requestAnimationFrame` se NEVOLÁ vůbec (0×/s) —
+  animované prvky proto vždy umístit i staticky (robot stojí na startu), jinak nejsou vidět.
 - 2026-07-27 (kolo 31): **PrevodySimulace** — trenažér převodů jednotek (F6 fyzikalni-veliciny/hmotnost,
   dle prezentace „Fyzika opakování rok 6" snímek 22 — pyramida ·1000 a :1000): žebřík jednotek
   se zvýrazněnou cestou a koeficienty, 4 veličiny (délka, hmotnost, objem a schválně i **čas**
