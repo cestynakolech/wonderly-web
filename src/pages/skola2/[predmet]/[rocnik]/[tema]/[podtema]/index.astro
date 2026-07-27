@@ -39,6 +39,7 @@ import TlakSimulace from '../../../../../../components/skola2/TlakSimulace.astro
 import CockaSimulace from '../../../../../../components/skola2/CockaSimulace.astro';
 import ZrcadloSimulace from '../../../../../../components/skola2/ZrcadloSimulace.astro';
 import StupniceSimulace from '../../../../../../components/skola2/StupniceSimulace.astro';
+import PrevodySimulace from '../../../../../../components/skola2/PrevodySimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -204,6 +205,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'cocka' && <CockaSimulace />}
 	{podtema.interakce === 'zrcadlo' && <ZrcadloSimulace />}
 	{podtema.interakce === 'stupnice' && <StupniceSimulace />}
+	{podtema.interakce === 'prevody' && <PrevodySimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 

@@ -1,0 +1,208 @@
+---
+// Trenažér převodů jednotek — podle prezentace učitele „Fyzika opakování rok 6"
+// (snímek 22: pyramida ·1000 a :1000 u hmotnosti) a podle výkladu délky
+// („při převodu na menší jednotky přidáváme nuly, na větší je škrtáme").
+// Žebřík jednotek ukazuje, o kolik schodů a jakým číslem se násobí či dělí.
+// Čas je schválně mezi veličinami — nepřevádí se po desítkách, a právě v něm
+// děti chybují nejčastěji (1 h 18 min není 1,18 h).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Procvič si převody jednotek 🕹️</span></h2>
+	<p>Pravidlo je jednoduché: <strong>na menší jednotku</strong> → číslo se <strong>zvětší</strong> (násobíme), <strong>na větší jednotku</strong> → číslo se <strong>zmenší</strong> (dělíme). Na žebříku vidíš, kolika schody a jakým číslem.</p>
+	<p id="prev-rezimy">
+		<button type="button" class="prev-tl prev-aktivni" data-velicina="delka">délka</button>
+		<button type="button" class="prev-tl" data-velicina="hmotnost">hmotnost</button>
+		<button type="button" class="prev-tl" data-velicina="objem">objem</button>
+		<button type="button" class="prev-tl" data-velicina="cas">čas</button>
+	</p>
+
+	<div class="prev-zebrik" id="prev-zebrik"></div>
+
+	<p class="prev-zadani" id="prev-zadani"></p>
+	<p class="prev-odpoved">
+		<input type="text" id="prev-vstup" inputmode="decimal" autocomplete="off" placeholder="napiš číslo" aria-label="Výsledek převodu" />
+		<span id="prev-jednotka" class="prev-jedn"></span>
+		<button type="button" class="prev-tl" id="prev-zkontroluj">Zkontrolovat</button>
+		<button type="button" class="prev-tl" id="prev-napoveda">Ukázat postup 💡</button>
+		<button type="button" class="prev-tl prev-dalsi" id="prev-dalsi">Další příklad 🎲</button>
+	</p>
+	<p class="prev-hlaska" id="prev-hlaska"></p>
+	<p class="prev-skore" id="prev-skore"></p>
+</section>
+
+<script>
+	const zebrikEl = document.getElementById('prev-zebrik');
+	const zadaniEl = document.getElementById('prev-zadani');
+	const vstupEl = document.getElementById('prev-vstup');
+	const jednotkaEl = document.getElementById('prev-jednotka');
+	const hlaskaEl = document.getElementById('prev-hlaska');
+	const skoreEl = document.getElementById('prev-skore');
+
+	// koeficient = kolik nejmenších jednotek dané veličiny
+	const VELICINY = {
+		delka:    { nazev: 'délka',    jednotky: [['mm', 1], ['cm', 10], ['dm', 100], ['m', 1000], ['km', 1000000]] },
+		hmotnost: { nazev: 'hmotnost', jednotky: [['mg', 1], ['g', 1000], ['dag', 10000], ['kg', 1000000], ['t', 1000000000]] },
+		objem:    { nazev: 'objem',    jednotky: [['ml', 1], ['dl', 100], ['l', 1000], ['hl', 100000]] },
+		cas:      { nazev: 'čas',      jednotky: [['s', 1], ['min', 60], ['h', 3600], ['den', 86400]] },
+	};
+
+	// jediná jednotka, která se v češtině skloňuje: den (0,5 dne × 2 dny × 6 dnů)
+	function jmeno(index, hodnota) {
+		const znacka = VELICINY[velicina].jednotky[index][0];
+		if (znacka !== 'den' || hodnota === undefined) return znacka;
+		if (!Number.isInteger(hodnota)) return 'dne';
+		if (hodnota === 1) return 'den';
+		return hodnota >= 2 && hodnota <= 4 ? 'dny' : 'dnů';
+	}
+
+	let velicina = 'delka', iOd, iNa, zadano, spravne, vyreseno;
+	let hotovo = 0, spravnych = 0;
+
+	const cz = (x) => {
+		const zaokrouhleno = Math.round(x * 1000) / 1000;
+		return zaokrouhleno.toString().replace('.', ',');
+	};
+	// školní číslo: nejvýš 3 desetinná místa a rozumná velikost — ať zadání
+	// vypadá jako z hodiny (2,5 m; 1500 g), ne jako 0,004 l nebo 30000 s
+	const hezke = (x) => Math.abs(x - Math.round(x * 100) / 100) < 1e-9 && Math.abs(x) <= 10000 && Math.abs(x) >= 0.1;
+
+	// ── žebřík jednotek ─────────────────────────────────────────────────────
+	function nakresliZebrik() {
+		const jednotky = VELICINY[velicina].jednotky;
+		zebrikEl.textContent = '';
+		jednotky.forEach(([znacka, koef], i) => {
+			if (i > 0) {
+				const nasobek = koef / jednotky[i - 1][1];
+				const sipka = document.createElement('span');
+				const vCeste = iOd !== undefined && i > Math.min(iOd, iNa) && i <= Math.max(iOd, iNa);
+				sipka.className = 'prev-sipka' + (vCeste ? ' prev-v-ceste' : '');
+				sipka.innerHTML = `<span class="prev-koef">×${nasobek}</span>`;
+				zebrikEl.appendChild(sipka);
+			}
+			const b = document.createElement('span');
+			b.className = 'prev-jednotka'
+				+ (i === iOd ? ' prev-od' : '')
+				+ (i === iNa ? ' prev-na' : '');
+			b.textContent = znacka;
+			zebrikEl.appendChild(b);
+		});
+	}
+
+	// ── nové zadání ─────────────────────────────────────────────────────────
+	function novyPriklad() {
+		const jednotky = VELICINY[velicina].jednotky;
+		// hezké číslo zvolíme jako VÝSLEDEK a dopočítáme zadání; přijmeme jen dvojici,
+		// kde jsou školní obě čísla (jinak by vznikla zadání jako 0,004 l nebo 30000 s)
+		const zaklady = [1, 1.5, 2, 2.5, 3, 4, 5, 7.5, 10, 12, 15, 20, 25, 30, 45, 50, 60, 90, 100, 120, 250, 500];
+		let nalezeno = false;
+		for (let pokus = 0; pokus < 300 && !nalezeno; pokus++) {
+			const i = Math.floor(Math.random() * jednotky.length);
+			const posun = (Math.random() < 0.5 ? -1 : 1) * (1 + Math.floor(Math.random() * 2));
+			const j = i + posun;
+			if (j < 0 || j >= jednotky.length) continue;
+			const vysledek = zaklady[Math.floor(Math.random() * zaklady.length)];
+			const vstupniHodnota = vysledek * jednotky[j][1] / jednotky[i][1];
+			if (!hezke(vstupniHodnota) || !hezke(vysledek) || vstupniHodnota === vysledek) continue;
+			iOd = i; iNa = j; zadano = vstupniHodnota; spravne = vysledek; nalezeno = true;
+		}
+		if (!nalezeno) {                       // záloha, kdyby se nic nevešlo do rozsahu
+			iOd = 1; iNa = 0; zadano = 1; spravne = jednotky[1][1] / jednotky[0][1];
+		}
+		vyreseno = false;
+		nakresliZebrik();
+		zadaniEl.innerHTML = `Převeď <strong>${cz(zadano)} ${jmeno(iOd, zadano)}</strong> na <strong>${jednotky[iNa][0]}</strong>:`;
+		jednotkaEl.textContent = jednotky[iNa][0];
+		vstupEl.value = '';
+		vstupEl.classList.remove('prev-dobre', 'prev-spatne');
+		hlaskaEl.textContent = '';
+		vstupEl.focus();
+	}
+
+	function postup() {
+		const jednotky = VELICINY[velicina].jednotky;
+		const dolu = iNa < iOd;                      // na menší jednotku
+		const kroky = [];
+		const od = Math.min(iOd, iNa), na = Math.max(iOd, iNa);
+		for (let i = od + 1; i <= na; i++) kroky.push(jednotky[i][1] / jednotky[i - 1][1]);
+		const cislo = kroky.reduce((a, b) => a * b, 1);
+		return { dolu, kroky, cislo, znak: dolu ? '×' : ':' };
+	}
+
+	function zkontroluj() {
+		const psane = vstupEl.value.trim().replace(',', '.').replace(/\s/g, '');
+		if (psane === '') return;
+		const cislo = Number(psane);
+		if (!Number.isFinite(cislo)) {
+			hlaskaEl.innerHTML = '❓ To není číslo. Napiš třeba <strong>2,5</strong>.';
+			return;
+		}
+		const jednotky = VELICINY[velicina].jednotky;
+		const p = postup();
+		if (Math.abs(cislo - spravne) < 1e-9) {
+			vstupEl.classList.remove('prev-spatne');
+			vstupEl.classList.add('prev-dobre');
+			if (!vyreseno) { hotovo++; spravnych++; vyreseno = true; }
+			hlaskaEl.innerHTML = `✅ Správně! <strong>${cz(zadano)} ${jmeno(iOd, zadano)} = ${cz(spravne)} ${jmeno(iNa, spravne)}</strong>`
+				+ ` &nbsp;(${p.kroky.length === 1 ? 'jeden schod' : p.kroky.length + ' schody'} ${p.dolu ? 'dolů' : 'nahoru'}`
+				+ ` → ${p.znak} ${p.kroky.join(' ' + p.znak + ' ')}${p.kroky.length > 1 ? ' = ' + p.znak + ' ' + p.cislo : ''})`;
+			skore();
+			return;
+		}
+		vstupEl.classList.add('prev-spatne');
+		if (!vyreseno) { hotovo++; vyreseno = true; skore(); }
+		// poznáme typickou chybu: obrácený směr
+		const obracene = p.dolu ? zadano / p.cislo : zadano * p.cislo;
+		hlaskaEl.innerHTML = Math.abs(cislo - obracene) < 1e-9
+			? `❌ Máš to obráceně. Jdeš na <strong>${p.dolu ? 'menší' : 'větší'}</strong> jednotku, takže číslo musí být <strong>${p.dolu ? 'větší' : 'menší'}</strong> — ${p.dolu ? 'násob' : 'děl'} ${p.cislo}.`
+			: `❌ Ještě ne. Zkus to znovu, nebo si nech ukázat postup.`;
+	}
+
+	function ukazPostup() {
+		const jednotky = VELICINY[velicina].jednotky;
+		const p = postup();
+		hlaskaEl.innerHTML = `💡 Z <strong>${jednotky[iOd][0]}</strong> na <strong>${jednotky[iNa][0]}</strong>`
+			+ ` je to ${p.kroky.length === 1 ? 'jeden schod' : p.kroky.length + ' schody'} <strong>${p.dolu ? 'dolů' : 'nahoru'}</strong>`
+			+ ` → číslo se ${p.dolu ? 'ZVĚTŠÍ' : 'ZMENŠÍ'}: ${cz(zadano)} ${p.znak} ${p.cislo} = <strong>${cz(spravne)} ${jmeno(iNa, spravne)}</strong>.`;
+		vstupEl.value = '';
+	}
+
+	function skore() {
+		skoreEl.textContent = hotovo ? `Vyřešeno na první pokus: ${spravnych} z ${hotovo}` : '';
+	}
+
+	document.querySelectorAll('#prev-rezimy .prev-tl').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('#prev-rezimy .prev-tl').forEach((t) => t.classList.remove('prev-aktivni'));
+			tl.classList.add('prev-aktivni');
+			velicina = tl.dataset.velicina;
+			novyPriklad();
+		});
+	});
+	document.getElementById('prev-zkontroluj').addEventListener('click', zkontroluj);
+	document.getElementById('prev-napoveda').addEventListener('click', ukazPostup);
+	document.getElementById('prev-dalsi').addEventListener('click', novyPriklad);
+	vstupEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') zkontroluj(); });
+	novyPriklad();
+</script>
+
+<style>
+	.prev-zebrik { display: flex; flex-wrap: wrap; align-items: center; gap: 0.2rem; background: #f8f9fa; border: 3px solid #2b2a26; border-radius: 12px; padding: 0.7rem; margin: 0.6rem 0; }
+	.prev-jednotka { font-weight: 700; font-size: 1.1rem; padding: 0.3rem 0.7rem; border: 2px solid #adb5bd; border-radius: 8px; background: #fff; }
+	.prev-jednotka.prev-od { background: #ffec99; border-color: #f08c00; }
+	.prev-jednotka.prev-na { background: #b2f2bb; border-color: #2f9e44; }
+	.prev-sipka { font-size: 0.85rem; color: #868e96; padding: 0 0.15rem; }
+	.prev-sipka.prev-v-ceste { color: #1864ab; font-weight: 700; }
+	.prev-zadani { font-size: 1.15rem; margin: 0.5rem 0; }
+	.prev-odpoved { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+	#prev-vstup { font: inherit; font-weight: 700; width: 8rem; padding: 0.35rem 0.6rem; border: 3px solid #2b2a26; border-radius: 10px; }
+	#prev-vstup.prev-dobre { background: #b2f2bb; }
+	#prev-vstup.prev-spatne { background: #ffc9c9; }
+	.prev-jedn { font-weight: 700; font-size: 1.1rem; margin-right: 0.4rem; }
+	.prev-tl { font: inherit; font-weight: 700; padding: 0.35rem 0.9rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; }
+	.prev-tl:active { transform: translateY(1px); }
+	.prev-tl.prev-aktivni { background: #ffe8cc; }
+	.prev-dalsi { background: #ffe8cc; }
+	.prev-hlaska { font-size: 1.05rem; font-weight: 700; min-height: 2.4rem; }
+	.prev-skore { font-size: 0.95rem; color: #495057; }
+</style>
