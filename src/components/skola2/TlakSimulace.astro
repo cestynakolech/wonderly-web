@@ -1,0 +1,107 @@
+---
+// Interaktivní tlak p = F / S (dle prezentace „Mechanické vlastnosti kapalin 7"):
+// postava na sněhu — posuvníkem měníš hmotnost (→ tlakovou sílu F = m·g),
+// tlačítky plochu doteku (sněžnice 0,4 m² / boty 0,04 m² / jehlové podpatky
+// 4 cm²). Tlak se počítá živě a postava se boří podle jeho velikosti.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proč se na sněžnicích nezaboříš? 🕹️</span></h2>
+	<p><strong>p = F / S</strong> — tlak roste se <strong>silou</strong> a klesá s <strong>plochou</strong>. Stejný člověk se na sněžnicích sotva zaboří, v botách trochu a na jehlových podpatcích… vyzkoušej!</p>
+	<p>
+		<button type="button" class="tlk-tl tlk-obuv tlk-aktivni" data-s="0.4" data-nazev="sněžnice" data-emoji="🎿">🎿 sněžnice (0,4 m²)</button>
+		<button type="button" class="tlk-tl tlk-obuv" data-s="0.04" data-nazev="zimní boty" data-emoji="🥾">🥾 boty (0,04 m²)</button>
+		<button type="button" class="tlk-tl tlk-obuv" data-s="0.0004" data-nazev="jehlové podpatky" data-emoji="👠">👠 podpatky (4 cm²)</button>
+	</p>
+	<svg id="tlk-svg" viewBox="0 0 520 300" role="img" aria-label="Postava na sněhu s různou obuví, ukazatel tlaku a hloubky zaboření">
+		<rect x="0" y="0" width="520" height="300" fill="#e7f5ff" />
+		<text x="14" y="28" font-size="13" fill="#495057">❄️ čerstvý sníh</text>
+		<!-- sníh -->
+		<path id="tlk-snih" d="M 0 180 H 520 V 300 H 0 Z" fill="#fff" stroke="#dee2e6" stroke-width="2" />
+		<!-- postava (posouvá se dolů podle boření) -->
+		<g id="tlk-postava">
+			<circle cx="0" cy="-104" r="16" fill="#ffe8cc" stroke="#2b2a26" stroke-width="2.5" />
+			<rect x="-14" y="-88" width="28" height="52" rx="9" fill="#e8590c" stroke="#2b2a26" stroke-width="2.5" />
+			<rect x="-12" y="-36" width="9" height="30" rx="4" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<rect x="3" y="-36" width="9" height="30" rx="4" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<text id="tlk-obuv-emoji" y="4" text-anchor="middle" font-size="22">🎿</text>
+		</g>
+		<!-- údaje -->
+		<g font-size="14" font-weight="bold">
+			<text id="tlk-f" x="360" y="60" fill="#1971c2"></text>
+			<text id="tlk-s" x="360" y="84" fill="#e8590c"></text>
+			<text id="tlk-p" x="360" y="116" font-size="18" fill="#2b2a26"></text>
+		</g>
+	</svg>
+	<label class="sim-posuvnik">
+		Hmotnost člověka: <output id="tlk-out"></output>
+		<input type="range" id="tlk-slider" min="40" max="120" step="5" value="60" />
+	</label>
+	<p class="tlk-stav" id="tlk-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('tlk-slider');
+	const out = document.getElementById('tlk-out');
+	const postava = document.getElementById('tlk-postava');
+	const obuvEmoji = document.getElementById('tlk-obuv-emoji');
+	const fEl = document.getElementById('tlk-f');
+	const sEl = document.getElementById('tlk-s');
+	const pEl = document.getElementById('tlk-p');
+	const snih = document.getElementById('tlk-snih');
+	const stavEl = document.getElementById('tlk-stav');
+
+	const X = 170, POVRCH = 180;
+	let obuv = { s: 0.4, nazev: 'sněžnice', emoji: '🎿' };
+	const cz = (x, d) => x.toLocaleString('cs-CZ', { maximumFractionDigits: d });
+
+	function formatP(p) {
+		if (p >= 1e6) return cz(p / 1e6, 1) + ' MPa';
+		if (p >= 1000) return cz(p / 1000, 0) + ' kPa';
+		return cz(p, 0) + ' Pa';
+	}
+
+	function prekresli() {
+		const m = +slider.value;
+		const F = m * 10;             // g = 10 N/kg jako ve výkladu
+		const p = F / obuv.s;
+		out.textContent = m + ' kg';
+		// boření: sněžnice ~3 px, boty ~25 px, podpatky ~70 px (roste s log tlaku)
+		const boreni = Math.min(75, Math.max(2, (Math.log10(p) - 2.7) * 30));
+		postava.setAttribute('transform', `translate(${X} ${POVRCH + boreni})`);
+		snih.setAttribute('d', `M 0 ${POVRCH} H ${X - 55} Q ${X} ${POVRCH + boreni * 1.4} ${X + 55} ${POVRCH} H 520 V 300 H 0 Z`);
+		obuvEmoji.textContent = obuv.emoji;
+		fEl.textContent = `F = m · g = ${m} · 10 = ${cz(F, 0)} N`;
+		sEl.textContent = `S = ${obuv.s < 0.01 ? '4 cm² (0,0004 m²)' : cz(obuv.s, 2) + ' m²'}`;
+		pEl.textContent = `p = F / S = ${formatP(p)}`;
+
+		let pozn;
+		if (p < 5000) pozn = 'Velká plocha → malý tlak. Sníh tě krásně unese — přesně proto existují sněžnice i široké pásy bagrů.';
+		else if (p < 100000) pozn = 'Menší plocha → větší tlak. Boty se do čerstvého sněhu bez cestičky zaboří.';
+		else pozn = 'Maličká plocha → OBROVSKÝ tlak (víc než milion pascalů!). Stejný princip má špička jehly nebo nabroušený nůž.';
+		stavEl.textContent = `${obuv.nazev}: p = ${cz(F, 0)} N / ${obuv.s < 0.01 ? '0,0004' : cz(obuv.s, 2)} m² = ${formatP(p)}. ${pozn}`;
+	}
+
+	document.querySelectorAll('.tlk-obuv').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('.tlk-obuv').forEach((t) => t.classList.remove('tlk-aktivni'));
+			tl.classList.add('tlk-aktivni');
+			obuv = { s: +tl.dataset.s, nazev: tl.dataset.nazev, emoji: tl.dataset.emoji };
+			prekresli();
+		});
+	});
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#tlk-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.tlk-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.tlk-tl { font: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.3rem 0.7rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.tlk-tl.tlk-aktivni { background: #ffe8cc; }
+	.tlk-tl:active { transform: translateY(1px); }
+</style>

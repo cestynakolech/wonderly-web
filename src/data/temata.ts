@@ -1490,6 +1490,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'tlak',
 					nazev: 'Tlak',
+					interakce: 'tlak-plocha',
 					obsah: `
 						<h2>Tlak</h2>
 						<p><strong>Tlaková síla</strong> působí při dotyku dvou těles, vždy <strong>kolmo na plochu</strong> tělesa. Její účinky se mohou projevit deformací (změnou tvaru) tělesa.</p>

@@ -34,6 +34,7 @@ import PlanetyVahaSimulace from '../../../../../../components/skola2/PlanetyVaha
 import AtomMolekulySimulace from '../../../../../../components/skola2/AtomMolekulySimulace.astro';
 import IzotopySimulace from '../../../../../../components/skola2/IzotopySimulace.astro';
 import PraceSimulace from '../../../../../../components/skola2/PraceSimulace.astro';
+import TlakSimulace from '../../../../../../components/skola2/TlakSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -194,6 +195,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'atom-molekuly' && <AtomMolekulySimulace />}
 	{podtema.interakce === 'izotopy' && <IzotopySimulace />}
 	{podtema.interakce === 'prace' && <PraceSimulace />}
+	{podtema.interakce === 'tlak-plocha' && <TlakSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
