@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
 ## ⏩ KDE POKRAČOVAT (27. 7. 2026)
-Hotovo 30 kol (36 simulací, 37 videí). Prezentace „SVĚTELNÉ JEVY 7" VYTĚŽENÁ;
-z „Fyzika opakování rok 6" vytěženo čtení stupnice (kolo 30).
-DALŠÍ KOLO (31): z téže prezentace „Fyzika opakování rok 6" zbývají dvě věci —
-(a) snímek 22: **převody jednotek hmotnosti** (·1000 / :1000, t–kg–g–mg) jako
-interaktivní pyramida převodů u F6 hmotnost; (b) snímky 32 a 34: **dilatační
-spára u kolejnic a kompenzátor na potrubí** — konkrétní praktické příklady
-teplotní roztažnosti (na webu jsou zmínky jen 2×, u F6 teplota-a-jeji-mereni
-by se hodil rozšířený výklad). Pak „Stavba látek" snímky 4+ a „TEPLOTA" 2–10
-(obojí jen obrázky → potřeba vision) a média k Fyzice 6.
+Hotovo 31 kol (37 simulací, 37 videí). Prezentace „SVĚTELNÉ JEVY 7" VYTĚŽENÁ;
+z „Fyzika opakování rok 6" vytěženo čtení stupnice (kolo 30) i převody jednotek
+(kolo 31).
+DALŠÍ KOLO (32): z „Fyzika opakování rok 6" zbývají snímky 32 a 34 — **dilatační
+spára u kolejnic a kompenzátor (expanzní smyčka) na potrubí**, konkrétní praktické
+příklady teplotní roztažnosti; na webu jsou jen 2 zmínky, u F6 teplota-a-jeji-mereni
+by se hodil rozšířený výklad (případně s jednoduchou animací mostu/kolejnic).
+Pak „Stavba látek" snímky 4+ a „TEPLOTA" 2–10 (obojí jen obrázky → potřeba vision)
+a média k Fyzice 6.
 POZOR na past: v SVG souřadnicích musí být desetinná TEČKA (funkce cz() dělá
 českou čárku pro text — v points/atributech ji nepoužívat!).
 POZOR 2 (27. 7.): snímkování náhledového panelu (`computer screenshot`) vracelo
@@ -50,6 +50,15 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-27 (kolo 31): **PrevodySimulace** — trenažér převodů jednotek (F6 fyzikalni-veliciny/hmotnost,
+  dle prezentace „Fyzika opakování rok 6" snímek 22 — pyramida ·1000 a :1000): žebřík jednotek
+  se zvýrazněnou cestou a koeficienty, 4 veličiny (délka, hmotnost, objem a schválně i **čas**
+  s nedesítkovými převody, kde děti chybují nejvíc), psaní odpovědi, rozpoznání typické chyby
+  („máš to obráceně — jdeš na menší jednotku, číslo musí být větší"), tlačítko „Ukázat postup",
+  skóre na první pokus. Zadání jsou školní čísla (2,5 dm; 7500 kg; 150 s) — generátor volí hezký
+  výsledek a dopočítá zadání, přijme jen dvojici s max 2 desetinnými místy v rozsahu 0,1–10000.
+  Skloňuje se „den" (0,5 dne × 2 dny × 6 dnů). Ověřeno 320 příkladů: 0 chyb ve vyhodnocení,
+  0 ošklivých čísel, 52–66 různých zadání na veličinu. Celkem 37 simulací.
 - 2026-07-27 (kolo 30): **StupniceSimulace** — čtení stupnice měřidla (F6 fyzikalni-veliciny/delka,
   dle prezentace „Fyzika opakování rok 6": snímek 16 měřidla a rozsah, snímek 19 odměrný válec
   250 − 200 = 50 ml, 10 dílků → 5 ml): tři měřidla (pravítko s tužkou, odměrný válec s vodou,
