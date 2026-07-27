@@ -256,8 +256,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co se stane, když opatrně kápneme inkoust do sklenice s vodou a vůbec nemícháme?',
 			odpovedi: [
 				'inkoust se sám pomalu rozptýlí po celé vodě',
-				'inkoust zůstane navždy jako kapka na dně',
-				'inkoust se okamžitě vypaří',
+				'inkoust klesne ke dnu a zůstane tam jako tenký proužek',
+				'inkoust se rozptýlí, jen když vodou zamícháme lžičkou',
 			],
 			vysvetleni: 'Částice inkoustu a vody se neustále pohybují a postupně se samovolně promíchají — to je difuze v kapalinách, funguje i bez míchání.',
 		},
@@ -265,8 +265,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč ucítíme vůni pečeného chleba z kuchyně, i když stojíme ve vedlejší místnosti a nefouká žádný průvan?',
 			odpovedi: [
 				'částice vůně samy pronikají (difundují) mezi částice vzduchu',
-				'vůně se šíří pouze díky průvanu od dveří',
-				'čich funguje jen na velkou vzdálenost bez ohledu na vzduch',
+				'vůni k nám donese jen teplo stoupající od trouby',
+				'vůně se šíří pouze tehdy, když je ve dveřích průvan',
 			],
 			vysvetleni: 'I bez větru se částice vonné látky díky svému neustálému pohybu samovolně promísí s částicemi vzduchu a doletí až k nám — to je difuze v plynech.',
 		},

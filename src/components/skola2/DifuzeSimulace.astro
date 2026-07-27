@@ -15,10 +15,11 @@
 	<canvas id="dif-platno" width="600" height="360" role="img" aria-label="Nádoba s vodou, do které se rozptyluje kapka barvy"></canvas>
 	<label class="sim-posuvnik">
 		Teplota vody: <output id="dif-teplota-hodnota"></output>
-		<input type="range" id="dif-teplota" min="0" max="100" step="5" value="20" />
+		<input type="range" id="dif-teplota" min="5" max="95" step="5" value="20" />
 	</label>
 	<p class="dif-stav">⏱️ Čas: <output id="dif-cas">0,0 s</output> &nbsp;·&nbsp; 🎨 Promíchání: <output id="dif-mix">0 %</output></p>
 	<p class="dif-popis" id="dif-popis"></p>
+	<p class="dif-popis">👉 Rozdíl rychlostí je v animaci <strong>schválně zveličený</strong>, aby byl na první pohled vidět. Ve skutečnosti se částice při 100 °C pohybují asi o pětinu rychleji než při 0 °C (asi 2 000 km/h proti 1 700 km/h) — a přesto se díky tomu barva promíchá mnohem dřív.</p>
 	<p class="dif-popis dif-brown-popis" id="dif-brown-popis" hidden>BROWNŮV POHYB: velké hnědé zrnko pylu se samo nikam nesnaží dostat — do všech stran do něj narážejí malé částice vody a pokaždé s ním trhnou. Čárkovaná stopa ukazuje jeho klikatou cestu. Přesně tohle pozoroval Robert Brown v mikroskopu.</p>
 </section>
 
@@ -251,7 +252,9 @@
 		requestAnimationFrame(krok);
 	}
 
-	slider.addEventListener('input', () => { hodnota.textContent = slider.value + ' °C'; });
+	// změna teploty pokus RESTARTUJE — jinak by naměřený čas patřil k jiné teplotě
+	// a porovnání „studená × horká voda" by dětem lhalo
+	slider.addEventListener('input', () => { hodnota.textContent = slider.value + ' °C'; restart(); });
 	btnZnovu.addEventListener('click', restart);
 	btnBrown.addEventListener('click', () => {
 		brown = !brown;
