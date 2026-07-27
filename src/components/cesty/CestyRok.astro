@@ -1,7 +1,7 @@
 ---
 import CestyLayout from '../../layouts/CestyLayout.astro';
 import type { Jazyk, Rok } from '../../data/cesty/typy';
-import { MAPA_SIRKA, MAPA_VYSKA, spocitejVyrez } from '../../data/cesty/mapa';
+import { MAPA_SIRKA, MAPA_VYSKA, rozmistiPopisky, spocitejVyrez } from '../../data/cesty/mapa';
 import { TEXTY, cestaCesty, formatujDatum, prelozPopis, prelozZemi } from '../../data/cesty/preklady';
 
 interface Props {
@@ -18,6 +18,8 @@ const pinR = vyrez.sirka / 45;
 const pismo = vyrez.sirka / 30;
 
 const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
+// Popisky se rozmisťují tak, aby se nepřekrývaly; co se nevejde, sloučí se do „N míst"
+const popisky = rozmistiPopisky(data.mesta, pinR, pismo, vyrez);
 ---
 
 <CestyLayout titulek={`${t.nadpis} ${data.rok} – Wonderly`} jazyk={jazyk} podcesta={String(data.rok)}>
@@ -31,27 +33,28 @@ const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		{
-			data.mesta.map((m, i) => (
+			data.mesta.map((m) => (
 				<a href={`#${m.slug}`}>
 					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
-					<text
-						class="pin-popisek"
-						x={m.x + (m.popisekPosun?.dx ?? 0)}
-						y={
-							m.popisekPosun
-								? m.y + m.popisekPosun.dy
-								: i % 2 === 0
-									? m.y - pinR * 2
-									: m.y + pinR * 2 + pismo * 0.8
-						}
-						text-anchor={m.popisekPosun?.kotva ?? 'middle'}
-						font-size={pismo}
-						stroke-width={pismo / 5}
-					>
-						{m.nazev}
-					</text>
 				</a>
 			))
+		}
+		{
+			popisky.map((p) => {
+				const text = (
+					<text
+						class={p.shluk ? 'pin-popisek pin-shluk' : 'pin-popisek'}
+						x={p.x}
+						y={p.y}
+						text-anchor={p.kotva}
+						font-size={p.fs}
+						stroke-width={pismo / 5}
+					>
+						{p.text}
+					</text>
+				);
+				return p.slug ? <a href={`#${p.slug}`}>{text}</a> : text;
+			})
 		}
 	</svg>
 	<section class="mesta">
