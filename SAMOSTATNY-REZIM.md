@@ -1,11 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
 ## ⏩ KDE POKRAČOVAT (27. 7. 2026)
-Hotovo 29 kol (35 simulací, 37 videí). Prezentace „SVĚTELNÉ JEVY 7" je tím
-VYTĚŽENÁ (odraz, lom, rovinné i kulové zrcadlo, čočka, fáze Měsíce).
-DALŠÍ KOLO (30): vzít úkol z fronty níže — nabízí se dokončení prezentací
-`/Users/Shared/Škola/6/` („Stavba látek" snímky 4+, „TEPLOTA" 2–10, „Dráha
-puzzle", „Fyzika opakování rok") nebo média k Fyzice 6.
+Hotovo 30 kol (36 simulací, 37 videí). Prezentace „SVĚTELNÉ JEVY 7" VYTĚŽENÁ;
+z „Fyzika opakování rok 6" vytěženo čtení stupnice (kolo 30).
+DALŠÍ KOLO (31): z téže prezentace „Fyzika opakování rok 6" zbývají dvě věci —
+(a) snímek 22: **převody jednotek hmotnosti** (·1000 / :1000, t–kg–g–mg) jako
+interaktivní pyramida převodů u F6 hmotnost; (b) snímky 32 a 34: **dilatační
+spára u kolejnic a kompenzátor na potrubí** — konkrétní praktické příklady
+teplotní roztažnosti (na webu jsou zmínky jen 2×, u F6 teplota-a-jeji-mereni
+by se hodil rozšířený výklad). Pak „Stavba látek" snímky 4+ a „TEPLOTA" 2–10
+(obojí jen obrázky → potřeba vision) a média k Fyzice 6.
 POZOR na past: v SVG souřadnicích musí být desetinná TEČKA (funkce cz() dělá
 českou čárku pro text — v points/atributech ji nepoužívat!).
 POZOR 2 (27. 7.): snímkování náhledového panelu (`computer screenshot`) vracelo
@@ -46,6 +50,15 @@ _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wond
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-27 (kolo 30): **StupniceSimulace** — čtení stupnice měřidla (F6 fyzikalni-veliciny/delka,
+  dle prezentace „Fyzika opakování rok 6": snímek 16 měřidla a rozsah, snímek 19 odměrný válec
+  250 − 200 = 50 ml, 10 dílků → 5 ml): tři měřidla (pravítko s tužkou, odměrný válec s vodou,
+  teploměr), náhodně generovaný příklad ze 6 variant, dva kroky — nejdřív hodnota nejmenšího
+  dílku, teprve pak odečet hodnoty (2. krok se odemkne až po správné odpovědi na 1.). Distraktory
+  jsou typické chyby (dílek = rozestup popsaných čárek; přehlédnutá polovina dílků), hláška
+  vysvětluje postup i zápis (l = 112 mm). Ověřeno: všech 6 variant počítá správně, zamykání
+  2. kroku 12/12, hodnota nikdy nepadne přesně na popsanou čárku, geometrie scén ověřena
+  výpočtem (voda a rtuťový sloupec stoupají vzhůru). Celkem 36 simulací.
 - 2026-07-27 (kolo 29): **ZrcadloSimulace** — kulová zrcadla (F7 zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo,
   dle prezentace „SVĚTELNÉ JEVY 7" snímky 39–51): duté i vypuklé, posuvník vzdálenosti předmětu
   a **poloměru křivosti r** (ukazuje vztah f = r/2), tři význačné paprsky (rovnoběžný → do ohniska,
