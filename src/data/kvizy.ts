@@ -243,6 +243,42 @@ export const kvizy: Record<string, Otazka[]> = {
 			],
 			vysvetleni: 'Odpudivé síly mezi molekulami vody a tuku převáží — využíváme to u impregnace bot a nepřilnavého nádobí.',
 		},
+		{
+			text: 'Proč se pohyb částic v látce nazývá neuspořádaný?',
+			odpovedi: [
+				'protože každá částice letí jiným směrem a při srážkách směr mění',
+				'protože je velmi pomalý a skoro neznatelný',
+				'protože ho způsobuje jen vítr nebo proudění',
+			],
+			vysvetleni: 'Neuspořádaný pohyb znamená, že částice nemají žádný společný směr — každá se pohybuje nahodile a mění směr při srážkách s ostatními.',
+		},
+		{
+			text: 'Co se stane, když opatrně kápneme inkoust do sklenice s vodou a vůbec nemícháme?',
+			odpovedi: [
+				'inkoust se sám pomalu rozptýlí po celé vodě',
+				'inkoust zůstane navždy jako kapka na dně',
+				'inkoust se okamžitě vypaří',
+			],
+			vysvetleni: 'Částice inkoustu a vody se neustále pohybují a postupně se samovolně promíchají — to je difuze v kapalinách, funguje i bez míchání.',
+		},
+		{
+			text: 'Proč ucítíme vůni pečeného chleba z kuchyně, i když stojíme ve vedlejší místnosti a nefouká žádný průvan?',
+			odpovedi: [
+				'částice vůně samy pronikají (difundují) mezi částice vzduchu',
+				'vůně se šíří pouze díky průvanu od dveří',
+				'čich funguje jen na velkou vzdálenost bez ohledu na vzduch',
+			],
+			vysvetleni: 'I bez větru se částice vonné látky díky svému neustálému pohybu samovolně promísí s částicemi vzduchu a doletí až k nám — to je difuze v plynech.',
+		},
+		{
+			text: 'Kde probíhá difuze rychleji — v plynu, nebo v kapalině?',
+			odpovedi: [
+				'v plynu, protože se částice pohybují rychleji a mají mezi sebou víc místa',
+				'v kapalině, protože je hustší',
+				'v obou stejně rychle',
+			],
+			vysvetleni: 'Vůni z kuchyně ucítíme za několik vteřin, ale čaj se v hrnku louhuje minuty — v plynu se částice pohybují rychleji a mají mezi sebou víc volného místa.',
+		},
 	],
 	'fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly': [
 		{

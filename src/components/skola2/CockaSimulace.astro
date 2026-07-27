@@ -1,0 +1,235 @@
+---
+// Interaktivní zobrazení čočkou: spojka (f > 0) i rozptylka (f < 0).
+// Konstrukce třemi význačnými paprsky, obraz podle zobrazovací rovnice
+// 1/f = 1/a + 1/a'  →  a' = a·f/(a − f),  příčné zvětšení Z = −a'/a.
+// Skutečný obraz (a' > 0) vzniká za čočkou a je převrácený; zdánlivý (a' < 0)
+// leží na straně předmětu, je vzpřímený a paprsky jím jen zdánlivě vycházejí.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej zobrazení čočkou 🕹️</span></h2>
+	<p>Posunuj <strong>předmět</strong> (svíčku) a měň <strong>ohniskovou vzdálenost</strong> čočky. Sleduj tři význačné paprsky a to, kde a jak velký vznikne obraz. U spojky zkus najít všechny tři případy — <em>fotoaparát</em>, <em>dataprojektor</em> a <em>lupu</em>.</p>
+	<p id="cocka-rezimy">
+		<button type="button" class="cocka-tl cocka-aktivni" data-rezim="spojka">spojka (spojná čočka)</button>
+		<button type="button" class="cocka-tl" data-rezim="rozptylka">rozptylka (rozptylná čočka)</button>
+	</p>
+	<svg id="cocka-svg" viewBox="0 0 660 380" role="img" aria-label="Konstrukce obrazu optickou čočkou pomocí význačných paprsků">
+		<!-- optická osa -->
+		<line x1="0" y1="205" x2="660" y2="205" stroke="#868e96" stroke-width="2" stroke-dasharray="7 5" />
+		<!-- ohniska a dvojnásobné ohniskové vzdálenosti -->
+		<g id="cocka-znacky" font-size="13" font-weight="bold" fill="#495057" text-anchor="middle">
+			<circle id="cocka-f-vlevo" r="4" fill="#495057" cy="205" />
+			<circle id="cocka-f-vpravo" r="4" fill="#495057" cy="205" />
+			<circle id="cocka-2f-vlevo" r="3" fill="#adb5bd" cy="205" />
+			<circle id="cocka-2f-vpravo" r="3" fill="#adb5bd" cy="205" />
+			<text id="cocka-f-vlevo-t" y="226">F</text>
+			<text id="cocka-f-vpravo-t" y="226">F'</text>
+			<text id="cocka-2f-vlevo-t" y="226" fill="#adb5bd">2F</text>
+			<text id="cocka-2f-vpravo-t" y="226" fill="#adb5bd">2F'</text>
+		</g>
+		<!-- paprsky -->
+		<polyline id="cocka-p1" fill="none" stroke="#f08c00" stroke-width="3" />
+		<polyline id="cocka-p2" fill="none" stroke="#2f9e44" stroke-width="3" />
+		<polyline id="cocka-p3" fill="none" stroke="#1971c2" stroke-width="3" />
+		<!-- čárkovaná prodloužení ke zdánlivému obrazu -->
+		<line id="cocka-z1" stroke="#f08c00" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<line id="cocka-z2" stroke="#2f9e44" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<!-- čočka -->
+		<path id="cocka-tvar" fill="#a5d8ff" fill-opacity="0.75" stroke="#1864ab" stroke-width="3" />
+		<!-- předmět a obraz -->
+		<line id="cocka-predmet" stroke="#e03131" stroke-width="5" marker-end="url(#cocka-sipka-p)" />
+		<line id="cocka-obraz" stroke="#7048e8" stroke-width="5" marker-end="url(#cocka-sipka-o)" />
+		<defs>
+			<marker id="cocka-sipka-p" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+				<path d="M0,0 L15,8 L0,16 z" fill="#e03131" />
+			</marker>
+			<marker id="cocka-sipka-o" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+				<path d="M0,0 L15,8 L0,16 z" fill="#7048e8" />
+			</marker>
+		</defs>
+		<text x="14" y="24" font-size="13" font-weight="bold" fill="#e03131">předmět</text>
+		<text x="14" y="42" font-size="13" font-weight="bold" fill="#7048e8">obraz</text>
+		<text id="cocka-mimo" x="330" y="60" font-size="15" font-weight="bold" fill="#c92a2a" text-anchor="middle"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Vzdálenost předmětu a: <output id="cocka-out-a"></output>
+		<input type="range" id="cocka-slider-a" min="2" max="34" step="0.5" value="24" />
+	</label>
+	<label class="sim-posuvnik">
+		Ohnisková vzdálenost f: <output id="cocka-out-f"></output>
+		<input type="range" id="cocka-slider-f" min="4" max="12" step="0.5" value="8" />
+	</label>
+	<p class="cocka-stav" id="cocka-stav"></p>
+	<p class="cocka-vzorec" id="cocka-vzorec"></p>
+	<p class="cocka-legenda">
+		<span style="color:#f08c00">▬</span> rovnoběžný (láme se do ohniska) &nbsp;
+		<span style="color:#2f9e44">▬</span> středový (neláme se) &nbsp;
+		<span style="color:#1971c2">▬</span> ohniskový (jde z ohniska, pak rovnoběžně)
+	</p>
+</section>
+
+<script>
+	const sliderA = document.getElementById('cocka-slider-a');
+	const sliderF = document.getElementById('cocka-slider-f');
+	const outA = document.getElementById('cocka-out-a');
+	const outF = document.getElementById('cocka-out-f');
+	const p1 = document.getElementById('cocka-p1');
+	const p2 = document.getElementById('cocka-p2');
+	const p3 = document.getElementById('cocka-p3');
+	const z1 = document.getElementById('cocka-z1');
+	const z2 = document.getElementById('cocka-z2');
+	const tvar = document.getElementById('cocka-tvar');
+	const predmet = document.getElementById('cocka-predmet');
+	const obraz = document.getElementById('cocka-obraz');
+	const stavEl = document.getElementById('cocka-stav');
+	const vzorecEl = document.getElementById('cocka-vzorec');
+	const mimoEl = document.getElementById('cocka-mimo');
+
+	const CX = 310, OSA = 205, S = 9;        // střed čočky, optická osa, měřítko px/cm
+	const H = 3;                              // výška předmětu v cm
+	const SIRKA = 660, VYSKA = 380;
+	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+	let spojka = true;
+
+	// bod na okraji plátna ve směru (dx, dy) z bodu (x, y)
+	function naOkraj(x, y, dx, dy) {
+		let t = Infinity;
+		if (dx > 0) t = Math.min(t, (SIRKA - x) / dx);
+		if (dx < 0) t = Math.min(t, (0 - x) / dx);
+		if (dy > 0) t = Math.min(t, (VYSKA - y) / dy);
+		if (dy < 0) t = Math.min(t, (0 - y) / dy);
+		return [x + dx * t, y + dy * t];
+	}
+	// POZOR: v SVG souřadnicích musí být desetinná TEČKA (cz() dělá čárku pro text)
+	const body = (...b) => b.map(([x, y]) => x.toFixed(1) + ',' + y.toFixed(1)).join(' ');
+
+	function prekresli() {
+		const a = +sliderA.value;
+		const fAbs = +sliderF.value;
+		const f = spojka ? fAbs : -fAbs;
+		outA.textContent = cz(a, 1) + ' cm';
+		outF.textContent = (spojka ? '' : '−') + cz(fAbs, 1) + ' cm' + (spojka ? ' (spojka, kladná)' : ' (rozptylka, záporná)');
+
+		// tvar čočky
+		tvar.setAttribute('d', spojka
+			? `M ${CX},${OSA - 72} Q ${CX + 15},${OSA} ${CX},${OSA + 72} Q ${CX - 15},${OSA} ${CX},${OSA - 72} Z`
+			: `M ${CX - 12},${OSA - 72} Q ${CX + 6},${OSA} ${CX - 12},${OSA + 72} L ${CX + 12},${OSA + 72} Q ${CX - 6},${OSA} ${CX + 12},${OSA - 72} Z`);
+
+		// značky ohnisek (F' je vždy na straně, kam čočka paprsky posílá: spojka vpravo)
+		const fx = fAbs * S;
+		const znacky = [
+			['cocka-f-vlevo', CX - fx], ['cocka-f-vpravo', CX + fx],
+			['cocka-2f-vlevo', CX - 2 * fx], ['cocka-2f-vpravo', CX + 2 * fx],
+		];
+		znacky.forEach(([id, x]) => {
+			document.getElementById(id).setAttribute('cx', x);
+			document.getElementById(id + '-t').setAttribute('x', x);
+		});
+		// obrazové ohnisko F' leží tam, kam čočka paprsky posílá: u spojky vpravo
+		// (skutečné), u rozptylky vlevo — před čočkou, a je zdánlivé
+		document.getElementById('cocka-f-vlevo-t').textContent = spojka ? 'F' : "F'";
+		document.getElementById('cocka-f-vpravo-t').textContent = spojka ? "F'" : 'F';
+		document.getElementById('cocka-2f-vlevo-t').textContent = spojka ? '2F' : "2F'";
+		document.getElementById('cocka-2f-vpravo-t').textContent = spojka ? "2F'" : '2F';
+
+		// předmět
+		const X0 = CX - a * S, Y0 = OSA - H * S;
+		predmet.setAttribute('x1', X0); predmet.setAttribute('y1', OSA);
+		predmet.setAttribute('x2', X0); predmet.setAttribute('y2', Y0);
+
+		// obraz ze zobrazovací rovnice
+		const vNekonecnu = Math.abs(a - f) < 0.25;
+		const a2 = vNekonecnu ? Infinity : (a * f) / (a - f);
+		const yObraz = OSA + (a2 / a) * H * S;      // skutečný → pod osou (převrácený)
+		const xObraz = CX + a2 * S;
+		const zvetseni = Math.abs(a2 / a);
+		const vidime = !vNekonecnu && xObraz > 5 && xObraz < SIRKA - 5 && Math.abs(yObraz - OSA) < 170;
+
+		// paprsek 1 — rovnoběžný s osou, po čočce míří do F' (spojka) / od F (rozptylka)
+		const smerX = spojka ? fx : fx, smerY = spojka ? OSA - Y0 : Y0 - OSA;
+		const k1 = naOkraj(CX, Y0, smerX, smerY);
+		p1.setAttribute('points', body([0, Y0], [CX, Y0], k1));
+
+		// paprsek 2 — středový, prochází středem čočky bez lomu
+		const k2 = naOkraj(CX, OSA, CX - X0, OSA - Y0);
+		p2.setAttribute('points', body([X0, Y0], [CX, OSA], k2));
+
+		// paprsek 3 — ohniskový (kreslíme jen u spojky, u rozptylky mate)
+		const Fx = CX - fx;
+		if (spojka && Math.abs(X0 - Fx) > 3) {
+			const t = (CX - X0) / (Fx - X0);
+			const yl = Y0 + t * (OSA - Y0);
+			if (Math.abs(yl - OSA) < 165 && t > 0) {
+				p3.style.display = '';
+				p3.setAttribute('points', body([X0, Y0], [CX, yl], [SIRKA, yl]));
+			} else { p3.style.display = 'none'; }
+		} else { p3.style.display = 'none'; }
+
+		// zdánlivý obraz — čárkovaná zpětná prodloužení paprsků
+		const zdanlivy = vidime && a2 < 0;
+		[z1, z2].forEach((z) => (z.style.display = zdanlivy ? '' : 'none'));
+		if (zdanlivy) {
+			z1.setAttribute('x1', CX); z1.setAttribute('y1', Y0);
+			z1.setAttribute('x2', xObraz); z1.setAttribute('y2', yObraz);
+			z2.setAttribute('x1', CX); z2.setAttribute('y1', OSA);
+			z2.setAttribute('x2', xObraz); z2.setAttribute('y2', yObraz);
+		}
+
+		// obraz
+		obraz.style.display = vidime ? '' : 'none';
+		if (vidime) {
+			obraz.setAttribute('x1', xObraz); obraz.setAttribute('y1', OSA);
+			obraz.setAttribute('x2', xObraz); obraz.setAttribute('y2', yObraz);
+		}
+		mimoEl.textContent = vidime ? '' : (vNekonecnu
+			? 'Paprsky vycházejí rovnoběžně — obraz vzniká až „v nekonečnu“.'
+			: 'Obraz vzniká až daleko za okrajem obrázku — posuň předmět.');
+
+		// popis obrazu
+		let popis;
+		if (!spojka) {
+			popis = `🔍 Rozptylka: obraz je vždy <strong>zdánlivý, vzpřímený a zmenšený</strong> (${cz(zvetseni, 2)}×) a leží na téže straně jako předmět. Takhle funguje <strong>dveřní kukátko</strong> — zachytí velký kus chodby.`;
+		} else if (vNekonecnu) {
+			popis = '➡️ Předmět je přesně v ohnisku (a = f): paprsky za čočkou vycházejí <strong>rovnoběžně</strong> a obraz nevznikne. Tak se dělá <strong>reflektor</strong> — světlo míří rovně dopředu.';
+		} else if (a < f) {
+			popis = `🔎 Předmět je <strong>blíž než ohnisko</strong> (a &lt; f): obraz je <strong>zdánlivý, vzpřímený a zvětšený</strong> (${cz(zvetseni, 2)}×) — přesně takhle pracuje <strong>lupa</strong>.`;
+		} else if (Math.abs(a - 2 * f) < 0.3) {
+			popis = '⚖️ Předmět je přesně ve <strong>dvojnásobné ohniskové vzdálenosti</strong> (a = 2f): obraz je skutečný, převrácený a <strong>stejně velký</strong> jako předmět.';
+		} else if (a > 2 * f) {
+			popis = `📷 Předmět je <strong>dál než 2f</strong>: obraz je <strong>skutečný, převrácený a zmenšený</strong> (${cz(zvetseni, 2)}×) — tak vzniká obraz v <strong>oku</strong> i ve <strong>fotoaparátu</strong>.`;
+		} else {
+			popis = `📽️ Předmět je <strong>mezi f a 2f</strong>: obraz je <strong>skutečný, převrácený a zvětšený</strong> (${cz(zvetseni, 2)}×) — takhle promítá <strong>dataprojektor</strong>.`;
+		}
+		stavEl.innerHTML = popis;
+
+		vzorecEl.innerHTML = vNekonecnu
+			? `1/f = 1/a + 1/a′ &nbsp;→&nbsp; a = f = ${cz(a, 1)} cm &nbsp;→&nbsp; a′ → ∞`
+			: `1/f = 1/a + 1/a′ &nbsp;→&nbsp; a′ = a·f / (a − f) = ${cz(a, 1)} · ${cz(f, 1)} / (${cz(a, 1)} − ${cz(f, 1)}) = <strong>${cz(a2, 1)} cm</strong>` +
+			  ` &nbsp;|&nbsp; zvětšení Z = |a′/a| = <strong>${cz(zvetseni, 2)}×</strong>` +
+			  (a2 < 0 ? ' &nbsp;(záporné a′ = obraz je <strong>zdánlivý</strong>, před čočkou)' : '');
+	}
+
+	document.querySelectorAll('#cocka-rezimy .cocka-tl').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('#cocka-rezimy .cocka-tl').forEach((t) => t.classList.remove('cocka-aktivni'));
+			tl.classList.add('cocka-aktivni');
+			spojka = tl.dataset.rezim === 'spojka';
+			prekresli();
+		});
+	});
+	sliderA.addEventListener('input', prekresli);
+	sliderF.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#cocka-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.cocka-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.cocka-tl.cocka-aktivni { background: #ffe8cc; }
+	.cocka-tl:active { transform: translateY(1px); }
+	.cocka-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.cocka-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.cocka-legenda { font-size: 0.9rem; font-weight: 700; }
+</style>

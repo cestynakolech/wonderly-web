@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -78,6 +78,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'casticove-slozeni-latek',
 					nazev: 'Částicové složení látek, Brownův pohyb, difuze',
+					interakce: 'difuze',
 					obsah: `
 						<h2>Částicové složení látek</h2>
 						<h3>První myšlenka</h3>
@@ -92,11 +93,12 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Částice na sebe působí silami</strong> — <strong>přitažlivé síly</strong> přitáhnou částice k sobě, pokud se vzdálí (cítíme je při natažení pružiny); <strong>odpudivé síly</strong> je oddálí, pokud se moc přiblíží (cítíme je při stlačení míče). Tyto síly dělají materiál pružným.</li>
 						</ul>
 						<h3>Jevy způsobené pohybem částic</h3>
-						<p><strong>Difuze</strong> — samovolné pronikání částic jedné látky mezi částice druhé látky (částice se samy od sebe promíchají).</p>
+						<p><strong>Difuze</strong> — samovolné pronikání částic jedné látky mezi částice druhé látky, až se rovnoměrně promíchají. Probíhá <strong>v kapalinách i v plynech</strong> — všude tam, kde se částice mohou volně pohybovat.</p>
 						<ul>
-							<li>probíhá v tekutinách, příčinou je neustálý pohyb částic</li>
-							<li>např. vyluhování čaje bez míchání, šíření vůně i za bezvětří; díky difuzi ucítí žralok kapku krve na kilometry daleko</li>
-							<li>👉 čím vyšší teplota, tím rychleji probíhá — čaj se rychleji vyluhuje v horké vodě</li>
+							<li><strong>difuze v kapalině</strong> — vyluhování čaje bez míchání (barvivo z čajového sáčku se samo rozptýlí po celém hrnku); i kapka inkoustu se ve sklenici sama rozptýlí, i když vůbec nemícháme</li>
+							<li><strong>difuze v plynu</strong> — šíření vůně jídla nebo parfému po místnosti i za bezvětří; díky difuzi ucítí žralok kapku krve ve vodě na kilometry daleko</li>
+							<li>👉 v plynech probíhá difuze <strong>rychleji</strong> než v kapalinách — částice plynu se pohybují rychleji a mají mezi sebou víc volného místa (vůni z kuchyně ucítíme za pár vteřin, čaj se louhuje minuty)</li>
+							<li>👉 čím vyšší teplota, tím rychleji difuze probíhá, protože se částice pohybují rychleji — čaj se vyluhuje rychleji v horké vodě než ve studené</li>
 						</ul>
 						<p><strong>Tlak plynu</strong> — nárazy částic do stěn nádoby. Čím je plyn teplejší, tím rychleji se částice pohybují a tím větší silou narážejí (člun vyhřátý na slunci je natlakovaný, ve studené vodě se jakoby sfoukne).</p>
 						<h3>Jevy způsobené silovým působením částic</h3>
@@ -1948,6 +1950,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'opticka-cocka',
 					nazev: 'Optická čočka (spojky a rozptylky)',
+					interakce: 'cocka',
 					obsah: `
 						<h2>Optická čočka — spojky a rozptylky</h2>
 						<p><strong>Čočky</strong> jsou tělesa z průhledné látky (sklo, plast) ohraničená jednou nebo dvěma kulovými plochami. Využívají <strong>lomu světla</strong> při průchodu čočkou. Podle tvaru je dělíme na dvě skupiny:</p>

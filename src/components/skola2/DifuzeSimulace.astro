@@ -1,0 +1,280 @@
+---
+// Interaktivní difuze a Brownův pohyb: do nádoby s vodou spadne kapka barvy (gravitace dolů),
+// barevné částice se pak neustálým tepelným pohybem rozptýlí mezi částice vody.
+// Posuvník teploty mění rychlost pohybu částic (teplejší voda = rychlejší difuze),
+// tlačítko „Brownův pohyb" zvýrazní velké zrnko pylu, do kterého narážejí malé částice.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Difuze a Brownův pohyb 🕹️</span></h2>
+	<p>Do nádoby s vodou kápne <strong>barva</strong>. Nikdo nemíchá, a přesto se barva sama rozptýlí po celé vodě — protože částice se <em>nepřestávají</em> pohybovat. Posuvníkem měň <strong>teplotu</strong> a sleduj, jak dlouho promíchání trvá.</p>
+	<div class="dif-ovladace">
+		<button class="dif-btn" id="dif-znovu">🔁 Znovu</button>
+		<button class="dif-btn" id="dif-brown">🔬 Brownův pohyb</button>
+	</div>
+	<canvas id="dif-platno" width="600" height="360" role="img" aria-label="Nádoba s vodou, do které se rozptyluje kapka barvy"></canvas>
+	<label class="sim-posuvnik">
+		Teplota vody: <output id="dif-teplota-hodnota"></output>
+		<input type="range" id="dif-teplota" min="0" max="100" step="5" value="20" />
+	</label>
+	<p class="dif-stav">⏱️ Čas: <output id="dif-cas">0,0 s</output> &nbsp;·&nbsp; 🎨 Promíchání: <output id="dif-mix">0 %</output></p>
+	<p class="dif-popis" id="dif-popis"></p>
+	<p class="dif-popis dif-brown-popis" id="dif-brown-popis" hidden>BROWNŮV POHYB: velké hnědé zrnko pylu se samo nikam nesnaží dostat — do všech stran do něj narážejí malé částice vody a pokaždé s ním trhnou. Čárkovaná stopa ukazuje jeho klikatou cestu. Přesně tohle pozoroval Robert Brown v mikroskopu.</p>
+</section>
+
+<script>
+	const platno = document.getElementById('dif-platno');
+	const ctx = platno.getContext('2d');
+	const popis = document.getElementById('dif-popis');
+	const brownPopis = document.getElementById('dif-brown-popis');
+	const slider = document.getElementById('dif-teplota');
+	const hodnota = document.getElementById('dif-teplota-hodnota');
+	const casEl = document.getElementById('dif-cas');
+	const mixEl = document.getElementById('dif-mix');
+	const btnZnovu = document.getElementById('dif-znovu');
+	const btnBrown = document.getElementById('dif-brown');
+
+	const W = platno.width, H = platno.height;
+	const OKRAJ = 14;            // stěny nádoby
+	const HLADINA = 100;         // výška hladiny (voda je VŽDY dole, vzduch nahoře)
+	const DNO = H - 16;
+	const R = 4.5;               // poloměr malé částice
+	const MIN = 11;              // částice se neprolínají – jemné odtlačení
+	const N_VODA = 150, N_BARVA = 70;
+	const C_VODA = '#4dabf7', C_BARVA = '#c2255c';
+	const SLOUPCE = 4, RADKY = 3; // mřížka pro výpočet promíchání
+
+	let castice = [];     // malé částice: voda + barva
+	let zrnko = null;     // velké zrnko pylu (Brownův pohyb)
+	let stopa = [];       // klikatá cesta zrnka
+	let brown = false;
+	let kapka = null;     // padající kapka barvy (gravitace působí dolů)
+	let cas = 0, mix = 0, hotovo = false, casHotovo = 0, ramec = 0;
+
+	function faktor() {
+		// teplota → rychlost tepelného pohybu částic (0 °C pomalu, 100 °C velmi rychle)
+		return 0.25 + (+slider.value) / 100 * 1.75;
+	}
+
+	function novaCastice(jeBarva, x, y) {
+		return { x: x, y: y, vx: (Math.random() - 0.5) * 2, vy: (Math.random() - 0.5) * 2, barva: jeBarva };
+	}
+
+	function restart() {
+		castice = [];
+		for (let i = 0; i < N_VODA; i++) {
+			castice.push(novaCastice(false,
+				OKRAJ + R + Math.random() * (W - 2 * OKRAJ - 2 * R),
+				HLADINA + R + Math.random() * (DNO - HLADINA - 2 * R)));
+		}
+		zrnko = { x: W / 2 - 70, y: (HLADINA + DNO) / 2, vx: 0, vy: 0, r: 15 };
+		stopa = [];
+		kapka = { x: W - 130, y: 18, v: 0 };
+		cas = 0; mix = 0; hotovo = false; casHotovo = 0;
+		popis.textContent = 'Kapka barvy padá dolů k hladině…';
+	}
+
+	function hranice(c) {
+		if (c.x < OKRAJ + R) { c.x = OKRAJ + R; c.vx = Math.abs(c.vx); }
+		if (c.x > W - OKRAJ - R) { c.x = W - OKRAJ - R; c.vx = -Math.abs(c.vx); }
+		if (c.y < HLADINA + R) { c.y = HLADINA + R; c.vy = Math.abs(c.vy); }   // odraz od hladiny
+		if (c.y > DNO - R) { c.y = DNO - R; c.vy = -Math.abs(c.vy); }          // odraz od dna
+	}
+
+	function fyzika() {
+		const f = faktor();
+		const max = 1.5 + 4.5 * f;
+		// 1) tepelný pohyb každé částice (náhodné cukání všemi směry)
+		for (const c of castice) {
+			c.vx += (Math.random() - 0.5) * 4.0 * f;
+			c.vy += (Math.random() - 0.5) * 4.0 * f;
+			c.vx *= 0.90; c.vy *= 0.90;
+			const v = Math.hypot(c.vx, c.vy) || 1;
+			if (v > max) { c.vx = c.vx / v * max; c.vy = c.vy / v * max; }
+			c.x += c.vx; c.y += c.vy;
+			hranice(c);
+		}
+		// 2) částice se navzájem jemně odtlačují – barva se musí protlačit mezi částice vody
+		for (let i = 0; i < castice.length; i++) {
+			for (let j = i + 1; j < castice.length; j++) {
+				const a = castice[i], b = castice[j];
+				const dx = b.x - a.x, dy = b.y - a.y;
+				const d2 = dx * dx + dy * dy;
+				if (d2 > MIN * MIN || d2 === 0) continue;
+				const d = Math.sqrt(d2), tlak = (MIN - d) / d * 0.5;
+				a.x -= dx * tlak; a.y -= dy * tlak;
+				b.x += dx * tlak; b.y += dy * tlak;
+			}
+		}
+		for (const c of castice) hranice(c);
+		// 3) Brownův pohyb: nárazy malých částic cukají s velkým zrnkem
+		if (brown) {
+			// zrnko má stejnou hustotu jako voda → vznáší se a nesedimentuje;
+			// pohybuje se JEN díky nárazům částic (to je právě Brownův pohyb)
+			zrnko.vx *= 0.96; zrnko.vy *= 0.96;
+			for (const c of castice) {
+				const dx = c.x - zrnko.x, dy = c.y - zrnko.y;
+				const d = Math.hypot(dx, dy) || 1;
+				if (d > zrnko.r + R) continue;
+				const nx = dx / d, ny = dy / d;
+				c.x = zrnko.x + nx * (zrnko.r + R);
+				c.y = zrnko.y + ny * (zrnko.r + R);
+				const vn = c.vx * nx + c.vy * ny;
+				if (vn < 0) {
+					c.vx -= 2 * vn * nx; c.vy -= 2 * vn * ny;   // částice se odrazí
+					zrnko.vx += 2 * vn * nx * 0.07;             // a předá zrnku nepatrný ťuk
+					zrnko.vy += 2 * vn * ny * 0.07;
+				}
+			}
+			const vz = Math.hypot(zrnko.vx, zrnko.vy) || 1;
+			if (vz > 2.2) { zrnko.vx = zrnko.vx / vz * 2.2; zrnko.vy = zrnko.vy / vz * 2.2; }
+			zrnko.x += zrnko.vx; zrnko.y += zrnko.vy;
+			if (zrnko.x < OKRAJ + zrnko.r) { zrnko.x = OKRAJ + zrnko.r; zrnko.vx = Math.abs(zrnko.vx); }
+			if (zrnko.x > W - OKRAJ - zrnko.r) { zrnko.x = W - OKRAJ - zrnko.r; zrnko.vx = -Math.abs(zrnko.vx); }
+			if (zrnko.y < HLADINA + zrnko.r) { zrnko.y = HLADINA + zrnko.r; zrnko.vy = Math.abs(zrnko.vy); }
+			if (zrnko.y > DNO - zrnko.r) { zrnko.y = DNO - zrnko.r; zrnko.vy = -Math.abs(zrnko.vy) * 0.4; }
+			if (ramec % 4 === 0) {
+				stopa.push({ x: zrnko.x, y: zrnko.y });
+				if (stopa.length > 140) stopa.shift();
+			}
+		}
+	}
+
+	function spocitejMix() {
+		// jak rovnoměrně jsou barevné částice rozprostřené po nádobě (mřížka 4 × 3)
+		const bunky = new Array(SLOUPCE * RADKY).fill(0);
+		let pocet = 0;
+		for (const c of castice) {
+			if (!c.barva) continue;
+			pocet++;
+			const sx = Math.min(SLOUPCE - 1, Math.floor((c.x - OKRAJ) / ((W - 2 * OKRAJ) / SLOUPCE)));
+			const sy = Math.min(RADKY - 1, Math.floor((c.y - HLADINA) / ((DNO - HLADINA) / RADKY)));
+			bunky[sy * SLOUPCE + sx]++;
+		}
+		if (!pocet) return 0;
+		const rovnomerne = 1 / bunky.length;
+		let odchylka = 0;
+		for (const b of bunky) odchylka += Math.abs(b / pocet - rovnomerne);
+		odchylka /= 2;                                   // 0 = úplně rovnoměrné
+		const SUM = 0.17;                                // i dokonale promíchaná barva má malou náhodnou odchylku
+		return Math.max(0, Math.min(100, 100 * (1 - (odchylka - SUM) / (1 - rovnomerne - SUM))));
+	}
+
+	function aktualizujTexty() {
+		casEl.textContent = cas.toFixed(1).replace('.', ',') + ' s';
+		mixEl.textContent = Math.round(mix) + ' %';
+		if (kapka) return;
+		if (hotovo) {
+			popis.textContent = '✅ Hotovo! Barva je rovnoměrně po celé vodě — promíchání trvalo ' +
+				casHotovo.toFixed(1).replace('.', ',') + ' s při ' + slider.value + ' °C. Nikdo nemíchal: to zvládl sám pohyb částic. Zkus jinou teplotu a klikni Znovu.';
+		} else if (mix < 30) {
+			popis.textContent = 'Barva je zatím pohromadě u hladiny. Její částice do sebe i do částic vody neustále narážejí a rozbíhají se do všech stran.';
+		} else if (mix < 70) {
+			popis.textContent = 'Difuze běží: barevné částice se protlačují mezi částice vody a vnikají do míst, kde ještě barva nebyla.';
+		} else {
+			popis.textContent = 'Barva už je skoro všude. Zpátky do jedné kapky se sama nikdy nesloží — proto je difuze nevratná.';
+		}
+	}
+
+	function kresli() {
+		// vzduch nahoře
+		ctx.fillStyle = '#eaf4ff';
+		ctx.fillRect(0, 0, W, H);
+		// voda dole (vždy u dna nádoby)
+		ctx.fillStyle = '#cfe8fa';
+		ctx.fillRect(OKRAJ, HLADINA, W - 2 * OKRAJ, DNO - HLADINA);
+		// hladina
+		ctx.setLineDash([6, 5]); ctx.lineWidth = 2; ctx.strokeStyle = '#1971c2';
+		ctx.beginPath(); ctx.moveTo(OKRAJ, HLADINA); ctx.lineTo(W - OKRAJ, HLADINA); ctx.stroke();
+		ctx.setLineDash([]);
+		ctx.fillStyle = '#1971c2'; ctx.font = 'bold 13px sans-serif';
+		ctx.fillText('hladina', OKRAJ + 6, HLADINA - 7);
+		ctx.fillText('vzduch', OKRAJ + 6, 22);
+		// nádoba (stěny a dno)
+		ctx.lineWidth = 5; ctx.strokeStyle = '#2b2a26';
+		ctx.beginPath();
+		ctx.moveTo(OKRAJ, 40); ctx.lineTo(OKRAJ, DNO); ctx.lineTo(W - OKRAJ, DNO); ctx.lineTo(W - OKRAJ, 40);
+		ctx.stroke();
+		// padající kapka barvy
+		if (kapka) {
+			ctx.beginPath(); ctx.arc(kapka.x, kapka.y, 9, 0, 7);
+			ctx.fillStyle = C_BARVA; ctx.fill();
+			ctx.lineWidth = 2; ctx.strokeStyle = '#00000055'; ctx.stroke();
+		}
+		// stopa zrnka
+		if (brown && stopa.length > 1) {
+			ctx.setLineDash([4, 4]); ctx.lineWidth = 2; ctx.strokeStyle = '#5f3dc4';
+			ctx.beginPath(); ctx.moveTo(stopa[0].x, stopa[0].y);
+			for (let i = 1; i < stopa.length; i++) ctx.lineTo(stopa[i].x, stopa[i].y);
+			ctx.stroke(); ctx.setLineDash([]);
+		}
+		// malé částice
+		for (const c of castice) {
+			ctx.beginPath(); ctx.arc(c.x, c.y, R, 0, 7);
+			ctx.fillStyle = c.barva ? C_BARVA : C_VODA; ctx.fill();
+			ctx.lineWidth = 1; ctx.strokeStyle = '#00000044'; ctx.stroke();
+		}
+		// velké zrnko pylu
+		if (brown) {
+			ctx.beginPath(); ctx.arc(zrnko.x, zrnko.y, zrnko.r, 0, 7);
+			ctx.fillStyle = '#a9754a'; ctx.fill();
+			ctx.lineWidth = 3; ctx.strokeStyle = '#2b2a26'; ctx.stroke();
+			ctx.fillStyle = '#2b2a26'; ctx.font = 'bold 12px sans-serif';
+			ctx.fillText('zrnko pylu', zrnko.x - 30, zrnko.y - zrnko.r - 6);
+		}
+	}
+
+	function krok() {
+		ramec++;
+		if (kapka) {
+			// kapka padá dolů (gravitace), po dopadu na hladinu se rozpustí na barevné částice
+			kapka.v += 0.35; kapka.y += kapka.v;
+			if (kapka.y >= HLADINA + 10) {
+				for (let i = 0; i < N_BARVA; i++) {
+					const a = Math.random() * 6.283, r = Math.random() * 26;
+					castice.push(novaCastice(true,
+						Math.min(W - OKRAJ - R, Math.max(OKRAJ + R, kapka.x + Math.cos(a) * r)),
+						Math.min(DNO - R, HLADINA + 24 + Math.sin(a) * r)));
+				}
+				kapka = null;
+			}
+		} else if (!hotovo) {
+			cas += 1 / 60;
+		}
+		fyzika();
+		if (!kapka && ramec % 6 === 0) {
+			mix = mix * 0.85 + spocitejMix() * 0.15;
+			if (!hotovo && mix >= 92) { hotovo = true; casHotovo = cas; }
+		}
+		kresli();
+		if (ramec % 6 === 0) aktualizujTexty();
+		requestAnimationFrame(krok);
+	}
+
+	slider.addEventListener('input', () => { hodnota.textContent = slider.value + ' °C'; });
+	btnZnovu.addEventListener('click', restart);
+	btnBrown.addEventListener('click', () => {
+		brown = !brown;
+		stopa = [];
+		btnBrown.classList.toggle('aktivni', brown);
+		brownPopis.hidden = !brown;
+	});
+
+	hodnota.textContent = slider.value + ' °C';
+	restart();
+	aktualizujTexty();
+	krok();
+</script>
+
+<style>
+	.dif-ovladace { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 0.6rem 0; }
+	.dif-btn { font-size: 1.15rem; font-weight: 700; padding: 0.5rem 1.1rem; border: 3px solid #2b2a26;
+		border-radius: 12px; background: #fff; cursor: pointer; }
+	.dif-btn.aktivni { background: #ffe066; }
+	#dif-platno { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; touch-action: none; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 600px; display: block; margin-top: 0.3rem; }
+	.dif-stav { font-size: 1.1rem; font-weight: 700; margin: 0.2rem 0; }
+	.dif-popis { font-size: 1.05rem; font-weight: 600; margin-top: 0.6rem; min-height: 3rem; }
+	.dif-brown-popis { background: #fff4e6; border: 3px solid #2b2a26; border-radius: 12px; padding: 0.6rem 0.8rem; }
+</style>

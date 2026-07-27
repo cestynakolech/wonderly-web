@@ -4,6 +4,7 @@ import Kviz from '../../../../../../components/skola2/Kviz.astro';
 import QrKod from '../../../../../../components/skola2/QrKod.astro';
 import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
 import SkupenstviSimulace from '../../../../../../components/skola2/SkupenstviSimulace.astro';
+import DifuzeSimulace from '../../../../../../components/skola2/DifuzeSimulace.astro';
 import ObvodSimulace from '../../../../../../components/skola2/ObvodSimulace.astro';
 import HustotaSimulace from '../../../../../../components/skola2/HustotaSimulace.astro';
 import TeplomerSimulace from '../../../../../../components/skola2/TeplomerSimulace.astro';
@@ -35,6 +36,7 @@ import AtomMolekulySimulace from '../../../../../../components/skola2/AtomMoleku
 import IzotopySimulace from '../../../../../../components/skola2/IzotopySimulace.astro';
 import PraceSimulace from '../../../../../../components/skola2/PraceSimulace.astro';
 import TlakSimulace from '../../../../../../components/skola2/TlakSimulace.astro';
+import CockaSimulace from '../../../../../../components/skola2/CockaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -165,6 +167,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	}
 	{podtema.interakce === 'hydraulika' && <HydraulikaSimulace />}
 	{podtema.interakce === 'skupenstvi' && <SkupenstviSimulace />}
+	{podtema.interakce === 'difuze' && <DifuzeSimulace />}
 	{podtema.interakce === 'obvod' && <ObvodSimulace />}
 	{podtema.interakce === 'hustota' && <HustotaSimulace />}
 	{podtema.interakce === 'teplomer' && <TeplomerSimulace />}
@@ -196,6 +199,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'izotopy' && <IzotopySimulace />}
 	{podtema.interakce === 'prace' && <PraceSimulace />}
 	{podtema.interakce === 'tlak-plocha' && <TlakSimulace />}
+	{podtema.interakce === 'cocka' && <CockaSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
