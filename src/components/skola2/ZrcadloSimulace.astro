@@ -1,0 +1,249 @@
+---
+// Interaktivní zobrazení kulovým zrcadlem: duté (f = r/2 > 0) i vypuklé (f < 0).
+// Konstrukce třemi význačnými paprsky, obraz podle zobrazovací rovnice
+// 1/f = 1/a + 1/a'  →  a' = a·f/(a − f),  zvětšení Z = |a'/a|.
+// Skutečný obraz (a' > 0) vzniká PŘED zrcadlem a je převrácený; zdánlivý (a' < 0)
+// leží za zrcadlem, je vzpřímený a paprsky jím jen zdánlivě vycházejí.
+// Ověřeno: všechny tři konstrukční paprsky procházejí přesně bodem obrazu
+// (odvození v komentářích u výpočtu paprsků).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej zobrazení kulovým zrcadlem 🕹️</span></h2>
+	<p>Posunuj <strong>předmět</strong> (svíčku) a měň <strong>poloměr křivosti r</strong>. Ohnisko F leží vždy přesně uprostřed mezi středem křivosti S a vrcholem V, takže <strong>f = r/2</strong>. U dutého zrcadla najdi všechny případy — od <em>zrcadlového dalekohledu</em> přes <em>reflektor</em> až po <em>kosmetické zrcátko</em>.</p>
+	<p id="zrc-rezimy">
+		<button type="button" class="zrc-tl zrc-aktivni" data-rezim="dute">duté zrcadlo</button>
+		<button type="button" class="zrc-tl" data-rezim="vypukle">vypuklé zrcadlo</button>
+	</p>
+	<svg id="zrc-svg" viewBox="0 0 760 380" role="img" aria-label="Konstrukce obrazu kulovým zrcadlem pomocí význačných paprsků">
+		<!-- optická osa -->
+		<line x1="0" y1="205" x2="760" y2="205" stroke="#868e96" stroke-width="2" stroke-dasharray="7 5" />
+		<!-- značky S (střed křivosti), F (ohnisko), V (vrchol) -->
+		<g font-size="13" font-weight="bold" fill="#495057" text-anchor="middle">
+			<circle id="zrc-b-s" r="4" fill="#495057" cy="205" />
+			<circle id="zrc-b-f" r="4" fill="#495057" cy="205" />
+			<circle id="zrc-b-v" r="4" fill="#495057" cy="205" cx="500" />
+			<text id="zrc-t-s" y="226">S</text>
+			<text id="zrc-t-f" y="226">F</text>
+			<text id="zrc-t-v" y="226" x="500">V</text>
+		</g>
+		<!-- paprsky -->
+		<polyline id="zrc-p1" fill="none" stroke="#f08c00" stroke-width="3" />
+		<polyline id="zrc-p2" fill="none" stroke="#2f9e44" stroke-width="3" />
+		<polyline id="zrc-p3" fill="none" stroke="#1971c2" stroke-width="3" />
+		<!-- čárkovaná prodloužení ke zdánlivému obrazu -->
+		<line id="zrc-z1" stroke="#f08c00" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<line id="zrc-z2" stroke="#2f9e44" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<line id="zrc-z3" stroke="#1971c2" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<!-- zrcadlo: tělo (šedé) + odrazná plocha (modrá) -->
+		<polyline id="zrc-telo" fill="none" stroke="#adb5bd" stroke-width="9" stroke-linecap="round" />
+		<polyline id="zrc-plocha" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round" />
+		<!-- předmět a obraz -->
+		<line id="zrc-predmet" stroke="#e03131" stroke-width="5" marker-end="url(#zrc-sipka-p)" />
+		<line id="zrc-obraz" stroke="#7048e8" stroke-width="5" marker-end="url(#zrc-sipka-o)" />
+		<defs>
+			<marker id="zrc-sipka-p" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+				<path d="M0,0 L15,8 L0,16 z" fill="#e03131" />
+			</marker>
+			<marker id="zrc-sipka-o" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+				<path d="M0,0 L15,8 L0,16 z" fill="#7048e8" />
+			</marker>
+		</defs>
+		<text x="14" y="24" font-size="13" font-weight="bold" fill="#e03131">předmět</text>
+		<text x="14" y="42" font-size="13" font-weight="bold" fill="#7048e8">obraz</text>
+		<text id="zrc-mimo" x="330" y="60" font-size="15" font-weight="bold" fill="#c92a2a" text-anchor="middle"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Vzdálenost předmětu a: <output id="zrc-out-a"></output>
+		<input type="range" id="zrc-slider-a" min="2" max="40" step="0.5" value="30" />
+	</label>
+	<label class="sim-posuvnik">
+		Poloměr křivosti r: <output id="zrc-out-r"></output>
+		<input type="range" id="zrc-slider-r" min="12" max="24" step="0.5" value="20" />
+	</label>
+	<p class="zrc-stav" id="zrc-stav"></p>
+	<p class="zrc-vzorec" id="zrc-vzorec"></p>
+	<p class="zrc-legenda">
+		<span style="color:#f08c00">▬</span> rovnoběžný s osou (odrazí se do ohniska F) &nbsp;
+		<span style="color:#2f9e44">▬</span> vrcholový (odrazí se souměrně podle osy) &nbsp;
+		<span style="color:#1971c2">▬</span> středový (míří do středu S, vrací se sám po sobě)
+	</p>
+</section>
+
+<script>
+	const sliderA = document.getElementById('zrc-slider-a');
+	const sliderR = document.getElementById('zrc-slider-r');
+	const outA = document.getElementById('zrc-out-a');
+	const outR = document.getElementById('zrc-out-r');
+	const p1 = document.getElementById('zrc-p1');
+	const p2 = document.getElementById('zrc-p2');
+	const p3 = document.getElementById('zrc-p3');
+	const z1 = document.getElementById('zrc-z1');
+	const z2 = document.getElementById('zrc-z2');
+	const z3 = document.getElementById('zrc-z3');
+	const telo = document.getElementById('zrc-telo');
+	const plocha = document.getElementById('zrc-plocha');
+	const predmet = document.getElementById('zrc-predmet');
+	const obraz = document.getElementById('zrc-obraz');
+	const stavEl = document.getElementById('zrc-stav');
+	const vzorecEl = document.getElementById('zrc-vzorec');
+	const mimoEl = document.getElementById('zrc-mimo');
+
+	const VX = 500, OSA = 205, MER = 9;   // vrchol zrcadla, optická osa, měřítko px/cm
+	const H = 3;                           // výška předmětu v cm
+	const POLOVYSKA = 60;                  // poloviční výška zrcadla v px
+	const SIRKA = 760, VYSKA = 380;
+	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+	let dute = true;
+
+	// bod na okraji plátna ve směru (dx, dy) z bodu (x, y)
+	function naOkraj(x, y, dx, dy) {
+		let t = Infinity;
+		if (dx > 0) t = Math.min(t, (SIRKA - x) / dx);
+		if (dx < 0) t = Math.min(t, (0 - x) / dx);
+		if (dy > 0) t = Math.min(t, (VYSKA - y) / dy);
+		if (dy < 0) t = Math.min(t, (0 - y) / dy);
+		return [x + dx * t, y + dy * t];
+	}
+	// POZOR: v SVG souřadnicích musí být desetinná TEČKA (cz() dělá čárku pro text)
+	const body = (...b) => b.map(([x, y]) => x.toFixed(1) + ',' + y.toFixed(1)).join(' ');
+
+	function prekresli() {
+		const a = +sliderA.value;
+		const rAbs = +sliderR.value;
+		const f = dute ? rAbs / 2 : -rAbs / 2;
+		const R = rAbs * MER;                    // poloměr křivosti v px
+		const smer = dute ? 1 : -1;              // na kterou stranu od středu leží odrazná plocha
+		const Cx = VX - smer * R;                // střed křivosti S (duté vlevo, vypuklé vpravo)
+		const Fx = VX - f * MER;                 // ohnisko F
+		outA.textContent = cz(a, 1) + ' cm';
+		outR.textContent = cz(rAbs, 1) + ' cm  →  f = r/2 = ' + (dute ? '' : '−') + cz(rAbs / 2, 2) + ' cm'
+			+ (dute ? ' (skutečné ohnisko)' : ' (zdánlivé, za zrcadlem)');
+
+		// x-ová souřadnice zrcadla ve výšce dy nad osou
+		const xZrc = (dy) => Cx + smer * Math.sqrt(Math.max(R * R - dy * dy, 0));
+
+		// tvar zrcadla — polyline z 25 bodů (spolehlivější než oblouk s přepínači)
+		const bodyZrc = [];
+		for (let i = 0; i <= 24; i++) {
+			const dy = -POLOVYSKA + (2 * POLOVYSKA * i) / 24;
+			bodyZrc.push([xZrc(dy), OSA + dy]);
+		}
+		plocha.setAttribute('points', body(...bodyZrc));
+		// tělo zrcadla posunuté na NEodraznou stranu
+		telo.setAttribute('points', body(...bodyZrc.map(([x, y]) => [x + smer * 5, y])));
+
+		// značky S a F
+		document.getElementById('zrc-b-s').setAttribute('cx', Cx);
+		document.getElementById('zrc-t-s').setAttribute('x', Cx);
+		document.getElementById('zrc-b-f').setAttribute('cx', Fx);
+		document.getElementById('zrc-t-f').setAttribute('x', Fx);
+
+		// předmět
+		const X0 = VX - a * MER, Y0 = OSA - H * MER;
+		predmet.setAttribute('x1', X0); predmet.setAttribute('y1', OSA);
+		predmet.setAttribute('x2', X0); predmet.setAttribute('y2', Y0);
+
+		// obraz ze zobrazovací rovnice 1/f = 1/a + 1/a'
+		const vNekonecnu = Math.abs(a - f) < 0.3;
+		const a2 = vNekonecnu ? Infinity : (a * f) / (a - f);
+		const xObraz = VX - a2 * MER;
+		const yObraz = OSA + (a2 / a) * H * MER;   // skutečný (a' > 0) → pod osou = převrácený
+		const zvetseni = Math.abs(a2 / a);
+		const vidime = !vNekonecnu && xObraz > 5 && xObraz < SIRKA - 5 && Math.abs(yObraz - OSA) < 170;
+		const zdanlivy = !vNekonecnu && a2 < 0;
+
+		// body dopadu tří paprsků na zrcadlo
+		const M1 = [xZrc(Y0 - OSA), Y0];            // rovnoběžný s osou
+		const M2 = [VX, OSA];                       // vrcholový
+		// středový: leží na přímce S–předmět, na odrazné straně zrcadla
+		let vx = X0 - Cx, vy = Y0 - OSA;
+		const dl = Math.hypot(vx, vy) || 1;
+		const znak = vx * smer < 0 ? -1 : 1;        // vybere odraznou stranu kulové plochy
+		const M3 = [Cx + (znak * vx / dl) * R, OSA + (znak * vy / dl) * R];
+
+		// Odražené paprsky. Všechny tři procházejí bodem obrazu — ověřeno dosazením
+		// do zobrazovací rovnice (viz komentář v hlavičce). Skutečný obraz: paprsek
+		// pokračuje z bodu dopadu skrz obraz. Zdánlivý: pokračuje OD obrazu a k obrazu
+		// míří jen čárkované prodloužení.
+		function odrazeny(M, cil, poly, cara) {
+			let dx, dy;
+			if (vNekonecnu) {
+				// předmět v ohnisku → odražené paprsky vycházejí rovnoběžně;
+				// směr dá vrcholový paprsek (souměrný podle osy)
+				dx = -(VX - X0); dy = OSA - Y0;
+			} else {
+				dx = cil[0] - M[0]; dy = cil[1] - M[1];
+				if (zdanlivy) { dx = -dx; dy = -dy; }
+			}
+			const k = naOkraj(M[0], M[1], dx, dy);
+			poly.setAttribute('points', body([X0, Y0], M, k));
+			cara.style.display = zdanlivy && vidime ? '' : 'none';
+			if (zdanlivy && vidime) {
+				cara.setAttribute('x1', M[0]); cara.setAttribute('y1', M[1]);
+				cara.setAttribute('x2', xObraz); cara.setAttribute('y2', yObraz);
+			}
+		}
+		const cil = [xObraz, yObraz];
+		odrazeny(M1, cil, p1, z1);
+		odrazeny(M2, cil, p2, z2);
+		odrazeny(M3, cil, p3, z3);
+
+		// obraz
+		obraz.style.display = vidime ? '' : 'none';
+		if (vidime) {
+			obraz.setAttribute('x1', xObraz); obraz.setAttribute('y1', OSA);
+			obraz.setAttribute('x2', xObraz); obraz.setAttribute('y2', yObraz);
+		}
+		mimoEl.textContent = vidime ? '' : (vNekonecnu
+			? 'Odražené paprsky jsou rovnoběžné — obraz vzniká až „v nekonečnu“.'
+			: 'Obraz vzniká až daleko za okrajem obrázku — posuň předmět.');
+
+		// popis obrazu
+		let popis;
+		if (!dute) {
+			popis = `🚗 Vypuklé zrcadlo: obraz je <strong>vždy zdánlivý, vzpřímený a zmenšený</strong> (${cz(zvetseni, 2)}×) a leží <strong>za zrcadlem</strong>. Zato zachytí velký kus okolí — proto <strong>dopravní zrcadlo</strong> u nepřehledné křižovatky, zpětné zrcátko a zrcadlo v obchodě.`;
+		} else if (vNekonecnu) {
+			popis = '🔦 Předmět je přesně v <strong>ohnisku</strong> (a = f): odražené paprsky jdou <strong>rovnoběžně</strong> a obraz nevznikne. Přesně tak svítí <strong>reflektor auta</strong> a <strong>baterka</strong> — žárovka sedí v ohnisku.';
+		} else if (a < f) {
+			popis = `💄 Předmět je <strong>blíž než ohnisko</strong> (a &lt; f): obraz je <strong>zdánlivý, vzpřímený a zvětšený</strong> (${cz(zvetseni, 2)}×) — takhle pracuje <strong>kosmetické a zubní zrcátko</strong>.`;
+		} else if (Math.abs(a - 2 * f) < 0.35) {
+			popis = '⚖️ Předmět je přesně ve <strong>středu křivosti</strong> (a = r): obraz je skutečný, převrácený a <strong>stejně velký</strong> jako předmět — vznikne přesně tam, kde předmět stojí.';
+		} else if (a > 2 * f) {
+			popis = `🔭 Předmět je <strong>dál než střed křivosti S</strong> (a &gt; r): obraz je <strong>skutečný, převrácený a zmenšený</strong> (${cz(zvetseni, 2)}×) — tak sbírá světlo <strong>zrcadlový dalekohled</strong> i <strong>solární elektrárna</strong>.`;
+		} else {
+			popis = `🏥 Předmět je <strong>mezi ohniskem a středem křivosti</strong> (f &lt; a &lt; r): obraz je <strong>skutečný, převrácený a zvětšený</strong> (${cz(zvetseni, 2)}×) — dá se zachytit na stínítko.`;
+		}
+		stavEl.innerHTML = popis;
+
+		vzorecEl.innerHTML = `f = r/2 = ${cz(rAbs, 1)} / 2 = <strong>${(dute ? '' : '−') + cz(rAbs / 2, 2)} cm</strong> &nbsp;|&nbsp; ` + (vNekonecnu
+			? `1/f = 1/a + 1/a′ &nbsp;→&nbsp; a = f &nbsp;→&nbsp; a′ → ∞`
+			: `a′ = a·f / (a − f) = ${cz(a, 1)} · ${cz(f, 2)} / (${cz(a, 1)} − ${cz(f, 2)}) = <strong>${cz(a2, 1)} cm</strong>` +
+			  ` &nbsp;|&nbsp; zvětšení Z = |a′/a| = <strong>${cz(zvetseni, 2)}×</strong>` +
+			  (a2 < 0 ? ' &nbsp;(záporné a′ = obraz je <strong>zdánlivý</strong>, za zrcadlem)' : ''));
+	}
+
+	document.querySelectorAll('#zrc-rezimy .zrc-tl').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			document.querySelectorAll('#zrc-rezimy .zrc-tl').forEach((t) => t.classList.remove('zrc-aktivni'));
+			tl.classList.add('zrc-aktivni');
+			dute = tl.dataset.rezim === 'dute';
+			prekresli();
+		});
+	});
+	sliderA.addEventListener('input', prekresli);
+	sliderR.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#zrc-svg { width: 100%; max-width: 760px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 760px; display: block; margin-top: 0.3rem; }
+	.zrc-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.zrc-tl.zrc-aktivni { background: #ffe8cc; }
+	.zrc-tl:active { transform: translateY(1px); }
+	.zrc-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.zrc-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.zrc-legenda { font-size: 0.9rem; font-weight: 700; }
+</style>

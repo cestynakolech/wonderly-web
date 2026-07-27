@@ -37,6 +37,7 @@ import IzotopySimulace from '../../../../../../components/skola2/IzotopySimulace
 import PraceSimulace from '../../../../../../components/skola2/PraceSimulace.astro';
 import TlakSimulace from '../../../../../../components/skola2/TlakSimulace.astro';
 import CockaSimulace from '../../../../../../components/skola2/CockaSimulace.astro';
+import ZrcadloSimulace from '../../../../../../components/skola2/ZrcadloSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -200,6 +201,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'prace' && <PraceSimulace />}
 	{podtema.interakce === 'tlak-plocha' && <TlakSimulace />}
 	{podtema.interakce === 'cocka' && <CockaSimulace />}
+	{podtema.interakce === 'zrcadlo' && <ZrcadloSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>
 
