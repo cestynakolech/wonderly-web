@@ -763,6 +763,31 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['5,32 m', '53,2 m', '0,532 m'],
 			vysvetleni: '532 cm = 5,32 m = 5 m 32 cm. Na větší jednotky posouváme čárku doleva.',
 		},
+		{
+			text: 'Čím vydělíme rozdíl dvou popsaných čárek, když hledáme hodnotu nejmenšího dílku?',
+			odpovedi: ['počtem mezer mezi nimi', 'počtem čárek mezi nimi', 'počtem popsaných čárek'],
+			vysvetleni: 'Dílek je jedna MEZERA mezi čárkami. Čárek je vždy o jednu víc než mezer — proto se dělí počtem mezer.',
+		},
+		{
+			text: 'Na pravítku jsou popsané čárky po 1 cm a mezi nimi je 10 mezer. Jakou hodnotu má jeden dílek?',
+			odpovedi: ['1 mm', '1 cm', '10 mm'],
+			vysvetleni: '1 cm = 10 mm a mezer je 10 → 10 mm : 10 = 1 mm. Jeden dílek je tedy 1 milimetr.',
+		},
+		{
+			text: 'Mezi popsanými čárkami 20 mm a 25 mm je 5 mezer. Kolik je jeden dílek?',
+			odpovedi: ['1 mm', '5 mm', '0,5 mm'],
+			vysvetleni: 'Rozdíl čárek je 25 − 20 = 5 mm, mezer je 5 → 5 : 5 = 1 mm.',
+		},
+		{
+			text: 'Proč musí být nula stupnice přesně u začátku měřeného tělesa?',
+			odpovedi: ['jinak naměříme špatnou délku', 'aby se pravítko neprohnulo', 'kvůli teplotní roztažnosti'],
+			vysvetleni: 'Kdybychom začali měřit jinde než u nuly, měřili bychom od špatného místa a výsledek by byl chybný.',
+		},
+		{
+			text: 'Kolik je 2,5 dm v centimetrech?',
+			odpovedi: ['25 cm', '2,5 cm', '250 cm'],
+			vysvetleni: '1 dm = 10 cm, jdeme na menší jednotku → číslo se zvětší: 2,5 × 10 = 25 cm.',
+		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/hmotnost': [
 		{
@@ -849,6 +874,31 @@ export const kvizy: Record<string, Otazka[]> = {
 				'odhadneme podle barvy',
 			],
 			vysvetleni: 'Velmi malá tělesa vážíme ve větším počtu a hmotnost jednoho kusu určíme výpočtem.',
+		},
+		{
+			text: 'Převádíš kilogramy na gramy — gram je menší jednotka. Co se stane s číslem?',
+			odpovedi: ['zvětší se, násobíme 1000', 'zmenší se, dělíme 1000', 'zůstane stejné'],
+			vysvetleni: 'Menší jednotka → potřebujeme jich víc, číslo se ZVĚTŠÍ. Na větší jednotku je to naopak.',
+		},
+		{
+			text: 'Kolik dekagramů je 450 g?',
+			odpovedi: ['45 dag', '4,5 dag', '4500 dag'],
+			vysvetleni: '1 dag = 10 g, jdeme na větší jednotku → dělíme: 450 : 10 = 45 dag.',
+		},
+		{
+			text: 'Kolik miligramů je 1 gram?',
+			odpovedi: ['1000 mg', '100 mg', '10 mg'],
+			vysvetleni: '1 g = 1000 mg. V miligramech se udávají třeba dávky léků.',
+		},
+		{
+			text: 'Kolik tun je 7500 kg?',
+			odpovedi: ['7,5 t', '75 t', '0,75 t'],
+			vysvetleni: '1 t = 1000 kg, jdeme na větší jednotku → dělíme: 7500 : 1000 = 7,5 t.',
+		},
+		{
+			text: 'Kolik kilogramů je 0,5 t?',
+			odpovedi: ['500 kg', '50 kg', '5000 kg'],
+			vysvetleni: 'Tuna je větší jednotka než kilogram → násobíme: 0,5 × 1000 = 500 kg.',
 		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/objem': [
@@ -1182,6 +1232,31 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Vlak vyjel v 8:15 a přijel v 10:05. Jak dlouho jela cesta?',
 			odpovedi: ['1 h 50 min', '2 h 10 min', '1 h 90 min'],
 			vysvetleni: 't = t₂ − t₁: od 8:15 do 10:05 je 1 hodina a 50 minut.',
+		},
+		{
+			text: 'Robot objíždí obdélníkovou dráhu. Co je dráha, kterou ujede?',
+			odpovedi: ['obvod obdélníku', 'obsah obdélníku', 'delší strana obdélníku'],
+			vysvetleni: 'Robot jede PO OBVODU. Obsah je plocha uvnitř, po té nejede — proto se počítá obvod: o = 2 · (a + b).',
+		},
+		{
+			text: 'Dráha je poskládaná z 20 dílků a každý měří 4 cm. Jak je dlouhá?',
+			odpovedi: ['80 cm', '24 cm', '800 cm'],
+			vysvetleni: '20 dílků × 4 cm = 80 cm. Délku dílku musíme nejdřív změřit pravítkem.',
+		},
+		{
+			text: 'Robot ujel 80 cm za 20 sekund. Jaká byla jeho rychlost?',
+			odpovedi: ['4 cm/s', '0,25 cm/s', '1600 cm/s'],
+			vysvetleni: 'Rychlost = dráha : čas → 80 cm : 20 s = 4 cm/s. Za každou sekundu ujede 4 cm.',
+		},
+		{
+			text: 'Kolik sekund je 2,5 minuty?',
+			odpovedi: ['150 s', '250 s', '25 s'],
+			vysvetleni: 'U času se čárka neposouvá! 1 min = 60 s → 2,5 × 60 = 150 s.',
+		},
+		{
+			text: 'Kolik hodin je 0,5 dne?',
+			odpovedi: ['12 h', '5 h', '24 h'],
+			vysvetleni: 'Den má 24 hodin, polovina je 24 : 2 = 12 hodin.',
 		},
 	],
 	'fyzika/6-rocnik/teplota/teplota-a-jeji-mereni': [
