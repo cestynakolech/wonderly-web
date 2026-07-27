@@ -1,18 +1,14 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (po vypnutí Macu 26. 7. 2026 ráno)
-**Rozpracované kolo 23 — video k Teplotě (F6):** uživatel poslal screenshot svého
-výukového videa „Teplota a její měření – Fyzika 6" (YouTube, ~15 min; jeho snímky
-jsou i v prezentaci TEPLOTA.pptx). Na kanálu nalezeno `YLiXzSWoRRg` „Teplo, teplota"
-(neveřejné) — NEJDŘÍV OVĚŘIT, zda jde o totéž video (název se liší; může být i pod
-jiným ID — zeptat se uživatele nebo projít kanál). Pak vložit YouTube embed do
-`materialy` u fyzika/6-rocnik/teplota/teplota-a-jeji-mereni (druh 'video').
-Podobně `fKLqHBIS1Xk` „Meteorologie a měření počasí" → F7 meteorologie-a-mereni-tlaku.
-**Další ve frontě:** obrázkové snímky TEPLOTA (dilatační spára — foto máme ve
-scratchpadu, bimetal, kompenzátor → možná infografika/simulace bimetalu);
-„Fyzika opakování rok 6"; prezentace F7 Síla/Světelné jevy/Kapaliny; F8 Mechanická
-práce; F9 Elektřina + Vesmír; média k Fyzice 6 (písně/videa z automatu).
-Kola jedou hned za sebou (noční pokyn); spouštět přes /wonderly + /loop.
+## ⏩ KDE POKRAČOVAT (po restartu Claude 27. 7. 2026)
+Hotovo 27 kol (33 simulací, 37 videí, nové podtéma Vesmír). DALŠÍ KOLO (28):
+projít „SVĚTELNÉ JEVY 7 [Automaticky uloženo].pptx" (Škola/7/4 Světlo) — poslední
+velká neprojitá prezentace F7 → jedno vylepšení. Pak fronta níže.
+POZOR: náhledový panel (port 8788) drží jiná session — simulace ověřovat
+výpočtem + curl na živém webu; vizuálně až bude panel volný.
+ČEKÁ NA UŽIVATELE: odkaz na video „Teplota a její měření – F6" (není v soupisu
+kanálu) → pak vložit k F6 teplota-a-jeji-mereni.
+Spouštění: /wonderly + /loop, kola hned za sebou. Vše ostatní viz fronta níže.
 
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
