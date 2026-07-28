@@ -1,0 +1,159 @@
+---
+// Oko a vady oka (F7): řez okem, paprsky od předmětu se lámou na čočce.
+// Zdravé oko = ohnisko na sítnici; krátkozraké = před sítnicí (dálka rozmazaná,
+// koriguje ROZPTYLKA, − dioptrie); dalekozraké = za sítnicí (blízko rozmazané,
+// koriguje SPOJKA, + dioptrie). Tlačítko 👓 nasadí/sundá brýle, panel vpravo
+// ukazuje, co člověk vidí (ostře × rozmazaně). Bez časové animace — kreslí se
+// staticky; stav je čistá funkce stavOka(vada, bryle) na SVG (__stavOka).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Oko a brýle 🕹️</span></h2>
+	<p>Paprsky od předmětu láme <strong>čočka oka</strong> tak, aby se protnuly <strong>přesně na sítnici</strong> — jen tehdy je obraz ostrý. Vyzkoušej obě vady a naprav je brýlemi.</p>
+	<p id="oko-vady">
+		<button type="button" class="oko-tl oko-aktivni" data-vada="zdrave">✅ zdravé oko</button>
+		<button type="button" class="oko-tl" data-vada="kratkozrake">🌳 krátkozraké</button>
+		<button type="button" class="oko-tl" data-vada="dalekozrake">📖 dalekozraké</button>
+		<button type="button" class="oko-tl" id="oko-bryle-tl">👓 nasadit brýle</button>
+	</p>
+	<svg id="oko-svg" viewBox="0 0 660 340" role="img" aria-label="Řez okem s paprsky, sítnicí a brýlemi">
+		<defs>
+			<filter id="oko-blur" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur id="oko-blur-hodnota" stdDeviation="0" /></filter>
+		</defs>
+		<!-- pozorovaný předmět vlevo -->
+		<text id="oko-predmet" x="18" y="195" font-size="34">🌳</text>
+		<text id="oko-predmet-pop" x="35" y="228" text-anchor="middle" font-size="11" fill="#868e96">vzdálený strom</text>
+		<!-- oční koule -->
+		<circle cx="370" cy="180" r="122" fill="#fff" stroke="#2b2a26" stroke-width="4" />
+		<!-- sítnice (zvýrazněná vpravo uvnitř) -->
+		<path d="M478 105 Q502 180 478 255" fill="none" stroke="#e03131" stroke-width="6" stroke-linecap="round" />
+		<text x="512" y="262" font-size="12" font-weight="bold" fill="#e03131">sítnice</text>
+		<!-- čočka oka -->
+		<ellipse cx="280" cy="180" rx="16" ry="42" fill="#a5d8ff" stroke="#1864ab" stroke-width="3" />
+		<text x="280" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#1864ab">čočka</text>
+		<!-- brýle před okem -->
+		<g id="oko-bryle">
+			<path id="oko-bryle-tvar" fill="#d0ebff" fill-opacity="0.8" stroke="#1864ab" stroke-width="3" />
+			<text id="oko-bryle-pop" x="225" y="290" text-anchor="middle" font-size="12" font-weight="bold" fill="#1864ab"></text>
+		</g>
+		<!-- tři paprsky -->
+		<polyline id="oko-p1" fill="none" stroke="#f08c00" stroke-width="3" />
+		<polyline id="oko-p2" fill="none" stroke="#f08c00" stroke-width="3" />
+		<polyline id="oko-p3" fill="none" stroke="#f08c00" stroke-width="3" />
+		<!-- čárkovaná prodloužení za sítnici (dalekozrakost) -->
+		<line id="oko-z1" stroke="#f08c00" stroke-width="2" stroke-dasharray="6 5" opacity="0.7" />
+		<line id="oko-z3" stroke="#f08c00" stroke-width="2" stroke-dasharray="6 5" opacity="0.7" />
+		<!-- ohnisko -->
+		<circle id="oko-ohnisko" r="6" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+		<text id="oko-ohnisko-pop" x="370" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131"></text>
+		<!-- panel: co člověk vidí -->
+		<rect x="545" y="40" width="100" height="105" rx="10" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" />
+		<text x="595" y="60" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">co vidí:</text>
+		<text id="oko-videni" x="595" y="112" text-anchor="middle" font-size="42" filter="url(#oko-blur)">🌳</text>
+		<text id="oko-videni-pop" x="595" y="136" text-anchor="middle" font-size="12" font-weight="bold"></text>
+	</svg>
+	<p class="oko-stav" id="oko-stav">👉 Vyber si oko tlačítky nahoře — u vad pak zkus, co udělají brýle 👓.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (optika bez DOM — kontrolovatelná výpočtem) ===
+	const COCKA_X = 280, SITNICE_X = 490, OSA_Y = 180; // geometrie oka (px)
+	const OHNISKA = { zdrave: 490, kratkozrake: 440, dalekozrake: 560 }; // kam oko protne paprsky
+	function stavOka(vada, bryle) {
+		const korigovano = vada !== 'zdrave' && bryle;
+		const fx = korigovano ? SITNICE_X : OHNISKA[vada];
+		// krajní paprsek startuje 60 px nad osou; kde protne sítnici?
+		const ySitnice = OSA_Y - 60 + 60 * (SITNICE_X - COCKA_X) / (fx - COCKA_X);
+		return {
+			fx,
+			naSitnici: fx === SITNICE_X,
+			rozmazani: Math.abs(ySitnice - OSA_Y), // 0 = ostrý obraz
+			korigovano,
+		};
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	let vada = 'zdrave';
+	let bryle = false;
+	const svg = document.getElementById('oko-svg');
+	svg.__stavOka = stavOka; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function kresli() {
+		const s = stavOka(vada, bryle);
+		// tři paprsky: starty 60 px nad osou, na ose a 60 px pod osou
+		const BRYLE_X = 222;
+		[[-60, 'oko-p1'], [0, 'oko-p2'], [60, 'oko-p3']].forEach(([d, id]) => {
+			const y0 = OSA_Y + d;
+			// s brýlemi se paprsek mezi brýlemi a čočkou mírně odkloní (rozptylka ven, spojka dovnitř)
+			const yCocka = s.korigovano ? y0 + d * (vada === 'kratkozrake' ? 0.14 : -0.14) : y0;
+			const body = [[52, y0], [BRYLE_X, y0], [COCKA_X, yCocka]];
+			const ySit = yCocka + (OSA_Y - yCocka) * (SITNICE_X - COCKA_X) / (s.fx - COCKA_X);
+			if (s.fx < SITNICE_X) body.push([s.fx, OSA_Y]); // ohnisko před sítnicí — paprsek se kříží
+			body.push([SITNICE_X, ySit]);
+			nastav(id, { points: body.map(b => b.join(',')).join(' ') });
+			// čárkované prodloužení k ohnisku za sítnicí (dalekozrakost)
+			if (id !== 'oko-p2') {
+				const z = id === 'oko-p1' ? 'oko-z1' : 'oko-z3';
+				nastav(z, s.fx > SITNICE_X
+					? { x1: SITNICE_X, y1: ySit, x2: s.fx, y2: OSA_Y, visibility: 'visible' }
+					: { visibility: 'hidden' });
+			}
+		});
+		// ohnisko + popisek
+		nastav('oko-ohnisko', { cx: s.fx, cy: OSA_Y });
+		const pop = g('oko-ohnisko-pop');
+		pop.textContent = s.naSitnici ? 'paprsky se protly NA sítnici' : s.fx < SITNICE_X ? 'obraz vznikl PŘED sítnicí' : 'obraz by vznikl až ZA sítnicí';
+		nastav('oko-ohnisko-pop', { x: Math.min(s.fx, 490) });
+		// brýle: rozptylka (vykrojená) × spojka (vypouklá)
+		const bryleViditelne = s.korigovano;
+		g('oko-bryle').setAttribute('visibility', bryleViditelne ? 'visible' : 'hidden');
+		if (bryleViditelne) {
+			nastav('oko-bryle-tvar', { d: vada === 'kratkozrake'
+				? 'M212 120 Q222 180 212 240 L232 240 Q222 180 232 120 Z'   // rozptylka: uprostřed tenká
+				: 'M216 120 Q198 180 216 240 L228 240 Q246 180 228 120 Z' }); // spojka: uprostřed tlustá
+			g('oko-bryle-pop').textContent = vada === 'kratkozrake' ? 'rozptylka (− dioptrie)' : 'spojka (+ dioptrie)';
+		}
+		// pozorovaný předmět: dálka = strom, blízko = kniha (dalekozraký špatně vidí na blízko)
+		const strom = vada !== 'dalekozrake';
+		g('oko-predmet').textContent = strom ? '🌳' : '📖';
+		g('oko-predmet-pop').textContent = strom ? 'vzdálený strom' : 'kniha u očí';
+		g('oko-videni').textContent = strom ? '🌳' : '📖';
+		// rozmazání v panelu „co vidí" (0 = ostře)
+		g('oko-blur-hodnota').setAttribute('stdDeviation', (s.rozmazani / 6).toFixed(2));
+		g('oko-videni-pop').textContent = s.naSitnici ? 'ostře 👍' : 'rozmazaně 😵';
+		nastav('oko-videni-pop', { fill: s.naSitnici ? '#2f9e44' : '#e03131' });
+		// tlačítka a hláška
+		for (const b of document.querySelectorAll('#oko-vady [data-vada]')) b.classList.toggle('oko-aktivni', b.dataset.vada === vada);
+		const brTl = g('oko-bryle-tl');
+		brTl.style.display = vada === 'zdrave' ? 'none' : '';
+		brTl.textContent = bryle ? '👓 sundat brýle' : '👓 nasadit brýle';
+		brTl.classList.toggle('oko-aktivni', bryle);
+		const stavy = {
+			zdrave: '✅ ZDRAVÉ OKO láme paprsky přesně na sítnici — obraz je ostrý (skutečný, zmenšený a převrácený; mozek si ho „otočí").',
+			kratkozrake: bryle
+				? '👓 ROZPTYLKA (− dioptrie) paprsky nejdřív mírně rozptýlí, oko je pak protne přesně na sítnici — dálka je zase ostrá!'
+				: '❌ KRÁTKOZRAKÉ OKO láme příliš: paprsky se protnou PŘED sítnicí a na sítnici dopadne rozmazaná skvrna. Dálku vidí špatně. Nasaď brýle!',
+			dalekozrake: bryle
+				? '👓 SPOJKA (+ dioptrie) paprsky předem sblíží, oko je doostří přesně na sítnici — čtení je zase ostré!'
+				: '❌ DALEKOZRAKÉ OKO láme málo: paprsky by se protnuly až ZA sítnicí (čárkovaně). Blízké věci (kniha) vidí rozmazaně. Nasaď brýle!',
+		};
+		g('oko-stav').textContent = stavy[vada];
+	}
+
+	document.getElementById('oko-vady').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-vada]');
+		if (tl) { vada = tl.dataset.vada; if (vada === 'zdrave') bryle = false; kresli(); return; }
+		if (e.target.closest('#oko-bryle-tl')) { bryle = !bryle; kresli(); }
+	});
+	kresli();
+</script>
+
+<style>
+	#oko-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.oko-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.oko-tl.oko-aktivni { background: #ffe8cc; }
+	.oko-tl:active { transform: translateY(1px); }
+	.oko-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

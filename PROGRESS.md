@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 52: OkoSimulace (vady oka a brýle).** F7 oko: řez okem, paprsky od
+  předmětu, zdravé × krátkozraké (ohnisko před sítnicí, dálka rozmazaná) × dalekozraké
+  (za sítnicí, čárkovaně; kniha rozmazaná), tlačítko 👓 nasadí rozptylku (−) / spojku (+)
+  a vrátí obraz na sítnici; panel „co vidí" rozmazává přes feGaussianBlur úměrně skvrně
+  na sítnici. Čistá funkce stavOka(vada, brýle) — všech 6 stavů ověřeno výpočtem i DOM.
+  Celkem 52 simulací.
 - **2026-07-29 — kolo 51: BarometrSimulace (tlak s výškou).** F7 atmosférický tlak: balón
   stoupá 0–8000 m (po 1000), Torricelliho rtuťový barometr klesá (760→267 mm), tlak v celých
   hPa dle standardní atmosféry (1013→356, ověřeno výpočtem proti ISA vzorci), sloupec „zbývá

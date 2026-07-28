@@ -1,11 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 51 hotové — barometr)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 52 hotové — oko a brýle)
 
-Hotovo 51 kol samostatného režimu (51 simulací na 53 stránkách, 356+ kvízových otázek).
-Zásoba: sekce „Kandidáti na simulace" níže (č. 1–10 hotové).
-**DALŠÍ KOLO (52):** kandidát č. 11 — **F7 oko a vady oka** (krátkozrakost/dalekozrakost:
-kam dopadá ohnisko, brýle rozptylka/spojka vrací obraz na sítnici; navázat na CockaSimulace).
+Hotovo 52 kol samostatného režimu (52 simulací na 54 stránkách, 356+ kvízových otázek).
+Zásoba: sekce „Kandidáti na simulace" níže (č. 1–11 hotové).
+**DALŠÍ KOLO (53):** kandidát č. 12 — **F9 vedení proudu v kapalinách** (elektrolýza:
+ionty putují k elektrodám, posuvník napětí, pokovování předmětu). Poslední z auditu kola 38;
+pak nový audit temata.ts nebo média k Fyzice 6.
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
@@ -90,8 +91,9 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
 10. [x] **F7 atmosfericky-tlak** — HOTOVO v kole 51 (BarometrSimulace: balón 0–8000 m
     po 1000, Torricelliho rtuťový barometr, celé hPa dle standardní atmosféry — kotva
     1013 hPa = 760 mm u moře, % normálu, místa Ještěd→Everest).
-11. [ ] **F7 oko-vady-oka** — krátkozrakost/dalekozrakost: kam dopadá ohnisko, brýle
-    (rozptylka/spojka) obraz vrátí na sítnici; naváže na CockaSimulace.
+11. [x] **F7 oko-vady-oka** — HOTOVO v kole 52 (OkoSimulace: řez okem se sítnicí, 3 stavy
+    oka, ohnisko před/na/za sítnicí, brýle rozptylka/spojka vrací obraz na sítnici, panel
+    „co vidí" s rozmazáním přes SVG filtr, strom=dálka × kniha=blízko).
 12. [ ] **F9 vedeni-proudu-v-kapalinach** — elektrolýza: ionty putují k elektrodám, posuvník
     napětí, pokovování předmětu.
 Záměrně vynecháno: shrnutí/opakování, čistě výkladová témata (úvod do fyziky, zdroje energie,
