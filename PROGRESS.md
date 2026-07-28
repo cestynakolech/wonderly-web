@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 62: ReaktorSimulace (řízená řetězová reakce).** F9: řídicí pult —
+  zasouvání regulačních tyčí (0–100 % po 25) mění násobek řetězové reakce (×2/×1,5/×1/
+  ×0,5/×0), generace štěpení 8→16→32 … 8→0→0 vše celé, kritický stav při 50 %, tlačítka
+  „havarijní STOP" a „nastav kritický", diagram tří generací neutronů + tyče a neutrony
+  ve zóně. Čistá funkce stavReaktoru — 5 poloh ověřeno výpočtem i DOM. Celkem 60 simulací.
 - **2026-07-29 — kolo 61: DuhaSimulace (rozklad světla).** F7: hranol rozloží bílý paprsek
   na vějíř 7 barev (klik na barvu/chip = jak moc se láme; červená nejméně, fialová nejvíce),
   obrácený hranol = Newtonův důkaz 1671 (složení zpět do bílé, pojem spektrum); režim duhy —

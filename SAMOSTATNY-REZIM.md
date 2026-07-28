@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 61 hotové — hranol a duha)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 62 hotové — jaderný reaktor)
 
-Hotovo 61 kol samostatného režimu (59 simulací na 61 stránkách, 356+ kvízových otázek).
+Hotovo 62 kol samostatného režimu (60 simulací na 62 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (62):** kandidát č. 7 nového seznamu — **F9 jaderný reaktor** (regulační
-tyče: hloubka zasunutí → počet neutronů a výkon v celých číslech, řízená × neřízená
-řetězová reakce).
+**DALŠÍ KOLO (63):** kandidát č. 8 nového seznamu — **F8 vnímání zvuku a hlasitost**
+(stupnice dB: posuvník zdroje šepot→start letadla, prah slyšení/bolesti, bezpečná doba
+poslechu — hodnoty z výkladu, celé dB).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -36,8 +36,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 6. [x] **F7 rozklad-svetla-duha** — HOTOVO v kole 61 (DuhaSimulace: hranol s vějířem
    7 barev, klik na barvu = míra lomu, obrácený hranol = Newtonův důkaz složení do bílé;
    duha s červenou nahoře + vedlejší se 2 odrazy a opačným pořadím, schéma kapky, Marci).
-7. [ ] **F9 jaderny-reaktor-elektrarna** — regulační tyče: hloubka zasunutí → počet neutronů
-   a výkon (celá čísla), řízená × neřízená řetězová reakce.
+7. [x] **F9 jaderny-reaktor-elektrarna** — HOTOVO v kole 62 (ReaktorSimulace: tyče 0–100 %
+   po 25 → generace štěpení 8→16/12/8/4/0 (celé), kritický stav při 50 %, havarijní STOP,
+   diagram tří generací, hlášky o moderátoru, bórové oceli a Temelínu/Dukovanech).
 8. [ ] **F8 vnimani-zvuku-a-hlasitost** — stupnice dB: posuvník zdroje šepot→start letadla,
    prah slyšení/bolesti, bezpečná doba poslechu (celé hodnoty z výkladu).
 9. [ ] **F7 pretlak-podtlak-vakuum** — píst ve válci + manometr: přetlak/podtlak/vakuum,
