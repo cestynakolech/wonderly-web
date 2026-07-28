@@ -1,12 +1,13 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 52 hotové — oko a brýle)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 53 hotové — elektrolýza; SEZNAM KANDIDÁTŮ VYČERPÁN)
 
-Hotovo 52 kol samostatného režimu (52 simulací na 54 stránkách, 356+ kvízových otázek).
-Zásoba: sekce „Kandidáti na simulace" níže (č. 1–11 hotové).
-**DALŠÍ KOLO (53):** kandidát č. 12 — **F9 vedení proudu v kapalinách** (elektrolýza:
-ionty putují k elektrodám, posuvník napětí, pokovování předmětu). Poslední z auditu kola 38;
-pak nový audit temata.ts nebo média k Fyzice 6.
+Hotovo 53 kol samostatného režimu (53 simulací na 55 stránkách, 356+ kvízových otázek).
+**Všech 12 kandidátů z auditu kola 38 je HOTOVÝCH.**
+**DALŠÍ KOLO (54):** NOVÝ AUDIT `src/data/temata.ts` — projít podtémata bez interakce
+(všechny předměty a ročníky, i informatiku) a sestavit nový seznam kandidátů na simulace;
+případně kvízy dorovnat k novým simulacím (motor/dioda/barometr/oko/elektrolýza mají
+kvízy z dřívějška — zkontrolovat, zda pokrývají i jevy ze simulací).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
@@ -94,8 +95,9 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
 11. [x] **F7 oko-vady-oka** — HOTOVO v kole 52 (OkoSimulace: řez okem se sítnicí, 3 stavy
     oka, ohnisko před/na/za sítnicí, brýle rozptylka/spojka vrací obraz na sítnici, panel
     „co vidí" s rozmazáním přes SVG filtr, strom=dálka × kniha=blízko).
-12. [ ] **F9 vedeni-proudu-v-kapalinach** — elektrolýza: ionty putují k elektrodám, posuvník
-    napětí, pokovování předmětu.
+12. [x] **F9 vedeni-proudu-v-kapalinach** — HOTOVO v kole 53 (ElektrolyzaSimulace: destilovaná
+    voda nevede × roztok NaCl vede, ionty Na⁺→katoda / Cl⁻→anoda se šipkami, žárovka dle
+    proudu, napětí 0–12 V po 2 V → celé A (R=2 Ω), režim pokovování lžičky Au⁺ s vrstvou dle I).
 Záměrně vynecháno: shrnutí/opakování, čistě výkladová témata (úvod do fyziky, zdroje energie,
 vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 

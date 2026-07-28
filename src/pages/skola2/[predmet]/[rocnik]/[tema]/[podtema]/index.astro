@@ -55,6 +55,7 @@ import SpalovaciMotorSimulace from '../../../../../../components/skola2/Spalovac
 import DiodaSimulace from '../../../../../../components/skola2/DiodaSimulace.astro';
 import BarometrSimulace from '../../../../../../components/skola2/BarometrSimulace.astro';
 import OkoSimulace from '../../../../../../components/skola2/OkoSimulace.astro';
+import ElektrolyzaSimulace from '../../../../../../components/skola2/ElektrolyzaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -234,6 +235,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'dioda' && <DiodaSimulace />}
 	{podtema.interakce === 'barometr' && <BarometrSimulace />}
 	{podtema.interakce === 'oko' && <OkoSimulace />}
+	{podtema.interakce === 'elektrolyza' && <ElektrolyzaSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{otazky && <Kviz otazky={otazky} />}

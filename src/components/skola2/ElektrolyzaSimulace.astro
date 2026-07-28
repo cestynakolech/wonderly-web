@@ -1,0 +1,185 @@
+---
+// Vedení proudu v kapalinách (F9): kádinka s elektrodami, žárovka a zdroj.
+// Destilovaná voda nevede (žádné ionty); v roztoku soli putují kationty Na⁺
+// ke katodě (−) a anionty Cl⁻ k anodě (+) — žárovka svítí. Druhý režim:
+// pokovování lžičky (Au⁺ se vylučuje na katodě, vrstva roste s proudem).
+// Napětí 0–12 V po 2 V, proud I = U/2 (odpor roztoku 2 Ω) → vždy celé ampéry.
+// Bez časové animace — kreslí se staticky; stav je čistá funkce
+// stavElektrolyzy(rezim, kapalina, U) na SVG (__stavElektrolyzy).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektrolýza — ionty na cestách 🕹️</span></h2>
+	<p>Kapalina vede proud, jen když v ní plavou <strong>ionty</strong>. Po zapojení zdroje putují <strong>kationty (+) ke katodě (−)</strong> a <strong>anionty (−) k anodě (+)</strong> — jejich usměrněný pohyb je elektrický proud.</p>
+	<p id="ely-rezimy">
+		<button type="button" class="ely-tl ely-aktivni" data-rezim="pokus">🔦 pokus se žárovkou</button>
+		<button type="button" class="ely-tl" data-rezim="pokovovani">🥄 pokovování lžičky</button>
+	</p>
+	<p id="ely-kapaliny">
+		<button type="button" class="ely-tl ely-aktivni" data-kapalina="destilovana">💧 destilovaná voda</button>
+		<button type="button" class="ely-tl" data-kapalina="roztok">🧂 voda se solí (roztok)</button>
+	</p>
+	<svg id="ely-svg" viewBox="0 0 660 340" role="img" aria-label="Kádinka s elektrodami, ionty, žárovka a zdroj napětí">
+		<!-- obvod nahoře: zdroj a žárovka -->
+		<path d="M240 120 L240 60 L295 60 M325 60 L372 60 M408 60 L420 60 L420 120" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<line x1="295" y1="42" x2="295" y2="78" stroke="#2b2a26" stroke-width="8" />
+		<line x1="325" y1="34" x2="325" y2="86" stroke="#2b2a26" stroke-width="4" />
+		<text x="283" y="30" font-size="16" font-weight="bold" fill="#1971c2">−</text>
+		<text x="318" y="30" font-size="16" font-weight="bold" fill="#e03131">+</text>
+		<text id="ely-zdroj" x="310" y="104" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26"></text>
+		<!-- žárovka -->
+		<g id="ely-paprsky" stroke="#fab005" stroke-width="3" stroke-linecap="round">
+			<line x1="390" y1="30" x2="390" y2="16" /><line x1="368" y1="40" x2="358" y2="30" /><line x1="412" y1="40" x2="422" y2="30" />
+		</g>
+		<circle cx="390" cy="60" r="18" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<circle id="ely-vlakno" cx="390" cy="60" r="13" fill="#ffd43b" />
+		<text id="ely-proud" x="390" y="104" text-anchor="middle" font-size="13" font-weight="bold" fill="#e8590c"></text>
+		<!-- kádinka -->
+		<path d="M180 120 L180 300 L480 300 L480 120" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect id="ely-voda" x="182" y="140" width="296" height="158" fill="#e7f5ff" />
+		<!-- elektrody -->
+		<rect x="232" y="120" width="16" height="120" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<rect x="412" y="120" width="16" height="120" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<text x="240" y="330" text-anchor="middle" font-size="13" font-weight="bold" fill="#1971c2">KATODA (−)</text>
+		<text x="420" y="330" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131">ANODA (+)</text>
+		<!-- lžička na katodě (jen pokovování) -->
+		<g id="ely-lzicka">
+			<ellipse id="ely-vrstva" cx="240" cy="252" rx="26" ry="34" fill="none" stroke="#fab005" />
+			<rect x="234" y="150" width="12" height="70" rx="4" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+			<ellipse cx="240" cy="252" rx="20" ry="28" fill="#dee2e6" stroke="#2b2a26" stroke-width="2.5" />
+			<text id="ely-vrstva-pop" x="285" y="296" font-size="11" font-weight="bold" fill="#b08900">vrstva zlata</text>
+		</g>
+		<!-- molekuly H2O (destilovaná voda) -->
+		<g id="ely-molekuly" font-size="11" fill="#868e96">
+			<text x="300" y="180">H₂O</text><text x="360" y="220">H₂O</text><text x="270" y="250">H₂O</text><text x="390" y="170">H₂O</text>
+		</g>
+		<!-- kationty (Na⁺ / Au⁺) — putují DOLEVA ke katodě -->
+		<g id="ely-kationty">
+			<g font-size="12" font-weight="bold" text-anchor="middle">
+				<circle cx="310" cy="180" r="11" class="ely-kation" /><text x="310" y="184" class="ely-kation-t"></text>
+				<circle cx="350" cy="235" r="11" class="ely-kation" /><text x="350" y="239" class="ely-kation-t"></text>
+				<circle cx="300" cy="270" r="11" class="ely-kation" /><text x="300" y="274" class="ely-kation-t"></text>
+			</g>
+			<g id="ely-kationty-sipky" fill="#2b2a26">
+				<polygon points="290,180 272,174 272,186" /><polygon points="330,235 312,229 312,241" /><polygon points="280,270 262,264 262,276" />
+			</g>
+		</g>
+		<!-- anionty Cl⁻ — putují DOPRAVA k anodě -->
+		<g id="ely-anionty">
+			<g font-size="12" font-weight="bold" text-anchor="middle">
+				<circle cx="370" cy="160" r="11" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" /><text x="370" y="164">Cl⁻</text>
+				<circle cx="330" cy="205" r="11" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" /><text x="330" y="209">Cl⁻</text>
+				<circle cx="380" cy="265" r="11" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" /><text x="380" y="269">Cl⁻</text>
+			</g>
+			<g id="ely-anionty-sipky" fill="#2b2a26">
+				<polygon points="390,160 408,154 408,166" /><polygon points="350,205 368,199 368,211" /><polygon points="400,265 418,259 418,271" />
+			</g>
+		</g>
+	</svg>
+	<label class="sim-posuvnik">
+		Napětí zdroje: <output id="ely-out-u"></output>
+		<input type="range" id="ely-slider" min="0" max="12" step="2" value="0" />
+	</label>
+	<p class="ely-vzorec" id="ely-vzorec"></p>
+	<p class="ely-stav" id="ely-stav">👉 Přidej napětí posuvníkem — a pak zkus, co udělá sůl ve vodě a co režim pokovování.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	const R_ROZTOKU = 2; // Ω → I = U/2, pro sudá U vždy celé ampéry
+	function stavElektrolyzy(rezim, kapalina, U) {
+		const vodiva = rezim === 'pokovovani' || kapalina === 'roztok'; // zlatící lázeň je vždy roztok
+		const I = vodiva ? U / R_ROZTOKU : 0;
+		return {
+			I,
+			svitivost: I / 6, // jas žárovky 0–1 (max při 12 V)
+			vrstva: rezim === 'pokovovani' ? I : 0, // tloušťka zlaté vrstvy (px)
+			ionty: vodiva,
+			putuji: vodiva && I > 0,
+		};
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	let rezim = 'pokus';
+	let kapalina = 'destilovana';
+	const slider = document.getElementById('ely-slider');
+	const svg = document.getElementById('ely-svg');
+	svg.__stavElektrolyzy = stavElektrolyzy; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function kresli() {
+		const U = +slider.value;
+		const s = stavElektrolyzy(rezim, kapalina, U);
+		const pokov = rezim === 'pokovovani';
+		g('ely-out-u').textContent = `${U} V`;
+		g('ely-zdroj').textContent = `zdroj ${U} V`;
+		// voda: destilovaná čirá, roztok namodralý, zlatící lázeň nažloutlá
+		nastav('ely-voda', { fill: pokov ? '#fff3bf' : kapalina === 'roztok' ? '#d0ebff' : '#f1f8ff' });
+		// žárovka a proud
+		nastav('ely-vlakno', { opacity: Math.max(s.svitivost, 0.06) });
+		nastav('ely-paprsky', { visibility: s.svitivost > 0 ? 'visible' : 'hidden' });
+		g('ely-proud').textContent = `I = ${s.I} A`;
+		// ionty: kationty Na⁺ (pokus) / Au⁺ (pokovování), anionty Cl⁻ jen v pokusu
+		g('ely-molekuly').setAttribute('visibility', s.ionty ? 'hidden' : 'visible');
+		g('ely-kationty').setAttribute('visibility', s.ionty ? 'visible' : 'hidden');
+		g('ely-anionty').setAttribute('visibility', s.ionty && !pokov ? 'visible' : 'hidden');
+		for (const c of svg.querySelectorAll('.ely-kation')) {
+			c.setAttribute('fill', pokov ? '#ffd43b' : '#ff8787');
+			c.setAttribute('stroke', '#2b2a26'); c.setAttribute('stroke-width', '2');
+		}
+		for (const t of svg.querySelectorAll('.ely-kation-t')) t.textContent = pokov ? 'Au⁺' : 'Na⁺';
+		// šipky pohybu jen když teče proud
+		g('ely-kationty-sipky').setAttribute('visibility', s.putuji ? 'visible' : 'hidden');
+		g('ely-anionty-sipky').setAttribute('visibility', s.putuji && !pokov ? 'visible' : 'hidden');
+		// lžička a zlatá vrstva
+		g('ely-lzicka').setAttribute('visibility', pokov ? 'visible' : 'hidden');
+		nastav('ely-vrstva', { 'stroke-width': Math.max(s.vrstva, 0.001), visibility: s.vrstva > 0 ? 'visible' : 'hidden' });
+		nastav('ely-vrstva-pop', { visibility: s.vrstva > 0 ? 'visible' : 'hidden' });
+		// přepínač kapalin jen v pokusu
+		document.getElementById('ely-kapaliny').style.display = pokov ? 'none' : '';
+		for (const b of document.querySelectorAll('#ely-rezimy [data-rezim]')) b.classList.toggle('ely-aktivni', b.dataset.rezim === rezim);
+		for (const b of document.querySelectorAll('#ely-kapaliny [data-kapalina]')) b.classList.toggle('ely-aktivni', b.dataset.kapalina === kapalina);
+		// vzorec a hláška
+		g('ely-vzorec').innerHTML = s.I > 0
+			? `I = U / R = ${U} V / ${R_ROZTOKU} Ω = <strong>${s.I} A</strong>`
+			: `I = <strong>0 A</strong> — ${U === 0 ? 'bez napětí se ionty pohybují jen neuspořádaně' : 'v destilované vodě nejsou ionty, proud nemá co přenášet'}`;
+		let stav;
+		if (pokov) {
+			stav = s.I > 0
+				? `🥄 Au⁺ kationty putují ke lžičce na KATODĚ a vylučují se jako vrstva zlata — to je POKOVOVÁNÍ. Větší proud (a delší čas) = silnější vrstva.`
+				: '🥄 Lžička visí v zlatící lázni na katodě. Přidej napětí a Au⁺ kationty se na ní začnou vylučovat.';
+		} else if (kapalina === 'destilovana') {
+			stav = U > 0
+				? '🚫 Destilovaná voda proud NEVEDE — nejsou v ní ionty, žárovka nesvítí. Přisyp sůl tlačítkem 🧂!'
+				: '💧 V destilované vodě plavou jen molekuly H₂O. Zkus přidat napětí — a pak sůl.';
+		} else {
+			stav = U > 0
+				? `💡 Kationty Na⁺ putují k záporné KATODĚ, anionty Cl⁻ ke kladné ANODĚ — usměrněný pohyb iontů je proud, žárovka svítí.`
+				: '🧂 Sůl se rozpadla na ionty Na⁺ a Cl⁻ — roztok je připravený vést proud. Přidej napětí!';
+		}
+		g('ely-stav').textContent = stav;
+	}
+
+	document.getElementById('ely-rezimy').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-rezim]');
+		if (tl) { rezim = tl.dataset.rezim; kresli(); }
+	});
+	document.getElementById('ely-kapaliny').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-kapalina]');
+		if (tl) { kapalina = tl.dataset.kapalina; kresli(); }
+	});
+	slider.addEventListener('input', kresli);
+	kresli();
+</script>
+
+<style>
+	#ely-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.ely-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.ely-tl.ely-aktivni { background: #ffe8cc; }
+	.ely-tl:active { transform: translateY(1px); }
+	.ely-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.ely-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

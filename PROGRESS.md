@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 53: ElektrolyzaSimulace (vedení proudu v kapalinách).** F9: kádinka
+  s elektrodami a žárovkou, destilovaná voda (jen H₂O, nevede) × roztok soli (Na⁺→katoda,
+  Cl⁻→anoda, svítí), napětí 0–12 V po 2 V → celé ampéry (I=U/2), druhý režim pokovování
+  lžičky (Au⁺, zlatá vrstva roste s proudem). Čistá funkce stavElektrolyzy — 28 kombinací
+  ověřeno výpočtem, 6 scénářů čtením DOM. Tím je HOTOVÝCH všech 12 kandidátů z auditu
+  kola 38. Celkem 53 simulací.
 - **2026-07-29 — kolo 52: OkoSimulace (vady oka a brýle).** F7 oko: řez okem, paprsky od
   předmětu, zdravé × krátkozraké (ohnisko před sítnicí, dálka rozmazaná) × dalekozraké
   (za sítnicí, čárkovaně; kniha rozmazaná), tlačítko 👓 nasadí rozptylku (−) / spojku (+)
