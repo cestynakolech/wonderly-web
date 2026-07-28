@@ -1,12 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 48 hotové — rovinné zrcadlo)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 49 hotové — spalovací motor)
 
-Hotovo 48 kol samostatného režimu (48 simulací na 50 stránkách, 356+ kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–7 hotové).
-**DALŠÍ KOLO (49):** kandidát č. 8 — **F8 spalovací motory** (čtyřtakt: animace pístu po
-dobách, klik na dobu = popis, zážehový × vznětový). POZOR: pohybová simulace → platí
-pravidlo úplné kontroly animací (čistá funkce času, vzorkování po 16 ms, UX tam-i-zpět).
+Hotovo 49 kol samostatného režimu (49 simulací na 51 stránkách, 356+ kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–8 hotové).
+**DALŠÍ KOLO (50):** kandidát č. 9 — **F9 polovodiče typu N a P, dioda** (posuvník napětí ±,
+propustný × závěrný směr, LED svítí/nesvítí, V-A charakteristika). Bez souvislé animace,
+ale platí UX kontrola tam-i-zpět; hodnoty volit tak, aby vycházela celá čísla.
 Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
@@ -81,8 +81,9 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
    jádro = sponky, vypnutí, prohození pólů).
 7. [x] **F7 optika-rovinneho-zrcadla** — HOTOVO v kole 48 (RovinneZrcadloSimulace:
    osová souměrnost, zákon odrazu, praporek + zrcadlový nápis AMBULANCE).
-8. [ ] **F8 spalovaci-motory** — čtyřtakt: animace pístu po dobách (sání–stlačení–výbuch–výfuk),
-   klik na dobu = popis; přepínač zážehový × vznětový.
+8. [x] **F8 spalovaci-motory** — HOTOVO v kole 49 (SpalovaciMotorSimulace: řez motorem —
+   píst + ojnice + klika + ventily, klik na dobu = póza s popisem, ▶ celý cyklus jako čistá
+   funkce času, zážehový × vznětový mění svíčku/vstřikovač i popisy).
 9. [ ] **F9 polovodice-typu-n-a-p-dioda** — dioda: posuvník napětí ±, propustný × závěrný směr,
    LED svítí/nesvítí, V-A charakteristika.
 10. [ ] **F7 atmosfericky-tlak** — tlak s výškou: posuvník 0–8000 m (po 1000), barometr,

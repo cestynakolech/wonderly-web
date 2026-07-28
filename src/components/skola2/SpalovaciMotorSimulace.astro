@@ -1,0 +1,254 @@
+---
+// Čtyřtaktní spalovací motor (F8): válec s pístem, ojnicí, klikou a ventily.
+// Klik na dobu 1–4 zastaví motor v té době a ukáže popis; ▶ roztočí celý cyklus
+// (2 otáčky kliky = 4 doby). Přepínač zážehový (benzín, jiskra ze svíčky) ×
+// vznětový (nafta, samovznícení) mění palivo, způsob zapálení i popisy.
+// Pohyb je ČISTÁ funkce času stavMotoru(t) vystavená na SVG (__stavMotoru) —
+// celá animace se před nasazením projela vzorkováním po 16 ms (pravidlo kontroly animací).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Čtyřtaktní motor v řezu 🕹️</span></h2>
+	<p>Píst jezdí ve válci nahoru a dolů, <strong>ojnice</strong> roztáčí <strong>klikový hřídel</strong>. Celý cyklus má <strong>4 doby</strong> a klika se při něm otočí <strong>dvakrát</strong> — pracovní je jen 3. doba (výbuch).</p>
+	<p id="motor-typy">
+		<button type="button" class="motor-tl motor-aktivni" data-typ="zazehovy">🔥 zážehový (benzín)</button>
+		<button type="button" class="motor-tl" data-typ="vznetovy">🛢️ vznětový (nafta)</button>
+	</p>
+	<svg id="motor-svg" viewBox="0 0 660 360" role="img" aria-label="Řez čtyřtaktním spalovacím motorem">
+		<!-- náplň válce (barva podle doby) -->
+		<rect id="motor-plyn" x="124" y="46" width="112" height="80" fill="#a5d8ff" />
+		<!-- stěny válce a hlava s otvory pro ventily -->
+		<g stroke="#2b2a26" stroke-width="5" stroke-linecap="round">
+			<line x1="120" y1="44" x2="120" y2="250" />
+			<line x1="240" y1="44" x2="240" y2="250" />
+			<line x1="118" y1="46" x2="136" y2="46" />
+			<line x1="164" y1="46" x2="196" y2="46" />
+			<line x1="224" y1="46" x2="242" y2="46" />
+		</g>
+		<!-- sací ventil (vlevo) -->
+		<g id="motor-saci">
+			<rect x="147" y="12" width="6" height="32" fill="#1971c2" />
+			<rect x="138" y="42" width="24" height="7" rx="2" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+		</g>
+		<!-- výfukový ventil (vpravo) -->
+		<g id="motor-vyfuk">
+			<rect x="207" y="12" width="6" height="32" fill="#868e96" />
+			<rect x="198" y="42" width="24" height="7" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		</g>
+		<!-- šipky proudění (jen když je ventil otevřený) -->
+		<text id="motor-sipka-dovnitr" x="150" y="68" text-anchor="middle" font-size="18" fill="#1971c2" font-weight="bold">⬇</text>
+		<text id="motor-sipka-ven" x="210" y="40" text-anchor="middle" font-size="18" fill="#495057" font-weight="bold">⬆</text>
+		<!-- svíčka (zážehový) / vstřikovač (vznětový) -->
+		<g id="motor-svicka">
+			<rect x="175" y="16" width="10" height="30" fill="#fab005" stroke="#2b2a26" stroke-width="2" />
+			<polygon id="motor-jiskra" points="180,48 184,56 178,54 181,64 176,55 182,57" fill="#ffd43b" stroke="#e8590c" stroke-width="1.5" />
+		</g>
+		<g id="motor-vstrikovac">
+			<polygon points="174,16 186,16 183,46 177,46" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+			<g id="motor-vstrik" stroke="#e8590c" stroke-width="2.5" stroke-linecap="round">
+				<line x1="180" y1="48" x2="169" y2="68" />
+				<line x1="180" y1="48" x2="180" y2="72" />
+				<line x1="180" y1="48" x2="191" y2="68" />
+			</g>
+		</g>
+		<!-- píst + pístní čep -->
+		<rect id="motor-pist" x="124" width="112" height="34" rx="3" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+		<!-- ojnice -->
+		<line id="motor-ojnice" stroke="#495057" stroke-width="8" stroke-linecap="round" />
+		<circle id="motor-cep" r="5" fill="#2b2a26" />
+		<!-- klikový hřídel -->
+		<circle cx="180" cy="290" r="45" fill="#f1f3f5" stroke="#2b2a26" stroke-width="4" />
+		<line id="motor-rameno" x1="180" y1="290" stroke="#2b2a26" stroke-width="6" stroke-linecap="round" />
+		<circle id="motor-klika-cep" r="8" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="180" cy="290" r="4" fill="#2b2a26" />
+		<!-- popisky částí -->
+		<g font-size="11" fill="#868e96">
+			<text x="112" y="20" text-anchor="end">sací ventil</text>
+			<text x="248" y="20">výfukový ventil</text>
+			<text id="motor-pop-zapal" x="180" y="10" text-anchor="middle">svíčka</text>
+			<text x="248" y="185">píst</text>
+			<text x="248" y="245">ojnice</text>
+			<text x="248" y="300">klikový hřídel</text>
+		</g>
+		<!-- infopanel vpravo -->
+		<text id="motor-doba-cislo" x="470" y="90" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26"></text>
+		<text id="motor-doba-nazev" x="470" y="120" text-anchor="middle" font-size="17" font-weight="bold" fill="#e8590c"></text>
+		<g id="motor-smer">
+			<line x1="470" y1="160" x2="470" y2="215" stroke="#1971c2" stroke-width="8" stroke-linecap="round" />
+			<polygon id="motor-smer-hrot" fill="#1971c2" />
+			<text id="motor-smer-pop" x="470" y="245" text-anchor="middle" font-size="13" font-weight="bold" fill="#1971c2"></text>
+		</g>
+		<text id="motor-otacka" x="470" y="285" text-anchor="middle" font-size="12" fill="#868e96"></text>
+		<text id="motor-palivo" x="470" y="310" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<p id="motor-takty">
+		<button type="button" class="motor-tl" data-takt="1">1️⃣ sání</button>
+		<button type="button" class="motor-tl" data-takt="2">2️⃣ stlačení</button>
+		<button type="button" class="motor-tl" data-takt="3">3️⃣ výbuch</button>
+		<button type="button" class="motor-tl" data-takt="4">4️⃣ výfuk</button>
+		<button type="button" class="motor-tl" id="motor-play">▶ spustit motor</button>
+	</p>
+	<p class="motor-popis" id="motor-popis"></p>
+	<p class="motor-stav" id="motor-stav">👉 Klikej na jednotlivé doby 1️⃣–4️⃣, nebo spusť celý motor tlačítkem ▶ a sleduj, jak se doby střídají.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (kinematika bez DOM — kontrolovatelná výpočtem) ===
+	const R = 45; // poloměr kliky (px)
+	const L = 110; // délka ojnice (px)
+	const KLIKA_X = 180, KLIKA_Y = 290;
+	const TREV = 2000; // ms na jednu otáčku kliky
+	const CYKLUS = 2 * TREV; // celý cyklus = 2 otáčky = 4 doby
+	function stavMotoru(tMs) {
+		const th = (((tMs % CYKLUS) + CYKLUS) % CYKLUS) / TREV * 2 * Math.PI; // úhel kliky 0..4π
+		const takt = Math.min(4, Math.floor(th / Math.PI) + 1); // 1 sání, 2 stlačení, 3 výbuch, 4 výfuk
+		const sinT = Math.sin(th), cosT = Math.cos(th);
+		const pinY = KLIKA_Y - (R * cosT + Math.sqrt(L * L - R * R * sinT * sinT)); // pístní čep
+		return {
+			th,
+			takt,
+			pistonTop: pinY - 17,
+			pinY,
+			klikaX: KLIKA_X + R * sinT,
+			klikaY: KLIKA_Y - R * cosT,
+			saciZdvih: takt === 1 ? 14 * Math.sin(th) : 0,
+			vyfukZdvih: takt === 4 ? 14 * Math.sin(th - 3 * Math.PI) : 0,
+			zapal: th >= 2 * Math.PI && th < 2 * Math.PI + 0.9, // jiskra/vstřik na začátku 3. doby
+		};
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const NAZVY = ['sání', 'stlačení', 'výbuch a rozpínání', 'výfuk'];
+	const POPISY = {
+		zazehovy: [
+			'1️⃣ SÁNÍ — píst jede dolů a otevřeným sacím ventilem nasává SMĚS benzínových par a vzduchu (modrá).',
+			'2️⃣ STLAČENÍ — oba ventily jsou zavřené, píst jede nahoru a směs stlačuje. Stlačená směs se zahřívá.',
+			'3️⃣ VÝBUCH A ROZPÍNÁNÍ — jiskra ze svíčky ⚡ zapálí směs, horké plyny tlačí píst dolů. JEDINÝ pracovní takt — jen tady palivo koná práci!',
+			'4️⃣ VÝFUK — píst jede nahoru a otevřeným výfukovým ventilem vytlačí spaliny ven.',
+		],
+		vznetovy: [
+			'1️⃣ SÁNÍ — píst jede dolů a nasává JEN ČISTÝ VZDUCH (žádné palivo — to přijde až ve 3. době).',
+			'2️⃣ STLAČENÍ — píst vzduch stlačí mnohem víc než v zážehovém motoru; vzduch se tím zahřeje na několik set °C.',
+			'3️⃣ VSTŘIK A VÝBUCH — vstřikovač vstříkne naftu do žhavého vzduchu a ta se SAMA VZNÍTÍ (svíčka není potřeba!). Plyny tlačí píst dolů — pracovní takt.',
+			'4️⃣ VÝFUK — píst jede nahoru a výfukovým ventilem vytlačí spaliny ven.',
+		],
+	};
+	const BARVY = {
+		zazehovy: ['#a5d8ff', '#74c0fc', '#ffa94d', '#ced4da'],
+		vznetovy: ['#e7f5ff', '#d0ebff', '#ffa94d', '#ced4da'],
+	};
+	const PALIVO = {
+		zazehovy: 'palivo: BENZÍN · zapálí jiskra ze svíčky',
+		vznetovy: 'palivo: NAFTA · vznítí se sama stlačením',
+	};
+
+	let typ = 'zazehovy';
+	let thPauza = 0.5 * Math.PI; // úhel, ve kterém motor stojí (start: uprostřed sání)
+	let jede = false;
+	let animId = null;
+	let t0 = null;
+	let posledniTakt = 0;
+	const svg = document.getElementById('motor-svg');
+	svg.__stavMotoru = stavMotoru; // pro nezávislou kontrolu výpočtem
+	const stavEl = document.getElementById('motor-stav');
+	const popisEl = document.getElementById('motor-popis');
+	const nastav = (id, attrs) => { const el = document.getElementById(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function kresli(s) {
+		// náplň válce
+		nastav('motor-plyn', { height: Math.max(s.pistonTop - 46, 1), fill: s.zapal ? '#ff8787' : BARVY[typ][s.takt - 1] });
+		// píst, čep, ojnice, klika
+		nastav('motor-pist', { y: s.pistonTop });
+		nastav('motor-cep', { cx: 180, cy: s.pinY });
+		nastav('motor-ojnice', { x1: 180, y1: s.pinY, x2: s.klikaX, y2: s.klikaY });
+		nastav('motor-rameno', { x2: s.klikaX, y2: s.klikaY });
+		nastav('motor-klika-cep', { cx: s.klikaX, cy: s.klikaY });
+		// ventily
+		document.getElementById('motor-saci').setAttribute('transform', `translate(0 ${s.saciZdvih})`);
+		document.getElementById('motor-vyfuk').setAttribute('transform', `translate(0 ${s.vyfukZdvih})`);
+		nastav('motor-sipka-dovnitr', { visibility: s.saciZdvih > 3 ? 'visible' : 'hidden' });
+		nastav('motor-sipka-ven', { visibility: s.vyfukZdvih > 3 ? 'visible' : 'hidden' });
+		// zapálení: svíčka s jiskrou × vstřikovač s vstřikem
+		nastav('motor-svicka', { visibility: typ === 'zazehovy' ? 'visible' : 'hidden' });
+		nastav('motor-vstrikovac', { visibility: typ === 'vznetovy' ? 'visible' : 'hidden' });
+		nastav('motor-jiskra', { visibility: typ === 'zazehovy' && s.zapal ? 'visible' : 'hidden' });
+		nastav('motor-vstrik', { visibility: typ === 'vznetovy' && s.zapal ? 'visible' : 'hidden' });
+		document.getElementById('motor-pop-zapal').textContent = typ === 'zazehovy' ? 'svíčka' : 'vstřikovač';
+		// infopanel
+		document.getElementById('motor-doba-cislo').textContent = `${s.takt}. DOBA`;
+		document.getElementById('motor-doba-nazev').textContent = NAZVY[s.takt - 1];
+		const dolu = s.takt === 1 || s.takt === 3;
+		nastav('motor-smer-hrot', { points: dolu ? '458,210 482,210 470,228' : '458,165 482,165 470,147' });
+		document.getElementById('motor-smer-pop').textContent = dolu ? 'píst jede dolů' : 'píst jede nahoru';
+		document.getElementById('motor-otacka').textContent = `otáčka kliky: ${s.takt <= 2 ? 'první' : 'druhá'} (celý cyklus = 2 otáčky)`;
+		document.getElementById('motor-palivo').textContent = PALIVO[typ];
+		// zvýraznění tlačítka aktuální doby + popis
+		for (const b of document.querySelectorAll('#motor-takty [data-takt]')) b.classList.toggle('motor-aktivni', +b.dataset.takt === s.takt);
+		if (s.takt !== posledniTakt) {
+			posledniTakt = s.takt;
+			popisEl.textContent = POPISY[typ][s.takt - 1];
+		}
+	}
+
+	function snimek(cas) {
+		if (!jede) return;
+		if (t0 === null) t0 = cas - (thPauza / (2 * Math.PI)) * TREV; // navázat z místa, kde motor stál
+		const s = stavMotoru(cas - t0);
+		thPauza = s.th;
+		kresli(s);
+		animId = requestAnimationFrame(snimek);
+	}
+
+	function zastav() {
+		jede = false;
+		if (animId) cancelAnimationFrame(animId);
+		document.getElementById('motor-play').textContent = '▶ spustit motor';
+	}
+
+	document.getElementById('motor-play').addEventListener('click', () => {
+		if (jede) {
+			zastav();
+			stavEl.textContent = '⏸ Motor stojí — prohlédni si aktuální dobu, nebo klikej na doby 1️⃣–4️⃣.';
+			return;
+		}
+		jede = true;
+		t0 = null;
+		document.getElementById('motor-play').textContent = '⏸ zastav motor';
+		stavEl.textContent = '🏍️ Motor běží — sleduj ventily, ' + (typ === 'zazehovy' ? 'jiskru ⚡' : 'vstřik nafty') + ' a střídání dob. Klika se za cyklus otočí dvakrát.';
+		requestAnimationFrame(snimek);
+	});
+
+	document.getElementById('motor-takty').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-takt]');
+		if (!tl) return;
+		zastav();
+		const takt = +tl.dataset.takt;
+		// póza doby: 3. doba hned po zapálení (ať je vidět jiskra/vstřik), ostatní uprostřed
+		thPauza = takt === 3 ? 2 * Math.PI + 0.45 : (takt - 0.5) * Math.PI;
+		posledniTakt = 0; // vynutit nový popis
+		kresli(stavMotoru((thPauza / (2 * Math.PI)) * TREV));
+		stavEl.textContent = '👀 Motor stojí ve zvolené době. Další dobu vyber tlačítkem, nebo vše rozhýbej tlačítkem ▶.';
+	});
+
+	document.getElementById('motor-typy').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-typ]');
+		if (!tl) return;
+		typ = tl.dataset.typ;
+		for (const b of document.querySelectorAll('#motor-typy [data-typ]')) b.classList.toggle('motor-aktivni', b === tl);
+		posledniTakt = 0; // popisy se liší podle typu motoru
+		if (!jede) kresli(stavMotoru((thPauza / (2 * Math.PI)) * TREV));
+	});
+
+	// úvodní stav: 1. doba (sání) + úvodní návod
+	kresli(stavMotoru((thPauza / (2 * Math.PI)) * TREV));
+</script>
+
+<style>
+	#motor-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.motor-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.motor-tl.motor-aktivni { background: #ffe8cc; }
+	.motor-tl:active { transform: translateY(1px); }
+	#motor-play { background: #d3f9d8; }
+	.motor-popis { font-size: 1rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; min-height: 2.4rem; }
+	.motor-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

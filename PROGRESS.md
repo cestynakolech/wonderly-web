@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 49: SpalovaciMotorSimulace (čtyřtaktní motor v řezu).** F8 spalovací
+  motory: píst + ojnice + klikový hřídel + ventily v SVG řezu, klik na dobu 1–4 = póza
+  s popisem, ▶ roztočí celý cyklus (2 otáčky kliky), přepínač zážehový (jiskra ze svíčky) ×
+  vznětový (vstřik nafty, samovznícení). Pohyb = čistá funkce stavMotoru(t) na SVG
+  (__stavMotoru); 501 vzorků po 16 ms prošlo (spojitost, meze ventilů, periodicita, pořadí
+  dob, zapálení jen na začátku 3. doby); UX ověřeno v náhledu čtením DOM. Celkem 49 simulací.
 - **2026-07-28 — kolo 48: RovinneZrcadloSimulace.** F7 optika rovinného zrcadla: osová
   souměrnost, zákon odrazu, zdánlivý obraz (poloprůhledný), stranové převrácení (praporek +
   zrcadlová AMBULANCE), kolmý a šikmý paprsek s prodlouženími do vrcholu obrazu. Ověřeno
