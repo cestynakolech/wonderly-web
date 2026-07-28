@@ -1,0 +1,189 @@
+---
+// Archimédův zákon (F7): pokus se siloměrem jako v hodině. Těleso (dřevo/led/
+// plast/ocel, objem 1–3 litry) visí na siloměru — nejdřív ve vzduchu (ukazuje
+// tíhu Fg), pak ponořené v kapalině (ukazuje Fg − Fvz; rozdíl = vztlaková síla),
+// nakonec odepnuté (plove / vznáší se / potápí se podle hustot). Vzorce jako
+// ve výkladu: Fg = ρt·V·g, Fvz = ρk·V·g, g = 10. Hustoty jsou násobky 100
+// a objem násobek 1 litru, takže VŠECHNY síly vychází v celých newtonech.
+// Kombinace plast × slaná voda a led × olej mají stejné hustoty → vznášení.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Pokus se siloměrem — Archimédův zákon 🕹️</span></h2>
+	<p>Zavěs těleso na <strong>siloměr</strong>, ponoř ho do kapaliny a sleduj, oč míň ukazuje — ten rozdíl je <strong>vztlaková síla</strong>. Pak těleso odepni a hádej: <em>plove, vznáší se, nebo se potopí?</em></p>
+	<p>
+		<span id="arch-materialy">
+			<button type="button" class="arch-tl arch-aktivni" data-mat="drevo">🪵 dřevo</button>
+			<button type="button" class="arch-tl" data-mat="led">🧊 led</button>
+			<button type="button" class="arch-tl" data-mat="plast">🧴 plast</button>
+			<button type="button" class="arch-tl" data-mat="ocel">⚙️ ocel</button>
+		</span>
+	</p>
+	<p>
+		<span id="arch-kapaliny">
+			<button type="button" class="arch-tl" data-kap="olej">🫒 olej</button>
+			<button type="button" class="arch-tl arch-aktivni" data-kap="voda">💧 voda</button>
+			<button type="button" class="arch-tl" data-kap="slana">🌊 slaná voda</button>
+		</span>
+	</p>
+	<p id="arch-faze">
+		<button type="button" class="arch-tl arch-aktivni" data-faze="vzduch">1️⃣ ve vzduchu</button>
+		<button type="button" class="arch-tl" data-faze="ponor">2️⃣ ponoř celé</button>
+		<button type="button" class="arch-tl" data-faze="odepni">3️⃣ odepni ze siloměru</button>
+	</p>
+	<svg id="arch-svg" viewBox="0 0 660 380" role="img" aria-label="Těleso na siloměru nad nádobou s kapalinou">
+		<!-- siloměr -->
+		<g id="arch-silomer">
+			<line x1="330" y1="0" x2="330" y2="28" stroke="#2b2a26" stroke-width="4" />
+			<rect x="300" y="28" width="60" height="64" rx="10" fill="#fff" stroke="#2b2a26" stroke-width="3.5" />
+			<text id="arch-silomer-text" x="330" y="68" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
+			<line id="arch-lano" x1="330" y1="92" x2="330" y2="130" stroke="#2b2a26" stroke-width="3.5" />
+		</g>
+		<!-- nádoba s kapalinou -->
+		<path d="M180 150 L180 360 L480 360 L480 150" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect id="arch-kapalina" x="184" y="190" width="292" height="166" fill="#a5d8ff" opacity="0.75" />
+		<text id="arch-kapalina-text" x="470" y="345" text-anchor="end" font-size="14" font-weight="bold" fill="#1971c2"></text>
+		<!-- těleso -->
+		<g id="arch-teleso">
+			<rect id="arch-teleso-rect" x="290" y="130" width="80" height="80" rx="8" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3.5" />
+			<text id="arch-teleso-text" x="330" y="175" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		</g>
+		<!-- šipky sil -->
+		<line id="arch-sipka-g" stroke="#e03131" stroke-width="6" marker-end="url(#arch-mg)" x1="520" x2="520" />
+		<line id="arch-sipka-vz" stroke="#1971c2" stroke-width="6" marker-end="url(#arch-mvz)" x1="560" x2="560" />
+		<text x="516" y="30" font-size="14" font-weight="bold" fill="#e03131">↓ Fg</text>
+		<text x="556" y="30" font-size="14" font-weight="bold" fill="#1971c2">↑ Fvz</text>
+		<text id="arch-pop-g" x="520" font-size="14" font-weight="bold" fill="#e03131" text-anchor="middle"></text>
+		<text id="arch-pop-vz" x="560" font-size="14" font-weight="bold" fill="#1971c2" text-anchor="middle"></text>
+		<defs>
+			<marker id="arch-mg" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#e03131" /></marker>
+			<marker id="arch-mvz" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#1971c2" /></marker>
+		</defs>
+	</svg>
+	<label class="sim-posuvnik">
+		Objem tělesa: <output id="arch-out-v"></output>
+		<input type="range" id="arch-slider-v" min="1000" max="3000" step="1000" value="2000" />
+	</label>
+	<p class="arch-vzorec" id="arch-vypocet"></p>
+	<p class="arch-stav" id="arch-stav"></p>
+</section>
+
+<script>
+	const MATERIALY = {
+		drevo: { nazev: 'dřevo', rho: 600, barva: '#deb887' },
+		led: { nazev: 'led', rho: 900, barva: '#d0ebff' },
+		plast: { nazev: 'plast', rho: 1200, barva: '#ffe066' },
+		ocel: { nazev: 'ocel', rho: 8000, barva: '#adb5bd' },
+	};
+	const KAPALINY = {
+		olej: { nazev: 'olej (ρ = 900)', rho: 900, barva: '#ffec99' },
+		voda: { nazev: 'voda (ρ = 1000)', rho: 1000, barva: '#a5d8ff' },
+		slana: { nazev: 'slaná voda (ρ = 1200)', rho: 1200, barva: '#74c0fc' },
+	};
+	let mat = 'drevo', kap = 'voda', faze = 'vzduch';
+
+	const sliderV = document.getElementById('arch-slider-v');
+	const outV = document.getElementById('arch-out-v');
+	const vypocetEl = document.getElementById('arch-vypocet');
+	const stavEl = document.getElementById('arch-stav');
+	const nastav = (id, attrs) => { const el = document.getElementById(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function prekresli() {
+		const V = +sliderV.value;                  // cm³
+		const m = MATERIALY[mat], k = KAPALINY[kap];
+		const Fg = (m.rho * (V / 1000000)) * 10;   // ρt · V(m³) · g — vždy celé
+		const Fvz = (k.rho * (V / 1000000)) * 10;
+		const naSilomeru = Math.max(0, Fg - Fvz);
+		outV.textContent = V + ' cm³ (' + V / 1000 + ' l)';
+
+		// velikost tělesa podle objemu (plocha ~ V), hladina y=190, dno y=356
+		const strana = Math.round(60 + (V / 1000) * 12);
+		const x = 330 - strana / 2;
+		document.getElementById('arch-kapalina').setAttribute('fill', k.barva);
+		document.getElementById('arch-kapalina-text').textContent = k.nazev;
+		const rect = document.getElementById('arch-teleso-rect');
+		rect.setAttribute('width', strana); rect.setAttribute('height', strana);
+		rect.setAttribute('x', x); rect.setAttribute('fill', m.barva);
+		document.getElementById('arch-teleso-text').textContent = m.nazev + ' ' + V / 1000 + ' l';
+
+		let y, silomerText, lanoViditelne = true;
+		if (faze === 'vzduch') {
+			y = 100;
+			silomerText = Fg + ' N';
+		} else if (faze === 'ponor') {
+			y = 210;
+			silomerText = naSilomeru + ' N';
+			if (Fg <= Fvz) lanoViditelne = true; // lano jen přidržuje shora
+		} else {
+			lanoViditelne = false;
+			if (m.rho < k.rho) {
+				const vynoreno = 1 - m.rho / k.rho;          // část objemu nad hladinou
+				y = 190 - strana * vynoreno;
+				silomerText = '—';
+			} else if (m.rho === k.rho) {
+				y = 250; silomerText = '—';
+			} else {
+				y = 356 - strana; silomerText = '—';
+			}
+		}
+		rect.setAttribute('y', y);
+		document.getElementById('arch-teleso-text').setAttribute('y', y + strana / 2 + 5);
+		document.getElementById('arch-silomer-text').textContent = silomerText;
+		document.getElementById('arch-silomer').setAttribute('opacity', faze === 'odepni' ? 0.3 : 1);
+		nastav('arch-lano', { y2: y, visibility: lanoViditelne ? 'visible' : 'hidden' });
+
+		// šipky sil (měřítko 1,5 px/N, strop 130 px) — Fvz jen když je těleso v kapalině
+		const kSil = Math.min(1.5, 130 / Math.max(Fg, Fvz));
+		nastav('arch-sipka-g', { y1: 40, y2: 40 + Fg * kSil });
+		document.getElementById('arch-pop-g').textContent = Fg + ' N';
+		document.getElementById('arch-pop-g').setAttribute('y', 40 + Fg * kSil + 20);
+		const vKapaline = faze !== 'vzduch';
+		nastav('arch-sipka-vz', { y1: 40 + Fvz * kSil, y2: 40, visibility: vKapaline ? 'visible' : 'hidden' });
+		const popVz = document.getElementById('arch-pop-vz');
+		popVz.textContent = vKapaline ? Fvz + ' N' : '';
+		popVz.setAttribute('y', 40 + Fvz * kSil + 20);
+
+		vypocetEl.innerHTML = `Fg = ${m.rho} × ${cislo(V)} × 10 = <strong>${Fg} N</strong> &nbsp;·&nbsp; Fvz = ${k.rho} × ${cislo(V)} × 10 = <strong>${Fvz} N</strong> (tíha vytlačené kapaliny)`;
+
+		if (faze === 'vzduch') {
+			stavEl.textContent = `⚖️ Siloměr ve vzduchu ukazuje celou tíhu: ${Fg} N. Teď těleso ponoř (krok 2).`;
+		} else if (faze === 'ponor') {
+			if (naSilomeru > 0) stavEl.textContent = `💧 Siloměr ukazuje jen ${naSilomeru} N — o ${Fvz} N míň! Přesně tolik je vztlaková síla (tíha vytlačené kapaliny o objemu ${V / 1000} l).`;
+			else stavEl.textContent = `💧 Siloměr ukazuje 0 N — vztlaková síla (${Fvz} N) tíhu (${Fg} N) ${Fg === Fvz ? 'přesně vyrovnala' : 'převýšila, lano jen brání vyplavání'}. Odepni a uvidíš (krok 3).`;
+		} else {
+			if (m.rho < k.rho) {
+				const proc = Math.round((1 - m.rho / k.rho) * 100);
+				stavEl.textContent = `🛟 PLOVE — hustota tělesa (${m.rho}) je menší než kapaliny (${k.rho}); Fvz na hladině vyrovná Fg. Nad hladinou je ≈ ${proc} % objemu.`;
+			} else if (m.rho === k.rho) {
+				stavEl.textContent = `🐟 VZNÁŠÍ SE — hustoty jsou stejné (${m.rho} = ${k.rho}), Fg = Fvz. Jako ryba v akváriu.`;
+			} else {
+				stavEl.textContent = `⬇️ POTÁPÍ SE — hustota tělesa (${m.rho}) je větší než kapaliny (${k.rho}), Fg (${Fg} N) > Fvz (${Fvz} N).`;
+			}
+		}
+	}
+	const cislo = (V) => '0,00' + V / 1000; // 1000 cm³ → „0,001" m³ (V/1000 je 1–3)
+
+	for (const [idSk, klic, promenna] of [['arch-materialy', 'mat', (v) => (mat = v)], ['arch-kapaliny', 'kap', (v) => (kap = v)], ['arch-faze', 'faze', (v) => (faze = v)]]) {
+		const g = document.getElementById(idSk);
+		g.addEventListener('click', (e) => {
+			const tl = e.target.closest('.arch-tl');
+			if (!tl) return;
+			promenna(tl.dataset[klic]);
+			for (const b of g.querySelectorAll('.arch-tl')) b.classList.toggle('arch-aktivni', b === tl);
+			prekresli();
+		});
+	}
+	sliderV.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#arch-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.arch-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.arch-tl.arch-aktivni { background: #ffe8cc; }
+	.arch-tl:active { transform: translateY(1px); }
+	.arch-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.arch-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

@@ -1,10 +1,11 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 39 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 40 hotové)
 
-Hotovo 39 kol samostatného režimu (42 simulací, 354 kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1 hotový).
-**DALŠÍ KOLO (40):** kandidát č. 2 — **F7 Archimédův zákon** (siloměr, plave/vznáší se/klesá).
+Hotovo 40 kol samostatného režimu (43 simulací, 354 kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1 a 2 hotové).
+**DALŠÍ KOLO (41):** kandidát č. 3 — **F8 kalorimetr** (smíchání teplé a studené vody,
+výsledná teplota; při stejných hmotnostech průměr → celá čísla).
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
@@ -53,8 +54,8 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁDAT:
 1. [x] **F7 treci-sila** — HOTOVO v kole 39 (TreniSimulace: led/dřevo/beton, hystereze
    klidové × smykové, vše celé N).
-2. [ ] **F7 archimeduv-zakon** — těleso v kapalině: hustota tělesa × kapaliny, siloměr (tíha vs.
-   vztlak), plave / vznáší se / klesá. Klasika, na webu překvapivě chybí.
+2. [x] **F7 archimeduv-zakon** — HOTOVO v kole 40 (ArchimedesSimulace: siloměr ve 3 fázích,
+   4 materiály × 3 kapaliny, vše celé N).
 3. [ ] **F8 tepelna-vymena-a-teplo** — kalorimetr: smíchej teplou a studenou vodu, Q = c·m·Δt,
    výsledná teplota (při stejných hmotnostech = průměr → celá čísla).
 4. [ ] **F8 pohybova-a-polohova-energie + zakon-zachovani** — skatepark/kyvadlo: sloupce Ep×Ek
@@ -95,6 +96,13 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 40): **ArchimedesSimulace** — pokus se siloměrem (F7 vztlakova-sila/archimeduv-zakon
+  dle hodinového pokusu z výkladu): 3 fáze (ve vzduchu → ponořené → odepnuté), 4 materiály
+  (dřevo 600 / led 900 / plast 1200 / ocel 8000) × 3 kapaliny (olej 900 / voda 1000 / slaná 1200),
+  objem 1–3 l → VŠECHNY síly celé N; rozdíl na siloměru = Fvz; po odepnutí plove (s ≈ % nad
+  hladinou) / vznáší se (plast×slaná, led×olej — stejné hustoty) / potápí se. Kontrolor v náhledu
+  odhalil chybu převodu cm³→m³ (síly 10× větší) — opraveno a přeověřeno; konzole čistá.
+  Kvíz už měl 21 otázek — nedublováno.
 - 2026-07-28 (kolo 39): **TreniSimulace** — klidové × smykové tření (F7 sily-kolem-nas/treci-sila):
   bedna 10–50 kg, povrchy led/dřevo/beton (f smykové 0,1/0,4/0,6, klidové +0,1 — dřevo sedí
   s řešeným příkladem výkladu 50 kg → 200 N), tažná síla 0–400 N, šipky F × Ft, stavový automat

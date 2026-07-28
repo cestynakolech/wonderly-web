@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 40: ArchimedesSimulace (pokus se siloměrem).** F7 archimeduv-zakon:
+  3 fáze (vzduch → ponoř → odepni), 4 materiály × 3 kapaliny × objem 1–3 l, vše celé N;
+  rozdíl na siloměru = vztlaková síla; plove / vznáší se / potápí se dle hustot. Nález kontrolora:
+  převod cm³→m³ dával 10× větší síly — opraveno před nasazením. Celkem 43 simulací.
 - **2026-07-28 — kolo 39: TreniSimulace (klidové × smykové tření).** F7 sily-kolem-nas/treci-sila:
   bedna, povrchy led/dřevo/beton, hystereze utržení (nad mez klidu) a zastavení (pod smykové),
   rovnoměrný pohyb při rovnosti sil; hodnoty dle vzorce výkladu Ft = Fn·f, vše celé N.
