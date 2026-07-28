@@ -1,0 +1,191 @@
+---
+// Rozpálená kolejnice: teplotní roztažnost v praxi (pohled na kolej shora).
+// Ocelová kolejnice l₀ = 25 m (skutečná délka mezi styky), montáž při 20 °C,
+// α oceli ≈ 0,012 mm na 1 m délky a 1 °C. Prodloužení Δl = 0,012 · 25 · Δt,
+// s krokem posuvníku 10 °C vychází vždy celé milimetry (Δl = 3 mm na 10 °C).
+// Dilatační spára 12 mm pojme prodloužení i při 50 °C (Δl = +9 mm → mezera 3 mm);
+// svařená kolej bez spáry se v horku vzpříčí (sluneční vybočení) a v mrazu
+// může tahem prasknout.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rozpálená kolejnice 🕹️</span></h2>
+	<p>Kolejnice na trati je <strong>ocelová a 25 m dlouhá</strong>. Položili ji v létě při <strong>20 °C</strong>. Posuvníkem měň teplotu a sleduj, co spára mezi kolejnicemi dělá — a co by se stalo, kdyby tam <strong>nebyla</strong>.</p>
+	<p id="kolej-rezimy">
+		<button type="button" class="kolej-tl kolej-aktivni" data-rezim="spara">s dilatační spárou</button>
+		<button type="button" class="kolej-tl" data-rezim="bez">svařená kolej bez spáry</button>
+	</p>
+	<svg id="kolej-svg" viewBox="0 0 660 400" role="img" aria-label="Kolej při různých teplotách — pohled shora">
+		<text x="14" y="26" font-size="14" font-weight="bold" fill="#868e96">pohled shora</text>
+		<!-- štěrkové lože -->
+		<rect x="0" y="105" width="660" height="150" fill="#e9ecef" />
+		<!-- pražce -->
+		<g id="kolej-prazce" fill="#b08968" stroke="#7f5539" stroke-width="2"></g>
+		<!-- kolejnice (kreslí skript) -->
+		<polyline id="kolej-r1" fill="none" stroke="#495057" stroke-width="9" />
+		<polyline id="kolej-r2" fill="none" stroke="#495057" stroke-width="9" />
+		<polyline id="kolej-r1b" fill="none" stroke="#495057" stroke-width="9" />
+		<polyline id="kolej-r2b" fill="none" stroke="#495057" stroke-width="9" />
+		<!-- prasklina v mrazu (bez spáry) -->
+		<g id="kolej-prasklina" stroke="#e03131" stroke-width="4" fill="none"></g>
+		<!-- varování -->
+		<text id="kolej-varovani" x="330" y="80" font-size="17" font-weight="bold" fill="#c92a2a" text-anchor="middle"></text>
+		<!-- detail spáry (lupa) -->
+		<g id="kolej-detail">
+			<line x1="330" y1="215" x2="330" y2="290" stroke="#868e96" stroke-width="2" stroke-dasharray="6 4" />
+			<rect x="180" y="290" width="300" height="96" rx="10" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<text x="330" y="312" font-size="13" font-weight="bold" fill="#868e96" text-anchor="middle">detail spáry (zvětšeno)</text>
+			<rect id="kolej-det-l" y="322" height="26" fill="#495057" />
+			<rect id="kolej-det-p" y="322" height="26" fill="#495057" />
+			<line id="kolej-det-s1" y1="352" y2="360" stroke="#e8590c" stroke-width="2" />
+			<line id="kolej-det-s2" y1="352" y2="360" stroke="#e8590c" stroke-width="2" />
+			<line id="kolej-det-kota" y1="356" y2="356" stroke="#e8590c" stroke-width="2" />
+			<text id="kolej-det-text" y="378" font-size="15" font-weight="bold" fill="#e8590c" text-anchor="middle"></text>
+		</g>
+	</svg>
+	<label class="sim-posuvnik">
+		Teplota kolejnice: <output id="kolej-out-t"></output>
+		<input type="range" id="kolej-slider" min="-20" max="50" step="10" value="20" />
+	</label>
+	<p class="kolej-vzorec" id="kolej-vypocet"></p>
+	<p class="kolej-stav" id="kolej-stav"></p>
+</section>
+
+<script>
+	const slider = document.getElementById('kolej-slider');
+	const outT = document.getElementById('kolej-out-t');
+	const vypocetEl = document.getElementById('kolej-vypocet');
+	const stavEl = document.getElementById('kolej-stav');
+	const varovaniEl = document.getElementById('kolej-varovani');
+	const detailG = document.getElementById('kolej-detail');
+	const prasklinaG = document.getElementById('kolej-prasklina');
+	const rezimyEl = document.getElementById('kolej-rezimy');
+	let rezim = 'spara';
+
+	// pražce jednou na začátku
+	const prazceG = document.getElementById('kolej-prazce');
+	let prazceSvg = '';
+	for (let x = 25; x <= 635; x += 55) {
+		prazceSvg += `<rect x="${x - 9}" y="122" width="18" height="116" rx="3" />`;
+	}
+	prazceG.innerHTML = prazceSvg;
+
+	const minus = (n) => String(n).replace('-', '−');
+
+	// polyline kolejnice: vodorovná čára s případným vybočením (slunečním obloukem)
+	function caraKoleje(y0, x1, x2, amplituda) {
+		const body = [];
+		for (let x = x1; x <= x2; x += 10) {
+			let dy = 0;
+			if (amplituda > 0 && x > 180 && x < 480) {
+				dy = -amplituda * Math.sin(Math.PI * (x - 180) / 300);
+			}
+			body.push(`${x},${y0 + dy}`);
+		}
+		return body.join(' ');
+	}
+
+	function prekresli() {
+		const t = +slider.value;                 // −20…50 po 10
+		const dt = t - 20;                        // Δt vůči montáži
+		const dl = 3 * (dt / 10);                 // Δl v mm (0,012 · 25 · Δt) — vždy celé
+		const mezera = 12 - dl;                   // mm, jen v režimu se spárou
+		outT.textContent = minus(t) + ' °C';
+
+		// zbarvení podle teploty
+		const barva = t >= 40 ? '#c92a2a' : t <= -10 ? '#1971c2' : '#495057';
+		for (const id of ['kolej-r1', 'kolej-r2', 'kolej-r1b', 'kolej-r2b']) {
+			document.getElementById(id).setAttribute('stroke', barva);
+		}
+
+		const r1 = document.getElementById('kolej-r1');
+		const r2 = document.getElementById('kolej-r2');
+		const r1b = document.getElementById('kolej-r1b');
+		const r2b = document.getElementById('kolej-r2b');
+		prasklinaG.innerHTML = '';
+		varovaniEl.textContent = '';
+
+		const znam = dl > 0 ? 'prodloužila o ' + dl + ' mm' : dl < 0 ? 'zkrátila o ' + (-dl) + ' mm' : 'nezměnila délku';
+		vypocetEl.innerHTML = `Δt = ${minus(t)} − 20 = <strong>${minus(dt)} °C</strong> &nbsp;→&nbsp; Δl = 0,012 × 25 × ${minus(dt)} = <strong>${minus(dl)} mm</strong>`;
+
+		if (rezim === 'spara') {
+			// dvě kolejnice s mezerou (na obrazovce zvětšenou)
+			const gapPx = 4 + mezera * 1.2;
+			r1.setAttribute('points', caraKoleje(148, 15, 330 - gapPx / 2, 0));
+			r1b.setAttribute('points', caraKoleje(148, 330 + gapPx / 2, 645, 0));
+			r2.setAttribute('points', caraKoleje(212, 15, 330 - gapPx / 2, 0));
+			r2b.setAttribute('points', caraKoleje(212, 330 + gapPx / 2, 645, 0));
+			// detail spáry: 1 mm = 6 px
+			detailG.setAttribute('display', '');
+			const w = mezera * 6;
+			document.getElementById('kolej-det-l').setAttribute('x', 195);
+			document.getElementById('kolej-det-l').setAttribute('width', 330 - w / 2 - 195);
+			document.getElementById('kolej-det-p').setAttribute('x', 330 + w / 2);
+			document.getElementById('kolej-det-p').setAttribute('width', 465 - (330 + w / 2));
+			document.getElementById('kolej-det-s1').setAttribute('x1', 330 - w / 2);
+			document.getElementById('kolej-det-s1').setAttribute('x2', 330 - w / 2);
+			document.getElementById('kolej-det-s2').setAttribute('x1', 330 + w / 2);
+			document.getElementById('kolej-det-s2').setAttribute('x2', 330 + w / 2);
+			document.getElementById('kolej-det-kota').setAttribute('x1', 330 - w / 2);
+			document.getElementById('kolej-det-kota').setAttribute('x2', 330 + w / 2);
+			const detText = document.getElementById('kolej-det-text');
+			detText.setAttribute('x', 330);
+			detText.textContent = 'mezera ' + mezera + ' mm';
+
+			if (t >= 50) {
+				stavEl.textContent = '🌡️ Kolejnice se ' + znam + ' — spára se skoro zavřela (zbývají 3 mm). Přesně proto se nechává rezerva.';
+			} else if (t <= -20) {
+				stavEl.textContent = '❄️ Kolejnice se ' + znam + ' — spára se roztáhla na 24 mm. V zimě proto vlak na stycích víc drncá.';
+			} else if (dl === 0) {
+				stavEl.textContent = '✅ Stejná teplota jako při montáži — spára má navržených 12 mm.';
+			} else {
+				stavEl.textContent = '✅ Kolejnice se ' + znam + ' a spára to bez potíží pojme.';
+			}
+		} else {
+			// svařená kolej bez spáry
+			detailG.setAttribute('display', 'none');
+			r1b.setAttribute('points', '');
+			r2b.setAttribute('points', '');
+			if (dt >= 20) {
+				const amp = dt >= 30 ? 26 : 14;
+				r1.setAttribute('points', caraKoleje(148, 15, 645, amp));
+				r2.setAttribute('points', caraKoleje(212, 15, 645, amp));
+				varovaniEl.textContent = '☀️ SLUNEČNÍ VYBOČENÍ — kolej se vzpříčila do strany!';
+				stavEl.textContent = '⚠️ Kolej se chce prodloužit o ' + dl + ' mm, ale nemá kam — obrovská tlaková síla ji vybočí do strany. Vlak by tudy nesměl jet.';
+			} else if (dt <= -30) {
+				r1.setAttribute('points', caraKoleje(148, 15, 645, 0));
+				r2.setAttribute('points', caraKoleje(212, 15, 645, 0));
+				prasklinaG.innerHTML = '<polyline points="322,138 336,148 324,158" /><polyline points="338,202 326,212 340,222" />';
+				varovaniEl.textContent = '❄️ PRASKLÁ KOLEJ — tah v mrazu kolejnici roztrhl!';
+				stavEl.textContent = '⚠️ Kolej se chce zkrátit o ' + (-dl) + ' mm, ale drží ji sváry — tahová síla roste, až ocel praskne.';
+			} else {
+				r1.setAttribute('points', caraKoleje(148, 15, 645, 0));
+				r2.setAttribute('points', caraKoleje(212, 15, 645, 0));
+				stavEl.textContent = dl === 0
+					? '✅ Stejná teplota jako při svaření — v koleji není žádné pnutí.'
+					: '🙂 Kolej zatím drží rovně, ale uvnitř roste pnutí (síla ' + (dl > 0 ? 'tlaková' : 'tahová') + '). Dlouhé svařené koleje se proto musí pevně kotvit do pražců.';
+			}
+		}
+	}
+
+	rezimyEl.addEventListener('click', (e) => {
+		const tl = e.target.closest('.kolej-tl');
+		if (!tl) return;
+		rezim = tl.dataset.rezim;
+		for (const b of rezimyEl.querySelectorAll('.kolej-tl')) b.classList.toggle('kolej-aktivni', b === tl);
+		prekresli();
+	});
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#kolej-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.kolej-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.kolej-tl.kolej-aktivni { background: #ffe8cc; }
+	.kolej-tl:active { transform: translateY(1px); }
+	.kolej-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.kolej-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

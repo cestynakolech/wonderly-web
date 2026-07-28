@@ -13,6 +13,8 @@ export type Podtema = {
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
 	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace';
+	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
+	interakce2?: 'kolejnice';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -673,6 +675,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'teplotni-roztaznost',
 					interakce: 'teplomer',
+					interakce2: 'kolejnice',
 					nazev: 'Teplotní roztažnost',
 					obsah: `
 						<h2>Teplotní roztažnost látek</h2>
@@ -694,7 +697,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><strong>kolejnice a mosty</strong> — v horku se protahují (kroucení kolejnic), v mrazu zkracují (praskání); řešení: <strong>dilatační spáry</strong>, konce mostů na válcích</li>
 							<li><strong>dráty vedení a troleje</strong> — napínají se závažím, staví se prověšené</li>
-							<li><strong>kotle a teplovodní potrubí</strong> — kotle volně v prostoru, do potrubí se vkládají ohebná kolena</li>
+							<li><strong>kotle a teplovodní potrubí</strong> — kotle volně v prostoru, do potrubí se vkládají ohebná kolena nebo <strong>kompenzátor</strong> (smyčka potrubí ve tvaru U, která se při roztažení jen mírně prohne)</li>
 							<li><strong>sklo</strong> — běžné sklo při kontaktu s horkou tekutinou praskne; řešení: <strong>varné sklo</strong> s jiným složením</li>
 							<li><strong>zubní plomby</strong> musí mít stejnou roztažnost jako zuby; ocelové pruty v železobetonu stejnou jako beton</li>
 						</ul>

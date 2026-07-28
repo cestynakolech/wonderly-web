@@ -1487,6 +1487,38 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['vystoupá výš', 'klesne ke dnu', 'zůstane na dně'],
 			vysvetleni: 'Horká voda má menší hustotu než okolní chladnější voda, proto balónek stoupá.',
 		},
+		{
+			text: 'Ocelová kolejnice je dlouhá 25 m. O kolik se prodlouží, když se oteplí o 10 °C? (ocel se prodlouží o 0,012 mm na každý metr délky a každý stupeň)',
+			odpovedi: ['o 3 mm', 'o 30 mm', 'o 0,3 mm'],
+			vysvetleni: 'Prodloužení = 0,012 × 25 × 10 = 3 mm. Zdá se to málo, ale kolej bez spár by taková síla dokázala zkroutit.',
+		},
+		{
+			text: 'Co hrozí svařené koleji bez dilatačních spár ve velkém letním horku?',
+			odpovedi: [
+				'vzpříčí se a vybočí do strany (sluneční vybočení)',
+				'nic — ocel se teplem neroztahuje',
+				'zkrátí se a mezi kolejnicemi vzniknou mezery',
+			],
+			vysvetleni: 'Kolej se chce prodloužit, ale nemá kam — obrovská tlaková síla ji vybočí do strany. Proto se dlouhé svařené koleje pevně kotví do pražců.',
+		},
+		{
+			text: 'Co hrozí koleji bez spár v silném mrazu?',
+			odpovedi: [
+				'tahová síla ji může roztrhnout — kolejnice praskne',
+				'roztáhne se a zvlní',
+				'změkne a prohne se pod vlakem',
+			],
+			vysvetleni: 'V mrazu se kolej chce zkrátit, ale sváry ji drží — vzniká tah, který může ocel roztrhnout.',
+		},
+		{
+			text: 'K čemu slouží kompenzátor (smyčka ve tvaru U) na dlouhém teplovodním potrubí?',
+			odpovedi: [
+				'pojme prodloužení potrubí — smyčka se jen mírně prohne',
+				'ochlazuje vodu v potrubí',
+				'vypouští přebytečnou páru',
+			],
+			vysvetleni: 'Horké potrubí se prodlužuje. Pružná smyčka ve tvaru U se prohne a prodloužení bezpečně pojme — potrubí se neprohne ani nepraskne.',
+		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek': [
 		{

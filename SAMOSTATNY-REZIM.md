@@ -1,9 +1,11 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, po velké session)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 34 hotové)
 
-Hotovo 33 kol samostatného režimu + velká session 28. 7. (celá čísla, mapa deníku, offline režim).
-Vše nasazené, repo čisté. Poslední commity: `319cd8a`, `2b3a4df`, `a21a852`.
+Hotovo 34 kol samostatného režimu (38 simulací + KolejniceSimulace = 39, 351 kvízových otázek).
+**DALŠÍ KOLO (35):** z námětů vytěžených prezentací F6 zbývá: pokus se třemi kádinkami
+(„Změř to rukou, nebo teploměrem?") a generátor příkladů na průměrnou teplotu (celá čísla!).
+Dále média k Fyzice 6.
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
 `~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
@@ -16,19 +18,14 @@ a variantou A byl **mylný** — proměnnou aplikace přebíjí, funguje jen sym
 **ČEKÁ NA UŽIVATELE:**
 - Odkaz na video „Teplota a její měření – F6" (na kanálu není).
 
-**DALŠÍ KOLO (34) — podklady už jsou vytěžené, stačí vyrábět.** Vision analýza prezentací
-F6 „Stavba látek" a „TEPLOTA" proběhla 28. 7., soupis učiva a nálezy chyb jsou
-v `Omega/dokumenty/kontrola-podkladu-fyzika6.md`. Tři nejlepší náměty na simulace:
-1. **Rozpálená kolejnice** (F6/F8 teplotní roztažnost) — posuvník teploty −20 až +50 °C,
-   přepínač „s dilatační spárou / bez ní"; bez spáry se kolej zvlní. Vedle běží výpočet
-   prodloužení (30 m kolej při ohřátí o 40 °C povyroste asi 1,4 cm).
+**Zbylé náměty z vision analýzy prezentací F6** (soupis v `Omega/dokumenty/kontrola-podkladu-fyzika6.md`):
+1. ~~Rozpálená kolejnice~~ → HOTOVO v kole 34 (KolejniceSimulace + kompenzátor ve výkladu).
 2. **Změř to rukou, nebo teploměrem?** — pokus se třemi kádinkami (5 / 25 / 45 °C): ruce
    ve studené a horké, pak obě do vlažné → dva protichůdné pocity u téže vody. Motivace,
    proč fyzika potřebuje měřidlo.
 3. **Průměrná teplota — generátor příkladů** s tabulkou i grafem, kontroluje zvlášť součet
    a zvlášť dělení. Pozor: podle nového pravidla mají příklady vycházet v CELÝCH číslech.
-Dále: **média k Fyzice 6** (infografiky/písně); kompenzátor (expanzní smyčka) do výkladu
-teplotní roztažnosti — malý doplněk.
+Dále: **média k Fyzice 6** (infografiky/písně).
 
 **NOVÁ PRAVIDLA (platí od 28. 7., jsou už v globálním `~/.claude/CLAUDE.md`):**
 - **Ve výpočtech pro děti musí vycházet CELÁ čísla** — i všechny polohy posuvníků v simulacích.
@@ -73,6 +70,14 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 34): **KolejniceSimulace** — rozpálená kolejnice (F6 teplota/teplotni-roztaznost,
+  druhá simulace na stránce vedle teploměru → nové pole `interakce2` v temata.ts + řádek v šabloně):
+  pohled shora na kolej (25 m kolejnice, montáž při 20 °C, ocel 0,012 mm/(m·°C)), posuvník
+  −20…50 °C po 10 °C → prodloužení vždy CELÉ mm (3 mm na 10 °C), režim „s dilatační spárou"
+  (detail spáry se zvětšenou kótou: 12 mm → 3 mm v horku, 24 mm v mrazu) × „svařená bez spáry"
+  (≥40 °C sluneční vybočení, ≤−10 °C prasklá kolej). Výklad doplněn o kompenzátor (U-smyčka
+  potrubí). Kvíz +4 otázky (výpočet 0,012×25×10=3 mm, vybočení, prasknutí, kompenzátor) → 351.
+  Ověřeno v náhledu javascriptem: všechny hodnoty přesné, kóta 144 px = 24 mm × 6, konzole bez chyb.
 - 2026-07-27 (kolo 33): **Kvízy F6 doplněny o učivo nových simulací** (+15 otázek, celkem 347):
   délka 16→21 (hodnota dílku, dělí se MEZERAMI ne čárkami, nula stupnice u začátku tělesa,
   2,5 dm = 25 cm), hmotnost 13→18 (směr převodu — na menší jednotku číslo roste, dag, mg, t),
