@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 56 hotové — míchárna barev)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 57 hotové — alternátor)
 
-Hotovo 56 kol samostatného režimu (54 simulací na 56 stránkách, 356+ kvízových otázek).
+Hotovo 57 kol samostatného režimu (55 simulací na 57 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (57):** kandidát č. 2 nového seznamu — **F9 alternátor** (otáčející se magnet
-v cívce, ručička voltmetru, kreslící se sinusovka). POZOR: časová animace → plná kontrola
-animací (čistá funkce času, vzorkování po 16 ms, UX tam-i-zpět).
+**DALŠÍ KOLO (58):** kandidát č. 3 nového seznamu — **F9 elektromotor** (síla na vodič
+v magnetickém poli, prohození proudu/pólů, jednoduchý motor s komutátorem). POZOR: časová
+animace → plná kontrola animací (čistá funkce času, 16 ms, UX tam-i-zpět).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -20,8 +20,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 1. [x] **F7 vnimani-barev** — HOTOVO v kole 56 (BarvySimulace: reflektory na černé
    s mix-blend screen × inkousty na bílé s multiply, posuvníky 0–100 % po 10, pojmenování
    učebnicových barev, předvolby, přepočet na 0–255).
-2. [ ] **F9 vznik-stridaveho-proudu-alternator** — otáčející se magnet v cívce, ručička
-   voltmetru + kreslící se sinusovka; POZOR časová animace (čistá funkce času, 16 ms).
+2. [x] **F9 vznik-stridaveho-proudu-alternator** — HOTOVO v kole 57 (AlternatorSimulace:
+   rotor-magnet ve statoru, voltmetr ±6 dílků, sinusovka s běžícím bodem, krok ¼ otáčky
+   = 4 učebnicové polohy, rychlost 1–3× → amplituda 2/4/6 dílků).
 3. [ ] **F9 pusobeni-pole-na-vodic-elektromotor** — síla na vodič v poli (prohoď proud/póly),
    jednoduchý elektromotor s komutátorem; časová animace.
 4. [ ] **F8 vyparovani** — „závod louží": teplota × povrch × vítr → doba schnutí

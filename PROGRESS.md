@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 57: AlternatorSimulace (vznik střídavého proudu).** F9: rotor-magnet
+  se točí ve statoru s cívkou, voltmetr (±6 dílků), sinusovka jedné otáčky s běžícím bodem;
+  krok ↻ po ¼ otáčky projde učebnicové polohy (0 / +max / 0 / −max s vysvětlením), rychlost
+  1–3× zvyšuje amplitudu (2/4/6 dílků — „rychlejší změna pole = vyšší napětí"). Čistá funkce
+  stavAlternatoru(t, rychlost); 3 rychlosti × 2 otáčky po 16 ms + DOM kontrola prošly.
+  Celkem 55 simulací.
 - **2026-07-29 — kolo 56: BarvySimulace (RGB × CMY).** F7 vnímání barev: skládání světel
   (tři reflektory na černé zdi, mix-blend screen — překryvy dělají žlutou/purpurovou/
   azurovou/bílou samy) × míchání barviv (inkousty na bílém papíře, multiply — víc inkoustů
