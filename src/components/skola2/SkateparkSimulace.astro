@@ -90,7 +90,6 @@
 		document.getElementById('skate-out-h').textContent = hStart + ' m';
 		document.getElementById('skate-out-y').textContent = y + ' m';
 		document.getElementById('skate-radek-y').style.display = rezim === 'idealni' ? '' : 'none';
-		document.getElementById('skate-jizda').style.display = rezim === 'idealni' ? '' : 'none';
 		document.getElementById('skate-prejezdy').style.display = rezim === 'treni' ? '' : 'none';
 		vypocetEl.style.opacity = '1';
 
@@ -113,6 +112,7 @@
 			else stavEl.textContent = '↕️ Mezi tím: část energie polohová, část pohybová — přelévají se, ale součet se NEMĚNÍ (zákon zachování).';
 		} else {
 			if (hMax === 0) stavEl.textContent = `🛑 Skater zastavil — všech ${E0} J se postupně proměnilo třením na teplo (Q). Proto se na rampě bez odrážení nedá jezdit věčně.`;
+			else if (prejezd === 0) stavEl.textContent = `👉 Rozjeď skatera tlačítkem ▶ (dojede sám až do zastavení), nebo krokuj tlačítkem „další přejezd". Každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na TEPLO.`;
 			else stavEl.textContent = `🛹 Přejezd č. ${prejezd}: každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na TEPLO. Skater teď vyjede už jen do ${hMax} m.`;
 		}
 	}
@@ -129,35 +129,84 @@
 		nastav('skate-prkno', { x: px - 17, y: py - 8 });
 	}
 
-	// jízda: p(t) = −cos(2πt/T) kmitá mezi −1 a 1 (na krajích pomalu, dole rychle —
-	// zhruba jako skutečný pohyb); |p| ≤ 0,3 = ploché dno, zbytek oblouk do výšky h
+	// jízda: p(t) = −cos kmitá mezi −1 a 1 (na krajích pomalu, dole rychle — zhruba jako
+	// skutečný pohyb); |p| ≤ 0,3 = ploché dno, zbytek oblouk. ČISTÁ funkce stavu v čase,
+	// aby šla celá jízda ověřit výpočtem bez animace (viz __stavJizdy níže).
+	const T = 3000; // ms na celý kmit (ideální) / na jeden přejezd tam (tření: T/2)
+	// Poloha z fáze p ∈ [−1,1] a výšky obratu hSide: na oblouku se jede LINEÁRNĚ po
+	// parametru Bézierovy křivky (rychlost je pak spojitá i v patě rampy — žádné skoky);
+	// výška na křivce je y = 5·(1−t)², obrat t = 1−√(h/5) vyjde přesně ve výšce h.
+	function bodJizdy(p, hSide) {
+		if (Math.abs(p) <= 0.3) return { x: 280 + (p / 0.3) * 80, y: 0 };
+		const tTop = 1 - Math.sqrt(Math.max(0, hSide) / 5);
+		const t = 1 - (1 - tTop) * ((Math.abs(p) - 0.3) / 0.7);
+		const xL = 40 + 160 * t * t;
+		return { x: Math.sign(p) < 0 ? xL : 560 - xL, y: 5 * (1 - t) * (1 - t) };
+	}
+	function stavJizdy(tMs, rezimJizdy, h0) {
+		if (rezimJizdy === 'idealni') {
+			const p = -Math.cos((2 * Math.PI * tMs) / T);
+			const bod = bodJizdy(p, h0);
+			return { p, ...bod, Emech: null, prejezd: 0, konec: false };
+		}
+		// tření: půlkmit n vede ze strany A (výška hA = h0 − n) na stranu B (hB = hA − 1);
+		// každý přejezd ztratí energii odpovídající přesně 1 m výšky (→ teplo)
+		const pulT = T / 2;
+		const n = Math.floor(tMs / pulT);
+		const hA = h0 - n;
+		if (hA <= 0) {
+			// všechna energie pryč — skater stojí dole na straně, kde skončil
+			const bod = bodJizdy((h0 % 2 === 0 ? -1 : 1) * 0.31, 0);
+			return { p: 0.31, ...bod, y: 0, Emech: 0, prejezd: h0, konec: true };
+		}
+		const hB = hA - 1;
+		const tau = (tMs % pulT) / pulT;
+		const pRaw = -Math.cos(Math.PI * tau);          // −1 → +1 během půlkmitu
+		const p = n % 2 === 0 ? pRaw : -pRaw;           // sudý přejezd zleva, lichý zprava
+		const startovniStrana = n % 2 === 0 ? -1 : 1;
+		const vyskaStrany = Math.sign(p) === startovniStrana || p === 0 ? hA : hB;
+		const bod = bodJizdy(p, vyskaStrany);
+		const Emech = hA + (hB - hA) * tau;             // v „metrech" (E = m·g·Emech)
+		return { p, ...bod, Emech, prejezd: n + 1, konec: false };
+	}
+
 	let jede = false;
 	let animId = null;
 	let t0 = null;
+	let posledniPrejezd = 0;
 	function snimek(cas) {
 		if (!jede) return;
 		if (t0 === null) t0 = cas;
-		const m = +sm.value, h = +sh.value;
-		const T = 3000;
-		const p = -Math.cos((2 * Math.PI * (cas - t0)) / T); // start p = −1: vlevo nahoře
-		const naOblouku = Math.max(0, (Math.abs(p) - 0.3) / 0.7);
-		const y = h * naOblouku;
-		if (Math.abs(p) <= 0.3) {
-			// ploché dno: x od 200 do 360
-			const px = 280 + (p / 0.3) * 80;
-			nastav('skate-telo', { cx: px, cy: 280 - 18 });
-			nastav('skate-prkno', { x: px - 17, y: 280 - 8 });
-		} else {
-			umistiSkatera(Math.sign(p), y);
-		}
-		// sloupce průběžně (grafika); přesná čísla až po zastavení
-		const E0 = m * 10 * h;
+		const m = +sm.value, h0 = +sh.value;
+		const s = stavJizdy(cas - t0, rezim, h0);
+		// poloha na rampě / dně (x i y přímo ze stavu — jedno místo pravdy)
+		const py = 280 - 44 * s.y;
+		nastav('skate-telo', { cx: s.x, cy: py - 18 });
+		nastav('skate-prkno', { x: s.x - 17, y: py - 8 });
+		// sloupce průběžně: Ep z okamžité výšky, Ek = zbylá mechanická − Ep, Q = ztracené teplo
+		const E0 = m * 10 * h0;
 		const mer = 250 / Math.max(E0, 1);
-		const Ep = m * 10 * y;
+		const Ep = m * 10 * s.y;
+		const Emech = rezim === 'treni' ? m * 10 * s.Emech : E0;
+		const Q = E0 - Emech;
 		nastav('skate-bar-ep', { y: 310 - Ep * mer, height: Math.max(Ep * mer, 0.5) });
-		nastav('skate-bar-ek', { y: 310 - (E0 - Ep) * mer, height: Math.max((E0 - Ep) * mer, 0.5) });
+		nastav('skate-bar-ek', { y: 310 - Math.max(Emech - Ep, 0) * mer, height: Math.max(Math.max(Emech - Ep, 0) * mer, 0.5) });
+		if (rezim === 'treni') {
+			nastav('skate-bar-q', { y: 310 - Q * mer, height: Math.max(Q * mer, 0.5), visibility: 'visible' });
+			if (s.prejezd !== posledniPrejezd && !s.konec) {
+				posledniPrejezd = s.prejezd;
+				stavEl.textContent = `🛹 Přejezd č. ${s.prejezd}: energie ubývá, na druhé straně vyjede už jen do ${Math.max(h0 - s.prejezd, 0)} m — ztráta se mění třením na teplo Q.`;
+			}
+		}
+		if (s.konec) {
+			prejezd = h0;             // stav „zastavil": Q = celá energie
+			zastavJizdu(true);
+			return;
+		}
 		animId = requestAnimationFrame(snimek);
 	}
+	// pro nezávislou kontrolu výpočtem (čistá funkce, bez vedlejších účinků)
+	document.getElementById('skate-svg').__stavJizdy = stavJizdy;
 	function zastavJizdu(prepocitat) {
 		jede = false;
 		if (animId) cancelAnimationFrame(animId);
@@ -166,12 +215,17 @@
 	}
 	document.getElementById('skate-play').addEventListener('click', () => {
 		if (jede) { zastavJizdu(true); return; }
-		if (rezim !== 'idealni') return;
 		jede = true;
 		t0 = null;
-		sy.value = sh.value; // jízda startuje z plné výšky
+		posledniPrejezd = 0;
+		if (rezim === 'idealni') {
+			sy.value = sh.value; // jízda startuje z plné výšky
+			stavEl.textContent = '🛹 Skater jede — sleduj, jak se sloupce Ep a Ek přelévají (na krajích samá Ep, dole samá Ek). Zastav ho a uvidíš přesná čísla.';
+		} else {
+			prejezd = 0;         // jízda se třením startuje z plné výšky a sama dojede do zastavení
+			stavEl.textContent = '🛹 Skater vyráží z plné výšky — každý přejezd vyjede o 1 m níž, ztracená energie se mění na teplo Q. Sleduj červený sloupec.';
+		}
 		document.getElementById('skate-play').textContent = '⏸ zastav (ukáže přesná čísla)';
-		stavEl.textContent = '🛹 Skater jede — sleduj, jak se sloupce Ep a Ek přelévají (na krajích samá Ep, dole samá Ek). Zastav ho a uvidíš přesná čísla.';
 		vypocetEl.style.opacity = '0.4';
 		requestAnimationFrame(snimek);
 	});

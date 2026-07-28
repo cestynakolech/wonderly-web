@@ -1,13 +1,13 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 45 hotové — checkpoint dělby rolí)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 47 hotové — opravy animací dle učitele)
 
-Hotovo 45 kol samostatného režimu (47 simulací na 49 stránkách, 356+ kvízových otázek).
+Hotovo 46 kol samostatného režimu (47 simulací na 49 stránkách, 356+ kvízových otázek).
 Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–6 hotové).
-**DALŠÍ KOLO (46): postavit „popisovač prezentací"** — automat z checkpointu (extrakce
-obrázků ze zipu .pptx + ThinkingCap vision popisy → prezentace-popisy/*.md; zadání ve
-FRONTA-UKOLU). POZOR na pravidlo: na Macu jen 1 lokální těžký proces — popisovač spouštět
-sekvenčně a mimo běžící anonymizaci. Potom kandidát č. 7 — F7 rovinné zrcadlo.
+**DALŠÍ KOLO (47):** kandidát č. 7 — **F7 rovinné zrcadlo** (obraz za zrcadlem, souměrnost,
+zdánlivý obraz; uzavře optickou sadu). Popis „Stavba látek" je hotový
+v `Omega/dokumenty/prezentace-popisy/` — až přijde na řadu vytěžování prezentací,
+NEJDŘÍV pustit popisovač (`popis_prezentace.py --slozka …`), pak číst jen popisy.
 Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
@@ -107,6 +107,23 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 47): **Opravy animací dle 3 připomínek učitele + NOVÉ PRAVIDLO kontroly
+  animací.** (1) Skatepark se třením: místo skokového „další přejezd" plná JÍZDA — skater
+  se rozjede, každý přejezd viditelně níž, teplo Q roste průběžně, sám dojede do zastavení;
+  pohybová logika přepsána na čistou funkci `stavJizdy` (exportovaná na SVG pro test) a jízda
+  po parametru Bézierovy křivky (kontrola po 16 ms odhalila skok 56 px u paty rampy ze
+  starého odmocninového mapování → po opravě max 13,6 px = plynulé; obraty 4-3-2-1-0,
+  energie jen klesá, dojezd 7,5 s). (2) Elektromagnet: VYPÍNAČ — ZAPNOUT skočí na 1 A,
+  VYPNOUT na 0 (učitel nenašel, jak zapnout). (3) Úvodní hláška tření už neříká „Přejezd
+  č. 0". Pravidlo „úplná kontrola animací" zapsáno do PRAVIDLA.md + skillu /wonderly
+  (čistá funkce času, vzorkování po 16 ms, UX tam-i-zpět, nikdy nehodnotit okem v hidden
+  náhledu).
+- 2026-07-28 (kolo 46): **Popisovač prezentací POSTAVEN** (`Omega/skripty/popis_prezentace.py`):
+  text snímků z XML + ThinkingCap vision popisy obrázků ze zipu .pptx → prezentace-popisy/
+  <název>.md; hlídá baterii, jede sekvenčně, přeskočí ikonky, videa jen zaznamená. Ostrý test
+  „Stavba látek": 21 snímků, 12 popisů, kvalita výborná (periodická tabulka vč. legendy,
+  molekuly s barvami atomů). Nalezená past: .mov → HTTP 400, opraven filtr přípon. Zapsáno
+  v ollama-logu, FRONTA odškrtnuta, pravidlo v ~/CLAUDE.md přepnuto na „hotový automat".
 - 2026-07-28 (kolo 45): **CHECKPOINT dělby rolí Claude × lokální modely** (1. běh nového
   pravidla à 10 kol): kola 34–44 prošla revizí — psaní simulací a ověřování (Node/JS) správně
   u Clauda (kontroly dnes chytily 2 skutečné chyby), čtení výkladů grep/sed OK. Nalezena

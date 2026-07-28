@@ -66,6 +66,7 @@
 		const sponky = I * (zavity / 100) * jadro; // vždy celé, max 24
 		document.getElementById('elmag-out-i').textContent = I + ' A';
 		document.getElementById('elmag-out-z').textContent = zavity;
+		document.getElementById('elmag-vypnout').textContent = I === 0 ? '🔌 ZAPNOUT proud' : '🔌 VYPNOUT proud';
 
 		// póly (jen když teče proud)
 		const polL = document.getElementById('elmag-pol-l');
@@ -110,7 +111,7 @@
 		vypocetEl.innerHTML = `síla ~ proud × závity: ${I} × ${zavity / 100} ${jadro === 2 ? '× 2 (jádro)' : '× 1 (bez jádra)'} = <strong>${sponky} sponek</strong>`;
 
 		if (I === 0) {
-			stavEl.textContent = '🔌 VYPNUTO — proud neteče, magnetické pole měkkého jádra hned zaniklo a VŠECHNY sponky spadly. Přesně tohle trvalý magnet neumí — proto jeřáb na šrot používá elektromagnet.';
+			stavEl.textContent = '🔌 VYPNUTO — proud neteče, magnetické pole měkkého jádra hned zaniklo a VŠECHNY sponky spadly. Přesně tohle trvalý magnet neumí — proto jeřáb na šrot používá elektromagnet. Zapni ho tlačítkem ZAPNOUT nebo posuvníkem proudu.';
 		} else if (jadro === 1) {
 			stavEl.textContent = `🧲 Samotná cívka drží jen ${sponky} sponek — ocelové jádro by sílu zdvojnásobilo. Proto má každý elektromagnet jádro z magneticky měkké oceli.`;
 		} else if (sponky === 24) {
@@ -120,7 +121,11 @@
 		}
 	}
 
-	document.getElementById('elmag-vypnout').addEventListener('click', () => { si.value = 0; prekresli(); });
+	// vypínač: ZAPNOUT skočí na 1 A, VYPNOUT na 0 (přání učitele 28. 7.)
+	document.getElementById('elmag-vypnout').addEventListener('click', () => {
+		si.value = +si.value === 0 ? 1 : 0;
+		prekresli();
+	});
 	document.getElementById('elmag-poly').addEventListener('click', () => { prohozeno = !prohozeno; prekresli(); });
 	document.getElementById('elmag-jadra').addEventListener('click', (e) => {
 		const tl = e.target.closest('.elmag-tl');

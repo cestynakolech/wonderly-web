@@ -93,6 +93,14 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 47: opravy animací dle učitele + pravidlo kontroly animací.** Skatepark
+  se třením skutečně JEZDÍ (čistá funkce stavJizdy, jízda po Bézierově křivce — kontrola po
+  16 ms odhalila a odstranila 56px skok u paty rampy), elektromagnet má VYPÍNAČ (zapnout →
+  1 A). Nové pravidlo v PRAVIDLA.md: animace se před nasazením projíždí celé výpočtem
+  (spojitost, krajní stavy, dojezd) + UX kontrola tam-i-zpět. Celkem 47 simulací.
+- **2026-07-28 — kolo 46: popisovač prezentací postaven.** `Omega/skripty/popis_prezentace.py`
+  (text z XML + ThinkingCap vision popisy → prezentace-popisy/*.md). Test na „Stavba látek":
+  21 snímků, 12 kvalitních popisů. Prezentace se teď vytěžují za ~5 % původních tokenů.
 - **2026-07-28 — kolo 45: checkpoint dělby rolí Claude × lokální modely.** Revize kol 34–44:
   dělba správná (kód a ověřování Claude, vision automaty lokálně). Nová příležitost:
   popisovač prezentací (ThinkingCap popíše obrázky ze .pptx do textu → ~95 % úspora tokenů
