@@ -93,6 +93,9 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 43: IndukceSimulace (Faradayův pokus).** F9 elektromagnetická indukce:
+  magnet × cívka × voltmetr, 4 závislosti (rychlost, směr, síla magnetu, závity), výchylka
+  v celých dílcích, „magnet stojí = nic se neindukuje". Celkem 46 simulací.
 - **2026-07-28 — kolo 42: SkateparkSimulace (přeměny energie na U-rampě).** Jedna simulace
   na obou stránkách F8 (pohybová/polohová energie + zákon zachování): ideální rampa (Ep↔Ek,
   součet konstantní) × se třením (každý přejezd = energie 1 m výšky → teplo, zastavení).

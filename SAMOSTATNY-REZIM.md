@@ -1,11 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 42 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 43 hotové)
 
-Hotovo 42 kol samostatného režimu (45 simulací na 47 stránkách, 356+ kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–4 hotové).
-**DALŠÍ KOLO (43):** kandidát č. 5 — **F9 elektromagnetická indukce** (magnet do cívky,
-výchylka galvanometru dle rychlosti, „bez pohybu nic").
+Hotovo 43 kol samostatného režimu (46 simulací na 48 stránkách, 356+ kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–5 hotové).
+**DALŠÍ KOLO (44):** kandidát č. 6 — **F9 elektromagnet** (posuvník proudu a závitů →
+kolik sponek udrží; vypnutí proudu = vše spadne).
+**POZOR: kolo 45 = checkpoint revize dělby rolí Claude × lokální modely** (viz níže).
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
 **Domluva 28. 7. večer:** wonderly zůstává VÝHRADNĚ v této session (desktop app);
@@ -68,8 +69,8 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
    s celými výsledky, bilance odevzdané=přijaté teplo).
 4. [x] **F8 pohybova-a-polohova-energie + zakon-zachovani** — HOTOVO v kole 42
    (SkateparkSimulace na obou stránkách: ideální rampa × se třením, teplo Q).
-5. [ ] **F9 elektromagneticka-indukce** — magnet do cívky: rychlost pohybu → výchylka
-   galvanometru, směr podle pólu; „bez pohybu nic" jako hlavní poučení.
+5. [x] **F9 elektromagneticka-indukce** — HOTOVO v kole 43 (IndukceSimulace: 4 závislosti
+   z výkladu, voltmetr ±20 dílků, „magnet stojí = nic").
 6. [ ] **F9 elektromagnet** — posuvník proudu a počtu závitů → kolik sponek udrží; vypnutí
    proudu = vše spadne (rozdíl od trvalého magnetu).
 7. [ ] **F7 optika-rovinneho-zrcadla** — obraz za zrcadlem (souměrný, zdánlivý, stejně velký),
@@ -104,6 +105,13 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 43): **IndukceSimulace** — Faradayův pokus (F9 indukce-a-stridavy-proud/
+  elektromagneticka-indukce): magnet u cívky s voltmetrem, všechny 4 závislosti z výkladu
+  (rychlost 0/1/3× · směr zasun/vytáhni · slabý/silný magnet 1/2× · závity 100–300 = 1–3×),
+  výchylka = součin faktorů v CELÝCH dílcích (max ±18 na stupnici ±20), pól přivrácený
+  k cívce se překresluje, závity cívky rostou s posuvníkem. Hlavní poučení: magnet v klidu
+  neindukuje nic. Ověřeno v náhledu (7 kombinací + úhel ručičky 63° = 18/20·70°), konzole
+  čistá. Kvíz už měl 12 otázek — nedublováno.
 - 2026-07-28 (kolo 42): **SkateparkSimulace** — přeměny energie na U-rampě (F8, JEDNA simulace
   na OBOU stránkách pohybova-a-polohova-energie i zakon-zachovani, vzor Ohrev): režim „ideální
   rampa" (posuvníky m 20–60 kg, start 1–5 m, okamžitá výška — sloupce Ep×Ek se přelévají,

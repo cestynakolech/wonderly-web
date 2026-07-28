@@ -48,6 +48,7 @@ import TreniSimulace from '../../../../../../components/skola2/TreniSimulace.ast
 import ArchimedesSimulace from '../../../../../../components/skola2/ArchimedesSimulace.astro';
 import KalorimetrSimulace from '../../../../../../components/skola2/KalorimetrSimulace.astro';
 import SkateparkSimulace from '../../../../../../components/skola2/SkateparkSimulace.astro';
+import IndukceSimulace from '../../../../../../components/skola2/IndukceSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -220,6 +221,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'archimedes' && <ArchimedesSimulace />}
 	{podtema.interakce === 'kalorimetr' && <KalorimetrSimulace />}
 	{podtema.interakce === 'skatepark' && <SkateparkSimulace />}
+	{podtema.interakce === 'indukce' && <IndukceSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{otazky && <Kviz otazky={otazky} />}

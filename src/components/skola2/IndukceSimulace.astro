@@ -1,0 +1,151 @@
+---
+// Elektromagnetická indukce (F9): Faradayův pokus — magnet a cívka s voltmetrem.
+// Pokrývá všechny čtyři závislosti z výkladu: rychlost pohybu (stojí/pomalu/rychle
+// = faktor 0/1/3), směr pohybu (zasouvání × vytahování), síla magnetu (slabý ×1,
+// silný ×2) a počet závitů (100–300, ×1–×3). Výchylka voltmetru v dílcích
+// = součin faktorů (max 18, stupnice ±20) — vždy celé číslo. Hlavní poučení:
+// když magnet STOJÍ, neindukuje se NIC. Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Faradayův pokus — indukuj napětí 🕹️</span></h2>
+	<p>Pohybuj magnetem u cívky připojené k <strong>voltmetru</strong> a sleduj ručičku. Vyzkoušej všechno: rychlost, směr, sílu magnetu i počet závitů — a hlavně nech magnet <strong>stát</strong>.</p>
+	<p id="ind-akce">
+		<button type="button" class="ind-tl ind-aktivni" data-akce="stoji">⏸ magnet stojí</button>
+		<button type="button" class="ind-tl" data-akce="zasun-pomalu">→ zasouvám pomalu</button>
+		<button type="button" class="ind-tl" data-akce="zasun-rychle">⏩ zasouvám RYCHLE</button>
+		<button type="button" class="ind-tl" data-akce="vytahni-pomalu">← vytahuji pomalu</button>
+		<button type="button" class="ind-tl" data-akce="vytahni-rychle">⏪ vytahuji RYCHLE</button>
+	</p>
+	<p>
+		<span id="ind-poly">
+			<button type="button" class="ind-tl ind-aktivni" data-pol="N">k cívce severní pól (N)</button>
+			<button type="button" class="ind-tl" data-pol="S">k cívce jižní pól (S)</button>
+		</span>
+		<span id="ind-sily">
+			<button type="button" class="ind-tl ind-aktivni" data-sila="1">🧲 slabý magnet</button>
+			<button type="button" class="ind-tl" data-sila="2">🧲🧲 silný magnet</button>
+		</span>
+	</p>
+	<svg id="ind-svg" viewBox="0 0 660 300" role="img" aria-label="Magnet, cívka a voltmetr">
+		<!-- magnet -->
+		<g id="ind-magnet">
+			<rect id="ind-mag-n" y="130" width="60" height="40" fill="#e03131" stroke="#2b2a26" stroke-width="3" />
+			<rect id="ind-mag-s" y="130" width="60" height="40" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />
+			<text id="ind-mag-n-t" y="157" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">N</text>
+			<text id="ind-mag-s-t" y="157" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">S</text>
+		</g>
+		<!-- šipky pohybu -->
+		<text id="ind-sipky" y="120" text-anchor="middle" font-size="24" font-weight="bold" fill="#2f9e44"></text>
+		<!-- cívka -->
+		<g id="ind-civka"></g>
+		<text x="390" y="230" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96">cívka</text>
+		<!-- vodiče k voltmetru -->
+		<path d="M340 190 L340 250 L520 250" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<path d="M440 190 L440 220 L560 220" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<!-- voltmetr -->
+		<circle cx="560" cy="150" r="60" fill="#fff" stroke="#2b2a26" stroke-width="4" />
+		<text x="560" y="195" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">V</text>
+		<g stroke="#868e96" stroke-width="2">
+			<line x1="560" y1="100" x2="560" y2="110" />
+			<line x1="514" y1="119" x2="521" y2="126" /><line x1="606" y1="119" x2="599" y2="126" />
+		</g>
+		<text x="512" y="112" font-size="11" fill="#868e96">−</text>
+		<text x="602" y="112" font-size="11" fill="#868e96">+</text>
+		<line id="ind-rucicka" x1="560" y1="150" x2="560" y2="102" stroke="#e03131" stroke-width="4" stroke-linecap="round" />
+		<circle cx="560" cy="150" r="6" fill="#2b2a26" />
+		<text id="ind-hodnota" x="560" y="285" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Počet závitů cívky: <output id="ind-out-z"></output>
+		<input type="range" id="ind-slider-z" min="100" max="300" step="100" value="100" />
+	</label>
+	<p class="ind-stav" id="ind-stav"></p>
+</section>
+
+<script>
+	let akce = 'stoji';
+	let pol = 'N';
+	let sila = 1;
+	const sz = document.getElementById('ind-slider-z');
+	const stavEl = document.getElementById('ind-stav');
+	const nastav = (id, attrs) => { const el = document.getElementById(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	const AKCE = {
+		stoji: { smer: 0, faktor: 0, x: 150, sipky: '' },
+		'zasun-pomalu': { smer: 1, faktor: 1, x: 200, sipky: '→' },
+		'zasun-rychle': { smer: 1, faktor: 3, x: 230, sipky: '→ → →' },
+		'vytahni-pomalu': { smer: -1, faktor: 1, x: 100, sipky: '←' },
+		'vytahni-rychle': { smer: -1, faktor: 3, x: 70, sipky: '← ← ←' },
+	};
+
+	function prekresli() {
+		const zavity = +sz.value;
+		const a = AKCE[akce];
+		const znamenkoPolu = pol === 'N' ? 1 : -1;
+		const vychylka = a.smer * a.faktor * sila * (zavity / 100) * znamenkoPolu; // dílky, celé, max ±18
+		document.getElementById('ind-out-z').textContent = zavity;
+
+		// magnet: pól natočený k cívce (cívka je vpravo od magnetu)
+		const x = a.x;
+		const kCivce = pol; // pól přivrácený k cívce je ten PRAVÝ obdélník
+		nastav('ind-mag-s', { x: kCivce === 'N' ? x : x + 60, fill: '#1971c2' });
+		nastav('ind-mag-n', { x: kCivce === 'N' ? x + 60 : x, fill: '#e03131' });
+		nastav('ind-mag-s-t', { x: (kCivce === 'N' ? x : x + 60) + 30 });
+		nastav('ind-mag-n-t', { x: (kCivce === 'N' ? x + 60 : x) + 30 });
+		nastav('ind-sipky', { x: x + 60 });
+		document.getElementById('ind-sipky').textContent = a.sipky;
+
+		// cívka: závity podle posuvníku (5–15 oblouků)
+		const pocetOblouku = 5 + (zavity / 100 - 1) * 5;
+		const g = document.getElementById('ind-civka');
+		let s = '<rect x="330" y="140" width="120" height="50" fill="#f1f3f5" stroke="#868e96" stroke-width="2" rx="4" />';
+		for (let i = 0; i < pocetOblouku; i++) {
+			const cx = 336 + (i * 108) / Math.max(pocetOblouku - 1, 1);
+			s += `<ellipse cx="${cx}" cy="165" rx="6" ry="28" fill="none" stroke="#b08968" stroke-width="3" />`;
+		}
+		g.innerHTML = s;
+
+		// ručička: ±20 dílků = ±70°
+		const uhel = (vychylka / 20) * 70;
+		document.getElementById('ind-rucicka').setAttribute('transform', `rotate(${uhel} 560 150)`);
+		document.getElementById('ind-hodnota').textContent = vychylka === 0 ? 'voltmetr: 0 dílků' : `voltmetr: ${vychylka > 0 ? '+' : '−'}${Math.abs(vychylka)} dílků`;
+
+		if (a.faktor === 0) {
+			stavEl.textContent = '⏸ Magnet STOJÍ — magnetické pole u cívky se nemění, takže se NIC neindukuje. Sebesilnější magnet v klidu napětí nevytvoří!';
+		} else {
+			const casti = [];
+			casti.push(a.faktor === 3 ? 'rychlý pohyb = velké napětí' : 'pomalý pohyb = malé napětí');
+			casti.push(sila === 2 ? 'silný magnet zdvojnásobil výchylku' : 'slabý magnet');
+			casti.push(zavity + ' závitů');
+			stavEl.textContent = `${a.smer > 0 ? '→ Zasouvání' : '← Vytahování'} ${pol}-pólem: ručička se vychýlila na ${vychylka > 0 ? '+' : '−'}${Math.abs(vychylka)} dílků (${casti.join(' · ')}). Opačný pohyb nebo pól = opačná výchylka. Pohybová energie magnetu se mění na elektrickou.`;
+		}
+	}
+
+	for (const [idSk, fn] of [
+		['ind-akce', (tl) => { akce = tl.dataset.akce; }],
+		['ind-poly', (tl) => { pol = tl.dataset.pol; }],
+		['ind-sily', (tl) => { sila = +tl.dataset.sila; }],
+	]) {
+		const g = document.getElementById(idSk);
+		g.addEventListener('click', (e) => {
+			const tl = e.target.closest('.ind-tl');
+			if (!tl) return;
+			fn(tl);
+			for (const b of g.querySelectorAll('.ind-tl')) b.classList.toggle('ind-aktivni', b === tl);
+			prekresli();
+		});
+	}
+	sz.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#ind-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.ind-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.ind-tl.ind-aktivni { background: #ffe8cc; }
+	.ind-tl:active { transform: translateY(1px); }
+	.ind-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
