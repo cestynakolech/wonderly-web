@@ -1,11 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 36 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 37 hotové)
 
-Hotovo 36 kol samostatného režimu (41 simulací, 354 kvízových otázek).
-Náměty z vision analýzy prezentací F6 (kolejnice, kádinky, průměr) VYČERPÁNY.
-**DALŠÍ KOLO (37):** média k Fyzice 6 (infografiky/písně), nebo projít prezentace
-dalších ročníků (7/8/9 — fronta níže), nebo nové náměty z auditu.
+Hotovo 37 kol samostatného režimu (41 simulací, 354 kvízových otázek).
+Náměty z vision analýzy prezentací F6 (kolejnice, kádinky, průměr) VYČERPÁNY;
+kontrolní brána `zkontroluj.mjs` umí i `interakce2`.
+**DALŠÍ KOLO (38):** z fronty: zásoba témat dopředu (audit podtémat bez interakce),
+nebo média k Fyzice 6, nebo prezentace 7/8/9 (vision, ideálně čerstvá session).
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
 `~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
@@ -67,7 +68,10 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
-- 2026-07-28 (kolo 36): **PrumerSimulace** — generátor příkladů na průměrnou teplotu
+- 2026-07-28 (kolo 37): **zkontroluj.mjs rozšířen o `interakce2`** — kontrolní brána nově hlídá
+  i druhé simulace na stránce (užití v temata.ts × union typ × render v šabloně). Ověřeno:
+  aktuální stav prochází (40 interakcí + 2 druhé, 42 komponent, 358 otázek), negativní test
+  s vymyšlenou interakcí správně hlásí 2 chyby. Úkol z FRONTA-UKOLU odškrtnut. — generátor příkladů na průměrnou teplotu
   (F6 teplota/teplota-a-jeji-mereni jako `interakce2` pod kádinkami): 5–7 denních teplot
   ve sloupcovém grafu, varianty léto/zima (zima vždy se zápornou teplotou), dva kontrolované
   kroky (součet → dělení počtem měření, krok 2 zamčený do správného součtu), hlášky na typické

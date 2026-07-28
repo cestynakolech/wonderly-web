@@ -93,6 +93,9 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 37: kontrolní brána zkontroluj.mjs umí interakce2.** Hlídá i druhé simulace
+  na stránce (užití × union typ × render v šabloně); aktuální stav prochází, negativní test
+  chyby správně hlásí. Úkol z FRONTA-UKOLU odškrtnut.
 - **2026-07-28 — kolo 36: PrumerSimulace (generátor průměrné teploty).** F6 teplota/teplota-a-jeji-mereni
   (druhá simulace na stránce): 5–7 denních teplot v grafu, léto/zima, dva kontrolované kroky
   (součet → dělení počtem), hlášky na typické chyby, průměr vždy celý. Ověřeno 5000 generováními

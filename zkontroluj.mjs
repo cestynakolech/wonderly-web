@@ -21,8 +21,11 @@ const stranka = readFileSync(cestaStranka, 'utf8');
 const kvizy = readFileSync(cestaKvizy, 'utf8');
 
 // 1) Které interakce se v temata.ts opravdu používají u podtémat
+// (interakce = první simulace na stránce, interakce2 = druhá — kontrolují se obě)
 const pouzite = [...temata.matchAll(/^\s*interakce:\s*'([^']+)'/gm)].map((m) => m[1]);
 const unikatni = [...new Set(pouzite)];
+const pouzite2 = [...temata.matchAll(/^\s*interakce2:\s*'([^']+)'/gm)].map((m) => m[1]);
+const unikatni2 = [...new Set(pouzite2)];
 
 // 2) Union typ na začátku souboru musí každou z nich obsahovat
 const union = temata.match(/interakce\?:\s*([^;]+);/);
@@ -31,11 +34,22 @@ for (const i of unikatni) {
 		chyby.push(`interakce '${i}' se používá u podtématu, ale CHYBÍ v seznamu povolených typů (interakce?: … v temata.ts)`);
 	}
 }
+const union2 = temata.match(/interakce2\?:\s*([^;]+);/);
+for (const i of unikatni2) {
+	if (!union2 || !union2[1].includes(`'${i}'`)) {
+		chyby.push(`interakce2 '${i}' se používá u podtématu, ale CHYBÍ v seznamu povolených typů (interakce2?: … v temata.ts)`);
+	}
+}
 
 // 3) Každá použitá interakce musí být vykreslená na stránce podtématu
 for (const i of unikatni) {
 	if (!stranka.includes(`interakce === '${i}'`)) {
 		chyby.push(`interakce '${i}' se používá v temata.ts, ale NENÍ vykreslená v [podtema]/index.astro (chybí řádek {podtema.interakce === '${i}' && <…Simulace />})`);
+	}
+}
+for (const i of unikatni2) {
+	if (!stranka.includes(`interakce2 === '${i}'`)) {
+		chyby.push(`interakce2 '${i}' se používá v temata.ts, ale NENÍ vykreslená v [podtema]/index.astro (chybí řádek {podtema.interakce2 === '${i}' && <…Simulace />})`);
 	}
 }
 
@@ -61,7 +75,7 @@ if (pocetOtazek !== pocetOdpovedi) {
 }
 
 // Výpis česky
-console.log(`Kontrola webu — ${unikatni.length} interakcí u podtémat, ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek.`);
+console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');
