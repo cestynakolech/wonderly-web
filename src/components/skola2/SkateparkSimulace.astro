@@ -45,8 +45,11 @@
 		Startovní výška: <output id="skate-out-h"></output>
 		<input type="range" id="skate-slider-h" min="1" max="5" step="1" value="4" />
 	</label>
+	<p id="skate-jizda">
+		<button type="button" class="skate-tl" id="skate-play">▶ rozjeď skatera</button>
+	</p>
 	<label class="sim-posuvnik" id="skate-radek-y">
-		Okamžitá výška skatera: <output id="skate-out-y"></output>
+		Okamžitá výška skatera (nebo ho rozjeď tlačítkem): <output id="skate-out-y"></output>
 		<input type="range" id="skate-slider-y" min="0" max="4" step="1" value="4" />
 	</label>
 	<p id="skate-prejezdy" style="display:none">
@@ -87,14 +90,11 @@
 		document.getElementById('skate-out-h').textContent = hStart + ' m';
 		document.getElementById('skate-out-y').textContent = y + ' m';
 		document.getElementById('skate-radek-y').style.display = rezim === 'idealni' ? '' : 'none';
+		document.getElementById('skate-jizda').style.display = rezim === 'idealni' ? '' : 'none';
 		document.getElementById('skate-prejezdy').style.display = rezim === 'treni' ? '' : 'none';
+		vypocetEl.style.opacity = '1';
 
-		// skater na levé stěně rampy: úhel podle výšky (dno π/2, vršek π); střed oblouku (200,60), r = 220
-		const uhel = Math.PI / 2 + (Math.PI / 2) * (y / 5);
-		const px = 200 + 220 * Math.cos(uhel);
-		const py = 60 + 220 * Math.sin(uhel);
-		nastav('skate-telo', { cx: px, cy: py - 18 });
-		nastav('skate-prkno', { x: px - 17, y: py - 8 });
+		umistiSkatera(-1, y); // klidový stav: na levé stěně rampy
 
 		// sloupce: 1 J = (250 px / max energie 3000) — měřítko podle E0, aby se vešlo
 		const mer = 250 / Math.max(E0, 1);
@@ -117,9 +117,69 @@
 		}
 	}
 
+	// poloha na rampě: strana −1 (vlevo) / +1 (vpravo), výška y (m).
+	// Levá stěna je Bézier Q(40,60)-(40,280)-(200,280): pro výšku y (0–5 m, 44 px/m)
+	// je parametr t = 1 − √(y/5) a x = 40 + 160·t²; pravá stěna zrcadlově kolem x = 280.
+	function umistiSkatera(strana, y) {
+		const t = 1 - Math.sqrt(Math.max(0, y) / 5);
+		const xL = 40 + 160 * t * t;
+		const px = strana < 0 ? xL : 560 - xL;
+		const py = 280 - 44 * y;
+		nastav('skate-telo', { cx: px, cy: py - 18 });
+		nastav('skate-prkno', { x: px - 17, y: py - 8 });
+	}
+
+	// jízda: p(t) = −cos(2πt/T) kmitá mezi −1 a 1 (na krajích pomalu, dole rychle —
+	// zhruba jako skutečný pohyb); |p| ≤ 0,3 = ploché dno, zbytek oblouk do výšky h
+	let jede = false;
+	let animId = null;
+	let t0 = null;
+	function snimek(cas) {
+		if (!jede) return;
+		if (t0 === null) t0 = cas;
+		const m = +sm.value, h = +sh.value;
+		const T = 3000;
+		const p = -Math.cos((2 * Math.PI * (cas - t0)) / T); // start p = −1: vlevo nahoře
+		const naOblouku = Math.max(0, (Math.abs(p) - 0.3) / 0.7);
+		const y = h * naOblouku;
+		if (Math.abs(p) <= 0.3) {
+			// ploché dno: x od 200 do 360
+			const px = 280 + (p / 0.3) * 80;
+			nastav('skate-telo', { cx: px, cy: 280 - 18 });
+			nastav('skate-prkno', { x: px - 17, y: 280 - 8 });
+		} else {
+			umistiSkatera(Math.sign(p), y);
+		}
+		// sloupce průběžně (grafika); přesná čísla až po zastavení
+		const E0 = m * 10 * h;
+		const mer = 250 / Math.max(E0, 1);
+		const Ep = m * 10 * y;
+		nastav('skate-bar-ep', { y: 310 - Ep * mer, height: Math.max(Ep * mer, 0.5) });
+		nastav('skate-bar-ek', { y: 310 - (E0 - Ep) * mer, height: Math.max((E0 - Ep) * mer, 0.5) });
+		animId = requestAnimationFrame(snimek);
+	}
+	function zastavJizdu(prepocitat) {
+		jede = false;
+		if (animId) cancelAnimationFrame(animId);
+		document.getElementById('skate-play').textContent = '▶ rozjeď skatera';
+		if (prepocitat) prekresli();
+	}
+	document.getElementById('skate-play').addEventListener('click', () => {
+		if (jede) { zastavJizdu(true); return; }
+		if (rezim !== 'idealni') return;
+		jede = true;
+		t0 = null;
+		sy.value = sh.value; // jízda startuje z plné výšky
+		document.getElementById('skate-play').textContent = '⏸ zastav (ukáže přesná čísla)';
+		stavEl.textContent = '🛹 Skater jede — sleduj, jak se sloupce Ep a Ek přelévají (na krajích samá Ep, dole samá Ek). Zastav ho a uvidíš přesná čísla.';
+		vypocetEl.style.opacity = '0.4';
+		requestAnimationFrame(snimek);
+	});
+
 	document.getElementById('skate-rezimy').addEventListener('click', (e) => {
 		const tl = e.target.closest('.skate-tl');
 		if (!tl || !tl.dataset.rezim) return;
+		zastavJizdu(false);
 		rezim = tl.dataset.rezim;
 		prejezd = 0;
 		for (const b of document.querySelectorAll('#skate-rezimy .skate-tl')) b.classList.toggle('skate-aktivni', b === tl);
@@ -131,9 +191,9 @@
 		prekresli();
 	});
 	document.getElementById('skate-reset').addEventListener('click', () => { prejezd = 0; prekresli(); });
-	sm.addEventListener('input', prekresli);
-	sh.addEventListener('input', () => { prejezd = 0; sy.value = sh.value; prekresli(); });
-	sy.addEventListener('input', prekresli);
+	sm.addEventListener('input', () => { zastavJizdu(false); prekresli(); });
+	sh.addEventListener('input', () => { zastavJizdu(false); prejezd = 0; sy.value = sh.value; prekresli(); });
+	sy.addEventListener('input', () => { zastavJizdu(false); prekresli(); });
 	prekresli();
 </script>
 

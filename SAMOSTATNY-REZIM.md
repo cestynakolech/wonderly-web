@@ -1,12 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 43 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 44 hotové)
 
-Hotovo 43 kol samostatného režimu (46 simulací na 48 stránkách, 356+ kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–5 hotové).
-**DALŠÍ KOLO (44):** kandidát č. 6 — **F9 elektromagnet** (posuvník proudu a závitů →
-kolik sponek udrží; vypnutí proudu = vše spadne).
-**POZOR: kolo 45 = checkpoint revize dělby rolí Claude × lokální modely** (viz níže).
+Hotovo 44 kol samostatného režimu (47 simulací na 49 stránkách, 356+ kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–6 hotové).
+**DALŠÍ KOLO (45) = CHECKPOINT revize dělby rolí Claude × lokální modely** (viz hlavička;
+projít ollama-log a automaty, co jde přesunout na lokální modely, zápis do ~/ollama-log.md
+a aktualizace ~/CLAUDE.md). Potom kandidát č. 7 — F7 rovinné zrcadlo.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
 **Domluva 28. 7. večer:** wonderly zůstává VÝHRADNĚ v této session (desktop app);
@@ -71,8 +71,8 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
    (SkateparkSimulace na obou stránkách: ideální rampa × se třením, teplo Q).
 5. [x] **F9 elektromagneticka-indukce** — HOTOVO v kole 43 (IndukceSimulace: 4 závislosti
    z výkladu, voltmetr ±20 dílků, „magnet stojí = nic").
-6. [ ] **F9 elektromagnet** — posuvník proudu a počtu závitů → kolik sponek udrží; vypnutí
-   proudu = vše spadne (rozdíl od trvalého magnetu).
+6. [x] **F9 elektromagnet** — HOTOVO v kole 44 (ElektromagnetSimulace: proud × závity ×
+   jádro = sponky, vypnutí, prohození pólů).
 7. [ ] **F7 optika-rovinneho-zrcadla** — obraz za zrcadlem (souměrný, zdánlivý, stejně velký),
    posun předmětu, paprsky; uzavře optickou sadu (kulová zrcadla i čočky už jsou).
 8. [ ] **F8 spalovaci-motory** — čtyřtakt: animace pístu po dobách (sání–stlačení–výbuch–výfuk),
@@ -105,6 +105,15 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 44): **ElektromagnetSimulace + oprava skateparku dle připomínky učitele.**
+  (1) Elektromagnet (F9 magneticke-pole/elektromagnet): sponky = proud (0–4 A) × závity/100
+  × jádro (2/1), vše celé (max 24), tlačítka VYPNOUT (vše spadne — hlavní výhoda proti
+  trvalému magnetu) a prohození pólů, přepínač s jádrem/bez jádra. (2) SkateparkSimulace:
+  učitel nahlásil „nedaří se mi těleso rozhýbat" → přidáno tlačítko ▶ rozjeď skatera
+  (plynulá jízda po celé rampě, sloupce Ep/Ek se přelévají za jízdy; ⏸ zastaví a ukáže
+  přesná celá čísla). Kontrola výpočtem odhalila, že původní poloha skatera byla počítaná
+  po kružnici, ale rampa je Bézierova křivka (skater ve 4 m ujížděl mimo obraz, x=−9) —
+  odvozeno přesné t = 1−√(y/5), odchylka od křivky 0,000000 px. Konzole čistá.
 - 2026-07-28 (kolo 43): **IndukceSimulace** — Faradayův pokus (F9 indukce-a-stridavy-proud/
   elektromagneticka-indukce): magnet u cívky s voltmetrem, všechny 4 závislosti z výkladu
   (rychlost 0/1/3× · směr zasun/vytáhni · slabý/silný magnet 1/2× · závity 100–300 = 1–3×),

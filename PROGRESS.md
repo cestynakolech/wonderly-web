@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 44: ElektromagnetSimulace + skater se umí rozjet.** Elektromagnet (F9):
+  sponky = proud × závity × jádro, vypnutí = vše spadne, prohození pólů. Skatepark: na
+  připomínku učitele přidáno tlačítko ▶ rozjeď skatera (jízda po celé rampě, ⏸ ukáže přesná
+  čísla); při tom opravena poloha skatera na Bézierově křivce rampy. Celkem 47 simulací.
 - **2026-07-28 — kolo 43: IndukceSimulace (Faradayův pokus).** F9 elektromagnetická indukce:
   magnet × cívka × voltmetr, 4 závislosti (rychlost, směr, síla magnetu, závity), výchylka
   v celých dílcích, „magnet stojí = nic se neindukuje". Celkem 46 simulací.

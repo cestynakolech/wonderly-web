@@ -1,0 +1,146 @@
+---
+// Elektromagnet (F9): cívka s jádrem z měkké oceli drží sponky. Síla roste
+// s proudem (0–4 A) a počtem závitů (100–300) — počet udržených sponek
+// = proud × (závity/100) × (s jádrem ×2), vždy celé číslo, max 24.
+// Vypnutí proudu = pole zanikne a VŠECHNY sponky spadnou (hlavní výhoda
+// proti trvalému magnetu). Tlačítko „prohoď póly" zamění N/S — síla se
+// nezmění, jen polarita. Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektromagnet — kolik sponek udrží? 🕹️</span></h2>
+	<p>Elektromagnet je <strong>cívka s jádrem</strong> z magneticky měkké oceli. Přidej <strong>proud</strong> nebo <strong>závity</strong> a sleduj, kolik sponek udrží. A hlavně: zkus ho <strong>vypnout</strong>.</p>
+	<p>
+		<button type="button" class="elmag-tl" id="elmag-vypnout">🔌 VYPNOUT proud</button>
+		<button type="button" class="elmag-tl" id="elmag-poly">↔️ prohoď póly zdroje</button>
+		<span id="elmag-jadra">
+			<button type="button" class="elmag-tl elmag-aktivni" data-jadro="2">s ocelovým jádrem</button>
+			<button type="button" class="elmag-tl" data-jadro="1">bez jádra (jen cívka)</button>
+		</span>
+	</p>
+	<svg id="elmag-svg" viewBox="0 0 660 340" role="img" aria-label="Elektromagnet se sponkami">
+		<!-- závěs -->
+		<rect x="240" y="10" width="180" height="14" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<line x1="330" y1="24" x2="330" y2="50" stroke="#2b2a26" stroke-width="4" />
+		<!-- jádro -->
+		<rect id="elmag-jadro" x="255" y="50" width="150" height="40" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" rx="4" />
+		<text id="elmag-pol-l" x="243" y="77" text-anchor="middle" font-size="17" font-weight="bold" fill="#e03131">N</text>
+		<text id="elmag-pol-p" x="417" y="77" text-anchor="middle" font-size="17" font-weight="bold" fill="#1971c2">S</text>
+		<!-- vinutí (kreslí skript) -->
+		<g id="elmag-vinuti"></g>
+		<!-- přívodní vodiče a zdroj -->
+		<path d="M270 92 L270 120 L120 120" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<path d="M390 92 L390 135 L120 135" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<rect x="70" y="112" width="50" height="30" fill="#fff" stroke="#2b2a26" stroke-width="3" rx="5" />
+		<text id="elmag-zdroj" x="95" y="133" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">＋−</text>
+		<!-- sponky (kreslí skript) -->
+		<g id="elmag-sponky" font-size="17"></g>
+		<!-- hromádka spadlých sponek -->
+		<g id="elmag-spadle" font-size="17"></g>
+		<line x1="0" y1="330" x2="660" y2="330" stroke="#2b2a26" stroke-width="3" />
+		<text id="elmag-pocet" x="540" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Proud cívkou: <output id="elmag-out-i"></output>
+		<input type="range" id="elmag-slider-i" min="0" max="4" step="1" value="2" />
+	</label>
+	<label class="sim-posuvnik">
+		Počet závitů: <output id="elmag-out-z"></output>
+		<input type="range" id="elmag-slider-z" min="100" max="300" step="100" value="200" />
+	</label>
+	<p class="elmag-vzorec" id="elmag-vypocet"></p>
+	<p class="elmag-stav" id="elmag-stav"></p>
+</section>
+
+<script>
+	let jadro = 2;
+	let prohozeno = false;
+	const si = document.getElementById('elmag-slider-i');
+	const sz = document.getElementById('elmag-slider-z');
+	const stavEl = document.getElementById('elmag-stav');
+	const vypocetEl = document.getElementById('elmag-vypocet');
+
+	function prekresli() {
+		const I = +si.value;
+		const zavity = +sz.value;
+		const sponky = I * (zavity / 100) * jadro; // vždy celé, max 24
+		document.getElementById('elmag-out-i').textContent = I + ' A';
+		document.getElementById('elmag-out-z').textContent = zavity;
+
+		// póly (jen když teče proud)
+		const polL = document.getElementById('elmag-pol-l');
+		const polP = document.getElementById('elmag-pol-p');
+		if (I === 0) { polL.textContent = ''; polP.textContent = ''; }
+		else {
+			polL.textContent = prohozeno ? 'S' : 'N';
+			polP.textContent = prohozeno ? 'N' : 'S';
+			polL.setAttribute('fill', prohozeno ? '#1971c2' : '#e03131');
+			polP.setAttribute('fill', prohozeno ? '#e03131' : '#1971c2');
+		}
+		document.getElementById('elmag-zdroj').textContent = prohozeno ? '−＋' : '＋−';
+		document.getElementById('elmag-jadro').setAttribute('fill', jadro === 2 ? '#adb5bd' : '#f1f3f5');
+
+		// vinutí: hustota podle závitů
+		const pocetSmycek = 6 + (zavity / 100 - 1) * 5;
+		let v = '';
+		for (let i = 0; i < pocetSmycek; i++) {
+			const cx = 262 + (i * 136) / Math.max(pocetSmycek - 1, 1);
+			v += `<ellipse cx="${cx}" cy="70" rx="5" ry="26" fill="none" stroke="#b08968" stroke-width="3" />`;
+		}
+		document.getElementById('elmag-vinuti').innerHTML = v;
+
+		// visící sponky: řady po 8 pod jádrem
+		let s = '';
+		for (let i = 0; i < sponky; i++) {
+			const rada = Math.floor(i / 8);
+			const vRade = i % 8;
+			const x = 296 + (vRade - Math.min(sponky - rada * 8, 8) / 2) * 18 + 34;
+			s += `<text x="${x}" y="${112 + rada * 20}">📎</text>`;
+		}
+		document.getElementById('elmag-sponky').innerHTML = s;
+
+		// spadlé sponky na zemi (když je vypnuto, ukážeme hromádku)
+		let sp = '';
+		if (I === 0) {
+			for (let i = 0; i < 12; i++) sp += `<text x="${270 + (i % 6) * 22}" y="${318 - Math.floor(i / 6) * 12}">📎</text>`;
+		}
+		document.getElementById('elmag-spadle').innerHTML = sp;
+		document.getElementById('elmag-pocet').textContent = I === 0 ? 'drží: 0 sponek' : `drží: ${sponky} sponek`;
+
+		vypocetEl.innerHTML = `síla ~ proud × závity: ${I} × ${zavity / 100} ${jadro === 2 ? '× 2 (jádro)' : '× 1 (bez jádra)'} = <strong>${sponky} sponek</strong>`;
+
+		if (I === 0) {
+			stavEl.textContent = '🔌 VYPNUTO — proud neteče, magnetické pole měkkého jádra hned zaniklo a VŠECHNY sponky spadly. Přesně tohle trvalý magnet neumí — proto jeřáb na šrot používá elektromagnet.';
+		} else if (jadro === 1) {
+			stavEl.textContent = `🧲 Samotná cívka drží jen ${sponky} sponek — ocelové jádro by sílu zdvojnásobilo. Proto má každý elektromagnet jádro z magneticky měkké oceli.`;
+		} else if (sponky === 24) {
+			stavEl.textContent = '💪 Maximum: největší proud, nejvíc závitů i jádro. Víc závitů + větší proud = silnější pole (obojí platí zároveň).';
+		} else {
+			stavEl.textContent = `🧲 Elektromagnet drží ${sponky} sponek. Zkus přidat proud, závity — nebo ho vypnout. ${prohozeno ? 'Póly jsou prohozené (síla stejná, jen N a S si vyměnily místo).' : ''}`;
+		}
+	}
+
+	document.getElementById('elmag-vypnout').addEventListener('click', () => { si.value = 0; prekresli(); });
+	document.getElementById('elmag-poly').addEventListener('click', () => { prohozeno = !prohozeno; prekresli(); });
+	document.getElementById('elmag-jadra').addEventListener('click', (e) => {
+		const tl = e.target.closest('.elmag-tl');
+		if (!tl) return;
+		jadro = +tl.dataset.jadro;
+		for (const b of document.querySelectorAll('#elmag-jadra .elmag-tl')) b.classList.toggle('elmag-aktivni', b === tl);
+		prekresli();
+	});
+	si.addEventListener('input', prekresli);
+	sz.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#elmag-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.elmag-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.elmag-tl.elmag-aktivni { background: #ffe8cc; }
+	.elmag-tl:active { transform: translateY(1px); }
+	.elmag-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.elmag-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
