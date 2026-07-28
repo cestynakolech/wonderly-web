@@ -1,0 +1,115 @@
+---
+// Vypařování (F8): „závod louží". Vlevo srovnávací louže (stín, bezvětří,
+// hlubší tvar, voda — uschne za 48 min), vpravo louže, které žák přepíná
+// čtyři činitele z výkladu: slunce (vyšší teplota), vítr (odvádění par),
+// rozlití (větší povrch) a líh místo vody (těkavější kapalina). Každý činitel
+// zkrátí dobu schnutí na POLOVINU → celé minuty 48/24/12/6/3 (max 16× rychleji).
+// Bez časové animace — kreslí se staticky; stav je čistá funkce
+// stavLouze(slunce, vitr, rozlita, lih) na SVG (__stavLouze).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Závod louží — co urychlí vypařování? 🕹️</span></h2>
+	<p>Vypařování probíhá <strong>na povrchu</strong> kapaliny a <strong>při každé teplotě</strong> — jde jen o to, jak rychle. Nastav pravé louži podmínky a porovnej, o kolik dřív uschne než levá.</p>
+	<svg id="vyp-svg" viewBox="0 0 660 320" role="img" aria-label="Dvě louže — srovnávací a nastavitelná — s dobou schnutí">
+		<line x1="330" y1="20" x2="330" y2="290" stroke="#dee2e6" stroke-width="2" stroke-dasharray="8 6" />
+		<!-- levá srovnávací louže -->
+		<text x="165" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96">srovnávací louže</text>
+		<text x="165" y="85" text-anchor="middle" font-size="30">🌥️</text>
+		<g id="vyp-sipky-l" stroke="#74c0fc" stroke-width="3" stroke-linecap="round"></g>
+		<ellipse cx="165" cy="235" rx="55" ry="22" fill="#4dabf7" stroke="#1864ab" stroke-width="3" />
+		<text x="165" y="242" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">voda</text>
+		<text x="165" y="285" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">uschne za 48 min</text>
+		<text x="165" y="305" text-anchor="middle" font-size="11" fill="#868e96">stín · bezvětří · hlubší · voda</text>
+		<!-- pravá nastavitelná louže -->
+		<text x="495" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#e8590c">tvoje louže</text>
+		<text id="vyp-pocasi" x="440" y="85" text-anchor="middle" font-size="30">🌥️</text>
+		<text id="vyp-vitr" x="540" y="85" text-anchor="middle" font-size="30" visibility="hidden">💨</text>
+		<g id="vyp-sipky-p" stroke="#74c0fc" stroke-width="3" stroke-linecap="round"></g>
+		<ellipse id="vyp-louze" cx="495" cy="235" rx="55" ry="22" fill="#4dabf7" stroke="#1864ab" stroke-width="3" />
+		<text id="vyp-kapalina" x="495" y="242" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">voda</text>
+		<text id="vyp-cas" x="495" y="285" text-anchor="middle" font-size="16" font-weight="bold" fill="#e8590c"></text>
+		<text id="vyp-souhrn" x="495" y="305" text-anchor="middle" font-size="11" fill="#868e96"></text>
+	</svg>
+	<p id="vyp-prepinace">
+		<button type="button" class="vyp-tl" data-cinitel="slunce">☀️ dej ji na slunce</button>
+		<button type="button" class="vyp-tl" data-cinitel="vitr">💨 pusť na ni vítr</button>
+		<button type="button" class="vyp-tl" data-cinitel="rozlita">🥞 rozlij ji do plochy</button>
+		<button type="button" class="vyp-tl" data-cinitel="lih">🧪 nalij místo vody líh</button>
+	</p>
+	<p class="vyp-vzorec" id="vyp-vzorec"></p>
+	<p class="vyp-stav" id="vyp-stav">👉 Zapínej a vypínej čtyři činitele a sleduj závod. Zvládneš louži usušit za 3 minuty?</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	const ZAKLAD = 48; // minut: stín, bezvětří, hlubší louže, voda
+	function stavLouze(slunce, vitr, rozlita, lih) {
+		const zrychleni = (slunce ? 2 : 1) * (vitr ? 2 : 1) * (rozlita ? 2 : 1) * (lih ? 2 : 1);
+		return { minuty: ZAKLAD / zrychleni, zrychleni }; // 48/24/12/6/3 — vždy celé
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const stavy = { slunce: false, vitr: false, rozlita: false, lih: false };
+	const svg = document.getElementById('vyp-svg');
+	svg.__stavLouze = stavLouze; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+
+	function sipkyPar(gid, cx, pocet) {
+		// stoupající „páry" nad louží: čím rychlejší vypařování, tím víc šipek
+		const el = g(gid);
+		el.innerHTML = '';
+		for (let i = 0; i < pocet; i++) {
+			const x = cx - (pocet - 1) * 14 + i * 28;
+			el.innerHTML += `<line x1="${x}" y1="200" x2="${x}" y2="172" /><polygon points="${x - 5},176 ${x + 5},176 ${x},164" fill="#74c0fc" stroke="none" />`;
+		}
+	}
+
+	function kresli() {
+		const s = stavLouze(stavy.slunce, stavy.vitr, stavy.rozlita, stavy.lih);
+		g('vyp-pocasi').textContent = stavy.slunce ? '☀️' : '🌥️';
+		g('vyp-vitr').setAttribute('visibility', stavy.vitr ? 'visible' : 'hidden');
+		const louze = g('vyp-louze');
+		louze.setAttribute('rx', stavy.rozlita ? 115 : 55);
+		louze.setAttribute('ry', stavy.rozlita ? 12 : 22);
+		louze.setAttribute('fill', stavy.lih ? '#b197fc' : '#4dabf7');
+		louze.setAttribute('stroke', stavy.lih ? '#7048e8' : '#1864ab');
+		g('vyp-kapalina').textContent = stavy.lih ? 'líh' : 'voda';
+		sipkyPar('vyp-sipky-l', 165, 1);
+		sipkyPar('vyp-sipky-p', 495, 1 + Math.log2(s.zrychleni));
+		g('vyp-cas').textContent = `uschne za ${s.minuty} min`;
+		const popisy = [stavy.slunce ? 'slunce' : 'stín', stavy.vitr ? 'vítr' : 'bezvětří', stavy.rozlita ? 'rozlitá' : 'hlubší', stavy.lih ? 'líh' : 'voda'];
+		g('vyp-souhrn').textContent = popisy.join(' · ');
+		for (const b of document.querySelectorAll('#vyp-prepinace [data-cinitel]')) b.classList.toggle('vyp-aktivni', stavy[b.dataset.cinitel]);
+		g('vyp-vzorec').innerHTML = s.zrychleni === 1
+			? `Stejné podmínky jako srovnávací louže → stejný čas: <strong>48 min</strong>. Každý zapnutý činitel dobu schnutí <strong>zkrátí na polovinu</strong>.`
+			: `Každý činitel zkrátí čas na polovinu: 48 min ${'÷ 2 '.repeat(Math.log2(s.zrychleni)).trim()} = <strong>${s.minuty} min</strong> — tvoje louže schne <strong>${s.zrychleni}×</strong> rychleji.`;
+		g('vyp-stav').textContent = s.zrychleni === 16
+			? '🏆 Všechny čtyři činitele naráz: teplo + vítr + velký povrch + těkavá kapalina = uschne za 3 minuty! (Proto se prádlo suší rozvěšené na slunci a ve větru.)'
+			: s.zrychleni === 1
+			? '🌥️ Zatím remíza. Vzpomeň si: vyšší TEPLOTA, větší POVRCH, ODVÁDĚNÍ PAR větrem a těkavější KAPALINA — to všechno vypařování urychlí.'
+			: stavy.lih && s.zrychleni === 2
+			? '🧪 Líh je těkavější než voda — vypařuje se rychleji. Pozor: páry těkavých látek bývají hořlavé (u pumpy se nekouří!). A vypařující se kapalina ochlazuje okolí — proto líh na kůži studí.'
+			: `💨 Dobrá práce — louže uschne ${s.zrychleni}× rychleji. Zkus zapnout i zbývající činitele.`;
+	}
+
+	document.getElementById('vyp-prepinace').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-cinitel]');
+		if (!tl) return;
+		const c = tl.dataset.cinitel;
+		stavy[c] = !stavy[c];
+		const TEXTY = { slunce: ['☀️ dej ji na slunce', '🌥️ vrať ji do stínu'], vitr: ['💨 pusť na ni vítr', '🍃 vypni vítr'], rozlita: ['🥞 rozlij ji do plochy', '🕳️ vrať ji do důlku'], lih: ['🧪 nalij místo vody líh', '💧 vrať tam vodu'] };
+		tl.textContent = TEXTY[c][stavy[c] ? 1 : 0];
+		kresli();
+	});
+	kresli();
+</script>
+
+<style>
+	#vyp-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.vyp-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.vyp-tl.vyp-aktivni { background: #ffe8cc; }
+	.vyp-tl:active { transform: translateY(1px); }
+	.vyp-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.vyp-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

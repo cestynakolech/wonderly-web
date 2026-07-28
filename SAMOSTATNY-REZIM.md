@@ -1,14 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 58 hotové — elektromotor)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 59 hotové — závod louží)
 
-Hotovo 58 kol samostatného režimu (56 simulací na 58 stránkách, 356+ kvízových otázek).
+Hotovo 59 kol samostatného režimu (57 simulací na 59 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (59):** kandidát č. 4 nového seznamu — **F8 vypařování** („závod louží":
-teplota × povrch × vítr → doba schnutí v celých minutách; statické porovnání dvou louží).
+**DALŠÍ KOLO (60):** kandidát č. 5 nového seznamu — **F9 vedení proudu v plynech**
+(jiskra: napětí × vzdálenost elektrod → přeskočí/nepřeskočí, prahové hodnoty celé kV,
+blesk jako obří jiskra; statické).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -26,8 +27,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
    režim síla na vodič — Fleming, ⊙/⊗, prohození proudu i pólů, rovnoběžný vodič F=0,
    proud 0–4 A = 0–4 dílky; režim motor s komutátorem — dvojice sil, přepnutí každou
    půlotáčku, bez proudu se netočí, krok ¼ otáčky).
-4. [ ] **F8 vyparovani** — „závod louží": teplota × povrch × vítr → doba schnutí
-   v celých minutách; statické porovnání dvou louží.
+4. [x] **F8 vyparovani** — HOTOVO v kole 59 (VyparovaniSimulace: závod louží — srovnávací
+   48 min × nastavitelná; 4 činitele z výkladu (slunce, vítr, rozlití, líh) každý půlí čas
+   → 48/24/12/6/3 min, šipky par podle rychlosti, hlášky o těkavosti a ochlazování).
 5. [ ] **F9 vedeni-proudu-v-plynech** — jiskra: napětí × vzdálenost elektrod → přeskočí/ne
    (prahové hodnoty celé kV), blesk jako obří jiskra; statické.
 6. [ ] **F7 rozklad-svetla-duha** — hranol rozkládá bílé světlo na spektrum, přepínač

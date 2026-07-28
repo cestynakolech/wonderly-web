@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 59: VyparovaniSimulace (závod louží).** F8 vypařování: srovnávací
+  louže (stín/bezvětří/hlubší/voda = 48 min) × nastavitelná se čtyřmi činiteli z výkladu
+  (slunce, vítr, rozlití do plochy, líh) — každý zapnutý činitel půlí dobu schnutí
+  (48/24/12/6/3 min, vše celé), stoupající šipky par podle rychlosti, hlášky o hořlavých
+  parách a ochlazování vypařováním. Čistá funkce stavLouze — všech 16 kombinací ověřeno
+  výpočtem i DOM. Celkem 57 simulací.
 - **2026-07-29 — kolo 58: ElektromotorSimulace (síla na vodič + motor).** F9: režim „síla
   na vodič" (Flemingovo pravidlo — ⊙/⊗, prohození proudu i pólů sílu obrací, rovnoběžný
   vodič F=0, F = proud v dílcích) a režim „motor s komutátorem" (dvojice sil ⊙↑/⊗↓,
