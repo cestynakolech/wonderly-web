@@ -1,12 +1,14 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 44 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 45 hotové — checkpoint dělby rolí)
 
-Hotovo 44 kol samostatného režimu (47 simulací na 49 stránkách, 356+ kvízových otázek).
+Hotovo 45 kol samostatného režimu (47 simulací na 49 stránkách, 356+ kvízových otázek).
 Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–6 hotové).
-**DALŠÍ KOLO (45) = CHECKPOINT revize dělby rolí Claude × lokální modely** (viz hlavička;
-projít ollama-log a automaty, co jde přesunout na lokální modely, zápis do ~/ollama-log.md
-a aktualizace ~/CLAUDE.md). Potom kandidát č. 7 — F7 rovinné zrcadlo.
+**DALŠÍ KOLO (46): postavit „popisovač prezentací"** — automat z checkpointu (extrakce
+obrázků ze zipu .pptx + ThinkingCap vision popisy → prezentace-popisy/*.md; zadání ve
+FRONTA-UKOLU). POZOR na pravidlo: na Macu jen 1 lokální těžký proces — popisovač spouštět
+sekvenčně a mimo běžící anonymizaci. Potom kandidát č. 7 — F7 rovinné zrcadlo.
+Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
 **Domluva 28. 7. večer:** wonderly zůstává VÝHRADNĚ v této session (desktop app);
@@ -105,6 +107,13 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 45): **CHECKPOINT dělby rolí Claude × lokální modely** (1. běh nového
+  pravidla à 10 kol): kola 34–44 prošla revizí — psaní simulací a ověřování (Node/JS) správně
+  u Clauda (kontroly dnes chytily 2 skutečné chyby), čtení výkladů grep/sed OK. Nalezena
+  1 velká příležitost: **popisovač prezentací** (vision automat ThinkingCap nad obrázky
+  ze .pptx → textové popisy; ušetří ~95 % tokenů při vytěžování prezentací; proveditelnost
+  extrakce ověřena bez instalací). Zapsáno do ~/ollama-log.md, ~/CLAUDE.md i FRONTA-UKOLU;
+  stavba automatu = kolo 46, příští checkpoint kolo 55.
 - 2026-07-28 (kolo 44): **ElektromagnetSimulace + oprava skateparku dle připomínky učitele.**
   (1) Elektromagnet (F9 magneticke-pole/elektromagnet): sponky = proud (0–4 A) × závity/100
   × jádro (2/1), vše celé (max 24), tlačítka VYPNOUT (vše spadne — hlavní výhoda proti

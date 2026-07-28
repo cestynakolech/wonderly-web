@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 45: checkpoint dělby rolí Claude × lokální modely.** Revize kol 34–44:
+  dělba správná (kód a ověřování Claude, vision automaty lokálně). Nová příležitost:
+  popisovač prezentací (ThinkingCap popíše obrázky ze .pptx do textu → ~95 % úspora tokenů
+  při vytěžování) — stavba v kole 46. Zápis v ~/ollama-log.md; příští checkpoint kolo 55.
 - **2026-07-28 — kolo 44: ElektromagnetSimulace + skater se umí rozjet.** Elektromagnet (F9):
   sponky = proud × závity × jádro, vypnutí = vše spadne, prohození pólů. Skatepark: na
   připomínku učitele přidáno tlačítko ▶ rozjeď skatera (jízda po celé rampě, ⏸ ukáže přesná
