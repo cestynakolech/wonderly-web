@@ -52,11 +52,15 @@ schématem, hlasování. Začít úkolem, který používá jen dva modely (jen 
 
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
-### 🧹 Úklid před smazáním kontextu (28. 7. 2026, 23:30)
-Vše uložené a nasazené, repo čisté, poslední commit = zápis kol 29–33.
-V nové session stačí: `/wonderly` + `/loop` → kolo 34 (vision prezentace F6).
-Nové od minula: **vrátný povolení** `Omega/skripty/povoleni_hook.py` (konec odklikávání)
-a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` a `Omega/PRAVIDLA.md`.
+### 🧹 Úklid před smazáním kontextu (29. 7. 2026, 0:15)
+Vše uložené a nasazené, repo čisté, poslední commit `3a7c518` (kolo 48).
+V nové session stačí: `/wonderly` + `/loop` → **kolo 49 = F8 spalovací motory** (čtyřtakt;
+výklad má 4 doby, zážehový/vznětový, kvíz 16 otázek — jen postavit simulaci dle pravidla
+kontroly animací). Nového z 28. 7. hodně — vše je v hlavičce výše a ve skillu:
+Telegram kanál (paměť projekt-telegram-kanal-vzdalene-zadani; wonderly zůstává VÝHRADNĚ
+v desktop session), popisovač prezentací, pravidlo kontroly animací, checkpoint dělby rolí
+(příští v kole 55), oprava mapy deníku (trasa + dvojitá kolečka), 3 nová pravidla grafů
+(kontrakt uzlu, vrstvené slučování, zmražená pravidla).
 
 ## Fronta nápadů (seřazeno podle priority)
 
