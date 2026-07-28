@@ -60,6 +60,7 @@ import BarvySimulace from '../../../../../../components/skola2/BarvySimulace.ast
 import AlternatorSimulace from '../../../../../../components/skola2/AlternatorSimulace.astro';
 import ElektromotorSimulace from '../../../../../../components/skola2/ElektromotorSimulace.astro';
 import VyparovaniSimulace from '../../../../../../components/skola2/VyparovaniSimulace.astro';
+import JiskraSimulace from '../../../../../../components/skola2/JiskraSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -244,6 +245,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'alternator' && <AlternatorSimulace />}
 	{podtema.interakce === 'elektromotor' && <ElektromotorSimulace />}
 	{podtema.interakce === 'vyparovani' && <VyparovaniSimulace />}
+	{podtema.interakce === 'jiskra' && <JiskraSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{otazky && <Kviz otazky={otazky} />}

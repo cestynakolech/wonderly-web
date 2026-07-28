@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 59 hotové — závod louží)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 60 hotové — jiskra a blesk)
 
-Hotovo 59 kol samostatného režimu (57 simulací na 59 stránkách, 356+ kvízových otázek).
+Hotovo 60 kol samostatného režimu (58 simulací na 60 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (60):** kandidát č. 5 nového seznamu — **F9 vedení proudu v plynech**
-(jiskra: napětí × vzdálenost elektrod → přeskočí/nepřeskočí, prahové hodnoty celé kV,
-blesk jako obří jiskra; statické).
+**DALŠÍ KOLO (61):** kandidát č. 6 nového seznamu — **F7 rozklad světla a duha**
+(hranol rozkládá bílé světlo na spektrum, přepínač hranol × kapka — duha a pořadí barev;
+statické paprsky).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -30,8 +30,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 4. [x] **F8 vyparovani** — HOTOVO v kole 59 (VyparovaniSimulace: závod louží — srovnávací
    48 min × nastavitelná; 4 činitele z výkladu (slunce, vítr, rozlití, líh) každý půlí čas
    → 48/24/12/6/3 min, šipky par podle rychlosti, hlášky o těkavosti a ochlazování).
-5. [ ] **F9 vedeni-proudu-v-plynech** — jiskra: napětí × vzdálenost elektrod → přeskočí/ne
-   (prahové hodnoty celé kV), blesk jako obří jiskra; statické.
+5. [x] **F9 vedeni-proudu-v-plynech** — HOTOVO v kole 60 (JiskraSimulace: elektrody
+   1–5 mm × napětí 0–18 kV po 3, práh 3 kV/mm → celá kV, ionizace; režim bouřka — blesk
+   do bleskosvodu (Franklin/Diviš, 20–30 tisíc °C) + úloha „sekundy ÷ 3 = km bouřky").
 6. [ ] **F7 rozklad-svetla-duha** — hranol rozkládá bílé světlo na spektrum, přepínač
    hranol × kapka (duha + pořadí barev); statické paprsky.
 7. [ ] **F9 jaderny-reaktor-elektrarna** — regulační tyče: hloubka zasunutí → počet neutronů

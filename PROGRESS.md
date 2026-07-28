@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 60: JiskraSimulace (vedení proudu v plynech).** F9: jiskřiště —
+  napětí 0–18 kV (po 3) × mezera 1–5 mm, práh 3 kV/mm (celá kV), klikatá jiskra + výklad
+  ionizace; režim bouřka — blesk do bleskosvodu (Franklin/Diviš, kanál 20–30 tisíc °C)
+  a celočíselná úloha „hrom za X s ÷ 3 = km bouřky" (3–15 s → 1–5 km). Čisté funkce
+  stavJiskry + stavBourky; 35 kombinací + 5 vzdáleností ověřeno výpočtem i DOM.
+  Celkem 58 simulací.
 - **2026-07-29 — kolo 59: VyparovaniSimulace (závod louží).** F8 vypařování: srovnávací
   louže (stín/bezvětří/hlubší/voda = 48 min) × nastavitelná se čtyřmi činiteli z výkladu
   (slunce, vítr, rozlití do plochy, líh) — každý zapnutý činitel půlí dobu schnutí
