@@ -53,7 +53,7 @@
 	</label>
 	<label class="sim-posuvnik">
 		Odpor žárovky 2 (R₂): <output id="zap-r2-out"></output>
-		<input type="range" id="zap-r2" min="10" max="100" step="10" value="40" />
+		<input type="range" id="zap-r2" min="10" max="100" step="10" value="60" />
 	</label>
 	<p class="zap-stav" id="zap-stav"></p>
 </section>
@@ -80,7 +80,10 @@
 
 	const U = 12;
 	let rezim = 'serie', prepalena = false;
-	const cz = (x, d) => x.toFixed(d).replace('.', ',');
+	// čísla píšeme bez zbytečných nul na konci (0,6 A místo 0,60 A; 3 V místo 3,0 V)
+	const cz = (x, des = 1) => x.toFixed(des).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '').replace('.', ',');
+	// poctivé zaokrouhlení: „=“ jen když číslo sedí přesně, jinak „≈“ (např. 13,33 Ω)
+	const zn = (x, des = 1) => (Math.abs(x - +x.toFixed(des)) < 1e-9 ? '=' : '≈');
 	const MAXP = 14.4; // výkon 12 V / 10 Ω = 14,4 W → plný jas
 
 	function prekresli() {
@@ -107,8 +110,8 @@
 			} else {
 				const R = R1 + R2, I = U / R;
 				i1 = i2 = I; u1 = R1 * I; u2 = R2 * I;
-				celkem = `R = R₁ + R₂ = ${R} Ω;  I = U / R = ${cz(I, 2)} A všude stejný`;
-				stav = `Proud se NEDĚLÍ (${cz(I, 2)} A všude). Napětí se rozdělí podle odporů: U₁ + U₂ = ${cz(u1, 1)} + ${cz(u2, 1)} = 12 V. Větší odpor → větší napětí.`;
+				celkem = `R = R₁ + R₂ = ${R} Ω;  I = U / R ${zn(I, 2)} ${cz(I, 2)} A všude stejný`;
+				stav = `Proud se NEDĚLÍ (${zn(I, 2) === '≈' ? '≈ ' : ''}${cz(I, 2)} A všude). Napětí se rozdělí podle odporů: U₁ + U₂ = ${cz(u1, 1)} + ${cz(u2, 1)} = 12 V. Větší odpor → větší napětí.`;
 			}
 		} else {
 			i1 = prepalena ? 0 : U / R1;

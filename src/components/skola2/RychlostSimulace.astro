@@ -32,8 +32,8 @@
 			<text x="490" y="314" text-anchor="end">t (s)</text>
 			<text x="56" y="146" text-anchor="end">s (m)</text>
 			<text x="60" y="314" text-anchor="middle">0</text>
-			<text x="275" y="314" text-anchor="middle">45</text>
-			<text x="490" y="314" text-anchor="end">90</text>
+			<text x="275" y="314" text-anchor="middle">30</text>
+			<text x="490" y="314" text-anchor="end">60</text>
 			<text x="56" y="304" text-anchor="end">0</text>
 			<text x="56" y="229" text-anchor="end">250</text>
 			<text x="56" y="158" text-anchor="end">500</text>
@@ -44,7 +44,7 @@
 	</svg>
 	<label class="sim-posuvnik">
 		Rychlost: <output id="rych-out"></output>
-		<input type="range" id="rych-slider" min="20" max="130" step="5" value="60" />
+		<input type="range" id="rych-slider" min="36" max="126" step="18" value="72" />
 	</label>
 	<p>
 		<button id="rych-start" type="button" class="rych-tl">▶ Start</button>
@@ -65,10 +65,11 @@
 	const btnReset = document.getElementById('rych-reset');
 
 	const DRAHA = 500;           // m
-	const TMAX = 90;             // s (rozsah grafu)
+	const TMAX = 60;             // s (rozsah grafu; nejpomalejší jízda 10 m/s = 50 s)
 	const ZRYCHLENI_CASU = 5;    // 1 s doopravdy = 5 s simulace
-	const cz = (x, des) => x.toFixed(des).replace('.', ',');
-	// mapování: silnice 0–500 m → x 40–480; graf t 0–90 s → x 60–490, s 0–500 m → y 300–150
+	// čísla píšeme bez zbytečných nul na konci (20 m/s místo 20,0 m/s)
+	const cz = (x, des = 1) => x.toFixed(des).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '').replace('.', ',');
+	// mapování: silnice 0–500 m → x 40–480; graf t 0–60 s → x 60–490, s 0–500 m → y 300–150
 	const autoX = (s) => 40 + (s / DRAHA) * 440;
 	const gx = (t) => 60 + (Math.min(t, TMAX) / TMAX) * 430;
 	const gy = (s) => 300 - (Math.min(s, DRAHA) / DRAHA) * 150;
@@ -104,7 +105,8 @@
 			s += vMs() * dt;
 			t += dt;
 			if (s >= DRAHA || t >= TMAX) {
-				s = Math.min(s, DRAHA);
+				// v cíli odečteme přebytek dráhy posledního kroku → čas i průměrná rychlost sedí přesně
+				if (s > DRAHA) { t -= (s - DRAHA) / vMs(); s = DRAHA; }
 				hotovo = true; bezi = false;
 				const prumMs = s / t, prumKmh = prumMs * 3.6;
 				stavEl.textContent = `🏁 Cíl! s = ${Math.round(s)} m, t = ${cz(t, 1)} s → průměrná rychlost = ${Math.round(s)} / ${cz(t, 1)} = ${cz(prumMs, 1)} m/s = ${cz(prumKmh, 0)} km/h.`
@@ -117,7 +119,7 @@
 		requestAnimationFrame(krok);
 	}
 
-	let jelStale = true, rychlostPriStartu = 60;
+	let jelStale = true, rychlostPriStartu = 72;
 	btnStart.addEventListener('click', () => {
 		if (hotovo) return;
 		bezi = !bezi;

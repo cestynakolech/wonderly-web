@@ -50,18 +50,19 @@
 		Napětí U: <output id="ohm-u-out"></output>
 		<input type="range" id="ohm-u" min="0" max="24" step="1" value="12" />
 	</label>
-	<label class="sim-posuvnik">
-		Odpor R: <output id="ohm-r-out"></output>
-		<input type="range" id="ohm-r" min="20" max="240" step="20" value="60" />
-	</label>
+	<p class="ohm-radek">
+		<strong>Odpor R:</strong>
+		<button type="button" class="ohm-tl ohm-r-tl" data-r="20">20 Ω</button>
+		<button type="button" class="ohm-tl ohm-r-tl ohm-aktivni" data-r="50">50 Ω</button>
+		<button type="button" class="ohm-tl ohm-r-tl" data-r="100">100 Ω</button>
+	</p>
 	<p class="ohm-stav" id="ohm-stav"></p>
 </section>
 
 <script>
 	const uSlider = document.getElementById('ohm-u');
-	const rSlider = document.getElementById('ohm-r');
+	const rTlacitka = document.querySelectorAll('.ohm-r-tl');
 	const uOut = document.getElementById('ohm-u-out');
-	const rOut = document.getElementById('ohm-r-out');
 	const uText = document.getElementById('ohm-u-text');
 	const rText = document.getElementById('ohm-r-text');
 	const iText = document.getElementById('ohm-i-text');
@@ -79,7 +80,10 @@
 	const gx = (u) => 350 + (u / UMAX) * 150;
 	const gy = (i) => 280 - (Math.min(i, IMAX) / IMAX) * 210;
 
-	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+	// čísla česky a BEZ zbytečných desetinných nul (1,2 A i 0 A, ne 1,20 A / 0,00 A)
+	const cz = (x, des = 2) => x.toLocaleString('cs-CZ', { maximumFractionDigits: des });
+	// jen odpory, u kterých I = U / R vychází nejvýš na dvě desetinná místa pro každé celé napětí
+	let R = 50;
 
 	// tečky proudu: pevný počet, obíhají po obvodu rychlostí ~ I
 	const POCET = 16;
@@ -108,10 +112,8 @@
 	let I = 0;
 	function prekresli() {
 		const U = +uSlider.value;
-		const R = +rSlider.value;
 		I = U / R;
 		uOut.textContent = U + ' V';
-		rOut.textContent = R + ' Ω';
 		uText.textContent = U + ' V';
 		rText.textContent = R + ' Ω';
 		iText.textContent = cz(I, 2) + ' A';
@@ -125,11 +127,18 @@
 		let popis;
 		if (U === 0) popis = 'Bez napětí proud neteče (I = 0 A). Zvyš napětí posuvníkem.';
 		else popis = `I = U / R = ${U} V / ${R} Ω = ${cz(I, 2)} A. ` +
-			(R >= 160 ? 'Velký odpor → malý proud.' : R <= 40 ? 'Malý odpor → velký proud.' : 'Kolikrát zvětšíš U, tolikrát vzroste I.');
+			(R >= 100 ? 'Velký odpor → malý proud.' : R <= 20 ? 'Malý odpor → velký proud.' : 'Kolikrát zvětšíš U, tolikrát vzroste I.');
 		stavEl.textContent = popis;
 	}
 	uSlider.addEventListener('input', prekresli);
-	rSlider.addEventListener('input', prekresli);
+	rTlacitka.forEach((tl) => {
+		tl.addEventListener('click', () => {
+			rTlacitka.forEach((t) => t.classList.remove('ohm-aktivni'));
+			tl.classList.add('ohm-aktivni');
+			R = +tl.dataset.r;
+			prekresli();
+		});
+	});
 	prekresli();
 
 	// animace: posun teček po obvodu úměrný proudu
@@ -153,4 +162,8 @@
 	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
 	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
 	.ohm-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.ohm-radek { margin: 0.7rem 0; }
+	.ohm-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.ohm-tl.ohm-aktivni { background: #ffe8cc; }
+	.ohm-tl:active { transform: translateY(1px); }
 </style>

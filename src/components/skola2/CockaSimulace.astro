@@ -88,7 +88,8 @@
 	const CX = 310, OSA = 205, S = 9;        // střed čočky, optická osa, měřítko px/cm
 	const H = 3;                              // výška předmětu v cm
 	const SIRKA = 660, VYSKA = 380;
-	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+	// čísla píšeme bez zbytečných nul na konci (15 cm místo 15,00 cm; 0,5× místo 0,50×)
+	const cz = (x, des = 1) => x.toFixed(des).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '').replace('.', ',').replace('-', '−');
 	let spojka = true;
 
 	// bod na okraji plátna ve směru (dx, dy) z bodu (x, y)

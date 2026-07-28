@@ -2442,7 +2442,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Podle jakého vzorce vypočítáme třecí sílu?', odpovedi: ['Ft = Fn · f', 'Ft = Fn : f', 'Ft = m · v'], vysvetleni: 'Třecí síla = přítlačná síla krát součinitel tření.' },
 		{ text: 'Co platí pro Fn na vodorovné podložce?', odpovedi: ['Fn = Fg = m · g', 'Fn = 0', 'Fn = f'], vysvetleni: 'Na vodorovné podložce tlačí těleso na podložku celou svou tíhou.' },
 		{ text: 'Na čem závisí součinitel tření f?', odpovedi: ['na drsnosti a druhu materiálů povrchů', 'na barvě', 'na čase'], vysvetleni: 'Každá dvojice materiálů má svůj součinitel (v tabulkách).' },
-		{ text: 'Ocelové těleso 50 kg tlačíme po dřevě (f = 0,35). Jaká je třecí síla?', odpovedi: ['175 N', '17,5 N', '500 N'], vysvetleni: 'Fn = 50 · 10 = 500 N; Ft = 500 · 0,35 = 175 N.' },
+		{ text: 'Ocelové těleso 50 kg tlačíme po dřevě (f = 0,4). Jaká je třecí síla?', odpovedi: ['200 N', '20 N', '500 N'], vysvetleni: 'Fn = 50 · 10 = 500 N; Ft = 500 · 0,4 = 200 N.' },
 		{ text: 'Jak se změní tření, když těleso víc přitlačíme?', odpovedi: ['zvětší se', 'zmenší se', 'nezmění se'], vysvetleni: 'Větší přítlačná síla = větší tření (naložený kamion brzdí hůř).' },
 		{ text: 'Proč puk klouže po ledu líp než po betonu?', odpovedi: ['led je hladší — menší součinitel tření', 'beton je studenější', 'puk je na ledu lehčí'], vysvetleni: 'Ocel na ledu má f ≈ 0,027 — mnohem méně než na drsném betonu.' },
 		{ text: 'Které tření je největší?', odpovedi: ['klidové', 'smykové', 'valivé'], vysvetleni: 'Klidové > smykové > valivé. Proto skříň nejhůř „utrhneš" z místa.' },

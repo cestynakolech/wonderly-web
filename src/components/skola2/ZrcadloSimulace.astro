@@ -93,7 +93,8 @@
 	const H = 3;                           // výška předmětu v cm
 	const POLOVYSKA = 60;                  // poloviční výška zrcadla v px
 	const SIRKA = 760, VYSKA = 380;
-	const cz = (x, des) => x.toFixed(des).replace('.', ',');
+	// čísla píšeme bez zbytečných nul na konci (15 cm místo 15,00 cm; 0,5× místo 0,50×)
+	const cz = (x, des = 1) => x.toFixed(des).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '').replace('.', ',').replace('-', '−');
 	let dute = true;
 
 	// bod na okraji plátna ve směru (dx, dy) z bodu (x, y)

@@ -17,7 +17,7 @@
 	</svg>
 	<label class="sim-posuvnik">
 		Tvoje hmotnost: <output id="pla-out"></output>
-		<input type="range" id="pla-slider" min="30" max="120" step="1" value="50" />
+		<input type="range" id="pla-slider" min="30" max="120" step="10" value="50" />
 	</label>
 	<p class="pla-stav" id="pla-stav"></p>
 </section>
@@ -86,12 +86,13 @@
 			prvky[i].bar.setAttribute('height', vyska);
 			prvky[i].bar.setAttribute('fill', t === vybrane ? '#ffd43b' : t.n === 'Země' ? '#4dabf7' : '#5c7cfa');
 			prvky[i].kg.setAttribute('y', 240 - vyska - 6);
-			prvky[i].kg.textContent = cz(m * t.k, 1);
+			// zaokrouhlujeme na celé kilogramy — dětem jde o poměr, ne o desetiny
+			prvky[i].kg.textContent = cz(Math.round(m * t.k), 0);
 		});
-		const udaj = m * vybrane.k;
+		const udaj = Math.round(m * vybrane.k);
 		const sila = udaj * 10; // na 1 kg údaje váhy ~10 N (jako na Zemi ve výkladu)
-		detailEl.textContent = `${vybrane.e} ${vybrane.n}: váha by ukázala ${cz(udaj, 1)} kg — ${vybrane.pozn}`;
-		stavEl.textContent = `Tvoje hmotnost je VŠUDE ${m} kg. Ale gravitační síla ${vybrane.pad} je ${cz(vybrane.k, 2)}× zemská → váha ukáže ${cz(udaj, 1)} kg (gravitační síla asi ${cz(Math.round(sila / 10) * 10, 0)} N).`;
+		detailEl.textContent = `${vybrane.e} ${vybrane.n}: váha by ukázala asi ${cz(udaj, 0)} kg — ${vybrane.pozn}`;
+		stavEl.textContent = `Tvoje hmotnost je VŠUDE ${m} kg. Ale gravitační síla ${vybrane.pad} je ${cz(vybrane.k, 2)}× zemská → váha ukáže asi ${cz(udaj, 0)} kg (gravitační síla asi ${cz(Math.round(sila / 10) * 10, 0)} N).`;
 	}
 	slider.addEventListener('input', prekresli);
 	prekresli();

@@ -35,7 +35,7 @@
 	</svg>
 	<label class="sim-posuvnik">
 		Hmotnost člověka: <output id="tlk-out"></output>
-		<input type="range" id="tlk-slider" min="40" max="120" step="5" value="60" />
+		<input type="range" id="tlk-slider" min="40" max="120" step="5" value="80" />
 	</label>
 	<p class="tlk-stav" id="tlk-stav"></p>
 </section>
@@ -53,12 +53,19 @@
 
 	const X = 170, POVRCH = 180;
 	let obuv = { s: 0.4, nazev: 'sněžnice', emoji: '🎿' };
-	const cz = (x, d) => x.toLocaleString('cs-CZ', { maximumFractionDigits: d });
+	// čísla píšeme bez zbytečných nul na konci (2 kPa místo 2,0 kPa)
+	const cz = (x, des = 1) => x.toFixed(des).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '').replace('.', ',');
+	const czTis = (x) => Math.round(x).toLocaleString('cs-CZ');   // celé newtony s mezerou tisíců (1 200 N)
+	// hodnota poctivě: tolik desetinných míst, kolik je potřeba (max 3); jinak přizná „≈“
+	function cislo(x) {
+		for (let d = 0; d <= 3; d++) if (Math.abs(x - +x.toFixed(d)) < 1e-9) return cz(x, d);
+		return '≈ ' + cz(x, 2);
+	}
 
 	function formatP(p) {
-		if (p >= 1e6) return cz(p / 1e6, 1) + ' MPa';
-		if (p >= 1000) return cz(p / 1000, 0) + ' kPa';
-		return cz(p, 0) + ' Pa';
+		if (p >= 1e6) return cislo(p / 1e6) + ' MPa';
+		if (p >= 1000) return cislo(p / 1000) + ' kPa';
+		return cislo(p) + ' Pa';
 	}
 
 	function prekresli() {
@@ -66,20 +73,20 @@
 		const F = m * 10;             // g = 10 N/kg jako ve výkladu
 		const p = F / obuv.s;
 		out.textContent = m + ' kg';
-		// boření: sněžnice ~3 px, boty ~25 px, podpatky ~70 px (roste s log tlaku)
-		const boreni = Math.min(75, Math.max(2, (Math.log10(p) - 2.7) * 30));
+		// boření: sněžnice ~2–10 px, boty ~22–33 px, podpatky ~66–75 px (roste s log tlaku)
+		const boreni = Math.min(75, Math.max(2, (Math.log10(p) - 3) * 22));
 		postava.setAttribute('transform', `translate(${X} ${POVRCH + boreni})`);
 		snih.setAttribute('d', `M 0 ${POVRCH} H ${X - 55} Q ${X} ${POVRCH + boreni * 1.4} ${X + 55} ${POVRCH} H 520 V 300 H 0 Z`);
 		obuvEmoji.textContent = obuv.emoji;
-		fEl.textContent = `F = m · g = ${m} · 10 = ${cz(F, 0)} N`;
+		fEl.textContent = `F = m · g = ${m} · 10 = ${czTis(F)} N`;
 		sEl.textContent = `S = ${obuv.s < 0.01 ? '4 cm² (0,0004 m²)' : cz(obuv.s, 2) + ' m²'}`;
 		pEl.textContent = `p = F / S = ${formatP(p)}`;
 
 		let pozn;
 		if (p < 5000) pozn = 'Velká plocha → malý tlak. Sníh tě krásně unese — přesně proto existují sněžnice i široké pásy bagrů.';
 		else if (p < 100000) pozn = 'Menší plocha → větší tlak. Boty se do čerstvého sněhu bez cestičky zaboří.';
-		else pozn = 'Maličká plocha → OBROVSKÝ tlak (víc než milion pascalů!). Stejný princip má špička jehly nebo nabroušený nůž.';
-		stavEl.textContent = `${obuv.nazev}: p = ${cz(F, 0)} N / ${obuv.s < 0.01 ? '0,0004' : cz(obuv.s, 2)} m² = ${formatP(p)}. ${pozn}`;
+		else pozn = 'Maličká plocha → OBROVSKÝ tlak (řádově milion pascalů!). Stejný princip má špička jehly nebo nabroušený nůž.';
+		stavEl.textContent = `${obuv.nazev}: p = ${czTis(F)} N / ${obuv.s < 0.01 ? '0,0004' : cz(obuv.s, 2)} m² = ${formatP(p)}. ${pozn}`;
 	}
 
 	document.querySelectorAll('.tlk-obuv').forEach((tl) => {

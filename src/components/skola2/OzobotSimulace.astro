@@ -55,8 +55,8 @@
 	const outA = document.getElementById('ozo-out-a'), outB = document.getElementById('ozo-out-b');
 	const outD = document.getElementById('ozo-out-d'), outT = document.getElementById('ozo-out-t');
 
-	// celá čísla píšeme bez desetinných nul (80 cm, ne 80,0 cm) — děti mají počítat s celými čísly
-	const cz = (x, des = 1) => (Math.abs(x - Math.round(x)) < 1e-9 ? String(Math.round(x)) : x.toFixed(des).replace('.', ','));
+	// čísla píšeme bez zbytečných nul na konci (15 cm místo 15,00 cm; 0,5× místo 0,50×)
+	const cz = (x, des = 1) => x.toFixed(des).replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '').replace('.', ',').replace('-', '−');
 	const KROK = 46, X0 = 60, Y0 = 60;      // velikost dílku v pixelech a levý horní roh
 
 	let a = 6, b = 4, dilek = 4, cas = 20;

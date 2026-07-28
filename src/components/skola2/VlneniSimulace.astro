@@ -28,10 +28,13 @@
 		<line id="vln-lambda" y1="252" y2="252" stroke="#2f9e44" stroke-width="3" />
 		<text id="vln-lambda-text" y="272" font-size="14" font-weight="bold" fill="#2f9e44" text-anchor="middle"></text>
 	</svg>
-	<label class="sim-posuvnik">
-		Frekvence f: <output id="vln-f-out"></output>
-		<input type="range" id="vln-f" min="0.5" max="3" step="0.5" value="1" />
-	</label>
+	<p class="vln-radek">
+		<strong>Frekvence f:</strong>
+		<button type="button" class="vln-tl vln-f-tl" data-f="0.5">0,5 Hz</button>
+		<button type="button" class="vln-tl vln-f-tl vln-aktivni" data-f="1">1 Hz</button>
+		<button type="button" class="vln-tl vln-f-tl" data-f="2">2 Hz</button>
+		<output id="vln-f-out"></output>
+	</p>
 	<label class="sim-posuvnik">
 		Amplituda: <output id="vln-a-out"></output>
 		<input type="range" id="vln-a" min="10" max="40" step="5" value="25" />
@@ -40,7 +43,7 @@
 </section>
 
 <script>
-	const fSlider = document.getElementById('vln-f');
+	const fTlacitka = document.querySelectorAll('.vln-f-tl');
 	const aSlider = document.getElementById('vln-a');
 	const fOut = document.getElementById('vln-f-out');
 	const aOut = document.getElementById('vln-a-out');
@@ -59,8 +62,11 @@
 	const MERITKO = 40;          // 1 m = 40 px
 	const X0 = 40, X1 = 480, Y0 = 150;
 	const BODX = 260;            // sledovaná částice
-	const cz = (x, d) => x.toFixed(d).replace('.', ',');
+	// čísla česky a BEZ zbytečných desetinných nul (2 m, ne 2,00 m)
+	const cz = (x, des = 1) => x.toLocaleString('cs-CZ', { maximumFractionDigits: des });
 	let rezim = 'pricne';
+	// jen frekvence, u kterých vychází λ = v / f celá (4 m / 2 m / 1 m) a T celé (2 s / 1 s / 0,5 s)
+	let f = 1;
 
 	// částice podélného vlnění (60 sloupců × 3 řady)
 	const podelne = [];
@@ -75,11 +81,10 @@
 	}
 
 	function ukazPosuvniky() {
-		const f = +fSlider.value;
-		fOut.textContent = cz(f, 1) + ' Hz (T = ' + cz(1 / f, 2) + ' s)';
+		fOut.textContent = 'T = ' + cz(1 / f, 1) + ' s';
 		aOut.textContent = aSlider.value + ' cm';
 		const lam = V / f;
-		lambdaText.textContent = 'λ = v / f = 2 / ' + cz(f, 1) + ' = ' + cz(lam, 2) + ' m';
+		lambdaText.textContent = 'λ = v / f = 2 / ' + cz(f, 1) + ' = ' + cz(lam, 1) + ' m';
 		const lamPx = lam * MERITKO;
 		lambdaCara.setAttribute('x1', X0);
 		lambdaCara.setAttribute('x2', X0 + lamPx);
@@ -87,12 +92,11 @@
 		stavEl.textContent = (rezim === 'pricne'
 			? 'PŘÍČNÉ vlnění: částice kmitají KOLMO na směr šíření (nahoru a dolů) — vidíš kopečky a údolí. '
 			: 'PODÉLNÉ vlnění: částice kmitají VE SMĚRU šíření — vzniká zhuštění a zředění (takhle se šíří zvuk). ')
-			+ `Za 1 s vlna urazí 2 m a zdroj udělá ${cz(f, 1)} kmitů → jedna vlna měří ${cz(lam, 2)} m.`;
+			+ `Za 1 s vlna urazí 2 m a zdroj kmitne ${cz(f, 1)}× → jedna vlna měří ${cz(lam, 1)} m.`;
 	}
 
 	let cas = 0, minule = performance.now();
 	function faze(x, t) {
-		const f = +fSlider.value;
 		return 2 * Math.PI * f * (t - (x - X0) / MERITKO / V);
 	}
 	function krok(ted) {
@@ -137,7 +141,14 @@
 	}
 	btnPricne.addEventListener('click', () => prepni('pricne'));
 	btnPodelne.addEventListener('click', () => prepni('podelne'));
-	fSlider.addEventListener('input', ukazPosuvniky);
+	fTlacitka.forEach((tl) => {
+		tl.addEventListener('click', () => {
+			fTlacitka.forEach((t) => t.classList.remove('vln-aktivni'));
+			tl.classList.add('vln-aktivni');
+			f = +tl.dataset.f;
+			ukazPosuvniky();
+		});
+	});
 	aSlider.addEventListener('input', ukazPosuvniky);
 	prepni('pricne');
 	requestAnimationFrame(krok);
@@ -149,6 +160,8 @@
 	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
 	.vln-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.9rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin-right: 0.5rem; }
 	.vln-tl.vln-aktivni { background: #ffe8cc; }
+	.vln-radek { margin: 0.7rem 0; }
+	.vln-radek output { font-weight: 700; color: #e8590c; }
 	.vln-tl:active { transform: translateY(1px); }
 	.vln-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
 </style>

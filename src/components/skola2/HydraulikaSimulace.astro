@@ -36,7 +36,7 @@
 	</svg>
 	<label class="sim-posuvnik">
 		Průměr velkého pístu: <output id="sim-d2-hodnota"></output>
-		<input type="range" id="sim-d2" min="8" max="80" step="1" value="24" />
+		<input type="range" id="sim-d2" min="8" max="80" step="8" value="24" />
 	</label>
 	<div class="sim-okynka">
 		<div class="okynko"><span class="okynko-nazev">plocha malého pístu S₁</span><span id="sim-s1"></span></div>
@@ -59,7 +59,8 @@
 		const MERITKO = 3.4; // px na cm
 		const STRED = 430;
 		const el = (id) => document.getElementById(id);
-		const cz = (n, des = 0) => n.toLocaleString('cs-CZ', { maximumFractionDigits: des, minimumFractionDigits: des });
+		// čísla česky a BEZ zbytečných desetinných nul (9×, ne 9,0×); tisíce s mezerou
+		const cz = (n, des = 0) => n.toLocaleString('cs-CZ', { maximumFractionDigits: des });
 
 		function vozidloPodle(kg) {
 			if (kg < 150) return '🚲';

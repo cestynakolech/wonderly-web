@@ -1310,12 +1310,12 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 
 						<h3>Příklad</h3>
-						<p>Vypočti třecí sílu, která vzniká při tlačení ocelového tělesa o hmotnosti 50 kg po dřevěné vodorovné podložce (těleso je už v pohybu, f = 0,35).</p>
+						<p>Vypočti třecí sílu, která vzniká při tlačení ocelového tělesa o hmotnosti 50 kg po dřevěné vodorovné podložce (těleso je už v pohybu, f = 0,4).</p>
 						<p>Výpočet Fg:<br>
 						Fg = m · g = 50 · 10 = 500 N</p>
 						<p>Na vodorovné podložce platí Fg = Fn, tedy Fn = 500 N.</p>
 						<p>Třecí síla:<br>
-						Ft = Fn · f = 500 · 0,35 = <strong>175 N</strong></p>
+						Ft = Fn · f = 500 · 0,4 = <strong>200 N</strong></p>
 
 						<h3>Tření zvětšíme</h3>
 						<ul>
@@ -2778,7 +2778,7 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<p>Odpor tak měříme <strong>nepřímo</strong> — změříme U a I a dopočítáme. (Přímo měří <strong>ohmmetr</strong>.) Při stejném napětí: čím <strong>větší odpor</strong>, tím <strong>menší proud</strong>.</p>
 							<h3>Příklad</h3>
-							<p>Vodičem při napětí 10 V teče proud 0,2 A. Odpor: R = U / I = 10 / 0,2 = <strong>50 Ω</strong>. (Horší vodič se stejným napětím propustí jen 0,05 A → R = 10 / 0,05 = 200 Ω.)</p>
+							<p>Vodičem při napětí 10 V teče proud 0,2 A. Odpor: R = U / I = 10 / 0,2 = <strong>50 Ω</strong>. (Horší vodič se stejným napětím propustí jen 0,1 A → R = 10 / 0,1 = 100 Ω — poloviční proud znamená dvojnásobný odpor.)</p>
 							<h3>Pozor na teplotu</h3>
 							<p>Ohmův zákon platí přesně jen <strong>za stálé teploty</strong>. Odpor kovů s teplotou <strong>roste</strong> (rozžhavené vlákno žárovky), takže tam už proud není přímo úměrný napětí. Výjimkou je slitina <strong>konstantan</strong>, jejíž odpor se s teplotou skoro nemění — proto se z ní dělají rezistory.</p>
 						`,
