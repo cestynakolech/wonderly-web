@@ -7,6 +7,8 @@ export const rok2026: Rok = {
 	mesta: [
 		{
 			slug: 'landshut',
+			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
+			obyvatele: 73000,
 			nazev: 'Landshut',
 			zeme: 'Německo',
 			datum: '6. 7. 2026',
@@ -21,6 +23,8 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'schongau',
+			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
+			obyvatele: 12000,
 			nazev: 'Schongau',
 			zeme: 'Německo',
 			datum: '7. 7. 2026',
@@ -35,6 +39,8 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'geisingen',
+			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
+			obyvatele: 6000,
 			nazev: 'Geisingen',
 			zeme: 'Německo',
 			datum: '8. 7. 2026',
@@ -105,6 +111,8 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'ornans',
+			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
+			obyvatele: 4000,
 			nazev: 'Ornans',
 			zeme: 'Francie',
 			datum: 'červenec 2026',

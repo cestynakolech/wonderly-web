@@ -1,8 +1,8 @@
 ---
 import CestyLayout from '../../layouts/CestyLayout.astro';
 import type { Jazyk, Rok } from '../../data/cesty/typy';
-import { MAPA_SIRKA, MAPA_VYSKA, rozmistiPopisky, spocitejVyrez } from '../../data/cesty/mapa';
-import { TEXTY, cestaCesty, formatujDatum, prelozPopis, prelozZemi } from '../../data/cesty/preklady';
+import { MAPA_SIRKA, MAPA_VYSKA, MAX_POLOZEK, pripravPohledy, spocitejVyrez } from '../../data/cesty/mapa';
+import { TEXTY, cestaCesty, formatujDatum, pocetMist, prelozPopis, prelozZemi } from '../../data/cesty/preklady';
 
 interface Props {
 	data: Rok;
@@ -12,57 +12,97 @@ interface Props {
 const { data, jazyk } = Astro.props;
 const t = TEXTY[jazyk];
 
-const vyrez = data.vyrez ?? spocitejVyrez(data.mesta);
-// Velikost pinů a písma se škáluje s výřezem, aby na obrazovce vypadaly vždy stejně
-const pinR = vyrez.sirka / 45;
-const pismo = vyrez.sirka / 30;
-
 const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
-// Popisky se rozmisťují tak, aby se nepřekrývaly; co se nevejde, sloučí se do „N míst"
-const popisky = rozmistiPopisky(data.mesta, pinR, pismo, vyrez);
+
+// Rozbalovací mapa: celková mapa se všemi místy + přiblížené pohledy po nejvýš
+// třech položkách (přání učitele 28. 7. 2026 — shluky měst byly nepřehledné).
+const pohledy = pripravPohledy(data.mesta, data.vyrez ?? spocitejVyrez(data.mesta));
+const koren = pohledy[0];
+// pod celkovou mapou se vypisují místa jen tehdy, když jich není moc; jinak rozcestník
+const korenUkazujeMista = data.mesta.length <= MAX_POLOZEK;
+const texty = {
+	celaCesta: t.celaCesta,
+	otevrit: t.otevrit,
+	zpetNaMapu: t.zpetNaMapu,
+	tvaryMist: t.tvaryMist,
+	max: MAX_POLOZEK,
+};
 ---
 
 <CestyLayout titulek={`${t.nadpis} ${data.rok} – Wonderly`} jazyk={jazyk} podcesta={String(data.rok)}>
 	<p><a href={cestaCesty(jazyk)}>&larr; {t.vsechnyRoky}</a></p>
 	<h1>{data.rok} – {prelozZemi(data.zeme, jazyk)}</h1>
+	<nav class="mapa-drobecky" id="mapa-drobecky" aria-label={t.celaCesta}>
+		<button type="button" class="drobecek" data-cil="vse" disabled>{t.celaCesta}</button>
+	</nav>
 	<svg
 		class="mapa"
-		viewBox={`${vyrez.x} ${vyrez.y} ${vyrez.sirka} ${vyrez.vyska}`}
+		id="mapa"
+		viewBox={`${koren.vyrez.x} ${koren.vyrez.y} ${koren.vyrez.sirka} ${koren.vyrez.vyska}`}
 		role="img"
 		aria-label={`${t.mapaRoku} ${data.rok}`}
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
+		<g id="mapa-vrstva">
+			{koren.body.map((b) => <circle class="pin pin-bod" cx={b.x} cy={b.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />)}
+			{
+				koren.polozky
+					.filter((p) => p.typ === 'skupina')
+					.map((p) => (
+						<a href={`#${p.id}`} class="mapa-odkaz">
+							<circle class="shluk-kruh" cx={p.x} cy={p.y} r={p.r} stroke-width={koren.pinR / 3} />
+							<circle class="shluk-odznak" cx={p.x + p.r * 0.72} cy={p.y - p.r * 0.72} r={koren.pinR * 0.95} />
+							<text
+								class="shluk-pocet"
+								x={p.x + p.r * 0.72}
+								y={p.y - p.r * 0.72 + koren.pinR * 0.35}
+								text-anchor="middle"
+								font-size={koren.pinR * 1.2}
+							>
+								{p.pocet}
+							</text>
+						</a>
+					))
+			}
+			{
+				koren.popisky.map((p) => (
+					<a href={`#${p.cil}`} class="mapa-odkaz">
+						<text
+							class="pin-popisek"
+							x={p.x}
+							y={p.y}
+							text-anchor={p.kotva}
+							font-size={p.fs}
+							stroke-width={koren.pismo / 5}
+						>
+							{p.text}
+						</text>
+					</a>
+				))
+			}
+		</g>
+	</svg>
+	<p class="mapa-napoveda" id="mapa-napoveda">{koren.polozky.some((p) => p.typ === 'skupina') ? t.napovedaMapa : ''}</p>
+	<ul id="mapa-rozcestnik" class:list={['mapa-rozcestnik', { 'je-skryte': korenUkazujeMista }]}>
 		{
-			data.mesta.map((m) => (
-				<a href={`#${m.slug}`}>
-					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
-				</a>
+			koren.polozky.map((p) => (
+				<li>
+					<a href={`#${p.id}`}>
+						<strong>{p.nazev}</strong>
+						{p.typ === 'skupina' && <span class="rozcestnik-pocet">{pocetMist(p.pocet, t.tvaryMist)}</span>}
+					</a>
+				</li>
 			))
 		}
-		{
-			popisky.map((p) => {
-				const text = (
-					<text
-						class={p.shluk ? 'pin-popisek pin-shluk' : 'pin-popisek'}
-						x={p.x}
-						y={p.y}
-						text-anchor={p.kotva}
-						font-size={p.fs}
-						stroke-width={pismo / 5}
-					>
-						{p.text}
-					</text>
-				);
-				return p.slug ? <a href={`#${p.slug}`}>{text}</a> : text;
-			})
-		}
-	</svg>
+	</ul>
+	<script type="application/json" id="mapa-pohledy" set:html={JSON.stringify(pohledy)}></script>
+	<script type="application/json" id="mapa-texty" set:html={JSON.stringify(texty)}></script>
 	<section class="mesta">
 		{
 			data.mesta.map((m) => {
 				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
 				return (
-					<article id={m.slug}>
+					<article id={m.slug} class="mesto-karta" data-slug={m.slug}>
 						<h2>{m.nazev}</h2>
 						<p class="meta">
 							{prelozZemi(m.zeme, jazyk)} · {formatujDatum(m.datum, jazyk)}
@@ -113,6 +153,188 @@ const popisky = rozmistiPopisky(data.mesta, pinR, pismo, vyrez);
 </CestyLayout>
 
 <script is:inline>
+	// ROZBALOVACÍ MAPA (přání učitele 28. 7. 2026)
+	// Všechny úrovně mapy jsou spočítané předem; tady se mezi nimi jen přepíná:
+	// kliknutí na kroužek s číslem mapu přiblíží a pod mapou nechá jen ta místa.
+	(function () {
+		const svg = document.getElementById('mapa');
+		const vrstva = document.getElementById('mapa-vrstva');
+		const drobecky = document.getElementById('mapa-drobecky');
+		const rozcestnik = document.getElementById('mapa-rozcestnik');
+		const napoveda = document.getElementById('mapa-napoveda');
+		const dataEl = document.getElementById('mapa-pohledy');
+		const textyEl = document.getElementById('mapa-texty');
+		if (!svg || !vrstva || !dataEl || !textyEl) return;
+
+		const pohledy = JSON.parse(dataEl.textContent);
+		const texty = JSON.parse(textyEl.textContent);
+		const podleId = new Map(pohledy.map((p) => [p.id, p]));
+		const karty = [...document.querySelectorAll('.mesto-karta')];
+		const NS = 'http://www.w3.org/2000/svg';
+		let ted = null;
+
+		const pocetMist = (n) => `${n} ${n === 1 ? texty.tvaryMist[0] : n < 5 ? texty.tvaryMist[1] : texty.tvaryMist[2]}`;
+		const prvek = (jmeno, atributy, text) => {
+			const e = document.createElementNS(NS, jmeno);
+			for (const [k, v] of Object.entries(atributy)) e.setAttribute(k, v);
+			if (text !== undefined) e.textContent = text;
+			return e;
+		};
+
+		function vykresli(pohled) {
+			vrstva.textContent = '';
+			// drobné body všech míst pohledu
+			for (const b of pohled.body) {
+				vrstva.appendChild(
+					prvek('circle', { class: 'pin pin-bod', cx: b.x, cy: b.y, r: pohled.pinR, 'stroke-width': pohled.pinR / 3.5 }),
+				);
+			}
+			for (const p of pohled.polozky) {
+				const odkaz = prvek('a', { href: `#${p.id}`, class: 'mapa-odkaz' });
+				if (p.typ === 'skupina') {
+					odkaz.appendChild(
+						prvek('circle', { class: 'shluk-kruh', cx: p.x, cy: p.y, r: p.r, 'stroke-width': pohled.pinR / 3 }),
+					);
+					const ox = p.x + p.r * 0.72;
+					const oy = p.y - p.r * 0.72;
+					odkaz.appendChild(prvek('circle', { class: 'shluk-odznak', cx: ox, cy: oy, r: pohled.pinR * 0.95 }));
+					odkaz.appendChild(
+						prvek(
+							'text',
+							{ class: 'shluk-pocet', x: ox, y: oy + pohled.pinR * 0.35, 'text-anchor': 'middle', 'font-size': pohled.pinR * 1.2 },
+							String(p.pocet),
+						),
+					);
+				} else {
+					// místo posunuté kvůli přehlednosti spojíme čárkou se skutečnou polohou
+					if (Math.hypot(p.x - p.px, p.y - p.py) > pohled.pinR * 0.15) {
+						vrstva.appendChild(
+							prvek('line', { class: 'pin-spojnice', x1: p.px, y1: p.py, x2: p.x, y2: p.y, 'stroke-width': pohled.pinR / 6 }),
+						);
+					}
+					odkaz.appendChild(
+						prvek('circle', { class: 'pin pin-hlavni', cx: p.x, cy: p.y, r: pohled.pinR, 'stroke-width': pohled.pinR / 3.5 }),
+					);
+				}
+				vrstva.appendChild(odkaz);
+			}
+			for (const p of pohled.popisky) {
+				const odkaz = prvek('a', { href: `#${p.cil}`, class: 'mapa-odkaz' });
+				odkaz.appendChild(
+					prvek(
+						'text',
+						{ class: 'pin-popisek', x: p.x, y: p.y, 'text-anchor': p.kotva, 'font-size': p.fs, 'stroke-width': pohled.pismo / 5 },
+						p.text,
+					),
+				);
+				vrstva.appendChild(odkaz);
+			}
+		}
+
+		function vykresliDrobecky(pohled) {
+			if (!drobecky) return;
+			drobecky.textContent = '';
+			const kroky = [{ id: 'vse', nazev: texty.celaCesta }, ...pohled.cesta];
+			kroky.forEach((krok, i) => {
+				if (i > 0) drobecky.appendChild(document.createTextNode(' › '));
+				const b = document.createElement('button');
+				b.type = 'button';
+				b.className = 'drobecek';
+				b.dataset.cil = krok.id;
+				b.textContent = krok.nazev;
+				b.disabled = i === kroky.length - 1;
+				drobecky.appendChild(b);
+			});
+		}
+
+		function vykresliRozcestnik(pohled) {
+			if (!rozcestnik) return;
+			const ukazujeMista = pohled.slugy.length <= texty.max;
+			rozcestnik.classList.toggle('je-skryte', ukazujeMista);
+			rozcestnik.textContent = '';
+			if (ukazujeMista) return;
+			for (const p of pohled.polozky) {
+				const li = document.createElement('li');
+				const a = document.createElement('a');
+				a.href = `#${p.id}`;
+				const jmeno = document.createElement('strong');
+				jmeno.textContent = p.nazev;
+				a.appendChild(jmeno);
+				if (p.typ === 'skupina') {
+					const pocet = document.createElement('span');
+					pocet.className = 'rozcestnik-pocet';
+					pocet.textContent = pocetMist(p.pocet);
+					a.appendChild(pocet);
+				}
+				li.appendChild(a);
+				rozcestnik.appendChild(li);
+			}
+		}
+
+		function zobraz(id, skoc) {
+			const pohled = podleId.get(id) ?? podleId.get('vse');
+			if (!pohled || pohled === ted) {
+				if (skoc) skocNaMisto(id);
+				return;
+			}
+			ted = pohled;
+			const v = pohled.vyrez;
+			svg.setAttribute('viewBox', `${v.x} ${v.y} ${v.sirka} ${v.vyska}`);
+			vykresli(pohled);
+			vykresliDrobecky(pohled);
+			vykresliRozcestnik(pohled);
+			const ukazujeMista = pohled.slugy.length <= texty.max;
+			for (const karta of karty) {
+				karta.classList.toggle('je-skryte', !(ukazujeMista && pohled.slugy.includes(karta.dataset.slug)));
+			}
+			if (napoveda) {
+				napoveda.textContent = pohled.polozky.some((p) => p.typ === 'skupina') ? napoveda.dataset.text : '';
+			}
+			if (skoc) skocNaMisto(id);
+		}
+
+		function skocNaMisto(id) {
+			const karta = karty.find((k) => k.dataset.slug === id && !k.classList.contains('je-skryte'));
+			if (karta) karta.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+
+		/** Pohled, ve kterém je dané místo vidět i s článkem (nejhlubší úroveň). */
+		function pohledMista(slug) {
+			const listy = pohledy.filter((p) => p.slugy.includes(slug) && p.slugy.length <= texty.max);
+			return listy.length ? listy[listy.length - 1].id : 'vse';
+		}
+
+		function zpracujCil(cil) {
+			if (!cil) return zobraz('vse', false);
+			if (podleId.has(cil)) {
+				// samostatné místo má vlastní pohled — zobrazíme ten, kde je i jeho článek
+				const pohled = podleId.get(cil);
+				if (pohled.slugy.length <= texty.max) return zobraz(pohled.id, true);
+				return zobraz(cil, false);
+			}
+			if (karty.some((k) => k.dataset.slug === cil)) return zobraz(pohledMista(cil), true);
+			zobraz('vse', false);
+		}
+
+		if (napoveda) napoveda.dataset.text = napoveda.textContent;
+		document.addEventListener('click', (e) => {
+			const drobecek = e.target.closest('.drobecek');
+			if (drobecek) {
+				zobraz(drobecek.dataset.cil, false);
+				return;
+			}
+			const odkaz = e.target.closest('a[href^="#"]');
+			if (!odkaz) return;
+			const cil = decodeURIComponent(odkaz.getAttribute('href').slice(1));
+			if (!cil) return;
+			e.preventDefault();
+			history.replaceState(null, '', `#${cil}`);
+			zpracujCil(cil);
+		});
+		window.addEventListener('hashchange', () => zpracujCil(decodeURIComponent(location.hash.slice(1))));
+		zpracujCil(decodeURIComponent(location.hash.slice(1)));
+	})();
+
 	// fotogalerie: seznam fotek se načte z úložiště přes /media/seznam,
 	// zobrazí se náhledy a kliknutím se otevře fotka v plné velikosti
 	for (const galerie of document.querySelectorAll('.galerie')) {
@@ -145,6 +367,93 @@ const popisky = rozmistiPopisky(data.mesta, pinR, pismo, vyrez);
 </script>
 
 <style is:global>
+	/* --- rozbalovací mapa --- */
+	.je-skryte {
+		display: none !important;
+	}
+	.mapa-drobecky {
+		margin: 0.6rem 0 0.2rem;
+		font-size: 0.95rem;
+	}
+	.drobecek {
+		background: none;
+		border: none;
+		padding: 0.1rem 0.2rem;
+		font: inherit;
+		color: inherit;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.drobecek:disabled {
+		text-decoration: none;
+		font-weight: bold;
+		cursor: default;
+		opacity: 1;
+	}
+	.mapa-napoveda {
+		margin: 0.2rem 0 0.8rem;
+		font-size: 0.9rem;
+		color: var(--ztlumeny, #777);
+	}
+	.mapa-napoveda:empty {
+		display: none;
+	}
+	.mapa-odkaz {
+		cursor: pointer;
+	}
+	.shluk-kruh {
+		fill: rgba(200, 60, 55, 0.16);
+		stroke: #c83c37;
+		stroke-dasharray: 2 1.4;
+		vector-effect: non-scaling-stroke;
+		transition: fill 0.15s ease;
+	}
+	.mapa-odkaz:hover .shluk-kruh,
+	.mapa-odkaz:focus .shluk-kruh {
+		fill: rgba(200, 60, 55, 0.3);
+	}
+	.shluk-odznak {
+		fill: #c83c37;
+		stroke: #fff;
+		stroke-width: 0.6;
+		vector-effect: non-scaling-stroke;
+	}
+	.shluk-pocet {
+		fill: #fff;
+		font-weight: bold;
+	}
+	.pin-spojnice {
+		stroke: #c83c37;
+		stroke-dasharray: 1.5 1.5;
+		vector-effect: non-scaling-stroke;
+	}
+	.mapa-rozcestnik {
+		list-style: none;
+		padding: 0;
+		margin: 0.6rem 0 1.4rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 10px;
+	}
+	.mapa-rozcestnik a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+		padding: 0.7rem 0.9rem;
+		border: 1px solid var(--ztlumeny, #bbb);
+		border-radius: 12px;
+		text-decoration: none;
+		color: inherit;
+		transition: transform 0.12s ease, border-color 0.12s ease;
+	}
+	.mapa-rozcestnik a:hover {
+		transform: translateY(-2px);
+		border-color: #c83c37;
+	}
+	.rozcestnik-pocet {
+		font-size: 0.85rem;
+		color: var(--ztlumeny, #777);
+	}
 	.galerie {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

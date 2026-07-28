@@ -84,6 +84,11 @@ export const TEXTY = {
 		autorLicence: ', autor maix (Wikimedia Commons), licence',
 		upraveno: '– upraveno (přidány piny).',
 		prepnoutVzhled: 'Světlý/tmavý režim',
+		celaCesta: 'Celá cesta',
+		otevrit: 'Otevřít',
+		zpetNaMapu: '← Zpět na celou mapu',
+		tvaryMist: ['místo', 'místa', 'míst'],
+		napovedaMapa: 'Kliknutím na kroužek s číslem se mapa přiblíží a ukáže jen ta místa.',
 		bertikReport: '🐾 Bertíkův čmuchací report',
 	},
 	en: {
@@ -100,6 +105,11 @@ export const TEXTY = {
 		autorLicence: ' by maix (Wikimedia Commons), licensed under',
 		upraveno: '– modified (pins added).',
 		prepnoutVzhled: 'Light/dark mode',
+		celaCesta: 'Whole journey',
+		otevrit: 'Open',
+		zpetNaMapu: '← Back to the whole map',
+		tvaryMist: ['place', 'places', 'places'],
+		napovedaMapa: 'Click a circle with a number to zoom in and see only those places.',
 		bertikReport: "🐾 Bertík's sniffing report (Czech)",
 	},
 	de: {
@@ -116,6 +126,16 @@ export const TEXTY = {
 		autorLicence: ' von maix (Wikimedia Commons), Lizenz',
 		upraveno: '– bearbeitet (Pins hinzugefügt).',
 		prepnoutVzhled: 'Hell/Dunkel-Modus',
+		celaCesta: 'Ganze Reise',
+		otevrit: 'Öffnen',
+		zpetNaMapu: '← Zurück zur ganzen Karte',
+		tvaryMist: ['Ort', 'Orte', 'Orte'],
+		napovedaMapa: 'Klicke auf einen Kreis mit Zahl, um heranzuzoomen und nur diese Orte zu sehen.',
 		bertikReport: '🐾 Bertíks Schnüffelreport (Tschechisch)',
 	},
 } satisfies Record<Jazyk, Record<string, string>>;
+
+/** „3 místa" / „5 míst" — české skloňování podle počtu (pro en/de vrací množné číslo). */
+export function pocetMist(n: number, tvary: readonly string[]): string {
+	return `${n} ${n === 1 ? tvary[0] : n < 5 ? tvary[1] : tvary[2]}`;
+}

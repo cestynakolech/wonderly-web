@@ -25,6 +25,10 @@ export type Mesto = {
 	/** Ruční posun popisku pinu (v jednotkách mapy) pro těsné shluky měst;
 	 *  kotva = zarovnání textu vůči bodu (start = text vpravo od bodu, end = vlevo) */
 	popisekPosun?: { dx: number; dy: number; kotva?: 'start' | 'middle' | 'end' };
+	/** Přibližný počet obyvatel — slouží JEN k tomu, aby shluk blízkých míst dostal
+	 *  na mapě jméno toho největšího z nich. Když se neuvede (nebo jsou místa stejně
+	 *  velká), použije se první navštívené, tj. dřívější v poli `mesta`. */
+	obyvatele?: number;
 	popis: PrelozenyPopis;
 	/** Předpona fotogalerie v úložišti R2, např. "cesty/2026/landshut" */
 	galerie?: string;
