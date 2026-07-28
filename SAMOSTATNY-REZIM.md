@@ -1,33 +1,45 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (27. 7. 2026)
-Hotovo 33 kol (38 simulací, 347 kvízových otázek, 37 videí). Vytěženo:
-„SVĚTELNÉ JEVY 7" celá, z „Fyzika opakování rok 6" čtení stupnice (30)
-i převody jednotek (31), „Dráha puzzle" jako simulace ozobota (32),
-kvízy F6 dorovnány na nové učivo (33).
-DALŠÍ KOLO (34): zbývají prezentace F6 **„Stavba látek" (snímky 4+) a „TEPLOTA"
-(snímky 2–10)** — obojí jsou jen obrázky bez textu, takže je nutné je otevřít
-přes vision (skill pptx nebo export snímků) a najít, co web ještě nemá.
-**Doporučeno začít v ČERSTVÉ session** — obrázky spotřebují hodně kontextu.
-Pozn.: dilatační spáry a mosty už výklad `teplotni-roztaznost` obsahuje, chybí
-jen kompenzátor (expanzní smyčka) na potrubí — malý doplněk, ne celé kolo.
-Dále: média k Fyzice 6 (infografiky/písně).
-POZOR na past: v SVG souřadnicích musí být desetinná TEČKA (funkce cz() dělá
-českou čárku pro text — v points/atributech ji nepoužívat!).
-POZOR 2 (27. 7.): snímkování náhledového panelu (`computer screenshot`) vracelo
-prázdné plátno i po 3 pokusech, ačkoli stránka byla vykreslená. Spolehlivější
-náhrada: vytáhnout souřadnice z vykresleného SVG přes `javascript_tool`
-a ověřit je výpočtem (vzdálenost bodu obrazu od odražených paprsků), snímek
-stavu pak poslat učiteli jako samostatné SVG.
-ČEKÁ NA UŽIVATELE: odkaz na video „Teplota a její měření – F6" (není v soupisu
-kanálu) → pak vložit k F6 teplota-a-jeji-mereni.
-Spouštění: /wonderly + /loop, kola hned za sebou. Vše ostatní viz fronta níže.
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, po velké session)
 
-**Povolování akcí (27. 7.):** odklikávání vyřešeno vrátným
-`Omega/skripty/povoleni_hook.py` (PreToolUse hook) — povolí vše kolem projektu,
-ptá se jen na černou listinu (mazání, přesuny, worker.js, publikace ven, platby).
-Platí též: **ZADÁNÍ = SCHVÁLENÍ** (kroky plynoucí z požadavku se neschvalují znovu).
-Když se dotaz na běžnou práci přesto objeví → opravit vrátného, ne allowlist.
+Hotovo 33 kol samostatného režimu + velká session 28. 7. (celá čísla, mapa deníku, offline režim).
+Vše nasazené, repo čisté. Poslední commity: `319cd8a`, `2b3a4df`, `a21a852`.
+
+**ČEKÁ NA UŽIVATELE (dělá sám v terminálu):**
+- Sjednocení úložiště modelů do `/Users/Shared/ollama-models` (rozhodnuto varianta A).
+  Postup: `sudo mkdir` → `sudo mv` modelů druhého účtu (přesun je okamžitý, nekopíruje) →
+  `rsync --ignore-existing` vlastních → `launchctl setenv OLLAMA_MODELS` → restart Ollamy →
+  `ollama list` musí ukázat 8 modelů včetně ThinkingCap-Qwen3.6.
+  **Až potom** (a jen s jeho potvrzením) smazat `~/.ollama/models` — uvolní ~75 GB.
+  POZOR: nekopírovat obě složky rsyncem, na disku je jen 137 GB volných.
+- Odkaz na video „Teplota a její měření – F6" (na kanálu není).
+
+**DALŠÍ KOLO (34) — podklady už jsou vytěžené, stačí vyrábět.** Vision analýza prezentací
+F6 „Stavba látek" a „TEPLOTA" proběhla 28. 7., soupis učiva a nálezy chyb jsou
+v `Omega/dokumenty/kontrola-podkladu-fyzika6.md`. Tři nejlepší náměty na simulace:
+1. **Rozpálená kolejnice** (F6/F8 teplotní roztažnost) — posuvník teploty −20 až +50 °C,
+   přepínač „s dilatační spárou / bez ní"; bez spáry se kolej zvlní. Vedle běží výpočet
+   prodloužení (30 m kolej při ohřátí o 40 °C povyroste asi 1,4 cm).
+2. **Změř to rukou, nebo teploměrem?** — pokus se třemi kádinkami (5 / 25 / 45 °C): ruce
+   ve studené a horké, pak obě do vlažné → dva protichůdné pocity u téže vody. Motivace,
+   proč fyzika potřebuje měřidlo.
+3. **Průměrná teplota — generátor příkladů** s tabulkou i grafem, kontroluje zvlášť součet
+   a zvlášť dělení. Pozor: podle nového pravidla mají příklady vycházet v CELÝCH číslech.
+Dále: **média k Fyzice 6** (infografiky/písně); kompenzátor (expanzní smyčka) do výkladu
+teplotní roztažnosti — malý doplněk.
+
+**NOVÁ PRAVIDLA (platí od 28. 7., jsou už v globálním `~/.claude/CLAUDE.md`):**
+- **Ve výpočtech pro děti musí vycházet CELÁ čísla** — i všechny polohy posuvníků v simulacích.
+  Desetinné jen tam, kde je samo učivem (převody) nebo jde o naměřenou konstantu.
+- **Zásady grafové práce a ZADÁNÍ = SCHVÁLENÍ jsou globální** (ne jen ve skillu): test falešné
+  hrany, diamant, **nezávislý kontrolor s čerstvým kontextem**, kotvy, hlídání tichých selhání.
+- **Bez wifi**: `Omega/skripty/graf_local.py` (+ `revize_grafu.py` jako nezávislá revize).
+  Návod `Omega/dokumenty/OFFLINE-REZIM.md`.
+
+**ODLOŽENO (3 pokusy vyčerpány 28. 7.):** ostrý běh `graf_local.py` s plným diamantem se
+zasekl na střídání modelů v Ollamě (stav „Stopping…"). Dílčí části ověřené jsou: role, výběr
+kontrolora z jiné rodiny, vynucení JSON schématem, hlasování. Zkusit znovu AŽ po sjednocení
+úložiště modelů — a s úkolem, který používá jen dva modely (jen text, nebo jen kód).
 
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
