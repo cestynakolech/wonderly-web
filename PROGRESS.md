@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 39: TreniSimulace (klidové × smykové tření).** F7 sily-kolem-nas/treci-sila:
+  bedna, povrchy led/dřevo/beton, hystereze utržení (nad mez klidu) a zastavení (pod smykové),
+  rovnoměrný pohyb při rovnosti sil; hodnoty dle vzorce výkladu Ft = Fn·f, vše celé N.
+  Celkem 42 simulací.
 - **2026-07-28 — kolo 38: zásoba témat na měsíc.** Audit temata.ts: 64 fyzikálních podtémat bez
   interakce → 12 vybraných kandidátů na simulace se zadáním (SAMOSTATNY-REZIM.md). První v řadě:
   F7 třecí síla, F7 Archimédův zákon, F8 kalorimetr, F8 přeměny energie.

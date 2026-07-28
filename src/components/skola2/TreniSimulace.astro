@@ -1,0 +1,144 @@
+---
+// Třecí síla (F7): bedna na podlaze. Posuvníky hmotnosti (10–50 kg po 10)
+// a tažné síly (0–400 N po 10), výběr povrchu. Stejné vzorce jako ve výkladu:
+// Fn = Fg = m·10, Ft = Fn·f — dřevo f = 0,4 sedí s řešeným příkladem (50 kg → 200 N).
+// Klidový součinitel je o 0,1 větší než smykový („v klidu je tření větší").
+// Všechny meze vychází v celých newtonech. Stavový automat drží hysterezi:
+// bedna se utrhne až nad mezí klidového tření, ale zastaví se, teprve když
+// síla klesne POD smykové tření — přesně jev „utrženou skříň už tlačíš snáz".
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Utrhni bednu — klidové × smykové tření 🕹️</span></h2>
+	<p>Táhni za bednu a sleduj <strong>třecí sílu</strong>. Dokud bedna stojí, klidové tření tvou sílu přesně dorovnává. Utrhne se, až zatáhneš víc než mez — a pak už k pohybu stačí síla menší!</p>
+	<p id="treni-povrchy">
+		<button type="button" class="treni-tl" data-povrch="led">🧊 led</button>
+		<button type="button" class="treni-tl treni-aktivni" data-povrch="drevo">🪵 dřevo</button>
+		<button type="button" class="treni-tl" data-povrch="beton">🧱 beton</button>
+	</p>
+	<svg id="treni-svg" viewBox="0 0 660 300" role="img" aria-label="Bedna tažená po podlaze a síly, které na ni působí">
+		<!-- podlaha -->
+		<rect id="treni-podlaha" x="0" y="220" width="660" height="80" fill="#deb887" stroke="#2b2a26" stroke-width="3" />
+		<text id="treni-podlaha-text" x="330" y="268" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<!-- bedna -->
+		<g id="treni-bedna">
+			<rect x="270" y="120" width="120" height="100" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3.5" rx="6" />
+			<line x1="270" y1="150" x2="390" y2="150" stroke="#2b2a26" stroke-width="2" />
+			<text id="treni-bedna-text" x="330" y="192" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
+		</g>
+		<!-- pohybové čárky -->
+		<g id="treni-pohyb" stroke="#868e96" stroke-width="3" opacity="0" stroke-linecap="round">
+			<line x1="230" y1="140" x2="255" y2="140" /><line x1="220" y1="170" x2="252" y2="170" /><line x1="232" y1="200" x2="256" y2="200" />
+		</g>
+		<!-- síly -->
+		<line id="treni-sipka-f" x1="390" y1="170" x2="390" y2="170" stroke="#1971c2" stroke-width="7" marker-end="url(#treni-mf)" />
+		<line id="treni-sipka-t" x1="270" y1="170" x2="270" y2="170" stroke="#e03131" stroke-width="7" marker-end="url(#treni-mt)" />
+		<text id="treni-pop-f" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="middle" y="150"></text>
+		<text id="treni-pop-t" font-size="15" font-weight="bold" fill="#e03131" text-anchor="middle" y="150"></text>
+		<defs>
+			<marker id="treni-mf" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#1971c2" /></marker>
+			<marker id="treni-mt" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#e03131" /></marker>
+		</defs>
+		<text x="14" y="26" font-size="14" font-weight="bold" fill="#1971c2">→ tažná síla F</text>
+		<text x="14" y="46" font-size="14" font-weight="bold" fill="#e03131">← třecí síla Ft</text>
+	</svg>
+	<label class="sim-posuvnik">
+		Hmotnost bedny: <output id="treni-out-m"></output>
+		<input type="range" id="treni-slider-m" min="10" max="50" step="10" value="20" />
+	</label>
+	<label class="sim-posuvnik">
+		Tažná síla F: <output id="treni-out-f"></output>
+		<input type="range" id="treni-slider-f" min="0" max="400" step="10" value="0" />
+	</label>
+	<p class="treni-vzorec" id="treni-vypocet"></p>
+	<p class="treni-stav" id="treni-stav"></p>
+</section>
+
+<script>
+	const POVRCHY = {
+		led: { nazev: 'LED (f = 0,1 · v klidu 0,2)', fKlid: 0.2, fSmyk: 0.1, barva: '#d0ebff' },
+		drevo: { nazev: 'DŘEVO (f = 0,4 · v klidu 0,5)', fKlid: 0.5, fSmyk: 0.4, barva: '#deb887' },
+		beton: { nazev: 'BETON (f = 0,6 · v klidu 0,7)', fKlid: 0.7, fSmyk: 0.6, barva: '#ced4da' },
+	};
+	let povrch = 'drevo';
+	let pohyb = false;
+
+	const sliderM = document.getElementById('treni-slider-m');
+	const sliderF = document.getElementById('treni-slider-f');
+	const outM = document.getElementById('treni-out-m');
+	const outF = document.getElementById('treni-out-f');
+	const vypocetEl = document.getElementById('treni-vypocet');
+	const stavEl = document.getElementById('treni-stav');
+	const povrchyEl = document.getElementById('treni-povrchy');
+	const cz = (n) => String(n).replace('.', ',');
+
+	function prekresli() {
+		const m = +sliderM.value;
+		const F = +sliderF.value;
+		const p = POVRCHY[povrch];
+		const Fn = m * 10;                             // Fn = Fg = m·g, g = 10
+		const mezKlid = Math.round(p.fKlid * Fn);      // vždy celé (Fn násobek 100)
+		const FtSmyk = Math.round(p.fSmyk * Fn);
+
+		// hystereze: utrhne se nad mezí klidu, zastaví až pod smykovým třením
+		if (!pohyb && F > mezKlid) pohyb = true;
+		if (pohyb && F < FtSmyk) pohyb = false;
+		const Ft = pohyb ? FtSmyk : Math.min(F, mezKlid);
+
+		outM.textContent = m + ' kg';
+		outF.textContent = F + ' N';
+		document.getElementById('treni-bedna-text').textContent = m + ' kg';
+		document.getElementById('treni-podlaha').setAttribute('fill', p.barva);
+		document.getElementById('treni-podlaha-text').textContent = p.nazev;
+		document.getElementById('treni-pohyb').setAttribute('opacity', pohyb ? '0.9' : '0');
+
+		// šipky: 0,35 px na newton
+		const k = 0.35;
+		const sipkaF = document.getElementById('treni-sipka-f');
+		sipkaF.setAttribute('x2', 390 + F * k);
+		sipkaF.setAttribute('visibility', F > 0 ? 'visible' : 'hidden');
+		const popF = document.getElementById('treni-pop-f');
+		popF.setAttribute('x', 390 + (F * k) / 2);
+		popF.textContent = F > 0 ? 'F = ' + F + ' N' : '';
+		const sipkaT = document.getElementById('treni-sipka-t');
+		sipkaT.setAttribute('x2', 270 - Ft * k);
+		sipkaT.setAttribute('visibility', Ft > 0 ? 'visible' : 'hidden');
+		const popT = document.getElementById('treni-pop-t');
+		popT.setAttribute('x', 270 - (Ft * k) / 2);
+		popT.textContent = Ft > 0 ? 'Ft = ' + Ft + ' N' : '';
+
+		vypocetEl.innerHTML = `Fn = Fg = ${m} · 10 = <strong>${Fn} N</strong> &nbsp;·&nbsp; mez klidového tření = ${cz(p.fKlid)} × ${Fn} = <strong>${mezKlid} N</strong> &nbsp;·&nbsp; smykové Ft = ${cz(p.fSmyk)} × ${Fn} = <strong>${FtSmyk} N</strong>`;
+
+		if (!pohyb) {
+			if (F === 0) stavEl.textContent = '👉 Zatáhni posuvníkem tažné síly.';
+			else stavEl.textContent = `🧍 Bedna STOJÍ — klidové tření tvou sílu přesně dorovnává (Ft = ${Ft} N). Utrhne se, až zatáhneš víc než ${mezKlid} N.`;
+		} else if (F > FtSmyk) {
+			stavEl.textContent = `🏃 Bedna ZRYCHLUJE — F (${F} N) je větší než smykové tření (${FtSmyk} N). Všimni si: k udržení pohybu stačí míň síly než k utržení!`;
+		} else {
+			stavEl.textContent = `➡️ Bedna se pohybuje ROVNOMĚRNĚ — síly jsou v rovnováze (F = Ft = ${FtSmyk} N). Klesneš-li pod ${FtSmyk} N, bedna zastaví.`;
+		}
+	}
+
+	povrchyEl.addEventListener('click', (e) => {
+		const tl = e.target.closest('.treni-tl');
+		if (!tl) return;
+		povrch = tl.dataset.povrch;
+		pohyb = false;
+		for (const b of povrchyEl.querySelectorAll('.treni-tl')) b.classList.toggle('treni-aktivni', b === tl);
+		prekresli();
+	});
+	sliderM.addEventListener('input', () => { pohyb = false; prekresli(); });
+	sliderF.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#treni-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.treni-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.treni-tl.treni-aktivni { background: #ffe8cc; }
+	.treni-tl:active { transform: translateY(1px); }
+	.treni-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.treni-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

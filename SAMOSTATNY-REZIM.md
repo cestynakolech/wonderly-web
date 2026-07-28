@@ -1,10 +1,10 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 38 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 39 hotové)
 
-Hotovo 38 kol samostatného režimu (41 simulací, 354 kvízových otázek).
-**ZÁSOBA NA MĚSÍC HOTOVÁ:** 12 kandidátů na simulace v sekci „Kandidáti na simulace" níže.
-**DALŠÍ KOLO (39):** kandidát č. 1 — **F7 třecí síla** (bedna, povrchy, klidové × smykové tření).
+Hotovo 39 kol samostatného režimu (42 simulací, 354 kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1 hotový).
+**DALŠÍ KOLO (40):** kandidát č. 2 — **F7 Archimédův zákon** (siloměr, plave/vznáší se/klesá).
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
@@ -51,8 +51,8 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 ### Kandidáti na simulace (NOVÝ audit temata.ts, 28. 7. 2026 — kolo 38; zásoba na měsíc)
 
 Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁDAT:
-1. [ ] **F7 treci-sila** — bedna na podlaze: posuvník tažné síly, výběr povrchu (led/dřevo/koberec),
-   klidové × smykové tření, „rozjede se / nerozjede"; čísla volit celá.
+1. [x] **F7 treci-sila** — HOTOVO v kole 39 (TreniSimulace: led/dřevo/beton, hystereze
+   klidové × smykové, vše celé N).
 2. [ ] **F7 archimeduv-zakon** — těleso v kapalině: hustota tělesa × kapaliny, siloměr (tíha vs.
    vztlak), plave / vznáší se / klesá. Klasika, na webu překvapivě chybí.
 3. [ ] **F8 tepelna-vymena-a-teplo** — kalorimetr: smíchej teplou a studenou vodu, Q = c·m·Δt,
@@ -95,7 +95,12 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
-- 2026-07-28 (kolo 38): **Zásoba témat na měsíc** — nový audit temata.ts (149 podtémat, 64 fyzika
+- 2026-07-28 (kolo 39): **TreniSimulace** — klidové × smykové tření (F7 sily-kolem-nas/treci-sila):
+  bedna 10–50 kg, povrchy led/dřevo/beton (f smykové 0,1/0,4/0,6, klidové +0,1 — dřevo sedí
+  s řešeným příkladem výkladu 50 kg → 200 N), tažná síla 0–400 N, šipky F × Ft, stavový automat
+  s hysterezí (utrhne se NAD mezí klidu, zastaví až POD smykovým třením, mezi nimi rovnoměrný
+  pohyb při F = Ft). Všechny meze celé N. Ověřeno v náhledu (7 stavů vč. hystereze), konzole
+  čistá. Kvíz už téma pokrýval 21 otázkami — nedublováno. — nový audit temata.ts (149 podtémat, 64 fyzika
   bez interakce) → 12 kandidátů na simulace se zadáním v bodech (viz „Kandidáti na simulace").
   Úkol z FRONTA-UKOLU odškrtnut. Kola už nezačínají hledáním, ale vezmou první neodškrtnutý bod.
 - 2026-07-28 (kolo 37): **zkontroluj.mjs rozšířen o `interakce2`** — kontrolní brána nově hlídá
