@@ -1,0 +1,240 @@
+---
+// Působení magnetického pole na vodič + elektromotor (F9). Režim „síla na
+// vodič": vodič ⊙/⊗ mezi póly N–S, síla dle Flemingova pravidla levé ruky —
+// prohoď směr proudu / póly, otoč vodič rovnoběžně (síla zmizí), proud 0–4 A
+// → síla 0–4 dílky (celá čísla). Režim „motor s komutátorem": rotující smyčka,
+// dvojice sil ⊙ nahoru / ⊗ dolů, komutátor každou půlotáčku prohodí proud,
+// bez proudu se motor netočí. Rotace = ČISTÁ funkce času stavMotorku(t, proud)
+// na SVG (__stavMotorku, __stavSily) — projeto vzorkováním po 16 ms.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Síla na vodič a elektromotor 🕹️</span></h2>
+	<p>Na vodič s proudem působí v magnetickém poli <strong>síla</strong> (Flemingovo pravidlo levé ruky). Dvojice takových sil roztáčí cívku — a to je <strong>elektromotor</strong>.</p>
+	<p id="emo-rezimy">
+		<button type="button" class="emo-tl emo-aktivni" data-rezim="sila">🧲 síla na vodič</button>
+		<button type="button" class="emo-tl" data-rezim="motor">🔄 motor s komutátorem</button>
+	</p>
+	<svg id="emo-svg" viewBox="0 0 660 360" role="img" aria-label="Vodič s proudem mezi póly magnetu a rotující smyčka elektromotoru">
+		<!-- póly magnetu (společné) -->
+		<rect x="55" y="80" width="60" height="200" rx="6" fill="#ffc9c9" stroke="#2b2a26" stroke-width="3" />
+		<rect x="425" y="80" width="60" height="200" rx="6" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3" />
+		<text id="emo-pol-l" x="85" y="190" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">N</text>
+		<text id="emo-pol-p" x="455" y="190" text-anchor="middle" font-size="26" font-weight="bold" fill="#2b2a26">S</text>
+		<!-- indukční čáry -->
+		<g id="emo-cary" stroke="#adb5bd" stroke-width="2">
+			<line x1="120" y1="115" x2="418" y2="115" /><line x1="120" y1="180" x2="418" y2="180" /><line x1="120" y1="245" x2="418" y2="245" />
+		</g>
+		<g id="emo-cary-sipky" fill="#adb5bd">
+			<polygon id="emo-cs1" points="418,115 404,109 404,121" /><polygon id="emo-cs2" points="418,180 404,174 404,186" /><polygon id="emo-cs3" points="418,245 404,239 404,251" />
+		</g>
+		<!-- REŽIM SÍLA: vodič kolmý (⊙/⊗) nebo rovnoběžný -->
+		<g id="emo-scena-sila">
+			<g id="emo-vodic-kolmy">
+				<circle cx="270" cy="180" r="18" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+				<text id="emo-symbol" x="270" y="188" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">⊙</text>
+			</g>
+			<line id="emo-vodic-rovno" x1="150" y1="180" x2="390" y2="180" stroke="#e8590c" stroke-width="8" stroke-linecap="round" visibility="hidden" />
+			<g id="emo-sila-sipka">
+				<line id="emo-f-cara" x1="270" y1="155" x2="270" y2="95" stroke="#e03131" stroke-width="6" stroke-linecap="round" />
+				<polygon id="emo-f-hrot" points="258,95 282,95 270,75" fill="#e03131" />
+				<text id="emo-f-pop" x="300" y="100" font-size="15" font-weight="bold" fill="#e03131">F</text>
+			</g>
+		</g>
+		<!-- REŽIM MOTOR: rotující smyčka + komutátor -->
+		<g id="emo-scena-motor" visibility="hidden">
+			<g id="emo-rotor-skupina">
+				<line id="emo-tyc" stroke="#495057" stroke-width="8" stroke-linecap="round" />
+				<circle id="emo-konec-a" r="15" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+				<circle id="emo-konec-b" r="15" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+				<text id="emo-sym-a" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26"></text>
+				<text id="emo-sym-b" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26"></text>
+				<g id="emo-f-a"><line stroke="#e03131" stroke-width="5" stroke-linecap="round" /><polygon fill="#e03131" /></g>
+				<g id="emo-f-b"><line stroke="#e03131" stroke-width="5" stroke-linecap="round" /><polygon fill="#e03131" /></g>
+			</g>
+			<!-- komutátor (dělený kroužek) s kartáčky -->
+			<circle cx="270" cy="180" r="14" fill="#fab005" stroke="#2b2a26" stroke-width="2.5" />
+			<line id="emo-kom-mezera" stroke="#f8f9fa" stroke-width="5" />
+			<rect x="238" y="172" width="12" height="16" fill="#495057" />
+			<rect x="290" y="172" width="12" height="16" fill="#495057" />
+			<text x="270" y="330" text-anchor="middle" font-size="11" fill="#868e96">komutátor s kartáčky — každou půlotáčku obrátí proud v cívce</text>
+			<text id="emo-prepnuti" x="270" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#e8590c"></text>
+		</g>
+		<!-- infopanel -->
+		<text id="emo-info1" x="572" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<text id="emo-info2" x="572" y="145" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131"></text>
+		<text x="572" y="230" text-anchor="middle" font-size="34">🖐️</text>
+		<text x="572" y="258" text-anchor="middle" font-size="10" fill="#868e96">Flemingovo pravidlo</text>
+		<text x="572" y="271" text-anchor="middle" font-size="10" fill="#868e96">levé ruky</text>
+	</svg>
+	<p id="emo-ovladani-sila">
+		<button type="button" class="emo-tl" id="emo-smer">⇄ směr proudu (⊙/⊗)</button>
+		<button type="button" class="emo-tl" id="emo-poly">⇄ prohoď póly N–S</button>
+		<button type="button" class="emo-tl" id="emo-orientace">↔ otoč vodič rovnoběžně s polem</button>
+	</p>
+	<p id="emo-ovladani-motor" style="display:none">
+		<button type="button" class="emo-tl" id="emo-play">▶ pusť proud a roztoč motor</button>
+		<button type="button" class="emo-tl" id="emo-krok">↻ pootoč o ¼ otáčky</button>
+	</p>
+	<label class="sim-posuvnik">
+		Proud vodičem: <output id="emo-out-i"></output>
+		<input type="range" id="emo-slider" min="0" max="4" step="1" value="2" />
+	</label>
+	<p class="emo-vzorec" id="emo-vzorec"></p>
+	<p class="emo-stav" id="emo-stav">👉 Prohazuj směr proudu a póly a sleduj, kam míří síla. Pak přepni na motor.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	// Pole míří od N k S. Proud ⊙ (k nám) + pole doprava → síla NAHORU (Fleming).
+	function stavSily(proudVen, prohozenePoly, kolmy, proud) {
+		const F = kolmy ? proud : 0; // dílky; rovnoběžný vodič = síla 0
+		const nahoru = proudVen === !prohozenePoly; // ⊙ a N vlevo → nahoru; každé prohození obrací
+		return { F, nahoru: F > 0 ? nahoru : null };
+	}
+	const T0 = 3000; // ms na otáčku při proudu 1 (rychlost roste s proudem)
+	function stavMotorku(tMs, proud) {
+		if (proud === 0) return { theta: 0, prepina: false, stoji: true };
+		const T = T0 / proud;
+		const theta = (((tMs % T) + T) % T) / T * 2 * Math.PI;
+		return { theta, prepina: Math.abs(Math.cos(theta)) < 0.12, stoji: false }; // svisle = přepnutí
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	let rezim = 'sila';
+	let proudVen = true, prohozenePoly = false, kolmy = true;
+	let thetaPauza = Math.PI / 6; // motor: výchozí šikmá poloha (síly hezky vidět)
+	let jede = false, animId = null, t0 = null;
+	const svg = document.getElementById('emo-svg');
+	svg.__stavSily = stavSily; svg.__stavMotorku = stavMotorku; // pro nezávislou kontrolu
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+	const CX = 270, CY = 180, R = 85;
+
+	function kresliSpolecne() {
+		const I = +g('emo-slider').value;
+		g('emo-out-i').textContent = `${I} A`;
+		g('emo-pol-l').textContent = prohozenePoly ? 'S' : 'N';
+		g('emo-pol-p').textContent = prohozenePoly ? 'N' : 'S';
+		// barvy pólů a směr indukčních čar podle prohození
+		svg.querySelectorAll('rect')[0].setAttribute('fill', prohozenePoly ? '#a5d8ff' : '#ffc9c9');
+		svg.querySelectorAll('rect')[1].setAttribute('fill', prohozenePoly ? '#ffc9c9' : '#a5d8ff');
+		for (const [id, y] of [['emo-cs1', 115], ['emo-cs2', 180], ['emo-cs3', 245]])
+			nastav(id, { points: prohozenePoly ? `120,${y} 134,${y - 6} 134,${y + 6}` : `418,${y} 404,${y - 6} 404,${y + 6}` });
+		return I;
+	}
+
+	function kresliSilu() {
+		const I = kresliSpolecne();
+		const s = stavSily(proudVen, prohozenePoly, kolmy, I);
+		g('emo-vodic-kolmy').setAttribute('visibility', kolmy ? 'visible' : 'hidden');
+		g('emo-vodic-rovno').setAttribute('visibility', kolmy ? 'hidden' : 'visible');
+		g('emo-symbol').textContent = proudVen ? '⊙' : '⊗';
+		const delka = s.F * 18;
+		g('emo-sila-sipka').setAttribute('visibility', s.F > 0 ? 'visible' : 'hidden');
+		if (s.F > 0) {
+			const y2 = s.nahoru ? 155 - delka : 205 + delka;
+			nastav('emo-f-cara', { y1: s.nahoru ? 155 : 205, y2 });
+			nastav('emo-f-hrot', { points: s.nahoru ? `258,${y2} 282,${y2} 270,${y2 - 20}` : `258,${y2} 282,${y2} 270,${y2 + 20}` });
+			nastav('emo-f-pop', { y: s.nahoru ? y2 - 5 : y2 + 15 });
+		}
+		g('emo-info1').textContent = kolmy ? `vodič ⟂ čarám, proud ${proudVen ? '⊙ k nám' : '⊗ od nás'}` : 'vodič ∥ s indukčními čarami';
+		g('emo-info2').textContent = s.F > 0 ? `síla F = ${s.F} dílky ${s.nahoru ? '⬆ nahoru' : '⬇ dolů'}` : 'síla F = 0';
+		g('emo-vzorec').innerHTML = kolmy
+			? `Síla roste s proudem: F = <strong>${s.F} dílky</strong> při ${I} A. Směr určuje Flemingovo pravidlo levé ruky (čáry do dlaně, prsty po proudu → palec ukáže sílu).`
+			: `Na vodič <strong>rovnoběžný</strong> s indukčními čarami magnetická síla <strong>nepůsobí</strong> (F = 0) — největší je na vodič kolmý.`;
+		g('emo-stav').textContent = !kolmy ? '↔ Vodič leží podél čar — síla je nulová. Otoč ho zpátky kolmo.'
+			: I === 0 ? '🔌 Bez proudu žádná síla — přidej proud posuvníkem.'
+			: `🖐️ ${proudVen ? 'Proud k nám' : 'Proud od nás'} + pole ${prohozenePoly ? 'doleva' : 'doprava'} → síla míří ${s.nahoru ? 'NAHORU' : 'DOLŮ'}. Prohoď proud nebo póly a síla se obrátí.`;
+	}
+
+	function kresliMotor(s) {
+		const I = kresliSpolecne();
+		const kA = { x: CX + R * Math.cos(s.theta), y: CY - R * Math.sin(s.theta) };
+		const kB = { x: CX - R * Math.cos(s.theta), y: CY + R * Math.sin(s.theta) };
+		nastav('emo-tyc', { x1: kA.x, y1: kA.y, x2: kB.x, y2: kB.y });
+		nastav('emo-konec-a', { cx: kA.x, cy: kA.y }); nastav('emo-konec-b', { cx: kB.x, cy: kB.y });
+		// levý konec má vždy ⊙ (komutátor to zařídí) → síla nahoru; pravý ⊗ → dolů
+		const aVlevo = kA.x <= kB.x;
+		g('emo-sym-a').textContent = aVlevo ? '⊙' : '⊗'; nastav('emo-sym-a', { x: kA.x, y: kA.y + 6 });
+		g('emo-sym-b').textContent = aVlevo ? '⊗' : '⊙'; nastav('emo-sym-b', { x: kB.x, y: kB.y + 6 });
+		const delka = Math.max(I, 0) * 14;
+		for (const [gid, k, nahoru] of [['emo-f-a', kA, aVlevo], ['emo-f-b', kB, !aVlevo]]) {
+			const el = g(gid), cara = el.children[0], hrot = el.children[1];
+			el.setAttribute('visibility', I > 0 ? 'visible' : 'hidden');
+			const y1 = nahoru ? k.y - 20 : k.y + 20, y2 = nahoru ? y1 - delka : y1 + delka;
+			cara.setAttribute('x1', k.x); cara.setAttribute('x2', k.x); cara.setAttribute('y1', y1); cara.setAttribute('y2', y2);
+			hrot.setAttribute('points', nahoru ? `${k.x - 10},${y2} ${k.x + 10},${y2} ${k.x},${y2 - 16}` : `${k.x - 10},${y2} ${k.x + 10},${y2} ${k.x},${y2 + 16}`);
+		}
+		// mezera komutátoru rotuje s tyčí
+		nastav('emo-kom-mezera', { x1: CX + 14 * Math.cos(s.theta + Math.PI / 2), y1: CY - 14 * Math.sin(s.theta + Math.PI / 2), x2: CX - 14 * Math.cos(s.theta + Math.PI / 2), y2: CY + 14 * Math.sin(s.theta + Math.PI / 2) });
+		g('emo-prepnuti').textContent = s.prepina && I > 0 ? '⚡ komutátor právě obrací směr proudu!' : '';
+		g('emo-info1').textContent = I === 0 ? 'bez proudu' : `proud ${I} A`;
+		g('emo-info2').textContent = I === 0 ? 'motor stojí' : `dvojice sil otáčí rotorem`;
+		g('emo-vzorec').innerHTML = `⊙ strana je tlačena <strong>nahoru</strong>, ⊗ strana <strong>dolů</strong> — dvojice sil. Komutátor každou <strong>půlotáčku</strong> obrátí proud, takže se rotor točí pořád stejným směrem. Větší proud = větší síla i rychlost.`;
+		g('emo-stav').textContent = I === 0
+			? '🔌 Motor mění elektrickou energii na pohybovou — bez proudu se netočí. Přidej proud posuvníkem!'
+			: jede ? '🔄 Motor běží — sleduj, jak si konce po každé půlotáčce vymění ⊙/⊗ a síly pořád otáčejí stejným směrem.'
+			: '⏸ Motor stojí — roztoč ho tlačítkem ▶, nebo krokuj po ¼ otáčky.';
+	}
+
+	function snimek(cas) {
+		if (!jede) return;
+		const I = +g('emo-slider').value;
+		if (I === 0) { zastav(); kresliMotor({ theta: thetaPauza, prepina: false }); return; }
+		const T = T0 / I;
+		if (t0 === null) t0 = cas - (thetaPauza / (2 * Math.PI)) * T;
+		const s = stavMotorku(cas - t0, I);
+		thetaPauza = s.theta;
+		kresliMotor(s);
+		animId = requestAnimationFrame(snimek);
+	}
+	function zastav() { jede = false; if (animId) cancelAnimationFrame(animId); g('emo-play').textContent = '▶ pusť proud a roztoč motor'; }
+
+	function prekresli() {
+		g('emo-scena-sila').setAttribute('visibility', rezim === 'sila' ? 'visible' : 'hidden');
+		g('emo-scena-motor').setAttribute('visibility', rezim === 'motor' ? 'visible' : 'hidden');
+		document.getElementById('emo-ovladani-sila').style.display = rezim === 'sila' ? '' : 'none';
+		document.getElementById('emo-ovladani-motor').style.display = rezim === 'motor' ? '' : 'none';
+		for (const b of document.querySelectorAll('#emo-rezimy [data-rezim]')) b.classList.toggle('emo-aktivni', b.dataset.rezim === rezim);
+		if (rezim === 'sila') kresliSilu(); else kresliMotor({ theta: thetaPauza, prepina: false });
+	}
+
+	document.getElementById('emo-rezimy').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-rezim]');
+		if (!tl) return; zastav(); rezim = tl.dataset.rezim;
+		if (rezim === 'motor') prohozenePoly = false; // scéna motoru počítá s N vlevo (⊙ = nahoru)
+		prekresli();
+	});
+	g('emo-smer').addEventListener('click', () => { proudVen = !proudVen; kresliSilu(); });
+	g('emo-poly').addEventListener('click', () => { prohozenePoly = !prohozenePoly; prekresli(); });
+	g('emo-orientace').addEventListener('click', () => {
+		kolmy = !kolmy;
+		g('emo-orientace').textContent = kolmy ? '↔ otoč vodič rovnoběžně s polem' : '⟂ otoč vodič zpátky kolmo';
+		kresliSilu();
+	});
+	g('emo-play').addEventListener('click', () => {
+		if (jede) { zastav(); kresliMotor({ theta: thetaPauza, prepina: false }); return; }
+		jede = true; t0 = null; g('emo-play').textContent = '⏸ zastav motor';
+		requestAnimationFrame(snimek);
+	});
+	g('emo-krok').addEventListener('click', () => {
+		zastav();
+		thetaPauza = ((Math.round(thetaPauza / (Math.PI / 2)) + 1) % 4) * Math.PI / 2 + 0.001;
+		kresliMotor(stavMotorku((thetaPauza / (2 * Math.PI)) * (T0 / Math.max(+g('emo-slider').value, 1)), Math.max(+g('emo-slider').value, 1)));
+	});
+	g('emo-slider').addEventListener('input', () => { if (rezim === 'sila') kresliSilu(); else if (!jede) kresliMotor({ theta: thetaPauza, prepina: false }); else t0 = null; });
+	prekresli();
+</script>
+
+<style>
+	#emo-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.emo-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.emo-tl.emo-aktivni { background: #ffe8cc; }
+	.emo-tl:active { transform: translateY(1px); }
+	#emo-play { background: #d3f9d8; }
+	.emo-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.emo-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

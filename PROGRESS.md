@@ -93,6 +93,13 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 58: ElektromotorSimulace (síla na vodič + motor).** F9: režim „síla
+  na vodič" (Flemingovo pravidlo — ⊙/⊗, prohození proudu i pólů sílu obrací, rovnoběžný
+  vodič F=0, F = proud v dílcích) a režim „motor s komutátorem" (dvojice sil ⊙↑/⊗↓,
+  komutátor každou půlotáčku obrací proud, bez proudu se netočí, krok ¼ otáčky, rychlost
+  dle proudu). Čisté funkce stavSily + stavMotorku; 16 kombinací Fleminga a 3 proudy
+  × 2 otáčky po 16 ms prošly; opraveno vracení pólů na N vlevo při vstupu do režimu motoru.
+  Celkem 56 simulací.
 - **2026-07-29 — kolo 57: AlternatorSimulace (vznik střídavého proudu).** F9: rotor-magnet
   se točí ve statoru s cívkou, voltmetr (±6 dílků), sinusovka jedné otáčky s běžícím bodem;
   krok ↻ po ¼ otáčky projde učebnicové polohy (0 / +max / 0 / −max s vysvětlením), rychlost
