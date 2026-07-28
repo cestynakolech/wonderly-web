@@ -654,6 +654,20 @@ export const temata: Record<string, Tema[]> = {
 						<p>📌 Každý teploměr má svůj <strong>měřicí rozsah</strong> — pro měření si musíme vybrat správný teploměr!</p>
 						<h3>Měření teploty vzduchu v čase</h3>
 						<p>Změny teplot zaznamenáváme do tabulek a grafů. V pražském <strong>Klementinu</strong> se teplota měří nepřetržitě od roku 1775 — nejdéle v Evropě (rekordy: +37,8 °C v červenci 1983, −27,6 °C v březnu 1785). <strong>Termograf</strong> v meteostanici zapisuje teplotu ručkou na otáčející se kotouč papíru.</p>
+						<h3>Průměrná teplota</h3>
+						<p>Jedno měření o počasí moc neřekne — meteorologové proto počítají <strong>průměrnou teplotu</strong>:</p>
+						<ol>
+							<li>všechny naměřené teploty <strong>sečti</strong>,</li>
+							<li>součet <strong>vyděl počtem měření</strong>.</li>
+						</ol>
+						<p><strong>Příklad 1 — letní týden.</strong> Sedm dní jsme naměřili: 18, 21, 24, 19, 22, 20 a 16 °C.</p>
+						<p>součet = 18 + 21 + 24 + 19 + 22 + 20 + 16 = <strong>140 °C</strong><br>
+						průměr = 140 : 7 = <strong>20 °C</strong></p>
+						<p><strong>Příklad 2 — zimní týden (i pod nulou).</strong> Naměřili jsme: −5, −2, 0, 3, −1, 2 a 3 °C.</p>
+						<p>Záporné teploty se <strong>odečítají</strong>: součet = (−5) + (−2) + 0 + 3 + (−1) + 2 + 3 = <strong>0 °C</strong><br>
+						průměr = 0 : 7 = <strong>0 °C</strong></p>
+						<p>💡 Kontrola „zdravým rozumem": průměr musí vždy ležet <strong>mezi nejmenší a největší naměřenou hodnotou</strong>. Kdyby vyšlo 25 °C u týdne, kde nejtepleji bylo 24 °C, je ve výpočtu chyba.</p>
+						<p>👉 Pozor: nezapomeň dělit <strong>počtem měření</strong> (kolik čísel jsme sčítali), ne počtem dnů v týdnu nebo jiným číslem.</p>
 					`,
 				},
 				{
@@ -1156,17 +1170,19 @@ export const temata: Record<string, Tema[]> = {
 						<p>v = s : t = 100 : 20 = <strong>5 m/s</strong> (= 18 km/h)</p>
 
 						<p><strong>Příklad 7: Cyklistický závod</strong><br>
-						Cyklista urazí v závodu etapu dlouhou 231 km za 5 hodin a 30 minut. Jakou jel rychlostí?</p>
-						<p>5 h 30 min = 5,5 h<br>v = s : t = 231 : 5,5 = <strong>42 km/h</strong></p>
+						Cyklista urazí v závodu etapu dlouhou 220 km za 5 hodin a 30 minut. Jakou jel rychlostí?</p>
+						<p>5 h 30 min = 5,5 h<br>v = s : t = 220 : 5,5 = <strong>40 km/h</strong></p>
+						<p>💡 Zkouška po hlavě: 5,5 &middot; 40 = 220 km — souhlasí.</p>
 
 						<p><strong>Příklad 8: Turistický výlet</strong><br>
 						Turisté ušli v rovinatém terénu vzdálenost 3 km za 36 minut. Vypočítej jejich rychlost.</p>
 						<p>36 min = 0,6 h<br>v = s : t = 3 : 0,6 = <strong>5 km/h</strong></p>
 
 						<p><strong>Příklad 9: Dopravní letadlo</strong><br>
-						Dopravní letadlo uletělo vzdálenost 585 km za 1 hodinu 18 minut. Vypočti jeho průměrnou rychlost.</p>
-						<p>18 min = 0,3 h, takže celkový čas je 1 h + 0,3 h = 1,3 h<br>v = s : t = 585 : 1,3 = <strong>450 km/h</strong></p>
-						<p>⚠️ <strong>Pozor na častou chybu:</strong> kdo u příkladu 9 vydělí dráhu jen 0,3 h (zapomene na celou hodinu), vyjde mu nesmyslných 1950 km/h — tak rychle dopravní letadla nelétají! Minuty vždy převeď (děleno 60) a přičti k celým hodinám.</p>
+						Dopravní letadlo uletělo vzdálenost 650 km za 1 hodinu 18 minut. Vypočti jeho průměrnou rychlost.</p>
+						<p>18 min = 0,3 h, takže celkový čas je 1 h + 0,3 h = 1,3 h<br>v = s : t = 650 : 1,3 = <strong>500 km/h</strong></p>
+						<p>💡 Zkouška po hlavě: 1,3 &middot; 500 = 650 km — souhlasí.</p>
+						<p>⚠️ <strong>Pozor na častou chybu:</strong> kdo u příkladu 9 vydělí dráhu jen 0,3 h (zapomene na celou hodinu), vyjde mu přes 2 000 km/h — tak rychle dopravní letadla nelétají! Minuty vždy převeď (děleno 60) a přičti k celým hodinám.</p>
 						<h3>Pravidla pro kreslení grafů</h3>
 						<ol>
 							<li>dvě kolmé osy se šipkami; <strong>časová osa je vždy vodorovná</strong></li>
@@ -1184,9 +1200,9 @@ export const temata: Record<string, Tema[]> = {
 							<li>Vlak ujel 360 km za 4 hodiny. <details><summary>řešení</summary>v = 360 / 4 = <strong>90 km/h</strong></details></li>
 							<li>Turista ušel 6 km za 120 minut. Rychlost v km/h? <details><summary>řešení</summary>120 min = 2 h; v = 6 / 2 = <strong>3 km/h</strong></details></li>
 							<li>Žák uběhl 100 m za 20 s. Rychlost v m/s? <details><summary>řešení</summary>v = 100 / 20 = <strong>5 m/s</strong> (= 18 km/h)</details></li>
-							<li>Cyklista urazil etapu 231 km za 5 h 30 min. <details><summary>řešení</summary>5 h 30 min = 5,5 h; v = 231 / 5,5 = <strong>42 km/h</strong></details></li>
+							<li>Cyklista urazil etapu 220 km za 5 h 30 min. <details><summary>řešení</summary>5 h 30 min = 5,5 h; v = 220 / 5,5 = <strong>40 km/h</strong> (zkouška: 5,5 · 40 = 220)</details></li>
 							<li>Turisté ušli 3 km za 36 minut. <details><summary>řešení</summary>36 min = 0,6 h; v = 3 / 0,6 = <strong>5 km/h</strong></details></li>
-							<li>Letadlo uletělo 585 km za 1 h 18 min. <details><summary>řešení</summary>18 min = 0,3 h → celkem 1,3 h; v = 585 / 1,3 = <strong>450 km/h</strong>. ⚠️ Častá chyba: dělit jen 0,3 h — vyšlo by nesmyslných 1950 km/h!</details></li>
+							<li>Letadlo uletělo 650 km za 1 h 18 min. <details><summary>řešení</summary>18 min = 0,3 h → celkem 1,3 h; v = 650 / 1,3 = <strong>500 km/h</strong> (zkouška: 1,3 · 500 = 650). ⚠️ Častá chyba: dělit jen 0,3 h — vyšlo by přes 2 000 km/h!</details></li>
 						</ol>
 					`,
 					materialy: [
@@ -1435,12 +1451,12 @@ export const temata: Record<string, Tema[]> = {
 						<p>kde F<sub>1</sub>, F<sub>2</sub> jsou síly působící na páku a a<sub>1</sub>, a<sub>2</sub> jsou jejich ramena (vzdálenosti od osy otáčení).</p>
 
 						<h3>Příklad 1</h3>
-						<p>Na páce jsou zavěšena dvě závaží: m<sub>1</sub> = 100 g = 0,1 kg na rameni a<sub>1</sub> = 9 cm a m<sub>2</sub> = 50 g = 0,05 kg na rameni a<sub>2</sub> = 18 cm. Je páka v rovnováze?</p>
-						<p>F<sub>g1</sub> = m<sub>1</sub> &middot; g = 0,1 &middot; 10 = 1 N</p>
-						<p>F<sub>g2</sub> = m<sub>2</sub> &middot; g = 0,05 &middot; 10 = 0,5 N</p>
-						<p>F<sub>g1</sub> &middot; a<sub>1</sub> = 1 &middot; 9 = 9</p>
-						<p>F<sub>g2</sub> &middot; a<sub>2</sub> = 0,5 &middot; 18 = 9</p>
-						<p>Obě strany se rovnají (9 = 9), páka je v rovnováze.</p>
+						<p>Na páce jsou zavěšena dvě závaží: m<sub>1</sub> = 200 g = 0,2 kg na rameni a<sub>1</sub> = 9 cm a m<sub>2</sub> = 100 g = 0,1 kg na rameni a<sub>2</sub> = 18 cm. Je páka v rovnováze?</p>
+						<p>F<sub>g1</sub> = m<sub>1</sub> &middot; g = 0,2 &middot; 10 = 2 N</p>
+						<p>F<sub>g2</sub> = m<sub>2</sub> &middot; g = 0,1 &middot; 10 = 1 N</p>
+						<p>F<sub>g1</sub> &middot; a<sub>1</sub> = 2 &middot; 9 = 18</p>
+						<p>F<sub>g2</sub> &middot; a<sub>2</sub> = 1 &middot; 18 = 18</p>
+						<p>Obě strany se rovnají (18 = 18), páka je v rovnováze. Dvojnásobná síla si vystačí s polovičním ramenem.</p>
 
 						<h3>Příklad 2</h3>
 						<p>Na rameni a<sub>1</sub> = 2 m působí síla F<sub>1</sub> = 20 N. Jak velká síla F<sub>2</sub> je potřeba na rameni a<sub>2</sub> = 4 m, aby byla páka v rovnováze?</p>
@@ -1656,7 +1672,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>g … gravitační konstanta (10 N/kg)</li>
 						</ul>
 						<h3>Příklad z hodiny (měřeno pěti způsoby)</h3>
-						<p>Těleso „vážilo" na závěsné váze na vzduchu 0,5 kg, ve vodě jen 0,425 kg. Rozdíl m = 0,075 kg → vztlaková síla Fvz = 0,075 · 10 = <strong>0,75 N</strong>. Dalšími metodami vyšlo 0,81 N, 0,76 N, 0,88 N a 0,86 N — průměr <strong>0,812 N</strong>. Měření není nikdy úplně přesné (bublinky, vlnky, zaokrouhlování).</p>
+						<p>Těleso „vážilo" na závěsné váze na vzduchu <strong>500 g</strong>, ve vodě jen <strong>400 g</strong>. Rozdíl m = 100 g = 0,1 kg → vztlaková síla Fvz = 0,1 &middot; 10 = <strong>1 N</strong>. Dalšími metodami vyšlo 1,1 N, 0,9 N, 1,1 N a 0,9 N — jejich průměr je zase <strong>1 N</strong> (součet 5 N děleno 5 měřeními). Měření není nikdy úplně přesné (bublinky, vlnky, zaokrouhlování), ale průměr se pravdě přiblíží.</p>
 						<h3>Potápění, vznášení, plování</h3>
 						<p>Porovnáváme vztlakovou sílu s tíhovou silou tělesa (nebo hustotu tělesa s hustotou kapaliny):</p>
 						<ul>
@@ -2157,8 +2173,8 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Příklad:</strong> Máma zvedá hračku o hmotnosti 600 g do výšky 150 cm.<br>
 						m = 0,6 kg → F = m · g = 0,6 · 10 = <strong>6 N</strong>; s = 1,5 m<br>
 						W = F · s = 6 · 1,5 = <strong>9 J</strong></p>
-						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4,5 km vykoná práci 900 MJ?<br>
-						s = 4 500 m, W = 900 000 000 J → F = W : s = 900 000 000 : 4 500 = <strong>200 000 N = 200 kN</strong></p>
+						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4 km vykoná práci 800 MJ?<br>
+						s = 4 000 m, W = 800 000 000 J → F = W : s = 800 000 000 : 4 000 = <strong>200 000 N = 200 kN</strong></p>
 					`,
 				},
 				{

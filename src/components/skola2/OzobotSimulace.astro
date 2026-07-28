@@ -25,11 +25,11 @@
 	</label>
 	<label class="sim-posuvnik">
 		Délka jednoho dílku: <output id="ozo-out-d"></output>
-		<input type="range" id="ozo-d" min="2" max="10" step="0.5" value="4" />
+		<input type="range" id="ozo-d" min="2" max="10" step="1" value="4" />
 	</label>
 	<label class="sim-posuvnik">
 		Naměřený čas průjezdu: <output id="ozo-out-t"></output>
-		<input type="range" id="ozo-t" min="5" max="90" step="1" value="30" />
+		<input type="range" id="ozo-t" min="5" max="90" step="1" value="20" />
 	</label>
 	<p class="ozo-vysledek" id="ozo-vysledek"></p>
 	<p class="ozo-pozor" id="ozo-pozor"></p>
@@ -55,10 +55,11 @@
 	const outA = document.getElementById('ozo-out-a'), outB = document.getElementById('ozo-out-b');
 	const outD = document.getElementById('ozo-out-d'), outT = document.getElementById('ozo-out-t');
 
-	const cz = (x, des = 1) => x.toFixed(des).replace('.', ',');
+	// celá čísla píšeme bez desetinných nul (80 cm, ne 80,0 cm) — děti mají počítat s celými čísly
+	const cz = (x, des = 1) => (Math.abs(x - Math.round(x)) < 1e-9 ? String(Math.round(x)) : x.toFixed(des).replace('.', ','));
 	const KROK = 46, X0 = 60, Y0 = 60;      // velikost dílku v pixelech a levý horní roh
 
-	let a = 6, b = 4, dilek = 4, cas = 30;
+	let a = 6, b = 4, dilek = 4, cas = 20;
 	let obvodDilku = 0;
 
 	function el(kam, jmeno, atributy) {
