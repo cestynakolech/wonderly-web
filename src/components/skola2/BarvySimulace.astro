@@ -1,0 +1,143 @@
+---
+// Vnímání barev (F7): dva režimy. RGB = skládání SVĚTEL (obrazovka): tři
+// reflektory na černém pozadí, překryvy sčítají světlo (mix-blend-mode:
+// screen) — vše na 100 % dá bílou, nic = tma. CMY = míchání BARVIV (tiskárna):
+// tři inkousty na bílém papíře, každý část světla POHLCUJE (multiply) — vše
+// na 100 % dá (skoro) černou. Posuvníky 0–100 % po 10 (celá čísla), výsledek
+// se počítá čistou funkcí stavBarev(rezim, a, b, c) vystavenou na SVG
+// (__stavBarev). Bez časové animace.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Míchárna barev — světla × barviva 🕹️</span></h2>
+	<p>Obrazovka barvy <strong>skládá ze světel</strong> (RGB — čím víc, tím světlejší), tiskárna je <strong>míchá z barviv</strong>, která světlo pohlcují (CMY — čím víc, tím tmavší). Vyzkoušej oba světy!</p>
+	<p id="barvy-rezimy">
+		<button type="button" class="barvy-tl barvy-aktivni" data-rezim="rgb">🖥️ skládání světel (RGB)</button>
+		<button type="button" class="barvy-tl" data-rezim="cmy">🖨️ míchání barviv (CMY)</button>
+	</p>
+	<svg id="barvy-svg" viewBox="0 0 660 340" role="img" aria-label="Tři překrývající se barevná světla nebo barviva a výsledná barva">
+		<rect id="barvy-pozadi" x="20" y="20" width="400" height="300" rx="12" fill="#000" stroke="#2b2a26" stroke-width="3" />
+		<g>
+			<circle id="barvy-k1" cx="180" cy="130" r="85" />
+			<circle id="barvy-k2" cx="260" cy="130" r="85" />
+			<circle id="barvy-k3" cx="220" cy="200" r="85" />
+		</g>
+		<text id="barvy-scena-pop" x="220" y="308" text-anchor="middle" font-size="12" font-weight="bold" fill="#868e96"></text>
+		<!-- výsledek vpravo -->
+		<text x="540" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">výsledná barva:</text>
+		<rect id="barvy-vysledek" x="470" y="60" width="140" height="110" rx="12" stroke="#2b2a26" stroke-width="3" />
+		<text id="barvy-nazev" x="540" y="200" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26"></text>
+		<text id="barvy-kod" x="540" y="226" text-anchor="middle" font-size="12" fill="#868e96"></text>
+		<text id="barvy-pocitac" x="540" y="250" text-anchor="middle" font-size="11" fill="#868e96"></text>
+	</svg>
+	<label class="sim-posuvnik"><span id="barvy-pop-a"></span> <output id="barvy-out-a"></output>
+		<input type="range" id="barvy-a" min="0" max="100" step="10" value="100" />
+	</label>
+	<label class="sim-posuvnik"><span id="barvy-pop-b"></span> <output id="barvy-out-b"></output>
+		<input type="range" id="barvy-b" min="0" max="100" step="10" value="100" />
+	</label>
+	<label class="sim-posuvnik"><span id="barvy-pop-c"></span> <output id="barvy-out-c"></output>
+		<input type="range" id="barvy-c" min="0" max="100" step="10" value="0" />
+	</label>
+	<p id="barvy-predvolby"></p>
+	<p class="barvy-stav" id="barvy-stav">👉 Hýbej posuvníky, nebo klikej na předvolby — a pak přepni na tiskárnu, kde totéž funguje obráceně.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (míchání barev bez DOM — kontrolovatelná výpočtem) ===
+	function stavBarev(rezim, a, b, c) {
+		// a, b, c = 0–100 %. RGB: a=červené, b=zelené, c=modré SVĚTLO (sčítá se).
+		// CMY: a=azurový, b=purpurový, c=žlutý INKOUST (pohlcuje R, G, B).
+		const r = Math.round(255 * (rezim === 'rgb' ? a : 100 - a) / 100);
+		const g = Math.round(255 * (rezim === 'rgb' ? b : 100 - b) / 100);
+		const bl = Math.round(255 * (rezim === 'rgb' ? c : 100 - c) / 100);
+		const klic = `${a},${b},${c}`;
+		const NAZVY = rezim === 'rgb'
+			? { '100,100,100': 'BÍLÁ — všechna světla naplno', '0,0,0': 'TMA (černé světlo neexistuje)',
+				'100,100,0': 'ŽLUTÁ (doplňková)', '100,0,100': 'PURPUROVÁ (doplňková)', '0,100,100': 'AZUROVÁ (doplňková)',
+				'100,0,0': 'ČERVENÁ (základní)', '0,100,0': 'ZELENÁ (základní)', '0,0,100': 'MODRÁ (základní)' }
+			: { '0,0,0': 'BÍLÝ PAPÍR — žádný inkoust', '100,100,100': 'ČERNÁ (v tiskárně ji dělá inkoust K)',
+				'0,100,100': 'ČERVENÁ (purpurová + žlutá)', '100,0,100': 'ZELENÁ (azurová + žlutá)', '100,100,0': 'MODRÁ (azurová + purpurová)',
+				'100,0,0': 'AZUROVÁ (základní barvivo)', '0,100,0': 'PURPUROVÁ (základní barvivo)', '0,0,100': 'ŽLUTÁ (základní barvivo)' };
+		return { r, g, b: bl, nazev: NAZVY[klic] || 'smíchaná barva', hex: '#' + [r, g, bl].map(x => x.toString(16).padStart(2, '0')).join('') };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	let rezim = 'rgb';
+	const svg = document.getElementById('barvy-svg');
+	svg.__stavBarev = stavBarev; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const POSUVNIKY = ['barvy-a', 'barvy-b', 'barvy-c'];
+	const POPISKY = {
+		rgb: ['🔴 červené světlo (R):', '🟢 zelené světlo (G):', '🔵 modré světlo (B):'],
+		cmy: ['🩵 azurový inkoust (C):', '💗 purpurový inkoust (M):', '💛 žlutý inkoust (Y):'],
+	};
+	const KRUHY = { rgb: ['#ff0000', '#00ff00', '#0000ff'], cmy: ['#00ffff', '#ff00ff', '#ffff00'] };
+	const PREDVOLBY = {
+		rgb: [['🤍 bílá', 100, 100, 100], ['💛 žlutá', 100, 100, 0], ['💜 purpurová', 100, 0, 100], ['🩵 azurová', 0, 100, 100], ['⬛ tma', 0, 0, 0]],
+		cmy: [['❤️ červená', 0, 100, 100], ['💚 zelená', 100, 0, 100], ['💙 modrá', 100, 100, 0], ['⬛ černá', 100, 100, 100], ['🤍 bílý papír', 0, 0, 0]],
+	};
+
+	function kresli() {
+		const [a, b, c] = POSUVNIKY.map(id => +g(id).value);
+		const s = stavBarev(rezim, a, b, c);
+		// popisky a hodnoty posuvníků
+		POPISKY[rezim].forEach((t, i) => { g('barvy-pop-' + 'abc'[i]).textContent = t; g('barvy-out-' + 'abc'[i]).textContent = [a, b, c][i] + ' %'; });
+		// scéna: reflektory na černé (screen) × inkousty na bílé (multiply)
+		g('barvy-pozadi').setAttribute('fill', rezim === 'rgb' ? '#000' : '#fff');
+		[a, b, c].forEach((v, i) => {
+			const k = g('barvy-k' + (i + 1));
+			k.setAttribute('fill', KRUHY[rezim][i]);
+			k.setAttribute('fill-opacity', v / 100);
+			k.style.mixBlendMode = rezim === 'rgb' ? 'screen' : 'multiply';
+		});
+		g('barvy-scena-pop').textContent = rezim === 'rgb' ? 'tři reflektory na černé zdi (překryvy se SČÍTAJÍ)' : 'tři inkousty na bílém papíře (překryvy POHLCUJÍ víc)';
+		// výsledek
+		g('barvy-vysledek').setAttribute('fill', s.hex);
+		g('barvy-nazev').textContent = s.nazev;
+		g('barvy-kod').textContent = `${rezim === 'rgb' ? 'složené' : 'odražené'} světlo: R ${s.r} · G ${s.g} · B ${s.b}`;
+		g('barvy-pocitac').textContent = '(v počítači se každá složka zapisuje 0–255; 100 % = 255)';
+		g('barvy-stav').textContent = rezim === 'rgb'
+			? (s.nazev.startsWith('BÍLÁ') ? '🤍 Bílé světlo = složení VŠECH tří základních světel se stejnou intenzitou.'
+				: s.nazev.startsWith('TMA') ? '⬛ Žádné světlo = tma. Černé světlo neexistuje — černá je nepřítomnost světla.'
+				: '🖥️ Takhle skládá barvy každá obrazovka: tři svítící tečky R, G, B vedle sebe — a mozek si je složí.')
+			: (s.nazev.startsWith('ČERNÁ') ? '⬛ Všechna barviva dohromady pohltí (skoro) všechno světlo. Tiskárny si proto přidávají čtvrtý inkoust K = černý.'
+				: s.nazev.startsWith('BÍLÝ') ? '📄 Bez inkoustu se od papíru odráží všechno světlo — vidíš bílou.'
+				: '🖨️ Barviva světlo POHLCUJÍ: čím víc inkoustů smícháš, tím TMAVŠÍ výsledek — přesně naopak než u světel.');
+		for (const t of document.querySelectorAll('#barvy-rezimy [data-rezim]')) t.classList.toggle('barvy-aktivni', t.dataset.rezim === rezim);
+	}
+
+	function predvolby() {
+		const p = document.getElementById('barvy-predvolby');
+		p.innerHTML = '';
+		for (const [nazev, a, b, c] of PREDVOLBY[rezim]) {
+			const tl = document.createElement('button');
+			tl.type = 'button'; tl.className = 'barvy-tl'; tl.textContent = nazev;
+			tl.addEventListener('click', () => { POSUVNIKY.forEach((id, i) => { g(id).value = [a, b, c][i]; }); kresli(); });
+			p.appendChild(tl);
+		}
+	}
+
+	document.getElementById('barvy-rezimy').addEventListener('click', (e) => {
+		const tl = e.target.closest('[data-rezim]');
+		if (!tl) return;
+		rezim = tl.dataset.rezim;
+		// smysluplný start: světla naplno×žlutá ukázka? — při přepnutí nastavit učebnicový příklad
+		POSUVNIKY.forEach((id, i) => { g(id).value = rezim === 'rgb' ? [100, 100, 0][i] : [0, 100, 100][i]; });
+		predvolby();
+		kresli();
+	});
+	POSUVNIKY.forEach(id => g(id).addEventListener('input', kresli));
+	predvolby();
+	kresli();
+</script>
+
+<style>
+	#barvy-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.barvy-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.barvy-tl.barvy-aktivni { background: #ffe8cc; }
+	.barvy-tl:active { transform: translateY(1px); }
+	.barvy-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

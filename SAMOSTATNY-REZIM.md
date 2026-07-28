@@ -1,14 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 55 hotové — checkpoint dělby rolí)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 56 hotové — míchárna barev)
 
-Hotovo 55 kol samostatného režimu (53 simulací na 55 stránkách, 356+ kvízových otázek).
+Hotovo 56 kol samostatného režimu (54 simulací na 56 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (56):** kandidát č. 1 nového seznamu — **F7 vnímání barev: RGB míchačka**
-(posuvníky R/G/B 0–255, aditivní míchání světel, přepínač na subtraktivní CMY tiskárnu).
+**DALŠÍ KOLO (57):** kandidát č. 2 nového seznamu — **F9 alternátor** (otáčející se magnet
+v cívce, ručička voltmetru, kreslící se sinusovka). POZOR: časová animace → plná kontrola
+animací (čistá funkce času, vzorkování po 16 ms, UX tam-i-zpět).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -16,8 +17,9 @@ POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart
 Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁDAT
 (šest čistě statických ovladačů, šest s časovou animací → plná kontrola animací):
 
-1. [ ] **F7 vnimani-barev** — RGB míchačka: posuvníky R/G/B 0–255 → výsledná barva,
-   aditivní (obrazovka) × subtraktivní CMY (tiskárna); celá čísla přirozeně.
+1. [x] **F7 vnimani-barev** — HOTOVO v kole 56 (BarvySimulace: reflektory na černé
+   s mix-blend screen × inkousty na bílé s multiply, posuvníky 0–100 % po 10, pojmenování
+   učebnicových barev, předvolby, přepočet na 0–255).
 2. [ ] **F9 vznik-stridaveho-proudu-alternator** — otáčející se magnet v cívce, ručička
    voltmetru + kreslící se sinusovka; POZOR časová animace (čistá funkce času, 16 ms).
 3. [ ] **F9 pusobeni-pole-na-vodic-elektromotor** — síla na vodič v poli (prohoď proud/póly),

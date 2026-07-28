@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 56: BarvySimulace (RGB × CMY).** F7 vnímání barev: skládání světel
+  (tři reflektory na černé zdi, mix-blend screen — překryvy dělají žlutou/purpurovou/
+  azurovou/bílou samy) × míchání barviv (inkousty na bílém papíře, multiply — víc inkoustů
+  = tmavší). Posuvníky 0–100 % po 10, předvolby, pojmenování učebnicových barev, přepočet
+  na 0–255. Čistá funkce stavBarev — 12 učebnicových kombinací ověřeno výpočtem i DOM.
+  Celkem 54 simulací.
 - **2026-07-29 — kolo 55: checkpoint dělby rolí Claude × lokální modely.** Revize kol 46–54:
   dělba správná (kód a ověřování Claude — vzor „čistá funkce + Node + čtení DOM" nulově
   drahý a odhaluje chyby; audit kandidátů obyčejným parserem). Vision nebyla potřeba;
