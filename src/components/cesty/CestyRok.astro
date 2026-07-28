@@ -18,6 +18,26 @@ const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 // třech položkách (přání učitele 28. 7. 2026 — shluky měst byly nepřehledné).
 const pohledy = pripravPohledy(data.mesta, data.vyrez ?? spocitejVyrez(data.mesta));
 const koren = pohledy[0];
+// trasa v pořadí návštěvy + šipky směru; body bez vlastního pinu (proti dvojitým kolečkům)
+const korenMistaSPinem = new Set(koren.polozky.filter((p) => p.typ === 'misto').map((p) => p.id));
+const korenPoradi = new Map(koren.body.map((b) => [b.slug, b.poradi]));
+const korenVsechnyMisto = koren.polozky.length > 0 && koren.polozky.every((p) => p.typ === 'misto');
+const korenUzly = korenVsechnyMisto
+	? [...koren.polozky].sort((a, b) => (korenPoradi.get(a.id) ?? 0) - (korenPoradi.get(b.id) ?? 0))
+	: koren.body;
+const korenTrasa = korenUzly.map((b) => `${b.x},${b.y}`).join(' ');
+const korenSipky = [];
+for (let i = 0; i < korenUzly.length - 1; i++) {
+	const a = korenUzly[i];
+	const b = korenUzly[i + 1];
+	if (Math.hypot(b.x - a.x, b.y - a.y) < koren.pinR * 2) continue;
+	korenSipky.push({
+		mx: (a.x + b.x) / 2,
+		my: (a.y + b.y) / 2,
+		uhel: (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI,
+	});
+}
+const sipkaTvar = (s: number) => `${s},0 ${-s * 0.6},${s * 0.7} ${-s * 0.6},${-s * 0.7}`;
 // pod celkovou mapou se vypisují místa jen tehdy, když jich není moc; jinak rozcestník
 const korenUkazujeMista = data.mesta.length <= MAX_POLOZEK;
 const texty = {
@@ -44,7 +64,16 @@ const texty = {
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		<g id="mapa-vrstva">
-			{koren.body.map((b) => <circle class="pin pin-bod" cx={b.x} cy={b.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />)}
+			{korenUzly.length >= 2 && <polyline class="trasa-cara" points={korenTrasa} stroke-width={koren.pinR / 1.5} />}
+			{korenSipky.map((s) => (
+				<polygon class="trasa-sipka" points={sipkaTvar(koren.pinR * 0.75)} transform={`translate(${s.mx} ${s.my}) rotate(${s.uhel})`} />
+			))}
+			{koren.body
+				.filter((b) => !korenMistaSPinem.has(b.slug))
+				.map((b) => <circle class="pin pin-bod" cx={b.x} cy={b.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />)}
+			{koren.polozky
+				.filter((p) => p.typ === 'misto')
+				.map((p) => <circle class="pin pin-hlavni" cx={p.x} cy={p.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />)}
 			{
 				koren.polozky
 					.filter((p) => p.typ === 'skupina')
@@ -183,8 +212,41 @@ const texty = {
 
 		function vykresli(pohled) {
 			vrstva.textContent = '';
-			// drobné body všech míst pohledu
+			// trasa: spojnice míst v pořadí návštěvy + šipky směru jízdy (pod vším ostatním).
+			// Když jsou všechny položky jednotlivá města, vede trasa PŘES KOLEČKA (piny jsou
+			// kvůli čitelnosti rozestoupené a skutečné polohy skoro splývají); mezi shluky
+			// vede přes skutečné polohy.
+			const poradiSlugu = new Map(pohled.body.map((b) => [b.slug, b.poradi]));
+			const vsechnyMisto = pohled.polozky.length > 0 && pohled.polozky.every((p) => p.typ === 'misto');
+			const uzlyTrasy = vsechnyMisto
+				? [...pohled.polozky].sort((a, b) => (poradiSlugu.get(a.id) ?? 0) - (poradiSlugu.get(b.id) ?? 0))
+				: pohled.body;
+			if (uzlyTrasy.length >= 2) {
+				const trasa = uzlyTrasy.map((b) => `${b.x},${b.y}`).join(' ');
+				vrstva.appendChild(
+					prvek('polyline', { class: 'trasa-cara', points: trasa, 'stroke-width': pohled.pinR / 1.5 }),
+				);
+				for (let i = 0; i < uzlyTrasy.length - 1; i++) {
+					const a = uzlyTrasy[i];
+					const b = uzlyTrasy[i + 1];
+					if (Math.hypot(b.x - a.x, b.y - a.y) < pohled.pinR * 2) continue; // šipka se nevejde
+					const mx = (a.x + b.x) / 2;
+					const my = (a.y + b.y) / 2;
+					const uhel = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
+					const s = pohled.pinR * 0.75;
+					vrstva.appendChild(
+						prvek('polygon', {
+							class: 'trasa-sipka',
+							points: `${s},0 ${-s * 0.6},${s * 0.7} ${-s * 0.6},${-s * 0.7}`,
+							transform: `translate(${mx} ${my}) rotate(${uhel})`,
+						}),
+					);
+				}
+			}
+			// drobné body míst — jen ta, která v tomhle pohledu nemají vlastní pin (žádná dvojitá kolečka)
+			const mistaSPinem = new Set(pohled.polozky.filter((p) => p.typ === 'misto').map((p) => p.id));
 			for (const b of pohled.body) {
+				if (mistaSPinem.has(b.slug)) continue;
 				vrstva.appendChild(
 					prvek('circle', { class: 'pin pin-bod', cx: b.x, cy: b.y, r: pohled.pinR, 'stroke-width': pohled.pinR / 3.5 }),
 				);
@@ -426,6 +488,17 @@ const texty = {
 		stroke: #c83c37;
 		stroke-dasharray: 1.5 1.5;
 		vector-effect: non-scaling-stroke;
+	}
+	.trasa-cara {
+		fill: none;
+		stroke: #c83c37;
+		stroke-opacity: 0.75;
+		stroke-linejoin: round;
+		stroke-linecap: round;
+	}
+	.trasa-sipka {
+		fill: #c83c37;
+		fill-opacity: 0.8;
 	}
 	.mapa-rozcestnik {
 		list-style: none;

@@ -216,8 +216,8 @@ export interface PohledMapy {
 	vyrez: { x: number; y: number; sirka: number; vyska: number };
 	pinR: number;
 	pismo: number;
-	/** všechna místa pohledu (drobné body v pozadí) */
-	body: { x: number; y: number; slug: string }[];
+	/** všechna místa pohledu (drobné body v pozadí); poradi = pořadí návštěvy na cestě */
+	body: { x: number; y: number; slug: string; poradi: number }[];
 	polozky: PolozkaMapy[];
 	popisky: PopisekPolozky[];
 	/** slugy míst, která se mají ukázat pod mapou */
@@ -359,6 +359,7 @@ export function pripravPohledy<T extends MistoNaMape>(
 ): PohledMapy[] {
 	const pohledy: PohledMapy[] = [];
 	if (!mista.length) return pohledy;
+	const poradiNavstevy = new Map(mista.map((m, i) => [m.slug, i]));
 
 	const postav = (
 		skupina: T[],
@@ -418,7 +419,9 @@ export function pripravPohledy<T extends MistoNaMape>(
 			vyrez,
 			pinR,
 			pismo,
-			body: skupina.map((m) => ({ x: m.x, y: m.y, slug: m.slug })),
+			body: skupina
+				.map((m) => ({ x: m.x, y: m.y, slug: m.slug, poradi: poradiNavstevy.get(m.slug) ?? 0 }))
+				.sort((a, b) => a.poradi - b.poradi),
 			polozky,
 			popisky: rozmistiPopiskyPolozek(polozky, pismo, vyrez),
 			slugy: skupina.map((m) => m.slug),

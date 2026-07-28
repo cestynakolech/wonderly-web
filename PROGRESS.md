@@ -93,6 +93,13 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — mapa deníku: trasa jízdy + konec dvojitých koleček (připomínka učitele).**
+  V přiblížených pohledech se každé město kreslilo dvakrát (skutečná poloha + rozestoupený
+  pin) a chyběla trasa. Nově: (1) body bez vlastního pinu se nekreslí (žádné kolečko navíc),
+  (2) všechny pohledy mají SPOJNICI TRASY v pořadí návštěvy se šipkami směru jízdy —
+  v pohledech jednotlivých měst vede přes samotná kolečka (skutečné polohy těsných měst
+  skoro splývají), mezi shluky přes skutečné polohy. Ověřeno všech 7 pohledů roku 2026
+  programově (uzly = piny, žádná dvojitá kolečka, pořadí = pořadí návštěvy) + screenshoty.
 - **2026-07-28 — kolo 47: opravy animací dle učitele + pravidlo kontroly animací.** Skatepark
   se třením skutečně JEZDÍ (čistá funkce stavJizdy, jízda po Bézierově křivce — kontrola po
   16 ms odhalila a odstranila 56px skok u paty rampy), elektromagnet má VYPÍNAČ (zapnout →
