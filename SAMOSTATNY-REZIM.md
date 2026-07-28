@@ -103,7 +103,12 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - [ ] Projít prezentace /Users/Shared/Škola/9/ — dtto
 
 ## Čeká na odkliknutí (uživatel schválí, až bude u počítače)
-(zatím nic — nové typy akcí sem zapsat a pokračovat dalším úkolem)
+- **Hermes — sjednocení návodů (audit z noci 29. 7.):** `Omega/dokumenty/HERMES-audit-navodu-2026-07-29.md`
+  — Hermes JE nainstalovaný (~/.hermes), návody z 11. 6. a pasáž v OFFLINE-REZIM.md zastaraly.
+  Návrh: jeden HERMES-NAVOD.md + pokyn v ~/.hermes/SOUL.md „čti CLAUDE.md/PROGRESS.md" (Hermes
+  md soubory pro Clauda číst UMÍ). Rozhodnutí ráno.
+- **Automatický restart samostatného režimu po obnově tokenů:** šlo by naplánovanou úlohou
+  (cron v danou hodinu spustí novou session). Nová trvalá konfigurace → jen se souhlasem.
 
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
 (zatím nic — pravidlo: po 3 neúspěšných pokusech změny vrátit, sem zapsat co selhalo a co bylo vyzkoušeno, a vzít další úkol z fronty)
