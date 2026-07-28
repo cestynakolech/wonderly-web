@@ -5,13 +5,15 @@
 Hotovo 33 kol samostatného režimu + velká session 28. 7. (celá čísla, mapa deníku, offline režim).
 Vše nasazené, repo čisté. Poslední commity: `319cd8a`, `2b3a4df`, `a21a852`.
 
-**ČEKÁ NA UŽIVATELE (dělá sám v terminálu):**
-- Sjednocení úložiště modelů do `/Users/Shared/ollama-models` (rozhodnuto varianta A).
-  Postup: `sudo mkdir` → `sudo mv` modelů druhého účtu (přesun je okamžitý, nekopíruje) →
-  `rsync --ignore-existing` vlastních → `launchctl setenv OLLAMA_MODELS` → restart Ollamy →
-  `ollama list` musí ukázat 8 modelů včetně ThinkingCap-Qwen3.6.
-  **Až potom** (a jen s jeho potvrzením) smazat `~/.ollama/models` — uvolní ~75 GB.
-  POZOR: nekopírovat obě složky rsyncem, na disku je jen 137 GB volných.
+**✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
+`~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
+stará složka (75 GB) smazána, druhý účet `radekmicek` odhlášen (uvolnilo 10,7 GB RAM a 319
+procesů) a **nic to nerozbilo** — server i všech 8 automatů běží pod hlavním účtem.
+Detaily a pasti: skill **`/ollama-mac`**. Komunikace s druhým účtem: skill **`/most`**
+(`/Users/Shared/Claude-most/`, otestováno obousměrně). Dřívější plán s `OLLAMA_MODELS`
+a variantou A byl **mylný** — proměnnou aplikace přebíjí, funguje jen symlink.
+
+**ČEKÁ NA UŽIVATELE:**
 - Odkaz na video „Teplota a její měření – F6" (na kanálu není).
 
 **DALŠÍ KOLO (34) — podklady už jsou vytěžené, stačí vyrábět.** Vision analýza prezentací
@@ -36,10 +38,11 @@ teplotní roztažnosti — malý doplněk.
 - **Bez wifi**: `Omega/skripty/graf_local.py` (+ `revize_grafu.py` jako nezávislá revize).
   Návod `Omega/dokumenty/OFFLINE-REZIM.md`.
 
-**ODLOŽENO (3 pokusy vyčerpány 28. 7.):** ostrý běh `graf_local.py` s plným diamantem se
-zasekl na střídání modelů v Ollamě (stav „Stopping…"). Dílčí části ověřené jsou: role, výběr
-kontrolora z jiné rodiny, vynucení JSON schématem, hlasování. Zkusit znovu AŽ po sjednocení
-úložiště modelů — a s úkolem, který používá jen dva modely (jen text, nebo jen kód).
+**ODLOŽENO → PODMÍNKA SPLNĚNA, LZE ZKUSIT ZNOVU:** ostrý běh `graf_local.py` s plným
+diamantem se 28. 7. zasekl na střídání modelů v Ollamě (stav „Stopping…"); mělo se to
+zkusit až po sjednocení úložiště — **to je od 28. 7. 14:05 hotové a všech 11 modelů je
+dostupných**. Dílčí části ověřené: role, výběr kontrolora z jiné rodiny, vynucení JSON
+schématem, hlasování. Začít úkolem, který používá jen dva modely (jen text, nebo jen kód).
 
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
