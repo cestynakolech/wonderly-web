@@ -3015,6 +3015,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Látka s vysokým c (např. voda) se…', odpovedi: ['ohřívá i chladne pomalu a drží hodně energie', 'ohřívá velmi rychle', 'nikdy neohřeje'], vysvetleni: 'Vysoké c → pomalé ohřívání, dobrý zásobník tepla.' },
 		{ text: 'Proč se kovy hodí na chladiče a topná tělesa?', odpovedi: ['mají nízké c — rychle vedou teplo', 'jsou barevné', 'jsou lehké'], vysvetleni: 'Nízké c = rychlé ohřátí i ochlazení = dobrý tepelný vodič.' },
 		{ text: 'Uvařit vodu pro 20 lidí potřebuje oproti vodě pro 2 lidi…', odpovedi: ['více tepla (větší hmotnost)', 'méně tepla', 'stejně tepla'], vysvetleni: 'Větší hmotnost → větší spotřeba tepla.' },
+		{ text: 'V kalorimetru smícháš horkou a studenou vodu. Jak souvisí odevzdané a přijaté teplo (bez ztrát)?', odpovedi: ['jsou si přesně rovny', 'odevzdané je vždy větší', 'přijaté je vždy větší'], vysvetleni: 'Kolik tepla teplejší voda odevzdá, přesně tolik studenější přijme — energie se nikam neztrácí.' },
+		{ text: 'Smícháš 1 kg vody o 20 °C a 1 kg vody o 60 °C (stejné hmotnosti). Jaká bude výsledná teplota?', odpovedi: ['40 °C — prostý průměr', '20 °C', '60 °C'], vysvetleni: 'Při STEJNÝCH hmotnostech je výsledek prostý průměr: (20+60):2 = 40 °C. Při různých hmotnostech by to tak jednoduché nebylo.' },
 	],
 	'fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj': [
 		{ text: 'Co dělá tepelný motor?', odpovedi: ['přeměňuje teplo na pohyb', 'přeměňuje pohyb na světlo', 'vyrábí teplo z pohybu'], vysvetleni: 'Tepelný motor mění teplo na pohybovou energii.' },

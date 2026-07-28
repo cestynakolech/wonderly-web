@@ -1,12 +1,14 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 40 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 41 hotové)
 
-Hotovo 40 kol samostatného režimu (43 simulací, 354 kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1 a 2 hotové).
-**DALŠÍ KOLO (41):** kandidát č. 3 — **F8 kalorimetr** (smíchání teplé a studené vody,
-výsledná teplota; při stejných hmotnostech průměr → celá čísla).
+Hotovo 41 kol samostatného režimu (44 simulací, 356+ kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–3 hotové).
+**DALŠÍ KOLO (42):** kandidát č. 4 — **F8 přeměny energie** (skatepark/kyvadlo, Ep×Ek
+v reálném čase; jedna simulace pro obě stránky pohybová-a-polohová-energie
+i zakon-zachovani-mechanicke-energie).
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
+Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
 `~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
@@ -56,8 +58,8 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
    klidové × smykové, vše celé N).
 2. [x] **F7 archimeduv-zakon** — HOTOVO v kole 40 (ArchimedesSimulace: siloměr ve 3 fázích,
    4 materiály × 3 kapaliny, vše celé N).
-3. [ ] **F8 tepelna-vymena-a-teplo** — kalorimetr: smíchej teplou a studenou vodu, Q = c·m·Δt,
-   výsledná teplota (při stejných hmotnostech = průměr → celá čísla).
+3. [x] **F8 tepelna-vymena-a-teplo** — HOTOVO v kole 41 (KalorimetrSimulace: generátor úloh
+   s celými výsledky, bilance odevzdané=přijaté teplo).
 4. [ ] **F8 pohybova-a-polohova-energie + zakon-zachovani** — skatepark/kyvadlo: sloupce Ep×Ek
    v reálném čase; JEDNA simulace na OBĚ stránky (vzor OhrevSimulace).
 5. [ ] **F9 elektromagneticka-indukce** — magnet do cívky: rychlost pohybu → výchylka
@@ -96,6 +98,14 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 41): **KalorimetrSimulace** — generátor úloh na smíchání teplé a studené vody
+  (F8 energie/tepelna-vymena-a-teplo): dvě kádinky (1–3 kg, studená 10–25 °C, horká 40–85 °C)
+  slité do kalorimetru, hádej výslednou teplotu; generátor vybírá jen úlohy s CELÝM výsledkem
+  a celými kJ tepla; po správné odpovědi bilance „Q odevzdané = Q přijaté". Hlášky na typické
+  chyby: prostý průměr při různých hmotnostech, tip mimo rozmezí obou teplot. Ověřeno 5000×
+  v Node + 8 úloh proklikáno v náhledu (0 chyb), konzole čistá. Kvíz doplněn o 2 otázky na
+  bilanci tepla a průměr při stejných hmotnostech (regex počítadlo v zkontroluj.mjs podhodnocuje
+  starší jednořádkový styl zápisu — zapsáno jako drobný dluh do fronty, funkčně vše OK).
 - 2026-07-28 (kolo 40): **ArchimedesSimulace** — pokus se siloměrem (F7 vztlakova-sila/archimeduv-zakon
   dle hodinového pokusu z výkladu): 3 fáze (ve vzduchu → ponořené → odepnuté), 4 materiály
   (dřevo 600 / led 900 / plast 1200 / ocel 8000) × 3 kapaliny (olej 900 / voda 1000 / slaná 1200),

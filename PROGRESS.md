@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 41: KalorimetrSimulace (smíchání teplé a studené vody).** F8
+  tepelna-vymena-a-teplo: generátor úloh s celou výslednou teplotou a celými kJ tepla,
+  bilance odevzdané=přijaté teplo, hlášky na typické chyby. Kvíz +2 otázky. Ověřeno 5000×
+  v Node + 8 úlohami v náhledu. Celkem 44 simulací.
 - **2026-07-28 — kolo 40: ArchimedesSimulace (pokus se siloměrem).** F7 archimeduv-zakon:
   3 fáze (vzduch → ponoř → odepni), 4 materiály × 3 kapaliny × objem 1–3 l, vše celé N;
   rozdíl na siloměru = vztlaková síla; plove / vznáší se / potápí se dle hustot. Nález kontrolora:

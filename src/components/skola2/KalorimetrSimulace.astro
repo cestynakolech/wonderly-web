@@ -1,0 +1,132 @@
+---
+// Kalorimetr (F8 tepelná výměna): slij studenou a horkou vodu a PŘEDPOVĚZ
+// výslednou teplotu. Generátor vybírá jen úlohy, kde výsledná teplota
+// t = (m₁t₁ + m₂t₂)/(m₁+m₂) vyjde CELÁ a teplo Q = 4200·m·Δt dá celé kJ;
+// odevzdané a přijaté teplo si jsou vždy rovny (kontrolováno). Hlášky cílí
+// na typické chyby: prostý průměr při různých hmotnostech a tip mimo
+// rozmezí obou teplot. Po správném tipu se ukáže bilance tepla.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kalorimetr — předpověz výslednou teplotu 🕹️</span></h2>
+	<p>Do kalorimetru (izolované nádoby) sliješ <strong>studenou</strong> a <strong>horkou</strong> vodu. Teplá voda teplo <strong>odevzdá</strong>, studená ho <strong>přijme</strong> — teploty se vyrovnají. Odhadni, na jaké teplotě se potkají!</p>
+	<p>
+		<button type="button" class="kal-tl" id="kal-novy">🎲 Nová úloha</button>
+	</p>
+	<svg id="kal-svg" viewBox="0 0 660 330" role="img" aria-label="Dvě kádinky s vodou a kalorimetr">
+		<!-- studená kádinka -->
+		<g stroke="#2b2a26" stroke-width="3" fill="none">
+			<path d="M60 90 L60 220 Q60 232 72 232 L158 232 Q170 232 170 220 L170 90" />
+			<path d="M260 90 L260 220 Q260 232 272 232 L358 232 Q370 232 370 220 L370 90" />
+		</g>
+		<rect id="kal-voda1" x="64" y="130" width="102" height="98" rx="6" fill="#74c0fc" opacity="0.85" />
+		<rect id="kal-voda2" x="264" y="130" width="102" height="98" rx="6" fill="#ff8787" opacity="0.85" />
+		<text id="kal-pop1" x="115" y="262" text-anchor="middle" font-size="15" font-weight="bold" fill="#1971c2"></text>
+		<text id="kal-pop2" x="315" y="262" text-anchor="middle" font-size="15" font-weight="bold" fill="#e03131"></text>
+		<text x="115" y="284" text-anchor="middle" font-size="13" fill="#868e96">studená</text>
+		<text x="315" y="284" text-anchor="middle" font-size="13" fill="#868e96">horká</text>
+		<!-- šipka slití -->
+		<text x="425" y="165" font-size="26" font-weight="bold" fill="#868e96">➜</text>
+		<!-- kalorimetr -->
+		<g stroke="#2b2a26" stroke-width="4" fill="none">
+			<path d="M470 80 L470 230 Q470 244 484 244 L616 244 Q630 244 630 230 L630 80" />
+			<path d="M478 88 L478 224 Q478 236 490 236 L610 236 Q622 236 622 224 L622 88" stroke-width="2.5" stroke="#868e96" />
+		</g>
+		<rect id="kal-voda3" x="482" y="140" width="136" height="92" rx="6" fill="#e9ecef" opacity="0.9" />
+		<text id="kal-pop3" x="550" y="120" text-anchor="middle" font-size="17" font-weight="bold" fill="#495057">?</text>
+		<text x="550" y="262" text-anchor="middle" font-size="13" fill="#868e96">kalorimetr (izolace)</text>
+		<text id="kal-bilance" x="330" y="318" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44"></text>
+	</svg>
+	<div class="kal-krok">
+		<label>Výsledná teplota po smíchání: <input type="number" id="kal-in" /> °C</label>
+		<button type="button" class="kal-tl" id="kal-over">Ověřit</button>
+	</div>
+	<p class="kal-stav" id="kal-stav"></p>
+	<p class="kal-skore" id="kal-skore"></p>
+</section>
+
+<script>
+	const stavEl = document.getElementById('kal-stav');
+	const skoreEl = document.getElementById('kal-skore');
+	const inEl = document.getElementById('kal-in');
+	let u = null, prvni = true, naPrvni = 0, celkem = 0;
+
+	function novaUloha() {
+		for (let i = 0; i < 500; i++) {
+			const m1 = 1 + Math.floor(Math.random() * 3), m2 = 1 + Math.floor(Math.random() * 3);
+			const t1 = 10 + Math.floor(Math.random() * 16);
+			const t2 = 40 + Math.floor(Math.random() * 46);
+			const cit = m1 * t1 + m2 * t2, jm = m1 + m2;
+			if (cit % jm !== 0) continue;
+			const t = cit / jm;
+			const dQ = m1 * (t - t1);
+			if ((dQ * 42) % 10 !== 0) continue;      // Q = 4,2·dQ kJ musí být celé
+			if (m2 * (t2 - t) !== dQ) continue;
+			return { m1, m2, t1, t2, t, Qkj: Math.round(dQ * 4.2) };
+		}
+		return { m1: 1, m2: 1, t1: 20, t2: 60, t: 40, Qkj: 84 };
+	}
+
+	function vypis() {
+		document.getElementById('kal-pop1').textContent = u.m1 + ' kg · ' + u.t1 + ' °C';
+		document.getElementById('kal-pop2').textContent = u.m2 + ' kg · ' + u.t2 + ' °C';
+		document.getElementById('kal-pop3').textContent = '? °C';
+		document.getElementById('kal-voda3').setAttribute('fill', '#e9ecef');
+		document.getElementById('kal-bilance').textContent = '';
+		// výška vody podle hmotnosti (1 kg = 33 px)
+		for (const [id, m] of [['kal-voda1', u.m1], ['kal-voda2', u.m2]]) {
+			const el = document.getElementById(id);
+			el.setAttribute('y', 228 - m * 33);
+			el.setAttribute('height', m * 33);
+		}
+		const el3 = document.getElementById('kal-voda3');
+		el3.setAttribute('y', 236 - (u.m1 + u.m2) * 24);
+		el3.setAttribute('height', (u.m1 + u.m2) * 24);
+		inEl.value = '';
+		inEl.disabled = false;
+		document.getElementById('kal-over').disabled = false;
+		stavEl.textContent = '👉 Teplá voda teplo odevzdá, studená přijme. Kam se teploty vyrovnají? (Nápověda: záleží i na hmotnostech.)';
+	}
+
+	document.getElementById('kal-over').addEventListener('click', () => {
+		const z = parseInt(inEl.value, 10);
+		if (Number.isNaN(z)) { stavEl.textContent = '✏️ Napiš do okénka číslo.'; return; }
+		const { m1, m2, t1, t2, t, Qkj } = u;
+		if (z === t) {
+			celkem++; if (prvni) naPrvni++;
+			stavEl.innerHTML = `🎉 <strong>Správně, ${t} °C!</strong> Výpočet: (${m1} × ${t1} + ${m2} × ${t2}) : ${m1 + m2} = ${t} °C. Teplá voda odevzdala Q = 4200 × ${m2} × ${t2 - t} = <strong>${Qkj} kJ</strong> a studená přesně tolik přijala (4200 × ${m1} × ${t - t1}) — odevzdané teplo = přijaté teplo.`;
+			document.getElementById('kal-pop3').textContent = t + ' °C';
+			document.getElementById('kal-voda3').setAttribute('fill', '#ffc078');
+			document.getElementById('kal-bilance').textContent = 'Q odevzdané = Q přijaté = ' + Qkj + ' kJ ✓';
+			skoreEl.textContent = `Skóre: ${naPrvni} z ${celkem} úloh na první pokus.`;
+			inEl.disabled = true;
+			document.getElementById('kal-over').disabled = true;
+			return;
+		}
+		prvni = false;
+		const prostyPrumer = (t1 + t2) % 2 === 0 ? (t1 + t2) / 2 : null;
+		if (m1 !== m2 && prostyPrumer !== null && z === prostyPrumer) {
+			stavEl.textContent = `❌ To je prostý průměr obou teplot — jenže ${m1 === Math.max(m1, m2) ? 'studené' : 'horké'} vody je víc, takže výsledek přetáhne k její teplotě. Zkus vážený průměr: (m₁t₁ + m₂t₂) : (m₁ + m₂).`;
+		} else if (z <= t1 || z >= t2) {
+			stavEl.textContent = `❌ Výsledek musí ležet MEZI ${t1} a ${t2} °C — smícháním nevznikne voda studenější než studená ani teplejší než horká.`;
+		} else {
+			stavEl.textContent = `❌ Nesedí. Počítej (${m1} × ${t1} + ${m2} × ${t2}) : ${m1 + m2}.`;
+		}
+	});
+
+	document.getElementById('kal-novy').addEventListener('click', () => { u = novaUloha(); prvni = true; vypis(); });
+	u = novaUloha();
+	vypis();
+</script>
+
+<style>
+	#kal-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.kal-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.kal-tl:disabled { opacity: 0.45; cursor: not-allowed; }
+	.kal-tl:active:not(:disabled) { transform: translateY(1px); }
+	.kal-krok { font-weight: 700; margin: 0.6rem 0; }
+	.kal-krok input { font: inherit; font-weight: 700; width: 6rem; padding: 0.2rem 0.4rem; border: 3px solid #2b2a26; border-radius: 8px; }
+	.kal-krok input:disabled { opacity: 0.45; }
+	.kal-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.kal-skore { font-weight: 700; color: #2f9e44; }
+</style>
