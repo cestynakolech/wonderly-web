@@ -31,6 +31,12 @@ Když se dotaz na běžnou práci přesto objeví → opravit vrátného, ne all
 
 _Na začátku kola PŘEČTI, na konci AKTUALIZUJ a commitni. Postup: skill /wonderly, sekce „Samostatný režim"._
 
+### 🧹 Úklid před smazáním kontextu (28. 7. 2026, 23:30)
+Vše uložené a nasazené, repo čisté, poslední commit = zápis kol 29–33.
+V nové session stačí: `/wonderly` + `/loop` → kolo 34 (vision prezentace F6).
+Nové od minula: **vrátný povolení** `Omega/skripty/povoleni_hook.py` (konec odklikávání)
+a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` a `Omega/PRAVIDLA.md`.
+
 ## Fronta nápadů (seřazeno podle priority)
 
 ### Kandidáti na simulace (z auditu temata.ts, 23. 7. 2026)
