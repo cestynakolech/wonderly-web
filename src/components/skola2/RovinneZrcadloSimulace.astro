@@ -1,0 +1,145 @@
+---
+// Rovinné zrcadlo (F7): konstrukce obrazu osovou souměrností. Předmět (stožárek
+// s praporkem) před svislým zrcadlem; obraz je zdánlivý, stejně velký, stejně
+// vzdálený a stranově převrácený (praporek i nápis AMBULANCE to ukážou).
+// Dva paprsky od vrcholu předmětu: kolmý (vrací se sám do sebe) a šikmý do oka —
+// odražený podle zákona odrazu; čárkovaná prodloužení se protínají přesně
+// ve vrcholu obrazu. Vše statické, bez animací; vzdálenosti v celých cm.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rovinné zrcadlo — kde je obraz? 🕹️</span></h2>
+	<p>Posouvej předmět před zrcadlem a sleduj jeho <strong>obraz</strong>: je <strong>za zrcadlem stejně daleko</strong>, <strong>stejně velký</strong>, <strong>vzpřímený</strong>, ale <strong>stranově převrácený</strong> — a hlavně <strong>zdánlivý</strong>: paprsky se za zrcadlem jen ZDAJÍ protínat.</p>
+	<svg id="rz-svg" viewBox="0 0 660 400" role="img" aria-label="Předmět před rovinným zrcadlem, jeho obraz a chod paprsků">
+		<!-- zrcadlo -->
+		<line x1="430" y1="30" x2="430" y2="310" stroke="#2b2a26" stroke-width="5" />
+		<g stroke="#868e96" stroke-width="2">
+			<line x1="430" y1="50" x2="444" y2="38" /><line x1="430" y1="90" x2="444" y2="78" />
+			<line x1="430" y1="130" x2="444" y2="118" /><line x1="430" y1="170" x2="444" y2="158" />
+			<line x1="430" y1="210" x2="444" y2="198" /><line x1="430" y1="250" x2="444" y2="238" />
+			<line x1="430" y1="290" x2="444" y2="278" />
+		</g>
+		<text x="430" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96">zrcadlo</text>
+		<!-- země -->
+		<line x1="0" y1="310" x2="660" y2="310" stroke="#2b2a26" stroke-width="3" />
+		<!-- paprsky -->
+		<line id="rz-kolmy" stroke="#f08c00" stroke-width="3" marker-end="url(#rz-sip1)" />
+		<line id="rz-kolmy-zpet" stroke="#f08c00" stroke-width="2" marker-end="url(#rz-sip1)" />
+		<line id="rz-sikmy1" stroke="#2f9e44" stroke-width="3" />
+		<line id="rz-sikmy2" stroke="#2f9e44" stroke-width="3" marker-end="url(#rz-sip2)" />
+		<line id="rz-prodl1" stroke="#f08c00" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<line id="rz-prodl2" stroke="#2f9e44" stroke-width="2" stroke-dasharray="7 5" opacity="0.7" />
+		<defs>
+			<marker id="rz-sip1" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto"><path d="M0,0 L12,7 L0,14 z" fill="#f08c00" /></marker>
+			<marker id="rz-sip2" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto"><path d="M0,0 L12,7 L0,14 z" fill="#2f9e44" /></marker>
+		</defs>
+		<!-- oko -->
+		<g id="rz-oko">
+			<ellipse id="rz-oko-tvar" rx="22" ry="13" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<circle id="rz-oko-zornice" r="6" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+		</g>
+		<!-- předmět: stožárek s praporkem + nápis -->
+		<g id="rz-predmet">
+			<line id="rz-p-stozar" stroke="#2b2a26" stroke-width="5" stroke-linecap="round" />
+			<polygon id="rz-p-prapor" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text id="rz-p-text" font-size="13" font-weight="bold" fill="#2b2a26" text-anchor="middle">AMBULANCE</text>
+		</g>
+		<!-- obraz: polopr��hledný, praporek na druhou stranu, nápis zrcadlově -->
+		<g id="rz-obraz" opacity="0.45">
+			<line id="rz-o-stozar" stroke="#2b2a26" stroke-width="5" stroke-linecap="round" />
+			<polygon id="rz-o-prapor" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text id="rz-o-text" font-size="13" font-weight="bold" fill="#2b2a26" text-anchor="middle">AMBULANCE</text>
+		</g>
+		<!-- kóty vzdáleností -->
+		<g font-size="14" font-weight="bold" text-anchor="middle">
+			<line id="rz-kota-l" y1="335" y2="335" stroke="#7048e8" stroke-width="2" />
+			<line id="rz-kota-p" y1="335" y2="335" stroke="#7048e8" stroke-width="2" />
+			<text id="rz-kota-l-t" y="355" fill="#7048e8"></text>
+			<text id="rz-kota-p-t" y="355" fill="#7048e8"></text>
+		</g>
+		<text id="rz-zdanlivy" x="545" y="385" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96">obraz je ZDÁNLIVÝ (za zrcadlem nic není)</text>
+	</svg>
+	<label class="sim-posuvnik">
+		Vzdálenost předmětu od zrcadla: <output id="rz-out-d"></output>
+		<input type="range" id="rz-slider-d" min="10" max="50" step="10" value="30" />
+	</label>
+	<label class="sim-posuvnik">
+		Výška předmětu: <output id="rz-out-h"></output>
+		<input type="range" id="rz-slider-h" min="20" max="50" step="10" value="40" />
+	</label>
+	<p class="rz-vzorec" id="rz-vypocet"></p>
+	<p class="rz-stav" id="rz-stav"></p>
+</section>
+
+<script>
+	const K = 4;                 // 1 cm = 4 px
+	const XZ = 430;              // rovina zrcadla
+	const ZEM = 310;
+	const OKO = { x: 140, y: 100 };
+	const sd = document.getElementById('rz-slider-d');
+	const sh = document.getElementById('rz-slider-h');
+	const nastav = (id, attrs) => { const el = document.getElementById(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function prekresli() {
+		const d = +sd.value;                 // cm
+		const h = +sh.value;                 // cm
+		const xo = XZ - d * K;               // předmět
+		const xi = XZ + d * K;               // obraz (osová souměrnost)
+		const yT = ZEM - h * K;              // vrchol stožárku
+
+		document.getElementById('rz-out-d').textContent = d + ' cm';
+		document.getElementById('rz-out-h').textContent = h + ' cm';
+
+		// předmět: stožár + praporek DOPRAVA + nápis; obraz zrcadlově (praporek DOLEVA, nápis převrácený)
+		nastav('rz-p-stozar', { x1: xo, y1: ZEM, x2: xo, y2: yT });
+		nastav('rz-p-prapor', { points: `${xo},${yT} ${xo + 34},${yT + 9} ${xo},${yT + 18}` });
+		const pText = document.getElementById('rz-p-text');
+		pText.setAttribute('x', xo); pText.setAttribute('y', ZEM - 8); pText.setAttribute('transform', '');
+		nastav('rz-o-stozar', { x1: xi, y1: ZEM, x2: xi, y2: yT });
+		nastav('rz-o-prapor', { points: `${xi},${yT} ${xi - 34},${yT + 9} ${xi},${yT + 18}` });
+		const oText = document.getElementById('rz-o-text');
+		oText.setAttribute('x', 0); oText.setAttribute('y', ZEM - 8);
+		oText.setAttribute('transform', `translate(${xi} 0) scale(-1 1)`); // zrcadlový nápis
+
+		// oko
+		nastav('rz-oko-tvar', { cx: OKO.x, cy: OKO.y });
+		nastav('rz-oko-zornice', { cx: OKO.x + 12, cy: OKO.y });
+
+		// paprsek 1: kolmý — z vrcholu na zrcadlo a sám do sebe zpět; prodloužení k obrazu
+		nastav('rz-kolmy', { x1: xo, y1: yT, x2: XZ, y2: yT });
+		nastav('rz-kolmy-zpet', { x1: XZ, y1: yT + 4, x2: xo + 24, y2: yT + 4 });
+		nastav('rz-prodl1', { x1: XZ, y1: yT, x2: xi, y2: yT });
+
+		// paprsek 2: šikmý do oka — bod odrazu P z osové souměrnosti (přímka obraz→oko protíná zrcadlo)
+		const t = (XZ - xi) / (OKO.x - xi);
+		const yP = yT + (OKO.y - yT) * t;
+		nastav('rz-sikmy1', { x1: xo, y1: yT, x2: XZ, y2: yP });
+		nastav('rz-sikmy2', { x1: XZ, y1: yP, x2: OKO.x + 20, y2: OKO.y + (yP > OKO.y ? 8 : -0) });
+		nastav('rz-prodl2', { x1: xi, y1: yT, x2: XZ, y2: yP });
+
+		// kóty d na obou stranách
+		nastav('rz-kota-l', { x1: xo, x2: XZ });
+		nastav('rz-kota-p', { x1: XZ, x2: xi });
+		nastav('rz-kota-l-t', { x: (xo + XZ) / 2 });
+		nastav('rz-kota-p-t', { x: (XZ + xi) / 2 });
+		document.getElementById('rz-kota-l-t').textContent = d + ' cm';
+		document.getElementById('rz-kota-p-t').textContent = d + ' cm';
+
+		document.getElementById('rz-vypocet').innerHTML =
+			`vzdálenost obrazu za zrcadlem = vzdálenost předmětu = <strong>${d} cm</strong> &nbsp;·&nbsp; velikost obrazu = velikost předmětu = <strong>${h} cm</strong> (konstrukce osovou souměrností)`;
+		document.getElementById('rz-stav').textContent =
+			`👁 Oko vidí obraz VE SMĚRU přicházejících paprsků — čárkovaná prodloužení se protínají přesně ve vrcholu obrazu ${d} cm za zrcadlem. Všimni si praporku a nápisu AMBULANCE: obraz je stranově převrácený (proto ho sanitky píšou zrcadlově), ale vzpřímený a stejně velký.`;
+	}
+
+	sd.addEventListener('input', prekresli);
+	sh.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#rz-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.rz-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.rz-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

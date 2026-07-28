@@ -1,13 +1,13 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 47 hotové — opravy animací dle učitele)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 48 hotové — rovinné zrcadlo)
 
-Hotovo 46 kol samostatného režimu (47 simulací na 49 stránkách, 356+ kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–6 hotové).
-**DALŠÍ KOLO (47):** kandidát č. 7 — **F7 rovinné zrcadlo** (obraz za zrcadlem, souměrnost,
-zdánlivý obraz; uzavře optickou sadu). Popis „Stavba látek" je hotový
-v `Omega/dokumenty/prezentace-popisy/` — až přijde na řadu vytěžování prezentací,
-NEJDŘÍV pustit popisovač (`popis_prezentace.py --slozka …`), pak číst jen popisy.
+Hotovo 48 kol samostatného režimu (48 simulací na 50 stránkách, 356+ kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–7 hotové).
+**DALŠÍ KOLO (49):** kandidát č. 8 — **F8 spalovací motory** (čtyřtakt: animace pístu po
+dobách, klik na dobu = popis, zážehový × vznětový). POZOR: pohybová simulace → platí
+pravidlo úplné kontroly animací (čistá funkce času, vzorkování po 16 ms, UX tam-i-zpět).
+Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
@@ -75,8 +75,8 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
    z výkladu, voltmetr ±20 dílků, „magnet stojí = nic").
 6. [x] **F9 elektromagnet** — HOTOVO v kole 44 (ElektromagnetSimulace: proud × závity ×
    jádro = sponky, vypnutí, prohození pólů).
-7. [ ] **F7 optika-rovinneho-zrcadla** — obraz za zrcadlem (souměrný, zdánlivý, stejně velký),
-   posun předmětu, paprsky; uzavře optickou sadu (kulová zrcadla i čočky už jsou).
+7. [x] **F7 optika-rovinneho-zrcadla** — HOTOVO v kole 48 (RovinneZrcadloSimulace:
+   osová souměrnost, zákon odrazu, praporek + zrcadlový nápis AMBULANCE).
 8. [ ] **F8 spalovaci-motory** — čtyřtakt: animace pístu po dobách (sání–stlačení–výbuch–výfuk),
    klik na dobu = popis; přepínač zážehový × vznětový.
 9. [ ] **F9 polovodice-typu-n-a-p-dioda** — dioda: posuvník napětí ±, propustný × závěrný směr,
@@ -107,6 +107,16 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 48): **RovinneZrcadloSimulace** — obraz v rovinném zrcadle (F7
+  zrcadla-a-cocky/optika-rovinneho-zrcadla, uzavírá optickou sadu): posuvníky vzdálenosti
+  (10–50 cm) a výšky předmětu, obraz konstruovaný osovou souměrností (stejně daleko, stejně
+  velký, vzpřímený, poloprůhledný = zdánlivý), stranové převrácení ukazuje praporek i
+  zrcadlový nápis AMBULANCE (vazba na výklad o sanitkách), kolmý paprsek se vrací sám do
+  sebe, šikmý jde do oka a čárkovaná prodloužení se protínají přesně ve vrcholu obrazu.
+  Ověřeno 20 kombinacemi (zákon odrazu na 9 desetinných míst, kolinearita prodloužení,
+  bod odrazu vždy na zrcadle) — první test měl prohozené znaménko v podmínce (fyzika byla
+  správně, chyba v kontrole); konzole čistá. Kvíz už měl 16 otázek — nedublováno.
+  Mezi koly 47 a 48 mimořádná oprava mapy deníku (trasa + dvojitá kolečka, viz PROGRESS).
 - 2026-07-28 (kolo 47): **Opravy animací dle 3 připomínek učitele + NOVÉ PRAVIDLO kontroly
   animací.** (1) Skatepark se třením: místo skokového „další přejezd" plná JÍZDA — skater
   se rozjede, každý přejezd viditelně níž, teplo Q roste průběžně, sám dojede do zastavení;

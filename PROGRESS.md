@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 48: RovinneZrcadloSimulace.** F7 optika rovinného zrcadla: osová
+  souměrnost, zákon odrazu, zdánlivý obraz (poloprůhledný), stranové převrácení (praporek +
+  zrcadlová AMBULANCE), kolmý a šikmý paprsek s prodlouženími do vrcholu obrazu. Ověřeno
+  20 kombinacemi. Celkem 48 simulací; optická sada kompletní (rovinné + kulová zrcadla + čočky).
 - **2026-07-28 — mapa deníku: trasa jízdy + konec dvojitých koleček (připomínka učitele).**
   V přiblížených pohledech se každé město kreslilo dvakrát (skutečná poloha + rozestoupený
   pin) a chyběla trasa. Nově: (1) body bez vlastního pinu se nekreslí (žádné kolečko navíc),
