@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 51: BarometrSimulace (tlak s výškou).** F7 atmosférický tlak: balón
+  stoupá 0–8000 m (po 1000), Torricelliho rtuťový barometr klesá (760→267 mm), tlak v celých
+  hPa dle standardní atmosféry (1013→356, ověřeno výpočtem proti ISA vzorci), sloupec „zbývá
+  X % normálu", místa Ještěd→zóna smrti Everestu. Čistá funkce stavTlaku(h) na SVG; DOM
+  ověřen v náhledu. Celkem 51 simulací.
 - **2026-07-29 — kolo 50: DiodaSimulace (přechod PN a LED).** F9 polovodiče: zvětšená LED
   s oblastmi N/P a hradlovou vrstvou (šířka podle napětí), posuvník −5…+5 V po celých V,
   závěrný × propustný směr, práh 2 V, proud v celých mA (rezistor 200 Ω: 3→5, 4→10, 5→15 mA),

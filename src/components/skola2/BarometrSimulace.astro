@@ -1,0 +1,128 @@
+---
+// Atmosférický tlak s výškou (F7): posuvník 0–8000 m po 1000 m. Balón stoupá
+// podél výškové osy, Torricelliho rtuťový barometr klesá (mm rtuti), vpravo
+// tlak v celých hPa (standardní atmosféra, u moře 1013 hPa = 760 mm) a sloupec
+// „kolik % normálního tlaku zbývá". Bez časové animace — vše se překresluje
+// staticky podle posuvníku; stav je čistá funkce stavTlaku(h) na SVG (__stavTlaku).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Barometr v horách 🕹️</span></h2>
+	<p>Vyleť balónem do výšky a sleduj, jak <strong>atmosférický tlak klesá</strong>: horní vrstvy vzduchu tlačí na spodní, takže čím výš jsi, tím míň vzduchu nad tebou zbývá. Měříme <strong>Torricelliho barometrem</strong> — sloupec rtuti drží právě tlak atmosféry.</p>
+	<svg id="baro-svg" viewBox="0 0 660 360" role="img" aria-label="Balón ve výšce, rtuťový barometr a hodnota atmosférického tlaku">
+		<!-- hora na pozadí -->
+		<polygon points="120,330 250,70 380,330" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" />
+		<polygon points="222,126 250,70 278,126 262,116 250,130 238,116" fill="#fff" stroke="#adb5bd" stroke-width="1.5" />
+		<text x="250" y="345" text-anchor="middle" font-size="11" fill="#868e96">Everest 8 849 m</text>
+		<!-- výšková osa se značkami po 2000 m -->
+		<line x1="55" y1="40" x2="55" y2="330" stroke="#2b2a26" stroke-width="3" />
+		<g font-size="10" fill="#868e96" text-anchor="end">
+			<text x="50" y="334">0 m</text><text x="50" y="262">2000</text><text x="50" y="189">4000</text>
+			<text x="50" y="117">6000</text><text x="50" y="44">8000 m</text>
+		</g>
+		<g stroke="#868e96" stroke-width="2">
+			<line x1="51" y1="330" x2="59" y2="330" /><line x1="51" y1="258" x2="59" y2="258" />
+			<line x1="51" y1="185" x2="59" y2="185" /><line x1="51" y1="113" x2="59" y2="113" />
+			<line x1="51" y1="40" x2="59" y2="40" />
+		</g>
+		<!-- balón s košem -->
+		<g id="baro-balon">
+			<ellipse cx="0" cy="-26" rx="17" ry="20" fill="#ff8787" stroke="#2b2a26" stroke-width="2.5" />
+			<path d="M-8 -8 L-5 6 L5 6 L8 -8" fill="none" stroke="#2b2a26" stroke-width="1.5" />
+			<rect x="-6" y="6" width="12" height="9" rx="2" fill="#d9a066" stroke="#2b2a26" stroke-width="2" />
+		</g>
+		<text id="baro-misto" x="105" y="30" font-size="12" font-weight="bold" fill="#2b2a26"></text>
+		<!-- Torricelliho barometr: miska + trubice se rtutí -->
+		<ellipse cx="440" cy="320" rx="38" ry="12" fill="#c0c5cc" stroke="#2b2a26" stroke-width="3" />
+		<rect x="431" y="35" width="18" height="285" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" />
+		<rect id="baro-rtut" x="434" y="54" width="12" height="266" fill="#c0c5cc" />
+		<text id="baro-mm" x="440" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<text x="440" y="352" text-anchor="middle" font-size="11" fill="#868e96">rtuťový barometr</text>
+		<!-- pravý panel: tlak a % normálu -->
+		<text id="baro-hpa" x="575" y="110" text-anchor="middle" font-size="34" font-weight="bold" fill="#e8590c"></text>
+		<text x="575" y="132" text-anchor="middle" font-size="12" fill="#868e96">atmosférický tlak</text>
+		<text x="575" y="170" text-anchor="middle" font-size="12" fill="#2b2a26">normální tlak u moře: 1013 hPa</text>
+		<rect x="505" y="190" width="140" height="26" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" rx="6" />
+		<rect id="baro-procenta-bar" x="507" y="192" width="136" height="22" fill="#74c0fc" rx="4" />
+		<text id="baro-procenta" x="575" y="238" text-anchor="middle" font-size="13" font-weight="bold" fill="#1971c2"></text>
+		<text id="baro-vzduch" x="575" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Výška letu: <output id="baro-out-h"></output>
+		<input type="range" id="baro-slider" min="0" max="8000" step="1000" value="0" />
+	</label>
+	<p class="baro-vzorec" id="baro-vzorec"></p>
+	<p class="baro-stav" id="baro-stav">👉 Táhni posuvníkem nahoru do 8 000 m a sleduj rtuť, hPa i modrý sloupec „kolik tlaku zbývá".</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (tabulka standardní atmosféry — kontrolovatelná výpočtem) ===
+	// celé hPa po 1000 m (mezinárodní standardní atmosféra, u moře 1013 hPa)
+	const TLAKY = [1013, 899, 795, 701, 616, 540, 472, 411, 356];
+	function stavTlaku(h) {
+		const i = Math.round(h / 1000);
+		const hPa = TLAKY[i];
+		return {
+			h: i * 1000,
+			hPa,
+			mm: Math.round(hPa / 1.33322), // výška rtuti (760 mm ↔ 1013 hPa)
+			procenta: Math.round((hPa / TLAKY[0]) * 100),
+		};
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const MISTA = [
+		'hladina moře', 'výška Ještědu (1 012 m)', 'výš než Sněžka (1 603 m)',
+		'skoro vrchol Zugspitze (2 962 m)', 'hřebeny Alp', 'základní tábor Everestu (5 364 m)',
+		'nad vrcholem Kilimandžára (5 895 m)', 'vrcholy And', 'těsně pod vrcholem Everestu (8 849 m)',
+	];
+	const slider = document.getElementById('baro-slider');
+	const svg = document.getElementById('baro-svg');
+	svg.__stavTlaku = stavTlaku; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function prekresli() {
+		const s = stavTlaku(+slider.value);
+		const i = s.h / 1000;
+		g('baro-out-h').textContent = `${s.h.toLocaleString('cs-CZ')} m (${MISTA[i]})`;
+		// balón podél výškové osy: 0 m → y=330, 8000 m → y=40
+		const y = 330 - (s.h / 8000) * 290;
+		g('baro-balon').setAttribute('transform', `translate(85 ${y - 15})`);
+		g('baro-misto').textContent = MISTA[i];
+		nastav('baro-misto', { y: Math.max(y - 30, 14) });
+		// rtuť: 760 mm ↔ 266 px (0,35 px/mm), hladina misky y=320
+		const vyskaPx = s.mm * 0.35;
+		nastav('baro-rtut', { y: 320 - vyskaPx, height: vyskaPx });
+		g('baro-mm').textContent = `${s.mm} mm rtuti`;
+		// panel vpravo
+		g('baro-hpa').textContent = `${s.hPa} hPa`;
+		nastav('baro-procenta-bar', { width: Math.max(s.procenta * 1.36, 2) });
+		g('baro-procenta').textContent = `zbývá ${s.procenta} % normálního tlaku`;
+		g('baro-vzduch').textContent = i === 0 ? '' : `vzduch je tu ${i <= 2 ? 'znatelně řidší' : i <= 5 ? 'řídký — dýchá se hůř' : 'velmi řídký!'}`;
+		g('baro-vzorec').innerHTML = `Ve výšce <strong>${s.h.toLocaleString('cs-CZ')} m</strong> je tlak <strong>${s.hPa} hPa</strong> — sloupec rtuti drží ve výšce <strong>${s.mm} mm</strong> (u moře 760 mm = 1013 hPa).`;
+		const stavy = [
+			'🌊 U hladiny moře: normální tlak 1013 hPa = 760 mm rtuti — přesně jak naměřil Torricelli roku 1643.',
+			'⛰️ 1000 m: tlak klesl na 899 hPa. Horní vrstvy vzduchu ubývají, proto tlak s výškou klesá.',
+			'⛰️ 2000 m: 795 hPa — na horách si toho všimneš: uši „zaléhají" a voda se vaří dřív než při 100 °C.',
+			'🏔️ 3000 m: 701 hPa — zbývá jen asi 69 % vzduchu. Horolezci tu už dýchají rychleji.',
+			'🏔️ 4000 m: 616 hPa — v této výšce hrozí horská nemoc, tělo si musí zvykat pomalu.',
+			'🏔️ 5000 m: 540 hPa — přibližně výška základního tábora pod Everestem, jen 53 % tlaku.',
+			'🎈 6000 m: 472 hPa — výš, než sahá nejvyšší hora Afriky Kilimandžáro.',
+			'🎈 7000 m: 411 hPa — bez kyslíkové masky tu vydrží jen trénovaní horolezci.',
+			'💀 8000 m: 356 hPa — „zóna smrti" pod vrcholem Everestu: zbývá jen 35 % tlaku, většina horolezců potřebuje kyslíkovou masku.',
+		];
+		g('baro-stav').textContent = stavy[i];
+	}
+
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#baro-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.baro-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.baro-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

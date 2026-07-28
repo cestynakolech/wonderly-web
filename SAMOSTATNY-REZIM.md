@@ -1,12 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 50 hotové — dioda)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 51 hotové — barometr)
 
-Hotovo 50 kol samostatného režimu (50 simulací na 52 stránkách, 356+ kvízových otázek).
-Zásoba: sekce „Kandidáti na simulace" níže (č. 1–9 hotové).
-**DALŠÍ KOLO (51):** kandidát č. 10 — **F7 atmosférický tlak** (posuvník výšky 0–8000 m
-po 1000, barometr, hodnoty zaokrouhlené na celé hPa dle tabulky z výkladu). Bez souvislé
-animace; celá čísla; UX tam-i-zpět.
+Hotovo 51 kol samostatného režimu (51 simulací na 53 stránkách, 356+ kvízových otázek).
+Zásoba: sekce „Kandidáti na simulace" níže (č. 1–10 hotové).
+**DALŠÍ KOLO (52):** kandidát č. 11 — **F7 oko a vady oka** (krátkozrakost/dalekozrakost:
+kam dopadá ohnisko, brýle rozptylka/spojka vrací obraz na sítnici; navázat na CockaSimulace).
+POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
@@ -87,8 +87,9 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
 9. [x] **F9 polovodice-typu-n-a-p-dioda** — HOTOVO v kole 50 (DiodaSimulace: PN přechod
    s hradlovou vrstvou, napětí −5…+5 V po 1 V, práh LED 2 V, celé mA přes rezistor 200 Ω,
    V-A charakteristika s pohyblivým bodem, tlačítko ⇄ otoč zdroj).
-10. [ ] **F7 atmosfericky-tlak** — tlak s výškou: posuvník 0–8000 m (po 1000), barometr,
-    hodnoty zaokrouhlené na celé hPa dle tabulky z výkladu.
+10. [x] **F7 atmosfericky-tlak** — HOTOVO v kole 51 (BarometrSimulace: balón 0–8000 m
+    po 1000, Torricelliho rtuťový barometr, celé hPa dle standardní atmosféry — kotva
+    1013 hPa = 760 mm u moře, % normálu, místa Ještěd→Everest).
 11. [ ] **F7 oko-vady-oka** — krátkozrakost/dalekozrakost: kam dopadá ohnisko, brýle
     (rozptylka/spojka) obraz vrátí na sítnici; naváže na CockaSimulace.
 12. [ ] **F9 vedeni-proudu-v-kapalinach** — elektrolýza: ionty putují k elektrodám, posuvník
