@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 54: nový audit kandidátů na simulace.** Projito všech 96 podtémat bez
+  interakce (fyzika, informatika, pracovní činnosti), vybráno 12 nových kandidátů se
+  simulovatelným jevem (RGB barvy, alternátor, elektromotor, vypařování, jiskra v plynu,
+  hranol/duha, jaderný reaktor, decibely, přetlak, energie potravin, přenos energie,
+  ohodnocené grafy) — seznam s pořadím v SAMOSTATNY-REZIM.md. Kolo 55 = checkpoint dělby rolí.
 - **2026-07-29 — kolo 53: ElektrolyzaSimulace (vedení proudu v kapalinách).** F9: kádinka
   s elektrodami a žárovkou, destilovaná voda (jen H₂O, nevede) × roztok soli (Na⁺→katoda,
   Cl⁻→anoda, svítí), napětí 0–12 V po 2 V → celé ampéry (I=U/2), druhý režim pokovování

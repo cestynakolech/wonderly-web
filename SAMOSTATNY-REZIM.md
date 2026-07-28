@@ -1,14 +1,49 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 53 hotové — elektrolýza; SEZNAM KANDIDÁTŮ VYČERPÁN)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 54 hotové — nový audit kandidátů)
 
-Hotovo 53 kol samostatného režimu (53 simulací na 55 stránkách, 356+ kvízových otázek).
-**Všech 12 kandidátů z auditu kola 38 je HOTOVÝCH.**
-**DALŠÍ KOLO (54):** NOVÝ AUDIT `src/data/temata.ts` — projít podtémata bez interakce
-(všechny předměty a ročníky, i informatiku) a sestavit nový seznam kandidátů na simulace;
-případně kvízy dorovnat k novým simulacím (motor/dioda/barometr/oko/elektrolýza mají
-kvízy z dřívějška — zkontrolovat, zda pokrývají i jevy ze simulací).
+Hotovo 54 kol samostatného režimu (53 simulací na 55 stránkách, 356+ kvízových otázek).
+Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
+**DALŠÍ KOLO (55) = ⏰ CHECKPOINT dělby rolí Claude × lokální modely** (pravidlo à 10 kol;
+revize kol 46–54 do ~/ollama-log.md, pravidla do ~/CLAUDE.md, další checkpoint kolo 65).
+Hned po checkpointu v témže kole nebo v kole 56: kandidát č. 1 nového seznamu —
+**F7 vnímání barev: RGB míchačka** (posuvníky R/G/B 0–255, aditivní míchání, přepínač
+na subtraktivní CMY tiskárnu).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
+
+### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
+
+Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁDAT
+(šest čistě statických ovladačů, šest s časovou animací → plná kontrola animací):
+
+1. [ ] **F7 vnimani-barev** — RGB míchačka: posuvníky R/G/B 0–255 → výsledná barva,
+   aditivní (obrazovka) × subtraktivní CMY (tiskárna); celá čísla přirozeně.
+2. [ ] **F9 vznik-stridaveho-proudu-alternator** — otáčející se magnet v cívce, ručička
+   voltmetru + kreslící se sinusovka; POZOR časová animace (čistá funkce času, 16 ms).
+3. [ ] **F9 pusobeni-pole-na-vodic-elektromotor** — síla na vodič v poli (prohoď proud/póly),
+   jednoduchý elektromotor s komutátorem; časová animace.
+4. [ ] **F8 vyparovani** — „závod louží": teplota × povrch × vítr → doba schnutí
+   v celých minutách; statické porovnání dvou louží.
+5. [ ] **F9 vedeni-proudu-v-plynech** — jiskra: napětí × vzdálenost elektrod → přeskočí/ne
+   (prahové hodnoty celé kV), blesk jako obří jiskra; statické.
+6. [ ] **F7 rozklad-svetla-duha** — hranol rozkládá bílé světlo na spektrum, přepínač
+   hranol × kapka (duha + pořadí barev); statické paprsky.
+7. [ ] **F9 jaderny-reaktor-elektrarna** — regulační tyče: hloubka zasunutí → počet neutronů
+   a výkon (celá čísla), řízená × neřízená řetězová reakce.
+8. [ ] **F8 vnimani-zvuku-a-hlasitost** — stupnice dB: posuvník zdroje šepot→start letadla,
+   prah slyšení/bolesti, bezpečná doba poslechu (celé hodnoty z výkladu).
+9. [ ] **F7 pretlak-podtlak-vakuum** — píst ve válci + manometr: přetlak/podtlak/vakuum,
+   frkačka a přísavka jako příklady; statické.
+10. [ ] **F8 energeticka-hodnota-potravin** — skládačka svačiny: vyber jídla → součet kJ →
+    minuty běhu/chůze/plavání (celá čísla z tabulky výkladu).
+11. [ ] **F9 prenos-elektricke-energie** — týž výkon při 230 V × 22 kV × 400 kV → proud
+    a ztráty vedení I²R v celých % (ukázat, PROČ se transformuje nahoru).
+12. [ ] **Inf7 ohodnocene-grafy** — klikací hledání nejkratší cesty: součet hran po kliknutí,
+    porovnání s optimem, druhá mapa.
+
+Záměrně vynecháno: shrnutí, čistě výkladová témata, návody (Tinkercad, VEXcode),
+témata s hotovou příbuznou simulací (tuhnutí/kondenzace ~ ohřev; zvuk-vznik ~ vlnění;
+magnetické pole cívky ~ elektromagnet; polovodiče-vlastní ~ dioda; reaktor×rozpad se liší dost).
 Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
