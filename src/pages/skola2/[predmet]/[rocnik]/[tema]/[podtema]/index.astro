@@ -52,6 +52,7 @@ import IndukceSimulace from '../../../../../../components/skola2/IndukceSimulace
 import ElektromagnetSimulace from '../../../../../../components/skola2/ElektromagnetSimulace.astro';
 import RovinneZrcadloSimulace from '../../../../../../components/skola2/RovinneZrcadloSimulace.astro';
 import SpalovaciMotorSimulace from '../../../../../../components/skola2/SpalovaciMotorSimulace.astro';
+import DiodaSimulace from '../../../../../../components/skola2/DiodaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -228,6 +229,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'elektromagnet' && <ElektromagnetSimulace />}
 	{podtema.interakce === 'rovinne-zrcadlo' && <RovinneZrcadloSimulace />}
 	{podtema.interakce === 'motor' && <SpalovaciMotorSimulace />}
+	{podtema.interakce === 'dioda' && <DiodaSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{otazky && <Kviz otazky={otazky} />}

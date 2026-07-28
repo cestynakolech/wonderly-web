@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 50: DiodaSimulace (přechod PN a LED).** F9 polovodiče: zvětšená LED
+  s oblastmi N/P a hradlovou vrstvou (šířka podle napětí), posuvník −5…+5 V po celých V,
+  závěrný × propustný směr, práh 2 V, proud v celých mA (rezistor 200 Ω: 3→5, 4→10, 5→15 mA),
+  V-A charakteristika s pohyblivým bodem, ⇄ otoč zdroj. Bez časové animace; čistá funkce
+  stavDiody(U) na SVG (__stavDiody), všech 11 napětí ověřeno výpočtem i čtením DOM v náhledu.
+  Celkem 50 simulací.
 - **2026-07-29 — kolo 49: SpalovaciMotorSimulace (čtyřtaktní motor v řezu).** F8 spalovací
   motory: píst + ojnice + klikový hřídel + ventily v SVG řezu, klik na dobu 1–4 = póza
   s popisem, ▶ roztočí celý cyklus (2 otáčky kliky), přepínač zážehový (jiskra ze svíčky) ×

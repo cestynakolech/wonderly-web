@@ -1,0 +1,157 @@
+---
+// Dioda a přechod PN (F9): posuvník napětí −5…+5 V (celé volty). Záporné napětí
+// = závěrný směr (hradlová vrstva se rozšíří, proud 0), kladné pod prahem 2 V
+// = dioda ještě nevede, od 2 V vede a LED svítí. Proud volen tak, aby vycházel
+// v celých mA (rezistor 200 Ω: 3 V→5 mA, 4 V→10 mA, 5 V→15 mA). Vpravo V-A
+// charakteristika s pohyblivým bodem. Bez časové animace — vše se překresluje
+// staticky podle posuvníku; stav je čistá funkce stavDiody(U) na SVG (__stavDiody).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Dioda — proud jen jedním směrem 🕹️</span></h2>
+	<p>Přechod <strong>PN</strong> je srdce diody. Posouvej napětí zdroje: v <strong>propustném směru</strong> (P na +) dioda od <strong>2 V</strong> vede a LED svítí, v <strong>závěrném směru</strong> se hradlová vrstva rozšíří a proud neteče.</p>
+	<svg id="dioda-svg" viewBox="0 0 660 360" role="img" aria-label="Obvod s LED diodou, přechod PN a V-A charakteristika">
+		<!-- paprsky LED (jen když svítí) -->
+		<g id="dioda-paprsky" stroke="#fab005" stroke-width="3" stroke-linecap="round">
+			<line x1="160" y1="50" x2="140" y2="28" />
+			<line x1="205" y1="42" x2="196" y2="16" />
+			<line x1="250" y1="50" x2="270" y2="28" />
+		</g>
+		<!-- PN přechod (zvětšená dioda-LED) -->
+		<rect x="120" y="60" width="85" height="80" fill="#d0ebff" stroke="#2b2a26" stroke-width="4" />
+		<rect x="205" y="60" width="85" height="80" fill="#ffe3e3" stroke="#2b2a26" stroke-width="4" />
+		<text x="140" y="130" font-size="20" font-weight="bold" fill="#1971c2">N</text>
+		<text x="262" y="130" font-size="20" font-weight="bold" fill="#e03131">P</text>
+		<!-- volné elektrony a díry -->
+		<g id="dioda-castice" font-size="13" font-weight="bold">
+			<text x="130" y="80" fill="#1971c2">−</text><text x="155" y="95" fill="#1971c2">−</text>
+			<text x="132" y="115" fill="#1971c2">−</text><text x="160" y="72" fill="#1971c2">−</text>
+			<text x="268" y="80" fill="#e03131">+</text><text x="245" y="95" fill="#e03131">+</text>
+			<text x="270" y="115" fill="#e03131">+</text><text x="240" y="72" fill="#e03131">+</text>
+		</g>
+		<!-- hradlová vrstva uprostřed -->
+		<rect id="dioda-zona" x="190" y="62" width="30" height="76" fill="#ced4da" opacity="0.9" />
+		<text id="dioda-zona-pop" x="205" y="160" text-anchor="middle" font-size="11" fill="#868e96">hradlová vrstva</text>
+		<!-- šipky proudu přes přechod (propustný směr: z P do N) -->
+		<g id="dioda-proud-sipky" fill="#e8590c">
+			<polygon points="230,95 210,88 210,102" />
+			<polygon points="185,95 165,88 165,102" />
+		</g>
+		<!-- obvod: vodiče k baterii dole -->
+		<path d="M120 100 L60 100 L60 260 L250 260" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<path d="M290 100 L350 100 L350 260 L310 260" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<!-- baterie (polarita se otáčí podle znaménka U) -->
+		<line id="dioda-bat-dlouha" x1="310" y1="238" x2="310" y2="282" stroke="#2b2a26" stroke-width="4" />
+		<line id="dioda-bat-kratka" x1="250" y1="248" x2="250" y2="272" stroke="#2b2a26" stroke-width="8" />
+		<text id="dioda-bat-plus" x="325" y="250" font-size="18" font-weight="bold" fill="#e03131">+</text>
+		<text id="dioda-bat-minus" x="228" y="250" font-size="18" font-weight="bold" fill="#1971c2">−</text>
+		<text id="dioda-bat-u" x="280" y="305" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<!-- šipky proudu na vodičích (jen když teče) -->
+		<g id="dioda-obvod-sipky" fill="#e8590c">
+			<polygon points="350,170 343,190 357,190" />
+			<polygon points="60,190 53,170 67,170" />
+		</g>
+		<!-- ampérmetr -->
+		<circle cx="150" cy="260" r="24" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<text x="150" y="255" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">A</text>
+		<text id="dioda-ampermetr" x="150" y="272" text-anchor="middle" font-size="12" font-weight="bold" fill="#e8590c"></text>
+		<!-- rezistor v obvodu -->
+		<rect x="240" y="90" width="30" height="0" fill="none" />
+		<text x="80" y="90" font-size="11" fill="#868e96">LED dioda (zvětšená)</text>
+		<!-- V-A charakteristika -->
+		<g stroke="#adb5bd" stroke-width="2">
+			<line x1="410" y1="300" x2="640" y2="300" />
+			<line x1="520" y1="90" x2="520" y2="310" />
+		</g>
+		<text x="644" y="304" font-size="12" fill="#2b2a26" font-weight="bold">U (V)</text>
+		<text x="508" y="82" font-size="12" fill="#2b2a26" font-weight="bold">I (mA)</text>
+		<g font-size="10" fill="#868e96" text-anchor="middle">
+			<text x="410" y="314">−5</text><text x="520" y="314">0</text><text x="564" y="314">2</text><text x="630" y="314">5</text>
+			<text x="538" y="244">5</text><text x="538" y="184">10</text><text x="538" y="124">15</text>
+		</g>
+		<!-- charakteristika: 0 až do prahu 2 V, pak přímka vzhůru -->
+		<polyline points="410,300 564,300 630,120" fill="none" stroke="#1971c2" stroke-width="4" stroke-linejoin="round" />
+		<circle id="dioda-bod" r="8" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />
+		<text id="dioda-graf-pop" x="525" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Napětí zdroje: <output id="dioda-out-u"></output>
+		<input type="range" id="dioda-slider" min="-5" max="5" step="1" value="3" />
+	</label>
+	<p>
+		<button type="button" class="dioda-tl" id="dioda-otocit">⇄ otoč zdroj (obrátí + a −)</button>
+	</p>
+	<p class="dioda-vzorec" id="dioda-vzorec"></p>
+	<p class="dioda-stav" id="dioda-stav">👉 Posouvej napětí od −5 V do +5 V a sleduj hradlovou vrstvu, ampérmetr i bod na charakteristice.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (stav diody bez DOM — kontrolovatelná výpočtem) ===
+	const PRAH = 2; // prahové napětí LED (V)
+	const R = 200; // ochranný rezistor (Ω) → celé mA: (U−2)/200 = 5 mA na volt
+	function stavDiody(U) {
+		const vede = U > PRAH;
+		const I = vede ? ((U - PRAH) / R) * 1000 : 0; // mA, pro celá U vždy celé číslo
+		// šířka hradlové vrstvy (px): závěrný směr ji rozšiřuje, propustný zužuje
+		const zona = U <= 0 ? 30 + 4 * -U : Math.max(30 - 15 * U, 0);
+		const rezim = U < 0 ? 'zaverny' : U === 0 ? 'nula' : vede ? 'propustny' : 'prah';
+		return { U, I, zona, rezim, ledSviti: I > 0 };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const slider = document.getElementById('dioda-slider');
+	const svg = document.getElementById('dioda-svg');
+	svg.__stavDiody = stavDiody; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function prekresli() {
+		const s = stavDiody(+slider.value);
+		g('dioda-out-u').textContent = `${s.U} V ${s.U > 0 ? '(propustný směr)' : s.U < 0 ? '(závěrný směr)' : ''}`;
+		// hradlová vrstva
+		nastav('dioda-zona', { x: 205 - s.zona / 2, width: Math.max(s.zona, 0.001), visibility: s.zona > 0 ? 'visible' : 'hidden' });
+		nastav('dioda-zona-pop', { visibility: s.zona > 0 ? 'visible' : 'hidden' });
+		// LED + šipky proudu
+		nastav('dioda-paprsky', { visibility: s.ledSviti ? 'visible' : 'hidden' });
+		nastav('dioda-proud-sipky', { visibility: s.ledSviti ? 'visible' : 'hidden' });
+		nastav('dioda-obvod-sipky', { visibility: s.ledSviti ? 'visible' : 'hidden' });
+		// baterie: polarita podle znaménka U (U>0 → + vpravo u P = propustný)
+		const plusVpravo = s.U >= 0;
+		nastav('dioda-bat-plus', { x: plusVpravo ? 325 : 228 });
+		nastav('dioda-bat-minus', { x: plusVpravo ? 228 : 325 });
+		nastav('dioda-bat-dlouha', { x1: plusVpravo ? 310 : 250, x2: plusVpravo ? 310 : 250 });
+		nastav('dioda-bat-kratka', { x1: plusVpravo ? 250 : 310, x2: plusVpravo ? 250 : 310 });
+		g('dioda-bat-u').textContent = `zdroj ${Math.abs(s.U)} V`;
+		// ampérmetr + bod na charakteristice
+		g('dioda-ampermetr').textContent = `${s.I} mA`;
+		nastav('dioda-bod', { cx: 520 + s.U * 22, cy: 300 - s.I * 12 });
+		g('dioda-graf-pop').textContent = `U = ${s.U} V → I = ${s.I} mA`;
+		// vzorec a slovní stav
+		g('dioda-vzorec').innerHTML = s.rezim === 'propustny'
+			? `I = (U − práh) / R = (${s.U} − ${PRAH}) V / ${R} Ω = <strong>${s.I} mA</strong> (rezistor ${R} Ω chrání LED)`
+			: `I = <strong>0 mA</strong> — dioda ${s.rezim === 'zaverny' ? 'je zapojená v závěrném směru' : s.rezim === 'nula' ? 'je bez napětí' : s.U === PRAH ? 'je přesně na prahu ' + PRAH + ' V — právě se otevírá' : 'ještě nedosáhla prahu ' + PRAH + ' V'}`;
+		const stavy = {
+			zaverny: '🚫 ZÁVĚRNÝ SMĚR (P na −): hradlová vrstva se rozšířila, proud neprochází — dioda je vypnutý spínač. Otoč zdroj a bude vodit.',
+			nula: '😴 Bez napětí se nic neděje — hradlová vrstva brání částicím přejít. Přidej napětí posuvníkem.',
+			prah: s.U === PRAH
+				? `🔓 PROPUSTNÝ SMĚR: přesně ${PRAH} V = práh — hradlová vrstva právě zmizela a dioda se otevírá. Přidej ještě volt a poteče proud.`
+				: `🔒 PROPUSTNÝ SMĚR, ale ${s.U} V je málo — LED se otevírá až od prahu ${PRAH} V. Přidej ještě.`,
+			propustny: `💡 PROPUSTNÝ SMĚR (P na +): hradlová vrstva zmizela, obvodem teče ${s.I} mA a LED svítí!`,
+		};
+		g('dioda-stav').textContent = stavy[s.rezim];
+	}
+
+	g('dioda-otocit').addEventListener('click', () => { slider.value = -slider.value; prekresli(); });
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#dioda-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.dioda-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; }
+	.dioda-tl:active { transform: translateY(1px); }
+	.dioda-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.dioda-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

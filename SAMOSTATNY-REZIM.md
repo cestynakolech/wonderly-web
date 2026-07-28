@@ -1,12 +1,12 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 49 hotové — spalovací motor)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 50 hotové — dioda)
 
-Hotovo 49 kol samostatného režimu (49 simulací na 51 stránkách, 356+ kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–8 hotové).
-**DALŠÍ KOLO (50):** kandidát č. 9 — **F9 polovodiče typu N a P, dioda** (posuvník napětí ±,
-propustný × závěrný směr, LED svítí/nesvítí, V-A charakteristika). Bez souvislé animace,
-ale platí UX kontrola tam-i-zpět; hodnoty volit tak, aby vycházela celá čísla.
+Hotovo 50 kol samostatného režimu (50 simulací na 52 stránkách, 356+ kvízových otázek).
+Zásoba: sekce „Kandidáti na simulace" níže (č. 1–9 hotové).
+**DALŠÍ KOLO (51):** kandidát č. 10 — **F7 atmosférický tlak** (posuvník výšky 0–8000 m
+po 1000, barometr, hodnoty zaokrouhlené na celé hPa dle tabulky z výkladu). Bez souvislé
+animace; celá čísla; UX tam-i-zpět.
 Popisy prezentací: `Omega/dokumenty/prezentace-popisy/` (nejdřív popisovač, pak číst).
 Příští checkpoint dělby rolí: **kolo 55**.
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
@@ -84,8 +84,9 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
 8. [x] **F8 spalovaci-motory** — HOTOVO v kole 49 (SpalovaciMotorSimulace: řez motorem —
    píst + ojnice + klika + ventily, klik na dobu = póza s popisem, ▶ celý cyklus jako čistá
    funkce času, zážehový × vznětový mění svíčku/vstřikovač i popisy).
-9. [ ] **F9 polovodice-typu-n-a-p-dioda** — dioda: posuvník napětí ±, propustný × závěrný směr,
-   LED svítí/nesvítí, V-A charakteristika.
+9. [x] **F9 polovodice-typu-n-a-p-dioda** — HOTOVO v kole 50 (DiodaSimulace: PN přechod
+   s hradlovou vrstvou, napětí −5…+5 V po 1 V, práh LED 2 V, celé mA přes rezistor 200 Ω,
+   V-A charakteristika s pohyblivým bodem, tlačítko ⇄ otoč zdroj).
 10. [ ] **F7 atmosfericky-tlak** — tlak s výškou: posuvník 0–8000 m (po 1000), barometr,
     hodnoty zaokrouhlené na celé hPa dle tabulky z výkladu.
 11. [ ] **F7 oko-vady-oka** — krátkozrakost/dalekozrakost: kam dopadá ohnisko, brýle
