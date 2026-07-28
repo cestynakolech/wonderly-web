@@ -1,0 +1,177 @@
+---
+// Průměrná teplota — generátor příkladů (F6 Teplota a její měření).
+// Vygeneruje 5–7 celých denních teplot tak, aby průměr vyšel VŽDY celý
+// (součet = průměr · počet dní). Dva kroky jako u skutečného počítání:
+// 1) součet všech teplot, 2) dělení počtem měření — každý krok se kontroluje
+// zvlášť a hlášky odhalují typické chyby (zapomenutá záporná čísla, dělení
+// špatným počtem, průměr mimo rozpětí min–max). Zimní varianta má vždy
+// aspoň jednu teplotu pod nulou. Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Spočítej průměrnou teplotu 🕹️</span></h2>
+	<p>Meteorolog naměřil každý den jednu teplotu. Spočítej <strong>průměrnou teplotu</strong> ve dvou krocích: nejdřív <strong>součet</strong>, pak <strong>děl počtem měření</strong>. Pozor na záporné teploty v zimě!</p>
+	<p id="prum-volby">
+		<button type="button" class="prum-tl prum-aktivni" data-varianta="leto">☀️ letní týden</button>
+		<button type="button" class="prum-tl" data-varianta="zima">❄️ zimní týden</button>
+		<button type="button" class="prum-tl" id="prum-novy">🎲 Nový příklad</button>
+	</p>
+	<svg id="prum-svg" viewBox="0 0 660 300" role="img" aria-label="Sloupcový graf naměřených denních teplot"></svg>
+	<div class="prum-krok">
+		<label>1️⃣ Součet všech teplot: <input type="number" id="prum-in-soucet" /> °C</label>
+		<button type="button" class="prum-tl" id="prum-over-soucet">Ověřit součet</button>
+	</div>
+	<div class="prum-krok">
+		<label>2️⃣ Průměr = součet : počet měření: <input type="number" id="prum-in-prumer" disabled /> °C</label>
+		<button type="button" class="prum-tl" id="prum-over-prumer" disabled>Ověřit průměr</button>
+	</div>
+	<p class="prum-stav" id="prum-stav"></p>
+	<p class="prum-skore" id="prum-skore"></p>
+</section>
+
+<script>
+	const svg = document.getElementById('prum-svg');
+	const stavEl = document.getElementById('prum-stav');
+	const skoreEl = document.getElementById('prum-skore');
+	const inSoucet = document.getElementById('prum-in-soucet');
+	const inPrumer = document.getElementById('prum-in-prumer');
+	const btnSoucet = document.getElementById('prum-over-soucet');
+	const btnPrumer = document.getElementById('prum-over-prumer');
+	const volbyEl = document.getElementById('prum-volby');
+	const DNY = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
+
+	let varianta = 'leto';
+	let priklad = null;
+	let prvniPokus = true;
+	let spravneNaPrvni = 0, celkem = 0;
+	const minus = (n) => String(n).replace('-', '−');
+
+	function novyPriklad() {
+		for (let pokus = 0; pokus < 200; pokus++) {
+			const n = 5 + Math.floor(Math.random() * 3);
+			const avg = varianta === 'leto' ? 14 + Math.floor(Math.random() * 11) : -4 + Math.floor(Math.random() * 9);
+			const hodnoty = [];
+			let soucet = 0;
+			for (let i = 0; i < n - 1; i++) {
+				const h = avg - 6 + Math.floor(Math.random() * 13);
+				hodnoty.push(h); soucet += h;
+			}
+			const posledni = avg * n - soucet;
+			if (posledni < avg - 7 || posledni > avg + 7) continue;
+			hodnoty.push(posledni);
+			if (Math.max(...hodnoty) - Math.min(...hodnoty) < 3) continue;
+			if (varianta === 'zima' && !hodnoty.some((h) => h < 0)) continue;
+			return { hodnoty, n, soucet: avg * n, avg };
+		}
+		return { hodnoty: [18, 21, 24, 19, 22, 20, 16], n: 7, soucet: 140, avg: 20 };
+	}
+
+	function nakresli() {
+		const { hodnoty, n } = priklad;
+		const min = Math.min(0, ...hodnoty);
+		const max = Math.max(0, ...hodnoty);
+		const grafVrch = 40, grafSpod = 250;
+		const mer = (grafSpod - grafVrch) / (max - min);
+		const y0 = grafSpod - (0 - min) * mer; // vodorovná osa (0 °C)
+		const sirka = 560 / n;
+		let s = '';
+		hodnoty.forEach((h, i) => {
+			const x = 70 + i * sirka + sirka * 0.15;
+			const w = sirka * 0.7;
+			const vyska = Math.abs(h) * mer;
+			const y = h >= 0 ? y0 - vyska : y0;
+			const barva = h >= 0 ? '#ffa94d' : '#74c0fc';
+			s += `<rect x="${x}" y="${y}" width="${w}" height="${Math.max(vyska, 1)}" rx="4" fill="${barva}" stroke="#2b2a26" stroke-width="2.5" />`;
+			const yText = h >= 0 ? y - 8 : y + vyska + 18;
+			s += `<text x="${x + w / 2}" y="${yText}" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">${minus(h)}</text>`;
+			s += `<text x="${x + w / 2}" y="285" text-anchor="middle" font-size="14" font-weight="bold" fill="#868e96">${DNY[i]}</text>`;
+		});
+		s += `<line x1="55" y1="${y0}" x2="645" y2="${y0}" stroke="#2b2a26" stroke-width="2.5" />`;
+		s += `<text x="48" y="${y0 + 5}" text-anchor="end" font-size="13" font-weight="bold" fill="#495057">0 °C</text>`;
+		s += `<text x="14" y="26" font-size="14" font-weight="bold" fill="#868e96">naměřené teploty (°C)</text>`;
+		svg.innerHTML = s;
+	}
+
+	function reset() {
+		priklad = novyPriklad();
+		prvniPokus = true;
+		nakresli();
+		inSoucet.value = ''; inSoucet.disabled = false;
+		inPrumer.value = ''; inPrumer.disabled = true;
+		btnSoucet.disabled = false; btnPrumer.disabled = true;
+		stavEl.textContent = `👉 Měření bylo ${priklad.n} — nejdřív všechny teploty sečti (záporné se odečítají).`;
+	}
+
+	btnSoucet.addEventListener('click', () => {
+		const z = parseInt(inSoucet.value, 10);
+		if (Number.isNaN(z)) { stavEl.textContent = '✏️ Napiš do okénka číslo.'; return; }
+		if (z === priklad.soucet) {
+			stavEl.textContent = `✅ Součet je ${minus(priklad.soucet)} °C. Teď ho vyděl počtem měření — bylo jich ${priklad.n}.`;
+			inSoucet.disabled = true; btnSoucet.disabled = true;
+			inPrumer.disabled = false; btnPrumer.disabled = false;
+			inPrumer.focus();
+			return;
+		}
+		prvniPokus = false;
+		const soucetAbs = priklad.hodnoty.reduce((a, b) => a + Math.abs(b), 0);
+		if (varianta === 'zima' && z === soucetAbs) {
+			stavEl.textContent = '❌ Sečetl(a) jsi všechna čísla jako kladná — záporné teploty se ale ODEČÍTAJÍ. Zkus to znovu.';
+		} else {
+			stavEl.textContent = '❌ Součet nesedí. Sčítej postupně po dnech a u záporných teplot odečítej.';
+		}
+	});
+
+	btnPrumer.addEventListener('click', () => {
+		const z = parseInt(inPrumer.value, 10);
+		if (Number.isNaN(z)) { stavEl.textContent = '✏️ Napiš do okénka číslo.'; return; }
+		const { soucet, n, avg, hodnoty } = priklad;
+		if (z === avg) {
+			celkem++;
+			if (prvniPokus) spravneNaPrvni++;
+			stavEl.innerHTML = `🎉 <strong>Správně! Průměrná teplota je ${minus(avg)} °C</strong> (${minus(soucet)} : ${n} = ${minus(avg)}). Kontrola zdravým rozumem: leží mezi nejmenší (${minus(Math.min(...hodnoty))}) a největší (${minus(Math.max(...hodnoty))}) naměřenou hodnotou. Dej si nový příklad!`;
+			skoreEl.textContent = `Skóre: ${spravneNaPrvni} z ${celkem} příkladů na první pokus.`;
+			inPrumer.disabled = true; btnPrumer.disabled = true;
+			return;
+		}
+		prvniPokus = false;
+		if (z === soucet) {
+			stavEl.textContent = '❌ To je pořád jen součet — průměr dostaneš, až ho vydělíš počtem měření.';
+			return;
+		}
+		let spatnyPocet = null;
+		for (let k = n - 2; k <= n + 2; k++) {
+			if (k !== n && k > 0 && soucet % k === 0 && soucet / k === z) spatnyPocet = k;
+		}
+		if (spatnyPocet) {
+			stavEl.textContent = `❌ Dělíš číslem ${spatnyPocet}, ale měření bylo ${n} — děl vždy POČTEM měření.`;
+		} else if (z < Math.min(...hodnoty) || z > Math.max(...hodnoty)) {
+			stavEl.textContent = `❌ Kontrola zdravým rozumem: průměr musí ležet mezi ${minus(Math.min(...hodnoty))} a ${minus(Math.max(...hodnoty))} °C — tvůj výsledek je mimo.`;
+		} else {
+			stavEl.textContent = `❌ Nesedí. Počítej ${minus(soucet)} : ${n}.`;
+		}
+	});
+
+	volbyEl.addEventListener('click', (e) => {
+		const tl = e.target.closest('.prum-tl');
+		if (!tl) return;
+		if (tl.id === 'prum-novy') { reset(); return; }
+		varianta = tl.dataset.varianta;
+		for (const b of volbyEl.querySelectorAll('[data-varianta]')) b.classList.toggle('prum-aktivni', b === tl);
+		reset();
+	});
+
+	reset();
+</script>
+
+<style>
+	#prum-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.prum-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.prum-tl.prum-aktivni { background: #ffe8cc; }
+	.prum-tl:disabled { opacity: 0.45; cursor: not-allowed; }
+	.prum-tl:active:not(:disabled) { transform: translateY(1px); }
+	.prum-krok { font-weight: 700; margin: 0.6rem 0; }
+	.prum-krok input { font: inherit; font-weight: 700; width: 6rem; padding: 0.2rem 0.4rem; border: 3px solid #2b2a26; border-radius: 8px; }
+	.prum-krok input:disabled { opacity: 0.45; }
+	.prum-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.prum-skore { font-weight: 700; color: #2f9e44; }
+</style>

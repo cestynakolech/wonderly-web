@@ -1,11 +1,11 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 35 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 36 hotové)
 
-Hotovo 35 kol samostatného režimu (40 simulací, 354 kvízových otázek).
-**DALŠÍ KOLO (36):** z námětů vytěžených prezentací F6 zbývá generátor příkladů
-na průměrnou teplotu (tabulka + graf, zvlášť kontrola součtu a dělení, CELÁ čísla!).
-Dále média k Fyzice 6.
+Hotovo 36 kol samostatného režimu (41 simulací, 354 kvízových otázek).
+Náměty z vision analýzy prezentací F6 (kolejnice, kádinky, průměr) VYČERPÁNY.
+**DALŠÍ KOLO (37):** média k Fyzice 6 (infografiky/písně), nebo projít prezentace
+dalších ročníků (7/8/9 — fronta níže), nebo nové náměty z auditu.
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
 `~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
@@ -21,8 +21,7 @@ a variantou A byl **mylný** — proměnnou aplikace přebíjí, funguje jen sym
 **Zbylé náměty z vision analýzy prezentací F6** (soupis v `Omega/dokumenty/kontrola-podkladu-fyzika6.md`):
 1. ~~Rozpálená kolejnice~~ → HOTOVO v kole 34 (KolejniceSimulace + kompenzátor ve výkladu).
 2. ~~Změř to rukou, nebo teploměrem?~~ → HOTOVO v kole 35 (KadinkySimulace + pokus ve výkladu).
-3. **Průměrná teplota — generátor příkladů** s tabulkou i grafem, kontroluje zvlášť součet
-   a zvlášť dělení. Pozor: podle nového pravidla mají příklady vycházet v CELÝCH číslech.
+3. ~~Průměrná teplota — generátor příkladů~~ → HOTOVO v kole 36 (PrumerSimulace).
 Dále: **média k Fyzice 6** (infografiky/písně).
 
 **NOVÁ PRAVIDLA (platí od 28. 7., jsou už v globálním `~/.claude/CLAUDE.md`):**
@@ -68,7 +67,14 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
-- 2026-07-28 (kolo 35): **KadinkySimulace** — pokus se třemi kádinkami „Změř to rukou, nebo
+- 2026-07-28 (kolo 36): **PrumerSimulace** — generátor příkladů na průměrnou teplotu
+  (F6 teplota/teplota-a-jeji-mereni jako `interakce2` pod kádinkami): 5–7 denních teplot
+  ve sloupcovém grafu, varianty léto/zima (zima vždy se zápornou teplotou), dva kontrolované
+  kroky (součet → dělení počtem měření, krok 2 zamčený do správného součtu), hlášky na typické
+  chyby (záporné sečtené jako kladné, „to je pořád jen součet", dělení špatným počtem, průměr
+  mimo min–max), skóre na první pokus. Průměr vychází VŽDY celý (součet = průměr·počet).
+  Ověřeno: 5000 generování v Node bez chyby + 10 příkladů proklikáno v náhledu (obě varianty,
+  všechny chybové hlášky), konzole čistá. Kvíz už průměr pokrýval 4 otázkami z 28. 7. — nedublováno. — pokus se třemi kádinkami „Změř to rukou, nebo
   teploměrem?" (F6 teplota/teplota-a-jeji-mereni, dle prezentace TEPLOTA): kroky 1) levá ruka
   do studené 5 °C + pravá do horké 45 °C, 2) obě do vlažné → dva opačné pocity u téže vody
   (krok 2 zamčený, dokud neproběhl krok 1); zaškrtávací teploměr odhalí 25 °C a popisek

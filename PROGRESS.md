@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 36: PrumerSimulace (generátor průměrné teploty).** F6 teplota/teplota-a-jeji-mereni
+  (druhá simulace na stránce): 5–7 denních teplot v grafu, léto/zima, dva kontrolované kroky
+  (součet → dělení počtem), hlášky na typické chyby, průměr vždy celý. Ověřeno 5000 generováními
+  v Node + 10 příklady v náhledu. Tím vyčerpány náměty z prezentací F6 „TEPLOTA" a „Stavba látek".
+  Celkem 41 simulací.
 - **2026-07-28 — kolo 35: KadinkySimulace (změř to rukou, nebo teploměrem?).** Pokus se třemi
   kádinkami (F6 teplota/teplota-a-jeji-mereni): levá ruka do 5 °C, pravá do 45 °C, pak obě
   do vlažné → tatáž voda, dva opačné pocity; zaškrtávací teploměr odhalí objektivních 25 °C.

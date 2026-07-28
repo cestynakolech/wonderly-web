@@ -14,7 +14,7 @@ export type Podtema = {
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
 	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
-	interakce2?: 'kolejnice';
+	interakce2?: 'kolejnice' | 'prumer';
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -617,6 +617,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'teplota-a-jeji-mereni',
 					interakce: 'kadinky',
+					interakce2: 'prumer',
 					nazev: 'Teplota a její měření',
 					obsah: `
 						<h2>Teplota jako fyzikální veličina</h2>
