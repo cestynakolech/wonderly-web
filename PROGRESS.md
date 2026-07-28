@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 55: checkpoint dělby rolí Claude × lokální modely.** Revize kol 46–54:
+  dělba správná (kód a ověřování Claude — vzor „čistá funkce + Node + čtení DOM" nulově
+  drahý a odhaluje chyby; audit kandidátů obyčejným parserem). Vision nebyla potřeba;
+  popisovač prezentací čeká na prezentace 7/8/9. Hermes je zpět — zapojení rozhodne učitel
+  (audit z noci). Zápis v ~/ollama-log.md; další checkpoint kolo 65.
 - **2026-07-29 — kolo 54: nový audit kandidátů na simulace.** Projito všech 96 podtémat bez
   interakce (fyzika, informatika, pracovní činnosti), vybráno 12 nových kandidátů se
   simulovatelným jevem (RGB barvy, alternátor, elektromotor, vypařování, jiskra v plynu,

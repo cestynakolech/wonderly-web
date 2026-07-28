@@ -1,14 +1,14 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 54 hotové — nový audit kandidátů)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 55 hotové — checkpoint dělby rolí)
 
-Hotovo 54 kol samostatného režimu (53 simulací na 55 stránkách, 356+ kvízových otázek).
+Hotovo 55 kol samostatného režimu (53 simulací na 55 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
-**DALŠÍ KOLO (55) = ⏰ CHECKPOINT dělby rolí Claude × lokální modely** (pravidlo à 10 kol;
-revize kol 46–54 do ~/ollama-log.md, pravidla do ~/CLAUDE.md, další checkpoint kolo 65).
-Hned po checkpointu v témže kole nebo v kole 56: kandidát č. 1 nového seznamu —
-**F7 vnímání barev: RGB míchačka** (posuvníky R/G/B 0–255, aditivní míchání, přepínač
-na subtraktivní CMY tiskárnu).
+~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
+správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
+Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
+**DALŠÍ KOLO (56):** kandidát č. 1 nového seznamu — **F7 vnímání barev: RGB míchačka**
+(posuvníky R/G/B 0–255, aditivní míchání světel, přepínač na subtraktivní CMY tiskárnu).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
