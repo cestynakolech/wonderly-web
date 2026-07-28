@@ -1,0 +1,149 @@
+---
+// Přeměny energie na U-rampě (F8): Ep = m·g·h ↔ Ek, E = Ep + Ek konstantní.
+// Režim „ideální rampa" (bez tření): posuvníky hmotnosti (20–60 kg po 20),
+// startovní výšky (1–5 m po 1) a OKAMŽITÉ výšky skatera — sloupce Ep a Ek
+// se přelévají, součet drží. Režim „skutečný skatepark": každý přejezd ubere
+// energii odpovídající přesně 1 m výšky (promění se třením v teplo), takže
+// maximální výška klesá po celých metrech až do zastavení. Všechny energie
+// vychází v celých joulech (g = 10). Kreslí se staticky, bez animační smyčky.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Skatepark — přeměny energie 🕹️</span></h2>
+	<p>Skater na U-rampě: nahoře má <strong>polohovou energii</strong> (Ep = m·g·h), dole se všechna promění na <strong>pohybovou</strong> (Ek). Jejich <strong>součet se nemění</strong> — dokud nezačne brzdit tření.</p>
+	<p id="skate-rezimy">
+		<button type="button" class="skate-tl skate-aktivni" data-rezim="idealni">✨ ideální rampa (bez tření)</button>
+		<button type="button" class="skate-tl" data-rezim="treni">🛹 skutečný skatepark (se třením)</button>
+	</p>
+	<svg id="skate-svg" viewBox="0 0 660 340" role="img" aria-label="Skater na U-rampě a sloupce energií">
+		<!-- U-rampa: dvě čtvrtkružnice + dno -->
+		<path d="M40 60 Q40 280 200 280 L360 280 Q520 280 520 60" fill="none" stroke="#2b2a26" stroke-width="5" />
+		<line x1="40" y1="300" x2="520" y2="300" stroke="#2b2a26" stroke-width="3" />
+		<!-- značky výšky -->
+		<g id="skate-znacky" font-size="11" fill="#868e96"></g>
+		<!-- skater -->
+		<g id="skate-hrac">
+			<circle id="skate-telo" r="13" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" />
+			<rect id="skate-prkno" width="34" height="6" rx="3" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />
+		</g>
+		<!-- sloupce energií -->
+		<g font-size="13" font-weight="bold" text-anchor="middle">
+			<rect id="skate-bar-ep" x="556" width="30" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<rect id="skate-bar-ek" x="596" width="30" fill="#f08c00" stroke="#2b2a26" stroke-width="2" />
+			<rect id="skate-bar-q" x="636" width="18" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="571" y="330" fill="#1971c2">Ep</text>
+			<text x="611" y="330" fill="#f08c00">Ek</text>
+			<text id="skate-q-pop" x="645" y="330" fill="#e03131">Q</text>
+		</g>
+		<text id="skate-e-text" x="300" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Hmotnost skatera: <output id="skate-out-m"></output>
+		<input type="range" id="skate-slider-m" min="20" max="60" step="20" value="40" />
+	</label>
+	<label class="sim-posuvnik" id="skate-radek-h">
+		Startovní výška: <output id="skate-out-h"></output>
+		<input type="range" id="skate-slider-h" min="1" max="5" step="1" value="4" />
+	</label>
+	<label class="sim-posuvnik" id="skate-radek-y">
+		Okamžitá výška skatera: <output id="skate-out-y"></output>
+		<input type="range" id="skate-slider-y" min="0" max="4" step="1" value="4" />
+	</label>
+	<p id="skate-prejezdy" style="display:none">
+		<button type="button" class="skate-tl" id="skate-dalsi">▶ další přejezd</button>
+		<button type="button" class="skate-tl" id="skate-reset">🔄 znovu</button>
+	</p>
+	<p class="skate-vzorec" id="skate-vypocet"></p>
+	<p class="skate-stav" id="skate-stav"></p>
+</section>
+
+<script>
+	const g = 10;
+	let rezim = 'idealni';
+	let prejezd = 0; // režim tření: kolik přejezdů už proběhlo
+
+	const sm = document.getElementById('skate-slider-m');
+	const sh = document.getElementById('skate-slider-h');
+	const sy = document.getElementById('skate-slider-y');
+	const vypocetEl = document.getElementById('skate-vypocet');
+	const stavEl = document.getElementById('skate-stav');
+	const nastav = (id, attrs) => { const el = document.getElementById(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	function prekresli() {
+		const m = +sm.value;
+		const hStart = +sh.value;
+		// v režimu tření je aktuální max výška hStart − prejezd (po 1 m)
+		const hMax = rezim === 'idealni' ? hStart : Math.max(0, hStart - prejezd);
+		sy.max = hStart;
+		if (rezim === 'treni') sy.value = hMax; // skater je vždy v horní úvrati přejezdu
+		const y = rezim === 'idealni' ? Math.min(+sy.value, hStart) : hMax;
+
+		const E0 = m * g * hStart;      // počáteční energie (celé J)
+		const Ep = m * g * y;
+		const Q = rezim === 'treni' ? m * g * (hStart - hMax) : 0; // teplo ze tření
+		const Ek = E0 - Ep - Q;
+
+		document.getElementById('skate-out-m').textContent = m + ' kg';
+		document.getElementById('skate-out-h').textContent = hStart + ' m';
+		document.getElementById('skate-out-y').textContent = y + ' m';
+		document.getElementById('skate-radek-y').style.display = rezim === 'idealni' ? '' : 'none';
+		document.getElementById('skate-prejezdy').style.display = rezim === 'treni' ? '' : 'none';
+
+		// skater na levé stěně rampy: úhel podle výšky (dno π/2, vršek π); střed oblouku (200,60), r = 220
+		const uhel = Math.PI / 2 + (Math.PI / 2) * (y / 5);
+		const px = 200 + 220 * Math.cos(uhel);
+		const py = 60 + 220 * Math.sin(uhel);
+		nastav('skate-telo', { cx: px, cy: py - 18 });
+		nastav('skate-prkno', { x: px - 17, y: py - 8 });
+
+		// sloupce: 1 J = (250 px / max energie 3000) — měřítko podle E0, aby se vešlo
+		const mer = 250 / Math.max(E0, 1);
+		nastav('skate-bar-ep', { y: 310 - Ep * mer, height: Math.max(Ep * mer, 0.5) });
+		nastav('skate-bar-ek', { y: 310 - Ek * mer, height: Math.max(Ek * mer, 0.5) });
+		nastav('skate-bar-q', { y: 310 - Q * mer, height: Math.max(Q * mer, 0.5) });
+		document.getElementById('skate-q-pop').textContent = rezim === 'treni' ? 'Q' : '';
+		document.getElementById('skate-bar-q').setAttribute('visibility', rezim === 'treni' ? 'visible' : 'hidden');
+		document.getElementById('skate-e-text').textContent = `E = Ep + Ek${rezim === 'treni' ? ' (+ teplo Q)' : ''} = ${E0} J`;
+
+		vypocetEl.innerHTML = `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong>${rezim === 'treni' ? ` &nbsp;·&nbsp; teplo ze tření Q = <strong>${Q} J</strong>` : ''} &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`;
+
+		if (rezim === 'idealni') {
+			if (y === hStart) stavEl.textContent = '⬆️ Nahoře: všechna energie je polohová (Ep maximální, Ek = 0). Skater na okamžik stojí.';
+			else if (y === 0) stavEl.textContent = '⬇️ Dole: všechna energie je pohybová (Ek maximální) — skater je nejrychlejší. Ep se celá proměnila na Ek.';
+			else stavEl.textContent = '↕️ Mezi tím: část energie polohová, část pohybová — přelévají se, ale součet se NEMĚNÍ (zákon zachování).';
+		} else {
+			if (hMax === 0) stavEl.textContent = `🛑 Skater zastavil — všech ${E0} J se postupně proměnilo třením na teplo (Q). Proto se na rampě bez odrážení nedá jezdit věčně.`;
+			else stavEl.textContent = `🛹 Přejezd č. ${prejezd}: každý přejezd sebere energii odpovídající 1 m výšky (${m * g} J) — promění se třením na TEPLO. Skater teď vyjede už jen do ${hMax} m.`;
+		}
+	}
+
+	document.getElementById('skate-rezimy').addEventListener('click', (e) => {
+		const tl = e.target.closest('.skate-tl');
+		if (!tl || !tl.dataset.rezim) return;
+		rezim = tl.dataset.rezim;
+		prejezd = 0;
+		for (const b of document.querySelectorAll('#skate-rezimy .skate-tl')) b.classList.toggle('skate-aktivni', b === tl);
+		prekresli();
+	});
+	document.getElementById('skate-dalsi').addEventListener('click', () => {
+		const hStart = +sh.value;
+		if (hStart - prejezd > 0) prejezd++;
+		prekresli();
+	});
+	document.getElementById('skate-reset').addEventListener('click', () => { prejezd = 0; prekresli(); });
+	sm.addEventListener('input', prekresli);
+	sh.addEventListener('input', () => { prejezd = 0; sy.value = sh.value; prekresli(); });
+	sy.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#skate-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.skate-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.skate-tl.skate-aktivni { background: #ffe8cc; }
+	.skate-tl:active { transform: translateY(1px); }
+	.skate-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.skate-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

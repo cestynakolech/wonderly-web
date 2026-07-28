@@ -1,14 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 41 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 42 hotové)
 
-Hotovo 41 kol samostatného režimu (44 simulací, 356+ kvízových otázek).
-Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–3 hotové).
-**DALŠÍ KOLO (42):** kandidát č. 4 — **F8 přeměny energie** (skatepark/kyvadlo, Ep×Ek
-v reálném čase; jedna simulace pro obě stránky pohybová-a-polohová-energie
-i zakon-zachovani-mechanicke-energie).
+Hotovo 42 kol samostatného režimu (45 simulací na 47 stránkách, 356+ kvízových otázek).
+Zásoba na měsíc: sekce „Kandidáti na simulace" níže (č. 1–4 hotové).
+**DALŠÍ KOLO (43):** kandidát č. 5 — **F9 elektromagnetická indukce** (magnet do cívky,
+výchylka galvanometru dle rychlosti, „bez pohybu nic").
 Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 Drobný dluh ve frontě: `zkontroluj.mjs` podhodnocuje počet otázek u starších jednořádkových bloků.
+**Domluva 28. 7. večer:** wonderly zůstává VÝHRADNĚ v této session (desktop app);
+terminálová session s Telegram kanálem je na OSTATNÍ úkoly — do webu nezasahuje.
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
 `~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
@@ -20,6 +21,11 @@ a variantou A byl **mylný** — proměnnou aplikace přebíjí, funguje jen sym
 
 **ČEKÁ NA UŽIVATELE:**
 - Odkaz na video „Teplota a její měření – F6" (na kanálu není).
+
+**⏰ CHECKPOINT — revize dělby rolí Claude × lokální modely: V KOLE 45.**
+(Pravidlo připomenuté učitelem 28. 7.: pravidelně kontrolovat, co může převzít lokální
+model/automat, aby se šetřily tokeny; výsledek do ~/ollama-log.md, pravidla do ~/CLAUDE.md.
+Poslední analýza proběhla 27. 7. — další po ~10 kolech, tj. kolo 45, pak 55 atd.)
 
 **Zbylé náměty z vision analýzy prezentací F6** (soupis v `Omega/dokumenty/kontrola-podkladu-fyzika6.md`):
 1. ~~Rozpálená kolejnice~~ → HOTOVO v kole 34 (KolejniceSimulace + kompenzátor ve výkladu).
@@ -60,8 +66,8 @@ Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMO
    4 materiály × 3 kapaliny, vše celé N).
 3. [x] **F8 tepelna-vymena-a-teplo** — HOTOVO v kole 41 (KalorimetrSimulace: generátor úloh
    s celými výsledky, bilance odevzdané=přijaté teplo).
-4. [ ] **F8 pohybova-a-polohova-energie + zakon-zachovani** — skatepark/kyvadlo: sloupce Ep×Ek
-   v reálném čase; JEDNA simulace na OBĚ stránky (vzor OhrevSimulace).
+4. [x] **F8 pohybova-a-polohova-energie + zakon-zachovani** — HOTOVO v kole 42
+   (SkateparkSimulace na obou stránkách: ideální rampa × se třením, teplo Q).
 5. [ ] **F9 elektromagneticka-indukce** — magnet do cívky: rychlost pohybu → výchylka
    galvanometru, směr podle pólu; „bez pohybu nic" jako hlavní poučení.
 6. [ ] **F9 elektromagnet** — posuvník proudu a počtu závitů → kolik sponek udrží; vypnutí
@@ -98,6 +104,15 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 42): **SkateparkSimulace** — přeměny energie na U-rampě (F8, JEDNA simulace
+  na OBOU stránkách pohybova-a-polohova-energie i zakon-zachovani, vzor Ohrev): režim „ideální
+  rampa" (posuvníky m 20–60 kg, start 1–5 m, okamžitá výška — sloupce Ep×Ek se přelévají,
+  součet konstantní) × „skutečný skatepark" (každý přejezd sebere energii odpovídající 1 m
+  výšky → teplo Q, výšky klesají po CELÝCH metrech až do zastavení). Všechny energie celé J.
+  Ověřeno v náhledu (extrémy, střed, poloha na oblouku výpočtem, 4 přejezdy + zastavení,
+  Q = 3000 J, sloupce nepřetečou), konzole čistá. Kvízy stránek už měly 16+14 otázek.
+  Vedle toho: checkpoint revize dělby rolí Claude × lokální modely zaveden do PRAVIDLA.md
+  a naplánován na kolo 45 (připomínka učitele).
 - 2026-07-28 (kolo 41): **KalorimetrSimulace** — generátor úloh na smíchání teplé a studené vody
   (F8 energie/tepelna-vymena-a-teplo): dvě kádinky (1–3 kg, studená 10–25 °C, horká 40–85 °C)
   slité do kalorimetru, hádej výslednou teplotu; generátor vybírá jen úlohy s CELÝM výsledkem

@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -2241,6 +2241,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'pohybova-a-polohova-energie',
+					interakce: 'skatepark',
 					nazev: 'Pohybová a polohová energie tělesa',
 					obsah: `
 						<h2>Pohybová a polohová energie tělesa</h2>
@@ -2262,6 +2263,7 @@ export const temata: Record<string, Tema[]> = {
 				},
 				{
 					slug: 'zakon-zachovani-mechanicke-energie',
+					interakce: 'skatepark',
 					nazev: 'Zákon zachování mechanické energie',
 					obsah: `
 						<h2>Zákon zachování mechanické energie</h2>

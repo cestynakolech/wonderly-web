@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 42: SkateparkSimulace (přeměny energie na U-rampě).** Jedna simulace
+  na obou stránkách F8 (pohybová/polohová energie + zákon zachování): ideální rampa (Ep↔Ek,
+  součet konstantní) × se třením (každý přejezd = energie 1 m výšky → teplo, zastavení).
+  Vše celé J. Celkem 45 simulací. K tomu checkpoint revize dělby rolí Claude × lokální
+  modely (kolo 45, pak à 10 kol) dle připomínky učitele — zapsáno do PRAVIDLA.md.
 - **2026-07-28 — kolo 41: KalorimetrSimulace (smíchání teplé a studené vody).** F8
   tepelna-vymena-a-teplo: generátor úloh s celou výslednou teplotou a celými kJ tepla,
   bilance odevzdané=přijaté teplo, hlášky na typické chyby. Kvíz +2 otázky. Ověřeno 5000×
