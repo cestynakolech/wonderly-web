@@ -1,10 +1,10 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 34 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 35 hotové)
 
-Hotovo 34 kol samostatného režimu (38 simulací + KolejniceSimulace = 39, 351 kvízových otázek).
-**DALŠÍ KOLO (35):** z námětů vytěžených prezentací F6 zbývá: pokus se třemi kádinkami
-(„Změř to rukou, nebo teploměrem?") a generátor příkladů na průměrnou teplotu (celá čísla!).
+Hotovo 35 kol samostatného režimu (40 simulací, 354 kvízových otázek).
+**DALŠÍ KOLO (36):** z námětů vytěžených prezentací F6 zbývá generátor příkladů
+na průměrnou teplotu (tabulka + graf, zvlášť kontrola součtu a dělení, CELÁ čísla!).
 Dále média k Fyzice 6.
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
@@ -20,9 +20,7 @@ a variantou A byl **mylný** — proměnnou aplikace přebíjí, funguje jen sym
 
 **Zbylé náměty z vision analýzy prezentací F6** (soupis v `Omega/dokumenty/kontrola-podkladu-fyzika6.md`):
 1. ~~Rozpálená kolejnice~~ → HOTOVO v kole 34 (KolejniceSimulace + kompenzátor ve výkladu).
-2. **Změř to rukou, nebo teploměrem?** — pokus se třemi kádinkami (5 / 25 / 45 °C): ruce
-   ve studené a horké, pak obě do vlažné → dva protichůdné pocity u téže vody. Motivace,
-   proč fyzika potřebuje měřidlo.
+2. ~~Změř to rukou, nebo teploměrem?~~ → HOTOVO v kole 35 (KadinkySimulace + pokus ve výkladu).
 3. **Průměrná teplota — generátor příkladů** s tabulkou i grafem, kontroluje zvlášť součet
    a zvlášť dělení. Pozor: podle nového pravidla mají příklady vycházet v CELÝCH číslech.
 Dále: **média k Fyzice 6** (infografiky/písně).
@@ -70,6 +68,12 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 35): **KadinkySimulace** — pokus se třemi kádinkami „Změř to rukou, nebo
+  teploměrem?" (F6 teplota/teplota-a-jeji-mereni, dle prezentace TEPLOTA): kroky 1) levá ruka
+  do studené 5 °C + pravá do horké 45 °C, 2) obě do vlažné → dva opačné pocity u téže vody
+  (krok 2 zamčený, dokud neproběhl krok 1); zaškrtávací teploměr odhalí 25 °C a popisek
+  „VLAŽNÁ ? °C" → „25 °C". Výklad doplněn o návod na domácí pokus, kvíz +3 otázky (celkem 354).
+  Ověřeno v náhledu JS průchodem všech kroků (polohy rukou, bubliny, zámek, reset), konzole čistá.
 - 2026-07-28 (kolo 34): **KolejniceSimulace** — rozpálená kolejnice (F6 teplota/teplotni-roztaznost,
   druhá simulace na stránce vedle teploměru → nové pole `interakce2` v temata.ts + řádek v šabloně):
   pohled shora na kolej (25 m kolejnice, montáž při 20 °C, ocel 0,012 mm/(m·°C)), posuvník

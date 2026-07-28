@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 35: KadinkySimulace (změř to rukou, nebo teploměrem?).** Pokus se třemi
+  kádinkami (F6 teplota/teplota-a-jeji-mereni): levá ruka do 5 °C, pravá do 45 °C, pak obě
+  do vlažné → tatáž voda, dva opačné pocity; zaškrtávací teploměr odhalí objektivních 25 °C.
+  Motivace, proč fyzika měří měřidlem. Výklad + domácí pokus, kvíz +3 otázky (354).
+  Celkem 40 simulací.
 - **2026-07-28 — kolo 34: KolejniceSimulace (rozpálená kolejnice).** Teplotní roztažnost v praxi
   (F6 teplota/teplotni-roztaznost) — druhá simulace na téže stránce vedle teploměru (nové pole
   `interakce2` v temata.ts + řádek v šabloně): kolej při pohledu shora, posuvník −20…50 °C po 10 °C,

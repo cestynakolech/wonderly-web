@@ -42,6 +42,7 @@ import StupniceSimulace from '../../../../../../components/skola2/StupniceSimula
 import PrevodySimulace from '../../../../../../components/skola2/PrevodySimulace.astro';
 import OzobotSimulace from '../../../../../../components/skola2/OzobotSimulace.astro';
 import KolejniceSimulace from '../../../../../../components/skola2/KolejniceSimulace.astro';
+import KadinkySimulace from '../../../../../../components/skola2/KadinkySimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -209,6 +210,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'stupnice' && <StupniceSimulace />}
 	{podtema.interakce === 'prevody' && <PrevodySimulace />}
 	{podtema.interakce === 'ozobot' && <OzobotSimulace />}
+	{podtema.interakce === 'kadinky' && <KadinkySimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
 </SkolaLayout>

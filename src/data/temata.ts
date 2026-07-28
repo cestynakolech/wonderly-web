@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice';
 };
@@ -616,6 +616,7 @@ export const temata: Record<string, Tema[]> = {
 			podtemata: [
 				{
 					slug: 'teplota-a-jeji-mereni',
+					interakce: 'kadinky',
 					nazev: 'Teplota a její měření',
 					obsah: `
 						<h2>Teplota jako fyzikální veličina</h2>
@@ -624,6 +625,8 @@ export const temata: Record<string, Tema[]> = {
 							<li>značka: <strong>t</strong>, jednotka: <strong>stupeň Celsia (°C)</strong>, měřidlo: <strong>teploměr</strong></li>
 						</ul>
 						<p>💡 Vědci používají také <strong>termodynamickou teplotu</strong> (značka T, jednotka kelvin K) — její stupnice začíná <strong>absolutní nulou</strong>, teoreticky nejnižší teplotou hmoty. Potkáte ji na střední škole.</p>
+						<h3>🧪 Pokus: dá se teplota změřit rukou?</h3>
+						<p>Připrav si tři kádinky: se <strong>studenou</strong> (asi 5 °C), <strong>vlažnou</strong> (asi 25 °C) a <strong>horkou</strong> vodou (asi 45 °C — pozor, ne vroucí!). Levou ruku ponoř do studené, pravou do horké a chvíli počkej. Pak dej <strong>obě ruce do vlažné</strong>: levá ji cítí jako teplou, pravá jako studenou — <strong>a přitom je to tatáž voda</strong>. Tělesný pocit srovnává jen s tím, nač je ruka zvyklá, proto se na něj fyzika nespoléhá a teplotu <strong>měří teploměrem</strong>. Vyzkoušej si pokus v simulaci níže.</p>
 						<h3>Historie měření teploty</h3>
 						<ul>
 							<li>dlouho se teplota určovala podle tělesných pocitů či barvy rozžhavených předmětů</li>

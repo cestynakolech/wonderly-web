@@ -1,0 +1,139 @@
+---
+// Pokus se třemi kádinkami: „Změř to rukou, nebo teploměrem?" (motivace, proč
+// fyzika potřebuje měřidlo). Levá ruka jde do studené vody (5 °C), pravá do
+// horké (45 °C); pak OBĚ do prostřední vlažné (25 °C) — levá ji cítí jako
+// teplou, pravá jako studenou, přestože je to tatáž voda. Pocit srovnává
+// s tím, nač je ruka zvyklá → teplotu určí jen teploměr. Kreslí se staticky
+// (žádný requestAnimationFrame), překresluje se jen po kliknutí.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Změř to rukou, nebo teploměrem? 🕹️</span></h2>
+	<p>Před tebou jsou tři kádinky s vodou: <strong>studená (5 °C)</strong>, <strong>vlažná</strong> a <strong>horká (45 °C)</strong>. Projdi pokus krok za krokem a sleduj, co ti řeknou <strong>ruce</strong> — a co <strong>teploměr</strong>.</p>
+	<p id="kad-kroky">
+		<button type="button" class="kad-tl kad-aktivni" data-krok="1">1️⃣ Ponoř ruce do krajních kádinek</button>
+		<button type="button" class="kad-tl" data-krok="2" disabled>2️⃣ Přendej OBĚ ruce do prostřední</button>
+		<button type="button" class="kad-tl" data-krok="0">🔄 Znovu</button>
+	</p>
+	<svg id="kad-svg" viewBox="0 0 660 400" role="img" aria-label="Pokus se třemi kádinkami s vodou o různé teplotě">
+		<!-- kádinky -->
+		<g stroke="#2b2a26" stroke-width="3" fill="none">
+			<path d="M60 150 L60 340 Q60 352 72 352 L188 352 Q200 352 200 340 L200 150" />
+			<path d="M260 150 L260 340 Q260 352 272 352 L388 352 Q400 352 400 340 L400 150" />
+			<path d="M460 150 L460 340 Q460 352 472 352 L588 352 Q600 352 600 340 L600 150" />
+		</g>
+		<!-- voda -->
+		<path d="M64 200 L64 340 Q64 348 72 348 L188 348 Q196 348 196 340 L196 200 Z" fill="#a5d8ff" opacity="0.85" />
+		<path d="M264 200 L264 340 Q264 348 272 348 L388 348 Q396 348 396 340 L396 200 Z" fill="#d0ebff" opacity="0.85" />
+		<path d="M464 200 L464 340 Q464 348 472 348 L588 348 Q596 348 596 340 L596 200 Z" fill="#ffc9c9" opacity="0.85" />
+		<!-- pára nad horkou -->
+		<g stroke="#adb5bd" stroke-width="3" fill="none" opacity="0.8">
+			<path d="M505 138 q6 -10 0 -20 q-6 -10 0 -20" />
+			<path d="M535 138 q6 -10 0 -20 q-6 -10 0 -20" />
+			<path d="M565 138 q6 -10 0 -20 q-6 -10 0 -20" />
+		</g>
+		<!-- popisky kádinek -->
+		<text x="130" y="380" text-anchor="middle" font-size="15" font-weight="bold" fill="#1971c2">STUDENÁ 5 °C</text>
+		<text id="kad-popis-stred" x="330" y="380" text-anchor="middle" font-size="15" font-weight="bold" fill="#495057">VLAŽNÁ ? °C</text>
+		<text x="530" y="380" text-anchor="middle" font-size="15" font-weight="bold" fill="#e03131">HORKÁ 45 °C</text>
+		<!-- teploměr v prostřední kádince (ukáže se zaškrtnutím) -->
+		<g id="kad-teplomer" display="none">
+			<rect x="352" y="150" width="12" height="170" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2.5" />
+			<circle cx="358" cy="328" r="11" fill="#e03131" stroke="#2b2a26" stroke-width="2.5" />
+			<rect x="354.5" y="240" width="7" height="88" fill="#e03131" />
+			<text x="358" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">25 °C</text>
+		</g>
+		<!-- ruce (emoji) -->
+		<text id="kad-ruka-l" font-size="40" text-anchor="middle">🖐️</text>
+		<text id="kad-ruka-p" font-size="40" text-anchor="middle">🖐️</text>
+		<text id="kad-ruka-l-pop" font-size="13" font-weight="bold" fill="#495057" text-anchor="middle">levá</text>
+		<text id="kad-ruka-p-pop" font-size="13" font-weight="bold" fill="#495057" text-anchor="middle">pravá</text>
+		<!-- bubliny pocitů -->
+		<g id="kad-bub-l" display="none">
+			<rect id="kad-bub-l-r" y="30" height="34" rx="10" fill="#fff" stroke="#2b2a26" stroke-width="2.5" />
+			<text id="kad-bub-l-t" y="53" text-anchor="middle" font-size="15" font-weight="bold"></text>
+		</g>
+		<g id="kad-bub-p" display="none">
+			<rect id="kad-bub-p-r" y="30" height="34" rx="10" fill="#fff" stroke="#2b2a26" stroke-width="2.5" />
+			<text id="kad-bub-p-t" y="53" text-anchor="middle" font-size="15" font-weight="bold"></text>
+		</g>
+	</svg>
+	<label class="kad-check"><input type="checkbox" id="kad-check-teplomer" /> ukázat teploměr v prostřední kádince</label>
+	<p class="kad-stav" id="kad-stav"></p>
+</section>
+
+<script>
+	const krokyEl = document.getElementById('kad-kroky');
+	const stavEl = document.getElementById('kad-stav');
+	const checkTepl = document.getElementById('kad-check-teplomer');
+	let krok = 0;
+
+	const nastav = (id, attrs) => {
+		const el = document.getElementById(id);
+		for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+	};
+
+	function bublina(strana, x, text, barva) {
+		const g = document.getElementById('kad-bub-' + strana);
+		if (!text) { g.setAttribute('display', 'none'); return; }
+		g.setAttribute('display', '');
+		const t = document.getElementById('kad-bub-' + strana + '-t');
+		t.textContent = text;
+		t.setAttribute('x', x);
+		t.setAttribute('fill', barva);
+		const sirka = text.length * 8.6 + 24;
+		nastav('kad-bub-' + strana + '-r', { x: x - sirka / 2, width: sirka });
+	}
+
+	function prekresli() {
+		// polohy rukou: krok 0 nad krajními, krok 1 v krajních, krok 2 obě v prostřední
+		const polohy = {
+			0: { lx: 130, ly: 120, px: 530, py: 120 },
+			1: { lx: 130, ly: 250, px: 530, py: 250 },
+			2: { lx: 305, ly: 250, px: 355, py: 250 },
+		}[krok];
+		nastav('kad-ruka-l', { x: polohy.lx, y: polohy.ly });
+		nastav('kad-ruka-p', { x: polohy.px, y: polohy.py });
+		nastav('kad-ruka-l-pop', { x: polohy.lx, y: polohy.ly + 18 });
+		nastav('kad-ruka-p-pop', { x: polohy.px, y: polohy.py + 18 });
+
+		if (krok === 0) {
+			bublina('l', 0, '', '');
+			bublina('p', 0, '', '');
+			stavEl.textContent = '👉 Začni krokem 1: levou ruku do studené, pravou do horké vody. Chvíli je tam podrž.';
+		} else if (krok === 1) {
+			bublina('l', 140, 'Brrr, studená!', '#1971c2');
+			bublina('p', 520, 'Uf, horká!', '#e03131');
+			stavEl.textContent = 'Ruce si zvykají: levá na 5 °C, pravá na 45 °C. Teď obě přendej do prostřední kádinky (krok 2).';
+		} else {
+			bublina('l', 160, 'Ta je TEPLÁ!', '#e03131');
+			bublina('p', 500, 'Ta je STUDENÁ!', '#1971c2');
+			stavEl.innerHTML = '🤯 <strong>Tatáž voda, dva opačné pocity!</strong> Levá ruka (zvyklá na 5 °C) ji cítí jako teplou, pravá (zvyklá na 45 °C) jako studenou. Pocit srovnává jen s tím, nač je ruka zvyklá — <strong>proto fyzika měří teploměrem</strong>. Zaškrtni ho a uvidíš: voda má pro obě ruce stejných 25 °C.';
+		}
+		document.getElementById('kad-teplomer').setAttribute('display', checkTepl.checked ? '' : 'none');
+		document.getElementById('kad-popis-stred').textContent = checkTepl.checked ? 'VLAŽNÁ 25 °C' : 'VLAŽNÁ ? °C';
+	}
+
+	krokyEl.addEventListener('click', (e) => {
+		const tl = e.target.closest('.kad-tl');
+		if (!tl || tl.disabled) return;
+		krok = +tl.dataset.krok;
+		for (const b of krokyEl.querySelectorAll('.kad-tl')) {
+			b.classList.toggle('kad-aktivni', +b.dataset.krok === krok);
+			if (+b.dataset.krok === 2) b.disabled = krok !== 1 && krok !== 2;
+		}
+		prekresli();
+	});
+	checkTepl.addEventListener('change', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#kad-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.kad-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.kad-tl.kad-aktivni { background: #ffe8cc; }
+	.kad-tl:disabled { opacity: 0.45; cursor: not-allowed; }
+	.kad-tl:active:not(:disabled) { transform: translateY(1px); }
+	.kad-check { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.kad-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

@@ -1266,6 +1266,29 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Teplota popisuje tepelný stav tělesa — vnímáme ho jako studené, teplé či horké.',
 		},
 		{
+			text: 'Pokus: levou ruku podržíš ve studené vodě, pravou v horké, pak dáš obě do vlažné. Co ucítíš?',
+			odpovedi: [
+				'levá ruka cítí vodu jako teplou, pravá jako studenou',
+				'obě ruce cítí vodu úplně stejně',
+				'obě ruce cítí vodu jako horkou',
+			],
+			vysvetleni: 'Každá ruka srovnává s tím, nač si předtím zvykla — tatáž voda proto dává dva opačné pocity.',
+		},
+		{
+			text: 'Co z pokusu se třemi kádinkami plyne?',
+			odpovedi: [
+				'tělesný pocit teplotu spolehlivě neurčí — potřebujeme teploměr',
+				'lidská ruka je přesnější než teploměr',
+				'vlažná voda mění teplotu podle ruky',
+			],
+			vysvetleni: 'Pocit je jen srovnání s předchozím stavem ruky. Skutečnou teplotu určí jedině měřidlo — teploměr.',
+		},
+		{
+			text: 'Vlažnou vodu (25 °C) cítí jedna ruka jako teplou a druhá jako studenou. Jakou teplotu voda doopravdy má?',
+			odpovedi: ['pořád 25 °C — pro obě ruce stejně', 'pro každou ruku jinou', 'nedá se to zjistit'],
+			vysvetleni: 'Voda má jedinou skutečnou teplotu (změří ji teploměr). Liší se jen pocity rukou, ne voda.',
+		},
+		{
 			text: 'Jaká je značka a jednotka teploty?',
 			odpovedi: ['t, stupeň Celsia (°C)', 'T, newton (N)', 'm, kilogram (kg)'],
 			vysvetleni: 'Teplota má značku t a jednotku °C. Měříme ji teploměrem.',
