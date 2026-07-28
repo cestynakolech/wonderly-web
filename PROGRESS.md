@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 61: DuhaSimulace (rozklad světla).** F7: hranol rozloží bílý paprsek
+  na vějíř 7 barev (klik na barvu/chip = jak moc se láme; červená nejméně, fialová nejvíce),
+  obrácený hranol = Newtonův důkaz 1671 (složení zpět do bílé, pojem spektrum); režim duhy —
+  hlavní oblouk s červenou nahoře, přepínatelná vedlejší duha (2 odrazy, opačné pořadí,
+  slabší) + schéma kapky a zmínka J. M. Marciho. Čisté funkce poradiDuhy + lomBarvy ověřeny
+  výpočtem i DOM. Celkem 59 simulací.
 - **2026-07-29 — kolo 60: JiskraSimulace (vedení proudu v plynech).** F9: jiskřiště —
   napětí 0–18 kV (po 3) × mezera 1–5 mm, práh 3 kV/mm (celá kV), klikatá jiskra + výklad
   ionizace; režim bouřka — blesk do bleskosvodu (Franklin/Diviš, kanál 20–30 tisíc °C)

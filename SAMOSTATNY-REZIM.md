@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 60 hotové — jiskra a blesk)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 61 hotové — hranol a duha)
 
-Hotovo 60 kol samostatného režimu (58 simulací na 60 stránkách, 356+ kvízových otázek).
+Hotovo 61 kol samostatného režimu (59 simulací na 61 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (61):** kandidát č. 6 nového seznamu — **F7 rozklad světla a duha**
-(hranol rozkládá bílé světlo na spektrum, přepínač hranol × kapka — duha a pořadí barev;
-statické paprsky).
+**DALŠÍ KOLO (62):** kandidát č. 7 nového seznamu — **F9 jaderný reaktor** (regulační
+tyče: hloubka zasunutí → počet neutronů a výkon v celých číslech, řízená × neřízená
+řetězová reakce).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -33,8 +33,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 5. [x] **F9 vedeni-proudu-v-plynech** — HOTOVO v kole 60 (JiskraSimulace: elektrody
    1–5 mm × napětí 0–18 kV po 3, práh 3 kV/mm → celá kV, ionizace; režim bouřka — blesk
    do bleskosvodu (Franklin/Diviš, 20–30 tisíc °C) + úloha „sekundy ÷ 3 = km bouřky").
-6. [ ] **F7 rozklad-svetla-duha** — hranol rozkládá bílé světlo na spektrum, přepínač
-   hranol × kapka (duha + pořadí barev); statické paprsky.
+6. [x] **F7 rozklad-svetla-duha** — HOTOVO v kole 61 (DuhaSimulace: hranol s vějířem
+   7 barev, klik na barvu = míra lomu, obrácený hranol = Newtonův důkaz složení do bílé;
+   duha s červenou nahoře + vedlejší se 2 odrazy a opačným pořadím, schéma kapky, Marci).
 7. [ ] **F9 jaderny-reaktor-elektrarna** — regulační tyče: hloubka zasunutí → počet neutronů
    a výkon (celá čísla), řízená × neřízená řetězová reakce.
 8. [ ] **F8 vnimani-zvuku-a-hlasitost** — stupnice dB: posuvník zdroje šepot→start letadla,
