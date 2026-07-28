@@ -1,12 +1,11 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 37 hotové)
+## ⏩ KDE POKRAČOVAT (28. 7. 2026, kolo 38 hotové)
 
-Hotovo 37 kol samostatného režimu (41 simulací, 354 kvízových otázek).
-Náměty z vision analýzy prezentací F6 (kolejnice, kádinky, průměr) VYČERPÁNY;
-kontrolní brána `zkontroluj.mjs` umí i `interakce2`.
-**DALŠÍ KOLO (38):** z fronty: zásoba témat dopředu (audit podtémat bez interakce),
-nebo média k Fyzice 6, nebo prezentace 7/8/9 (vision, ideálně čerstvá session).
+Hotovo 38 kol samostatného režimu (41 simulací, 354 kvízových otázek).
+**ZÁSOBA NA MĚSÍC HOTOVÁ:** 12 kandidátů na simulace v sekci „Kandidáti na simulace" níže.
+**DALŠÍ KOLO (39):** kandidát č. 1 — **F7 třecí síla** (bedna, povrchy, klidové × smykové tření).
+Pak postupně dolů seznamem; průběžně média k Fyzice 6 a prezentace 7/8/9 (čerstvá session).
 
 **✅ HOTOVO 28. 7. 14:05 — Ollama sjednocena, NEŘEŠIT ZNOVU.**
 `~/.ollama/models` je symlink na `/Users/Shared/ollama-models`, `ollama list` → **11 modelů**,
@@ -49,7 +48,35 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 
 ## Fronta nápadů (seřazeno podle priority)
 
-### Kandidáti na simulace (z auditu temata.ts, 23. 7. 2026)
+### Kandidáti na simulace (NOVÝ audit temata.ts, 28. 7. 2026 — kolo 38; zásoba na měsíc)
+
+Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁDAT:
+1. [ ] **F7 treci-sila** — bedna na podlaze: posuvník tažné síly, výběr povrchu (led/dřevo/koberec),
+   klidové × smykové tření, „rozjede se / nerozjede"; čísla volit celá.
+2. [ ] **F7 archimeduv-zakon** — těleso v kapalině: hustota tělesa × kapaliny, siloměr (tíha vs.
+   vztlak), plave / vznáší se / klesá. Klasika, na webu překvapivě chybí.
+3. [ ] **F8 tepelna-vymena-a-teplo** — kalorimetr: smíchej teplou a studenou vodu, Q = c·m·Δt,
+   výsledná teplota (při stejných hmotnostech = průměr → celá čísla).
+4. [ ] **F8 pohybova-a-polohova-energie + zakon-zachovani** — skatepark/kyvadlo: sloupce Ep×Ek
+   v reálném čase; JEDNA simulace na OBĚ stránky (vzor OhrevSimulace).
+5. [ ] **F9 elektromagneticka-indukce** — magnet do cívky: rychlost pohybu → výchylka
+   galvanometru, směr podle pólu; „bez pohybu nic" jako hlavní poučení.
+6. [ ] **F9 elektromagnet** — posuvník proudu a počtu závitů → kolik sponek udrží; vypnutí
+   proudu = vše spadne (rozdíl od trvalého magnetu).
+7. [ ] **F7 optika-rovinneho-zrcadla** — obraz za zrcadlem (souměrný, zdánlivý, stejně velký),
+   posun předmětu, paprsky; uzavře optickou sadu (kulová zrcadla i čočky už jsou).
+8. [ ] **F8 spalovaci-motory** — čtyřtakt: animace pístu po dobách (sání–stlačení–výbuch–výfuk),
+   klik na dobu = popis; přepínač zážehový × vznětový.
+9. [ ] **F9 polovodice-typu-n-a-p-dioda** — dioda: posuvník napětí ±, propustný × závěrný směr,
+   LED svítí/nesvítí, V-A charakteristika.
+10. [ ] **F7 atmosfericky-tlak** — tlak s výškou: posuvník 0–8000 m (po 1000), barometr,
+    hodnoty zaokrouhlené na celé hPa dle tabulky z výkladu.
+11. [ ] **F7 oko-vady-oka** — krátkozrakost/dalekozrakost: kam dopadá ohnisko, brýle
+    (rozptylka/spojka) obraz vrátí na sítnici; naváže na CockaSimulace.
+12. [ ] **F9 vedeni-proudu-v-kapalinach** — elektrolýza: ionty putují k elektrodám, posuvník
+    napětí, pokovování předmětu.
+Záměrně vynecháno: shrnutí/opakování, čistě výkladová témata (úvod do fyziky, zdroje energie,
+vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 
 ### Další úkoly
 - [ ] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
@@ -68,6 +95,9 @@ a pravidlo **ZADÁNÍ = SCHVÁLENÍ** — obojí popsané ve skillu `/wonderly` 
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
 ## Hotová vylepšení
+- 2026-07-28 (kolo 38): **Zásoba témat na měsíc** — nový audit temata.ts (149 podtémat, 64 fyzika
+  bez interakce) → 12 kandidátů na simulace se zadáním v bodech (viz „Kandidáti na simulace").
+  Úkol z FRONTA-UKOLU odškrtnut. Kola už nezačínají hledáním, ale vezmou první neodškrtnutý bod.
 - 2026-07-28 (kolo 37): **zkontroluj.mjs rozšířen o `interakce2`** — kontrolní brána nově hlídá
   i druhé simulace na stránce (užití v temata.ts × union typ × render v šabloně). Ověřeno:
   aktuální stav prochází (40 interakcí + 2 druhé, 42 komponent, 358 otázek), negativní test

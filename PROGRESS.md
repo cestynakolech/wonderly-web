@@ -93,6 +93,9 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-28 — kolo 38: zásoba témat na měsíc.** Audit temata.ts: 64 fyzikálních podtémat bez
+  interakce → 12 vybraných kandidátů na simulace se zadáním (SAMOSTATNY-REZIM.md). První v řadě:
+  F7 třecí síla, F7 Archimédův zákon, F8 kalorimetr, F8 přeměny energie.
 - **2026-07-28 — kolo 37: kontrolní brána zkontroluj.mjs umí interakce2.** Hlídá i druhé simulace
   na stránce (užití × union typ × render v šabloně); aktuální stav prochází, negativní test
   chyby správně hlásí. Úkol z FRONTA-UKOLU odškrtnut.
