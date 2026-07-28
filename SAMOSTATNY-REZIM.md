@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 62 hotové — jaderný reaktor)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 63 hotové — decibely)
 
-Hotovo 62 kol samostatného režimu (60 simulací na 62 stránkách, 356+ kvízových otázek).
+Hotovo 63 kol samostatného režimu (61 simulací na 63 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (63):** kandidát č. 8 nového seznamu — **F8 vnímání zvuku a hlasitost**
-(stupnice dB: posuvník zdroje šepot→start letadla, prah slyšení/bolesti, bezpečná doba
-poslechu — hodnoty z výkladu, celé dB).
+**DALŠÍ KOLO (64):** kandidát č. 9 nového seznamu — **F7 přetlak, podtlak, vakuum**
+(píst ve válci + manometr: přetlak/podtlak/vakuum, frkačka a přísavka jako příklady;
+statické).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -39,8 +39,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 7. [x] **F9 jaderny-reaktor-elektrarna** — HOTOVO v kole 62 (ReaktorSimulace: tyče 0–100 %
    po 25 → generace štěpení 8→16/12/8/4/0 (celé), kritický stav při 50 %, havarijní STOP,
    diagram tří generací, hlášky o moderátoru, bórové oceli a Temelínu/Dukovanech).
-8. [ ] **F8 vnimani-zvuku-a-hlasitost** — stupnice dB: posuvník zdroje šepot→start letadla,
-   prah slyšení/bolesti, bezpečná doba poslechu (celé hodnoty z výkladu).
+8. [x] **F8 vnimani-zvuku-a-hlasitost** — HOTOVO v kole 63 (DecibelySimulace: stupnice
+   0–130 dB po 10 se 14 zdroji, pásma 0/90/130 dB z výkladu, smajlík ucha, násobek vjemu
+   „+10 dB ≈ 2×" od šepotu — celé mocniny dvou až 2048×).
 9. [ ] **F7 pretlak-podtlak-vakuum** — píst ve válci + manometr: přetlak/podtlak/vakuum,
    frkačka a přísavka jako příklady; statické.
 10. [ ] **F8 energeticka-hodnota-potravin** — skládačka svačiny: vyber jídla → součet kJ →

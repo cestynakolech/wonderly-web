@@ -1,0 +1,117 @@
+---
+// Vnímání zvuku a hlasitost (F8): posuvník 0–130 dB po 10. Ke každé hladině
+// zdroj zvuku (práh slyšitelnosti 0 dB … start letadla 130 dB = práh bolesti),
+// barevná stupnice s pásmy z výkladu (nad 90 dB dlouhodobě = trvalé poškození
+// vláskových buněk, které se NEOBNOVÍ) a násobek vjemu „každých +10 dB
+// vnímáme zhruba 2× hlasitěji" (od šepotu 20 dB → celé mocniny dvou).
+// Bez časové animace; stav je čistá funkce stavHluku(dB) na SVG (__stavHluku).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Stupnice hluku — od šepotu k letadlu 🕹️</span></h2>
+	<p>Hlasitost objektivně měří <strong>hladina intenzity zvuku</strong> v <strong>decibelech (dB)</strong>. Stupnice začíná na <strong>prahu slyšitelnosti (0 dB)</strong> a končí <strong>prahem bolesti (130 dB)</strong>.</p>
+	<svg id="dec-svg" viewBox="0 0 660 340" role="img" aria-label="Barevná stupnice decibelů se zdrojem zvuku a pásmy nebezpečí">
+		<!-- stupnice -->
+		<g id="dec-stupnice"></g>
+		<g font-size="10" fill="#868e96" text-anchor="end">
+			<text x="86" y="304">0</text><text x="86" y="244">30</text><text x="86" y="184">60</text><text x="86" y="124">90</text><text x="86" y="64">120</text>
+		</g>
+		<!-- značky pásem -->
+		<text x="150" y="308" font-size="10" fill="#2f9e44">← práh slyšitelnosti (0 dB)</text>
+		<line x1="90" y1="120" x2="140" y2="120" stroke="#e8590c" stroke-width="2" stroke-dasharray="5 4" />
+		<text x="145" y="124" font-size="10" fill="#e8590c">90 dB — dlouhodobě poškozuje</text>
+		<line x1="90" y1="40" x2="140" y2="40" stroke="#e03131" stroke-width="2" stroke-dasharray="5 4" />
+		<text x="145" y="44" font-size="10" fill="#e03131">130 dB — práh bolesti</text>
+		<!-- ukazatel -->
+		<polygon id="dec-znacka" points="0,0" fill="#2b2a26" />
+		<text id="dec-hodnota" x="330" y="70" text-anchor="middle" font-size="30" font-weight="bold" fill="#2b2a26"></text>
+		<text id="dec-emoji" x="330" y="150" text-anchor="middle" font-size="56">🍃</text>
+		<text id="dec-zdroj" x="330" y="190" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<!-- ucho a stav -->
+		<text id="dec-ucho" x="545" y="130" text-anchor="middle" font-size="46">🙂</text>
+		<text id="dec-ucho-pop" x="545" y="165" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26"></text>
+		<text id="dec-nasobek" x="440" y="250" text-anchor="middle" font-size="13" font-weight="bold" fill="#1971c2"></text>
+		<text id="dec-nasobek2" x="440" y="270" text-anchor="middle" font-size="11" fill="#868e96"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Hladina zvuku: <output id="dec-out"></output>
+		<input type="range" id="dec-slider" min="0" max="130" step="10" value="60" />
+	</label>
+	<p class="dec-vzorec" id="dec-vzorec"></p>
+	<p class="dec-stav" id="dec-stav">👉 Projeď stupnici od ticha po start letadla — a všímej si, kdy začíná být hluk nebezpečný.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	const ZDROJE = [
+		['práh slyšitelnosti', '🤫'], ['šelest listí', '🍃'], ['šepot', '🗣️'], ['tikot hodin', '🕰️'],
+		['tichý pokoj', '🛋️'], ['déšť', '🌧️'], ['běžný rozhovor', '💬'], ['vysavač', '🧹'],
+		['rušná křižovatka', '🚗'], ['projíždějící kamion', '🚛'], ['motorová pila', '🪚'],
+		['rockový koncert', '🎸'], ['houkající sanitka', '🚨'], ['start letadla — práh bolesti', '✈️'],
+	];
+	function stavHluku(dB) {
+		const i = Math.round(dB / 10);
+		return {
+			dB: i * 10,
+			zdroj: ZDROJE[i][0],
+			emoji: ZDROJE[i][1],
+			pasmo: dB >= 130 ? 'bolest' : dB >= 90 ? 'nebezpecne' : dB === 0 ? 'ticho' : 'bezpecne',
+			// každých +10 dB vnímáme ~2× hlasitěji; násobek proti šepotu (20 dB) = celá mocnina 2
+			nasobekOdSeptu: dB >= 20 ? 2 ** ((dB - 20) / 10) : 0,
+		};
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('dec-svg');
+	svg.__stavHluku = stavHluku; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+
+	// stupnice: 13 dílků po 10 dB, zelená → žlutá → oranžová → červená
+	const BARVY_PASEM = (dB) => dB < 60 ? '#69db7c' : dB < 90 ? '#ffd43b' : dB < 130 ? '#ffa94d' : '#ff6b6b';
+	const yPro = (dB) => 300 - dB * 2;
+	(() => {
+		let html = '';
+		for (let dB = 0; dB < 130; dB += 10) html += `<rect x="90" y="${yPro(dB + 10)}" width="34" height="20" fill="${BARVY_PASEM(dB + 10)}" stroke="#2b2a26" stroke-width="1.5" />`;
+		g('dec-stupnice').innerHTML = html;
+	})();
+
+	function kresli() {
+		const s = stavHluku(+g('dec-slider').value);
+		g('dec-out').textContent = `${s.dB} dB (${s.zdroj})`;
+		const y = yPro(s.dB);
+		g('dec-znacka').setAttribute('points', `128,${y} 152,${y - 9} 152,${y + 9}`);
+		g('dec-hodnota').textContent = `${s.dB} dB`;
+		g('dec-emoji').textContent = s.emoji;
+		g('dec-zdroj').textContent = s.zdroj;
+		const UCHA = { ticho: ['👂', 'úplné ticho — odtud stupnice měří'], bezpecne: ['🙂', 'bezpečná hlasitost'], nebezpecne: ['😖', 'dlouhodobě NIČÍ vláskové buňky!'], bolest: ['🤯', 'BOLEST — hrozí protržení bubínku'] };
+		g('dec-ucho').textContent = UCHA[s.pasmo][0];
+		g('dec-ucho-pop').textContent = UCHA[s.pasmo][1];
+		if (s.dB > 20) {
+			g('dec-nasobek').textContent = `vnímáš to ~${s.nasobekOdSeptu.toLocaleString('cs-CZ')}× hlasitěji než šepot`;
+			g('dec-nasobek2').textContent = 'každých +10 dB ≈ dvakrát hlasitější vjem';
+		} else { g('dec-nasobek').textContent = ''; g('dec-nasobek2').textContent = ''; }
+		g('dec-vzorec').innerHTML = s.dB === 0
+			? `<strong>0 dB = práh slyšitelnosti</strong> — nejslabší zvuk, který zdravé ucho zachytí. Odtud se celá stupnice měří.`
+			: s.dB === 130
+			? `<strong>130 dB = práh bolesti</strong> — nejsilnější zvuk, který ucho snese; při překročení hrozí protržení bubínku.`
+			: `${s.dB} dB — hladina intenzity zvuku měří tlak zvukové vlny. Vnímání hlasitosti je subjektivní, decibely jsou objektivní míra.`;
+		const STAVY = {
+			ticho: '🤫 Práh slyšitelnosti: hranice, pod kterou už zdravé ucho nic neslyší.',
+			bezpecne: '🙂 Bezpečné pásmo. Zvuková vlna rozkmitá bubínek, kůstky ji přenesou do hlemýždě a vláskové buňky pošlou signál do mozku.',
+			nebezpecne: '⚠️ POZOR: dlouhodobý pobyt nad 90 dB trvale a NEVRATNĚ poškozuje vláskové buňky — ty se už NEOBNOVÍ. Ochrana: špunty, sluchátka s tlumením, odstup od zdroje, rozumná hlasitost ve sluchátkách.',
+			bolest: '💥 Práh bolesti! Tohle už fyzicky bolí a hrozí protržení bubínku. Personál na letištích proto nosí protihluková sluchátka.',
+		};
+		g('dec-stav').textContent = STAVY[s.pasmo];
+	}
+
+	g('dec-slider').addEventListener('input', kresli);
+	kresli();
+</script>
+
+<style>
+	#dec-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.dec-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.dec-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

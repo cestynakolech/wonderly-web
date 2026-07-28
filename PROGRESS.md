@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 63: DecibelySimulace (hlasitost zvuku).** F8: barevná stupnice
+  0–130 dB po 10 se 14 zdroji (práh slyšitelnosti → šepot → rozhovor → kamion → koncert →
+  start letadla), pásma z výkladu (nad 90 dB trvale ničí vláskové buňky, 130 dB práh
+  bolesti s protržením bubínku), smajlík stavu ucha a násobek vjemu od šepotu (+10 dB ≈ 2×,
+  celé mocniny dvou až 2048×). Čistá funkce stavHluku — 14 hladin ověřeno výpočtem i DOM.
+  Celkem 61 simulací.
 - **2026-07-29 — kolo 62: ReaktorSimulace (řízená řetězová reakce).** F9: řídicí pult —
   zasouvání regulačních tyčí (0–100 % po 25) mění násobek řetězové reakce (×2/×1,5/×1/
   ×0,5/×0), generace štěpení 8→16→32 … 8→0→0 vše celé, kritický stav při 50 %, tlačítka
