@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 71: druhá dávka slabých kvízů (+16).** Vlastní bloky s parametry
+  (podprogram, parametr, rozklad problému), adresy buněk a vzorce (B3, rovnítko, přepočet,
+  $B$1), sestavení robota (mozek-svaly-smysly, chyba je v programu, první jízda) a hardware
+  a software (CPU, RAM×disk, OS, komprese ZIP×JPG) — každý blok z 6 na 10 otázek.
+  Celkem 401+ otázek.
 - **2026-07-29 — kolo 70: nejslabší kvízy webu dorovnány.** Audit všech 137 kvízových bloků:
   38 má <12 otázek (většina informatika). Čtyři nejslabší (po 5) dorovnány na 10: micro:bit
   rádio a piny, tlačítka/akcelerometr/zvuk, projekt robota (rozděl-testuj-lad), závěrečný

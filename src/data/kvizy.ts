@@ -3815,6 +3815,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Rozdělení programu na vlastní bloky se říká…', odpovedi: ['rozklad problému na části', 'mazání programu', 'komprese'], vysvetleni: 'Klíčová dovednost programátora.' },
 		{ text: 'Blok „nakresli čtverec (50)" a „nakresli čtverec (120)"…', odpovedi: ['volají týž blok s různým parametrem', 'jsou dva různé bloky', 'nefungují'], vysvetleni: 'Stejný postup, jiná hodnota.' },
 		{ text: 'Může mít vlastní blok více parametrů?', odpovedi: ['ano (např. velikost a barva)', 'ne, nejvýš jeden', 'jen v Pythonu'], vysvetleni: 'Do bloku jde přidat víc okének.' },
+		{ text: 'K čemu slouží vlastní blok?', odpovedi: ['je to pojmenovaný podprogram pro kus kódu, který potřebuji víckrát', 'k vypnutí Scratche', 'k uložení projektu na disk'], vysvetleni: 'Opakovaný kus programu dostane jméno — program se zkrátí a zpřehlední.' },
+		{ text: 'Co je parametr vlastního bloku?', odpovedi: ['nastavitelná hodnota v okénku bloku', 'jméno autora programu', 'barva bloku'], vysvetleni: 'Parametr mění chování bloku — třeba velikost kresleného čtverce.' },
+		{ text: 'Proč je „nakresli čtverec (velikost)" lepší než „nakresli čtverec"?', odpovedi: ['jedním blokem nakreslím malý i velký čtverec — jen změním číslo', 'je barevnější', 'běží rychleji'], vysvetleni: 'nakresli čtverec (50) → malý, nakresli čtverec (120) → velký.' },
+		{ text: 'Čemu odpovídá rozdělení programu na vlastní bloky?', odpovedi: ['rozkladu problému na části', 'mazání programu', 'kreslení pozadí'], vysvetleni: 'Rozklad na části je klíčová programátorská dovednost — i mimo informatiku.' },
 	],
 	'informatika/7-rocnik/programovani-vetveni-promenne/promenne': [
 		{ text: 'Co je proměnná?', odpovedi: ['pojmenovaná krabička na hodnotu v paměti', 'druh events bloku', 'obrázek postavy'], vysvetleni: 'Má jméno (skóre) a měnitelný obsah (12).' },
@@ -3859,6 +3863,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak robot zatočí?', odpovedi: ['každý motor se točí jinak (rychlostí/směrem)', 'nakloní se', 'zatroubí'], vysvetleni: 'Levý vpřed + pravý vzad = otočka na místě.' },
 		{ text: 'Co uděláme po sestavení, než robota pustíme na zem?', odpovedi: ['zkontrolujeme zapojení motorů a senzorů do portů', 'umyjeme ho', 'nic'], vysvetleni: 'Špatný port = program ovládá „jiné" zařízení.' },
 		{ text: 'První program robota má být…', odpovedi: ['jednoduchý (rozjeď se a zastav) a hned otestovat', 'celé bludiště najednou', 'co nejdelší'], vysvetleni: 'Postupné kroky s testováním = rychlejší cesta k cíli.' },
+		{ text: 'Jaké tři hlavní části má robot ze stavebnice?', odpovedi: ['kostku s počítačem, motory a senzory', 'kola, křídla a vrtuli', 'obrazovku, klávesnici a myš'], vysvetleni: 'Mozek (kostka), svaly (motory) a smysly (senzory) — my dodáme program.' },
+		{ text: 'Co robotovi dodává program?', odpovedi: ['přesné pokyny, co má dělat — jeho „myšlenky"', 'elektřinu', 'barvu kostek'], vysvetleni: 'Robot udělá přesně to, co program říká — ne to, co sis přál.' },
+		{ text: 'Robot jede jinam, než sis přál. Kde je chyba?', odpovedi: ['v programu nebo v zapojení — dá se najít a opravit', 'v počasí', 'robot se tak rozhodl sám'], vysvetleni: 'To je dobrá zpráva: chyba v programu či portech se dá vždy dohledat.' },
+		{ text: 'Jak vypadá rozumná PRVNÍ jízda robota?', odpovedi: ['oba motory na 2 sekundy vpřed, pak zastavit', 'rovnou projet bludiště', 'skok přes překážku'], vysvetleni: 'Začíná se nejmenším testem; otočka = jeden motor vpřed, druhý vzad.' },
 	],
 	'informatika/8-rocnik/roboticka-stavebnice/motory-displej-zvuk': [
 		{ text: 'Co patří mezi výstupní zařízení robota?', odpovedi: ['motory, displej, reproduktor', 'tlačítka a čidla', 'baterie'], vysvetleni: 'Výstupy = čím robot působí na okolí.' },
@@ -3927,6 +3935,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co udělá relativní adresa B2 při kopírování vzorce o řádek níž?', odpovedi: ['změní se na B3', 'zůstane B2', 'změní se na C2'], vysvetleni: 'Relativní adresy se posouvají se vzorcem.' },
 		{ text: 'Jak zapíšeme absolutní (ukotvenou) adresu?', odpovedi: ['$B$1', 'B1!', '(B1)'], vysvetleni: 'Dolary drží sloupec i řádek na místě.' },
 		{ text: 'Kurz eura je v B1, ceny ve sloupci A. Jaký vzorec kopírujeme dolů?', odpovedi: ['=A2*$B$1', '=A2*B1', '=$A$2*B1'], vysvetleni: 'Kurz ukotvit, cena se má posouvat.' },
+		{ text: 'Z čeho se skládá adresa buňky?', odpovedi: ['ze sloupce a řádku — třeba B3', 'ze jména souboru', 'z data vytvoření tabulky'], vysvetleni: 'Sloupec (písmeno) + řádek (číslo) = adresa buňky.' },
+		{ text: 'Čím začíná každý vzorec v tabulce?', odpovedi: ['znakem =', 'znakem ?', 'slovem VZOREC'], vysvetleni: 'Rovnítko říká tabulce: tohle spočítej (=B2+B3).' },
+		{ text: 'Co se stane s výsledkem vzorce, když změníš vstupní buňku?', odpovedi: ['přepočítá se sám', 'nic — musí se přepsat ručně', 'tabulka se smaže'], vysvetleni: 'Automatický přepočet je hlavní síla tabulek.' },
+		{ text: 'K čemu slouží dolary v adrese $B$1?', odpovedi: ['ukotví adresu, aby se při kopírování vzorce neposouvala', 'označují cenu v dolarech', 'barevně zvýrazní buňku'], vysvetleni: 'Absolutní adresa: kurz v $B$1 zůstává, ceny se posouvají.' },
 	],
 	'informatika/8-rocnik/hromadne-zpracovani-dat/funkce-v-tabulkach': [
 		{ text: 'Co je funkce v tabulkovém procesoru?', odpovedi: ['připravený výpočet se jménem', 'tlačítko uložit', 'druh grafu'], vysvetleni: 'SUMA, PRŮMĚR, MAX…' },
@@ -3976,6 +3988,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je operační systém?', odpovedi: ['program řídící celý počítač', 'druh procesoru', 'antivir'], vysvetleni: 'Windows, macOS, Linux, Android, iOS.' },
 		{ text: 'Bezeztrátová komprese (ZIP)…', odpovedi: ['umí obnovit data přesně', 'zahazuje část dat', 'data zvětšuje'], vysvetleni: 'JPG a MP3 jsou ztrátové — zahodí, co nepoznáme.' },
 		{ text: 'Proč je JPG fotka menší než původní snímek?', odpovedi: ['ztrátová komprese zahodí detaily, které oko nevidí', 'má méně barev vždy', 'je oříznutá'], vysvetleni: 'Proto se vejde do zprávy.' },
+		{ text: 'Co dělá procesor (CPU)?', odpovedi: ['počítá a vykonává příkazy programů', 'trvale ukládá soubory', 'promítá obraz na monitor'], vysvetleni: 'CPU je počtář — vykonává instrukce programů.' },
+		{ text: 'Čím se liší operační paměť (RAM) od disku?', odpovedi: ['RAM je rychlá pracovní a po vypnutí se maže; disk ukládá trvale', 'RAM je pomalejší než disk', 'ničím, je to totéž'], vysvetleni: 'RAM = pracovní deska, SSD/disk = trvalé úložiště.' },
+		{ text: 'Co všechno řídí operační systém?', odpovedi: ['celý počítač — aplikace, soubory, paměť i připojená zařízení', 'jen hry', 'jen internetový prohlížeč'], vysvetleni: 'Windows, macOS, Linux, Android či iOS spravují vše nad hardwarem.' },
+		{ text: 'Jaký je rozdíl mezi bezeztrátovou a ztrátovou kompresí?', odpovedi: ['ZIP jde plně obnovit; JPG a MP3 zahodí, co oko či ucho nepozná', 'ztrátová je vždy kvalitnější', 'žádný rozdíl není'], vysvetleni: 'Proto se fotka (JPG) vejde do zprávy — část dat se nenávratně zahodí.' },
 	],
 	'informatika/9-rocnik/digitalni-technologie/pocitacove-site-a-internet': [
 		{ text: 'Kdo je v síti klient?', odpovedi: ['zařízení, které o službu žádá', 'počítač poskytující službu', 'kabel'], vysvetleni: 'Server službu poskytuje (web, pošta, hra).' },
