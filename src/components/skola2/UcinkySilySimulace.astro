@@ -109,7 +109,9 @@
 		const F = +sliderF.value;
 		if (F >= MEZ_TRVALA) trvale = true;
 		const deformace = trvale || F >= MEZ_PRUZNA;
-		if (deformace) uhel = 0;                 // deformace „vyhraje" — překlopení se už nekreslí
+		// deformace „vyhraje" a předvádí se na vzpřímeném tělese (záměr: zachovat náklon by
+		// znamenalo deformovaný tvar ve vzduchu — horší než krátké „postavení" tělesa)
+		if (deformace) uhel = 0;
 		if (F === 0) { posun = 0; uhel = 0; }    // bez síly se scéna vrací do výchozí polohy
 
 		const bezi = !deformace && F > 0;
@@ -156,10 +158,18 @@
 			}
 		}
 
-		// šipka síly - délka úměrná F, hrot se opírá o levý okraj tělesa ve výšce bodu působení
+		// šipka síly - délka úměrná F, hrot se opírá o levý okraj tělesa ve výšce bodu působení;
+		// při překlápění se bod dotyku otáčí spolu s tělesem, šipka ho sleduje
 		const polovinaSirky = +rect.getAttribute('width') / 2;
-		const hrotX = (CX + posun) - polovinaSirky;
-		const y = vyskaSily();
+		let hrotX = (CX + posun) - polovinaSirky;
+		let y = vyskaSily();
+		if (!deformace && bod === 'okraj' && uhel > 0) {
+			const rad = (uhel * Math.PI) / 180;
+			const px = CX + ZAKLAD_STRANA / 2, py = SPODEK;
+			const lx = CX - ZAKLAD_STRANA / 2, ly = CY - 25;
+			hrotX = px + (lx - px) * Math.cos(rad) - (ly - py) * Math.sin(rad);
+			y = py + (lx - px) * Math.sin(rad) + (ly - py) * Math.cos(rad);
+		}
 		const k = 1.1;
 		sipka.setAttribute('x1', hrotX - F * k);
 		sipka.setAttribute('y1', y);
@@ -185,9 +195,13 @@
 		} else if (F === 0) {
 			stavEl.textContent = '👉 Zatáhni posuvníkem síly nebo vyber jiný bod působení.';
 		} else if (bod === 'teziste') {
-			stavEl.textContent = `➡️ F = ${F} N v TĚŽIŠTI (< ${MEZ_PRUZNA} N) → POSUVNÝ účinek: těleso plynule klouže ve směru síly — čím větší F, tím rychleji. Nevzniká moment síly, tak se neotáčí.`;
+			stavEl.textContent = posun >= MAX_POSUN
+				? `➡️ F = ${F} N v TĚŽIŠTI → POSUVNÝ účinek: těleso dojelo na kraj scény a zastavilo se. Sniž sílu na 0 nebo stiskni „Nové těleso".`
+				: `➡️ F = ${F} N v TĚŽIŠTI (< ${MEZ_PRUZNA} N) → POSUVNÝ účinek: těleso plynule klouže ve směru síly — čím větší F, tím rychleji. Nevzniká moment síly, tak se neotáčí.`;
 		} else {
-			stavEl.textContent = `🔄 F = ${F} N MIMO TĚŽIŠTĚ (< ${MEZ_PRUZNA} N) → OTÁČIVÝ účinek: síla má rameno k těžišti, vzniká moment síly a těleso se překlápí přes spodní hranu — čím větší F, tím rychleji.`;
+			stavEl.textContent = uhel >= MAX_UHEL
+				? `🔄 F = ${F} N MIMO TĚŽIŠTĚ → OTÁČIVÝ účinek: těleso se překlopilo přes spodní hranu a leží na boku. Sniž sílu na 0 nebo stiskni „Nové těleso".`
+				: `🔄 F = ${F} N MIMO TĚŽIŠTĚ (< ${MEZ_PRUZNA} N) → OTÁČIVÝ účinek: síla má rameno k těžišti, vzniká moment síly a těleso se překlápí přes spodní hranu — čím větší F, tím rychleji.`;
 		}
 	}
 
@@ -216,8 +230,9 @@
 		const tl = e.target.closest('.ucs-tl');
 		if (!tl) return;
 		bod = tl.dataset.bod;
-		posun = 0;
-		uhel = 0;
+		// polohu nulovat jen mimo deformaci — trvale zdeformované těleso se nesmí
+		// „resetovat" pouhým přepnutím bodu působení (reset má jen tlačítko)
+		if (!(trvale || +sliderF.value >= MEZ_PRUZNA)) { posun = 0; uhel = 0; }
 		for (const b of bodyEl.querySelectorAll('.ucs-tl')) b.classList.toggle('ucs-aktivni', b === tl);
 		prekresli();
 	});
