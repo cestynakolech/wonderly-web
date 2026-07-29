@@ -3781,6 +3781,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co uděláme, když v modelu chybí údaj potřebný k řešení?', odpovedi: ['model doplníme/opravíme', 'úlohu vzdáme', 'údaj si vymyslíme'], vysvetleni: 'Modely se kontrolují a vylepšují.' },
 		{ text: 'Rodokmen je model, který zachycuje…', odpovedi: ['příbuzenské vztahy', 'výšku osob', 'oblíbená jídla'], vysvetleni: 'Vynechává vše kromě vztahů rodič–dítě apod.' },
 		{ text: 'Schéma cesty do školy s kroužky (místa) a čarami (cesty) je…', odpovedi: ['graf', 'tabulka', 'fotografie'], vysvetleni: 'Vrcholy a hrany — základ grafů v informatice.' },
+		{ text: 'Co znamená, že model je „zjednodušený"?', odpovedi: ['ponechává jen důležité vlastnosti a nepodstatné vynechává', 'je vždy menší než skutečnost', 'je nakreslený jen tužkou'], vysvetleni: 'Zjednodušení znamená výběr podstatného, ne velikost ani vzhled.' },
+		{ text: 'Kdy řekneme, že je model „dobrý"?', odpovedi: ['když správně odpovídá na otázku, ke které slouží', 'když obsahuje úplně všechny detaily skutečnosti', 'když je barevný a hezky nakreslený'], vysvetleni: 'Dobrý model odpovídá na otázku, k níž slouží — plánek metra i technický výkres tunelu.' },
+		{ text: 'Schéma zapojení elektrického obvodu je model, protože…', odpovedi: ['zobrazuje jen součástky a jejich propojení, ne skutečný vzhled', 'je to fotografie obvodu', 'ukazuje přesnou barvu vodičů'], vysvetleni: 'Model nechává jen to, co je pro zapojení podstatné.' },
+		{ text: 'Co mají společného mapa, rodokmen a schéma zapojení?', odpovedi: ['všechno jsou to modely — zjednodušené obrazy skutečnosti', 'všechno jsou fotografie skutečnosti', 'všechno se dá použít k vaření'], vysvetleni: 'Různé podoby, stejný princip: zjednodušení skutečnosti pro určitý účel.' },
 	],
 	'informatika/7-rocnik/modelovani-grafy-schemata/ohodnocene-grafy': [
 		{ text: 'Z čeho se skládá graf v informatice?', odpovedi: ['z vrcholů a hran', 'ze sloupců a řádků', 'z pixelů'], vysvetleni: 'Vrcholy = kroužky (města), hrany = čáry (silnice).' },
@@ -3802,6 +3806,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Postava ve hře: stojí → (šipka) → běží. Co je „stisk šipky"?', odpovedi: ['přechod (podmínka změny stavu)', 'stav', 'vrchol grafu'], vysvetleni: 'Události přepínají stavy postavy.' },
 		{ text: 'Co jsou souběžné (paralelní) činnosti?', odpovedi: ['činnosti běžící zároveň', 'činnosti po sobě', 'zakázané činnosti'], vysvetleni: 'Vaří se voda a zatím krájíme — model to umí zachytit.' },
 		{ text: 'Běží ve Scratchi scénáře postav souběžně?', odpovedi: ['ano, každá postava jede svůj', 'ne, jen jeden po druhém', 'jen když je málo postav'], vysvetleni: 'Proto se hra hýbe „celá najednou".' },
+		{ text: 'V orientovaném grafu vede šipka z A do B. Dá se automaticky přejít i z B do A?', odpovedi: ['ne — musela by existovat samostatná hrana B→A', 'ano, šipka platí obousměrně', 'jen když jsou A a B stejný vrchol'], vysvetleni: 'Orientovaná hrana platí jen ve směru šipky — jako jednosměrka.' },
+		{ text: 'K čemu se v praxi automaty (modely se stavy) používají?', odpovedi: ['k návrhu programů, her i spotřebičů (např. pračky)', 'jen k výrobě mincí', 'jen k měření teploty'], vysvetleni: 'Automat přesně určuje, co se smí stát v jaké situaci.' },
+		{ text: 'Semafor je ve stavu „zelená". Jaký stav následuje?', odpovedi: ['oranžová', 'červená', 'zase zelená'], vysvetleni: 'Pořadí je pevné: zelená → oranžová → červená → červená+oranžová → zelená…' },
+		{ text: 'Pračka má stavy praní → máchání → ždímání. Co rozhoduje o přechodu do dalšího stavu?', odpovedi: ['splnění podmínky (např. uplynulý čas)', 'náhoda', 'barva prádla'], vysvetleni: 'Přechod nastává, až je splněna podmínka — přesně jako u jiných automatů.' },
 	],
 	'informatika/7-rocnik/programovani-vetveni-promenne/vetveni-programu': [
 		{ text: 'Co dělá blok „když… tak… jinak…"?', odpovedi: ['rozdělí program na dvě větve podle podmínky', 'opakuje příkazy', 'ukládá číslo'], vysvetleni: 'Splněno → první větev, nesplněno → druhá.' },
@@ -3811,6 +3819,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Podmínka „ne <dotýká se okraje>" je splněna, když…', odpovedi: ['se postava okraje nedotýká', 'se postava okraje dotýká', 'nikdy'], vysvetleni: '„Ne" obrací pravdivost podmínky.' },
 		{ text: 'Co se stane ve větvi „jinak", když je podmínka splněna?', odpovedi: ['nic — vykoná se jen větev „tak"', 'vykoná se také', 'program spadne'], vysvetleni: 'Vždy proběhne právě jedna z větví.' },
 		{ text: 'Které rozhodnutí patří do hry ping-pong?', odpovedi: ['když se míček dotkne pálky → odraz se', 'když je úterý → konec hry', 'když je program dlouhý → smaž ho'], vysvetleni: 'Podmínky reagují na dění ve hře.' },
+		{ text: 'Kdy je splněna podmínka „dotýká se červené NEBO dotýká se modré"?', odpovedi: ['stačí, aby platila aspoň jedna z podmínek', 'musí platit obě podmínky zároveň', 'není splněna nikdy'], vysvetleni: '„Nebo" stačí splnit jednu z podmínek — na rozdíl od „a zároveň", kde musí platit obě.' },
+		{ text: 'Blok „když <podmínka> tak…" nemá žádnou větev „jinak". Podmínka splněna není. Co se stane?', odpovedi: ['nic — program jen pokračuje za blokem', 'program se zastaví s chybou', 'vykoná se náhodně vybraná část programu'], vysvetleni: 'Bez větve „jinak" program při nesplněné podmínce prostě nic neudělá a jede dál.' },
+		{ text: 'Proměnná životy = 5. Blok: „když životy < 1 tak řekni Konec hry jinak pokračuj ve hře". Co postava udělá?', odpovedi: ['pokračuje ve hře — Konec hry se neřekne', 'řekne Konec hry', 'program spadne'], vysvetleni: '5 není menší než 1, podmínka je nesplněná, provede se větev „jinak".' },
 	],
 	'informatika/7-rocnik/programovani-vetveni-promenne/souradnice-a-kresleni': [
 		{ text: 'Jaké souřadnice má střed scény ve Scratchi?', odpovedi: ['x = 0, y = 0', 'x = 240, y = 180', 'x = 1, y = 1'], vysvetleni: 'X jde od −240 do 240, y od −180 do 180.' },
@@ -3820,6 +3831,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak nakreslíme čtverec o straně 100?', odpovedi: ['4× (dopředu 100 + otoč se o 90°)', '100× dopředu 4', 'jedním blokem „čtverec"'], vysvetleni: 'Opakování 4 stejných kroků.' },
 		{ text: 'Kde se souřadnice používají mimo Scratch?', odpovedi: ['GPS, mapy, obrázky, hry', 'jen ve Scratchi', 'nikde'], vysvetleni: 'Každý pixel obrázku i místo na Zemi má souřadnice.' },
 		{ text: '„Skoč na x: 100 y: −50" postavu přemístí…', odpovedi: ['doprava dolů od středu', 'doleva nahoru', 'do středu'], vysvetleni: 'Kladné x doprava, záporné y dolů.' },
+		{ text: 'Jaké je nejvyšší možné číslo pro souřadnici x na scéně Scratch?', odpovedi: ['240', '180', '480'], vysvetleni: 'X jde od −240 do 240, dohromady je scéna široká 480 bodů.' },
+		{ text: 'Kolik stupňů se postava otočí v každém rohu, když kreslí pravidelný šestiúhelník (6 stran)?', odpovedi: ['60°', '90°', '45°'], vysvetleni: '360° rozdělené na 6 rohů = 60° na roh.' },
+		{ text: 'Co udělá blok „zvedni pero"?', odpovedi: ['postava přestane kreslit čáru při pohybu', 'smaže všechny nakreslené čáry', 'změní barvu čáry'], vysvetleni: 'Pero se „zvedne" jako tužka nad papírem — pohyb pak nic nekreslí; čáry maže blok „vymaž vše".' },
 	],
 	'informatika/7-rocnik/programovani-vetveni-promenne/vlastni-bloky-s-parametry': [
 		{ text: 'K čemu je vlastní blok?', odpovedi: ['pojmenuje kus programu, který se používá víckrát', 'zrychlí internet', 'změní barvu postavy'], vysvetleni: 'Program se zkrátí a zpřehlední.' },
