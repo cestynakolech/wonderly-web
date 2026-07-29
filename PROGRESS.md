@@ -104,7 +104,14 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   Vaulnaveys-le-Haut a Livet-et-Gavet** (trojjazyčné popisy; zatím bez stellplatzů a videí).
   Fotky na web: kontrola anonymizace všech 154 fotek 2026 doběhla s 0 nálezy, nový automat
   `Omega/skripty/vyber_fotky_na_web.py` z podobných záběrů vybírá jeden (čas + podobnost
-  popisu, vyhrává nejostřejší) → návrh do `KE-SCHVALENI.md`, nahrání až po odkliku učitele.
+  popisu, vyhrává nejostřejší) → návrh do `KE-SCHVALENI.md`. Učitel výběr schválil,
+  **na webu je 106 fotek** u 6 míst 2026. Přibyl i automat na OPRAVY nálezů anonymizace
+  (`oprav_anonymizaci.py`) — z 5 nálezů 1 opraven, 3 uzavřeny jako planý poplach na
+  základě MĚŘENÍ (rozdíl od originálu, podobnost tváře s referencemi a její velikost —
+  vision model se tu plete, protože rozostřené pozadí mu splývá s anonymizací),
+  1 zbyl učiteli. Doplněny údaje ze zážitků: Frangy (přespání u vinaře 10/6/4 €)
+  a Chamrousse u Livet-et-Gavet (olympijský sjezd 1968 na Casserousse, stání
+  Place des Niverolles), vlaječky v rozcestníku mapy.
 - **2026-07-29 večer — automat cen dojel, nový režim „rovnou na web".** Na přání učitele
   („ceny stejně neznám, nasaď kontrolora a zadávej rovnou, ale napiš, že nejsou aktuální")
   má automat 2 pojistky: kotva (doslovné úryvky) + NEZÁVISLÝ kontrolor gemma4:26b (jiná

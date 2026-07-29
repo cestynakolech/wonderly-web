@@ -9,14 +9,47 @@
 2. ✅ **U místa jen JEHO video** — mřížka „Videa z cesty" se při přiblížení na místo
    skryje (viditelná jen u celkové mapy); u karty místa je nově náhled jeho videa.
    Ověřeno v DOM: po kliknutí na Landshut mřížka skrytá, u každé viditelné karty 1 video.
-3. 🔄 **Fotogalerie u míst 2026** — infrastruktura hotová, chybí fotky. Postaven nový
-   automat `Omega/skripty/vyber_fotky_na_web.py`: bere jen fotky, které prošly kontrolou
-   anonymizace bez nálezu, ThinkingCap je popíše, série se pozná z blízkého času +
-   podobnosti popisu (bge-m3) a vyhraje nejostřejší (variance Laplaciánu); návrh jde
-   do `KE-SCHVALENI.md`. **Blokuje kontrola anonymizace** — z 154 fotek 2026 jich bylo
-   večer 29. 7. zkontrolovaných teprve ~40 (automat jede 40/den, 29. 7. odpoledne navíc
-   spadl na timeout Ollamy). Až doběhne: spustit výběr, dát učiteli odklikat,
-   pak `nahraj_fotky.py <složka> 2026/<mesto>` + doplnit `galerie:` do `2026.ts`.
+3. ✅ **Fotogalerie u míst 2026** — kliknutí na náhled fotku zvětší přes celou obrazovku
+   (šipky, klávesnice, Esc). Kontrola anonymizace všech 154 fotek 2026 doběhla (0 nálezů
+   u 150, 4 fotky vyřazeny), nový automat `Omega/skripty/vyber_fotky_na_web.py` vybral
+   **104 fotek ze 150** (série pozná z blízkého času + podobnosti popisu bge-m3, vyhrává
+   nejostřejší dle variance Laplaciánu), učitel je schválil a jsou nahrané v R2;
+   `galerie:` zapojeno u 6 míst 2026.
+
+**Další věci hotové 29. 7. večer (zadání učitele během práce):**
+- **Chamrousse u Livet-et-Gavet** — spaní u sjezdovek, olympijský sjezd mužů 1968 na trati
+  Casserousse (zároveň 28. MS), stání Place des Niverolles (park4night 20 €/24 h).
+  POZOR na past: složky fotek jsou pojmenované podle reverzního geokódování, ale GPS
+  v EXIF ukazuje jinam — fotky „Vaulnaveys" i „Livet-et-Gavet" jsou obě z Chamrousse
+  (1680–1800 m), učitel to vysvětlil: fotí se i cestou autem a na výletech.
+- **Frangy** — přespání u vinaře 10 €/os., elektřina 6 €, voda 4 € (z vlastní návštěvy).
+  Nové pole `overenoNaMiste` v typu `Stellplatz`: u vlastních cen se ukazuje hláška
+  „platily při naší návštěvě, dnes mohou být jiné", u dohledaných „jen orientační".
+- **Vlaječky v rozcestníku mapy** (položky nesou `zeme`, z toho `vlajky`).
+- **Sloučeny dvě složky Geisingen** (25 fotek z `⁨Geisingen⁩, 8.7. 2026` s neviditelnými
+  znaky do `Geisingen_DE`), cesty ve stavech obou automatů přepsány.
+
+- **Automat na OPRAVY nálezů anonymizace** (`Omega/skripty/oprav_anonymizaci.py`) — učitel:
+  „když to můžeš rozmazávat ve smyčce, můžeš to i opravovat". Z 5 nálezů: 1 opraven
+  (SPZ Geisingen — citlivější kaskáda našla 2 značky), 3 uzavřeny jako PLANÝ POPLACH
+  a 1 zůstal učiteli (čitelná SPZ na `Vaulnaveys 13-36-45`).
+  **Poučení, které stojí za zapamatování:** vision model se u „zbytečného rozmazání"
+  plete — rozostřené pozadí fotky mu splývá s rozmazáním od anonymizace, takže odpoví
+  ANO i na fotku, kde se nerozmazalo vůbec nic. Proto o planém poplachu rozhoduje
+  MĚŘENÍ, ne model: (a) liší se výsledek od originálu (< 0,5 = nic rozmazané),
+  (b) podobnost tváře s referencemi a jak velkou část snímku zabírá (< 0,33 a < 2 %
+  = cizí drobná postava, rozmazaná správně). Naměřeno: Schongau rozdíl 0,22;
+  Vaulnaveys tváře 0,24 / 0,05 % a 0,16 / 0,62 %.
+  **Past:** `cv2`/`insightface` jsou jen v `Omega/skripty/venv/bin/python3`.
+- **Fotky na webu: 106** (104 schválených + 2, které byly planý poplach). Nahrávání
+  jednou spadlo na chybu Cloudflare 520 uprostřed Livet-et-Gavet — doplněno dávkou
+  jen chybějících fotek; po nahrávání VŽDY porovnat počty s výběrem.
+
+**ČEKÁ NA UČITELE:** (a) 1 fotka s čitelnou SPZ (`Vaulnaveys 13-36-45`) — citlivější
+kaskáda ji nenašla, chce ruku (`venv/bin/python3 rozmaz_rucne.py <cesta>`); na webu není;
+(b) jméno vinařství ve Frangy (fotky ceníku jsou v knihovně Fotek, kam Claude nesmí —
+stačí export na Plochu); (c) které tři etapy Tour de France a u kterých míst spali
+na silnici (Saint-Maurice už Tour v popisu má).
 
 Pak teprve pokračovat simulacemi z auditu (seznam níže).
 
