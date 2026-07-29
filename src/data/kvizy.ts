@@ -3854,6 +3854,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Které jméno proměnné je nejlepší?', odpovedi: ['pocetZivotu', 'x', 'aaa'], vysvetleni: 'Dobré jméno říká, co je uvnitř.' },
 		{ text: 'K čemu se proměnná hodí ve hře?', odpovedi: ['skóre, životy, čas', 'k ničemu', 'jen ke kreslení'], vysvetleni: 'Vše, co se během hry mění a pamatuje.' },
 		{ text: 'Může být v proměnné i text?', odpovedi: ['ano, třeba jméno hráče', 'ne, jen čísla', 'jen v tabulkách'], vysvetleni: 'Proměnná uchová číslo i text.' },
+		{ text: 'Jak v programu Scratch vytvoříš novou proměnnou?', odpovedi: ['tlačítkem „Vytvořit proměnnou" v paletě Proměnné', 'namalováním nového kostýmu', 'přidáním nové postavy na plochu'], vysvetleni: 'Pojmenuješ ji a hned se objeví i mezi bloky.' },
+		{ text: 'Při vytváření proměnné můžeš zvolit „Jen pro tuto postavu". Co to znamená?', odpovedi: ['proměnnou vidí a mění jen tahle jedna postava', 'proměnná se po chvíli sama smaže', 'proměnná pak nejde použít v žádném bloku'], vysvetleni: 'Naopak „pro všechny postavy" sdílí stejnou hodnotu mezi všemi postavami.' },
+		{ text: 'Co se stane, když ve Scratchi zaškrtneš políčko vedle jména proměnné v paletě?', odpovedi: ['na jevišti se objeví okénko s její hodnotou', 'proměnná se vynuluje', 'proměnná se smaže z programu'], vysvetleni: 'Hodí se to třeba na sledování skóre při hraní.' },
+		{ text: 'Proměnná „body" má hodnotu 4. Proběhne „změň body o 3" a pak „nastav body na 10". Jaká je výsledná hodnota?', odpovedi: ['10', '7', '14'], vysvetleni: 'Poslední provedený příkaz přepíše vše, co bylo předtím.' },
 	],
 	'informatika/7-rocnik/pocitace/soubory-slozky-aplikace': [
 		{ text: 'Co je soubor?', odpovedi: ['pojmenovaná data uložená na disku', 'část klávesnice', 'druh kabelu'], vysvetleni: 'Text, obrázek, zvuk, video i program.' },
@@ -3863,6 +3867,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Odkud je bezpečné instalovat aplikace?', odpovedi: ['z oficiálního obchodu či webu výrobce', 'z libovolného odkazu v chatu', 'z reklamy'], vysvetleni: 'Jinde hrozí podvržený škodlivý program.' },
 		{ text: 'Proč neodkládat aktualizace?', odpovedi: ['opravují chyby a bezpečnostní díry', 'mění barvu ikon', 'zpomalují počítač'], vysvetleni: 'Neaktualizovaný program je snadný cíl.' },
 		{ text: 'Co znamená odinstalovat aplikaci?', odpovedi: ['odstranit ji z počítače', 'skrýt ikonu', 'vypnout internet'], vysvetleni: 'Nepoužívané aplikace zabírají místo a mohou být riziko.' },
+		{ text: 'Která přípona patří videu?', odpovedi: ['.mp4', '.mp3', '.docx'], vysvetleni: 'Zvuk má příponu .mp3, dokument .docx.' },
+		{ text: 'Co znamená nainstalovat aplikaci?', odpovedi: ['nakopírovat program do počítače, aby šel spustit', 'odstranit ho z počítače', 'opravit v něm chyby'], vysvetleni: 'Opak instalace je odinstalace; chyby opravuje aktualizace.' },
+		{ text: 'Proč je dobré dávat souborům výstižné názvy a řadit je do složek podle tématu?', odpovedi: ['abychom svou práci za čas snadno našli', 'aby se zrychlil internet', 'aby soubor zabíral méně místa'], vysvetleni: 'Promyšlená struktura ušetří hledání — bezejmenný soubor nikomu nic neřekne.' },
 	],
 	'informatika/7-rocnik/pocitace/site-internet-email': [
 		{ text: 'Co je počítačová síť?', odpovedi: ['propojená zařízení, která si vyměňují data', 'několik počítačů v krabici', 'elektrická zásuvka'], vysvetleni: 'Doma je spojuje router.' },
@@ -3872,6 +3879,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kde čeká e-mail, než si ho adresát přečte?', odpovedi: ['na poštovním serveru adresáta', 'v kabelu', 'nikde, musí být online'], vysvetleni: 'Server = schránka, která drží zprávy.' },
 		{ text: 'Internet je…', odpovedi: ['celosvětové propojení mnoha sítí', 'jeden velký počítač', 'program v mobilu'], vysvetleni: '„Síť sítí".' },
 		{ text: 'Které zařízení do domácí sítě obvykle NEPATŘÍ?', odpovedi: ['semafor na křižovatce', 'chytrá televize', 'tiskárna'], vysvetleni: 'Televize i tiskárna bývají na Wi-Fi.' },
+		{ text: 'Jak jsou obvykle propojené počítače ve školních učebnách?', odpovedi: ['kabely přes společné síťové prvky, které vedou k internetu', 'každý počítač má doma vlastní samostatnou přípojku k internetu', 'jen přes Bluetooth mezi sousedními počítači'], vysvetleni: 'Ve škole bývá víc učeben propojeno kabely přes společné síťové prvky.' },
+		{ text: 'Kam se e-mail pošle NEJDŘÍV, hned po kliknutí na Odeslat?', odpovedi: ['na poštovní server odesílatele', 'rovnou do schránky adresáta', 'nikam, letí přímo do mobilu adresáta'], vysvetleni: 'Server odesílatele zprávu teprve předá dál serveru adresáta.' },
+		{ text: 'Čemu se dá cesta e-mailu přirovnat?', odpovedi: ['běžné poště — schránka, třídírna, doručení', 'telefonnímu hovoru, který probíhá v reálném čase', 'přímému kabelu nataženému mezi dvěma mobily'], vysvetleni: 'Zpráva prochází podobnými kroky jako dopis: odeslání, předání, doručení.' },
 	],
 	'informatika/7-rocnik/pocitace/zabezpeceni-a-digitalni-stopa': [
 		{ text: 'Jaké má být silné heslo?', odpovedi: ['dlouhé, neuhodnutelné, pro každou službu jiné', 'krátké a snadno zapamatovatelné', 'jméno psa'], vysvetleni: 'Stejné heslo všude = jeden únik prolomí vše.' },
@@ -3881,6 +3891,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je digitální stopa?', odpovedi: ['záznamy, které po sobě necháváme na internetu', 'otisk prstu na displeji', 'podpis v sešitě'], vysvetleni: 'Fotky, komentáře, poloha, historie hledání…' },
 		{ text: 'Dá se zveřejněná fotka z internetu spolehlivě smazat?', odpovedi: ['ne — mohla se rozšířit dál', 'ano, tlačítkem smazat', 'ano, do 24 hodin'], vysvetleni: 'Proto rozmýšlej, než něco pošleš.' },
 		{ text: 'Program přestal reagovat. Co uděláme nejdřív?', odpovedi: ['zkusíme ho ukončit vynuceně, případně restart', 'koupíme nový počítač', 'praštíme do monitoru'], vysvetleni: 'Postupuj klidně po krocích, většina potíží je banální.' },
+		{ text: 'Proč je špatným heslem jméno oblíbeného mazlíčka nebo datum narození?', odpovedi: ['dá se snadno uhodnout nebo najít o tobě na internetu', 'je moc dlouhé na zapamatování', 'počítač takové heslo nepřijme'], vysvetleni: 'Bezpečné heslo nemá souviset s informacemi, které o tobě někdo zjistí.' },
+		{ text: 'Proč je rozumné sdílet soubor jen s právem „číst", a ne rovnou „měnit obsah"?', odpovedi: ['omezí se riziko, že někdo obsah omylem smaže nebo pokazí', 'čtení souboru je rychlejší než jeho úprava', 'jinak by se soubor vůbec nedal otevřít'], vysvetleni: 'Sdílej vždy jen taková práva, jaká druhý opravdu potřebuje.' },
+		{ text: 'Myš nebo klávesnice přestala reagovat. Co je dobré zkontrolovat jako první?', odpovedi: ['jestli je kabel nebo bezdrátový přijímač pořádně připojený', 'jestli má počítač hezkou tapetu', 'kolik je aktuálně hodin'], vysvetleni: 'Někdy počítač jen ztratil spojení se zařízením — drobnost s jednoduchým řešením.' },
 	],
 	'informatika/8-rocnik/roboticka-stavebnice/sestaveni-a-oziveni-robota': [
 		{ text: 'Jaké tři hlavní části má robot ze stavebnice?', odpovedi: ['řídicí kostku, motory a senzory', 'kola, volant a sedačku', 'monitor, myš a klávesnici'], vysvetleni: 'Kostka = mozek, motory = svaly, senzory = smysly.' },
