@@ -1,8 +1,8 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 67 hotové — přenos energie)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 68 hotové — nejkratší cesta; DRUHÝ SEZNAM KANDIDÁTŮ VYČERPÁN)
 
-Hotovo 67 kol samostatného režimu (64 simulací na 66 stránkách, 356+ kvízových otázek).
+Hotovo 68 kol samostatného režimu (65 simulací na 67 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
@@ -10,9 +10,12 @@ Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
 ~~Kolo 65 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor čistá funkce+Node+DOM odhalil za noc 2 skutečné chyby, kvízy zůstávají
 u Clauda; další checkpoint kolo 75).
-**DALŠÍ KOLO (68):** kandidát č. 12 (poslední z auditu kola 54) — **Inf7 ohodnocené grafy**
-(klikací hledání nejkratší cesty: součet hran po kliknutí, porovnání s optimem, druhá mapa).
-Pak nový audit nebo kvízy k novým simulacím.
+**Všech 12 kandidátů z auditu kola 54 je HOTOVÝCH** (kola 56–68, plus checkpointy 55 a 65).
+**DALŠÍ KOLO (69): kvízy k novým simulacím** — projít kvizy.ts u 13 stránek s novými
+simulacemi (motor, dioda, barometr, oko, elektrolýza, barvy, alternátor, elektromotor,
+vypařování, jiskra, duha, reaktor, decibely, přetlak, svačina, přenos, graf) a doplnit
+otázky na jevy, které simulace nově učí (správná odpověď PRVNÍ, pole vysvetleni).
+Po dorovnání kvízů: nový audit temata.ts, nebo média k Fyzice 6.
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -55,8 +58,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 11. [x] **F9 prenos-elektricke-energie** — HOTOVO v kole 67 (PrenosSimulace: 8 800 kW při
     400 V / 22 kV / 400 kV → proud 22 000/400/22 A, ztráty R·I² = 2,42 GW (nedorazí nic) /
     800 kW / 2 420 W; žhnoucí vodiče, město svítí/zhasne, trojfázové vedení).
-12. [ ] **Inf7 ohodnocene-grafy** — klikací hledání nejkratší cesty: součet hran po kliknutí,
-    porovnání s optimem, druhá mapa.
+12. [x] **Inf7 ohodnocene-grafy** — HOTOVO v kole 68 (GrafCestaSimulace: 2 mapy à 6 vrcholů,
+    klikání po sousedech, živý součet, porovnání s optimem 16 km (ověřeno hrubou silou,
+    jednoznačné), mapa 2 s chytákem „oklika přes víc vrcholů je levnější", kroky zpět/znovu).
 
 Záměrně vynecháno: shrnutí, čistě výkladová témata, návody (Tinkercad, VEXcode),
 témata s hotovou příbuznou simulací (tuhnutí/kondenzace ~ ohřev; zvuk-vznik ~ vlnění;

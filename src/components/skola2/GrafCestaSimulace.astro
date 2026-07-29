@@ -1,0 +1,130 @@
+---
+// Ohodnocené grafy (Inf7): klikací hledání nejkratší cesty ze STARTU (A) do
+// CÍLE (F). Žák kliká na sousední vrcholy, sčítá se ohodnocení hran; v cíli
+// se výsledek porovná s optimem (obě mapy mají nejkratší cestu 16, ověřeno
+// hrubou silou všech cest). Mapa 2 má chyták — nejlevnější trasa vede oklikou
+// přes VÍC vrcholů. Tlačítka krok zpět / znovu / druhá mapa. Bez časové
+// animace; data a součty = čisté funkce na SVG (__delkaCesty, __GRAFY).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Najdi nejkratší cestu — jako navigace 🕹️</span></h2>
+	<p><strong>Ohodnocený graf</strong>: kroužky jsou města, čísla u čar kilometry. Klikej od <strong>startu A</strong> po sousedních vrcholech až do <strong>cíle F</strong> a najdi cestu s <strong>nejmenším součtem</strong> — přesně tohle počítá navigace.</p>
+	<svg id="gcs-svg" viewBox="0 0 660 350" role="img" aria-label="Ohodnocený graf s vrcholy A až F, hledání nejkratší cesty">
+		<g id="gcs-hrany"></g>
+		<g id="gcs-vrcholy"></g>
+		<text id="gcs-soucet" x="330" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#e8590c"></text>
+	</svg>
+	<p>
+		<button type="button" class="gcs-tl" id="gcs-zpet">↩ krok zpět</button>
+		<button type="button" class="gcs-tl" id="gcs-znovu">🔄 začni znovu</button>
+		<button type="button" class="gcs-tl" id="gcs-mapa">🗺️ druhá mapa</button>
+	</p>
+	<p class="gcs-vzorec" id="gcs-vzorec"></p>
+	<p class="gcs-stav" id="gcs-stav">👉 Začni kliknutím na souseda vrcholu A. Postupuj systematicky, ne náhodně!</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (grafy a součty — kontrolovatelná výpočtem) ===
+	const VRCHOLY = { A: [60, 190], B: [210, 80], C: [210, 300], D: [370, 190], E: [480, 70], F: [610, 190] };
+	const GRAFY = [
+		// mapa 1: optimum A-B-D-E-F = 16
+		[['A','B',4],['A','C',3],['B','C',3],['B','D',5],['C','D',7],['B','E',12],['D','E',4],['D','F',8],['E','F',3]],
+		// mapa 2: optimum A-C-B-E-F = 16 (oklika přes víc vrcholů je levnější!)
+		[['A','B',6],['A','C',2],['B','C',3],['B','D',4],['C','D',8],['B','E',5],['D','E',2],['D','F',9],['E','F',6]],
+	];
+	const OPTIMA = [16, 16];
+	function hrana(mapa, u, v) {
+		const h = GRAFY[mapa].find(([a, b]) => (a === u && b === v) || (a === v && b === u));
+		return h ? h[2] : null;
+	}
+	function delkaCesty(mapa, cesta) {
+		let soucet = 0;
+		for (let i = 1; i < cesta.length; i++) {
+			const w = hrana(mapa, cesta[i - 1], cesta[i]);
+			if (w === null) return null; // neplatná cesta
+			soucet += w;
+		}
+		return soucet;
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	let mapa = 0;
+	let cesta = ['A'];
+	const svg = document.getElementById('gcs-svg');
+	svg.__delkaCesty = delkaCesty; svg.__GRAFY = GRAFY; svg.__OPTIMA = OPTIMA; // pro nezávislou kontrolu
+	const g = (id) => document.getElementById(id);
+
+	function kresli() {
+		const soucet = delkaCesty(mapa, cesta);
+		const vCili = cesta[cesta.length - 1] === 'F';
+		// hrany + ohodnocení
+		let hrany = '';
+		for (const [u, v, w] of GRAFY[mapa]) {
+			const [x1, y1] = VRCHOLY[u], [x2, y2] = VRCHOLY[v];
+			const naCeste = cesta.some((c, i) => i > 0 && ((cesta[i - 1] === u && c === v) || (cesta[i - 1] === v && c === u)));
+			hrany += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${naCeste ? '#e8590c' : '#adb5bd'}" stroke-width="${naCeste ? 7 : 3}" />`;
+			hrany += `<rect x="${(x1 + x2) / 2 - 14}" y="${(y1 + y2) / 2 - 13}" width="28" height="22" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="1.5" />`;
+			hrany += `<text x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 + 3}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">${w}</text>`;
+		}
+		g('gcs-hrany').innerHTML = hrany;
+		// vrcholy
+		let vrcholy = '';
+		for (const [nazev, [x, y]] of Object.entries(VRCHOLY)) {
+			const posledni = nazev === cesta[cesta.length - 1];
+			const navstiveny = cesta.includes(nazev);
+			const barva = nazev === 'A' ? '#b2f2bb' : nazev === 'F' ? '#ffc9c9' : navstiveny ? '#ffe8cc' : '#fff';
+			vrcholy += `<circle cx="${x}" cy="${y}" r="24" fill="${barva}" stroke="${posledni ? '#e8590c' : '#2b2a26'}" stroke-width="${posledni ? 5 : 3}" data-vrchol="${nazev}" style="cursor:pointer" />`;
+			vrcholy += `<text x="${x}" y="${y + 6}" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26" data-vrchol="${nazev}" style="cursor:pointer">${nazev}</text>`;
+			if (nazev === 'A') vrcholy += `<text x="${x}" y="${y + 45}" text-anchor="middle" font-size="11" fill="#2f9e44" font-weight="bold">START</text>`;
+			if (nazev === 'F') vrcholy += `<text x="${x}" y="${y + 45}" text-anchor="middle" font-size="11" fill="#e03131" font-weight="bold">CÍL</text>`;
+		}
+		g('gcs-vrcholy').innerHTML = vrcholy;
+		g('gcs-soucet').textContent = `ujeto: ${soucet} km · mapa ${mapa + 1}`;
+		g('gcs-vzorec').innerHTML = cesta.length > 1
+			? `Tvoje cesta: <strong>${cesta.join(' → ')}</strong> = ${cesta.slice(1).map((v, i) => hrana(mapa, cesta[i], v)).join(' + ')} = <strong>${soucet} km</strong>`
+			: 'Zatím stojíš na startu A — klikni na některého souseda.';
+		if (vCili) {
+			g('gcs-stav').textContent = soucet === OPTIMA[mapa]
+				? `🏆 VÝBORNĚ — ${soucet} km je NEJKRATŠÍ možná cesta! ${mapa === 1 ? 'Všiml sis? Nejlevnější trasa vedla oklikou přes VÍC vrcholů.' : 'Zkus i druhou mapu — má chyták.'}`
+				: `🚗 Dojel jsi za ${soucet} km, ale jde to za ${OPTIMA[mapa]} km. Zkus to znovu — postupuj od startu a u každého vrcholu porovnávej součty.`;
+		} else if (cesta.length > 1) {
+			g('gcs-stav').textContent = `🧭 Jsi ve vrcholu ${cesta[cesta.length - 1]}, zatím ${soucet} km. Pokračuj k cíli F — nebo se vrať tlačítkem ↩, jestli tušíš levnější trasu.`;
+		} else {
+			g('gcs-stav').textContent = '👉 Začni kliknutím na souseda vrcholu A. Postupuj systematicky, ne náhodně!';
+		}
+	}
+
+	svg.addEventListener('click', (e) => {
+		const el = e.target.closest('[data-vrchol]');
+		if (!el) return;
+		const v = el.dataset.vrchol;
+		const posledni = cesta[cesta.length - 1];
+		if (posledni === 'F') return; // v cíli — jen znovu/zpět
+		if (cesta.length > 1 && v === cesta[cesta.length - 2]) { cesta.pop(); kresli(); return; } // klik na předchozí = krok zpět
+		if (v === posledni || cesta.slice(0, -1).includes(v)) return; // žádné vracení do projitých
+		if (hrana(mapa, posledni, v) === null) {
+			g('gcs-stav').textContent = `❌ Mezi ${posledni} a ${v} žádná silnice nevede — vyber souseda spojeného čarou.`;
+			return;
+		}
+		cesta.push(v);
+		kresli();
+	});
+	g('gcs-zpet').addEventListener('click', () => { if (cesta.length > 1) { cesta.pop(); kresli(); } });
+	g('gcs-znovu').addEventListener('click', () => { cesta = ['A']; kresli(); });
+	g('gcs-mapa').addEventListener('click', () => {
+		mapa = 1 - mapa;
+		cesta = ['A'];
+		g('gcs-mapa').textContent = mapa === 0 ? '🗺️ druhá mapa' : '🗺️ první mapa';
+		kresli();
+	});
+	kresli();
+</script>
+
+<style>
+	#gcs-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.gcs-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.gcs-tl:active { transform: translateY(1px); }
+	.gcs-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.gcs-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

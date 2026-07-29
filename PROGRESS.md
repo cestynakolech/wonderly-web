@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 68: GrafCestaSimulace (nejkratší cesta).** Inf7 ohodnocené grafy:
+  klikací hledání cesty A→F ve dvou mapách (6 vrcholů, 9 hran), živý součet kilometrů,
+  v cíli porovnání s optimem (obě mapy 16 km — ověřeno hrubou silou všech 13 cest,
+  jednoznačné); mapa 2 učí chyták „nejlevnější trasa vede oklikou přes víc vrcholů".
+  Neplatné kroky hlásí chybu, klik na předchozí vrchol = krok zpět. TÍM JE HOTOVÝCH
+  všech 12 kandidátů z auditu kola 54. Celkem 65 simulací.
 - **2026-07-29 — kolo 67: PrenosSimulace (přenos elektrické energie).** F9: týž výkon
   8 800 kW při 400 V (bez trafa — proud 22 000 A, ztráty 2,42 GW, město potmě), 22 kV
   (400 A, ztráty 800 kW, dorazí 8 000 kW) a 400 kV (22 A, 2 420 W, dorazí prakticky vše):
