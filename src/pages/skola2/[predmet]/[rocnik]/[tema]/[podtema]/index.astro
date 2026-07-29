@@ -73,6 +73,7 @@ import GrafCestaSimulace from '../../../../../../components/skola2/GrafCestaSimu
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
+import { laborky } from '../../../../../../data/laborky';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -95,6 +96,7 @@ export function getStaticPaths() {
 const { predmet, rocnik, tema, podtema } = Astro.props;
 const klicKvizu = `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`;
 const otazky = kvizy[klicKvizu];
+const laborka = laborky[klicKvizu];
 const absolutniUrl = `https://lab.wonderly.cz/${klicKvizu}/`;
 
 // sousední podtémata v rámci tématu — dolní navigace „← předchozí / další →"
@@ -272,6 +274,13 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'graf-cesta' && <GrafCestaSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
+	{laborka && (
+		<section class="ramecek laborka-pozvanka">
+			<h2><span class="podtrh">🧪 Laboratorní práce</span></h2>
+			<p>{laborka.nazev} — vyzkoušej si to naživo! Pracovní list si můžeš vytisknout.</p>
+			<a class="kviz-tlacitko laborka-odkaz" href="laborka/">Otevřít pracovní list 🧪</a>
+		</section>
+	)}
 	{otazky && <Kviz otazky={otazky} />}
 	{(predchozi || dalsi) && (
 		<nav class="sousedni-podtemata">

@@ -3,6 +3,7 @@ import SkolaLayout from '../../../../../layouts/SkolaLayout.astro';
 import { predmety, rocniky } from '../../../../../data/predmety';
 import { temata } from '../../../../../data/temata';
 import { kvizy } from '../../../../../data/kvizy';
+import { laborky } from '../../../../../data/laborky';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -28,6 +29,7 @@ function odznaky(pt) {
 	if (pt.interakce || pt.interakce2) o.push({ znak: '🎮', popis: 'interaktivní simulace' });
 	if (kvizy[`${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}`]) o.push({ znak: '✏️', popis: 'procvičovací kvíz' });
 	if (pt.materialy?.some((m) => m.druh === 'video' || m.druh === 'youtube')) o.push({ znak: '🎬', popis: 'video' });
+	if (laborky[`${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}`]) o.push({ znak: '🧪', popis: 'laboratorní práce' });
 	return o;
 }
 ---

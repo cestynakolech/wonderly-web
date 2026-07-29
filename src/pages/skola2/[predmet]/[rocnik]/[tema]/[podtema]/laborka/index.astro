@@ -1,0 +1,185 @@
+---
+import SkolaLayout from '../../../../../../../layouts/SkolaLayout.astro';
+import { predmety, rocniky } from '../../../../../../../data/predmety';
+import { temata } from '../../../../../../../data/temata';
+import { laborky } from '../../../../../../../data/laborky';
+
+export function getStaticPaths() {
+	const paths = [];
+	for (const [klic, seznamTemat] of Object.entries(temata)) {
+		const [predmetSlug, rocnikSlug] = klic.split('/');
+		const predmet = predmety.find((p) => p.slug === predmetSlug);
+		const rocnik = rocniky.find((r) => r.slug === rocnikSlug);
+		for (const tema of seznamTemat) {
+			for (const podtema of tema.podtemata ?? []) {
+				const laborka = laborky[`${predmetSlug}/${rocnikSlug}/${tema.slug}/${podtema.slug}`];
+				if (!laborka) continue;
+				paths.push({
+					params: { predmet: predmetSlug, rocnik: rocnikSlug, tema: tema.slug, podtema: podtema.slug },
+					props: { predmet, rocnik, tema, podtema, laborka },
+				});
+			}
+		}
+	}
+	return paths;
+}
+
+const { predmet, rocnik, tema, podtema, laborka } = Astro.props;
+---
+
+<SkolaLayout
+	titulek={`Laboratorní práce: ${laborka.nazev} – Wonderly`}
+	drobky={[
+		{ text: '2. stupeň', href: '../../../../../' },
+		{ text: predmet.nazev, href: '../../../../' },
+		{ text: rocnik.nazev, href: '../../../' },
+		{ text: tema.nazev, href: '../../' },
+		{ text: podtema.nazev, href: '../' },
+	]}
+>
+	<article class="laborka">
+		<h1><span class="podtrh">🧪 {laborka.nazev}</span></h1>
+		<p class="laborka-podtitul">Laboratorní práce — {predmet.nazev}, {rocnik.nazev} · {podtema.nazev}</p>
+		<p class="laborka-hlavicka">
+			Jméno: <span class="linka jmeno" /> Třída: <span class="linka tridka" /> Datum: <span class="linka tridka" />
+		</p>
+		<button class="kviz-tlacitko tisk-tlacitko" onclick="window.print()">🖨️ Vytisknout pracovní list</button>
+
+		<section class="ramecek">
+			<h2>🎯 Cíl</h2>
+			<p>{laborka.cil}</p>
+			<h2>🎒 Pomůcky</h2>
+			<ul>
+				{laborka.pomucky.map((p) => (
+					<li>{p}</li>
+				))}
+			</ul>
+		</section>
+
+		<section class="ramecek">
+			<h2>📋 Postup</h2>
+			<ol>
+				{laborka.postup.map((krok) => (
+					<li>{krok}</li>
+				))}
+			</ol>
+			{laborka.pozor && <p class="laborka-pozor">⚠️ {laborka.pozor}</p>}
+		</section>
+
+		<section class="ramecek">
+			<h2>📏 Tabulka měření</h2>
+			<table class="laborka-tabulka">
+				<thead>
+					<tr>
+						{laborka.tabulka.sloupce.map((s) => (
+							<th>{s}</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{Array.from({ length: laborka.tabulka.radky }).map(() => (
+						<tr>
+							{laborka.tabulka.sloupce.map(() => (
+								<td />
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</section>
+
+		<section class="ramecek">
+			<h2>🤔 Otázky k zamyšlení</h2>
+			<ol class="laborka-otazky">
+				{laborka.otazky.map((o) => (
+					<li>
+						{o}
+						<span class="odpovedni-radky" />
+					</li>
+				))}
+			</ol>
+			{laborka.tip && <p class="laborka-tip">💡 {laborka.tip}</p>}
+		</section>
+	</article>
+</SkolaLayout>
+
+<style is:global>
+	.laborka-podtitul {
+		text-align: center;
+		color: var(--ztlumena);
+		margin-top: -0.4rem;
+	}
+	.laborka-hlavicka {
+		display: flex;
+		gap: 0.5rem;
+		align-items: baseline;
+		flex-wrap: wrap;
+	}
+	.linka {
+		display: inline-block;
+		border-bottom: 2px dotted var(--inkoust);
+		height: 1.2em;
+	}
+	.linka.jmeno {
+		flex: 2;
+		min-width: 8rem;
+	}
+	.linka.tridka {
+		flex: 1;
+		min-width: 4rem;
+	}
+	.tisk-tlacitko {
+		display: block;
+		margin: 0.6rem auto 0;
+	}
+	.laborka-tabulka {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	.laborka-tabulka th,
+	.laborka-tabulka td {
+		border: 2px solid var(--inkoust);
+		padding: 0.45rem 0.6rem;
+		text-align: center;
+	}
+	.laborka-tabulka td {
+		height: 1.8rem;
+	}
+	.laborka-otazky li {
+		margin-bottom: 0.7rem;
+	}
+	.odpovedni-radky {
+		display: block;
+		height: 3.4rem;
+		background: repeating-linear-gradient(
+			to bottom,
+			transparent 0,
+			transparent 1.55rem,
+			var(--ztlumena) 1.55rem,
+			var(--ztlumena) calc(1.55rem + 1px)
+		);
+	}
+	.laborka-pozor {
+		border: 2px dashed #d33;
+		border-radius: 12px;
+		padding: 0.5rem 0.9rem;
+		background: #fff0ef;
+	}
+	.laborka-tip {
+		color: var(--ztlumena);
+	}
+	@media print {
+		.tisk-tlacitko {
+			display: none !important;
+		}
+		.laborka .ramecek {
+			break-inside: avoid;
+			margin: 0.8rem 0;
+			padding: 0.9rem 1.1rem;
+		}
+		.laborka h1 {
+			font-size: 2rem;
+			margin: 0;
+		}
+	}
+</style>
