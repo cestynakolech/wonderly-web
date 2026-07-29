@@ -158,9 +158,9 @@ export const rok2026: Rok = {
 			y: 363.5,
 			videoId: 'swDAmX8BRJA',
 			popis: {
-				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo: reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',
-				en: 'A village in the southern Vosges at the foot of the Ballon d’Alsace (1,247 m). The climb starting here was the first mountain ascent in Tour de France history (1905) — and this year we experienced the Tour live: the publicity caravan and the riders passing through (see the chaptered video).',
-				de: 'Ein Dorf in den Südvogesen am Fuß des Ballon d’Alsace (1 247 m). Der hier beginnende Anstieg war 1905 die erste Bergwertung der Tour-de-France-Geschichte — und dieses Jahr erlebten wir die Tour live: Werbekarawane und Fahrerfeld (siehe Video mit Kapiteln).',
+				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo hned dvakrát ve dvou dnech po sobě: 17. července etapu do Belfortu a nazítří horskou etapu z Mulhouse do Le Markstein, jejíž součástí bylo stoupání na Ballon d’Alsace (9,8 km, průměrně 6,9 %). Viděli jsme reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',
+				en: 'A village in the southern Vosges at the foot of the Ballon d’Alsace (1,247 m). The climb starting here was the first mountain ascent in Tour de France history (1905) — and this year we saw the Tour live on two consecutive days: the stage to Belfort on 17 July and, the next day, the mountain stage from Mulhouse to Le Markstein, which included the Ballon d’Alsace climb (9.8 km at 6.9%). We watched the publicity caravan and the riders go by (see the chaptered video).',
+				de: 'Ein Dorf in den Südvogesen am Fuß des Ballon d’Alsace (1 247 m). Der hier beginnende Anstieg war 1905 die erste Bergwertung der Tour-de-France-Geschichte — und dieses Jahr erlebten wir die Tour an zwei aufeinanderfolgenden Tagen live: am 17. Juli die Etappe nach Belfort und tags darauf die Bergetappe von Mulhouse nach Le Markstein mit dem Anstieg zum Ballon d’Alsace (9,8 km, im Schnitt 6,9 %). Wir sahen Werbekarawane und Fahrerfeld (siehe Video mit Kapiteln).',
 			},
 		},
 		{
