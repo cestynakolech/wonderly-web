@@ -58,8 +58,9 @@
 	}
 
 	function orezH() {
+		// h nejvýš ⅔ délky roviny — strmější klín už by nebyl „rovina", ale stěna
 		const l = +$('nr-l').value;
-		const hMax = l - 1;
+		const hMax = Math.floor((2 * l) / 3);
 		$('nr-h').max = String(hMax);
 		if (+$('nr-h').value > hMax) $('nr-h').value = String(hMax);
 	}
@@ -92,7 +93,8 @@
 
 		// bedna a tažná síla — kresleno v lokálních (nerotovaných) souřadnicích,
 		// celá skupina se pak pootočí o úhel roviny, takže bedna sedí přesně na šikmině
-		const localX = LEFT_X + t * l * SCALE;
+		// bedna (šířka 32) jede jen tak daleko, aby na konci nepřečnívala za vrchol
+		const localX = LEFT_X + 16 + t * (l * SCALE - 32);
 		const krX = localX - 16;
 		const krY = GROUND_Y - 32;
 		let tazeny = '';
