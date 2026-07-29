@@ -1,19 +1,22 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026 večer — 3 NOVÉ ÚKOLY OD UČITELE, deník)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026 večer — úkoly učitele k deníku: 1 a 2 HOTOVÉ, 3 běží)
 
-**Přednostně (připomínky učitele k deníku 29. 7. večer):**
-1. **Úvodní mapa roku ať začíná v jižních Čechách** — animovaná trasa se učiteli líbí,
-   ale výřez/začátek trasy má vycházet z domova (jižní Čechy), ne od prvního cizího města.
-   Týká se `CestyRok.astro` (výřez `spocitejVyrez`/`data.vyrez`) a případně `trasa_uvod.py`.
-2. **U města jen JEHO video, ne mřížka všech videí roku.** Sekce „Videa z cesty" (kolo
-   29. 7.) se objevila i pod kartou jednoho místa — u konkrétního místa má být pouze
-   video, které k němu patří. Mřížku všech videí nechat jen jednou dole na stránce roku
-   (nebo úplně, pokud by se pletla).
-3. **Fotogalerie u místa:** náhledy fotek u každého místa, po rozkliknutí zvětšení
-   (nebo jeden náhled, který otevře ostatní). Infrastruktura hotová (`galerie:` + R2),
-   chybí nahrát fotky — pravidla: jen fotky (ne videa), z podobných záběrů JEDNA,
-   zatím jen 2026 (paměť projekt_fotky_na_web_pravidla).
+1. ✅ **Mapa roku začíná doma** — data roku mají nový volitelný bod `domov`
+   (`jižní Čechy`, x 344.9 / y 351.7, spočteno stejnou projekcí jako `trasa_uvod.py`).
+   Kreslí se modrý domeček, trasa z něj vychází a započítá se do výřezu celkové mapy
+   (2025 i 2026). Nasazeno, ověřeno na živém webu.
+2. ✅ **U místa jen JEHO video** — mřížka „Videa z cesty" se při přiblížení na místo
+   skryje (viditelná jen u celkové mapy); u karty místa je nově náhled jeho videa.
+   Ověřeno v DOM: po kliknutí na Landshut mřížka skrytá, u každé viditelné karty 1 video.
+3. 🔄 **Fotogalerie u míst 2026** — infrastruktura hotová, chybí fotky. Postaven nový
+   automat `Omega/skripty/vyber_fotky_na_web.py`: bere jen fotky, které prošly kontrolou
+   anonymizace bez nálezu, ThinkingCap je popíše, série se pozná z blízkého času +
+   podobnosti popisu (bge-m3) a vyhraje nejostřejší (variance Laplaciánu); návrh jde
+   do `KE-SCHVALENI.md`. **Blokuje kontrola anonymizace** — z 154 fotek 2026 jich bylo
+   večer 29. 7. zkontrolovaných teprve ~40 (automat jede 40/den, 29. 7. odpoledne navíc
+   spadl na timeout Ollamy). Až doběhne: spustit výběr, dát učiteli odklikat,
+   pak `nahraj_fotky.py <složka> 2026/<mesto>` + doplnit `galerie:` do `2026.ts`.
 
 Pak teprve pokračovat simulacemi z auditu (seznam níže).
 
