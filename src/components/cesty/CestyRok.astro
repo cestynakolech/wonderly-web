@@ -21,13 +21,14 @@ const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
 const cenyKlic = new Map(cenyAutomat.map((c) => [`${c.rok}|${c.slug}|${c.stellplatz}`, c]));
 function sCenami(slugMesta: string, s: (typeof data.mesta)[number]['stellplatze'] extends (infer T)[] | undefined ? T : never) {
 	const auto = cenyKlic.get(`${data.rok}|${slugMesta}|${s.nazev}`);
-	if (!auto) return s;
+	if (!auto) return { ...s, zAutomatu: false };
 	return {
 		...s,
 		cenaNoc: auto.cenaNoc ?? s.cenaNoc,
 		elektrina: auto.elektrina ?? s.elektrina,
 		voda: auto.voda ?? s.voda,
 		rokCen: `${auto.aktualizovano} · ${auto.zdroj}`,
+		zAutomatu: true,
 	};
 }
 
@@ -217,7 +218,9 @@ const texty = {
 			data.mesta.map((m) => {
 				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
 				const stellplatzy = (m.stellplatze ?? []).map((s) => sCenami(m.slug, s));
-				const maCeny = stellplatzy.some((s) => s.cenaNoc || s.elektrina || s.voda);
+				// upozornění „jen orientační" patří k cenám z automatu (veřejně dohledané);
+				// u ceny, kterou zapsal učitel z vlastní zkušenosti, by mátlo
+				const maCeny = stellplatzy.some((s) => s.zAutomatu && (s.cenaNoc || s.elektrina || s.voda));
 				return (
 					<article id={m.slug} class="mesto-karta" data-slug={m.slug}>
 						<h2>{m.nazev}</h2>

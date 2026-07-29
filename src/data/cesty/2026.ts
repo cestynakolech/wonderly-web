@@ -188,12 +188,20 @@ export const rok2026: Rok = {
 			nazev: 'Frangy',
 			zeme: 'Francie',
 			datum: '20. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Přespání u vinaře mezi vinicemi',
+					cenaNoc: '10 € / osoba (bez elektřiny a vody)',
+					elektrina: '6 €',
+					rokCen: 'z vlastní návštěvy, 07/2026',
+				},
+			],
 			x: 272.9,
 			y: 385.6,
 			popis: {
-				cs: 'Vinařská obec v Horním Savojsku asi 30 km jižně od Ženevského jezera. Okolní svahy osázené odrůdou Altesse dávají bílé víno Roussette de Savoie – Frangy, jeden ze čtyř vyhlášených krů této apelace.',
-				en: 'A wine-growing village in Haute-Savoie, some 30 km south of Lake Geneva. The surrounding slopes planted with the Altesse grape yield the white Roussette de Savoie – Frangy, one of the four named crus of the appellation.',
-				de: 'Winzerdorf in Hochsavoyen, etwa 30 km südlich des Genfersees. An den umliegenden Hängen wächst die Rebsorte Altesse für den Weißwein Roussette de Savoie – Frangy, einen der vier Crus dieser Appellation.',
+				cs: 'Vinařská obec v Horním Savojsku asi 30 km jižně od Ženevského jezera. Okolní svahy osázené odrůdou Altesse dávají bílé víno Roussette de Savoie – Frangy, jeden ze čtyř vyhlášených krů této apelace. Přespali jsme přímo u vinaře mezi vinicemi — krásný výhled, milí lidé a dobré víno.',
+				en: 'A wine-growing village in Haute-Savoie, some 30 km south of Lake Geneva. The surrounding slopes planted with the Altesse grape yield the white Roussette de Savoie – Frangy, one of the four named crus of the appellation. We stayed overnight at a winery among the vineyards — a lovely view, kind people and good wine.',
+				de: 'Winzerdorf in Hochsavoyen, etwa 30 km südlich des Genfersees. An den umliegenden Hängen wächst die Rebsorte Altesse für den Weißwein Roussette de Savoie – Frangy, einen der vier Crus dieser Appellation. Wir übernachteten direkt beim Winzer zwischen den Reben — schöne Aussicht, nette Leute und guter Wein.',
 			},
 		},
 		{

@@ -93,6 +93,18 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 večer — tři připomínky učitele k deníku.** (1) **Mapa roku začíná doma:**
+  data roku mají nový volitelný bod `domov` (jižní Čechy, x 344.9 / y 351.7 — spočteno
+  stejnou projekcí jako úvodní mapy videí v `trasa_uvod.py`); na celkové mapě se kreslí
+  modrý domeček, trasa z něj vychází a bod se započítá do výřezu (2025 i 2026).
+  (2) **Mřížka „Videa z cesty" jen u celkové mapy** — při přiblížení na místo se skryje,
+  u karty místa je nově náhled JEHO videa. (3) **Galerie:** kliknutí na náhled fotku
+  zvětší přes celou obrazovku (šipky, klávesnice, Esc) místo otevírání nové karty.
+  Při té práci se ukázalo, že web 2026 měl jen 8 z 11 míst cesty — **doplněny Frangy,
+  Vaulnaveys-le-Haut a Livet-et-Gavet** (trojjazyčné popisy; zatím bez stellplatzů a videí).
+  Fotky na web: kontrola anonymizace všech 154 fotek 2026 doběhla s 0 nálezy, nový automat
+  `Omega/skripty/vyber_fotky_na_web.py` z podobných záběrů vybírá jeden (čas + podobnost
+  popisu, vyhrává nejostřejší) → návrh do `KE-SCHVALENI.md`, nahrání až po odkliku učitele.
 - **2026-07-29 večer — automat cen dojel, nový režim „rovnou na web".** Na přání učitele
   („ceny stejně neznám, nasaď kontrolora a zadávej rovnou, ale napiš, že nejsou aktuální")
   má automat 2 pojistky: kotva (doslovné úryvky) + NEZÁVISLÝ kontrolor gemma4:26b (jiná
