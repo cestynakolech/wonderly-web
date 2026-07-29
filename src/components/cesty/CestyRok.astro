@@ -1,6 +1,7 @@
 ---
 import CestyLayout from '../../layouts/CestyLayout.astro';
 import CestyAtribuce from './CestyAtribuce.astro';
+import cenyAutomat from '../../data/cesty/stellplatz-ceny.json';
 import type { Jazyk, Rok } from '../../data/cesty/typy';
 import { MAPA_SIRKA, MAPA_VYSKA, MAX_POLOZEK, pripravPohledy, spocitejVyrez } from '../../data/cesty/mapa';
 import { TEXTY, cestaCesty, formatujDatum, pocetMist, prelozPopis, prelozZemi, vlajkyZemi } from '../../data/cesty/preklady';
@@ -14,6 +15,21 @@ const { data, jazyk } = Astro.props;
 const t = TEXTY[jazyk];
 
 const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
+
+// ceny stání z automatu (stellplatz_ceny.py) — veřejně dohledané, jen orientační;
+// čerstvější údaj z automatu má přednost před ručním zápisem v datech
+const cenyKlic = new Map(cenyAutomat.map((c) => [`${c.rok}|${c.slug}|${c.stellplatz}`, c]));
+function sCenami(slugMesta: string, s: (typeof data.mesta)[number]['stellplatze'] extends (infer T)[] | undefined ? T : never) {
+	const auto = cenyKlic.get(`${data.rok}|${slugMesta}|${s.nazev}`);
+	if (!auto) return s;
+	return {
+		...s,
+		cenaNoc: auto.cenaNoc ?? s.cenaNoc,
+		elektrina: auto.elektrina ?? s.elektrina,
+		voda: auto.voda ?? s.voda,
+		rokCen: `${auto.aktualizovano} · ${auto.zdroj}`,
+	};
+}
 
 // počítadlo dnů na cestě — z nejmenšího a největšího číselného data míst;
 // slovní data („červenec 2026") se přeskočí, bez číselných dat se pás nezobrazí
@@ -160,6 +176,8 @@ const texty = {
 		{
 			data.mesta.map((m) => {
 				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
+				const stellplatzy = (m.stellplatze ?? []).map((s) => sCenami(m.slug, s));
+				const maCeny = stellplatzy.some((s) => s.cenaNoc || s.elektrina || s.voda);
 				return (
 					<article id={m.slug} class="mesto-karta" data-slug={m.slug}>
 						<h2>{m.nazev}</h2>
@@ -191,11 +209,11 @@ const texty = {
 								<p class="galerie-nacitani">Načítám fotky…</p>
 							</div>
 						)}
-						{m.stellplatze && m.stellplatze.length > 0 && (
+						{stellplatzy.length > 0 && (
 							<>
 								<h3>Stellplatz</h3>
 								<ul>
-									{m.stellplatze.map((s) => (
+									{stellplatzy.map((s) => (
 										<li>
 											{s.odkaz ? <a href={s.odkaz} rel="noopener">{s.nazev}</a> : s.nazev}
 											{(s.cenaNoc || s.elektrina || s.voda || s.gps) && (
@@ -215,6 +233,7 @@ const texty = {
 										</li>
 									))}
 								</ul>
+								{maCeny && <p class="ceny-upozorneni">ℹ️ {t.cenyUpozorneni}</p>}
 							</>
 						)}
 					</article>
@@ -563,6 +582,13 @@ const texty = {
 		color: var(--ztlumeny, #777);
 		font-weight: 400;
 		font-size: 0.85em;
+	}
+	.ceny-upozorneni {
+		font-size: 0.85rem;
+		color: var(--ztlumeny, #777);
+		border-left: 3px solid var(--ztlumeny, #999);
+		padding-left: 0.7rem;
+		margin: 0.4rem 0 1rem;
 	}
 	.rok-statistika {
 		font-weight: 600;
