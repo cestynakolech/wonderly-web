@@ -93,6 +93,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 65: checkpoint dělby rolí (à 10 kol).** Revize kol 56–64: jednotný
+  vzor „čistá funkce → Node kontrola → čtení DOM → curl" má nulové AI náklady a za noc
+  odhalil 2 skutečné chyby; vision nebyla potřeba; kvízy zůstávají u Clauda (fakticky
+  citlivé). Beze změn pravidel; Hermes čeká na ranní rozhodnutí. Další checkpoint kolo 75.
 - **2026-07-29 — kolo 64: PretlakSimulace (přetlak, podtlak, vakuum).** F7: válec s pístem
   (objem 1/2/4/8 dílků → tlak 400/200/100/50 kPa, p·V = konst, vše celé), manometr ukazuje
   rozdíl proti okolí (100 kPa = 1 bar), vývěva odčerpá vzduch na vakuum (−100 kPa, molekuly

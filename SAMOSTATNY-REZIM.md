@@ -1,15 +1,17 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 64 hotové — přetlak a vývěva)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 65 hotové — checkpoint dělby rolí)
 
-Hotovo 64 kol samostatného režimu (62 simulací na 64 stránkách, 356+ kvízových otázek).
+Hotovo 65 kol samostatného režimu (62 simulací na 64 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (65) = ⏰ CHECKPOINT dělby rolí** (à 10 kol; revize kol 56–64 do
-~/ollama-log.md, další checkpoint kolo 75). Pak kandidát č. 10 — **F8 energetická
-hodnota potravin** (skládačka svačiny: jídla → součet kJ → minuty pohybu, celá čísla).
+~~Kolo 65 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
+správná, vzor čistá funkce+Node+DOM odhalil za noc 2 skutečné chyby, kvízy zůstávají
+u Clauda; další checkpoint kolo 75).
+**DALŠÍ KOLO (66):** kandidát č. 10 — **F8 energetická hodnota potravin** (skládačka
+svačiny: vyber jídla → součet kJ → minuty běhu/chůze/plavání, celá čísla z výkladu).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
