@@ -93,6 +93,17 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — zbylých 8 laborek + data návštěv.** Rubrika laboratorních prací je
+  kompletní: 12 tisknutelných pracovních listů (nově tloušťka listu papíru F6, graf
+  chladnutí F6, rychlost chůze/běhu F7, těžiště kartonu F7, gumička a vztlak F7, míchání
+  teplé a studené vody F8, elektromagnet z hřebíku F9, Sluneční soustava na hřišti F9).
+  Nezávislý kontrolor: 2 drobné nálezy (popisek tabulky chladnutí + neměřitelná slaná
+  voda) opraveny před nasazením; fyzika ověřena výpočty (Bolt 37,6 km/h, planety 1 au=10 m,
+  Proxima ≈ 2 700 km v modelu). Od učitele doplněna data Le Thillot 12. 7. a Ornans 18. 7.
+  (EN teď ukazuje „12 July 2026") + datové předpony názvů tří videí. Pravidla fotek do
+  paměti (jen fotky, jedna z podobných, zatím 2026). Návrh automatu cen stellplatzů
+  (park4night + qwen3:30b-a3b, kotva „číslo musí být v textu") a okna „okolí obce" přes
+  Telegram: `Omega/dokumenty/NAVRH-stellplatz-a-okoli-2026-07-29.md`.
 - **2026-07-29 — audit webu + velká dávka vylepšení (schváleno učitelem).** Dva nezávislí
   kontroloři prošli celý web → `Omega/dokumenty/AUDIT-WEBU-2026-07-29.md`. Nasazeno:
   (1) **deník** — opravy vad (překlad slovních dat a seznamu zemí do EN/DE vč. spojky,
