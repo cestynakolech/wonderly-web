@@ -65,6 +65,7 @@ import DuhaSimulace from '../../../../../../components/skola2/DuhaSimulace.astro
 import ReaktorSimulace from '../../../../../../components/skola2/ReaktorSimulace.astro';
 import DecibelySimulace from '../../../../../../components/skola2/DecibelySimulace.astro';
 import PretlakSimulace from '../../../../../../components/skola2/PretlakSimulace.astro';
+import SvacinaSimulace from '../../../../../../components/skola2/SvacinaSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -254,6 +255,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'reaktor' && <ReaktorSimulace />}
 	{podtema.interakce === 'decibely' && <DecibelySimulace />}
 	{podtema.interakce === 'pretlak' && <PretlakSimulace />}
+	{podtema.interakce === 'svacina' && <SvacinaSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{otazky && <Kviz otazky={otazky} />}

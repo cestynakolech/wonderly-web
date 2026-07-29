@@ -1,0 +1,116 @@
+---
+// Energetická hodnota potravin (F8): skládačka svačiny. Žák klikáním přidává
+// potraviny (orientační hodnoty v kJ, záměrně násobky 200, aby VŠECHNY výsledky
+// vycházely celé), vidí součet v kJ, podíl denní potřeby (~10 000 kJ školáka)
+// a kolik minut chůze (20 kJ/min), běhu (40 kJ/min) či plavání (50 kJ/min)
+// by energii zase vydalo. Bez časové animace; stav je čistá funkce
+// stavSvaciny(vybrane) na SVG (__stavSvaciny).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Poskládej si svačinu — a pak ji vyběhej 🕹️</span></h2>
+	<p>Energetická hodnota se zjišťuje <strong>spálením potraviny</strong> v laboratoři a udává se v <strong>kJ</strong> (starší jednotka kalorie: 1 kcal ≈ 4,2 kJ), nejčastěji <strong>na 100 g</strong>. Tady počítáme rovnou s porcemi.</p>
+	<p id="sva-jidla"></p>
+	<svg id="sva-svg" viewBox="0 0 660 300" role="img" aria-label="Tác se svačinou, součet energie a minuty pohybu">
+		<!-- tác -->
+		<ellipse cx="170" cy="200" rx="140" ry="46" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<text id="sva-tac" x="170" y="205" text-anchor="middle" font-size="34"></text>
+		<text id="sva-tac-pop" x="170" y="265" text-anchor="middle" font-size="12" fill="#868e96">tvůj tác</text>
+		<!-- součet -->
+		<text id="sva-celkem" x="170" y="70" text-anchor="middle" font-size="32" font-weight="bold" fill="#e8590c"></text>
+		<text x="170" y="95" text-anchor="middle" font-size="12" fill="#868e96">energie svačiny</text>
+		<!-- sloupec denní potřeby -->
+		<rect x="345" y="40" width="36" height="220" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" rx="6" />
+		<rect id="sva-sloupec" x="348" width="30" fill="#ffa94d" rx="4" />
+		<text id="sva-procenta" x="363" y="285" text-anchor="middle" font-size="13" font-weight="bold" fill="#e8590c"></text>
+		<text x="363" y="30" text-anchor="middle" font-size="11" fill="#868e96">denní potřeba</text>
+		<!-- výdej pohybem -->
+		<text x="530" y="60" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">kolik pohybu to vydá?</text>
+		<g font-size="15" font-weight="bold" fill="#2b2a26">
+			<text x="440" y="110" font-size="26">🚶</text><text id="sva-chuze" x="490" y="110"></text>
+			<text x="440" y="165" font-size="26">🏃</text><text id="sva-beh" x="490" y="165"></text>
+			<text x="440" y="220" font-size="26">🏊</text><text id="sva-plavani" x="490" y="220"></text>
+		</g>
+		<g font-size="10" fill="#868e96">
+			<text x="490" y="126">chůze (20 kJ/min)</text><text x="490" y="181">běh (40 kJ/min)</text><text x="490" y="236">plavání (50 kJ/min)</text>
+		</g>
+	</svg>
+	<p><button type="button" class="sva-tl" id="sva-reset">🗑️ vysyp tác</button></p>
+	<p class="sva-vzorec" id="sva-vzorec"></p>
+	<p class="sva-stav" id="sva-stav">👉 Klikej na potraviny a skládej svačinu — druhým kliknutím jídlo z tácu zase sundáš.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	// orientační hodnoty na PORCI, záměrně násobky 200 kJ → minuty vždy celé
+	const JIDLA = [
+		['jablko', '🍎', 200], ['banán', '🍌', 400], ['rohlík', '🥐', 600], ['sýr (2 plátky)', '🧀', 400],
+		['párek', '🌭', 600], ['čokoládová tyčinka', '🍫', 1000], ['slazená limonáda', '🥤', 400], ['hranolky', '🍟', 1200],
+	];
+	const DENNI = 10000; // kJ — orientační denní potřeba školáka
+	const VYDEJE = { chuze: 20, beh: 40, plavani: 50 }; // kJ/min
+	function stavSvaciny(vybrane) {
+		const celkem = vybrane.reduce((sum, i) => sum + JIDLA[i][2], 0);
+		return {
+			celkem,
+			procenta: celkem / (DENNI / 100), // 1 % = 100 kJ → dělení beze zbytku, žádná plovoucí čárka
+			minuty: { chuze: celkem / VYDEJE.chuze, beh: celkem / VYDEJE.beh, plavani: celkem / VYDEJE.plavani },
+		};
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	let vybrane = [];
+	const svg = document.getElementById('sva-svg');
+	svg.__stavSvaciny = stavSvaciny; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+
+	function kresli() {
+		const s = stavSvaciny(vybrane);
+		g('sva-tac').textContent = vybrane.map(i => JIDLA[i][1]).join(' ') || '·';
+		g('sva-celkem').textContent = `${s.celkem.toLocaleString('cs-CZ')} kJ`;
+		const vyska = Math.min(s.procenta, 100) * 2.16;
+		g('sva-sloupec').setAttribute('y', 258 - vyska);
+		g('sva-sloupec').setAttribute('height', Math.max(vyska, 0.5));
+		g('sva-sloupec').setAttribute('fill', s.procenta > 50 ? '#ff6b6b' : '#ffa94d');
+		g('sva-procenta').textContent = `${s.procenta} %`;
+		g('sva-chuze').textContent = `${s.minuty.chuze} min`;
+		g('sva-beh').textContent = `${s.minuty.beh} min`;
+		g('sva-plavani').textContent = `${s.minuty.plavani} min`;
+		for (const b of document.querySelectorAll('#sva-jidla [data-jidlo]')) b.classList.toggle('sva-aktivni', vybrane.includes(+b.dataset.jidlo));
+		g('sva-vzorec').innerHTML = vybrane.length === 0
+			? 'Tác je prázdný — 0 kJ. Hodnoty jsou orientační, na porci (u výrobků je najdeš na obalu, vždy na 100 g).'
+			: `${vybrane.map(i => `${JIDLA[i][1]} ${JIDLA[i][2]}`).join(' + ')} = <strong>${s.celkem.toLocaleString('cs-CZ')} kJ</strong> — to je <strong>${s.procenta} %</strong> denní potřeby (~10 000 kJ).`;
+		g('sva-stav').textContent = vybrane.length === 0
+			? '👉 Klikej na potraviny a skládej svačinu — druhým kliknutím jídlo z tácu zase sundáš.'
+			: s.procenta > 50
+			? `⚠️ Přes polovinu denní energie v jedné svačině! Tělo cukry a tuky spálí s kyslíkem — a co nespotřebuje pohybem a mozkem, to si uloží. Zkus tác odlehčit.`
+			: s.minuty.beh >= 30
+			? `🏃 Na vyběhání téhle svačiny bys běžel(a) ${s.minuty.beh} minut. Sladkosti a hranolky mají energie nejvíc — porovnej je s jablkem.`
+			: `🙂 Rozumná svačina: vydá ji ${s.minuty.chuze} minut chůze, nebo jen ${s.minuty.plavani} minut plavání (plavání „bere" energii nejrychleji).`;
+	}
+
+	(() => {
+		const p = g('sva-jidla');
+		JIDLA.forEach(([nazev, emoji, kj], i) => {
+			const tl = document.createElement('button');
+			tl.type = 'button'; tl.className = 'sva-tl'; tl.dataset.jidlo = i;
+			tl.textContent = `${emoji} ${nazev} (${kj} kJ)`;
+			tl.addEventListener('click', () => {
+				vybrane = vybrane.includes(i) ? vybrane.filter(x => x !== i) : [...vybrane, i];
+				kresli();
+			});
+			p.appendChild(tl);
+		});
+	})();
+	g('sva-reset').addEventListener('click', () => { vybrane = []; kresli(); });
+	kresli();
+</script>
+
+<style>
+	#sva-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sva-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.7rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; font-size: 0.9rem; }
+	.sva-tl.sva-aktivni { background: #ffe8cc; }
+	.sva-tl:active { transform: translateY(1px); }
+	.sva-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.sva-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

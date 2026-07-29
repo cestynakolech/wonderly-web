@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 66: SvacinaSimulace (energetická hodnota potravin).** F8: skládačka
+  svačiny z 8 potravin (hodnoty na porci, záměrně násobky 200 kJ), součet, sloupec % denní
+  potřeby školáka (10 000 kJ) a minuty chůze/běhu/plavání (20/40/50 kJ/min) — kontrola všech
+  256 kombinací odhalila necelá % z plovoucí čárky (0,14×100), opraveno dělením 1 % = 100 kJ.
+  Vše celé. Celkem 63 simulací.
 - **2026-07-29 — kolo 65: checkpoint dělby rolí (à 10 kol).** Revize kol 56–64: jednotný
   vzor „čistá funkce → Node kontrola → čtení DOM → curl" má nulové AI náklady a za noc
   odhalil 2 skutečné chyby; vision nebyla potřeba; kvízy zůstávají u Clauda (fakticky

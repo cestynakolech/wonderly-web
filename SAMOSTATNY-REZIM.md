@@ -1,8 +1,8 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 65 hotové — checkpoint dělby rolí)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 66 hotové — skládačka svačiny)
 
-Hotovo 65 kol samostatného režimu (62 simulací na 64 stránkách, 356+ kvízových otázek).
+Hotovo 66 kol samostatného režimu (63 simulací na 65 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
@@ -10,8 +10,8 @@ Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
 ~~Kolo 65 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor čistá funkce+Node+DOM odhalil za noc 2 skutečné chyby, kvízy zůstávají
 u Clauda; další checkpoint kolo 75).
-**DALŠÍ KOLO (66):** kandidát č. 10 — **F8 energetická hodnota potravin** (skládačka
-svačiny: vyber jídla → součet kJ → minuty běhu/chůze/plavání, celá čísla z výkladu).
+**DALŠÍ KOLO (67):** kandidát č. 11 — **F9 přenos elektrické energie** (týž výkon při
+230 V × 22 kV × 400 kV → proud a ztráty vedení I²R v celých %, proč se transformuje nahoru).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -47,8 +47,10 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 9. [x] **F7 pretlak-podtlak-vakuum** — HOTOVO v kole 64 (PretlakSimulace: píst 1/2/4/8
    dílků → 400/200/100/50 kPa (p·V=konst, celé), manometr rozdílu proti okolí 100 kPa,
    vývěva → vakuum −100 kPa, molekuly houstnou/mizí, příklady míč/brčko/žárovka).
-10. [ ] **F8 energeticka-hodnota-potravin** — skládačka svačiny: vyber jídla → součet kJ →
-    minuty běhu/chůze/plavání (celá čísla z tabulky výkladu).
+10. [x] **F8 energeticka-hodnota-potravin** — HOTOVO v kole 66 (SvacinaSimulace: 8 potravin
+    v násobcích 200 kJ → všechny součty, % denní potřeby (10 000 kJ) i minuty chůze/běhu/
+    plavání (20/40/50 kJ/min) vycházejí celé; past plovoucí čárky v % odhalena kontrolou
+    256 kombinací a opravena).
 11. [ ] **F9 prenos-elektricke-energie** — týž výkon při 230 V × 22 kV × 400 kV → proud
     a ztráty vedení I²R v celých % (ukázat, PROČ se transformuje nahoru).
 12. [ ] **Inf7 ohodnocene-grafy** — klikací hledání nejkratší cesty: součet hran po kliknutí,
