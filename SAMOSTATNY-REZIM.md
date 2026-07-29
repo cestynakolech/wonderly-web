@@ -1,8 +1,8 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 68 hotové — nejkratší cesta; DRUHÝ SEZNAM KANDIDÁTŮ VYČERPÁN)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 69 hotové — kvízy dorovnány)
 
-Hotovo 68 kol samostatného režimu (65 simulací na 67 stránkách, 356+ kvízových otázek).
+Hotovo 69 kol samostatného režimu (65 simulací na 67 stránkách, 365+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
@@ -10,12 +10,14 @@ Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
 ~~Kolo 65 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor čistá funkce+Node+DOM odhalil za noc 2 skutečné chyby, kvízy zůstávají
 u Clauda; další checkpoint kolo 75).
-**Všech 12 kandidátů z auditu kola 54 je HOTOVÝCH** (kola 56–68, plus checkpointy 55 a 65).
-**DALŠÍ KOLO (69): kvízy k novým simulacím** — projít kvizy.ts u 13 stránek s novými
-simulacemi (motor, dioda, barometr, oko, elektrolýza, barvy, alternátor, elektromotor,
-vypařování, jiskra, duha, reaktor, decibely, přetlak, svačina, přenos, graf) a doplnit
-otázky na jevy, které simulace nově učí (správná odpověď PRVNÍ, pole vysvetleni).
-Po dorovnání kvízů: nový audit temata.ts, nebo média k Fyzice 6.
+**Všech 12 kandidátů z auditu kola 54 je HOTOVÝCH** (kola 56–68). Kolo 69: kontrola
+pokrytí kvízů u všech 17 stránek s novými simulacemi — všechny kvízy MAJÍ (7–21 otázek);
+do 4 nejslabších doplněno 9 otázek na jevy ze simulací (grafy 7→10, plyny/kapaliny/přenos
+11→13). Zbytek stránek má 12+ otázek — dorovnávat dál není nutné.
+**DALŠÍ KOLO (70):** buď nový audit temata.ts (zbylá podtémata jsou spíš výkladová —
+kandidátů málo), nebo média k Fyzice 6, nebo vytěžení prezentací přes popisovač
+(Omega/skripty/popis_prezentace.py — sekvenčně, 1 těžký proces). Vybrat podle
+ranního rozhodnutí učitele; do té doby lze projít slabé kvízy (<12 otázek) CELÉHO webu.
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)

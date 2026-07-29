@@ -3508,6 +3508,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu se elektrolýza využívá?', odpovedi: ['k pokovování a výrobě čistých látek', 'k měření teploty', 'k výrobě zvuku'], vysvetleni: 'Např. pozlacení, pochromování, získání chloru.' },
 		{ text: 'Proč se předměty pochromují nebo pozinkují?', odpovedi: ['kvůli vzhledu a ochraně proti korozi', 'aby byly těžší', 'aby vedly teplo'], vysvetleni: 'Vrstva kovu chrání i zdobí.' },
 		{ text: 'Vede kuchyňská sůl v pevném stavu proud?', odpovedi: ['ne, až rozpuštěná v roztoku', 'ano, vždy', 'jen v mrazu'], vysvetleni: 'Ionty se uvolní až ve vodě.' },
+		{ text: 'Na které elektrodě se při pokovování vylučuje kov?', odpovedi: ['na katodě — kationty kovu k ní putují', 'na anodě', 'na obou stejně'], vysvetleni: 'Kladné kationty kovu putují k záporné katodě a tam se vylučují.' },
+		{ text: 'Proč destilovaná voda nevede elektrický proud?', odpovedi: ['nejsou v ní ionty, které by náboj přenášely', 'je příliš studená', 'obsahuje málo kyslíku'], vysvetleni: 'Bez iontů není co usměrnit — proud nemá nosiče náboje.' },
 	],
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti': [
 		{ text: 'Jak získáme chemický zdroj napětí?', odpovedi: ['dvě elektrody z různých kovů v elektrolytu', 'dva stejné dráty ve vzduchu', 'zahřátím vody'], vysvetleni: 'Chemické reakce přesunou náboj.' },
@@ -3534,6 +3536,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kde se využívá elektrický oblouk?', odpovedi: ['při svařování', 'k chlazení', 'k měření času'], vysvetleni: 'Nutná je ochrana zraku.' },
 		{ text: 'Na čem závisí barva světla výboje ve zředěném plynu?', odpovedi: ['na druhu plynu', 'na napětí baterie', 'na délce trubice'], vysvetleni: 'Využívá se u světelných reklam.' },
 		{ text: 'Co způsobuje hrom?', odpovedi: ['rychlé rozpínání ohřátého vzduchu', 'náraz mraků', 'praskání ledu'], vysvetleni: 'Vzduch v kanálu blesku se prudce rozpíná.' },
+		{ text: 'Kdy vzduch mezi elektrodami přestane izolovat a přeskočí jiskra?', odpovedi: ['když ho silné elektrické pole ionizuje', 'když se vzduch dostatečně ochladí', 'když elektrody natřeme barvou'], vysvetleni: 'Silné pole vytrhne elektrony z molekul — ionizovaný vzduch vede.' },
+		{ text: 'Proč jiskra snáz přeskočí kratší mezeru?', odpovedi: ['na kratší vzdálenost stačí menší napětí', 'protože je tam víc vzduchu', 'protože kratší mezerou proteče méně proudu'], vysvetleni: 'Potřebné napětí roste se vzdáleností elektrod.' },
 	],
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-vlastni-vodivost': [
 		{ text: 'Který prvek je nejznámější polovodič?', odpovedi: ['křemík', 'měď', 'železo'], vysvetleni: 'Dalším je germanium.' },
@@ -3670,6 +3674,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co dělá rozvodna?', odpovedi: ['transformuje napětí a rozděluje energii', 'vyrábí uhlí', 'měří teplotu'], vysvetleni: 'Rozděluje do více větví sítě.' },
 		{ text: 'Kolik fází využívá běžná domácí zásuvka?', odpovedi: ['jednu (230 V)', 'tři', 'žádnou'], vysvetleni: 'Velké stroje využívají tři fáze.' },
 		{ text: 'K čemu slouží ochranný kolík v zásuvce?', odpovedi: ['uzemnění spotřebiče pro případ poruchy', 'k vyššímu výkonu', 'ke svícení'], vysvetleni: 'Chrání při poškození spotřebiče.' },
+		{ text: 'Proč se stejný výkon přenáší raději při vyšším napětí?', odpovedi: ['teče pak menší proud, a tím jsou menší ztráty ve vedení', 'dráty jsou při vyšším napětí lehčí', 'elektřina se pohybuje rychleji'], vysvetleni: 'P = U·I: vyšší U → menší I → menší ztráty (rostou s I²).' },
+		{ text: 'Co se stane se ztrátami ve vedení, když se proud zdvojnásobí?', odpovedi: ['vzrostou čtyřikrát', 'zdvojnásobí se', 'nezmění se'], vysvetleni: 'Ztráty = R·I² — dvojnásobný proud znamená 2² = 4× větší ztráty.' },
 	],
 	'fyzika/9-rocnik/jaderna-fyzika/jadro-atomu': [
 		{ text: 'Z čeho se skládá atom?', odpovedi: ['z jádra a obalu', 'jen z jádra', 'jen z elektronů'], vysvetleni: 'V jádře jsou nukleony, v obalu elektrony.' },
@@ -3771,6 +3777,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je kostra grafu?', odpovedi: ['nejmenší výběr hran, který vše propojí', 'obrys grafu', 'nejdelší cesta'], vysvetleni: 'Tak se levně plánují rozvody elektřiny či sítě.' },
 		{ text: 'Cesta A→B měří 2+5, cesta A→C→B měří 1+2+1. Která je kratší?', odpovedi: ['A→C→B (součet 4)', 'A→B (součet 7)', 'obě stejně'], vysvetleni: 'Víc hran, ale menší součet — proto počítáme!' },
 		{ text: 'Hrana grafu může znamenat…', odpovedi: ['silnici, přátelství i potrubí', 'jen silnici', 'jen čáru bez významu'], vysvetleni: 'Graf je obecný model spojení čehokoli.' },
+		{ text: 'Co znamená číslo napsané u hrany ohodnoceného grafu?', odpovedi: ['hodnotu spojení — třeba kilometry, minuty nebo cenu', 'pořadí, ve kterém se čáry kreslily', 'počet vrcholů grafu'], vysvetleni: 'Ohodnocení hrany říká, kolik spojení „stojí" — km, čas, peníze.' },
+		{ text: 'Jak poznáš nejkratší cestu mezi dvěma vrcholy?', odpovedi: ['má nejmenší SOUČET čísel na projitých hranách', 'má nejméně čar', 'vede po obrázku nejrovněji'], vysvetleni: 'Rozhoduje součet ohodnocení, ne počet hran ani tvar.' },
+		{ text: 'Může být nejlevnější cesta ta, která vede přes VÍCE vrcholů?', odpovedi: ['ano — rozhoduje součet čísel, ne počet zastávek', 'ne, méně zastávek vždy vyhrává', 'jen když jsou vrcholy blízko'], vysvetleni: 'Navigace často vede „oklikou", protože součet je menší.' },
 	],
 	'informatika/7-rocnik/modelovani-grafy-schemata/orientovane-grafy-a-automaty': [
 		{ text: 'Čím se liší orientovaný graf?', odpovedi: ['hrany mají šipky — směr', 'je otočený vzhůru nohama', 'nemá vrcholy'], vysvetleni: 'Jednosměrka, tok řeky, „kdo koho porazil".' },

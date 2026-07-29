@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 69: kvízy k novým simulacím.** Kontrola všech 17 stránek s novými
+  simulacemi: kvízy mají všechny (7–21 otázek). Do 4 nejslabších doplněno 9 otázek na jevy,
+  které simulace nově učí (ohodnocené grafy 7→10 — součet hran a „oklika levnější";
+  plyny 11→13 — ionizace a vzdálenost jiskřiště; přenos 11→13 — vyšší U → menší I → ztráty
+  I²; kapaliny 11→13 — pokovování na katodě, destilovaná voda). Správná odpověď vždy první
+  + vysvětlení. Celkem 365+ otázek.
 - **2026-07-29 — kolo 68: GrafCestaSimulace (nejkratší cesta).** Inf7 ohodnocené grafy:
   klikací hledání cesty A→F ve dvou mapách (6 vrcholů, 9 hran), živý součet kilometrů,
   v cíli porovnání s optimem (obě mapy 16 km — ověřeno hrubou silou všech 13 cest,
