@@ -93,6 +93,13 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — experiment subagentů, kola E3–E7: dorovnání slabých kvízů.** Pět dávek
+  4× worker-kviz paralelně: +78 otázek po kontrolách, deduplikace 2 bloků (−6), opravy
+  dle kontrolora (názvy bloků Scratche dle scratch-l10n, úniky odpovědí, protiřečení).
+  Zbývají 3 bloky → `HERMES-POKRACUJ.md` (události a vstupy, nakloněná rovina, kladka);
+  kontrola otázek z E7 dodatečně. SMAZÁNO vložené video kanálu Petr Němec (rozhodnutí
+  učitele — případné odkazy až po dohodě s majitelem; ověřeno oEmbedem všech 41 videí,
+  jiná jeho videa na webu nejsou). Duplicity kvízů síly ponechány (rozhodnutí učitele).
 - **2026-07-29 — experiment subagentů, kola E1+E2 (F7 jednoduché stroje).** E1: nové
   podtéma „Nakloněná rovina" (výklad, simulace F=G·h/l, 8 otázek kvízu, video) — kompletní
   a nasazené. E2: simulace „Účinky síly na těleso" (posuvný/otáčivý/deformační účinek,
