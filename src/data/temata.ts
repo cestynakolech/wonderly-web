@@ -4990,7 +4990,7 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Velké finále: vlastní hra</h2>
 						<h3>Klonování</h3>
-						<p><strong>Klon</strong> = kopie postavy vytvořená za běhu programu. Ohňostroj z desítek jisker, déšť mincí, hejno nepřátel — vše z jedné postavy, kterou program klonuje. Každý klon si běží podle svého scénáře.</p>
+						<p><strong>Klon</strong> = kopie postavy vytvořená za běhu programu. Ohňostroj z desítek jisker, déšť mincí, hejno nepřátel — vše z jedné postavy, kterou program klonuje. Všechny klony sdílejí společný scénář, ale každý si podle něj běží po svém — má vlastní polohu a hodnoty.</p>
 						<h3>Animace</h3>
 						<p>Postava střídá <strong>kostýmy</strong> → běží, mává, bliká. Pozadí se střídají → měníš úrovně hry. Import a úprava kostýmů dává hře vlastní tvář.</p>
 						<h3>Návrh hry (Bludiště, Piano tiles…)</h3>
