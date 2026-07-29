@@ -1545,9 +1545,6 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Shrnutí</h3>
 						<p>Nakloněná rovina je jednoduchý stroj, který nahrazuje svislé zvedání břemene tažením po šikmé ploše. Platí vztah F = G &middot; h : l: čím delší a mírnější je rovina, tím menší síla stačí — ale dráha, kterou musíme urazit, se úměrně prodlouží. Práci si nikdy neušetříme, jen ji „rozprostřeme" na delší dráhu s menší silou.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Jednoduché stroje — přehled', cesta: 'f73Y0wDwa9w' },
-					],
 				},
 			],
 		},

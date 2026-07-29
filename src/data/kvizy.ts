@@ -3750,6 +3750,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Postava má jít vpřed, dokud se nedotkne okraje. Který blok patří do podmínky?', odpovedi: ['dotýká se okraje?', 'změň x o 10', 'zahraj zvuk'], vysvetleni: 'Podmínka musí být otázka ANO/NE.' },
 		{ text: 'Program se má opakovat pořád (kulisy hry). Který blok použijeme?', odpovedi: ['opakuj stále', 'opakuj 5krát', 'čekej 1 sekundu'], vysvetleni: '„Opakuj stále" je záměrně nekonečné opakování.' },
 		{ text: 'Co se stane, když je podmínka „opakuj dokud" splněna hned na začátku?', odpovedi: ['příkazy uvnitř se nevykonají ani jednou', 'příkazy proběhnou právě jednou', 'program spadne'], vysvetleni: 'Smyčka skončí dřív, než něco udělá.' },
+		{ text: 'Hra má běžet, dokud hráči nedojdou životy (proměnná „životy"). Jaká podmínka patří do bloku „opakuj dokud"?', odpovedi: ['životy = 0', 'životy = 10', 'stiskni klávesu mezerník'], vysvetleni: 'Smyčka se zastaví, až proměnná klesne na nulu.' },
+		{ text: 'Odpočet má počítat, dokud čas nedojde na nulu. Jakou podmínku dáme do bloku „opakuj dokud"?', odpovedi: ['čas = 0', 'čas = 60', 'čas > 100'], vysvetleni: 'Jakmile čas dosáhne nuly, podmínka je splněna a smyčka skončí.' },
 	],
 	'informatika/7-rocnik/programovani-podminky-udalosti/udalosti-a-vstupy': [
 		{ text: 'Co je v programování událost?', odpovedi: ['okamžik, na který program čeká a reaguje na něj', 'chyba v programu', 'druh proměnné'], vysvetleni: 'Např. kliknutí myší, stisk klávesy, přijetí zprávy.' },
@@ -3999,6 +4001,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: '=KDYŽ(B2>=50;"prospěl";"neprospěl") — co vrátí pro B2=40?', odpovedi: ['neprospěl', 'prospěl', 'chybu'], vysvetleni: '40 není ≥ 50 → druhá možnost.' },
 		{ text: 'Funkce KDYŽ je v tabulce totéž co v programování…', odpovedi: ['větvení (když–tak–jinak)', 'opakování', 'proměnná'], vysvetleni: 'Tabulka je vlastně program v buňkách.' },
 		{ text: 'Co vrátí =ZLEVA("INFORMATIKA";3)?', odpovedi: ['INF', 'IKA', '3'], vysvetleni: 'První tři znaky zleva.' },
+		{ text: 'Co spočítá =SUMA(B2:B31)?', odpovedi: ['součet všech hodnot v oblasti B2 až B31', 'průměrnou hodnotu z oblasti', 'kolik buněk oblast obsahuje'], vysvetleni: 'SUMA sečte čísla ve všech buňkách zadaného rozsahu.' },
+		{ text: 'Co spočítá =POČET(B2:B31)?', odpovedi: ['kolik buněk v oblasti obsahuje číslo', 'součet čísel v oblasti', 'největší číslo z oblasti'], vysvetleni: 'POČET spočítá, kolik je v oblasti vyplněných číselných buněk — nesčítá jejich hodnoty.' },
+		{ text: 'K čemu slouží funkce RANK?', odpovedi: ['zjistí pořadí hodnoty mezi ostatními hodnotami', 'sečte všechny hodnoty v oblasti', 'najde první tři znaky textu'], vysvetleni: 'Např. ukáže, na kolikátém místě v žebříčku žák se svým výsledkem skončil.' },
 	],
 	'informatika/8-rocnik/hromadne-zpracovani-dat/razeni-filtrovani-velka-data': [
 		{ text: 'Co je záznam v tabulce dat?', odpovedi: ['jeden řádek se všemi údaji', 'jeden sloupec', 'název tabulky'], vysvetleni: 'Např. jeden stát se všemi svými údaji.' },
@@ -4109,6 +4114,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co patří do REALIZACE projektu?', odpovedi: ['funkčnost, rozklad na části a testování', 'pouze pěkný obal', 'co nejdelší kód bez testování'], vysvetleni: 'Hodnotí se, že to funguje a vznikalo po otestovaných částech.' },
 		{ text: 'Jak vypadá „datový projekt"?', odpovedi: ['sesbírám data, zpracuji v tabulce a vytvořím grafy se závěry', 'nakreslím obrázek zpaměti', 'stáhnu cizí tabulku a odevzdám'], vysvetleni: 'Data → tabulka → grafy → vlastní závěry.' },
 		{ text: 'Může se závěrečný projekt dělat ve dvojici?', odpovedi: ['ano — samostatně, nebo ve dvojici', 'ne, výhradně samostatně', 'jen ve skupině po pěti'], vysvetleni: 'Zadání počítá s prací sám/sama i ve dvojici.' },
+		{ text: 'Proč je dobré vybrat si téma závěrečného projektu, které tě opravdu baví?', odpovedi: ['protože projekt je tvoje vizitka z informatiky', 'protože jinak téma učitel nepovolí', 'protože jen oblíbená témata se dají odevzdat'], vysvetleni: 'Projekt ukazuje, co umíš — má tě proto i bavit.' },
+		{ text: 'Co je dalším vhodným námětem na závěrečný projekt kromě hry, robota, webu nebo dat?', odpovedi: ['příprava na soutěž, například Bobřík informatiky', 'okopírování hotového projektu spolužáka', 'sledování videí o programování bez vlastní tvorby'], vysvetleni: 'Náměty zahrnují i přípravu na soutěže v robotice či programování.' },
 	],
 };
 
