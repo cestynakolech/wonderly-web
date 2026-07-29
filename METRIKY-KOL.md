@@ -15,6 +15,7 @@ Vysvětlení sloupců:
 | 2026-07-29 | E1 (experiment subagenti) | F7 nakloněná rovina (výklad, simulace, 8 kvízových otázek, video) | diamond (pojmenovaní subagenti: průzkumník + A–D, kontrolor po merge) | 1 | ANO | 3× dotaz na povolení WebFetch/WebSearch v session 1 (chyba nastavení, opravena); worker-media proto nedoběhl, média ověřena curlem |
 | 2026-07-29 | E2 (experiment subagenti) | F7 působení těles a deformace — simulace účinků síly (výklad+kvíz+videa už existovaly) | zúžený graf (průzkumník + jen worker B, kontrolor po merge, 2. kolo kontroly) | 2 | ANO | závažný nález kontrolora (levitace + věčná rotace) → přepracován pohybový model |
 | 2026-07-29 | E3 (experiment subagenti) | 4 slabé kvízy Inf9 doplněny na 10–11 otázek (+18); k tomu deduplikace 2 sousedních bloků (−6 duplicit z dávek 70–72) | diamond (4× worker-kviz paralelně, kontrolor po merge) | 1 | ANO | kontrolor našel duplicity v sousedních blocích (mimo zadání) → opraveno hned |
+| 2026-07-29 | E4 (experiment subagenti) | 4 slabé kvízy doplněny na 10–11 otázek (plán projektu, seznamy, hardware, posílání zpráv; +17 po vyřazení 2 překryvů) | diamond (4× worker-kviz paralelně, kontrolor po merge) | 1 | ANO | merge sám chytil mezipředmětový duplikát (broadcast otázka od workera plánu projektu); kontrolor pak 3 drobné překryvy → 1 smazán, 1 přeformulován, 1 ponechán |
 
 ### Kontrolor v kole E1 (nakloněná rovina)
 
