@@ -12,6 +12,17 @@ Vysvětlení sloupců:
 | Datum | Kolo | Co vzniklo | Tvar | Pokusy | Build 1. pokus | Zásek |
 |---|---|---|---|---|---|---|
 | 2026-07-27 | 28 | F6 difuze + Brownův pohyb (simulace, výklad, 4 kvízové otázky, média) | diamond (4 workeři) | 1 | ANO | zrnko pylu sedimentovalo na dno → opraveno při verify |
+| 2026-07-29 | E1 (experiment subagenti) | F7 nakloněná rovina (výklad, simulace, 8 kvízových otázek, video) | diamond (pojmenovaní subagenti: průzkumník + A–D, kontrolor po merge) | 1 | ANO | 3× dotaz na povolení WebFetch/WebSearch v session 1 (chyba nastavení, opravena); worker-media proto nedoběhl, média ověřena curlem |
+
+### Kontrolor v kole E1 (nakloněná rovina)
+
+Nálezy po merge: **0 ZÁVAŽNÉ, 2 DROBNÉ** — (1) posuvník výšky pouštěl sklon až 53°
+(spíš stěna než rampa) → omezeno na h ≤ ⅔·l (max ~42°); (2) bedna na konci animace
+přečnívala 16 px za vrchol roviny → dráha zkrácena. Obojí opraveno a nasazeno.
+Hlavní model navíc při merge chytil porušení pravidla celých čísel (tíha po 100 N
+dávala u l = 3 necelé síly) → posuvník G změněn na 300/600/900 N; ověřeno výpočtem
+pro všechny kombinace posuvníků. Wordwall od workera D NEpřidán — obsahuje ozubené
+kolo, které se v podtématu neučí (pravidlo kontroly pokrytí).
 
 ### Nezávislý kontrolor (poprvé nasazen v kole 28) — velmi se vyplatil
 
