@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 72: třetí dávka slabých kvízů (+16).** Motory/displej/zvuk (jízda na
+  otáčky, zatáčení rozdílem rychlostí, čtverec s opakováním), senzory robota (ultrazvuk,
+  dotyk, zastavení před zdí, jízda po čáře), oživení micro:bitu (MakeCode, simulátor,
+  animace) a řazení/filtrování dat (celé řádky, filtr skrývá, hypotézy daty) — každý blok
+  z 6 na 10 otázek. Celkem 417+ otázek.
 - **2026-07-29 — kolo 71: druhá dávka slabých kvízů (+16).** Vlastní bloky s parametry
   (podprogram, parametr, rozklad problému), adresy buněk a vzorce (B3, rovnítko, přepočet,
   $B$1), sestavení robota (mozek-svaly-smysly, chyba je v programu, první jízda) a hardware

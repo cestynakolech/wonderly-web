@@ -1,8 +1,8 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 71 hotové — druhá dávka kvízů)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 72 hotové — třetí dávka kvízů)
 
-Hotovo 71 kol samostatného režimu (65 simulací na 67 stránkách, 401+ kvízových otázek).
+Hotovo 72 kol samostatného režimu (65 simulací na 67 stránkách, 417+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
@@ -14,11 +14,12 @@ u Clauda; další checkpoint kolo 75).
 pokrytí kvízů u všech 17 stránek s novými simulacemi — všechny kvízy MAJÍ (7–21 otázek);
 do 4 nejslabších doplněno 9 otázek na jevy ze simulací (grafy 7→10, plyny/kapaliny/přenos
 11→13). Zbytek stránek má 12+ otázek — dorovnávat dál není nutné.
-Kola 70–71: osm nejslabších kvízů dorovnáno na 10 otázek (+36 celkem): micro:bit ×3,
-projekty ×2, vlastní bloky, tabulky (adresy/vzorce), stavba robota, hardware a software.
-**DALŠÍ KOLO (72):** pokračovat ve slabých kvízech po 4 blocích (zbývá 30 bloků <12,
-další na řadě: motory-displej-zvuk, senzory-robota, oziveni-a-led-displej,
-razeni-filtrovani-velka-data — vše 6 otázek). Větší směry čekají na ranní rozhodnutí.
+Kola 70–72: dvanáct nejslabších kvízů dorovnáno na 10 otázek (+52 celkem) — micro:bit,
+robotika, projekty, tabulky, hardware. POZOR na klíče: razeni-filtrovani je pod
+hromadne-zpracovani-dat (špatný prefix v kole 72 odhalila kontrola před zápisem).
+**DALŠÍ KOLO (73):** další dávka slabých kvízů po 4 (zbývá 26 bloků <12; na řadě
+bezpecnost-pocitace-a-dat, digitalni-stopa-a-identita, pocitacove-site-a-internet (Inf9),
+klonovani-animace-hry — vše 6 otázek). Větší směry čekají na ranní rozhodnutí učitele.
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)

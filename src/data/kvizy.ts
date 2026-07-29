@@ -3875,6 +3875,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu je robotův displej?', odpovedi: ['hlásí stav — text, obrázek', 'na sledování filmů', 'k ničemu'], vysvetleni: '„Vidím čáru!", smajlík v cíli…' },
 		{ text: 'Zvuk robota se hodí…', odpovedi: ['na signály (houkání při couvání, pípnutí v rohu)', 'jen na hudbu', 'nikdy'], vysvetleni: 'Zvuk = rychlá zpráva okolí.' },
 		{ text: 'Robot má v každém rohu čtverce pípnout. Kam patří blok zvuku?', odpovedi: ['dovnitř opakování za otočku', 'před celé opakování', 'na konec programu'], vysvetleni: 'Uvnitř smyčky proběhne 4×.' },
+		{ text: 'Co všechno patří mezi výstupní zařízení robota?', odpovedi: ['motory, displej, reproduktor a světla', 'dotykový a ultrazvukový senzor', 'klávesnice a myš'], vysvetleni: 'Výstupy = vše, čím robot působí na okolí.' },
+		{ text: 'Proč je jízda „na otáčky" přesnější než „na čas"?', odpovedi: ['jedna otáčka kola = přesně daná vzdálenost', 'motor se na čas víc zahřívá', 'čas se nedá měřit'], vysvetleni: 'Otáčky se přepočítají na vzdálenost; jízda na čas závisí na baterii i povrchu.' },
+		{ text: 'Jak robot zatáčí?', odpovedi: ['různými rychlostmi levého a pravého motoru', 'nakloněním kostky', 'zatroubením'], vysvetleni: 'Rozdíl rychlostí kol stáčí robota; jeden vpřed + druhý vzad = otočka na místě.' },
+		{ text: 'Jak nejúsporněji naprogramuješ jízdu do čtverce?', odpovedi: ['opakuj 4× (rovně + otočka o 90°)', 'napíšu osm bloků za sebe bez opakování', 'čtverec robot zvládne bez programu'], vysvetleni: 'Opakování zkrátí program — 4× stejná dvojice bloků.' },
 	],
 	'informatika/8-rocnik/roboticka-stavebnice/senzory-robota': [
 		{ text: 'Senzory jsou pro robota…', odpovedi: ['smysly — vnímá jimi okolí', 'ozdoba', 'zdroj energie'], vysvetleni: 'Dotyk, vzdálenost, barva/světlo.' },
@@ -3883,6 +3887,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Který senzor potřebuje robot na jízdu po čáře?', odpovedi: ['senzor barvy/odrazu světla', 'teploměr', 'mikrofon'], vysvetleni: 'Rozliší černou čáru od bílého podkladu.' },
 		{ text: 'Jak robot sleduje čáru?', odpovedi: ['stále měří a opravuje směr (vlní se podél okraje)', 'jede rovně a doufá', 'čáru si pamatuje'], vysvetleni: 'Vidí černou → točí na jednu stranu, bílou → na druhou.' },
 		{ text: 'Dotykový senzor je vlastně…', odpovedi: ['tlačítko — narazil jsem?', 'kamera', 'reproduktor'], vysvetleni: 'Sepne při stisku nárazníku.' },
+		{ text: 'Který senzor odpovídá na otázku „jak daleko je překážka"?', odpovedi: ['ultrazvukový — měří vzdálenost jako netopýr', 'dotykový', 'senzor barvy'], vysvetleni: 'Ultrazvuk se odrazí od překážky a z času návratu se spočítá vzdálenost.' },
+		{ text: 'K čemu slouží dotykový senzor?', odpovedi: ['pozná náraz — funguje jako tlačítko', 'měří teplotu', 'přehrává zvuky'], vysvetleni: '„Narazil jsem?" — stisk tlačítka na nárazníku.' },
+		{ text: 'Jak program zastaví robota před zdí?', odpovedi: ['opakuje „jeď vpřed", dokud je vzdálenost větší než 10 cm', 'robot zeď vidí sám od sebe', 'motor se u zdi vypne automaticky'], vysvetleni: 'Hodnotu senzoru čte podmínka v opakování — pak zastaví.' },
+		{ text: 'Jak funguje jízda po čáře?', odpovedi: ['robot se podél okraje čáry vlní — stále měří barvu a opravuje směr', 'robot si čáru vyfotí a jede zpaměti', 'čára robota přitahuje magneticky'], vysvetleni: '„Vidí černou → toč doleva, jinak doprava" — stejný princip drží auta v pruhu.' },
 	],
 	'informatika/8-rocnik/roboticka-stavebnice/projekt-muj-robot': [
 		{ text: 'Jak se řeší větší robotický úkol?', odpovedi: ['rozdělí se na části a každá se testuje zvlášť', 'napíše se celý najednou', 'zkouší se náhodně'], vysvetleni: 'Rozklad problému — pak se části spojí.' },
@@ -3903,6 +3911,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kolik LED má displej micro:bitu?', odpovedi: ['25 (5×5)', '100', '2'], vysvetleni: 'I na 25 LED jde text — posouvá se.' },
 		{ text: 'Jak vznikne animace na displeji?', odpovedi: ['střídáním obrázků v opakování', 'jedním obrázkem', 'animace nejde'], vysvetleni: '„Opakuj stále: obrázek A, obrázek B".' },
 		{ text: 'Blok „po spuštění" se vykoná…', odpovedi: ['jednou po startu desky', 'pořád dokola', 'po stisku A'], vysvetleni: 'Na opakování je blok „opakuj stále".' },
+		{ text: 'Co je micro:bit?', odpovedi: ['malá programovatelná deska s displejem 5×5 LED, tlačítky a senzory', 'herní konzole', 'druh mobilního telefonu'], vysvetleni: 'Počítač do dlaně: LED displej, 2 tlačítka, senzory pohybu a teploty, rádio.' },
+		{ text: 'V čem se micro:bit programuje?', odpovedi: ['z bloků v prostředí MakeCode', 'jen v jazyce C', 'nedá se programovat'], vysvetleni: 'MakeCode běží v prohlížeči — programy se skládají z bloků.' },
+		{ text: 'Jde vyzkoušet program i bez skutečné desky?', odpovedi: ['ano — v simulátoru přímo v prohlížeči', 'ne, bez desky to nejde', 'jen na tiskárně'], vysvetleni: 'Simulátor v MakeCode ukáže chování programu bez hardwaru.' },
+		{ text: 'Jak vytvoříš na displeji animaci?', odpovedi: ['v bloku „opakuj stále" střídám dva obrázky', 'animace se nakreslí fixem na displej', 'stačí desku zatřást'], vysvetleni: 'Střídání obrázků ve smyčce = blikající animace.' },
 	],
 	'informatika/8-rocnik/microbit/tlacitka-naklon-zvuk': [
 		{ text: 'Jaké vstupy má micro:bit?', odpovedi: ['tlačítka A/B a senzory (náklon, otřes…)', 'myš a klávesnici', 'volant'], vysvetleni: 'Akcelerometr pozná i volný pád a otočení.' },
@@ -3956,6 +3968,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: '„Státy Evropy nad 10 mil. obyvatel" — jak je najdeme?', odpovedi: ['filtrem se dvěma podmínkami', 'čtením celé tabulky', 'nijak'], vysvetleni: 'Světadíl = Evropa A ZÁROVEŇ obyvatelé > 10 000 000.' },
 		{ text: 'Jak ověříme hypotézu na velkých datech?', odpovedi: ['výpočtem, porovnáním nebo grafem', 'dojmem', 'hlasováním'], vysvetleni: 'Odpovídáme na základě dat, ne pocitů.' },
 		{ text: 'Nový stát do evidence přidáme…', odpovedi: ['novým řádkem se všemi údaji', 'novým listem', 'do libovolné volné buňky'], vysvetleni: 'Záznam = kompletní řádek.' },
+		{ text: 'Jak je uspořádaná tabulka dat (evidence)?', odpovedi: ['řádky jsou záznamy, sloupce stejné údaje', 'každý řádek má jiné sloupce', 'data se sypou do jedné buňky'], vysvetleni: 'Nový záznam = nový řádek se všemi údaji (žáci, knihy, státy).' },
+		{ text: 'Na co je třeba dát pozor při řazení tabulky?', odpovedi: ['řadí se CELÉ řádky, ne jen jeden sloupec', 'řadit jde jen abecedně', 'po seřazení se data smažou'], vysvetleni: 'Jinak by se údaje jednoho záznamu rozpojily.' },
+		{ text: 'Co udělá filtr s řádky, které nesplňují podmínku?', odpovedi: ['dočasně je skryje — data se nemažou', 'nenávratně je smaže', 'obarví je červeně'], vysvetleni: 'Filtr jen skrývá: „ukaž státy Evropy nad 10 milionů obyvatel".' },
+		{ text: 'Jak se správně ověřuje hypotéza?', odpovedi: ['na základě dat — seřadit, filtrovat, spočítat, ne podle dojmů', 'podle prvního dojmu', 'hlasováním ve třídě'], vysvetleni: 'S tabulkou stovek záznamů to zjistíš za minutu: data místo dojmů.' },
 	],
 	'informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni': [
 		{ text: 'Čím začíná programovací projekt?', odpovedi: ['popsáním problému — co má program dělat', 'psaním bloků', 'vybarvením pozadí'], vysvetleni: 'Bez zadání nevíme, co tvoříme.' },
