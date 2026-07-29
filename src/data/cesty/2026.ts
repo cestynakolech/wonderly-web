@@ -12,6 +12,13 @@ export const rok2026: Rok = {
 			nazev: 'Landshut',
 			zeme: 'Německo',
 			datum: '6. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Wohnmobilstellplatz Grieserwiese',
+					odkaz: 'https://park4night.com/en/place/28419',
+					gps: '48.5316,12.1447',
+				},
+			],
 			x: 324.1,
 			y: 360.7,
 			videoId: 'u4NmKbMRhiE',
@@ -28,6 +35,13 @@ export const rok2026: Rok = {
 			nazev: 'Schongau',
 			zeme: 'Německo',
 			datum: '7. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Wohnmobilstellplatz Schongau',
+					odkaz: 'https://park4night.com/en/place/14362',
+					gps: '47.8090,10.8989',
+				},
+			],
 			x: 315.3,
 			y: 364.2,
 			videoId: 'u4NmKbMRhiE',
@@ -44,6 +58,13 @@ export const rok2026: Rok = {
 			nazev: 'Geisingen',
 			zeme: 'Německo',
 			datum: '8. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Stellplatz Am Espen 8, Geisingen',
+					odkaz: 'https://park4night.com/en/place/27516',
+					gps: '47.9203,8.6498',
+				},
+			],
 			x: 300.2,
 			y: 364.8,
 			videoId: 'u4NmKbMRhiE',
@@ -58,6 +79,13 @@ export const rok2026: Rok = {
 			nazev: 'Salbert',
 			zeme: 'Francie',
 			datum: '10. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Parkoviště Fort du Salbert',
+					odkaz: 'https://park4night.com/en/place/224271',
+					gps: '47.6609,6.8178',
+				},
+			],
 			x: 281.4,
 			y: 365.8,
 			videoId: '9Sv4exafb-c',
@@ -72,6 +100,13 @@ export const rok2026: Rok = {
 			nazev: 'Le Thillot',
 			zeme: 'Francie',
 			datum: '12. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Aire Le Thillot, Chemin du Draimont',
+					odkaz: 'https://park4night.com/en/place/52710',
+					gps: '47.8837,6.7783',
+				},
+			],
 			x: 281.1,
 			y: 363.2,
 			videoId: 'Tlnc-YigfTw',
@@ -86,6 +121,13 @@ export const rok2026: Rok = {
 			nazev: 'Rupt-sur-Moselle',
 			zeme: 'Francie',
 			datum: '14. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Aire Rupt-sur-Moselle, Rue du Riffin',
+					odkaz: 'https://park4night.com/en/place/102077',
+					gps: '47.9206,6.6558',
+				},
+			],
 			x: 280.3,
 			y: 362.6,
 			videoId: 'nBnRJsLpsCg',
@@ -100,6 +142,13 @@ export const rok2026: Rok = {
 			nazev: 'Saint-Maurice-sur-Moselle',
 			zeme: 'Francie',
 			datum: '17. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Aire Saint-Maurice-sur-Moselle, Rue de Presles',
+					odkaz: 'https://park4night.com/en/place/41807',
+					gps: '47.8498,6.8101',
+				},
+			],
 			x: 281.6,
 			y: 363.5,
 			videoId: 'swDAmX8BRJA',
@@ -116,6 +165,13 @@ export const rok2026: Rok = {
 			nazev: 'Ornans',
 			zeme: 'Francie',
 			datum: '18. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'CAMPING-CAR PARK Ornans, Chemin des Essarts Cendrins',
+					odkaz: 'https://park4night.com/en/place/689516',
+					gps: '47.1072,6.1483',
+				},
+			],
 			x: 275.4,
 			y: 372.4,
 			videoId: 'swDAmX8BRJA',
