@@ -1,8 +1,8 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 66 hotové — skládačka svačiny)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 67 hotové — přenos energie)
 
-Hotovo 66 kol samostatného režimu (63 simulací na 65 stránkách, 356+ kvízových otázek).
+Hotovo 67 kol samostatného režimu (64 simulací na 66 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
@@ -10,8 +10,9 @@ Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
 ~~Kolo 65 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor čistá funkce+Node+DOM odhalil za noc 2 skutečné chyby, kvízy zůstávají
 u Clauda; další checkpoint kolo 75).
-**DALŠÍ KOLO (67):** kandidát č. 11 — **F9 přenos elektrické energie** (týž výkon při
-230 V × 22 kV × 400 kV → proud a ztráty vedení I²R v celých %, proč se transformuje nahoru).
+**DALŠÍ KOLO (68):** kandidát č. 12 (poslední z auditu kola 54) — **Inf7 ohodnocené grafy**
+(klikací hledání nejkratší cesty: součet hran po kliknutí, porovnání s optimem, druhá mapa).
+Pak nový audit nebo kvízy k novým simulacím.
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -51,8 +52,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
     v násobcích 200 kJ → všechny součty, % denní potřeby (10 000 kJ) i minuty chůze/běhu/
     plavání (20/40/50 kJ/min) vycházejí celé; past plovoucí čárky v % odhalena kontrolou
     256 kombinací a opravena).
-11. [ ] **F9 prenos-elektricke-energie** — týž výkon při 230 V × 22 kV × 400 kV → proud
-    a ztráty vedení I²R v celých % (ukázat, PROČ se transformuje nahoru).
+11. [x] **F9 prenos-elektricke-energie** — HOTOVO v kole 67 (PrenosSimulace: 8 800 kW při
+    400 V / 22 kV / 400 kV → proud 22 000/400/22 A, ztráty R·I² = 2,42 GW (nedorazí nic) /
+    800 kW / 2 420 W; žhnoucí vodiče, město svítí/zhasne, trojfázové vedení).
 12. [ ] **Inf7 ohodnocene-grafy** — klikací hledání nejkratší cesty: součet hran po kliknutí,
     porovnání s optimem, druhá mapa.
 

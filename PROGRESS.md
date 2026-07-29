@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 67: PrenosSimulace (přenos elektrické energie).** F9: týž výkon
+  8 800 kW při 400 V (bez trafa — proud 22 000 A, ztráty 2,42 GW, město potmě), 22 kV
+  (400 A, ztráty 800 kW, dorazí 8 000 kW) a 400 kV (22 A, 2 420 W, dorazí prakticky vše):
+  vysoké napětí = malý proud = malé ztráty, s trafy na obou koncích a trojfázovým vedením.
+  Čistá funkce stavPrenosu — U·I=P i R·I² ověřeno výpočtem i DOM. Celkem 64 simulací.
 - **2026-07-29 — kolo 66: SvacinaSimulace (energetická hodnota potravin).** F8: skládačka
   svačiny z 8 potravin (hodnoty na porci, záměrně násobky 200 kJ), součet, sloupec % denní
   potřeby školáka (10 000 kJ) a minuty chůze/běhu/plavání (20/40/50 kJ/min) — kontrola všech
