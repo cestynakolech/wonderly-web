@@ -6,14 +6,12 @@ kdykoli mu hrozí konec kreditů. Hermes: přečti obecný návod
 v `~/Desktop/wonderly-web` a udělej úkoly ze sekce „Co je teď rozdělané".
 Po resetu kreditů Claude všechno zkontroluje a opraví.
 
-## Co je teď rozdělané (stav 29. 7. 2026, ~12:40)
+## Co je teď rozdělané (stav 29. 7. 2026, ~13:05)
 
-Dorovnání slabých kvízů. Upravuj JEN `src/data/kvizy.ts`. Zbývají 3 bloky
-s méně než 10 otázkami:
-
-1. `informatika/7-rocnik/programovani-podminky-udalosti/udalosti-a-vstupy` — má 8, doplň 2
-2. `fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina` — má 8, doplň 2
-3. `fyzika/7-rocnik/jednoduche-stroje/kladka` — má 9, doplň 1
+**NIC — vše hotovo.** Claude dorovnal poslední 3 slabé kvízy (kladka +1,
+nakloněná rovina +2, události a vstupy +2), nechal všech 12 nových otázek
+(včetně 7 z kola E7) projít nezávislým kontrolorem a 3 nalezené chyby opravil
+(2 úniky odpovědí, 1 duplicita). Build prošel, nasazeno. Hermes nemá žádný úkol.
 
 ## Postup pro KAŽDÝ blok zvlášť
 

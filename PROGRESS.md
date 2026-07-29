@@ -93,6 +93,15 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — dokončení dorovnání kvízů (po E7).** Poslední 3 slabé bloky doplněny:
+  kladka +1 (kladkostroj — 4 části lana = 4× menší síla), nakloněná rovina +2 (výpočet
+  délky l = G·h:F = 400·3:100 = 12 m; vliv tření), události a vstupy +2 (přijetí zprávy
+  jako událost; postava bez scénáře). Nezávislý kontrolor prověřil všech 12 otázek
+  (5 nových + 7 z kola E7): 3 chyby opraveny — únik odpovědi přes vysvětlení starší
+  otázky (nakloněná rovina: čísla změněna; události: z vysvětlení vypuštěno „přijetí
+  zprávy"), duplicitní otázka odpočtu nahrazena podmínkou „dotýká se barvy?" (kulička
+  a čára). Navíc „zelenou vlajku"→„vlaječku" dle scratch-l10n. Celkem 358 otázek.
+  HERMES-POKRACUJ.md: nic rozdělaného.
 - **2026-07-29 — experiment subagentů, kola E3–E7: dorovnání slabých kvízů.** Pět dávek
   4× worker-kviz paralelně: +78 otázek po kontrolách, deduplikace 2 bloků (−6), opravy
   dle kontrolora (názvy bloků Scratche dle scratch-l10n, úniky odpovědí, protiřečení).
