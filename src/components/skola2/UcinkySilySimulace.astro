@@ -1,12 +1,13 @@
 ---
 // Účinky síly na těleso (F7, jednoduché stroje): posuvný × otáčivý × deformační účinek.
 // Dítě volí BOD PŮSOBENÍ síly (těžiště / okraj) a velikost síly posuvníkem 0-120 N.
-// Do 50 N: síla v těžišti → těleso se POSOUVÁ, síla na okraji → těleso se OTÁČÍ (moment síly).
+// Do 50 N: síla v těžišti → těleso plynule KLOUŽE (rychlost úměrná F, zastaví na kraji),
+//   síla na okraji → těleso se PŘEKLÁPÍ přes spodní roh (max 90°, jako skutečná krabice).
 // Od 50 N: síla je tak velká, že těleso mění TVAR (deformace), bez ohledu na bod působení.
 //   50-80 N = pružná deformace (jako gumový míček - po snížení síly se vrátí),
 //   90+ N   = trvalá deformace (jako plechový plát - tvar zůstane, i když sílu snížíš;
 //   reset jen tlačítkem "Nové těleso"). Prahy jsou vidět předem na barevné stupnici.
-// Rotace i posun běží přes requestAnimationFrame kalibrovaný SKUTEČNÝM časem (dt z
+// Animace běží přes requestAnimationFrame kalibrovaný SKUTEČNÝM časem (dt z
 // performance timestampu), ne počtem snímků - funguje správně i když je náhled zpomalený.
 ---
 
@@ -38,21 +39,19 @@
 	<svg id="ucs-svg" viewBox="0 0 660 300" role="img" aria-label="Těleso na podložce a síla, která na něj působí v různých bodech">
 		<!-- podlaha -->
 		<rect x="0" y="220" width="660" height="80" fill="#deb887" stroke="#2b2a26" stroke-width="3" />
-		<!-- stín pod tělesem -->
-		<ellipse id="ucs-stin" cx="330" cy="222" rx="42" ry="8" fill="#2b2a26" opacity="0.18" />
 		<!-- šipka síly -->
-		<line id="ucs-sipka" x1="150" y1="170" x2="150" y2="170" stroke="#e03131" stroke-width="7" marker-end="url(#ucs-sm)" />
+		<line id="ucs-sipka" x1="150" y1="185" x2="150" y2="185" stroke="#e03131" stroke-width="7" marker-end="url(#ucs-sm)" />
 		<text id="ucs-sipka-text" font-size="15" font-weight="bold" fill="#e03131" text-anchor="middle" y="150"></text>
 		<defs>
 			<marker id="ucs-sm" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#e03131" /></marker>
 		</defs>
-		<!-- těleso -->
+		<!-- těleso (sedí přímo na podlaze) -->
 		<g id="ucs-telo">
-			<rect id="ucs-rect" x="295" y="135" width="70" height="70" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3.5" rx="6" />
-			<circle id="ucs-bod-teziste" cx="330" cy="170" r="7" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
-			<circle id="ucs-bod-okraj" cx="330" cy="145" r="7" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
-			<text id="ucs-telo-text" x="330" y="270" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+			<rect id="ucs-rect" x="295" y="150" width="70" height="70" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3.5" rx="6" />
+			<circle id="ucs-bod-teziste" cx="330" cy="185" r="7" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<circle id="ucs-bod-okraj" cx="330" cy="160" r="7" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
 		</g>
+		<text id="ucs-telo-text" x="330" y="270" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
 	</svg>
 
 	<label class="sim-posuvnik">
@@ -68,9 +67,11 @@
 <script>
 	const MEZ_PRUZNA = 50;
 	const MEZ_TRVALA = 90;
-	const CX = 330, CY = 170;         // těžiště tělesa (fixní bod ve scéně)
+	const SPODEK = 220;               // y spodní hrany tělesa = horní hrana podlahy (sedí na ní)
 	const ZAKLAD_STRANA = 70;         // rozměr nedeformovaného tělesa (čtverec)
-	const SPODEK = 205;               // y spodní hrany tělesa (na podlaze), 205+15px mezera do 220
+	const CX = 330, CY = SPODEK - ZAKLAD_STRANA / 2;  // těžiště tělesa (330, 185)
+	const MAX_POSUN = 250;            // kam nejdál smí těleso dojet (kraj scény)
+	const MAX_UHEL = 90;              // překlopení přes spodní roh — dál se hranaté těleso netočí
 
 	const sliderF = document.getElementById('ucs-slider-f');
 	const outF = document.getElementById('ucs-out-f');
@@ -79,7 +80,6 @@
 	const bodyEl = document.getElementById('ucs-body');
 	const rect = document.getElementById('ucs-rect');
 	const teloText = document.getElementById('ucs-telo-text');
-	const stin = document.getElementById('ucs-stin');
 	const bodTeziste = document.getElementById('ucs-bod-teziste');
 	const bodOkraj = document.getElementById('ucs-bod-okraj');
 	const telo = document.getElementById('ucs-telo');
@@ -88,12 +88,13 @@
 
 	let bod = 'teziste';   // 'teziste' | 'okraj'
 	let trvale = false;    // jednou dosažená trvalá deformace už nejde vrátit posuvníkem
-	let uhel = 0;          // aktuální úhel otočení (stupně)
+	let posun = 0;         // o kolik px těleso dosud dojelo (posuvný účinek)
+	let uhel = 0;          // o kolik stupňů se dosud překlopilo (otáčivý účinek)
 	let rafId = null;
 	let posledniCas = null;
 
-	function polohaX() {
-		// bod, kam vstupuje síla podle zvoleného bodu působení (výška v ose y)
+	function vyskaSily() {
+		// výška (y), ve které síla vstupuje do tělesa, podle zvoleného bodu působení
 		return bod === 'teziste' ? CY : CY - 25;
 	}
 
@@ -108,13 +109,19 @@
 		const F = +sliderF.value;
 		if (F >= MEZ_TRVALA) trvale = true;
 		const deformace = trvale || F >= MEZ_PRUZNA;
-		const rotuje = !deformace && bod === 'okraj' && F > 0;
+		if (deformace) uhel = 0;                 // deformace „vyhraje" — překlopení se už nekreslí
+		if (F === 0) { posun = 0; uhel = 0; }    // bez síly se scéna vrací do výchozí polohy
 
-		if (rotuje && rafId === null) spustitOtaceni();
-		if (!rotuje && rafId !== null) zastavitOtaceni();
-		if (!rotuje) uhel = 0;
+		const bezi = !deformace && F > 0;
+		if (bezi && rafId === null) spustitAnimaci();
+		if (!bezi && rafId !== null) zastavitAnimaci();
 
-		let posunX = 0;
+		vykresli();
+	}
+
+	function vykresli() {
+		const F = +sliderF.value;
+		const deformace = trvale || F >= MEZ_PRUZNA;
 		let stupenDeformace = 0;
 
 		if (deformace) {
@@ -126,7 +133,8 @@
 			rect.setAttribute('fill', trvale ? '#adb5bd' : '#a5d8ff');
 			rect.setAttribute('stroke', trvale ? '#495057' : '#1971c2');
 			rect.setAttribute('stroke-dasharray', trvale ? '0' : '5 4');
-			telo.setAttribute('transform', 'translate(0 0) rotate(0 ' + CX + ' ' + CY + ')');
+			// těleso zůstává tam, kam dosud dojelo — silnější síla ho nevrací zpátky
+			telo.setAttribute('transform', `translate(${posun} 0)`);
 			teloText.textContent = trvale ? 'TRVALÁ deformace' : 'PRUŽNÁ deformace (' + stupenDeformace + ' %)';
 			bodTeziste.setAttribute('opacity', '0');
 			bodOkraj.setAttribute('opacity', '0');
@@ -139,22 +147,19 @@
 			bodOkraj.setAttribute('opacity', '1');
 			bodTeziste.setAttribute('fill', bod === 'teziste' ? '#1971c2' : '#adb5bd');
 			bodOkraj.setAttribute('fill', bod === 'okraj' ? '#e8590c' : '#adb5bd');
+			// překlopení se otáčí kolem spodního pravého rohu tělesa (jako skutečná krabice)
+			telo.setAttribute('transform', `translate(${posun} 0) rotate(${uhel} ${CX + ZAKLAD_STRANA / 2} ${SPODEK})`);
 			if (bod === 'teziste') {
-				posunX = F;   // 1 px/N, max 40 px při F=40 (pod prahem deformace)
-				telo.setAttribute('transform', `translate(${posunX} 0) rotate(0 ${CX} ${CY})`);
-				teloText.textContent = F > 0 ? 'POSUVNÝ účinek' : '';
+				teloText.textContent = F > 0 ? (posun >= MAX_POSUN ? 'POSUVNÝ účinek (dojelo na kraj)' : 'POSUVNÝ účinek') : '';
 			} else {
-				telo.setAttribute('transform', `translate(0 0) rotate(${uhel} ${CX} ${CY})`);
-				teloText.textContent = F > 0 ? 'OTÁČIVÝ účinek' : '';
+				teloText.textContent = F > 0 ? (uhel >= MAX_UHEL ? 'OTÁČIVÝ účinek (překlopeno)' : 'OTÁČIVÝ účinek') : '';
 			}
 		}
 
-		stin.setAttribute('cx', CX + posunX);
-
-		// šipka síly - délka úměrná F, hrot se opírá o levý okraj tělesa
+		// šipka síly - délka úměrná F, hrot se opírá o levý okraj tělesa ve výšce bodu působení
 		const polovinaSirky = +rect.getAttribute('width') / 2;
-		const hrotX = (CX + posunX) - polovinaSirky;
-		const y = polohaX();
+		const hrotX = (CX + posun) - polovinaSirky;
+		const y = vyskaSily();
 		const k = 1.1;
 		sipka.setAttribute('x1', hrotX - F * k);
 		sipka.setAttribute('y1', y);
@@ -180,13 +185,13 @@
 		} else if (F === 0) {
 			stavEl.textContent = '👉 Zatáhni posuvníkem síly nebo vyber jiný bod působení.';
 		} else if (bod === 'teziste') {
-			stavEl.textContent = `➡️ F = ${F} N v TĚŽIŠTI (< ${MEZ_PRUZNA} N) → POSUVNÝ účinek: celé těleso se posouvá rovně, protože nevzniká moment síly.`;
+			stavEl.textContent = `➡️ F = ${F} N v TĚŽIŠTI (< ${MEZ_PRUZNA} N) → POSUVNÝ účinek: těleso plynule klouže ve směru síly — čím větší F, tím rychleji. Nevzniká moment síly, tak se neotáčí.`;
 		} else {
-			stavEl.textContent = `🔄 F = ${F} N MIMO TĚŽIŠTĚ (< ${MEZ_PRUZNA} N) → OTÁČIVÝ účinek: síla má rameno k těžišti, vzniká moment síly a těleso se otáčí. Čím větší F, tím rychlejší otáčení.`;
+			stavEl.textContent = `🔄 F = ${F} N MIMO TĚŽIŠTĚ (< ${MEZ_PRUZNA} N) → OTÁČIVÝ účinek: síla má rameno k těžišti, vzniká moment síly a těleso se překlápí přes spodní hranu — čím větší F, tím rychleji.`;
 		}
 	}
 
-	function spustitOtaceni() {
+	function spustitAnimaci() {
 		posledniCas = null;
 		rafId = requestAnimationFrame(krok);
 	}
@@ -195,12 +200,15 @@
 		const dt = (cas - posledniCas) / 1000; // sekundy - kalibrace na SKUTEČNÝ čas, ne na počet snímků
 		posledniCas = cas;
 		const F = +sliderF.value;
-		const rychlostDegPerS = F * 3;
-		uhel = (uhel + rychlostDegPerS * dt) % 360;
-		telo.setAttribute('transform', `translate(0 0) rotate(${uhel} ${CX} ${CY})`);
+		if (bod === 'teziste') {
+			posun = Math.min(MAX_POSUN, posun + F * dt);      // rychlost 1 px/s na 1 N
+		} else {
+			uhel = Math.min(MAX_UHEL, uhel + 3 * F * dt);     // rychlost překlápění úměrná F
+		}
+		vykresli();
 		rafId = requestAnimationFrame(krok);
 	}
-	function zastavitOtaceni() {
+	function zastavitAnimaci() {
 		if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
 	}
 
@@ -208,6 +216,8 @@
 		const tl = e.target.closest('.ucs-tl');
 		if (!tl) return;
 		bod = tl.dataset.bod;
+		posun = 0;
+		uhel = 0;
 		for (const b of bodyEl.querySelectorAll('.ucs-tl')) b.classList.toggle('ucs-aktivni', b === tl);
 		prekresli();
 	});
@@ -215,6 +225,8 @@
 	document.getElementById('ucs-reset').addEventListener('click', () => {
 		trvale = false;
 		bod = 'teziste';
+		posun = 0;
+		uhel = 0;
 		sliderF.value = '20';
 		for (const b of bodyEl.querySelectorAll('.ucs-tl')) b.classList.toggle('ucs-aktivni', b.dataset.bod === 'teziste');
 		prekresli();
@@ -243,4 +255,3 @@
 	.ucs-lg-ora { background: #ffe8cc; }
 	.ucs-lg-cer { background: #ffc9c9; }
 </style>
-</content>
