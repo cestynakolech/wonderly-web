@@ -20,5 +20,16 @@
   "kdy": "2025",
   "zdroj": "park4night",
   "aktualizovano": "07/2026"
+ },
+ {
+  "rok": 2026,
+  "slug": "schongau",
+  "stellplatz": "Wohnmobilstellplatz Schongau",
+  "cenaNoc": "8 €",
+  "elektrina": "0,50 €",
+  "voda": "1 €",
+  "kdy": null,
+  "zdroj": "park4night",
+  "aktualizovano": "07/2026"
  }
 ]
