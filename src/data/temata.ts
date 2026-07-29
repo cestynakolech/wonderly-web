@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -1510,6 +1510,43 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zlaté pravidlo mechaniky</h3>
 						<p>U každého jednoduchého stroje platí: <strong>kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat.</strong> Práci si nikdy neušetříme — jen ji rozložíme pohodlněji.</p>
 					`,
+				},
+				{
+					slug: 'naklonena-rovina',
+					interakce: 'naklonena-rovina',
+					nazev: 'Nakloněná rovina',
+					obsah: `
+						<h2>Nakloněná rovina</h2>
+						<p>Stejně jako páka nebo kladka patří mezi <strong>jednoduché stroje</strong> i <strong>nakloněná rovina</strong> — šikmá plocha (rampa, prkno, skluz), po které vytahujeme nebo spouštíme těžké břemeno. Místo abychom je zvedali svisle vzhůru, táhneme je šikmo nahoru — a stačí nám na to <strong>menší síla</strong>. Za to ale musíme těleso posunout po <strong>delší dráze</strong>.</p>
+
+						<h3>Jak nakloněná rovina šetří sílu</h3>
+						<p>Bez tření platí pro sílu <strong>F</strong>, kterou musíme vynaložit při tažení břemene po nakloněné rovině, vztah:</p>
+						<p><strong>F = G &middot; h : l</strong></p>
+						<p>kde <strong>G</strong> je tíha břemene, <strong>h</strong> je výška, do které břemeno zvedáme, a <strong>l</strong> je délka nakloněné roviny (šikmé dráhy, po které břemeno táhneme). Čím je nakloněná rovina <strong>delší</strong> při stejné výšce, tím je <strong>mírnější</strong> a tím <strong>menší síla</strong> nám stačí. Ve skutečnosti se do potřebné síly promítá i <strong>tření</strong> mezi břemenem a rovinou, které ji o něco zvětšuje — pro jednoduchost počítáme v ideálním případě bez tření.</p>
+
+						<h3>Cena za menší sílu: delší dráha</h3>
+						<p>Nakloněná rovina nám práci neušetří, jen ji rozloží pohodlněji — přesně podle <strong>zlatého pravidla mechaniky</strong>, které platí u všech jednoduchých strojů: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit. Vytažení břemene po šikmé rampě trvá déle a je to dál, ale zvládne to i slabší síla.</p>
+
+						<h3>Nakloněná rovina kolem nás</h3>
+						<p>S nakloněnou rovinou se setkáváme na každém kroku: <strong>nájezdová rampa</strong> pro vozíčkáře nebo na nakládání beden do auta, <strong>silniční serpentiny</strong> v horách (klikaté zatáčky prodlužují dráhu, aby auto nemuselo do prudkého kopce), nebo dětská <strong>skluzavka</strong>. Zajímavým příkladem je <strong>šroub</strong> — jeho závit je vlastně nakloněná rovina <strong>navinutá kolem válce</strong>. Proto se šroub zašroubuje malou silou na šroubováku (ale musíme jím mnohokrát otočit), zatímco zatlouct hřebík rovnou by vyžadovalo mnohem větší sílu.</p>
+
+						<h3>Příklad 1</h3>
+						<p>Břemeno o tíze G = 600 N táhneme po nakloněné rovině dlouhé l = 3 m na výšku h = 1 m. Jak velká síla F je potřeba (bez tření)?</p>
+						<p>F = G &middot; h : l = 600 &middot; 1 : 3 = 200 N</p>
+						<p>Stačí nám síla 200 N — tedy třikrát menší, než kdybychom břemeno zvedali svisle (600 N), protože dráha je třikrát delší než výška.</p>
+
+						<h3>Příklad 2</h3>
+						<p>Břemeno o tíze G = 800 N chceme vytáhnout do výšky h = 2 m silou F = 200 N. Jak dlouhá musí být nakloněná rovina?</p>
+						<p>F = G &middot; h : l &nbsp;&rArr;&nbsp; l = G &middot; h : F</p>
+						<p>l = 800 &middot; 2 : 200 = 8 m</p>
+						<p>Nakloněná rovina musí být dlouhá 8 metrů — čtyřikrát delší než výška, protože jsme sílu zmenšili čtyřikrát (z 800 N na 200 N).</p>
+
+						<h3>Shrnutí</h3>
+						<p>Nakloněná rovina je jednoduchý stroj, který nahrazuje svislé zvedání břemene tažením po šikmé ploše. Platí vztah F = G &middot; h : l: čím delší a mírnější je rovina, tím menší síla stačí — ale dráha, kterou musíme urazit, se úměrně prodlouží. Práci si nikdy neušetříme, jen ji „rozprostřeme" na delší dráhu s menší silou.</p>
+					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Jednoduché stroje — přehled', cesta: 'f73Y0wDwa9w' },
+					],
 				},
 			],
 		},

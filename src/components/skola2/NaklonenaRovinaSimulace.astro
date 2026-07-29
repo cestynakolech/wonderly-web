@@ -1,0 +1,237 @@
+---
+// Interaktivní nakloněná rovina: bedna se táhne po šikmé rovině nahoru.
+// Ukazuje, že tažná síla F = G · h / l je menší než tíha G, ale za cenu delší dráhy.
+// Zjednodušeno bez tření (ideální nakloněná rovina, jak se počítá na 2. stupni ZŠ).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: nakloněná rovina 🕹️</span></h2>
+	<p>
+		Po <strong>nakloněné rovině</strong> vytáhneš bednu nahoru <strong>menší silou</strong>,
+		než kdybys ji zvedal/a rovnou vzhůru — zaplatíš za to ale <strong>delší dráhou</strong>.
+		Platí (bez tření): <strong>F = G · h / l</strong>, kde G je tíha bedny, h výška, na kterou ji
+		vyzvedneš, a l délka nakloněné roviny. Nastav posuvníky a zkus bednu vytáhnout nahoru.
+	</p>
+
+	<svg id="nr-svg" viewBox="0 0 600 300" role="img" aria-label="Bedna na nakloněné rovině">
+		<!-- zem -->
+		<rect x="0" y="260" width="600" height="40" fill="#d8f5a2" />
+		<line x1="0" y1="260" x2="600" y2="260" stroke="#2b2a26" stroke-width="3" />
+		<g id="nr-obsah"></g>
+	</svg>
+
+	<div class="nr-ovladani">
+		<label>tíha bedny G <input id="nr-g" type="range" min="300" max="900" step="300" value="600" /> <span id="nr-g-t">600</span> N</label>
+		<label>délka roviny l <input id="nr-l" type="range" min="2" max="5" step="1" value="3" /> <span id="nr-l-t">3</span> m</label>
+		<label>výška h <input id="nr-h" type="range" min="1" max="2" step="1" value="1" /> <span id="nr-h-t">1</span> m</label>
+	</div>
+
+	<div class="nr-tlacitka">
+		<button id="nr-tahni" type="button">➡️⬆️ Táhni bednu nahoru</button>
+		<button id="nr-reset" type="button">↺ Zpět</button>
+	</div>
+
+	<div class="nr-porovnani">
+		<div class="nr-radek">
+			<span class="nr-popisek">šikmo po rovině</span>
+			<div class="nr-slozka"><div id="nr-bar-sikmo" class="nr-vyplen nr-sikmo"></div></div>
+			<span id="nr-bar-sikmo-t" class="nr-cislo">200 N</span>
+		</div>
+		<div class="nr-radek">
+			<span class="nr-popisek">rovnou nahoru</span>
+			<div class="nr-slozka"><div id="nr-bar-rovnou" class="nr-vyplen nr-rovnou"></div></div>
+			<span id="nr-bar-rovnou-t" class="nr-cislo">600 N</span>
+		</div>
+	</div>
+
+	<p id="nr-vysledek" class="nr-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const LEFT_X = 90, GROUND_Y = 260, SCALE = 50;
+	let t = 0; // 0 = bedna dole, 1 = bedna nahoře
+	let animace = false;
+
+	function formatCislo(x) {
+		return Math.abs(x - Math.round(x)) < 0.05 ? String(Math.round(x)) : x.toFixed(1);
+	}
+
+	function orezH() {
+		const l = +$('nr-l').value;
+		const hMax = l - 1;
+		$('nr-h').max = String(hMax);
+		if (+$('nr-h').value > hMax) $('nr-h').value = String(hMax);
+	}
+
+	function prekresli() {
+		orezH();
+		const G = +$('nr-g').value;
+		const l = +$('nr-l').value;
+		const h = +$('nr-h').value;
+		$('nr-g-t').textContent = String(G);
+		$('nr-l-t').textContent = String(l);
+		$('nr-h-t').textContent = String(h);
+
+		const uhelRad = Math.asin(h / l);
+		const uhelDeg = (uhelRad * 180) / Math.PI;
+		const topX = LEFT_X + l * SCALE * Math.cos(uhelRad);
+		const topY = GROUND_Y - h * SCALE;
+		const F = (G * h) / l;
+
+		let svg = '';
+		// tělo nakloněné roviny (klín)
+		svg += `<polygon points="${LEFT_X},${GROUND_Y} ${topX},${GROUND_Y} ${topX},${topY}" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />`;
+		// čárkovaná výška h
+		svg += `<line x1="${topX}" y1="${GROUND_Y}" x2="${topX}" y2="${topY}" stroke="#1971c2" stroke-width="2" stroke-dasharray="5,4" />`;
+		svg += `<text x="${topX + 10}" y="${(GROUND_Y + topY) / 2 + 5}" font-size="14" font-weight="bold" fill="#1971c2">h = ${h} m</text>`;
+		// popisek délky l na šikmině
+		const midX = (LEFT_X + topX) / 2;
+		const midY = (GROUND_Y + topY) / 2;
+		svg += `<text x="${midX}" y="${midY - 12}" font-size="14" font-weight="bold" fill="#2b2a26" text-anchor="middle">l = ${l} m</text>`;
+
+		// bedna a tažná síla — kresleno v lokálních (nerotovaných) souřadnicích,
+		// celá skupina se pak pootočí o úhel roviny, takže bedna sedí přesně na šikmině
+		const localX = LEFT_X + t * l * SCALE;
+		const krX = localX - 16;
+		const krY = GROUND_Y - 32;
+		let tazeny = '';
+		tazeny += `<rect x="${krX}" y="${krY}" width="32" height="32" rx="4" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />`;
+		tazeny += `<text x="${localX}" y="${GROUND_Y - 12}" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">bedna</text>`;
+		const sipX1 = localX + 20;
+		const sipY = GROUND_Y - 16;
+		const sipX2 = sipX1 + 55;
+		tazeny += `<line x1="${sipX1}" y1="${sipY}" x2="${sipX2}" y2="${sipY}" stroke="#e03131" stroke-width="4" />`;
+		tazeny += `<polygon points="${sipX2},${sipY - 6} ${sipX2},${sipY + 6} ${sipX2 + 10},${sipY}" fill="#e03131" />`;
+		tazeny += `<text x="${sipX1}" y="${sipY - 10}" font-size="14" font-weight="bold" fill="#e03131">F = ${formatCislo(F)} N</text>`;
+		svg += `<g transform="rotate(${-uhelDeg} ${LEFT_X} ${GROUND_Y})">${tazeny}</g>`;
+
+		$('nr-obsah').innerHTML = svg;
+
+		// porovnávací sloupce (síla šikmo vs. síla rovnou nahoru)
+		const MAX_G = 900;
+		$('nr-bar-sikmo').style.width = Math.min(100, (F / MAX_G) * 100) + '%';
+		$('nr-bar-rovnou').style.width = Math.min(100, (G / MAX_G) * 100) + '%';
+		$('nr-bar-sikmo-t').textContent = `${formatCislo(F)} N`;
+		$('nr-bar-rovnou-t').textContent = `${G} N`;
+
+		const el = $('nr-vysledek');
+		if (t >= 1) {
+			el.innerHTML = `✅ Bedna je nahoře! Táhl/a jsi silou <strong>F = G·h/l = ${G}·${h}/${l} = ${formatCislo(F)} N</strong> po šikmé dráze dlouhé <strong>${l} m</strong>. Rovnou nahoru by bylo potřeba <strong>${G} N</strong>, ale jen po dráze ${h} m — nakloněná rovina síly ušetří, práce zůstává stejná.`;
+			el.classList.add('hotovo');
+		} else {
+			el.innerHTML = `Po nakloněné rovině stačí síla <strong>F = G·h/l = ${G}·${h}/${l} = ${formatCislo(F)} N</strong> — méně než celá tíha bedny <strong>${G} N</strong>. Zaplatíš za to delší dráhou: ${l} m místo ${h} m. Klikni „Táhni bednu nahoru".`;
+			el.classList.remove('hotovo');
+		}
+	}
+
+	$('nr-tahni').addEventListener('click', () => {
+		if (t >= 1 || animace) return;
+		animace = true;
+		const krok = () => {
+			t = Math.min(1, t + 0.02);
+			prekresli();
+			if (t < 1) requestAnimationFrame(krok);
+			else animace = false;
+		};
+		krok();
+	});
+	$('nr-reset').addEventListener('click', () => {
+		if (animace) return;
+		t = 0;
+		prekresli();
+	});
+	['nr-g', 'nr-l', 'nr-h'].forEach((id) =>
+		$(id).addEventListener('input', () => {
+			t = 0;
+			prekresli();
+		}));
+	prekresli();
+</script>
+
+<style>
+	#nr-svg {
+		width: 100%;
+		max-width: 600px;
+		display: block;
+		margin: 0 auto;
+		background: #eef6ff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.nr-ovladani {
+		display: flex;
+		gap: 1.4rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.nr-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 600;
+	}
+	.nr-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		margin: 0.6rem 0;
+	}
+	.nr-tlacitka button {
+		font-weight: 700;
+		padding: 0.4rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.nr-porovnani {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		max-width: 500px;
+		margin: 1rem auto;
+	}
+	.nr-radek {
+		display: grid;
+		grid-template-columns: 8rem 1fr 5rem;
+		align-items: center;
+		gap: 0.6rem;
+	}
+	.nr-popisek {
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.nr-slozka {
+		background: #e9ecef;
+		border: 2px solid #2b2a26;
+		border-radius: 8px;
+		height: 1.4rem;
+		overflow: hidden;
+	}
+	.nr-vyplen {
+		height: 100%;
+		transition: width 0.3s ease;
+	}
+	.nr-sikmo {
+		background: #40c057;
+	}
+	.nr-rovnou {
+		background: #e8590c;
+	}
+	.nr-cislo {
+		font-weight: 700;
+		text-align: right;
+	}
+	.nr-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		text-align: center;
+	}
+	.nr-vysledek.hotovo {
+		background: #d3f9d8;
+	}
+</style>

@@ -17,6 +17,7 @@ import PaketySimulace from '../../../../../../components/skola2/PaketySimulace.a
 import PakaSimulace from '../../../../../../components/skola2/PakaSimulace.astro';
 import MagnetSimulace from '../../../../../../components/skola2/MagnetSimulace.astro';
 import KladkaSimulace from '../../../../../../components/skola2/KladkaSimulace.astro';
+import NaklonenaRovinaSimulace from '../../../../../../components/skola2/NaklonenaRovinaSimulace.astro';
 import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
 import RychlostSimulace from '../../../../../../components/skola2/RychlostSimulace.astro';
 import OdrazSimulace from '../../../../../../components/skola2/OdrazSimulace.astro';
@@ -211,6 +212,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'paka' && <PakaSimulace />}
 	{podtema.interakce === 'magnet' && <MagnetSimulace />}
 	{podtema.interakce === 'kladka' && <KladkaSimulace />}
+	{podtema.interakce === 'naklonena-rovina' && <NaklonenaRovinaSimulace />}
 	{podtema.interakce === 'ohm' && <OhmSimulace />}
 	{podtema.interakce === 'rychlost' && <RychlostSimulace />}
 	{podtema.interakce === 'odraz' && <OdrazSimulace />}

@@ -2522,6 +2522,16 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co říká zlaté pravidlo mechaniky?', odpovedi: ['kolikrát si usnadníme sílu, tolikrát delší dráhu překonáme', 'stroje vyrobí práci navíc', 'síla je vždy stejná jako dráha'], vysvetleni: 'Práci si strojem neušetříme — jen ji rozložíme pohodlněji.' },
 		{ text: 'Břemeno váží 200 N. Jakou silou ho zvednu na jedné volné kladce?', odpovedi: ['100 N', '200 N', '400 N'], vysvetleni: 'Volná kladka = poloviční síla: 200 : 2 = 100 N.' },
 	],
+	'fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina': [
+		{ text: 'Co je nakloněná rovina?', odpovedi: ['šikmá plocha, po které vytlačíme těleso do výšky menší silou', 'kolo s drážkou pro lano', 'tuhá tyč otáčivá kolem osy'], vysvetleni: 'Nakloněná rovina je jednoduchý stroj — šikmá plocha usnadňující zvedání břemen.' },
+		{ text: 'Jak se změní potřebná síla na nakloněné rovině oproti svislému zvednutí téhož tělesa?', odpovedi: ['zmenší se, ale dráha se prodlouží', 'zmenší se a dráha se zkrátí', 'zůstane úplně stejná'], vysvetleni: 'Platí zlaté pravidlo jednoduchých strojů — co ušetříme na síle, doplatíme na dráze.' },
+		{ text: 'Podle jakého vzorce vypočítáme sílu F na nakloněné rovině (G = tíha tělesa, h = výška, l = délka roviny)?', odpovedi: ['F = G · h / l', 'F = G · l / h', 'F = G + h − l'], vysvetleni: 'Síla je tíha zmenšená v poměru výšky ku délce nakloněné roviny.' },
+		{ text: 'Bedna o tíze 300 N stojí u nájezdu vysokého 1 m a dlouhého 3 m. Jakou silou ji vytlačíme nahoru (bez tření)?', odpovedi: ['100 N', '300 N', '900 N'], vysvetleni: 'F = G · h / l = 300 · 1 / 3 = 100 N.' },
+		{ text: 'Vozík s tíhou 600 N tlačíme po nakloněné rovině vysoké 2 m a dlouhé 6 m. Jaká síla stačí?', odpovedi: ['200 N', '600 N', '1200 N'], vysvetleni: 'F = G · h / l = 600 · 2 / 6 = 200 N.' },
+		{ text: 'Proč vedou horské silnice do kopce v serpentinách (klikatě), a ne přímo nahoru?', odpovedi: ['prodloužením dráhy se zmenší potřebný sklon i síla motoru', 'aby auta jela rychleji', 'aby se ušetřil asfalt'], vysvetleni: 'Serpentiny prodlužují dráhu — silnice pak stoupá mírněji, stejně jako u nakloněné roviny.' },
+		{ text: 'Co je šroub z hlediska jednoduchých strojů?', odpovedi: ['nakloněná rovina stočená okolo válce', 'druh dvojzvratné páky', 'pevná kladka'], vysvetleni: 'Závit šroubu je vlastně nakloněná rovina obtočená kolem válce — proto stačí malá síla na zašroubování.' },
+		{ text: 'Nájezd pro vozíčkáře má délku 8 m a překonává výšku 2 m. Kolikrát menší síla stačí oproti zvednutí kolmo vzhůru?', odpovedi: ['4×', '2×', '8×'], vysvetleni: 'Poměr l : h = 8 : 2 = 4 — síla je čtyřikrát menší, dráha čtyřikrát delší.' },
+	],
 	'fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky': [
 		{ text: 'K čemu slouží jednoduché stroje?', odpovedi: ['usnadňují práci — menší silou zvedáme těžká tělesa', 'vyrábějí energii z ničeho', 'jen zdobí dílny'], vysvetleni: 'Páka, kladka či nakloněná rovina mění velikost potřebné síly.' },
 		{ text: 'Co je páka?', odpovedi: ['tuhá tyč otáčivá kolem pevného bodu (osy)', 'pružná guma', 'druh motoru'], vysvetleni: 'Páka je tyč otáčející se kolem osy — jako houpačka.' },
