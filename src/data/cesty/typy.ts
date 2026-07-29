@@ -57,6 +57,11 @@ export type Rok = {
 	zeme: string;
 	/** Volitelný ruční výřez mapy; když chybí, spočítá se automaticky z poloh měst */
 	vyrez?: { x: number; y: number; sirka: number; vyska: number };
+	/** Odkud se vyjelo — domov. Kreslí se na celkové mapě jako začátek trasy
+	 *  (vlastní značka + popisek) a započítá se do výřezu, aby mapa začínala doma.
+	 *  Nemá vlastní kartu ani přiblížený pohled; kvůli soukromí se popisuje jen
+	 *  obecně („jižní Čechy“), stejně jako v úvodních mapách videí (trasa_uvod.py). */
+	domov?: { nazev: string; x: number; y: number };
 	/** Pozice pinu roku na celoevropské mapě rozcestníku */
 	pinEvropa: { x: number; y: number };
 	mesta: Mesto[];

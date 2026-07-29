@@ -45,7 +45,13 @@ const pocetDnu = dnyMist.length
 
 // Rozbalovací mapa: celková mapa se všemi místy + přiblížené pohledy po nejvýš
 // třech položkách (přání učitele 28. 7. 2026 — shluky měst byly nepřehledné).
-const pohledy = pripravPohledy(data.mesta, data.vyrez ?? spocitejVyrez(data.mesta));
+// Domov (přání učitele 29. 7. 2026): celková mapa má začínat doma, ne u prvního
+// cizího města — proto se do výřezu i do trasy přidá výchozí bod cesty.
+const domov = data.domov;
+const pohledy = pripravPohledy(
+	data.mesta,
+	data.vyrez ?? spocitejVyrez(domov ? [domov, ...data.mesta] : data.mesta),
+);
 const koren = pohledy[0];
 // trasa v pořadí návštěvy + šipky směru; body bez vlastního pinu (proti dvojitým kolečkům)
 const korenMistaSPinem = new Set(koren.polozky.filter((p) => p.typ === 'misto').map((p) => p.id));
@@ -54,11 +60,16 @@ const korenVsechnyMisto = koren.polozky.length > 0 && koren.polozky.every((p) =>
 const korenUzly = korenVsechnyMisto
 	? [...koren.polozky].sort((a, b) => (korenPoradi.get(a.id) ?? 0) - (korenPoradi.get(b.id) ?? 0))
 	: koren.body;
-const korenTrasa = korenUzly.map((b) => `${b.x},${b.y}`).join(' ');
+// trasa vede z domova do prvního místa a dál v pořadí návštěvy
+const korenTrasaUzly: { x: number; y: number }[] = [
+	...(domov ? [{ x: domov.x, y: domov.y }] : []),
+	...korenUzly.map((b) => ({ x: b.x, y: b.y })),
+];
+const korenTrasa = korenTrasaUzly.map((b) => `${b.x},${b.y}`).join(' ');
 const korenSipky = [];
-for (let i = 0; i < korenUzly.length - 1; i++) {
-	const a = korenUzly[i];
-	const b = korenUzly[i + 1];
+for (let i = 0; i < korenTrasaUzly.length - 1; i++) {
+	const a = korenTrasaUzly[i];
+	const b = korenTrasaUzly[i + 1];
 	if (Math.hypot(b.x - a.x, b.y - a.y) < koren.pinR * 2) continue;
 	korenSipky.push({
 		mx: (a.x + b.x) / 2,
@@ -75,6 +86,7 @@ const texty = {
 	zpetNaMapu: t.zpetNaMapu,
 	tvaryMist: t.tvaryMist,
 	max: MAX_POLOZEK,
+	domov: domov ?? null,
 };
 ---
 
@@ -98,7 +110,7 @@ const texty = {
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		<g id="mapa-vrstva">
-			{korenUzly.length >= 2 && <polyline class="trasa-cara" points={korenTrasa} pathLength="1000" stroke-width={koren.pinR / 1.5} />}
+			{korenTrasaUzly.length >= 2 && <polyline class="trasa-cara" points={korenTrasa} pathLength="1000" stroke-width={koren.pinR / 1.5} />}
 			{korenSipky.map((s) => (
 				<polygon class="trasa-sipka" points={sipkaTvar(koren.pinR * 0.75)} transform={`translate(${s.mx} ${s.my}) rotate(${s.uhel})`} />
 			))}
@@ -139,6 +151,34 @@ const texty = {
 						</a>
 					))
 			}
+			{domov && (
+				<g class="domov-znacka">
+					<title>{domov.nazev}</title>
+					<polygon
+						class="domov-strecha"
+						points={`${domov.x},${domov.y - koren.pinR * 1.5} ${domov.x - koren.pinR * 1.4},${domov.y - koren.pinR * 0.2} ${domov.x + koren.pinR * 1.4},${domov.y - koren.pinR * 0.2}`}
+						stroke-width={koren.pinR / 4}
+					/>
+					<rect
+						class="domov-zed"
+						x={domov.x - koren.pinR}
+						y={domov.y - koren.pinR * 0.3}
+						width={koren.pinR * 2}
+						height={koren.pinR * 1.5}
+						stroke-width={koren.pinR / 4}
+					/>
+					<text
+						class="pin-popisek domov-popisek"
+						x={domov.x}
+						y={domov.y + koren.pinR * 3}
+						text-anchor="middle"
+						font-size={koren.pismo}
+						stroke-width={koren.pismo / 5}
+					>
+						{domov.nazev}
+					</text>
+				</g>
+			)}
 			{
 				koren.popisky.map((p) => (
 					<a href={`#${p.cil}`} class="mapa-odkaz">
@@ -186,11 +226,12 @@ const texty = {
 						</p>
 						<p>{prelozPopis(m.popis, jazyk)}</p>
 						{video && (
-							<p>
-								<a href={video.odkaz} rel="noopener">
-									🎬 {video.nazev}
+							<div class="videa-mrizka mesto-video">
+								<a href={video.odkaz} rel="noopener" class="video-karta">
+									<img src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`} alt={video.nazev} loading="lazy" />
+									<span>🎬 {video.nazev}</span>
 								</a>
-							</p>
+							</div>
 						)}
 						{m.report && (
 							<details class="bertik-report">
@@ -242,7 +283,7 @@ const texty = {
 		}
 	</section>
 	{data.videa.length > 0 && (
-		<section class="videa-mrizka-blok">
+		<section class="videa-mrizka-blok" id="videa-mrizka-blok">
 			<h2>{t.videaNadpis}</h2>
 			<div class="videa-mrizka">
 				{data.videa.map((v) => (
@@ -269,6 +310,9 @@ const texty = {
 		const napoveda = document.getElementById('mapa-napoveda');
 		const dataEl = document.getElementById('mapa-pohledy');
 		const textyEl = document.getElementById('mapa-texty');
+		// mřížka VŠECH videí roku patří jen k celkové mapě; u jednoho místa by
+		// vypadala jako jeho videa (připomínka učitele 29. 7. 2026)
+		const mrizkaVidei = document.getElementById('videa-mrizka-blok');
 		if (!svg || !vrstva || !dataEl || !textyEl) return;
 
 		const pohledy = JSON.parse(dataEl.textContent);
@@ -294,9 +338,13 @@ const texty = {
 			// vede přes skutečné polohy.
 			const poradiSlugu = new Map(pohled.body.map((b) => [b.slug, b.poradi]));
 			const vsechnyMisto = pohled.polozky.length > 0 && pohled.polozky.every((p) => p.typ === 'misto');
-			const uzlyTrasy = vsechnyMisto
+			const mista = vsechnyMisto
 				? [...pohled.polozky].sort((a, b) => (poradiSlugu.get(a.id) ?? 0) - (poradiSlugu.get(b.id) ?? 0))
 				: pohled.body;
+			// domov je jen na celkové mapě — trasa z něj vychází (přání učitele 29. 7. 2026)
+			const jeKoren = pohled.id === 'vse';
+			const domov = jeKoren ? texty.domov : null;
+			const uzlyTrasy = domov ? [{ x: domov.x, y: domov.y }, ...mista] : mista;
 			if (uzlyTrasy.length >= 2) {
 				const trasa = uzlyTrasy.map((b) => `${b.x},${b.y}`).join(' ');
 				vrstva.appendChild(
@@ -369,6 +417,43 @@ const texty = {
 				);
 				vrstva.appendChild(odkaz);
 			}
+			if (domov) {
+				const r = pohled.pinR;
+				const g = prvek('g', { class: 'domov-znacka' });
+				g.appendChild(prvek('title', {}, domov.nazev));
+				g.appendChild(
+					prvek('polygon', {
+						class: 'domov-strecha',
+						points: `${domov.x},${domov.y - r * 1.5} ${domov.x - r * 1.4},${domov.y - r * 0.2} ${domov.x + r * 1.4},${domov.y - r * 0.2}`,
+						'stroke-width': r / 4,
+					}),
+				);
+				g.appendChild(
+					prvek('rect', {
+						class: 'domov-zed',
+						x: domov.x - r,
+						y: domov.y - r * 0.3,
+						width: r * 2,
+						height: r * 1.5,
+						'stroke-width': r / 4,
+					}),
+				);
+				g.appendChild(
+					prvek(
+						'text',
+						{
+							class: 'pin-popisek domov-popisek',
+							x: domov.x,
+							y: domov.y + r * 3,
+							'text-anchor': 'middle',
+							'font-size': pohled.pismo,
+							'stroke-width': pohled.pismo / 5,
+						},
+						domov.nazev,
+					),
+				);
+				vrstva.appendChild(g);
+			}
 		}
 
 		function vykresliDrobecky(pohled) {
@@ -427,6 +512,7 @@ const texty = {
 			for (const karta of karty) {
 				karta.classList.toggle('je-skryte', !(ukazujeMista && pohled.slugy.includes(karta.dataset.slug)));
 			}
+			if (mrizkaVidei) mrizkaVidei.classList.toggle('je-skryte', pohled.id !== 'vse');
 			if (napoveda) {
 				napoveda.textContent = pohled.polozky.some((p) => p.typ === 'skupina') ? napoveda.dataset.text : '';
 			}
@@ -571,6 +657,20 @@ const texty = {
 		fill: transparent;
 		stroke: none;
 	}
+	/* domov = začátek cesty (modrý domeček, aby se nepletl s červenými piny míst) */
+	.domov-strecha {
+		fill: #1971c2;
+		stroke: #fff;
+		vector-effect: non-scaling-stroke;
+	}
+	.domov-zed {
+		fill: #fff;
+		stroke: #1971c2;
+		vector-effect: non-scaling-stroke;
+	}
+	.domov-popisek {
+		fill: #1971c2;
+	}
 	.stellplatz-udaje {
 		display: inline-flex;
 		gap: 0.7rem;
@@ -632,6 +732,10 @@ const texty = {
 	}
 	.video-karta:hover img {
 		transform: scale(1.03);
+	}
+	/* video u konkrétního místa — jen jedno, proto užší než mřížka celého roku */
+	.mesto-video {
+		grid-template-columns: minmax(0, 320px);
 	}
 	.trasa-cara {
 		fill: none;

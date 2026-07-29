@@ -4,6 +4,8 @@ export const rok2025: Rok = {
 	rok: 2025,
 	zeme: 'Německo',
 	pinEvropa: { x: 308, y: 354 },
+	// začátek trasy = domov; poloha spočítaná stejnou projekcí jako v trasa_uvod.py
+	domov: { nazev: 'jižní Čechy', x: 344.9, y: 351.7 },
 	mesta: [
 		{
 			slug: 'karlstadt',
