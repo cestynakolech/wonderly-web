@@ -1,6 +1,10 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 72 hotové — třetí dávka kvízů)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 72 hotové — třetí dávka kvízů; SMYČKA POZASTAVENA na rozhodnutí)
+
+**NOVÉ PRAVIDLO ÚSPORNOSTI (29. 7., zadal učitel):** max ~12 kol na session, pak /clear
+a čerstvá session; bez screenshotů; dávky 4+; noční rozpočet kol. Detaily: skill /wonderly.
+Tato session má za sebou 24 kol → SPRÁVNÝ další krok je /clear a čerstvá session.
 
 Hotovo 72 kol samostatného režimu (65 simulací na 67 stránkách, 417+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
