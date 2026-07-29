@@ -93,6 +93,11 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 70: nejslabší kvízy webu dorovnány.** Audit všech 137 kvízových bloků:
+  38 má <12 otázek (většina informatika). Čtyři nejslabší (po 5) dorovnány na 10: micro:bit
+  rádio a piny, tlačítka/akcelerometr/zvuk, projekt robota (rozděl-testuj-lad), závěrečný
+  projekt 9. třídy (návrh-realizace-předvedení). +20 otázek z výkladů, správná první
+  + vysvětlení. Celkem 385+ otázek.
 - **2026-07-29 — kolo 69: kvízy k novým simulacím.** Kontrola všech 17 stránek s novými
   simulacemi: kvízy mají všechny (7–21 otázek). Do 4 nejslabších doplněno 9 otázek na jevy,
   které simulace nově učí (ohodnocené grafy 7→10 — součet hran a „oklika levnější";

@@ -1,8 +1,8 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 69 hotové — kvízy dorovnány)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 70 hotové — nejslabší kvízy informatiky)
 
-Hotovo 69 kol samostatného režimu (65 simulací na 67 stránkách, 365+ kvízových otázek).
+Hotovo 70 kol samostatného režimu (65 simulací na 67 stránkách, 385+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
@@ -14,10 +14,11 @@ u Clauda; další checkpoint kolo 75).
 pokrytí kvízů u všech 17 stránek s novými simulacemi — všechny kvízy MAJÍ (7–21 otázek);
 do 4 nejslabších doplněno 9 otázek na jevy ze simulací (grafy 7→10, plyny/kapaliny/přenos
 11→13). Zbytek stránek má 12+ otázek — dorovnávat dál není nutné.
-**DALŠÍ KOLO (70):** buď nový audit temata.ts (zbylá podtémata jsou spíš výkladová —
-kandidátů málo), nebo média k Fyzice 6, nebo vytěžení prezentací přes popisovač
-(Omega/skripty/popis_prezentace.py — sekvenčně, 1 těžký proces). Vybrat podle
-ranního rozhodnutí učitele; do té doby lze projít slabé kvízy (<12 otázek) CELÉHO webu.
+Kolo 70: čtyři nejslabší kvízy webu (po 5 otázkách — micro:bit propojení, tlačítka/náklon,
+projekt robota, závěrečný projekt) dorovnány na 10 otázek (+20, vše z výkladů).
+**DALŠÍ KOLO (71):** pokračovat ve slabých kvízech (zbývá 34 bloků <12 otázek, hlavně
+informatika 6–8 otázek — brát po 4 blocích od nejslabších). Větší směry (nový audit /
+média F6 / prezentace přes popisovač) čekají na ranní rozhodnutí učitele.
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)

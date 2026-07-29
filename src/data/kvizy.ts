@@ -3882,6 +3882,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co se u projektu hodnotí především?', odpovedi: ['postup řešení (rozklad, testování, opravy)', 'jen barva robota', 'rychlost odevzdání'], vysvetleni: 'Výsledek + cesta k němu.' },
 		{ text: 'Proč testovat každou část zvlášť?', odpovedi: ['chyba se snáz najde v malém kousku', 'je to pomalejší', 'není to potřeba'], vysvetleni: 'Ve velkém celku se chyba hledá těžko.' },
 		{ text: 'Co patří k předvedení projektu?', odpovedi: ['vysvětlit, jak program funguje', 'tajit, jak to funguje', 'jen zamávat'], vysvetleni: 'Vysvětlení ukazuje porozumění.' },
+		{ text: 'Jaký je PRVNÍ krok při řešení robotického projektu?', odpovedi: ['rozdělit problém na části', 'hned postavit celého robota a doufat', 'naučit se program nazpaměť'], vysvetleni: 'Jízda, hledání, reakce na senzor — každá část zvlášť.' },
+		{ text: 'Proč se každá část projektu testuje ZVLÁŠŤ?', odpovedi: ['chyba se v malém kousku najde snadno', 'protože to vyžadují pravidla soutěže', 'aby se rychleji vybila baterie'], vysvetleni: 'V malé otestované části se chyba hledá mnohem líp než v celku.' },
+		{ text: 'Co je normální, když projekt „napoprvé nejede"?', odpovedi: ['ladit a testovat dál — napoprvé to nejede nikomu', 'hned to vzdát', 'rozebrat robota a začít jiný předmět'], vysvetleni: 'Ladění je běžná součást práce — spoj, testuj, dolaď.' },
+		{ text: 'Co patří k předvedení hotového projektu?', odpovedi: ['vysvětlit, jak program funguje', 'jen zamávat robotem', 'smazat program, ať ho nikdo nevidí'], vysvetleni: 'Součástí je ukázka i vysvětlení principu řešení.' },
+		{ text: 'Který úkol je typický pro robota s čidlem?', odpovedi: ['hlídat okraj stolu a nikdy nespadnout', 'uvařit čaj', 'připojit se na internet'], vysvetleni: 'Čidlo hlásí okraj/čáru a program včas zastaví nebo otočí.' },
 	],
 	'informatika/8-rocnik/microbit/oziveni-a-led-displej': [
 		{ text: 'Co je micro:bit?', odpovedi: ['malá programovatelná deska s displejem a senzory', 'herní konzole', 'druh mobilu'], vysvetleni: 'LED 5×5, tlačítka, senzory, rádio.' },
@@ -3897,6 +3902,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak funguje krokoměr na micro:bitu?', odpovedi: ['každý otřes přičte 1 do proměnné', 'počítá kroky kamerou', 'nefunguje'], vysvetleni: 'Otřes = událost, proměnná = počítadlo.' },
 		{ text: 'Co potřebuje micro:bit k přehrání melodie?', odpovedi: ['sluchátka nebo bzučák (novější verze má reproduktor)', 'wifi', 'nic neumí'], vysvetleni: 'Tóny jdou programovat jako bloky hudby.' },
 		{ text: 'Události na micro:bitu („po stisku A") připomínají…', odpovedi: ['události ve Scratchi', 'vzorce v tabulce', 'e-mail'], vysvetleni: 'Stejný princip: čekej a reaguj.' },
+		{ text: 'Které vstupy má micro:bit přímo na desce?', odpovedi: ['tlačítka A a B a akcelerometr', 'klávesnici a myš', 'dotykovou obrazovku'], vysvetleni: 'Dvě tlačítka + akcelerometr (pohybové čidlo) jsou přímo na desce.' },
+		{ text: 'Co všechno pozná akcelerometr?', odpovedi: ['zatřesení, naklonění i otočení logem dolů', 'barvu předmětů před deskou', 'lidský hlas'], vysvetleni: 'Akcelerometr měří pohyb — třes, náklon, otočení, volný pád.' },
+		{ text: 'Jak pracuje program řízený událostmi (events)?', odpovedi: ['čeká na událost a pak zareaguje', 'běží pořád dokola bez čekání', 'spustí se jen jednou při zapnutí'], vysvetleni: '„Po stisku A → udělej…" — stejně jako události ve Scratchi.' },
+		{ text: 'Jak naprogramuješ elektronickou kostku?', odpovedi: ['po zatřesení ukážu náhodné číslo 1–6', 'tlačítkem A vypnu displej', 'nakloněním smažu program'], vysvetleni: 'Událost „při zatřesení" + náhodné číslo 1–6 na displej.' },
+		{ text: 'Co potřebuješ, aby micro:bit přehrával tóny?', odpovedi: ['připojit sluchátka nebo bzučák', 'nic — má velký reproduktor', 'připojit tiskárnu'], vysvetleni: 'Zvuk jde do připojených sluchátek či bzučáku; pak jde hrát i melodie.' },
 	],
 	'informatika/8-rocnik/microbit/propojeni-a-externi-zarizeni': [
 		{ text: 'Jak si dva micro:bity pošlou zprávu bez kabelu?', odpovedi: ['rádiem', 'poštou', 'nijak'], vysvetleni: 'Bloky rádia: vyšli/přijmi číslo či text.' },
@@ -3904,6 +3914,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu jsou piny na spodní hraně desky?', odpovedi: ['k připojení dalších zařízení (LED, motorek, čidlo)', 'na zavěšení na krk', 'jen na ozdobu'], vysvetleni: 'micro:bit pak řídí vlastní vynález.' },
 		{ text: 'Který projekt využije DVA micro:bity?', odpovedi: ['vysílačka mezi lavicemi', 'jmenovka', 'kostka'], vysvetleni: 'Potřebuje vysílač a přijímač.' },
 		{ text: 'Měření času na trati: co si desky na startu a v cíli pošlou?', odpovedi: ['rádiový signál start/cíl', 'fotku', 'nic'], vysvetleni: 'Start odešle zprávu, cíl zastaví stopky.' },
+		{ text: 'Jak se spolu dva micro:bity propojí?', odpovedi: ['bezdrátově rádiem', 'kabelem USB mezi sebou', 'přes wi-fi router'], vysvetleni: 'Jeden vyšle rádiem zprávu (číslo či text), druhý ji přijme a zareaguje.' },
+		{ text: 'Čemu se podobá posílání zpráv rádiem mezi deskami?', odpovedi: ['posílání zpráv ve Scratchi — jen letí vzduchem', 'ukládání souboru na disk', 'kreslení pera ve Scratchi'], vysvetleni: 'Stejný princip jako zprávy mezi postavami, jen bezdrátově.' },
+		{ text: 'K čemu slouží piny na spodní hraně desky?', odpovedi: ['k připojení dalších zařízení — LED pásku, motorku, čidla', 'jen k zavěšení desky na šňůrku', 'k nabíjení baterie'], vysvetleni: 'Přes piny se micro:bit stane mozkem vlastního vynálezu.' },
+		{ text: 'Jak může micro:bit fungovat jako zalévací hlídač květin?', odpovedi: ['čte čidlo vlhkosti a podle něj reaguje', 'stříká vodu přímo z desky', 'květinu fotí a posílá fotky'], vysvetleni: 'Deska je mozek: čidlo vlhkosti hlásí sucho a program spustí akci.' },
+		{ text: 'Jak se dá rádiem měřit čas na trati?', odpovedi: ['deska na startu a v cíli si pošlou signál', 'deska čas prostě zná od výroby', 'podle síly baterie'], vysvetleni: 'Start odešle zprávu při odstartování, cíl při proběhnutí — rozdíl je čas.' },
 	],
 	'informatika/8-rocnik/hromadne-zpracovani-dat/adresy-bunek-a-vzorce': [
 		{ text: 'Jak se značí adresa buňky?', odpovedi: ['sloupec + řádek (např. B3)', 'řádek + sloupec (3B)', 'jménem autora'], vysvetleni: 'Písmeno sloupce, číslo řádku.' },
@@ -3992,6 +4007,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co patří do návrhu projektu?', odpovedi: ['popsání problému a plán řešení', 'hotový program', 'plakát'], vysvetleni: 'Nejdřív promyslet, pak tvořit.' },
 		{ text: 'Při prezentaci je nejdůležitější…', odpovedi: ['srozumitelně vysvětlit, jak řešení funguje', 'mluvit co nejrychleji', 'nic neříkat'], vysvetleni: 'Vysvětlení prokazuje porozumění.' },
 		{ text: 'Vhodným projektem je…', odpovedi: ['hra, robot, web i datová analýza', 'jen hra', 'jen tabulka'], vysvetleni: 'Vyber si, co tě opravdu baví.' },
+		{ text: 'Co je cílem závěrečného projektu?', odpovedi: ['vyřešit skutečný problém a předvést tvůrčí přístup', 'opsat hotové řešení z internetu', 'vyplnit závěrečný test'], vysvetleni: 'Vlastní tvůrčí projekt — sám nebo ve dvojici.' },
+		{ text: 'Co se hodnotí jako první část projektu?', odpovedi: ['návrh — popsání problému a plán řešení', 'barva a obal výrobku', 'rychlost odevzdání'], vysvetleni: 'Nejdřív návrh, pak realizace a předvedení.' },
+		{ text: 'Co patří do REALIZACE projektu?', odpovedi: ['funkčnost, rozklad na části a testování', 'pouze pěkný obal', 'co nejdelší kód bez testování'], vysvetleni: 'Hodnotí se, že to funguje a vznikalo po otestovaných částech.' },
+		{ text: 'Jak vypadá „datový projekt"?', odpovedi: ['sesbírám data, zpracuji v tabulce a vytvořím grafy se závěry', 'nakreslím obrázek zpaměti', 'stáhnu cizí tabulku a odevzdám'], vysvetleni: 'Data → tabulka → grafy → vlastní závěry.' },
+		{ text: 'Může se závěrečný projekt dělat ve dvojici?', odpovedi: ['ano — samostatně, nebo ve dvojici', 'ne, výhradně samostatně', 'jen ve skupině po pěti'], vysvetleni: 'Zadání počítá s prací sám/sama i ve dvojici.' },
 	],
 };
 
