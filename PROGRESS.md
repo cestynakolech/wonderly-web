@@ -93,6 +93,15 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — experiment subagentů, kola E1+E2 (F7 jednoduché stroje).** E1: nové
+  podtéma „Nakloněná rovina" (výklad, simulace F=G·h/l, 8 otázek kvízu, video) — kompletní
+  a nasazené. E2: simulace „Účinky síly na těleso" (posuvný/otáčivý/deformační účinek,
+  pružná × trvalá deformace) k existujícímu podtématu `pusobeni-teles-a-deformace`.
+  Nezávislý kontrolor v E2 chytil závažný nález (levitace + věčná rotace) → pohybový
+  model přepracován (překlopení přes roh, klouzání, těleso na podlaze). Metriky:
+  `METRIKY-KOL.md` řádky E1/E2; protokol `~/Desktop/Omega/EXPERIMENT-SUBAGENTI.md`.
+  ČEKÁ NA UČITELE: duplicity otázek mezi kvízy `pusobeni-teles-a-deformace` a
+  `sily-kolem-nas/sila`.
 - **2026-07-29 — kolo 72: třetí dávka slabých kvízů (+16).** Motory/displej/zvuk (jízda na
   otáčky, zatáčení rozdílem rychlostí, čtverec s opakováním), senzory robota (ultrazvuk,
   dotyk, zastavení před zdí, jízda po čáře), oživení micro:bitu (MakeCode, simulátor,

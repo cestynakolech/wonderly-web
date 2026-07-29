@@ -13,6 +13,7 @@ Vysvětlení sloupců:
 |---|---|---|---|---|---|---|
 | 2026-07-27 | 28 | F6 difuze + Brownův pohyb (simulace, výklad, 4 kvízové otázky, média) | diamond (4 workeři) | 1 | ANO | zrnko pylu sedimentovalo na dno → opraveno při verify |
 | 2026-07-29 | E1 (experiment subagenti) | F7 nakloněná rovina (výklad, simulace, 8 kvízových otázek, video) | diamond (pojmenovaní subagenti: průzkumník + A–D, kontrolor po merge) | 1 | ANO | 3× dotaz na povolení WebFetch/WebSearch v session 1 (chyba nastavení, opravena); worker-media proto nedoběhl, média ověřena curlem |
+| 2026-07-29 | E2 (experiment subagenti) | F7 působení těles a deformace — simulace účinků síly (výklad+kvíz+videa už existovaly) | zúžený graf (průzkumník + jen worker B, kontrolor po merge, 2. kolo kontroly) | 2 | ANO | závažný nález kontrolora (levitace + věčná rotace) → přepracován pohybový model |
 
 ### Kontrolor v kole E1 (nakloněná rovina)
 
@@ -23,6 +24,24 @@ Hlavní model navíc při merge chytil porušení pravidla celých čísel (tíh
 dávala u l = 3 necelé síly) → posuvník G změněn na 300/600/900 N; ověřeno výpočtem
 pro všechny kombinace posuvníků. Wordwall od workera D NEpřidán — obsahuje ozubené
 kolo, které se v podtématu neučí (pravidlo kontroly pokrytí).
+
+### Kontrolor v kole E2 (účinky síly) — dvě kola kontroly
+
+1. kolo: **1 ZÁVAŽNÉ** (těleso levitovalo 15 px nad podlahou a hranaté těleso se
+věčně točilo jako kolo) + 3 DROBNÉ (skok zpět při přechodu do deformace; statický
+posun vs. animovaná rotace = dva modely; duplicity kvízových otázek se staršími
+kvízy učitele). Pohybový model přepracován: těleso sedí na podlaze, síla mimo
+těžiště ho PŘEKLÁPÍ přes spodní roh (max 90°), síla v těžišti ho plynule POSOUVÁ
+(zastaví na kraji), při deformaci zůstává, kam dojelo.
+2. kolo (tentýž kontrolor ověřil opravy): OPRAVENO ANO × 3, nově 4 DROBNÉ —
+3 opraveny (šipka sleduje překlápěné těleso; hlášení reaguje na dojetí/překlopení;
+přepnutí bodu působení neresetuje zdeformované těleso), 1 ponechán ZÁMĚRNĚ
+(vynulování náklonu při vstupu do deformace — zachování náklonu by vrátilo
+levitaci; zdůvodnění v komentáři kódu).
+
+**ČEKÁ NA UČITELE:** duplicity otázek mezi kvízy `pusobeni-teles-a-deformace`
+a `sily-kolem-nas/sila` (pružina, modelína, interakce, působení na dálku) —
+oba kvízy jsou starší obsah učitele, potichu se nemazalo.
 
 ### Nezávislý kontrolor (poprvé nasazen v kole 28) — velmi se vyplatil
 
