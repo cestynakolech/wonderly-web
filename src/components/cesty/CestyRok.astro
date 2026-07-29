@@ -218,9 +218,11 @@ const texty = {
 			data.mesta.map((m) => {
 				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
 				const stellplatzy = (m.stellplatze ?? []).map((s) => sCenami(m.slug, s));
-				// upozornění „jen orientační" patří k cenám z automatu (veřejně dohledané);
-				// u ceny, kterou zapsal učitel z vlastní zkušenosti, by mátlo
-				const maCeny = stellplatzy.some((s) => s.zAutomatu && (s.cenaNoc || s.elektrina || s.voda));
+				// upozornění „jen orientační" patří k veřejně dohledaným cenám (automat
+				// i ruční zápis z park4night); u ceny zaplacené na místě by mátlo
+				const maCeny = stellplatzy.some(
+					(s) => !s.overenoNaMiste && (s.cenaNoc || s.elektrina || s.voda),
+				);
 				return (
 					<article id={m.slug} class="mesto-karta" data-slug={m.slug}>
 						<h2>{m.nazev}</h2>

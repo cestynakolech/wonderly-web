@@ -20,6 +20,9 @@ export type Stellplatz = {
 	gps?: string;
 	/** ze kdy ceny jsou, např. "léto 2025" nebo "05/2026" */
 	rokCen?: string;
+	/** cenu jsme zaplatili na místě (ne dohledaná v aplikaci) — pak se u ní
+	 *  neukazuje upozornění „jen orientační, veřejně dohledané" */
+	overenoNaMiste?: boolean;
 };
 
 export type Mesto = {

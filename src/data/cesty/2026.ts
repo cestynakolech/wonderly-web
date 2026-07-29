@@ -9,6 +9,7 @@ export const rok2026: Rok = {
 	mesta: [
 		{
 			slug: 'landshut',
+			galerie: 'cesty/2026/landshut',
 			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
 			obyvatele: 73000,
 			nazev: 'Landshut',
@@ -32,6 +33,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'schongau',
+			galerie: 'cesty/2026/schongau',
 			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
 			obyvatele: 12000,
 			nazev: 'Schongau',
@@ -55,6 +57,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'geisingen',
+			galerie: 'cesty/2026/geisingen',
 			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
 			obyvatele: 6000,
 			nazev: 'Geisingen',
@@ -185,6 +188,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'frangy',
+			galerie: 'cesty/2026/frangy',
 			nazev: 'Frangy',
 			zeme: 'Francie',
 			datum: '20. 7. 2026',
@@ -193,7 +197,9 @@ export const rok2026: Rok = {
 					nazev: 'Přespání u vinaře mezi vinicemi',
 					cenaNoc: '10 € / osoba (bez elektřiny a vody)',
 					elektrina: '6 €',
+					voda: '4 €',
 					rokCen: 'z vlastní návštěvy, 07/2026',
+					overenoNaMiste: true,
 				},
 			],
 			x: 272.9,
@@ -206,6 +212,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'vaulnaveys-le-haut',
+			galerie: 'cesty/2026/vaulnaveys-le-haut',
 			nazev: 'Vaulnaveys-le-Haut',
 			zeme: 'Francie',
 			datum: '21. 7. 2026',
@@ -220,16 +227,28 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'livet-et-gavet',
-			nazev: 'Livet-et-Gavet',
+			galerie: 'cesty/2026/livet-et-gavet',
+			nazev: 'Livet-et-Gavet a Chamrousse',
 			zeme: 'Francie',
 			datum: '21. 7. 2026',
+			stellplatze: [
+				{
+					nazev: 'Chamrousse – Place des Niverolles',
+					odkaz: 'https://park4night.com/en/place/7531',
+					gps: '45.1266,5.8738',
+					cenaNoc: '20 € / 24 h',
+					elektrina: '8 €',
+					rokCen: 'park4night, 07/2026',
+					poznamka: 'stání přímo ve středisku, otevřené jen v sezóně (léto a zima)',
+				},
+			],
 			x: 272.4,
 			y: 396.9,
 			popisekPosun: { dx: 2, dy: 4, kotva: 'start' },
 			popis: {
-				cs: "Obec v údolí řeky Romanche, na půl cesty mezi Grenoblem a středisky Alpe d'Huez a Les Deux Alpes. Údolí bylo kolébkou francouzské vodní energetiky — podzemní elektrárna Romanche-Gavet (v provozu od roku 2020, výkon 97 MW) je nejvýkonnější podzemní vodní elektrárnou ve Francii a nahradila šest starých elektráren.",
-				en: "A commune in the Romanche valley, halfway between Grenoble and the resorts of Alpe d'Huez and Les Deux Alpes. The valley was a cradle of French hydropower — the underground Romanche-Gavet plant (running since 2020, 97 MW) is the most powerful underground hydroelectric plant in France and replaced six older ones.",
-				de: "Gemeinde im Tal der Romanche, auf halbem Weg zwischen Grenoble und den Orten Alpe d'Huez und Les Deux Alpes. Das Tal war eine Wiege der französischen Wasserkraft — das unterirdische Kraftwerk Romanche-Gavet (seit 2020, 97 MW) ist das leistungsstärkste unterirdische Wasserkraftwerk Frankreichs und ersetzte sechs ältere Anlagen.",
+				cs: "Obec v údolí řeky Romanche, na půl cesty mezi Grenoblem a středisky Alpe d'Huez a Les Deux Alpes. Údolí bylo kolébkou francouzské vodní energetiky — podzemní elektrárna Romanche-Gavet (v provozu od roku 2020, výkon 97 MW) je nejvýkonnější podzemní vodní elektrárnou ve Francii a nahradila šest starých elektráren. Spali jsme nahoře u sjezdovek v Chamrousse (kolem 1 700 m n. m.) s krásnými výhledy do údolí. Právě tady se na zimních olympijských hrách 1968 v Grenoblu jely sjezdové disciplíny — sjezd mužů na trati Casserousse, ostatní závody v části Recoin. Olympijské závody se tehdy počítaly zároveň jako 28. mistrovství světa.",
+				en: "A commune in the Romanche valley, halfway between Grenoble and the resorts of Alpe d'Huez and Les Deux Alpes. The valley was a cradle of French hydropower — the underground Romanche-Gavet plant (running since 2020, 97 MW) is the most powerful underground hydroelectric plant in France and replaced six older ones. We slept up by the ski slopes at Chamrousse (around 1,700 m) with beautiful views down the valley. This is where the alpine events of the 1968 Grenoble Winter Olympics were held — the men's downhill on the Casserousse course, the rest at Recoin. Those Olympic races also counted as the 28th World Championships.",
+				de: "Gemeinde im Tal der Romanche, auf halbem Weg zwischen Grenoble und den Orten Alpe d'Huez und Les Deux Alpes. Das Tal war eine Wiege der französischen Wasserkraft — das unterirdische Kraftwerk Romanche-Gavet (seit 2020, 97 MW) ist das leistungsstärkste unterirdische Wasserkraftwerk Frankreichs und ersetzte sechs ältere Anlagen. Übernachtet haben wir oben an den Pisten von Chamrousse (rund 1 700 m) mit herrlicher Aussicht ins Tal. Hier wurden bei den Olympischen Winterspielen 1968 in Grenoble die alpinen Wettbewerbe ausgetragen — die Herrenabfahrt auf der Piste Casserousse, die übrigen Rennen im Ortsteil Recoin. Die olympischen Rennen zählten damals zugleich als 28. Weltmeisterschaft.",
 			},
 		},
 	],
