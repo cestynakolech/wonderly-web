@@ -1,15 +1,15 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 63 hotové — decibely)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 64 hotové — přetlak a vývěva)
 
-Hotovo 63 kol samostatného režimu (61 simulací na 63 stránkách, 356+ kvízových otázek).
+Hotovo 64 kol samostatného režimu (62 simulací na 64 stránkách, 356+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
 ~~Kolo 55 = checkpoint dělby rolí~~ → HOTOVO 29. 7. (zápis v ~/ollama-log.md: dělba
 správná, vzor „čistá funkce + Node + DOM" se osvědčil na všech 6 simulacích, beze změn;
 Hermes čeká na rozhodnutí učitele; další checkpoint kolo 65).
-**DALŠÍ KOLO (64):** kandidát č. 9 nového seznamu — **F7 přetlak, podtlak, vakuum**
-(píst ve válci + manometr: přetlak/podtlak/vakuum, frkačka a přísavka jako příklady;
-statické).
+**DALŠÍ KOLO (65) = ⏰ CHECKPOINT dělby rolí** (à 10 kol; revize kol 56–64 do
+~/ollama-log.md, další checkpoint kolo 75). Pak kandidát č. 10 — **F8 energetická
+hodnota potravin** (skládačka svačiny: jídla → součet kJ → minuty pohybu, celá čísla).
 POZOR: ráno čekají rozhodnutí učitele (Hermes audit + naplánovaný restart) — viz „Čeká na odkliknutí".
 
 ### Kandidáti na simulace — NOVÝ audit (kolo 54, 29. 7. 2026)
@@ -42,8 +42,9 @@ Z 96 podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁD
 8. [x] **F8 vnimani-zvuku-a-hlasitost** — HOTOVO v kole 63 (DecibelySimulace: stupnice
    0–130 dB po 10 se 14 zdroji, pásma 0/90/130 dB z výkladu, smajlík ucha, násobek vjemu
    „+10 dB ≈ 2×" od šepotu — celé mocniny dvou až 2048×).
-9. [ ] **F7 pretlak-podtlak-vakuum** — píst ve válci + manometr: přetlak/podtlak/vakuum,
-   frkačka a přísavka jako příklady; statické.
+9. [x] **F7 pretlak-podtlak-vakuum** — HOTOVO v kole 64 (PretlakSimulace: píst 1/2/4/8
+   dílků → 400/200/100/50 kPa (p·V=konst, celé), manometr rozdílu proti okolí 100 kPa,
+   vývěva → vakuum −100 kPa, molekuly houstnou/mizí, příklady míč/brčko/žárovka).
 10. [ ] **F8 energeticka-hodnota-potravin** — skládačka svačiny: vyber jídla → součet kJ →
     minuty běhu/chůze/plavání (celá čísla z tabulky výkladu).
 11. [ ] **F9 prenos-elektricke-energie** — týž výkon při 230 V × 22 kV × 400 kV → proud

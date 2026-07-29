@@ -93,6 +93,12 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — kolo 64: PretlakSimulace (přetlak, podtlak, vakuum).** F7: válec s pístem
+  (objem 1/2/4/8 dílků → tlak 400/200/100/50 kPa, p·V = konst, vše celé), manometr ukazuje
+  rozdíl proti okolí (100 kPa = 1 bar), vývěva odčerpá vzduch na vakuum (−100 kPa, molekuly
+  zmizí), hlášky s příklady z výkladu (míč a pneumatika 2,5 baru, brčko a přísavka, žárovka
+  a vesmír). Čistá funkce stavPistu — 4 polohy + vývěva ověřeny výpočtem i DOM.
+  Celkem 62 simulací.
 - **2026-07-29 — kolo 63: DecibelySimulace (hlasitost zvuku).** F8: barevná stupnice
   0–130 dB po 10 se 14 zdroji (práh slyšitelnosti → šepot → rozhovor → kamion → koncert →
   start letadla), pásma z výkladu (nad 90 dB trvale ničí vláskové buňky, 130 dB práh
