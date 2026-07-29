@@ -97,6 +97,12 @@ const klicKvizu = `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`;
 const otazky = kvizy[klicKvizu];
 const absolutniUrl = `https://lab.wonderly.cz/${klicKvizu}/`;
 
+// sousední podtémata v rámci tématu — dolní navigace „← předchozí / další →"
+const sourozenci = tema.podtemata ?? [];
+const mojePoradi = sourozenci.findIndex((p) => p.slug === podtema.slug);
+const predchozi = mojePoradi > 0 ? sourozenci[mojePoradi - 1] : null;
+const dalsi = mojePoradi >= 0 && mojePoradi < sourozenci.length - 1 ? sourozenci[mojePoradi + 1] : null;
+
 const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 ---
 
@@ -267,9 +273,39 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{otazky && <Kviz otazky={otazky} />}
+	{(predchozi || dalsi) && (
+		<nav class="sousedni-podtemata">
+			{predchozi ? (
+				<a class="sousedni-odkaz" href={`../${predchozi.slug}/`}>← {predchozi.nazev}</a>
+			) : (
+				<span />
+			)}
+			{dalsi && <a class="sousedni-odkaz sousedni-dalsi" href={`../${dalsi.slug}/`}>{dalsi.nazev} →</a>}
+		</nav>
+	)}
 </SkolaLayout>
 
 <style is:global>
+	.sousedni-podtemata {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		margin: 2rem 0 0;
+		font-weight: 700;
+	}
+	.sousedni-odkaz {
+		text-decoration: none;
+		border-bottom: 3px solid var(--oranzova);
+		padding-bottom: 0.1em;
+		color: var(--inkoust);
+	}
+	.sousedni-odkaz:hover {
+		color: var(--oranzova);
+	}
+	.sousedni-dalsi {
+		text-align: right;
+		margin-left: auto;
+	}
 	.odkazy-pokyn {
 		margin-top: 0;
 		color: #555;

@@ -2,6 +2,7 @@
 import SkolaLayout from '../../../../../layouts/SkolaLayout.astro';
 import { predmety, rocniky } from '../../../../../data/predmety';
 import { temata } from '../../../../../data/temata';
+import { kvizy } from '../../../../../data/kvizy';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -20,6 +21,15 @@ export function getStaticPaths() {
 }
 
 const { predmet, rocnik, tema } = Astro.props;
+
+// odznaky karty: co podtéma nabízí (🎮 simulace, ✏️ kvíz, 🎬 video)
+function odznaky(pt) {
+	const o = [];
+	if (pt.interakce || pt.interakce2) o.push({ znak: '🎮', popis: 'interaktivní simulace' });
+	if (kvizy[`${predmet.slug}/${rocnik.slug}/${tema.slug}/${pt.slug}`]) o.push({ znak: '✏️', popis: 'procvičovací kvíz' });
+	if (pt.materialy?.some((m) => m.druh === 'video' || m.druh === 'youtube')) o.push({ znak: '🎬', popis: 'video' });
+	return o;
+}
 ---
 
 <SkolaLayout
@@ -38,9 +48,14 @@ const { predmet, rocnik, tema } = Astro.props;
 				<ul class="karty">
 					{tema.podtemata.map((pt, i) => (
 						<li>
-							<a class="karta" href={`${pt.slug}/`}>
+							<a class="karta" href={`${pt.slug}/`} data-kviz-karta>
 								<span class="cislo">{i + 1}</span>
 								<span class="nazev">{pt.nazev}</span>
+								{odznaky(pt).length > 0 && (
+									<span class="karta-odznaky" title={odznaky(pt).map((o) => o.popis).join(' · ')}>
+										{odznaky(pt).map((o) => o.znak).join(' ')}
+									</span>
+								)}
 							</a>
 						</li>
 					))}
@@ -51,3 +66,32 @@ const { predmet, rocnik, tema } = Astro.props;
 		)
 	}
 </SkolaLayout>
+
+<script>
+	// „co už umím": nejlepší výsledek kvízu se ukládá v prohlížeči — ukázat na kartě
+	for (const karta of document.querySelectorAll('[data-kviz-karta]')) {
+		const cesta = new URL(karta.href, location.href).pathname;
+		const nej = localStorage.getItem(`kviz-nej:${cesta}`);
+		if (!nej) continue;
+		const odznak = document.createElement('span');
+		odznak.className = 'karta-splneno';
+		odznak.textContent = Number(nej) >= 91 ? `🏆 ${nej} %` : `✅ ${nej} %`;
+		odznak.title = 'tvůj nejlepší výsledek kvízu (ukládá se jen v tomto prohlížeči)';
+		karta.appendChild(odznak);
+	}
+</script>
+
+<style is:global>
+	.karta-odznaky {
+		font-size: 1rem;
+		letter-spacing: 0.2em;
+	}
+	.karta-splneno {
+		position: absolute;
+		top: 0.5rem;
+		right: 0.7rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: #2f9e44;
+	}
+</style>

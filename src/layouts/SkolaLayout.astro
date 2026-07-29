@@ -1,6 +1,7 @@
 ---
 import '@fontsource/patrick-hand';
 import '@fontsource/caveat/700.css';
+import Hledani from '../components/skola2/Hledani.astro';
 
 interface Drobek {
 	text: string;
@@ -11,16 +12,25 @@ interface Props {
 	titulek: string;
 	/** Navigační drobečky (odkazy zpět nahoru v hierarchii) */
 	drobky?: Drobek[];
+	/** Popis stránky pro vyhledávače */
+	popis?: string;
 }
 
-const { titulek, drobky = [] } = Astro.props;
+const {
+	titulek,
+	drobky = [],
+	popis = 'Školní web 2. stupně — výklad, interaktivní simulace, kvízy a testy pro fyziku, informatiku a pracovní činnosti.',
+} = Astro.props;
+// vyhledávání je na každé stránce; odkazy vede od kořene školy (drobeček „2. stupeň")
+const korenSkoly = drobky[0]?.href ?? '';
 ---
 
 <html lang="cs">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={popis} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{titulek}</title>
 	</head>
@@ -35,6 +45,7 @@ const { titulek, drobky = [] } = Astro.props;
 					</nav>
 				)
 			}
+			{drobky.length > 0 && <Hledani koren={korenSkoly} />}
 			<slot />
 		</main>
 		<style is:global>
@@ -194,6 +205,28 @@ const { titulek, drobky = [] } = Astro.props;
 			@media (max-width: 500px) {
 				h1 {
 					font-size: 2.3rem;
+				}
+			}
+			/* tisk: jen výklad — bez šumu pozadí, hledání, simulací, kvízu a QR */
+			@media print {
+				html,
+				body {
+					background: #fff;
+				}
+				.drobky,
+				.hledani,
+				.simulace,
+				.kviz,
+				.qr-podtema,
+				.qr-pristup,
+				.sousedni-podtemata,
+				footer {
+					display: none !important;
+				}
+				.ramecek,
+				.karta {
+					box-shadow: none;
+					border-color: #999;
 				}
 			}
 		</style>

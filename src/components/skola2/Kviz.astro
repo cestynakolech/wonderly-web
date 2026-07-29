@@ -145,6 +145,12 @@ const { otazky } = Astro.props;
 		];
 		const znamka = znamky.find(([hranice]) => procenta >= hranice);
 		el('kviz-znamka').textContent = `Orientační známka: ${znamka[1]} (${znamka[2]})`;
+		// nejlepší výsledek se pamatuje v prohlížeči — karty podtémat ukazují „co už umím"
+		try {
+			const klic = `kviz-nej:${location.pathname}`;
+			const dosud = parseInt(localStorage.getItem(klic) || '0', 10);
+			if (procenta > dosud) localStorage.setItem(klic, String(procenta));
+		} catch (e) {}
 		let motivace;
 		if (procenta === 100) motivace = '🏆 Paráda! Máš to v malíku — jsi připraven(a) na test!';
 		else if (procenta >= 80) motivace = '🎉 Skvělá práce! Ještě jednou si projdi, co ti uteklo, a bude to na jedničku.';

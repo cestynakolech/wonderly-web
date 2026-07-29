@@ -1,0 +1,134 @@
+---
+// Vyhledávání napříč celým školním webem — jedno pole na každé stránce.
+// `koren` = relativní cesta ke kořeni školy (na úvodní stránce prázdná,
+// na podstránkách stejná jako drobeček „2. stupeň"), aby odkazy fungovaly
+// na lab.wonderly.cz i na wonderly.cz/skola2.
+import { predmety, rocniky } from '../../data/predmety';
+import { temata } from '../../data/temata';
+
+interface Props {
+	koren?: string;
+}
+
+const { koren = '' } = Astro.props;
+
+const index = [];
+for (const [klic, seznam] of Object.entries(temata)) {
+	const [predmetSlug, rocnikSlug] = klic.split('/');
+	const predmet = predmety.find((p) => p.slug === predmetSlug);
+	const rocnik = rocniky.find((r) => r.slug === rocnikSlug);
+	if (!predmet || !rocnik) continue;
+	for (const tema of seznam) {
+		for (const podtema of tema.podtemata ?? []) {
+			index.push({
+				nazev: podtema.nazev,
+				predmet: predmet.nazev,
+				ikona: predmet.ikona,
+				rocnik: rocnik.nazev,
+				tema: tema.nazev,
+				url: `${koren}${predmetSlug}/${rocnikSlug}/${tema.slug}/${podtema.slug}/`,
+			});
+		}
+	}
+}
+---
+
+<div class="hledani" data-index={JSON.stringify(index)}>
+	<input id="hledej" type="search" placeholder="🔍 Hledej téma (např. rychlost, páka, Scratch…)" autocomplete="off" />
+	<ul id="hledej-vysledky" class="hledej-vysledky" hidden></ul>
+</div>
+
+<script>
+	const obal = document.querySelector('.hledani');
+	const index = JSON.parse(obal.dataset.index);
+	const vstup = document.getElementById('hledej');
+	const seznam = document.getElementById('hledej-vysledky');
+
+	// odstranění diakritiky pro hledání bez háčků a čárek
+	const bezDiakritiky = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+	const indexBez = index.map((p) => bezDiakritiky(`${p.nazev} ${p.predmet} ${p.rocnik} ${p.tema}`));
+
+	function bezpecne(t) {
+		return String(t).replace(/[&<>"']/g, (z) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[z]);
+	}
+
+	vstup.addEventListener('input', () => {
+		const dotaz = bezDiakritiky(vstup.value.trim());
+		if (dotaz.length < 2) { seznam.hidden = true; seznam.innerHTML = ''; return; }
+		const nalezene = [];
+		for (let i = 0; i < index.length; i++) {
+			if (indexBez[i].includes(dotaz)) nalezene.push(index[i]);
+			if (nalezene.length >= 12) break;
+		}
+		if (nalezene.length === 0) {
+			seznam.innerHTML = '<li class="hledej-nic">Nic nenalezeno — zkus jiné slovo.</li>';
+		} else {
+			seznam.innerHTML = nalezene.map((p) =>
+				`<li><a href="${p.url}"><span class="hv-ikona">${p.ikona}</span>` +
+				`<span class="hv-nazev">${bezpecne(p.nazev)}</span>` +
+				`<span class="hv-cesta">${bezpecne(p.predmet)} · ${bezpecne(p.rocnik)} · ${bezpecne(p.tema)}</span></a></li>`
+			).join('');
+		}
+		seznam.hidden = false;
+	});
+</script>
+
+<style is:global>
+	.hledani {
+		position: relative;
+		max-width: 34rem;
+		margin: 0 auto 2rem;
+	}
+	#hledej {
+		width: 100%;
+		font-size: 1.1rem;
+		padding: 0.7rem 1rem;
+		border: 3px solid var(--inkoust);
+		border-radius: 12px;
+		font-family: inherit;
+		box-sizing: border-box;
+	}
+	.hledej-vysledky {
+		list-style: none;
+		margin: 0.4rem 0 0;
+		padding: 0;
+		border: 3px solid var(--inkoust);
+		border-radius: 12px;
+		background: #fff;
+		overflow: hidden;
+		box-shadow: 2px 4px 0 rgba(43, 42, 38, 0.14);
+		position: absolute;
+		width: 100%;
+		z-index: 10;
+		box-sizing: border-box;
+	}
+	.hledej-vysledky li {
+		border-bottom: 1px solid #e9ecef;
+	}
+	.hledej-vysledky li:last-child {
+		border-bottom: 0;
+	}
+	.hledej-vysledky a {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		padding: 0.6rem 1rem;
+		text-decoration: none;
+		color: inherit;
+	}
+	.hledej-vysledky a:hover {
+		background: #fff3bf;
+	}
+	.hv-nazev {
+		font-weight: 700;
+	}
+	.hv-cesta {
+		margin-left: auto;
+		font-size: 0.85rem;
+		color: var(--ztlumena);
+	}
+	.hledej-nic {
+		padding: 0.6rem 1rem;
+		color: var(--ztlumena);
+	}
+</style>
