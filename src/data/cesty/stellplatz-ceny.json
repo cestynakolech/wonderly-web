@@ -1,1 +1,13 @@
-[]
+[
+ {
+  "rok": 2025,
+  "slug": "karlstadt",
+  "stellplatz": "Stellplatz Karlburger Str. 16, Karlstadt",
+  "cenaNoc": "10 €",
+  "elektrina": "0,50 €/kWh",
+  "voda": "1 €",
+  "kdy": "2026",
+  "zdroj": "park4night",
+  "aktualizovano": "07/2026"
+ }
+]
