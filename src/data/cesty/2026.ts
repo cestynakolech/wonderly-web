@@ -251,6 +251,20 @@ export const rok2026: Rok = {
 				de: "Gemeinde im Tal der Romanche, auf halbem Weg zwischen Grenoble und den Orten Alpe d'Huez und Les Deux Alpes. Das Tal war eine Wiege der französischen Wasserkraft — das unterirdische Kraftwerk Romanche-Gavet (seit 2020, 97 MW) ist das leistungsstärkste unterirdische Wasserkraftwerk Frankreichs und ersetzte sechs ältere Anlagen. Übernachtet haben wir oben an den Pisten von Chamrousse (rund 1 700 m) mit herrlicher Aussicht ins Tal. Hier wurden bei den Olympischen Winterspielen 1968 in Grenoble die alpinen Wettbewerbe ausgetragen — die Herrenabfahrt auf der Piste Casserousse, die übrigen Rennen im Ortsteil Recoin. Die olympischen Rennen zählten damals zugleich als 28. Weltmeisterschaft.",
 			},
 		},
+		{
+			slug: 'col-d-ornon',
+			nazev: "Col d'Ornon",
+			zeme: 'Francie',
+			datum: '24. 7. 2026',
+			x: 272.7,
+			y: 398.0,
+			popisekPosun: { dx: -2, dy: 6, kotva: 'end' },
+			popis: {
+				cs: "Horské sedlo (1 371 m) mezi údolím Valbonnais a Bourg-d'Oisans. Přijeli jsme sem den předem a přespali rovnou na silnici, abychom měli místo — 24. července tudy vedla 19. etapa Tour de France z Gapu na Alpe d'Huez a v roce 2026 se na Alpe d'Huez dojíždělo hned dvakrát, poprvé v historii závodu.",
+				en: "A mountain pass (1,371 m) between the Valbonnais valley and Bourg-d'Oisans. We arrived a day early and slept right by the road to keep our spot — on 24 July stage 19 of the Tour de France passed through here on its way from Gap to Alpe d'Huez, which in 2026 hosted two stage finishes for the first time in the race's history.",
+				de: "Ein Gebirgspass (1 371 m) zwischen dem Valbonnais und Bourg-d'Oisans. Wir kamen einen Tag früher und übernachteten direkt an der Straße, um den Platz zu halten — am 24. Juli führte hier die 19. Etappe der Tour de France von Gap nach Alpe d'Huez vorbei, wo 2026 erstmals in der Geschichte des Rennens zwei Etappen endeten.",
+			},
+		},
 	],
 	videa: [
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
