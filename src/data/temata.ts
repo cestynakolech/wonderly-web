@@ -4169,7 +4169,9 @@ export const temata: Record<string, Tema[]> = {
 							<li>🔢 zapamatování odpovědi hráče</li>
 						</ul>
 						<p>👉 Dobré jméno proměnné říká, co je uvnitř. <em>skore</em> je lepší než <em>x</em> — za měsíc budeš vědět, co program dělá.</p>
-						<p>📗 Učebnice Scratch, kapitola 10 (Proměnné).</p>
+						<h3>Jak na to ve Scratchi</h3>
+							<p>Novou proměnnou vytvoříš v paletě <strong>Proměnné</strong> tlačítkem <strong>„Vytvoř proměnnou"</strong>. Při vytváření volíš, jestli platí <strong>pro všechny postavy</strong> (sdílená, např. skóre), nebo <strong>„Jen pro tuto postavu"</strong> (každá postava má svou). Když <strong>zaškrtneš políčko</strong> vedle jména proměnné v paletě, ukáže se na scéně okénko s její aktuální hodnotou — hodí se na sledování skóre při hraní.</p>
+							<p>📗 Učebnice Scratch, kapitola 10 (Proměnné).</p>
 					`,
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
