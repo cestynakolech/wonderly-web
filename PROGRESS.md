@@ -93,6 +93,16 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — dva nové automaty (park4night potvrzen učitelem).** (1) **Okno „okolí
+  obce/PSČ"**: `Omega/skripty/okoli.py` + skill `/okoli` — z názvu obce nebo PSČ vrátí
+  zajímavá místa a stání pro obytné auto z OpenStreetMap s GPS a odkazy do mapy; funguje
+  i z Telegramu („okolí 34401" → Chodský hrad, kempy, německý stellplatz — otestováno).
+  (2) **Automat cen stellplatzů**: `stellplatz_ceny.py` + LaunchAgent měsíčně — stáhne
+  stránky navštívených míst z park4night, qwen3:30b-a3b vytěží ceny s kotvou „doslovné
+  úryvky + čísla musí být v textu" (parafráze zahazuje), změny jdou do KE-SCHVALENI.md.
+  Ostrý test: Karlstadt → 10 €/noc, 0,50 €/kWh, 1 € voda = přesně ceny z účtenky 2025.
+  (3) Web: typ Stellplatz rozšířen o cenaNoc/elektrina/voda/gps/rokCen + ikony 🅿️🔌🚰
+  na kartách míst; Karlstadt převeden. ČEKÁ: odkazy dalších míst z aplikace učitele.
 - **2026-07-29 — zbylých 8 laborek + data návštěv.** Rubrika laboratorních prací je
   kompletní: 12 tisknutelných pracovních listů (nově tloušťka listu papíru F6, graf
   chladnutí F6, rychlost chůze/běhu F7, těžiště kartonu F7, gumička a vztlak F7, míchání
