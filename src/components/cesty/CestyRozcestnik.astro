@@ -1,8 +1,9 @@
 ---
 import CestyLayout from '../../layouts/CestyLayout.astro';
+import CestyAtribuce from './CestyAtribuce.astro';
 import { roky } from '../../data/cesty/roky';
 import { MAPA_SIRKA, MAPA_VYSKA } from '../../data/cesty/mapa';
-import { TEXTY, cestaCesty, prelozZemi } from '../../data/cesty/preklady';
+import { TEXTY, cestaCesty, pocetMist, prelozZemi, vlajkyZemi } from '../../data/cesty/preklady';
 import type { Jazyk } from '../../data/cesty/typy';
 
 interface Props {
@@ -11,16 +12,50 @@ interface Props {
 
 const { jazyk } = Astro.props;
 const t = TEXTY[jazyk];
+
+// Piny roků se nesmí překrývat (2025 a 2026 jsou u sebe) — blízké dvojice se
+// symetricky rozestoupí podél své spojnice na bezpečnou vzdálenost.
+const PIN_R = 7;
+const MIN_VZDALENOST = PIN_R * 2 + 4;
+const piny = roky.map((r) => ({ rok: r.rok, zeme: r.zeme, x: r.pinEvropa.x, y: r.pinEvropa.y }));
+for (let krok = 0; krok < 10; krok++) {
+	let posunuto = false;
+	for (let i = 0; i < piny.length; i++) {
+		for (let j = i + 1; j < piny.length; j++) {
+			const a = piny[i];
+			const b = piny[j];
+			const d = Math.hypot(b.x - a.x, b.y - a.y) || 1;
+			if (d >= MIN_VZDALENOST) continue;
+			const posun = (MIN_VZDALENOST - d) / 2;
+			const ux = (b.x - a.x) / d;
+			const uy = (b.y - a.y) / d;
+			a.x -= ux * posun;
+			a.y -= uy * posun;
+			b.x += ux * posun;
+			b.y += uy * posun;
+			posunuto = true;
+		}
+	}
+	if (!posunuto) break;
+}
+
+// souhrnné statistiky výprav pro pás pod úvodem
+const vsechnyZeme = new Set(roky.flatMap((r) => r.zeme.split(',').map((z) => z.trim()).filter(Boolean)));
+const pocetMistCelkem = roky.reduce((s, r) => s + r.mesta.length, 0);
 ---
 
 <CestyLayout titulek={`${t.nadpis} – Wonderly`} jazyk={jazyk} podcesta="">
 	<h1>{t.nadpis}</h1>
 	<p>{t.uvod}</p>
+	<p class="statistiky">
+		{pocetMist(roky.length, t.tvaryVyprav)} · {pocetMist(vsechnyZeme.size, t.tvaryZemi)}
+		{[...vsechnyZeme].map((z) => vlajkyZemi(z)).join(' ')} · {pocetMist(pocetMistCelkem, t.tvaryMist)}
+	</p>
 	<ul class="tlacitka">
 		{
 			roky.map((r) => (
 				<li>
-					<a href={cestaCesty(jazyk, String(r.rok))}>{r.rok} – {prelozZemi(r.zeme, jazyk)}</a>
+					<a href={cestaCesty(jazyk, String(r.rok))}>{vlajkyZemi(r.zeme)} {r.rok} – {prelozZemi(r.zeme, jazyk)}</a>
 				</li>
 			))
 		}
@@ -29,24 +64,28 @@ const t = TEXTY[jazyk];
 	<svg class="mapa" viewBox={`0 0 ${MAPA_SIRKA} ${MAPA_VYSKA}`} role="img" aria-label={t.mapaEvropy}>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		{
-			roky.map((r) => (
-				<a href={cestaCesty(jazyk, String(r.rok))}>
-					<circle class="pin" cx={r.pinEvropa.x} cy={r.pinEvropa.y} r="7" stroke-width="2" />
-					<text class="pin-popisek" x={r.pinEvropa.x} y={r.pinEvropa.y - 12} text-anchor="middle" font-size="16" stroke-width="3">
-						{r.rok}
+			piny.map((p) => (
+				<a href={cestaCesty(jazyk, String(p.rok))}>
+					<title>{p.rok} – {prelozZemi(p.zeme, jazyk)}</title>
+					<circle class="pin-dotyk" cx={p.x} cy={p.y} r={PIN_R * 2.4} />
+					<circle class="pin" cx={p.x} cy={p.y} r={PIN_R} stroke-width="2" />
+					<text class="pin-popisek" x={p.x} y={p.y - 12} text-anchor="middle" font-size="16" stroke-width="3">
+						{p.rok}
 					</text>
 				</a>
 			))
 		}
 	</svg>
-	<footer>
-		{t.podklad}
-		<a
-			href="https://commons.wikimedia.org/wiki/File:Blank_map_of_Europe_(with_disputed_regions).svg"
-			rel="license noopener"
-			>Blank map of Europe</a
-		>{t.autorLicence}
-		<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener">CC BY-SA 3.0</a>
-		{t.upraveno}
-	</footer>
+	<CestyAtribuce jazyk={jazyk} />
 </CestyLayout>
+
+<style>
+	.statistiky {
+		font-weight: 600;
+		color: var(--ztlumeny, #777);
+	}
+	.pin-dotyk {
+		fill: transparent;
+		stroke: none;
+	}
+</style>

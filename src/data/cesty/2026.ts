@@ -2,7 +2,7 @@ import type { Rok } from './typy';
 
 export const rok2026: Rok = {
 	rok: 2026,
-	zeme: 'Německo a Francie',
+	zeme: 'Německo, Francie',
 	pinEvropa: { x: 312, y: 363 },
 	mesta: [
 		{

@@ -1,8 +1,9 @@
 ---
 import CestyLayout from '../../layouts/CestyLayout.astro';
+import CestyAtribuce from './CestyAtribuce.astro';
 import { roky } from '../../data/cesty/roky';
-import { MAPA_SIRKA, MAPA_VYSKA, spocitejVyrez } from '../../data/cesty/mapa';
-import { TEXTY, cestaCesty, formatujDatum, prelozZemi } from '../../data/cesty/preklady';
+import { MAPA_SIRKA, MAPA_VYSKA, rozmistiPopisky, spocitejVyrez } from '../../data/cesty/mapa';
+import { TEXTY, cestaCesty, formatujDatum, prelozZemi, vlajkyZemi } from '../../data/cesty/preklady';
 import type { Jazyk } from '../../data/cesty/typy';
 
 interface Props {
@@ -17,6 +18,14 @@ const vyrez = spocitejVyrez(vsechnaMesta);
 const pinR = vyrez.sirka / 45;
 const pismo = vyrez.sirka / 30;
 const podleRoku = [...roky].sort((a, b) => b.rok - a.rok);
+
+// každý rok má na společné mapě vlastní barvu pinů + legendu
+const PALETA = ['#c83c37', '#2c7fb8', '#2e8b57', '#b8860b', '#7b3fb8', '#c8703c'];
+const barvaRoku = new Map(podleRoku.map((r, i) => [r.rok, PALETA[i % PALETA.length]]));
+
+// popisky rozmístit stejným algoritmem jako na mapě roku, aby na sebe nelezly
+const popisky = rozmistiPopisky(vsechnaMesta, pinR, pismo, vyrez, t.tvaryMist);
+const mestoPodleSlugu = new Map(vsechnaMesta.map((m) => [m.slug, m]));
 ---
 
 <CestyLayout titulek={`${t.vsechnaMista} – ${t.nadpis}`} jazyk={jazyk} podcesta="vse">
@@ -31,28 +40,47 @@ const podleRoku = [...roky].sort((a, b) => b.rok - a.rok);
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		{
-			vsechnaMesta.map((m, i) => (
-				<a href={cestaCesty(jazyk, `${m.rok}#${m.slug}`)}>
+			vsechnaMesta.map((m) => (
+				<a href={cestaCesty(jazyk, `${m.rok}#${m.slug}`)} style={`--pin: ${barvaRoku.get(m.rok)}; --pin-hover: ${barvaRoku.get(m.rok)}`}>
+					<title>{m.nazev} · {formatujDatum(m.datum, jazyk)}</title>
+					<circle class="pin-dotyk" cx={m.x} cy={m.y} r={pinR * 2.4} />
 					<circle class="pin" cx={m.x} cy={m.y} r={pinR} stroke-width={pinR / 3.5} />
-					<text
-						class="pin-popisek"
-						x={m.x}
-						y={i % 2 === 0 ? m.y - pinR * 2 : m.y + pinR * 2 + pismo * 0.8}
-						text-anchor="middle"
-						font-size={pismo}
-						stroke-width={pismo / 5}
-					>
-						{m.nazev}
-					</text>
 				</a>
 			))
 		}
+		{
+			popisky.map((p) => {
+				const m = p.slug ? mestoPodleSlugu.get(p.slug) : undefined;
+				const text = (
+					<text
+						class="pin-popisek"
+						x={p.x}
+						y={p.y}
+						text-anchor={p.kotva}
+						font-size={p.fs}
+						stroke-width={pismo / 5}
+					>
+						{p.text}
+					</text>
+				);
+				return m ? <a href={cestaCesty(jazyk, `${m.rok}#${m.slug}`)}>{text}</a> : text;
+			})
+		}
 	</svg>
+	<p class="legenda">
+		{
+			podleRoku.map((r) => (
+				<a href={cestaCesty(jazyk, String(r.rok))} class="legenda-rok">
+					<span class="legenda-tecka" style={`background: ${barvaRoku.get(r.rok)}`} /> {r.rok}
+				</a>
+			))
+		}
+	</p>
 	{
 		podleRoku.map((r) => (
 			<section>
 				<h2>
-					<a href={cestaCesty(jazyk, String(r.rok))}>{r.rok}</a> – {prelozZemi(r.zeme, jazyk)}
+					<a href={cestaCesty(jazyk, String(r.rok))}>{vlajkyZemi(r.zeme)} {r.rok}</a> – {prelozZemi(r.zeme, jazyk)}
 				</h2>
 				<ul>
 					{r.mesta.map((m) => (
@@ -64,4 +92,33 @@ const podleRoku = [...roky].sort((a, b) => b.rok - a.rok);
 			</section>
 		))
 	}
+	<CestyAtribuce jazyk={jazyk} />
 </CestyLayout>
+
+<style>
+	.pin-dotyk {
+		fill: transparent;
+		stroke: none;
+	}
+	.legenda {
+		display: flex;
+		gap: 1.2rem;
+		flex-wrap: wrap;
+		margin: 0.6rem 0 1rem;
+	}
+	.legenda-rok {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		text-decoration: none;
+		color: inherit;
+		font-weight: 600;
+	}
+	.legenda-tecka {
+		width: 0.85em;
+		height: 0.85em;
+		border-radius: 50%;
+		display: inline-block;
+		border: 1px solid var(--pozadi, #fff);
+	}
+</style>

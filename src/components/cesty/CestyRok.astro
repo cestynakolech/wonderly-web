@@ -1,8 +1,9 @@
 ---
 import CestyLayout from '../../layouts/CestyLayout.astro';
+import CestyAtribuce from './CestyAtribuce.astro';
 import type { Jazyk, Rok } from '../../data/cesty/typy';
 import { MAPA_SIRKA, MAPA_VYSKA, MAX_POLOZEK, pripravPohledy, spocitejVyrez } from '../../data/cesty/mapa';
-import { TEXTY, cestaCesty, formatujDatum, pocetMist, prelozPopis, prelozZemi } from '../../data/cesty/preklady';
+import { TEXTY, cestaCesty, formatujDatum, pocetMist, prelozPopis, prelozZemi, vlajkyZemi } from '../../data/cesty/preklady';
 
 interface Props {
 	data: Rok;
@@ -13,6 +14,18 @@ const { data, jazyk } = Astro.props;
 const t = TEXTY[jazyk];
 
 const videaPodleId = new Map(data.videa.map((v) => [v.id, v]));
+
+// počítadlo dnů na cestě — z nejmenšího a největšího číselného data míst;
+// slovní data („červenec 2026") se přeskočí, bez číselných dat se pás nezobrazí
+const dnyMist = data.mesta
+	.map((m) => {
+		const c = m.datum.split('.').map((x) => parseInt(x.trim(), 10));
+		return c.length === 3 && !c.some(Number.isNaN) ? Date.UTC(c[2], c[1] - 1, c[0]) : null;
+	})
+	.filter((d): d is number => d !== null);
+const pocetDnu = dnyMist.length
+	? Math.round((Math.max(...dnyMist) - Math.min(...dnyMist)) / 86_400_000) + 1
+	: 0;
 
 // Rozbalovací mapa: celková mapa se všemi místy + přiblížené pohledy po nejvýš
 // třech položkách (přání učitele 28. 7. 2026 — shluky měst byly nepřehledné).
@@ -51,7 +64,12 @@ const texty = {
 
 <CestyLayout titulek={`${t.nadpis} ${data.rok} – Wonderly`} jazyk={jazyk} podcesta={String(data.rok)}>
 	<p><a href={cestaCesty(jazyk)}>&larr; {t.vsechnyRoky}</a></p>
-	<h1>{data.rok} – {prelozZemi(data.zeme, jazyk)}</h1>
+	<h1>{vlajkyZemi(data.zeme)} {data.rok} – {prelozZemi(data.zeme, jazyk)}</h1>
+	{pocetDnu > 1 && (
+		<p class="rok-statistika">
+			{pocetMist(pocetDnu, t.tvaryDnu)} {t.naCeste} · {pocetMist(data.mesta.length, t.tvaryMist)}
+		</p>
+	)}
 	<nav class="mapa-drobecky" id="mapa-drobecky" aria-label={t.celaCesta}>
 		<button type="button" class="drobecek" data-cil="vse" disabled>{t.celaCesta}</button>
 	</nav>
@@ -64,7 +82,7 @@ const texty = {
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		<g id="mapa-vrstva">
-			{korenUzly.length >= 2 && <polyline class="trasa-cara" points={korenTrasa} stroke-width={koren.pinR / 1.5} />}
+			{korenUzly.length >= 2 && <polyline class="trasa-cara" points={korenTrasa} pathLength="1000" stroke-width={koren.pinR / 1.5} />}
 			{korenSipky.map((s) => (
 				<polygon class="trasa-sipka" points={sipkaTvar(koren.pinR * 0.75)} transform={`translate(${s.mx} ${s.my}) rotate(${s.uhel})`} />
 			))}
@@ -73,12 +91,24 @@ const texty = {
 				.map((b) => <circle class="pin pin-bod" cx={b.x} cy={b.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />)}
 			{koren.polozky
 				.filter((p) => p.typ === 'misto')
-				.map((p) => <circle class="pin pin-hlavni" cx={p.x} cy={p.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />)}
+				.map((p) => (
+					<>
+						{Math.hypot(p.x - p.px, p.y - p.py) > koren.pinR * 0.15 && (
+							<line class="pin-spojnice" x1={p.px} y1={p.py} x2={p.x} y2={p.y} stroke-width={koren.pinR / 6} />
+						)}
+						<a href={`#${p.id}`} class="mapa-odkaz">
+							<title>{p.nazev}</title>
+							<circle class="pin-dotyk" cx={p.x} cy={p.y} r={koren.pinR * 2.4} />
+							<circle class="pin pin-hlavni" cx={p.x} cy={p.y} r={koren.pinR} stroke-width={koren.pinR / 3.5} />
+						</a>
+					</>
+				))}
 			{
 				koren.polozky
 					.filter((p) => p.typ === 'skupina')
 					.map((p) => (
 						<a href={`#${p.id}`} class="mapa-odkaz">
+							<title>{p.nazev} – {pocetMist(p.pocet, t.tvaryMist)}</title>
 							<circle class="shluk-kruh" cx={p.x} cy={p.y} r={p.r} stroke-width={koren.pinR / 3} />
 							<circle class="shluk-odznak" cx={p.x + p.r * 0.72} cy={p.y - p.r * 0.72} r={koren.pinR * 0.95} />
 							<text
@@ -179,6 +209,20 @@ const texty = {
 			})
 		}
 	</section>
+	{data.videa.length > 0 && (
+		<section class="videa-mrizka-blok">
+			<h2>{t.videaNadpis}</h2>
+			<div class="videa-mrizka">
+				{data.videa.map((v) => (
+					<a href={v.odkaz} rel="noopener" class="video-karta">
+						<img src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`} alt={v.nazev} loading="lazy" />
+						<span>🎬 {v.nazev}</span>
+					</a>
+				))}
+			</div>
+		</section>
+	)}
+	<CestyAtribuce jazyk={jazyk} />
 </CestyLayout>
 
 <script is:inline>
@@ -224,7 +268,7 @@ const texty = {
 			if (uzlyTrasy.length >= 2) {
 				const trasa = uzlyTrasy.map((b) => `${b.x},${b.y}`).join(' ');
 				vrstva.appendChild(
-					prvek('polyline', { class: 'trasa-cara', points: trasa, 'stroke-width': pohled.pinR / 1.5 }),
+					prvek('polyline', { class: 'trasa-cara', points: trasa, pathLength: 1000, 'stroke-width': pohled.pinR / 1.5 }),
 				);
 				for (let i = 0; i < uzlyTrasy.length - 1; i++) {
 					const a = uzlyTrasy[i];
@@ -253,6 +297,7 @@ const texty = {
 			}
 			for (const p of pohled.polozky) {
 				const odkaz = prvek('a', { href: `#${p.id}`, class: 'mapa-odkaz' });
+				odkaz.appendChild(prvek('title', {}, p.typ === 'skupina' ? `${p.nazev} – ${pocetMist(p.pocet)}` : p.nazev));
 				if (p.typ === 'skupina') {
 					odkaz.appendChild(
 						prvek('circle', { class: 'shluk-kruh', cx: p.x, cy: p.y, r: p.r, 'stroke-width': pohled.pinR / 3 }),
@@ -274,6 +319,7 @@ const texty = {
 							prvek('line', { class: 'pin-spojnice', x1: p.px, y1: p.py, x2: p.x, y2: p.y, 'stroke-width': pohled.pinR / 6 }),
 						);
 					}
+					odkaz.appendChild(prvek('circle', { class: 'pin-dotyk', cx: p.x, cy: p.y, r: pohled.pinR * 2.4 }));
 					odkaz.appendChild(
 						prvek('circle', { class: 'pin pin-hlavni', cx: p.x, cy: p.y, r: pohled.pinR, 'stroke-width': pohled.pinR / 3.5 }),
 					);
@@ -488,6 +534,53 @@ const texty = {
 		stroke: #c83c37;
 		stroke-dasharray: 1.5 1.5;
 		vector-effect: non-scaling-stroke;
+	}
+	.pin-dotyk {
+		fill: transparent;
+		stroke: none;
+	}
+	.rok-statistika {
+		font-weight: 600;
+		color: var(--ztlumeny, #777);
+		margin: 0.2rem 0 0.8rem;
+	}
+	/* trasa se po načtení „nakreslí" — jen když si uživatel nepřeje omezit pohyb */
+	@media (prefers-reduced-motion: no-preference) {
+		.trasa-cara {
+			stroke-dasharray: 1000;
+			stroke-dashoffset: 1000;
+			animation: kresleni-trasy 2.5s ease-out 0.3s forwards;
+		}
+	}
+	@keyframes kresleni-trasy {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+	.videa-mrizka {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 14px;
+		margin: 0.8rem 0;
+	}
+	.video-karta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		text-decoration: none;
+		color: inherit;
+		font-weight: 600;
+	}
+	.video-karta img {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		border-radius: 10px;
+		display: block;
+		transition: transform 0.15s ease;
+	}
+	.video-karta:hover img {
+		transform: scale(1.03);
 	}
 	.trasa-cara {
 		fill: none;

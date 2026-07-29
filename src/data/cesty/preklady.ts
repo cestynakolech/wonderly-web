@@ -44,29 +44,67 @@ const NAZVY_ZEMI: Record<string, { en: string; de: string }> = {
 	Estonsko: { en: 'Estonia', de: 'Estland' },
 };
 
-/** Přeloží název země i čárkou oddělený seznam ("Německo, Francie") */
+const SPOJKA: Record<Jazyk, string> = { cs: ' a ', en: ' and ', de: ' und ' };
+
+/** Přeloží název země i čárkou oddělený seznam ("Německo, Francie" → "Germany and France") */
 export function prelozZemi(zeme: string, jazyk: Jazyk): string {
-	if (jazyk === 'cs') return zeme;
-	return zeme
+	const casti = zeme
 		.split(',')
 		.map((z) => z.trim())
 		.filter(Boolean)
-		.map((z) => NAZVY_ZEMI[z]?.[jazyk] ?? z)
-		.join(', ');
+		.map((z) => (jazyk === 'cs' ? z : (NAZVY_ZEMI[z]?.[jazyk] ?? z)));
+	if (casti.length <= 1) return casti[0] ?? zeme;
+	return casti.slice(0, -1).join(', ') + SPOJKA[jazyk] + casti[casti.length - 1];
 }
 
 const MESICE_EN = [
 	'January', 'February', 'March', 'April', 'May', 'June',
 	'July', 'August', 'September', 'October', 'November', 'December',
 ];
+const MESICE_CS = [
+	'leden', 'únor', 'březen', 'duben', 'květen', 'červen',
+	'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec',
+];
+const MESICE_DE = [
+	'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+	'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember',
+];
 
-/** Datum je v datech uloženo česky ("6. 7. 2026"); pro angličtinu se přeformátuje */
+/** Datum je v datech uloženo česky ("6. 7. 2026", výjimečně "červenec 2026");
+ *  pro angličtinu a němčinu se přeformátuje/přeloží. */
 export function formatujDatum(datum: string, jazyk: Jazyk): string {
-	if (jazyk !== 'en') return datum;
+	if (jazyk === 'cs') return datum;
+	// slovní tvar „červenec 2026" — přeložit název měsíce
+	const slovni = datum.trim().match(/^(\p{L}+)\s+(\d{4})$/u);
+	if (slovni) {
+		const i = MESICE_CS.indexOf(slovni[1].toLowerCase());
+		if (i >= 0) return `${(jazyk === 'en' ? MESICE_EN : MESICE_DE)[i]} ${slovni[2]}`;
+		return datum;
+	}
+	if (jazyk !== 'en') return datum; // německý číselný tvar je shodný s českým
 	const casti = datum.split('.').map((c) => parseInt(c.trim(), 10));
 	if (casti.length !== 3 || casti.some(Number.isNaN)) return datum;
 	const [den, mesic, rok] = casti;
 	return `${den} ${MESICE_EN[mesic - 1]} ${rok}`;
+}
+
+/** Emoji vlajky zemí; klíčem je český název jako v NAZVY_ZEMI */
+const VLAJKY: Record<string, string> = {
+	Německo: '🇩🇪', Francie: '🇫🇷', Itálie: '🇮🇹', Španělsko: '🇪🇸', Nizozemsko: '🇳🇱',
+	Belgie: '🇧🇪', Polsko: '🇵🇱', Maďarsko: '🇭🇺', Rakousko: '🇦🇹', Slovensko: '🇸🇰',
+	Česko: '🇨🇿', Švýcarsko: '🇨🇭', Portugalsko: '🇵🇹', 'Velká Británie': '🇬🇧', Irsko: '🇮🇪',
+	Dánsko: '🇩🇰', Švédsko: '🇸🇪', Norsko: '🇳🇴', Finsko: '🇫🇮', Řecko: '🇬🇷',
+	Chorvatsko: '🇭🇷', Slovinsko: '🇸🇮', Rumunsko: '🇷🇴', Bulharsko: '🇧🇬', Lucembursko: '🇱🇺',
+	Litva: '🇱🇹', Lotyšsko: '🇱🇻', Estonsko: '🇪🇪',
+};
+
+/** Vlajky pro čárkou oddělený seznam zemí ("Německo, Francie" → "🇩🇪 🇫🇷") */
+export function vlajkyZemi(zeme: string): string {
+	return zeme
+		.split(',')
+		.map((z) => VLAJKY[z.trim()] ?? '')
+		.filter(Boolean)
+		.join(' ');
 }
 
 export const TEXTY = {
@@ -88,6 +126,11 @@ export const TEXTY = {
 		otevrit: 'Otevřít',
 		zpetNaMapu: '← Zpět na celou mapu',
 		tvaryMist: ['místo', 'místa', 'míst'],
+		tvaryVyprav: ['výprava', 'výpravy', 'výprav'],
+		tvaryZemi: ['země', 'země', 'zemí'],
+		tvaryDnu: ['den', 'dny', 'dnů'],
+		naCeste: 'na cestě',
+		videaNadpis: 'Videa z cesty',
 		napovedaMapa: 'Kliknutím na kroužek s číslem se mapa přiblíží a ukáže jen ta místa.',
 		bertikReport: '🐾 Bertíkův čmuchací report',
 	},
@@ -109,6 +152,11 @@ export const TEXTY = {
 		otevrit: 'Open',
 		zpetNaMapu: '← Back to the whole map',
 		tvaryMist: ['place', 'places', 'places'],
+		tvaryVyprav: ['journey', 'journeys', 'journeys'],
+		tvaryZemi: ['country', 'countries', 'countries'],
+		tvaryDnu: ['day', 'days', 'days'],
+		naCeste: 'on the road',
+		videaNadpis: 'Videos from the journey',
 		napovedaMapa: 'Click a circle with a number to zoom in and see only those places.',
 		bertikReport: "🐾 Bertík's sniffing report (Czech)",
 	},
@@ -130,10 +178,15 @@ export const TEXTY = {
 		otevrit: 'Öffnen',
 		zpetNaMapu: '← Zurück zur ganzen Karte',
 		tvaryMist: ['Ort', 'Orte', 'Orte'],
+		tvaryVyprav: ['Reise', 'Reisen', 'Reisen'],
+		tvaryZemi: ['Land', 'Länder', 'Länder'],
+		tvaryDnu: ['Tag', 'Tage', 'Tage'],
+		naCeste: 'unterwegs',
+		videaNadpis: 'Videos von der Reise',
 		napovedaMapa: 'Klicke auf einen Kreis mit Zahl, um heranzuzoomen und nur diese Orte zu sehen.',
 		bertikReport: '🐾 Bertíks Schnüffelreport (Tschechisch)',
 	},
-} satisfies Record<Jazyk, Record<string, string>>;
+} satisfies Record<Jazyk, Record<string, string | readonly string[]>>;
 
 /** „3 místa" / „5 míst" — české skloňování podle počtu (pro en/de vrací množné číslo). */
 export function pocetMist(n: number, tvary: readonly string[]): string {

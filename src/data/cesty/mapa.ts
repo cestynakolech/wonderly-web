@@ -38,6 +38,7 @@ export function rozmistiPopisky(
 	pinR: number,
 	pismo: number,
 	vyrez: { x: number; y: number; sirka: number; vyska: number },
+	tvaryMist: readonly string[] = ['místo', 'místa', 'míst'],
 ): Popisek[] {
 	const obsazene: [number, number, number, number][] = [];
 	const hotove: Popisek[] = [];
@@ -118,7 +119,7 @@ export function rozmistiPopisky(
 				if (zkus(skupina[0], skupina[0].nazev, false)) continue;
 			}
 			const pocet = skupina.length;
-			const slovo = pocet === 1 ? 'místo' : pocet < 5 ? 'místa' : 'míst';
+			const slovo = pocet === 1 ? tvaryMist[0] : pocet < 5 ? tvaryMist[1] : tvaryMist[2];
 			zkus(stred, `${pocet} ${slovo}`, true);
 		}
 	}
