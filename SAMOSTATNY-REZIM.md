@@ -45,13 +45,33 @@
   jednou spadlo na chybu Cloudflare 520 uprostřed Livet-et-Gavet — doplněno dávkou
   jen chybějících fotek; po nahrávání VŽDY porovnat počty s výběrem.
 
-**ČEKÁ NA UČITELE:** (a) 1 fotka s čitelnou SPZ (`Vaulnaveys 13-36-45`) — citlivější
-kaskáda ji nenašla, chce ruku (`venv/bin/python3 rozmaz_rucne.py <cesta>`); na webu není;
-(b) jméno vinařství ve Frangy (fotky ceníku jsou v knihovně Fotek, kam Claude nesmí —
-stačí export na Plochu); (c) které tři etapy Tour de France a u kterých míst spali
-na silnici (Saint-Maurice už Tour v popisu má).
+**ČEKÁ NA UČITELE:** (a) fotka s čitelnou SPZ (`Vaulnaveys 13-36-45`) — VideoAutomat ji
+mezitím uklidil, zůstala jen v `.pred-opravou/`, na web nešla; (b) jméno vinařství
+ve Frangy (fotky ceníku jsou v knihovně Fotek, kam Claude nesmí — stačí export na Plochu);
+(c) rozhodnutí, jestli pustit anonymizaci na 461 fotek v čekárně a doplnit na web místa
+23.–28. 7. (Bourg-d'Oisans, Riez, Saint-Tropez, Le Lavandou…); (d) zvážit LaunchAgent
+pro `zpracuj_rucni_vklad.py`.
 
 Pak teprve pokračovat simulacemi z auditu (seznam níže).
+
+**Nové 29. 7. večer — deník (zadání učitele během práce):**
+- `Omega/skripty/body_z_fotek.py` — z „vizitkové" fotky (jedna fotka z dřívějšího výletu
+  ve sdíleném albu) udělá bod na mapě: GPS + datum → poloha (projekce jako trasa_uvod.py),
+  jméno místa z Nominatimu, návrh videa z kanálu podle názvu a roku → KE-SCHVALENI.md.
+  Vizitku pozná podle ROKU (jiný rok než probíhající cesta). Otestováno: 5 bodů z čekárny,
+  Col d'Ornon vyšel 272,7/398,1 shodně s ručním výpočtem.
+- **Čekárna čeká 7 dní** (`CEKACI_DNY = 7` v pipeline_sdilene.py) od poslední fotky místa,
+  ne 14, jak učitel předpokládal — plus KLID_HODIN. Fotky z 26.–28. 7. půjdou ~4. 8.
+- **`zpracuj_rucni_vklad.py` NEBĚŽÍ SÁM** (není v LaunchAgentu) — 29. 7. tam leželo
+  22 nezpracovaných videí z Bourg-d'Oisans (24. 7., den etapy Tour) a Le Lavandou;
+  spuštěno ručně, roztříděno do fotky-puvodni. Zvážit hodinový LaunchAgent.
+- **Tour de France 2026: tři etapy.** 17. a 18. 7. dvě etapy u Ballon d'Alsace
+  (13. Dole–Belfort, 14. Mulhouse–Le Markstein se stoupáním na Ballon d'Alsace),
+  24. 7. **Col d'Ornon** (19. etapa Gap–Alpe d'Huez) — přijeli den předem a spali
+  na silnici; nové místo na webu. Zjištěno z GPS v EXIF fotek.
+- **V čekárně čeká 461 fotek** z míst, o kterých web neví: Bourg-d'Oisans, Riez,
+  Saint-Bonnet-en-Champsaur, Sainte-Maxime, Saint-Tropez, Gassin, Le Lavandou (23.–28. 7.).
+
 
 ## (starší) KDE POKRAČOVAT (29. 7. 2026 odpoledne — audit webu + schválení učitele)
 
