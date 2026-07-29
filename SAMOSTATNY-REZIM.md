@@ -2,9 +2,13 @@
 
 ## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 72 hotové — třetí dávka kvízů; SMYČKA POZASTAVENA na rozhodnutí)
 
-**NOVÉ PRAVIDLO ÚSPORNOSTI (29. 7., zadal učitel):** max ~12 kol na session, pak /clear
-a čerstvá session; bez screenshotů; dávky 4+; noční rozpočet kol. Detaily: skill /wonderly.
-Tato session má za sebou 24 kol → SPRÁVNÝ další krok je /clear a čerstvá session.
+**NOVÉ PRAVIDLO ÚSPORNOSTI (29. 7., zadal učitel):** max ~12 kol na session, pak /clear;
+bez screenshotů; dávky 4+; noční rozpočet kol (návrh 12 — čeká na odklik, rozhodnutí č. 2).
+Analýza: Omega/dokumenty/ANALYZA-ucinnosti-smycky-2026-07-29.md; paměť feedback-uspornost-smycky.
+**V NOVÉ SESSION:** `/wonderly` + `/loop` → kolo 73 = další dávka slabých kvízů
+(bezpecnost-pocitace-a-dat, digitalni-stopa-a-identita, pocitacove-site-a-internet Inf9,
+klonovani-animace-hry — vše 6 otázek); zbývá 26 bloků <12 otázek.
+**RÁNO ČEKÁ NA ROZHODNUTÍ:** Hermes (tabulka v chatu + audit), rozpočet kol, plánovaný restart.
 
 Hotovo 72 kol samostatného režimu (65 simulací na 67 stránkách, 417+ kvízových otázek).
 Kolo 54 = auditní: z 96 podtémat bez interakce vybráno 12 NOVÝCH kandidátů (seznam níže).
