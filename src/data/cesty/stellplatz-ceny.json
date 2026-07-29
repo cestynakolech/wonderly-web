@@ -31,5 +31,16 @@
   "kdy": null,
   "zdroj": "park4night",
   "aktualizovano": "07/2026"
+ },
+ {
+  "rok": 2026,
+  "slug": "geisingen",
+  "stellplatz": "Stellplatz Am Espen 8, Geisingen",
+  "cenaNoc": "€14,-",
+  "elektrina": "€0,50/kwh",
+  "voda": "€1,-/80ltr",
+  "kdy": null,
+  "zdroj": "park4night",
+  "aktualizovano": "07/2026"
  }
 ]
