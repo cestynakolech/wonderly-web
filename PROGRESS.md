@@ -93,6 +93,18 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 večer — automat cen dojel, nový režim „rovnou na web".** Na přání učitele
+  („ceny stejně neznám, nasaď kontrolora a zadávej rovnou, ale napiš, že nejsou aktuální")
+  má automat 2 pojistky: kotva (doslovné úryvky) + NEZÁVISLÝ kontrolor gemma4:26b (jiná
+  rodina než autor qwen). Co projde, zapíše sám do `src/data/cesty/stellplatz-ceny.json`
+  + commit + push; web ceny přimíchá při buildu a VŽDY u nich ukazuje trojjazyčné
+  upozornění „jen orientační, veřejně dohledané, nemusí být aktuální". Dohledáno 9 míst
+  (Karlstadt 2025 + 8× 2026 přes park4night API podle GPS měst; Ornans = areál
+  Camping-Car Park) — **všech 9 prošlo kotvou i kontrolorem** (Landshut 10 €/24h,
+  Schongau 8 €, Geisingen 14 €, francouzské aire vesměs „Gratuit", Ornans 21,32 €).
+  Oba automaty (ceny i kontrola anonymizace) jedou nově jako DOHÁNĚČ: hodinové buzení
+  + vlastní hlídání „už jsem dnes/tento měsíc běžel" — **Mac nemusí být vzhůru v konkrétní
+  čas**. ČEKÁ NA ZPRACOVÁNÍ: 3 připomínky učitele k deníku (viz SAMOSTATNY-REZIM.md).
 - **2026-07-29 — dva nové automaty (park4night potvrzen učitelem).** (1) **Okno „okolí
   obce/PSČ"**: `Omega/skripty/okoli.py` + skill `/okoli` — z názvu obce nebo PSČ vrátí
   zajímavá místa a stání pro obytné auto z OpenStreetMap s GPS a odkazy do mapy; funguje

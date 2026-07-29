@@ -1,6 +1,23 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026 odpoledne — audit webu + schválení učitele)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026 večer — 3 NOVÉ ÚKOLY OD UČITELE, deník)
+
+**Přednostně (připomínky učitele k deníku 29. 7. večer):**
+1. **Úvodní mapa roku ať začíná v jižních Čechách** — animovaná trasa se učiteli líbí,
+   ale výřez/začátek trasy má vycházet z domova (jižní Čechy), ne od prvního cizího města.
+   Týká se `CestyRok.astro` (výřez `spocitejVyrez`/`data.vyrez`) a případně `trasa_uvod.py`.
+2. **U města jen JEHO video, ne mřížka všech videí roku.** Sekce „Videa z cesty" (kolo
+   29. 7.) se objevila i pod kartou jednoho místa — u konkrétního místa má být pouze
+   video, které k němu patří. Mřížku všech videí nechat jen jednou dole na stránce roku
+   (nebo úplně, pokud by se pletla).
+3. **Fotogalerie u místa:** náhledy fotek u každého místa, po rozkliknutí zvětšení
+   (nebo jeden náhled, který otevře ostatní). Infrastruktura hotová (`galerie:` + R2),
+   chybí nahrát fotky — pravidla: jen fotky (ne videa), z podobných záběrů JEDNA,
+   zatím jen 2026 (paměť projekt_fotky_na_web_pravidla).
+
+Pak teprve pokračovat simulacemi z auditu (seznam níže).
+
+## (starší) KDE POKRAČOVAT (29. 7. 2026 odpoledne — audit webu + schválení učitele)
 
 **SCHVÁLENO UČITELEM 29. 7. („zatím schvaluji doporučené"):** (a) nové simulace
 postupně v samostatném režimu podle auditu — pořadí: zavislost-odporu-na-vodici (F8),
