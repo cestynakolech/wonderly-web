@@ -93,6 +93,24 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+- **2026-07-29 — audit webu + velká dávka vylepšení (schváleno učitelem).** Dva nezávislí
+  kontroloři prošli celý web → `Omega/dokumenty/AUDIT-WEBU-2026-07-29.md`. Nasazeno:
+  (1) **deník** — opravy vad (překlad slovních dat a seznamu zemí do EN/DE vč. spojky,
+  `zeme: 'Německo, Francie'`, rozestup pinů roků na rozcestníku ověřen výpočtem 18,00,
+  klikací piny i bez JS + spojnice, atribuce CC BY-SA na všech mapách, satisfies
+  v preklady.ts) a vylepšení map (mapa Vše: barvy pinů podle roku + legenda + chytré
+  popisky rozmistiPopisky; tooltips všude; animované kreslení trasy s ohledem na
+  prefers-reduced-motion; větší dotykové plochy; statistiky výprav; vlajky; mřížka
+  náhledů videí; počítadlo dnů na cestě). (2) **škola** — vyhledávání na každé stránce
+  (komponenta Hledani), šipky předchozí/další podtéma, odznaky 🎮✏️🎬🧪 na kartách,
+  ukládání nejlepšího výsledku kvízu do localStorage + odznak „co už umím" na kartách,
+  tiskové styly, viewport+meta description. (3) **laboratorní práce** — nová rubrika:
+  `laborky.ts` + tisknutelný pracovní list `[podtema]/laborka/` (kyvadlo F6, hustota
+  kamene F6, momenty na pravítku F7, výkon na schodech F8); kontrolor opravil kyv→kmit
+  a zavěšení kyvadla. (4) **automat kontroly anonymizace** fotek deníku (SPZ/sochy/
+  reklamy/tváře) — `kontrola_anonymizace.py`, LaunchAgent denně 8:20. Vše ověřeno
+  curl na živém webu. ČEKÁ NA UČITELE: data návštěv Le Thillot a Ornans (v datech je
+  jen „červenec 2026"), body 6–8 z rozhodovací tabulky, zbylých 8 návrhů laborek.
 - **2026-07-29 — dokončení dorovnání kvízů (po E7).** Poslední 3 slabé bloky doplněny:
   kladka +1 (kladkostroj — 4 části lana = 4× menší síla), nakloněná rovina +2 (výpočet
   délky l = G·h:F = 400·3:100 = 12 m; vliv tření), události a vstupy +2 (přijetí zprávy

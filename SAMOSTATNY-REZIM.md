@@ -1,6 +1,22 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (29. 7. 2026, kolo 72 hotové — třetí dávka kvízů; SMYČKA POZASTAVENA na rozhodnutí)
+## ⏩ KDE POKRAČOVAT (29. 7. 2026 odpoledne — audit webu + schválení učitele)
+
+**SCHVÁLENO UČITELEM 29. 7. („zatím schvaluji doporučené"):** (a) nové simulace
+postupně v samostatném režimu podle auditu — pořadí: zavislost-odporu-na-vodici (F8),
+vznik-elektrickeho-proudu (F8), elektricka-prace-a-vykon (F8), zvuk-vznik-a-sireni (F8),
+tepelny-motor-parni-stroj (F8), skupenske-zmeny-vody-v-prirode (F8),
+magneticke-pole-vodice-a-civky (F9), vlastnosti-stridaveho-proudu (F9),
+elektricky-naboj (F8), vetveni-programu (Inf7) — plný popis
+v `Omega/dokumenty/AUDIT-WEBU-2026-07-29.md`; (b) fotky měst 2026 na web
+(galerie: + R2) až po doběhnutí denní kontroly anonymizace (automat
+kontrola_anonymizace.py, nálezy v `Cestovatelský deník/KONTROLA-ANONYMIZACE.md`).
+HOTOVO 29. 7. odpoledne: vady deníku + vylepšení map, UX školy (hledání všude,
+šipky, odznaky, „co už umím", tisk), 4 laboratorní práce (rubrika 🧪).
+NEschváleno zatím: body 6–8 (údaje o stání, automat cen stellplatzů, okno okolí)
+a zbylých 8 laborek — čekají na učitele.
+
+## (starší stav) kolo 72 hotové — třetí dávka kvízů
 
 **NOVÉ PRAVIDLO ÚSPORNOSTI (29. 7., zadal učitel):** max ~12 kol na session, pak /clear;
 bez screenshotů; dávky 4+; noční rozpočet kol (návrh 12 — čeká na odklik, rozhodnutí č. 2).
