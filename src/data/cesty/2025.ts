@@ -20,7 +20,10 @@ export const rok2025: Rok = {
 			stellplatze: [
 				{
 					nazev: 'Stellplatz Karlburger Str. 16, Karlstadt',
-					poznamka: 'parkování 10 € / 24 h, elektřina 0,50 € / kWh, voda 1 € / 80 l (ceny z léta 2025 — dnes už mohou být jiné)',
+					cenaNoc: '10 € / 24 h',
+					elektrina: '0,50 € / kWh',
+					voda: '1 € / 80 l',
+					rokCen: 'léto 2025',
 				},
 			],
 			report: `Haf pozor, hlásí se služebně starší border kolie Bertík. Brzdíme na šotolině stellplatzu Karlburger Str. 16 a já okamžitě nasazuju čenich na rozsáhlou pachovou sociální nástěnku. Páníčci zatím rvou mince do automatu: parkování 10 € za 24 h, elektřina 0,50 € za kWh a voda 1 € za 80 l. Vrrrrrrr, ať si pospíší, dokud jsem v obraze, kdo tu v noci hlídal roh odpadkového koše!

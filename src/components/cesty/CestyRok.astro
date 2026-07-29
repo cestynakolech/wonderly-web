@@ -198,6 +198,19 @@ const texty = {
 									{m.stellplatze.map((s) => (
 										<li>
 											{s.odkaz ? <a href={s.odkaz} rel="noopener">{s.nazev}</a> : s.nazev}
+											{(s.cenaNoc || s.elektrina || s.voda || s.gps) && (
+												<span class="stellplatz-udaje">
+													{s.cenaNoc && <span title="cena za noc">🅿️ {s.cenaNoc}</span>}
+													{s.elektrina && <span title="elektřina">🔌 {s.elektrina}</span>}
+													{s.voda && <span title="voda">🚰 {s.voda}</span>}
+													{s.gps && (
+														<a href={`https://mapy.cz/?q=${s.gps}`} rel="noopener" title="otevřít v mapě">
+															📍 mapa
+														</a>
+													)}
+													{s.rokCen && <span class="stellplatz-rok">(ceny: {s.rokCen})</span>}
+												</span>
+											)}
 											{s.poznamka && ` – ${s.poznamka}`}
 										</li>
 									))}
@@ -538,6 +551,18 @@ const texty = {
 	.pin-dotyk {
 		fill: transparent;
 		stroke: none;
+	}
+	.stellplatz-udaje {
+		display: inline-flex;
+		gap: 0.7rem;
+		flex-wrap: wrap;
+		margin-left: 0.5rem;
+		font-weight: 600;
+	}
+	.stellplatz-rok {
+		color: var(--ztlumeny, #777);
+		font-weight: 400;
+		font-size: 0.85em;
 	}
 	.rok-statistika {
 		font-weight: 600;

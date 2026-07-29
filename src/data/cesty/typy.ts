@@ -12,6 +12,14 @@ export type Stellplatz = {
 	souradnice?: string;
 	poznamka?: string;
 	odkaz?: string;
+	/** strukturované ceny — vyplňuje učitel nebo automat stellplatz_ceny.py */
+	cenaNoc?: string;
+	elektrina?: string;
+	voda?: string;
+	/** GPS "lat,lon" pro odkaz do mapy (řidičsky nejdůležitější údaj) */
+	gps?: string;
+	/** ze kdy ceny jsou, např. "léto 2025" nebo "05/2026" */
+	rokCen?: string;
 };
 
 export type Mesto = {
