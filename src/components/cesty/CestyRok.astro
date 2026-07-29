@@ -562,7 +562,8 @@ const texty = {
 	})();
 
 	// fotogalerie: seznam fotek se načte z úložiště přes /media/seznam,
-	// zobrazí se náhledy a kliknutím se otevře fotka v plné velikosti
+	// zobrazí se náhledy a kliknutím se fotka zvětší přímo na stránce
+	// (přání učitele 29. 7. 2026 — dřív se otevírala v nové kartě)
 	for (const galerie of document.querySelectorAll('.galerie')) {
 		const slozka = galerie.dataset.slozka;
 		fetch(`/media/seznam?slozka=${encodeURIComponent(slozka)}`)
@@ -571,25 +572,76 @@ const texty = {
 				const originaly = soubory.filter((s) => !s.includes('/nahledy/'));
 				galerie.innerHTML = '';
 				if (originaly.length === 0) return;
-				for (const original of originaly) {
+				originaly.forEach((original, poradi) => {
 					const nazev = original.split('/').pop();
 					const nahled = `${slozka}/nahledy/${nazev.replace(/\.[^.]+$/, '.jpg')}`;
 					const odkaz = document.createElement('a');
 					odkaz.href = `/media/${original}`;
 					odkaz.target = '_blank';
 					odkaz.rel = 'noopener';
+					odkaz.dataset.poradi = poradi;
 					const obrazek = document.createElement('img');
 					obrazek.src = `/media/${nahled}`;
 					obrazek.loading = 'lazy';
 					obrazek.alt = nazev;
 					odkaz.appendChild(obrazek);
 					galerie.appendChild(odkaz);
-				}
+				});
 			})
 			.catch(() => {
 				galerie.innerHTML = '';
 			});
 	}
+
+	// zvětšení fotky přes celou obrazovku: kliknutí na náhled, listování šipkami,
+	// zavření křížkem, klávesou Esc nebo kliknutím vedle fotky
+	(function () {
+		let fotky = [];
+		let ted = 0;
+		const vrstva = document.createElement('div');
+		vrstva.className = 'lupa je-skryte';
+		vrstva.innerHTML =
+			'<button type="button" class="lupa-zavrit" aria-label="Zavřít">✕</button>' +
+			'<button type="button" class="lupa-sip lupa-vlevo" aria-label="Předchozí fotka">‹</button>' +
+			'<img alt="" />' +
+			'<button type="button" class="lupa-sip lupa-vpravo" aria-label="Další fotka">›</button>';
+		document.body.appendChild(vrstva);
+		const obrazek = vrstva.querySelector('img');
+
+		function ukaz(i) {
+			if (!fotky.length) return;
+			ted = (i + fotky.length) % fotky.length;
+			obrazek.src = fotky[ted].href;
+			obrazek.alt = fotky[ted].querySelector('img')?.alt ?? '';
+			const jedina = fotky.length < 2;
+			vrstva.querySelector('.lupa-vlevo').classList.toggle('je-skryte', jedina);
+			vrstva.querySelector('.lupa-vpravo').classList.toggle('je-skryte', jedina);
+		}
+		function zavri() {
+			vrstva.classList.add('je-skryte');
+			obrazek.removeAttribute('src');
+		}
+
+		document.addEventListener('click', (e) => {
+			const nahled = e.target.closest('.galerie a');
+			if (nahled) {
+				e.preventDefault();
+				fotky = [...nahled.closest('.galerie').querySelectorAll('a')];
+				vrstva.classList.remove('je-skryte');
+				ukaz(fotky.indexOf(nahled));
+				return;
+			}
+			if (e.target.closest('.lupa-vlevo')) return ukaz(ted - 1);
+			if (e.target.closest('.lupa-vpravo')) return ukaz(ted + 1);
+			if (e.target.closest('.lupa-zavrit') || e.target === vrstva) zavri();
+		});
+		document.addEventListener('keydown', (e) => {
+			if (vrstva.classList.contains('je-skryte')) return;
+			if (e.key === 'Escape') zavri();
+			if (e.key === 'ArrowLeft') ukaz(ted - 1);
+			if (e.key === 'ArrowRight') ukaz(ted + 1);
+		});
+	})();
 </script>
 
 <style is:global>
@@ -795,6 +847,55 @@ const texty = {
 	.galerie-nacitani {
 		color: var(--ztlumeny);
 		font-size: 0.9rem;
+	}
+	/* zvětšená fotka přes celou obrazovku */
+	.lupa {
+		position: fixed;
+		inset: 0;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 1rem;
+		background: rgba(0, 0, 0, 0.88);
+	}
+	.lupa img {
+		max-width: min(94vw, 1400px);
+		max-height: 88vh;
+		object-fit: contain;
+		border-radius: 8px;
+	}
+	.lupa button {
+		background: rgba(255, 255, 255, 0.14);
+		color: #fff;
+		border: none;
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+		font-size: 1.8rem;
+		line-height: 1;
+		cursor: pointer;
+		flex: none;
+	}
+	.lupa button:hover {
+		background: rgba(255, 255, 255, 0.3);
+	}
+	.lupa-zavrit {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		font-size: 1.3rem !important;
+	}
+	@media (max-width: 600px) {
+		.lupa {
+			padding: 0.4rem;
+		}
+		.lupa button {
+			width: 2.4rem;
+			height: 2.4rem;
+			font-size: 1.4rem;
+		}
 	}
 	.bertik-report {
 		margin: 1rem 0;
