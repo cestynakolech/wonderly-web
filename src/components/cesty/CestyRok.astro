@@ -53,6 +53,13 @@ const pohledy = pripravPohledy(
 	data.mesta,
 	data.vyrez ?? spocitejVyrez(domov ? [domov, ...data.mesta] : data.mesta),
 );
+// vlaječky k položkám rozcestníku (přání učitele 29. 7. 2026) — spočítají se tady,
+// aby je měl i skript, který rozcestník překresluje při přiblížení mapy
+for (const pohled of pohledy) {
+	for (const p of pohled.polozky) {
+		(p as typeof p & { vlajky?: string }).vlajky = p.zeme ? vlajkyZemi(p.zeme) : '';
+	}
+}
 const koren = pohledy[0];
 // trasa v pořadí návštěvy + šipky směru; body bez vlastního pinu (proti dvojitým kolečkům)
 const korenMistaSPinem = new Set(koren.polozky.filter((p) => p.typ === 'misto').map((p) => p.id));
@@ -204,7 +211,10 @@ const texty = {
 			koren.polozky.map((p) => (
 				<li>
 					<a href={`#${p.id}`}>
-						<strong>{p.nazev}</strong>
+						<strong>
+							{p.vlajky && <span class="rozcestnik-vlajky">{p.vlajky}</span>}
+							{p.nazev}
+						</strong>
 						{p.typ === 'skupina' && <span class="rozcestnik-pocet">{pocetMist(p.pocet, t.tvaryMist)}</span>}
 					</a>
 				</li>
@@ -218,11 +228,11 @@ const texty = {
 			data.mesta.map((m) => {
 				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
 				const stellplatzy = (m.stellplatze ?? []).map((s) => sCenami(m.slug, s));
-				// upozornění „jen orientační" patří k veřejně dohledaným cenám (automat
-				// i ruční zápis z park4night); u ceny zaplacené na místě by mátlo
-				const maCeny = stellplatzy.some(
-					(s) => !s.overenoNaMiste && (s.cenaNoc || s.elektrina || s.voda),
-				);
+				// u cen se vždy říká, odkud jsou a že mohou být jinde: dohledané z aplikací
+				// = „jen orientační", zaplacené na místě = „platily k datu naší návštěvy"
+				const sCenou = stellplatzy.filter((s) => s.cenaNoc || s.elektrina || s.voda);
+				const maCenyDohledane = sCenou.some((s) => !s.overenoNaMiste);
+				const maCenyVlastni = sCenou.some((s) => s.overenoNaMiste);
 				return (
 					<article id={m.slug} class="mesto-karta" data-slug={m.slug}>
 						<h2>{m.nazev}</h2>
@@ -279,7 +289,8 @@ const texty = {
 										</li>
 									))}
 								</ul>
-								{maCeny && <p class="ceny-upozorneni">ℹ️ {t.cenyUpozorneni}</p>}
+								{maCenyDohledane && <p class="ceny-upozorneni">ℹ️ {t.cenyUpozorneni}</p>}
+								{maCenyVlastni && <p class="ceny-upozorneni">ℹ️ {t.cenyUpozorneniVlastni}</p>}
 							</>
 						)}
 					</article>
@@ -488,7 +499,13 @@ const texty = {
 				const a = document.createElement('a');
 				a.href = `#${p.id}`;
 				const jmeno = document.createElement('strong');
-				jmeno.textContent = p.nazev;
+				if (p.vlajky) {
+					const vlajky = document.createElement('span');
+					vlajky.className = 'rozcestnik-vlajky';
+					vlajky.textContent = p.vlajky;
+					jmeno.appendChild(vlajky);
+				}
+				jmeno.appendChild(document.createTextNode(p.nazev));
 				a.appendChild(jmeno);
 				if (p.typ === 'skupina') {
 					const pocet = document.createElement('span');
@@ -852,6 +869,9 @@ const texty = {
 	.galerie-nacitani {
 		color: var(--ztlumeny);
 		font-size: 0.9rem;
+	}
+	.rozcestnik-vlajky {
+		margin-right: 0.4rem;
 	}
 	/* zvětšená fotka přes celou obrazovku */
 	.lupa {

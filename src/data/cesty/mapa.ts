@@ -180,6 +180,8 @@ export interface MistoNaMape {
 	x: number;
 	y: number;
 	obyvatele?: number;
+	/** země místa — v rozcestníku se z ní skládají vlaječky */
+	zeme?: string;
 }
 
 export interface PolozkaMapy {
@@ -197,6 +199,8 @@ export interface PolozkaMapy {
 	/** poloměr kroužku položky */
 	r: number;
 	pocet: number;
+	/** země položky (u skupiny všechny, oddělené čárkou) — na vlaječky v rozcestníku */
+	zeme?: string;
 }
 
 export interface PopisekPolozky {
@@ -394,6 +398,7 @@ export function pripravPohledy<T extends MistoNaMape>(
 					py: hlavni.y,
 					r: pinR,
 					pocet: 1,
+					zeme: hlavni.zeme,
 				};
 			}
 			const s = stred(cast);
@@ -408,6 +413,8 @@ export function pripravPohledy<T extends MistoNaMape>(
 				py: s.y,
 				r: Math.max(dosah + pinR * 1.5, pinR * 2.1),
 				pocet: cast.length,
+				// každá země skupiny jednou, v pořadí návštěvy
+				zeme: [...new Set(cast.map((m) => m.zeme).filter(Boolean))].join(', '),
 			};
 		});
 
