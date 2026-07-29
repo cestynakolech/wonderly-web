@@ -16,6 +16,7 @@ Vysvětlení sloupců:
 | 2026-07-29 | E2 (experiment subagenti) | F7 působení těles a deformace — simulace účinků síly (výklad+kvíz+videa už existovaly) | zúžený graf (průzkumník + jen worker B, kontrolor po merge, 2. kolo kontroly) | 2 | ANO | závažný nález kontrolora (levitace + věčná rotace) → přepracován pohybový model |
 | 2026-07-29 | E3 (experiment subagenti) | 4 slabé kvízy Inf9 doplněny na 10–11 otázek (+18); k tomu deduplikace 2 sousedních bloků (−6 duplicit z dávek 70–72) | diamond (4× worker-kviz paralelně, kontrolor po merge) | 1 | ANO | kontrolor našel duplicity v sousedních blocích (mimo zadání) → opraveno hned |
 | 2026-07-29 | E4 (experiment subagenti) | 4 slabé kvízy doplněny na 10–11 otázek (plán projektu, seznamy, hardware, posílání zpráv; +17 po vyřazení 2 překryvů) | diamond (4× worker-kviz paralelně, kontrolor po merge) | 1 | ANO | merge sám chytil mezipředmětový duplikát (broadcast otázka od workera plánu projektu); kontrolor pak 3 drobné překryvy → 1 smazán, 1 přeformulován, 1 ponechán |
+| 2026-07-29 | E5 (experiment subagenti) | 4 slabé kvízy Inf7 doplněny na 10–11 otázek (modely, automaty, větvení, souřadnice; +13 po opravách) | diamond (4× worker-kviz paralelně, kontrolor po merge) | 1 | ANO | ZÁVAŽNÉ od kontrolora: otázka používala neexistující české názvy bloků Scratche („zvedni pero") — kontrolor ověřil proti oficiálnímu překladu scratch-l10n → opraveno na „pero vypni"/„smaž"; + 2 úniky odpovědí ve vysvětleních sousedních otázek (1 otázka smazána, 1 přestavěna na výpočet) |
 
 ### Kontrolor v kole E1 (nakloněná rovina)
 
