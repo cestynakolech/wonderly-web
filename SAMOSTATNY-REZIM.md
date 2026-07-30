@@ -1,12 +1,34 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩ KDE POKRAČOVAT (30. 7. 2026, 20:30 — čerstvý stav, čti jako první)
+## ⏩⏩⏩ KDE POKRAČOVAT (30. 7. 2026, 22:15 — čerstvý stav, čti jako první)
 
-**Na webu jsou roky 2019–2026** (156 míst), z toho **98 s popisem**. Francouzština nasazená.
+**Na webu jsou roky 2019–2026 a POPIS MAJÍ VŠECHNA MÍSTA (156 ze 156).** Bod „dopsat
+popisy" je tím uzavřený. Francouzština nasazená.
 
-**1. Dopsat 52 popisů míst — píše je ČLOVĚK (Claude), ne automat.**
-Rozhodnutí učitele 30. 7.: množina míst je konečná a vyladit automat vyšlo dráž než
-práci udělat. Odzkoušený postup:
+**1. Překlady dohání lokální automat sám** (hlídač à 1 h, `--jen-preklady`):
+chybí 72× en, 83× de, 147× fr (čísla vyskočila tím, že přibylo 71 nových českých
+popisů). Do toho nezasahovat — jen občas zkontrolovat, že hlídač běží.
+
+**2. Čeká na učitele:** Omega **není v gitu** (nález auditu: skripty nemají historii,
+nedá se nic vrátit). `pip-audit` hlásí 2 zranitelnosti v `torch` (oprava ve verzi 2.13.0).
+
+### Co se opravilo 30. 7. večer (ať se to neopakuje)
+
+- **Automat mazal ručně psané popisy.** `stare_cesty.py` skládá `.ts` z `popisy-mist.json`;
+  popis zapsaný rovnou do `.ts` tedy při dalším běhu zmizel — takhle se ztratilo 15 popisů
+  (našly se v gitu a jsou zpátky). **Popis se zapisuje VÝHRADNĚ přes `zapis_popisy.py`**,
+  nikdy přímo do dat webu.
+- **Francouzština se na web nedostávala.** `blok_popisu()` uměl jen cs/en/de, takže hotové
+  francouzské překlady ležely ladem. Jazyky jsou nově v `JAZYKY_POPISU` — **při dalším
+  jazyku doplnit i tam** (a v `popisy_mist.py` do `JAZYKY_PREKLADU`).
+- **Kotva zamítala i správné články.** U velkých měst vznikla fotka na okraji, kilometry
+  od bodu v článku (Praha, Brno, Gdaňsk zůstaly bez faktů). Nově `fakta_mist.py --zdroj
+  SLUG JAZYK TITUL` — článek vybere člověk, v datech je to vidět jako `zdroj_rucne`.
+  Automat si kotvu nevypíná nikdy.
+- **Pozor na správný článek, ne jen správné jméno.** Olsztyn dostal fakta z článku
+  o zaniklé správní jednotce („gromada“). GPS přitom seděla — kotva tohle nepozná.
+
+**Postup psaní popisů** (kdyby přibyla nová místa):
 ```bash
 cd ~/Desktop/Omega/skripty
 venv/bin/python3 fakta_mist.py --vypis 12        # ověřená fakta k přečtení
@@ -15,19 +37,9 @@ venv/bin/python3 zapis_popisy.py davka.json      # zapíše (síto zkontroluje)
 venv/bin/python3 stare_cesty.py --ts vse --tise  # do dat webu → build → push
 ```
 Popisy piš **čtivě, ne jako výčet údajů** (přání učitele 30. 7.: „byly to jen body,
-uprav do čtivé formy"). Fakta ber JEN z `fakta-mist.json`; nic nepřidávej.
-**6 míst nemá na Wikipedii článek** — ta dohledat webem (učitelův nápad).
-
-**2. Překlady dohání lokální automat sám** (hlídač à 1 h, `--jen-preklady`):
-chybí 14× en, 98× de, 98× fr. Do toho nezasahovat.
-
-**3. Běží na pozadí (poběží i po /clear):** `fakta_mist.py --bez-popisu` sbírá fakta
-(20 ze 156 hotovo; Wikipedie brzdí přes HTTP 429, takže to trvá).
-
-**4. Čeká na učitele:** 12 popisů zamítnutých kontrolorem je uloženo
-v `popisy-mist.json` pod klíčem `zamitnuto` (jsou mezi 52 výše — přepsat ručně).
-Omega **není v gitu** (nález auditu: skripty nemají historii, nedá se nic vrátit).
-`pip-audit` hlásí 2 zranitelnosti v `torch` (oprava ve verzi 2.13.0).
+uprav do čtivé formy"). Fakta ber JEN z `fakta-mist.json`; nic nepřidávej — nezávislý
+kontrolor 30. 7. našel v 71 popisech 6 tvrzení bez opory ve zdroji (vč. „v podhůří
+Šumavy" nebo UNESCO přiřazené k nesprávné části zdroje).
 
 ## ⏩⏩ STAV K 30. 7. 2026 VEČER — co je hotové z mapy dřívějších cest
 

@@ -94,6 +94,24 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-30 noc (deník — popis mají všechna místa; dva tiché nálezy)** — Při přebírání
+  práce se ukázalo, že v datech cest **chybí 15 popisů, které tam předtím byly**: automat
+  skládá `.ts` z `popisy-mist.json`, takže popis zapsaný rovnou do dat webu při dalším běhu
+  zmizel. Zachráněny z gitu a zapsány natrvalo (13; zbylé 2 patří ručně psaným rokům, kam
+  automat nesahá). Druhý nález: **francouzské překlady se na web nikdy nedostaly** —
+  `blok_popisu()` uměl jen cs/en/de, hotových 10 překladů leželo ladem; jazyky jsou nově
+  v `JAZYKY_POPISU`. Pak dopsáno **71 popisů z ověřených faktů** a tím má popis
+  **všech 156 míst**. Nezávislý kontrolor prošel všech 71 bloků a našel 6 tvrzení bez
+  opory ve zdroji (Chanovice „v podhůří Šumavy“ — ve zdroji není; Týn „kousek pod
+  soutokem“ místo „východně od soutoku“; UNESCO u Sassnitz přiřazené i křídovému pobřeží,
+  ač zdroj mluví jen o bukových pralesech; Diabla Góra „vysoká 157 m“ místo nadmořské
+  výšky; Gouda dvě tvrzení navíc; Pleckensteiner Wald „neosídlené“) — vše opraveno před
+  nasazením. Sběrač faktů umí nově **ručně určený článek** (`fakta_mist.py --zdroj SLUG
+  JAZYK TITUL`, v datech značka `zdroj_rucne`): u velkých měst vznikla fotka na okraji
+  a kotva podle GPS zamítala i správný článek, takže Praha, Brno a Gdaňsk zůstávaly bez
+  faktů. **Poučení:** kotva ověří jméno a polohu, ale ne to, že článek popisuje MÍSTO —
+  Olsztyn dostal fakta z článku o zaniklé správní jednotce („gromada“).
+
 - **2026-07-30 večer (přesnost lokálních modelů — tři nezávislé audity)** — Učitel zadal
   audit cíle „méně tokenů, přesnější lokální modely, které se samy zlepšují". Tři nezávislí
   auditoři našli vážné věci. **(1) Kontrolorem byl model, který propadl u vlastní přejímací
