@@ -97,5 +97,16 @@
   "kdy": null,
   "zdroj": "Camping-Car Park",
   "aktualizovano": "07/2026"
+ },
+ {
+  "rok": 2026,
+  "slug": "livet-et-gavet",
+  "stellplatz": "Chamrousse – Place des Niverolles",
+  "cenaNoc": "20€",
+  "elektrina": "8€",
+  "voda": "2,00 € / jour",
+  "kdy": "14/12/2025",
+  "zdroj": "park4night",
+  "aktualizovano": "07/2026"
  }
 ]
