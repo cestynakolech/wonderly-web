@@ -1,5 +1,45 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩ STAV K 30. 7. 2026 VEČER — co je hotové z mapy dřívějších cest
+
+Body 1–3, **5 i 6 HOTOVÉ**, bod 4 (popisy) běží jako automat. Navíc francouzština webu.
+
+- ✅ **Roky 2019–2022 na webu** (bod 5) — 43 cest, 133 míst; `stare_cesty.py --ts vse`
+  zapíše všechny roky naráz a sám udržuje rejstřík `roky.ts`. Výjezdy se číslují
+  v rámci roku (dřív globálně: rok 2023 začínal „výjezdem č. 36“).
+- ✅ **Ochrana ručně psaných roků** — `RUCNE_PSANE_ROKY = {2024, 2025, 2026}`.
+  Učitel 30. 7. přidal do „Dřívějších dovolených“ fotky až po letošní Landshut
+  a ptal se, „jestli se tam něco nepere“: automat ruční roky NIKDY nepřepíše
+  (mají galerie, stellplatze, videa, reporty, které z fotek nevzniknou).
+- ✅ **Hlídač nových fotek** (bod 6) — `hlidac_starych_fotek.py`, LaunchAgent
+  `com.omega.stare-fotky-hlidac`, **doháněč** à 1 h: pozná nové fotky podle otisku
+  složky, přepočítá cesty, udělá dávku popisů (12/běh), builduje a pushuje —
+  ale commituje JEN `src/data/cesty`, aby nesebral rozdělanou práci učitele.
+- 🔄 **Popisy míst** (bod 4) — `popisy_mist.py`: kotva = článek na Wikipedii, jehož
+  JMÉNO i SOUŘADNICE sedí na místo; autor qwen3:30b-a3b, **nezávislý kontrolor
+  gemma4:26b**. Hotovo 95 popisů ze 123 míst (6 nemá na Wikipedii zdroj),
+  92 anglických překladů; němčina a francouzština se dopočítávají.
+- ✅ **Francouzská verze deníku** (zadání 30. 7.) — `/cesty/fr/`, celé rozhraní,
+  28 zemí, francouzský tvar data („6 juillet 2026“, „1er août 2022“), vlajky
+  u přepínače jazyků (na úzkém telefonu jen vlajka). 11 popisů míst 2025/2026
+  přeloženo ručně, u ostatních záskok češtinou.
+
+**Poučení, která stála čas (ať se neopakují):**
+1. Keš jmen míst má **verzi** (`KES_VERZE`) — po opravě pravidel pojmenování se
+   jinak držel paskvil „Brémský Přístav“ dál, protože byl v keši.
+2. Lokální modely: fáze **podle modelu, ne podle místa**. Střídání qwen↔gemma po
+   každém kroku = 6 přehození modelu v RAM na místo (4 min/místo); po přeskupení
+   trvá kontrola 95 popisů vteřiny. A qwen3 potřebuje `/no_think` v promptu —
+   parametr `think:false` přes `/api/generate` nestačí.
+3. **Kontrolor sám nestačí** — anglické „přemýšlení“ modelu propustil jako popis.
+   Před kontrolora patří strojová pojistka (`je_cesky_popis`).
+4. Wikipedie vrací **HTTP 429 s `Retry-After`** — respektovat, jinak místa
+   zbytečně přicházejí o popis.
+
+**Zbývá k rozhodnutí učiteli:** pár míst má z geokódování divné názvy
+(„France métropolitaine“, „Küstengewässer…“, „Ujezd“) — jsou to body z moře nebo
+z velkých území; buď je pojmenovat ručně, nebo z mapy vynechat.
+
 ## ⏩⏩ ZADÁNÍ UČITELE 30. 7. 2026 — MAPA DŘÍVĚJŠÍCH CEST (dělat jako první)
 
 Učitel rozhodl o mapě starých cest (automat `Omega/skripty/stare_cesty.py`, 43 cest
