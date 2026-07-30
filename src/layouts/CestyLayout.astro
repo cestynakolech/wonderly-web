@@ -1,6 +1,6 @@
 ---
 import type { Jazyk } from '../data/cesty/typy';
-import { JAZYKY, TEXTY, cestaCesty } from '../data/cesty/preklady';
+import { JAZYKY, JAZYK_POPIS, TEXTY, cestaCesty } from '../data/cesty/preklady';
 
 interface Props {
 	titulek: string;
@@ -29,14 +29,17 @@ const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 	</head>
 	<body>
 		<div class="horni-panel">
-			<nav class="jazyky" aria-label="Jazyk / Language / Sprache">
+			<nav class="jazyky" aria-label="Jazyk / Language / Sprache / Langue">
 				{
 					JAZYKY.map((j) => (
 						<a
 							href={cestaCesty(j, podcesta)}
 							class={j === jazyk ? 'aktivni' : undefined}
 							aria-current={j === jazyk ? 'page' : undefined}
+							title={JAZYK_POPIS[j].nazev}
 						>
+							{/* vlajka je jen ozdoba — čtečka přečte zkratku jazyka */}
+							<span class="vlajka" aria-hidden="true">{JAZYK_POPIS[j].vlajka}</span>
 							{j.toUpperCase()}
 						</a>
 					))
@@ -113,6 +116,9 @@ const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 				background: var(--plocha);
 			}
 			.jazyky a {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.25rem;
 				font-family: system-ui, sans-serif;
 				font-size: 0.75rem;
 				font-weight: 600;
@@ -120,6 +126,22 @@ const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 				text-decoration: none;
 				padding: 0.3rem 0.5rem;
 				border-radius: 999px;
+			}
+			.jazyky .vlajka {
+				font-size: 0.9rem;
+				line-height: 1;
+			}
+			/* na úzkém telefonu by se čtyři jazyky i se zkratkami nevešly vedle
+			   nadpisu — tam zůstane jen vlajka */
+			@media (max-width: 26rem) {
+				.jazyky a {
+					font-size: 0;
+					gap: 0;
+					padding: 0.3rem 0.35rem;
+				}
+				.jazyky .vlajka {
+					font-size: 1.05rem;
+				}
 			}
 			.jazyky a:hover {
 				color: var(--text);

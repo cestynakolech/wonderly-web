@@ -32,6 +32,10 @@ export const rok2021: Rok = {
 			vyjezd: 1,
 			x: 350.4,
 			y: 348.0,
+			popis: {
+				cs: 'Český Rudolec je obec v Jihočeském kraji, ležící v Rudoleckém průlomu Javořické vrchoviny na soutoku Bolíkovského potoka (pravého přítoku Moravské Dyje) a Radíkovského potoka. Historicky nachází se na česko-moravské hranici a je známý rybníky u zámku a na Radíkovském potoku.',
+				en: 'Český Rudolec is a municipality in the South Bohemian Region, located in the Rudolec Gorge of the Javořice Upland at the confluence of Bolíkovský Stream (right tributary of the Moravian Dyje) and Radíkovský Stream. Historically situated on the Czech-Moravian border, it is known for the ponds near the castle and on Radíkovský Stream.',
+			},
 		},
 		{
 			slug: 'trebic',
@@ -41,6 +45,10 @@ export const rok2021: Rok = {
 			vyjezd: 1,
 			x: 354.6,
 			y: 345.9,
+			popis: {
+				cs: 'Třebíč, město na řece Jihlavě v regionu Vysočina, je proslulé svou židovskou čtvrtí a bazilikou sv. Prokopa, zapsanými do UNESCO (2003). Leží 30 km jihovýchodně od Jihlavy a 56 km západně od Brna.',
+				en: 'Třebíč, a city on the Jihlava River in the Vysočina Region, is famous for its Jewish quarter and the Basilica of St. Procopius, inscribed in UNESCO (2003). It lies 30 km southeast of Jihlava and 56 km west of Brno.',
+			},
 		},
 		{
 			slug: 'nova-rise',
@@ -50,6 +58,10 @@ export const rok2021: Rok = {
 			vyjezd: 1,
 			x: 352.3,
 			y: 347.0,
+			popis: {
+				cs: 'Nová Říše je moravský městys na Českomoravské vrchovině u Telče, obklopený lesy a obtékaný říčkou Vápovka, kde se kdysi rýžovalo zlato. Připomíná ho kostel a klášter, přestože je typickou zemědělskou vesnicí, je zmíněna v dějinách hudby, literatury a výtvarného umění.',
+				en: 'New Empire is a Moravian market town on the Czech-Moravian Highlands near Telč, surrounded by forests and bypassed by the stream Vápovka, where gold was once mined. Although it is a typical agricultural village, it is mentioned in the history of music, literature, and visual arts, as evidenced by the church and monastery.',
+			},
 		},
 		{
 			slug: 'rabi',
@@ -59,6 +71,10 @@ export const rok2021: Rok = {
 			vyjezd: 2,
 			x: 336.6,
 			y: 346.2,
+			popis: {
+				cs: 'Rabí je město v podhůří Šumavy s historickým jádrem, které od roku 1992 tvoří městskou památkovou zónu.',
+				en: 'Rabí is a city in the foothills of Šumava with a historical core that has formed a municipal monument zone since 1992.',
+			},
 		},
 		{
 			slug: 'chanovice',
@@ -68,6 +84,10 @@ export const rok2021: Rok = {
 			vyjezd: 2,
 			x: 337.3,
 			y: 344.6,
+			popis: {
+				cs: 'Chanovice je obec a vesnice v Klatovském okrese v Plzeňském kraji České republiky se zhruba 800 obyvatel. Nachází se v západní části Čech.',
+				en: 'Chanovice is a municipality and village in Klatovy District in the Plzeň Region of the Czech Republic with approximately 800 inhabitants. It is located in the western part of Bohemia.',
+			},
 		},
 		{
 			slug: 'vlctejn',
@@ -77,6 +97,10 @@ export const rok2021: Rok = {
 			vyjezd: 2,
 			x: 335.5,
 			y: 342.2,
+			popis: {
+				cs: 'Vlčtejn je obec v okrese Plzeň-jih (Plzeňský kraj) s 96 obyvateli, známá svým hradem Vlčtejn, který se nachází na místě.',
+				en: 'Vlčtejn is a municipality in Plzeň-jih District (Plzeň Region) with 96 inhabitants, known for its Vlčtejn Castle, which is located on the site.',
+			},
 		},
 		{
 			slug: 'ulehle',
@@ -86,6 +110,10 @@ export const rok2021: Rok = {
 			vyjezd: 2,
 			x: 338.5,
 			y: 346.9,
+			popis: {
+				cs: 'Úlehle je obec v okrese Strakonice v Jihočeském kraji, ležící zhruba osm kilometrů jihozápadně od Strakonic s 90 obyvateli.',
+				en: 'Úlehle is a municipality in Strakonice District in the South Bohemian Region, located approximately eight kilometers southwest of Strakonice with 90 inhabitants.',
+			},
 		},
 		{
 			slug: 'krajnicko',
@@ -95,6 +123,10 @@ export const rok2021: Rok = {
 			vyjezd: 2,
 			x: 339.9,
 			y: 347.8,
+			popis: {
+				cs: 'Krajníčko je vesnice a obec v Jihočeském kraji, okrese Strakonice, s přibližně 100 obyvateli. Nachází se asi 16 km jihovýchodně od Strakonic, 39 km severozápadně od Českých Budějovic a 109 km jižně od Prahy.',
+				en: 'Krajníčko is a village and municipality in the South Bohemian Region, Strakonice District, with approximately 100 inhabitants. It is located approximately 16 km southeast of Strakonice, 39 km northwest of České Budějovice, and 109 km south of Prague.',
+			},
 		},
 		{
 			slug: 'horni-plana',
@@ -104,6 +136,10 @@ export const rok2021: Rok = {
 			vyjezd: 3,
 			x: 339.8,
 			y: 352.2,
+			popis: {
+				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
+				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+			},
 		},
 		{
 			slug: 'chudenice',
@@ -113,6 +149,10 @@ export const rok2021: Rok = {
 			vyjezd: 3,
 			x: 333.0,
 			y: 344.0,
+			popis: {
+				cs: 'Chudenice je městys v okrese Klatovy v Plzeňském kraji, ležící 11 km severozápadně od Klatov. S 759 obyvateli a rozkládající se na katastru 2113 hektarů patří mezi menší obce s tradičním katastrálním rozsahem.',
+				en: 'Chudenice is a market town in the Klatovy District in the Plzeň Region, located 11 km northwest of Klatov. With 759 inhabitants and covering a cadastral area of 2113 hectares, it belongs among smaller municipalities with a traditional cadastral area.',
+			},
 		},
 		{
 			slug: 'strakonice',
@@ -122,6 +162,10 @@ export const rok2021: Rok = {
 			vyjezd: 3,
 			x: 338.9,
 			y: 346.3,
+			popis: {
+				cs: 'Strakonice je město v Jihočeském kraji ležící na soutoku řek Otavy a Volyňky, proslulé dudáckou tradicí a historií průmyslové výroby.',
+				en: 'Strakonice is a city in the South Bohemian Region located at the confluence of the Otava and Volyňka rivers, famous for its dudák tradition and history of industrial production.',
+			},
 		},
 		{
 			slug: 'netolice',
@@ -131,6 +175,10 @@ export const rok2021: Rok = {
 			vyjezd: 3,
 			x: 341.2,
 			y: 348.7,
+			popis: {
+				cs: 'Netolice je jedno z nejstarších jihočeských měst v okrese Prachatice, ležící asi 25 km severozápadně od Českých Budějovic, kde žije přibližně 2 500 obyvatel. Historické jádro města je městskou památkovou zónou, k obci náleží osada Petrův Dvůr.',
+				en: 'Netolice is one of the oldest South Bohemian towns in the Prachatice District, located approximately 25 km northwest of České Budějovice, where approximately 2,500 people live. The historical center of the town is a municipal monument zone, and the hamlet of Petrův Dvůr belongs to the municipality.',
+			},
 		},
 		{
 			slug: 'horni-plana-2',
@@ -140,6 +188,10 @@ export const rok2021: Rok = {
 			vyjezd: 4,
 			x: 339.7,
 			y: 352.2,
+			popis: {
+				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
+				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+			},
 		},
 		{
 			slug: 'bechyne',
@@ -149,6 +201,10 @@ export const rok2021: Rok = {
 			vyjezd: 4,
 			x: 343.1,
 			y: 345.9,
+			popis: {
+				cs: 'Bechyně, město v Jihočeském kraji 19 km jihozápadně od Tábora na soutoku řek Smutné a Lužnice, je známé výrobou keramiky a lázněmi. Jako lázeňské město poskytuje léčebně rehabilitační péči, jeho historické jádro je od roku 1990 městskou památkovou zónou.',
+				en: 'Bechyně, a city in the South Bohemian Region, 19 km southwest of Tábor at the confluence of the Smutná and Lužnice rivers, is known for ceramic production and spas. As a spa town, it provides therapeutic and rehabilitative care, and its historical core has been a municipal monument zone since 1990.',
+			},
 		},
 		{
 			slug: 'herman',
@@ -158,6 +214,10 @@ export const rok2021: Rok = {
 			vyjezd: 5,
 			x: 340.9,
 			y: 346.5,
+			popis: {
+				cs: 'Heřmaň je název více obcí v Česku: obec v okrese České Budějovice, obec v okrese Písek a část obce Jeřišno v okrese Havlíčkův Brod.',
+				en: 'Heřmaň is the name of multiple municipalities in the Czech Republic: a municipality in České Budějovice District, a municipality in Písek District, and a part of the municipality Jeřišno in Havlíčkův Brod District.',
+			},
 		},
 		{
 			slug: 'kromeriz',
@@ -167,6 +227,10 @@ export const rok2021: Rok = {
 			vyjezd: 6,
 			x: 366.5,
 			y: 343.8,
+			popis: {
+				cs: 'Kroměříž, město na řece Moravě v jižním cípu Hané, je známé jako Hanácké Athény a domovem UNESCO kulturního dědictví – Arcibiskupského zámku spolu s Květnou a Podzámeckou zahradou.',
+				en: 'Kroměříž, a city on the Morava River in the southern tip of Haná, is known as Haná\'s Athens and the home of UNESCO cultural heritage – the Archbishop\'s Castle together with Květná and Podzámecká Garden.',
+			},
 		},
 		{
 			slug: 'velke-karlovice',
@@ -176,6 +240,10 @@ export const rok2021: Rok = {
 			vyjezd: 6,
 			x: 373.5,
 			y: 342.3,
+			popis: {
+				cs: 'Velké Karlovice je obec v okrese Vsetín ve Zlínském kraji s přibližně 2 400 obyvateli. Součástí obce je také vesnice Malé Karlovice.',
+				en: 'Velké Karlovice is a municipality in the Vsetín District in the Zlín Region with approximately 2,400 inhabitants. The village of Malé Karlovice is also part of the municipality.',
+			},
 		},
 		{
 			slug: 'olomouc',
@@ -194,6 +262,10 @@ export const rok2021: Rok = {
 			vyjezd: 6,
 			x: 362.1,
 			y: 339.2,
+			popis: {
+				cs: 'Bouzov je obec v okrese Olomouc v Olomouckém kraji s přibližně 1 500 obyvateli a katastrální rozlohou 4 231 hektarů, kde se nachází hrad Bouzov jako významná památka.',
+				en: 'Bouzov is a municipality in the Olomouc District in the Olomouc Region with approximately 1,500 inhabitants and a cadastral area of 4,231 hectares, where Bouzov Castle, a significant landmark, is located.',
+			},
 		},
 		{
 			slug: 'velka-turna',
@@ -203,6 +275,10 @@ export const rok2021: Rok = {
 			vyjezd: 6,
 			x: 339.4,
 			y: 345.2,
+			popis: {
+				cs: 'Velká Turná je obec v okrese Strakonice (Jihočeský kraj) s 174 obyvateli. Prostřednictvím vesnice protéká Brložský potok a v kilometru od ní se nachází oblíbený rekreační rybník Milavy.',
+				en: 'Velká Turná is a municipality in the Strakonice District (South Bohemian Region) with 174 inhabitants. The Brložský Stream flows through the village, and a popular recreational Milavy Pond is located one kilometer from it.',
+			},
 		},
 		{
 			slug: 'frantiskovy-lazne',
@@ -212,6 +288,10 @@ export const rok2021: Rok = {
 			vyjezd: 7,
 			x: 326.1,
 			y: 336.4,
+			popis: {
+				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
+				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
+			},
 		},
 		{
 			slug: 'prameny',
@@ -221,6 +301,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 329.4,
 			y: 336.9,
+			popis: {
+				cs: 'Prameny je obec v jižní části horského Slavkovského lesa v Karlovarském kraji, nacházející se v lesním prostředí s horským charakterem.',
+				en: 'Prameny is a village in the southern part of the mountainous Slavkovský Forest in the Karlovy Vary Region, located in a forest environment with a mountainous character.',
+			},
 		},
 		{
 			slug: 'terezin',
@@ -230,6 +314,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 340.1,
 			y: 331.0,
+			popis: {
+				cs: 'Terezín je malé pevnostní město v Ústeckém kraji, nacházející se na obou stranách řeky Ohře, která ho dělí na Malou a hlavní pevnost. Území pevnosti je městská památková rezervace s národní kulturní památkou Malá pevnost a jejím hřbitovem.',
+				en: 'Terezín is a small fortress town in the Ústí Region, located on both sides of the Ohře River, which divides it into the Little Fortress and the Main Fortress. The fortress area is an urban monument reserve with the national cultural monument Little Fortress and its cemetery.',
+			},
 		},
 		{
 			slug: 'jilove',
@@ -239,6 +327,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 339.4,
 			y: 327.5,
+			popis: {
+				cs: 'Jílové je město v okrese Děčín, známé svým zámkem v obci. Jedná se o lokalitu, která nese název spojený s historickým zámkem v obci Jílové.',
+				en: 'Jílové is a town in the Děčín District, known for its castle in the municipality of Jílové. It is a locality whose name is connected to the historical castle in the municipality of Jílové.',
+			},
 		},
 		{
 			slug: 'kamenicky-senov',
@@ -248,6 +340,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 342.5,
 			y: 327.6,
+			popis: {
+				cs: 'Kamenický Šenov je město v Libereckém kraji ležící v nadmořské výšce 350–550 m na hranici geomorfologických celků Českého středohoří a Lužických hor, které jsou chráněnými krajinnými oblastmi.',
+				en: 'Kamenický Šenov is a city in the Liberec Region located at an elevation of 350–550 m on the boundary between the geomorphological units of the Bohemian Central Mountains and the Lusatian Mountains, which are protected landscape areas.',
+			},
 		},
 		{
 			slug: 'bezdez',
@@ -257,6 +353,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 344.4,
 			y: 330.3,
+			popis: {
+				cs: 'Bezděz je obec v okrese Česká Lípa, jejíž významnou památkou je zřícenina hradu Bezděz na 606 m vysokém vrcholu Bezděz.',
+				en: 'Bezděz is a municipality in the Česká Lípa District, whose notable landmark is the ruins of Bezděz Castle on the 606-meter-high Bezděz Hill.',
+			},
 		},
 		{
 			slug: 'prerov-nad-labem',
@@ -266,6 +366,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 345.5,
 			y: 334.9,
+			popis: {
+				cs: 'Přerov nad Labem je obec ve Středočeském kraji, 30 km východně od Prahy, v trojúhelníku tvořeném Čelákovicemi, Lysou nad Labem a Českým Brodem. Zajímavostmi jsou renesanční zámek s přispěním architektů Bonifáce Wohlmuta a Mattea Borgorellia, archeologické naleziště osídlení před 7 000 lety a nejstarší skanzen lidové architektury v českých zemích od roku 1895.',
+				en: 'Prerov nad Labem is a municipality in the Central Bohemian Region, 30 km east of Prague, in the triangle formed by Celakovic, Lysou nad Labem, and Cesky Brod. Notable features include a Renaissance castle with contributions by architects Bonifác Wohlmut and Matteo Borgorelli, an archaeological site of settlement from 7,000 years ago, and the oldest open-air museum of folk architecture in the Czech lands since 1895.',
+			},
 		},
 		{
 			slug: 'cesky-sternberk',
@@ -275,6 +379,10 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 346.6,
 			y: 339.2,
+			popis: {
+				cs: 'Český Šternberk je městys v okrese Benešov ve Středočeském kraji, nacházející se v podhradí hradu Šternberk. Protéká zde řeka Sázava a žije zde 184 obyvatel.',
+				en: 'Český Šternberk is a market town in Benešov District in the Central Bohemian Region, located at the foot of Šternberk Castle. The Sázava River flows here and 184 people live here.',
+			},
 		},
 		{
 			slug: 'hulice',
@@ -293,6 +401,10 @@ export const rok2021: Rok = {
 			vyjezd: 9,
 			x: 346.3,
 			y: 338.3,
+			popis: {
+				cs: 'Sázava je město v Středočeském kraji, kde se nachází Sázavský klášter, významná historická památka.',
+				en: 'Sázava is a town in the Central Bohemian Region, home to the Sázava Monastery, a significant historical landmark.',
+			},
 		},
 		{
 			slug: 'lounovice-pod-blanikem',
@@ -311,6 +423,9 @@ export const rok2021: Rok = {
 			vyjezd: 9,
 			x: 346.3,
 			y: 345.0,
+			popis: {
+				cs: 'Choustník je obec v okrese Tábor v Jihočeském kraji se 484 obyvateli. V obci se nachází výrobní závod, který vyrábí chipsy Bohemia, Chio, Pom-bär a produkty značky NutLine.',
+			},
 		},
 		{
 			slug: 'tabor',
@@ -338,6 +453,10 @@ export const rok2021: Rok = {
 			vyjezd: 10,
 			x: 336.3,
 			y: 348.6,
+			popis: {
+				cs: 'Rejštejn (německy Unterreichenstein, tj. bohatý kámen) je město v okrese Klatovy v Plzeňském kraji s 240 obyvateli.',
+				en: 'Rejštejn (German: Unterreichenstein, i.e., \'rich stone\') is a town in the Klatovy District in the Plzeň Region with 240 inhabitants.',
+			},
 		},
 		{
 			slug: 'brno',
@@ -365,6 +484,10 @@ export const rok2021: Rok = {
 			vyjezd: 11,
 			x: 350.9,
 			y: 337.9,
+			popis: {
+				cs: 'Žleby je obec v okrese Kutná Hora ve Středočeském kraji, ležící 18 km jihovýchodně od Kutné Hory a 7 km východně od Čáslavu. Součástí obce jsou vesnice Kamenné Mosty, Markovice a Zehuby, obydlené přibližně 1 400 obyvateli.',
+				en: 'Žleby is a municipality in Kutná Hora District in the Central Bohemian Region, located 18 km southeast of Kutná Hora and 7 km east of Čáslav. The municipality consists of the villages of Kamenné Mosty, Markovice, and Zehuby, inhabited by approximately 1,400 residents.',
+			},
 		},
 		{
 			slug: 'pluhuv-zdar',
@@ -374,6 +497,10 @@ export const rok2021: Rok = {
 			vyjezd: 11,
 			x: 346.7,
 			y: 346.0,
+			popis: {
+				cs: 'Pluhův Žďár je obec a vesnice v Jindřichův Hradec v Jihočeském kraji s přibližně 600 obyvateli. Je známý zámkem Červená Lhota.',
+				en: 'Pluhův Žďár is a municipality and village in Jindřichův Hradec, South Bohemian Region, with approximately 600 inhabitants. It is known for Červená Lhota Castle.',
+			},
 		},
 		{
 			slug: 'praha',
@@ -392,6 +519,10 @@ export const rok2021: Rok = {
 			vyjezd: 12,
 			x: 344.5,
 			y: 339.6,
+			popis: {
+				cs: 'Benešov je město ve Středočeském kraji, největší obec okresu Benešov, ležící v Benešovské pahorkatině 30 km jihovýchodně od Prahy. Protéká jím Benešovský a Konopišťský potok, obyvatelstvo činí přibližně 17 tisíc.',
+				en: 'Benešov is a city in the Central Bohemian Region, the largest municipality in Benešov District, located in the Benešov Uplands 30 km southeast of Prague. The Benešovský and Konopišťský streams flow through it, with a population of approximately 17,000.',
+			},
 		},
 		{
 			slug: 'horni-plana-3',
@@ -401,6 +532,10 @@ export const rok2021: Rok = {
 			vyjezd: 13,
 			x: 340.5,
 			y: 352.4,
+			popis: {
+				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
+				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+			},
 		},
 	],
 	videa: [],

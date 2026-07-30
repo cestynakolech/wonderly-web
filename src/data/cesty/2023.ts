@@ -5,7 +5,7 @@ import type { Rok } from './typy';
 export const rok2023: Rok = {
 	rok: 2023,
 	zeme: 'Česko, Německo, Nizozemsko, Polsko',
-	pinEvropa: { x: 318, y: 311 },
+	pinEvropa: { x: 332, y: 321 },
 	// začátek každé cesty = domov; poloha stejnou projekcí jako v trasa_uvod.py
 	domov: { nazev: 'jižní Čechy', x: 344.9, y: 351.7 },
 	vyjezdy: [
@@ -15,8 +15,14 @@ export const rok2023: Rok = {
 		{ cislo: 4, druh: 'vikend', od: '29. 4. 2023', do: '30. 4. 2023' },
 		{ cislo: 5, druh: 'vikend', od: '8. 5. 2023', do: '11. 5. 2023' },
 		{ cislo: 6, druh: 'vikend', od: '19. 5. 2023', do: '21. 5. 2023' },
-		{ cislo: 7, druh: 'prazdniny', od: '3. 7. 2023', do: '28. 7. 2023' },
-		{ cislo: 8, druh: 'vikend', od: '5. 8. 2023', do: '5. 8. 2023' },
+		{ cislo: 7, druh: 'prazdniny', od: '3. 7. 2023', do: '13. 8. 2023' },
+		{ cislo: 8, druh: 'vikend', od: '2. 9. 2023', do: '2. 9. 2023' },
+		{ cislo: 9, druh: 'vikend', od: '28. 9. 2023', do: '30. 9. 2023' },
+		{ cislo: 10, druh: 'vikend', od: '7. 10. 2023', do: '7. 10. 2023' },
+		{ cislo: 11, druh: 'vikend', od: '26. 10. 2023', do: '28. 10. 2023' },
+		{ cislo: 12, druh: 'vikend', od: '17. 11. 2023', do: '17. 11. 2023' },
+		{ cislo: 13, druh: 'vikend', od: '16. 12. 2023', do: '16. 12. 2023' },
+		{ cislo: 14, druh: 'vikend', od: '25. 12. 2023', do: '30. 12. 2023' },
 	],
 	mesta: [
 		{
@@ -45,6 +51,10 @@ export const rok2023: Rok = {
 			vyjezd: 2,
 			x: 298.2,
 			y: 295.2,
+			popis: {
+				cs: 'Bremerhaven je severomořský přístav, který spolu s Brémy tvoří Svobodné hanzovní město Brémy, nachází se asi 60 km severně od Brem a má přibližně 115 tisíc obyvatel.',
+				en: 'Bremerhaven is a North Sea port that, together with Bremen, forms the Free Hanseatic City of Bremen, is located approximately 60 km north of Bremen, and has approximately 115,000 inhabitants.',
+			},
 		},
 		{
 			slug: 'magdeburk',
@@ -54,6 +64,10 @@ export const rok2023: Rok = {
 			vyjezd: 2,
 			x: 320.5,
 			y: 312.1,
+			popis: {
+				cs: 'Magdeburg je zemské hlavní město Saska-Anhaltska, ležící na Labi. Je druhým největším městem země s přibližně 240 tisíc obyvatel a sídlem katolického i evangelického luterského biskupství, kde sídlí dvě vysoké školy.',
+				en: 'Magdeburg is the state capital of Saxony-Anhalt, located on the Elbe. It is the second largest city in Saxony-Anhalt with approximately 240,000 inhabitants and the seat of both a Catholic and an Evangelical Lutheran bishopric, where two universities are located.',
+			},
 		},
 		{
 			slug: 'schwarzenberg-erzgebirge',
@@ -63,6 +77,10 @@ export const rok2023: Rok = {
 			vyjezd: 2,
 			x: 329.5,
 			y: 331.1,
+			popis: {
+				cs: 'Schwarzenberg/Erzgebirge je město v Erzgebirském kraji (Sasko), založené v 12. století jako pevnost chránící obchodní cestu. Dnes je považováno za perlu Erzgebirge a součástí středního průmyslu.',
+				en: 'Schwarzenberg/Erzgebirge is a city in the Erzgebirge Region (Saxony), founded in the 12th century as a fortress protecting a trade route. Today it is considered a jewel of Erzgebirge and part of the middle industry.',
+			},
 		},
 		{
 			slug: 'srni',
@@ -72,6 +90,10 @@ export const rok2023: Rok = {
 			vyjezd: 3,
 			x: 335.9,
 			y: 348.9,
+			popis: {
+				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
+				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+			},
 		},
 		{
 			slug: 'kutna-hora',
@@ -81,6 +103,10 @@ export const rok2023: Rok = {
 			vyjezd: 4,
 			x: 349.2,
 			y: 337.2,
+			popis: {
+				cs: 'Kutná Hora je městská památková rezervace zapsaná na seznamu světového kulturního dědictví UNESCO. Díky vrcholící těžbě stříbra v 13. až 15. století byla jedním z nejvýznamnějších českých královských měst, v současnosti zde žije přibližně 22 tisíc obyvatel.',
+				en: 'Kutná Hora is a city monument reservation listed on the UNESCO World Heritage List. Due to the peak silver mining in the 13th to 15th centuries, it was one of the most significant Czech royal cities, currently approximately 22,000 people live here.',
+			},
 		},
 		{
 			slug: 'srni-2',
@@ -90,6 +116,10 @@ export const rok2023: Rok = {
 			vyjezd: 5,
 			x: 335.7,
 			y: 348.6,
+			popis: {
+				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
+				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+			},
 		},
 		{
 			slug: 'jaromerice-nad-rokytnou',
@@ -99,6 +129,10 @@ export const rok2023: Rok = {
 			vyjezd: 6,
 			x: 354.9,
 			y: 347.4,
+			popis: {
+				cs: 'Jaroměřice nad Rokytnou je město v Kraji Vysočina s barokním zámkem s kostelem svaté Markéty, historickým jádrem jako památkovou zónou a mezinárodním hudebním festivalem Petra Dvorského od roku 1999.',
+				en: 'Jaroměřice nad Rokytnou is a city in the Vysočina Region with a Baroque castle featuring St. Margaret\'s Church, a historical core designated as a monument zone, and the Petr Dvorský International Music Festival since 1999.',
+			},
 		},
 		{
 			slug: 'jarosov',
@@ -117,6 +151,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 337.0,
 			y: 349.4,
+			popis: {
+				cs: 'Nové Hutě jsou obec v Jihočeském kraji, ležící v Chráněné krajinné oblasti Šumava na nadmořské výšce 1 025 metrů v údolí Vydřího potoka. Zajímavostí je středisko zimních sportů s čtyřmi lyžařskými vleky na úbočí hory Přílba.',
+				en: 'Nové Hutě is a municipality in the South Bohemian Region, located in the Šumava Protected Landscape Area at an elevation of 1,025 meters in the valley of the Vydří Stream. An interesting feature is the winter sports center with four ski lifts on the slope of Přílba.',
+			},
 		},
 		{
 			slug: 'magdeburk-2',
@@ -126,6 +164,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 320.5,
 			y: 312.0,
+			popis: {
+				cs: 'Magdeburg je zemské hlavní město Saska-Anhaltska, ležící na Labi. Je druhým největším městem země s přibližně 240 tisíc obyvatel a sídlem katolického i evangelického luterského biskupství, kde sídlí dvě vysoké školy.',
+				en: 'Magdeburg is the state capital of Saxony-Anhalt, located on the Elbe. It is the second largest city in Saxony-Anhalt with approximately 240,000 inhabitants and the seat of both a Catholic and an Evangelical Lutheran bishopric, where two universities are located.',
+			},
 		},
 		{
 			slug: 'cuxhaven-2',
@@ -144,6 +186,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 298.2,
 			y: 295.3,
+			popis: {
+				cs: 'Bremerhaven je severomořský přístav, který spolu s Brémy tvoří Svobodné hanzovní město Brémy, nachází se asi 60 km severně od Brem a má přibližně 115 tisíc obyvatel.',
+				en: 'Bremerhaven is a North Sea port that, together with Bremen, forms the Free Hanseatic City of Bremen, is located approximately 60 km north of Bremen, and has approximately 115,000 inhabitants.',
+			},
 		},
 		{
 			slug: 'bad-nieuweschans',
@@ -153,6 +199,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 288.2,
 			y: 299.2,
+			popis: {
+				cs: 'Bad Nieuweschans je hraniční město a kúrort v provincii Groningen, Nizozemí, nejvýchodnější a nejsevernější hraniční město v zemi. Díky historickým budovám bylo v roce 1974 prohlášeno za chráněný vesnický vzhled.',
+				en: 'Bad Nieuweschans is a border town and resort in the province of Groningen, Netherlands, the most eastern and most northern border town in the country. Due to its historic buildings, it was designated as a protected village appearance in 1974.',
+			},
 		},
 		{
 			slug: 'burdaard',
@@ -162,6 +212,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 278.4,
 			y: 297.3,
+			popis: {
+				cs: 'Burdaard je vesnice v provincii Friesland nacházející se mezi Dokkumem a Leeuwardenem na obou stranách řeky Dokkumer Ee. V létě projde vesnicí přibližně 12 tisíc lodí, a během Elfstedentochtu prochází dvakrát.',
+				en: 'Burdaard is a village in the province of Friesland situated between Dokkum and Leeuwarden on both sides of the Dokkumer Ee river. In summer, approximately 12,000 ships pass through the village, and during the Elfstedentocht, it passes twice.',
+			},
 		},
 		{
 			slug: 'huizen',
@@ -171,6 +225,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 272.7,
 			y: 308.9,
+			popis: {
+				cs: 'Huizen je obec v provincii Noord-Holland v regionu Gooi. Má celkovou plochu 23,32 km² (z toho 7,51 km² vody) a populaci 41.283 obyvatel s relativně mladou populací.',
+				en: 'Huizen is a municipality in the province of Noord-Holland in the Gooi region. It has a total area of 23.32 km² (of which 7.51 km² is water) and a population of 41,283 with a relatively young population.',
+			},
 		},
 		{
 			slug: 'gouda',
@@ -189,6 +247,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 263.8,
 			y: 312.2,
+			popis: {
+				cs: 'Hoek van Holland je součástí Rotterdamského města, která zachovala ráz malého přímořského městečka a lázně. Nachází se v jižním Holandsku 25 km jihozápadně od Haagu u ústí řeky Rýn (historická Stará Máza/Oude Maas).',
+				en: 'Hoek van Holland is part of Rotterdam city, which has preserved the character of a small seaside town and spa. It is located in South Holland 25 km southwest of The Hague at the mouth of the Rhine River (historical Old Maas/Oude Maas).',
+			},
 		},
 		{
 			slug: 'arnhem',
@@ -198,6 +260,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 277.4,
 			y: 313.2,
+			popis: {
+				cs: 'Arnhem je hlavním městem provincie Gelderland, ležící na Nederrijnu, severním rameni řeky Rýn, historicky proslulé jako dějiště operace Market Garden a dopravně unikátním trolejbusovým systémem.',
+				en: 'Arnhem is the capital of the province of Gelderland, located on the Nederrijn, the northern branch of the Rhine River, historically famous as the site of Operation Market Garden and a transport-unique trolleybus system.',
+			},
 		},
 		{
 			slug: 'bredevoort',
@@ -207,6 +273,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 282.7,
 			y: 313.9,
+			popis: {
+				cs: 'Bredevoort je bývalé panství a pevnostní město, které od roku 1818 patří do obce Aalten v regionu Gelderse Achterhoek. Město je známé jako „Boekenstad“ díky množství antikvariátů a knihkupectví druhé ruky, má 1 475 obyvatel.',
+				en: 'Bredevoort is a former manor and fortress town that has belonged to the municipality of Aalten in the Gelderse Achterhoek region since 1818. The city is known as "Boekenstad" due to its many antiquarian shops and second-hand bookstores, with a population of 1,475.',
+			},
 		},
 		{
 			slug: 'bremy',
@@ -216,6 +286,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 299.7,
 			y: 300.8,
+			popis: {
+				cs: 'Brémy jsou město na severozápadě Německa ležící na řece Vezeře, hlavním a největším městem spolkové země Svobodné hanzovní město Brémy, s 584 332 obyvateli k 31. prosinci 2023.',
+				en: 'Bremen is a city in the northwest of Germany located on the Weser River, the capital and largest city of the federal state of the Free Hanseatic City of Bremen, with 584,332 inhabitants as of December 31, 2023.',
+			},
 		},
 		{
 			slug: 'hohenkirchen',
@@ -225,6 +299,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 318.1,
 			y: 290.3,
+			popis: {
+				cs: 'Hohenkirchen je název několika obcí a částí obcí v Německu, včetně Hohenkirchenu v Hesensku (kraj Kassel), Thürinku (kraj Gotha), Sasku (kraj Mittelsachsen), Mecklenbursku (kraj Nordwestmecklenburg), Sasko-anhaltsku (kraj Burgenlandkreis) a Dolním Sazsku (kraj Friesland).',
+			},
 		},
 		{
 			slug: 'peenemunde',
@@ -234,6 +311,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 335.5,
 			y: 287.1,
+			popis: {
+				cs: 'Peenemünde je nejsevernější vesnice na ostrově Usedom v severovýchodním Německu u ústí řeky Peene, známá díky výzkumnému středisku německé Luftwaffe z doby druhé světové války.',
+				en: 'Peenemünde is the northernmost village on the island of Usedom in northeastern Germany at the mouth of the Peene River, known for the German Luftwaffe\'s research center during World War II.',
+			},
 		},
 		{
 			slug: 'sianozety',
@@ -243,6 +324,10 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 349.4,
 			y: 285.1,
+			popis: {
+				cs: 'Sianożęty je pobřežní letní vesnice s letním koupalištěm na Pomořské zátoce v rámci Słowińského pobřeží.',
+				en: 'Sianożęty is a coastal summer village with a summer swimming place on Pomeranian Bay within the Słowiński Coast.',
+			},
 		},
 		{
 			slug: 'darowo',
@@ -252,12 +337,16 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 353.8,
 			y: 281.8,
+			popis: {
+				cs: 'Darłowo je přímořské město v severozápadním Polsku, v Západopomořanském vojvodství, ležící u ústí řeky Wieprzy do Baltského moře. Jeho dobře zachované historické jádro s památkami a blízkost moře jsou klíčovými charakteristikami místa.',
+				en: 'Darłowo is a coastal city in northwestern Poland, in the West Pomeranian Voivodeship, located at the mouth of the Wieprza River into the Baltic Sea. Its well-preserved historical center with landmarks and proximity to the sea are key characteristics of the place.',
+			},
 		},
 		{
 			slug: 'gdansk',
 			nazev: 'Gdaňsk',
 			zeme: 'Polsko',
-			datum: '27.–28. 7. 2023',
+			datum: '27.–30. 7. 2023',
 			vyjezd: 7,
 			x: 369.8,
 			y: 280.4,
@@ -267,9 +356,182 @@ export const rok2023: Rok = {
 			nazev: 'Frombork',
 			zeme: 'Polsko',
 			datum: '5. 8. 2023',
-			vyjezd: 8,
+			vyjezd: 7,
 			x: 376.9,
 			y: 279.9,
+			popis: {
+				cs: 'Frombork je přímořské město v severním Polsku u Viselské laguny ve Varmijsko-mazurském vojvodství. Nachází se ve Varmijské nížině na severním úpatí Elblonské vysočiny a patří k historické Varmii, kde je považován za klenot.',
+				en: 'Frombork is a coastal city in northern Poland near the Viselska Lagoon in the Warmian-Masurian Voivodeship. It is located in the Warmian Lowland at the northern foot of the Elblag Upland and belongs to the historical Warmia, where it is regarded as a jewel.',
+			},
+		},
+		{
+			slug: 'malbork',
+			nazev: 'Malbork',
+			zeme: 'Polsko',
+			datum: '6. 8. 2023',
+			vyjezd: 7,
+			x: 372.8,
+			y: 284.5,
+			popis: {
+				cs: 'Malbork je město v Polsku na řece Nogat, dominantou je křižácký hrad Malbork postavený z červených cihel v gotickém stylu, součást světového dědictví UNESCO.',
+				en: 'Malbork is a city in Poland on the river Nogat, its dominant feature being the Teutonic Castle Malbork, built from red bricks in Gothic style, part of the UNESCO World Heritage.',
+			},
+		},
+		{
+			slug: 'grudziadz',
+			nazev: 'Grudziądz',
+			zeme: 'Polsko',
+			datum: '6.–8. 8. 2023',
+			vyjezd: 7,
+			x: 371.5,
+			y: 291.4,
+		},
+		{
+			slug: 'leszno',
+			nazev: 'Leszno',
+			zeme: 'Polsko',
+			datum: '9. 8. 2023',
+			vyjezd: 7,
+			x: 357.4,
+			y: 313.3,
+		},
+		{
+			slug: 'zoty-stok',
+			nazev: 'Złoty Stok',
+			zeme: 'Polsko',
+			datum: '9.–10. 8. 2023',
+			vyjezd: 7,
+			x: 361.2,
+			y: 330.2,
+		},
+		{
+			slug: 'lipnik-nad-becvou',
+			nazev: 'Lipník nad Bečvou',
+			zeme: 'Česko',
+			datum: '11.–12. 8. 2023',
+			vyjezd: 7,
+			x: 367.9,
+			y: 340.9,
+		},
+		{
+			slug: 'velke-bilovice',
+			nazev: 'Velké Bílovice',
+			zeme: 'Česko',
+			datum: '13. 8. 2023',
+			vyjezd: 7,
+			x: 363.2,
+			y: 349.5,
+		},
+		{
+			slug: 'horni-plana',
+			nazev: 'Horní Planá',
+			zeme: 'Česko',
+			datum: '2. 9. 2023',
+			vyjezd: 8,
+			x: 340.5,
+			y: 352.4,
+			popis: {
+				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
+				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+			},
+		},
+		{
+			slug: 'velke-bilovice-2',
+			nazev: 'Velké Bílovice',
+			zeme: 'Česko',
+			datum: '28.–29. 9. 2023',
+			vyjezd: 9,
+			x: 363.1,
+			y: 349.4,
+		},
+		{
+			slug: 'slup',
+			nazev: 'Slup',
+			zeme: 'Česko',
+			datum: '30. 9. 2023',
+			vyjezd: 9,
+			x: 357.6,
+			y: 351.0,
+		},
+		{
+			slug: 'pleckensteiner-wald',
+			nazev: 'Pleckensteiner Wald',
+			zeme: 'Německo',
+			datum: '7. 10. 2023',
+			vyjezd: 10,
+			x: 338.5,
+			y: 352.3,
+		},
+		{
+			slug: 'velke-mezirici',
+			nazev: 'Velké Meziříčí',
+			zeme: 'Česko',
+			datum: '26.–27. 10. 2023',
+			vyjezd: 11,
+			x: 355.7,
+			y: 344.0,
+		},
+		{
+			slug: 'modra',
+			nazev: 'Modrá',
+			zeme: 'Česko',
+			datum: '28. 10. 2023',
+			vyjezd: 11,
+			x: 366.9,
+			y: 346.2,
+		},
+		{
+			slug: 'brno',
+			nazev: 'Brno',
+			zeme: 'Česko',
+			datum: '28. 10. 2023',
+			vyjezd: 11,
+			x: 359.2,
+			y: 345.0,
+		},
+		{
+			slug: 'srni-3',
+			nazev: 'Srní',
+			zeme: 'Česko',
+			datum: '17. 11. 2023',
+			vyjezd: 12,
+			x: 335.9,
+			y: 349.0,
+			popis: {
+				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
+				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+			},
+		},
+		{
+			slug: 'brno-2',
+			nazev: 'Brno',
+			zeme: 'Česko',
+			datum: '16. 12. 2023',
+			vyjezd: 13,
+			x: 360.4,
+			y: 345.8,
+		},
+		{
+			slug: 'srni-4',
+			nazev: 'Srní',
+			zeme: 'Česko',
+			datum: '25. 12. 2023',
+			vyjezd: 14,
+			x: 335.7,
+			y: 348.6,
+			popis: {
+				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
+				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+			},
+		},
+		{
+			slug: 'zbytiny',
+			nazev: 'Zbytiny',
+			zeme: 'Česko',
+			datum: '30. 12. 2023',
+			vyjezd: 14,
+			x: 339.7,
+			y: 350.6,
 		},
 	],
 	videa: [],

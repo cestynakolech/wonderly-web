@@ -1,6 +1,15 @@
 import type { Jazyk, PrelozenyPopis } from './typy';
 
-export const JAZYKY: Jazyk[] = ['cs', 'en', 'de'];
+export const JAZYKY: Jazyk[] = ['cs', 'en', 'de', 'fr'];
+
+/** Vlajka a vlastní název jazyka pro přepínač (přání učitele 30. 7. 2026).
+ *  U angličtiny britská vlajka — deník je psaný pro evropské čtenáře. */
+export const JAZYK_POPIS: Record<Jazyk, { vlajka: string; nazev: string }> = {
+	cs: { vlajka: '🇨🇿', nazev: 'Čeština' },
+	en: { vlajka: '🇬🇧', nazev: 'English' },
+	de: { vlajka: '🇩🇪', nazev: 'Deutsch' },
+	fr: { vlajka: '🇫🇷', nazev: 'Français' },
+};
 
 /** Adresa stránky deníku v daném jazyce (čeština je bez předpony) */
 export function cestaCesty(jazyk: Jazyk, podcesta = ''): string {
@@ -16,38 +25,38 @@ export function prelozPopis(popis: PrelozenyPopis | undefined, jazyk: Jazyk): st
 }
 
 /** Názvy zemí; klíčem je český název, který zapisují data i skript `mesto` */
-const NAZVY_ZEMI: Record<string, { en: string; de: string }> = {
-	Německo: { en: 'Germany', de: 'Deutschland' },
-	Francie: { en: 'France', de: 'Frankreich' },
-	Itálie: { en: 'Italy', de: 'Italien' },
-	Španělsko: { en: 'Spain', de: 'Spanien' },
-	Nizozemsko: { en: 'Netherlands', de: 'Niederlande' },
-	Belgie: { en: 'Belgium', de: 'Belgien' },
-	Polsko: { en: 'Poland', de: 'Polen' },
-	Maďarsko: { en: 'Hungary', de: 'Ungarn' },
-	Rakousko: { en: 'Austria', de: 'Österreich' },
-	Slovensko: { en: 'Slovakia', de: 'Slowakei' },
-	Česko: { en: 'Czechia', de: 'Tschechien' },
-	Švýcarsko: { en: 'Switzerland', de: 'Schweiz' },
-	Portugalsko: { en: 'Portugal', de: 'Portugal' },
-	'Velká Británie': { en: 'United Kingdom', de: 'Großbritannien' },
-	Irsko: { en: 'Ireland', de: 'Irland' },
-	Dánsko: { en: 'Denmark', de: 'Dänemark' },
-	Švédsko: { en: 'Sweden', de: 'Schweden' },
-	Norsko: { en: 'Norway', de: 'Norwegen' },
-	Finsko: { en: 'Finland', de: 'Finnland' },
-	Řecko: { en: 'Greece', de: 'Griechenland' },
-	Chorvatsko: { en: 'Croatia', de: 'Kroatien' },
-	Slovinsko: { en: 'Slovenia', de: 'Slowenien' },
-	Rumunsko: { en: 'Romania', de: 'Rumänien' },
-	Bulharsko: { en: 'Bulgaria', de: 'Bulgarien' },
-	Lucembursko: { en: 'Luxembourg', de: 'Luxemburg' },
-	Litva: { en: 'Lithuania', de: 'Litauen' },
-	Lotyšsko: { en: 'Latvia', de: 'Lettland' },
-	Estonsko: { en: 'Estonia', de: 'Estland' },
+const NAZVY_ZEMI: Record<string, { en: string; de: string; fr: string }> = {
+	Německo: { en: 'Germany', de: 'Deutschland', fr: 'Allemagne' },
+	Francie: { en: 'France', de: 'Frankreich', fr: 'France' },
+	Itálie: { en: 'Italy', de: 'Italien', fr: 'Italie' },
+	Španělsko: { en: 'Spain', de: 'Spanien', fr: 'Espagne' },
+	Nizozemsko: { en: 'Netherlands', de: 'Niederlande', fr: 'Pays-Bas' },
+	Belgie: { en: 'Belgium', de: 'Belgien', fr: 'Belgique' },
+	Polsko: { en: 'Poland', de: 'Polen', fr: 'Pologne' },
+	Maďarsko: { en: 'Hungary', de: 'Ungarn', fr: 'Hongrie' },
+	Rakousko: { en: 'Austria', de: 'Österreich', fr: 'Autriche' },
+	Slovensko: { en: 'Slovakia', de: 'Slowakei', fr: 'Slovaquie' },
+	Česko: { en: 'Czechia', de: 'Tschechien', fr: 'Tchéquie' },
+	Švýcarsko: { en: 'Switzerland', de: 'Schweiz', fr: 'Suisse' },
+	Portugalsko: { en: 'Portugal', de: 'Portugal', fr: 'Portugal' },
+	'Velká Británie': { en: 'United Kingdom', de: 'Großbritannien', fr: 'Royaume-Uni' },
+	Irsko: { en: 'Ireland', de: 'Irland', fr: 'Irlande' },
+	Dánsko: { en: 'Denmark', de: 'Dänemark', fr: 'Danemark' },
+	Švédsko: { en: 'Sweden', de: 'Schweden', fr: 'Suède' },
+	Norsko: { en: 'Norway', de: 'Norwegen', fr: 'Norvège' },
+	Finsko: { en: 'Finland', de: 'Finnland', fr: 'Finlande' },
+	Řecko: { en: 'Greece', de: 'Griechenland', fr: 'Grèce' },
+	Chorvatsko: { en: 'Croatia', de: 'Kroatien', fr: 'Croatie' },
+	Slovinsko: { en: 'Slovenia', de: 'Slowenien', fr: 'Slovénie' },
+	Rumunsko: { en: 'Romania', de: 'Rumänien', fr: 'Roumanie' },
+	Bulharsko: { en: 'Bulgaria', de: 'Bulgarien', fr: 'Bulgarie' },
+	Lucembursko: { en: 'Luxembourg', de: 'Luxemburg', fr: 'Luxembourg' },
+	Litva: { en: 'Lithuania', de: 'Litauen', fr: 'Lituanie' },
+	Lotyšsko: { en: 'Latvia', de: 'Lettland', fr: 'Lettonie' },
+	Estonsko: { en: 'Estonia', de: 'Estland', fr: 'Estonie' },
 };
 
-const SPOJKA: Record<Jazyk, string> = { cs: ' a ', en: ' and ', de: ' und ' };
+const SPOJKA: Record<Jazyk, string> = { cs: ' a ', en: ' and ', de: ' und ', fr: ' et ' };
 
 /** Přeloží název země i čárkou oddělený seznam ("Německo, Francie" → "Germany and France") */
 export function prelozZemi(zeme: string, jazyk: Jazyk): string {
@@ -72,23 +81,37 @@ const MESICE_DE = [
 	'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
 	'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember',
 ];
+const MESICE_FR = [
+	'janvier', 'février', 'mars', 'avril', 'mai', 'juin',
+	'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre',
+];
+
+const MESICE_SLOVY: Record<Jazyk, readonly string[]> = {
+	cs: MESICE_CS,
+	en: MESICE_EN,
+	de: MESICE_DE,
+	fr: MESICE_FR,
+};
 
 /** Datum je v datech uloženo česky ("6. 7. 2026", výjimečně "červenec 2026");
- *  pro angličtinu a němčinu se přeformátuje/přeloží. */
+ *  pro ostatní jazyky se přeformátuje/přeloží. Angličtina i francouzština píší
+ *  datum slovy ("6 July 2026" / "6 juillet 2026", první den měsíce "1er juillet"),
+ *  němčina používá stejný číselný tvar jako čeština. */
 export function formatujDatum(datum: string, jazyk: Jazyk): string {
 	if (jazyk === 'cs') return datum;
 	// slovní tvar „červenec 2026" — přeložit název měsíce
 	const slovni = datum.trim().match(/^(\p{L}+)\s+(\d{4})$/u);
 	if (slovni) {
 		const i = MESICE_CS.indexOf(slovni[1].toLowerCase());
-		if (i >= 0) return `${(jazyk === 'en' ? MESICE_EN : MESICE_DE)[i]} ${slovni[2]}`;
+		if (i >= 0) return `${MESICE_SLOVY[jazyk][i]} ${slovni[2]}`;
 		return datum;
 	}
-	if (jazyk !== 'en') return datum; // německý číselný tvar je shodný s českým
+	if (jazyk === 'de') return datum; // německý číselný tvar je shodný s českým
 	const casti = datum.split('.').map((c) => parseInt(c.trim(), 10));
 	if (casti.length !== 3 || casti.some(Number.isNaN)) return datum;
 	const [den, mesic, rok] = casti;
-	return `${den} ${MESICE_EN[mesic - 1]} ${rok}`;
+	const cislovka = jazyk === 'fr' && den === 1 ? '1er' : String(den);
+	return `${cislovka} ${MESICE_SLOVY[jazyk][mesic - 1]} ${rok}`;
 }
 
 /** Emoji vlajky zemí; klíčem je český název jako v NAZVY_ZEMI */
@@ -194,6 +217,34 @@ export const TEXTY = {
 		cenyUpozorneniVlastni: 'Diese Preise haben wir bei unserem Besuch zum angegebenen Datum selbst bezahlt — heute können sie anders sein; bitte vor der Reise prüfen.',
 		napovedaMapa: 'Klicke auf einen Kreis mit Zahl, um heranzuzoomen und nur diese Orte zu sehen.',
 		bertikReport: '🐾 Bertíks Schnüffelreport (Tschechisch)',
+	},
+	fr: {
+		nadpis: 'Voyages sur roues',
+		uvod: "Carnet de voyage de nos périples en camping-car à travers l'Europe. Choisis une année sur la carte ou avec un bouton et découvre notre itinéraire.",
+		vsechnaMista: 'Tous les lieux',
+		vsechnaMistaUvod: 'Tous les lieux visités, toutes années confondues, sur une seule carte.',
+		zpetNaRoky: 'Retour aux années',
+		vsechnyRoky: 'Toutes les années',
+		mapaEvropy: "Carte de l'Europe avec les années de voyage",
+		mapaVsech: 'Carte de tous les lieux visités',
+		mapaRoku: 'Carte des lieux visités en',
+		podklad: 'Fond de carte :',
+		autorLicence: ' par maix (Wikimedia Commons), sous licence',
+		upraveno: '– modifié (ajout de repères).',
+		prepnoutVzhled: 'Mode clair/sombre',
+		celaCesta: 'Tout le voyage',
+		otevrit: 'Ouvrir',
+		zpetNaMapu: '← Retour à la carte entière',
+		tvaryMist: ['lieu', 'lieux', 'lieux'],
+		tvaryVyprav: ['voyage', 'voyages', 'voyages'],
+		tvaryZemi: ['pays', 'pays', 'pays'],
+		tvaryDnu: ['jour', 'jours', 'jours'],
+		naCeste: 'sur la route',
+		videaNadpis: 'Vidéos du voyage',
+		cenyUpozorneni: "Les tarifs de stationnement sont donnés à titre indicatif — relevés publiquement dans les applications (park4night, Camping-Car Park) à la date indiquée. Ils peuvent ne plus être à jour ; vérifie-les dans l'application ou sur place avant de partir.",
+		cenyUpozorneniVlastni: "Ce sont les tarifs que nous avons payés nous-mêmes à la date indiquée — ils peuvent être différents aujourd'hui, vérifie-les avant de partir.",
+		napovedaMapa: 'Clique sur un cercle numéroté pour zoomer et ne voir que ces lieux.',
+		bertikReport: '🐾 Le rapport renifleur de Bertík (en tchèque)',
 	},
 } satisfies Record<Jazyk, Record<string, string | readonly string[]>>;
 

@@ -25,6 +25,10 @@ export const rok2020: Rok = {
 			vyjezd: 1,
 			x: 361.1,
 			y: 349.3,
+			popis: {
+				cs: 'Dolní Věstonice je obec v Jihomoravském kraji, nacházející se severně od Pavlovských vrchů na jižním břehu Novomlýnské nádrže. Je známá svou vinařskou tradicí tisíciletého trvání a Sklepní ulicí s původními i novými vinnými sklepy v Mikulovské vinařské podoblasti.',
+				en: 'Dolní Věstonice is a village in the South Moravian Region, located north of the Pavlov Hills on the southern shore of the Novomlýnská Reservoir. It is known for its thousand-year-old winemaking tradition and Sklepní Street with original and new wine cellars in the Mikulovská wine subregion.',
+			},
 		},
 		{
 			slug: 'znojmo',
@@ -34,6 +38,10 @@ export const rok2020: Rok = {
 			vyjezd: 1,
 			x: 356.0,
 			y: 350.2,
+			popis: {
+				cs: 'Znojmo je moravské město na levém břehu řeky Dyje, druhé největší město Jihomoravského kraje a historické centrum jihozápadní Moravy, známé jako vinařská obec v podoblasti Znojemské.',
+				en: 'Znojmo is a Moravian city on the left bank of the Dyje River, the second largest city of the South Moravian Region and the historical center of Southwestern Moravia, known as a wine village in the Znojemská subregion.',
+			},
 		},
 		{
 			slug: 'horni-pena',
@@ -43,6 +51,10 @@ export const rok2020: Rok = {
 			vyjezd: 1,
 			x: 348.0,
 			y: 347.9,
+			popis: {
+				cs: 'Horní Pěna je obec v okrese Jindřichův Hradec v Jihočeském kraji, umístěná v Javořické pahorkatině v oblasti České Kanady s 582 obyvateli.',
+				en: 'Upper Pěna is a municipality in Jindřichův Hradec District in the South Bohemian Region, located in the Javořická Uplands in the Czech Canada area with 582 inhabitants.',
+			},
 		},
 		{
 			slug: 'karlovy-vary',
@@ -52,6 +64,10 @@ export const rok2020: Rok = {
 			vyjezd: 2,
 			x: 330.4,
 			y: 334.9,
+			popis: {
+				cs: 'Karlovy Vary je nejnavštěvovanější české lázeňské město na soutoku řek Ohře a Teplé, které od roku 2021 tvoří součást Světového dědictví UNESCO spolu s Františkovými a Mariánskými Lázněmi.',
+				en: 'Karlovy Vary is the most visited Czech spa town at the confluence of the Ohře and Teplá rivers, which since 2021 has been part of the UNESCO World Heritage Site together with Františkovy and Mariánské Lázně.',
+			},
 		},
 		{
 			slug: 'tocnik',
@@ -61,6 +77,10 @@ export const rok2020: Rok = {
 			vyjezd: 2,
 			x: 338.4,
 			y: 338.6,
+			popis: {
+				cs: 'Točník je obec v okrese Beroun ve Středočeském kraji, asi 7 km severně od Hořovic. Žije zde 269 obyvatel.',
+				en: 'Točník is a municipality in Beroun District in the Central Bohemian Region, about 7 km north of Hořovic. It has a population of 269.',
+			},
 		},
 		{
 			slug: 'frantiskovy-lazne',
@@ -70,6 +90,10 @@ export const rok2020: Rok = {
 			vyjezd: 2,
 			x: 326.3,
 			y: 336.4,
+			popis: {
+				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
+				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
+			},
 		},
 		{
 			slug: 'velhartice',
@@ -79,6 +103,10 @@ export const rok2020: Rok = {
 			vyjezd: 2,
 			x: 334.9,
 			y: 346.5,
+			popis: {
+				cs: 'Velhartice je obec v Plzeňském kraji s historickým jádrem zařazeným do městské památkové zóny. Součástí obce je bývalé horní město Hory Matky Boží.',
+				en: 'Velhartice is a municipality in the Plzeň Region with a historical core included in the city monument zone. The municipality includes the former upper town Hory Matky Boží.',
+			},
 		},
 		{
 			slug: 'orlik-nad-vltavou',
@@ -88,6 +116,10 @@ export const rok2020: Rok = {
 			vyjezd: 3,
 			x: 340.8,
 			y: 343.1,
+			popis: {
+				cs: 'Orlík nad Vltavou je obec v Jihočeském kraji na levém břehu Vltavy, kde se nachází zámek na skalním útesu nad jezerem orlické přehrady. Obec tvoří dvě části: původní Orlík okolo zámku a Staré Sedlo, zmiňované již koncem 13. století jako farní obec s kostelem.',
+				en: 'Orlík on the Vltava River is a municipality in the South Bohemian Region on the left bank of the Vltava River, where a castle is located on a rocky cliff above the Orlík Reservoir. The municipality consists of two parts: the original Orlík around the castle and Staré Sedlo, mentioned already at the end of the 13th century as a parish village with a church.',
+			},
 		},
 		{
 			slug: 'svaty-jan',
@@ -97,6 +129,10 @@ export const rok2020: Rok = {
 			vyjezd: 3,
 			x: 341.5,
 			y: 341.3,
+			popis: {
+				cs: 'Svatý Jan je obec a vesnice v okrese Příbram v Středočeském kraji České republiky se zhruba 600 obyvatel.',
+				en: 'Svatý Jan is a municipality and village in Příbram District, Central Bohemian Region, Czech Republic, with approximately 600 inhabitants.',
+			},
 		},
 		{
 			slug: 'tyn-nad-vltavou',
@@ -106,6 +142,10 @@ export const rok2020: Rok = {
 			vyjezd: 3,
 			x: 343.0,
 			y: 346.2,
+			popis: {
+				cs: 'Týn nad Vltavou je město v Jihočeském kraji ležící na obou březích Vltavy východně od jejího soutoku s Lužnicí. Jeho historické jádro tvoří městskou památkovou zónu, což je hlavní kulturní charakteristikou místa.',
+				en: 'Týn nad Vltavou is a city in the South Bohemian Region located on both banks of the Vltava River east of its confluence with the Lužnice River. Its historical core forms a municipal monument zone, which is the main cultural characteristic of the place.',
+			},
 		},
 		{
 			slug: 'zirovnice',
@@ -115,6 +155,10 @@ export const rok2020: Rok = {
 			vyjezd: 4,
 			x: 349.2,
 			y: 345.9,
+			popis: {
+				cs: 'Žirovnice je město v regionu Vysočina, ležící na potoku Žirovničce v Křemešníkových vrších. Hlavní památky tvoří Zámek Žirovnice a kostel sv. Filipa a Jakuba.',
+				en: 'Zirovnice is a city in the Vysočina Region, located on the Zirovnica Stream in the Kremesnikovy Hills. The main attractions are Zirovnice Castle and the Church of St. Philip and James.',
+			},
 		},
 		{
 			slug: 'lednice',
@@ -133,6 +177,10 @@ export const rok2020: Rok = {
 			vyjezd: 5,
 			x: 340.8,
 			y: 352.8,
+			popis: {
+				cs: 'Obec Černá v Pošumaví v Jihočeském kraji leží na obou březích Vltavy u vodní nádrže Lipno.',
+				en: 'The municipality of Černá in Pošumaví in the South Bohemian Region lies on both banks of the Vltava River near the Lipno Reservoir.',
+			},
 		},
 		{
 			slug: 'kristanov',
@@ -142,6 +190,10 @@ export const rok2020: Rok = {
 			vyjezd: 6,
 			x: 339.9,
 			y: 350.8,
+			popis: {
+				cs: 'Křišťanov je obec v okrese Prachatice v Jihočeském kraji, ležící na severu Želnavské hornatiny v nadmořské výšce 925 m s 86 obyvateli.',
+				en: 'Křišťanov is a municipality in the Prachatice District in the South Bohemian Region, located in the northern part of the Želnavská Highlands at an elevation of 925 m with 86 inhabitants.',
+			},
 		},
 	],
 	videa: [],

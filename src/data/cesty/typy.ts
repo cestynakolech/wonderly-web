@@ -1,10 +1,11 @@
-export type Jazyk = 'cs' | 'en' | 'de';
+export type Jazyk = 'cs' | 'en' | 'de' | 'fr';
 
-/** Popis ve více jazycích; en/de jsou nepovinné, web spadne zpět na češtinu */
+/** Popis ve více jazycích; en/de/fr jsou nepovinné, web spadne zpět na češtinu */
 export type PrelozenyPopis = {
 	cs: string;
 	en?: string;
 	de?: string;
+	fr?: string;
 };
 
 export type Stellplatz = {
