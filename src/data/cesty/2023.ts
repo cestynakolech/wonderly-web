@@ -38,7 +38,7 @@ export const rok2023: Rok = {
 			y: 291.0,
 		},
 		{
-			slug: 'bremsky-pristav',
+			slug: 'bremerhaven',
 			nazev: 'Bremerhaven',
 			zeme: 'Německo',
 			datum: '6.–8. 3. 2023',
@@ -137,7 +137,7 @@ export const rok2023: Rok = {
 			y: 290.9,
 		},
 		{
-			slug: 'bremsky-pristav-2',
+			slug: 'bremerhaven-2',
 			nazev: 'Bremerhaven',
 			zeme: 'Německo',
 			datum: '10. 7. 2023',
