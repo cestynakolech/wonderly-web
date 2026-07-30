@@ -61,6 +61,26 @@ const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 				}
 				localStorage.setItem('vzhled', tmavy ? 'light' : 'dark');
 			});
+
+			/* Přepnutí jazyka nesmí zahodit, kam se návštěvník na mapě proklikal.
+			   Zanoření mapy se drží v adrese za # (CestyRok.astro), ale odkazy
+			   přepínače vedly na holou stránku roku — po přepnutí se muselo klikat
+			   znovu od začátku (připomínka učitele 30. 7. 2026). Hash proto do
+			   odkazů dopisujeme a při každé změně zanoření aktualizujeme. */
+			(function () {
+				const odkazy = document.querySelectorAll('.jazyky a');
+				if (!odkazy.length) return;
+				const zaklady = Array.from(odkazy, (a) => a.getAttribute('href').split('#')[0]);
+				const uprav = () => odkazy.forEach((a, i) => { a.href = zaklady[i] + location.hash; });
+				uprav();
+				window.addEventListener('hashchange', uprav);
+				/* Zanoření mapy se ukládá přes history.replaceState, které událost
+				   hashchange NEspouští — proto se adresa dopisuje ještě jednou
+				   v okamžiku kliknutí, kdy je location.hash vždy aktuální. */
+				odkazy.forEach((a, i) => {
+					a.addEventListener('click', () => { a.href = zaklady[i] + location.hash; });
+				});
+			})();
 		</script>
 		<style is:global>
 			:root {
