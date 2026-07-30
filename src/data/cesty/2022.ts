@@ -30,9 +30,7 @@ export const rok2022: Rok = {
 			x: 355.8,
 			y: 340.4,
 			popis: {
-				cs: 'Sněžné je název dvou obcí v Česku: obec v okrese Rychnov nad Kněžnou a městys v okrese Žďár nad Sázavou, který před rokem 1949 nesl název Německé.',
-				en: 'Sněžné is the name of two municipalities in the Czech Republic: a municipality in the Rychnov nad Kněžnou District and a market town in the Žďár nad Sázavou District, which before 1949 bore the name Německé.',
-				de: 'Sněžné ist der Name zweier Gemeinden in Tschechien: eine Gemeinde im Bezirk Rychnov nad Kněžnou und eine Marktgemeinde im Bezirk Žďár nad Sázavou, die vor 1949 den Namen Německé trug.',
+				cs: 'Městys v okrese Žďár nad Sázavou na Vysočině, kde žije 763 obyvatel. Do roku 1948 se jmenoval Německé, německy Niemetzky.',
 			},
 		},
 		{

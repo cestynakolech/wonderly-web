@@ -54,8 +54,7 @@ export const rok2024: Rok = {
 			x: 329.3,
 			y: 335.3,
 			popis: {
-				cs: 'Loket je místo v Česku, které v textu není popsáno. Text se zabývá anatomickým loktem (cubitus) jako částí horní končetiny, popisuje kosti, klouby a funkce, nicméně neuvádí žádné informace o geografickém místě Loket v České republice.',
-				en: 'Loket is a place in the Czech Republic that is not described in the text. The text deals with the anatomical elbow (cubitus) as part of the upper limb, describing bones, joints, and functions, however, it does not provide any information about the geographical location of Loket in the Czech Republic.',
+				cs: 'Město na východním okraji okresu Sokolov, které stojí na meandru řeky Ohře pod Slavkovským lesem — německy Elbogen, tedy loket. Bývalo důležitým královským městem a centrem Loketského kraje; nad řekou se na kamenném ostrohu tyčí gotický hrad a centrum je památkovou rezervací. Žije tu asi 3 100 obyvatel.',
 			},
 		},
 		{

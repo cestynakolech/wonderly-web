@@ -107,9 +107,31 @@ export function formatujDatum(datum: string, jazyk: Jazyk): string {
 		return datum;
 	}
 	if (jazyk === 'de') return datum; // německý číselný tvar je shodný s českým
+
+	// Rozsahy („18.–19. 3. 2019", „23. 12. – 2. 1. 2025") — v datech jich je přes 60
+	// a dřív se vracely beze změny, takže na anglické a francouzské stránce svítilo
+	// české datum (nález auditu 30. 7. 2026). Rok se doplní z konce rozsahu.
+	const rozsah = datum.match(
+		/^\s*(\d{1,2})\.\s*(?:(\d{1,2})\.)?\s*[–-]\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})\s*$/);
+	if (rozsah) {
+		const [, den1, mesic1, den2, mesic2, rok] = rozsah;
+		const m1 = +(mesic1 ?? mesic2);
+		// přelom roku („23. 12. – 2. 1. 2025“): rok v datech patří konci rozsahu,
+		// začátek je tedy o rok dřív
+		const rok1 = m1 > +mesic2 ? +rok - 1 : +rok;
+		const od = jedenDen(+den1, m1, rok1, jazyk);
+		const doo = jedenDen(+den2, +mesic2, +rok, jazyk);
+		return `${od} – ${doo}`;
+	}
+
 	const casti = datum.split('.').map((c) => parseInt(c.trim(), 10));
 	if (casti.length !== 3 || casti.some(Number.isNaN)) return datum;
 	const [den, mesic, rok] = casti;
+	return jedenDen(den, mesic, rok, jazyk);
+}
+
+/** Jeden den slovy v angličtině/francouzštině („6 July 2026", „1er juillet 2026"). */
+function jedenDen(den: number, mesic: number, rok: number, jazyk: Jazyk): string {
 	const cislovka = jazyk === 'fr' && den === 1 ? '1er' : String(den);
 	return `${cislovka} ${MESICE_SLOVY[jazyk][mesic - 1]} ${rok}`;
 }

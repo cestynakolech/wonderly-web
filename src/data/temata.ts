@@ -1792,14 +1792,14 @@ export const temata: Record<string, Tema[]> = {
 						<p>Je-li v uzavřené nádobě jiný tlak než v okolí, vzniká přetlak, podtlak, nebo dokonce vakuum.</p>
 						<h3>Přetlak — uvnitř VÍC než venku</h3>
 						<ul>
-							<li>nafouknutý míč, pneumatika, sprej, tlakové lahve potápěčů, kabina letadla, plíce po nádechu</li>
+							<li>nafouknutý míč, pneumatika, sprej, tlakové lahve potápěčů, kabina letadla, plíce při výdechu</li>
 							<li>vytváří ho <strong>hustilka nebo kompresor</strong>, měří ho <strong>manometr</strong> (trubička se při tlaku narovnává jako papírová frkačka)</li>
 							<li>manometry mívají stupnici v barech: <strong>1 bar = 100 000 Pa</strong> ≈ tlak jedné atmosféry; pneumatika se hustí asi na 2,5 baru přetlaku</li>
 						</ul>
 						<h3>Podtlak — uvnitř MÍŇ než venku</h3>
 						<ul>
 							<li>vzniká odsátím vzduchu nebo zvětšením prostoru; okolí se <strong>nasává dovnitř</strong> (tlak se chce vyrovnat)</li>
-							<li>pití brčkem, vysavač, přísavky, gumový zvon na odpad, pumpa u studny, plíce před nádechem</li>
+							<li>pití brčkem, vysavač, přísavky, gumový zvon na odpad, pumpa u studny, plíce při nádechu</li>
 						</ul>
 						<h3>Vakuum — téměř NIC</h3>
 						<ul>

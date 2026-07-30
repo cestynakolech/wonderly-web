@@ -230,9 +230,7 @@ export const rok2021: Rok = {
 			x: 340.9,
 			y: 346.5,
 			popis: {
-				cs: 'Heřmaň je název více obcí v Česku: obec v okrese České Budějovice, obec v okrese Písek a část obce Jeřišno v okrese Havlíčkův Brod.',
-				en: 'Heřmaň is the name of multiple municipalities in the Czech Republic: a municipality in České Budějovice District, a municipality in Písek District, and a part of the municipality Jeřišno in Havlíčkův Brod District.',
-				de: 'Heřmaň ist der Name mehrerer Gemeinden in Tschechien: Gemeinde im Bezirk České Budějovice, Gemeinde im Bezirk Písek und Teil der Gemeinde Jeřišno im Bezirk Havlíčkův Brod.',
+				cs: 'Jihočeská obec na levém břehu Blanice, asi šest kilometrů severozápadně od Protivína. Leží v nadmořské výšce 382 metrů a žije v ní 321 obyvatel.',
 			},
 		},
 		{

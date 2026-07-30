@@ -20,12 +20,22 @@ const pismo = vyrez.sirka / 30;
 const podleRoku = [...roky].sort((a, b) => b.rok - a.rok);
 
 // každý rok má na společné mapě vlastní barvu pinů + legendu
-const PALETA = ['#c83c37', '#2c7fb8', '#2e8b57', '#b8860b', '#7b3fb8', '#c8703c'];
+// Barev musí být aspoň tolik co roků — s šesti se od roku 2025 opakovaly
+// (2026 mělo stejnou barvu jako 2020, 2025 jako 2019) a legenda pak nerozlišovala.
+const PALETA = ['#c83c37', '#2c7fb8', '#2e8b57', '#b8860b', '#7b3fb8', '#c8703c',
+	'#1f7a7a', '#a03060', '#4a6fd4', '#6b8e23'];
 const barvaRoku = new Map(podleRoku.map((r, i) => [r.rok, PALETA[i % PALETA.length]]));
 
-// popisky rozmístit stejným algoritmem jako na mapě roku, aby na sebe nelezly
-const popisky = rozmistiPopisky(vsechnaMesta, pinR, pismo, vyrez, t.tvaryMist);
-const mestoPodleSlugu = new Map(vsechnaMesta.map((m) => [m.slug, m]));
+// popisky rozmístit stejným algoritmem jako na mapě roku, aby na sebe nelezly;
+// do rozmisťování jdou místa s klíčem „rok|slug", aby se popisek vrátil k tomu
+// správnému roku (viz poznámka u mestoPodleSlugu níže)
+const popisky = rozmistiPopisky(
+	vsechnaMesta.map((m) => ({ ...m, slug: `${m.rok}|${m.slug}` })),
+	pinR, pismo, vyrez, t.tvaryMist);
+// Klíč musí být rok+slug: stejné místo navštívené ve víc letech (Srní, Cuxhaven,
+// Horní Planá…) se jinak vždy trefilo do posledního výskytu a popisek vedl na
+// špatný rok (audit 30. 7. 2026: oba popisky „Geisingen" vedly na /cesty/2024).
+const mestoPodleSlugu = new Map(vsechnaMesta.map((m) => [`${m.rok}|${m.slug}`, m]));
 ---
 
 <CestyLayout titulek={`${t.vsechnaMista} – ${t.nadpis}`} jazyk={jazyk} podcesta="vse">

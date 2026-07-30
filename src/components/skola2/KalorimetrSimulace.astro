@@ -94,7 +94,7 @@
 		const { m1, m2, t1, t2, t, Qkj } = u;
 		if (z === t) {
 			celkem++; if (prvni) naPrvni++;
-			stavEl.innerHTML = `🎉 <strong>Správně, ${t} °C!</strong> Výpočet: (${m1} × ${t1} + ${m2} × ${t2}) : ${m1 + m2} = ${t} °C. Teplá voda odevzdala Q = 4200 × ${m2} × ${t2 - t} = <strong>${Qkj} kJ</strong> a studená přesně tolik přijala (4200 × ${m1} × ${t - t1}) — odevzdané teplo = přijaté teplo.`;
+			stavEl.innerHTML = `🎉 <strong>Správně, ${t} °C!</strong> Výpočet: (${m1} × ${t1} + ${m2} × ${t2}) : ${m1 + m2} = ${t} °C. Teplá voda odevzdala Q = 4200 × ${m2} × ${t2 - t} = ${Qkj * 1000} J = <strong>${Qkj} kJ</strong> a studená přesně tolik přijala (4200 × ${m1} × ${t - t1}) — odevzdané teplo = přijaté teplo.`;
 			document.getElementById('kal-pop3').textContent = t + ' °C';
 			document.getElementById('kal-voda3').setAttribute('fill', '#ffc078');
 			document.getElementById('kal-bilance').textContent = 'Q odevzdané = Q přijaté = ' + Qkj + ' kJ ✓';

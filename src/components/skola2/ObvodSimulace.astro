@@ -8,7 +8,10 @@
 	<p>Klikni na <strong>vypínač</strong> a sleduj, jak se uzavře obvod a rozsvítí žárovka. Proud teče od baterie po drátech dokola — když je obvod přerušený, nesvítí nic.</p>
 	<svg id="obvod-svg" viewBox="0 0 460 260" role="img" aria-label="Jednoduchý elektrický obvod">
 		<!-- dráty -->
-		<polyline points="80,60 380,60 380,200 80,200 80,150" fill="none" stroke="#c9a227" stroke-width="6" />
+		<!-- horní drát je PŘERUŠENÝ mezi kontakty vypínače (x 200 a 260) — jinak by přes
+		     mezeru vedla spojitá čára a rozepnutý obvod by vypadal jako uzavřený -->
+		<polyline points="80,60 200,60" fill="none" stroke="#c9a227" stroke-width="6" />
+		<polyline points="260,60 380,60 380,200 80,200 80,150" fill="none" stroke="#c9a227" stroke-width="6" />
 		<polyline points="80,110 80,60" fill="none" stroke="#c9a227" stroke-width="6" />
 		<!-- baterie (levá strana) -->
 		<rect x="60" y="110" width="40" height="40" fill="#495057" stroke="#2b2a26" stroke-width="3" rx="4" />

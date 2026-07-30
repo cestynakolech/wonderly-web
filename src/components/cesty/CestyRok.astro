@@ -32,17 +32,31 @@ function sCenami(slugMesta: string, s: (typeof data.mesta)[number]['stellplatze'
 	};
 }
 
-// počítadlo dnů na cestě — z nejmenšího a největšího číselného data míst;
-// slovní data („červenec 2026") se přeskočí, bez číselných dat se pás nezobrazí
-const dnyMist = data.mesta
-	.map((m) => {
-		const c = m.datum.split('.').map((x) => parseInt(x.trim(), 10));
-		return c.length === 3 && !c.some(Number.isNaN) ? Date.UTC(c[2], c[1] - 1, c[0]) : null;
+// počítadlo dnů na cestě
+// POZOR (oprava 30. 7. 2026 po auditu): dřív se počítalo rozpětí od prvního do
+// posledního data v roce, takže rok s víc výjezdy hlásil i dny strávené doma mezi
+// nimi — u roku 2024 vycházelo „336 dnů na cestě" místo 72. Když jsou v datech
+// výjezdy, sečtou se jejich délky; jinak se použije staré rozpětí (jedna cesta).
+const naDatum = (s: string) => {
+	const c = s.split('.').map((x) => parseInt(x.trim(), 10));
+	return c.length === 3 && !c.some(Number.isNaN) ? Date.UTC(c[2], c[1] - 1, c[0]) : null;
+};
+const dnyMist = data.mesta.map((m) => naDatum(m.datum)).filter((d): d is number => d !== null);
+const dnyVyjezdu = (data.vyjezdy ?? [])
+	.map((v) => {
+		const od = naDatum(v.od);
+		const doo = naDatum(v.do);
+		// přelom roku (23. 12. → 2. 1.) by dal záporný rozdíl — přičte se rok
+		if (od === null || doo === null) return null;
+		const delka = Math.round((doo - od) / 86_400_000) + 1;
+		return delka > 0 ? delka : delka + 365;
 	})
 	.filter((d): d is number => d !== null);
-const pocetDnu = dnyMist.length
-	? Math.round((Math.max(...dnyMist) - Math.min(...dnyMist)) / 86_400_000) + 1
-	: 0;
+const pocetDnu = dnyVyjezdu.length
+	? dnyVyjezdu.reduce((a, b) => a + b, 0)
+	: dnyMist.length
+		? Math.round((Math.max(...dnyMist) - Math.min(...dnyMist)) / 86_400_000) + 1
+		: 0;
 
 // Rozbalovací mapa: celková mapa se všemi místy + přiblížené pohledy po nejvýš
 // třech položkách (přání učitele 28. 7. 2026 — shluky měst byly nepřehledné).

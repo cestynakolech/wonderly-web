@@ -330,7 +330,7 @@ export const rok2023: Rok = {
 			x: 318.1,
 			y: 290.3,
 			popis: {
-				cs: 'Hohenkirchen je název několika obcí a částí obcí v Německu, včetně Hohenkirchenu v Hesensku (kraj Kassel), Thürinku (kraj Gotha), Sasku (kraj Mittelsachsen), Mecklenbursku (kraj Nordwestmecklenburg), Sasko-anhaltsku (kraj Burgenlandkreis) a Dolním Sazsku (kraj Friesland).',
+				cs: 'Obec na severu okresu Nordwestmecklenburg v Meklenbursku-Předním Pomořansku. Vznikla 1. ledna 2005 spojením do té doby samostatných obcí Groß Walmstorf a Gramkow; spravuje ji úřad Klützer Winkel se sídlem ve městě Klütz.',
 			},
 		},
 		{

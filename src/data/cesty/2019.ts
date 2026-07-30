@@ -125,10 +125,7 @@ export const rok2019: Rok = {
 			x: 349.1,
 			y: 328.0,
 			popis: {
-				cs: 'Zlatá Olešnice je název dvou obcí: jedna v Libereckém kraji (okres Jablonec nad Nisou) s kostelem sv. Martina, druhá v Královéhradeckém kraji (okres Trutnov) s kostelem sv. Kateřiny.',
-				en: 'Zlatá Olešnice is the name of two municipalities: one in the Liberec Region (Jablonec nad Nisou District) with St. Martin\'s Church, the other in the Hradec Králové Region (Trutnov District) with St. Catherine\'s Church.',
-				de: 'Zlatá Olešnice ist der Name zweier Gemeinden: eine im Region Liberec (Kreis Jablonec nad Nisou) mit der Kirche St. Martins, die andere im Region Hradec Králové (Kreis Trutnov) mit der Kirche St. Katharinas.',
-				fr: 'Zlatá Olešnice est le nom de deux communes : l\'une située dans la région de Liberec (arrondissement de Jablonec nad Nisou) avec l\'église de Saint-Martin, l\'autre dans la région de Hradec Králové (arrondissement de Trutnov) avec l\'église de Sainte-Catherine.',
+				cs: 'Obec v okrese Jablonec nad Nisou v Libereckém kraji, německy Woleschnitz. Protéká jí potok Zlatník a žije v ní 495 obyvatel.',
 			},
 		},
 		{
@@ -154,8 +151,7 @@ export const rok2019: Rok = {
 			x: 329.4,
 			y: 335.4,
 			popis: {
-				cs: 'Loket je místo v Česku, které v textu není popsáno. Text se zabývá anatomickým loktem (cubitus) jako částí horní končetiny, popisuje kosti, klouby a funkce, nicméně neuvádí žádné informace o geografickém místě Loket v České republice.',
-				en: 'Loket is a place in the Czech Republic that is not described in the text. The text deals with the anatomical elbow (cubitus) as part of the upper limb, describing bones, joints, and functions, however, it does not provide any information about the geographical location of Loket in the Czech Republic.',
+				cs: 'Město na východním okraji okresu Sokolov, které stojí na meandru řeky Ohře pod Slavkovským lesem — německy Elbogen, tedy loket. Bývalo důležitým královským městem a centrem Loketského kraje; nad řekou se na kamenném ostrohu tyčí gotický hrad a centrum je památkovou rezervací. Žije tu asi 3 100 obyvatel.',
 			},
 		},
 		{
