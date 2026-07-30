@@ -117,8 +117,7 @@ export const rok2020: Rok = {
 			x: 340.8,
 			y: 343.1,
 			popis: {
-				cs: 'Orlík nad Vltavou je obec v Jihočeském kraji na levém břehu Vltavy, kde se nachází zámek na skalním útesu nad jezerem orlické přehrady. Obec tvoří dvě části: původní Orlík okolo zámku a Staré Sedlo, zmiňované již koncem 13. století jako farní obec s kostelem.',
-				en: 'Orlík on the Vltava River is a municipality in the South Bohemian Region on the left bank of the Vltava River, where a castle is located on a rocky cliff above the Orlík Reservoir. The municipality consists of two parts: the original Orlík around the castle and Staré Sedlo, mentioned already at the end of the 13th century as a parish village with a church.',
+				cs: 'Obec na levém břehu Vltavy, která si jméno vypůjčila od zámku nad sebou — ten stojí na skalním útesu vysoko nad hladinou orlické přehrady. Trvale tu bydlí 301 obyvatel.',
 			},
 		},
 		{
@@ -143,8 +142,7 @@ export const rok2020: Rok = {
 			x: 343.0,
 			y: 346.2,
 			popis: {
-				cs: 'Týn nad Vltavou je město v Jihočeském kraji ležící na obou březích Vltavy východně od jejího soutoku s Lužnicí. Jeho historické jádro tvoří městskou památkovou zónu, což je hlavní kulturní charakteristikou místa.',
-				en: 'Týn nad Vltavou is a city in the South Bohemian Region located on both banks of the Vltava River east of its confluence with the Lužnice River. Its historical core forms a municipal monument zone, which is the main cultural characteristic of the place.',
+				cs: 'Město rozložené na obou březích Vltavy, kousek pod jejím soutokem s Lužnicí. Historické jádro je vyhlášeno městskou památkovou zónou a žije tu asi 7 800 lidí.',
 			},
 		},
 		{
@@ -168,6 +166,10 @@ export const rok2020: Rok = {
 			vyjezd: 4,
 			x: 362.5,
 			y: 350.4,
+			popis: {
+				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
+				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
+			},
 		},
 		{
 			slug: 'cerna-v-posumavi',

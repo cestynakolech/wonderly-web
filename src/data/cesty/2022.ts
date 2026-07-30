@@ -220,10 +220,6 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 379.1,
 			y: 324.3,
-			popis: {
-				cs: 'Olsztyn byla bývalou gromadou (nejmenší správní jednotkou) v okrese Częstochowa v vojvodství stalinogrodzkém (po přejmenování katovickém), existující v letech 1954–1972. Jednotka zahrnovala obce Kusięta, Olsztyn, Skrajnica a další oblasti, později nahrazená obcí.',
-				en: 'Olsztyn was a former commune (the smallest administrative unit) in Częstochowa County in the Stalinogrod Voivodeship (renamed Katowice Voivodeship), existing from 1954 to 1972. The unit included the municipalities of Kusięta, Olsztyn, Skrajnica, and other areas, later replaced by a commune.',
-			},
 		},
 		{
 			slug: 'ketrzyn',
@@ -275,6 +271,7 @@ export const rok2022: Rok = {
 			y: 280.3,
 			popis: {
 				cs: 'Kąty Rybackie je severopolská vesnice na pobřeží Baltského moře v mezoregionu Mierzeja Wiślana, kde při jejím východním okraji začíná Viselská kosa.',
+				en: 'Kąty Rybackie is a northern Polish village on the coast of the Baltic Sea in the mesoregion of Vistula Delta, where the Visel Spit begins at its eastern edge.',
 			},
 		},
 		{
@@ -355,10 +352,6 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 308.2,
 			y: 295.2,
-			popis: {
-				cs: 'Hamburk je druhé největší město Německa, jeho největší přístav a jedno z devíti hanzovních měst označované jako „Tor zur Welt“ (Brána do světa) díky významu v námořní dopravě a obchodě. Hospodářství města je založeno na přístavu, loděnicích a průmyslových podnicích.',
-				en: 'Hamburg is the second largest city in Germany, Germany\'s largest port, and one of nine Hanseatic cities referred to as "Tor zur Welt" (Gate to the World) due to its significance in maritime transport and trade. The city\'s economy is based on the port, shipyards, and industrial enterprises.',
-			},
 		},
 		{
 			slug: 'cuxhaven',
@@ -442,10 +435,6 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 320.6,
 			y: 365.3,
-			popis: {
-				cs: 'Lázně Tölz je město v Bavorsku na řece Isar s přibližně 19 tisíci obyvateli. Během druhé světové války zde fungovala vojenská kasárna a důstojnická škola.',
-				en: 'Bad Tölz is a town in Bavaria on the river Isar with approximately 19,000 inhabitants. During World War II, a military barracks and an officer school operated here.',
-			},
 		},
 		{
 			slug: 'jachenau',
@@ -477,6 +466,9 @@ export const rok2022: Rok = {
 			vyjezd: 10,
 			x: 340.2,
 			y: 346.4,
+			popis: {
+				cs: 'Obec u řeky Otavy, asi deset kilometrů východně od Strakonic. Patří k ní další čtyři vesnice a jedna osada — dohromady v nich žije 937 lidí.',
+			},
 		},
 	],
 	videa: [],

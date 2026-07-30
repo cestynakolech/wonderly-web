@@ -59,8 +59,7 @@ export const rok2021: Rok = {
 			x: 352.3,
 			y: 347.0,
 			popis: {
-				cs: 'Nová Říše je moravský městys na Českomoravské vrchovině u Telče, obklopený lesy a obtékaný říčkou Vápovka, kde se kdysi rýžovalo zlato. Připomíná ho kostel a klášter, přestože je typickou zemědělskou vesnicí, je zmíněna v dějinách hudby, literatury a výtvarného umění.',
-				en: 'New Empire is a Moravian market town on the Czech-Moravian Highlands near Telč, surrounded by forests and bypassed by the stream Vápovka, where gold was once mined. Although it is a typical agricultural village, it is mentioned in the history of music, literature, and visual arts, as evidenced by the church and monastery.',
+				cs: 'Moravský městys na Českomoravské vrchovině nedaleko Telče, obklopený lesy a obtékaný říčkou Vápovkou — v té se kdysi rýžovalo zlato. Z dávné minulosti tu zůstal kostel a klášter.',
 			},
 		},
 		{
@@ -85,8 +84,7 @@ export const rok2021: Rok = {
 			x: 337.3,
 			y: 344.6,
 			popis: {
-				cs: 'Chanovice je obec a vesnice v Klatovském okrese v Plzeňském kraji České republiky se zhruba 800 obyvatel. Nachází se v západní části Čech.',
-				en: 'Chanovice is a municipality and village in Klatovy District in the Plzeň Region of the Czech Republic with approximately 800 inhabitants. It is located in the western part of Bohemia.',
+				cs: 'Vesnice v podhůří Šumavy, v okrese Klatovy. Žije v ní asi osm set obyvatel.',
 			},
 		},
 		{
@@ -253,6 +251,10 @@ export const rok2021: Rok = {
 			vyjezd: 6,
 			x: 365.0,
 			y: 340.0,
+			popis: {
+				cs: 'Olomouc je největší město na řece Moravě, sídlem UNESCO-listovaného Sloupu Nejsvětější Trojice a Univerzity Palackého, nejstarší na Moravě. Historické jádro města, chráněné jako městská památková rezervace, patří k největším a nejvýznamnějším v Česku.',
+				en: 'Olomouc is the largest city on the Morava River, home to the UNESCO-listed Column of the Most Holy Trinity and Palacký University, and the oldest in Moravia. The historical core of the city, protected as a city monument reserve, is among the largest and most significant in the Czech Republic.',
+			},
 		},
 		{
 			slug: 'bouzov',
@@ -315,8 +317,8 @@ export const rok2021: Rok = {
 			x: 340.1,
 			y: 331.0,
 			popis: {
-				cs: 'Terezín je malé pevnostní město v Ústeckém kraji, nacházející se na obou stranách řeky Ohře, která ho dělí na Malou a hlavní pevnost. Území pevnosti je městská památková rezervace s národní kulturní památkou Malá pevnost a jejím hřbitovem.',
-				en: 'Terezín is a small fortress town in the Ústí Region, located on both sides of the Ohře River, which divides it into the Little Fortress and the Main Fortress. The fortress area is an urban monument reserve with the national cultural monument Little Fortress and its cemetery.',
+				cs: 'Terezín je malé pevnostní město v Ústeckém kraji, nacházející se na obou stranách řeky Ohře, která ho dělí na Malou a hlavní pevnost. Jako národní kulturní památka je zde Malá pevnost s hřbitovem, součástí městské památkové rezervace.',
+				en: 'Terezín is a small fortress town in the Ústí Region, located on both sides of the Ohře River, which divides it into the Small Fortress and the main fortress. As a national cultural monument, the Small Fortress with its cemetery is part of the city\'s monument reserve.',
 			},
 		},
 		{
@@ -328,8 +330,8 @@ export const rok2021: Rok = {
 			x: 339.4,
 			y: 327.5,
 			popis: {
-				cs: 'Jílové je město v okrese Děčín, známé svým zámkem v obci. Jedná se o lokalitu, která nese název spojený s historickým zámkem v obci Jílové.',
-				en: 'Jílové is a town in the Děčín District, known for its castle in the municipality of Jílové. It is a locality whose name is connected to the historical castle in the municipality of Jílové.',
+				cs: 'Jílové je město v okrese Děčín v Ústeckém kraji České republiky s přibližně 4 900 obyvateli.',
+				en: 'Jílové is a city in the Děčín District in the Ústí Region of the Czech Republic with approximately 4,900 inhabitants.',
 			},
 		},
 		{
@@ -367,8 +369,7 @@ export const rok2021: Rok = {
 			x: 345.5,
 			y: 334.9,
 			popis: {
-				cs: 'Přerov nad Labem je obec ve Středočeském kraji, 30 km východně od Prahy, v trojúhelníku tvořeném Čelákovicemi, Lysou nad Labem a Českým Brodem. Zajímavostmi jsou renesanční zámek s přispěním architektů Bonifáce Wohlmuta a Mattea Borgorellia, archeologické naleziště osídlení před 7 000 lety a nejstarší skanzen lidové architektury v českých zemích od roku 1895.',
-				en: 'Prerov nad Labem is a municipality in the Central Bohemian Region, 30 km east of Prague, in the triangle formed by Celakovic, Lysou nad Labem, and Cesky Brod. Notable features include a Renaissance castle with contributions by architects Bonifác Wohlmut and Matteo Borgorelli, an archaeological site of settlement from 7,000 years ago, and the oldest open-air museum of folk architecture in the Czech lands since 1895.',
+				cs: 'Obec třicet kilometrů východně od Prahy, kde stojí renesanční zámek — na jeho úpravách se v 16. století podílel císařský architekt Bonifác Wohlmut. Najdete tu i nejstarší skanzen lidové architektury v českých zemích, jehož kořeny sahají do roku 1895.',
 			},
 		},
 		{
@@ -380,8 +381,7 @@ export const rok2021: Rok = {
 			x: 346.6,
 			y: 339.2,
 			popis: {
-				cs: 'Český Šternberk je městys v okrese Benešov ve Středočeském kraji, nacházející se v podhradí hradu Šternberk. Protéká zde řeka Sázava a žije zde 184 obyvatel.',
-				en: 'Český Šternberk is a market town in Benešov District in the Central Bohemian Region, located at the foot of Šternberk Castle. The Sázava River flows here and 184 people live here.',
+				cs: 'Městys, který se choulí v podhradí stejnojmenného hradu asi sedmnáct kilometrů východně od Benešova. Protéká jím Sázava a žije tu pouhých 184 lidí.',
 			},
 		},
 		{
@@ -392,6 +392,9 @@ export const rok2021: Rok = {
 			vyjezd: 8,
 			x: 348.0,
 			y: 340.3,
+			popis: {
+				cs: 'Malá obec v okrese Benešov s 277 obyvateli. Nejbližším městem je Vlašim, vzdálená čtrnáct kilometrů na západ.',
+			},
 		},
 		{
 			slug: 'sazava',
@@ -402,8 +405,7 @@ export const rok2021: Rok = {
 			x: 346.3,
 			y: 338.3,
 			popis: {
-				cs: 'Sázava je město v Středočeském kraji, kde se nachází Sázavský klášter, významná historická památka.',
-				en: 'Sázava is a town in the Central Bohemian Region, home to the Sázava Monastery, a significant historical landmark.',
+				cs: 'Město v údolí stejnojmenné řeky, zhruba padesát kilometrů jihovýchodně od Prahy. Na pravém břehu stojí bývalý benediktinský klášter z 11. století; novější slávu městu přinesly sklárny se značkou Kavalier.',
 			},
 		},
 		{
@@ -414,6 +416,9 @@ export const rok2021: Rok = {
 			vyjezd: 9,
 			x: 346.3,
 			y: 341.2,
+			popis: {
+				cs: 'Městys pod bájným Blaníkem, osm kilometrů jižně od Vlašimi. Žije tu 661 obyvatel.',
+			},
 		},
 		{
 			slug: 'choustnik',
@@ -425,6 +430,7 @@ export const rok2021: Rok = {
 			y: 345.0,
 			popis: {
 				cs: 'Choustník je obec v okrese Tábor v Jihočeském kraji se 484 obyvateli. V obci se nachází výrobní závod, který vyrábí chipsy Bohemia, Chio, Pom-bär a produkty značky NutLine.',
+				en: 'Choustník is a village in Tábor District in the South Bohemian Region with 484 inhabitants. The village contains a production plant that produces Bohemia, Chio, and Pom-bär chips and NutLine brand products.',
 			},
 		},
 		{
@@ -435,6 +441,9 @@ export const rok2021: Rok = {
 			vyjezd: 9,
 			x: 344.7,
 			y: 344.4,
+			popis: {
+				cs: 'Město nad řekou Lužnicí, které roku 1420 založili husité. S přibližně 34 tisíci obyvateli je po Českých Budějovicích druhým největším v kraji a jeho jádro s křivolakými gotickými uličkami je památkovou rezervací.',
+			},
 		},
 		{
 			slug: 'cejetice',
@@ -444,6 +453,9 @@ export const rok2021: Rok = {
 			vyjezd: 9,
 			x: 340.2,
 			y: 346.4,
+			popis: {
+				cs: 'Obec u řeky Otavy, asi deset kilometrů východně od Strakonic. Patří k ní další čtyři vesnice a jedna osada — dohromady v nich žije 937 lidí.',
+			},
 		},
 		{
 			slug: 'rejstejn',
@@ -475,6 +487,9 @@ export const rok2021: Rok = {
 			vyjezd: 11,
 			x: 350.5,
 			y: 341.2,
+			popis: {
+				cs: 'Městečko na Vysočině, dvanáct kilometrů západně od Havlíčkova Brodu, kde žije 650 obyvatel.',
+			},
 		},
 		{
 			slug: 'zleby',

@@ -33,6 +33,10 @@ export const rok2023: Rok = {
 			vyjezd: 1,
 			x: 338.1,
 			y: 351.1,
+			popis: {
+				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
+				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
+			},
 		},
 		{
 			slug: 'cuxhaven',
@@ -51,10 +55,6 @@ export const rok2023: Rok = {
 			vyjezd: 2,
 			x: 298.2,
 			y: 295.2,
-			popis: {
-				cs: 'Bremerhaven je severomořský přístav, který spolu s Brémy tvoří Svobodné hanzovní město Brémy, nachází se asi 60 km severně od Brem a má přibližně 115 tisíc obyvatel.',
-				en: 'Bremerhaven is a North Sea port that, together with Bremen, forms the Free Hanseatic City of Bremen, is located approximately 60 km north of Bremen, and has approximately 115,000 inhabitants.',
-			},
 		},
 		{
 			slug: 'magdeburk',
@@ -186,10 +186,6 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 298.2,
 			y: 295.3,
-			popis: {
-				cs: 'Bremerhaven je severomořský přístav, který spolu s Brémy tvoří Svobodné hanzovní město Brémy, nachází se asi 60 km severně od Brem a má přibližně 115 tisíc obyvatel.',
-				en: 'Bremerhaven is a North Sea port that, together with Bremen, forms the Free Hanseatic City of Bremen, is located approximately 60 km north of Bremen, and has approximately 115,000 inhabitants.',
-			},
 		},
 		{
 			slug: 'bad-nieuweschans',

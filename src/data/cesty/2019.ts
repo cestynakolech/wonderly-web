@@ -25,6 +25,10 @@ export const rok2019: Rok = {
 			vyjezd: 1,
 			x: 338.5,
 			y: 351.3,
+			popis: {
+				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
+				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
+			},
 		},
 		{
 			slug: 'horni-plana',
@@ -48,8 +52,7 @@ export const rok2019: Rok = {
 			x: 351.1,
 			y: 327.6,
 			popis: {
-				cs: 'Špindlerův Mlýn je město v Krkonoších, nejnavštěvovanější horské středisko v Česku s přibližně 1 100 obyvateli a rozlohou 7 694 hektarů. Nachází se v oblasti Krkonošských hor, které tvoří hlavní atrakci tohoto místního turistického centra.',
-				en: 'Špindlerův Mlýn is a city in the Krkonoše Mountains, the most visited mountain resort in the Czech Republic with approximately 1,100 inhabitants and an area of 7,694 hectares. It is located in the area of the Krkonoše Mountains, which form the main attraction of this local tourist center.',
+				cs: 'Špindlerův Mlýn leží uprostřed Krkonoš a je nejnavštěvovanějším horským střediskem v Česku. Přestože se katastr města rozkládá na 7 694 hektarech, žije tu jen kolem 1 100 lidí.',
 			},
 		},
 		{

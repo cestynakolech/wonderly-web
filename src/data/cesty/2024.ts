@@ -60,6 +60,9 @@ export const rok2024: Rok = {
 			vyjezd: 2,
 			x: 340.2,
 			y: 346.4,
+			popis: {
+				cs: 'Obec u řeky Otavy, asi deset kilometrů východně od Strakonic. Patří k ní další čtyři vesnice a jedna osada — dohromady v nich žije 937 lidí.',
+			},
 		},
 		{
 			slug: 'potsdam',
@@ -132,6 +135,10 @@ export const rok2024: Rok = {
 			vyjezd: 4,
 			x: 362.4,
 			y: 350.3,
+			popis: {
+				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
+				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
+			},
 		},
 		{
 			slug: 'modrava',
@@ -366,6 +373,10 @@ export const rok2024: Rok = {
 			vyjezd: 8,
 			x: 338.5,
 			y: 351.4,
+			popis: {
+				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
+				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
+			},
 		},
 		{
 			slug: 'srni',
