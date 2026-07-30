@@ -18,6 +18,7 @@ export const rok2025: Rok = {
 				cs: 'Středověké městečko na řece Mohan (Main) v Dolních Frankách s téměř kompletně dochovanými hradbami, hrázděnými domy a bránou Maintor. Nad protějším břehem se zvedá zřícenina hradu Karlsburg ze 13. století s výhledem do údolí Mohanu. Ve čtvrtek se na náměstí koná trh Grüner Markt.',
 				en: 'A medieval town on the river Main in Lower Franconia with almost completely preserved town walls, half-timbered houses and the Maintor gate. Above the opposite bank rises the 13th-century Karlsburg castle ruin with views over the Main valley. On Thursdays, the Grüner Markt takes place on the market square.',
 				de: 'Mittelalterliches Städtchen am Main in Unterfranken mit fast vollständig erhaltener Stadtmauer, Fachwerkhäusern und dem Maintor. Über dem gegenüberliegenden Ufer erhebt sich die Burgruine Karlsburg aus dem 13. Jahrhundert mit Blick ins Maintal. Donnerstags findet auf dem Marktplatz der Grüne Markt statt.',
+				fr: 'Petite ville médiévale sur le Main, en Basse-Franconie, aux remparts presque entièrement conservés, aux maisons à colombages et à la porte Maintor. Sur la rive opposée se dresse la ruine du château de Karlsburg (XIIIe siècle), avec vue sur la vallée du Main. Le jeudi, la place accueille le marché Grüner Markt.',
 			},
 			stellplatze: [
 				{

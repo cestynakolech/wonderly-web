@@ -29,6 +29,7 @@ export const rok2026: Rok = {
 				cs: 'Historické město na řece Isar v Dolním Bavorsku. Nad městem se tyčí hrad Trausnitz a kostel sv. Martina s nejvyšší cihlovou věží na světě (130,6 m).',
 				en: "A historic town on the Isar river in Lower Bavaria. Trausnitz Castle towers above the town, along with St. Martin's Church and the world's tallest brick tower (130.6 m).",
 				de: 'Historische Stadt an der Isar in Niederbayern. Über der Stadt erheben sich die Burg Trausnitz und die Martinskirche mit dem höchsten Backsteinturm der Welt (130,6 m).',
+				fr: "Ville historique sur l’Isar, en Basse-Bavière. Elle est dominée par le château de Trausnitz et par l’église Saint-Martin, dont le clocher est la plus haute tour en brique du monde (130,6 m).",
 			},
 		},
 		{
@@ -53,6 +54,7 @@ export const rok2026: Rok = {
 				cs: 'Středověké městečko na řece Lech s dochovanými hradbami, leží na trase Romantické cesty (Romantische Straße).',
 				en: 'A medieval town on the Lech river with well-preserved town walls, located on the Romantic Road (Romantische Straße).',
 				de: 'Mittelalterliches Städtchen am Lech mit erhaltener Stadtmauer, gelegen an der Romantischen Straße.',
+				fr: 'Petite ville médiévale sur le Lech, aux remparts conservés, située sur la Route romantique (Romantische Straße).',
 			},
 		},
 		{
@@ -77,6 +79,7 @@ export const rok2026: Rok = {
 				cs: 'Městečko na horním toku Dunaje v Bádensku-Württembersku, nedaleko místa, kde Dunaj po část roku mizí v podzemí (Donauversinkung).',
 				en: 'A small town on the upper Danube in Baden-Württemberg, close to the spot where the Danube disappears underground for part of the year (Donauversinkung).',
 				de: 'Städtchen an der oberen Donau in Baden-Württemberg, unweit der Stelle, an der die Donau zeitweise im Untergrund versickert (Donauversinkung).',
+				fr: "Petite ville sur le haut Danube, dans le Bade-Wurtemberg, non loin de l’endroit où le Danube disparaît sous terre une partie de l’année (Donauversinkung).",
 			},
 		},
 		{
@@ -98,6 +101,7 @@ export const rok2026: Rok = {
 				cs: 'Obec na severozápadním okraji Belfortu ve Franche-Comté. Nad ní se zvedá zalesněný vrch Salbert s pevností Fort du Salbert ze 70. let 19. století (součást belfortského opevnění) a výhledem na město i Vogézy.',
 				en: 'A village on the north-western edge of Belfort in Franche-Comté. Above it rises the wooded Salbert hill with Fort du Salbert, built in the 1870s as part of the Belfort fortifications, overlooking the town and the Vosges.',
 				de: 'Gemeinde am nordwestlichen Rand von Belfort in der Franche-Comté. Darüber erhebt sich der bewaldete Hügel Salbert mit dem Fort du Salbert aus den 1870er Jahren (Teil der Belforter Befestigungen) mit Blick auf die Stadt und die Vogesen.',
+				fr: "Commune à la lisière nord-ouest de Belfort, en Franche-Comté. Au-dessus s’élève la colline boisée du Salbert, avec le fort du Salbert des années 1870 (élément des fortifications de Belfort) et une vue sur la ville et les Vosges.",
 			},
 		},
 		{
@@ -119,6 +123,7 @@ export const rok2026: Rok = {
 				cs: 'Městečko na horním toku Mosely ve Vogézách. Proslulo měděnými doly lotrinských vévodů (Les Hautes-Mynes), kde se těžilo od 16. do 18. století — dnes se dají navštívit.',
 				en: 'A small town on the upper Moselle in the Vosges. It is known for the copper mines of the Dukes of Lorraine (Les Hautes-Mynes), worked from the 16th to the 18th century and open to visitors today.',
 				de: 'Städtchen an der oberen Mosel in den Vogesen. Bekannt für die Kupferbergwerke der Herzöge von Lothringen (Les Hautes-Mynes), betrieben vom 16. bis 18. Jahrhundert — heute zu besichtigen.',
+				fr: "Petite ville de la haute vallée de la Moselle, dans les Vosges. Elle doit sa renommée aux mines de cuivre des ducs de Lorraine (Les Hautes-Mynes), exploitées du XVIe au XVIIIe siècle et aujourd’hui ouvertes à la visite.",
 			},
 		},
 		{
@@ -140,6 +145,7 @@ export const rok2026: Rok = {
 				cs: 'Obec roztažená podél horní Mosely mezi Remiremontem a Le Thillot. Zastihli jsme tu oslavy státního svátku 14. července — výročí dobytí Bastily — s průvodem místních hasičů.',
 				en: 'A village stretched along the upper Moselle between Remiremont and Le Thillot. We caught the celebrations of Bastille Day (14 July) with a parade of the local fire brigade.',
 				de: 'Ein Dorf entlang der oberen Mosel zwischen Remiremont und Le Thillot. Wir erlebten die Feiern zum Nationalfeiertag am 14. Juli — dem Jahrestag des Sturms auf die Bastille — mit einem Umzug der örtlichen Feuerwehr.',
+				fr: "Commune étirée le long de la haute Moselle, entre Remiremont et Le Thillot. Nous y avons assisté aux célébrations du 14 Juillet — l’anniversaire de la prise de la Bastille — avec le défilé des pompiers du village.",
 			},
 		},
 		{
@@ -161,6 +167,7 @@ export const rok2026: Rok = {
 				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo hned dvakrát ve dvou dnech po sobě: 17. července etapu do Belfortu a nazítří horskou etapu z Mulhouse do Le Markstein, jejíž součástí bylo stoupání na Ballon d’Alsace (9,8 km, průměrně 6,9 %). Viděli jsme reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',
 				en: 'A village in the southern Vosges at the foot of the Ballon d’Alsace (1,247 m). The climb starting here was the first mountain ascent in Tour de France history (1905) — and this year we saw the Tour live on two consecutive days: the stage to Belfort on 17 July and, the next day, the mountain stage from Mulhouse to Le Markstein, which included the Ballon d’Alsace climb (9.8 km at 6.9%). We watched the publicity caravan and the riders go by (see the chaptered video).',
 				de: 'Ein Dorf in den Südvogesen am Fuß des Ballon d’Alsace (1 247 m). Der hier beginnende Anstieg war 1905 die erste Bergwertung der Tour-de-France-Geschichte — und dieses Jahr erlebten wir die Tour an zwei aufeinanderfolgenden Tagen live: am 17. Juli die Etappe nach Belfort und tags darauf die Bergetappe von Mulhouse nach Le Markstein mit dem Anstieg zum Ballon d’Alsace (9,8 km, im Schnitt 6,9 %). Wir sahen Werbekarawane und Fahrerfeld (siehe Video mit Kapiteln).',
+				fr: "Village du sud des Vosges, au pied du Ballon d’Alsace (1 247 m). C’est d’ici que part la montée qui fut, en 1905, la première ascension de montagne de l’histoire du Tour de France — et cette année, nous avons vu le Tour en direct deux fois en deux jours : le 17 juillet l’étape vers Belfort, et le lendemain l’étape de montagne de Mulhouse au Markstein, avec la montée du Ballon d’Alsace (9,8 km à 6,9 % de moyenne). Nous avons vu la caravane publicitaire et le passage des coureurs (dans la vidéo avec chapitres).",
 			},
 		},
 		{
@@ -184,6 +191,7 @@ export const rok2026: Rok = {
 				cs: 'Městečko v údolí řeky Loue v departementu Doubs, přezdívané „malé Benátky Franche-Comté" — domy tu stojí přímo nad vodou. Rodiště malíře Gustava Courbeta (1819), jemuž je věnováno zdejší muzeum.',
 				en: 'A small town in the Loue valley in the Doubs department, nicknamed the "little Venice of Franche-Comté" — its houses stand right above the water. Birthplace of the painter Gustave Courbet (1819), honoured by a local museum.',
 				de: 'Städtchen im Tal der Loue im Département Doubs, genannt „Klein-Venedig der Franche-Comté" — die Häuser stehen direkt über dem Wasser. Geburtsort des Malers Gustave Courbet (1819), dem ein Museum gewidmet ist.',
+				fr: "Petite ville de la vallée de la Loue, dans le Doubs, surnommée « la petite Venise de la Franche-Comté » — les maisons y sont bâties au-dessus de l’eau. Ville natale du peintre Gustave Courbet (1819), à qui est consacré le musée local.",
 			},
 		},
 		{
@@ -208,6 +216,7 @@ export const rok2026: Rok = {
 				cs: 'Vinařská obec v Horním Savojsku asi 30 km jižně od Ženevského jezera. Okolní svahy osázené odrůdou Altesse dávají bílé víno Roussette de Savoie – Frangy, jeden ze čtyř vyhlášených krů této apelace. Přespali jsme přímo u vinaře mezi vinicemi — krásný výhled, milí lidé a dobré víno.',
 				en: 'A wine-growing village in Haute-Savoie, some 30 km south of Lake Geneva. The surrounding slopes planted with the Altesse grape yield the white Roussette de Savoie – Frangy, one of the four named crus of the appellation. We stayed overnight at a winery among the vineyards — a lovely view, kind people and good wine.',
 				de: 'Winzerdorf in Hochsavoyen, etwa 30 km südlich des Genfersees. An den umliegenden Hängen wächst die Rebsorte Altesse für den Weißwein Roussette de Savoie – Frangy, einen der vier Crus dieser Appellation. Wir übernachteten direkt beim Winzer zwischen den Reben — schöne Aussicht, nette Leute und guter Wein.',
+				fr: "Commune viticole de Haute-Savoie, à une trentaine de kilomètres au sud du lac Léman. Les coteaux alentour, plantés d’altesse, donnent le vin blanc Roussette de Savoie – Frangy, l’un des quatre crus réputés de cette appellation. Nous avons dormi directement chez un vigneron, au milieu des vignes — belle vue, gens accueillants et bon vin.",
 			},
 		},
 		{
@@ -223,6 +232,7 @@ export const rok2026: Rok = {
 				cs: 'Obec v ledovcovém údolí asi 15 km od Grenoblu. Na jejím území leží lázně Uriage-les-Bains (414 m n. m.), jejichž minerální prameny se odedávna využívají při potížích s kůží, klouby a dýcháním.',
 				en: 'A commune in a glacial valley about 15 km from Grenoble. Its territory includes the spa of Uriage-les-Bains (414 m), whose mineral springs have long been used for skin, joint and respiratory ailments.',
 				de: 'Gemeinde in einem Gletschertal rund 15 km von Grenoble. Auf ihrem Gebiet liegt das Thermalbad Uriage-les-Bains (414 m), dessen Mineralquellen seit jeher bei Haut-, Gelenk- und Atembeschwerden genutzt werden.',
+				fr: "Commune d’une vallée glaciaire, à une quinzaine de kilomètres de Grenoble. Elle abrite la station thermale d’Uriage-les-Bains (414 m), dont les eaux minérales sont utilisées de longue date contre les affections de la peau, des articulations et des voies respiratoires.",
 			},
 		},
 		{
