@@ -94,6 +94,31 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-30 večer (přesnost lokálních modelů — tři nezávislé audity)** — Učitel zadal
+  audit cíle „méně tokenů, přesnější lokální modely, které se samy zlepšují". Tři nezávislí
+  auditoři našli vážné věci. **(1) Kontrolorem byl model, který propadl u vlastní přejímací
+  zkoušky** — `gemma4:26b` si u falešného tvrzení spočítala správný výsledek a přesto ho
+  schválila; `graf_local.py` ji proto vyloučil, ale `popisy_mist.py` i `stellplatz_ceny.py`
+  ji dál používaly, obojí zapisuje rovnou na web. **(2) Automat na ceny padal měsíc při
+  každém buzení** na `Operation not permitted` (systémový python v launchd nesmí na soubory
+  na Ploše) — a v rejstříku byl veden jako funkční. **(3) Startovní čtení session stálo
+  69 500 tokenů**; přesunem historie do archivů (nic se nemazalo, ověřeno 129 = 10 + 119
+  záznamů) kleslo na 29 300. **(4) Kotva u cen měla díry** — „Free WiFi" doložilo cenu
+  „Gratuit", „250 reviews since 2015" doložilo „5 €". **(5) Anonymizace se zapisovala před
+  měřením**, takže fotka mohla přijít o rozmazání a nález se smazal jako planý poplach.
+  Vše opraveno a ověřeno testy s podvrhy. **Nové samokontroly:** `revize_automatu.py`
+  (denní LaunchAgent — chyby v logu, systémový python v plistu, mlčící automat),
+  `kontrola_obsazeni_roli.py` (běží před každou dávkou; kontrolorem smí být jen model se
+  složenou zkouškou), `zamek_modelu.py` (na Macu jen jeden lokální model naráz).
+  **Klíčové poučení:** zkouška musí měřit tu práci, kterou model dělá — původní byla
+  početní, ale model posuzuje české věty; změřeno 9 modelů na skutečné úloze
+  (`test_kontrolora.py`). A ukázalo se, že chyba nebyla v kontrolorovi, ale v **autorovi**:
+  qwen3:30b-a3b si k faktům přidával hodnotící dovětky („tvoří hlavní atrakci"), které ve
+  zdroji nejsou — zachytává je nově síto v kódu za nula tokenů. Rozhodnutí učitele:
+  zbývajících 52 popisů napíše Claude jednorázově (konečná množina; ladit automat vyšlo
+  dráž), lokálnímu automatu zůstávají překlady a nová místa. Nový `fakta_mist.py` sbírá
+  ověřená fakta do `fakta-mist.json` — u každé věty je vidět, odkud pochází.
+
 - **2026-07-30 odpoledne (deník — celá mapa dřívějších cest, hlídač, francouzština)** —
   Dokončeny body 5 a 6 učitelova zadání. **Na webu jsou roky 2019–2024**; učitel během
   práce doplnil fotky až po letošní cestu, takže přibyl i **rok 2024 (46 míst)** a rok
