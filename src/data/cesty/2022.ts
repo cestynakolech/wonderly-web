@@ -226,8 +226,8 @@ export const rok2022: Rok = {
 			},
 		},
 		{
-			slug: 'gmina-ketrzyn',
-			nazev: 'gmina Kętrzyn',
+			slug: 'ketrzyn',
+			nazev: 'Kętrzyn',
 			zeme: 'Polsko',
 			datum: '10.–11. 7. 2022',
 			vyjezd: 8,
@@ -235,17 +235,13 @@ export const rok2022: Rok = {
 			y: 281.1,
 		},
 		{
-			slug: 'gmina-srokowo',
-			nazev: 'gmina Srokowo',
+			slug: 'srokowo',
+			nazev: 'Srokowo',
 			zeme: 'Polsko',
 			datum: '11. 7. 2022',
 			vyjezd: 8,
 			x: 390.5,
 			y: 279.3,
-			popis: {
-				cs: 'Gmina Srokowo je vesnická obec v okrese Kętrzyn ve vojvodství warmińsko-mazurském se sídlem v Srokowie. Podle údajů z 31. prosince 2019 žilo zde 3 754 obyvatel.',
-				en: 'Gmina Srokowo is a village commune in Kętrzyn County, in the Warmian-Masurian Voivodeship, with its seat in Srokowo. According to data as of December 31, 2019, the population was 3,754.',
-			},
 		},
 		{
 			slug: 'malbork',
