@@ -29,6 +29,9 @@ export const rok2024: Rok = {
 			vyjezd: 1,
 			x: 330.6,
 			y: 344.6,
+			popis: {
+				cs: 'Původní privilegovaná chodská ves pět kilometrů západně od Domažlic, v nářečí Houvězdo. Rozkládá se přímo pod památnou horou Hrádek, na které stojí socha zdejšího rodáka Jana Sladkého Koziny. I s vesnicí Petrovice tu žije 440 obyvatel.',
+			},
 		},
 		{
 			slug: 'zelezna-ruda',
@@ -38,6 +41,9 @@ export const rok2024: Rok = {
 			vyjezd: 1,
 			x: 333.4,
 			y: 347.7,
+			popis: {
+				cs: 'Malé šumavské město přímo na česko-německé hranici, na okraji národního parku. Sousední Bavorská Železná Ruda je odsud jen dva a půl kilometru. Žije tu asi 1 600 obyvatel.',
+			},
 		},
 		{
 			slug: 'loket',
@@ -72,6 +78,9 @@ export const rok2024: Rok = {
 			vyjezd: 3,
 			x: 330.7,
 			y: 308.3,
+			popis: {
+				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
+			},
 		},
 		{
 			slug: 'wismar',
@@ -81,6 +90,9 @@ export const rok2024: Rok = {
 			vyjezd: 3,
 			x: 319.0,
 			y: 290.8,
+			popis: {
+				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
+			},
 		},
 		{
 			slug: 'hollern-twielenfleth',
@@ -90,6 +102,9 @@ export const rok2024: Rok = {
 			vyjezd: 3,
 			x: 305.4,
 			y: 294.4,
+			popis: {
+				cs: 'Obec v zemském okrese Stade v Dolním Sasku, dolnoněmecky Hullern-Twielenfleth. Patří do svazku obcí Lühe, který úřaduje ve Steinkirchen.',
+			},
 		},
 		{
 			slug: 'cuxhaven',
@@ -99,6 +114,9 @@ export const rok2024: Rok = {
 			vyjezd: 3,
 			x: 299.1,
 			y: 290.9,
+			popis: {
+				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+			},
 		},
 		{
 			slug: 'nienburg-weser',
@@ -108,6 +126,9 @@ export const rok2024: Rok = {
 			vyjezd: 3,
 			x: 302.4,
 			y: 306.0,
+			popis: {
+				cs: 'Okresní město stejnojmenného zemského okresu v Dolním Sasku. Dolnoněmecky se mu říká Näinborg, Nienborg nebo Negenborg.',
+			},
 		},
 		{
 			slug: 'pleystein',
@@ -117,6 +138,9 @@ export const rok2024: Rok = {
 			vyjezd: 3,
 			x: 326.9,
 			y: 342.1,
+			popis: {
+				cs: 'Městečko v hornofalckém zemském okrese Neustadt an der Waldnaab v Bavorsku. Sídlí tu správní společenství Pleystein.',
+			},
 		},
 		{
 			slug: 'telc',
@@ -126,6 +150,9 @@ export const rok2024: Rok = {
 			vyjezd: 4,
 			x: 351.3,
 			y: 346.5,
+			popis: {
+				cs: 'Město na jihozápadě Moravy pětadvacet kilometrů jihozápadně od Jihlavy, kde žije kolem 5 100 obyvatel. Jeho historické jádro je městskou památkovou rezervací a je zapsané na seznamu světového kulturního dědictví UNESCO.',
+			},
 		},
 		{
 			slug: 'lednice',
@@ -149,6 +176,9 @@ export const rok2024: Rok = {
 			vyjezd: 5,
 			x: 335.9,
 			y: 349.2,
+			popis: {
+				cs: 'Šumavská obec uprostřed národního parku, třináct kilometrů jihozápadně od Kašperských Hor. Stojí na soutoku Modravského, Roklanského a Filipohuťského potoka, ze kterých tu vzniká Vydra. Žije v ní 107 obyvatel.',
+			},
 		},
 		{
 			slug: 'novosedly-nad-nezarkou',
@@ -158,6 +188,9 @@ export const rok2024: Rok = {
 			vyjezd: 6,
 			x: 346.6,
 			y: 348.4,
+			popis: {
+				cs: 'Jihočeská obec v okrese Jindřichův Hradec, v místním nářečí Novosedla. I s částmi Kolenec a Mláka v ní žije 691 obyvatel.',
+			},
 		},
 		{
 			slug: 'moritzburg',
@@ -167,6 +200,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 336.1,
 			y: 323.2,
+			popis: {
+				cs: 'Saská obec asi dvacet kilometrů severozápadně od Drážďan s 8 300 obyvateli. Stojí v ní zámek Moritzburg.',
+			},
 		},
 		{
 			slug: 'potsdam-2',
@@ -176,6 +212,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 330.8,
 			y: 308.4,
+			popis: {
+				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
+			},
 		},
 		{
 			slug: 'ruhstadt',
@@ -185,6 +224,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 322.4,
 			y: 302.7,
+			popis: {
+				cs: 'Braniborská obec v okrese Prignitz nedaleko místa, kde se Havola vlévá do Labe. Hnízdí tu tolik čápů bílých, že obec roku 1996 dostala od iniciativy EuroNatur titul Evropská čapí vesnice.',
+			},
 		},
 		{
 			slug: 'wismar-2',
@@ -194,6 +236,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 319.1,
 			y: 290.8,
+			popis: {
+				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
+			},
 		},
 		{
 			slug: 'boiensdorf',
@@ -203,6 +248,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 319.7,
 			y: 289.2,
+			popis: {
+				cs: 'Obec na severovýchodě zemského okresu Nordwestmecklenburg v Meklenbursku-Předním Pomořansku. Spravuje ji úřad se sídlem v Neuburgu.',
+			},
 		},
 		{
 			slug: 'grunendeich',
@@ -212,6 +260,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 305.9,
 			y: 294.8,
+			popis: {
+				cs: 'Obec v dolnosaském zemském okrese Stade, dolnoněmecky Greundiek. Patří do svazku obcí Lühe, který úřaduje ve Steinkirchen.',
+			},
 		},
 		{
 			slug: 'cuxhaven-2',
@@ -221,6 +272,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 298.9,
 			y: 291.0,
+			popis: {
+				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+			},
 		},
 		{
 			slug: 'leer-ostfriesland',
@@ -230,6 +284,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 289.8,
 			y: 298.7,
+			popis: {
+				cs: 'Okresní město ve Východním Frísku na řekách Emži a Ledě, po Emdenu a Aurichu třetí největší město regionu s 34 277 obyvateli. Staletí ho živil námořní přístav a obchod, od osmdesátých let 20. století je jedním z největších německých rejdařských sídel. Městem se ovšem stalo až roku 1823.',
+			},
 		},
 		{
 			slug: 'dokkum',
@@ -239,6 +296,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 279.3,
 			y: 297.0,
+			popis: {
+				cs: 'Jedno z jedenácti fríských měst, jižně od Waddenzee. Jeho jádro leží tam, kde se stékají vodní cesty Dokkumer Ee a Dokkumergrootdiep, a na začátku roku 2023 v něm žilo 12 965 obyvatel.',
+			},
 		},
 		{
 			slug: 'st-jacobiparochie',
@@ -248,6 +308,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 276.6,
 			y: 297.1,
+			popis: {
+				cs: 'Fríská vesnice v kraji Het Bildt, pár kilometrů od Waddenzee. Začíná tu poutní cesta Jabikspaad, která vede severem Nizozemska; v roce 2023 tu žilo 1 715 lidí.',
+			},
 		},
 		{
 			slug: 'den-helder',
@@ -257,6 +320,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 269.9,
 			y: 300.8,
+			popis: {
+				cs: 'Přístavní město na severním cípu Severního Holandska, asi šedesát kilometrů severně od Amsterdamu; naproti přes vodu leží ostrov Texel. Od roku 1815 je domovskou základnou nizozemského královského námořnictva — sídlí tu jeho akademie i muzeum. Začíná tady také Severoholandský průplav, dokončený roku 1824 a vedoucí až do Amsterdamu.',
+			},
 		},
 		{
 			slug: 'volendam',
@@ -266,6 +332,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 271.6,
 			y: 306.6,
+			popis: {
+				cs: 'Nizozemské město v provincii Severní Holandsko, součást obce Edam-Volendam. Na začátku roku 2021 v něm žilo 22 715 obyvatel.',
+			},
 		},
 		{
 			slug: 'wesel',
@@ -275,6 +344,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 282.3,
 			y: 317.3,
+			popis: {
+				cs: 'Město na soutoku Rýna a Lippe v severozápadní části Severního Porýní-Vestfálska. Je hlavním městem stejnojmenného zemského okresu a dělí se na pět správních obvodů.',
+			},
 		},
 		{
 			slug: 'remagen',
@@ -284,6 +356,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 286.5,
 			y: 330.6,
+			popis: {
+				cs: 'Město v Porýní-Falci, které se rozkládá po obou březích Rýna a žije v něm zhruba šestnáct tisíc obyvatel. V březnu 1945 se právě přes zdejší most podařilo spojencům překročit Rýn.',
+			},
 		},
 		{
 			slug: 'neef',
@@ -293,6 +368,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 285.4,
 			y: 336.4,
+			popis: {
+				cs: 'Vesnice v zemském okrese Cochem-Zell v Porýní-Falci, patřící do svazku obcí Zell na Mosele.',
+			},
 		},
 		{
 			slug: 'klusserath',
@@ -302,6 +380,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 283.0,
 			y: 339.4,
+			popis: {
+				cs: 'Moselská vesnice v zemském okrese Trier-Saarburg zhruba na půli cesty mezi Bernkastel-Kues a Trevírem. Patří do svazku obcí Schweich na Římské vinné stezce.',
+			},
 		},
 		{
 			slug: 'roth-an-der-our',
@@ -311,6 +392,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 278.1,
 			y: 338.1,
+			popis: {
+				cs: 'Vesnice v eifelském okrese Bitburg-Prüm v Porýní-Falci, která patří do svazku obcí Südeifel.',
+			},
 		},
 		{
 			slug: 'fleury-devant-douaumont',
@@ -320,6 +404,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 271.1,
 			y: 346.4,
+			popis: {
+				cs: 'Vesnice u Verdunu, která už neexistuje — před první světovou válkou tu žilo přes čtyři sta lidí, ale za bitvy u Verdunu přes ni šestnáctkrát přešla fronta. Půda zůstala plná nevybuchlé munice a zamořená plyny, a tak se ves neobnovila; obcí je dodnes, jen s nulovým počtem obyvatel. Stojí tu Mémorial de Verdun a Douaumontská kostnice.',
+			},
 		},
 		{
 			slug: 'millery',
@@ -329,6 +416,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 276.5,
 			y: 351.5,
+			popis: {
+				cs: 'Francouzská obec v departementu Meurthe-et-Moselle v regionu Grand Est.',
+			},
 		},
 		{
 			slug: 'bitche',
@@ -338,6 +428,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 287.2,
 			y: 349.1,
+			popis: {
+				cs: 'Francouzská obec v departementu Moselle, středisko stejnojmenného kantonu. V roce 2013 v ní žilo 5 225 obyvatel.',
+			},
 		},
 		{
 			slug: 'geisingen',
@@ -347,6 +440,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 296.6,
 			y: 363.2,
+			popis: {
+				cs: 'Město na západním okraji okresu Tuttlingen v Bádensku-Württembersku. Počtem obyvatel je šestou, rozlohou třetí největší obcí okresu.',
+			},
 		},
 		{
 			slug: 'bodman-ludwigshafen',
@@ -356,6 +452,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 300.0,
 			y: 364.6,
+			popis: {
+				cs: 'Obec na břehu Bodamského jezera v bádensko-württemberském okrese Kostnice. Vznikla 1. ledna 1975 spojením do té doby samostatných obcí Bodman a Ludwigshafen am Bodensee, dřív zvané Sernatingen.',
+			},
 		},
 		{
 			slug: 'blaichach',
@@ -365,6 +464,9 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 309.9,
 			y: 368.0,
+			popis: {
+				cs: 'Obec v zemském okrese Oberallgäu ve švábské části Bavorska.',
+			},
 		},
 		{
 			slug: 'stozec',
@@ -402,6 +504,9 @@ export const rok2024: Rok = {
 			vyjezd: 9,
 			x: 335.6,
 			y: 352.4,
+			popis: {
+				cs: 'Městys v dolnobavorském zemském okrese Freyung-Grafenau, uznaný jako rekreační místo. Do roku 1875 se psal Perlesreuth.',
+			},
 		},
 		{
 			slug: 'frantiskovy-lazne',
@@ -425,6 +530,9 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 315.4,
 			y: 316.3,
+			popis: {
+				cs: 'Lázeňské město při severním úpatí Harzu, devatenáct kilometrů jihozápadně od Halberstadtu. Po požáru roku 1836 muselo být z velké části postavené znovu; stojí tu stará radnice, hrad se sbírkami a několik kostelů. Nedaleko se zvedá skalní hřeben Teufelsmauer, Čertova zeď, s výhledem do harzských plání i roklí.',
+			},
 		},
 		{
 			slug: 'brokdorf',
@@ -434,6 +542,9 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 303.7,
 			y: 291.3,
+			popis: {
+				cs: 'Obec ve šlesvicko-holštýnském okrese Steinburg na břehu Labe, asi dvacet kilometrů od jeho ústí do Severního moře. V prosinci 2019 tu žilo 965 obyvatel.',
+			},
 		},
 		{
 			slug: 'wismar-3',
@@ -443,6 +554,9 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 319.0,
 			y: 290.8,
+			popis: {
+				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
+			},
 		},
 		{
 			slug: 'potsdam-3',
@@ -452,6 +566,9 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 330.7,
 			y: 308.4,
+			popis: {
+				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
+			},
 		},
 		{
 			slug: 'moritzburg-2',
@@ -461,6 +578,9 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 336.1,
 			y: 323.1,
+			popis: {
+				cs: 'Saská obec asi dvacet kilometrů severozápadně od Drážďan s 8 300 obyvateli. Stojí v ní zámek Moritzburg.',
+			},
 		},
 	],
 	videa: [],

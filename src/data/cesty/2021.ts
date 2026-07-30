@@ -87,7 +87,7 @@ export const rok2021: Rok = {
 			x: 337.3,
 			y: 344.6,
 			popis: {
-				cs: 'Vesnice v podhůří Šumavy, v okrese Klatovy. Žije v ní asi osm set obyvatel.',
+				cs: 'Vesnice v okrese Klatovy v Plzeňském kraji. Žije v ní asi osm set obyvatel.',
 			},
 		},
 		{
@@ -504,6 +504,9 @@ export const rok2021: Rok = {
 			vyjezd: 11,
 			x: 359.2,
 			y: 345.0,
+			popis: {
+				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
+			},
 		},
 		{
 			slug: 'lipnice-nad-sazavou',
@@ -553,6 +556,9 @@ export const rok2021: Rok = {
 			vyjezd: 12,
 			x: 343.4,
 			y: 335.4,
+			popis: {
+				cs: 'Hlavní a největší město Česka, ležící mírně na sever od středu Čech na Vltavě. Na 496 km² tu žije kolem 1,4 milionu lidí. Do dnešní podoby se Praha vyvíjela jedenáct století — byla hlavním městem Českého království i sídelním městem císařů Svaté říše římské. Historické centrum je od roku 1992 na seznamu světového dědictví UNESCO.',
+			},
 		},
 		{
 			slug: 'benesov',

@@ -47,6 +47,9 @@ export const rok2023: Rok = {
 			vyjezd: 2,
 			x: 298.9,
 			y: 291.0,
+			popis: {
+				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+			},
 		},
 		{
 			slug: 'bremerhaven',
@@ -56,6 +59,9 @@ export const rok2023: Rok = {
 			vyjezd: 2,
 			x: 298.2,
 			y: 295.2,
+			popis: {
+				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
+			},
 		},
 		{
 			slug: 'magdeburk',
@@ -149,6 +155,9 @@ export const rok2023: Rok = {
 			vyjezd: 6,
 			x: 356.2,
 			y: 338.3,
+			popis: {
+				cs: 'Vesnice v Pardubickém kraji asi třiadvacet kilometrů západně od Svitav. Žije v ní kolem dvou set obyvatel.',
+			},
 		},
 		{
 			slug: 'nove-hute',
@@ -186,6 +195,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 299.2,
 			y: 290.9,
+			popis: {
+				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+			},
 		},
 		{
 			slug: 'bremerhaven-2',
@@ -195,6 +207,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 298.2,
 			y: 295.3,
+			popis: {
+				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
+			},
 		},
 		{
 			slug: 'bad-nieuweschans',
@@ -246,6 +261,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 268.3,
 			y: 312.2,
+			popis: {
+				cs: 'Nizozemské město na soutoku řek Gouwe a Hollandse IJssel, ze kterého lodní doprava po nich udělala ve středověku významné město — městská práva dostalo roku 1272 a na konci středověku bylo pátým městem Holandska. Nejznámější stavby jsou radnice a kostel svatého Jana; město je známé goudským sýrem.',
+			},
 		},
 		{
 			slug: 'hoek-van-holland',
@@ -364,6 +382,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 369.8,
 			y: 280.4,
+			popis: {
+				cs: 'Jedno z nejstarších a největších polských měst, metropole Pomořského vojvodství na břehu Baltu u Gdaňského zálivu. Téměř osm set let bylo součástí polských zemí, pak patřilo Prusku a mezi lety 1920 a 1939 bylo svobodným městem pod správou Společnosti národů. Na poloostrově Westerplatte tu 1. září 1939 začala druhá světová válka a v místních loděnicích později vznikla Solidarita.',
+			},
 		},
 		{
 			slug: 'frombork',
@@ -401,6 +422,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 371.5,
 			y: 291.4,
+			popis: {
+				cs: 'Město na pravém břehu Visly v severním Polsku, německy Graudenz. S necelými sedmaosmdesáti tisíci obyvateli je čtvrtým nejlidnatějším městem Kujavsko-pomořského vojvodství.',
+			},
 		},
 		{
 			slug: 'leszno',
@@ -410,6 +434,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 357.4,
 			y: 313.3,
+			popis: {
+				cs: 'Město ve Velkopolském vojvodství mezi Poznaní a Vratislaví, česky Lešno a německy Lissa. Na dvaatřiceti kilometrech čtverečních tu žije asi šedesát tisíc lidí.',
+			},
 		},
 		{
 			slug: 'zoty-stok',
@@ -419,6 +446,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 361.2,
 			y: 330.2,
+			popis: {
+				cs: 'Městečko v Dolnoslezském vojvodství patnáct kilometrů východně od Kladska, hned přes hranici od české Bílé Vody. Česky se mu říkalo Rychleby a od toho jména mají název i Rychlebské hory, které se zvedají jižně nad ním. Žije tu asi dva a půl tisíce lidí.',
+			},
 		},
 		{
 			slug: 'lipnik-nad-becvou',
@@ -428,6 +458,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 367.9,
 			y: 340.9,
+			popis: {
+				cs: 'Město v Olomouckém kraji asi pětadvacet kilometrů východně od Olomouce, kde žije kolem osmi tisíc obyvatel. Jeho dějiny jsou spjaté s dvěma hrady — rozvalinami Drahotuše a rozsáhlou zříceninou Helfštýna tři kilometry jihovýchodně. Historické jádro je od roku 1989 městskou památkovou rezervací.',
+			},
 		},
 		{
 			slug: 'velke-bilovice',
@@ -437,6 +470,9 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 363.2,
 			y: 349.5,
+			popis: {
+				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
+			},
 		},
 		{
 			slug: 'horni-plana',
@@ -461,6 +497,9 @@ export const rok2023: Rok = {
 			vyjezd: 9,
 			x: 363.1,
 			y: 349.4,
+			popis: {
+				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
+			},
 		},
 		{
 			slug: 'slup',
@@ -470,6 +509,9 @@ export const rok2023: Rok = {
 			vyjezd: 9,
 			x: 357.6,
 			y: 351.0,
+			popis: {
+				cs: 'Obec na Dyjsko-mlýnském náhonu asi čtrnáct kilometrů jihovýchodně od Znojma. Do roku 1949 se jmenovala Čule a dnes v ní žije 536 obyvatel.',
+			},
 		},
 		{
 			slug: 'pleckensteiner-wald',
@@ -479,6 +521,9 @@ export const rok2023: Rok = {
 			vyjezd: 10,
 			x: 338.5,
 			y: 352.3,
+			popis: {
+				cs: 'Lesní území v dolnobavorském zemském okrese Freyung-Grafenau, které nepatří k žádné obci.',
+			},
 		},
 		{
 			slug: 'velke-mezirici',
@@ -488,6 +533,9 @@ export const rok2023: Rok = {
 			vyjezd: 11,
 			x: 355.7,
 			y: 344.0,
+			popis: {
+				cs: 'Město na Českomoravské vrchovině, které svému jménu dostojí — leží na soutoku Oslavy a Balinky. Plná městská práva mu roku 1408 zajistil Lacek z Kravař a v okolí se rozkládají chráněná území Nesměř a Balinské údolí. Domácí mu říkají Medříč, Mez nebo VelMez.',
+			},
 		},
 		{
 			slug: 'modra',
@@ -497,6 +545,9 @@ export const rok2023: Rok = {
 			vyjezd: 11,
 			x: 366.9,
 			y: 346.2,
+			popis: {
+				cs: 'Vesnice ve Zlínském kraji v okrese Uherské Hradiště, dřív zvaná Nová Ves. Žije v ní asi sedm set obyvatel.',
+			},
 		},
 		{
 			slug: 'brno',
@@ -506,6 +557,9 @@ export const rok2023: Rok = {
 			vyjezd: 11,
 			x: 359.2,
 			y: 345.0,
+			popis: {
+				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
+			},
 		},
 		{
 			slug: 'srni-3',
@@ -529,6 +583,9 @@ export const rok2023: Rok = {
 			vyjezd: 13,
 			x: 360.4,
 			y: 345.8,
+			popis: {
+				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
+			},
 		},
 		{
 			slug: 'srni-4',
@@ -552,6 +609,9 @@ export const rok2023: Rok = {
 			vyjezd: 14,
 			x: 339.7,
 			y: 350.6,
+			popis: {
+				cs: 'Šumavská obec osm kilometrů jižně od Prachatic, německy Oberhaid. Žije v ní kolem čtyř set obyvatel.',
+			},
 		},
 	],
 	videa: [],

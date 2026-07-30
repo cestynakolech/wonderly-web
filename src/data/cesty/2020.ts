@@ -150,7 +150,7 @@ export const rok2020: Rok = {
 			x: 343.0,
 			y: 346.2,
 			popis: {
-				cs: 'Město rozložené na obou březích Vltavy, kousek pod jejím soutokem s Lužnicí. Historické jádro je vyhlášeno městskou památkovou zónou a žije tu asi 7 800 lidí.',
+				cs: 'Město rozložené na obou březích Vltavy, východně od jejího soutoku s Lužnicí. Historické jádro je vyhlášené městskou památkovou zónou.',
 			},
 		},
 		{

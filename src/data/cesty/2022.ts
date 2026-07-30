@@ -169,6 +169,9 @@ export const rok2022: Rok = {
 			vyjezd: 7,
 			x: 338.5,
 			y: 352.3,
+			popis: {
+				cs: 'Lesní území v dolnobavorském zemském okrese Freyung-Grafenau, které nepatří k žádné obci.',
+			},
 		},
 		{
 			slug: 'waldkirchen',
@@ -233,6 +236,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 379.1,
 			y: 324.3,
+			popis: {
+				cs: 'Městečko ve Slezském vojvodství asi patnáct kilometrů jihovýchodně od Čenstochové, kudy vede Stezka orlích hnízd. Nad ním se tyčí kopec se zříceninou hradu ze 13. století. Městská práva mělo v letech 1488 až 1870 a znovu je získalo roku 2022.',
+			},
 		},
 		{
 			slug: 'ketrzyn',
@@ -242,6 +248,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 390.1,
 			y: 281.1,
+			popis: {
+				cs: 'Mazurské město, které se do roku 1946 jmenovalo Rastembork a Němcům bylo známé jako Rastenburg. Dnes je okresním městem Varmijsko-mazurského vojvodství a žije v něm asi pětadvacet tisíc lidí.',
+			},
 		},
 		{
 			slug: 'srokowo',
@@ -251,6 +260,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 390.5,
 			y: 279.3,
+			popis: {
+				cs: 'Mazurská vesnice, která bývala městem — městská práva získala roku 1405 a přišla o ně v roce 1945. Protéká jí říčka Omet a za vsí se zvedá kopec čelní morény Diabla Góra, 157 metrů nad mořem, odkud je dobrý rozhled.',
+			},
 		},
 		{
 			slug: 'malbork',
@@ -274,6 +286,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 376.3,
 			y: 279.0,
+			popis: {
+				cs: 'Přímořské město na Viselské kose v Pomořském vojvodství, německy Kahlberg. Má přístav a několik pláží a v roce 2023 v něm žilo 1 172 obyvatel.',
+			},
 		},
 		{
 			slug: 'katy-rybackie',
@@ -297,6 +312,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 371.7,
 			y: 281.0,
+			popis: {
+				cs: 'Jedno z nejstarších a největších polských měst, metropole Pomořského vojvodství na břehu Baltu u Gdaňského zálivu. Téměř osm set let bylo součástí polských zemí, pak patřilo Prusku a mezi lety 1920 a 1939 bylo svobodným městem pod správou Společnosti národů. Na poloostrově Westerplatte tu 1. září 1939 začala druhá světová válka a v místních loděnicích později vznikla Solidarita.',
+			},
 		},
 		{
 			slug: 'ustka',
@@ -332,6 +350,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 334.6,
 			y: 281.9,
+			popis: {
+				cs: 'Přímořské městečko na poloostrově Jasmund v severovýchodním cípu Rujány. Staletí to byla rybářská ves; přístav a železnici dostalo kolem roku 1890 a městská práva až roku 1957. Hned za ním začíná křídové pobřeží. Bukové pralesy národního parku Jasmund jsou od roku 2012 na seznamu UNESCO.',
+			},
 		},
 		{
 			slug: 'putgarten',
@@ -369,6 +390,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 308.2,
 			y: 295.2,
+			popis: {
+				cs: 'Druhé největší město Německa a jeho největší přístav, zároveň jedna ze tří městských spolkových zemí. Žije tu asi 1,91 milionu lidí. Ve středověku patřil Hamburk do Hanzy a pro svůj význam v námořní dopravě se mu dodnes říká Tor zur Welt, Brána do světa.',
+			},
 		},
 		{
 			slug: 'cuxhaven',
@@ -378,6 +402,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 299.2,
 			y: 290.9,
+			popis: {
+				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+			},
 		},
 		{
 			slug: 'bremy',
@@ -457,6 +484,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 320.6,
 			y: 365.3,
+			popis: {
+				cs: 'Bavorské lázeňské město na řece Isar, kde žije zhruba devatenáct tisíc obyvatel. Za druhé světové války tu byla velká kasárna a důstojnická škola.',
+			},
 		},
 		{
 			slug: 'jachenau',
@@ -466,6 +496,9 @@ export const rok2022: Rok = {
 			vyjezd: 8,
 			x: 318.6,
 			y: 367.7,
+			popis: {
+				cs: 'Hornobavorská obec v zemském okrese Bad Tölz-Wolfratshausen. Se 787 obyvateli je nejmenší bavorskou obcí, která si spravuje své záležitosti sama. Od roku 1975 je uznaným rekreačním místem a sama sobě říká Jachenau, sluneční údolí.',
+			},
 		},
 		{
 			slug: 'pasov',
