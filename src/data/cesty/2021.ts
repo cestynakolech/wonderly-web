@@ -37,6 +37,7 @@ export const rok2021: Rok = {
 				en: 'Český Rudolec is a municipality in the South Bohemian Region, located in the Rudolec Gorge of the Javořice Upland at the confluence of Bolíkovský Stream (right tributary of the Moravian Dyje) and Radíkovský Stream. Historically situated on the Czech-Moravian border, it is known for the ponds near the castle and on Radíkovský Stream.',
 				de: 'Český Rudolec ist eine Gemeinde in der Region Südböhmen, gelegen in der Rudolecker Schlucht des Javorické Hochlands an der Mündung des Bolikovský-Flusses (rechter Zufluss der Mährischen Dyje) und des Radikovský-Flusses. Historisch liegt es an der tschechisch-mährischen Grenze und ist bekannt für die Teiche bei der Burg und am Radikovský-Fluss.',
 			},
+			videoId: 'P9x08WGWPNQ',
 		},
 		{
 			slug: 'trebic',
@@ -51,6 +52,7 @@ export const rok2021: Rok = {
 				en: 'Třebíč, a city on the Jihlava River in the Vysočina Region, is famous for its Jewish quarter and the Basilica of St. Procopius, inscribed in UNESCO (2003). It lies 30 km southeast of Jihlava and 56 km west of Brno.',
 				de: 'Třebíč, Stadt an der Jihlava in der Region Vysočina, ist berühmt für sein jüdisches Viertel und ihre Basilika des heiligen Prokop, die in die UNESCO-Liste aufgenommen wurden (2003). Es liegt 30 km südöstlich von Jihlava und 56 km westlich von Brno.',
 			},
+			videoId: 'P9x08WGWPNQ',
 		},
 		{
 			slug: 'nova-rise',
@@ -77,6 +79,7 @@ export const rok2021: Rok = {
 				en: 'Rabí is a city in the foothills of Šumava with a historical core that has formed a municipal monument zone since 1992.',
 				de: 'Rabí ist eine Stadt im Fußgebirge der Šumava mit einem historischen Kerngebiet, das seit 1992 eine städtische Denkmalschutzzone bildet.',
 			},
+			videoId: 'PirKcq_jSs8',
 		},
 		{
 			slug: 'chanovice',
@@ -590,5 +593,16 @@ export const rok2021: Rok = {
 			},
 		},
 	],
-	videa: [],
+	videa: [
+		{ id: 'rv_jOK1nwao', nazev: 'Švihov, Roupov, Hoštice u Volyně, Nová Pec', odkaz: 'https://youtu.be/rv_jOK1nwao' },
+		{ id: 'Cm4mPg9rYOw', nazev: 'Orlík Sudoměřice', odkaz: 'https://youtu.be/Cm4mPg9rYOw' },
+		{ id: 'PirKcq_jSs8', nazev: 'Rabí večerní návštěva', odkaz: 'https://youtu.be/PirKcq_jSs8' },
+		{ id: 'P9x08WGWPNQ', nazev: 'Třebíč, Telč, Český Rudolec, Jaroměřice nad Rokytnou', odkaz: 'https://youtu.be/P9x08WGWPNQ' },
+		{ id: 'yGLgQBATywE', nazev: 'Pohádkový les', odkaz: 'https://youtu.be/yGLgQBATywE' },
+		{ id: '_NTzVZ4Bj5U', nazev: 'Rabí', odkaz: 'https://youtu.be/_NTzVZ4Bj5U' },
+		{ id: 'mDf7jtgan0E', nazev: 'Radyně. Helfenburk', odkaz: 'https://youtu.be/mDf7jtgan0E' },
+		{ id: 'yu3gTjZHXcM', nazev: 'Rabí a Nebílovy', odkaz: 'https://youtu.be/yu3gTjZHXcM' },
+		{ id: 'HOYR67lWLSs', nazev: 'KRATOCHVÍLE', odkaz: 'https://youtu.be/HOYR67lWLSs' },
+		{ id: 'KpVhvaQNRaw', nazev: 'Nová Pec', odkaz: 'https://youtu.be/KpVhvaQNRaw' },
+	],
 };
