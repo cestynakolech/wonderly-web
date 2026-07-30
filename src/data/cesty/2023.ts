@@ -39,7 +39,7 @@ export const rok2023: Rok = {
 		},
 		{
 			slug: 'bremsky-pristav',
-			nazev: 'Brémský Přístav',
+			nazev: 'Bremerhaven',
 			zeme: 'Německo',
 			datum: '6.–8. 3. 2023',
 			vyjezd: 2,
@@ -138,7 +138,7 @@ export const rok2023: Rok = {
 		},
 		{
 			slug: 'bremsky-pristav-2',
-			nazev: 'Brémský Přístav',
+			nazev: 'Bremerhaven',
 			zeme: 'Německo',
 			datum: '10. 7. 2023',
 			vyjezd: 7,

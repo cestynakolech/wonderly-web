@@ -1,5 +1,43 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩ ZADÁNÍ UČITELE 30. 7. 2026 — MAPA DŘÍVĚJŠÍCH CEST (dělat jako první)
+
+Učitel rozhodl o mapě starých cest (automat `Omega/skripty/stare_cesty.py`, 43 cest
+2019–2023 vytěžených z fotek, pilotně nasazený rok 2023):
+
+1. **Podoba mapy roku 2023 se učiteli LÍBÍ a MÁ ZŮSTAT** (30. 7. 2026, po zhlédnutí
+   nasazené mapy: „tohle se mi líbí může zůstat"). Tedy: všechna místa jako kolečka,
+   blízká obepnutá kroužkem s počtem, trasy se šipkami, modrý domeček s popiskem
+   „jižní Čechy", pod mapou rozcestník s vlaječkami. **Nepřestavovat!**
+   Rozdělení roku na jednotlivé cesty (víkend × prázdninová cesta) zůstává jako
+   možné vylepšení, ale až na výslovné přání — dnešní dělení podle vzdálenosti stačí.
+2. **Opakované návštěvy stejného místa se ZACHOVÁVAJÍ** (30. 7.: „opakovaně jsme jezdili
+   na stejná místa jiný rok ale to chci zachovat"). Slučovat se smí JEN dva shluky téže
+   cesty se stejným jménem (`slouc_stejnojmenna` v stare_cesty.py) — nikdy napříč
+   cestami ani roky. Slugy míst musí zůstat unikátní (ověřeno: v roce 2023 jsou).
+3. **Názvy míst: originál, ne strojový překlad.** 30. 7. se na webu objevil paskvil
+   „Brémský Přístav" (Nominatim s `accept-language=cs` počeštil Bremerhaven). Opraveno:
+   dotaz jde BEZ češtiny, jméno se protáhne slovníkem vžitých exonym (`EXONYMA`
+   v body_z_fotek.py — Bremen→Brémy, Gdańsk→Gdaňsk…), zemi určuje KÓD státu
+   (`ZEME_PODLE_KODU`), protože název země se vrací v místním jazyce („Deutschland").
+4. **Popisy míst: VYROBIT** (ne nechat prázdné). U ~150 míst vyrábět z veřejných
+   faktů o místě — nikdy si nevymýšlet, co tam učitel zažil.
+5. **Roky 2019–2022 doplnit: ANO** (dalších 35 cest) — a stejně tak KAŽDÝ další rok,
+   který učitel přidá („další roky co přidám taky ano").
+6. **HLÍDAČ NOVÝCH FOTEK** (nové zadání): lokální model má při zapnutém počítači sám
+   zjistit, že přibyly nové fotky, a začít dělat mapu bez vyzvání. Tedy LaunchAgent
+   v režimu DOHÁNĚČ (hodinové buzení, práce při první příležitosti) nad
+   `body_z_fotek.py` + `stare_cesty.py`; sleduje složku
+   `Cestovatelský deník/Dřívější dovolené` (vizitky) a čekárnu.
+   Souvisí: učitel chtěl automat i pro `zpracuj_rucni_vklad.py` (dosud se pouští ručně).
+
+Zbývá z předchozího: 9 videí (.MOV) a 6 fotek bez EXIF, ze kterých se GPS zatím nečte
+(u videí jde doprogramovat). Přehled všech 43 cest je v `Cestovatelský deník/KE-SCHVALENI.md`.
+
+**Pozn.:** učitel psal část zadání do jiné session; tato (hlavní) ho převzala.
+Práce druhé session je commitnutá (`1898a08`), nic se neztratilo.
+
+
 ## ⏩ KDE POKRAČOVAT (29. 7. 2026 večer — úkoly učitele k deníku: 1 a 2 HOTOVÉ, 3 běží)
 
 1. ✅ **Mapa roku začíná doma** — data roku mají nový volitelný bod `domov`
