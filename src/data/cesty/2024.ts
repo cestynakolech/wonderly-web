@@ -138,6 +138,7 @@ export const rok2024: Rok = {
 			popis: {
 				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
 				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
+				de: 'Lednice ist eine Gemeinde und ein Dorf im Landkreis Břeclav in der Südmährischen Region der Tschechischen Republik mit etwa 2 200 Einwohnern. Sie liegt innerhalb der kulturellen Landschaft Lednice–Valtice, die im UNESCO-Weltkulturerbe aufgenommen ist.',
 			},
 		},
 		{
@@ -376,6 +377,7 @@ export const rok2024: Rok = {
 			popis: {
 				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
 				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
+				de: 'Stožec ist eine Gemeinde und ein Dorf im Bezirk Prachatice in der Region Südböhmen mit etwa 200 Einwohnern. Es liegt etwa 22 km südwestlich von Prachatice und 50 km westlich von Budweis.',
 			},
 		},
 		{
@@ -389,6 +391,7 @@ export const rok2024: Rok = {
 			popis: {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
 			},
 		},
 		{
@@ -411,6 +414,7 @@ export const rok2024: Rok = {
 			popis: {
 				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
+				de: 'Františkovy Lázně (deutsch Franzensbad) sind ein Kurort im Landkreis Cheb im Karlovarer Land, 5 km nördlich von Cheb. Seit 2021 befindet sich die Stadt im Verzeichnis des UNESCO-Weltkulturerbes zusammen mit Marienbad und Karlsbad im Rahmen der Kategorie „Berühmte Kurorte Europas“.',
 			},
 		},
 		{

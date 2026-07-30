@@ -32,6 +32,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Sněžné je název dvou obcí v Česku: obec v okrese Rychnov nad Kněžnou a městys v okrese Žďár nad Sázavou, který před rokem 1949 nesl název Německé.',
 				en: 'Sněžné is the name of two municipalities in the Czech Republic: a municipality in the Rychnov nad Kněžnou District and a market town in the Žďár nad Sázavou District, which before 1949 bore the name Německé.',
+				de: 'Sněžné ist der Name zweier Gemeinden in Tschechien: eine Gemeinde im Bezirk Rychnov nad Kněžnou und eine Marktgemeinde im Bezirk Žďár nad Sázavou, die vor 1949 den Namen Německé trug.',
 			},
 		},
 		{
@@ -45,6 +46,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
 			},
 		},
 		{
@@ -58,6 +60,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
 			},
 		},
 		{
@@ -71,6 +74,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Valtice je město v Jihomoravském kraji s chráněným historickým jádrem a součástí Lednicko-valtického krajinného památkového areálu. Valtický zámek, dříve sídlo knížecího rodu Lichtenštejnů, hostí degustační expozici vín Salon Vín České republiky v podzemních prostorech a patří do Mikulovské vinařské podoblasti.',
 				en: 'Valtice is a town in the South Moravian Region with a protected historical core and part of the Lednice-Valtice Landscape Protected Area. Valtice Castle, formerly the seat of the princely family of Liechtenstein, hosts the wine tasting exhibition Salon of Czech Republic Wines in the underground spaces and belongs to the Mikulovská wine subregion.',
+				de: 'Valtice ist eine Stadt in der Südmährischen Region mit einem geschützten historischen Kerngebiet und Teil des Lednicko-Valtice Landschaftsdenkmalsgebietes. Das Schloss Valtice, früherer Sitz der Fürstenfamilie Liechtenstein, beherbergt die Degustationsausstellung Salon der Weine der Tschechischen Republik in den unterirdischen Räumen und gehört zum Mikulovschen Weinbaugebiet.',
 			},
 		},
 		{
@@ -84,6 +88,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Moravské Bránice je obec v Bobravské vrchovině v Jihomoravském kraji, prochází jí řeka Jihlava a patří do vinařské podoblasti Znojemská s viničními tratěmi Karlov, Ve Starých, Nová hora a V Písařových.',
 				en: 'Moravské Bránice is a municipality in the Bobrava Highlands in the South Moravian Region, with the river Jihlava flowing through it and belonging to the Znojemská wine subregion with vineyard routes Karlov, Ve Starých, Nová hora, and V Písařových.',
+				de: 'Moravské Bránice ist eine Gemeinde in der Bobravské Höhen in der Südmährischen Region, durch sie fließt der Fluss Jihlava und gehört zur Weinunterregion Znojemská mit den Weinbergstrecken Karlov, Ve Starých, Nová hora und V Písařových.',
 			},
 		},
 		{
@@ -97,6 +102,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Pluhův Žďár je obec a vesnice v Jindřichův Hradec v Jihočeském kraji s přibližně 600 obyvateli. Je známý zámkem Červená Lhota.',
 				en: 'Pluhův Žďár is a municipality and village in Jindřichův Hradec, South Bohemian Region, with approximately 600 inhabitants. It is known for Červená Lhota Castle.',
+				de: 'Pluhův Žďár ist eine Gemeinde und ein Dorf in Jindřichův Hradec in der Südböhmischen Region mit etwa 600 Einwohnern. Es ist bekannt für das Schloss Červená Lhota.',
 			},
 		},
 		{
@@ -110,6 +116,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
 			},
 		},
 		{
@@ -123,6 +130,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Tetín je obec v okrese Beroun, 2 km jihovýchodně od Berouna, kde se nachází hrad Tetín a jeho předchůdce, hradisko.',
 				en: 'Tetín is a municipality in the Beroun District, 2 km southeast of Beroun, where Tetín Castle and its predecessor, the castle mound, are located.',
+				de: 'Tetín ist eine Gemeinde im Landkreis Beroun, 2 km südöstlich von Beroun, wo sich die Burg Tetín und ihr Vorgänger, der Burgstall, befinden.',
 			},
 		},
 		{
@@ -136,6 +144,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Šťáhlavy jsou obec v okrese Plzeň-město, ležící na řece Úslavě, 14 km jihovýchodně od Plzně. Místní železniční trať Plzeň – České Budějovice prochází místní stanicí Šťáhlavy.',
 				en: 'Šťáhlavy is a municipality in the Plzeň-město District, located on the Úslava River, 14 km southeast of Plzeň. The railway line Plzeň–České Budějovice passes through Šťáhlavy station.',
+				de: 'Šťáhlavy sind eine Gemeinde im Bezirk Plzeň-město, gelegen an der Úslava, 14 km südöstlich von Pilsen. Die örtliche Eisenbahnstrecke Pilsen – Budweis führt durch die örtliche Station Šťáhlavy.',
 			},
 		},
 		{
@@ -149,6 +158,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Doupě je obec v okrese Jihlava.',
 				en: 'Doupě is a municipality in Jihlava District.',
+				de: 'Doupě ist eine Gemeinde im Landkreis Jihlava.',
 			},
 		},
 		{
@@ -184,6 +194,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Horní Břečkov je obec v okrese Znojmo v Jihomoravském kraji, nacházející se 12 km severozápadně od Znojma. Žije zde 263 obyvatel.',
 				en: 'Horní Břečkov is a municipality in the Znojmo District in the South Moravian Region, located 12 km northwest of Znojmo. The population is 263.',
+				de: 'Ober Břečkov ist eine Gemeinde im Landkreis Znojmo in der Südmährischen Region, die sich 12 km nordwestlich von Znojmo befindet. Hier leben 263 Einwohner.',
 			},
 		},
 		{
@@ -197,6 +208,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Myjava, město v západní části Trenčínského kraje na Slovensku, je známé jako "Metropole pod slámou" a charakteristické svým kopaničářským nářečím, které zapomíná na háčky a znak ô, a dominantním postavením evangelické církve.',
 				en: 'Myjava, a city in the western part of the Trenčín Region in Slovakia, is known as "Metropolis under Straw" and is characterized by its Kopaničár dialect, which omits diacritics and the character ô, and has the dominant position of the Evangelical Church.',
+				de: 'Myjava, eine Stadt im westlichen Teil der Region Trenčín in der Slowakei, ist bekannt als „Metropole unter Stroh“ und charakteristisch für seinen Kopaničár-Dialekt, der die Häkchen und das Zeichen ô vergisst, sowie für die dominierende Stellung der evangelischen Kirche.',
 			},
 		},
 		{
@@ -210,6 +222,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Rajecké Teplice je lázeňské město v severním Slovensku, Žilinském kraji, ležící v nadmořské výšce 415 metrů deset kilometrů jižně od Žiliny. Je známé svými lázněmi a termálními prameny s vodou o teplotě 39 °C, které léčí nemoci pohybového ústrojí, nervové choroby a nemoci z povolání.',
 				en: 'Rajecké Teplice is a spa town in northern Slovakia, in the Žilina Region, located at an elevation of 415 meters, ten kilometers south of Žilina. It is known for its spas and thermal springs with water at a temperature of 39 °C, which treat diseases of the musculoskeletal system, neurological diseases, and occupational diseases.',
+				de: 'Rajecké Teplice ist ein Kurort in Nordslowakei, in der Region Žilina, gelegen in einer Höhe von 415 Metern, zehn Kilometer südlich von Žilina. Es ist bekannt für seine Bäder und thermale Quellen mit Wasser einer Temperatur von 39 °C, die Erkrankungen des Bewegungsapparates, Nervenerkrankungen und Berufskrankheiten heilen.',
 			},
 		},
 		{
@@ -250,6 +263,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Malbork je město v Polsku na řece Nogat, dominantou je křižácký hrad Malbork postavený z červených cihel v gotickém stylu, součást světového dědictví UNESCO.',
 				en: 'Malbork is a city in Poland on the river Nogat, its dominant feature being the Teutonic Castle Malbork, built from red bricks in Gothic style, part of the UNESCO World Heritage.',
+				de: 'Malbork ist eine Stadt in Polen an der Nogat, die dominierende Sehenswürdigkeit ist die aus roten Ziegeln im gotischen Stil erbaute Kreuzritterburg Malbork, Teil des UNESCO-Weltkulturerbes.',
 			},
 		},
 		{
@@ -272,6 +286,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Kąty Rybackie je severopolská vesnice na pobřeží Baltského moře v mezoregionu Mierzeja Wiślana, kde při jejím východním okraji začíná Viselská kosa.',
 				en: 'Kąty Rybackie is a northern Polish village on the coast of the Baltic Sea in the mesoregion of Vistula Delta, where the Visel Spit begins at its eastern edge.',
+				de: 'Kąty Rybackie ist ein nordpolnisches Dorf an der Ostsee in der Mesoregion Mierzeja Wiślana, wo an ihrem östlichen Rand die Viselská Kosa beginnt.',
 			},
 		},
 		{
@@ -329,6 +344,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Putgarten je obec v okrese Vorpommern-Rügen v zemi Mecklenburg-Vorpommern, spravovaná úřadem Nord-Rügen se sídlem v Sagardu. Je to nejsevernější obec v Mecklenburg-Vorpommernu.',
 				en: 'Putgarten is a municipality in the Vorpommern-Rügen district in the state of Mecklenburg-Vorpommern, administered by the Nord-Rügen office with its seat in Sagard. It is the northernmost municipality in Mecklenburg-Vorpommern.',
+				de: 'Putgarten ist eine Gemeinde im Landkreis Vorpommern-Rügen im Bundesland Mecklenburg-Vorpommern, verwaltet vom Amt Nord-Rügen mit Sitz in Sagard. Es ist die nördlichste Gemeinde in Mecklenburg-Vorpommern.',
 			},
 		},
 		{
@@ -342,6 +358,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Stralsund je město v severovýchodním Německu, v zemi Meklenbursko-Přední Pomořansko, ležící na pobřeží Baltského moře u úžiny Strelasund, která odděluje ostrov Rujána od pevniny. Od roku 1936 překonává úžinu hráz se silničním a železničním mostem, město má 58 000 obyvatel (2004).',
 				en: 'Stralsund is a city in northeastern Germany, in the state of Mecklenburg-Western Pomerania, located on the Baltic Sea coast at the Strelasund Strait, which separates Rügen Island from the mainland. Since 1936, the strait has been crossed by a dike with a road and railway bridge, and the city has 58,000 inhabitants (2004).',
+				de: 'Stralsund ist eine Stadt im nordöstlichen Deutschland, in Mecklenburg-Vorpommern, gelegen an der Ostseeküste bei der Strelasund, die die Insel Rügen vom Festland trennt. Seit 1936 überspannt ein Damm mit einer Straße und einer Eisenbahnbrücke die Strelasund, die Stadt hat 58.000 Einwohner (2004).',
 			},
 		},
 		{
@@ -373,6 +390,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Brémy jsou město na severozápadě Německa ležící na řece Vezeře, hlavním a největším městem spolkové země Svobodné hanzovní město Brémy, s 584 332 obyvateli k 31. prosinci 2023.',
 				en: 'Bremen is a city in the northwest of Germany located on the Weser River, the capital and largest city of the federal state of the Free Hanseatic City of Bremen, with 584,332 inhabitants as of December 31, 2023.',
+				de: 'Bremen ist eine Stadt im Nordwesten Deutschlands, die am Fluss Weser liegt, Haupt- und größte Stadt des Bundeslandes Freie Hansestadt Bremen, mit 584.332 Einwohnern zum 31. Dezember 2023.',
 			},
 		},
 		{
@@ -386,6 +404,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Briedern je obec na řece Mosela v okrese Cochem-Zell v Rýnsko-palatinském kraji. Patří do společného správního území Cochem.',
 				en: 'Briedern is a municipality on the Moselle River in the Cochem-Zell district in Rhineland-Palatinate. It belongs to the joint administrative area Cochem.',
+				de: 'Briedern ist eine Gemeinde an der Mosel im Landkreis Cochem-Zell in Rheinland-Pfalz. Briedern gehört zur Verwaltungsgemeinschaft Cochem.',
 			},
 		},
 		{
@@ -399,6 +418,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Trier je nejstarším městem Německa v Porýní-Falcu, blízko Lucemburska, s římskými památkami, včetně katedrály sv. Petra a kostela P. Marie, které jsou součástí světového dědictví UNESCO. Je sídlem univerzity založené v roce 1473.',
 				en: 'Trier is the oldest city in Rhineland-Palatinate, Germany, near Luxembourg, with Roman monuments, including St. Peter\'s Cathedral and St. Mary\'s Church, which are part of the UNESCO World Heritage Site. It is the seat of a university founded in 1473.',
+				de: 'Trier ist die älteste Stadt Deutschlands in Rheinland-Pfalz, nahe bei Luxemburg, mit römischen Denkmälern, einschließlich der Kathedrale St. Petri und der Kirche St. Mariens, die zum Weltkulturerbe der UNESCO gehören. Es ist Sitz der 1473 gegründeten Universität.',
 			},
 		},
 		{
@@ -412,6 +432,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Kostnice je podzemní sklepní prostor v sakrální stavbě určený k ukládání lidských kostí uspořádaných do geometrických tvarů. Vznikala při hromadných úmrtích (mor, epidemie) nebo jako memento mori v klášterech kapucínů a karmelitánů.',
 				en: 'An ossuary is an underground crypt in a sacred building designated for storing human bones arranged in geometric shapes. It originated during mass deaths (plague, epidemics) or as a memento mori in Capuchin and Carmelite monasteries.',
+				de: 'Die Knochenkammer ist ein unterirdischer Gewölberraum in einem sakralen Bauwerk, bestimmt zum Lagern menschlicher Knochen, die in geometrische Formen angeordnet sind. Sie entstand bei Massentodesfällen (Pest, Epidemien) oder als Memento mori in den Klöstern der Kapuziner und Karmeliter.',
 			},
 		},
 		{
@@ -425,6 +446,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Friedrichshafen je univerzitní město a hlavní město okresu Bodamského jezera v Bádensko-Württembersku, nacházející se u Bodamského jezera nedaleko hranic se Švýcarskem a Rakouskem.',
 				en: 'Friedrichshafen is a university town and the capital of the Lake Constance district in Baden-Württemberg, situated on Lake Constance near the borders with Switzerland and Austria.',
+				de: 'Friedrichshafen ist eine Universitätsstadt und die Hauptstadt des Landkreises Bodensee in Baden-Württemberg, gelegen am Bodensee nahe der Grenzen zu Schweiz und Österreich.',
 			},
 		},
 		{
@@ -456,6 +478,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Pasov (Passau) je město v Bavorsku na soutoku tří řek – Dunaje, Innu a Ilze, těsně u rakouské hranice a přibližně 60 km jižně od české hranice.',
 				en: 'Passau (Pasov) is a city in Bavaria at the confluence of the Danube, Inn, and Ilz rivers, just near the Austrian border and approximately 60 km south of the Czech border.',
+				de: 'Passau (Pasov) ist eine Stadt in Bayern am Zusammenfluss dreier Flüsse – Donau, Inn und Ilz, unmittelbar an der österreichischen Grenze und etwa 60 km südlich der tschechischen Grenze.',
 			},
 		},
 		{

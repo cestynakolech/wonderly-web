@@ -28,6 +28,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
 				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
+				de: 'Stožec ist eine Gemeinde und ein Dorf im Bezirk Prachatice in der Region Südböhmen mit etwa 200 Einwohnern. Es liegt etwa 22 km südwestlich von Prachatice und 50 km westlich von Budweis.',
 			},
 		},
 		{
@@ -41,6 +42,8 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
 				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
+				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
 			},
 		},
 		{
@@ -66,6 +69,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Kuks je obec v údolí řeky Labe v Královéhradeckém kraji, známá unikátním barokním lázeňským areálem se špitálem a bohatou sochařskou výzdobou z dílny Matyáše Bernarda Brauna. Tento areál, součást národní kulturní památky a památkové rezervace, zahrnuje bývalé Šporkovy lázně a sochařský soubor v Novém lese.',
 				en: 'Kuks is a municipality in the Elbe River valley in the Hradec Králové Region, known for its unique Baroque spa complex featuring a hospital and rich sculptural decoration from the workshop of Matyas Bernard Braun. This complex, part of national cultural monuments and a monument reserve, includes the former Sporkovy spas and the sculptural group in New Forest.',
+				fr: 'Kuks est une commune située dans la vallée de la rivière Labe dans la région de Hradec Králové, réputée pour son unique complexe thermal baroque comprenant un hôpital et une riche décoration sculpturale issue de l\'atelier de Matyáš Bernard Braun. Cet ensemble, faisant partie du monument culturel national et de la réserve monumentale, comprend les anciens thermes Šporkovy et le groupe sculptural à Nový les.',
 			},
 		},
 		{
@@ -79,6 +83,8 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Unterach am Attersee je obec s 1 558 obyvateli (stav k 1. lednu 2026) v jihozápadní části Horního Rakouska v okrese Vöcklabruck. Nachází se na jižním konci jezera Attersee v regionu Salzkammergut.',
 				en: 'Unterach am Attersee is a municipality with 1,558 inhabitants (as of January 1, 2026) in the southwestern part of Upper Austria, in the Vöcklabruck District. It is located at the southern end of Lake Attersee in the Salzkammergut region.',
+				de: 'Unterach am Attersee ist eine Gemeinde mit 1.558 Einwohnern (Stand vom 1. Januar 2026) im südwestlichen Teil Oberösterreichs im Bezirk Vöcklabruck. Sie liegt am südlichen Ende des Attersees in der Region Salzkammergut.',
+				fr: 'Unterach am Attersee est une commune de 1 558 habitants (au 1er janvier 2026) dans la partie sud-ouest de la Haute-Autriche, dans le district de Vöcklabruck. Elle se trouve à l\'extrémité sud du lac Attersee dans la région du Salzkammergut.',
 			},
 		},
 		{
@@ -92,6 +98,8 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Hallstatt (Halštat) je město v Rakousku v Solné komoře, ležící u Halštatského jezera. Společně s pohořím Dachstein a Solnou komorou patří ke Světovému dědictví UNESCO.',
 				en: 'Hallstatt (Halštat) is a town in Austria in the Salzkammergut, located by Hallstatt Lake. Together with the Dachstein Mountains and the Salzkammergut, it belongs to the UNESCO World Heritage.',
+				de: 'Hallstatt (Halštat) ist eine Stadt in Österreich im Salzkammergut, die am Hallstätter See liegt. Zusammen mit dem Dachstein-Gebirge und dem Salzkammergut gehört es zum Weltkulturerbe der UNESCO.',
+				fr: 'Hallstatt (Halštat) est une ville en Autriche dans le Salzkammergut, située près du lac de Hallstatt. Ensemble avec le massif du Dachstein et le Salzkammergut, elle fait partie du Patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -105,6 +113,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Obec Černá v Pošumaví v Jihočeském kraji leží na obou březích Vltavy u vodní nádrže Lipno.',
 				en: 'The municipality of Černá in Pošumaví in the South Bohemian Region lies on both banks of the Vltava River near the Lipno Reservoir.',
+				fr: 'La commune de Černá v Pošumaví dans la région de Bohême du Sud se trouve sur les deux rives de la Vltava près du réservoir de Lipno.',
 			},
 		},
 		{
@@ -118,6 +127,8 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Zlatá Olešnice je název dvou obcí: jedna v Libereckém kraji (okres Jablonec nad Nisou) s kostelem sv. Martina, druhá v Královéhradeckém kraji (okres Trutnov) s kostelem sv. Kateřiny.',
 				en: 'Zlatá Olešnice is the name of two municipalities: one in the Liberec Region (Jablonec nad Nisou District) with St. Martin\'s Church, the other in the Hradec Králové Region (Trutnov District) with St. Catherine\'s Church.',
+				de: 'Zlatá Olešnice ist der Name zweier Gemeinden: eine im Region Liberec (Kreis Jablonec nad Nisou) mit der Kirche St. Martins, die andere im Region Hradec Králové (Kreis Trutnov) mit der Kirche St. Katharinas.',
+				fr: 'Zlatá Olešnice est le nom de deux communes : l\'une située dans la région de Liberec (arrondissement de Jablonec nad Nisou) avec l\'église de Saint-Martin, l\'autre dans la région de Hradec Králové (arrondissement de Trutnov) avec l\'église de Sainte-Catherine.',
 			},
 		},
 		{
@@ -131,6 +142,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Mariánské Lázně je lázeňské město v Karlovarském kraji, nejmladší z trojice proslulých západočeských lázeňských měst. Od roku 2021 je součástí Světového dědictví UNESCO spolu s Františkovými Lázněmi a Karlovy Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Mariánské Lázně is a spa town in the Karlovy Vary Region, the youngest of the trio of famous West Bohemian spa towns. Since 2021, it has been part of the UNESCO World Heritage together with Františkovy Lázně and Karlovy Vary within the item "Famous Spa Towns of Europe.',
+				fr: 'Mariánské Lázně est une ville thermale située dans la région de Karlovy Vary, la plus jeune des trois célèbres villes thermales de Bohême occidentale. Depuis 2021, elle fait partie du Patrimoine mondial de l\'UNESCO ensemble avec Františkovy Lázně et Karlovy Vary dans le cadre de la catégorie « Villes thermales célèbres d\'Europe ».',
 			},
 		},
 		{
@@ -157,6 +169,8 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Ostrava, nacházející se na soutoku řek Odry, Opavy, Ostravice a Lučiny, je třetí největší město Česka s bohatou průmyslovou dějinou. Její unikátní průmyslová architektura v Dolní oblasti Vítkovice, která aspiruje na zápis do UNESCO, tvoří klíčovou památku města.',
 				en: 'Ostrava, located at the confluence of the rivers Odra, Opavy, Ostravice, and Lučiny, is the third largest city in the Czech Republic with a rich industrial history. Its unique industrial architecture in the Lower Vítkovice area, which aspires to be listed in UNESCO, forms the city\'s key landmark.',
+				de: 'Ostrava, die sich am Zusammenfluss der Flüsse Odra, Opava, Ostravice und Lučiny befindet, ist die drittgrößte Stadt Tschechiens mit einer reichen industriellen Geschichte. Ihre einzigartige industrielle Architektur im Unterbezirk Vítkovice, die auf eine Aufnahme ins UNESCO-Weltkulturerbe strebt, bildet das Schlüsselmonument der Stadt.',
+				fr: 'Ostrava, située à la confluence des rivières Odra, Opava, Ostravice et Lučina, est la troisième plus grande ville de la République tchèque avec une riche histoire industrielle. Son architecture industrielle unique dans Vítkovice inférieure, qui aspire à être inscrite à l\'UNESCO, constitue un monument clé de la ville.',
 			},
 		},
 	],

@@ -28,6 +28,8 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Dolní Věstonice je obec v Jihomoravském kraji, nacházející se severně od Pavlovských vrchů na jižním břehu Novomlýnské nádrže. Je známá svou vinařskou tradicí tisíciletého trvání a Sklepní ulicí s původními i novými vinnými sklepy v Mikulovské vinařské podoblasti.',
 				en: 'Dolní Věstonice is a village in the South Moravian Region, located north of the Pavlov Hills on the southern shore of the Novomlýnská Reservoir. It is known for its thousand-year-old winemaking tradition and Sklepní Street with original and new wine cellars in the Mikulovská wine subregion.',
+				de: 'Dolní Věstonice ist eine Gemeinde in der Südmährischen Region, die nördlich der Pavlovské Hügel am südlichen Ufer des Novomlýnské Stausees liegt. Sie ist bekannt für ihre tausendjährige Weinbautradition und die Kellergasse mit ursprünglichen und neuen Weinkellern in der Mikulovsker Weinbaugebiet.',
+				fr: 'Dolní Věstonice est une commune de la région de Moravie du Sud, située au nord des collines de Pavlov sur la rive sud du réservoir de Novomlýn. Elle est connue pour sa tradition viticole millénaire et pour sa rue des caves avec des caves à vin anciennes et nouvelles dans la sous-région viticole de Mikulov.',
 			},
 		},
 		{
@@ -41,6 +43,8 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Znojmo je moravské město na levém břehu řeky Dyje, druhé největší město Jihomoravského kraje a historické centrum jihozápadní Moravy, známé jako vinařská obec v podoblasti Znojemské.',
 				en: 'Znojmo is a Moravian city on the left bank of the Dyje River, the second largest city of the South Moravian Region and the historical center of Southwestern Moravia, known as a wine village in the Znojemská subregion.',
+				de: 'Znojmo ist eine mährische Stadt am linken Ufer des Flusses Dyje, die zweitgrößte Stadt der Region Südmähren und das historische Zentrum Südwestmährens, bekannt als Weinort in der Unterregion Znojemské.',
+				fr: 'Znojmo est une ville de Moravie située sur la rive gauche de la rivière Dyje, deuxième plus grande ville de la région de Moravie du Sud et centre historique de la Moravie du Sud-Ouest, connue comme commune viticole dans la sous-région de Znojemské.',
 			},
 		},
 		{
@@ -54,6 +58,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Horní Pěna je obec v okrese Jindřichův Hradec v Jihočeském kraji, umístěná v Javořické pahorkatině v oblasti České Kanady s 582 obyvateli.',
 				en: 'Upper Pěna is a municipality in Jindřichův Hradec District in the South Bohemian Region, located in the Javořická Uplands in the Czech Canada area with 582 inhabitants.',
+				de: 'Horní Pěna ist eine Gemeinde im Landkreis Jindřichův Hradec in Südböhmen, gelegen im Javořické Hügelland in der Region Tschechische Kanada mit 582 Einwohnern.',
 			},
 		},
 		{
@@ -80,6 +85,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Točník je obec v okrese Beroun ve Středočeském kraji, asi 7 km severně od Hořovic. Žije zde 269 obyvatel.',
 				en: 'Točník is a municipality in Beroun District in the Central Bohemian Region, about 7 km north of Hořovic. It has a population of 269.',
+				de: 'Točník ist eine Gemeinde im Bezirk Beroun in Mittelböhmen, etwa 7 km nördlich von Hořovic. Hier leben 269 Einwohner.',
 			},
 		},
 		{
@@ -93,6 +99,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
+				de: 'Františkovy Lázně (deutsch Franzensbad) sind ein Kurort im Landkreis Cheb im Karlovarer Land, 5 km nördlich von Cheb. Seit 2021 befindet sich die Stadt im Verzeichnis des UNESCO-Weltkulturerbes zusammen mit Marienbad und Karlsbad im Rahmen der Kategorie „Berühmte Kurorte Europas“.',
 			},
 		},
 		{
@@ -131,6 +138,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Svatý Jan je obec a vesnice v okrese Příbram v Středočeském kraji České republiky se zhruba 600 obyvatel.',
 				en: 'Svatý Jan is a municipality and village in Příbram District, Central Bohemian Region, Czech Republic, with approximately 600 inhabitants.',
+				de: 'Svatý Jan ist eine Gemeinde und ein Dorf im Landkreis Příbram im Mittelböhmen der Tschechischen Republik mit etwa 600 Einwohnern.',
 			},
 		},
 		{
@@ -156,6 +164,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Žirovnice je město v regionu Vysočina, ležící na potoku Žirovničce v Křemešníkových vrších. Hlavní památky tvoří Zámek Žirovnice a kostel sv. Filipa a Jakuba.',
 				en: 'Zirovnice is a city in the Vysočina Region, located on the Zirovnica Stream in the Kremesnikovy Hills. The main attractions are Zirovnice Castle and the Church of St. Philip and James.',
+				de: 'Žirovnice ist eine Stadt in der Region Vysočina, gelegen am Bach Žirovnička in den Křemešníkových Hügeln. Die Hauptdenkmäler sind das Schloss Žirovnice und die Kirche St. Philipp und Jakob.',
 			},
 		},
 		{
@@ -169,6 +178,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
 				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
+				de: 'Lednice ist eine Gemeinde und ein Dorf im Landkreis Břeclav in der Südmährischen Region der Tschechischen Republik mit etwa 2 200 Einwohnern. Sie liegt innerhalb der kulturellen Landschaft Lednice–Valtice, die im UNESCO-Weltkulturerbe aufgenommen ist.',
 			},
 		},
 		{
@@ -182,6 +192,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Obec Černá v Pošumaví v Jihočeském kraji leží na obou březích Vltavy u vodní nádrže Lipno.',
 				en: 'The municipality of Černá in Pošumaví in the South Bohemian Region lies on both banks of the Vltava River near the Lipno Reservoir.',
+				fr: 'La commune de Černá v Pošumaví dans la région de Bohême du Sud se trouve sur les deux rives de la Vltava près du réservoir de Lipno.',
 			},
 		},
 		{
@@ -195,6 +206,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Křišťanov je obec v okrese Prachatice v Jihočeském kraji, ležící na severu Želnavské hornatiny v nadmořské výšce 925 m s 86 obyvateli.',
 				en: 'Křišťanov is a municipality in the Prachatice District in the South Bohemian Region, located in the northern part of the Želnavská Highlands at an elevation of 925 m with 86 inhabitants.',
+				de: 'Křišťanov ist eine Gemeinde im Bezirk Prachatice in Südböhmen, gelegen im Norden des Želnavské Hochlands in einer Höhe von 925 m mit 86 Einwohnern.',
 			},
 		},
 	],
