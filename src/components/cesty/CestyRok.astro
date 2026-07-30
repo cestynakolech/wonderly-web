@@ -68,22 +68,40 @@ const korenVsechnyMisto = koren.polozky.length > 0 && koren.polozky.every((p) =>
 const korenUzly = korenVsechnyMisto
 	? [...koren.polozky].sort((a, b) => (korenPoradi.get(a.id) ?? 0) - (korenPoradi.get(b.id) ?? 0))
 	: koren.body;
-// trasa vede z domova do prvního místa a dál v pořadí návštěvy
-const korenTrasaUzly: { x: number; y: number }[] = [
-	...(domov ? [{ x: domov.x, y: domov.y }] : []),
-	...korenUzly.map((b) => ({ x: b.x, y: b.y })),
-];
-const korenTrasa = korenTrasaUzly.map((b) => `${b.x},${b.y}`).join(' ');
+// Trasa vede z domova do prvního místa a dál v pořadí návštěvy. Má-li rok víc
+// výjezdů (starší roky: hodně prodloužených víkendů + jedna dlouhá prázdninová
+// cesta), kreslí se každý výjezd zvlášť a vrací se domů — tak se opravdu jezdilo.
+const domovBod = domov ? { x: domov.x, y: domov.y } : null;
+const vyjezdMista = new Map(data.mesta.map((m) => [m.slug, m.vyjezd ?? 1]));
+const uzelSlug = (b: { slug?: string; id?: string }) => b.slug ?? b.id ?? '';
+let korenTrasy: { x: number; y: number }[][];
+if (data.vyjezdy?.length) {
+	const skupiny = new Map<number, { x: number; y: number }[]>();
+	for (const b of korenUzly) {
+		const cislo = vyjezdMista.get(uzelSlug(b)) ?? 1;
+		if (!skupiny.has(cislo)) skupiny.set(cislo, []);
+		skupiny.get(cislo)!.push({ x: b.x, y: b.y });
+	}
+	korenTrasy = [...skupiny.entries()]
+		.sort((a, b) => a[0] - b[0])
+		.map(([, body]) => (domovBod ? [domovBod, ...body, domovBod] : body));
+} else {
+	korenTrasy = [[...(domovBod ? [domovBod] : []), ...korenUzly.map((b) => ({ x: b.x, y: b.y }))]];
+}
+const korenTrasaUzly = korenTrasy.flat();
+const korenTrasaBody = korenTrasy.map((uzly) => uzly.map((b) => `${b.x},${b.y}`).join(' '));
 const korenSipky = [];
-for (let i = 0; i < korenTrasaUzly.length - 1; i++) {
-	const a = korenTrasaUzly[i];
-	const b = korenTrasaUzly[i + 1];
-	if (Math.hypot(b.x - a.x, b.y - a.y) < koren.pinR * 2) continue;
-	korenSipky.push({
-		mx: (a.x + b.x) / 2,
-		my: (a.y + b.y) / 2,
-		uhel: (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI,
-	});
+for (const uzly of korenTrasy) {
+	for (let i = 0; i < uzly.length - 1; i++) {
+		const a = uzly[i];
+		const b = uzly[i + 1];
+		if (Math.hypot(b.x - a.x, b.y - a.y) < koren.pinR * 2) continue;
+		korenSipky.push({
+			mx: (a.x + b.x) / 2,
+			my: (a.y + b.y) / 2,
+			uhel: (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI,
+		});
+	}
 }
 const sipkaTvar = (s: number) => `${s},0 ${-s * 0.6},${s * 0.7} ${-s * 0.6},${-s * 0.7}`;
 // pod celkovou mapou se vypisují místa jen tehdy, když jich není moc; jinak rozcestník
@@ -95,6 +113,8 @@ const texty = {
 	tvaryMist: t.tvaryMist,
 	max: MAX_POLOZEK,
 	domov: domov ?? null,
+	// slug místa → číslo výjezdu; když rok výjezdy nemá, je to null a trasa je jedna
+	vyjezdMista: data.vyjezdy?.length ? Object.fromEntries(vyjezdMista) : null,
 };
 ---
 
@@ -118,7 +138,9 @@ const texty = {
 	>
 		<image href="/cesty/mapa-evropa.svg" width={MAPA_SIRKA} height={MAPA_VYSKA} />
 		<g id="mapa-vrstva">
-			{korenTrasaUzly.length >= 2 && <polyline class="trasa-cara" points={korenTrasa} pathLength="1000" stroke-width={koren.pinR / 1.5} />}
+			{korenTrasaBody.map((body) => (
+				body.split(' ').length >= 2 && <polyline class="trasa-cara" points={body} pathLength="1000" stroke-width={koren.pinR / 1.5} />
+			))}
 			{korenSipky.map((s) => (
 				<polygon class="trasa-sipka" points={sipkaTvar(koren.pinR * 0.75)} transform={`translate(${s.mx} ${s.my}) rotate(${s.uhel})`} />
 			))}
@@ -360,8 +382,24 @@ const texty = {
 			// domov je jen na celkové mapě — trasa z něj vychází (přání učitele 29. 7. 2026)
 			const jeKoren = pohled.id === 'vse';
 			const domov = jeKoren ? texty.domov : null;
-			const uzlyTrasy = domov ? [{ x: domov.x, y: domov.y }, ...mista] : mista;
-			if (uzlyTrasy.length >= 2) {
+			// Má-li rok víc výjezdů (starší roky: prodloužené víkendy + prázdninová
+			// cesta), kreslí se každý zvlášť a vrací se domů — jinak jedna linka.
+			let trasy;
+			if (texty.vyjezdMista) {
+				const skupiny = new Map();
+				for (const m of mista) {
+					const cislo = texty.vyjezdMista[m.slug ?? m.id] ?? 1;
+					if (!skupiny.has(cislo)) skupiny.set(cislo, []);
+					skupiny.get(cislo).push(m);
+				}
+				trasy = [...skupiny.entries()]
+					.sort((a, b) => a[0] - b[0])
+					.map(([, body]) => (domov ? [{ x: domov.x, y: domov.y }, ...body, { x: domov.x, y: domov.y }] : body));
+			} else {
+				trasy = [domov ? [{ x: domov.x, y: domov.y }, ...mista] : mista];
+			}
+			for (const uzlyTrasy of trasy) {
+				if (uzlyTrasy.length < 2) continue;
 				const trasa = uzlyTrasy.map((b) => `${b.x},${b.y}`).join(' ');
 				vrstva.appendChild(
 					prvek('polyline', { class: 'trasa-cara', points: trasa, pathLength: 1000, 'stroke-width': pohled.pinR / 1.5 }),

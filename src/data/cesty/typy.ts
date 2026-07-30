@@ -25,11 +25,23 @@ export type Stellplatz = {
 	overenoNaMiste?: boolean;
 };
 
+/** Jeden výjezd z domova. Starší roky mají v roce víc cest — hodně prodloužených
+ *  víkendů (domov → místo → domov) a jednu dlouhou prázdninovou cestu. Trasa se
+ *  pak kreslí zvlášť pro každý výjezd, ne jako jedna linka přes celý rok. */
+export type Vyjezd = {
+	cislo: number;
+	druh: 'vikend' | 'prazdniny';
+	od: string;
+	do: string;
+};
+
 export type Mesto = {
 	slug: string;
 	nazev: string;
 	zeme: string;
 	datum: string;
+	/** Ke kterému výjezdu roku místo patří (viz Rok.vyjezdy) */
+	vyjezd?: number;
 	/** Pozice pinu v souřadnicích mapy (viewBox 0 0 680 520) */
 	x: number;
 	y: number;
@@ -40,7 +52,9 @@ export type Mesto = {
 	 *  na mapě jméno toho největšího z nich. Když se neuvede (nebo jsou místa stejně
 	 *  velká), použije se první navštívené, tj. dřívější v poli `mesta`. */
 	obyvatele?: number;
-	popis: PrelozenyPopis;
+	/** U starších dovolených, sestavených automaticky z GPS ve fotkách, se popis
+	 *  doplňuje postupně — místo bez popisu se ukáže na mapě, jen bez textu. */
+	popis?: PrelozenyPopis;
 	/** Předpona fotogalerie v úložišti R2, např. "cesty/2026/landshut" */
 	galerie?: string;
 	videoId?: string;
@@ -67,6 +81,9 @@ export type Rok = {
 	domov?: { nazev: string; x: number; y: number };
 	/** Pozice pinu roku na celoevropské mapě rozcestníku */
 	pinEvropa: { x: number; y: number };
+	/** Jednotlivé výjezdy z domova. Když chybí, je celý rok jedna cesta
+	 *  (tak to mají roky 2025 a 2026 psané ručně). */
+	vyjezdy?: Vyjezd[];
 	mesta: Mesto[];
 	videa: Video[];
 };

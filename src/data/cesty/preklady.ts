@@ -8,7 +8,10 @@ export function cestaCesty(jazyk: Jazyk, podcesta = ''): string {
 	return podcesta ? `${zaklad}/${podcesta}` : zaklad;
 }
 
-export function prelozPopis(popis: PrelozenyPopis, jazyk: Jazyk): string {
+/** Popis nemusí být vyplněný — u starších dovolených sestavených z GPS ve fotkách
+ *  se text doplňuje postupně; místo se do té doby ukáže na mapě jen bez popisu. */
+export function prelozPopis(popis: PrelozenyPopis | undefined, jazyk: Jazyk): string {
+	if (!popis) return '';
 	return popis[jazyk] ?? popis.cs;
 }
 
