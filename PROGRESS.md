@@ -94,6 +94,31 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-30 odpoledne (deník — celá mapa dřívějších cest, hlídač, francouzština)** —
+  Dokončeny body 5 a 6 učitelova zadání. **Na webu jsou roky 2019–2024**; učitel během
+  práce doplnil fotky až po letošní cestu, takže přibyl i **rok 2024 (46 míst)** a rok
+  2023 vyrostl na 45 míst. `stare_cesty.py --ts vse` zapíše všechny roky naráz a sám
+  udržuje rejstřík `roky.ts`; výjezdy se číslují v rámci roku (dřív globálně — rok 2023
+  začínal „výjezdem č. 36"). **Ochrana ručně psaných roků:** učitel se ptal, „jestli se
+  tam něco nepere" — perlo by se, automat by přepsal ručně psané 2025 a 2026 i s
+  galeriemi, stellplatzy a Bertíkovými reporty. Pojistka je dvojitá: seznam
+  `RUCNE_PSANE_ROKY` **a** značka v hlavičce (automat přepíše jen soubor, který sám
+  napsal), takže na žádný ruční rok se nedá zapomenout. **Popisy míst** vyrábí nový
+  `popisy_mist.py` — kotvou je článek na Wikipedii, jehož *jméno i souřadnice* sedí na
+  místo, autor qwen3:30b-a3b, nezávislý kontrolor gemma4:26b; hotovo 95 popisů ze 123
+  míst (6 nemá zdroj), překlady se dopočítávají. **Hlídač nových fotek**
+  (`hlidac_starych_fotek.py` + LaunchAgent `com.omega.stare-fotky-hlidac`, doháněč à 1 h)
+  si nových fotek všimne sám a mapu dodělá bez vyzvání; commituje jen `src/data/cesty`,
+  aby nesebral rozdělanou práci. **Francouzská verze deníku** (`/cesty/fr/`): celé
+  rozhraní, 28 zemí, tvar data „6 juillet 2026" i „1er août 2022", vlajky u přepínače
+  jazyků (na úzkém telefonu jen vlajka), 11 popisů 2025/2026 přeloženo ručně.
+  Opraveny názvy míst z geokódování („gmina Kętrzyn" → „Kętrzyn").
+  **Poučení:** keš jmen potřebuje verzi (jinak v ní zůstal „Brémský Přístav" i po
+  opravě); lokální modely dávkovat **po modelech, ne po místech** (střídání qwen↔gemma
+  = 6 přehození v RAM na místo, 4 min/místo → po přeskupení kontrola 95 popisů za
+  vteřiny); qwen3 potřebuje `/no_think` v promptu; **kontrolor sám nestačí** — propustil
+  anglické „přemýšlení" modelu jako popis, proto strojová pojistka před ním; Wikipedie
+  vrací 429 s `Retry-After`.
 - **2026-07-30 (deník — dřívější dovolené z fotek)** — Učitel nasypal do složky „Dřívější dovolené" 309 souborů a zadal: *„můžeš dělat mapu; jezdily jsme hodně na prodloužené víkendy — víkend jedna cesta z domova na místo a zpět — a vždy prázdniny jedna dlouhá cesta na měsíc a půl."* Vznikl automat `Omega/skripty/stare_cesty.py`: z EXIF (GPS + datum) poskládá **rok → cesty → místa** (pauza > 5 dní = nová cesta, shluk do 15 km = jedno místo, fotky do 25 km od domova se vynechají jako běžný život), jména míst z Nominatimu (kešované), x/y stejnou projekcí jako `trasa_uvod.py`. Výsledek: **288 fotek s GPS, 43 cest v letech 2019–2023** (nejdelší 6. 7. – 16. 8. 2022, 42 dní a 25 míst). Web umí **víc cest v jednom roce**: nové typy `Vyjezd` + `Mesto.vyjezd`, `CestyRok.astro` kreslí každý výjezd zvlášť jako domov → místa → domov (serverově i v klientském překreslování mapy), `popis` je teď volitelný (u starých míst se text doplňuje postupně). Nasazen pilotní **rok 2023** (8 výjezdů, 34 míst — ověřeno: 8 tras, víkendy po 3 bodech, prázdninová cesta 19 bodů; roky 2025/2026 zůstaly na jedné trase, bez chyb v konzoli). Přehled všech 43 cest je v `Cestovatelský deník/KE-SCHVALENI.md` k odkliknutí. ZBÝVÁ: rozcestník roku dělit podle cest (34 pinů na jedné mapě je nepřehledné), doplnit roky 2019–2022, popisy míst, GPS z 9 videí .MOV a 6 fotek bez EXIF.
 - **2026-07-29 večer — tři připomínky učitele k deníku.** (1) **Mapa roku začíná doma:**
   data roku mají nový volitelný bod `domov` (jižní Čechy, x 344.9 / y 351.7 — spočteno
