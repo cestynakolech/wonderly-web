@@ -1,6 +1,38 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩ KDE POKRAČOVAT (30. 7. 2026, 22:15 — čerstvý stav, čti jako první)
+## ⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 6:00 — ŠKOLA: díry v kvízech, čti jako první)
+
+**Uzavřeno: 12 podtémat bez kvízu má kvíz.** Pracovní činnosti (Tinkercad, SketchUp),
+VEX IQ (4 podtémata 8. a 9. roč.) a hry ve Scratchi (6 podtémat) — celkem **144 nových
+otázek**. Zbylých 11 „podtémat bez kvízu" jsou **shrnutí**, kterým se kvíz skládá
+automaticky funkcí `slozSouhrnnyKviz` — díra to není. Jediné skutečně bez kvízu zůstává
+`fyzika/6-rocnik/shrnuti/pokusy` (sbírka pokusů, kvíz tam nedává smysl).
+
+**Kvízů je ve skutečnosti 2086 otázek, ne 358.** Údaj 358 z předchozích session byl
+podhodnocený: `zkontroluj.mjs` počítal otázky regexem `^\s*text:` a **jednořádkové
+otázky** (`{ text: '…', odpovedi: […] }`, kterých je většina) do počtu vůbec nebral —
+takže ani jeho kontrola „ke každé otázce patří odpovědi" na nich neplatila. Opraveno
+a ověřeno obousměrně (podvrh bez odpovědí se najde, definice typu se nepočítá).
+
+**Poučení pro psaní kvízů (odhalil nezávislý kontrolor, platí i do budoucna):**
+1. **Správná odpověď nesmí být systematicky nejdelší** — v první verzi jich bylo 73 %
+   a šly uhodnout bez znalosti látky. Míchání pořadí to neodstraní. Měřit skriptem;
+   cíl je ~33–40 % a žádný rozdíl ≥ 10 znaků.
+2. **Vysvětlení jedné otázky nesmí prozradit jinou** otázku téhož bloku (a bloky
+   sousedních témat se prozrazují navzájem).
+3. **Neuvádět klávesovou zkratku v zadání**, když se na ni jiná otázka ptá — jde pak
+   vyloučit. („K čemu je nástroj Metr (T)?" prozradilo distraktor T jinde.)
+4. **Nesmyslný distraktor je nápověda** („ve Wordu", „změříš to pravítkem").
+5. Kontrolor se pouští **dvakrát**: opravy samy zanesly dva nové úniky.
+
+**Čeká na rozhodnutí učitele** (výklad, ne kvíz — nesahal jsem na to): kontrolor
+upozornil, že u SketchUpu ve výkladu (`temata.ts`, podtéma `sketchup`) může být sporné
+(a) zadávání rozměrů jako `100;50` — oddělovač závisí na jazyku prostředí, v anglickém
+je čárka, a výklad sám říká, že prostředí je anglicky; (b) věta o ukládání přes Save —
+webový SketchUp Free má i automatické ukládání. Otázky na obojí jsem z kvízu raději
+vypustil. Ověřit u školní sestavy a případně upravit výklad.
+
+## ⏩⏩⏩ KDE POKRAČOVAT (30. 7. 2026, 22:15 — deník)
 
 **Na webu jsou roky 2019–2026 a POPIS MAJÍ VŠECHNA MÍSTA (156 ze 156).** Bod „dopsat
 popisy" je tím uzavřený. Francouzština nasazená.

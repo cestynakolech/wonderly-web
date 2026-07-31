@@ -94,6 +94,25 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 ráno (škola — díry v kvízech zalepené, chyba v kontrolní bráně)** —
+  Samostatná práce podle priorit. **12 podtémat bez kvízu dostalo kvíz** (144 otázek):
+  Pracovní činnosti měly do teď kvízů nula — Tinkercad (18) a SketchUp (16); VEX IQ
+  4 podtémata 8. a 9. ročníku (46); hry ve Scratchi 6 podtémat (64). Zbylých 11 podtémat
+  „bez kvízu" jsou shrnutí, kterým se kvíz skládá sám — díra to nebyla.
+  **Nález v kontrolní bráně:** `zkontroluj.mjs` počítal otázky vzorem `^\s*text:`, takže
+  **jednořádkové otázky vůbec nepočítal** — a jeho kontrola „ke každé otázce patří
+  odpovědi" na většině otázek neplatila. Po opravě je vidět skutečný stav: web má
+  **2086 kvízových otázek**, ne 358, jak se roky uvádělo. Oprava ověřena obousměrně
+  (podvrh bez odpovědí se najde, definice typu se nepočítá).
+  **Nezávislý kontrolor běžel dvakrát a podruhé se to vyplatilo:** napoprvé potvrdil
+  fakta i pořadí odpovědí, ale našel, že **správná odpověď byla nejdelší u 73 % otázek**
+  — daly se uhodnout bez znalosti látky (míchání pořadí to neřeší). Po vyrovnání na 37 %
+  a odstranění úniků mezi otázkami kontrolor v druhém kole odhalil, že **opravy samy
+  zanesly dva nové úniky** (vysvětlení prozrazovalo sousední otázku). Opraveno.
+  Z kvízu vypuštěny dvě otázky opřené o tvrzení, která závisí na verzi SketchUpu
+  (oddělovač rozměrů `100;50`, ukládání jen přes Save) — k ověření učitelem, viz
+  SAMOSTATNY-REZIM.md.
+
 - **2026-07-31 noc (dva audity, propojení videí, pečlivá anonymizace)** — Na přání učitele
   proběhly **dva nezávislé audity** (deník a škola) a podle nich dávka oprav. *Škola:*
   přetlak/podtlak v plicích byl u špatné fáze dýchání (výklad i kvíz), kalorimetr hlásil

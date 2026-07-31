@@ -68,8 +68,11 @@ for (const k of komponenty) {
 
 // 6) Kvízy: správná odpověď musí být PRVNÍ — hlídáme aspoň hrubé chyby ve struktuře
 // (řádky s definicí typu — `text: string;`, `odpovedi: string[];` — se nepočítají)
-const pocetOtazek = [...kvizy.matchAll(/^\s*text:\s*'/gm)].length;
-const pocetOdpovedi = [...kvizy.matchAll(/^\s*odpovedi:\s*\[\s*('|$)/gm)].length;
+// Pozor: otázky jsou psané dvojím způsobem — přes několik řádků i celé na JEDNOM
+// řádku (`{ text: '…', odpovedi: […] }`). Do 31. 7. 2026 se počítaly jen ty víceřádkové,
+// takže u většiny otázek kontrola „ke každé otázce patří odpovědi“ vůbec neplatila.
+const pocetOtazek = [...kvizy.matchAll(/(?:^|\{)\s*text:\s*'/gm)].length;
+const pocetOdpovedi = [...kvizy.matchAll(/(?:^|,)\s*odpovedi:\s*\[\s*('|$)/gm)].length;
 if (pocetOtazek !== pocetOdpovedi) {
 	chyby.push(`v kvizy.ts je ${pocetOtazek} otázek, ale ${pocetOdpovedi} seznamů odpovědí — někde chybí odpovědi`);
 }
