@@ -25,6 +25,16 @@ a ověřeno obousměrně (podvrh bez odpovědí se najde, definice typu se nepo�
 4. **Nesmyslný distraktor je nápověda** („ve Wordu", „změříš to pravítkem").
 5. Kontrolor se pouští **dvakrát**: opravy samy zanesly dva nové úniky.
 
+**⚠️ NOVÝ ÚKOL NA DALŠÍ KOLA — délková nápověda ve starých kvízech.** Když jsem měřil
+vlastní novou dávku, změřil jsem pro jistotu i zbytek webu: **u 64 % z 2085 otázek je
+správná odpověď nejdelší** (náhoda je 33 %) — žák je uhodne bez znalosti látky. Míchání
+pořadí to neřeší, míchá pořadí, ne délku. Kontrola je nově v `zkontroluj.mjs` (bod 6b):
+neblokuje build, ale vypíše podíl a **jmenuje 5 nejhorších bloků**. Postup je dorovnávat
+je po dávkách (4+ bloků na kolo): buď zkrátit správnou odpověď, nebo prodloužit
+distraktory — a znovu spustit bránu. Nejhorší k 31. 7.: `skupenske-zmeny-vody-v-prirode`
+(12/12), `posilani-zprav` (10/10), `sestaveni-a-oziveni-robota` (10/10),
+`senzory-robota` (10/10), `razeni-filtrovani-velka-data` (10/10).
+
 **Čeká na rozhodnutí učitele** (výklad, ne kvíz — nesahal jsem na to): kontrolor
 upozornil, že u SketchUpu ve výkladu (`temata.ts`, podtéma `sketchup`) může být sporné
 (a) zadávání rozměrů jako `100;50` — oddělovač závisí na jazyku prostředí, v anglickém

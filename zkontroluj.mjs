@@ -77,6 +77,41 @@ if (pocetOtazek !== pocetOdpovedi) {
 	chyby.push(`v kvizy.ts je ${pocetOtazek} otázek, ale ${pocetOdpovedi} seznamů odpovědí — někde chybí odpovědi`);
 }
 
+// 6b) DÉLKOVÁ NÁPOVĚDA (přidáno 31. 7. 2026 po nálezu nezávislého kontrolora).
+// Správná odpověď je v datech vždy první a web ji zamíchá — jenže míchání mění POŘADÍ,
+// ne DÉLKU. Když je správná odpověď nejdelší, žák ji uhodne bez znalosti látky.
+// Náhoda dává ~33 %; při nálezu bylo na webu 68 %. Neblokuje build (staré kvízy by
+// zhaslo naráz), ale ukáže nejhorší bloky, aby se daly dorovnávat po dávkách.
+const bloky = new Map();
+{
+	let klic = null;
+	for (const radek of kvizy.split('\n')) {
+		const mk = radek.match(/^\t'([^']+)': \[/);
+		if (mk) { klic = mk[1]; bloky.set(klic, { celkem: 0, nejdelsi: 0 }); continue; }
+		if (!klic) continue;
+		const m = radek.match(/odpovedi:\s*\[([^\]]+)\]/);
+		if (!m) continue;
+		const odp = m[1].split(/',\s*'/).map((s) => s.replace(/^\s*'|'\s*$/g, ''));
+		if (odp.length !== 3) continue;
+		const stat = bloky.get(klic);
+		stat.celkem++;
+		if (odp[0].length > Math.max(odp[1].length, odp[2].length)) stat.nejdelsi++;
+	}
+}
+const celkemOtazek = [...bloky.values()].reduce((s, b) => s + b.celkem, 0);
+const celkemNejdelsi = [...bloky.values()].reduce((s, b) => s + b.nejdelsi, 0);
+const podilNejdelsi = celkemOtazek ? Math.round((celkemNejdelsi / celkemOtazek) * 100) : 0;
+const nejhorsi = [...bloky.entries()]
+	.filter(([, b]) => b.celkem >= 8 && b.nejdelsi / b.celkem >= 0.75)
+	.sort((a, b) => b[1].nejdelsi / b[1].celkem - a[1].nejdelsi / a[1].celkem)
+	.slice(0, 5);
+if (podilNejdelsi > 45) {
+	varovani.push(
+		`u ${podilNejdelsi} % otázek je správná odpověď nejdelší (náhoda je 33 %) — jde uhodnout bez znalosti látky. ` +
+			`Nejhorší bloky: ${nejhorsi.map(([k, b]) => `${k.split('/').slice(2).join('/')} (${b.nejdelsi}/${b.celkem})`).join(', ')}`,
+	);
+}
+
 // 7) DENÍK (přidáno 31. 7. 2026 po nezávislém auditu): brána hlídala jen školu,
 // a tak se na web dostal popis Loketu o anatomickém lokti i „336 dnů na cestě".
 // Kontroly jsou schválně hloupé a rychlé — chytají to, co se opravdu stalo.
