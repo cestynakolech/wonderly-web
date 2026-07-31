@@ -4138,7 +4138,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co dělá shnilé jablko z nabídnutých vylepšení?', odpovedi: ['ubere 2 body', 'přidá 2 body', 'ukončí hru'], vysvetleni: 'Chycení shnilého jablka je za −2 body.' },
 	],
 	'informatika/7-rocnik/hry-ve-scratchi/hra-bludiste': [
-		{ text: 'Jak se v bludišti udělají zdi?', odpovedi: ['nakreslí se na pozadí jednou barvou', 'vloží se jako samostatné postavy', 'ohraničí se okrajem scény'], vysvetleni: 'Zdi jsou součástí pozadí a poznají se podle své barvy.' },
+		{ text: 'Jak se v bludišti udělají zdi?', odpovedi: ['nakreslí se na pozadí jednou barvou', 'vloží se jako samostatné postavy', 'ohraničí se okrajem scény'], vysvetleni: 'Celé bludiště se kreslí rovnou do pozadí scény.' },
 		{ text: 'Proč se postava Hráče zmenšuje na 30–50 %?', odpovedi: ['aby se vešla do chodeb', 'aby se pohybovala rychleji', 'aby byla lépe vidět'], vysvetleni: 'Velká postava by se do úzkých chodeb nevešla.' },
 		{ text: 'Který blok pozná, že hráč narazil do zdi?', odpovedi: ['dotýká se barvy', 'dotýká se okraje', 'je stisknuta klávesa'], vysvetleni: 'Zeď se pozná podle své barvy na pozadí.' },
 		{ text: 'Co udělá hráč po dotyku zdi v přísnější verzi?', odpovedi: ['skočí zpět na start', 'projede zdí dál', 'okamžitě vyhraje'], vysvetleni: 'Mírnější verze vrátí hráče jen o kousek zpět.' },
@@ -4147,7 +4147,6 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Čím se do hry přidá měření času?', odpovedi: ['proměnnou čas', 'novou postavou', 'druhým pozadím'], vysvetleni: 'Stopky jsou proměnná — dá se pak soutěžit, kdo projde nejrychleji.' },
 		{ text: 'Jak uděláš druhou, těžší úroveň?', odpovedi: ['přepneš na další pozadí', 'smažeš postavu Cíl', 'zmenšíš hráče na 10 %'], vysvetleni: 'Po dosažení cíle se přepne pozadí s těžším bludištěm.' },
 		{ text: 'Jak se pohybuje hlídač z nabídnutých vylepšení?', odpovedi: ['klouzáním po chodbě', 'skákáním přes zdi', 'stojí pořád na místě'], vysvetleni: 'Hlídač klouže po chodbě a jeho dotyk vrací hráče na start.' },
-		{ text: 'Kolik postav hra potřebuje kromě pozadí?', odpovedi: ['dvě — Hráče a Cíl', 'jen jednu — Hráče', 'čtyři — hráče a tři zdi'], vysvetleni: 'Zdi jsou nakreslené na pozadí, postavy jsou jen Hráč a Cíl.' },
 	],
 	'informatika/7-rocnik/hry-ve-scratchi/hra-honicka': [
 		{ text: 'Kterou postavu ovládá hráč?', odpovedi: ['Myš', 'Kočku', 'obě postavy'], vysvetleni: 'Hráč ovládá Myš, Kočka ji honí sama.' },
@@ -4157,7 +4156,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'O kolik kroků popojede Kočka v jednom opakování?', odpovedi: ['o 3 kroky', 'o 30 kroků', 'o 300 kroků'], vysvetleni: 'Malý krok dělá pohyb plynulý a hru hratelnou.' },
 		{ text: 'Jak se v Honičce počítá čas?', odpovedi: ['změň čas o 0,1 a čekej 0,1 s', 'změň čas o 1 a čekej 1 s', 'čas se vůbec nepočítá'], vysvetleni: 'Desetina sekundy se přičítá a stejnou dobu se čeká.' },
 		{ text: 'Co se stane, když Kočka chytí Myš?', odpovedi: ['oznámí výsledek a zastaví vše', 'hra normálně pokračuje', 'Myš se jen zmenší'], vysvetleni: 'Kočka řekne, kolik sekund hráč vydržel, a hra končí.' },
-		{ text: 'Jak zařídíš, aby Kočka postupně zrychlovala?', odpovedi: ['do délky kroku přimícháš čas', 'necháš ji před krokem déle čekat', 'zmenšíš ji na polovinu'], vysvetleni: 'Délka kroku se počítá jako 3 + čas/10 — s časem roste.' },
+		{ text: 'Jak zařídíš, aby Kočka postupně zrychlovala?', odpovedi: ['do délky kroku přimícháš čas', 'necháš ji před krokem déle čekat', 'zmenšíš ji na polovinu'], vysvetleni: 'Čím déle hra trvá, tím delší krok Kočka udělá.' },
 		{ text: 'Co je cílem hráče?', odpovedi: ['co nejdéle utéct Kočce', 'chytit Kočku do rohu', 'projít celé bludiště'], vysvetleni: 'Hra měří, jak dlouho hráč vydrží.' },
 		{ text: 'Co dělá sýr z nabídnutých vylepšení?', odpovedi: ['přidá body', 'zpomalí Kočku', 'ukončí hru'], vysvetleni: 'Sýr se objeví na scéně a jeho sebrání přidá body.' },
 	],
@@ -4175,7 +4174,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Na které klávesy jezdí druhá pálka ve dvouhráčové verzi?', odpovedi: ['A a D', 'W a S', 'šipky nahoru a dolů'], vysvetleni: 'Druhý hráč má pálku nahoře a ovládá ji klávesami A/D.' },
 	],
 	'informatika/8-rocnik/hry-ve-scratchi/hra-vesmirna-strilecka': [
-		{ text: 'Které dvě proměnné hra používá?', odpovedi: ['skóre a životy', 'čas a rychlost', 'jen skóre'], vysvetleni: 'Skóre za sestřelené meteory a životy za srážky s raketou.' },
+		{ text: 'Čím se ovládá Raketa?', odpovedi: ['šipkami doleva a doprava', 'ukazatelem myši', 'klávesami A a D'], vysvetleni: 'Raketa jezdí dole po scéně podle šipek.' },
 		{ text: 'Proč se originál Střely na začátku schová?', odpovedi: ['protože létají jen jeho klony', 'aby hra běžela rychleji', 'aby šlo střílet dvakrát'], vysvetleni: 'Originál se nikdy nevidí — po každém stisku vzniká jeho kopie, která letí sama.' },
 		{ text: 'Čím hráč vystřelí?', odpovedi: ['mezerníkem', 'šipkou nahoru', 'kliknutím myší'], vysvetleni: 'Po stisku mezerníku se vytvoří klon Střely.' },
 		{ text: 'Kde klon Střely začíná?', odpovedi: ['na Raketě', 'nahoře na scéně', 'v rohu scény'], vysvetleni: 'Klon skočí na Raketu a odtud letí vzhůru.' },
