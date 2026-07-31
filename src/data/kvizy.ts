@@ -4352,7 +4352,9 @@ kvizy['fyzika/7-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
 		'svetlo-a-jeho-sireni',
 		'zrcadla-a-cocky',
 	],
-	30,
+	// strop musí být >= počtu podtémat ročníku, jinak se poslední témata
+	// do ročního opakování NIKDY nedostanou — otázky se berou po kolech
+	34,
 );
 kvizy['fyzika/8-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'8-rocnik',
@@ -4362,7 +4364,9 @@ kvizy['fyzika/8-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 kvizy['fyzika/8-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
 	'8-rocnik',
 	['mechanicka-prace-a-vykon', 'energie', 'tepelne-motory', 'teplo-a-zmeny-skupenstvi', 'elektrina', 'zvuk'],
-	30,
+	// strop musí být >= počtu podtémat ročníku (35), jinak se poslední témata
+	// do ročního opakování NIKDY nedostanou — otázky se berou po kolech
+	36,
 );
 kvizy['fyzika/9-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'9-rocnik',
@@ -4386,12 +4390,12 @@ kvizy['fyzika/9-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
 kvizy['informatika/7-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'7-rocnik', ['programovani-podminky-udalosti', 'modelovani-grafy-schemata'], 18, 'informatika');
 kvizy['informatika/7-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
-	'7-rocnik', ['programovani-podminky-udalosti', 'modelovani-grafy-schemata', 'programovani-vetveni-promenne', 'pocitace'], 24, 'informatika');
+	'7-rocnik', ['programovani-podminky-udalosti', 'modelovani-grafy-schemata', 'programovani-vetveni-promenne', 'pocitace', 'hry-ve-scratchi'], 24, 'informatika');
 kvizy['informatika/8-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'8-rocnik', ['roboticka-stavebnice'], 18, 'informatika');
 kvizy['informatika/8-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
-	'8-rocnik', ['roboticka-stavebnice', 'microbit', 'hromadne-zpracovani-dat'], 24, 'informatika');
+	'8-rocnik', ['roboticka-stavebnice', 'microbit', 'hromadne-zpracovani-dat', 'hry-ve-scratchi', 'vex-iq'], 24, 'informatika');
 kvizy['informatika/9-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'9-rocnik', ['programovaci-projekty'], 18, 'informatika');
 kvizy['informatika/9-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
-	'9-rocnik', ['programovaci-projekty', 'digitalni-technologie', 'zaverecne-projekty'], 24, 'informatika');
+	'9-rocnik', ['programovaci-projekty', 'digitalni-technologie', 'zaverecne-projekty', 'vex-iq'], 24, 'informatika');
