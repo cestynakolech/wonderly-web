@@ -3,11 +3,19 @@
 // na zdroji 12 V. Sériově: společný proud I = U/(R1+R2), napětí se dělí
 // (U1 = R1·I). Paralelně: společné napětí, proud se dělí (I1 = U/R1, I = I1+I2).
 // Tlačítko „přepal žárovku 1": v sérii zhasne vše, v paralelu druhá svítí dál.
+//
+// KULIČKY PROUDU (na přání učitele 31. 7. 2026): náboj obíhá obvodem jako žluté kuličky
+// a v uzlu se JEN ROZDĚLÍ — žádná nevzniká ani nemizí. Kolik kuliček jde do které větve,
+// určuje poměr proudů: při stejných odporech jde každá druhá kulička jinam („ob kuličku"),
+// při odporu 20 Ω × 60 Ω jdou tři kuličky do slabšího odporu a jedna do většího.
+// Rozdělení počítá Bresenhamovo rozprostření podle podílu I1/(I1+I2), takže sedí
+// na libovolný poměr odporů a kuličky se rozkládají rovnoměrně, ne po blocích.
 ---
 
 <section class="ramecek simulace">
 	<h2><span class="podtrh">Sériově, nebo paralelně? 🕹️</span></h2>
 	<p>Zdroj má <strong>U = 12 V</strong>. Měň odpory žárovek a přepínej zapojení. Jas žárovky odpovídá jejímu výkonu. Pak zkus <strong>přepálit žárovku 1</strong> — uvidíš rozdíl mezi vánočním řetězem (sériově) a zásuvkami doma (paralelně).</p>
+	<p>🟡 <strong>Žluté kuličky</strong> jsou náboj, který obvodem obíhá. V uzlu se <strong>jen rozdělí — žádná nová nevzniká a žádná nemizí</strong>. Kolik jich zahne do které větve, přesně odpovídá tomu, kolik proudu tudy teče.</p>
 	<p>
 		<button id="zap-rezim-serie" type="button" class="zap-tl zap-aktivni">→→ Za sebou (sériově)</button>
 		<button id="zap-rezim-paralel" type="button" class="zap-tl">⇉ Vedle sebe (paralelně)</button>
@@ -30,6 +38,8 @@
 			<path d="M 52 120 V 60 H 190" /><path d="M 250 60 H 470 V 240 H 52 V 180" />
 			<path d="M 130 60 V 150 H 190" /><path d="M 250 150 H 410 V 60" />
 		</g>
+		<!-- kuličky proudu (kreslí skript) — pod žárovkami, aby žárovka zůstala čitelná -->
+		<g id="zap-kulicky"></g>
 		<!-- žárovky (elipsy s vláknem), popisky U/I -->
 		<g id="zap-z1">
 			<circle id="zap-z1-glow" r="26" fill="#ffd43b" opacity="0" />
@@ -86,6 +96,86 @@
 	const zn = (x, des = 1) => (Math.abs(x - +x.toFixed(des)) < 1e-9 ? '=' : '≈');
 	const MAXP = 14.4; // výkon 12 V / 10 Ω = 14,4 W → plný jas
 
+	// ——— KULIČKY PROUDU ———
+	// Dráhy musí sedět na nakreslené dráty výše. Sériově je smyčka jedna;
+	// paralelně jsou dvě a liší se jen prostředkem (uzel 130,60 → uzel 410,60).
+	const TRASA_SERIE = [[52, 120], [52, 60], [470, 60], [470, 240], [52, 240], [52, 120]];
+	const TRASA_V1 = [[52, 120], [52, 60], [470, 60], [470, 240], [52, 240], [52, 120]];
+	const TRASA_V2 = [[52, 120], [52, 60], [130, 60], [130, 150], [410, 150], [410, 60], [470, 60], [470, 240], [52, 240], [52, 120]];
+
+	const delkaTrasy = (t) => {
+		let d = 0;
+		for (let i = 1; i < t.length; i++) d += Math.hypot(t[i][0] - t[i - 1][0], t[i][1] - t[i - 1][1]);
+		return d;
+	};
+	// poloha v PODÍLU dráhy (0 až 1) — díky tomu obě větve oběhnou za stejnou dobu,
+	// takže se kuličky u uzlu nehromadí, i když je jedna větev delší
+	function naTrase(trasa, podil) {
+		let s = (((podil % 1) + 1) % 1) * delkaTrasy(trasa);
+		for (let i = 1; i < trasa.length; i++) {
+			const [x1, y1] = trasa[i - 1], [x2, y2] = trasa[i];
+			const d = Math.hypot(x2 - x1, y2 - y1);
+			if (s <= d) { const p = d === 0 ? 0 : s / d; return [x1 + (x2 - x1) * p, y1 + (y2 - y1) * p]; }
+			s -= d;
+		}
+		return trasa[trasa.length - 1];
+	}
+
+	const POCET_KULICEK = 24;
+	const kulicky = [];
+	const kulickyG = document.getElementById('zap-kulicky');
+	for (let k = 0; k < POCET_KULICEK; k++) {
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('r', '4.5');
+		c.setAttribute('fill', '#fab005');
+		c.setAttribute('stroke', '#2b2a26');
+		c.setAttribute('stroke-width', '1.5');
+		kulickyG.appendChild(c);
+		kulicky.push(c);
+	}
+
+	// ČISTÁ funkce: do které větve patří k-tá kulička.
+	// Bresenhamovo rozprostření podle podílu proudu → při 1:1 jde každá druhá jinam
+	// („ob kuličku"), při 3:1 jdou tři do jedné větve a jedna do druhé.
+	function vetevKulicky(k, podilV1) {
+		if (podilV1 >= 1) return 1;
+		if (podilV1 <= 0) return 2;
+		// EPS srovnává chybu plovoucí čárky: podíl 0,6/0,8 vyjde 0,74999…,
+		// takže by se z každých 24 kuliček jedna „ztratila" (17 místo 18).
+		const EPS = 1e-9;
+		return Math.floor((k + 1) * podilV1 + EPS) > Math.floor(k * podilV1 + EPS) ? 1 : 2;
+	}
+	// ČISTÁ funkce: jaký podíl kuliček má jít do větve 1
+	function podilVetve1(i1, i2) {
+		const soucet = i1 + i2;
+		return soucet <= 0 ? 0 : i1 / soucet;
+	}
+	// ČISTÁ funkce: nejjednodušší celočíselný poměr kuliček ve větvích.
+	// Proudy jsou v OBRÁCENÉM poměru než odpory (I₁ : I₂ = R₂ : R₁).
+	function pomerKulicek(R1, R2) {
+		const nsd = (a, b) => (b === 0 ? a : nsd(b, a % b));
+		const d = nsd(R2, R1);
+		return [R2 / d, R1 / d];
+	}
+
+	let stavKulicek = { rezim: 'serie', podilV1: 1, rychlost: 0 };
+	// Fáze se SČÍTÁ po krocích (ne cas × rychlost) — jinak by kuličky při každé změně
+	// posuvníku poskočily, protože by se změnil násobek už uplynulého času.
+	let faze = 0;
+	function prekresliKulicky() {
+		const { rezim: rz, podilV1, rychlost } = stavKulicek;
+		for (let k = 0; k < POCET_KULICEK; k++) {
+			const podil = faze + k / POCET_KULICEK;
+			let trasa;
+			if (rz === 'serie') trasa = TRASA_SERIE;
+			else trasa = vetevKulicky(k, podilV1) === 1 ? TRASA_V1 : TRASA_V2;
+			const [x, y] = naTrase(trasa, podil);
+			kulicky[k].setAttribute('cx', x.toFixed(1));
+			kulicky[k].setAttribute('cy', y.toFixed(1));
+			kulicky[k].setAttribute('opacity', rychlost === 0 ? '0.25' : '1');
+		}
+	}
+
 	function prekresli() {
 		const R1 = +r1S.value, R2 = +r2S.value;
 		r1Out.textContent = R1 + ' Ω';
@@ -123,9 +213,23 @@
 				stav = '💥 V paralelním obvodu druhá žárovka SVÍTÍ DÁL — každá větev je připojena ke zdroji zvlášť (jako zásuvky doma).';
 			} else {
 				celkem = `1/R = 1/R₁ + 1/R₂ → R = ${cz(R, 1)} Ω (menší než R₁ i R₂);  I = I₁ + I₂ = ${cz(i1 + i2, 2)} A`;
-				stav = `Napětí se NEDĚLÍ (na obou 12 V). Proud se v uzlu rozdělí: I₁ = ${cz(i1, 2)} A, I₂ = ${cz(i2, 2)} A — větším odporem teče menší proud.`;
+				const [n1, n2] = pomerKulicek(R1, R2);
+					const popisKulicek = n1 === n2
+						? 'Kuličky se v uzlu střídají ob jednu — každá druhá jde jinam.'
+						: `Z každých ${n1 + n2} kuliček zahne ${n1} do žárovky 1 a ${n2} do žárovky 2 — poměr ${n1} : ${n2}.`;
+					stav = `Napětí se NEDĚLÍ (na obou 12 V). Proud se v uzlu rozdělí: I₁ = ${cz(i1, 2)} A, I₂ = ${cz(i2, 2)} A — větším odporem teče menší proud. ${popisKulicek} Žádná kulička nevzniká ani nemizí, jen si vybere cestu.`;
 			}
 		}
+		// kuličky: v sérii jedna společná dráha, paralelně se v uzlu dělí podle poměru proudů
+		const celkovyProud = rezim === 'serie' ? i1 : i1 + i2;
+		stavKulicek = {
+			rezim,
+			podilV1: rezim === 'serie' ? 1 : podilVetve1(i1, i2),
+			// odmocnina jen kvůli názornosti rozsahu; fáze se sčítá, takže změna neposkočí
+			rychlost: celkovyProud <= 0 ? 0 : Math.min(0.18, 0.03 + 0.09 * Math.sqrt(celkovyProud)),
+		};
+		prekresliKulicky();
+
 		z1Udaj.textContent = prepalena ? 'přepálená' : `U₁ = ${cz(u1, 1)} V; I₁ = ${cz(i1, 2)} A`;
 		z2Udaj.textContent = `U₂ = ${cz(u2, 1)} V; I₂ = ${cz(i2, 2)} A`;
 		z1Glow.setAttribute('opacity', Math.min(1, (u1 * i1) / MAXP).toFixed(2));
@@ -142,6 +246,28 @@
 	r1S.addEventListener('input', prekresli);
 	r2S.addEventListener('input', prekresli);
 	prekresli();
+
+	// ověřovací háčky (kontrola výpočtem, ne okem)
+	const svgEl = document.getElementById('zap-svg');
+	svgEl.__podilVetve1 = podilVetve1;
+	svgEl.__pomerKulicek = pomerKulicek;
+	svgEl.__vetevKulicky = vetevKulicky;
+	svgEl.__pocetKulicek = POCET_KULICEK;
+	svgEl.__polohaKulicky = (fazeX, k, rz, podilV1) => {
+		const trasa = rz === 'serie' ? TRASA_SERIE : (vetevKulicky(k, podilV1) === 1 ? TRASA_V1 : TRASA_V2);
+		return naTrase(trasa, fazeX + k / POCET_KULICEK);
+	};
+	svgEl.__stavKulicek = () => stavKulicek;
+
+	let minule = performance.now();
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		faze += stavKulicek.rychlost * dt;
+		prekresliKulicky();
+		requestAnimationFrame(krok);
+	}
+	requestAnimationFrame(krok);
 </script>
 
 <style>
