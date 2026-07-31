@@ -1,27 +1,31 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 20:45 — ČEKÁ SE NA UČITELE)
+## ⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 21:50)
 
-**1) ODKLIKNOUT VIDEO KRATOCHVÍLE** — `pecliva_videa.py --schvaleno` / `--zamitnuto "…"`.
-Fáze `ke-schvaleni`. **Tentokrát je to opravdu nová verze**, doloženo otiskem:
-`0705ceaf802402d0d8114310297cd227` proti dřívějšímu `3781f448…` (soubor 20:29).
-Filtr falešných poplachů uchránil **23 míst** před zbytečným rozmazáním
-(k nahlédnutí v `_nerozmazano`). Dokud učitel neodklikne, další video se nezačne.
+**ROZHODNUTÍ PRO UČITELE — dvě videa s více městy jsou už zveřejněná BEZ názvů míst:**
+`Le_Thillot_FR` (+ Ramonchamp) a `Saint-Maurice-sur-Moselle_FR` (+ Ornans). Oprava
+v automatu je hotová, ale hotová videa se sama nepředělají. Přegenerovat a znovu
+nahrát = publikování ven → čeká na slovo učitele.
+**POZOR:** `Le_Bourg-dOisans_FR_KEKONTROLE_v2.mp4` leží v `nasazeno/` a nahrávač ho
+vezme v nejbližším slotu (9:15 / 21:15) — obsahuje Saint-Tropez, Le Lavandou a Riez,
+tedy tři místa, která ve videu **nebudou pojmenovaná**, dokud se nepředělá.
 
-**2) DVĚ REFERENČNÍ FOTKY NEJDOU PŘEČÍST** — `reference-obliceje/ja/Starší/IMG_0003.jpeg`
-a `7a5327ab-…jpg` mají práva `-rw-------` a vlastníka **radekmicek**, takže je automat
-(běží pod `radek_soukromy`) nepřečte a učitel se na starých záběrech nemusí poznat.
-Řeší se z druhého účtu: `chmod 644`. Zapsáno i v `KE-SCHVALENI.md`.
+**HOTOVO 31. 7. večer:**
+- **Názvy míst ve videu s více městy** — `vyrob_video_automat.py` → `priprav_pracovni()`
+  dělá složku pro KAŽDÉ místo (dřív slil vše do jedné, takže byl vidět jen hostitel).
+  Ověřeno obousměrně, 6 kontrol.
+- **Nový automat `videa_na_web.py`** — nahraná videa YouTube se sama doplní do dat webu
+  i u ručně psaných roků; volá ho hodinový `hlidac_starych_fotek.py` a rovnou nasadí.
+  Doplněno: odkazy u Frangy, Vaulnaveys-le-Haut, Livet-et-Gavet + 4 videa do seznamu.
+  Ověřeno na živém webu.
+- **Škola — meteorologie F7**: délková nápověda 19/21 → 4/21, výklad doplněn o povětrnostní
+  mapu, přístroje a trend tlaku (kvíz to zkoušel, stránka to nevykládala), opraveny
+  tři věcné chyby (1 000 hPa ≠ vichřice, inverzní mlha u tlakové výše, anemometr má tři misky).
 
-**3) ŠKOLA — pokračovat dorovnáváním kvízů.** Podíl uhodnutelných otázek je **60 %**
-(ráno 77 %), dorovnáno 17 bloků. Další na řadě podle brány: `meteorologie-a-mereni-tlaku`
-(19/21), `zaverecny-projekt`, `tepelna-vymena-a-teplo` (15/17), `vnimani-barev` (14/16),
-`kmitani-a-vlneni` (12/14). **Postup, který se osvědčil:** vypsat blok skriptem
-(`node -e` nad `nactiData()`), přepsat odpovědi python skriptem hledajícím
-`odpovedi: […]` v úseku ~700 znaků od textu otázky (NE do konce řádku — otázky mají
-dva formáty a víceřádkové se tiše minou), pak `node zkontroluj.mjs` a commit.
-**Skoro v každém bloku se najdou i DUPLICITNÍ otázky** (3–4 páry z 10, vznikly slepením
-dvou dávek) — ty se nahrazují novými, prakticky položenými otázkami nad týmž učivem.
+**ŠKOLA — DÁL DOROVNÁVAT KVÍZY** (podíl uhodnutelných je 59 %). Další podle brány:
+`zaverecne-projekty/zaverecny-projekt` (9/10), `energie/tepelna-vymena-a-teplo` (15/17),
+`zrcadla-a-cocky/vnimani-barev` (14/16), `zvuk/kmitani-a-vlneni` (12/14),
+`energie/energeticka-hodnota-potravin` (10/12). Postup i pasti viz níže.
 
 ## ⏩⏩⏩⏩⏩⏩ Předchozí stav (31. 7. 2026, 18:30 — INFORMATIKA + DENÍK)
 

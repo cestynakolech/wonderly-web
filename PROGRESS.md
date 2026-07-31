@@ -101,6 +101,33 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 noc (dvě připomínky učitele k deníku + meteorologie F7)** — *Deník:*
+  učitel hlásil dvě věci a obě měly jinou příčinu. **(1) Ve videu s více městy chyběly
+  názvy míst.** VideoAutomat sléval média hostitele i „přibalených" míst do JEDNÉ pracovní
+  složky, takže sestavovací skript viděl jediné město a vykreslil jen jeden titulek —
+  název hostitele. Ramonchamp, Ornans, Le Lavandou, Riez ani Saint-Tropez tak ve videu
+  nebyly pojmenované vůbec. Každé místo má nově vlastní složku a tím i svůj titulek;
+  ověřeno obousměrně (6 kontrol, podvrh se slitou složkou musí dát jediný titulek).
+  **(2) Mapa nedávala odkazy na videa.** Na kanálu bylo **9 videí roku 2026, ale web znal
+  jen 5** — u Frangy, Vaulnaveys-le-Haut a Livet-et-Gavet odkaz chyběl. Příčina je
+  systémová: roky 2025 a 2026 píše člověk, takže se jich `stare_cesty.py` ani
+  `videa_k_mistum.py` nedotknou a nahrávač na YouTube o webu neví — nové video čekalo,
+  až si ho někdo všimne. Nový `videa_na_web.py` odkazy doplní (jen PŘIDÁVÁ, ruční data
+  nikdy nepřepisuje) a volá ho hodinový hlídač, který změnu i nasadí. Umí i místa
+  **přibalená do cizího videa**, která se podle názvu videa nespárují nikdy.
+  **Poučení:** oEmbed vrací 200 jen u VEŘEJNÝCH videí — u nezařazeného vrátí 401,
+  ačkoli takové video jde přehrát i vložit. Kdyby se dostupnost posuzovala podle
+  oEmbedu, pět správných videí 2026 by se na web nedostalo; rozhoduje proto až `/embed/`.
+  *Škola:* podtéma **meteorologie F7** — délková nápověda **19 z 21 → 4 z 21**
+  (největší rozdíl 4 znaky). Výklad doplněn o povětrnostní mapu (izobary, značky V a N,
+  hustota izobar = síla větru), přepočet na hladinu moře, přístroje a trend tlaku —
+  na sedm z toho se kvíz ptal, aniž to na stránce bylo vyloženo. Nezávislý kontrolor
+  běžel dvakrát a našel 22 + 9 vad: „při poklesu pod 1 000 hPa hrozí vichřice" je
+  nesmysl (běžná hodnota zataženého dne; Kyrill měl 962 hPa), „mlha a mrholení" je
+  u tlakové výše v zimě TYPICKÉ, takže to nebyl chybný distraktor, a anemometr má
+  tři misky, ne čtyři. Druhé kolo odhalilo hlavně **úniky, které zanesly opravy
+  z prvního kola** — vysvětlení u vlhkoměru doslova odpovídalo na otázku o anemometru.
+
 - **2026-07-31 večer II (převzetí práce po lokálním modelu, audit, kvízy)** — Učitel zadal
   dvě věci: *„kde to lokálním modelům vysloveně nejde, zkus to převzít ty"* a *„udělej
   audit, jestli neděláme pořád stejné chyby, které se opraví a zase to jede špatně."*
