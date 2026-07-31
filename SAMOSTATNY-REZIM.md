@@ -1,5 +1,66 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩⏩⏩⏩⏩ AUDIT STRATEGIE (31. 7. 2026, 12:40) — ČTI JAKO PRVNÍ
+
+Učitel zadal: *„udělej celkový nezávislý audit, jestli je strategie správná — někdy příliš
+záplat nedá dobrý výsledek a je třeba jedna větší změna."* Běželi **dva nezávislí auditoři
+s různými otázkami**. Závěr: **architektura je v pořádku, velký přepis by byl zbytečný.
+Špatná byla TRIÁŽ a hlavně MĚŘIDLA.**
+
+**Co je ověřeno a nemá se měnit:** výkon (72 kB HTML, 7 kB CSS po gzipu na 405 stránek —
+poběží i na školním tabletu) · univerzální šablona simulací se nevyplatí (jen 8 % zdroje
+je sdílitelný styl, 74 % je scéna a fyzika) · zapojení simulace přes 4 místa brána spolehlivě
+hlídá · testy simulací přes `node:vm` jsou tvrdá kotva.
+
+**Hlavní poučení: NEVĚŘ VLASTNÍM MĚŘIDLŮM, DOKUD JE NĚKDO NEPROVĚŘÍ.**
+Všechny tři kontrolní skripty četly TypeScript **regulárními výrazy místo dat**:
+1. `testy/nazornost.mjs` hledal `druh: 'obrazek'` — ta hodnota v datech **není ani jednou**,
+   správně je `'infografika'` (23×). Infografiky se nikdy nepočítaly → fyzika 7 hlásila
+   5 mezer, ve skutečnosti 2. **Opraveno.**
+2. `zkontroluj.mjs` hlásí **2084 otázek, ve skutečnosti jich je 2426** (import dat přes
+   esbuild). 14 bloků shrnutí (342 otázek) nevidí vůbec, protože se skládají programově.
+   **ZATÍM NEOPRAVENO — viz fronta níže.**
+3. Odsazení bloku `elektrina` v `temata.ts` je o tabulátor jiné, takže naivní regex
+   napočítá 22 podtémat místo 37.
+→ **Pravidlo do budoucna: kontroly mají číst DATA (esbuild → `import`), ne text souboru.**
+   `esbuild` je v `node_modules`, import trvá ~10 ms. Vzor je v commitu tohoto auditu.
+
+**Co se z auditu udělalo hned:**
+- Brána běží při každém buildu (`"prebuild": "node zkontroluj.mjs"`) — dosud jen z dobré vůle.
+- **Roční opakování nepokrývalo všechna podtémata.** Souhrnný kvíz bere otázky po kolech
+  do stropu; když je strop < počet podtémat, poslední témata se do opakování **nedostanou
+  nikdy** (fyzika 8: 35 podtémat, strop 30 → vypadával celý celek `zvuk`). Navíc v seznamu
+  celků informatiky chyběly `hry-ve-scratchi` a `vex-iq`, takže **144 otázek přidaných
+  v předchozí session se do opakování nedostalo vůbec.** Opraveno, ověřeno importem dat.
+- **Tištěný test šel složit hádáním na známku 2.** Strategie „vyber nejdelší odpověď" má
+  úspěšnost 72 %, tedy ~5 ze 7 otázek. Test teď losuje přednostně z otázek bez délkové
+  nápovědy → kleslo na ~3,8 ze 7. **Není to oprava dat**: ve 148 ze 164 bloků není ani
+  7 čistých otázek.
+- **Recyklace místo psaní nových simulací** (1 řádek místo ~200): `energie-a-jeji-premeny`
+  ← `skatepark`, `teplo-a-premeny-skupenstvi` ← `ohrev`, `elektricky-naboj` ← `elektrovani`,
+  `elektricke-obvody` ← `obvod`. Mezer názornosti ve fyzice 8: **22 → 13**.
+
+**Tři návrhy auditora ZAMÍTNUTY po vlastní kontrole** (nepřebírat je příště bez ověření):
+`tuhnuti` ← `ohrev` a `kondenzace` ← `vyparovani` by ukazovaly OPAČNÝ směr děje, než se
+probírá (porušuje pravidlo o logické scéně); `vykon` ← `prace` nepokrývá výkon vůbec.
+
+**FRONTA — co z auditu zbývá, v pořadí užitku:**
+1. **Přepsat `zkontroluj.mjs` a `nazornost.mjs` na import dat přes esbuild.** Zruší tři
+   nezávislé regexové parsery téhož souboru a odstraní zdroj falešných čísel. *Tohle je
+   ta „jedna větší změna", na kterou se učitel ptal — zbytek jsou opravdu jen záplaty.*
+2. **Rohatka na délkovou nápovědu:** brána spočítá podíl z dat a SELŽE, když se počet
+   otázek s nápovědou zvýší. Staré nikdo neblokuje, nové se hlídají tvrdě.
+3. **Dorovnávat jen 449 otázek s rozdílem ≥ 20 znaků** (ne všech 1619) — nesou skoro celý
+   efekt. Zkracovat správnou odpověď a přebytek dávat do `vysvetleni`.
+4. Levné strojové kontroly: podtéma bez zastoupení v ročním shrnutí · výklad pod ~700 znaků ·
+   číslo ve správné odpovědi, které není ve výkladu (58 případů) · shoda počtu otázek
+   podle parsování a podle importu.
+5. **Skutečná díra není ve fyzice, ale v informatice:** 47 podtémat, 5 simulací, medián
+   výkladu ~700 znaků a **ani jedno podtéma nemá obrázek či video**. 39 podtémat má
+   simulaci a přitom výklad pod 1200 znaků — energie šla do simulací místo do textu.
+6. K ověření učitelem (neopravovat potichu): otázka „Co je stav beztíže? → působící síly
+   jsou v rovnováze" (fyzika 7) — beztíže je volný pád, ne rovnováha sil.
+
 ## ⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 11:15 — ŠKOLA: názornost fyziky 8, čti jako první)
 
 **Zadání učitele:** „Média k fyzice 8 (22 podtémat bez obrázku/videa), stránky jsou textové,

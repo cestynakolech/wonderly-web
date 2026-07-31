@@ -99,6 +99,33 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 poledne (audit strategie — měřidla lhala, ne architektura)** — Na zadání
+  učitele („někdy příliš záplat nedá dobrý výsledek a je třeba jedna větší změna") proběhly
+  **dva nezávislé audity s různými otázkami**. Závěr: architektura webu je v pořádku
+  (výkon 72 kB HTML a 7 kB CSS po gzipu; univerzální šablona simulací by se nevyplatila,
+  protože 74 % zdroje je scéna a fyzika), **ale všechny tři kontrolní skripty četly
+  TypeScript regulárními výrazy místo dat a tiše lhaly**. `nazornost.mjs` hledal
+  `druh: 'obrazek'`, který v datech není ani jednou (správně `'infografika'`), takže
+  infografiky nikdy nepočítal; `zkontroluj.mjs` hlásí 2084 otázek, ve skutečnosti jich je
+  **2426**. Odtud plyne jediná skutečně velká změna, která zbývá: **kontroly mají číst DATA
+  přes esbuild import, ne text souboru.** Hned se opravilo: brána běží při každém buildu
+  (dosud jen z dobré vůle), **roční opakování nově pokrývá všechna podtémata** (souhrnný
+  kvíz bral otázky po kolech do stropu — u fyziky 8 bylo 35 podtémat a strop 30, takže
+  vypadával celý celek zvuk; a v seznamu celků informatiky chyběly `hry-ve-scratchi`
+  a `vex-iq`, takže **144 otázek z předchozí session se do opakování nedostalo vůbec**),
+  a **tištěný test už nejde složit hádáním** — strategie „vyber nejdelší odpověď" měla
+  úspěšnost 72 %, tedy známku 2 bez znalosti látky; test teď losuje přednostně z otázek
+  bez délkové nápovědy (5,4 → 3,8 hádatelných ze 7). Data to neopravuje: ve 148 ze 164
+  bloků není ani 7 čistých otázek. **Auditory nelze poslouchat slepě** — ze sedmi návrhů
+  na recyklaci simulací byly tři špatné (`tuhnuti` ← ohřev a `kondenzace` ← vypařování by
+  ukazovaly opačný směr děje, `vykon` ← práce výkon vůbec nepokrývá). Zbylé čtyři nasazeny
+  jedním řádkem místo ~200: mezer názornosti ve fyzice 8 je **13 místo 22**.
+  Na přání učitele dostaly **papírky u elektrování tři fáze** (leží → zvedají se
+  a napřimují → na určitou vzdálenost odskočí a přilepí se; po vybití spadnou zpět)
+  a **paralelní zapojení kuličky proudu, které se v uzlu jen rozdělí** — při stejných
+  odporech ob jednu, při 20 Ω × 60 Ω tři do slabšího odporu a jedna do většího.
+  Past: podíl 0,6/0,8 vyjde v plovoucí čárce 0,74999…, takže se z 24 kuliček jedna ztrácela.
+
 - **2026-07-31 dopoledne (fyzika 8 — začátek názornosti, 5 podtémat z 22)** — Učitel zadal:
   *„Média k fyzice 8 (22 podtémat bez obrázku/videa), stránky jsou textové, chybí názornost."*
   Číslo **ověřeno měřením**: fyzika 8 má 37 podtémat a 22 z nich nemá ani obrázek, ani video,
