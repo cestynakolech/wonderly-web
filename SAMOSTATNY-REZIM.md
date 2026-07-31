@@ -31,9 +31,13 @@ ve 164 blocích** (dřív tvrdila 2084).
   = DOLŮ**. Mřížka je po 50, aby rohy čtverce (±50) padly na linky. Test `testy/simulace/
   souradnice.mjs` (51 kontrol). Výklad doplněn o kreslení otáčením + pravidlo 360 : počet stran.
 
+- `promenne` (inf. 7) — `PromenneSimulace`. Krabička `skóre` + okénko na scéně jako ve
+  Scratchi, program „seber tři jablka" krok za krokem. **Pointa: program jde přepnout na
+  verzi BEZ bloku `nastav skóre na 0`** — napoprvé vyjde taky 3, podruhé 6, potřetí 9;
+  tím se vysvětlí, proč hra po restartu začíná s cizím skóre. Test 26 kontrol.
+
 **Návrh dalších simulací informatiky (v pořadí užitku):**
-1. `promenne` (inf. 7) — proměnná jako krabička: ulož, zvyš o 1, ukaž. Abstraktní pojem.
-2. `microbit/oziveni-a-led-displej` (inf. 8) — mřížka 5×5 LED, žák kreslí a spustí
+1. `microbit/oziveni-a-led-displej` (inf. 8) — mřížka 5×5 LED, žák kreslí a spustí
    animaci střídáním dvou obrázků.
 3. `vetveni-programu` (inf. 7) — vývojový diagram, žák přepne podmínku a vidí, kudy to teče.
 4. `funkce-v-tabulkach` (inf. 8) — SUMA/PRŮMĚR/MAX nad malou tabulkou (naváže na hotovou

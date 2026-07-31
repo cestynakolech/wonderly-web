@@ -101,6 +101,19 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 večer (informatika 7 — proměnné)** — Druhá simulace informatiky v tomto
+  dni: `PromenneSimulace` u podtématu `promenne`. Krabička `skóre` s hodnotou, vedle ní
+  okénko na scéně přesně jak ho kreslí Scratch, a program „seber tři jablka" procházený
+  krok za krokem s výpisem, co se stalo (*přepsáno: 3 → 0*, *přičteno +1: 2 → 3*).
+  **Pointa je chyba, na které děti nejvíc padají:** program jde přepnout na verzi BEZ
+  bloku `nastav skóre na 0`. Napoprvé vyjde taky 3 (krabička byla prázdná), podruhé 6,
+  potřetí 9 — tím je vidět, proč hra po restartu „začíná s cizím skóre". Čísla zůstávají
+  celá. Test `testy/simulace/promenne.mjs`: **26 kontrol** přes `node:vm` nad skutečným
+  skriptem komponenty. Web má nově **73 zapojených interakcí a 74 komponent simulací**.
+  Past potvrzena znovu: `curl` na živou stránku vrátil starou verzi z mezipaměti
+  Cloudflare a slova z výkladu („krabička", „nastav skóre na 0") to zamaskovala —
+  ověřovat je potřeba na řetězci, který je JEN v simulaci (`prom-svg`).
+
 - **2026-07-31 odpoledne (informatika 7 — souřadnice scény Scratche)** — Druhá simulace
   informatiky: `SouradniceSimulace` u podtématu `souradnice-a-kresleni`. Scéna −240…240 ×
   −180…180, žák klikne, kam má kočka skočit, a nahoře se složí blok, který se **opravdu
