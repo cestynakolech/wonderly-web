@@ -46,6 +46,8 @@ export const rok2024: Rok = {
 			y: 347.7,
 			popis: {
 				cs: 'Malé šumavské město přímo na česko-německé hranici, na okraji národního parku. Sousední Bavorská Železná Ruda je odsud jen dva a půl kilometru. Žije tu asi 1 600 obyvatel.',
+				en: 'A small Šumava town right on the Czech-German border, on the edge of the national park. Neighbouring Bayerisch Eisenstein is only two and a half kilometres away. About 1,600 people live here.',
+				de: 'Eine kleine Böhmerwaldstadt direkt an der tschechisch-deutschen Grenze, am Rand des Nationalparks. Das benachbarte Bayerisch Eisenstein ist nur zweieinhalb Kilometer entfernt. Hier leben etwa 1.600 Einwohner.',
 				fr: 'Petit village sumavien situé directement à la frontière tchéco-allemande, au bord du parc national. La voisine Bavaroise Železná Ruda se trouve à seulement deux kilomètres et demi d\'ici. Il compte environ 1 600 habitants.',
 			},
 		},
@@ -59,6 +61,7 @@ export const rok2024: Rok = {
 			y: 335.3,
 			popis: {
 				cs: 'Město na východním okraji okresu Sokolov, které stojí na meandru řeky Ohře pod Slavkovským lesem — německy Elbogen, tedy loket. Bývalo důležitým královským městem a centrem Loketského kraje; nad řekou se na kamenném ostrohu tyčí gotický hrad a centrum je památkovou rezervací. Žije tu asi 3 100 obyvatel.',
+				en: 'A town on the eastern edge of the Sokolov district, set on a meander of the river Ohře below the Slavkov Forest — in German Elbogen, meaning elbow. It used to be an important royal town and the centre of the Loket region; a Gothic castle rises above the river on a rocky promontory and the centre is a heritage reservation. About 3,100 people live here.',
 				de: 'Stadt am östlichen Rand des Bezirks Sokolov, die auf einem Meander des Flusses Ohře unter dem Slavkovský Wald liegt — deutsch Elbogen, also Loket. Es war eine wichtige königliche Stadt und Zentrum des Loket-Bezirks; über dem Fluss erhebt sich auf einer steinernen Insel ein gotisches Schloss, und das Zentrum ist ein Denkmalschutzgebiet. Hier leben etwa 3.100 Einwohner.',
 				fr: 'Ville située sur le bord est du district de Sokolov, qui se trouve sur un méandre de la rivière Ohře sous la forêt de Slavkov — allemand : Elbogen, c\'est-à-dire Loket. Elle était autrefois une ville royale importante et le centre de la région de Loket ; au-dessus de la rivière, sur un îlot de pierre, se dresse un château gothique et le centre est une réserve monumentale. Environ 3 100 habitants y vivent.',
 			},
@@ -88,6 +91,9 @@ export const rok2024: Rok = {
 			y: 308.3,
 			popis: {
 				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
+				en: 'The capital of the federal state of Brandenburg. It lies on the river Havel about twenty-six kilometres south-west of the centre of Berlin, right on its edge, and has around 187,000 inhabitants.',
+				de: 'Die Hauptstadt des Bundeslandes Brandenburg. Sie liegt an der Havel etwa sechsundzwanzig Kilometer südwestlich des Berliner Zentrums, dicht an dessen Grenze, und hat rund 187.000 Einwohner.',
+				fr: 'La capitale du Land de Brandebourg. Elle se trouve sur la Havel à environ vingt-six kilomètres au sud-ouest du centre de Berlin, tout près de sa limite, et compte quelque 187 000 habitants.',
 			},
 		},
 		{
@@ -160,6 +166,7 @@ export const rok2024: Rok = {
 			y: 342.1,
 			popis: {
 				cs: 'Městečko v hornofalckém zemském okrese Neustadt an der Waldnaab v Bavorsku. Sídlí tu správní společenství Pleystein.',
+				en: 'A small town in the Upper Palatinate district of Neustadt an der Waldnaab in Bavaria. It is the seat of the Pleystein administrative community.',
 				de: 'Städtchen im Landkreis Hornofalck Neustadt an der Waldnaab in Bayern. Hier befindet sich die Verwaltungsgemeinschaft Pleystein.',
 				fr: 'Petite ville située dans le district de Hornofalck, Neustadt an der Waldnaab, en Bavière. La communauté administrative de Pleystein est située ici.',
 			},
@@ -174,6 +181,7 @@ export const rok2024: Rok = {
 			y: 346.5,
 			popis: {
 				cs: 'Město na jihozápadě Moravy pětadvacet kilometrů jihozápadně od Jihlavy, kde žije kolem 5 100 obyvatel. Jeho historické jádro je městskou památkovou rezervací a je zapsané na seznamu světového kulturního dědictví UNESCO.',
+				en: 'A town in south-western Moravia twenty-five kilometres south-west of Jihlava, home to around 5,100 people. Its historic core is an urban heritage reservation and is inscribed on the UNESCO World Heritage List.',
 				de: 'Stadt im Südwesten Mährens, 25 Kilometer südwestlich von Jihlava, mit etwa 5.100 Einwohnern. Ihr historisches Zentrum ist ein städtisches Denkmalschutzgebiet und ist in das Verzeichnis des Weltkulturerbes der UNESCO aufgenommen.',
 				fr: 'Ville située dans le sud-ouest de la Moravie, à 25 kilomètres au sud-ouest de Jihlava, où vivent environ 5 100 habitants. Son noyau historique est une réserve monumentale urbaine et est inscrit sur la liste du patrimoine culturel mondial de l\'UNESCO.',
 			},
@@ -203,6 +211,7 @@ export const rok2024: Rok = {
 			y: 349.2,
 			popis: {
 				cs: 'Šumavská obec uprostřed národního parku, třináct kilometrů jihozápadně od Kašperských Hor. Stojí na soutoku Modravského, Roklanského a Filipohuťského potoka, ze kterých tu vzniká Vydra. Žije v ní 107 obyvatel.',
+				en: 'A Šumava village in the middle of the national park, thirteen kilometres south-west of Kašperské Hory. It stands at the confluence of the Modravský, Roklanský and Filipohuťský brooks, where the river Vydra is born. It has 107 inhabitants.',
 				de: 'Die Gemeinde Šumava im Zentrum des Nationalparks Šumava, 13 Kilometer südwestlich von Kašperské Hory. Sie liegt am Zusammenfluss der Bäche Modravského, Roklanského und Filipohuťského, aus denen hier die Vydra entsteht. In ihr leben 107 Einwohner.',
 				fr: 'La commune située au cœur du parc national de Šumava, à 13 kilomètres au sud-ouest de Kašperské Hory. Elle est située à la confluence des ruisseaux Modravský, Roklanský et Filipohuťský, dont l\'eau forme la rivière Vydra. Elle compte 107 habitants.',
 			},
@@ -247,6 +256,9 @@ export const rok2024: Rok = {
 			y: 308.4,
 			popis: {
 				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
+				en: 'The capital of the federal state of Brandenburg. It lies on the river Havel about twenty-six kilometres south-west of the centre of Berlin, right on its edge, and has around 187,000 inhabitants.',
+				de: 'Die Hauptstadt des Bundeslandes Brandenburg. Sie liegt an der Havel etwa sechsundzwanzig Kilometer südwestlich des Berliner Zentrums, dicht an dessen Grenze, und hat rund 187.000 Einwohner.',
+				fr: 'La capitale du Land de Brandebourg. Elle se trouve sur la Havel à environ vingt-six kilomètres au sud-ouest du centre de Berlin, tout près de sa limite, et compte quelque 187 000 habitants.',
 			},
 		},
 		{
@@ -349,6 +361,9 @@ export const rok2024: Rok = {
 			y: 297.0,
 			popis: {
 				cs: 'Jedno z jedenácti fríských měst, jižně od Waddenzee. Jeho jádro leží tam, kde se stékají vodní cesty Dokkumer Ee a Dokkumergrootdiep, a na začátku roku 2023 v něm žilo 12 965 obyvatel.',
+				en: 'One of the eleven Frisian cities, south of the Wadden Sea. Its core lies where the Dokkumer Ee and Dokkumergrootdiep waterways meet, and at the beginning of 2023 it had 12,965 inhabitants.',
+				de: 'Eine der elf friesischen Städte, südlich des Wattenmeers. Ihr Kern liegt dort, wo die Wasserwege Dokkumer Ee und Dokkumergrootdiep zusammenfließen; Anfang 2023 lebten hier 12.965 Einwohner.',
+				fr: 'L\'une des onze villes frisonnes, au sud de la mer des Wadden. Son centre se trouve là où se rejoignent les voies d\'eau Dokkumer Ee et Dokkumergrootdiep, et au début de 2023 elle comptait 12 965 habitants.',
 			},
 		},
 		{
@@ -406,6 +421,7 @@ export const rok2024: Rok = {
 			y: 317.3,
 			popis: {
 				cs: 'Město na soutoku Rýna a Lippe v severozápadní části Severního Porýní-Vestfálska. Je hlavním městem stejnojmenného zemského okresu a dělí se na pět správních obvodů.',
+				en: 'A town at the confluence of the Rhine and the Lippe in the north-western part of North Rhine-Westphalia. It is the capital of the district of the same name and is divided into five administrative areas.',
 				de: 'Stadt an der Mündung des Rheins und der Lippe im nordwestlichen Teil Nordrhein-Westfalens. Sie ist die Hauptstadt des gleichnamigen Landkreises und wird in fünf Verwaltungsbezirke unterteilt.',
 				fr: 'Ville à la confluence du Rhin et de la Lippe dans la partie nord-ouest de la Rhénanie-du-Nord-Westphalie. Elle est la capitale de l\'arrondissement du même nom et est divisée en cinq arrondissements administratifs.',
 			},
@@ -420,6 +436,9 @@ export const rok2024: Rok = {
 			y: 330.6,
 			popis: {
 				cs: 'Město v Porýní-Falci, které se rozkládá po obou březích Rýna a žije v něm zhruba šestnáct tisíc obyvatel. V březnu 1945 se právě přes zdejší most podařilo spojencům překročit Rýn.',
+				en: 'A town in Rhineland-Palatinate spread over both banks of the Rhine, with roughly sixteen thousand inhabitants. In March 1945 it was over the bridge here that the Allies managed to cross the Rhine.',
+				de: 'Eine Stadt in Rheinland-Pfalz, die sich über beide Rheinufer erstreckt und rund sechzehntausend Einwohner hat. Im März 1945 gelang es den Alliierten gerade über die hiesige Brücke, den Rhein zu überqueren.',
+				fr: 'Une ville de Rhénanie-Palatinat qui s\'étend sur les deux rives du Rhin et compte environ seize mille habitants. En mars 1945, c\'est précisément par le pont d\'ici que les Alliés réussirent à franchir le Rhin.',
 			},
 		},
 		{
@@ -522,6 +541,8 @@ export const rok2024: Rok = {
 			y: 363.2,
 			popis: {
 				cs: 'Město na západním okraji okresu Tuttlingen v Bádensku-Württembersku. Počtem obyvatel je šestou, rozlohou třetí největší obcí okresu.',
+				en: 'A town on the western edge of the Tuttlingen district in Baden-Württemberg. By population it is the sixth largest municipality in the district, by area the third.',
+				de: 'Eine Stadt am westlichen Rand des Landkreises Tuttlingen in Baden-Württemberg. Nach der Einwohnerzahl ist sie die sechstgrößte, nach der Fläche die drittgrößte Gemeinde des Landkreises.',
 				fr: 'Ville située à l\'extrême ouest du district de Tuttlingen en Baden-Wurtemberg. Par nombre d\'habitants, elle est sixième, et en superficie, la troisième plus grande commune du district.',
 			},
 		},
@@ -670,6 +691,9 @@ export const rok2024: Rok = {
 			y: 308.4,
 			popis: {
 				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
+				en: 'The capital of the federal state of Brandenburg. It lies on the river Havel about twenty-six kilometres south-west of the centre of Berlin, right on its edge, and has around 187,000 inhabitants.',
+				de: 'Die Hauptstadt des Bundeslandes Brandenburg. Sie liegt an der Havel etwa sechsundzwanzig Kilometer südwestlich des Berliner Zentrums, dicht an dessen Grenze, und hat rund 187.000 Einwohner.',
+				fr: 'La capitale du Land de Brandebourg. Elle se trouve sur la Havel à environ vingt-six kilomètres au sud-ouest du centre de Berlin, tout près de sa limite, et compte quelque 187 000 habitants.',
 			},
 		},
 		{

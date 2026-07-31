@@ -33,6 +33,7 @@ export const rok2022: Rok = {
 				cs: 'Městys v okrese Žďár nad Sázavou na Vysočině, kde žije 763 obyvatel. Do roku 1948 se jmenoval Německé, německy Niemetzky.',
 				en: 'Market town in the Žďár nad Sázavou District in the Vysočina Region, with a population of 763. Until 1948, it was known as Německé, German: Niemetzky.',
 				de: 'Die Marktgemeinde im Landkreis Žďár nad Sázavou in der Vysočina, wo 763 Einwohner leben. Bis 1948 hieß sie Německé, deutsch Niemetzky.',
+				fr: 'Un bourg du district de Žďár nad Sázavou, dans la région de Vysočina, où vivent 763 habitants. Jusqu\'en 1948 il s\'appelait Německé, en allemand Niemetzky.',
 			},
 		},
 		{
@@ -196,6 +197,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Waldkirchen (Kostelec) je město v německé Bavorsku, v zemském okrese Freyung-Grafenau ve vládním obvodu Dolní Bavorsko, s přibližně 11 tisíci obyvateli.',
 				en: 'Waldkirchen (Kostelec) is a city in Bavaria, Germany, in the district of Freyung-Grafenau in the administrative region of Lower Bavaria, with approximately 11,000 inhabitants.',
+				de: 'Waldkirchen (tschechisch Kostelec) ist eine Stadt im deutschen Bayern, im Landkreis Freyung-Grafenau im Regierungsbezirk Niederbayern, mit etwa elftausend Einwohnern.',
 				fr: 'Waldkirchen (Kostelec) est une ville en Bavière, Allemagne, dans le district de Freyung-Grafenau, dans la région administrative de Basse-Bavière, avec environ 11 000 habitants.',
 			},
 		},
@@ -226,6 +228,7 @@ export const rok2022: Rok = {
 				cs: 'Myjava, město v západní části Trenčínského kraje na Slovensku, je známé jako "Metropole pod slámou" a charakteristické svým kopaničářským nářečím, které zapomíná na háčky a znak ô, a dominantním postavením evangelické církve.',
 				en: 'Myjava, a city in the western part of the Trenčín Region in Slovakia, is known as "Metropolis under Straw" and is characterized by its Kopaničár dialect, which omits diacritics and the character ô, and has the dominant position of the Evangelical Church.',
 				de: 'Myjava, eine Stadt im westlichen Teil der Region Trenčín in der Slowakei, ist bekannt als „Metropole unter Stroh“ und charakteristisch für seinen Kopaničár-Dialekt, der die Häkchen und das Zeichen ô vergisst, sowie für die dominierende Stellung der evangelischen Kirche.',
+				fr: 'Myjava, ville de la partie occidentale de la région de Trenčín en Slovaquie, est connue comme la « métropole sous la paille » et se caractérise par son dialecte des hameaux, qui laisse de côté les háčeks et le signe ô, ainsi que par la position dominante de l\'Église évangélique.',
 			},
 		},
 		{
@@ -253,6 +256,7 @@ export const rok2022: Rok = {
 			y: 324.3,
 			popis: {
 				cs: 'Městečko ve Slezském vojvodství asi patnáct kilometrů jihovýchodně od Čenstochové, kudy vede Stezka orlích hnízd. Nad ním se tyčí kopec se zříceninou hradu ze 13. století. Městská práva mělo v letech 1488 až 1870 a znovu je získalo roku 2022.',
+				en: 'A small town in the Silesian Voivodeship about fifteen kilometres south-east of Częstochowa, on the Trail of the Eagles\' Nests. A hill with the ruins of a 13th-century castle rises above it. It held town rights from 1488 to 1870 and regained them in 2022.',
 				de: 'Das Städtchen in der Schlesischen Woiwodschaft liegt etwa 15 Kilometer südöstlich von Tschenstochau, entlang dessen der Adlerhorstpfad verläuft. Über ihm erhebt sich ein Hügel mit den Ruinen eines Schlosses aus dem 13. Jahrhundert. Es hatte Stadtrechte von 1488 bis 1870 und erlangte sie erneut im Jahr 2022.',
 				fr: 'Petit village dans la voïvodie de Silésie, à environ quinze kilomètres au sud-est de Czestochowa, le long duquel passe le Sentier des Nids d\'Aigle. Au-dessus d\'elle s\'élève une colline avec les ruines d\'un château du XIIIe siècle. Elle a possédé des droits urbains de 1488 à 1870, puis les a récupérés en 2022.',
 			},
@@ -314,6 +318,7 @@ export const rok2022: Rok = {
 				cs: 'Přímořské město na Viselské kose v Pomořském vojvodství, německy Kahlberg. Má přístav a několik pláží a v roce 2023 v něm žilo 1 172 obyvatel.',
 				en: 'Seaside city on the Visla Peninsula in the Pomeranian Voivodeship, German: Kahlberg. It has a port and several beaches, and in 2023, 1,172 people lived there.',
 				de: 'Küstenstadt auf der Viselsker Nehrung in der Pommerschen Woiwodschaft, deutsch Kahlberg. Sie hat einen Hafen und mehrere Strände und im Jahr 2023 lebten dort 1 172 Einwohner.',
+				fr: 'Une ville balnéaire sur la presqu\'île de la Vistule, dans la voïvodie de Poméranie, en allemand Kahlberg. Elle possède un port et plusieurs plages, et en 2023 elle comptait 1 172 habitants.',
 			},
 		},
 		{
@@ -357,6 +362,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Ustka je přístavní a lázeňské město v severním Polsku, v Pomořském vojvodství, okres Słupsk. Nachází se při ústí řeky Słupia do Baltského moře.',
 				en: 'Ustka is a port and spa town in northern Poland, in the Pomeranian Voivodeship, Slupsk County. It is located at the mouth of the Slupia River into the Baltic Sea.',
+				de: 'Ustka ist eine Hafen- und Kurstadt im nördlichen Polen, in der Woiwodschaft Pommern, Kreis Słupsk. Sie liegt an der Mündung des Flusses Słupia in die Ostsee.',
 				fr: 'Ustka est une ville portuaire et thermale située dans le nord de la Pologne, dans la voïvodie de Poméranie, au comté de Słupsk. Elle se trouve à l\'embouchure de la rivière Słupia dans la mer Baltique.',
 			},
 		},
@@ -371,6 +377,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Darłowo je přímořské město v severozápadním Polsku, v Západopomořanském vojvodství, ležící u ústí řeky Wieprzy do Baltského moře. Jeho dobře zachované historické jádro s památkami a blízkost moře jsou klíčovými charakteristikami místa.',
 				en: 'Darłowo is a coastal city in northwestern Poland, in the West Pomeranian Voivodeship, located at the mouth of the Wieprza River into the Baltic Sea. Its well-preserved historical center with landmarks and proximity to the sea are key characteristics of the place.',
+				de: 'Darłowo ist eine Küstenstadt im nordwestlichen Polen, in der Woiwodschaft Westpommern, an der Mündung des Flusses Wieprza in die Ostsee. Ihr gut erhaltener historischer Kern mit Denkmälern und die Nähe des Meeres sind die prägenden Merkmale des Ortes.',
 				fr: 'Darłowo est une ville côtière située dans le nord-ouest de la Pologne, dans la voïvodie de Poméranie-Occidentale, à l\'embouchure de la rivière Wieprzy dans la mer Baltique. Son centre historique bien conservé, avec ses monuments et sa proximité de la mer, sont les caractéristiques clés du lieu.',
 			},
 		},
@@ -416,6 +423,7 @@ export const rok2022: Rok = {
 				cs: 'Stralsund je město v severovýchodním Německu, v zemi Meklenbursko-Přední Pomořansko, ležící na pobřeží Baltského moře u úžiny Strelasund, která odděluje ostrov Rujána od pevniny. Od roku 1936 překonává úžinu hráz se silničním a železničním mostem, město má 58 000 obyvatel (2004).',
 				en: 'Stralsund is a city in northeastern Germany, in the state of Mecklenburg-Western Pomerania, located on the Baltic Sea coast at the Strelasund Strait, which separates Rügen Island from the mainland. Since 1936, the strait has been crossed by a dike with a road and railway bridge, and the city has 58,000 inhabitants (2004).',
 				de: 'Stralsund ist eine Stadt im nordöstlichen Deutschland, in Mecklenburg-Vorpommern, gelegen an der Ostseeküste bei der Strelasund, die die Insel Rügen vom Festland trennt. Seit 1936 überspannt ein Damm mit einer Straße und einer Eisenbahnbrücke die Strelasund, die Stadt hat 58.000 Einwohner (2004).',
+				fr: 'Stralsund est une ville du nord-est de l\'Allemagne, dans le Land de Mecklembourg-Poméranie-Occidentale, située sur la côte de la mer Baltique au bord du détroit du Strelasund, qui sépare l\'île de Rügen du continent. Depuis 1936, une digue avec un pont routier et ferroviaire franchit le détroit ; la ville compte 58 000 habitants (2004).',
 			},
 		},
 		{

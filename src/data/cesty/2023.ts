@@ -66,6 +66,7 @@ export const rok2023: Rok = {
 			popis: {
 				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
 				en: 'The North Sea port, together with Bremen, located about sixty kilometers to the south, forms the federal state of the Free Hanseatic City of Bremen. Around 115,000 people live there.',
+				de: 'Ein Nordseehafen, der zusammen mit dem etwa sechzig Kilometer südlicher gelegenen Bremen das Bundesland Freie Hansestadt Bremen bildet. Hier leben rund 115.000 Einwohner.',
 				fr: 'Port de la mer du Nord, qui, avec Brême située à environ soixante kilomètres au sud, forme la Ville hanséatique libre de Brême. Il y a environ 115 000 habitants.',
 			},
 		},
@@ -171,6 +172,7 @@ export const rok2023: Rok = {
 				cs: 'Vesnice v Pardubickém kraji asi třiadvacet kilometrů západně od Svitav. Žije v ní kolem dvou set obyvatel.',
 				en: 'Village in the Pardubice Region, approximately twenty-three kilometers west of Svitavy. It has around two hundred inhabitants.',
 				de: 'Dorf in der Region Pardubice etwa 23 Kilometer westlich von Svitav. In ihm leben etwa zweihundert Einwohner.',
+				fr: 'Un village de la région de Pardubice, à environ vingt-trois kilomètres à l\'ouest de Svitavy. Il compte environ deux cents habitants.',
 			},
 		},
 		{
@@ -229,6 +231,7 @@ export const rok2023: Rok = {
 			popis: {
 				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
 				en: 'The North Sea port, together with Bremen, located about sixty kilometers to the south, forms the federal state of the Free Hanseatic City of Bremen. Around 115,000 people live there.',
+				de: 'Ein Nordseehafen, der zusammen mit dem etwa sechzig Kilometer südlicher gelegenen Bremen das Bundesland Freie Hansestadt Bremen bildet. Hier leben rund 115.000 Einwohner.',
 				fr: 'Port de la mer du Nord, qui, avec Brême située à environ soixante kilomètres au sud, forme la Ville hanséatique libre de Brême. Il y a environ 115 000 habitants.',
 			},
 		},
@@ -408,6 +411,7 @@ export const rok2023: Rok = {
 			popis: {
 				cs: 'Darłowo je přímořské město v severozápadním Polsku, v Západopomořanském vojvodství, ležící u ústí řeky Wieprzy do Baltského moře. Jeho dobře zachované historické jádro s památkami a blízkost moře jsou klíčovými charakteristikami místa.',
 				en: 'Darłowo is a coastal city in northwestern Poland, in the West Pomeranian Voivodeship, located at the mouth of the Wieprza River into the Baltic Sea. Its well-preserved historical center with landmarks and proximity to the sea are key characteristics of the place.',
+				de: 'Darłowo ist eine Küstenstadt im nordwestlichen Polen, in der Woiwodschaft Westpommern, an der Mündung des Flusses Wieprza in die Ostsee. Ihr gut erhaltener historischer Kern mit Denkmälern und die Nähe des Meeres sind die prägenden Merkmale des Ortes.',
 				fr: 'Darłowo est une ville côtière située dans le nord-ouest de la Pologne, dans la voïvodie de Poméranie-Occidentale, à l\'embouchure de la rivière Wieprzy dans la mer Baltique. Son centre historique bien conservé, avec ses monuments et sa proximité de la mer, sont les caractéristiques clés du lieu.',
 			},
 		},
@@ -483,6 +487,7 @@ export const rok2023: Rok = {
 				cs: 'Město ve Velkopolském vojvodství mezi Poznaní a Vratislaví, česky Lešno a německy Lissa. Na dvaatřiceti kilometrech čtverečních tu žije asi šedesát tisíc lidí.',
 				en: 'A city in the Greater Poland Voivodeship between Poznań and Wrocław, known as Lešno in Czech and Lissa in German, with an area of 23 square kilometers and a population of approximately 60,000.',
 				de: 'Stadt in der Woiwodschaft Großpolen zwischen Posen und Breslau, tschechisch Lešno und deutsch Lissa. Auf 23 Quadratkilometern leben etwa 60.000 Menschen.',
+				fr: 'Une ville de la voïvodie de Grande-Pologne, entre Poznań et Wrocław, en tchèque Lešno et en allemand Lissa. Sur trente-deux kilomètres carrés y vivent environ soixante mille personnes.',
 			},
 		},
 		{
@@ -496,6 +501,8 @@ export const rok2023: Rok = {
 			popis: {
 				cs: 'Městečko v Dolnoslezském vojvodství patnáct kilometrů východně od Kladska, hned přes hranici od české Bílé Vody. Česky se mu říkalo Rychleby a od toho jména mají název i Rychlebské hory, které se zvedají jižně nad ním. Žije tu asi dva a půl tisíce lidí.',
 				en: 'The town in the Lower Silesian Voivodeship, fifteen kilometers east of Kladsko, right across the border from the Czech Bílá Voda. In Czech, it was called Rychleby, and from that name, the Rychleby Mountains, which rise to the south of it, take their name. Approximately 2,500 people live there.',
+				de: 'Ein Städtchen in der Woiwodschaft Niederschlesien fünfzehn Kilometer östlich von Glatz, gleich jenseits der Grenze vom tschechischen Bílá Voda. Auf Tschechisch hieß es Rychleby, und nach diesem Namen sind auch die Rychlebské hory benannt, die sich südlich darüber erheben. Hier leben etwa zweieinhalbtausend Menschen.',
+				fr: 'Une petite ville de la voïvodie de Basse-Silésie, à quinze kilomètres à l\'est de Kłodzko, juste de l\'autre côté de la frontière face à Bílá Voda en Tchéquie. En tchèque on l\'appelait Rychleby, et c\'est de ce nom que viennent aussi les monts Rychlebské hory qui s\'élèvent au sud au-dessus d\'elle. Environ deux mille cinq cents personnes y vivent.',
 			},
 		},
 		{
@@ -523,6 +530,7 @@ export const rok2023: Rok = {
 			y: 349.5,
 			popis: {
 				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
+				en: 'A South Moravian town ten kilometres north of Břeclav, with winemaking emblems in its coat of arms and on its flag. With more than 780 hectares of registered vineyards it is the largest wine-growing municipality in Czechia; around 3,900 people live here.',
 				de: 'Die südmährische Stadt zehn Kilometer nördlich von Břeclav, mit weinbezogenen Symbolen im Wappen und auf der Flagge. Mit mehr als 780 Hektar registrierter Weinberge ist sie der größte Weinort in Tschechien; dort leben etwa 3.900 Einwohner.',
 				fr: 'Ville de la région de Moravie du Sud située à dix kilomètres au nord de Břeclav, avec des symboles vinicoles dans son blason et sur son drapeau. Avec plus de 780 hectares de vignes enregistrées, elle est la plus grande commune viticole de la République tchèque ; elle compte environ 3 900 habitants.',
 			},
@@ -552,6 +560,7 @@ export const rok2023: Rok = {
 			y: 349.4,
 			popis: {
 				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
+				en: 'A South Moravian town ten kilometres north of Břeclav, with winemaking emblems in its coat of arms and on its flag. With more than 780 hectares of registered vineyards it is the largest wine-growing municipality in Czechia; around 3,900 people live here.',
 				de: 'Die südmährische Stadt zehn Kilometer nördlich von Břeclav, mit weinbezogenen Symbolen im Wappen und auf der Flagge. Mit mehr als 780 Hektar registrierter Weinberge ist sie der größte Weinort in Tschechien; dort leben etwa 3.900 Einwohner.',
 				fr: 'Ville de la région de Moravie du Sud située à dix kilomètres au nord de Břeclav, avec des symboles vinicoles dans son blason et sur son drapeau. Avec plus de 780 hectares de vignes enregistrées, elle est la plus grande commune viticole de la République tchèque ; elle compte environ 3 900 habitants.',
 			},
@@ -566,6 +575,8 @@ export const rok2023: Rok = {
 			y: 351.0,
 			popis: {
 				cs: 'Obec na Dyjsko-mlýnském náhonu asi čtrnáct kilometrů jihovýchodně od Znojma. Do roku 1949 se jmenovala Čule a dnes v ní žije 536 obyvatel.',
+				en: 'A village on the Dyje mill race about fourteen kilometres south-east of Znojmo. Until 1949 it was called Čule and today it has 536 inhabitants.',
+				de: 'Eine Gemeinde am Thaya-Mühlgraben etwa vierzehn Kilometer südöstlich von Znaim. Bis 1949 hieß sie Čule, heute leben hier 536 Einwohner.',
 				fr: 'Commune située sur le canal Dyjsko-mlýnský, à environ quatorze kilomètres au sud-est de Znojma. Jusqu\'en 1949, elle s\'appelait Čule et aujourd\'hui, 536 habitants y vivent.',
 			},
 		},
@@ -626,6 +637,7 @@ export const rok2023: Rok = {
 				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
 				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
 				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
+				fr: 'La deuxième ville de Tchéquie et ancienne capitale de la Moravie, où vivent environ 403 000 habitants sur 230 km². La Svratka et la Svitava la traversent et se rejoignent au sud de la ville. Au-dessus s\'élèvent le château fort et la forteresse du Špilberk ainsi que la cathédrale Saint-Pierre-et-Saint-Paul sur le Petrov ; parmi les monuments figure aussi la villa fonctionnaliste Tugendhat, inscrite au patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -655,6 +667,7 @@ export const rok2023: Rok = {
 				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
 				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
 				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
+				fr: 'La deuxième ville de Tchéquie et ancienne capitale de la Moravie, où vivent environ 403 000 habitants sur 230 km². La Svratka et la Svitava la traversent et se rejoignent au sud de la ville. Au-dessus s\'élèvent le château fort et la forteresse du Špilberk ainsi que la cathédrale Saint-Pierre-et-Saint-Paul sur le Petrov ; parmi les monuments figure aussi la villa fonctionnaliste Tugendhat, inscrite au patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -683,6 +696,7 @@ export const rok2023: Rok = {
 			popis: {
 				cs: 'Šumavská obec osm kilometrů jižně od Prachatic, německy Oberhaid. Žije v ní kolem čtyř set obyvatel.',
 				en: 'The Šumava village eight kilometers south of Prachatice, German name Oberhaid. It has around four hundred inhabitants.',
+				de: 'Eine Böhmerwaldgemeinde acht Kilometer südlich von Prachatice, deutsch Oberhaid. Hier leben etwa vierhundert Einwohner.',
 				fr: 'Commune de Šumava située à 8 kilomètres au sud de Prachatice, nom allemand : Oberhaid. Elle compte environ quatre cents habitants.',
 			},
 		},

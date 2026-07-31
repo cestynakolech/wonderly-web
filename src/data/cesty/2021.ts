@@ -204,6 +204,7 @@ export const rok2021: Rok = {
 				cs: 'Netolice je jedno z nejstarších jihočeských měst v okrese Prachatice, ležící asi 25 km severozápadně od Českých Budějovic, kde žije přibližně 2 500 obyvatel. Historické jádro města je městskou památkovou zónou, k obci náleží osada Petrův Dvůr.',
 				en: 'Netolice is one of the oldest South Bohemian towns in the Prachatice District, located approximately 25 km northwest of České Budějovice, where approximately 2,500 people live. The historical center of the town is a municipal monument zone, and the hamlet of Petrův Dvůr belongs to the municipality.',
 				de: 'Netolice ist eines der ältesten südböhmischen Städte im Landkreis Prachatice, etwa 25 km nordwestlich von České Budějovice gelegen, wo etwa 2.500 Einwohner leben. Der historische Stadtkern der Stadt ist eine städtische Denkmalschutzzone, zur Gemeinde gehört die Siedlung Petrův Dvůr.',
+				fr: 'Netolice est l\'une des plus anciennes villes de Bohême du Sud, dans le district de Prachatice, à environ 25 km au nord-ouest de České Budějovice, où vivent quelque 2 500 habitants. Le centre historique est une zone de monuments urbains ; le hameau de Petrův Dvůr appartient à la commune.',
 			},
 		},
 		{
@@ -367,6 +368,7 @@ export const rok2021: Rok = {
 			popis: {
 				cs: 'Terezín je malé pevnostní město v Ústeckém kraji, nacházející se na obou stranách řeky Ohře, která ho dělí na Malou a hlavní pevnost. Jako národní kulturní památka je zde Malá pevnost s hřbitovem, součástí městské památkové rezervace.',
 				en: 'Terezín is a small fortress town in the Ústí Region, located on both sides of the Ohře River, which divides it into the Small Fortress and the main fortress. As a national cultural monument, the Small Fortress with its cemetery is part of the city\'s monument reserve.',
+				de: 'Theresienstadt ist eine kleine Festungsstadt in der Aussiger Region, gelegen zu beiden Seiten der Eger, die sie in die Kleine und die Hauptfestung teilt. Als nationales Kulturdenkmal gilt hier die Kleine Festung mit dem Friedhof, Teil der städtischen Denkmalreservation.',
 				fr: 'Terezín est une petite ville fortifiée située dans la région d\'Ústí, s\'étendant des deux côtés de la rivière Ohře, qui la divise en Petite Forteresse et Forteresse principale. En tant que monument culturel national, la Petite Forteresse avec son cimetière fait partie de la réserve monumentale urbaine.',
 			},
 		},
@@ -546,6 +548,7 @@ export const rok2021: Rok = {
 			popis: {
 				cs: 'Rejštejn (německy Unterreichenstein, tj. bohatý kámen) je město v okrese Klatovy v Plzeňském kraji s 240 obyvateli.',
 				en: 'Rejštejn (German: Unterreichenstein, i.e., \'rich stone\') is a town in the Klatovy District in the Plzeň Region with 240 inhabitants.',
+				de: 'Rejštejn (deutsch Unterreichenstein, also reicher Stein) ist eine Stadt im Bezirk Klatovy in der Pilsner Region mit 240 Einwohnern.',
 				fr: 'Rejštejn (allemand Unterreichenstein, soit «riche pierre») est une ville dans le district de Klatovy dans la région de Plzeň avec 240 habitants.',
 			},
 		},
@@ -561,6 +564,7 @@ export const rok2021: Rok = {
 				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
 				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
 				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
+				fr: 'La deuxième ville de Tchéquie et ancienne capitale de la Moravie, où vivent environ 403 000 habitants sur 230 km². La Svratka et la Svitava la traversent et se rejoignent au sud de la ville. Au-dessus s\'élèvent le château fort et la forteresse du Špilberk ainsi que la cathédrale Saint-Pierre-et-Saint-Paul sur le Petrov ; parmi les monuments figure aussi la villa fonctionnaliste Tugendhat, inscrite au patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -619,6 +623,7 @@ export const rok2021: Rok = {
 			popis: {
 				cs: 'Hlavní a největší město Česka, ležící mírně na sever od středu Čech na Vltavě. Na 496 km² tu žije kolem 1,4 milionu lidí. Do dnešní podoby se Praha vyvíjela jedenáct století — byla hlavním městem Českého království i sídelním městem císařů Svaté říše římské. Historické centrum je od roku 1992 na seznamu světového dědictví UNESCO.',
 				en: 'The main and largest city of the Czech Republic, located slightly north of the center of Bohemia on the Vltava River. On 496 km², around 1.4 million people live there. Prague developed into its current form over eleven centuries — it was the capital of the Kingdom of Bohemia and the seat of the Holy Roman Emperors. The historic center has been on UNESCO\'s World Heritage List since 1992.',
+				de: 'Die Haupt- und größte Stadt Tschechiens, etwas nördlich der Mitte Böhmens an der Moldau gelegen. Auf 496 km² leben hier rund 1,4 Millionen Menschen. Zu ihrer heutigen Gestalt entwickelte sich Prag über elf Jahrhunderte — sie war Hauptstadt des Königreichs Böhmen und Residenzstadt der Kaiser des Heiligen Römischen Reiches. Das historische Zentrum steht seit 1992 auf der Liste des Weltkulturerbes.',
 				fr: 'Capitale et plus grande ville de la République tchèque, située légèrement au nord du centre de la Bohême sur la Vltava. Sur une superficie de 496 km², environ 1,4 million d\'habitants y résident. Praha s\'est développée jusqu\'à sa forme actuelle au cours de onze siècles — elle était la capitale du royaume de Bohême et le siège des empereurs du Saint-Empire romain. Le centre historique est inscrit sur la liste du patrimoine mondial de l\'UNESCO depuis 1992.',
 			},
 		},

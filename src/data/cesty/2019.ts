@@ -73,6 +73,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Kuks je obec v údolí řeky Labe v Královéhradeckém kraji, známá unikátním barokním lázeňským areálem se špitálem a bohatou sochařskou výzdobou z dílny Matyáše Bernarda Brauna. Tento areál, součást národní kulturní památky a památkové rezervace, zahrnuje bývalé Šporkovy lázně a sochařský soubor v Novém lese.',
 				en: 'Kuks is a municipality in the Elbe River valley in the Hradec Králové Region, known for its unique Baroque spa complex featuring a hospital and rich sculptural decoration from the workshop of Matyas Bernard Braun. This complex, part of national cultural monuments and a monument reserve, includes the former Sporkovy spas and the sculptural group in New Forest.',
+				de: 'Kuks ist eine Gemeinde im Tal der Elbe in der Region Hradec Králové, bekannt durch das einzigartige barocke Kurareal mit Hospital und reicher Bildhauerausstattung aus der Werkstatt von Matthias Bernhard Braun. Dieses Areal, Teil eines nationalen Kulturdenkmals und einer Denkmalreservation, umfasst das ehemalige Sporck-Bad und das Skulpturenensemble im Neuen Wald.',
 				fr: 'Kuks est une commune située dans la vallée de la rivière Labe dans la région de Hradec Králové, réputée pour son unique complexe thermal baroque comprenant un hôpital et une riche décoration sculpturale issue de l\'atelier de Matyáš Bernard Braun. Cet ensemble, faisant partie du monument culturel national et de la réserve monumentale, comprend les anciens thermes Šporkovy et le groupe sculptural à Nový les.',
 			},
 		},
@@ -117,6 +118,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Obec Černá v Pošumaví v Jihočeském kraji leží na obou březích Vltavy u vodní nádrže Lipno.',
 				en: 'The municipality of Černá in Pošumaví in the South Bohemian Region lies on both banks of the Vltava River near the Lipno Reservoir.',
+				de: 'Die Gemeinde Černá v Pošumaví in der Südböhmischen Region liegt an beiden Ufern der Moldau am Lipno-Stausee.',
 				fr: 'La commune de Černá v Pošumaví dans la région de Bohême du Sud se trouve sur les deux rives de la Vltava près du réservoir de Lipno.',
 			},
 		},
@@ -146,6 +148,7 @@ export const rok2019: Rok = {
 			popis: {
 				cs: 'Mariánské Lázně je lázeňské město v Karlovarském kraji, nejmladší z trojice proslulých západočeských lázeňských měst. Od roku 2021 je součástí Světového dědictví UNESCO spolu s Františkovými Lázněmi a Karlovy Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Mariánské Lázně is a spa town in the Karlovy Vary Region, the youngest of the trio of famous West Bohemian spa towns. Since 2021, it has been part of the UNESCO World Heritage together with Františkovy Lázně and Karlovy Vary within the item "Famous Spa Towns of Europe.',
+				de: 'Marienbad ist eine Kurstadt in der Karlsbader Region, die jüngste der drei berühmten westböhmischen Kurstädte. Seit 2021 gehört sie gemeinsam mit Franzensbad und Karlsbad im Rahmen der Stätte Bedeutende Kurstädte Europas zum Weltkulturerbe.',
 				fr: 'Mariánské Lázně est une ville thermale située dans la région de Karlovy Vary, la plus jeune des trois célèbres villes thermales de Bohême occidentale. Depuis 2021, elle fait partie du Patrimoine mondial de l\'UNESCO ensemble avec Františkovy Lázně et Karlovy Vary dans le cadre de la catégorie « Villes thermales célèbres d\'Europe ».',
 			},
 		},
@@ -159,6 +162,7 @@ export const rok2019: Rok = {
 			y: 335.4,
 			popis: {
 				cs: 'Město na východním okraji okresu Sokolov, které stojí na meandru řeky Ohře pod Slavkovským lesem — německy Elbogen, tedy loket. Bývalo důležitým královským městem a centrem Loketského kraje; nad řekou se na kamenném ostrohu tyčí gotický hrad a centrum je památkovou rezervací. Žije tu asi 3 100 obyvatel.',
+				en: 'A town on the eastern edge of the Sokolov district, set on a meander of the river Ohře below the Slavkov Forest — in German Elbogen, meaning elbow. It used to be an important royal town and the centre of the Loket region; a Gothic castle rises above the river on a rocky promontory and the centre is a heritage reservation. About 3,100 people live here.',
 				de: 'Stadt am östlichen Rand des Bezirks Sokolov, die auf einem Meander des Flusses Ohře unter dem Slavkovský Wald liegt — deutsch Elbogen, also Loket. Es war eine wichtige königliche Stadt und Zentrum des Loket-Bezirks; über dem Fluss erhebt sich auf einer steinernen Insel ein gotisches Schloss, und das Zentrum ist ein Denkmalschutzgebiet. Hier leben etwa 3.100 Einwohner.',
 				fr: 'Ville située sur le bord est du district de Sokolov, qui se trouve sur un méandre de la rivière Ohře sous la forêt de Slavkov — allemand : Elbogen, c\'est-à-dire Loket. Elle était autrefois une ville royale importante et le centre de la région de Loket ; au-dessus de la rivière, sur un îlot de pierre, se dresse un château gothique et le centre est une réserve monumentale. Environ 3 100 habitants y vivent.',
 			},

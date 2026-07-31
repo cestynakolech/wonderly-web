@@ -73,6 +73,8 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Karlovy Vary je nejnavštěvovanější české lázeňské město na soutoku řek Ohře a Teplé, které od roku 2021 tvoří součást Světového dědictví UNESCO spolu s Františkovými a Mariánskými Lázněmi.',
 				en: 'Karlovy Vary is the most visited Czech spa town at the confluence of the Ohře and Teplá rivers, which since 2021 has been part of the UNESCO World Heritage Site together with Františkovy and Mariánské Lázně.',
+				de: 'Karlsbad ist die meistbesuchte tschechische Kurstadt am Zusammenfluss der Flüsse Eger und Tepl, die seit 2021 gemeinsam mit Franzensbad und Marienbad Teil des Weltkulturerbes ist.',
+				fr: 'Karlovy Vary est la ville thermale tchèque la plus visitée, au confluent des rivières Ohře et Teplá ; depuis 2021 elle fait partie du patrimoine mondial avec Františkovy Lázně et Mariánské Lázně.',
 			},
 		},
 		{
@@ -116,6 +118,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Velhartice je obec v Plzeňském kraji s historickým jádrem zařazeným do městské památkové zóny. Součástí obce je bývalé horní město Hory Matky Boží.',
 				en: 'Velhartice is a municipality in the Plzeň Region with a historical core included in the city monument zone. The municipality includes the former upper town Hory Matky Boží.',
+				de: 'Velhartice ist eine Gemeinde in der Pilsner Region, deren historischer Kern als städtische Denkmalzone ausgewiesen ist. Zur Gemeinde gehört die ehemalige Bergstadt Hory Matky Boží.',
 				fr: 'Velhartice est une commune de la région de Plzeň, dont le noyau historique est classé dans la zone monumentale urbaine. L\'ancien Haut-Ville Hory Matky Boží fait partie de la commune.',
 			},
 		},
@@ -129,6 +132,8 @@ export const rok2020: Rok = {
 			y: 343.1,
 			popis: {
 				cs: 'Obec na levém břehu Vltavy, která si jméno vypůjčila od zámku nad sebou — ten stojí na skalním útesu vysoko nad hladinou orlické přehrady. Trvale tu bydlí 301 obyvatel.',
+				en: 'A village on the left bank of the Vltava that borrowed its name from the chateau above it — the chateau stands on a rocky cliff high above the surface of the Orlík reservoir. It has 301 permanent residents.',
+				de: 'Eine Gemeinde am linken Ufer der Moldau, die ihren Namen vom Schloss über ihr entlehnt hat — dieses steht auf einer Felsklippe hoch über dem Spiegel der Orlík-Talsperre. Hier leben dauerhaft 301 Einwohner.',
 				fr: 'Commune située sur la rive gauche de la Vltava, qui a emprunté son nom au château au-dessus d\'elle — lequel est situé sur une falaise rocheuse, haut au-dessus de la surface de la retenue d\'Orlík. 301 habitants y résident en permanence.',
 			},
 		},
@@ -158,6 +163,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Město rozložené na obou březích Vltavy, východně od jejího soutoku s Lužnicí. Historické jádro je vyhlášené městskou památkovou zónou.',
 				en: 'The city situated on both banks of the Vltava, east of its confluence with the Lužnice. The historical core is designated as a city monument zone.',
+				de: 'Eine Stadt, die sich über beide Ufer der Moldau erstreckt, östlich von deren Zusammenfluss mit der Lainsitz. Der historische Kern ist als städtische Denkmalzone ausgewiesen.',
 				fr: 'La ville étendue sur les deux rives de la Vltava, à l\'est de sa confluence avec la Lužnice. Le noyau historique est classé en zone monumentale municipale.',
 			},
 		},
@@ -202,6 +208,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Obec Černá v Pošumaví v Jihočeském kraji leží na obou březích Vltavy u vodní nádrže Lipno.',
 				en: 'The municipality of Černá in Pošumaví in the South Bohemian Region lies on both banks of the Vltava River near the Lipno Reservoir.',
+				de: 'Die Gemeinde Černá v Pošumaví in der Südböhmischen Region liegt an beiden Ufern der Moldau am Lipno-Stausee.',
 				fr: 'La commune de Černá v Pošumaví dans la région de Bohême du Sud se trouve sur les deux rives de la Vltava près du réservoir de Lipno.',
 			},
 		},
