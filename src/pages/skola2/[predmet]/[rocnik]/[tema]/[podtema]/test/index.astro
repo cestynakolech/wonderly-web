@@ -171,9 +171,22 @@ const POCET_V_TESTU = 7;
 					${testove.slice(4).map((otazka, i) => otazkaHtml(otazka, i + 4)).join('')}
 					<p class="pocet-bodu">Počet bodů: ______ / ${POCET_V_TESTU}</p></div>`;
 
+			// Otázka, jejíž SPRÁVNÁ odpověď je nejdelší, jde uhodnout bez znalosti látky.
+			// Na webu je takových 67 % (nález nezávislého auditu 31. 7. 2026), takže
+			// strategie „vyber nejdelší" dá v testu ze 7 otázek asi 5 správně = známka 2.
+			// Než se data dorovnají, losujeme PŘEDNOSTNĚ z otázek BEZ téhle nápovědy;
+			// když jich není dost, doplní se zbytek z ostatních (test má vždy 7 otázek).
+			function maDelkovouNapovedu(o) {
+				const delky = o.odpovedi.map((x) => x.length);
+				const nejdelsiZeSpatnych = Math.max(...delky.slice(1));
+				return delky[0] >= nejdelsiZeSpatnych;
+			}
+
 			function vygeneruj() {
 				// vylosujeme 7 otázek a z NICH uděláme dvě navzájem zamíchané verze
-				const vybrane = zamichej(otazky).slice(0, POCET_V_TESTU);
+				const bezNapovedy = zamichej(otazky.filter((o) => !maDelkovouNapovedu(o)));
+				const sNapovedou = zamichej(otazky.filter(maDelkovouNapovedu));
+				const vybrane = bezNapovedy.concat(sNapovedou).slice(0, POCET_V_TESTU);
 				const verzeA = pripravVerzi(vybrane);
 				const verzeB = pripravVerzi(vybrane);
 
