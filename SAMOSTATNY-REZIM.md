@@ -59,6 +59,34 @@ naivní regex `^\t{5}slug:` ho přeskočí a napočítá 22 podtémat místo 37.
 4. Kontrolora neposlouchat slepě: navrhoval zvýšit zkratový proud na 8× kvůli názornosti,
    jenže při přemostění žárovky se proud přesně **zdvojnásobí** — necháno pravdivé 2 A.
 
+**Druhé kolo kontroly (simulace odporu a reostatu) — 15 nálezů, 8 vážných. Poučení, která
+platí pro KAŽDOU další simulaci:**
+1. **Zjednodušený model si musí sednout se schématem.** Potenciometr počítal dělič
+   naprázdno, ale na schématu na něm visela žárovka 10 Ω — zobrazená napětí byla až
+   dvojnásobná proti skutečnosti. Řešení nebylo počítat zatížený dělič (tím by zmizela
+   celá čísla), ale **dát na výstup voltmetr** — což je zároveň to, jak se potenciometr
+   opravdu používá. **Když model něco zanedbává, schéma to musí zanedbání ospravedlnit.**
+2. **Reostat a potenciometr mají protichůdné požadavky na čísla**: reostat potřebuje
+   odpor drátu ≫ odpor spotřebiče, dělič naprázdno naopak. Čísla se musí navrhnout
+   pro každý režim zvlášť (teď: 12 V, drát 40 Ω, žárovka 10 Ω, krok jezdce 25 %).
+3. **Obvod na schématu musí být UZAVŘENÝ.** Chyběl vodič od spotřebiče ke spodní
+   kolejnici — dítě hledá uzavřenou smyčku jako první věc.
+4. **Jas žárovky se řídí VÝKONEM (I²·R), ne proudem.** Při poklesu proudu na pětinu
+   zbyde 4 % jasu, ne 20 % — jinak simulace slibuje víc světla, než by ve třídě bylo.
+5. **Vypsaný vzorec musí dát vypsaný výsledek.** U zahřátého drátu stálo na obrazovce
+   „0,5 · 4 / 1" a hned pod tím „2,04 Ω". Teď vzorec ukazuje hodnotu za studena
+   a vliv zahřátí se dopisuje zvlášť; test to hlídá tak, že si dosazení **přepočítá**.
+6. **Jednotky musí sedět s výkladem na téže stránce.** Výklad učil ρ v Ω·m, simulace
+   používala Ω·mm²/m — žák dosazující podle výkladu by byl 10⁶× mimo. Do výkladu proto
+   přibyla praktická jednotka i převod.
+7. **Kontrolovat i POŘADÍ podtémat.** Simulace byla zapojená i tam, kde se ρ ani vzorec
+   ještě neprobraly → vznikla zjednodušená verze přes prop (`odpor-vodice-zaklad`).
+8. **Pozor na nefyzikální popisky ovládání.** „Rozžhavený drát" u hliníku (taje při
+   660 °C) neexistuje; činitel 1,6 odpovídá zahřátí asi na 175 °C, ne rozžhavení.
+9. **Ořezané mapování zabije pointu.** Rychlost elektronů byla oříznutá na mez, takže
+   mezi 2 Ω a 10 Ω nebyl vidět žádný rozdíl — přitom „větší odpor = menší proud" je
+   celé sdělení simulace. Test proto ověřuje, že různé vstupy dají různé rychlosti.
+
 **Jak se simulace ověřují bez prohlížeče** (náhledový server často blokuje jiná session):
 skript ve scratchpadu spustí **skutečný `<script>` komponenty** v Node přes `node:vm`
 s náhradním DOM, pak zavolá vystavené čisté funkce (`svg.__stavMeridel`, `svg.__odpor`,

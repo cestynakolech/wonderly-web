@@ -122,6 +122,24 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   s náhradním DOM a proměří spojitost pohybu po 16 ms i všechny kombinace ovládání
   (max skok 4,5 px z limitu 20; při zkratu 0 teček uvnitř žárovky; potenciometr dává celé
   volty ve všech 11 polohách). Nasazení ověřeno `curl` na všech 5 stránkách.
+  **Druhé kolo kontroly** (simulace odporu a reostatu) přineslo **15 nálezů, 8 vážných** —
+  a tentokrát prošly i mé vlastní testy, protože testovaly proti špatnému předpokladu.
+  Nejzávažnější: **potenciometr počítal dělič naprázdno, ale na schématu na něm visela
+  žárovka 10 Ω** → zobrazená napětí byla až dvojnásobná proti skutečnosti (5 V místo 2,5 V).
+  Opraveno tím, že na výstupu je nově **voltmetr** — což je zároveň to, jak se potenciometr
+  v praxi používá; dělič je tím počítán správně a čísla zůstala celá. Dál: schéma reostatu
+  bylo nakreslené jako **rozpojený obvod** (chyběl vodič od spotřebiče ke kolejnici);
+  **vypsaný vzorec nesouhlasil s vypsaným výsledkem**, jakmile se zapnul ohřev („0,5 · 4 / 1"
+  a pod tím „2,04 Ω"); **jednotky ρ si odporovaly s výkladem na téže stránce** (Ω·m ×
+  Ω·mm²/m — žák dosazující podle výkladu by byl 10⁶× mimo, proto do výkladu přibyla
+  praktická jednotka i převod); simulace **předbíhala učivo** na dřívějším podtématu (vznikla
+  zjednodušená verze bez ρ a bez vzorce); „rozžhavený drát" byl u hliníku nefyzikální
+  (taje při 660 °C); zahřátý konstantan přestal dávat celá čísla; a rychlost elektronů byla
+  oříznutá na mez, takže rozdíl mezi 2 Ω a 10 Ω nebyl vůbec vidět — přitom „větší odpor =
+  menší proud" je celé sdělení té simulace. Vše opraveno, nasazeno a ověřeno na živém webu.
+  **Poučení:** jas žárovky se řídí VÝKONEM (I²·R), ne proudem (pokles proudu na pětinu = 4 %
+  jasu, ne 20 %); a když model něco zanedbává, schéma to zanedbání musí ospravedlnit.
+  Testy simulací jsou nově v repu (`testy/`) i s návodem a rozšířené o všechny tyto nálezy.
   **Past do příště:** blok `elektrina` má v `temata.ts` o tabulátor jiné odsazení, takže
   naivní regex napočítá 22 podtémat místo 37.
 
