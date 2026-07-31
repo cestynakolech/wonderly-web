@@ -34,17 +34,6 @@
  },
  {
   "rok": 2026,
-  "slug": "ornans",
-  "stellplatz": "CAMPING-CAR PARK Ornans, Chemin des Essarts Cendrins",
-  "cenaNoc": "21.32€",
-  "elektrina": null,
-  "voda": null,
-  "kdy": null,
-  "zdroj": "Camping-Car Park",
-  "aktualizovano": "07/2026"
- },
- {
-  "rok": 2026,
   "slug": "livet-et-gavet",
   "stellplatz": "Chamrousse – Place des Niverolles",
   "cenaNoc": "20€",
@@ -107,6 +96,17 @@
   "voda": null,
   "kdy": null,
   "zdroj": "park4night",
+  "aktualizovano": "08/2026"
+ },
+ {
+  "rok": 2026,
+  "slug": "ornans",
+  "stellplatz": "CAMPING-CAR PARK Ornans, Chemin des Essarts Cendrins",
+  "cenaNoc": "21.32€",
+  "elektrina": null,
+  "voda": null,
+  "kdy": "25/07/2026",
+  "zdroj": "Camping-Car Park",
   "aktualizovano": "08/2026"
  }
 ]
