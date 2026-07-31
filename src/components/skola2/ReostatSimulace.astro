@@ -1,0 +1,152 @@
+---
+// Rezistor s proměnným odporem: TÝŽ jezdec ve dvou zapojeních.
+// Reostat = zapojena jen část drátu → reguluje PROUD (žárovka slábne odporem).
+// Potenciometr = drát připojen oběma konci → jezdec dělí napětí (žárovka dostane jen část).
+// Zdroj 10 V, žárovka 10 Ω, odporový drát 40 Ω → u potenciometru vychází napětí v celých voltech.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Reostat a potenciometr — jeden jezdec, dvě práce 🕹️</span></h2>
+	<p>Posouvej <strong>jezdcem</strong> po odporovém drátu a přepínej zapojení. Všimni si, že <strong>zapojení mění to, co jezdec ovládá</strong> — jednou proud, podruhé napětí.</p>
+	<svg id="reo-svg" viewBox="0 0 520 300" role="img" aria-label="Odporový drát s posuvným jezdcem, zdroj a žárovka; přepínání mezi zapojením reostatu a potenciometru">
+		<!-- spodní kolejnice (záporný pól) -->
+		<path d="M60 250 L460 250" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<!-- zdroj vlevo -->
+		<path d="M60 250 L60 150" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<line x1="46" y1="150" x2="74" y2="150" stroke="#2b2a26" stroke-width="6" />
+		<line x1="52" y1="138" x2="68" y2="138" stroke="#2b2a26" stroke-width="3" />
+		<path d="M60 138 L60 96 L110 96" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<text x="30" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">10 V</text>
+
+		<!-- odporový drát (40 Ω celkem) -->
+		<rect x="110" y="88" width="300" height="16" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" rx="3" />
+		<text x="260" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#868e96">odporový drát 40 Ω</text>
+		<!-- zapojená část drátu (zvýrazněná) -->
+		<rect id="reo-cast" x="110" y="88" width="0" height="16" fill="#ffa94d" />
+
+		<!-- připojení pravého konce — JEN u potenciometru -->
+		<path id="reo-pravy" d="M410 104 L410 250" fill="none" stroke="#2b2a26" stroke-width="4" opacity="0" />
+
+		<!-- jezdec -->
+		<g id="reo-jezdec">
+			<path d="M-9 -18 L9 -18 L0 -2 Z" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<line x1="0" y1="-18" x2="0" y2="-40" stroke="#2b2a26" stroke-width="4" />
+		</g>
+		<!-- vodič od jezdce k žárovce -->
+		<path id="reo-vodic" d="M260 48 L460 48 L460 150" fill="none" stroke="#2b2a26" stroke-width="4" />
+
+		<!-- žárovka vpravo -->
+		<circle id="reo-zarovka" cx="460" cy="180" r="26" fill="#ffe066" stroke="#2b2a26" stroke-width="3" />
+		<path d="M450 172 L455 188 L465 172 L470 188" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="460" y="228" text-anchor="middle" font-size="12" font-weight="bold" fill="#868e96">žárovka 10 Ω</text>
+
+		<!-- údaje -->
+		<text id="reo-udaj1" x="180" y="180" text-anchor="middle" font-size="17" font-weight="bold" fill="#e8590c"></text>
+		<text id="reo-udaj2" x="180" y="206" text-anchor="middle" font-size="17" font-weight="bold" fill="#1971c2"></text>
+	</svg>
+
+	<label class="sim-posuvnik">
+		Poloha jezdce: <output id="reo-out"></output>
+		<input type="range" id="reo-jezdec-vstup" min="0" max="100" step="10" value="0" />
+	</label>
+	<p class="reo-radek">
+		<strong>Zapojení:</strong>
+		<button type="button" class="reo-tl reo-z-tl reo-aktivni" data-rezim="reostat">reostat (reguluje proud)</button>
+		<button type="button" class="reo-tl reo-z-tl" data-rezim="potenciometr">potenciometr (dělí napětí)</button>
+	</p>
+	<p class="reo-stav" id="reo-stav"></p>
+</section>
+
+<script>
+	const posuvnik = document.getElementById('reo-jezdec-vstup');
+	const out = document.getElementById('reo-out');
+	const zTlacitka = document.querySelectorAll('.reo-z-tl');
+	const jezdec = document.getElementById('reo-jezdec');
+	const vodic = document.getElementById('reo-vodic');
+	const cast = document.getElementById('reo-cast');
+	const pravy = document.getElementById('reo-pravy');
+	const zarovka = document.getElementById('reo-zarovka');
+	const udaj1 = document.getElementById('reo-udaj1');
+	const udaj2 = document.getElementById('reo-udaj2');
+	const stavEl = document.getElementById('reo-stav');
+	const svg = document.getElementById('reo-svg');
+
+	const U = 10, R_ZAROVKA = 10, R_DRAT = 40;
+	const X0 = 110, SIRKA = 300;
+	let rezim = 'reostat';
+
+	const cz = (x, des) => x.toLocaleString('cs-CZ', { maximumFractionDigits: des });
+
+	// ČISTÉ funkce — dají se ověřit výpočtem bez prohlížeče.
+	// f = poloha jezdce zleva (0 až 1).
+	function reostat(f) {
+		const R = R_ZAROVKA + R_DRAT * f;          // část drátu vlevo je v sérii se žárovkou
+		const I = U / R;                            // A
+		return { R, I, Uz: I * R_ZAROVKA, jas: I / (U / R_ZAROVKA) };
+	}
+	function potenciometr(f) {
+		// drát je připojen oběma konci; žárovka visí mezi jezdcem a pravým koncem
+		const Uz = U * (1 - f);                     // napětí na pravé části drátu
+		return { Uz, jas: Uz / U };
+	}
+
+	function prekresli() {
+		const f = +posuvnik.value / 100;
+		const jx = X0 + f * SIRKA;
+		out.textContent = Math.round(f * 100) + ' %';
+		jezdec.setAttribute('transform', `translate(${jx.toFixed(1)}, 88)`);
+		vodic.setAttribute('d', `M${jx.toFixed(1)} 48 L460 48 L460 154`);
+
+		let jas, popis;
+		if (rezim === 'reostat') {
+			const v = reostat(f);
+			jas = v.jas;
+			cast.setAttribute('x', X0); cast.setAttribute('width', (f * SIRKA).toFixed(1));
+			pravy.setAttribute('opacity', '0');
+			udaj1.textContent = `R celkem = ${cz(v.R, 0)} Ω`;
+			udaj2.textContent = `I = ${Math.round(v.I * 1000)} mA`;
+			popis = f === 0
+				? 'Jezdec vlevo: z drátu není zapojeno nic (0 Ω), obvodem teče největší proud a žárovka svítí naplno.'
+				: `Zapojeno je ${cz(R_DRAT * f, 0)} Ω z drátu. Odpor v obvodu je ${cz(v.R, 0)} Ω, takže proud klesl na ${Math.round(v.I * 1000)} mA — reostat reguluje PROUD. Žárovka ale nikdy nezhasne úplně: i vpravo proud pořád teče.`;
+		} else {
+			const v = potenciometr(f);
+			jas = v.jas;
+			cast.setAttribute('x', jx.toFixed(1)); cast.setAttribute('width', ((1 - f) * SIRKA).toFixed(1));
+			pravy.setAttribute('opacity', '1');
+			udaj1.textContent = `napětí na žárovce`;
+			udaj2.textContent = `U = ${cz(v.Uz, 0)} V z 10 V`;
+			popis = f === 1
+				? 'Jezdec úplně vpravo: na žárovku zbylo 0 V a zhasla. Potenciometr umí stáhnout napětí až na nulu — proto se jím dá ztlumit hlasitost do ticha.'
+				: `Jezdec rozdělil drát na dvě části a napětí zdroje se mezi ně rozdělilo: na žárovku připadá ${cz(v.Uz, 0)} V z 10 V. Potenciometr reguluje NAPĚTÍ — takhle funguje ovládání hlasitosti nebo jasu.`;
+		}
+
+		// jas žárovky: barva mezi šedou (zhasnutá) a sytě žlutou
+		const zaokr = Math.max(0, Math.min(1, jas));
+		zarovka.setAttribute('fill', zaokr < 0.02 ? '#dee2e6' : `rgb(${Math.round(222 + 33 * zaokr)}, ${Math.round(226 + 4 * zaokr)}, ${Math.round(230 - 128 * zaokr)})`);
+		stavEl.textContent = popis;
+	}
+
+	posuvnik.addEventListener('input', prekresli);
+	zTlacitka.forEach((tl) => tl.addEventListener('click', () => {
+		zTlacitka.forEach((t) => t.classList.remove('reo-aktivni'));
+		tl.classList.add('reo-aktivni');
+		rezim = tl.dataset.rezim;
+		prekresli();
+	}));
+	prekresli();
+
+	// ověřovací háčky
+	svg.__reostat = reostat;
+	svg.__potenciometr = potenciometr;
+</script>
+
+<style>
+	#reo-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.reo-radek { margin: 0.6rem 0; }
+	.reo-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.reo-tl.reo-aktivni { background: #ffe8cc; }
+	.reo-tl:active { transform: translateY(1px); }
+	.reo-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.2rem; }
+</style>

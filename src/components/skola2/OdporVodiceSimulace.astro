@@ -1,0 +1,218 @@
+---
+// Odpor vodiče R = ρ · l / S: žák mění délku, průřez, materiál i teplotu a vidí,
+// jak se mění odpor i to, proč vzniká — elektrony se v drátu odrážejí od atomů mřížky.
+// Hodnoty ρ (Ω·mm²/m) jsou tabulkové: měď 0,018 · hliník 0,028 · konstantan 0,50.
+// U konstantanu vycházejí odpory v celých ohmech; u mědi je odpor nepatrný — a právě
+// to je učivo (proto se z mědi dělá vedení).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Na čem závisí odpor vodiče? 🕹️</span></h2>
+	<p>Elektrony (modré) letí drátem a <strong>narážejí do atomů</strong> mřížky (šedé) — to je odpor. Měň drát a sleduj, jak se odpor <strong>R = ρ · l / S</strong> mění.</p>
+	<svg id="odp-svg" viewBox="0 0 520 300" role="img" aria-label="Vodič s atomy mřížky a letícími elektrony, pod ním vypočtený odpor">
+		<!-- svorky na koncích drátu -->
+		<rect x="30" y="86" width="16" height="48" fill="#2b2a26" rx="3" />
+		<rect id="odp-svorka2" x="450" y="86" width="16" height="48" fill="#2b2a26" rx="3" />
+
+		<!-- vodič (délku i tloušťku mění skript) -->
+		<rect id="odp-drat" x="46" y="97" width="404" height="26" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" rx="4" />
+		<g id="odp-atomy"></g>
+		<g id="odp-elektrony"></g>
+
+		<!-- kóta délky -->
+		<line id="odp-kota" x1="46" y1="150" x2="450" y2="150" stroke="#868e96" stroke-width="2" />
+		<text id="odp-kota-text" x="248" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
+
+		<!-- výsledek -->
+		<text id="odp-vzorec" x="260" y="212" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<text id="odp-vysledek" x="260" y="244" text-anchor="middle" font-size="24" font-weight="bold" fill="#e8590c"></text>
+
+		<!-- pruh porovnání (jak velký je odpor proti nejmenšímu možnému) -->
+		<rect x="110" y="262" width="300" height="18" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" rx="9" />
+		<rect id="odp-pruh" x="112" y="264" width="10" height="14" fill="#e8590c" rx="7" />
+	</svg>
+
+	<label class="sim-posuvnik">
+		Délka vodiče l: <output id="odp-l-out"></output>
+		<input type="range" id="odp-l" min="2" max="10" step="2" value="4" />
+	</label>
+	<p class="odp-radek">
+		<strong>Průřez S:</strong>
+		<button type="button" class="odp-tl odp-s-tl" data-s="0.5">tenký 0,5 mm²</button>
+		<button type="button" class="odp-tl odp-s-tl odp-aktivni" data-s="1">silnější 1 mm²</button>
+	</p>
+	<p class="odp-radek">
+		<strong>Materiál:</strong>
+		<button type="button" class="odp-tl odp-m-tl odp-aktivni" data-ro="0.5" data-nazev="konstantan">konstantan</button>
+		<button type="button" class="odp-tl odp-m-tl" data-ro="0.028" data-nazev="hliník">hliník</button>
+		<button type="button" class="odp-tl odp-m-tl" data-ro="0.018" data-nazev="měď">měď</button>
+	</p>
+	<p class="odp-radek">
+		<strong>Teplota:</strong>
+		<button type="button" class="odp-tl odp-t-tl odp-aktivni" data-teplo="0">pokojová</button>
+		<button type="button" class="odp-tl odp-t-tl" data-teplo="1">rozžhavený drát</button>
+	</p>
+	<p class="odp-stav" id="odp-stav"></p>
+</section>
+
+<script>
+	const lSlider = document.getElementById('odp-l');
+	const lOut = document.getElementById('odp-l-out');
+	const sTlacitka = document.querySelectorAll('.odp-s-tl');
+	const mTlacitka = document.querySelectorAll('.odp-m-tl');
+	const tTlacitka = document.querySelectorAll('.odp-t-tl');
+	const drat = document.getElementById('odp-drat');
+	const svorka2 = document.getElementById('odp-svorka2');
+	const kota = document.getElementById('odp-kota');
+	const kotaText = document.getElementById('odp-kota-text');
+	const vzorec = document.getElementById('odp-vzorec');
+	const vysledek = document.getElementById('odp-vysledek');
+	const pruh = document.getElementById('odp-pruh');
+	const stavEl = document.getElementById('odp-stav');
+	const atomyG = document.getElementById('odp-atomy');
+	const elektronyG = document.getElementById('odp-elektrony');
+	const svg = document.getElementById('odp-svg');
+
+	let S = 1, ro = 0.5, nazevMat = 'konstantan', teplo = 0;
+
+	const cz = (x, des) => x.toLocaleString('cs-CZ', { maximumFractionDigits: des });
+	// drát: 2 m → 120 px, 10 m → 400 px; tenký 14 px, silnější 26 px
+	const dratX = 46;
+	const dratSirka = (l) => l * 40;
+	const dratVyska = () => (S === 0.5 ? 14 : 26);
+	const dratY = () => 110 - dratVyska() / 2;
+
+	// ČISTÁ funkce: odpor vodiče. Rozžhavení zvedá odpor kovů (u konstantanu skoro ne).
+	function odpor(l, s, rho, horky) {
+		const narust = horky ? (rho >= 0.4 ? 1.02 : 1.6) : 1;
+		return (rho * l) / s * narust;
+	}
+
+	// ČISTÁ funkce času: poloha elektronu (klikatí se mezi stěnami drátu = srážky s atomy)
+	function polohaElektronu(t, k, l, R) {
+		const sirka = dratSirka(l);
+		const rychlost = Math.max(12, Math.min(110, 20 / R));   // ~ proud při stejném napětí
+		const x = dratX + (((rychlost * t + (k / 12) * sirka) % sirka) + sirka) % sirka;
+		const rozkmit = dratVyska() / 2 - 4;
+		// trojúhelníková vlna — elektron se odráží, nikdy nevyjede z drátu
+		const faze = ((x / 26) + k * 0.37) % 2;
+		const y = 110 + rozkmit * (faze < 1 ? 2 * faze - 1 : 3 - 2 * faze);
+		return [x, y];
+	}
+
+	// atomy mřížky (pravidelná mříž uvnitř drátu)
+	function prekresliAtomy(l) {
+		atomyG.textContent = '';
+		const sirka = dratSirka(l);
+		const rady = S === 0.5 ? 1 : 2;
+		for (let r = 0; r < rady; r++) {
+			for (let x = dratX + 14; x < dratX + sirka - 6; x += 22) {
+				const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+				c.setAttribute('cx', x.toFixed(1));
+				c.setAttribute('cy', (110 + (rady === 1 ? 0 : r === 0 ? -7 : 7)).toFixed(1));
+				c.setAttribute('r', '4');
+				c.setAttribute('fill', teplo ? '#ff8787' : '#adb5bd');
+				atomyG.appendChild(c);
+			}
+		}
+	}
+
+	const POCET = 12;
+	const elektrony = [];
+	for (let k = 0; k < POCET; k++) {
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('r', '3.5');
+		c.setAttribute('fill', '#1971c2');
+		elektronyG.appendChild(c);
+		elektrony.push(c);
+	}
+
+	let R = 2, lTed = 4;
+	function prekresli() {
+		lTed = +lSlider.value;
+		R = odpor(lTed, S, ro, teplo);
+		const sirka = dratSirka(lTed);
+
+		lOut.textContent = lTed + ' m';
+		drat.setAttribute('x', dratX);
+		drat.setAttribute('width', sirka);
+		drat.setAttribute('y', dratY());
+		drat.setAttribute('height', dratVyska());
+		drat.setAttribute('fill', teplo ? '#ffc9c9' : '#ffd8a8');
+		svorka2.setAttribute('x', dratX + sirka);
+		kota.setAttribute('x2', dratX + sirka);
+		kotaText.setAttribute('x', dratX + sirka / 2);
+		kotaText.textContent = lTed + ' m';
+
+		// desetinná místa: konstantan vychází v celých Ω, u mědi je odpor nepatrný
+		const des = R >= 1 ? 2 : 3;
+		vzorec.textContent = `R = ρ · l / S = ${cz(ro, 3)} · ${lTed} / ${cz(S, 1)}`;
+		vysledek.textContent = `R = ${cz(R, des)} Ω`;
+
+		// pruh porovnání vůči nejvyššímu možnému odporu (konstantan, 10 m, 0,5 mm²)
+		const maxR = odpor(10, 0.5, 0.5, 0);
+		pruh.setAttribute('width', Math.max(10, (R / maxR) * 296).toFixed(1));
+
+		prekresliAtomy(lTed);
+		for (let k = 0; k < POCET; k++) {
+			const [x, y] = polohaElektronu(0, k, lTed, R);
+			elektrony[k].setAttribute('cx', x.toFixed(1));
+			elektrony[k].setAttribute('cy', y.toFixed(1));
+		}
+
+		let popis;
+		if (ro < 0.05) {
+			popis = `${nazevMat === 'měď' ? 'Měď' : 'Hliník'} vede skvěle — odpor je nepatrný (${cz(R, 3)} Ω). Právě proto se z mědi dělají dráty ve zdech: skoro se nezahřívají.`;
+		} else {
+			popis = `Konstantan má odpor ${cz(ro, 2)} Ω·mm²/m, tedy asi ${Math.round(0.5 / 0.018)}× větší než měď — proto se z něj dělají topné spirály a rezistory.`;
+		}
+		if (teplo) {
+			popis += ro >= 0.4
+				? ' Rozžhavení odpor konstantanu skoro nezmění — proto se z něj dělají rezistory.'
+				: ' Rozžhavený kov má odpor výrazně větší: atomy víc kmitají a elektrony do nich narazí častěji.';
+		}
+		stavEl.textContent = popis;
+	}
+
+	lSlider.addEventListener('input', prekresli);
+	const prepni = (tlacitka, tl, akce) => {
+		tlacitka.forEach((t) => t.classList.remove('odp-aktivni'));
+		tl.classList.add('odp-aktivni');
+		akce();
+		prekresli();
+	};
+	sTlacitka.forEach((tl) => tl.addEventListener('click', () => prepni(sTlacitka, tl, () => { S = +tl.dataset.s; })));
+	mTlacitka.forEach((tl) => tl.addEventListener('click', () => prepni(mTlacitka, tl, () => { ro = +tl.dataset.ro; nazevMat = tl.dataset.nazev; })));
+	tTlacitka.forEach((tl) => tl.addEventListener('click', () => prepni(tTlacitka, tl, () => { teplo = +tl.dataset.teplo; })));
+	prekresli();
+
+	// ověřovací háčky (kontrola výpočtem, ne okem)
+	svg.__odpor = odpor;
+	svg.__polohaElektronu = (t, k) => polohaElektronu(t, k, lTed, R);
+	svg.__rozmery = () => ({ x: dratX, sirka: dratSirka(lTed), y: dratY(), vyska: dratVyska() });
+
+	let cas = 0, minule = performance.now();
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		cas += dt;
+		for (let k = 0; k < POCET; k++) {
+			const [x, y] = polohaElektronu(cas, k, lTed, R);
+			elektrony[k].setAttribute('cx', x.toFixed(1));
+			elektrony[k].setAttribute('cy', y.toFixed(1));
+		}
+		requestAnimationFrame(krok);
+	}
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#odp-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 520px; display: block; margin-top: 0.3rem; }
+	.odp-radek { margin: 0.6rem 0; }
+	.odp-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.odp-tl.odp-aktivni { background: #ffe8cc; }
+	.odp-tl:active { transform: translateY(1px); }
+	.odp-stav { font-size: 1.05rem; font-weight: 700; min-height: 3rem; }
+</style>

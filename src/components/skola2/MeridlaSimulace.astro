@@ -1,0 +1,232 @@
+---
+// Zapojení měřicích přístrojů: žák vybere přístroj (ampérmetr / voltmetr) a způsob
+// zapojení (sériově / paralelně) a vidí všechny čtyři možnosti včetně obou chybných.
+// Obvod má DVĚ součástky v sérii (žárovka + rezistor), aby se napětí na žárovce lišilo
+// od napětí zdroje — jinak by správné i chybné měření voltmetrem ukazovalo totéž.
+// Zdroj 12 V, obě součástky stejné → proud 1 A, na žárovce 6 V z 12 V.
+// Ohmův zákon se schválně NEPOUŽÍVÁ: probírá se až o dvě podtémata dál.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kam se zapojuje ampérmetr a kam voltmetr? 🕹️</span></h2>
+	<p>Vyber si <strong>přístroj</strong> a <strong>způsob zapojení</strong>. Dvě zapojení jsou správně a dvě nefungují — u jednoho z nich navíc hrozí poškození přístroje. Vyzkoušej všechna čtyři.</p>
+	<svg id="mer-svg" viewBox="0 0 520 330" role="img" aria-label="Elektrický obvod se zdrojem, žárovkou a rezistorem; měřicí přístroj zapojený sériově nebo paralelně">
+		<!-- hlavní smyčka obvodu -->
+		<rect x="90" y="60" width="220" height="200" fill="none" stroke="#2b2a26" stroke-width="4" rx="6" />
+
+		<!-- zdroj na levé straně (dlouhá deska = +, krátká = −) -->
+		<rect x="64" y="138" width="52" height="46" fill="#f8f9fa" stroke="none" />
+		<line x1="66" y1="150" x2="114" y2="150" stroke="#2b2a26" stroke-width="5" />
+		<line x1="78" y1="168" x2="102" y2="168" stroke="#2b2a26" stroke-width="5" />
+		<text x="56" y="146" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">+</text>
+		<text x="56" y="178" text-anchor="middle" font-size="18" font-weight="bold" fill="#1971c2">−</text>
+		<text x="90" y="205" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">zdroj 12 V</text>
+
+		<!-- rezistor na horním vodiči -->
+		<rect x="160" y="46" width="80" height="28" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" rx="4" />
+		<text x="200" y="36" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">rezistor</text>
+
+		<!-- žárovka na pravé straně (kolečko s křížkem — značka podle výkladu) -->
+		<circle id="mer-zarovka" cx="310" cy="160" r="26" fill="#ffe066" stroke="#2b2a26" stroke-width="3" />
+		<path d="M292 142 L328 178 M328 142 L292 178" fill="none" stroke="#2b2a26" stroke-width="2.5" />
+		<text x="310" y="118" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">žárovka</text>
+
+		<!-- větev pro paralelní zapojení (vede vedle žárovky) -->
+		<g id="mer-vetev" opacity="0">
+			<path id="mer-vetev-drat" d="M310 134 L400 134 M400 186 L310 186" fill="none" stroke="#2b2a26" stroke-width="4" />
+		</g>
+
+		<!-- měřicí přístroj: dole v obvodu (sériově), nebo ve větvi (paralelně) -->
+		<g id="mer-pristroj">
+			<circle id="mer-kolo" cx="200" cy="260" r="26" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<text id="mer-znak" x="200" y="255" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26">A</text>
+			<text id="mer-hodnota" x="200" y="274" text-anchor="middle" font-size="13" font-weight="bold" fill="#2f9e44"></text>
+		</g>
+
+		<!-- animované částice proudu: kreslí se AŽ NAD přístrojem, aby byl vidět průchod proudu -->
+		<g id="mer-tecky"></g>
+
+		<!-- výstražný blesk u chybného zapojení -->
+		<text id="mer-vystraha" x="200" y="40" text-anchor="middle" font-size="26" opacity="0">⚡</text>
+	</svg>
+
+	<p class="mer-radek">
+		<strong>Přístroj:</strong>
+		<button type="button" class="mer-tl mer-pr-tl mer-aktivni" data-pristroj="A">ampérmetr (A)</button>
+		<button type="button" class="mer-tl mer-pr-tl" data-pristroj="V">voltmetr (V)</button>
+	</p>
+	<p class="mer-radek">
+		<strong>Zapojení:</strong>
+		<button type="button" class="mer-tl mer-zap-tl mer-aktivni" data-zapojeni="serie">sériově (do cesty proudu)</button>
+		<button type="button" class="mer-tl mer-zap-tl" data-zapojeni="paralel">paralelně (vedle žárovky)</button>
+	</p>
+	<p class="mer-stav" id="mer-stav"></p>
+</section>
+
+<script>
+	const prTlacitka = document.querySelectorAll('.mer-pr-tl');
+	const zapTlacitka = document.querySelectorAll('.mer-zap-tl');
+	const zarovka = document.getElementById('mer-zarovka');
+	const vetev = document.getElementById('mer-vetev');
+	const vetevDrat = document.getElementById('mer-vetev-drat');
+	const kolo = document.getElementById('mer-kolo');
+	const znak = document.getElementById('mer-znak');
+	const hodnota = document.getElementById('mer-hodnota');
+	const vystraha = document.getElementById('mer-vystraha');
+	const stavEl = document.getElementById('mer-stav');
+	const teckyG = document.getElementById('mer-tecky');
+	const svg = document.getElementById('mer-svg');
+
+	let pristroj = 'A';
+	let zapojeni = 'serie';
+
+	// Dvě dráhy proudu. Normální = hlavní smyčka (přes žárovku).
+	// Zkratová = u žárovky odbočí do větve s ampérmetrem a žárovku OBEJDE.
+	const TRASA_NORMAL = [[90, 60], [310, 60], [310, 260], [90, 260], [90, 60]];
+	const TRASA_ZKRAT = [[90, 60], [310, 60], [310, 134], [400, 134], [400, 186], [310, 186], [310, 260], [90, 260], [90, 60]];
+
+	function delkaTrasy(trasa) {
+		let d = 0;
+		for (let i = 1; i < trasa.length; i++) d += Math.hypot(trasa[i][0] - trasa[i - 1][0], trasa[i][1] - trasa[i - 1][1]);
+		return d;
+	}
+	// poloha na lomené čáře ve vzdálenosti s od začátku (uzavřená smyčka → zbytek po dělení)
+	function naTrase(trasa, s) {
+		const celkem = delkaTrasy(trasa);
+		s = ((s % celkem) + celkem) % celkem;
+		for (let i = 1; i < trasa.length; i++) {
+			const [x1, y1] = trasa[i - 1], [x2, y2] = trasa[i];
+			const d = Math.hypot(x2 - x1, y2 - y1);
+			if (s <= d) { const p = d === 0 ? 0 : s / d; return [x1 + (x2 - x1) * p, y1 + (y2 - y1) * p]; }
+			s -= d;
+		}
+		return trasa[trasa.length - 1];
+	}
+
+	// ČTYŘI možnosti. Obvod: zdroj 12 V, žárovka a rezistor v sérii → proud 1 A,
+	// na žárovce 6 V. Při zkratu je žárovka přemostěná → proud vzroste na 2 A.
+	function situace() {
+		if (pristroj === 'A' && zapojeni === 'serie') {
+			return {
+				spravne: true, proud: 1, sviti: true, zkrat: false, hodnota: '1 A',
+				text: 'Správně! Ampérmetr patří do série — obvod se v jednom místě rozpojí a přístroj se vloží přímo do cesty proudu, takže jím projde celý měřený proud. Ukazuje 1 A.',
+			};
+		}
+		if (pristroj === 'A' && zapojeni === 'paralel') {
+			return {
+				spravne: false, proud: 2, sviti: false, zkrat: true, hodnota: '2 A',
+				text: 'Chyba — zkrat. Ampérmetr má skoro nulový odpor, takže proud teče zkratkou přes něj a žárovku obejde: žárovka zhasla a obvodem teče dvakrát větší proud než předtím. Kdybys takhle připojil ampérmetr rovnou ke svorkám zdroje, spálil by se.',
+			};
+		}
+		if (pristroj === 'V' && zapojeni === 'paralel') {
+			return {
+				spravne: true, proud: 1, sviti: true, zkrat: false, hodnota: '6 V',
+				text: 'Správně! Voltmetr patří vedle součástky, kterou měříš. Na žárovce je 6 V — zbylých 6 V připadá na rezistor a dohromady dají 12 V zdroje. Obvod se kvůli voltmetru nerozpojuje, proto žárovka svítí dál.',
+			};
+		}
+		return {
+			spravne: false, proud: 0, sviti: false, zkrat: false, hodnota: '≈ 12 V',
+			text: 'Chyba — obvod stojí. Voltmetr má obrovský odpor, takže v sérii proud téměř zastaví a žárovka nesvítí. Ukazuje sice skoro 12 V, jenže to je napětí, které se ztratilo na samotném voltmetru — na žárovku nezbylo skoro nic.',
+		};
+	}
+
+	const POCET = 14;
+	const tecky = [];
+	for (let k = 0; k < POCET; k++) {
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('r', '5');
+		c.setAttribute('fill', '#fab005');
+		c.setAttribute('stroke', '#2b2a26');
+		c.setAttribute('stroke-width', '1.5');
+		teckyG.appendChild(c);
+		tecky.push(c);
+	}
+
+	// ČISTÁ funkce času — poloha tečky (kontrola spojitosti výpočtem, viz __stavMeridel).
+	const RYCHLOST = 140; // px/s na 1 A → 1 A ≈ 2,2 px na snímek
+	function polohaTecky(t, k, proud, zkrat) {
+		const trasa = zkrat ? TRASA_ZKRAT : TRASA_NORMAL;
+		return naTrase(trasa, proud * RYCHLOST * t + (k / POCET) * delkaTrasy(trasa));
+	}
+
+	let proudTed = 1, zkratTed = false;
+	function prekresli() {
+		const s = situace();
+		proudTed = s.proud;
+		zkratTed = s.zkrat;
+
+		znak.textContent = pristroj;
+		hodnota.textContent = s.hodnota;
+		hodnota.setAttribute('fill', s.spravne ? '#2f9e44' : '#e03131');
+		kolo.setAttribute('fill', s.spravne ? '#fff' : '#ffe3e3');
+
+		// přesun přístroje: sériově = dolů do obvodu, paralelně = do větve vedle žárovky
+		if (zapojeni === 'serie') {
+			kolo.setAttribute('cx', '200'); kolo.setAttribute('cy', '260');
+			znak.setAttribute('x', '200'); znak.setAttribute('y', '255');
+			hodnota.setAttribute('x', '200'); hodnota.setAttribute('y', '274');
+			vetev.setAttribute('opacity', '0');
+		} else {
+			kolo.setAttribute('cx', '400'); kolo.setAttribute('cy', '160');
+			znak.setAttribute('x', '400'); znak.setAttribute('y', '155');
+			hodnota.setAttribute('x', '400'); hodnota.setAttribute('y', '174');
+			vetev.setAttribute('opacity', '1');
+			vetevDrat.setAttribute('stroke', s.zkrat ? '#e03131' : '#2b2a26');
+		}
+
+		zarovka.setAttribute('fill', s.sviti ? '#ffe066' : '#dee2e6');
+		vystraha.setAttribute('opacity', s.spravne ? '0' : '1');
+		stavEl.textContent = s.text;
+		stavEl.style.color = s.spravne ? '#2f9e44' : '#e03131';
+
+		// statická poloha teček (v náhledu se rAF nemusí volat — tečky musí být vidět i tak)
+		for (let k = 0; k < POCET; k++) {
+			const [x, y] = polohaTecky(0, k, proudTed, zkratTed);
+			tecky[k].setAttribute('cx', x.toFixed(1));
+			tecky[k].setAttribute('cy', y.toFixed(1));
+			tecky[k].setAttribute('opacity', proudTed === 0 ? '0.25' : '1');
+		}
+	}
+
+	prTlacitka.forEach((tl) => tl.addEventListener('click', () => {
+		prTlacitka.forEach((t) => t.classList.remove('mer-aktivni'));
+		tl.classList.add('mer-aktivni');
+		pristroj = tl.dataset.pristroj;
+		prekresli();
+	}));
+	zapTlacitka.forEach((tl) => tl.addEventListener('click', () => {
+		zapTlacitka.forEach((t) => t.classList.remove('mer-aktivni'));
+		tl.classList.add('mer-aktivni');
+		zapojeni = tl.dataset.zapojeni;
+		prekresli();
+	}));
+	prekresli();
+
+	// ověřovací háčky: poloha tečky je čistá funkce času
+	svg.__stavMeridel = (t, k, proud, zkrat) =>
+		polohaTecky(t, k, proud === undefined ? proudTed : proud, zkrat === undefined ? zkratTed : zkrat);
+	svg.__trasy = { normal: TRASA_NORMAL, zkrat: TRASA_ZKRAT };
+
+	let cas = 0, minule = performance.now();
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		cas += dt;
+		for (let k = 0; k < POCET; k++) {
+			const [x, y] = polohaTecky(cas, k, proudTed, zkratTed);
+			tecky[k].setAttribute('cx', x.toFixed(1));
+			tecky[k].setAttribute('cy', y.toFixed(1));
+		}
+		requestAnimationFrame(krok);
+	}
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#mer-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.mer-radek { margin: 0.7rem 0; }
+	.mer-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.mer-tl.mer-aktivni { background: #ffe8cc; }
+	.mer-tl:active { transform: translateY(1px); }
+	.mer-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.2rem; }
+</style>

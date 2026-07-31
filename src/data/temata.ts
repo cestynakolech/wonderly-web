@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'reostat';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -2732,6 +2732,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'elektricky-proud-mereni',
 						nazev: 'Elektrický proud a jeho měření',
+						interakce: 'meridla',
 						obsah: `
 							<h2>Elektrický proud a jeho měření</h2>
 							<p><strong>Elektrický proud</strong> udává, kolik náboje projde vodičem za 1 sekundu. Značka <strong>I</strong>, jednotka <strong>ampér (A)</strong>. Platí <strong>I = Q / t</strong>.</p>
@@ -2754,6 +2755,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'elektricke-napeti-mereni',
 						nazev: 'Elektrické napětí a jeho měření',
+						interakce: 'meridla',
 						obsah: `
 							<h2>Elektrické napětí a jeho měření</h2>
 							<p><strong>Elektrické napětí</strong> je hlavní charakteristika zdrojů i spotřebičů. Značka <strong>U</strong>, jednotka <strong>volt (V)</strong>.</p>
@@ -2779,6 +2781,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'elektricky-proud-v-kovech-odpor',
 						nazev: 'Elektrický proud v kovech, odpor vodiče',
+						interakce: 'odpor-vodice',
 						obsah: `
 							<h2>Elektrický proud v kovech a odpor vodiče</h2>
 							<p>Kovy jsou <strong>krystalické látky</strong> — atomy jsou pravidelně uspořádány v <strong>krystalové mřížce</strong> a mají spoustu <strong>volných elektronů</strong>.</p>
@@ -2802,6 +2805,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'zavislost-odporu-na-vodici',
 						nazev: 'Závislost odporu na vlastnostech vodiče (nad rámec RVP)',
+						interakce: 'odpor-vodice',
 						obsah: `
 							<h2>Na čem závisí odpor vodiče</h2>
 							<p>Elektrický odpor vodiče (R, jednotka <strong>ohm Ω</strong>) závisí na čtyřech věcech:</p>
@@ -2884,6 +2888,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'rezistor-s-promennym-odporem',
 						nazev: 'Rezistor s proměnným odporem',
+						interakce: 'reostat',
 						obsah: `
 							<h2>Rezistor s proměnným odporem — reostat a potenciometr</h2>
 							<p>Je to rezistor, u kterého lze <strong>měnit odpor</strong>. Tvoří ho odporový drát a <strong>posuvný jezdec</strong>, který určuje, jak velká část drátu je zapojena. Podle konstrukce je <strong>posuvný</strong> nebo <strong>otočný</strong>. Podle způsobu zapojení se mu říká reostat, nebo potenciometr.</p>
