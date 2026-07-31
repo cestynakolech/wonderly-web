@@ -1,0 +1,187 @@
+---
+// Adresy buněk a vzorce (informatika 8): úloha přesně podle výkladu — sloupec cen v €
+// a jeden kurz v buňce B1. Žák klikáním zjišťuje adresy, přepíná relativní × absolutní
+// odkaz a zkopíruje vzorec dolů.
+//
+// Pointa: s ABSOLUTNÍM $B$1 vyjdou ceny správně (100, 300, 500, 1000 Kč).
+// S RELATIVNÍM B1 se odkaz posune na buňku nad výsledkem a čísla se lavinovitě rozjedou
+// (100 → 1200 → 24 000 → 960 000), takže chyba je vidět na první pohled.
+// Všechna čísla vycházejí celá pro kurzy 24, 25 i 26 Kč.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Tabulka, která počítá 🕹️</span></h2>
+	<p>Klikni na buňku a nahoře uvidíš její <strong>adresu</strong> i obsah. Pak vzorec <strong>zkopíruj dolů</strong> a porovnej, co udělá relativní a co absolutní odkaz.</p>
+	<svg id="tab-svg" viewBox="0 0 520 300" role="img" aria-label="Tabulkový procesor: sloupec cen v eurech a kurz v buňce B1, vzorec ve sloupci B">
+		<!-- pole s adresou a řádek vzorců -->
+		<rect x="14" y="10" width="70" height="26" fill="#fff" stroke="#2b2a26" stroke-width="2" rx="4" />
+		<text id="tab-adresa" x="49" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">B2</text>
+		<rect x="92" y="10" width="414" height="26" fill="#fff" stroke="#2b2a26" stroke-width="2" rx="4" />
+		<text x="100" y="28" font-size="14" font-weight="bold" fill="#868e96">fx</text>
+		<text id="tab-vzorec" x="122" y="28" font-size="14" font-weight="bold" fill="#1971c2"></text>
+
+		<!-- mřížka (kreslí skript) -->
+		<g id="tab-mrizka"></g>
+
+		<text id="tab-hlaska" x="260" y="288" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+
+	<p class="tab-radek">
+		<strong>Odkaz na kurz:</strong>
+		<button type="button" class="tab-tl tab-o-tl tab-aktivni" data-odkaz="absolutni">absolutní $B$1 (ukotvený)</button>
+		<button type="button" class="tab-tl tab-o-tl" data-odkaz="relativni">relativní B1</button>
+	</p>
+	<p class="tab-radek">
+		<strong>Kurz v B1:</strong>
+		<button type="button" class="tab-tl tab-k-tl" data-kurz="24">24 Kč</button>
+		<button type="button" class="tab-tl tab-k-tl tab-aktivni" data-kurz="25">25 Kč</button>
+		<button type="button" class="tab-tl tab-k-tl" data-kurz="26">26 Kč</button>
+		<button type="button" class="tab-tl tab-kopie" id="tab-kopiruj">⬇️ Zkopíruj vzorec dolů</button>
+	</p>
+	<p class="tab-stav" id="tab-stav"></p>
+</section>
+
+<script>
+	const mrizka = document.getElementById('tab-mrizka');
+	const adresaEl = document.getElementById('tab-adresa');
+	const vzorecEl = document.getElementById('tab-vzorec');
+	const hlaskaEl = document.getElementById('tab-hlaska');
+	const stavEl = document.getElementById('tab-stav');
+	const oTlacitka = document.querySelectorAll('.tab-o-tl');
+	const kTlacitka = document.querySelectorAll('.tab-k-tl');
+	const btnKopiruj = document.getElementById('tab-kopiruj');
+	const svg = document.getElementById('tab-svg');
+
+	const CENY = [4, 12, 20, 40];       // ceny v eurech (řádky 2–5)
+	let kurz = 25, odkaz = 'absolutni', zkopirovano = false, vybrana = 'B2';
+
+	// ČISTÁ funkce: co je v buňce sloupce B na daném řádku.
+	// Absolutní $B$1 ukazuje pořád na kurz. Relativní B1 se při kopírování posune
+	// na buňku O ŘÁDEK VÝŠ — tedy na předchozí VÝSLEDEK, a čísla se rozjedou.
+	function hodnotaB(radek) {
+		if (radek === 1) return kurz;
+		if (radek === 2) return CENY[0] * kurz;                 // první vzorec je vždy správně
+		if (!zkopirovano) return null;                           // níž se ještě nekopírovalo
+		const cena = CENY[radek - 2];
+		return odkaz === 'absolutni' ? cena * kurz : cena * hodnotaB(radek - 1);
+	}
+	function vzorecB(radek) {
+		if (radek === 1) return String(kurz);
+		if (radek > 2 && !zkopirovano) return '';
+		const kotva = odkaz === 'absolutni' ? '$B$1' : `B${radek - 1}`;
+		return `=A${radek}*${kotva}`;
+	}
+	const spravne = (radek) => CENY[radek - 2] * kurz;
+
+	// mřížka: sloupec s čísly řádků + sloupce A a B
+	const X0 = 20, SIRKA_CISEL = 40, SIRKA = 170, Y0 = 46, VYSKA = 34;
+	const cellX = (sl) => X0 + SIRKA_CISEL + sl * SIRKA;
+	const cellY = (radek) => Y0 + radek * VYSKA;
+
+	function prekresli() {
+		mrizka.textContent = '';
+		const pridej = (tag, atr, text) => {
+			const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+			for (const [k, v] of Object.entries(atr)) e.setAttribute(k, v);
+			if (text !== undefined) e.textContent = text;
+			mrizka.appendChild(e);
+			return e;
+		};
+		// záhlaví sloupců
+		for (const [i, jmeno] of ['A', 'B'].entries()) {
+			pridej('rect', { x: cellX(i), y: Y0, width: SIRKA, height: VYSKA, fill: '#e9ecef', stroke: '#adb5bd', 'stroke-width': 1.5 });
+			pridej('text', { x: cellX(i) + SIRKA / 2, y: Y0 + 22, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 'bold', fill: '#495057' }, jmeno);
+		}
+		pridej('rect', { x: X0, y: Y0, width: SIRKA_CISEL, height: VYSKA, fill: '#e9ecef', stroke: '#adb5bd', 'stroke-width': 1.5 });
+
+		for (let radek = 1; radek <= 5; radek++) {
+			// číslo řádku
+			pridej('rect', { x: X0, y: cellY(radek), width: SIRKA_CISEL, height: VYSKA, fill: '#e9ecef', stroke: '#adb5bd', 'stroke-width': 1.5 });
+			pridej('text', { x: X0 + SIRKA_CISEL / 2, y: cellY(radek) + 22, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 'bold', fill: '#495057' }, String(radek));
+
+			for (const sl of [0, 1]) {
+				const jmeno = (sl === 0 ? 'A' : 'B') + radek;
+				const jeVybrana = jmeno === vybrana;
+				let text = '', barva = '#2b2a26';
+				if (sl === 0) {
+					text = radek === 1 ? 'kurz Kč/€' : `${CENY[radek - 2]} €`;
+					if (radek === 1) barva = '#868e96';
+				} else {
+					const h = hodnotaB(radek);
+					if (h !== null) text = radek === 1 ? `${h} Kč` : `${h.toLocaleString('cs-CZ')} Kč`;
+					if (radek > 1 && h !== null && h !== spravne(radek)) barva = '#e03131';
+					else if (radek > 1 && h !== null) barva = '#2f9e44';
+				}
+				const r = pridej('rect', {
+					x: cellX(sl), y: cellY(radek), width: SIRKA, height: VYSKA,
+					fill: jeVybrana ? '#fff3bf' : '#fff',
+					stroke: jeVybrana ? '#1971c2' : '#dee2e6',
+					'stroke-width': jeVybrana ? 3 : 1.5,
+					style: 'cursor: pointer',
+				});
+				r.addEventListener('click', () => { vybrana = jmeno; prekresli(); });
+				pridej('text', {
+					x: cellX(sl) + SIRKA / 2, y: cellY(radek) + 22, 'text-anchor': 'middle',
+					'font-size': 14, 'font-weight': 'bold', fill: barva, style: 'pointer-events: none',
+				}, text);
+			}
+		}
+
+		// pole adresy a řádek vzorců
+		adresaEl.textContent = vybrana;
+		const sl = vybrana[0], radek = +vybrana.slice(1);
+		vzorecEl.textContent = sl === 'A'
+			? (radek === 1 ? 'kurz Kč/€' : `${CENY[radek - 2]} €`)
+			: (vzorecB(radek) || '(prázdná)');
+
+		// hláška a vysvětlení
+		const chybne = zkopirovano && odkaz === 'relativni';
+		hlaskaEl.textContent = chybne ? '⚠️ čísla se rozjela — odkaz se posunul!' : '';
+		hlaskaEl.setAttribute('fill', '#e03131');
+
+		if (!zkopirovano) {
+			stavEl.textContent = `V buňce B2 je vzorec ${vzorecB(2)} — tabulka násobí cenu ${CENY[0]} € kurzem ${kurz} Kč. Zkus změnit kurz: výsledek se přepočítá SÁM. Pak vzorec zkopíruj dolů.`;
+			stavEl.style.color = '#2b2a26';
+		} else if (odkaz === 'absolutni') {
+			stavEl.textContent = `Správně. Adresa $B$1 je UKOTVENÁ dolary, takže při kopírování zůstala na kurzu — všechny řádky počítají s ${kurz} Kč. Přepni na relativní odkaz a uvidíš rozdíl.`;
+			stavEl.style.color = '#2f9e44';
+		} else {
+			stavEl.textContent = `Chyba. Relativní adresa se při kopírování posouvá s vzorcem: v B3 už neukazuje na kurz, ale na B2 — tedy na předchozí výsledek. Proto místo ${spravne(3).toLocaleString('cs-CZ')} Kč vyjde ${hodnotaB(3).toLocaleString('cs-CZ')} Kč a dál se to lavinovitě zvětšuje. Kurz je potřeba ukotvit: $B$1.`;
+			stavEl.style.color = '#e03131';
+		}
+	}
+
+	oTlacitka.forEach((tl) => tl.addEventListener('click', () => {
+		oTlacitka.forEach((t) => t.classList.remove('tab-aktivni'));
+		tl.classList.add('tab-aktivni');
+		odkaz = tl.dataset.odkaz;
+		prekresli();
+	}));
+	kTlacitka.forEach((tl) => tl.addEventListener('click', () => {
+		kTlacitka.forEach((t) => t.classList.remove('tab-aktivni'));
+		tl.classList.add('tab-aktivni');
+		kurz = +tl.dataset.kurz;
+		prekresli();
+	}));
+	btnKopiruj.addEventListener('click', () => {
+		zkopirovano = !zkopirovano;
+		btnKopiruj.textContent = zkopirovano ? '↩️ Vrať zpět' : '⬇️ Zkopíruj vzorec dolů';
+		prekresli();
+	});
+	prekresli();
+
+	// ověřovací háčky
+	svg.__hodnotaB = (radek, k, o, zkop) => { const p = [kurz, odkaz, zkopirovano]; kurz = k; odkaz = o; zkopirovano = zkop; const v = hodnotaB(radek); [kurz, odkaz, zkopirovano] = p; return v; };
+	svg.__vzorecB = (radek, o, zkop) => { const p = [odkaz, zkopirovano]; odkaz = o; zkopirovano = zkop; const v = vzorecB(radek); [odkaz, zkopirovano] = p; return v; };
+	svg.__ceny = CENY;
+</script>
+
+<style>
+	#tab-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.tab-radek { margin: 0.6rem 0; }
+	.tab-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.tab-tl.tab-aktivni { background: #ffe8cc; }
+	.tab-tl.tab-kopie { background: #d3f9d8; }
+	.tab-tl:active { transform: translateY(1px); }
+	.tab-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
+</style>
