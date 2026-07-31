@@ -1,6 +1,6 @@
 # PROGRESS.md — technický stav práce
 
-_Aktualizováno 19. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
+_Aktualizováno 31. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
 
 ## ⏩ Jak navázat v nové session
 1. Přečti `CLAUDE.md` a tento `PROGRESS.md`.
@@ -42,7 +42,8 @@ Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
 **NÁZORNOST (zadání učitele 31. 7. 2026):** `public/materialy/fyzika/` má jen 6. a 7. ročník.
-Bez obrázku, videa i simulace je **13 podtémat fyziky 8** (z původních 22 — 3 vyřešena
+Bez obrázku, videa i simulace je **41 podtémat informatiky** (nejhorší díra — ani jeden
+obrázek či video ve všech třech ročnících; řeší se PRÁVĚ TEĎ), **13 podtémat fyziky 8** (z původních 22 — 3 vyřešena
 novými simulacemi, 4 recyklací hotových, 2 jsou shrnutí, která názornost nepotřebují)
 a **10 podtémat fyziky 9**. **Skutečně nejhůř je na tom informatika**: 47 podtémat,
 5 simulací a ani jedno podtéma s obrázkem či videem — to je podle auditu větší díra
@@ -99,6 +100,33 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+
+- **2026-07-31 odpoledne (větší změna: kontroly čtou data + start informatiky)** —
+  Na zadání učitele provedena „ta jedna větší změna", kterou doporučil audit.
+  Nový modul `testy/data.mjs` přeloží `kvizy.ts` a `temata.ts` esbuildem a **naimportuje
+  je jako skutečné objekty**; brána `zkontroluj.mjs` i měření `testy/nazornost.mjs` nad
+  tím běží. Rozdíl: brána nově vidí **2436 otázek ve 164 blocích** místo dřívějších 2084
+  a kontrola „ke každé otázce patří tři odpovědi" konečně běží na všech (14 bloků shrnutí
+  se skládá programově, takže je žádný vzor nad textem neviděl). Brána se pouští při
+  každém `npm run build` (`prebuild`) — dosud jen z dobré vůle. Přibyla **kontrola 6c**:
+  každé podtéma s kvízem musí být zastoupené v ročním opakování svého ročníku — přesně
+  ta chyba, kvůli které se 144 otázek VEX IQ a her ve Scratchi nikdy neobjevilo v opakování.
+  Vše ověřeno **obousměrně**: podvržená otázka se dvěma odpověďmi se najde, celek vypadlý
+  ze souhrnu se najde (6 podtémat), zdravý stav nehlásí nic.
+  **Začala informatika** — podle auditu největší díra na webu: 47 podtémat, 5 simulací
+  a ani jedno podtéma s obrázkem či videem. První simulace `TabulkaVzorceSimulace`
+  u podtématu `adresy-bunek-a-vzorce`: úloha přímo z výkladu (sloupec cen v € a kurz
+  v B1), žák kliká na buňky a vidí jejich adresu, přepíná relativní × absolutní odkaz
+  a kopíruje vzorec dolů. S `$B$1` vyjde 100/300/500/1000 Kč, s relativním `B1` se odkaz
+  posune na předchozí VÝSLEDEK a čísla se lavinovitě rozjedou (100 → 1200 → 24 000 →
+  960 000) — chyba je vidět na první pohled a všechna čísla zůstávají celá.
+  Na přání učitele dostaly **papírky u elektrování tři fáze** (leží → zvedají se
+  a napřimují → na určitou vzdálenost odskočí; po vybití spadnou zpět) a **paralelní
+  zapojení kuličky proudu, které se v uzlu jen rozdělí** (stejné odpory → ob jednu;
+  20 Ω × 60 Ω → tři do slabšího odporu a jedna do většího).
+  **Poučení:** falešný poplach z vlastního měřidla je horší než chybějící kontrola —
+  tiše určuje, na čem se pracuje. A `curl` na živý web může vrátit starou verzi
+  z mezipaměti Cloudflare; k adrese proto přidávat časové razítko.
 
 - **2026-07-31 poledne (audit strategie — měřidla lhala, ne architektura)** — Na zadání
   učitele („někdy příliš záplat nedá dobrý výsledek a je třeba jedna větší změna") proběhly
