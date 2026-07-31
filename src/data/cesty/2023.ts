@@ -362,6 +362,9 @@ export const rok2023: Rok = {
 			y: 290.3,
 			popis: {
 				cs: 'Obec na severu okresu Nordwestmecklenburg v Meklenbursku-Předním Pomořansku. Vznikla 1. ledna 2005 spojením do té doby samostatných obcí Groß Walmstorf a Gramkow; spravuje ji úřad Klützer Winkel se sídlem ve městě Klütz.',
+				en: 'Municipality in the north of Nordwestmecklenburg District in Mecklenburg-Western Pomerania. Formed on January 1, 2005, by the merger of the previously independent municipalities Groß Walmstorf and Gramkow; administered by the Klützer Winkel office with its seat in the town of Klütz.',
+				de: 'Gemeinde im Norden des Landkreises Nordwestmecklenburg in Mecklenburg-Vorpommern. Sie entstand am 1. Januar 2005 durch die Zusammenlegung der bis dahin selbstständigen Gemeinden Groß Walmstorf und Gramkow; sie wird vom Amt Klützer Winkel mit Sitz in der Stadt Klütz verwaltet.',
+				fr: 'La commune située au nord du district de Nordwestmecklenburg en Mecklembourg-Poméranie de l\'Ouest. Elle a été créée le 1er janvier 2005 par la fusion des anciennes communes indépendantes de Groß Walmstorf et de Gramkow ; elle est administrée par le bureau de Klützer Winkel, dont le siège est situé à Klütz.',
 			},
 		},
 		{

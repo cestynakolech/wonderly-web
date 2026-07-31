@@ -59,6 +59,8 @@ export const rok2024: Rok = {
 			y: 335.3,
 			popis: {
 				cs: 'Město na východním okraji okresu Sokolov, které stojí na meandru řeky Ohře pod Slavkovským lesem — německy Elbogen, tedy loket. Bývalo důležitým královským městem a centrem Loketského kraje; nad řekou se na kamenném ostrohu tyčí gotický hrad a centrum je památkovou rezervací. Žije tu asi 3 100 obyvatel.',
+				de: 'Stadt am östlichen Rand des Bezirks Sokolov, die auf einem Meander des Flusses Ohře unter dem Slavkovský Wald liegt — deutsch Elbogen, also Loket. Es war eine wichtige königliche Stadt und Zentrum des Loket-Bezirks; über dem Fluss erhebt sich auf einer steinernen Insel ein gotisches Schloss, und das Zentrum ist ein Denkmalschutzgebiet. Hier leben etwa 3.100 Einwohner.',
+				fr: 'Ville située sur le bord est du district de Sokolov, qui se trouve sur un méandre de la rivière Ohře sous la forêt de Slavkov — allemand : Elbogen, c\'est-à-dire Loket. Elle était autrefois une ville royale importante et le centre de la région de Loket ; au-dessus de la rivière, sur un îlot de pierre, se dresse un château gothique et le centre est une réserve monumentale. Environ 3 100 habitants y vivent.',
 			},
 		},
 		{

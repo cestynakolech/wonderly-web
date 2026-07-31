@@ -31,6 +31,8 @@ export const rok2022: Rok = {
 			y: 340.4,
 			popis: {
 				cs: 'Městys v okrese Žďár nad Sázavou na Vysočině, kde žije 763 obyvatel. Do roku 1948 se jmenoval Německé, německy Niemetzky.',
+				en: 'Market town in the Žďár nad Sázavou District in the Vysočina Region, with a population of 763. Until 1948, it was known as Německé, German: Niemetzky.',
+				de: 'Die Marktgemeinde im Landkreis Žďár nad Sázavou in der Vysočina, wo 763 Einwohner leben. Bis 1948 hieß sie Německé, deutsch Niemetzky.',
 			},
 		},
 		{

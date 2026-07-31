@@ -246,6 +246,9 @@ export const rok2021: Rok = {
 			y: 346.5,
 			popis: {
 				cs: 'Jihočeská obec na levém břehu Blanice, asi šest kilometrů severozápadně od Protivína. Leží v nadmořské výšce 382 metrů a žije v ní 321 obyvatel.',
+				en: 'South Bohemian municipality on the left bank of Blanice, approximately six kilometers northwest of Protivín. It lies at an elevation of 382 meters and has a population of 321 inhabitants.',
+				de: 'Südböhmische Gemeinde am linken Ufer der Blanice, etwa sechs Kilometer nordwestlich von Protivín. Sie liegt in einer Höhe von 382 Metern und hat 321 Einwohner.',
+				fr: 'La commune du Sud de la Bohême située sur la rive gauche de la Blanice, à environ six kilomètres au nord-ouest de Protivín. Elle se situe à 382 mètres d\'altitude et compte 321 habitants.',
 			},
 		},
 		{

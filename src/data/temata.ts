@@ -3988,6 +3988,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>hráč sebere klíč → zpráva „otevři dveře"</li>
 							<li>tlačítko START spustí celou hru</li>
 						</ul>
+						<h3>Vlastní zprávy — kolik jich může být?</h3>
+						<p>Zpráv si můžeš vytvořit <strong>libovolně mnoho</strong> a každá má své jméno („start", „konec hry", „otevři dveře"). Novou vyrobíš tak, že v bloku <strong>vyšli zprávu</strong> rozbalíš nabídku a zvolíš <strong>nová zpráva</strong> — pak jí dáš jméno. Ať je srozumitelné: za měsíc už nevíš, co dělala zpráva „zprava2".</p>
+						<h3>Dva podobné bloky — pozor na rozdíl</h3>
+						<ul>
+							<li><strong>vyšli zprávu</strong> — pošle ji a program pokračuje dál, aniž by čekal</li>
+							<li><strong>vyšli zprávu a čekej</strong> — pošle ji a <strong>počká</strong>, až všichni příjemci svou reakci dokončí</li>
+						</ul>
+						<p>👉 Má-li scénka navazovat přesně (vypravěč dořekne větu, teprve pak promluví druhá postava), použij <strong>vyšli zprávu a čekej</strong>. Když má běžet víc věcí najednou, stačí obyčejné <strong>vyšli zprávu</strong>.</p>
+						<p>A když stejnou zprávu přijme pět postav, <strong>rozběhnou se všechny naráz</strong> — ne jedna po druhé. To je hlavní síla zpráv.</p>
 						<h3>Mini-projekt: interaktivní scénka</h3>
 						<p>Vytvoř scénku se dvěma postavami, které se střídají v dialogu pomocí zpráv — přesně tak se programují animované příběhy.</p>
 						<p>📗 Učebnice Scratch, kapitola 6 (Posílání zpráv).</p>
