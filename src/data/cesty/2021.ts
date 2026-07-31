@@ -36,6 +36,7 @@ export const rok2021: Rok = {
 				cs: 'Český Rudolec je obec v Jihočeském kraji, ležící v Rudoleckém průlomu Javořické vrchoviny na soutoku Bolíkovského potoka (pravého přítoku Moravské Dyje) a Radíkovského potoka. Historicky nachází se na česko-moravské hranici a je známý rybníky u zámku a na Radíkovském potoku.',
 				en: 'Český Rudolec is a municipality in the South Bohemian Region, located in the Rudolec Gorge of the Javořice Upland at the confluence of Bolíkovský Stream (right tributary of the Moravian Dyje) and Radíkovský Stream. Historically situated on the Czech-Moravian border, it is known for the ponds near the castle and on Radíkovský Stream.',
 				de: 'Český Rudolec ist eine Gemeinde in der Region Südböhmen, gelegen in der Rudolecker Schlucht des Javorické Hochlands an der Mündung des Bolikovský-Flusses (rechter Zufluss der Mährischen Dyje) und des Radikovský-Flusses. Historisch liegt es an der tschechisch-mährischen Grenze und ist bekannt für die Teiche bei der Burg und am Radikovský-Fluss.',
+				fr: 'Český Rudolec est une commune située dans la région de Bohême du Sud, dans les gorges de Rudolec du plateau de Javořice, à la confluence du ruisseau Bolíkovský (affluent droit de la Moravská Dyje) et du ruisseau Radíkovský. Historiquement située à la frontière tchèque-morave, elle est connue pour ses étangs près du château et sur le ruisseau Radíkovský.',
 			},
 			videoId: 'P9x08WGWPNQ',
 		},
@@ -51,6 +52,7 @@ export const rok2021: Rok = {
 				cs: 'Třebíč, město na řece Jihlavě v regionu Vysočina, je proslulé svou židovskou čtvrtí a bazilikou sv. Prokopa, zapsanými do UNESCO (2003). Leží 30 km jihovýchodně od Jihlavy a 56 km západně od Brna.',
 				en: 'Třebíč, a city on the Jihlava River in the Vysočina Region, is famous for its Jewish quarter and the Basilica of St. Procopius, inscribed in UNESCO (2003). It lies 30 km southeast of Jihlava and 56 km west of Brno.',
 				de: 'Třebíč, Stadt an der Jihlava in der Region Vysočina, ist berühmt für sein jüdisches Viertel und ihre Basilika des heiligen Prokop, die in die UNESCO-Liste aufgenommen wurden (2003). Es liegt 30 km südöstlich von Jihlava und 56 km westlich von Brno.',
+				fr: 'Třebíč, ville située sur la rivière Jihlava dans la région de Vysočina, est célèbre pour son quartier juif et sa basilique de Saint Procope, inscrits à l\'UNESCO (2003). Elle se trouve à 30 km au sud-est de Jihlava et à 56 km à l\'ouest de Brno.',
 			},
 			videoId: 'P9x08WGWPNQ',
 		},
@@ -64,6 +66,9 @@ export const rok2021: Rok = {
 			y: 347.0,
 			popis: {
 				cs: 'Moravský městys na Českomoravské vrchovině nedaleko Telče, obklopený lesy a obtékaný říčkou Vápovkou — v té se kdysi rýžovalo zlato. Z dávné minulosti tu zůstal kostel a klášter.',
+				en: 'A Moravian market town on the Czech-Moravian Highlands near Telč, surrounded by forests and skirted by the Vápovka stream — in which gold was once panned. From ancient times, a church and monastery remain here.',
+				de: 'Moravische Marktstadt auf der Böhmisch-Mährischen Hochfläche nahe Telč, von Wäldern umgeben und von der Vápovka umflossen – in ihr wurde einst Gold geschürft. Aus der fernen Vergangenheit sind hier Kirche und Kloster erhalten geblieben.',
+				fr: 'Le bourg de Moravie sur les collines de la Haute-Moravie près de Telč, entouré de forêts et bordé par la rivière Vápovka — dans cette rivière, on pannait autrefois de l\'or. Depuis l\'antiquité, l\'église et le couvent sont restés ici.',
 			},
 		},
 		{
@@ -78,6 +83,7 @@ export const rok2021: Rok = {
 				cs: 'Rabí je město v podhůří Šumavy s historickým jádrem, které od roku 1992 tvoří městskou památkovou zónu.',
 				en: 'Rabí is a city in the foothills of Šumava with a historical core that has formed a municipal monument zone since 1992.',
 				de: 'Rabí ist eine Stadt im Fußgebirge der Šumava mit einem historischen Kerngebiet, das seit 1992 eine städtische Denkmalschutzzone bildet.',
+				fr: 'Rabí est une ville située aux pieds de la Sumava, ayant un noyau historique qui forme une zone monumentale municipale depuis 1992.',
 			},
 			videoId: 'PirKcq_jSs8',
 		},
@@ -91,6 +97,9 @@ export const rok2021: Rok = {
 			y: 344.6,
 			popis: {
 				cs: 'Vesnice v okrese Klatovy v Plzeňském kraji. Žije v ní asi osm set obyvatel.',
+				en: 'Village in Klatovy District, Plzeň Region. It has about eight hundred inhabitants.',
+				de: 'Dorf im Kreis Klatovy in der Region Plzeň. In ihm leben etwa achthundert Einwohner.',
+				fr: 'Village dans l\'arrondissement de Klatovy, dans la région de Plzeň. Environ huit cents habitants y vivent.',
 			},
 		},
 		{
@@ -105,6 +114,7 @@ export const rok2021: Rok = {
 				cs: 'Vlčtejn je obec v okrese Plzeň-jih (Plzeňský kraj) s 96 obyvateli, známá svým hradem Vlčtejn, který se nachází na místě.',
 				en: 'Vlčtejn is a municipality in Plzeň-jih District (Plzeň Region) with 96 inhabitants, known for its Vlčtejn Castle, which is located on the site.',
 				de: 'Vlčtejn ist eine Gemeinde im Landkreis Plzeň-jih (Region Plzeň) mit 96 Einwohnern, bekannt für sein Schloss Vlčtejn, das sich am Ort befindet.',
+				fr: 'Vlčtejn est une commune dans l\'arrondissement de Plzeň-jih (région de Plzeň) avec 96 habitants, connue pour son château de Vlčtejn, qui se trouve sur place.',
 			},
 		},
 		{
@@ -119,6 +129,7 @@ export const rok2021: Rok = {
 				cs: 'Úlehle je obec v okrese Strakonice v Jihočeském kraji, ležící zhruba osm kilometrů jihozápadně od Strakonic s 90 obyvateli.',
 				en: 'Úlehle is a municipality in Strakonice District in the South Bohemian Region, located approximately eight kilometers southwest of Strakonice with 90 inhabitants.',
 				de: 'Úlehle ist eine Gemeinde im Landkreis Strakonice im Südböhmen, etwa 8 Kilometer südwestlich von Strakonice gelegen, mit 90 Einwohnern.',
+				fr: 'Úlehle est une commune située dans le district de Strakonice, dans la région de Bohême du Sud, à environ 8 kilomètres au sud-ouest de Strakonic, comptant 90 habitants.',
 			},
 		},
 		{
@@ -133,6 +144,7 @@ export const rok2021: Rok = {
 				cs: 'Krajníčko je vesnice a obec v Jihočeském kraji, okrese Strakonice, s přibližně 100 obyvateli. Nachází se asi 16 km jihovýchodně od Strakonic, 39 km severozápadně od Českých Budějovic a 109 km jižně od Prahy.',
 				en: 'Krajníčko is a village and municipality in the South Bohemian Region, Strakonice District, with approximately 100 inhabitants. It is located approximately 16 km southeast of Strakonice, 39 km northwest of České Budějovice, and 109 km south of Prague.',
 				de: 'Krajníčko ist ein Dorf und eine Gemeinde in Südböhmen, im Landkreis Strakonice, mit etwa 100 Einwohnern. Es liegt etwa 16 km südöstlich von Strakonitz, 39 km nordwestlich von Budweis und 109 km südlich von Prag.',
+				fr: 'Krajníčko est un village et une commune située dans la région de Bohême du Sud, dans le district de Strakonice, avec environ 100 habitants. Elle se trouve à environ 16 km au sud-est de Strakonice, à 39 km au nord-ouest de České Budějovice et à 109 km au sud de Prague.',
 			},
 		},
 		{
@@ -162,6 +174,7 @@ export const rok2021: Rok = {
 				cs: 'Chudenice je městys v okrese Klatovy v Plzeňském kraji, ležící 11 km severozápadně od Klatov. S 759 obyvateli a rozkládající se na katastru 2113 hektarů patří mezi menší obce s tradičním katastrálním rozsahem.',
 				en: 'Chudenice is a market town in the Klatovy District in the Plzeň Region, located 11 km northwest of Klatov. With 759 inhabitants and covering a cadastral area of 2113 hectares, it belongs among smaller municipalities with a traditional cadastral area.',
 				de: 'Chudenice ist eine Marktgemeinde im Landkreis Klatovy in der Region Plzeň, gelegen 11 km nordwestlich von Klatovy. Mit 759 Einwohnern und einer Katasterfläche von 2113 Hektar gehört sie zu den kleineren Gemeinden mit traditionellem Katasterumfang.',
+				fr: 'Chudenice est un bourg du district de Klatovy dans la région de Plzeň, situé à 11 km au nord-ouest de Klatovy. Comptant 759 habitants et s\'étendant sur une superficie cadastrale de 2113 hectares, il appartient aux petites communes ayant une étendue cadastrale traditionnelle.',
 			},
 		},
 		{
@@ -176,6 +189,7 @@ export const rok2021: Rok = {
 				cs: 'Strakonice je město v Jihočeském kraji ležící na soutoku řek Otavy a Volyňky, proslulé dudáckou tradicí a historií průmyslové výroby.',
 				en: 'Strakonice is a city in the South Bohemian Region located at the confluence of the Otava and Volyňka rivers, famous for its dudák tradition and history of industrial production.',
 				de: 'Strakonice ist eine Stadt in der Südbohmischen Region, die am Zusammenfluss der Flüsse Otava und Volyňka liegt, berühmt für ihre Dudak-Tradition und Geschichte der industriellen Produktion.',
+				fr: 'Strakonice est une ville de la région de Bohême du Sud située à la confluence des rivières Otava et Volyňka, célèbre pour sa tradition du dudák et son histoire de production industrielle.',
 			},
 		},
 		{
@@ -219,6 +233,7 @@ export const rok2021: Rok = {
 				cs: 'Bechyně, město v Jihočeském kraji 19 km jihozápadně od Tábora na soutoku řek Smutné a Lužnice, je známé výrobou keramiky a lázněmi. Jako lázeňské město poskytuje léčebně rehabilitační péči, jeho historické jádro je od roku 1990 městskou památkovou zónou.',
 				en: 'Bechyně, a city in the South Bohemian Region, 19 km southwest of Tábor at the confluence of the Smutná and Lužnice rivers, is known for ceramic production and spas. As a spa town, it provides therapeutic and rehabilitative care, and its historical core has been a municipal monument zone since 1990.',
 				de: 'Bechyně, Stadt in der Südböhmischen Region, 19 km südwestlich von Tábor am Zusammenfluss der Flüsse Smutná und Lužnice, ist bekannt für Keramikproduktion und Kurorte. Als Kurort bietet es therapeutische und rehabilitative Pflege an, sein historisches Zentrum ist seit 1990 als städtische Denkmalschutzzone.',
+				fr: 'Bechyně, ville située dans la région de Bohême du Sud à 19 km au sud-ouest de Tábor à la confluence des rivières Smutná et Lužnice, est connue pour sa production de céramique et ses thermes. En tant que ville thermale, elle propose des soins thérapeutiques et de rééducation, et son noyau historique est classé en zone monumentale municipale depuis 1990.',
 			},
 		},
 		{
@@ -245,6 +260,7 @@ export const rok2021: Rok = {
 				cs: 'Kroměříž, město na řece Moravě v jižním cípu Hané, je známé jako Hanácké Athény a domovem UNESCO kulturního dědictví – Arcibiskupského zámku spolu s Květnou a Podzámeckou zahradou.',
 				en: 'Kroměříž, a city on the Morava River in the southern tip of Haná, is known as Haná\'s Athens and the home of UNESCO cultural heritage – the Archbishop\'s Castle together with Květná and Podzámecká Garden.',
 				de: 'Kroměříž, Stadt an der Morava im südlichen Zipfel der Hana, ist bekannt als Hanäische Athen und Sitz des UNESCO-Kulturerbes – des Erzbischöflichen Schlosses zusammen mit Květná und Podzámecká Garten.',
+				fr: 'Kroměříž, ville située sur la Morava dans l\'extrémité sud de la Haná, est connu sous le nom d\'Athènes de Haná et est le foyer du patrimoine culturel de l\'UNESCO – le palais archiépiscopal ainsi que les jardins Květná et Podzámecká.',
 			},
 		},
 		{
@@ -259,6 +275,7 @@ export const rok2021: Rok = {
 				cs: 'Velké Karlovice je obec v okrese Vsetín ve Zlínském kraji s přibližně 2 400 obyvateli. Součástí obce je také vesnice Malé Karlovice.',
 				en: 'Velké Karlovice is a municipality in the Vsetín District in the Zlín Region with approximately 2,400 inhabitants. The village of Malé Karlovice is also part of the municipality.',
 				de: 'Velké Karlovice ist eine Gemeinde im Landkreis Vsetín in der Region Zlín mit etwa 2 400 Einwohnern. Das Dorf Malé Karlovice ist ebenfalls Teil der Gemeinde.',
+				fr: 'Velké Karlovice est une commune du district de Vsetín, dans la région de Zlín, comptant environ 2 400 habitants. Le village de Malé Karlovice fait également partie de la commune.',
 			},
 		},
 		{
@@ -273,6 +290,7 @@ export const rok2021: Rok = {
 				cs: 'Olomouc je největší město na řece Moravě, sídlem UNESCO-listovaného Sloupu Nejsvětější Trojice a Univerzity Palackého, nejstarší na Moravě. Historické jádro města, chráněné jako městská památková rezervace, patří k největším a nejvýznamnějším v Česku.',
 				en: 'Olomouc is the largest city on the Morava River, home to the UNESCO-listed Column of the Most Holy Trinity and Palacký University, and the oldest in Moravia. The historical core of the city, protected as a city monument reserve, is among the largest and most significant in the Czech Republic.',
 				de: 'Olomouc ist die größte Stadt am Fluss Morava, Sitz der von der UNESCO gelisteten Säule der Heiligen Dreifaltigkeit und der Palacký-Universität, die älteste in Mähren. Der historische Stadtkern der Stadt, geschützt als städtisches Denkmalschutzgebiet, gehört zu den größten und bedeutendsten in Tschechien.',
+				fr: 'Olomouc est la plus grande ville située sur la rivière Morava, siège de la Colonne de la Sainte-Trinité inscrite à l\'UNESCO et de l\'Université Palacký, la plus ancienne en Moravie. Le noyau historique de la ville, protégé en tant que réserve monumentale urbaine, fait partie des plus grands et des plus importants en République tchèque.',
 			},
 		},
 		{
@@ -287,6 +305,7 @@ export const rok2021: Rok = {
 				cs: 'Bouzov je obec v okrese Olomouc v Olomouckém kraji s přibližně 1 500 obyvateli a katastrální rozlohou 4 231 hektarů, kde se nachází hrad Bouzov jako významná památka.',
 				en: 'Bouzov is a municipality in the Olomouc District in the Olomouc Region with approximately 1,500 inhabitants and a cadastral area of 4,231 hectares, where Bouzov Castle, a significant landmark, is located.',
 				de: 'Bouzov ist eine Gemeinde im Landkreis Olomouc in der Region Olomouc mit etwa 1.500 Einwohnern und einer katastralen Fläche von 4.231 Hektar, wo sich die Burg Bouzov als bedeutendes Denkmal befindet.',
+				fr: 'Bouzov est une commune dans le district d\'Olomouc dans la région d\'Olomouc, avec environ 1 500 habitants et une superficie cadastrale de 4 231 hectares, où se trouve le château de Bouzov en tant que monument notable.',
 			},
 		},
 		{
@@ -301,6 +320,7 @@ export const rok2021: Rok = {
 				cs: 'Velká Turná je obec v okrese Strakonice (Jihočeský kraj) s 174 obyvateli. Prostřednictvím vesnice protéká Brložský potok a v kilometru od ní se nachází oblíbený rekreační rybník Milavy.',
 				en: 'Velká Turná is a municipality in the Strakonice District (South Bohemian Region) with 174 inhabitants. The Brložský Stream flows through the village, and a popular recreational Milavy Pond is located one kilometer from it.',
 				de: 'Velká Turná ist eine Gemeinde im Landkreis Strakonice (Südböhmen) mit 174 Einwohnern. Durch das Dorf fließt der Brložský Potok, und einen Kilometer von ihr entfernt befindet sich der beliebte Erholungsteich Milavy.',
+				fr: 'Velká Turná est une commune située dans le district de Strakonice (région de Bohême du Sud) avec 174 habitants. Le ruisseau Brložský traverse le village et à un kilomètre de ce village se trouve l\'étang de loisirs populaire Milavy.',
 			},
 		},
 		{
@@ -315,6 +335,7 @@ export const rok2021: Rok = {
 				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
 				de: 'Františkovy Lázně (deutsch Franzensbad) sind ein Kurort im Landkreis Cheb im Karlovarer Land, 5 km nördlich von Cheb. Seit 2021 befindet sich die Stadt im Verzeichnis des UNESCO-Weltkulturerbes zusammen mit Marienbad und Karlsbad im Rahmen der Kategorie „Berühmte Kurorte Europas“.',
+				fr: 'Františkovy Lázně (allemand Franzensbad) est une ville thermale située dans l\'arrondissement de Cheb, dans la région de Karlovy Vary, à 5 km au nord de Cheb. Depuis 2021, la ville figure sur la liste du patrimoine mondial de l\'UNESCO, en compagnie de Mariánské Lázně et de Karlovy Vary, dans le cadre de la catégorie « Villes thermales célèbres d\'Europe ».',
 			},
 		},
 		{
@@ -329,6 +350,7 @@ export const rok2021: Rok = {
 				cs: 'Prameny je obec v jižní části horského Slavkovského lesa v Karlovarském kraji, nacházející se v lesním prostředí s horským charakterem.',
 				en: 'Prameny is a village in the southern part of the mountainous Slavkovský Forest in the Karlovy Vary Region, located in a forest environment with a mountainous character.',
 				de: 'Prameny ist eine Gemeinde im südlichen Teil des gebirgischen Slavkovský Waldes in der Karlovy-Vary-Region, gelegen in einer Waldumgebung mit bergigem Charakter.',
+				fr: 'Prameny est une commune située dans la partie sud de la forêt montagneuse de Slavkov, dans la région de Karlovy Vary, dans un environnement forestier à caractère montagneux.',
 			},
 		},
 		{
@@ -342,6 +364,7 @@ export const rok2021: Rok = {
 			popis: {
 				cs: 'Terezín je malé pevnostní město v Ústeckém kraji, nacházející se na obou stranách řeky Ohře, která ho dělí na Malou a hlavní pevnost. Jako národní kulturní památka je zde Malá pevnost s hřbitovem, součástí městské památkové rezervace.',
 				en: 'Terezín is a small fortress town in the Ústí Region, located on both sides of the Ohře River, which divides it into the Small Fortress and the main fortress. As a national cultural monument, the Small Fortress with its cemetery is part of the city\'s monument reserve.',
+				fr: 'Terezín est une petite ville fortifiée située dans la région d\'Ústí, s\'étendant des deux côtés de la rivière Ohře, qui la divise en Petite Forteresse et Forteresse principale. En tant que monument culturel national, la Petite Forteresse avec son cimetière fait partie de la réserve monumentale urbaine.',
 			},
 		},
 		{
@@ -356,6 +379,7 @@ export const rok2021: Rok = {
 				cs: 'Jílové je město v okrese Děčín v Ústeckém kraji České republiky s přibližně 4 900 obyvateli.',
 				en: 'Jílové is a city in the Děčín District in the Ústí Region of the Czech Republic with approximately 4,900 inhabitants.',
 				de: 'Jílové ist eine Stadt im Landkreis Děčín in der Region Ústí der Tschechischen Republik mit etwa 4.900 Einwohnern.',
+				fr: 'Jílové est une ville dans l\'arrondissement de Děčín, dans la région d\'Ústí, en République tchèque, avec environ 4 900 habitants.',
 			},
 		},
 		{
@@ -370,6 +394,7 @@ export const rok2021: Rok = {
 				cs: 'Kamenický Šenov je město v Libereckém kraji ležící v nadmořské výšce 350–550 m na hranici geomorfologických celků Českého středohoří a Lužických hor, které jsou chráněnými krajinnými oblastmi.',
 				en: 'Kamenický Šenov is a city in the Liberec Region located at an elevation of 350–550 m on the boundary between the geomorphological units of the Bohemian Central Mountains and the Lusatian Mountains, which are protected landscape areas.',
 				de: 'Kamenický Šenov ist eine Stadt in der Region Liberec, die auf einer Höhe von 350–550 m an der Grenze der geomorphologischen Einheiten des Böhmischen Mittelgebirges und des Lausitzer Gebirges liegt, die als geschützte Landschaftsgebiete gelten.',
+				fr: 'Kamenický Šenov est une ville située dans la région de Liberec, à une altitude de 350–550 m, à la frontière des unités géomorphologiques des Monts centraux de Bohême et des Monts Lusaciens, qui sont des régions paysagères protégées.',
 			},
 		},
 		{
@@ -384,6 +409,7 @@ export const rok2021: Rok = {
 				cs: 'Bezděz je obec v okrese Česká Lípa, jejíž významnou památkou je zřícenina hradu Bezděz na 606 m vysokém vrcholu Bezděz.',
 				en: 'Bezděz is a municipality in the Česká Lípa District, whose notable landmark is the ruins of Bezděz Castle on the 606-meter-high Bezděz Hill.',
 				de: 'Bezděz ist eine Gemeinde im Kreis Česká Lípa, deren bedeutende Sehenswürdigkeit die Ruine des Schlosses Bezděz auf dem 606 m hohen Gipfel Bezděz ist.',
+				fr: 'Bezděz est une commune de l\'arrondissement de Česká Lípa, dont le monument notable est les ruines du château de Bezděz sur le sommet Bezděz, haut de 606 m.',
 			},
 		},
 		{
@@ -396,6 +422,9 @@ export const rok2021: Rok = {
 			y: 334.9,
 			popis: {
 				cs: 'Obec třicet kilometrů východně od Prahy, kde stojí renesanční zámek — na jeho úpravách se v 16. století podílel císařský architekt Bonifác Wohlmut. Najdete tu i nejstarší skanzen lidové architektury v českých zemích, jehož kořeny sahají do roku 1895.',
+				en: 'The municipality 30 kilometers east of Prague, where stands a Renaissance castle — on whose renovations the imperial architect Bonifác Wohlmut participated in the 16th century. You can also find the oldest open-air museum of folk architecture in the Czech lands, whose roots reach back to 1895.',
+				de: 'Die Gemeinde 30 Kilometer östlich von Prag, in der sich ein Renaissance-Schloss befindet — bei dessen Renovierung im 16. Jahrhundert der kaiserliche Architekt Bonifác Wohlmut beteiligt war. Hier finden Sie auch das älteste Freilichtmuseum der Volksarchitektur in den tschechischen Ländern, dessen Wurzeln bis ins Jahr 1895 zurückreichen.',
+				fr: 'Commune située à trente kilomètres à l\'est de Prague, où se dresse un château de la Renaissance — dont les travaux de rénovation ont impliqué l\'architecte impérial Bonifác Wohlmut au XVIe siècle. Vous y trouverez également le plus ancien musée en plein air d\'architecture populaire des terres tchèques, dont les racines remontent à 1895.',
 			},
 		},
 		{
@@ -408,6 +437,9 @@ export const rok2021: Rok = {
 			y: 339.2,
 			popis: {
 				cs: 'Městys, který se choulí v podhradí stejnojmenného hradu asi sedmnáct kilometrů východně od Benešova. Protéká jím Sázava a žije tu pouhých 184 lidí.',
+				en: 'The market town, which nestles at the foot of the eponymous castle, lies approximately seventeen kilometers east of Benešov. The Sázava flows through it, and only 184 people live there.',
+				de: 'Die Marktgemeinde, die sich am Fuße des gleichnamigen Schlosses etwa 17 Kilometer östlich von Benešov befindet. Die Sázava fließt durch sie, und hier leben nur 184 Menschen.',
+				fr: 'Le bourg, niché au pied du château du même nom, se trouve à environ dix-sept kilomètres à l\'est de Benešov. La Sázava traverse le bourg, où habitent seulement 184 personnes.',
 			},
 		},
 		{
@@ -420,6 +452,9 @@ export const rok2021: Rok = {
 			y: 340.3,
 			popis: {
 				cs: 'Malá obec v okrese Benešov s 277 obyvateli. Nejbližším městem je Vlašim, vzdálená čtrnáct kilometrů na západ.',
+				en: 'Small municipality in Benešov District with 277 inhabitants. The nearest city is Vlašim, fourteen kilometers to the west.',
+				de: 'Kleine Gemeinde im Landkreis Benešov mit 277 Einwohnern. Die nächstgelegene Stadt ist Vlašim, 14 Kilometer westlich entfernt.',
+				fr: 'Petite commune dans le district de Benešov avec 277 habitants. La ville la plus proche est Vlašim, située à quatorze kilomètres à l\'ouest.',
 			},
 		},
 		{
@@ -432,6 +467,9 @@ export const rok2021: Rok = {
 			y: 338.3,
 			popis: {
 				cs: 'Město v údolí stejnojmenné řeky, zhruba padesát kilometrů jihovýchodně od Prahy. Na pravém břehu stojí bývalý benediktinský klášter z 11. století; novější slávu městu přinesly sklárny se značkou Kavalier.',
+				en: 'City in the valley of the Sázava River, approximately fifty kilometers southeast of Prague. On the right bank stands a former Benedictine monastery from the 11th century; the city\'s newer fame was brought by glassworks with the Kavalier brand.',
+				de: 'Stadt im Tal des gleichnamigen Flusses, etwa fünfzig Kilometer südöstlich von Prag. Auf dem rechten Ufer steht ein ehemaliges Benediktinerkloster aus dem 11. Jahrhundert; die Glasfabriken mit der Marke Kavalier brachten der Stadt ihre jüngere Berühmtheit.',
+				fr: 'Ville située dans la vallée de la rivière du même nom, à environ cinquante kilomètres au sud-est de Prague. Sur la rive droite se dresse un ancien monastère bénédictin du XIe siècle ; les verreries portant la marque Kavalier ont apporté à la ville une renommée plus récente.',
 			},
 		},
 		{
@@ -444,6 +482,9 @@ export const rok2021: Rok = {
 			y: 341.2,
 			popis: {
 				cs: 'Městys pod bájným Blaníkem, osm kilometrů jižně od Vlašimi. Žije tu 661 obyvatel.',
+				en: 'Market town at the foot of the legendary Blaník, 8 kilometers south of Vlašim. 661 inhabitants live here.',
+				de: 'Markt unter dem sagenhaften Blaník, 8 Kilometer südlich von Vlašimi. Hier leben 661 Einwohner.',
+				fr: 'Le bourg sous le mont légendaire Blaník, à 8 kilomètres au sud de Vlašimi. Il y a 661 habitants.',
 			},
 		},
 		{
@@ -458,6 +499,7 @@ export const rok2021: Rok = {
 				cs: 'Choustník je obec v okrese Tábor v Jihočeském kraji se 484 obyvateli. V obci se nachází výrobní závod, který vyrábí chipsy Bohemia, Chio, Pom-bär a produkty značky NutLine.',
 				en: 'Choustník is a village in Tábor District in the South Bohemian Region with 484 inhabitants. The village contains a production plant that produces Bohemia, Chio, and Pom-bär chips and NutLine brand products.',
 				de: 'Choustník ist eine Gemeinde im Landkreis Tábor in der Südböhmischen Region mit 484 Einwohnern. In der Gemeinde befindet sich eine Fabrik, die Chips der Marken Bohemia, Chio, Pom-bär und Produkte der Marke NutLine herstellt.',
+				fr: 'Choustník est une commune du district de Tábor dans la région de Bohême du Sud, comptant 484 habitants. Dans la commune se trouve une usine qui produit des chips Bohemia, Chio, Pom-bär et les produits de la marque NutLine.',
 			},
 		},
 		{
@@ -470,6 +512,9 @@ export const rok2021: Rok = {
 			y: 344.4,
 			popis: {
 				cs: 'Město nad řekou Lužnicí, které roku 1420 založili husité. S přibližně 34 tisíci obyvateli je po Českých Budějovicích druhým největším v kraji a jeho jádro s křivolakými gotickými uličkami je památkovou rezervací.',
+				en: 'The city on the Lužnice River, which the Hussites founded in 1420. With approximately 34,000 inhabitants, it is the second largest city in the region after České Budějovice, and its core with winding Gothic streets is a historic reserve.',
+				de: 'Stadt an der Lužnice, die 1420 von den Hussiten gegründet wurde. Mit etwa 34.000 Einwohnern ist sie nach Českých Budějovicích die zweitgrößte Stadt im Bezirk und ihr Kern mit windungsreichen gotischen Gassen ist ein Denkmalschutzgebiet.',
+				fr: 'Ville située au-dessus de la rivière Lužnice, fondée par les Hussites en 1420. Avec environ 34 000 habitants, elle est la deuxième plus grande ville de la région après České Budějovice et son noyau avec des ruelles gothiques sinueuses est une réserve historique.',
 			},
 		},
 		{
@@ -482,6 +527,9 @@ export const rok2021: Rok = {
 			y: 346.4,
 			popis: {
 				cs: 'Obec u řeky Otavy, asi deset kilometrů východně od Strakonic. Patří k ní další čtyři vesnice a jedna osada — dohromady v nich žije 937 lidí.',
+				en: 'The municipality by the Otava River, approximately ten kilometers east of Strakonice, includes four additional villages and one hamlet, with a total population of 937.',
+				de: 'Gemeinde am Fluss Otava, etwa zehn Kilometer östlich von Strakonic. Zu ihr gehören weitere vier Dörfer und eine Siedlung – insgesamt leben dort 937 Menschen.',
+				fr: 'Commune située près de la rivière Otava, à environ dix kilomètres à l\'est de Strakonic. Elle comprend quatre autres villages et un hameau — au total, 937 personnes y résident.',
 			},
 		},
 		{
@@ -495,6 +543,7 @@ export const rok2021: Rok = {
 			popis: {
 				cs: 'Rejštejn (německy Unterreichenstein, tj. bohatý kámen) je město v okrese Klatovy v Plzeňském kraji s 240 obyvateli.',
 				en: 'Rejštejn (German: Unterreichenstein, i.e., \'rich stone\') is a town in the Klatovy District in the Plzeň Region with 240 inhabitants.',
+				fr: 'Rejštejn (allemand Unterreichenstein, soit «riche pierre») est une ville dans le district de Klatovy dans la région de Plzeň avec 240 habitants.',
 			},
 		},
 		{
@@ -507,6 +556,8 @@ export const rok2021: Rok = {
 			y: 345.0,
 			popis: {
 				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
+				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
+				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
 			},
 		},
 		{
@@ -519,6 +570,9 @@ export const rok2021: Rok = {
 			y: 341.2,
 			popis: {
 				cs: 'Městečko na Vysočině, dvanáct kilometrů západně od Havlíčkova Brodu, kde žije 650 obyvatel.',
+				en: 'A small town in Vysočina, twelve kilometers west of Havlicek Brod, where 650 people live.',
+				de: 'Ein Städtchen in der Vysočina, zwölf Kilometer westlich von Havlíčkův Brod, wo 650 Einwohner leben.',
+				fr: 'Le bourg en Vysočina, douze kilomètres à l\'ouest d\'Havlíčkova Brod, où vivent 650 habitants.',
 			},
 		},
 		{
@@ -533,6 +587,7 @@ export const rok2021: Rok = {
 				cs: 'Žleby je obec v okrese Kutná Hora ve Středočeském kraji, ležící 18 km jihovýchodně od Kutné Hory a 7 km východně od Čáslavu. Součástí obce jsou vesnice Kamenné Mosty, Markovice a Zehuby, obydlené přibližně 1 400 obyvateli.',
 				en: 'Žleby is a municipality in Kutná Hora District in the Central Bohemian Region, located 18 km southeast of Kutná Hora and 7 km east of Čáslav. The municipality consists of the villages of Kamenné Mosty, Markovice, and Zehuby, inhabited by approximately 1,400 residents.',
 				de: 'Žleby ist eine Gemeinde im Landkreis Kutná Hora in Mittelböhmen, gelegen 18 km südöstlich von Kutná Hora und 7 km östlich von Čáslav. Die Dörfer Kamenné Mosty, Markovice und Zehuby sind Teil der Gemeinde, bewohnt von etwa 1 400 Einwohnern.',
+				fr: 'Žleby est une commune située dans l\'arrondissement de Kutná Hora, dans la région de Bohême centrale, à 18 km au sud-est de Kutná Hora et à 7 km à l\'est de Čáslav. Les villages Kamenné Mosty, Markovice et Zehuby, habités par environ 1 400 habitants, font partie de la commune.',
 			},
 		},
 		{
@@ -547,6 +602,7 @@ export const rok2021: Rok = {
 				cs: 'Pluhův Žďár je obec a vesnice v Jindřichův Hradec v Jihočeském kraji s přibližně 600 obyvateli. Je známý zámkem Červená Lhota.',
 				en: 'Pluhův Žďár is a municipality and village in Jindřichův Hradec, South Bohemian Region, with approximately 600 inhabitants. It is known for Červená Lhota Castle.',
 				de: 'Pluhův Žďár ist eine Gemeinde und ein Dorf in Jindřichův Hradec in der Südböhmischen Region mit etwa 600 Einwohnern. Es ist bekannt für das Schloss Červená Lhota.',
+				fr: 'Pluhův Žďár est une commune et un village situé à Jindřichův Hradec, dans la région de Bohême du Sud, avec environ 600 habitants. Il est connu pour le château de Červená Lhota.',
 			},
 		},
 		{
@@ -559,6 +615,8 @@ export const rok2021: Rok = {
 			y: 335.4,
 			popis: {
 				cs: 'Hlavní a největší město Česka, ležící mírně na sever od středu Čech na Vltavě. Na 496 km² tu žije kolem 1,4 milionu lidí. Do dnešní podoby se Praha vyvíjela jedenáct století — byla hlavním městem Českého království i sídelním městem císařů Svaté říše římské. Historické centrum je od roku 1992 na seznamu světového dědictví UNESCO.',
+				en: 'The main and largest city of the Czech Republic, located slightly north of the center of Bohemia on the Vltava River. On 496 km², around 1.4 million people live there. Prague developed into its current form over eleven centuries — it was the capital of the Kingdom of Bohemia and the seat of the Holy Roman Emperors. The historic center has been on UNESCO\'s World Heritage List since 1992.',
+				fr: 'Capitale et plus grande ville de la République tchèque, située légèrement au nord du centre de la Bohême sur la Vltava. Sur une superficie de 496 km², environ 1,4 million d\'habitants y résident. Praha s\'est développée jusqu\'à sa forme actuelle au cours de onze siècles — elle était la capitale du royaume de Bohême et le siège des empereurs du Saint-Empire romain. Le centre historique est inscrit sur la liste du patrimoine mondial de l\'UNESCO depuis 1992.',
 			},
 		},
 		{
@@ -573,6 +631,7 @@ export const rok2021: Rok = {
 				cs: 'Benešov je město ve Středočeském kraji, největší obec okresu Benešov, ležící v Benešovské pahorkatině 30 km jihovýchodně od Prahy. Protéká jím Benešovský a Konopišťský potok, obyvatelstvo činí přibližně 17 tisíc.',
 				en: 'Benešov is a city in the Central Bohemian Region, the largest municipality in Benešov District, located in the Benešov Uplands 30 km southeast of Prague. The Benešovský and Konopišťský streams flow through it, with a population of approximately 17,000.',
 				de: 'Benešov ist eine Stadt im Mittelböhmen, die größte Gemeinde des Bezirks Benešov, gelegen im Benešovschen Hügelland, 30 km südöstlich von Prag. Durchfließt sie der Benešovský und der Konopišťský Bach, die Bevölkerung beträgt etwa 17.000.',
+				fr: 'Benešov est une ville de la région de Bohême centrale, la plus grande commune du district de Benešov, située dans les collines de Benešov à 30 km au sud-est de Prague. Elle est traversée par les ruisseaux Benešovský et Konopišťský, sa population étant d\'environ 17 000 habitants.',
 			},
 		},
 		{

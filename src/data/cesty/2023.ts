@@ -37,6 +37,7 @@ export const rok2023: Rok = {
 				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
 				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
 				de: 'Stožec ist eine Gemeinde und ein Dorf im Bezirk Prachatice in der Region Südböhmen mit etwa 200 Einwohnern. Es liegt etwa 22 km südwestlich von Prachatice und 50 km westlich von Budweis.',
+				fr: 'Stožec est une commune et un village dans l\'arrondissement de Prachatice dans la région de Bohême du Sud avec environ 200 habitants. Il se trouve à environ 22 km au sud-ouest de Prachatice et à 50 km à l\'ouest de České Budějovice.',
 			},
 		},
 		{
@@ -49,6 +50,9 @@ export const rok2023: Rok = {
 			y: 291.0,
 			popis: {
 				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
+				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
+				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
 			},
 		},
 		{
@@ -61,6 +65,8 @@ export const rok2023: Rok = {
 			y: 295.2,
 			popis: {
 				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
+				en: 'The North Sea port, together with Bremen, located about sixty kilometers to the south, forms the federal state of the Free Hanseatic City of Bremen. Around 115,000 people live there.',
+				fr: 'Port de la mer du Nord, qui, avec Brême située à environ soixante kilomètres au sud, forme la Ville hanséatique libre de Brême. Il y a environ 115 000 habitants.',
 			},
 		},
 		{
@@ -75,6 +81,7 @@ export const rok2023: Rok = {
 				cs: 'Magdeburg je zemské hlavní město Saska-Anhaltska, ležící na Labi. Je druhým největším městem země s přibližně 240 tisíc obyvatel a sídlem katolického i evangelického luterského biskupství, kde sídlí dvě vysoké školy.',
 				en: 'Magdeburg is the state capital of Saxony-Anhalt, located on the Elbe. It is the second largest city in Saxony-Anhalt with approximately 240,000 inhabitants and the seat of both a Catholic and an Evangelical Lutheran bishopric, where two universities are located.',
 				de: 'Magdeburg ist die Landeshauptstadt von Sachsen-Anhalt, gelegen an der Elbe. Es ist die zweitgrößte Stadt des Landes mit etwa 240.000 Einwohnern und Sitz des katholischen und evangelisch-lutherischen Bistums, wo zwei Hochschulen ansässig sind.',
+				fr: 'Magdebourg est la capitale de l\'État de Saxe-Anhalt, située sur l\'Elbe. C\'est la deuxième plus grande ville de l\'État avec environ 240 000 habitants et siège de l\'évêché catholique et de l\'évêché luthérien évangélique, où sont situées deux universités.',
 			},
 		},
 		{
@@ -89,6 +96,7 @@ export const rok2023: Rok = {
 				cs: 'Schwarzenberg/Erzgebirge je město v Erzgebirském kraji (Sasko), založené v 12. století jako pevnost chránící obchodní cestu. Dnes je považováno za perlu Erzgebirge a součástí středního průmyslu.',
 				en: 'Schwarzenberg/Erzgebirge is a city in the Erzgebirge Region (Saxony), founded in the 12th century as a fortress protecting a trade route. Today it is considered a jewel of Erzgebirge and part of the middle industry.',
 				de: 'Schwarzenberg/Erzgebirge ist eine Stadt im Erzgebirge (Sachsen), die im 12. Jahrhundert als Festung zur Sicherung einer Handelsstraße gegründet wurde. Heute gilt sie als Perle des Erzgebirges und Teil der mittleren Industrie.',
+				fr: 'Schwarzenberg/Erzgebirge est une ville dans la région Erzgebirge (Saxe), fondée au XIIe siècle en tant que forteresse protégeant une route commerciale. Aujourd\'hui, elle est considérée comme la perle de l\'Erzgebirge et fait partie de l\'industrie centrale.',
 			},
 		},
 		{
@@ -103,6 +111,7 @@ export const rok2023: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -117,6 +126,7 @@ export const rok2023: Rok = {
 				cs: 'Kutná Hora je městská památková rezervace zapsaná na seznamu světového kulturního dědictví UNESCO. Díky vrcholící těžbě stříbra v 13. až 15. století byla jedním z nejvýznamnějších českých královských měst, v současnosti zde žije přibližně 22 tisíc obyvatel.',
 				en: 'Kutná Hora is a city monument reservation listed on the UNESCO World Heritage List. Due to the peak silver mining in the 13th to 15th centuries, it was one of the most significant Czech royal cities, currently approximately 22,000 people live here.',
 				de: 'Kutná Hora ist ein städtisches Denkmalsreservat, das in der Liste des Weltkulturerbes der UNESCO eingetragen ist. Dank der Hochphase des Silberbergbaus im 13. bis 15. Jahrhundert war Kutná Hora eines der bedeutendsten tschechischen Königstädte; derzeit leben hier etwa 22.000 Einwohner.',
+				fr: 'Kutná Hora est une réserve monumentale urbaine inscrite sur la liste du patrimoine culturel mondial de l\'UNESCO. Grâce à l\'exploitation florissante de l\'argent du XIIIe au XVe siècle, elle était l\'une des villes royales tchèques les plus importantes ; actuellement, environ 22 000 habitants y résident.',
 			},
 		},
 		{
@@ -131,6 +141,7 @@ export const rok2023: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -145,6 +156,7 @@ export const rok2023: Rok = {
 				cs: 'Jaroměřice nad Rokytnou je město v Kraji Vysočina s barokním zámkem s kostelem svaté Markéty, historickým jádrem jako památkovou zónou a mezinárodním hudebním festivalem Petra Dvorského od roku 1999.',
 				en: 'Jaroměřice nad Rokytnou is a city in the Vysočina Region with a Baroque castle featuring St. Margaret\'s Church, a historical core designated as a monument zone, and the Petr Dvorský International Music Festival since 1999.',
 				de: 'Jaroměřice nad Rokytnou ist eine Stadt in der Region Vysočina mit einem barocken Schloss mit der Kirche St. Margarete, dem historischen Zentrum als Denkmalschutzzone und dem internationalen Musikfestival Petra Dvorského ab 1999.',
+				fr: 'Jaroměřice nad Rokytnou est une ville de la région Vysočina dotée d\'un château baroque avec une église de Sainte Marguerite, d\'un noyau historique classé en zone monumentale et d\'un festival musical international de Petr Dvorský depuis 1999.',
 			},
 		},
 		{
@@ -157,6 +169,8 @@ export const rok2023: Rok = {
 			y: 338.3,
 			popis: {
 				cs: 'Vesnice v Pardubickém kraji asi třiadvacet kilometrů západně od Svitav. Žije v ní kolem dvou set obyvatel.',
+				en: 'Village in the Pardubice Region, approximately twenty-three kilometers west of Svitavy. It has around two hundred inhabitants.',
+				de: 'Dorf in der Region Pardubice etwa 23 Kilometer westlich von Svitav. In ihm leben etwa zweihundert Einwohner.',
 			},
 		},
 		{
@@ -171,6 +185,7 @@ export const rok2023: Rok = {
 				cs: 'Nové Hutě jsou obec v Jihočeském kraji, ležící v Chráněné krajinné oblasti Šumava na nadmořské výšce 1 025 metrů v údolí Vydřího potoka. Zajímavostí je středisko zimních sportů s čtyřmi lyžařskými vleky na úbočí hory Přílba.',
 				en: 'Nové Hutě is a municipality in the South Bohemian Region, located in the Šumava Protected Landscape Area at an elevation of 1,025 meters in the valley of the Vydří Stream. An interesting feature is the winter sports center with four ski lifts on the slope of Přílba.',
 				de: 'Nové Hutě sind eine Gemeinde in der Südböhmischen Region, gelegen in der geschützten Landschaftsregion Šumava auf einer Höhe von 1 025 Metern im Tal des Bachs Vydří. Interessant ist das Wintersportzentrum mit vier Skiliften am Hang des Berges Přílba.',
+				fr: 'Nové Hutě sont une commune de la région de Bohême du Sud, située dans la Région paysagère protégée de la Šumava à une altitude de 1 025 mètres dans la vallée du ruisseau Vydří. Une particularité est le centre de sports d\'hiver avec quatre remontées mécaniques sur la pente de la montagne Přílba.',
 			},
 		},
 		{
@@ -185,6 +200,7 @@ export const rok2023: Rok = {
 				cs: 'Magdeburg je zemské hlavní město Saska-Anhaltska, ležící na Labi. Je druhým největším městem země s přibližně 240 tisíc obyvatel a sídlem katolického i evangelického luterského biskupství, kde sídlí dvě vysoké školy.',
 				en: 'Magdeburg is the state capital of Saxony-Anhalt, located on the Elbe. It is the second largest city in Saxony-Anhalt with approximately 240,000 inhabitants and the seat of both a Catholic and an Evangelical Lutheran bishopric, where two universities are located.',
 				de: 'Magdeburg ist die Landeshauptstadt von Sachsen-Anhalt, gelegen an der Elbe. Es ist die zweitgrößte Stadt des Landes mit etwa 240.000 Einwohnern und Sitz des katholischen und evangelisch-lutherischen Bistums, wo zwei Hochschulen ansässig sind.',
+				fr: 'Magdebourg est la capitale de l\'État de Saxe-Anhalt, située sur l\'Elbe. C\'est la deuxième plus grande ville de l\'État avec environ 240 000 habitants et siège de l\'évêché catholique et de l\'évêché luthérien évangélique, où sont situées deux universités.',
 			},
 		},
 		{
@@ -197,6 +213,9 @@ export const rok2023: Rok = {
 			y: 290.9,
 			popis: {
 				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
+				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
+				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
 			},
 		},
 		{
@@ -209,6 +228,8 @@ export const rok2023: Rok = {
 			y: 295.3,
 			popis: {
 				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
+				en: 'The North Sea port, together with Bremen, located about sixty kilometers to the south, forms the federal state of the Free Hanseatic City of Bremen. Around 115,000 people live there.',
+				fr: 'Port de la mer du Nord, qui, avec Brême située à environ soixante kilomètres au sud, forme la Ville hanséatique libre de Brême. Il y a environ 115 000 habitants.',
 			},
 		},
 		{
@@ -223,6 +244,7 @@ export const rok2023: Rok = {
 				cs: 'Bad Nieuweschans je hraniční město a kúrort v provincii Groningen, Nizozemí, nejvýchodnější a nejsevernější hraniční město v zemi. Díky historickým budovám bylo v roce 1974 prohlášeno za chráněný vesnický vzhled.',
 				en: 'Bad Nieuweschans is a border town and resort in the province of Groningen, Netherlands, the most eastern and most northern border town in the country. Due to its historic buildings, it was designated as a protected village appearance in 1974.',
 				de: 'Bad Nieuweschans ist eine Grenzstadt und ein Kurort in der Provinz Groningen, Niederlande, die östlichste und nördlichste Grenzstadt des Landes. Dank historischer Gebäude wurde sie im Jahr 1974 als geschütztes Dorfbild erklärt.',
+				fr: 'Bad Nieuweschans est une ville frontière et une station thermale dans la province de Groningen, aux Pays-Bas, la ville frontière la plus à l\'est et la plus au nord du pays. Grâce à ses bâtiments historiques, elle a été déclarée paysage villageois protégé en 1974.',
 			},
 		},
 		{
@@ -237,6 +259,7 @@ export const rok2023: Rok = {
 				cs: 'Burdaard je vesnice v provincii Friesland nacházející se mezi Dokkumem a Leeuwardenem na obou stranách řeky Dokkumer Ee. V létě projde vesnicí přibližně 12 tisíc lodí, a během Elfstedentochtu prochází dvakrát.',
 				en: 'Burdaard is a village in the province of Friesland situated between Dokkum and Leeuwarden on both sides of the Dokkumer Ee river. In summer, approximately 12,000 ships pass through the village, and during the Elfstedentocht, it passes twice.',
 				de: 'Burdaard ist ein Dorf in der Provinz Friesland, das zwischen Dokkum und Leeuwarden auf beiden Seiten des Flusses Dokkumer Ee liegt. Im Sommer passieren etwa 12.000 Schiffe das Dorf, und während des Elfstedentochts wird das Dorf zweimal durchfahren.',
+				fr: 'Burdaard est un village de la province de Friesland situé entre Dokkum et Leeuwarden des deux côtés de la rivière Dokkumer Ee. En été, environ 12 000 bateaux traversent le village, et pendant l\'Elfstedentocht, elle est traversée deux fois.',
 			},
 		},
 		{
@@ -251,6 +274,7 @@ export const rok2023: Rok = {
 				cs: 'Huizen je obec v provincii Noord-Holland v regionu Gooi. Má celkovou plochu 23,32 km² (z toho 7,51 km² vody) a populaci 41.283 obyvatel s relativně mladou populací.',
 				en: 'Huizen is a municipality in the province of Noord-Holland in the Gooi region. It has a total area of 23.32 km² (of which 7.51 km² is water) and a population of 41,283 with a relatively young population.',
 				de: 'Huizen ist eine Gemeinde in der Provinz Noord-Holland in der Region Gooi. Sie hat eine Gesamtfläche von 23,32 km² (davon 7,51 km² Wasser) und eine Bevölkerung von 41.283 Einwohnern mit einer relativ jungen Bevölkerung.',
+				fr: 'Huizen est une commune de la province de Noord-Holland dans la région de Gooi. Elle a une superficie totale de 23,32 km² (dont 7,51 km² d\'eau) et une population de 41.283 habitants avec une population relativement jeune.',
 			},
 		},
 		{
@@ -263,6 +287,9 @@ export const rok2023: Rok = {
 			y: 312.2,
 			popis: {
 				cs: 'Nizozemské město na soutoku řek Gouwe a Hollandse IJssel, ze kterého lodní doprava po nich udělala ve středověku významné město — městská práva dostalo roku 1272 a na konci středověku bylo pátým městem Holandska. Nejznámější stavby jsou radnice a kostel svatého Jana; město je známé goudským sýrem.',
+				en: 'Dutch city at the confluence of the rivers Gouwe and Hollandse IJssel, from which river transport along them made it a significant city in the Middle Ages — it received city rights in 1272 and at the end of the Middle Ages was the fifth city of Holland. The most famous buildings are the town hall and St. John\'s Church; the city is known for Gouda cheese.',
+				de: 'Die niederländische Stadt am Zusammenfluss der Flüsse Gouwe und Hollandse IJssel, die durch die Schifffahrt auf diesen Flüssen im Mittelalter bedeutend wurde — sie erhielt Stadtrechte im Jahr 1272 und war am Ende des Mittelalters die fünfte Stadt Hollands. Die bekanntesten Gebäude sind das Rathaus und die Kirche St. Johannes; die Stadt ist bekannt für Gouda-Käse.',
+				fr: 'Ville néerlandaise située à la confluence des rivières Gouwe et Hollandse IJssel, dont la navigation sur ces rivières en fit une ville importante au Moyen Âge — elle a reçu les droits de ville en 1272 et à la fin du Moyen Âge était la cinquième ville de Hollande. Les bâtiments les plus célèbres sont la mairie et l\'église Saint-Jean ; la ville est connue pour son fromage de Gouda.',
 			},
 		},
 		{
@@ -277,6 +304,7 @@ export const rok2023: Rok = {
 				cs: 'Hoek van Holland je součástí Rotterdamského města, která zachovala ráz malého přímořského městečka a lázně. Nachází se v jižním Holandsku 25 km jihozápadně od Haagu u ústí řeky Rýn (historická Stará Máza/Oude Maas).',
 				en: 'Hoek van Holland is part of Rotterdam city, which has preserved the character of a small seaside town and spa. It is located in South Holland 25 km southwest of The Hague at the mouth of the Rhine River (historical Old Maas/Oude Maas).',
 				de: 'Hoek van Holland ist Teil der Stadt Rotterdam, der den Charakter eines kleinen Küstenstädtchens und Badesorts bewahrt hat. Es befindet sich in Südholland 25 km südwestlich von Den Haag bei der Mündung des Rheins (historische Alte Maas/Oude Maas).',
+				fr: 'Hoek van Holland fait partie de la ville de Rotterdam, qui a conservé l\'aspect d\'une petite ville côtière et station thermale. Il se situe en Hollande du Sud, à 25 km au sud-ouest de La Haye, à l\'embouchure de la rivière Rhin (historique Stará Máza/Oude Maas).',
 			},
 		},
 		{
@@ -291,6 +319,7 @@ export const rok2023: Rok = {
 				cs: 'Arnhem je hlavním městem provincie Gelderland, ležící na Nederrijnu, severním rameni řeky Rýn, historicky proslulé jako dějiště operace Market Garden a dopravně unikátním trolejbusovým systémem.',
 				en: 'Arnhem is the capital of the province of Gelderland, located on the Nederrijn, the northern branch of the Rhine River, historically famous as the site of Operation Market Garden and a transport-unique trolleybus system.',
 				de: 'Arnhem ist die Hauptstadt der Provinz Gelderland, gelegen am Nederrijn, dem nördlichen Arm des Rheins, historisch bekannt als Schauplatz der Operation Market Garden und verkehrlich einzigartiges Trolleybus-System.',
+				fr: 'Arnhem est la capitale de la province de Gelderland, située sur le Nederrijn, la branche nord du fleuve Rhin, historiquement célèbre en tant que site de l\'opération Market Garden et possédant un système de trolleybus unique.',
 			},
 		},
 		{
@@ -305,6 +334,7 @@ export const rok2023: Rok = {
 				cs: 'Bredevoort je bývalé panství a pevnostní město, které od roku 1818 patří do obce Aalten v regionu Gelderse Achterhoek. Město je známé jako „Boekenstad“ díky množství antikvariátů a knihkupectví druhé ruky, má 1 475 obyvatel.',
 				en: 'Bredevoort is a former manor and fortress town that has belonged to the municipality of Aalten in the Gelderse Achterhoek region since 1818. The city is known as "Boekenstad" due to its many antiquarian shops and second-hand bookstores, with a population of 1,475.',
 				de: 'Bredevoort ist ein ehemaliges Gut und eine Festungsstadt, die seit 1818 zur Gemeinde Aalten in der Region Gelderse Achterhoek gehört. Die Stadt ist bekannt als „Boekenstad“ wegen der Vielzahl von Antiquariaten und Buchhandlungen zweiter Hand und hat 1 475 Einwohner.',
+				fr: 'Bredevoort est un ancien domaine et une ville forte qui appartient à la commune d\'Aalten dans la région Gelderse Achterhoek depuis 1818. La ville est connue sous le nom de « Boekenstad » en raison de la multitude des antiquaires et des librairies d\'occasion, comptant 1 475 habitants.',
 			},
 		},
 		{
@@ -319,6 +349,7 @@ export const rok2023: Rok = {
 				cs: 'Brémy jsou město na severozápadě Německa ležící na řece Vezeře, hlavním a největším městem spolkové země Svobodné hanzovní město Brémy, s 584 332 obyvateli k 31. prosinci 2023.',
 				en: 'Bremen is a city in the northwest of Germany located on the Weser River, the capital and largest city of the federal state of the Free Hanseatic City of Bremen, with 584,332 inhabitants as of December 31, 2023.',
 				de: 'Bremen ist eine Stadt im Nordwesten Deutschlands, die am Fluss Weser liegt, Haupt- und größte Stadt des Bundeslandes Freie Hansestadt Bremen, mit 584.332 Einwohnern zum 31. Dezember 2023.',
+				fr: 'Brême est une ville située dans le nord-ouest de l\'Allemagne, sur la rivière Weser, capitale et plus grande ville de l\'État fédéral de la Ville hanséatique libre de Brême, avec 584 332 habitants au 31 décembre 2023.',
 			},
 		},
 		{
@@ -345,6 +376,7 @@ export const rok2023: Rok = {
 				cs: 'Peenemünde je nejsevernější vesnice na ostrově Usedom v severovýchodním Německu u ústí řeky Peene, známá díky výzkumnému středisku německé Luftwaffe z doby druhé světové války.',
 				en: 'Peenemünde is the northernmost village on the island of Usedom in northeastern Germany at the mouth of the Peene River, known for the German Luftwaffe\'s research center during World War II.',
 				de: 'Peenemünde ist das nördlichste Dorf auf der Insel Usedom im nordöstlichen Deutschland am Mündungsgebiet des Flusses Peene, bekannt für das Forschungszentrum der deutschen Luftwaffe aus der Zeit des Zweiten Weltkriegs.',
+				fr: 'Peenemünde est le village le plus au nord de l\'île de Usedom dans le nord-est de l\'Allemagne à l\'embouchure de la rivière Peene, connu pour son centre de recherche de la Luftwaffe allemande pendant la Seconde Guerre mondiale.',
 			},
 		},
 		{
@@ -359,6 +391,7 @@ export const rok2023: Rok = {
 				cs: 'Sianożęty je pobřežní letní vesnice s letním koupalištěm na Pomořské zátoce v rámci Słowińského pobřeží.',
 				en: 'Sianożęty is a coastal summer village with a summer swimming place on Pomeranian Bay within the Słowiński Coast.',
 				de: 'Sianożęty ist ein küstennahes Sommerdorf mit einem Sommerbad an der Pommerschen Bucht im Bereich der Słowiński Küste.',
+				fr: 'Sianożęty est un village estival côtier avec une plage d\'été sur la baie de Poméranie dans le cadre de la côte de Słowiński.',
 			},
 		},
 		{
@@ -372,6 +405,7 @@ export const rok2023: Rok = {
 			popis: {
 				cs: 'Darłowo je přímořské město v severozápadním Polsku, v Západopomořanském vojvodství, ležící u ústí řeky Wieprzy do Baltského moře. Jeho dobře zachované historické jádro s památkami a blízkost moře jsou klíčovými charakteristikami místa.',
 				en: 'Darłowo is a coastal city in northwestern Poland, in the West Pomeranian Voivodeship, located at the mouth of the Wieprza River into the Baltic Sea. Its well-preserved historical center with landmarks and proximity to the sea are key characteristics of the place.',
+				fr: 'Darłowo est une ville côtière située dans le nord-ouest de la Pologne, dans la voïvodie de Poméranie-Occidentale, à l\'embouchure de la rivière Wieprzy dans la mer Baltique. Son centre historique bien conservé, avec ses monuments et sa proximité de la mer, sont les caractéristiques clés du lieu.',
 			},
 		},
 		{
@@ -384,6 +418,9 @@ export const rok2023: Rok = {
 			y: 280.4,
 			popis: {
 				cs: 'Jedno z nejstarších a největších polských měst, metropole Pomořského vojvodství na břehu Baltu u Gdaňského zálivu. Téměř osm set let bylo součástí polských zemí, pak patřilo Prusku a mezi lety 1920 a 1939 bylo svobodným městem pod správou Společnosti národů. Na poloostrově Westerplatte tu 1. září 1939 začala druhá světová válka a v místních loděnicích později vznikla Solidarita.',
+				en: 'One of the oldest and largest Polish cities, the capital of the Pomeranian Voivodeship on the Baltic coast near Gdańsk Bay. For nearly eight hundred years it was part of Polish territories, then belonged to Prussia, and between 1920 and 1939 was a free city under the administration of the League of Nations. On the Westerplatte Peninsula, the Second World War began here on September 1, 1939, and later Solidarity was founded in the local shipyards.',
+				de: 'Eines der ältesten und größten polnischen Städte, Hauptstadt der Pommerschen Woiwodschaft am Ufer des Baltischen Meeres bei der Danziger Bucht. Etwa 800 Jahre war es Teil polnischer Gebiete, dann gehörte es Preußen und zwischen 1920 und 1939 war es eine Freie Stadt unter der Verwaltung des Völkerbunds. Auf der Halbinsel Westerplatte begann hier am 1. September 1939 der Zweite Weltkrieg, und später entstand in den lokalen Werften Solidarität.',
+				fr: 'L\'une des plus anciennes et des plus grandes villes polonaises, capitale de la voïvodie de Poméranie sur la rive de la Baltique près du golfe de Gdańsk. Presque huit cents ans a fait partie des terres polonaises, puis appartenait à la Prusse et entre 1920 et 1939 était une ville libre sous la gestion de la Société des Nations. Sur la péninsule de Westerplatte, la Seconde Guerre mondiale a commencé le 1er septembre 1939, et dans les chantiers navals locaux, la Solidarité a plus tard vu le jour.',
 			},
 		},
 		{
@@ -398,6 +435,7 @@ export const rok2023: Rok = {
 				cs: 'Frombork je přímořské město v severním Polsku u Viselské laguny ve Varmijsko-mazurském vojvodství. Nachází se ve Varmijské nížině na severním úpatí Elblonské vysočiny a patří k historické Varmii, kde je považován za klenot.',
 				en: 'Frombork is a coastal city in northern Poland near the Viselska Lagoon in the Warmian-Masurian Voivodeship. It is located in the Warmian Lowland at the northern foot of the Elblag Upland and belongs to the historical Warmia, where it is regarded as a jewel.',
 				de: 'Frombork ist eine Küstenstadt im nördlichen Polen bei der Viselska-Lagune in der Woiwodschaft Ermland-Masuren. Sie liegt in der Warmischen Niederung am nördlichen Fuß der Elbląg-Hochfläche und gehört zum historischen Ermland, wo sie als Perle angesehen wird.',
+				fr: 'Frombork est une ville côtière située dans le nord de la Pologne près de la lagune de la Vistule, dans la voïvodie de Warmie-Mazurie. Elle se trouve dans la plaine warmienne au pied nord du plateau d\'Elblag et appartient à la Warmie historique, où elle est considérée comme un joyau.',
 			},
 		},
 		{
@@ -412,6 +450,7 @@ export const rok2023: Rok = {
 				cs: 'Malbork je město v Polsku na řece Nogat, dominantou je křižácký hrad Malbork postavený z červených cihel v gotickém stylu, součást světového dědictví UNESCO.',
 				en: 'Malbork is a city in Poland on the river Nogat, its dominant feature being the Teutonic Castle Malbork, built from red bricks in Gothic style, part of the UNESCO World Heritage.',
 				de: 'Malbork ist eine Stadt in Polen an der Nogat, die dominierende Sehenswürdigkeit ist die aus roten Ziegeln im gotischen Stil erbaute Kreuzritterburg Malbork, Teil des UNESCO-Weltkulturerbes.',
+				fr: 'Malbork est une ville en Pologne sur la rivière Nogat, dont l\'élément dominant est le château des croisés de Malbork, construit en briques rouges dans le style gothique, faisant partie du patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -424,6 +463,9 @@ export const rok2023: Rok = {
 			y: 291.4,
 			popis: {
 				cs: 'Město na pravém břehu Visly v severním Polsku, německy Graudenz. S necelými sedmaosmdesáti tisíci obyvateli je čtvrtým nejlidnatějším městem Kujavsko-pomořského vojvodství.',
+				en: 'A city on the right bank of the Vistula in northern Poland, German name Graudenz. With nearly 78,000 inhabitants, it is the fourth most populous city in the Kuyavian-Pomeranian Voivodeship.',
+				de: 'Stadt am rechten Ufer der Weichsel im Norden Polens, deutsch Graudenz. Mit knapp 78.000 Einwohnern ist sie die viertgrößte Stadt der Kujawisch-Pommerschen Woiwodschaft.',
+				fr: 'Ville située sur la rive droite de la Vistule dans le nord de la Pologne, de nom allemand Graudenz. Avec près de 78 mille habitants, elle est la quatrième ville la plus peuplée du voivodat de Kujawsko-Pomorskie.',
 			},
 		},
 		{
@@ -436,6 +478,8 @@ export const rok2023: Rok = {
 			y: 313.3,
 			popis: {
 				cs: 'Město ve Velkopolském vojvodství mezi Poznaní a Vratislaví, česky Lešno a německy Lissa. Na dvaatřiceti kilometrech čtverečních tu žije asi šedesát tisíc lidí.',
+				en: 'A city in the Greater Poland Voivodeship between Poznań and Wrocław, known as Lešno in Czech and Lissa in German, with an area of 23 square kilometers and a population of approximately 60,000.',
+				de: 'Stadt in der Woiwodschaft Großpolen zwischen Posen und Breslau, tschechisch Lešno und deutsch Lissa. Auf 23 Quadratkilometern leben etwa 60.000 Menschen.',
 			},
 		},
 		{
@@ -448,6 +492,7 @@ export const rok2023: Rok = {
 			y: 330.2,
 			popis: {
 				cs: 'Městečko v Dolnoslezském vojvodství patnáct kilometrů východně od Kladska, hned přes hranici od české Bílé Vody. Česky se mu říkalo Rychleby a od toho jména mají název i Rychlebské hory, které se zvedají jižně nad ním. Žije tu asi dva a půl tisíce lidí.',
+				en: 'The town in the Lower Silesian Voivodeship, fifteen kilometers east of Kladsko, right across the border from the Czech Bílá Voda. In Czech, it was called Rychleby, and from that name, the Rychleby Mountains, which rise to the south of it, take their name. Approximately 2,500 people live there.',
 			},
 		},
 		{
@@ -460,6 +505,9 @@ export const rok2023: Rok = {
 			y: 340.9,
 			popis: {
 				cs: 'Město v Olomouckém kraji asi pětadvacet kilometrů východně od Olomouce, kde žije kolem osmi tisíc obyvatel. Jeho dějiny jsou spjaté s dvěma hrady — rozvalinami Drahotuše a rozsáhlou zříceninou Helfštýna tři kilometry jihovýchodně. Historické jádro je od roku 1989 městskou památkovou rezervací.',
+				en: 'The city in the Olomouc Region, approximately 25 kilometers east of Olomouc, where around 8,000 inhabitants live. Its history is linked to two castles — the ruins of Drahotuš and the extensive ruins of Helfštýn, three kilometers southeast. The historic core has been a municipal monument reservation since 1989.',
+				de: 'Die Stadt im Region Olomouc, etwa 25 Kilometer östlich von Olomouc, mit etwa 8.000 Einwohnern. Ihre Geschichte ist mit zwei Burgen verbunden — den Ruinen von Drahotuš und den ausgedehnten Ruinen von Helfštýn, drei Kilometer südöstlich. Das historische Zentrum ist seit 1989 ein städtisches Denkmalschutzgebiet.',
+				fr: 'La ville située dans la région d\'Olomouc, à environ 25 kilomètres à l\'est d\'Olomouc, où vivent environ 8 000 habitants. Son histoire est liée à deux châteaux — aux ruines de Drahotuš et à la ruine étendue de Helfštýn, située à 3 kilomètres au sud-est. Le noyau historique est une réserve monumentale municipale depuis 1989.',
 			},
 		},
 		{
@@ -472,6 +520,8 @@ export const rok2023: Rok = {
 			y: 349.5,
 			popis: {
 				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
+				de: 'Die südmährische Stadt zehn Kilometer nördlich von Břeclav, mit weinbezogenen Symbolen im Wappen und auf der Flagge. Mit mehr als 780 Hektar registrierter Weinberge ist sie der größte Weinort in Tschechien; dort leben etwa 3.900 Einwohner.',
+				fr: 'Ville de la région de Moravie du Sud située à dix kilomètres au nord de Břeclav, avec des symboles vinicoles dans son blason et sur son drapeau. Avec plus de 780 hectares de vignes enregistrées, elle est la plus grande commune viticole de la République tchèque ; elle compte environ 3 900 habitants.',
 			},
 		},
 		{
@@ -499,6 +549,8 @@ export const rok2023: Rok = {
 			y: 349.4,
 			popis: {
 				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
+				de: 'Die südmährische Stadt zehn Kilometer nördlich von Břeclav, mit weinbezogenen Symbolen im Wappen und auf der Flagge. Mit mehr als 780 Hektar registrierter Weinberge ist sie der größte Weinort in Tschechien; dort leben etwa 3.900 Einwohner.',
+				fr: 'Ville de la région de Moravie du Sud située à dix kilomètres au nord de Břeclav, avec des symboles vinicoles dans son blason et sur son drapeau. Avec plus de 780 hectares de vignes enregistrées, elle est la plus grande commune viticole de la République tchèque ; elle compte environ 3 900 habitants.',
 			},
 		},
 		{
@@ -511,6 +563,7 @@ export const rok2023: Rok = {
 			y: 351.0,
 			popis: {
 				cs: 'Obec na Dyjsko-mlýnském náhonu asi čtrnáct kilometrů jihovýchodně od Znojma. Do roku 1949 se jmenovala Čule a dnes v ní žije 536 obyvatel.',
+				fr: 'Commune située sur le canal Dyjsko-mlýnský, à environ quatorze kilomètres au sud-est de Znojma. Jusqu\'en 1949, elle s\'appelait Čule et aujourd\'hui, 536 habitants y vivent.',
 			},
 		},
 		{
@@ -523,6 +576,9 @@ export const rok2023: Rok = {
 			y: 352.3,
 			popis: {
 				cs: 'Lesní území v dolnobavorském zemském okrese Freyung-Grafenau, které nepatří k žádné obci.',
+				en: 'Forest area in the Lower Bavarian district of Freyung-Grafenau, which does not belong to any municipality.',
+				de: 'Waldgebiet im niederbayerischen Landkreis Freyung-Grafenau, das keiner Gemeinde angehört.',
+				fr: 'Zone forestière située dans le district de Freyung-Grafenau, en Bavière inférieure, qui ne relève d\'aucune commune.',
 			},
 		},
 		{
@@ -535,6 +591,9 @@ export const rok2023: Rok = {
 			y: 344.0,
 			popis: {
 				cs: 'Město na Českomoravské vrchovině, které svému jménu dostojí — leží na soutoku Oslavy a Balinky. Plná městská práva mu roku 1408 zajistil Lacek z Kravař a v okolí se rozkládají chráněná území Nesměř a Balinské údolí. Domácí mu říkají Medříč, Mez nebo VelMez.',
+				en: 'The city on the Bohemian-Moravian Highlands, which lives up to its name — lies at the confluence of the Oslava and Balinka. Full municipal rights were secured for it in 1408 by Lacek from Kravař, and in the surrounding area lie the protected areas Nesměř and Balinské Valley. Locals call it Medříč, Mez, or VelMez.',
+				de: 'Stadt auf der Böhmisch-Mährischen Hügellandschaft, die ihrem Namen gerecht wird — liegt an der Konfluenz von Oslava und Balinka. Vollständige städtische Rechte sicherte Lacek z Kravař ihm 1408 zu, und in der Umgebung liegen die geschützten Gebiete Nesměř und Balinské Tal. Die Einheimischen nennen es Medříč, Mez oder VelMez.',
+				fr: 'Ville située sur les Hauteurs tchéco-moraves, qui correspond à son nom — elle se trouve à la confluence de l\'Oslava et de la Balinka. Les pleins droits municipaux lui ont été accordés en 1408 par Lacek de Kravař, et dans les environs se trouvent les zones protégées de Nesměř et de la vallée de Balinské. Les habitants l\'appellent Medříč, Mez ou VelMez.',
 			},
 		},
 		{
@@ -547,6 +606,9 @@ export const rok2023: Rok = {
 			y: 346.2,
 			popis: {
 				cs: 'Vesnice ve Zlínském kraji v okrese Uherské Hradiště, dřív zvaná Nová Ves. Žije v ní asi sedm set obyvatel.',
+				en: 'Village in the Zlín Region, in Uherské Hradiště District, formerly called Nová Ves. Approximately 700 people live there.',
+				de: 'Dorf in der Region Zlín im Landkreis Uherské Hradiště, früher Nová Ves genannt. In ihm leben etwa siebenhundert Einwohner.',
+				fr: 'Village de la région de Zlín, dans le district d\'Uherské Hradiště, autrefois appelée Nová Ves. Il compte environ sept cents habitants.',
 			},
 		},
 		{
@@ -559,6 +621,8 @@ export const rok2023: Rok = {
 			y: 345.0,
 			popis: {
 				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
+				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
+				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
 			},
 		},
 		{
@@ -573,6 +637,7 @@ export const rok2023: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -585,6 +650,8 @@ export const rok2023: Rok = {
 			y: 345.8,
 			popis: {
 				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
+				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
+				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
 			},
 		},
 		{
@@ -599,6 +666,7 @@ export const rok2023: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -611,6 +679,8 @@ export const rok2023: Rok = {
 			y: 350.6,
 			popis: {
 				cs: 'Šumavská obec osm kilometrů jižně od Prachatic, německy Oberhaid. Žije v ní kolem čtyř set obyvatel.',
+				en: 'The Šumava village eight kilometers south of Prachatice, German name Oberhaid. It has around four hundred inhabitants.',
+				fr: 'Commune de Šumava située à 8 kilomètres au sud de Prachatice, nom allemand : Oberhaid. Elle compte environ quatre cents habitants.',
 			},
 		},
 	],

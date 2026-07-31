@@ -45,6 +45,7 @@ export const rok2022: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -59,6 +60,7 @@ export const rok2022: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -73,6 +75,7 @@ export const rok2022: Rok = {
 				cs: 'Valtice je město v Jihomoravském kraji s chráněným historickým jádrem a součástí Lednicko-valtického krajinného památkového areálu. Valtický zámek, dříve sídlo knížecího rodu Lichtenštejnů, hostí degustační expozici vín Salon Vín České republiky v podzemních prostorech a patří do Mikulovské vinařské podoblasti.',
 				en: 'Valtice is a town in the South Moravian Region with a protected historical core and part of the Lednice-Valtice Landscape Protected Area. Valtice Castle, formerly the seat of the princely family of Liechtenstein, hosts the wine tasting exhibition Salon of Czech Republic Wines in the underground spaces and belongs to the Mikulovská wine subregion.',
 				de: 'Valtice ist eine Stadt in der Südmährischen Region mit einem geschützten historischen Kerngebiet und Teil des Lednicko-Valtice Landschaftsdenkmalsgebietes. Das Schloss Valtice, früherer Sitz der Fürstenfamilie Liechtenstein, beherbergt die Degustationsausstellung Salon der Weine der Tschechischen Republik in den unterirdischen Räumen und gehört zum Mikulovschen Weinbaugebiet.',
+				fr: 'Valtice est une ville de la région de Moravie méridionale possédant un noyau historique protégé et faisant partie du paysage culturel de Lednice-Valtice. Le château de Valtice, ancien siège de la famille princière des Lichtenstein, abrite une exposition de dégustation de vins intitulée Salon des Vins de la République tchèque dans ses espaces souterrains et appartient à la sous-région viticole de Mikulov.',
 			},
 		},
 		{
@@ -87,6 +90,7 @@ export const rok2022: Rok = {
 				cs: 'Moravské Bránice je obec v Bobravské vrchovině v Jihomoravském kraji, prochází jí řeka Jihlava a patří do vinařské podoblasti Znojemská s viničními tratěmi Karlov, Ve Starých, Nová hora a V Písařových.',
 				en: 'Moravské Bránice is a municipality in the Bobrava Highlands in the South Moravian Region, with the river Jihlava flowing through it and belonging to the Znojemská wine subregion with vineyard routes Karlov, Ve Starých, Nová hora, and V Písařových.',
 				de: 'Moravské Bránice ist eine Gemeinde in der Bobravské Höhen in der Südmährischen Region, durch sie fließt der Fluss Jihlava und gehört zur Weinunterregion Znojemská mit den Weinbergstrecken Karlov, Ve Starých, Nová hora und V Písařových.',
+				fr: 'Moravské Bránice est une commune située dans la Bobravská vrchovina dans la région sud-moravienne, traversée par la rivière Jihlava et appartenant à la sous-région viticole Znojemská avec les itinéraires viticoles Karlov, Ve Starých, Nová hora et V Písařových.',
 			},
 		},
 		{
@@ -101,6 +105,7 @@ export const rok2022: Rok = {
 				cs: 'Pluhův Žďár je obec a vesnice v Jindřichův Hradec v Jihočeském kraji s přibližně 600 obyvateli. Je známý zámkem Červená Lhota.',
 				en: 'Pluhův Žďár is a municipality and village in Jindřichův Hradec, South Bohemian Region, with approximately 600 inhabitants. It is known for Červená Lhota Castle.',
 				de: 'Pluhův Žďár ist eine Gemeinde und ein Dorf in Jindřichův Hradec in der Südböhmischen Region mit etwa 600 Einwohnern. Es ist bekannt für das Schloss Červená Lhota.',
+				fr: 'Pluhův Žďár est une commune et un village situé à Jindřichův Hradec, dans la région de Bohême du Sud, avec environ 600 habitants. Il est connu pour le château de Červená Lhota.',
 			},
 		},
 		{
@@ -115,6 +120,7 @@ export const rok2022: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -129,6 +135,7 @@ export const rok2022: Rok = {
 				cs: 'Tetín je obec v okrese Beroun, 2 km jihovýchodně od Berouna, kde se nachází hrad Tetín a jeho předchůdce, hradisko.',
 				en: 'Tetín is a municipality in the Beroun District, 2 km southeast of Beroun, where Tetín Castle and its predecessor, the castle mound, are located.',
 				de: 'Tetín ist eine Gemeinde im Landkreis Beroun, 2 km südöstlich von Beroun, wo sich die Burg Tetín und ihr Vorgänger, der Burgstall, befinden.',
+				fr: 'Tetín est une commune du district de Beroun, à 2 km au sud-est de Beroun, où se trouvent le château de Tetín et son prédécesseur, le tertre fortifié.',
 			},
 		},
 		{
@@ -143,6 +150,7 @@ export const rok2022: Rok = {
 				cs: 'Šťáhlavy jsou obec v okrese Plzeň-město, ležící na řece Úslavě, 14 km jihovýchodně od Plzně. Místní železniční trať Plzeň – České Budějovice prochází místní stanicí Šťáhlavy.',
 				en: 'Šťáhlavy is a municipality in the Plzeň-město District, located on the Úslava River, 14 km southeast of Plzeň. The railway line Plzeň–České Budějovice passes through Šťáhlavy station.',
 				de: 'Šťáhlavy sind eine Gemeinde im Bezirk Plzeň-město, gelegen an der Úslava, 14 km südöstlich von Pilsen. Die örtliche Eisenbahnstrecke Pilsen – Budweis führt durch die örtliche Station Šťáhlavy.',
+				fr: 'Šťáhlavy est une commune située dans l\'arrondissement de Plzeň-město, sur la rivière Úslava, à 14 km au sud-est de Plzeň. La ligne ferroviaire locale Plzeň – České Budějovice traverse la gare locale de Šťáhlavy.',
 			},
 		},
 		{
@@ -157,6 +165,7 @@ export const rok2022: Rok = {
 				cs: 'Doupě je obec v okrese Jihlava.',
 				en: 'Doupě is a municipality in Jihlava District.',
 				de: 'Doupě ist eine Gemeinde im Landkreis Jihlava.',
+				fr: 'Doupě est une commune dans le district de Jihlava.',
 			},
 		},
 		{
@@ -169,6 +178,9 @@ export const rok2022: Rok = {
 			y: 352.3,
 			popis: {
 				cs: 'Lesní území v dolnobavorském zemském okrese Freyung-Grafenau, které nepatří k žádné obci.',
+				en: 'Forest area in the Lower Bavarian district of Freyung-Grafenau, which does not belong to any municipality.',
+				de: 'Waldgebiet im niederbayerischen Landkreis Freyung-Grafenau, das keiner Gemeinde angehört.',
+				fr: 'Zone forestière située dans le district de Freyung-Grafenau, en Bavière inférieure, qui ne relève d\'aucune commune.',
 			},
 		},
 		{
@@ -182,6 +194,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Waldkirchen (Kostelec) je město v německé Bavorsku, v zemském okrese Freyung-Grafenau ve vládním obvodu Dolní Bavorsko, s přibližně 11 tisíci obyvateli.',
 				en: 'Waldkirchen (Kostelec) is a city in Bavaria, Germany, in the district of Freyung-Grafenau in the administrative region of Lower Bavaria, with approximately 11,000 inhabitants.',
+				fr: 'Waldkirchen (Kostelec) est une ville en Bavière, Allemagne, dans le district de Freyung-Grafenau, dans la région administrative de Basse-Bavière, avec environ 11 000 habitants.',
 			},
 		},
 		{
@@ -196,6 +209,7 @@ export const rok2022: Rok = {
 				cs: 'Horní Břečkov je obec v okrese Znojmo v Jihomoravském kraji, nacházející se 12 km severozápadně od Znojma. Žije zde 263 obyvatel.',
 				en: 'Horní Břečkov is a municipality in the Znojmo District in the South Moravian Region, located 12 km northwest of Znojmo. The population is 263.',
 				de: 'Ober Břečkov ist eine Gemeinde im Landkreis Znojmo in der Südmährischen Region, die sich 12 km nordwestlich von Znojmo befindet. Hier leben 263 Einwohner.',
+				fr: 'Horní Břečkov est une commune située dans l\'arrondissement de Znojmo, dans la région de Moravie du Sud, à 12 km au nord-ouest de Znojmo. Elle compte 263 habitants.',
 			},
 		},
 		{
@@ -224,6 +238,7 @@ export const rok2022: Rok = {
 				cs: 'Rajecké Teplice je lázeňské město v severním Slovensku, Žilinském kraji, ležící v nadmořské výšce 415 metrů deset kilometrů jižně od Žiliny. Je známé svými lázněmi a termálními prameny s vodou o teplotě 39 °C, které léčí nemoci pohybového ústrojí, nervové choroby a nemoci z povolání.',
 				en: 'Rajecké Teplice is a spa town in northern Slovakia, in the Žilina Region, located at an elevation of 415 meters, ten kilometers south of Žilina. It is known for its spas and thermal springs with water at a temperature of 39 °C, which treat diseases of the musculoskeletal system, neurological diseases, and occupational diseases.',
 				de: 'Rajecké Teplice ist ein Kurort in Nordslowakei, in der Region Žilina, gelegen in einer Höhe von 415 Metern, zehn Kilometer südlich von Žilina. Es ist bekannt für seine Bäder und thermale Quellen mit Wasser einer Temperatur von 39 °C, die Erkrankungen des Bewegungsapparates, Nervenerkrankungen und Berufskrankheiten heilen.',
+				fr: 'Rajecké Teplice est une ville thermale située dans le nord de la Slovaquie, dans la région de Zilina, à 415 mètres d\'altitude, à dix kilomètres au sud de Zilina. Elle est connue pour ses établissements thermaux et ses sources thermales dont l\'eau est à 39 °C, qui traitent les maladies du système musculo-squelettique, les maladies nerveuses et les maladies professionnelles.',
 			},
 		},
 		{
@@ -236,6 +251,8 @@ export const rok2022: Rok = {
 			y: 324.3,
 			popis: {
 				cs: 'Městečko ve Slezském vojvodství asi patnáct kilometrů jihovýchodně od Čenstochové, kudy vede Stezka orlích hnízd. Nad ním se tyčí kopec se zříceninou hradu ze 13. století. Městská práva mělo v letech 1488 až 1870 a znovu je získalo roku 2022.',
+				de: 'Das Städtchen in der Schlesischen Woiwodschaft liegt etwa 15 Kilometer südöstlich von Tschenstochau, entlang dessen der Adlerhorstpfad verläuft. Über ihm erhebt sich ein Hügel mit den Ruinen eines Schlosses aus dem 13. Jahrhundert. Es hatte Stadtrechte von 1488 bis 1870 und erlangte sie erneut im Jahr 2022.',
+				fr: 'Petit village dans la voïvodie de Silésie, à environ quinze kilomètres au sud-est de Czestochowa, le long duquel passe le Sentier des Nids d\'Aigle. Au-dessus d\'elle s\'élève une colline avec les ruines d\'un château du XIIIe siècle. Elle a possédé des droits urbains de 1488 à 1870, puis les a récupérés en 2022.',
 			},
 		},
 		{
@@ -248,6 +265,9 @@ export const rok2022: Rok = {
 			y: 281.1,
 			popis: {
 				cs: 'Mazurské město, které se do roku 1946 jmenovalo Rastembork a Němcům bylo známé jako Rastenburg. Dnes je okresním městem Varmijsko-mazurského vojvodství a žije v něm asi pětadvacet tisíc lidí.',
+				en: 'The Masurian city, which until 1946 was called Rastembork and was known to the Germans as Rastenburg. Today it is the county seat of the Warmian-Masurian Voivodeship and has a population of approximately twenty-five thousand.',
+				de: 'Die masurische Stadt, die bis 1946 Rastembork hieß und den Deutschen als Rastenburg bekannt war. Heute ist sie Kreisstadt der Woiwodschaft Ermland-Masuren und hat etwa fünfundzwanzigtausend Einwohner.',
+				fr: 'La ville masurienne, qui s\'appelait Rastembork jusqu\'en 1946 et était connue des Allemands sous le nom de Rastenburg. Aujourd\'hui, c\'est le chef-lieu de comté de la voïvodie de Warmie-Mazurie et environ 25 000 personnes y vivent.',
 			},
 		},
 		{
@@ -260,6 +280,9 @@ export const rok2022: Rok = {
 			y: 279.3,
 			popis: {
 				cs: 'Mazurská vesnice, která bývala městem — městská práva získala roku 1405 a přišla o ně v roce 1945. Protéká jí říčka Omet a za vsí se zvedá kopec čelní morény Diabla Góra, 157 metrů nad mořem, odkud je dobrý rozhled.',
+				en: 'The Mazurian village, which was once a town — it gained town rights in 1405 and lost them in 1945. A stream called Omet flows through it, and behind the village rises Diabla Góra, a terminal moraine hill 157 meters above sea level, offering a good view.',
+				de: 'Das masurenische Dorf, das einst eine Stadt war — es erhielt Stadtrechte im Jahr 1405 und verlor sie im Jahr 1945. Durch das Dorf fließt der Bach Omet, und hinter dem Dorf erhebt sich der Hügel Diabla Góra, eine Endmoräne, 157 Meter über dem Meeresspiegel, von wo aus sich ein guter Ausblick bietet.',
+				fr: 'Village masurien qui était autrefois une ville — elle a acquis le statut de ville en 1405 et l\'a perdu en 1945. La rivière Omet la traverse, et derrière le village s\'élève la colline de la moraine terminale Diabla Góra, située à 157 mètres d\'altitude, d\'où l\'on a une bonne vue.',
 			},
 		},
 		{
@@ -274,6 +297,7 @@ export const rok2022: Rok = {
 				cs: 'Malbork je město v Polsku na řece Nogat, dominantou je křižácký hrad Malbork postavený z červených cihel v gotickém stylu, součást světového dědictví UNESCO.',
 				en: 'Malbork is a city in Poland on the river Nogat, its dominant feature being the Teutonic Castle Malbork, built from red bricks in Gothic style, part of the UNESCO World Heritage.',
 				de: 'Malbork ist eine Stadt in Polen an der Nogat, die dominierende Sehenswürdigkeit ist die aus roten Ziegeln im gotischen Stil erbaute Kreuzritterburg Malbork, Teil des UNESCO-Weltkulturerbes.',
+				fr: 'Malbork est une ville en Pologne sur la rivière Nogat, dont l\'élément dominant est le château des croisés de Malbork, construit en briques rouges dans le style gothique, faisant partie du patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -286,6 +310,8 @@ export const rok2022: Rok = {
 			y: 279.0,
 			popis: {
 				cs: 'Přímořské město na Viselské kose v Pomořském vojvodství, německy Kahlberg. Má přístav a několik pláží a v roce 2023 v něm žilo 1 172 obyvatel.',
+				en: 'Seaside city on the Visla Peninsula in the Pomeranian Voivodeship, German: Kahlberg. It has a port and several beaches, and in 2023, 1,172 people lived there.',
+				de: 'Küstenstadt auf der Viselsker Nehrung in der Pommerschen Woiwodschaft, deutsch Kahlberg. Sie hat einen Hafen und mehrere Strände und im Jahr 2023 lebten dort 1 172 Einwohner.',
 			},
 		},
 		{
@@ -300,6 +326,7 @@ export const rok2022: Rok = {
 				cs: 'Kąty Rybackie je severopolská vesnice na pobřeží Baltského moře v mezoregionu Mierzeja Wiślana, kde při jejím východním okraji začíná Viselská kosa.',
 				en: 'Kąty Rybackie is a northern Polish village on the coast of the Baltic Sea in the mesoregion of Vistula Delta, where the Visel Spit begins at its eastern edge.',
 				de: 'Kąty Rybackie ist ein nordpolnisches Dorf an der Ostsee in der Mesoregion Mierzeja Wiślana, wo an ihrem östlichen Rand die Viselská Kosa beginnt.',
+				fr: 'Kanty Rybackie est un village du nord de la Pologne situé sur la côte de la mer Baltique dans la mésorégion Mierzeja Wiślana, où Viselska kosa commence à son bord est.',
 			},
 		},
 		{
@@ -312,6 +339,9 @@ export const rok2022: Rok = {
 			y: 281.0,
 			popis: {
 				cs: 'Jedno z nejstarších a největších polských měst, metropole Pomořského vojvodství na břehu Baltu u Gdaňského zálivu. Téměř osm set let bylo součástí polských zemí, pak patřilo Prusku a mezi lety 1920 a 1939 bylo svobodným městem pod správou Společnosti národů. Na poloostrově Westerplatte tu 1. září 1939 začala druhá světová válka a v místních loděnicích později vznikla Solidarita.',
+				en: 'One of the oldest and largest Polish cities, the capital of the Pomeranian Voivodeship on the Baltic coast near Gdańsk Bay. For nearly eight hundred years it was part of Polish territories, then belonged to Prussia, and between 1920 and 1939 was a free city under the administration of the League of Nations. On the Westerplatte Peninsula, the Second World War began here on September 1, 1939, and later Solidarity was founded in the local shipyards.',
+				de: 'Eines der ältesten und größten polnischen Städte, Hauptstadt der Pommerschen Woiwodschaft am Ufer des Baltischen Meeres bei der Danziger Bucht. Etwa 800 Jahre war es Teil polnischer Gebiete, dann gehörte es Preußen und zwischen 1920 und 1939 war es eine Freie Stadt unter der Verwaltung des Völkerbunds. Auf der Halbinsel Westerplatte begann hier am 1. September 1939 der Zweite Weltkrieg, und später entstand in den lokalen Werften Solidarität.',
+				fr: 'L\'une des plus anciennes et des plus grandes villes polonaises, capitale de la voïvodie de Poméranie sur la rive de la Baltique près du golfe de Gdańsk. Presque huit cents ans a fait partie des terres polonaises, puis appartenait à la Prusse et entre 1920 et 1939 était une ville libre sous la gestion de la Société des Nations. Sur la péninsule de Westerplatte, la Seconde Guerre mondiale a commencé le 1er septembre 1939, et dans les chantiers navals locaux, la Solidarité a plus tard vu le jour.',
 			},
 		},
 		{
@@ -325,6 +355,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Ustka je přístavní a lázeňské město v severním Polsku, v Pomořském vojvodství, okres Słupsk. Nachází se při ústí řeky Słupia do Baltského moře.',
 				en: 'Ustka is a port and spa town in northern Poland, in the Pomeranian Voivodeship, Slupsk County. It is located at the mouth of the Slupia River into the Baltic Sea.',
+				fr: 'Ustka est une ville portuaire et thermale située dans le nord de la Pologne, dans la voïvodie de Poméranie, au comté de Słupsk. Elle se trouve à l\'embouchure de la rivière Słupia dans la mer Baltique.',
 			},
 		},
 		{
@@ -338,6 +369,7 @@ export const rok2022: Rok = {
 			popis: {
 				cs: 'Darłowo je přímořské město v severozápadním Polsku, v Západopomořanském vojvodství, ležící u ústí řeky Wieprzy do Baltského moře. Jeho dobře zachované historické jádro s památkami a blízkost moře jsou klíčovými charakteristikami místa.',
 				en: 'Darłowo is a coastal city in northwestern Poland, in the West Pomeranian Voivodeship, located at the mouth of the Wieprza River into the Baltic Sea. Its well-preserved historical center with landmarks and proximity to the sea are key characteristics of the place.',
+				fr: 'Darłowo est une ville côtière située dans le nord-ouest de la Pologne, dans la voïvodie de Poméranie-Occidentale, à l\'embouchure de la rivière Wieprzy dans la mer Baltique. Son centre historique bien conservé, avec ses monuments et sa proximité de la mer, sont les caractéristiques clés du lieu.',
 			},
 		},
 		{
@@ -350,6 +382,9 @@ export const rok2022: Rok = {
 			y: 281.9,
 			popis: {
 				cs: 'Přímořské městečko na poloostrově Jasmund v severovýchodním cípu Rujány. Staletí to byla rybářská ves; přístav a železnici dostalo kolem roku 1890 a městská práva až roku 1957. Hned za ním začíná křídové pobřeží. Bukové pralesy národního parku Jasmund jsou od roku 2012 na seznamu UNESCO.',
+				en: 'Coastal town on the Jasmund peninsula at the northeastern tip of Rügen. For centuries, it was a fishing village; it received a port and railway around 1890, and city rights only in 1957. Immediately behind it begins the chalk coast. The beech forests of Jasmund National Park have been on the UNESCO list since 2012.',
+				de: 'Das Küstenstädtchen auf der Halbinsel Jasmund im nordöstlichen Zipfel der Insel Rügen. Seit Jahrhunderten war es ein Fischerdorf; es erhielt um 1890 Hafen und Eisenbahn und erst 1957 Stadtrechte. Unmittelbar dahinter beginnt die Kreideküste. Die Buchenurwälder des Nationalparks Jasmund sind seit 2012 auf der UNESCO-Liste.',
+				fr: 'Le bourg côtier situé sur la péninsule de Jasmund à l\'extrémité nord-est de Rügen. Pendant des siècles, c\'était un village de pêcheurs ; il a reçu un port et un chemin de fer vers 1890, et les droits de ville seulement en 1957. Juste derrière se trouve la côte de craie. Les forêts primaires de hêtres du parc national de Jasmund figurent sur la liste de l\'UNESCO depuis 2012.',
 			},
 		},
 		{
@@ -364,6 +399,7 @@ export const rok2022: Rok = {
 				cs: 'Putgarten je obec v okrese Vorpommern-Rügen v zemi Mecklenburg-Vorpommern, spravovaná úřadem Nord-Rügen se sídlem v Sagardu. Je to nejsevernější obec v Mecklenburg-Vorpommernu.',
 				en: 'Putgarten is a municipality in the Vorpommern-Rügen district in the state of Mecklenburg-Vorpommern, administered by the Nord-Rügen office with its seat in Sagard. It is the northernmost municipality in Mecklenburg-Vorpommern.',
 				de: 'Putgarten ist eine Gemeinde im Landkreis Vorpommern-Rügen im Bundesland Mecklenburg-Vorpommern, verwaltet vom Amt Nord-Rügen mit Sitz in Sagard. Es ist die nördlichste Gemeinde in Mecklenburg-Vorpommern.',
+				fr: 'Putgarten est une commune du district de Vorpommern-Rügen en Mecklenburg-Vorpommern, gérée par l\'office Nord-Rügen dont le siège est à Sagard. C\'est la commune la plus au nord de Mecklenburg-Vorpommern.',
 			},
 		},
 		{
@@ -390,6 +426,9 @@ export const rok2022: Rok = {
 			y: 295.2,
 			popis: {
 				cs: 'Druhé největší město Německa a jeho největší přístav, zároveň jedna ze tří městských spolkových zemí. Žije tu asi 1,91 milionu lidí. Ve středověku patřil Hamburk do Hanzy a pro svůj význam v námořní dopravě se mu dodnes říká Tor zur Welt, Brána do světa.',
+				en: 'Second largest city in Germany and its largest port, also one of the three city-states. Approximately 1.91 million people live there. In the Middle Ages, Hamburg belonged to the Hanseatic League, and due to its significance in maritime transport, it is still called Tor zur Welt, Gate to the World.',
+				de: 'Die zweitgrößte Stadt Deutschlands und sein größter Hafen, gleichzeitig einer der drei Stadtstaaten. Hier leben etwa 1,91 Millionen Menschen. Im Mittelalter gehörte Hamburg zur Hanse und wegen seiner Bedeutung im Seeverkehr wird ihm bis heute Tor zur Welt genannt.',
+				fr: 'Deuxième plus grande ville d\'Allemagne et son plus grand port, également l\'une des trois villes-États. Environ 1,91 million d\'habitants y vivent. À l\'époque médiévale, Hambourg faisait partie de la Hanse et, en raison de son importance dans le transport maritime, on l\'appelle encore aujourd\'hui Tor zur Welt, Porte du monde.',
 			},
 		},
 		{
@@ -402,6 +441,9 @@ export const rok2022: Rok = {
 			y: 290.9,
 			popis: {
 				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
+				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
+				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
 			},
 		},
 		{
@@ -416,6 +458,7 @@ export const rok2022: Rok = {
 				cs: 'Brémy jsou město na severozápadě Německa ležící na řece Vezeře, hlavním a největším městem spolkové země Svobodné hanzovní město Brémy, s 584 332 obyvateli k 31. prosinci 2023.',
 				en: 'Bremen is a city in the northwest of Germany located on the Weser River, the capital and largest city of the federal state of the Free Hanseatic City of Bremen, with 584,332 inhabitants as of December 31, 2023.',
 				de: 'Bremen ist eine Stadt im Nordwesten Deutschlands, die am Fluss Weser liegt, Haupt- und größte Stadt des Bundeslandes Freie Hansestadt Bremen, mit 584.332 Einwohnern zum 31. Dezember 2023.',
+				fr: 'Brême est une ville située dans le nord-ouest de l\'Allemagne, sur la rivière Weser, capitale et plus grande ville de l\'État fédéral de la Ville hanséatique libre de Brême, avec 584 332 habitants au 31 décembre 2023.',
 			},
 		},
 		{
@@ -430,6 +473,7 @@ export const rok2022: Rok = {
 				cs: 'Briedern je obec na řece Mosela v okrese Cochem-Zell v Rýnsko-palatinském kraji. Patří do společného správního území Cochem.',
 				en: 'Briedern is a municipality on the Moselle River in the Cochem-Zell district in Rhineland-Palatinate. It belongs to the joint administrative area Cochem.',
 				de: 'Briedern ist eine Gemeinde an der Mosel im Landkreis Cochem-Zell in Rheinland-Pfalz. Briedern gehört zur Verwaltungsgemeinschaft Cochem.',
+				fr: 'Briedern est une commune située sur la rivière Moselle, dans l\'arrondissement de Cochem-Zell, dans la région du Rhin-Palatinat. Elle appartient à la zone administrative commune de Cochem.',
 			},
 		},
 		{
@@ -444,6 +488,7 @@ export const rok2022: Rok = {
 				cs: 'Trier je nejstarším městem Německa v Porýní-Falcu, blízko Lucemburska, s římskými památkami, včetně katedrály sv. Petra a kostela P. Marie, které jsou součástí světového dědictví UNESCO. Je sídlem univerzity založené v roce 1473.',
 				en: 'Trier is the oldest city in Rhineland-Palatinate, Germany, near Luxembourg, with Roman monuments, including St. Peter\'s Cathedral and St. Mary\'s Church, which are part of the UNESCO World Heritage Site. It is the seat of a university founded in 1473.',
 				de: 'Trier ist die älteste Stadt Deutschlands in Rheinland-Pfalz, nahe bei Luxemburg, mit römischen Denkmälern, einschließlich der Kathedrale St. Petri und der Kirche St. Mariens, die zum Weltkulturerbe der UNESCO gehören. Es ist Sitz der 1473 gegründeten Universität.',
+				fr: 'Trier est la ville la plus ancienne d\'Allemagne dans le Rhinland-Palatinat, près du Luxembourg, avec des monuments romains, notamment la cathédrale Saint-Pierre et l\'église de Sainte-Marie, qui font partie du patrimoine mondial de l\'UNESCO. Elle est le siège de l\'université fondée en 1473.',
 			},
 		},
 		{
@@ -458,6 +503,7 @@ export const rok2022: Rok = {
 				cs: 'Kostnice je podzemní sklepní prostor v sakrální stavbě určený k ukládání lidských kostí uspořádaných do geometrických tvarů. Vznikala při hromadných úmrtích (mor, epidemie) nebo jako memento mori v klášterech kapucínů a karmelitánů.',
 				en: 'An ossuary is an underground crypt in a sacred building designated for storing human bones arranged in geometric shapes. It originated during mass deaths (plague, epidemics) or as a memento mori in Capuchin and Carmelite monasteries.',
 				de: 'Die Knochenkammer ist ein unterirdischer Gewölberraum in einem sakralen Bauwerk, bestimmt zum Lagern menschlicher Knochen, die in geometrische Formen angeordnet sind. Sie entstand bei Massentodesfällen (Pest, Epidemien) oder als Memento mori in den Klöstern der Kapuziner und Karmeliter.',
+				fr: 'L\'ossuaire est un espace souterrain dans un édifice sacré destiné à stocker des os humains ordonnés en formes géométriques. Il a été créé lors de décès massifs (peste, épidémie) ou comme memento mori dans les monastères des capucins et des carmélites.',
 			},
 		},
 		{
@@ -472,6 +518,7 @@ export const rok2022: Rok = {
 				cs: 'Friedrichshafen je univerzitní město a hlavní město okresu Bodamského jezera v Bádensko-Württembersku, nacházející se u Bodamského jezera nedaleko hranic se Švýcarskem a Rakouskem.',
 				en: 'Friedrichshafen is a university town and the capital of the Lake Constance district in Baden-Württemberg, situated on Lake Constance near the borders with Switzerland and Austria.',
 				de: 'Friedrichshafen ist eine Universitätsstadt und die Hauptstadt des Landkreises Bodensee in Baden-Württemberg, gelegen am Bodensee nahe der Grenzen zu Schweiz und Österreich.',
+				fr: 'Friedrichshafen est une ville universitaire et la capitale du district du Lac de Constance en Bade-Wurtemberg, située au bord du Lac de Constance près des frontières avec la Suisse et l\'Autriche.',
 			},
 		},
 		{
@@ -484,6 +531,9 @@ export const rok2022: Rok = {
 			y: 365.3,
 			popis: {
 				cs: 'Bavorské lázeňské město na řece Isar, kde žije zhruba devatenáct tisíc obyvatel. Za druhé světové války tu byla velká kasárna a důstojnická škola.',
+				en: 'Bavarian spa town on the river Isar, where approximately nineteen thousand residents live. During the Second World War, there was a large barracks and an officers\' school.',
+				de: 'Bayerischer Kurort an der Isar, wo etwa neunzehntausend Einwohner leben. Während des Zweiten Weltkriegs befanden sich hier große Kasernen und eine Offiziersschule.',
+				fr: 'Ville thermale bavaroise sur la rivière Isar, où vivent environ dix-neuf mille habitants. Pendant la Seconde Guerre mondiale, il y avait une grande caserne et une école des officiers.',
 			},
 		},
 		{
@@ -496,6 +546,9 @@ export const rok2022: Rok = {
 			y: 367.7,
 			popis: {
 				cs: 'Hornobavorská obec v zemském okrese Bad Tölz-Wolfratshausen. Se 787 obyvateli je nejmenší bavorskou obcí, která si spravuje své záležitosti sama. Od roku 1975 je uznaným rekreačním místem a sama sobě říká Jachenau, sluneční údolí.',
+				en: 'Upper Bavarian municipality in the district of Bad Tölz-Wolfratshausen. With 787 inhabitants, it is the smallest Bavarian municipality that manages its own affairs. Since 1975, it has been recognized as a recreational area and calls itself Jachenau, Sun Valley.',
+				de: 'Oberbayerische Gemeinde im Landkreis Bad Tölz-Wolfratshausen. Mit 787 Einwohnern ist sie die kleinste bayerische Gemeinde, die ihre Angelegenheiten selbst verwalten. Seit 1975 als Ferienort anerkannt und nennt sich selbst Jachenau, Sonnental.',
+				fr: 'Commune de Haute-Bavière située dans le district de Bad Tölz-Wolfratshausen. Avec 787 habitants, elle est la plus petite commune bavaroise qui gère elle-même ses affaires. Depuis 1975, elle est reconnue comme lieu de loisirs et se nomme elle-même Jachenau, Vallée du Soleil.',
 			},
 		},
 		{
@@ -510,6 +563,7 @@ export const rok2022: Rok = {
 				cs: 'Pasov (Passau) je město v Bavorsku na soutoku tří řek – Dunaje, Innu a Ilze, těsně u rakouské hranice a přibližně 60 km jižně od české hranice.',
 				en: 'Passau (Pasov) is a city in Bavaria at the confluence of the Danube, Inn, and Ilz rivers, just near the Austrian border and approximately 60 km south of the Czech border.',
 				de: 'Passau (Pasov) ist eine Stadt in Bayern am Zusammenfluss dreier Flüsse – Donau, Inn und Ilz, unmittelbar an der österreichischen Grenze und etwa 60 km südlich der tschechischen Grenze.',
+				fr: 'Pasov (Passau) est une ville en Bavière à la confluence de trois rivières – le Danube, l\'Inn et l\'Ilz, près de la frontière autrichienne et à environ 60 km au sud de la frontière tchèque.',
 			},
 		},
 		{
@@ -522,6 +576,9 @@ export const rok2022: Rok = {
 			y: 346.4,
 			popis: {
 				cs: 'Obec u řeky Otavy, asi deset kilometrů východně od Strakonic. Patří k ní další čtyři vesnice a jedna osada — dohromady v nich žije 937 lidí.',
+				en: 'The municipality by the Otava River, approximately ten kilometers east of Strakonice, includes four additional villages and one hamlet, with a total population of 937.',
+				de: 'Gemeinde am Fluss Otava, etwa zehn Kilometer östlich von Strakonic. Zu ihr gehören weitere vier Dörfer und eine Siedlung – insgesamt leben dort 937 Menschen.',
+				fr: 'Commune située près de la rivière Otava, à environ dix kilomètres à l\'est de Strakonic. Elle comprend quatre autres villages et un hameau — au total, 937 personnes y résident.',
 			},
 		},
 	],

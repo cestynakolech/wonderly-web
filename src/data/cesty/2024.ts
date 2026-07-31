@@ -31,6 +31,9 @@ export const rok2024: Rok = {
 			y: 344.6,
 			popis: {
 				cs: 'Původní privilegovaná chodská ves pět kilometrů západně od Domažlic, v nářečí Houvězdo. Rozkládá se přímo pod památnou horou Hrádek, na které stojí socha zdejšího rodáka Jana Sladkého Koziny. I s vesnicí Petrovice tu žije 440 obyvatel.',
+				en: 'Original privileged Chodská village, five kilometers west of Domažlice, in the Houvězdo dialect. It lies directly beneath the notable mountain Hrádek, on which stands the statue of local native Jan Sladký Kozina. Including the village of Petrovice, 440 people live here.',
+				de: 'Ursprüngliches privilegiertes Chodisch Dorf fünf Kilometer westlich von Domažlice, im Houvězdo-Dialekt. Es erstreckt sich direkt unter dem denkwürdigen Berg Hrádek, auf dem die Statue des einheimischen Heimatmannes Jan Sladký Kozina steht. Sowie die Ortschaft Petrovice leben hier 440 Einwohner.',
+				fr: 'Village chodois originel et privilégié, situé à cinq kilomètres à l\'ouest de Domažlice, dans le dialecte de Houvězdo. Il s\'étend directement sous la montagne remarquable Hrádek, sur laquelle se dresse la statue du natif de la région Jan Sladký Kozina. Avec le village de Petrovice, 440 habitants résident ici.',
 			},
 		},
 		{
@@ -43,6 +46,7 @@ export const rok2024: Rok = {
 			y: 347.7,
 			popis: {
 				cs: 'Malé šumavské město přímo na česko-německé hranici, na okraji národního parku. Sousední Bavorská Železná Ruda je odsud jen dva a půl kilometru. Žije tu asi 1 600 obyvatel.',
+				fr: 'Petit village sumavien situé directement à la frontière tchéco-allemande, au bord du parc national. La voisine Bavaroise Železná Ruda se trouve à seulement deux kilomètres et demi d\'ici. Il compte environ 1 600 habitants.',
 			},
 		},
 		{
@@ -67,6 +71,9 @@ export const rok2024: Rok = {
 			y: 346.4,
 			popis: {
 				cs: 'Obec u řeky Otavy, asi deset kilometrů východně od Strakonic. Patří k ní další čtyři vesnice a jedna osada — dohromady v nich žije 937 lidí.',
+				en: 'The municipality by the Otava River, approximately ten kilometers east of Strakonice, includes four additional villages and one hamlet, with a total population of 937.',
+				de: 'Gemeinde am Fluss Otava, etwa zehn Kilometer östlich von Strakonic. Zu ihr gehören weitere vier Dörfer und eine Siedlung – insgesamt leben dort 937 Menschen.',
+				fr: 'Commune située près de la rivière Otava, à environ dix kilomètres à l\'est de Strakonic. Elle comprend quatre autres villages et un hameau — au total, 937 personnes y résident.',
 			},
 		},
 		{
@@ -91,6 +98,9 @@ export const rok2024: Rok = {
 			y: 290.8,
 			popis: {
 				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
+				en: 'Former Hanseatic city and today an important port on the Baltic coast in Mecklenburg-Western Pomerania, approximately 45 kilometers east of Lübeck. Its historic core has been listed on the UNESCO World Heritage List since 2002, together with Stralsund — it contains a number of brick buildings typical of prosperous Hanseatic cities.',
+				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
+				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
 			},
 		},
 		{
@@ -103,6 +113,9 @@ export const rok2024: Rok = {
 			y: 294.4,
 			popis: {
 				cs: 'Obec v zemském okrese Stade v Dolním Sasku, dolnoněmecky Hullern-Twielenfleth. Patří do svazku obcí Lühe, který úřaduje ve Steinkirchen.',
+				en: 'The municipality in the Stade district in Lower Saxony, Low German: Hullern-Twielenfleth. It belongs to the Lühe municipal association, which is headquartered in Steinkirchen.',
+				de: 'Gemeinde im Landkreis Stade in Niedersachsen, niederdeutsch Hullern-Twielenfleth. Sie gehört zum Verwaltungsverband Lühe, der seinen Sitz in Steinkirchen hat.',
+				fr: 'Commune du district de Stade en Basse-Saxe, en bas allemand Hullern-Twielenfleth. Elle appartient à la fédération de communes de Lühe, dont le siège est à Steinkirchen.',
 			},
 		},
 		{
@@ -115,6 +128,9 @@ export const rok2024: Rok = {
 			y: 290.9,
 			popis: {
 				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
+				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
+				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
 			},
 		},
 		{
@@ -127,6 +143,9 @@ export const rok2024: Rok = {
 			y: 306.0,
 			popis: {
 				cs: 'Okresní město stejnojmenného zemského okresu v Dolním Sasku. Dolnoněmecky se mu říká Näinborg, Nienborg nebo Negenborg.',
+				en: 'The district town of the same-named state district in Lower Saxony. In Low German, it is called Näinborg, Nienborg, or Negenborg.',
+				de: 'Kreisstadt des gleichnamigen Landkreises in Niedersachsen. Im Niederdeutschen wird es Näinborg, Nienborg oder Negenborg genannt.',
+				fr: 'Chef-lieu du district du même nom en Basse-Saxe. En bas allemand, on l\'appelle Näinborg, Nienborg ou Negenborg.',
 			},
 		},
 		{
@@ -139,6 +158,8 @@ export const rok2024: Rok = {
 			y: 342.1,
 			popis: {
 				cs: 'Městečko v hornofalckém zemském okrese Neustadt an der Waldnaab v Bavorsku. Sídlí tu správní společenství Pleystein.',
+				de: 'Städtchen im Landkreis Hornofalck Neustadt an der Waldnaab in Bayern. Hier befindet sich die Verwaltungsgemeinschaft Pleystein.',
+				fr: 'Petite ville située dans le district de Hornofalck, Neustadt an der Waldnaab, en Bavière. La communauté administrative de Pleystein est située ici.',
 			},
 		},
 		{
@@ -151,6 +172,8 @@ export const rok2024: Rok = {
 			y: 346.5,
 			popis: {
 				cs: 'Město na jihozápadě Moravy pětadvacet kilometrů jihozápadně od Jihlavy, kde žije kolem 5 100 obyvatel. Jeho historické jádro je městskou památkovou rezervací a je zapsané na seznamu světového kulturního dědictví UNESCO.',
+				de: 'Stadt im Südwesten Mährens, 25 Kilometer südwestlich von Jihlava, mit etwa 5.100 Einwohnern. Ihr historisches Zentrum ist ein städtisches Denkmalschutzgebiet und ist in das Verzeichnis des Weltkulturerbes der UNESCO aufgenommen.',
+				fr: 'Ville située dans le sud-ouest de la Moravie, à 25 kilomètres au sud-ouest de Jihlava, où vivent environ 5 100 habitants. Son noyau historique est une réserve monumentale urbaine et est inscrit sur la liste du patrimoine culturel mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -165,6 +188,7 @@ export const rok2024: Rok = {
 				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
 				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
 				de: 'Lednice ist eine Gemeinde und ein Dorf im Landkreis Břeclav in der Südmährischen Region der Tschechischen Republik mit etwa 2 200 Einwohnern. Sie liegt innerhalb der kulturellen Landschaft Lednice–Valtice, die im UNESCO-Weltkulturerbe aufgenommen ist.',
+				fr: 'Lednice est une commune et un village dans le district de Břeclav, dans la région sud-moravienne de la République tchèque, avec environ 2 200 habitants. Elle se situe dans le paysage culturel Lednice–Valtice, qui est inscrit sur la liste du patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -177,6 +201,8 @@ export const rok2024: Rok = {
 			y: 349.2,
 			popis: {
 				cs: 'Šumavská obec uprostřed národního parku, třináct kilometrů jihozápadně od Kašperských Hor. Stojí na soutoku Modravského, Roklanského a Filipohuťského potoka, ze kterých tu vzniká Vydra. Žije v ní 107 obyvatel.',
+				de: 'Die Gemeinde Šumava im Zentrum des Nationalparks Šumava, 13 Kilometer südwestlich von Kašperské Hory. Sie liegt am Zusammenfluss der Bäche Modravského, Roklanského und Filipohuťského, aus denen hier die Vydra entsteht. In ihr leben 107 Einwohner.',
+				fr: 'La commune située au cœur du parc national de Šumava, à 13 kilomètres au sud-ouest de Kašperské Hory. Elle est située à la confluence des ruisseaux Modravský, Roklanský et Filipohuťský, dont l\'eau forme la rivière Vydra. Elle compte 107 habitants.',
 			},
 		},
 		{
@@ -189,6 +215,9 @@ export const rok2024: Rok = {
 			y: 348.4,
 			popis: {
 				cs: 'Jihočeská obec v okrese Jindřichův Hradec, v místním nářečí Novosedla. I s částmi Kolenec a Mláka v ní žije 691 obyvatel.',
+				en: 'South Bohemian municipality in Jindřichův Hradec District, known locally as Novosedla, has a population of 691, including the parts Kolenec and Mláka.',
+				de: 'Südböhmische Gemeinde im Landkreis Jindřichův Hradec, im örtlichen Dialekt Novosedla. Inklusive der Ortsteile Kolenec und Mláka leben dort 691 Einwohner.',
+				fr: 'Commune du Sud de la Bohême située dans le district de Jindřichův Hradec, appelée Novosedla dans le dialecte local. Avec les parties Kolenec et Mláka, elle compte 691 habitants.',
 			},
 		},
 		{
@@ -201,6 +230,9 @@ export const rok2024: Rok = {
 			y: 323.2,
 			popis: {
 				cs: 'Saská obec asi dvacet kilometrů severozápadně od Drážďan s 8 300 obyvateli. Stojí v ní zámek Moritzburg.',
+				en: 'Saxon municipality about twenty kilometers northwest of Dresden with 8,300 inhabitants. Moritzburg Castle stands there.',
+				de: 'Die sächsische Gemeinde etwa 20 Kilometer nordwestlich von Dresden mit 8.300 Einwohnern. In ihr steht das Schloss Moritzburg.',
+				fr: 'La commune saxonne située à environ vingt kilomètres au nord-ouest de Dresde, comptant 8 300 habitants. Le château Moritzburg s\'y dresse.',
 			},
 		},
 		{
@@ -225,6 +257,9 @@ export const rok2024: Rok = {
 			y: 302.7,
 			popis: {
 				cs: 'Braniborská obec v okrese Prignitz nedaleko místa, kde se Havola vlévá do Labe. Hnízdí tu tolik čápů bílých, že obec roku 1996 dostala od iniciativy EuroNatur titul Evropská čapí vesnice.',
+				en: 'A Brandenburg village in the Prignitz district near the point where the Havola River flows into the Elbe River. So many white storks nest here that the village received the \'European Stork Village\' title from the EuroNatur initiative in 1996.',
+				de: 'Brandenburgische Gemeinde im Landkreis Prignitz nahe dem Ort, an dem die Havola in die Elbe mündet. Hier nisten so viele weiße Störche, dass die Gemeinde im Jahr 1996 den Titel „Europäisches Storchen-Dorf“ von der Initiative EuroNatur erhielt.',
+				fr: 'Commune de Brandebourg située dans le district de Prignitz près de l\'endroit où la rivière Havola se jette dans l\'Elbe. Il y a tellement de cigognes blanches nichant ici que la commune a reçu en 1996 de l\'initiative EuroNatur le titre de Village européen des cigognes.',
 			},
 		},
 		{
@@ -237,6 +272,9 @@ export const rok2024: Rok = {
 			y: 290.8,
 			popis: {
 				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
+				en: 'Former Hanseatic city and today an important port on the Baltic coast in Mecklenburg-Western Pomerania, approximately 45 kilometers east of Lübeck. Its historic core has been listed on the UNESCO World Heritage List since 2002, together with Stralsund — it contains a number of brick buildings typical of prosperous Hanseatic cities.',
+				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
+				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
 			},
 		},
 		{
@@ -249,6 +287,9 @@ export const rok2024: Rok = {
 			y: 289.2,
 			popis: {
 				cs: 'Obec na severovýchodě zemského okresu Nordwestmecklenburg v Meklenbursku-Předním Pomořansku. Spravuje ji úřad se sídlem v Neuburgu.',
+				en: 'The municipality is located in the northeast of the Nordwestmecklenburg district in Mecklenburg-Western Pomerania. It is administered by an office based in Neuburg.',
+				de: 'Gemeinde im Nordosten des Landkreises Nordwestmecklenburg in Mecklenburg-Vorpommern. Das Amt mit Sitz in Neuburg verwaltet sie.',
+				fr: 'Commune située dans le nord-est du district de Nordwestmecklenburg en Mecklembourg-Poméranie-Occidentale. Elle est administrée par une administration dont le siège est à Neuburg.',
 			},
 		},
 		{
@@ -261,6 +302,9 @@ export const rok2024: Rok = {
 			y: 294.8,
 			popis: {
 				cs: 'Obec v dolnosaském zemském okrese Stade, dolnoněmecky Greundiek. Patří do svazku obcí Lühe, který úřaduje ve Steinkirchen.',
+				en: 'The municipality in the Low Saxon district of Stade, Low German: Greundiek. It belongs to the Lühe association of municipalities, which is headquartered in Steinkirchen.',
+				de: 'Gemeinde im niedersächsischen Landkreis Stade, niederdeutsch Greundiek. Sie gehört zum Gemeindeverband Lühe, der seinen Sitz in Steinkirchen hat.',
+				fr: 'Commune située dans le district de Stade en Basse-Saxe, en bas allemand : Greundiek. Elle appartient à la fédération de communes de Lühe, dont le siège est à Steinkirchen.',
 			},
 		},
 		{
@@ -273,6 +317,9 @@ export const rok2024: Rok = {
 			y: 291.0,
 			popis: {
 				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
+				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
+				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
+				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
 			},
 		},
 		{
@@ -285,6 +332,9 @@ export const rok2024: Rok = {
 			y: 298.7,
 			popis: {
 				cs: 'Okresní město ve Východním Frísku na řekách Emži a Ledě, po Emdenu a Aurichu třetí největší město regionu s 34 277 obyvateli. Staletí ho živil námořní přístav a obchod, od osmdesátých let 20. století je jedním z největších německých rejdařských sídel. Městem se ovšem stalo až roku 1823.',
+				en: 'District town in East Frisia on the rivers Ems and Leda, the third largest city in the region after Emden and Aurich with 34,277 inhabitants. For centuries, its economy was sustained by the seaport and trade; since the 1980s, it has been one of the largest German fishing settlements. However, it was only designated as a town in 1823.',
+				de: 'Kreisstadt in Ostfriesland an den Flüssen Ems und Leda, nach Emden und Aurich die drittgrößte Stadt der Region mit 34 277 Einwohnern. Seit Jahrhunderten wurde die Stadt vom Seehafen und Handel getragen, seit den 1980er Jahren des 20. Jahrhunderts ist sie eines der größten deutschen Fischereizentren. Es wurde jedoch erst 1823 zur Stadt.',
+				fr: 'Chef-lieu de district dans l\'Est Frise, sur les rivières Ems et Leda, troisième plus grande ville de la région après Emden et Aurich, avec 34 277 habitants. Pendant des siècles, le port maritime et le commerce l\'ont alimenté ; depuis les années 1980, elle est l\'un des plus grands foyers de pêche allemands. C\'est seulement en 1823 qu\'elle est devenue une ville.',
 			},
 		},
 		{
@@ -309,6 +359,9 @@ export const rok2024: Rok = {
 			y: 297.1,
 			popis: {
 				cs: 'Fríská vesnice v kraji Het Bildt, pár kilometrů od Waddenzee. Začíná tu poutní cesta Jabikspaad, která vede severem Nizozemska; v roce 2023 tu žilo 1 715 lidí.',
+				en: 'A Frisian village in the Het Bildt region, a few kilometers from the Wadden Sea. The pilgrimage route Jabikspaad begins here, leading through northern Netherlands; in 2023, 1,715 people lived there.',
+				de: 'Friesisches Dorf in der Region Het Bildt, etwa ein paar Kilometer vom Wattenmeer entfernt. Der Pilgerweg Jabikspaad beginnt hier, der durch die nördlichen Niederlande führt; im Jahr 2023 lebten dort 1.715 Menschen.',
+				fr: 'Village frison dans la région Het Bildt, à quelques kilomètres de la mer des Waddes. La route de pèlerinage Jabikspaad commence ici, qui traverse le nord des Pays-Bas ; en 2023, 1 715 personnes y vivaient.',
 			},
 		},
 		{
@@ -321,6 +374,9 @@ export const rok2024: Rok = {
 			y: 300.8,
 			popis: {
 				cs: 'Přístavní město na severním cípu Severního Holandska, asi šedesát kilometrů severně od Amsterdamu; naproti přes vodu leží ostrov Texel. Od roku 1815 je domovskou základnou nizozemského královského námořnictva — sídlí tu jeho akademie i muzeum. Začíná tady také Severoholandský průplav, dokončený roku 1824 a vedoucí až do Amsterdamu.',
+				en: 'Port city at the northern tip of North Holland, approximately sixty kilometers north of Amsterdam; across the water lies the island Texel. Since 1815, it has been the home base of the Dutch Royal Navy — its academy and museum are headquartered here. The North Holland Canal also begins here, completed in 1824 and leading all the way to Amsterdam.',
+				de: 'Hafenstadt am nördlichen Zipfel Nordhollands, etwa sechzig Kilometer nördlich von Amsterdam; gegenüber liegt die Insel Texel über das Wasser. Seit 1815 ist sie die Heimatbasis der niederländischen königlichen Marine – hier befinden sich ihre Akademie und ihr Museum. Hier beginnt auch der Nordhollandkanal, der 1824 fertiggestellt wurde und bis nach Amsterdam führt.',
+				fr: 'Ville portuaire située au cap nord de la Hollande du Nord, environ soixante kilomètres au nord d\'Amsterdam ; en face, de l\'autre côté de l\'eau, se trouve l\'île Texel. Depuis 1815, c\'est la base principale de la marine royale néerlandaise — son académie et son musée y sont situés. Le canal du Nord-Hollande commence également ici, achevé en 1824 et menant jusqu\'à Amsterdam.',
 			},
 		},
 		{
@@ -333,6 +389,9 @@ export const rok2024: Rok = {
 			y: 306.6,
 			popis: {
 				cs: 'Nizozemské město v provincii Severní Holandsko, součást obce Edam-Volendam. Na začátku roku 2021 v něm žilo 22 715 obyvatel.',
+				en: 'Dutch city in the province of North Holland, part of the municipality of Edam-Volendam. At the beginning of 2021, 22 715 people lived there.',
+				de: 'Niederländische Stadt in der Provinz Nordholland, Teil der Gemeinde Edam-Volendam. Zu Beginn des Jahres 2021 lebten dort 22 715 Einwohner.',
+				fr: 'Ville néerlandaise située dans la province de Noord-Holland, faisant partie de la commune d\'Edam-Volendam. Au début de l\'année 2021, 22 715 habitants y vivaient.',
 			},
 		},
 		{
@@ -345,6 +404,8 @@ export const rok2024: Rok = {
 			y: 317.3,
 			popis: {
 				cs: 'Město na soutoku Rýna a Lippe v severozápadní části Severního Porýní-Vestfálska. Je hlavním městem stejnojmenného zemského okresu a dělí se na pět správních obvodů.',
+				de: 'Stadt an der Mündung des Rheins und der Lippe im nordwestlichen Teil Nordrhein-Westfalens. Sie ist die Hauptstadt des gleichnamigen Landkreises und wird in fünf Verwaltungsbezirke unterteilt.',
+				fr: 'Ville à la confluence du Rhin et de la Lippe dans la partie nord-ouest de la Rhénanie-du-Nord-Westphalie. Elle est la capitale de l\'arrondissement du même nom et est divisée en cinq arrondissements administratifs.',
 			},
 		},
 		{
@@ -369,6 +430,9 @@ export const rok2024: Rok = {
 			y: 336.4,
 			popis: {
 				cs: 'Vesnice v zemském okrese Cochem-Zell v Porýní-Falci, patřící do svazku obcí Zell na Mosele.',
+				en: 'Village in the Cochem-Zell district in Rhineland-Palatinate, belonging to the association of municipalities Zell on the Moselle.',
+				de: 'Dorf im Landkreis Cochem-Zell in Rheinland-Pfalz, zugehörig zur Verbandsgemeinde Zell an der Mosel.',
+				fr: 'Village situé dans le district de Cochem-Zell en Rhin-Palatinat, appartenant à la communauté de communes de Zell-sur-Moselle.',
 			},
 		},
 		{
@@ -381,6 +445,9 @@ export const rok2024: Rok = {
 			y: 339.4,
 			popis: {
 				cs: 'Moselská vesnice v zemském okrese Trier-Saarburg zhruba na půli cesty mezi Bernkastel-Kues a Trevírem. Patří do svazku obcí Schweich na Římské vinné stezce.',
+				en: 'Moselle village in the Trier-Saarburg district, approximately halfway between Bernkastel-Kues and Trier. Belongs to the Schweich municipal association on the Roman Wine Route.',
+				de: 'Moseldorf im Landkreis Trier-Saarburg, etwa auf halbem Weg zwischen Bernkastel-Kues und Trier. Gehört zum Gemeindeverband Schweich auf der Römischen Weinstraße.',
+				fr: 'Village de la Moselle situé dans le district de Trier-Saarburg, environ à mi-chemin entre Bernkastel-Kues et Trèves. Appartient au regroupement de communes Schweich sur la Voie romaine des vins.',
 			},
 		},
 		{
@@ -393,6 +460,9 @@ export const rok2024: Rok = {
 			y: 338.1,
 			popis: {
 				cs: 'Vesnice v eifelském okrese Bitburg-Prüm v Porýní-Falci, která patří do svazku obcí Südeifel.',
+				en: 'Village in the Eifel district Bitburg-Prüm in Rhineland-Palatinate, which belongs to the Südeifel community of municipalities.',
+				de: 'Dorf im Landkreis Bitburg-Prüm im Eifel in Rheinland-Pfalz, das zum Gemeindverbund Südeifel gehört.',
+				fr: 'Village dans le district de Bitburg-Prüm (Eifel) en Rhin-Palatinat, qui appartient à l\'association de communes Südeifel.',
 			},
 		},
 		{
@@ -405,6 +475,9 @@ export const rok2024: Rok = {
 			y: 346.4,
 			popis: {
 				cs: 'Vesnice u Verdunu, která už neexistuje — před první světovou válkou tu žilo přes čtyři sta lidí, ale za bitvy u Verdunu přes ni šestnáctkrát přešla fronta. Půda zůstala plná nevybuchlé munice a zamořená plyny, a tak se ves neobnovila; obcí je dodnes, jen s nulovým počtem obyvatel. Stojí tu Mémorial de Verdun a Douaumontská kostnice.',
+				en: 'Village near Verdun that no longer exists — before the First World War, over four hundred people lived there, but during the battles near Verdun, the front line crossed it sixteen times. The soil remained full of unexploded ordnance and contaminated with gases, and thus the village was never rebuilt; it remains today as a commune with zero population. The Mémorial de Verdun and the Douaumont Ossuary stand there.',
+				de: 'Dorf bei Verdun, das nicht mehr existiert – vor dem Ersten Weltkrieg lebten dort über 400 Menschen, aber während der Schlacht bei Verdun zog die Front 16-mal über es hinweg. Der Boden blieb voll ungesprengter Munition und mit kontaminierten Gasen verseucht, sodass das Dorf nicht wieder aufgebaut wurde; die Gemeinde existiert heute noch, jedoch mit null Einwohnern. Dort steht das Mémorial de Verdun und das Douaumont-Ossuarium.',
+				fr: 'Village près de Verdun, qui n\'existe plus — avant la Première Guerre mondiale, plus de quatre cents personnes y vivaient, mais pendant les combats de Verdun, la ligne de front y a traversé seize fois. Le sol est resté plein de munitions non explosées et contaminé par des gaz, si bien que le village n\'a pas été reconstruit ; l\'ancienne commune existe encore aujourd\'hui, avec un nombre d\'habitants nul. Le Mémorial de Verdun et l\'Ossuaire de Douaumont se trouvent là.',
 			},
 		},
 		{
@@ -417,6 +490,9 @@ export const rok2024: Rok = {
 			y: 351.5,
 			popis: {
 				cs: 'Francouzská obec v departementu Meurthe-et-Moselle v regionu Grand Est.',
+				en: 'French commune in the department of Meurthe-et-Moselle in the Grand Est region.',
+				de: 'Französische Gemeinde im Departement Meurthe-et-Moselle in der Region Grand Est.',
+				fr: 'Commune française dans le département de Meurthe-et-Moselle dans la région Grand Est.',
 			},
 		},
 		{
@@ -429,6 +505,9 @@ export const rok2024: Rok = {
 			y: 349.1,
 			popis: {
 				cs: 'Francouzská obec v departementu Moselle, středisko stejnojmenného kantonu. V roce 2013 v ní žilo 5 225 obyvatel.',
+				en: 'The French commune in the Moselle department, seat of the eponymous canton. In 2013, it had 5,225 inhabitants.',
+				de: 'Französische Gemeinde im Département Moselle, Sitz des gleichnamigen Kantons. Im Jahr 2013 lebten dort 5 225 Einwohner.',
+				fr: 'Commune française du département de Moselle, siège du canton du même nom. En 2013, elle comptait 5 225 habitants.',
 			},
 		},
 		{
@@ -441,6 +520,7 @@ export const rok2024: Rok = {
 			y: 363.2,
 			popis: {
 				cs: 'Město na západním okraji okresu Tuttlingen v Bádensku-Württembersku. Počtem obyvatel je šestou, rozlohou třetí největší obcí okresu.',
+				fr: 'Ville située à l\'extrême ouest du district de Tuttlingen en Baden-Wurtemberg. Par nombre d\'habitants, elle est sixième, et en superficie, la troisième plus grande commune du district.',
 			},
 		},
 		{
@@ -453,6 +533,9 @@ export const rok2024: Rok = {
 			y: 364.6,
 			popis: {
 				cs: 'Obec na břehu Bodamského jezera v bádensko-württemberském okrese Kostnice. Vznikla 1. ledna 1975 spojením do té doby samostatných obcí Bodman a Ludwigshafen am Bodensee, dřív zvané Sernatingen.',
+				en: 'The municipality on the shore of Lake Constance in the Baden-Württemberg district of Konstanz. It was formed on January 1, 1975, by the merger of the previously separate municipalities of Bodman and Ludwigshafen am Bodensee, formerly known as Sernatingen.',
+				de: 'Gemeinde am Ufer des Bodensees im baden-württembergischen Kreis Konstanz. Entstand am 1. Januar 1975 durch die Vereinigung der bis dahin selbständigen Gemeinden Bodman und Ludwigshafen am Bodensee, früher Sernatingen genannt.',
+				fr: 'Commune située sur les rives du lac de Constance, dans le district de Kostnice, en Bade-Wurtemberg. Elle a été créée le 1er janvier 1975 par la fusion des communes de Bodman et Ludwigshafen am Bodensee, jusqu\'alors indépendantes, anciennement appelées Sernatingen.',
 			},
 		},
 		{
@@ -465,6 +548,9 @@ export const rok2024: Rok = {
 			y: 368.0,
 			popis: {
 				cs: 'Obec v zemském okrese Oberallgäu ve švábské části Bavorska.',
+				en: 'Municipality in the Oberallgäu district in the Swabian part of Bavaria.',
+				de: 'Gemeinde im Landkreis Oberallgäu im schwäbischen Teil Bayerns',
+				fr: 'Commune dans le district d\'Oberallgäu dans la partie souabe de la Bavière.',
 			},
 		},
 		{
@@ -479,6 +565,7 @@ export const rok2024: Rok = {
 				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
 				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
 				de: 'Stožec ist eine Gemeinde und ein Dorf im Bezirk Prachatice in der Region Südböhmen mit etwa 200 Einwohnern. Es liegt etwa 22 km südwestlich von Prachatice und 50 km westlich von Budweis.',
+				fr: 'Stožec est une commune et un village dans l\'arrondissement de Prachatice dans la région de Bohême du Sud avec environ 200 habitants. Il se trouve à environ 22 km au sud-ouest de Prachatice et à 50 km à l\'ouest de České Budějovice.',
 			},
 		},
 		{
@@ -493,6 +580,7 @@ export const rok2024: Rok = {
 				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
 				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
 				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
 			},
 		},
 		{
@@ -505,6 +593,9 @@ export const rok2024: Rok = {
 			y: 352.4,
 			popis: {
 				cs: 'Městys v dolnobavorském zemském okrese Freyung-Grafenau, uznaný jako rekreační místo. Do roku 1875 se psal Perlesreuth.',
+				en: 'Market town in the Lower Bavarian district of Freyung-Grafenau, recognized as a recreational place. Until 1875, it was spelled Perlesreuth.',
+				de: 'Markt im niederbayerischen Landkreis Freyung-Grafenau, als Erholungsgebiet anerkannt. Bis 1875 hieß der Ort Perlesreuth.',
+				fr: 'Le bourg situé dans le district de Freyung-Grafenau en Bavière inférieure, reconnu comme lieu de loisirs. Jusqu\'en 1875, on écrivait Perlesreuth.',
 			},
 		},
 		{
@@ -519,6 +610,7 @@ export const rok2024: Rok = {
 				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
 				de: 'Františkovy Lázně (deutsch Franzensbad) sind ein Kurort im Landkreis Cheb im Karlovarer Land, 5 km nördlich von Cheb. Seit 2021 befindet sich die Stadt im Verzeichnis des UNESCO-Weltkulturerbes zusammen mit Marienbad und Karlsbad im Rahmen der Kategorie „Berühmte Kurorte Europas“.',
+				fr: 'Františkovy Lázně (allemand Franzensbad) est une ville thermale située dans l\'arrondissement de Cheb, dans la région de Karlovy Vary, à 5 km au nord de Cheb. Depuis 2021, la ville figure sur la liste du patrimoine mondial de l\'UNESCO, en compagnie de Mariánské Lázně et de Karlovy Vary, dans le cadre de la catégorie « Villes thermales célèbres d\'Europe ».',
 			},
 		},
 		{
@@ -531,6 +623,9 @@ export const rok2024: Rok = {
 			y: 316.3,
 			popis: {
 				cs: 'Lázeňské město při severním úpatí Harzu, devatenáct kilometrů jihozápadně od Halberstadtu. Po požáru roku 1836 muselo být z velké části postavené znovu; stojí tu stará radnice, hrad se sbírkami a několik kostelů. Nedaleko se zvedá skalní hřeben Teufelsmauer, Čertova zeď, s výhledem do harzských plání i roklí.',
+				en: 'The spa town at the northern foot of the Harz, 19 kilometers southwest of Halberstadt. After the fire of 1836, it had to be largely rebuilt; the old town hall, the castle with collections, and several churches stand there. Nearby rises the rocky ridge Teufelsmauer, Devil\'s Wall, with views of the Harz plains and valleys.',
+				de: 'Kurort am nördlichen Vorbergen des Harzes, 19 Kilometer südwestlich von Halberstadt. Nach dem Brand von 1836 musste es größtenteils neu gebaut werden; hier steht das alte Rathaus, das Schloss mit Sammlungen und mehrere Kirchen. Nicht weit entfernt erhebt sich der Felskamm Teufelsmauer mit Blick auf die Harzer Ebenen und Schluchten.',
+				fr: 'Ville thermale située aux contreforts nord du Harz, à dix-neuf kilomètres au sud-ouest de Halberstadt. Après l\'incendie de 1836, il a fallu reconstruire une grande partie de la ville ; on y trouve la vieille mairie, le château avec ses collections et plusieurs églises. Non loin s\'élève la crête rocheuse Teufelsmauer, Mur du Diable, offrant une vue sur les plaines et les gorges du Harz.',
 			},
 		},
 		{
@@ -543,6 +638,9 @@ export const rok2024: Rok = {
 			y: 291.3,
 			popis: {
 				cs: 'Obec ve šlesvicko-holštýnském okrese Steinburg na břehu Labe, asi dvacet kilometrů od jeho ústí do Severního moře. V prosinci 2019 tu žilo 965 obyvatel.',
+				en: 'Municipality in the Steinburg district of Schleswig-Holstein on the banks of the Elbe River, about twenty kilometers from its mouth into the North Sea. In December 2019, 965 people lived there.',
+				de: 'Gemeinde im Landkreis Steinburg in Schleswig-Holstein am Ufer der Elbe, ca. 20 Kilometer von der Mündung der Elbe in die Nordsee entfernt. Im Dezember 2019 lebten dort 965 Einwohner.',
+				fr: 'Commune dans le district de Steinburg en Schleswig-Holstein, sur les rives de l\'Elbe, à environ vingt kilomètres de son embouchure dans la mer du Nord. En décembre 2019, 965 habitants y habitaient.',
 			},
 		},
 		{
@@ -555,6 +653,9 @@ export const rok2024: Rok = {
 			y: 290.8,
 			popis: {
 				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
+				en: 'Former Hanseatic city and today an important port on the Baltic coast in Mecklenburg-Western Pomerania, approximately 45 kilometers east of Lübeck. Its historic core has been listed on the UNESCO World Heritage List since 2002, together with Stralsund — it contains a number of brick buildings typical of prosperous Hanseatic cities.',
+				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
+				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
 			},
 		},
 		{
@@ -579,6 +680,9 @@ export const rok2024: Rok = {
 			y: 323.1,
 			popis: {
 				cs: 'Saská obec asi dvacet kilometrů severozápadně od Drážďan s 8 300 obyvateli. Stojí v ní zámek Moritzburg.',
+				en: 'Saxon municipality about twenty kilometers northwest of Dresden with 8,300 inhabitants. Moritzburg Castle stands there.',
+				de: 'Die sächsische Gemeinde etwa 20 Kilometer nordwestlich von Dresden mit 8.300 Einwohnern. In ihr steht das Schloss Moritzburg.',
+				fr: 'La commune saxonne située à environ vingt kilomètres au nord-ouest de Dresde, comptant 8 300 habitants. Le château Moritzburg s\'y dresse.',
 			},
 		},
 	],

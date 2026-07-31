@@ -59,6 +59,7 @@ export const rok2020: Rok = {
 				cs: 'Horní Pěna je obec v okrese Jindřichův Hradec v Jihočeském kraji, umístěná v Javořické pahorkatině v oblasti České Kanady s 582 obyvateli.',
 				en: 'Upper Pěna is a municipality in Jindřichův Hradec District in the South Bohemian Region, located in the Javořická Uplands in the Czech Canada area with 582 inhabitants.',
 				de: 'Horní Pěna ist eine Gemeinde im Landkreis Jindřichův Hradec in Südböhmen, gelegen im Javořické Hügelland in der Region Tschechische Kanada mit 582 Einwohnern.',
+				fr: 'Horní Pěna est une commune située dans le district de Jindřichův Hradec, dans la région de Bohême du Sud, dans les collines de Javořice, dans la région du Canada tchèque, avec 582 habitants.',
 			},
 		},
 		{
@@ -86,6 +87,7 @@ export const rok2020: Rok = {
 				cs: 'Točník je obec v okrese Beroun ve Středočeském kraji, asi 7 km severně od Hořovic. Žije zde 269 obyvatel.',
 				en: 'Točník is a municipality in Beroun District in the Central Bohemian Region, about 7 km north of Hořovic. It has a population of 269.',
 				de: 'Točník ist eine Gemeinde im Bezirk Beroun in Mittelböhmen, etwa 7 km nördlich von Hořovic. Hier leben 269 Einwohner.',
+				fr: 'Točník est une commune dans l\'arrondissement de Beroun, dans la région de Bohême centrale, à environ 7 km au nord de Hořovic. Il y a 269 habitants ici.',
 			},
 		},
 		{
@@ -100,6 +102,7 @@ export const rok2020: Rok = {
 				cs: 'Františkovy Lázně (německy Franzensbad) jsou lázeňské město v okrese Cheb v Karlovarském kraji, 5 km severně od Chebu. Od roku 2021 je město na seznamu Světového dědictví UNESCO spolu s Mariánskými Lázněmi a Karlovými Vary v rámci položky Slavná lázeňská města Evropy.',
 				en: 'Františkovy Lázně (German: Franzensbad) is a spa town in the Cheb District of the Karlovy Vary Region, 5 km north of Cheb. Since 2021, the town has been listed on the UNESCO World Heritage List together with Mariánské Lázně and Karlovy Vary as part of the \'Famous Spa Towns of Europe\' entry.',
 				de: 'Františkovy Lázně (deutsch Franzensbad) sind ein Kurort im Landkreis Cheb im Karlovarer Land, 5 km nördlich von Cheb. Seit 2021 befindet sich die Stadt im Verzeichnis des UNESCO-Weltkulturerbes zusammen mit Marienbad und Karlsbad im Rahmen der Kategorie „Berühmte Kurorte Europas“.',
+				fr: 'Františkovy Lázně (allemand Franzensbad) est une ville thermale située dans l\'arrondissement de Cheb, dans la région de Karlovy Vary, à 5 km au nord de Cheb. Depuis 2021, la ville figure sur la liste du patrimoine mondial de l\'UNESCO, en compagnie de Mariánské Lázně et de Karlovy Vary, dans le cadre de la catégorie « Villes thermales célèbres d\'Europe ».',
 			},
 		},
 		{
@@ -113,6 +116,7 @@ export const rok2020: Rok = {
 			popis: {
 				cs: 'Velhartice je obec v Plzeňském kraji s historickým jádrem zařazeným do městské památkové zóny. Součástí obce je bývalé horní město Hory Matky Boží.',
 				en: 'Velhartice is a municipality in the Plzeň Region with a historical core included in the city monument zone. The municipality includes the former upper town Hory Matky Boží.',
+				fr: 'Velhartice est une commune de la région de Plzeň, dont le noyau historique est classé dans la zone monumentale urbaine. L\'ancien Haut-Ville Hory Matky Boží fait partie de la commune.',
 			},
 		},
 		{
@@ -125,6 +129,7 @@ export const rok2020: Rok = {
 			y: 343.1,
 			popis: {
 				cs: 'Obec na levém břehu Vltavy, která si jméno vypůjčila od zámku nad sebou — ten stojí na skalním útesu vysoko nad hladinou orlické přehrady. Trvale tu bydlí 301 obyvatel.',
+				fr: 'Commune située sur la rive gauche de la Vltava, qui a emprunté son nom au château au-dessus d\'elle — lequel est situé sur une falaise rocheuse, haut au-dessus de la surface de la retenue d\'Orlík. 301 habitants y résident en permanence.',
 			},
 		},
 		{
@@ -139,6 +144,7 @@ export const rok2020: Rok = {
 				cs: 'Svatý Jan je obec a vesnice v okrese Příbram v Středočeském kraji České republiky se zhruba 600 obyvatel.',
 				en: 'Svatý Jan is a municipality and village in Příbram District, Central Bohemian Region, Czech Republic, with approximately 600 inhabitants.',
 				de: 'Svatý Jan ist eine Gemeinde und ein Dorf im Landkreis Příbram im Mittelböhmen der Tschechischen Republik mit etwa 600 Einwohnern.',
+				fr: 'Saint-Jean est une commune et un village dans l\'arrondissement de Příbram dans la région de Bohême centrale de la République tchèque avec environ 600 habitants.',
 			},
 		},
 		{
@@ -151,6 +157,8 @@ export const rok2020: Rok = {
 			y: 346.2,
 			popis: {
 				cs: 'Město rozložené na obou březích Vltavy, východně od jejího soutoku s Lužnicí. Historické jádro je vyhlášené městskou památkovou zónou.',
+				en: 'The city situated on both banks of the Vltava, east of its confluence with the Lužnice. The historical core is designated as a city monument zone.',
+				fr: 'La ville étendue sur les deux rives de la Vltava, à l\'est de sa confluence avec la Lužnice. Le noyau historique est classé en zone monumentale municipale.',
 			},
 		},
 		{
@@ -165,6 +173,7 @@ export const rok2020: Rok = {
 				cs: 'Žirovnice je město v regionu Vysočina, ležící na potoku Žirovničce v Křemešníkových vrších. Hlavní památky tvoří Zámek Žirovnice a kostel sv. Filipa a Jakuba.',
 				en: 'Zirovnice is a city in the Vysočina Region, located on the Zirovnica Stream in the Kremesnikovy Hills. The main attractions are Zirovnice Castle and the Church of St. Philip and James.',
 				de: 'Žirovnice ist eine Stadt in der Region Vysočina, gelegen am Bach Žirovnička in den Křemešníkových Hügeln. Die Hauptdenkmäler sind das Schloss Žirovnice und die Kirche St. Philipp und Jakob.',
+				fr: 'Žirovnice est une ville de la région Vysočina, située sur le ruisseau Žirovnička dans les collines Křemešníkových. Les principaux monuments sont le Château de Žirovnice et l\'église de Saint-Philippe et Saint-Jacques.',
 			},
 		},
 		{
@@ -179,6 +188,7 @@ export const rok2020: Rok = {
 				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
 				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
 				de: 'Lednice ist eine Gemeinde und ein Dorf im Landkreis Břeclav in der Südmährischen Region der Tschechischen Republik mit etwa 2 200 Einwohnern. Sie liegt innerhalb der kulturellen Landschaft Lednice–Valtice, die im UNESCO-Weltkulturerbe aufgenommen ist.',
+				fr: 'Lednice est une commune et un village dans le district de Břeclav, dans la région sud-moravienne de la République tchèque, avec environ 2 200 habitants. Elle se situe dans le paysage culturel Lednice–Valtice, qui est inscrit sur la liste du patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -207,6 +217,7 @@ export const rok2020: Rok = {
 				cs: 'Křišťanov je obec v okrese Prachatice v Jihočeském kraji, ležící na severu Želnavské hornatiny v nadmořské výšce 925 m s 86 obyvateli.',
 				en: 'Křišťanov is a municipality in the Prachatice District in the South Bohemian Region, located in the northern part of the Želnavská Highlands at an elevation of 925 m with 86 inhabitants.',
 				de: 'Křišťanov ist eine Gemeinde im Bezirk Prachatice in Südböhmen, gelegen im Norden des Želnavské Hochlands in einer Höhe von 925 m mit 86 Einwohnern.',
+				fr: 'Křišťanov est une commune située dans l\'arrondissement de Prachatice, dans la région de Bohême du Sud, au nord de la chaîne de montagnes Želnavské, à une altitude de 925 m, avec 86 habitants.',
 			},
 		},
 	],

@@ -29,6 +29,7 @@ export const rok2019: Rok = {
 				cs: 'Stožec je obec a vesnice v okrese Prachatice v Jihočeském kraji s přibližně 200 obyvateli. Nachází se asi 22 km jihozápadně od Prachatice a 50 km západně od Českých Budějovic.',
 				en: 'Stožec is a municipality and village in the Prachatice District in the South Bohemian Region with approximately 200 inhabitants. It is located approximately 22 km southwest of Prachatice and 50 km west of České Budějovice.',
 				de: 'Stožec ist eine Gemeinde und ein Dorf im Bezirk Prachatice in der Region Südböhmen mit etwa 200 Einwohnern. Es liegt etwa 22 km südwestlich von Prachatice und 50 km westlich von Budweis.',
+				fr: 'Stožec est une commune et un village dans l\'arrondissement de Prachatice dans la région de Bohême du Sud avec environ 200 habitants. Il se trouve à environ 22 km au sud-ouest de Prachatice et à 50 km à l\'ouest de České Budějovice.',
 			},
 		},
 		{
@@ -56,6 +57,9 @@ export const rok2019: Rok = {
 			y: 327.6,
 			popis: {
 				cs: 'Špindlerův Mlýn leží uprostřed Krkonoš a je nejnavštěvovanějším horským střediskem v Česku. Přestože se katastr města rozkládá na 7 694 hektarech, žije tu jen kolem 1 100 lidí.',
+				en: 'Špindlerův Mlýn lies in the middle of Krkonoš and is the most visited mountain resort in the Czech Republic. Although the town\'s cadastral area spans 7,694 hectares, only around 1,100 people live there.',
+				de: 'Spindlermühle liegt mitten im Riesengebirge und ist das am meisten besuchte Bergresort in Tschechien. Obwohl der Kataster der Stadt 7.694 Hektar umfasst, leben hier nur etwa 1.100 Menschen.',
+				fr: 'Špindlerův Mlýn se trouve au milieu des Krkonoše et est la station de montagne la plus visitée en République tchèque. Bien que le cadastre de la ville couvre 7 694 hectares, seulement environ 1 100 personnes y vivent.',
 			},
 		},
 		{

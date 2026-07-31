@@ -7,23 +7,44 @@ interface Props {
 	jazyk?: Jazyk;
 	/** Část adresy za /cesty (např. "2026" nebo "vse") — pro odkazy přepínače jazyků */
 	podcesta?: string;
+	/** Krátký popis stránky pro vyhledávače a náhled odkazu */
+	popisStranky?: string;
 }
 
-const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
+const { titulek, jazyk = 'cs', podcesta = '', popisStranky } = Astro.props;
 ---
 
 <html lang={jazyk}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{titulek}</title>
+		{popisStranky && <meta name="description" content={popisStranky} />}
+		{/* Provázání jazykových verzí — vyhledávač i čtečka pak vědí, že jde o tutéž
+		    stránku ve čtyřech jazycích, a nabídnou návštěvníkovi tu jeho. */}
+		{
+			JAZYKY.map((j) => (
+				<link rel="alternate" hreflang={j} href={`https://cesty.wonderly.cz${cestaCesty(j, podcesta)}`} />
+			))
+		}
+		<link rel="alternate" hreflang="x-default" href={`https://cesty.wonderly.cz${cestaCesty('cs', podcesta)}`} />
+		<link rel="canonical" href={`https://cesty.wonderly.cz${cestaCesty(jazyk, podcesta)}`} />
 		<script is:inline>
 			// nastavit vzhled dřív, než se stránka vykreslí (žádné bliknutí)
-			const ulozeny = localStorage.getItem('vzhled');
-			if (ulozeny === 'dark' || (!ulozeny && matchMedia('(prefers-color-scheme: dark)').matches)) {
-				document.documentElement.dataset.theme = 'dark';
+			// localStorage může být zakázané (přísné nastavení cookies) — bez try by
+			// tu skript spadl a stránka by zůstala ve světlém režimu i pro toho,
+			// kdo si zvolil tmavý
+			try {
+				const ulozeny = localStorage.getItem('vzhled');
+				if (ulozeny === 'dark' || (!ulozeny && matchMedia('(prefers-color-scheme: dark)').matches)) {
+					document.documentElement.dataset.theme = 'dark';
+				}
+			} catch (e) {
+				if (matchMedia('(prefers-color-scheme: dark)').matches) {
+					document.documentElement.dataset.theme = 'dark';
+				}
 			}
 		</script>
 	</head>
@@ -34,6 +55,8 @@ const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 					JAZYKY.map((j) => (
 						<a
 							href={cestaCesty(j, podcesta)}
+							hreflang={j}
+							lang={j}
 							class={j === jazyk ? 'aktivni' : undefined}
 							aria-current={j === jazyk ? 'page' : undefined}
 							title={JAZYK_POPIS[j].nazev}
@@ -86,7 +109,7 @@ const { titulek, jazyk = 'cs', podcesta = '' } = Astro.props;
 			:root {
 				--pozadi: #ffffff;
 				--text: #1c1c1c;
-				--ztlumeny: #777777;
+				--ztlumeny: #5f5f5f; /* 7,0:1 na bílé i na --plocha; #777 mělo jen 4,0:1 */
 				--cara: #e3e3e3;
 				--plocha: #f4f2ee;
 				--odkaz: #0b57d0;

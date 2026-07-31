@@ -74,7 +74,44 @@ if (pocetOtazek !== pocetOdpovedi) {
 	chyby.push(`v kvizy.ts je ${pocetOtazek} otázek, ale ${pocetOdpovedi} seznamů odpovědí — někde chybí odpovědi`);
 }
 
+// 7) DENÍK (přidáno 31. 7. 2026 po nezávislém auditu): brána hlídala jen školu,
+// a tak se na web dostal popis Loketu o anatomickém lokti i „336 dnů na cestě".
+// Kontroly jsou schválně hloupé a rychlé — chytají to, co se opravdu stalo.
+const cestyDir = new URL('./src/data/cesty/', import.meta.url);
+const rokySoubory = readdirSync(cestyDir).filter((f) => /^\d{4}\.ts$/.test(f));
+let mistCelkem = 0;
+const PODEZRELE = [
+	['v textu není popsáno', 'popis vznikl z článku o něčem jiném'],
+	['je název dvou', 'popis je z rozcestníku, ne o konkrétním místě'],
+	['je název více', 'popis je z rozcestníku, ne o konkrétním místě'],
+	['je název několika', 'popis je z rozcestníku, ne o konkrétním místě'],
+	['Text se zabývá', 'popis mluví o textu místo o místě'],
+];
+for (const soubor of rokySoubory) {
+	const obsah = readFileSync(new URL(soubor, cestyDir), 'utf8');
+	const slugy = [...obsah.matchAll(/^\t\t\tslug: '([^']+)'/gm)].map((m) => m[1]);
+	mistCelkem += slugy.length;
+	const duplicity = slugy.filter((s, i) => slugy.indexOf(s) !== i);
+	if (duplicity.length) {
+		chyby.push(`${soubor}: dvě místa mají stejný slug (${[...new Set(duplicity)].join(', ')})`);
+	}
+	for (const [vzor, proc] of PODEZRELE) {
+		if (obsah.includes(vzor)) chyby.push(`${soubor}: ${proc} — hledej „${vzor}"`);
+	}
+	// videoId musí mít protějšek v seznamu videí roku, jinak karta místa ukáže prázdno
+	const videaId = [...obsah.matchAll(/\{ id: '([^']+)'/g)].map((m) => m[1]);
+	for (const [, vid] of obsah.matchAll(/videoId: '([^']+)'/g)) {
+		if (!videaId.includes(vid)) chyby.push(`${soubor}: videoId ${vid} není v seznamu videí roku`);
+	}
+	// místo bez souřadnic by se nevykreslilo na mapě
+	const pocetX = [...obsah.matchAll(/^\t\t\tx: /gm)].length;
+	if (pocetX !== slugy.length) {
+		chyby.push(`${soubor}: ${slugy.length} míst, ale ${pocetX} souřadnic x`);
+	}
+}
+
 // Výpis česky
+console.log(`Deník: ${rokySoubory.length} roků, ${mistCelkem} míst.`);
 console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {
