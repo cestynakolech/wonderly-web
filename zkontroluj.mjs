@@ -3,7 +3,7 @@
 // Hlídá nejčastější chybu při přidávání simulace: zapojení musí být na VŠECH místech.
 // Nic nemění, jen čte a hlásí. Konec s kódem 1 = něco je špatně.
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { nactiData, maDelkovouNapovedu } from './testy/data.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -107,6 +107,24 @@ if (podilNejdelsi > 45) {
 		`u ${podilNejdelsi} % otázek je správná odpověď nejdelší nebo v remíze o nejdelší (náhoda je 33 %) — jde uhodnout bez znalosti látky. ` +
 			`Nejhorší bloky: ${nejhorsi.map(([k, b]) => `${k.split('/').slice(2).join('/')} (${b.nejdelsi}/${b.celkem})`).join(', ')}`,
 	);
+}
+
+// 6b-ROHATKA. Samotné varování nestačilo: 31. 7. 2026 se podíl za jediný den zhoršil
+// ze 64 % na 66 %, protože bodové opravy drží, ale NOVÉ bloky vznikají se stejnou vadou
+// rychleji, než se staré dorovnávají. Rohatka hlídá jen SMĚR: staré dluhy nikoho
+// neblokují, ale zhoršit se to už nesmí. Zlepšení laťku rovnou utáhne.
+const cestaRohatka = join(koren, 'testy/rohatka.json');
+const strop = existsSync(cestaRohatka) ? JSON.parse(readFileSync(cestaRohatka, 'utf8')) : null;
+if (strop && podilNejdelsi > strop.podilNejdelsi) {
+	chyby.push(
+		`kvízy se zhoršily: správná odpověď je nejdelší u ${podilNejdelsi} % otázek, ` +
+			`naposledy ${strop.podilNejdelsi} %. Dorovnej délky odpovědí v NOVÝCH otázkách ` +
+			`(rozdíl pod 10 znaků). Laťku v testy/rohatka.json povoluj jen vědomě.`,
+	);
+} else if (strop && podilNejdelsi < strop.podilNejdelsi) {
+	writeFileSync(cestaRohatka, `${JSON.stringify(
+		{ ...strop, podilNejdelsi, zmeneno: new Date().toISOString().slice(0, 10) }, null, '\t')}\n`);
+	varovani.push(`kvízy se zlepšily na ${podilNejdelsi} % — laťka utažena (testy/rohatka.json).`);
 }
 
 // 6c) Každé podtéma s kvízem musí být zastoupené v ROČNÍM opakování svého ročníku.
