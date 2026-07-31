@@ -94,6 +94,29 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 noc (dva audity, propojení videí, pečlivá anonymizace)** — Na přání učitele
+  proběhly **dva nezávislé audity** (deník a škola) a podle nich dávka oprav. *Škola:*
+  přetlak/podtlak v plicích byl u špatné fáze dýchání (výklad i kvíz), kalorimetr hlásil
+  součin v joulech jako kJ, rozepnutý vypínač byl překrytý spojitým drátem, 6 duplicitních
+  otázek informatiky nahrazeno novými. *Deník:* počítadlo sčítalo i dny doma mezi výjezdy
+  (2024 hlásil 336 místo 72), překlad dat neuměl rozsahy (60+ dat zůstávalo česky i v en/fr,
+  včetně přelomu roku), paleta měla 6 barev na 8 roků, popisky na společné mapě vedly
+  u opakovaných míst vždy na poslední rok, pět popisů pocházelo z rozcestníků (Loket
+  popisoval **anatomický loket**). Přidána přístupnost: `initial-scale`, `hreflang`,
+  canonical, `lang` na přepínači, kontrast drobných textů 4,0 → 7,0 : 1.
+  **Videa z YouTube propojena s místy na mapě** (`videa_k_mistum.py`) — kotvou je rok
+  z playlistu a skutečný název z oEmbedu (uložený byl zkrácený). **Nový automat na pečlivou
+  anonymizaci** starých videí po jednom se samoopravnou smyčkou (`pecliva_videa.py`,
+  LaunchAgent) — další video se nezačne, dokud učitel neodklikne. Na připomínku učitele
+  opraveno i to, že přepnutí jazyka zahazovalo zanoření mapy.
+  **Dvě poučení, která stála nejvíc času:** (1) automat na popisy si soubor načte na začátku
+  dávky a na konci zapíše celý — ruční zápis mezitím beze stopy zmizí; za jednu noc se tak
+  ztratilo nejdřív 15 popisů a pak 5 oprav, než dostal `zapis_popisy.py` zámek.
+  (2) Kontrola obrazu nesmí stát na samotném měření: citlivá kaskáda hlásila 21 „čitelných
+  SPZ" na dobře anonymizovaném videu a u drobných tváří vycházela ostrost po rekompresi
+  vyšší než v originále. Nálezy proto potvrzuje pohled na výřez. `zkontroluj.mjs` nově
+  hlídá i data cest — a hned odhalil ztracenou opravu popisů.
+
 - **2026-07-30 noc (deník — popis mají všechna místa; dva tiché nálezy)** — Při přebírání
   práce se ukázalo, že v datech cest **chybí 15 popisů, které tam předtím byly**: automat
   skládá `.ts` z `popisy-mist.json`, takže popis zapsaný rovnou do dat webu při dalším běhu

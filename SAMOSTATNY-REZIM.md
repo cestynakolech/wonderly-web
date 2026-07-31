@@ -12,6 +12,13 @@ popisů). Do toho nezasahovat — jen občas zkontrolovat, že hlídač běží.
 **2. Čeká na učitele:** Omega **není v gitu** (nález auditu: skripty nemají historii,
 nedá se nic vrátit). `pip-audit` hlásí 2 zranitelnosti v `torch` (oprava ve verzi 2.13.0).
 
+**0. NEJDŘÍV SI PŘEČTI TOHLE (31. 7. 2026, 5:30 — po úklidu před /clear):**
+Popis místa se zapisuje VÝHRADNĚ přes `zapis_popisy.py` a i ten teď drží zámek —
+automat na popisy si soubor načte na začátku dávky a na konci zapíše celý, takže
+ruční zápis mezitím **beze stopy zmizí**. Stalo se to dvakrát za jednu noc
+(15 popisů z dat webu, pak 5 oprav včetně Loketu). Před buildem vždy `node
+zkontroluj.mjs` — nově hlídá i data cest a právě tuhle ztrátu odhalil.
+
 **3. Pečlivá videa běží — první video čeká na odklik.** `pecliva_videa.py` +
 LaunchAgent `com.omega.pecliva-videa` zpracovávají stará videa PO JEDNOM se
 samoopravnou smyčkou; až bude hotové, objeví se řádek v `KE-SCHVALENI.md`
