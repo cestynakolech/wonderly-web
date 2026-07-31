@@ -12,6 +12,19 @@ popisů). Do toho nezasahovat — jen občas zkontrolovat, že hlídač běží.
 **2. Čeká na učitele:** Omega **není v gitu** (nález auditu: skripty nemají historii,
 nedá se nic vrátit). `pip-audit` hlásí 2 zranitelnosti v `torch` (oprava ve verzi 2.13.0).
 
+**3. Pečlivá videa běží — první video čeká na odklik.** `pecliva_videa.py` +
+LaunchAgent `com.omega.pecliva-videa` zpracovávají stará videa PO JEDNOM se
+samoopravnou smyčkou; až bude hotové, objeví se řádek v `KE-SCHVALENI.md`
+a protokol vedle videa. Schválení: `venv/bin/python3 pecliva_videa.py --schvaleno`,
+vrácení do smyčky: `--zamitnuto "co je špatně"`. Stav: `--stav`.
+
+**4. Z auditů zbývá k dodělání** (nálezy jsou v odpovědi z 31. 7., nasazené opravy
+v gitu): u deníku ještě chybí popisky ~170 míst na společné mapě `/cesty/vse`,
+překlad názvů videí a stellplatzových údajů do en/de/fr, `hreflang` a canonical,
+kontrast `--ztlumeny` a rozšíření `zkontroluj.mjs` o kontroly dat cest.
+U školy: Pracovní činnosti mají 0 kvízů, 13 podtémat je bez kvízu, informatika má
+poloviční kvízy (ø 12 proti 21) a 22 z 37 podtémat fyziky 8 nemá žádné médium.
+
 ### Co se opravilo 30. 7. večer (ať se to neopakuje)
 
 - **Automat mazal ručně psané popisy.** `stare_cesty.py` skládá `.ts` z `popisy-mist.json`;
