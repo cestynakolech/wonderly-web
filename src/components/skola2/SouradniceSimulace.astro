@@ -1,0 +1,355 @@
+---
+// Souřadnice a kreslení (informatika 7): scéna Scratche jako mřížka x −240…240, y −180…180.
+// Žák klikne na scénu a rovnou vidí blok, který se provedl, i to, ve které čtvrtině je.
+//
+// Pointa: ZÁPORNÉ x je vlevo, ZÁPORNÉ y je DOLŮ — to je u dětí nejčastější chyba
+// (zaměňují si y s „řádkem shora", jak jsou zvyklé z tabulky).
+// Pero kreslí za postavou čáru, takže je vidět, že „změň x" vede vodorovně a „změň y" svisle.
+//
+// Názvy bloků jsou ČESKÉ podle Scratche 3 („pero zapni", „pero vypni", „smaž") — stejné,
+// jaké zkouší kvíz na téže stránce. Doslovný překlad „pero dolů" by žák v paletě nenašel.
+// Mřížka je po 50, aby rohy čtverce (±50) padly přesně na linky.
+// Program čtverce se prochází KROK PO KROKU (žádná animace) — stav po n krocích je čistá
+// funkce, takže jde celý ověřit výpočtem.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Scéna má souřadnice 🕹️</span></h2>
+	<p>Klikni do scény, kam má kočka skočit — nahoře uvidíš <strong>blok, který to udělal</strong>. Zapni pero a posouvej ji tlačítky (jde to i šipkami na klávesnici): uvidíš, že <strong>x</strong> vede vodorovně a <strong>y</strong> svisle.</p>
+
+	<p class="sou-blok"><span id="sou-blok">(zatím žádný blok)</span></p>
+
+	<svg id="sou-svg" viewBox="0 0 540 430" tabindex="0" role="group" aria-label="Scéna Scratche jako souřadnicová mřížka od minus 240 do 240 vodorovně a od minus 180 do 180 svisle. Klikni do scény, kam má postava skočit, nebo ji posouvej šipkami po deseti bodech.">
+		<defs>
+			<clipPath id="sou-vyrez"><rect x="40" y="25" width="480" height="360" rx="6" /></clipPath>
+		</defs>
+		<rect id="sou-scena" x="40" y="25" width="480" height="360" fill="#fff" stroke="#2b2a26" stroke-width="3" rx="6" />
+		<g id="sou-mrizka"></g>
+		<g clip-path="url(#sou-vyrez)">
+			<g id="sou-stopa"></g>
+			<g id="sou-cil"></g>
+			<g id="sou-postava"></g>
+		</g>
+		<text id="sou-hlaska" x="280" y="418" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44"></text>
+	</svg>
+
+	<p class="sou-radek">
+		<strong>změň x o</strong>
+		<button type="button" class="sou-tl sou-krok-tl" data-dx="-10">⬅️ −10</button>
+		<button type="button" class="sou-tl sou-krok-tl" data-dx="10">+10 ➡️</button>
+		<strong>změň y o</strong>
+		<button type="button" class="sou-tl sou-krok-tl" data-dy="10">⬆️ +10</button>
+		<button type="button" class="sou-tl sou-krok-tl" data-dy="-10">−10 ⬇️</button>
+	</p>
+	<p class="sou-radek">
+		<button type="button" class="sou-tl sou-pero" id="sou-pero">✏️ zapnout pero</button>
+		<button type="button" class="sou-tl" id="sou-smaz">🧽 smaž</button>
+		<button type="button" class="sou-tl sou-cil-tl" id="sou-novy-cil">🎯 nový cíl</button>
+	</p>
+
+	<div class="sou-program">
+		<p class="sou-radek">
+			<strong>Program „nakresli čtverec":</strong>
+			<button type="button" class="sou-tl sou-hraj" id="sou-krok">▶️ spustit program</button>
+			<button type="button" class="sou-tl" id="sou-reset">↺ na začátek</button>
+		</p>
+		<ol id="sou-prikazy"></ol>
+	</div>
+
+	<p class="sou-stav" id="sou-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const svg = document.getElementById('sou-svg');
+	const mrizkaEl = document.getElementById('sou-mrizka');
+	const stopaEl = document.getElementById('sou-stopa');
+	const cilEl = document.getElementById('sou-cil');
+	const postavaEl = document.getElementById('sou-postava');
+	const blokEl = document.getElementById('sou-blok');
+	const hlaskaEl = document.getElementById('sou-hlaska');
+	const stavEl = document.getElementById('sou-stav');
+	const prikazyEl = document.getElementById('sou-prikazy');
+	const btnPero = document.getElementById('sou-pero');
+	const btnSmaz = document.getElementById('sou-smaz');
+	const btnKrok = document.getElementById('sou-krok');
+	const btnReset = document.getElementById('sou-reset');
+	const btnCil = document.getElementById('sou-novy-cil');
+
+	const MEZ_X = 240, MEZ_Y = 180;          // scéna Scratche
+	const STRED_SX = 280, STRED_SY = 205;    // střed scény v souřadnicích SVG
+	const SCENA = { x1: 40, y1: 25, x2: 520, y2: 385 };
+	const MINUS = (v) => String(v).replace('-', '−');   // typografické minus pro žáka
+
+	// Program „čtverec": strana 100, začátek i konec kreslení ve stejném bodě (−50, −50).
+	const PROGRAM = [
+		{ typ: 'skoc', x: -50, y: -50, popis: 'skoč na x: −50 y: −50' },
+		{ typ: 'pero', zapni: true, popis: 'pero zapni' },
+		{ typ: 'zmenX', o: 100, popis: 'změň x o 100' },
+		{ typ: 'zmenY', o: 100, popis: 'změň y o 100' },
+		{ typ: 'zmenX', o: -100, popis: 'změň x o −100' },
+		{ typ: 'zmenY', o: -100, popis: 'změň y o −100' },
+	];
+	const CILE = [[120, -90], [-180, 60], [0, 150], [-60, -120]];
+
+	const omez = (v, mez) => Math.max(-mez, Math.min(mez, v));
+	const naScenuX = (x) => STRED_SX + x;
+	const naScenuY = (y) => STRED_SY - y;
+
+	// ——— ČISTÝ model stavu (nezávislý na DOM, proto se dá celý ověřit výpočtem) ———
+	function novyStav() { return { x: 0, y: 0, pero: false, stopa: [] }; }
+	function posun(s) { if (s.pero && s.stopa.length) s.stopa[s.stopa.length - 1].push([s.x, s.y]); }
+	function proved(s, p) {
+		if (p.typ === 'skoc') { s.x = omez(p.x, MEZ_X); s.y = omez(p.y, MEZ_Y); posun(s); }
+		else if (p.typ === 'zmenX') { s.x = omez(s.x + p.o, MEZ_X); posun(s); }
+		else if (p.typ === 'zmenY') { s.y = omez(s.y + p.o, MEZ_Y); posun(s); }
+		else if (p.typ === 'pero') {
+			s.pero = p.zapni;
+			if (p.zapni) s.stopa.push([[s.x, s.y]]);
+		}
+		return s;
+	}
+	/** Stav po n krocích programu — čistá funkce, nic si nepamatuje. */
+	function stavPoKroku(n) {
+		const s = novyStav();
+		for (let i = 0; i < n; i++) proved(s, PROGRAM[i]);
+		return s;
+	}
+
+	function popisPolohy(x, y) {
+		const vodorovne = x < 0 ? 'vlevo od středu' : x > 0 ? 'vpravo od středu' : 'na svislé ose';
+		const svisle = y < 0 ? 'DOLŮ od středu' : y > 0 ? 'nahoru od středu' : 'na vodorovné ose';
+		return `x = ${MINUS(x)} → ${vodorovne}, y = ${MINUS(y)} → ${svisle}`;
+	}
+	function ctvrtina(x, y) {
+		if (x === 0 && y === 0) return 'přesně střed scény';
+		if (x === 0 || y === 0) return 'přímo na ose';
+		if (x < 0 && y > 0) return 'levá horní čtvrtina';
+		if (x > 0 && y > 0) return 'pravá horní čtvrtina';
+		if (x < 0 && y < 0) return 'levá dolní čtvrtina';
+		return 'pravá dolní čtvrtina';
+	}
+
+	// ——— stav simulace ———
+	let stav = novyStav();
+	let krok = 0;                 // kolik kroků programu je provedeno
+	let programBezi = false;      // běží procházení programu? (ruční zásah ho ukončí)
+	let cil = 0;
+	let trefeno = false;
+	let posledniBlok = '';        // blok, který se OPRAVDU provedl (prázdné = zatím žádný)
+	let naKraji = false;
+
+	const prvek = (rodic, tag, atr, text) => {
+		const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+		for (const [k, v] of Object.entries(atr)) e.setAttribute(k, v);
+		if (text !== undefined) e.textContent = text;
+		rodic.appendChild(e);
+		return e;
+	};
+
+	// mřížka po 50 dílcích (rohy čtverce ±50 padnou na linku) + osy s čísly
+	function nakresliMrizku() {
+		for (let x = -200; x <= 200; x += 50) {
+			if (x === 0) continue;
+			prvek(mrizkaEl, 'line', { x1: naScenuX(x), y1: SCENA.y1, x2: naScenuX(x), y2: SCENA.y2, stroke: '#e9ecef', 'stroke-width': 1.5 });
+		}
+		for (let y = -150; y <= 150; y += 50) {
+			if (y === 0) continue;
+			prvek(mrizkaEl, 'line', { x1: SCENA.x1, y1: naScenuY(y), x2: SCENA.x2, y2: naScenuY(y), stroke: '#e9ecef', 'stroke-width': 1.5 });
+		}
+		// osy
+		prvek(mrizkaEl, 'line', { x1: SCENA.x1, y1: STRED_SY, x2: SCENA.x2, y2: STRED_SY, stroke: '#868e96', 'stroke-width': 2.5 });
+		prvek(mrizkaEl, 'line', { x1: STRED_SX, y1: SCENA.y1, x2: STRED_SX, y2: SCENA.y2, stroke: '#868e96', 'stroke-width': 2.5 });
+		// čísla na osách
+		const popis = (x, y, text, kotva) => prvek(mrizkaEl, 'text', { x, y, 'text-anchor': kotva, 'font-size': 12, 'font-weight': 'bold', fill: '#868e96' }, text);
+		for (const x of [-200, -100, 100, 200]) popis(naScenuX(x), STRED_SY + 16, MINUS(x), 'middle');
+		for (const y of [-150, -100, -50, 50, 100, 150]) popis(STRED_SX - 6, naScenuY(y) + 4, MINUS(y), 'end');
+		popis(STRED_SX - 6, STRED_SY + 16, '0', 'end');
+		popis(SCENA.x1 + 6, STRED_SY - 8, 'x −240', 'start');
+		popis(SCENA.x2 - 6, STRED_SY - 8, 'x 240', 'end');
+		popis(STRED_SX + 8, SCENA.y1 + 16, 'y 180', 'start');
+		popis(STRED_SX + 8, SCENA.y2 - 8, 'y −180', 'start');
+	}
+
+	function nakresliPostavu(x, y) {
+		postavaEl.textContent = '';
+		const g = prvek(postavaEl, 'g', { transform: `translate(${naScenuX(x)} ${naScenuY(y)})` });
+		prvek(g, 'polygon', { points: '-13,-8 -9,-20 -3,-10', fill: '#ffa94d', stroke: '#2b2a26', 'stroke-width': 2, 'stroke-linejoin': 'round' });
+		prvek(g, 'polygon', { points: '13,-8 9,-20 3,-10', fill: '#ffa94d', stroke: '#2b2a26', 'stroke-width': 2, 'stroke-linejoin': 'round' });
+		prvek(g, 'circle', { cx: 0, cy: 0, r: 14, fill: '#ffd43b', stroke: '#2b2a26', 'stroke-width': 2.5 });
+		prvek(g, 'circle', { cx: -5, cy: -3, r: 2, fill: '#2b2a26' });
+		prvek(g, 'circle', { cx: 5, cy: -3, r: 2, fill: '#2b2a26' });
+		prvek(g, 'path', { d: 'M -5 4 Q 0 8 5 4', fill: 'none', stroke: '#2b2a26', 'stroke-width': 2, 'stroke-linecap': 'round' });
+		prvek(g, 'circle', { cx: 0, cy: 0, r: 2.5, fill: '#e03131' });   // přesný bod, na kterém stojí
+	}
+
+	function nakresliStopu(stopa) {
+		stopaEl.textContent = '';
+		for (const usek of stopa) {
+			if (usek.length < 2) continue;
+			prvek(stopaEl, 'polyline', {
+				points: usek.map(([x, y]) => `${naScenuX(x)},${naScenuY(y)}`).join(' '),
+				fill: 'none', stroke: '#1971c2', 'stroke-width': 3, 'stroke-linecap': 'round', 'stroke-linejoin': 'round',
+			});
+		}
+	}
+
+	function nakresliCil() {
+		cilEl.textContent = '';
+		const [cx, cy] = CILE[cil];
+		prvek(cilEl, 'circle', { cx: naScenuX(cx), cy: naScenuY(cy), r: 11, fill: 'none', stroke: '#e03131', 'stroke-width': 2.5, 'stroke-dasharray': '4 3' });
+		prvek(cilEl, 'circle', { cx: naScenuX(cx), cy: naScenuY(cy), r: 3, fill: '#e03131' });
+	}
+
+	function vypisProgram() {
+		prikazyEl.textContent = '';
+		PROGRAM.forEach((p, i) => {
+			const li = document.createElement('li');
+			li.textContent = p.popis;
+			if (programBezi && i < krok) li.className = 'sou-hotovo';
+			else if (programBezi && i === krok) li.className = 'sou-nyni';
+			prikazyEl.appendChild(li);
+		});
+	}
+
+	function prekresli() {
+		nakresliPostavu(stav.x, stav.y);
+		nakresliStopu(stav.stopa);
+		nakresliCil();
+		vypisProgram();
+
+		blokEl.textContent = posledniBlok || '(zatím žádný blok)';
+		btnPero.textContent = stav.pero ? '✏️ vypnout pero' : '✏️ zapnout pero';
+		btnPero.classList.toggle('sou-aktivni', stav.pero);
+		btnKrok.textContent = !programBezi ? '▶️ spustit program'
+			: krok >= PROGRAM.length ? '▶️ spustit znovu' : '▶️ další krok';
+
+		const [cx, cy] = CILE[cil];
+		trefeno = stav.x === cx && stav.y === cy;
+		hlaskaEl.textContent = naKraji ? '⛔ kraj scény — dál to nejde' : trefeno ? '🎯 Trefa! Jsi přesně na cíli.' : '';
+		hlaskaEl.setAttribute('fill', naKraji ? '#e03131' : '#2f9e44');
+
+		// 1) kde postava je  2) co dělá pero  3) program  4) úkol s cílem
+		let text = `${popisPolohy(stav.x, stav.y)} — ${ctvrtina(stav.x, stav.y)}. Pero: ${stav.pero ? 'kreslí' : 'nekreslí'}.`;
+		if (programBezi && krok === PROGRAM.length) {
+			text += ' Program dojel: kočka je zpátky v rohu, kde kreslení začalo, a čtverec je hotový. Strana měří 100 bodů — dvě strany kreslí změna x (vodorovně), dvě změna y (svisle).';
+			stavEl.style.color = '#2f9e44';
+		} else if (programBezi) {
+			text += ` Provedeno ${krok} z ${PROGRAM.length} kroků programu.`;
+			stavEl.style.color = '#2b2a26';
+		} else {
+			stavEl.style.color = '#2b2a26';
+		}
+		text += trefeno
+			? ' 🎯 Cíl trefen — dej si nový.'
+			: ` Úkol: dostaň kočku na cíl x = ${MINUS(cx)}, y = ${MINUS(cy)}.`;
+		stavEl.textContent = text;
+	}
+
+	// ——— ovládání ———
+	function rucniZasah() { programBezi = false; krok = 0; }
+
+	function posunOJednotky(dx, dy) {
+		rucniZasah();
+		const pred = [stav.x, stav.y];
+		if (dx) proved(stav, { typ: 'zmenX', o: dx });
+		else proved(stav, { typ: 'zmenY', o: dy });
+		naKraji = stav.x === pred[0] && stav.y === pred[1];
+		posledniBlok = dx ? `změň x o ${MINUS(dx)}` : `změň y o ${MINUS(dy)}`;
+		prekresli();
+	}
+
+	svg.addEventListener('click', (ev) => {
+		if (!svg.getBoundingClientRect) return;
+		const r = svg.getBoundingClientRect();
+		if (!r.width || !r.height) return;
+		const sx = ((ev.clientX - r.left) / r.width) * 540;
+		const sy = ((ev.clientY - r.top) / r.height) * 430;
+		// klikat jde jen DOVNITŘ scény — okraj kolem ní není součást souřadnicové sítě
+		if (sx < SCENA.x1 || sx > SCENA.x2 || sy < SCENA.y1 || sy > SCENA.y2) return;
+		const x = omez(Math.round((sx - STRED_SX) / 10) * 10, MEZ_X);
+		const y = omez(Math.round((STRED_SY - sy) / 10) * 10, MEZ_Y);
+		rucniZasah();
+		naKraji = false;
+		proved(stav, { typ: 'skoc', x, y });
+		posledniBlok = `skoč na x: ${MINUS(x)} y: ${MINUS(y)}`;
+		prekresli();
+	});
+
+	svg.addEventListener('keydown', (ev) => {
+		const smery = { ArrowLeft: [-10, 0], ArrowRight: [10, 0], ArrowUp: [0, 10], ArrowDown: [0, -10] };
+		const s = smery[ev.key];
+		if (!s) return;
+		if (ev.preventDefault) ev.preventDefault();
+		posunOJednotky(s[0], s[1]);
+	});
+
+	document.querySelectorAll('.sou-krok-tl').forEach((tl) => tl.addEventListener('click', () => {
+		if (tl.dataset.dx !== undefined) posunOJednotky(+tl.dataset.dx, 0);
+		else posunOJednotky(0, +tl.dataset.dy);
+	}));
+
+	btnPero.addEventListener('click', () => {
+		rucniZasah();
+		naKraji = false;
+		const zapni = !stav.pero;
+		proved(stav, { typ: 'pero', zapni });
+		posledniBlok = zapni ? 'pero zapni' : 'pero vypni';
+		prekresli();
+	});
+	btnSmaz.addEventListener('click', () => {
+		rucniZasah();
+		naKraji = false;
+		stav.stopa = stav.pero ? [[[stav.x, stav.y]]] : [];
+		posledniBlok = 'smaž';
+		prekresli();
+	});
+	btnCil.addEventListener('click', () => { cil = (cil + 1) % CILE.length; naKraji = false; prekresli(); });
+	btnKrok.addEventListener('click', () => {
+		// program vždy začíná od začátku a kreslí načisto — proto se to žákovi řekne dopředu
+		krok = programBezi && krok < PROGRAM.length ? krok + 1 : 1;
+		programBezi = true;
+		naKraji = false;
+		stav = stavPoKroku(krok);
+		posledniBlok = PROGRAM[krok - 1].popis;
+		prekresli();
+	});
+	btnReset.addEventListener('click', () => {
+		krok = 0; programBezi = false; naKraji = false; posledniBlok = '';
+		stav = novyStav();
+		prekresli();
+	});
+
+	nakresliMrizku();
+	prekresli();
+
+	// ——— ověřovací háčky (čisté funkce pro testy bez prohlížeče) ———
+	svg.__stavPoKroku = stavPoKroku;
+	svg.__program = PROGRAM;
+	svg.__cile = CILE;
+	svg.__naScenu = (x, y) => [naScenuX(x), naScenuY(y)];
+	svg.__popisPolohy = popisPolohy;
+	svg.__ctvrtina = ctvrtina;
+	svg.__stav = () => stav;
+	svg.__meze = [MEZ_X, MEZ_Y];
+	svg.__scena = SCENA;
+	svg.__mrizkaKrok = 50;
+</script>
+
+<style>
+	#sou-svg { width: 100%; max-width: 540px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; cursor: crosshair; }
+	#sou-svg:focus-visible { outline: 4px solid #1971c2; outline-offset: 2px; }
+	.sou-blok { margin: 0.6rem 0; }
+	.sou-blok span { display: inline-block; background: #4c97ff; color: #fff; font-weight: 700; padding: 0.3rem 0.9rem; border-radius: 999px; border: 3px solid #2b2a26; }
+	.sou-radek { margin: 0.6rem 0; }
+	.sou-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.sou-tl.sou-aktivni { background: #d0ebff; }
+	.sou-tl.sou-pero { background: #e5dbff; }
+	.sou-tl.sou-hraj { background: #d3f9d8; }
+	.sou-tl.sou-cil-tl { background: #ffe3e3; }
+	.sou-tl:active { transform: translateY(1px); }
+	.sou-program ol { margin: 0.3rem 0 0; padding-left: 1.4rem; }
+	.sou-program li { font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 6px; }
+	.sou-program li.sou-hotovo { background: #d3f9d8; }
+	.sou-program li.sou-nyni { background: #fff3bf; outline: 2px dashed #f08c00; }
+	.sou-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
+</style>

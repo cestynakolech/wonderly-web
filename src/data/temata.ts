@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -4123,6 +4123,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'souradnice-a-kresleni',
 					nazev: 'Souřadnice a kreslení',
+					interakce: 'souradnice',
 					obsah: `
 						<h2>Kde přesně postava je?</h2>
 						<p>Scéna ve Scratchi je mřížka: <strong>x</strong> (vodorovně, −240 až 240) a <strong>y</strong> (svisle, −180 až 180). Střed je (0, 0).</p>
@@ -4131,7 +4132,14 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>změň x o 10</strong> — posun doprava; <strong>změň y o −10</strong> — dolů</li>
 						</ul>
 						<h3>Kreslení perem</h3>
-						<p>Rozšíření <strong>Pero</strong> umí za postavou kreslit čáru. Se souřadnicemi pak nakreslíš čtverec, hvězdu nebo celé obrazce — a s opakováním vzniknou krásné <strong>geometrické vzory</strong>.</p>
+						<p>Rozšíření <strong>Pero</strong> umí za postavou kreslit čáru. Bloky se jmenují <strong>pero zapni</strong> (od teď postava při pohybu kreslí), <strong>pero vypni</strong> (přestane kreslit — jako když zvedneš tužku) a <strong>smaž</strong> (vygumuje všechno nakreslené).</p>
+						<p>Obrazec jde nakreslit <strong>dvěma způsoby</strong>:</p>
+						<ul>
+							<li><strong>souřadnicemi</strong> — pero zapni a pak <em>změň x o 100</em>, <em>změň y o 100</em>, <em>změň x o −100</em>, <em>změň y o −100</em>. Vznikne čtverec o straně 100 bodů: dvě strany nakreslí změna x (vodorovně), dvě změna y (svisle).</li>
+							<li><strong>otáčením</strong> — postava jde pořád dopředu a v každém rohu se otočí: <em>opakuj 4×</em> ( <em>dopředu (100) kroků</em>, <em>otoč se doprava o (90) stupňů</em> ). Tenhle způsob je kratší a hodí se na jakýkoli pravidelný obrazec.</li>
+						</ul>
+						<p>👉 <strong>Kolik stupňů v rohu?</strong> Postava musí dokola udělat celou otáčku, tedy 360°. U pravidelného obrazce se to rozdělí mezi všechny rohy: <strong>360° : počet stran</strong>. Čtverec 360 : 4 = 90°, šestiúhelník 360 : 6 = 60°, trojúhelník 360 : 3 = 120°.</p>
+						<p>S opakováním tak vzniknou krásné <strong>geometrické vzory</strong> — hvězdy, mnohoúhelníky i spirály.</p>
 						<h3>Kde se souřadnice používají?</h3>
 						<ul>
 							<li>mapy a GPS (zeměpisná šířka a délka)</li>

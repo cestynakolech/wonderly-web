@@ -22,6 +22,7 @@ import UcinkySilySimulace from '../../../../../../components/skola2/UcinkySilySi
 import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
 import MeridlaSimulace from '../../../../../../components/skola2/MeridlaSimulace.astro';
 import TabulkaVzorceSimulace from '../../../../../../components/skola2/TabulkaVzorceSimulace.astro';
+import SouradniceSimulace from '../../../../../../components/skola2/SouradniceSimulace.astro';
 import OdporVodiceSimulace from '../../../../../../components/skola2/OdporVodiceSimulace.astro';
 import ReostatSimulace from '../../../../../../components/skola2/ReostatSimulace.astro';
 import RychlostSimulace from '../../../../../../components/skola2/RychlostSimulace.astro';
@@ -230,6 +231,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'ohm' && <OhmSimulace />}
 	{podtema.interakce === 'meridla' && <MeridlaSimulace />}
 	{podtema.interakce === 'tabulka-vzorce' && <TabulkaVzorceSimulace />}
+	{podtema.interakce === 'souradnice' && <SouradniceSimulace />}
 	{podtema.interakce === 'odpor-vodice' && <OdporVodiceSimulace />}
 	{podtema.interakce === 'odpor-vodice-zaklad' && <OdporVodiceSimulace zaklad={true} />}
 	{podtema.interakce === 'reostat' && <ReostatSimulace />}
