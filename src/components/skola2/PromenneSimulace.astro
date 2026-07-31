@@ -1,0 +1,233 @@
+---
+// Proměnné (informatika 7): proměnná jako pojmenovaná krabička v paměti.
+//
+// Pointa: rozdíl mezi „nastav skóre na 0" (přepíše) a „změň skóre o 1" (přičte) —
+// a hlavně to, proč na začátku programu musí být „nastav". Bez něj si krabička pamatuje
+// hodnotu z minulého běhu, takže druhé spuštění skončí na 6 a třetí na 9 místo na 3.
+// Přesně tohle žáky ve Scratchi pálí: „hra mi po restartu začíná s cizím skóre".
+//
+// Všechna čísla zůstávají celá. Žádná animace — hodnota po n krocích je čistá funkce,
+// takže jde celý program ověřit výpočtem.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proměnná je krabička 🕹️</span></h2>
+	<p>Krabička <strong>skóre</strong> si pamatuje jedno číslo. Projdi program krok za krokem a pak ho spusť <strong>ještě jednou</strong> — uvidíš, proč na začátku musí být blok <em>nastav skóre na 0</em>.</p>
+
+	<svg id="prom-svg" viewBox="0 0 540 250" role="img" aria-label="Krabička pojmenovaná skóre s aktuální hodnotou a okénko na scéně, jak ho zobrazuje Scratch">
+		<!-- krabička -->
+		<rect x="40" y="60" width="200" height="130" fill="#fff3bf" stroke="#2b2a26" stroke-width="3" rx="10" />
+		<rect x="40" y="60" width="200" height="34" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" rx="10" />
+		<text x="140" y="84" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26">skóre</text>
+		<text id="prom-hodnota" x="140" y="155" text-anchor="middle" font-size="52" font-weight="bold" fill="#1971c2">0</text>
+		<text id="prom-zmena" x="140" y="212" text-anchor="middle" font-size="14" font-weight="bold" fill="#868e96"></text>
+
+		<!-- okénko na scéně, jak ho ukazuje Scratch -->
+		<text x="400" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96">okénko na scéně</text>
+		<rect x="310" y="60" width="180" height="40" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<text x="326" y="86" font-size="15" font-weight="bold" fill="#495057">skóre</text>
+		<rect x="392" y="68" width="86" height="24" fill="#ff8c1a" stroke="#2b2a26" stroke-width="2" rx="12" />
+		<text id="prom-okenko" x="435" y="86" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">0</text>
+		<text id="prom-rekni" x="400" y="150" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44"></text>
+		<text id="prom-beh" x="400" y="182" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
+	</svg>
+
+	<p class="prom-radek">
+		<strong>Program:</strong>
+		<button type="button" class="prom-tl prom-p-tl prom-aktivni" data-reset="ano">s blokem „nastav skóre na 0"</button>
+		<button type="button" class="prom-tl prom-p-tl" data-reset="ne">bez něj</button>
+	</p>
+	<p class="prom-radek">
+		<button type="button" class="prom-tl prom-hraj" id="prom-krok">▶️ spustit program</button>
+		<button type="button" class="prom-tl" id="prom-znovu">🔁 spustit ještě jednou</button>
+		<button type="button" class="prom-tl" id="prom-reset">↺ úplně od začátku</button>
+	</p>
+	<p class="prom-radek">
+		<strong>Zkus sám:</strong>
+		<button type="button" class="prom-tl prom-rucne" data-nastav="0">nastav skóre na 0</button>
+		<button type="button" class="prom-tl prom-rucne" data-zmen="1">změň skóre o 1</button>
+		<button type="button" class="prom-tl prom-rucne" data-zmen="-1">změň skóre o −1</button>
+	</p>
+
+	<ol id="prom-prikazy"></ol>
+	<p class="prom-stav" id="prom-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const hodnotaEl = document.getElementById('prom-hodnota');
+	const zmenaEl = document.getElementById('prom-zmena');
+	const okenkoEl = document.getElementById('prom-okenko');
+	const rekniEl = document.getElementById('prom-rekni');
+	const behEl = document.getElementById('prom-beh');
+	const prikazyEl = document.getElementById('prom-prikazy');
+	const stavEl = document.getElementById('prom-stav');
+	const btnKrok = document.getElementById('prom-krok');
+	const btnZnovu = document.getElementById('prom-znovu');
+	const btnReset = document.getElementById('prom-reset');
+	const svg = document.getElementById('prom-svg');
+
+	const CIL = 3;   // kolik bodů program přičte
+	// Program „seber tři jablka". Jediný rozdíl obou verzí je první blok.
+	const NASTAV = { typ: 'nastav', na: 0, popis: 'nastav skóre na 0' };
+	const TELO = [
+		{ typ: 'zmen', o: 1, popis: 'změň skóre o 1' },
+		{ typ: 'zmen', o: 1, popis: 'změň skóre o 1' },
+		{ typ: 'zmen', o: 1, popis: 'změň skóre o 1' },
+		{ typ: 'rekni', popis: 'když skóre = 3, řekni „Mám 3 body!"' },
+	];
+	const program = (sResetem) => (sResetem ? [NASTAV, ...TELO] : [...TELO]);
+
+	// ——— ČISTÝ model: hodnota po n krocích při dané počáteční hodnotě ———
+	function hodnotaPoKroku(n, sResetem, zacatek) {
+		let skore = zacatek;
+		for (const p of program(sResetem).slice(0, n)) {
+			if (p.typ === 'nastav') skore = p.na;
+			else if (p.typ === 'zmen') skore += p.o;
+		}
+		return skore;
+	}
+	/** Na čem skončí n-tý běh programu (1 = první spuštění). Čistá funkce. */
+	function konecBehu(cisloBehu, sResetem) {
+		let skore = 0;
+		for (let b = 1; b <= cisloBehu; b++) {
+			skore = hodnotaPoKroku(program(sResetem).length, sResetem, skore);
+		}
+		return skore;
+	}
+
+	// ——— stav ———
+	let sResetem = true;
+	let skore = 0;
+	let krok = 0;            // kolik kroků programu je provedeno v tomto běhu
+	let beh = 0;             // kolikátý běh (0 = program ještě neběžel)
+	let programBezi = false;
+	let posledniZmena = '';
+
+	function vypisProgram() {
+		prikazyEl.textContent = '';
+		program(sResetem).forEach((p, i) => {
+			const li = document.createElement('li');
+			li.textContent = p.popis;
+			if (programBezi && i < krok) li.className = 'prom-hotovo';
+			else if (programBezi && i === krok) li.className = 'prom-nyni';
+			prikazyEl.appendChild(li);
+		});
+	}
+
+	function prekresli() {
+		hodnotaEl.textContent = String(skore);
+		okenkoEl.textContent = String(skore);
+		zmenaEl.textContent = posledniZmena;
+		behEl.textContent = beh > 0 ? `${beh}. spuštění programu` : '';
+		const hotovo = programBezi && krok === program(sResetem).length;
+		rekniEl.textContent = hotovo && skore === CIL ? '💬 Mám 3 body!' : '';
+		btnKrok.textContent = !programBezi ? '▶️ spustit program'
+			: krok >= program(sResetem).length ? '▶️ spustit znovu' : '▶️ další krok';
+		vypisProgram();
+
+		let text = `V krabičce „skóre" je číslo ${skore}. `;
+		if (!programBezi) {
+			text += 'Program ještě neběžel — zkus ho projít krok za krokem.';
+			stavEl.style.color = '#2b2a26';
+		} else if (!hotovo) {
+			text += `Provedeno ${krok} z ${program(sResetem).length} kroků.`;
+			stavEl.style.color = '#2b2a26';
+		} else if (sResetem) {
+			text += `Program skončil správně na ${CIL}. Spusť ho ještě jednou: první blok krabičku `
+				+ `přepíše na 0, takže i podruhé skončí na ${CIL}. Tak to má být.`;
+			stavEl.style.color = '#2f9e44';
+		} else if (beh === 1) {
+			text += `Napoprvé to vyšlo — krabička byla náhodou prázdná. Teď spusť program ještě `
+				+ `jednou a dívej se, na čem skončí.`;
+			stavEl.style.color = '#2b2a26';
+		} else {
+			text += `A je to. Bez bloku „nastav skóre na 0" si krabička pamatuje hodnotu `
+				+ `z minulého běhu, takže se body sčítají dál: ${[...Array(beh)].map((_, i) => konecBehu(i + 1, false)).join(' → ')}. `
+				+ `Přesně proto hra po restartu začíná s cizím skóre.`;
+			stavEl.style.color = '#e03131';
+		}
+		stavEl.textContent = text;
+	}
+
+	function provedKrok() {
+		const kroky = program(sResetem);
+		if (!programBezi || krok >= kroky.length) {   // nový běh
+			programBezi = true;
+			krok = 0;
+			beh += 1;
+		}
+		const p = kroky[krok];
+		const pred = skore;
+		if (p.typ === 'nastav') skore = p.na;
+		else if (p.typ === 'zmen') skore += p.o;
+		posledniZmena = p.typ === 'nastav' ? `přepsáno: ${pred} → ${skore}`
+			: p.typ === 'zmen' ? `přičteno ${p.o > 0 ? '+' : ''}${p.o}: ${pred} → ${skore}`
+			: 'hodnota se jen přečetla, nemění se';
+		krok += 1;
+		prekresli();
+	}
+
+	btnKrok.addEventListener('click', provedKrok);
+	btnZnovu.addEventListener('click', () => {
+		const kroky = program(sResetem);
+		// dojet zbytek rozdělaného běhu a spustit celý další
+		while (programBezi && krok < kroky.length) provedKrok();
+		programBezi = true; krok = 0; beh += 1;
+		for (let i = 0; i < kroky.length; i++) {
+			const p = kroky[i];
+			if (p.typ === 'nastav') skore = p.na;
+			else if (p.typ === 'zmen') skore += p.o;
+			krok = i + 1;
+		}
+		posledniZmena = `celý běh naráz: skončil na ${skore}`;
+		prekresli();
+	});
+	btnReset.addEventListener('click', () => {
+		skore = 0; krok = 0; beh = 0; programBezi = false; posledniZmena = '';
+		prekresli();
+	});
+	document.querySelectorAll('.prom-p-tl').forEach((tl) => tl.addEventListener('click', () => {
+		document.querySelectorAll('.prom-p-tl').forEach((t) => t.classList.remove('prom-aktivni'));
+		tl.classList.add('prom-aktivni');
+		sResetem = tl.dataset.reset === 'ano';
+		skore = 0; krok = 0; beh = 0; programBezi = false; posledniZmena = '';
+		prekresli();
+	}));
+	document.querySelectorAll('.prom-rucne').forEach((tl) => tl.addEventListener('click', () => {
+		programBezi = false; krok = 0;
+		const pred = skore;
+		if (tl.dataset.nastav !== undefined) {
+			skore = +tl.dataset.nastav;
+			posledniZmena = `přepsáno: ${pred} → ${skore}`;
+		} else {
+			const o = +tl.dataset.zmen;
+			skore += o;
+			posledniZmena = `přičteno ${o > 0 ? '+' : ''}${o}: ${pred} → ${skore}`;
+		}
+		prekresli();
+	}));
+
+	prekresli();
+
+	// ——— ověřovací háčky ———
+	svg.__hodnotaPoKroku = hodnotaPoKroku;
+	svg.__konecBehu = konecBehu;
+	svg.__program = program;
+	svg.__cil = CIL;
+	svg.__skore = () => skore;
+</script>
+
+<style>
+	#prom-svg { width: 100%; max-width: 540px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.prom-radek { margin: 0.6rem 0; }
+	.prom-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.prom-tl.prom-aktivni { background: #ffe8cc; }
+	.prom-tl.prom-hraj { background: #d3f9d8; }
+	.prom-tl.prom-rucne { background: #e5dbff; }
+	.prom-tl:active { transform: translateY(1px); }
+	#prom-prikazy { margin: 0.3rem 0 0; padding-left: 1.4rem; }
+	#prom-prikazy li { font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 6px; }
+	#prom-prikazy li.prom-hotovo { background: #d3f9d8; }
+	#prom-prikazy li.prom-nyni { background: #fff3bf; outline: 2px dashed #f08c00; }
+	.prom-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>
