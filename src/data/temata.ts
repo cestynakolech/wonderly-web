@@ -1820,8 +1820,8 @@ export const temata: Record<string, Tema[]> = {
 						<h2>Meteorologie a měření tlaku</h2>
 						<p>Hodnoty atmosférického tlaku jsou důležité pro <strong>předpověď počasí</strong>. Porovnáváme je s normálem 1 013 hPa:</p>
 						<ul>
-							<li><strong>tlaková výše</strong> — tlak vyšší než normál → obvykle jasné, slunečné počasí</li>
-							<li><strong>tlaková níže</strong> — tlak nižší než normál → oblačnost a srážky; hluboká níže (pod 980 hPa) přináší bouřky a vichřice</li>
+							<li><strong>tlaková výše</strong> (odborně anticyklóna) — tlak vyšší než normál a než v okolí → obvykle jasné, slunečné počasí</li>
+							<li><strong>tlaková níže</strong> (odborně cyklóna) — tlak nižší než normál a než v okolí → oblačnost a srážky; hluboká níže (pod 980 hPa) přináší bouřky a vichřice</li>
 						</ul>
 						<p>👉 Rozdíly tlaku uvádí vzduch do pohybu: <strong>vítr</strong> proudí z místa s vyšším tlakem do místa s nižším tlakem.</p>
 						<h3>Čím se tlak měří</h3>
@@ -1829,9 +1829,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>rtuťový barometr</strong> — sloupec rtuti jako u Torricelliho</li>
 							<li><strong>aneroid</strong> — kovový tlakoměr s pružnou krabičkou</li>
 							<li><strong>barograf</strong> — barometr se zapisovačem, kreslí průběh tlaku v čase</li>
-								<li>👉 pro předpověď je důležitější než samotné číslo to, jak se tlak <strong>mění</strong>: když <strong>klesá</strong>, počasí se obvykle kazí (blíží se níže s deštěm a větrem), když <strong>stoupá</strong>, obloha se vyjasňuje. Rychlý pokles o víc než 10 hPa za pár hodin varuje před vichřicí.</li>
 						</ul>
-						<p>Přibližně platí, že v blízkosti hladiny moře klesne tlak o <strong>1 hPa na každých 8 metrů výšky</strong>. Právě proto se naměřené hodnoty <strong>přepočítávají na hladinu moře</strong> — bez toho by horská stanice hlásila nízký tlak pořád a na mapě by v horách vycházela věčná níže. Teprve po přepočtu jde poctivě porovnat Sněžku s Prahou.</p>
+							<p>👉 Pro předpověď je důležitější než samotné číslo to, jak se tlak <strong>mění</strong>: když <strong>klesá</strong>, počasí se obvykle kazí (blíží se níže s deštěm a větrem), když <strong>stoupá</strong>, obloha se vyjasňuje. Rychlý pokles o víc než 10 hPa za pár hodin varuje před vichřicí.</p>
+						<p>Přibližně platí, že v blízkosti hladiny moře klesne tlak o <strong>1 hPa na každých 8 metrů výšky</strong>. Právě proto se naměřené hodnoty <strong>přepočítávají na hladinu moře</strong> — bez toho by horská stanice hlásila nízký tlak pořád a na mapě by v horách vycházela věčná níže. Teprve po přepočtu jde poctivě porovnat stanice v různých nadmořských výškách. Pozor: pravidlo „1 hPa na 8 metrů" platí jen u hladiny moře — vysoko v horách už tlak klesá pomaleji a meteorologové počítají přesněji.</p>
 							<h3>Povětrnostní mapa</h3>
 							<p>Na mapě počasí spojují <strong>izobary</strong> místa se stejným tlakem — podobně jako vrstevnice spojují místa ve stejné nadmořské výšce. Tlaková výše se značí písmenem <strong>V</strong>, tlaková níže písmenem <strong>N</strong>.</p>
 							<p>👉 Čím <strong>hustěji</strong> jsou izobary u sebe, tím prudčeji se tlak na krátkou vzdálenost mění — a tím <strong>silnější vítr</strong> v té oblasti fouká.</p>
@@ -1840,10 +1840,10 @@ export const temata: Record<string, Tema[]> = {
 							<ul>
 								<li><strong>teploměr</strong> — teplota vzduchu; na stanici visí v bílé budce ve stínu, 2 m nad zemí</li>
 								<li><strong>vlhkoměr</strong> — vlhkost vzduchu</li>
-								<li><strong>anemometr</strong> — rychlost větru; roztáčí ho kříž se čtyřmi kalíšky</li>
+								<li><strong>anemometr</strong> — rychlost větru; roztáčí ho miskový kříž (obvykle tři misky)</li>
 								<li><strong>srážkoměr</strong> — množství spadlého deště v milimetrech; sníh se v něm nechá roztát a změří se jako voda</li>
 							</ul>
-							<p>Měří se <strong>v pravidelných termínech</strong> (u nás hlavně v 7, 14 a 21 hodin), aby šly hodnoty z různých míst a různých dnů poctivě porovnat. Předpověď počasí pomáhá dopravě, zemědělství, energetice i záchranářům.</p>
+							<p>Měří se <strong>v pravidelných termínech</strong> (u nás hlavně v 7, 14 a 21 hodin), aby šly hodnoty z různých míst a různých dnů poctivě porovnat. Předpověď počasí pomáhá dopravě, zemědělství i záchranářům — a také energetikům, protože podle ní plánují, kolik proudu vyrobí větrné a solární elektrárny a kolik ho bude potřeba na topení.</p>
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Meteorologická pozorování', cesta: 'fKLqHBIS1Xk' },
