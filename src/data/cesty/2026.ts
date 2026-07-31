@@ -212,6 +212,7 @@ export const rok2026: Rok = {
 			],
 			x: 272.9,
 			y: 385.6,
+			videoId: 'mVP4b5LnuYI',
 			popis: {
 				cs: 'Vinařská obec v Horním Savojsku asi 30 km jižně od Ženevského jezera. Okolní svahy osázené odrůdou Altesse dávají bílé víno Roussette de Savoie – Frangy, jeden ze čtyř vyhlášených krů této apelace. Přespali jsme přímo u vinaře mezi vinicemi — krásný výhled, milí lidé a dobré víno.',
 				en: 'A wine-growing village in Haute-Savoie, some 30 km south of Lake Geneva. The surrounding slopes planted with the Altesse grape yield the white Roussette de Savoie – Frangy, one of the four named crus of the appellation. We stayed overnight at a winery among the vineyards — a lovely view, kind people and good wine.',
@@ -228,6 +229,7 @@ export const rok2026: Rok = {
 			x: 271.4,
 			y: 396.5,
 			popisekPosun: { dx: -2, dy: -2, kotva: 'end' },
+			videoId: 'nDJcjI00HQk',
 			popis: {
 				cs: 'Obec v ledovcovém údolí asi 15 km od Grenoblu. Na jejím území leží lázně Uriage-les-Bains (414 m n. m.), jejichž minerální prameny se odedávna využívají při potížích s kůží, klouby a dýcháním.',
 				en: 'A commune in a glacial valley about 15 km from Grenoble. Its territory includes the spa of Uriage-les-Bains (414 m), whose mineral springs have long been used for skin, joint and respiratory ailments.',
@@ -255,6 +257,7 @@ export const rok2026: Rok = {
 			x: 272.4,
 			y: 396.9,
 			popisekPosun: { dx: 2, dy: 4, kotva: 'start' },
+			videoId: '1t5aVUDdHtI',
 			popis: {
 				cs: "Obec v údolí řeky Romanche, na půl cesty mezi Grenoblem a středisky Alpe d'Huez a Les Deux Alpes. Údolí bylo kolébkou francouzské vodní energetiky — podzemní elektrárna Romanche-Gavet (v provozu od roku 2020, výkon 97 MW) je nejvýkonnější podzemní vodní elektrárnou ve Francii a nahradila šest starých elektráren. Spali jsme nahoře u sjezdovek v Chamrousse (kolem 1 700 m n. m.) s krásnými výhledy do údolí. Právě tady se na zimních olympijských hrách 1968 v Grenoblu jely sjezdové disciplíny — sjezd mužů na trati Casserousse, ostatní závody v části Recoin. Olympijské závody se tehdy počítaly zároveň jako 28. mistrovství světa.",
 				en: "A commune in the Romanche valley, halfway between Grenoble and the resorts of Alpe d'Huez and Les Deux Alpes. The valley was a cradle of French hydropower — the underground Romanche-Gavet plant (running since 2020, 97 MW) is the most powerful underground hydroelectric plant in France and replaced six older ones. We slept up by the ski slopes at Chamrousse (around 1,700 m) with beautiful views down the valley. This is where the alpine events of the 1968 Grenoble Winter Olympics were held — the men's downhill on the Casserousse course, the rest at Recoin. Those Olympic races also counted as the 28th World Championships.",
@@ -278,9 +281,13 @@ export const rok2026: Rok = {
 	],
 	videa: [
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
+		{ id: '_M3govihGYc', nazev: '08. 07. · Geisingen (Německo)', odkaz: 'https://youtu.be/_M3govihGYc' },
 		{ id: '9Sv4exafb-c', nazev: '10. 07. · Salbert (Francie)', odkaz: 'https://youtu.be/9Sv4exafb-c' },
 		{ id: 'Tlnc-YigfTw', nazev: '12. 07. · Le Thillot (Francie)', odkaz: 'https://youtu.be/Tlnc-YigfTw' },
 		{ id: 'nBnRJsLpsCg', nazev: '14. 07. · Rupt-sur-Moselle (Francie)', odkaz: 'https://youtu.be/nBnRJsLpsCg' },
 		{ id: 'swDAmX8BRJA', nazev: '17. 07. · Saint-Maurice-sur-Moselle (Francie) — Tour de France, s kapitolami', odkaz: 'https://youtu.be/swDAmX8BRJA' },
+		{ id: 'mVP4b5LnuYI', nazev: '20. 07. · Frangy (Francie)', odkaz: 'https://youtu.be/mVP4b5LnuYI' },
+		{ id: 'nDJcjI00HQk', nazev: '21. 07. · Vaulnaveys-le-Haut (Francie)', odkaz: 'https://youtu.be/nDJcjI00HQk' },
+		{ id: '1t5aVUDdHtI', nazev: '21. 07. · Livet-et-Gavet (Francie)', odkaz: 'https://youtu.be/1t5aVUDdHtI' },
 	],
 };
