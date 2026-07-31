@@ -1,6 +1,23 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 13:50 — INFORMATIKA)
+## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 17:40 — INFORMATIKA + DENÍK)
+
+**DENÍK — co běží a na co čeká (zadání učitele odpoledne 31. 7.):**
+- Video **„KRATOCHVÍLE" (2021, H6FP2IogExs)** je po zamítnutí zpátky ve smyčce
+  (`pecliva_videa.py`), fáze kontrola / kolo 2. Až doběhne, učitel odklikne
+  `--schvaleno` nebo `--zamitnuto "důvod"`. **Další video se nezačne, dokud neodklikne.**
+- **K revizi zbývají 2 videa:** `Schongau_DE` (94 MB) a `Le_Bourg-dOisans_v2` (248 MB).
+  Le Bourg se ještě přestaví — jeho média se změnila a čeká na Le Lavandou (13 médií
+  z ručního vkladu, uzavře se 6. 8. podle pravidla 7 dní).
+- **Čeká na učitele:** sloučit dvě složky Geisingen (v `KE-SCHVALENI.md`) — ta
+  s neviditelnými znaky v názvu je podmnožina `Geisingen_DE`, automat z ní videa nedělá.
+- Reference tváří: **56 učitel, 62 manželka** (ráno 13 a 31). Roky 2021 a 2022 pro
+  učitele NEEXISTUJÍ — ověřeno měřením, ve videích není (drží kameru).
+
+**ŠKOLA — pokračovat informatikou** podle pořadí níže (další na řadě `microbit/
+oziveni-a-led-displej`, inf. 8 — mřížka 5×5 LED).
+
+## ⏩⏩⏩⏩⏩⏩ Předchozí stav (31. 7. 2026, 13:50 — INFORMATIKA)
 
 **VĚTŠÍ ZMĚNA Z AUDITU JE HOTOVÁ.** Kontroly nově čtou **skutečná data** přes
 `testy/data.mjs` (esbuild → `import`), ne text souboru. Brána i měření názornosti nad

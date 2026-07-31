@@ -101,6 +101,39 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 odpoledne/večer (deník — anonymizace videí a duplicitní videa)** — Učitel
+  hlásil tři věci a všechny měly jinou příčinu. **(1) Duplicitní videa k revizi:** místo se
+  uzavíralo už 30 minut po posledním souboru, takže vznikla verze bez toho, co učitel dodal
+  druhý den (Le Bourg v1 v 0:13, v2 v 1:16) → nově se čeká **7 dní od posledního média**,
+  stejně jako čekárna sdíleného alba, a hostitel čeká i na svá přibalená místa. **(2) Videa
+  vyrobená znovu, ačkoli už jsou na YouTube:** kontrola „hotovo" vyžadovala existenci
+  výstupu na zapsané cestě — jenže učitel schválené video PŘESOUVÁ do `nasazeno/`, takže
+  cesta zmizela a automat město považoval za nové (tak vznikl druhý Frangy, Geisingen
+  i Schongau). Doloženo výpočtem: otisky médií seděly, média se nezměnila. **(3) Dvě složky
+  pro jedno město:** export z Fotek dává do názvu neviditelné znaky U+2068/U+2069, takže
+  „⁨Geisingen⁩, 8.7. 2026" vypadalo jako jiné město než `Geisingen_DE` (a bylo jeho
+  podmnožinou — 25 z 27 souborů). Ruční vklad dostal vlastní hodinový automat; dosud se
+  pouštěl ručně a dvakrát se na něj zapomnělo (naposledy tam leželo 10 nezpracovaných videí
+  Le Lavandou, která nejsou v žádném videu).
+  **Anonymizace starých videí — tři připomínky učitele k videu z 2021.** Rozmazávalo
+  střechu a plot jako SPZ a hlavu NAMALOVANOU na zdi: filtr falešných poplachů v projektu
+  byl, ale volal se **jen u fotek**. Nově se detekce slučují do STOP a vision se ptá jednou
+  za stopu (30 snímků = 1 dotaz) — na 20 s videa to zahodilo **28 chybných rozmazání**
+  a mezi nimi nebyl ani jeden skutečný člověk. Rozmazávalo taky manželku: reference byly
+  jen z července 2026 a v roce 2021 vycházela 0,32 proti prahu 0,45. Po doplnění referencí
+  vyšla 0,502, ale jen v jednom snímku z pěti — proto se **známost rozhoduje za CELOU
+  stopu** (pojistka: kromě shody nad prahem musí být dost vysoko i medián, aby jeden výkyv
+  neodkryl cizího člověka). Vznikl `reference_tvare_z_videi.py`, který tváře vytáhne
+  ze starých videí **po letech a řetězí je od nejnovějšího roku zpět**; referencí je nově
+  56 a 62 místo 13 a 31.
+  **Tři poučení, která stála nejvíc:** (a) kontrola hlídala jen MÁLO rozmazání, nikdy
+  ZBYTEČNÉ — proto protokol hlásil „0 nálezů", zatímco učitel při přehrání viděl tři chyby;
+  (b) načítání referencí nečetlo podsložky, takže fotky, které učitel dal do `Starší/`,
+  by tiše ležely ladem; (c) při druhém běhu vyšla shoda **1,015** — výřezy se poznaly samy
+  se sebou, protože už byly mezi referencemi; měřidlo, které se tváří sebejistě, je
+  nebezpečnější než žádné. Vlastní chyba k zapamatování: držet celý snímek pro každou stopu
+  vyčerpalo paměť a systém proces zabil (kód 137) — do RAM patří jen výřez.
+
 - **2026-07-31 večer (informatika 7 — proměnné)** — Druhá simulace informatiky v tomto
   dni: `PromenneSimulace` u podtématu `promenne`. Krabička `skóre` s hodnotou, vedle ní
   okénko na scéně přesně jak ho kreslí Scratch, a program „seber tři jablka" procházený
