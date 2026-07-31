@@ -42,10 +42,11 @@ Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
 **NÁZORNOST (zadání učitele 31. 7. 2026):** `public/materialy/fyzika/` má jen 6. a 7. ročník.
-Bez obrázku, videa i simulace je **17 podtémat fyziky 8** (z původních 22 — 5 vyřešeno
-simulacemi 31. 7.) a **10 podtémat fyziky 9**; nejhůř je na tom informatika (42 ze 47).
-Řeší se simulacemi, protože fotky a videa dodává učitel. Pořadí dalších kol viz
-`SAMOSTATNY-REZIM.md`, sekce z 31. 7. 11:15.
+Bez obrázku, videa i simulace je **13 podtémat fyziky 8** (z původních 22 — 3 vyřešena
+novými simulacemi, 4 recyklací hotových, 2 jsou shrnutí, která názornost nepotřebují)
+a **10 podtémat fyziky 9**. **Skutečně nejhůř je na tom informatika**: 47 podtémat,
+5 simulací a ani jedno podtéma s obrázkem či videem — to je podle auditu větší díra
+než zbytek fyziky 8. Pořadí dalších kol i fronta z auditu viz `SAMOSTATNY-REZIM.md`.
 Zbývá dál: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
 
 ## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
