@@ -2,6 +2,24 @@
 
 ## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 18:30 — INFORMATIKA + DENÍK)
 
+**ZADÁNÍ UČITELE 31. 7. večer: „kde to lokálním modelům nejde, převezmi to sám"
+a „jeď dál, šetři tokeny".** Podle toho:
+- **49 překladů popisů míst přeložil člověk** (lokální smyčka je 11 h zamítala) →
+  **156/156 míst má popis v cs, en, de i fr.** Zapsáno přes `zapis_popisy.py`, který
+  nově umí i překlady (`{"slug": {"en": …}}`) pod týmž zámkem.
+- Pojistky proti opakování: `POKUSU_NA_PREKLAD = 3` v `popisy_mist.py` · sdílený zámek
+  modelu v `pecliva_videa.py` · **otisk výsledného videa jako kotva** (shodný otisk =
+  kolo se nepočítá) · chybová hláška ukazuje návratový kód místo konce stderru.
+- **Rohatka na kvízy** (`testy/rohatka.json`): zhoršení SHODÍ build, zlepšení laťku
+  utáhne samo. Ověřeno obousměrně.
+- **Měřidlo délkové nápovědy nadhodnocovalo** — počítalo i remízy, takže otázka
+  „značka proudu: I / U / R" (všechny 1 znak) se vykazovala jako uhodnutelná; takových
+  je 103. Nově se počítá jen STRIKTNĚ nejdelší → skutečný stav 65 %, ne 76 %.
+- **Dorovnáno 6 bloků** (vnitřní energie, vypařování, senzory robota, hardware+software,
+  sestavení robota, řazení a filtrování) → **64 %**. U čtyř z nich se přitom našly
+  **duplicitní páry otázek** (3–4 páry z 10) — bloky vznikly slepením dvou dávek.
+  **Dál dorovnávat:** `plan-projektu-a-ladeni`, `prenos-elektricke-energie`, `kondenzace`.
+
 **DENÍK — NÁLEZ 31. 7. večer: smyčka vracela učiteli NEZMĚNĚNÝ soubor.** Učitel po
 opravách hlásil, že video vypadá stejně (rozmazaná střecha, lavička, terasa i manželka).
 Příčina nebyla v anonymizaci: `zamitnuto()` vynulovalo nálezy a kola > 1 vybírají kousky
