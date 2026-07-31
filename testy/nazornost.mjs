@@ -18,9 +18,13 @@ for (const r of radky) {
 	if (mp) { uloz(); pod = { rocnik, tema, slug: mp[1], simulace: false, obrazek: false, zvuk: false, video: false, odkazy: 0, laborka: false }; continue; }
 	if (!pod) continue;
 	if (/^\s+interakce2?:\s*'/.test(r)) pod.simulace = true;
-	if (/druh:\s*'obrazek'/.test(r)) pod.obrazek = true;
-	if (/druh:\s*'zvuk'|druh:\s*'pisen'/.test(r)) pod.zvuk = true;
-	if (/druh:\s*'video'|youtube/i.test(r)) pod.video = true;
+	// POZOR: v datech NENÍ druh 'obrazek' — obrázkový materiál se jmenuje 'infografika'.
+	// Dokud se hledalo 'obrazek', skript infografiky nikdy nezapočítal a hlásil falešné mezery.
+	if (/druh:\s*'infografika'/.test(r)) pod.obrazek = true;
+	if (/druh:\s*'audio'/.test(r)) pod.zvuk = true;
+	// 'youtube' se smí chytat JEN jako druh materiálu — holé slovo by chytilo i odkaz
+	// v seznamu `odkazy` a mezeru by tím schovalo.
+	if (/druh:\s*'(video|youtube)'/.test(r)) pod.video = true;
 	if (/^\s*\{\s*nazev:.*url:/.test(r)) pod.odkazy++;
 }
 uloz();

@@ -2262,6 +2262,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'energie-a-jeji-premeny',
 					nazev: 'Energie a její přeměny',
+					interakce: 'skatepark',
 					obsah: `
 						<h2>Energie a její přeměny</h2>
 						<p>Aby člověk, zvíře nebo stroj mohl konat práci, musí mít v sobě něco, co se v práci promění — <strong>energii</strong>. Energie se může proměnit v práci a vykonaná práce se zase uloží jako energie.</p>
@@ -2461,6 +2462,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'teplo-a-premeny-skupenstvi',
 					nazev: 'Teplo a přeměny skupenství látek',
+					interakce: 'ohrev',
 					obsah: `
 						<h2>Teplo a přeměny skupenství látek</h2>
 						<p>Látka se běžně vyskytuje ve <strong>třech skupenstvích</strong> — pevném, kapalném, plynném. Ve všech je tvořena <strong>stejnými částicemi</strong>, liší se jen jejich <strong>pohybem a silovým působením</strong>.</p>
