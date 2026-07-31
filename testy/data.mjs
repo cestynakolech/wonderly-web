@@ -78,9 +78,27 @@ export function nazornost(pod) {
 	};
 }
 
-/** Má otázka délkovou nápovědu? (správná odpověď je nejdelší nebo v remíze o nejdelší) */
+/** Má otázka délkovou nápovědu? Tedy jde uhodnout strategií „vyber nejdelší"?
+ *
+ * Počítá se jen STRIKTNĚ nejdelší správná odpověď. Do 31. 7. 2026 se sem počítaly
+ * i remízy (`>=`) a měřidlo tím nadhodnocovalo: otázka „Jaká je značka proudu?
+ * I / U / R" má všechny odpovědi po jednom znaku, takže žákovi délka neřekne vůbec
+ * nic — a přesto se vykazovala jako uhodnutelná. Nadhodnocené měřidlo je stejně
+ * škodlivé jako podhodnocené: tiše určuje, na čem se pracuje.
+ *
+ * Remíza o nejdelší se vrací zvlášť (`remiza`), protože i ta zúží výběr ze tří
+ * možností na dvě — jen mnohem slaběji než jasně nejdelší odpověď.
+ */
 export function maDelkovouNapovedu(otazka) {
 	const delky = (otazka.odpovedi ?? []).map((o) => o.length);
 	if (delky.length < 2) return false;
-	return delky[0] >= Math.max(...delky.slice(1));
+	return delky[0] > Math.max(...delky.slice(1));
+}
+
+/** Je správná odpověď v remíze o nejdelší (slabší nápověda než striktně nejdelší)? */
+export function maRemizuODelku(otazka) {
+	const delky = (otazka.odpovedi ?? []).map((o) => o.length);
+	if (delky.length < 2) return false;
+	const nej = Math.max(...delky.slice(1));
+	return delky[0] === nej && delky.filter((d) => d === nej).length < delky.length;
 }

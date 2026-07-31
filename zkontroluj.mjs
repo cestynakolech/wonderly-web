@@ -104,7 +104,7 @@ const nejhorsi = [...bloky.entries()]
 	.slice(0, 5);
 if (podilNejdelsi > 45) {
 	varovani.push(
-		`u ${podilNejdelsi} % otázek je správná odpověď nejdelší nebo v remíze o nejdelší (náhoda je 33 %) — jde uhodnout bez znalosti látky. ` +
+		`u ${podilNejdelsi} % otázek je správná odpověď JASNĚ nejdelší (náhoda je 33 %) — jde uhodnout bez znalosti látky. ` +
 			`Nejhorší bloky: ${nejhorsi.map(([k, b]) => `${k.split('/').slice(2).join('/')} (${b.nejdelsi}/${b.celkem})`).join(', ')}`,
 	);
 }
