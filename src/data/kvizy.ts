@@ -1811,11 +1811,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co musí obsahovat každý elektrický obvod?',
-			odpovedi: [
-				'zdroj napětí, vodiče a spotřebič',
-				'jen baterii',
-				'pouze spínač a žárovku',
-			],
+			odpovedi: ['zdroj, vodiče, spotřebič', 'jenom několik vodičů', 'jenom jednu baterii'],
 			vysvetleni: 'Bez zdroje, vodičů a spotřebiče obvod nefunguje. Navíc může mít spínač, měřidla či pojistku.',
 		},
 		{
@@ -1829,11 +1825,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je schéma obvodu?',
-			odpovedi: [
-				'přehledný obrázek zapojení se schematickými značkami',
-				'fotografie obvodu',
-				'seznam cen součástek',
-			],
+			odpovedi: ['zakreslení pomocí značek', 'fotografie obvodu', 'seznam všech součástek'],
 			vysvetleni: 'Každý prvek má dohodnutou značku; vodiče kreslíme přímými čarami, spojení vodičů je uzel.',
 		},
 		{
@@ -1853,20 +1845,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je zkrat?',
-			odpovedi: [
-				'vodivé propojení svorek zdroje bez spotřebiče',
-				'rozpojení obvodu spínačem',
-				'vybitá baterie',
-			],
+			odpovedi: ['spojení svorek bez spotřebiče', 'úplně vypnutý obvod', 'příliš slabý proud'],
 			vysvetleni: 'Při zkratu protéká velký proud, vodiče se zahřívají a hrozí požár!',
 		},
 		{
 			text: 'Jak funguje tavná pojistka?',
-			odpovedi: [
-				'tenký drátek se při silném proudu roztaví a přeruší obvod',
-				'vypne obvod pomocí magnetu',
-				'ochladí vodiče vodou',
-			],
+			odpovedi: ['drátek se přetaví', 'zesílí procházející proud', 'zahřeje celý vodič'],
 			vysvetleni: 'Pojistka chrání obvod před přetížením — drátek se přepálí dřív, než se vodiče nebezpečně zahřejí.',
 		},
 		{
@@ -3140,18 +3124,18 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Podle jakého vzorce počítáme skupenské teplo varu?', odpovedi: ['Lv = lv · m', 'Lv = lv : m', 'Lv = m : lv'], vysvetleni: 'Přímo úměrné hmotnosti kapaliny.' },
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace': [
-		{ text: 'Co je kondenzace (kapalnění)?', odpovedi: ['změna plynu (páry) na kapalinu', 'změna kapaliny na plyn', 'změna pevné látky na plyn'], vysvetleni: 'Ochlazená pára se mění na kapalinu.' },
+		{ text: 'Co je kondenzace (kapalnění)?', odpovedi: ['změna páry na kapalinu', 'změna kapaliny na páru', 'změna pevné látky na páru'], vysvetleni: 'Ochlazená pára se mění na kapalinu.' },
 		{ text: 'Opačným dějem ke kondenzaci je…', odpovedi: ['vypařování', 'tuhnutí', 'tání'], vysvetleni: 'Vypařování je opak kondenzace.' },
-		{ text: 'Co se stane s částicemi páry při ochlazení?', odpovedi: ['zpomalí a shluknou se do kapiček', 'zrychlí a rozletí se', 'zmizí'], vysvetleni: 'Přitažlivé síly je zadrží u sebe.' },
-		{ text: 'Od čeho kondenzace obvykle začíná?', odpovedi: ['od pevného jádra (prach, studený povrch)', 'vždy uprostřed vzduchu', 'od slunce'], vysvetleni: 'Např. rosa na trávě, kapka na prachu.' },
-		{ text: 'Co je rosný bod?', odpovedi: ['stav, kdy nasycená pára začne kondenzovat', 'teplota varu', 'bod mrazu'], vysvetleni: 'Vzduch už víc páry neunese a ta kondenzuje.' },
+		{ text: 'Co se stane s částicemi páry při ochlazení?', odpovedi: ['zpomalí a spojí se', 'zrychlí a rozletí se', 'úplně zmizí ze vzduchu'], vysvetleni: 'Přitažlivé síly je zadrží u sebe.' },
+		{ text: 'Od čeho kondenzace obvykle začíná?', odpovedi: ['od zrnka prachu', 'vždy uprostřed vzduchu', 'od slunečních paprsků'], vysvetleni: 'Např. rosa na trávě, kapka na prachu.' },
+		{ text: 'Co je rosný bod?', odpovedi: ['teplota, kdy pára kondenzuje', 'teplota varu vody', 'teplota tuhnutí vody'], vysvetleni: 'Vzduch už víc páry neunese a ta kondenzuje.' },
 		{ text: 'Jak souvisí teplota vzduchu s množstvím páry?', odpovedi: ['teplejší vzduch unese víc páry', 'teplejší vzduch unese míň páry', 'nesouvisí'], vysvetleni: 'Proto se v noci při ochlazení tvoří rosa.' },
-		{ text: 'Který jev je příkladem kondenzace?', odpovedi: ['orosená studená sklenice', 'tající led', 'hořící svíčka'], vysvetleni: 'Pára ze vzduchu na studené sklenici zkapalní.' },
-		{ text: 'Proč se v zimě orosí brýle při vstupu do tepla?', odpovedi: ['teplá pára zkondenzuje na studených sklech', 'sklo se potí', 'brýle nasákly vodu'], vysvetleni: 'Studená skla ochladí páru pod rosný bod.' },
-		{ text: 'Co je „obláček" páry z úst v zimě?', odpovedi: ['zkondenzovaná vodní pára z dechu', 'kouř', 'prach'], vysvetleni: 'Teplý vlhký vzduch z plic v chladu kondenzuje.' },
-		{ text: 'Jak vznikají mraky a mlha?', odpovedi: ['kondenzací vodní páry', 'táním ledu', 'vypařováním kovů'], vysvetleni: 'Pára kondenzuje do drobných kapiček.' },
-		{ text: 'Jak lze plyn zkapalnit?', odpovedi: ['silným ochlazením nebo stlačením', 'zahřátím', 'osvětlením'], vysvetleni: 'Např. kapalný dusík nebo plyn v tlakové lahvi.' },
-		{ text: 'Proč se plyny přepravují v kapalném stavu?', odpovedi: ['zabírají mnohem méně místa', 'jsou levnější', 'jsou lehčí'], vysvetleni: 'Zkapalněný plyn má menší objem.' },
+		{ text: 'Který jev je příkladem kondenzace?', odpovedi: ['orosená sklenice', 'tající kostka ledu', 'hořící svíčka'], vysvetleni: 'Pára ze vzduchu na studené sklenici zkapalní.' },
+		{ text: 'Proč se v zimě orosí brýle při vstupu do tepla?', odpovedi: ['pára zkondenzuje na chladném skle', 'sklo se samo potí', 'brýle nasáknou vodu ze vzduchu'], vysvetleni: 'Studená skla ochladí páru pod rosný bod.' },
+		{ text: 'Co je „obláček" páry z úst v zimě?', odpovedi: ['zkondenzovaná pára', 'kouř z plic', 'zvířený prach'], vysvetleni: 'Teplý vlhký vzduch z plic v chladu kondenzuje.' },
+		{ text: 'Jak vznikají mraky a mlha?', odpovedi: ['kondenzací páry', 'táním ledovců', 'vypařováním kovů'], vysvetleni: 'Pára kondenzuje do drobných kapiček.' },
+		{ text: 'Jak lze plyn zkapalnit?', odpovedi: ['ochlazením či stlačením', 'zahřátím na vysokou teplotu', 'osvětlením silnou lampou'], vysvetleni: 'Např. kapalný dusík nebo plyn v tlakové lahvi.' },
+		{ text: 'Proč se plyny přepravují v kapalném stavu?', odpovedi: ['zaberou méně místa', 'jsou pak levnější', 'jsou pak lehčí'], vysvetleni: 'Zkapalněný plyn má menší objem.' },
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode': [
 		{ text: 'Jak se voda dostává do ovzduší?', odpovedi: ['vypařováním z ploch i rostlin', 'stékáním do řek a moří', 'táním ledovců na pólech'], vysvetleni: 'Voda se vypařuje a stoupá jako pára.' },
@@ -3228,15 +3212,15 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co musí obsahovat každý elektrický obvod?', odpovedi: ['zdroj, vodiče a spotřebič', 'jen vodiče', 'jen baterii'], vysvetleni: 'Bez těchto částí obvod nefunguje.' },
 		{ text: 'Kdy prochází obvodem proud?', odpovedi: ['když je obvod uzavřený', 'když je rozpojený', 'nikdy'], vysvetleni: 'Všechny části musí být vodivě spojeny.' },
 		{ text: 'Co je schéma obvodu?', odpovedi: ['zakreslení pomocí schematických značek', 'fotka obvodu', 'seznam součástek'], vysvetleni: 'Každý prvek má svou značku.' },
-		{ text: 'Co je uzel?', odpovedi: ['místo, kde je spojeno víc vodičů', 'zdroj napětí', 'spínač'], vysvetleni: 'V uzlu se obvod větví.' },
+		{ text: 'Co je uzel?', odpovedi: ['spojení více vodičů', 'zdroj napětí', 'vypínač obvodu'], vysvetleni: 'V uzlu se obvod větví.' },
 		{ text: 'Jak jsou spotřebiče zapojené v sériovém obvodu?', odpovedi: ['za sebou', 'vedle sebe', 'křížem'], vysvetleni: 'Sériově = jeden za druhým.' },
 		{ text: 'Jak jsou spotřebiče zapojené v paralelním obvodu?', odpovedi: ['vedle sebe', 'za sebou', 'do kruhu'], vysvetleni: 'Paralelně = každý zvlášť ke zdroji.' },
 		{ text: 'Co je zkrat?', odpovedi: ['vodivé spojení svorek zdroje bez spotřebiče', 'vypnutý obvod', 'slabý proud'], vysvetleni: 'Teče velký proud, hrozí požár.' },
-		{ text: 'Proč je zkrat nebezpečný?', odpovedi: ['vodiče se přehřejí a hrozí požár', 'zhasne světlo', 'nic se neděje'], vysvetleni: 'Velký proud silně zahřívá vodiče.' },
+		{ text: 'Proč je zkrat nebezpečný?', odpovedi: ['vodiče se přehřejí', 'zhasne v místnosti světlo', 'vůbec se nic neděje'], vysvetleni: 'Velký proud silně zahřívá vodiče.' },
 		{ text: 'Co chrání obvod před přetížením?', odpovedi: ['pojistka', 'žárovka', 'vodič'], vysvetleni: 'Pojistka přeruší obvod při velkém proudu.' },
 		{ text: 'Jak funguje tavná pojistka?', odpovedi: ['tenký drátek se přetaví a přeruší obvod', 'zesílí proud', 'zahřeje vodič'], vysvetleni: 'Při velkém proudu se roztaví.' },
-		{ text: 'V jaké poloze má být spínač při sestavování obvodu?', odpovedi: ['vypnutý (otevřený)', 'zapnutý', 'na tom nezáleží'], vysvetleni: 'Zdroj připojíme až po kontrole.' },
-		{ text: 'Kdy připojíme obvod ke zdroji?', odpovedi: ['až po kontrole zapojení', 'jako první', 'nikdy'], vysvetleni: 'Nejdřív zkontrolujeme vše bez zdroje.' },
+		{ text: 'V jaké poloze má být spínač při sestavování obvodu?', odpovedi: ['vypnutý', 'zapnutý', 'na tom nezáleží'], vysvetleni: 'Zdroj připojíme až po kontrole.' },
+		{ text: 'Kdy připojíme obvod ke zdroji?', odpovedi: ['po kontrole zapojení', 'úplně jako první', 'až obvod nefunguje'], vysvetleni: 'Nejdřív zkontrolujeme vše bez zdroje.' },
 	],
 	'fyzika/8-rocnik/elektrina/elektricky-proud-mereni': [
 		{ text: 'Co udává elektrický proud?', odpovedi: ['kolik náboje projde vodičem za 1 s', 'kolik váží vodič', 'jak je teplý'], vysvetleni: 'Proud = náboj za sekundu.' },
