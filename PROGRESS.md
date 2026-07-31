@@ -41,7 +41,12 @@ Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči
 
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
-Zbývá: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
+**NÁZORNOST (zadání učitele 31. 7. 2026):** `public/materialy/fyzika/` má jen 6. a 7. ročník.
+Bez obrázku, videa i simulace je **17 podtémat fyziky 8** (z původních 22 — 5 vyřešeno
+simulacemi 31. 7.) a **10 podtémat fyziky 9**; nejhůř je na tom informatika (42 ze 47).
+Řeší se simulacemi, protože fotky a videa dodává učitel. Pořadí dalších kol viz
+`SAMOSTATNY-REZIM.md`, sekce z 31. 7. 11:15.
+Zbývá dál: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
 
 ## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
 Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učitele `/Users/Shared/Škola/8/` — 6 celků:
@@ -93,6 +98,32 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+
+- **2026-07-31 dopoledne (fyzika 8 — začátek názornosti, 5 podtémat z 22)** — Učitel zadal:
+  *„Média k fyzice 8 (22 podtémat bez obrázku/videa), stránky jsou textové, chybí názornost."*
+  Číslo **ověřeno měřením**: fyzika 8 má 37 podtémat a 22 z nich nemá ani obrázek, ani video,
+  ani simulaci; příčina je, že `public/materialy/fyzika/` obsahuje **jen 6. a 7. ročník** —
+  pro osmičku a devítku tam nikdy nic nevzniklo. Protože fotky a natočená videa dodává učitel,
+  řeší se názornost tím, co jde vyrobit jako kód: **simulacemi**. Začalo se elektřinou
+  (12 z těch 22 podtémat, nejabstraktnější učivo). Nasazeny **tři nové simulace pokrývající
+  5 podtémat**: měřicí přístroje (ampérmetr do série, voltmetr paralelně **i oba chybné
+  způsoby**), odpor vodiče (R = ρ·l/S s vlivem délky, průřezu, materiálu i teploty)
+  a rezistor s proměnným odporem (týž jezdec jednou jako reostat, podruhé jako potenciometr).
+  **Nezávislý kontrolor našel u první simulace 10 vad a dvě z nich byly vážné.** (1) Animace
+  protiřečila vlastnímu textu: u zkratu text tvrdil „proud žárovku obejde", ale tečky dál
+  obíhaly skrz žárovku. (2) V obvodu byla jediná součástka, takže napětí na žárovce se rovnalo
+  napětí zdroje — **správné i chybné měření voltmetrem ukazovalo stejných 12 V** a celý smysl
+  úlohy padl; opraveno na dvě součástky v sérii (6 V z 12 V). (3) Simulace používala Ohmův
+  zákon, který se probírá až o dvě podtémata dál. Kontrolor se ale neposlouchá slepě: navrhoval
+  zvýšit zkratový proud na 8× kvůli dramatičnosti, jenže při přemostění žárovky se proud přesně
+  zdvojnásobí — ponecháno pravdivé 2 A a skutečné nebezpečí popsáno slovy.
+  **Ověřování bez prohlížeče:** náhledový server blokovala jiná session, proto se simulace
+  ověřují skriptem, který spustí **skutečný `<script>` komponenty** v Node (`node:vm`)
+  s náhradním DOM a proměří spojitost pohybu po 16 ms i všechny kombinace ovládání
+  (max skok 4,5 px z limitu 20; při zkratu 0 teček uvnitř žárovky; potenciometr dává celé
+  volty ve všech 11 polohách). Nasazení ověřeno `curl` na všech 5 stránkách.
+  **Past do příště:** blok `elektrina` má v `temata.ts` o tabulátor jiné odsazení, takže
+  naivní regex napočítá 22 podtémat místo 37.
 
 - **2026-07-31 ráno (škola — díry v kvízech zalepené, chyba v kontrolní bráně)** —
   Samostatná práce podle priorit. **12 podtémat bez kvízu dostalo kvíz** (144 otázek):

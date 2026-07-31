@@ -1,6 +1,71 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 6:00 — ŠKOLA: díry v kvízech, čti jako první)
+## ⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 11:15 — ŠKOLA: názornost fyziky 8, čti jako první)
+
+**Zadání učitele:** „Média k fyzice 8 (22 podtémat bez obrázku/videa), stránky jsou textové,
+chybí názornost." Číslo ověřeno skriptem: fyzika 8 má **37 podtémat a 22 z nich nemá ani
+obrázek, ani video, ani simulaci**. Příčina: `public/materialy/fyzika/` obsahuje jen
+**6-rocnik a 7-rocnik** — pro osmičku a devítku tam není ani jeden soubor.
+
+**Měření názornosti napříč webem** (skript, dá se zopakovat — viz níže):
+
+| ročník | bez názornosti / celkem |
+|---|---|
+| fyzika 6 | 6 / 21 |
+| fyzika 7 | 5 / 33 |
+| **fyzika 8** | **22 / 37** ← řeší se |
+| fyzika 9 | 10 / 25 |
+| informatika 7 / 8 / 9 | 15/18 · 17/18 · 10/11 |
+| pracovní činnosti 6 | 2 / 2 |
+
+**Zvolený postup** (fotky ani videa vyrobit neumím — ty dodává učitel a YouTube automat;
+umím ale simulace a infografiky jako kód, což je u elektřiny názornější než obrázek):
+elektřina má 12 z těch 22 podtémat a je nejabstraktnější, proto se začalo tam.
+
+**HOTOVO 31. 7. (5 z 22 podtémat, nasazeno a ověřeno curl):**
+- `MeridlaSimulace` — ampérmetr do série, voltmetr paralelně + **oba chybné způsoby**
+  (`elektricky-proud-mereni`, `elektricke-napeti-mereni`)
+- `OdporVodiceSimulace` — R = ρ·l/S včetně vlivu teploty
+  (`elektricky-proud-v-kovech-odpor`, `zavislost-odporu-na-vodici`)
+- `ReostatSimulace` — týž jezdec jako reostat (proud) × potenciometr (napětí)
+  (`rezistor-s-promennym-odporem`)
+
+**ZBÝVÁ 17 podtémat bez názornosti** — návrh pořadí pro další kola:
+1. `elektricky-naboj` + `elektricke-pole` (elektrování třením, přitahování, siločáry)
+2. `elektricka-prace-a-vykon` + `vykon` (počítadlo kWh a korun podle skutečných spotřebičů)
+3. `ucinky-proudu-a-bezpecnost` (infografika účinků + pojistka)
+4. `elektricke-obvody`, `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`
+5. teplo: `tuhnuti`, `kondenzace`, `skupenske-zmeny-vody-v-prirode`, `teplo-a-premeny-skupenstvi`
+6. `tepelny-motor-parni-stroj`, `energie-a-jeji-premeny`, `vnitrni-energie-telesa`
+(`pololetni-shrnuti` a `rocni-shrnuti` názornost nepotřebují — jsou to rozcestníky s kvízem.)
+
+**Jak si měření zopakovat:** projít `temata.ts` a u každého podtématu se ptát, jestli má
+`interakce`/`interakce2`, materiál `druh: 'obrazek'` nebo `druh: 'video'`. **Past:** blok
+`elektrina` má v `temata.ts` o jeden tabulátor jiné odsazení než ostatní celky, takže
+naivní regex `^\t{5}slug:` ho přeskočí a napočítá 22 podtémat místo 37. Používej `^\t{5,}`.
+
+**Poučení z tohoto kola — nezávislý kontrolor našel u první simulace 10 vad, dvě vážné:**
+1. **Animace protiřečila vlastnímu textu.** U zkratu text tvrdil „proud žárovku obejde",
+   ale tečky dál obíhaly hlavní smyčku skrz žárovku. Kdo kreslí schéma i text, snadno
+   popíše, co zamýšlel, ne co je vidět.
+2. **Jediná součástka v obvodu zabila didaktický smysl.** Napětí na žárovce se rovnalo
+   napětí zdroje, takže správné (voltmetr paralelně) i chybné (v sérii) měření ukazovalo
+   stejných 12 V — žák nemá jak poznat rozdíl. Opraveno na dvě součástky v sérii:
+   6 V na žárovce z 12 V zdroje. **Pravidlo: simulace měření musí mít v obvodu aspoň dvě
+   součástky, jinak se rozdíl nemá kde projevit.**
+3. **Simulace předbíhala učivo.** Používala Ohmův zákon, který je v `temata.ts` až o dvě
+   podtémata dál. Před nasazením ověřovat i POŘADÍ podtémat, nejen správnost.
+   Test to teď hlídá strojově (v textech nesmí být „I = U / R" ani hodnota v ohmech).
+4. Kontrolora neposlouchat slepě: navrhoval zvýšit zkratový proud na 8× kvůli názornosti,
+   jenže při přemostění žárovky se proud přesně **zdvojnásobí** — necháno pravdivé 2 A.
+
+**Jak se simulace ověřují bez prohlížeče** (náhledový server často blokuje jiná session):
+skript ve scratchpadu spustí **skutečný `<script>` komponenty** v Node přes `node:vm`
+s náhradním DOM, pak zavolá vystavené čisté funkce (`svg.__stavMeridel`, `svg.__odpor`,
+`svg.__reostat`…) a proměří spojitost pohybu po 16 ms i všechny kombinace ovládání.
+Tohle je tvrdší kotva než pohled okem a nestojí skoro nic — u nových simulací pokračuj stejně.
+
+## ⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 6:00 — ŠKOLA: díry v kvízech)
 
 **Uzavřeno: 12 podtémat bez kvízu má kvíz.** Pracovní činnosti (Tinkercad, SketchUp),
 VEX IQ (4 podtémata 8. a 9. roč.) a hry ve Scratchi (6 podtémat) — celkem **144 nových
