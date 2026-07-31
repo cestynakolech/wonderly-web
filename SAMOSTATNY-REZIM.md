@@ -1,5 +1,58 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 13:15 — INFORMATIKA)
+
+**VĚTŠÍ ZMĚNA Z AUDITU JE HOTOVÁ.** Kontroly nově čtou **skutečná data** přes
+`testy/data.mjs` (esbuild → `import`), ne text souboru. Brána i měření názornosti nad
+tím běží, brána se pouští při každém `npm run build` (`prebuild`) a byla ověřena
+**obousměrně** (podvrh se najde, zdravý stav nehlásí nic). Nová kontrola 6c hlídá, že
+každé podtéma s kvízem je zastoupené v ročním opakování. Brána teď vidí **2436 otázek
+ve 164 blocích** (dřív tvrdila 2084).
+
+> **Pravidlo pro každou další kontrolu:** piš ji nad `nactiData()`, nikdy nad textem
+> souboru. Vzory nad textem si nech jen na kontrolu ZAPOJENÍ (import v `.astro`, řádek
+> s vykreslením, union typ) — tam je předmětem kontroly opravdu zdrojový kód.
+
+**TEĎ SE DĚLÁ INFORMATIKA** — podle auditu je to největší díra na webu:
+47 podtémat, jen 5 simulací a **ani jedno podtéma s obrázkem či videem**.
+
+| ročník | bez názornosti | simulací |
+|---|---|---|
+| informatika 7 | 15 z 18 | 3 |
+| informatika 8 | 16 z 18 | 2 |
+| informatika 9 | 10 z 11 | 1 |
+
+**Hotovo:** `adresy-bunek-a-vzorce` (inf. 8) — `TabulkaVzorceSimulace`. Úloha přímo
+z výkladu: sloupec cen v € a kurz v B1. S `$B$1` vyjde 100/300/500/1000 Kč, s relativním
+`B1` se odkaz posune na předchozí VÝSLEDEK a čísla se lavinovitě rozjedou
+(100 → 1200 → 24 000 → 960 000). Celá čísla pro kurzy 24, 25 i 26 Kč.
+
+**Návrh dalších simulací informatiky (v pořadí užitku):**
+1. `souradnice-a-kresleni` (inf. 7) — scratchovská scéna −240…240 × −180…180, žák kliká
+   a vidí souřadnice; záporná čísla jsou tam největší kámen úrazu.
+2. `promenne` (inf. 7) — proměnná jako krabička: ulož, zvyš o 1, ukaž. Abstraktní pojem.
+3. `microbit/oziveni-a-led-displej` (inf. 8) — mřížka 5×5 LED, žák kreslí a spustí
+   animaci střídáním dvou obrázků.
+4. `vetveni-programu` (inf. 7) — vývojový diagram, žák přepne podmínku a vidí, kudy to teče.
+5. `funkce-v-tabulkach` (inf. 8) — SUMA/PRŮMĚR/MAX nad malou tabulkou (naváže na hotovou
+   TabulkaVzorceSimulace, dá se z ní hodně převzít).
+6. `orientovane-grafy-a-automaty` (inf. 7) — automat jako kolečka a šipky, žák posílá vstup.
+
+**Pozor u informatiky na dvě věci:** (a) `senzory-robota` má ČTYŘI duplicitní páry otázek
+z deseti — chce přepsat celý blok podle výkladu, ne jen dorovnat délky; (b) informatika má
+nejkratší výklady na webu (medián ~700 znaků), takže u některých podtémat je potřeba spíš
+doplnit TEXT než přidat simulaci.
+
+**Zbytek fronty z auditu** (neztratit):
+- **Rohatka na délkovou nápovědu:** brána spočítá podíl z dat a SELŽE, když se počet otázek
+  s nápovědou zvýší. Staré nikdo neblokuje, nové se hlídají tvrdě.
+- Dorovnávat jen **449 otázek s rozdílem ≥ 20 znaků** (ne všech 1619) — nesou skoro celý efekt.
+- Levné kontroly: výklad pod ~700 znaků · číslo ve správné odpovědi, které není ve výkladu
+  (58 případů).
+- K ověření učitelem: otázka „Co je stav beztíže? → působící síly jsou v rovnováze"
+  (fyzika 7) — beztíže je volný pád, ne rovnováha sil.
+
+
 ## ⏩⏩⏩⏩⏩⏩ AUDIT STRATEGIE (31. 7. 2026, 12:40) — ČTI JAKO PRVNÍ
 
 Učitel zadal: *„udělej celkový nezávislý audit, jestli je strategie správná — někdy příliš
