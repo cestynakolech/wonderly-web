@@ -15,10 +15,29 @@ a „jeď dál, šetři tokeny".** Podle toho:
 - **Měřidlo délkové nápovědy nadhodnocovalo** — počítalo i remízy, takže otázka
   „značka proudu: I / U / R" (všechny 1 znak) se vykazovala jako uhodnutelná; takových
   je 103. Nově se počítá jen STRIKTNĚ nejdelší → skutečný stav 65 %, ne 76 %.
-- **Dorovnáno 6 bloků** (vnitřní energie, vypařování, senzory robota, hardware+software,
-  sestavení robota, řazení a filtrování) → **64 %**. U čtyř z nich se přitom našly
+- **Dorovnáno 11 bloků** (vnitřní energie, vypařování, senzory robota, hardware+software,
+  sestavení robota, řazení a filtrování, plán projektu, přenos el. energie, kondenzace,
+  elektrické obvody, ohodnocené grafy) → **77 % → 62 %**. U pěti z nich se přitom našly
   **duplicitní páry otázek** (3–4 páry z 10) — bloky vznikly slepením dvou dávek.
-  **Dál dorovnávat:** `plan-projektu-a-ladeni`, `prenos-elektricke-energie`, `kondenzace`.
+  **Dál dorovnávat:** `rezistor-s-promennym-odporem` (11/12),
+  `meteorologie-a-mereni-tlaku` (19/21), `vlastni-bloky-s-parametry`, `zabezpeceni-a-digitalni-stopa`.
+- **VĚCNÁ CHYBA opravena:** výklad i kvíz fyziky 9 tvrdily, že dálková vedení jsou
+  **měděná**. Přenosová vedení VVN jsou hliníková lana s ocelovým jádrem (AlFe) —
+  měď je při stejné vodivosti asi 3× těžší a prohnula by stožáry. Opraveno i s důvodem.
+- Pozn. k dorovnávání: otázky mají v `kvizy.ts` dva formáty (jednořádkový a víceřádkový).
+  Skript, který hledá `odpovedi: […]` jen do konce řádku, ty víceřádkové **tiše minul** —
+  hlásil „nešlo" u 4 z 18. Hledat v úseku ~700 znaků od textu otázky, ne do `\n`.
+
+> **ODLOŽENO — anonymizace videa žere 19–32 GB a systém proces zabíjí (signál 9).**
+> Tři pokusy: (1) sdílený zámek modelu, aby neběžela souběžně s Ollamou (nasazeno,
+> správné, ale nestačí), (2) uvolnění modelu z paměti přes `keep_alive: 0` (uvolnilo
+> 44 GB, proces přesto zabit), (3) krájení videa na 30s kousky místo 120s
+> (`DELKA_KOUSKU_S`, složky nesou délku v názvu — `zdroj30s`, `anonym30s`, nic se
+> nemaže). Ani po zkrácení paměť neklesla, naopak 32 GB. Data se přitom nedrží —
+> `detekce_syrove` má jen souřadnice. **Podezření: paměť roste s počtem volání
+> insightface na snímek** (3030 volání na video), tedy únik v modelu/ort, ne v našem
+> kódu. **Další nápad k vyzkoušení:** `--krok 2` nebo 3 (analyzovat každý druhý/třetí
+> snímek; okno ±5 snímků při rozmazávání to pokryje) → 2–3× méně volání modelu.
 
 **DENÍK — NÁLEZ 31. 7. večer: smyčka vracela učiteli NEZMĚNĚNÝ soubor.** Učitel po
 opravách hlásil, že video vypadá stejně (rozmazaná střecha, lavička, terasa i manželka).
