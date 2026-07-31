@@ -42,7 +42,7 @@ Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
 **NÁZORNOST (zadání učitele 31. 7. 2026):** `public/materialy/fyzika/` má jen 6. a 7. ročník.
-Bez obrázku, videa i simulace je **41 podtémat informatiky** (nejhorší díra — ani jeden
+Bez obrázku, videa i simulace je **40 podtémat informatiky** (nejhorší díra — ani jeden
 obrázek či video ve všech třech ročnících; řeší se PRÁVĚ TEĎ), **13 podtémat fyziky 8** (z původních 22 — 3 vyřešena
 novými simulacemi, 4 recyklací hotových, 2 jsou shrnutí, která názornost nepotřebují)
 a **10 podtémat fyziky 9**. **Skutečně nejhůř je na tom informatika**: 47 podtémat,
@@ -100,6 +100,35 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 4. Po dokončení celého ročníku/velkého celku přidej git tag jako milník.
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
+
+- **2026-07-31 odpoledne (informatika 7 — souřadnice scény Scratche)** — Druhá simulace
+  informatiky: `SouradniceSimulace` u podtématu `souradnice-a-kresleni`. Scéna −240…240 ×
+  −180…180, žák klikne, kam má kočka skočit, a nahoře se složí blok, který se **opravdu
+  provedl**; posun po 10 tlačítky i šipkami, pero kreslící za postavou, cíle k trefení
+  a program čtverce procházený krok za krokem (žádná animace — stav po *n* krocích je čistá
+  funkce, takže jde celý ověřit výpočtem). Pointa je **záporné y = DOLŮ**, což děti pletou,
+  protože z tabulek počítají řádky shora. Bez názornosti je informatika 7 nově 14 z 18.
+  **Nezávislý kontrolor našel 12 vad, dvě vážné** — a obě byly o tom, že simulace mluví jinak
+  než zbytek stránky: (1) používala doslovný překlad **„pero dolů"**, jenže české bloky
+  Scratche 3 se jmenují **„pero zapni" / „pero vypni" / „smaž"** a přesně tak se na ně ptá
+  kvíz o dva odstavce níž — žák by blok v paletě marně hledal; (2) přepínač pera byl psaný
+  jako název bloku, ale choval se jako popis akce, takže **když pero kreslilo, stálo na
+  tlačítku „pero nahoru"** — přesně opačná představa, a skutečný stav prozrazoval jen odstín
+  pozadí. Dál opraveno: modrá pilulka ukazovala vždy „skoč na…", i po stisku „změň x o 10";
+  ruční zásah nechával v seznamu příkazů svítit „nyní" u kroku, který neběžel; kliknout šlo
+  i mimo scénu a ořez na kraji byl tichý; mřížka po 60 nepadala na krok 10 ani na stranu
+  čtverce 100 (nově po 50 + čísla na osách); „dílky" místo „bodů"; (0, 0) se popisovalo jako
+  „přímo na ose" místo středu scény. **Výklad doplněn o kreslení otáčením** (`opakuj 4×
+  (dopředu 100 kroků, otoč se o 90°)`) a pravidlo **360° : počet stran** — dvě otázky kvízu
+  to zkoušely, ale na stránce to vyloženo nebylo. Délková nápověda v tom bloku srovnána
+  ze 7 z 10 na 3 skutečné (rozdíl < 10 znaků). Test `testy/simulace/souradnice.mjs` má
+  **51 kontrol** přes `node:vm` nad skutečným skriptem komponenty — mimo jiné že kladné y je
+  na obrazovce nahoře, měřítko obou os je stejné (čtverec vyjde jako čtverec), čtverec se
+  uzavře, souřadnice zůstávají celá čísla, klik mimo scénu nic neudělá a program se
+  nepřetvařuje, že běží. Nasazení ověřeno `curl` s časovým razítkem.
+  **Poučení:** u simulace k cizímu programu je zdrojem pravdy jeho **český překlad**
+  (scratch-l10n), ne doslovný převod anglického názvu — jinak si stránka protiřečí sama
+  se sebou. A popisek přepínače má pojmenovávat AKCI, stav patří slovy do stavového řádku.
 
 - **2026-07-31 odpoledne (větší změna: kontroly čtou data + start informatiky)** —
   Na zadání učitele provedena „ta jedna větší změna", kterou doporučil audit.

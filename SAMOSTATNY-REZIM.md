@@ -1,6 +1,6 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 13:15 — INFORMATIKA)
+## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 13:50 — INFORMATIKA)
 
 **VĚTŠÍ ZMĚNA Z AUDITU JE HOTOVÁ.** Kontroly nově čtou **skutečná data** přes
 `testy/data.mjs` (esbuild → `import`), ne text souboru. Brána i měření názornosti nad
@@ -18,25 +18,34 @@ ve 164 blocích** (dřív tvrdila 2084).
 
 | ročník | bez názornosti | simulací |
 |---|---|---|
-| informatika 7 | 15 z 18 | 3 |
+| informatika 7 | 14 z 18 | 4 |
 | informatika 8 | 16 z 18 | 2 |
 | informatika 9 | 10 z 11 | 1 |
 
-**Hotovo:** `adresy-bunek-a-vzorce` (inf. 8) — `TabulkaVzorceSimulace`. Úloha přímo
-z výkladu: sloupec cen v € a kurz v B1. S `$B$1` vyjde 100/300/500/1000 Kč, s relativním
-`B1` se odkaz posune na předchozí VÝSLEDEK a čísla se lavinovitě rozjedou
-(100 → 1200 → 24 000 → 960 000). Celá čísla pro kurzy 24, 25 i 26 Kč.
+**Hotovo:**
+- `adresy-bunek-a-vzorce` (inf. 8) — `TabulkaVzorceSimulace`. Úloha přímo z výkladu: sloupec
+  cen v € a kurz v B1. S `$B$1` vyjde 100/300/500/1000 Kč, s relativním `B1` se odkaz posune
+  na předchozí VÝSLEDEK a čísla se lavinovitě rozjedou (100 → 1200 → 24 000 → 960 000).
+- `souradnice-a-kresleni` (inf. 7) — `SouradniceSimulace`. Scéna −240…240 × −180…180, klikání,
+  posun po 10 (i šipkami), pero, cíle a program čtverce krok po kroku. Pointa je **záporné y
+  = DOLŮ**. Mřížka je po 50, aby rohy čtverce (±50) padly na linky. Test `testy/simulace/
+  souradnice.mjs` (51 kontrol). Výklad doplněn o kreslení otáčením + pravidlo 360 : počet stran.
 
 **Návrh dalších simulací informatiky (v pořadí užitku):**
-1. `souradnice-a-kresleni` (inf. 7) — scratchovská scéna −240…240 × −180…180, žák kliká
-   a vidí souřadnice; záporná čísla jsou tam největší kámen úrazu.
-2. `promenne` (inf. 7) — proměnná jako krabička: ulož, zvyš o 1, ukaž. Abstraktní pojem.
-3. `microbit/oziveni-a-led-displej` (inf. 8) — mřížka 5×5 LED, žák kreslí a spustí
+1. `promenne` (inf. 7) — proměnná jako krabička: ulož, zvyš o 1, ukaž. Abstraktní pojem.
+2. `microbit/oziveni-a-led-displej` (inf. 8) — mřížka 5×5 LED, žák kreslí a spustí
    animaci střídáním dvou obrázků.
-4. `vetveni-programu` (inf. 7) — vývojový diagram, žák přepne podmínku a vidí, kudy to teče.
-5. `funkce-v-tabulkach` (inf. 8) — SUMA/PRŮMĚR/MAX nad malou tabulkou (naváže na hotovou
+3. `vetveni-programu` (inf. 7) — vývojový diagram, žák přepne podmínku a vidí, kudy to teče.
+4. `funkce-v-tabulkach` (inf. 8) — SUMA/PRŮMĚR/MAX nad malou tabulkou (naváže na hotovou
    TabulkaVzorceSimulace, dá se z ní hodně převzít).
-6. `orientovane-grafy-a-automaty` (inf. 7) — automat jako kolečka a šipky, žák posílá vstup.
+5. `orientovane-grafy-a-automaty` (inf. 7) — automat jako kolečka a šipky, žák posílá vstup.
+
+> **Past ověřená 31. 7.:** u simulace ke Scratchi VŽDY použít **české názvy bloků podle
+> Scratche 3** (`pero zapni` / `pero vypni` / `smaž`, `dopředu (100) kroků`), ne doslovný
+> překlad anglických („pero dolů"). Kvízy na webu už české názvy používají, takže doslovný
+> překlad si se stránkou protiřečí — a žák blok v paletě nenajde. Zdroj pravdy: scratch-l10n.
+> Druhá past: **tlačítko přepínače musí pojmenovávat AKCI** („zapnout pero"), ne stav —
+> jinak na něm při kreslení stojí „pero nahoru". Stav patří slovy do stavového řádku.
 
 **Pozor u informatiky na dvě věci:** (a) `senzory-robota` má ČTYŘI duplicitní páry otázek
 z deseti — chce přepsat celý blok podle výkladu, ne jen dorovnat délky; (b) informatika má
