@@ -1,31 +1,38 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 21:50)
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 23:20 — SAMOSTATNÁ NOČNÍ PRÁCE)
 
-**ROZHODNUTÍ PRO UČITELE — dvě videa s více městy jsou už zveřejněná BEZ názvů míst:**
-`Le_Thillot_FR` (+ Ramonchamp) a `Saint-Maurice-sur-Moselle_FR` (+ Ornans). Oprava
-v automatu je hotová, ale hotová videa se sama nepředělají. Přegenerovat a znovu
-nahrát = publikování ven → čeká na slovo učitele.
-**POZOR:** `Le_Bourg-dOisans_FR_KEKONTROLE_v2.mp4` leží v `nasazeno/` a nahrávač ho
-vezme v nejbližším slotu (9:15 / 21:15) — obsahuje Saint-Tropez, Le Lavandou a Riez,
-tedy tři místa, která ve videu **nebudou pojmenovaná**, dokud se nepředělá.
+**Učitel jde spát a zadal: pracuj samostatně dál, sám si kontroluj, co je podle domluvy
+potřeba dodělat — na škole i na webu cesty. Bez ptaní.** Rozpočet: ~12 kol, pak /clear.
 
-**HOTOVO 31. 7. večer:**
-- **Názvy míst ve videu s více městy** — `vyrob_video_automat.py` → `priprav_pracovni()`
-  dělá složku pro KAŽDÉ místo (dřív slil vše do jedné, takže byl vidět jen hostitel).
-  Ověřeno obousměrně, 6 kontrol.
-- **Nový automat `videa_na_web.py`** — nahraná videa YouTube se sama doplní do dat webu
-  i u ručně psaných roků; volá ho hodinový `hlidac_starych_fotek.py` a rovnou nasadí.
-  Doplněno: odkazy u Frangy, Vaulnaveys-le-Haut, Livet-et-Gavet + 4 videa do seznamu.
-  Ověřeno na živém webu.
-- **Škola — meteorologie F7**: délková nápověda 19/21 → 4/21, výklad doplněn o povětrnostní
-  mapu, přístroje a trend tlaku (kvíz to zkoušel, stránka to nevykládala), opraveny
-  tři věcné chyby (1 000 hPa ≠ vichřice, inverzní mlha u tlakové výše, anemometr má tři misky).
+**FRONTA PRÁCE (v tomto pořadí):**
+1. **Popisky míst na mapě ROKU se překrývají.** Ve Vogézách jsou čtyři místa do 3,4 jednotek
+   od sebe (Salbert, Le Thillot, Rupt-sur-Moselle, Saint-Maurice) a žádné nemá `popisekPosun`.
+   Příčina: `rozmistiPopisky()` z `src/data/cesty/mapa.ts` používá **jen `CestyVse.astro`**;
+   `CestyRok.astro` si popisky umisťuje vlastním kódem, který překryv neřeší. Buď na mapě
+   roku použít tutéž funkci, nebo doplnit ruční posuny. Ověřit VÝPOČTEM překryvu obdélníků
+   (vzor `ramecek()` v mapa.ts), ne okem.
+2. **Škola — dorovnávat kvízy** (uhodnutelnost 59 %). Podle brány: `zaverecny-projekt` (9/10),
+   `tepelna-vymena-a-teplo` (15/17), `vnimani-barev` (14/16), `kmitani-a-vlneni` (12/14),
+   `energeticka-hodnota-potravin` (10/12). Postup a pasti níže; v každém bloku hledat
+   i duplicitní páry otázek a otázky na učivo, které na stránce není vyloženo.
+3. **Škola — názornost informatiky** (47 podtémat, ani jedno s obrázkem či videem).
+4. Kontrolovat i to, co běží samo: `node zkontroluj.mjs` po každé změně, hlídač deníku
+   běží hodinově a nasazuje sám.
 
-**ŠKOLA — DÁL DOROVNÁVAT KVÍZY** (podíl uhodnutelných je 59 %). Další podle brány:
-`zaverecne-projekty/zaverecny-projekt` (9/10), `energie/tepelna-vymena-a-teplo` (15/17),
-`zrcadla-a-cocky/vnimani-barev` (14/16), `zvuk/kmitani-a-vlneni` (12/14),
-`energie/energeticka-hodnota-potravin` (10/12). Postup i pasti viz níže.
+**HOTOVO 31. 7. v noci (jen na vědomí):**
+- **Longevelle sur Doubs 2025** — nárok Content ID byl na PŮVODNÍM zvuku (video z 2025,
+  automat se ho nedotkl). Nová verze s jinou hudbou, úvodní mapou (850 km ≈ 4 082 Kč)
+  a titulkem místa: https://youtu.be/-l7f6ja0rR4 ; originál přepnut na soukromý.
+  Obraz bitově shodný s anonymizovanou verzí (kotva = md5 video stopy).
+- **Denní strop nahrávání na YouTube opraven** — dnes odešlo 5 videí místo 2, protože každý
+  automat počítal jen svá. Nově společné počítadlo a strop **2/den z tohoto Macu**
+  (druhý profil radekmicek nahrává až 3 denně a čerpá tutéž kvótu 10 000 jednotek).
+- **Le Bourg-d'Oisans už je na YouTube** (nezařazený, 21:18) BEZ názvů přibalených míst —
+  nezveřejňovat, dokud nevznikne přestavěná verze. V `KE-SCHVALENI.md`.
+- Doplněny **francouzské popisy** Livet-et-Gavet a Col d'Ornon → všech 12 míst 2026 má cs/en/de/fr.
+- Nasazeno: odkazy na videa u míst (Frangy, Vaulnaveys, Livet-et-Gavet) + automat `videa_na_web.py`.
+- Škola: meteorologie F7 — uhodnutelnost 19/21 → 4/21, výklad doplněn, tři věcné chyby opraveny.
 
 ## ⏩⏩⏩⏩⏩⏩ Předchozí stav (31. 7. 2026, 18:30 — INFORMATIKA + DENÍK)
 

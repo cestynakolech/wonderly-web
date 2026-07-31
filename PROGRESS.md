@@ -101,6 +101,29 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 v noci (video s nárokem Content ID, strop nahrávání, popisy)** — Učitel
+  hlásil u videa „Longevelle sur Doubs 2025" hlášku o potenciálním omezení kvůli zvukové
+  stopě. **Nárok nesouvisel s naší prací** — je to jeho původní video z 24. 7. 2025, kterého
+  se automat nikdy nedotkl; hudba hraje v pozadí původního záznamu. Na jeho pokyn vznikla
+  opravená verze: **jiný zvuk, úvodní mapa s km a cenou nafty (850 km ≈ 4 082 Kč) a titulek
+  s názvem místa** → https://youtu.be/-l7f6ja0rR4 ; originál přepnut na soukromý, nesmazán.
+  Kotva: **md5 obrazové stopy je shodné** s anonymizovanou verzí, měnil se opravdu jen zvuk.
+  Past cestou: `-shortest` uřízlo 4 snímky na konci a titulkové PNG bez `-loop` svítilo
+  jediný snímek — obojí se pozná jen měřením (počet snímků), ne pohledem.
+  **Nejdůležitější nález dne:** na kanál dnes odešlo **5 videí, ačkoli limit byl „2"**.
+  Každý ze dvou nahrávacích automatů počítal jen svá videa, takže se strop dal obejít pouhým
+  střídáním; ruční nahrání se nepočítalo vůbec. Kvóta YouTube API je 10 000 jednotek/den
+  a nahrání stojí 1 600 → max ~6 videí. Učitel navíc upozornil, že **druhý profil (radekmicek)
+  nahrává na týž kanál až 3 videa denně** a čerpá tutéž kvótu. Nově je počítadlo společné
+  napříč všemi zdroji a strop je **2 videa denně z tohoto Macu** (nejhůř 2 + 3 = 8 000
+  jednotek). Ověřeno čtyřmi kontrolami s podvrženou evidencí.
+  **Dále:** Le Bourg-d'Oisans automat nahrál ve 21:18, tedy hodinu předtím, než jsem ho
+  odsunul z fronty — je na kanálu jako nezařazený a BEZ názvů přibalených míst, takže se
+  nesmí zveřejnit, dokud nevznikne přestavěná verze (zapsáno v `KE-SCHVALENI.md`).
+  Doplněny **francouzské popisy** Livet-et-Gavet a Col d'Ornon → všech 12 míst 2026 má
+  všechny čtyři jazyky. Zjištěno k dodělání: popisky na mapě ROKU se ve Vogézách překrývají,
+  protože `rozmistiPopisky()` používá jen mapa „Vše", ne `CestyRok.astro`.
+
 - **2026-07-31 noc (dvě připomínky učitele k deníku + meteorologie F7)** — *Deník:*
   učitel hlásil dvě věci a obě měly jinou příčinu. **(1) Ve videu s více městy chyběly
   názvy míst.** VideoAutomat sléval média hostitele i „přibalených" míst do JEDNÉ pracovní
