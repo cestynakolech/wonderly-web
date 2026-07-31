@@ -43,9 +43,18 @@ správná odpověď nejdelší** (náhoda je 33 %) — žák je uhodne bez znalo
 pořadí to neřeší, míchá pořadí, ne délku. Kontrola je nově v `zkontroluj.mjs` (bod 6b):
 neblokuje build, ale vypíše podíl a **jmenuje 5 nejhorších bloků**. Postup je dorovnávat
 je po dávkách (4+ bloků na kolo): buď zkrátit správnou odpověď, nebo prodloužit
-distraktory — a znovu spustit bránu. Nejhorší k 31. 7.: `skupenske-zmeny-vody-v-prirode`
-(12/12), `posilani-zprav` (10/10), `sestaveni-a-oziveni-robota` (10/10),
-`senzory-robota` (10/10), `razeni-filtrovani-velka-data` (10/10).
+distraktory — a znovu spustit bránu. Nejhorší zbývající (brána je vypíše sama): `sestaveni-a-oziveni-robota` (10/10),
+`senzory-robota` (10/10), `razeni-filtrovani-velka-data` (10/10),
+`plan-projektu-a-ladeni` (10/10), `hardware-a-software` (11/11).
+
+**Pozor — v `senzory-robota` (informatika 8) nejde jen o délky: blok má ČTYŘI
+DUPLICITNÍ PÁRY.** Ptá se dvakrát na ultrazvuk („Jak měří vzdálenost?" × „Který senzor
+odpoví, jak daleko je překážka?"), dvakrát na dotykový senzor, dvakrát na jízdu po čáře
+a dvakrát na zastavení před zdí — z 10 otázek je 8 ve dvojicích. Chce to přepsat celý
+blok podle výkladu (jen 3 senzory + podmínka + jízda po čáře), ne jen dorovnat délky.
+Rozdělaná verze nikde není, začni od stávajícího bloku v `kvizy.ts`. **Před editací
+načti text přes Read** — v datech jsou české uvozovky „ ", takže `old_string`
+zkopírovaný z výstupu `grep` nesedí a Edit selže.
 
 **Čeká na rozhodnutí učitele** (výklad, ne kvíz — nesahal jsem na to): kontrolor
 upozornil, že u SketchUpu ve výkladu (`temata.ts`, podtéma `sketchup`) může být sporné
