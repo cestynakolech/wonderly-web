@@ -3423,7 +3423,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Prvky sítě a spotřebitel</h3>
 						<ul>
-							<li><strong>Vedení</strong> (měděné vodiče, při dálkovém přenosu neizolované dráty vysoko nad zemí), <strong>transformátory</strong>, <strong>rozvodny</strong> a ochranná zařízení.</li>
+							<li><strong>Vedení</strong> (doma měděné vodiče v izolaci, při dálkovém přenosu neizolovaná hliníková lana s ocelovým jádrem, zavěšená vysoko nad zemí — hliník je proti mědi mnohem lehčí a ocelová duše lano unese), <strong>transformátory</strong>, <strong>rozvodny</strong> a ochranná zařízení.</li>
 							<li>Domácnost využívá <strong>jednu fázi (230 V)</strong>; velké stroje všechny tři fáze (3×400 V). V zásuvce je <strong>fázový</strong> vodič, <strong>nulovací</strong> (uzemněný) a <strong>ochranný kolík</strong>.</li>
 						</ul>
 					`,
