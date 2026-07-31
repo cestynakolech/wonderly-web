@@ -4,6 +4,7 @@
 // Nic nemění, jen čte a hlásí. Konec s kódem 1 = něco je špatně.
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { nactiData, maDelkovouNapovedu } from './testy/data.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -15,6 +16,11 @@ const cestaStranka = join(koren, 'src/pages/skola2/[predmet]/[rocnik]/[tema]/[po
 
 const chyby = [];
 const varovani = [];
+
+// SKUTEČNÁ DATA (ne regulární výrazy nad textem — viz komentář v testy/data.mjs).
+// Do 31. 7. 2026 se počítalo regexem a brána tvrdila 2084 otázek místo skutečných 2436:
+// 14 bloků shrnutí se skládá programově, takže je žádný vzor nad textem nevidí.
+const { kvizy: dataKvizy, temata: dataTemata } = await nactiData();
 
 const temata = readFileSync(cestaTemata, 'utf8');
 const stranka = readFileSync(cestaStranka, 'utf8');
@@ -66,38 +72,29 @@ for (const k of komponenty) {
 	if (!stranka.includes(nazev)) varovani.push(`komponenta ${k} existuje, ale není zapojená na stránce podtématu`);
 }
 
-// 6) Kvízy: správná odpověď musí být PRVNÍ — hlídáme aspoň hrubé chyby ve struktuře
-// (řádky s definicí typu — `text: string;`, `odpovedi: string[];` — se nepočítají)
-// Pozor: otázky jsou psané dvojím způsobem — přes několik řádků i celé na JEDNOM
-// řádku (`{ text: '…', odpovedi: […] }`). Do 31. 7. 2026 se počítaly jen ty víceřádkové,
-// takže u většiny otázek kontrola „ke každé otázce patří odpovědi“ vůbec neplatila.
-const pocetOtazek = [...kvizy.matchAll(/(?:^|\{)\s*text:\s*'/gm)].length;
-const pocetOdpovedi = [...kvizy.matchAll(/(?:^|,)\s*odpovedi:\s*\[\s*('|$)/gm)].length;
-if (pocetOtazek !== pocetOdpovedi) {
-	chyby.push(`v kvizy.ts je ${pocetOtazek} otázek, ale ${pocetOdpovedi} seznamů odpovědí — někde chybí odpovědi`);
+// 6) KVÍZY nad skutečnými daty. Dřív se počítaly vzory nad textem souboru, takže
+// jednořádkové otázky ani programově skládaná shrnutí do kontroly vůbec nespadly.
+let pocetOtazek = 0;
+const bloky = new Map();
+for (const [klic, otazky] of Object.entries(dataKvizy)) {
+	if (!Array.isArray(otazky)) continue;
+	const stat = { celkem: 0, nejdelsi: 0 };
+	for (const o of otazky) {
+		pocetOtazek++;
+		stat.celkem++;
+		if (!Array.isArray(o.odpovedi) || o.odpovedi.length !== 3) {
+			chyby.push(`${klic}: otázka „${String(o.text).slice(0, 40)}…" nemá tři odpovědi`);
+		}
+		if (!o.text || !String(o.text).trim()) chyby.push(`${klic}: otázka bez znění`);
+		if (maDelkovouNapovedu(o)) stat.nejdelsi++;
+	}
+	bloky.set(klic, stat);
 }
 
-// 6b) DÉLKOVÁ NÁPOVĚDA (přidáno 31. 7. 2026 po nálezu nezávislého kontrolora).
-// Správná odpověď je v datech vždy první a web ji zamíchá — jenže míchání mění POŘADÍ,
-// ne DÉLKU. Když je správná odpověď nejdelší, žák ji uhodne bez znalosti látky.
-// Náhoda dává ~33 %; při nálezu bylo na webu 68 %. Neblokuje build (staré kvízy by
-// zhaslo naráz), ale ukáže nejhorší bloky, aby se daly dorovnávat po dávkách.
-const bloky = new Map();
-{
-	let klic = null;
-	for (const radek of kvizy.split('\n')) {
-		const mk = radek.match(/^\t'([^']+)': \[/);
-		if (mk) { klic = mk[1]; bloky.set(klic, { celkem: 0, nejdelsi: 0 }); continue; }
-		if (!klic) continue;
-		const m = radek.match(/odpovedi:\s*\[([^\]]+)\]/);
-		if (!m) continue;
-		const odp = m[1].split(/',\s*'/).map((s) => s.replace(/^\s*'|'\s*$/g, ''));
-		if (odp.length !== 3) continue;
-		const stat = bloky.get(klic);
-		stat.celkem++;
-		if (odp[0].length > Math.max(odp[1].length, odp[2].length)) stat.nejdelsi++;
-	}
-}
+// 6b) DÉLKOVÁ NÁPOVĚDA. Správná odpověď je v datech vždy první a web ji zamíchá — jenže
+// míchání mění POŘADÍ, ne DÉLKU. Když je správná odpověď nejdelší, žák ji uhodne bez
+// znalosti látky. Náhoda dává ~33 %. Neblokuje build (staré kvízy by zhasly naráz),
+// ale ukáže nejhorší bloky, aby se daly dorovnávat po dávkách.
 const celkemOtazek = [...bloky.values()].reduce((s, b) => s + b.celkem, 0);
 const celkemNejdelsi = [...bloky.values()].reduce((s, b) => s + b.nejdelsi, 0);
 const podilNejdelsi = celkemOtazek ? Math.round((celkemNejdelsi / celkemOtazek) * 100) : 0;
@@ -107,9 +104,25 @@ const nejhorsi = [...bloky.entries()]
 	.slice(0, 5);
 if (podilNejdelsi > 45) {
 	varovani.push(
-		`u ${podilNejdelsi} % otázek je správná odpověď nejdelší (náhoda je 33 %) — jde uhodnout bez znalosti látky. ` +
+		`u ${podilNejdelsi} % otázek je správná odpověď nejdelší nebo v remíze o nejdelší (náhoda je 33 %) — jde uhodnout bez znalosti látky. ` +
 			`Nejhorší bloky: ${nejhorsi.map(([k, b]) => `${k.split('/').slice(2).join('/')} (${b.nejdelsi}/${b.celkem})`).join(', ')}`,
 	);
+}
+
+// 6c) Každé podtéma s kvízem musí být zastoupené v ROČNÍM opakování svého ročníku.
+// Souhrnný kvíz bere otázky po kolech do stropu — když je strop menší než počet
+// podtémat, poslední témata se do opakování NIKDY nedostanou (fyzika 8 měla 35 podtémat
+// a strop 30, takže vypadával celý celek zvuk). Stejně tak stačí zapomenout celek
+// v seznamu (informatice takhle chybělo vex-iq a hry-ve-scratchi — 144 otázek).
+for (const [klic, otazky] of Object.entries(dataKvizy)) {
+	if (!Array.isArray(otazky) || !otazky.length) continue;
+	const [predmet, rocnik, tema] = klic.split('/');
+	if (tema === 'shrnuti') continue;
+	const rocni = dataKvizy[`${predmet}/${rocnik}/shrnuti/rocni-shrnuti`];
+	if (!Array.isArray(rocni)) continue;
+	if (!otazky.some((o) => rocni.includes(o))) {
+		chyby.push(`${klic} se NIKDY nedostane do ročního opakování (zvyš strop nebo doplň celek do seznamu)`);
+	}
 }
 
 // 7) DENÍK (přidáno 31. 7. 2026 po nezávislém auditu): brána hlídala jen školu,
@@ -150,7 +163,7 @@ for (const soubor of rokySoubory) {
 
 // Výpis česky
 console.log(`Deník: ${rokySoubory.length} roků, ${mistCelkem} míst.`);
-console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek.`);
+console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek v ${bloky.size} blocích.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');

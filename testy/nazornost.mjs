@@ -1,49 +1,56 @@
 #!/usr/bin/env node
-// Přehled názornosti podtémat: má podtéma simulaci, obrázek, video nebo aspoň odkaz?
-import { readFileSync } from 'node:fs';
-const src = readFileSync('src/data/temata.ts', 'utf8');
-const radky = src.split('\n');
+// Přehled názornosti: která podtémata nemají ANI obrázek, ANI video, ANI simulaci.
+//
+// Čte SKUTEČNÁ DATA (testy/data.mjs), ne text souboru. Předchozí verze hledala
+// `druh: 'obrazek'` — ta hodnota se v datech nevyskytuje ani jednou, správně je
+// 'infografika' — takže infografiky nikdy nezapočítala a hlásila falešné mezery
+// (fyzika 7: hlásila 5, ve skutečnosti 2). Navíc si vzory nad textem neporadily
+// s blokem `elektrina`, který má o tabulátor jiné odsazení (22 podtémat místo 37).
+//
+// Použití:  node testy/nazornost.mjs [filtr]      např. `fyzika/8` nebo `informatika`
+import { nactiData, vsechnaPodtemata, nazornost } from './data.mjs';
 
-const chtene = process.argv.slice(2);
-let rocnik = null, tema = null, pod = null;
-const vysledek = [];
-const uloz = () => { if (pod) vysledek.push(pod); pod = null; };
+const filtr = process.argv.slice(2);
+const { temata } = await nactiData();
+const vse = vsechnaPodtemata(temata);
+const vybrane = filtr.length ? vse.filter((p) => filtr.some((f) => p.rocnik.includes(f) || p.klic.includes(f))) : vse;
 
-for (const r of radky) {
-	const mr = r.match(/^\t'([^']+)':\s*\[/);
-	if (mr) { uloz(); rocnik = mr[1]; tema = null; continue; }
-	const mt = r.match(/^\t\t\tslug:\s*'([^']+)'/);      // téma (celek)
-	if (mt) { uloz(); tema = mt[1]; continue; }
-	const mp = r.match(/^\t{5,}slug:\s*'([^']+)'/);      // podtéma (odsazení kolísá 5–6 tabů)
-	if (mp) { uloz(); pod = { rocnik, tema, slug: mp[1], simulace: false, obrazek: false, zvuk: false, video: false, odkazy: 0, laborka: false }; continue; }
-	if (!pod) continue;
-	if (/^\s+interakce2?:\s*'/.test(r)) pod.simulace = true;
-	// POZOR: v datech NENÍ druh 'obrazek' — obrázkový materiál se jmenuje 'infografika'.
-	// Dokud se hledalo 'obrazek', skript infografiky nikdy nezapočítal a hlásil falešné mezery.
-	if (/druh:\s*'infografika'/.test(r)) pod.obrazek = true;
-	if (/druh:\s*'audio'/.test(r)) pod.zvuk = true;
-	// 'youtube' se smí chytat JEN jako druh materiálu — holé slovo by chytilo i odkaz
-	// v seznamu `odkazy` a mezeru by tím schovalo.
-	if (/druh:\s*'(video|youtube)'/.test(r)) pod.video = true;
-	if (/^\s*\{\s*nazev:.*url:/.test(r)) pod.odkazy++;
+if (!vybrane.length) {
+	console.log(`Filtru „${filtr.join(' ')}" neodpovídá žádné podtéma.`);
+	console.log('Klíče ročníků: ' + Object.keys(temata).join(', '));
+	process.exit(1);
 }
-uloz();
 
-const filtr = chtene.length ? vysledek.filter((p) => chtene.some((c) => p.rocnik.includes(c))) : vysledek;
-const bezNazornosti = filtr.filter((p) => !p.simulace && !p.obrazek && !p.video);
+const bez = vybrane.filter((p) => {
+	const n = nazornost(p);
+	return !n.simulace && !n.obrazek && !n.video;
+});
 
-console.log(`Podtémat celkem: ${filtr.length}`);
-console.log(`Bez jakékoli názornosti (simulace / obrázek / video): ${bezNazornosti.length}\n`);
+console.log(`Podtémat: ${vybrane.length}`);
+console.log(`Bez jakékoli názornosti (simulace / infografika / video): ${bez.length}\n`);
+
 let posledni = null;
-for (const p of bezNazornosti) {
-	if (p.tema !== posledni) { console.log(`\n[${p.rocnik}] ${p.tema}`); posledni = p.tema; }
-	console.log(`   ${p.slug}${p.odkazy ? ` (odkazů: ${p.odkazy})` : ''}${p.zvuk ? ' [má zvuk]' : ''}`);
+for (const p of bez) {
+	if (`${p.rocnik}/${p.celek}` !== posledni) {
+		console.log(`\n[${p.rocnik}] ${p.celek}`);
+		posledni = `${p.rocnik}/${p.celek}`;
+	}
+	const n = nazornost(p);
+	const dodatky = [n.odkazy ? `odkazů: ${n.odkazy}` : '', n.zvuk ? 'má zvuk' : ''].filter(Boolean);
+	console.log(`   ${p.slug}${dodatky.length ? ' (' + dodatky.join(', ') + ')' : ''}`);
 }
+
 console.log('\n--- souhrn po ročnících ---');
 const podleR = {};
-for (const p of vysledek) {
-	podleR[p.rocnik] ??= { celkem: 0, bez: 0 };
-	podleR[p.rocnik].celkem++;
-	if (!p.simulace && !p.obrazek && !p.video) podleR[p.rocnik].bez++;
+for (const p of vse) {
+	const n = nazornost(p);
+	podleR[p.rocnik] ??= { celkem: 0, bez: 0, simulace: 0, materialy: 0 };
+	const s = podleR[p.rocnik];
+	s.celkem++;
+	if (n.simulace) s.simulace++;
+	if (n.obrazek || n.video) s.materialy++;
+	if (!n.simulace && !n.obrazek && !n.video) s.bez++;
 }
-for (const [k, v] of Object.entries(podleR)) console.log(`${k}: ${v.bez} bez názornosti z ${v.celkem}`);
+for (const [k, v] of Object.entries(podleR)) {
+	console.log(`${k.padEnd(26)} bez názornosti ${String(v.bez).padStart(3)} z ${String(v.celkem).padStart(3)}   (simulaci má ${v.simulace}, obrázek/video ${v.materialy})`);
+}

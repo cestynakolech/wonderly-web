@@ -6,6 +6,30 @@ okem** — v náhledové záložce se `requestAnimationFrame` nevolá vůbec. Ty
 spustí **skutečný `<script>` komponenty** v Node přes `node:vm` s náhradním DOM
 a všechno proměří výpočtem. Je to tvrdší důkaz než pohled a stojí zlomek tokenů.
 
+## Kontroly čtou DATA, ne text souboru
+
+`testy/data.mjs` přeloží `kvizy.ts` a `temata.ts` esbuildem a **naimportuje je jako
+objekty**. Trvá to ~100 ms a kontroluje se přesně to, co uvidí web.
+
+Proč to takhle je (nález nezávislého auditu 31. 7. 2026): dokud kontroly četly
+TypeScript regulárními výrazy, **tiše lhaly**.
+
+- `zkontroluj.mjs` hlásil **2084 otázek, ve skutečnosti jich je 2436** — 14 bloků
+  shrnutí se skládá programově funkcí `slozSouhrnnyKviz`, takže je žádný vzor nad
+  textem nevidí. Kontrola „ke každé otázce patří tři odpovědi" tak na stovkách
+  otázek vůbec neběžela.
+- `nazornost.mjs` hledal `druh: 'obrazek'` — ta hodnota se v datech **nevyskytuje ani
+  jednou**, správně je `'infografika'`. Infografiky se proto nikdy nezapočítaly
+  a skript hlásil falešné mezery (fyzika 7: hlásil 5, ve skutečnosti 2).
+- Blok `elektrina` má v `temata.ts` o tabulátor jiné odsazení, takže naivní vzor
+  `^\t{5}slug:` napočítal u fyziky 8 jen 22 podtémat místo 37.
+
+**Pravidlo: novou kontrolu nad obsahem piš vždy nad `nactiData()`, nikdy nad textem
+souboru.** Vzory nad textem si nech jen na kontrolu ZAPOJENÍ (import v `.astro`,
+řádek s vykreslením, union typ) — tam je předmětem kontroly opravdu zdrojový kód.
+
+Závislost: `esbuild` je součástí instalace Astro (`node_modules`), nic se nedoinstalovávalo.
+
 ## Názornost stránek
 
 ```bash
@@ -14,10 +38,6 @@ node testy/nazornost.mjs fyzika/8
 
 Vypíše podtémata, která nemají **ani obrázek, ani video, ani simulaci**, a souhrn po
 ročnících. Bez argumentu projde celý web.
-
-> **Past:** blok `elektrina` má v `temata.ts` o jeden tabulátor jiné odsazení než ostatní
-> celky. Naivní regex `^\t{5}slug:` ho přeskočí a napočítá u fyziky 8 jen 22 podtémat
-> místo 37. Skript proto používá `^\t{5,}`.
 
 ## Simulace
 
