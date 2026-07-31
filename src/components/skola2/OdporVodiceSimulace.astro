@@ -1,14 +1,22 @@
 ---
-// Odpor vodiče R = ρ · l / S: žák mění délku, průřez, materiál i teplotu a vidí,
-// jak se mění odpor i to, proč vzniká — elektrony se v drátu odrážejí od atomů mřížky.
-// Hodnoty ρ (Ω·mm²/m) jsou tabulkové: měď 0,018 · hliník 0,028 · konstantan 0,50.
-// U konstantanu vycházejí odpory v celých ohmech; u mědi je odpor nepatrný — a právě
+// Odpor vodiče: žák mění délku, průřez, materiál i teplotu a vidí, jak se mění odpor
+// i to, proč vzniká — elektrony se v drátu odrážejí od atomů mřížky.
+//
+// Prop `zaklad` = zjednodušená verze pro podtéma „Elektrický proud v kovech, odpor vodiče",
+// kde se ještě neprobral měrný odpor ρ ani vzorec R = ρ · l / S (přijdou až v následujícím
+// podtématu). Tam se ukazuje jen výsledný odpor a porovnání, bez vzorce.
+//
+// Měrný odpor ρ v praktických jednotkách Ω·mm²/m (l dosazujeme v m, S v mm²):
+// měď 0,018 · hliník 0,028 · konstantan 0,50 — tabulkové hodnoty.
+// U konstantanu vycházejí odpory v celých ohmech. U mědi je odpor nepatrný — a právě
 // to je učivo (proto se z mědi dělá vedení).
+interface Props { zaklad?: boolean }
+const { zaklad = false } = Astro.props;
 ---
 
-<section class="ramecek simulace">
+<section class="ramecek simulace" data-zaklad={zaklad ? '1' : '0'}>
 	<h2><span class="podtrh">Na čem závisí odpor vodiče? 🕹️</span></h2>
-	<p>Elektrony (modré) letí drátem a <strong>narážejí do atomů</strong> mřížky (šedé) — to je odpor. Měň drát a sleduj, jak se odpor <strong>R = ρ · l / S</strong> mění.</p>
+	<p>Elektrony (modré) letí drátem a <strong>narážejí do atomů</strong> mřížky (šedé) — to je odpor. Měň vlastnosti drátu a sleduj, jak se odpor mění.</p>
 	<svg id="odp-svg" viewBox="0 0 520 300" role="img" aria-label="Vodič s atomy mřížky a letícími elektrony, pod ním vypočtený odpor">
 		<!-- svorky na koncích drátu -->
 		<rect x="30" y="86" width="16" height="48" fill="#2b2a26" rx="3" />
@@ -24,12 +32,14 @@
 		<text id="odp-kota-text" x="248" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
 
 		<!-- výsledek -->
-		<text id="odp-vzorec" x="260" y="212" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
-		<text id="odp-vysledek" x="260" y="244" text-anchor="middle" font-size="24" font-weight="bold" fill="#e8590c"></text>
+		{!zaklad && <text id="odp-vzorec" x="260" y="204" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>}
+		{!zaklad && <text x="260" y="222" text-anchor="middle" font-size="11" fill="#868e96">ρ dosazujeme v Ω·mm²/m, délku v m, průřez v mm²</text>}
+		<text id="odp-vysledek" x="260" y={zaklad ? 214 : 250} text-anchor="middle" font-size="24" font-weight="bold" fill="#e8590c"></text>
 
-		<!-- pruh porovnání (jak velký je odpor proti nejmenšímu možnému) -->
-		<rect x="110" y="262" width="300" height="18" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" rx="9" />
-		<rect id="odp-pruh" x="112" y="264" width="10" height="14" fill="#e8590c" rx="7" />
+		<!-- pruh porovnání odporu -->
+		<text x="110" y={zaklad ? 244 : 272} font-size="11" fill="#868e96">porovnání odporu (nejvíc vpravo = největší)</text>
+		<rect id="odp-ramecek" x="110" y={zaklad ? 252 : 278} width="300" height="16" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" rx="8" />
+		<rect id="odp-pruh" x="112" y={zaklad ? 254 : 280} width="10" height="12" fill="#e8590c" rx="6" />
 	</svg>
 
 	<label class="sim-posuvnik">
@@ -39,7 +49,7 @@
 	<p class="odp-radek">
 		<strong>Průřez S:</strong>
 		<button type="button" class="odp-tl odp-s-tl" data-s="0.5">tenký 0,5 mm²</button>
-		<button type="button" class="odp-tl odp-s-tl odp-aktivni" data-s="1">silnější 1 mm²</button>
+		<button type="button" class="odp-tl odp-s-tl odp-aktivni" data-s="1">silný 1 mm²</button>
 	</p>
 	<p class="odp-radek">
 		<strong>Materiál:</strong>
@@ -50,12 +60,15 @@
 	<p class="odp-radek">
 		<strong>Teplota:</strong>
 		<button type="button" class="odp-tl odp-t-tl odp-aktivni" data-teplo="0">pokojová</button>
-		<button type="button" class="odp-tl odp-t-tl" data-teplo="1">rozžhavený drát</button>
+		<button type="button" class="odp-tl odp-t-tl" data-teplo="1">zahřátý drát (~175 °C)</button>
 	</p>
 	<p class="odp-stav" id="odp-stav"></p>
 </section>
 
 <script>
+	const sekce = document.querySelector('.simulace[data-zaklad]');
+	const ZAKLAD = sekce?.dataset.zaklad === '1';
+
 	const lSlider = document.getElementById('odp-l');
 	const lOut = document.getElementById('odp-l-out');
 	const sTlacitka = document.querySelectorAll('.odp-s-tl');
@@ -65,7 +78,7 @@
 	const svorka2 = document.getElementById('odp-svorka2');
 	const kota = document.getElementById('odp-kota');
 	const kotaText = document.getElementById('odp-kota-text');
-	const vzorec = document.getElementById('odp-vzorec');
+	const vzorec = document.getElementById('odp-vzorec');   // v základní verzi neexistuje
 	const vysledek = document.getElementById('odp-vysledek');
 	const pruh = document.getElementById('odp-pruh');
 	const stavEl = document.getElementById('odp-stav');
@@ -76,22 +89,30 @@
 	let S = 1, ro = 0.5, nazevMat = 'konstantan', teplo = 0;
 
 	const cz = (x, des) => x.toLocaleString('cs-CZ', { maximumFractionDigits: des });
-	// drát: 2 m → 120 px, 10 m → 400 px; tenký 14 px, silnější 26 px
+	// drát: 2 m → 80 px, 10 m → 400 px; tenký 14 px, silný 26 px
 	const dratX = 46;
 	const dratSirka = (l) => l * 40;
 	const dratVyska = () => (S === 0.5 ? 14 : 26);
 	const dratY = () => 110 - dratVyska() / 2;
 
-	// ČISTÁ funkce: odpor vodiče. Rozžhavení zvedá odpor kovů (u konstantanu skoro ne).
+	// Zahřátí na ~175 °C zvedne odpor kovů zhruba 1,6×  (měď α ≈ 0,0039 K⁻¹).
+	// Konstantan se schválně vyrábí tak, aby se jeho odpor s teplotou NEMĚNIL
+	// (α ≈ 2·10⁻⁵ K⁻¹ → změna pod 0,4 %), proto je činitel přesně 1.
+	const TEPLOTNI_CINITEL = { kov: 1.6, konstantan: 1 };
+	function cinitel(rho, horky) {
+		if (!horky) return 1;
+		return rho >= 0.4 ? TEPLOTNI_CINITEL.konstantan : TEPLOTNI_CINITEL.kov;
+	}
+	// ČISTÁ funkce: odpor vodiče R = ρ · l / S (za studena), případně × teplotní činitel
 	function odpor(l, s, rho, horky) {
-		const narust = horky ? (rho >= 0.4 ? 1.02 : 1.6) : 1;
-		return (rho * l) / s * narust;
+		return (rho * l) / s * cinitel(rho, horky);
 	}
 
 	// ČISTÁ funkce času: poloha elektronu (klikatí se mezi stěnami drátu = srážky s atomy)
 	function polohaElektronu(t, k, l, R) {
 		const sirka = dratSirka(l);
-		const rychlost = Math.max(12, Math.min(110, 20 / R));   // ~ proud při stejném napětí
+		// rychlost ~ proud při stejném napětí; mapování 110/(1+R) je znát v celém rozsahu
+		const rychlost = Math.max(8, Math.min(110, 110 / (1 + R)));
 		const x = dratX + (((rychlost * t + (k / 12) * sirka) % sirka) + sirka) % sirka;
 		const rozkmit = dratVyska() / 2 - 4;
 		// trojúhelníková vlna — elektron se odráží, nikdy nevyjede z drátu
@@ -100,7 +121,6 @@
 		return [x, y];
 	}
 
-	// atomy mřížky (pravidelná mříž uvnitř drátu)
 	function prekresliAtomy(l) {
 		atomyG.textContent = '';
 		const sirka = dratSirka(l);
@@ -130,6 +150,7 @@
 	let R = 2, lTed = 4;
 	function prekresli() {
 		lTed = +lSlider.value;
+		const Rstudeny = odpor(lTed, S, ro, 0);
 		R = odpor(lTed, S, ro, teplo);
 		const sirka = dratSirka(lTed);
 
@@ -144,14 +165,17 @@
 		kotaText.setAttribute('x', dratX + sirka / 2);
 		kotaText.textContent = lTed + ' m';
 
-		// desetinná místa: konstantan vychází v celých Ω, u mědi je odpor nepatrný
-		const des = R >= 1 ? 2 : 3;
-		vzorec.textContent = `R = ρ · l / S = ${cz(ro, 3)} · ${lTed} / ${cz(S, 1)}`;
-		vysledek.textContent = `R = ${cz(R, des)} Ω`;
+		// Vzorec ukazuje VŽDY odpor za studena, aby dosazení sedělo s výsledkem;
+		// vliv zahřátí se pak dopisuje zvlášť (jinak by vedle „0,5 · 4 / 1" stálo „2,04 Ω").
+		const des = (x) => (x >= 1 ? 2 : 3);
+		if (vzorec) vzorec.textContent = `R = ρ · l / S = ${cz(ro, 3)} · ${lTed} / ${cz(S, 1)} = ${cz(Rstudeny, des(Rstudeny))} Ω`;
+		vysledek.textContent = teplo && R !== Rstudeny
+			? `po zahřátí R = ${cz(R, des(R))} Ω`
+			: `R = ${cz(R, des(R))} Ω`;
 
-		// pruh porovnání vůči nejvyššímu možnému odporu (konstantan, 10 m, 0,5 mm²)
-		const maxR = odpor(10, 0.5, 0.5, 0);
-		pruh.setAttribute('width', Math.max(10, (R / maxR) * 296).toFixed(1));
+		// pruh porovnání vůči nejvyššímu možnému odporu (konstantan, 10 m, 0,5 mm², zahřátý)
+		const maxR = odpor(10, 0.5, 0.5, 1);
+		pruh.setAttribute('width', Math.max(10, Math.min(296, (R / maxR) * 296)).toFixed(1));
 
 		prekresliAtomy(lTed);
 		for (let k = 0; k < POCET; k++) {
@@ -161,15 +185,19 @@
 		}
 
 		let popis;
-		if (ro < 0.05) {
-			popis = `${nazevMat === 'měď' ? 'Měď' : 'Hliník'} vede skvěle — odpor je nepatrný (${cz(R, 3)} Ω). Právě proto se z mědi dělají dráty ve zdech: skoro se nezahřívají.`;
+		if (nazevMat === 'měď') {
+			popis = `Měď vede skvěle — odpor je nepatrný (${cz(R, 3)} Ω). Právě proto se z mědi dělají dráty ve zdech: skoro se nezahřívají.`;
+		} else if (nazevMat === 'hliník') {
+			popis = `Hliník vede o něco hůř než měď, ale je mnohem lehčí — proto z něj bývají dráty venkovního vedení vysokého napětí, které visí mezi stožáry.`;
 		} else {
-			popis = `Konstantan má odpor ${cz(ro, 2)} Ω·mm²/m, tedy asi ${Math.round(0.5 / 0.018)}× větší než měď — proto se z něj dělají topné spirály a rezistory.`;
+			popis = ZAKLAD
+				? `Konstantan je slitina, která vede špatně — má asi ${Math.round(0.5 / 0.018)}× větší odpor než měď. Proto se z něj dělají topné spirály a rezistory: má se zahřívat.`
+				: `Konstantan má měrný odpor ${cz(ro, 2)} Ω·mm²/m, tedy asi ${Math.round(0.5 / 0.018)}× větší než měď — proto se z něj dělají topné spirály a rezistory.`;
 		}
 		if (teplo) {
 			popis += ro >= 0.4
-				? ' Rozžhavení odpor konstantanu skoro nezmění — proto se z něj dělají rezistory.'
-				: ' Rozžhavený kov má odpor výrazně větší: atomy víc kmitají a elektrony do nich narazí častěji.';
+				? ' Zahřátí odpor konstantanu prakticky nezmění — právě proto se z něj vyrábějí rezistory.'
+				: ' Zahřátý kov má odpor větší: atomy víc kmitají a elektrony do nich narazí častěji.';
 		}
 		stavEl.textContent = popis;
 	}
@@ -190,6 +218,7 @@
 	svg.__odpor = odpor;
 	svg.__polohaElektronu = (t, k) => polohaElektronu(t, k, lTed, R);
 	svg.__rozmery = () => ({ x: dratX, sirka: dratSirka(lTed), y: dratY(), vyska: dratVyska() });
+	svg.__rychlost = (Rx) => Math.max(8, Math.min(110, 110 / (1 + Rx)));
 
 	let cas = 0, minule = performance.now();
 	function krok(ted) {

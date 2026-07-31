@@ -36,6 +36,8 @@ const document = {
 		return [];
 	},
 	createElementNS: () => novyPrvek('e' + Math.random()),
+	// plná verze simulace (základní verze pro dřívější podtéma se testuje zvlášť)
+	querySelector: () => ({ dataset: { zaklad: '0' } }),
 };
 const sandbox = { document, performance: { now: () => 0 }, requestAnimationFrame: () => {}, console };
 vm.createContext(sandbox);
@@ -59,25 +61,44 @@ const klik = (klic, hodnota) => {
 console.log('— vzorec R = ρ · l / S —');
 const R = svg.__odpor;
 ok(R(4, 1, 0.5, 0) === 2, `konstantan 4 m, 1 mm² → ${R(4, 1, 0.5, 0)} Ω (čekáno 2)`);
-ok(R(8, 1, 0.5, 0) === 4, `dvojnásobná délka → dvojnásobný odpor: ${R(8, 1, 0.5, 0)} Ω (čekáno 4)`);
-ok(R(4, 0.5, 0.5, 0) === 4, `poloviční průřez → dvojnásobný odpor: ${R(4, 0.5, 0.5, 0)} Ω (čekáno 4)`);
-ok(R(10, 0.5, 0.5, 0) === 10, `nejdelší tenký konstantan → ${R(10, 0.5, 0.5, 0)} Ω (celé číslo)`);
-// všechny kombinace konstantanu musí dát CELÉ ohmy (pravidlo „celá čísla pro děti")
-let neceleKonst = 0;
-for (const l of [2, 4, 6, 8, 10]) for (const s of [0.5, 1]) {
-	if (Math.abs(R(l, s, 0.5, 0) - Math.round(R(l, s, 0.5, 0))) > 1e-9) neceleKonst++;
-}
-ok(neceleKonst === 0, `konstantan dává ve všech 10 kombinacích celé ohmy (necelé: ${neceleKonst})`);
+ok(R(8, 1, 0.5, 0) === 4, `dvojnásobná délka → dvojnásobný odpor`);
+ok(R(4, 0.5, 0.5, 0) === 4, `poloviční průřez → dvojnásobný odpor`);
 ok(R(4, 1, 0.018, 0) < R(4, 1, 0.5, 0), 'měď má menší odpor než konstantan');
-ok(R(4, 1, 0.018, 1) > R(4, 1, 0.018, 0), 'rozžhavená měď má větší odpor než studená');
-const zmenaKonst = R(4, 1, 0.5, 1) / R(4, 1, 0.5, 0);
-ok(zmenaKonst < 1.05, `odpor konstantanu se rozžhavením skoro nemění (${((zmenaKonst - 1) * 100).toFixed(0)} %)`);
+
+console.log('\n— celá čísla u konstantanu i PO ZAHŘÁTÍ (nález kontrolora) —');
+let necele = 0;
+for (const horky of [0, 1]) for (const l of [2, 4, 6, 8, 10]) for (const s of [0.5, 1]) {
+	const v = R(l, s, 0.5, horky);
+	if (Math.abs(v - Math.round(v)) > 1e-9) necele++;
+}
+ok(necele === 0, `konstantan dává celé ohmy ve všech 20 kombinacích včetně zahřátí (necelých: ${necele})`);
+ok(R(4, 1, 0.5, 1) === R(4, 1, 0.5, 0), 'odpor konstantanu se zahřátím NEZMĚNÍ (proto se z něj dělají rezistory)');
+ok(R(4, 1, 0.018, 1) > R(4, 1, 0.018, 0), 'zahřátá měď má odpor větší než studená');
+
+console.log('\n— zobrazený vzorec musí souhlasit s výsledkem (nález kontrolora) —');
+klik('ro', '0.018'); klik('s', '1'); klik('teplo', '1');
+const vz = prvky.get('odp-vzorec').textContent;
+const dosazeni = vz.match(/=\s*([\d,]+)\s*·\s*(\d+)\s*\/\s*([\d,]+)\s*=\s*([\d,]+)/);
+const cislo = (t) => parseFloat(t.replace(',', '.'));
+ok(!!dosazeni, `vzorec je vypsaný celý včetně výsledku: „${vz}"`);
+if (dosazeni) {
+	const spocteno = cislo(dosazeni[1]) * cislo(dosazeni[2]) / cislo(dosazeni[3]);
+	ok(Math.abs(spocteno - cislo(dosazeni[4])) < 0.001,
+		`dosazení ve vzorci opravdu dá vypsaný výsledek: ${dosazeni[1]}·${dosazeni[2]}/${dosazeni[3]} = ${dosazeni[4]}`);
+}
+ok(/po zahřátí/.test(prvky.get('odp-vysledek').textContent),
+	`vliv zahřátí je uveden zvlášť: „${prvky.get('odp-vysledek').textContent}"`);
+
+console.log('\n— rychlost elektronů musí být znát v celém rozsahu (nález kontrolora) —');
+const rychlosti = [2, 4, 6, 8, 10].map((r) => svg.__rychlost(r));
+ok(new Set(rychlosti).size === 5, `pět různých odporů dá pět různých rychlostí: ${rychlosti.map((x) => x.toFixed(1)).join(', ')}`);
+ok(rychlosti[0] > rychlosti[4] * 2, 'rozdíl mezi 2 Ω a 10 Ω je výrazný, ne oříznutý na mez');
 
 console.log('\n— pohyb elektronů (vzorkování po 16 ms) —');
 for (const [popis, nastav] of [
-	['konstantan 4 m / 1 mm²', () => { klik('ro', '0.5'); klik('s', '1'); }],
+	['konstantan 4 m / 1 mm²', () => { klik('teplo', '0'); klik('ro', '0.5'); klik('s', '1'); }],
 	['měď 4 m / 1 mm² (nejrychlejší)', () => { klik('ro', '0.018'); klik('s', '1'); }],
-	['konstantan 10 m / 0,5 mm² (nejpomalejší)', () => { klik('ro', '0.5'); klik('s', '0.5'); lSlider.value = '10'; (lSlider.posluchaci.input || []).forEach((f) => f()); }],
+	['konstantan 10 m / 0,5 mm²', () => { klik('ro', '0.5'); klik('s', '0.5'); lSlider.value = '10'; (lSlider.posluchaci.input || []).forEach((f) => f()); }],
 ]) {
 	nastav();
 	const r = svg.__rozmery();
@@ -86,24 +107,30 @@ for (const [popis, nastav] of [
 		let minule = svg.__polohaElektronu(0, k);
 		for (let t = 0.016; t < 6; t += 0.016) {
 			const ted = svg.__polohaElektronu(t, k);
-			// skok přes konec drátu (návrat na začátek) se nepočítá jako trhnutí
 			const skok = Math.hypot(ted[0] - minule[0], ted[1] - minule[1]);
 			if (skok < r.sirka / 2 && skok > maxSkok) maxSkok = skok;
 			if (ted[0] < r.x - 0.01 || ted[0] > r.x + r.sirka + 0.01 || ted[1] < r.y - 0.01 || ted[1] > r.y + r.vyska + 0.01) mimo++;
 			minule = ted;
 		}
 	}
-	ok(maxSkok < 20 && mimo === 0, `${popis}: max skok ${maxSkok.toFixed(2)} px, mimo drát ${mimo}× `);
+	ok(maxSkok < 20 && mimo === 0, `${popis}: max skok ${maxSkok.toFixed(2)} px, mimo drát ${mimo}×`);
 }
 
-console.log('\n— texty pro žáka —');
+console.log('\n— porovnávací pruh nesmí přetéct rámeček —');
+klik('teplo', '1'); klik('ro', '0.5'); klik('s', '0.5');
+lSlider.value = '10'; (lSlider.posluchaci.input || []).forEach((f) => f());
+const sirkaPruhu = parseFloat(prvky.get('odp-pruh').getAttribute('width'));
+ok(sirkaPruhu <= 296, `nejširší možný pruh je ${sirkaPruhu} px (rámeček má 296 px vnitřku)`);
+
+console.log('\n— texty —');
+klik('teplo', '0');
+klik('ro', '0.028');
+ok(/[Hh]liník/.test(stav.textContent) && !/mědi dělaj/.test(stav.textContent),
+	'u hliníku se nemluví o použití mědi');
 klik('ro', '0.018');
-ok(stav.textContent.includes('měď') || stav.textContent.includes('Měď'), 'u mědi se vysvětlí, proč se z ní dělá vedení');
+ok(/[Mm]ěď/.test(stav.textContent), 'u mědi se vysvětlí, proč se z ní dělá vedení');
 klik('ro', '0.5');
-ok(stav.textContent.length > 50, 'u konstantanu je vysvětlení k čemu se používá');
-klik('teplo', '1');
-ok(stav.textContent.includes('rezistor') || stav.textContent.includes('kmit'), 'teplota má vlastní vysvětlení');
-ok(vysledek.textContent.startsWith('R = '), `výsledek se zobrazuje: „${vysledek.textContent}"`);
+ok(/měrný odpor/.test(stav.textContent), 'u konstantanu je správný pojem „měrný odpor", ne „odpor"');
 
 console.log(chyby === 0 ? '\n✅ VŠE V POŘÁDKU' : `\n❌ CHYB: ${chyby}`);
 process.exit(chyby === 0 ? 0 : 1);

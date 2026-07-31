@@ -15,32 +15,47 @@ const svg = prvky.get('reo-svg'), stav = prvky.get('reo-stav'), u2 = prvky.get('
 let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
 
-console.log('— potenciometr: napětí musí vycházet v CELÝCH voltech —');
+console.log('— potenciometr: dělič NAPRÁZDNO (na výstupu je voltmetr, ne žárovka) —');
 let necele = 0;
-for (let k = 0; k <= 10; k++) { const U = svg.__potenciometr(k / 10).Uz; if (Math.abs(U - Math.round(U)) > 1e-9) necele++; }
-ok(necele === 0, `všech 11 poloh jezdce dá celé volty (necelých: ${necele})`);
-ok(svg.__potenciometr(0).Uz === 10, `jezdec vlevo → plných 10 V`);
-ok(svg.__potenciometr(1).Uz === 0, `jezdec vpravo → 0 V (žárovka zhasne)`);
-ok(svg.__potenciometr(0.5).Uz === 5, `uprostřed → přesně polovina, 5 V`);
+for (let k = 0; k <= 4; k++) { const U = svg.__potenciometr(k / 4).Uvystup; if (Math.abs(U - Math.round(U)) > 1e-9) necele++; }
+ok(necele === 0, `všechny 4 kroky jezdce dají celé volty (necelých: ${necele})`);
+ok(svg.__potenciometr(0).Uvystup === 12, 'jezdec vlevo → plných 12 V');
+ok(svg.__potenciometr(1).Uvystup === 0, 'jezdec vpravo → 0 V');
+ok(svg.__potenciometr(0.5).Uvystup === 6, 'uprostřed → přesně polovina, 6 V');
+// NÁLEZ KONTROLORA: obě části drátu musí být zapojené a jejich součet je celý drát
+const p5 = svg.__potenciometr(0.5);
+ok(p5.R1 + p5.R2 === 40, `R₁ (${p5.R1} Ω) + R₂ (${p5.R2} Ω) = celý drát 40 Ω`);
+ok(p5.R1 > 0 && p5.R2 > 0, 'u potenciometru jsou zapojené OBĚ části drátu (výklad to vyžaduje)');
 
-console.log('\n— reostat: víc drátu = menší proud —');
+console.log('\n— reostat: víc drátu = menší proud, a všechna čísla celá —');
 const r0 = svg.__reostat(0), r1 = svg.__reostat(1);
-ok(r0.R === 10 && Math.abs(r0.I - 1) < 1e-9, `jezdec vlevo: odpor 10 Ω, proud 1 A`);
-ok(r1.R === 50 && Math.abs(r1.I - 0.2) < 1e-9, `jezdec vpravo: odpor 50 Ω, proud 0,2 A`);
+ok(r0.R === 10 && Math.abs(r0.I * 1000 - 1200) < 1e-6, 'jezdec vlevo: 10 Ω, 1200 mA');
+ok(r1.R === 50 && Math.abs(r1.I * 1000 - 240) < 1e-6, 'jezdec vpravo: 50 Ω, 240 mA');
+let neceleI = 0;
+for (let k = 0; k <= 4; k++) { const mA = svg.__reostat(k / 4).I * 1000; if (Math.abs(mA - Math.round(mA)) > 1e-6) neceleI++; }
+ok(neceleI === 0, `proud vychází v celých mA ve všech 5 polohách (necelých: ${neceleI})`);
 let klesa = true;
-for (let k = 1; k <= 10; k++) if (svg.__reostat(k / 10).I >= svg.__reostat((k - 1) / 10).I) klesa = false;
+for (let k = 1; k <= 4; k++) if (svg.__reostat(k / 4).I >= svg.__reostat((k - 1) / 4).I) klesa = false;
 ok(klesa, 'proud klesá s každým posunem jezdce doprava (monotónní)');
-ok(r1.I > 0, 'reostatem proud teče i v krajní poloze — žárovka nikdy nezhasne úplně');
+ok(r1.I > 0, 'reostatem proud teče i v krajní poloze — nedokáže ho vypnout na nulu');
+// NÁLEZ KONTROLORA: jas se musí řídit VÝKONEM, ne proudem (jinak by 240 mA vypadalo jako 20 % jasu)
+ok(Math.abs(r1.jas - 0.04) < 0.001, `v krajní poloze zbyde jen ${(r1.jas * 100).toFixed(0)} % jasu (výkon, ne proud)`);
 
 console.log('\n— rozdíl obou zapojení (to je pointa) —');
-ok(svg.__potenciometr(1).Uz === 0 && svg.__reostat(1).I > 0,
+ok(svg.__potenciometr(1).Uvystup === 0 && svg.__reostat(1).I > 0,
   'potenciometr umí stáhnout na nulu, reostat ne — simulace ten rozdíl ukáže');
 
 console.log('\n— texty —');
 const klik = (r) => tlacitka.find((x) => x.dataset.rezim === r).posluchaci.click.forEach((f) => f());
 klik('potenciometr');
 ok(stav.textContent.length > 60 && /hlasitost|jas/.test(stav.textContent), 'u potenciometru je uveden příklad z praxe');
+ok(!/i vpravo proud pořád teče/.test(stav.textContent), 'není tam nepravdivé tvrzení o proudu v odpojené části');
 klik('reostat');
 ok(stav.textContent.length > 60, 'u reostatu je vysvětlení');
+
+console.log('\n— schéma musí být UZAVŘENÝ obvod —');
+const svgText = zdroj.match(/<svg[\s\S]*?<\/svg>/)[0];
+ok(/M460 206 L460 250/.test(svgText), 'od spotřebiče vede vodič zpět na spodní kolejnici');
+
 console.log(chyby === 0 ? '\n✅ VŠE V POŘÁDKU' : `\n❌ CHYB: ${chyby}`);
 process.exit(chyby === 0 ? 0 : 1);
