@@ -1,0 +1,352 @@
+---
+// LED displej micro:bitu (informatika 8): 25 LED (5×5), dva obrázky, animace střídáním.
+//
+// Dvě pointy, na které se ptá i kvíz:
+//  1. Animace nevznikne z jednoho obrázku — musí se STŘÍDAT dva různé. Když jsou oba
+//     stejné (tlačítko „zkopíruj 1 → 2"), program běží dál, ale na displeji se nic neděje.
+//  2. Rozdíl „po spuštění" × „opakuj stále": tentýž program v bloku „po spuštění"
+//     jednou doběhne, zůstane stát na druhém obrázku a dál se nic neděje.
+//
+// Co je na displeji, je čistá funkce času (`stavVCase`), takže jde celá animace
+// ověřit výpočtem — v náhledové záložce se animace posuzovat nedá.
+//
+// Nález nezávislého kontrolora (31. 7. 2026): displej po zastavení skákal na obrázek,
+// do kterého se KRESLÍ, takže se obraz změnil přesně proti větě, kterou si žák četl.
+// Proto zastavení nově přepne kreslení na ten obrázek, který právě svítil — displej
+// se nehne a žák kreslí do toho, co vidí.
+//
+// Pozn.: názvy bloků jsou schválně stejné jako ve výkladu a v kvízu nad simulací
+// („po spuštění", „opakuj stále", sloveso „ukaž"); překlad MakeCode se mezi verzemi liší.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Displej 5×5 a animace 💡</span></h2>
+	<p>Klikáním rozsviť LED a nakresli <strong>dva obrázky</strong>. Program je pak bude střídat — z toho vznikne animace. Zkus také obě verze programu a podívej se, čím se liší.</p>
+
+	<svg id="led-svg" viewBox="0 0 560 300" role="img" aria-label="Deska micro:bitu s displejem 5 krát 5 LED a dva nakreslené obrázky, které se střídají">
+		<!-- deska -->
+		<rect x="20" y="30" width="250" height="245" fill="#2b8a3e" stroke="#2b2a26" stroke-width="3" rx="14" />
+		<text x="145" y="56" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">micro:bit</text>
+		{Array.from({ length: 25 }, (_, i) => (
+			<rect
+				class="led"
+				data-i={i}
+				x={55 + (i % 5) * 36}
+				y={72 + Math.floor(i / 5) * 36}
+				width="26"
+				height="26"
+				rx="5"
+				fill="#3d2b1f"
+				stroke="#1b4332"
+				stroke-width="2"
+			/>
+		))}
+		<text x="145" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#d3f9d8">5 řádků × 5 sloupců = 25 LED</text>
+
+		<!-- náhledy obou obrázků -->
+		<text x="346" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">obrázek 1</text>
+		<rect id="led-ram1" x="302" y="70" width="88" height="88" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<text x="466" y="62" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">obrázek 2</text>
+		<rect id="led-ram2" x="422" y="70" width="88" height="88" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" rx="8" />
+		{Array.from({ length: 50 }, (_, n) => {
+			const s = Math.floor(n / 25);
+			const i = n % 25;
+			return (
+				<rect
+					class="nahled"
+					data-s={s}
+					data-i={i}
+					x={310 + s * 120 + (i % 5) * 15}
+					y={78 + Math.floor(i / 5) * 15}
+					width="12"
+					height="12"
+					rx="2"
+					fill="#dee2e6"
+				/>
+			);
+		})}
+		<text x="406" y="182" text-anchor="middle" font-size="14" font-weight="bold" fill="#868e96">střídají se → animace</text>
+		<text id="led-prave" x="406" y="212" text-anchor="middle" font-size="15" font-weight="bold" fill="#1971c2"></text>
+		<text id="led-pocet" x="406" y="240" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057"></text>
+	</svg>
+
+	<p class="led-radek">
+		<strong>Kreslíš do:</strong>
+		<button type="button" class="led-tl led-kam led-aktivni" data-kam="1">obrázku 1</button>
+		<button type="button" class="led-tl led-kam" data-kam="2">obrázku 2</button>
+		<button type="button" class="led-tl" id="led-kopie">📋 zkopíruj 1 → 2</button>
+		<button type="button" class="led-tl" id="led-smaz">🧹 zhasni vše</button>
+		<button type="button" class="led-tl" id="led-zpet" disabled>↩ vrátit zpět</button>
+	</p>
+	<p class="led-radek">
+		<strong>Hotové ikony:</strong>
+		<button type="button" class="led-tl led-ikona" data-ikona="srdce">❤️ srdce</button>
+		<button type="button" class="led-tl led-ikona" data-ikona="srdcicko">💗 malé srdce</button>
+		<button type="button" class="led-tl led-ikona" data-ikona="smajlik">🙂 smajlík</button>
+		<button type="button" class="led-tl led-ikona" data-ikona="mracoun">🙁 mračoun</button>
+	</p>
+	<p class="led-radek">
+		<strong>Program:</strong>
+		<button type="button" class="led-tl led-blok led-aktivni" data-blok="opakuj">opakuj stále</button>
+		<button type="button" class="led-tl led-blok" data-blok="spusteni">po spuštění</button>
+		<button type="button" class="led-tl led-hraj" id="led-start">▶️ spustit program</button>
+	</p>
+
+	<ol id="led-prikazy"></ol>
+	<p class="led-stav" id="led-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const svg = document.getElementById('led-svg');
+	const praveEl = document.getElementById('led-prave');
+	const pocetEl = document.getElementById('led-pocet');
+	const prikazyEl = document.getElementById('led-prikazy');
+	const stavEl = document.getElementById('led-stav');
+	const btnStart = document.getElementById('led-start');
+	const btnZpet = document.getElementById('led-zpet');
+	const ram1El = document.getElementById('led-ram1');
+	const ram2El = document.getElementById('led-ram2');
+	const ledy = Array.from(document.querySelectorAll('.led'));
+	const nahledy = Array.from(document.querySelectorAll('.nahled'));
+
+	const PAUZA = 400;      // jak dlouho svítí každý obrázek (ms) — blok „pauza 400 ms"
+	const POCET_LED = 25;
+
+	// Ikony micro:bitu jako 25 znaků (1 = svítí). Řádky shora dolů.
+	const IKONY = {
+		srdce:     '01010' + '11111' + '11111' + '01110' + '00100',
+		srdcicko:  '00000' + '01010' + '01110' + '00100' + '00000',
+		smajlik:   '00000' + '01010' + '00000' + '10001' + '01110',
+		mracoun:   '00000' + '01010' + '00000' + '01110' + '10001',
+	};
+	const zIkony = (klic) => IKONY[klic].split('').map((z) => z === '1');
+
+	// ——— ČISTÝ model: co je na displeji v čase ms od spuštění ———
+	/** Vrací { snimek: 1|2, dobehl: bool } — snimek je číslo obrázku, který právě svítí. */
+	function stavVCase(ms, opakuj) {
+		const dilek = Math.floor(Math.max(0, ms) / PAUZA);   // kolikátá pauza běží
+		if (!opakuj && dilek >= 2) return { snimek: 2, dobehl: true };
+		return { snimek: dilek % 2 === 0 ? 1 : 2, dobehl: false };
+	}
+	/** Které LED svítí v čase ms. Čistá funkce obou obrázků. */
+	function displejVCase(ms, opakuj, o1, o2) {
+		return stavVCase(ms, opakuj).snimek === 1 ? o1 : o2;
+	}
+
+	// ——— stav ———
+	let obrazky = { 1: zIkony('srdce'), 2: zIkony('srdcicko') };
+	let kam = 1;              // do kterého obrázku se kreslí (a co svítí, když program neběží)
+	let opakuj = true;        // blok „opakuj stále" × „po spuštění"
+	let bezi = false;
+	let dobehl = false;       // „po spuštění" projelo a samo skončilo
+	let start = 0;
+	let casovac = null;
+	let zpet = null;          // jedna úroveň „vrátit zpět" pro ikony, kopii a mazání
+
+	const stejne = () => obrazky[1].every((v, i) => v === obrazky[2][i]);
+	const prazdne = () => obrazky[1].every((v) => !v) && obrazky[2].every((v) => !v);
+	const sviti = (pole) => pole.filter(Boolean).length;
+	/** Co je právě na displeji. Když program neběží, svítí obrázek, do kterého se kreslí. */
+	const naDispleji = (ms) => (bezi ? displejVCase(ms, opakuj, obrazky[1], obrazky[2]) : obrazky[kam]);
+
+	function oznacAktivni(vyber, klic, hodnota) {
+		document.querySelectorAll(vyber).forEach((t) => {
+			if (t.dataset[klic] === hodnota) t.classList.add('led-aktivni');
+			else t.classList.remove('led-aktivni');
+		});
+	}
+	/** Zapamatuje obrázek před hromadnou změnou, aby šla vrátit zpět. */
+	function zapamatuj(cil) { zpet = { cil, pole: obrazky[cil].slice() }; }
+
+	/** Text se přepisuje jen při skutečné změně — jinak by ho odečítač opakoval dokola. */
+	const nastavText = (el, t) => { if (el.textContent !== t) el.textContent = t; };
+
+	let poslVypis = '';
+	function vypisProgram(ms) {
+		const st = bezi ? stavVCase(ms, opakuj) : null;
+		// řádek, na kterém program právě čeká = pauza po zobrazeném obrázku (vždy JEDEN)
+		const nyni = st && !st.dobehl ? (st.snimek === 1 ? 2 : 4) : -1;
+		const radky = [
+			opakuj ? 'opakuj stále' : 'po spuštění',
+			'   ukaž obrázek 1',
+			'   pauza 400 ms',
+			'   ukaž obrázek 2',
+			'   pauza 400 ms',
+		];
+		const klic = radky[0] + '|' + nyni;
+		if (klic === poslVypis) return;      // beze změny se DOM zbytečně nepřestavuje
+		poslVypis = klic;
+		prikazyEl.textContent = '';
+		radky.forEach((text, i) => {
+			const li = document.createElement('li');
+			li.textContent = text;
+			if (i === nyni) li.className = 'led-nyni';
+			else if (i === 0) li.className = 'led-hlavicka';
+			else if (nyni > 0 && i < nyni) li.className = 'led-hotovo';
+			prikazyEl.appendChild(li);
+		});
+	}
+
+	function prekresli() {
+		let ms = bezi ? Date.now() - start : 0;
+		// „po spuštění" po doběhnutí SAMO skončí a displej zůstane stát na obrázku 2
+		if (bezi && !opakuj && stavVCase(ms, false).dobehl) {
+			bezi = false;
+			dobehl = true;
+			kam = 2;
+			oznacAktivni('.led-kam', 'kam', '2');
+			if (casovac) { clearInterval(casovac); casovac = null; }
+			ms = 0;
+		}
+		const pole = naDispleji(ms);
+		ledy.forEach((el, i) => el.setAttribute('fill', pole[i] ? '#ff3b30' : '#3d2b1f'));
+		nahledy.forEach((el) => {
+			const s = +el.dataset.s + 1;
+			const i = +el.dataset.i;
+			el.setAttribute('fill', obrazky[s][i] ? '#ff8787' : '#dee2e6');
+		});
+		// rámeček kolem obrázku, který je právě na displeji
+		const svitici = bezi ? stavVCase(ms, opakuj).snimek : kam;
+		const zvyrazni = (el, ano) => {
+			el.setAttribute('stroke', ano ? '#f08c00' : '#adb5bd');
+			el.setAttribute('stroke-width', ano ? '4' : '2');
+		};
+		zvyrazni(ram1El, svitici === 1);
+		zvyrazni(ram2El, svitici === 2);
+
+		nastavText(praveEl, bezi ? `na displeji: obrázek ${svitici}` : `kreslíš do obrázku ${kam}`);
+		nastavText(pocetEl, `svítí ${sviti(pole)} z ${POCET_LED} LED`);
+		nastavText(btnStart, bezi ? '⏹ zastavit program' : '▶️ spustit program');
+		btnZpet.disabled = !zpet;
+		vypisProgram(ms);
+
+		let text = '';
+		let barva = '#2b2a26';
+		if (prazdne()) {
+			text = 'Oba obrázky jsou úplně zhasnuté — na displeji nemůže být nic vidět. '
+				+ 'Klikni na LED, nebo si vyber některou hotovou ikonu.';
+			barva = '#e03131';
+		} else if (dobehl) {
+			text = 'Blok „po spuštění" doběhl: displej zůstal stát na obrázku 2 a už se nic nemění. '
+				+ 'Aby obrázky blikaly pořád dokola, musí být program v bloku „opakuj stále".';
+			barva = '#e03131';
+		} else if (!bezi) {
+			text = `Kreslíš do obrázku ${kam} — svítí v něm ${sviti(obrazky[kam])} z ${POCET_LED} LED. `
+				+ 'Nakresli dva různé obrázky a spusť program.';
+		} else if (stejne()) {
+			text = 'Program běží, jenže oba obrázky jsou STEJNÉ — displej se proto vůbec nemění. '
+				+ 'Animace vznikne až tehdy, když se obrázky liší.';
+			barva = '#e03131';
+		} else if (opakuj) {
+			text = 'Blok „opakuj stále" jede pořád dokola: obrázek 1 → pauza 400 ms → obrázek 2 → '
+				+ 'pauza 400 ms → a zase od začátku. Střídání dvou obrázků vypadá jako pohyb.';
+			barva = '#2f9e44';
+		} else {
+			text = 'Blok „po spuštění" právě běží — projde se jenom jedenkrát, tak se dívej pozorně.';
+		}
+		stavEl.style.color = barva;
+		nastavText(stavEl, text);
+	}
+
+	function spust() {
+		bezi = true;
+		dobehl = false;
+		start = Date.now();
+		if (casovac) clearInterval(casovac);
+		casovac = setInterval(prekresli, 100);
+		prekresli();
+	}
+	/** Zastaví program tak, aby displej ZŮSTAL na tom, co právě svítí. */
+	function zastav() {
+		if (bezi) {
+			kam = stavVCase(Date.now() - start, opakuj).snimek;
+			oznacAktivni('.led-kam', 'kam', String(kam));
+		}
+		bezi = false;
+		if (casovac) { clearInterval(casovac); casovac = null; }
+		prekresli();
+	}
+
+	btnStart.addEventListener('click', () => (bezi ? zastav() : spust()));
+
+	ledy.forEach((el) => el.addEventListener('click', () => {
+		if (bezi) zastav();          // displej se přitom nehne — kreslí se do toho, co svítilo
+		dobehl = false;
+		const i = +el.dataset.i;
+		obrazky[kam][i] = !obrazky[kam][i];
+		zpet = null;                 // jednotlivý klik se vrací dalším klikem
+		prekresli();
+	}));
+
+	document.querySelectorAll('.led-kam').forEach((tl) => tl.addEventListener('click', () => {
+		if (bezi) zastav();
+		dobehl = false;
+		kam = +tl.dataset.kam;
+		oznacAktivni('.led-kam', 'kam', String(kam));
+		prekresli();
+	}));
+	document.querySelectorAll('.led-blok').forEach((tl) => tl.addEventListener('click', () => {
+		if (bezi) zastav();          // stejně jako ostatní přepínače: program se zastaví
+		dobehl = false;
+		opakuj = tl.dataset.blok === 'opakuj';
+		oznacAktivni('.led-blok', 'blok', tl.dataset.blok);
+		prekresli();
+	}));
+	document.querySelectorAll('.led-ikona').forEach((tl) => tl.addEventListener('click', () => {
+		if (bezi) zastav();
+		dobehl = false;
+		zapamatuj(kam);
+		obrazky[kam] = zIkony(tl.dataset.ikona);
+		prekresli();
+	}));
+	document.getElementById('led-kopie').addEventListener('click', () => {
+		if (bezi) zastav();
+		dobehl = false;
+		zapamatuj(2);
+		obrazky[2] = obrazky[1].slice();
+		prekresli();
+	});
+	document.getElementById('led-smaz').addEventListener('click', () => {
+		if (bezi) zastav();
+		dobehl = false;
+		zapamatuj(kam);
+		obrazky[kam] = new Array(POCET_LED).fill(false);
+		prekresli();
+	});
+	btnZpet.addEventListener('click', () => {
+		if (!zpet) return;
+		obrazky[zpet.cil] = zpet.pole;
+		zpet = null;
+		prekresli();
+	});
+
+	prekresli();
+
+	// ——— ověřovací háčky ———
+	svg.__stavVCase = stavVCase;
+	svg.__displejVCase = displejVCase;
+	svg.__pauza = PAUZA;
+	svg.__pocetLed = POCET_LED;
+	svg.__ikony = IKONY;
+	svg.__obrazky = () => obrazky;
+	svg.__bezi = () => bezi;
+	svg.__dobehl = () => dobehl;
+	svg.__kam = () => kam;
+</script>
+
+<style>
+	#led-svg { width: 100%; max-width: 560px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	#led-svg .led { cursor: pointer; }
+	.led-radek { margin: 0.6rem 0; }
+	.led-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.led-tl.led-aktivni { background: #ffe8cc; }
+	.led-tl.led-hraj { background: #d3f9d8; }
+	.led-tl:active { transform: translateY(1px); }
+	.led-tl[disabled] { opacity: 0.45; cursor: default; }
+	#led-prikazy { margin: 0.3rem 0 0; padding-left: 1.4rem; list-style: none; font-family: ui-monospace, monospace; white-space: pre; }
+	#led-prikazy li { font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 6px; }
+	#led-prikazy li.led-hlavicka { color: #1971c2; }
+	#led-prikazy li.led-hotovo { background: #d3f9d8; }
+	#led-prikazy li.led-nyni { background: #fff3bf; outline: 2px dashed #f08c00; }
+	.led-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>

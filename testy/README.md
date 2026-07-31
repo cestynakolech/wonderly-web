@@ -65,7 +65,27 @@ Každý test končí kódem 1, když něco neprojde.
    - **simulace nesmí předbíhat učivo** — např. u měřidel se hlídá, že v textech není
      `I = U / R` ani hodnota v ohmech, protože Ohmův zákon přijde až o dvě podtémata dál.
 
+### Tautologický test je horší než žádný
+
+`ok(a !== b || true, '…')` hlásí ✅ za všech okolností. Takhle napsaná kontrola prošla
+do `led-displej.mjs` (našel ji až nezávislý kontrolor) a při přepisu se tam omylem
+objevila podruhé. Před odevzdáním testu:
+
+```bash
+grep -n "|| true" testy/simulace/*.mjs
+```
+
+Stejně zrádné je tvrzení, které se opírá o vlastnost, již náhradní DOM nemá.
+`prikazyEl.textContent = ''` v prohlížeči smaže děti, v náhradním prvku ne — dokud
+neměl `textContent` setter, hromadily se řádky programu a test měřil nesmysl.
+
 ### Co odhalil nezávislý kontrolor (drž to při psaní dalších simulací)
+
+- **Zastavení animace nesmí změnit obraz.** U LED displeje skákal po stisku „zastavit"
+  displej na obrázek, do kterého se KRESLÍ (6 → 16 svítících LED) — přesně proti větě,
+  kterou si žák v tu chvíli četl. Testuj počet svítících prvků před zastavením a po něm.
+- **Co doběhlo, nesmí nabízet „zastavit".** Program v bloku „po spuštění" zůstával
+  formálně běžící, takže tlačítko nabízelo zastavit něco, co podle textu skončilo.
 
 - **Animace musí souhlasit s textem.** U zkratu text tvrdil „proud žárovku obejde", ale
   tečky dál obíhaly skrz ni. Autor popíše, co zamýšlel, ne co je vidět — test na to je.

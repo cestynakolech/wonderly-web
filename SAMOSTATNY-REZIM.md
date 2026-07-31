@@ -1,11 +1,18 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 17:40 — INFORMATIKA + DENÍK)
+## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 18:30 — INFORMATIKA + DENÍK)
 
-**DENÍK — co běží a na co čeká (zadání učitele odpoledne 31. 7.):**
-- Video **„KRATOCHVÍLE" (2021, H6FP2IogExs)** je po zamítnutí zpátky ve smyčce
-  (`pecliva_videa.py`), fáze kontrola / kolo 2. Až doběhne, učitel odklikne
-  `--schvaleno` nebo `--zamitnuto "důvod"`. **Další video se nezačne, dokud neodklikne.**
+**DENÍK — NÁLEZ 31. 7. večer: smyčka vracela učiteli NEZMĚNĚNÝ soubor.** Učitel po
+opravách hlásil, že video vypadá stejně (rozmazaná střecha, lavička, terasa i manželka).
+Příčina nebyla v anonymizaci: `zamitnuto()` vynulovalo nálezy a kola > 1 vybírají kousky
+k přepracování **podle nálezů**, takže vyšlo „přepracovávám **0 z 1** kousků" a kontrolor
+znovu odkýval týž soubor z 5:28 ráno — tedy verzi vyrobenou ještě PŘED opravou v 16:25.
+Opraveno: zamítnutí učitelem vrací smyčku na **kolo 0** (celé video, výchozí práh —
+opravoval se kód, ne citlivost; přitvrzování prahu by tu bylo proti smyslu připomínky,
+protože rozmazává víc) a prázdný seznam kousků se nikdy nebere jako „není co dělat".
+Video se od 18:09 přepracovává celé; kotva = otisk `anonym/kousek_000.mp4` před během
+byl `6e4132c7…`, po doběhnutí musí být JINÝ. Pak učitel odklikne `--schvaleno`/`--zamitnuto`.
+**Pravidlo napříště: hlášku automatu neber jako důkaz — porovnej otisk souboru.**
 - **K revizi zbývají 2 videa:** `Schongau_DE` (94 MB) a `Le_Bourg-dOisans_v2` (248 MB).
   Le Bourg se ještě přestaví — jeho média se změnila a čeká na Le Lavandou (13 médií
   z ručního vkladu, uzavře se 6. 8. podle pravidla 7 dní).
@@ -14,8 +21,20 @@
 - Reference tváří: **56 učitel, 62 manželka** (ráno 13 a 31). Roky 2021 a 2022 pro
   učitele NEEXISTUJÍ — ověřeno měřením, ve videích není (drží kameru).
 
-**ŠKOLA — pokračovat informatikou** podle pořadí níže (další na řadě `microbit/
-oziveni-a-led-displej`, inf. 8 — mřížka 5×5 LED).
+**ŠKOLA — hotovo `microbit/oziveni-a-led-displej`** (inf. 8): `LedDisplejSimulace` —
+displej 5×5 na klikání, dva obrázky, animace jejich střídáním. Dvě pointy: ze **dvou
+stejných** obrázků animace nevznikne, a tentýž program v bloku **„po spuštění"** jednou
+doběhne a zůstane stát. Test `testy/simulace/led-displej.mjs` (47 kontrol, obousměrně
+ověřen podvrhem). Kvíz přepsán: měl **4 duplicitní páry z 10 otázek** a správná odpověď
+byla nejdelší u 9 z 10 (nově 5 z 10, největší rozdíl 7 znaků). Výklad doplněn o `pauza
+400 ms` a rozdíl obou bloků — kvíz se na to ptal, ale na stránce to nebylo.
+**Další na řadě:** `vetveni-programu` (inf. 7) nebo `funkce-v-tabulkach` (inf. 8).
+
+> **Past (nález kontrolora 31. 7.):** displej po zastavení programu skákal na obrázek,
+> do kterého se KRESLÍ — tedy se obraz změnil přesně proti větě, kterou si žák právě
+> přečetl. Zastavení proto nově přepne kreslení na ten obrázek, který svítil. A pozor
+> na **tautologický test**: `ok(a !== b || true, …)` hlásí ✅ vždycky. Kontrolor ho našel,
+> já ho pak při přepisu omylem napsal podruhé — grepovat `|| true` v testech.
 
 ## ⏩⏩⏩⏩⏩⏩ Předchozí stav (31. 7. 2026, 13:50 — INFORMATIKA)
 

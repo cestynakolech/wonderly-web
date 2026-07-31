@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -4540,15 +4540,18 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'oziveni-a-led-displej',
 					nazev: 'Oživení desky a LED displej',
+					interakce: 'led-displej',
 					obsah: `
 						<h2>Počítač do dlaně</h2>
 						<p><strong>micro:bit</strong> je malá programovatelná deska: displej 5×5 LED, dvě tlačítka, senzory pohybu a teploty, rádio. Programuje se z bloků v prostředí <a href="https://makecode.microbit.org" target="_blank" rel="noopener">MakeCode</a> — funguje i <strong>simulátor</strong> přímo v prohlížeči, deska není nutná.</p>
 						<h3>První program</h3>
 						<ol>
-							<li>blok <strong>po spuštění</strong> → zobraz ikonu ❤️</li>
+							<li>blok <strong>po spuštění</strong> → ukaž ikonu ❤️</li>
 							<li>blok <strong>opakuj stále</strong> → střídej dva obrázky = animace</li>
 							<li>stáhni program do desky (nebo sleduj simulátor)</li>
 						</ol>
+						<p>👉 Mezi obrázky patří blok <strong>pauza 400 ms</strong> — nechá obrázek chvíli svítit. Bez pauzy by se obrázky střídaly tak rychle, že by splynuly v jeden.</p>
+						<p>👉 Pozor na rozdíl: <strong>po spuštění</strong> proběhne <em>jedenkrát</em> a skončí, kdežto <strong>opakuj stále</strong> jede pořád dokola. Animace proto patří do „opakuj stále" — a musí se v ní střídat <strong>dva různé</strong> obrázky, jinak se na displeji nic nezmění.</p>
 						<h3>Co umí displej?</h3>
 						<ul>
 							<li>ikony a vlastní obrázky (rozsvěcení jednotlivých LED)</li>

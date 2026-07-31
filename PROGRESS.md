@@ -101,6 +101,37 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 večer (informatika 8 — LED displej; a proč deník vracel totéž video)** —
+  *Škola:* nová simulace `LedDisplejSimulace` u podtématu `oziveni-a-led-displej`.
+  Displej 5×5 na klikání, dva obrázky a program, který je střídá; pointy jsou dvě —
+  ze **dvou stejných** obrázků animace nevznikne (program běží, displej stojí) a tentýž
+  program v bloku **„po spuštění"** jednou doběhne a zůstane stát na druhém obrázku.
+  **Nezávislý kontrolor našel 12 vad, 5 vážných.** Nejhorší byla moje: displej po
+  zastavení skočil na obrázek, do kterého se KRESLÍ (6 → 16 svítících LED), tedy se
+  obraz změnil přesně proti větě, kterou si žák právě přečetl; zastavení proto nově
+  přepne kreslení na ten obrázek, který svítil. Dál: „po spuštění" po doběhnutí zůstávalo
+  formálně „běžící" a tlačítko nabízelo zastavit skončený program; kopie obrázku nešla
+  vzít zpět (přibylo „↩ vrátit zpět"); zvýrazněné byly dva řádky programu naráz; odsazení
+  bloku CSS sbalilo. **Kvíz přepsán celý** — měl **4 duplicitní páry z 10 otázek**
+  a správná odpověď byla nejdelší u 9 z 10 (nově 5 z 10, největší rozdíl 7 znaků).
+  Výklad doplněn o `pauza 400 ms` a rozdíl obou bloků: kvíz se na to ptal, ale na stránce
+  to vyloženo nebylo. Test `testy/simulace/led-displej.mjs` má **47 kontrol** a je ověřen
+  obousměrně (podvrh se najde, zdravý stav mlčí).
+  **Dvě poučení:** (1) kontrolor našel v mém testu tvrzení psané jako `a !== b || true`,
+  které nemohlo nikdy selhat — a při přepisu jsem si tutéž tautologii omylem napsal
+  podruhé; `|| true` v testech se vyplatí grepovat. (2) Přesné znění českého překladu
+  MakeCode se mezi zdroji liší („po spuštění" × „při startu"), takže zdrojem pravdy je
+  **názvosloví téže stránky** — jinak si výklad, kvíz a simulace protiřečí.
+  *Deník:* učitel hlásil, že po včerejších opravách vypadá video 2021 stejně — pořád
+  rozmazaná střecha, lavička, terasa i manželka. **Anonymizace za to nemohla: smyčka mu
+  vracela nezměněný soubor.** `zamitnuto()` vynuluje nálezy, jenže kola > 1 vybírají
+  kousky k přepracování **podle nálezů** → „přepracovávám **0 z 1** kousků" → kontrolor
+  znovu odkýval verzi z 5:28 ráno, vyrobenou ještě před opravou v 16:25. Opraveno:
+  ruční zamítnutí vrací smyčku na kolo 0 (celé video, výchozí práh — opravoval se kód,
+  ne citlivost; přitvrzování prahu by tu bylo proti smyslu připomínky, protože rozmazává
+  víc), a prázdný seznam kousků se už nikdy nebere jako „není co dělat".
+  **Poučení: hláška automatu není důkaz** — kotvou je otisk souboru před během a po něm.
+
 - **2026-07-31 odpoledne/večer (deník — anonymizace videí a duplicitní videa)** — Učitel
   hlásil tři věci a všechny měly jinou příčinu. **(1) Duplicitní videa k revizi:** místo se
   uzavíralo už 30 minut po posledním souboru, takže vznikla verze bez toho, co učitel dodal
