@@ -112,6 +112,16 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   Z kvízu vypuštěny dvě otázky opřené o tvrzení, která závisí na verzi SketchUpu
   (oddělovač rozměrů `100;50`, ukládání jen přes Save) — k ověření učitelem, viz
   SAMOSTATNY-REZIM.md.
+  **Měření odhalilo, že tatáž vada je po celém webu** (65 % otázek) — kontrola je proto
+  nově v bráně, neblokuje build a jmenuje 5 nejhorších bloků k postupnému dorovnání.
+  Dva nejhorší (`skupenske-zmeny-vody-v-prirode`, `posilani-zprav` — obojí 100 %) hned
+  srovnány. Při tom vyšla najevo **past: vysvětlení u otázky se ukáže JEN při špatné
+  odpovědi**, takže podmínky učiva („pod rosným bodem") patří do odpovědi, ne do
+  vysvětlení. Kontrolor u toho našel dvě starší vady: definice kyselých dešťů
+  neodpovídala na položenou otázku a otázka na tmavý mrak byla kruhová (opakovala
+  zadání místo příčiny). Výklad `posilani-zprav` doplněn o vlastní zprávy a rozdíl
+  „vyšli zprávu" × „vyšli zprávu a čekej" — tři otázky zkoušely učivo, které na
+  stránce nebylo.
 
 - **2026-07-31 noc (dva audity, propojení videí, pečlivá anonymizace)** — Na přání učitele
   proběhly **dva nezávislé audity** (deník a škola) a podle nich dávka oprav. *Škola:*

@@ -25,7 +25,19 @@ a ověřeno obousměrně (podvrh bez odpovědí se najde, definice typu se nepo�
 4. **Nesmyslný distraktor je nápověda** („ve Wordu", „změříš to pravítkem").
 5. Kontrolor se pouští **dvakrát**: opravy samy zanesly dva nové úniky.
 
-**⚠️ NOVÝ ÚKOL NA DALŠÍ KOLA — délková nápověda ve starých kvízech.** Když jsem měřil
+**Hotovo z toho úkolu: 2 nejhorší bloky** (`skupenske-zmeny-vody-v-prirode`
+a `posilani-zprav`, obojí 100 % → ~41–50 %). Při tom vyšla najevo **past, kterou je
+potřeba znát: vysvětlení u otázky se žákovi ukáže JEN při ŠPATNÉ odpovědi**
+(`Kviz.astro`) — kdo odpoví správně, nedozví se nic navíc. Podstatné podmínky
+(„pod rosným bodem", „při teplotě pod 0 °C") proto **patří do odpovědi**, ne do
+vysvětlení; zkracovat se smí jen to, co je opravdu vata. Nezávislý kontrolor při tom
+našel i dvě starší vady: definice kyselých dešťů neodpovídala na položenou otázku
+a otázka „Proč je mrak s více kapkami tmavší? → obsahuje víc vody" byla kruhová
+(zopakovala zadání místo příčiny). Obojí opraveno. Výklad `posilani-zprav` doplněn
+o vlastní zprávy a rozdíl „vyšli zprávu" × „vyšli zprávu a čekej" — tři otázky
+zkoušely učivo, které na stránce vůbec nebylo.
+
+**⚠️ ÚKOL NA DALŠÍ KOLA — délková nápověda ve starých kvízech.** Když jsem měřil
 vlastní novou dávku, změřil jsem pro jistotu i zbytek webu: **u 64 % z 2085 otázek je
 správná odpověď nejdelší** (náhoda je 33 %) — žák je uhodne bez znalosti látky. Míchání
 pořadí to neřeší, míchá pořadí, ne délku. Kontrola je nově v `zkontroluj.mjs` (bod 6b):
