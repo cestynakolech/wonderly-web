@@ -1,6 +1,29 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 18:30 — INFORMATIKA + DENÍK)
+## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 20:45 — ČEKÁ SE NA UČITELE)
+
+**1) ODKLIKNOUT VIDEO KRATOCHVÍLE** — `pecliva_videa.py --schvaleno` / `--zamitnuto "…"`.
+Fáze `ke-schvaleni`. **Tentokrát je to opravdu nová verze**, doloženo otiskem:
+`0705ceaf802402d0d8114310297cd227` proti dřívějšímu `3781f448…` (soubor 20:29).
+Filtr falešných poplachů uchránil **23 míst** před zbytečným rozmazáním
+(k nahlédnutí v `_nerozmazano`). Dokud učitel neodklikne, další video se nezačne.
+
+**2) DVĚ REFERENČNÍ FOTKY NEJDOU PŘEČÍST** — `reference-obliceje/ja/Starší/IMG_0003.jpeg`
+a `7a5327ab-…jpg` mají práva `-rw-------` a vlastníka **radekmicek**, takže je automat
+(běží pod `radek_soukromy`) nepřečte a učitel se na starých záběrech nemusí poznat.
+Řeší se z druhého účtu: `chmod 644`. Zapsáno i v `KE-SCHVALENI.md`.
+
+**3) ŠKOLA — pokračovat dorovnáváním kvízů.** Podíl uhodnutelných otázek je **60 %**
+(ráno 77 %), dorovnáno 17 bloků. Další na řadě podle brány: `meteorologie-a-mereni-tlaku`
+(19/21), `zaverecny-projekt`, `tepelna-vymena-a-teplo` (15/17), `vnimani-barev` (14/16),
+`kmitani-a-vlneni` (12/14). **Postup, který se osvědčil:** vypsat blok skriptem
+(`node -e` nad `nactiData()`), přepsat odpovědi python skriptem hledajícím
+`odpovedi: […]` v úseku ~700 znaků od textu otázky (NE do konce řádku — otázky mají
+dva formáty a víceřádkové se tiše minou), pak `node zkontroluj.mjs` a commit.
+**Skoro v každém bloku se najdou i DUPLICITNÍ otázky** (3–4 páry z 10, vznikly slepením
+dvou dávek) — ty se nahrazují novými, prakticky položenými otázkami nad týmž učivem.
+
+## ⏩⏩⏩⏩⏩⏩ Předchozí stav (31. 7. 2026, 18:30 — INFORMATIKA + DENÍK)
 
 **ZADÁNÍ UČITELE 31. 7. večer: „kde to lokálním modelům nejde, převezmi to sám"
 a „jeď dál, šetři tokeny".** Podle toho:

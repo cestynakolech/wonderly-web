@@ -101,6 +101,36 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-07-31 večer II (převzetí práce po lokálním modelu, audit, kvízy)** — Učitel zadal
+  dvě věci: *„kde to lokálním modelům vysloveně nejde, zkus to převzít ty"* a *„udělej
+  audit, jestli neděláme pořád stejné chyby, které se opraví a zase to jede špatně."*
+  *Audit (dva nezávislí auditoři):* opakuje se jediný vzorec — **„automat ohlásí úspěch,
+  ale nic nevyrobil"**, doloženo **7×**. Z rejstříku pravidel běží 56 v kódu, ale **44 je
+  jen text** — a právě ta textová se porušují opakovaně. Nejtvrdší nález: **překladová
+  smyčka běžela 11 hodin a pokaždé vypsala „0 z 14 / 0 z 22 / 0 z 13"**; přitom držela
+  sdílený zámek (23 h blokovala ceny stellplatzů) a v paměti 44,5 GB.
+  *Převzetí práce:* těch **49 vět přeložil člověk → 156/156 míst má popis v cs, en, de i fr.**
+  Pojistka: `POKUSU_NA_PREKLAD = 3` (pravidlo učitele „třikrát a dost" platí i pro automaty).
+  *Video KRATOCHVÍLE — konečně opravdu přepracované.* Kromě smyčky (viz předchozí záznam)
+  se ukázala druhá, hlubší příčina: **proces zabíjel systém signálem 9**. Anonymizace
+  101s Full HD videa vyšplhala na 19–32 GB. Tři pokusy: sdílený zámek modelu (správný,
+  nestačil) → uvolnění modelu z paměti (44 GB volných, přesto zabito) → **krájení videa
+  na 30s kousky** (`DELKA_KOUSKU_S`, složky nesou délku v názvu, nic se nemaže). Teprve
+  to prošlo: 4 kousky po ~5 min, paměť 6 GB místo 32. **Doloženo otiskem** `0705ceaf…`
+  proti `3781f448…` — poprvé za celý den je soubor skutečně jiný. Filtr falešných poplachů
+  uchránil **23 míst** před zbytečným rozmazáním.
+  *Kvízy:* dorovnáno **17 bloků, uhodnutelnost 77 % → 60 %**. Přitom se ukázalo, že
+  **vlastní měřidlo nadhodnocovalo**: počítalo i remízy, takže otázka „značka proudu:
+  I / U / R" (všechny 1 znak) se vykazovala jako uhodnutelná — takových je 103. Skutečný
+  stav nebyl 76 %, ale 65 %. V **devíti blocích** se navíc našly **duplicitní páry otázek**
+  (3–4 z 10; bloky vznikly slepením dvou dávek) — nahrazeny novými. Nově **rohatka**:
+  zhoršení kvality shodí build, zlepšení laťku samo utáhne.
+  *Věcná chyba:* výklad i kvíz fyziky 9 tvrdily, že dálková vedení jsou **měděná**;
+  ve skutečnosti jsou to hliníková lana s ocelovým jádrem (měď je 3× těžší a prohnula by
+  stožáry). Opraveno i s vysvětlením proč.
+  **Poučení dne:** hláška automatu není důkaz — kotvou je otisk souboru. A nadhodnocené
+  měřidlo je stejně škodlivé jako podhodnocené: tiše posílá práci tam, kde vada není.
+
 - **2026-07-31 večer (informatika 8 — LED displej; a proč deník vracel totéž video)** —
   *Škola:* nová simulace `LedDisplejSimulace` u podtématu `oziveni-a-led-displej`.
   Displej 5×5 na klikání, dva obrázky a program, který je střídá; pointy jsou dvě —
