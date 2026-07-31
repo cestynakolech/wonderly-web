@@ -2,7 +2,11 @@
 // Interaktivní elektrování těles: třením o hadřík přeskočí elektrony na plastové
 // pravítko (plast se nabíjí VŽDY záporně, hadřík zůstane kladný — obě tělesa!).
 // Nabité pravítko pak přibližuješ k neutrálním papírkům — elektrická síla roste
-// s nábojem a klesá se vzdáleností (model f ~ q/d²), papírky přiskakují.
+// s nábojem a klesá se vzdáleností (model f ~ q/d²).
+//
+// Papírky mají TŘI fáze (dle popisu učitele 31. 7. 2026): dokud je síla malá, leží
+// na stole; jak se pravítko blíží, začnou se ZVEDAT A NAPŘIMOVAT; a teprve když síla
+// překoná jejich práh, ODSKOČÍ a přilepí se na pravítko. Po vybití spadnou zpátky.
 ---
 
 <section class="ramecek simulace">
@@ -59,7 +63,16 @@
 	const PX = 380;                       // vodorovná poloha pravítka a papírků
 	const yProD = (d) => 258 - d * 19;    // d = 1..10 cm → y pravítka 239..68
 	const PRAHY = [1, 2, 3, 5, 8];        // každý papírek potřebuje jinou sílu
+	const ZACATEK_ZVEDANI = 0.35;         // od jaké části prahu se papírek začne napřimovat
 	let q = 0;                            // náboj 0–6
+
+	// ČISTÁ funkce: co dělá papírek při dané síle. Tři fáze podle poměru síla/práh.
+	function stavPapirku(f, prah) {
+		if (f >= prah) return { faze: 'chycen', zvednuti: 1 };
+		const podil = f / prah;
+		if (podil <= ZACATEK_ZVEDANI) return { faze: 'lezi', zvednuti: 0 };
+		return { faze: 'zveda', zvednuti: (podil - ZACATEK_ZVEDANI) / (1 - ZACATEK_ZVEDANI) };
+	}
 
 	// papírky (malé obdélníčky na stole)
 	const papirky = [];
@@ -80,17 +93,21 @@
 		hadrikNaboj.textContent = q === 0 ? '' : '+'.repeat(q);
 
 		const f = (10 * q) / (d * d);
-		let prichycene = 0;
+		let prichycene = 0, zvedajici = 0;
 		for (const p of papirky) {
-			const drzi = f >= p.prah;
-			if (drzi) {
+			const st = stavPapirku(f, p.prah);
+			p.el.setAttribute('x', p.x - 9);
+			if (st.faze === 'chycen') {
 				prichycene++;
-				p.el.setAttribute('x', p.x - 9);
-				p.el.setAttribute('y', yProD(d) + 14);           // visí pod pravítkem
+				p.el.setAttribute('y', yProD(d) + 14);            // odskočil a visí na pravítku
 				p.el.setAttribute('transform', `rotate(${(p.prah * 37) % 30 - 15} ${p.x} ${yProD(d) + 19})`);
+			} else if (st.faze === 'zveda') {
+				zvedajici++;
+				// zvedá se za bližší okraj — otáčí se kolem svého spodního okraje na stole
+				p.el.setAttribute('y', 258);
+				p.el.setAttribute('transform', `rotate(${(-78 * st.zvednuti).toFixed(1)} ${p.x - 9} 268)`);
 			} else {
-				p.el.setAttribute('x', p.x - 9);
-				p.el.setAttribute('y', 258);                      // leží na stole
+				p.el.setAttribute('y', 258);                      // klidně leží na stole
 				p.el.setAttribute('transform', '');
 			}
 		}
@@ -98,10 +115,12 @@
 
 		if (q === 0) {
 			stavEl.textContent = 'Pravítko je NEUTRÁLNÍ (protonů a elektronů stejně) — papírky nic nepřitahuje. Tři o hadřík!';
-		} else if (prichycene === 0) {
+		} else if (prichycene === 0 && zvedajici === 0) {
 			stavEl.textContent = `Pravítko má náboj (přijalo ${q} ${q === 1 ? 'elektron' : q < 5 ? 'elektrony' : 'elektronů'}, hadřík zůstal kladný — nabila se OBĚ tělesa). Ale síla rychle klesá se vzdáleností — přibliž pravítko!`;
+		} else if (prichycene === 0) {
+			stavEl.textContent = `Papírky se začínají zvedat a napřimovat (${zvedajici} z 5) — síla už je cítit, ale ještě je neuzvedne. Přibliž pravítko ještě kousek a odskočí.`;
 		} else if (prichycene < papirky.length) {
-			stavEl.textContent = `Přiskočilo ${prichycene} z 5 papírků! Elektrická síla přitahuje i NEUTRÁLNÍ papírky. Víc náboje nebo menší vzdálenost = víc papírků.`;
+			stavEl.textContent = `Odskočilo a přilepilo se ${prichycene} z 5 papírků${zvedajici ? `, další ${zvedajici} se napřimují` : ''}! Elektrická síla přitahuje i NEUTRÁLNÍ papírky. Až pravítko vybiješ, spadnou zpátky na stůl.`;
 		} else {
 			stavEl.textContent = '⚡ Všech 5 papírků visí na pravítku! Přesně tohle dělá zelektrizovaný hřeben s vlasy.';
 		}
@@ -111,6 +130,12 @@
 	btnVybit.addEventListener('click', () => { q = 0; prekresli(); });
 	slider.addEventListener('input', prekresli);
 	prekresli();
+
+	// ověřovací háčky
+	const svgEl = document.getElementById('ele-svg');
+	svgEl.__stavPapirku = stavPapirku;
+	svgEl.__sila = (q, d) => (10 * q) / (d * d);
+	svgEl.__prahy = PRAHY;
 </script>
 
 <style>

@@ -2613,6 +2613,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'elektricky-naboj',
 						nazev: 'Elektrický náboj, elektrování těles, elektrická síla',
+						interakce: 'elektrovani',
 						obsah: `
 							<h2>Elektrický náboj</h2>
 							<p>Když si češeš umyté vlasy plastovým hřebenem, vlasy se zvednou a lepí se k hřebenu. Tělesa se <strong>zelektrizovala</strong> a působí mezi nimi <strong>elektrická síla</strong>. Její příčinou je <strong>elektrický náboj</strong>.</p>
@@ -2715,6 +2716,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 						slug: 'elektricke-obvody',
 						nazev: 'Elektrické obvody',
+						interakce: 'obvod',
 						obsah: `
 							<h2>Elektrické obvody</h2>
 							<p><strong>Elektrický obvod</strong> vzniká vodivým spojením více prvků. Musí obsahovat <strong>zdroj napětí</strong>, <strong>vodiče</strong> a <strong>spotřebič</strong> (žárovka, zvonek, motor…). Může mít i <strong>spínač, měřidla, pojistku</strong>. <strong>Proud teče jen uzavřeným obvodem</strong> — všechny části musí být vodivě spojené.</p>
