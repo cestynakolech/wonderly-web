@@ -1,5 +1,46 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, ráno — SAMOSTATNÁ PRÁCE)
+
+**HOTOVO A NASAZENO (bod 1 a část bodu 2 noční fronty):**
+
+1. **Popisky na mapách deníku — vyřešeno, ale příčina byla jinde, než říkala fronta.**
+   Poznámka z noci tvrdila, že `CestyRok.astro` si popisky umísťuje vlastním kódem;
+   **není to pravda** — používá `pripravPohledy()` → `rozmistiPopiskyPolozek()` stejně
+   jako všechny mapy. Skutečná vada: **popisek domova („jižní Čechy") se kreslil napevno
+   pod domeček ÚPLNĚ MIMO rozmisťovač**, takže ležel na cizím pinu v **sedmi letech z osmi**.
+   Nově ho umísťuje týž kód; místo navíc zabírá i odznak počtu u shluku a domeček sám.
+   Nouzová varianta už nebere prvního kandidáta naslepo, ale toho s nejmenším překryvem
+   (přetečení výřezu váží 12×), přibyl prstenec pozic kolem značky a třetí velikost písma.
+   Kotva: nové měřidlo `testy/mapa-popisky.mjs` — **182 pohledů, 0 nálezů**; podvrh jich
+   najde 282. Běží **v bráně při každém buildu**. Ověřeno i okem (2021, 2022) a curlem.
+
+   > **Past, do které jsem sám šlápl a stojí za zapamatování:** měřidlo nejdřív volalo
+   > `pripravPohledy` BEZ domova, takže popisek domova vůbec neměřilo a hlásilo „0 nálezů" —
+   > **falešná nula**. Kontrola musí volat funkci se STEJNÝMI argumenty jako stránka.
+   > Druhá past: kroužek shluku je jen OBRYS, uvnitř jsou vidět tečky míst. Když se bral
+   > jako plný kotouč, jméno nemělo kam jít a odlétlo 30 jednotek od své značky.
+
+2. **Kvízy — dorovnáno pět nejhorších bloků, 59 % → 56 %** (67 otázek).
+   `vnimani-barev` 14/16 → 0, `tepelna-vymena-a-teplo` 15/17 → 0, `kmitani-a-vlneni`
+   12/14 → 0, `energeticka-hodnota-potravin` 10/12 → 0, `zaverecny-projekt` 9/10 → 0.
+   Nezávislý kontrolor nenašel věcnou chybu; dvě drobnosti opraveny — výklad energetické
+   hodnoty nově říká, že mozek využívá **elektrickou** energii (kvíz se na to ptal, na
+   stránce to nebylo). **Rohatka se sama utáhla na 56 %.**
+   Nové měřidlo **`testy/delky.mjs`** vypíše konkrétní otázky i rozdíl v znacích:
+   `node testy/delky.mjs vnimani-barev`.
+
+**FRONTA — čím pokračovat:**
+1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší; teď to jsou
+   `elektrina/elektricke-pole` (10/12), `elektrina/vznik-elektrickeho-proudu` (10/12),
+   `magneticke-pole/magneticke-pole-vodice-a-civky` (10/12),
+   `jaderna-fyzika/jaderny-reaktor-elektrarna` (10/12),
+   `energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje` (9/11).
+   Postup: `node testy/delky.mjs <blok>` → dorovnat → kontrolor → brána → build → push.
+2. **Škola — názornost informatiky** (47 podtémat, ani jedno s obrázkem či videem);
+   na řadě je `vetveni-programu` (inf. 7) nebo `funkce-v-tabulkach` (inf. 8).
+3. Kontrolovat i to, co běží samo (hlídač deníku, pečlivá videa).
+
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 23:20 — SAMOSTATNÁ NOČNÍ PRÁCE)
 
 **Učitel jde spát a zadal: pracuj samostatně dál, sám si kontroluj, co je podle domluvy

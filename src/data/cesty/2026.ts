@@ -283,6 +283,7 @@ export const rok2026: Rok = {
 	],
 	videa: [
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
+		{ id: 'k4cqRFIsEQU', nazev: '07. 07. · Schongau (Německo)', odkaz: 'https://youtu.be/k4cqRFIsEQU' },
 		{ id: '_M3govihGYc', nazev: '08. 07. · Geisingen (Německo)', odkaz: 'https://youtu.be/_M3govihGYc' },
 		{ id: '9Sv4exafb-c', nazev: '10. 07. · Salbert (Francie)', odkaz: 'https://youtu.be/9Sv4exafb-c' },
 		{ id: 'Tlnc-YigfTw', nazev: '12. 07. · Le Thillot (Francie)', odkaz: 'https://youtu.be/Tlnc-YigfTw' },
