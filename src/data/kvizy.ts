@@ -162,8 +162,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co pozoroval Robert Brown pod mikroskopem?',
 			odpovedi: [
-				'chaotický pohyb pylových zrnek rozptýlených ve vodě',
-				'růst rostlinných buněk',
+				'chaotický pohyb pylových zrnek',
+				'růst rostlinných buněk ve vodě',
 				'krystalizaci soli',
 			],
 			vysvetleni: 'Brown pozoroval neustálý chaotický pohyb pylových zrnek rozptýlených ve vodě — dnes mu říkáme Brownův pohyb.',
@@ -171,15 +171,15 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak vysvětlujeme Brownův pohyb?',
 			odpovedi: [
-				'částice vody neustále vrážejí do zrníček',
+				'částice vody do nich vrážejí',
 				'zrníčka jsou živá a plavou',
-				'zrníčka pohání vítr',
+				'zrníčka pohání vítr nad hladinou',
 			],
 			vysvetleni: 'Částice vody se neustále chaoticky pohybují a nárazy postrkují pylová zrnka.',
 		},
 		{
 			text: 'Jaký je pohyb částic v látkách?',
-			odpovedi: ['neustálý a neuspořádaný', 'občasný a pravidelný', 'žádný — částice stojí'],
+			odpovedi: ['neustálý a neuspořádaný', 'občasný a docela pravidelný', 'žádný — částice stojí'],
 			vysvetleni: 'Částice se pohybují neustále (nikdy se nezastaví) a chaoticky — proto mluvíme o tepelném pohybu.',
 		},
 		{
@@ -189,19 +189,19 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jakými silami na sebe částice působí?',
-			odpovedi: ['přitažlivými a odpudivými', 'pouze přitažlivými', 'žádnými silami'],
+			odpovedi: ['přitažlivými a odpudivými', 'pouze přitažlivými silami', 'žádnými silami'],
 			vysvetleni: 'Přitažlivé síly částice přitáhnou, když se vzdálí; odpudivé je oddálí, když se moc přiblíží.',
 		},
 		{
 			text: 'Kdy cítíme odpudivé síly mezi částicemi?',
-			odpovedi: ['při stlačení pružiny nebo zmáčknutí gumy', 'při natažení pružiny', 'při zahřátí vody'],
+			odpovedi: ['při stlačení pružiny', 'při natažení pružiny', 'při zahřátí vody'],
 			vysvetleni: 'Při stlačování se částice dostávají příliš blízko a odpudivé síly je tlačí zpět. Při natažení pružiny naopak cítíme síly přitažlivé.',
 		},
 		{
 			text: 'Co je difuze?',
 			odpovedi: [
-				'samovolné pronikání částic jedné látky mezi částice druhé',
-				'rychlé míchání lžičkou',
+				'samovolné promíchání látek',
+				'rychlé míchání lžičkou v hrnku',
 				'změna skupenství látky',
 			],
 			vysvetleni: 'Difuze = částice různých látek se samy od sebe promíchají díky neustálému pohybu částic.',
@@ -209,35 +209,35 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Který jev je příkladem difuze?',
 			odpovedi: [
-				'šíření vůně po místnosti i za bezvětří',
+				'šíření vůně po místnosti',
 				'pád jablka ze stromu',
-				'odraz světla v zrcadle',
+				'odraz světla v rovinném zrcadle',
 			],
 			vysvetleni: 'Vůně se šíří difuzí — částice voňavé látky pronikají mezi částice vzduchu. Patří sem i vyluhování čaje bez míchání.',
 		},
 		{
 			text: 'Proč se čaj vyluhuje rychleji v horké vodě?',
 			odpovedi: [
-				'částice se při vyšší teplotě pohybují rychleji',
-				'horká voda je lehčí',
+				'částice se pohybují rychleji',
+				'horká voda je o dost lehčí',
 				'horká voda obsahuje více vzduchu',
 			],
 			vysvetleni: 'Čím vyšší teplota, tím rychlejší pohyb částic — a tím rychleji probíhá difuze.',
 		},
 		{
 			text: 'Čím je tvořen tlak plynu na stěny nádoby?',
-			odpovedi: ['nárazy částic do stěn', 'váhou plynu', 'barvou plynu'],
+			odpovedi: ['nárazy částic', 'váhou celého plynu', 'barvou plynu'],
 			vysvetleni: 'Částice plynu neustále narážejí do stěn nádoby — tím vzniká tlak. Teplejší plyn = rychlejší částice = větší tlak.',
 		},
 		{
 			text: 'Proč drží tuha na papíře a křída na tabuli?',
-			odpovedi: ['díky přilnavosti (přitažlivým silám mezi částicemi)', 'díky magnetismu', 'díky elektrickému proudu'],
+			odpovedi: ['díky přilnavosti', 'díky magnetismu', 'díky elektrickému proudu'],
 			vysvetleni: 'Přitažlivé síly působí i mezi částicemi různých látek — tomu říkáme přilnavost.',
 		},
 		{
 			text: 'Proč kapky vody nepřilnou k mastnému povrchu?',
 			odpovedi: [
-				'voda drží silněji sama u sebe než u mastnoty, proto se stáhne do kapky',
+				'voda drží víc sama u sebe',
 				'mastnota je příliš studená',
 				'voda je těžší než tuk',
 			],
@@ -246,7 +246,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč se pohyb částic v látce nazývá neuspořádaný?',
 			odpovedi: [
-				'protože každá částice letí jiným směrem a při srážkách směr mění',
+				'každá částice letí jinam',
 				'protože je velmi pomalý a skoro neznatelný',
 				'protože ho způsobuje jen vítr nebo proudění',
 			],
@@ -255,25 +255,21 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co se stane, když opatrně kápneme inkoust do sklenice s vodou a vůbec nemícháme?',
 			odpovedi: [
-				'inkoust se sám pomalu rozptýlí po celé vodě',
-				'inkoust klesne ke dnu a zůstane tam jako tenký proužek',
-				'inkoust se rozptýlí, jen když vodou zamícháme lžičkou',
+				'sám se rozptýlí po vodě',
+				'klesne ke dnu a zůstane tam jako proužek',
+				'rozptýlí se, jen když zamícháme lžičkou',
 			],
 			vysvetleni: 'Částice inkoustu a vody se neustále pohybují a postupně se samovolně promíchají — to je difuze v kapalinách, funguje i bez míchání.',
 		},
 		{
-			text: 'Proč ucítíme vůni pečeného chleba z kuchyně, i když stojíme ve vedlejší místnosti a nefouká žádný průvan?',
-			odpovedi: [
-				'částice vůně samy pronikají (difundují) mezi částice vzduchu',
-				'vůni k nám donese jen teplo stoupající od trouby',
-				'vůně se šíří pouze tehdy, když je ve dveřích průvan',
-			],
-			vysvetleni: 'I bez větru se částice vonné látky díky svému neustálému pohybu samovolně promísí s částicemi vzduchu a doletí až k nám — to je difuze v plynech.',
+			text: 'Probíhá difuze i v pevných látkách?',
+			odpovedi: ['ano, ale velmi pomalu', 'ne, jen v kapalinách', 'ne, jen v plynech a kapalinách'],
+			vysvetleni: 'V pevné látce difuze probíhá také, ale tak pomalu, že si jí nevšimneme.',
 		},
 		{
 			text: 'Kde probíhá difuze rychleji — v plynu, nebo v kapalině?',
 			odpovedi: [
-				'v plynu, protože se částice pohybují rychleji a mají mezi sebou víc místa',
+				'v plynu',
 				'v kapalině, protože je hustší',
 				'v obou stejně rychle',
 			],
@@ -1407,13 +1403,13 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kterých skupenství se teplotní roztažnost týká?',
-			odpovedi: ['všech — pevných, kapalných i plynných', 'jen kapalin', 'jen kovů'],
+			odpovedi: ['všech skupenství', 'jen kapalin a plynů', 'jen kovů'],
 			vysvetleni: 'Objem při změně teploty mění látky všech skupenství.',
 		},
 		{
 			text: 'Z čeho se skládá bimetalový pásek?',
 			odpovedi: [
-				'ze dvou spojených pásů z různých kovů',
+				'ze dvou různých kovů',
 				'z jednoho kusu železa',
 				'ze skla a plastu',
 			],
@@ -1422,7 +1418,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč se bimetalový pásek při zahřátí kroutí?',
 			odpovedi: [
-				'každý z kovů mění rozměry jinak',
+				'každý kov jinak',
 				'kov se bojí tepla',
 				'pásek se taví',
 			],
@@ -1431,7 +1427,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co dělá elektrický jistič?',
 			odpovedi: [
-				'chrání vedení před požárem při přetížení',
+				'chrání vedení před požárem',
 				'zrychluje elektrický proud',
 				'měří spotřebu elektřiny',
 			],
@@ -1440,7 +1436,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'K čemu slouží termostat?',
 			odpovedi: [
-				'udržuje nastavenou teplotu zařízení',
+				'udržuje nastavenou teplotu',
 				'zvyšuje teplotu bez omezení',
 				'měří čas ohřevu',
 			],
@@ -1449,7 +1445,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak funguje termostatický ventil u radiátoru?',
 			odpovedi: [
-				'kapalina uvnitř zvětší objem a zaškrtí přívod horké vody',
+				'kapalina zaškrtí přívod vody',
 				'elektromotor zavře kohoutek',
 				'ventil se roztaví a ucpe potrubí',
 			],
@@ -1458,8 +1454,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč se mezi kolejnicemi nechávají mezery (dilatační spáry)?',
 			odpovedi: [
-				'aby se kolejnice v horku mohly protáhnout a nekroutily se',
-				'aby vlak lépe drncal',
+				'aby se mohly v horku protáhnout',
+				'aby vlak na spojích lépe drncal',
 				'kvůli úspoře oceli',
 			],
 			vysvetleni: 'V letním horku se kolejnice protahují — bez mezer by se zkroutily; v mrazu by mohly prasknout.',
@@ -1467,7 +1463,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč se dráty elektrického vedení staví prověšené?',
 			odpovedi: [
-				'v mrazu se zkracují a napnuté by se přetrhly',
+				'v mrazu se zkracují',
 				'aby na nich mohli sedět ptáci',
 				'pro lepší vzhled',
 			],
@@ -1476,7 +1472,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč běžná sklenice praskne při nalití vroucí vody?',
 			odpovedi: [
-				'sklo se prudkou změnou teploty roztáhne nerovnoměrně',
+				'roztáhne se nerovnoměrně',
 				'voda je pro sklo jedovatá',
 				'sklenice je příliš čistá',
 			],
@@ -1485,7 +1481,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč je zahřátá pneumatika tvrdší a v horku může i prasknout?',
 			odpovedi: [
-				'vzduch uvnitř se roztahuje a víc tlačí na stěny',
+				'vzduch víc tlačí na stěny',
 				'guma se teplem smršťuje a stahuje se',
 				'vzduch se uvnitř teplem vypaří',
 			],
@@ -1494,8 +1490,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jakou vlastnost musí mít zubní plomba?',
 			odpovedi: [
-				'stejnou teplotní roztažnost jako zub',
-				'větší roztažnost než zub',
+				'roztažnost stejnou jako zub',
+				'mnohem větší roztažnost než zub',
 				'žádnou roztažnost',
 			],
 			vysvetleni: 'Plomba musí reagovat na horké a studené jídlo stejně jako zub, jinak by vypadla nebo zub roztrhla. Stejné pravidlo platí pro ocel v železobetonu.',
@@ -1518,7 +1514,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co hrozí svařené koleji bez dilatačních spár ve velkém letním horku?',
 			odpovedi: [
-				'vzpříčí se a vybočí do strany (sluneční vybočení)',
+				'vybočí do strany',
 				'nic — ocel se teplem neroztahuje',
 				'zkrátí se a mezi kolejnicemi vzniknou mezery',
 			],
@@ -1527,7 +1523,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co hrozí koleji bez spár v silném mrazu?',
 			odpovedi: [
-				'tahová síla ji může roztrhnout — kolejnice praskne',
+				'tah ji může roztrhnout',
 				'roztáhne se a zvlní',
 				'změkne a prohne se pod vlakem',
 			],
@@ -1536,7 +1532,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'K čemu slouží kompenzátor (smyčka ve tvaru U) na dlouhém teplovodním potrubí?',
 			odpovedi: [
-				'pojme prodloužení potrubí — smyčka se jen mírně prohne',
+				'smyčka pojme prodloužení',
 				'ochlazuje vodu v potrubí',
 				'vypouští přebytečnou páru',
 			],
@@ -2748,19 +2744,19 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda': [
 		{ text: 'Z čeho je stejnorodé těleso?', odpovedi: ['z jedné jediné látky', 'ze dvou různých látek', 'z mnoha různých látek'], vysvetleni: 'Stejnorodé těleso je z jedné látky a má všude stejné vlastnosti.' },
-		{ text: 'Jaké vlastnosti má stejnorodé těleso v celém objemu?', odpovedi: ['všude stejné (hustota, barva, tvrdost)', 'v každé části jiné', 'nahodile se měnící'], vysvetleni: 'Z jedné látky → stejná hustota, barva i tvrdost všude.' },
+		{ text: 'Jaké vlastnosti má stejnorodé těleso v celém objemu?', odpovedi: ['všude stejné', 'v každé části jiné', 'nahodile se měnící'], vysvetleni: 'Z jedné látky → stejná hustota, barva i tvrdost všude.' },
 		{ text: 'Který příklad je stejnorodé těleso?', odpovedi: ['ocelový hřebík', 'tužka', 'železobetonový panel'], vysvetleni: 'Hřebík je z jedné látky (oceli) — je stejnorodý.' },
-		{ text: 'Z čeho se skládá nestejnorodé těleso?', odpovedi: ['ze dvou nebo více různých látek', 'z jedné látky', 'jen ze vzduchu'], vysvetleni: 'Nestejnorodé těleso tvoří dvě a více různých látek.' },
-		{ text: 'Který příklad je nestejnorodé těleso?', odpovedi: ['tužka (dřevo + tuha)', 'skleněná kulička', 'ocelový hřebík'], vysvetleni: 'Tužka je ze dřeva a tuhy — dvě různé látky.' },
-		{ text: 'Proč je žula nestejnorodé těleso?', odpovedi: ['skládá se z křemene, živce a slídy', 'je jen z křemene', 'je z jedné čisté látky'], vysvetleni: 'Žula je směs více nerostů — křemen, živec, slída.' },
-		{ text: 'Mají různé části nestejnorodého tělesa stejné vlastnosti?', odpovedi: ['ne, mají odlišné vlastnosti', 'ano, všude stejné', 'jen stejnou barvu'], vysvetleni: 'Různé látky → různé vlastnosti v různých částech tělesa.' },
-		{ text: 'Co počítáme u nestejnorodých těles místo hustoty látky?', odpovedi: ['průměrnou hustotu ρp', 'jen hmotnost', 'jen objem'], vysvetleni: 'Protože jde o více látek, určujeme průměrnou hustotu celého tělesa.' },
-		{ text: 'Podle čeho se řídí, zda těleso plove?', odpovedi: ['podle jeho průměrné hustoty', 'podle jeho barvy', 'podle jeho tvaru'], vysvetleni: 'Rozhoduje průměrná hustota tělesa v porovnání s hustotou kapaliny.' },
-		{ text: 'Proč ocelová loď plove, i když ocel je těžší než voda?', odpovedi: ['průměrná hustota lodi (ocel + vzduch) je menší než hustota vody', 'ocel je ve vodě lehčí', 'voda ji nadnáší magneticky'], vysvetleni: 'Uvnitř lodi je hodně vzduchu → průměrná hustota je menší než u vody.' },
+		{ text: 'Z čeho se skládá nestejnorodé těleso?', odpovedi: ['ze dvou a více látek', 'jen z jedné jediné látky', 'jen ze vzduchu'], vysvetleni: 'Nestejnorodé těleso tvoří dvě a více různých látek.' },
+		{ text: 'Který příklad je nestejnorodé těleso?', odpovedi: ['tužka — dřevo a tuha', 'skleněná kulička z jednoho skla', 'ocelový hřebík'], vysvetleni: 'Tužka je ze dřeva a tuhy — dvě různé látky.' },
+		{ text: 'Proč je žula nestejnorodé těleso?', odpovedi: ['je směs více nerostů', 'je jen z čistého křemene', 'je z jedné čisté látky'], vysvetleni: 'Žula je směs více nerostů — křemen, živec, slída.' },
+		{ text: 'Mají různé části nestejnorodého tělesa stejné vlastnosti?', odpovedi: ['ne, liší se', 'ano, jsou všude stejné', 'jen stejnou barvu'], vysvetleni: 'Různé látky → různé vlastnosti v různých částech tělesa.' },
+		{ text: 'Co počítáme u nestejnorodých těles místo hustoty látky?', odpovedi: ['průměrnou hustotu', 'jen celkovou hmotnost', 'jen objem'], vysvetleni: 'Protože jde o více látek, určujeme průměrnou hustotu celého tělesa.' },
+		{ text: 'Podle čeho se řídí, zda těleso plove?', odpovedi: ['podle průměrné hustoty', 'podle barvy povrchu', 'podle tvaru a velikosti'], vysvetleni: 'Rozhoduje průměrná hustota tělesa v porovnání s hustotou kapaliny.' },
+		{ text: 'Proč ocelová loď plove, i když ocel je těžší než voda?', odpovedi: ['vzduch uvnitř sníží hustotu', 'ocel je ve vodě mnohem lehčí', 'voda ji nadnáší magneticky'], vysvetleni: 'Uvnitř lodi je hodně vzduchu → průměrná hustota je menší než u vody.' },
 		{ text: 'Je skleněná kulička stejnorodé, nebo nestejnorodé těleso?', odpovedi: ['stejnorodé', 'nestejnorodé', 'nelze určit'], vysvetleni: 'Je z jediné látky (sklo) — tedy stejnorodé.' },
-		{ text: 'Je železobetonový panel stejnorodý, nebo nestejnorodý?', odpovedi: ['nestejnorodý (beton + ocel)', 'stejnorodý', 'záleží na barvě'], vysvetleni: 'Beton a ocelová výztuž jsou dvě látky — panel je nestejnorodý.' },
-		{ text: 'Kdyby loď měla plný ocelový trup bez dutin, co by se stalo?', odpovedi: ['potopila by se — hustota oceli je větší než vody', 'plula by lépe', 'nic by se nezměnilo'], vysvetleni: 'Bez vzduchu uvnitř je průměrná hustota velká — loď klesne ke dnu.' },
-		{ text: 'Značka ρp znamená…', odpovedi: ['průměrnou hustotu tělesa', 'objem tělesa', 'hmotnost tělesa'], vysvetleni: 'ρp = průměrná hustota nestejnorodého tělesa.' },
+		{ text: 'Je železobetonový panel stejnorodý, nebo nestejnorodý?', odpovedi: ['nestejnorodý', 'stejnorodý', 'záleží na barvě'], vysvetleni: 'Beton a ocelová výztuž jsou dvě látky — panel je nestejnorodý.' },
+		{ text: 'Kdyby loď měla plný ocelový trup bez dutin, co by se stalo?', odpovedi: ['potopila by se', 'plula by ještě lépe', 'nic by se nezměnilo'], vysvetleni: 'Bez vzduchu uvnitř je průměrná hustota velká — loď klesne ke dnu.' },
+		{ text: 'Značka ρp znamená…', odpovedi: ['průměrnou hustotu', 'objem celého tělesa', 'hmotnost tělesa'], vysvetleni: 'ρp = průměrná hustota nestejnorodého tělesa.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla': [
 		{ text: 'Díky čemu vidíme obraz tělesa v zrcadle?', odpovedi: ['odrazu světla od zrcadla', 'lomu světla uvnitř zrcadla', 'pohlcení světla zrcadlem'], vysvetleni: 'Světlo se od zrcadla odrazí podle zákona odrazu a vytvoří obraz.' },
@@ -3051,19 +3047,19 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co musí platit pro každý spalovací motor?', odpovedi: ['musí se startovat, chladit a mazat', 'nepotřebuje žádné chlazení ani mazání', 'nepotřebuje palivo'], vysvetleni: 'Start (setrvačník), chlazení (voda/vzduch) a mazání olejem.' },
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi': [
-		{ text: 'V kolika základních skupenstvích se běžně vyskytují látky?', odpovedi: ['ve třech', 've dvou', 'v pěti'], vysvetleni: 'Pevné, kapalné a plynné skupenství.' },
-		{ text: 'Čím se liší látka v různých skupenstvích?', odpovedi: ['pohybem částic a silami mezi nimi', 'druhem částic', 'barvou'], vysvetleni: 'Složení je stejné, mění se chování částic.' },
-		{ text: 'Jak jsou uspořádané částice v pevné látce?', odpovedi: ['blízko u sebe, kmitají kolem stálých poloh', 'daleko od sebe', 'volně se pohybují'], vysvetleni: 'Silné vazby → stálý tvar a pevnost.' },
-		{ text: 'Proč jsou plyny snadno stlačitelné?', odpovedi: ['částice jsou daleko od sebe', 'částice jsou pevně spojené', 'jsou velmi těžké'], vysvetleni: 'Mezi částicemi plynu je hodně místa.' },
-		{ text: 'Proč kapalina nemá stálý tvar, ale pevná látka ano?', odpovedi: ['částice kapaliny po sobě kloužou', 'kapalina nemá částice', 'pevná látka je lehčí'], vysvetleni: 'V kapalině částice mění polohy, v pevné jen kmitají.' },
-		{ text: 'Které látky mají pravidelné uspořádání částic a tají při jedné teplotě?', odpovedi: ['krystalické (led, sůl, kovy)', 'amorfní (sklo, vosk)', 'jen plyny'], vysvetleni: 'Krystalické látky mají pravidelnou mřížku.' },
-		{ text: 'Jak se chovají amorfní látky při zahřívání?', odpovedi: ['postupně měknou (bez ostré hranice)', 'roztají naráz při jedné teplotě', 'nemění se'], vysvetleni: 'Sklo, vosk, plast měknou v rozmezí teplot.' },
+		{ text: 'V kolika základních skupenstvích se běžně vyskytují látky?', odpovedi: ['ve třech', 've dvou', 'v pěti různých'], vysvetleni: 'Pevné, kapalné a plynné skupenství.' },
+		{ text: 'Čím se liší látka v různých skupenstvích?', odpovedi: ['pohybem částic', 'druhem svých částic', 'barvou'], vysvetleni: 'Složení je stejné, mění se chování částic.' },
+		{ text: 'Jak jsou uspořádané částice v pevné látce?', odpovedi: ['blízko u sebe, jen kmitají', 'daleko od sebe v celém prostoru', 'volně se pohybují'], vysvetleni: 'Silné vazby → stálý tvar a pevnost.' },
+		{ text: 'Proč jsou plyny snadno stlačitelné?', odpovedi: ['částice jsou daleko od sebe', 'částice jsou pevně spojené k sobě', 'jsou velmi těžké'], vysvetleni: 'Mezi částicemi plynu je hodně místa.' },
+		{ text: 'Proč kapalina nemá stálý tvar, ale pevná látka ano?', odpovedi: ['částice po sobě kloužou', 'kapalina nemá žádné částice', 'pevná látka je lehčí'], vysvetleni: 'V kapalině částice mění polohy, v pevné jen kmitají.' },
+		{ text: 'Které látky mají pravidelné uspořádání částic a tají při jedné teplotě?', odpovedi: ['krystalické', 'amorfní beztvaré', 'jen plyny'], vysvetleni: 'Krystalické látky mají pravidelnou mřížku.' },
+		{ text: 'Jak se chovají amorfní látky při zahřívání?', odpovedi: ['postupně měknou', 'roztají naráz při jedné teplotě', 'vůbec se nemění'], vysvetleni: 'Sklo, vosk, plast měknou v rozmezí teplot.' },
 		{ text: 'Co má největší vliv na změnu skupenství?', odpovedi: ['teplota', 'barva', 'hmotnost'], vysvetleni: 'Teplota mění rychlost částic a tím skupenství.' },
-		{ text: 'Co se děje, když látce dodáváme teplo?', odpovedi: ['pevné se mění na kapalné, kapalné na plynné', 'plynné na pevné', 'nic'], vysvetleni: 'Dodáváním tepla se skupenství „posouvá" k plynu.' },
-		{ text: 'Co se děje, když látce teplo odebíráme?', odpovedi: ['plynné → kapalné → pevné', 'pevné → plynné', 'jen roste teplota'], vysvetleni: 'Odebíráním tepla se skupenství blíží pevnému.' },
+		{ text: 'Co se děje, když látce dodáváme teplo?', odpovedi: ['pevné → kapalné → plynné', 'plynné → kapalné → pevné', 'nic se nemění'], vysvetleni: 'Dodáváním tepla se skupenství „posouvá" k plynu.' },
+		{ text: 'Co se děje, když látce teplo odebíráme?', odpovedi: ['plynné → kapalné → pevné', 'pevné → kapalné → plynné', 'jen roste teplota'], vysvetleni: 'Odebíráním tepla se skupenství blíží pevnému.' },
 		{ text: 'Jak se nazývá změna pevné látky rovnou na plyn?', odpovedi: ['sublimace', 'tání', 'kondenzace'], vysvetleni: 'Např. jód nebo tvorba ohonu komet.' },
 		{ text: 'Jak se nazývá přeměna pevné látky na kapalinu?', odpovedi: ['tání', 'var', 'kondenzace'], vysvetleni: 'Pevné → kapalné = tání.' },
-		{ text: 'Má na skupenství vliv i tlak?', odpovedi: ['ano, určitý vliv má', 'ne, vůbec', 'jen u kovů'], vysvetleni: 'Vysoký tlak brání částicím uvolnit se.' },
+		{ text: 'Má na skupenství vliv i tlak?', odpovedi: ['ano, má', 'ne, vůbec žádný', 'jen u kovů'], vysvetleni: 'Vysoký tlak brání částicím uvolnit se.' },
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani': [
 		{ text: 'Co je tání?', odpovedi: ['změna pevného skupenství na kapalné', 'změna kapaliny na plyn', 'změna plynu na kapalinu'], vysvetleni: 'Zahříváním pevné látky vzniká kapalina.' },
