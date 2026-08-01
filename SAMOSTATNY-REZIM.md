@@ -1,6 +1,76 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (2. 8. 2026, v noci — FYZIKA, DÁVKA 5)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026, v noci — HLUCHÉ STRÁNKY 0, DÍRA UZAVŘENA)
+
+> **Pokyn učitele z 2. 8. v noci:** *„nečekej na další kolo… jakmile jedno kolo skončí,
+> začni hned nové, aby se neztrácel čas. Já jdu spát, ty pracuj, nezastavuj se."*
+> → **Mezi koly se neplánuje žádná pauza.** Dotazy se nehromadí v chatu, ale zapisují
+> se sem do „ČEKÁ NA UČITELE".
+
+**`node testy/kratke-vyklady.mjs 1200` hlásí 🕳 0.** Díra, kterou audit strategie
+1. 8. označil za **největší na webu** (36 stránek bez obrázku, videa, simulace *a*
+s výkladem pod 1200 znaků), je po šesti dávkách **zavřená celá**.
+
+Poslední dávka (9 stránek, skoro celá elektřina): `elektricke-pole`,
+`elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`, `chemicke-zdroje-napeti`
+(F8 i F9), `magneticke-pole-vodice-a-civky`, `elektricka-energie-a-premeny`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vlastnosti-stridaveho-proudu`.
+
+Nově vyloženo: Faradayova klec (proč mřížka v troubě stíní mikrovlny, ale ne světlo) ·
+**pravidlo pravé ruky konečně POPSANÉ** — dosud se na stránce jen jmenovalo ·
+v elektrolytu vedou proud **ionty oběma směry**, vně článku elektrony · napětí článku
+určuje dvojice materiálů, ne velikost · proč je střídavý proud výhodný (transformace,
+ztráty rostou s proudem) · energie se nespotřebovává, **znehodnocuje** se na teplo ·
+skoro všechny zdroje pocházejí ze Slunce (i uhlí) · **jistič chrání dům, chránič člověka**.
+
+> **⚠️⚠️ DVA NEZÁVISLÍ KONTROLOŘI S RŮZNÝMI OTÁZKAMI** (jeden na čísla, druhý na fyziku
+> a didaktiku) **NAŠLI NEZÁVISLE NA SOBĚ TENTÝŽ nejzávažnější nález** — to je nejsilnější
+> signál, jaký tenhle postup umí dát. **Odpor člověka 150 000 Ω při 230 V je o dva řády
+> mimo.** Nad ~50 V se kůže elektricky **prorazí** a odpor těla klesne na ~1 500 Ω.
+> Já jsem na tom čísle postavil výpočet, ze kterého vyšlo uklidňující „1,5 mA, nepříjemné
+> cuknutí" — ve skutečnosti vychází **153 mA, tedy pásmo zástavy srdce**, a většina
+> smrtelných úrazů se stane právě **v suchu**. Blok je přepsaný: nově ukazuje, proč
+> z ploché baterie nic necítíš (0,05 mA) a proč zásuvka zabíjí vždycky.
+
+Další vážné nálezy (opraveno): **první pomoc měla volání 155 až jako 4. krok** po
+zahájení resuscitace — laik, který začne masírovat, se už k telefonu nedostane · laická
+KPR je **jen stlačování hrudníku**, puls se nehledá · **vodík byl veden jako obnovitelný
+ZDROJ**, ačkoli je to jen nosič energie · dvě neslučitelné definice obnovitelnosti na
+jedné stránce · uhlí „statisíce let" × „stovky milionů let" · **P = U · I bylo zároveň
+výkon i příkon** · účinnost LED 70 % neseděla s vlastním příkladem (100 W → 10 W dává
+50 %) · uhlík není kov · **anoda není vždy záporná** (při elektrolýze a nabíjení je
+kladná) · zvonek zní **úderem kladívka do misky**, ne frekvencí přerušování.
+
+> **Měřidlo `cisla-ve-vykladu.mjs` se za noc dvakrát vyplatilo:** pokaždé okamžitě
+> nahlásilo, že oprava ve výkladu rozešla stránku s kvízem (nezámrzná hloubka 90 → 80 cm,
+> účinnost LED 70 → 50 %). Obojí sladěno.
+
+**FRONTA — čím pokračovat:**
+1. **Zbytek auditu kontrol** — teď je to nejvyšší priorita, protože obsahová díra
+   je zavřená: a) **zapojení simulací se čte z TEXTU**, ačkoli data jsou na dosah
+   (`zkontroluj.mjs` ř. 25 načte `dataTemata` a už je nepoužije) — podtéma vzniklé
+   programově kontrolu obejde; b) **mapa „všechna místa" (`CestyVse.astro`) se neměří
+   vůbec** — 209 pinů, čtyři jazykové mutace, a `rozmistiPopisky` popisek, který se
+   nevejde, **zahodí**; c) **slovníková kontrola hodnot** `druh`/`interakce` — neznámá
+   hodnota má být chyba, ne ticho; d) slabé testy simulací podle mutačního testu:
+   `elektrovani`, `odpor-vodice`, `tabulka-vzorce`.
+2. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Výklad už
+   mají všechna slušný, takže tohle je další skutečná mezera. Skillem `/simulace`.
+3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
+4. Kvízy nejsou priorita (viz audit strategie níže).
+
+**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
+- **⚠️ SÁHL JSEM NA VÁŠ ÚDAJ, PROTOŽE ŠLO O BEZPEČNOST.** Na stránce „Účinky proudu na
+  člověka" stálo *„odpor člověka: v suchu a suché obuvi ~150 000 Ω, ve vlhku jen ~2000 Ω"*.
+  Ta hodnota platí jen pro **suchou kůži při malém napětí**; při 230 V se kůže prorazí
+  a odpor těla klesne k ~1 500 Ω. Nechat to tam by znamenalo učit děti, že suchý dotyk
+  zásuvky je neškodný, proto jsem to opravil rovnou a neptal se předem. **Prosím
+  o zpětné schválení** — kdybyste to chtěl jinak, vrátím.
+- **Jakou generaci VEX IQ mozku škola má?** Stránka `co-umi-vex-iq` uvádí 12 portů na
+  motory a čidla. U **starších Brainů si jeden port bere rádio** (volných 11), u novější
+  generace je rádio vestavěné a 12 platí.
+
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ Předchozí stav (2. 8. 2026, v noci — FYZIKA, DÁVKA 5)
 
 > **Pokyn učitele z 2. 8. v noci:** *„nečekej na další kolo… jakmile jedno kolo skončí,
 > začni hned nové, aby se neztrácel čas. Já jdu spát, ty pracuj, nezastavuj se. Práci
@@ -52,10 +122,7 @@ je to opravdu nepravda (základní jednotka SI je kelvin), je nově hvězdička 
 2. **Názornost informatiky** — 47 podtémat bez obrázku či videa. Skillem `/simulace`.
 3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
 
-**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
-- **Jakou generaci VEX IQ mozku škola má?** Stránka `co-umi-vex-iq` uvádí 12 portů na
-  motory a čidla. U **starších Brainů si jeden port bere rádio** (volných 11), u novější
-  generace je rádio vestavěné a 12 platí. Když jde o starší sadu, dopíšu závorku.
+**⏳ ČEKÁ NA UČITELE** — *přesunuto nahoru; živý seznam je VŽDY jen v nejhornější sekci.*
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ Předchozí stav (2. 8. 2026 — INFORMATIKA UZAVŘENA)
 
