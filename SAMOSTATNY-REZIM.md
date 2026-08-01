@@ -116,7 +116,23 @@
     > (přeskoč otázky s čísly v ZADÁNÍ a bloky shrnutí) zbyly 4 skutečné nálezy.
     > Ověřeno obousměrně podvrhem.
 
+12. **Výklad `vetveni-programu` doplněn + VĚCNÁ OPRAVA názvu bloku.**
+    Nezávislý kontrolor upozornil, že blok „a zároveň" v českém Scratchi 3 neexistuje.
+    Ověřeno ve zdroji pravdy (`scratch-l10n`, `editor/blocks/cs.json`):
+    **OPERATORS_AND = „%1 a %2"** — blok se jmenuje prostě **„a"**, dál „nebo" a „ne".
+    Web to učil špatně na třech místech (výklad, odpověď v kvízu, vysvětlení) — žák
+    by blok v paletě Operátorů nenašel. Opraveno. *(Pozor: „a zároveň" jako běžné
+    české spojení je jinde v textech v pořádku — opravovat jen NÁZVY BLOKŮ.)*
+    Nové měřidlo **`node testy/kratke-vyklady.mjs [mez]`**: 16 podtémat má výklad
+    pod 700 znaků, skoro samá informatika — potvrzuje audit.
+
 **FRONTA — čím pokračovat:**
+0. **DOPLŇOVAT KRÁTKÉ VÝKLADY INFORMATIKY** — levnější a hned užitečné, na rozdíl
+   od nové simulace se dá dělat i po malých kusech. Nejkratší: `projekt-muj-robot`
+   (536), `tlacitka-naklon-zvuk` (566), `seznamy-a-promenne-v-projektech` (572),
+   `funkce-v-tabulkach` (584), `motory-displej-zvuk` (592), `senzory-robota` (595).
+   **Vždy nechat zkontrolovat kontrolorem** — u Scratche i micro:bitu se snadno
+   napíše název bloku, který v české lokalizaci neexistuje.
 1. **Kvízy už NEJSOU priorita** — cíl 33–40 % je splněn a rohatka hlídá, aby se to
    nezhoršilo. Dorovnávat dál jen mimochodem, když se stejně sahá do bloku.
 2. **Škola — názornost informatiky** (47 podtémat, ani jedno s obrázkem či videem).
