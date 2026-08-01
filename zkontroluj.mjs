@@ -190,6 +190,18 @@ for (const soubor of rokySoubory) {
 const mapy = await zkontrolujPopiskyMap();
 for (const n of mapy.nalezy) chyby.push(`mapa cest — ${n}`);
 
+// 7c) KOTVA PROTI TICHÉ LŽI SEKCE 7 (nález nezávislého auditu 1. 8. 2026).
+// Sekce 7 výše čte roky REGULÁRNÍMI VÝRAZY citlivými na tabulátory. Audit ukázal,
+// že po přeformátování jednoho souboru roku celý rok tiše vypadne ze VŠECH kontrol
+// deníku (duplicitní slugy, chybějící souřadnice) a brána zůstane zelená —
+// hlásila 163 míst místo 209. Data se proto porovnají s tím, co se opravdu změřilo.
+if (mistCelkem !== mapy.mistZDat || rokySoubory.length !== mapy.rokuZDat) {
+	chyby.push(
+		`kontrola deníku NEVIDÍ celá data: z textu ${mistCelkem} míst v ${rokySoubory.length} souborech, ` +
+			`ze skutečných dat ${mapy.mistZDat} míst v ${mapy.rokuZDat} rocích — nejspíš se změnilo odsazení a regulární výrazy přestaly platit`,
+	);
+}
+
 // 6d) ČÍSLO VE SPRÁVNÉ ODPOVĚDI, KTERÉ NENÍ VE VÝKLADU (z fronty auditu 31. 7. 2026).
 // Žák, který se učil ze stránky, takový údaj nemá odkud vzít. Početní úlohy se
 // nepočítají — tam je odpověď výsledek, který si žák spočítá.

@@ -11,7 +11,7 @@ const sandbox = { document, performance: { now: () => 0 }, requestAnimationFrame
 vm.createContext(sandbox);
 const pos = novyPrvek('reo-jezdec-vstup'); pos.value = '0';
 vm.runInContext(skript, sandbox);
-const svg = prvky.get('reo-svg'), stav = prvky.get('reo-stav'), u2 = prvky.get('reo-udaj2');
+const svg = prvky.get('reo-svg'), stav = prvky.get('reo-stav'), u1 = prvky.get('reo-udaj1'), u2 = prvky.get('reo-udaj2');
 let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
 
@@ -52,6 +52,27 @@ ok(stav.textContent.length > 60 && /hlasitost|jas/.test(stav.textContent), 'u po
 ok(!/i vpravo proud pořád teče/.test(stav.textContent), 'není tam nepravdivé tvrzení o proudu v odpojené části');
 klik('reostat');
 ok(stav.textContent.length > 60, 'u reostatu je vysvětlení');
+
+// NÁLEZ NEZÁVISLÉHO AUDITU 1. 8. 2026: test si načítal prvek `reo-udaj2` a NIKDY ho
+// nepoužil — čísla, která žák na displeji doopravdy vidí, se nekontrolovala. Podvrh
+// se sedmkrát větším proudem testem prošel. Proto se čte skutečný obsah displeje
+// a porovnává s tím, co vyjde z čisté funkce.
+console.log('\n— čísla na displeji musí sedět s výpočtem —');
+// jezdec je posuvník 0–100 %, ne 0–1 — na tenhle rozdíl test hned napoprvé narazil
+const nastavJezdec = (f) => { pos.value = String(Math.round(f * 100)); pos.posluchaci.input.forEach((g) => g()); };
+klik('reostat');
+for (const f of [0, 0.5, 1]) {
+	nastavJezdec(f);
+	const v = svg.__reostat(f);
+	ok(u1.textContent === `R celkem = ${Math.round(v.R)} Ω`, `jezdec ${f}: displej ukazuje „${u1.textContent}"`);
+	ok(u2.textContent === `I = ${Math.round(v.I * 1000)} mA`, `jezdec ${f}: displej ukazuje „${u2.textContent}"`);
+}
+klik('potenciometr');
+for (const f of [0, 0.5, 1]) {
+	nastavJezdec(f);
+	ok(u2.textContent === `U = ${Math.round(svg.__potenciometr(f).Uvystup)} V z 12 V`, `potenciometr ${f}: displej ukazuje „${u2.textContent}"`);
+}
+klik('reostat');
 
 console.log('\n— schéma musí být UZAVŘENÝ obvod —');
 const svgText = zdroj.match(/<svg[\s\S]*?<\/svg>/)[0];

@@ -94,6 +94,7 @@ const ocekavane = [
 	['V', 'serie',   false, '≈ 12 V', false, 'voltmetr sériově = obvod stojí'],
 ];
 const texty = [];
+const zmereno = []; // co simulace OPRAVDU napsala na displej (ne konstanty testu)
 for (const [pr, zap, spravne, hodn, sviti, popis] of ocekavane) {
 	klik('pristroj', pr);
 	klik('zapojeni', zap);
@@ -102,9 +103,13 @@ for (const [pr, zap, spravne, hodn, sviti, popis] of ocekavane) {
 	ok(hodnotaEl.textContent === hodn && opravduSviti === sviti && barvaOk && stav.textContent.length > 60,
 		`${popis} → displej „${hodnotaEl.textContent}", žárovka ${opravduSviti ? 'svítí' : 'zhasla'}`);
 	texty.push(stav.textContent);
+	zmereno.push(hodnotaEl.textContent);
 }
-ok(ocekavane[2][3] !== ocekavane[3][3],
-	`správné a chybné měření napětí ukazují RŮZNÁ čísla: „${ocekavane[2][3]}" × „${ocekavane[3][3]}"`);
+// Původní verze porovnávala dvě VLASTNÍ konstanty testu (`ocekavane`), takže platila
+// vždycky — cituje sama sebe, ne simulaci (nález auditu 1. 8. 2026). Nově se čte,
+// co simulace opravdu napsala na displej při správném a při chybném zapojení.
+ok(texty.length >= 4 && zmereno[2] !== zmereno[3] && zmereno[2] && zmereno[3],
+	`správné a chybné měření napětí ukazují RŮZNÁ čísla: „${zmereno[2]}" × „${zmereno[3]}"`);
 
 // --- 4) NÁLEZ č. 3: žádný Ohmův zákon (probírá se až později) ---
 console.log('\n— texty nesmí předbíhat učivo (nález kontrolora č. 3) —');
@@ -114,7 +119,17 @@ ok(!/\d\s*Ω/.test(vse), 'nikde není hodnota v ohmech');
 
 // --- 5) součet napětí musí sedět ---
 console.log('\n— kontrola fyziky —');
-ok(6 + 6 === 12, 'napětí na žárovce (6 V) + na rezistoru (6 V) = napětí zdroje (12 V)');
+// Původně tu stálo `ok(6 + 6 === 12, …)` — pravda nezávisle na komponentě, tedy mrtvý
+// assert (nález nezávislého auditu 1. 8. 2026). Čísla se proto berou z DISPLEJE
+// simulace: v obvodu jsou dvě stejné součástky v sérii, takže napětí na žárovce musí
+// být přesně polovinou napětí zdroje. Kdyby simulace ukázala jiné číslo, test spadne.
+const cislo = (s) => Number(String(s).replace(/[^\d.,]/g, '').replace(',', '.'));
+const naZarovce = cislo(zmereno[2]);
+const zdrojU = cislo(zmereno[3]);
+ok(
+	Number.isFinite(naZarovce) && Number.isFinite(zdrojU) && naZarovce * 2 === zdrojU,
+	`na žárovce ${naZarovce} V + na rezistoru ${naZarovce} V = ${zdrojU} V zdroje (čteno z displeje)`,
+);
 
 console.log(chyby === 0 ? '\n✅ VŠE V POŘÁDKU' : `\n❌ CHYB: ${chyby}`);
 process.exit(chyby === 0 ? 0 : 1);

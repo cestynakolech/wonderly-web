@@ -43,7 +43,13 @@ const plocha = (a, b) => {
 	return w > 0 && h > 0 ? w * h : 0;
 };
 
-/** Vrátí { nalezy: string[], pohledu: number } — prázdné nálezy = mapy jsou v pořádku. */
+/**
+ * Vrátí { nalezy, pohledu, mistZDat, rokuZDat } — prázdné nálezy = mapy jsou v pořádku.
+ * `mistZDat` a `rokuZDat` slouží bráně jako KOTVA: sekce 7 čte roky regulárními výrazy
+ * citlivými na odsazení, takže po přeformátování souboru celý rok tiše vypadne z kontrol
+ * (ověřeno podvrhem 1. 8. 2026 — brána zůstala zelená a hlásila 163 míst místo 209).
+ * Když se počty z textu a z dat rozejdou, je to chyba.
+ */
 export async function zkontrolujPopiskyMap() {
 	const docasny = mkdtempSync(join(tmpdir(), 'wonderly-mapa-'));
 	let roky;
@@ -133,7 +139,8 @@ export async function zkontrolujPopiskyMap() {
 			}
 		}
 	}
-	return { nalezy, pohledu };
+	const mistZDat = roky.reduce((n, r) => n + r.mesta.length, 0);
+	return { nalezy, pohledu, mistZDat, rokuZDat: roky.length };
 }
 
 // spuštění napřímo: `node testy/mapa-popisky.mjs`
