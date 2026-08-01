@@ -3387,7 +3387,10 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Výkon a síť</h3>
 						<p>Výkon se počítá z efektivních hodnot: <strong>P = U · I</strong>. V rozvodné síti používáme napětí s efektivní hodnotou <strong>230 V</strong> a frekvencí <strong>50 Hz</strong>.</p>
-					`,
+					
+						<p>Proud v síti se sto­krát za sekundu na okamžik vynuluje, a přesto žárovka nebliká: vlákno
+							je tak rozžhavené, že za tu tisícinu sekundy nestihne vychladnout — a naše oko by tak
+							rychlou změnu stejně nepostřehlo.</p>`,
 				},
 				{
 					slug: 'transformator',
