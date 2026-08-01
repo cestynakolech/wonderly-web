@@ -47,13 +47,24 @@
    a otázka „K čemu je rozptyl světla **dobrý**?" prozrazovala odpověď svým zněním.
    Opraveno; výklad má nově odstavec o koutovém odražeči.
 
+5. **Čtvrtá dávka kvízů — 51 % → 49 %. Celkem 20 bloků, 59 % → 49 %.**
+   Dorovnáno `skupenstvi-latek`, `modely-a-schemata`, `vetveni-programu`.
+   **DVA bloky se musely PŘEPSAT, ne dorovnat** — vznikly slepením dvou dávek:
+   `microbit/propojeni-a-externi-zarizeni` měl **čtyři duplicitní páry z deseti**
+   (dvakrát piny, dvakrát rádio, dvakrát měření času, dvakrát propojení) a
+   `roboticka-stavebnice/projekt-muj-robot` **tři páry** — 6 otázek pokrývalo 3 fakta.
+   Ten druhý jsem sám přehlédl, našel ho až kontrolor. **Před dorovnáváním bloku si
+   proto vždycky nech vypsat VŠECHNY jeho otázky, ne jen ty s délkovou nápovědou.**
+
 **FRONTA — čím pokračovat:**
 1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší; teď to jsou
-   `latka-a-teleso/skupenstvi-latek` (12/15),
-   `modelovani-grafy-schemata/modely-a-schemata` (8/10),
-   `programovani-vetveni-promenne/vetveni-programu` (8/10),
-   `roboticka-stavebnice/projekt-muj-robot` (8/10),
-   `microbit/propojeni-a-externi-zarizeni` (8/10).
+   `vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda` (11/14),
+   `latka-a-teleso/casticove-slozeni-latek` (14/18),
+   `teplota/teplotni-roztaznost` (14/18),
+   `zrcadla-a-cocky/oko-vady-oka` (14/18),
+   `teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi` (10/13).
+   Pomůcka: `node testy/delky.mjs <blok> --odpovedi` vypíše i znění odpovědí s délkami,
+   takže se dorovnává bez čtení celého souboru.
    Postup: `node testy/delky.mjs <blok>` → dorovnat → kontrolor → brána → build → push.
    Pozn.: hromadné záměny dělej **skriptem s pojistkou** `assert s.count(a)==1` —
    dvakrát to zachytilo, že se týž řetězec odpovědí vyskytuje v souboru vícekrát.
