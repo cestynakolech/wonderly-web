@@ -66,14 +66,49 @@ export function vsechnaPodtemata(temata) {
 	return ven;
 }
 
+/**
+ * Slovník povolených hodnot `druh` u materiálů — a hlavně rozhodnutí, jestli se
+ * daný druh počítá do NÁZORNOSTI stránky.
+ *
+ * Proč slovník existuje: hodnota, kterou `nazornost()` nezná, se dosud tiše
+ * ignorovala. Přesně tak vznikla falešná nula u `druh: 'obrazek'` — ta hodnota
+ * v datech nebyla ani jednou (správně je 'infografika'), takže se infografiky
+ * nikdy nepočítaly a měřidlo hlásilo mezery, které neexistovaly. Stejně tiše se
+ * do 2. 8. 2026 ignorovalo 'pdf'. Neznámá hodnota proto nově není ticho, ale
+ * TVRDÁ CHYBA brány: kdo přidá nový druh materiálu, musí se tady rozhodnout,
+ * čím je — jinak se změna nesmí nasadit.
+ */
+export const DRUHY_MATERIALU = {
+	infografika: 'obrazek',
+	video: 'video',
+	youtube: 'video',
+	audio: 'zvuk',
+	// PDF je pracovní list nebo dokument ke stažení. Je užitečné, ale stránku
+	// NEDĚLÁ názornou — žák se na ně musí podívat mimo web, takže se do názornosti
+	// schválně nepočítá. (Zapsáno sem právě proto, aby to bylo rozhodnutí, ne opomenutí.)
+	pdf: null,
+};
+
+/** Vrátí seznam neznámých hodnot `druh` napříč daty (prázdný = vše v pořádku). */
+export function neznameDruhy(temata) {
+	const nalezy = [];
+	for (const pod of vsechnaPodtemata(temata)) {
+		for (const m of pod.materialy ?? []) {
+			if (!(m.druh in DRUHY_MATERIALU)) nalezy.push({ klic: pod.klic, druh: m.druh });
+		}
+	}
+	return nalezy;
+}
+
 /** Má podtéma nějakou názornost? (simulace, infografika nebo video) */
 export function nazornost(pod) {
 	const materialy = pod.materialy ?? [];
+	const jeDruh = (kategorie) => materialy.some((m) => DRUHY_MATERIALU[m.druh] === kategorie);
 	return {
 		simulace: Boolean(pod.interakce || pod.interakce2),
-		obrazek: materialy.some((m) => m.druh === 'infografika'),
-		video: materialy.some((m) => m.druh === 'video' || m.druh === 'youtube'),
-		zvuk: materialy.some((m) => m.druh === 'audio'),
+		obrazek: jeDruh('obrazek'),
+		video: jeDruh('video'),
+		zvuk: jeDruh('zvuk'),
 		odkazy: (pod.odkazy ?? []).length,
 	};
 }

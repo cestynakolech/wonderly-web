@@ -4,7 +4,7 @@
 // Nic nemění, jen čte a hlásí. Konec s kódem 1 = něco je špatně.
 
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
-import { nactiData, maDelkovouNapovedu, vsechnaPodtemata } from './testy/data.mjs';
+import { nactiData, maDelkovouNapovedu, vsechnaPodtemata, neznameDruhy } from './testy/data.mjs';
 import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
@@ -29,12 +29,21 @@ const temata = readFileSync(cestaTemata, 'utf8');
 const stranka = readFileSync(cestaStranka, 'utf8');
 const kvizy = readFileSync(cestaKvizy, 'utf8');
 
-// 1) Které interakce se v temata.ts opravdu používají u podtémat
+// 1) Které interakce se opravdu používají u podtémat
 // (interakce = první simulace na stránce, interakce2 = druhá — kontrolují se obě)
-const pouzite = [...temata.matchAll(/^\s*interakce:\s*'([^']+)'/gm)].map((m) => m[1]);
-const unikatni = [...new Set(pouzite)];
-const pouzite2 = [...temata.matchAll(/^\s*interakce2:\s*'([^']+)'/gm)].map((m) => m[1]);
-const unikatni2 = [...new Set(pouzite2)];
+//
+// ⚠️ Do 2. 8. 2026 se tenhle seznam bral REGEXEM Z TEXTU souboru, ačkoli skutečná data
+// jsou načtená o pár řádků výš a stačilo je použít. Byla to tichá díra: podtéma vzniklé
+// programově nebo zapsané s jiným odsazením by vzor minul, a tím by se pro takovou
+// simulaci PŘESKOČILY všechny tři kontroly zapojení níž — brána by zůstala zelená.
+// Že se dnes oba seznamy shodují, nic nedokazuje; přesně takhle už jednou vypadl blok
+// `elektrina`, kde je odsazení o tabulátor jiné (22 podtémat místo 37).
+//
+// Kontroly NÍŽE (union typ, vykreslení v .astro, import komponenty) čtou text dál —
+// a je to tak správně, protože tam je předmětem kontroly opravdu zdrojový kód.
+const podtemataZDat = vsechnaPodtemata(dataTemata);
+const unikatni = [...new Set(podtemataZDat.map((p) => p.interakce).filter(Boolean))];
+const unikatni2 = [...new Set(podtemataZDat.map((p) => p.interakce2).filter(Boolean))];
 
 // 2) Union typ na začátku souboru musí každou z nich obsahovat
 const union = temata.match(/interakce\?:\s*([^;]+);/);
@@ -250,6 +259,19 @@ for (const n of cisla) {
 const bloky2 = await zkontrolujNazvyBloku();
 for (const n of bloky2) {
 	chyby.push(`${n.klic} (${n.kde}): takový blok v české paletě NENÍ — jmenuje se „${n.spravne}" (${n.zdroj})`);
+}
+
+// 6f) NEZNÁMÁ HODNOTA `druh` U MATERIÁLU (2. 8. 2026).
+// Dosud se neznámý druh tiše ignoroval — a přesně tak vznikla falešná nula
+// u `druh: 'obrazek'` (v datech není ani jednou, správně je 'infografika'),
+// takže se infografiky nikdy nepočítaly. Stejně tiše propadávalo 'pdf'.
+// Nově je to tvrdá chyba: kdo přidá nový druh, musí v DRUHY_MATERIALU
+// rozhodnout, jestli se počítá do názornosti. Ticho už není možnost.
+for (const n of neznameDruhy(dataTemata)) {
+	chyby.push(
+		`${n.klic}: materiál má neznámý druh '${n.druh}' — doplň ho do DRUHY_MATERIALU v testy/data.mjs ` +
+			`a rozhodni, jestli se počítá do názornosti (obrazek / video / zvuk / null = nepočítá)`,
+	);
 }
 
 // Výpis česky
