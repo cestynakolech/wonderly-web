@@ -64,13 +64,24 @@
    Nový nástroj **`node testy/vypis-kviz.mjs <blok>`** vypíše VŠECHNY otázky bloku —
    délkové měřidlo duplicity neukáže.
 
+7. **Šestá dávka — 47 % → 44 %. Celkem 28 bloků, 59 % → 44 %.**
+   `oko-vady-oka`, `jaderna-energie-a-reakce`, `kulova-zrcadla-dute-zrcadlo`, `teziste`.
+
+   > **⚠️ NEJDŮLEŽITĚJŠÍ POUČENÍ CELÉHO DOROVNÁVÁNÍ (nález kontrolora 1. 8.):**
+   > Přílišné zkracování správné odpovědi ji dokáže ZKAZIT. Dvakrát se to stalo:
+   > „skutečný, převrácený, **zmenšený**" zkráceno na „skutečný a převrácený" —
+   > jenže zmenšený je JEDINÝ znak, který ten případ odlišuje od předmětu mezi
+   > r a f; a „**širší postoj**, nižší těžiště" zkráceno na „nižší těžiště",
+   > čímž vypadla polovina odpovědi na otázku o brankáři.
+   > **Krátit se smí jen vata, nikdy rozlišující znak. Když správná odpověď vyjde
+   > nejdelší, PRODLUŽ DISTRAKTORY — nekrať ji.**
+
+   Dále vyměněna otázka „Kdo má těžiště obvykle níž? → ženy" (mimo učivo, navíc
+   stereotyp) za soutěžní auta z výkladu.
+
 **FRONTA — čím pokračovat:**
-1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší; teď to jsou
-   `zrcadla-a-cocky/oko-vady-oka` (14/18),
-   `jaderna-fyzika/jaderna-energie-a-reakce` (10/13),
-   `zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo` (13/17),
-   `sily-kolem-nas/teziste` (16/21),
-   `vztlakova-sila-a-plovani-teles/archimeduv-zakon` (16/21).
+1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší
+   (`node zkontroluj.mjs` je vypíše); zbývá `archimeduv-zakon` (16/21) a další.
    **Postup:** `node testy/vypis-kviz.mjs <blok>` (duplicity!) → `node testy/delky.mjs
    <blok> --odpovedi` → dorovnat skriptem s pojistkou → kontrolor → brána → build → push.
    Pomůcka: `node testy/delky.mjs <blok> --odpovedi` vypíše i znění odpovědí s délkami,
