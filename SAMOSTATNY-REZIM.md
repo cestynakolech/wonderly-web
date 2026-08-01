@@ -1,6 +1,75 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, večer — VÝKLADY + AUDIT KONTROL)
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (2. 8. 2026 — INFORMATIKA UZAVŘENA)
+
+**Hluché stránky 21 → 15. Informatika je hotová — všech 6 zbývajících zavřeno**
+(`hra-bludiste`, `hra-ping-pong`, `hra-skakacka`, `hra-vesmirna-strilecka`,
+`motory-displej-zvuk`, `co-umi-vex-iq`). Nasazeno a ověřeno curlem. **Zbývá 15, všechno fyzika.**
+
+Stránky her byly do teď čisté NÁVODY („udělej tohle") bez učiva. Každá dostala výklad
+principu, který se za návodem skrývá: **detekce kolize** (bludiště), **herní smyčka a pohyb
+po směru** (ping-pong), **gravitace jako proměnná rychlost** (skákačka), **klonování**
+(střílečka), **vstup → program → výstup** a displej jako nástroj ladění (robot),
+**program běží v robotu, ne v počítači** (VEX IQ).
+
+> **⚠️ NEJVÁŽNĚJŠÍ NÁLEZ: MĚŘIDLO NÁZVŮ BLOKŮ BYLO PRAKTICKY MRTVÉ.** Vzor založený
+> 1. 8. byl psaný jako `'dotýká se'`, jenže **čeština staví zvratné „se" před sloveso**
+> („když **se dotýká** okraje"). Ten tvar se v textech skoro nevyskytuje, takže měřidlo
+> hlásilo **0 nálezů** a přitom stejnou vadu neslo **pět stránek**. Falešná nula popáté —
+> a tentokrát u kontroly, která vznikla právě proto, aby tuhle třídu chyb hlídala.
+> Nově se rozhoduje podle **tvaru slovesa** (blok má 2. osobu „dotýkáš"), ne podle
+> slovosledu. Přibylo pět dalších vzorů: `startuji jako klon` → **když startuje můj klon** ·
+> `smaž klon` → **zruš tento klon** · `odraz se, když` → **když narazíš na okraj, odraz se** ·
+> `schovej` → **skryj se** · `x ukazatele myši` → **x myši**.
+> *Past při opravě: první verze nového vzoru hlásila i zdravou větu „postava se okraje
+> dotýká", která mluví o významu podmínky a žádný blok nepojmenovává. Rozlišuje podmět —
+> ve scénáři žádný není. Zúženo na „když se dotýká …".*
+
+**Nezávislý kontrolor: 18 nálezů, tři vážné — všechny byly na stránkách už předtím:**
+1. **Ping-pong šel hrát donekonečna.** Blok ⟨když narazíš na okraj, odraz se⟩ odráží
+   i ode **dna**, takže podmínka „y &lt; −175" nenastane u **žádného** míčku (ověřeno
+   výpočtem: míček 30 bodů se dostane nejníž na −165, čtyřicetibodový na −160). Život
+   nikdy neubyl a hra neměla konec. Nově je dole **červené propadliště** a **past je
+   z toho udělané učivo** — stránka ten spor rozebírá a končí pravidlem „když se dvě
+   pravidla ve hře perou, vyhraje to rychlejší".
+2. **Návrat po nárazu v bludišti nešlo naprogramovat.** Kontrola dotyku běžela ve vlastním
+   ⟨opakuj stále⟩, ale pohyb je ve čtyřech scénářích u šipek — cyklus nemá jak zjistit,
+   **kterým směrem** se postava hnula. Text si to navíc sám vyvracel. Nově je návrat
+   hned pod pohybem, který ho způsobil, a všechny čtyři šipky jsou vypsané.
+3. **Hlášky se skládaly pomocí `+`** („Konec! Skóre: " + skóre). Ve Scratchi je `+`
+   **početní** blok — text v něm platí za nulu, takže by se žákovi vypsalo **holé číslo
+   bez nápisu**. Správně ⟨spoj ( ) ( )⟩. **Přidáno do měřidla**, ověřeno podvrhem.
+
+Další opravené nálezy: skákačka používala postavu **Země** a hodnotu **výška země**, které
+stránka nikde nezaváděla · střílečce chyběl **scénář Rakety** i nastavení skóre a životů,
+takže hra nešla dohrát · „srovnej y" a „přidej ⟨náhodné číslo⟩" nejsou bloky · tvrzení
+„otáčka kola je stejně dlouhá, ať jede po čemkoli" **neplatí při prokluzu** — otáčky
+vyrovnají vybitou baterii a tření, ale prokluz ošidí i je · vylepšení dávala žákům
+**necelá čísla** (10 + skóre/5), přepsáno na celočíselné kroky · „vybitá baterie nezastaví
+program" platí jen do chvíle, než se Brain vypne úplně.
+
+**FRONTA — čím pokračovat:**
+0. **ZAVÍRAT ZBYLÝCH 15 HLUCHÝCH STRÁNEK — už jen fyzika**, po dávkách 5–6.
+   Seznam dá `node testy/kratke-vyklady.mjs 1200` (označí 🕳). Nejkratší:
+   `kondenzace` (738), `chemicke-zdroje-napeti` F9 (739), `souhrnne-opakovani-velicin`
+   (770), `tuhnuti` (842), `elektricka-energie-a-premeny` (848). **Kontrolor povinně** —
+   u fyziky pozor hlavně na čísla a jednotky, ne na názvy bloků.
+1. **Zbytek auditu kontrol** (beze změny, viz sekce z 1. 8.): zapojení simulací se čte
+   z TEXTU, ač jsou data na dosah · mapa `CestyVse.astro` se neměří vůbec · slovníková
+   kontrola hodnot `druh`/`interakce` · slabé testy `elektrovani`, `odpor-vodice`,
+   `tabulka-vzorce`.
+2. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Na řadě
+   `vetveni-programu` (vývojový diagram) nebo `funkce-v-tabulkach`. Skillem `/simulace`.
+3. Kvízy **nejsou priorita** (viz audit strategie níže).
+4. **Obnovit `METRIKY-KOL.md`** — pořád mrtvý od 29. 7.
+
+**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
+- **Jakou generaci VEX IQ mozku škola má?** Stránka `co-umi-vex-iq` uvádí 12 portů na
+  motory a čidla. U **starších Brainů si ale jeden port bere rádio**, takže volných
+  zbývá 11; u novější generace je rádio vestavěné a platí 12. Nemám k tomu tvrdou kotvu —
+  když jde o starší sadu, dopíšu na stránku závorku. *(Nález kontrolora, nízká závažnost.)*
+
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ Předchozí stav (1. 8. 2026, večer — VÝKLADY + AUDIT KONTROL)
 
 **Zadání učitele:** pokračovat samostatně podle tohoto souboru, pak udělat nezávislý
 audit, navrhnout změny a jet dál. Vše níže je nasazené a ověřené (build + push + curl).
@@ -154,9 +223,8 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
 > s délkovou nápovědou, ne 953. Ověřeno obousměrně: jediná nová vadná otázka (809 → 810)
 > bránu shodí.
 
-**⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM** *(sem patří každý nový dotaz, nikam jinam)*
-
-*(právě teď prázdný — všechno vyřízeno)*
+**⏳ ČEKÁ NA UČITELE** — *uzavřeno 1. 8., k tomuto dni bylo všechno vyřízeno.
+Živý seznam i živá fronta jsou VŽDY jen v nejhornější sekci souboru.*
 
 > ✅ **Vyřízeno 1. 8. večer:** sekce „Když počítač zlobí" i její dvě kvízové otázky
 > jsou na pokyn učitele přestěhované ze `zabezpeceni-a-digitalni-stopa` (inf. 7)
