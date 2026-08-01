@@ -6,6 +6,7 @@
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { nactiData, maDelkovouNapovedu } from './testy/data.mjs';
 import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
+import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -187,6 +188,14 @@ for (const soubor of rokySoubory) {
 // na cizím pinu v sedmi letech z osmi — kreslil se totiž mimo rozmisťovač.
 const mapy = await zkontrolujPopiskyMap();
 for (const n of mapy.nalezy) chyby.push(`mapa cest — ${n}`);
+
+// 6d) ČÍSLO VE SPRÁVNÉ ODPOVĚDI, KTERÉ NENÍ VE VÝKLADU (z fronty auditu 31. 7. 2026).
+// Žák, který se učil ze stránky, takový údaj nemá odkud vzít. Početní úlohy se
+// nepočítají — tam je odpověď výsledek, který si žák spočítá.
+const cisla = await zkontrolujCislaVeVykladu();
+for (const n of cisla) {
+	varovani.push(`${n.klic}: číslo ${n.cislo} není ve výkladu — „${n.otazka}"`);
+}
 
 // Výpis česky
 console.log(`Mapy deníku: ${mapy.pohledu} pohledů, ${mapy.nalezy.length} překryvů popisků.`);

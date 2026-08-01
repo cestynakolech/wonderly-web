@@ -308,7 +308,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li>gravitační síla směřuje vždy <strong>do středu Země</strong> — tomu říkáme <strong>svislý směr</strong></li>
 							<li>svislý směr prakticky určíme <strong>olovnicí</strong> (závažíčko na provázku) — důležité pro stabilitu staveb</li>
-							<li>svislý a vodorovný směr jsou na sebe <strong>kolmé</strong></li>
+							<li>svislý a vodorovný směr jsou na sebe <strong>kolmé</strong> — svírají úhel <strong>90°</strong></li>
 						</ul>
 						<h2>Gravitační pole</h2>
 						<ul>
@@ -1932,6 +1932,9 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Lom světla</h2>
 						<p>Při přechodu do jiného optického prostředí světlo <strong>mění rychlost</strong> — a proto se <strong>láme</strong> (mění směr).</p>
+						<p>Ve vakuu a ve vzduchu letí světlo asi <strong>300 000 km/s</strong>, ve vodě už jen asi
+							<strong>225 000 km/s</strong> a ve skle kolem <strong>200 000 km/s</strong>. Čím je prostředí
+							opticky hustší, tím je světlo pomalejší — a tím víc se láme.</p>
 						<h3>Dva případy lomu</h3>
 						<ul>
 							<li><strong>lom KE kolmici</strong> — z prostředí opticky řidšího do hustšího (vzduch → voda/sklo); úhel lomu β je <strong>menší</strong> než úhel dopadu α</li>
@@ -4152,6 +4155,7 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Kde přesně postava je?</h2>
 						<p>Scéna ve Scratchi je mřížka: <strong>x</strong> (vodorovně, −240 až 240) a <strong>y</strong> (svisle, −180 až 180). Střed je (0, 0).</p>
+						<p>Celá scéna je tedy <strong>480 bodů široká</strong> a <strong>360 bodů vysoká</strong>.</p>
 						<ul>
 							<li><strong>skoč na x: … y: …</strong> — přesun na přesné místo</li>
 							<li><strong>změň x o 10</strong> — posun doprava; <strong>změň y o −10</strong> — dolů</li>
@@ -4571,7 +4575,7 @@ export const temata: Record<string, Tema[]> = {
 					interakce: 'led-displej',
 					obsah: `
 						<h2>Počítač do dlaně</h2>
-						<p><strong>micro:bit</strong> je malá programovatelná deska: displej 5×5 LED, dvě tlačítka, senzory pohybu a teploty, rádio. Programuje se z bloků v prostředí <a href="https://makecode.microbit.org" target="_blank" rel="noopener">MakeCode</a> — funguje i <strong>simulátor</strong> přímo v prohlížeči, deska není nutná.</p>
+						<p><strong>micro:bit</strong> je malá programovatelná deska: displej 5×5 LED (dohromady <strong>25 světýlek</strong>), dvě tlačítka, senzory pohybu a teploty, rádio. Programuje se z bloků v prostředí <a href="https://makecode.microbit.org" target="_blank" rel="noopener">MakeCode</a> — funguje i <strong>simulátor</strong> přímo v prohlížeči, deska není nutná.</p>
 						<h3>První program</h3>
 						<ol>
 							<li>blok <strong>po spuštění</strong> → ukaž ikonu ❤️</li>
