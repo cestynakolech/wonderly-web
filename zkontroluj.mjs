@@ -4,7 +4,7 @@
 // Nic nemění, jen čte a hlásí. Konec s kódem 1 = něco je špatně.
 
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
-import { nactiData, maDelkovouNapovedu } from './testy/data.mjs';
+import { nactiData, maDelkovouNapovedu, vsechnaPodtemata } from './testy/data.mjs';
 import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
@@ -101,6 +101,10 @@ for (const [klic, otazky] of Object.entries(dataKvizy)) {
 const celkemOtazek = [...bloky.values()].reduce((s, b) => s + b.celkem, 0);
 const celkemNejdelsi = [...bloky.values()].reduce((s, b) => s + b.nejdelsi, 0);
 const podilNejdelsi = celkemOtazek ? Math.round((celkemNejdelsi / celkemOtazek) * 100) : 0;
+// Rohatka porovnávala ZAOKROUHLENÁ celá procenta, takže se do jednoho procenta vešlo
+// ~12 nových vadných otázek beze změny čísla (nález nezávislého auditu 1. 8. 2026).
+// Hlídá se proto POČET otázek s nápovědou — ten mrtvou zónu nemá.
+const pocetNejdelsi = celkemNejdelsi;
 const nejhorsi = [...bloky.entries()]
 	.filter(([, b]) => b.celkem >= 8 && b.nejdelsi / b.celkem >= 0.75)
 	.sort((a, b) => b[1].nejdelsi / b[1].celkem - a[1].nejdelsi / a[1].celkem)
@@ -118,16 +122,18 @@ if (podilNejdelsi > 45) {
 // neblokují, ale zhoršit se to už nesmí. Zlepšení laťku rovnou utáhne.
 const cestaRohatka = join(koren, 'testy/rohatka.json');
 const strop = existsSync(cestaRohatka) ? JSON.parse(readFileSync(cestaRohatka, 'utf8')) : null;
-if (strop && podilNejdelsi > strop.podilNejdelsi) {
+const stropPocet = strop?.pocetNejdelsi ?? Infinity;
+if (strop && (podilNejdelsi > strop.podilNejdelsi || pocetNejdelsi > stropPocet)) {
 	chyby.push(
-		`kvízy se zhoršily: správná odpověď je nejdelší u ${podilNejdelsi} % otázek, ` +
-			`naposledy ${strop.podilNejdelsi} %. Dorovnej délky odpovědí v NOVÝCH otázkách ` +
-			`(rozdíl pod 10 znaků). Laťku v testy/rohatka.json povoluj jen vědomě.`,
+		`kvízy se zhoršily: správná odpověď je nejdelší u ${pocetNejdelsi} otázek (${podilNejdelsi} %), ` +
+			`naposledy ${stropPocet === Infinity ? '—' : stropPocet} otázek (${strop.podilNejdelsi} %). ` +
+			`Dorovnej délky odpovědí v NOVÝCH otázkách (rozdíl pod 10 znaků). ` +
+			`Laťku v testy/rohatka.json povoluj jen vědomě.`,
 	);
-} else if (strop && podilNejdelsi < strop.podilNejdelsi) {
+} else if (strop && (podilNejdelsi < strop.podilNejdelsi || pocetNejdelsi < stropPocet)) {
 	writeFileSync(cestaRohatka, `${JSON.stringify(
-		{ ...strop, podilNejdelsi, zmeneno: new Date().toISOString().slice(0, 10) }, null, '\t')}\n`);
-	varovani.push(`kvízy se zlepšily na ${podilNejdelsi} % — laťka utažena (testy/rohatka.json).`);
+		{ ...strop, podilNejdelsi, pocetNejdelsi, zmeneno: new Date().toISOString().slice(0, 10) }, null, '\t')}\n`);
+	varovani.push(`kvízy se zlepšily na ${pocetNejdelsi} otázek (${podilNejdelsi} %) — laťka utažena (testy/rohatka.json).`);
 }
 
 // 6c) Každé podtéma s kvízem musí být zastoupené v ROČNÍM opakování svého ročníku.
@@ -135,12 +141,29 @@ if (strop && podilNejdelsi > strop.podilNejdelsi) {
 // podtémat, poslední témata se do opakování NIKDY nedostanou (fyzika 8 měla 35 podtémat
 // a strop 30, takže vypadával celý celek zvuk). Stejně tak stačí zapomenout celek
 // v seznamu (informatice takhle chybělo vex-iq a hry-ve-scratchi — 144 otázek).
+const chybiRocni = new Set();
 for (const [klic, otazky] of Object.entries(dataKvizy)) {
 	if (!Array.isArray(otazky) || !otazky.length) continue;
 	const [predmet, rocnik, tema] = klic.split('/');
 	if (tema === 'shrnuti') continue;
 	const rocni = dataKvizy[`${predmet}/${rocnik}/shrnuti/rocni-shrnuti`];
-	if (!Array.isArray(rocni)) continue;
+	// Dřív tu stálo `continue` — ročník BEZ ročního opakování tak kontrolu tiše obešel
+	// (nález nezávislého auditu 1. 8. 2026: stačil překlep v klíči a celému ročníku
+	// zmizelo roční opakování, aniž by brána cekla).
+	if (!Array.isArray(rocni)) {
+		if (!chybiRocni.has(`${predmet}/${rocnik}`)) {
+			chybiRocni.add(`${predmet}/${rocnik}`);
+			// Rozlišujeme dva různé případy. Když podtéma rocni-shrnuti v datech STRÁNEK je,
+			// ale kvíz k němu ne, je to překlep v klíči — a přesně tímhle podvrhem prošel
+			// audit 1. 8. 2026 celému ročníku bez povšimnutí. Tvrdá chyba.
+			// Když ročník žádné roční opakování nemá (malý předmět), je to jen varování.
+			const maStranku = vsechnaPodtemata(dataTemata).some((x) => x.klic === `${predmet}/${rocnik}/shrnuti/rocni-shrnuti`);
+			const hlaska = `${predmet}/${rocnik} má kvízy, ale žádné z nich se nedostane do ročního opakování`;
+			if (maStranku) chyby.push(`${hlaska} — stránka rocni-shrnuti EXISTUJE, ale kvíz k ní ne (překlep v klíči?)`);
+			else varovani.push(`${hlaska} (ročník nemá stránku shrnuti/rocni-shrnuti)`);
+		}
+		continue;
+	}
 	if (!otazky.some((o) => rocni.includes(o))) {
 		chyby.push(`${klic} se NIKDY nedostane do ročního opakování (zvyš strop nebo doplň celek do seznamu)`);
 	}
