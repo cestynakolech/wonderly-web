@@ -3952,6 +3952,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co všechno pozná akcelerometr?', odpovedi: ['zatřesení i naklonění', 'barvu předmětů před deskou', 'lidský hlas a zpěv'], vysvetleni: 'Akcelerometr měří pohyb — třes, náklon, otočení, volný pád.' },
 		{ text: 'Co program dělá, dokud událost nenastane?', odpovedi: ['čeká', 'vypne se', 'maže paměť'], vysvetleni: 'Program v bloku události nic nedělá a čeká — spustí se, teprve až událost přijde.' },
 		{ text: 'Proč se u elektronické kostky používá náhodné číslo?', odpovedi: ['aby padalo pokaždé jinak', 'aby byl program o něco kratší', 'aby deska méně žrala baterii'], vysvetleni: 'Bez náhody by kostka ukazovala pořád totéž a hra by nedávala smysl.' },
+		{ text: 'Čím se u zvuku liší micro:bit V2 od staršího V1?', odpovedi: ['V2 má reproduktor v sobě', 'V2 neumí přehrát žádný zvuk', 'V1 hraje hlasitěji než V2'], vysvetleni: 'V2 má reproduktor i mikrofon přímo na desce a zlaté logo funguje jako dotykové tlačítko; V1 potřebuje ke zvuku sluchátka nebo bzučák.' },
 		{ text: 'Náklonem měníš výšku tónu. Co je vstup a co výstup?', odpovedi: ['vstup náklon, výstup zvuk', 'vstup zvuk, výstup náklon', 'obojí je vstup desky'], vysvetleni: 'Senzor náklonu je vstup (deska tím vnímá), reproduktor či sluchátka jsou výstup.' },
 	],
 	'informatika/8-rocnik/microbit/propojeni-a-externi-zarizeni': [

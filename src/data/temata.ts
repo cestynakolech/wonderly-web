@@ -4665,6 +4665,8 @@ export const temata: Record<string, Tema[]> = {
 						<p>Bloky uvnitř události se nespustí hned. Program u nich <strong>čeká</strong> a rozběhne je, teprve až událost nastane — nic mezitím nemaže ani nevypíná. Deska přitom sleduje všechny své události zároveň, takže může mít vlastní blok pro tlačítko A, další pro zatřesení a další pro náklon.</p>
 						<h3>Zvuk a hudba</h3>
 						<p>Zvuk umí micro:bit přehrávat jako tóny a melodie — jde z něj naprogramovat <strong>hudební nástroj</strong>: náklonem měníš výšku tónu, tlačítkem hraješ. 🎵 Starší deska (V1) k tomu potřebuje připojená <strong>sluchátka nebo bzučák</strong>, novější <strong>V2</strong> má malý reproduktor přímo na sobě.</p>
+						<h3>V1, nebo V2? Poznáš to na první pohled</h3>
+						<p>Ve škole potkáš obě generace a <strong>program je pro obě stejný</strong> — jen zvuk se chová jinak. Novější <strong>V2</strong> poznáš podle tří věcí na zadní straně: je tam <strong>reproduktor</strong>, <strong>mikrofon</strong> (vedle něj svítí kontrolka, když deska poslouchá) a <strong>zlaté logo</strong> reaguje na dotek jako čtvrté tlačítko. Starší <strong>V1</strong> nic z toho nemá, a tak k melodii potřebuje sluchátka nebo bzučák připojený na kolíky.</p>
 						<h3>Nápady na vyzkoušení</h3>
 						<ul>
 							<li><strong>kámen–nůžky–papír</strong>: po zatřesení ukaž náhodný symbol</li>

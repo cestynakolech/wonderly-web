@@ -99,9 +99,10 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
    přesně od chvíle, kdy začal samostatný režim, takže se rozpočet kol řídí odhadem.
 
 **⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM (nesahal jsem na to):**
-- **micro:bit V1 × V2:** výklad i kvíz teď říkají, že zvuk potřebuje sluchátka nebo
-  bzučák (platí pro V1); V2 má reproduktor na desce. Otázka je nově formulovaná jako
-  „starší micro:bit (V1)". **Jaké desky má škola?** Podle toho se text doladí.
+- ~~micro:bit V1 × V2~~ — **VYŘÍZENO 1. 8. 2026: učitel odpověděl, že škola má OBĚ
+  generace.** Výklad proto nově učí, jak je poznat (V2 má na zadní straně reproduktor,
+  mikrofon s kontrolkou a dotykové zlaté logo; program je pro obě desky stejný)
+  a kvíz na ten rozdíl má vlastní otázku.
 - **Pracovní činnosti 6. ročník nemají roční opakování** — 2 podtémata, možná záměr.
 - **Topné spirály z konstantanu?** Výklad `elektricky-proud-v-kovech-odpor` uvádí
   konstantan. Ten se používá spíš na přesné rezistory a termočlánky; topná tělesa
