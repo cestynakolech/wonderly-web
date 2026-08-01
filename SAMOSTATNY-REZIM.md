@@ -52,14 +52,28 @@ prošla — žák by viděl scénu, kde silněji nabité pravítko přitahuje sl
 ověřuje přímá úměra s nábojem i pokles s **druhou mocninou** vzdálenosti. Doplněny
 i texty, které žák čte. Kontrol simulací celkem **244 → 265**.
 
+**e) Sjednocen vzorec, který byl v simulaci napsaný DVAKRÁT.** Mutační test ukázal, že
+změna rychlosti elektronů v kreslicím kódu `OdporVodiceSimulace` testem projde. Příčina:
+vzorec `110/(1+R)` byl v souboru dvakrát — jednou v kreslení a podruhé jako testovací
+háček `svg.__rychlost`. **Test tedy ověřoval opis, ne to, co žák vidí.** Nově je to jedna
+funkce a háček na ni jen ukazuje. *Pravidlo: testovací háček musí ukazovat na TÝŽ kód,
+jinak nekontroluje nic.*
+
+**Přeměřeno novou verzí nástroje** (poctivější čísla než stará):
+`elektrovani` **12/18** (bylo 4) · `odpor-vodice` **11/25** (bylo 8) · `zapojeni` 8/26 ·
+`reostat` 8/21 · `meridla` 7/15 · `souradnice` 7/25 · `led-displej` 6/12 ·
+`promenne` 6/15 · `tabulka-vzorce` 6/26. Kontrol simulací **244 → 273**.
+
 **FRONTA — čím pokračovat:**
-1. **Doměřit zbylé testy simulací** mutačním testem. Naměřeno 2. 8.:
-   `meridla` 1/4 · `odpor-vodice` 2/5 · `promenne` 2/4 · `led-displej` 2/4 ·
-   `tabulka-vzorce` 3/6 · `souradnice` 3/5 · `zapojeni` 4/6 · `reostat` 5/6.
-   (Čísla jsou ze staré verze nástroje, který mutoval jen první výskyt — **nová verze
-   dá jiná, poctivější čísla**, tak si je nech přeměřit.) Postup: `node testy/mutace.mjs
-   <název>` → podívat se, které neodhalené mutace jsou ve **fyzice/chování** (ty doplnit)
-   a které v čistém vizuálu (ty nechat být).
+1. **Doměřit zbylé testy simulací** — postup: `node testy/mutace.mjs <název>` → podívat
+   se, které neodhalené mutace jsou ve **fyzice a chování** (ty doplnit) a které v čistém
+   vizuálu (polohy, tloušťky čar, natočení — ty nechat být, testy nemají hlídat pixely).
+   Nízké procento samo o sobě neznamená špatný test; rozhoduje, CO uniká.
+   > **Poctivá poznámka k `tabulka-vzorce`:** doplnil jsem čtyři smysluplné kontroly
+   > výchozího stavu, ale **mutační číslo se nepohnulo (6/26)**. Háček `__hodnotaB`
+   > totiž bere kurz jako *parametr*, takže se přes něj skutečná výchozí hodnota
+   > `let kurz = 25` vůbec neuplatní. Aby šla ověřit, musela by atrapa DOM v testu
+   > sbírat vytvořené prvky a číst texty buněk. **Nedodělek, ne hotová věc.**
 2. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Výklad už
    mají všechna slušný, takže tohle je poslední velká obsahová mezera. Skillem `/simulace`.
 3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
