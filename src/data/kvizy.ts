@@ -4146,7 +4146,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Která souřadnice Pálky se během hry nemění?', odpovedi: ['y', 'x', 'obě se mění'], vysvetleni: 'Pálka jezdí jen doleva a doprava, výška zůstává stejná.' },
 		{ text: 'Kolik životů má hráč na začátku?', odpovedi: ['3', '1', '10'], vysvetleni: 'Životy se na startu nastaví na 3.' },
 		{ text: 'Jaký směr dostane míček na začátku?', odpovedi: ['45°', '90°', '180°'], vysvetleni: 'Míček vyráží ze středu šikmo pod úhlem 45°.' },
-		{ text: 'Jak se míček pohybuje po scéně?', odpovedi: ['jde dopředu a odráží se', 'klouže na náhodná místa', 'padá rovnou dolů k pálce'], vysvetleni: 'Opakuje se „dopředu o 10“ a „odraz se, když se dotýká okraje“.' },
+		{ text: 'Jak se míček pohybuje po scéně?', odpovedi: ['jde dopředu a odráží se', 'klouže na náhodná místa', 'padá rovnou dolů k pálce'], vysvetleni: 'Opakuje se „dopředu o 10 kroků“ a „když narazíš na okraj, odraz se“.' },
 		{ text: 'Co se stane, když míček trefí Pálku?', odpovedi: ['otočí se a skóre roste', 'hra okamžitě skončí', 'ubude jeden život'], vysvetleni: 'Míček se otočí o 180° s náhodnou odchylkou a skóre roste o 1.' },
 		{ text: 'Proč se k odrazu přidává náhodné číslo od −20 do 20?', odpovedi: ['aby hra nebyla nudná', 'aby míček zpomalil', 'aby se počítalo skóre'], vysvetleni: 'Bez náhody by se míček odrážel pořád stejně.' },
 		{ text: 'Kdy hráč přijde o život?', odpovedi: ['když míček proletí dolů', 'když se míček dotkne pálky', 'když skóre klesne pod nulu'], vysvetleni: 'Podmínka y < −175 znamená, že míček propadl pod pálku.' },

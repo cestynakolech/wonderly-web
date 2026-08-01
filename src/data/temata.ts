@@ -4175,9 +4175,9 @@ export const temata: Record<string, Tema[]> = {
 						<p>Podmínky jde spojovat do složitějších — ve Scratchi jsou na to zelené bloky:</p>
 						<ul>
 							<li><strong>a</strong> — platí, jen když platí <em>obě</em> podmínky
-								(<em>když se dotýká čáry A je rychlost &gt; 5</em>)</li>
+								(<em>když ⟨dotýkáš se (čára)?⟩ a ⟨rychlost &gt; 5⟩</em>)</li>
 							<li><strong>nebo</strong> — stačí, aby platila <em>aspoň jedna</em>
-								(<em>když se dotýká červené NEBO modré</em> → skonči)</li>
+								(<em>když ⟨dotýkáš se barvy (červená)?⟩ nebo ⟨dotýkáš se barvy (modrá)?⟩</em> → skonči)</li>
 							<li><strong>ne</strong> — otočí platnost naruby: <em>ne &lt;dotýkáš se okraje?&gt;</em> je splněné
 								právě tehdy, když se postava okraje <em>ne</em>dotýká</li>
 						</ul>
@@ -4399,7 +4399,7 @@ export const temata: Record<string, Tema[]> = {
 						<li>po kliknutí na vlajku → nastav skóre na 0</li>
 						<li>skoč na náhodné x, y = 170 (nahoru)</li>
 						<li>opakuj stále: změň y o −5 (padá)</li>
-						<li>když se dotýká Košíku → změň skóre o 1, zahraj zvuk, skoč zpět nahoru na náhodné x</li>
+						<li>když ⟨dotýkáš se (Košík)?⟩ → změň skóre o 1, zahraj zvuk, skoč zpět nahoru na náhodné x</li>
 						<li>když y &lt; −170 (spadlo na zem) → skoč zpět nahoru na náhodné x</li>
 						</ol>
 						<h3>💡 Vylepšení pro šikovné</h3>
@@ -4426,21 +4426,49 @@ export const temata: Record<string, Tema[]> = {
 						<li>malá postava <strong>Hráč</strong> (zmenši na 30–50 %)</li>
 						<li>postava <strong>Cíl</strong> (dveře, poklad…)</li>
 						</ul>
-						<h3>Scénář Hráče — pohyb</h3>
+						<h3>Scénář Hráče — pohyb (a hned kontrola zdi)</h3>
+						<p>Čtyři stejně stavěné scénáře, pro každou šipku jeden. Pohyb a kontrola patří
+						<strong>k sobě</strong> — proto je návrat hned pod pohybem:</p>
 						<ol>
-						<li>po stisku šipky nahoru → změň y o 5 (a stejně pro další 3 šipky)</li>
+						<li>po stisku klávesy (šipka nahoru) → změň y o 5; když ⟨dotýkáš se barvy (černá)?⟩ → změň y o −5</li>
+						<li>po stisku klávesy (šipka dolů) → změň y o −5; když ⟨dotýkáš se barvy (černá)?⟩ → změň y o 5</li>
+						<li>po stisku klávesy (šipka vlevo) → změň x o −5; když ⟨dotýkáš se barvy (černá)?⟩ → změň x o 5</li>
+						<li>po stisku klávesy (šipka vpravo) → změň x o 5; když ⟨dotýkáš se barvy (černá)?⟩ → změň x o −5</li>
 						</ol>
-						<h3>Scénář Hráče — zdi</h3>
+						<h3>Scénář Hráče — start a cíl</h3>
 						<ol>
-						<li>po kliknutí na vlajku → skoč na start, opakuj stále:</li>
-						<li>když se dotýká černé barvy → jdi zpět (změň x/y opačně, nebo skoč na start — přísnější verze!)</li>
-						<li>když se dotýká Cíle → bublina „Vyhráls!", zastav (všechno)</li>
+						<li>po kliknutí na vlajku → skoč na x: ( ) y: ( ) (na start), opakuj stále:</li>
+						<li>když ⟨dotýkáš se (Cíl)?⟩ → bublina „Vyhráls!", zastav (všechno)</li>
 						</ol>
+						<p>👉 <strong>Přísnější verze:</strong> místo návratu o krok zpět dej za dotyk zdi
+						⟨skoč na x: ( ) y: ( )⟩ na start. Jedno škrtnutí o zeď a jde se od začátku!</p>
+						<h3>Co se tu vlastně učíš</h3>
+						<p>Bludiště v počítači <strong>není bludiště</strong>. Žádná zeď v programu neexistuje — je to jen
+						obrázek pozadí. Postava proto do zdi normálně vjede a program teprve <em>potom</em> zjistí,
+						že pod ní svítí černá barva, a vrátí ji zpátky. Této dvojici kroků
+						(<strong>proveď pohyb → zkontroluj → uklid'</strong>) se říká <strong>detekce a řešení kolize</strong>
+						a stojí na ní úplně každá hra, i ta na mobilu.</p>
+						<p>Zeď se pozná <strong>podle barvy</strong> blokem ⟨dotýkáš se barvy ( )?⟩ — barvu do něj naber
+						<strong>kapátkem</strong> přímo z bludiště, ne od oka z palety. Stačí odstín o chlup jiný a blok
+						mlčí, i když zeď vypadá stejně. Proto ta rada kreslit zdi <strong>jedinou</strong> barvou.</p>
+						<h3>⚠️ Tři chyby, které dělá skoro každý</h3>
+						<ul>
+						<li><strong>Postava projede zdí.</strong> Blok se ptá až na to, kde postava skončila — když je krok
+						větší než zeď tlustá, přeskočí ji celou a program nic nepozná. Buď krok zmenši, nebo zdi ztluštit.</li>
+						<li><strong>Kontrola je daleko od pohybu.</strong> Nejčastější chyba téhle hry: pohyb je ve čtyřech
+						scénářích u šipek, ale návrat po nárazu si někdo dá zvlášť do ⟨opakuj stále⟩. Tam ale program
+						<em>vůbec neví, kudy postava šla</em> — a nemá jak ji vrátit správným směrem. Proto patří
+						návrat vždy hned pod ten pohyb, který ho způsobil.</li>
+						<li><strong>Návrat opačným směrem, než byl pohyb.</strong> Když se postava po každém dotyku vrací
+						pořád stejně (třeba vždy dolů), zasekne se ve zdi. Ke „změň y o 5" patří návrat „změň y o −5",
+						ne jiný.</li>
+						</ul>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
 						<li>přidej <strong>stopky</strong> (proměnná čas) — kdo projde nejrychleji?</li>
-						<li>více úrovní: po dosažení cíle přepni na další pozadí s těžším bludištěm</li>
-						<li>přidej hlídače, který se pohybuje po chodbě klouzáním (blok „klouzej") — dotyk = návrat na start</li>
+						<li>více úrovní: po dosažení cíle nedávej ⟨zastav (všechno)⟩, ale přepni na další pozadí
+						s těžším bludištěm a pošli hráče zpátky na start — po „zastav (všechno)" by se už nic nepřepnulo</li>
+						<li>přidej hlídače, který se pohybuje po chodbě blokem ⟨klouzej ( ) sekund na x: ( ) y: ( )⟩ — dotyk = návrat na start</li>
 						</ul>
 					`,
 					odkazy: [
@@ -4577,16 +4605,31 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Výstupy robota</h2>
 						<p><strong>Výstupní zařízení</strong> = vše, čím robot působí na okolí: motory, displej, reproduktor, světla.</p>
+						<p>Je to přesný opak <strong>vstupů</strong> — čidel a tlačítek, kterými robot okolí <em>vnímá</em>.
+						Mezi vstupy a výstupy sedí program a rozhoduje: <em>vidím překážku</em> (vstup) →
+						<em>zastav a pípni</em> (výstup). Úplně stejně je stavěný počítač i tvůj mobil:
+						vstup → zpracování → výstup.</p>
 						<h3>Přesná jízda</h3>
 						<ul>
 							<li>jízda <strong>na čas</strong> (2 s vpřed) × jízda <strong>na otáčky</strong> (přesnější — 1 otáčka kola = přesná vzdálenost)</li>
-							<li>👉 proč je čas nespolehlivý: po koberci kola prokluzují a robot za stejné 2 s ujede kratší dráhu než po hladké podlaze; vybitá baterie ho zpomalí taky. Otáčka kola je přitom pořád stejně dlouhá, ať jede po čemkoli.</li>
+							<li>👉 proč je čas nespolehlivý: vybitá baterie robota zpomalí, takže za stejné 2 s ujede kratší dráhu; po koberci ho brzdí i větší tření. Otáčky měří, kolik se kolo <strong>opravdu otočilo</strong>, takže si s vybitou baterií i s odporem podložky poradí. Pozor ale: když kolo <strong>prokluzuje</strong> (točí se na místě), ošidí i otáčky — otáčka je pak sice stejná, ale robot se pod ní neposune.</li>
 							<li>zatáčení: každý motor jinak rychle — rozdíl rychlostí stáčí robota do oblouku, jeden motor vpřed a druhý vzad ho otočí na místě</li>
 							<li><strong>opakování</strong>: čtverec = 4× (rovně + otočka o 90°, protože 360° děleno 4 stranami je 90° na roh)</li>
 						</ul>
 						<h3>Displej a zvuk</h3>
 						<p>Robot umí na displeji ukázat obrázek či text a přehrát zvuk — skvělé pro hlášení stavu: „našel jsem čáru!", smajlík při cíli, houkání při couvání. 🤖</p>
 						<p>👉 Vyzkoušej: robot objede čtverec a v každém rohu pípne. Blok zvuku musí být <strong>uvnitř opakování</strong> — jen tam proběhne 4×. Před opakováním by pípl jednou na začátku, za ním jednou na konci.</p>
+						<h3>Displej je okno do hlavy robota</h3>
+						<p>Displej má ještě jedno použití, kvůli kterému ho profesionálové milují: <strong>hledání chyb</strong>.
+						Robot se ti nepokazí nahlas — prostě jede jinam, než chceš, a mlčí o tom. Nech si na displej
+						vypisovat <strong>hodnotu čidla</strong> a rázem vidíš, co robot doopravdy vnímá.</p>
+						<p>Typický příběh z hodiny: robot má zastavit 20 cm před zdí, ale nabourá. Program vypadá
+						správně. Na displeji se ale ukáže, že čidlo hlásí pořád stejné velké číslo — a je jasné,
+						že problém není v programu, ale v čidle: kouká někam vedle, nebo je ve špatném portu.
+						<strong>Bez displeje bys přepisoval(a) program, který je celou dobu v pořádku.</strong></p>
+						<p>👉 Zvuk se hodí na totéž, jen „naslepo": robot pípne pokaždé, když projde určitým místem
+						programu. Když nepípne, víš, že se tam vůbec nedostal — třeba proto, že podmínka nikdy
+						nebyla splněná. Robot ti tím ukáže, kudy program běžel, i když ho máš na zemi přes půl třídy.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a> (NPI ČR), kap. 3–6.</p>
 					`,
 					odkazy: [
@@ -4848,25 +4891,59 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 						<li>postava <strong>Pálka</strong> (protáhlý obdélník) dole</li>
 						<li>postava <strong>Míček</strong></li>
+						<li><strong>pozadí</strong>: úplně dole přes celou šířku <strong>červený pruh</strong> — propadliště
+						(proč zrovna takhle, se dozvíš níž)</li>
 						<li>proměnné <strong>skóre</strong> a <strong>životy</strong></li>
 						</ul>
 						<h3>Scénář Pálky</h3>
 						<ol>
-						<li>po kliknutí na vlajku → opakuj stále: nastav x na x ukazatele myši (pálka jezdí za myší, y se nemění)</li>
+						<li>po kliknutí na vlajku → opakuj stále: nastav x na (x myši) — pálka jezdí za myší, y se nemění</li>
 						</ol>
 						<h3>Scénář Míčku</h3>
 						<ol>
-						<li>po kliknutí na vlajku → nastav skóre 0, životy 3, skoč do středu, nastav směr 45°</li>
-						<li>opakuj stále: dopředu o 10, odraz se, když se dotýká okraje</li>
-						<li>když se dotýká Pálky → otoč se o 180° + náhodně −20 až 20 (ať to není nuda), změň skóre o 1</li>
-						<li>když y &lt; −175 (proletěl dolů) → změň životy o −1, skoč do středu, čekej 1 s</li>
-						<li>když životy = 0 → bublina „Konec hry! Skóre: " + skóre, zastav (všechno)</li>
+						<li>po kliknutí na vlajku → nastav skóre na 0, nastav životy na 3, skoč na x: 0 y: 0, nastav směr (45)</li>
+						<li>opakuj stále: dopředu o 10 kroků, když narazíš na okraj, odraz se</li>
+						<li>když ⟨dotýkáš se (Pálka)?⟩ → otoč se ↻ o ⟨(180) + ⟨náhodné číslo od (−20) do (20)⟩⟩ stupňů (ať to není nuda), dopředu o 15 kroků, změň skóre o 1</li>
+						<li>když ⟨dotýkáš se barvy (červená)?⟩ (proletěl dolů do propadliště) → změň životy o −1, skoč na x: 0 y: 0, čekej 1 sekund</li>
+						<li>když životy = 0 → bublina ⟨spoj („Konec hry! Skóre: ") (skóre)⟩, zastav (všechno)</li>
 						</ol>
+						<h3>Co se tu vlastně učíš</h3>
+						<p>V každé hře jsou dva druhy postav a ping-pong je má hezky vedle sebe. <strong>Pálka</strong>
+						nic nerozhoduje — jen opisuje, kde je myš. <strong>Míček</strong> naopak jede sám a program mu
+						pořád dokola říká jedno: <em>popojeď a rozhlédni se</em>. Tomu opakování se říká
+						<strong>herní smyčka</strong> a je v každé hře, kterou kdy uvidíš.</p>
+						<p>Druhá věc: ve Scratchi se <strong>nelétá po souřadnicích, ale po směru</strong>. Míček má svůj
+						směr (0 = vzhůru, 90 = doprava) a blok ⟨dopředu o ( ) kroků⟩ ho posune tam, kam kouká.
+						Proto se odraz nedělá „skočením jinam", ale <strong>otočením směru</strong> — a od okraje to
+						umí Scratch sám blokem ⟨když narazíš na okraj, odraz se⟩.</p>
+						<p><strong>Skóre a životy jsou proměnné</strong> — paměť hry. Všimni si, že se obě nastavují
+						hned na začátku. Bez toho by druhá hra začala s výsledkem té první.</p>
+						<h3>⚠️ Proč se míček „lepí" na pálku</h3>
+						<p>Nejčastější chyba téhle hry: míček se dotkne pálky, otočí se o 180° — a protože se pálky
+						pořád ještě dotýká, hned v dalším kole se otočí zase. Kmitá na místě a skóre šílí.
+						Proto je ve scénáři po otočení ještě <strong>dopředu o 15 kroků</strong>: míček z pálky
+						nejdřív odjede, a teprve pak se ptá znovu.</p>
+						<h3>⚠️ A proč to červené propadliště</h3>
+						<p>Napadlo tě, že by stačilo napsat <em>když y &lt; −175 → ubyde život</em>? Vypadá to
+						rozumně a <strong>hra by přesto nikdy neskončila</strong>. Blok ⟨když narazíš na okraj,
+						odraz se⟩ totiž odráží od <em>všech</em> okrajů — i od toho dolního. Míček se ode dna
+						odrazí dřív, než stihne na −175 klesnout, a hraje se donekonečna.</p>
+						<p>Spočítej si to: scéna sahá k y = −180 a odraz nastane, jakmile míček dolní okraj přesáhne.
+						Míček velký 30 bodů se tedy nejníž dostane se středem na <strong>−165</strong>, čtyřicetibodový
+						dokonce jen na −160. Podmínka „y &lt; −175" nevyjde ani jednou.</p>
+						<p>Červený pruh tenhle spor řeší jednoduše: míček se ho dotkne <em>cestou dolů</em>,
+						ještě než se stačí od dna odrazit — a je jedno, jak je velký. 👉 Zapamatuj si to jako
+						pravidlo: <strong>když se dvě pravidla ve hře perou, vyhraje to rychlejší z nich.</strong></p>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
-						<li>míček zrychluje se skóre (dopředu o 10 + skóre/5)</li>
+						<li>míček zrychluje se skóre: za každých 10 bodů přidej 1 krok
+						(⟨dopředu o ⟨(10) + ⟨(skóre) / (10)⟩⟩ kroků⟩ — po deseti bodech 11, po dvaceti 12…)</li>
 						<li>dvouhráčová verze: druhá pálka nahoře na klávesy A/D</li>
 						<li>bonusové cihly nahoře, které mizí po zásahu (jako Arkanoid)</li>
+						<li><strong>poctivější odraz:</strong> otočka o 180° pošle míček přesně tam, odkud přiletěl —
+						ve skutečnosti se tak odrazí jen míček, který narazil kolmo. Opravdový odraz od pálky obrací
+						jen pohyb nahoru–dolů, a hlavně: čím dál od středu pálky míček trefí, tím šikměji se má
+						odrazit. Zkus směr počítat z rozdílu x míčku a x pálky. Hra tím rázem dostane taktiku.</li>
 						</ul>
 					`,
 					odkazy: [
@@ -4886,25 +4963,54 @@ export const temata: Record<string, Tema[]> = {
 						<li>postava <strong>Střela</strong> (malá tečka), postava <strong>Meteor</strong></li>
 						<li>proměnné <strong>skóre</strong> a <strong>životy</strong></li>
 						</ul>
+						<h3>Scénář Rakety</h3>
+						<ol>
+						<li>po kliknutí na vlajku → nastav skóre na 0, nastav životy na 3, skoč na x: 0 y: (−140)</li>
+						<li>opakuj stále: když ⟨klávesa (šipka vlevo) stisknuta?⟩ → změň x o −8;
+						když ⟨klávesa (šipka vpravo) stisknuta?⟩ → změň x o 8</li>
+						<li>když životy = 0 → bublina ⟨spoj („Konec! Skóre: ") (skóre)⟩, zastav (všechno)</li>
+						</ol>
 						<h3>Scénář Střely</h3>
 						<ol>
-						<li>po startu se <strong>schovej</strong> (originál nikdy nevidíme — létají jen klony)</li>
-						<li>po stisku mezerníku → klonuj (sebe)</li>
-						<li>když startuji jako klon → ukaž se, skoč na Raketu, opakuj: změň y o 15; když y &gt; 175 → smaž klon</li>
+						<li>po kliknutí na vlajku → <strong>skryj se</strong> (originál nikdy nevidíme — létají jen klony)</li>
+						<li>po stisku klávesy (mezerník) → klonuj (sebe)</li>
+						<li>když startuje můj klon → ukaž se, skoč na (Raketa), opakuj stále: změň y o 15; když y &gt; 175 → zruš tento klon</li>
 						</ol>
 						<h3>Scénář Meteoru</h3>
 						<ol>
-						<li>po startu se schovej; opakuj stále: čekej 1 sekund, klonuj (sebe)</li>
-						<li>klon: ukaž se, skoč nahoru na náhodné x, opakuj: změň y o −4</li>
-						<li>když se klon dotýká Střely → změň skóre o 1, smaž klon (střela zmizí sama dole)</li>
-						<li>když se klon dotýká Rakety → změň životy o −1, smaž klon</li>
-						<li>když y &lt; −175 → smaž klon</li>
+						<li>po kliknutí na vlajku → skryj se; opakuj stále: čekej 1 sekund, klonuj (sebe)</li>
+						<li>když startuje můj klon → ukaž se, skoč na x: ⟨náhodné číslo od (−200) do (200)⟩ y: 180, opakuj stále: změň y o −4</li>
+						<li>když ⟨dotýkáš se (Střela)?⟩ → změň skóre o 1, zruš tento klon (střela zmizí sama nahoře)</li>
+						<li>když ⟨dotýkáš se (Raketa)?⟩ → změň životy o −1, zruš tento klon</li>
+						<li>když y &lt; −175 → zruš tento klon</li>
 						</ol>
+						<h3>Co je klonování a proč je tak důležité</h3>
+						<p>Střel je za hru stovky a meteorů taky. Vyrobit stovky postav ručně nejde — a nemuselo by
+						to ani pomoct, protože předem nevíš, kolikrát hráč stiskne mezerník. <strong>Klon</strong>
+						je kopie postavy, kterou si program vyrobí <em>až za běhu</em>, přesně když ji potřebuje.</p>
+						<p>Nejdůležitější je tohle: <strong>klon si spustí vlastní program</strong> pod hlavičkou
+						⟨když startuje můj klon⟩ a od té chvíle si žije sám. Dvacet střel ve vzduchu = dvacet
+						programů běžících najednou, každý si pamatuje svou vlastní polohu. Ty jsi přitom napsal
+						scénář jen <strong>jednou</strong>.</p>
+						<p>Klon vzniká jako přesná kopie originálu <em>v tom okamžiku</em> — se stejným vzhledem,
+						velikostí i směrem. A protože originál je skrytý, je skrytý i klon: proto na sebe každý
+						klon musí hned zavolat ⟨ukaž se⟩.</p>
+						<h3>⚠️ Klon po sobě musí uklidit</h3>
+						<p>Scratch udrží najednou nejvýš <strong>300 klonů</strong>. Když je jich tolik, blok ⟨klonuj (sebe)⟩
+						už prostě <em>nic neudělá</em> — a nic nehlásí. Zapomenutý ⟨zruš tento klon⟩ se pozná takhle:
+						hra chvíli šlape, pak přestane střílet a nikdo neví proč. Proto má každý klon ve scénáři
+						svůj konec: střela nad horním okrajem, meteor pod dolním, oba při zásahu.</p>
+						<p>👉 Skrytý klon <strong>není zrušený klon</strong>. Když ho jen skryješ, dál se počítá do těch
+						300 a dál mu běží program. Zmizet z očí a přestat existovat jsou dvě různé věci.</p>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
-						<li>meteory se objevují stále rychleji (čekej 1/(1 + skóre/20) s)</li>
+						<li>meteory se objevují stále rychleji: začni na 3 sekundách a za každých 10 bodů
+						jednu ubírej, ale nikdy pod 1 (⟨čekej ⟨(3) − ⟨(skóre) / (10)⟩⟩ sekund⟩ — po deseti bodech
+						2 sekundy, po dvaceti 1)</li>
 						<li>zvuky výstřelu a výbuchu, pozadí s hvězdami</li>
-						<li>velký meteor vydrží dva zásahy (klonová proměnná „síla")</li>
+						<li>velký meteor vydrží dva zásahy — použij proměnnou <strong>jen pro tuto postavu</strong>
+						(„síla"): každý klon jich má vlastní kopii, takže si každý meteor počítá své vlastní zásahy.
+						Kdyby byla proměnná společná pro všechny, sdílelo by ji všech dvacet meteorů naráz.</li>
 						</ul>
 					`,
 					odkazy: [
@@ -4922,25 +5028,57 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 						<li>postava <strong>Běžec</strong> vlevo dole (stojí na místě, „běží" svět kolem)</li>
 						<li>postava <strong>Kaktus</strong> (překážka)</li>
-						<li>proměnné <strong>rychlostY</strong> a <strong>skóre</strong></li>
+						<li>postava <strong>Země</strong> — široký nízký pruh přes celou scénu, po kterém se běží</li>
+						<li>proměnné <strong>rychlostY</strong>, <strong>skóre</strong> a <strong>výška země</strong>
+						(nastav ji na y, ve kterém Běžec stojí — třeba −100)</li>
 						</ul>
 						<h3>Scénář Běžce — gravitace</h3>
 						<ol>
 						<li>po kliknutí na vlajku → nastav rychlostY na 0</li>
 						<li>opakuj stále: změň rychlostY o −1 (tíže táhne dolů), změň y o rychlostY</li>
-						<li>když se dotýká země (čára dole) → nastav rychlostY na 0, srovnej y</li>
-						<li>po stisku mezerníku → když stojí na zemi → nastav rychlostY na 12 (výskok!)</li>
+						<li>když ⟨dotýkáš se (Země)?⟩ → nastav rychlostY na 0, nastav y na (výška země)</li>
+						<li>po stisku klávesy (mezerník) → když ⟨(y) = (výška země)⟩ (stojí na zemi) → nastav rychlostY na 12 (výskok!)</li>
 						</ol>
 						<h3>Scénář Kaktusu</h3>
 						<ol>
-						<li>po kliknutí na vlajku → opakuj stále: skoč vpravo (x = 240), klouzej doleva; když x &lt; −240, skoč zase vpravo</li>
-						<li>když se dotýká Běžce → bublina „Konec! Skóre: " + skóre, zastav (všechno)</li>
-						<li>skóre roste s časem (změň skóre o 1 každou sekundu)</li>
+						<li>po kliknutí na vlajku → opakuj stále: skoč na x: 240 y: (výška země), klouzej 2 sekund na x: (−240) y: (výška země)</li>
+						<li>když ⟨dotýkáš se (Běžec)?⟩ → bublina ⟨spoj („Konec! Skóre: ") (skóre)⟩, zastav (všechno)</li>
+						<li>skóre roste s časem (opakuj stále: čekej 1 sekund, změň skóre o 1)</li>
 						</ol>
+						<h3>Co se tu vlastně učíš: gravitace</h3>
+						<p>Skoro každý začátečník napíše skok takhle: <em>změň y o 50, čekej, změň y o −50</em>.
+						Postava vyskočí — ale vypadá to jako výtah. Skutečný skok je oblouk: nahoru se zpomaluje
+						a dolů zase zrychluje. A ten oblouk nejde nakreslit, ten musí <strong>vyjít sám</strong>.</p>
+						<p>Trik je v tom, že se nepočítá poloha, ale <strong>rychlost — a ta je proměnná</strong>.
+						Tíže nestahuje postavu dolů; tíže jí každé kolo <em>ubere kousek rychlosti</em>. Teprve
+						rychlost pak posune postavu:</p>
+						<ul>
+						<li>výskok nastaví rychlostY na 12,</li>
+						<li>každé kolo: rychlostY o 1 menší (11, 10, 9 … 1, 0, −1, −2 …),</li>
+						<li>a y se pokaždé změní právě o tuhle rychlost.</li>
+						</ul>
+						<p>Postava tak stoupá čím dál pomaleji, ve <strong>vrcholu se na okamžik zastaví</strong>
+						(rychlost 0) a pak padá čím dál rychleji. Nikdo to nenaprogramoval — vyšlo to samo
+						z jednoho odečítání. Spočítej si to: 11 + 10 + 9 + … + 1 = <strong>66 bodů</strong> vysoko,
+						nahoře je v 11. kole a na zemi zpátky ve 23.</p>
+						<p>💡 A tohle není trik ze Scratche — přesně takhle padá i skutečný kámen. Ve fyzice
+						se tomu říká <strong>rovnoměrně zrychlený pohyb</strong>: tíže nemění polohu, mění rychlost.</p>
+						<h3>⚠️ Dvě pasti</h3>
+						<ul>
+						<li><strong>Skákání ve vzduchu.</strong> Bez podmínky „když stojí na zemi" si hráč mačkáním
+						mezerníku doplňuje rychlost pořád dokola a odletí ze scény. Skočit smí jen ten, kdo stojí.</li>
+						<li><strong>Propadnutí zemí.</strong> Postava padá čím dál rychleji (u našeho skoku dopadá
+						rychlostí −11) — a když je země tenká čára, v jednom kole ji celou přeskočí a padá dál.
+						Proto se po dopadu y <em>nastaví</em> přímo na výšku země; zastavit rychlost nestačí.</li>
+						</ul>
+						<p>Poslední věc: <strong>Běžec nikam neběží.</strong> Stojí vlevo na místě a pohybuje se svět
+						kolem něj. Tenhle obrat používá skoro každá běhací hra — je totiž mnohem snazší posouvat
+						pár kaktusů než celou krajinu za hrdinou.</p>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
 						<li>překážky zrychlují se skóre; občas letí i pták (nutné se přikrčit)</li>
-						<li>střídání dne a noci (pozadí), rekord v localStorage… tedy v proměnné „rekord" 🙂</li>
+						<li>střídání dne a noci (pozadí) a <strong>rekord</strong>: proměnnou nastav jen tehdy,
+						když je skóre větší — a hlavně ji na startu hry <em>ne</em>nuluj, jinak žádný rekord nevznikne</li>
 						</ul>
 					`,
 					odkazy: [
@@ -4975,7 +5113,21 @@ export const temata: Record<string, Tema[]> = {
 						<li>🧠 <strong>jednat sám</strong> — program rozhoduje podle čidel (autonomní režim)</li>
 						</ul>
 						<h3>Programování — VEXcode IQ</h3>
-						<p>Programuje se v prohlížeči přes <strong>VEXcode IQ</strong> — bloky vypadají <strong>skoro stejně jako Scratch</strong>: opakování, podmínky, události, proměnné. Co umíš ze Scratche, použiješ i tady! Kdo chce víc, může přepnout na Python.</p>
+						<p>Programuje se ve <strong>VEXcode IQ</strong> — my ho pouštíme rovnou v prohlížeči, existuje ale i verze k nainstalování do počítače. Bloky vypadají <strong>skoro stejně jako Scratch</strong>: opakování, podmínky, události, proměnné. Co umíš ze Scratche, použiješ i tady! Kdo chce víc, může přepnout na Python.</p>
+						<h3>Jeden rozdíl proti Scratchi, který musíš vědět</h3>
+						<p>Ve Scratchi program <strong>běží v prohlížeči</strong> a ty se na něj koukáš. Tady je to jinak:
+						hotový program se do robota <strong>stáhne</strong> (kabelem, nebo bezdrátově přes rádio) a od té
+						chvíle běží <strong>uvnitř robota</strong>. Počítač můžeš klidně zavřít a odnést — robot jede dál,
+						protože program má v sobě.</p>
+						<p>Z toho plyne pár věcí, které ve Scratchi neřešíš:</p>
+						<ul>
+						<li><strong>Změna v počítači se robota nedotkne</strong>, dokud ji tam znovu nestáhneš. Většina
+						záhad typu „opravil jsem to a on dělá pořád totéž" je přesně tohle.</li>
+						<li><strong>Robot ti nemůže vypsat chybu na obrazovku</strong> — musíš se ptát jeho displeje.</li>
+						<li><strong>Robot je na baterku.</strong> Docházející baterie program nezastaví — jen zpomalí
+						motory, takže robot začne zatáčet jinak a jezdit kratší dráhy (úplně vybitá ho pak vypne
+						celého). Když se přesná jízda „bez příčiny" zhorší, nejdřív se podívej na stav nabití.</li>
+						</ul>
 						<h3>Soutěže</h3>
 						<p>S roboty VEX IQ se jezdí i celosvětová soutěž <strong>VEX IQ Robotics Competition</strong> — každý rok nová hra, týmy sbírají body jízdou i autonomními programy.</p>
 					`,

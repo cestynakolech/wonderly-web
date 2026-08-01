@@ -35,10 +35,32 @@ export const ZAKAZANE = [
 	{ vzor: 'zastav vše', spravne: 'zastav (všechno)', zdroj: 'CONTROL_STOP = zastav + CONTROL_STOP_ALL = všechno' },
 	// Přibylo 1. 8. 2026 při psaní výkladu opakování s podmínkou — web učil „dotýká se
 	// okraje?" a „je stisknuta klávesa", jenže paleta má obojí jinak (2. osoba, jiné pořadí).
-	{ vzor: 'dotýká se', spravne: 'dotýkáš se ( )?', zdroj: 'SENSING_TOUCHINGOBJECT = dotýkáš se %1?' },
+	//
+	// ⚠️ 2. 8. 2026 se ukázalo, že vzor „dotýká se" byl PRAKTICKY MRTVÝ: čeština staví
+	// zvratné „se" před sloveso („když SE DOTÝKÁ okraje"), takže tvar psaný v opačném
+	// pořadí se v textech skoro nevyskytuje. Měřidlo hlásilo 0 nálezů, a přitom stejnou
+	// vadu neslo pět stránek. Rozhoduje tedy TVAR SLOVESA (blok má 2. osobu „dotýkáš"),
+	// ne slovosled — proto se hlídá 3. osoba „dotýká" bez koncového „š".
+	//
+	// Zúženo na „KDYŽ se dotýká …", protože samotné „dotýká" hlásilo i zdravou větu
+	// „postava se okraje dotýká", která o významu podmínky mluví česky a žádný blok
+	// nepojmenovává. Rozlišuje podmět: ve scénáři žádný není („když se dotýká okraje"),
+	// ve větě ano („když se postava okraje dotýká").
+	{ vzor: /když se dotýká|dotýká se [a-záčďéěíňóřšťúůýž]/, spravne: 'dotýkáš se ( )?', zdroj: 'SENSING_TOUCHINGOBJECT = dotýkáš se %1?' },
 	{ vzor: 'je stisknuta klávesa', spravne: 'klávesa ( ) stisknuta?', zdroj: 'SENSING_KEYPRESSED = klávesa %1 stisknuta?' },
 	{ vzor: 'vytvoř klon', spravne: 'klonuj (sebe)', zdroj: 'CONTROL_CREATECLONEOF = klonuj %1' },
-	{ vzor: 'smaž tento klon', spravne: 'zruš tento klon', zdroj: 'CONTROL_DELETETHISCLONE = zruš tento klon' },
+	{ vzor: /smaž\s+(ten(to)?\s+)?klon/, spravne: 'zruš tento klon', zdroj: 'CONTROL_DELETETHISCLONE = zruš tento klon' },
+	// Další čtyři vzory dohledané 2. 8. 2026 v oficiální lokalizaci při psaní výkladů her.
+	// Všechny čtyři byly na webu opravdu špatně — proto tu jsou i s tím, co je nahradilo.
+	{ vzor: 'startuji jako klon', spravne: 'když startuje můj klon', zdroj: 'CONTROL_STARTASCLONE = když startuje můj klon' },
+	{ vzor: /odraz se,? když/, spravne: 'když narazíš na okraj, odraz se', zdroj: 'MOTION_IFONEDGEBOUNCE = když narazíš na okraj, odraz se' },
+	{ vzor: 'schovej', spravne: 'skryj se', zdroj: 'LOOKS_HIDE = skryj se' },
+	{ vzor: /([xy]) ukazatele myši/, spravne: 'x myši / y myši', zdroj: 'SENSING_MOUSEX = x myši, SENSING_MOUSEY = y myši' },
+	// Nález nezávislého kontrolora 2. 8. 2026, a byla to tichá vada: dvě stránky skládaly
+	// hlášku jako „Konec! Skóre: " + skóre. Ve Scratchi je „+" POČETNÍ blok — text se v něm
+	// bere jako nula, takže by se žákovi vypsalo holé číslo bez nápisu. Na spojování textu
+	// je vlastní blok „spoj". Hlídá se text v uvozovkách, za kterým následuje plus.
+	{ vzor: /[„"][^„"]*[""]\s*\+/, spravne: 'spoj ( ) ( )', zdroj: 'OPERATORS_JOIN = spoj %1 %2 (OPERATORS_ADD = %1 + %2 je počty)' },
 	{ vzor: 'pero dolů', spravne: 'pero zapni', zdroj: 'pen_penDown = pero zapni' },
 	{ vzor: 'pero nahoru', spravne: 'pero vypni', zdroj: 'pen_penUp = pero vypni' },
 	{ vzor: 'a zároveň (', spravne: 'a', zdroj: 'OPERATORS_AND = %1 a %2' },
