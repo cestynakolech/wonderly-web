@@ -5,6 +5,7 @@
 
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { nactiData, maDelkovouNapovedu } from './testy/data.mjs';
+import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -179,7 +180,16 @@ for (const soubor of rokySoubory) {
 	}
 }
 
+// 7b) POPISKY NA MAPÁCH DENÍKU (31. 7. 2026). Jména míst se na mapě roku umísťují
+// automaticky a okem se překryv nepozná — pohledů je 182. Kontrola je spočítá:
+// obdélník textu proti jinému textu, proti tečkám míst, odznakům shluků, domečku
+// a okraji výřezu. Právě tohle odhalilo, že popisek domova („jižní Čechy") ležel
+// na cizím pinu v sedmi letech z osmi — kreslil se totiž mimo rozmisťovač.
+const mapy = await zkontrolujPopiskyMap();
+for (const n of mapy.nalezy) chyby.push(`mapa cest — ${n}`);
+
 // Výpis česky
+console.log(`Mapy deníku: ${mapy.pohledu} pohledů, ${mapy.nalezy.length} překryvů popisků.`);
 console.log(`Deník: ${rokySoubory.length} roků, ${mistCelkem} míst.`);
 console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek v ${bloky.size} blocích.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);

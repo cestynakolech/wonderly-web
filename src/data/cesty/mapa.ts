@@ -225,6 +225,8 @@ export interface PohledMapy {
 	body: { x: number; y: number; slug: string; poradi: number }[];
 	polozky: PolozkaMapy[];
 	popisky: PopisekPolozky[];
+	/** popisek domova — jen u celkové mapy a jen když má rok domov (umísťuje se s ostatními) */
+	domovPopisek?: PopisekPolozky;
 	/** slugy míst, která se mají ukázat pod mapou */
 	slugy: string[];
 	/** drobečková navigace od celkové mapy k tomuto pohledu */
@@ -302,56 +304,145 @@ function rozestup(polozky: PolozkaMapy[], odstup: number) {
 	}
 }
 
-/** Popisky položek — nejvýš tři, takže se hledá volné místo kolem kroužku. */
+/**
+ * Popisky položek — nejvýš tři, takže se hledá volné místo kolem kroužku.
+ *
+ * Kromě kroužků blokují místo i dvě věci, na které se do 31. 7. 2026 zapomínalo
+ * (měřidlo `testy/mapa-popisky.mjs` je odhalilo jako 9 skutečných překryvů):
+ * odznak s počtem u shluku (visí ven z kroužku) a domeček „domov", jehož popisek
+ * si navíc CestyRok.astro kreslil úplně mimo tenhle rozmisťovač — proto ležel
+ * na cizím kroužku v sedmi letech z osmi. Domov se tedy umísťuje TADY a stejně.
+ */
 function rozmistiPopiskyPolozek(
 	polozky: PolozkaMapy[],
 	pismo: number,
 	vyrez: { x: number; y: number; sirka: number; vyska: number },
-): PopisekPolozky[] {
-	// kroužky položek jsou obsazené — jméno na ně nesmí padnout
-	const obsazene: [number, number, number, number][] = polozky.map((p) => [p.x - p.r, p.y - p.r, p.x + p.r, p.y + p.r]);
+	pinR: number,
+	body: { x: number; y: number }[],
+	domov?: { x: number; y: number; nazev: string },
+): { popisky: PopisekPolozky[]; domovPopisek?: PopisekPolozky } {
+	// Co na mapě zabírá místo. POZOR: u shluku NENÍ obsazený celý kroužek — je to
+	// obrys a uvnitř jsou vidět tečky jednotlivých míst. Obsazené jsou tedy tečky
+	// (`body`), ne kotouč; jinak by se u velkých shluků nevešlo jméno nikam a
+	// skončilo by daleko od své značky.
+	const obsazene: [number, number, number, number][] = body.map((b) => [
+		b.x - pinR,
+		b.y - pinR,
+		b.x + pinR,
+		b.y + pinR,
+	]);
+	for (const p of polozky) {
+		if (p.typ === 'misto') obsazene.push([p.x - p.r, p.y - p.r, p.x + p.r, p.y + p.r]);
+	}
+	// odznak s počtem u shluku (kreslí se na okraj kroužku, kus přečnívá ven)
+	for (const p of polozky) {
+		if (p.typ !== 'skupina') continue;
+		const ox = p.x + p.r * 0.72;
+		const oy = p.y - p.r * 0.72;
+		const orr = pinR * 0.95;
+		obsazene.push([ox - orr, oy - orr, ox + orr, oy + orr]);
+	}
+	// domeček (střecha + zeď) — rozměry podle CestyRok.astro
+	if (domov) {
+		obsazene.push([domov.x - pinR * 1.4, domov.y - pinR * 1.5, domov.x + pinR * 1.4, domov.y + pinR * 1.2]);
+	}
 	const hotove: PopisekPolozky[] = [];
 	const ramecek = (x: number, y: number, text: string, kotva: string, fs: number) => {
 		const s = text.length * fs * 0.55;
 		const zacatek = kotva === 'middle' ? x - s / 2 : kotva === 'end' ? x - s : x;
 		return [zacatek, y - fs, zacatek + s, y + fs * 0.3] as [number, number, number, number];
 	};
-	const volno = (r: [number, number, number, number]) =>
-		!obsazene.some((o) => !(r[2] < o[0] || o[2] < r[0] || r[3] < o[1] || o[3] < r[1])) &&
-		r[0] >= vyrez.x &&
-		r[2] <= vyrez.x + vyrez.sirka &&
-		r[1] >= vyrez.y &&
-		r[3] <= vyrez.y + vyrez.vyska;
+	const prunik = (a: [number, number, number, number], b: [number, number, number, number]) => {
+		const w = Math.min(a[2], b[2]) - Math.max(a[0], b[0]);
+		const h = Math.min(a[3], b[3]) - Math.max(a[1], b[1]);
+		return w > 0 && h > 0 ? w * h : 0;
+	};
+	/**
+	 * Kolik na tomhle místě vadí: překrytá plocha + plocha mimo výřez.
+	 * Mimo výřez váží víc — co přeteče okraj mapy, se úplně ořízne, kdežto
+	 * překryv je jen ošklivý.
+	 */
+	const trest = (r: [number, number, number, number]) => {
+		let t = 0;
+		for (const o of obsazene) t += prunik(r, o);
+		const vyrezR: [number, number, number, number] = [vyrez.x, vyrez.y, vyrez.x + vyrez.sirka, vyrez.y + vyrez.vyska];
+		const cela = (r[2] - r[0]) * (r[3] - r[1]);
+		t += (cela - prunik(r, vyrezR)) * 12;
+		return t;
+	};
+
+	/** Umístí jedno jméno: první úplně volné místo, jinak to nejméně špatné. */
+	const umisti = (
+		nazev: string,
+		cil: string,
+		kandidati: [number, number, string][],
+	): PopisekPolozky => {
+		let nej: { x: number; y: number; kotva: string; fs: number; t: number } | null = null;
+		// dlouhá jména v těsných pohledech (např. „Leer (Ostfriesland)") se ještě zmenší
+		for (const fs of [pismo, pismo * 0.8, pismo * 0.65]) {
+			for (const [x, y, kotva] of kandidati) {
+				const t = trest(ramecek(x, y, nazev, kotva, fs));
+				if (t === 0) {
+					obsazene.push(ramecek(x, y, nazev, kotva, fs));
+					return { x, y, kotva, text: nazev, fs, cil };
+				}
+				if (!nej || t < nej.t) nej = { x, y, kotva, fs, t };
+			}
+		}
+		// jméno se nikdy nezahazuje — když se nic nevejde, vezme se nejmenší zlo
+		// (dřív tu byl naslepo první kandidát, což popisek posadilo na cizí kroužek)
+		const v = nej!;
+		obsazene.push(ramecek(v.x, v.y, nazev, v.kotva, v.fs));
+		return { x: v.x, y: v.y, kotva: v.kotva, text: nazev, fs: v.fs, cil };
+	};
+
+	/** Záložní prstenec pozic kolem značky — pro jména, na která pár míst nestačí. */
+	const prstenec = (sx: number, sy: number, sr: number): [number, number, string][] => {
+		const ven: [number, number, string][] = [];
+		for (const dal of [1, 1.8, 2.6, 3.6]) {
+			for (let k = 0; k < 12; k++) {
+				const uhel = (k / 12) * Math.PI * 2;
+				const vzdal = sr + pismo * dal;
+				const x = sx + Math.cos(uhel) * vzdal;
+				const y = sy + Math.sin(uhel) * vzdal + pismo * 0.35;
+				// všechna tři zarovnání: u kraje mapy nebo velkého shluku bývá jediné
+				// možné to, které text táhne zpátky přes pin (jinak by přetekl ven)
+				for (const kotva of ['middle', 'start', 'end']) ven.push([x, y, kotva]);
+			}
+		}
+		return ven;
+	};
+
+	// domov jde první — je to pevná značka, ostatní se jí přizpůsobí
+	let domovPopisek: PopisekPolozky | undefined;
+	if (domov) {
+		domovPopisek = umisti(domov.nazev, '__domov', [
+			[domov.x, domov.y + pinR * 3, 'middle'],
+			[domov.x, domov.y - pinR * 2.2, 'middle'],
+			[domov.x + pinR * 1.8, domov.y + pismo * 0.35, 'start'],
+			[domov.x - pinR * 1.8, domov.y + pismo * 0.35, 'end'],
+			[domov.x, domov.y + pinR * 3 + pismo * 1.2, 'middle'],
+			[domov.x, domov.y - pinR * 2.2 - pismo * 1.2, 'middle'],
+			...prstenec(domov.x, domov.y, pinR * 1.5),
+		]);
+	}
 
 	for (const p of polozky) {
-		const kandidati: [number, number, string][] = [
-			[p.x, p.y - p.r - pismo * 0.45, 'middle'],
-			[p.x, p.y + p.r + pismo * 1.15, 'middle'],
-			[p.x + p.r + pismo * 0.35, p.y + pismo * 0.35, 'start'],
-			[p.x - p.r - pismo * 0.35, p.y + pismo * 0.35, 'end'],
-			[p.x, p.y - p.r - pismo * 1.7, 'middle'],
-			[p.x, p.y + p.r + pismo * 2.4, 'middle'],
-		];
-		let umisteno = false;
-		for (const fs of [pismo, pismo * 0.8]) {
-			for (const [x, y, kotva] of kandidati) {
-				const r = ramecek(x, y, p.nazev, kotva, fs);
-				if (!volno(r)) continue;
-				obsazene.push(r);
-				hotove.push({ x, y, kotva, text: p.nazev, fs, cil: p.id });
-				umisteno = true;
-				break;
-			}
-			if (umisteno) break;
-		}
-		// jméno se nikdy nezahazuje — když se nic nevejde, dá se nad kroužek
-		if (!umisteno) {
-			const [x, y, kotva] = kandidati[0];
-			obsazene.push(ramecek(x, y, p.nazev, kotva, pismo * 0.8));
-			hotove.push({ x, y, kotva, text: p.nazev, fs: pismo * 0.8, cil: p.id });
-		}
+		hotove.push(
+			umisti(p.nazev, p.id, [
+				[p.x, p.y - p.r - pismo * 0.45, 'middle'],
+				[p.x, p.y + p.r + pismo * 1.15, 'middle'],
+				[p.x + p.r + pismo * 0.35, p.y + pismo * 0.35, 'start'],
+				[p.x - p.r - pismo * 0.35, p.y + pismo * 0.35, 'end'],
+				[p.x, p.y - p.r - pismo * 1.7, 'middle'],
+				[p.x, p.y + p.r + pismo * 2.4, 'middle'],
+				[p.x + p.r + pismo * 0.35, p.y - p.r - pismo * 0.45, 'start'],
+				[p.x - p.r - pismo * 0.35, p.y + p.r + pismo * 1.15, 'end'],
+				...prstenec(p.x, p.y, p.r),
+			]),
+		);
 	}
-	return hotove;
+	return { popisky: hotove, domovPopisek };
 }
 
 /**
@@ -361,6 +452,7 @@ function rozmistiPopiskyPolozek(
 export function pripravPohledy<T extends MistoNaMape>(
 	mista: T[],
 	vyrezRoku?: { x: number; y: number; sirka: number; vyska: number },
+	domov?: { x: number; y: number; nazev: string },
 ): PohledMapy[] {
 	const pohledy: PohledMapy[] = [];
 	if (!mista.length) return pohledy;
@@ -420,6 +512,9 @@ export function pripravPohledy<T extends MistoNaMape>(
 
 		rozestup(polozky, pinR * 1.8);
 
+		// domeček je jen na celkové mapě (v přiblížených pohledech se nekreslí)
+		const rozmistene = rozmistiPopiskyPolozek(polozky, pismo, vyrez, pinR, skupina, jeKoren ? domov : undefined);
+
 		pohledy.push({
 			id,
 			rodic,
@@ -431,7 +526,8 @@ export function pripravPohledy<T extends MistoNaMape>(
 				.map((m) => ({ x: m.x, y: m.y, slug: m.slug, poradi: poradiNavstevy.get(m.slug) ?? 0 }))
 				.sort((a, b) => a.poradi - b.poradi),
 			polozky,
-			popisky: rozmistiPopiskyPolozek(polozky, pismo, vyrez),
+			popisky: rozmistene.popisky,
+			domovPopisek: rozmistene.domovPopisek,
 			slugy: skupina.map((m) => m.slug),
 			cesta,
 		});

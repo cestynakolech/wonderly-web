@@ -63,9 +63,12 @@ const pocetDnu = dnyVyjezdu.length
 // Domov (přání učitele 29. 7. 2026): celková mapa má začínat doma, ne u prvního
 // cizího města — proto se do výřezu i do trasy přidá výchozí bod cesty.
 const domov = data.domov;
+// Domov jde i do rozmisťovače popisků: jeho jméno se dřív kreslilo napevno pod
+// domeček a v sedmi letech z osmi leželo na cizím kroužku (měřidlo testy/mapa-popisky.mjs).
 const pohledy = pripravPohledy(
 	data.mesta,
 	data.vyrez ?? spocitejVyrez(domov ? [domov, ...data.mesta] : data.mesta),
+	domov,
 );
 // vlaječky k položkám rozcestníku (přání učitele 29. 7. 2026) — spočítají se tady,
 // aby je měl i skript, který rozcestník překresluje při přiblížení mapy
@@ -213,10 +216,10 @@ const texty = {
 					/>
 					<text
 						class="pin-popisek domov-popisek"
-						x={domov.x}
-						y={domov.y + koren.pinR * 3}
-						text-anchor="middle"
-						font-size={koren.pismo}
+						x={koren.domovPopisek?.x ?? domov.x}
+						y={koren.domovPopisek?.y ?? domov.y + koren.pinR * 3}
+						text-anchor={koren.domovPopisek?.kotva ?? 'middle'}
+						font-size={koren.domovPopisek?.fs ?? koren.pismo}
 						stroke-width={koren.pismo / 5}
 					>
 						{domov.nazev}
@@ -511,10 +514,10 @@ const texty = {
 						'text',
 						{
 							class: 'pin-popisek domov-popisek',
-							x: domov.x,
-							y: domov.y + r * 3,
-							'text-anchor': 'middle',
-							'font-size': pohled.pismo,
+							x: pohled.domovPopisek?.x ?? domov.x,
+							y: pohled.domovPopisek?.y ?? domov.y + r * 3,
+							'text-anchor': pohled.domovPopisek?.kotva ?? 'middle',
+							'font-size': pohled.domovPopisek?.fs ?? pohled.pismo,
 							'stroke-width': pohled.pismo / 5,
 						},
 						domov.nazev,
