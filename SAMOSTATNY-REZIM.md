@@ -30,13 +30,25 @@
    Nové měřidlo **`testy/delky.mjs`** vypíše konkrétní otázky i rozdíl v znacích:
    `node testy/delky.mjs vnimani-barev`.
 
+3. **Druhá dávka kvízů hotová — 56 % → 54 %** (dalších 49 otázek): `elektricke-pole`,
+   `vznik-elektrickeho-proudu`, `magneticke-pole-vodice-a-civky`,
+   `jaderny-reaktor-elektrarna`, `obnovitelne-a-neobnovitelne-zdroje` — všechny na nule.
+   Kontrolor opět nenašel věcnou chybu, zato **tři vysvětlení prozrazovala odpověď na
+   SOUSEDNÍ otázku** (Oersted, střídavý proud „máme ho v zásuvce", „jsou nevyčerpatelné")
+   a jedna otázka prozrazovala odpověď svým vlastním zněním („Jak se **přitahují**
+   nesouhlasně nabitá tělesa?"). Opraveno. **Tohle hledej v každé další dávce** —
+   je to častější vada než špatná délka.
+
 **FRONTA — čím pokračovat:**
 1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší; teď to jsou
-   `elektrina/elektricke-pole` (10/12), `elektrina/vznik-elektrickeho-proudu` (10/12),
-   `magneticke-pole/magneticke-pole-vodice-a-civky` (10/12),
-   `jaderna-fyzika/jaderny-reaktor-elektrarna` (10/12),
-   `energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje` (9/11).
+   `programovaci-projekty/seznamy-a-promenne-v-projektech` (9/11),
+   `digitalni-technologie/bezpecnost-pocitace-a-dat` (9/11),
+   `zrcadla-a-cocky/optika-rovinneho-zrcadla` (13/16),
+   `tepelne-motory/spalovaci-motory` (13/16),
+   `svetlo-a-jeho-sireni/odraz-svetla` (17/21).
    Postup: `node testy/delky.mjs <blok>` → dorovnat → kontrolor → brána → build → push.
+   Pozn.: hromadné záměny dělej **skriptem s pojistkou** `assert s.count(a)==1` —
+   dvakrát to zachytilo, že se týž řetězec odpovědí vyskytuje v souboru vícekrát.
 2. **Škola — názornost informatiky** (47 podtémat, ani jedno s obrázkem či videem);
    na řadě je `vetveni-programu` (inf. 7) nebo `funkce-v-tabulkach` (inf. 8).
 3. Kontrolovat i to, co běží samo (hlídač deníku, pečlivá videa).
