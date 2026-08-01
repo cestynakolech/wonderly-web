@@ -4214,8 +4214,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><em>nakresli čtverec (50)</em> → malý čtverec</li>
 							<li><em>nakresli čtverec (120)</em> → velký čtverec</li>
 						</ul>
-						<p>👉 Rozdělení programu na vlastní bloky = <strong>rozklad problému na části</strong>. To je jedna z nejdůležitějších dovedností programátora (a hodí se i mimo informatiku).</p>
-						<p>📗 Učebnice Scratch, kapitola 9 (Parametry).</p>
+						<h3>Jak si blok vyrobíš</h3>
+						<p>V paletě <em>Moje bloky</em> je tlačítko <strong>Vytvořit blok</strong>: pojmenuješ ho, volbou <em>Přidat vstup</em> mu přidáš okénko (parametr) a potvrdíš. Ve scénářích se objeví hlavička <strong>scénář pro …</strong> — pod ni vložíš příkazy, které má blok dělat.</p>
+						<h3>Opravuješ na jednom místě</h3>
+						<p>V tom je hlavní síla vlastních bloků: když opravíš kód <strong>uvnitř</strong> bloku, opraví se to naráz všude, kde se blok používá. Deset kopií téhož kódu bys musel(a) opravovat desetkrát — a na jednu bys zaručeně zapomněl(a).</p>
+						<p>Parametrů může mít blok i <strong>několik</strong>, stačí přidat další okénko: <em>nakresli obdélník (šířka) (výška)</em>.</p>
+						<h3>Kdy se vlastní blok vyplatí?</h3>
+						<p>Když tentýž kus programu potřebuješ <strong>víckrát</strong>. U programu o třech blocích si prací navíc spíš přiděláš.</p>
+						<p>👉 Rozdělení programu na vlastní bloky = <strong>rozklad problému na části</strong>. Každou část si vyzkoušíš zvlášť — v jednom obřím scénáři se chyba hledá dlouho. To je jedna z nejdůležitějších dovedností programátora (a hodí se i mimo informatiku).</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi II</a> (NPI ČR), kapitola 9 — Parametry.</p>
 					`,
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
@@ -4427,13 +4434,25 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 						<h3>Scénář Kočky</h3>
 						<ol>
-						<li>po kliknutí na vlajku → nastav čas na 0, skoč do rohu</li>
-						<li>opakuj stále: nastav směr k (Myš), dopředu o (3) kroků, změň čas o 0,1, čekej 0,1 sekund</li>
-						<li>když se dotýká Myši → bublina „Mám tě! Vydržels " + čas + " sekund", zastav (všechno)</li>
+						<li>po kliknutí na vlajku → nastav čas na 0, skoč na x: (-200) y: (-150) — tedy do rohu</li>
+						<li>opakuj stále — a <strong>všechno ostatní patří dovnitř tohoto bloku</strong>:
+							<ul>
+							<li>nastav směr k (Myš), dopředu o (3) kroků</li>
+							<li>změň čas o (1), čekej (0.1) sekund</li>
+							<li>když ⟨dotýkáš se (Myš)?⟩ tak → bublina (spoj „Mám tě! Vydržel(a) jsi " (čas / 10)), zastav (všechno)</li>
+							</ul>
+						</li>
 						</ol>
+						<h3>Proč zrovna takhle</h3>
+						<ul>
+						<li>Kočka skočí <strong>do rohu</strong> scény, aby měl hráč na začátku náskok</li>
+						<li><strong>3 kroky</strong> v jednom opakování: větší krok by Kočku posouval trhaně a hra by byla nehratelná</li>
+						<li>proměnná <strong>čas</strong> počítá <strong>desetiny</strong> sekundy: přičteš celou <strong>1</strong> a čekáš 0.1 sekundy, na konci vydělíš deseti. Kdybys rovnou přičítal(a) 0.1, vyšlo by po třech sekundách <em>3.0000000000000013</em> — počítač desetinná čísla sčítá nepřesně.</li>
+						<li>ve Scratchi se do okének píše desetinná <strong>tečka</strong>, ne čárka</li>
+						</ul>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
-						<li>kočka postupně <strong>zrychluje</strong>: dopředu o (3 + čas/10)</li>
+						<li>kočka postupně <strong>zrychluje</strong>: dopředu o (3 + čas / 100) — po minutě hry je krok skoro dvojnásobný</li>
 						<li>přidej druhou kočku z jiného rohu</li>
 						<li>na scéně se objevuje sýr — sebrání přidá body</li>
 						</ul>
@@ -4540,17 +4559,20 @@ export const temata: Record<string, Tema[]> = {
 						<h2>Smysly robota</h2>
 						<ul>
 							<li>👆 <strong>dotykový senzor</strong> — narazil jsem? (tlačítko)</li>
-							<li>📏 <strong>ultrazvukový senzor</strong> — jak daleko je překážka? (jako netopýr)</li>
+							<li>📏 <strong>ultrazvukový senzor</strong> — jak daleko je překážka? Vyšle krátký zvuk a měří, za jak dlouho se vrátí ozvěna (jako netopýr).</li>
 							<li>🎨 <strong>senzor barvy/světla</strong> — jakou barvu vidím? kolik světla se odráží?</li>
 						</ul>
 						<h3>Senzor + rozhodování = chytrý robot</h3>
 						<p>Hodnotu senzoru čte program v podmínce:</p>
 						<ul>
-							<li><em>opakuj dokud vzdálenost &gt; 10 cm: jeď vpřed</em> → robot zastaví před zdí</li>
+							<li><em>opakuj, dokud je vzdálenost větší než 10 cm: jeď vpřed</em> → robot zastaví před zdí</li>
 							<li><em>když vidí černou → toč doleva, jinak → toč doprava</em> → robot sleduje čáru!</li>
 						</ul>
-						<p>👉 <strong>Jízda po čáře</strong> je královská úloha: robot se podél okraje čáry „vlní" — pořád dokola měří a opravuje směr. Stejný princip řídí i skutečná auta na dálnici.</p>
-						<p>📗 Učebnice LEGO, kap. 7–9.</p>
+						<p>👉 <strong>Jízda po čáře</strong> je královská úloha: robot se podél okraje čáry „vlní" — pořád dokola měří a opravuje směr. Když sjede na bílou plochu, senzor to hlásí a program ho stočí zpátky k čáře. Podobně pracuje asistent pro jízdu v pruhu v autě — jen se místo senzoru barvy dívá kamerou na čáry na silnici.</p>
+						<h3>Když senzor „lže"</h3>
+						<p>Ultrazvuk měří jen tam, kam <strong>míří</strong>. Od šikmé stěny se ozvěna odrazí jinam a měkká látka (záclona, deka) zvuk pohltí — v obou případech se nic nevrátí a senzor hlásí velkou vzdálenost, i když je zeď kousek před robotem. Dotykový senzor je naopak spolehlivý, ale pozná překážku až <strong>po nárazu</strong> — proto se oba často kombinují.</p>
+						<p>👉 Proč je v programu opakování s podmínkou, a ne jediný příkaz <em>jeď</em>? Bez opakování by robot změřil vzdálenost jen jednou na začátku a pak by jel naslepo. Měřit se musí <strong>průběžně</strong>, jinak nemá podmínka co hlídat.</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a> (NPI ČR), kap. 7–9.</p>
 					`,
 					odkazy: [
 						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
@@ -4719,11 +4741,19 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><code>=SUMA(B2:B31)</code> — součet; <code>=PRŮMĚR(B2:B31)</code> — průměr</li>
 							<li><code>=MAX(…)</code>, <code>=MIN(…)</code> — největší a nejmenší hodnota</li>
-							<li><code>=POČET(…)</code> — kolik je čísel; <code>=RANK(…)</code> — pořadí</li>
+							<li><code>=POČET(…)</code> — kolik je čísel; <code>=RANK(B2;$B$2:$B$31)</code> — na kolikátém místě je hodnota mezi ostatními (v novějším Excelu <code>=RANK.EQ</code> se stejnými údaji)</li>
 							<li>textové: <code>=ZLEVA(A2;3)</code> — první 3 znaky, <code>=DÉLKA(A2)</code> — počet znaků</li>
 							<li><code>=KDYŽ(B2&gt;=50;"prospěl";"neprospěl")</code> — rozhodování jako ve Scratchi!</li>
 						</ul>
+						<h3>Jak se funkce píše</h3>
+						<p>Vzorec začíná <strong>=</strong>, pak je jméno funkce a v závorce to, s čím má počítat. Oblast se zapisuje <strong>od–do s dvojtečkou</strong> (B2:B31) a dá se vybrat i myší. Víc údajů se v české verzi odděluje <strong>středníkem</strong>: <code>=ZLEVA(A2;3)</code>.</p>
+						<h3>Snadno se popletou</h3>
+						<ul>
+							<li><code>=SUMA(B2:B31)</code> hodnoty <em>sečte</em>, kdežto <code>=POČET(B2:B31)</code> jen spočítá, <em>kolik</em> buněk v oblasti obsahuje číslo — text ani prázdnou buňku nezapočítá</li>
+							<li><code>=MAX(…)</code> vrátí největší hodnotu, ale ne jméno toho, komu patří; na to, na kolikátém místě hodnota je, je <code>=RANK(…)</code></li>
+						</ul>
 						<p>👉 Všimni si: <strong>KDYŽ</strong> je stejné větvení, jaké znáš z programování. Tabulka je vlastně program — jen zapsaný do buněk.</p>
+						<p>👉 Vyzkoušej na tabulce známek celé třídy: průměr, nejlepší a nejhorší známka, kolik žáků bylo hodnoceno a kdo je v žebříčku kolikátý. Pět funkcí a máš hotový přehled. <strong>Pozor:</strong> u známek je nejlepší ta <em>nejmenší</em> — nejlepší známku proto najde MIN a nejhorší MAX.</p>
 					`,
 					odkazy: [
 						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
