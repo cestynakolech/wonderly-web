@@ -39,13 +39,21 @@
    nesouhlasně nabitá tělesa?"). Opraveno. **Tohle hledej v každé další dávce** —
    je to častější vada než špatná délka.
 
+4. **Třetí dávka kvízů hotová — 54 % → 51 %.** `odraz-svetla` (17/21),
+   `optika-rovinneho-zrcadla`, `spalovaci-motory`, `seznamy-a-promenne-v-projektech`,
+   `bezpecnost-pocitace-a-dat` — všechny na nule. **Celkem 15 bloků, 59 % → 51 %.**
+   Kontrolor našel tři drobnosti: výklad odrazu světla nevysvětloval **odrazku na kole**
+   (kvíz se na ni ptal), vysvětlení u ransomwaru prozrazovalo pozdější otázku o záloze
+   a otázka „K čemu je rozptyl světla **dobrý**?" prozrazovala odpověď svým zněním.
+   Opraveno; výklad má nově odstavec o koutovém odražeči.
+
 **FRONTA — čím pokračovat:**
 1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší; teď to jsou
-   `programovaci-projekty/seznamy-a-promenne-v-projektech` (9/11),
-   `digitalni-technologie/bezpecnost-pocitace-a-dat` (9/11),
-   `zrcadla-a-cocky/optika-rovinneho-zrcadla` (13/16),
-   `tepelne-motory/spalovaci-motory` (13/16),
-   `svetlo-a-jeho-sireni/odraz-svetla` (17/21).
+   `latka-a-teleso/skupenstvi-latek` (12/15),
+   `modelovani-grafy-schemata/modely-a-schemata` (8/10),
+   `programovani-vetveni-promenne/vetveni-programu` (8/10),
+   `roboticka-stavebnice/projekt-muj-robot` (8/10),
+   `microbit/propojeni-a-externi-zarizeni` (8/10).
    Postup: `node testy/delky.mjs <blok>` → dorovnat → kontrolor → brána → build → push.
    Pozn.: hromadné záměny dělej **skriptem s pojistkou** `assert s.count(a)==1` —
    dvakrát to zachytilo, že se týž řetězec odpovědí vyskytuje v souboru vícekrát.
