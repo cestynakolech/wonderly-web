@@ -21,7 +21,36 @@ let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
 
 const prah = svg.__prahy[0];   // nejlehčí papírek
-console.log('— tři fáze podle síly —');
+
+// Doplněno 2. 8. 2026 po MUTAČNÍM TESTU (`node testy/mutace.mjs elektrovani`):
+// test hlídal jen FÁZE papírků, ale samotný vzorec síly nikdy neověřil — volal ho
+// jen jako vstup. Proto jím prošly čtyři mutace z pěti, včetně záměny násobení
+// za dělení přímo v Coulombově zákoně. Žák by viděl scénu, kde silněji nabité
+// pravítko přitahuje SLABĚJI, a žádná kontrola by nehlesla.
+console.log('— vzorec síly (Coulombův zákon: F ~ q / d²) —');
+ok(svg.__sila(1, 1) === 10, `základní hodnota sedí: F(q=1, d=1) = ${svg.__sila(1, 1)}`);
+ok(svg.__sila(2, 1) === 2 * svg.__sila(1, 1), 'dvojnásobný náboj = dvojnásobná síla (přímá úměra)');
+ok(svg.__sila(3, 1) === 3 * svg.__sila(1, 1), 'trojnásobný náboj = trojnásobná síla');
+ok(svg.__sila(1, 1) === 4 * svg.__sila(1, 2), 'dvojnásobná vzdálenost = ČTVRTINOVÁ síla (klesá s druhou mocninou)');
+ok(svg.__sila(1, 1) === 9 * svg.__sila(1, 3), 'trojnásobná vzdálenost = devítinová síla');
+{
+	let klesa = true;
+	for (let d = 1; d < 10; d++) if (svg.__sila(1, d + 1) >= svg.__sila(1, d)) klesa = false;
+	ok(klesa, 'síla se vzdáleností jen klesá, nikdy neroste');
+}
+
+console.log('\n— těžší papírek potřebuje větší sílu —');
+{
+	let roste = true;
+	for (let i = 1; i < svg.__prahy.length; i++) if (svg.__prahy[i] <= svg.__prahy[i - 1]) roste = false;
+	ok(roste, `prahy jsou seřazené od nejlehčího: ${svg.__prahy.join(' < ')}`);
+	const nejlehci = svg.__prahy[0], nejtezsi = svg.__prahy[svg.__prahy.length - 1];
+	const silaTesne = nejlehci;   // síla právě na prahu nejlehčího
+	ok(svg.__stavPapirku(silaTesne, nejlehci).faze === 'chycen', 'při této síle nejlehčí papírek už odskočil');
+	ok(svg.__stavPapirku(silaTesne, nejtezsi).faze !== 'chycen', 'a nejtěžší při téže síle ještě ne');
+}
+
+console.log('\n— tři fáze podle síly —');
 ok(svg.__stavPapirku(0, prah).faze === 'lezi', 'bez náboje papírek klidně leží');
 ok(svg.__stavPapirku(prah * 0.2, prah).faze === 'lezi', 'při slabé síle pořád leží');
 ok(svg.__stavPapirku(prah * 0.6, prah).faze === 'zveda', 'při střední síle se ZVEDÁ a napřimuje');
@@ -49,6 +78,71 @@ console.log('\n— pořadí při přibližování pravítka (q = 3) —');
 	const prvniZveda = faze.indexOf('zveda'), prvniChycen = faze.indexOf('chycen');
 	ok(prvniZveda !== -1 && prvniChycen !== -1, `papírek projde oběma fázemi: ${faze.join(' → ')}`);
 	ok(prvniZveda < prvniChycen, 'napřimování přijde DŘÍV než odskočení (ne naopak)');
+}
+
+// Doplněno 2. 8. 2026 z mutačního testu: čísla a texty, které žák na obrazovce
+// OPRAVDU ČTE, se nekontrolovaly vůbec. Mutace v hlášce („0 z 5" místo skutečného
+// počtu, špatné skloňování, špatný znak náboje) testem tiše procházely.
+console.log('\n— co žák čte na obrazovce —');
+{
+	const naboj = prvky.get('ele-pravitko-naboj');
+	const trit = prvky.get('ele-trit');
+	const klik = () => (trit.posluchaci.click || []).forEach((f) => f());
+	const vybit = () => (prvky.get('ele-vybit').posluchaci.click || []).forEach((f) => f());
+
+	// posun pravítka je na slideru, ne na tlačítku — vzdálenost se přepočítá jeho `input`
+	const posun = (d) => {
+		slider.value = String(d);
+		(slider.posluchaci.input || []).forEach((f) => f());
+	};
+
+	vybit();
+	ok(naboj.textContent === 'neutrální', `bez tření je pravítko „${naboj.textContent}"`);
+	klik();
+	ok(naboj.textContent === '−', `po jednom tření jeden záporný náboj: „${naboj.textContent}"`);
+	klik();
+	klik();
+	ok(naboj.textContent === '−−−', `po třech třeních tři čárky: „${naboj.textContent}"`);
+
+	// tři různé vzdálenosti musí dát tři různé hlášky — a každá musí sedět na to,
+	// co se na scéně opravdu děje
+	posun(10);
+	const daleko = stav.textContent;
+	ok(/přijalo 3|3 elektrony/.test(daleko), `zdálky hláška uvádí náboj pravítka: „${daleko.slice(0, 60)}…"`);
+
+	posun(8);
+	const stredne = stav.textContent;
+	const pocet = stredne.match(/(\d+) z 5/);
+	ok(pocet !== null, `ze střední vzdálenosti hláška počítá reagující papírky: „${(pocet && pocet[0]) || '—'}"`);
+	if (pocet) ok(Number(pocet[1]) >= 1 && Number(pocet[1]) < 5, 'a je jich víc než nula, ale ještě ne všech pět');
+
+	posun(1);
+	const blizko = stav.textContent;
+	ok(/Všech 5/.test(blizko), `zblízka visí všechny: „${blizko.slice(0, 50)}…"`);
+	ok(new Set([daleko, stredne, blizko]).size === 3, 'všechny tři hlášky se od sebe liší');
+
+	// sloupec ▮▮▮ je jediné, z čeho žák velikost síly vyčte — musí odpovídat výpočtu
+	const sila = prvky.get('ele-sila');
+	posun(10);
+	const slabe = (sila.textContent.match(/▮/g) || []).length;
+	posun(2);
+	const silne = (sila.textContent.match(/▮/g) || []).length;
+	ok(silne > slabe, `ukazatel síly roste s přiblížením: ${slabe} → ${silne} dílků`);
+	vybit();
+	ok(sila.textContent === '', 'u neutrálního pravítka se ukazatel síly vůbec nezobrazí');
+
+	// Skloňování — text čte dítě, ne stroj.
+	// Pozn.: ověřit jde jen 1 a 2–3. Od čtyř elektronů se papírky i z největší
+	// vzdálenosti (10) už začínají zvedat, takže se místo hlášky o náboji ukáže
+	// hláška o papírcích — větev „5 elektronů" se tím pádem na obrazovce nikdy
+	// neobjeví. Není to vada, jen mrtvá větev; kdyby se rozsah slideru změnil,
+	// stojí za to ji ověřit taky.
+	klik();
+	posun(10);
+	ok(/přijalo 1 elektron[,\s]/.test(stav.textContent), 'jeden elektron je „1 elektron", ne „1 elektrony"');
+	klik();
+	ok(/přijalo 2 elektrony/.test(stav.textContent), 'dva jsou „2 elektrony"');
+	vybit();
 }
 
 console.log('\n— po vybití se papírky vrátí —');
