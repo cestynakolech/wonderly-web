@@ -26,6 +26,11 @@ for (const [klic, otazky] of Object.entries(kvizy)) {
 			const spravna = String(odp[0]).length;
 			const druha = Math.max(...odp.slice(1).map((a) => String(a).length));
 			detail.push(`      +${spravna - druha} znaků: „${String(o.text).slice(0, 60)}"`);
+			// s přepínačem --odpovedi se vypíšou i samotné odpovědi i s délkami,
+			// aby se dorovnávalo bez čtení celého souboru (šetří kontext)
+			if (process.argv.includes('--odpovedi')) {
+				for (const a of odp) detail.push(`         [${String(a).length}] ${a}`);
+			}
 		}
 	}
 	bloky.push({ klic, n, celkem: otazky.length, detail });
