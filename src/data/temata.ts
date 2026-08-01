@@ -2819,6 +2819,29 @@ export const temata: Record<string, Tema[]> = {
 								<li>čím <strong>hustší</strong> siločáry, tím <strong>silnější</strong> pole; dál od tělesa síla slábne a siločáry řídnou</li>
 								<li>mezi dvěma rovnoběžnými deskami je pole <strong>stejnorodé (homogenní)</strong> — siločáry jsou rovnoběžné</li>
 							</ul>
+							<h3>⚡ Faradayova klec — proč je v autě při bouřce bezpečno</h3>
+							<p>Vezmi si znovu <strong>elektrostatickou indukci</strong> z odstavce výš: v kovu se
+							volné elektrony přesunou tam, kam je vnější pole tlačí. Jenže tím samy vytvoří
+							<strong>pole opačného směru</strong> — a ta dvě se uvnitř kovu navzájem <strong>vyruší</strong>.</p>
+							<p>Uvnitř uzavřeného kovového obalu proto <strong>vnější elektrické pole nic nezmůže</strong>.
+							Tomu se říká <strong>Faradayova klec</strong> a potkáš ji častěji, než by ses nadál(a):</p>
+							<ul>
+								<li><strong>auto při bouřce</strong> — blesk sjede po plechu karoserie do země a posádky
+								uvnitř se nedotkne. (Pozor: chrání <em>plech</em>, ne gumové pneumatiky — ty jsou
+								v tom nevinně, ačkoli se to často říká. A platí to jen se <strong>zavřenými okny</strong>
+								a bez sahání na kovové části; kabriolet nechrání vůbec.)</li>
+								<li><strong>letadlo</strong>, do kterého blesk udeří poměrně běžně, a nikdo si toho
+								ani nevšimne</li>
+								<li><strong>kovový oplet kabelu</strong> u sluchátek nebo antény — drží rušení venku</li>
+								<li><strong>mikrovlnná trouba</strong> — mřížka ve dvířkách nepustí mikrovlny ven,
+								a přitom se skrz ni dá koukat dovnitř</li>
+							</ul>
+							<p>👉 Klec nemusí být plná deska, stačí <strong>hustá kovová síť</strong>. Její oka ale
+							musí být <strong>mnohem menší než vlnová délka</strong> toho, co má zadržet — a přesně
+							proto vypadá mřížka v troubě jako kouzlo: <strong>mikrovlny</strong> jsou dlouhé asi
+							<strong>12 cm</strong> a dírkami neprojdou, kdežto <strong>světlo</strong> má vlnovou
+							délku statisíckrát menší a proletí bez problémů. Proto dovnitř vidíš, a přesto se
+							u dvířek neohřeješ.</p>
 						`,
 					},
 				{
@@ -2854,7 +2877,7 @@ export const temata: Record<string, Tema[]> = {
 						nazev: 'Chemické zdroje elektrického napětí',
 						obsah: `
 							<h2>Chemické zdroje napětí — galvanické články</h2>
-							<p><strong>Galvanický článek</strong> vyrábí napětí <strong>chemickou reakcí</strong>. Do vodivého roztoku (<strong>elektrolytu</strong> — sůl nebo kyselina) se ponoří <strong>dvě elektrody z různých kovů</strong>. Reakce způsobí, že se na jedné elektrodě hromadí elektrony (nabíjí se <strong>záporně</strong>), na druhé jich ubývá (nabíjí se <strong>kladně</strong>) — vzniká napětí.</p>
+							<p><strong>Galvanický článek</strong> vyrábí napětí <strong>chemickou reakcí</strong>. Do vodivého roztoku (<strong>elektrolytu</strong> — sůl nebo kyselina) se ponoří <strong>dvě elektrody z různých materiálů</strong> — obvykle kovů, ale i uhlík se hodí. Reakce způsobí, že se na jedné elektrodě hromadí elektrony (nabíjí se <strong>záporně</strong>), na druhé jich ubývá (nabíjí se <strong>kladně</strong>) — vzniká napětí.</p>
 							<ul>
 								<li>záporná elektroda: např. zinek, lithium, kadmium</li>
 								<li>kladná elektroda: např. uhlík (grafit) nebo měď</li>
@@ -2864,10 +2887,42 @@ export const temata: Record<string, Tema[]> = {
 								<li><strong>Suchý článek</strong> — zinková nádoba (−) a uhlíková tyčinka (+), elektrolyt = salmiaková pasta. Napětí <strong>1,5 V</strong>, na jedno použití (hračky). Vybitý může vytéct.</li>
 								<li><strong>Plochá baterie</strong> — tři suché články za sebou → <strong>4,5 V</strong></li>
 								<li><strong>Alkalické články</strong> — větší kapacita a životnost (blesk fotoaparátu)</li>
-								<li><strong>Lithiové články</strong> — kvalitní i po dlouhém skladování (mobil, notebook)</li>
+								<li><strong>Lithiové články</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, baterie na základní desce počítače</li>
 								<li><strong>Olověný akumulátor</strong> — velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie)</li>
 							</ul>
 							<p><strong>Baterie</strong> = jednorázová (nedobíjecí), <strong>akumulátor</strong> = dobíjecí (opakovaně použitelný).</p>
+						<h3>Proč se baterie vybije</h3>
+						<p>Napětí nevyrábí nic kouzelného — <strong>rozpouští se při něm kov elektrody</strong>.
+						Když se chemické látky uvnitř spotřebují, reakce skončí a napětí zmizí. Proto je baterie
+						vlastně <strong>zásobník chemické energie</strong>: v akumulátoru umí nabíjení reakci
+						obrátit a látky obnovit, v jednorázovém článku ne.</p>
+						<p>Tím se vysvětlí i to, proč vybitý zinkový článek často <strong>vyteče</strong>: nádobka
+						z elektrody je prožraná až skrz a agresivní pasta se dostane ven. Proto se vybité články
+						nenechávají ve spotřebiči — dokážou zničit hračku i dálkový ovladač.</p>
+						<h3>Napětí se sčítá — proto plochá baterie</h3>
+						<p>Jeden suchý článek dá <strong>1,5 V</strong> a víc z něj nedostaneš, protože napětí
+						určuje <strong>dvojice použitých kovů</strong>, ne velikost. Chceš-li víc, musíš články
+						<strong>zapojit za sebou</strong> a napětí se sečte:</p>
+						<ul>
+							<li>plochá baterie = 3 články → 3 · 1,5 V = <strong>4,5 V</strong></li>
+							<li>devítivoltová baterie = 6 článků → 6 · 1,5 V = <strong>9 V</strong></li>
+							<li>autobaterie = 6 olověných článků po 2 V → <strong>12 V</strong></li>
+						</ul>
+						<p>👉 Malá tužková AA a velká buřtová D mají <strong>obě 1,5 V</strong>. Větší článek
+						neznamená větší napětí — znamená, že <strong>vydrží déle</strong>. Tomu se říká
+						<strong>kapacita</strong> a udává se v mAh: článek s kapacitou 2 000 mAh dodá proud
+						2 000 mA po jednu hodinu, nebo 200 mA po deset hodin.</p>
+						<h3>⚠️ Bezpečnost a co s vybitými</h3>
+						<ul>
+							<li><strong>Nikdy nezkratuj</strong> baterii drátem — proud se prudce zvedne a článek
+							se rozpálí. U lithiových to může skončit požárem, proto se nesmí ani propichovat
+							a mačkat (nafouklý článek z mobilu patří rovnou do sběru).</li>
+							<li><strong>Nemíchej staré a nové</strong> články ani různé typy v jednom přístroji:
+							silnější „tlačí" do slabšího a ten může vytéct.</li>
+							<li><strong>Baterie nepatří do koše.</strong> Obsahují těžké kovy, které by se dostaly
+							do půdy a vody. Sběrné nádoby jsou ve školách, obchodech i na obecních úřadech —
+							a kovy z nich se dají použít znovu.</li>
+						</ul>
 						`,
 					},
 				{
@@ -3083,14 +3138,35 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<h3>Výkon a příkon</h3>
 							<ul>
-								<li><strong>Výkon P</strong> = energie za sekundu, jednotka <strong>watt (W)</strong>. Vzorec <strong>P = U · I</strong>.</li>
-								<li><strong>Práce: W = P · t = U · I · t</strong></li>
-								<li><strong>Příkon P₀</strong> = kolik spotřebič odebírá ze sítě (na štítku). Je vždy <strong>větší</strong> než užitečný výkon — část energie uniká jako <strong>teplo (ztráty)</strong>.</li>
+								<li><strong>Výkon P</strong> = energie za sekundu, jednotka <strong>watt (W)</strong>.</li>
+								<li><strong>Příkon P₀</strong> = kolik spotřebič odebírá ze sítě (údaj na štítku). Počítá se <strong>P₀ = U · I</strong> — a právě tenhle výkon platíš.</li>
+								<li><strong>Užitečný výkon</strong> je jen ta část příkonu, kterou spotřebič opravdu použije na to, co po něm chceme. Je vždy <strong>menší než příkon</strong> — zbytek uniká jako <strong>teplo (ztráty)</strong>.</li>
+								<li><strong>Práce: W = P₀ · t = U · I · t</strong></li>
 							</ul>
 							<h3>Jednotky energie</h3>
 							<p>1 Wh = 3 600 J; <strong>1 kWh = 3 600 000 J</strong>. Spotřeba elektřiny doma se počítá v kWh.</p>
+							<h3>🧮 Kolik stojí vaření vody — celý příklad</h3>
+							<p>Rychlovarná konvice má na štítku <strong>2 000 W</strong> a v rodině běží asi
+							<strong>15 minut denně</strong>. Kolik za ni zaplatíte za měsíc?</p>
+							<ol>
+								<li><strong>Převeď na kilowatty a hodiny</strong> — v kWh se totiž elektřina účtuje:
+								2 000 W = <strong>2 kW</strong>, 15 minut = <strong>0,25 h</strong></li>
+								<li><strong>Denní spotřeba:</strong> <em>W</em> = <em>P</em> · <em>t</em> = 2 · 0,25 =
+								<strong>0,5 kWh</strong></li>
+								<li><strong>Za 30 dní:</strong> 0,5 · 30 = <strong>15 kWh</strong></li>
+								<li><strong>Cena</strong> (počítejme 5 Kč za kWh): 15 · 5 = <strong>75 Kč</strong></li>
+							</ol>
+							<p>👉 Všimni si, že se počítá s <strong>příkonem ze štítku</strong>, ne s užitečným výkonem —
+							<strong>platíš všechno, co spotřebič ze sítě odebere</strong>, i tu část, která unikne
+							jako nechtěné teplo.</p>
+							<p>💡 Zkus si sám: kolik by stálo svícení staré 100W žárovky 5 hodin denně po celý měsíc?
+							(Nápověda: 0,1 kW · 5 h = 0,5 kWh za den — tedy přesně tolik jako ta konvice.)</p>
 							<h3>Účinnost</h3>
-							<p>Udává, kolik % energie se přemění na užitečnou práci — vždy <strong>méně než 100 %</strong>. Klasická žárovka má jen ~5 % (zbytek je teplo), <strong>LED žárovka ~70 %</strong> — proto se dnes používají LED.</p>
+							<p>Udává, kolik % energie se přemění na tu, kterou od spotřebiče <strong>opravdu chceme</strong> — u světel tedy na světlo. Klasická žárovka má jen ~5 % (zbytek je teplo), <strong>LED žárovka asi 50 %</strong> — proto se dnes používají LED.</p>
+							<p>Z účinnosti plyne i to, proč se LED vyplatí: aby dala stejné světlo jako
+							<strong>100W žárovka</strong>, stačí jí kolem <strong>10 W</strong>. Za měsíc svícení
+							(5 hodin denně) je to <strong>1,5 kWh</strong> místo 15 kWh — <strong>desetina</strong>.
+							A přebytek u staré žárovky nezmizel: <strong>topil ti do pokoje</strong>.</p>
 						`,
 					},
 				{
@@ -3108,10 +3184,47 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<h3>Co velikost proudu ovlivňuje</h3>
 							<ul>
-								<li><strong>odpor člověka</strong>: v suchu a suché obuvi ~150 000 Ω, ve vlhku jen ~2000 Ω → <strong>mokrý člověk je mnohem víc ohrožen</strong></li>
+								<li><strong>odpor člověka</strong>: velký odpor má jen <strong>suchá kůže při malém napětí</strong> (~100 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~1 500 Ω v suchu a ~1 000 Ω ve vlhku</strong>; vlhký člověk je tedy ohroženější, ale <strong>ani suchý není v bezpečí</strong></li>
 								<li><strong>cesta proudu</strong>: nejnebezpečnější přes ruku do srdce nebo přes hlavu</li>
-								<li>bezpečné napětí dle normy: stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong> (zásuvka 230 V je nebezpečná)</li>
+								<li>bezpečné napětí <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvkových <strong>230 V</strong> se to ale netýká nikde, ta jsou nebezpečná vždy</li>
 							</ul>
+							<h3>🧮 Spočítej si to Ohmovým zákonem</h3>
+							<p>Proč z ploché baterie nic necítíš, a přitom zásuvka zabíjí? Stačí
+							<strong>Ohmův zákon</strong> <em>I</em> = <em>U</em> : <em>R</em>:</p>
+							<ul>
+								<li><strong>Plochá baterie 4,5 V</strong> na suchou kůži (R ≈ 100 000 Ω):
+								<em>I</em> = 4,5 : 100 000 = <strong>0,05 mA</strong> → ani to nepoznáš,
+								jsi hluboko pod prahem vnímání.</li>
+								<li><strong>Zásuvka 230 V</strong>: tady je zrada. Suchá kůže má sice velký odpor,
+								ale <strong>jen do zhruba 50 V</strong> — při vyšším napětí se elektricky
+								<strong>prorazí</strong> a přestane chránit. Odpor těla pak klesne na
+								<strong>asi 1 500 Ω</strong> a vyjde <em>I</em> = 230 : 1 500 ≈ <strong>153 mA</strong>.</li>
+								<li><strong>Mokrý člověk</strong> (R ≈ 1 000 Ω): <em>I</em> = 230 : 1 000 =
+								<strong>230 mA</strong> — a to je ještě horší.</li>
+							</ul>
+							<p>⚠️ Podívej se do tabulky výš: <strong>obě poslední čísla jsou hluboko nad 80 mA</strong>,
+							tedy v pásmu zástavy srdce. <strong>Zásuvka je životu nebezpečná vždycky, i když jsi
+							úplně suchý</strong> — většina smrtelných úrazů se stane právě v suchu. Vlhko riziko
+							jen dál zvyšuje, protože sníží odpor ještě víc.</p>
+							<p>👉 A právě proto <strong>není bezpečné napětí totéž co malé napětí</strong>: rozhoduje,
+							jestli napětí dokáže prorazit kůži. Do koupelny proto nepatří žádný spotřebič ze zásuvky
+							ani prodlužovačka a na vypínač se nesahá mokrou rukou.</p>
+							<h3>Jistič vás nezachrání — proudový chránič ano</h3>
+							<p>Ty dvě věci se pletou, a je v tom podstatný rozdíl:</p>
+							<ul>
+								<li><strong>Jistič</strong> hlídá, aby obvodem netekl <em>příliš velký</em> proud
+								(typicky nad 16 A) — chrání <strong>vedení a dům před požárem</strong>. Proud
+								115 mA, který zabíjí člověka, je pro jistič naprosto nezajímavý; ani se nehne.</li>
+								<li><strong>Proudový chránič</strong> porovnává, kolik proudu do spotřebiče
+								<em>přiteče</em> a kolik se ho <em>vrátí</em>. Když se část ztrácí — třeba
+								<strong>tělem člověka do země</strong> — okamžitě vypne. Reaguje už na
+								<strong>30 mA</strong>, tedy pod hranicí, za kterou hrozí fibrilace,
+								a stihne to za setiny sekundy.</li>
+							</ul>
+							<p>Proto je proudový chránič dnes povinný u zásuvek v koupelnách a venku.
+							<strong>Pozor — chránič není důvod si dovolit víc:</strong> zásuvka v koupelně je
+							přípustná jen mimo prostor vany a sprchy a spotřebič se v ní nikdy nepoužívá
+							u vody. Chránič je poslední záchrana, když se něco pokazí, ne povolení riskovat.</p>
 							<h3>Bezpečná pravidla</h3>
 							<ul>
 								<li>nesahat na vypínač/kabely <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše</li>
@@ -3119,12 +3232,23 @@ export const temata: Record<string, Tema[]> = {
 								<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení</li>
 							</ul>
 							<h3>První pomoc při úrazu proudem</h3>
+							<p><strong>Na pořadí opravdu záleží</strong> — dělej to přesně takhle:</p>
 							<ol>
-								<li><strong>vypni proud</strong> (vypínač, jistič, pojistky)</li>
-								<li>dbej na <strong>vlastní bezpečnost</strong> — zraněného odsuň <strong>suchou dřevěnou/plastovou tyčí</strong>, ne holou rukou</li>
-								<li>zkontroluj dech a tep, případně <strong>masáž srdce a umělé dýchání</strong></li>
-								<li>zavolej záchrannou službu <strong>155</strong></li>
+								<li><strong>Vypni proud</strong> (vypínač, jistič, pojistky). Dokud proud teče,
+								nesahej na zraněného — tekl by i tebou.</li>
+								<li><strong>Mysli na vlastní bezpečnost.</strong> Když proud vypnout nejde, odsuň
+								zraněného <strong>suchou dřevěnou nebo plastovou tyčí</strong>, nikdy holou rukou.
+								Zraněný, kterému nemá kdo pomoct, protože ležíš vedle něj, je na tom hůř.</li>
+								<li><strong>Zavolej 155</strong> — hned, ještě než začneš pomáhat. Zapni si
+								<strong>hlasitý odposlech</strong>, nebo pošli volat někoho jiného. Operátor tě
+								povede a řekne ti, co dělat.</li>
+								<li><strong>Nedýchá normálně? Začni stlačovat hrudník</strong> — uprostřed hrudi,
+								do hloubky asi 5 cm, rychlostí zhruba 100× za minutu, a nepřestávej, dokud
+								nepřijede pomoc. Puls nehledej, jen ztrácíš čas a laik ho stejně spolehlivě
+								nenahmatá.</li>
 							</ol>
+							<p>👉 Zraněného <strong>vždy předej záchranářům</strong>, i když se probral a tvrdí,
+							že je mu dobře. Proud může poškodit srdce tak, že se to projeví až za několik hodin.</p>
 						`,
 					},
 			],
@@ -3383,6 +3507,32 @@ export const temata: Record<string, Tema[]> = {
 							<li>Vložením <strong>železného jádra</strong> účinky ještě zesílíme.</li>
 							<li>Cívka s proudem se chová jako <strong>tyčový magnet</strong>; <strong>nejsilnější pole je uvnitř</strong>. Její póly závisí na směru proudu (pravidlo pravé ruky). Využití: <strong>elektromagnet</strong>.</li>
 						</ul>
+						<h3>✋ Pravidlo pravé ruky — jak se opravdu používá</h3>
+						<p>Jmenuje se stejně, ale <strong>pro vodič a pro cívku se dělá jinak</strong>. Vezmi si
+						pravou ruku a zkus si obojí nanečisto:</p>
+						<ul>
+							<li><strong>Přímý vodič:</strong> uchop ho do pravé ruky tak, aby <strong>palec mířil
+							po směru proudu</strong> (od + k −). Zahnuté prsty pak ukazují, kudy kolem vodiče
+							<strong>běží indukční čáry</strong>.</li>
+							<li><strong>Cívka:</strong> obejmi ji pravou rukou tak, aby <strong>prsty šly po směru
+							proudu v závitech</strong>. Odtažený palec pak míří k <strong>severnímu pólu</strong>
+							cívky.</li>
+						</ul>
+						<p>👉 Vyzkoušej si hned dvě věci, které z pravidla plynou: <strong>otoč směr proudu</strong>
+						(prohoď dráty na zdroji) — a severní pól cívky se přehodí na druhý konec. A druhá:
+						pravidlo je <strong>na pravou ruku</strong>, protože směr proudu se dohodl od + k −.
+						Levou rukou vyjde všechno obráceně.</p>
+						<h3>K čemu je cívka dobrá</h3>
+						<p>Tenhle magnet má oproti obyčejnému jednu obrovskou výhodu: <strong>dá se vypnout</strong>.
+						A to je základ spousty věcí kolem tebe:</p>
+						<ul>
+							<li><strong>jeřáb na vrakovišti</strong> — přitáhne auto a nad hromadou proud vypne, náklad pustí</li>
+							<li><strong>zvonek</strong> — cívka přitáhne kladívko, to <em>udeří do kovové misky</em>
+							a přitom rozpojí obvod; kladívko se vrátí, obvod se zase spojí a všechno se opakuje.
+							Zvuk vydává rozezvučená miska, ne to přepínání — kladívko na ni jen rychle bubnuje</li>
+							<li><strong>relé</strong> — malým proudem se spíná velký (tak startér nastartuje auto)</li>
+							<li><strong>reproduktor a sluchátka</strong> — cívka v poli magnetu rozkmitá membránu</li>
+						</ul>
 					`,
 				},
 				{
@@ -3524,8 +3674,28 @@ export const temata: Record<string, Tema[]> = {
 						<p>Výkon se počítá z efektivních hodnot: <strong>P = U · I</strong>. V rozvodné síti používáme napětí s efektivní hodnotou <strong>230 V</strong> a frekvencí <strong>50 Hz</strong>.</p>
 					
 						<p>Proud v síti se sto­krát za sekundu na okamžik vynuluje, a přesto žárovka nebliká: vlákno
-							je tak rozžhavené, že za tu tisícinu sekundy nestihne vychladnout — a naše oko by tak
-							rychlou změnu stejně nepostřehlo.</p>`,
+							je tak rozžhavené, že za tu setinu sekundy nestihne vychladnout — a naše oko by tak
+							rychlou změnu stejně nepostřehlo.</p>
+						<h3>🧮 Co ta čísla ze zásuvky znamenají</h3>
+						<p>Obě si můžeš snadno rozebrat:</p>
+						<ul>
+							<li><strong>50 Hz</strong> → perioda <em>T</em> = 1 : <em>f</em> = 1 : 50 = <strong>0,02 s</strong>,
+							tedy <strong>20 milisekund</strong> na jednu otočku cívky v alternátoru. Za tu dobu
+							projde napětí nulou <em>dvakrát</em> — proto těch stokrát za sekundu.</li>
+							<li><strong>230 V</strong> je hodnota <strong>efektivní</strong>, ne největší. Maximum
+							z ní dostaneš vynásobením <strong>1,4</strong> (přesněji √2): 230 · 1,4 ≈
+							<strong>325 V</strong>. Ve špičce má tedy napětí v zásuvce kolem 325 V.
+							Právě proto se u součástek hlídá, jaké napětí <em>vydrží</em> — a proto je
+							zásuvka ještě nebezpečnější, než se podle čísla 230 zdá.</li>
+						</ul>
+						<h3>Proč vůbec střídavý, když stejnosměrný je jednodušší?</h3>
+						<p>Odpověď je jediná a velmi praktická: <strong>střídavé napětí umí transformátor měnit</strong>
+						nahoru a dolů, stejnosměrné ne. A to je pro rozvod elektřiny všechno.</p>
+						<p>Vedení totiž ztrácí energii zahříváním drátů, a ztráty rostou <strong>s proudem</strong>
+						(ne s napětím). Elektrárna proto napětí <strong>vytransformuje nahoru</strong> na stovky
+						kilovoltů — tím při stejném výkonu <em>klesne proud</em> a vedení skoro netopí — a před
+						domem se zase <strong>sníží na 230 V</strong>. Bez střídavého proudu by dálkový přenos
+						elektřiny nebyl možný a elektrárna by musela stát v každém městě.</p>`,
 				},
 				{
 					slug: 'transformator',
@@ -3624,18 +3794,57 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Chemické zdroje elektrického napětí',
 					obsah: `
 						<h2>Chemické zdroje elektrického napětí</h2>
-						<p>Chemický zdroj napětí získáme, když do <strong>elektrolytu</strong> (vodivého roztoku) ponoříme <strong>dvě elektrody z různých kovů</strong>. Chemické reakce přesunou náboj — na jedné elektrodě se hromadí elektrony (záporná), na druhé ubývají (kladná).</p>
+						<p>Chemický zdroj napětí získáme, když do <strong>elektrolytu</strong> (vodivého roztoku) ponoříme <strong>dvě elektrody z různých materiálů</strong> (kovy, případně uhlík). Chemické reakce přesunou náboj — na jedné elektrodě se hromadí elektrony (záporná), na druhé ubývají (kladná).</p>
 						<ul>
-							<li><strong>Anoda</strong> — záporná elektroda (zinek, lithium).</li>
-							<li><strong>Katoda</strong> — kladná elektroda (uhlík/grafit, měď).</li>
+							<li><strong>Anoda</strong> — u článku, který se vybíjí, je to elektroda <strong>záporná</strong> (zinek, lithium).</li>
+							<li><strong>Katoda</strong> — u vybíjejícího se článku elektroda <strong>kladná</strong> (uhlík/grafit, měď).</li>
 						</ul>
+						<p>⚠️ <strong>Nespojuj si anodu natrvalo se znaménkem mínus.</strong> Názvy se totiž řídí
+						tím, <em>co se na elektrodě děje</em>, ne polaritou — a ta se při jiném ději obrátí:
+						při <strong>elektrolýze i při nabíjení</strong> akumulátoru je anoda <strong>kladná</strong>.
+						Pravidlo „anoda = mínus" tedy platí jen pro článek, který zrovna dodává proud.</p>
 						<h3>Nejznámější články</h3>
 						<ul>
 							<li><strong>Suchý článek</strong> — zinková nádoba (−), uhlíková tyčinka (+), salmiaková pasta; napětí <strong>1,5 V</strong>, jednorázový (v hračkách).</li>
 							<li><strong>Plochá baterie</strong> — tři suché články za sebou, napětí <strong>4,5 V</strong>.</li>
 							<li><strong>Alkalické</strong> — vyšší kapacita a životnost (blesk fotoaparátu).</li>
-							<li><strong>Lithiové</strong> — kvalitní i po dlouhém skladování (mobil, notebook).</li>
+							<li><strong>Lithiové</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, záložní baterie na základní desce počítače.</li>
 							<li><strong>Olověný akumulátor</strong> — velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie).</li>
+						</ul>
+						<h3>Uvnitř článku neteče proud elektronů</h3>
+						<p>Tohle je nejdůležitější rozdíl oproti drátu — a zapadá do celého tohoto celku o vedení
+						proudu v různých látkách. <strong>V kovu proud tvoří volné elektrony</strong>, ale
+						<strong>v elektrolytu se pohybují ionty</strong>: nabité částice, které vznikly z rozpuštěné
+						látky. A protože jsou mezi nimi kladné i záporné, putují <strong>oběma směry současně</strong>
+						— každé ke své elektrodě.</p>
+						<p>Obvod se tak skládá ze dvou různých dějů: <strong>vně</strong> článku běží drátem elektrony
+						od záporné elektrody ke kladné, <strong>uvnitř</strong> ho uzavírají ionty v roztoku. Bez toho
+						druhého by se náboj na elektrodách okamžitě nashromáždil a proud by se zastavil.</p>
+						<h3>Napětí článku určuje dvojice kovů</h3>
+						<p>Proč zrovna 1,5 V? Každý kov se snaží posílat elektrony jinak ochotně, a
+						<strong>napětí článku je dané právě tím rozdílem</strong> mezi oběma kovy. Proto:</p>
+						<ul>
+							<li>napětí <strong>nezáleží na velikosti</strong> článku — tužková i buřtová dají 1,5 V;
+							větší jen vydrží déle (<strong>kapacita</strong> v mAh)</li>
+							<li>vyššího napětí se dosáhne <strong>sériovým zapojením</strong>: 3 × 1,5 V = 4,5 V
+							(plochá), 6 × 2 V = 12 V (autobaterie)</li>
+							<li>ze <strong>dvou stejných materiálů</strong> žádný článek nesestavíš — rozdíl by byl nulový</li>
+						</ul>
+						<p>💡 Vyzkoušej doma: zapíchni do citronu <strong>zinkový</strong> plíšek (postačí
+						pozinkovaný hřebík) a vedle něj <strong>měděný</strong> (kousek drátu nebo mince s velkým
+						podílem mědi), pár milimetrů od sebe, ale tak, aby se nedotýkaly. Přiložením
+						<strong>voltmetru</strong> naměříš kolem <strong>1 V</strong> — citronová šťáva slouží jako
+						elektrolyt. A hlavní pointa téhle stránky: se <em>dvěma měděnými</em> plíšky nenaměříš nic,
+						i kdyby byl citron sebekyselejší.</p>
+						<p>⚠️ Dvě věci k tomu pokusu: napětí měř <strong>měřicím přístrojem, nikdy jazykem</strong> —
+						a <strong>citron už potom nejez</strong>. Do šťávy se z plíšků uvolňují ionty zinku a mědi,
+						které do těla nepatří. Použité plíšky vyhoď a ruce si umyj.</p>
+						<h3>Dnešní akumulátory</h3>
+						<ul>
+							<li><strong>Lithium-iontový</strong> (mobil, notebook, elektromobil) — lehký, velká kapacita,
+							snese stovky nabití. Nemá rád úplné vybití ani vysokou teplotu.</li>
+							<li><strong>Palivový článek</strong> — zvláštní případ: nevybíjí se, protože se do něj
+							palivo (vodík) <strong>průběžně dodává</strong>. Odpadem je čistá voda.</li>
 						</ul>
 					`,
 				},
@@ -3746,6 +3955,20 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>chemická → elektrická</strong> — galvanické články a akumulátory.</li>
 						</ul>
 						<p>Platí přitom <strong>zákon zachování energie</strong> — energie se jen přeměňuje, nevzniká ani nezaniká.</p>
+						<h3>Tak proč mluvíme o „spotřebě" energie?</h3>
+						<p>Když energie nezaniká, co se s ní vlastně stane, než přijde účet? Nic se neztratilo —
+						jen <strong>skončila jako teplo</strong> rozptýlené do okolí. Mixér ohřeje těsto i motor,
+						žárovka pokoj, nabíječka sebe samu. Teplo rozptýlené po celém pokoji už ale nedokážeš
+						sebrat a použít znovu.</p>
+						<p>👉 Proto je poctivější říkat, že energii <strong>„znehodnocujeme"</strong>, ne
+						spotřebováváme: pořád jí je stejně, jen se z použitelné podoby změnila na nepoužitelnou.
+						A právě tenhle jednosměrný sešup je důvod, proč <strong>žádný stroj nevydá víc, než do něj
+						dáme</strong> — a proč nemůže existovat perpetuum mobile.</p>
+						<p>💡 Zamysli se nad <strong>přímotopem</strong>: veškerá elektřina v něm skončí jako teplo,
+						takže se dá říct, že jeho účinnost je prakticky 100 %. Není to výjimka ze zákona ani
+						protiklad k tomu, co ses učil(a) o ztrátách — je to případ, kdy je „ztrátové" teplo
+						<strong>přesně tím, co po stroji chceme</strong>. Totéž teplo je u počítače nebo motoru
+						ztráta. <strong>Jestli je energie užitečná, nerozhoduje fyzika, ale náš záměr.</strong></p>
 					`,
 				},
 				{
@@ -3941,9 +4164,16 @@ export const temata: Record<string, Tema[]> = {
 						<p>Přírodní zdroje energie, ze kterých vyrábíme elektřinu nebo poháníme stroje, dělíme do dvou skupin.</p>
 						<h3>Obnovitelné zdroje</h3>
 						<ul>
-							<li>jsou na Zemi v <strong>neomezeném množství</strong> a nelze je vyčerpat,</li>
-							<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální teplo, biomasa a bioplyn, vodík</strong>.</li>
+							<li>doplňují se <strong>tak rychle, jak je stačíme využívat</strong> — zítra jich bude zas tolik co dnes,</li>
+							<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální teplo, biomasa a bioplyn</strong>.</li>
 						</ul>
+						<p>👉 „Obnovitelný" ale neznamená „nevyčerpatelný": les vykácený rychleji, než stačí dorůst,
+						nebo přetížený geotermální vrt dojdou stejně jako uhlí. Rozhoduje <strong>rychlost, jakou se
+						zdroj obnovuje</strong>, ne jeho množství.</p>
+						<p>⚠️ <strong>Vodík mezi zdroje nepatří</strong>, ačkoli se to často říká. Na Zemi se volný
+						skoro nevyskytuje — musí se vyrobit, a to spotřebuje víc energie, než z něj potom získáme.
+						Vodík je proto <strong>nosič energie</strong>, něco jako baterie: umí ji přenést a uchovat,
+						ale sám ji nedodá.</p>
 						<h3>Neobnovitelné zdroje</h3>
 						<ul>
 							<li>jsou jen v <strong>omezeném množství</strong> a za určitou dobu se vyčerpají,</li>
@@ -3952,8 +4182,35 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Druhy elektráren</h3>
 						<p>Podle využitého zdroje stavíme elektrárny <strong>jaderné</strong> (uran 235), <strong>tepelné</strong> (spalují fosilní paliva), <strong>sluneční</strong> (fotovoltaické), <strong>větrné</strong>, <strong>vodní</strong> a <strong>geotermální</strong>.</p>
+						<h3>☀️ Skoro všechno je vlastně sluneční energie</h3>
+						<p>Když se u každého zdroje zeptáš „a odkud se ta energie vzala?", dojdeš skoro pokaždé
+						ke stejné odpovědi — ke <strong>Slunci</strong>:</p>
+						<ul>
+							<li><strong>vítr</strong> vzniká tím, že Slunce ohřívá vzduch nerovnoměrně</li>
+							<li><strong>vodní</strong> elektrárna žije z koloběhu vody, a ten pohání sluneční teplo,
+							které vodu vypařuje</li>
+							<li><strong>biomasa</strong> je energie zachycená fotosyntézou</li>
+							<li><strong>uhlí a ropa</strong> jsou totéž — jen sluneční energie, kterou rostliny
+							zachytily před stovkami milionů let a která od té doby ležela pod zemí</li>
+						</ul>
+						<p>Ze Slunce nepocházejí jen tři: <strong>jaderná</strong> energie (z jader atomů),
+						<strong>geotermální</strong> (teplo zemského nitra — z velké části také z rozpadu
+						radioaktivních prvků) a <strong>přílivová</strong>, která si bere energii
+						<strong>z otáčení Země</strong>; Měsíc svou gravitací jen „drží" příliv na místě,
+						zatímco planeta se pod ním otáčí. Země se tím opravdu, i když nepatrně, zpomaluje.</p>
+						<p>👉 Rozdíl mezi obnovitelným a neobnovitelným zdrojem tedy není v tom, <em>odkud</em>
+						energie je — ale <strong>jak rychle se doplňuje</strong>: uhlí vznikalo desítky milionů let,
+						vítr fouká zítra znovu.</p>
+						<h3>Slabina obnovitelných: nedají se poručit</h3>
+						<p>Sluneční panel nevyrábí v noci a větrník za bezvětří — a naopak: v poledne dodá elektrárna
+						víc, než je zrovna potřeba. Elektřina se přitom <strong>ve velkém špatně skladuje</strong>
+						a sítí musí každou vteřinu protékat přesně tolik, kolik se právě spotřebuje.</p>
 						<h3>Přečerpávací elektrárna (Dlouhé stráně)</h3>
-						<p>Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>; v době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>
+						<p>Právě to je odpověď na potíž popsanou výš — je to obrovská <strong>baterie z vody</strong>.
+						Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>; v době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>
+						<p>Přečerpáním se část energie ztratí, takže dolů se jí vrátí míň, než kolik stálo čerpání
+						nahoru. Přesto se to vyplatí — <strong>elektřina, která by se jinak vůbec nevyužila,
+						takhle počká</strong> na chvíli, kdy je jí potřeba.</p>
 					`,
 				},
 				{

@@ -3342,7 +3342,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaký je příkon oproti užitečnému výkonu?', odpovedi: ['vždy větší (kvůli ztrátám)', 'vždy menší', 'stejný'], vysvetleni: 'Část energie uniká jako teplo.' },
 		{ text: 'Co udává účinnost spotřebiče?', odpovedi: ['kolik % energie využije na užitečnou práci', 'kolik váží', 'jak je hlučný'], vysvetleni: 'Vždy méně než 100 %.' },
 		{ text: 'Jakou účinnost má klasická žárovka?', odpovedi: ['jen ~5 %', '~70 %', '100 %'], vysvetleni: 'Většina energie je neužitečné teplo.' },
-		{ text: 'Proč se dnes používají LED žárovky?', odpovedi: ['mají vyšší účinnost (~70 %)', 'jsou levnější na výrobu', 'svítí tepleji'], vysvetleni: 'Méně energie plýtvají na teplo.' },
+		{ text: 'Proč se dnes používají LED žárovky?', odpovedi: ['mají vyšší účinnost (~50 %)', 'jsou levnější na výrobu', 'svítí tepleji'], vysvetleni: 'Méně energie plýtvají na teplo — klasická žárovka promění na světlo jen asi 5 %, LED kolem poloviny.' },
 	],
 	'fyzika/8-rocnik/elektrina/ucinky-proudu-a-bezpecnost': [
 		{ text: 'Je lidské tělo vodič?', odpovedi: ['ano', 'ne', 'jen v zimě'], vysvetleni: 'Tělní tekutiny obsahují ionty.' },
