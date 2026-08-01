@@ -88,6 +88,16 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
    > nepomůže) — je to nejspolehlivější cesta zpátky. · Odkaz na cvičná data vedl
    > na starou adresu s jiným názvem. · Stránka digitální stopy měla délkovou
    > nápovědu u **6 z 11** otázek (jedna 8,3×) — dorovnáno, blok je na nule.
+
+   > **Druhá dávka (31 → 26): `orientovane-grafy-a-automaty`, `zabezpeceni-a-digitalni-stopa`,
+   > `hardware-a-software`, `udalosti-a-vstupy`, `modely-a-schemata`.** Kontrolor opět
+   > 16 nálezů. Nejzajímavější: českému signálu se **oficiálně říká žlutý, ne oranžový**
+   > (bylo špatně ve výkladu i ve dvou otázkách) · tvrzení „bloky událostí začínají
+   > slovem *po*" neplatí — `když (stopky) > ( )` je taky událost · „postava bez události
+   > neudělá nic" má výjimku *když startuje můj klon* · u sdíleného souboru je „vidět"
+   > a „číst" totéž (nově číst → komentovat → měnit obsah → měnit práva) · vzorové heslo
+   > zveřejněné na webu už není vzor, který by někdo použil · odkaz na opocitacich.cz
+   > je z části placený, což se teď píše rovnou. Délková nápověda 809 → **796** otázek.
 1. **Zbytek auditu kontrol** — nejlevnější body s největším dopadem:
    a) **zapojení simulací se čte z TEXTU, ačkoli data jsou na dosah** (`zkontroluj.mjs`
    ř. 25 načte `dataTemata` a už je nepoužije) — podtéma vzniklé programově kontrolu
@@ -131,8 +141,14 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
 > s délkovou nápovědou, ne 953. Ověřeno obousměrně: jediná nová vadná otázka (809 → 810)
 > bránu shodí.
 
-**⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM:** *(právě teď prázdný — všechno vyřízeno;
-sem patří každý nový dotaz, nikam jinam)*
+**⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM** *(sem patří každý nový dotaz, nikam jinam)*
+
+- **Patří „Když počítač zlobí" na stránku o zabezpečení?** Podtéma
+  `informatika/7-rocnik/pocitace/zabezpeceni-a-digitalni-stopa` má kromě hesel, práv
+  a digitální stopy i sekci o tom, co dělat, když nereaguje program nebo myš — a dvě
+  kvízové otázky k ní. Nezávislý kontrolor upozornil, že to tematicky patří spíš
+  k `hardware-a-software`. Je to uspořádání učiva, tak jsem to nepřesouval:
+  **má se to přestěhovat, nebo to tam necháváš schválně?**
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, ráno — SAMOSTATNÁ PRÁCE)
 

@@ -3989,19 +3989,28 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Události a vstupy — myš a klávesnice',
 					obsah: `
 						<h2>Program, který poslouchá</h2>
-						<p><strong>Událost</strong> je okamžik, na který program čeká a hned na něj zareaguje. Ve Scratchi události poznáš podle žlutých bloků „<strong>po kliknutí…</strong>", „<strong>po stisku klávesy…</strong>".</p>
+						<p><strong>Událost</strong> je okamžik, na který program čeká a hned na něj zareaguje. Ve Scratchi je poznáš podle <strong>žlutých bloků</strong> ve tvaru klobouku — většina z nich začíná slovem „po" („po kliknutí…", „po stisku klávesy…").</p>
 						<h3>Jaké události známe?</h3>
 						<ul>
 							<li>🖱️ <strong>kliknutí myší</strong> na postavu nebo na zelenou vlajku</li>
 							<li>⌨️ <strong>stisk klávesy</strong> — šipky pro pohyb, mezerník pro výstřel</li>
 							<li>📩 <strong>přijetí zprávy</strong> od jiné postavy</li>
 						</ul>
+						<h3>Žluté bloky událostí v české paletě</h3>
+						<ul>
+							<li><strong>po kliknutí na zelenou vlajku</strong> — start celého programu</li>
+							<li><strong>po stisku klávesy (mezerník)</strong> — v nabídce jsou i <em>šipka vlevo</em>, <em>šipka vpravo</em>, <em>libovolná</em></li>
+							<li><strong>po kliknutí na mě</strong> — spustí se, když hráč klikne na tuhle postavu</li>
+							<li><strong>po obdržení zprávy (…)</strong> — postava reaguje na zprávu od jiné postavy</li>
+						</ul>
 						<h3>Ovládání postavy klávesnicí</h3>
-						<p>Každá šipka má vlastní scénář: <em>po stisku šipky doprava → změň x o 10</em>. Tak vznikne ovládání jako ve hře.</p>
+						<p>Každá šipka má vlastní scénář: <em>po stisku klávesy (šipka vpravo) → změň x o 10</em>. Tak vznikne ovládání jako ve hře.</p>
 						<h3>Sledování myši</h3>
 						<p>Postava se umí <strong>otáčet za ukazatelem myši</strong> nebo jít na pozici myši — základ pro chytání, míření a kreslení.</p>
+						<h3>Scénářů běží víc naráz</h3>
+						<p>Každá událost si vede <strong>svůj vlastní scénář</strong> a všechny běží zároveň — jedna postava tak může mít scénář pro každou šipku, další pro kliknutí a další pro zprávu. Z toho plyne i opačná věc: <strong>postava, která nemá žádný scénář začínající událostí, se po spuštění programu vůbec nerozjede.</strong> Nemá totiž co by ji spustilo. (Výjimkou je <em>když startuje můj klon</em> — ten čeká na klon, ne na hráče.)</p>
 						<p>💡 Program řízený událostmi nedělá věci „od začátku do konce", ale <strong>reaguje na to, co uděláš</strong> — stejně jako mobil čeká na tvé ťuknutí.</p>
-						<p>📗 Učebnice Scratch, kapitola 5 (Myš a klávesnice).</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi</a> (NPI ČR), kapitola 5 — Myš a klávesnice.</p>
 					`,
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
@@ -4065,10 +4074,13 @@ export const temata: Record<string, Tema[]> = {
 							<li>model můžeme <strong>zkontrolovat a opravit</strong> — chybí v něm něco? přebývá?</li>
 						</ul>
 						<h3>Dobrý model odpovídá na otázku</h3>
-						<p>👉 Stejná skutečnost může mít různé modely. Plánek metra neukazuje skutečné vzdálenosti — a přesto je pro cestování nejlepší. Pro stavbaře tunelů by byl k ničemu.</p>
+						<p>👉 Stejná skutečnost může mít různé modely. Plánek metra neukazuje skutečné vzdálenosti — a přesto je pro cestování nejlepší: cestujícímu stačí <strong>pořadí stanic a kde se přestupuje</strong>, o metry se nestará. Pro stavbaře tunelů by byl přesně proto k ničemu.</p>
+						<h3>Co do modelu patří a co ne</h3>
+						<p>Rozhoduje <strong>otázka, kterou řešíš</strong>. Rodokmen zachycuje vztahy v rodině — kdo je čí rodič a sourozenec; výška ani oblíbená jídla do něj nepatří, protože k té otázce nic nepřidají. Schéma zapojení obvodu ukazuje, <strong>co je s čím propojené</strong>; skutečnou barvu ani délku vodičů schválně vynechává, jinak by se v něm nikdo nevyznal.</p>
+						<p>👉 Když ti v modelu <strong>chybí údaj</strong>, který k řešení potřebuješ, model <strong>doplň</strong> — nevymýšlej si hodnotu a úlohu kvůli tomu nevzdávej. A když v něm něco přebývá, škrtni to: každý zbytečný údaj ztěžuje hledání odpovědi.</p>
 						<h3>Vyzkoušej si</h3>
 						<p>Nakresli schéma cesty do školy: kroužky = místa, čáry = cesty. Právě jsi vytvořil(a) <strong>graf</strong> — víc v další kapitole!</p>
-						<p>🦫 Úlohy s modely najdeš v archivu soutěže <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobřík informatiky</a> (kategorie Benjamin).</p>
+						<p>🦫 Úlohy s modely najdeš v archivu soutěže <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobřík informatiky</a> — kategorie <strong>Benjamin</strong> pro 6.–7. třídu, <strong>Kadet</strong> pro 8.–9.</p>
 					`,
 					odkazy: [
 						{ nazev: 'učebnice Základy informatiky', url: 'https://archiv-imysleni.npi.cz/ucebnice/zaklady-informatiky-pro-zakladni-skoly.html' },
@@ -4108,10 +4120,21 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Automat</strong> v informatice není hrací skříň — je to model, který má <strong>stavy</strong> (kroužky) a <strong>přechody</strong> (šipky s podmínkou):</p>
 						<ul>
 							<li>turniket: stav <em>zamčeno</em> → (vhozená mince) → stav <em>odemčeno</em></li>
-							<li>semafor: červená → červená+oranžová → zelená → oranžová → červená…</li>
+							<li>semafor: červená → červená + žlutá → zelená → žlutá → červená… (žlutému světlu se lidově říká oranžové, ve vyhlášce je <strong>žluté</strong>)</li>
 							<li>postava ve hře: stojí → (šipka) → běží → (mezerník) → skáče</li>
 						</ul>
 						<p>👉 Automat přesně říká, <strong>co se smí stát v jaké situaci</strong> — proto se s ním navrhují programy, hry i pračky.</p>
+						<h3>Šipka platí jen jedním směrem</h3>
+						<p>To je na orientovaném grafu to hlavní. Když vede šipka z A do B, <strong>neznamená to, že se dá i z B do A</strong> — na to by musela existovat druhá, samostatná šipka. Přesně jako jednosměrka: tudy ano, zpátky ne. V neorientovaném grafu (obyčejná čára bez šipky) se chodí oběma směry.</p>
+						<h3>Jak automat nakreslit</h3>
+						<ol>
+							<li>vypiš <strong>stavy</strong> — v jaké situaci se věc může nacházet (kroužky)</li>
+							<li>od každého stavu nakresli <strong>šipky</strong> tam, kam se z něj dá dostat</li>
+							<li>na každou šipku napiš <strong>podmínku</strong>, která ten přechod spustí</li>
+							<li>označ <strong>počáteční stav</strong> — kde se začíná po zapnutí</li>
+						</ol>
+						<p>Pračka: <em>praní</em> → <em>máchání</em> → <em>ždímání</em>. O přechodu do dalšího stavu nerozhoduje náhoda, ale <strong>splnění podmínky</strong> — třeba uplynulý čas nebo dosažená teplota. Semafor jede pořád dokola v pevném pořadí: červená → červená + žlutá → zelená → žlutá → červená.</p>
+						<p>👉 K čemu to je: když máš vypsané všechny stavy a přechody, hned vidíš, jestli tvůj program <strong>nezapomněl na nějakou situaci</strong>. Právě tak může hra „zamrznout" — dostane se do stavu, ze kterého nevede žádná šipka ven.</p>
 						<h3>Souběžné (paralelní) činnosti</h3>
 						<p>Model umí zachytit i činnosti běžící <strong>zároveň</strong>: zatímco se vaří těstoviny, krájíme zeleninu. Ve Scratchi běží scénáře postav také souběžně — každá postava si jede ten svůj.</p>
 					`,
@@ -4323,12 +4346,20 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Dvoufázové ověření</strong> — heslo + kód z mobilu; i ukradené heslo pak zloději nestačí</li>
 							<li>heslo <strong>nikomu nesděluj</strong> — ani „kamarádovi", ani „správci z e-mailu"</li>
 						</ul>
+						<h3>Proč je „Bobík2011" špatné heslo</h3>
+						<p>Jméno mazlíčka, přezdívka, oblíbený klub nebo datum narození jsou <strong>veřejně dohledatelné</strong> — obvykle stačí projít tvůj vlastní profil. Útočník je nezkouší ručně, ale programem, který jich vyzkouší tisíce za vteřinu. Dlouhé heslo je proto silnější než krátké „chytré": vymysli si <strong>tři slova, která spolu nesouvisejí</strong> — ale vlastní, ne ta z učebnice nebo z webu. Takové heslo se hádá o hodně hůř a přitom si ho zapamatuješ.</p>
 						<h3>Přístupová práva</h3>
-						<p>U sdílených souborů se nastavuje, kdo smí co: <strong>vidět</strong> → <strong>číst</strong> → <strong>měnit obsah</strong> → <strong>měnit práva</strong>. Sdílej vždy jen to nejnutnější.</p>
+						<p>U sdílených souborů se nastavuje, kdo smí co: <strong>číst</strong> → <strong>komentovat</strong> → <strong>měnit obsah</strong> → <strong>měnit práva</strong>. Sdílej vždy jen to nejnutnější — právo <em>číst</em> stačí tomu, kdo si má práci jen prohlédnout, a nikdo ti pak obsah omylem nepřepíše ani nesmaže. Pozor i na to, <strong>komu</strong> sdílíš: „kdokoli s odkazem" znamená opravdu kdokoli, komu se odkaz dostane do ruky, kdežto sdílení konkrétním lidem se dá kdykoli odebrat.</p>
 						<h3>Digitální stopa</h3>
 						<p>👉 Všechno, co na internetu uděláš, někde <strong>zanechá záznam</strong>: fotky, komentáře, lajky, poloha mobilu. Stopa se <strong>nedá spolehlivě smazat</strong> — než něco pošleš, rozmysli si, jestli to může vidět kdokoli a navždy.</p>
 						<h3>Když počítač zlobí</h3>
-						<p>Program bez odezvy? Zkontroluj propojení kabelů, zkus program ukončit vynuceně, restartuj. Postupuj klidně a <strong>po krocích</strong> — většina „záhad" má jednoduchou příčinu.</p>
+						<p>Postupuj klidně a <strong>po krocích</strong>, od nejjednodušší příčiny k složitější — většina „záhad" má triviální důvod:</p>
+						<ol>
+							<li>nereaguje myš nebo klávesnice? <strong>Nejdřív kabel</strong> (nebo baterie a vypínač u bezdrátové)</li>
+							<li>nereaguje jen jeden program? Zkus ho <strong>ukončit vynuceně</strong> a spustit znovu</li>
+							<li>až potom <strong>restartuj</strong> celý počítač</li>
+						</ol>
+						<p>👉 Měň vždycky <strong>jednu věc</strong> a hned vyzkoušej, jestli to pomohlo. Když přehodíš pět věcí naráz, nedozvíš se, co bylo špatně — a příště začneš od začátku.</p>
 					`,
 					odkazy: [
 						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
@@ -5176,12 +5207,18 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>disk (SSD)</strong> — trvalé úložiště souborů</li>
 							<li>vstupy (klávesnice, myš, mikrofon) a výstupy (monitor, reproduktory)</li>
 						</ul>
+						<p>Zařízení se dělí podle toho, kudy jde informace: <strong>vstupní</strong> ji do počítače dostávají (klávesnice, myš, mikrofon, kamera, skener), <strong>výstupní</strong> ji předávají ven k tobě (monitor, tiskárna, reproduktory, sluchátka). Dotykový displej umí obojí naráz.</p>
 						<h3>Software — programy</h3>
-						<p><strong>Operační systém</strong> (Windows, macOS, Linux, Android, iOS) řídí celý počítač: spouští aplikace, spravuje soubory, paměť i připojená zařízení. <strong>Aplikace</strong> pak dělají konkrétní práci.</p>
+						<p><strong>Operační systém</strong> (Windows, macOS, Linux, Android, iOS) řídí <strong>celý počítač</strong>: spouští aplikace, spravuje soubory, paměť i připojená zařízení. <strong>Aplikace</strong> je proti tomu program na <strong>jeden úkol</strong> — prohlížeč, textový editor, hra. Bez systému by aplikace neměla kde běžet; systém sám ale za tebe dopis nenapíše.</p>
 						<h3>Komprese dat</h3>
 						<p>👉 <strong>Komprese</strong> zmenšuje soubory: bezeztrátová (ZIP — vše jde obnovit) × ztrátová (JPG, MP3 — zahodí, co oko/ucho nepozná). Proto se fotka vejde do zprávy.</p>
 						<h3>Technologie kolem nás</h3>
-						<p>Umělá inteligence, internet věcí, virtuální realita — diskutujeme, <strong>jak fungují a co mění</strong> (učebnice <a href="https://opocitacich.cz" target="_blank" rel="noopener">opocitacich.cz</a>).</p>
+						<ul>
+							<li><strong>umělá inteligence</strong> — programy, které se učí ze vzorů v datech místo z pevně napsaných pravidel</li>
+							<li><strong>internet věcí (IoT)</strong> — běžné věci připojené k síti: žárovka, váha, chytrá zásuvka, senzor v poli</li>
+							<li><strong>virtuální realita</strong> — počítačem vytvořený svět, do kterého se díváš brýlemi; rozšířená realita (AR) naopak přidává obraz do skutečného světa</li>
+						</ul>
+						<p>👉 Zkus si o tom popovídat doma: co tyhle technologie mění na tom, jak žijeme — a co za to platíme? Mikrolekce a pracovní sešity k tématu jsou na <a href="https://opocitacich.cz" target="_blank" rel="noopener">opocitacich.cz</a> (část obsahu je placená).</p>
 					`,
 					odkazy: [
 						{ nazev: 'opocitacich.cz — digitální technologie', url: 'https://opocitacich.cz' },
