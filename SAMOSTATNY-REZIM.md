@@ -1,6 +1,63 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (2. 8. 2026 — INFORMATIKA UZAVŘENA)
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (2. 8. 2026, v noci — FYZIKA, DÁVKA 5)
+
+> **Pokyn učitele z 2. 8. v noci:** *„nečekej na další kolo… jakmile jedno kolo skončí,
+> začni hned nové, aby se neztrácel čas. Já jdu spát, ty pracuj, nezastavuj se. Práci
+> průběžně kontroluj a potřebné věci pro schválení si ukládej."* → **Mezi koly se
+> neplánuje žádná pauza.** Dotazy se nehromadí v chatu, ale zapisují sem do „ČEKÁ NA UČITELE".
+
+**Hluché stránky 15 → 9.** Hotovo šest: `kondenzace`, `tuhnuti`,
+`skupenske-zmeny-vody-v-prirode` (F8) a `uvod-do-fyziky`, `telesa-a-latky`,
+`souhrnne-opakovani-velicin` (F6). Nasazeno a ověřeno curlem.
+
+Doplněné učivo: kondenzace **uvolňuje** teplo (2 260 kJ/kg) → proto **pára popálí hůř
+než vařící voda o téže teplotě** · kdyby led neplaval, rybník by promrzl ode dna ·
+solení jen do **−21 °C** · koloběh vody **stěhuje energii** a pohání ho Slunce ·
+Galileo + kladivo a pero na Měsíci (Apollo 15) · dvě otázky, jak rozeznat těleso od
+látky · značka **t** znamená čas i teplotu (rozliší až jednotka).
+
+> **⚠️ NEJVÁŽNĚJŠÍ NÁLEZ BYLA MOJE VLASTNÍ CHYBA.** Napsal jsem, že podchlazená voda
+> po ťuknutí **„zmrzne celá naráz"**. Není to pravda — a odporovalo to odstavci o kus
+> výš na téže stránce: tuhnutí **uvolňuje** skupenské teplo, to směs ohřeje na 0 °C
+> a děj zastaví. Z vody podchlazené na −5 °C ztuhne jen asi **šestnáctina**, zbytek
+> zůstane ledovou kaší (ověřeno výpočtem `c·Δt / l_t`). **Poučení: efektní tvrzení
+> si ověřuj i proti vlastnímu textu o dva odstavce výš.**
+
+Další nálezy kontrolora (opraveno): obláček z úst byl na jedné stránce „pára", zatímco
+sousední stránka **totéž označuje za omyl** (pára je průhledný plyn, vidět jsou až
+kapičky) · **rosný bod je TEPLOTA**, ne „stav" · **kroupy nevznikají zmrznutím padající
+kapky**, ale opakovaným výnosem v bouřkovém mraku (odtud vrstvy jako cibule) · dusík
+se stlačením nezkapalní, propan-butan ano · „led roztaje sám" navozovalo, že tání
+nepotřebuje teplo · nezámrzná hloubka je 80–140 cm, ne 90–140.
+
+> **Měřidlo se hned vyplatilo:** oprava hloubky 90 → 80 cm rozešla výklad s kvízem
+> a `testy/cisla-ve-vykladu.mjs` to okamžitě nahlásilo. Sladěno.
+
+**Rozhodnuto sám (odborné posouzení, neptám se):** web říká „základní jednotka"
+i u odvozených (m³, kg/m³, N, Pa) — to je školská konvence shodná s učebnicí a
+**přepisovat ji napříč desítkami kvízů by bylo horší než užitečné**. U teploty, kde
+je to opravdu nepravda (základní jednotka SI je kelvin), je nově hvězdička s vysvětlením.
+
+**FRONTA — čím pokračovat:**
+0. **ZBÝVÁ 9 HLUCHÝCH STRÁNEK, všechno fyzika.** Seznam dá
+   `node testy/kratke-vyklady.mjs 1200` (🕳). Zbývají: `chemicke-zdroje-napeti` (F8 i F9),
+   `elektricka-energie-a-premeny`, `obnovitelne-a-neobnovitelne-zdroje`,
+   `magneticke-pole-vodice-a-civky`, `elektricka-prace-a-vykon`, `elektricke-pole`,
+   `ucinky-proudu-a-bezpecnost`, `vlastnosti-stridaveho-proudu` — **skoro celá elektřina**,
+   dá se dělat jako jeden souvislý blok. **Kontrolor povinně.**
+1. **Zbytek auditu kontrol** (beze změny): zapojení simulací se čte z TEXTU · mapa
+   `CestyVse.astro` se neměří vůbec · slovníková kontrola `druh`/`interakce` · slabé
+   testy `elektrovani`, `odpor-vodice`, `tabulka-vzorce`.
+2. **Názornost informatiky** — 47 podtémat bez obrázku či videa. Skillem `/simulace`.
+3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
+
+**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
+- **Jakou generaci VEX IQ mozku škola má?** Stránka `co-umi-vex-iq` uvádí 12 portů na
+  motory a čidla. U **starších Brainů si jeden port bere rádio** (volných 11), u novější
+  generace je rádio vestavěné a 12 platí. Když jde o starší sadu, dopíšu závorku.
+
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ Předchozí stav (2. 8. 2026 — INFORMATIKA UZAVŘENA)
 
 **Hluché stránky 21 → 15. Informatika je hotová — všech 6 zbývajících zavřeno**
 (`hra-bludiste`, `hra-ping-pong`, `hra-skakacka`, `hra-vesmirna-strilecka`,
