@@ -1,5 +1,81 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, večer — VÝKLADY + AUDIT KONTROL)
+
+**Zadání učitele:** pokračovat samostatně podle tohoto souboru, pak udělat nezávislý
+audit, navrhnout změny a jet dál. Vše níže je nasazené a ověřené (build + push + curl).
+
+**A) Informatika — doplněno 8 krátkých výkladů, pod 700 znaků jich zbývá 7 (bylo 15).**
+`projekt-muj-robot`, `tlacitka-naklon-zvuk`, `seznamy-a-promenne-v-projektech`,
+`motory-displej-zvuk`, `funkce-v-tabulkach`, `senzory-robota`,
+`vlastni-bloky-s-parametry`, `hra-honicka`. Výklad nově pokrývá i to, na co se ptal
+kvíz a na stránce to nebylo. Dvě dávky, každá s nezávislým kontrolorem (26 nálezů).
+
+> **⚠️ NEJVÁŽNĚJŠÍ NÁLEZ: web soustavně učil NÁZVY BLOKŮ, KTERÉ V ČESKÉ PALETĚ
+> SCRATCHE NEJSOU** — „řekni" (správně **bublina**), „jdi na" (**skoč na**),
+> „otoč se k" (**nastav směr k**), „zastav vše" (**zastav (všechno)**). Žák by scénář
+> podle stránky nesestavil. Postiženo bylo **15 míst na 8 stránkách**.
+> Nové měřidlo **`node testy/nazvy-bloku.mjs`** to hlídá trvale (bod 6e brány, tvrdá
+> chyba), tabulka je opsaná z oficiální lokalizace a kontroluje jen celky, kde se
+> opravdu programuje ve Scratchi — u LEGO robota a micro:bitu jsou tytéž obraty
+> správně. *Past: první verze měřidla hlásila i zdravé „opakuj dokud **nenastane**".*
+
+Další vážné nálezy kontrolorů (opraveno): ve scénáři **Honičky byla kontrola chycení
+ZA blokem „opakuj stále"**, takže hra nikdy neskončila · sčítání 0,1 dává ve Scratchi
+**3.0000000000000013** → proměnná počítá celé desetiny a na konci se dělí deseti ·
+**micro:bit V2 má reproduktor přímo na desce** (text platil jen pro V1) ·
+`=RANK(…)` potřebuje dva údaje, samotná oblast skončí chybou · u známek najde tu
+**nejlepší MIN, ne MAX** · měkká záclona zvuk **pohltí**, neodrazí ho jinam.
+
+**B) NEZÁVISLÝ AUDIT KONTROLNÍCH MECHANISMŮ — a co z něj je hotové.**
+Auditor prověřoval, které kontroly mohou tiše lhát, a podvrhy v kopii repa to doložil.
+
+1. ✅ **Tichá lež sekce 7 (deník).** Kontroly roků čtou text regulárními výrazy
+   citlivými na tabulátory — po přeformátování jednoho souboru **celý rok tiše vypadl
+   ze všech kontrol** a brána zůstala zelená (163 míst místo 209). Nově se počty
+   z textu porovnávají s počty **ze skutečných dat**; rozdíl = chyba. Ověřeno podvrhem.
+2. ✅ **Testy simulací nikdy neběžely hromadně.** Bylo jich 9, brána nespouštěla ani
+   jeden a bez argumentu padaly. Nový spouštěč **`node testy/vsechny-simulace.mjs`**
+   si komponentu odvodí z názvu testu, hlásí i **počet kontrol (244)** — „nula chyb"
+   z nula kontrol je falešná nula — a běží v `prebuild` při každém buildu.
+3. ✅ **Dva mrtvé aserty** v `meridla.mjs` (`ok(6 + 6 === 12, …)` a porovnání dvou
+   vlastních konstant testu). Nově se čte, co simulace opravdu napsala na displej.
+4. ✅ **`reostat.mjs` si načítal `reo-udaj2` a nikdy ho nepoužil** — čísla, která žák
+   vidí, se nekontrolovala a podvrh se **7× větším proudem testem prošel**. Nově se
+   displej porovnává s výpočtem. (Hned se ukázalo, že jezdec je 0–100 %, ne 0–1.)
+5. ✅ **Rohatka porovnávala zaokrouhlená celá procenta** — do jednoho procenta se vešlo
+   ~12 nových vadných otázek. Nově hlídá i **počet** otázek (dnes 965 z 2436).
+6. ✅ **Chybějící roční opakování bylo neviditelné** (`continue` místo hlášky). Nově:
+   stránka existuje, ale kvíz k ní ne = tvrdá chyba (překlep v klíči); ročník ho vůbec
+   nemá = varování. **Našlo skutečnou mezeru: `pracovni-cinnosti/6-rocnik`.**
+
+**FRONTA — čím pokračovat (v tomto pořadí):**
+1. **Zbytek auditu kontrol** — pořád nejlevnější body s největším dopadem:
+   a) **zapojení simulací se čte z TEXTU, ačkoli data jsou na dosah** (`zkontroluj.mjs`
+   ř. 25 načte `dataTemata` a už je nepoužije) — podtéma vzniklé programově kontrolu
+   obejde; b) **mapa „všechna místa" (`CestyVse.astro`) se neměří vůbec** — 209 pinů,
+   jiná funkce i jiné argumenty než mapa roku, čtyři jazykové mutace, a `rozmistiPopisky`
+   popisek, který se nevejde, **zahodí** (měřit i to); c) **slovníková kontrola hodnot**
+   `druh`/`interakce` — neznámá hodnota má být chyba, ne ticho (přesně tak vznikla
+   falešná nula u `druh: 'obrazek'`; dnes `nazornost()` nezná `pdf`); d) slabé testy
+   simulací podle mutačního testu: `elektrovani`, `odpor-vodice`, `tabulka-vzorce`.
+2. **Doplnit zbývajících 7 krátkých výkladů** (`zaverecny-projekt`,
+   `digitalni-stopa-a-identita`, `klid-a-pohyb-telesa`, `pocitacove-site-a-internet`…).
+   Levné, dá se po kusech, **vždy nechat zkontrolovat kontrolorem** — u Scratche
+   i micro:bitu se snadno napíše název bloku, který v české lokalizaci není.
+3. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem.
+   Na řadě `vetveni-programu` (vývojový diagram) nebo `funkce-v-tabulkach`
+   (dá se hodně převzít z `TabulkaVzorceSimulace`). Vyrábět skillem `/simulace`.
+4. Kvízy **nejsou priorita** (cíl splněn, rohatka hlídá směr) — dorovnávat jen
+   mimochodem, když se stejně sahá do bloku.
+
+**⏳ ČEKÁ NA UČITELE (nesahal jsem na to):**
+- **micro:bit V1 × V2:** výklad i kvíz teď říkají, že zvuk potřebuje sluchátka nebo
+  bzučák (platí pro V1); V2 má reproduktor na desce. Otázka je nově formulovaná jako
+  „starší micro:bit (V1)". **Jaké desky má škola?** Podle toho se text doladí.
+- **Pracovní činnosti 6. ročník nemají roční opakování** — 2 podtémata, možná záměr.
+- **Topné spirály z konstantanu** (viz níže) — nález z ranního kola, pořád otevřený.
+
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, ráno — SAMOSTATNÁ PRÁCE)
 
 **HOTOVO A NASAZENO (bod 1 a část bodu 2 noční fronty):**
