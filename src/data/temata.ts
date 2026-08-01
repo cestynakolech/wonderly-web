@@ -4520,13 +4520,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Přesná jízda</h3>
 						<ul>
 							<li>jízda <strong>na čas</strong> (2 s vpřed) × jízda <strong>na otáčky</strong> (přesnější — 1 otáčka kola = přesná vzdálenost)</li>
-							<li>zatáčení: různé rychlosti levého a pravého motoru</li>
-							<li><strong>opakování</strong>: čtverec = 4× (rovně + otočka o 90°)</li>
+							<li>👉 proč je čas nespolehlivý: po koberci kola prokluzují a robot za stejné 2 s ujede kratší dráhu než po hladké podlaze; vybitá baterie ho zpomalí taky. Otáčka kola je přitom pořád stejně dlouhá, ať jede po čemkoli.</li>
+							<li>zatáčení: každý motor jinak rychle — rozdíl rychlostí stáčí robota do oblouku, jeden motor vpřed a druhý vzad ho otočí na místě</li>
+							<li><strong>opakování</strong>: čtverec = 4× (rovně + otočka o 90°, protože 360° děleno 4 stranami je 90° na roh)</li>
 						</ul>
 						<h3>Displej a zvuk</h3>
 						<p>Robot umí na displeji ukázat obrázek či text a přehrát zvuk — skvělé pro hlášení stavu: „našel jsem čáru!", smajlík při cíli, houkání při couvání. 🤖</p>
-						<p>👉 Vyzkoušej: robot objede čtverec a v každém rohu pípne. Kolik bloků ti stačí s opakováním?</p>
-						<p>📗 Učebnice LEGO, kap. 3–6.</p>
+						<p>👉 Vyzkoušej: robot objede čtverec a v každém rohu pípne. Blok zvuku musí být <strong>uvnitř opakování</strong> — jen tam proběhne 4×. Před opakováním by pípl jednou na začátku, za ním jednou na konci.</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a> (NPI ČR), kap. 3–6.</p>
 					`,
 					odkazy: [
 						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
@@ -4566,16 +4567,25 @@ export const temata: Record<string, Tema[]> = {
 							<li>projede bludiště a nenarazí</li>
 							<li>najde a odtlačí předmět z kruhu</li>
 							<li>zaparkuje do garáže podle barevné značky</li>
-							<li>hlídá čáru stolu a nikdy nespadne</li>
+							<li>hlídá okraj stolu a nikdy z něj nespadne</li>
 						</ul>
 						<h3>Jak na projekt?</h3>
 						<ol>
-							<li><strong>rozděl problém na části</strong> (jízda, hledání, reakce na senzor)</li>
-							<li>každou část vyřeš a <strong>otestuj zvlášť</strong></li>
-							<li>spoj dohromady, testuj a <strong>laď</strong> — napoprvé to nejede nikomu 🙂</li>
-							<li>předveď a vysvětli, <strong>jak program funguje</strong></li>
+							<li><strong>rozděl problém na části</strong> (jízda, hledání, reakce na senzor) — tohle je vždycky první krok, dřív než sáhneš na kostky</li>
+							<li>každou část vyřeš a <strong>otestuj zvlášť</strong> — v malém kousku programu chybu najdeš snadno, ve velkém celku skoro ne</li>
+							<li>hotové části <strong>spoj dohromady a testuj celek</strong> — často se teprve tady ukáže, že si dvě části navzájem překážejí</li>
+							<li><strong>laď</strong> — napoprvé to nejede nikomu 🙂 Ladění není selhání, je to běžná součást práce: oprav, vyzkoušej, dolaď.</li>
+							<li>udělej <strong>zkoušku nanečisto</strong>, teprve pak předveď a vysvětli, <strong>jak program funguje</strong></li>
 						</ol>
-						<p>👉 Hodnotí se nejen výsledek, ale hlavně <strong>postup řešení</strong>: rozklad, testování, opravy chyb.</p>
+						<h3>Který senzor na který úkol?</h3>
+						<ul>
+							<li>🎨 <strong>senzor barvy</strong> — zaparkovat podle barevné značky, jet po čáře</li>
+							<li>📏 <strong>ultrazvukový senzor</strong> — bludiště: hlásí překážku před robotem, program ho včas otočí jiným směrem</li>
+							<li>👆 <strong>dotykový senzor</strong> — poznat náraz do stěny</li>
+							<li>💡 <strong>senzor barvy v režimu odraženého světla</strong> — nad okrajem stolu se skoro nic neodrazí, robot pozná, že pod ním chybí deska, a zastaví</li>
+						</ul>
+						<p>👉 Hodnotí se nejen výsledek, ale hlavně <strong>postup řešení</strong>: rozklad na části, testování, opravy chyb. Při předvádění vysvětli, jak program funguje — tím ukážeš, že mu opravdu rozumíš.</p>
+						<p>👉 Zkouška nanečisto odhalí, co se zasekne. Před třídou už na opravu nebývá čas.</p>
 					`,
 					odkazy: [
 						{ nazev: 'učebnice LEGO robotika', url: 'https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html' },
@@ -4622,21 +4632,24 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Tlačítka, náklon a zvuk',
 					obsah: `
 						<h2>Deska reaguje</h2>
+						<p><strong>Vstup</strong> je to, čím deska vnímá okolí (tlačítka, senzory), <strong>výstup</strong> to, čím na okolí působí (displej, zvuk). U hudebního nástroje je vstupem náklon a výstupem tón — u každého programu se vyplatí vědět, co je co.</p>
 						<h3>Vstupy</h3>
 						<ul>
-							<li><strong>tlačítka A a B</strong> — <em>po stisku A</em> → udělej…</li>
-							<li><strong>akcelerometr</strong> — pozná zatřesení, naklonění, otočení logem dolů i volný pád</li>
-							<li>👉 events jako ve Scratchi: program čeká na událost a reaguje</li>
+							<li><strong>tlačítka A a B</strong> — <em>po stisku A</em> → udělej… Kromě A a B nabízí MakeCode i volbu <strong>A+B</strong>, takže deska pozná i stisk obou tlačítek najednou.</li>
+							<li><strong>akcelerometr</strong> — pozná zatřesení, naklonění, otočení logem dolů i volný pád. Měří pohyb, takže barvu předmětu ani lidský hlas z něj nevyčteš.</li>
+							<li>👉 události jako ve Scratchi: program čeká na událost a reaguje</li>
 						</ul>
+						<h3>Jak událost funguje</h3>
+						<p>Bloky uvnitř události se nespustí hned. Program u nich <strong>čeká</strong> a rozběhne je, teprve až událost nastane — nic mezitím nemaže ani nevypíná. Deska přitom sleduje všechny své události zároveň, takže může mít vlastní blok pro tlačítko A, další pro zatřesení a další pro náklon.</p>
 						<h3>Zvuk a hudba</h3>
-						<p>Po připojení sluchátek či bzučáku umí micro:bit přehrávat tóny a melodie — jde naprogramovat <strong>hudební nástroj</strong>: náklonem měníš výšku tónu, tlačítkem hraješ. 🎵</p>
+						<p>Zvuk umí micro:bit přehrávat jako tóny a melodie — jde z něj naprogramovat <strong>hudební nástroj</strong>: náklonem měníš výšku tónu, tlačítkem hraješ. 🎵 Starší deska (V1) k tomu potřebuje připojená <strong>sluchátka nebo bzučák</strong>, novější <strong>V2</strong> má malý reproduktor přímo na sobě.</p>
 						<h3>Nápady na vyzkoušení</h3>
 						<ul>
 							<li><strong>kámen–nůžky–papír</strong>: po zatřesení ukaž náhodný symbol</li>
-							<li><strong>elektronická kostka</strong>: zatřes a padne 1–6</li>
-							<li><strong>krokoměr</strong>: každé zatřesení přičte krok do proměnné</li>
+							<li><strong>elektronická kostka</strong>: zatřes a padne náhodné číslo 1–6 — bez náhody by kostka ukazovala pořád totéž a hra by ztratila smysl</li>
+							<li><strong>krokoměr</strong>: každé zatřesení přičte 1 do proměnné <em>kroky</em> a displej ji ukáže</li>
 						</ul>
-						<p>📗 Učebnice micro:bit, kap. 2–4.</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a> (NPI ČR), kap. 2–4.</p>
 					`,
 					odkazy: [
 						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
@@ -5048,17 +5061,23 @@ export const temata: Record<string, Tema[]> = {
 						<h2>Proměnná × seznam</h2>
 						<p>Proměnná uchová <strong>jednu</strong> hodnotu. <strong>Seznam</strong> jich uchová <strong>mnoho</strong> — očíslovaných za sebou (1., 2., 3. prvek…).</p>
 						<h3>Co se seznamem umíme?</h3>
+						<p>Scratch má na seznamy vlastní bloky:</p>
 						<ul>
-							<li><strong>přidat prvek</strong> („rohlíky" do nákupního seznamu)</li>
-							<li><strong>přečíst prvek číslo x</strong> nebo najít, kde prvek je</li>
-							<li><strong>smazat, přepsat, projít celý seznam</strong> v opakování</li>
+							<li><strong>přidej (rohlíky) k [nákup]</strong> — nová položka se zařadí na konec, seznam se o ni prodlouží</li>
+							<li><strong>prvek (3) z [nákup]</strong> — přečte třetí položku</li>
+							<li><strong>pořadí (rohlíky) ve [nákup]</strong> — řekne, na kolikátém místě hledaná položka je</li>
+							<li><strong>smaž (2) z [nákup]</strong> — odebere jen tu jednu položku, ostatní zůstanou beze změny; celý seznam vyprázdní až blok <strong>smaž všechno z</strong></li>
+							<li><strong>nahraď (2) v [nákup] hodnotou (mléko)</strong> a <strong>délka [nákup]</strong></li>
+							<li>projít celý seznam: <strong>opakuj (délka [nákup]) krát</strong> — u seznamu se 6 položkami proběhne opakování 6×</li>
 						</ul>
 						<h3>Projekty se seznamy</h3>
 						<ul>
 							<li>🛒 <strong>Nákupní seznam</strong> — přidávání a mazání položek</li>
-							<li>🎹 <strong>Klavír</strong> — seznam tónů = melodie, kterou program přehraje</li>
-							<li>🌍 <strong>Světadíly</strong> — dvojice seznamů otázka–odpověď = kvíz</li>
+							<li>🎹 <strong>Klavír</strong> — seznam tónů = melodie; každý přidaný tón melodii prodlouží a program pak seznam projde a hraje tón po tónu</li>
+							<li>🌍 <strong>Světadíly</strong> — dvojice seznamů otázka–odpověď = kvíz. Prvek č. 3 v otázkách patří k prvku č. 3 v odpovědích, proto se seznamy procházejí společně.</li>
 						</ul>
+						<h3>Proč ne deset proměnných?</h3>
+						<p>Deset kontaktů by se dalo uložit i do deseti proměnných — jenže každou bys musel(a) v programu obsloužit zvlášť a jedenáctý kontakt bys už neměl(a) kam dát. Seznam se dá <strong>projít jedním opakováním</strong> a <strong>rozšířit na libovolný počet položek</strong>. Uložit do něj jde text i čísla.</p>
 						<p>👉 Kombinace <strong>seznam + opakování + proměnná</strong> je základ skoro každé skutečné aplikace (kontakty, playlist, chat…).</p>
 					`,
 					odkazy: [
