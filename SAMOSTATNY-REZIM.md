@@ -56,13 +56,23 @@
    Ten druhý jsem sám přehlédl, našel ho až kontrolor. **Před dorovnáváním bloku si
    proto vždycky nech vypsat VŠECHNY jeho otázky, ne jen ty s délkovou nápovědou.**
 
+6. **Pátá dávka — 49 % → 47 %. Celkem 24 bloků, 59 % → 47 %.**
+   `telesa-stejnoroda-a-nestejnoroda`, `casticove-slozeni-latek`, `teplotni-roztaznost`,
+   `teplo-a-premeny-skupenstvi`. V částicovém složení byl další duplicitní pár (dvakrát
+   šíření vůně difuzí) — vyměněn za difuzi v pevných látkách, která je ve výkladu, ale
+   v kvízu chyběla. **Kontrolor: 0 nálezů** (přepočítal i kolejnici 3 mm).
+   Nový nástroj **`node testy/vypis-kviz.mjs <blok>`** vypíše VŠECHNY otázky bloku —
+   délkové měřidlo duplicity neukáže.
+
 **FRONTA — čím pokračovat:**
 1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší; teď to jsou
-   `vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda` (11/14),
-   `latka-a-teleso/casticove-slozeni-latek` (14/18),
-   `teplota/teplotni-roztaznost` (14/18),
    `zrcadla-a-cocky/oko-vady-oka` (14/18),
-   `teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi` (10/13).
+   `jaderna-fyzika/jaderna-energie-a-reakce` (10/13),
+   `zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo` (13/17),
+   `sily-kolem-nas/teziste` (16/21),
+   `vztlakova-sila-a-plovani-teles/archimeduv-zakon` (16/21).
+   **Postup:** `node testy/vypis-kviz.mjs <blok>` (duplicity!) → `node testy/delky.mjs
+   <blok> --odpovedi` → dorovnat skriptem s pojistkou → kontrolor → brána → build → push.
    Pomůcka: `node testy/delky.mjs <blok> --odpovedi` vypíše i znění odpovědí s délkami,
    takže se dorovnává bez čtení celého souboru.
    Postup: `node testy/delky.mjs <blok>` → dorovnat → kontrolor → brána → build → push.
