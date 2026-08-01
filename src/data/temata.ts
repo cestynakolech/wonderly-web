@@ -4314,6 +4314,9 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'hra-chytej-jablka',
 					nazev: 'Hra 1: Chytej jablka',
+					// recyklace hotové simulace (1. 8. 2026): hra stojí na proměnné skóre a její
+					// typická chyba je chybějící „nastav skóre na 0" — přesně to PromenneSimulace ukazuje
+					interakce: 'promenne',
 					obsah: `
 						<h2>🍎 Chytej jablka</h2>
 						<p>Košík dole chytá padající jablka. Naše první opravdová hra — stačí 2 postavy a proměnná!</p>
