@@ -7,6 +7,7 @@ import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { nactiData, maDelkovouNapovedu } from './testy/data.mjs';
 import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
+import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -195,6 +196,16 @@ for (const n of mapy.nalezy) chyby.push(`mapa cest — ${n}`);
 const cisla = await zkontrolujCislaVeVykladu();
 for (const n of cisla) {
 	varovani.push(`${n.klic}: číslo ${n.cislo} není ve výkladu — „${n.otazka}"`);
+}
+
+// 6e) NÁZVY BLOKŮ SCRATCHE, KTERÉ V ČESKÉ PALETĚ NEEXISTUJÍ (1. 8. 2026).
+// Blok „řekni" se česky jmenuje „bublina", „jdi na" je „skoč na" — žák podle
+// stránky scénář nesestaví, protože takový blok v paletě nenajde. Vzory se
+// hlídají jen v celcích, kde se opravdu programuje ve Scratchi. Tvrdá chyba:
+// všech 15 nálezů bylo hned opraveno, takže žádný starý dluh nikoho neblokuje.
+const bloky2 = await zkontrolujNazvyBloku();
+for (const n of bloky2) {
+	chyby.push(`${n.klic} (${n.kde}): takový blok v české paletě NENÍ — jmenuje se „${n.spravne}" (${n.zdroj})`);
 }
 
 // Výpis česky

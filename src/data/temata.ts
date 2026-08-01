@@ -4134,7 +4134,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Příklady rozhodování</h3>
 						<ul>
 							<li>když se <em>dotýká okraje</em> → otoč se</li>
-							<li>když je <em>skóre &gt; 10</em> → řekni „Vyhráls!" <em>jinak</em> hraj dál</li>
+							<li>když je <em>skóre &gt; 10</em> → bublina „Vyhráls!" <em>jinak</em> hraj dál</li>
 							<li>když je <em>stisknuta mezera</em> → vystřel</li>
 						</ul>
 						<h3>Rozhodování v opakování</h3>
@@ -4395,7 +4395,7 @@ export const temata: Record<string, Tema[]> = {
 						<ol>
 						<li>po kliknutí na vlajku → skoč na start, opakuj stále:</li>
 						<li>když se dotýká černé barvy → jdi zpět (změň x/y opačně, nebo skoč na start — přísnější verze!)</li>
-						<li>když se dotýká Cíle → řekni „Vyhráls!", zastav vše</li>
+						<li>když se dotýká Cíle → bublina „Vyhráls!", zastav (všechno)</li>
 						</ol>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
@@ -4423,13 +4423,13 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Scénář Myši</h3>
 						<ol>
-						<li>po kliknutí na vlajku → opakuj stále: jdi na ukazatel myši (postava běhá za tvou myší)</li>
+						<li>po kliknutí na vlajku → opakuj stále: skoč na (ukazatel myši) — postava běhá za tvou myší</li>
 						</ol>
 						<h3>Scénář Kočky</h3>
 						<ol>
 						<li>po kliknutí na vlajku → nastav čas na 0, skoč do rohu</li>
-						<li>opakuj stále: otoč se k Myši, dopředu o 3 kroky, změň čas o 0,1 + čekej 0,1 s</li>
-						<li>když se dotýká Myši → řekni „Mám tě! Vydržels " + čas + " sekund", zastav vše</li>
+						<li>opakuj stále: nastav směr k (Myš), dopředu o (3) kroků, změň čas o 0,1, čekej 0,1 sekund</li>
+						<li>když se dotýká Myši → bublina „Mám tě! Vydržels " + čas + " sekund", zastav (všechno)</li>
 						</ol>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
@@ -4776,7 +4776,7 @@ export const temata: Record<string, Tema[]> = {
 						<li>opakuj stále: dopředu o 10, odraz se, když se dotýká okraje</li>
 						<li>když se dotýká Pálky → otoč se o 180° + náhodně −20 až 20 (ať to není nuda), změň skóre o 1</li>
 						<li>když y &lt; −175 (proletěl dolů) → změň životy o −1, skoč do středu, čekej 1 s</li>
-						<li>když životy = 0 → řekni „Konec hry! Skóre: " + skóre, zastav vše</li>
+						<li>když životy = 0 → bublina „Konec hry! Skóre: " + skóre, zastav (všechno)</li>
 						</ol>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
@@ -4850,7 +4850,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Scénář Kaktusu</h3>
 						<ol>
 						<li>po kliknutí na vlajku → opakuj stále: skoč vpravo (x = 240), klouzej doleva; když x &lt; −240, skoč zase vpravo</li>
-						<li>když se dotýká Běžce → řekni „Konec! Skóre: " + skóre, zastav vše</li>
+						<li>když se dotýká Běžce → bublina „Konec! Skóre: " + skóre, zastav (všechno)</li>
 						<li>skóre roste s časem (změň skóre o 1 každou sekundu)</li>
 						</ol>
 						<h3>💡 Vylepšení pro šikovné</h3>
