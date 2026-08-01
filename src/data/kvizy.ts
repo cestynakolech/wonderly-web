@@ -3087,7 +3087,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Čím je voda při tuhnutí výjimečná?', odpovedi: ['objem zvětšuje (led plave)', 'objem zmenšuje', 'nemrzne'], vysvetleni: 'Led má menší hustotu než voda, proto plave.' },
 		{ text: 'Proč je dobré, že led plave na hladině?', odpovedi: ['ryby mohou přežít ve vodě pod ním', 'aby byl vidět', 'aby rychleji roztál'], vysvetleni: 'Led izoluje vodu, celé jezero nepromrzne.' },
 		{ text: 'Proč v mrazu praská vodovodní potrubí?', odpovedi: ['zmrzlá voda zvětší objem', 'kov se rozpouští', 'voda se vypaří'], vysvetleni: 'Rozpínající se led roztrhne trubku.' },
-		{ text: 'Co je nezámrzná hloubka?', odpovedi: ['hloubka (~90–140 cm), kde půda nezamrzá', 'hloubka rybníka', 'hloubka sněhu'], vysvetleni: 'Potrubí se vede pod ní, aby nezamrzlo.' },
+		{ text: 'Co je nezámrzná hloubka?', odpovedi: ['hloubka (~80–140 cm), kde půda nezamrzá', 'hloubka rybníka', 'hloubka sněhu'], vysvetleni: 'Potrubí se vede pod ní, aby nezamrzlo. V nížinách stačí asi 80 cm, na horách až 140 cm.' },
 		{ text: 'Proč se na chatě na zimu vypouští voda z trubek?', odpovedi: ['aby zmrzlá voda trubky neroztrhla', 'aby nebyla špinavá', 'kvůli úspoře'], vysvetleni: 'Prevence prasknutí potrubí mrazem.' },
 		{ text: 'Má led větší, nebo menší hustotu než voda?', odpovedi: ['menší', 'větší', 'stejnou'], vysvetleni: 'Proto led plave na vodě.' },
 	],

@@ -38,6 +38,24 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Měření</strong> — popisuje vlastnosti čísly</li>
 						</ul>
 						<p>Z ověřených poznatků pak fyzici vysloví <strong>fyzikální zákony</strong>.</p>
+						<h3>Jak to vypadá doopravdy — jeden slavný příklad</h3>
+						<p>Skoro dva tisíce let se učilo, že <strong>těžší tělesa padají rychleji</strong> než lehká.
+						Znělo to rozumně a každý si to mohl potvrdit: kámen dopadne dřív než list papíru.
+						Nikdo o tom nepochyboval.</p>
+						<p>Až <strong>Galileo Galilei</strong> to vzal jinak — místo přemýšlení pouštěl kuličky po
+						nakloněné rovině a <strong>měřil</strong>. A vyšlo mu něco, co odporovalo tomu, co všichni
+						považovali za jisté: <strong>když tělesům nepřekáží vzduch, padají všechna stejně rychle</strong> —
+						ať jsou lehká, nebo těžká. List papíru je pomalejší jen proto, že se opírá o vzduch,
+						ne proto, že je lehký.</p>
+						<p>Dnes to jde ukázat naprosto nesporně — bez vzduchu. Astronaut mise <strong>Apollo 15</strong>
+						pustil na Měsíci současně <strong>kladivo a ptačí pero</strong>. Dopadly ve stejný okamžik,
+						protože na Měsíci žádný vzduch není.</p>
+						<p>Zkus to i ty: pusť list papíru a knihu (dopadne kniha), pak <strong>polož list navrch
+						na knihu</strong> a pusť je znovu — kniha mu odhrne vzduch z cesty a dopadnou spolu.
+						Musí to být <strong>list menší než kniha</strong> a nikde nesmí přesahovat přes okraj,
+						jinak se ho vzduch chytí a strhne ho pryč.</p>
+						<p>👉 A tohle je na fyzice to nejdůležitější: <strong>rozhoduje pokus, ne to, co si kdo myslí</strong> —
+						ani kdyby si to myslel kdokoli jak dlouho. Když měření nesouhlasí s hypotézou, mění se hypotéza.</p>
 						<h3>Jak se fyzik vyjadřuje?</h3>
 						<ul>
 							<li><strong>odborné pojmy a značky</strong> — např. hmotnost, objem, hustota, tlak…</li>
@@ -67,6 +85,22 @@ export const temata: Record<string, Tema[]> = {
 							<li>těleso může být tvořeno <strong>z jedné nebo více látek</strong></li>
 						</ul>
 						<p>Příklady těles: stůl (ze dřeva), kniha (z papíru), mléko v lahvi (z mléka), vzduch v balónku (ze vzduchu), hřebík (ze železa), oblak (z vody), okno (část ze skla, část ze dřeva a část ze železa).</p>
+						<h3>🔎 Jak je od sebe bezpečně rozeznat</h3>
+						<p>Když si nejsi jistý(á), pomůžou dvě otázky:</p>
+						<ul>
+							<li><strong>Dá se to spočítat?</strong> Tělesa ano — dvě sklenice, tři hřebíky.
+							U látky to nedává smysl: „dej mi dvě skla" nebo „přines tři dřeva" nikdo neřekne.</li>
+							<li><strong>Jde se toho zeptat „z čeho je to?"</strong> U tělesa ano (sklenice je ze skla).
+							U látky ne — sklo je prostě sklo.</li>
+						</ul>
+						<p>⚠️ <strong>Pozor na past:</strong> stejné slovo umí být obojí, podle toho, jak ho použiješ.
+						<em>Voda</em> obecně je látka, ale <em>voda ve sklenici</em> je už těleso — má tvar, objem
+						i hmotnost. Stejně tak <em>vzduch</em> je látka, ale <em>vzduch v balonku</em> těleso.
+						Nerozhoduje slovo, ale jestli mluvíš o materiálu, nebo o <strong>konkrétním kusu</strong>
+						s hranicemi.</p>
+						<p>👉 A ještě jedno nedorozumění: těleso <strong>nemusí být tvrdé</strong> — oblak i kapka
+						deště jsou tělesa úplně stejně jako cihla. A <strong>nemusí být ani vidět</strong>:
+						vzduch v pneumatice nebo v balonku je taky těleso, i když se na něj díváš skrz.</p>
 						<h3>Vlastnosti látek</h3>
 						<p>Různé látky se od sebe odlišují svými vlastnostmi — např. barva, chuť, vůně, tvrdost, pružnost, rozpustnost, křehkost, sypkost, tvárnost, tekutost…</p>
 						<h3>Vlastnosti těles</h3>
@@ -528,11 +562,15 @@ export const temata: Record<string, Tema[]> = {
 								<tr><td><strong>Hmotnost</strong></td><td>m</td><td>kilogram (kg)</td><td>váhy</td></tr>
 								<tr><td><strong>Objem</strong></td><td>V</td><td>metr krychlový (m³)</td><td>odměrný válec</td></tr>
 								<tr><td><strong>Hustota</strong></td><td>ρ (ró)</td><td>kg/m³</td><td>hustoměr / výpočet</td></tr>
-								<tr><td><strong>Teplota</strong></td><td>t</td><td>stupeň Celsia (°C)</td><td>teploměr</td></tr>
+								<tr><td><strong>Teplota</strong></td><td>t</td><td>stupeň Celsia (°C) *</td><td>teploměr</td></tr>
 								<tr><td><strong>Čas</strong></td><td>t</td><td>sekunda (s)</td><td>hodiny, stopky</td></tr>
 								<tr><td><strong>Síla</strong></td><td>F</td><td>newton (N)</td><td>siloměr</td></tr>
 							</tbody>
 						</table>
+						<p>* U teploty pozor na jednu jemnost: my měříme ve <strong>stupních Celsia</strong>, ale
+						mezinárodní soustava SI má jako základní jednotku teploty <strong>kelvin (K)</strong>.
+						Dílek je u obou stejně velký, jen kelvinová stupnice začíná od nejnižší možné teploty
+						(0 K = −273,15 °C).</p>
 						<h3>Důležité vztahy</h3>
 						<ul>
 							<li>objem krychle V = a · a · a, objem kvádru V = a · b · c</li>
@@ -545,6 +583,27 @@ export const temata: Record<string, Tema[]> = {
 							<li>na větší jednotky: škrtáme nuly (čárka doleva)</li>
 							<li>👉 <strong>POZOR u času nikdy neposouváme desetinnou čárku</strong> — hodina má 60 minut, minuta 60 sekund!</li>
 						</ul>
+						<h3>⚠️ Značka <em>t</em> znamená dvě různé věci</h3>
+						<p>Všiml sis toho v tabulce? <strong>t</strong> je značka pro <strong>čas</strong>
+						i pro <strong>teplotu</strong>. Není to chyba — fyzika obojí opravdu píše stejně
+						a rozlišuje je až podle <strong>jednotky</strong>: <strong>t = 20 °C</strong> je teplota,
+						<strong>t = 20 s</strong> je čas. Proto se jednotka nikdy nevynechává.</p>
+						<p>Podobných dvojic je víc, například <strong>m</strong> jako hmotnost a <strong>m</strong>
+						jako metr. Zase pomůže místo v zápisu: <em>m</em> = 5 kg je veličina, 5 <em>m</em> je jednotka.</p>
+						<h3>🧮 Jak počítat příklad, aby vyšel</h3>
+						<p>Pořadí, které tě zachrání skoro pokaždé:</p>
+						<ol>
+							<li><strong>Vypiš, co víš</strong> (a značkami): <em>a</em> = 2 cm, <em>b</em> = 3 cm, <em>c</em> = 5 cm, <em>m</em> = 240 g</li>
+							<li><strong>Napiš, co hledáš:</strong> ρ = ?</li>
+							<li><strong>Sjednoť jednotky</strong> — všechny délky ve stejné, hmotnost ke správnému objemu</li>
+							<li><strong>Vzorec, dosazení, výsledek s jednotkou</strong></li>
+						</ol>
+						<p>Ten příklad celý: <em>V</em> = 2 · 3 · 5 = <strong>30 cm³</strong>, pak
+						ρ = <em>m</em> : <em>V</em> = 240 : 30 = <strong>8 g/cm³</strong>, tedy
+						<strong>8 000 kg/m³</strong> — přibližně ocel.</p>
+						<p>👉 <strong>Nejčastější chyba není v počítání, ale v jednotkách</strong>: délky v centimetrech
+						a hmotnost v kilogramech dohromady dají nesmysl. A výsledek bez jednotky není odpověď —
+						„8" samo o sobě neříká vůbec nic.</p>
 					`,
 				},
 			],
@@ -2538,7 +2597,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Když kapalinu ochlazujeme, teplota klesá. Při <strong>teplotě tuhnutí</strong> se odebíráním tepla mění z <strong>kapalného skupenství na pevné</strong>. U vody se tomu říká <strong>mrznutí</strong>. Tuhnutí je <strong>opačný děj k tání</strong>.</p>
 						<h3>Průběh</h3>
 						<ul>
-							<li>částice zpomalují a vytvářejí pevné vazby; tuhnutí začíná od <strong>pevného jádra</strong> (led od břehu, kroupy na smítku prachu)</li>
+							<li>částice zpomalují a vytvářejí pevné vazby; tuhnutí začíná od <strong>pevného jádra</strong> (led od břehu, kapka od smítka prachu)</li>
 							<li><strong>během tuhnutí se teplota nemění</strong>, dokud vše neztuhne; přitom se <strong>uvolňuje skupenské teplo</strong> do okolí</li>
 							<li>u krystalických látek je teplota tuhnutí <strong>stejná jako teplota tání</strong> (voda a led — 0 °C)</li>
 						</ul>
@@ -2546,8 +2605,35 @@ export const temata: Record<string, Tema[]> = {
 						<p>Většina látek při tuhnutí <strong>zmenšuje objem</strong>. <strong>Voda naopak objem zvětšuje</strong> — proto má led <strong>menší hustotu</strong> než voda a plave.</p>
 						<ul>
 							<li>+ v přírodě: led plave, ryby přežijí pod ním</li>
-							<li>− v technice: praská vodovodní potrubí, beton i asfalt; proto se potrubí vede pod <strong>nezámrznou hloubkou</strong> (asi 90–140 cm) a na zimu se z trubek vypouští voda</li>
+							<li>− v technice: praská vodovodní potrubí, beton i asfalt; proto se potrubí vede pod <strong>nezámrznou hloubkou</strong> (v nížinách asi 80 cm, na horách až 140 cm) a na zimu se z trubek vypouští voda</li>
 						</ul>
+						<h3>Kdyby led neplaval</h3>
+						<p>Stojí za to domyslet, co by ta jediná výjimka znamenala, kdyby platila jako u ostatních
+						látek. Led by byl <strong>těžší než voda</strong> a klesal by ke dnu. Rybník by tak nezamrzal
+						shora, ale <strong>ode dna</strong> — a v zimě by promrzl skrz naskrz, protože nahoře by nikdy
+						nevznikla ledová vrstva, která teď funguje jako <strong>přikrývka</strong> a další chladnutí
+						brzdí. Ryby ani vodní rostliny by zimu nepřečkaly. Celý život v našich vodách visí na tom,
+						že se voda při mrznutí <em>roztahuje</em>.</p>
+						<h3>Teplota tuhnutí se dá posunout — solení silnic</h3>
+						<p>Že voda mrzne při 0 °C, platí jen pro <strong>čistou</strong> vodu. Rozpuštěná látka částicím
+						brání srovnat se do pravidelné mřížky ledu, takže musí být <strong>ještě větší zima</strong>,
+						než led vznikne.</p>
+						<p>Přesně to dělá sůl na silnici: nesnaží se led roztavit tím, že by ho hřála — jen mu
+						<strong>sníží teplotu tuhnutí</strong>, takže led najednou „má nad nulou" a taje i v mrazu.
+						Teplo na to ovšem potřebuje pořád, a bere si ho z okolí — proto je osolená břečka
+						na dotek <strong>ledově studená</strong>. Má to ale mez —
+						solí lze mrznutí odsunout nejvýš k <strong>−21 °C</strong>, a při silnějším mrazu už proto
+						solení nepomáhá. Silničáři tehdy sypou písek a drť, které nic netaví a jen zdrsňují povrch.</p>
+						<h3>💡 Podchlazená voda</h3>
+						<p>Vzpomeň si na to <strong>pevné jádro</strong> ze začátku stránky. Když ho voda nemá — je čistá
+						a v hladké lahvi — dokáže zůstat kapalná i <strong>pod nulou</strong>. Stačí pak lahví ťuknout
+						a v ní se během vteřiny rozběhne led. Ne proto, že by se ochladila, ale proto, že
+						<strong>konečně dostala, od čeho začít</strong>.</p>
+						<p>Pozor ale — <strong>celá nezmrzne</strong>, a důvod je hned o kus výš na této stránce:
+						tuhnutí <em>uvolňuje</em> skupenské teplo. Tím se voda sama ohřeje zpátky na 0 °C a děj
+						se zastaví. Z vody podchlazené na −5 °C proto ztuhne jen asi <strong>šestnáctina</strong>
+						a v lahvi zůstane <strong>ledová kaše</strong>. Aby zmrzla celá, muselo by být podchlazení
+						nemožných 80 °C.</p>
 					`,
 				},
 				{
@@ -2603,9 +2689,37 @@ export const temata: Record<string, Tema[]> = {
 							<li>ochlazené částice páry zpomalí, přitažlivé síly je zadrží u sebe → <strong>shlukují se do kapiček</strong></li>
 							<li>kondenzace začíná od <strong>pevného jádra</strong> (smítko prachu → dešťová kapka; studený povrch → rosa, orosená plechovka)</li>
 						</ul>
+						<h3>Při kondenzaci se teplo UVOLŇUJE</h3>
+						<p>Tohle je to hlavní, co si ze stránky odnes. Vypařování teplo <strong>spotřebovává</strong>
+						(proto tě po koupání zebe) — a kondenzace, jeho opačný děj, ho zase
+						<strong>vrací do okolí</strong>. Kolik? Přesně tolik, kolik si vypařování vzalo —
+						a u vody vroucí při 100 °C je to <strong>2 260 kJ na každý kilogram</strong>.</p>
+						<p>To je obrovské číslo. Ohřát celý kilogram vody z ledové až po vroucí (0 → 100 °C)
+						stojí 418 kJ — kondenzující pára tedy uvolní <strong>víc než pětkrát tolik</strong>,
+						a to ještě ani o stupeň nevychladne.</p>
+						<h3>⚠️ Proč pára popálí hůř než vařící voda</h3>
+						<p>Vroucí voda i pára nad ní mají <strong>stejnou teplotu 100 °C</strong> — a přesto je opaření
+						párou mnohem horší. Důvod je právě skupenské teplo: pára na kůži nejdřív
+						<strong>zkondenzuje</strong> a teprve pak chladne. Kůži tedy předá dvě porce tepla za sebou,
+						zatímco voda jen tu druhou.</p>
+						<p>👉 Představ si to na malém množství: jediný <strong>gram</strong> páry uvolní při kondenzaci
+						tolik tepla, že by ohřálo skoro <strong>7 gramů</strong> vody z 20 °C na 100 °C. Proto se nikdy
+						nesahá nad hrnec s vařící vodou ani k ventilu papiňáku — a proto <strong>pára topí</strong>
+						v radiátorech továren i lodí.</p>
 						<h3>Rosný bod</h3>
-						<p><strong>Rosný bod</strong> je stav, kdy je vzduch <strong>nasycený</strong> vodní parou a ta začne kondenzovat. Čím teplejší vzduch, tím víc páry unese. Vznikají tak <strong>rosa, mlha i mraky</strong>.</p>
-						<p>Kondenzaci vidíme i u orosených brýlí (z chladna do tepla) nebo jako obláček páry z úst v zimě. Plyny lze zkapalnit i <strong>silným ochlazením</strong> (kapalný dusík) nebo <strong>stlačením</strong> (tlakové lahve).</p>
+						<p><strong>Rosný bod</strong> je <strong>teplota</strong>, na kterou musí vzduch vychladnout, aby byl vodní parou <strong>nasycený</strong> a pára v něm začala kondenzovat. Čím teplejší vzduch, tím víc páry unese — proto při ochlazení pod rosný bod přebytečná pára zkapalní. Vznikají tak <strong>rosa, mlha i mraky</strong>.</p>
+						<p>Z toho plyne pravidlo, které vysvětlí skoro všechno orosení kolem tebe:
+						<strong>pára kondenzuje tam, kde je chladno</strong>. Plechovka z lednice se orosí
+						<em>zvenku</em> (vlhký pokojový vzduch se o ni ochladí), okna se v zimě potí
+						<em>zevnitř</em> (teplý vlhký vzduch pokoje se ochladí o studené sklo) a brýle ti zamlží,
+						když z chladna přijdeš do tepla — ne naopak.</p>
+						<p>Kondenzaci vidíme i jako obláček, který ti v zimě jde od úst. Pozor na slova:
+						<strong>vodní pára je plyn a je průhledná</strong> — vidět není. To bílé jsou už
+						<em>kapičky</em>, které z páry zkondenzovaly, když ji venkovní mráz ochladil.</p>
+						<p>Plyny lze zkapalnit i <strong>silným ochlazením</strong> (kapalný dusík) nebo
+						<strong>stlačením</strong> — to ale funguje jen u některých. Propan-butan v lahvi na vaření
+						je stlačením zkapalněný, kdežto dusík ani kyslík se za pokojové teploty stlačit na kapalinu
+						nedají a v tlakové lahvi zůstávají plynné; ty se musí nejdřív pořádně ochladit.</p>
 					`,
 				},
 				{
@@ -2624,10 +2738,27 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Oblaka a srážky</h3>
 						<ul>
 							<li>teplý vlhký vzduch stoupá, ve výšce se ochladí; na <strong>kondenzačních jádrech</strong> (prach, sůl) vznikají kapičky → <strong>oblaka</strong> (čím víc kapek, tím tmavší)</li>
-							<li>kapky se spojují, těžknou a padají jako <strong>déšť</strong>; ve výšce zmrznou na <strong>kroupy</strong></li>
+							<li>kapky se spojují, těžknou a padají jako <strong>déšť</strong>; když cestou promrznou, dopadnou jako <strong>zmrzlý déšť</strong> (drobné ledové krupky)</li>
+							<li><strong>kroupy</strong> jsou něco jiného a vznikají jen v bouřkovém mraku: silný stoupavý proud vynese zárodek znovu a znovu nahoru, ten pokaždé přibere další vrstvu ledu — proto bývají velké přes centimetr a uvnitř mají vrstvy jako cibule</li>
 							<li>vysoko a v zimě vzniká z páry desublimací <strong>led a sněhové vločky</strong> (bílá oblaka typu cirrus)</li>
 						</ul>
 						<p>Voda ze srážek se znovu vypaří — a <strong>koloběh</strong> se opakuje. Srážky měří <strong>srážkoměr</strong> (v mm = výška vodního sloupce). V průmyslových oblastech mohou vznikat <strong>kyselé deště</strong>, které škodí přírodě.</p>
+						<h3>Co ten koloběh vlastně pohání</h3>
+						<p>Vypařování <strong>spotřebovává</strong> teplo a kondenzace ho zase <strong>uvolňuje</strong>.
+						Voda se tedy nejen stěhuje z místa na místo — <strong>stěhuje s sebou i energii</strong>.
+						Nabere ji od Slunce nad teplým mořem, odnese ji vysoko do atmosféry a tam ji při vzniku
+						oblaku předá vzduchu. Motorem celého koloběhu je <strong>Slunce</strong>: bez něj by se voda
+						nevypařila a všechna by zůstala ležet v mořích.</p>
+						<p>👉 A jedna věc, která se plete: voda se v koloběhu <strong>nespotřebovává ani nevyrábí</strong>.
+						Pořád je jí stejně, jen se přelévá mezi mořem, vzduchem, ledovci a řekami. Ta, kterou dnes
+						vypiješ, byla mnohokrát mrakem i mořem.</p>
+						<h3>Mlha a oblak jsou totéž</h3>
+						<p>Liší se jediným: <strong>ve které výšce zrovna jsou</strong>. Oblak je pára zkondenzovaná
+						vysoko, mlha úplně stejná věc při zemi. Když vyjdeš v mlze na kopec a ona zůstane pod tebou,
+						díváš se najednou na oblak — ačkoli se s ní vůbec nic nestalo.</p>
+						<p>👉 Pozor na běžný omyl: <strong>to bílé, co vidíš, není pára</strong>. Vodní pára je plyn,
+						a ten je úplně <em>průhledný</em>. Mlha, obláček z úst i „pára" nad hrncem jsou už
+						<strong>drobné kapičky vody</strong> — tedy zkondenzovaná voda, ne pára.</p>
 					`,
 				},
 			],
