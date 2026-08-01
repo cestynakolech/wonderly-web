@@ -94,6 +94,15 @@
    „**měkká**"; dvě vysvětlení byla doslova odpovědí na pozdější otázku téhož bloku).
    Výklad střídavého proudu nově vysvětluje, proč žárovka nebliká.
 
+10. **Informatika — první krok k názornosti: hra „Chytej jablka" dostala simulaci**
+   (recyklace `PromenneSimulace`, jeden řádek v datech). Hra stojí na proměnné skóre
+   a její typická chyba je chybějící „nastav skóre na 0" — přesně to simulace ukazuje.
+   Kotva: stránka má simulaci v HTML a `nazornost.mjs` už tu mezeru nehlásí.
+   **Ostatní hry recyklaci nedostaly** (bludiště, honička, ping-pong, střílečka,
+   skákačka) — scéna je o jablkách a jinde by si protiřečila s učivem stránky.
+   Automaty prověřeny: všechny LaunchAgenty končí nulou, jen `pip-audit` vrací 1,
+   což je jeho normální chování při nálezu (torch — čeká na učitele).
+
 **FRONTA — čím pokračovat:**
 1. **Kvízy už NEJSOU priorita** — cíl 33–40 % je splněn a rohatka hlídá, aby se to
    nezhoršilo. Dorovnávat dál jen mimochodem, když se stejně sahá do bloku.
