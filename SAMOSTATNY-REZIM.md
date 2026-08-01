@@ -79,9 +79,18 @@
    Dále vyměněna otázka „Kdo má těžiště obvykle níž? → ženy" (mimo učivo, navíc
    stereotyp) za soutěžní auta z výkladu.
 
+8. **Sedmá dávka — 44 % → 42 %. Celkem 32 bloků, 59 % → 42 %.**
+   `archimeduv-zakon`, `telesa-a-latky`, `var`, `elektricke-obvody`.
+   Kontrolor **potřetí** našel vadu ze zkracování: „mléko je látka, láhev **s mlékem**
+   je těleso" zkráceno na „mléko látka, láhev těleso" — tím se posunul význam a odpověď
+   si začala protiřečit s vlastním vysvětlením. Druhý nález: čtyři otázky Archimédova
+   zákona (loď, ponorka, slaná voda, balon) zkoušely učivo, které na stránce nebylo →
+   výklad dostal novou sekci „Kde to potkáš" (mazat dobré otázky by byla škoda).
+
 **FRONTA — čím pokračovat:**
-1. **Kvízy dál po dávkách 4+ bloků.** Brána sama jmenuje nejhorší
-   (`node zkontroluj.mjs` je vypíše); zbývá `archimeduv-zakon` (16/21) a další.
+1. **Kvízy dál po dávkách 4+ bloků** (`node zkontroluj.mjs` vypíše nejhorší).
+   Zbývají bloky kolem 9/12: `elektricky-proud-v-kovech-odpor`, `elektromagnet`,
+   `elektromagneticka-indukce`, `vlastnosti-stridaveho-proudu`.
    **Postup:** `node testy/vypis-kviz.mjs <blok>` (duplicity!) → `node testy/delky.mjs
    <blok> --odpovedi` → dorovnat skriptem s pojistkou → kontrolor → brána → build → push.
    Pomůcka: `node testy/delky.mjs <blok> --odpovedi` vypíše i znění odpovědí s délkami,
