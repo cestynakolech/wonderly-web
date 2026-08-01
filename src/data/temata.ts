@@ -4139,7 +4139,26 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Rozhodování v opakování</h3>
 						<p>Nejčastěji je <strong>když</strong> schované uvnitř smyčky <strong>opakuj stále</strong>: program pořád dokola kontroluje, co se děje, a reaguje. Tak funguje každá hra.</p>
-						<p>👉 Podmínky jde skládat: <strong>a zároveň</strong>, <strong>nebo</strong>, <strong>ne</strong> — např. <em>když se dotýká čáry A ZÁROVEŇ je rychlost &gt; 5</em>.</p>
+						<h3>Skládání podmínek</h3>
+						<p>Podmínky jde spojovat do složitějších — ve Scratchi jsou na to zelené bloky:</p>
+						<ul>
+							<li><strong>a</strong> — platí, jen když platí <em>obě</em> podmínky
+								(<em>když se dotýká čáry A je rychlost &gt; 5</em>)</li>
+							<li><strong>nebo</strong> — stačí, aby platila <em>aspoň jedna</em>
+								(<em>když se dotýká červené NEBO modré</em> → skonči)</li>
+							<li><strong>ne</strong> — otočí platnost naruby: <em>ne &lt;dotýká se okraje&gt;</em> je splněné
+								právě tehdy, když se postava okraje <em>ne</em>dotýká</li>
+						</ul>
+						<h3>Když podmínka neplatí</h3>
+						<p>Pozor na časté nedorozumění: větev <strong>jinak</strong> se při splněné podmínce
+							<strong>vůbec nevykoná</strong> — program projde právě jednu z obou větví, nikdy obě.
+							A když blok <strong>jinak</strong> vůbec nemá (samotné <em>když… tak…</em>), tak se při
+							nesplněné podmínce prostě nestane nic a program pokračuje dál.</p>
+						<h3>Jak si větvení nakreslit</h3>
+						<p>Rozhodování se dobře kreslí jako <strong>rozcestí</strong>: kosočtverec s otázkou a dvě
+							šipky — <em>ano</em> doleva, <em>ne</em> doprava. Než začneš skládat bloky, zkus si na papír
+							nakreslit, co se má stát v každé větvi. U hry to bývá jen pár rozcestí, ale právě ona
+							dělají z programu hru.</p>
 						<p>📗 Učebnice Scratch, kapitola 7 (Rozhodování).</p>
 					`,
 					odkazy: [
