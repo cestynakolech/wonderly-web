@@ -1724,6 +1724,13 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>vznáší se</strong> — Fg = Fvz (stejné hustoty; ryba v akváriu)</li>
 							<li><strong>plove</strong> — Fg &lt; Fvz (menší hustota; korek, led, loď)</li>
 						</ul>
+						<h3>Kde to potkáš</h3>
+						<ul>
+							<li><strong>ocelová loď</strong> — ocel je hustší než voda, ale trup je dutý; <em>průměrná</em> hustota lodi (ocel + vzduch uvnitř) je menší než hustota vody, a tak plove</li>
+							<li><strong>ponorka</strong> — napouštěním a vypouštěním vody do nádrží mění svou průměrnou hustotu, a proto se potopí nebo vynoří</li>
+							<li><strong>slaná voda</strong> — má větší hustotu než sladká, takže nadlehčuje víc (v Mrtvém moři se člověk neponoří)</li>
+							<li><strong>vzduch nadnáší také</strong> — horkovzdušný balon i balonek s heliem stoupají, protože jsou řidší než okolní vzduch</li>
+						</ul>
 					`,
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Archimédes 🎵', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/pisen-archimedes.mp4' },
