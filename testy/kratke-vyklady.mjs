@@ -25,11 +25,17 @@ for (const pod of vsechnaPodtemata(temata)) {
 		.trim();
 	if (text.length >= MEZ) continue;
 	const n = nazornost(pod);
-	kratke.push({ klic: pod.klic, delka: text.length, simulace: n.simulace });
+	// „Hluchá stránka" = ani obrázek, ani video, ani simulace — A K TOMU krátký výklad.
+	// Žák tam nemá ani co číst, ani na co koukat, a přesto od něj kvíz něco chce.
+	// Nezávislý audit 1. 8. 2026 to označil za největší zbývající díru webu.
+	kratke.push({ klic: pod.klic, delka: text.length, simulace: n.simulace, hlucha: !n.simulace && !n.obrazek && !n.video });
 }
 
 kratke.sort((a, b) => a.delka - b.delka);
 for (const k of kratke) {
-	console.log(`${String(k.delka).padStart(4)} znaků ${k.simulace ? '(má simulaci)' : '              '} ${k.klic}`);
+	const znacka = k.hlucha ? '🕳 HLUCHÁ    ' : k.simulace ? '(má simulaci)' : '             ';
+	console.log(`${String(k.delka).padStart(4)} znaků ${znacka} ${k.klic}`);
 }
-console.log(`\nVýkladů pod ${MEZ} znaků: ${kratke.length}`);
+const hluchych = kratke.filter((k) => k.hlucha).length;
+console.log(`\nVýkladů pod ${MEZ} znaků: ${kratke.length} — z toho HLUCHÝCH stránek (bez názornosti): ${hluchych}`);
+console.log('Tip: `node testy/kratke-vyklady.mjs 1200` ukáže celou díru, jak ji vidí audit.');

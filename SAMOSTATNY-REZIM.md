@@ -49,8 +49,32 @@ Auditor prověřoval, které kontroly mohou tiše lhát, a podvrhy v kopii repa 
    stránka existuje, ale kvíz k ní ne = tvrdá chyba (překlep v klíči); ročník ho vůbec
    nemá = varování. **Našlo skutečnou mezeru: `pracovni-cinnosti/6-rocnik`.**
 
-**FRONTA — čím pokračovat (v tomto pořadí):**
-1. **Zbytek auditu kontrol** — pořád nejlevnější body s největším dopadem:
+**C) DRUHÝ NEZÁVISLÝ AUDIT — STRATEGIE (kam se energie vyplácí dávat).**
+Auditor měřil, kam za tři dny šla práce: simulace 25 %, měřidla 25 %, **kvízy 19 %**,
+stav a dokumentace 14 %, deník 14 % — a **výklad 2,3 %** (198 řádků z 8 572).
+Osm dávek dorovnávání kvízů = 6 h 38 min souvislé práce a 18 řádků výkladu.
+
+Tři jeho nálezy jsem si ověřil sám a **platí**:
+1. **69 % dorovnaných otázek byly slabé nápovědy pod 20 znaků** — přesně to, co audit
+   z 31. 7. výslovně zakazoval („dorovnávat jen rozdíly ≥ 20 znaků"). Silných nápověd
+   zbývá 208 neopravených. Cíl „33–40 %" byl navíc zčásti iluze: podlaha není 0, ale
+   **27,7 %** (u 83 % otázek nějaká striktně nejdelší odpověď existuje).
+2. **Rozdvojená fronta ve stavovém souboru byla příčinou špatné priority** — ověřeno,
+   opraveno (viz sekce „POSTUP PRÁCE S KVÍZY" níže).
+3. **Největší díra: „hluché stránky"** — ani obrázek, ani video, ani simulace **a k tomu
+   výklad pod 1200 znaků**. Dnes jich je **36 ze 150** (informatika 21, fyzika 15).
+   Nově se měří: `node testy/kratke-vyklady.mjs 1200` je označí 🕳.
+   *Vlastní past při ověřování: napsal jsem si měření přes `!nazornost(p)`, jenže ta
+   funkce vrací OBJEKT (vždy pravdivý) → „0 hluchých stránek". Falešná nula počtvrté.*
+
+**FRONTA — čím pokračovat (v tomto pořadí; přerovnáno podle auditu strategie):**
+0. **ZAVÍRAT HLUCHÉ STRÁNKY TEXTEM, po dávkách 5–6, informatika napřed** (21 z 36).
+   Nejlevnější práce s největším dopadem: ~23 řádků na podtéma proti ~360 řádkům
+   za simulaci. Nejkratší: `zaverecny-projekt` (696), `digitalni-stopa-a-identita`
+   (698), `plan-projektu-a-ladeni` (700), `bezpecnost-pocitace-a-dat` (700),
+   `razeni-filtrovani-velka-data` (703). **Kontrolor povinně** — u Scratche
+   i micro:bitu se snadno napíše název bloku, který v české lokalizaci není.
+1. **Zbytek auditu kontrol** — nejlevnější body s největším dopadem:
    a) **zapojení simulací se čte z TEXTU, ačkoli data jsou na dosah** (`zkontroluj.mjs`
    ř. 25 načte `dataTemata` a už je nepoužije) — podtéma vzniklé programově kontrolu
    obejde; b) **mapa „všechna místa" (`CestyVse.astro`) se neměří vůbec** — 209 pinů,
@@ -66,15 +90,26 @@ Auditor prověřoval, které kontroly mohou tiše lhát, a podvrhy v kopii repa 
 3. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem.
    Na řadě `vetveni-programu` (vývojový diagram) nebo `funkce-v-tabulkach`
    (dá se hodně převzít z `TabulkaVzorceSimulace`). Vyrábět skillem `/simulace`.
-4. Kvízy **nejsou priorita** (cíl splněn, rohatka hlídá směr) — dorovnávat jen
-   mimochodem, když se stejně sahá do bloku.
+4. Kvízy **nejsou priorita** — a systematické dorovnávání délkové nápovědy jako
+   samostatný úkol auditor doporučil **zastavit**. Sahat na ně jen mimochodem, když
+   se stejně otevírá blok kvůli výkladu, a jen na **silné nápovědy ≥ 20 znaků** —
+   a to **prodlužováním distraktorů, ne krácením správné odpovědi** (zkracování už
+   třikrát zkazilo obsah). Slabé pod 20 znaků nechat být, rohatka je hlídá.
+5. **Obnovit `METRIKY-KOL.md`** (jeden řádek na kolo) — je mrtvý od 29. 7., tedy
+   přesně od chvíle, kdy začal samostatný režim, takže se rozpočet kol řídí odhadem.
 
-**⏳ ČEKÁ NA UČITELE (nesahal jsem na to):**
+**⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM (nesahal jsem na to):**
 - **micro:bit V1 × V2:** výklad i kvíz teď říkají, že zvuk potřebuje sluchátka nebo
   bzučák (platí pro V1); V2 má reproduktor na desce. Otázka je nově formulovaná jako
   „starší micro:bit (V1)". **Jaké desky má škola?** Podle toho se text doladí.
 - **Pracovní činnosti 6. ročník nemají roční opakování** — 2 podtémata, možná záměr.
-- **Topné spirály z konstantanu** (viz níže) — nález z ranního kola, pořád otevřený.
+- **Topné spirály z konstantanu?** Výklad `elektricky-proud-v-kovech-odpor` uvádí
+  konstantan. Ten se používá spíš na přesné rezistory a termočlánky; topná tělesa
+  bývají z **nichromu** nebo kanthalu, které snesou žhavení kolem 1200 °C bez oxidace.
+- **„Co je stav beztíže? → působící síly jsou v rovnováze"** (fyzika 7, `kvizy.ts`) —
+  beztíže je **volný pád**, ne rovnováha sil. *Tenhle dotaz se ze seznamu jednou
+  vytratil do historie souboru (nález auditora strategie) — proto je teď seznam
+  otevřených dotazů jen tady nahoře a nikde jinde.*
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, ráno — SAMOSTATNÁ PRÁCE)
 
@@ -217,23 +252,18 @@ Auditor prověřoval, které kontroly mohou tiše lhát, a podvrhy v kopii repa 
    převzít z hotové `TabulkaVzorceSimulace`. Vyrábět skillem `/simulace`.
 3. Kontrolovat i to, co běží samo (hlídač deníku, pečlivá videa).
 
-## ⏳ ČEKÁ NA ROZHODNUTÍ UČITELE (1. 8. 2026)
+## 🧰 POSTUP PRÁCE S KVÍZY (referenční zápis, ne úkol)
 
-- **Topné spirály z konstantanu?** Výklad `elektricky-proud-v-kovech-odpor` uvádí
-  konstantan jako materiál topných spirál. Konstantan (Cu+Ni) se používá spíš na
-  přesné rezistory a termočlánky; topná tělesa bývají z **nichromu** nebo kanthalu,
-  které snesou žhavení kolem 1200 °C bez oxidace. Neopravováno potichu — je to
-  učitelův text. (Nález nezávislého kontrolora.)
-   **Postup:** `node testy/vypis-kviz.mjs <blok>` (duplicity!) → `node testy/delky.mjs
-   <blok> --odpovedi` → dorovnat skriptem s pojistkou → kontrolor → brána → build → push.
-   Pomůcka: `node testy/delky.mjs <blok> --odpovedi` vypíše i znění odpovědí s délkami,
-   takže se dorovnává bez čtení celého souboru.
-   Postup: `node testy/delky.mjs <blok>` → dorovnat → kontrolor → brána → build → push.
-   Pozn.: hromadné záměny dělej **skriptem s pojistkou** `assert s.count(a)==1` —
-   dvakrát to zachytilo, že se týž řetězec odpovědí vyskytuje v souboru vícekrát.
-2. **Škola — názornost informatiky** (47 podtémat, ani jedno s obrázkem či videem);
-   na řadě je `vetveni-programu` (inf. 7) nebo `funkce-v-tabulkach` (inf. 8).
-3. Kontrolovat i to, co běží samo (hlídač deníku, pečlivá videa).
+`node testy/vypis-kviz.mjs <blok>` (vypíše VŠECHNY otázky — hledej duplicitní páry,
+délkové měřidlo je neukáže) → `node testy/delky.mjs <blok> --odpovedi` (znění
+i délky, dorovnává se bez čtení celého souboru) → opravit → kontrolor → brána →
+build → push. Hromadné záměny dělej **skriptem s pojistkou** `assert s.count(a)==1` —
+třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo vůbec.
+
+> Pozn. 1. 8. 2026: pod tímhle nadpisem byla **podruhé zapsaná fronta úkolů**, která
+> si protiřečila s frontou nahoře — a právě podle ní se ráno jelo dorovnávat kvízy,
+> ačkoli audit z 31. 7. říkal, že skutečná díra je jinde. Nález auditora strategie.
+> **Živá fronta i otevřené dotazy na učitele jsou VŽDY jen v nejhornější sekci.**
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (31. 7. 2026, 23:20 — SAMOSTATNÁ NOČNÍ PRÁCE)
 
