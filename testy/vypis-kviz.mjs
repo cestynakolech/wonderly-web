@@ -20,8 +20,11 @@ for (const [klic, otazky] of Object.entries(kvizy)) {
 	if (!klic.includes(hledane) || !Array.isArray(otazky)) continue;
 	nalezeno++;
 	console.log(`\n=== ${klic} — ${otazky.length} otázek ===`);
+	// --otazky = jen znění otázek; na hledání duplicit stačí a je to kratší
+	const strucne = process.argv.includes('--otazky');
 	otazky.forEach((o, i) => {
 		console.log(`${i + 1}. ${o.text}`);
+		if (strucne) return;
 		console.log(`   → ${(o.odpovedi ?? []).join(' | ')}`);
 		if (o.vysvetleni) console.log(`   ? ${o.vysvetleni}`);
 	});
