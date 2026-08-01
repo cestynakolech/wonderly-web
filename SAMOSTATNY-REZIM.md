@@ -69,7 +69,10 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
 
 **FRONTA — čím pokračovat (v tomto pořadí; přerovnáno podle auditu strategie):**
 0. **ZAVÍRAT HLUCHÉ STRÁNKY TEXTEM, po dávkách 5–6, informatika napřed.**
-   Stav: **36 → 31** (první dávka hotová 1. 8. večer: `zaverecny-projekt`,
+   Stav: **36 → 21** (tři dávky hotové 1. 8. večer; ve třetí `propojeni-a-externi-zarizeni`,
+   `klonovani-animace-hry`, `opakovani-s-podminkou`, `sestaveni-a-oziveni-robota`,
+   `vex-iq-navody`). Zbývá 21 — z toho 6 informatika, 15 fyzika.
+   *Původní zápis: 36 → 31* (první dávka hotová 1. 8. večer: `zaverecny-projekt`,
    `digitalni-stopa-a-identita`, `plan-projektu-a-ladeni`, `bezpecnost-pocitace-a-dat`,
    `razeni-filtrovani-velka-data`). Nejlevnější práce s největším dopadem:
    ~23 řádků na podtéma proti ~360 řádkům za simulaci. Další na řadě podle
@@ -98,6 +101,16 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
    > a „číst" totéž (nově číst → komentovat → měnit obsah → měnit práva) · vzorové heslo
    > zveřejněné na webu už není vzor, který by někdo použil · odkaz na opocitacich.cz
    > je z části placený, což se teď píše rovnou. Délková nápověda 809 → **796** otázek.
+
+   > **Třetí dávka (26 → 21).** Měřidlo názvů bloků dostalo čtyři nové vzory — a hned
+   > našlo, že web učil „dotýká se okraje?" a „vytvoř klon", ačkoli paleta má
+   > **„dotýkáš se okraje?"** a **„klonuj (sebe)"**. *Pozor, sám jsem si při tom vyrobil
+   > další chybný tvar „dotýkáš se (okraj)?" — položka nabídky se jmenuje **okraje**,
+   > ne okraj; odhalil to až kontrolor.* Další nálezy: klonů udrží Scratch nejvýš **300**
+   > (pak blok nic nevyrobí a hra se rozbije) · tvrzení, že se na soutěž VIQRC „nedá
+   > připravit dopředu", si odporovalo s výzvou na téže stránce · dvě otázky u robota
+   > zkoušely testování po malých krocích, které na stránce nebylo · kvíz micro:bitu
+   > netestoval to hlavní (stejné číslo skupiny) — otázka doplněna.
 1. **Zbytek auditu kontrol** — nejlevnější body s největším dopadem:
    a) **zapojení simulací se čte z TEXTU, ačkoli data jsou na dosah** (`zkontroluj.mjs`
    ř. 25 načte `dataTemata` a už je nepoužije) — podtéma vzniklé programově kontrolu

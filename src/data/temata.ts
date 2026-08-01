@@ -3959,15 +3959,23 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Opakování s podmínkou',
 					obsah: `
 						<h2>Opakuj, dokud…</h2>
-						<p>Ve Scratchi už umíme blok <strong>opakuj 10krát</strong>. Jenže co když dopředu nevíme, kolikrát je potřeba něco zopakovat?</p>
+						<p>Ve Scratchi už umíme blok <strong>opakuj (10) krát</strong>. Jenže co když dopředu nevíme, kolikrát je potřeba něco zopakovat?</p>
 						<p>👉 Na to je blok <strong>opakuj dokud nenastane &lt;podmínka&gt;</strong> — program opakuje příkazy tak dlouho, dokud podmínka není splněna.</p>
 						<h3>Podmínka = otázka s odpovědí ANO/NE</h3>
 						<ul>
-							<li><strong>dotýká se okraje?</strong> — postava došla na kraj scény</li>
-							<li><strong>dotýká se barvy?</strong> — kulička narazila na čáru</li>
-							<li><strong>je stisknuta klávesa mezerník?</strong></li>
+							<li><strong>dotýkáš se okraje?</strong> — postava došla na kraj scény</li>
+							<li><strong>dotýkáš se barvy ( )?</strong> — kulička narazila na čáru</li>
+							<li><strong>klávesa (mezerník) stisknuta?</strong></li>
 						</ul>
 						<p>Počítač podmínku vyhodnotí <strong>pokaždé znovu</strong> — proto se program umí sám zastavit ve správnou chvíli.</p>
+						<h3>Kdy se ptá?</h3>
+						<p>Podmínku vyhodnocuje <strong>před každým průchodem</strong>. Z toho plyne důležitá věc: když je splněná už na začátku, příkazy uvnitř <strong>neproběhnou ani jednou</strong>. Postava, která už na okraji stojí, se tedy nehne — a není to chyba, tak se ten blok chová.</p>
+						<h3>Tři opakování a kdy které</h3>
+						<ul>
+							<li><strong>opakuj (10) krát</strong> — počet znáš dopředu (nakresli čtverec)</li>
+							<li><strong>opakuj dokud nenastane ⟨podmínka⟩</strong> — počet neznáš, ale víš, čím to skončí (jeď, dokud nenarazíš)</li>
+							<li><strong>opakuj stále</strong> — nemá skončit vůbec (kulisy hry, hlídání kláves)</li>
+						</ul>
 						<h3>Kde se to hodí?</h3>
 						<ul>
 							<li>postava jde vpřed, <em>dokud</em> nenarazí na zeď</li>
@@ -3975,7 +3983,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>odpočet běží, <em>dokud</em> čas nedojde na nulu</li>
 						</ul>
 						<h3>Pozor na nekonečnou smyčku</h3>
-						<p>Když podmínka nemůže nikdy nastat, program se opakuje donekonečna. To někdy chceme (kulisy hry), ale jindy je to <strong>chyba</strong>, kterou je potřeba najít a opravit.</p>
+						<p>Když podmínka nemůže nikdy nastat, program se opakuje donekonečna. To někdy chceme (kulisy hry), ale jindy je to <strong>chyba</strong>. Poznáš ji podle toho, že program „jede" a nic se neděje — a příčina bývá pořád stejná: <strong>uvnitř smyčky se nemění nic, co by podmínku mohlo splnit</strong>. Když čekáš, až <em>životy = 0</em>, musí uvnitř být blok, který životy ubírá.</p>
 						<p>🐭 Vyzkoušej na <a href="https://scratch.mit.edu" target="_blank" rel="noopener">scratch.mit.edu</a> — učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html" target="_blank" rel="noopener">Programování ve Scratchi</a>, kapitola 4.</p>
 					`,
 					odkazy: [
@@ -4170,7 +4178,7 @@ export const temata: Record<string, Tema[]> = {
 								(<em>když se dotýká čáry A je rychlost &gt; 5</em>)</li>
 							<li><strong>nebo</strong> — stačí, aby platila <em>aspoň jedna</em>
 								(<em>když se dotýká červené NEBO modré</em> → skonči)</li>
-							<li><strong>ne</strong> — otočí platnost naruby: <em>ne &lt;dotýká se okraje&gt;</em> je splněné
+							<li><strong>ne</strong> — otočí platnost naruby: <em>ne &lt;dotýkáš se okraje?&gt;</em> je splněné
 								právě tehdy, když se postava okraje <em>ne</em>dotýká</li>
 						</ul>
 						<h3>Když podmínka neplatí</h3>
@@ -4546,8 +4554,17 @@ export const temata: Record<string, Tema[]> = {
 							<li>nahraj program do kostky a spusť</li>
 						</ol>
 						<p>👉 Robot udělá <strong>přesně to, co mu program říká</strong> — ne to, co sis přál(a). Když jede jinam, chyba je v programu (nebo v zapojení), a to je dobrá zpráva: dá se najít a opravit.</p>
+						<h3>Než ho pustíš na zem</h3>
+						<ol>
+							<li>zkontroluj <strong>zapojení</strong> — každý motor a senzor ve svém portu, konektory dotlačené</li>
+							<li>zkus rukou, jestli jsou <strong>spoje pevné</strong> a kola se točí volně</li>
+							<li>nabitá baterie a robot na <strong>volné ploše</strong>, ne na kraji stolu</li>
+						</ol>
+						<p>👉 Robot couvá, i když má jet dopředu? Program bývá v pořádku — obvykle jsou <strong>motory zapojené obráceně</strong> nebo prohozený levý a pravý. Zkontroluj porty dřív, než začneš přepisovat program.</p>
+						<p>👉 Program se vykonává <strong>shora dolů</strong>, jeden příkaz po druhém. Když prohodíš pořadí dvou bloků, robot udělá jiný pohyb — pořadí je součást zadání, ne detail.</p>
 						<h3>První jízda</h3>
-						<p>Rozjeď oba motory na 2 sekundy vpřed, pak zastav. Přidej otočku: jeden motor vpřed, druhý vzad. Hotovo — robot poslouchá!</p>
+						<p>Rozjeď oba motory na 2 sekundy vpřed, pak zastav. Přidej otočku — robot zatáčí tím, že se <strong>každý motor točí jinak</strong>: při různých rychlostech opíše oblouk, při jednom vpřed a druhém vzad se otočí na místě. Hotovo, robot poslouchá!</p>
+						<p>👉 První program má být <strong>jednoduchý a hned vyzkoušený</strong> — dvě sekundy dopředu stačí. Pak přidávej <strong>po malých krocích</strong> a po každém přidání robota pusť. Když se něco pokazí, víš přesně který kousek za to může; ve dvaceti blocích přidaných najednou bys chybu hledal(a) dlouho.</p>
 						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/robotika-na-2-stupni-zakladni-skoly-s-lego-mindstorms.html" target="_blank" rel="noopener">Robotika s LEGO Mindstorms</a>, kap. 1–2.</p>
 					`,
 					odkazy: [
@@ -4719,9 +4736,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Připojení dalších zařízení</h3>
 						<p>Přes <strong>piny</strong> na spodní hraně jde k desce připojit LED pásek, motorek, čidlo vlhkosti… micro:bit je pak mozkem vlastního vynálezu — zalévací hlídač květin, poplašné zařízení na šuplík, semafor pro lego-město. 💡</p>
+						<h3>Aby se desky slyšely</h3>
+						<p>Obě desky musí mít v programu nastavené <strong>stejné číslo skupiny</strong> — je to jako naladit stejnou stanici. Když má každá jiné, zprávy si nepředají, i když leží vedle sebe. Ve třídě, kde vysílá víc dvojic, si každá zvolí své číslo, aby si vzájemně nemluvily do vysílání.</p>
+						<p>Posílat jde <strong>číslo nebo krátký text</strong> — fotku ani celý program rádiem neodešleš. V učebně dosah pohodlně stačí; přes několik zdí už signál slábne.</p>
+						<h3>Piny na spodní hraně</h3>
+						<p>Tři velké kroužky <strong>P0, P1, P2</strong> plus <strong>3V</strong> a <strong>GND</strong> se dají chytit krokosvorkami. Přes ně se k desce připojí LED pásek, motorek nebo čidlo vlhkosti. Zalévací hlídač pak funguje takhle: čidlo v květináči hlásí <strong>vlhkost jako číslo</strong>, program ho porovná s hranicí a při suchu ukáže na displeji smutný obličej (nebo pošle zprávu rádiem druhé desce).</p>
 						<h3>Mini-projekt</h3>
 						<p>Navrhni a předveď vlastní zařízení s micro:bitem — od nápadu přes program po ukázku. Postup jako u robota: rozděl, testuj, dolaď.</p>
-						<p>📗 Učebnice micro:bit, kap. 5–6.</p>
+						<p>📗 Učebnice <a href="https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html" target="_blank" rel="noopener">Programujeme micro:bit pomocí MakeCode</a> (NPI ČR), kap. 5–6.</p>
 					`,
 					odkazy: [
 						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
@@ -4867,12 +4889,12 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Scénář Střely</h3>
 						<ol>
 						<li>po startu se <strong>schovej</strong> (originál nikdy nevidíme — létají jen klony)</li>
-						<li>po stisku mezerníku → vytvoř klon sebe sama</li>
+						<li>po stisku mezerníku → klonuj (sebe)</li>
 						<li>když startuji jako klon → ukaž se, skoč na Raketu, opakuj: změň y o 15; když y &gt; 175 → smaž klon</li>
 						</ol>
 						<h3>Scénář Meteoru</h3>
 						<ol>
-						<li>po startu se schovej; opakuj stále: čekej 1 s, vytvoř klon</li>
+						<li>po startu se schovej; opakuj stále: čekej 1 sekund, klonuj (sebe)</li>
 						<li>klon: ukaž se, skoč nahoru na náhodné x, opakuj: změň y o −4</li>
 						<li>když se klon dotýká Střely → změň skóre o 1, smaž klon (střela zmizí sama dole)</li>
 						<li>když se klon dotýká Rakety → změň životy o −1, smaž klon</li>
@@ -5164,6 +5186,8 @@ export const temata: Record<string, Tema[]> = {
 						<h2>Velké finále: vlastní hra</h2>
 						<h3>Klonování</h3>
 						<p><strong>Klon</strong> = kopie postavy vytvořená za běhu programu. Ohňostroj z desítek jisker, déšť mincí, hejno nepřátel — vše z jedné postavy, kterou program klonuje. Všechny klony sdílejí společný scénář, ale každý si podle něj běží po svém — má vlastní polohu a hodnoty.</p>
+						<p>V paletě Ovládání na to jsou tři bloky: <strong>klonuj (sebe)</strong> vyrobí nový klon, <strong>když startuje můj klon</strong> je hlavička scénáře, který si každý klon provádí sám za sebe, a <strong>zruš tento klon</strong> ho zase odstraní.</p>
+						<p>👉 Na rušení klonů nezapomínej. Scratch jich udrží nejvýš <strong>300</strong> — pak blok <em>klonuj</em> prostě nic nevyrobí, takže nové jiskry ani mince už se neobjeví a hra se rozbije. Jiskra ohňostroje se proto po chvíli sama zruší, stejně jako mince, kterou hráč sebral. (Až program zastavíš, všechny klony zmizí samy.)</p>
 						<h3>Animace</h3>
 						<p>Postava střídá <strong>kostýmy</strong> → běží, mává, bliká. Pozadí se střídají → měníš úrovně hry. Import a úprava kostýmů dává hře vlastní tvář.</p>
 						<h3>Návrh hry (Bludiště, Piano tiles…)</h3>
@@ -5172,6 +5196,12 @@ export const temata: Record<string, Tema[]> = {
 							<li>ovládání, překážky, skóre a životy (proměnné)</li>
 							<li>úrovně (pozadí), zvuky, úvodní a závěrečná obrazovka</li>
 						</ol>
+						<h3>Co hru dodělá</h3>
+						<ul>
+							<li><strong>úvodní obrazovka</strong> přivítá hráče a vysvětlí pravidla — bez ní nikdo neví, co má dělat</li>
+							<li><strong>závěrečná obrazovka</strong> oznámí výsledek: vyhrál jsi, tolik bodů, zkus to znovu</li>
+							<li><strong>zvuky</strong> jsou zpětná vazba — pípnutí u sebrané mince a jiný zvuk u zásahu hráči hned řeknou, jestli udělal dobře, nebo špatně</li>
+						</ul>
 						<p>👉 Dobrá hra vzniká <strong>postupným přidáváním</strong>: nejdřív se hýbe postava, pak přibude cíl, pak překážky… Po každém kroku hru otestuj!</p>
 						<p>🦫 Trénink logiky: archiv <a href="https://www.ibobr.cz/test/archiv" target="_blank" rel="noopener">Bobříka informatiky</a> (kategorie Kadet).</p>
 					`,
@@ -5400,7 +5430,9 @@ export const temata: Record<string, Tema[]> = {
 						<li><strong>Třídička</strong> — najdi kostky a roztřiď je podle barvy (rameno + čidlo barvy)</li>
 						<li><strong>Soutěžní úloha</strong> — sestav a naprogramuj robota na letošní hru VIQRC</li>
 						</ol>
-						<p>👉 U každé výzvy: nejdřív <strong>plán na papír</strong> (rozklad na části), pak program po kouscích testuj — jako u každého projektu.</p>
+						<h3>Proč zrovna gyro</h3>
+						<p>Otočku o 90° jde zkusit i tak, že se spočítají otáčky kol — jenže kola po hladké podlaze <strong>prokluzují</strong> a robot se pokaždé otočí trochu jinak. <strong>Gyro</strong> měří skutečné natočení robota, takže hlídá úhel bez ohledu na to, co dělají kola. Proto je u přesného čtverce klíčové: chyba 3° se po čtyřech rozích sečte na 12 a robot skončí jinde, než začal.</p>
+						<p>👉 U každé výzvy: nejdřív <strong>plán na papír</strong> (rozklad na části), pak program po kouscích testuj — jako u každého projektu. <strong>VIQRC</strong> je soutěž s roboty VEX IQ. Novou hru vyhlásí na začátku sezony a tým pak celý rok robota staví, přestavuje a ladí program — příprava je vlastně to hlavní, co se na soutěži zúročí.</p>
 					`,
 					odkazy: [
 						{ nazev: 'VEXcode IQ — programování v prohlížeči', url: 'https://codeiq.vex.com' },

@@ -33,6 +33,12 @@ export const ZAKAZANE = [
 	{ vzor: 'otoč se k', spravne: 'nastav směr k …', zdroj: 'MOTION_POINTTOWARDS = nastav směr k %1' },
 	{ vzor: 'řekni', spravne: 'bublina …', zdroj: 'LOOKS_SAY = bublina %1' },
 	{ vzor: 'zastav vše', spravne: 'zastav (všechno)', zdroj: 'CONTROL_STOP = zastav + CONTROL_STOP_ALL = všechno' },
+	// Přibylo 1. 8. 2026 při psaní výkladu opakování s podmínkou — web učil „dotýká se
+	// okraje?" a „je stisknuta klávesa", jenže paleta má obojí jinak (2. osoba, jiné pořadí).
+	{ vzor: 'dotýká se', spravne: 'dotýkáš se ( )?', zdroj: 'SENSING_TOUCHINGOBJECT = dotýkáš se %1?' },
+	{ vzor: 'je stisknuta klávesa', spravne: 'klávesa ( ) stisknuta?', zdroj: 'SENSING_KEYPRESSED = klávesa %1 stisknuta?' },
+	{ vzor: 'vytvoř klon', spravne: 'klonuj (sebe)', zdroj: 'CONTROL_CREATECLONEOF = klonuj %1' },
+	{ vzor: 'smaž tento klon', spravne: 'zruš tento klon', zdroj: 'CONTROL_DELETETHISCLONE = zruš tento klon' },
 	{ vzor: 'pero dolů', spravne: 'pero zapni', zdroj: 'pen_penDown = pero zapni' },
 	{ vzor: 'pero nahoru', spravne: 'pero vypni', zdroj: 'pen_penUp = pero vypni' },
 	{ vzor: 'a zároveň (', spravne: 'a', zdroj: 'OPERATORS_AND = %1 a %2' },
