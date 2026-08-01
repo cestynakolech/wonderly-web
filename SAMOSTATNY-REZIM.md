@@ -68,12 +68,26 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
    funkce vrací OBJEKT (vždy pravdivý) → „0 hluchých stránek". Falešná nula počtvrté.*
 
 **FRONTA — čím pokračovat (v tomto pořadí; přerovnáno podle auditu strategie):**
-0. **ZAVÍRAT HLUCHÉ STRÁNKY TEXTEM, po dávkách 5–6, informatika napřed** (21 z 36).
-   Nejlevnější práce s největším dopadem: ~23 řádků na podtéma proti ~360 řádkům
-   za simulaci. Nejkratší: `zaverecny-projekt` (696), `digitalni-stopa-a-identita`
-   (698), `plan-projektu-a-ladeni` (700), `bezpecnost-pocitace-a-dat` (700),
-   `razeni-filtrovani-velka-data` (703). **Kontrolor povinně** — u Scratche
-   i micro:bitu se snadno napíše název bloku, který v české lokalizaci není.
+0. **ZAVÍRAT HLUCHÉ STRÁNKY TEXTEM, po dávkách 5–6, informatika napřed.**
+   Stav: **36 → 31** (první dávka hotová 1. 8. večer: `zaverecny-projekt`,
+   `digitalni-stopa-a-identita`, `plan-projektu-a-ladeni`, `bezpecnost-pocitace-a-dat`,
+   `razeni-filtrovani-velka-data`). Nejlevnější práce s největším dopadem:
+   ~23 řádků na podtéma proti ~360 řádkům za simulaci. Další na řadě podle
+   `node testy/kratke-vyklady.mjs 1200` (označí je 🕳). **Kontrolor povinně.**
+
+   > **Nálezy z první dávky, které stojí za zapamatování (kontrolor, 16 nálezů):**
+   > Web tvrdil, že cvičný projekt „Souřadnice" je z učebnice **Scratch II** — není,
+   > je to kapitola 8 učebnice **Scratch I**; Scratch II má „Nákupní seznam" (ověřeno
+   > v obsahu učebnice i v souborech ke stažení). · Napsal jsem, že častá chyba je
+   > podmínka **za** blokem *opakuj stále* — jenže ten je **koncový blok** a nic se
+   > za něj připojit nedá; skutečná chyba je podmínka **mimo** cyklus. · Tvrzení
+   > „u nezletilých žádá o výmaz rodič" bylo **špatně** — žádat může i žák sám
+   > (hranice 15 let se týká souhlasu se službami, ne práva na výmaz). · Pravidlo
+   > zálohování **3–2–1** znamená dva různé **typy úložiště**, ne dvě místa. ·
+   > Záloha není „jediná obrana proti ransomwaru" (proti zveřejnění ukradených dat
+   > nepomůže) — je to nejspolehlivější cesta zpátky. · Odkaz na cvičná data vedl
+   > na starou adresu s jiným názvem. · Stránka digitální stopy měla délkovou
+   > nápovědu u **6 z 11** otázek (jedna 8,3×) — dorovnáno, blok je na nule.
 1. **Zbytek auditu kontrol** — nejlevnější body s největším dopadem:
    a) **zapojení simulací se čte z TEXTU, ačkoli data jsou na dosah** (`zkontroluj.mjs`
    ř. 25 načte `dataTemata` a už je nepoužije) — podtéma vzniklé programově kontrolu

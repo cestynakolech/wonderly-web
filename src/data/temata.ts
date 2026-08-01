@@ -4766,14 +4766,20 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Řazení, filtrování a velká data',
 					obsah: `
 						<h2>Tabulka jako evidence</h2>
-						<p>Tabulka dat = <strong>záznamy</strong> (řádky) se <strong>stejnými údaji</strong> (sloupce): žáci, knihy, státy světa. Nový záznam = nový řádek se všemi údaji.</p>
+						<p>Tabulka dat = <strong>záznamy</strong> (řádky), které mají ve sloupcích <strong>tytéž druhy údajů</strong> — jméno, ročník, počet obyvatel: žáci, knihy, státy světa. Nový záznam = nový řádek se všemi údaji.</p>
 						<h3>Řazení</h3>
 						<p>Podle libovolného sloupce: abecedně, podle velikosti, data. Pozor — řadí se <strong>celé řádky</strong>, ne jen jeden sloupec!</p>
 						<h3>Filtrování</h3>
 						<p><strong>Filtr</strong> dočasně skryje řádky, které nesplňují podmínku: <em>ukaž jen státy Evropy s počtem obyvatel nad 10 milionů</em>. Data se nemažou, jen se nezobrazují.</p>
+						<h3>Jak řadit, aby se data nerozsypala</h3>
+						<p>Nejhorší, co se dá udělat, je označit <strong>jediný sloupec</strong> a seřadit ho. Ten se seřadí sám za sebe, ale ostatní sloupce zůstanou stát — u každého jména je pak cizí údaj a tabulka je rozsypaná. Když si toho všimneš hned, zachrání tě <strong>Ctrl+Z</strong> (zpět) — po uložení a zavření souboru už ne. Správně stačí <strong>kliknout do tabulky</strong> (nebo označit celou oblast včetně záhlaví) a zvolit řazení; program pak přehází celé řádky. První řádek se jmény sloupců si nech označit jako <strong>záhlaví</strong>, ať se neseřadí mezi data.</p>
+						<h3>Filtr s více podmínkami</h3>
+						<p>Podmínky se dají skládat: <em>světadíl = Evropa</em> <strong>a zároveň</strong> <em>obyvatel &gt; 10 000 000</em>. Zapnutý filtr poznáš podle trychtýře v záhlaví sloupce; <strong>vypnutím se všechna data vrátí</strong>, protože filtr nic nemaže. Pozor na to při počítání průměru — funkce počítají i s řádky, které jsou schované.</p>
+						<h3>Než začneš počítat, data si prohlédni</h3>
+						<p>Velká data bývají špinavá: prázdné buňky, překlepy, <strong>tentýž údaj zapsaný dvěma způsoby</strong> („Česko" × „Česká republika"), číslo uložené jako text. Seřazení sloupce je odhalí rychle — nesmysly vyplavou na kraj. Počítat z neprohlédnutých dat znamená spolehlivě dostat přesný, ale špatný výsledek.</p>
 						<h3>Ověř hypotézu daty</h3>
 						<p>👉 „Velké státy mají víc obyvatel než malé — platí to vždy?" S tabulkou stovek států to zjistíš za minutu: seřaď, filtruj, spočítej průměr, vytvoř graf. <strong>Odpovídej na základě dat, ne dojmů.</strong></p>
-						<p>🗂️ Cvičná data: <a href="http://simandl.asp2.cz/Online.aspx" target="_blank" rel="noopener">online přípravna souborů dat</a> (geografie států světa).</p>
+						<p>🗂️ Cvičná data: <a href="http://dbs.pf.jcu.cz/simandl/" target="_blank" rel="noopener">Online přípravna úloh pro ICT</a> (v nabídce je i geografie států světa).</p>
 					`,
 					odkazy: [
 						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
@@ -5078,8 +5084,18 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Předveď</strong> a nech ostatní program vyzkoušet</li>
 						</ol>
 						<p>👉 Mysli i na <strong>uživatele</strong>: pochopí ovládání? je text čitelný? zvládne hru i začátečník? Dobrý program je ohleduplný k lidem, kteří ho používají.</p>
+						<h3>Jak se ladí doopravdy</h3>
+						<p>Ladění není zkoušení náhodných změn, dokud to nezačne fungovat. Postup, který používají profesionálové:</p>
+						<ol>
+							<li><strong>Popiš přesně, co je špatně</strong> — „nejde to" se opravit nedá, „postava po restartu začíná se skóre z minulé hry" ano.</li>
+							<li><strong>Zužuj místo chyby</strong> — vypni části programu, dokud nezůstane nejmenší kousek, který ještě zlobí.</li>
+							<li><strong>Podívej se, co program opravdu počítá</strong> — ukaž si proměnnou na scéně nebo si její hodnotu nech vypsat v bublině. Skoro vždycky se ukáže, že v ní je něco jiného, než čekáš.</li>
+							<li><strong>Měň jednu věc</strong> a po každé změně vyzkoušej. Dvě změny naráz se navzájem zamaskují.</li>
+						</ol>
+						<p>Tři chyby, které v projektech vznikají nejčastěji: chybí <em>nastav (skóre) na 0</em> na začátku · podmínka <em>když… tak</em> leží <strong>mimo</strong> blok <em>opakuj stále</em>, takže se vyhodnotí jen jednou na začátku a pak už nikdy · dva scénáře si přepisují tutéž proměnnou.</p>
+						<p>👉 Hotový program dej <strong>vyzkoušet někomu jinému</strong> a jen ho mlčky pozoruj. Autor totiž ovládání zná, a proto přehlédne přesně to, co ostatním nedojde.</p>
 						<h3>První projekty</h3>
-						<p><strong>Souřadnice</strong> (pohyb po scéně) a <strong>Kulička</strong> (ovládání myší, posílání zpráv) — rozcvička na velké hry.</p>
+						<p><strong>Nákupní seznam</strong> (přidávání a mazání položek v seznamu) a <strong>Kulička</strong> (ovládání myší, posílání zpráv) — rozcvička na velké hry.</p>
 					`,
 					odkazy: [
 						{ nazev: 'učebnice Scratch II — projekty', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-ii-projekty-pro-2-stupen-zakladni-skoly.html' },
@@ -5211,10 +5227,22 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Vrstvy obrany</h3>
 						<ul>
 							<li>🔄 <strong>aktualizace</strong> systému i aplikací (záplaty děr)</li>
-							<li>🛡️ <strong>antivir</strong> a <strong>firewall</strong> (hlídač příchozích spojení)</li>
-							<li>🔑 silná hesla + <strong>dvoufázové ověření</strong></li>
-							<li>💾 <strong>zálohování</strong> — kopie důležitých dat jinde (druhý disk, cloud); jediná spolehlivá obrana proti ransomwaru</li>
+							<li>🛡️ <strong>antivir</strong> (hledá a blokuje škodlivé programy v souborech) a <strong>firewall</strong> (hlídač příchozích spojení ze sítě)</li>
+							<li>🔑 silná hesla + <strong>dvoufázové ověření</strong> (k heslu ještě jednorázový kód z telefonu — samotné ukradené heslo pak útočníkovi nestačí)</li>
+							<li>💾 <strong>zálohování</strong> — kopie důležitých dat jinde (druhý disk, cloud); nejspolehlivější způsob, jak se z ransomwaru dostat zpátky</li>
 						</ul>
+						<h3>Jak poznat phishing</h3>
+						<ul>
+							<li><strong>tlačí na čas</strong> — „účet bude do hodiny zablokován" má vypnout tvé přemýšlení</li>
+							<li><strong>odkaz vede jinam</strong>, než tvrdí — na počítači na něj najeď myší a přečti si skutečnou adresu. Důležitá je část <strong>těsně před prvním lomítkem</strong>: v <em>mojebanka.csob.cz.prihlaseni-overeni.cz</em> je skutečnou adresou <em>prihlaseni-overeni.cz</em>, ne banka. Na mobilu na odkaz raději nesahej vůbec.</li>
+							<li>adresa odesílatele skoro sedí, ale ne úplně — pozor, ani koncovka <em>.cz</em> sama o sobě nic nezaručuje</li>
+							<li>👉 <strong>Banka ani škola po tobě nikdy nebude chtít heslo</strong> — ani mailem, ani po telefonu. Když si nejsi jistý/á, zavři zprávu a přihlas se sám/sama tak, jak jsi zvyklý/á.</li>
+						</ul>
+						<h3>Heslo, které vydrží</h3>
+						<p>Silné heslo není krátké a plné divných znaků, ale hlavně <strong>dlouhé</strong> — třeba věta nebo tři nesouvisející slova. Do každé služby patří <strong>jiné</strong> heslo: když unikne jedno, útočník ho hned zkouší i jinde. Zapamatovat si všechna nejde, a proto se používá <strong>správce hesel</strong>.</p>
+						<h3>Zálohování 3–2–1</h3>
+						<p>Ověřené pravidlo: <strong>3</strong> kopie dat, na <strong>2</strong> různých typech úložiště (třeba disk v počítači + cloud), z toho <strong>1</strong> mimo domov. Záloha na témže disku je k ničemu — ransomware zašifruje i ji. A zálohu je potřeba <strong>občas vyzkoušet</strong>: nezkoušená záloha není záloha.</p>
+						<p>👉 Když se to přesto stane: odpoj počítač od sítě, hesla měň <strong>z jiného zařízení</strong> a útok nahlas. Výkupné se platit nemá — zaplacení nezaručí vůbec nic a útočníka to jen povzbudí.</p>
 						<p>👉 Žádná obrana není stoprocentní — cíl je útočníkovi práci co nejvíc <strong>ztížit</strong> a mít <strong>zálohu</strong> pro případ nejhoršího.</p>
 					`,
 					odkazy: [
@@ -5231,7 +5259,7 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Digitální stopa</strong> = všechny záznamy, které po sobě v digitálním světě necháváš:</p>
 						<ul>
 							<li>co sám zveřejníš — fotky, komentáře, profily</li>
-							<li>co se sbírá samo — poloha mobilu, historie vyhledávání, <strong>cookies</strong>, metadata fotek (kdy a kde vznikly)</li>
+							<li>co se sbírá samo — poloha mobilu, historie vyhledávání, <strong>cookies</strong> (podle nich si weby pamatují tebe a tvé chování, proto tě reklama „pronásleduje"), metadata fotek (kdy a kde vznikly)</li>
 						</ul>
 						<h3>Algoritmy sociálních sítí</h3>
 						<p>👉 Sítě ti ukazují to, u čeho <strong>zůstaneš nejdéle</strong> — ne to, co je pravdivé nebo důležité. Vědět to = první krok, jak se nenechat vodit.</p>
@@ -5242,6 +5270,16 @@ export const temata: Record<string, Tema[]> = {
 							<li>nevěř všemu — ověřuj zdroje, pozor na podvržené fotky a videa</li>
 							<li>svou <strong>digitální identitu</strong> (účty, přezdívky, pověst) si buduj jako vizitku — jednou ji uvidí i budoucí zaměstnavatel</li>
 						</ul>
+						<h3>Co udělat hned dnes (15 minut)</h3>
+						<ol>
+							<li>projdi si v mobilu <strong>oprávnění aplikací</strong> — hra opravdu nepotřebuje přístup ke kontaktům ani k poloze</li>
+							<li>vypni ve fotoaparátu <strong>ukládání polohy</strong> k fotkám — jinak si snímek nese souřadnice místa, kde vznikl. U fotek, které jsi už poslal(a), to nic nespraví, poloha v nich zůstává; a čas a model telefonu v souboru zůstávají tak jako tak.</li>
+							<li>otevři nastavení soukromí na sítích a podívej se, <strong>kdo tvé příspěvky doopravdy vidí</strong></li>
+							<li>vyhledej si ve vyhledávači vlastní jméno — uvidíš zhruba to, co uvidí i ostatní</li>
+						</ol>
+						<h3>Když se objeví něco nepříjemného</h3>
+						<p>Fotku ani zprávu, která ti ubližuje, neřeš sám/sama a hlavně <strong>neodpovídej útočníkovi</strong>. Ulož si důkaz (snímek obrazovky s datem), <strong>podej hlášení přímo v aplikaci</strong> a řekni to dospělému. Pomoc je i na lince <strong>116 111</strong>, která je zdarma a nonstop. O výmaz svých údajů jde požádat i provozovatele webu — <strong>právo na výmaz</strong> platí v celé Evropské unii. Požádat můžeš i <strong>sám/sama</strong>, za mladší děti to zařídí rodič; rodičům to ale řekni, pomůžou ti to dotáhnout. Není to jistota na sto procent — ze zákona existují výjimky, kdy se údaje smazat nesmějí.</p>
+						<p>👉 Úplně smazat digitální stopu nejde — obsah bývá zkopírovaný jinam. Dá se ale <strong>zmenšit</strong> a hlavně od dneška zvětšovat pomaleji.</p>
 					`,
 					odkazy: [
 						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
@@ -5275,7 +5313,23 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>realizace</strong> — funkčnost, rozklad na části, testování</li>
 							<li><strong>prezentace</strong> — srozumitelné předvedení a vysvětlení, jak to funguje</li>
 						</ol>
-						<p>👉 Projekt je tvoje <strong>vizitka z informatiky</strong> — vyber si téma, které tě opravdu baví.</p>
+						<p>👉 Ta tři kritéria jsou zároveň <strong>tři fáze práce</strong>: nejdřív návrh, pak realizace, nakonec předvedení.</p>
+						<h3>Jak si téma zúžit</h3>
+						<p>Nejčastější chyba je téma příliš velké. „Chytrá domácnost" se za pár hodin udělat nedá, ale <strong>jedna konkrétní věc</strong> ano: čidlo, které pípne, když se otevřou dveře. Zeptej se sám sebe: <em>co přesně bude hotový projekt umět a jak poznám, že je hotový?</em> Kdo to neví, ladí donekonečna.</p>
+						<h3>Rozvrhni si čas</h3>
+						<ol>
+							<li>rozděl práci na části a odhadni, kolik hodin každá zabere</li>
+							<li>nech si <strong>rezervu na ladění</strong> — vždycky se něco pokazí</li>
+							<li>měj co nejdřív hotovou <strong>nejjednodušší funkční verzi</strong> a teprve pak přidávej; polotovar, který jede, je lepší než skvělý nápad, který nikdy nespustíš</li>
+						</ol>
+						<h3>Na prezentaci si připrav</h3>
+						<ul>
+							<li>jakou úlohu projekt řeší a pro koho</li>
+							<li>krátké předvedení naživo (a zálohu — video nebo snímky, kdyby technika zlobila)</li>
+							<li>vysvětlení, <strong>jak to funguje</strong> — to je hlavní část hodnocení</li>
+							<li>co nefungovalo a jak jsi to opravil(a); tohle není přiznání neúspěchu, ale právě ta část, která ukazuje, že jsi to dělal(a) sám/sama</li>
+						</ul>
+						<p>👉 Projekt je tvoje <strong>vizitka z informatiky</strong> — vyber si téma, které tě opravdu baví. Když se nakonec něco nepovede dotáhnout, popiš, kde to uvázlo a proč; to je poctivější (a lépe hodnocené) než tvrdit, že je hotovo.</p>
 					`,
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
