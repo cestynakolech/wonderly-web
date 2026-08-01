@@ -19,7 +19,25 @@ let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
 const CENY = svg.__ceny;
 
-console.log('— ABSOLUTNÍ $B$1: po zkopírování musí být všechno správně —');
+// Doplněno 2. 8. 2026 z mutačního testu (`node testy/mutace.mjs tabulka-vzorce`).
+// Test dobře ověřoval vzorce a výsledky, ale VÝCHOZÍ STAV scény vůbec — mutace,
+// která posunula počáteční kurz z 25 na 26 Kč, jím prošla. Žák by přitom otevřel
+// tabulku s jiným zadáním, než na jaké se ptá výklad i kvíz.
+console.log('— výchozí stav scény —');
+{
+	// hodnoty bez zkopírování = původní nastavení, se kterým se scéna otevírá
+	const vychoziKurz = 25;
+	ok(svg.__hodnotaB(2, vychoziKurz, 'absolutni', false) === CENY[0] * vychoziKurz,
+		`na startu je kurz ${vychoziKurz} Kč/€ a první řádek dává ${CENY[0] * vychoziKurz} Kč`);
+	ok(svg.__vzorecB(2, 'absolutni', false) === '=A2*$B$1',
+		'a první buňka má rovnou správný absolutní vzorec');
+	ok(svg.__vzorecB(3, 'absolutni', false) === '',
+		'spodní buňky jsou zatím prázdné — kopíruje se až tlačítkem');
+	ok(CENY.length === 4 && CENY.every(Number.isInteger),
+		`ceny v eurech jsou čtyři a celočíselné: ${CENY.join(', ')} €`);
+}
+
+console.log('\n— ABSOLUTNÍ $B$1: po zkopírování musí být všechno správně —');
 for (const kurz of [24, 25, 26]) {
   let vseSedi = true, cela = true;
   for (let r = 2; r <= 5; r++) {
