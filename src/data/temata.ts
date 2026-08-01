@@ -2343,7 +2343,7 @@ export const temata: Record<string, Tema[]> = {
 					interakce: 'svacina',
 					obsah: `
 						<h2>Energetická hodnota potravin</h2>
-						<p>Všechny živé organismy potřebují k životu <strong>energii</strong>. Člověk ji získává hlavně z <strong>potravy</strong> (rostliny a živočichové). Tělo spaluje <strong>cukry a tuky</strong> spolu s kyslíkem a využívá tak chemickou energii — pro práci svalů (pohyb) i činnost mozku.</p>
+						<p>Všechny živé organismy potřebují k životu <strong>energii</strong>. Člověk ji získává hlavně z <strong>potravy</strong> (rostliny a živočichové). Tělo spaluje <strong>cukry a tuky</strong> spolu s kyslíkem a využívá tak chemickou energii — pro práci svalů (pohyb) i činnost mozku. Mozek si přitom část energie mění na <strong>elektrickou</strong>: nervy si předávají zprávy elektrickými signály.</p>
 						<h3>Jak se energetická hodnota zjišťuje</h3>
 						<p>Potravina se <strong>spálí v laboratoři</strong> a změří se <strong>teplo</strong>, které přitom uvolní — to udává její energetickou hodnotu.</p>
 						<h3>Jednotky</h3>
