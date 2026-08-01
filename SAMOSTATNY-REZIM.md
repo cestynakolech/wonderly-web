@@ -1,6 +1,82 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026, v noci — HLUCHÉ STRÁNKY 0, DÍRA UZAVŘENA)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026, k ránu — AUDIT KONTROL DOJETÝ)
+
+> **Pokyn učitele z 2. 8. v noci:** *„nečekej na další kolo… jakmile jedno skončí,
+> začni hned nové. Já jdu spát, ty pracuj, nezastavuj se."* → **Žádné pauzy mezi koly.**
+> Dotazy se zapisují sem do „ČEKÁ NA UČITELE", ne do chatu.
+
+**Hotové za noc: hluché stránky 36 → 0** (šest dávek) **a k tomu celý bod 1 fronty —
+zbytek auditu kontrol.** Vše nasazené a ověřené.
+
+**a) Brána četla zapojení simulací z TEXTU**, ačkoli data byla načtená o pár řádků výš.
+Tichá díra: podtéma s jiným odsazením nebo vzniklé programově by vzor minul a pro
+takovou simulaci by se **přeskočily všechny tři kontroly zapojení** — brána zelená.
+Ověřeno podvrhem (interakce zapsaná na témž řádku jako slug je pro starý regex
+neviditelná; nová brána ji hlásí a končí kódem 1).
+
+**b) Mapa „všechna místa" se neměřila vůbec — a hned se v ní našla vada.** Je to
+nejhustší mapa webu (209 pinů, 4 jazykové mutace, kde jiná délka slov dává jiné
+rozmístění). Popisek **„Vaulnaveys-le-Haut" přetékal z výřezu ve všech čtyřech
+jazycích** a překrýval se s „Col d'Ornon". Příčina: **ruční `popisekPosun` se
+aplikoval bez kontroly výřezu** — je doladěný pro mapu roku, ale společná mapa má
+jiný výřez i písmo. Nově se posun použije, jen když se popisek vejde. Ověřeno, že
+mapa roku dává **přesně stejné souřadnice** jako předtím (žádná regrese), a hotová
+stránka přepočítána z nasazeného HTML: 209 pinů, 0 přetečení, 0 překryvů.
+
+> **Málem jsem zavedl falešný poplach.** První verze měřidla hlásila „164 míst se
+> beze stopy ztratilo". Není to pravda — `CestyVse.astro` kreslí piny pro **všechna**
+> místa a každé je i v seznamu pod mapou; jen jmen se na 209 bodů vejde asi 40
+> a zbytek rozmisťovač schválně vynechá. Přepsáno na **sledovanou hodnotu, ne chybu**.
+
+**c) Slovník `DRUHY_MATERIALU`.** Neznámý druh materiálu se tiše ignoroval — přesně
+tak vznikla falešná nula u `druh: 'obrazek'` (v datech není ani jednou, správně je
+`infografika`) a stejně tiše propadávalo `pdf` (3×). Nově má **každý druh zapsané
+rozhodnutí**, jestli se počítá do názornosti (pdf schválně ne — je to dokument ke
+stažení). Neznámý druh je **tvrdá chyba**. Ověřeno podvrhem.
+
+**d) Mutační test simulací — `node testy/mutace.mjs [část-názvu]`.** Zavede do zdroje
+drobnou chybu a čeká, že test spadne; co projde, to nikdo nehlídá. **Do brány
+schválně NEPATŘÍ** (je pomalý), je to nástroj na vyžádání.
+
+> **⚠️ PRVNÍ VERZE NÁSTROJE SAMA LHALA** — a je to potřetí za noc, co měřidlo
+> ukázalo číslo, které nic neměřilo. Měnila jen **první** výskyt každého vzoru,
+> a ten u `elektrovani` padl do výpočtu SVG polohy pravítka — tedy do vizuálu, který
+> test právem nekontroluje. Hlásila „1/5" a **nehnula se ani poté, co do testu přibylo
+> šest nových kontrol Coulombova zákona**. Nově mutuje vzorek výskytů napříč souborem
+> a u každé neodhalené vypíše kus kódu.
+
+**Test `elektrovani` posílen 4/18 → 12/18.** Vzorec síly se **nikdy neověřoval** (volal
+se jen jako vstup), takže záměna násobení za dělení přímo v Coulombově zákoně testem
+prošla — žák by viděl scénu, kde silněji nabité pravítko přitahuje slaběji. Nově se
+ověřuje přímá úměra s nábojem i pokles s **druhou mocninou** vzdálenosti. Doplněny
+i texty, které žák čte. Kontrol simulací celkem **244 → 265**.
+
+**FRONTA — čím pokračovat:**
+1. **Doměřit zbylé testy simulací** mutačním testem. Naměřeno 2. 8.:
+   `meridla` 1/4 · `odpor-vodice` 2/5 · `promenne` 2/4 · `led-displej` 2/4 ·
+   `tabulka-vzorce` 3/6 · `souradnice` 3/5 · `zapojeni` 4/6 · `reostat` 5/6.
+   (Čísla jsou ze staré verze nástroje, který mutoval jen první výskyt — **nová verze
+   dá jiná, poctivější čísla**, tak si je nech přeměřit.) Postup: `node testy/mutace.mjs
+   <název>` → podívat se, které neodhalené mutace jsou ve **fyzice/chování** (ty doplnit)
+   a které v čistém vizuálu (ty nechat být).
+2. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Výklad už
+   mají všechna slušný, takže tohle je poslední velká obsahová mezera. Skillem `/simulace`.
+3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
+4. Kvízy nejsou priorita (viz audit strategie níže).
+
+**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
+- **⚠️ SÁHL JSEM NA VÁŠ ÚDAJ, PROTOŽE ŠLO O BEZPEČNOST.** Na stránce „Účinky proudu na
+  člověka" stálo *„odpor člověka: v suchu a suché obuvi ~150 000 Ω, ve vlhku jen ~2000 Ω"*.
+  Ta hodnota platí jen pro **suchou kůži při malém napětí**; při 230 V se kůže prorazí
+  a odpor těla klesne k ~1 500 Ω. Nechat to tam by znamenalo učit děti, že suchý dotyk
+  zásuvky je neškodný, proto jsem to opravil rovnou a neptal se předem. **Prosím
+  o zpětné schválení** — kdybyste to chtěl jinak, vrátím.
+- **Jakou generaci VEX IQ mozku škola má?** Stránka `co-umi-vex-iq` uvádí 12 portů na
+  motory a čidla. U **starších Brainů si jeden port bere rádio** (volných 11), u novější
+  generace je rádio vestavěné a 12 platí.
+
+## 🎯 Předchozí stav (2. 8. 2026, v noci — HLUCHÉ STRÁNKY 0, DÍRA UZAVŘENA)
 
 > **Pokyn učitele z 2. 8. v noci:** *„nečekej na další kolo… jakmile jedno kolo skončí,
 > začni hned nové, aby se neztrácel čas. Já jdu spát, ty pracuj, nezastavuj se."*
@@ -59,16 +135,7 @@ kladná) · zvonek zní **úderem kladívka do misky**, ne frekvencí přerušov
 3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
 4. Kvízy nejsou priorita (viz audit strategie níže).
 
-**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
-- **⚠️ SÁHL JSEM NA VÁŠ ÚDAJ, PROTOŽE ŠLO O BEZPEČNOST.** Na stránce „Účinky proudu na
-  člověka" stálo *„odpor člověka: v suchu a suché obuvi ~150 000 Ω, ve vlhku jen ~2000 Ω"*.
-  Ta hodnota platí jen pro **suchou kůži při malém napětí**; při 230 V se kůže prorazí
-  a odpor těla klesne k ~1 500 Ω. Nechat to tam by znamenalo učit děti, že suchý dotyk
-  zásuvky je neškodný, proto jsem to opravil rovnou a neptal se předem. **Prosím
-  o zpětné schválení** — kdybyste to chtěl jinak, vrátím.
-- **Jakou generaci VEX IQ mozku škola má?** Stránka `co-umi-vex-iq` uvádí 12 portů na
-  motory a čidla. U **starších Brainů si jeden port bere rádio** (volných 11), u novější
-  generace je rádio vestavěné a 12 platí.
+**⏳ ČEKÁ NA UČITELE** — *přesunuto nahoru; živý seznam je VŽDY jen v nejhornější sekci.*
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ Předchozí stav (2. 8. 2026, v noci — FYZIKA, DÁVKA 5)
 
