@@ -1900,6 +1900,10 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>nerovná plocha</strong> → rozptyl světla (díky němu vidíme i do stínu)</li>
 							<li><strong>rovná lesklá plocha</strong> → svazek zůstane rovnoběžný (zrcadlo, klidná hladina)</li>
 						</ul>
+						<h3>Odrazka na kole</h3>
+						<p>Odrazka je poskládaná z drobných <strong>koutů</strong> — tří na sebe kolmých plošek jako roh krabice.
+							Paprsek se v koutu odrazí třikrát a vyjde <strong>zpátky přesně tím směrem, odkud přišel</strong>.
+							Proto odrazka „svítí" právě řidiči, jehož světla na ni dopadla. Stejně fungují i patníky u silnice.</p>
 						<h3>Zákon odrazu</h3>
 						<p><strong>„Úhel odrazu je roven úhlu dopadu."</strong> — zapisujeme α' = α</p>
 						<ul>
