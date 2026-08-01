@@ -87,10 +87,29 @@
    zákona (loď, ponorka, slaná voda, balon) zkoušely učivo, které na stránce nebylo →
    výklad dostal novou sekci „Kde to potkáš" (mazat dobré otázky by byla škoda).
 
+9. **✅ Osmá dávka — CÍL SPLNĚN. Délková nápověda 59 % → 40 %, celkem 36 bloků.**
+   Cíl z původního zadání byl 33–40 %. `elektricky-proud-v-kovech-odpor`,
+   `elektromagnet`, `elektromagneticka-indukce`, `vlastnosti-stridaveho-proudu`.
+   Kontrolor našel 7 nálezů, tři závažné (definice elektromagnetu ztratila slovo
+   „**měkká**"; dvě vysvětlení byla doslova odpovědí na pozdější otázku téhož bloku).
+   Výklad střídavého proudu nově vysvětluje, proč žárovka nebliká.
+
 **FRONTA — čím pokračovat:**
-1. **Kvízy dál po dávkách 4+ bloků** (`node zkontroluj.mjs` vypíše nejhorší).
-   Zbývají bloky kolem 9/12: `elektricky-proud-v-kovech-odpor`, `elektromagnet`,
-   `elektromagneticka-indukce`, `vlastnosti-stridaveho-proudu`.
+1. **Kvízy už NEJSOU priorita** — cíl 33–40 % je splněn a rohatka hlídá, aby se to
+   nezhoršilo. Dorovnávat dál jen mimochodem, když se stejně sahá do bloku.
+2. **Škola — názornost informatiky** (47 podtémat, ani jedno s obrázkem či videem).
+   Na řadě: `vetveni-programu` (inf. 7) — vývojový diagram, žák přepne podmínku
+   a vidí, kudy to teče; nebo `funkce-v-tabulkach` (inf. 8), kde se dá hodně
+   převzít z hotové `TabulkaVzorceSimulace`. Vyrábět skillem `/simulace`.
+3. Kontrolovat i to, co běží samo (hlídač deníku, pečlivá videa).
+
+## ⏳ ČEKÁ NA ROZHODNUTÍ UČITELE (1. 8. 2026)
+
+- **Topné spirály z konstantanu?** Výklad `elektricky-proud-v-kovech-odpor` uvádí
+  konstantan jako materiál topných spirál. Konstantan (Cu+Ni) se používá spíš na
+  přesné rezistory a termočlánky; topná tělesa bývají z **nichromu** nebo kanthalu,
+  které snesou žhavení kolem 1200 °C bez oxidace. Neopravováno potichu — je to
+  učitelův text. (Nález nezávislého kontrolora.)
    **Postup:** `node testy/vypis-kviz.mjs <blok>` (duplicity!) → `node testy/delky.mjs
    <blok> --odpovedi` → dorovnat skriptem s pojistkou → kontrolor → brána → build → push.
    Pomůcka: `node testy/delky.mjs <blok> --odpovedi` vypíše i znění odpovědí s délkami,
