@@ -108,11 +108,20 @@ const { zaklad = false } = Astro.props;
 		return (rho * l) / s * cinitel(rho, horky);
 	}
 
+	// Rychlost elektronů ~ proud při stejném napětí; mapování 110/(1+R) je znát
+	// v celém rozsahu odporů.
+	//
+	// Je to JEDNA funkce schválně: do 2. 8. 2026 byl tenhle vzorec v souboru napsaný
+	// DVAKRÁT — jednou tady v kreslení a podruhé jako testovací háček `svg.__rychlost`.
+	// Test tím pádem ověřoval opis, ne to, co se doopravdy kreslí; mutační test to
+	// odhalil tak, že změna vzorce v kreslení jím prošla bez povšimnutí.
+	// Háček musí ukazovat na TENTÝŽ kód, jinak nekontroluje nic.
+	const rychlostElektronu = (R) => Math.max(8, Math.min(110, 110 / (1 + R)));
+
 	// ČISTÁ funkce času: poloha elektronu (klikatí se mezi stěnami drátu = srážky s atomy)
 	function polohaElektronu(t, k, l, R) {
 		const sirka = dratSirka(l);
-		// rychlost ~ proud při stejném napětí; mapování 110/(1+R) je znát v celém rozsahu
-		const rychlost = Math.max(8, Math.min(110, 110 / (1 + R)));
+		const rychlost = rychlostElektronu(R);
 		const x = dratX + (((rychlost * t + (k / 12) * sirka) % sirka) + sirka) % sirka;
 		const rozkmit = dratVyska() / 2 - 4;
 		// trojúhelníková vlna — elektron se odráží, nikdy nevyjede z drátu
@@ -218,7 +227,7 @@ const { zaklad = false } = Astro.props;
 	svg.__odpor = odpor;
 	svg.__polohaElektronu = (t, k) => polohaElektronu(t, k, lTed, R);
 	svg.__rozmery = () => ({ x: dratX, sirka: dratSirka(lTed), y: dratY(), vyska: dratVyska() });
-	svg.__rychlost = (Rx) => Math.max(8, Math.min(110, 110 / (1 + Rx)));
+	svg.__rychlost = rychlostElektronu;   // TÝŽ kód, který kreslí — ne jeho opis
 
 	let cas = 0, minule = performance.now();
 	function krok(ted) {

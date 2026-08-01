@@ -65,6 +65,25 @@ ok(R(8, 1, 0.5, 0) === 4, `dvojnásobná délka → dvojnásobný odpor`);
 ok(R(4, 0.5, 0.5, 0) === 4, `poloviční průřez → dvojnásobný odpor`);
 ok(R(4, 1, 0.018, 0) < R(4, 1, 0.5, 0), 'měď má menší odpor než konstantan');
 
+// Doplněno 2. 8. 2026 z mutačního testu (`node testy/mutace.mjs odpor-vodice`).
+// Vzorec se kontroloval dobře, ale VÝCHOZÍ STAV scény ne — mutace, která posunula
+// počáteční průřez z 1 na 2 mm², testem prošla. Žák by scénu otevřel s jiným zadáním,
+// než jaké čte ve výkladu, a žádná kontrola by nehlesla.
+console.log('\n— výchozí stav scény (co žák uvidí hned po otevření) —');
+{
+	const r = svg.__rozmery();
+	ok(r.sirka === 4 * 40, `drát je na startu dlouhý 4 m (šířka ${r.sirka} px = 4 × 40)`);
+	ok(r.vyska === 26, `a má průřez 1 mm² (silná kresba ${r.vyska} px; tenký 0,5 mm² by měl 14)`);
+	ok(R(4, 1, 0.5, 0) === 2, 'takže vypočtený odpor na startu je 2 Ω');
+}
+
+console.log('\n— poměr měrných odporů v textu —');
+{
+	// číslo v hlášce není ozdoba: je to 0,5 / 0,018, tedy skutečný poměr z tabulky
+	const ocekavany = Math.round(0.5 / 0.018);
+	ok(ocekavany === 28, `poměr konstantan : měď vychází ${ocekavany}× (z 0,5 a 0,018 Ω·mm²/m)`);
+}
+
 console.log('\n— celá čísla u konstantanu i PO ZAHŘÁTÍ (nález kontrolora) —');
 let necele = 0;
 for (const horky of [0, 1]) for (const l of [2, 4, 6, 8, 10]) for (const s of [0.5, 1]) {
