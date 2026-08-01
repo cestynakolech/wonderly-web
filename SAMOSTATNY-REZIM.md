@@ -143,12 +143,13 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
 
 **⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM** *(sem patří každý nový dotaz, nikam jinam)*
 
-- **Patří „Když počítač zlobí" na stránku o zabezpečení?** Podtéma
-  `informatika/7-rocnik/pocitace/zabezpeceni-a-digitalni-stopa` má kromě hesel, práv
-  a digitální stopy i sekci o tom, co dělat, když nereaguje program nebo myš — a dvě
-  kvízové otázky k ní. Nezávislý kontrolor upozornil, že to tematicky patří spíš
-  k `hardware-a-software`. Je to uspořádání učiva, tak jsem to nepřesouval:
-  **má se to přestěhovat, nebo to tam necháváš schválně?**
+*(právě teď prázdný — všechno vyřízeno)*
+
+> ✅ **Vyřízeno 1. 8. večer:** sekce „Když počítač zlobí" i její dvě kvízové otázky
+> jsou na pokyn učitele přestěhované ze `zabezpeceni-a-digitalni-stopa` (inf. 7)
+> na `hardware-a-software` (inf. 9) — v sedmém ročníku žádná stránka o hardwaru není.
+> Text se na novém místě opírá o tři vrstvy, které stránka vykládá (hardware ·
+> aplikace · systém). Obě stránky zůstaly nad hranicí 1200 znaků, otázek je pořád 2470.
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, ráno — SAMOSTATNÁ PRÁCE)
 

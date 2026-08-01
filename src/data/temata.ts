@@ -4352,14 +4352,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>U sdílených souborů se nastavuje, kdo smí co: <strong>číst</strong> → <strong>komentovat</strong> → <strong>měnit obsah</strong> → <strong>měnit práva</strong>. Sdílej vždy jen to nejnutnější — právo <em>číst</em> stačí tomu, kdo si má práci jen prohlédnout, a nikdo ti pak obsah omylem nepřepíše ani nesmaže. Pozor i na to, <strong>komu</strong> sdílíš: „kdokoli s odkazem" znamená opravdu kdokoli, komu se odkaz dostane do ruky, kdežto sdílení konkrétním lidem se dá kdykoli odebrat.</p>
 						<h3>Digitální stopa</h3>
 						<p>👉 Všechno, co na internetu uděláš, někde <strong>zanechá záznam</strong>: fotky, komentáře, lajky, poloha mobilu. Stopa se <strong>nedá spolehlivě smazat</strong> — než něco pošleš, rozmysli si, jestli to může vidět kdokoli a navždy.</p>
-						<h3>Když počítač zlobí</h3>
-						<p>Postupuj klidně a <strong>po krocích</strong>, od nejjednodušší příčiny k složitější — většina „záhad" má triviální důvod:</p>
-						<ol>
-							<li>nereaguje myš nebo klávesnice? <strong>Nejdřív kabel</strong> (nebo baterie a vypínač u bezdrátové)</li>
-							<li>nereaguje jen jeden program? Zkus ho <strong>ukončit vynuceně</strong> a spustit znovu</li>
-							<li>až potom <strong>restartuj</strong> celý počítač</li>
-						</ol>
-						<p>👉 Měň vždycky <strong>jednu věc</strong> a hned vyzkoušej, jestli to pomohlo. Když přehodíš pět věcí naráz, nedozvíš se, co bylo špatně — a příště začneš od začátku.</p>
 					`,
 					odkazy: [
 						{ nazev: 'E-Bezpečí', url: 'https://www.e-bezpeci.cz' },
@@ -5210,6 +5202,14 @@ export const temata: Record<string, Tema[]> = {
 						<p>Zařízení se dělí podle toho, kudy jde informace: <strong>vstupní</strong> ji do počítače dostávají (klávesnice, myš, mikrofon, kamera, skener), <strong>výstupní</strong> ji předávají ven k tobě (monitor, tiskárna, reproduktory, sluchátka). Dotykový displej umí obojí naráz.</p>
 						<h3>Software — programy</h3>
 						<p><strong>Operační systém</strong> (Windows, macOS, Linux, Android, iOS) řídí <strong>celý počítač</strong>: spouští aplikace, spravuje soubory, paměť i připojená zařízení. <strong>Aplikace</strong> je proti tomu program na <strong>jeden úkol</strong> — prohlížeč, textový editor, hra. Bez systému by aplikace neměla kde běžet; systém sám ale za tebe dopis nenapíše.</p>
+						<h3>Když počítač zlobí</h3>
+						<p>Většina „záhad" má triviální příčinu — a skoro vždycky je v jedné z těch tří vrstev, které už znáš: hardware (kabel), aplikace, nebo systém. Postupuj klidně a <strong>po krocích</strong>, od nejjednodušší příčiny ke složitější:</p>
+						<ol>
+							<li>nereaguje myš nebo klávesnice? <strong>Nejdřív kabel</strong> (nebo baterie a vypínač u bezdrátové)</li>
+							<li>nereaguje jen jeden program? Zkus ho <strong>ukončit vynuceně</strong> a spustit znovu</li>
+							<li>až potom <strong>restartuj</strong> celý počítač</li>
+						</ol>
+						<p>👉 Měň vždycky <strong>jednu věc</strong> a hned vyzkoušej, jestli to pomohlo. Když přehodíš pět věcí naráz, nedozvíš se, co bylo špatně — a příště začneš od začátku.</p>
 						<h3>Komprese dat</h3>
 						<p>👉 <strong>Komprese</strong> zmenšuje soubory: bezeztrátová (ZIP — vše jde obnovit) × ztrátová (JPG, MP3 — zahodí, co oko/ucho nepozná). Proto se fotka vejde do zprávy.</p>
 						<h3>Technologie kolem nás</h3>

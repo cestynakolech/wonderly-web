@@ -3877,10 +3877,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Právo „číst obsah" u sdíleného souboru znamená…', odpovedi: ['smí prohlížet, ne měnit', 'smí soubor rovnou smazat', 'smí měnit práva ostatním'], vysvetleni: 'Práva: vidět → číst → měnit obsah → měnit práva.' },
 		{ text: 'Co je digitální stopa?', odpovedi: ['záznamy, co po nás zůstanou', 'otisk prstu na displeji', 'vlastnoruční podpis v sešitě'], vysvetleni: 'Fotky, komentáře, poloha, historie hledání…' },
 		{ text: 'Dá se zveřejněná fotka z internetu spolehlivě smazat?', odpovedi: ['ne, mohla se rozšířit', 'ano, jedním tlačítkem', 'ano, ale jen do 24 hodin'], vysvetleni: 'Proto rozmýšlej, než něco pošleš.' },
-		{ text: 'Program přestal reagovat. Co uděláme nejdřív?', odpovedi: ['zkusíme ho ukončit', 'koupíme nový počítač', 'praštíme do monitoru'], vysvetleni: 'Postupuj klidně po krocích, většina potíží je banální.' },
 		{ text: 'Proč je špatným heslem jméno oblíbeného mazlíčka nebo datum narození?', odpovedi: ['dá se o tobě snadno zjistit', 'je moc dlouhé na zapamatování', 'počítač takové heslo nepřijme'], vysvetleni: 'Bezpečné heslo nemá souviset s informacemi, které o tobě někdo zjistí.' },
 		{ text: 'Proč je rozumné sdílet soubor jen s právem „číst", a ne rovnou „měnit obsah"?', odpovedi: ['nikdo obsah omylem nepokazí', 'čtení je rychlejší než úprava', 'jinak by soubor nešel otevřít'], vysvetleni: 'Sdílej vždy jen taková práva, jaká druhý opravdu potřebuje.' },
-		{ text: 'Myš nebo klávesnice přestala reagovat. Co je dobré zkontrolovat jako první?', odpovedi: ['jestli je kabel připojený', 'jestli má počítač hezkou tapetu', 'kolik je právě teď hodin'], vysvetleni: 'Někdy počítač jen ztratil spojení se zařízením — drobnost s jednoduchým řešením.' },
 	],
 	'informatika/8-rocnik/roboticka-stavebnice/sestaveni-a-oziveni-robota': [
 		{ text: 'Jaké tři hlavní části má robot ze stavebnice?', odpovedi: ['řídicí kostka, motory, senzory', 'kola, volant a sedačka', 'monitor, myš a klávesnice'], vysvetleni: 'Kostka = mozek, motory = svaly, senzory = smysly.' },
@@ -4041,6 +4039,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč do hry přidáváme zvuky?', odpovedi: ['dávají hráči zpětnou vazbu', 'zrychlují běh programu', 'nahrazují grafiku postav'], vysvetleni: 'Zvuk skoku, nárazu či fanfára při výhře hru oživí.' },
 	],
 	'informatika/9-rocnik/digitalni-technologie/hardware-a-software': [
+		{ text: 'Program přestal reagovat. Co uděláme nejdřív?', odpovedi: ['zkusíme ho ukončit', 'koupíme nový počítač', 'praštíme do monitoru'], vysvetleni: 'Postupuj klidně po krocích, většina potíží je banální.' },
+		{ text: 'Myš nebo klávesnice přestala reagovat. Co je dobré zkontrolovat jako první?', odpovedi: ['jestli je kabel připojený', 'jestli má počítač hezkou tapetu', 'kolik je právě teď hodin'], vysvetleni: 'Někdy počítač jen ztratil spojení se zařízením — drobnost s jednoduchým řešením.' },
 		{ text: 'Co je hardware?', odpovedi: ['fyzické části počítače', 'programy a aplikace', 'připojení k internetu'], vysvetleni: 'Procesor, paměť, disk, monitor…' },
 		{ text: 'Proč je JPG fotka menší než původní snímek?', odpovedi: ['zahodí nepatrné detaily', 'má vždy jen málo barev', 'je oříznutá na menší'], vysvetleni: 'Proto se vejde do zprávy.' },
 		{ text: 'Co dělá procesor (CPU)?', odpovedi: ['počítá a vykonává příkazy', 'trvale ukládá soubory', 'promítá obraz na monitor'], vysvetleni: 'CPU je počtář — vykonává instrukce programů.' },
