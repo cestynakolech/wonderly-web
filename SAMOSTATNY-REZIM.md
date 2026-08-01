@@ -103,6 +103,19 @@
    Automaty prověřeny: všechny LaunchAgenty končí nulou, jen `pip-audit` vrací 1,
    což je jeho normální chování při nálezu (torch — čeká na učitele).
 
+11. **Uzavřen další bod z fronty auditu: „číslo ve správné odpovědi, které není
+    ve výkladu".** Nová kontrola `testy/cisla-ve-vykladu.mjs` běží v bráně.
+    Doplněno do výkladu: rychlost světla ve vodě ~225 000 km/s a ve skle ~200 000 km/s ·
+    scéna Scratche je 480 × 360 bodů · displej micro:bitu má 5×5 = **25** světýlek ·
+    svislý a vodorovný směr svírají 90°.
+
+    > **Měřidlo samo bylo nejdřív špatně** (a je to už potřetí, co se to stalo):
+    > první verze našla 34 případů, ale 20 z nich byly **výsledky početních úloh**
+    > (60 N, 800 kg, 40 °C) — ty ve výkladu být nemají, žák si je spočítá. Druhý zdroj
+    > falešných poplachů byla **shrnutí**, která vlastní výklad nemají. Po zpřísnění
+    > (přeskoč otázky s čísly v ZADÁNÍ a bloky shrnutí) zbyly 4 skutečné nálezy.
+    > Ověřeno obousměrně podvrhem.
+
 **FRONTA — čím pokračovat:**
 1. **Kvízy už NEJSOU priorita** — cíl 33–40 % je splněn a rohatka hlídá, aby se to
    nezhoršilo. Dorovnávat dál jen mimochodem, když se stejně sahá do bloku.
