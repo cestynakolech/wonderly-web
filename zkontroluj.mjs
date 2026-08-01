@@ -275,7 +275,11 @@ for (const n of neznameDruhy(dataTemata)) {
 }
 
 // Výpis česky
-console.log(`Mapy deníku: ${mapy.pohledu} pohledů, ${mapy.nalezy.length} překryvů popisků.`);
+console.log(
+	`Mapy deníku: ${mapy.pohledu} pohledů, ${mapy.nalezy.length} překryvů popisků` +
+		` (společná mapa: ${mapy.pojmenovanoNaSpolecneMape?.cs ?? '?'} z ${mapy.mistNaSpolecneMape} míst má na mapě jméno,` +
+		` piny mají všechna).`,
+);
 console.log(`Deník: ${rokySoubory.length} roků, ${mistCelkem} míst.`);
 console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek v ${bloky.size} blocích.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);

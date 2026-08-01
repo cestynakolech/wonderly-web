@@ -140,7 +140,93 @@ export async function zkontrolujPopiskyMap() {
 		}
 	}
 	const mistZDat = roky.reduce((n, r) => n + r.mesta.length, 0);
-	return { nalezy, pohledu, mistZDat, rokuZDat: roky.length };
+
+	// ─────────────────────────────────────────────────────────────────────────
+	// MAPA „VŠECHNA MÍSTA" (CestyVse.astro) — do 2. 8. 2026 se NEMĚŘILA VŮBEC.
+	//
+	// Přitom je to nejhustší mapa na webu: všech 209 pinů na jednom výřezu, a ještě
+	// ve čtyřech jazykových mutacích, kde jsou jiné délky slov („5 míst" × „5 places"),
+	// takže se překryvy v každém jazyce počítají jinak.
+	//
+	// Volá se JINÁ funkce a s JINÝMI argumenty než u mapy roku — proto se musí
+	// zopakovat přesně tak, jak to dělá CestyVse.astro (slug = „rok|slug", vlastní
+	// pinR a písmo). To je táž past jako u domova: měřit se musí to, co se kreslí.
+	//
+	// Hlídá se i ZAHOZENÍ. `rozmistiPopisky` na konci volá `zkus(stred, …)` pro odznak
+	// shluku BEZ kontroly návratové hodnoty (mapa.ts) — když se ani ten nevejde, celá
+	// skupina míst z mapy zmizí a nikde se to neprojeví. Proto se počítá, kolik míst
+	// je popisky opravdu zastoupeno.
+	// ─────────────────────────────────────────────────────────────────────────
+	let preklady;
+	const docasny2 = mkdtempSync(join(tmpdir(), 'wonderly-mapa-vse-'));
+	try {
+		preklady = (await nactiModul('src/data/cesty/preklady.ts', docasny2)).TEXTY;
+	} finally {
+		rmSync(docasny2, { recursive: true, force: true });
+	}
+
+	const vsechnaMesta = roky.flatMap((r) => r.mesta.map((m) => ({ ...m, rok: r.rok })));
+	const vyrezVse = mapa.spocitejVyrez(vsechnaMesta);
+	const pinRVse = vyrezVse.sirka / 45;
+	const pismoVse = vyrezVse.sirka / 30;
+	let pohleduVse = 0;
+	const pojmenovano = {};
+
+	for (const [jazyk, t] of Object.entries(preklady)) {
+		pohleduVse++;
+		const popisky = mapa.rozmistiPopisky(
+			vsechnaMesta.map((m) => ({ ...m, slug: `${m.rok}|${m.slug}` })),
+			pinRVse,
+			pismoVse,
+			vyrezVse,
+			t.tvaryMist,
+		);
+		const ramecky = popisky.map((p) => ({ p, r: ramecek(p) }));
+
+		for (let i = 0; i < ramecky.length; i++) {
+			const r = ramecky[i].r;
+			if (
+				r[0] < vyrezVse.x - 0.01 ||
+				r[2] > vyrezVse.x + vyrezVse.sirka + 0.01 ||
+				r[1] < vyrezVse.y - 0.01 ||
+				r[3] > vyrezVse.y + vyrezVse.vyska + 0.01
+			) {
+				nalezy.push(`všechna místa (${jazyk}): popisek „${ramecky[i].p.text}" přetéká z výřezu mapy`);
+			}
+			for (let j = i + 1; j < ramecky.length; j++) {
+				if (!prekryva(r, ramecky[j].r)) continue;
+				nalezy.push(
+					`všechna místa (${jazyk}): popisky „${ramecky[i].p.text}" a „${ramecky[j].p.text}" se překrývají ` +
+						`(${plocha(r, ramecky[j].r).toFixed(1)} jednotek²)`,
+				);
+			}
+		}
+
+		// Kolik míst je popisky POJMENOVÁNO: vlastní jméno + počty ze shluků („5 míst").
+		//
+		// ⚠️ POZOR, tohle NENÍ chyba a málem jsem to jako chybu nahlásil. Na společné
+		// mapě je 209 bodů a jmen se na ni vejde kolem čtyřiceti — zbytek `rozmistiPopisky`
+		// schválně vynechá. Místa se přitom NEZTRÁCEJÍ: `CestyVse.astro` kreslí piny
+		// pro VŠECHNA místa (`r.mesta.map` → <circle class="pin">) a každé je navíc
+		// vypsané v seznamu pod mapou. Chybí jim jen jméno přímo v mapě, což je
+		// u takové hustoty nevyhnutelné.
+		// Sleduje se to proto jako ROHATKA: hodnota nesmí klesnout (to by znamenalo,
+		// že mapa začala být nečitelnější), ale sama o sobě chyba není.
+		const vlastni = popisky.filter((p) => !p.shluk).length;
+		const veShlucich = popisky
+			.filter((p) => p.shluk)
+			.reduce((n, p) => n + (parseInt(p.text, 10) || 0), 0);
+		pojmenovano[jazyk] = vlastni + veShlucich;
+	}
+
+	return {
+		nalezy,
+		pohledu: pohledu + pohleduVse,
+		mistZDat,
+		rokuZDat: roky.length,
+		pojmenovanoNaSpolecneMape: pojmenovano,
+		mistNaSpolecneMape: vsechnaMesta.length,
+	};
 }
 
 // spuštění napřímo: `node testy/mapa-popisky.mjs`

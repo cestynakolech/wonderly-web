@@ -76,14 +76,29 @@ export function rozmistiPopisky(
 		return false;
 	};
 
-	// 1) ruční posuny mají přednost — učitel je nastavil schválně
+	// 1) ruční posuny mají přednost — učitel je nastavil schválně.
+	//
+	// Posun se ale vztahuje ke KONKRÉTNÍ mapě, pro kterou ho učitel doladil (mapa roku).
+	// Na společné mapě „všechna místa" je jiný výřez i jiné písmo, takže tam týž posun
+	// může popisek vystrčit ZA OKRAJ — a tam se uřízne. Do 2. 8. 2026 se to nikomu
+	// neukázalo, protože společná mapa se vůbec neměřila; nové měřidlo hned našlo
+	// „Vaulnaveys-le-Haut" přetékající ve všech čtyřech jazycích.
+	//
+	// Řešení zachovává učitelův záměr tam, kde funguje: posun se použije, jen když se
+	// popisek do výřezu opravdu vejde. Jinak se s bodem zachází jako s ostatními
+	// a jméno mu najde automatické rozmisťování.
 	const zbytek: BodMapy[] = [];
 	for (const b of body) {
 		if (b.popisekPosun) {
 			const kotva = b.popisekPosun.kotva ?? 'middle';
 			const x = b.x + b.popisekPosun.dx;
 			const y = b.y + b.popisekPosun.dy;
-			obsazene.push(ramecek(x, y, b.nazev, kotva));
+			const r = ramecek(x, y, b.nazev, kotva);
+			if (mimoVyrez(r)) {
+				zbytek.push(b);
+				continue;
+			}
+			obsazene.push(r);
 			hotove.push({ x, y, kotva, text: b.nazev, shluk: false, slug: b.slug, fs: pismo });
 		} else {
 			zbytek.push(b);
