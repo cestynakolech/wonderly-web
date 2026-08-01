@@ -76,7 +76,9 @@ jinak nekontroluje nic.*
    > sbírat vytvořené prvky a číst texty buněk. **Nedodělek, ne hotová věc.**
 2. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Výklad už
    mají všechna slušný, takže tohle je poslední velká obsahová mezera. Skillem `/simulace`.
-3. **Obnovit `METRIKY-KOL.md`** — mrtvý od 29. 7.
+3. ~~Obnovit `METRIKY-KOL.md`~~ — **hotovo 2. 8.**: doplněna kola S1–S5 i poučení
+   z retrospektivy (nejdražší vady noci byly v měřidlech, ne v obsahu). Zapisovat dál
+   jeden řádek na kolo, hned na konci kola.
 4. Kvízy nejsou priorita (viz audit strategie níže).
 
 **⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
