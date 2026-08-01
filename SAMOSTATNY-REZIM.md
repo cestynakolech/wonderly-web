@@ -112,19 +112,27 @@ Tři jeho nálezy jsem si ověřil sám a **platí**:
 5. **Obnovit `METRIKY-KOL.md`** (jeden řádek na kolo) — je mrtvý od 29. 7., tedy
    přesně od chvíle, kdy začal samostatný režim, takže se rozpočet kol řídí odhadem.
 
-**⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM (nesahal jsem na to):**
-- ~~micro:bit V1 × V2~~ — **VYŘÍZENO 1. 8. 2026: učitel odpověděl, že škola má OBĚ
-  generace.** Výklad proto nově učí, jak je poznat (V2 má na zadní straně reproduktor,
-  mikrofon s kontrolkou a dotykové zlaté logo; program je pro obě desky stejný)
-  a kvíz na ten rozdíl má vlastní otázku.
-- **Pracovní činnosti 6. ročník nemají roční opakování** — 2 podtémata, možná záměr.
-- **Topné spirály z konstantanu?** Výklad `elektricky-proud-v-kovech-odpor` uvádí
-  konstantan. Ten se používá spíš na přesné rezistory a termočlánky; topná tělesa
-  bývají z **nichromu** nebo kanthalu, které snesou žhavení kolem 1200 °C bez oxidace.
-- **„Co je stav beztíže? → působící síly jsou v rovnováze"** (fyzika 7, `kvizy.ts`) —
-  beztíže je **volný pád**, ne rovnováha sil. *Tenhle dotaz se ze seznamu jednou
-  vytratil do historie souboru (nález auditora strategie) — proto je teď seznam
-  otevřených dotazů jen tady nahoře a nikde jinde.*
+**✅ VYŘÍZENO 1. 8. 2026 večer — učitel rozhodl o všech otevřených dotazech:**
+- **micro:bit:** škola má **V1 i V2** → výklad učí, jak je poznat, kvíz má na rozdíl otázku.
+- **Topné spirály:** opraveno na **nichrom** (nikl + chrom). Konstantan zůstává tam, kam
+  patří — u **rezistorů**, protože jeho odpor se s teplotou skoro nemění. Do tabulky
+  měrných odporů přibyl nichrom (~1,1 Ω·mm²/m), aby bylo vidět, proč se spirála rozžhaví
+  a přívodní měděný kabel zůstane studený.
+- **Beztíže:** správná odpověď je nově **volný pád**. Výklad gravitační síly ten jev
+  popisoval správně (astronauti kolem Země volně padají), jen ho nepojmenovával —
+  doplněno včetně varování před omylem „beztíže = rovnováha sil" (kniha na stole).
+- **Pracovní činnosti 6:** doplněno **roční shrnutí** (souhrnný kvíz ze všech 33 otázek
+  Tinkercadu a SketchUpu, strop 40). Kontrola 6c je tím zelená.
+
+> **Při tom se našla vada v samotné rohatce:** shrnutí se skládají z TÝCHŽ objektů
+> otázek, takže se každá počítala tolikrát, v kolika shrnutích je zařazená. Přidání
+> ročního opakování proto ohlásilo „zhoršení o 12 otázek", ačkoli nevznikla ani jedna
+> nová. Nově se **každá otázka počítá jednou** → skutečný stav je **809** různých otázek
+> s délkovou nápovědou, ne 953. Ověřeno obousměrně: jediná nová vadná otázka (809 → 810)
+> bránu shodí.
+
+**⏳ ČEKÁ NA UČITELE — JEDINÝ ŽIVÝ SEZNAM:** *(právě teď prázdný — všechno vyřízeno;
+sem patří každý nový dotaz, nikam jinam)*
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (1. 8. 2026, ráno — SAMOSTATNÁ PRÁCE)
 

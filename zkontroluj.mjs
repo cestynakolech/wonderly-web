@@ -98,8 +98,17 @@ for (const [klic, otazky] of Object.entries(dataKvizy)) {
 // míchání mění POŘADÍ, ne DÉLKU. Když je správná odpověď nejdelší, žák ji uhodne bez
 // znalosti látky. Náhoda dává ~33 %. Neblokuje build (staré kvízy by zhasly naráz),
 // ale ukáže nejhorší bloky, aby se daly dorovnávat po dávkách.
-const celkemOtazek = [...bloky.values()].reduce((s, b) => s + b.celkem, 0);
-const celkemNejdelsi = [...bloky.values()].reduce((s, b) => s + b.nejdelsi, 0);
+// POČÍTÁ SE KAŽDÁ OTÁZKA JEN JEDNOU. Shrnutí se skládají programově z TÝCHŽ objektů
+// otázek, takže součet přes bloky je počítal dvakrát. Ukázalo se to 1. 8. 2026, když
+// přibylo roční opakování pracovních činností: rohatka ohlásila „zhoršení" o 12 otázek,
+// ačkoli se nenapsala jediná nová — jen se 33 starých začalo počítat podruhé.
+// Rohatka má hlídat kvalitu otázek, ne to, do kolika shrnutí je která zařazená.
+const unikatniOtazky = new Set();
+for (const otazky of Object.values(dataKvizy)) {
+	if (Array.isArray(otazky)) for (const o of otazky) unikatniOtazky.add(o);
+}
+const celkemOtazek = unikatniOtazky.size;
+const celkemNejdelsi = [...unikatniOtazky].filter((o) => maDelkovouNapovedu(o)).length;
 const podilNejdelsi = celkemOtazek ? Math.round((celkemNejdelsi / celkemOtazek) * 100) : 0;
 // Rohatka porovnávala ZAOKROUHLENÁ celá procenta, takže se do jednoho procenta vešlo
 // ~12 nových vadných otázek beze změny čísla (nález nezávislého auditu 1. 8. 2026).

@@ -298,6 +298,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>🔎 Země a míč se přitahují navzájem stejně velkou silou — proč vidíme padat míč, a ne Zemi? Lehký míč se uvede do pohybu snadno, zatímco obrovskou Zemi stejná síla pohne jen neznatelně.</p>
 						<p>🔎 A proč se astronauti na vesmírné stanici vznášejí? Ve výšce 400 km je gravitace stále téměř tak silná jako na povrchu — stanice i astronauti ale kolem Země <strong>neustále volně padají po oběžné dráze</strong>, a proto se vůči sobě vznášejí.</p>
+							<p>👉 Přesně tomu se říká <strong>stav beztíže</strong>: je to <strong>volný pád</strong>, ne nepřítomnost gravitace. Netlačíš na podložku, protože padáš i s ní. Krátce ho zažiješ i při seskoku z můstku nebo v rozjetém výtahu, kterému by praskly lanko. Pozor na častý omyl — beztíže <em>není</em> rovnováha sil: kniha na stole má síly v rovnováze a beztíže tam rozhodně není.</p>
 						<h3>Výpočet u povrchu Země</h3>
 						<p>Na každý <strong>1 kg</strong> hmotnosti tělesa působí u povrchu Země gravitační síla přibližně <strong>10 N</strong>.</p>
 						<ul>
@@ -2824,7 +2825,7 @@ export const temata: Record<string, Tema[]> = {
 							<ul>
 								<li>značka <strong>R</strong>, jednotka <strong>ohm (Ω)</strong>; 1 kΩ = 1 000 Ω, 1 MΩ = 1 000 000 Ω</li>
 								<li><strong>malý odpor</strong> = dobrý vodič (stříbro, měď, zlato, hliník), málo se zahřívá — proto se z mědi dělá vedení</li>
-								<li><strong>velký odpor</strong> = špatný vodič, silně se zahřívá (konstantan = slitina mědi a niklu → topné spirály, rezistory)</li>
+								<li><strong>velký odpor</strong> = špatný vodič, silně se zahřívá (<strong>nichrom</strong> = slitina niklu a chromu → topné spirály varné konvice, fénu i topinkovače; <strong>konstantan</strong> = měď a nikl → rezistory)</li>
 								<li><strong>izolanty</strong> (keramika, plast) mají odpor obrovský; žádný kov není izolant</li>
 							</ul>
 							<h3>Tepelné účinky proudu</h3>
@@ -2846,7 +2847,7 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<h3>Výpočet odporu</h3>
 							<p>Pro vodič délky <strong>l</strong> a průřezu <strong>S</strong> platí <strong>R = ρ · l / S</strong>. Všechny veličiny dosazujeme v základních jednotkách (m, m², Ω·m). U kruhového průřezu je S = π·r².</p>
-							<p>💡 V praxi se ale s metry čtverečními počítá špatně — průřez drátu bývá zlomek milimetru čtverečního. Proto tabulky uvádějí měrný odpor i v <strong>Ω·mm²/m</strong>: pak se <strong>délka dosazuje v metrech a průřez rovnou v mm²</strong> a vyjde totéž. V těchto jednotkách má měď ρ = 0,018, hliník 0,028 a konstantan 0,50 Ω·mm²/m. (Je to týž údaj jen v jiných jednotkách: 0,018 Ω·mm²/m = 0,000 000 018 Ω·m.)</p>
+							<p>💡 V praxi se ale s metry čtverečními počítá špatně — průřez drátu bývá zlomek milimetru čtverečního. Proto tabulky uvádějí měrný odpor i v <strong>Ω·mm²/m</strong>: pak se <strong>délka dosazuje v metrech a průřez rovnou v mm²</strong> a vyjde totéž. V těchto jednotkách má měď ρ = 0,018, hliník 0,028, konstantan 0,50 a nichrom asi 1,1 Ω·mm²/m — proto se topná spirála z nichromu rozžhaví, kdežto přívodní měděný kabel zůstane studený. (Je to týž údaj jen v jiných jednotkách: 0,018 Ω·mm²/m = 0,000 000 018 Ω·m.)</p>
 							<h3>Rezistor</h3>
 							<p><strong>Rezistor</strong> je součástka s přesnou hodnotou odporu — tenký odporový drát (konstantan) navinutý na keramickém válečku. Hodnotu udávají <strong>barevné proužky</strong>. Slouží k <strong>regulaci proudu</strong> v obvodu.</p>
 						`,
@@ -5497,6 +5498,29 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					odkazy: [
+						{ nazev: 'SketchUp Free — spustit v prohlížeči', url: 'https://app.sketchup.com' },
+					],
+				},
+			],
+		},
+		{
+			slug: 'shrnuti',
+			nazev: 'Shrnutí a opakování',
+			podtemata: [
+				{
+					slug: 'rocni-shrnuti',
+					nazev: 'Roční shrnutí',
+					obsah: `
+						<h2>Co umíme po 6. ročníku</h2>
+						<ul>
+							<li><strong>Tinkercad</strong> — skládání 3D modelu z hotových těles, díra jako nástroj, zarovnání, měřítko a export pro 3D tisk</li>
+							<li><strong>SketchUp</strong> — kreslení tvaru a vytažení do prostoru, přesné rozměry, orbit a měřítko</li>
+						</ul>
+						<p>👉 Souhrnný kvíz níže se skládá automaticky z otázek obou návodů — projdi si ho, až budeš chtít zjistit, co ti z 3D modelování zůstalo v hlavě.</p>
+						<p>ℹ️ <em>3D modelování nejede podle časového plánu, vracíme se k němu průběžně. Shrnutí proto ber jako opakování, ne jako zkoušení k termínu.</em></p>
+					`,
+					odkazy: [
+						{ nazev: 'Tinkercad — kreslit v prohlížeči', url: 'https://www.tinkercad.com' },
 						{ nazev: 'SketchUp Free — spustit v prohlížeči', url: 'https://app.sketchup.com' },
 					],
 				},

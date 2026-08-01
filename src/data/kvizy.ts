@@ -2440,7 +2440,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak z gravitační síly vypočítáme hmotnost?', odpovedi: ['m = Fg : g', 'm = Fg · g', 'm = g : Fg'], vysvetleni: 'Obrácený vzorec: hmotnost = síla děleno g.' },
 		{ text: 'Jak vzniká tíhová síla?', odpovedi: ['společným působením gravitační síly a odstředivé síly rotace Země', 'jen třením o vzduch', 'magnetismem Země'], vysvetleni: 'K gravitaci se přidává odstředivá síla otáčení Země (největší na rovníku).' },
 		{ text: 'Jak počítáme na ZŠ tíhovou sílu?', odpovedi: ['stejně jako gravitační: Fg = m · g', 'úplně jinak', 'nepočítáme'], vysvetleni: 'Rozdíl je v praxi nepatrný — počítáme ji jako gravitační.' },
-		{ text: 'Co je stav beztíže?', odpovedi: ['působící síly jsou v rovnováze — váha nic nenaměří', 'stav bez vzduchu', 'velmi malá hmotnost'], vysvetleni: 'V kosmu či při volném pádu se síly vyruší — na váze bys „nic nevážil".' },
+		{ text: 'Co je stav beztíže?', odpovedi: ['volný pád', 'stav bez vzduchu', 'velmi malá hmotnost'], vysvetleni: 'Padáš i s podložkou, a proto na ni netlačíš — gravitace přitom působí dál. Rovnováha sil to není: kniha na stole má síly v rovnováze a beztíže tam není.' },
 		{ text: 'Gravitace na Měsíci je oproti Zemi asi…', odpovedi: ['6× menší', '6× větší', 'stejná'], vysvetleni: 'Proto kosmonauti na Měsíci poskakují — táhne je 6× slabší síla.' },
 		{ text: 'Na jakém principu fungují váhy?', odpovedi: ['měří tíhovou sílu, ale ukazují kilogramy', 'měří objem', 'počítají částice'], vysvetleni: 'Váha měří sílu (newtony) a stupnice ji přepočítává na kilogramy.' },
 		{ text: 'V jednom bodě tělesa působí tíhová síla jako celek. Který to je?', odpovedi: ['těžiště', 'povrch', 'nejnižší bod'], vysvetleni: 'Tíhová síla působí v těžišti tělesa.' },
@@ -3255,7 +3255,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaká je značka elektrického odporu?', odpovedi: ['R', 'U', 'I'], vysvetleni: 'Odpor značíme R.' },
 		{ text: 'Jaká je jednotka odporu?', odpovedi: ['ohm (Ω)', 'volt (V)', 'watt (W)'], vysvetleni: 'Odpor se měří v ohmech.' },
 		{ text: 'Který kov je nejlepší vodič (malý odpor)?', odpovedi: ['měď, stříbro', 'konstantan', 'obyčejné železo'], vysvetleni: 'Nejlepší vodiče mají malý odpor.' },
-		{ text: 'Z čeho jsou topné spirály (velký odpor)?', odpovedi: ['konstantan', 'čistá měď', 'čisté stříbro'], vysvetleni: 'Velký odpor se silně zahřívá.' },
+		{ text: 'Z čeho jsou topné spirály (velký odpor)?', odpovedi: ['nichrom', 'čistá měď', 'čisté stříbro'], vysvetleni: 'Nichrom (nikl + chrom) má velký odpor a snese žhavení, aniž by shořel. Konstantan se používá na rezistory, ne na topná tělesa.' },
 		{ text: 'Který materiál je izolant?', odpovedi: ['keramika, plast', 'měď', 'hliníkový plech'], vysvetleni: 'Izolanty mají obrovský odpor, žádný kov není izolant.' },
 		{ text: 'Kde využíváme zahřívání proudem?', odpovedi: ['vařič a konvice', 'jen uvnitř počítače', 'nikde se nevyužívá'], vysvetleni: 'Tepelné spotřebiče využívají odpor.' },
 		{ text: 'Jaký nebezpečný důsledek má zahřívání vodičů?', odpovedi: ['požár při přetížení', 'ochlazení celého vedení', 'zvýšení napětí'], vysvetleni: 'Přetížené dráty se mohou roztavit.' },
@@ -4306,6 +4306,16 @@ function slozSouhrnnyKviz(rocnik: string, celky: string[], maxOtazek: number, pr
 
 // 1. pololetí = celky probírané do pololetí (dle časových plánů učitele)
 // Pozn.: dle pololetního testu učitele patří do 1. pololetí i základy elektřiny a magnetismu (ionty, náboje, póly)
+// Pracovní činnosti 6 — doplněno 1. 8. 2026 na pokyn učitele poté, co kontrola 6c
+// upozornila, že ročník má kvízy, ale žádné roční opakování. Strop 40 je nad součtem
+// otázek obou podtémat (18 + 15), takže se do opakování dostane opravdu všechno.
+kvizy['pracovni-cinnosti/6-rocnik/shrnuti/rocni-shrnuti'] = slozSouhrnnyKviz(
+	'6-rocnik',
+	['3d-modelovani'],
+	40,
+	'pracovni-cinnosti',
+);
+
 kvizy['fyzika/6-rocnik/shrnuti/pololetni-shrnuti'] = slozSouhrnnyKviz(
 	'6-rocnik',
 	['latka-a-teleso', 'sila', 'fyzikalni-veliciny', 'elektrina-a-magnetismus'],
