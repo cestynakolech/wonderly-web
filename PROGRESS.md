@@ -123,6 +123,50 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-02 večer II (audit automatů: opsaná pravidla; mapa dostala videa; zkratka WONDERLY)** —
+  Učitel zadal: *„překontroluj všechny automaty, zda nedělají totéž — že se něco opraví
+  a najednou druhý automat jede z jiných příkazů."* Podnětem bylo, že se mu **videa,
+  která zkontroloval a přesunul do `nasazeno/`, po hodině vracela k revizi**.
+  **Příčina byla přesně ta, na kterou se ptal:** oprava z 31. 7. („hledej video i
+  v nasazeno/") žila ve funkci `uz_hotovo()`, jenže hlavní smyčka ji **nevolala** —
+  měla vlastní kopii podmínky. V jednom běhu logu to stálo vedle sebe: *„uklid po
+  nasazeni Gassin"* a o řádek níž *„NOVÉ MĚSTO: Gassin"*. Le Bourg vzniklo **5×**,
+  Saint-Bonnet 3×, přes 600 MB navíc.
+  **Audit 56 skriptů našel tři opsaná pravidla:** projekce mapy ve třech skriptech
+  (jeden si koeficienty tahal **regexem ze zdrojáku** druhého), denní strop YouTube
+  napsaný v druhém automatu **znovu číslem** (`DENNI_LIMIT = 2`), a rozhodnutí
+  o hotovém městě. Projekce navíc **nebyly shodné** — jedna zaokrouhlovala, druhá ne,
+  a rozdíl pod 0,05 px první měření zamaskovalo. Sjednoceno tak, že se **žádnému
+  volajícímu nezměnilo chování** (doloženo na čtyřech bodech před i po).
+  **Zavedeno:** `projekce_mapy.py` (jediný domov), registr `data/pravidla-registr.json`
+  + hlídač `test_bez_kopii.py` s rohatkou (dluh **0**), zapojený do denní revize.
+  **Dvakrát mě přitom vlastní hlídač propustil** a přišlo se na to až podvrhem:
+  hlídat jméno funkce nestačí (pravidlo se dá opsat jako holé ČÍSLO) a import smí
+  omluvit jen obálku funkce, nikdy zakázaný zápis. Nakonec 5 podvrhů chyceno, zdravý
+  stav mlčí. Vedlejší nález: **`revize_grafu.py` se vůbec nepřekládal** (česká uvozovka
+  ukončila řetězec + `*gen or [...]`) a nikdo o tom nevěděl, protože ho nic nespouštělo
+  — revize nově překládá všech 56 skriptů.
+  **Mapa deníku: odkazy na videa 15 → 37 míst.** Pečlivá anonymizace jede po jednom
+  a čeká na odklik, takže na 73 videí by mapa čekala měsíc; párovač proto bere i
+  **původní videa**, která na kanálu leží už teď. Přepracovaná verze má vždy přednost
+  a po výměně se odkaz přepíše sám. Soukromá videa se přeskočí (mrtvý odkaz).
+  **Nová simulace „Funkce v tabulkách"** (Inf8) — POČET nebere text ani prázdno,
+  PRŮMĚR dělí počtem ČÍSEL, prázdná buňka se v porovnání bere jako nula. Test 93 kontrol.
+  **Nezávislý kontrolor našel 11 vad a jedna byla vážná a věcná:** mez `KDYŽ` byla na 3,
+  takže žák s **čtyřkou** dostal „neprospěl" — ve škole je 4 dostatečná, tedy prospěl.
+  Bylo to jediné tvrzení na stránce, které si žák umí okamžitě ověřit. Opraveno i to,
+  že výklad učil `=RANK` bez třetího údaje, zatímco simulace hned pod ním tentýž tvar
+  označovala za past.
+  **Zkratka `WONDERLY`** (přání učitele): jedno slovo = celá věta „načti stav, vezmi
+  první úkol z fronty, pracuj samostatně"; noční běh `/loop WONDERLY`. Návod
+  `~/.claude/skills/wonderly/START.md`. Při tom se ukázalo, že **fronta úkolů byla
+  na dvou místech a rozešla se** — skill vedl „média k Fyzice 6", stavový soubor
+  „názornost informatiky". Nově platí dělba: skill říká JAK se pracuje,
+  `SAMOSTATNY-REZIM.md` CO je na řadě, zadání `/loop` jen to jedno slovo.
+  **Poučení dne:** tentýž vzorec „opsané pravidlo" se objevil ve třech vrstvách naráz —
+  v kódu automatů, v textu zadání a v mých vlastních měřidlech. Kdo pravidlo potřebuje,
+  ať si ho IMPORTUJE; kdo ho opíše, ať to hlídač shodí.
+
 - **2026-08-02, 20:00 (informatika 7 — hra bludiště; a proč se na okraji nesmí ořezávat)** —
   Nová simulace `BludisteSimulace` u podtématu `hra-bludiste`. Výklad jmenuje **tři chyby,
   „které dělá skoro každý"** — nově jdou všechny tři na přepínačích **způsobit a vidět**:

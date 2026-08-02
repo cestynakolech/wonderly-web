@@ -1,44 +1,60 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026, 20:00 — hra bludiště, kolo C4)
+## ⏩ KDE POKRAČOVAT (2. 8. 2026, 23:00 — noční běh)
 
-**Hotovo a nasazeno:** simulace **„Bludiště"** (Inf7, `hra-bludiste`). Výklad jmenuje
-tři chyby, „které dělá skoro každý" — všechny tři jsou teď na přepínačích k vyzkoušení:
-krok 30 px přes tenkou zeď 10 px = **postava projede zdí**; obě rady výkladu (menší krok
-NEBO silnější zeď) opravdu zaberou; návrat zvlášť v ⟨opakuj stále⟩ nechá postavu
-**uvíznout ve zdi**. Test **125 kontrol**, testy simulací celkem **659**.
-Názornost informatiky **33 → 32**. Kvíz +3 otázky na jádro výkladu (dosud se na ně
-neptal vůbec), délková nápověda 4/9 → 3/12.
+> **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
+> a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
+> Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-> **Nezávislý kontrolor našel 17 vad, 6 vážných** — a nejdražší z nich bych sám nenašel:
-> ořez na okraji scény posunul postavu mimo mřížku velkého kroku, takže po **jediném
-> stisku ←** přestalo jít zdí projet vůbec a hra přitom vypadala, že funguje. Osy zdí
-> leží schválně uprostřed mezi zastávkami kroku a ořez tu fázi rozbil. Okraj scény proto
-> pohyb **odmítne** místo ořezávání a každá změna programu vrací postavu na start.
-> Další vážné: hláška brala čísla z aktuálních voleb, ne z toho, co se stalo („krok 5 px
-> je delší než zeď 40 px") · týž znak 🏁 znamenal na jedné obrazovce klobouk programu
-> i cíl (paleta má **zelenou** vlajku) · postava ve zdi byla červená **na černé zdi**
-> (kontrast 2,8 : 1, pod normou) — nově světlá výplň, bílý obrys a ✗.
->
-> **A šestý vážný nález byl v TESTU:** deset podvrhů jím prošlo. Test kontroloval názvy
-> bloků ve *spojeném* textu obou variant programu, takže stačilo, aby správný název byl
-> v té druhé. Nově se každá varianta měří zvlášť; přibyly kontroly čísel v hláškách,
-> `preventDefault`, `aria-pressed`, `aria-label` všech čtyř šipek a polohy cíle proti
-> popisu pro odečítač.
+### 🌙 FRONTA NA NOC (pořadí určil koordinátor, drž ho)
 
-**Obousměrný důkaz (17 podvrhů na kopiích ve scratchpadu, do repa se nesahalo):**
-každý se najde (2 až 25 spadlých kontrol), zdravý stav mlčí. Podvrh „okraj se zase
-ořezává" shodí 5 kontrol, „zeď posunutá na zastávku kroku" 8, „prohozené směry" 25.
+1. **Test simulace funkcí je slepý na texty v HTML.** Kontrolor prošel 8 mutacemi:
+   změněná mez v hlavičce, popisek MIN přepsaný na „nejhorší", rozsah `B2:B8`,
+   anglická čárka místo středníku, `=PRUMER` bez háčků, smyšlený chybový kód,
+   prohozený popisek přepínače. Doplnit do `testy/simulace/funkce-tabulky.mjs`
+   kontroly nad proměnnou `html`: mez v hlavičce = `MEZ_KDYZ`, rozsah všude `B2:B7`,
+   oddělovač **středník**, názvy funkcí s diakritikou, chybové kódy z pevného seznamu.
+   Ověřit obousměrně na kopii mimo repo.
+2. **Zbylých 8 drobných nálezů kontrolora** k téže simulaci: `#N/A` místo `#HODNOTA!`
+   u prázdné buňky v RANK · hlavička sloupce C platí pro všech 6 řádků (dopsat
+   „kopírováno dolů") · šrafa prázdné buňky má kontrast 1,30 : 1 (ztmavit na `#868e96`)
+   · `scope="col"/"row"` v tabulce · genitiv v popisku pro odečítač („známka Adama")
+   · zavírací uvozovky U+201C · délková nápověda u 2 otázek · mrtvý kód (`teloEl`,
+   proměnná `svg` u `<tbody>`).
+3. **Názornost informatiky** — zbývá **31 podtémat**. Na řadě: `senzory-robota` (Inf8),
+   `klonovani-animace-hry` (Inf9). Dávka 4+ patří do vějíře (`/simulace`).
+4. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
+   leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
+   z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
+   Saint-Tropez, Le Lavandou a Riez**, delší (6:06) je jen z Le Bourg (77 médií).
+   Když v delší opravdu chybí, složit ze dvou jednu.
+5. Doměřit zbylé testy simulací mutačním testem · `cz()` chybí v 11 simulacích.
 
-**Deník:** kapitoly k Le Bourg-d'Oisans doběhly, ale **na YouTube je jiné video, než
-z jakého se počítaly** (nahrán byl `_v2.mp4` 4:58, kapitoly jsou z verze 6:06) —
-rozhodnutí čeká v `Cestovatelský deník/KE-SCHVALENI.md`.
+### ⏳ ČEKÁ NA ODKLIKNUTÍ UČITELE (nikdy kvůli tomu nestát — jít dál)
 
-**FRONTA — čím pokračovat:**
-1. **Názornost informatiky** — zbývá **32 podtémat**. Na řadě: `senzory-robota`,
-   `funkce-v-tabulkach` (Inf8), `klonovani-animace-hry` (Inf9). Dávka 4+ patří do vějíře.
-2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`).
-3. `cz()` chybí v 11 simulacích, které formátují čísla.
+- **KOLODĚJE** — pečlivá anonymizace hotová, kontrolor 0 nálezů, čeká od 21:24.
+  `pecliva_videa.py --schvaleno` (nebo `--zamitnuto "důvod"`).
+- **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou v `KE-SCHVALENI.md`
+  (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
+- **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
+  se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
+
+### ✅ Hotovo 2. 8. večer
+
+- **Audit automatů na opsaná pravidla** (zadání učitele). Nalezena tři: projekce mapy
+  ve 3 skriptech, denní strop YouTube napsaný podruhé číslem, rozhodnutí o hotovém
+  městě. Vše sloučeno; nově `projekce_mapy.py`, registr `data/pravidla-registr.json`
+  a hlídač `test_bez_kopii.py` (rohatka, dluh 0), zapojený do denní revize.
+  Ověřeno 5 podvrhy. Dvakrát přitom hlídač propustil vadu — obojí opraveno.
+- **Videa se vracela k revizi** — příčina: hlavní smyčka VideoAutomatu měla vlastní
+  kopii podmínky, do které se oprava z 31. 7. nedostala (Le Bourg vzniklo 5×).
+  Opraveno, hlídá `test_video_nasazeno.py` (9 kontrol).
+- **Mapa: odkazy na videa 15 → 37 míst** — párovač bere i původní videa z kanálu,
+  přepracovaná verze má vždy přednost a odkaz se po výměně přepíše sám.
+- **Dvě nové simulace** informatiky (bludiště Inf7, funkce v tabulkách Inf8) —
+  testy 125 a 93 kontrol, 17 + 11 nálezů kontrolorů opraveno.
+- `revize_grafu.py` se vůbec nepřekládal (2 chyby v syntaxi) — opraveno; revize
+  nově překládá všech 56 skriptů.
 
 ## 🎯 Předchozí stav (2. 8. 2026 večer — vlastní bloky s parametry, kolo C3)
 
