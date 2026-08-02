@@ -1,6 +1,68 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026, k ránu — AUDIT KONTROL DOJETÝ)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026 dopoledne — DLOUHODOBÝ AUDIT + OPATŘENÍ)
+
+> **Zadání učitele:** *„udělej si dlouhodobej audit za delší pracovní cyklus, zda se
+> s chybami netočíme v kruhu a zda ještě držíme diamant a nezávislého kontrolora…
+> vytvoř opatření na zlepšení a pokračuj v práci bez zastavování."*
+
+**Odpověď na otázku „točíme se v kruhu?": ANO, ale ne tam, kde by to čekal.**
+Obsah se měřitelně lepší — hluché stránky **36 → 0**, uhodnutelnost kvízů **77 % → 38 %**,
+kontrol simulací 244 → 273. Točí se **NÁSTROJE, které obsah hlídají**: vzorec „měřidlo
+ukazuje číslo, které nic neměří" je doložen **20 výskyty ve čtyřech dnech**, z toho
+5 za jedinou noc. Vlastní retrospektiva to napsala už dřív („ve všech pěti kolech byla
+nejdražší vada v měřidle, ne v obsahu"), ale opatření z toho nikdy nevzniklo.
+
+**Tři nezávislí auditoři, každý s jinou otázkou** (opakované vady × dodržování postupů ×
+pravidla proti skutečnému kódu). Shodli se jen na jednom — a právě to je nejsilnější nález.
+
+### Co se z auditu zavedlo (vše nasazené a ověřené obousměrně)
+
+1. **Rejstřík obousměrného ověření měřidel** — `testy/obousmerne.json` + kontrola 6h v bráně.
+   Pravidlo „novou kontrolu ověř obousměrně" platilo od 30. 7., ale jen jako TEXT, takže
+   nic nebránilo nasadit měřidlo bez důkazu. **Nové měřidlo bez dokladu teď shodí build.**
+   Dluh splacen hned: **6 ze 6 měřidel** má zapsaný podvrh i zdravý stav
+   (`testy/meridla-obousmerne.mjs`, 24 kontrol; ověřeno 7 mutacemi měřidel).
+   Pěti měřidlům k tomu musel přibýt parametr dat nebo se logika vytáhla do funkce —
+   **právě proto u nich důkaz nikdy nevznikl: nešel jim podvrhnout vstup.**
+2. **Duplicity a úniky odpovědí v kvízech** — `testy/uniky.mjs`, kontrola 6g.
+   Obojí se opakovalo od 29. 7. a hledalo se ručně pokynem, na který se v tempu zapomínalo.
+   Duplicita = tvrdá chyba (dnes 0), úniky drží rohatka (39). Kotva: nad historickými
+   kvízy z 31. 7. najde 4 duplicity, mezi nimi **dvakrát doslova tutéž otázku**.
+3. **Revize automatů má doháněč** (`--dohanec`, hodinové buzení) **a eskalaci** —
+   běžela 1× za 24 h bez náhrady, takže na uspaném Macu se den vynechal. Hlídač zdraví
+   neměl hlídače. Nález, který přetrvá do dalšího běhu, se nově označí `⏳ PŘETRVÁVÁ`.
+4. **Rejstřík pravidel: opraveno 5 falešných ✅** — pravidlo vedené jako hlídané, jehož
+   vykonavatel neexistuje (detail níže v „ČEKÁ NA UČITELE", bod 1).
+5. **Počítadlo vstupů u kontrol** — brána nově vypisuje, kolik bloků a otázek prošlo.
+   Opakovaný vzorec byl „opatření tiše platí jen na část případů" (filtr falešných
+   poplachů se volal jen u fotek; společná mapa se neměřila vůbec).
+
+> **Poctivá poznámka: všechna tři měřidla, která jsem během auditu napsal, byla v první
+> verzi vadná.** Detekce duplicit hlásila 13 nálezů, z toho 11 falešných (filtr slov
+> ≥ 4 znaky zahazoval čísla, takže „při 0 °C" a „při 100 °C" vyšlo jako shoda 100 %);
+> detekce úniků 264 nálezů místo 39; první test měřidla prošel i po zavedení mutace.
+> Odhalily to až podvrhy a mutace — ne pohled na výsledek. Je to nejlepší doklad, proč
+> má nové opatření smysl.
+
+### Druhý nález: DIAMANT se ze samostatného režimu vytratil
+
+Kola S1–S5 jsou v metrikách všechna „chain", ačkoli se v nich dělaly dávky **5–9
+nezávislých stránek** — učebnicový vějíř. Paralelní byla jen kontrola. Nezávislý
+kontrolor naopak drží pevně (36 zmínek, vždy s počtem nálezů) — **kromě vlastních
+měřidel, na která nebyl nasazen ani jednou**, a přesně tam byly nejdražší vady.
+→ **Opatření:** dávka 4+ nezávislých položek se dělá vějířem (audit sám takhle běžel);
+kontrolor dostává i kód kontrol, nejen obsah.
+
+**FRONTA — čím pokračovat:**
+1. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Poslední
+   velká obsahová mezera; dělat vějířem (`/simulace`).
+2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`) —
+   doplňovat jen mutace ve fyzice a chování, ne v pixelech. Nedodělek: `tabulka-vzorce`
+   (háček `__hodnotaB` bere kurz jako parametr, takže se výchozí hodnota neuplatní).
+3. `cz()` chybí v 11 simulacích, které formátují čísla — doplnit při práci na nich.
+
+## 🎯 Předchozí stav (2. 8. 2026, k ránu — AUDIT KONTROL DOJETÝ)
 
 > **Pokyn učitele z 2. 8. v noci:** *„nečekej na další kolo… jakmile jedno skončí,
 > začni hned nové. Já jdu spát, ty pracuj, nezastavuj se."* → **Žádné pauzy mezi koly.**
@@ -81,7 +143,25 @@ jinak nekontroluje nic.*
    jeden řádek na kolo, hned na konci kola.
 4. Kvízy nejsou priorita (viz audit strategie níže).
 
-**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam)*
+**⏳ ČEKÁ NA UČITELE** *(jediný živý seznam — sbírá se sem, ať se nemusí odklikávat průběžně)*
+
+- **K DODATEČNÉMU SCHVÁLENÍ (2. 8., z auditu):** přenastavil jsem **LaunchAgent
+  `com.omega.revize-automatu`** — dřív se budil 1× za 24 h a při uspaném Macu se běh
+  bez náhrady vynechal, nově se budí hodinově a pracuje jednou denně (`--dohanec`),
+  stejně jako ostatní automaty. Je to zásah do nastavení automatu, proto to hlásím;
+  kdybyste to chtěl zpět, je to jedna změna v plistu.
+- **Rejstřík pravidel měl 5 falešných ✅** (pravidlo se tvářilo jako hlídané, ale nikdo
+  ho nehlídal) — opraveno v `Omega/PRAVIDLA.md`. Nejdůležitější z nich: *„správná odpověď
+  v kvízu je v datech vždy první"*. `Kviz.astro` tuhle konvenci **používá**, ale nijak
+  neověřuje — kdyby se u jedné z 2471 otázek pořadí přehodilo, web by tiše označoval za
+  správnou špatnou odpověď. **Strojově to ověřit nejde** (který distraktor je pravdivý,
+  pozná jen člověk); zkusil jsem to a heuristika dala 16 podezřelých, z nichž byl
+  falešný poplach **všech 16**. Ručně jsem těch 16 prošel a pořadí je všude správně.
+  Zůstává to tedy jako pravidlo pro člověka, ne pro stroj — je dobré o tom vědět.
+- **Dvě věci, které rejstřík sliboval, a přitom neběží:** (a) přepnutí originálů starých
+  videí na *private* po doanonymizování — kód existuje, ale jen za ručním přepínačem,
+  sám se nespustí nikdy; (b) ochrana 11 lokálních modelů před smazáním — nehlídá ji nic,
+  drží to jen pravidlo „ptát se". Mám u některé z nich něco doprogramovat?
 - **⚠️ SÁHL JSEM NA VÁŠ ÚDAJ, PROTOŽE ŠLO O BEZPEČNOST.** Na stránce „Účinky proudu na
   člověka" stálo *„odpor člověka: v suchu a suché obuvi ~150 000 Ω, ve vlhku jen ~2000 Ω"*.
   Ta hodnota platí jen pro **suchou kůži při malém napětí**; při 230 V se kůže prorazí
