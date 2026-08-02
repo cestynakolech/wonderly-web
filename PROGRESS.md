@@ -1,15 +1,37 @@
 # PROGRESS.md — technický stav práce
 
-_Aktualizováno 31. 7. 2026. Souběžně čti `CLAUDE.md` (trvalý kontext)._
+_Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.md` (trvalý kontext)._
+
+> ## 🚩 NEJDŘÍV OTEVŘI `SAMOSTATNY-REZIM.md`
+> **Aktuální stav práce, živá fronta úkolů i jediný seznam otevřených dotazů na učitele
+> jsou v `SAMOSTATNY-REZIM.md`, v jeho NEJHORNĚJŠÍ sekci** — ne tady. Tenhle soubor je
+> spíš technická příručka (jak co přidat, kde co leží); jeho jednotlivé sekce mohou být
+> staršího data.
+>
+> Poslední stav: **2. 8. 2026** — hluché stránky 36 → **0** (díra z auditu uzavřena),
+> dojetý celý audit kontrol (brána čte data, měří se i mapa „všechna místa", slovník
+> druhů materiálu, nový mutační test simulací). Ve frontě zbývá hlavně **názornost
+> informatiky** (47 podtémat bez obrázku či videa).
 
 ## ⏩ Jak navázat v nové session
-1. Přečti `CLAUDE.md` a tento `PROGRESS.md`.
+1. Přečti `CLAUDE.md`, pak **`SAMOSTATNY-REZIM.md` (horní sekce)** a podle potřeby tenhle soubor.
 2. Rychlá kontrola stavu:
    ```
-   cd ~/Desktop/wonderly-web && git log --oneline -5
+   cd ~/Desktop/wonderly-web && git log --oneline -5 && node zkontroluj.mjs
    ```
+   Brána musí skončit `✅ Vše zapojené správně.` — běží i sama v `prebuild`.
 3. **CELÁ FYZIKA 2. STUPNĚ (6, 7, 8 i 9) JE KOMPLETNÍ** — tagy `fyzika-6-hotova`, `fyzika-7-hotova`, `fyzika-8-hotova`, `fyzika-9-hotova`. Každý ročník má navíc celek **„Shrnutí a opakování"** (pololetní + roční shrnutí s automaticky skládaným souhrnným kvízem a tisknutelným testem).
 4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu), předměty Informatika a Pracovní činnosti, nebo revize hotových stránek. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
+
+### 🔎 Měřidla a kontroly (co je po ruce)
+| Příkaz | K čemu |
+|---|---|
+| `node zkontroluj.mjs` | hlavní brána — zapojení simulací, kvízy, mapy, čísla, názvy bloků |
+| `node testy/vsechny-simulace.mjs` | všech 9 testů simulací (273 kontrol) |
+| `node testy/kratke-vyklady.mjs 1200` | krátké výklady; 🕳 = hluchá stránka (dnes 0) |
+| `node testy/mutace.mjs [název]` | **mutační test** — je test simulace vůbec k něčemu? (pomalý, mimo bránu) |
+| `node testy/nazvy-bloku.mjs` | názvy bloků Scratche proti české lokalizaci |
+| `node testy/vypis-kviz.mjs <blok>` · `node testy/delky.mjs <blok>` | práce s kvízy |
 
 ### 🕹️ Interaktivní infografiky — jak přidat další (kladka…)
 Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči, styl viz existující). **Vzor přidání nové:**
