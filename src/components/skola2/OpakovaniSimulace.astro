@@ -1,0 +1,279 @@
+---
+// Opakování s podmínkou (informatika 7): „opakuj 10krát" × „opakuj dokud nenastane" × „opakuj stále".
+//
+// Tři pointy, které jsou přímo ve výkladu, a všechny tři jsou tu VIDĚT, ne jen napsané:
+//  1. Podmínka se vyhodnocuje PŘED každým průchodem. Když platí už na startu, tělo smyčky
+//     neproběhne ANI JEDNOU — a není to chyba, tak se ten blok chová. Proto jde postavu
+//     postavit rovnou na okraj a spočítat průchody: vyjde 0.
+//  2. Rozdíl tří smyček: počet znám dopředu × znám, čím to skončí × nemá skončit vůbec.
+//  3. Nekonečná smyčka: když se uvnitř nemění nic, co by podmínku mohlo splnit, program
+//     „jede a nic se neděje". Přepínač těla (jdi 10 kroků × jen řekni) to předvede.
+//
+// Souřadnice i počty jsou celá čísla. Stav po n průchodech je ČISTÁ FUNKCE — celý program
+// se dá ověřit výpočtem bez prohlížeče (testy/simulace/opakovani.mjs).
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kdy smyčka skončí? 🔁</span></h2>
+	<p>
+		Postava jede vpřed, dokud nenarazí. Přepni si druh smyčky a všímej si
+		<strong>počtu průchodů</strong> — hlavně když postavu postavíš rovnou na okraj.
+	</p>
+
+	<svg id="opa-svg" viewBox="0 0 540 290" role="img" aria-label="Dráha se zdí na konci, po níž jede postava, a počítadlo průchodů smyčkou">
+		<rect x="230" y="40" width="290" height="80" fill="#f1f3f5" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<!-- zeď na konci dráhy -->
+		<rect x="470" y="40" width="50" height="80" fill="#ced4da" stroke="#2b2a26" stroke-width="3" />
+		<path d="M 470 60 h 50 M 470 80 h 50 M 470 100 h 50 M 495 40 v 20 M 483 60 v 20 M 495 80 v 20 M 483 100 v 20"
+			stroke="#868e96" stroke-width="2" fill="none" />
+		<text x="495" y="140" text-anchor="middle" font-size="13" font-weight="bold" fill="#495057">okraj</text>
+
+		<g id="opa-postava">
+			<circle cx="0" cy="80" r="17" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<text x="0" y="86" text-anchor="middle" font-size="17">🐱</text>
+		</g>
+		<text id="opa-bublina" x="0" y="42" text-anchor="middle" font-size="13" font-weight="bold" fill="#2f9e44"></text>
+
+		<!-- počítadla -->
+		<rect x="20" y="160" width="230" height="44" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<text x="36" y="188" font-size="14" font-weight="bold" fill="#495057">průchodů smyčkou</text>
+		<rect x="196" y="168" width="44" height="28" fill="#1971c2" stroke="#2b2a26" stroke-width="2" rx="12" />
+		<text id="opa-pruchody" x="218" y="188" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">0</text>
+
+		<rect x="270" y="160" width="250" height="44" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<text x="286" y="188" font-size="14" font-weight="bold" fill="#495057">podmínka teď</text>
+		<text id="opa-podminka" x="440" y="188" text-anchor="middle" font-size="15" font-weight="bold" fill="#c92a2a">NE</text>
+
+		<text id="opa-hlaska" x="270" y="235" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44"></text>
+		<text id="opa-poznamka" x="270" y="262" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
+	</svg>
+
+	<p class="opa-radek">
+		<strong>Smyčka:</strong>
+		<button type="button" class="opa-tl opa-smycka opa-aktivni" data-smycka="dokud">opakuj, dokud nenastane ⟨dotýkáš se okraje?⟩</button>
+		<button type="button" class="opa-tl opa-smycka" data-smycka="krat">opakuj (10) krát</button>
+		<button type="button" class="opa-tl opa-smycka" data-smycka="stale">opakuj stále</button>
+	</p>
+	<p class="opa-radek">
+		<strong>Postava začíná:</strong>
+		<button type="button" class="opa-tl opa-start opa-aktivni" data-start="daleko">daleko od okraje</button>
+		<button type="button" class="opa-tl opa-start" data-start="uOkraje">už na okraji</button>
+	</p>
+	<p class="opa-radek">
+		<strong>Uvnitř smyčky:</strong>
+		<button type="button" class="opa-tl opa-telo opa-aktivni" data-telo="jdi">jdi 10 kroků</button>
+		<button type="button" class="opa-tl opa-telo" data-telo="rekni">jen bublina „jedu…"</button>
+	</p>
+	<p class="opa-radek">
+		<button type="button" class="opa-tl opa-hraj" id="opa-krok">▶️ jeden průchod</button>
+		<button type="button" class="opa-tl opa-hraj" id="opa-bezet">⏩ spustit program</button>
+		<button type="button" class="opa-tl" id="opa-reset">↺ na začátek</button>
+	</p>
+
+	<ol id="opa-prikazy"></ol>
+	<p class="opa-stav" id="opa-stav" aria-live="polite">Klikni na <strong>jeden průchod</strong>. Nejzajímavější je začít <strong>už na okraji</strong> — kolikrát se tělo smyčky provede?</p>
+</section>
+
+<script>
+	const svg = document.getElementById('opa-svg');
+	const postavaEl = document.getElementById('opa-postava');
+	const bublinaEl = document.getElementById('opa-bublina');
+	const pruchodyEl = document.getElementById('opa-pruchody');
+	const podminkaEl = document.getElementById('opa-podminka');
+	const hlaskaEl = document.getElementById('opa-hlaska');
+	const poznamkaEl = document.getElementById('opa-poznamka');
+	const prikazyEl = document.getElementById('opa-prikazy');
+	const stavEl = document.getElementById('opa-stav');
+	const btnKrok = document.getElementById('opa-krok');
+	const btnBezet = document.getElementById('opa-bezet');
+	const btnReset = document.getElementById('opa-reset');
+
+	const KROK = 10;
+	// Start je 200 px před zdí, tedy 20 průchodů po 10 px. Dřív bylo 400 px = 40 průchodů,
+	// jenže pojistka proti nekonečné smyčce se spouští po 30 — smyčka by nikdy nedojela
+	// a „opakuj dokud" by vypadalo jako nekonečné (našel to test).
+	const X_DALEKO = 260;
+	const X_U_OKRAJE = 460;   // postava se už dotýká zdi
+	const OKRAJ = 460;        // od téhle souřadnice platí „dotýkáš se okraje?"
+	const POCET_KRAT = 10;    // „opakuj (10) krát"
+	// Strop průchodů: nekonečná smyčka se musí NĚKDE zastavit, jinak by zamrzla stránka.
+	// Není to součást učiva, je to pojistka — a je vidět ve stavovém řádku.
+	const STROP = 30;
+
+	/** Dotýká se postava okraje? Čistá funkce polohy — přesně tak se ptá Scratch. */
+	function naOkraji(x) {
+		return x >= OKRAJ;
+	}
+
+	/**
+	 * JEDEN PRŮCHOD SMYČKOU. Nejdřív se ptáme na podmínku (proto „před každým průchodem"),
+	 * teprve když se pokračuje, provede se tělo. Vrací nový stav — čistá funkce.
+	 */
+	function jedenPruchod(stav, volby) {
+		if (stav.konec) return stav;
+		// 1) test podmínky PŘED tělem
+		if (volby.smycka === 'dokud' && naOkraji(stav.x)) {
+			return { ...stav, konec: true, duvod: 'podminka' };
+		}
+		if (volby.smycka === 'krat' && stav.pruchody >= POCET_KRAT) {
+			return { ...stav, konec: true, duvod: 'pocet' };
+		}
+		if (stav.pruchody >= STROP) {
+			return { ...stav, konec: true, duvod: 'strop' };
+		}
+		// 2) tělo smyčky
+		const x = volby.telo === 'jdi' ? Math.min(OKRAJ, stav.x + KROK) : stav.x;
+		return { ...stav, x, pruchody: stav.pruchody + 1, konec: false, duvod: null };
+	}
+
+	/** Stav po n průchodech od začátku. Čistá funkce — jde ověřit výpočtem. */
+	function stavPoPruchodech(n, volby) {
+		let stav = { x: volby.start === 'uOkraje' ? X_U_OKRAJE : X_DALEKO, pruchody: 0, konec: false, duvod: null };
+		for (let i = 0; i < n; i++) stav = jedenPruchod(stav, volby);
+		return stav;
+	}
+
+	/** Kolikrát se tělo smyčky provede, než program skončí? (STROP = neskončí) */
+	function pocetProvedeni(volby) {
+		let stav = stavPoPruchodech(0, volby);
+		for (let i = 0; i < STROP + 2 && !stav.konec; i++) stav = jedenPruchod(stav, volby);
+		return stav.pruchody;
+	}
+
+	let volby = { smycka: 'dokud', start: 'daleko', telo: 'jdi' };
+	let stav = stavPoPruchodech(0, volby);
+	let casovac = null;
+
+	function programRadky() {
+		const hlava = {
+			dokud: 'opakuj, dokud nenastane ⟨dotýkáš se okraje?⟩',
+			krat: `opakuj (${POCET_KRAT}) krát`,
+			stale: 'opakuj stále',
+		}[volby.smycka];
+		const telo = volby.telo === 'jdi' ? 'jdi 10 kroků' : 'bublina „jedu…"';
+		return [
+			{ text: 'po kliknutí na 🏳', uroven: 0 },
+			{ text: hlava, uroven: 0 },
+			{ text: telo, uroven: 1 },
+		];
+	}
+
+	function vypisProgram() {
+		prikazyEl.textContent = '';
+		for (const r of programRadky()) {
+			const li = document.createElement('li');
+			li.textContent = r.text;
+			li.style.marginLeft = `${r.uroven * 1.1}rem`;
+			if (!stav.konec && stav.pruchody > 0 && r.uroven === 1) li.className = 'opa-nyni';
+			prikazyEl.appendChild(li);
+		}
+	}
+
+	function prekresli() {
+		postavaEl.setAttribute('transform', `translate(${stav.x} 0)`);
+		bublinaEl.setAttribute('x', String(stav.x));
+		bublinaEl.textContent = volby.telo === 'rekni' && stav.pruchody > 0 && !stav.konec ? 'jedu…' : '';
+		pruchodyEl.textContent = String(stav.pruchody);
+		const platí = naOkraji(stav.x);
+		podminkaEl.textContent = platí ? 'ANO — dotýká se okraje' : 'NE — okraje se nedotýká';
+		podminkaEl.setAttribute('fill', platí ? '#2f9e44' : '#c92a2a');
+
+		if (stav.duvod === 'podminka') hlaskaEl.textContent = 'Podmínka je splněná → smyčka skončila.';
+		else if (stav.duvod === 'pocet') hlaskaEl.textContent = `Proběhlo ${POCET_KRAT} opakování → smyčka skončila.`;
+		else if (stav.duvod === 'strop') hlaskaEl.textContent = 'Program pořád jede a nic se nemění — to je nekonečná smyčka.';
+		else hlaskaEl.textContent = stav.pruchody > 0 ? 'Tělo smyčky proběhlo, ptáme se znovu…' : '';
+
+		poznamkaEl.textContent =
+			volby.smycka === 'stale'
+				? 'blok „opakuj stále" nemá skončit — a taky neskončí'
+				: `tělo smyčky proběhlo ${stav.pruchody}×`;
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		if (stav.duvod === 'podminka' && stav.pruchody === 0) {
+			return 'Podmínka platila <strong>už na začátku</strong>, takže se tělo smyčky neprovedlo <strong>ani jednou</strong>. Není to chyba — blok se ptá PŘED každým průchodem.';
+		}
+		if (stav.duvod === 'podminka') return `Postava dojela k okraji. Tělo smyčky proběhlo <strong>${stav.pruchody}×</strong> — dopředu jsme ten počet nevěděli, ale věděli jsme, čím to skončí.`;
+		if (stav.duvod === 'pocet') return `Blok <em>opakuj (${POCET_KRAT}) krát</em> počet zná dopředu, takže skončil po ${POCET_KRAT} průchodech — bez ohledu na to, kde postava je.`;
+		if (stav.duvod === 'strop') return 'Uvnitř smyčky se nemění nic, co by podmínku mohlo splnit — program by jel donekonečna. (Simulace ho po chvíli zastaví, aby stránka nezamrzla.)';
+		if (stav.pruchody === 0) return 'Klikni na <strong>jeden průchod</strong>. Nejzajímavější je začít <strong>už na okraji</strong> — kolikrát se tělo smyčky provede?';
+		return 'Po každém průchodu se podmínka vyhodnotí <strong>znovu</strong>.';
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ spustit program';
+		btnBezet.classList.remove('opa-aktivni');
+	}
+
+	function krokVpred() {
+		stav = jedenPruchod(stav, volby);
+		if (stav.konec) zastav();
+		prekresli();
+		stavEl.innerHTML = popisStavu();
+	}
+
+	function reset() {
+		zastav();
+		stav = stavPoPruchodech(0, volby);
+		prekresli();
+		stavEl.innerHTML = popisStavu();
+	}
+
+	btnKrok.addEventListener('click', () => {
+		zastav();
+		krokVpred();
+	});
+	btnBezet.addEventListener('click', () => {
+		if (casovac) {
+			zastav();
+			return;
+		}
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('opa-aktivni');
+		casovac = setInterval(krokVpred, 400);
+	});
+	btnReset.addEventListener('click', reset);
+
+	function prepinac(trida, klic) {
+		for (const tl of document.querySelectorAll(trida)) {
+			tl.addEventListener('click', () => {
+				for (const j of document.querySelectorAll(trida)) j.classList.remove('opa-aktivni');
+				tl.classList.add('opa-aktivni');
+				volby = { ...volby, [klic]: tl.dataset[klic] };
+				reset();
+			});
+		}
+	}
+	prepinac('.opa-smycka', 'smycka');
+	prepinac('.opa-start', 'start');
+	prepinac('.opa-telo', 'telo');
+
+	prekresli();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenPruchod = jedenPruchod;
+	svg.__stavPoPruchodech = stavPoPruchodech;
+	svg.__pocetProvedeni = pocetProvedeni;
+	svg.__naOkraji = naOkraji;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { KROK, X_DALEKO, X_U_OKRAJE, OKRAJ, POCET_KRAT, STROP };
+	svg.__programRadky = programRadky;
+</script>
+
+<style>
+	#opa-svg { width: 100%; max-width: 540px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.opa-radek { margin: 0.6rem 0; }
+	.opa-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.opa-tl.opa-aktivni { background: #ffe8cc; }
+	.opa-tl.opa-hraj { background: #d3f9d8; }
+	.opa-tl:active { transform: translateY(1px); }
+	#opa-prikazy { margin: 0.3rem 0 0; padding-left: 1.4rem; }
+	#opa-prikazy li { font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 6px; }
+	#opa-prikazy li.opa-nyni { background: #fff3bf; outline: 2px dashed #f08c00; }
+	.opa-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>
