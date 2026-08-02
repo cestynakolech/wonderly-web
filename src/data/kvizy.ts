@@ -3826,11 +3826,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je parametr vlastního bloku?', odpovedi: ['hodnota v okénku bloku', 'jméno autora projektu', 'druh chyby v programu'], vysvetleni: '„Nakresli čtverec (velikost)" — číslo se dosadí.' },
 		{ text: 'Čím je „nakresli čtverec (velikost)" lepší než „nakresli čtverec"?', odpovedi: ['nakreslí různé velikosti', 'není lepší vůbec ničím', 'je barevnější na pohled'], vysvetleni: 'Bez parametru bys tvořil blok pro každou velikost.' },
 		{ text: 'Rozdělení programu na vlastní bloky se říká…', odpovedi: ['rozklad na části', 'mazání programu', 'komprese dat'], vysvetleni: 'Klíčová dovednost programátora.' },
-		{ text: 'Blok „nakresli čtverec (50)" a „nakresli čtverec (120)"…', odpovedi: ['je týž blok s jiným číslem', 'jsou to dva různé bloky', 'nefungují ani jeden'], vysvetleni: 'Stejný postup, jiná hodnota.' },
+		{ text: 'Blok „nakresli čtverec (50)" a „nakresli čtverec (120)"…', odpovedi: ['je týž blok s jiným číslem', 'jsou to dva úplně různé bloky', 'ani jeden z nich nefunguje'], vysvetleni: 'Stejný postup, jiná hodnota.' },
 		{ text: 'Může mít vlastní blok více parametrů?', odpovedi: ['ano, klidně několik', 'ne, nejvýš jeden', 'jen v jazyce Python'], vysvetleni: 'Do bloku jde přidat víc okének.' },
 		{ text: 'Opravíš kód uvnitř vlastního bloku. Co se stane tam, kde se blok používá?', odpovedi: ['opraví se všude naráz', 'opraví se jen první místo', 'nezmění se vůbec nic'], vysvetleni: 'V tom je hlavní síla vlastních bloků: opravuješ na JEDNOM místě, ne v deseti kopiích.' },
 		{ text: 'Kde vlastní blok vytvoříš?', odpovedi: ['v paletě Moje bloky', 'v nabídce Soubor programu', 'v nastavení účtu na webu'], vysvetleni: 'Tlačítko „Vytvořit blok" je v paletě Moje bloky; okénko přidáš volbou „Přidat vstup".' },
-		{ text: 'Kdy se vyplatí udělat vlastní blok?', odpovedi: ['když se kus kódu opakuje', 'když je program krátký', 'nikdy, je to zbytečné'], vysvetleni: 'Když tentýž kus potřebuješ víckrát — jinak si práci spíš přiděláš.' },
+		{ text: 'Kdy se vyplatí udělat vlastní blok?', odpovedi: ['když se kus kódu opakuje', 'když je program hodně krátký', 'nikdy, je to práce navíc'], vysvetleni: 'Když tentýž kus potřebuješ víckrát — jinak si práci spíš přiděláš.' },
 		{ text: 'Proč se velký program rozděluje na části?', odpovedi: ['každou část otestuji zvlášť', 'program je hezčí na pohled', 'projekt zabere méně místa'], vysvetleni: 'Malou část snadno vyzkoušíš a opravíš; v jednom obřím scénáři chybu hledáš dlouho.' },
 	],
 	'informatika/7-rocnik/programovani-vetveni-promenne/promenne': [
