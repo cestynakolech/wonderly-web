@@ -1,0 +1,14 @@
+{
+	"_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
+	"_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Dnešní dluh je přiznaný a odbourává se po jednom — nové měřidlo se ale bez důkazu nasadit nedá.",
+	"bezDokladu": 5,
+	"meridla": {
+		"uniky.mjs": {
+			"test": "testy/uniky-obousmerne.mjs",
+			"podvrh": "Vložená duplicitní otázka ('Co je fyzika?' dvakrát) i únik odpovědi (vysvětlení u vlhkoměru odpovídá na otázku o anemometru) se najdou; brána na nich končí kódem 1. Navíc ověřeno na HISTORICKÝCH datech: nad verzí kvízů před opravou 31. 7. najde 4 duplicity, mezi nimi dvakrát doslova tutéž otázku.",
+			"zdravy": "Nad dnešními daty 0 duplicit a 39 úniků, brána končí '✅ Vše zapojené správně.'; 15 kontrol v testu prochází.",
+			"regrese": "Součástí testu jsou konkrétní falešné poplachy první verze: dvojice lišící se jen číslem (0 °C × 100 °C, 120 min × 7200 s) a sdílený odborný pojem ('hmotnost') NESMÍ být nález. Mutace prahů to shodí.",
+			"overeno": "2026-08-02"
+		}
+	}
+}

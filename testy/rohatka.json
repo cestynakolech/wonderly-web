@@ -2,5 +2,6 @@
 	"_": "Laťka kvality kvízů. Brána SELŽE, když se číslo zhorší; zlepšení laťku utáhne samo. Staré dluhy nikoho neblokují — hlídá se jen směr. Zavedeno 31. 7. 2026 poté, co se podíl za jediný den zhoršil ze 64 % na 66 %: bodové opravy držely, ale nové bloky vznikaly se stejnou vadou.",
 	"podilNejdelsi": 38,
 	"zmeneno": "2026-08-01",
-	"pocetNejdelsi": 795
+	"pocetNejdelsi": 795,
+	"uniky": 39
 }

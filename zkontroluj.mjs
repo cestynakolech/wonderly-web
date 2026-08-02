@@ -8,6 +8,8 @@ import { nactiData, maDelkovouNapovedu, vsechnaPodtemata, neznameDruhy } from '.
 import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
+import { zkontrolujUniky } from './testy/uniky.mjs';
+import { zkontrolujRejstrik } from './testy/obousmerne.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -274,6 +276,58 @@ for (const n of neznameDruhy(dataTemata)) {
 	);
 }
 
+// 6g) VAZBY MEZI OTÁZKAMI JEDNOHO BLOKU: duplicity a úniky odpovědí (2. 8. 2026).
+// Nález dlouhodobého auditu: obě vady se opakují od 29. 7. pořád dokola a hledaly se
+// RUČNĚ — pokynem „hledej to v každé dávce", na který se v tempu zapomínalo. Duplicitní
+// páry se našly v devíti blocích (3–4 z 10), úniky zanášely i samotné opravy.
+// Duplicita je TVRDÁ CHYBA: měřidlo je schválně konzervativní (dnes 0 nálezů), takže
+// nikoho neblokuje starý dluh — spadne až nová duplicita. Ověřeno na historických datech:
+// nad verzí kvízů z 31. 7. najde 4, mezi nimi dvakrát doslova tutéž otázku.
+// Úniky drží rohatka jako u délkové nápovědy: dnešní dluh nevadí, zhoršit se nesmí.
+const vazby = await zkontrolujUniky({ kvizy: dataKvizy });
+for (const d of vazby.duplicity) {
+	chyby.push(`${d.klic}: dvě otázky se ptají na totéž — „${d.a}" × „${d.b}" (${d.duvod})`);
+}
+const stropUniku = strop?.uniky ?? Infinity;
+if (vazby.uniky.length > stropUniku) {
+	const nove = vazby.uniky.slice(0, 3).map((u) => `„${u.prozrazuje}" prozrazuje „${u.odpoved}"`).join('; ');
+	chyby.push(
+		`přibyly úniky odpovědí mezi otázkami: ${vazby.uniky.length}, naposledy ${stropUniku}. ` +
+			`Vysvětlení ani zadání jedné otázky nesmí odpovídat na jinou. Např. ${nove}. ` +
+			`Seznam: node testy/uniky.mjs`,
+	);
+} else if (strop && vazby.uniky.length < stropUniku) {
+	writeFileSync(cestaRohatka, `${JSON.stringify({ ...strop, uniky: vazby.uniky.length, zmeneno: new Date().toISOString().slice(0, 10) }, null, '\t')}\n`);
+	varovani.push(`úniků odpovědí ubylo na ${vazby.uniky.length} — laťka utažena (testy/rohatka.json).`);
+}
+
+// 6h) KDO HLÍDÁ HLÍDAČE (2. 8. 2026, dlouhodobý audit).
+// Nejčastější vada projektu není v učivu, ale v měřidlech: dvacet výskytů ve čtyřech
+// dnech, z toho pět za jedinou noc („falešná nula popáté — a tentokrát u kontroly,
+// která vznikla právě proto, aby tuhle třídu chyb hlídala"). Pravidlo „novou kontrolu
+// ověř obousměrně" existovalo, ale jen jako text, takže nic nebránilo nasadit měřidlo
+// bez důkazu. Nově musí mít každé měřidlo v testy/obousmerne.json zapsáno, čím je
+// doloženo, že podvrh najde A nad zdravými daty mlčí.
+// Rohatka: dnešní dluh nikoho neblokuje, ale NOVÉ měřidlo bez dokladu build shodí.
+const rejstrik = zkontrolujRejstrik();
+const rejstrikJson = existsSync(join(koren, 'testy/obousmerne.json'))
+	? JSON.parse(readFileSync(join(koren, 'testy/obousmerne.json'), 'utf8'))
+	: null;
+const stropBezDokladu = rejstrikJson?.bezDokladu ?? Infinity;
+if (rejstrik.chybi.length > stropBezDokladu) {
+	chyby.push(
+		`měřidlo bez obousměrného důkazu: ${rejstrik.chybi.join(', ')} (bez dokladu ${rejstrik.chybi.length}, naposledy ${stropBezDokladu}). ` +
+			`Doplň do testy/obousmerne.json záznam s poli 'podvrh' a 'zdravy' — a hlavně ten důkaz opravdu proveď. ` +
+			`Kontrola, která se nasadí bez ověření, tiše určuje, na čem se pracuje.`,
+	);
+} else if (rejstrikJson && rejstrik.chybi.length < stropBezDokladu) {
+	writeFileSync(
+		join(koren, 'testy/obousmerne.json'),
+		`${JSON.stringify({ ...rejstrikJson, bezDokladu: rejstrik.chybi.length }, null, '\t')}\n`,
+	);
+	varovani.push(`měřidel bez obousměrného důkazu ubylo na ${rejstrik.chybi.length} — laťka utažena (testy/obousmerne.json).`);
+}
+
 // Výpis česky
 console.log(
 	`Mapy deníku: ${mapy.pohledu} pohledů, ${mapy.nalezy.length} překryvů popisků` +
@@ -282,6 +336,11 @@ console.log(
 );
 console.log(`Deník: ${rokySoubory.length} roků, ${mistCelkem} míst.`);
 console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek v ${bloky.size} blocích.`);
+// Počítadlo vstupů (nález auditu: opatření tiše platí jen na část případů — u map se
+// takhle celá společná mapa neměřila vůbec, u filtru falešných poplachů se kontrola
+// volala jen u fotek). Kontrola, která nic neprošla, musí být poznat na první pohled.
+console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
+console.log(`Měřidla: ${rejstrik.dolozeno} z ${rejstrik.meridel} má doložené obousměrné ověření${rejstrik.chybi.length ? ` (bez dokladu: ${rejstrik.chybi.join(', ')})` : ''}.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');
