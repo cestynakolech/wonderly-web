@@ -183,11 +183,11 @@ function data({ obsah = '', materialy = [], interakce, otazky = [] }) {
 	// REGRESE — TŘI SKUTEČNÉ FALEŠNÉ POPLACHY z historie: prvky, které si kód vyrábí sám
 	// za běhu, v šabloně nejsou a přesto jsou v pořádku (Binarni, Prace, Teziste).
 	tvrdi('šablony: prvek vyrobený přes className NENÍ nález',
-		najde('<div id="x"></div>', "const b = document.createElement('div'); b.className = 'bin-zarovka'; document.querySelectorAll('.bin-zarovka');").length === 0);
+		najde('<div id="x"></div>', "const b = document.createElement('div'); b.className = 'bin-zarovka'; document.getElementById('x').appendChild(b); document.querySelectorAll('.bin-zarovka');").length === 0);
 	tvrdi('šablony: prvek z innerHTML NENÍ nález',
 		najde('<div id="x"></div>', "document.getElementById('x').innerHTML = `<circle class=\"tez-bod\"/>`; document.querySelectorAll('.tez-bod');").length === 0);
 	tvrdi('šablony: classList.add NENÍ nález',
-		najde('<div id="x"></div>', "const t = document.createElement('b'); t.classList.add('prc-vyber'); document.querySelectorAll('.prc-vyber');").length === 0);
+		najde('<div id="x"></div>', "const t = document.createElement('b'); t.classList.add('prc-vyber'); document.getElementById('x').appendChild(t); document.querySelectorAll('.prc-vyber');").length === 0);
 	tvrdi('šablony: id v jednoduchých uvozovkách NENÍ nález', najde("<div id='b'></div>", "document.getElementById('b');").length === 0);
 
 	// FALEŠNÁ NULA: skript, který nedoběhne, nesmí vypadat jako zdravý stav.
@@ -196,6 +196,49 @@ function data({ obsah = '', materialy = [], interakce, otazky = [] }) {
 	// která žádnou vadou není — canvas, performance a spol.).
 	tvrdi('šablony: canvas a performance skript neshodí',
 		najde('<canvas id="p"></canvas>', "const c = document.getElementById('p').getContext('2d'); c.fillRect(0,0,1,1); performance.now();").length === 0);
+
+	// KOTVA DETEKČNÍ SÍLY NAD SKUTEČNÝMI KOMPONENTAMI. Bez ní test kontroloval jen tvary
+	// vstupu a přežilo ho šest mutací měřidla — mimo jiné mutace, která kontrolu vypne úplně.
+	{
+		const fs = await import('node:fs');
+		const cesta = new URL('../src/components/skola2/PakaSimulace.astro', import.meta.url);
+		const zdroj = fs.readFileSync(cesta, 'utf8');
+		const html = zdroj.split('<script')[0];
+		// PakaSimulace si prvky hledá zkratkou $(id) — regexová verze měřidla ji neviděla vůbec.
+		const bezId = html.replace(/\sid="[^"]+"/g, '') + zdroj.slice(html.length);
+		tvrdi('šablony: smazaná scéna SKUTEČNÉ komponenty se odhalí', zkontrolujSablonu('Paka', bezId).nalezy.length > 0);
+		tvrdi('šablony: tatáž komponenta beze změny mlčí', zkontrolujSablonu('Paka', zdroj).nalezy.length === 0);
+	}
+	// A nad celým repem nesmí být nález ani jeden — jinak měřidlo zaplavuje práci šumem.
+	tvrdi('šablony: nad dnešním webem 0 nálezů', zkontrolujSablony().nalezy.length === 0);
+	// Kód uvnitř obsluhy a v DOMContentLoaded se MUSÍ měřit (32 vyhledání bylo slepých).
+	tvrdi('šablony: kód v obsluze kliknutí se měří',
+		najde('<button id="b"></button>', "document.getElementById('b').addEventListener('click', () => { document.getElementById('chybi'); });").length > 0);
+	tvrdi('šablony: kód v DOMContentLoaded se měří',
+		najde('<div id="a"></div>', "document.addEventListener('DOMContentLoaded', () => { document.getElementById('chybi'); });").length > 0);
+	// Zdravé vzorce, na kterých atrapa dřív padala (falešné „skript nedoběhl").
+	for (const [popis, html, kod] of [
+		['style.setProperty', '<div id="a"></div>', "document.getElementById('a').style.setProperty('--x','1');"],
+		['children[0]', '<div id="a"></div>', "document.getElementById('a').children[0].setAttribute('x','1');"],
+		['getAttribute().split', '<polyline id="a"></polyline>', "document.getElementById('a').getAttribute('points').split(' ');"],
+		['window.AudioContext', '<div id="a"></div>', 'const A = window.AudioContext; new A();'],
+	]) {
+		tvrdi(`šablony: zdravý vzorec ${popis} nehlásí nic`, najde(html, kod).length === 0);
+	}
+	// Zakomentovaná scéna se nesmí počítat jako existující (jinak jde kontrolu obejít komentářem).
+	tvrdi('šablony: zakomentovaný prvek NENÍ existující prvek',
+		najde('<!-- <div id="schovany"></div> -->', "document.getElementById('schovany');").length > 0);
+	// Jediné dynamické class={} nesmí umlčet kontrolu id celé komponenty.
+	tvrdi('šablony: dynamické class={} neumlčí kontrolu id',
+		najde('<div id="a" class={x}></div>', "document.getElementById('chybi');").length > 0);
+	// Dva bloky <script> jsou v prohlížeči oddělené moduly — slepené by spadly na deklaraci.
+	{
+		const dva = `---\n---\n<div id="a"></div>\n<script>\nconst s = 1;\n</script>\n<script>\nconst s = 2;\ndocument.getElementById('a');\n</script>\n`;
+		tvrdi('šablony: dva bloky <script> se nesrazí', zkontrolujSablonu('T', dva).nalezy.length === 0);
+	}
+	// Prvek vyrobený, ale nikdy nevložený do stránky, nesmí zakrýt skutečnou vadu.
+	tvrdi('šablony: nevložený prvek nezakryje vadu',
+		najde('<div id="a"></div>', "const t = document.createElement('div'); t.innerHTML = '<div id=\"nikdy\"></div>'; document.getElementById('nikdy');").length > 0);
 
 	// POČÍTADLO VSTUPŮ: 0 nálezů z nula měření je falešná nula.
 	tvrdi('šablony: měří se všechny komponenty webu', zkontrolujSablony().souboru >= 70);

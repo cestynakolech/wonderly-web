@@ -339,6 +339,12 @@ if (rejstrik.chybi.length > stropBezDokladu) {
 const sablony = zkontrolujSablony();
 // Falešná nula: nula nálezů z nula změřených komponent není zdravý stav, ale rozbité měřidlo.
 const komponentSimulaci = readdirSync(join(koren, 'src/components/skola2')).filter((f) => f.endsWith('Simulace.astro')).length;
+if (sablony.bezDotazu.length) {
+	// Komponenta, v níž se nezměřilo ANI JEDNO vyhledání (celý skript třeba v DOMContentLoaded),
+	// by prošla mlčky, i kdyby jí chyběly všechny prvky. Souhrnné počty to nezachytí.
+	chyby.push(`v těchto simulacích se nezměřilo ani jedno vyhledání prvku: ${sablony.bezDotazu.join(', ')}. To není zdravý stav, to je slepé místo.`);
+}
+for (const o of sablony.omezene) varovani.push(`šablony — ${o}`);
 if (sablony.souboru < komponentSimulaci || sablony.dotazu < 500) {
 	chyby.push(
 		`kontrola šablon nic nezměřila: prošlo ${sablony.souboru} z ${komponentSimulaci} komponent, ` +
