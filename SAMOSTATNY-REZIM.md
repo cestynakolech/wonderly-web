@@ -1,6 +1,48 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026 dopoledne — DLOUHODOBÝ AUDIT + OPATŘENÍ)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026 odpoledne — události a vstupy, kolo C1)
+
+**Hotovo:** simulace **„Události a vstupy"** (Inf7, `udalosti-a-vstupy`) — scéna s kočkou
+a míčem, žák vyvolává události tlačítky nebo skutečnou klávesnicí (šipky, mezerník) a vidí,
+které žluté klobouky se rozsvítí. Pointa, kterou výklad jen tvrdí slovy: **přepínač vezme
+míči klobouk, bloky mu nechá — a zelená vlajka s ním už nehne.** Přepnutí schválně
+nevrací postavy na start, jinak by to nebylo vidět. Test má **100 kontrol**, mutační
+test 17/19 (zbylé dvě posouvají mez o 1 px = ekvivalentní mutace).
+Názornost informatiky **35 → 34** podtémat bez obrázku či videa; testy simulací **472 kontrol**.
+
+> **Poučení kola: oba VÁŽNÉ nálezy byly v testu, ne v simulaci.** Test nečetl HTML šablonu
+> vůbec — komponenta se smazanou scénou i všemi tlačítky jím prošla jako zdravá — a hlavní
+> pointu ověřoval jen čistou funkcí, takže podvrh „přepínač vrátí míč na start" prošel bez
+> povšimnutí. Obojí doložil nezávislý kontrolor podvrhem, obojí je nově uzavřené a ověřené
+> oběma směry. **Mutační test k tomu ukázal třetí věc:** konstanty (krok 10, skok 20) jsem
+> v testu četl z testovaného kódu, takže se tvrzení přizpůsobila jakékoli hodnotě. Teď se
+> čísla čtou z TEXTU bloku, který má žák na obrazovce — kdyby simulace posouvala o jinak,
+> než co je v programu napsané, spadne to.
+>
+> **A kontrolora nelze poslouchat slepě:** označil za závažnou vadu, že výklad píše
+> „po obdržení zprávy", a tvrdil, že paleta má „po přijetí zprávy". Ověření v oficiální
+> lokalizaci (scratch-l10n, `EVENT_WHENBROADCASTRECEIVED`) ukázalo **pravý opak** — a tím
+> se našla skutečná vada na **třech jiných místech webu**, kde se jako název bloku psalo
+> „po přijetí zprávy". Opraveno a nově to hlídá měřidlo `nazvy-bloku.mjs` (vzor je zúžený
+> na tvar s „po", aby nehlásil popis jevu „událostí je i přijetí zprávy").
+
+Dál opraveno podle kontrolorů: sjednoceno „zelená vlaječka" → „zelená vlajka" (3 místa) ·
+kočka a míč mohli stát na témž bodě a slít se i s popisky (dráhy odděleny) · `role="img"`
+na ovládané scéně (odečítač by skryl obsah) · kontrast návodu 3,3 : 1 pod normou ·
+hláška „Kliknutí na míč nastala" · zaražený míč u okraje hlásil spuštěný scénář, ačkoli
+se ve scéně nic nezměnilo · počítadlo spuštěných scénářů se počítalo, ale žák ho neviděl ·
+tlačítko ↺ stálo v řádku „Míč:" a šlo si ho splést se spouštěčem události.
+
+**FRONTA — čím pokračovat:**
+1. **Názornost informatiky** — zbývá **34 podtémat** bez obrázku či videa. Na řadě:
+   `vlastni-bloky-s-parametry`, `hra-bludiste` (Inf7), `senzory-robota`,
+   `funkce-v-tabulkach` (Inf8), `klonovani-animace-hry` (Inf9).
+   Dávka 4+ nezávislých položek patří do vějíře (`/simulace`), ne za sebe.
+2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`).
+   Nedodělek: `tabulka-vzorce` (háček `__hodnotaB` bere kurz jako parametr).
+3. `cz()` chybí v 11 simulacích, které formátují čísla — doplnit při práci na nich.
+
+## 🎯 Předchozí stav (2. 8. 2026 dopoledne — DLOUHODOBÝ AUDIT + OPATŘENÍ)
 
 > **Zadání učitele:** *„udělej si dlouhodobej audit za delší pracovní cyklus, zda se
 > s chybami netočíme v kruhu a zda ještě držíme diamant a nezávislého kontrolora…

@@ -123,6 +123,37 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-02 odpoledne (informatika 7 — události a vstupy; a proč se kontrolor nesmí
+  poslouchat slepě)** — Nová simulace `UdalostiSimulace` u podtématu `udalosti-a-vstupy`.
+  Scéna s kočkou a míčem, události se vyvolávají tlačítky i skutečnou klávesnicí (šipky,
+  mezerník, klik přímo na míč) a je vidět, které žluté klobouky se rozsvítí — jedna zelená
+  vlajka rozjede **dva scénáře naráz**, každý u své postavy. Hlavní pointa, kterou výklad
+  dosud jen tvrdil slovy: přepínač vezme míči klobouk, **bloky mu nechá**, a vlajka s ním
+  už nehne. Přepnutí schválně nevrací postavy na start — jinak by nebylo co pozorovat.
+  Názornost informatiky **35 → 34** podtémat bez obrázku či videa, testy simulací
+  **451 → 472 kontrol**.
+  **Oba VÁŽNÉ nálezy nezávislých kontrolorů byly v TESTU, ne v simulaci.** Test nečetl
+  HTML šablonu vůbec (atrapa chybějící prvek tiše vyrobí), takže komponenta se smazanou
+  scénou i všemi tlačítky jím prošla jako zdravá; a hlavní pointu ověřoval jen čistou
+  funkcí, ne cestou přes ovládací prvky — podvrh „přepínač vrátí míč na start" prošel bez
+  povšimnutí. Obojí je uzavřené a ověřené oběma směry (podvrh se najde, zdravý stav mlčí).
+  **Mutační test k tomu přidal třetí věc:** konstanty (krok 10, skok 20) jsem v testu četl
+  z testovaného kódu, takže se tvrzení přizpůsobila jakékoli hodnotě. Nově se čísla čtou
+  z TEXTU bloku, který má žák na obrazovce — když by simulace posouvala o jiný počet, než
+  co je v programu napsané, stránka by lhala a spadne to.
+  **Kontrolora ale nelze poslouchat slepě.** Označil za závažnou vadu, že výklad píše
+  „po obdržení zprávy", a tvrdil, že paleta má „po přijetí zprávy". Oficiální lokalizace
+  (`EVENT_WHENBROADCASTRECEIVED = po obdržení zprávy`) říká **pravý opak** — a tím se našla
+  skutečná vada na **třech jiných místech webu**, kde se jako název bloku psalo „po přijetí
+  zprávy". Opraveno; hlídá to nově `nazvy-bloku.mjs` vzorem zúženým na tvar s „po", aby
+  nehlásil zdravý popis jevu („událostí je i přijetí zprávy"). Úniky odpovědí 39 → 38.
+  Dál opraveno: „zelená vlaječka" → „zelená vlajka" (3 místa) · kočka a míč mohli stát na
+  témž bodě a slít se i s popisky souřadnic · `role="img"` na ovládané scéně (odečítač by
+  její obsah skryl) · kontrast návodu 3,3 : 1 pod normou 4,5 : 1 · hláška „Kliknutí na míč
+  nastala" · **míč zaražený u okraje hlásil „spustil se 1 scénář", ačkoli se ve scéně nic
+  nezměnilo** — což je k nerozeznání od „nespustil se žádný", tedy přesně to, co má stránka
+  učit rozlišovat · počítadlo spuštěných scénářů se počítalo, ale žák ho nikdy neviděl.
+
 - **2026-08-02 dopoledne (dlouhodobý audit: točíme se v kruhu — ale o patro výš)** — Učitel
   zadal audit za delší pracovní cyklus: *„zda se s chybami netočíme v kruhu a zda ještě
   držíme diamant a nezávislého kontrolora."* Běželi **tři nezávislí auditoři naráz**, každý
