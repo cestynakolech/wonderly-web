@@ -27,6 +27,7 @@ import OpakovaniSimulace from '../../../../../../components/skola2/OpakovaniSimu
 import VetveniSimulace from '../../../../../../components/skola2/VetveniSimulace.astro';
 import UdalostiSimulace from '../../../../../../components/skola2/UdalostiSimulace.astro';
 import VlastniBlokySimulace from '../../../../../../components/skola2/VlastniBlokySimulace.astro';
+import BludisteSimulace from '../../../../../../components/skola2/BludisteSimulace.astro';
 import PromenneSimulace from '../../../../../../components/skola2/PromenneSimulace.astro';
 import LedDisplejSimulace from '../../../../../../components/skola2/LedDisplejSimulace.astro';
 import OdporVodiceSimulace from '../../../../../../components/skola2/OdporVodiceSimulace.astro';
@@ -243,6 +244,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			{podtema.interakce === 'opakovani' && <OpakovaniSimulace />}
 			{podtema.interakce === 'udalosti' && <UdalostiSimulace />}
 			{podtema.interakce === 'vlastni-bloky' && <VlastniBlokySimulace />}
+			{podtema.interakce === 'bludiste' && <BludisteSimulace />}
 	{podtema.interakce === 'led-displej' && <LedDisplejSimulace />}
 	{podtema.interakce === 'odpor-vodice' && <OdporVodiceSimulace />}
 	{podtema.interakce === 'odpor-vodice-zaklad' && <OdporVodiceSimulace zaklad={true} />}

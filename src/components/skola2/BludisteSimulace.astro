@@ -1,0 +1,388 @@
+---
+// Hra 2: Bludiště (informatika 7) — detekce a řešení kolize.
+//
+// Výklad na téže stránce jmenuje TŘI chyby, „které dělá skoro každý". Všechny tři jsou
+// tu na přepínačích, takže si je žák může způsobit a vidět, ne o nich jen číst:
+//  1. POSTAVA PROJEDE ZDÍ — blok se ptá až na to, kde postava SKONČILA. Když krok
+//     přesáhne zeď i s šířkou postavy (30 px × zeď 10 px + postava 16 px), přeskočí ji
+//     celou. Obě rady z výkladu opravdu fungují: zmenšit krok NEBO zeď zesílit.
+//  2. KONTROLA DALEKO OD POHYBU — návrat schovaný v ⟨opakuj stále⟩ vůbec neví, kudy
+//     postava šla…
+//  3. …takže ji vrací pořád stejným směrem (dolů) a postava uvízne ve zdi.
+//
+// Pohyb je ČISTÁ FUNKCE (stav, směr, volby) → nový stav, takže se dá celá scéna projet
+// výpočtem bez prohlížeče (testy/simulace/bludiste.mjs).
+//
+// ⚠️ PROČ SE NA OKRAJI NEOŘEZÁVÁ, ALE POHYB SE ODMÍTNE (nález nezávislého kontrolora):
+// ořez posunul postavu na 48 px, tedy MIMO mřížku velkého kroku (70 + 30k). Osy zdí pak
+// nebyly uprostřed mezi zastávkami a zdí už nešlo projet vůbec — jediný stisk ← nadobro
+// vypnul celou pointu stránky a hra přitom vypadala, že funguje. Okraj scény se proto
+// chová jako zeď: krok, který by ven vedl, se neprovede a fáze mřížky zůstane celá.
+// Ze stejného důvodu vrací každá změna programu postavu na start.
+//
+// POZOR na dvě soustavy souřadnic: Scratch má y nahoru, SVG dolů. V blocích se proto píše
+// „změň y o 5" pro šipku NAHORU (jak to má žák ve Scratchi), zatímco uvnitř se odečítá.
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n, ověřeno 2. 8. 2026:
+// EVENT_WHENKEYPRESSED = po stisku klávesy %1, SENSING_TOUCHINGCOLOR = dotýkáš se barvy %1?,
+// MOTION_CHANGEXBY = změň x o %1, CONTROL_FOREVER = opakuj stále, CONTROL_IF = když %1 tak,
+// EVENT_WHENFLAGCLICKED = po kliknutí na %1, kde %1 je ZELENÁ vlajka — šachovnicová 🏁
+// patří v téhle scéně cíli, takže si znak nesmí plést s kloboukem programu).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Bludiště — proč postava projede zdí 🌀</span></h2>
+	<p>
+		Doveď postavu k vlajce. Zeď v programu <strong>neexistuje</strong> — je to jen barva
+		na pozadí, takže postava do ní normálně vjede a program teprve <em>potom</em> zjistí,
+		že pod ní svítí černá. Přepínači si zkus způsobit tři chyby z výkladu.
+	</p>
+
+	<svg id="bl-svg" viewBox="0 0 560 340" tabindex="0"
+		role="group" aria-label="Bludiště se třemi zdmi — postava začíná vlevo nahoře, cíl je vpravo dole. Ovládej šipkami nebo tlačítky pod scénou.">
+		<rect x="1" y="1" width="558" height="338" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<rect id="bl-scena" x="40" y="40" width="480" height="260" fill="#fff" stroke="#adb5bd" stroke-width="2" />
+		<g id="bl-zdi"></g>
+		<g id="bl-cil"></g>
+		<circle id="bl-hrac" r="8" fill="#2b8a3e" stroke="#1b4332" stroke-width="2" />
+		<text id="bl-znacka" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff"></text>
+		<text id="bl-popis-scena" x="280" y="325" text-anchor="middle" font-size="13" fill="#495057">
+			scéna — za její okraj se postava nedostane
+		</text>
+	</svg>
+
+	<p class="bl-radek">
+		<strong>Ovládání:</strong>
+		<button type="button" class="bl-tl bl-smer" data-smer="nahoru" aria-label="šipka nahoru">↑</button>
+		<button type="button" class="bl-tl bl-smer" data-smer="dolu" aria-label="šipka dolů">↓</button>
+		<button type="button" class="bl-tl bl-smer" data-smer="vlevo" aria-label="šipka vlevo">←</button>
+		<button type="button" class="bl-tl bl-smer" data-smer="vpravo" aria-label="šipka vpravo">→</button>
+		<button type="button" class="bl-tl" id="bl-reset">↺ na start</button>
+		<span class="bl-pocet">projetí zdí: <strong id="bl-projeti">0</strong></span>
+	</p>
+
+	<p class="bl-radek">
+		<strong>Krok:</strong>
+		<button type="button" class="bl-tl bl-volba bl-aktivni" data-volba="krok" data-hodnota="5" aria-pressed="true">změň x o 5</button>
+		<button type="button" class="bl-tl bl-volba" data-volba="krok" data-hodnota="30" aria-pressed="false">změň x o 30</button>
+	</p>
+	<p class="bl-radek">
+		<strong>Zeď:</strong>
+		<button type="button" class="bl-tl bl-volba bl-aktivni" data-volba="tl" data-hodnota="10" aria-pressed="true">tenká (10 px)</button>
+		<button type="button" class="bl-tl bl-volba" data-volba="tl" data-hodnota="40" aria-pressed="false">tlustá (40 px)</button>
+	</p>
+	<p class="bl-radek">
+		<strong>Návrat po nárazu:</strong>
+		<button type="button" class="bl-tl bl-volba bl-aktivni" data-volba="navrat" data-hodnota="hned" aria-pressed="true">hned pod pohybem</button>
+		<button type="button" class="bl-tl bl-volba" data-volba="navrat" data-hodnota="zvlast" aria-pressed="false">zvlášť v ⟨opakuj stále⟩</button>
+	</p>
+
+	<div id="bl-program" class="bl-program"></div>
+	<p class="bl-stav" id="bl-stav" aria-live="polite">
+		Klikni do bludiště a jeď šipkami (nebo tlačítky). Nejdřív to zkus projít poctivě.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('bl-svg');
+	const zdiEl = document.getElementById('bl-zdi');
+	const cilEl = document.getElementById('bl-cil');
+	const hracEl = document.getElementById('bl-hrac');
+	const znackaEl = document.getElementById('bl-znacka');
+	const programEl = document.getElementById('bl-program');
+	const stavEl = document.getElementById('bl-stav');
+	const projetiEl = document.getElementById('bl-projeti');
+	const btnReset = document.getElementById('bl-reset');
+
+	const SCENA = { x0: 40, y0: 40, x1: 520, y1: 300 };
+	const R = 8;                                   // poloměr postavy
+	const START = { x: 70, y: 70 };
+	const CIL = { x: 485, y: 270, r: 16 };
+	// Tři svislé zdi tvoří hada: kolem první a třetí se dá dolem, kolem prostřední horem.
+	// Osy 175 / 295 / 415 nejsou náhoda: leží přesně UPROSTŘED mezi zastávkami velkého
+	// kroku (70 + 30k → …160, 190…), takže krok 30 zeď opravdu přeskočí. Kdyby zeď ležela
+	// na zastávce, postava by na ni šlápla a chyba by se neukázala.
+	const ZDI = [
+		{ x: 175, y1: 40, y2: 240 },
+		{ x: 295, y1: 100, y2: 300 },
+		{ x: 415, y1: 40, y2: 240 },
+	];
+	const SMERY = { nahoru: [0, -1], dolu: [0, 1], vlevo: [-1, 0], vpravo: [1, 0] };
+
+	/** Vejde se postava se středem (x, y) celá do scény? */
+	const veScene = (x, y) =>
+		x >= SCENA.x0 + R && x <= SCENA.x1 - R && y >= SCENA.y0 + R && y <= SCENA.y1 - R;
+
+	/**
+	 * Stojí postava ve zdi? Blok ⟨dotýkáš se barvy (černá)?⟩ se ptá jen na TEĎ —
+	 * netuší, kudy se postava do zdi dostala. Čistá funkce.
+	 */
+	function kolize(x, y, tl) {
+		const h = tl / 2 + R;
+		return ZDI.some((z) => Math.abs(x - z.x) < h && y > z.y1 - R && y < z.y2 + R);
+	}
+
+	/**
+	 * Přeskočila postava zeď celou, aniž by se jí dotkla? Právě to je chyba, kterou
+	 * blok nemá jak poznat: začátek i konec kroku jsou mimo zeď, prostředek uvnitř.
+	 */
+	function projelZdi(x0, y0, x1, y1, tl) {
+		const h = tl / 2 + R;
+		return ZDI.some((z) => {
+			if (!(y1 > z.y1 - R && y1 < z.y2 + R)) return false;   // zeď v téhle výšce není
+			const zleva = x0 <= z.x - h && x1 >= z.x + h;
+			const zprava = x0 >= z.x + h && x1 <= z.x - h;
+			return zleva || zprava;
+		});
+	}
+
+	/**
+	 * Jeden stisk šipky = jeden průchod scénářem. Čistá funkce: (stav, směr, volby) → nový stav.
+	 * Pořadí kroků je přesně jako v programu — nejdřív POHYB, potom teprve otázka na barvu.
+	 */
+	function krok(stav, smer, volby) {
+		const [dx, dy] = SMERY[smer];
+		const k = volby.krok;
+		const nx = stav.x + dx * k;
+		const ny = stav.y + dy * k;
+		const stat = (extra) => ({ x: stav.x, y: stav.y, projel: false, naraz: false, mimo: false, vezdi: stav.vezdi, ...extra });
+
+		// Okraj scény: krok, který by vedl ven, se neprovede vůbec (viz poznámka v hlavičce).
+		if (!veScene(nx, ny)) return stat({ mimo: true });
+
+		const projel = projelZdi(stav.x, stav.y, nx, ny, volby.tl);
+		if (!kolize(nx, ny, volby.tl)) {
+			return { x: nx, y: ny, projel, naraz: false, mimo: false, vezdi: false };
+		}
+		if (volby.navrat === 'hned') {
+			// Návrat je hned pod pohybem, takže ví, kudy postava šla: přesně to vrátí zpět.
+			return stat({ naraz: true, vezdi: false });
+		}
+		// Návrat je zvlášť v ⟨opakuj stále⟩ — o směru pohybu nemá tušení a udělá jediné,
+		// co umí: „změň y o −5". Postava proto zůstane ve zdi a sklouzne v ní dolů.
+		const oy = veScene(nx, ny + k) ? ny + k : ny;
+		return { x: nx, y: oy, projel: false, naraz: true, mimo: false, vezdi: kolize(nx, oy, volby.tl) };
+	}
+
+	const cistyStav = () => ({ x: START.x, y: START.y, projel: false, naraz: false, mimo: false, vezdi: false });
+	const jeVCili = (stav) => Math.hypot(stav.x - CIL.x, stav.y - CIL.y) < CIL.r + R;
+
+	let volby = { krok: 5, tl: 10, navrat: 'hned' };
+	let stav = cistyStav();
+	let projeti = 0;
+	let zmenaProgramu = false;   // poslední akcí bylo přepnutí programu, ne pohyb
+
+	function nakresliZdi() {
+		zdiEl.textContent = '';
+		for (const z of ZDI) {
+			const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+			r.setAttribute('x', String(z.x - volby.tl / 2));
+			r.setAttribute('y', String(z.y1));
+			r.setAttribute('width', String(volby.tl));
+			r.setAttribute('height', String(z.y2 - z.y1));
+			r.setAttribute('fill', '#212529');
+			zdiEl.appendChild(r);
+		}
+	}
+
+	function nakresliCil() {
+		cilEl.textContent = '';
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('cx', String(CIL.x));
+		c.setAttribute('cy', String(CIL.y));
+		c.setAttribute('r', String(CIL.r));
+		c.setAttribute('fill', '#ffe066');
+		c.setAttribute('stroke', '#e67700');
+		c.setAttribute('stroke-width', '3');
+		cilEl.appendChild(c);
+		const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		t.setAttribute('x', String(CIL.x));
+		t.setAttribute('y', String(CIL.y + 6));
+		t.setAttribute('text-anchor', 'middle');
+		t.setAttribute('font-size', '17');
+		t.textContent = '🏁';
+		cilEl.appendChild(t);
+	}
+
+	/** Program, který má žák na obrazovce. Čísla se berou z voleb, ať si stránka neprotiřečí. */
+	function programRadky() {
+		const k = volby.krok;
+		if (volby.navrat === 'hned') {
+			return [
+				{ text: 'po stisku klávesy (šipka vpravo)', uroven: 0, hlava: true },
+				{ text: `změň x o ${k}`, uroven: 1 },
+				{ text: 'když ⟨dotýkáš se barvy (černá)?⟩ tak', uroven: 1 },
+				{ text: `změň x o −${k}`, uroven: 2, dobre: true },
+				{ text: '(další tři scénáře pro zbylé šipky vypadají stejně)', uroven: 0, pozn: true },
+			];
+		}
+		return [
+			{ text: 'po stisku klávesy (šipka vpravo)', uroven: 0, hlava: true },
+			{ text: `změň x o ${k}`, uroven: 1 },
+			{ text: 'po kliknutí na zelenou vlajku', uroven: 0, hlava: true },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: 'když ⟨dotýkáš se barvy (černá)?⟩ tak', uroven: 2 },
+			{ text: `změň y o −${k}`, uroven: 3, chyba: true },
+			{ text: '(sem se pohyb nedostal, takže program neví, kudy postava šla)', uroven: 0, pozn: true },
+			{ text: '(⟨opakuj stále⟩ běží ve Scratchi pořád — tady se ukáže jeden průchod na každý stisk)', uroven: 0, pozn: true },
+		];
+	}
+
+	function vypisProgram() {
+		programEl.textContent = '';
+		for (const r of programRadky()) {
+			const p = document.createElement('p');
+			p.className = 'bl-blok'
+				+ (r.hlava ? ' bl-hlava' : '')
+				+ (r.chyba ? ' bl-chyba' : '')
+				+ (r.dobre ? ' bl-dobre' : '')
+				+ (r.pozn ? ' bl-pozn' : '');
+			p.textContent = r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			programEl.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		nakresliZdi();
+		nakresliCil();
+		hracEl.setAttribute('cx', String(stav.x));
+		hracEl.setAttribute('cy', String(stav.y));
+		const vCili = jeVCili(stav);
+		// Postava ve zdi je hlavní důkaz celé stránky, a kreslí se PŘES ČERNOU zeď.
+		// Tmavě červená na černé má kontrast 2,8 : 1 (pod normou 3 : 1) — proto světlá
+		// výplň, bílý obrys a k tomu ✗, aby to poznal i barvoslepý žák (nález kontrolora).
+		hracEl.setAttribute('fill', stav.vezdi ? '#ff8787' : vCili ? '#1971c2' : '#2b8a3e');
+		hracEl.setAttribute('stroke', stav.vezdi ? '#ffffff' : '#1b4332');
+		hracEl.setAttribute('stroke-width', stav.vezdi ? '3' : '2');
+		znackaEl.setAttribute('x', String(stav.x));
+		znackaEl.setAttribute('y', String(stav.y + 5));
+		znackaEl.textContent = stav.vezdi ? '✗' : '';
+		projetiEl.textContent = String(projeti);
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		if (zmenaProgramu) {
+			return 'Program se změnil, takže hra začíná znovu — postava je zpátky na startu. '
+				+ 'Teď zkus projet tutéž zeď jako předtím.';
+		}
+		if (jeVCili(stav)) {
+			return projeti > 0
+				? `🎉 Cíl — jenže <strong>podvodem</strong>: ${projeti}× jsi projel zdí. Zmenši krok, nebo zdi zesil.`
+				: '🎉 <strong>Dokázal(a) jsi to!</strong> Postava prošla poctivě, ani jednou neprojela zdí.';
+		}
+		if (stav.projel) {
+			return `🚨 Postava <strong>projela zdí!</strong> Krok ${volby.krok} px přeskočil zeď ${volby.tl} px `
+				+ `i s šířkou postavy (${2 * R} px). Blok se ptá až na to, kde postava <em>skončila</em> — a tam už zeď není.`;
+		}
+		if (stav.vezdi) {
+			return 'Postava <strong>uvízla ve zdi</strong>. Návrat je zvlášť v ⟨opakuj stále⟩, takže neví, kudy šla — '
+				+ 'vrací ji vždycky dolů, místo aby vzal zpátky ten pohyb, který náraz způsobil.';
+		}
+		if (stav.mimo) {
+			return 'Tady scéna končí — dál postava nemůže, i kdyby zeď v cestě nebyla.';
+		}
+		if (stav.naraz) {
+			// S velkým krokem se do chodby mezi tlustými zdmi netrefíš vůbec — zastávky leží
+			// 15 px od osy zdi. Bez téhle rady by to vypadalo jako zaseknutá simulace.
+			const rada = volby.krok > 5 ? ' Zkus menší krok — s velkým se do úzkých chodeb špatně trefuje.' : '';
+			return 'Náraz do zdi. Návrat je <strong>hned pod pohybem</strong>, takže vrátil přesně ten krok, který ho způsobil.' + rada;
+		}
+		const navod = 'Jeď šipkami k vlajce. Kolem první a třetí zdi se dá <strong>dolem</strong>, kolem prostřední <strong>horem</strong>.';
+		// Hláška o projetí zdí platí jen pro ten jeden krok, takže by dalším pohybem zmizela
+		// a důkaz by byl pryč. Počítadlo se proto připomíná i v klidovém stavu.
+		return projeti > 0 ? `Zatím jsi <strong>${projeti}×</strong> projel zdí. ${navod}` : navod;
+	}
+
+	function ukazStav() {
+		stavEl.innerHTML = popisStavu();
+	}
+
+	function jed(smer) {
+		zmenaProgramu = false;
+		stav = krok(stav, smer, volby);
+		if (stav.projel) projeti += 1;
+		prekresli();
+		ukazStav();
+	}
+
+	for (const tl of document.querySelectorAll('.bl-smer')) {
+		tl.addEventListener('click', () => jed(tl.dataset.smer));
+	}
+	const KLAVESY = { ArrowUp: 'nahoru', ArrowDown: 'dolu', ArrowLeft: 'vlevo', ArrowRight: 'vpravo' };
+	// Klávesy se poslouchají jen na scéně (má tabindex), aby simulace nebrala šipky
+	// celé stránce — jinak by se návštěvníkovi přestalo dát rolovat.
+	svg.addEventListener('keydown', (e) => {
+		const smer = KLAVESY[e.key];
+		if (!smer) return;
+		e.preventDefault();
+		jed(smer);
+	});
+
+	btnReset.addEventListener('click', () => {
+		zmenaProgramu = false;
+		stav = cistyStav();
+		projeti = 0;
+		prekresli();
+		ukazStav();
+	});
+
+	for (const tl of document.querySelectorAll('.bl-volba')) {
+		tl.addEventListener('click', () => {
+			const skupina = tl.dataset.volba;
+			for (const j of document.querySelectorAll(`.bl-volba[data-volba="${skupina}"]`)) {
+				j.classList.remove('bl-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			tl.classList.add('bl-aktivni');
+			tl.setAttribute('aria-pressed', 'true');
+			const h = tl.dataset.hodnota;
+			volby = { ...volby, [skupina]: skupina === 'navrat' ? h : Number(h) };
+			// Přepsat program a jet dál od rozdělané pozice nejde: jiná délka kroku posune
+			// mřížku zastávek a zdi by přestaly vycházet tam, kde mají. Ve Scratchi je to
+			// stejné — po úpravě programu se kliká na vlajku a hra běží od začátku.
+			stav = cistyStav();
+			zmenaProgramu = true;
+			prekresli();
+			ukazStav();
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__kolize = kolize;
+	svg.__projelZdi = projelZdi;
+	svg.__veScene = veScene;
+	svg.__krok = krok;
+	svg.__cistyStav = cistyStav;
+	svg.__jeVCili = jeVCili;
+	svg.__programRadky = programRadky;
+	svg.__jed = jed;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__projeti = () => projeti;
+	svg.__meze = { SCENA, R, START, CIL, ZDI, SMERY };
+</script>
+
+<style>
+	#bl-svg { width: 100%; max-width: 560px; border-radius: 12px; display: block; }
+	#bl-svg:focus { outline: 3px solid #1971c2; outline-offset: 2px; }
+	.bl-radek { margin: 0.5rem 0; }
+	.bl-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	/* Zvolená volba se nesmí poznat jen podbarvením (kontrast 1,19 : 1 by nestačil) —
+	   proto k tomu tlustší tmavý rámeček a ✓ před textem. */
+	.bl-tl.bl-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.bl-tl.bl-aktivni::before { content: '✓ '; }
+	.bl-tl.bl-smer { background: #d3f9d8; min-width: 2.6rem; }
+	.bl-tl:active { transform: translateY(1px); }
+	.bl-pocet { font-weight: 700; background: #e9ecef; border-radius: 8px; padding: 0.15rem 0.5rem; }
+	.bl-program { margin: 0.5rem 0; }
+	.bl-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.bl-program p.bl-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.bl-program p.bl-chyba { background: #ffc9c9; outline: 2px dashed #c92a2a; }
+	.bl-program p.bl-dobre { background: #b2f2bb; }
+	.bl-program p.bl-pozn { background: none; font-weight: 400; font-size: 0.92rem; color: #495057; }
+	.bl-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
+</style>

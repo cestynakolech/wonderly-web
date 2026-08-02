@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -4809,6 +4809,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'hra-bludiste',
 					nazev: 'Hra 2: Bludiště',
+					interakce: 'bludiste',
 					obsah: `
 						<h2>🌀 Bludiště</h2>
 						<p>Projdi bludištěm k cíli — a nesmíš se dotknout zdi!</p>
@@ -4838,15 +4839,16 @@ export const temata: Record<string, Tema[]> = {
 						<p>Bludiště v počítači <strong>není bludiště</strong>. Žádná zeď v programu neexistuje — je to jen
 						obrázek pozadí. Postava proto do zdi normálně vjede a program teprve <em>potom</em> zjistí,
 						že pod ní svítí černá barva, a vrátí ji zpátky. Této dvojici kroků
-						(<strong>proveď pohyb → zkontroluj → uklid'</strong>) se říká <strong>detekce a řešení kolize</strong>
+						(<strong>proveď pohyb → zkontroluj → ukliď</strong>) se říká <strong>detekce a řešení kolize</strong>
 						a stojí na ní úplně každá hra, i ta na mobilu.</p>
 						<p>Zeď se pozná <strong>podle barvy</strong> blokem ⟨dotýkáš se barvy ( )?⟩ — barvu do něj naber
 						<strong>kapátkem</strong> přímo z bludiště, ne od oka z palety. Stačí odstín o chlup jiný a blok
 						mlčí, i když zeď vypadá stejně. Proto ta rada kreslit zdi <strong>jedinou</strong> barvou.</p>
 						<h3>⚠️ Tři chyby, které dělá skoro každý</h3>
 						<ul>
-						<li><strong>Postava projede zdí.</strong> Blok se ptá až na to, kde postava skončila — když je krok
-						větší než zeď tlustá, přeskočí ji celou a program nic nepozná. Buď krok zmenši, nebo zdi ztluštit.</li>
+						<li><strong>Postava projede zdí.</strong> Blok se ptá až na to, kde postava skončila — když krok
+						přeskočí celou zeď (a postava je taky široká, takže musí přesáhnout zeď i o její velikost),
+						program nic nepozná. Buď krok zmenši, nebo zdi zesil.</li>
 						<li><strong>Kontrola je daleko od pohybu.</strong> Nejčastější chyba téhle hry: pohyb je ve čtyřech
 						scénářích u šipek, ale návrat po nárazu si někdo dá zvlášť do ⟨opakuj stále⟩. Tam ale program
 						<em>vůbec neví, kudy postava šla</em> — a nemá jak ji vrátit správným směrem. Proto patří
