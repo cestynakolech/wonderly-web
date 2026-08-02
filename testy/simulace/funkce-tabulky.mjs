@@ -104,10 +104,10 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 	const sTri = [1, TEXT, 2, 5, 2, 5];         // pryč je trojka, tedy právě průměr
 	ok(telo.__PRUMER(sTri) === 3, 'vyřazení známky rovné průměru průměrem nepohne (15 ÷ 5 = 3)');
 
-	// Bez jediného čísla hlásí tabulka #DIV/0!.
+	// Bez jediného čísla hlásí tabulka #DĚLENÍ_NULOU! (český Excel).
 	const zadne = [TEXT, TEXT, PRAZDNO, PRAZDNO, TEXT, PRAZDNO];
 	ok(telo.__POCET(zadne) === 0, 'bez čísel je POČET nula');
-	ok(telo.__PRUMER(zadne) === null, '★ a PRŮMĚR se nepočítá — dělení nulou (#DIV/0!)');
+	ok(telo.__PRUMER(zadne) === null, '★ a PRŮMĚR se nepočítá — dělení nulou (#DĚLENÍ_NULOU!)');
 	ok(telo.__MIN(zadne) === 0 && telo.__MAX(zadne) === 0, 'MIN a MAX přitom vrátí nulu, i když žádná známka není');
 }
 
@@ -221,6 +221,102 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 	ok(/Adam/.test(el('fn-bunka-0').atributy['aria-label'] ?? ''), 'buňka řekne odečítači, čí známku obsahuje');
 	ok(/prázdn/.test((() => { const b = prvky.get('fn-bunka-0'); let i = 0; while (telo.__bunky()[0] !== PRAZDNO && i++ < 20) klik(b); return el('fn-bunka-0').atributy['aria-label'] ?? ''; })()),
 		'a u prázdné buňky to řekne slovem, ne mlčením');
+	klik(btnReset);
+}
+
+// ———————————————————————— 9) ★ TEXTY VZORCŮ V ŠABLONĚ (tady test doteď neviděl nic)
+//
+// Nález kontrolora 2. 8. 2026: osm podvrhů v HTML prošlo všemi kontrolami — změněná mez
+// v hlavičce, prohozený popisek MIN, rozsah B2:B8, anglická čárka místo středníku,
+// =PRUMER bez háčků, smyšlený chybový kód, prohozené popisky přepínače. Vzorec na
+// obrazovce přitom dítě čte jako pravdu — a je to jediné, co si z hodiny odnese.
+// Proto se každý text porovnává s tím, co kód OPRAVDU dělá, ne s napevno psaným řetězcem.
+{
+	const sablona = html.slice(html.indexOf('<section'));   // bez komentářů ve frontmatteru
+	const POSL_RADEK = JMENA.length + 1;                    // 6 žáků začínajících na řádku 2 → B7
+
+	// a) Mez ve vzorci v hlavičce sloupce C musí být tatáž, jakou počítá KDYŽ.
+	const hlavickaC = sablona.match(/<th>C — (=KDYŽ\([^<]*?\))<\/th>/)?.[1] ?? '';
+	ok(hlavickaC !== '', 'hlavička sloupce C ukazuje celý vzorec =KDYŽ(…)');
+	const mezVHlavicce = Number(hlavickaC.match(/&lt;=(\d+)/)?.[1]);
+	ok(mezVHlavicce === MEZ_KDYZ,
+		`★ mez ve vzorci v hlavičce (${mezVHlavicce}) je tatáž, jakou počítá KDYŽ (${MEZ_KDYZ}) — jinak stránka tvrdí něco jiného, než počítá`);
+	ok(telo.__KDYZ(mezVHlavicce) === 'prospěl' && telo.__KDYZ(mezVHlavicce + 1) === 'neprospěl',
+		'a napsaná mez sedí i na chování: do ní „prospěl", o jedna výš „neprospěl"');
+	ok(hlavickaC.includes('"prospěl"') && hlavickaC.includes('"neprospěl"'),
+		'obě větve vzorce jsou přesně ta slova, která se do sloupce C vypisují');
+
+	// b) Rozsahy míří na tolik řádků, kolik jich v tabulce doopravdy je.
+	const cislaRadku = [...sablona.matchAll(/<tr><th>(\d+)<\/th><td>/g)].map((m) => Number(m[1]));
+	ok(JSON.stringify(cislaRadku) === JSON.stringify(JMENA.map((_, i) => i + 2)),
+		`čísla řádků v tabulce jdou 2…${POSL_RADEK}, jak je v tabulkovém procesoru zvykem`);
+	const rozsahy = [...sablona.matchAll(/B(\d+):B(\d+)/g)];
+	ok(rozsahy.length >= 5, `v šabloně je vidět ${rozsahy.length} rozsahů ve vzorcích`);
+	const spatne = rozsahy.filter((r) => Number(r[1]) !== 2 || Number(r[2]) !== POSL_RADEK);
+	ok(spatne.length === 0,
+		`★ každý rozsah je B2:B${POSL_RADEK} — přesně přes ${JMENA.length} známek${spatne.length ? ', vadné: ' + spatne.map((r) => r[0]).join(', ') : ''}`);
+	klik(btnReset);
+	ok(el('fn-rank-vzorec').textContent.includes(`$B$2:$B$${POSL_RADEK}`),
+		`a rozsah ve vzorci RANK taky ($B$2:$B$${POSL_RADEK})`);
+
+	// c) Oddělovač argumentů je v českém prostředí STŘEDNÍK. S čárkou by vzorec nešel opsat.
+	const vzorce = [...sablona.matchAll(/=[A-ZĚŠČŘŽÝÁÍÉŮÚ]+\([^<]*?\)/g)].map((m) => m[0])
+		.concat(el('fn-rank-vzorec').textContent);
+	ok(vzorce.length >= 6, `ke kontrole je ${vzorce.length} vzorců (šablona + vypsaný RANK)`);
+	const sCarkou = vzorce.filter((v) => v.includes(','));
+	ok(sCarkou.length === 0,
+		`★ argumenty odděluje STŘEDNÍK, ne anglická čárka${sCarkou.length ? ': ' + sCarkou.join(' · ') : ''}`);
+	ok(vzorce.filter((v) => v.includes(';')).length >= 2, 'a středník je aspoň ve dvou vzorcích opravdu vidět');
+
+	// d) Názvy funkcí česky i s háčky — =PRUMER žádný český Excel nezná.
+	for (const n of ['SUMA', 'POČET', 'PRŮMĚR', 'MIN', 'MAX', 'KDYŽ'])
+		ok(sablona.includes(`=${n}(`), `šablona ukazuje funkci =${n}(`);
+	for (const n of ['POCET', 'PRUMER', 'KDYZ'])
+		ok(!sablona.includes(`=${n}(`), `★ a nikde není =${n}( bez háčků — takovou funkci by tabulka odmítla`);
+
+	// e) Popisky MIN a MAX nejsou prohozené — a souhlasí s tím, co funkce vrací.
+	const radekFunkce = (fn) => sablona.match(new RegExp(`<th>=${fn}\\(B2:B\\d+\\)</th>[\\s\\S]*?</tr>`))?.[0] ?? '';
+	ok(/nejlepší/.test(radekFunkce('MIN')) && !/nejhorší/.test(radekFunkce('MIN')),
+		'★ u MIN stojí „nejlepší" — a opravdu: MIN(1,3,2,5,2,5) = ' + telo.__MIN(VYCHOZI));
+	ok(/nejhorší/.test(radekFunkce('MAX')) && !/nejlepší/.test(radekFunkce('MAX')),
+		'★ u MAX „nejhorší" — MAX dá ' + telo.__MAX(VYCHOZI) + ', popisky nejsou prohozené');
+	ok(telo.__MIN(VYCHOZI) < telo.__MAX(VYCHOZI), 'a menší známka je opravdu ta lepší, takže popisky dávají smysl');
+
+	// f) Popisek přepínače souhlasí s tím, co tlačítko udělá (ne jen s tím, co je napsané).
+	const tlacitka = [...sablona.matchAll(/<button[^>]*data-poradi="(\d)"[^>]*>([^<]*)<\/button>/g)]
+		.map((m) => ({ poradi: m[1], text: m[2].trim() }));
+	ok(tlacitka.length === 2, 'přepínač pořadí má dvě tlačítka');
+	for (const t of tlacitka) {
+		klik(prvky.get('v-poradi-' + t.poradi));
+		// Adam má jedničku, tedy nejmenší známku: „od nejmenší" ⇔ je první.
+		const adamPrvni = el('fn-rank').textContent === '1.';
+		ok(adamPrvni === /nejmenší/.test(t.text),
+			`★ popisek „${t.text}" souhlasí s tím, co tlačítko opravdu udělá (Adam s jedničkou vyjde ${el('fn-rank').textContent})`);
+		ok(/;1/.test(t.text) === (t.poradi === '1'),
+			`a třetí údaj ;1 je zmíněný jen tam, kde se opravdu použije („${t.text}")`);
+	}
+	klik(prvky.get('v-poradi-1'));
+
+	// g) Chybové kódy jen ze skutečné české sady — smyšlený kód se dítě naučí špatně.
+	const KODY_EXCELU = ['#DĚLENÍ_NULOU!', '#HODNOTA!', '#N/A', '#NÁZEV?', '#ODKAZ!', '#ČÍSLO!', '#NULL!'];
+	// Hledá se jen v tom, co se může dostat na obrazovku — komentáře pryč
+	// (v komentáři smí být napsané i to, co se schválně NEpoužívá).
+	const bezKomentaru = zdroj.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+	const kody = [...new Set(bezKomentaru.match(/#(?:N\/A|[A-ZĚŠČŘŽÝÁÍÉŮÚ_0-9/]+[!?])/g) ?? [])];
+	ok(kody.length >= 2, `v simulaci se objevují chybové kódy tabulky (${kody.join(', ')})`);
+	const cizi = kody.filter((k) => !KODY_EXCELU.includes(k));
+	ok(cizi.length === 0,
+		`★ všechny chybové kódy jsou skutečné kódy českého Excelu${cizi.length ? ' — neznámý: ' + cizi.join(', ') : ''}`);
+
+	// A kód, který se opravdu vypíše, je z téhož seznamu — ne jen ten napsaný v komentáři.
+	for (let i = 0; i < JMENA.length; i++) {
+		const b = prvky.get('fn-bunka-' + i);
+		let poj = 0;
+		while (telo.__bunky()[i] !== PRAZDNO && poj++ < 20) klik(b);
+	}
+	ok(telo.__POCET(telo.__bunky()) === 0, 'po vyprázdnění všech buněk nezůstalo jediné číslo');
+	ok(KODY_EXCELU.includes(el('fn-prumer').textContent),
+		`★ a PRŮMĚR vypsal skutečný chybový kód: ${el('fn-prumer').textContent}`);
 	klik(btnReset);
 }
 

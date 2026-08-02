@@ -106,7 +106,10 @@
 	// ——— funkce tabulkového procesoru; každá je čistá funkce seznamu buněk ———
 	const SUMA = (b) => cisla(b).reduce((s, x) => s + x, 0);
 	const POCET = (b) => cisla(b).length;
-	/** PRŮMĚR dělí POČTEM ČÍSEL, ne počtem řádků. Bez čísel hlásí Excel #DIV/0!. */
+	// Chybové kódy píšeme tak, jak je vypíše ČESKÝ Excel (#DĚLENÍ_NULOU!, #HODNOTA!).
+	// Anglické #DIV/0! dítě na své obrazovce neuvidí — a hláška by tvrdila něco jiného,
+	// než co je v tabulce nad ní vidět (nález rozšířeného testu 3. 8. 2026).
+	/** PRŮMĚR dělí POČTEM ČÍSEL, ne počtem řádků. Bez čísel hlásí tabulka #DĚLENÍ_NULOU!. */
 	const PRUMER = (b) => (POCET(b) === 0 ? null : SUMA(b) / POCET(b));
 	const MIN = (b) => (POCET(b) === 0 ? 0 : Math.min(...cisla(b)));
 	const MAX = (b) => (POCET(b) === 0 ? 0 : Math.max(...cisla(b)));
@@ -164,7 +167,7 @@
 	function popisStavu() {
 		const pocet = POCET(bunky);
 		if (pocet === 0) {
-			return 'Ve sloupci nezůstalo <strong>jediné číslo</strong>, takže PRŮMĚR hlásí <strong>#DIV/0!</strong> — '
+			return 'Ve sloupci nezůstalo <strong>jediné číslo</strong>, takže PRŮMĚR hlásí <strong>#DĚLENÍ_NULOU!</strong> — '
 				+ 'dělit nulou nejde. MIN a MAX přitom klidně vypíšou nulu, i když žádná známka není.';
 		}
 		if (posledni && posledni.na === TEXT) {
