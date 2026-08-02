@@ -54,9 +54,38 @@ měřidel, na která nebyl nasazen ani jednou**, a přesně tam byly nejdražš�
 → **Opatření:** dávka 4+ nezávislých položek se dělá vějířem (audit sám takhle běžel);
 kontrolor dostává i kód kontrol, nejen obsah.
 
+### Po auditu: dvě nové simulace informatiky (kola B1–B3)
+
+**Větvení „když… tak… jinak…"** a **opakování „dokud / 10krát / stále"** — obojí nasazené
+a ověřené na živém webu. Názornost informatiky **37 → 35** podtémat bez obrázku či videa,
+testy simulací **318 → 371 kontrol**.
+
+> **Dva nezávislí kontroloři našli 24 vad, z toho 9 vážných — a to obě simulace předtím
+> prošly vlastními 83 kontrolami i buildem.** Nejzávažnější: **obě učily NEEXISTUJÍCÍ
+> názvy bloků** („jdi 10 kroků" místo „dopředu o 10 kroků", „když na okraji, odraz se"
+> místo „když narazíš na okraj, odraz se"). Systémová příčina: měřidlo `nazvy-bloku.mjs`
+> četlo jen výklady a kvízy z dat, **ne komponenty simulací** — brána byla zelená.
+> Po rozšíření hned našlo další dvě vady ve STARŠÍCH nasazených simulacích
+> („řekni" místo „bublina", 3. osoba „dotýká se").
+>
+> **A první verze toho rozšíření podvrh NENAŠLA**: na zdrojový kód pouštěla `text()`,
+> která maže vše mezi „<" a „>", takže v JS podmínce (`i < 80`) spolkla celé řádky.
+> Poznal to až otisk souboru před/po — hláška „0 nálezů" vypadala úplně stejně jako
+> zdravý stav. Do příště: **měřidlo psané pro HTML se nesmí pustit na zdrojový kód.**
+
+Další opravy podle kontrolorů: šipky ANO/NE byly obráceně než výklad · dotyk barvy se
+počítal bodově, takže postava viditelně stála na pruhu a program tvrdil opak · pointa
+větvení byla vidět až po 33 kliknutích (nyní po 6) · „opakuj stále" hlásilo „nic se
+nemění", ačkoli postava ujela 200 px · zastavení pojistkou vypadalo jako regulérní konec
+smyčky · překryvy textů a kontrast pod normou · v kvízu byly **distraktory, které nejsou
+skutečné bloky** (šly vyloučit bez znalosti učiva) · v testech tautologie `? … : true`
+a porovnávání s vlastními literály místo se zdrojem pravdy.
+
 **FRONTA — čím pokračovat:**
-1. **Názornost informatiky** — 47 podtémat, ani jedno s obrázkem či videem. Poslední
+1. **Názornost informatiky** — zbývá **35 podtémat** bez obrázku či videa. Poslední
    velká obsahová mezera; dělat vějířem (`/simulace`).
+   Nabízí se: `udalosti-a-vstupy`, `vlastni-bloky-s-parametry`, `hra-bludiste` (Inf7),
+   `senzory-robota`, `funkce-v-tabulkach` (Inf8), `klonovani-animace-hry` (Inf9).
 2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`) —
    doplňovat jen mutace ve fyzice a chování, ne v pixelech. Nedodělek: `tabulka-vzorce`
    (háček `__hodnotaB` bere kurz jako parametr, takže se výchozí hodnota neuplatní).

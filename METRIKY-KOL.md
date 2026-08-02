@@ -27,6 +27,8 @@ Vysvětlení sloupců:
 | 2026-08-02 | A2 (audit) | **měřidla mají obousměrný důkaz: 1 ze 6 → 6 ze 6.** Pěti měřidlům přibyl parametr dat nebo se logika vytáhla do funkce (proto u nich důkaz nikdy nevznikl); `testy/meridla-obousmerne.mjs` (24 kontrol) | chain, ověřeno 7 mutacemi | 1 | ANO | `kratke-vyklady.mjs` se spouštěl už při IMPORTU, takže test vypisoval celý přehled stránek |
 | 2026-08-02 | A3 (audit) | rejstřík pravidel: opraveno **5 falešných ✅** · revize automatů dostala doháněč a eskalaci · oprava rozporu odpověď × vysvětlení u semaforu | chain | 2 | ANO | `--dohanec` se do plistu přidal za `zsh -c` místo dovnitř příkazu; strojová detekce „správná odpověď první" **nefunguje** (16 podezřelých = 16 falešných poplachů) → přiznáno jako 📄 |
 | 2026-08-02 | B1 | informatika 7: **simulace větvení** „když… tak… jinak…" (`VetveniSimulace`) + test 45 kontrol; názornost informatiky 37 → 36 bez názornosti | chain + nezávislý kontrolor | 2 | ANO | **test hned našel vadu scény**: po otočení postava došla k levému kraji a zůstala tam stát (mrtvá scéna) → do programu přibyl skutečný český blok „když na okraji, odraz se". Druhá past: zápis interakce do `temata.ts` skončil uprostřed pole odkazů (hledal jsem první `},` za slugem) a shodil build |
+| 2026-08-02 | B2 | informatika 7: **simulace opakování** (dokud / 10krát / stále) + test 39 kontrol; názornost informatiky 36 → 35 | chain + nezávislý kontrolor | 2 | ANO | test hned našel nesouměřitelnost: dráha byla na 40 průchodů, ale pojistka proti nekonečné smyčce se spouští po 30 — „opakuj dokud" by nikdy nedojelo |
+| 2026-08-02 | B3 | **opravy podle dvou kontrolorů (13 + 11 nálezů, 9 vážných)**; `nazvy-bloku.mjs` nově čte i komponenty simulací; testy 318 → 371 kontrol | chain (2 kontroloři paralelně) | 4 | ANO | **obě simulace učily neexistující názvy bloků** („jdi 10 kroků" místo „dopředu o 10 kroků") a měřidlo je nechytilo, protože četlo jen výklady a kvízy. **První verze rozšíření podvrh taky nenašla** — na zdrojový kód pouštěla `text()`, který maže vše mezi „<" a „>". Odhaleno až otiskem souboru |
 
 > **Poučení z kol S1–S5 (2. 8. 2026), stojí za retrospektivu:** ve všech pěti kolech byla
 > nejdražší vada **v měřidle, ne v obsahu**. Třikrát za noc se ukázalo měřidlo, které
@@ -50,6 +52,16 @@ Vysvětlení sloupců:
 > učebnicový vějíř. Paralelní byla jen kontrola. Kolo A1 proto vějíř použilo (3 auditoři
 > naráz) a vyplatilo se: každý auditor našel jiný druh vady a shodli se jen na jednom —
 > tím je ten nález nejsilnější.
+>
+> **Poučení z kol B1–B3 (2. 8. 2026):** nezávislý kontrolor se vyplatil dvojnásob —
+> našel **24 vad ve dvou simulacích, které prošly vlastními 83 kontrolami a buildem**.
+> Nejcennější nález nebyl v simulaci, ale v MĚŘIDLE: kontrola názvů bloků četla jen
+> výklady a kvízy, takže simulace mohly beztrestně učit názvy, které v české paletě
+> Scratche neexistují. To je potřetí za dva dny týž vzorec — „opatření tiše platí jen
+> na část případů". A když jsem měřidlo rozšířil, **první verze podvrh nenašla taky**;
+> poznal to až otisk souboru, ne hláška. Praktické pravidlo do příště: měřidlo psané
+> pro HTML se nesmí pustit na zdrojový kód — `text()` maže vše mezi „<" a „>", a v JS
+> podmínce (`i < 80`) tím spolkne celé řádky.
 
 ### Kontrolor v kole E1 (nakloněná rovina)
 
