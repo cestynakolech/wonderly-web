@@ -185,12 +185,71 @@ const BLOK = { rezim: 'blok' };
 	ok(svg.__stav().kliknuti === 0 && svg.__zbyvaOprav(svg.__stav(), svg.__volby()) === 1, 'tlačítko ↺ vrátí chybu zpět');
 }
 
-// ———————————————————————— 5) NÁZVY BLOKŮ PODLE ČESKÉ PALETY
+// ———————————————————————— 5) CO JE OPRAVDU NAKRESLENO NA PLÁTNĚ
+//
+// Doplněno po nálezu kontrolora: test do téhle chvíle četl jen pomocné funkce, takže
+// obrázek směl lhát. Podvrh (`const uhel = UHEL_SPRAVNY` v překreslování) ukázal na plátně
+// tři hotové zelené čtverce, zatímco hláška tvrdila „zbývající 2 zůstaly křivé" — a test
+// přesto prošel. Teď se čte skutečné `points` a `stroke` nakreslených čar.
 {
+	/** Čáry ze scény: každý útvar má polyline + popisek + značku, takže každý třetí prvek. */
+	const cary = () => utvaryEl.deti.filter((_, i) => i % 3 === 0);
+	const mezera = (polyline) => {
+		const b = polyline.atributy.points.split(' ').map((p) => p.split(',').map(Number));
+		const [px, py] = b[0];
+		const [kx, ky] = b[b.length - 1];
+		return Math.hypot(kx - px, ky - py);
+	};
+	const znacky = () => utvaryEl.deti.filter((_, i) => i % 3 === 2);
+
+	klik(prvky.get('r-kopie'));
+	klik(btnReset);
+	ok(cary().length === VELIKOSTI.length, 'na plátně jsou tři nakreslené čáry');
+	ok(cary().every((c) => mezera(c) > 5), 'na začátku se ANI JEDNA čára neuzavře — chyba je vidět');
+	ok(cary().every((c) => c.atributy.stroke === '#c92a2a'), 'a všechny tři jsou červené');
+	ok(znacky().every((z) => z.textContent.includes('✗')), 'značky u všech tří hlásí neuzavřený útvar');
+
+	klik(btnOprav);
+	ok(mezera(cary()[0]) < 0.5, '★ po první opravě se PRVNÍ čára na plátně opravdu uzavře');
+	ok(mezera(cary()[1]) > 5 && mezera(cary()[2]) > 5, '★ a zbylé dvě jsou na plátně pořád otevřené');
+	ok(cary()[0].atributy.stroke === '#2b8a3e' && cary()[1].atributy.stroke === '#c92a2a', 'barva čáry odpovídá jejímu stavu');
+	ok(znacky()[0].textContent.includes('✓') && znacky()[1].textContent.includes('✗'),
+		'značky u útvarů nejsou jen barva — mají i ✓/✗ (čitelné i pro barvoslepého)');
+
 	klik(prvky.get('r-blok'));
-	const texty = svg.__programRadky().map((r) => r.text).join(' \n ').toLowerCase();
+	klik(btnOprav);
+	ok(cary().every((c) => mezera(c) < 0.5), '★ jedna oprava vlastního bloku uzavře na plátně VŠECHNY tři');
+	ok(cary().every((c) => c.atributy.stroke === '#2b8a3e'), 'a všechny tři čáry zezelenají');
+
+	// Hláška nesmí tvrdit něco jiného, než co ukazuje počítadlo (podvrh kontrolora prošel,
+	// protože stačilo, aby se v textu vyskytlo slovo „trvalo").
+	klik(prvky.get('r-kopie'));
+	klik(btnReset);
+	klik(btnOprav); klik(btnOprav); klik(btnOprav);
+	ok(stavEl.innerHTML.includes(pocetEl.textContent), 'závěrečná hláška u kopií uvádí skutečný počet oprav');
+	ok(!/jedin/i.test(stavEl.innerHTML), 'a netvrdí, že to šlo jedinou opravou');
+	ok(!/zbývající 1 zůstaly/i.test(stavEl.innerHTML), 'hlášky mají správnou českou shodu');
+
+	// Srovnání 3 × 1 musí zůstat vidět i po přepnutí režimu.
+	klik(prvky.get('r-blok'));
+	klik(btnOprav);
+	const v = svg.__vysledky();
+	ok(v.kopie === VELIKOSTI.length && v.blok === 1, '★ obě čísla srovnání zůstanou zapamatovaná (3 × 1)');
+	ok(prvky.get('vlb-srovnani').textContent.includes('3') && prvky.get('vlb-srovnani').textContent.includes('1'),
+		'a žák je vidí naráz, nemusí je držet v hlavě');
+}
+
+// ———————————————————————— 6) NÁZVY BLOKŮ PODLE ČESKÉ PALETY
+{
+	// Oba režimy: chybný název bloku v kopiích dřív nikdo nekontroloval (nález kontrolora).
+	klik(prvky.get('r-blok'));
+	const zBloku = svg.__programRadky().map((r) => r.text);
+	klik(prvky.get('r-kopie'));
+	const zKopii = svg.__programRadky().map((r) => r.text);
+	const texty = [...zBloku, ...zKopii].join(' \n ').toLowerCase();
 	ok(texty.includes('opakuj (4) krát'), 'blok opakování má název z české palety');
 	ok(texty.includes('scénář pro'), 'hlavička vlastního bloku má název z české palety');
+	ok(zKopii.some((t) => t.includes('dopředu o')), 'a správný název má i verze s kopiemi');
 	ok(/otoč se .* o \(\d+\) stupňů/.test(texty), 'blok otáčení má tvar z české palety');
 	ok(texty.includes('dopředu o'), 'blok pohybu má název z české palety (ne „jdi … kroků")');
 

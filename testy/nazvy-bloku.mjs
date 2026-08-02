@@ -58,7 +58,9 @@ export const ZAKAZANE = [
 	// překlad z angličtiny, který v české paletě není. Blok se jmenuje „dopředu o N kroků".
 	// Vzor se schválně ptá na spojení se slovem „kroků", aby nehlásil běžné věty typu
 	// „jdi na stránku" nebo „jdi ven".
-	{ vzor: /jdi \s*-?\d+\s*kroků|jdi \(\s*-?\d+\s*\)\s*kroků/, spravne: 'dopředu o … kroků', zdroj: 'MOTION_MOVESTEPS = dopředu o %1 kroků' },
+	// Číslo bývá v komponentě vloženo šablonou (`jdi (${v}) kroků`), takže vzor musí počítat
+	// i s interpolací — jinak by špatný název v simulaci prošel (nález kontrolora 2. 8. 2026).
+	{ vzor: /jdi \(?\s*(-?\d+|\$\{[^}]*\})\s*\)?\s*kroků/, spravne: 'dopředu o … kroků', zdroj: 'MOTION_MOVESTEPS = dopředu o %1 kroků' },
 	{ vzor: 'schovej', spravne: 'skryj se', zdroj: 'LOOKS_HIDE = skryj se' },
 	{ vzor: /([xy]) ukazatele myši/, spravne: 'x myši / y myši', zdroj: 'SENSING_MOUSEX = x myši, SENSING_MOUSEY = y myši' },
 	// Nález nezávislého kontrolora 2. 8. 2026, a byla to tichá vada: dvě stránky skládaly

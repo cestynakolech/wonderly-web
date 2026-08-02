@@ -39,6 +39,7 @@
 		<button type="button" class="vlb-tl vlb-hraj" id="vlb-oprav">🔧 oprav úhel na 90°</button>
 		<button type="button" class="vlb-tl" id="vlb-reset">↺ vrátit chybu zpět</button>
 		<span class="vlb-pocet">kliknutí na opravu: <strong id="vlb-oprav-pocet">0</strong></span>
+		<span class="vlb-srovnani" id="vlb-srovnani"></span>
 	</p>
 
 	<div id="vlb-program" class="vlb-program"></div>
@@ -55,6 +56,7 @@
 	const pocetEl = document.getElementById('vlb-oprav-pocet');
 	const btnOprav = document.getElementById('vlb-oprav');
 	const btnReset = document.getElementById('vlb-reset');
+	const srovnaniEl = document.getElementById('vlb-srovnani');
 
 	const VELIKOSTI = [50, 80, 120];   // parametr: tentýž blok, jiné číslo v okénku
 	const UHEL_CHYBNY = 80;
@@ -119,6 +121,9 @@
 
 	let volby = { rezim: 'kopie' };
 	let stav = cistyStav();
+	// Kolik oprav si který program vyžádal. Přežívá přepnutí režimu, jinak by žák musel
+	// srovnávat „3 × 1" po paměti — a to je celá pointa stránky (nález kontrolora).
+	const vysledky = { kopie: null, blok: null };
 
 	function programRadky() {
 		if (volby.rezim === 'blok') {
@@ -188,6 +193,12 @@
 			utvaryEl.appendChild(znacka);
 		});
 		pocetEl.textContent = String(stav.kliknuti);
+		if (zbyvaOprav(stav, volby) === 0 && stav.kliknuti > 0) vysledky[volby.rezim] = stav.kliknuti;
+		const hotove = [
+			vysledky.kopie !== null ? `tři kopie: ${vysledky.kopie}×` : '',
+			vysledky.blok !== null ? `vlastní blok: ${vysledky.blok}×` : '',
+		].filter(Boolean);
+		srovnaniEl.textContent = hotove.length ? `hotovo — ${hotove.join(' · ')}` : '';
 		vypisProgram();
 	}
 
@@ -200,10 +211,13 @@
 			return 'Chyba je tu jen <strong>jednou</strong> — uvnitř vlastního bloku. Kolik oprav asi bude potřeba?';
 		}
 		if (zbyva === 0) {
-			return `Hotovo, ale trvalo to <strong>${stav.kliknuti} opravy</strong>. Tentýž kód je v programu třikrát, takže se každá kopie musí opravit zvlášť — a na jednu se v praxi zapomene.`;
+			// Podmiňovací způsob schválně: v tuhle chvíli jsou na plátně všechny tři útvary
+			// zelené, takže „na jednu se zapomene" by odporovalo tomu, co je vidět.
+			return `Hotovo, ale trvalo to <strong>${stav.kliknuti} opravy</strong>. Tentýž kód je v programu třikrát, takže se každá kopie musí opravit zvlášť — a ve větším projektu by se na jednu snadno zapomnělo.`;
 		}
 		if (stav.kliknuti === 0) return 'Klikni na <strong>🔧 oprav úhel</strong> a sleduj, co se stane se zbylými dvěma čtverci.';
-		return `Opravil jsi <strong>${stav.kliknuti}. kopii</strong>, ale zbývající <strong>${zbyva}</strong> zůstaly křivé — každá kopie má svůj vlastní úhel.`;
+		const tvar = zbyva === 1 ? 'zůstala křivá' : 'zůstaly křivé';
+		return `Opravil jsi <strong>${stav.kliknuti}. kopii</strong>, ale zbývající <strong>${zbyva}</strong> ${tvar} — každá kopie má svůj vlastní úhel.`;
 	}
 
 	function ukazStav() {
@@ -246,6 +260,7 @@
 	svg.__programRadky = programRadky;
 	svg.__stav = () => stav;
 	svg.__volby = () => volby;
+	svg.__vysledky = () => vysledky;
 	svg.__meze = { VELIKOSTI, UHEL_CHYBNY, UHEL_SPRAVNY, STRAN, STREDY };
 </script>
 
@@ -257,9 +272,12 @@
 	.vlb-tl.vlb-hraj { background: #d3f9d8; }
 	.vlb-tl:active { transform: translateY(1px); }
 	.vlb-pocet { font-weight: 700; background: #e9ecef; border-radius: 8px; padding: 0.15rem 0.5rem; }
+	.vlb-srovnani { font-weight: 700; color: #1b7a33; margin-left: 0.5rem; }
 	.vlb-program { margin: 0.4rem 0; }
-	.vlb-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: inline-block; }
-	.vlb-program p.vlb-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; display: block; }
+	/* POZOR: `display: inline-block` tu byl chybou — řádky programu se skládaly VEDLE sebe,
+	   takže se „tři kopie pod sebou" rozpadly do vodorovné změti (nález kontrolora). */
+	.vlb-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.vlb-program p.vlb-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
 	.vlb-program p.vlb-chyba { background: #ffc9c9; outline: 2px dashed #c92a2a; }
 	.vlb-program p.vlb-opraveno { background: #b2f2bb; }
 	.vlb-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
