@@ -1,6 +1,46 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026 večer — vlastní bloky s parametry, kolo C3)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026, 20:00 — hra bludiště, kolo C4)
+
+**Hotovo a nasazeno:** simulace **„Bludiště"** (Inf7, `hra-bludiste`). Výklad jmenuje
+tři chyby, „které dělá skoro každý" — všechny tři jsou teď na přepínačích k vyzkoušení:
+krok 30 px přes tenkou zeď 10 px = **postava projede zdí**; obě rady výkladu (menší krok
+NEBO silnější zeď) opravdu zaberou; návrat zvlášť v ⟨opakuj stále⟩ nechá postavu
+**uvíznout ve zdi**. Test **125 kontrol**, testy simulací celkem **659**.
+Názornost informatiky **33 → 32**. Kvíz +3 otázky na jádro výkladu (dosud se na ně
+neptal vůbec), délková nápověda 4/9 → 3/12.
+
+> **Nezávislý kontrolor našel 17 vad, 6 vážných** — a nejdražší z nich bych sám nenašel:
+> ořez na okraji scény posunul postavu mimo mřížku velkého kroku, takže po **jediném
+> stisku ←** přestalo jít zdí projet vůbec a hra přitom vypadala, že funguje. Osy zdí
+> leží schválně uprostřed mezi zastávkami kroku a ořez tu fázi rozbil. Okraj scény proto
+> pohyb **odmítne** místo ořezávání a každá změna programu vrací postavu na start.
+> Další vážné: hláška brala čísla z aktuálních voleb, ne z toho, co se stalo („krok 5 px
+> je delší než zeď 40 px") · týž znak 🏁 znamenal na jedné obrazovce klobouk programu
+> i cíl (paleta má **zelenou** vlajku) · postava ve zdi byla červená **na černé zdi**
+> (kontrast 2,8 : 1, pod normou) — nově světlá výplň, bílý obrys a ✗.
+>
+> **A šestý vážný nález byl v TESTU:** deset podvrhů jím prošlo. Test kontroloval názvy
+> bloků ve *spojeném* textu obou variant programu, takže stačilo, aby správný název byl
+> v té druhé. Nově se každá varianta měří zvlášť; přibyly kontroly čísel v hláškách,
+> `preventDefault`, `aria-pressed`, `aria-label` všech čtyř šipek a polohy cíle proti
+> popisu pro odečítač.
+
+**Obousměrný důkaz (17 podvrhů na kopiích ve scratchpadu, do repa se nesahalo):**
+každý se najde (2 až 25 spadlých kontrol), zdravý stav mlčí. Podvrh „okraj se zase
+ořezává" shodí 5 kontrol, „zeď posunutá na zastávku kroku" 8, „prohozené směry" 25.
+
+**Deník:** kapitoly k Le Bourg-d'Oisans doběhly, ale **na YouTube je jiné video, než
+z jakého se počítaly** (nahrán byl `_v2.mp4` 4:58, kapitoly jsou z verze 6:06) —
+rozhodnutí čeká v `Cestovatelský deník/KE-SCHVALENI.md`.
+
+**FRONTA — čím pokračovat:**
+1. **Názornost informatiky** — zbývá **32 podtémat**. Na řadě: `senzory-robota`,
+   `funkce-v-tabulkach` (Inf8), `klonovani-animace-hry` (Inf9). Dávka 4+ patří do vějíře.
+2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`).
+3. `cz()` chybí v 11 simulacích, které formátují čísla.
+
+## 🎯 Předchozí stav (2. 8. 2026 večer — vlastní bloky s parametry, kolo C3)
 
 **Hotovo:** simulace **„Vlastní bloky s parametry"** (Inf7, `vlastni-bloky-s-parametry`).
 Program kreslí tři čtverce a otáčí se o **80° místo 90°**, takže se čáry neuzavřou —

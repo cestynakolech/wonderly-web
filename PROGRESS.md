@@ -123,6 +123,50 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-02, 20:00 (informatika 7 — hra bludiště; a proč se na okraji nesmí ořezávat)** —
+  Nová simulace `BludisteSimulace` u podtématu `hra-bludiste`. Výklad jmenuje **tři chyby,
+  „které dělá skoro každý"** — nově jdou všechny tři na přepínačích **způsobit a vidět**:
+  krok 30 px přeskočí tenkou zeď 10 px a **postava projede zdí**; obě rady výkladu (zmenšit
+  krok NEBO zeď zesílit) opravdu zaberou; návrat schovaný v ⟨opakuj stále⟩ neví, kudy
+  postava šla, vrací ji vždycky dolů a **postava uvízne ve zdi**. Test **125 kontrol**,
+  testy simulací celkem **659**, názornost informatiky **33 → 32**. Kvíz dostal **3 otázky
+  na jádro výkladu** (detekce kolize, kam patří návrat, nabírání barvy kapátkem — dosud se
+  na to neptal vůbec) a délková nápověda klesla ze 4/9 na 3/12.
+  **Nezávislý kontrolor našel 17 vad, 6 vážných**, a ta nejdražší byla neviditelná:
+  **ořez na okraji scény posunul postavu mimo mřížku velkého kroku.** Osy zdí leží schválně
+  přesně uprostřed mezi zastávkami kroku 30 (…160, 190…), jinak by postava na zeď šlápla —
+  jenže po **jediném stisku ←** se fáze posunula na 48 + 30k, všechny tři zdi padly do
+  dosahu a **zdí už nešlo projet vůbec**. Hra přitom dál vypadala, že funguje, jen postava
+  „nemohla dál" — žák by se naučil pravý opak výkladu. Okraj scény se proto nově chová jako
+  zeď: krok, který by vedl ven, se **neprovede** a fáze zůstane celá; ze stejného důvodu
+  vrací každá změna programu postavu na start (jiná délka kroku = jiná mřížka).
+  Další vážné: hláška brala čísla i směr z **aktuálních voleb** místo z toho, co se opravdu
+  stalo, takže po přepnutí tvrdila „krok 5 px je delší než zeď 40 px" a popisovala pohyb,
+  ke kterému nedošlo · týž znak **🏁 znamenal na jedné obrazovce dvě věci** (klobouk
+  programu i cíl; paleta má `EVENT_WHENFLAGCLICKED` se **zelenou** vlajkou) · postava
+  uvízlá ve zdi se kreslila **červeně přes černou zeď** (kontrast 2,83 : 1, norma je 3 : 1)
+  — nově světlá výplň, bílý obrys a ✗, aby to poznal i barvoslepý žák.
+  **Šestý vážný nález byl zase v TESTU:** deset podvrhů jím prošlo. Nejzrádnější — názvy
+  bloků se kontrolovaly ve *spojeném* textu obou variant programu, takže podvrh „dotýkáš se
+  barvy (**modrá**)" v jedné variantě prošel, protože „černá" byla v té druhé. Nově se měří
+  každá varianta zvlášť; přibyly kontroly čísel v hláškách proti nastaveným volbám,
+  `preventDefault`, `aria-pressed` u všech šesti přepínačů, `aria-label` u všech čtyř šipek
+  a poloha cíle proti popisu pro odečítač.
+  **Obousměrně doloženo 17 podvrhy** (každý na KOPII ve scratchpadu — pravidlo z minula
+  dodrženo, commit šel před ověřováním a do repa se nesahalo): každý podvrh se najde,
+  2 až 25 spadlých kontrol, zdravý stav mlčí. Poctivá poznámka k mezi metody: s krokem
+  30 px a silnými zdmi se do chodeb netrefíš vůbec (zastávky leží 15 px od osy zdi) —
+  není to vada, ale bez vysvětlení by to vypadalo jako zaseknutá simulace, takže to hláška
+  po nárazu říká nahlas.
+  *Deník:* dokončena práce, kterou nechal automat rozdělanou — rok 2021 dostal odkazy
+  na videa (Skanzen Přerov nad Labem, Nová Pec 2, Koloděje) a KRATOCHVÍLE byla vyměněna za
+  přeanonymizovanou verzi; všechna čtyři videa ověřena přes `/embed/` i názvem z oEmbedu.
+  **Kapitoly k Le Bourg-d'Oisans doběhly, ale nasadit je nejde bez rozhodnutí učitele:**
+  log nahrávače doložil, že na YouTube je soubor `_v2.mp4` (4:58), zatímco kapitoly se
+  počítaly z verze 6:06 — kapitola „3:14" by padla o minutu jinam. Tři varianty s cenou
+  jsou v `KE-SCHVALENI.md`. **Poučení: „která verze je na kanálu" se nepozná podle názvu
+  souboru ani podle jeho času — musí to doložit log nahrávače.**
+
 - **2026-08-02 večer (informatika 7 — vlastní bloky s parametry)** — Nová simulace
   `VlastniBlokySimulace`. Program kreslí tři čtverce, ale otáčí se o **80° místo 90°**,
   takže se čáry neuzavřou — chyba je vidět na první pohled, ne jen napsaná. Pointa výkladu
