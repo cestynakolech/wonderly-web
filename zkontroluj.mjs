@@ -337,6 +337,14 @@ if (rejstrik.chybi.length > stropBezDokladu) {
 // nad všemi komponentami — i budoucími, bez jediného řádku navíc.
 // Je to TVRDÁ chyba: v prohlížeči takový prvek navždy chybí a simulace mlčky nefunguje.
 const sablony = zkontrolujSablony();
+// Falešná nula: nula nálezů z nula změřených komponent není zdravý stav, ale rozbité měřidlo.
+const komponentSimulaci = readdirSync(join(koren, 'src/components/skola2')).filter((f) => f.endsWith('Simulace.astro')).length;
+if (sablony.souboru < komponentSimulaci || sablony.dotazu < 500) {
+	chyby.push(
+		`kontrola šablon nic nezměřila: prošlo ${sablony.souboru} z ${komponentSimulaci} komponent, ` +
+			`${sablony.dotazu} vyhledání prvku. To není zdravý stav, to je rozbité měřidlo.`,
+	);
+}
 if (sablony.nalezy.length) {
 	chyby.push(
 		`skript simulace sahá na prvek, který v šabloně není: ` +
@@ -357,7 +365,7 @@ console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.lengt
 // takhle celá společná mapa neměřila vůbec, u filtru falešných poplachů se kontrola
 // volala jen u fotek). Kontrola, která nic neprošla, musí být poznat na první pohled.
 console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
-console.log(`Šablony simulací: prošlo ${sablony.souboru} komponent — ${sablony.nalezy.length} prvků, které skript hledá a šablona nemá.`);
+console.log(`Šablony simulací: prošlo ${sablony.souboru} komponent, změřeno ${sablony.dotazu} vyhledání prvku — ${sablony.nalezy.length} nálezů.`);
 console.log(`Měřidla: ${rejstrik.dolozeno} z ${rejstrik.meridel} má doložené obousměrné ověření${rejstrik.chybi.length ? ` (bez dokladu: ${rejstrik.chybi.join(', ')})` : ''}.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {

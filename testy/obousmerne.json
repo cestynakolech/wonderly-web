@@ -48,10 +48,10 @@
 		},
 		"sablony.mjs": {
 			"test": "testy/meridla-obousmerne.mjs",
-			"podvrh": "Prvek smazaný ze šablony, na který skript sahá (id=\"uda-scenare\"), se najde; stejně tak přepínač, po jehož odstranění neodpovídá selektoru .uda-mic ani jeden prvek. Ověřeno i na skutečné komponentě, ne jen na kostře.",
-			"zdravy": "Nad všemi 78 komponentami simulací 0 nálezů.",
-			"regrese": "TŘI SKUTEČNÉ FALEŠNÉ POPLACHY první verze: prvky, které si kód vyrábí sám za běhu (BinarniSimulace `className = 'bin-zarovka'`, PraceSimulace `classList.add('prc-vyber')`, TezisteSimulace `class=\"tez-bod\"` v innerHTML), NESMÍ být nález — v šabloně nejsou a přesto jsou v pořádku. Nesmí být nálezem ani zmínka v komentáři. Návrat k „hledej jen v HTML\" test shodí.",
-			"duvod": "Testy simulací čtou z komponenty jen <script> a jejich atrapa DOM chybějící prvek tiše vyrobí, takže komponenta se smazanou scénou i všemi tlačítky testem prošla jako zdravá. Měření ukázalo tutéž díru v 11 z 12 testů — proto kontrola nad všemi komponentami naráz, ne oprava jednotlivých testů.",
+			"podvrh": "Skript komponenty se SPOUŠTÍ nad DOMem ze skutečné šablony, takže se chybějící prvek najde bez ohledu na způsob zápisu: getElementById, zkratka $(id), querySelector('#x'), backticky, složený selektor i <script is:inline>. Doloženo i na skutečných komponentách: po smazání všech id ze šablony hlásí Hydraulika 14, Kladka 6, NaklonenaRovina 14, Paka 13 a Udalosti 9 nálezů - právě těch pět bylo pro regexovou verzi zcela nebo zčásti neviditelných.",
+			"zdravy": "Nad všemi 78 komponentami 0 nálezů, změřeno 1082 vyhledání prvku (regexová verze jich viděla jen 675).",
+			"regrese": "(1) TŘI SKUTEČNÉ FALEŠNÉ POPLACHY: prvky, které si kód vyrábí sám za běhu (className, classList.add, class v innerHTML), NESMÍ být nález. (2) Chybějící prohlížečové API (canvas, performance) nesmí skript shodit - jinak by se hlásila vada, která žádná není; proto univerzální atrapa. (3) Nedoběhlý skript naopak nálezem BÝT MUSÍ, jinak je nula falešná. (4) Brána končí chybou, když prošlo míň komponent, než kolik jich v repu je.",
+			"duvod": "První verze hledala volání regulárními výrazy. Nezávislý kontrolor doložil, že 19 komponent používá zkratku $(id) a jedna <script is:inline>, takže 270 z 945 vyhledání nebylo měřeno vůbec a u čtyř komponent šlo smazat celou scénu, aniž brána cekla. Záplatovat vzor po vzoru je nekonečné - proto se přestalo hádat a začalo měřit spuštěním.",
 			"overeno": "2026-08-02"
 		}
 	}

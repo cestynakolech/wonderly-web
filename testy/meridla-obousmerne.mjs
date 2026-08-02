@@ -16,7 +16,7 @@ import { zkontrolujNazvyBloku } from './nazvy-bloku.mjs';
 import { nazornost, neznameDruhy, DRUHY_MATERIALU } from './data.mjs';
 import { cistyText, jeHlucha } from './kratke-vyklady.mjs';
 import { ramecek, plocha } from './mapa-popisky.mjs';
-import { zkontrolujSablonu } from './sablony.mjs';
+import { zkontrolujSablonu, zkontrolujSablony } from './sablony.mjs';
 
 let chyb = 0;
 let kontrol = 0;
@@ -155,41 +155,51 @@ function data({ obsah = '', materialy = [], interakce, otazky = [] }) {
 	tvrdi('mapy: delší jméno má širší rámeček', dlouhy[2] - dlouhy[0] > kratky[2] - kratky[0]);
 }
 
-// ——————————————————————— sablony.mjs: hledá skript prvek, který v šabloně není?
+// ——————————————————————— sablony.mjs: sahá skript na prvek, který v šabloně není?
 {
-	const komponenta = (html, kod) => `---\n// hlavička\n---\n${html}\n<script>\n${kod}\n</script>\n`;
+	const kus = (html, kod) => `---\n---\n${html}\n<script>\n${kod}\n</script>\n`;
+	const najde = (html, kod) => zkontrolujSablonu('T', kus(html, kod)).nalezy;
 
-	// PODVRH: skript sahá na prvek, který v šabloně chybí — v prohlížeči by simulace mlčky
-	// nefungovala a v testu by se vada neprojevila vůbec (atrapa prvek tiše vyrobí).
-	const chybi = zkontrolujSablonu('T', komponenta('<div id="a"></div>', "const x = document.getElementById('b');"));
-	tvrdi('šablony: chybějící prvek se najde', chybi.some((n) => n.druh === 'chybí prvek' && n.co === 'b'));
+	// PODVRH: prvek, na který skript sahá, v šabloně chybí → v prohlížeči simulace mlčky nefunguje.
+	tvrdi('šablony: chybějící prvek se najde', najde('<div id="a"></div>', "document.getElementById('b');").length > 0);
+	// ZDRAVÝ STAV
+	tvrdi('šablony: existující prvek nehlásí nic', najde('<div id="b"></div>', "document.getElementById('b');").length === 0);
+	// PODVRH 2: ovládání, kterému neodpovídá ani jeden prvek
+	tvrdi('šablony: prázdný výběr se najde', najde('<p>nic</p>', "document.querySelectorAll('.tl');").length > 0);
 
-	// ZDRAVÝ STAV: prvek v šabloně je → ticho.
-	const zdravy = zkontrolujSablonu('T', komponenta('<div id="b"></div>', "const x = document.getElementById('b');"));
-	tvrdi('šablony: existující prvek nehlásí nic', zdravy.length === 0);
+	// REGRESE — ČTYŘI ZPŮSOBY ZÁPISU, KTERÉ BYLY PRO PŮVODNÍ (REGEXOVOU) VERZI NEVIDITELNÉ.
+	// Kontrolor na nich doložil, že 270 z 945 vyhledání nebylo měřeno vůbec a u čtyř
+	// komponent šlo smazat CELOU scénu, aniž brána cekla. Proto se dnes skript SPOUŠTÍ.
+	tvrdi('šablony: zkratka $(id) je vidět', najde('<div id="a"></div>', "const $ = (i) => document.getElementById(i); $('chybi');").length > 0);
+	tvrdi('šablony: querySelector(#id) je vidět', najde('<div id="a"></div>', "document.querySelector('#chybi');").length > 0);
+	tvrdi('šablony: backticky jsou vidět', najde('<div id="a"></div>', 'document.getElementById(`chybi`);').length > 0);
+	tvrdi('šablony: složený selektor je vidět', najde('<div id="a"></div>', "document.querySelectorAll('#chybi .tl');").length > 0);
+	// `<script is:inline>` původní rozdělovač neuměl, takže se místo kódu měřil obsah <style>.
+	{
+		const sInline = `---\n---\n<div id="a"></div>\n<script is:inline>\ndocument.getElementById('chybi');\n</script>\n`;
+		tvrdi('šablony: <script is:inline> se opravdu měří', zkontrolujSablonu('T', sInline).nalezy.length > 0);
+	}
 
-	// PODVRH 2: přepínač, který nejde kliknout (v šabloně není ani jeden prvek té třídy).
-	const prazdny = zkontrolujSablonu('T', komponenta('<p>bez tlačítek</p>', "document.querySelectorAll('.tl').forEach(() => {});"));
-	tvrdi('šablony: prázdný výběr se najde', prazdny.some((n) => n.druh === 'prázdný výběr' && n.co === '.tl'));
+	// REGRESE — TŘI SKUTEČNÉ FALEŠNÉ POPLACHY z historie: prvky, které si kód vyrábí sám
+	// za běhu, v šabloně nejsou a přesto jsou v pořádku (Binarni, Prace, Teziste).
+	tvrdi('šablony: prvek vyrobený přes className NENÍ nález',
+		najde('<div id="x"></div>', "const b = document.createElement('div'); b.className = 'bin-zarovka'; document.querySelectorAll('.bin-zarovka');").length === 0);
+	tvrdi('šablony: prvek z innerHTML NENÍ nález',
+		najde('<div id="x"></div>', "document.getElementById('x').innerHTML = `<circle class=\"tez-bod\"/>`; document.querySelectorAll('.tez-bod');").length === 0);
+	tvrdi('šablony: classList.add NENÍ nález',
+		najde('<div id="x"></div>', "const t = document.createElement('b'); t.classList.add('prc-vyber'); document.querySelectorAll('.prc-vyber');").length === 0);
+	tvrdi('šablony: id v jednoduchých uvozovkách NENÍ nález', najde("<div id='b'></div>", "document.getElementById('b');").length === 0);
 
-	// REGRESE — TŘI SKUTEČNÉ FALEŠNÉ POPLACHY první verze (BinarniSimulace, PraceSimulace,
-	// TezisteSimulace). Prvky v šabloně nejsou, protože si je kód vyrábí sám za běhu.
-	// Kdyby se kontrola vrátila k „hledej jen v HTML", spadne to tady.
-	const zaBehuClassName = zkontrolujSablonu('T', komponenta('<div id="x"></div>',
-		"const b = document.createElement('div'); b.className = 'bin-zarovka'; document.querySelectorAll('.bin-zarovka');"));
-	tvrdi('šablony: prvek vyrobený za běhu (className) NENÍ nález', zaBehuClassName.length === 0);
+	// FALEŠNÁ NULA: skript, který nedoběhne, nesmí vypadat jako zdravý stav.
+	tvrdi('šablony: nedoběhlý skript je nález', najde('<div id="a"></div>', "throw new Error('bum');").some((n) => n.druh === 'skript nedoběhl'));
+	// …a naopak chybějící prohlížečové API skript shodit NESMÍ (jinak by to hlásilo vadu,
+	// která žádnou vadou není — canvas, performance a spol.).
+	tvrdi('šablony: canvas a performance skript neshodí',
+		najde('<canvas id="p"></canvas>', "const c = document.getElementById('p').getContext('2d'); c.fillRect(0,0,1,1); performance.now();").length === 0);
 
-	const zaBehuHtml = zkontrolujSablonu('T', komponenta('<div id="x"></div>',
-		"el.innerHTML = `<circle class=\"tez-bod\" r=\"8\"/>`; telo.querySelectorAll('.tez-bod');"));
-	tvrdi('šablony: prvek vykreslený do innerHTML NENÍ nález', zaBehuHtml.length === 0);
-
-	const zaBehuAdd = zkontrolujSablonu('T', komponenta('<div id="x"></div>',
-		"tl.classList.add('prc-vyber'); document.querySelectorAll('.prc-vyber');"));
-	tvrdi('šablony: prvek označený přes classList.add NENÍ nález', zaBehuAdd.length === 0);
-
-	// REGRESE: komentář v kódu mluví o vadách schválně — nesmí se počítat jako volání.
-	const vKomentari = zkontrolujSablonu('T', komponenta('<div id="a"></div>', "// dřív tu bylo getElementById('stary-prvek')\nconst x = 1;"));
-	tvrdi('šablony: zmínka v komentáři není nález', vKomentari.length === 0);
+	// POČÍTADLO VSTUPŮ: 0 nálezů z nula měření je falešná nula.
+	tvrdi('šablony: měří se všechny komponenty webu', zkontrolujSablony().souboru >= 70);
+	tvrdi('šablony: a opravdu se v nich něco hledá', zkontrolujSablony().dotazu > 900);
 }
 
 console.log(chyb === 0 ? `✅ Měřidla obousměrně ověřena, ${kontrol} kontrol.` : `❌ ${chyb} z ${kontrol} kontrol selhalo.`);
