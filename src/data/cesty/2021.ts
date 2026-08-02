@@ -431,6 +431,7 @@ export const rok2021: Rok = {
 				de: 'Die Gemeinde 30 Kilometer östlich von Prag, in der sich ein Renaissance-Schloss befindet — bei dessen Renovierung im 16. Jahrhundert der kaiserliche Architekt Bonifác Wohlmut beteiligt war. Hier finden Sie auch das älteste Freilichtmuseum der Volksarchitektur in den tschechischen Ländern, dessen Wurzeln bis ins Jahr 1895 zurückreichen.',
 				fr: 'Commune située à trente kilomètres à l\'est de Prague, où se dresse un château de la Renaissance — dont les travaux de rénovation ont impliqué l\'architecte impérial Bonifác Wohlmut au XVIe siècle. Vous y trouverez également le plus ancien musée en plein air d\'architecture populaire des terres tchèques, dont les racines remontent à 1895.',
 			},
+			videoId: 'mK8UqL93IrU',
 		},
 		{
 			slug: 'cesky-sternberk',
@@ -667,7 +668,10 @@ export const rok2021: Rok = {
 		{ id: '_NTzVZ4Bj5U', nazev: 'Rabí', odkaz: 'https://youtu.be/_NTzVZ4Bj5U' },
 		{ id: 'mDf7jtgan0E', nazev: 'Radyně. Helfenburk', odkaz: 'https://youtu.be/mDf7jtgan0E' },
 		{ id: 'yu3gTjZHXcM', nazev: 'Rabí a Nebílovy', odkaz: 'https://youtu.be/yu3gTjZHXcM' },
-		{ id: 'HOYR67lWLSs', nazev: 'KRATOCHVÍLE', odkaz: 'https://youtu.be/HOYR67lWLSs' },
+		{ id: 'zFYXDsrMb1U', nazev: 'KRATOCHVÍLE', odkaz: 'https://youtu.be/zFYXDsrMb1U' },
 		{ id: 'KpVhvaQNRaw', nazev: 'Nová Pec', odkaz: 'https://youtu.be/KpVhvaQNRaw' },
+		{ id: 'H1TTlOMH66M', nazev: 'Nová Pec 2', odkaz: 'https://youtu.be/H1TTlOMH66M' },
+		{ id: 'FKGHCv_YK84', nazev: 'KOLODĚJE', odkaz: 'https://youtu.be/FKGHCv_YK84' },
+		{ id: 'mK8UqL93IrU', nazev: 'Skanzen Přerov nad Labem', odkaz: 'https://youtu.be/mK8UqL93IrU' },
 	],
 };
