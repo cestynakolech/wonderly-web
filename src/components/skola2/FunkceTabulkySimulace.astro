@@ -1,0 +1,270 @@
+---
+// Funkce v tabulkách — průměr, počet, KDYŽ (informatika 8).
+//
+// Výklad má vlastní sekci „Snadno se popletou". Tady si ji žák může způsobit:
+//  1. POČET × SUMA — do sloupce známek se dá zapsat „nehodnocen" nebo buňku vymazat.
+//     V tabulce to skoro není vidět, ale POČET klesne a s ním se změní PRŮMĚR,
+//     protože ten dělí součet POČTEM ČÍSEL, ne počtem řádků. To je nejčastější
+//     důvod, proč „ten průměr v Excelu vychází jinak, než jsem počítal na papíře".
+//  2. MIN je u známek ta NEJLEPŠÍ, MAX nejhorší — přesně jak upozorňuje výklad.
+//  3. RANK bez třetího údaje řadí od největší, takže by nejhorší známka vyšla jako
+//     první místo. Přepínač to ukáže na témž žákovi: 1. místo × 6. místo.
+//  4. Prázdná buňka se v porovnání bere jako NULA, takže =KDYŽ(B2<=3;…) napíše
+//     „prospěl" i tomu, komu známku nikdo nezapsal. Text se naopak porovnává jako
+//     větší než každé číslo, takže „nehodnocen" dá „neprospěl".
+//
+// Všechny výsledky jsou ČISTÉ FUNKCE seznamu buněk, takže se dají ověřit výpočtem
+// bez prohlížeče (testy/simulace/funkce-tabulky.mjs).
+//
+// Výchozí hodnoty jsou zvolené tak, aby průměr vyšel jako celé číslo (18 / 6 = 3).
+// Jakmile žák něco změní, desetinné číslo je v pořádku — průměr je právě to učivo.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proč Excelu vychází jiný průměr než tobě 🧮</span></h2>
+	<p>
+		Klikáním na známku ji přepneš na jinou, na <strong>nehodnocen</strong> nebo na
+		<strong>prázdnou buňku</strong>. Sleduj přitom dolní panel — hlavně
+		<strong>POČET</strong> a <strong>PRŮMĚR</strong>.
+	</p>
+
+	<div class="fn-obal">
+		<table class="fn-tabulka">
+			<thead>
+				<tr><th>Řádek</th><th>A — jméno</th><th>B — známka</th><th>C — =KDYŽ(B2&lt;=3;"prospěl";"neprospěl")</th></tr>
+			</thead>
+			<tbody id="fn-telo">
+				<tr><th>2</th><td>Adam</td><td><button type="button" class="fn-bunka" id="fn-bunka-0" data-radek="0"></button></td><td id="fn-kdyz-0" class="fn-kdyz"></td></tr>
+				<tr><th>3</th><td>Bára</td><td><button type="button" class="fn-bunka" id="fn-bunka-1" data-radek="1"></button></td><td id="fn-kdyz-1" class="fn-kdyz"></td></tr>
+				<tr><th>4</th><td>Cyril</td><td><button type="button" class="fn-bunka" id="fn-bunka-2" data-radek="2"></button></td><td id="fn-kdyz-2" class="fn-kdyz"></td></tr>
+				<tr><th>5</th><td>Dana</td><td><button type="button" class="fn-bunka" id="fn-bunka-3" data-radek="3"></button></td><td id="fn-kdyz-3" class="fn-kdyz"></td></tr>
+				<tr><th>6</th><td>Emil</td><td><button type="button" class="fn-bunka" id="fn-bunka-4" data-radek="4"></button></td><td id="fn-kdyz-4" class="fn-kdyz"></td></tr>
+				<tr><th>7</th><td>Filip</td><td><button type="button" class="fn-bunka" id="fn-bunka-5" data-radek="5"></button></td><td id="fn-kdyz-5" class="fn-kdyz"></td></tr>
+			</tbody>
+		</table>
+	</div>
+
+	<p class="fn-radek">
+		<button type="button" class="fn-tl" id="fn-reset">↺ vrátit původní známky</button>
+		<span class="fn-napoveda">klik na známku = 1 → 2 → 3 → 4 → 5 → nehodnocen → prázdná → 1</span>
+	</p>
+
+	<table class="fn-vysledky">
+		<tbody>
+			<tr><th>=SUMA(B2:B7)</th><td id="fn-suma"></td><td class="fn-pozn">sečte jen čísla</td></tr>
+			<tr><th>=POČET(B2:B7)</th><td id="fn-pocet"></td><td class="fn-pozn">kolik buněk obsahuje číslo</td></tr>
+			<tr class="fn-duraz"><th>=PRŮMĚR(B2:B7)</th><td id="fn-prumer"></td><td class="fn-pozn" id="fn-podil"></td></tr>
+			<tr><th>=MIN(B2:B7)</th><td id="fn-min"></td><td class="fn-pozn">u známek ta <strong>nejlepší</strong></td></tr>
+			<tr><th>=MAX(B2:B7)</th><td id="fn-max"></td><td class="fn-pozn">u známek ta <strong>nejhorší</strong></td></tr>
+			<tr><th id="fn-rank-vzorec"></th><td id="fn-rank"></td><td class="fn-pozn">pořadí Adama mezi ostatními</td></tr>
+		</tbody>
+	</table>
+
+	<p class="fn-radek">
+		<strong>Pořadí v RANK:</strong>
+		<button type="button" class="fn-tl fn-volba fn-aktivni" data-poradi="1" aria-pressed="true">od nejmenší (;1)</button>
+		<button type="button" class="fn-tl fn-volba" data-poradi="0" aria-pressed="false">od největší (bez údaje)</button>
+	</p>
+
+	<p class="fn-stav" id="fn-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const teloEl = document.getElementById('fn-telo');
+	const stavEl = document.getElementById('fn-stav');
+	const btnReset = document.getElementById('fn-reset');
+	const sumaEl = document.getElementById('fn-suma');
+	const pocetEl = document.getElementById('fn-pocet');
+	const prumerEl = document.getElementById('fn-prumer');
+	const podilEl = document.getElementById('fn-podil');
+	const minEl = document.getElementById('fn-min');
+	const maxEl = document.getElementById('fn-max');
+	const rankEl = document.getElementById('fn-rank');
+	const rankVzorecEl = document.getElementById('fn-rank-vzorec');
+
+	const JMENA = ['Adam', 'Bára', 'Cyril', 'Dana', 'Emil', 'Filip'];
+	// Součet 18 při šesti známkách → průměr rovnou 3 (celé číslo, jak má být na začátku).
+	const VYCHOZI = [1, 3, 2, 5, 2, 5];
+	const TEXT = 'nehodnocen';
+	const PRAZDNO = '';
+	// Klikací kolečko: čísla, pak text, pak prázdná buňka — a zase od začátku.
+	const KOLECKO = [1, 2, 3, 4, 5, TEXT, PRAZDNO];
+	const MEZ_KDYZ = 3;
+
+	/** České číslo: desetinná čárka, nejvýš dvě místa, celá čísla bez nul navíc. */
+	function cz(n) {
+		if (Number.isInteger(n)) return String(n);
+		// Nuly navíc pryč („2,60" → „2,6"), a když nezbyde nic, ani ta čárka („2,00" → „2").
+		return n.toFixed(2).replace(/0+$/, '').replace(/\.$/, '').replace('.', ',');
+	}
+
+	const jeCislo = (h) => typeof h === 'number';
+	const cisla = (b) => b.filter(jeCislo);
+
+	// ——— funkce tabulkového procesoru; každá je čistá funkce seznamu buněk ———
+	const SUMA = (b) => cisla(b).reduce((s, x) => s + x, 0);
+	const POCET = (b) => cisla(b).length;
+	/** PRŮMĚR dělí POČTEM ČÍSEL, ne počtem řádků. Bez čísel hlásí Excel #DIV/0!. */
+	const PRUMER = (b) => (POCET(b) === 0 ? null : SUMA(b) / POCET(b));
+	const MIN = (b) => (POCET(b) === 0 ? 0 : Math.min(...cisla(b)));
+	const MAX = (b) => (POCET(b) === 0 ? 0 : Math.max(...cisla(b)));
+	/**
+	 * RANK: kolikátá je hodnota mezi ostatními. Třetí údaj 1 = od nejmenší
+	 * (u známek správně), bez něj (0) se řadí od největší — a nejhorší známka
+	 * by pak vyšla jako první místo.
+	 */
+	function RANK(hodnota, b, poradi) {
+		if (!jeCislo(hodnota)) return null;
+		const c = cisla(b);
+		const lepsich = poradi === 1 ? c.filter((x) => x < hodnota) : c.filter((x) => x > hodnota);
+		return lepsich.length + 1;
+	}
+	/**
+	 * =KDYŽ(B2<=3;"prospěl";"neprospěl"). Pozor na dvě pravidla tabulek:
+	 * prázdná buňka se v porovnání bere jako NULA, a text je větší než každé číslo.
+	 */
+	const KDYZ = (h) => (jeCislo(h) ? h <= MEZ_KDYZ : h === PRAZDNO) ? 'prospěl' : 'neprospěl';
+
+	let bunky = [...VYCHOZI];
+	let poradi = 1;
+	let posledni = null;   // co se naposledy změnilo: { radek, z, na }
+
+	const zobraz = (h) => (h === PRAZDNO ? '' : String(h));
+
+	function prekresli() {
+		bunky.forEach((h, i) => {
+			const b = document.getElementById('fn-bunka-' + i);
+			b.textContent = zobraz(h);
+			b.className = 'fn-bunka' + (h === TEXT ? ' fn-text' : h === PRAZDNO ? ' fn-prazdna' : '');
+			b.setAttribute('aria-label', `známka ${JMENA[i]}: ${h === PRAZDNO ? 'prázdná buňka' : h}`);
+			const k = document.getElementById('fn-kdyz-' + i);
+			const vysledek = KDYZ(h);
+			k.textContent = vysledek;
+			k.className = 'fn-kdyz' + (vysledek === 'prospěl' ? ' fn-ano' : ' fn-ne');
+		});
+
+		const pocet = POCET(bunky);
+		const prumer = PRUMER(bunky);
+		sumaEl.textContent = cz(SUMA(bunky));
+		pocetEl.textContent = cz(pocet);
+		prumerEl.textContent = prumer === null ? '#DIV/0!' : cz(prumer);
+		podilEl.textContent = prumer === null
+			? 'bez jediného čísla se dělit nedá'
+			: `dělí se ${cz(SUMA(bunky))} ÷ ${cz(pocet)} — POČTEM ČÍSEL, ne šesti řádky`;
+		minEl.textContent = cz(MIN(bunky));
+		maxEl.textContent = cz(MAX(bunky));
+
+		const r = RANK(bunky[0], bunky, poradi);
+		rankVzorecEl.textContent = poradi === 1 ? '=RANK(B2;$B$2:$B$7;1)' : '=RANK(B2;$B$2:$B$7)';
+		rankEl.textContent = r === null ? '#HODNOTA!' : `${cz(r)}.`;
+	}
+
+	function popisStavu() {
+		const pocet = POCET(bunky);
+		if (pocet === 0) {
+			return 'Ve sloupci nezůstalo <strong>jediné číslo</strong>, takže PRŮMĚR hlásí <strong>#DIV/0!</strong> — '
+				+ 'dělit nulou nejde. MIN a MAX přitom klidně vypíšou nulu, i když žádná známka není.';
+		}
+		if (posledni && posledni.na === TEXT) {
+			return `Do buňky je zapsané slovo <strong>„${TEXT}"</strong>. V tabulce to vypadá jako vyplněný řádek, `
+				+ `ale <strong>POČET klesl na ${cz(pocet)}</strong> — a PRŮMĚR se proto dělí ${cz(pocet)}, ne šesti. `
+				+ `A protože text je v porovnání větší než každé číslo, KDYŽ napsalo <strong>neprospěl</strong>.`;
+		}
+		if (posledni && posledni.na === PRAZDNO) {
+			return `Buňka je <strong>prázdná</strong>, takže do POČTU nejde (${cz(pocet)}). `
+				+ 'Ale pozor na sloupec C: v porovnání se prázdná buňka bere jako <strong>nula</strong>, '
+				+ `takže =KDYŽ(B&lt;=${MEZ_KDYZ};…) napsalo <strong>prospěl</strong> i tomu, komu známku nikdo nezapsal.`;
+		}
+		if (pocet < bunky.length) {
+			return `Čísla jsou jen v <strong>${cz(pocet)}</strong> buňkách ze ${cz(bunky.length)}, takže PRŮMĚR dělí ${cz(pocet)}. `
+				+ 'Právě tohle bývá důvod, proč tabulce vychází jiný průměr než tobě na papíře.';
+		}
+		return 'Všech šest buněk má číslo, takže POČET je 6 a průměr vyjde <strong>18 ÷ 6 = 3</strong>. '
+			+ 'Zkus teď některou známku přepnout na <strong>nehodnocen</strong> nebo ji vymazat.';
+	}
+
+	function ukazStav() {
+		stavEl.innerHTML = popisStavu();
+	}
+
+	for (const b of document.querySelectorAll('.fn-bunka')) {
+		b.addEventListener('click', () => {
+			const i = Number(b.dataset.radek);
+			const kde = KOLECKO.indexOf(bunky[i]);
+			const nova = KOLECKO[(kde + 1) % KOLECKO.length];
+			posledni = { radek: i, z: bunky[i], na: nova };
+			bunky[i] = nova;
+			prekresli();
+			ukazStav();
+		});
+	}
+
+	btnReset.addEventListener('click', () => {
+		bunky = [...VYCHOZI];
+		posledni = null;
+		prekresli();
+		ukazStav();
+	});
+
+	for (const v of document.querySelectorAll('.fn-volba')) {
+		v.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.fn-volba')) {
+				j.classList.remove('fn-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			v.classList.add('fn-aktivni');
+			v.setAttribute('aria-pressed', 'true');
+			poradi = Number(v.dataset.poradi);
+			prekresli();
+			// Přepínač nemění data, jen vzorec — hláška o poslední změně buňky by proto
+			// zůstala viset u něčeho, co se právě nestalo.
+			stavEl.innerHTML = poradi === 1
+				? 'S třetím údajem <strong>;1</strong> se pořadí počítá <strong>od nejmenší</strong> hodnoty — '
+					+ 'u známek správně, protože nejlepší je jednička.'
+				: 'Bez třetího údaje řadí RANK <strong>od největší</strong>, takže by u známek vyšla '
+					+ '<strong>nejhorší</strong> jako první místo. Všimni si, jak Adamovi skočilo pořadí.';
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který počítá tabulku) ———
+	const svg = document.getElementById('fn-telo');
+	svg.__SUMA = SUMA;
+	svg.__POCET = POCET;
+	svg.__PRUMER = PRUMER;
+	svg.__MIN = MIN;
+	svg.__MAX = MAX;
+	svg.__RANK = RANK;
+	svg.__KDYZ = KDYZ;
+	svg.__cz = cz;
+	svg.__bunky = () => bunky;
+	svg.__poradi = () => poradi;
+	svg.__meze = { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ };
+</script>
+
+<style>
+	.fn-obal { overflow-x: auto; }
+	.fn-tabulka { border-collapse: collapse; margin: 0.5rem 0; font-size: 0.98rem; }
+	.fn-tabulka th, .fn-tabulka td { border: 2px solid #adb5bd; padding: 0.25rem 0.6rem; text-align: left; }
+	.fn-tabulka thead th { background: #e9ecef; font-size: 0.86rem; }
+	.fn-tabulka tbody th { background: #e9ecef; text-align: center; font-weight: 700; }
+	.fn-bunka { font: inherit; font-weight: 700; min-width: 6.5rem; padding: 0.15rem 0.5rem; border: 2px solid #2b2a26; border-radius: 6px; background: #fff; cursor: pointer; }
+	.fn-bunka.fn-text { background: #ffe3e3; font-weight: 400; font-style: italic; }
+	/* Prázdná buňka musí být poznat, i když v ní nic není — jinak vypadá jako chyba vykreslení. */
+	.fn-bunka.fn-prazdna { background: repeating-linear-gradient(45deg, #fff, #fff 5px, #dee2e6 5px, #dee2e6 10px); }
+	.fn-kdyz.fn-ano { color: #1b7a33; font-weight: 700; }
+	.fn-kdyz.fn-ne { color: #a61e1e; font-weight: 700; }
+	.fn-vysledky { border-collapse: collapse; margin: 0.6rem 0; }
+	.fn-vysledky th { text-align: left; font-family: ui-monospace, monospace; padding: 0.2rem 0.7rem 0.2rem 0; }
+	.fn-vysledky td { padding: 0.2rem 0.7rem; font-weight: 700; }
+	.fn-vysledky tr.fn-duraz { background: #fff3bf; }
+	.fn-vysledky .fn-pozn { font-weight: 400; font-size: 0.9rem; color: #495057; }
+	.fn-radek { margin: 0.5rem 0; }
+	.fn-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.fn-tl.fn-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.fn-tl.fn-aktivni::before { content: '✓ '; }
+	.fn-napoveda { font-size: 0.9rem; color: #495057; }
+	.fn-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
+</style>
