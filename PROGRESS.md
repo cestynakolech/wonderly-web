@@ -123,6 +123,40 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-02 dopoledne (dlouhodobý audit: točíme se v kruhu — ale o patro výš)** — Učitel
+  zadal audit za delší pracovní cyklus: *„zda se s chybami netočíme v kruhu a zda ještě
+  držíme diamant a nezávislého kontrolora."* Běželi **tři nezávislí auditoři naráz**, každý
+  s jinou otázkou (opakované vady × dodržování postupů × pravidla proti skutečnému kódu).
+  **Odpověď: obsah se měřitelně lepší, ale jeho NÁSTROJE se točí v kruhu.** Hluché stránky
+  36 → 0, uhodnutelnost kvízů 77 % → 38 %, kontrol simulací 244 → 318. Proti tomu vzorec
+  „měřidlo ukazuje číslo, které nic neměří" je doložen **20 výskyty ve čtyřech dnech**,
+  z toho 5 za jedinou noc. Vlastní retrospektiva to napsala už dřív, ale opatření z toho
+  nikdy nevzniklo — protože pravidlo „ověř obousměrně" bylo jen TEXT.
+  **Co se zavedlo:** (1) `testy/obousmerne.json` + kontrola v bráně — **nové měřidlo bez
+  doloženého podvrhu a zdravého stavu shodí build**; dluh splacen hned, 6 ze 6 měřidel má
+  důkaz (`testy/meridla-obousmerne.mjs`, 24 kontrol, ověřeno 7 mutacemi). Pěti měřidlům
+  k tomu musel přibýt parametr dat nebo se logika vytáhla do funkce — **právě proto u nich
+  důkaz nikdy nevznikl: nešel jim podvrhnout vstup.** (2) `testy/uniky.mjs` — duplicitní
+  otázky a úniky odpovědí mezi otázkami bloku; obojí se opakovalo od 29. 7. a hledalo se
+  ručně. Kotva: nad historickými kvízy z 31. 7. najde 4 duplicity, mezi nimi dvakrát doslova
+  tutéž otázku. (3) Revize automatů dostala **doháněč a eskalaci** — hlídač zdraví běžel
+  1× za 24 h bez náhrady, takže na uspaném Macu se den vynechal. (4) V rejstříku pravidel
+  opraveno **5 falešných ✅**; nejzávažnější je, že *„správná odpověď je v datech vždy
+  první"* nehlídá **nic** — `Kviz.astro` konvenci jen používá. Strojově to nejde (zkusil
+  jsem to: 16 podezřelých = 16 falešných poplachů), ruční prověrka těch 16 ale potvrdila,
+  že pořadí je v datech všude správné.
+  **Druhý nález: diamant se ze samostatného režimu vytratil** — kola S1–S5 jsou všechna
+  „chain", ačkoli se v nich dělaly dávky 5–9 nezávislých stránek. Nezávislý kontrolor drží
+  pevně (36 doložených nasazení), **ale na vlastní měřidla nebyl nasazen ani jednou** —
+  a přesně tam byly nejdražší vady.
+  **Poctivá poznámka:** všechna tři měřidla, která jsem během auditu napsal, byla v první
+  verzi vadná — detekce duplicit hlásila 13 nálezů (11 falešných, protože filtr slov
+  ≥ 4 znaky zahazoval čísla, takže „při 0 °C" × „při 100 °C" vyšlo jako shoda 100 %),
+  detekce úniků 264 místo 39. Odhalily to až podvrhy a mutace, ne pohled na výsledek.
+  *Škola:* nová **simulace větvení** (informatika 7) — program projde vždy jen jednou
+  větví, a je to vidět na skóre, ne jen v textu. Test 45 kontrol našel hned vadu scény:
+  postava po otočení došla k levému kraji a zůstala stát.
+
 - **2026-07-31 v noci (video s nárokem Content ID, strop nahrávání, popisy)** — Učitel
   hlásil u videa „Longevelle sur Doubs 2025" hlášku o potenciálním omezení kvůli zvukové
   stopě. **Nárok nesouvisel s naší prací** — je to jeho původní video z 24. 7. 2025, kterého
