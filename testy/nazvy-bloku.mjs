@@ -53,7 +53,12 @@ export const ZAKAZANE = [
 	// Další čtyři vzory dohledané 2. 8. 2026 v oficiální lokalizaci při psaní výkladů her.
 	// Všechny čtyři byly na webu opravdu špatně — proto tu jsou i s tím, co je nahradilo.
 	{ vzor: 'startuji jako klon', spravne: 'když startuje můj klon', zdroj: 'CONTROL_STARTASCLONE = když startuje můj klon' },
-	{ vzor: /odraz se,? když/, spravne: 'když narazíš na okraj, odraz se', zdroj: 'MOTION_IFONEDGEBOUNCE = když narazíš na okraj, odraz se' },
+	{ vzor: /odraz se,? když|na okraji,? odraz/, spravne: 'když narazíš na okraj, odraz se', zdroj: 'MOTION_IFONEDGEBOUNCE = když narazíš na okraj, odraz se' },
+	// Nález nezávislého kontrolora 2. 8. 2026: SIMULACE učily „jdi 10 kroků" — doslovný
+	// překlad z angličtiny, který v české paletě není. Blok se jmenuje „dopředu o N kroků".
+	// Vzor se schválně ptá na spojení se slovem „kroků", aby nehlásil běžné věty typu
+	// „jdi na stránku" nebo „jdi ven".
+	{ vzor: /jdi \s*-?\d+\s*kroků|jdi \(\s*-?\d+\s*\)\s*kroků/, spravne: 'dopředu o … kroků', zdroj: 'MOTION_MOVESTEPS = dopředu o %1 kroků' },
 	{ vzor: 'schovej', spravne: 'skryj se', zdroj: 'LOOKS_HIDE = skryj se' },
 	{ vzor: /([xy]) ukazatele myši/, spravne: 'x myši / y myši', zdroj: 'SENSING_MOUSEX = x myši, SENSING_MOUSEY = y myši' },
 	// Nález nezávislého kontrolora 2. 8. 2026, a byla to tichá vada: dvě stránky skládaly
@@ -87,10 +92,52 @@ function popisVzoru(vzor) {
 }
 
 // Volitelný parametr `data` kvůli obousměrnému ověření (viz testy/obousmerne.json).
+/**
+ * Komponenty simulací, které ukazují bloky Scratche. Kontrolují se stejně jako výklad —
+ * žák je čte na téže stránce a nepozná, co je „jen simulace".
+ *
+ * Proč to tu je: do 2. 8. 2026 měřidlo četlo POUZE výklady a kvízy z dat, takže dvě nové
+ * simulace mohly beztrestně učit „jdi 10 kroků" a „když na okraji, odraz se" — obojí
+ * v české paletě neexistuje. Brána byla přitom zelená. Našel to až nezávislý kontrolor.
+ * Je to učebnicový příklad vzorce „opatření platí jen na část případů".
+ */
+const SIMULACE_SE_SCRATCHEM = ['VetveniSimulace', 'OpakovaniSimulace', 'PromenneSimulace', 'SouradniceSimulace', 'LedDisplejSimulace'];
+
 export async function zkontrolujNazvyBloku(data) {
 	const { kvizy, temata } = data ?? (await nactiData());
 	const nalezy = [];
 	const jeScratch = (klic) => SCRATCH_CELKY.some((c) => klic.startsWith(c + '/'));
+
+	// (a) komponenty simulací — jen text, který žák vidí (popisky bloků a tlačítek),
+	// ne komentáře v kódu: ty o vadách často schválně mluví.
+	if (!data) {
+		const { readFileSync, existsSync } = await import('node:fs');
+		const { join, dirname } = await import('node:path');
+		const { fileURLToPath } = await import('node:url');
+		const slozka = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'components', 'skola2');
+		for (const jmeno of SIMULACE_SE_SCRATCHEM) {
+			const cesta = join(slozka, jmeno + '.astro');
+			if (!existsSync(cesta)) continue;
+			const cely = readFileSync(cesta, 'utf8')
+				.replace(/^---[\s\S]*?---/, '')          // hlavička s poznámkami autora
+				.replace(/^\s*\/\/.*$/gm, '')             // řádkové komentáře
+				.replace(/\/\*[\s\S]*?\*\//g, '');        // blokové komentáře
+			// POZOR: na zdrojový KÓD se nesmí pustit `text()`. Odstraňuje totiž všechno mezi
+			// „<" a „>", takže v JS podmínce (`i < 80`) spolkne i celé řádky za ní — a přesně
+			// proto první verze téhle kontroly podvrh NENAŠLA (ověřeno otiskem souboru:
+			// podvrh zapsaný byl, měřidlo přesto hlásilo 0 nálezů).
+			// Čte se proto zvlášť: z HTML textové uzly, ze skriptu jen řetězcové literály —
+			// popisky bloků žijí právě tam.
+			const casti = cely.split(/<script>|<\/script>/);
+			const html = casti.filter((_, i) => i % 2 === 0).join(' ');
+			const kod = casti.filter((_, i) => i % 2 === 1).join(' ');
+			const literaly = (kod.match(/'[^'\n]*'|"[^"\n]*"|`[^`]*`/g) ?? []).join(' \n ');
+			const t = text(html) + ' \n ' + literaly.toLowerCase();
+			for (const z of ZAKAZANE) {
+				if (sedi(z.vzor, t)) nalezy.push({ klic: `komponenta ${jmeno}`, kde: 'simulace', ...z });
+			}
+		}
+	}
 
 	for (const pod of vsechnaPodtemata(temata)) {
 		if (!jeScratch(pod.klic)) continue;

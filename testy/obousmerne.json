@@ -22,7 +22,7 @@
 			"test": "testy/meridla-obousmerne.mjs",
 			"podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu.",
 			"zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic.",
-			"regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí.",
+			"regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť.",
 			"overeno": "2026-08-02"
 		},
 		"nazornost.mjs": {

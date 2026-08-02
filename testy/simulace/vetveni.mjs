@@ -11,7 +11,14 @@ const skript = zdroj.match(/<script>([\s\S]*?)<\/script>/)[1];
 const prvky = new Map();
 const novy = (id) => {
 	const p = {
-		id, atributy: {}, textContent: '', innerHTML: '', style: {}, dataset: {}, posluchaci: {}, deti: [],
+		id, atributy: {}, innerHTML: '', style: {}, dataset: {}, posluchaci: {}, deti: [],
+		// POZOR: `textContent = ''` musí v atrapě vymazat i DĚTI, jinak se vypsané řádky
+		// programu při každém překreslení hromadí a kontrola „zvýrazněn je právě jeden
+		// řádek" začne selhávat podle toho, kolikrát se předtím kliklo. (Vada atrapy,
+		// ne komponenty — objevila se, jakmile test začal víc klikat.)
+		_text: '',
+		get textContent() { return this._text; },
+		set textContent(v) { this._text = String(v); if (v === '') this.deti = []; },
 		classList: { tridy: new Set(), add(t) { this.tridy.add(t); }, remove(t) { this.tridy.delete(t); }, contains(t) { return this.tridy.has(t); } },
 		setAttribute(k, v) { this.atributy[k] = String(v); },
 		getAttribute(k) { return this.atributy[k]; },
@@ -61,7 +68,7 @@ const ZAKLAD = { podminka: 'cervena', sJinak: true };
 
 // ————————————————————————————————— 1) ČÍSLA A POHYB
 ok(S(0, ZAKLAD).x === START, 'start je na zadané poloze');
-ok(S(1, ZAKLAD).x === START + KROK, 'jeden krok posune přesně o 10 (jdi 10 kroků)');
+ok(S(1, ZAKLAD).x === START + KROK, 'jeden krok posune přesně o 10 (dopředu o 10 kroků)');
 ok([...Array(40).keys()].every((i) => Number.isInteger(S(i, ZAKLAD).x)), 'souřadnice zůstávají celá čísla ve všech 40 krocích');
 ok([...Array(60).keys()].every((i) => { const x = S(i, ZAKLAD).x; return x >= VLEVO && x <= VPRAVO; }), 'postava nikdy neopustí scénu');
 {
@@ -78,7 +85,10 @@ ok([...Array(60).keys()].every((i) => { const x = S(i, ZAKLAD).x; return x >= VL
 
 // ————————————————————————————————— 2) PODMÍNKA SE VYHODNOCUJE SPRÁVNĚ
 ok(svg.__vyhodnot('cervena', CERVENY_OD) === true, 'na červeném pruhu podmínka platí');
-ok(svg.__vyhodnot('cervena', CERVENY_OD - 1) === false, 'krok před červeným pruhem neplatí');
+// Dotyk se počítá podle TĚLA postavy (kruh o poloměru 19), ne podle jejího středu —
+// jinak by postava viditelně stála na pruhu a program tvrdil, že se ho nedotýká.
+ok(svg.__vyhodnot('cervena', CERVENY_OD - 30) === false, 'dokud je postava celá mimo pruh, podmínka neplatí');
+ok(svg.__vyhodnot('cervena', CERVENY_OD - 15) === true, 'jakmile se pruhu dotkne OKRAJ postavy, podmínka platí');
 ok(svg.__vyhodnot('ne-cervena', CERVENY_OD) === false, '„ne" otáčí platnost naruby (na červené neplatí)');
 ok(svg.__vyhodnot('ne-cervena', START) === true, '„ne" platí mimo červenou');
 ok(svg.__vyhodnot('nebo', MODRY_DO) === true, '„nebo" platí i na modré');
@@ -117,7 +127,7 @@ ok(svg.__vyhodnot('nebo', START) === false, '„nebo" neplatí mezi pruhy');
 	const smery = new Set([...Array(120).keys()].map((i) => S(i, ZAKLAD).smer));
 	ok(smery.has(1) && smery.has(-1), 'postava chodí oběma směry (odráží se)');
 	// Postava nesmí nikde uváznout. Dřív došla po otočení k levému kraji a zůstala stát —
-	// proto je v programu blok „když na okraji, odraz se".
+	// proto je v programu blok „když narazíš na okraj, odraz se".
 	const polohy = [...Array(200).keys()].map((i) => S(i, ZAKLAD).x);
 	const uvazla = polohy.slice(0, -3).some((x, i) => x === polohy[i + 1] && x === polohy[i + 2] && x === polohy[i + 3]);
 	ok(!uvazla, 'postava nikde neuvázne (na okraji se odrazí)');
@@ -143,7 +153,24 @@ ok(hlaskaEl.textContent.length > 0, 'po kroku je vidět, kterou větví program 
 	// Zvýrazňuje se JEN ten řádek, který běžel — a právě jeden.
 	const zvyraznene = prikazyEl.deti.filter((d) => d.className === 'vet-nyni');
 	ok(zvyraznene.length === 1, 'zvýrazněn je právě jeden řádek programu');
-	ok(svg.__stav().vetev === 'jinak' ? zvyraznene[0].textContent === 'změň skóre o 1' : true, 'zvýrazněný řádek odpovídá provedené větvi');
+	// Dřív tu bylo `podmínka ? tvrzení : true` — vzor, který při druhé větvi projde
+	// VŽDY (nález nezávislého kontrolora). Nově se očekávaný řádek dopočítá.
+	const ocekavany = svg.__stav().vetev === 'tak' ? 'otoč se o 180 stupňů' : 'změň skóre o 1';
+	ok(zvyraznene[0].textContent === ocekavany, `zvýrazněný řádek odpovídá provedené větvi (${ocekavany})`);
+}
+{
+	// Přepínač podmínky se dřív v testu vůbec neklikal (nález kontrolora).
+	klik(btnReset);
+	klik(skupiny['.vet-podm'][2]);            // „nebo"
+	ok(svg.__volby().podminka === 'nebo', 'přepínač podmínky opravdu přepne podmínku');
+	ok(svg.__programRadky().some((r) => r.text.includes('nebo')), 'a projeví se ve vypsaném programu');
+	klik(skupiny['.vet-podm'][1]);            // „ne ⟨…⟩"
+	ok(svg.__programRadky().some((r) => r.text.includes('ne ⟨')), 'volba „ne" se do programu vypíše');
+	klik(skupiny['.vet-podm'][0]);
+	// Skóre na obrazovce musí opravdu růst, ne jen v modelu.
+	for (let i = 0; i < 3; i++) klik(btnKrok);
+	ok(Number(skoreEl.textContent) > 0, 'zobrazené skóre po několika krocích roste');
+	klik(btnReset);
 }
 {
 	// Cesta TAM i ZPĚT (pravidlo z kontroly animací): co jde spustit, musí jít zastavit.
@@ -165,11 +192,16 @@ ok(hlaskaEl.textContent.length > 0, 'po kroku je vidět, kterou větví program 
 {
 	// Názvy bloků musí být z české palety Scratche (zdroj pravdy scratch-l10n).
 	const radky = svg.__programRadky().map((r) => r.text).join(' | ');
-	ok(radky.includes('jdi 10 kroků'), 'blok „jdi 10 kroků" je pojmenovaný česky');
+	ok(radky.includes('dopředu o 10 kroků'), 'blok „dopředu o 10 kroků" je pojmenovaný česky');
 	ok(radky.includes('otoč se o 180 stupňů'), 'blok „otoč se o 180 stupňů" je pojmenovaný česky');
 	ok(radky.includes('opakuj stále'), 'smyčka se jmenuje „opakuj stále"');
-	ok(radky.includes('když na okraji, odraz se'), 'blok držící scénu v pohybu je v programu vidět');
-	ok(!/pero dolů|jdi na|řekni /.test(radky), 'nepoužívá se žádný neexistující český název bloku');
+	ok(radky.includes('když narazíš na okraj, odraz se'), 'blok držící scénu v pohybu je v programu vidět');
+	// Proti tabulce ze scratch-l10n, ne proti vlastním literálům (nález kontrolora:
+	// test opisoval kód, a proto nechytil ani „jdi 10 kroků", ani „na okraji, odraz se").
+	const { ZAKAZANE } = await import('../nazvy-bloku.mjs');
+	const sediVzor = (v, t) => (v instanceof RegExp ? v.test(t) : t.includes(v));
+	const spatne = ZAKAZANE.filter((z) => sediVzor(z.vzor, radky.toLowerCase()));
+	ok(spatne.length === 0, `žádný název bloku neodporuje české paletě${spatne.length ? ': ' + spatne.map((z) => z.spravne).join(', ') : ''}`);
 }
 
 console.log(chyby === 0 ? `\n✅ Větvení: všech ${kontrol} kontrol prošlo.` : `\n❌ ${chyby} z ${kontrol} kontrol selhalo.`);

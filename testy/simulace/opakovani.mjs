@@ -10,7 +10,14 @@ const skript = zdroj.match(/<script>([\s\S]*?)<\/script>/)[1];
 const prvky = new Map();
 const novy = (id) => {
 	const p = {
-		id, atributy: {}, textContent: '', innerHTML: '', style: {}, dataset: {}, posluchaci: {}, deti: [],
+		id, atributy: {}, innerHTML: '', style: {}, dataset: {}, posluchaci: {}, deti: [],
+		// POZOR: `textContent = ''` musí v atrapě vymazat i DĚTI, jinak se vypsané řádky
+		// programu při každém překreslení hromadí a kontrola „zvýrazněn je právě jeden
+		// řádek" začne selhávat podle toho, kolikrát se předtím kliklo. (Vada atrapy,
+		// ne komponenty — objevila se, jakmile test začal víc klikat.)
+		_text: '',
+		get textContent() { return this._text; },
+		set textContent(v) { this._text = String(v); if (v === '') this.deti = []; },
 		classList: { tridy: new Set(), add(t) { this.tridy.add(t); }, remove(t) { this.tridy.delete(t); }, contains(t) { return this.tridy.has(t); } },
 		setAttribute(k, v) { this.atributy[k] = String(v); },
 		getAttribute(k) { return this.atributy[k]; },
@@ -62,7 +69,10 @@ const DOKUD = { smycka: 'dokud', start: 'daleko', telo: 'jdi' };
 // ———————————————————————— 1) HLAVNÍ POINTA VÝKLADU: podmínka se testuje PŘED tělem
 {
 	const uOkraje = { smycka: 'dokud', start: 'uOkraje', telo: 'jdi' };
-	ok(svg.__naOkraji(X_U_OKRAJE) === true, 'postava postavená na okraj se okraje opravdu dotýká');
+	// (Dřív tu stálo `naOkraji(X_U_OKRAJE) === true`, což byla TAUTOLOGIE: obě konstanty
+	// mají tutéž hodnotu, takže tvrzení nemohlo selhat. Nález nezávislého kontrolora.)
+	ok(svg.__naOkraji(X_U_OKRAJE) === true && svg.__naOkraji(X_U_OKRAJE - KROK) === false,
+		'hranice dotyku je ostrá: na okraji ano, o krok dřív ne');
 	ok(svg.__pocetProvedeni(uOkraje) === 0, 'když podmínka platí už na startu, tělo smyčky neproběhne ANI JEDNOU');
 	ok(S(1, uOkraje).konec === true, 'smyčka skončí hned v prvním testu');
 	ok(S(1, uOkraje).x === X_U_OKRAJE, 'postava se přitom vůbec nepohne');
@@ -105,7 +115,7 @@ const DOKUD = { smycka: 'dokud', start: 'daleko', telo: 'jdi' };
 	ok(S(STROP + 1, nekonecna).duvod === 'strop', 'program běží, dokud ho nezastaví pojistka');
 	ok(S(STROP + 1, nekonecna).x === X_DALEKO, 'postava se za celou dobu ani nehne — to je ten příznak z výkladu');
 	// A protikladem: totéž s pohybem uvnitř skončí.
-	ok(svg.__pocetProvedeni(DOKUD) < STROP, 'stačí dát dovnitř „jdi 10 kroků" a smyčka skončí');
+	ok(svg.__pocetProvedeni(DOKUD) < STROP, 'stačí dát dovnitř „dopředu o 10 kroků" a smyčka skončí');
 }
 
 // ———————————————————————— 5) POSTAVA NIKDY NEPŘEJEDE ZEĎ
@@ -114,6 +124,35 @@ const DOKUD = { smycka: 'dokud', start: 'daleko', telo: 'jdi' };
 		const presla = [...Array(STROP + 5).keys()].some((i) => S(i, v).x > OKRAJ);
 		ok(!presla, `postava nepřejede okraj (smyčka ${v.smycka}, tělo ${v.telo})`);
 	}
+}
+
+// ———————————————————————— 5b) HLÁŠKY NESMÍ ODPOROVAT TOMU, CO JE NA OBRAZOVCE
+// Nález nezávislého kontrolora: u „opakuj stále" simulace tvrdila „nic se nemění",
+// ačkoli postava ujela 200 px. Hlášky se proto kontrolují jako text, ne jen model.
+{
+	const hlaskaEl = prvky.get('opa-hlaska');
+	const poznamkaEl = prvky.get('opa-poznamka');
+	klik(skupiny['.opa-smycka'][2]);          // opakuj stále
+	for (let i = 0; i < STROP + 2; i++) klik(btnKrok);
+	ok(svg.__stav().duvod === 'strop', 'u „opakuj stále" zasáhne pojistka');
+	ok(!/nic se nemění/.test(hlaskaEl.textContent), 'hláška u „opakuj stále" NETVRDÍ, že se nic nemění');
+	ok(/pojistka/i.test(hlaskaEl.textContent + poznamkaEl.textContent), 'je řečeno, že zastavila POJISTKA, ne program');
+	ok(svg.__stav().x > X_DALEKO, '…a postava se přitom opravdu posunula');
+	// Zastavení pojistkou musí být poznat od regulérního konce smyčky.
+	klik(skupiny['.opa-smycka'][0]);
+	for (let i = 0; i < 25; i++) klik(btnKrok);
+	ok(svg.__stav().duvod === 'podminka', 'u „opakuj dokud" končí smyčka podmínkou');
+	ok(!/pojistka/i.test(hlaskaEl.textContent), 'a to se hlásí JINAK než zastavení pojistkou');
+	klik(btnReset);
+}
+
+// ———————————————————————— 5c) PANEL PODMÍNKY U SMYČEK, KTERÉ SE NEPTAJÍ
+{
+	klik(skupiny['.opa-smycka'][1]);          // opakuj (10) krát
+	ok(!/ANO|NE/.test(podminkaEl.textContent), 'u smyčky bez podmínky panel nehlásí ANO/NE');
+	klik(skupiny['.opa-smycka'][0]);
+	ok(/ANO|NE/.test(podminkaEl.textContent), 'u „opakuj dokud" panel podmínku ukazuje');
+	klik(btnReset);
 }
 
 // ———————————————————————— 6) CO ŽÁK VIDÍ NA STRÁNCE
@@ -150,10 +189,18 @@ ok(pruchodyEl.textContent === '1', 'počítadlo se překreslí');
 {
 	// Názvy bloků z české palety Scratche (zdroj pravdy scratch-l10n).
 	const radky = svg.__programRadky().map((r) => r.text).join(' | ');
-	ok(radky.includes('opakuj, dokud nenastane'), 'blok „opakuj, dokud nenastane" je pojmenovaný česky');
-	ok(radky.includes('jdi 10 kroků'), 'blok „jdi 10 kroků" je pojmenovaný česky');
-	ok(!/opakuj dokud </.test(radky), 'nepoužívá se anglický tvar zápisu');
-	ok(!/řekni |pero dolů|jdi na /.test(radky), 'nepoužívá se žádný neexistující český název bloku');
+	// Bez čárky — cs.json má CONTROL_REPEATUNTIL = „opakuj dokud nenastane %1".
+	// Čárka navíc byla drobný, ale skutečný rozpor s výkladem téže stránky.
+	ok(radky.includes('opakuj dokud nenastane'), 'blok „opakuj dokud nenastane" je pojmenovaný česky (bez čárky)');
+	ok(!radky.includes('opakuj, dokud'), 'a nepíše se s čárkou, kterou paleta nemá');
+	ok(radky.includes('dopředu o 10 kroků'), 'blok „dopředu o 10 kroků" je pojmenovaný česky');
+	// Názvy se NEporovnávají s literály (to by byl opis vlastního kódu — nález
+	// kontrolora), ale proti tabulce zakázaných tvarů, kterou plní zdroj pravdy
+	// scratch-l10n. Když někdo do simulace vrátí „jdi 10 kroků", spadne to tady.
+	const { ZAKAZANE } = await import('../nazvy-bloku.mjs');
+	const sedi = (v, t) => (v instanceof RegExp ? v.test(t) : t.includes(v));
+	const spatne = ZAKAZANE.filter((z) => sedi(z.vzor, radky.toLowerCase()));
+	ok(spatne.length === 0, `žádný název bloku neodporuje české paletě${spatne.length ? ': ' + spatne.map((z) => z.spravne).join(', ') : ''}`);
 }
 
 console.log(chyby === 0 ? `\n✅ Opakování: všech ${kontrol} kontrol prošlo.` : `\n❌ ${chyby} z ${kontrol} kontrol selhalo.`);

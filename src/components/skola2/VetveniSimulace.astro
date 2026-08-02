@@ -11,11 +11,11 @@
 //
 // Scéna je logická: postava chodí po dráze zleva doprava, barevné pruhy leží na krajích
 // a otočení o 180° ji pošle zpátky. Souřadnice zůstávají celá čísla (krok 10 jako
-// „jdi 10 kroků" ve Scratchi). Stav po n krocích je ČISTÁ FUNKCE, takže se celý program
+// „dopředu o 10 kroků" ve Scratchi). Stav po n krocích je ČISTÁ FUNKCE, takže se celý program
 // dá ověřit výpočtem — v testy/simulace/vetveni.mjs.
 //
 // Názvy bloků jsou v české paletě Scratche 3 (zdroj pravdy scratch-l10n):
-// „jdi 10 kroků", „otoč se o 180 stupňů", „změň skóre o 1", „dotýkáš se barvy (…)?".
+// „dopředu o 10 kroků", „otoč se o 180 stupňů", „změň skóre o 1", „dotýkáš se barvy (…)?".
 ---
 
 <section class="ramecek simulace">
@@ -41,24 +41,28 @@
 			<path id="vet-sipka" d="M 20 85 l 14 0 m -5 -5 l 5 5 l -5 5" stroke="#2b2a26" stroke-width="3" fill="none" stroke-linecap="round" />
 		</g>
 
-		<!-- skóre -->
-		<rect x="20" y="170" width="150" height="40" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
-		<text x="36" y="196" font-size="15" font-weight="bold" fill="#495057">skóre</text>
-		<rect x="108" y="178" width="54" height="24" fill="#ff8c1a" stroke="#2b2a26" stroke-width="2" rx="12" />
-		<text id="vet-skore" x="135" y="196" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">0</text>
+		<!-- Skóre patří nahoru nad dráhu: v pásu y 170-210 leží popisky větví a nápis
+		     +1 bod přes ně dřív ležel tak, že překrýval i samotné číslo skóre. -->
+		<rect x="20" y="4" width="150" height="30" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<text x="34" y="25" font-size="14" font-weight="bold" fill="#343a40">skóre</text>
+		<rect x="106" y="8" width="56" height="22" fill="#c2410c" stroke="#2b2a26" stroke-width="2" rx="11" />
+		<text id="vet-skore" x="134" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">0</text>
 
 		<!-- rozcestí: kosočtverec s otázkou, jak to popisuje výklad -->
 		<path d="M 330 155 l 55 30 l -55 30 l -55 -30 z" fill="#fff3bf" stroke="#2b2a26" stroke-width="3" />
 		<text id="vet-otazka" x="330" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">podmínka?</text>
-		<text x="405" y="172" font-size="13" font-weight="bold" fill="#2f9e44">ANO</text>
-		<text x="235" y="172" font-size="13" font-weight="bold" fill="#c92a2a">NE</text>
-		<path id="vet-sip-ano" d="M 385 185 l 40 0" stroke="#adb5bd" stroke-width="4" fill="none" stroke-linecap="round" />
-		<path id="vet-sip-ne" d="M 275 185 l -40 0" stroke="#adb5bd" stroke-width="4" fill="none" stroke-linecap="round" />
-		<text id="vet-vetev-ano" x="450" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">otoč se</text>
-		<text id="vet-vetev-ne" x="150" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">+1 bod</text>
+		<!-- Směr větví podle VÝKLADU na téže stránce: ano doleva, ne doprava.
+		     Do 2. 8. 2026 to simulace kreslila obráceně, tedy proti textu o dva odstavce
+		     výš (nález nezávislého kontrolora). -->
+		<text x="235" y="172" font-size="13" font-weight="bold" fill="#1b7a33">ANO</text>
+		<text x="405" y="172" font-size="13" font-weight="bold" fill="#c92a2a">NE</text>
+		<path id="vet-sip-ano" d="M 275 185 l -40 0" stroke="#adb5bd" stroke-width="4" fill="none" stroke-linecap="round" />
+		<path id="vet-sip-ne" d="M 385 185 l 40 0" stroke="#adb5bd" stroke-width="4" fill="none" stroke-linecap="round" />
+		<text id="vet-vetev-ano" x="150" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#343a40">otoč se</text>
+		<text id="vet-vetev-ne" x="455" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#343a40">+1 bod</text>
 
-		<text id="vet-hlaska" x="270" y="255" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44"></text>
-		<text id="vet-poloha" x="270" y="282" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
+		<text id="vet-hlaska" x="270" y="255" text-anchor="middle" font-size="15" font-weight="bold" fill="#1b7a33"></text>
+		<text id="vet-poloha" x="270" y="282" text-anchor="middle" font-size="13" font-weight="bold" fill="#495057"></text>
 	</svg>
 
 	<p class="vet-radek">
@@ -100,8 +104,11 @@
 	const btnBezet = document.getElementById('vet-bezet');
 	const btnReset = document.getElementById('vet-reset');
 
-	// ——— dráha (souřadnice SVG, celá čísla; krok 10 jako „jdi 10 kroků") ———
-	const START = 120;
+	// ——— dráha (souřadnice SVG, celá čísla; krok 10 jako „dopředu o 10 kroků") ———
+	// Start je schválně blízko červeného pruhu: hlavní pointa (běží jen jedna větev)
+	// se ukáže po šesti kliknutích. Dřív byl start na 120, takže žák musel kliknout
+	// 33krát a při běhu čekal 15 sekund (nález nezávislého kontrolora).
+	const START = 380;
 	const KROK = 10;
 	const VLEVO = 38;          // dál doleva postava nemůže — ve Scratchi ji zastaví okraj scény
 	const VPRAVO = 502;
@@ -115,12 +122,17 @@
 	};
 	const KRATCE = { cervena: 'na červené?', 'ne-cervena': 'NE na červené?', nebo: 'na barvě?' };
 
-	/** Stojí postava na červené / modré? Čistá funkce polohy. */
+	// Postava je kruh — dotyk barvy se proto počítá podle jejího TĚLA, ne podle středu.
+	// Dřív bylo x >= 450, takže při x = 440 postava viditelně stála na červeném pruhu
+	// a program přitom hlásil, že podmínka neplatí (nález nezávislého kontrolora).
+	const POLOMER = 19;
+
+	/** Dotýká se postava červené / modré? Čistá funkce polohy. */
 	function naCervene(x) {
-		return x >= CERVENY_OD;
+		return x + POLOMER >= CERVENY_OD;
 	}
 	function naModre(x) {
-		return x <= MODRY_DO;
+		return x - POLOMER <= MODRY_DO;
 	}
 	/** Vyhodnocení podmínky — přesně tak, jak ji čte Scratch. Čistá funkce. */
 	function vyhodnot(podminka, x) {
@@ -131,14 +143,14 @@
 
 	/**
 	 * JEDEN PRŮCHOD SMYČKOU. Čistá funkce: ze stavu udělá nový stav.
-	 * Pořadí je stejné jako v programu na stránce: nejdřív „jdi 10 kroků",
+	 * Pořadí je stejné jako v programu na stránce: nejdřív „dopředu o 10 kroků",
 	 * teprve pak se ptáme na podmínku (postava se tedy ptá až z NOVÉHO místa).
 	 */
 	function jedenKrok(stav, volby) {
 		const x = Math.min(VPRAVO, Math.max(VLEVO, stav.x + KROK * stav.smer));
 		const naOkraji = x === VLEVO || x === VPRAVO;
 		const platí = vyhodnot(volby.podminka, x);
-		// Blok „když na okraji, odraz se" — bez něj by postava po otočení došla k levému
+		// Blok „když narazíš na okraj, odraz se" — bez něj by postava po otočení došla k levému
 		// kraji scény a zůstala tam stát (našel to test). Ve Scratchi se přesně takhle
 		// řeší, aby postava neuvázla u zdi; je to i v programu vypsané, aby žák věděl,
 		// co scénu drží v pohybu.
@@ -172,8 +184,8 @@
 	function programRadky() {
 		const radky = [
 			{ text: 'opakuj stále', uroven: 0 },
-			{ text: 'jdi 10 kroků', uroven: 1 },
-			{ text: 'když na okraji, odraz se', uroven: 1 },
+			{ text: 'dopředu o 10 kroků', uroven: 1 },
+			{ text: 'když narazíš na okraj, odraz se', uroven: 1 },
 			{ text: `když ⟨${POPIS_PODMINKY[volby.podminka]}⟩ tak`, uroven: 1 },
 			{ text: 'otoč se o 180 stupňů', uroven: 2 },
 		];
@@ -205,7 +217,7 @@
 		otazkaEl.textContent = KRATCE[volby.podminka];
 		vetevNeEl.textContent = volby.sJinak ? '+1 bod' : '(nic)';
 		const platí = stav.vetev === 'tak';
-		sipAnoEl.setAttribute('stroke', platí ? '#2f9e44' : '#adb5bd');
+		sipAnoEl.setAttribute('stroke', platí ? '#1b7a33' : '#adb5bd');
 		sipNeEl.setAttribute('stroke', stav.vetev === 'jinak' || stav.vetev === 'zadna' ? '#c92a2a' : '#adb5bd');
 		vetevAnoEl.setAttribute('font-weight', platí ? 'bold' : 'normal');
 
@@ -215,7 +227,7 @@
 		else hlaskaEl.textContent = '';
 
 		const kde = naCervene(stav.x) ? 'na červeném pruhu' : naModre(stav.x) ? 'na modrém pruhu' : 'mezi pruhy';
-		polohaEl.textContent = `krok ${stav.krok} · postava je ${kde}${stav.naOkraji ? ' · dál nemůže, je na okraji scény' : ''}`;
+		polohaEl.textContent = `krok ${stav.krok} · postava je ${kde} · skóre ${stav.skore}${stav.naOkraji ? ' · odrazila se od okraje' : ''}`;
 		vypisProgram();
 	}
 
@@ -225,6 +237,9 @@
 			return 'Program šel větví <strong>tak</strong>. Všimni si, že skóre zůstalo stejné — větev <em>jinak</em> se přeskočila celá.';
 		}
 		if (stav.vetev === 'jinak') return 'Program šel větví <strong>jinak</strong>, takže se otočení vůbec neprovedlo.';
+		if (volby.podminka === 'ne-cervena' && stav.krok > 2) {
+			return 'Podmínka <em>ne ⟨…⟩</em> platí skoro pořád, takže se postava otáčí každý krok a skoro se nehne. Není to chyba simulace — takhle se ten program opravdu chová.';
+		}
 		return 'Podmínka neplatila a větev <em>jinak</em> v programu není — program tedy jen pokračoval dál. <strong>Přepni na verzi s „jinak"</strong> a porovnej skóre.';
 	}
 

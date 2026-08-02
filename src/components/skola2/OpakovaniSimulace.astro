@@ -7,7 +7,7 @@
 //     postavit rovnou na okraj a spočítat průchody: vyjde 0.
 //  2. Rozdíl tří smyček: počet znám dopředu × znám, čím to skončí × nemá skončit vůbec.
 //  3. Nekonečná smyčka: když se uvnitř nemění nic, co by podmínku mohlo splnit, program
-//     „jede a nic se neděje". Přepínač těla (jdi 10 kroků × jen řekni) to předvede.
+//     „jede a nic se neděje". Přepínač těla (dopředu o 10 kroků × jen bublina) to předvede.
 //
 // Souřadnice i počty jsou celá čísla. Stav po n průchodech je ČISTÁ FUNKCE — celý program
 // se dá ověřit výpočtem bez prohlížeče (testy/simulace/opakovani.mjs).
@@ -33,7 +33,7 @@
 			<circle cx="0" cy="80" r="17" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
 			<text x="0" y="86" text-anchor="middle" font-size="17">🐱</text>
 		</g>
-		<text id="opa-bublina" x="0" y="42" text-anchor="middle" font-size="13" font-weight="bold" fill="#2f9e44"></text>
+		<text id="opa-bublina" x="0" y="42" text-anchor="middle" font-size="13" font-weight="bold" fill="#1b7a33"></text>
 
 		<!-- počítadla -->
 		<rect x="20" y="160" width="230" height="44" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
@@ -45,13 +45,13 @@
 		<text x="286" y="188" font-size="14" font-weight="bold" fill="#495057">podmínka teď</text>
 		<text id="opa-podminka" x="440" y="188" text-anchor="middle" font-size="15" font-weight="bold" fill="#c92a2a">NE</text>
 
-		<text id="opa-hlaska" x="270" y="235" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44"></text>
-		<text id="opa-poznamka" x="270" y="262" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
+		<text id="opa-hlaska" x="270" y="235" text-anchor="middle" font-size="15" font-weight="bold" fill="#1b7a33"></text>
+		<text id="opa-poznamka" x="270" y="262" text-anchor="middle" font-size="13" font-weight="bold" fill="#495057"></text>
 	</svg>
 
 	<p class="opa-radek">
 		<strong>Smyčka:</strong>
-		<button type="button" class="opa-tl opa-smycka opa-aktivni" data-smycka="dokud">opakuj, dokud nenastane ⟨dotýkáš se okraje?⟩</button>
+		<button type="button" class="opa-tl opa-smycka opa-aktivni" data-smycka="dokud">opakuj dokud nenastane ⟨dotýkáš se okraje?⟩</button>
 		<button type="button" class="opa-tl opa-smycka" data-smycka="krat">opakuj (10) krát</button>
 		<button type="button" class="opa-tl opa-smycka" data-smycka="stale">opakuj stále</button>
 	</p>
@@ -62,7 +62,7 @@
 	</p>
 	<p class="opa-radek">
 		<strong>Uvnitř smyčky:</strong>
-		<button type="button" class="opa-tl opa-telo opa-aktivni" data-telo="jdi">jdi 10 kroků</button>
+		<button type="button" class="opa-tl opa-telo opa-aktivni" data-telo="jdi">dopředu o 10 kroků</button>
 		<button type="button" class="opa-tl opa-telo" data-telo="rekni">jen bublina „jedu…"</button>
 	</p>
 	<p class="opa-radek">
@@ -94,8 +94,8 @@
 	// jenže pojistka proti nekonečné smyčce se spouští po 30 — smyčka by nikdy nedojela
 	// a „opakuj dokud" by vypadalo jako nekonečné (našel to test).
 	const X_DALEKO = 260;
-	const X_U_OKRAJE = 460;   // postava se už dotýká zdi
-	const OKRAJ = 460;        // od téhle souřadnice platí „dotýkáš se okraje?"
+	const X_U_OKRAJE = 453;   // postava se už dotýká zdi
+	const OKRAJ = 453;        // od téhle souřadnice platí „dotýkáš se okraje?"
 	const POCET_KRAT = 10;    // „opakuj (10) krát"
 	// Strop průchodů: nekonečná smyčka se musí NĚKDE zastavit, jinak by zamrzla stránka.
 	// Není to součást učiva, je to pojistka — a je vidět ve stavovém řádku.
@@ -147,11 +147,11 @@
 
 	function programRadky() {
 		const hlava = {
-			dokud: 'opakuj, dokud nenastane ⟨dotýkáš se okraje?⟩',
+			dokud: 'opakuj dokud nenastane ⟨dotýkáš se okraje?⟩',
 			krat: `opakuj (${POCET_KRAT}) krát`,
 			stale: 'opakuj stále',
 		}[volby.smycka];
-		const telo = volby.telo === 'jdi' ? 'jdi 10 kroků' : 'bublina „jedu…"';
+		const telo = volby.telo === 'jdi' ? 'dopředu o 10 kroků' : 'bublina „jedu…"';
 		return [
 			{ text: 'po kliknutí na 🏳', uroven: 0 },
 			{ text: hlava, uroven: 0 },
@@ -176,18 +176,36 @@
 		bublinaEl.textContent = volby.telo === 'rekni' && stav.pruchody > 0 && !stav.konec ? 'jedu…' : '';
 		pruchodyEl.textContent = String(stav.pruchody);
 		const platí = naOkraji(stav.x);
-		podminkaEl.textContent = platí ? 'ANO — dotýká se okraje' : 'NE — okraje se nedotýká';
-		podminkaEl.setAttribute('fill', platí ? '#2f9e44' : '#c92a2a');
+		// Znění musí odpovídat bloku v paletě („dotýkáš se %1?"), ne 3. osobě —
+		// jinak žák hledá v paletě blok, který tam takhle pojmenovaný není.
+		// Krátce: dlouhé znění přeteklo rámeček o 14 px a překrylo i vlastní popisek.
+		// U smyček, které se na nic neptají, se panel zašedí — jinak u „opakuj (10) krát"
+		// svítilo „podmínka teď: ANO", ačkoli v programu žádná podmínka není.
+		const maPodminku = volby.smycka === 'dokud';
+		podminkaEl.textContent = maPodminku ? (platí ? 'ANO ✓' : 'NE ✗') : 'tahle smyčka se neptá';
+		podminkaEl.setAttribute('fill', !maPodminku ? '#868e96' : platí ? '#2b8a3e' : '#c92a2a');
 
 		if (stav.duvod === 'podminka') hlaskaEl.textContent = 'Podmínka je splněná → smyčka skončila.';
 		else if (stav.duvod === 'pocet') hlaskaEl.textContent = `Proběhlo ${POCET_KRAT} opakování → smyčka skončila.`;
-		else if (stav.duvod === 'strop') hlaskaEl.textContent = 'Program pořád jede a nic se nemění — to je nekonečná smyčka.';
+		else if (stav.duvod === 'strop') {
+			// Dvě různé situace, které dřív dostávaly TUTÉŽ hlášku — a u „opakuj stále"
+			// byla nepravdivá: postava ujela 200 px, takže se nedá říct, že se nic nemění;
+			// ona tam prostě žádná podmínka není (nález nezávislého kontrolora).
+			hlaskaEl.textContent =
+				volby.smycka === 'stale'
+					? '⏹ Blok „opakuj stále" nemá skončit — zastavila ho pojistka simulace, ne program.'
+					: '⏹ Uvnitř se nemění nic, co by podmínku splnilo → nekonečná smyčka. Zastavila ji pojistka.';
+		}
 		else hlaskaEl.textContent = stav.pruchody > 0 ? 'Tělo smyčky proběhlo, ptáme se znovu…' : '';
 
+		// Poznámka dřív u „opakuj stále" tvrdila „a taky neskončí" i ve chvíli, kdy
+		// počítadlo stálo a program byl zastavený pojistkou — přímý rozpor s obrazovkou.
 		poznamkaEl.textContent =
-			volby.smycka === 'stale'
-				? 'blok „opakuj stále" nemá skončit — a taky neskončí'
-				: `tělo smyčky proběhlo ${stav.pruchody}×`;
+			stav.duvod === 'strop'
+				? `zastaveno pojistkou simulace po ${STROP} průchodech (ne programem)`
+				: volby.smycka === 'stale'
+					? 'blok „opakuj stále" nemá skončit — poběží, dokud ho něco nezastaví'
+					: `tělo smyčky proběhlo ${stav.pruchody}×`;
 		vypisProgram();
 	}
 
@@ -213,14 +231,18 @@
 		stav = jedenPruchod(stav, volby);
 		if (stav.konec) zastav();
 		prekresli();
-		stavEl.innerHTML = popisStavu();
+		// Skončený program nesmí mlčky ignorovat klikání (nález kontrolora: tlačítka
+		// po konci nedělala nic a žák nevěděl proč).
+		stavEl.innerHTML = popisStavu() + (stav.konec ? ' <em>Program skončil — klikni na ↺ na začátek.</em>' : '');
 	}
 
 	function reset() {
 		zastav();
 		stav = stavPoPruchodech(0, volby);
 		prekresli();
-		stavEl.innerHTML = popisStavu();
+		// Skončený program nesmí mlčky ignorovat klikání (nález kontrolora: tlačítka
+		// po konci nedělala nic a žák nevěděl proč).
+		stavEl.innerHTML = popisStavu() + (stav.konec ? ' <em>Program skončil — klikni na ↺ na začátek.</em>' : '');
 	}
 
 	btnKrok.addEventListener('click', () => {
