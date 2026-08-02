@@ -9,6 +9,7 @@ import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
 import { zkontrolujUniky } from './testy/uniky.mjs';
+import { zkontrolujSablony } from './testy/sablony.mjs';
 import { zkontrolujRejstrik } from './testy/obousmerne.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -328,6 +329,22 @@ if (rejstrik.chybi.length > stropBezDokladu) {
 	varovani.push(`měřidel bez obousměrného důkazu ubylo na ${rejstrik.chybi.length} — laťka utažena (testy/obousmerne.json).`);
 }
 
+// 6i) SAHÁ SKRIPT SIMULACE NA PRVEK, KTERÝ V ŠABLONĚ NENÍ? (2. 8. 2026)
+// Nález nezávislého kontrolora: testy simulací čtou z komponenty jen <script> a jejich
+// atrapa DOM chybějící prvek tiše vyrobí — komponenta se smazanou scénou i všemi tlačítky
+// jimi prošla jako ZDRAVÁ. Měření ukázalo tutéž díru v 11 z 12 testů. Opravovat každý test
+// zvlášť by nepomohlo (u příští simulace se na to zapomene), proto se to hlídá centrálně
+// nad všemi komponentami — i budoucími, bez jediného řádku navíc.
+// Je to TVRDÁ chyba: v prohlížeči takový prvek navždy chybí a simulace mlčky nefunguje.
+const sablony = zkontrolujSablony();
+if (sablony.nalezy.length) {
+	chyby.push(
+		`skript simulace sahá na prvek, který v šabloně není: ` +
+			sablony.nalezy.map((n) => `${n.jmeno} — ${n.druh} „${n.co}"`).join('; ') +
+			`. Seznam: node testy/sablony.mjs`,
+	);
+}
+
 // Výpis česky
 console.log(
 	`Mapy deníku: ${mapy.pohledu} pohledů, ${mapy.nalezy.length} překryvů popisků` +
@@ -340,6 +357,7 @@ console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.lengt
 // takhle celá společná mapa neměřila vůbec, u filtru falešných poplachů se kontrola
 // volala jen u fotek). Kontrola, která nic neprošla, musí být poznat na první pohled.
 console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
+console.log(`Šablony simulací: prošlo ${sablony.souboru} komponent — ${sablony.nalezy.length} prvků, které skript hledá a šablona nemá.`);
 console.log(`Měřidla: ${rejstrik.dolozeno} z ${rejstrik.meridel} má doložené obousměrné ověření${rejstrik.chybi.length ? ` (bez dokladu: ${rejstrik.chybi.join(', ')})` : ''}.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {

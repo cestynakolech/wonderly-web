@@ -45,6 +45,14 @@
 			"zdravy": "Vzdálené popisky mají překryv 0; nad daty webu 186 pohledů a 0 nálezů.",
 			"regrese": "Rámeček musí růst s délkou jména, jinak by dlouhý název ('Vaulnaveys-le-Haut') nikdy nepřetekl — a přesně ten popisek přetékal ve všech čtyřech jazycích. Mutace na konstantní šířku test shodí.",
 			"overeno": "2026-08-02"
+		},
+		"sablony.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Prvek smazaný ze šablony, na který skript sahá (id=\"uda-scenare\"), se najde; stejně tak přepínač, po jehož odstranění neodpovídá selektoru .uda-mic ani jeden prvek. Ověřeno i na skutečné komponentě, ne jen na kostře.",
+			"zdravy": "Nad všemi 78 komponentami simulací 0 nálezů.",
+			"regrese": "TŘI SKUTEČNÉ FALEŠNÉ POPLACHY první verze: prvky, které si kód vyrábí sám za běhu (BinarniSimulace `className = 'bin-zarovka'`, PraceSimulace `classList.add('prc-vyber')`, TezisteSimulace `class=\"tez-bod\"` v innerHTML), NESMÍ být nález — v šabloně nejsou a přesto jsou v pořádku. Nesmí být nálezem ani zmínka v komentáři. Návrat k „hledej jen v HTML\" test shodí.",
+			"duvod": "Testy simulací čtou z komponenty jen <script> a jejich atrapa DOM chybějící prvek tiše vyrobí, takže komponenta se smazanou scénou i všemi tlačítky testem prošla jako zdravá. Měření ukázalo tutéž díru v 11 z 12 testů — proto kontrola nad všemi komponentami naráz, ne oprava jednotlivých testů.",
+			"overeno": "2026-08-02"
 		}
 	}
 }
