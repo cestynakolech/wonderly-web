@@ -1,0 +1,363 @@
+---
+// Události a vstupy (informatika 7): žluté klobouky „po kliknutí na 🏁",
+// „po stisku klávesy …", „po kliknutí na mě".
+//
+// Tři pointy, které stojí přímo ve výkladu, a všechny tři jsou tu VIDĚT:
+//  1. Program řízený událostmi nejede „od začátku do konce" — čeká, až žák něco udělá.
+//     Dokud událost nenastane, nestane se nic.
+//  2. Scénářů běží víc NARÁZ: jedna zelená vlajka rozjede kočku i míč ve stejný okamžik.
+//  3. NEJDŮLEŽITĚJŠÍ: postava bez klobouku události se nerozjede vůbec. Přepínač nechá
+//     míči jeho bloky, jen mu vezme klobouk — bloky pak jen leží a nemá je co spustit.
+//     Aby to bylo vidět, přepnutí schválně NEVRACÍ postavy na start: míč zůstane trčet
+//     tam, kam ho žák naklikal, a zelená vlajka s ním už nehne.
+//
+// Souřadnice jsou celá čísla ve scratchovské soustavě (x −240…240, y −180…180),
+// kreslení je čistá funkce `naScenu` se stejným měřítkem pro obě osy.
+// Stav po libovolné posloupnosti událostí je čistá funkce → jde ověřit výpočtem
+// bez prohlížeče (testy/simulace/udalosti.mjs).
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n, ověřeno 2. 8. 2026).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kdo poslouchá? ⌨️🖱️</span></h2>
+	<p>
+		Program čeká na <strong>událost</strong>. Vyvolej ji tlačítkem (nebo klikni do scény
+		a použij <strong>šipky</strong> a <strong>mezerník</strong>) a sleduj, které scénáře
+		se rozsvítí — a hlavně <strong>kolik jich je naráz</strong>.
+	</p>
+
+	<svg id="uda-svg" viewBox="0 0 400 300" tabindex="0" role="group"
+		aria-label="Scéna Scratche s kočkou a míčem. Ovládá se šipkou vlevo, šipkou vpravo a mezerníkem, nebo tlačítky pod scénou.">
+		<rect x="1" y="1" width="398" height="298" fill="#fff" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<!-- osy středu scény, aby bylo poznat, kde je (0, 0) -->
+		<path d="M 200 8 v 284 M 8 150 h 384" stroke="#dee2e6" stroke-width="2" fill="none" />
+
+		<g id="uda-mic-g" style="cursor: pointer">
+			<circle id="uda-mic" cx="0" cy="0" r="15" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+			<text id="uda-mic-ikona" x="0" y="6" text-anchor="middle" font-size="18">⚽</text>
+		</g>
+		<text id="uda-mic-popis" x="0" y="0" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text>
+
+		<g id="uda-kocka-g">
+			<circle id="uda-kocka" cx="0" cy="0" r="19" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<text id="uda-kocka-ikona" x="0" y="7" text-anchor="middle" font-size="20">🐱</text>
+		</g>
+		<text id="uda-kocka-popis" x="0" y="0" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text>
+		<text id="uda-bublina" x="0" y="0" text-anchor="middle" font-size="14" font-weight="bold" fill="#1b7a33"></text>
+
+		<text id="uda-navod" x="200" y="290" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">
+			klikni do scény a ovládej šipkami a mezerníkem
+		</text>
+	</svg>
+
+	<p class="uda-radek">
+		<strong>Vyvolej událost:</strong>
+		<button type="button" class="uda-tl uda-udalost uda-hraj" data-udalost="vlajka">🏁 klik na zelenou vlajku</button>
+		<button type="button" class="uda-tl uda-udalost" data-udalost="vlevo">⌨️ šipka vlevo</button>
+		<button type="button" class="uda-tl uda-udalost" data-udalost="vpravo">⌨️ šipka vpravo</button>
+		<button type="button" class="uda-tl uda-udalost" data-udalost="mezernik">⌨️ mezerník</button>
+		<button type="button" class="uda-tl uda-udalost" data-udalost="klikMic">🖱️ klik na míč</button>
+	</p>
+	<p class="uda-radek">
+		<strong>Míč:</strong>
+		<button type="button" class="uda-tl uda-mic uda-aktivni" data-mic="ano">má scénáře s událostí</button>
+		<button type="button" class="uda-tl uda-mic" data-mic="ne">stejné bloky, ale bez klobouku</button>
+	</p>
+	<p class="uda-radek">
+		<button type="button" class="uda-tl" id="uda-reset">↺ na začátek</button>
+	</p>
+
+	<div id="uda-scenare" class="uda-scenare"></div>
+	<p class="uda-stav" id="uda-stav" aria-live="polite">
+		Zkus nejdřív <strong>🏁 zelenou vlajku</strong> — kolik scénářů se rozsvítí naráz?
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('uda-svg');
+	const kockaG = document.getElementById('uda-kocka-g');
+	const kockaPopis = document.getElementById('uda-kocka-popis');
+	const micG = document.getElementById('uda-mic-g');
+	const micPopis = document.getElementById('uda-mic-popis');
+	const bublinaEl = document.getElementById('uda-bublina');
+	const scenareEl = document.getElementById('uda-scenare');
+	const stavEl = document.getElementById('uda-stav');
+	const btnReset = document.getElementById('uda-reset');
+
+	const KROK = 10;          // „změň x o 10"
+	const SKOK_MICE = 20;     // „změň y o 20"
+	// Scéna Scratche je 480 × 360, tedy x od −240 do 240 a y od −180 do 180. Postavu ale
+	// Scratch nepustí ven ze scény — u okraje ji zastaví. Držíme ji tak, aby byla vidět
+	// CELÁ (jinak by kočka na kraji vylezla z rámečku a vypadalo by to jako chyba).
+	const OKRAJ_X = 210;
+	const OKRAJ_Y = 150;
+	const MERITKO = 5 / 6;    // 480 × 360 jednotek scény se kreslí jako 400 × 300 px
+	// Kočka jezdí po spodní dráze, míč stoupá nad ní — dráhy se nesmí protnout, jinak by
+	// obě postavy stály na témže bodě a překryly by se i s popisky souřadnic.
+	const START_KOCKA = { x: -140, y: -100 };
+	const START_MIC = { x: 140, y: -20 };
+
+	/** Souřadnice scény → bod na obrázku. Stejné měřítko obou os (kruh zůstane kruhem). */
+	function naScenu(x, y) {
+		return { px: 200 + x * MERITKO, py: 150 - y * MERITKO };
+	}
+
+	/** Popisek se u kraje scény nesmí utrhnout ven z rámečku. */
+	function vRamci(px) {
+		return Math.min(360, Math.max(40, px));
+	}
+
+	/** Které klávesy jsou v programu použité? Mimo ně se nemá dít nic. */
+	function udalostZKlavesy(klavesa) {
+		if (klavesa === 'ArrowLeft') return 'vlevo';
+		if (klavesa === 'ArrowRight') return 'vpravo';
+		if (klavesa === ' ' || klavesa === 'Spacebar') return 'mezernik';
+		return null;
+	}
+
+	/**
+	 * Všechny scénáře obou postav. Vypnutý přepínač míči bloky NEBERE — bere mu jen
+	 * klobouk události, takže zůstanou ležet a nemá je co spustit. Přesně to je pointa.
+	 */
+	function scenare(volby) {
+		const kocka = [
+			{ id: 'k-vlajka', postava: '🐱 kočka', udalost: 'vlajka', klobouk: 'po kliknutí na 🏁',
+				telo: ['skoč na x: (-140) y: (-100)', 'bublina ()'] },
+			{ id: 'k-vpravo', postava: '🐱 kočka', udalost: 'vpravo', klobouk: 'po stisku klávesy (šipka vpravo)',
+				telo: ['změň x o 10'] },
+			{ id: 'k-vlevo', postava: '🐱 kočka', udalost: 'vlevo', klobouk: 'po stisku klávesy (šipka vlevo)',
+				telo: ['změň x o -10'] },
+			{ id: 'k-mezera', postava: '🐱 kočka', udalost: 'mezernik', klobouk: 'po stisku klávesy (mezerník)',
+				telo: ['bublina „mňau!"'] },
+		];
+		const mic = volby.micMaUdalosti
+			? [
+				{ id: 'm-vlajka', postava: '⚽ míč', udalost: 'vlajka', klobouk: 'po kliknutí na 🏁',
+					telo: ['skoč na x: (140) y: (-20)'] },
+				{ id: 'm-klik', postava: '⚽ míč', udalost: 'klikMic', klobouk: 'po kliknutí na mě',
+					telo: ['změň y o 20'] },
+			]
+			: [
+				{ id: 'm-bez-1', postava: '⚽ míč', udalost: null, klobouk: null, telo: ['skoč na x: (140) y: (-20)'] },
+				{ id: 'm-bez-2', postava: '⚽ míč', udalost: null, klobouk: null, telo: ['změň y o 20'] },
+			];
+		return [...kocka, ...mic];
+	}
+
+	/** Které scénáře tahle událost spustí? Scénář bez klobouku (udalost === null) nikdy. */
+	function scenareProUdalost(udalost, volby) {
+		return scenare(volby).filter((s) => s.udalost !== null && s.udalost === udalost).map((s) => s.id);
+	}
+
+	/** Jeden scénář = jeden krok programu. Čistá funkce stavu. */
+	function provedScenar(stav, id) {
+		if (id === 'k-vlajka') return { ...stav, kocka: { ...START_KOCKA }, bublina: '' };
+		if (id === 'k-vpravo') return { ...stav, kocka: { ...stav.kocka, x: Math.min(OKRAJ_X, stav.kocka.x + KROK) } };
+		if (id === 'k-vlevo') return { ...stav, kocka: { ...stav.kocka, x: Math.max(-OKRAJ_X, stav.kocka.x - KROK) } };
+		if (id === 'k-mezera') return { ...stav, bublina: 'mňau!' };
+		if (id === 'm-vlajka') return { ...stav, mic: { ...START_MIC } };
+		if (id === 'm-klik') return { ...stav, mic: { ...stav.mic, y: Math.min(OKRAJ_Y, stav.mic.y + SKOK_MICE) } };
+		return stav;
+	}
+
+	/** Událost spustí VŠECHNY své scénáře — proto se tu prochází seznam, ne jeden scénář. */
+	function provedUdalost(stav, udalost, volby) {
+		const spustene = scenareProUdalost(udalost, volby);
+		let novy = stav;
+		for (const id of spustene) novy = provedScenar(novy, id);
+		return { ...novy, spustene, posledni: udalost, celkem: stav.celkem + spustene.length };
+	}
+
+	/** Stav po posloupnosti událostí od úplného začátku. Čistá funkce. */
+	function stavPoUdalostech(seznam, volby) {
+		let stav = { kocka: { ...START_KOCKA }, mic: { ...START_MIC }, bublina: '', spustene: [], posledni: null, celkem: 0 };
+		for (const u of seznam) stav = provedUdalost(stav, u, volby);
+		return stav;
+	}
+
+	let volby = { micMaUdalosti: true };
+	let stav = stavPoUdalostech([], volby);
+
+	function vypisScenare() {
+		scenareEl.textContent = '';
+		for (const s of scenare(volby)) {
+			const blok = document.createElement('div');
+			blok.className = 'uda-scenar' + (stav.spustene.includes(s.id) ? ' uda-nyni' : '') + (s.klobouk ? '' : ' uda-bezklobouku');
+			const hlava = document.createElement('p');
+			hlava.className = 'uda-postava';
+			hlava.textContent = s.postava;
+			blok.appendChild(hlava);
+			if (s.klobouk) {
+				const k = document.createElement('p');
+				k.className = 'uda-klobouk';
+				k.textContent = s.klobouk;
+				blok.appendChild(k);
+			} else {
+				const k = document.createElement('p');
+				k.className = 'uda-chybi';
+				k.textContent = '(žádný klobouk události)';
+				blok.appendChild(k);
+			}
+			for (const radek of s.telo) {
+				const r = document.createElement('p');
+				r.className = 'uda-blok';
+				r.textContent = radek;
+				blok.appendChild(r);
+			}
+			scenareEl.appendChild(blok);
+		}
+	}
+
+	function prekresli() {
+		const k = naScenu(stav.kocka.x, stav.kocka.y);
+		kockaG.setAttribute('transform', `translate(${k.px} ${k.py})`);
+		kockaPopis.setAttribute('x', String(vRamci(k.px)));
+		kockaPopis.setAttribute('y', String(k.py + 36));
+		kockaPopis.textContent = `x: ${stav.kocka.x}  y: ${stav.kocka.y}`;
+
+		const m = naScenu(stav.mic.x, stav.mic.y);
+		micG.setAttribute('transform', `translate(${m.px} ${m.py})`);
+		micPopis.setAttribute('x', String(vRamci(m.px)));
+		micPopis.setAttribute('y', String(m.py - 24));
+		micPopis.textContent = `x: ${stav.mic.x}  y: ${stav.mic.y}`;
+
+		bublinaEl.setAttribute('x', String(vRamci(k.px)));
+		bublinaEl.setAttribute('y', String(k.py - 28));
+		bublinaEl.textContent = stav.bublina;
+
+		vypisScenare();
+	}
+
+	/** Jak se poslední událost jmenuje česky (do hlášky). */
+	function nazevUdalosti(u) {
+		return {
+			vlajka: 'Zelená vlajka 🏁',
+			vlevo: 'Stisk klávesy šipka vlevo',
+			vpravo: 'Stisk klávesy šipka vpravo',
+			mezernik: 'Stisk klávesy mezerník',
+			klikMic: 'Kliknutí na míč',
+		}[u] ?? '';
+	}
+
+	function popisStavu() {
+		if (stav.posledni === null) {
+			// Úvodní věta se musí lišit podle režimu: bez klobouku se žádné „naráz" nestane.
+			// A nesmí posílat na 🏁 hned na startu — tam obě postavy už na svém místě stojí,
+			// takže by se ve scéně nezměnilo nic a pointa by vyzněla do prázdna.
+			return volby.micMaUdalosti
+				? 'Posuň kočku <strong>šipkami</strong> a klikni na <strong>míč</strong>. Pak zkus <strong>🏁</strong> a sleduj, kolik scénářů se rozsvítí naráz.'
+				: 'Zkus <strong>🏁</strong> nebo klikni na míč — uvidíš, že se rozjede jen kočka.';
+		}
+		const kolik = stav.spustene.length;
+		const nazev = nazevUdalosti(stav.posledni);
+		if (kolik === 0) {
+			// Pozor na přesnost: scénář bez klobouku jde ve Scratchi spustit ručně kliknutím
+			// přímo na něj v ploše skriptů. Nespustí se jen SÁM OD SEBE, žádnou událostí.
+			return `${nazev}: <strong>nespustil se žádný scénář</strong> — míč nemá klobouk, který by na tuhle událost čekal. Jeho bloky zůstaly ležet a <strong>sama od sebe je nespustí žádná událost</strong>.`;
+		}
+		if (kolik > 1) {
+			return `${nazev} → rozjely se <strong>${kolik} scénáře NARÁZ</strong>, každý u své postavy. Program nejede po řádcích shora dolů, reaguje.`;
+		}
+		if (stav.posledni === 'vlajka' && !volby.micMaUdalosti) {
+			return `${nazev} → spustil se <strong>jediný scénář</strong> (kočka). <strong>Míč zůstal, kde byl</strong> — bez klobouku události ho nemá co rozjet.`;
+		}
+		// Zaražený míč: scénář opravdu běžel, jen ho scéna nepustí dál. Bez téhle věty by to
+		// vypadalo úplně stejně jako „nespustil se žádný scénář" — a to je právě to, co má
+		// stránka učit rozlišovat.
+		if (stav.posledni === 'klikMic' && stav.mic.y === OKRAJ_Y) {
+			return `${nazev} → scénář se spustil, ale <strong>míč je už u horního okraje</strong> a dál ho scéna nepustí.`;
+		}
+		return `${nazev} → spustil se <strong>1 scénář</strong>. Ostatní scénáře čekají na svou událost.`;
+	}
+
+	function napoveda() {
+		if (volby.micMaUdalosti && stav.mic.y > START_MIC.y) {
+			return ' 💡 Teď přepni míč na <strong>„bez klobouku"</strong> a zkus 🏁.';
+		}
+		return '';
+	}
+
+	function ukazStav() {
+		const pocitadlo = stav.celkem > 0 ? ` <span class="uda-pocet">Spuštěných scénářů celkem: ${stav.celkem}</span>` : '';
+		stavEl.innerHTML = popisStavu() + napoveda() + pocitadlo;
+	}
+
+	function udalost(jmeno) {
+		stav = provedUdalost(stav, jmeno, volby);
+		prekresli();
+		ukazStav();
+	}
+
+	for (const tl of document.querySelectorAll('.uda-udalost')) {
+		tl.addEventListener('click', () => udalost(tl.dataset.udalost));
+	}
+	// Klik přímo na míč ve scéně dělá totéž co tlačítko — přesně tak se blok „po kliknutí
+	// na mě" ve Scratchi spouští. Když míč klobouk nemá, událost sice nastane, ale nikdo
+	// ji neposlouchá (a simulace to napíše).
+	micG.addEventListener('click', () => udalost('klikMic'));
+
+	// Klávesnice funguje, až když je scéna zaměřená — jinak by simulace kradla stránce
+	// šipky a mezerník při běžném rolování.
+	svg.addEventListener('keydown', (e) => {
+		const jmeno = udalostZKlavesy(e.key);
+		if (!jmeno) return;
+		e.preventDefault();
+		udalost(jmeno);
+	});
+
+	for (const tl of document.querySelectorAll('.uda-mic')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.uda-mic')) j.classList.remove('uda-aktivni');
+			tl.classList.add('uda-aktivni');
+			// Schválně BEZ návratu na start: kdyby se postavy vracely, nebylo by vidět,
+			// že s míčem bez klobouku už zelená vlajka nehne.
+			volby = { micMaUdalosti: tl.dataset.mic === 'ano' };
+			stav = { ...stav, spustene: [], posledni: null };
+			prekresli();
+			stavEl.innerHTML = volby.micMaUdalosti
+				? 'Míč má zase své klobouky událostí — zkus 🏁 a klik na míč.'
+				: 'Míči zůstaly <strong>stejné bloky</strong>, jen bez klobouku události. Zkus teď 🏁 nebo klik na míč.';
+		});
+	}
+
+	btnReset.addEventListener('click', () => {
+		stav = stavPoUdalostech([], volby);
+		prekresli();
+		ukazStav();
+	});
+
+	prekresli();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__scenare = scenare;
+	svg.__scenareProUdalost = scenareProUdalost;
+	svg.__provedUdalost = provedUdalost;
+	svg.__stavPoUdalostech = stavPoUdalostech;
+	svg.__udalostZKlavesy = udalostZKlavesy;
+	svg.__naScenu = naScenu;
+	svg.__vRamci = vRamci;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { KROK, SKOK_MICE, OKRAJ_X, OKRAJ_Y, MERITKO, START_KOCKA, START_MIC };
+</script>
+
+<style>
+	#uda-svg { width: 100%; max-width: 400px; border-radius: 12px; background: #f8f9fa; display: block; }
+	#uda-svg:focus { outline: 3px dashed #1971c2; outline-offset: 3px; }
+	.uda-radek { margin: 0.6rem 0; }
+	.uda-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.uda-tl.uda-aktivni { background: #ffe8cc; }
+	.uda-tl.uda-hraj { background: #d3f9d8; }
+	.uda-tl:active { transform: translateY(1px); }
+	.uda-scenare { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.4rem 0; }
+	.uda-scenar { border: 3px solid #2b2a26; border-radius: 10px; padding: 0.35rem 0.5rem; background: #fff; min-width: 11rem; }
+	.uda-scenar.uda-nyni { background: #fff3bf; outline: 3px dashed #f08c00; }
+	.uda-scenar.uda-bezklobouku { border-style: dashed; background: #f1f3f5; }
+	.uda-scenar p { margin: 0.1rem 0; }
+	.uda-postava { font-size: 0.85rem; font-weight: 700; color: #495057; }
+	.uda-klobouk { font-weight: 700; background: #ffd43b; border-radius: 8px 8px 4px 4px; padding: 0.1rem 0.4rem; }
+	.uda-chybi { font-weight: 700; color: #c92a2a; }
+	.uda-blok { font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.4rem; margin-left: 0.5rem !important; }
+	.uda-pocet { display: inline-block; background: #e9ecef; border-radius: 8px; padding: 0 0.45rem; color: #495057; }
+	.uda-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>

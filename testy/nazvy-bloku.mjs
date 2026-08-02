@@ -66,6 +66,11 @@ export const ZAKAZANE = [
 	// bere jako nula, takže by se žákovi vypsalo holé číslo bez nápisu. Na spojování textu
 	// je vlastní blok „spoj". Hlídá se text v uvozovkách, za kterým následuje plus.
 	{ vzor: /[„"][^„"]*[""]\s*\+/, spravne: 'spoj ( ) ( )', zdroj: 'OPERATORS_JOIN = spoj %1 %2 (OPERATORS_ADD = %1 + %2 je počty)' },
+	// Nález nezávislého kontrolora 2. 8. 2026: web na třech místech pojmenovával klobouk
+	// zprávy jako „po přijetí zprávy". Paleta má „po obdržení zprávy" a stránky si tím
+	// protiřečily navzájem. Hlídá se jen tvar s „po", protože „přijetí zprávy" jako POPIS
+	// JEVU („událostí je i přijetí zprávy") je česky správně a hlásit se nesmí.
+	{ vzor: 'po přijetí zprávy', spravne: 'po obdržení zprávy …', zdroj: 'EVENT_WHENBROADCASTRECEIVED = po obdržení zprávy %1' },
 	{ vzor: 'pero dolů', spravne: 'pero zapni', zdroj: 'pen_penDown = pero zapni' },
 	{ vzor: 'pero nahoru', spravne: 'pero vypni', zdroj: 'pen_penUp = pero vypni' },
 	{ vzor: 'a zároveň (', spravne: 'a', zdroj: 'OPERATORS_AND = %1 a %2' },
@@ -101,7 +106,7 @@ function popisVzoru(vzor) {
  * v české paletě neexistuje. Brána byla přitom zelená. Našel to až nezávislý kontrolor.
  * Je to učebnicový příklad vzorce „opatření platí jen na část případů".
  */
-const SIMULACE_SE_SCRATCHEM = ['VetveniSimulace', 'OpakovaniSimulace', 'PromenneSimulace', 'SouradniceSimulace', 'LedDisplejSimulace'];
+const SIMULACE_SE_SCRATCHEM = ['VetveniSimulace', 'OpakovaniSimulace', 'PromenneSimulace', 'SouradniceSimulace', 'LedDisplejSimulace', 'UdalostiSimulace'];
 
 export async function zkontrolujNazvyBloku(data) {
 	const { kvizy, temata } = data ?? (await nactiData());
