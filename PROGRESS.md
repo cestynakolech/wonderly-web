@@ -123,6 +123,33 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-02 odpoledne (celková oprava kontroly šablon — přestat hádat, začít měřit)** —
+  Učitel vytkl: *„stále něco opravuješ a zůstává to neopravené… navrhni celkovou opravu."*
+  Měl pravdu. Kontrola, která hlídá, že skript simulace nesahá na neexistující prvek, se
+  opravovala třikrát, protože **hádala regulárními výrazy**. Na každý další způsob zápisu
+  (`$(id)`, `<script is:inline>`, `querySelector('#x')`) by musel přibýt nový vzor a ten
+  chybějící by byl tichá díra. Doloženo kontrolorem: **270 z 945 vyhledání nebylo měřeno
+  vůbec** a u čtyř komponent šlo smazat CELOU scénu, aniž brána cekla.
+  **Řešení není další vzor, ale jiný princip:** skript se SPUSTÍ nad DOMem postaveným ze
+  skutečné šablony, každý dotaz na prvek se zaznamená a porovná. Je jedno, jak si prvek
+  hledá — měří se výsledek. Tentýž posun jako u kvízů (*číst data, ne text souboru*).
+  Změřeno **5101 vyhledání místo 675**, pokrytí **977 z 983 (99,4 %)**, obousměrný test
+  **24 → 54 kontrol**, a hlavně: ze šesti mutací měřidla test dřív neshodila ani jedna,
+  dnes shodí **všech šest**.
+  **Druhé kolo kontroly našlo další vrstvu:** měřil se jen kód doběhlý při NAČTENÍ — obsluha
+  tlačítek, `setTimeout` ani `requestAnimationFrame` se nikdy nezavolaly, takže 32 vyhledání
+  v devíti komponentách zůstalo slepých (mj. celá tyč rotoru u elektromotoru). Nově se
+  posluchači po doběhnutí jednou spustí. Dál: komponenta bez jediného měření je tvrdá chyba
+  (celý skript v `DOMContentLoaded` dosud prošel mlčky), jediné `class={…}` už neumlčí
+  kontrolu id celé komponenty, zakomentovaná scéna se nepočítá jako existující prvek,
+  prvek nikdy nevložený do stránky nezakryje vadu, každý `<script>` běží zvlášť.
+  **Poctivě zapsaná mez:** změřit jde jen kód, který se opravdu provede — šest vyhledání je
+  ve větvích, kam běh nedojde. To není vada měřidla, ale hranice metody.
+  **Vlastní chyba dne:** podvrh v repu jsem vracel přes `git checkout`, jenže přepis měřidla
+  ještě nebyl commitnutý — **zahodil jsem tím celou práci** a brána pak běžela zase na staré
+  slepé verzi, takže vypadala, že podvrh nenajde. Poučení: podvrhy patří na KOPIE, a když už
+  do repa, tak jen nad commitnutým stavem.
+
 - **2026-08-02 odpoledne (informatika 7 — události a vstupy; a proč se kontrolor nesmí
   poslouchat slepě)** — Nová simulace `UdalostiSimulace` u podtématu `udalosti-a-vstupy`.
   Scéna s kočkou a míčem, události se vyvolávají tlačítky i skutečnou klávesnicí (šipky,

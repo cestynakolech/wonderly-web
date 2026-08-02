@@ -1,6 +1,53 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026 odpoledne — události a vstupy, kolo C1)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026 odpoledne — CELKOVÁ oprava kontroly šablon, kolo C2)
+
+> **Výtka učitele:** *„stále něco opravuješ a zůstává to neopravené… navrhni celkovou opravu."*
+> Byla oprávněná. Kontrola šablon se opravovala třikrát a pokaždé se ukázalo, že hádá.
+
+**Co bylo špatně (v jádru, ne v jednotlivostech):** měřidlo hledalo volání prvků
+**regulárními výrazy**. Na každý další způsob zápisu (`$(id)` zkratka, `<script is:inline>`,
+`querySelector('#x')`, backticky) by musel přibýt nový vzor — a ten chybějící by byl vždycky
+tichá díra. Doloženo: **270 z 945 vyhledání nebylo měřeno vůbec** a u čtyř komponent šlo
+smazat CELOU scénu, aniž brána cekla.
+
+**Celková oprava: přestat hádat a MĚŘIT.** Skript komponenty se spustí nad DOMem postaveným
+ze skutečné šablony, každý dotaz na prvek se zaznamená a na konci porovná. Je pak jedno,
+jakou cestou si skript prvek hledá. Je to tentýž posun jako u kvízů — *číst data, ne text*.
+
+| | regexová verze | dnes |
+|---|---|---|
+| změřeno vyhledání | 675 | **5101** |
+| pokrytí (smazání prvku se odhalí) | — | **977 z 983 = 99,4 %** |
+| kontrol v obousměrném testu | 24 | **54** |
+| mutací měřidla, které test shodí | 0 ze 6 | **6 ze 6** |
+
+**Druhé kolo kontroly odhalilo, že se měřil jen kód doběhlý při NAČTENÍ** — obsluha tlačítek
+ani časovače se nikdy nezavolaly, takže 32 vyhledání v devíti komponentách zůstalo slepých
+(mj. celá tyč rotoru u elektromotoru). Nově se posluchači po doběhnutí jednou spustí.
+Dál opraveno: komponenta bez jediného měření je **tvrdá chyba** (celý skript v
+`DOMContentLoaded` dosud prošel mlčky) · jediné `class={…}` už neumlčí kontrolu id celé
+komponenty · zakomentovaná scéna se nepočítá jako existující · prvek vyrobený, ale nikdy
+nevložený do stránky, nezakryje vadu · každý `<script>` běží zvlášť · atrapa doplněna tam,
+kde padala na ZDRAVÉM kódu (falešné „skript nedoběhl").
+
+> **Zapsaná mez (poctivě):** změřit jde jen kód, který se opravdu provede. Šest vyhledání
+> je ve větvích, kam běh při načtení nedojde (šipka síly u motoru, brýle u vady oka).
+> Měřidlo také nehlídá překlep v názvu prohlížečové metody. Obojí je v `testy/obousmerne.json`.
+
+> **Vlastní chyba, která stála nejvíc času:** podvrh v repu jsem vracel přes `git checkout`,
+> jenže přepis měřidla ještě nebyl commitnutý — **zahodil jsem tím celou práci** a brána pak
+> běžela zase na staré slepé verzi. Poučení: podvrhy dělat na KOPIÍCH, a když už v repu,
+> tak jen nad commitnutým stavem.
+
+**FRONTA — čím pokračovat:**
+1. **Názornost informatiky** — zbývá **34 podtémat** bez obrázku či videa. Na řadě:
+   `vlastni-bloky-s-parametry`, `hra-bludiste` (Inf7), `senzory-robota`,
+   `funkce-v-tabulkach` (Inf8), `klonovani-animace-hry` (Inf9). Dávka 4+ patří do vějíře.
+2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`).
+3. `cz()` chybí v 11 simulacích, které formátují čísla.
+
+## 🎯 Předchozí stav (2. 8. 2026 odpoledne — události a vstupy, kolo C1)
 
 **Hotovo:** simulace **„Události a vstupy"** (Inf7, `udalosti-a-vstupy`) — scéna s kočkou
 a míčem, žák vyvolává události tlačítky nebo skutečnou klávesnicí (šipky, mezerník) a vidí,
