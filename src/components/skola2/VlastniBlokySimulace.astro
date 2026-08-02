@@ -1,0 +1,266 @@
+---
+// Vlastní bloky s parametry (informatika 7).
+//
+// Výklad tvrdí dvě věci a obě jsou tu VIDĚT, ne jen napsané:
+//  1. PARAMETR — jeden blok `nakresli čtverec (velikost)` nakreslí malý i velký čtverec.
+//     Tři volání se liší jen číslem v okénku.
+//  2. OPRAVUJEŠ NA JEDNOM MÍSTĚ — to je hlavní pointa. V programu je chyba: otáčí se
+//     o 80° místo 90°, takže se čtverec NEUZAVŘE (je to vidět na první pohled).
+//     • tři kopie kódu → jedna oprava spraví jen jeden útvar, zbylé dva zůstanou křivé
+//       a musí se opravovat znovu a znovu (počítadlo oprav ukáže 3),
+//     • jeden vlastní blok → jedna oprava spraví všechny tři naráz (počítadlo ukáže 1).
+//
+// Tvar útvaru je ČISTÁ FUNKCE velikosti a úhlu, takže se celá scéna dá ověřit výpočtem
+// bez prohlížeče (testy/simulace/vlastni-bloky.mjs) — mimo jiné to, že se při 90° čtverec
+// opravdu uzavře a při 80° ne.
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n, ověřeno 2. 8. 2026).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Oprav chybu — jednou, nebo třikrát? 🔧</span></h2>
+	<p>
+		Program kreslí tři čtverce, jen s jiným číslem v okénku. Jenže se otáčí
+		o <strong>80°</strong> místo 90°, takže se čáry neuzavřou. Zkus chybu opravit —
+		a všímej si, <strong>kolikrát to musíš udělat</strong>.
+	</p>
+
+	<svg id="vlb-svg" viewBox="0 0 560 300" role="img"
+		aria-label="Tři čtverce kreslené želvou, každý s jinou velikostí; při chybném úhlu se neuzavřou">
+		<rect x="1" y="1" width="558" height="298" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<g id="vlb-utvary"></g>
+	</svg>
+
+	<p class="vlb-radek">
+		<strong>Program:</strong>
+		<button type="button" class="vlb-tl vlb-rezim vlb-aktivni" data-rezim="kopie">třikrát zkopírovaný kód</button>
+		<button type="button" class="vlb-tl vlb-rezim" data-rezim="blok">jeden vlastní blok</button>
+	</p>
+	<p class="vlb-radek">
+		<button type="button" class="vlb-tl vlb-hraj" id="vlb-oprav">🔧 oprav úhel na 90°</button>
+		<button type="button" class="vlb-tl" id="vlb-reset">↺ vrátit chybu zpět</button>
+		<span class="vlb-pocet">kliknutí na opravu: <strong id="vlb-oprav-pocet">0</strong></span>
+	</p>
+
+	<div id="vlb-program" class="vlb-program"></div>
+	<p class="vlb-stav" id="vlb-stav" aria-live="polite">
+		Klikni na <strong>🔧 oprav úhel</strong> — nejdřív u tří kopií, potom u vlastního bloku.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('vlb-svg');
+	const utvaryEl = document.getElementById('vlb-utvary');
+	const programEl = document.getElementById('vlb-program');
+	const stavEl = document.getElementById('vlb-stav');
+	const pocetEl = document.getElementById('vlb-oprav-pocet');
+	const btnOprav = document.getElementById('vlb-oprav');
+	const btnReset = document.getElementById('vlb-reset');
+
+	const VELIKOSTI = [50, 80, 120];   // parametr: tentýž blok, jiné číslo v okénku
+	const UHEL_CHYBNY = 80;
+	const UHEL_SPRAVNY = 90;
+	const STRAN = 4;
+	// Střed plátna pro každý ze tří útvarů (tři sloupce po 186 px).
+	const STREDY = [{ x: 100, y: 140 }, { x: 280, y: 140 }, { x: 460, y: 140 }];
+
+	/**
+	 * Body čáry, kterou želva nakreslí: `opakuj (4) krát { dopředu o (velikost) kroků,
+	 * otoč se ↻ o (úhel) stupňů }`. Čistá funkce — jde ověřit výpočtem.
+	 * Úhel 90° dá uzavřený čtverec, 80° otevřenou lomenou čáru.
+	 */
+	function body(velikost, uhel, stred) {
+		// Začátek vlevo nahoře, ať je hotový čtverec kolem svého středu.
+		let x = stred.x - velikost / 2;
+		let y = stred.y - velikost / 2;
+		let smer = 0;                       // 0° = doprava
+		const b = [{ x, y }];
+		for (let i = 0; i < STRAN; i++) {
+			x += velikost * Math.cos((smer * Math.PI) / 180);
+			y += velikost * Math.sin((smer * Math.PI) / 180);
+			b.push({ x, y });
+			smer += uhel;                     // otáčení doprava = po směru hodinových ručiček
+		}
+		return b;
+	}
+
+	/** Uzavřel se útvar? (poslední bod padne na první) */
+	function jeUzavreny(velikost, uhel) {
+		const b = body(velikost, uhel, { x: 0, y: 0 });
+		const prvni = b[0];
+		const posledni = b[b.length - 1];
+		return Math.hypot(posledni.x - prvni.x, posledni.y - prvni.y) < 0.5;
+	}
+
+	/** Jaký úhel platí pro i-tý útvar? U kopií rozhoduje oprava té kopie, u bloku jediná oprava. */
+	function uhelUtvaru(i, stav, volby) {
+		const opraveno = volby.rezim === 'blok' ? stav.blokOpraven : stav.kopieOpravene.includes(i);
+		return opraveno ? UHEL_SPRAVNY : UHEL_CHYBNY;
+	}
+
+	/** Kolik oprav ještě zbývá, než budou všechny tři útvary v pořádku? */
+	function zbyvaOprav(stav, volby) {
+		if (volby.rezim === 'blok') return stav.blokOpraven ? 0 : 1;
+		return VELIKOSTI.length - stav.kopieOpravene.length;
+	}
+
+	/** Jedno kliknutí na opravu. Čistá funkce — vrací nový stav. */
+	function oprav(stav, volby) {
+		if (volby.rezim === 'blok') {
+			if (stav.blokOpraven) return stav;
+			return { ...stav, blokOpraven: true, kliknuti: stav.kliknuti + 1 };
+		}
+		// U kopií se opraví vždy jen JEDNA — na ostatní se v praxi zapomene.
+		const dalsi = VELIKOSTI.map((_, i) => i).find((i) => !stav.kopieOpravene.includes(i));
+		if (dalsi === undefined) return stav;
+		return { ...stav, kopieOpravene: [...stav.kopieOpravene, dalsi], kliknuti: stav.kliknuti + 1 };
+	}
+
+	const cistyStav = () => ({ kopieOpravene: [], blokOpraven: false, kliknuti: 0 });
+
+	let volby = { rezim: 'kopie' };
+	let stav = cistyStav();
+
+	function programRadky() {
+		if (volby.rezim === 'blok') {
+			const uhel = stav.blokOpraven ? UHEL_SPRAVNY : UHEL_CHYBNY;
+			return [
+				{ text: 'scénář pro nakresli čtverec (velikost)', uroven: 0, hlava: true },
+				{ text: 'opakuj (4) krát', uroven: 1 },
+				{ text: 'dopředu o (velikost) kroků', uroven: 2 },
+				{ text: `otoč se ↻ o (${uhel}) stupňů`, uroven: 2, opravene: stav.blokOpraven, chyba: !stav.blokOpraven },
+				{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+				...VELIKOSTI.map((v) => ({ text: `nakresli čtverec (${v})`, uroven: 1 })),
+			];
+		}
+		const radky = [{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true }];
+		VELIKOSTI.forEach((v, i) => {
+			const opraveno = stav.kopieOpravene.includes(i);
+			const uhel = opraveno ? UHEL_SPRAVNY : UHEL_CHYBNY;
+			radky.push({ text: 'opakuj (4) krát', uroven: 1 });
+			radky.push({ text: `dopředu o (${v}) kroků`, uroven: 2 });
+			radky.push({ text: `otoč se ↻ o (${uhel}) stupňů`, uroven: 2, opravene: opraveno, chyba: !opraveno });
+		});
+		return radky;
+	}
+
+	function vypisProgram() {
+		programEl.textContent = '';
+		for (const r of programRadky()) {
+			const p = document.createElement('p');
+			p.className = 'vlb-blok' + (r.hlava ? ' vlb-hlava' : '') + (r.chyba ? ' vlb-chyba' : '') + (r.opravene ? ' vlb-opraveno' : '');
+			p.textContent = r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			programEl.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		utvaryEl.textContent = '';
+		VELIKOSTI.forEach((v, i) => {
+			const uhel = uhelUtvaru(i, stav, volby);
+			const b = body(v, uhel, STREDY[i]);
+			const cara = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+			cara.setAttribute('points', b.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' '));
+			cara.setAttribute('fill', 'none');
+			cara.setAttribute('stroke', uhel === UHEL_SPRAVNY ? '#2b8a3e' : '#c92a2a');
+			cara.setAttribute('stroke-width', '4');
+			cara.setAttribute('stroke-linejoin', 'round');
+			utvaryEl.appendChild(cara);
+
+			const popis = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+			popis.setAttribute('x', String(STREDY[i].x));
+			popis.setAttribute('y', '285');
+			popis.setAttribute('text-anchor', 'middle');
+			popis.setAttribute('font-size', '13');
+			popis.setAttribute('font-weight', 'bold');
+			popis.setAttribute('fill', '#495057');
+			popis.textContent = `nakresli čtverec (${v})`;
+			utvaryEl.appendChild(popis);
+
+			const znacka = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+			znacka.setAttribute('x', String(STREDY[i].x));
+			znacka.setAttribute('y', '30');
+			znacka.setAttribute('text-anchor', 'middle');
+			znacka.setAttribute('font-size', '14');
+			znacka.setAttribute('font-weight', 'bold');
+			znacka.setAttribute('fill', uhel === UHEL_SPRAVNY ? '#2b8a3e' : '#c92a2a');
+			znacka.textContent = uhel === UHEL_SPRAVNY ? '✓ čtverec' : '✗ neuzavře se';
+			utvaryEl.appendChild(znacka);
+		});
+		pocetEl.textContent = String(stav.kliknuti);
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		const zbyva = zbyvaOprav(stav, volby);
+		if (volby.rezim === 'blok') {
+			if (stav.blokOpraven) {
+				return `Hotovo <strong>jedinou opravou</strong>. Úhel je v programu na <strong>jednom místě</strong>, takže se spravily všechny tři čtverce naráz.`;
+			}
+			return 'Chyba je tu jen <strong>jednou</strong> — uvnitř vlastního bloku. Kolik oprav asi bude potřeba?';
+		}
+		if (zbyva === 0) {
+			return `Hotovo, ale trvalo to <strong>${stav.kliknuti} opravy</strong>. Tentýž kód je v programu třikrát, takže se každá kopie musí opravit zvlášť — a na jednu se v praxi zapomene.`;
+		}
+		if (stav.kliknuti === 0) return 'Klikni na <strong>🔧 oprav úhel</strong> a sleduj, co se stane se zbylými dvěma čtverci.';
+		return `Opravil jsi <strong>${stav.kliknuti}. kopii</strong>, ale zbývající <strong>${zbyva}</strong> zůstaly křivé — každá kopie má svůj vlastní úhel.`;
+	}
+
+	function ukazStav() {
+		stavEl.innerHTML = popisStavu();
+	}
+
+	btnOprav.addEventListener('click', () => {
+		stav = oprav(stav, volby);
+		prekresli();
+		ukazStav();
+	});
+	btnReset.addEventListener('click', () => {
+		stav = cistyStav();
+		prekresli();
+		ukazStav();
+	});
+	for (const tl of document.querySelectorAll('.vlb-rezim')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.vlb-rezim')) j.classList.remove('vlb-aktivni');
+			tl.classList.add('vlb-aktivni');
+			volby = { rezim: tl.dataset.rezim };
+			// Přepnutí programu začíná načisto — jinak by se počítadlo oprav sčítalo
+			// napříč oběma verzemi a srovnání „1 × 3" by nedávalo smysl.
+			stav = cistyStav();
+			prekresli();
+			ukazStav();
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__body = body;
+	svg.__jeUzavreny = jeUzavreny;
+	svg.__uhelUtvaru = uhelUtvaru;
+	svg.__zbyvaOprav = zbyvaOprav;
+	svg.__oprav = oprav;
+	svg.__cistyStav = cistyStav;
+	svg.__programRadky = programRadky;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { VELIKOSTI, UHEL_CHYBNY, UHEL_SPRAVNY, STRAN, STREDY };
+</script>
+
+<style>
+	#vlb-svg { width: 100%; max-width: 560px; border-radius: 12px; display: block; }
+	.vlb-radek { margin: 0.6rem 0; }
+	.vlb-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.vlb-tl.vlb-aktivni { background: #ffe8cc; }
+	.vlb-tl.vlb-hraj { background: #d3f9d8; }
+	.vlb-tl:active { transform: translateY(1px); }
+	.vlb-pocet { font-weight: 700; background: #e9ecef; border-radius: 8px; padding: 0.15rem 0.5rem; }
+	.vlb-program { margin: 0.4rem 0; }
+	.vlb-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: inline-block; }
+	.vlb-program p.vlb-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; display: block; }
+	.vlb-program p.vlb-chyba { background: #ffc9c9; outline: 2px dashed #c92a2a; }
+	.vlb-program p.vlb-opraveno { background: #b2f2bb; }
+	.vlb-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
+</style>
