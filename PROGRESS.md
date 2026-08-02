@@ -153,9 +153,27 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   verzi vadná — detekce duplicit hlásila 13 nálezů (11 falešných, protože filtr slov
   ≥ 4 znaky zahazoval čísla, takže „při 0 °C" × „při 100 °C" vyšlo jako shoda 100 %),
   detekce úniků 264 místo 39. Odhalily to až podvrhy a mutace, ne pohled na výsledek.
-  *Škola:* nová **simulace větvení** (informatika 7) — program projde vždy jen jednou
-  větví, a je to vidět na skóre, ne jen v textu. Test 45 kontrol našel hned vadu scény:
-  postava po otočení došla k levému kraji a zůstala stát.
+  *Škola — dvě nové simulace informatiky (kola B1–B3):* **větvení** „když… tak… jinak…"
+  (program projde vždy jen jednou větví, a je to vidět na skóre, ne jen v textu)
+  a **opakování** „dokud / 10krát / stále" (podmínka se testuje PŘED tělem, takže při
+  splnění na startu tělo neproběhne ani jednou). Názornost informatiky **37 → 35**
+  podtémat bez obrázku či videa, testy simulací **318 → 371 kontrol**.
+  **Dva nezávislí kontroloři našli 24 vad, 9 vážných — a obě simulace předtím prošly
+  vlastními 83 kontrolami i buildem.** Nejzávažnější: **obě učily NEEXISTUJÍCÍ názvy
+  bloků** („jdi 10 kroků" místo „dopředu o 10 kroků", „když na okraji, odraz se" místo
+  „když narazíš na okraj, odraz se"). Systémová příčina: `nazvy-bloku.mjs` četlo jen
+  výklady a kvízy z dat, **ne komponenty simulací** — brána byla zelená. Po rozšíření
+  hned našlo další dvě vady ve STARŠÍCH nasazených simulacích („řekni" místo „bublina",
+  3. osoba „dotýká se"). **A první verze toho rozšíření podvrh nenašla taky:** na zdrojový
+  kód pouštěla `text()`, která maže vše mezi „<" a „>", takže v JS podmínce (`i < 80`)
+  spolkla celé řádky — poznal to až otisk souboru před/po, ne hláška.
+  Dál opraveno: šipky ANO/NE byly obráceně než výklad na téže stránce · dotyk barvy se
+  počítal bodově, takže postava viditelně stála na pruhu a program tvrdil opak · pointa
+  větvení byla vidět až po 33 kliknutích (nyní po 6) · „opakuj stále" hlásilo „nic se
+  nemění", ačkoli postava ujela 200 px · zastavení pojistkou vypadalo jako regulérní konec
+  smyčky · v kvízu byly **distraktory, které nejsou skutečné bloky** („zahraj zvuk",
+  „stiskni klávesu mezerník") · v testech tautologie `? … : true` a porovnávání
+  s vlastními literály místo se zdrojem pravdy scratch-l10n.
 
 - **2026-07-31 v noci (video s nárokem Content ID, strop nahrávání, popisy)** — Učitel
   hlásil u videa „Longevelle sur Doubs 2025" hlášku o potenciálním omezení kvůli zvukové
