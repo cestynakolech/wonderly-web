@@ -1,0 +1,307 @@
+---
+// Větvení „když… tak… jinak…" (informatika 7).
+//
+// Pointa, na které děti nejvíc padají: program projde VŽDY JEN JEDNU z obou větví.
+// Aby to nebylo jen tvrzení, sbírá se ve větvi `jinak` bod — na červeném pruhu se tedy
+// skóre nezvětší, protože tam běží větev `tak`. Rozdíl je vidět na čísle, ne na slovech.
+// Druhý přepínač („bez jinak") ukazuje tutéž věc z druhé strany: bez větve `jinak`
+// se při nesplněné podmínce nestane nic a program prostě pokračuje dál.
+//
+// Podmínku jde přepnout na `ne ⟨…⟩` a na spojení `nebo` — obojí je ve výkladu i v kvízu.
+//
+// Scéna je logická: postava chodí po dráze zleva doprava, barevné pruhy leží na krajích
+// a otočení o 180° ji pošle zpátky. Souřadnice zůstávají celá čísla (krok 10 jako
+// „jdi 10 kroků" ve Scratchi). Stav po n krocích je ČISTÁ FUNKCE, takže se celý program
+// dá ověřit výpočtem — v testy/simulace/vetveni.mjs.
+//
+// Názvy bloků jsou v české paletě Scratche 3 (zdroj pravdy scratch-l10n):
+// „jdi 10 kroků", „otoč se o 180 stupňů", „změň skóre o 1", „dotýkáš se barvy (…)?".
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rozcestí v programu 🚦</span></h2>
+	<p>
+		Postava jde po dráze a na každém kroku se program ptá: <em>platí podmínka?</em>
+		Podle odpovědi jde <strong>právě jednou</strong> z obou větví — nikdy oběma.
+		Ve větvi <em>jinak</em> se sbírá bod, takže je na skóre vidět, která větev právě běžela.
+	</p>
+
+	<svg id="vet-svg" viewBox="0 0 540 300" role="img" aria-label="Dráha s modrým a červeným pruhem, po níž chodí postava; vedle je program s blokem když tak jinak">
+		<!-- dráha -->
+		<rect x="20" y="40" width="500" height="90" fill="#f1f3f5" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<rect id="vet-pruh-modry" x="20" y="40" width="70" height="90" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<rect x="450" y="40" width="70" height="90" fill="#ffc9c9" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<text x="55" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="#1864ab">modrý pruh</text>
+		<text x="485" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="#c92a2a">červený pruh</text>
+
+		<!-- postava -->
+		<g id="vet-postava">
+			<circle cx="0" cy="85" r="18" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<text id="vet-oci" x="0" y="91" text-anchor="middle" font-size="18">🐱</text>
+			<path id="vet-sipka" d="M 20 85 l 14 0 m -5 -5 l 5 5 l -5 5" stroke="#2b2a26" stroke-width="3" fill="none" stroke-linecap="round" />
+		</g>
+
+		<!-- skóre -->
+		<rect x="20" y="170" width="150" height="40" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<text x="36" y="196" font-size="15" font-weight="bold" fill="#495057">skóre</text>
+		<rect x="108" y="178" width="54" height="24" fill="#ff8c1a" stroke="#2b2a26" stroke-width="2" rx="12" />
+		<text id="vet-skore" x="135" y="196" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">0</text>
+
+		<!-- rozcestí: kosočtverec s otázkou, jak to popisuje výklad -->
+		<path d="M 330 155 l 55 30 l -55 30 l -55 -30 z" fill="#fff3bf" stroke="#2b2a26" stroke-width="3" />
+		<text id="vet-otazka" x="330" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">podmínka?</text>
+		<text x="405" y="172" font-size="13" font-weight="bold" fill="#2f9e44">ANO</text>
+		<text x="235" y="172" font-size="13" font-weight="bold" fill="#c92a2a">NE</text>
+		<path id="vet-sip-ano" d="M 385 185 l 40 0" stroke="#adb5bd" stroke-width="4" fill="none" stroke-linecap="round" />
+		<path id="vet-sip-ne" d="M 275 185 l -40 0" stroke="#adb5bd" stroke-width="4" fill="none" stroke-linecap="round" />
+		<text id="vet-vetev-ano" x="450" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">otoč se</text>
+		<text id="vet-vetev-ne" x="150" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">+1 bod</text>
+
+		<text id="vet-hlaska" x="270" y="255" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44"></text>
+		<text id="vet-poloha" x="270" y="282" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text>
+	</svg>
+
+	<p class="vet-radek">
+		<strong>Podmínka:</strong>
+		<button type="button" class="vet-tl vet-podm vet-aktivni" data-podminka="cervena">dotýkáš se barvy (červená)?</button>
+		<button type="button" class="vet-tl vet-podm" data-podminka="ne-cervena">ne ⟨dotýkáš se barvy (červená)?⟩</button>
+		<button type="button" class="vet-tl vet-podm" data-podminka="nebo">červená <em>nebo</em> modrá</button>
+	</p>
+	<p class="vet-radek">
+		<strong>Program:</strong>
+		<button type="button" class="vet-tl vet-verze vet-aktivni" data-jinak="ano">s větví „jinak"</button>
+		<button type="button" class="vet-tl vet-verze" data-jinak="ne">bez ní (jen „když… tak…")</button>
+	</p>
+	<p class="vet-radek">
+		<button type="button" class="vet-tl vet-hraj" id="vet-krok">▶️ jeden krok</button>
+		<button type="button" class="vet-tl vet-hraj" id="vet-bezet">⏩ opakuj stále</button>
+		<button type="button" class="vet-tl" id="vet-reset">↺ na začátek</button>
+	</p>
+
+	<ol id="vet-prikazy"></ol>
+	<p class="vet-stav" id="vet-stav" aria-live="polite">Klikni na <strong>jeden krok</strong> — uvidíš, kterou větví program právě prošel.</p>
+</section>
+
+<script>
+	const svg = document.getElementById('vet-svg');
+	const postavaEl = document.getElementById('vet-postava');
+	const sipkaEl = document.getElementById('vet-sipka');
+	const skoreEl = document.getElementById('vet-skore');
+	const otazkaEl = document.getElementById('vet-otazka');
+	const vetevAnoEl = document.getElementById('vet-vetev-ano');
+	const vetevNeEl = document.getElementById('vet-vetev-ne');
+	const sipAnoEl = document.getElementById('vet-sip-ano');
+	const sipNeEl = document.getElementById('vet-sip-ne');
+	const hlaskaEl = document.getElementById('vet-hlaska');
+	const polohaEl = document.getElementById('vet-poloha');
+	const prikazyEl = document.getElementById('vet-prikazy');
+	const stavEl = document.getElementById('vet-stav');
+	const btnKrok = document.getElementById('vet-krok');
+	const btnBezet = document.getElementById('vet-bezet');
+	const btnReset = document.getElementById('vet-reset');
+
+	// ——— dráha (souřadnice SVG, celá čísla; krok 10 jako „jdi 10 kroků") ———
+	const START = 120;
+	const KROK = 10;
+	const VLEVO = 38;          // dál doleva postava nemůže — ve Scratchi ji zastaví okraj scény
+	const VPRAVO = 502;
+	const MODRY_DO = 90;       // pravý okraj modrého pruhu
+	const CERVENY_OD = 450;    // levý okraj červeného pruhu
+
+	const POPIS_PODMINKY = {
+		cervena: 'dotýkáš se barvy (červená)?',
+		'ne-cervena': 'ne ⟨dotýkáš se barvy (červená)?⟩',
+		nebo: 'dotýkáš se barvy (červená)? nebo dotýkáš se barvy (modrá)?',
+	};
+	const KRATCE = { cervena: 'na červené?', 'ne-cervena': 'NE na červené?', nebo: 'na barvě?' };
+
+	/** Stojí postava na červené / modré? Čistá funkce polohy. */
+	function naCervene(x) {
+		return x >= CERVENY_OD;
+	}
+	function naModre(x) {
+		return x <= MODRY_DO;
+	}
+	/** Vyhodnocení podmínky — přesně tak, jak ji čte Scratch. Čistá funkce. */
+	function vyhodnot(podminka, x) {
+		if (podminka === 'cervena') return naCervene(x);
+		if (podminka === 'ne-cervena') return !naCervene(x);
+		return naCervene(x) || naModre(x);
+	}
+
+	/**
+	 * JEDEN PRŮCHOD SMYČKOU. Čistá funkce: ze stavu udělá nový stav.
+	 * Pořadí je stejné jako v programu na stránce: nejdřív „jdi 10 kroků",
+	 * teprve pak se ptáme na podmínku (postava se tedy ptá až z NOVÉHO místa).
+	 */
+	function jedenKrok(stav, volby) {
+		const x = Math.min(VPRAVO, Math.max(VLEVO, stav.x + KROK * stav.smer));
+		const naOkraji = x === VLEVO || x === VPRAVO;
+		const platí = vyhodnot(volby.podminka, x);
+		// Blok „když na okraji, odraz se" — bez něj by postava po otočení došla k levému
+		// kraji scény a zůstala tam stát (našel to test). Ve Scratchi se přesně takhle
+		// řeší, aby postava neuvázla u zdi; je to i v programu vypsané, aby žák věděl,
+		// co scénu drží v pohybu.
+		let smer = naOkraji ? -stav.smer : stav.smer;
+		let skore = stav.skore;
+		let vetev;
+		if (platí) {
+			smer = -smer;                // otoč se o 180 stupňů
+			vetev = 'tak';
+		} else if (volby.sJinak) {
+			skore = stav.skore + 1;      // změň skóre o 1
+			vetev = 'jinak';
+		} else {
+			vetev = 'zadna';             // bez větve „jinak" se nestane NIC
+		}
+		return { x, smer, skore, vetev, naOkraji, krok: stav.krok + 1 };
+	}
+
+	/** Stav po n krocích od začátku. Čistá funkce — jde ověřit výpočtem bez prohlížeče. */
+	function stavPoKrocich(n, volby) {
+		let stav = { x: START, smer: 1, skore: 0, vetev: null, naOkraji: false, krok: 0 };
+		for (let i = 0; i < n; i++) stav = jedenKrok(stav, volby);
+		return stav;
+	}
+
+	// ——— stav ———
+	let volby = { podminka: 'cervena', sJinak: true };
+	let stav = stavPoKrocich(0, volby);
+	let casovac = null;
+
+	function programRadky() {
+		const radky = [
+			{ text: 'opakuj stále', uroven: 0 },
+			{ text: 'jdi 10 kroků', uroven: 1 },
+			{ text: 'když na okraji, odraz se', uroven: 1 },
+			{ text: `když ⟨${POPIS_PODMINKY[volby.podminka]}⟩ tak`, uroven: 1 },
+			{ text: 'otoč se o 180 stupňů', uroven: 2 },
+		];
+		if (volby.sJinak) {
+			radky.push({ text: 'jinak', uroven: 1 });
+			radky.push({ text: 'změň skóre o 1', uroven: 2 });
+		}
+		return radky;
+	}
+
+	function vypisProgram() {
+		prikazyEl.textContent = '';
+		programRadky().forEach((r) => {
+			const li = document.createElement('li');
+			li.textContent = r.text;
+			li.style.marginLeft = `${r.uroven * 1.1}rem`;
+			// Zvýrazní se JEN ten řádek, který v posledním kroku opravdu běžel.
+			if (stav.vetev === 'tak' && r.text === 'otoč se o 180 stupňů') li.className = 'vet-nyni';
+			if (stav.vetev === 'jinak' && r.text === 'změň skóre o 1') li.className = 'vet-nyni';
+			prikazyEl.appendChild(li);
+		});
+	}
+
+	function prekresli() {
+		postavaEl.setAttribute('transform', `translate(${stav.x} 0)`);
+		sipkaEl.setAttribute('transform', stav.smer === 1 ? '' : `translate(${2 * 0} 0) scale(-1 1)`);
+		sipkaEl.setAttribute('transform-origin', '0 85');
+		skoreEl.textContent = String(stav.skore);
+		otazkaEl.textContent = KRATCE[volby.podminka];
+		vetevNeEl.textContent = volby.sJinak ? '+1 bod' : '(nic)';
+		const platí = stav.vetev === 'tak';
+		sipAnoEl.setAttribute('stroke', platí ? '#2f9e44' : '#adb5bd');
+		sipNeEl.setAttribute('stroke', stav.vetev === 'jinak' || stav.vetev === 'zadna' ? '#c92a2a' : '#adb5bd');
+		vetevAnoEl.setAttribute('font-weight', platí ? 'bold' : 'normal');
+
+		if (stav.vetev === 'tak') hlaskaEl.textContent = 'Podmínka PLATÍ → větev „tak": otočila se. Bod nepřibyl!';
+		else if (stav.vetev === 'jinak') hlaskaEl.textContent = 'Podmínka neplatí → větev „jinak": +1 bod.';
+		else if (stav.vetev === 'zadna') hlaskaEl.textContent = 'Podmínka neplatí a větev „jinak" tu není → nestalo se nic.';
+		else hlaskaEl.textContent = '';
+
+		const kde = naCervene(stav.x) ? 'na červeném pruhu' : naModre(stav.x) ? 'na modrém pruhu' : 'mezi pruhy';
+		polohaEl.textContent = `krok ${stav.krok} · postava je ${kde}${stav.naOkraji ? ' · dál nemůže, je na okraji scény' : ''}`;
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		if (stav.krok === 0) return 'Klikni na <strong>jeden krok</strong> — uvidíš, kterou větví program právě prošel.';
+		if (stav.vetev === 'tak') {
+			return 'Program šel větví <strong>tak</strong>. Všimni si, že skóre zůstalo stejné — větev <em>jinak</em> se přeskočila celá.';
+		}
+		if (stav.vetev === 'jinak') return 'Program šel větví <strong>jinak</strong>, takže se otočení vůbec neprovedlo.';
+		return 'Podmínka neplatila a větev <em>jinak</em> v programu není — program tedy jen pokračoval dál. <strong>Přepni na verzi s „jinak"</strong> a porovnej skóre.';
+	}
+
+	function krokVpred() {
+		stav = jedenKrok(stav, volby);
+		prekresli();
+		stavEl.innerHTML = popisStavu();
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ opakuj stále';
+		btnBezet.classList.remove('vet-aktivni');
+	}
+
+	function reset() {
+		zastav();
+		stav = stavPoKrocich(0, volby);
+		prekresli();
+		stavEl.innerHTML = popisStavu();
+	}
+
+	btnKrok.addEventListener('click', () => {
+		zastav();
+		krokVpred();
+	});
+	// Cesta TAM i ZPĚT: co jde spustit, musí jít i zastavit (pravidlo z kontroly animací).
+	btnBezet.addEventListener('click', () => {
+		if (casovac) {
+			zastav();
+			return;
+		}
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('vet-aktivni');
+		casovac = setInterval(krokVpred, 450);
+	});
+	btnReset.addEventListener('click', reset);
+
+	for (const tl of document.querySelectorAll('.vet-podm')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.vet-podm')) j.classList.remove('vet-aktivni');
+			tl.classList.add('vet-aktivni');
+			volby = { ...volby, podminka: tl.dataset.podminka };
+			reset();
+		});
+	}
+	for (const tl of document.querySelectorAll('.vet-verze')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.vet-verze')) j.classList.remove('vet-aktivni');
+			tl.classList.add('vet-aktivni');
+			volby = { ...volby, sJinak: tl.dataset.jinak === 'ano' };
+			reset();
+		});
+	}
+
+	prekresli();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenKrok = jedenKrok;
+	svg.__stavPoKrocich = stavPoKrocich;
+	svg.__vyhodnot = vyhodnot;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { START, KROK, VLEVO, VPRAVO, MODRY_DO, CERVENY_OD };
+	svg.__programRadky = programRadky;
+</script>
+
+<style>
+	#vet-svg { width: 100%; max-width: 540px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.vet-radek { margin: 0.6rem 0; }
+	.vet-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.vet-tl.vet-aktivni { background: #ffe8cc; }
+	.vet-tl.vet-hraj { background: #d3f9d8; }
+	.vet-tl:active { transform: translateY(1px); }
+	#vet-prikazy { margin: 0.3rem 0 0; padding-left: 1.4rem; }
+	#vet-prikazy li { font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 6px; }
+	#vet-prikazy li.vet-nyni { background: #fff3bf; outline: 2px dashed #f08c00; }
+	.vet-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>
