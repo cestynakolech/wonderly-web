@@ -114,7 +114,8 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 // ———————————————————————— 3) ★ KDYŽ: prázdno je nula, text je větší než číslo
 {
 	ok(telo.__KDYZ(1) === 'prospěl' && telo.__KDYZ(3) === 'prospěl', `známka do ${MEZ_KDYZ} včetně je „prospěl"`);
-	ok(telo.__KDYZ(4) === 'neprospěl' && telo.__KDYZ(5) === 'neprospěl', 'horší známka je „neprospěl"');
+	ok(telo.__KDYZ(4) === 'prospěl', '★ známka 4 je dostatečná — ve škole PROSPĚL (nález kontrolora)');
+	ok(telo.__KDYZ(5) === 'neprospěl', 'neprospěl je až pětka');
 	ok(telo.__KDYZ(MEZ_KDYZ) === 'prospěl' && telo.__KDYZ(MEZ_KDYZ + 1) === 'neprospěl',
 		'mez je přesně tam, kde ji má vzorec (≤ znamená včetně)');
 	ok(telo.__KDYZ(TEXT) === 'neprospěl', '★ text se porovnává jako VĚTŠÍ než každé číslo → „neprospěl"');

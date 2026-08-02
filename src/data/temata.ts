@@ -5227,7 +5227,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><code>=SUMA(B2:B31)</code> — součet; <code>=PRŮMĚR(B2:B31)</code> — průměr</li>
 							<li><code>=MAX(…)</code>, <code>=MIN(…)</code> — největší a nejmenší hodnota</li>
-							<li><code>=POČET(…)</code> — kolik je čísel; <code>=RANK(B2;$B$2:$B$31)</code> — na kolikátém místě je hodnota mezi ostatními (v novějším Excelu <code>=RANK.EQ</code> se stejnými údaji)</li>
+							<li><code>=POČET(…)</code> — kolik je čísel; <code>=RANK(B2;$B$2:$B$31;1)</code> — na kolikátém místě je hodnota mezi ostatními. <strong>Třetí údaj rozhoduje o pořadí:</strong> <code>1</code> řadí od nejmenší (u známek správně, jednička je nejlepší), bez něj se řadí od největší — a nejhorší známka by vyšla jako první místo. (V novějším Excelu <code>=RANK.EQ</code> se stejnými údaji.)</li>
 							<li>textové: <code>=ZLEVA(A2;3)</code> — první 3 znaky, <code>=DÉLKA(A2)</code> — počet znaků</li>
 							<li><code>=KDYŽ(B2&gt;=50;"prospěl";"neprospěl")</code> — rozhodování jako ve Scratchi!</li>
 						</ul>

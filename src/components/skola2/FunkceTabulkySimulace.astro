@@ -9,7 +9,7 @@
 //  2. MIN je u známek ta NEJLEPŠÍ, MAX nejhorší — přesně jak upozorňuje výklad.
 //  3. RANK bez třetího údaje řadí od největší, takže by nejhorší známka vyšla jako
 //     první místo. Přepínač to ukáže na témž žákovi: 1. místo × 6. místo.
-//  4. Prázdná buňka se v porovnání bere jako NULA, takže =KDYŽ(B2<=3;…) napíše
+//  4. Prázdná buňka se v porovnání bere jako NULA, takže =KDYŽ(B2<=4;…) napíše
 //     „prospěl" i tomu, komu známku nikdo nezapsal. Text se naopak porovnává jako
 //     větší než každé číslo, takže „nehodnocen" dá „neprospěl".
 //
@@ -31,7 +31,7 @@
 	<div class="fn-obal">
 		<table class="fn-tabulka">
 			<thead>
-				<tr><th>Řádek</th><th>A — jméno</th><th>B — známka</th><th>C — =KDYŽ(B2&lt;=3;"prospěl";"neprospěl")</th></tr>
+				<tr><th>Řádek</th><th>A — jméno</th><th>B — známka</th><th>C — =KDYŽ(B2&lt;=4;"prospěl";"neprospěl")</th></tr>
 			</thead>
 			<tbody id="fn-telo">
 				<tr><th>2</th><td>Adam</td><td><button type="button" class="fn-bunka" id="fn-bunka-0" data-radek="0"></button></td><td id="fn-kdyz-0" class="fn-kdyz"></td></tr>
@@ -89,7 +89,9 @@
 	const PRAZDNO = '';
 	// Klikací kolečko: čísla, pak text, pak prázdná buňka — a zase od začátku.
 	const KOLECKO = [1, 2, 3, 4, 5, TEXT, PRAZDNO];
-	const MEZ_KDYZ = 3;
+	// Ve škole je 4 = dostatečný = PROSPĚL; neprospěl je až pětka. S mezí 3 tvrdila
+	// stránka dětem nepravdu o jejich vlastním vysvědčení (nález kontrolora 2. 8. 2026).
+	const MEZ_KDYZ = 4;
 
 	/** České číslo: desetinná čárka, nejvýš dvě místa, celá čísla bez nul navíc. */
 	function cz(n) {
@@ -120,7 +122,7 @@
 		return lepsich.length + 1;
 	}
 	/**
-	 * =KDYŽ(B2<=3;"prospěl";"neprospěl"). Pozor na dvě pravidla tabulek:
+	 * =KDYŽ(B2<=4;"prospěl";"neprospěl"). Pozor na dvě pravidla tabulek:
 	 * prázdná buňka se v porovnání bere jako NULA, a text je větší než každé číslo.
 	 */
 	const KDYZ = (h) => (jeCislo(h) ? h <= MEZ_KDYZ : h === PRAZDNO) ? 'prospěl' : 'neprospěl';
@@ -147,7 +149,7 @@
 		const prumer = PRUMER(bunky);
 		sumaEl.textContent = cz(SUMA(bunky));
 		pocetEl.textContent = cz(pocet);
-		prumerEl.textContent = prumer === null ? '#DIV/0!' : cz(prumer);
+		prumerEl.textContent = prumer === null ? '#DĚLENÍ_NULOU!' : cz(prumer);
 		podilEl.textContent = prumer === null
 			? 'bez jediného čísla se dělit nedá'
 			: `dělí se ${cz(SUMA(bunky))} ÷ ${cz(pocet)} — POČTEM ČÍSEL, ne šesti řádky`;
