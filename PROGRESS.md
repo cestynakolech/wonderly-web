@@ -123,6 +123,26 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-02 večer (informatika 7 — vlastní bloky s parametry)** — Nová simulace
+  `VlastniBlokySimulace`. Program kreslí tři čtverce, ale otáčí se o **80° místo 90°**,
+  takže se čáry neuzavřou — chyba je vidět na první pohled, ne jen napsaná. Pointa výkladu
+  *„opravuješ na jednom místě"* je tím měřitelná: **tři kopie kódu si vyžádají tři opravy**
+  (a mezi nimi zůstávají dva útvary křivé), **vlastní blok jedinou**. Srovnání 3 × 1 zůstává
+  na obrazovce i po přepnutí režimu. Parametr: tentýž blok kreslí 50, 80 i 120.
+  Test **61 kontrol**, testy simulací celkem **534**, názornost informatiky **34 → 33**.
+  **Nezávislý kontrolor našel 2 vážné a 6 drobných vad.** (1) Řádky programu měly
+  `display: inline-block`, takže se skládaly **vedle sebe** a „tři kopie pod sebou" se
+  rozpadly do vodorovné změti. (2) **Test vůbec nečetl scénu** — podvrh „kresli vždy správný
+  úhel" prošel všemi 45 kontrolami, ačkoli hláška tvrdila opak toho, co bylo vidět; test teď
+  čte skutečné `points` a `stroke`, a tři podvrhy kontrolora shodí 6, 9 a 1 kontrolu.
+  Drobné: česká shoda („zbývající 1 zůstala křivá"), závěrečná věta tvrdila „na jednu se
+  zapomene" ve chvíli, kdy už byly všechny tři útvary zelené, kontrola názvů bloků běžela jen
+  v jednom ze dvou režimů a vzor měřidla neuměl interpolaci `jdi (${v}) kroků`.
+  **Vlastní chyba, a už podruhé tatáž:** opravy podle kontrolora jsem zahodil příkazem
+  `git checkout` nad necommitnutou prací. Poprvé se to stalo u měřidla šablon a je to
+  zapsané v paměti — a přesto se to opakovalo. Pravidlo pro příště: **po každé dávce oprav
+  rovnou commit, teprve pak jakékoli ověřování s podvrhem.**
+
 - **2026-08-02 odpoledne (celková oprava kontroly šablon — přestat hádat, začít měřit)** —
   Učitel vytkl: *„stále něco opravuješ a zůstává to neopravené… navrhni celkovou opravu."*
   Měl pravdu. Kontrola, která hlídá, že skript simulace nesahá na neexistující prvek, se

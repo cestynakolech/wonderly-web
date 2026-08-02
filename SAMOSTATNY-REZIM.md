@@ -1,6 +1,38 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## 🎯 KDE POKRAČOVAT (2. 8. 2026 odpoledne — CELKOVÁ oprava kontroly šablon, kolo C2)
+## 🎯 KDE POKRAČOVAT (2. 8. 2026 večer — vlastní bloky s parametry, kolo C3)
+
+**Hotovo:** simulace **„Vlastní bloky s parametry"** (Inf7, `vlastni-bloky-s-parametry`).
+Program kreslí tři čtverce a otáčí se o **80° místo 90°**, takže se čáry neuzavřou —
+chyba je vidět, ne jen napsaná. Pointa výkladu *„opravuješ na jednom místě"*:
+**tři kopie kódu si vyžádají tři opravy** (a mezitím zůstávají dva útvary křivé),
+**vlastní blok jedinou**. Srovnání 3 × 1 zůstane na obrazovce i po přepnutí režimu.
+Parametr: tentýž blok kreslí 50, 80 i 120 — liší se jen číslo v okénku.
+Test **61 kontrol**, testy simulací celkem **534**. Názornost informatiky **34 → 33**.
+
+> **Nezávislý kontrolor našel 2 vážné a 6 drobných.** Obě vážné stály za to:
+> (1) řádky programu měly `display: inline-block`, takže se skládaly **vedle sebe** —
+> „tři kopie pod sebou" se rozpadly do vodorovné změti; (2) **test vůbec nečetl scénu**,
+> takže podvrh „kresli vždy správný úhel" prošel všemi 45 kontrolami, ačkoli hláška
+> tvrdila opak toho, co bylo vidět. Test teď čte skutečné `points` a `stroke` nakreslených
+> čar; tři podvrhy kontrolora nově shodí 6, 9 a 1 kontrolu.
+> Drobné: česká shoda („zbývající 1 zůstala křivá“) · závěrečná věta tvrdila „na jednu se
+> zapomene“ ve chvíli, kdy už byly všechny tři útvary zelené · kontrola názvů bloků běžela
+> jen v jednom ze dvou režimů · vzor měřidla neuměl interpolaci `jdi (${v}) kroků`.
+
+> **Vlastní chyba — už podruhé tatáž:** opravy podle kontrolora jsem zahodil příkazem
+> `git checkout` nad necommitnutou prací (poprvé u měřidla šablon). Je to zapsané v paměti
+> [[feedback-podvrh-jen-na-kopii]] a stejně se to opakovalo. **Pravidlo pro příště: po každé
+> dávce oprav rovnou commit, teprve pak jakékoli ověřování s podvrhem.**
+
+**FRONTA — čím pokračovat:**
+1. **Názornost informatiky** — zbývá **33 podtémat**. Na řadě: `hra-bludiste` (Inf7),
+   `senzory-robota`, `funkce-v-tabulkach` (Inf8), `klonovani-animace-hry` (Inf9).
+   Dávka 4+ patří do vějíře (`/simulace`).
+2. Doměřit zbylé testy simulací mutačním testem (`node testy/mutace.mjs <název>`).
+3. `cz()` chybí v 11 simulacích, které formátují čísla.
+
+## 🎯 Předchozí stav (2. 8. 2026 odpoledne — CELKOVÁ oprava kontroly šablon, kolo C2)
 
 > **Výtka učitele:** *„stále něco opravuješ a zůstává to neopravené… navrhni celkovou opravu."*
 > Byla oprávněná. Kontrola šablon se opravovala třikrát a pokaždé se ukázalo, že hádá.
