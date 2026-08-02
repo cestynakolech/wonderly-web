@@ -206,7 +206,11 @@ function data({ obsah = '', materialy = [], interakce, otazky = [] }) {
 		const html = zdroj.split('<script')[0];
 		// PakaSimulace si prvky hledá zkratkou $(id) — regexová verze měřidla ji neviděla vůbec.
 		const bezId = html.replace(/\sid="[^"]+"/g, '') + zdroj.slice(html.length);
-		tvrdi('šablony: smazaná scéna SKUTEČNÉ komponenty se odhalí', zkontrolujSablonu('Paka', bezId).nalezy.length > 0);
+		const rozbita = zkontrolujSablonu('Paka', bezId).nalezy;
+		tvrdi('šablony: smazaná scéna SKUTEČNÉ komponenty se odhalí', rozbita.length > 0);
+		// Hlásit se musí VŠECHNY chybějící prvky, ne jen první — jinak by oprava jednoho
+		// vypadala jako vyřešený problém a zbytek scény by zůstal rozbitý (mutace M3).
+		tvrdi(`šablony: hlásí se všechny chybějící prvky, ne jen první (${rozbita.length})`, rozbita.length >= 5);
 		tvrdi('šablony: tatáž komponenta beze změny mlčí', zkontrolujSablonu('Paka', zdroj).nalezy.length === 0);
 	}
 	// A nad celým repem nesmí být nález ani jeden — jinak měřidlo zaplavuje práci šumem.
