@@ -110,6 +110,7 @@ export const rok2024: Rok = {
 				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
 				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
 			},
+			videoId: 'CUPCBnbsGfg',
 		},
 		{
 			slug: 'hollern-twielenfleth',
@@ -125,6 +126,7 @@ export const rok2024: Rok = {
 				de: 'Gemeinde im Landkreis Stade in Niedersachsen, niederdeutsch Hullern-Twielenfleth. Sie gehört zum Verwaltungsverband Lühe, der seinen Sitz in Steinkirchen hat.',
 				fr: 'Commune du district de Stade en Basse-Saxe, en bas allemand Hullern-Twielenfleth. Elle appartient à la fédération de communes de Lühe, dont le siège est à Steinkirchen.',
 			},
+			videoId: 'Yg1aDRTZrAc',
 		},
 		{
 			slug: 'cuxhaven',
@@ -245,6 +247,7 @@ export const rok2024: Rok = {
 				de: 'Die sächsische Gemeinde etwa 20 Kilometer nordwestlich von Dresden mit 8.300 Einwohnern. In ihr steht das Schloss Moritzburg.',
 				fr: 'La commune saxonne située à environ vingt kilomètres au nord-ouest de Dresde, comptant 8 300 habitants. Le château Moritzburg s\'y dresse.',
 			},
+			videoId: 'jCRZ1xFpRSk',
 		},
 		{
 			slug: 'potsdam-2',
@@ -275,6 +278,7 @@ export const rok2024: Rok = {
 				de: 'Brandenburgische Gemeinde im Landkreis Prignitz nahe dem Ort, an dem die Havola in die Elbe mündet. Hier nisten so viele weiße Störche, dass die Gemeinde im Jahr 1996 den Titel „Europäisches Storchen-Dorf“ von der Initiative EuroNatur erhielt.',
 				fr: 'Commune de Brandebourg située dans le district de Prignitz près de l\'endroit où la rivière Havola se jette dans l\'Elbe. Il y a tellement de cigognes blanches nichant ici que la commune a reçu en 1996 de l\'initiative EuroNatur le titre de Village européen des cigognes.',
 			},
+			videoId: 'oVPrusnGcOk',
 		},
 		{
 			slug: 'wismar-2',
@@ -290,6 +294,7 @@ export const rok2024: Rok = {
 				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
 				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
 			},
+			videoId: 'CUPCBnbsGfg',
 		},
 		{
 			slug: 'boiensdorf',
@@ -365,6 +370,7 @@ export const rok2024: Rok = {
 				de: 'Eine der elf friesischen Städte, südlich des Wattenmeers. Ihr Kern liegt dort, wo die Wasserwege Dokkumer Ee und Dokkumergrootdiep zusammenfließen; Anfang 2023 lebten hier 12.965 Einwohner.',
 				fr: 'L\'une des onze villes frisonnes, au sud de la mer des Wadden. Son centre se trouve là où se rejoignent les voies d\'eau Dokkumer Ee et Dokkumergrootdiep, et au début de 2023 elle comptait 12 965 habitants.',
 			},
+			videoId: 'Ry6_ZigZw7U',
 		},
 		{
 			slug: 'st-jacobiparochie',
@@ -395,6 +401,7 @@ export const rok2024: Rok = {
 				de: 'Hafenstadt am nördlichen Zipfel Nordhollands, etwa sechzig Kilometer nördlich von Amsterdam; gegenüber liegt die Insel Texel über das Wasser. Seit 1815 ist sie die Heimatbasis der niederländischen königlichen Marine – hier befinden sich ihre Akademie und ihr Museum. Hier beginnt auch der Nordhollandkanal, der 1824 fertiggestellt wurde und bis nach Amsterdam führt.',
 				fr: 'Ville portuaire située au cap nord de la Hollande du Nord, environ soixante kilomètres au nord d\'Amsterdam ; en face, de l\'autre côté de l\'eau, se trouve l\'île Texel. Depuis 1815, c\'est la base principale de la marine royale néerlandaise — son académie et son musée y sont situés. Le canal du Nord-Hollande commence également ici, achevé en 1824 et menant jusqu\'à Amsterdam.',
 			},
+			videoId: '6rt80Cn04X4',
 		},
 		{
 			slug: 'volendam',
@@ -410,6 +417,7 @@ export const rok2024: Rok = {
 				de: 'Niederländische Stadt in der Provinz Nordholland, Teil der Gemeinde Edam-Volendam. Zu Beginn des Jahres 2021 lebten dort 22 715 Einwohner.',
 				fr: 'Ville néerlandaise située dans la province de Noord-Holland, faisant partie de la commune d\'Edam-Volendam. Au début de l\'année 2021, 22 715 habitants y vivaient.',
 			},
+			videoId: 'dMahDoNbw5g',
 		},
 		{
 			slug: 'wesel',
@@ -425,6 +433,7 @@ export const rok2024: Rok = {
 				de: 'Stadt an der Mündung des Rheins und der Lippe im nordwestlichen Teil Nordrhein-Westfalens. Sie ist die Hauptstadt des gleichnamigen Landkreises und wird in fünf Verwaltungsbezirke unterteilt.',
 				fr: 'Ville à la confluence du Rhin et de la Lippe dans la partie nord-ouest de la Rhénanie-du-Nord-Westphalie. Elle est la capitale de l\'arrondissement du même nom et est divisée en cinq arrondissements administratifs.',
 			},
+			videoId: 'lTbl4-8u6lc',
 		},
 		{
 			slug: 'remagen',
@@ -680,6 +689,7 @@ export const rok2024: Rok = {
 				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
 				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
 			},
+			videoId: 'CUPCBnbsGfg',
 		},
 		{
 			slug: 'potsdam-3',
@@ -710,7 +720,17 @@ export const rok2024: Rok = {
 				de: 'Die sächsische Gemeinde etwa 20 Kilometer nordwestlich von Dresden mit 8.300 Einwohnern. In ihr steht das Schloss Moritzburg.',
 				fr: 'La commune saxonne située à environ vingt kilomètres au nord-ouest de Dresde, comptant 8 300 habitants. Le château Moritzburg s\'y dresse.',
 			},
+			videoId: 'jCRZ1xFpRSk',
 		},
 	],
-	videa: [],
+	videa: [
+		{ id: 'oVPrusnGcOk', nazev: 'Rühstädt⁩', odkaz: 'https://youtu.be/oVPrusnGcOk' },
+		{ id: '6rt80Cn04X4', nazev: 'Den Helder', odkaz: 'https://youtu.be/6rt80Cn04X4' },
+		{ id: 'dMahDoNbw5g', nazev: 'Volendam⁩, Edam', odkaz: 'https://youtu.be/dMahDoNbw5g' },
+		{ id: 'lTbl4-8u6lc', nazev: 'Wesel, Ramagen', odkaz: 'https://youtu.be/lTbl4-8u6lc' },
+		{ id: 'Ry6_ZigZw7U', nazev: 'Dokkum', odkaz: 'https://youtu.be/Ry6_ZigZw7U' },
+		{ id: 'Yg1aDRTZrAc', nazev: 'Hollern Twielenfleth', odkaz: 'https://youtu.be/Yg1aDRTZrAc' },
+		{ id: 'CUPCBnbsGfg', nazev: 'Wismar 10 3  8 7', odkaz: 'https://youtu.be/CUPCBnbsGfg' },
+		{ id: 'jCRZ1xFpRSk', nazev: 'Moritzburg', odkaz: 'https://youtu.be/jCRZ1xFpRSk' },
+	],
 };

@@ -447,6 +447,7 @@ export const rok2021: Rok = {
 				de: 'Die Marktgemeinde, die sich am Fuße des gleichnamigen Schlosses etwa 17 Kilometer östlich von Benešov befindet. Die Sázava fließt durch sie, und hier leben nur 184 Menschen.',
 				fr: 'Le bourg, niché au pied du château du même nom, se trouve à environ dix-sept kilomètres à l\'est de Benešov. La Sázava traverse le bourg, où habitent seulement 184 personnes.',
 			},
+			videoId: 'GYWpIjae1a8',
 		},
 		{
 			slug: 'hulice',
@@ -492,6 +493,7 @@ export const rok2021: Rok = {
 				de: 'Markt unter dem sagenhaften Blaník, 8 Kilometer südlich von Vlašimi. Hier leben 661 Einwohner.',
 				fr: 'Le bourg sous le mont légendaire Blaník, à 8 kilomètres au sud de Vlašimi. Il y a 661 habitants.',
 			},
+			videoId: 'c5XQI9zXSxM',
 		},
 		{
 			slug: 'choustnik',
@@ -582,6 +584,7 @@ export const rok2021: Rok = {
 				de: 'Ein Städtchen in der Vysočina, zwölf Kilometer westlich von Havlíčkův Brod, wo 650 Einwohner leben.',
 				fr: 'Le bourg en Vysočina, douze kilomètres à l\'ouest d\'Havlíčkova Brod, où vivent 650 habitants.',
 			},
+			videoId: 'BgDgJuBu7vI',
 		},
 		{
 			slug: 'zleby',
@@ -597,6 +600,7 @@ export const rok2021: Rok = {
 				de: 'Žleby ist eine Gemeinde im Landkreis Kutná Hora in Mittelböhmen, gelegen 18 km südöstlich von Kutná Hora und 7 km östlich von Čáslav. Die Dörfer Kamenné Mosty, Markovice und Zehuby sind Teil der Gemeinde, bewohnt von etwa 1 400 Einwohnern.',
 				fr: 'Žleby est une commune située dans l\'arrondissement de Kutná Hora, dans la région de Bohême centrale, à 18 km au sud-est de Kutná Hora et à 7 km à l\'est de Čáslav. Les villages Kamenné Mosty, Markovice et Zehuby, habités par environ 1 400 habitants, font partie de la commune.',
 			},
+			videoId: 'PcUKF9YBuSw',
 		},
 		{
 			slug: 'pluhuv-zdar',
@@ -673,5 +677,9 @@ export const rok2021: Rok = {
 		{ id: 'H1TTlOMH66M', nazev: 'Nová Pec 2', odkaz: 'https://youtu.be/H1TTlOMH66M' },
 		{ id: 'FKGHCv_YK84', nazev: 'KOLODĚJE', odkaz: 'https://youtu.be/FKGHCv_YK84' },
 		{ id: 'mK8UqL93IrU', nazev: 'Skanzen Přerov nad Labem', odkaz: 'https://youtu.be/mK8UqL93IrU' },
+		{ id: 'PcUKF9YBuSw', nazev: 'Žleby Čihošť Zahrádky    SD 480p', odkaz: 'https://youtu.be/PcUKF9YBuSw' },
+		{ id: 'BgDgJuBu7vI', nazev: 'Lipnice nad Sázavou   SD 480p', odkaz: 'https://youtu.be/BgDgJuBu7vI' },
+		{ id: 'c5XQI9zXSxM', nazev: 'Louňovice pod Blaníkem. Černé Budy', odkaz: 'https://youtu.be/c5XQI9zXSxM' },
+		{ id: 'GYWpIjae1a8', nazev: 'Český Šternberk   SD 480p', odkaz: 'https://youtu.be/GYWpIjae1a8' },
 	],
 };

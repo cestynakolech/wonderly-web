@@ -170,6 +170,7 @@ export const rok2022: Rok = {
 				de: 'Doupě ist eine Gemeinde im Landkreis Jihlava.',
 				fr: 'Doupě est une commune dans le district de Jihlava.',
 			},
+			videoId: 'hjUO7wUTS3A',
 		},
 		{
 			slug: 'pleckensteiner-wald',
@@ -350,6 +351,7 @@ export const rok2022: Rok = {
 				de: 'Eines der ältesten und größten polnischen Städte, Hauptstadt der Pommerschen Woiwodschaft am Ufer des Baltischen Meeres bei der Danziger Bucht. Etwa 800 Jahre war es Teil polnischer Gebiete, dann gehörte es Preußen und zwischen 1920 und 1939 war es eine Freie Stadt unter der Verwaltung des Völkerbunds. Auf der Halbinsel Westerplatte begann hier am 1. September 1939 der Zweite Weltkrieg, und später entstand in den lokalen Werften Solidarität.',
 				fr: 'L\'une des plus anciennes et des plus grandes villes polonaises, capitale de la voïvodie de Poméranie sur la rive de la Baltique près du golfe de Gdańsk. Presque huit cents ans a fait partie des terres polonaises, puis appartenait à la Prusse et entre 1920 et 1939 était une ville libre sous la gestion de la Société des Nations. Sur la péninsule de Westerplatte, la Seconde Guerre mondiale a commencé le 1er septembre 1939, et dans les chantiers navals locaux, la Solidarité a plus tard vu le jour.',
 			},
+			videoId: '4dAA3HKX74A',
 		},
 		{
 			slug: 'ustka',
@@ -455,6 +457,7 @@ export const rok2022: Rok = {
 				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
 				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
 			},
+			videoId: 'dfa4Z14PIi0',
 		},
 		{
 			slug: 'bremy',
@@ -470,6 +473,7 @@ export const rok2022: Rok = {
 				de: 'Bremen ist eine Stadt im Nordwesten Deutschlands, die am Fluss Weser liegt, Haupt- und größte Stadt des Bundeslandes Freie Hansestadt Bremen, mit 584.332 Einwohnern zum 31. Dezember 2023.',
 				fr: 'Brême est une ville située dans le nord-ouest de l\'Allemagne, sur la rivière Weser, capitale et plus grande ville de l\'État fédéral de la Ville hanséatique libre de Brême, avec 584 332 habitants au 31 décembre 2023.',
 			},
+			videoId: 'lar_TonejAs',
 		},
 		{
 			slug: 'briedern',
@@ -500,6 +504,7 @@ export const rok2022: Rok = {
 				de: 'Trier ist die älteste Stadt Deutschlands in Rheinland-Pfalz, nahe bei Luxemburg, mit römischen Denkmälern, einschließlich der Kathedrale St. Petri und der Kirche St. Mariens, die zum Weltkulturerbe der UNESCO gehören. Es ist Sitz der 1473 gegründeten Universität.',
 				fr: 'Trier est la ville la plus ancienne d\'Allemagne dans le Rhinland-Palatinat, près du Luxembourg, avec des monuments romains, notamment la cathédrale Saint-Pierre et l\'église de Sainte-Marie, qui font partie du patrimoine mondial de l\'UNESCO. Elle est le siège de l\'université fondée en 1473.',
 			},
+			videoId: 'y-IYpbEDBDc',
 		},
 		{
 			slug: 'kostnice',
@@ -515,6 +520,7 @@ export const rok2022: Rok = {
 				de: 'Die Knochenkammer ist ein unterirdischer Gewölberraum in einem sakralen Bauwerk, bestimmt zum Lagern menschlicher Knochen, die in geometrische Formen angeordnet sind. Sie entstand bei Massentodesfällen (Pest, Epidemien) oder als Memento mori in den Klöstern der Kapuziner und Karmeliter.',
 				fr: 'L\'ossuaire est un espace souterrain dans un édifice sacré destiné à stocker des os humains ordonnés en formes géométriques. Il a été créé lors de décès massifs (peste, épidémie) ou comme memento mori dans les monastères des capucins et des carmélites.',
 			},
+			videoId: 'bNDUCv7zjGk',
 		},
 		{
 			slug: 'friedrichshafen',
@@ -545,6 +551,7 @@ export const rok2022: Rok = {
 				de: 'Bayerischer Kurort an der Isar, wo etwa neunzehntausend Einwohner leben. Während des Zweiten Weltkriegs befanden sich hier große Kasernen und eine Offiziersschule.',
 				fr: 'Ville thermale bavaroise sur la rivière Isar, où vivent environ dix-neuf mille habitants. Pendant la Seconde Guerre mondiale, il y avait une grande caserne et une école des officiers.',
 			},
+			videoId: 'vLDNvVG0tF4',
 		},
 		{
 			slug: 'jachenau',
@@ -592,5 +599,14 @@ export const rok2022: Rok = {
 			},
 		},
 	],
-	videa: [],
+	videa: [
+		{ id: 'y-IYpbEDBDc', nazev: 'Trier', odkaz: 'https://youtu.be/y-IYpbEDBDc' },
+		{ id: 'bNDUCv7zjGk', nazev: 'Kostnice', odkaz: 'https://youtu.be/bNDUCv7zjGk' },
+		{ id: 'dfa4Z14PIi0', nazev: 'Cuxhaven', odkaz: 'https://youtu.be/dfa4Z14PIi0' },
+		{ id: 'vLDNvVG0tF4', nazev: 'Bad Tolz', odkaz: 'https://youtu.be/vLDNvVG0tF4' },
+		{ id: 'lar_TonejAs', nazev: 'Brémy', odkaz: 'https://youtu.be/lar_TonejAs' },
+		{ id: '4dAA3HKX74A', nazev: 'Gdaňsk -  Jarmark sv. Dominika', odkaz: 'https://youtu.be/4dAA3HKX74A' },
+		{ id: 'u_Ss05Tva00', nazev: 'Gdaňsk.  Já tě varuju, jestli se ty lodě rozjedou', odkaz: 'https://youtu.be/u_Ss05Tva00' },
+		{ id: 'hjUO7wUTS3A', nazev: 'POLSKO - VLČÍ DOUPĚ', odkaz: 'https://youtu.be/hjUO7wUTS3A' },
+	],
 };
