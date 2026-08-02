@@ -69,7 +69,7 @@ let kontrol = 0;
 const ok = (p, t) => { kontrol++; console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
 const klik = (e) => (e.posluchaci.click || []).forEach((f) => f());
 
-const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
+const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo.__meze;
 
 // ———————————————————————— 1) FUNKCE POČÍTAJÍ SPRÁVNĚ (očekávání spočítaná ručně)
 {
@@ -129,7 +129,13 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 	ok(telo.__RANK(1, b, 0) === 6, '★ bez třetího údaje vyjde tatáž jednička jako 6. — nejhorší by byla první');
 	ok(telo.__RANK(5, b, 1) === 5, 'pětka je s ;1 až pátá');
 	ok(telo.__RANK(5, b, 0) === 1, 'a bez údaje první — přesně ta past');
-	ok(telo.__RANK(TEXT, b, 1) === null, 'RANK textu nedá pořadí (#HODNOTA!)');
+	// Chybové kódy jsou v Excelu DVA různé a nesmí se plést: text porovnat nejde,
+	// kdežto prázdná buňka se bere jako nula — a nula mezi známkami prostě není.
+	ok(telo.__RANK(TEXT, b, 1) === KODY.hodnota, `★ RANK textu hlásí ${KODY.hodnota} — porovnat text nejde`);
+	ok(telo.__RANK(PRAZDNO, b, 1) === KODY.neniK, `★ ale u PRÁZDNÉ buňky je to ${KODY.neniK} — hledá se nula, kterou sloupec nemá`);
+	ok(telo.__RANK(TEXT, b, 1) !== telo.__RANK(PRAZDNO, b, 1), 'a jsou to opravdu dva různé kódy, ne jeden na všechno');
+	ok(telo.__RANK(4, [1, 2, 3], 1) === KODY.neniK, `hodnota, která v rozsahu není, dá taky ${KODY.neniK}`);
+	ok(telo.__RANK(4, [1, 2, 3, 4], 1) === 4, 'a jakmile v rozsahu je, pořadí se spočítá');
 	// Shodné hodnoty musí dostat shodné pořadí, jinak by to nebyl žebříček.
 	ok(telo.__RANK(2, b, 1) === telo.__RANK(2, b, 1), 'stejná hodnota dostane vždy stejné pořadí');
 	ok(telo.__RANK(2, [1, 2, 2, 3], 1) === 2, 'dvě stejné hodnoty sdílejí místo (1, 2, 2, 4)');
@@ -214,7 +220,7 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 	ok((html.match(/aria-pressed="(true|false)"/g) ?? []).length === 2, 'oba přepínače hlásí odečítači svůj stav');
 	ok((html.match(/aria-pressed="true"/g) ?? []).length === 1, 'a zvolený je právě jeden');
 	ok(/aria-live="polite"/.test(html), 'stavová hláška je označená jako živá');
-	ok(/<thead>[\s\S]*<th>/.test(html), 'tabulka má záhlaví, aby ji odečítač uměl přečíst');
+	ok(/<thead>[\s\S]*<th[ >]/.test(html), 'tabulka má záhlaví, aby ji odečítač uměl přečíst');
 	ok(/overflow-x: auto/.test(zdroj), 'široká tabulka se na mobilu roluje sama, nerozbije stránku');
 	// Klikací buňka musí říct odečítači, čí známka to je — samotné číslo mu nestačí.
 	klik(btnReset);
@@ -236,7 +242,7 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 	const POSL_RADEK = JMENA.length + 1;                    // 6 žáků začínajících na řádku 2 → B7
 
 	// a) Mez ve vzorci v hlavičce sloupce C musí být tatáž, jakou počítá KDYŽ.
-	const hlavickaC = sablona.match(/<th>C — (=KDYŽ\([^<]*?\))<\/th>/)?.[1] ?? '';
+	const hlavickaC = sablona.match(/<th scope="col">C — (=KDYŽ\([^<]*?\))/)?.[1] ?? '';
 	ok(hlavickaC !== '', 'hlavička sloupce C ukazuje celý vzorec =KDYŽ(…)');
 	const mezVHlavicce = Number(hlavickaC.match(/&lt;=(\d+)/)?.[1]);
 	ok(mezVHlavicce === MEZ_KDYZ,
@@ -247,7 +253,7 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 		'obě větve vzorce jsou přesně ta slova, která se do sloupce C vypisují');
 
 	// b) Rozsahy míří na tolik řádků, kolik jich v tabulce doopravdy je.
-	const cislaRadku = [...sablona.matchAll(/<tr><th>(\d+)<\/th><td>/g)].map((m) => Number(m[1]));
+	const cislaRadku = [...sablona.matchAll(/<tr><th scope="row">(\d+)<\/th><td>/g)].map((m) => Number(m[1]));
 	ok(JSON.stringify(cislaRadku) === JSON.stringify(JMENA.map((_, i) => i + 2)),
 		`čísla řádků v tabulce jdou 2…${POSL_RADEK}, jak je v tabulkovém procesoru zvykem`);
 	const rozsahy = [...sablona.matchAll(/B(\d+):B(\d+)/g)];
@@ -275,7 +281,7 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 		ok(!sablona.includes(`=${n}(`), `★ a nikde není =${n}( bez háčků — takovou funkci by tabulka odmítla`);
 
 	// e) Popisky MIN a MAX nejsou prohozené — a souhlasí s tím, co funkce vrací.
-	const radekFunkce = (fn) => sablona.match(new RegExp(`<th>=${fn}\\(B2:B\\d+\\)</th>[\\s\\S]*?</tr>`))?.[0] ?? '';
+	const radekFunkce = (fn) => sablona.match(new RegExp(`<th scope="row">=${fn}\\(B2:B\\d+\\)</th>[\\s\\S]*?</tr>`))?.[0] ?? '';
 	ok(/nejlepší/.test(radekFunkce('MIN')) && !/nejhorší/.test(radekFunkce('MIN')),
 		'★ u MIN stojí „nejlepší" — a opravdu: MIN(1,3,2,5,2,5) = ' + telo.__MIN(VYCHOZI));
 	ok(/nejhorší/.test(radekFunkce('MAX')) && !/nejlepší/.test(radekFunkce('MAX')),
@@ -317,7 +323,37 @@ const { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ } = telo.__meze;
 	ok(telo.__POCET(telo.__bunky()) === 0, 'po vyprázdnění všech buněk nezůstalo jediné číslo');
 	ok(KODY_EXCELU.includes(el('fn-prumer').textContent),
 		`★ a PRŮMĚR vypsal skutečný chybový kód: ${el('fn-prumer').textContent}`);
+	ok(KODY_EXCELU.includes(el('fn-rank').textContent),
+		`★ i RANK vypsal skutečný kód: ${el('fn-rank').textContent} (prázdná buňka = nula, ta ve sloupci není)`);
 	klik(btnReset);
+
+	// h) Odečítač: každé záhlaví musí říct, kterým směrem platí, a popisek buňky 2. pádem.
+	const zahlaviBezScope = (sablona.match(/<th(?=[\s>])(?![^>]*scope=)[^>]*>/g) ?? []);
+	ok(zahlaviBezScope.length === 0,
+		`★ každé záhlaví <th> má scope (sloupec × řádek)${zahlaviBezScope.length ? ' — chybí u ' + zahlaviBezScope.join(' ') : ''}`);
+	ok((sablona.match(/scope="col"/g) ?? []).length === 4, 'čtyři sloupcová záhlaví hlavní tabulky');
+	ok((sablona.match(/scope="row"/g) ?? []).length === JMENA.length + 6,
+		`a řádková záhlaví u všech ${JMENA.length} řádků známek i u šesti vzorců`);
+	ok(/kopírováno dolů/.test(sablona),
+		'★ u vzorce v hlavičce je řečeno, že platí pro celý sloupec — jinak vypadá, že jen pro řádek 2');
+	klik(btnReset);
+	ok(GENITIV.length === JMENA.length && GENITIV.every((g, i) => g.startsWith(JMENA[i].slice(0, 3))),
+		'ke každému jménu je jeho 2. pád');
+	for (let i = 0; i < JMENA.length; i++)
+		ok((el('fn-bunka-' + i).atributy['aria-label'] ?? '').includes(`známka ${GENITIV[i]}`),
+			`★ odečítač uslyší „známka ${GENITIV[i]}" — 2. pád, ne „známka ${JMENA[i]}"`);
+
+	// i) Šrafa prázdné buňky musí být vidět i na promítačce: kontrast aspoň 3 : 1 proti bílé.
+	const sytost = (h) => {
+		const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255)
+			.map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+		return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+	};
+	const barvaSrafy = zdroj.match(/\.fn-prazdna\s*\{[^}]*?(#[0-9a-f]{6})\s*5px/i)?.[1] ?? '';
+	ok(barvaSrafy !== '', 'šrafa prázdné buňky má v CSS svou barvu');
+	const kontrast = 1.05 / (sytost(barvaSrafy) + 0.05);
+	ok(kontrast >= 3,
+		`★ šrafa (${barvaSrafy}) má proti bílé kontrast ${kontrast.toFixed(2)} : 1 — aspoň 3 : 1, jinak na plátně zmizí`);
 }
 
 console.log(chyby === 0 ? `\n✅ Funkce v tabulkách: všech ${kontrol} kontrol prošlo.` : `\n❌ ${chyby} z ${kontrol} kontrol selhalo.`);

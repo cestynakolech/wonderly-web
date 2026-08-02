@@ -31,15 +31,15 @@
 	<div class="fn-obal">
 		<table class="fn-tabulka">
 			<thead>
-				<tr><th>Řádek</th><th>A — jméno</th><th>B — známka</th><th>C — =KDYŽ(B2&lt;=4;"prospěl";"neprospěl")</th></tr>
+				<tr><th scope="col">Řádek</th><th scope="col">A — jméno</th><th scope="col">B — známka</th><th scope="col">C — =KDYŽ(B2&lt;=4;"prospěl";"neprospěl") <span class="fn-kopie">(kopírováno dolů do všech řádků)</span></th></tr>
 			</thead>
 			<tbody id="fn-telo">
-				<tr><th>2</th><td>Adam</td><td><button type="button" class="fn-bunka" id="fn-bunka-0" data-radek="0"></button></td><td id="fn-kdyz-0" class="fn-kdyz"></td></tr>
-				<tr><th>3</th><td>Bára</td><td><button type="button" class="fn-bunka" id="fn-bunka-1" data-radek="1"></button></td><td id="fn-kdyz-1" class="fn-kdyz"></td></tr>
-				<tr><th>4</th><td>Cyril</td><td><button type="button" class="fn-bunka" id="fn-bunka-2" data-radek="2"></button></td><td id="fn-kdyz-2" class="fn-kdyz"></td></tr>
-				<tr><th>5</th><td>Dana</td><td><button type="button" class="fn-bunka" id="fn-bunka-3" data-radek="3"></button></td><td id="fn-kdyz-3" class="fn-kdyz"></td></tr>
-				<tr><th>6</th><td>Emil</td><td><button type="button" class="fn-bunka" id="fn-bunka-4" data-radek="4"></button></td><td id="fn-kdyz-4" class="fn-kdyz"></td></tr>
-				<tr><th>7</th><td>Filip</td><td><button type="button" class="fn-bunka" id="fn-bunka-5" data-radek="5"></button></td><td id="fn-kdyz-5" class="fn-kdyz"></td></tr>
+				<tr><th scope="row">2</th><td>Adam</td><td><button type="button" class="fn-bunka" id="fn-bunka-0" data-radek="0"></button></td><td id="fn-kdyz-0" class="fn-kdyz"></td></tr>
+				<tr><th scope="row">3</th><td>Bára</td><td><button type="button" class="fn-bunka" id="fn-bunka-1" data-radek="1"></button></td><td id="fn-kdyz-1" class="fn-kdyz"></td></tr>
+				<tr><th scope="row">4</th><td>Cyril</td><td><button type="button" class="fn-bunka" id="fn-bunka-2" data-radek="2"></button></td><td id="fn-kdyz-2" class="fn-kdyz"></td></tr>
+				<tr><th scope="row">5</th><td>Dana</td><td><button type="button" class="fn-bunka" id="fn-bunka-3" data-radek="3"></button></td><td id="fn-kdyz-3" class="fn-kdyz"></td></tr>
+				<tr><th scope="row">6</th><td>Emil</td><td><button type="button" class="fn-bunka" id="fn-bunka-4" data-radek="4"></button></td><td id="fn-kdyz-4" class="fn-kdyz"></td></tr>
+				<tr><th scope="row">7</th><td>Filip</td><td><button type="button" class="fn-bunka" id="fn-bunka-5" data-radek="5"></button></td><td id="fn-kdyz-5" class="fn-kdyz"></td></tr>
 			</tbody>
 		</table>
 	</div>
@@ -51,12 +51,12 @@
 
 	<table class="fn-vysledky">
 		<tbody>
-			<tr><th>=SUMA(B2:B7)</th><td id="fn-suma"></td><td class="fn-pozn">sečte jen čísla</td></tr>
-			<tr><th>=POČET(B2:B7)</th><td id="fn-pocet"></td><td class="fn-pozn">kolik buněk obsahuje číslo</td></tr>
-			<tr class="fn-duraz"><th>=PRŮMĚR(B2:B7)</th><td id="fn-prumer"></td><td class="fn-pozn" id="fn-podil"></td></tr>
-			<tr><th>=MIN(B2:B7)</th><td id="fn-min"></td><td class="fn-pozn">u známek ta <strong>nejlepší</strong></td></tr>
-			<tr><th>=MAX(B2:B7)</th><td id="fn-max"></td><td class="fn-pozn">u známek ta <strong>nejhorší</strong></td></tr>
-			<tr><th id="fn-rank-vzorec"></th><td id="fn-rank"></td><td class="fn-pozn">pořadí Adama mezi ostatními</td></tr>
+			<tr><th scope="row">=SUMA(B2:B7)</th><td id="fn-suma"></td><td class="fn-pozn">sečte jen čísla</td></tr>
+			<tr><th scope="row">=POČET(B2:B7)</th><td id="fn-pocet"></td><td class="fn-pozn">kolik buněk obsahuje číslo</td></tr>
+			<tr class="fn-duraz"><th scope="row">=PRŮMĚR(B2:B7)</th><td id="fn-prumer"></td><td class="fn-pozn" id="fn-podil"></td></tr>
+			<tr><th scope="row">=MIN(B2:B7)</th><td id="fn-min"></td><td class="fn-pozn">u známek ta <strong>nejlepší</strong></td></tr>
+			<tr><th scope="row">=MAX(B2:B7)</th><td id="fn-max"></td><td class="fn-pozn">u známek ta <strong>nejhorší</strong></td></tr>
+			<tr><th scope="row" id="fn-rank-vzorec"></th><td id="fn-rank"></td><td class="fn-pozn">pořadí Adama mezi ostatními</td></tr>
 		</tbody>
 	</table>
 
@@ -83,6 +83,10 @@
 	const rankVzorecEl = document.getElementById('fn-rank-vzorec');
 
 	const JMENA = ['Adam', 'Bára', 'Cyril', 'Dana', 'Emil', 'Filip'];
+	// Odečítač čte aria-label jako větu, takže tam patří 2. pád: „známka Adama", ne „známka Adam".
+	const GENITIV = ['Adama', 'Báry', 'Cyrila', 'Dany', 'Emila', 'Filipa'];
+	// Chybové kódy tak, jak je vypisuje ČESKÝ Excel — jiné dítě na obrazovce neuvidí.
+	const KODY = { deleniNulou: '#DĚLENÍ_NULOU!', hodnota: '#HODNOTA!', neniK: '#N/A' };
 	// Součet 18 při šesti známkách → průměr rovnou 3 (celé číslo, jak má být na začátku).
 	const VYCHOZI = [1, 3, 2, 5, 2, 5];
 	const TEXT = 'nehodnocen';
@@ -119,9 +123,14 @@
 	 * by pak vyšla jako první místo.
 	 */
 	function RANK(hodnota, b, poradi) {
-		if (!jeCislo(hodnota)) return null;
+		// Text porovnat nejde — Excel na to hlásí #HODNOTA!.
+		if (!jeCislo(hodnota) && hodnota !== PRAZDNO) return KODY.hodnota;
 		const c = cisla(b);
-		const lepsich = poradi === 1 ? c.filter((x) => x < hodnota) : c.filter((x) => x > hodnota);
+		// Prázdná buňka se bere jako nula. Nula ale mezi známkami není, takže RANK
+		// hlásí #N/A — „takovou hodnotu jsem v seznamu nenašel". Jiný kód než u textu!
+		const h = hodnota === PRAZDNO ? 0 : hodnota;
+		if (!c.includes(h)) return KODY.neniK;
+		const lepsich = poradi === 1 ? c.filter((x) => x < h) : c.filter((x) => x > h);
 		return lepsich.length + 1;
 	}
 	/**
@@ -141,7 +150,7 @@
 			const b = document.getElementById('fn-bunka-' + i);
 			b.textContent = zobraz(h);
 			b.className = 'fn-bunka' + (h === TEXT ? ' fn-text' : h === PRAZDNO ? ' fn-prazdna' : '');
-			b.setAttribute('aria-label', `známka ${JMENA[i]}: ${h === PRAZDNO ? 'prázdná buňka' : h}`);
+			b.setAttribute('aria-label', `známka ${GENITIV[i]}: ${h === PRAZDNO ? 'prázdná buňka' : h}`);
 			const k = document.getElementById('fn-kdyz-' + i);
 			const vysledek = KDYZ(h);
 			k.textContent = vysledek;
@@ -152,7 +161,7 @@
 		const prumer = PRUMER(bunky);
 		sumaEl.textContent = cz(SUMA(bunky));
 		pocetEl.textContent = cz(pocet);
-		prumerEl.textContent = prumer === null ? '#DĚLENÍ_NULOU!' : cz(prumer);
+		prumerEl.textContent = prumer === null ? KODY.deleniNulou : cz(prumer);
 		podilEl.textContent = prumer === null
 			? 'bez jediného čísla se dělit nedá'
 			: `dělí se ${cz(SUMA(bunky))} ÷ ${cz(pocet)} — POČTEM ČÍSEL, ne šesti řádky`;
@@ -161,17 +170,17 @@
 
 		const r = RANK(bunky[0], bunky, poradi);
 		rankVzorecEl.textContent = poradi === 1 ? '=RANK(B2;$B$2:$B$7;1)' : '=RANK(B2;$B$2:$B$7)';
-		rankEl.textContent = r === null ? '#HODNOTA!' : `${cz(r)}.`;
+		rankEl.textContent = typeof r === 'number' ? `${cz(r)}.` : r;
 	}
 
 	function popisStavu() {
 		const pocet = POCET(bunky);
 		if (pocet === 0) {
-			return 'Ve sloupci nezůstalo <strong>jediné číslo</strong>, takže PRŮMĚR hlásí <strong>#DĚLENÍ_NULOU!</strong> — '
+			return `Ve sloupci nezůstalo <strong>jediné číslo</strong>, takže PRŮMĚR hlásí <strong>${KODY.deleniNulou}</strong> — `
 				+ 'dělit nulou nejde. MIN a MAX přitom klidně vypíšou nulu, i když žádná známka není.';
 		}
 		if (posledni && posledni.na === TEXT) {
-			return `Do buňky je zapsané slovo <strong>„${TEXT}"</strong>. V tabulce to vypadá jako vyplněný řádek, `
+			return `Do buňky je zapsané slovo <strong>„${TEXT}“</strong>. V tabulce to vypadá jako vyplněný řádek, `
 				+ `ale <strong>POČET klesl na ${cz(pocet)}</strong> — a PRŮMĚR se proto dělí ${cz(pocet)}, ne šesti. `
 				+ `A protože text je v porovnání větší než každé číslo, KDYŽ napsalo <strong>neprospěl</strong>.`;
 		}
@@ -235,18 +244,17 @@
 	ukazStav();
 
 	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který počítá tabulku) ———
-	const svg = document.getElementById('fn-telo');
-	svg.__SUMA = SUMA;
-	svg.__POCET = POCET;
-	svg.__PRUMER = PRUMER;
-	svg.__MIN = MIN;
-	svg.__MAX = MAX;
-	svg.__RANK = RANK;
-	svg.__KDYZ = KDYZ;
-	svg.__cz = cz;
-	svg.__bunky = () => bunky;
-	svg.__poradi = () => poradi;
-	svg.__meze = { JMENA, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ };
+	teloEl.__SUMA = SUMA;
+	teloEl.__POCET = POCET;
+	teloEl.__PRUMER = PRUMER;
+	teloEl.__MIN = MIN;
+	teloEl.__MAX = MAX;
+	teloEl.__RANK = RANK;
+	teloEl.__KDYZ = KDYZ;
+	teloEl.__cz = cz;
+	teloEl.__bunky = () => bunky;
+	teloEl.__poradi = () => poradi;
+	teloEl.__meze = { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY };
 </script>
 
 <style>
@@ -257,8 +265,10 @@
 	.fn-tabulka tbody th { background: #e9ecef; text-align: center; font-weight: 700; }
 	.fn-bunka { font: inherit; font-weight: 700; min-width: 6.5rem; padding: 0.15rem 0.5rem; border: 2px solid #2b2a26; border-radius: 6px; background: #fff; cursor: pointer; }
 	.fn-bunka.fn-text { background: #ffe3e3; font-weight: 400; font-style: italic; }
-	/* Prázdná buňka musí být poznat, i když v ní nic není — jinak vypadá jako chyba vykreslení. */
-	.fn-bunka.fn-prazdna { background: repeating-linear-gradient(45deg, #fff, #fff 5px, #dee2e6 5px, #dee2e6 10px); }
+	/* Prázdná buňka musí být poznat, i když v ní nic není — jinak vypadá jako chyba vykreslení.
+	   Šrafa proto musí mít proti bílé kontrast aspoň 3 : 1 (grafický prvek nesoucí informaci);
+	   původní #dee2e6 mělo 1,30 : 1 a na promítačce zmizelo úplně. */
+	.fn-bunka.fn-prazdna { background: repeating-linear-gradient(45deg, #fff, #fff 5px, #868e96 5px, #868e96 10px); }
 	.fn-kdyz.fn-ano { color: #1b7a33; font-weight: 700; }
 	.fn-kdyz.fn-ne { color: #a61e1e; font-weight: 700; }
 	.fn-vysledky { border-collapse: collapse; margin: 0.6rem 0; }
@@ -271,5 +281,7 @@
 	.fn-tl.fn-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
 	.fn-tl.fn-aktivni::before { content: '✓ '; }
 	.fn-napoveda { font-size: 0.9rem; color: #495057; }
+	/* Vzorec v hlavičce platí pro celý sloupec, ne jen pro řádek 2 — proto ta poznámka. */
+	.fn-kopie { font-weight: 400; font-style: italic; white-space: nowrap; }
 	.fn-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
 </style>
