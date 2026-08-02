@@ -39,6 +39,7 @@ export const NENI_MERIDLO = {
 	'vsechny-simulace.mjs': 'spouštěč testů simulací',
 	'obousmerne.mjs': 'tenhle rejstřík',
 	'uniky-obousmerne.mjs': 'je to samo obousměrné ověření',
+	'meridla-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy pro pět měřidel)',
 };
 
 /** Vrátí seznam měřidel (soubory .mjs přímo v testy/, mimo výjimky). */

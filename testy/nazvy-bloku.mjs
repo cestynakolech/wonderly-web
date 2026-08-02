@@ -86,8 +86,9 @@ function popisVzoru(vzor) {
 	return vzor instanceof RegExp ? String(vzor).replace(/^\/|\/[a-z]*$/g, '').replace(' (?!nenastane)', '') : String(vzor).trim();
 }
 
-export async function zkontrolujNazvyBloku() {
-	const { kvizy, temata } = await nactiData();
+// Volitelný parametr `data` kvůli obousměrnému ověření (viz testy/obousmerne.json).
+export async function zkontrolujNazvyBloku(data) {
+	const { kvizy, temata } = data ?? (await nactiData());
 	const nalezy = [];
 	const jeScratch = (klic) => SCRATCH_CELKY.some((c) => klic.startsWith(c + '/'));
 

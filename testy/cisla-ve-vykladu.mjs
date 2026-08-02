@@ -23,8 +23,11 @@ function cisla(text) {
  */
 const MALE = 12;
 
-export async function zkontrolujCislaVeVykladu() {
-	const { kvizy, temata } = await nactiData();
+// Volitelný parametr `data` slouží OBOUSMĚRNÉMU OVĚŘENÍ: bez něj se měřidlu nedá
+// podvrhnout vstup, a proto u něj nikdy nevznikl důkaz, že podvrh opravdu najde
+// (nález dlouhodobého auditu 2. 8. 2026).
+export async function zkontrolujCislaVeVykladu(data) {
+	const { kvizy, temata } = data ?? (await nactiData());
 	const podleKlice = new Map(vsechnaPodtemata(temata).map((p) => [p.klic, p]));
 	const nalezy = [];
 

@@ -31,13 +31,16 @@ async function nactiModul(rel, docasny) {
 	return import(pathToFileURL(vystup).href);
 }
 
-const ramecek = (p) => {
+export const ramecek = (p) => {
 	const s = p.text.length * p.fs * 0.55;
 	const zacatek = p.kotva === 'middle' ? p.x - s / 2 : p.kotva === 'end' ? p.x - s : p.x;
 	return [zacatek, p.y - p.fs, zacatek + s, p.y + p.fs * 0.3];
 };
 const prekryva = (a, b) => !(a[2] <= b[0] || b[2] <= a[0] || a[3] <= b[1] || b[3] <= a[1]);
-const plocha = (a, b) => {
+// `ramecek` a `plocha` jsou exportované kvůli obousměrnému ověření: podvržený pár
+// popisků, které se překrývají, musí měřidlo najít, a nepřekrývající se nesmí hlásit.
+// Bez toho se dalo ověřit jen to, že měřidlo nic nehlásí — což o kontrole neříká nic.
+export const plocha = (a, b) => {
 	const w = Math.min(a[2], b[2]) - Math.max(a[0], b[0]);
 	const h = Math.min(a[3], b[3]) - Math.max(a[1], b[1]);
 	return w > 0 && h > 0 ? w * h : 0;
