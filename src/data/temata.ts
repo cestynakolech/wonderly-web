@@ -5237,6 +5237,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><code>=SUMA(B2:B31)</code> hodnoty <em>sečte</em>, kdežto <code>=POČET(B2:B31)</code> jen spočítá, <em>kolik</em> buněk v oblasti obsahuje číslo — text ani prázdnou buňku nezapočítá</li>
 							<li><code>=MAX(…)</code> vrátí největší hodnotu, ale ne jméno toho, komu patří; na to, na kolikátém místě hodnota je, je <code>=RANK(…)</code></li>
+							<li><code>=PRŮMĚR(…)</code> dělí součet <strong>počtem čísel</strong>, ne počtem řádků. Jediná buňka s textem nebo prázdná proto průměr změní, i když tabulka vypadá pořád stejně — právě proto tabulce často vychází jiný průměr, než jaký sis spočítal na papíře</li>
 						</ul>
 						<p>👉 Všimni si: <strong>KDYŽ</strong> je stejné větvení, jaké znáš z programování. Tabulka je vlastně program — jen zapsaný do buněk.</p>
 						<p>👉 Vyzkoušej na tabulce známek celé třídy: průměr, nejlepší a nejhorší známka, kolik žáků bylo hodnoceno a kdo je v žebříčku kolikátý. Pět funkcí a máš hotový přehled. <strong>Pozor:</strong> u známek je nejlepší ta <em>nejmenší</em> — nejlepší známku proto najde MIN a nejhorší MAX.</p>
