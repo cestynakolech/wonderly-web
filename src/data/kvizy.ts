@@ -3794,7 +3794,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co musí být u automatu označené kromě stavů a přechodů?', odpovedi: ['počáteční stav', 'aspoň deset stavů', 'barva každé šipky'], vysvetleni: 'Proto se hra hýbe „celá najednou".' },
 		{ text: 'V orientovaném grafu vede šipka z A do B. Dá se automaticky přejít i z B do A?', odpovedi: ['ne, musí být druhá šipka', 'ano, šipka platí obousměrně', 'jen když jsou A a B stejný vrchol'], vysvetleni: 'Orientovaná hrana platí jen ve směru šipky — jako jednosměrka.' },
 		{ text: 'K čemu se v praxi automaty (modely se stavy) používají?', odpovedi: ['k návrhu programů i spotřebičů', 'jen k výrobě mincí do automatů', 'jen k měření teploty v pračce'], vysvetleni: 'Automat přesně určuje, co se smí stát v jaké situaci.' },
-		{ text: 'Semafor je ve stavu „zelená". Jaký stav následuje?', odpovedi: ['žlutá', 'červená', 'zase zelená'], vysvetleni: 'Pořadí je pevné: zelená → oranžová → červená → červená+oranžová → zelená…' },
+		{ text: 'Semafor je ve stavu „zelená". Jaký stav následuje?', odpovedi: ['žlutá', 'červená', 'zase zelená'], vysvetleni: 'Pořadí je pevné: zelená → žlutá → červená → červená+žlutá → zelená…' },
 		{ text: 'Pračka má stavy praní → máchání → ždímání. Co rozhoduje o přechodu do dalšího stavu?', odpovedi: ['splnění podmínky', 'náhodné rozhodnutí pračky', 'barva vypraného prádla'], vysvetleni: 'Přechod nastává, až je splněna podmínka — přesně jako u jiných automatů.' },
 	],
 	'informatika/7-rocnik/programovani-vetveni-promenne/vetveni-programu': [

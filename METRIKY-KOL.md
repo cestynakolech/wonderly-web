@@ -23,6 +23,9 @@ Vysvětlení sloupců:
 | 2026-08-02 | S3 (samostatný režim) | fyzika: 9 stránek elektřiny (pole, práce a výkon, účinky proudu, chemické zdroje ×2, magnetické pole cívky, přeměny energie, obnovitelné zdroje, střídavý proud) → **hluchých 9 → 0, celá díra uzavřena** | chain + **2 kontroloři paralelně** (čísla × fyzika a didaktika) | 1 | ANO | oba kontroloři **nezávisle našli TENTÝŽ** nejvážnější nález: odpor člověka 150 kΩ při 230 V je o 2 řády mimo a výpočet z toho dělal uklidňující závěr. Celkem 22 oprav vč. pořadí kroků první pomoci |
 | 2026-08-02 | S4 (samostatný režim) | audit kontrol: brána čte zapojení z dat · mapa „všechna místa" se konečně měří · slovník `DRUHY_MATERIALU` · nový mutační test simulací | chain, každá změna ověřena podvrhem | 1 | ANO | **měřidlo mapy málem zavedlo falešný poplach** („164 míst se ztratilo" — piny se kreslí všechny) a **mutační nástroj v první verzi sám lhal** (mutoval jen první výskyt → měřil vizuál, ne fyziku) |
 | 2026-08-02 | S5 (samostatný režim) | posílení testů simulací podle mutačního testu: `elektrovani` 4/18 → 12/18, `odpor-vodice` 8/25 → 11/25; kontrol 244 → 273 | chain | 1 | ANO | v `OdporVodiceSimulace` byl vzorec rychlosti napsaný **dvakrát** — test ověřoval opis, ne kreslicí kód; u `tabulka-vzorce` se číslo nepohnulo (háček bere kurz jako parametr) → **nedodělek** |
+| 2026-08-02 | A1 (audit) | **dlouhodobý audit** 3 nezávislými auditory (opakované vady × dodržování postupů × pravidla vs. kód) + první opatření: `testy/uniky.mjs` (duplicity a úniky odpovědí) zapojen do brány | **diamond (3 auditoři paralelně, různé otázky)** | 3 | ANO | první verze měřidla hlásila 13 duplicit a 264 úniků — **z toho drtivá většina falešných** (filtr slov ≥ 4 znaky zahazoval čísla, takže „při 0 °C" × „při 100 °C" vyšlo jako shoda 100 %); po zpřísnění 0 a 39 |
+| 2026-08-02 | A2 (audit) | **měřidla mají obousměrný důkaz: 1 ze 6 → 6 ze 6.** Pěti měřidlům přibyl parametr dat nebo se logika vytáhla do funkce (proto u nich důkaz nikdy nevznikl); `testy/meridla-obousmerne.mjs` (24 kontrol) | chain, ověřeno 7 mutacemi | 1 | ANO | `kratke-vyklady.mjs` se spouštěl už při IMPORTU, takže test vypisoval celý přehled stránek |
+| 2026-08-02 | A3 (audit) | rejstřík pravidel: opraveno **5 falešných ✅** · revize automatů dostala doháněč a eskalaci · oprava rozporu odpověď × vysvětlení u semaforu | chain | 2 | ANO | `--dohanec` se do plistu přidal za `zsh -c` místo dovnitř příkazu; strojová detekce „správná odpověď první" **nefunguje** (16 podezřelých = 16 falešných poplachů) → přiznáno jako 📄 |
 
 > **Poučení z kol S1–S5 (2. 8. 2026), stojí za retrospektivu:** ve všech pěti kolech byla
 > nejdražší vada **v měřidle, ne v obsahu**. Třikrát za noc se ukázalo měřidlo, které
@@ -31,6 +34,21 @@ Vysvětlení sloupců:
 > žádná nebyla. **Nové měřidlo se proto smí zapsat jako hotové teprve po obousměrném
 > ověření podvrhem** — a když se jeho číslo po skutečném zlepšení nepohne, měří něco
 > jiného, než si autor myslí.
+
+> **Poučení z kol A1–A3 (dlouhodobý audit 2. 8. 2026):** audit potvrdil, že poučení
+> z S1–S5 nebylo náhoda jedné noci — **týž vzorec je doložen dvaceti výskyty ve čtyřech
+> dnech**. Obsah se přitom měřitelně zlepšuje (hluché stránky 36 → 0, uhodnutelnost
+> kvízů 77 % → 38 %), takže se v kruhu netočí PRÁCE, ale její NÁSTROJE. Rozdíl proti
+> dřívějším opravám: pravidlo „ověř obousměrně" už není text, ale rejstřík, který
+> **shodí build**, když se nasadí měřidlo bez důkazu. A audit rovnou předvedl, proč je
+> to potřeba — všechna tři měřidla, která jsem během něj napsal, byla v první verzi
+> vadná a odhalily je až podvrhy a mutace, ne pohled na výsledek.
+>
+> **Druhý nález auditu: diamant se ze samostatného režimu vytratil.** Kola S1–S5 jsou
+> všechna „chain", ačkoli se v nich dělaly dávky 5–9 **nezávislých** stránek — to je
+> učebnicový vějíř. Paralelní byla jen kontrola. Kolo A1 proto vějíř použilo (3 auditoři
+> naráz) a vyplatilo se: každý auditor našel jiný druh vady a shodli se jen na jednom —
+> tím je ten nález nejsilnější.
 
 ### Kontrolor v kole E1 (nakloněná rovina)
 
