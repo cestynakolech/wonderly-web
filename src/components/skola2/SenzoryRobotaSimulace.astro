@@ -20,14 +20,14 @@
 <section class="ramecek simulace">
 	<h2><span class="podtrh">Kdy robot zastaví — a kdy nabourá 🤖</span></h2>
 	<p>
-		Robot jede ke zdi a ultrazvukem měří, jak je daleko. Zkus obě verze programu
-		a všímej si dvou čísel: co senzor <strong>hlásí</strong> a jak je zeď
+		Robot jede k překážce a ultrazvukem měří, jak je daleko. Zkus obě verze programu
+		a všímej si dvou čísel: co senzor <strong>hlásí</strong> a jak je překážka
 		<strong>doopravdy</strong> daleko.
 	</p>
 
 	<div class="sr-obal">
 		<svg id="sr-scena" viewBox="0 0 640 220" role="img" aria-labelledby="sr-popis">
-			<title id="sr-popis">Robot jede zleva ke zdi, ultrazvukový senzor měří vzdálenost</title>
+			<title id="sr-popis">Robot jede zleva k překážce a ultrazvukem měří, jak je daleko</title>
 			<!-- podlaha dole, zeď vpravo: svět má být tam, kde ho dítě čeká -->
 			<rect x="0" y="170" width="640" height="50" fill="#e9ecef" />
 			<line x1="0" y1="170" x2="640" y2="170" stroke="#2b2a26" stroke-width="3" />
@@ -43,7 +43,7 @@
 			</g>
 			<text id="sr-napis-hlasi" x="20" y="30" class="sr-popisek">senzor hlásí:</text>
 			<text id="sr-hlaseni" x="150" y="30" class="sr-cislo"></text>
-			<text id="sr-napis-skutecne" x="300" y="30" class="sr-popisek">doopravdy je zeď:</text>
+			<text id="sr-napis-skutecne" x="300" y="30" class="sr-popisek">doopravdy je překážka:</text>
 			<text id="sr-skutecnost" x="470" y="30" class="sr-cislo"></text>
 		</svg>
 	</div>
@@ -101,6 +101,7 @@
 	const btnReset = document.getElementById('sr-reset');
 	const btnDotyk = document.getElementById('sr-dotyk');
 	const poznKrokEl = document.getElementById('sr-pozn-krok');
+	const popisEl = document.getElementById('sr-popis');
 
 	const START = 120;        // cm: jak daleko je zeď na začátku
 	const KROK = 10;          // cm: o kolik robot popojede jedním krokem
@@ -110,10 +111,17 @@
 	// měkká látka ji pohltí. V obou případech se nevrátí NIC — a to senzor hlásí
 	// jako největší vzdálenost, kterou umí, tedy „přede mnou je volno".
 	const PREKAZKY = {
-		kolma: { nazev: 'kolmá zeď', ozvenaSeVrati: true, proc: 'ozvěna se vrátí rovnou zpátky' },
-		sikma: { nazev: 'šikmá stěna', ozvenaSeVrati: false, proc: 'ozvěna se odrazí stranou a nevrátí se' },
-		zaclona: { nazev: 'záclona', ozvenaSeVrati: false, proc: 'měkká látka zvuk pohltí' },
+		kolma: { nazev: 'kolmá zeď', doCeho: 'do zdi', ozvenaSeVrati: true,
+			proc: 'ozvěna se vrátí rovnou zpátky', sirka: 40, barva: '#adb5bd', sklon: '' },
+		sikma: { nazev: 'šikmá stěna', doCeho: 'do šikmé stěny', ozvenaSeVrati: false,
+			proc: 'ozvěna se odrazí stranou a nevrátí se', sirka: 40, barva: '#adb5bd',
+			sklon: 'translate(30,0) skewX(-10)' },
+		zaclona: { nazev: 'záclona', doCeho: 'do záclony', ozvenaSeVrati: false,
+			proc: 'měkká látka zvuk pohltí', sirka: 14, barva: '#b197fc', sklon: '' },
 	};
+	// Kam paprsek dokreslit: od kolmé zdi se vrátí, od šikmé uletí stranou nahoru,
+	// v zácloně se ztratí. Dítě tak vidí i DŮVOD, proč se nic nevrátilo.
+	const KONEC_PAPRSKU = { kolma: [560, 130], sikma: [620, 55], zaclona: [566, 130] };
 
 	/** České číslo: desetinná čárka, celá čísla bez nul navíc. */
 	const cz = (n) => (Number.isInteger(n) ? String(n) : String(n).replace('.', ','));
@@ -164,56 +172,77 @@
 		robotEl.setAttribute('x', String(x));
 		okoEl.setAttribute('cx', String(x + 70));
 		paprsekEl.setAttribute('x1', String(x + 80));
+		paprsekEl.setAttribute('x2', String(KONEC_PAPRSKU[prekazka][0]));
+		paprsekEl.setAttribute('y2', String(KONEC_PAPRSKU[prekazka][1]));
 		paprsekEl.setAttribute('stroke', PREKAZKY[prekazka].ozvenaSeVrati ? '#1971c2' : '#a61e1e');
 		paprsekEl.setAttribute('stroke-dasharray', PREKAZKY[prekazka].ozvenaSeVrati ? '10 6' : '4 10');
-		zedEl.setAttribute('fill', prekazka === 'zaclona' ? '#d0bfff' : '#adb5bd');
-		zedEl.setAttribute('transform', prekazka === 'sikma' ? 'skewX(-20)' : '');
+		zedEl.setAttribute('fill', PREKAZKY[prekazka].barva);
+		zedEl.setAttribute('width', String(PREKAZKY[prekazka].sirka));
+		// Šikmá stěna se naklání až NAD podlahou, aby do ní robot nevjel a obrázek
+		// zůstal logický (nález kontrolora 3. 8. 2026).
+		zedEl.setAttribute('transform', PREKAZKY[prekazka].sklon);
 
 		hlaseniEl.textContent = `${cz(hlasi)} cm`;
 		skutecnostEl.textContent = `${cz(skutecne)} cm`;
 		ujelEl.textContent = `${cz(ujel)} cm`;
-		poznKrokEl.textContent = `po ${cz(KROK)} cm každý krok`;
+		poznKrokEl.textContent = `každý krok ${cz(KROK)} cm`;
 		tabHlaseniEl.textContent = `${cz(hlasi)} cm`;
 		tabSkutecnostEl.textContent = `${cz(skutecne)} cm`;
-		poznHlaseniEl.textContent = PREKAZKY[prekazka].proc;
+		poznHlaseniEl.textContent = PREKAZKY[prekazka].ozvenaSeVrati
+			? PREKAZKY[prekazka].proc
+			: `${PREKAZKY[prekazka].proc} → nevrátí se nic, a to senzor hlásí jako svůj největší dosah ${cz(MAX_DOSAH)} cm`;
 		const rozhoduje = opakovat === 1;
-		rozhodnutiEl.textContent = stoji ? 'stůj' : jedeDal(hlasi) ? 'jeď vpřed' : 'stůj';
+		// Bez opakování se program po prvním kroku už neptá — dopočítaná podmínka by
+		// dítěti tvrdila „program rozhodl stůj" ve chvíli, kdy robot tlačí do zdi.
+		rozhodnutiEl.textContent = !rozhoduje && ujel > 0
+			? 'už se neptá'
+			: stoji ? 'stůj' : jedeDal(hlasi) ? 'jeď vpřed' : 'stůj';
 		poznRozhodnutiEl.textContent = rozhoduje
 			? `měří a rozhoduje se před každým krokem (${cz(hlasi)} > ${cz(PRAH)}?)`
 			: 'rozhodl se jen jednou na začátku, pak už jede naslepo';
 		robotEl.setAttribute('fill', skutecne === 0 ? '#ffa8a8' : '#ffd43b');
-		robotEl.setAttribute('aria-label', `robot ujel ${cz(ujel)} cm, zeď je ${cz(skutecne)} cm daleko`);
+		// Uvnitř <svg role="img"> odečítač potomky nečte — jméno dává <title>, a ten se
+		// proto musí přepisovat (nález kontrolora 3. 8. 2026).
+		popisEl.textContent = `Robot jede zleva ${PREKAZKY[prekazka].doCeho}. Ujel ${cz(ujel)} cm, `
+			+ `překážka je doopravdy ${cz(skutecne)} cm daleko a senzor hlásí ${cz(hlasi)} cm.`;
 	}
 
 	function popisStavu() {
 		const skutecne = skutecnaVzdalenost(ujel);
 		const hlasi = hlaseni(ujel, prekazka);
 		if (ujel === 0 && !stoji) {
-			return `Zeď je <strong>${cz(START)} cm</strong> daleko a senzor hlásí <strong>${cz(hlasi)} cm</strong>. `
+			return `Překážka je <strong>${cz(START)} cm</strong> daleko a senzor hlásí <strong>${cz(hlasi)} cm</strong>. `
 				+ 'Klikej na <strong>jeden krok</strong>, nebo rovnou pusť celý program.';
 		}
 		if (duvodStani === 'podminka') {
 			return `Program zastavil sám: senzor hlásí <strong>${cz(hlasi)} cm</strong>, `
-				+ `a to už není víc než ${cz(PRAH)}. Zeď je přitom <strong>${cz(skutecne)} cm</strong> daleko — `
+				+ `a to už není víc než ${cz(PRAH)} cm. Překážka je přitom <strong>${cz(skutecne)} cm</strong> daleko — `
 				+ 'robot stojí přesně tam, kde má.';
 		}
 		if (duvodStani === 'dotyk') {
-			return `Do zdi <strong>narazil</strong> — ultrazvuk ji neviděl, protože ${PREKAZKY[prekazka].proc}. `
-				+ 'Zastavil ho až <strong>dotykový senzor</strong>: ten je spolehlivý, ale pozná překážku '
-				+ 'až po nárazu. Proto se oba senzory kombinují.';
+			const konec = 'Zastavil ho až <strong>dotykový senzor</strong>: ten je spolehlivý, ale pozná '
+				+ 'překážku až po nárazu. Proto se oba senzory kombinují.';
+			// Dva různé důvody nárazu — a nesmí se zaměnit:
+			return PREKAZKY[prekazka].ozvenaSeVrati
+				// senzor měřil správně, ale program se zeptal jen jednou
+				? `Robot narazil ${PREKAZKY[prekazka].doCeho} — ultrazvuk ji přitom <strong>viděl správně</strong>, `
+					+ `jenže program se zeptal jen jednou na začátku a pak jel naslepo. ${konec}`
+				// senzor sám nic nenaměřil
+				: `Robot narazil ${PREKAZKY[prekazka].doCeho} — ultrazvuk ji <strong>neviděl</strong>, `
+					+ `protože ${PREKAZKY[prekazka].proc}. ${konec}`;
 		}
 		if (duvodStani === 'naslepo' && !PREKAZKY[prekazka].ozvenaSeVrati) {
-			return `Robot <strong>tlačí do zdi</strong> a vůbec o tom neví: senzor pořád hlásí `
+			return `Robot <strong>tlačí ${PREKAZKY[prekazka].doCeho}</strong> a vůbec o tom neví: senzor pořád hlásí `
 				+ `<strong>${cz(hlasi)} cm</strong>, protože ${PREKAZKY[prekazka].proc}. `
 				+ 'Zkus přidat <strong>dotykový senzor</strong>.';
 		}
 		if (duvodStani === 'naslepo') {
-			return 'Robot <strong>tlačí do zdi</strong>. Program se rozhodl jen jednou na začátku, '
-				+ `kdy byla zeď ${cz(START)} cm daleko — pak už jel naslepo. `
+			return `Robot <strong>tlačí ${PREKAZKY[prekazka].doCeho}</strong>. Program se rozhodl jen jednou `
+				+ `na začátku, kdy byla překážka ${cz(START)} cm daleko — pak už jel naslepo. `
 				+ 'Přepni program na <strong>opakuj: měř a jeď</strong> a pusť to znovu.';
 		}
 		return `Ujel <strong>${cz(ujel)} cm</strong>, senzor hlásí <strong>${cz(hlasi)} cm</strong> `
-			+ `a zeď je doopravdy <strong>${cz(skutecne)} cm</strong> daleko.`;
+			+ `a překážka je doopravdy <strong>${cz(skutecne)} cm</strong> daleko.`;
 	}
 
 	function ukazStav() {

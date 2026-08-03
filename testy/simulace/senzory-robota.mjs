@@ -53,7 +53,7 @@ function querySelectorAll(s) {
 const ID_SABLONY = ['sr-scena', 'sr-robot', 'sr-oko', 'sr-paprsek', 'sr-zed', 'sr-hlaseni',
 	'sr-skutecnost', 'sr-ujel', 'sr-tab-hlaseni', 'sr-tab-skutecnost', 'sr-rozhodnuti',
 	'sr-pozn-hlaseni', 'sr-pozn-rozhodnuti', 'sr-pozn-krok', 'sr-stav', 'sr-krok', 'sr-spust',
-	'sr-reset', 'sr-dotyk'];
+	'sr-reset', 'sr-dotyk', 'sr-popis'];
 for (const id of ID_SABLONY) novy(id, true);
 
 const document = { getElementById: (id) => prvky.get(id) || novy(id), querySelectorAll,
@@ -295,6 +295,8 @@ const nastav = (opakovat, prekazka, dotyk = false) => {
 		const zastavilSam = scena.__stav().duvodStani === 'podminka';
 		ok(zastavilSam === /opakuj/.test(t.text),
 			`★ „${t.text}" opravdu dělá to, co slibuje (robot ${zastavilSam ? 'zastavil' : 'naboural'})`);
+		ok(!(zastavilSam && /nezastav|nikdy nestav/.test(t.text)),
+			`a neslibuje opak toho, co dělá („${t.text}")`);
 	}
 
 	// c) Popisky překážek souhlasí s tím, jestli se ozvěna vrátí.
@@ -307,7 +309,14 @@ const nastav = (opakovat, prekazka, dotyk = false) => {
 		const lze = el('sr-tab-hlaseni').textContent !== el('sr-tab-skutecnost').textContent;
 		ok(lze === !PREKAZKY[t.klic].ozvenaSeVrati,
 			`★ u „${t.text}" senzor ${lze ? 'lže' : 'říká pravdu'} — a poznámka to vysvětluje`);
-		ok(el('sr-pozn-hlaseni').textContent === PREKAZKY[t.klic].proc, 'poznámka u hlášení sedí s překážkou');
+		// Ručně zapsané znění — porovnání s PREKAZKY[…].proc byla tautologie: hodnota sama se sebou.
+		const OCEKAVANE = {
+			kolma: 'ozvěna se vrátí rovnou zpátky',
+			sikma: 'ozvěna se odrazí stranou a nevrátí se → nevrátí se nic, a to senzor hlásí jako svůj největší dosah 200 cm',
+			zaclona: 'měkká látka zvuk pohltí → nevrátí se nic, a to senzor hlásí jako svůj největší dosah 200 cm',
+		};
+		ok(el('sr-pozn-hlaseni').textContent === OCEKAVANE[t.klic],
+			`★ poznámka u hlášení říká přesně to, co se u „${t.text}" děje se zvukem`);
 	}
 
 	// d) Nadpis i úvod slibují to, co simulace ukazuje.
@@ -323,15 +332,85 @@ const nastav = (opakovat, prekazka, dotyk = false) => {
 		[/dotyk(ový senzor)? (pozná|hlásí) překážku (včas|předem|dřív)/i, 'dotyk pozná až náraz', scena.__dotykSepnul(110) === false],
 		[/stačí (změřit|měřit) jednou/i, 'bez opakování robot nabourá', true],
 	];
-	for (const [op, p] of [[1, 'kolma'], [0, 'sikma'], [1, 'zaclona']]) {
-		nastav(op, p);
+	// Projdou se VŠECHNY kombinace (2 programy × 3 překážky × dotyk), a to i po doběhnutí —
+	// dosud se zkoušely jen dvě z dvanácti a právě v nepokryté ležela lež o ultrazvuku.
+	let stavuVet = 0, lzivych = 0;
+	for (const op of [1, 0]) for (const pr of ['kolma', 'sikma', 'zaclona']) for (const d of [false, true]) {
+		nastav(op, pr, d);
 		klik(btn.spust);
+		stavuVet++;
+		const t = stav();
+		const vidi = PREKAZKY[pr].ozvenaSeVrati;
+		const s2 = scena.__stav();
+		const dojel = scena.__skutecnaVzdalenost(s2.ujel) === 0;
+		// „ultrazvuk ji neviděl" smí zaznít jen tam, kde senzor opravdu nic nenaměřil
+		if (/neviděl/.test(t) && vidi) { ok(false, `★ hláška tvrdí „neviděl" u ${PREKAZKY[pr].nazev}, kde senzor měří pravdu (program ${op}, dotyk ${d})`); lzivych++; }
+		// „narazil / tlačí" smí zaznít jen tam, kde robot opravdu dojel až k překážce
+		if (/narazil|naboural|rozbil|tlačí/.test(t) && !dojel) { ok(false, `★ hláška mluví o nárazu, ale robot stojí ${scena.__skutecnaVzdalenost(s2.ujel)} cm před překážkou`); lzivych++; }
+		// „stojí, kde má" naopak nesmí zaznít po nárazu
+		if (/kde má/.test(t) && dojel) { ok(false, '★ hláška chválí zastavení, přestože robot skončil v překážce'); lzivych++; }
+		// Zastavil-li program včas, nesmí hláška mluvit o nárazu ani o rozbití.
+		if (s2.duvodStani === 'podminka' && /naboural|rozbil|narazil/.test(t)) { ok(false, '★ hláška mluví o nárazu, ačkoli program zastavil včas'); lzivych++; }
+		// Tabulka „program rozhodl": bez opakování se program po prvním kroku už neptá.
+		if (op === 0 && s2.ujel > 0 && el('sr-rozhodnuti').textContent !== 'už se neptá') {
+			ok(false, `★ tabulka dopočítává rozhodnutí i bez opakování („${el('sr-rozhodnuti').textContent}")`); lzivych++;
+		}
+		if (op === 1 && !['jeď vpřed', 'stůj'].includes(el('sr-rozhodnuti').textContent)) {
+			ok(false, `★ s opakováním má tabulka ukazovat skutečné rozhodnutí („${el('sr-rozhodnuti').textContent}")`); lzivych++;
+		}
+		// program bez opakování se neptá pořád dokola a naopak
+		if (op === 0 && /pořád dokola|měří pořád/.test(t)) { ok(false, '★ hláška u programu bez opakování tvrdí, že se měří pořád'); lzivych++; }
+		if (op === 1 && /jen jednou/.test(t)) { ok(false, '★ hláška u programu s opakováním tvrdí, že se rozhodl jen jednou'); lzivych++; }
+		// a nikdy se nesmí zácloně říkat zeď
+		if (pr === 'zaclona' && /do zdi|ke zdi|zeď/.test(t)) { ok(false, '★ hláška říká zácloně „zeď"'); lzivych++; }
 		for (const [vzor, proc, doklad] of zakazane) {
 			if (!doklad) { ok(false, `doklad k „${proc}" neplatí — kontrola by nic neznamenala`); continue; }
-			if (vzor.test(cistyText(sablona) + ' ' + stav())) ok(false, `★ na stránce stojí nepravda: ${proc}`);
+			if (vzor.test(cistyText(sablona) + ' ' + t)) { ok(false, `★ na stránce stojí nepravda: ${proc}`); lzivych++; }
 		}
 	}
-	ok(true, `★ žádná ze ${zakazane.length} zakázaných vět na stránce není`);
+	// Ještě PŘED spuštěním a po JEDNOM kroku: hláška nesmí mluvit o nárazu, který nenastal,
+	// a program bez opakování se na začátku ještě ptá (proto tam „už se neptá" nepatří).
+	for (const op of [1, 0]) for (const pr of ['kolma', 'sikma']) {
+		nastav(op, pr);
+		ok(!/narazil|naboural|tlačí/.test(stav()), `na startu (${PREKAZKY[pr].nazev}, program ${op}) hláška o nárazu nemluví`);
+		ok(['jeď vpřed', 'stůj'].includes(el('sr-rozhodnuti').textContent),
+			'★ a tabulka na startu ukazuje skutečné rozhodnutí — program se právě ptá');
+		klik(btn.krok);
+		stavuVet++;
+		if (scena.__skutecnaVzdalenost(scena.__stav().ujel) > 0)
+			ok(!/narazil|naboural|tlačí/.test(stav()), '★ ani po prvním kroku, dokud je překážka daleko');
+	}
+	ok(stavuVet === 16, `hlášky se četly v ${stavuVet} stavech simulace`);
+	ok(lzivych === 0, `★ v žádném z ${stavuVet} stavů hláška netvrdí něco, co v něm neplatí`);
+
+	// Poznámka u skutečné vzdálenosti: ručně zapsané znění (dřív ji nekontroloval nikdo).
+	const poznSkutecnost = cistyText(sablona.match(/id="sr-tab-skutecnost"><\/td><td class="sr-pozn"[^>]*>([\s\S]*?)<\/td>/)?.[1] ?? '');
+	nastav(1, 'sikma');
+	ok(el('sr-tab-hlaseni').textContent !== el('sr-tab-skutecnost').textContent
+		&& poznSkutecnost === 'tohle robot nikdy nevidí',
+		`★ u skutečné vzdálenosti stojí „tohle robot nikdy nevidí" — a je to pravda (naměřeno „${poznSkutecnost}")`);
+}
+
+// ———————————————————————— 8b) SCÉNA MUSÍ BÝT LOGICKÁ I SVISLE
+{
+	const atr = (id, a) => Number(sablona.match(new RegExp(`id="${id}"[^>]*\\s${a}="(-?\\d+)"`))?.[1] ?? NaN);
+	const podlahaY = Number(sablona.match(/<rect x="0" y="(\d+)" width="640"/)?.[1] ?? NaN);
+	ok(podlahaY === 170, `podlaha je ve výšce ${podlahaY} — dole, kde ji dítě čeká`);
+	ok(atr('sr-robot', 'y') + atr('sr-robot', 'height') === podlahaY, '★ robot stojí NA podlaze, nelétá vzduchem');
+	ok(atr('sr-zed', 'y') + atr('sr-zed', 'height') === podlahaY, '★ a překážka taky stojí na podlaze, nevisí');
+	ok(atr('sr-robot', 'y') > atr('sr-zed', 'y'), 'zeď je vyšší než robot — dá se do ní narazit');
+	nastav(1, 'kolma');
+	klik(btn.krok);
+	ok(Number(el('sr-paprsek').atributy.x2) > Number(el('sr-paprsek').atributy.x1),
+		'★ paprsek míří dopředu k překážce, ne dozadu');
+	const paprsekY = Number(sablona.match(/id="sr-paprsek"[^>]*y1="(\d+)"/)?.[1] ?? NaN);
+	ok(paprsekY > atr('sr-robot', 'y') && paprsekY < podlahaY, 'a vychází z robota, ne nad ním nebo pod podlahou');
+	// Od šikmé stěny se paprsek odráží pryč — to je ta pointa, musí být i vidět.
+	nastav(1, 'sikma');
+	ok(Number(el('sr-paprsek').atributy.y2) < paprsekY,
+		'★ od šikmé stěny paprsek uletí stranou nahoru — dítě vidí, proč se nic nevrátí');
+	nastav(1, 'kolma');
+	ok(Number(el('sr-paprsek').atributy.y2) === paprsekY, 'kdežto od kolmé zdi jde rovně tam a zpátky');
 }
 
 // ———————————————————————— 9) ŠABLONA A PŘÍSTUPNOST
@@ -347,14 +426,24 @@ const nastav = (opakovat, prekazka, dotyk = false) => {
 	for (const t of stisknute)
 		ok(t[1].includes('sr-aktivni') === (t[2] === 'true'),
 			'★ stisknuté podle odečítače je totéž tlačítko, které je zvýrazněné pro oko');
-	ok(/<title id="sr-popis">/.test(sablona) && /aria-labelledby="sr-popis"/.test(sablona),
-		'obrázek má popis pro odečítač');
+	ok(/aria-labelledby="sr-popis"/.test(sablona), 'obrázek se odkazuje na svůj popis');
+	const titulVSablone = sablona.match(/<title id="sr-popis">([^<]*)<\/title>/)?.[1] ?? '';
+	ok(titulVSablone === 'Robot jede zleva k překážce a ultrazvukem měří, jak je daleko',
+		`★ i statický popis obrázku (ten uvidí odečítač bez JS) mluví o téhle scéně („${titulVSablone}")`);
 	// Robot musí odečítači hlásit, kde je — samotný obrázek mu nic neřekne.
 	nastav(1, 'kolma');
 	klik(btn.krok);
-	const label = el('sr-robot').atributy['aria-label'] ?? '';
-	ok(label === `robot ujel ${scena.__cz(scena.__stav().ujel)} cm, zeď je ${scena.__cz(scena.__skutecnaVzdalenost(scena.__stav().ujel))} cm daleko`,
-		`★ a hlásí skutečné hodnoty („${label}")`);
+	// Uvnitř <svg role="img"> je obrázek pro odečítač LIST — potomky nečte. Jméno dává
+	// jedině <title>, takže se musí přepisovat spolu se scénou.
+	const u = scena.__stav().ujel;
+	const popis = el('sr-popis').textContent;
+	ok(popis.includes(`Ujel ${scena.__cz(u)} cm`),
+		`★ popis obrázku pro odečítač hlásí skutečně ujetou dráhu („${popis.slice(0, 60)}…")`);
+	ok(popis.includes(`${scena.__cz(scena.__skutecnaVzdalenost(u))} cm daleko`),
+		'★ i skutečnou vzdálenost překážky — nevidomý žák se dozví totéž co vidoucí');
+	nastav(1, 'zaclona');
+	ok(el('sr-popis').textContent.includes('do záclony'),
+		'★ a jmenuje překážku, kterou si dítě zvolilo (ne pořád „zeď")');
 
 	// Kontrast čar a šrafů: na promítačce mizí bledá grafika jako první.
 	const sytost = (h) => {
@@ -363,10 +452,22 @@ const nastav = (opakovat, prekazka, dotyk = false) => {
 		return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
 	};
 	const kontrast = (b) => 1.05 / (sytost(b) + 0.05);
-	const cary = [...new Set([...zdroj.matchAll(/border[^;:]*:\s*\d+px\s+solid\s+(#[0-9a-f]{6})/gi)].map((m) => m[1]))];
+	// Kontrast se počítá u ČAR A OBRYSŮ (ty nesou tvar). Výplň smí být světlá, ale jen
+	// když má tvar tmavý obrys — proto se zvlášť ověřuje, že obrys má každý tvar.
+	const cary = [...new Set([
+		...[...zdroj.matchAll(/border[^;{]*solid\s+(#[0-9a-f]{6})/gi)].map((m) => m[1]),
+		...[...zdroj.matchAll(/\sstroke="(#[0-9a-f]{6})"/gi)].map((m) => m[1]),
+		// barvy přiřazované do obrysu za běhu (obě větve podmínky na tomtéž řádku)
+		...zdroj.split('\n').filter((r) => /setAttribute\('stroke'/.test(r))
+			.flatMap((r) => [...r.matchAll(/#[0-9a-f]{6}/gi)].map((m) => m[0])),
+	])];
 	const bledé = cary.filter((b) => kontrast(b) < 3);
-	ok(cary.length >= 1 && bledé.length === 0,
-		`★ každá čára má proti bílé aspoň 3 : 1${bledé.length ? ' — bledé: ' + bledé.join(', ') : ''}`);
+	ok(cary.length >= 4, `ke kontrole je ${cary.length} barev čar a obrysů`);
+	ok(bledé.length === 0,
+		`★ každá čára i obrys má proti bílé aspoň 3 : 1${bledé.length ? ' — bledé: ' + bledé.map((b) => `${b} (${kontrast(b).toFixed(2)})`).join(', ') : ''}`);
+	for (const id of ['sr-robot', 'sr-zed', 'sr-oko'])
+		ok(/stroke="#/.test(sablona.match(new RegExp(`id="${id}"[^>]*>`))?.[0] ?? ''),
+			`★ tvar #${id} má obrys, takže je vidět i při světlé výplni`);
 }
 
 console.log(chyby === 0 ? `\n✅ Senzory robota: všech ${kontrol} kontrol prošlo.` : `\n❌ ${chyby} z ${kontrol} kontrol selhalo.`);

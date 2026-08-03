@@ -61,6 +61,13 @@
 			"zdravy": "Nad nezměněnou komponentou projde všech 167 kontrol a skript hlásí „zdravá kopie mlčí\"; ověření se zdravou kopií je první krok skriptu, takže se pozná i to, že se měří jiný soubor, než se myslí.",
 			"regrese": "Předchozí verze testu (93 kontrol) propustila 8 z těchto podvrhů, verze z rána (143 kontrol) dalších 11 — obojí je v seznamu a nesmí se vrátit.",
 			"overeno": "2026-08-03"
+		},
+		"simulace/senzory-robota.mjs": {
+			"test": "testy/podvrhy/senzory-robota-podvrhy.mjs",
+			"podvrh": "21 mutací komponenty na kopii v dočasné složce — naučné texty (poznámka tvrdí, že senzor u šikmé stěny měří přesně; hláška chválí zastavení po nárazu; program bez opakování prý měřil pořád; tlačítko slibuje „nikdy nezastav\"; zácloně se říká zeď; náraz sváděný na ultrazvuk i tam, kde měřil dobře), scéna (robot ve vzduchu, podlaha nahoře, zeď visící, paprsek dozadu, žádný odraz od šikmé stěny, popis obrázku o teplotě) a hodnoty (MAX_DOSAH 0, dotyk sepne metr předem, program se ptá i bez opakování, výchozí program prohozený, záclona vypadá jako zeď). Každá shodí aspoň jednu kontrolu.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 154 kontrol a skript hlásí „zdravá kopie mlčí\" — první krok skriptu, takže se pozná i měření jiného souboru, než se myslí.",
+			"regrese": "První verze testu (122 kontrol) propustila 5 podvrhů v textech a 5 ve scéně; mutační test testy/mutace.mjs odhalí 14 ze 14.",
+			"overeno": "2026-08-03"
 		}
 	}
 }
