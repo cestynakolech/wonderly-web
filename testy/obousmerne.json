@@ -54,6 +54,13 @@
 			"mez": "Změřit jde jen kód, který se opravdu provede. Šest vyhledání (ElektromotorSimulace emo-f-*, OkoSimulace oko-bryle-*, PrumerSimulace prum-novy) je ve větvích, kam běh při načtení nedojde. Měřidlo také nehlídá překlep v názvu prohlížečové metody - neznámé API atrapa tiše obslouží.",
 			"duvod": "První verze hledala volání regulárními výrazy a 270 z 945 vyhledání nebylo měřeno vůbec; druhá měřila jen kód doběhlý při načtení a přišla o dalších 32. Záplatovat vzor po vzoru je nekonečné, proto se měří výsledek spuštění.",
 			"overeno": "2026-08-02"
+		},
+		"simulace/funkce-tabulky.mjs": {
+			"test": "testy/podvrhy/funkce-tabulky-podvrhy.mjs",
+			"podvrh": "24 mutací komponenty na kopii v dočasné složce — texty vzorců (mez v hlavičce 4→3, rozsah B2:B8, anglická čárka, =PRUMER bez háčků, prohozený popisek MIN, prohozené popisky přepínače, smyšlený chybový kód), přístupnost (scope pryč, 1. pád v aria-label, bledá šrafa #dee2e6 = 1,30 : 1, bledá mřížka #f8f9fa) a naučné texty (text prý MENŠÍ než číslo, MIN/MAX prý hlásí chybu, průměr napevno „20 ÷ 6\", poznámka RANK jmenuje jiného žáka, lživá nápověda ke kolečku, „platí jen pro řádek 2\", úvod posílá sledovat jiné funkce, nadpis o grafech). Každá shodí 2–7 kontrol.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 167 kontrol a skript hlásí „zdravá kopie mlčí\"; ověření se zdravou kopií je první krok skriptu, takže se pozná i to, že se měří jiný soubor, než se myslí.",
+			"regrese": "Předchozí verze testu (93 kontrol) propustila 8 z těchto podvrhů, verze z rána (143 kontrol) dalších 11 — obojí je v seznamu a nesmí se vrátit.",
+			"overeno": "2026-08-03"
 		}
 	}
 }

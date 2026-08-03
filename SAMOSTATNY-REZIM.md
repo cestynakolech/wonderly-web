@@ -1,34 +1,21 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (2. 8. 2026, 23:00 — noční běh)
+## ⏩ KDE POKRAČOVAT (3. 8. 2026, ráno — noční běh)
 
 > **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🌙 FRONTA NA NOC (pořadí určil koordinátor, drž ho)
+### 🌙 FRONTA (pořadí drž)
 
-1. **Test simulace funkcí je slepý na texty v HTML.** Kontrolor prošel 8 mutacemi:
-   změněná mez v hlavičce, popisek MIN přepsaný na „nejhorší", rozsah `B2:B8`,
-   anglická čárka místo středníku, `=PRUMER` bez háčků, smyšlený chybový kód,
-   prohozený popisek přepínače. Doplnit do `testy/simulace/funkce-tabulky.mjs`
-   kontroly nad proměnnou `html`: mez v hlavičce = `MEZ_KDYZ`, rozsah všude `B2:B7`,
-   oddělovač **středník**, názvy funkcí s diakritikou, chybové kódy z pevného seznamu.
-   Ověřit obousměrně na kopii mimo repo.
-2. **Zbylých 8 drobných nálezů kontrolora** k téže simulaci: `#N/A` místo `#HODNOTA!`
-   u prázdné buňky v RANK · hlavička sloupce C platí pro všech 6 řádků (dopsat
-   „kopírováno dolů") · šrafa prázdné buňky má kontrast 1,30 : 1 (ztmavit na `#868e96`)
-   · `scope="col"/"row"` v tabulce · genitiv v popisku pro odečítač („známka Adama")
-   · zavírací uvozovky U+201C · délková nápověda u 2 otázek · mrtvý kód (`teloEl`,
-   proměnná `svg` u `<tbody>`).
-3. **Názornost informatiky** — zbývá **31 podtémat**. Na řadě: `senzory-robota` (Inf8),
+1. **Názornost informatiky** — zbývá **31 podtémat**. Na řadě: `senzory-robota` (Inf8),
    `klonovani-animace-hry` (Inf9). Dávka 4+ patří do vějíře (`/simulace`).
-4. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
+2. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
    leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
    Saint-Tropez, Le Lavandou a Riez**, delší (6:06) je jen z Le Bourg (77 médií).
    Když v delší opravdu chybí, složit ze dvou jednu.
-5. Doměřit zbylé testy simulací mutačním testem · `cz()` chybí v 11 simulacích.
+3. Doměřit zbylé testy simulací mutačním testem · `cz()` chybí v 11 simulacích.
 
 ### ⏳ ČEKÁ NA ODKLIKNUTÍ UČITELE (nikdy kvůli tomu nestát — jít dál)
 
@@ -38,6 +25,33 @@
   (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
 - **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
   se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
+
+### ✅ Hotovo 3. 8. v noci — simulace „Funkce v tabulkách" (oba úkoly z minulé fronty)
+
+- **Test už vidí i texty v HTML** (úkol 1). Nová sekce 9 neporovnává napevno psané
+  řetězce, ale váže text na chování: mez v hlavičce = `MEZ_KDYZ`, rozsahy = počet
+  žáků, oddělovač středník, názvy funkcí s háčky, popisky MIN/MAX proti skutečným
+  hodnotám, popisek přepínače proti tomu, co tlačítko udělá, chybové kódy z české
+  sady Excelu. Přitom se našla živá nesrovnalost: tabulka vypisovala
+  `#DĚLENÍ_NULOU!`, ale hláška pod ní tvrdila anglické `#DIV/0!` — sjednoceno.
+- **Všech 8 drobných nálezů** (úkol 2): RANK rozlišuje `#HODNOTA!` (text) a `#N/A`
+  (prázdná buňka = nula, ta ve sloupci není) · `scope` u všech záhlaví · 2. pád
+  v `aria-label` · šrafa `#868e96` (kontrast 1,30 → 3,32 : 1) · „kopírováno dolů"
+  v hlavičce · české uvozovky · dorovnané délky u 3 kvízových otázek · mrtvý kód pryč.
+- **Nezávislý kontrolor našel 10 dalších, dvě vážné** — a měl pravdu:
+  (1) závěrečná hláška měla „18 ÷ 6 = 3" **napevno**, přestože se ukazuje i po změně
+  známky, takže po jednom kliknutí tvrdila dětem něco jiného než panel o dva
+  centimetry výš; (2) test měřil vzorce, ale **naučné věty vůbec** — z 15 podvržených
+  nepravd jich 11 prošlo zeleně, včetně „text je menší než každé číslo" (opak Excelu).
+  Nová sekce 10 proto měří i texty: čísla v hlášce se porovnávají s daty po každé
+  změně, poznámky u SUMA/POČET/RANK proti chování, nápověda proti `KOLECKO`,
+  nadpis a úvod proti zvýrazněné funkci v panelu, kontrast každé čáry ≥ 3 : 1.
+  Dále: RANK vypisuje `1` jako Excel (ne `1.`), `<caption>` u tabulky výsledků,
+  mřížka `#adb5bd` → `#868e96`, a **dvě nové kvízové otázky** na hlavní pointy
+  (třetí údaj u RANK, prázdná buňka v KDYŽ) — kvíz má 15 otázek.
+- **Kotva:** test **93 → 167 kontrol**, obousměrně ověřeno **24 podvrhy na kopii mimo
+  repo** (zdravá kopie mlčí, každý podvrh test shodí). Testy simulací celkem **828**,
+  brány šablon 0 nálezů, build 465 stránek.
 
 ### ✅ Hotovo 2. 8. večer
 
