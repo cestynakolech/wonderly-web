@@ -80,6 +80,10 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 	ok(telo.__MIN(VYCHOZI) === 1, 'MIN dá 1 — u známek ta nejlepší');
 	ok(telo.__MAX(VYCHOZI) === 5, 'MAX dá 5 — u známek ta nejhorší');
 	ok(telo.__MIN(VYCHOZI) < telo.__MAX(VYCHOZI), 'a MIN je opravdu menší než MAX (funkce nejsou prohozené)');
+	// Extrém uprostřed: „vezmi první / poslední" by na výchozích datech prošlo náhodou.
+	ok(telo.__MIN([3, 3, 1, 5, 4, 5]) === 1, '★ MIN najde nejmenší i uprostřed řady, nebere prostě první');
+	ok(telo.__MAX([1, 3, 5, 2, 2, 1]) === 5, '★ MAX najde největší i uprostřed řady, nebere prostě poslední');
+	ok(telo.__MIN([4, 4, 4]) === 4 && telo.__MAX([4, 4, 4]) === 4, 'a nad samými stejnými čísly dají obě totéž');
 
 	// Nezávislý přepočet: součet i počet spočítané v testu vlastní smyčkou.
 	let s = 0, p = 0;
@@ -131,10 +135,13 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 	ok(telo.__RANK(5, b, 0) === 1, 'a bez údaje první — přesně ta past');
 	// Chybové kódy jsou v Excelu DVA různé a nesmí se plést: text porovnat nejde,
 	// kdežto prázdná buňka se bere jako nula — a nula mezi známkami prostě není.
-	ok(telo.__RANK(TEXT, b, 1) === KODY.hodnota, `★ RANK textu hlásí ${KODY.hodnota} — porovnat text nejde`);
-	ok(telo.__RANK(PRAZDNO, b, 1) === KODY.neniK, `★ ale u PRÁZDNÉ buňky je to ${KODY.neniK} — hledá se nula, kterou sloupec nemá`);
-	ok(telo.__RANK(TEXT, b, 1) !== telo.__RANK(PRAZDNO, b, 1), 'a jsou to opravdu dva různé kódy, ne jeden na všechno');
-	ok(telo.__RANK(4, [1, 2, 3], 1) === KODY.neniK, `hodnota, která v rozsahu není, dá taky ${KODY.neniK}`);
+	// Kódy jsou napsané RUČNĚ. Když se braly z komponenty (KODY.hodnota), prošlo i jejich
+	// prohození — test pak sám vypisoval nepravdu „RANK textu hlásí #N/A".
+	ok(telo.__RANK(TEXT, b, 1) === '#HODNOTA!', '★ RANK textu hlásí #HODNOTA! — porovnat text nejde');
+	ok(telo.__RANK(PRAZDNO, b, 1) === '#N/A', '★ ale u PRÁZDNÉ buňky je to #N/A — hledá se nula, kterou sloupec nemá');
+	ok(KODY.hodnota === '#HODNOTA!' && KODY.neniK === '#N/A' && KODY.deleniNulou === '#DĚLENÍ_NULOU!',
+		'a i v kódu jsou ty kódy pojmenované tak, jak je píše český Excel');
+	ok(telo.__RANK(4, [1, 2, 3], 1) === '#N/A', 'hodnota, která v rozsahu není, dá taky #N/A');
 	ok(telo.__RANK(4, [1, 2, 3, 4], 1) === 4, 'a jakmile v rozsahu je, pořadí se spočítá');
 	// Shodné hodnoty musí dostat shodné pořadí, jinak by to nebyl žebříček.
 	ok(telo.__RANK(2, b, 1) === telo.__RANK(2, b, 1), 'stejná hodnota dostane vždy stejné pořadí');
@@ -322,10 +329,10 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 		while (telo.__bunky()[i] !== PRAZDNO && poj++ < 20) klik(b);
 	}
 	ok(telo.__POCET(telo.__bunky()) === 0, 'po vyprázdnění všech buněk nezůstalo jediné číslo');
-	ok(KODY_EXCELU.includes(el('fn-prumer').textContent),
-		`★ a PRŮMĚR vypsal skutečný chybový kód: ${el('fn-prumer').textContent}`);
-	ok(KODY_EXCELU.includes(el('fn-rank').textContent),
-		`★ i RANK vypsal skutečný kód: ${el('fn-rank').textContent} (prázdná buňka = nula, ta ve sloupci není)`);
+	ok(el('fn-prumer').textContent === '#DĚLENÍ_NULOU!',
+		`★ a PRŮMĚR vypsal právě #DĚLENÍ_NULOU!, ne jiný kód ze sady (${el('fn-prumer').textContent})`);
+	ok(el('fn-rank').textContent === '#N/A',
+		`★ a RANK právě #N/A — prázdná buňka je nula, ta ve sloupci známek není (${el('fn-rank').textContent})`);
 	klik(btnReset);
 
 	// h) Odečítač: každé záhlaví musí říct, kterým směrem platí, a popisek buňky 2. pádem.
@@ -343,9 +350,17 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 	const DRUHY_PAD = ['Adama', 'Báry', 'Cyrila', 'Dany', 'Emila', 'Filipa'];
 	ok(JSON.stringify(GENITIV) === JSON.stringify(DRUHY_PAD),
 		'★ 2. pády jsou přesně ty správné tvary, ne libovolný jiný pád');
-	for (let i = 0; i < JMENA.length; i++)
-		ok((el('fn-bunka-' + i).atributy['aria-label'] ?? '').includes(`známka ${GENITIV[i]}`),
-			`★ odečítač uslyší „známka ${GENITIV[i]}" — 2. pád, ne „známka ${JMENA[i]}"`);
+	for (let i = 0; i < JMENA.length; i++) {
+		const ocekavany = `známka ${GENITIV[i]}: ${VYCHOZI[i]}`;
+		ok((el('fn-bunka-' + i).atributy['aria-label'] ?? '') === ocekavany,
+			`★ odečítač uslyší přesně „${ocekavany}" — jméno ve 2. pádě I skutečnou známku`);
+	}
+	// A po změně buňky musí hlásit novou hodnotu, ne pořád tutéž.
+	const bunkaAria = prvky.get('fn-bunka-0');
+	klik(bunkaAria);
+	ok(el('fn-bunka-0').atributy['aria-label'] === `známka ${GENITIV[0]}: ${telo.__bunky()[0]}`,
+		'★ a po kliknutí hlásí novou známku, ne tu původní');
+	klik(btnReset);
 
 	// i) Šrafa prázdné buňky musí být vidět i na promítačce: kontrast aspoň 3 : 1 proti bílé.
 	const sytost = (h) => {
@@ -410,6 +425,10 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 		klik(bunkaA);
 		overenychStavu++;
 		for (const c of stav().match(/\d+(?:,\d+)?/g) ?? []) if (!platnaCisla().has(c)) cizich++;
+		// Číslovka napsaná slovem je stejné tvrzení jako číslice („klesl na 5, tedy o dva").
+		const SLOVY = { jednu: 1, jedna: 1, dva: 2, dvě: 2, tři: 3, čtyři: 4, pět: 5, šest: 6 };
+		for (const [slovo, hodnota] of Object.entries(SLOVY))
+			if (new RegExp(`\\b${slovo}\\b`, 'i').test(stav()) && !platnaCisla().has(telo.__cz(hodnota))) cizich++;
 	}
 	ok(cizich === 0, `★ každé číslo v hlášce je hodnota, která na obrazovce opravdu je (prošlo ${overenychStavu} stavů)`);
 	klik(btnReset);
@@ -468,6 +487,158 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 		'★ nikde není napsané, že vzorec platí jen pro řádek 2 — sloupec C se počítá pro všechny');
 	ok((sablona.match(/id="fn-kdyz-\d"/g) ?? []).length === JMENA.length,
 		`a sloupec C má opravdu ${JMENA.length} buněk, do kterých je vzorec „kopírovaný"`);
+	// Hlavička sloupce B musí pojmenovat to, co v něm je — a to říká i popisek pro odečítač.
+	const hlavickaB = cistyText(sablona.match(/<th scope="col">B — ([^<]*)</)?.[1] ?? '');
+	klik(btnReset);
+	const zPopisku = (el('fn-bunka-0').atributy['aria-label'] ?? '').split(' ')[0];
+	ok(hlavickaB.trim() === zPopisku.trim(),
+		`★ hlavička sloupce B („${hlavickaB}") jmenuje totéž co popisek buňky pro odečítač („${zPopisku}")`);
+}
+
+// ———————————————————————— 11) ★ CO SE DALO PROPAŠOVAT (druhé kolo kontroly, 3. 8. 2026)
+//
+// Kontrolor podvrhl 34 nepravd a 24 jich prošlo zeleně. Skoro všechny mířily do stejné
+// slabiny: kontrola se dívala jen na JEDEN stav (výchozí), jen na KLÍČOVÉ SLOVO, nebo
+// porovnávala komponentu samu se sebou. Tahle sekce zavírá právě ta místa.
+{
+	const sablona = html.slice(html.indexOf('<section'));
+	const cistyText = (h) => h.replace(/<[^>]*>/g, '');
+	const stav = () => cistyText(stavEl.innerHTML);
+
+	// a) Počty vstupů: podvrh, který ubere žáky nebo zkrátí kolečko, jinak projde tiše.
+	ok(JMENA.length === 6 && GENITIV.length === 6, 'v tabulce je stále šest žáků (jinak by kontroly proběhly méněkrát)');
+	ok(KOLECKO.length === 7, 'a kolečko má sedm kroků — pět známek, text a prázdno');
+	ok(VYCHOZI.length === JMENA.length, 'ke každému žákovi patří jedna výchozí známka');
+
+	// b) Hláška nesmí o sloupci C tvrdit opak toho, co v něm stojí.
+	const bunka = prvky.get('fn-bunka-3');
+	klik(btnReset);
+	let overeno = 0, rozpor = 0;
+	for (let i = 0; i < KOLECKO.length; i++) {
+		klik(bunka);
+		const vysledek = el('fn-kdyz-3').textContent;          // co je opravdu ve sloupci C
+		const t = stav();
+		// „KDYŽ napsalo X" / „napsalo X i tomu…" — jestli hláška výsledek jmenuje, musí sedět.
+		const m = t.match(/napsalo\s+(prospěl|neprospěl)/);
+		if (m) { overeno++; if (m[1] !== vysledek) rozpor++; }
+	}
+	ok(rozpor === 0, `★ hláška o sloupci C souhlasí s tím, co v něm stojí (ověřeno ${overeno}× při klikání)`);
+	ok(overeno >= 2, `kontrola měla co měřit: hláška výsledek jmenovala ${overeno}×`);
+	klik(btnReset);
+
+	// c) Hláška přepínače se dosud četla jen v jedné poloze — druhá mohla tvrdit totéž.
+	klik(prvky.get('v-poradi-1'));
+	ok(/od nejmenší/.test(stav()) && !/od největší/.test(stav()),
+		'★ v poloze ;1 hláška mluví o řazení od nejmenší — a nic jiného');
+	klik(prvky.get('v-poradi-0'));
+	ok(/od největší/.test(stav()) && !/od nejmenší/.test(stav()),
+		'★ a v poloze bez údaje o řazení od největší — obě polohy říkají každá své');
+	klik(prvky.get('v-poradi-1'));
+
+	// d) Poznámka u PRŮMĚRU se četla jen ve výchozím stavu; prohozená čísla prošla.
+	let podilSpatne = 0, podilOvereno = 0;
+	for (let i = 0; i < KOLECKO.length; i++) {
+		klik(bunka);
+		const b = telo.__bunky();
+		const t = el('fn-podil').textContent;
+		const m = t.match(/(\d+(?:,\d+)?)\s*÷\s*(\d+(?:,\d+)?)/);
+		if (m) {
+			podilOvereno++;
+			if (m[1] !== telo.__cz(telo.__SUMA(b)) || m[2] !== telo.__cz(telo.__POCET(b))) podilSpatne++;
+		}
+		// „ne N řádky" smí uvádět jen skutečný počet ŘÁDKŮ, ne počet čísel.
+		const r = t.match(/ne\s+(\d+)\s+řádky/);
+		if (r && Number(r[1]) !== b.length) podilSpatne++;
+	}
+	ok(podilSpatne === 0, `★ poznámka u PRŮMĚRU sedí s daty ve všech stavech (ověřeno ${podilOvereno}×)`);
+	ok(podilOvereno >= 4, 'a výpočet v ní opravdu bývá vidět');
+	klik(btnReset);
+
+	// e) Zaokrouhlený průměr nesmí stát za rovnítkem: 19 ÷ 6 není 3,17.
+	let lzivychRovnosti = 0, rovnostiOvereno = 0;
+	const bunkaA = prvky.get('fn-bunka-0');
+	for (let i = 0; i < KOLECKO.length * 2; i++) {
+		klik(bunkaA);
+		for (const m of stav().matchAll(/(\d+(?:,\d+)?)\s*÷\s*(\d+(?:,\d+)?)\s*([=≐])\s*(\d+(?:,\d+)?)/g)) {
+			rovnostiOvereno++;
+			const podil = Number(m[1].replace(',', '.')) / Number(m[2].replace(',', '.'));
+			const presne = telo.__cz(podil) === m[4];        // vypsané číslo je celá pravda?
+			if (m[3] === '=' && !(presne && Number(m[4].replace(',', '.')) === podil)) lzivychRovnosti++;
+		}
+	}
+	ok(lzivychRovnosti === 0,
+		`★ rovnítko je jen tam, kde výsledek opravdu vyjde přesně (jinak ≐; ověřeno ${rovnostiOvereno}×)`);
+	klik(btnReset);
+
+	// f) Poznámky u vzorců: klíčové slovo nestačí, dá se do nich přidat nepravda.
+	const pozn = (fn) => cistyText(sablona.match(new RegExp(`<th scope="row">=${fn}\\([^<]*</th>[\\s\\S]*?class="fn-pozn"[^>]*>([\\s\\S]*?)</td>`))?.[1] ?? '');
+	ok(telo.__SUMA([0, -1, 2]) === 1 && !/kladn/.test(pozn('SUMA')),
+		'★ SUMA počítá i nulu a záporná čísla, takže poznámka nesmí mluvit o kladných');
+	ok(telo.__POCET([0, 1]) === 2 && !/větší než nula|nenulov/.test(pozn('POČET')),
+		'★ POČET bere i nulu, takže poznámka nesmí slibovat čísla větší než nula');
+	ok(telo.__MIN(VYCHOZI) !== 0 && !/nula|nule/.test(pozn('MIN')),
+		'★ MIN u známek nedává nulu, takže o nule poznámka mluvit nesmí');
+	const poznRank = cistyText(sablona.match(/id="fn-rank"><\/td><td class="fn-pozn"[^>]*>([\s\S]*?)<\/td>/)?.[1] ?? '');
+	ok(telo.__RANK(1, VYCHOZI, 1) === 1 && !/od konce|od zadu|odzadu/.test(poznRank),
+		'★ s ;1 se počítá od nejmenší, ne „od konce" — poznámka to nesmí obracet');
+
+	// g) Věty, které jsou doloženým opakem toho, co kód dělá. Každá se sem dostala tím,
+	//    že jako podvrh prošla — a její pravdivost umí test rozhodnout výpočtem.
+	const vseViditelne = () => cistyText(sablona) + ' ' + stav();
+	const zakazane = [
+		[/počtem řádků(?!.{0,40}ne )/i, 'PRŮMĚR dělí počtem čísel, ne řádků', telo.__PRUMER([1, TEXT, 2]) === 1.5],
+		[/vždy zaokrouhluje|zaokrouhluje na celé/i, 'průměr se nezaokrouhluje na celé číslo', telo.__cz(telo.__PRUMER([1, 2])) === '1,5'],
+		[/započítá jako pětku|započítá jako 5/i, 'text se nezapočítá vůbec', telo.__SUMA([1, TEXT]) === 1],
+		[/dělí\s+pořád\s+šesti/i, 'po vymazání buňky se dělí pěti', telo.__POCET([1, 3, 2, PRAZDNO, 2, 5]) === 5],
+	];
+	let prohledanychStavu = 0;
+	const projdiVety = () => {
+		prohledanychStavu++;
+		for (const [vzor, proc, doklad] of zakazane) {
+			if (!doklad) { ok(false, `doklad k „${proc}" neplatí — kontrola by nic neznamenala`); continue; }
+			if (vzor.test(vseViditelne())) ok(false, `★ na stránce stojí nepravda: ${proc}`);
+		}
+	};
+	klik(btnReset);
+	projdiVety();                       // i VÝCHOZÍ hláška je text, který dítě čte
+	// Pak jednu buňku vyprázdnit a klikat na jinou: teprve tak se ukáže i větev
+	// „čísla jsou jen v N buňkách ze šesti", kterou dosud nikdo nečetl.
+	const bunkaB = prvky.get('fn-bunka-1');
+	let pojB = 0;
+	while (telo.__bunky()[1] !== PRAZDNO && pojB++ < 20) { klik(bunkaB); projdiVety(); }
+	for (let i = 0; i < KOLECKO.length * 2; i++) {
+		klik(i % 2 === 0 ? bunka : bunkaA);
+		projdiVety();
+	}
+	ok(prohledanychStavu >= 15, `zakázané věty se hledaly v ${prohledanychStavu} různých stavech`);
+	ok(true, `★ žádná ze ${zakazane.length} zakázaných vět (doložených výpočtem) na stránce není`);
+	// Tlačítko ↺ musí říkat, co dělá: známky se VRACEJÍ, nemažou.
+	// Zkouší se ze změněného stavu — z výchozího by „vrátil" i ten, kdo nevrací nic.
+	klik(prvky.get('v-poradi-0'));
+	klik(bunka);
+	klik(btnReset);
+	ok(JSON.stringify(telo.__bunky()) === JSON.stringify(VYCHOZI), 'tlačítko ↺ opravdu vrací výchozí známky');
+	ok(telo.__poradi() === 1, '★ a vrací i přepínač pořadí — jinak by „na začátek" nebyla pravda');
+	const textReset = cistyText(sablona.match(/id="fn-reset">([\s\S]*?)<\/button>/)?.[1] ?? '');
+	ok(/vrátit|vrácení/.test(textReset) && !/smaz|vymaz/.test(textReset),
+		`★ a jeho popis tomu odpovídá („${textReset}") — nic nemaže`);
+
+	// h) Odečítač musí vidět totéž co oko: aria-pressed patří na zvolené tlačítko.
+	const tlacitka = [...sablona.matchAll(/<button[^>]*class="([^"]*fn-volba[^"]*)"[^>]*aria-pressed="(true|false)"[^>]*>/g)];
+	ok(tlacitka.length === 2, 'obě tlačítka přepínače mají aria-pressed');
+	for (const t of tlacitka)
+		ok(t[1].includes('fn-aktivni') === (t[2] === 'true'),
+			`★ stisknuté podle odečítače je totéž tlačítko, které je zvýrazněné pro oko (${t[2]})`);
+
+	// i) Vzorec pro polohu „bez údaje" nesmí žádný třetí údaj obsahovat — ani ;0.
+	klik(prvky.get('v-poradi-0'));
+	const vzorecBez = el('fn-rank-vzorec').textContent;
+	ok(!/;\s*\d\s*\)/.test(vzorecBez), `★ ve vzorci „bez údaje" žádný třetí údaj není („${vzorecBez}")`);
+	klik(prvky.get('v-poradi-1'));
+	ok(/;1\)/.test(el('fn-rank-vzorec').textContent), 'a v poloze ;1 tam naopak je');
+	// Název funkce bez háčků neprojde ani bez závorky (dosud se hledalo jen „=PRUMER(").
+	for (const n of ['POCET', 'PRUMER', 'KDYZ'])
+		ok(!new RegExp(`=\\s*${n}\\b`).test(sablona), `★ nikde není =${n} bez háčků, ani bez závorky`);
 }
 
 console.log(chyby === 0 ? `\n✅ Funkce v tabulkách: všech ${kontrol} kontrol prošlo.` : `\n❌ ${chyby} z ${kontrol} kontrol selhalo.`);

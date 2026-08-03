@@ -1,0 +1,303 @@
+---
+// Senzory — robot vnímá svět (informatika 8).
+//
+// Výklad má tři pointy, které se slovy vysvětlují těžko, protože nejsou vidět:
+//  1. BEZ OPAKOVÁNÍ jede robot naslepo. Změří vzdálenost jednou na začátku a pak už
+//     jen jede — podmínka nemá co hlídat. Se stejným programem v opakování zastaví.
+//  2. ULTRAZVUK „LŽE": od šikmé stěny se ozvěna odrazí jinam a měkká látka ji pohltí.
+//     V obou případech se nic nevrátí a senzor hlásí největší vzdálenost, jakou umí —
+//     tedy „nic přede mnou není", i když je zeď kousek. Robot poslušně nabourá.
+//  3. PROTO SE SENZORY KOMBINUJÍ: dotykový senzor pozná překážku spolehlivě, ale až
+//     po nárazu. Zapnutý dotyk robota aspoň zastaví, místo aby tlačil do zdi.
+//
+// Všechny výsledky jsou ČISTÉ FUNKCE stavu (hlaseni, jedeDal, dojezd), takže se dají
+// ověřit výpočtem bez prohlížeče (testy/simulace/senzory-robota.mjs).
+//
+// Čísla jsou volená tak, aby dětem vycházela celá: start 120 cm, krok 10 cm,
+// práh 10 cm → s opakováním zastaví přesně na 10 cm po 11 krocích.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kdy robot zastaví — a kdy nabourá 🤖</span></h2>
+	<p>
+		Robot jede ke zdi a ultrazvukem měří, jak je daleko. Zkus obě verze programu
+		a všímej si dvou čísel: co senzor <strong>hlásí</strong> a jak je zeď
+		<strong>doopravdy</strong> daleko.
+	</p>
+
+	<div class="sr-obal">
+		<svg id="sr-scena" viewBox="0 0 640 220" role="img" aria-labelledby="sr-popis">
+			<title id="sr-popis">Robot jede zleva ke zdi, ultrazvukový senzor měří vzdálenost</title>
+			<!-- podlaha dole, zeď vpravo: svět má být tam, kde ho dítě čeká -->
+			<rect x="0" y="170" width="640" height="50" fill="#e9ecef" />
+			<line x1="0" y1="170" x2="640" y2="170" stroke="#2b2a26" stroke-width="3" />
+			<g id="sr-prekazka-obraz">
+				<rect id="sr-zed" x="560" y="40" width="40" height="130" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+			</g>
+			<g id="sr-paprsek-skupina">
+				<line id="sr-paprsek" x1="120" y1="130" x2="560" y2="130" stroke="#1971c2" stroke-width="4" stroke-dasharray="10 6" />
+			</g>
+			<g id="sr-robot-skupina">
+				<rect id="sr-robot" x="40" y="110" width="80" height="60" rx="8" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+				<circle id="sr-oko" cx="110" cy="130" r="9" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />
+			</g>
+			<text id="sr-napis-hlasi" x="20" y="30" class="sr-popisek">senzor hlásí:</text>
+			<text id="sr-hlaseni" x="150" y="30" class="sr-cislo"></text>
+			<text id="sr-napis-skutecne" x="300" y="30" class="sr-popisek">doopravdy je zeď:</text>
+			<text id="sr-skutecnost" x="470" y="30" class="sr-cislo"></text>
+		</svg>
+	</div>
+
+	<p class="sr-radek">
+		<strong>Program:</strong>
+		<button type="button" class="sr-tl sr-volba sr-aktivni" data-opakovat="1" aria-pressed="true">opakuj: měř a jeď</button>
+		<button type="button" class="sr-tl sr-volba" data-opakovat="0" aria-pressed="false">změř jednou a jeď</button>
+	</p>
+
+	<p class="sr-radek">
+		<strong>Před robotem je:</strong>
+		<button type="button" class="sr-tl sr-prekazka sr-aktivni" data-prekazka="kolma" aria-pressed="true">kolmá zeď</button>
+		<button type="button" class="sr-tl sr-prekazka" data-prekazka="sikma" aria-pressed="false">šikmá stěna</button>
+		<button type="button" class="sr-tl sr-prekazka" data-prekazka="zaclona" aria-pressed="false">záclona</button>
+	</p>
+
+	<p class="sr-radek">
+		<button type="button" class="sr-tl" id="sr-dotyk" aria-pressed="false">+ přidat dotykový senzor</button>
+		<button type="button" class="sr-tl sr-hlavni" id="sr-krok">▶︎ jeden krok</button>
+		<button type="button" class="sr-tl sr-hlavni" id="sr-spust">⏩ pusť celý program</button>
+		<button type="button" class="sr-tl" id="sr-reset">↺ na start</button>
+	</p>
+
+	<table class="sr-tabulka">
+		<caption class="sr-titulek">Co robot ví a co dělá</caption>
+		<tbody>
+			<tr><th scope="row">ujel</th><td id="sr-ujel"></td><td class="sr-pozn">po ${KROK} cm každý krok</td></tr>
+			<tr><th scope="row">senzor hlásí</th><td id="sr-tab-hlaseni"></td><td class="sr-pozn" id="sr-pozn-hlaseni"></td></tr>
+			<tr class="sr-duraz"><th scope="row">skutečná vzdálenost</th><td id="sr-tab-skutecnost"></td><td class="sr-pozn">tohle robot nikdy nevidí</td></tr>
+			<tr><th scope="row">program rozhodl</th><td id="sr-rozhodnuti"></td><td class="sr-pozn" id="sr-pozn-rozhodnuti"></td></tr>
+		</tbody>
+	</table>
+
+	<p class="sr-stav" id="sr-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const scenaEl = document.getElementById('sr-scena');
+	const robotEl = document.getElementById('sr-robot');
+	const okoEl = document.getElementById('sr-oko');
+	const paprsekEl = document.getElementById('sr-paprsek');
+	const zedEl = document.getElementById('sr-zed');
+	const hlaseniEl = document.getElementById('sr-hlaseni');
+	const skutecnostEl = document.getElementById('sr-skutecnost');
+	const ujelEl = document.getElementById('sr-ujel');
+	const tabHlaseniEl = document.getElementById('sr-tab-hlaseni');
+	const tabSkutecnostEl = document.getElementById('sr-tab-skutecnost');
+	const rozhodnutiEl = document.getElementById('sr-rozhodnuti');
+	const poznHlaseniEl = document.getElementById('sr-pozn-hlaseni');
+	const poznRozhodnutiEl = document.getElementById('sr-pozn-rozhodnuti');
+	const stavEl = document.getElementById('sr-stav');
+	const btnKrok = document.getElementById('sr-krok');
+	const btnSpust = document.getElementById('sr-spust');
+	const btnReset = document.getElementById('sr-reset');
+	const btnDotyk = document.getElementById('sr-dotyk');
+
+	const START = 120;        // cm: jak daleko je zeď na začátku
+	const KROK = 10;          // cm: o kolik robot popojede jedním krokem
+	const PRAH = 10;          // cm: „dokud je vzdálenost větší než PRAH, jeď vpřed"
+	const MAX_DOSAH = 200;    // cm: co senzor hlásí, když se mu žádná ozvěna nevrátí
+	// Ultrazvuk měří jen tam, kam míří: od šikmé stěny se ozvěna odrazí pryč,
+	// měkká látka ji pohltí. V obou případech se nevrátí NIC — a to senzor hlásí
+	// jako největší vzdálenost, kterou umí, tedy „přede mnou je volno".
+	const PREKAZKY = {
+		kolma: { nazev: 'kolmá zeď', ozvenaSeVrati: true, proc: 'ozvěna se vrátí rovnou zpátky' },
+		sikma: { nazev: 'šikmá stěna', ozvenaSeVrati: false, proc: 'ozvěna se odrazí stranou a nevrátí se' },
+		zaclona: { nazev: 'záclona', ozvenaSeVrati: false, proc: 'měkká látka zvuk pohltí' },
+	};
+
+	/** České číslo: desetinná čárka, celá čísla bez nul navíc. */
+	const cz = (n) => (Number.isInteger(n) ? String(n) : String(n).replace('.', ','));
+
+	// ——— čisté funkce: z nich se počítá scéna i všechny texty ———
+	/** Skutečná vzdálenost zdi od robota po ujetí `ujel` centimetrů. */
+	const skutecnaVzdalenost = (ujel) => Math.max(0, START - ujel);
+	/** Co senzor HLÁSÍ. Bez vrácené ozvěny je to vždy MAX_DOSAH, ať je zeď kdekoli. */
+	const hlaseni = (ujel, prekazka) =>
+		(PREKAZKY[prekazka].ozvenaSeVrati ? skutecnaVzdalenost(ujel) : MAX_DOSAH);
+	/** Podmínka programu: „dokud je vzdálenost větší než PRAH, jeď vpřed". */
+	const jedeDal = (hlasenaVzdalenost) => hlasenaVzdalenost > PRAH;
+	/** Dotykový senzor pozná překážku spolehlivě, ale až při nárazu. */
+	const dotykSepnul = (ujel) => skutecnaVzdalenost(ujel) === 0;
+
+	let ujel = 0;
+	let opakovat = 1;
+	let prekazka = 'kolma';
+	let dotyk = false;
+	let stoji = false;        // program už rozhodl „stůj" a dál nejede
+	let duvodStani = '';      // proč stojí: 'podminka' | 'dotyk' | 'naslepo'
+
+	/**
+	 * Jeden krok programu. Vrací, jestli se pokračuje.
+	 * Bez opakování se podmínka vyhodnotí JEN JEDNOU (na začátku) — pak už robot
+	 * jede naslepo a nemá, co by ho zastavilo.
+	 */
+	function krok() {
+		if (stoji) return false;
+		if (dotyk && dotykSepnul(ujel)) { stoji = true; duvodStani = 'dotyk'; return false; }
+		const rozhodujeSe = opakovat === 1 || ujel === 0;
+		if (rozhodujeSe && !jedeDal(hlaseni(ujel, prekazka))) {
+			stoji = true;
+			duvodStani = 'podminka';
+			return false;
+		}
+		if (skutecnaVzdalenost(ujel) === 0) { duvodStani = 'naslepo'; return false; }
+		ujel += KROK;
+		if (skutecnaVzdalenost(ujel) === 0 && opakovat === 0) duvodStani = 'naslepo';
+		return true;
+	}
+
+	function prekresli() {
+		const skutecne = skutecnaVzdalenost(ujel);
+		const hlasi = hlaseni(ujel, prekazka);
+		// 40 px = start robota, 440 px ujede za celou dráhu START
+		const x = 40 + (ujel / START) * 440;
+		robotEl.setAttribute('x', String(x));
+		okoEl.setAttribute('cx', String(x + 70));
+		paprsekEl.setAttribute('x1', String(x + 80));
+		paprsekEl.setAttribute('stroke', PREKAZKY[prekazka].ozvenaSeVrati ? '#1971c2' : '#a61e1e');
+		paprsekEl.setAttribute('stroke-dasharray', PREKAZKY[prekazka].ozvenaSeVrati ? '10 6' : '4 10');
+		zedEl.setAttribute('fill', prekazka === 'zaclona' ? '#d0bfff' : '#adb5bd');
+		zedEl.setAttribute('transform', prekazka === 'sikma' ? 'skewX(-20)' : '');
+
+		hlaseniEl.textContent = `${cz(hlasi)} cm`;
+		skutecnostEl.textContent = `${cz(skutecne)} cm`;
+		ujelEl.textContent = `${cz(ujel)} cm`;
+		tabHlaseniEl.textContent = `${cz(hlasi)} cm`;
+		tabSkutecnostEl.textContent = `${cz(skutecne)} cm`;
+		poznHlaseniEl.textContent = PREKAZKY[prekazka].proc;
+		const rozhoduje = opakovat === 1;
+		rozhodnutiEl.textContent = stoji ? 'stůj' : jedeDal(hlasi) ? 'jeď vpřed' : 'stůj';
+		poznRozhodnutiEl.textContent = rozhoduje
+			? `měří a rozhoduje se před každým krokem (${cz(hlasi)} > ${cz(PRAH)}?)`
+			: 'rozhodl se jen jednou na začátku, pak už jede naslepo';
+		robotEl.setAttribute('fill', skutecne === 0 ? '#ffa8a8' : '#ffd43b');
+		robotEl.setAttribute('aria-label', `robot ujel ${cz(ujel)} cm, zeď je ${cz(skutecne)} cm daleko`);
+	}
+
+	function popisStavu() {
+		const skutecne = skutecnaVzdalenost(ujel);
+		const hlasi = hlaseni(ujel, prekazka);
+		if (ujel === 0 && !stoji) {
+			return `Zeď je <strong>${cz(START)} cm</strong> daleko a senzor hlásí <strong>${cz(hlasi)} cm</strong>. `
+				+ 'Klikej na <strong>jeden krok</strong>, nebo rovnou pusť celý program.';
+		}
+		if (duvodStani === 'podminka') {
+			return `Program zastavil sám: senzor hlásí <strong>${cz(hlasi)} cm</strong>, `
+				+ `a to už není víc než ${cz(PRAH)}. Zeď je přitom <strong>${cz(skutecne)} cm</strong> daleko — `
+				+ 'robot stojí přesně tam, kde má.';
+		}
+		if (duvodStani === 'dotyk') {
+			return `Do zdi <strong>narazil</strong> — ultrazvuk ji neviděl, protože ${PREKAZKY[prekazka].proc}. `
+				+ 'Zastavil ho až <strong>dotykový senzor</strong>: ten je spolehlivý, ale pozná překážku '
+				+ 'až po nárazu. Proto se oba senzory kombinují.';
+		}
+		if (duvodStani === 'naslepo' && !PREKAZKY[prekazka].ozvenaSeVrati) {
+			return `Robot <strong>tlačí do zdi</strong> a vůbec o tom neví: senzor pořád hlásí `
+				+ `<strong>${cz(hlasi)} cm</strong>, protože ${PREKAZKY[prekazka].proc}. `
+				+ 'Zkus přidat <strong>dotykový senzor</strong>.';
+		}
+		if (duvodStani === 'naslepo') {
+			return 'Robot <strong>tlačí do zdi</strong>. Program se rozhodl jen jednou na začátku, '
+				+ `kdy byla zeď ${cz(START)} cm daleko — pak už jel naslepo. `
+				+ 'Přepni program na <strong>opakuj: měř a jeď</strong> a pusť to znovu.';
+		}
+		return `Ujel <strong>${cz(ujel)} cm</strong>, senzor hlásí <strong>${cz(hlasi)} cm</strong> `
+			+ `a zeď je doopravdy <strong>${cz(skutecne)} cm</strong> daleko.`;
+	}
+
+	function ukazStav() {
+		stavEl.innerHTML = popisStavu();
+	}
+
+	function nastartuj() {
+		ujel = 0;
+		stoji = false;
+		duvodStani = '';
+		prekresli();
+		ukazStav();
+	}
+
+	btnKrok.addEventListener('click', () => { krok(); prekresli(); ukazStav(); });
+
+	btnSpust.addEventListener('click', () => {
+		// Bez časovače: kroky se provedou hned. Strop je jistota proti nekonečné smyčce.
+		let pojistka = 0;
+		while (krok() && pojistka++ < 100) { /* jede dál */ }
+		prekresli();
+		ukazStav();
+	});
+
+	btnReset.addEventListener('click', nastartuj);
+
+	btnDotyk.addEventListener('click', () => {
+		dotyk = !dotyk;
+		btnDotyk.setAttribute('aria-pressed', dotyk ? 'true' : 'false');
+		btnDotyk.textContent = dotyk ? '− vypnout dotykový senzor' : '+ přidat dotykový senzor';
+		btnDotyk.className = 'sr-tl' + (dotyk ? ' sr-aktivni' : '');
+		nastartuj();
+	});
+
+	for (const v of document.querySelectorAll('.sr-volba')) {
+		v.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.sr-volba')) {
+				j.classList.remove('sr-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			v.classList.add('sr-aktivni');
+			v.setAttribute('aria-pressed', 'true');
+			opakovat = Number(v.dataset.opakovat);
+			nastartuj();
+		});
+	}
+
+	for (const p of document.querySelectorAll('.sr-prekazka')) {
+		p.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.sr-prekazka')) {
+				j.classList.remove('sr-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			p.classList.add('sr-aktivni');
+			p.setAttribute('aria-pressed', 'true');
+			prekazka = p.dataset.prekazka;
+			nastartuj();
+		});
+	}
+
+	nastartuj();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který řídí robota) ———
+	scenaEl.__skutecnaVzdalenost = skutecnaVzdalenost;
+	scenaEl.__hlaseni = hlaseni;
+	scenaEl.__jedeDal = jedeDal;
+	scenaEl.__dotykSepnul = dotykSepnul;
+	scenaEl.__cz = cz;
+	scenaEl.__stav = () => ({ ujel, opakovat, prekazka, dotyk, stoji, duvodStani });
+	scenaEl.__meze = { START, KROK, PRAH, MAX_DOSAH, PREKAZKY };
+</script>
+
+<style>
+	.sr-obal { overflow-x: auto; }
+	#sr-scena { width: 100%; max-width: 640px; height: auto; display: block; margin: 0.5rem 0; }
+	.sr-popisek { font-size: 16px; fill: #495057; }
+	.sr-cislo { font-size: 20px; font-weight: 700; fill: #2b2a26; }
+	.sr-radek { margin: 0.4rem 0; }
+	.sr-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.sr-tl.sr-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.sr-tl.sr-hlavni { background: #d3f9d8; }
+	.sr-tabulka { border-collapse: collapse; margin: 0.6rem 0; }
+	.sr-tabulka th, .sr-tabulka td { border: 2px solid #868e96; padding: 0.25rem 0.6rem; text-align: left; }
+	.sr-tabulka tbody th { background: #e9ecef; }
+	.sr-tabulka tr.sr-duraz { background: #fff3bf; }
+	.sr-tabulka .sr-pozn { font-weight: 400; font-size: 0.9rem; color: #495057; }
+	.sr-titulek { text-align: left; font-weight: 700; padding-bottom: 0.3rem; }
+	.sr-stav { background: #f1f3f5; border-left: 6px solid #1971c2; padding: 0.5rem 0.8rem; margin-top: 0.6rem; }
+</style>

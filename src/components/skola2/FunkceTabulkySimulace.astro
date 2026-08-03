@@ -45,7 +45,7 @@
 	</div>
 
 	<p class="fn-radek">
-		<button type="button" class="fn-tl" id="fn-reset">↺ vrátit původní známky</button>
+		<button type="button" class="fn-tl" id="fn-reset">↺ vrátit na začátek</button>
 		<span class="fn-napoveda">klik na známku = 1 → 2 → 3 → 4 → 5 → nehodnocen → prázdná → 1</span>
 	</p>
 
@@ -104,6 +104,10 @@
 		// Nuly navíc pryč („2,60" → „2,6"), a když nezbyde nic, ani ta čárka („2,00" → „2").
 		return n.toFixed(2).replace(/0+$/, '').replace(/\.$/, '').replace('.', ',');
 	}
+
+	/** Zaokrouhlil se výsledek? Pak do věty nepatří „=", ale „≐" (přibližně rovno). */
+	const presne = (n) => Number(cz(n).replace(',', '.')) === n;
+	const rovnitko = (n) => (presne(n) ? '=' : '≐');
 
 	const jeCislo = (h) => typeof h === 'number';
 	const cisla = (b) => b.filter(jeCislo);
@@ -201,7 +205,7 @@
 		// Čísla se do věty POČÍTAJÍ, nepíšou natvrdo: tahle větev platí i po změně známky,
 		// a „18 ÷ 6 = 3" by pak tvrdilo něco jiného, než je o dva centimetry výš v panelu.
 		return `Číslo má všech <strong>${cz(bunky.length)}</strong> buněk, takže POČET je ${cz(pocet)} `
-			+ `a průměr vyjde <strong>${cz(SUMA(bunky))} ÷ ${cz(pocet)} = ${cz(PRUMER(bunky))}</strong>. `
+			+ `a průměr vyjde <strong>${cz(SUMA(bunky))} ÷ ${cz(pocet)} ${rovnitko(PRUMER(bunky))} ${cz(PRUMER(bunky))}</strong>. `
 			+ 'Zkus teď některou známku přepnout na <strong>nehodnocen</strong> nebo ji vymazat.';
 	}
 
@@ -224,6 +228,14 @@
 	btnReset.addEventListener('click', () => {
 		bunky = [...VYCHOZI];
 		posledni = null;
+		// Vrací se i přepínač pořadí — jinak tlačítko slibuje „na začátek", ale Adam
+		// zůstane šestý podle staré volby (nález kontrolora 3. 8. 2026).
+		poradi = 1;
+		for (const j of document.querySelectorAll('.fn-volba')) {
+			const zvolena = Number(j.dataset.poradi) === poradi;
+			j.classList[zvolena ? 'add' : 'remove']('fn-aktivni');
+			j.setAttribute('aria-pressed', zvolena ? 'true' : 'false');
+		}
 		prekresli();
 		ukazStav();
 	});
