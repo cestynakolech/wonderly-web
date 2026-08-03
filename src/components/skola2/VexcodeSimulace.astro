@@ -1,27 +1,39 @@
 ---
 // VEXcode IQ — první program (informatika 8, vex-iq / vexcode-prvni-program).
 //
-// Žák skládá bloky (jeď vpřed / otoč se vpravo / otoč se vlevo / čekej) do programu.
-// Program běží SHORA DOLŮ, blok po bloku — právě běžící blok se v seznamu zvýrazní.
-// Hlavní pointa: POŘADÍ bloků mění výsledek — "otoč pak jeď" skončí jinde než
-// "jeď pak otoč", i když jsou to stejné dva bloky. Úkol: dojet přesně na vyznačený
-// cíl 🏁; když robot mine, žák pořadí nebo hodnoty bloků opraví a zkusí to znovu.
+// Žák skládá bloky pod pevný klobouk "when started" (po spuštění) — přesně jak to
+// popisuje výklad na TÉŽE stránce. Bloky jsou pojmenované anglicky (tak, jak je
+// žák uvidí v prostředí VEXcode IQ), s českým překladem v závorce — stejný vzorec
+// jako slovníček ve výkladu ("drive for 200 mm = ujeď přesně 200 mm" atd.).
+// Jednotka vzdálenosti je MILIMETR (VEXcode nabízí mm nebo palce, ne cm).
 //
-// Souřadnice: 1 čtvereček mřížky = 10 cm (PXCM = 4 px na 1 cm). Nabízené kroky
-// (10/20/30 cm, 45/90/180°) proto při zatáčkách po 90°/180° vždy dají přesnou
-// polohu na mřížce. Výchozí program:
-//   jeď vpřed 30 cm → otoč se vpravo o 90° → jeď vpřed 20 cm
+// Program běží SHORA DOLŮ, blok po bloku — právě běžící blok se v seznamu zvýrazní.
+// Hlavní pointa: POŘADÍ bloků mění výsledek — "turn right pak drive" skončí jinde
+// než "drive pak turn right", i když jsou to stejné dva bloky. Úkol: dojet přesně
+// na vyznačený cíl 🏁; když robot mine, žák pořadí nebo hodnoty bloků opraví.
+//
+// Souřadnice: 1 čtvereček mřížky = 100 mm (PXMM = 0,4 px na 1 mm, tj. 40 px na
+// čtvereček). Nabízené kroky (100/200/300 mm, 45/90/180°) dají při zatáčkách po
+// 90°/180° vždy přesnou polohu na mřížce. Výchozí program:
+//   drive for 300 mm → turn right for 90 degrees → drive for 200 mm
 // start (80,360) → po 1. bloku (80,240) → po otočení heading 90° → po 3. bloku
-// (160,240) = přesně cíl (30 cm "nahoru", pak 20 cm "doprava"). Ověřeno výpočtem
+// (160,240) = přesně cíl (300 mm "nahoru", pak 200 mm "doprava"). Ověřeno výpočtem
 // (sin/cos pro násobky 90° dají celá čísla, viz FYZIKA/LOGIKA v odpovědi workera).
 // Úhel 45° je nabídnutý navíc pro pokusy, ale výchozí trefa ho nepotřebuje.
 //
-// Animace jednoho bloku běží na PEVNÝ POČET SNÍMKŮ (ne na reálném čase) — funguje
-// tedy stejně, i když je requestAnimationFrame v náhledu zpomalený.
+// Hřiště je ohraničené viditelnou zdí (OKRAJ = 20 px od kraje plátna) — když by
+// robot podle bloku vyjel ven, animace ho zastaví přesně na zdi a program nahlásí
+// "vyjel z plochy" hned, ne až na konci.
+//
+// Animace bloku běží na počtu snímků ÚMĚRNÉM jeho hodnotě (mm/°/s), ne na pevném
+// čísle — delší jízda i delší čekání proto viditelně trvají déle. Snímky se počítají
+// podle pořadí (ne podle reálného času), takže to funguje stejně i se zpomaleným
+// requestAnimationFrame v náhledu.
 
 const SIRKA = 600;
 const VYSKA = 400;
-const KROK_MRIZKY = 40; // px = 10 cm
+const KROK_MRIZKY = 40; // px = 100 mm
+const OKRAJ = 20; // px — viditelná zeď hřiště
 
 const svisleCary = [];
 for (let x = 0; x <= SIRKA; x += KROK_MRIZKY) svisleCary.push(x);
@@ -37,7 +49,9 @@ const CIL_Y = 240;
 <section class="ramecek simulace">
 	<h2><span class="podtrh">Vyzkoušej: naprogramuj robota 🕹️</span></h2>
 	<p>
-		Poskládej bloky do programu tak, aby robot dojel přesně na cíl 🏁. Program se
+		Poskládej bloky pod žlutý klobouk <strong>when started</strong> (po spuštění) tak,
+		aby robot dojel přesně na cíl 🏁. Bloky jsou pojmenované tak, jak je uvidíš
+		v prostředí VEXcode IQ — anglicky, s českým překladem v závorce. Program se
 		vždy provádí <strong>shora dolů, blok po bloku</strong> — právě běžící blok se
 		zvýrazní žlutě. <strong>Na pořadí záleží!</strong> Stejné dva bloky v jiném pořadí
 		zavedou robota jinam.
@@ -53,6 +67,8 @@ const CIL_Y = 240;
 			{vodorovneCary.map((y) => (
 				<line x1="0" y1={y} x2={SIRKA} y2={y} stroke="#dee2e6" stroke-width="1" />
 			))}
+			<rect x={OKRAJ} y={OKRAJ} width={SIRKA - 2 * OKRAJ} height={VYSKA - 2 * OKRAJ}
+				fill="none" stroke="#495057" stroke-width="6" rx="4" />
 			<circle cx={CIL_X} cy={CIL_Y} r="12" fill="none" stroke="#e03131" stroke-width="3" stroke-dasharray="4 4" />
 			<text x={CIL_X} y={CIL_Y - 18} text-anchor="middle" class="vx-vlajka">🏁</text>
 			<circle cx={START_X} cy={START_Y} r="4" fill="#2b2a26" />
@@ -67,18 +83,24 @@ const CIL_Y = 240;
 				<rect x="13" y="6" width="6" height="10" fill="#2b2a26" />
 			</g>
 		</svg>
-		<p class="vx-legenda">🔲 1 čtvereček mřížky = 10 cm</p>
+		<p class="vx-legenda">🔲 1 čtvereček mřížky = 100 mm (10 cm) · tmavý rámeček = okraj hřiště, dál robot nemůže</p>
 	</div>
 
 	<p class="vx-radek">
 		<strong>Přidej blok:</strong>
-		<button type="button" class="vx-tl" id="vx-pridej-vpred" data-typ="vpred">+ jeď vpřed</button>
-		<button type="button" class="vx-tl" id="vx-pridej-vpravo" data-typ="vpravo">+ otoč se vpravo</button>
-		<button type="button" class="vx-tl" id="vx-pridej-vlevo" data-typ="vlevo">+ otoč se vlevo</button>
-		<button type="button" class="vx-tl" id="vx-pridej-cekej" data-typ="cekej">+ čekej</button>
+		<button type="button" class="vx-tl" id="vx-pridej-vpred" data-typ="vpred">+ drive for (jeď vpřed)</button>
+		<button type="button" class="vx-tl" id="vx-pridej-vpravo" data-typ="vpravo">+ turn right (otoč vpravo)</button>
+		<button type="button" class="vx-tl" id="vx-pridej-vlevo" data-typ="vlevo">+ turn left (otoč vlevo)</button>
+		<button type="button" class="vx-tl" id="vx-pridej-cekej" data-typ="cekej">+ wait (čekej)</button>
 	</p>
 
-	<ol id="vx-program" class="vx-program"></ol>
+	<div class="vx-program-obal">
+		<div class="vx-hat">
+			<span class="vx-hat-text">when started</span>
+			<span class="vx-preklad">(po spuštění)</span>
+		</div>
+		<ol id="vx-program" class="vx-program"></ol>
+	</div>
 
 	<p class="vx-radek">
 		<button type="button" class="vx-tl vx-hlavni" id="vx-krok">▶︎ jeden blok</button>
@@ -91,16 +113,38 @@ const CIL_Y = 240;
 </section>
 
 <script>
-	const PXCM = 4; // px na 1 cm — musí sedět s KROK_MRIZKY (40 px = 10 cm)
+	const PXMM = 0.4; // px na 1 mm — musí sedět s KROK_MRIZKY (40 px = 100 mm)
 	const START = { x: 80, y: 360, heading: 0 };
 	const CIL = { x: 160, y: 240 };
-	const TOLERANCE_CM = 2; // menší odchylka = "trefil jsi cíl"
-	const SNIMKU_NA_BLOK = 24; // pevný počet snímků animace — nezávisí na reálném čase
+	const TOLERANCE_MM = 20; // menší odchylka = "trefil jsi cíl"
+	const OKRAJ = 20; // px — musí sedět se zdí nakreslenou ve frontmatteru
+	const X_MIN = OKRAJ, X_MAX = 600 - OKRAJ, Y_MIN = OKRAJ, Y_MAX = 400 - OKRAJ;
 
-	const POPISKY = { vpred: 'jeď vpřed', vpravo: 'otoč se vpravo o', vlevo: 'otoč se vlevo o', cekej: 'čekej' };
-	const JEDNOTKY = { vpred: 'cm', vpravo: '°', vlevo: '°', cekej: 's' };
-	const MOZNOSTI = { vpred: [10, 20, 30], vpravo: [45, 90, 180], vlevo: [45, 90, 180], cekej: [1, 2, 3] };
-	const VYCHOZI_HODNOTA = { vpred: 10, vpravo: 90, vlevo: 90, cekej: 1 };
+	// Kolik snímků má animace bloku trvat — ÚMĚRNĚ jeho hodnotě, ne pevně pro všechny.
+	const SNIMKU_NA_MM = 0.1; // 300 mm → 30 snímků
+	const SNIMKU_NA_STUPEN = 1 / 6; // 180° → 30 snímků
+	const SNIMKU_NA_SEKUNDU = 30; // 1 s čekání → 30 snímků
+	function delkaAnimace(blok) {
+		if (blok.typ === 'vpred') return Math.max(6, Math.round(blok.hodnota * SNIMKU_NA_MM));
+		if (blok.typ === 'vpravo' || blok.typ === 'vlevo') return Math.max(6, Math.round(blok.hodnota * SNIMKU_NA_STUPEN));
+		return Math.max(6, Math.round(blok.hodnota * SNIMKU_NA_SEKUNDU)); // cekej
+	}
+
+	// Anglický text bloku (přesně jako v prostředí VEXcode) + jednotka + český překlad.
+	const ANGLICKY = {
+		vpred: { pred: 'drive for', jednotka: 'mm' },
+		vpravo: { pred: 'turn right for', jednotka: 'degrees' },
+		vlevo: { pred: 'turn left for', jednotka: 'degrees' },
+		cekej: { pred: 'wait', jednotka: 'seconds' },
+	};
+	const MOZNOSTI = { vpred: [100, 200, 300], vpravo: [45, 90, 180], vlevo: [45, 90, 180], cekej: [1, 2, 3] };
+	const VYCHOZI_HODNOTA = { vpred: 100, vpravo: 90, vlevo: 90, cekej: 1 };
+	function ceskyPreklad(blok) {
+		if (blok.typ === 'vpred') return `ujeď přesně ${blok.hodnota} mm`;
+		if (blok.typ === 'vpravo') return `otoč se vpravo o ${blok.hodnota}°`;
+		if (blok.typ === 'vlevo') return `otoč se vlevo o ${blok.hodnota}°`;
+		return `čekej ${blok.hodnota} s`;
+	}
 
 	const robotEl = document.getElementById('vx-robot');
 	const stopaEl = document.getElementById('vx-stopa');
@@ -115,13 +159,13 @@ const CIL_Y = 240;
 	const cz = (n) => (Number.isInteger(n) ? String(n) : String(Math.round(n * 10) / 10).replace('.', ','));
 
 	// — čisté funkce: z nich se počítá pohyb i vyhodnocení cíle —
-	/** Poloha robota PO celém provedení bloku (bez animace). */
+	/** Poloha robota PO celém provedení bloku (bez animace, bez ohledu na zeď). */
 	function novaPoloha(stav, blok) {
 		if (blok.typ === 'vpred') {
 			const rad = (stav.heading * Math.PI) / 180;
 			return {
-				x: stav.x + blok.hodnota * PXCM * Math.sin(rad),
-				y: stav.y - blok.hodnota * PXCM * Math.cos(rad),
+				x: stav.x + blok.hodnota * PXMM * Math.sin(rad),
+				y: stav.y - blok.hodnota * PXMM * Math.cos(rad),
 				heading: stav.heading,
 			};
 		}
@@ -130,11 +174,19 @@ const CIL_Y = 240;
 		return { ...stav }; // cekej — poloha se nemění
 	}
 
+	/** Ořízne cílovou polohu na hranice hřiště; vrátí i to, jestli se ořezávalo. */
+	function orizniNaHriste(konec) {
+		const x = Math.min(Math.max(konec.x, X_MIN), X_MAX);
+		const y = Math.min(Math.max(konec.y, Y_MIN), Y_MAX);
+		const vyjel = x !== konec.x || y !== konec.y;
+		return { poloha: { x, y, heading: konec.heading }, vyjel };
+	}
+
 	let nextId = 4;
 	let bloky = [
-		{ id: 1, typ: 'vpred', hodnota: 30 },
+		{ id: 1, typ: 'vpred', hodnota: 300 },
 		{ id: 2, typ: 'vpravo', hodnota: 90 },
-		{ id: 3, typ: 'vpred', hodnota: 20 },
+		{ id: 3, typ: 'vpred', hodnota: 200 },
 	];
 
 	let stavAktualni = { ...START };
@@ -142,16 +194,13 @@ const CIL_Y = 240;
 	let ukazatel = 0; // index dalšího bloku, který se má spustit
 	let bezicIndex = null; // index bloku, který PRÁVĚ běží (kvůli zvýraznění)
 	let bezi = false;
+	let zablokovano = false; // robot narazil na zeď — dál se nejede, dokud se nedá reset
 
 	function vykresliRobota(stav) {
 		robotEl.setAttribute('transform', `translate(${stav.x},${stav.y}) rotate(${stav.heading})`);
 	}
 	function vykresliStopu() {
 		stopaEl.setAttribute('points', stopaBody.join(' '));
-	}
-
-	function popisekBloku(blok) {
-		return `${POPISKY[blok.typ]}`;
 	}
 
 	function renderProgram() {
@@ -167,7 +216,7 @@ const CIL_Y = 240;
 
 			const text = document.createElement('span');
 			text.className = 'vx-blok-text';
-			text.textContent = popisekBloku(blok);
+			text.textContent = ANGLICKY[blok.typ].pred;
 
 			const select = document.createElement('select');
 			select.className = 'vx-hodnota';
@@ -182,7 +231,11 @@ const CIL_Y = 240;
 
 			const jednotka = document.createElement('span');
 			jednotka.className = 'vx-jednotka';
-			jednotka.textContent = JEDNOTKY[blok.typ];
+			jednotka.textContent = ANGLICKY[blok.typ].jednotka;
+
+			const preklad = document.createElement('span');
+			preklad.className = 'vx-preklad';
+			preklad.textContent = `(${ceskyPreklad(blok)})`;
 
 			const tlacitka = document.createElement('span');
 			tlacitka.className = 'vx-blok-tlacitka';
@@ -192,7 +245,7 @@ const CIL_Y = 240;
 				<button type="button" class="vx-smaz" data-id="${blok.id}" aria-label="smazat blok">✕</button>
 			`;
 
-			li.append(cislo, text, select, jednotka, tlacitka);
+			li.append(cislo, text, select, jednotka, preklad, tlacitka);
 			programEl.appendChild(li);
 		});
 	}
@@ -205,6 +258,7 @@ const CIL_Y = 240;
 		ukazatel = 0;
 		bezicIndex = null;
 		bezi = false;
+		zablokovano = false;
 		stavAktualni = { ...START };
 		stopaBody = [`${START.x},${START.y}`];
 		vykresliRobota(stavAktualni);
@@ -214,20 +268,20 @@ const CIL_Y = 240;
 	}
 
 	function vyhodnotCil() {
-		const dxCm = (stavAktualni.x - CIL.x) / PXCM;
-		const dyCm = (stavAktualni.y - CIL.y) / PXCM;
-		const vzdalenostCm = Math.round(Math.hypot(dxCm, dyCm));
-		if (vzdalenostCm <= TOLERANCE_CM) {
+		const dxMm = (stavAktualni.x - CIL.x) / PXMM;
+		const dyMm = (stavAktualni.y - CIL.y) / PXMM;
+		const vzdalenostMm = Math.round(Math.hypot(dxMm, dyMm));
+		if (vzdalenostMm <= TOLERANCE_MM) {
 			ukazStav('🎉 <strong>Trefil jsi cíl!</strong> Robot dojel přesně tam, kam měl.');
 		} else {
 			ukazStav(
-				`Robot minul cíl o <strong>${cz(vzdalenostCm)} cm</strong>. Zkus upravit pořadí bloků nebo jejich hodnoty ` +
+				`Robot minul cíl o <strong>${cz(vzdalenostMm)} mm</strong>. Zkus upravit pořadí bloků nebo jejich hodnoty ` +
 					'a spusť to znovu (nebo klikni na „robota na start").'
 			);
 		}
 	}
 
-	/** Animuje jeden blok na pevný počet snímků a pak zavolá onDone(). */
+	/** Animuje jeden blok na počet snímků úměrný jeho hodnotě a pak zavolá onDone(pokracovat). */
 	function animujBlok(index, onDone) {
 		if (index >= bloky.length) {
 			vyhodnotCil();
@@ -241,12 +295,14 @@ const CIL_Y = 240;
 
 		const blok = bloky[index];
 		const start = { ...stavAktualni };
-		const konec = novaPoloha(start, blok);
+		const cilovyKonec = novaPoloha(start, blok);
+		const { poloha: konec, vyjel } = orizniNaHriste(cilovyKonec);
+		const snimkuCelkem = delkaAnimace(blok);
 		let snimek = 0;
 
 		function tik() {
 			snimek++;
-			const t = Math.min(1, snimek / SNIMKU_NA_BLOK);
+			const t = Math.min(1, snimek / snimkuCelkem);
 			const mezistav = {
 				x: start.x + (konec.x - start.x) * t,
 				y: start.y + (konec.y - start.y) * t,
@@ -260,8 +316,18 @@ const CIL_Y = 240;
 				stopaBody.push(`${konec.x.toFixed(1)},${konec.y.toFixed(1)}`);
 				vykresliStopu();
 				bezicIndex = null;
+				bezi = false;
 				renderProgram();
-				onDone(true);
+				if (vyjel) {
+					zablokovano = true;
+					ukazStav(
+						`🚧 <strong>Robot vyjel z plochy!</strong> Zastavil se na okraji hřiště u bloku č. ${index + 1}. ` +
+							'Uprav hodnoty nebo pořadí a klikni na „robota na start".'
+					);
+					onDone(false);
+				} else {
+					onDone(true);
+				}
 			}
 		}
 		requestAnimationFrame(tik);
@@ -269,6 +335,10 @@ const CIL_Y = 240;
 
 	btnKrok.addEventListener('click', () => {
 		if (bezi) return;
+		if (zablokovano) {
+			ukazStav('Robot vyjel z plochy — klikni na „robota na start" a zkus to znovu.');
+			return;
+		}
 		if (bloky.length === 0) {
 			ukazStav('Nejdřív přidej aspoň jeden blok.');
 			return;
@@ -284,18 +354,23 @@ const CIL_Y = 240;
 
 	btnSpust.addEventListener('click', () => {
 		if (bezi) return;
+		if (zablokovano) {
+			ukazStav('Robot vyjel z plochy — klikni na „robota na start" a zkus to znovu.');
+			return;
+		}
 		if (bloky.length === 0) {
 			ukazStav('Nejdřív přidej aspoň jeden blok.');
 			return;
 		}
 		function dalsi() {
+			if (zablokovano) return;
 			if (ukazatel >= bloky.length) {
 				vyhodnotCil();
 				return;
 			}
-			animujBlok(ukazatel, () => {
+			animujBlok(ukazatel, (pokracovat) => {
 				ukazatel++;
-				dalsi();
+				if (pokracovat) dalsi();
 			});
 		}
 		dalsi();
@@ -371,9 +446,23 @@ const CIL_Y = 240;
 	}
 	.vx-tl.vx-hlavni { background: #d3f9d8; }
 
+	.vx-program-obal { margin: 0.6rem 0; }
+	.vx-hat {
+		display: inline-flex;
+		gap: 0.4rem;
+		align-items: baseline;
+		background: #ffb454;
+		border: 3px solid #2b2a26;
+		border-radius: 14px 14px 4px 4px;
+		padding: 0.35rem 0.9rem;
+		font-weight: 800;
+		margin-bottom: -3px;
+	}
+	.vx-hat-text { font-family: inherit; }
+
 	.vx-program {
 		list-style: none;
-		margin: 0.6rem 0;
+		margin: 0;
 		padding: 0;
 		display: flex;
 		flex-direction: column;
@@ -397,6 +486,7 @@ const CIL_Y = 240;
 	.vx-blok-text { font-weight: 700; }
 	.vx-hodnota { font: inherit; font-weight: 700; padding: 0.15rem 0.3rem; border: 2px solid #2b2a26; border-radius: 6px; }
 	.vx-jednotka { font-weight: 700; color: #495057; }
+	.vx-preklad { color: #495057; font-style: italic; }
 	.vx-blok-tlacitka { margin-left: auto; display: flex; gap: 0.3rem; }
 	.vx-blok-tlacitka button {
 		font: inherit;

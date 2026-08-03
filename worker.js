@@ -92,14 +92,15 @@ export default {
 			return env.LIGA.get(id).fetch(request);
 		}
 
-		// živé pořadí českých jezdců na Tour de France (čte veřejné tabulky letour.fr, mezipaměť 60 s)
+		// živé pořadí českých jezdkyň na Tour de France Femmes (čte veřejné tabulky letourfemmes.fr, mezipaměť 60 s)
 		if (url.pathname === '/api/tour') {
 			const cache = caches.default;
-			const klicCache = new Request('https://cache.wonderly.cz/api/tour');
+			const klicCache = new Request('https://cache.wonderly.cz/api/tour-femmes');
 			const ulozene = await cache.match(klicCache);
 			if (ulozene) return ulozene;
 
-			const JEZDCI = ['VACEK', 'OTRUBA', 'BITTNER'];
+			// hledá se bez koncové diakritiky — v tabulkách stojí „N. NOSKOVÁ"
+			const JEZDCI = ['NOSKOV'];
 			const UA = { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)' };
 			const odpoved = { jezdci: {}, etapa: null, zive: null, aktualizovano: new Date().toISOString() };
 
@@ -110,11 +111,22 @@ export default {
 				const bunky = [...radek.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map((m) =>
 					m[1].replace(/<[^>]+>/g, ' ').replace(/&#0?39;/g, "'").replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
 				);
-				return { pozice: bunky[0], tym: bunky[3], cas: bunky[4], ztrata: bunky[5] === '-' ? 'vede' : bunky[5] };
+				// pořadí sloupců se mezi závody liší → čas najdeme podle tvaru (00h 00' 00''),
+				// tým stojí těsně před ním a ztráta hned za ním
+				const iCas = bunky.findIndex((b) => /\d+\s*h\s*\d+\s*'/.test(b));
+				if (iCas < 1) return { pozice: bunky[0], tym: null, cas: null, ztrata: null };
+				const gap = bunky[iCas + 1];
+				return {
+					pozice: bunky[0],
+					tym: bunky[iCas - 1],
+					cas: bunky[iCas],
+					// pomlčka ve sloupci Gap = dojela v čase vítězky (hromadný dojezd), ne že vede
+					ztrata: gap === '-' || gap === '' ? (bunky[0] === '1' ? 'vede' : 'čas vítězky') : gap,
+				};
 			};
 
 			try {
-				const stranka = (await (await fetch('https://www.letour.fr/en/rankings', { headers: UA })).text())
+				const stranka = (await (await fetch('https://www.letourfemmes.fr/en/rankings', { headers: UA })).text())
 					.replace(/\\\//g, '/').replace(/&quot;/g, '"');
 				// posbírat ajax adresy tabulek (ite = etapa, itg = celkově)
 				const adresy = {};
@@ -129,8 +141,8 @@ export default {
 				// během jedoucí etapy jsou tabulky aktuální etapy prázdné —
 				// pak sáhneme po poslední funkční adrese (pamatujeme si ji v cache)
 				const ZALOZNI = {
-					itg: '/en/ajax/ranking/13/itg/8532e10a8f49261c752759b02dc5d296/none',
-					ite: '/en/ajax/ranking/13/ite/c7494bafb75f0694614b45fdd3eaec86/subtab',
+					itg: '/en/ajax/ranking/2/itg/fca07fb6b35baa3d6dfe2d4500ea91ed/none',
+					ite: '/en/ajax/ranking/2/ite/6f21d73eddddbb74e35c0113a43935ca/none',
 				};
 				const nactiTabulku = async (typ) => {
 					const kandidati = [adresy[typ]];
@@ -140,7 +152,7 @@ export default {
 					for (const cesta of kandidati) {
 						if (!cesta) continue;
 						try {
-							const htmlTab = await (await fetch('https://www.letour.fr' + cesta, { headers: UA })).text();
+							const htmlTab = await (await fetch('https://www.letourfemmes.fr' + cesta, { headers: UA })).text();
 							if (JEZDCI.some((j) => htmlTab.toUpperCase().includes(j))) {
 								await cache.put(new Request('https://cache.wonderly.cz/tour-url-' + typ),
 									new Response(cesta, { headers: { 'cache-control': 'public, max-age=604800' } }));
@@ -163,14 +175,19 @@ export default {
 					odpoved.lidr = m ? m[1].trim() : null;
 				}
 			} catch (e) {
-				odpoved.chyba = 'letour.fr nedostupný: ' + e.message;
+				odpoved.chyba = 'letourfemmes.fr nedostupný: ' + e.message;
 			}
-			// ŽIVÁ TELEMETRIE během jedoucí etapy (racecenter.letour.fr, veřejné API bez tokenu)
-			const BIBY = { 37: 'VACEK', 227: 'OTRUBA', 213: 'BITTNER' };
+			// ŽIVÁ TELEMETRIE během jedoucí etapy (racecenter.letourfemmes.fr, veřejné API bez tokenu)
+			const BIBY = { 147: 'NOSKOV' };
 			try {
-				const rc = 'https://racecenter.letour.fr/api';
-				const etapaCislo = odpoved.etapa ?? 14;
-				const tel = await (await fetch(`${rc}/telemetryCompetitor-2026`, { headers: UA })).json();
+				const rc = 'https://racecenter.letourfemmes.fr/api';
+				const etapaCislo = odpoved.etapa ?? 1;
+				// mimo etapu vracejí endpointy prázdné tělo (HTTP 204) → .json() by spadl
+				const nactiJson = async (adresa) => {
+					const t = (await (await fetch(adresa, { headers: UA })).text()).trim();
+					try { return t ? JSON.parse(t) : null; } catch { return null; }
+				};
+				const tel = await nactiJson(`${rc}/telemetryCompetitor-2026`);
 				const riders = tel?.[0]?.Riders ?? [];
 				let kdokoliZive = false;
 				for (const r of riders) {
@@ -185,12 +202,29 @@ export default {
 					};
 				}
 				odpoved.zavodSeJede = kdokoliZive;
-				const koment = await (await fetch(`${rc}/publication_cs-2026-${etapaCislo}`, { headers: UA })).json();
-				const zive = (Array.isArray(koment) ? koment : []).filter((k) => k.type === 'liv');
+				// tabulky výsledků ukazují poslední DOKONČENOU etapu, živě se přitom jede ta další
+				const etapyKZkouseni = [etapaCislo + 1, etapaCislo];
+				// český komentář ženská Tour nemusí mít → zkusíme postupně cs, en, fr
+				let zive = [];
+				hledani: for (const cislo of etapyKZkouseni) {
+					for (const jaz of ['cs', 'en', 'fr']) {
+						const koment = await nactiJson(`${rc}/publication_${jaz}-2026-${cislo}`);
+						// pozor: pole může přijít neprázdné, ale bez záznamů typu „liv" — hledáme dál
+						zive = (Array.isArray(koment) ? koment : []).filter((k) => k.type === 'liv');
+						if (zive.length) break hledani;
+					}
+				}
 				odpoved.komentar = zive.slice(0, 3).map((k) => ({
-					text: Array.isArray(k.text) ? k.text.join(' ') : k.text, cas: k.publicationAt || k.createdAt,
+					// komentář chodí jako HTML → na stránku patří čistý text
+					text: (Array.isArray(k.text) ? k.text.join(' ') : k.text ?? '')
+						.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
+					cas: k.publicationAt || k.createdAt,
 				}));
-				const pack = await (await fetch(`${rc}/pack-2026-${etapaCislo}`, { headers: UA })).json();
+				let pack = null;
+				for (const cislo of etapyKZkouseni) {
+					pack = await nactiJson(`${rc}/pack-2026-${cislo}`);
+					if (pack?.[0]?.groups?.length) break;
+				}
 				const skupiny = pack?.[0]?.groups ?? [];
 				const c1 = skupiny[0];
 				if (c1?.computedRemainingDistance != null) odpoved.doCileKm = Math.round(c1.computedRemainingDistance / 1000);

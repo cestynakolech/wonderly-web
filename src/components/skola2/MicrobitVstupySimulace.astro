@@ -13,10 +13,10 @@
 //     hodnota tu mez PŘEKROČÍ. Simulace proto vždy ukazuje naměřenou hodnotu
 //     v mg vedle posuvníku, aby bylo vidět „už, nebo ještě ne".
 //
-// Zjednodušený model akcelerometru (schválně kulatá čísla pro žáky): závislost
-// zrychlení na úhlu náklonu je tu LINEÁRNÍ (10 mg na stupeň), ne přes sinus jako
-// u skutečného čidla — u 30° tak vyjde přesně 300 mg. Jde o didaktické
-// zjednodušení kvůli celým číslům, ne o fyzikálně přesnou křivku čidla.
+// Akcelerometr měří složku TÍHOVÉHO zrychlení: mg = 1000 × sin(úhel). Hodnota
+// se zaokrouhluje na celé mg (Math.round), takže je vždy celé číslo; u 30° navíc
+// vyjde přesně 500 mg (sin 30° = 0,5) — proto je mez události nastavená právě
+// na 500 mg, žák ji tak trefí přesně na kulatém stupni posuvníku.
 //
 // Zvuk se NIKDY nepřehrává (na stránce nesmí znít žádný tón) — jen ho ukazujeme
 // jako doznívající vlnku a nápis s tónem/frekvencí v Hz. Frekvence tlačítek
@@ -24,8 +24,12 @@
 // E5 = 659 Hz, G5 = 784 Hz); frekvence u náklonu se dopočítává z úhlu.
 //
 // Pozn. k názvům bloků: čeština MakeCode se mezi verzemi mírně liší (stejná
-// poznámka jako u UdalostiSimulace) — použity jsou aktuálně používané tvary
-// „když je stisknuto tlačítko A", „když je gesto (…)", „hraj tón … po dobu …".
+// poznámka jako u UdalostiSimulace). Ověřeno podle pxt-microbit/libs/core:
+// ikony z `basic.showIcon` NEZAHRNUJÍ šipky ani vykřičník — šipky mají vlastní
+// blok `ukaž šipku (Západ/Východ/…)`, pro zatřesení je použita existující ikona
+// „překvapení". Blok tlačítka je „když stisknuto tlačítko A" (bez „je") — stejný
+// tvar jako v MicrobitRadioSimulace.astro, aby se obě simulace neodporovaly.
+// Jednotka délky tónu je v české paletě „doba" (ne „úder").
 //
 // Časování (kalibrováno výpočtem, ne odhadem): HIGHLIGHT_MS = 600 ms je délka,
 // po kterou zůstane právě proběhlý blok v seznamu zvýrazněný — tolik trvá, než
@@ -121,8 +125,7 @@
 	const btnReset = document.getElementById('mb-reset');
 
 	// ——— konstanty (viz komentář nahoře — schválně kulatá čísla) ———
-	const MG_NA_STUPEN = 10;   // zjednodušený lineární model akcelerometru
-	const PRAH_MG = 300;       // mez pro událost „nakloněno" (= 30°)
+	const PRAH_MG = 500;       // mez pro událost „nakloněno" (= 30°, sin 30° = 0,5)
 	const TON_ZAKLAD_HZ = 200; // základní tón při náklonu na mezi
 	const TON_NA_STUPEN = 4;   // o kolik Hz stoupne tón s každým stupněm navíc
 	const HIGHLIGHT_MS = 600;  // jak dlouho svítí právě proběhlý blok
@@ -135,18 +138,20 @@
 		zatres: { nazev: 'G5', hz: 784 },
 	};
 
+	// Bitmapy odpovídají skutečným tvarům z MakeCode (jen šipky a „překvapení"
+	// mají jiné JMÉNO bloku, než jsme původně psali — viz komentář nahoře).
 	const IKONY = {
 		klid: '0'.repeat(25),
-		sipkaVlevo: '00100' + '01000' + '11111' + '01000' + '00100',
-		sipkaVpravo: '00100' + '00010' + '11111' + '00010' + '00100',
+		sipkaZapad: '00100' + '01000' + '11111' + '01000' + '00100',
+		sipkaVychod: '00100' + '00010' + '11111' + '00010' + '00100',
 		srdce: '01010' + '11111' + '11111' + '01110' + '00100',
-		vykricnik: '00100' + '00100' + '00100' + '00000' + '00100',
+		prekvapeni: '00100' + '00100' + '00100' + '00000' + '00100',
 	};
 	const zIkony = (klic) => IKONY[klic].split('').map((z) => z === '1');
 
 	// ——— čisté funkce fyziky/logiky (ověřitelné bez prohlížeče) ———
-	/** Zjednodušený lineární model: mg = úhel(°) × 10. */
-	function akcelerace(uhel) { return uhel * MG_NA_STUPEN; }
+	/** Složka tíhového zrychlení při náklonu: mg = 1000 × sin(úhel), zaokrouhleno na celé mg. */
+	function akcelerace(uhel) { return Math.round(1000 * Math.sin((uhel * Math.PI) / 180)); }
 
 	/** Vrací 'doleva' | 'doprava' | null — jen při PŘEKROČENÍ meze (hrana), ne při pouhém pohybu pod mezí. */
 	function zjistiUdalostNaklonu(predchoziUhel, novyUhel) {
@@ -161,11 +166,13 @@
 	function frekvenceNaklonu(uhel) { return TON_ZAKLAD_HZ + Math.abs(uhel) * TON_NA_STUPEN; }
 
 	/** Osa dopředu/dozadu nemá vlastní pojmenovanou událost — kontroluje se přímo číslem,
-	 * proto tu není hrana, ale STAV (platí, dokud je náklon nad mezí). */
+	 * proto tu není hrana, ale STAV (platí, dokud je náklon nad mezí). Stejné ostré/neostré
+	 * porovnání (>=/<=) jako u osy X (zjistiUdalostNaklonu), aby si obě osy na hodnotě
+	 * přesně na mezi neodporovaly. */
 	function stavY(uhel) {
 		const mg = akcelerace(uhel);
-		if (mg > PRAH_MG) return 'dopredu';
-		if (mg < -PRAH_MG) return 'dozadu';
+		if (mg >= PRAH_MG) return 'dopredu';
+		if (mg <= -PRAH_MG) return 'dozadu';
 		return null;
 	}
 
@@ -184,23 +191,23 @@
 
 	// ——— popis programu v blocích MakeCode (vykreslují se pod deskou) ———
 	const BLOKY = [
-		{ id: 'a', klobouk: 'když je stisknuto tlačítko A',
-			telo: ['ukaž ikonu (šipka doleva)', 'hraj tón (nota C5) po dobu (¼ úderu)'] },
-		{ id: 'b', klobouk: 'když je stisknuto tlačítko B',
-			telo: ['ukaž ikonu (šipka doprava)', 'hraj tón (nota D5) po dobu (¼ úderu)'] },
-		{ id: 'ab', klobouk: 'když je stisknuto tlačítko A+B',
-			telo: ['ukaž ikonu (srdce)', 'hraj tón (nota E5) po dobu (½ úderu)'] },
+		{ id: 'a', klobouk: 'když stisknuto tlačítko A',
+			telo: ['ukaž šipku (Západ)', 'hraj tón (nota C5) po dobu (¼ doby)'] },
+		{ id: 'b', klobouk: 'když stisknuto tlačítko B',
+			telo: ['ukaž šipku (Východ)', 'hraj tón (nota D5) po dobu (¼ doby)'] },
+		{ id: 'ab', klobouk: 'když stisknuto tlačítko A+B',
+			telo: ['ukaž ikonu (srdce)', 'hraj tón (nota E5) po dobu (½ doby)'] },
 		{ id: 'zatres', klobouk: 'když je gesto (zatřeseno)',
-			telo: ['ukaž ikonu (vykřičník)', 'hraj tón (nota G5) po dobu (½ úderu)'] },
+			telo: ['ukaž ikonu (překvapení)', 'hraj tón (nota G5) po dobu (½ doby)'] },
 		{ id: 'doleva', klobouk: 'když je gesto (nakloněno doleva)',
-			telo: ['ukaž ikonu (šipka doleva)', 'hraj tón (frekvence) po dobu (¼ úderu)'] },
+			telo: ['ukaž šipku (Západ)', 'hraj tón (frekvence) po dobu (¼ doby)'] },
 		{ id: 'doprava', klobouk: 'když je gesto (nakloněno doprava)',
-			telo: ['ukaž ikonu (šipka doprava)', 'hraj tón (frekvence) po dobu (¼ úderu)'] },
+			telo: ['ukaž šipku (Východ)', 'hraj tón (frekvence) po dobu (¼ doby)'] },
 		{ id: 'y', klobouk: 'opakuj stále', forever: true,
 			telo: [
-				'pokud zrychlení (y) > 300 pak',
+				'pokud zrychlení (y) ≥ 500 pak',
 				'    napiš na sériový port „dopředu"',
-				'jinak pokud zrychlení (y) < -300 pak',
+				'jinak pokud zrychlení (y) ≤ -500 pak',
 				'    napiš na sériový port „dozadu"',
 			] },
 	];
@@ -270,20 +277,20 @@
 		const mgY = akcelerace(aY);
 		if (aktivniBlok && Date.now() - aktivniOd <= HIGHLIGHT_MS) {
 			switch (aktivniBlok) {
-				case 'a': return 'Stiskl jsi <strong>tlačítko A</strong> → spustil se blok „když je stisknuto tlačítko A": displej ukázal šipku a zazněl by tón C5 (523 Hz).';
-				case 'b': return 'Stiskl jsi <strong>tlačítko B</strong> → spustil se blok „když je stisknuto tlačítko B": displej ukázal šipku a zazněl by tón D5 (587 Hz).';
+				case 'a': return 'Stiskl jsi <strong>tlačítko A</strong> → spustil se blok „když stisknuto tlačítko A": displej ukázal šipku (Západ) a zazněl by tón C5 (523 Hz).';
+				case 'b': return 'Stiskl jsi <strong>tlačítko B</strong> → spustil se blok „když stisknuto tlačítko B": displej ukázal šipku (Východ) a zazněl by tón D5 (587 Hz).';
 				case 'ab': return 'Stiskl jsi <strong>A+B najednou</strong> → to je JINÁ událost než A nebo B zvlášť: spustilo se srdce a tón E5 (659 Hz).';
-				case 'zatres': return 'Deska se <strong>zatřásla</strong> → spustil se blok „když je gesto (zatřeseno)": vykřičník a tón G5 (784 Hz).';
-				case 'doleva': return `Náklon <strong>${aX}°</strong> = zrychlení <strong>${mgX} mg</strong> právě PŘEKROČIL mez −300 mg → spustila se událost „nakloněno doleva" a zazněl tón ${frekvenceNaklonu(aX)} Hz.`;
-				case 'doprava': return `Náklon <strong>${aX}°</strong> = zrychlení <strong>${mgX} mg</strong> právě PŘEKROČIL mez 300 mg → spustila se událost „nakloněno doprava" a zazněl tón ${frekvenceNaklonu(aX)} Hz.`;
+				case 'zatres': return 'Deska se <strong>zatřásla</strong> → spustil se blok „když je gesto (zatřeseno)": ikona „překvapení" a tón G5 (784 Hz).';
+				case 'doleva': return `Náklon <strong>${aX}°</strong> = zrychlení <strong>${mgX} mg</strong> právě PŘEKROČIL mez −500 mg → spustila se událost „nakloněno doleva" a zazněl tón ${frekvenceNaklonu(aX)} Hz.`;
+				case 'doprava': return `Náklon <strong>${aX}°</strong> = zrychlení <strong>${mgX} mg</strong> právě PŘEKROČIL mez 500 mg → spustila se událost „nakloněno doprava" a zazněl tón ${frekvenceNaklonu(aX)} Hz.`;
 			}
 		}
 		// bez čerstvé události: popiš, co ukazuje aktuální náklon
 		if (Math.abs(mgX) < PRAH_MG && mgX !== 0) {
-			return `Náklon <strong>${aX}°</strong> → akcelerometr měří <strong>${mgX} mg</strong>, ale mez je ±300 mg — <strong>malý náklon nedělá nic</strong>. Nakláněj dál až na ±30°.`;
+			return `Náklon <strong>${aX}°</strong> → akcelerometr měří <strong>${mgX} mg</strong>, ale mez je ±500 mg — <strong>malý náklon nedělá nic</strong>. Nakláněj dál až na ±30°.`;
 		}
 		if (Math.abs(mgY) < PRAH_MG && mgY !== 0) {
-			return `Náklon dopředu/dozadu <strong>${aY}°</strong> → zrychlení (y) je <strong>${mgY} mg</strong>, pod mezí ±300 mg — blok „opakuj stále" o tom nic nenapíše.`;
+			return `Náklon dopředu/dozadu <strong>${aY}°</strong> → zrychlení (y) je <strong>${mgY} mg</strong>, pod mezí ±500 mg — blok „opakuj stále" o tom nic nenapíše.`;
 		}
 		if (Math.abs(mgY) >= PRAH_MG) {
 			const smer = mgY > 0 ? 'dopředu' : 'dozadu';
@@ -325,7 +332,7 @@
 	document.querySelectorAll('[data-udalost]').forEach((tl) => {
 		tl.addEventListener('click', () => {
 			const jmeno = tl.dataset.udalost;
-			const ikona = jmeno === 'ab' ? 'srdce' : jmeno === 'zatres' ? 'vykricnik' : jmeno === 'a' ? 'sipkaVlevo' : 'sipkaVpravo';
+			const ikona = jmeno === 'ab' ? 'srdce' : jmeno === 'zatres' ? 'prekvapeni' : jmeno === 'a' ? 'sipkaZapad' : 'sipkaVychod';
 			const nota = NOTY[jmeno];
 			spustBlok(jmeno, ikona, nota.hz, nota.nazev);
 		});
@@ -335,8 +342,8 @@
 		const novy = +sliderX.value;
 		const udalost = zjistiUdalostNaklonu(aX, novy);
 		aX = novy;
-		if (udalost === 'doleva') spustBlok('doleva', 'sipkaVlevo', frekvenceNaklonu(aX));
-		else if (udalost === 'doprava') spustBlok('doprava', 'sipkaVpravo', frekvenceNaklonu(aX));
+		if (udalost === 'doleva') spustBlok('doleva', 'sipkaZapad', frekvenceNaklonu(aX));
+		else if (udalost === 'doprava') spustBlok('doprava', 'sipkaVychod', frekvenceNaklonu(aX));
 		else prekresli();
 	});
 
@@ -361,7 +368,7 @@
 	svg.__frekvenceNaklonu = frekvenceNaklonu;
 	svg.__stavY = stavY;
 	svg.__vlnaCesta = vlnaCesta;
-	svg.__meze = { MG_NA_STUPEN, PRAH_MG, TON_ZAKLAD_HZ, TON_NA_STUPEN, HIGHLIGHT_MS, WAVE_MS };
+	svg.__meze = { PRAH_MG, TON_ZAKLAD_HZ, TON_NA_STUPEN, HIGHLIGHT_MS, WAVE_MS };
 	svg.__ikony = IKONY;
 	svg.__stav = () => ({ aX, aY, aktivniBlok, ikonaKlic, tonInfo });
 </script>

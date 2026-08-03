@@ -1,10 +1,10 @@
 ---
-// Živé sledování českých jezdců na Tour de France — mobilní mini-aplikace.
-// Data: /api/tour (worker čte veřejné tabulky letour.fr, obnovuje se každou minutu).
-const JEZDCI = [
-	{ klic: 'VACEK', jmeno: 'Mathias Vacek', tym: 'Lidl-Trek', emoji: '🚀' },
-	{ klic: 'OTRUBA', jmeno: 'Jakub Otruba', tym: 'Caja Rural', emoji: '⛰️' },
-	{ klic: 'BITTNER', jmeno: 'Pavel Bittner', tym: 'Picnic PostNL', emoji: '⚡' },
+// Živé sledování českých jezdkyň na Tour de France Femmes 2026 — mobilní mini-aplikace.
+// Data: /api/tour (worker čte veřejné tabulky letourfemmes.fr, obnovuje se každou minutu).
+// Jediná Češka na startu 2026: Nikola Nosková (startovní číslo 147, Cofidis).
+// Klíč 'NOSKOV' je bez koncovky schválně — tabulky ji píšou jako „N. NOSKOVÁ".
+const JEZDKYNE = [
+	{ klic: 'NOSKOV', jmeno: 'Nikola Nosková', tym: 'Cofidis Women', emoji: '🚴‍♀️' },
 ];
 ---
 
@@ -15,11 +15,12 @@ const JEZDCI = [
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="theme-color" content="#ffd43b" />
-		<title>🇨🇿 Češi na Tour</title>
+		<title>🇨🇿 Češka na Tour Femmes</title>
 	</head>
 	<body>
 		<main>
-			<h1>🇨🇿 Češi na Tour de France</h1>
+			<h1>🇨🇿 Češka na Tour de France Femmes</h1>
+			<p class="podtitul">1.–9. srpna 2026 · Lausanne → Nice · 9 etap</p>
 			<p id="zive" class="zive">Načítám…</p>
 			<div id="ziva-tabulka" hidden>
 				<div class="ziva-hlava">🔴 ŽIVĚ NA TRATI <span id="do-cile"></span></div>
@@ -28,7 +29,7 @@ const JEZDCI = [
 				<p id="komentar" class="komentar"></p>
 			</div>
 			<div id="karty">
-				{JEZDCI.map((j) => (
+				{JEZDKYNE.map((j) => (
 					<article class="karta" id={`karta-${j.klic}`}>
 						<header><span class="emoji">{j.emoji}</span> <b>{j.jmeno}</b> <span class="tym">{j.tym}</span></header>
 						<div class="udaje">
@@ -38,8 +39,8 @@ const JEZDCI = [
 					</article>
 				))}
 			</div>
-			<a class="zive-tlacitko" href="https://racecenter.letour.fr/livetracking" target="_blank" rel="noopener">
-				🔴 Živý průběh etapy (oficiální mapa a skupiny)
+			<a class="zive-tlacitko" href="https://www.letourfemmes.fr/en/rankings" target="_blank" rel="noopener">
+				📊 Oficiální výsledky všech etap (letourfemmes.fr)
 			</a>
 			<p id="lidr" class="pata"></p>
 			<p id="cas" class="pata"></p>
@@ -52,13 +53,13 @@ const JEZDCI = [
 				try {
 					const data = await (await fetch('/api/tour?t=' + Date.now(), { cache: 'no-store' })).json();
 					const dokoncena = data.vysledkyPoEtape ?? data.etapa;
-					const JMENA = { VACEK: 'Vacek', OTRUBA: 'Otruba', BITTNER: 'Bittner' };
+					const JMENA = { NOSKOV: 'Nosková' };
 
 					// ŽIVÁ tabulka na trati (jede-li se)
 					if (data.zavodSeJede) {
 						$('#ziva-tabulka').hidden = false;
 						$('#do-cile').textContent = data.doCileKm != null ? `· ${data.doCileKm} km do cíle` : '';
-						const poradi = { VACEK: 1, OTRUBA: 2, BITTNER: 3 };
+						const poradi = { NOSKOV: 1 };
 						const radky = Object.entries(data.jezdci)
 							.sort((a, b) => {
 								const pa = a[1].zive?.poziceNaTrati ?? 9999, pb = b[1].zive?.poziceNaTrati ?? 9999;
@@ -105,7 +106,7 @@ const JEZDCI = [
 						nastav('et-pozice', j.etapa ? `${j.etapa.pozice}.` : '–');
 						nastav('et-ztrata', j.etapa ? j.etapa.ztrata : '');
 					}
-					$('#lidr').textContent = data.lidr ? `Ve žlutém: ${data.lidr}` : '';
+					$('#lidr').textContent = data.lidr ? `Ve žlutém dresu: ${data.lidr}` : '';
 					$('#cas').textContent = 'Aktualizováno ' + new Date().toLocaleTimeString('cs-CZ');
 				} catch {
 					$('#cas').textContent = 'Bez spojení — zkusím to za minutu znovu.';
@@ -120,6 +121,7 @@ const JEZDCI = [
 			body { font-family: -apple-system, system-ui, sans-serif; background: #fff8e1; color: #222; }
 			main { max-width: 480px; margin: 0 auto; padding: 1rem; }
 			h1 { font-size: 1.5rem; margin: 0.4rem 0; }
+			.podtitul { color: #777; font-size: 0.88rem; margin-bottom: 0.5rem; }
 			.zive { font-weight: 700; color: #c92a2a; margin-bottom: 0.8rem; }
 			.karta { background: #fff; border: 3px solid #222; border-radius: 16px; padding: 0.9rem 1rem; margin: 0.7rem 0;
 				box-shadow: 3px 3px 0 #22222233; }

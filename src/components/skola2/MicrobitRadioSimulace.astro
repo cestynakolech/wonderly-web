@@ -2,18 +2,25 @@
 // Rádio mezi micro:bity (informatika 8, celek microbit): vysílač + dva přijímače.
 //
 // Hlavní pointa (na tu se ptá i výklad podtématu): zprávu dostane JEN deska se
-// STEJNOU skupinou rádia — jinak signál sice dorazí, ale zpráva se zahodí.
-// Nezávisle na tom hraje roli DOSAH: za jeho hranicí signál nedoletí vůbec,
-// ať je skupina jakákoli. Výchozí nastavení schválně předvádí oba případy
-// najednou: Přijímač 1 má stejnou skupinu jako vysílač a je v dosahu → dostane
-// zprávu. Přijímač 2 je BLÍŽ než Přijímač 1 (tedy dosah by mu nevadil), ale má
-// jinou skupinu → zprávu nedostane. Žák si tak hned uvědomí, že vzdálenost
-// nestačí — skupiny musí sedět.
+// STEJNOU skupinou rádia — jinak signál sice dorazí (třeba silný), ale zpráva
+// se zahodí. Nezávisle na tom PLYNULE slábne síla signálu se vzdáleností a
+// s každou zdí mezi deskami (přesně jak píše výklad: „přes několik zdí už
+// signál slábne" — ne že by za čárou zmizel skokem). Výrobce udává dosah
+// micro:bitu ~70 m na volném prostranství; v modelu SIGNÁL = 100 % − (1 % za
+// každý metr) − (15 % za každou zeď), takže při 70 m venku (0 zdí) klesne
+// přesně na čitelnou hranici 30 % — zprávu přijímač nedostane, JAKMILE
+// síla klesne pod tuto hranici, ne kvůli nakreslené čáře. Výchozí nastavení
+// schválně předvádí obě nezávislé pointy najednou: Přijímač 1 má stejnou
+// skupinu jako vysílač a silný signál (80 %) → dostane zprávu. Přijímač 2 je
+// BLÍŽ i se zdí (signál 75 %, tedy taky silný), ale má jinou skupinu → zprávu
+// nedostane. Žák si tak uvědomí, že síla signálu nestačí — skupiny musí sedět
+// — a zvlášť si posuvníky vzdálenosti/zdí může ověřit, že SLABÝ signál zprávu
+// zahodí i při shodné skupině.
 //
-// Animace „vlnové fronty" je čistá funkce uplynulého času (`pureFrontX`,
-// `pureOpacity`) — poloha i doba doběhnutí jde ověřit výpočtem, ne odhadem
-// z náhledu, kde je requestAnimationFrame zpomalený. Řízeno přes setInterval
-// + Date.now(), stejně jako ve vzorové LedDisplejSimulace.
+// Animace „vlnové fronty" i síla signálu jsou čisté funkce (`pureFrontX`,
+// `pureOpacity`, `pureSila`) — poloha, doba doběhnutí i procenta jdou ověřit
+// výpočtem, ne odhadem z náhledu, kde je requestAnimationFrame zpomalený.
+// Řízeno přes setInterval + Date.now(), stejně jako ve vzorové LedDisplejSimulace.
 //
 // Druhá, jednodušší část pod čarou: piny P0/P1/P2 a připojení zařízení
 // krokosvorkami (LED pásek, motorek, čidlo vlhkosti) — podle výkladu
@@ -28,17 +35,15 @@
 		Nastav skupiny a vzdálenosti a stiskni <strong>Odeslat</strong>.
 	</p>
 
-	<svg id="mr-svg" viewBox="0 0 920 340" role="img" aria-label="Vysílač a dva přijímače micro:bit, mezi nimi zóna dosahu rádia">
-		<rect x="140" y="20" width="350" height="280" fill="#d3f9d8" opacity="0.55" />
-		<rect x="490" y="20" width="350" height="280" fill="#ffe3e3" opacity="0.5" />
-		<line x1="490" y1="10" x2="490" y2="300" stroke="#e03131" stroke-width="2" stroke-dasharray="6 5" />
-		<text x="490" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131">hranice dosahu 25 m</text>
+	<svg id="mr-svg" viewBox="0 0 920 340" role="img" aria-label="Vysílač a dva přijímače micro:bit, síla signálu plynule slábne se vzdáleností">
+		<line x1="630" y1="10" x2="630" y2="300" stroke="#adb5bd" stroke-width="2" stroke-dasharray="3 5" />
+		<text x="630" y="332" text-anchor="middle" font-size="12" font-weight="bold" fill="#868e96">70 m — udávaný dosah (venku)</text>
 
 		<line x1="140" y1="300" x2="840" y2="300" stroke="#868e96" stroke-width="2" />
-		{[0, 10, 20, 30, 40, 50].map((m) => (
+		{[0, 20, 40, 60, 80, 100].map((m) => (
 			<g>
-				<line x1={140 + m * 14} y1="296" x2={140 + m * 14} y2="304" stroke="#868e96" stroke-width="2" />
-				<text x={140 + m * 14} y="318" text-anchor="middle" font-size="11" fill="#495057">{m} m</text>
+				<line x1={140 + m * 7} y1="296" x2={140 + m * 7} y2="304" stroke="#868e96" stroke-width="2" />
+				<text x={140 + m * 7} y="318" text-anchor="middle" font-size="11" fill="#495057">{m} m</text>
 			</g>
 		))}
 
@@ -91,8 +96,13 @@
 				<input type="range" id="mr-skupina2" min="0" max="255" step="1" value="7" />
 			</label>
 			<label>Vzdálenost od vysílače: <output id="mr-out-vzdalenost2">20</output> m
-				<input type="range" id="mr-vzdalenost2" min="0" max="50" step="5" value="20" />
+				<input type="range" id="mr-vzdalenost2" min="0" max="100" step="10" value="20" />
 			</label>
+			<label>Počet zdí mezi deskami: <output id="mr-out-zdi2">0</output>
+				<input type="range" id="mr-zdi2" min="0" max="5" step="1" value="0" />
+			</label>
+			<p class="mr-sila-radek">Síla signálu: <output id="mr-sila2-text">80</output> %</p>
+			<div class="mr-sila-bar"><div class="mr-sila-vypln" id="mr-sila2-vypln"></div></div>
 		</div>
 
 		<div class="mr-panel">
@@ -101,8 +111,13 @@
 				<input type="range" id="mr-skupina3" min="0" max="255" step="1" value="3" />
 			</label>
 			<label>Vzdálenost od vysílače: <output id="mr-out-vzdalenost3">10</output> m
-				<input type="range" id="mr-vzdalenost3" min="0" max="50" step="5" value="10" />
+				<input type="range" id="mr-vzdalenost3" min="0" max="100" step="10" value="10" />
 			</label>
+			<label>Počet zdí mezi deskami: <output id="mr-out-zdi3">1</output>
+				<input type="range" id="mr-zdi3" min="0" max="5" step="1" value="1" />
+			</label>
+			<p class="mr-sila-radek">Síla signálu: <output id="mr-sila3-text">75</output> %</p>
+			<div class="mr-sila-bar"><div class="mr-sila-vypln" id="mr-sila3-vypln"></div></div>
 		</div>
 	</div>
 
@@ -186,19 +201,27 @@
 <script>
 	// ——— rádio: konstanty scény (kalibrováno výpočtem, ne odhadem z náhledu) ———
 	const AX_X0 = 140;         // x pro 0 m
-	const SCALE = 14;          // px na 1 m
-	const DOSAH_M = 25;        // dosah rádia ve scéně
-	const DOSAH_X = AX_X0 + DOSAH_M * SCALE;   // 490
-	const ANIM_MS = 1400;      // za tolik ms doletí fronta na hranici dosahu
+	const AX_X1 = 840;         // x pro 100 m (celá šířka scény)
+	const SCALE = 7;           // px na 1 m: (840-140)/100
+	const DOSAH_M = 70;        // udávaný dosah výrobce (na volném prostranství) — jen popisek, ne hranice
+	const UTLUM_NA_METR = 1;   // % síly signálu ubude na každý metr
+	const UTLUM_NA_ZED = 15;   // % síly signálu ubude za každou zeď
+	const PRAH = 30;           // % — pod touto silou je zpráva nečitelná
+	const ANIM_MS = 1400;      // za tolik ms proletí fronta celou scénu
 	const FADE_MS = 300;       // pak ještě dohasíná
 
 	const boardX = (vzdalenost) => AX_X0 + vzdalenost * SCALE;
 
+	/** Čistá funkce: síla signálu v % podle vzdálenosti (m) a počtu zdí. */
+	function pureSila(vzdalenost, zdi) {
+		const sila = 100 - UTLUM_NA_METR * vzdalenost - UTLUM_NA_ZED * zdi;
+		return Math.max(0, Math.min(100, sila));
+	}
 	/** Čistá funkce: kde je vlnová fronta v čase `ms` od odeslání. */
 	function pureFrontX(ms) {
 		if (ms <= 0) return AX_X0;
-		if (ms >= ANIM_MS) return DOSAH_X;
-		return AX_X0 + (ms / ANIM_MS) * (DOSAH_X - AX_X0);
+		if (ms >= ANIM_MS) return AX_X1;
+		return AX_X0 + (ms / ANIM_MS) * (AX_X1 - AX_X0);
 	}
 	/** Čistá funkce: průhlednost fronty v čase `ms` (1 → viditelná, 0 → zmizela). */
 	function pureOpacity(ms) {
@@ -231,27 +254,68 @@
 	const skupina3Slider = document.getElementById('mr-skupina3');
 	const vzdalenost2Slider = document.getElementById('mr-vzdalenost2');
 	const vzdalenost3Slider = document.getElementById('mr-vzdalenost3');
+	const zdi2Slider = document.getElementById('mr-zdi2');
+	const zdi3Slider = document.getElementById('mr-zdi3');
 	const out1 = document.getElementById('mr-out-skupina1');
 	const out2 = document.getElementById('mr-out-skupina2');
 	const out3 = document.getElementById('mr-out-skupina3');
 	const outV2 = document.getElementById('mr-out-vzdalenost2');
 	const outV3 = document.getElementById('mr-out-vzdalenost3');
-	const vsechnyPosuvniky = [skupina1Slider, skupina2Slider, skupina3Slider, vzdalenost2Slider, vzdalenost3Slider];
+	const outZdi2 = document.getElementById('mr-out-zdi2');
+	const outZdi3 = document.getElementById('mr-out-zdi3');
+	const sila2TextEl = document.getElementById('mr-sila2-text');
+	const sila3TextEl = document.getElementById('mr-sila3-text');
+	const sila2VyplnEl = document.getElementById('mr-sila2-vypln');
+	const sila3VyplnEl = document.getElementById('mr-sila3-vypln');
+	const vsechnyPosuvniky = [
+		skupina1Slider, skupina2Slider, skupina3Slider,
+		vzdalenost2Slider, vzdalenost3Slider, zdi2Slider, zdi3Slider,
+	];
 
 	let skupina1 = 7, skupina2 = 7, skupina3 = 3;
 	let vzdalenost2 = 20, vzdalenost3 = 10;
+	let zdi2 = 0, zdi3 = 1;
 	let zprava = 'AHOJ';
 
 	let bezi = false;
 	let start = 0;
 	let casovac = null;
-	let vysledek2 = null;   // null = nerozhodnuto/mimo dosah, true = přijato, false = jiná skupina
+	// vysledekN: null = ještě nerozhodnuto (fronta tam nedoletěla), 'ok' = přijato,
+	// 'skupina' = signál dorazil silný, ale skupina nesedí, 'slaby' = síla klesla pod PRAH
+	let vysledek2 = null;
 	let vysledek3 = null;
 	let poslednizprava2 = '?';
 	let poslednizprava3 = '?';
 	let zvyrazneckoVysilacDo = 0;
 	let zvyraznecko2Do = 0;
 	let zvyraznecko3Do = 0;
+
+	/** Barva pruhu podle síly: nad 60 % zelená, nad prahem oranžová, pod prahem červená. */
+	function barvaSily(s) {
+		if (s < PRAH) return '#e03131';
+		return s >= 60 ? '#2f9e44' : '#f08c00';
+	}
+	function renderSila() {
+		const s2 = pureSila(vzdalenost2, zdi2);
+		const s3 = pureSila(vzdalenost3, zdi3);
+		sila2TextEl.textContent = String(s2);
+		sila3TextEl.textContent = String(s3);
+		sila2VyplnEl.style.width = s2 + '%';
+		sila3VyplnEl.style.width = s3 + '%';
+		sila2VyplnEl.style.background = barvaSily(s2);
+		sila3VyplnEl.style.background = barvaSily(s3);
+	}
+	/** Rozhodne o příjmu: nejdřív skupina, pak síla signálu proti prahu. Čistá funkce. */
+	function pureVyhodnotPrijem(skupinaVysilac, skupinaPrijimac, vzdalenost, zdi) {
+		if (skupinaPrijimac !== skupinaVysilac) return 'skupina';
+		return pureSila(vzdalenost, zdi) >= PRAH ? 'ok' : 'slaby';
+	}
+	function slovoZdi(n) {
+		if (n === 0) return '0 zdí';
+		if (n === 1) return '1 zeď';
+		if (n <= 4) return `${n} zdi`;
+		return `${n} zdí`;
+	}
 
 	function radkyVysilac() {
 		return [
@@ -274,8 +338,11 @@
 		radky.forEach((text, i) => {
 			const li = document.createElement('li');
 			li.textContent = text;
-			if (i === 0) li.className = 'mr-hlavicka';
-			else if (zvyraznitIndexy.includes(i)) li.className = 'mr-nyni';
+			// hlavička = řádek, který NENÍ odsazený (začátek bloku „po spuštění",
+			// „když stisknuto tlačítko A" i „když rádio přijme řetězec" — všechny)
+			const jeHlavicka = !text.startsWith('   ');
+			if (zvyraznitIndexy.includes(i)) li.className = 'mr-nyni';
+			else if (jeHlavicka) li.className = 'mr-hlavicka';
 			olEl.appendChild(li);
 		});
 	}
@@ -294,24 +361,28 @@
 		out3.textContent = String(skupina3);
 		outV2.textContent = String(vzdalenost2);
 		outV3.textContent = String(vzdalenost3);
+		outZdi2.textContent = String(zdi2);
+		outZdi3.textContent = String(zdi3);
 		skupinaVysilacTextEl.textContent = `sk. ${skupina1}`;
 		skupina2TextEl.textContent = `sk. ${skupina2}`;
 		skupina3TextEl.textContent = `sk. ${skupina3}`;
 		obrazVysilacEl.textContent = zprava;
 		obraz2El.textContent = poslednizprava2;
 		obraz3El.textContent = poslednizprava3;
-		obraz2El.setAttribute('fill', vysledek2 === true ? '#69db7c' : vysledek2 === false ? '#ff8787' : '#ffd43b');
-		obraz3El.setAttribute('fill', vysledek3 === true ? '#69db7c' : vysledek3 === false ? '#ff8787' : '#ffd43b');
+		obraz2El.setAttribute('fill', vysledek2 === 'ok' ? '#69db7c' : vysledek2 === null ? '#ffd43b' : '#ff8787');
+		obraz3El.setAttribute('fill', vysledek3 === 'ok' ? '#69db7c' : vysledek3 === null ? '#ffd43b' : '#ff8787');
+		renderSila();
 	}
 
-	function popisVysledku(cislo, skupinaN, vzdalenostN, vysledek) {
-		if (vysledek === true) {
-			return `✅ Přijímač ${cislo}: zpráva „${zprava}“ dorazila — obě desky mají skupinu ${skupinaN}.`;
+	function popisVysledku(cislo, skupinaN, vzdalenostN, zdiN, vysledek) {
+		const sila = pureSila(vzdalenostN, zdiN);
+		if (vysledek === 'ok') {
+			return `✅ Přijímač ${cislo}: zpráva „${zprava}“ dorazila — skupina ${skupinaN} sedí a síla signálu je ${sila} %.`;
 		}
-		if (vysledek === false) {
-			return `❌ Přijímač ${cislo}: signál dorazil, ale skupina rádia je jiná (${skupinaN} místo ${skupina1}) — zpráva se zahodila.`;
+		if (vysledek === 'skupina') {
+			return `❌ Přijímač ${cislo}: signál je silný (${sila} %), ale skupina rádia je jiná (${skupinaN} místo ${skupina1}) — zpráva se zahodila.`;
 		}
-		return `❌ Přijímač ${cislo}: je ${vzdalenostN} m daleko, mimo dosah ${DOSAH_M} m — signál tam vůbec nedoletí.`;
+		return `❌ Přijímač ${cislo}: síla signálu klesla na ${sila} % (${vzdalenostN} m, ${slovoZdi(zdiN)}) — pod čitelnou hranicí ${PRAH} %.`;
 	}
 
 	function tick() {
@@ -325,17 +396,17 @@
 		const bx2 = boardX(vzdalenost2);
 		const bx3 = boardX(vzdalenost3);
 		if (vysledek2 === null && fx >= bx2) {
-			vysledek2 = skupina2 === skupina1;
-			poslednizprava2 = vysledek2 ? zprava : '✗';
-			if (vysledek2) zvyraznecko2Do = Date.now() + 800;
-			ram2El.setAttribute('stroke', vysledek2 ? '#2f9e44' : '#e03131');
+			vysledek2 = pureVyhodnotPrijem(skupina1, skupina2, vzdalenost2, zdi2);
+			poslednizprava2 = vysledek2 === 'ok' ? zprava : '✗';
+			if (vysledek2 === 'ok') zvyraznecko2Do = Date.now() + 800;
+			ram2El.setAttribute('stroke', vysledek2 === 'ok' ? '#2f9e44' : '#e03131');
 			ram2El.setAttribute('stroke-width', '5');
 		}
 		if (vysledek3 === null && fx >= bx3) {
-			vysledek3 = skupina3 === skupina1;
-			poslednizprava3 = vysledek3 ? zprava : '✗';
-			if (vysledek3) zvyraznecko3Do = Date.now() + 800;
-			ram3El.setAttribute('stroke', vysledek3 ? '#2f9e44' : '#e03131');
+			vysledek3 = pureVyhodnotPrijem(skupina1, skupina3, vzdalenost3, zdi3);
+			poslednizprava3 = vysledek3 === 'ok' ? zprava : '✗';
+			if (vysledek3 === 'ok') zvyraznecko3Do = Date.now() + 800;
+			ram3El.setAttribute('stroke', vysledek3 === 'ok' ? '#2f9e44' : '#e03131');
 			ram3El.setAttribute('stroke-width', '5');
 		}
 
@@ -353,8 +424,8 @@
 			ram3El.setAttribute('stroke-width', '3');
 			ram2El.setAttribute('stroke', '#2b2a26');
 			ram3El.setAttribute('stroke', '#2b2a26');
-			stavEl.textContent = popisVysledku(1, skupina2, vzdalenost2, vysledek2)
-				+ '\n' + popisVysledku(2, skupina3, vzdalenost3, vysledek3);
+			stavEl.textContent = popisVysledku(1, skupina2, vzdalenost2, zdi2, vysledek2)
+				+ '\n' + popisVysledku(2, skupina3, vzdalenost3, zdi3, vysledek3);
 		}
 	}
 
@@ -389,19 +460,23 @@
 	skupina3Slider.addEventListener('input', () => { skupina3 = +skupina3Slider.value; renderPozice(); renderBloky(); });
 	vzdalenost2Slider.addEventListener('input', () => { vzdalenost2 = +vzdalenost2Slider.value; renderPozice(); });
 	vzdalenost3Slider.addEventListener('input', () => { vzdalenost3 = +vzdalenost3Slider.value; renderPozice(); });
+	zdi2Slider.addEventListener('input', () => { zdi2 = +zdi2Slider.value; renderPozice(); });
+	zdi3Slider.addEventListener('input', () => { zdi3 = +zdi3Slider.value; renderPozice(); });
 
 	renderPozice();
 	renderBloky();
-	stavEl.textContent = 'Vysílač i Přijímač 1 mají skupinu 7 a Přijímač 1 je v dosahu — zkus Odeslat. '
-		+ 'Přijímač 2 je sice blíž, ale má jinou skupinu (3) — zprávu nedostane.';
+	stavEl.textContent = 'Vysílač i Přijímač 1 mají skupinu 7 a silný signál (80 %) — zkus Odeslat. '
+		+ 'Přijímač 2 má signál taky silný (75 %), ale jinou skupinu (3) — zprávu nedostane. '
+		+ 'Zkus posunout vzdálenost nebo přidat zdi a sleduj, jak síla klesá pod 30 %.';
 
 	// ——— ověřovací háčky ———
 	svg.__pureFrontX = pureFrontX;
 	svg.__pureOpacity = pureOpacity;
+	svg.__pureSila = pureSila;
 	svg.__boardX = boardX;
 	svg.__DOSAH_M = DOSAH_M;
-	svg.__DOSAH_X = DOSAH_X;
-	svg.__stav = () => ({ skupina1, skupina2, skupina3, vzdalenost2, vzdalenost3, vysledek2, vysledek3, zprava });
+	svg.__PRAH = PRAH;
+	svg.__stav = () => ({ skupina1, skupina2, skupina3, vzdalenost2, vzdalenost3, zdi2, zdi3, vysledek2, vysledek3, zprava });
 
 	// ——— druhá část: piny a externí zařízení ———
 	const pinySvg = document.getElementById('mr-piny-svg');
@@ -445,7 +520,17 @@
 			motorRamenoEl.setAttribute('transform', `rotate(${uhel} 300 164)`);
 		}
 		if (pripojeno.cidlo) {
-			cidloHodnotaEl.textContent = t < 400 ? 'měřím…' : t < 800 ? 'vlhkost: 20 %' : '🙁 sucho — zalévej!';
+			// program: přečti vlhkost → ukaž ji na displeji → při suchu ukaž smutný obličej
+			if (t < 400) {
+				cidloHodnotaEl.textContent = 'měřím…';
+				pinyDisplej.textContent = '';
+			} else if (t < 800) {
+				cidloHodnotaEl.textContent = 'vlhkost: 20 %';
+				pinyDisplej.textContent = '20';
+			} else {
+				cidloHodnotaEl.textContent = '🙁 sucho — zalévej!';
+				pinyDisplej.textContent = '🙁';
+			}
 		}
 		if (t >= 1200) {
 			testBezi = false;
@@ -497,6 +582,9 @@
 	.mr-panel input[type='range'] { width: 100%; }
 	.mr-zpravy-label { font-weight: 700; margin: 0.5rem 0 0.2rem; }
 	.mr-zpravy { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+	.mr-sila-radek { font-weight: 700; margin: 0.5rem 0 0.2rem; }
+	.mr-sila-bar { width: 100%; height: 14px; background: #e9ecef; border: 2px solid #2b2a26; border-radius: 7px; overflow: hidden; }
+	.mr-sila-vypln { height: 100%; width: 0%; background: #2f9e44; transition: width 0.15s ease; }
 	.mr-tl {
 		font: inherit;
 		font-weight: 700;
