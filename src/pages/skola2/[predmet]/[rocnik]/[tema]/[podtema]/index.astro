@@ -30,6 +30,10 @@ import VlastniBlokySimulace from '../../../../../../components/skola2/VlastniBlo
 import BludisteSimulace from '../../../../../../components/skola2/BludisteSimulace.astro';
 import FunkceTabulkySimulace from '../../../../../../components/skola2/FunkceTabulkySimulace.astro';
 import SenzoryRobotaSimulace from '../../../../../../components/skola2/SenzoryRobotaSimulace.astro';
+import KlonovaniSimulace from '../../../../../../components/skola2/KlonovaniSimulace.astro';
+import MicrobitVstupySimulace from '../../../../../../components/skola2/MicrobitVstupySimulace.astro';
+import MicrobitRadioSimulace from '../../../../../../components/skola2/MicrobitRadioSimulace.astro';
+import VexcodeSimulace from '../../../../../../components/skola2/VexcodeSimulace.astro';
 import PromenneSimulace from '../../../../../../components/skola2/PromenneSimulace.astro';
 import LedDisplejSimulace from '../../../../../../components/skola2/LedDisplejSimulace.astro';
 import OdporVodiceSimulace from '../../../../../../components/skola2/OdporVodiceSimulace.astro';
@@ -249,6 +253,10 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			{podtema.interakce === 'bludiste' && <BludisteSimulace />}
 			{podtema.interakce === 'funkce-tabulky' && <FunkceTabulkySimulace />}
 			{podtema.interakce === 'senzory-robota' && <SenzoryRobotaSimulace />}
+			{podtema.interakce === 'klonovani' && <KlonovaniSimulace />}
+			{podtema.interakce === 'microbit-vstupy' && <MicrobitVstupySimulace />}
+			{podtema.interakce === 'microbit-radio' && <MicrobitRadioSimulace />}
+			{podtema.interakce === 'vexcode' && <VexcodeSimulace />}
 	{podtema.interakce === 'led-displej' && <LedDisplejSimulace />}
 	{podtema.interakce === 'odpor-vodice' && <OdporVodiceSimulace />}
 	{podtema.interakce === 'odpor-vodice-zaklad' && <OdporVodiceSimulace zaklad={true} />}

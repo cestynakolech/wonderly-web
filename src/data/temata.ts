@@ -12,7 +12,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -5131,6 +5131,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'tlacitka-naklon-zvuk',
 					nazev: 'Tlačítka, náklon a zvuk',
+					interakce: 'microbit-vstupy',
 					obsah: `
 						<h2>Deska reaguje</h2>
 						<p><strong>Vstup</strong> je to, čím deska vnímá okolí (tlačítka, senzory), <strong>výstup</strong> to, čím na okolí působí (displej, zvuk). U hudebního nástroje je vstupem náklon a výstupem tón — u každého programu se vyplatí vědět, co je co.</p>
@@ -5163,6 +5164,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'propojeni-a-externi-zarizeni',
 					nazev: 'Rádio a externí zařízení',
+					interakce: 'microbit-radio',
 					obsah: `
 						<h2>Desky si povídají</h2>
 						<p>Dva micro:bity se propojí <strong>bezdrátově rádiem</strong>: jeden vyšle zprávu (číslo nebo text), druhý ji přijme a zareaguje — stejný princip jako posílání zpráv ve Scratchi, jen vzduchem.</p>
@@ -5568,6 +5570,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'vexcode-prvni-program',
 					nazev: 'Návod česky: první program ve VEXcode IQ',
+					interakce: 'vexcode',
 					obsah: `
 						<h2>🧑‍💻 První program pro robota — česky krok za krokem</h2>
 						<p>Prostředí VEXcode IQ je anglicky — ale bloky vypadají jako Scratch a s tímto návodem je zvládneš levou zadní.</p>
@@ -5731,6 +5734,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'klonovani-animace-hry',
 					nazev: 'Klonování, animace a tvorba hry',
+					interakce: 'klonovani',
 					obsah: `
 						<h2>Velké finále: vlastní hra</h2>
 						<h3>Klonování</h3>

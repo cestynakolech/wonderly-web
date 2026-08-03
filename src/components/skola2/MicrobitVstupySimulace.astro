@@ -1,0 +1,386 @@
+---
+// Vstupy micro:bitu (informatika 8): tlačítka A/B/A+B, náklon (akcelerometr) a zvuk
+// jako znázorněný (NEhraný) výstup. Vedle desky je vidět odpovídající program
+// v blocích MakeCode — právě spuštěný blok se zvýrazní.
+//
+// Tři pointy, na které se ptá i výklad podtématu:
+//  1. Vstup (tlačítko, náklon) × výstup (displej, zvuk) — u „hudebního nástroje"
+//     je vstupem náklon a výstupem tón.
+//  2. Události nastanou, teprve až je něco vyvolá — program mezitím jen čeká,
+//     nic se neděje samo.
+//  3. NEJDŮLEŽITĚJŠÍ: náklon má MEZ. Malý náklon akcelerometr sice změří (číslo
+//     se mění pořád), ale blok „když je gesto (nakloněno…)" se spustí, až teprve
+//     hodnota tu mez PŘEKROČÍ. Simulace proto vždy ukazuje naměřenou hodnotu
+//     v mg vedle posuvníku, aby bylo vidět „už, nebo ještě ne".
+//
+// Zjednodušený model akcelerometru (schválně kulatá čísla pro žáky): závislost
+// zrychlení na úhlu náklonu je tu LINEÁRNÍ (10 mg na stupeň), ne přes sinus jako
+// u skutečného čidla — u 30° tak vyjde přesně 300 mg. Jde o didaktické
+// zjednodušení kvůli celým číslům, ne o fyzikálně přesnou křivku čidla.
+//
+// Zvuk se NIKDY nepřehrává (na stránce nesmí znít žádný tón) — jen ho ukazujeme
+// jako doznívající vlnku a nápis s tónem/frekvencí v Hz. Frekvence tlačítek
+// odpovídají skutečným hodnotám not v MakeCode (C5 = 523 Hz, D5 = 587 Hz,
+// E5 = 659 Hz, G5 = 784 Hz); frekvence u náklonu se dopočítává z úhlu.
+//
+// Pozn. k názvům bloků: čeština MakeCode se mezi verzemi mírně liší (stejná
+// poznámka jako u UdalostiSimulace) — použity jsou aktuálně používané tvary
+// „když je stisknuto tlačítko A", „když je gesto (…)", „hraj tón … po dobu …".
+//
+// Časování (kalibrováno výpočtem, ne odhadem): HIGHLIGHT_MS = 600 ms je délka,
+// po kterou zůstane právě proběhlý blok v seznamu zvýrazněný — tolik trvá, než
+// si ho žák stihne přečíst. WAVE_MS = 900 ms je délka dozvuku vlnky v obrázku
+// (o něco déle než zvýraznění bloku, aby vlnka doznívala i chvíli po něm).
+// Obě hodnoty se odvíjejí od Date.now(), ne od počtu snímků requestAnimationFrame,
+// takže zpomalený náhled v editoru čas neovlivní.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Micro:bit poslouchá vstupy 🎮</span></h2>
+	<p>
+		<strong>Vstup</strong> je to, čím deska vnímá okolí (tlačítka, náklon),
+		<strong>výstup</strong> to, čím reaguje (displej, zvuk). Zkoušej tlačítka
+		i náklon a sleduj, který blok programu se právě spustil — a jaký tón by
+		zazněl (zvuk se tu jen <strong>ukazuje</strong>, nehraje).
+	</p>
+
+	<svg id="mb-svg" viewBox="0 0 560 300" role="img"
+		aria-label="Deska micro:bitu s displejem 5 krát 5 LED, tlačítky A a B a panelem, který ukazuje tón místo skutečného zvuku">
+		<!-- deska -->
+		<rect x="20" y="30" width="270" height="245" fill="#2b8a3e" stroke="#2b2a26" stroke-width="3" rx="14" />
+		<text x="155" y="56" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">micro:bit</text>
+
+		{Array.from({ length: 25 }, (_, i) => (
+			<rect
+				class="mb-led"
+				data-i={i}
+				x={55 + (i % 5) * 36}
+				y={72 + Math.floor(i / 5) * 36}
+				width="26"
+				height="26"
+				rx="5"
+				fill="#3d2b1f"
+				stroke="#1b4332"
+				stroke-width="2"
+			/>
+		))}
+
+		<!-- fyzická tlačítka A a B (jen náhled, ovládají se tlačítky pod obrázkem) -->
+		<circle id="mb-btnA" cx="38" cy="157" r="14" fill="#1b1b1b" stroke="#000" stroke-width="2" />
+		<text x="38" y="162" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">A</text>
+		<circle id="mb-btnB" cx="272" cy="157" r="14" fill="#1b1b1b" stroke="#000" stroke-width="2" />
+		<text x="272" y="162" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">B</text>
+
+		<!-- panel se zvukem: JEN znázornění, žádné audio -->
+		<text x="430" y="60" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">zvuk 🔇 (jen náznak, nehraje)</text>
+		<rect x="310" y="70" width="240" height="160" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" rx="8" />
+		<path id="mb-vlna" d="" transform="translate(320 150)" fill="none" stroke="#1971c2" stroke-width="2.5" />
+		<line x1="320" y1="150" x2="520" y2="150" stroke="#dee2e6" stroke-width="1" />
+		<text id="mb-ton-text" x="430" y="215" text-anchor="middle" font-size="15" font-weight="bold" fill="#1971c2"></text>
+	</svg>
+
+	<p class="mb-radek">
+		<strong>Stiskni:</strong>
+		<button type="button" class="mb-tl mb-hraj" data-udalost="a">🅰️ tlačítko A</button>
+		<button type="button" class="mb-tl" data-udalost="b">🅱️ tlačítko B</button>
+		<button type="button" class="mb-tl" data-udalost="ab">🅰️➕🅱️ A+B najednou</button>
+		<button type="button" class="mb-tl" data-udalost="zatres">🫨 zatřes deskou</button>
+	</p>
+
+	<p class="mb-radek">
+		<strong>Náklon doleva ↔ doprava:</strong>
+		<input type="range" id="mb-naklon-x" min="-90" max="90" step="10" value="0" />
+		<span id="mb-hodnota-x" class="mb-hodnota"></span>
+	</p>
+	<p class="mb-radek">
+		<strong>Náklon dopředu ↔ dozadu:</strong>
+		<input type="range" id="mb-naklon-y" min="-90" max="90" step="10" value="0" />
+		<span id="mb-hodnota-y" class="mb-hodnota"></span>
+	</p>
+	<p class="mb-radek">
+		<button type="button" class="mb-tl" id="mb-reset">↺ na začátek</button>
+	</p>
+
+	<div id="mb-bloky" class="mb-bloky"></div>
+	<p class="mb-stav" id="mb-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const svg = document.getElementById('mb-svg');
+	const ledy = Array.from(document.querySelectorAll('.mb-led'));
+	const btnAvis = document.getElementById('mb-btnA');
+	const btnBvis = document.getElementById('mb-btnB');
+	const vlnaEl = document.getElementById('mb-vlna');
+	const tonTextEl = document.getElementById('mb-ton-text');
+	const sliderX = document.getElementById('mb-naklon-x');
+	const sliderY = document.getElementById('mb-naklon-y');
+	const hodnotaXEl = document.getElementById('mb-hodnota-x');
+	const hodnotaYEl = document.getElementById('mb-hodnota-y');
+	const blokyEl = document.getElementById('mb-bloky');
+	const stavEl = document.getElementById('mb-stav');
+	const btnReset = document.getElementById('mb-reset');
+
+	// ——— konstanty (viz komentář nahoře — schválně kulatá čísla) ———
+	const MG_NA_STUPEN = 10;   // zjednodušený lineární model akcelerometru
+	const PRAH_MG = 300;       // mez pro událost „nakloněno" (= 30°)
+	const TON_ZAKLAD_HZ = 200; // základní tón při náklonu na mezi
+	const TON_NA_STUPEN = 4;   // o kolik Hz stoupne tón s každým stupněm navíc
+	const HIGHLIGHT_MS = 600;  // jak dlouho svítí právě proběhlý blok
+	const WAVE_MS = 900;       // jak dlouho doznívá vlnka v obrázku
+
+	const NOTY = {
+		a: { nazev: 'C5', hz: 523 },
+		b: { nazev: 'D5', hz: 587 },
+		ab: { nazev: 'E5', hz: 659 },
+		zatres: { nazev: 'G5', hz: 784 },
+	};
+
+	const IKONY = {
+		klid: '0'.repeat(25),
+		sipkaVlevo: '00100' + '01000' + '11111' + '01000' + '00100',
+		sipkaVpravo: '00100' + '00010' + '11111' + '00010' + '00100',
+		srdce: '01010' + '11111' + '11111' + '01110' + '00100',
+		vykricnik: '00100' + '00100' + '00100' + '00000' + '00100',
+	};
+	const zIkony = (klic) => IKONY[klic].split('').map((z) => z === '1');
+
+	// ——— čisté funkce fyziky/logiky (ověřitelné bez prohlížeče) ———
+	/** Zjednodušený lineární model: mg = úhel(°) × 10. */
+	function akcelerace(uhel) { return uhel * MG_NA_STUPEN; }
+
+	/** Vrací 'doleva' | 'doprava' | null — jen při PŘEKROČENÍ meze (hrana), ne při pouhém pohybu pod mezí. */
+	function zjistiUdalostNaklonu(predchoziUhel, novyUhel) {
+		const predchozi = akcelerace(predchoziUhel);
+		const novy = akcelerace(novyUhel);
+		if (novy <= -PRAH_MG && predchozi > -PRAH_MG) return 'doleva';
+		if (novy >= PRAH_MG && predchozi < PRAH_MG) return 'doprava';
+		return null;
+	}
+
+	/** Tón při náklonu roste s úhlem — to je ta „hudebního nástroje" pointa z výkladu. */
+	function frekvenceNaklonu(uhel) { return TON_ZAKLAD_HZ + Math.abs(uhel) * TON_NA_STUPEN; }
+
+	/** Osa dopředu/dozadu nemá vlastní pojmenovanou událost — kontroluje se přímo číslem,
+	 * proto tu není hrana, ale STAV (platí, dokud je náklon nad mezí). */
+	function stavY(uhel) {
+		const mg = akcelerace(uhel);
+		if (mg > PRAH_MG) return 'dopredu';
+		if (mg < -PRAH_MG) return 'dozadu';
+		return null;
+	}
+
+	/** Doznívající vlnka — čistá funkce uplynulého času a tónu. Vyšší Hz = kratší vlnová délka. */
+	function vlnaCesta(ms, hz) {
+		if (ms < 0 || ms > WAVE_MS) return '';
+		const amplituda = 28 * (1 - ms / WAVE_MS);
+		const vlnDelkaPx = Math.max(6, 600 / hz);
+		const body = [];
+		for (let x = 0; x <= 200; x += 4) {
+			const y = amplituda * Math.sin((2 * Math.PI * x) / vlnDelkaPx + ms / 40);
+			body.push(`${x === 0 ? 'M' : 'L'} ${x} ${y.toFixed(1)}`);
+		}
+		return body.join(' ');
+	}
+
+	// ——— popis programu v blocích MakeCode (vykreslují se pod deskou) ———
+	const BLOKY = [
+		{ id: 'a', klobouk: 'když je stisknuto tlačítko A',
+			telo: ['ukaž ikonu (šipka doleva)', 'hraj tón (nota C5) po dobu (¼ úderu)'] },
+		{ id: 'b', klobouk: 'když je stisknuto tlačítko B',
+			telo: ['ukaž ikonu (šipka doprava)', 'hraj tón (nota D5) po dobu (¼ úderu)'] },
+		{ id: 'ab', klobouk: 'když je stisknuto tlačítko A+B',
+			telo: ['ukaž ikonu (srdce)', 'hraj tón (nota E5) po dobu (½ úderu)'] },
+		{ id: 'zatres', klobouk: 'když je gesto (zatřeseno)',
+			telo: ['ukaž ikonu (vykřičník)', 'hraj tón (nota G5) po dobu (½ úderu)'] },
+		{ id: 'doleva', klobouk: 'když je gesto (nakloněno doleva)',
+			telo: ['ukaž ikonu (šipka doleva)', 'hraj tón (frekvence) po dobu (¼ úderu)'] },
+		{ id: 'doprava', klobouk: 'když je gesto (nakloněno doprava)',
+			telo: ['ukaž ikonu (šipka doprava)', 'hraj tón (frekvence) po dobu (¼ úderu)'] },
+		{ id: 'y', klobouk: 'opakuj stále', forever: true,
+			telo: [
+				'pokud zrychlení (y) > 300 pak',
+				'    napiš na sériový port „dopředu"',
+				'jinak pokud zrychlení (y) < -300 pak',
+				'    napiš na sériový port „dozadu"',
+			] },
+	];
+
+	// ——— stav ———
+	let aX = 0;               // úhel náklonu doleva(−)/doprava(+), °
+	let aY = 0;               // úhel náklonu dopředu(+)/dozadu(−), °
+	let aktivniBlok = null;   // id bloku, který právě „doběhl" (svítí HIGHLIGHT_MS)
+	let aktivniOd = 0;
+	let ikonaKlic = 'klid';
+	let tonInfo = null;       // { start, hz, nazev }
+	let casovac = null;
+
+	const nastavText = (el, t) => { if (el.textContent !== t) el.textContent = t; };
+
+	function spustBlok(id, ikona, hz, nazev) {
+		aktivniBlok = id;
+		aktivniOd = Date.now();
+		ikonaKlic = ikona;
+		tonInfo = { start: Date.now(), hz, nazev };
+		zajistiBeh();
+		prekresli();
+	}
+
+	function zajistiBeh() {
+		if (casovac) return;
+		casovac = setInterval(() => {
+			prekresli();
+			const bezZvyrazneni = !aktivniBlok || Date.now() - aktivniOd > HIGHLIGHT_MS;
+			const bezVlnky = !tonInfo || Date.now() - tonInfo.start > WAVE_MS;
+			if (bezZvyrazneni && bezVlnky) {
+				if (aktivniBlok) aktivniBlok = null;
+				clearInterval(casovac);
+				casovac = null;
+				prekresli();
+			}
+		}, 50);
+	}
+
+	function vypisBloky() {
+		blokyEl.textContent = '';
+		const yStavNyni = stavY(aY);
+		for (const b of BLOKY) {
+			const box = document.createElement('div');
+			box.className = 'mb-blok' + (aktivniBlok === b.id ? ' mb-nyni' : '') + (b.forever ? ' mb-forever' : '');
+			const hlava = document.createElement('p');
+			hlava.className = 'mb-klobouk';
+			hlava.textContent = b.klobouk;
+			box.appendChild(hlava);
+			b.telo.forEach((radek, i) => {
+				const r = document.createElement('p');
+				r.className = 'mb-prikaz';
+				r.textContent = radek;
+				if (b.forever) {
+					// v „opakuj stále" svítí jen ta větev, jejíž podmínka právě platí
+					if (i <= 1 && yStavNyni === 'dopredu') r.classList.add('mb-nyni-radek');
+					if (i >= 2 && yStavNyni === 'dozadu') r.classList.add('mb-nyni-radek');
+				}
+				box.appendChild(r);
+			});
+			blokyEl.appendChild(box);
+		}
+	}
+
+	function popisStavu() {
+		const mgX = akcelerace(aX);
+		const mgY = akcelerace(aY);
+		if (aktivniBlok && Date.now() - aktivniOd <= HIGHLIGHT_MS) {
+			switch (aktivniBlok) {
+				case 'a': return 'Stiskl jsi <strong>tlačítko A</strong> → spustil se blok „když je stisknuto tlačítko A": displej ukázal šipku a zazněl by tón C5 (523 Hz).';
+				case 'b': return 'Stiskl jsi <strong>tlačítko B</strong> → spustil se blok „když je stisknuto tlačítko B": displej ukázal šipku a zazněl by tón D5 (587 Hz).';
+				case 'ab': return 'Stiskl jsi <strong>A+B najednou</strong> → to je JINÁ událost než A nebo B zvlášť: spustilo se srdce a tón E5 (659 Hz).';
+				case 'zatres': return 'Deska se <strong>zatřásla</strong> → spustil se blok „když je gesto (zatřeseno)": vykřičník a tón G5 (784 Hz).';
+				case 'doleva': return `Náklon <strong>${aX}°</strong> = zrychlení <strong>${mgX} mg</strong> právě PŘEKROČIL mez −300 mg → spustila se událost „nakloněno doleva" a zazněl tón ${frekvenceNaklonu(aX)} Hz.`;
+				case 'doprava': return `Náklon <strong>${aX}°</strong> = zrychlení <strong>${mgX} mg</strong> právě PŘEKROČIL mez 300 mg → spustila se událost „nakloněno doprava" a zazněl tón ${frekvenceNaklonu(aX)} Hz.`;
+			}
+		}
+		// bez čerstvé události: popiš, co ukazuje aktuální náklon
+		if (Math.abs(mgX) < PRAH_MG && mgX !== 0) {
+			return `Náklon <strong>${aX}°</strong> → akcelerometr měří <strong>${mgX} mg</strong>, ale mez je ±300 mg — <strong>malý náklon nedělá nic</strong>. Nakláněj dál až na ±30°.`;
+		}
+		if (Math.abs(mgY) < PRAH_MG && mgY !== 0) {
+			return `Náklon dopředu/dozadu <strong>${aY}°</strong> → zrychlení (y) je <strong>${mgY} mg</strong>, pod mezí ±300 mg — blok „opakuj stále" o tom nic nenapíše.`;
+		}
+		if (Math.abs(mgY) >= PRAH_MG) {
+			const smer = mgY > 0 ? 'dopředu' : 'dozadu';
+			return `Zrychlení (y) je <strong>${mgY} mg</strong> — nad mezí, takže „opakuj stále" právě píše „${smer}". Na rozdíl od tlačítek tahle podmínka platí <strong>celou dobu</strong>, dokud náklon trvá, ne jen na okamžik.`;
+		}
+		return 'Zkus tlačítko A, B, A+B, zatřes deskou, nebo pomalu přidávej náklon — sleduj, kdy se hodnota v mg dostane přes mez.';
+	}
+
+	function prekresli() {
+		// displej
+		const pole = zIkony(ikonaKlic);
+		ledy.forEach((el, i) => el.setAttribute('fill', pole[i] ? '#ff3b30' : '#3d2b1f'));
+
+		// fyzická tlačítka
+		const ted = Date.now();
+		const cerstve = aktivniBlok && ted - aktivniOd <= HIGHLIGHT_MS;
+		btnAvis.setAttribute('fill', cerstve && (aktivniBlok === 'a' || aktivniBlok === 'ab') ? '#f08c00' : '#1b1b1b');
+		btnBvis.setAttribute('fill', cerstve && (aktivniBlok === 'b' || aktivniBlok === 'ab') ? '#f08c00' : '#1b1b1b');
+
+		// vlnka a text tónu
+		if (tonInfo && ted - tonInfo.start <= WAVE_MS) {
+			const ms = ted - tonInfo.start;
+			vlnaEl.setAttribute('d', vlnaCesta(ms, tonInfo.hz));
+			nastavText(tonTextEl, tonInfo.nazev ? `nota ${tonInfo.nazev} — ${tonInfo.hz} Hz` : `tón ${tonInfo.hz} Hz`);
+		} else {
+			vlnaEl.setAttribute('d', '');
+			nastavText(tonTextEl, '');
+		}
+
+		// posuvníky a naměřené hodnoty
+		nastavText(hodnotaXEl, `${aX}°  →  ${akcelerace(aX)} mg`);
+		nastavText(hodnotaYEl, `${aY}°  →  ${akcelerace(aY)} mg`);
+
+		vypisBloky();
+		stavEl.innerHTML = popisStavu();
+	}
+
+	// ——— ovládání ———
+	document.querySelectorAll('[data-udalost]').forEach((tl) => {
+		tl.addEventListener('click', () => {
+			const jmeno = tl.dataset.udalost;
+			const ikona = jmeno === 'ab' ? 'srdce' : jmeno === 'zatres' ? 'vykricnik' : jmeno === 'a' ? 'sipkaVlevo' : 'sipkaVpravo';
+			const nota = NOTY[jmeno];
+			spustBlok(jmeno, ikona, nota.hz, nota.nazev);
+		});
+	});
+
+	sliderX.addEventListener('input', () => {
+		const novy = +sliderX.value;
+		const udalost = zjistiUdalostNaklonu(aX, novy);
+		aX = novy;
+		if (udalost === 'doleva') spustBlok('doleva', 'sipkaVlevo', frekvenceNaklonu(aX));
+		else if (udalost === 'doprava') spustBlok('doprava', 'sipkaVpravo', frekvenceNaklonu(aX));
+		else prekresli();
+	});
+
+	sliderY.addEventListener('input', () => {
+		aY = +sliderY.value;
+		prekresli();
+	});
+
+	btnReset.addEventListener('click', () => {
+		aX = 0; aY = 0;
+		sliderX.value = '0'; sliderY.value = '0';
+		aktivniBlok = null; tonInfo = null; ikonaKlic = 'klid';
+		if (casovac) { clearInterval(casovac); casovac = null; }
+		prekresli();
+	});
+
+	prekresli();
+
+	// ——— ověřovací háčky ———
+	svg.__akcelerace = akcelerace;
+	svg.__zjistiUdalostNaklonu = zjistiUdalostNaklonu;
+	svg.__frekvenceNaklonu = frekvenceNaklonu;
+	svg.__stavY = stavY;
+	svg.__vlnaCesta = vlnaCesta;
+	svg.__meze = { MG_NA_STUPEN, PRAH_MG, TON_ZAKLAD_HZ, TON_NA_STUPEN, HIGHLIGHT_MS, WAVE_MS };
+	svg.__ikony = IKONY;
+	svg.__stav = () => ({ aX, aY, aktivniBlok, ikonaKlic, tonInfo });
+</script>
+
+<style>
+	#mb-svg { width: 100%; max-width: 560px; border-radius: 12px; background: #f8f9fa; display: block; }
+	.mb-radek { margin: 0.6rem 0; }
+	.mb-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.mb-tl.mb-hraj { background: #d3f9d8; }
+	.mb-tl:active { transform: translateY(1px); }
+	.mb-hodnota { font-weight: 700; font-family: ui-monospace, monospace; background: #e9ecef; border-radius: 8px; padding: 0.1rem 0.5rem; margin-left: 0.4rem; }
+	input[type='range']#mb-naklon-x, input[type='range']#mb-naklon-y { vertical-align: middle; width: 220px; margin: 0 0.4rem; }
+	.mb-bloky { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0.6rem 0; }
+	.mb-blok { border: 3px solid #2b2a26; border-radius: 10px; padding: 0.35rem 0.5rem; background: #fff; min-width: 13rem; }
+	.mb-blok.mb-nyni { background: #fff3bf; outline: 3px dashed #f08c00; }
+	.mb-blok.mb-forever { border-style: dashed; }
+	.mb-blok p { margin: 0.1rem 0; }
+	.mb-klobouk { font-weight: 700; background: #ffd43b; border-radius: 8px 8px 4px 4px; padding: 0.1rem 0.4rem; }
+	.mb-prikaz { font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.4rem; margin-left: 0.5rem !important; font-family: ui-monospace, monospace; white-space: pre; }
+	.mb-prikaz.mb-nyni-radek { background: #ffa8a8; outline: 2px dashed #e03131; }
+	.mb-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>

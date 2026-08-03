@@ -1,0 +1,317 @@
+---
+// Klonování, animace a tvorba hry (informatika 9. ročník).
+//
+// Tři pointy z výkladu, VŠECHNY VIDĚT, ne jen napsané:
+//  1. KLON = kopie postavy vytvořená za běhu. Generátor nahoře „klonuje“ padající mince —
+//     všechny klony sdílejí týž scénář (`když startuje můj klon`), ale každý má VLASTNÍ
+//     polohu a VLASTNÍ rychlost pádu (parametr odvozený od jeho id — čistá funkce).
+//  2. STROP 300 KLONŮ — hlavní pointa. Přepínač „ruší se klony“ na NE simuluje zapomenuté
+//     `zruš tento klon`: mince dopadnou na podlahu a ZŮSTANOU tam (nemizí), takže se
+//     živé klony hromadí. Jakmile jich je 300, blok `klonuj (sebe)` mlčky nic nevyrobí —
+//     počítadlo pokusů roste, ale nové mince se přestanou objevovat. Přesně tak se
+//     „rozbije“ hra, kterou žák zapomněl uklízet.
+//  3. Volitelně: přepínač kostýmů ukazuje střídání vzhledu (animaci) za pádu.
+//
+// Stav je čistá funkce předchozího stavu a voleb (testovatelné bez prohlížeče).
+// Časování: setInterval po 100 ms = 10 kroků/s, TICK_S = 0,1 s → 1 reálná sekunda
+// odpovídá 1 „herní“ sekundě (žádné requestAnimationFrame, žádné zpomalení v náhledu).
+// Výchozí „klonů za sekundu“ = 15 → strop 300 se (bez rušení) potká přesně za 300/15 = 20 s.
+//
+// Názvy bloků podle české palety Scratche 3 (testy/nazvy-bloku.mjs, ověřeno 3. 8. 2026):
+// „po kliknutí na 🏁“, „opakuj stále“, „čekej … sekund“, „klonuj (sebe)“,
+// „když startuje můj klon“, „nastav x na …“, „nastav y na …“, „změň y o …“,
+// „pokud … tak“, „zruš tento klon“, „další kostým“.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kolik klonů uneseš? 👥</span></h2>
+	<p>
+		Nahoře je <strong>generátor</strong> — každou chvíli udělá <code>klonuj (sebe)</code> a
+		vypadne nová mince. Každý klon běží podle <strong>stejného scénáře</strong>, ale padá
+		<strong>vlastní rychlostí</strong>. Vypni „ruší se klony“ a sleduj, co se stane po 300 klonech.
+	</p>
+
+	<svg id="klon-svg" viewBox="0 0 480 350" role="img"
+		aria-label="Generátor nahoře vytváří padající mince-klony; na podlaze se buď ruší, nebo se hromadí">
+		<rect x="1" y="1" width="478" height="348" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<rect x="200" y="4" width="80" height="26" fill="#495057" stroke="#2b2a26" stroke-width="2" rx="6" />
+		<text x="240" y="21" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">generátor</text>
+		<line id="klon-podlaha" x1="8" y1="335" x2="472" y2="335" stroke="#495057" stroke-width="5" />
+		<text x="240" y="349" text-anchor="middle" font-size="11" font-weight="bold" fill="#495057">podlaha</text>
+		<g id="klon-klony"></g>
+		<text id="klon-hlaska" x="240" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a"></text>
+	</svg>
+
+	<p class="klon-stats" id="klon-stats" aria-live="polite"></p>
+
+	<p class="klon-radek">
+		<strong>Ruší se klony po dopadu?</strong>
+		<button type="button" class="klon-tl klon-ruseni klon-aktivni" data-ruseni="ano">ANO — zruš tento klon</button>
+		<button type="button" class="klon-tl klon-ruseni" data-ruseni="ne">NE — necháme je ležet</button>
+	</p>
+	<p class="klon-radek">
+		<label for="klon-rychlost"><strong>Klonů za sekundu:</strong></label>
+		<input type="range" id="klon-rychlost" min="5" max="30" step="1" value="15" />
+		<span id="klon-rychlost-hodnota" class="klon-hodnota">15</span>
+	</p>
+	<p class="klon-radek">
+		<strong>Animace kostýmů:</strong>
+		<button type="button" class="klon-tl klon-kostymy" data-kostymy="ne">vypnuto</button>
+		<button type="button" class="klon-tl klon-kostymy klon-aktivni" data-kostymy="ano">další kostým za pádu</button>
+	</p>
+	<p class="klon-radek">
+		<button type="button" class="klon-tl klon-hraj" id="klon-krok">▶️ jeden krok</button>
+		<button type="button" class="klon-tl klon-hraj" id="klon-bezet">⏩ spustit</button>
+		<button type="button" class="klon-tl" id="klon-reset">↺ na začátek</button>
+	</p>
+
+	<div id="klon-program" class="klon-program"></div>
+	<p class="klon-vysvetleni" id="klon-vysvetleni" aria-live="polite">
+		Klikni na <strong>⏩ spustit</strong> a sleduj počítadlo živých klonů — nejzajímavější je
+		zkusit „NE — necháme je ležet“ a počkat na strop <strong>300</strong>.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('klon-svg');
+	const klonyEl = document.getElementById('klon-klony');
+	const hlaskaEl = document.getElementById('klon-hlaska');
+	const statsEl = document.getElementById('klon-stats');
+	const programEl = document.getElementById('klon-program');
+	const vysvetleniEl = document.getElementById('klon-vysvetleni');
+	const rychlostVstup = document.getElementById('klon-rychlost');
+	const rychlostHodnotaEl = document.getElementById('klon-rychlost-hodnota');
+	const btnKrok = document.getElementById('klon-krok');
+	const btnBezet = document.getElementById('klon-bezet');
+	const btnReset = document.getElementById('klon-reset');
+
+	const STROP_KLONU = 300;      // Scratch neudrží víc živých klonů
+	const SPAWN_Y = 160;          // odkud klon „padá“ (nahoře)
+	const PODLAHA_Y = -160;       // kde dopadne / se zastaví
+	const X_ROZSAH = 220;         // klon padá kdesi mezi -220 a 220
+	const TICK_MS = 100;          // reálný čas jednoho kroku
+	const TICK_S = TICK_MS / 1000; // 0,1 s → 1 reálná sekunda = 1 herní sekunda
+
+	function pxX(x) { return 240 + x; }
+	function pxY(y) { return 175 - y; }
+
+	/** Vlastní rychlost KAŽDÉHO klonu — týž scénář, jiná hodnota (pointa 1). Čistá funkce id. */
+	function rychlostKlonu(id) {
+		return 40 + (id % 7) * 20; // 40..160 px/s, několik odlišných hodnot
+	}
+
+	/** Vlastní startovní x KAŽDÉHO klonu — taky jen z id, deterministické (testovatelné). */
+	function xKlonu(id) {
+		return -X_ROZSAH + ((id * 53) % (2 * X_ROZSAH + 1));
+	}
+
+	function pocatecniStav() {
+		return { tick: 0, casDoDalsiho: 0, dalsiId: 1, klony: [], vyrobeno: 0, neuspesnychPokusu: 0, zruseno: 0 };
+	}
+
+	/**
+	 * JEDEN KROK simulace (100 ms). Nejdřív se zkusí `klonuj (sebe)` (pokud přišel čas),
+	 * pak se všem živým klonům spočítá pád. Čistá funkce — vrací nový stav.
+	 */
+	function jedenKrok(stav, volby) {
+		let { casDoDalsiho, dalsiId, vyrobeno, neuspesnychPokusu, zruseno } = stav;
+		let klony = stav.klony;
+		const mezeraMeziKlony = 1 / volby.rychlost; // s mezi dvěma „klonuj“
+
+		casDoDalsiho -= TICK_S;
+		// POZOR: `while`, ne `if` — při vysokém „klonů za sekundu“ (mezera < TICK_S) padne
+		// v jednom kroku i víc pokusů o klonování. S pouhým `if` by se rychlost nad 10/s
+		// tiše osekala na max 10/s (10 kroků za sekundu) a slider by lhal.
+		while (casDoDalsiho <= 1e-9) {
+			casDoDalsiho += mezeraMeziKlony;
+			if (klony.length < STROP_KLONU) {
+				// blok „klonuj (sebe)“ uspěl
+				klony = [...klony, { id: dalsiId, x: xKlonu(dalsiId), y: SPAWN_Y, rychlost: rychlostKlonu(dalsiId), dopadl: false }];
+				dalsiId += 1;
+				vyrobeno += 1;
+			} else {
+				// strop je dosažený — blok „klonuj (sebe)“ tiše nic nevyrobí
+				neuspesnychPokusu += 1;
+			}
+		}
+
+		const dalsiKlony = [];
+		for (const k of klony) {
+			if (k.dopadl) {
+				if (volby.ruseni === 'ano') { zruseno += 1; continue; } // „zruš tento klon“
+				dalsiKlony.push(k); // necháme ležet — dál se počítá do stropu
+				continue;
+			}
+			const y = k.y - k.rychlost * TICK_S; // „změň y o (-rychlost * 0,1)“
+			if (y <= PODLAHA_Y) {
+				if (volby.ruseni === 'ano') { zruseno += 1; continue; } // dopadl a hned se zrušil
+				dalsiKlony.push({ ...k, y: PODLAHA_Y, dopadl: true }); // dopadl a zůstává ležet
+			} else {
+				dalsiKlony.push({ ...k, y });
+			}
+		}
+
+		return { tick: stav.tick + 1, casDoDalsiho, dalsiId, klony: dalsiKlony, vyrobeno, neuspesnychPokusu, zruseno };
+	}
+
+	/** Kolik kroků (sekund) trvá dosáhnout stropu, když se klony NEruší? Čistá funkce voleb. */
+	function odhadDoStropu(volby) {
+		return Math.ceil(STROP_KLONU / volby.rychlost);
+	}
+
+	let volby = { ruseni: 'ano', rychlost: 15, kostymy: 'ano' };
+	let stav = pocatecniStav();
+	let casovac = null;
+
+	function programRadky() {
+		const zruseniRadek = { text: 'zruš tento klon', uroven: 2, vypnuto: volby.ruseni === 'ne' };
+		return [
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: `čekej (${(1 / volby.rychlost).toFixed(2)}) sekund`, uroven: 2 },
+			{ text: 'klonuj (sebe)', uroven: 2 },
+			{ text: 'když startuje můj klon', uroven: 0, hlava: true },
+			{ text: 'nastav x na (náhodnou hodnotu)', uroven: 1 },
+			{ text: `nastav y na (${SPAWN_Y})`, uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: 'změň y o (−rychlost)', uroven: 2 },
+			...(volby.kostymy === 'ano' ? [{ text: 'další kostým', uroven: 2 }] : []),
+			{ text: `pokud ⟨y < ${PODLAHA_Y}?⟩ tak`, uroven: 2 },
+			zruseniRadek,
+		];
+	}
+
+	function vypisProgram() {
+		programEl.textContent = '';
+		for (const r of programRadky()) {
+			const p = document.createElement('p');
+			p.className = 'klon-blok' + (r.hlava ? ' klon-hlava' : '') + (r.vypnuto ? ' klon-vypnuto' : '');
+			p.textContent = r.vypnuto ? `${r.text}  ← chybí!` : r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			programEl.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		klonyEl.textContent = '';
+		for (const k of stav.klony) {
+			const kostym = volby.kostymy === 'ano' && Math.floor((stav.tick + k.id) / 5) % 2 === 1;
+			const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+			c.setAttribute('cx', String(pxX(k.x)));
+			c.setAttribute('cy', String(pxY(k.y)));
+			c.setAttribute('r', '9');
+			c.setAttribute('fill', kostym ? '#ff922b' : '#ffd43b');
+			c.setAttribute('stroke', '#2b2a26');
+			c.setAttribute('stroke-width', '2');
+			if (k.dopadl) c.setAttribute('opacity', '0.85');
+			klonyEl.appendChild(c);
+		}
+
+		const zive = stav.klony.length;
+		const naStropu = zive >= STROP_KLONU;
+		hlaskaEl.textContent = naStropu ? `🚫 STROP 300 — „klonuj (sebe)“ teď nic nevyrobí` : '';
+
+		const bar = `<span class="klon-bar"><span class="klon-bar-vypln" style="width:${(100 * zive) / STROP_KLONU}%; background:${naStropu ? '#c92a2a' : '#2b8a3e'}"></span></span>`;
+		statsEl.innerHTML =
+			`živé klony: <strong>${zive} / ${STROP_KLONU}</strong> ${bar} ` +
+			`&nbsp;·&nbsp; pokusů „klonuj“: <strong>${stav.vyrobeno}</strong>` +
+			(stav.neuspesnychPokusu > 0 ? ` &nbsp;·&nbsp; <strong class="klon-cervene">selhalo: ${stav.neuspesnychPokusu}</strong>` : '') +
+			(volby.ruseni === 'ano' ? ` &nbsp;·&nbsp; zrušeno: <strong>${stav.zruseno}</strong>` : '');
+
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		const zive = stav.klony.length;
+		if (zive >= STROP_KLONU) {
+			return `Živých klonů je přesně <strong>${STROP_KLONU}</strong> — to je strop Scratche. Blok <em>klonuj (sebe)</em> se od té chvíle pokusil spustit ještě <strong>${stav.neuspesnychPokusu}×</strong>, ale nevyrobil nic — nové mince se přestaly objevovat. Hra se „rozbila“, přestože program dál běží.`;
+		}
+		if (volby.ruseni === 'ne') {
+			return `Klony se <strong>NEruší</strong> — i ty, co dopadly na podlahu, dál žijí a počítají se do stropu. Při ${volby.rychlost} klonech/s dosáhneš stropu <strong>300</strong> zhruba za <strong>${odhadDoStropu(volby)} s</strong>.`;
+		}
+		return `Klony se ruší při dopadu (<em>zruš tento klon</em>), takže živých je pořád jen pár — hra takhle vydrží běžet donekonečna.`;
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ spustit';
+		btnBezet.classList.remove('klon-aktivni');
+	}
+
+	function krokVpred() {
+		stav = jedenKrok(stav, volby);
+		prekresli();
+		vysvetleniEl.innerHTML = popisStavu();
+		if (stav.klony.length >= STROP_KLONU && stav.neuspesnychPokusu > 40) zastav(); // ať to neběží donekonečna samo
+	}
+
+	function reset() {
+		zastav();
+		stav = pocatecniStav();
+		prekresli();
+		vysvetleniEl.innerHTML = popisStavu();
+	}
+
+	btnKrok.addEventListener('click', () => { zastav(); krokVpred(); });
+	btnBezet.addEventListener('click', () => {
+		if (casovac) { zastav(); return; }
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('klon-aktivni');
+		casovac = setInterval(krokVpred, TICK_MS);
+	});
+	btnReset.addEventListener('click', reset);
+
+	rychlostVstup.addEventListener('input', () => {
+		volby = { ...volby, rychlost: Number(rychlostVstup.value) };
+		rychlostHodnotaEl.textContent = String(volby.rychlost);
+		prekresli();
+		vysvetleniEl.innerHTML = popisStavu();
+	});
+
+	function prepinac(trida, klic) {
+		for (const tl of document.querySelectorAll(trida)) {
+			tl.addEventListener('click', () => {
+				for (const j of document.querySelectorAll(trida)) j.classList.remove('klon-aktivni');
+				tl.classList.add('klon-aktivni');
+				volby = { ...volby, [klic]: tl.dataset[klic] };
+				reset();
+			});
+		}
+	}
+	prepinac('.klon-ruseni', 'ruseni');
+	prepinac('.klon-kostymy', 'kostymy');
+
+	prekresli();
+	vysvetleniEl.innerHTML = popisStavu();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenKrok = jedenKrok;
+	svg.__rychlostKlonu = rychlostKlonu;
+	svg.__xKlonu = xKlonu;
+	svg.__odhadDoStropu = odhadDoStropu;
+	svg.__pocatecniStav = pocatecniStav;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { STROP_KLONU, SPAWN_Y, PODLAHA_Y, X_ROZSAH, TICK_MS };
+	svg.__programRadky = programRadky;
+</script>
+
+<style>
+	#klon-svg { width: 100%; max-width: 480px; border-radius: 12px; display: block; }
+	.klon-radek { margin: 0.6rem 0; }
+	.klon-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.klon-tl.klon-aktivni { background: #ffe8cc; }
+	.klon-tl.klon-hraj { background: #d3f9d8; }
+	.klon-tl:active { transform: translateY(1px); }
+	.klon-hodnota { font-weight: 700; background: #e9ecef; border-radius: 8px; padding: 0.15rem 0.5rem; }
+	.klon-stats { font-weight: 700; margin: 0.5rem 0; }
+	.klon-cervene { color: #c92a2a; }
+	.klon-bar { display: inline-block; width: 140px; height: 12px; background: #e9ecef; border: 2px solid #2b2a26; border-radius: 6px; overflow: hidden; vertical-align: middle; margin: 0 0.3rem; }
+	.klon-bar-vypln { display: block; height: 100%; }
+	.klon-program { margin: 0.4rem 0; }
+	.klon-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.klon-program p.klon-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.klon-program p.klon-vypnuto { background: #ffc9c9; outline: 2px dashed #c92a2a; text-decoration: line-through; opacity: 0.8; }
+	.klon-vysvetleni { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>

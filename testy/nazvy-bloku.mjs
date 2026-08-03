@@ -108,7 +108,7 @@ function popisVzoru(vzor) {
  * v české paletě neexistuje. Brána byla přitom zelená. Našel to až nezávislý kontrolor.
  * Je to učebnicový příklad vzorce „opatření platí jen na část případů".
  */
-const SIMULACE_SE_SCRATCHEM = ['VetveniSimulace', 'OpakovaniSimulace', 'PromenneSimulace', 'SouradniceSimulace', 'LedDisplejSimulace', 'UdalostiSimulace', 'VlastniBlokySimulace', 'BludisteSimulace'];
+const SIMULACE_SE_SCRATCHEM = ['VetveniSimulace', 'OpakovaniSimulace', 'PromenneSimulace', 'SouradniceSimulace', 'LedDisplejSimulace', 'UdalostiSimulace', 'VlastniBlokySimulace', 'BludisteSimulace', 'KlonovaniSimulace'];
 
 export async function zkontrolujNazvyBloku(data) {
 	const { kvizy, temata } = data ?? (await nactiData());

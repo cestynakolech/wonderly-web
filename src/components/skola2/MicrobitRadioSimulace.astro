@@ -1,0 +1,536 @@
+---
+// Rádio mezi micro:bity (informatika 8, celek microbit): vysílač + dva přijímače.
+//
+// Hlavní pointa (na tu se ptá i výklad podtématu): zprávu dostane JEN deska se
+// STEJNOU skupinou rádia — jinak signál sice dorazí, ale zpráva se zahodí.
+// Nezávisle na tom hraje roli DOSAH: za jeho hranicí signál nedoletí vůbec,
+// ať je skupina jakákoli. Výchozí nastavení schválně předvádí oba případy
+// najednou: Přijímač 1 má stejnou skupinu jako vysílač a je v dosahu → dostane
+// zprávu. Přijímač 2 je BLÍŽ než Přijímač 1 (tedy dosah by mu nevadil), ale má
+// jinou skupinu → zprávu nedostane. Žák si tak hned uvědomí, že vzdálenost
+// nestačí — skupiny musí sedět.
+//
+// Animace „vlnové fronty" je čistá funkce uplynulého času (`pureFrontX`,
+// `pureOpacity`) — poloha i doba doběhnutí jde ověřit výpočtem, ne odhadem
+// z náhledu, kde je requestAnimationFrame zpomalený. Řízeno přes setInterval
+// + Date.now(), stejně jako ve vzorové LedDisplejSimulace.
+//
+// Druhá, jednodušší část pod čarou: piny P0/P1/P2 a připojení zařízení
+// krokosvorkami (LED pásek, motorek, čidlo vlhkosti) — podle výkladu
+// (zalévací hlídač: čidlo vlhkosti → při suchu smutný obličej).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rádio: jak spolu mluví micro:bity 📡</span></h2>
+	<p>
+		Dva micro:bity si umí povídat bezdrátově <strong>rádiem</strong>. Aby si rozuměly,
+		musí mít nastavenou <strong>stejnou skupinu</strong> — jako naladěná stejná stanice.
+		Nastav skupiny a vzdálenosti a stiskni <strong>Odeslat</strong>.
+	</p>
+
+	<svg id="mr-svg" viewBox="0 0 920 340" role="img" aria-label="Vysílač a dva přijímače micro:bit, mezi nimi zóna dosahu rádia">
+		<rect x="140" y="20" width="350" height="280" fill="#d3f9d8" opacity="0.55" />
+		<rect x="490" y="20" width="350" height="280" fill="#ffe3e3" opacity="0.5" />
+		<line x1="490" y1="10" x2="490" y2="300" stroke="#e03131" stroke-width="2" stroke-dasharray="6 5" />
+		<text x="490" y="332" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131">hranice dosahu 25 m</text>
+
+		<line x1="140" y1="300" x2="840" y2="300" stroke="#868e96" stroke-width="2" />
+		{[0, 10, 20, 30, 40, 50].map((m) => (
+			<g>
+				<line x1={140 + m * 14} y1="296" x2={140 + m * 14} y2="304" stroke="#868e96" stroke-width="2" />
+				<text x={140 + m * 14} y="318" text-anchor="middle" font-size="11" fill="#495057">{m} m</text>
+			</g>
+		))}
+
+		<line id="mr-front" x1="140" y1="10" x2="140" y2="300" stroke="#f08c00" stroke-width="5" opacity="0" stroke-linecap="round" />
+
+		<g id="mr-vysilac">
+			<text x="95" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">VYSÍLAČ</text>
+			<rect x="50" y="130" width="90" height="80" rx="10" fill="#2b8a3e" stroke="#2b2a26" stroke-width="3" />
+			<rect x="65" y="144" width="60" height="28" rx="4" fill="#3d2b1f" />
+			<text id="mr-obraz-vysilac" x="95" y="163" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd43b"></text>
+			<text id="mr-skupina-vysilac-text" x="95" y="198" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff"></text>
+		</g>
+
+		<g id="mr-deska2">
+			<text x="0" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">PŘIJÍMAČ 1</text>
+			<rect id="mr-ram2" x="-30" y="55" width="60" height="70" rx="10" fill="#4dabf7" stroke="#2b2a26" stroke-width="3" />
+			<rect x="-22" y="66" width="44" height="26" rx="4" fill="#3d2b1f" />
+			<text id="mr-obraz2" x="0" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd43b"></text>
+			<text id="mr-skupina2-text" x="0" y="114" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff"></text>
+		</g>
+
+		<g id="mr-deska3" transform="translate(0,160)">
+			<text x="0" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">PŘIJÍMAČ 2</text>
+			<rect id="mr-ram3" x="-30" y="55" width="60" height="70" rx="10" fill="#ff8787" stroke="#2b2a26" stroke-width="3" />
+			<rect x="-22" y="66" width="44" height="26" rx="4" fill="#3d2b1f" />
+			<text id="mr-obraz3" x="0" y="84" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd43b"></text>
+			<text id="mr-skupina3-text" x="0" y="114" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff"></text>
+		</g>
+	</svg>
+
+	<div class="mr-ovladani">
+		<div class="mr-panel mr-panel-vysilac">
+			<h3>📡 Vysílač</h3>
+			<label>Skupina rádia: <output id="mr-out-skupina1">7</output>
+				<input type="range" id="mr-skupina1" min="0" max="255" step="1" value="7" />
+			</label>
+			<p class="mr-zpravy-label">Zpráva k odeslání:</p>
+			<div class="mr-zpravy">
+				<button type="button" class="mr-tl mr-zprava-tl mr-aktivni" data-zprava="AHOJ">AHOJ</button>
+				<button type="button" class="mr-tl mr-zprava-tl" data-zprava="SOS">SOS</button>
+				<button type="button" class="mr-tl mr-zprava-tl" data-zprava="STOP">STOP</button>
+				<button type="button" class="mr-tl mr-zprava-tl" data-zprava="OK">OK</button>
+			</div>
+			<button type="button" class="mr-tl mr-odeslat" id="mr-btn-odeslat">📡 Odeslat (tlačítko A)</button>
+		</div>
+
+		<div class="mr-panel">
+			<h3>📻 Přijímač 1</h3>
+			<label>Skupina rádia: <output id="mr-out-skupina2">7</output>
+				<input type="range" id="mr-skupina2" min="0" max="255" step="1" value="7" />
+			</label>
+			<label>Vzdálenost od vysílače: <output id="mr-out-vzdalenost2">20</output> m
+				<input type="range" id="mr-vzdalenost2" min="0" max="50" step="5" value="20" />
+			</label>
+		</div>
+
+		<div class="mr-panel">
+			<h3>📻 Přijímač 2</h3>
+			<label>Skupina rádia: <output id="mr-out-skupina3">3</output>
+				<input type="range" id="mr-skupina3" min="0" max="255" step="1" value="3" />
+			</label>
+			<label>Vzdálenost od vysílače: <output id="mr-out-vzdalenost3">10</output> m
+				<input type="range" id="mr-vzdalenost3" min="0" max="50" step="5" value="10" />
+			</label>
+		</div>
+	</div>
+
+	<div class="mr-programy">
+		<div class="mr-program">
+			<h4>Program vysílače</h4>
+			<ol id="mr-blok-vysilac"></ol>
+		</div>
+		<div class="mr-program">
+			<h4>Program přijímače 1</h4>
+			<ol id="mr-blok-2"></ol>
+		</div>
+		<div class="mr-program">
+			<h4>Program přijímače 2</h4>
+			<ol id="mr-blok-3"></ol>
+		</div>
+	</div>
+
+	<p class="mr-stav" id="mr-stav" aria-live="polite"></p>
+
+	<hr class="mr-oddil" />
+
+	<h3><span class="podtrh">Druhá část: piny a externí zařízení 🔌</span></h3>
+	<p>
+		Na spodní hraně desky jsou kroužky <strong>P0, P1, P2</strong> a <strong>3V</strong>, <strong>GND</strong> —
+		chytnou se krokosvorkami. Klikni na zařízení, připoj ho na pin a stiskni
+		<strong>Vyzkoušet zapojení</strong>.
+	</p>
+
+	<svg id="mr-piny-svg" viewBox="0 0 720 200" role="img" aria-label="Spodní hrana micro:bitu s piny P0, P1, P2, 3V, GND a připojenými zařízeními">
+		<rect x="60" y="10" width="600" height="50" rx="8" fill="#2b8a3e" stroke="#2b2a26" stroke-width="3" />
+		<rect x="90" y="20" width="120" height="28" rx="4" fill="#3d2b1f" />
+		<text id="mr-piny-displej" x="150" y="39" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffd43b"></text>
+
+		<line id="mr-linka-led" x1="140" y1="60" x2="140" y2="130" stroke="#2b2a26" stroke-width="3" stroke-dasharray="4 4" opacity="0.15" />
+		<line id="mr-linka-motor" x1="300" y1="60" x2="300" y2="130" stroke="#2b2a26" stroke-width="3" stroke-dasharray="4 4" opacity="0.15" />
+		<line id="mr-linka-cidlo" x1="460" y1="60" x2="460" y2="130" stroke="#2b2a26" stroke-width="3" stroke-dasharray="4 4" opacity="0.15" />
+
+		<circle cx="140" cy="70" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
+		<text x="140" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">P0</text>
+		<circle cx="300" cy="70" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
+		<text x="300" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">P1</text>
+		<circle cx="460" cy="70" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
+		<text x="460" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">P2</text>
+		<circle cx="580" cy="70" r="14" fill="#fa5252" stroke="#2b2a26" stroke-width="2" />
+		<text x="580" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">3V</text>
+		<circle cx="660" cy="70" r="14" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+		<text x="660" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">GND</text>
+
+		<g id="mr-zar-led">
+			<rect x="90" y="130" width="100" height="46" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<text x="140" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">💡 LED pásek</text>
+			<rect id="mr-led-pasek" x="105" y="156" width="70" height="12" rx="3" fill="#495057" />
+		</g>
+		<g id="mr-zar-motor">
+			<rect x="250" y="130" width="100" height="46" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<text x="300" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">⚙️ motorek</text>
+			<line id="mr-motor-rameno" x1="300" y1="164" x2="322" y2="164" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />
+			<circle cx="300" cy="164" r="3" fill="#2b2a26" />
+		</g>
+		<g id="mr-zar-cidlo">
+			<rect x="410" y="130" width="100" height="46" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<text x="460" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">💧 čidlo vlhkosti</text>
+			<text id="mr-cidlo-hodnota" x="460" y="167" text-anchor="middle" font-size="11" font-weight="bold" fill="#1971c2"></text>
+		</g>
+	</svg>
+
+	<p class="mr-radek">
+		<button type="button" class="mr-tl mr-zar-tl mr-aktivni" data-zarizeni="led">💡 LED pásek → P0</button>
+		<button type="button" class="mr-tl mr-zar-tl" data-zarizeni="motor">⚙️ motorek → P1</button>
+		<button type="button" class="mr-tl mr-zar-tl" data-zarizeni="cidlo">💧 čidlo vlhkosti → P2</button>
+	</p>
+	<p class="mr-radek">
+		<button type="button" class="mr-tl mr-vyzkouset" id="mr-btn-vyzkouset">▶️ Vyzkoušet zapojení</button>
+	</p>
+	<p class="mr-stav" id="mr-piny-stav" aria-live="polite">
+		Klikni na zařízení (odpojí se dalším kliknutím) a pak na „Vyzkoušet zapojení".
+	</p>
+</section>
+
+<script>
+	// ——— rádio: konstanty scény (kalibrováno výpočtem, ne odhadem z náhledu) ———
+	const AX_X0 = 140;         // x pro 0 m
+	const SCALE = 14;          // px na 1 m
+	const DOSAH_M = 25;        // dosah rádia ve scéně
+	const DOSAH_X = AX_X0 + DOSAH_M * SCALE;   // 490
+	const ANIM_MS = 1400;      // za tolik ms doletí fronta na hranici dosahu
+	const FADE_MS = 300;       // pak ještě dohasíná
+
+	const boardX = (vzdalenost) => AX_X0 + vzdalenost * SCALE;
+
+	/** Čistá funkce: kde je vlnová fronta v čase `ms` od odeslání. */
+	function pureFrontX(ms) {
+		if (ms <= 0) return AX_X0;
+		if (ms >= ANIM_MS) return DOSAH_X;
+		return AX_X0 + (ms / ANIM_MS) * (DOSAH_X - AX_X0);
+	}
+	/** Čistá funkce: průhlednost fronty v čase `ms` (1 → viditelná, 0 → zmizela). */
+	function pureOpacity(ms) {
+		if (ms <= 0) return 0;
+		if (ms < ANIM_MS) return 1;
+		if (ms < ANIM_MS + FADE_MS) return 1 - (ms - ANIM_MS) / FADE_MS;
+		return 0;
+	}
+
+	const svg = document.getElementById('mr-svg');
+	const frontEl = document.getElementById('mr-front');
+	const deska2 = document.getElementById('mr-deska2');
+	const deska3 = document.getElementById('mr-deska3');
+	const obrazVysilacEl = document.getElementById('mr-obraz-vysilac');
+	const skupinaVysilacTextEl = document.getElementById('mr-skupina-vysilac-text');
+	const obraz2El = document.getElementById('mr-obraz2');
+	const obraz3El = document.getElementById('mr-obraz3');
+	const skupina2TextEl = document.getElementById('mr-skupina2-text');
+	const skupina3TextEl = document.getElementById('mr-skupina3-text');
+	const ram2El = document.getElementById('mr-ram2');
+	const ram3El = document.getElementById('mr-ram3');
+	const stavEl = document.getElementById('mr-stav');
+	const btnOdeslat = document.getElementById('mr-btn-odeslat');
+	const olVysilac = document.getElementById('mr-blok-vysilac');
+	const ol2 = document.getElementById('mr-blok-2');
+	const ol3 = document.getElementById('mr-blok-3');
+
+	const skupina1Slider = document.getElementById('mr-skupina1');
+	const skupina2Slider = document.getElementById('mr-skupina2');
+	const skupina3Slider = document.getElementById('mr-skupina3');
+	const vzdalenost2Slider = document.getElementById('mr-vzdalenost2');
+	const vzdalenost3Slider = document.getElementById('mr-vzdalenost3');
+	const out1 = document.getElementById('mr-out-skupina1');
+	const out2 = document.getElementById('mr-out-skupina2');
+	const out3 = document.getElementById('mr-out-skupina3');
+	const outV2 = document.getElementById('mr-out-vzdalenost2');
+	const outV3 = document.getElementById('mr-out-vzdalenost3');
+	const vsechnyPosuvniky = [skupina1Slider, skupina2Slider, skupina3Slider, vzdalenost2Slider, vzdalenost3Slider];
+
+	let skupina1 = 7, skupina2 = 7, skupina3 = 3;
+	let vzdalenost2 = 20, vzdalenost3 = 10;
+	let zprava = 'AHOJ';
+
+	let bezi = false;
+	let start = 0;
+	let casovac = null;
+	let vysledek2 = null;   // null = nerozhodnuto/mimo dosah, true = přijato, false = jiná skupina
+	let vysledek3 = null;
+	let poslednizprava2 = '?';
+	let poslednizprava3 = '?';
+	let zvyrazneckoVysilacDo = 0;
+	let zvyraznecko2Do = 0;
+	let zvyraznecko3Do = 0;
+
+	function radkyVysilac() {
+		return [
+			'po spuštění',
+			`   rádio nastav skupinu ${skupina1}`,
+			'když stisknuto tlačítko A',
+			`   rádio odešli řetězec „${zprava}“`,
+		];
+	}
+	function radkyPrijimac(skupinaN) {
+		return [
+			'po spuštění',
+			`   rádio nastav skupinu ${skupinaN}`,
+			'když rádio přijme řetězec',
+			'   ukaž řetězec (přijatý text)',
+		];
+	}
+	function vykresliProgram(olEl, radky, zvyraznitIndexy) {
+		olEl.textContent = '';
+		radky.forEach((text, i) => {
+			const li = document.createElement('li');
+			li.textContent = text;
+			if (i === 0) li.className = 'mr-hlavicka';
+			else if (zvyraznitIndexy.includes(i)) li.className = 'mr-nyni';
+			olEl.appendChild(li);
+		});
+	}
+	function renderBloky() {
+		const nyni = Date.now();
+		vykresliProgram(olVysilac, radkyVysilac(), nyni < zvyrazneckoVysilacDo ? [3] : []);
+		vykresliProgram(ol2, radkyPrijimac(skupina2), nyni < zvyraznecko2Do ? [2, 3] : []);
+		vykresliProgram(ol3, radkyPrijimac(skupina3), nyni < zvyraznecko3Do ? [2, 3] : []);
+	}
+
+	function renderPozice() {
+		deska2.setAttribute('transform', `translate(${boardX(vzdalenost2)},0)`);
+		deska3.setAttribute('transform', `translate(${boardX(vzdalenost3)},160)`);
+		out1.textContent = String(skupina1);
+		out2.textContent = String(skupina2);
+		out3.textContent = String(skupina3);
+		outV2.textContent = String(vzdalenost2);
+		outV3.textContent = String(vzdalenost3);
+		skupinaVysilacTextEl.textContent = `sk. ${skupina1}`;
+		skupina2TextEl.textContent = `sk. ${skupina2}`;
+		skupina3TextEl.textContent = `sk. ${skupina3}`;
+		obrazVysilacEl.textContent = zprava;
+		obraz2El.textContent = poslednizprava2;
+		obraz3El.textContent = poslednizprava3;
+		obraz2El.setAttribute('fill', vysledek2 === true ? '#69db7c' : vysledek2 === false ? '#ff8787' : '#ffd43b');
+		obraz3El.setAttribute('fill', vysledek3 === true ? '#69db7c' : vysledek3 === false ? '#ff8787' : '#ffd43b');
+	}
+
+	function popisVysledku(cislo, skupinaN, vzdalenostN, vysledek) {
+		if (vysledek === true) {
+			return `✅ Přijímač ${cislo}: zpráva „${zprava}“ dorazila — obě desky mají skupinu ${skupinaN}.`;
+		}
+		if (vysledek === false) {
+			return `❌ Přijímač ${cislo}: signál dorazil, ale skupina rádia je jiná (${skupinaN} místo ${skupina1}) — zpráva se zahodila.`;
+		}
+		return `❌ Přijímač ${cislo}: je ${vzdalenostN} m daleko, mimo dosah ${DOSAH_M} m — signál tam vůbec nedoletí.`;
+	}
+
+	function tick() {
+		const elapsed = Date.now() - start;
+		const fx = pureFrontX(elapsed);
+		const op = pureOpacity(elapsed);
+		frontEl.setAttribute('x1', String(fx));
+		frontEl.setAttribute('x2', String(fx));
+		frontEl.setAttribute('opacity', String(op));
+
+		const bx2 = boardX(vzdalenost2);
+		const bx3 = boardX(vzdalenost3);
+		if (vysledek2 === null && fx >= bx2) {
+			vysledek2 = skupina2 === skupina1;
+			poslednizprava2 = vysledek2 ? zprava : '✗';
+			if (vysledek2) zvyraznecko2Do = Date.now() + 800;
+			ram2El.setAttribute('stroke', vysledek2 ? '#2f9e44' : '#e03131');
+			ram2El.setAttribute('stroke-width', '5');
+		}
+		if (vysledek3 === null && fx >= bx3) {
+			vysledek3 = skupina3 === skupina1;
+			poslednizprava3 = vysledek3 ? zprava : '✗';
+			if (vysledek3) zvyraznecko3Do = Date.now() + 800;
+			ram3El.setAttribute('stroke', vysledek3 ? '#2f9e44' : '#e03131');
+			ram3El.setAttribute('stroke-width', '5');
+		}
+
+		renderPozice();
+		renderBloky();
+
+		if (elapsed >= ANIM_MS + FADE_MS) {
+			bezi = false;
+			clearInterval(casovac);
+			casovac = null;
+			vsechnyPosuvniky.forEach((s) => (s.disabled = false));
+			document.querySelectorAll('.mr-zprava-tl').forEach((b) => (b.disabled = false));
+			btnOdeslat.disabled = false;
+			ram2El.setAttribute('stroke-width', '3');
+			ram3El.setAttribute('stroke-width', '3');
+			ram2El.setAttribute('stroke', '#2b2a26');
+			ram3El.setAttribute('stroke', '#2b2a26');
+			stavEl.textContent = popisVysledku(1, skupina2, vzdalenost2, vysledek2)
+				+ '\n' + popisVysledku(2, skupina3, vzdalenost3, vysledek3);
+		}
+	}
+
+	function odeslat() {
+		if (bezi) return;
+		vysledek2 = null;
+		vysledek3 = null;
+		poslednizprava2 = '?';
+		poslednizprava3 = '?';
+		bezi = true;
+		start = Date.now();
+		zvyrazneckoVysilacDo = start + 400;
+		vsechnyPosuvniky.forEach((s) => (s.disabled = true));
+		document.querySelectorAll('.mr-zprava-tl').forEach((b) => (b.disabled = true));
+		btnOdeslat.disabled = true;
+		stavEl.textContent = 'Vysílám zprávu…';
+		if (casovac) clearInterval(casovac);
+		casovac = setInterval(tick, 50);
+		tick();
+	}
+
+	btnOdeslat.addEventListener('click', odeslat);
+
+	document.querySelectorAll('.mr-zprava-tl').forEach((tl) => tl.addEventListener('click', () => {
+		zprava = tl.dataset.zprava;
+		document.querySelectorAll('.mr-zprava-tl').forEach((t) => t.classList.toggle('mr-aktivni', t === tl));
+		renderPozice();
+	}));
+
+	skupina1Slider.addEventListener('input', () => { skupina1 = +skupina1Slider.value; renderPozice(); renderBloky(); });
+	skupina2Slider.addEventListener('input', () => { skupina2 = +skupina2Slider.value; renderPozice(); renderBloky(); });
+	skupina3Slider.addEventListener('input', () => { skupina3 = +skupina3Slider.value; renderPozice(); renderBloky(); });
+	vzdalenost2Slider.addEventListener('input', () => { vzdalenost2 = +vzdalenost2Slider.value; renderPozice(); });
+	vzdalenost3Slider.addEventListener('input', () => { vzdalenost3 = +vzdalenost3Slider.value; renderPozice(); });
+
+	renderPozice();
+	renderBloky();
+	stavEl.textContent = 'Vysílač i Přijímač 1 mají skupinu 7 a Přijímač 1 je v dosahu — zkus Odeslat. '
+		+ 'Přijímač 2 je sice blíž, ale má jinou skupinu (3) — zprávu nedostane.';
+
+	// ——— ověřovací háčky ———
+	svg.__pureFrontX = pureFrontX;
+	svg.__pureOpacity = pureOpacity;
+	svg.__boardX = boardX;
+	svg.__DOSAH_M = DOSAH_M;
+	svg.__DOSAH_X = DOSAH_X;
+	svg.__stav = () => ({ skupina1, skupina2, skupina3, vzdalenost2, vzdalenost3, vysledek2, vysledek3, zprava });
+
+	// ——— druhá část: piny a externí zařízení ———
+	const pinySvg = document.getElementById('mr-piny-svg');
+	const pinyDisplej = document.getElementById('mr-piny-displej');
+	const pinyStav = document.getElementById('mr-piny-stav');
+	const ledPasekEl = document.getElementById('mr-led-pasek');
+	const motorRamenoEl = document.getElementById('mr-motor-rameno');
+	const cidloHodnotaEl = document.getElementById('mr-cidlo-hodnota');
+	const linky = {
+		led: document.getElementById('mr-linka-led'),
+		motor: document.getElementById('mr-linka-motor'),
+		cidlo: document.getElementById('mr-linka-cidlo'),
+	};
+	const piny = { led: 'P0', motor: 'P1', cidlo: 'P2' };
+
+	let pripojeno = { led: true, motor: false, cidlo: false };
+	let testBezi = false;
+	let testStart = 0;
+	let testCasovac = null;
+
+	function renderZapojeni() {
+		document.querySelectorAll('.mr-zar-tl').forEach((tl) => {
+			tl.classList.toggle('mr-aktivni', pripojeno[tl.dataset.zarizeni]);
+		});
+		Object.keys(linky).forEach((k) => linky[k].setAttribute('opacity', pripojeno[k] ? '1' : '0.15'));
+	}
+	document.querySelectorAll('.mr-zar-tl').forEach((tl) => tl.addEventListener('click', () => {
+		const k = tl.dataset.zarizeni;
+		pripojeno[k] = !pripojeno[k];
+		renderZapojeni();
+	}));
+
+	function testTick() {
+		const t = Date.now() - testStart;
+		if (pripojeno.led) {
+			const sviti = Math.floor(t / 150) % 2 === 0;
+			ledPasekEl.setAttribute('fill', sviti ? '#ffd43b' : '#495057');
+		}
+		if (pripojeno.motor) {
+			const uhel = Math.min(t / 900, 1) * 180;
+			motorRamenoEl.setAttribute('transform', `rotate(${uhel} 300 164)`);
+		}
+		if (pripojeno.cidlo) {
+			cidloHodnotaEl.textContent = t < 400 ? 'měřím…' : t < 800 ? 'vlhkost: 20 %' : '🙁 sucho — zalévej!';
+		}
+		if (t >= 1200) {
+			testBezi = false;
+			clearInterval(testCasovac);
+			testCasovac = null;
+			const zapojena = Object.keys(pripojeno).filter((k) => pripojeno[k]);
+			pinyStav.textContent = zapojena.length
+				? `Vyzkoušeno: ${zapojena.map((k) => `${k === 'led' ? 'LED pásek' : k === 'motor' ? 'motorek' : 'čidlo vlhkosti'} na ${piny[k]}`).join(', ')}.`
+				: 'Nic není připojené — klikni na zařízení a pak zkus znovu.';
+		}
+	}
+	document.getElementById('mr-btn-vyzkouset').addEventListener('click', () => {
+		if (testBezi) return;
+		testBezi = true;
+		testStart = Date.now();
+		pinyDisplej.textContent = '';
+		if (testCasovac) clearInterval(testCasovac);
+		testCasovac = setInterval(testTick, 50);
+		testTick();
+	});
+
+	renderZapojeni();
+	pinySvg.__stavPinu = () => ({ pripojeno });
+</script>
+
+<style>
+	#mr-svg, #mr-piny-svg {
+		width: 100%;
+		max-width: 920px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #f8f9fa;
+	}
+	.mr-ovladani {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin: 0.8rem 0;
+	}
+	.mr-panel {
+		flex: 1 1 220px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		padding: 0.6rem 0.8rem;
+		background: #fff;
+	}
+	.mr-panel h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+	.mr-panel label { display: block; font-weight: 700; margin: 0.4rem 0; }
+	.mr-panel input[type='range'] { width: 100%; }
+	.mr-zpravy-label { font-weight: 700; margin: 0.5rem 0 0.2rem; }
+	.mr-zpravy { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+	.mr-tl {
+		font: inherit;
+		font-weight: 700;
+		padding: 0.25rem 0.8rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+		margin: 0 0.3rem 0.3rem 0;
+	}
+	.mr-tl.mr-aktivni { background: #ffe8cc; }
+	.mr-tl:active { transform: translateY(1px); }
+	.mr-tl[disabled] { opacity: 0.45; cursor: default; }
+	.mr-odeslat { background: #d3f9d8; margin-top: 0.5rem; }
+	.mr-vyzkouset { background: #d3f9d8; }
+	.mr-programy {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin: 0.8rem 0;
+	}
+	.mr-program {
+		flex: 1 1 220px;
+		background: #fff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		padding: 0.5rem 0.8rem;
+	}
+	.mr-program h4 { margin: 0 0 0.3rem; font-size: 0.95rem; }
+	.mr-program ol { margin: 0; padding-left: 1.2rem; list-style: none; font-family: ui-monospace, monospace; white-space: pre; font-size: 0.85rem; }
+	.mr-program li { font-weight: 700; padding: 0.1rem 0.3rem; border-radius: 6px; }
+	.mr-program li.mr-hlavicka { color: #1971c2; }
+	.mr-program li.mr-nyni { background: #fff3bf; outline: 2px dashed #f08c00; }
+	.mr-stav { font-size: 1.02rem; font-weight: 700; min-height: 2.6rem; white-space: pre-line; color: #2b2a26; }
+	.mr-oddil { border: none; border-top: 3px dashed #ced4da; margin: 1.4rem 0; }
+	.mr-radek { margin: 0.5rem 0; }
+</style>
