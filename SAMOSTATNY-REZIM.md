@@ -10,8 +10,7 @@
 
 1. **Názornost informatiky** — zbývá **30 podtémat**. Na řadě: `klonovani-animace-hry` (Inf9),
    `microbit`, `vex-iq` (Inf8). Dávka 4+ patří do vějíře (`/simulace`).
-   ⚠️ **Nedokončené u `senzory-robota`:** běží na ni nezávislý kontrolor, jeho nálezy
-   ještě nejsou zapracované (viz „Hotovo 3. 8." níž). Než se půjde dál, dokončit je.
+   Senzory robota jsou HOTOVÉ včetně nálezů kontrolora (viz níž).
 2. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
    leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
@@ -40,7 +39,26 @@ kombinují. Na obrazovce jsou pořád vedle sebe dvě čísla: co senzor **hlás
 zeď **doopravdy** daleko.
 
 Čísla vycházejí celá (120 cm, krok 10 cm, práh 10 cm → přesně 11 kroků).
-Test **122 kontrol**, mutační test **13/13**. Testy simulací celkem **976**.
+
+> **Nezávislý kontrolor našel 16 nálezů, 6 vážných** — a všechny seděly:
+> (1) v jediném stavu (kolmá zeď + program bez opakování + zapnutý dotyk) hláška tvrdila
+> „ultrazvuk ji neviděl", ačkoli měřil správně a robot naboural kvůli programu — věta si
+> sama odporovala; (2) řádek „program rozhodl" dopočítával podmínku i tam, kde se program
+> už neptá, takže u rozmáčknutého robota stálo „program rozhodl: stůj"; (3) `skewX(-20)`
+> naklonil stěnu tak, že do ní robot vjel o 17 cm scény a paprsek jí procházel skrz;
+> (4) **záclona se v textech důsledně jmenovala „zeď"** a byla nakreslená jako 40px kvádr;
+> (5) test porovnával poznámku s toutéž hodnotou v kódu (tautologie) a nekontroloval naučné
+> věty — 5 podvržených nepravd prošlo zeleně; (6) kontrola dotyku pokrývala 2 z 12 stavů.
+> Dál: neexistující vysvětlení dosahu 200 cm · `aria-label` uvnitř `<svg role="img">`
+> odečítač vůbec nečte (jméno dává jen `<title>`, ten se teď přepisuje) · svislé uspořádání
+> scény neměřil nikdo (robot mohl létat vzduchem, podlaha být nahoře) · kontrast se počítal
+> jen u CSS rámečků, obrysy v SVG ne · v kvízu vysvětlení odporovalo výkladu („odrazí jinam"
+> × „pohltí"), otázka o zastavení byla po simulaci dvojznačná a chyběla otázka na kombinaci
+> senzorů.
+
+Test **122 → 154 kontrol**, mutační test **14/14**, obousměrně doloženo **21 podvrhy**
+(`testy/podvrhy/senzory-robota-podvrhy.mjs`, zapsáno v registru). Kvíz má 11 otázek,
+0 úniků, 0 délkových nápověd. Testy simulací celkem **1015**.
 Zapojeno do `temata.ts` (`interakce: 'senzory-robota'`) i do stránky podtématu; build
 465 stránek, ve vygenerovaném HTML je simulace ověřená.
 
