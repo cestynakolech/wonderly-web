@@ -16,7 +16,18 @@
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
    Saint-Tropez, Le Lavandou a Riez**, delší (6:06) je jen z Le Bourg (77 médií).
    Když v delší opravdu chybí, složit ze dvou jednu.
-3. Doměřit zbylé testy simulací mutačním testem · `cz()` chybí v 11 simulacích.
+3. **Doměřit zbylé testy simulací mutačním testem.** Běh přes všech 16 simulací byl
+   spuštěn 3. 8. dopoledne, výstup se píše do
+   `/private/tmp/claude-502/-Users-Shared--kola/2bc13f65-08e1-436e-9410-32a45ea86fc9/tasks/bonc509sr.output`
+   — pokud tam soubor je, stačí z něj vzít řádky „mutací odhaleno" a doplnit chybějící
+   kontroly u testů pod 100 %. (Vzor, jak se díra zavírá: `funkce-tabulky` a
+   `senzory-robota` — kontroly nad skutečnou scénou, ne nad textem.)
+   Když soubor chybí, spustit znovu: `node testy/mutace.mjs` (trvá přes 10 minut).
+4. `cz()` chybí v 11 simulacích, které formátují čísla.
+5. **BLOKOVÁNO, ne zapomenuto:** obě nové simulace (funkce v tabulkách, senzory robota)
+   neprošly očima v prohlížeči — port 8788 drží dev server jiné session a cizí server
+   tahle session zastavit nesmí (zkoušeno 3. 8. dvakrát). Až bude volný, projít je
+   pohledem; kotvou jsou zatím testy, build a kontrola vygenerovaného HTML.
 
 ### ⏳ ČEKÁ NA ODKLIKNUTÍ UČITELE (nikdy kvůli tomu nestát — jít dál)
 

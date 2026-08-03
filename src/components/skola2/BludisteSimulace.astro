@@ -143,7 +143,7 @@
 		const [dx, dy] = SMERY[smer];
 		const k = volby.krok;
 		const nx = stav.x + dx * k;
-		const ny = stav.y + dy * k;
+		const ny = stav.y + dy / k;
 		const stat = (extra) => ({ x: stav.x, y: stav.y, projel: false, naraz: false, mimo: false, vezdi: stav.vezdi, ...extra });
 
 		// Okraj scény: krok, který by vedl ven, se neprovede vůbec (viz poznámka v hlavičce).
