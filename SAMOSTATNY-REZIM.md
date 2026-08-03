@@ -8,8 +8,10 @@
 
 ### 🌙 FRONTA (pořadí drž)
 
-1. **Názornost informatiky** — zbývá **31 podtémat**. Na řadě: `senzory-robota` (Inf8),
-   `klonovani-animace-hry` (Inf9). Dávka 4+ patří do vějíře (`/simulace`).
+1. **Názornost informatiky** — zbývá **30 podtémat**. Na řadě: `klonovani-animace-hry` (Inf9),
+   `microbit`, `vex-iq` (Inf8). Dávka 4+ patří do vějíře (`/simulace`).
+   ⚠️ **Nedokončené u `senzory-robota`:** běží na ni nezávislý kontrolor, jeho nálezy
+   ještě nejsou zapracované (viz „Hotovo 3. 8." níž). Než se půjde dál, dokončit je.
 2. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
    leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
@@ -25,6 +27,27 @@
   (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
 - **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
   se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
+
+### ✅ Hotovo 3. 8. ráno — nová simulace „Senzory robota" (Inf8)
+
+Podtéma `senzory-robota` mělo výklad, ale žádnou názornost. Simulace ukazuje **tři pointy
+výkladu naráz** na jednom robotovi jedoucím ke zdi: (1) **bez opakování** se program
+rozhodne jen jednou a robot jede naslepo do zdi, s opakováním zastaví 10 cm před ní;
+(2) **ultrazvuk lže** — od šikmé stěny se ozvěna odrazí pryč, záclona ji pohltí, senzor
+proto hlásí svůj největší dosah 200 cm, i když je zeď 1 cm daleko, a robot nabourá i
+s opakováním; (3) **dotykový senzor** ho zastaví, ale až po nárazu — proto se senzory
+kombinují. Na obrazovce jsou pořád vedle sebe dvě čísla: co senzor **hlásí** a jak je
+zeď **doopravdy** daleko.
+
+Čísla vycházejí celá (120 cm, krok 10 cm, práh 10 cm → přesně 11 kroků).
+Test **122 kontrol**, mutační test **13/13**. Testy simulací celkem **976**.
+Zapojeno do `temata.ts` (`interakce: 'senzory-robota'`) i do stránky podtématu; build
+465 stránek, ve vygenerovaném HTML je simulace ověřená.
+
+> ⚠️ **Náhled v prohlížeči se ověřit nepodařilo** — port 8788 drží dev server jiné
+> session („wonderly-dist"), cizí server tahle session zastavit nesmí. Kotvou je tedy
+> test nad skutečným skriptem komponenty + build + kontrola vygenerovaného HTML.
+> Až bude port volný, projít simulaci i očima.
 
 ### ✅ Hotovo 3. 8. v noci — simulace „Funkce v tabulkách" (oba úkoly z minulé fronty)
 
