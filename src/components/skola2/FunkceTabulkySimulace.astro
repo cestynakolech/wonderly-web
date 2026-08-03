@@ -50,13 +50,14 @@
 	</p>
 
 	<table class="fn-vysledky">
+		<caption class="fn-titulek">Co která funkce z toho sloupce vypíše</caption>
 		<tbody>
 			<tr><th scope="row">=SUMA(B2:B7)</th><td id="fn-suma"></td><td class="fn-pozn">sečte jen čísla</td></tr>
 			<tr><th scope="row">=POČET(B2:B7)</th><td id="fn-pocet"></td><td class="fn-pozn">kolik buněk obsahuje číslo</td></tr>
 			<tr class="fn-duraz"><th scope="row">=PRŮMĚR(B2:B7)</th><td id="fn-prumer"></td><td class="fn-pozn" id="fn-podil"></td></tr>
 			<tr><th scope="row">=MIN(B2:B7)</th><td id="fn-min"></td><td class="fn-pozn">u známek ta <strong>nejlepší</strong></td></tr>
 			<tr><th scope="row">=MAX(B2:B7)</th><td id="fn-max"></td><td class="fn-pozn">u známek ta <strong>nejhorší</strong></td></tr>
-			<tr><th scope="row" id="fn-rank-vzorec"></th><td id="fn-rank"></td><td class="fn-pozn">pořadí Adama mezi ostatními</td></tr>
+			<tr><th scope="row" id="fn-rank-vzorec"></th><td id="fn-rank"></td><td class="fn-pozn">kolikátý je Adam mezi ostatními</td></tr>
 		</tbody>
 	</table>
 
@@ -141,7 +142,7 @@
 
 	let bunky = [...VYCHOZI];
 	let poradi = 1;
-	let posledni = null;   // co se naposledy změnilo: { radek, z, na }
+	let posledni = null;   // hodnota, na kterou se naposledy klikla buňka (null = po ↺)
 
 	const zobraz = (h) => (h === PRAZDNO ? '' : String(h));
 
@@ -164,13 +165,17 @@
 		prumerEl.textContent = prumer === null ? KODY.deleniNulou : cz(prumer);
 		podilEl.textContent = prumer === null
 			? 'bez jediného čísla se dělit nedá'
-			: `dělí se ${cz(SUMA(bunky))} ÷ ${cz(pocet)} — POČTEM ČÍSEL, ne šesti řádky`;
+			// Dokud mají číslo všechny řádky, je „ne šesti řádky" matoucí — dělí se právě šesti.
+			: pocet === bunky.length
+				? `dělí se ${cz(SUMA(bunky))} ÷ ${cz(pocet)} — POČTEM ČÍSEL, teď je má každý řádek`
+				: `dělí se ${cz(SUMA(bunky))} ÷ ${cz(pocet)} — POČTEM ČÍSEL, ne ${cz(bunky.length)} řádky`;
 		minEl.textContent = cz(MIN(bunky));
 		maxEl.textContent = cz(MAX(bunky));
 
 		const r = RANK(bunky[0], bunky, poradi);
 		rankVzorecEl.textContent = poradi === 1 ? '=RANK(B2;$B$2:$B$7;1)' : '=RANK(B2;$B$2:$B$7)';
-		rankEl.textContent = typeof r === 'number' ? `${cz(r)}.` : r;
+		// Ve sloupci stojí to, co by vypsala tabulka: RANK vrací číslo, ne „1." s tečkou.
+		rankEl.textContent = typeof r === 'number' ? cz(r) : r;
 	}
 
 	function popisStavu() {
@@ -179,12 +184,12 @@
 			return `Ve sloupci nezůstalo <strong>jediné číslo</strong>, takže PRŮMĚR hlásí <strong>${KODY.deleniNulou}</strong> — `
 				+ 'dělit nulou nejde. MIN a MAX přitom klidně vypíšou nulu, i když žádná známka není.';
 		}
-		if (posledni && posledni.na === TEXT) {
+		if (posledni === TEXT) {
 			return `Do buňky je zapsané slovo <strong>„${TEXT}“</strong>. V tabulce to vypadá jako vyplněný řádek, `
 				+ `ale <strong>POČET klesl na ${cz(pocet)}</strong> — a PRŮMĚR se proto dělí ${cz(pocet)}, ne šesti. `
 				+ `A protože text je v porovnání větší než každé číslo, KDYŽ napsalo <strong>neprospěl</strong>.`;
 		}
-		if (posledni && posledni.na === PRAZDNO) {
+		if (posledni === PRAZDNO) {
 			return `Buňka je <strong>prázdná</strong>, takže do POČTU nejde (${cz(pocet)}). `
 				+ 'Ale pozor na sloupec C: v porovnání se prázdná buňka bere jako <strong>nula</strong>, '
 				+ `takže =KDYŽ(B&lt;=${MEZ_KDYZ};…) napsalo <strong>prospěl</strong> i tomu, komu známku nikdo nezapsal.`;
@@ -193,7 +198,10 @@
 			return `Čísla jsou jen v <strong>${cz(pocet)}</strong> buňkách ze ${cz(bunky.length)}, takže PRŮMĚR dělí ${cz(pocet)}. `
 				+ 'Právě tohle bývá důvod, proč tabulce vychází jiný průměr než tobě na papíře.';
 		}
-		return 'Všech šest buněk má číslo, takže POČET je 6 a průměr vyjde <strong>18 ÷ 6 = 3</strong>. '
+		// Čísla se do věty POČÍTAJÍ, nepíšou natvrdo: tahle větev platí i po změně známky,
+		// a „18 ÷ 6 = 3" by pak tvrdilo něco jiného, než je o dva centimetry výš v panelu.
+		return `Číslo má všech <strong>${cz(bunky.length)}</strong> buněk, takže POČET je ${cz(pocet)} `
+			+ `a průměr vyjde <strong>${cz(SUMA(bunky))} ÷ ${cz(pocet)} = ${cz(PRUMER(bunky))}</strong>. `
 			+ 'Zkus teď některou známku přepnout na <strong>nehodnocen</strong> nebo ji vymazat.';
 	}
 
@@ -206,7 +214,7 @@
 			const i = Number(b.dataset.radek);
 			const kde = KOLECKO.indexOf(bunky[i]);
 			const nova = KOLECKO[(kde + 1) % KOLECKO.length];
-			posledni = { radek: i, z: bunky[i], na: nova };
+			posledni = nova;
 			bunky[i] = nova;
 			prekresli();
 			ukazStav();
@@ -260,7 +268,7 @@
 <style>
 	.fn-obal { overflow-x: auto; }
 	.fn-tabulka { border-collapse: collapse; margin: 0.5rem 0; font-size: 0.98rem; }
-	.fn-tabulka th, .fn-tabulka td { border: 2px solid #adb5bd; padding: 0.25rem 0.6rem; text-align: left; }
+	.fn-tabulka th, .fn-tabulka td { border: 2px solid #868e96; padding: 0.25rem 0.6rem; text-align: left; }
 	.fn-tabulka thead th { background: #e9ecef; font-size: 0.86rem; }
 	.fn-tabulka tbody th { background: #e9ecef; text-align: center; font-weight: 700; }
 	.fn-bunka { font: inherit; font-weight: 700; min-width: 6.5rem; padding: 0.15rem 0.5rem; border: 2px solid #2b2a26; border-radius: 6px; background: #fff; cursor: pointer; }
@@ -283,5 +291,7 @@
 	.fn-napoveda { font-size: 0.9rem; color: #495057; }
 	/* Vzorec v hlavičce platí pro celý sloupec, ne jen pro řádek 2 — proto ta poznámka. */
 	.fn-kopie { font-weight: 400; font-style: italic; white-space: nowrap; }
+	/* Titulek tabulky: odečítač jinak předčítá poznámkový sloupec bez jakékoli hlavičky. */
+	.fn-titulek { text-align: left; font-weight: 700; padding-bottom: 0.3rem; }
 	.fn-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
 </style>

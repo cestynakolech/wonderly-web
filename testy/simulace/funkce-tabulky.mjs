@@ -200,15 +200,16 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 {
 	klik(btnReset);
 	klik(prvky.get('v-poradi-1'));
-	ok(el('fn-rank').textContent === '1.', 'Adam s jedničkou je při pořadí od nejmenší první');
+	ok(el('fn-rank').textContent === '1', 'Adam s jedničkou je při pořadí od nejmenší první');
 	ok(el('fn-rank-vzorec').textContent.includes(';1'), 'a ve vzorci je vidět třetí údaj ;1');
 	klik(prvky.get('v-poradi-0'));
-	ok(el('fn-rank').textContent === '6.', '★ bez třetího údaje je tentýž Adam šestý — past je vidět');
+	ok(el('fn-rank').textContent === '6', '★ bez třetího údaje je tentýž Adam šestý — past je vidět');
 	ok(!el('fn-rank-vzorec').textContent.includes(';1'), 'a vzorec se změní taky');
 	ok(/od největší/.test(stavEl.innerHTML), 'hláška vysvětlí, co přepínač udělal');
 	ok(!/POČET klesl/.test(stavEl.innerHTML), 'a netvrdí změnu buňky, ke které nedošlo');
 	klik(prvky.get('v-poradi-1'));
-	ok(el('fn-rank').textContent === '1.', 'přepínač má cestu tam i zpět');
+	ok(el('fn-rank').textContent === '1', 'přepínač má cestu tam i zpět');
+	ok(telo.__poradi() === 1, 'a stav přepínače v kódu tomu odpovídá');
 }
 
 // ———————————————————————— 8) ŠABLONA A PŘÍSTUPNOST
@@ -295,7 +296,7 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 	for (const t of tlacitka) {
 		klik(prvky.get('v-poradi-' + t.poradi));
 		// Adam má jedničku, tedy nejmenší známku: „od nejmenší" ⇔ je první.
-		const adamPrvni = el('fn-rank').textContent === '1.';
+		const adamPrvni = el('fn-rank').textContent === '1';
 		ok(adamPrvni === /nejmenší/.test(t.text),
 			`★ popisek „${t.text}" souhlasí s tím, co tlačítko opravdu udělá (Adam s jedničkou vyjde ${el('fn-rank').textContent})`);
 		ok(/;1/.test(t.text) === (t.poradi === '1'),
@@ -337,8 +338,11 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 	ok(/kopírováno dolů/.test(sablona),
 		'★ u vzorce v hlavičce je řečeno, že platí pro celý sloupec — jinak vypadá, že jen pro řádek 2');
 	klik(btnReset);
-	ok(GENITIV.length === JMENA.length && GENITIV.every((g, i) => g.startsWith(JMENA[i].slice(0, 3))),
-		'ke každému jménu je jeho 2. pád');
+	// Očekávané tvary jsou v testu vypsané RUČNĚ — kontrola „začíná stejně jako jméno"
+	// propustila i „známka Danou" (nález kontrolora 3. 8. 2026).
+	const DRUHY_PAD = ['Adama', 'Báry', 'Cyrila', 'Dany', 'Emila', 'Filipa'];
+	ok(JSON.stringify(GENITIV) === JSON.stringify(DRUHY_PAD),
+		'★ 2. pády jsou přesně ty správné tvary, ne libovolný jiný pád');
 	for (let i = 0; i < JMENA.length; i++)
 		ok((el('fn-bunka-' + i).atributy['aria-label'] ?? '').includes(`známka ${GENITIV[i]}`),
 			`★ odečítač uslyší „známka ${GENITIV[i]}" — 2. pád, ne „známka ${JMENA[i]}"`);
@@ -349,11 +353,121 @@ const { JMENA, GENITIV, VYCHOZI, TEXT, PRAZDNO, KOLECKO, MEZ_KDYZ, KODY } = telo
 			.map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
 		return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
 	};
+	const kontrastNaBile = (b) => 1.05 / (sytost(b) + 0.05);
 	const barvaSrafy = zdroj.match(/\.fn-prazdna\s*\{[^}]*?(#[0-9a-f]{6})\s*5px/i)?.[1] ?? '';
 	ok(barvaSrafy !== '', 'šrafa prázdné buňky má v CSS svou barvu');
-	const kontrast = 1.05 / (sytost(barvaSrafy) + 0.05);
-	ok(kontrast >= 3,
-		`★ šrafa (${barvaSrafy}) má proti bílé kontrast ${kontrast.toFixed(2)} : 1 — aspoň 3 : 1, jinak na plátně zmizí`);
+	ok(kontrastNaBile(barvaSrafy) >= 3,
+		`★ šrafa (${barvaSrafy}) má proti bílé kontrast ${kontrastNaBile(barvaSrafy).toFixed(2)} : 1 — aspoň 3 : 1, jinak na plátně zmizí`);
+	// Totéž platí pro každou čáru, kterou je tabulka nakreslená — mřížka „excelu" je taky
+	// grafika nesoucí informaci a na promítačce mizí jako první (nález kontrolora).
+	const cary = [...new Set([...zdroj.matchAll(/border[^;:]*:\s*\d+px\s+solid\s+(#[0-9a-f]{3,6})/gi)].map((m) => m[1]))];
+	ok(cary.length >= 2, `v CSS jsou ${cary.length} barvy čar ke kontrole`);
+	const bledeCary = cary.filter((b) => b.length === 7 && kontrastNaBile(b) < 3);
+	ok(bledeCary.length === 0,
+		`★ každá čára má proti bílé aspoň 3 : 1${bledeCary.length ? ' — bledé: ' + bledeCary.map((b) => `${b} (${kontrastNaBile(b).toFixed(2)} : 1)`).join(', ') : ''}`);
+}
+
+// ———————————————————————— 10) ★ NAUČNÁ TVRZENÍ (věta smí říkat jen to, co kód dělá)
+//
+// Druhý nález kontrolora 3. 8. 2026: sekce 9 hlídá VZORCE, ale výukové věty ne — a z 15
+// podvržených nepravd jich 11 prošlo zeleně, mezi nimi „text je menší než každé číslo"
+// (opak Excelu) a pevně vepsané „18 ÷ 6 = 3" v hlášce, která se ukazuje i po změně známky.
+// Věta o učivu je pro dítě stejné tvrzení jako číslo v panelu, jen v jiném písmu.
+{
+	const sablona = html.slice(html.indexOf('<section'));
+	const cistyText = (h) => h.replace(/<[^>]*>/g, '');
+	const stav = () => cistyText(stavEl.innerHTML);
+	const pozn = (fn) => cistyText(sablona.match(new RegExp(`<th scope="row">=${fn}\\([^<]*</th>[\\s\\S]*?class="fn-pozn"[^>]*>([\\s\\S]*?)</td>`))?.[1] ?? '');
+
+	// a) Když hláška ukazuje výpočet „a ÷ b = c", musí to být DNEŠNÍ a, b, c.
+	let sVypoctem = 0;
+	const vypocetSedi = () => {
+		const m = stav().match(/([\d,]+)\s*÷\s*([\d,]+)\s*=\s*([\d,]+)/);
+		if (!m) return true;
+		sVypoctem++;
+		const b = telo.__bunky();
+		return m[1] === telo.__cz(telo.__SUMA(b)) && m[2] === telo.__cz(telo.__POCET(b))
+			&& m[3] === telo.__cz(telo.__PRUMER(b));
+	};
+	klik(btnReset);
+	ok(vypocetSedi(), '★ výpočet ve výchozí hlášce sedí se známkami v tabulce');
+	const bunkaA = prvky.get('fn-bunka-0');
+	let selhalo = 0;
+	for (let i = 0; i < KOLECKO.length * 2; i++) { klik(bunkaA); if (!vypocetSedi()) selhalo++; }
+	ok(selhalo === 0, `★ a sedí i po každé z ${KOLECKO.length * 2} změn známky — čísla se počítají, nejsou vepsaná natvrdo`);
+	ok(sVypoctem >= 2, `kontrola měla co měřit: výpočet se v hlášce objevil ${sVypoctem}×`);
+	klik(btnReset);
+
+	// b) Žádné číslo v hlášce nesmí být „odjinud" — každé musí být některá z platných hodnot.
+	const platnaCisla = () => {
+		const b = telo.__bunky();
+		return new Set([telo.__SUMA(b), telo.__POCET(b), telo.__MIN(b), telo.__MAX(b), b.length, MEZ_KDYZ,
+			...b.filter((h) => typeof h === 'number'), ...(telo.__PRUMER(b) === null ? [] : [telo.__PRUMER(b)])]
+			.map((x) => telo.__cz(x)));
+	};
+	let cizich = 0, overenychStavu = 0;
+	for (let i = 0; i < KOLECKO.length; i++) {
+		klik(bunkaA);
+		overenychStavu++;
+		for (const c of stav().match(/\d+(?:,\d+)?/g) ?? []) if (!platnaCisla().has(c)) cizich++;
+	}
+	ok(cizich === 0, `★ každé číslo v hlášce je hodnota, která na obrazovce opravdu je (prošlo ${overenychStavu} stavů)`);
+	klik(btnReset);
+
+	// c) Poznámky u vzorců nesmí slibovat něco jiného, než funkce dělá.
+	ok(/čísl/.test(pozn('SUMA')) && !/všechny buňky|každou buňku/.test(pozn('SUMA')),
+		`★ poznámka u SUMA mluví o číslech („${pozn('SUMA')}") — a SUMA opravdu text přeskočí`);
+	ok(telo.__SUMA([1, TEXT, 2]) === 3, 'což je i doloženo výpočtem: text se do součtu nedostane');
+	ok(/čísl/.test(pozn('POČET')) && !/vyplněn/.test(pozn('POČET')),
+		`★ poznámka u POČET mluví o ČÍSLECH, ne o vyplněných buňkách („${pozn('POČET')}")`);
+	ok(telo.__POCET([1, TEXT, 2]) === 2, 'a vyplněná buňka s textem se opravdu nepočítá');
+	// RANK počítá pořadí prvního žáka — poznámka musí jmenovat právě jeho.
+	const poznRank = cistyText(sablona.match(/id="fn-rank"><\/td><td class="fn-pozn"[^>]*>([\s\S]*?)<\/td>/)?.[1] ?? '');
+	ok(poznRank.includes(JMENA[0]), `★ poznámka u RANK jmenuje ${JMENA[0]}, jehož pořadí se počítá („${poznRank}")`);
+	ok(JMENA.slice(1).every((j) => !poznRank.includes(j)), 'a nikoho jiného — RANK počítá pořadí jen prvního žáka');
+
+	// d) Nápověda ke klikání musí sedět s KOLEČKEM, jinak vede dítě špatně.
+	const napoveda = cistyText(sablona.match(/class="fn-napoveda">([\s\S]*?)<\/span>/)?.[1] ?? '');
+	const kroky = napoveda.split('=')[1]?.split('→').map((s) => s.trim()) ?? [];
+	const ocekavane = [...KOLECKO.map((h) => (h === PRAZDNO ? 'prázdná' : String(h))), '1'];
+	ok(JSON.stringify(kroky) === JSON.stringify(ocekavane),
+		`★ nápověda vypisuje kolečko přesně tak, jak se opravdu přepíná („${napoveda}")`);
+
+	// e) Nadpis i úvod musí mluvit o funkci, kterou panel zvýrazňuje (fn-duraz).
+	const zvyraznena = sablona.match(/class="fn-duraz"><th scope="row">=([A-ZĚŠČŘŽÝÁÍÉŮÚ]+)\(/)?.[1] ?? '';
+	ok(zvyraznena !== '', `panel jednu funkci zvýrazňuje (${zvyraznena})`);
+	const nadpis = cistyText(sablona.match(/<h2>([\s\S]*?)<\/h2>/)?.[1] ?? '').toLowerCase();
+	const uvod = cistyText(sablona.match(/<\/h2>\s*<p>([\s\S]*?)<\/p>/)?.[1] ?? '');
+	ok(nadpis.includes(zvyraznena.toLowerCase()),
+		`★ nadpis slibuje právě ${zvyraznena} — to, co je v panelu zvýrazněné („${nadpis}")`);
+	ok(uvod.includes(zvyraznena) && uvod.includes('POČET'),
+		`★ úvod posílá dítě sledovat POČET a ${zvyraznena}, tedy dvojici, na které stojí celá pointa`);
+
+	// f) Hláška u textu: text je VĚTŠÍ než číslo — proto „neprospěl". Opak by byl blud.
+	klik(btnReset);
+	let poj = 0;
+	while (telo.__bunky()[0] !== TEXT && poj++ < 20) klik(bunkaA);
+	ok(telo.__bunky()[0] === TEXT, 'buňka je přepnutá na text');
+	ok(telo.__KDYZ(TEXT) === 'neprospěl' && /větší/.test(stav()) && !/menší/.test(stav()),
+		'★ hláška u textu říká „větší" — a KDYŽ to potvrzuje výsledkem „neprospěl"');
+
+	// g) Bez jediného čísla MIN a MAX chybu NEhlásí, vracejí nulu — hláška to musí říct správně.
+	for (let i = 0; i < JMENA.length; i++) {
+		const b = prvky.get('fn-bunka-' + i);
+		let p2 = 0;
+		while (telo.__bunky()[i] !== PRAZDNO && p2++ < 20) klik(b);
+	}
+	ok(telo.__MIN(telo.__bunky()) === 0 && telo.__MAX(telo.__bunky()) === 0, 'bez čísel vrací MIN i MAX nulu');
+	ok(/nulu|nula/.test(stav()) && !/MIN a MAX[^.]*chyb/.test(stav()),
+		'★ a hláška mluví o nule, netvrdí u MIN/MAX chybu');
+	ok(stav().includes(KODY.deleniNulou), `zato u PRŮMĚRU chybový kód ${KODY.deleniNulou} uvádí`);
+	klik(btnReset);
+
+	// h) Hlavička nesmí tvrdit opak toho, co říká poznámka o kopírování dolů.
+	ok(!/jen pro řádek|pouze pro řádek/.test(sablona),
+		'★ nikde není napsané, že vzorec platí jen pro řádek 2 — sloupec C se počítá pro všechny');
+	ok((sablona.match(/id="fn-kdyz-\d"/g) ?? []).length === JMENA.length,
+		`a sloupec C má opravdu ${JMENA.length} buněk, do kterých je vzorec „kopírovaný"`);
 }
 
 console.log(chyby === 0 ? `\n✅ Funkce v tabulkách: všech ${kontrol} kontrol prošlo.` : `\n❌ ${chyby} z ${kontrol} kontrol selhalo.`);

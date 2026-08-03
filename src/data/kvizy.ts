@@ -3990,7 +3990,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu slouží funkce RANK?', odpovedi: ['pořadí hodnoty mezi ostatními', 'sečte všechny hodnoty v oblasti', 'najde první tři znaky textu'], vysvetleni: 'Např. ukáže, na kolikátém místě v žebříčku žák se svým výsledkem skončil.' },
 		{ text: 'Ve sloupci šesti známek je jedna buňka prázdná. Čím PRŮMĚR vydělí součet?', odpovedi: ['pěti', 'šesti', 'sedmi'], vysvetleni: 'Dělí se počtem buněk, ve kterých opravdu je číslo.' },
 		{ text: 'Proč nejlepší známku ve třídě najde MIN, a ne MAX?', odpovedi: ['jednička je nejmenší číslo', 'MAX umí pracovat jen s textem', 'MIN hledá vždy první řádek'], vysvetleni: 'Jednička je nejlepší, pětka nejhorší — u známek je to obráceně než u bodů.' },
-		{ text: 'Do sloupce známek někdo napsal slovo „nehodnocen". Co udělá POČET?', odpovedi: ['tuto buňku nezapočítá', 'započítá ji jako nulu', 'ohlásí chybu a nespočítá nic'], vysvetleni: 'Slovo není číslo, takže se do počtu čísel nedostane.' },
+		{ text: 'Do sloupce známek někdo napsal slovo „nehodnocen“. Co udělá POČET?', odpovedi: ['tuto buňku nezapočítá', 'započítá ji jako nulu', 'ohlásí chybu a nespočítá nic'], vysvetleni: 'Slovo není číslo, takže se do počtu čísel nedostane.' },
+		{ text: 'Ve vzorci =RANK(B2;$B$2:$B$7;1) chybí trojka na konci. Co se stane u známek?', odpovedi: ['první bude nejhorší známka', 'pořadí se vůbec nespočítá', 'vzorec bude počítat rychleji'], vysvetleni: 'Bez třetího údaje řadí RANK od největší hodnoty — a u známek je největší pětka. S ;1 se řadí od nejmenší, tedy od jedničky.' },
+		{ text: 'Známka chybí — buňka je úplně prázdná. Co na to =KDYŽ(B2<=4;"prospěl";"neprospěl")?', odpovedi: ['napíše prospěl', 'napíše neprospěl', 'nechá políčko prázdné'], vysvetleni: 'Prázdná buňka se v porovnání bere jako nula, a nula je menší než 4. Tabulka tak „prospěla“ i tomu, koho nikdo neznámkoval.' },
 	],
 	'informatika/8-rocnik/hromadne-zpracovani-dat/razeni-filtrovani-velka-data': [
 		{ text: 'Co je záznam v tabulce dat?', odpovedi: ['jeden řádek údajů', 'jeden sloupec údajů', 'název celé tabulky'], vysvetleni: 'Např. jeden stát se všemi svými údaji.' },
