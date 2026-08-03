@@ -71,7 +71,7 @@
 	<table class="sr-tabulka">
 		<caption class="sr-titulek">Co robot ví a co dělá</caption>
 		<tbody>
-			<tr><th scope="row">ujel</th><td id="sr-ujel"></td><td class="sr-pozn">po ${KROK} cm každý krok</td></tr>
+			<tr><th scope="row">ujel</th><td id="sr-ujel"></td><td class="sr-pozn" id="sr-pozn-krok"></td></tr>
 			<tr><th scope="row">senzor hlásí</th><td id="sr-tab-hlaseni"></td><td class="sr-pozn" id="sr-pozn-hlaseni"></td></tr>
 			<tr class="sr-duraz"><th scope="row">skutečná vzdálenost</th><td id="sr-tab-skutecnost"></td><td class="sr-pozn">tohle robot nikdy nevidí</td></tr>
 			<tr><th scope="row">program rozhodl</th><td id="sr-rozhodnuti"></td><td class="sr-pozn" id="sr-pozn-rozhodnuti"></td></tr>
@@ -100,6 +100,7 @@
 	const btnSpust = document.getElementById('sr-spust');
 	const btnReset = document.getElementById('sr-reset');
 	const btnDotyk = document.getElementById('sr-dotyk');
+	const poznKrokEl = document.getElementById('sr-pozn-krok');
 
 	const START = 120;        // cm: jak daleko je zeď na začátku
 	const KROK = 10;          // cm: o kolik robot popojede jedním krokem
@@ -171,6 +172,7 @@
 		hlaseniEl.textContent = `${cz(hlasi)} cm`;
 		skutecnostEl.textContent = `${cz(skutecne)} cm`;
 		ujelEl.textContent = `${cz(ujel)} cm`;
+		poznKrokEl.textContent = `po ${cz(KROK)} cm každý krok`;
 		tabHlaseniEl.textContent = `${cz(hlasi)} cm`;
 		tabSkutecnostEl.textContent = `${cz(skutecne)} cm`;
 		poznHlaseniEl.textContent = PREKAZKY[prekazka].proc;

@@ -29,6 +29,7 @@ import UdalostiSimulace from '../../../../../../components/skola2/UdalostiSimula
 import VlastniBlokySimulace from '../../../../../../components/skola2/VlastniBlokySimulace.astro';
 import BludisteSimulace from '../../../../../../components/skola2/BludisteSimulace.astro';
 import FunkceTabulkySimulace from '../../../../../../components/skola2/FunkceTabulkySimulace.astro';
+import SenzoryRobotaSimulace from '../../../../../../components/skola2/SenzoryRobotaSimulace.astro';
 import PromenneSimulace from '../../../../../../components/skola2/PromenneSimulace.astro';
 import LedDisplejSimulace from '../../../../../../components/skola2/LedDisplejSimulace.astro';
 import OdporVodiceSimulace from '../../../../../../components/skola2/OdporVodiceSimulace.astro';
@@ -247,6 +248,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			{podtema.interakce === 'vlastni-bloky' && <VlastniBlokySimulace />}
 			{podtema.interakce === 'bludiste' && <BludisteSimulace />}
 			{podtema.interakce === 'funkce-tabulky' && <FunkceTabulkySimulace />}
+			{podtema.interakce === 'senzory-robota' && <SenzoryRobotaSimulace />}
 	{podtema.interakce === 'led-displej' && <LedDisplejSimulace />}
 	{podtema.interakce === 'odpor-vodice' && <OdporVodiceSimulace />}
 	{podtema.interakce === 'odpor-vodice-zaklad' && <OdporVodiceSimulace zaklad={true} />}
