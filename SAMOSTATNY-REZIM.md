@@ -16,13 +16,29 @@
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
    Saint-Tropez, Le Lavandou a Riez**, delší (6:06) je jen z Le Bourg (77 médií).
    Když v delší opravdu chybí, složit ze dvou jednu.
-3. **Doměřit zbylé testy simulací mutačním testem.** Běh přes všech 16 simulací byl
-   spuštěn 3. 8. dopoledne, výstup se píše do
-   `/private/tmp/claude-502/-Users-Shared--kola/2bc13f65-08e1-436e-9410-32a45ea86fc9/tasks/bonc509sr.output`
-   — pokud tam soubor je, stačí z něj vzít řádky „mutací odhaleno" a doplnit chybějící
-   kontroly u testů pod 100 %. (Vzor, jak se díra zavírá: `funkce-tabulky` a
-   `senzory-robota` — kontroly nad skutečnou scénou, ne nad textem.)
-   Když soubor chybí, spustit znovu: `node testy/mutace.mjs` (trvá přes 10 minut).
+3. **Testy simulací jsou z poloviny slepé — DOMĚŘIT.** Mutační test přes všech 16
+   simulací (3. 8. dopoledne) skončil: **310 mutací, odhaleno 155, prošlo 155**.
+   Pořadí podle toho, kde je díra největší (odhaleno / celkem):
+
+   | simulace | odhaleno | simulace | odhaleno |
+   |---|---|---|---|
+   | `tabulka-vzorce` | **6/26** | `promenne` | 6/15 |
+   | `souradnice` | **7/25** | `led-displej` | 6/12 |
+   | `zapojeni` | **8/26** | `meridla` | 7/15 |
+   | `vetveni` | **6/19** | `bludiste` | 10/22 |
+   | `reostat` | 8/21 | `opakovani` | 8/18 |
+   | `odpor-vodice` | 11/25 | `elektrovani` | 12/18 |
+   | `vlastni-bloky` | 15/20 | `udalosti` | 18/20 |
+   | `funkce-tabulky` | 13/14 | `senzory-robota` | **14/14 ✅** |
+
+   Detail k jedné simulaci: `node testy/mutace.mjs <název>` (vypíše, které mutace prošly
+   a kus kódu, který nikdo neměří). Celý běh trvá přes 10 minut — pouštět na pozadí.
+   **Jak se díra zavírá** (vzor z 3. 8., obojí doloženo podvrhy): měřit skutečnou scénu
+   a vypsané hodnoty, ne text zdroje · texty vázat na chování (popisek proti tomu, co
+   tlačítko udělá) · očekávání psát ručně, ne brát z testované komponenty (tautologie) ·
+   projít VŠECHNY stavy, ne jen výchozí. Ke každé opravené simulaci patří skript podvrhů
+   v `testy/podvrhy/` a záznam v `testy/obousmerne.json`.
+   Začít od `tabulka-vzorce` (6/26) — tam je slepota největší.
 4. `cz()` chybí v 11 simulacích, které formátují čísla.
 5. **BLOKOVÁNO, ne zapomenuto:** obě nové simulace (funkce v tabulkách, senzory robota)
    neprošly očima v prohlížeči — port 8788 drží dev server jiné session a cizí server
