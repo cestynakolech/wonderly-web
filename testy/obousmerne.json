@@ -20,10 +20,10 @@
 		},
 		"nazvy-bloku.mjs": {
 			"test": "testy/meridla-obousmerne.mjs",
-			"podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu.",
-			"zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic.",
-			"regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť.",
-			"overeno": "2026-08-02"
+			"podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu. ROZŠÍŘENO 3. 8. 2026: podvrh „pokud ⟨y < -160?⟩ tak\" + „nastav x na (náhodnou hodnotu)\" v KlonovaniSimulace → 2 nálezy (otisk souboru se podvrhem změnil d6c0ace… → eea8e8d…, po obnově zpět na d6c0ace…, takže měřidlo měřilo opravdu tenhle soubor).",
+			"zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic. Po obnově zdravých tvarů („když ⟨ ⟩ tak\", „náhodné číslo od … do …\") opět 0 nálezů.",
+			"regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť. ROZŠÍŘENO 3. 8. 2026 po nálezu kontrolora: měřidlo nemělo vzor pro „pokud ⟨⟩ tak\" ani pro „náhodnou hodnotu\", takže obojí prošlo se zelenou bránou. Nové vzory se schválně ptají na TVAR BLOKU (závorka s podmínkou + „tak\"/„pak\"), aby nehlásily běžnou českou větu — ověřeno, že mlčí nad „pokud chceš, zkus to znovu\", „pokud (a) platí, program pokračuje\" i nad makecodovým „pokud zrychlení (y) > 500 pak\". ZNÁMÁ MEZERA: měřidlo hlídá jen Scratch. Názvy bloků MakeCode (micro:bit) a VEXcode nekontroluje NIC — kontrolor v nich 3. 8. našel neexistující „ukaž ikonu (šipka doleva)\" a jednotku cm, kterou VEXcode IQ nemá.",
+			"overeno": "2026-08-03"
 		},
 		"nazornost.mjs": {
 			"test": "testy/meridla-obousmerne.mjs",

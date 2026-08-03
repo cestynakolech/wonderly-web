@@ -79,6 +79,20 @@ export const ZAKAZANE = [
 	// POZOR na falešný poplach: „opakuj dokud NENASTANE" je správný název, hlásit se smí
 	// jen „opakuj dokud" bez něj. První verze měřidla nahlásila i zdravou stránku.
 	{ vzor: /opakuj dokud (?!nenastane)/, spravne: 'opakuj dokud nenastane …', zdroj: 'CONTROL_REPEATUNTIL = opakuj dokud nenastane %1' },
+	// Nález nezávislého kontrolora 3. 8. 2026: nová simulace klonování psala podmínku jako
+	// „pokud ⟨y < -160?⟩ tak". Měřidlo hlásilo 0 nálezů — pro TENHLE tvar prostě nemělo vzor,
+	// takže mlčelo, ačkoli blok v paletě neexistuje. Přesně vzorec „měřidlo hlídá jen to,
+	// co už jednou selhalo".
+	//
+	// ⚠️ Vzor NESMÍ hlásit obyčejné české „pokud" ve větě („pokud chceš, zkus to znovu")
+	// ani MakeCode, kde se blok česky opravdu jmenuje „pokud … pak" — proto se hledá jen
+	// TVAR BLOKU: „pokud" následované závorkou s podmínkou a zakončené „tak"/„pak".
+	// Celá tabulka ZAKAZANE se navíc pouští jen na scratchovské celky a komponenty
+	// v SIMULACE_SE_SCRATCHEM, takže se micro:bitu ani VEXu nedotkne.
+	{ vzor: /pokud\s*[⟨(<\[][^⟩)>\]]{0,80}[⟩)>\]]\s*(tak|pak)/, spravne: 'když ⟨ ⟩ tak', zdroj: 'CONTROL_IF = když %1 tak' },
+	// Týž nález, druhá vada: „nastav x na (náhodnou hodnotu)". Operátor se jmenuje jinak
+	// a bere dvě meze — bez nich žák neví, co má do bloku napsat.
+	{ vzor: /náhodn(ou|á|é) hodnot/, spravne: 'náhodné číslo od ( ) do ( )', zdroj: 'OPERATORS_RANDOM = náhodné číslo od %1 do %2' },
 ];
 
 /** Odstraní HTML značky, ať se nehledá v atributech odkazů. */
