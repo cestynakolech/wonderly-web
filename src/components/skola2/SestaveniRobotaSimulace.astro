@@ -392,20 +392,28 @@ for (let i = 1; i <= 12; i++) {
 		aktualizujTlacitka();
 
 		const START_X = 320, START_Y = 210;
-		const krokDX = (vysledek.avg * FORWARD_TOTAL) / FRAMES; // px/snímek dopředu podél AKTUÁLNÍHO natočení
-		const krokRot = (vysledek.diff * ROT_TOTAL) / FRAMES; // °/snímek
+		// Posun je ZÁMĚRNĚ jen podél pevné vodorovné osy (Y se při běhu nemění) a
+		// otáčení se kreslí NEZÁVISLE na místě (heading neovlivňuje směr posunu).
+		// Díky tomu jde obrys robota (tělo 50×36 + kola, poloměr od středu nejdál
+		// R = √(25²+18²) = √949 ≈ 30,81, tedy < 31 px) spočítat přesně, ne odhadem:
+		//   X středu se za celý běh mění jen o avg·FORWARD_TOTAL = avg·200,
+		//   avg ∈ {−1; −0,5; 0; 0,5; 1} → X střed vždy v ⟨120; 520⟩,
+		//   s obrysem (+/−31 px) tedy v ⟨89; 551⟩ ⊂ aréna x ⟨20; 620⟩ (rezerva 69 px).
+		//   Y středu je po celý běh přesně START_Y = 210 (žádný posun),
+		//   s obrysem (+/−31 px) tedy v ⟨179; 241⟩ ⊂ aréna y ⟨140; 280⟩ (rezerva 39 px).
+		// Obrys tak zůstane uvnitř arény ve všech dosažitelných kombinacích portů.
+		const krokDX = (vysledek.avg * FORWARD_TOTAL) / FRAMES; // px/snímek podél pevné osy X
+		const krokRot = (vysledek.diff * ROT_TOTAL) / FRAMES; // °/snímek, jen otáčí obrázek na místě
 
-		let x = START_X, y = START_Y, heading = 0, snimek = 0;
-		const stopa = [`${x},${y}`];
+		let x = START_X, heading = 0, snimek = 0;
+		const stopa = [`${x},${START_Y}`];
 
 		function tik() {
 			snimek++;
+			x += krokDX;
 			heading += krokRot;
-			const rad = (heading * Math.PI) / 180;
-			x += krokDX * Math.cos(rad);
-			y += krokDX * Math.sin(rad);
-			robotTopEl.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${heading.toFixed(1)})`);
-			stopa.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+			robotTopEl.setAttribute('transform', `translate(${x.toFixed(1)} ${START_Y}) rotate(${heading.toFixed(1)})`);
+			stopa.push(`${x.toFixed(1)},${START_Y}`);
 			stopaEl.setAttribute('points', stopa.join(' '));
 			if (snimek < FRAMES) {
 				requestAnimationFrame(tik);

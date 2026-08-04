@@ -102,6 +102,10 @@
 	const START = { x: 60, y: 70 };
 	const PREKAZKA = { x: 280, y: 30, w: 80, h: 120 };
 	const GARAZ = { x: 220, y: 190, w: 80, h: 60 };
+	// Shodné s lokálním x hrotu špičky v <polygon> uvnitř #pr-robot-skupina: robot není bod,
+	// jeho nejpřednější místo je ROBOT_NOSE_PX před středem. Srážka se proto nesmí počítat
+	// ke středu, ale k tomuhle bodu — jinak by špička skončila uvnitř překážky.
+	const ROBOT_NOSE_PX = 15;
 
 	// Hodnoty, se kterými program bez chyby zaparkuje přesně v garáži.
 	const JIZDA_OK = 400;    // mm — zastaví se těsně před překážkou
@@ -175,11 +179,15 @@
 		return null;
 	}
 
-	/** Přímá jízda vpřed o `mm` ve směru, kterým robot právě míří. Zastaví se u překážky. */
+	/**
+	 * Přímá jízda vpřed o `mm` ve směru, kterým robot právě míří. Zastaví se, až SPIČKA
+	 * (ne střed) dosáhne překážky — proto se od srážky spočítané ke středu odečítá
+	 * ROBOT_NOSE_PX (nález nezávislého kontrolora: bez odečtu by špička skončila uvnitř).
+	 */
 	function jed(stav, mm) {
 		const naSrazku = vzdalenostDoPrekazky(stav, stav.heading, PREKAZKA);
 		const planPx = mmToPx(mm);
-		const maxPx = naSrazku === null ? Infinity : naSrazku;
+		const maxPx = naSrazku === null ? Infinity : Math.max(0, naSrazku - ROBOT_NOSE_PX);
 		const najetoPx = Math.min(planPx, maxPx);
 		const naraz = najetoPx < planPx;
 		const rad = (stav.heading * Math.PI) / 180;
@@ -465,7 +473,7 @@
 	scenaEl.__jeVGarazi = jeVGarazi;
 	scenaEl.__infoKGarazi = infoKGarazi;
 	scenaEl.__planHodnoty = planHodnoty;
-	scenaEl.__meze = { SCALE, START, PREKAZKA, GARAZ, JIZDA_OK, ZATACKA_OK, PARKOVANI_OK };
+	scenaEl.__meze = { SCALE, START, PREKAZKA, GARAZ, ROBOT_NOSE_PX, JIZDA_OK, ZATACKA_OK, PARKOVANI_OK };
 	scenaEl.__stav = () => ({ chyba, styl, plan, stav, postup, posledniNajednou });
 </script>
 
