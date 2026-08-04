@@ -6,16 +6,16 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🔴 PŘÍŠTÍ KOLO ZAČNI TÍMHLE: druhá kontrola oprav D3
+### ✅ Hotovo 4. 8. pozdě večer — kolo D4: druhá kontrola D3 uzavřena
 
-Opravy 12 nálezů kola D3 jsou nasazené, ale NEPOTVRZENÉ druhou kontrolou (poučení
-z D1: opravit ≠ ověřit). Nový kontrolor (čerstvý kontext) má u každého nálezu
-rozhodnout ZAVŘENO/OTEVŘENO **spuštěním kódu** a hledat nové vady z oprav — hlavně:
-prohozené kabely = couvání (ne točení) a zábrana téhož portu v `SestaveniRobotaSimulace`
-(pohled shora — je scéna konzistentní?); ping-pong `nastav směr (45)` + otočka 180°±20
-(zůstala celá čísla ve VYPSANÝCH hodnotách po přechodu na sin/cos?); projekt robot
-garáž 90 mm × značka 150 mm; motory roh 4 = START; kvízy (život = červený pruh,
-krok 10+skóre/10, smazaný duplikát). Nálezy zpět původním workerům.
+12 zavřeno / 2 otevřeno / 4 nové (1 závažná — míček se i se zapnutou podmínkou
+protahoval pod pálku). Vše opraveno původními workery (kvízy hlavní model),
+nasazeno `d4919a8`, curl potvrzen. Kotvy: brána 0 chyb, build 465, pojistka
+odrazu ověřena přímým během (7339 vstupů, 0 dolů). Poučení v METRIKY-KOL.md
+(řádek D4): harness bez verdiktu mate; CDN status + obsah z téhož stažení.
+**Do kontroly příští dávky přibal:** rychlý pohled na dvě předělané mechaniky
+(aréna sestavení — posun rozpojený od natočení; ořez odchylky odrazu) očima
+kontrolora další dávky, ať mají třetí nezávislý pohled.
 
 ### ✅ Hotovo 4. 8. večer — kolo D3: 4 simulace robotiky a her (Inf8)
 
