@@ -675,7 +675,7 @@ export const rok2021: Rok = {
 		{ id: 'zFYXDsrMb1U', nazev: 'KRATOCHVÍLE', odkaz: 'https://youtu.be/zFYXDsrMb1U' },
 		{ id: 'KpVhvaQNRaw', nazev: 'Nová Pec', odkaz: 'https://youtu.be/KpVhvaQNRaw' },
 		{ id: 'H1TTlOMH66M', nazev: 'Nová Pec 2', odkaz: 'https://youtu.be/H1TTlOMH66M' },
-		{ id: 'FKGHCv_YK84', nazev: 'KOLODĚJE', odkaz: 'https://youtu.be/FKGHCv_YK84' },
+		{ id: 'CtELqPCIf1k', nazev: 'KOLODĚJE', odkaz: 'https://youtu.be/CtELqPCIf1k' },
 		{ id: 'mK8UqL93IrU', nazev: 'Skanzen Přerov nad Labem', odkaz: 'https://youtu.be/mK8UqL93IrU' },
 		{ id: 'PcUKF9YBuSw', nazev: 'Žleby Čihošť Zahrádky    SD 480p', odkaz: 'https://youtu.be/PcUKF9YBuSw' },
 		{ id: 'BgDgJuBu7vI', nazev: 'Lipnice nad Sázavou   SD 480p', odkaz: 'https://youtu.be/BgDgJuBu7vI' },
