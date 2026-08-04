@@ -51,7 +51,9 @@
 
 			<g id="pr-robot-skupina" transform="translate(60,70) rotate(0)">
 				<rect x="-15" y="-9" width="30" height="18" rx="4" id="pr-robot-telo" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
-				<polygon points="15,-6 23,0 15,6" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+				<!-- Špička nesmí kreslit dál než tělo (lokální x=15) — jinak by se zdálo, že robot
+				     přesahuje do překážky i ve chvíli, kdy srážka (počítaná ke středu) hlásí bezpečno. -->
+				<polygon points="9,-6 15,0 9,6" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
 			</g>
 		</svg>
 	</div>
@@ -157,6 +159,22 @@
 	const jeVGarazi = (bod) =>
 		bod.x >= GARAZ.x && bod.x <= GARAZ.x + GARAZ.w && bod.y >= GARAZ.y && bod.y <= GARAZ.y + GARAZ.h;
 
+	/**
+	 * Kolik mm chybí (nebo přebývá) do vjezdu do GARÁŽE (hrana) a zvlášť na ZNAČKU uprostřed
+	 * garáže — to jsou dvě různé věci a nesmí se plést. Používá stejnou srážkovou funkci jako
+	 * překážka, jen na obdélník GARAZ.
+	 */
+	function infoKGarazi(bod, headingDeg) {
+		const stred = { x: GARAZ.x + GARAZ.w / 2, y: GARAZ.y + GARAZ.h / 2 };
+		const rad = (headingDeg * Math.PI) / 180;
+		const naZnacku = (stred.x - bod.x) * Math.cos(rad) + (stred.y - bod.y) * Math.sin(rad);
+		const doHrany = vzdalenostDoPrekazky(bod, headingDeg, GARAZ);
+		if (doHrany !== null) return { smer: 'pred', doGarazeMm: pxToMm(doHrany), naZnackuMm: pxToMm(naZnacku) };
+		const zaHranou = vzdalenostDoPrekazky(bod, (headingDeg + 180) % 360, GARAZ);
+		if (zaHranou !== null) return { smer: 'za', doGarazeMm: pxToMm(zaHranou) };
+		return null;
+	}
+
 	/** Přímá jízda vpřed o `mm` ve směru, kterým robot právě míří. Zastaví se u překážky. */
 	function jed(stav, mm) {
 		const naSrazku = vzdalenostDoPrekazky(stav, stav.heading, PREKAZKA);
@@ -229,10 +247,15 @@
 		}
 		if (r.naraz) return `✗ Po ${cz(r.ujelMm)} mm z naprogramovaných ${cz(r.naprogramovanoMm)} mm narazil do překážky.`;
 		if (!r.ok) {
-			const chybi = PARKOVANI_OK - r.naprogramovanoMm;
-			return chybi > 0
-				? `✗ Ujel jen ${cz(r.naprogramovanoMm)} mm — do garáže chybí ${cz(chybi)} mm.`
-				: `✗ Ujel ${cz(r.naprogramovanoMm)} mm a garáž přejel o ${cz(-chybi)} mm.`;
+			const info = infoKGarazi(r.stav, r.stav.heading);
+			if (info && info.smer === 'pred') {
+				return `✗ Ujel jen ${cz(r.naprogramovanoMm)} mm — do garáže chybí ${cz(info.doGarazeMm)} mm `
+					+ `(na značku uprostřed by chybělo ${cz(info.naZnackuMm)} mm).`;
+			}
+			if (info && info.smer === 'za') {
+				return `✗ Ujel ${cz(r.naprogramovanoMm)} mm — garáž přejel o ${cz(info.doGarazeMm)} mm.`;
+			}
+			return `✗ Ujel ${cz(r.naprogramovanoMm)} mm a garáž úplně minul.`;
 		}
 		return `✓ Ujel ${cz(r.naprogramovanoMm)} mm a zaparkoval přesně na značce.`;
 	}
@@ -440,6 +463,7 @@
 	scenaEl.__celaSimulace = celaSimulace;
 	scenaEl.__vzdalenostDoPrekazky = vzdalenostDoPrekazky;
 	scenaEl.__jeVGarazi = jeVGarazi;
+	scenaEl.__infoKGarazi = infoKGarazi;
 	scenaEl.__planHodnoty = planHodnoty;
 	scenaEl.__meze = { SCALE, START, PREKAZKA, GARAZ, JIZDA_OK, ZATACKA_OK, PARKOVANI_OK };
 	scenaEl.__stav = () => ({ chyba, styl, plan, stav, postup, posledniNajednou });

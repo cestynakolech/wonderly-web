@@ -3,20 +3,33 @@
 //
 // Výklad na téže stránce má pointu, kterou slovy nejde ukázat: chyba v ZAPOJENÍ
 // portů se neprojeví hned při sestavování, ale AŽ při spuštění programu — a projeví
-// se jinak než chyba v programu. Simulace proto rozděluje dvě věci, které si děti
+// se jinak, než chyba v programu. Simulace proto rozděluje dvě věci, které si děti
 // pletou:
 //   1. SCHÉMA ZAPOJENÍ (nahoře): mozek (Brain) má 12 portů, levý a pravý motor se
 //      připojují kabelem do konkrétního portu. Program čeká motory v portu 1 (levý)
-//      a portu 6 (pravý) — přesně podle typického návodu ke stavebnici.
-//   2. CO ROBOT UDĚLÁ (dole): spustí se STÁLE STEJNÝ program „jeď 2 s vpřed" a jede
-//      se, co se stane podle toho, jak jsou kabely doopravdy zapojené:
-//        - port 1 ↔ port 6 prohozené → oba motory dostávají povel pro tu druhou
-//          stranu a točí se obráceně → robot se TOČÍ NA MÍSTĚ (nikam nejede)
-//        - jeden kabel nikde nezapojený → ten motor MLČÍ, robot se otáčí kolem
-//          nehybného kola (točí se k té straně, která nejede)
-//        - žádný kabel v portu, který program používá → NEJEDE VŮBEC (ticho)
-//   Oprava ve všech případech je STEJNÁ: přepojit kabel do správného portu,
-//   robota rozebírat netřeba — přesně jak říká výklad na stránce.
+//      a portu 6 (pravý) — přesně podle typického návodu ke stavebnici. Do jednoho
+//      portu nejde zapojit dva kabely najednou — vybraný port zmizí z nabídky
+//      u druhého kabelu (fyzicky tam druhý konektor nevleze).
+//   2. CO ROBOT UDĚLÁ (dole, POHLED SHORA na podlahu): spustí se STÁLE STEJNÝ
+//      program „jeď 2 s vpřed" a je vidět, co udělá KAŽDÉ kolo zvlášť:
+//        - kabel ve svém portu → kolo se točí správně dopředu (rychlost +1)
+//        - kabel v portu toho DRUHÉHO motoru → kolo se točí obráceně (rychlost −1)
+//        - kabel nikde (nebo ve volném portu, který program nepoužívá) → kolo mlčí (0)
+//      Pohyb robota = průměr rychlostí obou kol (dopředu/dozadu) + rozdíl rychlostí
+//      (otáčení). Klíčový případ ze zadání: PROHOZENÉ kabely (levý→port 6,
+//      pravý→port 1) dají OBĚMA kolům rychlost −1 → průměr −1, rozdíl 0 →
+//      robot COUVÁ (jede pozpátku, nekroutí se) — přesně jak to popisuje výklad
+//      na stránce („Program bývá v pořádku — obvykle jsou motory zapojené
+//      obráceně nebo prohozený levý a pravý"). Když mlčí jen jeden motor, robot
+//      se stáčí k té straně, která nejede (mírný oblouk). Kdyby obě kola dostala
+//      navzájem OPAČNÝ povel (jedno +1, druhé −1), robot by se točil na místě —
+//      ale to by šlo jen tak, že by dva kabely mířily do téhož portu, a to
+//      zapojení už UI nedovolí (viz bod 1), takže se to reálně nestane.
+//
+// POHLED SHORA (top-down), ne z boku: otáčení a couvání jsou v rovině podlahy
+// naprosto přirozené (žádné „propadávání" pod čáru podlahy ani „kotrmelce"
+// jako při rotaci nakreslené z boku). Stejný pohled shora používá i sesterská
+// simulace VEXcode (žák naprogramuje robota) — děti ho už znají.
 //
 // Krok sestavení (podvozek → mozek → kabely → zapnutí) se musí dodržet v POŘADÍ:
 // dokud není mozek na podvozku, nejde zapojovat kabely; dokud nejsou kabely
@@ -25,11 +38,9 @@
 // Výchozí zapojení (levý → port 1, pravý → port 6) dá čistou, správnou jízdu —
 // dítě nejdřív uvidí, jak to má vypadat, a pak si zkazí zapojení samo.
 //
-// Časování (30 snímků ≈ 1 s, requestAnimationFrame v náhledu je zpomalený, počítá
-// se podle POŘADÍ snímků, ne podle reálného času):
-//   jízda rovně 60 snímků = 2 s (přesně program „drive for 2 seconds")
-//   otočka na místě 90 snímků = 3 s (dvě celé otočky, ať je efekt vidět)
-//   otočka kolem nehybného kola 45 snímků = 1,5 s
+// Časování: program je vždy „drive for 2 seconds" — proto VŠECHNY možné výsledky
+// animujeme STEJNĚ dlouho, 60 snímků (30 snímků ≈ 1 s; requestAnimationFrame je
+// v náhledu zpomalený, počítá se podle POŘADÍ snímků, ne podle reálného času).
 
 const PORT_X0 = 415;
 const PORT_KROK = 27;
@@ -47,8 +58,8 @@ for (let i = 1; i <= 12; i++) {
 	<h2><span class="podtrh">Proč robot mlčí, i když je program v pořádku 🔌</span></h2>
 	<p>
 		Sestav robota v pořádném pořadí a pak zapoj kabely motorů do portů mozku (Brain).
-		Program je pořád stejný — <strong>„jeď 2 s vpřed"</strong>. Sleduj, co se stane,
-		když jsou kabely v jiných portech, než program čeká.
+		Program je pořád stejný — <strong>„jeď 2 s vpřed"</strong>. Sleduj (pohled shora
+		na podlahu), co se stane, když jsou kabely v jiných portech, než program čeká.
 	</p>
 
 	<p class="sb-radek">
@@ -58,8 +69,8 @@ for (let i = 1; i <= 12; i++) {
 	</p>
 
 	<div class="sb-obal">
-		<svg id="sb-scena" viewBox="0 0 640 300" role="img" aria-labelledby="sb-popis">
-			<title id="sb-popis">Nahoře schéma zapojení kabelů do portů mozku, dole robot na podlaze</title>
+		<svg id="sb-scena" viewBox="0 0 640 340" role="img" aria-labelledby="sb-popis">
+			<title id="sb-popis">Nahoře schéma zapojení kabelů do portů mozku, dole pohled shora na robota na podlaze</title>
 
 			<!-- díly na stole, než je robot sestavený -->
 			<g id="sb-dily-skupina">
@@ -96,14 +107,22 @@ for (let i = 1; i <= 12; i++) {
 				<line id="sb-kabel-pravy" x1="100" y1="84" x2="130" y2="84" stroke="#1098ad" stroke-width="4" stroke-linecap="round" />
 			</g>
 
-			<!-- robot na podlaze — zobrazí se po kroku 2, reaguje na spuštění programu -->
+			<!-- robot na podlaze — POHLED SHORA, zobrazí se po kroku 2 -->
 			<g id="sb-robot-skupina" opacity="0">
-				<line x1="0" y1="270" x2="640" y2="270" stroke="#2b2a26" stroke-width="3" />
-				<g id="sb-robot-teleso">
-					<rect x="80" y="190" width="110" height="60" rx="10" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
-					<rect x="118" y="200" width="34" height="20" rx="4" fill="#495057" />
-					<circle id="sb-kolo-levy" cx="105" cy="250" r="20" fill="#495057" stroke="#2b2a26" stroke-width="3" />
-					<circle id="sb-kolo-pravy" cx="165" cy="250" r="20" fill="#495057" stroke="#2b2a26" stroke-width="3" />
+				<rect x="20" y="140" width="600" height="140" rx="10" fill="#f1f3f5" stroke="#868e96" stroke-width="2" />
+				<line x1="330" y1="150" x2="380" y2="150" stroke="#adb5bd" stroke-width="3" marker-end="url(#sb-sipka)" />
+				<text x="355" y="140" text-anchor="middle" class="sb-popisek-mala" fill="#868e96">vpřed</text>
+				<defs>
+					<marker id="sb-sipka" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+						<path d="M0,0 L8,4 L0,8 Z" fill="#adb5bd" />
+					</marker>
+				</defs>
+				<polyline id="sb-stopa" points="" fill="none" stroke="#1971c2" stroke-width="2" stroke-dasharray="5 5" />
+				<g id="sb-robot-top" transform="translate(320 210) rotate(0)">
+					<rect x="-25" y="-18" width="50" height="36" rx="8" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+					<polygon points="25,0 15,-10 15,10" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+					<rect id="sb-kolo-levy" x="-18" y="-24" width="16" height="8" rx="2" fill="#ffa94d" stroke="#2b2a26" stroke-width="2" />
+					<rect id="sb-kolo-pravy" x="-18" y="16" width="16" height="8" rx="2" fill="#66d9e8" stroke="#2b2a26" stroke-width="2" />
 				</g>
 			</g>
 		</svg>
@@ -127,7 +146,7 @@ for (let i = 1; i <= 12; i++) {
 	</p>
 
 	<p class="sb-radek">
-		<button type="button" class="sb-tl sb-hlavni" id="sb-spustit" disabled>⏩ zapnout a spustit program</button>
+		<button type="button" class="sb-tl sb-hlavni" id="sb-spustit" disabled>⏩ zapnout a spustit program (2 s)</button>
 	</p>
 
 	<table class="sb-tabulka">
@@ -147,6 +166,9 @@ for (let i = 1; i <= 12; i++) {
 <script>
 	const PROG_LEVY = '1';
 	const PROG_PRAVY = '6';
+	const FRAMES = 60; // program je vždy „drive for 2 seconds" → VŽDY 60 snímků, ať dopadne jakkoli
+	const FORWARD_TOTAL = 200; // px za celý běh, když obě kola jedou správně (průměr rychlostí = 1)
+	const ROT_TOTAL = 180; // ° za celý běh na jednotku rozdílu rychlostí kol (max rozdíl je teď ±1, viz níže)
 
 	const PORT_X0 = 415, PORT_KROK = 27, PORT_Y1 = 52, PORT_Y2 = 84;
 	function portPozice(cislo) {
@@ -161,7 +183,8 @@ for (let i = 1; i <= 12; i++) {
 	const dilyEl = document.getElementById('sb-dily-skupina');
 	const zapojeniEl = document.getElementById('sb-zapojeni-skupina');
 	const robotSkupinaEl = document.getElementById('sb-robot-skupina');
-	const robotTelesoEl = document.getElementById('sb-robot-teleso');
+	const robotTopEl = document.getElementById('sb-robot-top');
+	const stopaEl = document.getElementById('sb-stopa');
 	const koloLevyEl = document.getElementById('sb-kolo-levy');
 	const koloPravyEl = document.getElementById('sb-kolo-pravy');
 	const kabelLevyEl = document.getElementById('sb-kabel-levy');
@@ -181,27 +204,53 @@ for (let i = 1; i <= 12; i++) {
 	const btnReset = document.getElementById('sb-reset');
 	const popisEl = document.getElementById('sb-popis');
 
+	const BARVA_LEVY_VYCHOZI = '#ffa94d';
+	const BARVA_PRAVY_VYCHOZI = '#66d9e8';
+
 	// ——— čisté funkce: stav motoru a výsledný pohyb, ověřitelné bez prohlížeče ———
-	/** Kabel motoru je ve 'spravne' portu, v portu 'druheho' motoru (zaměněný), nebo 'mlci' (nikam program nemíří). */
+	/** Kabel motoru je ve 'spravne' portu, v portu 'druheho' motoru (zaměněný → točí se obráceně), nebo 'mlci'. */
 	function stavMotoru(port, vlastniPort, druhyPort) {
 		if (port === vlastniPort) return 'spravne';
 		if (port === druhyPort) return 'zamnene';
 		return 'mlci';
 	}
-	/** Ze stavu obou motorů spočítá, co robot doopravdy udělá. */
-	function vyhodnotPohyb(levyStav, pravyStav) {
-		if (levyStav === 'spravne' && pravyStav === 'spravne') return 'rovne';
-		if (levyStav === 'mlci' && pravyStav === 'mlci') return 'nejede';
-		if (levyStav === 'mlci' && pravyStav === 'spravne') return 'otoci_vlevo';
-		if (levyStav === 'spravne' && pravyStav === 'mlci') return 'otoci_vpravo';
-		return 'toci_se'; // aspoň jeden motor dostává povel pro tu druhou stranu
+	/** Rychlost kola: správně +1 (jede), zaměněně −1 (točí se obráceně), mlčí 0. */
+	function rychlostKola(stav) {
+		return stav === 'spravne' ? 1 : stav === 'zamnene' ? -1 : 0;
+	}
+	/**
+	 * Pohyb robota ze dvou rychlostí kol (diferenciální podvozek):
+	 *  avg  = (vL+vR)/2 … dopředu/dozadu (kladně dopředu, záporně couvá)
+	 *  diff = vL-vR      … otáčení (kladně vpravo, záporně vlevo)
+	 * S prohozenými kabely dostanou OBĚ kola stejnou zápornou rychlost →
+	 * avg=−1, diff=0 → robot COUVÁ a nekroutí se (souhlasí s výkladem na stránce).
+	 */
+	function vyhodnotPohyb(vL, vR) {
+		return { avg: (vL + vR) / 2, diff: vL - vR };
+	}
+	/** Krátký popis pro tabulku podle pohybu. */
+	function popisekPohybu({ avg, diff }) {
+		if (avg === 0 && diff === 0) return 'stojí, ticho';
+		if (diff === 0) return avg > 0 ? 'jede rovně dopředu' : 'couvá (jede pozpátku)';
+		if (avg === 0) return diff > 0 ? 'točí se na místě doprava' : 'točí se na místě doleva';
+		const smer = avg > 0 ? 'a jede dopředu' : 'a couvá';
+		return diff > 0 ? `otáčí se doprava ${smer}` : `otáčí se doleva ${smer}`;
 	}
 
 	let krok = 0; // 0 díly, 1 podvozek, 2 mozek + porty
 	let bezi = false;
-	let posledniVysledek = null;
+	let posledniVysledek = null; // { avg, diff }
+
+	/** Do jednoho portu nejde zapojit dva kabely — zvolený port zmizí z nabídky u druhého kabelu. */
+	function synchronizujMoznosti() {
+		const vLevy = selectLevyEl.value;
+		const vPravy = selectPravyEl.value;
+		for (const opt of selectLevyEl.options) opt.disabled = opt.value !== '' && opt.value === vPravy;
+		for (const opt of selectPravyEl.options) opt.disabled = opt.value !== '' && opt.value === vLevy;
+	}
 
 	function aktualizujKabely() {
+		synchronizujMoznosti();
 		const portLevy = selectLevyEl.value;
 		const portPravy = selectPravyEl.value;
 		const pozLevy = portPozice(portLevy);
@@ -239,27 +288,32 @@ for (let i = 1; i <= 12; i++) {
 		return null; // od kroku 2 se stav řídí zapojením / výsledkem běhu
 	}
 
-	function popisVysledku(vysledek, portLevy, portPravy) {
-		if (vysledek === 'rovne') {
-			return '🎉 <strong>Robot jede rovně!</strong> Levý motor je v portu 1 a pravý v portu 6 — přesně jak program čeká.';
+	function popisVysledku({ avg, diff }, portLevy, portPravy) {
+		if (avg === 1 && diff === 0) {
+			return '🎉 <strong>Robot jede rovně dopředu!</strong> Levý motor je v portu 1 a pravý v portu 6 — přesně jak program čeká.';
 		}
-		if (vysledek === 'toci_se') {
-			return '🌀 <strong>Robot se točí na místě</strong> a nikam nejede. Aspoň jeden kabel je v portu, který program používá pro '
-				+ 'ten DRUHÝ motor — motor se pak točí obráceně, než má. Oprava: přepoj kabely do portu 1 (levý motor) a portu 6 (pravý motor). '
-				+ 'Robota rozebírat nemusíš.';
+		if (avg === -1 && diff === 0) {
+			return '↩️ <strong>Robot couvá</strong>, i když má program jet dopředu! Kabely levého a pravého motoru jsou '
+				+ '<strong>prohozené</strong> — každý motor tak dostává povel pro tu druhou stranu a obě kola se točí obráceně. '
+				+ 'Program je v pořádku — stačí přepojit kabely do portu 1 (levý) a portu 6 (pravý), robota rozebírat nemusíš.';
 		}
-		if (vysledek === 'otoci_vlevo') {
-			return '↩️ <strong>Robot se otáčí doleva</strong> kolem nehybného levého kola. Kabel levého motoru '
-				+ (portLevy ? `je v portu ${portLevy}, ale program čeká motor v portu 1 — proto ho neslyší.` : 'není zapojený v žádném portu — motor mlčí.')
-				+ ' Zkontroluj port, ne program.';
+		if (avg === 0 && diff === 0) {
+			return '🤐 <strong>Robot stojí a je úplné ticho</strong> — ani jeden motor není v portu, který program používá (port 1 a port 6). '
+				+ 'Program je v pořádku, chyba je v zapojení kabelů.';
 		}
-		if (vysledek === 'otoci_vpravo') {
-			return '↪️ <strong>Robot se otáčí doprava</strong> kolem nehybného pravého kola. Kabel pravého motoru '
-				+ (portPravy ? `je v portu ${portPravy}, ale program čeká motor v portu 6 — proto ho neslyší.` : 'není zapojený v žádném portu — motor mlčí.')
-				+ ' Zkontroluj port, ne program.';
+		if (diff > 0 && avg >= 0) {
+			return `↪️ <strong>Robot se stáčí doprava</strong> — pravý motor `
+				+ (portPravy ? `je v portu ${portPravy}, ale program čeká motor v portu 6 — proto ho neslyší.` : 'není zapojený v žádném portu — mlčí.')
+				+ ' Levý motor jede správně. Zkontroluj port pravého motoru, ne program.';
 		}
-		return '🤐 <strong>Robot stojí a je úplné ticho</strong> — ani jeden motor není v portu, který program používá (port 1 a port 6). '
-			+ 'Program je v pořádku, chyba je v zapojení kabelů.';
+		if (diff < 0 && avg >= 0) {
+			return `↩️ <strong>Robot se stáčí doleva</strong> — levý motor `
+				+ (portLevy ? `je v portu ${portLevy}, ale program čeká motor v portu 1 — proto ho neslyší.` : 'není zapojený v žádném portu — mlčí.')
+				+ ' Pravý motor jede správně. Zkontroluj port levého motoru, ne program.';
+		}
+		// couvá a zároveň se stáčí — jeden kabel zaměněný, druhý nezapojený
+		return `↩️ <strong>Robot couvá a přitom se stáčí</strong> — jeden kabel je v portu toho druhého motoru (motor se točí obráceně) `
+			+ 'a druhý motor vůbec neslyší program. Zkontroluj oba porty podle tabulky výše.';
 	}
 
 	function prekresli() {
@@ -270,10 +324,7 @@ for (let i = 1; i <= 12; i++) {
 		aktualizujTlacitka();
 
 		if (posledniVysledek) {
-			tabVysledekEl.textContent = {
-				rovne: 'jede rovně', toci_se: 'točí se na místě', otoci_vlevo: 'otáčí se doleva',
-				otoci_vpravo: 'otáčí se doprava', nejede: 'stojí, ticho',
-			}[posledniVysledek];
+			tabVysledekEl.textContent = popisekPohybu(posledniVysledek);
 			stavEl.innerHTML = popisVysledku(posledniVysledek, selectLevyEl.value, selectPravyEl.value);
 		} else {
 			tabVysledekEl.textContent = krok < 2 ? '—' : 'zatím nespuštěno';
@@ -286,8 +337,8 @@ for (let i = 1; i <= 12; i++) {
 			: `Mozek je připojený. Levý motor v portu ${selectLevyEl.value || 'nikde'}, pravý motor v portu ${selectPravyEl.value || 'nikde'}.`;
 	}
 
-	function nastavKolo(el, stav) {
-		el.setAttribute('fill', stav === 'spravne' ? '#37b24d' : stav === 'zamnene' ? '#e03131' : '#495057');
+	function nastavKolo(el, stav, barvaVychozi) {
+		el.setAttribute('fill', stav === 'spravne' ? '#37b24d' : stav === 'zamnene' ? '#e03131' : stav === 'mlci' ? '#868e96' : barvaVychozi);
 	}
 
 	btnPodvozek.addEventListener('click', () => {
@@ -302,9 +353,10 @@ for (let i = 1; i <= 12; i++) {
 		selectLevyEl.value = PROG_LEVY;
 		selectPravyEl.value = PROG_PRAVY;
 		posledniVysledek = null;
-		nastavKolo(koloLevyEl, 'mlci');
-		nastavKolo(koloPravyEl, 'mlci');
-		robotTelesoEl.setAttribute('transform', '');
+		robotTopEl.setAttribute('transform', 'translate(320 210) rotate(0)');
+		stopaEl.setAttribute('points', '');
+		nastavKolo(koloLevyEl, null, BARVA_LEVY_VYCHOZI);
+		nastavKolo(koloPravyEl, null, BARVA_PRAVY_VYCHOZI);
 		prekresli();
 	});
 
@@ -314,9 +366,10 @@ for (let i = 1; i <= 12; i++) {
 		posledniVysledek = null;
 		selectLevyEl.value = '';
 		selectPravyEl.value = '';
-		robotTelesoEl.setAttribute('transform', '');
-		nastavKolo(koloLevyEl, 'mlci');
-		nastavKolo(koloPravyEl, 'mlci');
+		robotTopEl.setAttribute('transform', 'translate(320 210) rotate(0)');
+		stopaEl.setAttribute('points', '');
+		nastavKolo(koloLevyEl, null, BARVA_LEVY_VYCHOZI);
+		nastavKolo(koloPravyEl, null, BARVA_PRAVY_VYCHOZI);
 		prekresli();
 	});
 
@@ -329,37 +382,32 @@ for (let i = 1; i <= 12; i++) {
 		const portPravy = selectPravyEl.value;
 		const levyStav = stavMotoru(portLevy, PROG_LEVY, PROG_PRAVY);
 		const pravyStav = stavMotoru(portPravy, PROG_PRAVY, PROG_LEVY);
-		const vysledek = vyhodnotPohyb(levyStav, pravyStav);
-		nastavKolo(koloLevyEl, levyStav);
-		nastavKolo(koloPravyEl, pravyStav);
+		const vL = rychlostKola(levyStav);
+		const vR = rychlostKola(pravyStav);
+		const vysledek = vyhodnotPohyb(vL, vR);
+		nastavKolo(koloLevyEl, levyStav, BARVA_LEVY_VYCHOZI);
+		nastavKolo(koloPravyEl, pravyStav, BARVA_PRAVY_VYCHOZI);
 
 		bezi = true;
 		aktualizujTlacitka();
 
-		const START_X = 80, START_Y = 190; // levý horní roh těla na startu
-		const STRED_X = 135, STRED_Y = 220; // střed těla — osa otáčení „na místě"
-		const KOLO_LEVY_X = 105, KOLO_PRAVY_X = 165, KOLO_Y = 250; // osy otáčení kolem nehybného kola
+		const START_X = 320, START_Y = 210;
+		const krokDX = (vysledek.avg * FORWARD_TOTAL) / FRAMES; // px/snímek dopředu podél AKTUÁLNÍHO natočení
+		const krokRot = (vysledek.diff * ROT_TOTAL) / FRAMES; // °/snímek
 
-		let snimkuCelkem = 60, snimek = 0;
-		if (vysledek === 'toci_se') snimkuCelkem = 90;
-		if (vysledek === 'otoci_vlevo' || vysledek === 'otoci_vpravo') snimkuCelkem = 45;
-		if (vysledek === 'nejede') snimkuCelkem = 0;
+		let x = START_X, y = START_Y, heading = 0, snimek = 0;
+		const stopa = [`${x},${y}`];
 
 		function tik() {
 			snimek++;
-			const t = Math.min(1, snimek / snimkuCelkem);
-			let transform = '';
-			if (vysledek === 'rovne') {
-				transform = `translate(${300 * t} 0)`;
-			} else if (vysledek === 'toci_se') {
-				transform = `rotate(${720 * t} ${STRED_X} ${STRED_Y})`;
-			} else if (vysledek === 'otoci_vlevo') {
-				transform = `rotate(${-70 * t} ${KOLO_LEVY_X} ${KOLO_Y})`;
-			} else if (vysledek === 'otoci_vpravo') {
-				transform = `rotate(${70 * t} ${KOLO_PRAVY_X} ${KOLO_Y})`;
-			}
-			robotTelesoEl.setAttribute('transform', transform);
-			if (t < 1) {
+			heading += krokRot;
+			const rad = (heading * Math.PI) / 180;
+			x += krokDX * Math.cos(rad);
+			y += krokDX * Math.sin(rad);
+			robotTopEl.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${heading.toFixed(1)})`);
+			stopa.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+			stopaEl.setAttribute('points', stopa.join(' '));
+			if (snimek < FRAMES) {
 				requestAnimationFrame(tik);
 			} else {
 				bezi = false;
@@ -367,21 +415,16 @@ for (let i = 1; i <= 12; i++) {
 				prekresli();
 			}
 		}
-		if (snimkuCelkem === 0) {
-			bezi = false;
-			posledniVysledek = vysledek;
-			prekresli();
-		} else {
-			requestAnimationFrame(tik);
-		}
+		requestAnimationFrame(tik);
 	});
 
 	prekresli();
 
 	// ——— háčky pro test bez prohlížeče ———
 	scenaEl.__stavMotoru = stavMotoru;
+	scenaEl.__rychlostKola = rychlostKola;
 	scenaEl.__vyhodnotPohyb = vyhodnotPohyb;
-	scenaEl.__meze = { PROG_LEVY, PROG_PRAVY };
+	scenaEl.__meze = { PROG_LEVY, PROG_PRAVY, FRAMES, FORWARD_TOTAL, ROT_TOTAL };
 	scenaEl.__stav = () => ({ krok, posledniVysledek, portLevy: selectLevyEl.value, portPravy: selectPravyEl.value });
 </script>
 

@@ -14,9 +14,18 @@
 //
 // Souřadnice jsou celočíselné ve scratchovské soustavě (x −240…240, y −180…180),
 // kreslí se 1:1 do viewBoxu 480×360 (px = 240+x, py = 180−y — žádné další měřítko).
-// Rychlosti jsou schválně trojice 60-80-100 / 90-120-150 / 120-160-200 (násobky
-// Pythagorovy trojice 3-4-5), takže při kroku 0,1 s vychází posun v celých jednotkách
-// (6-8 / 9-12 / 12-16 px na krok) — žádná desetinná čísla v pohybu.
+// POHYB JE PODLE SMĚRU, přesně jako ve Scratchi (blok „nastav směr (…)“): 0° = nahoru,
+// 90° = doprava, 180° = dolů, 270° = doleva. Míček startuje se směrem přesně 45° (=
+// šikmo NAHORU-doprava, jak píše výklad i kvíz), rychlost (velikost pohybu) je
+// samostatné celé číslo 60/90/120 jednotek/s. Směr se v kódu vždy počítá jako celé
+// stupně:
+//  • odraz od svislého okraje (leva/pravá stěna): směr = 360 − směr
+//  • odraz od stropu: směr = 180 − směr
+//  • odraz od pálky = SKUTEČNÝCH „otoč se ↻ o 180 stupňů“ (směr = směr + 180) PLUS
+//    náhodná odchylka −20 až +20° (celé stupně, deterministicky odvozená z polohy
+//    zásahu, aby šlo ověřit bez prohlížeče) — přesně jako ve scénáři z výkladu — a
+//    hned po otočce „dopředu o 15 kroků“, aby se míček od pálky odlepil (jinak by se
+//    přes stále platnou podmínku „dotýkáš se (Pálka)?“ hned zase otočil zpátky).
 // Časování: setInterval po 100 ms = 10 kroků/s (TICK_S = 0,1 s), žádný
 // requestAnimationFrame → žádné zpomalení v náhledu. Pauza po ztrátě života je přesně
 // 10 kroků = 1 sekunda, jak píše scénář ve výkladu („čekej 1 sekund“).
@@ -59,9 +68,9 @@
 	</p>
 	<p class="pin-radek">
 		<strong>Rychlost míčku:</strong>
-		<button type="button" class="pin-tl pin-rychlost pin-aktivni" data-rychlost="pomalu">pomalu (100/s)</button>
-		<button type="button" class="pin-tl pin-rychlost" data-rychlost="stredni">normálně (150/s)</button>
-		<button type="button" class="pin-tl pin-rychlost" data-rychlost="rychle">rychle (200/s)</button>
+		<button type="button" class="pin-tl pin-rychlost pin-aktivni" data-rychlost="pomalu">pomalu (60/s)</button>
+		<button type="button" class="pin-tl pin-rychlost" data-rychlost="stredni">normálně (90/s)</button>
+		<button type="button" class="pin-tl pin-rychlost" data-rychlost="rychle">rychle (120/s)</button>
 	</p>
 	<p class="pin-radek">
 		<strong>Pálka:</strong> jezdí za myší nad scénou, nebo
@@ -109,19 +118,31 @@
 	const PAUZA_TICKS = 10;        // 10 × 0,1 s = 1 s, jako „čekej 1 sekund“ ve výkladu
 	const PALKA_MEZ = STENA - PALKA_POLOSIRKA; // −190…190, ať pálka nevyjede ze scény
 
-	// Trojice rychlostí odvozené z Pythagorovy trojice 3-4-5 → krok 0,1 s dá vždy celé px.
-	const RYCHLOSTI = {
-		pomalu: { vx: 60, vy: 80 },   // velikost 100/s → krok 6 / 8
-		stredni: { vx: 90, vy: 120 }, // velikost 150/s → krok 9 / 12
-		rychle: { vx: 120, vy: 160 }, // velikost 200/s → krok 12 / 16
-	};
+	// Rychlost = velikost pohybu (celé jednotky/s), směr (celé stupně) je NEZÁVISLÝ —
+	// stejně jako ve Scratchi „rychlost“ a „směr“ nejsou provázané.
+	const RYCHLOSTI = { pomalu: 60, stredni: 90, rychle: 120 };
+	const SMER_START = 45; // „nastav směr (45)“ — 0=nahoru, 90=doprava → 45° je šikmo NAHORU-doprava
 
 	function pxX(x) { return 240 + x; }
 	function pxY(y) { return 180 - y; }
 
+	/** Celé stupně vždy v rozsahu 0..359 — ať se s nimi počítá jako se Scratchovým směrem. */
+	function mod360(deg) { return ((deg % 360) + 360) % 360; }
+
+	/** Celočíselná „náhodná“ odchylka −20..20° odvozená z místa zásahu — deterministické, testovatelné. */
+	function odchylkaZPolohy(x) {
+		const n = Math.round(x);
+		return (((n % 41) + 41) % 41) - 20;
+	}
+
+	/** Pohyb ve směru `smer` (0=nahoru) o `velikost` jednotek: dx = v·sin, dy = v·cos. */
+	function posunVeSmeru(smer, velikost) {
+		const rad = (smer * Math.PI) / 180;
+		return { dx: velikost * Math.sin(rad), dy: velikost * Math.cos(rad) };
+	}
+
 	function pocatecniStav(rychlostKlic) {
-		const s = RYCHLOSTI[rychlostKlic];
-		return { bx: 0, by: 0, vx: s.vx, vy: -s.vy, skore: 0, zivoty: ZIVOTY_START, pauza: 0, konec: false, tick: 0, posledniUdalost: null };
+		return { bx: 0, by: 0, smer: SMER_START, rychlost: RYCHLOSTI[rychlostKlic], skore: 0, zivoty: ZIVOTY_START, pauza: 0, konec: false, tick: 0, posledniUdalost: null };
 	}
 
 	/**
@@ -132,24 +153,35 @@
 		if (stav.konec) return stav;
 		if (stav.pauza > 0) return { ...stav, pauza: stav.pauza - 1, posledniUdalost: null, tick: stav.tick + 1 };
 
-		let { bx, by, vx, vy, skore, zivoty } = stav;
-		const predBy = by;
-		bx += vx * TICK_S; // „dopředu o … kroků“ (osa x)
-		by += vy * TICK_S; // „dopředu o … kroků“ (osa y)
+		let { skore, zivoty } = stav;
+		let smer = stav.smer;
+		const predBy = stav.by;
+		const posun = posunVeSmeru(smer, stav.rychlost * TICK_S); // „dopředu o … kroků“
+		let bx = stav.bx + posun.dx;
+		let by = stav.by + posun.dy;
 		let posledniUdalost = null;
 
 		// „když narazíš na okraj, odraz se“ — funguje sám, u VŠECH stěn i stropu.
-		if (bx - R <= -STENA) { bx = -STENA + R; vx = Math.abs(vx); posledniUdalost = 'okraj'; }
-		else if (bx + R >= STENA) { bx = STENA - R; vx = -Math.abs(vx); posledniUdalost = 'okraj'; }
-		if (by + R >= STROP) { by = STROP - R; vy = -Math.abs(vy); posledniUdalost = 'okraj'; }
+		if (bx - R <= -STENA) { bx = -STENA + R; smer = mod360(360 - smer); posledniUdalost = 'okraj'; }
+		else if (bx + R >= STENA) { bx = STENA - R; smer = mod360(360 - smer); posledniUdalost = 'okraj'; }
+		if (by + R >= STROP) { by = STROP - R; smer = mod360(180 - smer); posledniUdalost = 'okraj'; }
 
 		// Pálka NENÍ okraj scény — tohle musí ohlídat podmínka „dotýkáš se (Pálka)?“.
+		// „Míří dolů“ pozná se ze znaménka svislé složky aktuálního (po odrazu od okraje) směru.
 		let zasahPalky = false;
-		if (vy < 0 && predBy - R > PALKA_TOP && by - R <= PALKA_TOP) {
+		const miriDolu = Math.cos((smer * Math.PI) / 180) < 0;
+		if (miriDolu && predBy - R > PALKA_TOP && by - R <= PALKA_TOP) {
 			const zarovnano = Math.abs(bx - volby.palkaX) <= PALKA_POLOSIRKA + R;
 			if (zarovnano && volby.podminka === 'ano') {
 				by = PALKA_TOP + R;
-				vy = Math.abs(vy);
+				// „otoč se ↻ o 180 stupňů“ + náhodná odchylka −20..20° (celé stupně,
+				// deterministicky odvozená od místa zásahu — testovatelné bez prohlížeče).
+				const odchylka = odchylkaZPolohy(bx);
+				smer = mod360(smer + 180 + odchylka);
+				// „dopředu o 15 kroků“ — odlepí míček od pálky, ať se hned zase neotočí.
+				const doskok = posunVeSmeru(smer, 15);
+				bx += doskok.dx;
+				by += doskok.dy;
 				skore += 1;
 				posledniUdalost = 'palka';
 				zasahPalky = true;
@@ -162,12 +194,13 @@
 			posledniUdalost = byloBySeTrefilo && volby.podminka === 'ne' ? 'propadlo-bez-podminky' : 'minulo-palku';
 			zivoty -= 1;
 			if (zivoty <= 0) {
-				return { ...stav, bx, by, vx, vy, skore, zivoty: 0, konec: true, posledniUdalost, tick: stav.tick + 1 };
+				return { ...stav, bx, by, smer, skore, zivoty: 0, konec: true, posledniUdalost, tick: stav.tick + 1 };
 			}
-			return { ...stav, bx: 0, by: 0, vx: Math.abs(vx), vy: -Math.abs(vy), skore, zivoty, pauza: PAUZA_TICKS, konec: false, posledniUdalost, tick: stav.tick + 1 };
+			// „skoč na x: 0 y: 0“ — scénář ve výkladu tu směr znovu nenastavuje, necháváme ho beze změny.
+			return { ...stav, bx: 0, by: 0, smer, skore, zivoty, pauza: PAUZA_TICKS, konec: false, posledniUdalost, tick: stav.tick + 1 };
 		}
 
-		return { ...stav, bx, by, vx, vy, skore, zivoty, posledniUdalost, tick: stav.tick + 1 };
+		return { ...stav, bx, by, smer, skore, zivoty, posledniUdalost, tick: stav.tick + 1 };
 	}
 
 	function omezPalku(x) {
@@ -181,12 +214,13 @@
 
 	function programRadky() {
 		const palkaRadek1 = { text: 'když ⟨dotýkáš se (Pálka)?⟩ tak', uroven: 2, vypnuto: volby.podminka === 'ne' };
-		const palkaRadek2 = { text: 'otoč se ↻ o (180) stupňů, dopředu o 15 kroků, změň skóre o 1', uroven: 3, vypnuto: volby.podminka === 'ne' };
+		const palkaRadek2 = { text: 'otoč se ↻ o ⟨(180) + ⟨náhodné číslo od (−20) do (20)⟩⟩ stupňů, dopředu o 15 kroků, změň skóre o 1', uroven: 3, vypnuto: volby.podminka === 'ne' };
 		return [
 			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
 			{ text: 'nastav skóre na 0', uroven: 1 },
 			{ text: 'nastav životy na 3', uroven: 1 },
 			{ text: 'skoč na x: 0 y: 0', uroven: 1 },
+			{ text: 'nastav směr (45)', uroven: 1 },
 			{ text: 'opakuj stále', uroven: 1 },
 			{ text: 'dopředu o 10 kroků', uroven: 2 },
 			{ text: 'když narazíš na okraj, odraz se', uroven: 2 },
@@ -233,7 +267,7 @@
 			case 'okraj':
 				return 'Míček narazil na okraj (nebo strop) a <strong>sám se odrazil</strong> — blok <code>když narazíš na okraj, odraz se</code> to zvládne bez jediného řádku navíc.';
 			case 'palka':
-				return `Zásah! Podmínka <code>dotýkáš se (Pálka)?</code> byla splněná, program míček odrazil nahoru — <strong>skóre ${stav.skore}</strong>.`;
+				return `Zásah! Podmínka <code>dotýkáš se (Pálka)?</code> byla splněná, program míček <strong>otočil o 180° (+ náhodná odchylka)</strong> a poslal ho pryč od pálky — <strong>skóre ${stav.skore}</strong>.`;
 			case 'propadlo-bez-podminky':
 				return '⚠️ Míček byl <strong>přesně u pálky</strong>, ale podmínka <code>dotýkáš se (Pálka)?</code> v programu chybí — nic ho nezastavilo a propadl do červeného pruhu. <strong>Ztráta života!</strong> Pálka totiž není okraj scény, tohle si musí ohlídat programátor sám.';
 			case 'minulo-palku':
@@ -334,9 +368,12 @@
 	svg.__jedenKrok = jedenKrok;
 	svg.__pocatecniStav = pocatecniStav;
 	svg.__omezPalku = omezPalku;
+	svg.__mod360 = mod360;
+	svg.__posunVeSmeru = posunVeSmeru;
+	svg.__odchylkaZPolohy = odchylkaZPolohy;
 	svg.__stav = () => stav;
 	svg.__volby = () => volby;
-	svg.__meze = { R, STENA, STROP, PALKA_Y, PALKA_POLOVYSKA, PALKA_POLOSIRKA, PALKA_TOP, CERVENY_TOP, TICK_MS, ZIVOTY_START, PAUZA_TICKS, RYCHLOSTI };
+	svg.__meze = { R, STENA, STROP, PALKA_Y, PALKA_POLOVYSKA, PALKA_POLOSIRKA, PALKA_TOP, CERVENY_TOP, TICK_MS, ZIVOTY_START, PAUZA_TICKS, RYCHLOSTI, SMER_START };
 	svg.__programRadky = programRadky;
 </script>
 
