@@ -31,14 +31,14 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 | Příkaz | K čemu |
 |---|---|
 | `node zkontroluj.mjs` | hlavní brána — zapojení simulací, kvízy, mapy, čísla, názvy bloků |
-| `node testy/vsechny-simulace.mjs` | všech 9 testů simulací (273 kontrol) |
+| `node testy/vsechny-simulace.mjs` | všechny testy simulací (aktuální počty vypisuje běh sám) |
 | `node testy/kratke-vyklady.mjs 1200` | krátké výklady; 🕳 = hluchá stránka (dnes 0) |
 | `node testy/mutace.mjs [název]` | **mutační test** — je test simulace vůbec k něčemu? (pomalý, mimo bránu) |
 | `node testy/nazvy-bloku.mjs` | názvy bloků Scratche proti české lokalizaci |
 | `node testy/vypis-kviz.mjs <blok>` · `node testy/delky.mjs <blok>` | práce s kvízy |
 
 ### 🕹️ Interaktivní infografiky — jak přidat další (kladka…)
-Na webu je **14 interaktivních simulací** (canvas/SVG, čistě v prohlížeči, styl viz existující). **Vzor přidání nové:**
+Aktuální počet simulací vypisuje brána `node zkontroluj.mjs` (číslo sem neopisovat — opsané zastarává, nález auditu 4. 8.). Jsou to canvas/SVG komponenty čistě v prohlížeči, styl viz existující. **Vzor přidání nové:**
 1. Vytvoř komponentu `src/components/skola2/<Nazev>Simulace.astro` (podívej se na `TezisteSimulace`, `VrhSimulace`, `SkupenstviSimulace` — stejný rámeček `<section class="ramecek simulace">`, ovládání, `<script>` bez importů).
 2. V `src/data/temata.ts`: rozšiř typ `interakce?: … | 'novy-klic'` a přidej `interakce: 'novy-klic',` k danému podtématu.
 3. V `src/pages/skola2/[predmet]/[rocnik]/[tema]/[podtema]/index.astro`: přidej import + řádek `{podtema.interakce === 'novy-klic' && <NazevSimulace />}`.

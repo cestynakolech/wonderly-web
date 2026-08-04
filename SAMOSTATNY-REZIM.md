@@ -6,22 +6,28 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🔴 NEDOKONČENO Z KOLA D1 — začni tímhle
+### ✅ Hotovo 4. 8. — kolo D2: druhá kontrola D1 doběhla + nezávislý audit projektu
 
-**Druhá kontrola čtyř nových simulací informatiky NEDOBĚHLA** (došel týdenní limit
-uprostřed běhu kontrolora, 3. 8. odpoledne). Simulace jsou nasazené a opravené,
-ale potvrzení oprav chybí. Zadání pro kontrolora je připravené — u každé vady
-rozhodnout ZAVŘENO / OTEVŘENO a doložit to **spuštěním kódu** (`node -e`), ne přečtením:
+**Druhá kontrola čtyř simulací informatiky: všech 16 původních vad ZAVŘENO** —
+nezávislý kontrolor každou doložil spuštěním kódu (harnessy nad skutečnými skripty
+komponent: klon.js, mbv.js, mrr.js, vex2.js). Našel **5 nových vad, všechny opraveny
+a znovu ověřeny týmiž harnessy**: (1) ZÁVAŽNÉ — rádio hlásilo „signál je silný (0 %)"
+při jiné skupině (text nekontroloval sílu; nově zvláštní věta pro slabý signál);
+(2) vysvětlení kvízové otázky o skupinách rádia patřilo k jiné otázce; (3) 10× délková
+nápověda v blocích klonování a VEXcode — dorovnáno, rohatka se utáhla na 774 otázek;
+(4) blok `když ⟨y < -160?⟩` měl otazník, který Scratch nemá; (5) „500 mg — nad mezí"
+→ „dosáhlo meze". Kotvy: brána 0 chyb, build 465 stránek, opravy ověřené i v dist.
 
-| soubor | co ověřit |
-|---|---|
-| `KlonovaniSimulace.astro` | `když ⟨⟩ tak` (ne „pokud") · `náhodné číslo od ( ) do ( )` · vypsaná pauza `čekej ( ) sekund` souhlasí s nastavenou rychlostí a má českou čárku · počítadlo si neprotiřečí se „selhalo" · zastavení maže klony · hromada roste a klony vznikají v nakresleném generátoru |
-| `MicrobitVstupySimulace.astro` | žádné `ukaž ikonu (vykřičník)` ani `(šipka …)` · mez osy X a Y stejná a text si na mezi neodporuje se zvýrazněním · `mg = 1000·sin(úhel)`, mez 500 mg |
-| `MicrobitRadioSimulace.astro` | signál slábne plynule se vzdáleností i zdmi (žádná tvrdá čára) · displej u pinů opravdu něco ukáže · hlavičkou je KAŽDÝ klobouk, ne jen první řádek |
-| `VexcodeSimulace.astro` | bloky anglicky s jednotkou **mm** (cm VEXcode IQ nemá) + klobouk `when started` · délka animace úměrná hodnotě bloku · robot nezmizí mimo scénu bez hlášky · výchozí program pořád trefí cíl přesně |
-
-Navíc hledat NOVÉ vady, které oprava mohla zanést — hlavně rozpor mezi simulací
-a výkladem na téže stránce.
+**Nezávislý audit celého projektu** (samostatný agent, čerstvý kontext): bilance
+486 commitů/~93 kol, zásady vesměs drženy (kontrolor, kotvy, izolace zápisů DODRŽUJE SE;
+diamant, měřidla, limity, jedno místo, tokeny ČÁSTEČNĚ). Hned opraveno:
+- **Rohatka obousměrných důkazů byla slepá k testy/simulace/** (vzorec „opatření platí
+  jen na část vstupů" v samotném vynucovacím mechanismu). `seznamMeridel()` nyní čte
+  i podsložku; dluh 14 zapsán (`bezDokladu`), obousměrně doloženo: podvržený 24. test
+  bránu shodil (15>14), po odstranění zelená. Oživly i 2 mrtvé záznamy registru.
+- **„Hook po Write"** u workerů: v žádném nastavení hook není — je to systémový kontext
+  prostředí (PostToolUse). Do definice `worker-simulace` přidána výjimka: ověření
+  v prohlížeči dělá hlavní model po merge, worker to nehlásí jako PROBLÉM POVOLENÍ.
 
 ### 🌙 FRONTA (pořadí drž)
 
@@ -59,7 +65,22 @@ a výkladem na téže stránce.
    projít VŠECHNY stavy, ne jen výchozí. Ke každé opravené simulaci patří skript podvrhů
    v `testy/podvrhy/` a záznam v `testy/obousmerne.json`.
    Začít od `tabulka-vzorce` (6/26) — tam je slepota největší.
+   Splácení zároveň umořuje dluh rohatky: ke každému doměřenému testu zapsat
+   podvrh + zdravý stav do `testy/obousmerne.json` (dluh `bezDokladu` = 14, jen klesat).
 4. `cz()` chybí v 11 simulacích, které formátují čísla.
+4b. **Z auditu 4. 8.** (celý výstup v `AUDIT-2026-08-04.md`):
+   - **Měřidlo názvů bloků MakeCode + VEXcode** — nic je nehlídá (prošly neexistující
+     ikony a cm); slovníky už kontrolor dohledal (`pxt-microbit` cs, VEXcode IQ = EN+mm).
+     Rozšířit `nazvy-bloku.mjs` o dvě sekce + obousměrný důkaz. Vlastní kolo.
+   - **Čísla v PROGRESS.md generovat, ne opisovat** („14 simulací" × realita 86) —
+     buď skriptem z brány, nebo nahradit odkazem na `node zkontroluj.mjs`.
+   - **Checkpointy vázat na datum, ne číslo kola** — „revize à 10 kol" umřela
+     přečíslováním (od 29. 7. bez checkpointu); totéž metriky kol 29–72 chybí.
+   - **U počítadla vazeb přiznat výluku** — „prošlo 150 ze 165 bloků": 15 souhrnných
+     skládaných bloků je mimo záměrně, ale nikde to není napsáno.
+   - **PRAVIDLA.md v Omeze má rozbité tabulky** (ř. 35–41, 115–126) — srovnat.
+   - **Commit = jedno téma** — tour.astro/worker.js nepřibalovat k nesouvisejícím
+     commitům (a718292, e90a0d2); zapsáno i do skillu /wonderly.
 5. **BLOKOVÁNO, ne zapomenuto:** obě nové simulace (funkce v tabulkách, senzory robota)
    neprošly očima v prohlížeči — port 8788 drží dev server jiné session a cizí server
    tahle session zastavit nesmí (zkoušeno 3. 8. dvakrát). Až bude volný, projít je
@@ -107,10 +128,11 @@ levné, má kontext). Poučení je zapsané v `METRIKY-KOL.md` (řádek D1) a ve
   dosah rádia 25 m proti výkladu „přes zdi signál slábne"; české bloky proti výkladu
   „prostředí VEXcode je anglicky". Worker výklad četl — rozpor je potřeba měřit.
 
-**Problém povolení (opravit ve vrátném):** hook po `Write` vyžaduje ověření v Browser
-panelu / `preview_start`, jenže workeři mají jen `Read/Write/Edit/Grep/Glob` — pro ně
-je ta podmínka nesplnitelná a hlásili ji jako `PROBLÉM POVOLENÍ`. Buď hook omezit na
-hlavní model, nebo workerům ty nástroje dát.
+**Problém povolení — VYŘEŠENO 4. 8. (kolo D2):** žádný hook v nastavení neexistuje
+(prohledáno settings.json všech úrovní i ~/.claude.json) — „hook po Write" je systémový
+kontext prostředí (PostToolUse), který žádá ověření v prohlížeči. Do definice
+`worker-simulace` přidána výjimka: ověření v prohlížeči dělá hlavní model po merge,
+worker pokyn ignoruje a nehlásí ho jako `PROBLÉM POVOLENÍ`.
 
 ### ✅ Hotovo 3. 8. ráno — nová simulace „Senzory robota" (Inf8)
 

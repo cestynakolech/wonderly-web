@@ -185,9 +185,16 @@ export async function zkontrolujUniky(data) {
 	const uniky = [];
 	let bloku = 0;
 	let otazek = 0;
+	let vynechano = 0;
 	for (const [klic, otazky] of Object.entries(kvizy)) {
 		if (!Array.isArray(otazky) || otazky.length < 2) continue;
-		if (klic.includes('/shrnuti/')) continue;
+		// Souhrnné bloky /shrnuti/ se skládají programově z už zkontrolovaných otázek —
+		// kontrolovat je znovu by hlásilo tytéž nálezy dvakrát. Výluka musí být ve
+		// výpisu PŘIZNANÁ číslem, ne dopočitatelná (nález auditu 4. 8. 2026).
+		if (klic.includes('/shrnuti/')) {
+			vynechano++;
+			continue;
+		}
 		bloku++;
 		otazek += otazky.length;
 		const v = zkontrolujBlok(klic, otazky);
@@ -196,7 +203,7 @@ export async function zkontrolujUniky(data) {
 	}
 	// Počítadlo vstupů: kontrola, která nic neprojde, musí být poznat (nález auditu —
 	// „opatření platí jen na část případů a na tu druhou se tiše zapomene").
-	return { duplicity, uniky, bloku, otazek };
+	return { duplicity, uniky, bloku, otazek, vynechano };
 }
 
 // Spuštění z příkazové řádky: `node testy/uniky.mjs [část-klíče]`

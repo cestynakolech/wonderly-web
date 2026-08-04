@@ -1,8 +1,8 @@
 {
 	"_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
-	"_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá.",
+	"_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá. | 4. 8. 2026: rohatka rozšířena i na testy/simulace/ (nález auditu — 16 testů simulací bylo mimo kontrolu); dnešní dluh 14 zapsán, nový test simulace bez důkazu už bránou neprojde. Dluh splácet podle fronty (mutační díry nejdřív).",
 	"_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
-	"bezDokladu": 0,
+	"bezDokladu": 14,
 	"meridla": {
 		"uniky.mjs": {
 			"test": "testy/uniky-obousmerne.mjs",

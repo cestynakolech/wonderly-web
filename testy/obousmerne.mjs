@@ -42,11 +42,20 @@ export const NENI_MERIDLO = {
 	'meridla-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy pro pět měřidel)',
 };
 
-/** Vrátí seznam měřidel (soubory .mjs přímo v testy/, mimo výjimky). */
+/** Vrátí seznam měřidel: soubory .mjs přímo v testy/ (mimo výjimky) + testy simulací
+ * v testy/simulace/. Bez podsložky byla rohatka slepá k 16 testům simulací — tentýž
+ * vzorec „opatření platí jen na část vstupů", tentokrát v samotném vynucovacím
+ * mechanismu (nález nezávislého auditu 4. 8. 2026). Podsložka testy/podvrhy/ sem
+ * nepatří: podvrhy jsou samy důkazním materiálem, nic o webu netvrdí. */
 export function seznamMeridel() {
-	return readdirSync(zde)
-		.filter((f) => f.endsWith('.mjs') && !(f in NENI_MERIDLO))
-		.sort();
+	const primo = readdirSync(zde).filter((f) => f.endsWith('.mjs') && !(f in NENI_MERIDLO));
+	const slozkaSimulace = join(zde, 'simulace');
+	const simulace = existsSync(slozkaSimulace)
+		? readdirSync(slozkaSimulace)
+				.filter((f) => f.endsWith('.mjs'))
+				.map((f) => `simulace/${f}`)
+		: [];
+	return [...primo, ...simulace].sort();
 }
 
 export function nactiRejstrik() {

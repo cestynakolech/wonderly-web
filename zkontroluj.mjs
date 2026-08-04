@@ -370,7 +370,7 @@ console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.lengt
 // Počítadlo vstupů (nález auditu: opatření tiše platí jen na část případů — u map se
 // takhle celá společná mapa neměřila vůbec, u filtru falešných poplachů se kontrola
 // volala jen u fotek). Kontrola, která nic neprošla, musí být poznat na první pohled.
-console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
+console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek (${vazby.vynechano} souhrnných /shrnuti/ vynecháno záměrně — skládají se z už zkontrolovaných) — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
 console.log(`Šablony simulací: prošlo ${sablony.souboru} komponent, změřeno ${sablony.dotazu} vyhledání prvku — ${sablony.nalezy.length} nálezů.`);
 console.log(`Měřidla: ${rejstrik.dolozeno} z ${rejstrik.meridel} má doložené obousměrné ověření${rejstrik.chybi.length ? ` (bez dokladu: ${rejstrik.chybi.join(', ')})` : ''}.`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
