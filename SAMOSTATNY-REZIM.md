@@ -6,6 +6,35 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
+### 🔴 NEDOKONČENO Z KOLA D5 — začni tímhle (nová session po /clear)
+
+**Kontrola 4 nových simulací D5 NEDOBĚHLA** — kontrolor umřel na session limitu
+(4. 8. ~20:40, reset 22:30) poté, co stihl jen: „Řazení funguje. Teď kvízy…".
+Simulace jsou NASAZENÉ (`8c72b6b`), ale neověřené. Spusť NOVÉHO kontrolora
+(čerstvý kontext) se zadáním: `HonickaSimulace` + `StrileckaSimulace` +
+`SkakackaSimulace` (Scratch — názvy bloků proti scratch-l10n cs.json!) +
+`RazeniFiltrovaniSimulace` (česká terminologie Excelu, průměry celé, „chybný"
+režim ukazuje rozbité řádky) · rozpor simulace × výklad × kvíz na téže stránce
+(3× po sobě nejčastější závažný nález) · třetí pohled na arénu SestaveniRobota
+(posun rozpojený od natočení — dává pivot smysl?) a ořez odrazu PingPong ·
+celá čísla ve vypsaném. Každý verdikt spuštěním kódu. Nálezy původním workerům
+nejde-li (nová session!) → novým workerům téhož typu se zadáním doslova.
+
+### 📋 ZADÁNÍ UČITELE 4. 8. (přednost před frontou)
+
+1. **Video `TW9Zewb9w34` nasadit** + vytvořit k němu PRVNÍ STRÁNKU S MAPOU
+   a titulky, o jaké místo se jedná (pipeline deníku: Omega skripty, úvodní
+   mapa trasy = vzor `projekt-trasa-uvod-denik`; mapy VŽDY vizuálně ověřit).
+2. ~~Mapa/diagram systému na vysvětlenou~~ — HOTOVO 4. 8. (nakresleno v chatu).
+
+### ✅ Hotovo 4. 8. pozdě večer — kolo D5: 4 simulace (honička, střílečka, skákačka, řazení+filtrování)
+
+Vějíř 4× worker-simulace, merge, nasazeno `8c72b6b`, brána 0 chyb, build 465,
+všechny 4 stránky mají simulaci v dist. Názornost 60 → 52 (informatika 26 → 18).
+⚠️ Kontrola nedoběhla (session limit) — viz 🔴 výš. Poučení dne: dlouhá session
+s obřím kontextem prodražuje KAŽDÝ probuzený tah — /clear dělat po ~2–3 kolech,
+ne po pěti; čekací prodlevy samy tokeny nestojí.
+
 ### ✅ Hotovo 4. 8. pozdě večer — kolo D4: druhá kontrola D3 uzavřena
 
 12 zavřeno / 2 otevřeno / 4 nové (1 závažná — míček se i se zapnutou podmínkou
