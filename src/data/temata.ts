@@ -4907,7 +4907,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>💡 Vylepšení pro šikovné</h3>
 						<ul>
-						<li>kočka postupně <strong>zrychluje</strong>: dopředu o (3 + čas / 100) — po minutě hry je krok skoro dvojnásobný</li>
+						<li>kočka postupně <strong>zrychluje</strong>: dopředu o (3 + čas / 100) — čas počítá desetiny, takže už po půl minutě hry je krok dvojnásobný (6) a po minutě trojnásobný (9)</li>
 						<li>přidej druhou kočku z jiného rohu</li>
 						<li>na scéně se objevuje sýr — sebrání přidá body</li>
 						</ul>

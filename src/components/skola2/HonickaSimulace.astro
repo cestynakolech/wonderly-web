@@ -153,6 +153,14 @@
 
 	function vzdalenost(x0, y0, x1, y1) { return Math.hypot(x1 - x0, y1 - y0); }
 
+	/**
+	 * Desetinná čísla v BĚŽNÉM WEBOVÉM TEXTU (stavový řádek, porovnání, hláška o chycení)
+	 * píšeme česky s čárkou — stejná zvyklost jako sesterská RazeniFiltrovaniSimulace.cz().
+	 * NEPOUŽÍVAT v bublině Scratche ani v textu bloků programu — tam zůstává anglická tečka,
+	 * protože tak to Scratch skutečně píše a výklad to u Scratche učí.
+	 */
+	function cz(text) { return String(text).replace('.', ','); }
+
 	function pocatecniStav() {
 		return { kx: ROH_X, ky: ROH_Y, smer: 0, cas: 0, casPrimo: 0, konec: false, casChyceni: null };
 	}
@@ -252,10 +260,10 @@
 		}
 
 		const sSpravne = (stav.cas / 10).toFixed(1);
-		statsEl.innerHTML = `čas: <strong>${stav.cas}</strong> desetin &nbsp;=&nbsp; <strong>${sSpravne} s</strong>`;
+		statsEl.innerHTML = `čas: <strong>${stav.cas}</strong> desetin &nbsp;=&nbsp; <strong>${cz(sSpravne)} s</strong>`;
 		porovnaniEl.innerHTML =
-			`porovnání sčítání: „čas + 1, pak / 10“ → <strong>${sSpravne}</strong> &nbsp;·&nbsp; ` +
-			`„rovnou + 0.1“ → <strong>${stav.casPrimo}</strong> ${stav.cas > 0 && String(stav.casPrimo) !== sSpravne ? '⚠️ liší se!' : ''}`;
+			`porovnání sčítání: „čas + 1, pak / 10“ → <strong>${cz(sSpravne)}</strong> &nbsp;·&nbsp; ` +
+			`„rovnou + 0.1“ → <strong>${cz(stav.casPrimo)}</strong> ${stav.cas > 0 && String(stav.casPrimo) !== sSpravne ? '⚠️ liší se!' : ''}`;
 
 		vypisProgram(programMysEl, programRadkyMys());
 		vypisProgram(programKockaEl, programRadkyKocka());
@@ -263,7 +271,7 @@
 
 	function popisStavu() {
 		if (stav.konec) {
-			return `🎉 <strong>Chycena!</strong> Vydržel(a) jsi <strong>${(stav.casChyceni / 10).toFixed(1)} s</strong>. Zkus ↺ na začátek.`;
+			return `🎉 <strong>Chycena!</strong> Vydržel(a) jsi <strong>${cz((stav.casChyceni / 10).toFixed(1))} s</strong>. Zkus ↺ na začátek.`;
 		}
 		if (volby.krok === KROKY.trhane) {
 			return 'Všimni si, jak kočka <strong>poskakuje</strong> — krok 8 je moc velký. Přesně to varuje výklad: ' +

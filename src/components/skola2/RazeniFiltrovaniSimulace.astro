@@ -88,7 +88,11 @@
 	const GENITIV = ['Adama', 'Báry', 'Cyrila', 'Dany', 'Emila', 'Filipa', 'Gity', 'Huga'];
 	const SKUPINA = ['A', 'B', 'A', 'B', 'A', 'B', 'A', 'B'];
 	// Součet 112 při 8 žácích → průměr všech je vždy přesné celé číslo 14.
-	const BODY = [12, 18, 9, 20, 15, 6, 18, 14];
+	// Hodnoty voleny tak, aby CELÉ vyšly i všechny filtrované průměry:
+	// skupina A {4,16,16,16}=52 → 13; skupina B {6,18,20,16}=60 → 15;
+	// jen body ≥10 v A: {16,16,16}=48 → 16; jen body ≥10 v B: {18,20,16}=54 → 18;
+	// jen body ≥10 celkem: {16,18,16,20,16,16}=102 → 17.
+	const BODY = [4, 6, 16, 18, 16, 20, 16, 16];
 	const PUVODNI_ID = JMENA.map((_, i) => i);
 
 	let poradi = [...PUVODNI_ID];      // aktuální pořadí ID pro SPRÁVNÉ řazení (celé řádky)

@@ -20,9 +20,12 @@
 //      pravý→port 1) dají OBĚMA kolům rychlost −1 → průměr −1, rozdíl 0 →
 //      robot COUVÁ (jede pozpátku, nekroutí se) — přesně jak to popisuje výklad
 //      na stránce („Program bývá v pořádku — obvykle jsou motory zapojené
-//      obráceně nebo prohozený levý a pravý"). Když mlčí jen jeden motor, robot
-//      se stáčí k té straně, která nejede (mírný oblouk). Kdyby obě kola dostala
-//      navzájem OPAČNÝ povel (jedno +1, druhé −1), robot by se točil na místě —
+//      obráceně nebo prohozený levý a pravý"). Když mlčí jen jeden motor, jsou
+//      avg i diff nenulové zároveň: robot se posouvá (podle avg) po ROVNÉ dráze
+//      A K TOMU se navíc otáčí kolem dokola (podle diff) — posun a natočení
+//      jsou úmyslně nezávislé (viz odvození mezí u animace), takže to NENÍ
+//      jízda obloukem, ale otáčení na místě kombinované s přímým posunem.
+//      Kdyby obě kola dostala navzájem OPAČNÝ povel (jedno +1, druhé −1), robot by se točil na místě —
 //      ale to by šlo jen tak, že by dva kabely mířily do téhož portu, a to
 //      zapojení už UI nedovolí (viz bod 1), takže se to reálně nestane.
 //
@@ -233,8 +236,8 @@ for (let i = 1; i <= 12; i++) {
 		if (avg === 0 && diff === 0) return 'stojí, ticho';
 		if (diff === 0) return avg > 0 ? 'jede rovně dopředu' : 'couvá (jede pozpátku)';
 		if (avg === 0) return diff > 0 ? 'točí se na místě doprava' : 'točí se na místě doleva';
-		const smer = avg > 0 ? 'a jede dopředu' : 'a couvá';
-		return diff > 0 ? `otáčí se doprava ${smer}` : `otáčí se doleva ${smer}`;
+		const smer = avg > 0 ? 'a k tomu popojíždí dopředu' : 'a k tomu popojíždí pozpátku';
+		return diff > 0 ? `krouží dokola doprava ${smer}` : `krouží dokola doleva ${smer}`;
 	}
 
 	let krok = 0; // 0 díly, 1 podvozek, 2 mozek + porty
@@ -302,17 +305,17 @@ for (let i = 1; i <= 12; i++) {
 				+ 'Program je v pořádku, chyba je v zapojení kabelů.';
 		}
 		if (diff > 0 && avg >= 0) {
-			return `↪️ <strong>Robot se stáčí doprava</strong> — pravý motor `
+			return `↪️ <strong>Robot se otáčí kolem dokola doprava a přitom pomalu popojíždí dopředu</strong> — pravý motor `
 				+ (portPravy ? `je v portu ${portPravy}, ale program čeká motor v portu 6 — proto ho neslyší.` : 'není zapojený v žádném portu — mlčí.')
-				+ ' Levý motor jede správně. Zkontroluj port pravého motoru, ne program.';
+				+ ' Levý motor jede správně, ale nic ho nevyrovnává, tak místo rovné jízdy robot krouží. Zkontroluj port pravého motoru, ne program.';
 		}
 		if (diff < 0 && avg >= 0) {
-			return `↩️ <strong>Robot se stáčí doleva</strong> — levý motor `
+			return `↩️ <strong>Robot se otáčí kolem dokola doleva a přitom pomalu popojíždí dopředu</strong> — levý motor `
 				+ (portLevy ? `je v portu ${portLevy}, ale program čeká motor v portu 1 — proto ho neslyší.` : 'není zapojený v žádném portu — mlčí.')
-				+ ' Pravý motor jede správně. Zkontroluj port levého motoru, ne program.';
+				+ ' Pravý motor jede správně, ale nic ho nevyrovnává, tak místo rovné jízdy robot krouží. Zkontroluj port levého motoru, ne program.';
 		}
-		// couvá a zároveň se stáčí — jeden kabel zaměněný, druhý nezapojený
-		return `↩️ <strong>Robot couvá a přitom se stáčí</strong> — jeden kabel je v portu toho druhého motoru (motor se točí obráceně) `
+		// couvá a zároveň se otáčí kolem dokola — jeden kabel zaměněný, druhý nezapojený
+		return `↩️ <strong>Robot couvá a přitom se otáčí kolem dokola</strong> — jeden kabel je v portu toho druhého motoru (motor se točí obráceně) `
 			+ 'a druhý motor vůbec neslyší program. Zkontroluj oba porty podle tabulky výše.';
 	}
 

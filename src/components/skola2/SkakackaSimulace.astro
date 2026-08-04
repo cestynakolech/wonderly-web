@@ -17,10 +17,17 @@
 //     „shoď z plošiny (200 nad zemí)" tuhle past vyvolá SPOLEHLIVĚ (pád zrychlí na krok
 //     20 jednotek/kolo, tenký pás má jen 4 — viz výpočet níže), zatímco normální skok o 12
 //     dopadá vždycky přesně na povrch (11+10+…+1 je symetrická řada, vždy vyjde na nulu)
-//     a past sama o sobě NEukáže — proto je v simulaci navíc pád z plošiny, žádný trik.
+//     a past sama o sobě NEukáže. Aby past fungovala spolehlivě i uprostřed hry (kaktus by
+//     jinak mohl doběhnout k Běžci dřív, než pád doskočí k zemi), test kaktus při shození
+//     teleportuje zpátky na start a po dobu pádu ho zastaví (stav `padDemo`) — past č. 2 se
+//     tak nikdy nesplete se srážkou s kaktusem.
 //  5. „Nastav y na (výška země) po dopadu" NENÍ jen kosmetika: bez ní zůstane postava
-//     zabořená v zemi (viditelně) a navíc podmínka ⟨(y) = (výška země)⟩ pak už NIKDY není
-//     pravda → postava už nikdy nemůže skočit znova. Toggle „snap y" tohle ukazuje obojí.
+//     NAPEVNO zabořená v zemi (viditelně) a podmínka ⟨(y) = (výška země)⟩ pak (většinou) už
+//     není pravda → postava už nemůže skočit znova. „Napevno" je záměr: bez snapu totiž
+//     gravitace kolo od kola dál táhne y dolů, a kdyby se postava nezastavila, sama by se
+//     časem prokopala i silným pásem bez zásahu žáka — past č. 5 (chybějící snap) by se tak
+//     smíchala s pastí č. 2 (propadnutí) a žák by nepoznal, která past co způsobila. Proto se
+//     při prvním dotyku bez snapu postava zastaví napevno (stav `zaborena`), dokud znovu neskočí.
 //
 // Souřadnice jsou celočíselné ve scratchovské soustavě (x −240…240, y −180…180),
 // kreslí se 1:1 do viewBoxu 480×360 (px = 240+x, py = 180−y). Běžec MÁ PEVNÉ x (−150) —
@@ -53,7 +60,7 @@
 		Sleduj tři čísla vpravo nahoře: <strong>kolo</strong>, <strong>rychlostY</strong> a
 		<strong>výška nad zemí</strong>. Nikdo nenaprogramoval oblouk — vznikne sám z toho, že
 		se každé kolo jen <code>změní rychlostY o −1</code> a pak <code>y o rychlostY</code>.
-		Skoč a countuj: nahoře bude přesně v <strong>11. kole</strong> (výška 66), na zemi
+		Skoč a počítej: nahoře bude přesně v <strong>11. kole</strong> (výška 66), na zemi
 		zpátky přesně ve <strong>23. kole</strong>.
 	</p>
 
@@ -142,7 +149,7 @@
 	function tloustkaZeme(volby) { return volby.tloustka === 'tenka' ? ZEM_TENKA : ZEM_SILNA; }
 
 	function pocatecniStav() {
-		return { y: ZEM_TOP, rychlostY: 0, kolo: 0, kaktusX: STENA, skore: 0, skoreTicky: 0, konec: false, posledniUdalost: null, tick: 0 };
+		return { y: ZEM_TOP, rychlostY: 0, kolo: 0, kaktusX: STENA, skore: 0, skoreTicky: 0, konec: false, zaborena: false, padDemo: false, posledniUdalost: null, tick: 0 };
 	}
 
 	/**
@@ -151,44 +158,65 @@
 	 */
 	function jedenKrok(stav, volby) {
 		if (stav.konec) return stav;
-		let { y, rychlostY, kolo, kaktusX, skore, skoreTicky } = stav;
-
-		// „změň rychlostY o −1" — tíže nemění polohu, mění rychlost.
-		rychlostY = rychlostY - GRAVITACE;
-		// „změň y o rychlostY" — teprve rychlost posune postavu.
-		y = y + rychlostY;
-		kolo = kolo + 1;
+		// Výchozí `false`, kdyby někdo (test, starší uložený stav) poslal objekt bez
+		// těchto dvou příznaků — chová se to přesně jako čerstvý `pocatecniStav()`.
+		let { y, rychlostY, kolo, kaktusX, skore, skoreTicky, zaborena = false, padDemo = false } = stav;
 
 		let posledniUdalost = null;
 		let konec = false;
 
-		// „dotýkáš se (Země)?" — Země je SKUTEČNÝ PÁS (tloušťka), ne nekonečná půlrovina.
-		const tloustka = tloustkaZeme(volby);
-		const zemSpodek = ZEM_TOP - tloustka;
-		if (y <= ZEM_TOP && y >= zemSpodek) {
-			if (volby.snap === 'ano') y = ZEM_TOP;    // „nastav y na (výška země)"
-			rychlostY = 0;                             // „nastav rychlostY na 0"
-			// POZOR: kolo se tu NEnuluje! Kdyby se vynulovalo hned v kole dopadu, žák by
-			// nikdy neviděl přesně „23", protože kolo a dopad nastávají ve STEJNÉM kroku —
-			// číslo by zmizelo dřív, než se vykreslí. Nuluje se jen při dalším skoku/pádu.
-			posledniUdalost = 'dopad';
-		} else if (y < zemSpodek) {
-			// Krok tohoto kola (|rychlostY|) byl větší než tloušťka pásu — celý ho přeskočil.
-			posledniUdalost = 'propadl';
-			konec = true;
-		} else if (y > ODLET_LIMIT) {
-			posledniUdalost = 'odletel';
-			konec = true;
+		if (!zaborena) {
+			// „změň rychlostY o −1" — tíže nemění polohu, mění rychlost.
+			rychlostY = rychlostY - GRAVITACE;
+			// „změň y o rychlostY" — teprve rychlost posune postavu.
+			y = y + rychlostY;
+
+			// „dotýkáš se (Země)?" — Země je SKUTEČNÝ PÁS (tloušťka), ne nekonečná půlrovina.
+			const tloustka = tloustkaZeme(volby);
+			const zemSpodek = ZEM_TOP - tloustka;
+			if (y <= ZEM_TOP && y >= zemSpodek) {
+				rychlostY = 0;                              // „nastav rychlostY na 0"
+				if (volby.snap === 'ano') {
+					y = ZEM_TOP;                              // „nastav y na (výška země)"
+					posledniUdalost = 'dopad';
+				} else {
+					// Bez snapu se poloha neopraví. Postava se tu zastaví NAPEVNO (past č. 5),
+					// aby se to nespletlo s pastí č. 2 — jinak by ji gravitace kolo od kola
+					// dál tlačila dolů a sama by po čase propadla i silným pásem bez zásahu žáka.
+					zaborena = true;
+					posledniUdalost = 'zaborena';
+				}
+			} else if (y < zemSpodek) {
+				// Krok tohoto kola (|rychlostY|) byl větší než tloušťka pásu — celý ho přeskočil.
+				posledniUdalost = 'propadl';
+				konec = true;
+			} else if (y > ODLET_LIMIT) {
+				posledniUdalost = 'odletel';
+				konec = true;
+			}
+		} else {
+			// Zabořená postava zůstává na místě, dokud znovu neskočí (viz zkusSkocit).
+			posledniUdalost = 'zaborena';
 		}
 
-		// Kaktus jede sám, „klouzej 2 sekund na x: (−240)", a po doběhnutí se vrací na start.
-		let novyKaktusX = kaktusX - KAKTUS_RYCHLOST;
-		if (novyKaktusX < -STENA - KAKTUS_POLOSIRKA) novyKaktusX = STENA + KAKTUS_POLOSIRKA;
+		// POZOR: kolo se u dopadu/zaboření NEnuluje! Kdyby se vynulovalo hned v kole
+		// dopadu, žák by nikdy neviděl přesně „23" — číslo by zmizelo dřív, než se
+		// vykreslí. Nuluje se jen při dalším skoku/pádu z plošiny.
+		kolo = kolo + 1;
+
+		// Kaktus jede sám, „klouzej 2 sekund na x: (−240)", a po doběhnutí se vrací na
+		// start — ALE ne během testu „shoď z plošiny" (padDemo): ten má spolehlivě
+		// ukázat past č. 2, ne náhodnou srážku s kaktusem.
+		let novyKaktusX = kaktusX;
+		if (!padDemo) {
+			novyKaktusX = kaktusX - KAKTUS_RYCHLOST;
+			if (novyKaktusX < -STENA - KAKTUS_POLOSIRKA) novyKaktusX = STENA + KAKTUS_POLOSIRKA;
+		}
 
 		let noveSkore = skore;
 		let noveSkoreTicky = skoreTicky;
 
-		if (!konec) {
+		if (!konec && !padDemo) {
 			const xPrekryv = Math.abs(RUNNER_X - novyKaktusX) <= KAKTUS_POLOSIRKA + RUNNER_R;
 			const yPrekryv = (y - RUNNER_R) < (ZEM_TOP + KAKTUS_VYSKA);
 			if (xPrekryv && yPrekryv) {
@@ -202,7 +230,11 @@
 			if (noveSkoreTicky >= SKORE_TICKY) { noveSkore += 1; noveSkoreTicky = 0; }
 		}
 
-		return { y, rychlostY, kolo, kaktusX: novyKaktusX, skore: noveSkore, skoreTicky: noveSkoreTicky, konec, posledniUdalost, tick: stav.tick + 1 };
+		// Test pádu z plošiny končí, jakmile postava zem najde (dopad/zaboření) nebo hra
+		// skončí (propadl/odletel/kaktus) — pak se kaktus zase rozjede jako normálně.
+		const novaPadDemo = padDemo && !(posledniUdalost === 'dopad' || posledniUdalost === 'zaborena' || konec);
+
+		return { y, rychlostY, kolo, kaktusX: novyKaktusX, skore: noveSkore, skoreTicky: noveSkoreTicky, konec, zaborena, padDemo: novaPadDemo, posledniUdalost, tick: stav.tick + 1 };
 	}
 
 	/** „po stisku klávesy (mezerník)" — mimo pravidelná kola, spouští se na požádání. */
@@ -212,13 +244,17 @@
 		if (volby.skok === 'ano' && stav.y !== ZEM_TOP) {
 			return { ...stav, posledniUdalost: 'nejde-skocit' };
 		}
-		return { ...stav, rychlostY: VYSKOK, kolo: 0, posledniUdalost: 'skok' };
+		// Skutečný skok „vytrhne" postavu ze zabořené polohy i z testu pádu z plošiny.
+		return { ...stav, rychlostY: VYSKOK, kolo: 0, zaborena: false, padDemo: false, posledniUdalost: 'skok' };
 	}
 
 	/** Testovací pád z plošiny — spolehlivě odhalí past „propadnutí zemí". */
 	function shodZPlosiny(stav) {
 		if (stav.konec) return stav;
-		return { ...stav, y: ZEM_TOP + DROP_VYSKA, rychlostY: 0, kolo: 0, posledniUdalost: 'pad-start' };
+		// Kaktus se pro tenhle test teleportuje zpátky na start a po dobu pádu (padDemo)
+		// se nehýbe — jinak by mohl Běžce trefit dřív, než pád doskočí k zemi, a past by
+		// se neukázala spolehlivě (viz bod 4 v hlavičce souboru).
+		return { ...stav, y: ZEM_TOP + DROP_VYSKA, rychlostY: 0, kolo: 0, kaktusX: STENA, zaborena: false, padDemo: true, posledniUdalost: 'pad-start' };
 	}
 
 	let volby = { skok: 'ano', snap: 'ano', tloustka: 'silna' };
@@ -290,6 +326,12 @@
 				return 'Nejde skočit — podmínka <code>(y) = (výška země)</code> není splněná, protože nestojíš na zemi. <strong>To je správně!</strong>';
 			case 'dopad':
 				return 'Dopad! <code>dotýkáš se (Země)?</code> bylo splněné, rychlostY je zpátky 0.';
+			case 'zaborena': {
+				const rozdil = ZEM_TOP - stav.y;
+				return rozdil > 0
+					? `🪦 <strong>Zůstal jsi zabořený v zemi!</strong> Bez <code>nastav y na (výška země)</code> je poloha o ${rozdil} níž, než by měla — a dokud tam přesně nejsi, mezerník tě skočit nepustí.`
+					: '🪦 <strong>Zastavil ses bez opravy polohy!</strong> Tentokrát to náhodou vyšlo přesně na (výška země), ale příště nemusí — proto se snap nevynechává.';
+			}
 			case 'propadl':
 				return `🚨 <strong>Propadl jsi zemí!</strong> Krok tohoto kola byl větší než tloušťka pásu (${tloustkaZeme(volby)}) — Země to celé přeskočilo, aniž by se jí postava kdy dotkla.`;
 			case 'odletel':
