@@ -8,6 +8,10 @@
 
 ### 🔴 NEDOKONČENO Z KOLA D5 — začni tímhle (nová session po /clear)
 
+> ⏳ **4. 8. ~23:05 — NOVÝ kontrolor SPUŠTĚN** (čerstvý kontext, plné zadání
+> níže vč. třetího pohledu na SestaveniRobota a PingPong). Běží na pozadí;
+> po doběhnutí zapsat nálezy sem a opravy zadat novým workerům téhož typu.
+
 **Kontrola 4 nových simulací D5 NEDOBĚHLA** — kontrolor umřel na session limitu
 (4. 8. ~20:40, reset 22:30) poté, co stihl jen: „Řazení funguje. Teď kvízy…".
 Simulace jsou NASAZENÉ (`8c72b6b`), ale neověřené. Spusť NOVÉHO kontrolora
@@ -22,9 +26,18 @@ nejde-li (nová session!) → novým workerům téhož typu se zadáním doslova
 
 ### 📋 ZADÁNÍ UČITELE 4. 8. (přednost před frontou)
 
-1. **Video `TW9Zewb9w34` nasadit** + vytvořit k němu PRVNÍ STRÁNKU S MAPOU
-   a titulky, o jaké místo se jedná (pipeline deníku: Omega skripty, úvodní
-   mapa trasy = vzor `projekt-trasa-uvod-denik`; mapy VŽDY vizuálně ověřit).
+1. ~~Video `TW9Zewb9w34` nasadit + první stránka s mapou a titulky~~ — **HOTOVO
+   4. 8. pozdě večer (kolo D6):** video = KOLODĚJE (pečlivá anonymizace, kontrolor
+   0 nálezů, zadání učitele = schválení). Místo ověřeno ze snímků videa (růžový
+   barokní zámek) = **Koloděje nad Lužnicí** u Týna nad Vltavou. Předřazena
+   úvodní mapa 6 s (`trasa_uvod.py`, domov → Koloděje, 70 km, nafta 336 Kč —
+   výpočet ověřen) + titulek „Koloděje nad Lužnicí / zámek u Týna nad Vltavou
+   · 2021" (PNG overlay přes PIL — ffmpeg tu nemá drawtext). Mapa i titulek
+   vizuálně ověřeny (3 kontrolní snímky, konec neuříznut, zvuk 67 s = 6 + 61).
+   Nahráno **https://youtu.be/CtELqPCIf1k**, horší verze `FKGHCv_YK84` přepnuta
+   na soukromou, web přepárován (commit `269ba43`, jen `2021.ts` — tour.astro
+   a worker.js nepřibaleny), build 465, curl na živé stránce 2021 potvrdil nové
+   ID. Původní soubor zálohován jako `TW9Zewb9w34-bez-mapy.mp4` (nic nesmazáno).
 2. ~~Mapa/diagram systému na vysvětlenou~~ — HOTOVO 4. 8. (nakresleno v chatu).
 
 ### ✅ Hotovo 4. 8. pozdě večer — kolo D5: 4 simulace (honička, střílečka, skákačka, řazení+filtrování)
