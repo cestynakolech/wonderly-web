@@ -127,6 +127,38 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-04 (appka /tour přepnuta z mužské na ŽENSKOU Tour + poznávačka + oprava živé tabulky)** —
+  Zadání učitele: *„nyní jsme na dámské tour a jede tam minimálně jedna Češka, pokud to jde
+  předělej ji"*, pak *„pokus se tam dostat startovní číslo a dej nám sem obrázky dresu
+  a přilby, ať ji poznáme"* a *„nefungují živá data do tabulky"*.
+  **Kdo se sleduje:** Nikola Nosková (Cofidis Women, **číslo 147**) — jediná Češka na startu
+  Tour de France Femmes 2026 (1.–9. 8., Lausanne → Nice, 9 etap). Ověřeno DVĚMA nezávislými
+  cestami: startovní listinou a projetím celé výsledkové tabulky (139 jmen) na českou
+  diakritiku — druhé nalezené jméno je Slovinka Žigart, další Češka tam není.
+  **Hotovo a nasazené** (`https://lab.wonderly.cz/tour/`): zdroj dat přepnut na
+  `letourfemmes.fr` + `racecenter.letourfemmes.fr`; startovní číslo v hlavičce karty;
+  sekce „Jak ji poznáte v televizi" — vlastní SVG kresby dresu (žluté rukávy, tmavě
+  červená ramena, červeno-bílý trup, svislé COFIDIS) a bílé přilby Uvex + tabulka
+  startovního čísla; QR kód na ploše (`QR-noskova-tour-femmes.png`); koncept e-mailu
+  s odkazem připraven v Gmailu (odeslání je na učiteli).
+  **Čtyři skutečné chyby nalezené a opravené** (podrobně i s pastmi v skillu `/wonderly`,
+  sekce „Mini-aplikace /tour"): (1) ženská tabulka má **o sloupec navíc** → parser hledá
+  čas podle tvaru, ne podle indexu; (2) **pomlčka ve sloupci Gap ≠ „vede"**, ale dojezd
+  v čase vítězky — chybu měla i mužská verze (Vacek 154. „vede"); (3) endpointy mimo
+  etapu vracejí **prázdné tělo (204)**, na kterém `.json()` padal a shazoval s sebou
+  i výpis skupin; (4) **živá tabulka se nikdy nezobrazila**, protože ženský racecenter
+  nevysílá telemetrii jednotlivých závodnic — běh závodu se teď pozná podle stáří
+  posledního záznamu skupin (< 15 min) a živá pozice se odvodí ze skupiny, kde má
+  Nosková číslo. Navíc: francouzské názvy skupin přeloženy do češtiny, komentář zbaven
+  HTML značek a doplněn fallback `cs → en → fr` (česká verze u žen neexistuje).
+  **Ověřeno kotvami, ne dojmem:** worker spouštěn přímo v Node proti živým datům;
+  oprava živé tabulky doložena OBOUSMĚRNĚ (čerstvá data → jede se + pozice ve skupině;
+  stará data → skryto); SVG kresby vyrenderovány přes `qlmanage` do PNG a prohlédnuty
+  (první verze měla odsazené rukávy a moc tlusté dno přilby → opraveno).
+  **ZBÝVÁ / na příště:** živá tabulka se v ostrém provozu ukáže až za jízdy etapy —
+  ověřit ji **5.–9. 8. odpoledne** (etapa 5+); po skončení závodu 9. 8. se stránka
+  přepne zpět na mužskou Tour podle návodu ve skillu.
+
 - **2026-08-02 večer II (audit automatů: opsaná pravidla; mapa dostala videa; zkratka WONDERLY)** —
   Učitel zadal: *„překontroluj všechny automaty, zda nedělají totéž — že se něco opraví
   a najednou druhý automat jede z jiných příkazů."* Podnětem bylo, že se mu **videa,

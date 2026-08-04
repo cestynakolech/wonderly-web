@@ -226,23 +226,50 @@ export default {
 					if (pack?.[0]?.groups?.length) break;
 				}
 				const skupiny = pack?.[0]?.groups ?? [];
+				// ženský racecenter NEVYSÍLÁ telemetrii jednotlivých závodnic (pole je vždy prázdné),
+				// posílá jen skupiny → že se jede, poznáme podle stáří posledního záznamu skupin
+				const stariMin = pack?.[0]?.date ? (Date.now() - Date.parse(pack[0].date)) / 60000 : null;
+				const packCerstvy = stariMin != null && stariMin >= 0 && stariMin < 15;
+				odpoved.zavodSeJede = kdokoliZive || packCerstvy;
+				odpoved.stariDatMin = stariMin != null ? Math.round(stariMin) : null;
 				const c1 = skupiny[0];
-				if (c1?.computedRemainingDistance != null) odpoved.doCileKm = Math.round(c1.computedRemainingDistance / 1000);
+				if (packCerstvy && c1?.computedRemainingDistance != null) odpoved.doCileKm = Math.round(c1.computedRemainingDistance / 1000);
 				const cisloBibu = (b) => (typeof b === 'object' ? b.bib : b);
+				// francouzské názvy skupin patří na český web česky
+				const NAZVY = {
+					'Tête de la course': 'Čelo závodu',
+					Peloton: 'Peloton',
+					'Gr. Maillot Jaune': 'Skupina žlutého dresu',
+					'Gr. Maillot Vert': 'Skupina zeleného dresu',
+					'Gr. Maillot Blanc': 'Skupina bílého dresu',
+					'Gr. Maillot à Pois': 'Skupina puntíkatého dresu',
+					Distancés: 'Vzadu za pelotonem',
+					'Gruppetto': 'Gruppetto (poslední skupina)',
+				};
 				odpoved.skupiny = [...skupiny]
 					.sort((a, b) => (a.computedRelative ?? 0) - (b.computedRelative ?? 0))
 					.map((sk) => {
 						const biby = (sk.bibs ?? []).map(cisloBibu);
+						const nazev = (sk.name ?? '').trim();
 						return {
-							nazev: sk.name,
+							nazev: NAZVY[nazev] ?? (nazev || 'Skupina'),
 							odstupVterin: sk.computedRelative ?? 0,
 							pocet: sk.size >= 999 ? null : sk.size, // 999 = velké pole (peloton)
+							rychlost: sk.computedSpeed ?? sk.speed ?? null,
 							nasi: biby.filter((b) => BIBY[b]).map((b) => BIBY[b]),
 						};
 					});
-				// ke každému jezdci doplnit, v jaké je skupině
+				// ke každé jezdkyni doplnit, v jaké je skupině
 				for (const sk of odpoved.skupiny) {
-					for (const jm of sk.nasi) (odpoved.jezdci[jm] ??= {}).skupina = { nazev: sk.nazev, odstupVterin: sk.odstupVterin };
+					for (const jm of sk.nasi) {
+						const j = (odpoved.jezdci[jm] ??= {});
+						j.skupina = { nazev: sk.nazev, odstupVterin: sk.odstupVterin };
+						// bez telemetrie jednotlivců je skupina jediný zdroj živé pozice —
+						// pozici na trati neznáme, odstup a rychlost bereme za celou skupinu
+						if (packCerstvy && !j.zive) {
+							j.zive = { poziceNaTrati: null, odstupVterin: sk.odstupVterin, rychlost: sk.rychlost, stav: 've skupině' };
+						}
+					}
 				}
 			} catch (e) {
 				odpoved.zive = { chyba: e.message };

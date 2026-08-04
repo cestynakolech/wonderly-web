@@ -121,7 +121,9 @@ const JEZDKYNE = [
 								}
 								const odstup = z.odstupVterin === 0 ? 've vedení'
 									: `+${Math.floor(z.odstupVterin / 60)}:${String(z.odstupVterin % 60).padStart(2, '0')}`;
-								return `<div class="ziva-radek"><b>${z.poziceNaTrati}.</b> ${JMENA[k] ?? k}
+								// pozici na trati ženská Tour nevysílá → místo čísla ukážeme kolo a odstup skupiny
+								const hlavicka = z.poziceNaTrati != null ? `<b>${z.poziceNaTrati}.</b>` : '<b class="bez-pozice">🚴‍♀️</b>';
+								return `<div class="ziva-radek">${hlavicka} ${JMENA[k] ?? k}
 									<span class="ziva-odstup">${odstup}</span> <span class="ziva-kmh">${z.rychlost ?? '–'} km/h</span>
 									<div class="ziva-skupina">${j.skupina ? j.skupina.nazev : ''}</div></div>`;
 							}).join('');
@@ -197,6 +199,7 @@ const JEZDKYNE = [
 			.ziva-hlava { font-weight: 900; color: #c92a2a; font-size: 1.05rem; margin-bottom: 0.5rem; }
 			.ziva-radek { display: flex; align-items: baseline; gap: 0.5rem; font-size: 1.2rem; padding: 0.25rem 0; border-top: 1px solid #f1dede; }
 			.ziva-radek b { font-size: 1.4rem; min-width: 2.4rem; }
+			.ziva-radek b.bez-pozice { font-size: 1.15rem; }
 			.ziva-odstup { font-weight: 700; color: #1971c2; }
 			.ziva-kmh { margin-left: auto; color: #777; font-size: 0.95rem; }
 			.ziva-radek.mimo { opacity: 0.55; }
