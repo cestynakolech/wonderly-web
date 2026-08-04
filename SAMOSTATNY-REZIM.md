@@ -28,7 +28,9 @@ pojistka 7 380 kombinací / 0 průniků; aréna 13/13 kombinací v mezích.
 Pokyn učitele: orchestrátor přednostně řeší **chyby a nastavení** (slabší model pak
 pracuje s dobře seřízeným strojem); mechanickou práci přebírá **Hermes** — lokální
 agent `~/.hermes/hermes-agent`, model gemma4:31b přes Ollamu, tedy zdarma.
-Fronta úkolů: `~/Desktop/Omega/HERMES-UKOLY.md` (popisy prezentací 7/8/9, mutační
+Fronta úkolů: `~/Desktop/Omega/HERMES-UKOLY.md` — **ŽIVÝ soubor: aktualizovat na
+konci KAŽDÉHO kola spolu s tímto stavem** (hotové odškrtnout, nové mechanické úkoly
+z čerstvé práce doplnit — přání učitele 4. 8.) (popisy prezentací 7/8/9, mutační
 měření 6 nejslepějších testů, soupis chybějícího `cz()`, tabulky PRAVIDLA.md,
 zdraví automatů) → výsledky do `Omega/HERMES-VYSLEDKY.md`. Hermes nikdy nepushuje,
 nemaže, nenahrává ven. Spuštění (i pro učitele):
