@@ -1,0 +1,515 @@
+---
+// Hra Vesmírná střílečka — klonování (informatika 8. ročník,
+// hry-ve-scratchi/hra-vesmirna-strilecka).
+//
+// Tři pointy z výkladu, VŠECHNY VIDĚT, ne jen napsané:
+//  1. TŘI SOUBĚŽNÉ SCÉNÁŘE, KAŽDÝ SÁM PRO SEBE — Raketa dole (šipky), Střela a Meteor
+//     mají svůj vlastní scénář pod hlavičkou „když startuje můj klon“. Originály Střely
+//     i Meteoru jsou schované („skryj se“) a nikdy je nevidíme — vidíme jen jejich KLONY,
+//     každý s vlastní polohou, přesně jak popisuje výklad („dvacet střel ve vzduchu =
+//     dvacet programů běžících najednou“).
+//  2. ZÁSAH NEZNAMENÁ TOTÉŽ PRO OBĚ STRANY — když meteor trefí střela, zruší se jen
+//     KLON METEORU (skóre +1); klon střely si nevšimne ničeho a letí dál, dokud sám
+//     nevyletí nad scénu (výklad to říká přímo: „střela zmizí sama nahoře“). Kdo čeká,
+//     že zásah smaže obě postavy najednou, uvidí na vlastní oči, že to tak není.
+//  3. „SKRYJ SE“ NENÍ „ZRUŠ TENTO KLON“ — přepínač simuluje přesně tu chybu, na kterou
+//     výklad varuje: „Skrytý klon NENÍ zrušený klon. Když ho jen skryješ, dál se počítá
+//     do těch 300 a dál mu běží program.“ V režimu „jen skryj se“ trefený meteor zmizí
+//     z OČÍ, ale zůstává v poli živých klonů (počítadlo „živé klony“ se NESNÍŽÍ) a dál
+//     padá neviditelně, dokud sám nedoletí dolů. Ukazatel „neviditelných, ale živých“
+//     dokazuje, že tam pořád je — přesně to na obrazovce vidět NENÍ, proto to ukazuje text.
+//  Navíc (strop 300, přímo z výkladu): „Scratch udrží nejvýš 300 klonů. Když je jich
+//  tolik, blok klonuj (sebe) prostě nic neudělá — a nic nehlásí.“ Tlačítko „rychlopal“
+//  dovolí vystřelit rychle spoustu klonů najednou a strop tak uvidět bez čekání na
+//  desítky sekund normální hry.
+//
+// Souřadnice jsou celočíselné ve scratchovské soustavě (x −240…240, y −180…180),
+// kreslí se 1:1 do viewBoxu 480×360 (px = 240+x, py = 180−y), stejně jako v PingPongSimulace.
+// Kroky přesně podle scénářů z výkladu: Raketa „změň x o −8/8“, Střela „změň y o 15“,
+// Meteor „změň y o −4“, generátor meteorů „čekej 1 sekund, klonuj (sebe)“. Meteor startuje
+// na „x: náhodné číslo od (−200) do (200) y: 180“ (deterministická funkce id, testovatelná
+// bez prohlížeče). Časování: setInterval po 100 ms = 10 kroků/s (TICK_S = 0,1 s), žádný
+// requestAnimationFrame → žádné zpomalení v náhledu; 1 s výkladu = přesně 10 kroků simulace,
+// takže meteor spadne z y=180 pod y=−175 za 89 kroků ≈ 8,9 s a střela vyletí nad y=175
+// za 22 kroků ≈ 2,2 s — obojí spočítáno z týchž konstant, které kreslí scénu.
+// Kolize se počítají z ÚSEČKY mezi starou a novou polohou (ne jen z koncového bodu) —
+// střela letí rychleji (15/tik) než součet poloměrů (18), takže kontrola jen koncové
+// polohy by občas nechala meteor „proletět“ beze srážky; to by vypadalo jako chyba
+// simulace, ne jako pointa výkladu, proto je ošetřené.
+//
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n/editor/blocks/cs.json), ověřeno
+// 4. 8. 2026 i proti sesterským simulacím (KlonovaniSimulace.astro, PingPongSimulace.astro,
+// UdalostiSimulace.astro): „po kliknutí na 🏁“, „opakuj stále“, „čekej … sekund“,
+// „klonuj (sebe)“, „když startuje můj klon“, „skryj se“, „ukaž se“, „skoč na x: … y: …“,
+// „skoč na (…)“, „změň x o …“, „změň y o …“, „nastav … na …“, „když … tak“ (CONTROL_IF),
+// „dotýkáš se (…)?“, „klávesa (…) stisknuta?“, „po stisku klávesy (mezerník)“,
+// „náhodné číslo od … do …“, „zruš tento klon“.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vesmírná střílečka 🚀</span></h2>
+	<p>
+		Raketa dole střílí na padající meteory. Vidíš tři <strong>souběžné scénáře</strong> —
+		Raketu, Střelu a Meteor — každý žije podle bloku <code>když startuje můj klon</code>
+		sám za sebe. Vyzkoušej přepínač dole: co se stane, když se místo <code>zruš tento klon</code>
+		meteor jen <code>skryj se</code>?
+	</p>
+
+	<svg id="vs-svg" viewBox="0 0 480 360" tabindex="0" role="img"
+		aria-label="Scéna vesmírné střílečky: raketa dole střílí střely nahoru na meteory padající shora. Ovládá se šipkami vlevo/vpravo a mezerníkem, nebo tlačítky pod scénou.">
+		<rect x="1" y="1" width="478" height="358" fill="#10121e" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<circle cx="40" cy="30" r="1.6" fill="#fff" opacity="0.8" />
+		<circle cx="120" cy="70" r="1.2" fill="#fff" opacity="0.6" />
+		<circle cx="210" cy="25" r="1.8" fill="#fff" opacity="0.7" />
+		<circle cx="300" cy="90" r="1.3" fill="#fff" opacity="0.6" />
+		<circle cx="380" cy="45" r="1.6" fill="#fff" opacity="0.8" />
+		<circle cx="440" cy="110" r="1.2" fill="#fff" opacity="0.5" />
+		<circle cx="70" cy="150" r="1.4" fill="#fff" opacity="0.6" />
+		<circle cx="420" cy="200" r="1.5" fill="#fff" opacity="0.7" />
+		<g id="vs-meteory"></g>
+		<g id="vs-strely"></g>
+		<polygon id="vs-raketa" points="240,340 225,325 255,325" fill="#4dabf7" stroke="#e7f5ff" stroke-width="2" />
+		<text id="vs-hlaska" x="240" y="40" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffd43b"></text>
+	</svg>
+
+	<p class="vs-stats" id="vs-stats" aria-live="polite"></p>
+
+	<p class="vs-radek">
+		<strong>Když meteor dostane zásah:</strong>
+		<button type="button" class="vs-tl vs-zasah vs-aktivni" data-zasah="zrus">zruš tento klon (správně)</button>
+		<button type="button" class="vs-tl vs-zasah" data-zasah="skryj">jen skryj se (chyba)</button>
+	</p>
+	<p class="vs-radek">
+		<strong>Raketa:</strong>
+		<button type="button" class="vs-tl" id="vs-vlevo">⬅ Raketa</button>
+		<button type="button" class="vs-tl" id="vs-vpravo">➡ Raketa</button>
+		<button type="button" class="vs-tl vs-hraj" id="vs-vystrel">🚀 vystřelit (mezerník)</button>
+		<button type="button" class="vs-tl" id="vs-rychlopal">🔫 rychlopal ×20</button>
+	</p>
+	<p class="vs-radek">
+		<button type="button" class="vs-tl vs-hraj" id="vs-krok">▶️ jeden krok</button>
+		<button type="button" class="vs-tl vs-hraj" id="vs-bezet">⏩ spustit</button>
+		<button type="button" class="vs-tl" id="vs-reset">↺ na začátek</button>
+	</p>
+
+	<div id="vs-program" class="vs-program"></div>
+	<p class="vs-vysvetleni" id="vs-vysvetleni" aria-live="polite">
+		Klikni na <strong>⏩ spustit</strong>, ovládej Raketu a střílej mezerníkem. Zkus i
+		„rychlopal“ a sleduj počítadlo živých klonů — nejzajímavější je porovnat oba
+		přepínače „po zásahu“.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('vs-svg');
+	const meteoryEl = document.getElementById('vs-meteory');
+	const strelyEl = document.getElementById('vs-strely');
+	const raketaEl = document.getElementById('vs-raketa');
+	const hlaskaEl = document.getElementById('vs-hlaska');
+	const statsEl = document.getElementById('vs-stats');
+	const programEl = document.getElementById('vs-program');
+	const vysvetleniEl = document.getElementById('vs-vysvetleni');
+	const btnKrok = document.getElementById('vs-krok');
+	const btnBezet = document.getElementById('vs-bezet');
+	const btnReset = document.getElementById('vs-reset');
+	const btnVlevo = document.getElementById('vs-vlevo');
+	const btnVpravo = document.getElementById('vs-vpravo');
+	const btnVystrel = document.getElementById('vs-vystrel');
+	const btnRychlopal = document.getElementById('vs-rychlopal');
+
+	// ——— konstanty přesně podle scénářů z výkladu (celá čísla) ———
+	const RAKETA_Y = -140;             // „skoč na x: 0 y: (−140)“
+	const RAKETA_KROK = 8;             // „změň x o −8“ / „změň x o 8“
+	const RAKETA_POLOSIRKA = 15;
+	const RAKETA_POLOVYSKA = 15;
+	const STRELA_RYCHLOST = 15;        // „změň y o 15“
+	const STRELA_POLOMER = 4;
+	const METEOR_RYCHLOST = -4;        // „změň y o −4“
+	const METEOR_POLOMER = 14;
+	const METEOR_START_Y = 180;
+	const METEOR_X_ROZSAH = 200;       // „náhodné číslo od (−200) do (200)“
+	const METEOR_INTERVAL_S = 1;       // „čekej 1 sekund“
+	const HORNI_MEZ = 175;             // „když y > 175“ (Střela)
+	const DOLNI_MEZ = -175;            // „když y < −175“ (Meteor)
+	const STROP_KLONU = 300;           // Scratch neudrží víc živých klonů (Střela + Meteor dohromady)
+	const ZIVOTY_START = 3;
+	const TICK_MS = 100;
+	const TICK_S = TICK_MS / 1000;     // 0,1 s → 1 reálná sekunda = 1 herní sekunda
+
+	function pxX(x) { return 240 + x; }
+	function pxY(y) { return 180 - y; }
+
+	/** Startovní x meteoru — jen z jeho id, deterministické (testovatelné bez prohlížeče). */
+	function xMeteoru(id) {
+		return -METEOR_X_ROZSAH + ((id * 53) % (2 * METEOR_X_ROZSAH + 1));
+	}
+
+	function omezRaketu(x) {
+		const mez = 240 - RAKETA_POLOSIRKA;
+		return Math.min(mez, Math.max(-mez, Math.round(x)));
+	}
+
+	/** Dva úseky (staré→nové y) se v ose y překrývají — chrání proti „proletění“ rychlého objektu. */
+	function yUsekySePrekryvaji(yPredA, yNoveA, yPredB, yNoveB) {
+		const loA = Math.min(yPredA, yNoveA), hiA = Math.max(yPredA, yNoveA);
+		const loB = Math.min(yPredB, yNoveB), hiB = Math.max(yPredB, yNoveB);
+		return loA <= hiB && loB <= hiA;
+	}
+
+	/** „dotýkáš se (Střela)?“ — kontrola z celého pohybu za tento tik, ne jen z koncové polohy. */
+	function meteorZasazenStrelou(meteor, strela) {
+		const dx = Math.abs(meteor.x - strela.x);
+		if (dx > METEOR_POLOMER + STRELA_POLOMER) return false;
+		return yUsekySePrekryvaji(meteor.yPred, meteor.y, strela.yPred, strela.y);
+	}
+
+	/** „dotýkáš se (Raketa)?“ — Raketa má pevné y, jen x se hýbe; meteor kontrolujeme přes úsek pohybu. */
+	function meteorZasahlRaketu(meteor, raketaX) {
+		const dx = Math.abs(meteor.x - raketaX);
+		if (dx > RAKETA_POLOSIRKA + METEOR_POLOMER) return false;
+		const bandLo = RAKETA_Y - RAKETA_POLOVYSKA - METEOR_POLOMER;
+		const bandHi = RAKETA_Y + RAKETA_POLOVYSKA + METEOR_POLOMER;
+		const lo = Math.min(meteor.yPred, meteor.y), hi = Math.max(meteor.yPred, meteor.y);
+		return lo <= bandHi && bandLo <= hi;
+	}
+
+	function pocatecniStav() {
+		return {
+			tick: 0, casDoDalsihoMeteoru: METEOR_INTERVAL_S, dalsiId: 1, klony: [],
+			skore: 0, zivoty: ZIVOTY_START, vyrobenoCelkem: 0, neuspesnychPokusu: 0,
+			konec: false, posledniUdalost: null,
+		};
+	}
+
+	/**
+	 * JEDEN KROK simulace (100 ms): generátor meteorů → pohyb všech klonů podle JEJICH
+	 * vlastního scénáře → kolize → sebe-úklid na okrajích. Čistá funkce stavu a voleb
+	 * (raketaX, poZasahu) — testovatelná bez prohlížeče.
+	 */
+	function jedenKrok(stav, volby) {
+		if (stav.konec) return { ...stav, posledniUdalost: null };
+
+		let { skore, zivoty, dalsiId, vyrobenoCelkem, neuspesnychPokusu } = stav;
+		let casDoDalsihoMeteoru = stav.casDoDalsihoMeteoru - TICK_S;
+		let klony = stav.klony;
+		let posledniUdalost = null;
+		let konec = false;
+
+		// generátor Meteoru: „opakuj stále: čekej 1 sekund, klonuj (sebe)“
+		while (casDoDalsihoMeteoru <= 1e-9) {
+			casDoDalsihoMeteoru += METEOR_INTERVAL_S;
+			if (klony.length < STROP_KLONU) {
+				klony = [...klony, { id: dalsiId, druh: 'meteor', x: xMeteoru(dalsiId), y: METEOR_START_Y, skryty: false }];
+				dalsiId += 1;
+				vyrobenoCelkem += 1;
+			} else {
+				neuspesnychPokusu += 1; // strop dosažen — „klonuj (sebe)“ tiše nic nevyrobí
+			}
+		}
+
+		// pohyb — každý klon podle SVÉHO „opakuj stále“ (vlastní scénář, vlastní paměť)
+		const pohnute = klony.map((k) => {
+			const yPred = k.y;
+			const y = k.druh === 'strela' ? yPred + STRELA_RYCHLOST : yPred + METEOR_RYCHLOST;
+			return { ...k, yPred, y };
+		});
+
+		// kolize — „když dotýkáš se (…)? tak“; kontrolujeme jen dosud nezasažené meteory
+		const strely = pohnute.filter((k) => k.druh === 'strela');
+		for (const m of pohnute) {
+			if (m.druh !== 'meteor' || m.vyresen) continue;
+			const strelaZasah = strely.find((s) => meteorZasazenStrelou(m, s));
+			if (strelaZasah) {
+				skore += 1;
+				posledniUdalost = posledniUdalost || 'zasah-strela';
+				m.vyresen = true;
+				if (volby.poZasahu === 'zrus') m.odstranit = true; else m.skryty = true;
+				continue; // klon Střely si ničeho nevšimne, letí dál sám
+			}
+			if (meteorZasahlRaketu(m, volby.raketaX)) {
+				zivoty -= 1;
+				posledniUdalost = posledniUdalost || 'zasah-raketa';
+				m.vyresen = true;
+				if (volby.poZasahu === 'zrus') m.odstranit = true; else m.skryty = true;
+				if (zivoty <= 0) konec = true;
+			}
+		}
+
+		// sebe-úklid na okrajích — „když y > 175 / y < −175 tak: zruš tento klon“ (platí VŽDY,
+		// i pro klony, co jsou momentálně jen „skryj se“ — proto se dřív nebo později uklidí i ty)
+		const finalni = [];
+		for (const k of pohnute) {
+			if (k.odstranit) continue;
+			if (k.druh === 'strela' && k.y > HORNI_MEZ) { posledniUdalost = posledniUdalost || 'strela-mimo'; continue; }
+			if (k.druh === 'meteor' && k.y < DOLNI_MEZ) { posledniUdalost = posledniUdalost || 'meteor-mimo'; continue; }
+			finalni.push({ id: k.id, druh: k.druh, x: k.x, y: k.y, skryty: k.skryty, vyresen: !!k.vyresen });
+		}
+
+		return {
+			tick: stav.tick + 1, casDoDalsihoMeteoru, dalsiId, klony: finalni, skore, zivoty,
+			vyrobenoCelkem, neuspesnychPokusu, konec, posledniUdalost,
+		};
+	}
+
+	/** „po stisku klávesy (mezerník) → klonuj (sebe)“ — samostatná, na tiku nezávislá událost. */
+	function vystrelStrelu(stav, raketaX) {
+		if (stav.konec) return stav;
+		if (stav.klony.length >= STROP_KLONU) {
+			return { ...stav, neuspesnychPokusu: stav.neuspesnychPokusu + 1, posledniUdalost: 'klonovani-selhalo' };
+		}
+		const klon = { id: stav.dalsiId, druh: 'strela', x: raketaX, y: RAKETA_Y, skryty: false };
+		return {
+			...stav, klony: [...stav.klony, klon], dalsiId: stav.dalsiId + 1,
+			vyrobenoCelkem: stav.vyrobenoCelkem + 1, posledniUdalost: 'vystrel',
+		};
+	}
+
+	/** Rychlé mačkání mezerníku (nebo skript se smyčkou) — víc klonů v jednom okamžiku. */
+	function rychlopal(stav, raketaX, pocet) {
+		let s = stav;
+		for (let i = 0; i < pocet; i++) s = vystrelStrelu(s, raketaX);
+		return s;
+	}
+
+	let volby = { raketaX: 0, poZasahu: 'zrus' };
+	let stav = pocatecniStav();
+	let zobrazenaUdalost = null;
+	let casovac = null;
+
+	function programRadky() {
+		const skryj = volby.poZasahu === 'skryj';
+		return [
+			{ text: '— Raketa —', uroven: 0, nadpis: true },
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'nastav skóre na 0, nastav životy na 3', uroven: 1 },
+			{ text: `skoč na x: 0 y: (${RAKETA_Y})`, uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: `když ⟨klávesa (šipka vlevo) stisknuta?⟩ tak: změň x o (−${RAKETA_KROK})`, uroven: 2 },
+			{ text: `když ⟨klávesa (šipka vpravo) stisknuta?⟩ tak: změň x o (${RAKETA_KROK})`, uroven: 2 },
+			{ text: '— Střela —', uroven: 0, nadpis: true },
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'skryj se', uroven: 1 },
+			{ text: 'po stisku klávesy (mezerník)', uroven: 0, hlava: true },
+			{ text: 'klonuj (sebe)', uroven: 1 },
+			{ text: 'když startuje můj klon', uroven: 0, hlava: true },
+			{ text: 'ukaž se, skoč na (Raketa)', uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: `změň y o (${STRELA_RYCHLOST})`, uroven: 2 },
+			{ text: `když ⟨y > ${HORNI_MEZ}⟩ tak: zruš tento klon`, uroven: 2 },
+			{ text: '— Meteor —', uroven: 0, nadpis: true },
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'skryj se', uroven: 1 },
+			{ text: `opakuj stále: čekej (${METEOR_INTERVAL_S}) sekund, klonuj (sebe)`, uroven: 1 },
+			{ text: 'když startuje můj klon', uroven: 0, hlava: true },
+			{ text: `ukaž se, skoč na x: (náhodné číslo od (−${METEOR_X_ROZSAH}) do (${METEOR_X_ROZSAH})) y: (${METEOR_START_Y})`, uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: `změň y o (${METEOR_RYCHLOST})`, uroven: 2 },
+			{ text: 'když ⟨dotýkáš se (Střela)?⟩ tak', uroven: 2 },
+			{ text: skryj ? 'změň skóre o 1, skryj se' : 'změň skóre o 1, zruš tento klon', uroven: 3, vypnuto: skryj },
+			{ text: 'když ⟨dotýkáš se (Raketa)?⟩ tak', uroven: 2 },
+			{ text: skryj ? 'změň životy o −1, skryj se' : 'změň životy o −1, zruš tento klon', uroven: 3, vypnuto: skryj },
+			{ text: `když ⟨y < ${DOLNI_MEZ}⟩ tak: zruš tento klon`, uroven: 2 },
+		];
+	}
+
+	function vypisProgram() {
+		programEl.textContent = '';
+		for (const r of programRadky()) {
+			const p = document.createElement('p');
+			p.className = 'vs-blok' + (r.hlava ? ' vs-hlava' : '') + (r.nadpis ? ' vs-nadpis' : '') + (r.vypnuto ? ' vs-vypnuto' : '');
+			p.textContent = r.vypnuto ? `${r.text}  ← chyba!` : r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			programEl.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		raketaEl.setAttribute('points',
+			`${pxX(volby.raketaX)},${pxY(RAKETA_Y) + RAKETA_POLOVYSKA} ` +
+			`${pxX(volby.raketaX) - RAKETA_POLOSIRKA},${pxY(RAKETA_Y) - RAKETA_POLOVYSKA} ` +
+			`${pxX(volby.raketaX) + RAKETA_POLOSIRKA},${pxY(RAKETA_Y) - RAKETA_POLOVYSKA}`);
+
+		meteoryEl.textContent = '';
+		strelyEl.textContent = '';
+		let skrytychZivych = 0;
+		for (const k of stav.klony) {
+			if (k.skryty) { skrytychZivych += 1; continue; } // neviditelný, ale POŘÁD ŽIJE — nekreslí se
+			if (k.druh === 'meteor') {
+				const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+				c.setAttribute('cx', String(pxX(k.x)));
+				c.setAttribute('cy', String(pxY(k.y)));
+				c.setAttribute('r', String(METEOR_POLOMER));
+				c.setAttribute('fill', '#868e96');
+				c.setAttribute('stroke', '#495057');
+				c.setAttribute('stroke-width', '2');
+				meteoryEl.appendChild(c);
+			} else {
+				const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+				c.setAttribute('cx', String(pxX(k.x)));
+				c.setAttribute('cy', String(pxY(k.y)));
+				c.setAttribute('r', String(STRELA_POLOMER));
+				c.setAttribute('fill', '#ffd43b');
+				c.setAttribute('stroke', '#e8590c');
+				c.setAttribute('stroke-width', '1');
+				strelyEl.appendChild(c);
+			}
+		}
+
+		const zive = stav.klony.length;
+		const naStropu = zive >= STROP_KLONU;
+		hlaskaEl.textContent = naStropu ? `🚫 STROP ${STROP_KLONU} — „klonuj (sebe)“ teď nic nevyrobí` : '';
+
+		const bar = `<span class="vs-bar"><span class="vs-bar-vypln" style="width:${(100 * zive) / STROP_KLONU}%; background:${naStropu ? '#c92a2a' : '#2b8a3e'}"></span></span>`;
+		const zivotySrdce = '❤️'.repeat(stav.zivoty) + '🖤'.repeat(ZIVOTY_START - stav.zivoty);
+		const dalsiMeteorZa = Math.max(0, Math.ceil(stav.casDoDalsihoMeteoru));
+		statsEl.innerHTML =
+			`skóre: <strong>${stav.skore}</strong> &nbsp;·&nbsp; životy: ${zivotySrdce} &nbsp;·&nbsp; ` +
+			`živé klony: <strong>${zive} / ${STROP_KLONU}</strong> ${bar}` +
+			(volby.poZasahu === 'skryj' && skrytychZivych > 0
+				? ` &nbsp;·&nbsp; <strong class="vs-cervene">neviditelných, ale živých: ${skrytychZivych}</strong>`
+				: '') +
+			(!stav.konec ? ` &nbsp;·&nbsp; další meteor za: <strong>${dalsiMeteorZa} s</strong>` : '') +
+			(stav.neuspesnychPokusu > 0 ? ` &nbsp;·&nbsp; <strong class="vs-cervene">selhalo klonování: ${stav.neuspesnychPokusu}×</strong>` : '');
+
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		if (stav.konec) return `💀 <strong>Konec hry!</strong> Došly životy. Konečné skóre: <strong>${stav.skore}</strong>. Zkus ↺ na začátek.`;
+		switch (zobrazenaUdalost) {
+			case 'zasah-strela':
+				return volby.poZasahu === 'zrus'
+					? `Zásah! <code>zruš tento klon</code> smazal jen <strong>klon meteoru</strong> — skóre <strong>${stav.skore}</strong>. Klon střely si ničeho nevšiml a letí dál, dokud sám nevyletí nahoru.`
+					: `Zásah, skóre <strong>${stav.skore}</strong> — ale meteor jsme jen <strong>skryli</strong>! Podívej se do počítadla „živé klony“: nekleslo. Neviditelný klon dál padá a dál se počítá do stropu ${STROP_KLONU}.`;
+			case 'zasah-raketa':
+				return volby.poZasahu === 'zrus'
+					? 'Meteor narazil do Rakety — ztráta života! Klon meteoru se hned zrušil.'
+					: 'Meteor narazil do Rakety — ztráta života! Meteor jsme ale jen <strong>skryli</strong>, takže neviditelně padá dál a dál se počítá mezi živé klony.';
+			case 'meteor-mimo':
+				return 'Meteor doletěl pod scénu a <code>když y &lt; −175</code> ho zrušilo samo — tahle podmínka platí pořád, i pro meteory, které byly jen skryté.';
+			case 'strela-mimo':
+				return 'Střela vyletěla nad horní okraj a <code>když y &gt; 175</code> ji sama zrušila.';
+			case 'klonovani-selhalo':
+				return `🚫 Živých klonů je přesně <strong>${STROP_KLONU}</strong>. Blok <code>klonuj (sebe)</code> se pokusil spustit, ale <strong>nevyrobil nic</strong> — ani nová střela, ani nový meteor. Program dál běží, jen mlčky nic nevzniká.`;
+			case 'vystrel':
+				return 'Blok <code>klonuj (sebe)</code> vyrobil nový klon Střely — ten teď žije podle vlastního scénáře <code>když startuje můj klon</code>.';
+			default:
+				return 'Sleduj tři souběžné scénáře: Raketu, Střelu a Meteor. Každý klon žije podle stejného scénáře, ale s vlastní polohou.';
+		}
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ spustit';
+		btnBezet.classList.remove('vs-aktivni');
+	}
+
+	function ukazStav() {
+		vysvetleniEl.innerHTML = popisStavu();
+	}
+
+	function krokVpred() {
+		stav = jedenKrok(stav, volby);
+		if (stav.posledniUdalost !== null) zobrazenaUdalost = stav.posledniUdalost;
+		prekresli();
+		ukazStav();
+		if (stav.konec) zastav();
+	}
+
+	function reset() {
+		zastav();
+		stav = pocatecniStav();
+		volby = { ...volby, raketaX: 0 };
+		zobrazenaUdalost = null;
+		prekresli();
+		ukazStav();
+	}
+
+	btnKrok.addEventListener('click', () => { zastav(); krokVpred(); });
+	btnBezet.addEventListener('click', () => {
+		if (casovac) { zastav(); return; }
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('vs-aktivni');
+		casovac = setInterval(krokVpred, TICK_MS);
+	});
+	btnReset.addEventListener('click', reset);
+
+	function posunRakety(o) {
+		volby = { ...volby, raketaX: omezRaketu(volby.raketaX + o) };
+		prekresli();
+	}
+	btnVlevo.addEventListener('click', () => posunRakety(-RAKETA_KROK));
+	btnVpravo.addEventListener('click', () => posunRakety(RAKETA_KROK));
+
+	function vystrel() {
+		stav = vystrelStrelu(stav, volby.raketaX);
+		zobrazenaUdalost = stav.posledniUdalost;
+		prekresli();
+		ukazStav();
+	}
+	btnVystrel.addEventListener('click', vystrel);
+	btnRychlopal.addEventListener('click', () => {
+		stav = rychlopal(stav, volby.raketaX, 20);
+		zobrazenaUdalost = stav.posledniUdalost;
+		prekresli();
+		ukazStav();
+	});
+
+	svg.addEventListener('keydown', (e) => {
+		if (e.key === 'ArrowLeft') { e.preventDefault(); posunRakety(-RAKETA_KROK); }
+		else if (e.key === 'ArrowRight') { e.preventDefault(); posunRakety(RAKETA_KROK); }
+		else if (e.key === ' ' || e.code === 'Space') { e.preventDefault(); vystrel(); }
+	});
+
+	for (const tl of document.querySelectorAll('.vs-zasah')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.vs-zasah')) j.classList.remove('vs-aktivni');
+			tl.classList.add('vs-aktivni');
+			volby = { ...volby, poZasahu: tl.dataset.zasah };
+			prekresli();
+			ukazStav();
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenKrok = jedenKrok;
+	svg.__vystrelStrelu = vystrelStrelu;
+	svg.__rychlopal = rychlopal;
+	svg.__pocatecniStav = pocatecniStav;
+	svg.__xMeteoru = xMeteoru;
+	svg.__omezRaketu = omezRaketu;
+	svg.__meteorZasazenStrelou = meteorZasazenStrelou;
+	svg.__meteorZasahlRaketu = meteorZasahlRaketu;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = {
+		RAKETA_Y, RAKETA_KROK, RAKETA_POLOSIRKA, RAKETA_POLOVYSKA, STRELA_RYCHLOST, STRELA_POLOMER,
+		METEOR_RYCHLOST, METEOR_POLOMER, METEOR_START_Y, METEOR_X_ROZSAH, METEOR_INTERVAL_S,
+		HORNI_MEZ, DOLNI_MEZ, STROP_KLONU, ZIVOTY_START, TICK_MS,
+	};
+	svg.__programRadky = programRadky;
+</script>
+
+<style>
+	#vs-svg { width: 100%; max-width: 480px; border-radius: 12px; display: block; touch-action: none; }
+	#vs-svg:focus { outline: 3px dashed #1971c2; outline-offset: 3px; }
+	.vs-radek { margin: 0.6rem 0; }
+	.vs-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.vs-tl.vs-aktivni { background: #ffe8cc; }
+	.vs-tl.vs-hraj { background: #d3f9d8; }
+	.vs-tl:active { transform: translateY(1px); }
+	.vs-stats { font-weight: 700; margin: 0.5rem 0; }
+	.vs-cervene { color: #c92a2a; }
+	.vs-bar { display: inline-block; width: 140px; height: 12px; background: #e9ecef; border: 2px solid #2b2a26; border-radius: 6px; overflow: hidden; vertical-align: middle; margin: 0 0.3rem; }
+	.vs-bar-vypln { display: block; height: 100%; }
+	.vs-program { margin: 0.4rem 0; }
+	.vs-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.vs-program p.vs-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.vs-program p.vs-nadpis { background: transparent; font-weight: 800; text-decoration: underline; padding: 0.3rem 0 0 0; }
+	.vs-program p.vs-vypnuto { background: #ffc9c9; outline: 2px dashed #c92a2a; text-decoration: line-through; opacity: 0.85; }
+	.vs-vysvetleni { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>

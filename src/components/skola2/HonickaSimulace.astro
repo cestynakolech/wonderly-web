@@ -1,0 +1,389 @@
+---
+// Hra 3: Honička (informatika 7. ročník, hry-ve-scratchi/hra-honicka).
+//
+// Výklad na téže stránce dává tři pointy, VŠECHNY vidět, ne jen napsané:
+//  1. MYŠ MÁ JEDNODUCHÝ SCÉNÁŘ — jen „skoč na (ukazatel myši)“ v ⟨opakuj stále⟩, žádný
+//     výpočet směru. Hráč ji ovládá myší (nebo šipkami) a ona ho okamžitě poslechne.
+//  2. KOČKA MÁ VŠECHNO V JEDNOM ⟨opakuj stále⟩ — směr k myši, krok, čítač času i
+//     kontrolu dotyku jedou v TÉŽE smyčce. Krok kočky (3/tick) je schválně malý — s
+//     krokem 8 se pohyb rozseká na skoky, přesně jak varuje výklad („větší krok by
+//     Kočku posouval trhaně a hra by byla nehratelná“) — tlačítko „trhaně (8)“ to
+//     ukazuje živě.
+//  3. PROČ SE ČAS POČÍTÁ PŘES DESETINY, NE ROVNOU +0.1 — výklad tvrdí, že přímé
+//     přičítání 0.1 je nepřesné kvůli tomu, jak počítač ukládá desetinná čísla.
+//     Simulace to NETVRDÍ, ale SKUTEČNĚ TAK POČÍTÁ (JS má stejnou binární aritmetiku
+//     jako Scratch/každý jiný jazyk) — obě hodnoty (správně: čítač celých + dělení na
+//     konci / „naostro“: rovnou +0.1) se počítají živě a zobrazují vedle sebe, takže
+//     žák uvidí skutečnou odchylku, ne vymyšlené číslo.
+//
+// Souřadnice jsou celočíselné ve scratchovské soustavě (x −240…240, y −180…180),
+// kreslí se 1:1 do viewBoxu 480×360 (px = 240+x, py = 180−y). Směr je podle Scratche
+// (blok „nastav směr k (…)“): 0° = nahoru, 90° = doprava, 180° = dolů, 270° = doleva.
+// Kočka startuje v rohu x:−200 y:−150 (přesně jak píše scénář ve výkladu), časování
+// je setInterval po 100 ms = 10 kroků/s (TICK_S = 0,1 s, stejné číslo jako „čekej 0.1
+// sekund“) — žádný requestAnimationFrame, takže žádné zpomalení v náhledu.
+// Stav je čistá funkce předchozího stavu a polohy myši — testovatelné bez prohlížeče.
+//
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n/editor/blocks/cs.json), ověřeno
+// i proti sesterským simulacím (PingPongSimulace.astro, BludisteSimulace.astro):
+// „po kliknutí na 🏁“, „opakuj stále“, „skoč na (ukazatel myši)“, „nastav směr k (…)“,
+// „dopředu o … kroků“, „změň … o …“, „nastav … na …“, „skoč na x: … y: …“,
+// „čekej … sekund“, „dotýkáš se (…)?“, „bublina (spoj „…“ (…))“, „zastav (všechno)“.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Honička — kočka, myš a jedna velká smyčka 🐱🐭</span></h2>
+	<p>
+		Myš ovládáš ty (pohybem myši po scéně nebo šipkami) — její scénář je jednoduchý:
+		jen <strong>„skoč na (ukazatel myši)“</strong> pořád dokola. Kočka má naopak
+		<strong>všechno</strong> — směr, krok, čítač času i kontrolu dotyku — v jediném
+		<code>opakuj stále</code>. Jak dlouho jí utečeš?
+	</p>
+
+	<svg id="hon-svg" viewBox="0 0 480 360" tabindex="0" role="img"
+		aria-label="Scéna honičky: kočka startuje v levém dolním rohu a běží za myší. Myš se ovládá pohybem myši nad scénou nebo šipkami.">
+		<rect x="1" y="1" width="478" height="358" fill="#eaf4ff" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<line id="hon-smer" stroke="#e8590c" stroke-width="3" stroke-linecap="round" />
+		<circle id="hon-kocka" r="14" fill="#ffa94d" stroke="#2b2a26" stroke-width="2" />
+		<text id="hon-kocka-znak" text-anchor="middle" font-size="14" dy="5">🐱</text>
+		<circle id="hon-mys" r="10" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+		<text id="hon-mys-znak" text-anchor="middle" font-size="12" dy="4">🐭</text>
+		<g id="hon-bublina" opacity="0">
+			<rect x="60" y="20" width="360" height="40" rx="10" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+			<text id="hon-bublina-text" x="240" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#c92a2a"></text>
+		</g>
+	</svg>
+
+	<p class="hon-stats" id="hon-stats" aria-live="polite"></p>
+	<p class="hon-stats hon-porovnani" id="hon-porovnani"></p>
+
+	<p class="hon-radek">
+		<strong>Krok kočky (dopředu o … kroků):</strong>
+		<button type="button" class="hon-tl hon-krok" data-krok="1">pomalu (1)</button>
+		<button type="button" class="hon-tl hon-krok hon-aktivni" data-krok="3">normálně (3)</button>
+		<button type="button" class="hon-tl hon-krok" data-krok="8">trhaně (8)</button>
+	</p>
+	<p class="hon-radek">
+		<strong>Vylepšení „pro šikovné“ — kočka zrychluje:</strong>
+		<button type="button" class="hon-tl hon-zrychleni hon-aktivni" data-zrychleni="ne">vypnuto</button>
+		<button type="button" class="hon-tl hon-zrychleni" data-zrychleni="ano">zapnuto (3 + čas / 100)</button>
+	</p>
+	<p class="hon-radek">
+		<strong>Myš:</strong> jezdí za ukazatelem myši nad scénou, nebo šipkami
+		<button type="button" class="hon-tl" id="hon-nahoru">↑</button>
+		<button type="button" class="hon-tl" id="hon-dolu">↓</button>
+		<button type="button" class="hon-tl" id="hon-vlevo">←</button>
+		<button type="button" class="hon-tl" id="hon-vpravo">→</button>
+	</p>
+	<p class="hon-radek">
+		<button type="button" class="hon-tl hon-hraj" id="hon-krok-tl">▶️ jeden krok</button>
+		<button type="button" class="hon-tl hon-hraj" id="hon-bezet">⏩ spustit</button>
+		<button type="button" class="hon-tl" id="hon-reset">↺ na začátek</button>
+	</p>
+
+	<div class="hon-programy">
+		<div>
+			<p class="hon-nadpis">Scénář Myši</p>
+			<div id="hon-program-mys" class="hon-program"></div>
+		</div>
+		<div>
+			<p class="hon-nadpis">Scénář Kočky</p>
+			<div id="hon-program-kocka" class="hon-program"></div>
+		</div>
+	</div>
+	<p class="hon-vysvetleni" id="hon-vysvetleni" aria-live="polite">
+		Klikni na <strong>⏩ spustit</strong> a utíkej myší kočce z cesty.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('hon-svg');
+	const kockaEl = document.getElementById('hon-kocka');
+	const kockaZnakEl = document.getElementById('hon-kocka-znak');
+	const mysEl = document.getElementById('hon-mys');
+	const mysZnakEl = document.getElementById('hon-mys-znak');
+	const smerEl = document.getElementById('hon-smer');
+	const bublinaEl = document.getElementById('hon-bublina');
+	const bublinaTextEl = document.getElementById('hon-bublina-text');
+	const statsEl = document.getElementById('hon-stats');
+	const porovnaniEl = document.getElementById('hon-porovnani');
+	const programMysEl = document.getElementById('hon-program-mys');
+	const programKockaEl = document.getElementById('hon-program-kocka');
+	const vysvetleniEl = document.getElementById('hon-vysvetleni');
+	const btnKrok = document.getElementById('hon-krok-tl');
+	const btnBezet = document.getElementById('hon-bezet');
+	const btnReset = document.getElementById('hon-reset');
+	const btnNahoru = document.getElementById('hon-nahoru');
+	const btnDolu = document.getElementById('hon-dolu');
+	const btnVlevo = document.getElementById('hon-vlevo');
+	const btnVpravo = document.getElementById('hon-vpravo');
+
+	const STENA = 240;             // levý/pravý okraj scény (x −240…240)
+	const STROP = 180;             // horní/dolní okraj scény (y −180…180)
+	const R_KOCKA = 14;
+	const R_MYS = 10;
+	const DOTYK = R_KOCKA + R_MYS; // 24 — „dotýkáš se (Myš)?“ = středy blíž než součet poloměrů
+	const ROH_X = -200;
+	const ROH_Y = -150;            // „skoč na x: −200 y: −150“ přesně jak ve výkladu
+	const TICK_MS = 100;
+	const TICK_S = TICK_MS / 1000; // 0,1 s — stejné jako „čekej 0.1 sekund“
+	const KROKY = { pomalu: 1, normalne: 3, trhane: 8 };
+	const MYS_SIPKA_KROK = 20;
+
+	function pxX(x) { return 240 + x; }
+	function pxY(y) { return 180 - y; }
+	function mod360(deg) { return ((deg % 360) + 360) % 360; }
+
+	/** Pohyb ve směru `smer` (0=nahoru) o `velikost` jednotek: dx = v·sin, dy = v·cos — přesně jako ve Scratchi. */
+	function posunVeSmeru(smer, velikost) {
+		const rad = (smer * Math.PI) / 180;
+		return { dx: velikost * Math.sin(rad), dy: velikost * Math.cos(rad) };
+	}
+
+	/** „nastav směr k (Myš)“ — úhel od kočky k myši, ve Scratchově soustavě (0=nahoru, 90=doprava). */
+	function smerK(x0, y0, x1, y1) {
+		const dx = x1 - x0;
+		const dy = y1 - y0;
+		if (dx === 0 && dy === 0) return 0;
+		return mod360((Math.atan2(dx, dy) * 180) / Math.PI);
+	}
+
+	function omezSceny(v, r) { return Math.min(STENA - r, Math.max(-STENA + r, v)); }
+	function omezSceny_y(v, r) { return Math.min(STROP - r, Math.max(-STROP + r, v)); }
+
+	function vzdalenost(x0, y0, x1, y1) { return Math.hypot(x1 - x0, y1 - y0); }
+
+	function pocatecniStav() {
+		return { kx: ROH_X, ky: ROH_Y, smer: 0, cas: 0, casPrimo: 0, konec: false, casChyceni: null };
+	}
+
+	/**
+	 * JEDEN KROK simulace (100 ms) — celý scénář Kočky najednou: „nastav směr k (Myš)“,
+	 * „dopředu o … kroků“, „změň čas o 1“, „dotýkáš se (Myš)?“. Čistá funkce stavu,
+	 * voleb a polohy myši — testovatelná bez prohlížeče.
+	 */
+	function jedenKrok(stav, volby, mysX, mysY) {
+		if (stav.konec) return stav;
+
+		const smer = smerK(stav.kx, stav.ky, mysX, mysY);
+		const krok = volby.krok + (volby.zrychleni ? stav.cas / 100 : 0);
+		const posun = posunVeSmeru(smer, krok);
+		const kx = omezSceny(stav.kx + posun.dx, R_KOCKA);
+		const ky = omezSceny_y(stav.ky + posun.dy, R_KOCKA);
+
+		// „změň čas o 1“ (desetiny) — přesný celočíselný čítač.
+		const cas = stav.cas + 1;
+		// Kdybychom rovnou „změnili čas o 0.1“ — počítač desetinná čísla sčítá nepřesně.
+		// Skutečně se to tu tak sčítá, ne jen tvrdí — proto se dvě čísla dole liší.
+		const casPrimo = stav.casPrimo + 0.1;
+
+		const chyceno = vzdalenost(kx, ky, mysX, mysY) <= DOTYK;
+		if (chyceno) {
+			return { kx, ky, smer, cas, casPrimo, konec: true, casChyceni: cas };
+		}
+		return { kx, ky, smer, cas, casPrimo, konec: false, casChyceni: null };
+	}
+
+	let volby = { krok: KROKY.normalne, zrychleni: false };
+	let stav = pocatecniStav();
+	let mysX = -60;
+	let mysY = 60;
+	let casovac = null;
+
+	function programRadkyMys() {
+		return [
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: 'skoč na (ukazatel myši)', uroven: 2 },
+		];
+	}
+
+	function programRadkyKocka() {
+		const krokText = volby.zrychleni ? `${volby.krok} + čas / 100` : `${volby.krok}`;
+		return [
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'nastav čas na 0', uroven: 1 },
+			{ text: `skoč na x: ${ROH_X} y: ${ROH_Y}`, uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: 'nastav směr k (Myš)', uroven: 2 },
+			{ text: `dopředu o (${krokText}) kroků`, uroven: 2 },
+			{ text: 'změň čas o 1', uroven: 2 },
+			{ text: 'čekej 0.1 sekund', uroven: 2 },
+			{ text: 'když ⟨dotýkáš se (Myš)?⟩ tak', uroven: 2 },
+			{ text: 'bublina (spoj „Mám tě! Vydržel(a) jsi “ (čas / 10))', uroven: 3 },
+			{ text: 'zastav (všechno)', uroven: 3 },
+		];
+	}
+
+	function vypisProgram(el, radky) {
+		el.textContent = '';
+		for (const r of radky) {
+			const p = document.createElement('p');
+			p.className = 'hon-blok' + (r.hlava ? ' hon-hlava' : '');
+			p.textContent = r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			el.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		kockaEl.setAttribute('cx', String(pxX(stav.kx)));
+		kockaEl.setAttribute('cy', String(pxY(stav.ky)));
+		kockaZnakEl.setAttribute('x', String(pxX(stav.kx)));
+		kockaZnakEl.setAttribute('y', String(pxY(stav.ky)));
+
+		mysEl.setAttribute('cx', String(pxX(mysX)));
+		mysEl.setAttribute('cy', String(pxY(mysY)));
+		mysZnakEl.setAttribute('x', String(pxX(mysX)));
+		mysZnakEl.setAttribute('y', String(pxY(mysY)));
+
+		// Šipka = vizualizace „nastav směr k (Myš)“.
+		const smerVec = posunVeSmeru(stav.smer, R_KOCKA * 1.7);
+		smerEl.setAttribute('x1', String(pxX(stav.kx)));
+		smerEl.setAttribute('y1', String(pxY(stav.ky)));
+		smerEl.setAttribute('x2', String(pxX(stav.kx) + smerVec.dx));
+		smerEl.setAttribute('y2', String(pxY(stav.ky) - smerVec.dy));
+		smerEl.style.opacity = stav.konec ? '0' : '1';
+
+		bublinaEl.style.opacity = stav.konec ? '1' : '0';
+		if (stav.konec) {
+			const s = (stav.casChyceni / 10).toFixed(1);
+			bublinaTextEl.textContent = `Mám tě! Vydržel(a) jsi ${s} s`;
+		}
+
+		const sSpravne = (stav.cas / 10).toFixed(1);
+		statsEl.innerHTML = `čas: <strong>${stav.cas}</strong> desetin &nbsp;=&nbsp; <strong>${sSpravne} s</strong>`;
+		porovnaniEl.innerHTML =
+			`porovnání sčítání: „čas + 1, pak / 10“ → <strong>${sSpravne}</strong> &nbsp;·&nbsp; ` +
+			`„rovnou + 0.1“ → <strong>${stav.casPrimo}</strong> ${stav.cas > 0 && String(stav.casPrimo) !== sSpravne ? '⚠️ liší se!' : ''}`;
+
+		vypisProgram(programMysEl, programRadkyMys());
+		vypisProgram(programKockaEl, programRadkyKocka());
+	}
+
+	function popisStavu() {
+		if (stav.konec) {
+			return `🎉 <strong>Chycena!</strong> Vydržel(a) jsi <strong>${(stav.casChyceni / 10).toFixed(1)} s</strong>. Zkus ↺ na začátek.`;
+		}
+		if (volby.krok === KROKY.trhane) {
+			return 'Všimni si, jak kočka <strong>poskakuje</strong> — krok 8 je moc velký. Přesně to varuje výklad: ' +
+				'„větší krok by Kočku posouval trhaně a hra by byla nehratelná“.';
+		}
+		return 'Kočka má <strong>všechno</strong> — směr, krok, čítač i kontrolu dotyku — v jediném <code>opakuj stále</code>. ' +
+			'Utíkej myší (nebo šipkami) a sleduj oranžovou šipku, kam kočka právě míří.';
+	}
+
+	function ukazStav() {
+		vysvetleniEl.innerHTML = popisStavu();
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ spustit';
+		btnBezet.classList.remove('hon-aktivni');
+	}
+
+	function krokVpred() {
+		stav = jedenKrok(stav, volby, mysX, mysY);
+		prekresli();
+		ukazStav();
+		if (stav.konec) zastav();
+	}
+
+	function reset() {
+		zastav();
+		stav = pocatecniStav();
+		prekresli();
+		ukazStav();
+	}
+
+	btnKrok.addEventListener('click', () => { zastav(); krokVpred(); });
+	btnBezet.addEventListener('click', () => {
+		if (casovac) { zastav(); return; }
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('hon-aktivni');
+		casovac = setInterval(krokVpred, TICK_MS);
+	});
+	btnReset.addEventListener('click', reset);
+
+	function posunMysi(dx, dy) {
+		mysX = omezSceny(mysX + dx, R_MYS);
+		mysY = omezSceny_y(mysY + dy, R_MYS);
+		prekresli();
+	}
+	btnNahoru.addEventListener('click', () => posunMysi(0, MYS_SIPKA_KROK));
+	btnDolu.addEventListener('click', () => posunMysi(0, -MYS_SIPKA_KROK));
+	btnVlevo.addEventListener('click', () => posunMysi(-MYS_SIPKA_KROK, 0));
+	btnVpravo.addEventListener('click', () => posunMysi(MYS_SIPKA_KROK, 0));
+
+	// „skoč na (ukazatel myši)“ — myš jede přesně za kurzorem nad scénou.
+	svg.addEventListener('pointermove', (e) => {
+		const r = svg.getBoundingClientRect();
+		if (!r.width) return;
+		const scenePxX = ((e.clientX - r.left) / r.width) * 480;
+		const scenePxY = ((e.clientY - r.top) / r.height) * 360;
+		mysX = omezSceny(scenePxX - 240, R_MYS);
+		mysY = omezSceny_y(180 - scenePxY, R_MYS);
+		prekresli();
+	});
+
+	svg.addEventListener('keydown', (e) => {
+		const KLAVESY = { ArrowUp: [0, MYS_SIPKA_KROK], ArrowDown: [0, -MYS_SIPKA_KROK], ArrowLeft: [-MYS_SIPKA_KROK, 0], ArrowRight: [MYS_SIPKA_KROK, 0] };
+		const p = KLAVESY[e.key];
+		if (!p) return;
+		e.preventDefault();
+		posunMysi(p[0], p[1]);
+	});
+
+	for (const tl of document.querySelectorAll('.hon-krok')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.hon-krok')) j.classList.remove('hon-aktivni');
+			tl.classList.add('hon-aktivni');
+			volby = { ...volby, krok: Number(tl.dataset.krok) };
+			reset();
+		});
+	}
+	for (const tl of document.querySelectorAll('.hon-zrychleni')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.hon-zrychleni')) j.classList.remove('hon-aktivni');
+			tl.classList.add('hon-aktivni');
+			volby = { ...volby, zrychleni: tl.dataset.zrychleni === 'ano' };
+			reset();
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenKrok = jedenKrok;
+	svg.__pocatecniStav = pocatecniStav;
+	svg.__smerK = smerK;
+	svg.__posunVeSmeru = posunVeSmeru;
+	svg.__mod360 = mod360;
+	svg.__vzdalenost = vzdalenost;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__mysPozice = () => ({ x: mysX, y: mysY });
+	svg.__meze = { STENA, STROP, R_KOCKA, R_MYS, DOTYK, ROH_X, ROH_Y, TICK_MS, KROKY };
+	svg.__programRadkyMys = programRadkyMys;
+	svg.__programRadkyKocka = programRadkyKocka;
+</script>
+
+<style>
+	#hon-svg { width: 100%; max-width: 480px; border-radius: 12px; display: block; touch-action: none; cursor: crosshair; }
+	#hon-svg:focus { outline: 3px dashed #1971c2; outline-offset: 3px; }
+	.hon-radek { margin: 0.6rem 0; }
+	.hon-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.hon-tl.hon-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.hon-tl.hon-hraj { background: #d3f9d8; }
+	.hon-tl:active { transform: translateY(1px); }
+	.hon-stats { font-weight: 700; margin: 0.4rem 0; }
+	.hon-porovnani { font-weight: 400; font-size: 0.92rem; color: #495057; }
+	.hon-programy { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 0.6rem 0; }
+	.hon-nadpis { font-weight: 700; margin: 0 0 0.2rem; }
+	.hon-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.hon-program p.hon-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.hon-vysvetleni { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>

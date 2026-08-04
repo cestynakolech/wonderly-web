@@ -1,0 +1,296 @@
+---
+// Řazení a filtrování (informatika 8) — evidence osmi žáků: Jméno, Skupina, Body.
+//
+// Dvě pointy z výkladu, obě si žák může sám vyvolat:
+//  1. ŘAZENÍ drží CELÝ ŘÁDEK pohromadě — přeskládají se jen čísla řádků (2–9),
+//     trojice jméno–skupina–body zůstane spolu. Tlačítko „ukázat klasickou chybu"
+//     naopak seřadí JEN sloupec Body a sloupce Jméno/Skupina nechá stát — přesně to,
+//     před čím výklad varuje větou „nejhorší, co se dá udělat, je seřadit jeden sloupec".
+//  2. FILTR řádky jen SCHOVÁ, nic nemaže. Počítadlo „zobrazeno X z Y" a přepínač
+//     „ukázat schované" to dokazují. Navíc past z výkladu: PRŮMĚR čte i schované
+//     řádky, takže se může lišit od průměru „na první pohled" z toho, co je vidět.
+//
+// Data: Body součet 112 při 8 žácích → průměr všech přesně 14 (celé číslo) —
+// výchozí stav (bez filtru) tedy vždy ukáže shodná celá čísla u obou průměrů.
+// Všechny výpočty jsou čisté funkce pole záznamů, ověřitelné bez prohlížeče.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Když se tabulka „rozsype" 🗂️</span></h2>
+	<p>
+		Evidence osmi žáků: jméno, skupina a body z testu. Zkus <strong>seřadit</strong>,
+		<strong>filtrovat</strong> — a pak si nech ukázat klasickou chybu, které se
+		vyplatí vyhnout.
+	</p>
+
+	<div class="rf-obal">
+		<table class="rf-tabulka">
+			<thead>
+				<tr><th scope="col">Řádek</th><th scope="col">A — jméno</th><th scope="col">B — skupina</th><th scope="col">C — body</th></tr>
+			</thead>
+			<tbody id="rf-telo"></tbody>
+		</table>
+	</div>
+
+	<p class="rf-radek">
+		<strong>Seřadit podle bodů:</strong>
+		<button type="button" class="rf-tl rf-razeni-tl" data-smer="vzestupne">⬆️ vzestupně (celé řádky)</button>
+		<button type="button" class="rf-tl rf-razeni-tl" data-smer="sestupne">⬇️ sestupně (celé řádky)</button>
+		<button type="button" class="rf-tl" id="rf-reset">↺ původní pořadí</button>
+	</p>
+
+	<p class="rf-radek">
+		<button type="button" class="rf-tl rf-varovani" id="rf-chyba" aria-pressed="false">⚠️ ukázat klasickou chybu: seřadit jen sloupec Body</button>
+	</p>
+
+	<p class="rf-radek">
+		<strong>Filtr — skupina:</strong>
+		<button type="button" class="rf-tl rf-skupina-tl rf-aktivni" data-skupina="vse" aria-pressed="true">obě</button>
+		<button type="button" class="rf-tl rf-skupina-tl" data-skupina="A" aria-pressed="false">jen A</button>
+		<button type="button" class="rf-tl rf-skupina-tl" data-skupina="B" aria-pressed="false">jen B</button>
+	</p>
+	<p class="rf-radek">
+		<label for="rf-mez"><strong>Filtr — body aspoň:</strong> <span id="rf-mez-hodnota">0</span></label><br />
+		<input type="range" id="rf-mez" min="0" max="20" step="1" value="0" />
+	</p>
+	<p class="rf-radek">
+		<label><input type="checkbox" id="rf-ukazat-skryte" /> 👁️ na chvíli ukázat schované řádky přeškrtnuté (nic se nesmazalo)</label>
+	</p>
+
+	<p class="rf-pocitadlo" id="rf-pocitadlo"></p>
+
+	<table class="rf-vysledky">
+		<caption class="rf-titulek">Průměr bodů — past na filtr</caption>
+		<tbody>
+			<tr><th scope="row">jen to, co teď VIDÍM</th><td id="rf-prumer-viditelne"></td><td class="rf-pozn">spočítáno ručně z viditelných řádků</td></tr>
+			<tr class="rf-duraz"><th scope="row">=PRŮMĚR(C2:C9)</th><td id="rf-prumer-vsechny"></td><td class="rf-pozn" id="rf-prumer-pozn">skutečný vzorec — čte i schované řádky</td></tr>
+		</tbody>
+	</table>
+
+	<p class="rf-stav" id="rf-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const teloEl = document.getElementById('rf-telo');
+	const stavEl = document.getElementById('rf-stav');
+	const pocitadloEl = document.getElementById('rf-pocitadlo');
+	const prumerVidEl = document.getElementById('rf-prumer-viditelne');
+	const prumerVseEl = document.getElementById('rf-prumer-vsechny');
+	const prumerPoznEl = document.getElementById('rf-prumer-pozn');
+	const mezEl = document.getElementById('rf-mez');
+	const mezHodnotaEl = document.getElementById('rf-mez-hodnota');
+	const btnChyba = document.getElementById('rf-chyba');
+	const btnReset = document.getElementById('rf-reset');
+	const chkSkryte = document.getElementById('rf-ukazat-skryte');
+
+	// Osm záznamů — id je jejich TRVALÁ identita; řádek se s ní táhne i po seřazení.
+	const JMENA = ['Adam', 'Bára', 'Cyril', 'Dana', 'Emil', 'Filip', 'Gita', 'Hugo'];
+	const GENITIV = ['Adama', 'Báry', 'Cyrila', 'Dany', 'Emila', 'Filipa', 'Gity', 'Huga'];
+	const SKUPINA = ['A', 'B', 'A', 'B', 'A', 'B', 'A', 'B'];
+	// Součet 112 při 8 žácích → průměr všech je vždy přesné celé číslo 14.
+	const BODY = [12, 18, 9, 20, 15, 6, 18, 14];
+	const PUVODNI_ID = JMENA.map((_, i) => i);
+
+	let poradi = [...PUVODNI_ID];      // aktuální pořadí ID pro SPRÁVNÉ řazení (celé řádky)
+	let smerRazeni = null;              // 'vzestupne' | 'sestupne' | null (netříděno)
+	let chybaZapnuta = false;           // ukázka klasické chyby: jen sloupec Body
+	let filtrSkupina = 'vse';           // 'vse' | 'A' | 'B'
+	let mezBodu = 0;
+
+	/** České číslo s desetinnou čárkou; celé zůstává celé. */
+	function cz(n) {
+		if (Number.isInteger(n)) return String(n);
+		return n.toFixed(2).replace(/0+$/, '').replace(/\.$/, '').replace('.', ',');
+	}
+
+	/** Čistá funkce: seřadí pole ID podle BODY, při shodě podle původního pořadí. */
+	function seradIdPodleBodu(idPole, smer) {
+		return [...idPole].sort((a, b) => {
+			const rozdil = smer === 'sestupne' ? BODY[b] - BODY[a] : BODY[a] - BODY[b];
+			return rozdil !== 0 ? rozdil : a - b;
+		});
+	}
+
+	const jeVidet = (id) => (filtrSkupina === 'vse' || SKUPINA[id] === filtrSkupina) && BODY[id] >= mezBodu;
+	const PRUMER = (pole) => (pole.length === 0 ? null : pole.reduce((s, x) => s + x, 0) / pole.length);
+
+	function prekresli() {
+		teloEl.innerHTML = '';
+
+		// V normálním režimu se řádek přesouvá celý (id určuje jméno i skupinu i body).
+		// V „chybném" režimu zůstávají Jméno a Skupina v PŮVODNÍM pořadí, ale sloupec
+		// Body se seřadí SÁM ZA SEBE — přesně ta chyba, před kterou výklad varuje.
+		const poradiZobrazeni = chybaZapnuta ? PUVODNI_ID : poradi;
+		const bodySeSama = chybaZapnuta ? seradIdPodleBodu(PUVODNI_ID, smerRazeni === 'sestupne' ? 'sestupne' : 'vzestupne').map((id) => BODY[id]) : null;
+
+		let pocetVidenych = 0;
+		let videneBody = [];
+
+		poradiZobrazeni.forEach((id, i) => {
+			const bodyRealne = BODY[id];
+			const bodyZobrazene = chybaZapnuta ? bodySeSama[i] : bodyRealne;
+			const nesedi = chybaZapnuta && bodyZobrazene !== bodyRealne;
+			// Filtr se v ukázce chyby vypíná — dvě věci najednou by matly, kdo je vidět.
+			const skryto = !chybaZapnuta && !jeVidet(id);
+
+			if (!skryto) {
+				pocetVidenych++;
+				videneBody.push(bodyRealne);
+			}
+
+			const tr = document.createElement('tr');
+			tr.className = skryto ? 'rf-skryto' + (chkSkryte.checked ? ' rf-skryto-nahled' : '') : '';
+			const bunkaBody = nesedi
+				? `${bodyZobrazene} <span class="rf-spatne-pozn">(${GENITIV[id]} je doopravdy ${bodyRealne})</span>`
+				: String(bodyZobrazene);
+			tr.innerHTML = `<th scope="row">${2 + i}</th><td>${JMENA[id]}</td><td>${SKUPINA[id]}</td><td class="${nesedi ? 'rf-spatne' : ''}">${bunkaBody}</td>`;
+			teloEl.appendChild(tr);
+		});
+
+		// Filtr — tlačítka a posuvník se v ukázce chyby zablokují (nemísit dvě lekce najednou).
+		for (const b of document.querySelectorAll('.rf-skupina-tl')) b.disabled = chybaZapnuta;
+		mezEl.disabled = chybaZapnuta;
+
+		if (chybaZapnuta) {
+			pocitadloEl.textContent = 'Filtr je teď vypnutý — soustřeď se na sloupec Body.';
+		} else {
+			pocitadloEl.textContent = `Zobrazeno ${pocetVidenych} z ${JMENA.length} žáků.`;
+		}
+
+		const prumerVsech = PRUMER(BODY);
+		const prumerVidenych = PRUMER(videneBody);
+		prumerVseEl.textContent = cz(prumerVsech);
+		prumerVidEl.textContent = chybaZapnuta ? '—' : (prumerVidenych === null ? '(nic není vidět)' : cz(prumerVidenych));
+		if (chybaZapnuta) {
+			prumerPoznEl.textContent = 'v ukázce chyby je filtr vypnutý';
+		} else if (pocetVidenych === JMENA.length) {
+			prumerPoznEl.textContent = 'nic není schované, oba průměry se shodují';
+		} else if (prumerVidenych === prumerVsech) {
+			prumerPoznEl.textContent = 'náhodou vyšly stejně — přesto počítá i schované řádky';
+		} else {
+			prumerPoznEl.textContent = 'schované řádky do vzorce PATŘÍ — proto se liší od toho, co je vidět';
+		}
+
+		ukazStav(pocetVidenych, prumerVsech, prumerVidenych);
+	}
+
+	function ukazStav(pocetVidenych, prumerVsech, prumerVidenych) {
+		if (chybaZapnuta) {
+			stavEl.innerHTML = 'Sloupec <strong>Body</strong> se seřadil sám za sebe, ale sloupce '
+				+ '<strong>Jméno</strong> a <strong>Skupina</strong> zůstaly stát na místě. Podívej se na řádky '
+				+ 'označené červeně — u nich číslo vůbec nepatří k tomu jménu. Tabulka <em>vypadá</em> seřazená, '
+				+ 'ale data jsou <strong>rozsypaná</strong>. Správně se řadí přes celý řádek (nebo aspoň se '
+				+ 'záhlavím označeným jako záhlaví), ne přes jeden sloupec.';
+			return;
+		}
+		if (smerRazeni === null && filtrSkupina === 'vse' && mezBodu === 0) {
+			stavEl.innerHTML = 'Zkus <strong>seřadit podle bodů</strong> — všimni si, že se jméno, skupina i body '
+				+ 'stěhují <strong>spolu</strong>, jen se přeskládají čísla řádků. Pak vyzkoušej filtr.';
+			return;
+		}
+		if (smerRazeni !== null && filtrSkupina === 'vse' && mezBodu === 0) {
+			stavEl.innerHTML = `Seřazeno ${smerRazeni === 'vzestupne' ? 'vzestupně' : 'sestupně'} podle bodů — `
+				+ 'ale pořád jsou to tytéž trojice jméno–skupina–body, jen v jiném pořadí. Řazení nikdy '
+				+ 'nic neztratí.';
+			return;
+		}
+		if (pocetVidenych === 0) {
+			stavEl.innerHTML = 'Filtr teď nesplňuje <strong>nikdo</strong> — tabulka je prázdná, ale data jsou '
+				+ 'pořád v pořádku uložená. Uvolni podmínku nebo klikni na „obě" a posuvník vrať na 0.';
+			return;
+		}
+		if (prumerVidenych !== prumerVsech) {
+			stavEl.innerHTML = `Vidíš ${pocetVidenych} z ${JMENA.length} řádků, jejich průměr je `
+				+ `<strong>${cz(prumerVidenych)}</strong>. Ale vzorec <code>=PRŮMĚR(C2:C9)</code> počítá se `
+				+ `<strong>všemi</strong> řádky, i těmi schovanými — proto vyjde <strong>${cz(prumerVsech)}</strong>. `
+				+ 'Na tohle se snadno zapomíná, protože schované řádky prostě nejsou vidět.';
+			return;
+		}
+		stavEl.innerHTML = `Filtr zobrazuje ${pocetVidenych} z ${JMENA.length} žáků. Data se nemazala — `
+			+ 'vypnutím filtru (nebo posuvníku na 0 a „obě") se vrátí úplně všechno.';
+	}
+
+	for (const b of document.querySelectorAll('.rf-razeni-tl')) {
+		b.addEventListener('click', () => {
+			smerRazeni = b.dataset.smer;
+			poradi = seradIdPodleBodu(poradi, smerRazeni);
+			prekresli();
+		});
+	}
+
+	btnReset.addEventListener('click', () => {
+		poradi = [...PUVODNI_ID];
+		smerRazeni = null;
+		prekresli();
+	});
+
+	btnChyba.addEventListener('click', () => {
+		chybaZapnuta = !chybaZapnuta;
+		btnChyba.setAttribute('aria-pressed', String(chybaZapnuta));
+		btnChyba.classList.toggle('rf-aktivni', chybaZapnuta);
+		btnChyba.textContent = chybaZapnuta
+			? '✅ vrátit se ke správnému řazení celých řádků'
+			: '⚠️ ukázat klasickou chybu: seřadit jen sloupec Body';
+		prekresli();
+	});
+
+	for (const b of document.querySelectorAll('.rf-skupina-tl')) {
+		b.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.rf-skupina-tl')) {
+				j.classList.remove('rf-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			b.classList.add('rf-aktivni');
+			b.setAttribute('aria-pressed', 'true');
+			filtrSkupina = b.dataset.skupina;
+			prekresli();
+		});
+	}
+
+	mezEl.addEventListener('input', () => {
+		mezBodu = Number(mezEl.value);
+		mezHodnotaEl.textContent = String(mezBodu);
+		prekresli();
+	});
+
+	chkSkryte.addEventListener('change', prekresli);
+
+	prekresli();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který počítá tabulku) ———
+	teloEl.__seradIdPodleBodu = seradIdPodleBodu;
+	teloEl.__PRUMER = PRUMER;
+	teloEl.__jeVidet = jeVidet;
+	teloEl.__cz = cz;
+	teloEl.__stav = () => ({ poradi: [...poradi], smerRazeni, chybaZapnuta, filtrSkupina, mezBodu });
+	teloEl.__meze = { JMENA, GENITIV, SKUPINA, BODY, PUVODNI_ID };
+</script>
+
+<style>
+	.rf-obal { overflow-x: auto; }
+	.rf-tabulka { border-collapse: collapse; margin: 0.5rem 0; font-size: 0.98rem; }
+	.rf-tabulka th, .rf-tabulka td { border: 2px solid #868e96; padding: 0.25rem 0.6rem; text-align: left; }
+	.rf-tabulka thead th { background: #e9ecef; font-size: 0.86rem; }
+	.rf-tabulka tbody th { background: #e9ecef; text-align: center; font-weight: 700; }
+	.rf-tabulka tbody tr.rf-skryto { display: none; }
+	/* Přeškrtnutý náhled dokazuje, že schovaný řádek nezmizel — jen je „za sklem". */
+	.rf-tabulka tbody tr.rf-skryto.rf-skryto-nahled { display: table-row; opacity: 0.55; text-decoration: line-through; background: repeating-linear-gradient(45deg, #fff, #fff 6px, #f1f3f5 6px, #f1f3f5 12px); }
+	.rf-spatne { background: #ffe3e3; color: #a61e1e; font-weight: 700; }
+	.rf-spatne-pozn { font-weight: 400; font-size: 0.82rem; color: #a61e1e; white-space: nowrap; }
+	.rf-radek { margin: 0.5rem 0; }
+	.rf-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.rf-tl.rf-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.rf-tl.rf-aktivni::before { content: '✓ '; }
+	.rf-tl.rf-varovani { background: #fff3bf; }
+	.rf-tl.rf-varovani.rf-aktivni { background: #ffc9c9; }
+	.rf-tl:disabled { opacity: 0.4; cursor: not-allowed; }
+	#rf-mez { width: 100%; max-width: 320px; }
+	.rf-pocitadlo { font-weight: 700; margin: 0.4rem 0; }
+	.rf-vysledky { border-collapse: collapse; margin: 0.6rem 0; }
+	.rf-vysledky th { text-align: left; font-family: ui-monospace, monospace; padding: 0.2rem 0.7rem 0.2rem 0; }
+	.rf-vysledky td { padding: 0.2rem 0.7rem; font-weight: 700; }
+	.rf-vysledky tr.rf-duraz { background: #fff3bf; }
+	.rf-vysledky .rf-pozn { font-weight: 400; font-size: 0.9rem; color: #495057; }
+	.rf-titulek { text-align: left; font-weight: 700; padding-bottom: 0.3rem; }
+	.rf-stav { font-size: 1.05rem; font-weight: 700; min-height: 3.4rem; }
+</style>

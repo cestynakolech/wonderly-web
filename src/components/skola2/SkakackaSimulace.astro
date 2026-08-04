@@ -1,0 +1,403 @@
+---
+// Hra 3: Skákačka (informatika 8. ročník, hry-ve-scratchi/hra-skakacka) — gravitace.
+//
+// Výklad na stránce tvrdí TŘI konkrétní čísla a DVĚ pasti. Simulace je nesmí jen
+// vypsat, musí je nechat žáka OVĚŘIT živě na běžícím počítadle:
+//  1. Skok nastaví rychlostY na 12. Každé kolo: „změň rychlostY o −1", pak „změň y o
+//     rychlostY" — POLOHA se nepočítá napřímo, počítá se RYCHLOST a ta pak posouvá y.
+//  2. Díky tomu je součet 11+10+9+…+1 = 66 (vrchol v 11. kole) a pak zase dolů
+//     1+2+…+11 = 66 zpátky na zem přesně ve 23. kole — živé počítadlo „kolo / rychlostY /
+//     výška" to žákovi ukáže číslo po číslo, ne jen jako hotový vzorec ve výkladu.
+//  3. Past č. 1 — „skákání ve vzduchu": bez podmínky ⟨(y) = (výška země)⟩ mezerník furt
+//     „nastaví rychlostY na 12" i za letu → rychlost šplhá nahoru a postava uletí ze scény.
+//  4. Past č. 2 — „propadnutí zemí": ⟨dotýkáš se (Země)?⟩ je kontrola SKUTEČNÉHO PÁSU
+//     (Země má tloušťku, ne nekonečnou půlrovinu). Když je pás tenký a krok (rychlost)
+//     v tom kole větší než tloušťka, postava ho v jednom kole celá přeskočí — přesně jako
+//     bludiště přeskakuje zeď (BludisteSimulace.astro, `projelZdi`). Tlačítko
+//     „shoď z plošiny (200 nad zemí)" tuhle past vyvolá SPOLEHLIVĚ (pád zrychlí na krok
+//     20 jednotek/kolo, tenký pás má jen 4 — viz výpočet níže), zatímco normální skok o 12
+//     dopadá vždycky přesně na povrch (11+10+…+1 je symetrická řada, vždy vyjde na nulu)
+//     a past sama o sobě NEukáže — proto je v simulaci navíc pád z plošiny, žádný trik.
+//  5. „Nastav y na (výška země) po dopadu" NENÍ jen kosmetika: bez ní zůstane postava
+//     zabořená v zemi (viditelně) a navíc podmínka ⟨(y) = (výška země)⟩ pak už NIKDY není
+//     pravda → postava už nikdy nemůže skočit znova. Toggle „snap y" tohle ukazuje obojí.
+//
+// Souřadnice jsou celočíselné ve scratchovské soustavě (x −240…240, y −180…180),
+// kreslí se 1:1 do viewBoxu 480×360 (px = 240+x, py = 180−y). Běžec MÁ PEVNÉ x (−150) —
+// to je přesně bod z výkladu „Běžec nikam neběží, běží svět kolem něj": pohybuje se jen
+// Kaktus.
+//
+// Časování: setInterval po 100 ms (TICK_MS) = 1 kolo scénáře, žádný requestAnimationFrame
+// (v náhledu je zpomalený) — 10 kol = 1 s, přesně jako „čekej 1 sekund" u skóre ve výkladu.
+// Všechny fyzikální veličiny (rychlostY, skok, gravitace) jsou už „na kolo", takže se
+// TICK_MS nikde nepřepočítává do vzorců — jen řídí, jak rychle se kola promítají na
+// obrazovku. Stav je čistá funkce předchozího stavu a voleb — testovatelné bez prohlížeče.
+//
+// Pád z plošiny, výpočet skoku přes tenký pás (proč VŽDY vyjde, celá čísla):
+// start rychlostY=0, y = výška země + 200. Po n kolech: rychlostY = −n,
+// y = 100 − n(n+1)/2. Kolo 19: y = 100−190 = −90 (10 nad zemí). Kolo 20: y = 100−210 =
+// −110 (10 POD zemí), krok tohoto kola = 20 jednotek. Tenký pás Země má jen 4 jednotky
+// (−100 až −104) → krok 20 ho celý přeskočí, aniž by y kdy padlo do pásu — propadne.
+// Silný pás (60 jednotek, −100 až −160) krok 20 pohltí vždy → nikdy nepropadne.
+//
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n/editor/blocks/cs.json), ověřeno
+// i proti sesterským simulacím (PingPongSimulace.astro, BludisteSimulace.astro):
+// „po kliknutí na 🏁", „opakuj stále", „nastav (proměnná) na (hodnota)",
+// „změň (proměnná) o (hodnota)", „když (…) tak", „dotýkáš se (…)?",
+// „po stisku klávesy (…)", „skoč na x: … y: …", „klouzej … sekund na x: … y: …".
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Skákačka — proč skok vypadá jako oblouk 🦖</span></h2>
+	<p>
+		Sleduj tři čísla vpravo nahoře: <strong>kolo</strong>, <strong>rychlostY</strong> a
+		<strong>výška nad zemí</strong>. Nikdo nenaprogramoval oblouk — vznikne sám z toho, že
+		se každé kolo jen <code>změní rychlostY o −1</code> a pak <code>y o rychlostY</code>.
+		Skoč a countuj: nahoře bude přesně v <strong>11. kole</strong> (výška 66), na zemi
+		zpátky přesně ve <strong>23. kole</strong>.
+	</p>
+
+	<svg id="sk-svg" viewBox="0 0 480 360" tabindex="0" role="img"
+		aria-label="Scéna hry Skákačka: dinosaurus Běžec stojí vlevo, kaktus jede zprava doleva po zemi. Skáče se mezerníkem.">
+		<rect x="1" y="1" width="478" height="358" fill="#eaf4ff" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<rect id="sk-podzemi" x="1" y="284" width="478" height="75" fill="#7a2e2e" />
+		<text x="240" y="352" text-anchor="middle" font-size="10" font-weight="bold" fill="#ffd8d8">pod zemí — sem se nesmí propadnout</text>
+		<line id="sk-plosina" x1="150" y1="80" x2="310" y2="80" stroke="#495057" stroke-width="3" stroke-dasharray="6 4" />
+		<text x="230" y="72" text-anchor="middle" font-size="10" fill="#495057">plošina (200 nad zemí)</text>
+		<rect id="sk-zem" x="1" y="280" width="478" height="60" fill="#c99857" stroke="#2b2a26" stroke-width="2" />
+		<text id="sk-kaktus" x="480" y="280" text-anchor="middle" font-size="32"></text>
+		<text id="sk-bezec" x="90" y="280" text-anchor="middle" font-size="34"></text>
+		<text id="sk-hlaska" x="240" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a"></text>
+	</svg>
+
+	<p class="sk-stats" id="sk-stats" aria-live="polite"></p>
+
+	<p class="sk-radek">
+		<button type="button" class="sk-tl sk-hraj" id="sk-skoc">🦘 Skoč (mezerník)</button>
+		<button type="button" class="sk-tl" id="sk-plosinaBtn">🪂 shoď z plošiny (200 nad zemí)</button>
+	</p>
+	<p class="sk-radek">
+		<strong>Skákat smí jen ten, kdo stojí na zemi:</strong>
+		<button type="button" class="sk-tl sk-volba sk-aktivni" data-volba="skok" data-hodnota="ano" aria-pressed="true">ANO — je tam podmínka</button>
+		<button type="button" class="sk-tl sk-volba" data-volba="skok" data-hodnota="ne" aria-pressed="false">NE — chybí</button>
+	</p>
+	<p class="sk-radek">
+		<strong>Po dopadu nastavit y přesně na povrch:</strong>
+		<button type="button" class="sk-tl sk-volba sk-aktivni" data-volba="snap" data-hodnota="ano" aria-pressed="true">ANO</button>
+		<button type="button" class="sk-tl sk-volba" data-volba="snap" data-hodnota="ne" aria-pressed="false">NE — jen zastavit rychlost</button>
+	</p>
+	<p class="sk-radek">
+		<strong>Tloušťka Země:</strong>
+		<button type="button" class="sk-tl sk-volba" data-volba="tloustka" data-hodnota="tenka" aria-pressed="false">tenká čára (4)</button>
+		<button type="button" class="sk-tl sk-volba sk-aktivni" data-volba="tloustka" data-hodnota="silna" aria-pressed="true">široký pruh (60) — jak radí příprava</button>
+	</p>
+	<p class="sk-radek">
+		<button type="button" class="sk-tl sk-hraj" id="sk-krok">▶️ jeden krok</button>
+		<button type="button" class="sk-tl sk-hraj" id="sk-bezet">⏩ spustit</button>
+		<button type="button" class="sk-tl" id="sk-reset">↺ na začátek</button>
+	</p>
+
+	<div id="sk-program" class="sk-program"></div>
+	<p class="sk-vysvetleni" id="sk-vysvetleni" aria-live="polite">
+		Klikni na <strong>⏩ spustit</strong> a pak <strong>🦘 Skoč</strong> — sleduj počítadlo kol.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('sk-svg');
+	const bezecEl = document.getElementById('sk-bezec');
+	const kaktusEl = document.getElementById('sk-kaktus');
+	const zemEl = document.getElementById('sk-zem');
+	const podzemiEl = document.getElementById('sk-podzemi');
+	const hlaskaEl = document.getElementById('sk-hlaska');
+	const statsEl = document.getElementById('sk-stats');
+	const programEl = document.getElementById('sk-program');
+	const vysvetleniEl = document.getElementById('sk-vysvetleni');
+	const btnSkoc = document.getElementById('sk-skoc');
+	const btnPlosina = document.getElementById('sk-plosinaBtn');
+	const btnKrok = document.getElementById('sk-krok');
+	const btnBezet = document.getElementById('sk-bezet');
+	const btnReset = document.getElementById('sk-reset');
+
+	const ZEM_TOP = -100;          // „výška země" — přesně číslo z výkladu
+	const GRAVITACE = 1;           // „změň rychlostY o −1" každé kolo
+	const VYSKOK = 12;             // „nastav rychlostY na 12"
+	const TICK_MS = 100;           // 1 kolo scénáře = 100 ms, 10 kol = 1 s
+	const STENA = 240;
+	const STROP = 180;
+	const RUNNER_X = -150;         // Běžec „nikam neběží" — pevné x
+	const RUNNER_R = 14;
+	const KAKTUS_POLOSIRKA = 10;
+	const KAKTUS_VYSKA = 40;
+	const KAKTUS_RYCHLOST = 24;    // 480 jednotek za 20 kol = 2 s, jako „klouzej 2 sekund"
+	const ZEM_TENKA = 4;
+	const ZEM_SILNA = 60;
+	const SKORE_TICKY = 10;        // 10 kol = 1 s, jako „čekej 1 sekund"
+	const DROP_VYSKA = 200;        // plošina 200 nad zemí — spolehlivě odhalí past č. 2
+	const ODLET_LIMIT = STROP + 60;
+
+	function pxX(x) { return 240 + x; }
+	function pxY(y) { return 180 - y; }
+
+	function tloustkaZeme(volby) { return volby.tloustka === 'tenka' ? ZEM_TENKA : ZEM_SILNA; }
+
+	function pocatecniStav() {
+		return { y: ZEM_TOP, rychlostY: 0, kolo: 0, kaktusX: STENA, skore: 0, skoreTicky: 0, konec: false, posledniUdalost: null, tick: 0 };
+	}
+
+	/**
+	 * JEDNO KOLO scénáře (gravitace + pohyb kaktusu + kolize + skóre). Čistá funkce
+	 * předchozího stavu a voleb — testovatelná bez prohlížeče.
+	 */
+	function jedenKrok(stav, volby) {
+		if (stav.konec) return stav;
+		let { y, rychlostY, kolo, kaktusX, skore, skoreTicky } = stav;
+
+		// „změň rychlostY o −1" — tíže nemění polohu, mění rychlost.
+		rychlostY = rychlostY - GRAVITACE;
+		// „změň y o rychlostY" — teprve rychlost posune postavu.
+		y = y + rychlostY;
+		kolo = kolo + 1;
+
+		let posledniUdalost = null;
+		let konec = false;
+
+		// „dotýkáš se (Země)?" — Země je SKUTEČNÝ PÁS (tloušťka), ne nekonečná půlrovina.
+		const tloustka = tloustkaZeme(volby);
+		const zemSpodek = ZEM_TOP - tloustka;
+		if (y <= ZEM_TOP && y >= zemSpodek) {
+			if (volby.snap === 'ano') y = ZEM_TOP;    // „nastav y na (výška země)"
+			rychlostY = 0;                             // „nastav rychlostY na 0"
+			// POZOR: kolo se tu NEnuluje! Kdyby se vynulovalo hned v kole dopadu, žák by
+			// nikdy neviděl přesně „23", protože kolo a dopad nastávají ve STEJNÉM kroku —
+			// číslo by zmizelo dřív, než se vykreslí. Nuluje se jen při dalším skoku/pádu.
+			posledniUdalost = 'dopad';
+		} else if (y < zemSpodek) {
+			// Krok tohoto kola (|rychlostY|) byl větší než tloušťka pásu — celý ho přeskočil.
+			posledniUdalost = 'propadl';
+			konec = true;
+		} else if (y > ODLET_LIMIT) {
+			posledniUdalost = 'odletel';
+			konec = true;
+		}
+
+		// Kaktus jede sám, „klouzej 2 sekund na x: (−240)", a po doběhnutí se vrací na start.
+		let novyKaktusX = kaktusX - KAKTUS_RYCHLOST;
+		if (novyKaktusX < -STENA - KAKTUS_POLOSIRKA) novyKaktusX = STENA + KAKTUS_POLOSIRKA;
+
+		let noveSkore = skore;
+		let noveSkoreTicky = skoreTicky;
+
+		if (!konec) {
+			const xPrekryv = Math.abs(RUNNER_X - novyKaktusX) <= KAKTUS_POLOSIRKA + RUNNER_R;
+			const yPrekryv = (y - RUNNER_R) < (ZEM_TOP + KAKTUS_VYSKA);
+			if (xPrekryv && yPrekryv) {
+				konec = true;
+				posledniUdalost = 'kaktus';
+			}
+		}
+
+		if (!konec) {
+			noveSkoreTicky += 1;
+			if (noveSkoreTicky >= SKORE_TICKY) { noveSkore += 1; noveSkoreTicky = 0; }
+		}
+
+		return { y, rychlostY, kolo, kaktusX: novyKaktusX, skore: noveSkore, skoreTicky: noveSkoreTicky, konec, posledniUdalost, tick: stav.tick + 1 };
+	}
+
+	/** „po stisku klávesy (mezerník)" — mimo pravidelná kola, spouští se na požádání. */
+	function zkusSkocit(stav, volby) {
+		if (stav.konec) return stav;
+		// „když ⟨(y) = (výška země)⟩ tak" — bez týhle podmínky (volba NE) skočí vždycky.
+		if (volby.skok === 'ano' && stav.y !== ZEM_TOP) {
+			return { ...stav, posledniUdalost: 'nejde-skocit' };
+		}
+		return { ...stav, rychlostY: VYSKOK, kolo: 0, posledniUdalost: 'skok' };
+	}
+
+	/** Testovací pád z plošiny — spolehlivě odhalí past „propadnutí zemí". */
+	function shodZPlosiny(stav) {
+		if (stav.konec) return stav;
+		return { ...stav, y: ZEM_TOP + DROP_VYSKA, rychlostY: 0, kolo: 0, posledniUdalost: 'pad-start' };
+	}
+
+	let volby = { skok: 'ano', snap: 'ano', tloustka: 'silna' };
+	let stav = pocatecniStav();
+	let casovac = null;
+
+	function programRadky() {
+		const tloustka = tloustkaZeme(volby);
+		return [
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'nastav rychlostY na 0', uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: 'změň rychlostY o −1', uroven: 2 },
+			{ text: 'změň y o rychlostY', uroven: 2 },
+			{ text: 'když ⟨dotýkáš se (Země)?⟩ tak', uroven: 2 },
+			{ text: 'nastav rychlostY na 0', uroven: 3 },
+			{ text: `nastav y na (výška země)  ← Země je pruh, tloušťka ${tloustka}`, uroven: 3, vypnuto: volby.snap === 'ne' },
+			{ text: 'po stisku klávesy (mezerník)', uroven: 0, hlava: true },
+			{ text: 'když ⟨(y) = (výška země)⟩ tak', uroven: 1, vypnuto: volby.skok === 'ne' },
+			{ text: 'nastav rychlostY na 12', uroven: 2 },
+		];
+	}
+
+	function vypisProgram() {
+		programEl.textContent = '';
+		for (const r of programRadky()) {
+			const p = document.createElement('p');
+			p.className = 'sk-blok' + (r.hlava ? ' sk-hlava' : '') + (r.vypnuto ? ' sk-vypnuto' : '');
+			p.textContent = r.vypnuto ? `${r.text}  ← chybí!` : r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			programEl.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		const tloustka = tloustkaZeme(volby);
+		zemEl.setAttribute('y', String(pxY(ZEM_TOP)));
+		zemEl.setAttribute('height', String(tloustka));
+		podzemiEl.setAttribute('y', String(pxY(ZEM_TOP) + tloustka));
+		podzemiEl.setAttribute('height', String(360 - (pxY(ZEM_TOP) + tloustka)));
+
+		bezecEl.setAttribute('x', String(pxX(RUNNER_X)));
+		bezecEl.setAttribute('y', String(pxY(stav.y) + 6));
+		bezecEl.textContent = stav.posledniUdalost === 'propadl' ? '' : '🦖';
+
+		kaktusEl.setAttribute('x', String(pxX(stav.kaktusX)));
+		kaktusEl.setAttribute('y', String(pxY(ZEM_TOP) + 2));
+		kaktusEl.textContent = '🌵';
+
+		hlaskaEl.textContent = stav.konec
+			? (stav.posledniUdalost === 'kaktus' ? `🌵 KONEC — trefil ses do kaktusu! Skóre ${stav.skore}`
+				: stav.posledniUdalost === 'propadl' ? '🚨 PROPADL JSI ZEMÍ!'
+				: stav.posledniUdalost === 'odletel' ? '🚀 ULETĚL JSI ZE SCÉNY!'
+				: '')
+			: '';
+
+		const vyska = stav.y - ZEM_TOP;
+		statsEl.innerHTML = `kolo od skoku: <strong>${stav.kolo}</strong> &nbsp;·&nbsp; rychlostY: <strong>${stav.rychlostY}</strong> `
+			+ `&nbsp;·&nbsp; výška nad zemí: <strong>${vyska}</strong> &nbsp;·&nbsp; skóre: <strong>${stav.skore}</strong>`;
+
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		switch (stav.posledniUdalost) {
+			case 'skok':
+				return 'Skok! <code>nastav rychlostY na 12</code>. Sleduj kolo: rychlostY teď každé kolo klesne o 1 (12→11→10…).';
+			case 'nejde-skocit':
+				return 'Nejde skočit — podmínka <code>(y) = (výška země)</code> není splněná, protože nestojíš na zemi. <strong>To je správně!</strong>';
+			case 'dopad':
+				return 'Dopad! <code>dotýkáš se (Země)?</code> bylo splněné, rychlostY je zpátky 0.';
+			case 'propadl':
+				return `🚨 <strong>Propadl jsi zemí!</strong> Krok tohoto kola byl větší než tloušťka pásu (${tloustkaZeme(volby)}) — Země to celé přeskočilo, aniž by se jí postava kdy dotkla.`;
+			case 'odletel':
+				return '🚀 <strong>Uletěl jsi ze scény!</strong> Bez podmínky „stojí na zemi" mezerník pořád dokola nastavuje rychlostY na 12, i za letu.';
+			case 'kaktus':
+				return `🌵 <strong>Konec hry!</strong> Kaktus tě trefil, protože jsi buď neskočil, nebo skočil málo. Skóre ${stav.skore}.`;
+			case 'pad-start':
+				return 'Panáček je posazený na plošinu 200 nad zemí a teď <strong>padá</strong> — sleduj, jak rychlostY roste do mínusu.';
+			default:
+				return 'Sleduj čísla vpravo nahoře: kolo, rychlostY, výška. Zkus si je spočítat dopředu a pak ověřit.';
+		}
+	}
+
+	function ukazStav() {
+		vysvetleniEl.innerHTML = popisStavu();
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ spustit';
+		btnBezet.classList.remove('sk-aktivni');
+	}
+
+	function krokVpred() {
+		stav = jedenKrok(stav, volby);
+		prekresli();
+		ukazStav();
+		if (stav.konec) zastav();
+	}
+
+	function reset() {
+		zastav();
+		stav = pocatecniStav();
+		prekresli();
+		ukazStav();
+	}
+
+	function skoc() {
+		stav = zkusSkocit(stav, volby);
+		prekresli();
+		ukazStav();
+	}
+
+	function plosina() {
+		stav = shodZPlosiny(stav);
+		prekresli();
+		ukazStav();
+	}
+
+	btnKrok.addEventListener('click', () => { zastav(); krokVpred(); });
+	btnBezet.addEventListener('click', () => {
+		if (casovac) { zastav(); return; }
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('sk-aktivni');
+		casovac = setInterval(krokVpred, TICK_MS);
+	});
+	btnReset.addEventListener('click', reset);
+	btnSkoc.addEventListener('click', skoc);
+	btnPlosina.addEventListener('click', plosina);
+
+	svg.addEventListener('keydown', (e) => {
+		if (e.key === ' ' || e.code === 'Space') { e.preventDefault(); skoc(); }
+	});
+
+	for (const tl of document.querySelectorAll('.sk-volba')) {
+		tl.addEventListener('click', () => {
+			const skupina = tl.dataset.volba;
+			for (const j of document.querySelectorAll(`.sk-volba[data-volba="${skupina}"]`)) {
+				j.classList.remove('sk-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			tl.classList.add('sk-aktivni');
+			tl.setAttribute('aria-pressed', 'true');
+			volby = { ...volby, [skupina]: tl.dataset.hodnota };
+			// Změna pravidel za běhu by dala nesmyslný stav (např. jiná tloušťka Země pod
+			// už zabořenou postavou) — stejně jako u BludisteSimulace jede se znovu od startu.
+			reset();
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenKrok = jedenKrok;
+	svg.__zkusSkocit = zkusSkocit;
+	svg.__shodZPlosiny = shodZPlosiny;
+	svg.__pocatecniStav = pocatecniStav;
+	svg.__tloustkaZeme = tloustkaZeme;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { ZEM_TOP, GRAVITACE, VYSKOK, TICK_MS, STENA, STROP, RUNNER_X, RUNNER_R, KAKTUS_POLOSIRKA, KAKTUS_VYSKA, KAKTUS_RYCHLOST, ZEM_TENKA, ZEM_SILNA, SKORE_TICKY, DROP_VYSKA, ODLET_LIMIT };
+	svg.__programRadky = programRadky;
+</script>
+
+<style>
+	#sk-svg { width: 100%; max-width: 480px; border-radius: 12px; display: block; touch-action: none; }
+	#sk-svg:focus { outline: 3px dashed #1971c2; outline-offset: 3px; }
+	.sk-radek { margin: 0.6rem 0; }
+	.sk-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.sk-tl.sk-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.sk-tl.sk-hraj { background: #d3f9d8; }
+	.sk-tl:active { transform: translateY(1px); }
+	.sk-stats { font-weight: 700; margin: 0.5rem 0; }
+	.sk-program { margin: 0.4rem 0; }
+	.sk-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.sk-program p.sk-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.sk-program p.sk-vypnuto { background: #ffc9c9; outline: 2px dashed #c92a2a; text-decoration: line-through; opacity: 0.8; }
+	.sk-vysvetleni { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>
