@@ -380,6 +380,9 @@
 			return `✅ Přijímač ${cislo}: zpráva „${zprava}“ dorazila — skupina ${skupinaN} sedí a síla signálu je ${sila} %.`;
 		}
 		if (vysledek === 'skupina') {
+			if (sila < PRAH) {
+				return `❌ Přijímač ${cislo}: skupina rádia je jiná (${skupinaN} místo ${skupina1}) a síla signálu je navíc jen ${sila} % — zpráva nemá šanci dorazit.`;
+			}
 			return `❌ Přijímač ${cislo}: signál je silný (${sila} %), ale skupina rádia je jiná (${skupinaN} místo ${skupina1}) — zpráva se zahodila.`;
 		}
 		return `❌ Přijímač ${cislo}: síla signálu klesla na ${sila} % (${vzdalenostN} m, ${slovoZdi(zdiN)}) — pod čitelnou hranicí ${PRAH} %.`;

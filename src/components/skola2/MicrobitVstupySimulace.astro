@@ -294,7 +294,7 @@
 		}
 		if (Math.abs(mgY) >= PRAH_MG) {
 			const smer = mgY > 0 ? 'dopředu' : 'dozadu';
-			return `Zrychlení (y) je <strong>${mgY} mg</strong> — nad mezí, takže „opakuj stále" právě píše „${smer}". Na rozdíl od tlačítek tahle podmínka platí <strong>celou dobu</strong>, dokud náklon trvá, ne jen na okamžik.`;
+			return `Zrychlení (y) je <strong>${mgY} mg</strong> — dosáhlo meze ±500 mg, takže „opakuj stále" právě píše „${smer}". Na rozdíl od tlačítek tahle podmínka platí <strong>celou dobu</strong>, dokud náklon trvá, ne jen na okamžik.`;
 		}
 		return 'Zkus tlačítko A, B, A+B, zatřes deskou, nebo pomalu přidávej náklon — sleduj, kdy se hodnota v mg dostane přes mez.';
 	}
