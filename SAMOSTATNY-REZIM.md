@@ -6,6 +6,29 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
+### 🔴 PŘÍŠTÍ KOLO ZAČNI TÍMHLE: druhá kontrola oprav D3
+
+Opravy 12 nálezů kola D3 jsou nasazené, ale NEPOTVRZENÉ druhou kontrolou (poučení
+z D1: opravit ≠ ověřit). Nový kontrolor (čerstvý kontext) má u každého nálezu
+rozhodnout ZAVŘENO/OTEVŘENO **spuštěním kódu** a hledat nové vady z oprav — hlavně:
+prohozené kabely = couvání (ne točení) a zábrana téhož portu v `SestaveniRobotaSimulace`
+(pohled shora — je scéna konzistentní?); ping-pong `nastav směr (45)` + otočka 180°±20
+(zůstala celá čísla ve VYPSANÝCH hodnotách po přechodu na sin/cos?); projekt robot
+garáž 90 mm × značka 150 mm; motory roh 4 = START; kvízy (život = červený pruh,
+krok 10+skóre/10, smazaný duplikát). Nálezy zpět původním workerům.
+
+### ✅ Hotovo 4. 8. večer — kolo D3: 4 simulace robotiky a her (Inf8)
+
+Vějíř 4× `worker-simulace` (SestaveniRobota, MotoryDisplejZvuk, ProjektRobot,
+PingPong), kontrolor po merge: **12 nálezů, 2 závažné — oba rozpor simulace ×
+výklad × kvíz na téže stránce** (potřetí v řadě; pořád to nikdo neměří).
+Opravy původními workery, kvízy hlavní model. Commity `19fd62b` (simulace),
+`d1b4687` (opravy). Kotvy: brána 0 chyb, build 465, curl na živém webu potvrdil
+„couvá (jede pozpátku)" i opravený kvíz. Názornost 60 → 56 (informatika 26 → 22).
+Nová pravidla učitele v tomto kole: **orchestrátor práci nepřebírá** (retry buzení
+1×, pak nový worker) · **nasazení automaticky bez pokynu** · smyčka se sama
+nezastavuje. Vše v paměti + skillech.
+
 ### ✅ Hotovo 4. 8. — kolo D2: druhá kontrola D1 doběhla + nezávislý audit projektu
 
 **Druhá kontrola čtyř simulací informatiky: všech 16 původních vad ZAVŘENO** —
@@ -31,12 +54,12 @@ diamant, měřidla, limity, jedno místo, tokeny ČÁSTEČNĚ). Hned opraveno:
 
 ### 🌙 FRONTA (pořadí drž)
 
-1. **Názornost informatiky** — zbývá **26 podtémat** (bylo 30; 3. 8. přibyly 4 simulace,
-   viz „Hotovo 3. 8. odpoledne" níž). Na řadě podle měřidla `node testy/nazornost.mjs`:
-   Inf8 `roboticka-stavebnice` (3 podtémata), `hry-ve-scratchi` (3), `hromadne-zpracovani-dat`,
-   `co-umi-vex-iq`; Inf9 `programovaci-projekty` (2), `digitalni-technologie` (3).
+1. **Názornost informatiky** — zbývá **22 podtémat** (4. 8. kolo D3 přidalo 4:
+   celá `roboticka-stavebnice` + `hra-ping-pong`). Na řadě podle měřidla
+   `node testy/nazornost.mjs`: Inf8 `hry-ve-scratchi` (2 zbylé: střílečka, skákačka),
+   `hromadne-zpracovani-dat`, `co-umi-vex-iq`; Inf7 `hra-honicka`;
+   Inf9 `programovaci-projekty`, `digitalni-technologie` (3).
    Dávka 4+ patří do vějíře (`/simulace`).
-   Senzory robota jsou HOTOVÉ včetně nálezů kontrolora (viz níž).
 2. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
    leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
