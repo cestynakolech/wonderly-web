@@ -1,0 +1,410 @@
+---
+// Sestavení a oživení robota (informatika 8, VEX IQ, sestaveni-a-oziveni-robota).
+//
+// Výklad na téže stránce má pointu, kterou slovy nejde ukázat: chyba v ZAPOJENÍ
+// portů se neprojeví hned při sestavování, ale AŽ při spuštění programu — a projeví
+// se jinak než chyba v programu. Simulace proto rozděluje dvě věci, které si děti
+// pletou:
+//   1. SCHÉMA ZAPOJENÍ (nahoře): mozek (Brain) má 12 portů, levý a pravý motor se
+//      připojují kabelem do konkrétního portu. Program čeká motory v portu 1 (levý)
+//      a portu 6 (pravý) — přesně podle typického návodu ke stavebnici.
+//   2. CO ROBOT UDĚLÁ (dole): spustí se STÁLE STEJNÝ program „jeď 2 s vpřed" a jede
+//      se, co se stane podle toho, jak jsou kabely doopravdy zapojené:
+//        - port 1 ↔ port 6 prohozené → oba motory dostávají povel pro tu druhou
+//          stranu a točí se obráceně → robot se TOČÍ NA MÍSTĚ (nikam nejede)
+//        - jeden kabel nikde nezapojený → ten motor MLČÍ, robot se otáčí kolem
+//          nehybného kola (točí se k té straně, která nejede)
+//        - žádný kabel v portu, který program používá → NEJEDE VŮBEC (ticho)
+//   Oprava ve všech případech je STEJNÁ: přepojit kabel do správného portu,
+//   robota rozebírat netřeba — přesně jak říká výklad na stránce.
+//
+// Krok sestavení (podvozek → mozek → kabely → zapnutí) se musí dodržet v POŘADÍ:
+// dokud není mozek na podvozku, nejde zapojovat kabely; dokud nejsou kabely
+// (aspoň pokusně) zapojené, nejde spustit program — tlačítka jsou zamčená.
+//
+// Výchozí zapojení (levý → port 1, pravý → port 6) dá čistou, správnou jízdu —
+// dítě nejdřív uvidí, jak to má vypadat, a pak si zkazí zapojení samo.
+//
+// Časování (30 snímků ≈ 1 s, requestAnimationFrame v náhledu je zpomalený, počítá
+// se podle POŘADÍ snímků, ne podle reálného času):
+//   jízda rovně 60 snímků = 2 s (přesně program „drive for 2 seconds")
+//   otočka na místě 90 snímků = 3 s (dvě celé otočky, ať je efekt vidět)
+//   otočka kolem nehybného kola 45 snímků = 1,5 s
+
+const PORT_X0 = 415;
+const PORT_KROK = 27;
+const PORT_Y1 = 52;
+const PORT_Y2 = 84;
+const porty = [];
+for (let i = 1; i <= 12; i++) {
+	const radek = i <= 6 ? 0 : 1;
+	const sloupec = i <= 6 ? i - 1 : i - 7;
+	porty.push({ cislo: i, x: PORT_X0 + sloupec * PORT_KROK, y: radek === 0 ? PORT_Y1 : PORT_Y2 });
+}
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proč robot mlčí, i když je program v pořádku 🔌</span></h2>
+	<p>
+		Sestav robota v pořádném pořadí a pak zapoj kabely motorů do portů mozku (Brain).
+		Program je pořád stejný — <strong>„jeď 2 s vpřed"</strong>. Sleduj, co se stane,
+		když jsou kabely v jiných portech, než program čeká.
+	</p>
+
+	<p class="sb-radek">
+		<button type="button" class="sb-tl sb-hlavni" id="sb-krok-podvozek">1. sestavit podvozek</button>
+		<button type="button" class="sb-tl sb-hlavni" id="sb-krok-mozek" disabled>2. připojit mozek (Brain)</button>
+		<button type="button" class="sb-tl" id="sb-reset">↺ od začátku</button>
+	</p>
+
+	<div class="sb-obal">
+		<svg id="sb-scena" viewBox="0 0 640 300" role="img" aria-labelledby="sb-popis">
+			<title id="sb-popis">Nahoře schéma zapojení kabelů do portů mozku, dole robot na podlaze</title>
+
+			<!-- díly na stole, než je robot sestavený -->
+			<g id="sb-dily-skupina">
+				<rect x="60" y="150" width="110" height="60" rx="8" fill="#e9ecef" stroke="#2b2a26" stroke-width="3" transform="rotate(-8 115 180)" />
+				<text x="115" y="184" text-anchor="middle" class="sb-popisek" transform="rotate(-8 115 180)">podvozek</text>
+				<circle cx="240" cy="220" r="18" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+				<circle cx="290" cy="230" r="18" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+				<rect x="330" y="150" width="70" height="40" rx="6" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" transform="rotate(6 365 170)" />
+				<text x="365" y="174" text-anchor="middle" class="sb-popisek" transform="rotate(6 365 170)">Brain</text>
+				<rect x="440" y="200" width="50" height="24" rx="5" fill="#ffa94d" stroke="#2b2a26" stroke-width="3" />
+				<rect x="500" y="200" width="50" height="24" rx="5" fill="#66d9e8" stroke="#2b2a26" stroke-width="3" />
+				<text x="465" y="240" text-anchor="middle" class="sb-popisek">motory</text>
+			</g>
+
+			<!-- schéma zapojení: mozek s porty, motory a kabely — zobrazí se po kroku 2 -->
+			<g id="sb-zapojeni-skupina" opacity="0">
+				<rect x="30" y="30" width="70" height="24" rx="5" fill="#ffa94d" stroke="#2b2a26" stroke-width="3" />
+				<text x="65" y="46" text-anchor="middle" class="sb-popisek-mala">levý motor</text>
+				<rect x="30" y="72" width="70" height="24" rx="5" fill="#66d9e8" stroke="#2b2a26" stroke-width="3" />
+				<text x="65" y="88" text-anchor="middle" class="sb-popisek-mala">pravý motor</text>
+
+				<rect x="400" y="16" width="180" height="90" rx="10" fill="#f1f3f5" stroke="#2b2a26" stroke-width="3" />
+				<text x="490" y="12" text-anchor="middle" class="sb-popisek" id="sb-brain-nadpis">BRAIN</text>
+
+				{porty.map((p) => (
+					<g>
+						<rect id={`sb-port-${p.cislo}`} x={p.x - 10} y={p.y - 10} width="20" height="20" rx="4"
+							fill="#fff" stroke="#868e96" stroke-width="2" />
+						<text x={p.x} y={p.y + 4} text-anchor="middle" class="sb-port-cislo">{p.cislo}</text>
+					</g>
+				))}
+
+				<line id="sb-kabel-levy" x1="100" y1="42" x2="130" y2="42" stroke="#f08c00" stroke-width="4" stroke-linecap="round" />
+				<line id="sb-kabel-pravy" x1="100" y1="84" x2="130" y2="84" stroke="#1098ad" stroke-width="4" stroke-linecap="round" />
+			</g>
+
+			<!-- robot na podlaze — zobrazí se po kroku 2, reaguje na spuštění programu -->
+			<g id="sb-robot-skupina" opacity="0">
+				<line x1="0" y1="270" x2="640" y2="270" stroke="#2b2a26" stroke-width="3" />
+				<g id="sb-robot-teleso">
+					<rect x="80" y="190" width="110" height="60" rx="10" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+					<rect x="118" y="200" width="34" height="20" rx="4" fill="#495057" />
+					<circle id="sb-kolo-levy" cx="105" cy="250" r="20" fill="#495057" stroke="#2b2a26" stroke-width="3" />
+					<circle id="sb-kolo-pravy" cx="165" cy="250" r="20" fill="#495057" stroke="#2b2a26" stroke-width="3" />
+				</g>
+			</g>
+		</svg>
+	</div>
+
+	<p class="sb-radek" id="sb-radek-kabely" hidden>
+		<strong>Kabel levého motoru →</strong>
+		<select id="sb-port-levy" class="sb-vyber">
+			<option value="">— nezapojeno —</option>
+			<option value="1">port 1</option>
+			<option value="4">port 4</option>
+			<option value="6">port 6</option>
+		</select>
+		<strong>Kabel pravého motoru →</strong>
+		<select id="sb-port-pravy" class="sb-vyber">
+			<option value="">— nezapojeno —</option>
+			<option value="1">port 1</option>
+			<option value="4">port 4</option>
+			<option value="6">port 6</option>
+		</select>
+	</p>
+
+	<p class="sb-radek">
+		<button type="button" class="sb-tl sb-hlavni" id="sb-spustit" disabled>⏩ zapnout a spustit program</button>
+	</p>
+
+	<table class="sb-tabulka">
+		<caption class="sb-titulek">Co je kde zapojené</caption>
+		<tbody>
+			<tr><th scope="row">levý motor čeká program v</th><td>portu 1</td><td class="sb-pozn">podle návodu ke stavebnici</td></tr>
+			<tr><th scope="row">levý motor je doopravdy v</th><td id="sb-tab-levy"></td><td class="sb-pozn" id="sb-pozn-levy"></td></tr>
+			<tr><th scope="row">pravý motor čeká program v</th><td>portu 6</td><td class="sb-pozn"></td></tr>
+			<tr><th scope="row">pravý motor je doopravdy v</th><td id="sb-tab-pravy"></td><td class="sb-pozn" id="sb-pozn-pravy"></td></tr>
+			<tr class="sb-duraz"><th scope="row">co robot udělá</th><td id="sb-tab-vysledek" colspan="2"></td></tr>
+		</tbody>
+	</table>
+
+	<p class="sb-stav" id="sb-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const PROG_LEVY = '1';
+	const PROG_PRAVY = '6';
+
+	const PORT_X0 = 415, PORT_KROK = 27, PORT_Y1 = 52, PORT_Y2 = 84;
+	function portPozice(cislo) {
+		const c = Number(cislo);
+		if (!c) return null;
+		const radek = c <= 6 ? 0 : 1;
+		const sloupec = c <= 6 ? c - 1 : c - 7;
+		return { x: PORT_X0 + sloupec * PORT_KROK, y: radek === 0 ? PORT_Y1 : PORT_Y2 };
+	}
+
+	const scenaEl = document.getElementById('sb-scena');
+	const dilyEl = document.getElementById('sb-dily-skupina');
+	const zapojeniEl = document.getElementById('sb-zapojeni-skupina');
+	const robotSkupinaEl = document.getElementById('sb-robot-skupina');
+	const robotTelesoEl = document.getElementById('sb-robot-teleso');
+	const koloLevyEl = document.getElementById('sb-kolo-levy');
+	const koloPravyEl = document.getElementById('sb-kolo-pravy');
+	const kabelLevyEl = document.getElementById('sb-kabel-levy');
+	const kabelPravyEl = document.getElementById('sb-kabel-pravy');
+	const radekKabelyEl = document.getElementById('sb-radek-kabely');
+	const selectLevyEl = document.getElementById('sb-port-levy');
+	const selectPravyEl = document.getElementById('sb-port-pravy');
+	const tabLevyEl = document.getElementById('sb-tab-levy');
+	const tabPravyEl = document.getElementById('sb-tab-pravy');
+	const poznLevyEl = document.getElementById('sb-pozn-levy');
+	const poznPravyEl = document.getElementById('sb-pozn-pravy');
+	const tabVysledekEl = document.getElementById('sb-tab-vysledek');
+	const stavEl = document.getElementById('sb-stav');
+	const btnPodvozek = document.getElementById('sb-krok-podvozek');
+	const btnMozek = document.getElementById('sb-krok-mozek');
+	const btnSpustit = document.getElementById('sb-spustit');
+	const btnReset = document.getElementById('sb-reset');
+	const popisEl = document.getElementById('sb-popis');
+
+	// ——— čisté funkce: stav motoru a výsledný pohyb, ověřitelné bez prohlížeče ———
+	/** Kabel motoru je ve 'spravne' portu, v portu 'druheho' motoru (zaměněný), nebo 'mlci' (nikam program nemíří). */
+	function stavMotoru(port, vlastniPort, druhyPort) {
+		if (port === vlastniPort) return 'spravne';
+		if (port === druhyPort) return 'zamnene';
+		return 'mlci';
+	}
+	/** Ze stavu obou motorů spočítá, co robot doopravdy udělá. */
+	function vyhodnotPohyb(levyStav, pravyStav) {
+		if (levyStav === 'spravne' && pravyStav === 'spravne') return 'rovne';
+		if (levyStav === 'mlci' && pravyStav === 'mlci') return 'nejede';
+		if (levyStav === 'mlci' && pravyStav === 'spravne') return 'otoci_vlevo';
+		if (levyStav === 'spravne' && pravyStav === 'mlci') return 'otoci_vpravo';
+		return 'toci_se'; // aspoň jeden motor dostává povel pro tu druhou stranu
+	}
+
+	let krok = 0; // 0 díly, 1 podvozek, 2 mozek + porty
+	let bezi = false;
+	let posledniVysledek = null;
+
+	function aktualizujKabely() {
+		const portLevy = selectLevyEl.value;
+		const portPravy = selectPravyEl.value;
+		const pozLevy = portPozice(portLevy);
+		const pozPravy = portPozice(portPravy);
+		kabelLevyEl.setAttribute('x2', String(pozLevy ? pozLevy.x : 130));
+		kabelLevyEl.setAttribute('y2', String(pozLevy ? pozLevy.y : 42));
+		kabelLevyEl.setAttribute('stroke-dasharray', pozLevy ? '' : '4 6');
+		kabelPravyEl.setAttribute('x2', String(pozPravy ? pozPravy.x : 130));
+		kabelPravyEl.setAttribute('y2', String(pozPravy ? pozPravy.y : 84));
+		kabelPravyEl.setAttribute('stroke-dasharray', pozPravy ? '' : '4 6');
+		for (let i = 1; i <= 12; i++) {
+			const portEl = document.getElementById(`sb-port-${i}`);
+			const jePripojenLevy = String(i) === portLevy;
+			const jePripojenPravy = String(i) === portPravy;
+			portEl.setAttribute('fill', jePripojenLevy ? '#ffd8a8' : jePripojenPravy ? '#99e9f2' : '#fff');
+		}
+		tabLevyEl.textContent = portLevy ? `portu ${portLevy}` : 'nikde — nezapojeno';
+		tabPravyEl.textContent = portPravy ? `portu ${portPravy}` : 'nikde — nezapojeno';
+		poznLevyEl.textContent = portLevy === PROG_LEVY ? 'sedí to' : portLevy === PROG_PRAVY ? 'to je port pravého motoru!' : portLevy ? 'program tenhle port nepoužívá' : 'motor je hluchý';
+		poznPravyEl.textContent = portPravy === PROG_PRAVY ? 'sedí to' : portPravy === PROG_LEVY ? 'to je port levého motoru!' : portPravy ? 'program tenhle port nepoužívá' : 'motor je hluchý';
+	}
+
+	function aktualizujTlacitka() {
+		btnPodvozek.disabled = krok !== 0 || bezi;
+		btnMozek.disabled = krok !== 1 || bezi;
+		radekKabelyEl.hidden = krok < 2;
+		selectLevyEl.disabled = krok < 2 || bezi;
+		selectPravyEl.disabled = krok < 2 || bezi;
+		btnSpustit.disabled = krok < 2 || bezi;
+	}
+
+	function popisKroku() {
+		if (krok === 0) return 'Na stole leží díly — podvozek, kola, mozek (Brain) a dva motory. Klikni na <strong>1. sestavit podvozek</strong>.';
+		if (krok === 1) return 'Podvozek je hotový. Teď na něj klikni na <strong>2. připojit mozek (Brain)</strong> — kostku s 12 porty, do kterých se zapojují kabely.';
+		return null; // od kroku 2 se stav řídí zapojením / výsledkem běhu
+	}
+
+	function popisVysledku(vysledek, portLevy, portPravy) {
+		if (vysledek === 'rovne') {
+			return '🎉 <strong>Robot jede rovně!</strong> Levý motor je v portu 1 a pravý v portu 6 — přesně jak program čeká.';
+		}
+		if (vysledek === 'toci_se') {
+			return '🌀 <strong>Robot se točí na místě</strong> a nikam nejede. Aspoň jeden kabel je v portu, který program používá pro '
+				+ 'ten DRUHÝ motor — motor se pak točí obráceně, než má. Oprava: přepoj kabely do portu 1 (levý motor) a portu 6 (pravý motor). '
+				+ 'Robota rozebírat nemusíš.';
+		}
+		if (vysledek === 'otoci_vlevo') {
+			return '↩️ <strong>Robot se otáčí doleva</strong> kolem nehybného levého kola. Kabel levého motoru '
+				+ (portLevy ? `je v portu ${portLevy}, ale program čeká motor v portu 1 — proto ho neslyší.` : 'není zapojený v žádném portu — motor mlčí.')
+				+ ' Zkontroluj port, ne program.';
+		}
+		if (vysledek === 'otoci_vpravo') {
+			return '↪️ <strong>Robot se otáčí doprava</strong> kolem nehybného pravého kola. Kabel pravého motoru '
+				+ (portPravy ? `je v portu ${portPravy}, ale program čeká motor v portu 6 — proto ho neslyší.` : 'není zapojený v žádném portu — motor mlčí.')
+				+ ' Zkontroluj port, ne program.';
+		}
+		return '🤐 <strong>Robot stojí a je úplné ticho</strong> — ani jeden motor není v portu, který program používá (port 1 a port 6). '
+			+ 'Program je v pořádku, chyba je v zapojení kabelů.';
+	}
+
+	function prekresli() {
+		dilyEl.setAttribute('opacity', krok === 0 ? '1' : '0');
+		zapojeniEl.setAttribute('opacity', krok >= 2 ? '1' : '0');
+		robotSkupinaEl.setAttribute('opacity', krok >= 2 ? '1' : krok === 1 ? '0.35' : '0');
+		if (krok >= 2) aktualizujKabely();
+		aktualizujTlacitka();
+
+		if (posledniVysledek) {
+			tabVysledekEl.textContent = {
+				rovne: 'jede rovně', toci_se: 'točí se na místě', otoci_vlevo: 'otáčí se doleva',
+				otoci_vpravo: 'otáčí se doprava', nejede: 'stojí, ticho',
+			}[posledniVysledek];
+			stavEl.innerHTML = popisVysledku(posledniVysledek, selectLevyEl.value, selectPravyEl.value);
+		} else {
+			tabVysledekEl.textContent = krok < 2 ? '—' : 'zatím nespuštěno';
+			const kr = popisKroku();
+			stavEl.innerHTML = kr ?? 'Zapoj kabely obou motorů do portů a klikni na <strong>zapnout a spustit program</strong>. '
+				+ 'Chyba v zapojení se neprojeví, dokud program nespustíš.';
+		}
+		popisEl.textContent = krok < 2
+			? 'Robot ještě není sestavený.'
+			: `Mozek je připojený. Levý motor v portu ${selectLevyEl.value || 'nikde'}, pravý motor v portu ${selectPravyEl.value || 'nikde'}.`;
+	}
+
+	function nastavKolo(el, stav) {
+		el.setAttribute('fill', stav === 'spravne' ? '#37b24d' : stav === 'zamnene' ? '#e03131' : '#495057');
+	}
+
+	btnPodvozek.addEventListener('click', () => {
+		if (krok !== 0) return;
+		krok = 1;
+		prekresli();
+	});
+
+	btnMozek.addEventListener('click', () => {
+		if (krok !== 1) return;
+		krok = 2;
+		selectLevyEl.value = PROG_LEVY;
+		selectPravyEl.value = PROG_PRAVY;
+		posledniVysledek = null;
+		nastavKolo(koloLevyEl, 'mlci');
+		nastavKolo(koloPravyEl, 'mlci');
+		robotTelesoEl.setAttribute('transform', '');
+		prekresli();
+	});
+
+	btnReset.addEventListener('click', () => {
+		if (bezi) return;
+		krok = 0;
+		posledniVysledek = null;
+		selectLevyEl.value = '';
+		selectPravyEl.value = '';
+		robotTelesoEl.setAttribute('transform', '');
+		nastavKolo(koloLevyEl, 'mlci');
+		nastavKolo(koloPravyEl, 'mlci');
+		prekresli();
+	});
+
+	selectLevyEl.addEventListener('change', () => { posledniVysledek = null; prekresli(); });
+	selectPravyEl.addEventListener('change', () => { posledniVysledek = null; prekresli(); });
+
+	btnSpustit.addEventListener('click', () => {
+		if (krok < 2 || bezi) return;
+		const portLevy = selectLevyEl.value;
+		const portPravy = selectPravyEl.value;
+		const levyStav = stavMotoru(portLevy, PROG_LEVY, PROG_PRAVY);
+		const pravyStav = stavMotoru(portPravy, PROG_PRAVY, PROG_LEVY);
+		const vysledek = vyhodnotPohyb(levyStav, pravyStav);
+		nastavKolo(koloLevyEl, levyStav);
+		nastavKolo(koloPravyEl, pravyStav);
+
+		bezi = true;
+		aktualizujTlacitka();
+
+		const START_X = 80, START_Y = 190; // levý horní roh těla na startu
+		const STRED_X = 135, STRED_Y = 220; // střed těla — osa otáčení „na místě"
+		const KOLO_LEVY_X = 105, KOLO_PRAVY_X = 165, KOLO_Y = 250; // osy otáčení kolem nehybného kola
+
+		let snimkuCelkem = 60, snimek = 0;
+		if (vysledek === 'toci_se') snimkuCelkem = 90;
+		if (vysledek === 'otoci_vlevo' || vysledek === 'otoci_vpravo') snimkuCelkem = 45;
+		if (vysledek === 'nejede') snimkuCelkem = 0;
+
+		function tik() {
+			snimek++;
+			const t = Math.min(1, snimek / snimkuCelkem);
+			let transform = '';
+			if (vysledek === 'rovne') {
+				transform = `translate(${300 * t} 0)`;
+			} else if (vysledek === 'toci_se') {
+				transform = `rotate(${720 * t} ${STRED_X} ${STRED_Y})`;
+			} else if (vysledek === 'otoci_vlevo') {
+				transform = `rotate(${-70 * t} ${KOLO_LEVY_X} ${KOLO_Y})`;
+			} else if (vysledek === 'otoci_vpravo') {
+				transform = `rotate(${70 * t} ${KOLO_PRAVY_X} ${KOLO_Y})`;
+			}
+			robotTelesoEl.setAttribute('transform', transform);
+			if (t < 1) {
+				requestAnimationFrame(tik);
+			} else {
+				bezi = false;
+				posledniVysledek = vysledek;
+				prekresli();
+			}
+		}
+		if (snimkuCelkem === 0) {
+			bezi = false;
+			posledniVysledek = vysledek;
+			prekresli();
+		} else {
+			requestAnimationFrame(tik);
+		}
+	});
+
+	prekresli();
+
+	// ——— háčky pro test bez prohlížeče ———
+	scenaEl.__stavMotoru = stavMotoru;
+	scenaEl.__vyhodnotPohyb = vyhodnotPohyb;
+	scenaEl.__meze = { PROG_LEVY, PROG_PRAVY };
+	scenaEl.__stav = () => ({ krok, posledniVysledek, portLevy: selectLevyEl.value, portPravy: selectPravyEl.value });
+</script>
+
+<style>
+	.sb-obal { overflow-x: auto; }
+	#sb-scena { width: 100%; max-width: 640px; height: auto; display: block; margin: 0.5rem 0; }
+	#sb-robot-skupina, #sb-zapojeni-skupina, #sb-dily-skupina { transition: opacity 0.3s ease; }
+	.sb-popisek { font-size: 15px; font-weight: 700; fill: #2b2a26; }
+	.sb-popisek-mala { font-size: 12px; font-weight: 700; fill: #2b2a26; }
+	.sb-port-cislo { font-size: 11px; font-weight: 700; fill: #495057; pointer-events: none; }
+
+	.sb-radek { margin: 0.5rem 0; display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+	.sb-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.9rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; }
+	.sb-tl.sb-hlavni { background: #d3f9d8; }
+	.sb-tl:disabled { opacity: 0.4; cursor: default; }
+	.sb-vyber { font: inherit; font-weight: 700; padding: 0.2rem 0.4rem; border: 2px solid #2b2a26; border-radius: 6px; }
+
+	.sb-tabulka { border-collapse: collapse; margin: 0.6rem 0; }
+	.sb-tabulka th, .sb-tabulka td { border: 2px solid #868e96; padding: 0.25rem 0.6rem; text-align: left; }
+	.sb-tabulka tbody th { background: #e9ecef; }
+	.sb-tabulka tr.sb-duraz { background: #fff3bf; }
+	.sb-tabulka .sb-pozn { font-weight: 400; font-size: 0.9rem; color: #495057; }
+	.sb-titulek { text-align: left; font-weight: 700; padding-bottom: 0.3rem; }
+
+	.sb-stav { background: #f1f3f5; border-left: 6px solid #1971c2; padding: 0.5rem 0.8rem; margin-top: 0.6rem; }
+</style>

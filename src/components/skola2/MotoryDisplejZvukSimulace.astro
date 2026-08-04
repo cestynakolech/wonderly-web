@@ -1,0 +1,544 @@
+---
+// Výstupy robota — motor, displej, zvuk (informatika 8, vex-iq / motory-displej-zvuk).
+//
+// Pointa, kterou slovy vysvětlíš těžko: JEDEN A TENTÝŽ PROGRAM (jízda po čtverci
+// v opakování) se dá "vidět" TŘEMI různými výstupy najednou:
+//   1. MOTOR — rychlost v % mění, jak RYCHLE robot jede (delší % = kratší čas na
+//      stejnou vzdálenost 300 mm).
+//   2. DISPLEJ MOZKU — print vypisuje aktuální hodnotu (tady: nastavenou rychlost)
+//      na každém rohu. To je přesně to, k čemu se print v ladění používá: displej je
+//      "okno do hlavy robota" (viz výklad na téže stránce).
+//   3. ZVUK — play sound je jen SIGNÁL, že program právě něco udělal. Kdy pípne,
+//      záleží na tom, KDE v programu blok zvuku je: uvnitř opakování pípne v každém
+//      rohu (4×), mimo opakování pípne jen jednou — přesně jak popisuje výklad
+//      ("Blok zvuku musí být uvnitř opakování").
+//
+// Program je pořád stejný ("repeat 4: drive → print → turn → play sound"), jen se
+// mění DVĚ věci, které si žák nastaví: rychlost motoru (posuvník) a umístění bloku
+// zvuku (uvnitř/mimo opakování). Aktuálně prováděný řádek programu se zvýrazňuje —
+// stejně jako ve VEXcode IQ.
+//
+// ČÍSLA (aby vycházela celá): strana čtverce je 300 mm, "100 % rychlosti" bereme
+// jako 100 mm/s (učební zjednodušení, aby šel čas vždy vydělit beze zbytku).
+// Nabízené rychlosti 25/50/75/100 % dají čas jízdy jedné strany:
+//   25 % → 300/25 = 12 s,  50 % → 6 s,  75 % → 4 s,  100 % → 3 s.
+// Otočka o 90° trvá vždy 1 s (zjednodušeno záměrně — ukazujeme hlavně vliv rychlosti
+// na JÍZDU, ne na otáčení). Výchozích 50 % dá čas kola: 4 × (6 + 1) = 28 s.
+//
+// Animace neběží na reálném čase (v náhledu je requestAnimationFrame zpomalený),
+// ale na POČTU SNÍMKŮ úměrném délce kroku (SNIMKU_NA_SEKUNDU) — stejný princip jako
+// ve VexcodeSimulace.astro, takže poměr časů (25 % je 4× pomalejší než 100 %) sedí
+// vždy, i když je náhled zpomalený.
+//
+// Zvuk je jen ZNÁZORNĚNÝ (blikající ikona reproduktoru + text) — stránka nikdy
+// doopravdy nezvučí.
+
+const SIRKA = 240;
+const VYSKA = 280;
+const KROK_MRIZKY = 40; // px = 100 mm
+
+const svisleCary = [];
+for (let x = 0; x <= SIRKA; x += KROK_MRIZKY) svisleCary.push(x);
+const vodorovneCary = [];
+for (let y = 0; y <= VYSKA; y += KROK_MRIZKY) vodorovneCary.push(y);
+
+// Čtverec o straně 300 mm = 120 px (PXMM 0,4, stejně jako VexcodeSimulace).
+// Body: 0 start (vlevo dole) → 1 vlevo nahoře → 2 vpravo nahoře → 3 vpravo dole.
+const POS = [
+	{ x: 60, y: 220 },
+	{ x: 60, y: 100 },
+	{ x: 180, y: 100 },
+	{ x: 180, y: 220 },
+];
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Jeden program, tři různé výstupy 🤖</span></h2>
+	<p>
+		Robot má naprogramovaný pořád <strong>ten samý</strong> program: objede čtverec o straně
+		300 mm a v každém rohu se otočí o 90°. Přesto ho můžeš sledovat <strong>třemi různými
+		způsoby</strong> — motorem (jak rychle jede), displejem (co si program právě vypsal) a
+		zvukem (kdy program pípne). Zkus změnit rychlost a přesunout blok zvuku dovnitř a ven
+		z opakování.
+	</p>
+
+	<div class="mdz-obal">
+		<svg id="mdz-scena" viewBox={`0 0 ${SIRKA} ${VYSKA}`} role="img" aria-labelledby="mdz-popis">
+			<title id="mdz-popis">Robot jede po čtvercové dráze, na displeji se vypisuje rychlost a na rozích pípá reproduktor</title>
+			<rect x="0" y="0" width={SIRKA} height={VYSKA} fill="#f8f9fa" />
+			{svisleCary.map((x) => (
+				<line x1={x} y1="0" x2={x} y2={VYSKA} stroke="#e9ecef" stroke-width="1" />
+			))}
+			{vodorovneCary.map((y) => (
+				<line x1="0" y1={y} x2={SIRKA} y2={y} stroke="#e9ecef" stroke-width="1" />
+			))}
+			<polyline
+				points={`${POS[0].x},${POS[0].y} ${POS[1].x},${POS[1].y} ${POS[2].x},${POS[2].y} ${POS[3].x},${POS[3].y} ${POS[0].x},${POS[0].y}`}
+				fill="none" stroke="#adb5bd" stroke-width="3" stroke-dasharray="7 6"
+			/>
+			<polyline id="mdz-stopa" points="" fill="none" stroke="#1971c2" stroke-width="3" />
+			<text x={POS[0].x} y={POS[0].y + 24} text-anchor="middle" class="mdz-popisek">START</text>
+			<text x={POS[1].x - 16} y={POS[1].y - 8} text-anchor="middle" class="mdz-popisek">1</text>
+			<text x={POS[2].x + 16} y={POS[2].y - 8} text-anchor="middle" class="mdz-popisek">2</text>
+			<text x={POS[3].x + 16} y={POS[3].y + 20} text-anchor="middle" class="mdz-popisek">3</text>
+			<g id="mdz-robot" transform={`translate(${POS[0].x},${POS[0].y}) rotate(0)`}>
+				<polygon points="0,-16 8,-6 -8,-6" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<rect x="-12" y="-9" width="24" height="18" rx="4" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+				<rect x="-15" y="-12" width="5" height="8" fill="#2b2a26" />
+				<rect x="10" y="-12" width="5" height="8" fill="#2b2a26" />
+				<rect x="-15" y="4" width="5" height="8" fill="#2b2a26" />
+				<rect x="10" y="4" width="5" height="8" fill="#2b2a26" />
+			</g>
+		</svg>
+		<p class="mdz-legenda">🔲 1 čtvereček mřížky = 100 mm · body 1–3 jsou rohy, kde robot zatáčí a program vypisuje/pípá</p>
+	</div>
+
+	<label class="mdz-posuvnik">
+		<strong>rychlost motoru:</strong> <output id="mdz-rychlost-out">50</output> %
+		<input type="range" id="mdz-rychlost" min="25" max="100" step="25" value="50" />
+	</label>
+
+	<p class="mdz-radek">
+		<strong>blok „play sound" je:</strong>
+		<button type="button" class="mdz-tl mdz-volba mdz-aktivni" data-vopakovani="1" aria-pressed="true">uvnitř opakování (pípni v každém rohu)</button>
+		<button type="button" class="mdz-tl mdz-volba" data-vopakovani="0" aria-pressed="false">mimo opakování (pípni jen jednou na konci)</button>
+	</p>
+
+	<div class="mdz-kod-obal">
+		<div class="mdz-hat">when started</div>
+		<div class="mdz-smycka">
+			<span class="mdz-smycka-popisek">repeat 4 (opakuj):</span>
+			<div id="mdz-kod" class="mdz-kod"></div>
+		</div>
+	</div>
+
+	<p class="mdz-radek">
+		<button type="button" class="mdz-tl mdz-hlavni" id="mdz-krok">▶︎ jeden krok</button>
+		<button type="button" class="mdz-tl mdz-hlavni" id="mdz-spust">⏩ spustit program</button>
+		<button type="button" class="mdz-tl" id="mdz-reset">↺ na start</button>
+	</p>
+
+	<div class="mdz-panely">
+		<div class="mdz-panel">
+			<h3>⚙️ motor</h3>
+			<div class="mdz-gauge-obal"><div class="mdz-gauge" id="mdz-gauge"></div></div>
+			<p class="mdz-panel-text" id="mdz-motor-text"></p>
+		</div>
+		<div class="mdz-panel">
+			<h3>🖥️ displej mozku</h3>
+			<div class="mdz-displej" id="mdz-displej"></div>
+			<p class="mdz-panel-text">print vypisuje hodnotu — vidíš ji, i když se robot pořád hýbe</p>
+		</div>
+		<div class="mdz-panel">
+			<h3>🔊 zvuk</h3>
+			<div class="mdz-repro" id="mdz-repro">🔈</div>
+			<p class="mdz-panel-text" id="mdz-zvuk-text">zatím žádné pípnutí</p>
+		</div>
+	</div>
+
+	<p class="mdz-stav" id="mdz-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const scenaEl = document.getElementById('mdz-scena');
+	const robotEl = document.getElementById('mdz-robot');
+	const stopaEl = document.getElementById('mdz-stopa');
+	const popisEl = document.getElementById('mdz-popis');
+	const rychlostInput = document.getElementById('mdz-rychlost');
+	const rychlostOutEl = document.getElementById('mdz-rychlost-out');
+	const btnKrok = document.getElementById('mdz-krok');
+	const btnSpust = document.getElementById('mdz-spust');
+	const btnReset = document.getElementById('mdz-reset');
+	const kodEl = document.getElementById('mdz-kod');
+	const gaugeEl = document.getElementById('mdz-gauge');
+	const motorTextEl = document.getElementById('mdz-motor-text');
+	const displejEl = document.getElementById('mdz-displej');
+	const reproEl = document.getElementById('mdz-repro');
+	const zvukTextEl = document.getElementById('mdz-zvuk-text');
+	const stavEl = document.getElementById('mdz-stav');
+
+	const DRIVE_MM = 300;               // délka jedné strany čtverce
+	const MAX_RYCHLOST_MM_S = 100;      // učební zjednodušení: 100 % rychlosti = 100 mm/s
+	const TURN_S = 1;                   // otočka o 90° trvá vždy 1 s (rychlost mění jen jízdu)
+	const SNIMKU_NA_SEKUNDU = 15;       // kalibrace animace — poměr časů sedí i při zpomaleném rAF
+	const POS = [
+		{ x: 60, y: 220 },
+		{ x: 60, y: 100 },
+		{ x: 180, y: 100 },
+		{ x: 180, y: 220 },
+	];
+	const HEADINGS = [0, 90, 180, 270]; // směr jízdy PŘED zatočením na daném rohu
+
+	/** České číslo bez zbytečné desetinné čárky. */
+	const cz = (n) => (Number.isInteger(n) ? String(n) : String(n).replace('.', ','));
+
+	// — čisté funkce: dají se ověřit i mimo prohlížeč (testy/simulace) —
+	/** Čas jízdy jedné strany (300 mm) danou rychlostí v %. Pro 25/50/75/100 vždy celé číslo. */
+	const casJizdy = (percent) => DRIVE_MM / percent;
+	/** Rychlost v mm/s — díky MAX_RYCHLOST_MM_S = 100 je číselně stejná jako %. */
+	const rychlostMmS = (percent) => (percent * MAX_RYCHLOST_MM_S) / 100;
+	/** Kolikrát pípne reproduktor: uvnitř opakování 4×, mimo jen 1×. */
+	const pocetPipnuti = (vOpakovani) => (vOpakovani ? 4 : 1);
+	/** Celkový čas jednoho kola čtverce (4 strany + 4 otočky). */
+	const celkovyCas = (percent) => 4 * (casJizdy(percent) + TURN_S);
+	/** Počet snímků animace jízdy — úměrný času, ne pevný. */
+	const framesJizdy = (percent) => Math.max(6, Math.round(casJizdy(percent) * SNIMKU_NA_SEKUNDU));
+	const framesOtocky = Math.max(4, Math.round(TURN_S * SNIMKU_NA_SEKUNDU));
+
+	/** Sestaví seznam kroků programu podle toho, kde je blok zvuku. */
+	function sestavKroky(vOpakovani) {
+		const kroky = [];
+		for (let c = 0; c < 4; c++) {
+			kroky.push({ typ: 'jizda', c });
+			kroky.push({ typ: 'print', c });
+			kroky.push({ typ: 'otocka', c });
+			if (vOpakovani) kroky.push({ typ: 'beep', c });
+		}
+		if (!vOpakovani) kroky.push({ typ: 'beep-po', c: -1 });
+		return kroky;
+	}
+
+	let rychlost = 50;
+	let vOpakovani = true;
+	let kroky = sestavKroky(vOpakovani);
+	let ukazatel = 0;
+	let bezi = false;
+	let pocetVypsanych = 0;
+	let pocetPip = 0;
+
+	function vykresliRobota(stav) {
+		robotEl.setAttribute('transform', `translate(${stav.x},${stav.y}) rotate(${stav.heading})`);
+	}
+
+	function renderKod() {
+		kodEl.innerHTML = '';
+		const radky = [
+			{ text: `drive for 300 mm  (rychlost ${rychlost} %)`, typ: 'jizda' },
+			{ text: 'print speed', typ: 'print' },
+			{ text: 'turn right for 90 degrees', typ: 'otocka' },
+		];
+		if (vOpakovani) radky.push({ text: 'play sound "beep"', typ: 'beep' });
+		radky.forEach((r) => {
+			const div = document.createElement('div');
+			div.className = 'mdz-kod-radek';
+			div.dataset.typ = r.typ;
+			div.textContent = r.text;
+			kodEl.appendChild(div);
+		});
+		if (!vOpakovani) {
+			const div = document.createElement('div');
+			div.className = 'mdz-kod-radek mdz-kod-mimo';
+			div.dataset.typ = 'beep-po';
+			div.textContent = 'play sound "beep"   ← mimo opakování!';
+			kodEl.appendChild(div);
+		}
+	}
+
+	function zvyrazniRadek(typ) {
+		for (const r of kodEl.querySelectorAll('.mdz-kod-radek')) {
+			r.classList.toggle('mdz-kod-aktivni', r.dataset.typ === typ);
+		}
+	}
+
+	function aktualizujMotorPanel() {
+		gaugeEl.style.width = rychlost + '%';
+		motorTextEl.innerHTML =
+			`rychlost <strong>${cz(rychlost)} %</strong> → ${cz(rychlostMmS(rychlost))} mm/s<br>` +
+			`300 mm ujede za <strong>${cz(casJizdy(rychlost))} s</strong>`;
+	}
+
+	function vypisDisplej(c) {
+		pocetVypsanych++;
+		const radek = document.createElement('div');
+		radek.className = 'mdz-radek-displeje';
+		radek.textContent = `roh ${c + 1}: rychlost ${rychlost} %`;
+		displejEl.appendChild(radek);
+		displejEl.scrollTop = displejEl.scrollHeight;
+	}
+
+	function pipni(c) {
+		pocetPip++;
+		reproEl.textContent = '🔊';
+		reproEl.classList.add('mdz-pip');
+		setTimeout(() => {
+			reproEl.classList.remove('mdz-pip');
+			reproEl.textContent = '🔈';
+		}, 450);
+		zvukTextEl.textContent =
+			c >= 0
+				? `pípnutí celkem: ${pocetPip} (naposledy na rohu ${c + 1})`
+				: `pípnutí celkem: ${pocetPip} (až po celém čtverci — blok byl mimo opakování)`;
+	}
+
+	function popisKroku(krok) {
+		if (krok.typ === 'jizda') {
+			return `Robot jede na stranu k rohu ${krok.c + 1} rychlostí <strong>${cz(rychlost)} %</strong> — 300 mm mu zabere ${cz(casJizdy(rychlost))} s.`;
+		}
+		if (krok.typ === 'print') {
+			return `Displej právě vypsal <strong>„roh ${krok.c + 1}: rychlost ${cz(rychlost)} %"</strong> — přesně tu hodnotu, kterou má motor nastavenou.`;
+		}
+		if (krok.typ === 'otocka') {
+			return `Robot se na rohu ${krok.c + 1} otočil o 90° a míří na další stranu.`;
+		}
+		if (krok.typ === 'beep') {
+			return `Reproduktor pípl na rohu ${krok.c + 1} — signál, že tahle strana je hotová. Blok zvuku je uvnitř opakování, proto pípne pokaždé.`;
+		}
+		if (krok.typ === 'beep-po') {
+			return `Teprve teď, po celém čtverci, pípl reproduktor <strong>jednou</strong> — protože blok zvuku je <strong>mimo opakování</strong>.`;
+		}
+		return '';
+	}
+
+	function ukazStav(html) {
+		stavEl.innerHTML = html;
+	}
+
+	function popisSceny() {
+		return (
+			`Robot jede po čtvercové dráze rychlostí ${rychlost} %. ` +
+			`Displej vypsal hodnotu ${pocetVypsanych}×, reproduktor pípl ${pocetPip}×.`
+		);
+	}
+
+	function animujJizdu(c, onDone) {
+		const start = POS[c];
+		const konec = POS[(c + 1) % 4];
+		const heading = HEADINGS[c];
+		const snimkuCelkem = framesJizdy(rychlost);
+		let snimek = 0;
+		function tik() {
+			snimek++;
+			const t = Math.min(1, snimek / snimkuCelkem);
+			vykresliRobota({ x: start.x + (konec.x - start.x) * t, y: start.y + (konec.y - start.y) * t, heading });
+			if (t < 1) {
+				requestAnimationFrame(tik);
+			} else {
+				stopaEl.setAttribute('points', stopaEl.getAttribute('points') + ` ${konec.x},${konec.y}`);
+				popisEl.textContent = popisSceny();
+				onDone();
+			}
+		}
+		requestAnimationFrame(tik);
+	}
+
+	function animujOtocku(c, onDone) {
+		const pos = POS[(c + 1) % 4];
+		const headingStart = HEADINGS[c];
+		const headingKonec = HEADINGS[c] + 90;
+		const snimkuCelkem = framesOtocky;
+		let snimek = 0;
+		function tik() {
+			snimek++;
+			const t = Math.min(1, snimek / snimkuCelkem);
+			vykresliRobota({ x: pos.x, y: pos.y, heading: headingStart + (headingKonec - headingStart) * t });
+			if (t < 1) requestAnimationFrame(tik);
+			else onDone();
+		}
+		requestAnimationFrame(tik);
+	}
+
+	function provedJedenKrok(onHotovo) {
+		if (ukazatel >= kroky.length) {
+			onHotovo();
+			return;
+		}
+		const krok = kroky[ukazatel];
+		zvyrazniRadek(krok.typ);
+		const dokonci = () => {
+			ukazatel++;
+			ukazStav(popisKroku(krok));
+			onHotovo();
+		};
+		if (krok.typ === 'jizda') animujJizdu(krok.c, dokonci);
+		else if (krok.typ === 'otocka') animujOtocku(krok.c, dokonci);
+		else if (krok.typ === 'print') { vypisDisplej(krok.c); dokonci(); }
+		else { pipni(krok.c); dokonci(); } // 'beep' i 'beep-po'
+	}
+
+	function ukazStavHotovo() {
+		zvyrazniRadek(null);
+		ukazStav(
+			`🏁 <strong>Hotovo!</strong> Jedno kolo čtverce trvalo ${cz(celkovyCas(rychlost))} s. ` +
+				`Displej vypsal rychlost ${pocetVypsanych}×, reproduktor pípl ${pocetPip}×. ` +
+				`Klikni na „na start" a zkus jinou rychlost nebo přesuň zvuk mimo opakování.`
+		);
+	}
+
+	function nastartuj() {
+		ukazatel = 0;
+		bezi = false;
+		pocetVypsanych = 0;
+		pocetPip = 0;
+		kroky = sestavKroky(vOpakovani);
+		vykresliRobota({ x: POS[0].x, y: POS[0].y, heading: 0 });
+		stopaEl.setAttribute('points', `${POS[0].x},${POS[0].y}`);
+		displejEl.innerHTML = '';
+		reproEl.textContent = '🔈';
+		zvukTextEl.textContent = 'zatím žádné pípnutí';
+		renderKod();
+		aktualizujMotorPanel();
+		popisEl.textContent = popisSceny();
+		ukazStav(
+			`Program je připravený: rychlost <strong>${cz(rychlost)} %</strong>, blok zvuku ` +
+				`<strong>${vOpakovani ? 'uvnitř' : 'mimo'} opakování</strong>. Klikni na „jeden krok" nebo rovnou „spustit program".`
+		);
+	}
+
+	btnKrok.addEventListener('click', () => {
+		if (bezi) return;
+		if (ukazatel >= kroky.length) {
+			ukazStavHotovo();
+			return;
+		}
+		bezi = true;
+		provedJedenKrok(() => {
+			bezi = false;
+			if (ukazatel >= kroky.length) ukazStavHotovo();
+		});
+	});
+
+	btnSpust.addEventListener('click', () => {
+		if (bezi) return;
+		if (ukazatel >= kroky.length) {
+			ukazStavHotovo();
+			return;
+		}
+		bezi = true;
+		function dalsi() {
+			if (ukazatel >= kroky.length) {
+				bezi = false;
+				ukazStavHotovo();
+				return;
+			}
+			provedJedenKrok(dalsi);
+		}
+		dalsi();
+	});
+
+	btnReset.addEventListener('click', () => {
+		if (bezi) return;
+		nastartuj();
+	});
+
+	rychlostInput.addEventListener('input', () => {
+		if (bezi) return;
+		rychlost = Number(rychlostInput.value);
+		rychlostOutEl.textContent = String(rychlost);
+		nastartuj();
+	});
+
+	for (const v of document.querySelectorAll('.mdz-volba')) {
+		v.addEventListener('click', () => {
+			if (bezi) return;
+			for (const j of document.querySelectorAll('.mdz-volba')) {
+				j.classList.remove('mdz-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			v.classList.add('mdz-aktivni');
+			v.setAttribute('aria-pressed', 'true');
+			vOpakovani = v.dataset.vopakovani === '1';
+			nastartuj();
+		});
+	}
+
+	nastartuj();
+
+	// ——— háčky pro test bez prohlížeče ———
+	scenaEl.__casJizdy = casJizdy;
+	scenaEl.__rychlostMmS = rychlostMmS;
+	scenaEl.__pocetPipnuti = pocetPipnuti;
+	scenaEl.__celkovyCas = celkovyCas;
+	scenaEl.__sestavKroky = sestavKroky;
+	scenaEl.__cz = cz;
+	scenaEl.__stav = () => ({ rychlost, vOpakovani, ukazatel, pocetVypsanych, pocetPip });
+	scenaEl.__meze = { DRIVE_MM, MAX_RYCHLOST_MM_S, TURN_S };
+</script>
+
+<style>
+	.mdz-obal { overflow-x: auto; }
+	#mdz-scena { width: 100%; max-width: 400px; height: auto; display: block; margin: 0.5rem 0; }
+	.mdz-popisek { font-size: 12px; fill: #495057; font-weight: 700; }
+	.mdz-legenda { font-size: 0.9rem; color: #495057; margin: 0.2rem 0 0.6rem; }
+
+	.mdz-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.mdz-posuvnik input { width: 100%; max-width: 500px; display: block; margin-top: 0.3rem; }
+
+	.mdz-radek { margin: 0.5rem 0; display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+	.mdz-tl {
+		font: inherit;
+		font-weight: 700;
+		padding: 0.3rem 0.9rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.mdz-tl.mdz-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.mdz-tl.mdz-hlavni { background: #d3f9d8; }
+
+	.mdz-kod-obal { margin: 0.6rem 0; }
+	.mdz-hat {
+		display: inline-block;
+		background: #ffb454;
+		border: 3px solid #2b2a26;
+		border-radius: 14px 14px 4px 4px;
+		padding: 0.35rem 0.9rem;
+		font-weight: 800;
+		margin-bottom: -3px;
+	}
+	.mdz-smycka {
+		border: 3px solid #2b2a26;
+		border-radius: 4px 10px 10px 10px;
+		background: #e7f5ff;
+		padding: 0.5rem 0.7rem;
+	}
+	.mdz-smycka-popisek { font-weight: 800; display: block; margin-bottom: 0.3rem; }
+	.mdz-kod { display: flex; flex-direction: column; gap: 0.3rem; margin-left: 0.8rem; }
+	.mdz-kod-radek {
+		font-family: 'Courier New', monospace;
+		font-weight: 700;
+		border: 2px solid #2b2a26;
+		border-radius: 8px;
+		background: #fff;
+		padding: 0.25rem 0.6rem;
+	}
+	.mdz-kod-radek.mdz-kod-mimo { margin: 0.3rem 0 0 -0.8rem; background: #fff3bf; }
+	.mdz-kod-radek.mdz-kod-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #f08c00; }
+
+	.mdz-panely { display: flex; gap: 0.7rem; flex-wrap: wrap; margin: 0.8rem 0; }
+	.mdz-panel {
+		flex: 1 1 220px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		padding: 0.6rem 0.8rem;
+		background: #fff;
+	}
+	.mdz-panel h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+	.mdz-panel-text { font-size: 0.9rem; color: #495057; margin: 0.4rem 0 0; }
+
+	.mdz-gauge-obal { height: 22px; border: 2px solid #2b2a26; border-radius: 8px; background: #f1f3f5; overflow: hidden; }
+	.mdz-gauge { height: 100%; width: 50%; background: #4dabf7; transition: width 0.2s; }
+
+	.mdz-displej {
+		height: 110px;
+		overflow-y: auto;
+		background: #1c1c1c;
+		color: #51cf66;
+		font-family: 'Courier New', monospace;
+		font-size: 0.85rem;
+		border-radius: 8px;
+		padding: 0.4rem 0.6rem;
+		border: 3px solid #2b2a26;
+	}
+	.mdz-radek-displeje { line-height: 1.5; }
+
+	.mdz-repro { font-size: 2.4rem; text-align: center; line-height: 1.2; }
+	.mdz-repro.mdz-pip { animation: mdz-pulz 0.45s ease-out; }
+	@keyframes mdz-pulz {
+		0% { transform: scale(1); }
+		40% { transform: scale(1.35); }
+		100% { transform: scale(1); }
+	}
+
+	.mdz-stav { background: #f1f3f5; border-left: 6px solid #1971c2; padding: 0.5rem 0.8rem; margin-top: 0.6rem; }
+</style>

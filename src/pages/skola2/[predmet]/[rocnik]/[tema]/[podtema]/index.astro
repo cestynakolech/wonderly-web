@@ -34,6 +34,10 @@ import KlonovaniSimulace from '../../../../../../components/skola2/KlonovaniSimu
 import MicrobitVstupySimulace from '../../../../../../components/skola2/MicrobitVstupySimulace.astro';
 import MicrobitRadioSimulace from '../../../../../../components/skola2/MicrobitRadioSimulace.astro';
 import VexcodeSimulace from '../../../../../../components/skola2/VexcodeSimulace.astro';
+import SestaveniRobotaSimulace from '../../../../../../components/skola2/SestaveniRobotaSimulace.astro';
+import MotoryDisplejZvukSimulace from '../../../../../../components/skola2/MotoryDisplejZvukSimulace.astro';
+import ProjektRobotSimulace from '../../../../../../components/skola2/ProjektRobotSimulace.astro';
+import PingPongSimulace from '../../../../../../components/skola2/PingPongSimulace.astro';
 import PromenneSimulace from '../../../../../../components/skola2/PromenneSimulace.astro';
 import LedDisplejSimulace from '../../../../../../components/skola2/LedDisplejSimulace.astro';
 import OdporVodiceSimulace from '../../../../../../components/skola2/OdporVodiceSimulace.astro';
@@ -257,6 +261,10 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			{podtema.interakce === 'microbit-vstupy' && <MicrobitVstupySimulace />}
 			{podtema.interakce === 'microbit-radio' && <MicrobitRadioSimulace />}
 			{podtema.interakce === 'vexcode' && <VexcodeSimulace />}
+			{podtema.interakce === 'sestaveni-robota' && <SestaveniRobotaSimulace />}
+			{podtema.interakce === 'motory-displej-zvuk' && <MotoryDisplejZvukSimulace />}
+			{podtema.interakce === 'projekt-robot' && <ProjektRobotSimulace />}
+			{podtema.interakce === 'ping-pong' && <PingPongSimulace />}
 	{podtema.interakce === 'led-displej' && <LedDisplejSimulace />}
 	{podtema.interakce === 'odpor-vodice' && <OdporVodiceSimulace />}
 	{podtema.interakce === 'odpor-vodice-zaklad' && <OdporVodiceSimulace zaklad={true} />}

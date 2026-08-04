@@ -1,0 +1,464 @@
+---
+// Projekt Můj robot (informatika 8) — VEX IQ, VEXcode IQ (bloky anglicky, jednotky mm/degrees).
+//
+// Mise: robot má objet překážku a zaparkovat do garáže podle barevné značky. Program má
+// přesně TŘI bloky — jízda → zatáčka → parkování — a jde postavit dvěma způsoby:
+//
+//  1. VŠECHNY BLOKY NAJEDNOU: program se spustí celý a zastaví se, až dojede na konec
+//     (nebo do něčeho narazí). Vidíš JEDEN výsledek na konci — a pokud to nevyjde,
+//     vůbec nepoznáš, jestli za to může jízda, zatáčka, nebo parkování.
+//  2. PO ČÁSTECH: každý blok se otestuje samostatně, hned potvrdí ✓/✗, a dál se jde,
+//     jen když ten předchozí funguje. Chyba se tak najde přesně v bloku, kde vznikla —
+//     ještě dřív, než se s ní robot vůbec pokusí objet překážku.
+//
+// Nejzajímavější je scénář „chyba v zatáčce": v režimu po částech se pozná hned u bloku 2
+// (naprogramovaný úhel prostě nesedí, robot ještě nikam nejel). V režimu najednou se ale
+// projeví až jako náraz do překážky během TŘETÍHO bloku (parkování) — příčina (špatný úhel)
+// a příznak (náraz) jsou od sebe daleko, přesně jako u skutečného ladění programu.
+//
+// Souřadnice jsou top-down (pohled shora na hrací plochu), stejně jako BludisteSimulace.
+// Fyzika jízdy je čistá funkce (stav, mm/°) → nový stav — žádný requestAnimationFrame,
+// jen okamžitý přepočet po kliknutí (viz poznámka u BludisteSimulace/SenzoryRobota).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Projekt Můj robot — objeď překážku a zaparkuj 🤖</span></h2>
+	<p>
+		Robot má tři bloky programu: <strong>jízda</strong> → <strong>zatáčka</strong> →
+		<strong>parkování</strong> do garáže podle zelené značky. Zkus si vybrat, kde je (pokud
+		vůbec) v programu chyba, a porovnej oba styly vývoje: <em>napsat vše najednou</em> a
+		<em>stavět a testovat po částech</em>.
+	</p>
+
+	<div class="pr-obal">
+		<svg id="pr-scena" viewBox="0 0 420 300" role="img" aria-labelledby="pr-popis">
+			<title id="pr-popis">Pohled shora: robot vlevo, překážka uprostřed, garáž se zelenou značkou dole</title>
+			<rect x="1" y="1" width="418" height="298" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" rx="8" />
+
+			<circle cx={60} cy={70} r="4" fill="#495057" />
+			<text x="60" y="50" text-anchor="middle" class="pr-label-mala">start</text>
+
+			<rect x="280" y="30" width="80" height="120" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+			<text x="320" y="24" text-anchor="middle" class="pr-label">překážka</text>
+
+			<rect x="220" y="190" width="80" height="60" fill="#b2f2bb" stroke="#2b8a3e" stroke-width="3" />
+			<text x="260" y="184" text-anchor="middle" class="pr-label">garáž (zelená značka)</text>
+			<text x="260" y="224" text-anchor="middle" class="pr-label-mala" fill="#2b8a3e">🎨</text>
+
+			<line id="pr-cesta-jizda" x1="60" y1="70" x2="60" y2="70" stroke="#868e96" stroke-width="3" stroke-dasharray="6 5" opacity="0" />
+			<line id="pr-cesta-park" x1="60" y1="70" x2="60" y2="70" stroke="#868e96" stroke-width="3" stroke-dasharray="6 5" opacity="0" />
+			<text id="pr-x-znacka" x="0" y="0" text-anchor="middle" font-size="20" font-weight="bold" fill="#c92a2a" opacity="0">✗</text>
+
+			<g id="pr-robot-skupina" transform="translate(60,70) rotate(0)">
+				<rect x="-15" y="-9" width="30" height="18" rx="4" id="pr-robot-telo" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+				<polygon points="15,-6 23,0 15,6" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			</g>
+		</svg>
+	</div>
+
+	<div id="pr-program" class="pr-program"></div>
+
+	<p class="pr-radek">
+		<strong>Kde je (pokud vůbec) chyba v programu?</strong><br />
+		<button type="button" class="pr-tl pr-chyba pr-aktivni" data-chyba="zadna" aria-pressed="true">bez chyby</button>
+		<button type="button" class="pr-tl pr-chyba" data-chyba="jizda" aria-pressed="false">chyba v jízdě</button>
+		<button type="button" class="pr-tl pr-chyba" data-chyba="zatacka" aria-pressed="false">chyba v zatáčce</button>
+		<button type="button" class="pr-tl pr-chyba" data-chyba="parkovani" aria-pressed="false">chyba v parkování</button>
+	</p>
+
+	<p class="pr-radek">
+		<strong>Styl vývoje:</strong><br />
+		<button type="button" class="pr-tl pr-styl pr-aktivni" data-styl="po-castech" aria-pressed="true">stavět a testovat po částech</button>
+		<button type="button" class="pr-tl pr-styl" data-styl="najednou" aria-pressed="false">napsat vše najednou</button>
+	</p>
+
+	<p class="pr-radek">
+		<span id="pr-akce"></span>
+		<button type="button" class="pr-tl" id="pr-reset">↺ na start</button>
+	</p>
+
+	<p class="pr-stav" id="pr-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const scenaEl = document.getElementById('pr-scena');
+	const popisEl = document.getElementById('pr-popis');
+	const robotEl = document.getElementById('pr-robot-skupina');
+	const cestaJizdaEl = document.getElementById('pr-cesta-jizda');
+	const cestaParkEl = document.getElementById('pr-cesta-park');
+	const xZnackaEl = document.getElementById('pr-x-znacka');
+	const programEl = document.getElementById('pr-program');
+	const akceEl = document.getElementById('pr-akce');
+	const stavEl = document.getElementById('pr-stav');
+	const btnReset = document.getElementById('pr-reset');
+
+	// ——— svět: mm se na plátno kreslí zmenšené o SCALE (px na 1 mm) ———
+	const SCALE = 0.5;
+	const mmToPx = (mm) => mm * SCALE;
+	const pxToMm = (px) => px / SCALE;
+
+	const START = { x: 60, y: 70 };
+	const PREKAZKA = { x: 280, y: 30, w: 80, h: 120 };
+	const GARAZ = { x: 220, y: 190, w: 80, h: 60 };
+
+	// Hodnoty, se kterými program bez chyby zaparkuje přesně v garáži.
+	const JIZDA_OK = 400;    // mm — zastaví se těsně před překážkou
+	const ZATACKA_OK = 90;   // ° — otočí se přesně směrem ke garáži
+	const PARKOVANI_OK = 300; // mm — dojede přesně na značku
+
+	/** Naprogramované hodnoty podle zvoleného scénáře chyby. Jen JEDEN blok se liší od _OK. */
+	function planHodnoty(chyba) {
+		const zaklad = { jizda: JIZDA_OK, zatacka: ZATACKA_OK, parkovani: PARKOVANI_OK };
+		if (chyba === 'jizda') return { ...zaklad, jizda: 600 };
+		if (chyba === 'zatacka') return { ...zaklad, zatacka: 60 };
+		if (chyba === 'parkovani') return { ...zaklad, parkovani: 150 };
+		return zaklad;
+	}
+
+	/** České číslo bez zbytečných desetin (výsledky jsou u nás vždy celé). */
+	const cz = (n) => String(Math.round(n));
+
+	/**
+	 * Vzdálenost (v px), po které by robot z bodu `bod` směrem `headingDeg` narazil do
+	 * obdélníku `obst`. Vrací null, když v cestě žádná srážka není. Jediné místo v kódu,
+	 * které rozhoduje o srážkách — používá ho jízda i parkování (obě jsou přímá jízda,
+	 * liší se jen natočením).
+	 */
+	function vzdalenostDoPrekazky(bod, headingDeg, obst) {
+		const rad = (headingDeg * Math.PI) / 180;
+		const dx = Math.cos(rad);
+		const dy = Math.sin(rad);
+		let tmin = -Infinity;
+		let tmax = Infinity;
+		if (dx !== 0) {
+			let t1 = (obst.x - bod.x) / dx;
+			let t2 = (obst.x + obst.w - bod.x) / dx;
+			if (t1 > t2) [t1, t2] = [t2, t1];
+			tmin = Math.max(tmin, t1);
+			tmax = Math.min(tmax, t2);
+		} else if (bod.x < obst.x || bod.x > obst.x + obst.w) {
+			return null;
+		}
+		if (dy !== 0) {
+			let t1 = (obst.y - bod.y) / dy;
+			let t2 = (obst.y + obst.h - bod.y) / dy;
+			if (t1 > t2) [t1, t2] = [t2, t1];
+			tmin = Math.max(tmin, t1);
+			tmax = Math.min(tmax, t2);
+		} else if (bod.y < obst.y || bod.y > obst.y + obst.h) {
+			return null;
+		}
+		if (tmax < tmin || tmax < 0) return null;
+		const t = tmin >= 0 ? tmin : tmax;
+		return t < 0 ? null : t;
+	}
+
+	/** Je bod uvnitř garáže (na zelené značce)? */
+	const jeVGarazi = (bod) =>
+		bod.x >= GARAZ.x && bod.x <= GARAZ.x + GARAZ.w && bod.y >= GARAZ.y && bod.y <= GARAZ.y + GARAZ.h;
+
+	/** Přímá jízda vpřed o `mm` ve směru, kterým robot právě míří. Zastaví se u překážky. */
+	function jed(stav, mm) {
+		const naSrazku = vzdalenostDoPrekazky(stav, stav.heading, PREKAZKA);
+		const planPx = mmToPx(mm);
+		const maxPx = naSrazku === null ? Infinity : naSrazku;
+		const najetoPx = Math.min(planPx, maxPx);
+		const naraz = najetoPx < planPx;
+		const rad = (stav.heading * Math.PI) / 180;
+		const noveX = stav.x + Math.cos(rad) * najetoPx;
+		const noveY = stav.y + Math.sin(rad) * najetoPx;
+		return {
+			stav: { x: noveX, y: noveY, heading: stav.heading },
+			naprogramovanoMm: mm,
+			ujelMm: pxToMm(najetoPx),
+			naraz,
+		};
+	}
+
+	/** Otočení na místě o `deg`. Poloha se nemění, jen natočení. */
+	function otoc(stav, deg) {
+		return { stav: { ...stav, heading: (stav.heading + deg) % 360 }, naprogramovanoDeg: deg };
+	}
+
+	/** Otestuje jeden blok programu ze stavu `stav`. Stejné funkce používá po-částech i najednou. */
+	function otestujKrok(nazev, stav, plan) {
+		if (nazev === 'jizda') {
+			const r = jed(stav, plan.jizda);
+			return { nazev, ...r, ok: !r.naraz };
+		}
+		if (nazev === 'zatacka') {
+			const r = otoc(stav, plan.zatacka);
+			return { nazev, ...r, ok: plan.zatacka === ZATACKA_OK };
+		}
+		const r = jed(stav, plan.parkovani);
+		return { nazev, ...r, ok: !r.naraz && jeVGarazi(r.stav) };
+	}
+
+	/** Spustí všechny tři bloky bez zastavení — přesně to udělá „napsat vše najednou". */
+	function celaSimulace(plan) {
+		let stav = { x: START.x, y: START.y, heading: 0 };
+		const jizda = otestujKrok('jizda', stav, plan);
+		stav = jizda.stav;
+		if (jizda.naraz) return { jizda, vysledek: 'naraz-prekazka', koncovyStav: stav };
+		const zatacka = otestujKrok('zatacka', stav, plan);
+		stav = zatacka.stav;
+		const parkovani = otestujKrok('parkovani', stav, plan);
+		stav = parkovani.stav;
+		const vysledek = parkovani.naraz ? 'naraz-prekazka' : parkovani.ok ? 'zaparkovano' : 'mimo-garaz';
+		return { jizda, zatacka, parkovani, vysledek, koncovyStav: stav };
+	}
+
+	const popisVysledku = (v) =>
+		v === 'zaparkovano'
+			? 'Robot zaparkoval přesně na zelené značce! 🎉'
+			: v === 'naraz-prekazka'
+				? 'Robot narazil do překážky.'
+				: 'Robot dojel na konec programu, ale minul garáž.';
+
+	/** Zpráva k jednomu otestovanému bloku — používá se v seznamu programu i ve stavovém řádku. */
+	function zpravaKroku(r) {
+		if (r.nazev === 'jizda') {
+			return r.naraz
+				? `✗ Naprogramováno ${cz(r.naprogramovanoMm)} mm, ale po ${cz(r.ujelMm)} mm narazil do překážky.`
+				: `✓ Ujel přesně ${cz(r.naprogramovanoMm)} mm a zastavil se těsně před překážkou.`;
+		}
+		if (r.nazev === 'zatacka') {
+			return r.ok
+				? `✓ Zatočil přesně o ${cz(r.naprogramovanoDeg)}° a míří ke garáži.`
+				: `✗ Zatočil jen o ${cz(r.naprogramovanoDeg)}° místo o ${ZATACKA_OK}° — nemíří tam, kam má.`;
+		}
+		if (r.naraz) return `✗ Po ${cz(r.ujelMm)} mm z naprogramovaných ${cz(r.naprogramovanoMm)} mm narazil do překážky.`;
+		if (!r.ok) {
+			const chybi = PARKOVANI_OK - r.naprogramovanoMm;
+			return chybi > 0
+				? `✗ Ujel jen ${cz(r.naprogramovanoMm)} mm — do garáže chybí ${cz(chybi)} mm.`
+				: `✗ Ujel ${cz(r.naprogramovanoMm)} mm a garáž přejel o ${cz(-chybi)} mm.`;
+		}
+		return `✓ Ujel ${cz(r.naprogramovanoMm)} mm a zaparkoval přesně na značce.`;
+	}
+
+	const PORADI = ['jizda', 'zatacka', 'parkovani'];
+	const nazvyBloku = { jizda: 'jízda', zatacka: 'zatáčka', parkovani: 'parkování' };
+
+	let chyba = 'zadna';
+	let styl = 'po-castech';
+	let plan = planHodnoty(chyba);
+	let stav = { x: START.x, y: START.y, heading: 0 };
+	let postup = { jizda: null, zatacka: null, parkovani: null }; // výsledky testů po částech
+	let posledniNajednou = null; // výsledek posledního běhu „najednou"
+
+	/** Který blok je na řadě k otestování v režimu po částech? Null = zamčeno/hotovo. */
+	function dalsiNeotestovanyKrok() {
+		for (const n of PORADI) {
+			if (!postup[n]) return n;
+			if (!postup[n].ok) return null; // předchozí blok má chybu, dál se nejde
+		}
+		return null;
+	}
+
+	function vykresliProgram() {
+		programEl.textContent = '';
+		const radky = [
+			{ text: 'when started', hlava: true },
+			{ text: `drive for ${plan.jizda} mm`, pozn: '// jeď těsně k překážce', blok: 'jizda' },
+			{ text: `turn right for ${plan.zatacka} degrees`, pozn: '// otoč se směrem ke garáži', blok: 'zatacka' },
+			{ text: `drive for ${plan.parkovani} mm`, pozn: '// zajeď na značku a zastav', blok: 'parkovani' },
+		];
+		for (const r of radky) {
+			const p = document.createElement('p');
+			let znacka = '';
+			// Marky (✓/✗) dávají smysl jen v režimu po částech — v „najednou" je celá pointa,
+			// že se u jednotlivých bloků nic takového neukáže.
+			if (r.blok && styl === 'po-castech' && postup[r.blok]) {
+				znacka = postup[r.blok].ok ? '✓ ' : '✗ ';
+			}
+			p.className = 'pr-blok' + (r.hlava ? ' pr-hlava' : '') + (znacka === '✓ ' ? ' pr-dobre' : znacka === '✗ ' ? ' pr-chyba-radek' : '');
+			p.textContent = znacka + r.text;
+			programEl.appendChild(p);
+			if (r.pozn) {
+				const q = document.createElement('p');
+				q.className = 'pr-pozn';
+				q.textContent = r.pozn;
+				programEl.appendChild(q);
+			}
+		}
+	}
+
+	function pridejTlacitko(text, handler, hlavni) {
+		const b = document.createElement('button');
+		b.type = 'button';
+		b.className = 'pr-tl' + (hlavni ? ' pr-hlavni' : '');
+		b.textContent = text;
+		b.addEventListener('click', handler);
+		akceEl.appendChild(b);
+	}
+
+	function vykresliAkce() {
+		akceEl.textContent = '';
+		if (styl === 'po-castech') {
+			const dalsi = dalsiNeotestovanyKrok();
+			if (dalsi) {
+				const cislo = PORADI.indexOf(dalsi) + 1;
+				pridejTlacitko(`▶︎ Otestuj ${nazvyBloku[dalsi]} (blok ${cislo})`, () => spustTest(dalsi), true);
+			}
+		} else {
+			pridejTlacitko('▶︎ Spustit celý program najednou', spustNajednou, true);
+		}
+	}
+
+	function prekresliScenu() {
+		robotEl.setAttribute('transform', `translate(${stav.x},${stav.y}) rotate(${stav.heading})`);
+		const naraz = (postup.jizda && postup.jizda.naraz) || (postup.parkovani && postup.parkovani.naraz)
+			|| (posledniNajednou && posledniNajednou.vysledek === 'naraz-prekazka');
+		robotEl.querySelector('#pr-robot-telo').setAttribute('fill', naraz ? '#ff8787' : '#ffd43b');
+
+		// cesta z jízdy: od startu k bodu, kde jízda skončila
+		const jizdaR = postup.jizda || (posledniNajednou && posledniNajednou.jizda);
+		if (jizdaR) {
+			cestaJizdaEl.setAttribute('x1', String(START.x));
+			cestaJizdaEl.setAttribute('y1', String(START.y));
+			cestaJizdaEl.setAttribute('x2', String(jizdaR.stav.x));
+			cestaJizdaEl.setAttribute('y2', String(jizdaR.stav.y));
+			cestaJizdaEl.setAttribute('opacity', '1');
+		} else {
+			cestaJizdaEl.setAttribute('opacity', '0');
+		}
+
+		// cesta z parkování: od bodu po zatáčce k výslednému bodu
+		const parkR = postup.parkovani || (posledniNajednou && posledniNajednou.parkovani);
+		const zatackaR = postup.zatacka || (posledniNajednou && posledniNajednou.zatacka);
+		if (parkR && zatackaR) {
+			cestaParkEl.setAttribute('x1', String(zatackaR.stav.x));
+			cestaParkEl.setAttribute('y1', String(zatackaR.stav.y));
+			cestaParkEl.setAttribute('x2', String(parkR.stav.x));
+			cestaParkEl.setAttribute('y2', String(parkR.stav.y));
+			cestaParkEl.setAttribute('stroke', parkR.ok ? '#2b8a3e' : parkR.naraz ? '#c92a2a' : '#e8590c');
+			cestaParkEl.setAttribute('opacity', '1');
+		} else {
+			cestaParkEl.setAttribute('opacity', '0');
+		}
+
+		if (naraz) {
+			xZnackaEl.setAttribute('x', String(stav.x));
+			xZnackaEl.setAttribute('y', String(stav.y - 14));
+			xZnackaEl.setAttribute('opacity', '1');
+		} else {
+			xZnackaEl.setAttribute('opacity', '0');
+		}
+
+		popisEl.textContent = naraz
+			? 'Robot narazil do překážky a stojí u ní.'
+			: jeVGarazi(stav)
+				? 'Robot stojí zaparkovaný na zelené značce v garáži.'
+				: 'Robot čeká na start programu vlevo nahoře.';
+	}
+
+	function popisStavu() {
+		if (styl === 'po-castech') {
+			if (!postup.jizda) return 'Klikni na „Otestuj jízdu" — vyzkoušej první blok programu samostatně, ještě než se řeší zbytek.';
+			if (!postup.jizda.ok) return zpravaKroku(postup.jizda) + ' Blok 1 (jízda) má chybu — dál se nejde, dokud tuhle neopravíš.';
+			if (!postup.zatacka) return zpravaKroku(postup.jizda) + ' Blok 1 je v pořádku, otestuj zatáčku.';
+			if (!postup.zatacka.ok) return zpravaKroku(postup.zatacka) + ' Blok 2 (zatáčka) má chybu — a poznal(a) jsi to hned, ještě dřív, než robot vůbec zkusil objet překážku.';
+			if (!postup.parkovani) return zpravaKroku(postup.zatacka) + ' Blok 2 je v pořádku, otestuj poslední blok — parkování.';
+			return zpravaKroku(postup.parkovani) + (postup.parkovani.ok
+				? ' Všechny tři bloky fungují — a přesně víš, že fungují, protože jsi je otestoval(a) jeden po druhém.'
+				: ' Blok 3 (parkování) má chybu.');
+		}
+		if (!posledniNajednou) return 'Klikni na „Spustit celý program najednou" — všechny tři bloky se spustí bez zastavení, uvidíš jen konečný výsledek.';
+		const v = posledniNajednou.vysledek;
+		if (v === 'zaparkovano') return popisVysledku(v) + ' Tentokrát to vyšlo — ale kdyby ne, z tohohle jediného běhu bys nepoznal(a), který blok za to může.';
+		return popisVysledku(v) + ' Vidíš jen tenhle jeden výsledek na konci — nevíš, jestli za to může jízda, zatáčka, nebo parkování. Přepni na „stavět a testovat po částech" se stejnou chybou a uvidíš to hned.';
+	}
+
+	function ukazStav() {
+		stavEl.innerHTML = popisStavu();
+	}
+
+	function spustTest(nazev) {
+		const r = otestujKrok(nazev, stav, plan);
+		postup[nazev] = r;
+		stav = r.stav;
+		vykresliProgram();
+		vykresliAkce();
+		prekresliScenu();
+		ukazStav();
+	}
+
+	function spustNajednou() {
+		posledniNajednou = celaSimulace(plan);
+		stav = posledniNajednou.koncovyStav;
+		vykresliProgram();
+		prekresliScenu();
+		ukazStav();
+	}
+
+	function resetVse() {
+		stav = { x: START.x, y: START.y, heading: 0 };
+		postup = { jizda: null, zatacka: null, parkovani: null };
+		posledniNajednou = null;
+		vykresliProgram();
+		vykresliAkce();
+		prekresliScenu();
+		ukazStav();
+	}
+
+	for (const b of document.querySelectorAll('.pr-chyba')) {
+		b.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.pr-chyba')) {
+				j.classList.remove('pr-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			b.classList.add('pr-aktivni');
+			b.setAttribute('aria-pressed', 'true');
+			chyba = b.dataset.chyba;
+			plan = planHodnoty(chyba);
+			resetVse();
+		});
+	}
+
+	for (const b of document.querySelectorAll('.pr-styl')) {
+		b.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.pr-styl')) {
+				j.classList.remove('pr-aktivni');
+				j.setAttribute('aria-pressed', 'false');
+			}
+			b.classList.add('pr-aktivni');
+			b.setAttribute('aria-pressed', 'true');
+			styl = b.dataset.styl;
+			resetVse();
+		});
+	}
+
+	btnReset.addEventListener('click', resetVse);
+
+	resetVse();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který řídí robota) ———
+	scenaEl.__jed = jed;
+	scenaEl.__otoc = otoc;
+	scenaEl.__otestujKrok = otestujKrok;
+	scenaEl.__celaSimulace = celaSimulace;
+	scenaEl.__vzdalenostDoPrekazky = vzdalenostDoPrekazky;
+	scenaEl.__jeVGarazi = jeVGarazi;
+	scenaEl.__planHodnoty = planHodnoty;
+	scenaEl.__meze = { SCALE, START, PREKAZKA, GARAZ, JIZDA_OK, ZATACKA_OK, PARKOVANI_OK };
+	scenaEl.__stav = () => ({ chyba, styl, plan, stav, postup, posledniNajednou });
+</script>
+
+<style>
+	.pr-obal { overflow-x: auto; }
+	#pr-scena { width: 100%; max-width: 420px; height: auto; display: block; margin: 0.5rem 0; }
+	.pr-label { font-size: 13px; font-weight: 700; fill: #495057; }
+	.pr-label-mala { font-size: 12px; fill: #495057; }
+	.pr-radek { margin: 0.5rem 0; }
+	.pr-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.pr-tl.pr-aktivni { background: #ffe8cc; box-shadow: inset 0 0 0 2px #2b2a26; }
+	.pr-tl.pr-hlavni { background: #d3f9d8; }
+	.pr-program { margin: 0.5rem 0; }
+	.pr-program p.pr-blok { margin: 0.12rem 0; font-weight: 700; font-family: monospace, monospace; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.5rem; display: block; width: fit-content; }
+	.pr-program p.pr-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.pr-program p.pr-dobre { background: #b2f2bb; }
+	.pr-program p.pr-chyba-radek { background: #ffc9c9; outline: 2px dashed #c92a2a; }
+	.pr-program p.pr-pozn { margin: 0 0 0.3rem 0.6rem; font-weight: 400; font-size: 0.85rem; color: #495057; font-style: italic; }
+	.pr-stav { background: #f1f3f5; border-left: 6px solid #1971c2; padding: 0.5rem 0.8rem; margin-top: 0.6rem; font-weight: 700; min-height: 3rem; }
+</style>

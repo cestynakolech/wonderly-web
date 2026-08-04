@@ -1,0 +1,357 @@
+---
+// Hra Ping-pong (informatika 8. ročník, hry-ve-scratchi/hra-ping-pong).
+//
+// Tři pointy z výkladu, VŠECHNY VIDĚT, ne jen napsané:
+//  1. HERNÍ SMYČKA — celá scéna běží v jednom „opakuj stále“: míček se pořád dokola
+//     pohne a rozhlédne se. Bez toho opakování by se nic nedělo po jednom kroku.
+//  2. ODRAZ OD OKRAJE JE AUTOMATICKÝ — blok „když narazíš na okraj, odraz se“ funguje
+//     u všech stěn i STROPU sám od sebe, bez jediného řádku navíc od programátora.
+//  3. NEJDŮLEŽITĚJŠÍ: odraz od PÁLKY automatický NENÍ. Potřebuje podmínku
+//     „když ⟨dotýkáš se (Pálka)?⟩ tak“, kterou musí napsat programátor sám. Přepínač
+//     „podmínka je v programu / chybí“ to dokazuje: i když je pálka přesně pod míčkem,
+//     bez podmínky ho nic nezastaví a míček propadne do červeného pruhu — ztráta života.
+//     Přesně to varuje i výklad podtématu.
+//
+// Souřadnice jsou celočíselné ve scratchovské soustavě (x −240…240, y −180…180),
+// kreslí se 1:1 do viewBoxu 480×360 (px = 240+x, py = 180−y — žádné další měřítko).
+// Rychlosti jsou schválně trojice 60-80-100 / 90-120-150 / 120-160-200 (násobky
+// Pythagorovy trojice 3-4-5), takže při kroku 0,1 s vychází posun v celých jednotkách
+// (6-8 / 9-12 / 12-16 px na krok) — žádná desetinná čísla v pohybu.
+// Časování: setInterval po 100 ms = 10 kroků/s (TICK_S = 0,1 s), žádný
+// requestAnimationFrame → žádné zpomalení v náhledu. Pauza po ztrátě života je přesně
+// 10 kroků = 1 sekunda, jak píše scénář ve výkladu („čekej 1 sekund“).
+// Stav je čistá funkce předchozího stavu, voleb a polohy pálky — testovatelné bez prohlížeče.
+//
+// Názvy bloků podle české palety Scratche 3 (scratch-l10n/editor/blocks/cs.json), ověřeno
+// i proti sesterským simulacím (KlonovaniSimulace.astro, UdalostiSimulace.astro):
+// „po kliknutí na 🏁“, „opakuj stále“, „dopředu o … kroků“,
+// „když narazíš na okraj, odraz se“, „když … tak“ (CONTROL_IF), „dotýkáš se (…)?“,
+// „dotýkáš se barvy (…)?“, „změň … o …“, „nastav … na …“, „skoč na x: … y: …“,
+// „čekej … sekund“, „zastav (všechno)“.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kdo zastaví míček? 🏓</span></h2>
+	<p>
+		Míček létá po scéně v jedné velké smyčce <strong>opakuj stále</strong>. Od stěn i stropu
+		se odráží <strong>sám</strong> — to umí Scratch bez pomoci. Od <strong>pálky</strong> ale
+		jen tehdy, když v programu opravdu je podmínka <code>dotýkáš se (Pálka)?</code>.
+		Vypni ji tlačítkem a sleduj, co se stane, i když pálku trefíš přesně.
+	</p>
+
+	<svg id="pin-svg" viewBox="0 0 480 360" tabindex="0" role="img"
+		aria-label="Scéna hry ping-pong: míček létá mezi okraji, dole je pálka a pod ní červený pruh. Pálka se ovládá myší nebo šipkami vlevo/vpravo.">
+		<rect x="1" y="1" width="478" height="358" fill="#eaf4ff" stroke="#2b2a26" stroke-width="3" rx="8" />
+		<rect id="pin-cervena" x="1" y="350" width="478" height="9" fill="#e03131" stroke="#2b2a26" stroke-width="1" />
+		<text x="240" y="345" text-anchor="middle" font-size="10" font-weight="bold" fill="#c92a2a">červený pruh (propadliště)</text>
+		<rect id="pin-palka" x="190" y="320" width="100" height="20" fill="#2b8a3e" stroke="#2b2a26" stroke-width="3" rx="4" />
+		<circle id="pin-micek" cx="240" cy="180" r="10" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
+		<text id="pin-hlaska" x="240" y="40" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a"></text>
+		<text x="240" y="352" text-anchor="middle" font-size="10" font-weight="bold" fill="#495057" opacity="0"></text>
+	</svg>
+
+	<p class="pin-stats" id="pin-stats" aria-live="polite"></p>
+
+	<p class="pin-radek">
+		<strong>Podmínka „dotýkáš se (Pálka)?“ v programu:</strong>
+		<button type="button" class="pin-tl pin-podminka pin-aktivni" data-podminka="ano">ANO — je tam</button>
+		<button type="button" class="pin-tl pin-podminka" data-podminka="ne">NE — chybí</button>
+	</p>
+	<p class="pin-radek">
+		<strong>Rychlost míčku:</strong>
+		<button type="button" class="pin-tl pin-rychlost pin-aktivni" data-rychlost="pomalu">pomalu (100/s)</button>
+		<button type="button" class="pin-tl pin-rychlost" data-rychlost="stredni">normálně (150/s)</button>
+		<button type="button" class="pin-tl pin-rychlost" data-rychlost="rychle">rychle (200/s)</button>
+	</p>
+	<p class="pin-radek">
+		<strong>Pálka:</strong> jezdí za myší nad scénou, nebo
+		<button type="button" class="pin-tl" id="pin-vlevo">⬅ pálka</button>
+		<button type="button" class="pin-tl" id="pin-vpravo">➡ pálka</button>
+	</p>
+	<p class="pin-radek">
+		<button type="button" class="pin-tl pin-hraj" id="pin-krok">▶️ jeden krok</button>
+		<button type="button" class="pin-tl pin-hraj" id="pin-bezet">⏩ spustit</button>
+		<button type="button" class="pin-tl" id="pin-reset">↺ na začátek</button>
+	</p>
+
+	<div id="pin-program" class="pin-program"></div>
+	<p class="pin-vysvetleni" id="pin-vysvetleni" aria-live="polite">
+		Klikni na <strong>⏩ spustit</strong>, hýbej pálkou a sleduj, jestli míček zůstane nahoře.
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('pin-svg');
+	const micekEl = document.getElementById('pin-micek');
+	const palkaEl = document.getElementById('pin-palka');
+	const cervenaEl = document.getElementById('pin-cervena');
+	const hlaskaEl = document.getElementById('pin-hlaska');
+	const statsEl = document.getElementById('pin-stats');
+	const programEl = document.getElementById('pin-program');
+	const vysvetleniEl = document.getElementById('pin-vysvetleni');
+	const btnKrok = document.getElementById('pin-krok');
+	const btnBezet = document.getElementById('pin-bezet');
+	const btnReset = document.getElementById('pin-reset');
+	const btnVlevo = document.getElementById('pin-vlevo');
+	const btnVpravo = document.getElementById('pin-vpravo');
+
+	const R = 10;                 // poloměr míčku
+	const STENA = 240;             // levý/pravý okraj scény (x −240…240)
+	const STROP = 180;             // horní okraj scény
+	const PALKA_Y = -150;          // střed pálky
+	const PALKA_POLOVYSKA = 10;    // pálka je 20 jednotek vysoká
+	const PALKA_POLOSIRKA = 50;    // pálka je 100 jednotek široká
+	const PALKA_TOP = PALKA_Y + PALKA_POLOVYSKA; // horní hrana pálky (−140)
+	const CERVENY_TOP = -170;      // horní hrana červeného pruhu
+	const TICK_MS = 100;
+	const TICK_S = TICK_MS / 1000; // 0,1 s
+	const ZIVOTY_START = 3;
+	const PAUZA_TICKS = 10;        // 10 × 0,1 s = 1 s, jako „čekej 1 sekund“ ve výkladu
+	const PALKA_MEZ = STENA - PALKA_POLOSIRKA; // −190…190, ať pálka nevyjede ze scény
+
+	// Trojice rychlostí odvozené z Pythagorovy trojice 3-4-5 → krok 0,1 s dá vždy celé px.
+	const RYCHLOSTI = {
+		pomalu: { vx: 60, vy: 80 },   // velikost 100/s → krok 6 / 8
+		stredni: { vx: 90, vy: 120 }, // velikost 150/s → krok 9 / 12
+		rychle: { vx: 120, vy: 160 }, // velikost 200/s → krok 12 / 16
+	};
+
+	function pxX(x) { return 240 + x; }
+	function pxY(y) { return 180 - y; }
+
+	function pocatecniStav(rychlostKlic) {
+		const s = RYCHLOSTI[rychlostKlic];
+		return { bx: 0, by: 0, vx: s.vx, vy: -s.vy, skore: 0, zivoty: ZIVOTY_START, pauza: 0, konec: false, tick: 0, posledniUdalost: null };
+	}
+
+	/**
+	 * JEDEN KROK simulace (100 ms). Čistá funkce stavu, voleb (podmínka ANO/NE)
+	 * a polohy pálky — testovatelná bez prohlížeče.
+	 */
+	function jedenKrok(stav, volby) {
+		if (stav.konec) return stav;
+		if (stav.pauza > 0) return { ...stav, pauza: stav.pauza - 1, posledniUdalost: null, tick: stav.tick + 1 };
+
+		let { bx, by, vx, vy, skore, zivoty } = stav;
+		const predBy = by;
+		bx += vx * TICK_S; // „dopředu o … kroků“ (osa x)
+		by += vy * TICK_S; // „dopředu o … kroků“ (osa y)
+		let posledniUdalost = null;
+
+		// „když narazíš na okraj, odraz se“ — funguje sám, u VŠECH stěn i stropu.
+		if (bx - R <= -STENA) { bx = -STENA + R; vx = Math.abs(vx); posledniUdalost = 'okraj'; }
+		else if (bx + R >= STENA) { bx = STENA - R; vx = -Math.abs(vx); posledniUdalost = 'okraj'; }
+		if (by + R >= STROP) { by = STROP - R; vy = -Math.abs(vy); posledniUdalost = 'okraj'; }
+
+		// Pálka NENÍ okraj scény — tohle musí ohlídat podmínka „dotýkáš se (Pálka)?“.
+		let zasahPalky = false;
+		if (vy < 0 && predBy - R > PALKA_TOP && by - R <= PALKA_TOP) {
+			const zarovnano = Math.abs(bx - volby.palkaX) <= PALKA_POLOSIRKA + R;
+			if (zarovnano && volby.podminka === 'ano') {
+				by = PALKA_TOP + R;
+				vy = Math.abs(vy);
+				skore += 1;
+				posledniUdalost = 'palka';
+				zasahPalky = true;
+			}
+		}
+
+		// „dotýkáš se barvy (červená)?“ — dno scény, sem odraz od okraje NEDOSÁHNE (chytí to dřív pálka).
+		if (!zasahPalky && by - R <= CERVENY_TOP) {
+			const byloBySeTrefilo = Math.abs(bx - volby.palkaX) <= PALKA_POLOSIRKA + R;
+			posledniUdalost = byloBySeTrefilo && volby.podminka === 'ne' ? 'propadlo-bez-podminky' : 'minulo-palku';
+			zivoty -= 1;
+			if (zivoty <= 0) {
+				return { ...stav, bx, by, vx, vy, skore, zivoty: 0, konec: true, posledniUdalost, tick: stav.tick + 1 };
+			}
+			return { ...stav, bx: 0, by: 0, vx: Math.abs(vx), vy: -Math.abs(vy), skore, zivoty, pauza: PAUZA_TICKS, konec: false, posledniUdalost, tick: stav.tick + 1 };
+		}
+
+		return { ...stav, bx, by, vx, vy, skore, zivoty, posledniUdalost, tick: stav.tick + 1 };
+	}
+
+	function omezPalku(x) {
+		return Math.min(PALKA_MEZ, Math.max(-PALKA_MEZ, Math.round(x)));
+	}
+
+	let volby = { podminka: 'ano', rychlost: 'pomalu', palkaX: 0 };
+	let stav = pocatecniStav(volby.rychlost);
+	let zobrazenaUdalost = null; // poslední hláška zůstává vidět, dokud ji nepřebije další událost
+	let casovac = null;
+
+	function programRadky() {
+		const palkaRadek1 = { text: 'když ⟨dotýkáš se (Pálka)?⟩ tak', uroven: 2, vypnuto: volby.podminka === 'ne' };
+		const palkaRadek2 = { text: 'otoč se ↻ o (180) stupňů, dopředu o 15 kroků, změň skóre o 1', uroven: 3, vypnuto: volby.podminka === 'ne' };
+		return [
+			{ text: 'po kliknutí na 🏁', uroven: 0, hlava: true },
+			{ text: 'nastav skóre na 0', uroven: 1 },
+			{ text: 'nastav životy na 3', uroven: 1 },
+			{ text: 'skoč na x: 0 y: 0', uroven: 1 },
+			{ text: 'opakuj stále', uroven: 1 },
+			{ text: 'dopředu o 10 kroků', uroven: 2 },
+			{ text: 'když narazíš na okraj, odraz se', uroven: 2 },
+			palkaRadek1,
+			palkaRadek2,
+			{ text: 'když ⟨dotýkáš se barvy (červená)?⟩ tak', uroven: 2 },
+			{ text: 'změň životy o −1, skoč na x: 0 y: 0, čekej 1 sekund', uroven: 3 },
+			{ text: 'když ⟨životy = 0⟩ tak', uroven: 2 },
+			{ text: 'zastav (všechno)', uroven: 3 },
+		];
+	}
+
+	function vypisProgram() {
+		programEl.textContent = '';
+		for (const r of programRadky()) {
+			const p = document.createElement('p');
+			p.className = 'pin-blok' + (r.hlava ? ' pin-hlava' : '') + (r.vypnuto ? ' pin-vypnuto' : '');
+			p.textContent = r.vypnuto ? `${r.text}  ← chybí!` : r.text;
+			p.style.marginLeft = `${r.uroven * 1.1}rem`;
+			programEl.appendChild(p);
+		}
+	}
+
+	function prekresli() {
+		micekEl.setAttribute('cx', String(pxX(stav.bx)));
+		micekEl.setAttribute('cy', String(pxY(stav.by)));
+
+		palkaEl.setAttribute('x', String(pxX(volby.palkaX - PALKA_POLOSIRKA)));
+		palkaEl.setAttribute('y', String(pxY(PALKA_TOP)));
+
+		const propadlo = zobrazenaUdalost === 'propadlo-bez-podminky';
+		cervenaEl.setAttribute('fill', propadlo ? '#ff8787' : '#e03131');
+
+		hlaskaEl.textContent = stav.konec ? `💀 KONEC HRY — skóre ${stav.skore}` : '';
+
+		const zivotySrdce = '❤️'.repeat(stav.zivoty) + '🖤'.repeat(ZIVOTY_START - stav.zivoty);
+		statsEl.innerHTML = `skóre: <strong>${stav.skore}</strong> &nbsp;·&nbsp; životy: ${zivotySrdce}`;
+
+		vypisProgram();
+	}
+
+	function popisStavu() {
+		switch (zobrazenaUdalost) {
+			case 'okraj':
+				return 'Míček narazil na okraj (nebo strop) a <strong>sám se odrazil</strong> — blok <code>když narazíš na okraj, odraz se</code> to zvládne bez jediného řádku navíc.';
+			case 'palka':
+				return `Zásah! Podmínka <code>dotýkáš se (Pálka)?</code> byla splněná, program míček odrazil nahoru — <strong>skóre ${stav.skore}</strong>.`;
+			case 'propadlo-bez-podminky':
+				return '⚠️ Míček byl <strong>přesně u pálky</strong>, ale podmínka <code>dotýkáš se (Pálka)?</code> v programu chybí — nic ho nezastavilo a propadl do červeného pruhu. <strong>Ztráta života!</strong> Pálka totiž není okraj scény, tohle si musí ohlídat programátor sám.';
+			case 'minulo-palku':
+				return 'Míček minul pálku a dopadl do červeného pruhu. <strong>Ztráta života!</strong>';
+			default:
+				return 'Sleduj míček: od stěn a stropu se odrazí <strong>sám</strong>, ale u pálky rozhoduje podmínka <code>dotýkáš se (Pálka)?</code>.';
+		}
+	}
+
+	function ukazStav() {
+		if (stav.konec) {
+			vysvetleniEl.innerHTML = `💀 <strong>Konec hry!</strong> Došly životy. Konečné skóre: <strong>${stav.skore}</strong>. Zkus ↺ na začátek.`;
+			return;
+		}
+		if (stav.pauza > 0) {
+			vysvetleniEl.innerHTML = 'Ztratil jsi život — míček čeká na startu (<code>čekej 1 sekund</code>) a hned zase letí.';
+			return;
+		}
+		vysvetleniEl.innerHTML = popisStavu();
+	}
+
+	function zastav() {
+		if (casovac) clearInterval(casovac);
+		casovac = null;
+		btnBezet.textContent = '⏩ spustit';
+		btnBezet.classList.remove('pin-aktivni');
+	}
+
+	function krokVpred() {
+		stav = jedenKrok(stav, volby);
+		if (stav.posledniUdalost !== null) zobrazenaUdalost = stav.posledniUdalost;
+		prekresli();
+		ukazStav();
+		if (stav.konec) zastav();
+	}
+
+	function reset() {
+		zastav();
+		stav = pocatecniStav(volby.rychlost);
+		zobrazenaUdalost = null;
+		prekresli();
+		ukazStav();
+	}
+
+	btnKrok.addEventListener('click', () => { zastav(); krokVpred(); });
+	btnBezet.addEventListener('click', () => {
+		if (casovac) { zastav(); return; }
+		btnBezet.textContent = '⏸ zastavit';
+		btnBezet.classList.add('pin-aktivni');
+		casovac = setInterval(krokVpred, TICK_MS);
+	});
+	btnReset.addEventListener('click', reset);
+
+	function posunPalky(o) {
+		volby = { ...volby, palkaX: omezPalku(volby.palkaX + o) };
+		prekresli();
+	}
+	btnVlevo.addEventListener('click', () => posunPalky(-20));
+	btnVpravo.addEventListener('click', () => posunPalky(20));
+
+	// Pálka jezdí za myší — přesně jako blok „nastav x na (x myši)“ ve výkladu.
+	svg.addEventListener('pointermove', (e) => {
+		const r = svg.getBoundingClientRect();
+		if (!r.width) return;
+		const scenePx = ((e.clientX - r.left) / r.width) * 480;
+		volby = { ...volby, palkaX: omezPalku(scenePx - 240) };
+		prekresli();
+	});
+
+	svg.addEventListener('keydown', (e) => {
+		if (e.key === 'ArrowLeft') { e.preventDefault(); posunPalky(-20); }
+		else if (e.key === 'ArrowRight') { e.preventDefault(); posunPalky(20); }
+	});
+
+	for (const tl of document.querySelectorAll('.pin-podminka')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.pin-podminka')) j.classList.remove('pin-aktivni');
+			tl.classList.add('pin-aktivni');
+			volby = { ...volby, podminka: tl.dataset.podminka };
+			zobrazenaUdalost = null;
+			prekresli();
+			ukazStav();
+		});
+	}
+	for (const tl of document.querySelectorAll('.pin-rychlost')) {
+		tl.addEventListener('click', () => {
+			for (const j of document.querySelectorAll('.pin-rychlost')) j.classList.remove('pin-aktivni');
+			tl.classList.add('pin-aktivni');
+			volby = { ...volby, rychlost: tl.dataset.rychlost };
+			reset();
+		});
+	}
+
+	prekresli();
+	ukazStav();
+
+	// ——— háčky pro test bez prohlížeče (ukazují na TÝŽ kód, který kreslí scénu) ———
+	svg.__jedenKrok = jedenKrok;
+	svg.__pocatecniStav = pocatecniStav;
+	svg.__omezPalku = omezPalku;
+	svg.__stav = () => stav;
+	svg.__volby = () => volby;
+	svg.__meze = { R, STENA, STROP, PALKA_Y, PALKA_POLOVYSKA, PALKA_POLOSIRKA, PALKA_TOP, CERVENY_TOP, TICK_MS, ZIVOTY_START, PAUZA_TICKS, RYCHLOSTI };
+	svg.__programRadky = programRadky;
+</script>
+
+<style>
+	#pin-svg { width: 100%; max-width: 480px; border-radius: 12px; display: block; touch-action: none; cursor: crosshair; }
+	#pin-svg:focus { outline: 3px dashed #1971c2; outline-offset: 3px; }
+	.pin-radek { margin: 0.6rem 0; }
+	.pin-tl { font: inherit; font-weight: 700; padding: 0.25rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.pin-tl.pin-aktivni { background: #ffe8cc; }
+	.pin-tl.pin-hraj { background: #d3f9d8; }
+	.pin-tl:active { transform: translateY(1px); }
+	.pin-stats { font-weight: 700; margin: 0.5rem 0; }
+	.pin-program { margin: 0.4rem 0; }
+	.pin-program p { margin: 0.12rem 0; font-weight: 700; background: #a5d8ff; border-radius: 4px; padding: 0.1rem 0.45rem; display: block; width: fit-content; }
+	.pin-program p.pin-hlava { background: #ffd43b; border-radius: 8px 8px 4px 4px; }
+	.pin-program p.pin-vypnuto { background: #ffc9c9; outline: 2px dashed #c92a2a; text-decoration: line-through; opacity: 0.8; }
+	.pin-vysvetleni { font-size: 1.05rem; font-weight: 700; min-height: 3.6rem; }
+</style>
