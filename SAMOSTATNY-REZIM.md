@@ -6,23 +6,34 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🔴 NEDOKONČENO Z KOLA D5 — začni tímhle (nová session po /clear)
+### ✅ KONTROLA D5 UZAVŘENA — kolo D7 (4. 8. ~23:45)
 
-> ⏳ **4. 8. ~23:05 — NOVÝ kontrolor SPUŠTĚN** (čerstvý kontext, plné zadání
-> níže vč. třetího pohledu na SestaveniRobota a PingPong). Běží na pozadí;
-> po doběhnutí zapsat nálezy sem a opravy zadat novým workerům téhož typu.
+Nový kontrolor (čerstvý kontext): **9 nálezů, 5 závažných**, každý doložen spuštěním
+kódu. Vše opraveno a nasazeno (`dc7c322`, brána 0 chyb, build 465, curl potvrdil):
+**skákačka** — izolovaná ukázka pádu (kaktus při ní neběží) + trvalé zaboření místo
+tichého propadání (worker, 2 kola; údajná „regrese hratelnosti" VYVRÁCENA kotvou —
+starý commit `8c72b6b` se choval identicky, FAILy harnessu byly artefakt pořadí testů
+a záměny událostí kaktus/propadl); **řazení** — nová data bodů, všech 6 kombinací
+filtrů dává celé průměry (13/15/14/17/16/18); **střílečka** — kvíz sjednocen
+s výkladem (⟨3 − skóre/10⟩ s); **honička** — výklad opraven („po půl minutě
+dvojnásobný (6), po minutě trojnásobný (9)") + čárka přes `cz()`; **sestavení
+robota** — texty srovnány se skutečným chováním (skutečný oblouk by vytlačil robota
+z arény, rozpojení zůstává); **13 délkových nápověd → 0**, rohatka utažena
+(756 otázek / 36 %). Verdikty: mechanika všech 4 simulací SPRÁVNÁ; ping-pong
+pojistka 7 380 kombinací / 0 průniků; aréna 13/13 kombinací v mezích.
+**Druhou kontrolu oprav přibalit k příští dávce (vzor D4).**
 
-**Kontrola 4 nových simulací D5 NEDOBĚHLA** — kontrolor umřel na session limitu
-(4. 8. ~20:40, reset 22:30) poté, co stihl jen: „Řazení funguje. Teď kvízy…".
-Simulace jsou NASAZENÉ (`8c72b6b`), ale neověřené. Spusť NOVÉHO kontrolora
-(čerstvý kontext) se zadáním: `HonickaSimulace` + `StrileckaSimulace` +
-`SkakackaSimulace` (Scratch — názvy bloků proti scratch-l10n cs.json!) +
-`RazeniFiltrovaniSimulace` (česká terminologie Excelu, průměry celé, „chybný"
-režim ukazuje rozbité řádky) · rozpor simulace × výklad × kvíz na téže stránce
-(3× po sobě nejčastější závažný nález) · třetí pohled na arénu SestaveniRobota
-(posun rozpojený od natočení — dává pivot smysl?) a ořez odrazu PingPong ·
-celá čísla ve vypsaném. Každý verdikt spuštěním kódu. Nálezy původním workerům
-nejde-li (nová session!) → novým workerům téhož typu se zadáním doslova.
+### 🤖 HERMES ZAPOJEN (rozhodnutí učitele 4. 8. večer — tokeny docházely)
+
+Pokyn učitele: orchestrátor přednostně řeší **chyby a nastavení** (slabší model pak
+pracuje s dobře seřízeným strojem); mechanickou práci přebírá **Hermes** — lokální
+agent `~/.hermes/hermes-agent`, model gemma4:31b přes Ollamu, tedy zdarma.
+Fronta úkolů: `~/Desktop/Omega/HERMES-UKOLY.md` (popisy prezentací 7/8/9, mutační
+měření 6 nejslepějších testů, soupis chybějícího `cz()`, tabulky PRAVIDLA.md,
+zdraví automatů) → výsledky do `Omega/HERMES-VYSLEDKY.md`. Hermes nikdy nepushuje,
+nemaže, nenahrává ven. Spuštění (i pro učitele):
+`~/.hermes/hermes-agent/venv/bin/hermes -z "Přečti /Users/radek_soukromy/Desktop/Omega/HERMES-UKOLY.md a plň úkoly po řadě podle pravidel v něm."`
+Paměť: [[feedback-hermes-zalozni-pracant]].
 
 ### 📋 ZADÁNÍ UČITELE 4. 8. (přednost před frontou)
 
