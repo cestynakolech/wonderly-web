@@ -8,10 +8,14 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > spíš technická příručka (jak co přidat, kde co leží); jeho jednotlivé sekce mohou být
 > staršího data.
 >
-> Poslední stav: **2. 8. 2026** — hluché stránky 36 → **0** (díra z auditu uzavřena),
-> dojetý celý audit kontrol (brána čte data, měří se i mapa „všechna místa", slovník
-> druhů materiálu, nový mutační test simulací). Ve frontě zbývá hlavně **názornost
-> informatiky** (47 podtémat bez obrázku či videa).
+> Poslední stav: **3. 8. 2026** — kolo D1: **4 nové simulace informatiky naráz**
+> (klonování ve Scratchi, vstupy micro:bitu, rádio micro:bitu, první program ve VEXcode);
+> názornost informatiky **30 → 26** podtémat bez názornosti. Měřidlo `testy/nazvy-bloku.mjs`
+> rozšířeno o vzory `pokud ⟨⟩ tak` a „náhodnou hodnotu" i s obousměrným důkazem.
+> **Nedoběhla druhá kontrola oprav** (došel týdenní limit) — zadání je připravené
+> v `SAMOSTATNY-REZIM.md`, sekce „🔴 NEDOKONČENO Z KOLA D1". Předchozí stav (2. 8.):
+> hluché stránky 36 → **0**, dojetý celý audit kontrol (brána čte data, měří se i mapa
+> „všechna místa", slovník druhů materiálu, mutační test simulací).
 
 ## ⏩ Jak navázat v nové session
 1. Přečti `CLAUDE.md`, pak **`SAMOSTATNY-REZIM.md` (horní sekce)** a podle potřeby tenhle soubor.

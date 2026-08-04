@@ -4,7 +4,7 @@
 // Jediná Češka na startu 2026: Nikola Nosková (startovní číslo 147, Cofidis).
 // Klíč 'NOSKOV' je bez koncovky schválně — tabulky ji píšou jako „N. NOSKOVÁ".
 const JEZDKYNE = [
-	{ klic: 'NOSKOV', jmeno: 'Nikola Nosková', tym: 'Cofidis Women', emoji: '🚴‍♀️' },
+	{ klic: 'NOSKOV', jmeno: 'Nikola Nosková', tym: 'Cofidis Women', emoji: '🚴‍♀️', cislo: 147 },
 ];
 ---
 
@@ -31,7 +31,8 @@ const JEZDKYNE = [
 			<div id="karty">
 				{JEZDKYNE.map((j) => (
 					<article class="karta" id={`karta-${j.klic}`}>
-						<header><span class="emoji">{j.emoji}</span> <b>{j.jmeno}</b> <span class="tym">{j.tym}</span></header>
+						<header><span class="emoji">{j.emoji}</span> <b>{j.jmeno}</b> <span class="tym">{j.tym}</span>
+							<span class="cislo-odznak">č. {j.cislo}</span></header>
 						<div class="udaje">
 							<div class="udaj"><span class="popisek">CELKOVĚ</span><span class="hodnota" data-pole="gc-pozice">–</span><span class="detail" data-pole="gc-ztrata"></span></div>
 							<div class="udaj"><span class="popisek" data-pole="etapa-popisek">POSLEDNÍ ETAPA</span><span class="hodnota" data-pole="et-pozice">–</span><span class="detail" data-pole="et-ztrata"></span></div>
@@ -39,6 +40,52 @@ const JEZDKYNE = [
 					</article>
 				))}
 			</div>
+			<section class="poznavacka">
+				<h2>👀 Jak ji poznáte v televizi</h2>
+				<div class="poznavacka-radek">
+					<figure>
+						<svg viewBox="0 0 100 100" role="img" aria-label="Dres Cofidis: žluté rukávy, tmavě červená ramena, světle červený trup s bílým pruhem">
+							<!-- rukávy -->
+							<path d="M34 20 L8 38 L17 56 L36 46 Z" fill="#ffd400" stroke="#222" stroke-width="2.5" stroke-linejoin="round" />
+							<path d="M66 20 L92 38 L83 56 L64 46 Z" fill="#ffd400" stroke="#222" stroke-width="2.5" stroke-linejoin="round" />
+							<!-- trup -->
+							<path d="M27 24 L38 18 L50 24 L62 18 L73 24 L73 88 L27 88 Z" fill="#e63329" stroke="#222" stroke-width="2.5" stroke-linejoin="round" />
+							<!-- bílý pruh a svislý nápis -->
+							<rect x="44" y="30" width="12" height="58" fill="#fff" />
+							<text x="50" y="62" class="dres-napis" text-anchor="middle" transform="rotate(-90 50 62)">COFIDIS</text>
+							<!-- tmavě červená ramena -->
+							<path d="M27 24 L38 18 L50 24 L62 18 L73 24 L73 34 L27 34 Z" fill="#9e1b1b" stroke="#222" stroke-width="2.5" stroke-linejoin="round" />
+							<!-- límec -->
+							<path d="M38 18 L50 24 L62 18" fill="none" stroke="#222" stroke-width="2.5" stroke-linejoin="round" />
+						</svg>
+						<figcaption><b>Dres</b> — žluté rukávy, tmavě červená ramena, červeno-bílý trup</figcaption>
+					</figure>
+					<figure>
+						<svg viewBox="0 0 100 100" role="img" aria-label="Bílá matná přilba Uvex">
+							<!-- skořepina: vpředu nižší, vzadu protažená do aero špičky -->
+							<path d="M16 60 C16 30 36 20 54 20 C76 20 90 34 92 52 C93 60 88 64 80 65 L30 66 C22 66 16 64 16 60 Z"
+								fill="#f7f7f7" stroke="#222" stroke-width="2.5" stroke-linejoin="round" />
+							<!-- větrací otvory -->
+							<path d="M32 32 L40 27 L38 48 L30 50 Z" fill="#c9c9c9" stroke="#222" stroke-width="1.6" stroke-linejoin="round" />
+							<path d="M50 25 L60 26 L58 47 L48 47 Z" fill="#c9c9c9" stroke="#222" stroke-width="1.6" stroke-linejoin="round" />
+							<path d="M70 30 L79 37 L77 50 L68 47 Z" fill="#c9c9c9" stroke="#222" stroke-width="1.6" stroke-linejoin="round" />
+							<!-- červený proužek týmu podél spodní hrany -->
+							<path d="M17 59 C34 54 66 54 91 57" fill="none" stroke="#e63329" stroke-width="3.5" stroke-linecap="round" />
+							<!-- řemínek -->
+							<path d="M27 65 L35 82 M73 64 L65 82 M35 82 L65 82" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round" />
+						</svg>
+						<figcaption><b>Přilba</b> — bílá matná Uvex s červeným proužkem</figcaption>
+					</figure>
+					<figure>
+						<svg viewBox="0 0 100 100" role="img" aria-label="Startovní číslo 147">
+							<rect x="12" y="22" width="76" height="58" rx="4" fill="#fff" stroke="#222" stroke-width="3" />
+							<text x="50" y="66" class="cislo-svg" text-anchor="middle">147</text>
+						</svg>
+						<figcaption><b>Startovní číslo 147</b> — na zádech a na boku kalhot</figcaption>
+					</figure>
+				</div>
+				<p class="poznavacka-pozn">Kresba podle oficiálního popisu dresu (Etxe Ondo) a přileb Uvex pro sezonu 2026.</p>
+			</section>
 			<a class="zive-tlacitko" href="https://www.letourfemmes.fr/en/rankings" target="_blank" rel="noopener">
 				📊 Oficiální výsledky všech etap (letourfemmes.fr)
 			</a>
@@ -122,6 +169,19 @@ const JEZDKYNE = [
 			main { max-width: 480px; margin: 0 auto; padding: 1rem; }
 			h1 { font-size: 1.5rem; margin: 0.4rem 0; }
 			.podtitul { color: #777; font-size: 0.88rem; margin-bottom: 0.5rem; }
+			.cislo-odznak { margin-left: auto; background: #222; color: #fff; font-weight: 800; font-size: 0.8rem;
+				border-radius: 999px; padding: 0.15rem 0.6rem; letter-spacing: 0.03em; }
+			.poznavacka { background: #fff; border: 3px solid #222; border-radius: 16px; padding: 0.9rem 1rem; margin: 0.9rem 0;
+				box-shadow: 3px 3px 0 #22222233; }
+			.poznavacka h2 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+			.poznavacka-radek { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+			.poznavacka figure { margin: 0; text-align: center; }
+			.poznavacka svg { width: 100%; max-width: 110px; height: auto; }
+			.poznavacka figcaption { font-size: 0.72rem; color: #555; line-height: 1.25; margin-top: 0.2rem; }
+			.poznavacka figcaption b { display: block; color: #222; font-size: 0.8rem; }
+			.dres-napis { font: 800 9px -apple-system, system-ui, sans-serif; fill: #9e1b1b; letter-spacing: 0.06em; }
+			.cislo-svg { font: 900 34px -apple-system, system-ui, sans-serif; fill: #111; letter-spacing: 0.02em; }
+			.poznavacka-pozn { font-size: 0.68rem; color: #999; margin-top: 0.5rem; }
 			.zive { font-weight: 700; color: #c92a2a; margin-bottom: 0.8rem; }
 			.karta { background: #fff; border: 3px solid #222; border-radius: 16px; padding: 0.9rem 1rem; margin: 0.7rem 0;
 				box-shadow: 3px 3px 0 #22222233; }

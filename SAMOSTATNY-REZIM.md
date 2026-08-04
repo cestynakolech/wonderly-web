@@ -1,15 +1,35 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (3. 8. 2026, ráno — noční běh)
+## ⏩ KDE POKRAČOVAT (4. 8. 2026 — předání novému modelu)
 
 > **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
+### 🔴 NEDOKONČENO Z KOLA D1 — začni tímhle
+
+**Druhá kontrola čtyř nových simulací informatiky NEDOBĚHLA** (došel týdenní limit
+uprostřed běhu kontrolora, 3. 8. odpoledne). Simulace jsou nasazené a opravené,
+ale potvrzení oprav chybí. Zadání pro kontrolora je připravené — u každé vady
+rozhodnout ZAVŘENO / OTEVŘENO a doložit to **spuštěním kódu** (`node -e`), ne přečtením:
+
+| soubor | co ověřit |
+|---|---|
+| `KlonovaniSimulace.astro` | `když ⟨⟩ tak` (ne „pokud") · `náhodné číslo od ( ) do ( )` · vypsaná pauza `čekej ( ) sekund` souhlasí s nastavenou rychlostí a má českou čárku · počítadlo si neprotiřečí se „selhalo" · zastavení maže klony · hromada roste a klony vznikají v nakresleném generátoru |
+| `MicrobitVstupySimulace.astro` | žádné `ukaž ikonu (vykřičník)` ani `(šipka …)` · mez osy X a Y stejná a text si na mezi neodporuje se zvýrazněním · `mg = 1000·sin(úhel)`, mez 500 mg |
+| `MicrobitRadioSimulace.astro` | signál slábne plynule se vzdáleností i zdmi (žádná tvrdá čára) · displej u pinů opravdu něco ukáže · hlavičkou je KAŽDÝ klobouk, ne jen první řádek |
+| `VexcodeSimulace.astro` | bloky anglicky s jednotkou **mm** (cm VEXcode IQ nemá) + klobouk `when started` · délka animace úměrná hodnotě bloku · robot nezmizí mimo scénu bez hlášky · výchozí program pořád trefí cíl přesně |
+
+Navíc hledat NOVÉ vady, které oprava mohla zanést — hlavně rozpor mezi simulací
+a výkladem na téže stránce.
+
 ### 🌙 FRONTA (pořadí drž)
 
-1. **Názornost informatiky** — zbývá **30 podtémat**. Na řadě: `klonovani-animace-hry` (Inf9),
-   `microbit`, `vex-iq` (Inf8). Dávka 4+ patří do vějíře (`/simulace`).
+1. **Názornost informatiky** — zbývá **26 podtémat** (bylo 30; 3. 8. přibyly 4 simulace,
+   viz „Hotovo 3. 8. odpoledne" níž). Na řadě podle měřidla `node testy/nazornost.mjs`:
+   Inf8 `roboticka-stavebnice` (3 podtémata), `hry-ve-scratchi` (3), `hromadne-zpracovani-dat`,
+   `co-umi-vex-iq`; Inf9 `programovaci-projekty` (2), `digitalni-technologie` (3).
+   Dávka 4+ patří do vějíře (`/simulace`).
    Senzory robota jsou HOTOVÉ včetně nálezů kontrolora (viz níž).
 2. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
    leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
@@ -53,6 +73,44 @@
   (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
 - **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
   se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
+
+### ✅ Hotovo 3. 8. odpoledne — 4 nové simulace informatiky naráz (kolo D1)
+
+Vějíř 4× `worker-simulace` paralelně, každý do vlastního nového souboru. Nasazeno,
+commity `982d878` (simulace), `e90a0d2` (opravy), `e4dc261` (rozšířené měřidlo).
+
+| podtéma | komponenta | `interakce` | co ukazuje |
+|---|---|---|---|
+| Inf9 `klonovani-animace-hry` | `KlonovaniSimulace` | `klonovani` | klon = kopie s vlastními hodnotami · zapomenutý `zruš tento klon` → náraz na scratchovský **strop 300 klonů**, kdy `klonuj` mlčky nic nevyrobí |
+| Inf8 `tlacitka-naklon-zvuk` | `MicrobitVstupySimulace` | `microbit-vstupy` | tlačítka A/B/A+B, náklon přes akcelerometr (mez 500 mg = 30°), tón jen znázorněný — stránka nikdy nezvučí |
+| Inf8 `propojeni-a-externi-zarizeni` | `MicrobitRadioSimulace` | `microbit-radio` | skupiny rádia 0–255, plynule slábnoucí signál (vzdálenost + zdi), piny s krokosvorkami |
+| Inf8 `vexcode-prvni-program` | `VexcodeSimulace` | `vexcode` | skládání programu z bloků VEXcode IQ (`drive for 300 mm`), krokování, zeď hřiště |
+
+Kotvy: brána `zkontroluj.mjs` 0 chyb (85 interakcí), build 465 stránek,
+simulace ověřená ve vygenerovaném HTML všech čtyř stránek.
+
+**Nezávislý kontrolor našel 16 vad, z toho 7 závažných — přes zelenou bránu i build.**
+Všechny opravené autory jednotlivých souborů (`SendMessage` zpět původnímu workerovi —
+levné, má kontext). Poučení je zapsané v `METRIKY-KOL.md` (řádek D1) a ve skillu
+`/simulace`. Tři nejdůležitější:
+
+- **Měřidlo hlídá jen tvary, které už jednou selhaly.** `testy/nazvy-bloku.mjs` hlásilo
+  0 nálezů a přitom nemělo vzor pro `pokud ⟨⟩ tak` (česky je `když ⟨⟩ tak`) ani pro
+  „náhodnou hodnotu". Doplněno 3. 8. i s obousměrným důkazem (podvrh → 2 nálezy,
+  otisk souboru se změnil a po obnově vrátil).
+- **ZNÁMÁ MEZERA, dosud neuzavřená:** názvy bloků **MakeCode a VEXcode nekontroluje NIC.**
+  `testy/nazvy-bloku.mjs` umí jen Scratch, a to jen v celcích `SCRATCH_CELKY` a
+  komponentách `SIMULACE_SE_SCRATCHEM`. Kontrolor proto ručně stáhl `pxt-microbit`
+  a našel, že micro:bit nemá ikonu vykřičníku ani šipky (`showArrow` je jiný blok)
+  a VEXcode IQ nezná centimetry. **Stojí za vlastní kolo.**
+- **Simulace si protiřečila s výkladem na téže stránce** a nikdo to neměřil: tvrdý
+  dosah rádia 25 m proti výkladu „přes zdi signál slábne"; české bloky proti výkladu
+  „prostředí VEXcode je anglicky". Worker výklad četl — rozpor je potřeba měřit.
+
+**Problém povolení (opravit ve vrátném):** hook po `Write` vyžaduje ověření v Browser
+panelu / `preview_start`, jenže workeři mají jen `Read/Write/Edit/Grep/Glob` — pro ně
+je ta podmínka nesplnitelná a hlásili ji jako `PROBLÉM POVOLENÍ`. Buď hook omezit na
+hlavní model, nebo workerům ty nástroje dát.
 
 ### ✅ Hotovo 3. 8. ráno — nová simulace „Senzory robota" (Inf8)
 
