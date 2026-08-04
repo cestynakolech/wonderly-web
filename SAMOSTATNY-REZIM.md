@@ -1711,6 +1711,28 @@ _Starší sekce „KDE POKRAČOVAT“ jsou v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOST
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### 🚴 Appka /tour — automatické přepínání mezi velkými závody (zadáno 4. 8. 2026)
+
+Přání učitele: *„aby se to samostatně přepínalo na zrovna aktuální velké závody a vše
+šlo automaticky — Vuelta a tak dále."* Rozpracované zadání, ověřený průzkum:
+
+- **Tour, Tour Femmes i Vuelta mají TOTOŽNOU strukturu** (pořadatel ASO): `/en/rankings`
+  s ajax adresami `itg`/`ite` i `racecenter.<doména>/api/…` (ověřeno 4. 8. 2026 — všechny
+  tři vracejí HTTP 200). **Giro NE** (pořadatel RCS, `/en/rankings` vrací 404) — potřebovalo
+  by vlastní parser, řešit až v druhém kroku.
+- **Který závod běží, se nemusí hádat z kalendáře**: pro každou doménu zjistit etapu
+  z `rankings`, zkusit `pack-<rok>-<etapa+1>` a podívat se na stáří pole `date`.
+  Čerstvé (< 15 min) = tenhle závod se právě jede. Volbu závodu cachovat na hodinu,
+  ať se to nedotazuje pořád dokola.
+- **České jezdce hledat podle seznamu jmen**, ne podle národnosti v tabulce (ta tam není).
+  Seznam ~15 českých profesionálů (muži i ženy) natvrdo v kódu, aktualizace jednou za rok.
+  POZOR na diakritiku — hledat zkrácené tvary bez koncovky („NOSKOV", „VACEK", „ČERN"…),
+  a ověřit, že zkratka nechytá cizí jméno.
+- **Lokální modely (ollama) se sem NEHODÍ**: worker běží v Cloudflare, kam lokální model
+  nedosáhne, a úloha není jazyková, ale deterministická. Jediné smysluplné využití AI by
+  byl překlad anglického živého komentáře — a to by musela dělat Workers AI, ne ollama.
+- Mimo sezonu musí stránka umět říct „právě se nejede žádný velký závod" místo pomlček.
+
 ### Kandidáti na simulace (NOVÝ audit temata.ts, 28. 7. 2026 — kolo 38; zásoba na měsíc)
 
 Z 64 fyzikálních podtémat bez interakce vybráno 12 s jevem, který jde ANIMOVAT či OVLÁDAT:
