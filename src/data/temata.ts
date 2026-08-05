@@ -362,14 +362,18 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						// Hlasy jsou z bezplatného tarifu ElevenLabs, který povoluje jen
+						// nekomerční užití a žádá uvedení „elevenlabs.io" v názvu.
+						// Školní web zdarma nekomerční je, atribuce proto musí zůstat,
+						// dokud videa nepřejdou na jiný hlas nebo na placený tarif.
 						{
 							druh: 'video',
-							nazev: 'Polemika 1: Gravitační síla 🎬',
+							nazev: 'Polemika 1: Gravitační síla 🎬 (hlasy elevenlabs.io)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1.mp4',
 						},
 						{
 							druh: 'video',
-							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬',
+							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬 (hlasy elevenlabs.io)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2.mp4',
 						},
 					],
