@@ -20,7 +20,28 @@ načti ho jako první, je v něm řetěz, pravidla i pasti.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
 
-**ROZDĚLANÉ (5. 8. 16:40) — díl „Vzájemné působení těles, síla", zbývá jen video:**
+**ROZDĚLANÉ (5. 8. 17:30) — TŘI díly F6 hotové až na video:**
+
+**3) „Hustota"** — `podkasty-scenare/6/hustota-dialog.md` (37 replik, brána hlásí
+**15 z 15 otázek pokryto**), scénosled, **13 nových schémat** (`peri_zelezo`,
+`znacka_ro`, `vzorec_hustoty`, `priklad_hustoty`, `co_znamena_cislo`, `gcm3`,
+`plave_klesa`, `teply_vzduch`, `ponorka`, `hustomer`, `tabulka_hustot`,
+`proc_se_lisi`, `shrnuti_hustota`), zvuk se vyráběl 5. 8. v 17:30.
+Nálezy z prohlídky: popisky pod hladinou se navzájem překrývaly, tisíce byly
+jednou s mezerou a jednou bez, a poměr hmotnosti atomů (1 : 56) nešel vyjádřit
+velikostí kruhů — je teď napsaný číslem uvnitř nich, aby obrázek netvrdil jiný
+poměr, než jaký platí.
+
+**2) „Hmotnost"** — `podkasty-scenare/6/hmotnost-dialog.md` (43 replik, brána hlásí
+**18 z 18 otázek pokryto**), scénosled, **13 nových schémat** (`vaha_vs_hmotnost`,
+`mnozstvi_latky`, `znacka_m`, `litr_vody`, `jednotky_hmotnosti`, `prevody_smer`,
+`prevody_priklady`, `deka_metrak`, `druhy_vah`, `pravidla_vazeni`, `vazeni_kapaliny`,
+`vazeni_drobnosti`, `shrnuti_hmotnost`), zvuk se vyráběl 5. 8. v 17:00.
+Nálezy z prohlídky: tři vzorce v žebříku jednotek se slily do jedné řady (v SVG se
+víc mezer za sebou slévá — musí to být tři samostatné nápisy) a u hřebíků bylo
+nakresleno 40 kusů, zatímco popisek tvrdil „100 hřebíků". Obojí opraveno.
+
+**1) „Vzájemné působení těles, síla", zbývá jen video:**
 
 Hotovo a ověřeno: polemika `podkasty-scenare/6/vzajemne-pusobeni-teles-sila-dialog.md`
 (45 replik, brána `pokryti_kvizu.py` hlásí **16 z 16 otázek pokryto**), scénosled,
