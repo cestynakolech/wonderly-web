@@ -42,8 +42,15 @@ načti ho jako první, je v něm řetěz, pravidla i pasti.
 **14 z 14 otázek pokryto**), scénosled, **12 nových schémat** (`znacka_v`,
 `metr_krychlovy`, `proc_tisic`, `duta_mira`, `most_litr`, `odmerny_valec`,
 `odecitani_hladiny`, `ponoreni_telesa`, `cele_pod_hladinou`, `vzorce_objemu`,
-`priklad_krabice`, `shrnuti_objem`), zvuk se vyráběl 5. 8. v 17:45.
+`priklad_krabice`, `shrnuti_objem`).
 Nález z prohlídky: popisky ležely přes kresbu láhve — přesunuty pod ni.
+
+**Zvuk k objemu ODLOŽEN — a padá JINOU kontrolou než hustota:** „zarovnání selhalo,
+sedí jen 547 z 659 slov" (3× po sobě, mp3 nevzniklo). Hustota padala na počtu slov,
+objem na shodě se scénářem — obojí u dílů s nejvyšší hustotou číslovek psaných
+slovy. To hypotézu o číslech spíš potvrzuje: přepis od whisperu má „250", scénář
+„dvě stě padesát", takže zarovnání nenajde shodu. **Než se rozhodne o převodu čísel,
+nemá smysl vyrábět další díly plné číselných příkladů** — spadnou stejně.
 
 **3) „Hustota"** — `podkasty-scenare/6/hustota-dialog.md` (37 replik, brána hlásí
 **15 z 15 otázek pokryto**), scénosled, **13 nových schémat** (`peri_zelezo`,
