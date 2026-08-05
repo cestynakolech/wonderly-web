@@ -6,10 +6,28 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🎯 PRVNÍ ÚKOL PO OTEVŘENÍ SESSION (5. 8. odpoledne): videa k polemikám přes OpenAI
+### 🎯 PRVNÍ ÚKOL PO OTEVŘENÍ SESSION (5. 8. VEČER): složit čtyři videa a nasadit
 
-**Povel učitele: `WONDERLY VIDEA`.** Postup je celý ve skillu **`podkast-video`** —
-načti ho jako první, je v něm řetěz, pravidla i pasti.
+**Povel učitele: `WONDERLY VIDEA`.** Načti skill **`podkast-video`** a k němu
+**`~/Desktop/Omega/dokumenty/NAVOD-POLEMIKY-F6.md`** (krok za krokem pro nového kolegu).
+
+**HNED PO OTEVŘENÍ UDĚLEJ TOHLE:**
+
+1. Zkontroluj, jestli doběhl automat na stará videa:
+   `python3 ~/Desktop/Omega/skripty/pecliva_videa.py --stav`
+   (5. 8. 17:53 byl ve fázi **kontrola**, kousek 29 z 29). **Dokud běží, nespouštěj
+   ffmpeg ani whisper** — shodil bys mu kolo, které běželo osm hodin.
+2. Až je Mac volný, vyrob ke každému ze čtyř dílů ilustraci scény 0 (jediná
+   neschematická) a slož video:
+   `python3 skripty/video_podkastu.py <slug> --zvuk "/Users/Shared/Škola/podkasty/6/<slug>.mp3"`
+   Slugy: `vzajemne-pusobeni-teles-sila-dialog`, `hmotnost-dialog`, `hustota-dialog`,
+   `objem-dialog`.
+3. **U hustoty dávej pozor** — její mp3 vzniklo ještě před opravou kotvy a nová
+   verze se přeskočila jako hotová. Pokud zarovnání selže, vyrob zvuk znovu
+   (soubor odlož, ať ho skript nepřeskočí) — teď už projde.
+4. Nahraj do R2, zapoj do `temata.ts`, `npm run build`, push, **ověř curlem na
+   produkci** (učitel 5. 8. hlásil, že u hustoty video nenašel — tehdy ještě
+   neexistovalo, nezaměnit s chybou nasazení).
 
 **Co je hotové a nasazené (5. 8. odpoledne):**
 - Dvě polemiky ke gravitační síle, obě s videem, obě živé na
@@ -22,7 +40,24 @@ načti ho jako první, je v něm řetěz, pravidla i pasti.
 
 **ROZDĚLANÉ (5. 8. 17:45) — ČTYŘI díly F6 hotové až na video:**
 
-> ### ⚠️ NÁLEZ: kotva „střih ztratil řeč" hlásí u dílů plných čísel FALEŠNÝ POPLACH
+> ### ✅ VYŘEŠENO 5. 8. 2026 večer — kotva umí čísla
+>
+> Učitel opravu schválil. Modul **`skripty/cisla_cesky.py`** rozpozná číslo psané
+> číslicemi i českým slovem (včetně „šestkrát", „0,001", „dvěstě", řadových tvarů)
+> a obě kontroly ve `vyrob_podkasty.py` ho **vypustí z porovnání na obou stranách** —
+> jak v kotvě počtu slov, tak v zarovnání replik. **Práh zůstal 2 %, kotva se
+> NEOSLABILA**, jen přestala měřit to, co změřit neuměla.
+>
+> **Důkaz v provozu:** objem předtím padal třikrát (547 z 659 slov), po opravě prošel
+> na první pokus (592 proti 599). **Obousměrný důkaz:** `skripty/testy/test_kotva_cisla.py`
+> — na zdravém přepisu všechny čtyři díly projdou beze zbytku (657/657, 599/599,
+> 686/686, 777/777), po odebrání 10 % řeči všechny spadnou. Zapsáno do
+> `wonderly-web/testy/obousmerne.json`.
+>
+> Pozor: `hustota-dialog.mp3` se při novém běhu **přeskočil jako hotový** (soubor
+> na disku už byl). Opravené zarovnání se u něj tedy ověří až při výrobě videa.
+>
+> Původní rozbor příčiny (ponechán jako poučení):
 >
 > Zvuk k hustotě selhal 3× (677 slov ze 701, práh je 2 %) a automat ho odložil.
 > Měření ale ukazuje, že řeč **nechybí**: poměr délky textu hmotnost : hustota je
@@ -45,12 +80,8 @@ načti ho jako první, je v něm řetěz, pravidla i pasti.
 `priklad_krabice`, `shrnuti_objem`).
 Nález z prohlídky: popisky ležely přes kresbu láhve — přesunuty pod ni.
 
-**Zvuk k objemu ODLOŽEN — a padá JINOU kontrolou než hustota:** „zarovnání selhalo,
-sedí jen 547 z 659 slov" (3× po sobě, mp3 nevzniklo). Hustota padala na počtu slov,
-objem na shodě se scénářem — obojí u dílů s nejvyšší hustotou číslovek psaných
-slovy. To hypotézu o číslech spíš potvrzuje: přepis od whisperu má „250", scénář
-„dvě stě padesát", takže zarovnání nenajde shodu. **Než se rozhodne o převodu čísel,
-nemá smysl vyrábět další díly plné číselných příkladů** — spadnou stejně.
+**Zvuk k objemu: HOTOVO** `objem-dialog.mp3` (4:38), prošel po opravě kotvy na první
+pokus. Předtím 3× spadl na zarovnání (547 z 659 slov) — právě to opravu vyvolalo.
 
 **3) „Hustota"** — `podkasty-scenare/6/hustota-dialog.md` (37 replik, brána hlásí
 **15 z 15 otázek pokryto**), scénosled, **13 nových schémat** (`peri_zelezo`,

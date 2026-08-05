@@ -1,73 +1,79 @@
 {
- "_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
- "_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá. | 4. 8. 2026: rohatka rozšířena i na testy/simulace/ (nález auditu — 16 testů simulací bylo mimo kontrolu); dnešní dluh 14 zapsán, nový test simulace bez důkazu už bránou neprojde. Dluh splácet podle fronty (mutační díry nejdřív).",
- "_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
- "bezDokladu": 14,
- "meridla": {
-  "uniky.mjs": {
-   "test": "testy/uniky-obousmerne.mjs",
-   "podvrh": "Vložená duplicitní otázka ('Co je fyzika?' dvakrát) i únik odpovědi (vysvětlení u vlhkoměru odpovídá na otázku o anemometru) se najdou; brána na nich končí kódem 1. Navíc ověřeno na HISTORICKÝCH datech: nad verzí kvízů před opravou 31. 7. najde 4 duplicity, mezi nimi dvakrát doslova tutéž otázku.",
-   "zdravy": "Nad dnešními daty 0 duplicit a 39 úniků, brána končí '✅ Vše zapojené správně.'; 15 kontrol v testu prochází.",
-   "regrese": "Součástí testu jsou konkrétní falešné poplachy první verze: dvojice lišící se jen číslem (0 °C × 100 °C, 120 min × 7200 s) a sdílený odborný pojem ('hmotnost') NESMÍ být nález. Mutace prahů to shodí.",
-   "overeno": "2026-08-02"
-  },
-  "cisla-ve-vykladu.mjs": {
-   "test": "testy/meridla-obousmerne.mjs",
-   "podvrh": "Odpověď '1013 hPa' u výkladu, kde číslo 1013 není, se najde.",
-   "zdravy": "Týž kvíz s číslem doplněným do výkladu nehlásí nic.",
-   "regrese": "Výsledek početní úlohy (zadání obsahuje čísla) a malá čísla ('3 druhy čípků') nesmí být nález — to byla příčina 20 falešných poplachů z 34 nálezů 1. 8. Mutace MALE=0 i vypnutí početní výjimky test shodí.",
-   "overeno": "2026-08-02"
-  },
-  "nazvy-bloku.mjs": {
-   "test": "testy/meridla-obousmerne.mjs",
-   "podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu. ROZŠÍŘENO 3. 8. 2026: podvrh „pokud ⟨y < -160?⟩ tak\" + „nastav x na (náhodnou hodnotu)\" v KlonovaniSimulace → 2 nálezy (otisk souboru se podvrhem změnil d6c0ace… → eea8e8d…, po obnově zpět na d6c0ace…, takže měřidlo měřilo opravdu tenhle soubor). ROZŠÍŘENO 5. 8. 2026 o MakeCode a VEXcode: podvrhy „ukaž číslo\", „ukaž ikonu (vykřičník)\" a „drive for 30 cm\" měřidlo najde, zdravé tvary (zobraz číslo, čekej ms, drive for 300 mm, „vzdálenost > 10 cm\" ve větě) mlčí — testy/meridla-obousmerne.mjs (54 → 60 kontrol). Důkaz komponentové cesty: první ostrý běh našel 4 SKUTEČNÉ vady (ukaž řetězec + odešli řetězec v MicrobitRadioSimulace, blok „pauza 400 ms\" ve výkladu i kvízu) — po opravě 0 nálezů.",
-   "zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic. Po obnově zdravých tvarů („když ⟨ ⟩ tak\", „náhodné číslo od … do …\") opět 0 nálezů.",
-   "regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť. ROZŠÍŘENO 3. 8. 2026 po nálezu kontrolora: měřidlo nemělo vzor pro „pokud ⟨⟩ tak\" ani pro „náhodnou hodnotu\", takže obojí prošlo se zelenou bránou. Nové vzory se schválně ptají na TVAR BLOKU (závorka s podmínkou + „tak\"/„pak\"), aby nehlásily běžnou českou větu — ověřeno, že mlčí nad „pokud chceš, zkus to znovu\", „pokud (a) platí, program pokračuje\" i nad makecodovým „pokud zrychlení (y) > 500 pak\". ZNÁMÁ MEZERA: měřidlo hlídá jen Scratch. Názvy bloků MakeCode (micro:bit) a VEXcode nekontroluje NIC — kontrolor v nich 3. 8. našel neexistující „ukaž ikonu (šipka doleva)\" a jednotku cm, kterou VEXcode IQ nemá.",
-   "overeno": "2026-08-05"
-  },
-  "nazornost.mjs": {
-   "test": "testy/meridla-obousmerne.mjs",
-   "podvrh": "Neznámý druh materiálu ('gif') se najde jako chyba, ne jako ticho.",
-   "zdravy": "Známé druhy (infografika, youtube, pdf) nehlásí nic.",
-   "regrese": "PŘÍMO TA HISTORICKÁ VADA: 'infografika' se MUSÍ počítat jako obrázek a hodnota 'obrazek' nesmí ve slovníku existovat — původní měřidlo hledalo 'obrazek', který v datech není ani jednou, takže infografiky nikdy nezapočítalo. Mutace slovníku test shodí (2 kontroly).",
-   "overeno": "2026-08-02"
-  },
-  "kratke-vyklady.mjs": {
-   "test": "testy/meridla-obousmerne.mjs",
-   "podvrh": "Krátký výklad bez obrázku, videa i simulace je označen za hluchou stránku.",
-   "zdravy": "Dlouhý výklad, krátký výklad se simulací i krátký výklad s infografikou hluché nejsou (tři různé důvody, tři kontroly).",
-   "regrese": "HTML značky se do délky nepočítají — jinak by `<strong>` udělal z krátké stránky dlouhou. Mutace odstraňování značek test shodí.",
-   "overeno": "2026-08-02"
-  },
-  "mapa-popisky.mjs": {
-   "test": "testy/meridla-obousmerne.mjs",
-   "podvrh": "Dva popisky ležící na sobě mají nenulovou plochu překryvu.",
-   "zdravy": "Vzdálené popisky mají překryv 0; nad daty webu 186 pohledů a 0 nálezů.",
-   "regrese": "Rámeček musí růst s délkou jména, jinak by dlouhý název ('Vaulnaveys-le-Haut') nikdy nepřetekl — a přesně ten popisek přetékal ve všech čtyřech jazycích. Mutace na konstantní šířku test shodí.",
-   "overeno": "2026-08-02"
-  },
-  "sablony.mjs": {
-   "test": "testy/meridla-obousmerne.mjs",
-   "podvrh": "Skript komponenty se SPOUŠTÍ nad DOMem ze skutečné šablony, takže se chybějící prvek najde bez ohledu na způsob zápisu: getElementById, zkratka $(id), querySelector('#x'), backticky, složený selektor, <script is:inline> i kód uvnitř obsluhy kliknutí a DOMContentLoaded. Kotva nad SKUTEČNOU komponentou: po smazání id ze šablony PakaSimulace (kterou regexová verze neviděla vůbec) měřidlo nález hlásí a brána končí kódem 1.",
-   "zdravy": "Nad všemi 78 komponentami 0 nálezů. Pokrytí měřeno kontrolorovou metodou: z 983 vyhledání mířících na prvek ze šablony se jich 977 (99,4 %) prokazatelně změří - smazání toho prvku se odhalí.",
-   "regrese": "(1) Prvky, které si kód vyrábí za běhu (className, classList.add, innerHTML, insertAdjacentHTML), NESMÍ být nález - ale jen když se prvek do stránky opravdu vloží. (2) Chybějící prohlížečové API (canvas, performance, style.setProperty, children[0], getElementsByClassName, window.AudioContext) nesmí skript shodit. (3) Nedoběhlý skript nálezem BÝT MUSÍ. (4) Zakomentovaná scéna se nepočítá jako existující. (5) Dynamické class={} nesmí umlčet kontrolu id. (6) Dva bloky <script> se nesmí slepit do jednoho rozsahu. (7) Brána končí chybou, když se v některé komponentě nezměří ani jedno vyhledání.",
-   "mez": "Změřit jde jen kód, který se opravdu provede. Šest vyhledání (ElektromotorSimulace emo-f-*, OkoSimulace oko-bryle-*, PrumerSimulace prum-novy) je ve větvích, kam běh při načtení nedojde. Měřidlo také nehlídá překlep v názvu prohlížečové metody - neznámé API atrapa tiše obslouží.",
-   "duvod": "První verze hledala volání regulárními výrazy a 270 z 945 vyhledání nebylo měřeno vůbec; druhá měřila jen kód doběhlý při načtení a přišla o dalších 32. Záplatovat vzor po vzoru je nekonečné, proto se měří výsledek spuštění.",
-   "overeno": "2026-08-02"
-  },
-  "simulace/funkce-tabulky.mjs": {
-   "test": "testy/podvrhy/funkce-tabulky-podvrhy.mjs",
-   "podvrh": "24 mutací komponenty na kopii v dočasné složce — texty vzorců (mez v hlavičce 4→3, rozsah B2:B8, anglická čárka, =PRUMER bez háčků, prohozený popisek MIN, prohozené popisky přepínače, smyšlený chybový kód), přístupnost (scope pryč, 1. pád v aria-label, bledá šrafa #dee2e6 = 1,30 : 1, bledá mřížka #f8f9fa) a naučné texty (text prý MENŠÍ než číslo, MIN/MAX prý hlásí chybu, průměr napevno „20 ÷ 6\", poznámka RANK jmenuje jiného žáka, lživá nápověda ke kolečku, „platí jen pro řádek 2\", úvod posílá sledovat jiné funkce, nadpis o grafech). Každá shodí 2–7 kontrol.",
-   "zdravy": "Nad nezměněnou komponentou projde všech 167 kontrol a skript hlásí „zdravá kopie mlčí\"; ověření se zdravou kopií je první krok skriptu, takže se pozná i to, že se měří jiný soubor, než se myslí.",
-   "regrese": "Předchozí verze testu (93 kontrol) propustila 8 z těchto podvrhů, verze z rána (143 kontrol) dalších 11 — obojí je v seznamu a nesmí se vrátit.",
-   "overeno": "2026-08-03"
-  },
-  "simulace/senzory-robota.mjs": {
-   "test": "testy/podvrhy/senzory-robota-podvrhy.mjs",
-   "podvrh": "21 mutací komponenty na kopii v dočasné složce — naučné texty (poznámka tvrdí, že senzor u šikmé stěny měří přesně; hláška chválí zastavení po nárazu; program bez opakování prý měřil pořád; tlačítko slibuje „nikdy nezastav\"; zácloně se říká zeď; náraz sváděný na ultrazvuk i tam, kde měřil dobře), scéna (robot ve vzduchu, podlaha nahoře, zeď visící, paprsek dozadu, žádný odraz od šikmé stěny, popis obrázku o teplotě) a hodnoty (MAX_DOSAH 0, dotyk sepne metr předem, program se ptá i bez opakování, výchozí program prohozený, záclona vypadá jako zeď). Každá shodí aspoň jednu kontrolu.",
-   "zdravy": "Nad nezměněnou komponentou projde všech 154 kontrol a skript hlásí „zdravá kopie mlčí\" — první krok skriptu, takže se pozná i měření jiného souboru, než se myslí.",
-   "regrese": "První verze testu (122 kontrol) propustila 5 podvrhů v textech a 5 ve scéně; mutační test testy/mutace.mjs odhalí 14 ze 14.",
-   "overeno": "2026-08-03"
-  }
- }
+	"_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
+	"_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá. | 4. 8. 2026: rohatka rozšířena i na testy/simulace/ (nález auditu — 16 testů simulací bylo mimo kontrolu); dnešní dluh 14 zapsán, nový test simulace bez důkazu už bránou neprojde. Dluh splácet podle fronty (mutační díry nejdřív).",
+	"_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
+	"bezDokladu": 14,
+	"meridla": {
+		"uniky.mjs": {
+			"test": "testy/uniky-obousmerne.mjs",
+			"podvrh": "Vložená duplicitní otázka ('Co je fyzika?' dvakrát) i únik odpovědi (vysvětlení u vlhkoměru odpovídá na otázku o anemometru) se najdou; brána na nich končí kódem 1. Navíc ověřeno na HISTORICKÝCH datech: nad verzí kvízů před opravou 31. 7. najde 4 duplicity, mezi nimi dvakrát doslova tutéž otázku.",
+			"zdravy": "Nad dnešními daty 0 duplicit a 39 úniků, brána končí '✅ Vše zapojené správně.'; 15 kontrol v testu prochází.",
+			"regrese": "Součástí testu jsou konkrétní falešné poplachy první verze: dvojice lišící se jen číslem (0 °C × 100 °C, 120 min × 7200 s) a sdílený odborný pojem ('hmotnost') NESMÍ být nález. Mutace prahů to shodí.",
+			"overeno": "2026-08-02"
+		},
+		"cisla-ve-vykladu.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Odpověď '1013 hPa' u výkladu, kde číslo 1013 není, se najde.",
+			"zdravy": "Týž kvíz s číslem doplněným do výkladu nehlásí nic.",
+			"regrese": "Výsledek početní úlohy (zadání obsahuje čísla) a malá čísla ('3 druhy čípků') nesmí být nález — to byla příčina 20 falešných poplachů z 34 nálezů 1. 8. Mutace MALE=0 i vypnutí početní výjimky test shodí.",
+			"overeno": "2026-08-02"
+		},
+		"nazvy-bloku.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu. ROZŠÍŘENO 3. 8. 2026: podvrh „pokud ⟨y < -160?⟩ tak\" + „nastav x na (náhodnou hodnotu)\" v KlonovaniSimulace → 2 nálezy (otisk souboru se podvrhem změnil d6c0ace… → eea8e8d…, po obnově zpět na d6c0ace…, takže měřidlo měřilo opravdu tenhle soubor). ROZŠÍŘENO 5. 8. 2026 o MakeCode a VEXcode: podvrhy „ukaž číslo\", „ukaž ikonu (vykřičník)\" a „drive for 30 cm\" měřidlo najde, zdravé tvary (zobraz číslo, čekej ms, drive for 300 mm, „vzdálenost > 10 cm\" ve větě) mlčí — testy/meridla-obousmerne.mjs (54 → 60 kontrol). Důkaz komponentové cesty: první ostrý běh našel 4 SKUTEČNÉ vady (ukaž řetězec + odešli řetězec v MicrobitRadioSimulace, blok „pauza 400 ms\" ve výkladu i kvízu) — po opravě 0 nálezů.",
+			"zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic. Po obnově zdravých tvarů („když ⟨ ⟩ tak\", „náhodné číslo od … do …\") opět 0 nálezů.",
+			"regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť. ROZŠÍŘENO 3. 8. 2026 po nálezu kontrolora: měřidlo nemělo vzor pro „pokud ⟨⟩ tak\" ani pro „náhodnou hodnotu\", takže obojí prošlo se zelenou bránou. Nové vzory se schválně ptají na TVAR BLOKU (závorka s podmínkou + „tak\"/„pak\"), aby nehlásily běžnou českou větu — ověřeno, že mlčí nad „pokud chceš, zkus to znovu\", „pokud (a) platí, program pokračuje\" i nad makecodovým „pokud zrychlení (y) > 500 pak\". ZNÁMÁ MEZERA: měřidlo hlídá jen Scratch. Názvy bloků MakeCode (micro:bit) a VEXcode nekontroluje NIC — kontrolor v nich 3. 8. našel neexistující „ukaž ikonu (šipka doleva)\" a jednotku cm, kterou VEXcode IQ nemá.",
+			"overeno": "2026-08-05"
+		},
+		"nazornost.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Neznámý druh materiálu ('gif') se najde jako chyba, ne jako ticho.",
+			"zdravy": "Známé druhy (infografika, youtube, pdf) nehlásí nic.",
+			"regrese": "PŘÍMO TA HISTORICKÁ VADA: 'infografika' se MUSÍ počítat jako obrázek a hodnota 'obrazek' nesmí ve slovníku existovat — původní měřidlo hledalo 'obrazek', který v datech není ani jednou, takže infografiky nikdy nezapočítalo. Mutace slovníku test shodí (2 kontroly).",
+			"overeno": "2026-08-02"
+		},
+		"kratke-vyklady.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Krátký výklad bez obrázku, videa i simulace je označen za hluchou stránku.",
+			"zdravy": "Dlouhý výklad, krátký výklad se simulací i krátký výklad s infografikou hluché nejsou (tři různé důvody, tři kontroly).",
+			"regrese": "HTML značky se do délky nepočítají — jinak by `<strong>` udělal z krátké stránky dlouhou. Mutace odstraňování značek test shodí.",
+			"overeno": "2026-08-02"
+		},
+		"mapa-popisky.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Dva popisky ležící na sobě mají nenulovou plochu překryvu.",
+			"zdravy": "Vzdálené popisky mají překryv 0; nad daty webu 186 pohledů a 0 nálezů.",
+			"regrese": "Rámeček musí růst s délkou jména, jinak by dlouhý název ('Vaulnaveys-le-Haut') nikdy nepřetekl — a přesně ten popisek přetékal ve všech čtyřech jazycích. Mutace na konstantní šířku test shodí.",
+			"overeno": "2026-08-02"
+		},
+		"sablony.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Skript komponenty se SPOUŠTÍ nad DOMem ze skutečné šablony, takže se chybějící prvek najde bez ohledu na způsob zápisu: getElementById, zkratka $(id), querySelector('#x'), backticky, složený selektor, <script is:inline> i kód uvnitř obsluhy kliknutí a DOMContentLoaded. Kotva nad SKUTEČNOU komponentou: po smazání id ze šablony PakaSimulace (kterou regexová verze neviděla vůbec) měřidlo nález hlásí a brána končí kódem 1.",
+			"zdravy": "Nad všemi 78 komponentami 0 nálezů. Pokrytí měřeno kontrolorovou metodou: z 983 vyhledání mířících na prvek ze šablony se jich 977 (99,4 %) prokazatelně změří - smazání toho prvku se odhalí.",
+			"regrese": "(1) Prvky, které si kód vyrábí za běhu (className, classList.add, innerHTML, insertAdjacentHTML), NESMÍ být nález - ale jen když se prvek do stránky opravdu vloží. (2) Chybějící prohlížečové API (canvas, performance, style.setProperty, children[0], getElementsByClassName, window.AudioContext) nesmí skript shodit. (3) Nedoběhlý skript nálezem BÝT MUSÍ. (4) Zakomentovaná scéna se nepočítá jako existující. (5) Dynamické class={} nesmí umlčet kontrolu id. (6) Dva bloky <script> se nesmí slepit do jednoho rozsahu. (7) Brána končí chybou, když se v některé komponentě nezměří ani jedno vyhledání.",
+			"mez": "Změřit jde jen kód, který se opravdu provede. Šest vyhledání (ElektromotorSimulace emo-f-*, OkoSimulace oko-bryle-*, PrumerSimulace prum-novy) je ve větvích, kam běh při načtení nedojde. Měřidlo také nehlídá překlep v názvu prohlížečové metody - neznámé API atrapa tiše obslouží.",
+			"duvod": "První verze hledala volání regulárními výrazy a 270 z 945 vyhledání nebylo měřeno vůbec; druhá měřila jen kód doběhlý při načtení a přišla o dalších 32. Záplatovat vzor po vzoru je nekonečné, proto se měří výsledek spuštění.",
+			"overeno": "2026-08-02"
+		},
+		"simulace/funkce-tabulky.mjs": {
+			"test": "testy/podvrhy/funkce-tabulky-podvrhy.mjs",
+			"podvrh": "24 mutací komponenty na kopii v dočasné složce — texty vzorců (mez v hlavičce 4→3, rozsah B2:B8, anglická čárka, =PRUMER bez háčků, prohozený popisek MIN, prohozené popisky přepínače, smyšlený chybový kód), přístupnost (scope pryč, 1. pád v aria-label, bledá šrafa #dee2e6 = 1,30 : 1, bledá mřížka #f8f9fa) a naučné texty (text prý MENŠÍ než číslo, MIN/MAX prý hlásí chybu, průměr napevno „20 ÷ 6\", poznámka RANK jmenuje jiného žáka, lživá nápověda ke kolečku, „platí jen pro řádek 2\", úvod posílá sledovat jiné funkce, nadpis o grafech). Každá shodí 2–7 kontrol.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 167 kontrol a skript hlásí „zdravá kopie mlčí\"; ověření se zdravou kopií je první krok skriptu, takže se pozná i to, že se měří jiný soubor, než se myslí.",
+			"regrese": "Předchozí verze testu (93 kontrol) propustila 8 z těchto podvrhů, verze z rána (143 kontrol) dalších 11 — obojí je v seznamu a nesmí se vrátit.",
+			"overeno": "2026-08-03"
+		},
+		"simulace/senzory-robota.mjs": {
+			"test": "testy/podvrhy/senzory-robota-podvrhy.mjs",
+			"podvrh": "21 mutací komponenty na kopii v dočasné složce — naučné texty (poznámka tvrdí, že senzor u šikmé stěny měří přesně; hláška chválí zastavení po nárazu; program bez opakování prý měřil pořád; tlačítko slibuje „nikdy nezastav\"; zácloně se říká zeď; náraz sváděný na ultrazvuk i tam, kde měřil dobře), scéna (robot ve vzduchu, podlaha nahoře, zeď visící, paprsek dozadu, žádný odraz od šikmé stěny, popis obrázku o teplotě) a hodnoty (MAX_DOSAH 0, dotyk sepne metr předem, program se ptá i bez opakování, výchozí program prohozený, záclona vypadá jako zeď). Každá shodí aspoň jednu kontrolu.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 154 kontrol a skript hlásí „zdravá kopie mlčí\" — první krok skriptu, takže se pozná i měření jiného souboru, než se myslí.",
+			"regrese": "První verze testu (122 kontrol) propustila 5 podvrhů v textech a 5 ve scéně; mutační test testy/mutace.mjs odhalí 14 ze 14.",
+			"overeno": "2026-08-03"
+		},
+		"vyrob_podkasty.py — kotva „střih ztratil řeč\"": {
+			"test": "~/Desktop/Omega/skripty/testy/test_kotva_cisla.py",
+			"podvrh": "Ze zdravého přepisu se odebere 10 % slov (pětinásobek tolerance). Kotva to zachytí u všech čtyř dílů F6: hustota 591/657, objem 539/599, hmotnost 617/686, síla 699/777 — všechny nad prahem, výroba by skončila chybou.",
+			"zdravy": "Simulovaný přepis od whisperu (souvislé číslovky splácnuté do jedné číslice) projde u všech čtyř dílů se shodou 657/657, 599/599, 686/686 a 777/777 slov, tedy bez jediného falešného poplachu.",
+			"regrese": "Zavedeno 5. 8. 2026 poté, co kotva TŘIKRÁT po sobě odmítla zdravý zvuk k hustotě (677 slov ze 701) a zarovnání u objemu spárovalo jen 547 z 659 slov. Že řeč nechyběla, doložil poměr délek: text hustota:hmotnost = 0,961 a zvuk taky 0,961. Příčinou byly číslovky — scénář je má slovy („dvě stě padesát“), whisper číslicemi („250“). Oprava čísla z porovnání VYPOUŠTÍ na obou stranách; práh zůstal 2 %, kotva se tedy neoslabila."
+		}
+	}
 }
