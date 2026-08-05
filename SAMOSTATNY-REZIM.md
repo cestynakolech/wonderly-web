@@ -55,8 +55,21 @@ veličin, čas, teplota, teplotní roztažnost, magnetismus). Kontrolor dávky 2
 se promítla poučení z dávky 1 (strop délky věty 165 znaků, zákaz zobecňování přes zdroj,
 zájmeno musí mít předchůdce) — a **projevilo se to**: dávka 2 měla vět nad 160 znaků nula.
 
-**F6 HOTOVO: 16 z 21 scénářů.** Zbývá: jednoduché elektrické obvody, elektrické vlastnosti
-látek, pololetní shrnutí, roční shrnutí, dvacet pokusů. Pak F7 (33 podtémat).
+**✅ FYZIKA 6 KOMPLETNÍ: 21 z 21 scénářů**, tři dávky, tři nezávislí kontroloři.
+Měřidlo nad všemi: 21 vstupů, 0 nálezů. Výroba celého ročníku vyjde na **40 Kč**.
+Další na řadě: **F7 (33 podtémat)**.
+
+**Dávka 3 (elektřina, shrnutí, pokusy) — kontrolor našel 4 ZÁVAŽNÉ, 12 drobných.**
+Dvě závažné byly **bezpečnostní** a stojí za zapamatování jako vzorec:
+1. Díl o obvodech uváděl zásuvku mezi zdroji napětí a o dva odstavce dál dával praktický
+   návod „nejdřív zapoj obvod bez zdroje… pak připoj zdroj" — v audiu, které dítě
+   poslouchá doma samo, bez obrázku. Nikde nezaznělo, že zdrojem smí být **jen baterie**.
+   Doplněno na čtyřech místech (kotva v měřidle: všechny 4 věty musí být přítomné).
+2. Díl `pokusy` u Archimédova poháru neřekl, že kámen musí být **celý pod hladinou**
+   a že voda nesmí přetéct — podle poslechu by dítě naměřilo objem jen ponořené části.
+**Poučení: u obsahu, který se konzumuje POSLECHEM BEZ OBRAZU, musí kontrolor dostat
+zvláštní otázku „dá se to podle poslechu vůbec bezpečně provést a nechybí krok?"** —
+běžná kontrola věcné správnosti tohle nenajde, protože každá věta je sama o sobě pravdivá.
 
 **❓ NÁLEZY VE VÝKLADU F6 — ČEKAJÍ NA ROZHODNUTÍ UČITELE** (pravidlo
 [[feedback-kontrolovat-spravnost-textu]]: odborný text učitele neopravovat potichu).
@@ -77,6 +90,13 @@ Ve scénářích jsou všechny obejity — netvrdí se nic sporného. **Na webu 
 | 11 | `hmotnost` | zakazuje „váha tělesa" a o odstavec dál „1 litr vody **váží** 1 kg" | stránka si odporuje v tom, co sama zakázala |
 | 12 | `souhrnne-opakovani-velicin` | „m = 5 kg **je veličina**, 5 m je jednotka" | obojí je ZÁPIS; „m = 5 kg" je hmotnost, „5 m" je délka pět metrů |
 | 13 | `hustota` | „atom železa je **56×** těžší než vodíku" | vychází 55,4 — chybí slovo „přibližně" |
+| 14 | `pokusy` | balónek a papírky = „opačné náboje se přitahují" | papírky **nejsou nabité**; jde o polarizaci, kterou tatáž stránka jinde správně vysvětluje |
+| 15 | `pokusy` | Archimédův pohár bez podmínky ponoření | bez „celý pod hladinou, voda nesmí přetéct" vyjde objem jen ponořené části |
+| 16 | `elektricke-vlastnosti-latek` | „uzemnění — Země **přijme** volné elektrony" | platí jen pro záporně nabité těleso; u kladného elektrony ze Země naopak přitečou |
+| 17 | `elektricke-vlastnosti-latek` | „plast se nabije **vždy** záporně, sklo kladně" | znaménko závisí na DVOJICI třených látek, ne na materiálu samotném |
+| 18 | `elektricke-vlastnosti-latek` | nabité těleso „**obsahuje ionty**" | u kovů jde o přebytek či nedostatek volných elektronů, ionty nevznikají |
+| 19 | `rocni-shrnuti` | v přehledu veličin mají proud a napětí ve sloupci Značka „—" | chybí `I` a `U`, jako jediné ze všech devíti veličin |
+| 20 | `pokusy` | řetěz sponek „ukáže dosah magnetické síly" | ukazuje slábnutí přenesené magnetizace při dotyku; pole působí i bez dotyku |
 
 **✅ KLÍČ VLOŽEN A OVĚŘEN 5. 8. 11:47** (`sk-proj-`, 164 znaků, práva `-rw-------`).
 Past: **`nano` se přes tlačítko Run nespustí** — interaktivní editor v neinteraktivním
