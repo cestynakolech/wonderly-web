@@ -6,6 +6,21 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
+### ✅ Hotovo 5. 8. ráno — kolo D8: měřidlo MakeCode/VEXcode + úklid disku (chyby a nastavení)
+
+- **Měřidlo `nazvy-bloku.mjs` umí MakeCode i VEXcode** (uzavřen bod 4b/1 auditu:
+  „nekontroluje NIC“). Zdroj pravdy: oficiální překlady makecode.com/api/translations
+  (cs; pozor showNumber/showString = „ZOBRAZ“, showIcon/showArrow = „UKAŽ“).
+  **První ostrý běh našel 4 živé vady:** „ukaž řetězec“ + „odešli řetězec“
+  (MicrobitRadioSimulace), blok „pauza 400 ms“ ve výkladu i kvízu (správně „čekej“).
+  Opraveno, obousměrně doloženo (54 → 60 kontrol), nasazeno a curl ověřen.
+- **Úklid disku (schválil učitel):** smazáno 16 nahraných anonymizovaných kopií
+  + pracovní složky 2 hotových pečlivých videí (~2,4 GB). Trvalá politika zapsána
+  do `nahraj_stara_videa.py` i `pecliva_videa.py` — po úspěšném nahrání se maže
+  lokální kopie/kousky, originál a finální mp4 VŽDY zůstávají.
+- KOLODĚJE potvrzeno učitelem; další video si pečlivá linka bere sama (hodinové buzení).
+- Popisy prezentací 7/8/9 běží lokálním vision modelem (22+/32 v době zápisu).
+
 ### ✅ KONTROLA D5 UZAVŘENA — kolo D7 (4. 8. ~23:45)
 
 Nový kontrolor (čerstvý kontext): **9 nálezů, 5 závažných**, každý doložen spuštěním
@@ -147,9 +162,8 @@ diamant, měřidla, limity, jedno místo, tokeny ČÁSTEČNĚ). Hned opraveno:
    podvrh + zdravý stav do `testy/obousmerne.json` (dluh `bezDokladu` = 14, jen klesat).
 4. `cz()` chybí v 11 simulacích, které formátují čísla.
 4b. **Z auditu 4. 8.** (celý výstup v `AUDIT-2026-08-04.md`):
-   - **Měřidlo názvů bloků MakeCode + VEXcode** — nic je nehlídá (prošly neexistující
-     ikony a cm); slovníky už kontrolor dohledal (`pxt-microbit` cs, VEXcode IQ = EN+mm).
-     Rozšířit `nazvy-bloku.mjs` o dvě sekce + obousměrný důkaz. Vlastní kolo.
+   - ~~Měřidlo názvů bloků MakeCode + VEXcode~~ — **HOTOVO 5. 8. (kolo D8)**,
+     hned našlo a opravilo 4 živé vady.
    - **Čísla v PROGRESS.md generovat, ne opisovat** („14 simulací" × realita 86) —
      buď skriptem z brány, nebo nahradit odkazem na `node zkontroluj.mjs`.
    - **Checkpointy vázat na datum, ne číslo kola** — „revize à 10 kol" umřela
