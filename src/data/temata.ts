@@ -364,8 +364,13 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{
 							druh: 'video',
-							nazev: 'Polemika: Gravitační síla 🎬',
+							nazev: 'Polemika 1: Gravitační síla 🎬',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1.mp4',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2.mp4',
 						},
 					],
 				},
