@@ -361,6 +361,13 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>příliv a odliv</strong> — gravitační síla Měsíce působí na vodu v oceánech</li>
 						</ul>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika: Gravitační síla 🎬',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1.mp4',
+						},
+					],
 				},
 			],
 		},
