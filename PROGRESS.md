@@ -904,4 +904,22 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   ČEKÁ NA UČITELE: duplicity otázek mezi kvízy `pusobeni-teles-a-deformace` a
   `sily-kolem-nas/sila`.
 
+- **2026-08-05 odpoledne — polemiky a videa ke gravitační síle (dvě nasazená).** Podkásty
+  jsou nově **POLEMIKA dvou lidí** (upřesnění učitele: „diskuse, kde protiargumentují a tím
+  vysvětlují jevy"), ne výklad s otázkami. Vyrobena a nasazena **dvě videa** k tématu
+  `sila/gravitacni-sila` — hlasy ElevenLabs (free tarif → atribuce `elevenlabs.io` v názvu,
+  nekomerční užití školní web splňuje), obraz z 13 scén. Videa jdou do **R2** pod `/media/`,
+  ne do repa (9 MB/díl; libx264 CRF 26 srazil 63 MB na 9 MB). Nový řetěz skriptů v Omeze:
+  `pokryti_kvizu.py` (brána — polemika musí obsahovat odpovědi na VŠECHNY kvízové otázky,
+  dvoustupňově: slova zdarma, lokální model na nejisté), `snimky_podkastu.py` (schémata
+  kreslená kódem přes Chrome headless — model neuhlídá délky šipek), `video_podkastu.py`
+  (časování zarovnáním na přepis whisperem + režim `--bez-scenare` pro cizí nahrávky),
+  `automat_podkastu.py` (celý řetěz od scénáře po R2). Skill **`podkast-video`**, návody
+  `NAVOD-ELEVENLABS.md`, `NAVOD-NOTEBOOKLM-VIDEO.md`, `NAVOD-PRO-KOLEGU-VIDEA.md`.
+  **Nálezy:** první polemika nepokrývá kvíz (chybí Newton, u přílivu nezaznělo, že ho
+  způsobuje Měsíc); OpenAI střih napoprvé ztratil 27 % řeči a zachytila to až kotva;
+  ceny ověřené — OpenAI ~6,20 Kč/díl (~700 Kč za 115), ElevenLabs ~2 200 Kč a free tarif
+  jen 2 díly měsíčně. Čeká: videa k dalším tématům přes OpenAI, jeden pokus s NotebookLM,
+  Chatterbox TTS odložen (nula stažení).
+
 _Starší záznamy (od začátku projektu) jsou v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — ten se automaticky nečte._

@@ -6,7 +6,39 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🎯 PRVNÍ ÚKOL PO OTEVŘENÍ SESSION: zkušební díl na ElevenLabs
+### 🎯 PRVNÍ ÚKOL PO OTEVŘENÍ SESSION (5. 8. odpoledne): videa k polemikám přes OpenAI
+
+**Povel učitele: `WONDERLY VIDEA`.** Postup je celý ve skillu **`podkast-video`** —
+načti ho jako první, je v něm řetěz, pravidla i pasti.
+
+**Co je hotové a nasazené (5. 8. odpoledne):**
+- Dvě polemiky ke gravitační síle, obě s videem, obě živé na
+  `lab.wonderly.cz/skola2/fyzika/6-rocnik/sila/gravitacni-sila/` (ověřeno curlem).
+  Hlasy z ElevenLabs, proto je v názvu atribuce `elevenlabs.io` — free tarif ji žádá.
+- Celý řetěz skriptů: `pokryti_kvizu.py` → `vyrob_podkasty.py` / `vyrob_dialog_elevenlabs.py`
+  → `snimky_podkastu.py` → `video_podkastu.py` → `automat_podkastu.py`.
+- Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
+  přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
+
+**Na čem se pokračuje — v tomhle pořadí:**
+
+1. **Videa k dalším tématům Fyziky 6 přes OpenAI.** Pro každé téma je potřeba:
+   polemika (pokrývající celý kvíz), scénosled s `kresba`/`tema_kvizu`/`cesta_na_webu`,
+   dokreslit chybějící schémata do `snimky_podkastu.py`, pak `automat_podkastu.py`.
+   Scénářů F6 je 21, ale jsou psané jako SÓLO VÝKLAD — musí se přepsat na polemiku.
+2. **Doplnit odpovědi na kvíz do první polemiky o gravitaci** — chybí v ní Isaac Newton
+   a u přílivu nezaznělo, že ho způsobuje Měsíc (`pokryti_kvizu.py` to hlásí).
+   Vyžaduje nový zvuk, takže se to vyplatí spojit s přechodem na OpenAI.
+3. **Jedno video s hlasem z NotebookLM** — učitel to chce zkusit. Audio vyrábí ON,
+   video skládá Claude režimem `--bez-scenare`. Postup a pasti:
+   `Omega/dokumenty/NAVOD-NOTEBOOKLM-VIDEO.md`.
+4. **Chatterbox TTS (CC0, zdarma) — ODLOŽENO učitelem**, protože má nula stažení
+   a nikdo ho neověřil. Nezačínat bez jeho pokynu.
+
+**Nedělat:** nepřepisovat schémata bez podívání se na hotové PNG, nerušit kotvu
+„střih ztratil řeč" ve `vyrob_podkasty.py` (5. 8. zachytila ztrátu 27 % řeči).
+
+### ✅ Hotovo 5. 8. — zkušební díl na ElevenLabs (uzavřeno)
 
 **Povel učitele: `WONDERLY PODKASTY`.** Stav: **21 z 21 scénářů Fyziky 6 napsaných
 a zkontrolovaných**, klíč OpenAI funguje, jeden díl hotový a učitelem schválený
