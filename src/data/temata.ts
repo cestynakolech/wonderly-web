@@ -5116,7 +5116,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>blok <strong>opakuj stále</strong> → střídej dva obrázky = animace</li>
 							<li>stáhni program do desky (nebo sleduj simulátor)</li>
 						</ol>
-						<p>👉 Mezi obrázky patří blok <strong>pauza 400 ms</strong> — nechá obrázek chvíli svítit. Bez pauzy by se obrázky střídaly tak rychle, že by splynuly v jeden.</p>
+						<p>👉 Mezi obrázky patří blok <strong>čekej 400 ms</strong> — nechá obrázek chvíli svítit. Bez pauzy by se obrázky střídaly tak rychle, že by splynuly v jeden.</p>
 						<p>👉 Pozor na rozdíl: <strong>po spuštění</strong> proběhne <em>jedenkrát</em> a skončí, kdežto <strong>opakuj stále</strong> jede pořád dokola. Animace proto patří do „opakuj stále" — a musí se v ní střídat <strong>dva různé</strong> obrázky, jinak se na displeji nic nezmění.</p>
 						<h3>Co umí displej?</h3>
 						<ul>

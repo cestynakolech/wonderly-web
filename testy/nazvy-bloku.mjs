@@ -124,10 +124,59 @@ function popisVzoru(vzor) {
  */
 const SIMULACE_SE_SCRATCHEM = ['VetveniSimulace', 'OpakovaniSimulace', 'PromenneSimulace', 'SouradniceSimulace', 'LedDisplejSimulace', 'UdalostiSimulace', 'VlastniBlokySimulace', 'BludisteSimulace', 'KlonovaniSimulace', 'PingPongSimulace', 'HonickaSimulace', 'StrileckaSimulace', 'SkakackaSimulace'];
 
+/**
+ * MakeCode (micro:bit) a VEXcode IQ — doplněno 5. 8. 2026 (fronta 4b, nález auditu:
+ * „názvy bloků MakeCode a VEXcode nekontroluje ŽÁDNÉ měřidlo, jen pokyn kontrolorovi
+ * ve skillu — pravidlo jen v poznámce nefunguje"). Kontrolor D1 ručně našel, že
+ * micro:bit nemá ikonu vykřičníku ani šipky a VEXcode IQ nezná centimetry — od té
+ * doby to nikdo nehlídal.
+ *
+ * Zdroj pravdy MakeCode: oficiální překlady z https://makecode.com/api/translations
+ * ?filename=microbit/core-strings.json&lang=cs (a radio-strings.json) — klíče níže
+ * jsou z nich opsané doslova, staženo 5. 8. 2026. POZOR na rozdíl, který svádí:
+ * showNumber/showString je „ZOBRAZ číslo/text", ale showIcon/showArrow je
+ * „UKAŽ ikonu/šipku" — obě slovesa v jedné paletě.
+ *
+ * VEXcode IQ nemá českou lokalizaci — bloky jsou ANGLICKY (výklad webu to výslovně
+ * učí) a drivetrain pracuje v mm/palcích, nikdy v cm. České věty kolem („jeď těsně
+ * k překážce") jsou zadání úloh, ne názvy bloků — proto se hlídá jen tvar bloku.
+ */
+const MAKECODE_CELKY = ['informatika/8-rocnik/microbit'];
+const VEX_CELKY = ['informatika/8-rocnik/roboticka-stavebnice', 'informatika/8-rocnik/co-umi-vex-iq'];
+const SIMULACE_S_MAKECODE = ['MicrobitVstupySimulace', 'MicrobitRadioSimulace'];
+const SIMULACE_S_VEX = ['VexcodeSimulace', 'ProjektRobotSimulace', 'SestaveniRobotaSimulace', 'MotoryDisplejZvukSimulace', 'SenzoryRobotaSimulace'];
+
+export const ZAKAZANE_MAKECODE = [
+	// Hned první běh měřidla našel obě „řetězcové" vady živé v MicrobitRadioSimulace.
+	{ vzor: /ukaž (řetězec|text)/, spravne: 'zobraz text ( )', zdroj: 'basic.showString|block = zobraz|text %text' },
+	{ vzor: 'ukaž číslo', spravne: 'zobraz číslo ( )', zdroj: 'basic.showNumber|block = zobraz|číslo %number' },
+	{ vzor: /zobraz (ikonu|šipku)/, spravne: 'ukaž ikonu / ukaž šipku', zdroj: 'basic.showIcon|block = ukaž ikonu %i · basic.showArrow|block = ukaž šipku' },
+	// Ikony vykřičník ani šipka v IconNames nejsou (šipky mají VLASTNÍ blok „ukaž šipku").
+	{ vzor: /ikon[ua][^)\n]{0,18}(vykřičník|šipk)/, spravne: 'taková ikona neexistuje (na šipky je blok „ukaž šipku")', zdroj: 'IconNames — vykřičník v seznamu není; showArrow je samostatný blok' },
+	{ vzor: 'po stisknutí tlačítka', spravne: 'při stisknutí tlačítka ( )', zdroj: 'input.onButtonPressed|block = při stisknutí tlačítka %NAME' },
+	{ vzor: /pauza \(?\d/, spravne: 'čekej ( ) ms', zdroj: 'basic.pause|block = čekej %pause ms' },
+	{ vzor: /když je přijat[oa]? (číslo|text)/, spravne: 'při přijetí čísla / při přijetí textu', zdroj: 'radio.onReceivedNumber|block = při přijetí čísla („když je přijato…" je zastaralý tvar)' },
+	{ vzor: /odešli (rádiem )?řetězec/, spravne: 'odešli rádiem text ( )', zdroj: 'radio.sendString|block = odešli rádiem text %msg' },
+	{ vzor: 'pošli rádiem', spravne: 'odešli rádiem číslo/text', zdroj: 'radio.sendNumber|block = odešli rádiem číslo %value' },
+];
+
+export const ZAKAZANE_VEX = [
+	// Nález kontrolora D1 (3. 8.): „drive for 30 cm" — VEXcode IQ centimetry nezná.
+	// Vzor chce cm/centimetry BLÍZKO anglického slovesa bloku, aby nehlásil legitimní
+	// české věty o vzdálenostech (senzor „vzdálenost > 10 cm" je didakticky v pořádku).
+	{ vzor: /(drive|turn)[^;)\n]{0,25}\b(cm\b|centimetr)/, spravne: 'drive for ( ) mm — VEXcode IQ zná jen mm a palce', zdroj: 'VEXcode IQ Blocks: drivetrain %distance mm/inches' },
+];
+
+/** Sady palet: každá má své celky, své komponenty a svou tabulku zakázaných tvarů. */
+const SADY = [
+	{ paleta: 'Scratch', celky: SCRATCH_CELKY, komponenty: SIMULACE_SE_SCRATCHEM, zakazane: ZAKAZANE },
+	{ paleta: 'MakeCode', celky: MAKECODE_CELKY, komponenty: SIMULACE_S_MAKECODE, zakazane: ZAKAZANE_MAKECODE },
+	{ paleta: 'VEXcode', celky: VEX_CELKY, komponenty: SIMULACE_S_VEX, zakazane: ZAKAZANE_VEX },
+];
+
 export async function zkontrolujNazvyBloku(data) {
 	const { kvizy, temata } = data ?? (await nactiData());
 	const nalezy = [];
-	const jeScratch = (klic) => SCRATCH_CELKY.some((c) => klic.startsWith(c + '/'));
 
 	// (a) komponenty simulací — jen text, který žák vidí (popisky bloků a tlačítek),
 	// ne komentáře v kódu: ty o vadách často schválně mluví.
@@ -136,44 +185,50 @@ export async function zkontrolujNazvyBloku(data) {
 		const { join, dirname } = await import('node:path');
 		const { fileURLToPath } = await import('node:url');
 		const slozka = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'components', 'skola2');
-		for (const jmeno of SIMULACE_SE_SCRATCHEM) {
-			const cesta = join(slozka, jmeno + '.astro');
-			if (!existsSync(cesta)) continue;
-			const cely = readFileSync(cesta, 'utf8')
-				.replace(/^---[\s\S]*?---/, '')          // hlavička s poznámkami autora
-				.replace(/^\s*\/\/.*$/gm, '')             // řádkové komentáře
-				.replace(/\/\*[\s\S]*?\*\//g, '');        // blokové komentáře
-			// POZOR: na zdrojový KÓD se nesmí pustit `text()`. Odstraňuje totiž všechno mezi
-			// „<" a „>", takže v JS podmínce (`i < 80`) spolkne i celé řádky za ní — a přesně
-			// proto první verze téhle kontroly podvrh NENAŠLA (ověřeno otiskem souboru:
-			// podvrh zapsaný byl, měřidlo přesto hlásilo 0 nálezů).
-			// Čte se proto zvlášť: z HTML textové uzly, ze skriptu jen řetězcové literály —
-			// popisky bloků žijí právě tam.
-			const casti = cely.split(/<script>|<\/script>/);
-			const html = casti.filter((_, i) => i % 2 === 0).join(' ');
-			const kod = casti.filter((_, i) => i % 2 === 1).join(' ');
-			const literaly = (kod.match(/'[^'\n]*'|"[^"\n]*"|`[^`]*`/g) ?? []).join(' \n ');
-			const t = text(html) + ' \n ' + literaly.toLowerCase();
-			for (const z of ZAKAZANE) {
-				if (sedi(z.vzor, t)) nalezy.push({ klic: `komponenta ${jmeno}`, kde: 'simulace', ...z });
+		for (const sada of SADY) {
+			for (const jmeno of sada.komponenty) {
+				const cesta = join(slozka, jmeno + '.astro');
+				if (!existsSync(cesta)) continue;
+				const cely = readFileSync(cesta, 'utf8')
+					.replace(/^---[\s\S]*?---/, '')          // hlavička s poznámkami autora
+					.replace(/^\s*\/\/.*$/gm, '')             // řádkové komentáře
+					.replace(/\/\*[\s\S]*?\*\//g, '');        // blokové komentáře
+				// POZOR: na zdrojový KÓD se nesmí pustit `text()`. Odstraňuje totiž všechno mezi
+				// „<" a „>", takže v JS podmínce (`i < 80`) spolkne i celé řádky za ní — a přesně
+				// proto první verze téhle kontroly podvrh NENAŠLA (ověřeno otiskem souboru:
+				// podvrh zapsaný byl, měřidlo přesto hlásilo 0 nálezů).
+				// Čte se proto zvlášť: z HTML textové uzly, ze skriptu jen řetězcové literály —
+				// popisky bloků žijí právě tam.
+				const casti = cely.split(/<script>|<\/script>/);
+				const html = casti.filter((_, i) => i % 2 === 0).join(' ');
+				const kod = casti.filter((_, i) => i % 2 === 1).join(' ');
+				const literaly = (kod.match(/'[^'\n]*'|"[^"\n]*"|`[^`]*`/g) ?? []).join(' \n ');
+				const t = text(html) + ' \n ' + literaly.toLowerCase();
+				for (const z of sada.zakazane) {
+					if (sedi(z.vzor, t)) nalezy.push({ klic: `komponenta ${jmeno}`, kde: `simulace (${sada.paleta})`, ...z });
+				}
 			}
 		}
 	}
 
-	for (const pod of vsechnaPodtemata(temata)) {
-		if (!jeScratch(pod.klic)) continue;
-		const t = text(pod.obsah);
-		for (const z of ZAKAZANE) {
-			if (sedi(z.vzor, t)) nalezy.push({ klic: pod.klic, kde: 'výklad', ...z });
-		}
-	}
+	for (const sada of SADY) {
+		const patri = (klic) => sada.celky.some((c) => klic.startsWith(c + '/'));
 
-	for (const [klic, otazky] of Object.entries(kvizy)) {
-		if (!jeScratch(klic) || !Array.isArray(otazky)) continue;
-		for (const o of otazky) {
-			const t = text([o.text, ...(o.odpovedi ?? []).map((a) => (typeof a === 'string' ? a : a?.text)), o.vysvetleni].join(' \n '));
-			for (const z of ZAKAZANE) {
-				if (sedi(z.vzor, t)) nalezy.push({ klic, kde: `kvíz — „${String(o.text).slice(0, 45)}…"`, ...z });
+		for (const pod of vsechnaPodtemata(temata)) {
+			if (!patri(pod.klic)) continue;
+			const t = text(pod.obsah);
+			for (const z of sada.zakazane) {
+				if (sedi(z.vzor, t)) nalezy.push({ klic: pod.klic, kde: `výklad (${sada.paleta})`, ...z });
+			}
+		}
+
+		for (const [klic, otazky] of Object.entries(kvizy)) {
+			if (!patri(klic) || !Array.isArray(otazky)) continue;
+			for (const o of otazky) {
+				const t = text([o.text, ...(o.odpovedi ?? []).map((a) => (typeof a === 'string' ? a : a?.text)), o.vysvetleni].join(' \n '));
+				for (const z of sada.zakazane) {
+					if (sedi(z.vzor, t)) nalezy.push({ klic, kde: `kvíz (${sada.paleta}) — „${String(o.text).slice(0, 45)}…"`, ...z });
+				}
 			}
 		}
 	}

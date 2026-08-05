@@ -3936,7 +3936,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak vznikne animace na displeji?', odpovedi: ['střídáním dvou obrázků', 'jedním velkým obrázkem', 'zatřesením desky'], vysvetleni: 'Obrázky se musí lišit — ze dvou stejných se na displeji nic nezmění.' },
 		{ text: 'Blok „po spuštění" se vykoná…', odpovedi: ['jednou po startu desky', 'pořád dokola až do vypnutí', 'až po stisku tlačítka A'], vysvetleni: 'Na opakování je jiný blok — „opakuj stále".' },
 		{ text: 'Program v bloku „opakuj stále" ukazuje pořád jeden a týž obrázek. Co uvidíš?', odpovedi: ['pořád stejný obrázek, nic se nehýbe', 'obrázek bude blikat rychleji', 'displej se sám zhasne'], vysvetleni: 'Opakování samo o sobě pohyb nedělá — musí se střídat dva různé obrázky.' },
-		{ text: 'Co udělá blok „pauza 400 ms"?', odpovedi: ['nechá obrázek chvíli svítit', 'zrychlí celý program', 'vypne celý displej'], vysvetleni: 'Bez pauzy by se obrázky střídaly tak rychle, že by splynuly v jeden.' },
+		{ text: 'Co udělá blok „čekej 400 ms"?', odpovedi: ['nechá obrázek chvíli svítit', 'zrychlí celý program', 'vypne celý displej'], vysvetleni: 'Bez pauzy by se obrázky střídaly tak rychle, že by splynuly v jeden.' },
 		{ text: 'Kolik obrázků potřebuješ na nejjednodušší animaci?', odpovedi: ['dva, které se střídají', 'nejméně dvacet pět', 'stačí jediný'], vysvetleni: 'Dva různé obrázky za sebou — z jednoho se hýbat nic nebude.' },
 		{ text: 'Jak na displeji ukážeš obrázek, který mezi hotovými ikonami není?', odpovedi: ['sám rozsvítím jednotlivé LED', 'zvětším nejbližší ikonu', 'displej to neumí'], vysvetleni: 'V bloku pro vlastní obrázek se zaškrtá, které z 25 LED mají svítit.' },
 	],

@@ -103,6 +103,47 @@ function data({ obsah = '', materialy = [], interakce, otazky = [] }) {
 		kvizy: {},
 	};
 	tvrdi('názvy bloků: mimo Scratch se nehlásí nic', (await zkontrolujNazvyBloku(mimo)).length === 0);
+
+	// ---- MakeCode (micro:bit) — sekce doplněná 5. 8. 2026 (audit: „nekontroluje NIC").
+	const microbit = (obsah, otazky = []) => ({
+		temata: {
+			'informatika/8-rocnik': [
+				{ slug: 'microbit', nazev: 'micro:bit', podtemata: [{ slug: 'pod', nazev: 'P', obsah, materialy: [] }] },
+			],
+		},
+		kvizy: { 'informatika/8-rocnik/microbit/pod': otazky },
+	});
+
+	// PODVRH: „ukaž číslo" — oficiálně je „zobraz číslo" (basic.showNumber). Přesně tahle
+	// záměna sloves (ukaž × zobraz) prošla na web u „ukaž řetězec" a našel ji až první
+	// běh rozšířeného měřidla 5. 8. 2026.
+	const mkPodvrh = await zkontrolujNazvyBloku(microbit('<p>Použij blok <em>ukaž číslo (42)</em>.</p>'));
+	tvrdi('MakeCode: „ukaž číslo" (správně „zobraz číslo") se najde', mkPodvrh.length >= 1);
+
+	// PODVRH neexistující ikony (nález kontrolora D1: vykřičník ani šipka v IconNames nejsou).
+	const mkIkona = await zkontrolujNazvyBloku(microbit('<p>Dej <em>ukaž ikonu (vykřičník)</em>.</p>'));
+	tvrdi('MakeCode: ikona vykřičníku (neexistuje) se najde', mkIkona.length >= 1);
+
+	// ZDRAVÝ STAV: skutečné názvy z oficiálních překladů (zobraz číslo, ukaž ikonu srdce,
+	// při stisknutí tlačítka, čekej ms, odešli rádiem text).
+	const mkZdrave = await zkontrolujNazvyBloku(microbit(
+		'<p><em>zobraz číslo (42)</em>, <em>ukaž ikonu (srdce)</em>, <em>při stisknutí tlačítka A</em>, <em>čekej (400) ms</em>, <em>odešli rádiem text („ahoj")</em>. Bez pauzy by obrázky splynuly.</p>',
+	));
+	tvrdi('MakeCode: správné názvy se nehlásí (ani „bez pauzy" ve větě)', mkZdrave.length === 0);
+
+	// ---- VEXcode IQ — jednotky. Nález kontrolora D1: „drive for 30 cm" — VEX cm nezná.
+	const vex = (obsah) => ({
+		temata: {
+			'informatika/8-rocnik': [
+				{ slug: 'co-umi-vex-iq', nazev: 'VEX IQ', podtemata: [{ slug: 'pod', nazev: 'P', obsah, materialy: [] }] },
+			],
+		},
+		kvizy: {},
+	});
+	tvrdi('VEXcode: „drive for 30 cm" se najde', (await zkontrolujNazvyBloku(vex('<p>Blok <em>drive for 30 cm</em> tě posune.</p>'))).length >= 1);
+	tvrdi('VEXcode: „drive for 300 mm" je zdravé', (await zkontrolujNazvyBloku(vex('<p>Blok <em>drive for 300 mm</em> tě posune.</p>'))).length === 0);
+	// České věty o vzdálenosti nejsou názvy bloků — hlásit se nesmí.
+	tvrdi('VEXcode: „vzdálenost > 10 cm" ve větě se nehlásí', (await zkontrolujNazvyBloku(vex('<p>Opakuj dokud je vzdálenost > 10 cm.</p>'))).length === 0);
 }
 
 // ==================================================== 3) nazornost() — jádro nazornost.mjs
