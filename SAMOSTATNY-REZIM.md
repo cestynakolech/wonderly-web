@@ -6,6 +6,54 @@
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
+### 🎧 Hotovo 5. 8. — kolo D9: PODKÁSTY F6 — prvních 8 scénářů + návod na API + výrobní skript
+
+Povel `WONDERLY PODKASTY`, první kolo. **Vějíř 4 workerů po 2 scénářích** (test falešné
+hrany: scénáře na sobě nezávisí), podklady vytažené z `nactiData()` — ne z textu souboru.
+
+- **8 scénářů F6 hotových** v `Omega/podkasty-scenare/6/`: uvod-do-fyziky, telesa-a-latky,
+  casticove-slozeni-latek, atomy-a-molekuly, skupenstvi-latek, vzajemne-pusobeni-teles-sila,
+  gravitacni-sila, delka. Kontrakt uzlu: hlavička + `## Mluvený text`, 1800–2800 znaků,
+  jeden vypravěč, bez markdownu a závorek (text jde do syntézy DOSLOVA), obsah jen z výkladu.
+- **Návod pro učitele** `Omega/dokumenty/NAVOD-OPENAI-API.md` — zřízení klíče krok za krokem,
+  nabití kreditu, `chmod 600`, co dělat při chybách. Klíč **nikdy do chatu** (registraci
+  a hesla dělá učitel sám — jediná zakázaná kategorie).
+- **Výrobní skript** `Omega/skripty/vyrob_podkasty.py` (`--test` / `--vzorek` / `--rocnik`).
+  Dělí text po odstavcích pod 1400 znaků (strop modelu je 2000 tokenů), slepuje ffmpegem,
+  hotový díl nevyrábí znovu, starou verzi odkládá jako `.predchozi` (nic nemaže),
+  baterie ≤ 30 % = pauza, 3 neúspěchy = ODLOŽENO a jede dál, na konci porovná
+  hotovo+odloženo vs. plán (tiché selhání).
+- **Kotvy:** dělení textu proměřeno spuštěním nad všemi 8 scénáři — 21 požadavků,
+  **ztráta 0 znaků**, žádná část nad stropem. Kontrola klíče ověřena OBOUSMĚRNĚ
+  (soubor s textem okolo → odmítnuto kódem 2; platný tvar → mlčí).
+- **Cena ověřena výpočtem, ne odhadem:** ceník z developers.openai.com (0,60 USD/M vstup,
+  12 USD/M zvuk), 21 522 znaků na 8 dílů → **10,21 USD ≈ 225 Kč za všech 115 dílů**.
+  Sedí s dřívějším odhadem 150–300 Kč.
+
+**Kontrola:** nezávislý kontrolor (čerstvý kontext) — **0 závažných, 13 drobných**, vše
+opraveno a přeměřeno (8 vstupů, 0 nálezů: rozsah, hlavičky sedí na skutečnost, žádný
+markdown/závorka/číslice/symbol, žádná část nad stropem). Přepočítal i všechna čísla:
+58 kg × 10 = 580 N, 15 t → 150 kN, 3 m = 30 dm = 300 cm = 3000 mm, 2 km = 2000 m — sedí
+a jsou celá. Nejcennější nález: **dvě chyby nebyly ve scénáři, ale ve VÝKLADU na webu** ↓
+
+**❓ DVA NÁLEZY VE VÝKLADU F6 — ČEKAJÍ NA ROZHODNUTÍ UČITELE** (pravidlo
+[[feedback-kontrolovat-spravnost-textu]]: odborný text učitele neopravovat potichu):
+1. `skupenstvi-latek`: „krystalické látky — pravidelné uspořádání částic, **velice tvrdé**,
+   tvoří krystaly (led, sůl, cukr, křemen, diamant)". Tvrdost neplyne z krystalické stavby:
+   led má podle Mohse asi 1,5, sůl 2,5, cukr 2 — všechno měkčí než sklo, které je na TÉŽE
+   stránce uvedeno jako amorfní a „méně tvrdé" (sklo má 5,5, je tedy tvrdší než sůl i led).
+   Návrh: vypustit „velice tvrdé" a u amorfních „méně tvrdé"; tvrdost už stránka správně
+   vysvětluje o odstavec níž Mohsovou stupnicí.
+2. `delka`: „laserový měřič vzdáleností — **nejpřesnější**". Laserový dálkoměr měří s
+   odchylkou 1–2 mm, kdežto mikrometr uvedený o řádek výš měří na setiny milimetru, tedy
+   zhruba stokrát jemněji. Návrh: „na velké vzdálenosti, princip odrazu světelného paprsku".
+Ve scénářích jsou obě místa zatím obejita (tvrzení vypuštěno, nic protichůdného se netvrdí).
+
+**⏸️ ČEKÁ NA UČITELE:** vložit klíč do `Omega/skripty/data/openai-klic.txt` (návod výš).
+Pak: `--test` → vzorek 1 dílu → poslech a schválení hlasu → teprve dávková výroba.
+Hlas zatím nevybrán — 13 hlasů je laděných na angličtinu, vybere se poslechem vzorku.
+**Do té doby se píšou další scénáře** (F6 zbývá 13, pak F7).
+
 ### ✅ Hotovo 5. 8. ráno — kolo D8: měřidlo MakeCode/VEXcode + úklid disku (chyby a nastavení)
 
 - **Měřidlo `nazvy-bloku.mjs` umí MakeCode i VEXcode** (uzavřen bod 4b/1 auditu:
