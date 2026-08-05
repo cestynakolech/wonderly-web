@@ -69,6 +69,16 @@ export const temata: Record<string, Tema[]> = {
 							<li>můžeme vymýšlet <strong>nové vynálezy</strong></li>
 						</ul>
 					`,
+					materialy: [
+						// Hlasy z OpenAI TTS — obsah je náš, atribuci uvádět nemusíme
+						// (na rozdíl od dílů o gravitaci z bezplatného tarifu ElevenLabs,
+						// které „elevenlabs.io" v názvu mít musí).
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky.mp4',
+						},
+					],
 				},
 				{
 					slug: 'telesa-a-latky',

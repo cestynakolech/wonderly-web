@@ -69,6 +69,13 @@
 			"regrese": "První verze testu (122 kontrol) propustila 5 podvrhů v textech a 5 ve scéně; mutační test testy/mutace.mjs odhalí 14 ze 14.",
 			"overeno": "2026-08-03"
 		},
+		"vyrob_podkasty.py — dělení dialogu na části": {
+			"test": "~/Desktop/Omega/skripty/testy/test_deleni_dialogu.py",
+			"podvrh": "Šest poškozených dělení téhož rozhovoru: vypadlá replika, prohozené části, oddělovač '\\n' místo '\\n\\n', uříznutých 40 znaků na konci části, zdvojená část a naivní řez po znacích uprostřed repliky. Všech šest kontrola odhalí (36 kontrol celkem).",
+			"zdravy": "Nad všemi sedmi skutečnými scénáři F6 dá slepení částí přesně původní text, žádná část nepřekročí strop a hranice padnou jen mezi repliky. Pět dílů pod stropem se NEDĚLÍ vůbec, takže se u nich proti dosavadnímu chování nemění nic.",
+			"regrese": "Zavedeno 5. 8. 2026, když OpenAI odmítlo díl „Úvod do fyziky\" (5 548 znaků = 2 159 tokenů proti stropu 2 000) a automat ho po třech pokusech odložil. Strop 4 700 znaků je odvozen z MĚŘENÍ, ne z odhadu: nejdelší prošlý díl měl 4 747 znaků a poměr vyšel 2,57 znaku na token. Části se dělají stejně dlouhé, aby jeden krátký zbytek nezněl jinak než celek. Kotva „střih ztratil řeč\" se NEMĚNILA — pracuje dál nad slepenou nahrávkou.",
+			"overeno": "2026-08-05"
+		},
 		"vyrob_podkasty.py — kotva „střih ztratil řeč\"": {
 			"test": "~/Desktop/Omega/skripty/testy/test_kotva_cisla.py",
 			"podvrh": "Ze zdravého přepisu se odebere 10 % slov (pětinásobek tolerance). Kotva to zachytí u všech čtyř dílů F6: hustota 591/657, objem 539/599, hmotnost 617/686, síla 699/777 — všechny nad prahem, výroba by skončila chybou.",
