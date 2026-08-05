@@ -1,10 +1,35 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (4. 8. 2026 — předání novému modelu)
+## ⏩ KDE POKRAČOVAT (5. 8. 2026 večer — předání do čerstvé session)
 
 > **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
+
+### 🎯 PRVNÍ ÚKOL PO OTEVŘENÍ SESSION: zkušební díl na ElevenLabs
+
+**Povel učitele: `WONDERLY PODKASTY`.** Stav: **21 z 21 scénářů Fyziky 6 napsaných
+a zkontrolovaných**, klíč OpenAI funguje, jeden díl hotový a učitelem schválený
+(„první díl je dobře"). Otevřené jsou dvě věci — obě rozhodne JEDEN pokus:
+
+1. **Učitel chce DIALOG dvou lidí, ne sólo vypravěče** (rozhodl 5. 8., potvrdil podruhé).
+2. **U hlasů mu vadí anglický přízvuk** a u slepovaného dialogu to, že repliky zní odděleně.
+
+Cesta přes OpenAI je hotová a funguje (viz „JAK SE DIALOG VYRÁBÍ" níž), ale je to obcházení
+problému. **ElevenLabs `Text to Dialogue` (Eleven v3) umí víc mluvčích v JEDNOM požadavku**
+— odpadá střih, dvojí syntéza i přepis, a čeština je nativně podporovaná.
+
+**Co udělat jako první (na to učitel čeká):**
+- Vyrobit **jeden zkušební díl** na bezplatných 10 000 znacích ElevenLabs (registrace
+  a klíč = úkol UČITELE, klíč nikdy do chatu, uložit vedle `openai-klic.txt`, `chmod 600`).
+- Poslat učiteli vedle `Omega/podkasty-vzorky-hlasu/dialog-D-prostrizeny.mp3` k porovnání.
+- **Než se doporučí přechod, OVĚŘIT skutečnou cenu** ElevenLabs pro ~322 000 znaků
+  (115 dílů) — dosud NENÍ ověřená, jen se ví, že je řádově vyšší než u OpenAI.
+- Podle výsledku buď přepsat 21 scénářů F6 do dialogu a vyrobit, nebo zůstat u OpenAI.
+
+**Pak teprve:** přepis scénářů F6 do dialogu → výroba → zapojení na web jako `druh: 'audio'`
+→ F7 (33 podtémat). A dál čeká **20 nálezů ve výkladu na webu** (tabulka níž) — učitel
+se k nim ještě nevyjádřil, do `temata.ts` se bez jeho pokynu NESAHÁ.
 
 ### 🎧 Hotovo 5. 8. — kolo D9: PODKÁSTY F6 — prvních 8 scénářů + návod na API + výrobní skript
 

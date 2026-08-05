@@ -127,6 +127,32 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-05 (audio podkásty fyziky — celá Fyzika 6 napsaná, hlas vybrán, rozhodnut dialog)** —
+  Povel `WONDERLY PODKASTY`. **Napsáno a zkontrolováno všech 21 z 21 scénářů Fyziky 6**
+  (`Omega/podkasty-scenare/6/`), tři dávky vějířem workerů, ke každé **nezávislý kontrolor**;
+  měřidlo nad všemi hlásí 21 vstupů, 0 nálezů. Učitel zřídil klíč OpenAI (ověřen skutečným
+  voláním), poslechem 13 hlasů vybral **`fable`** a schválil první hotový díl
+  (gravitační síla, 3:58) — pak ale rozhodl, že podkásty budou **DIALOG dvou lidí**
+  (`fable` vysvětluje, `nova` se ptá), protože „polemika by byla zajímavější".
+  **Nejcennější výstup nejsou scénáře, ale 20 věcných chyb NALEZENÝCH VE VÝKLADU NA WEBU**
+  (ocel jako „sloučenina", krystalické látky „velice tvrdé", laserový dálkoměr
+  „nejpřesnější", uzemnění jen pro záporný náboj, u proudu a napětí chybí značky I a U…) —
+  do `temata.ts` se bez pokynu učitele NESÁHLO, tabulka čeká v `SAMOSTATNY-REZIM.md`.
+  **Dvě z nich byly BEZPEČNOSTNÍ:** díl o obvodech uváděl zásuvku mezi zdroji a hned nato
+  dával návod na zapojení, aniž kdy řekl, že zdrojem smí být jen baterie; u Archimédova
+  poháru chyběl krok „kámen celý pod hladinou". Poučení: **u obsahu konzumovaného
+  POSLECHEM BEZ OBRAZU musí kontrolor dostat zvláštní otázku „dá se to podle poslechu
+  bezpečně provést a nechybí krok?"** — běžná kontrola věcné správnosti to nenajde,
+  protože každá věta je sama o sobě pravdivá. **Nápad učitele, který zafungoval:** místo
+  syntézy replika po replice (zní slepeně, intonace se u každé resetuje) přečte celý
+  rozhovor každý hlas zvlášť, repliky se podle časů slov vystřihnou a proloží — výsledek
+  74 s proti 89 s a znatelně plynulejší. Proměřeno i to, co zdarma NEJDE: hranice replik
+  podle pauz (nejkratší vybraná pauza 0,75 s = nejdelší nevybraná, odhad chybný o 3,7–10 s)
+  ani lokální whisper (liší se o 0,19 s, useknul by 1–3 repliky ze 13; větší model
+  nepomohl). ZBÝVÁ: zkušební díl na **ElevenLabs Text to Dialogue** (víc mluvčích v jednom
+  požadavku → odpadá střih i dvojí syntéza), ověřit jeho cenu, pak přepsat 21 scénářů
+  do dialogu, vyrobit, zapojit na web jako `druh: 'audio'` a pokračovat F7 (33 podtémat).
+
 - **2026-08-04 (appka /tour přepnuta z mužské na ŽENSKOU Tour + poznávačka + oprava živé tabulky)** —
   Zadání učitele: *„nyní jsme na dámské tour a jede tam minimálně jedna Češka, pokud to jde
   předělej ji"*, pak *„pokus se tam dostat startovní číslo a dej nám sem obrázky dresu
