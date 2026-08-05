@@ -20,6 +20,28 @@ načti ho jako první, je v něm řetěz, pravidla i pasti.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
 
+**ROZDĚLANÉ (5. 8. 16:40) — díl „Vzájemné působení těles, síla", zbývá jen video:**
+
+Hotovo a ověřeno: polemika `podkasty-scenare/6/vzajemne-pusobeni-teles-sila-dialog.md`
+(45 replik, brána `pokryti_kvizu.py` hlásí **16 z 16 otázek pokryto**), scénosled,
+**13 nových schémat** v `snimky_podkastu.py` (`vzajemne_kop`, `ucinky`, `deformace`,
+`sila_neni_sama`, `dotyk_a_dalka`, `druhy_sil`, `znaceni`, `predpony`, `sipka`,
+`silomer`, `prima_umernost`, `jeden_newton`, `shrnuti_sila`) a zvuk
+`/Users/Shared/Škola/podkasty/6/vzajemne-pusobeni-teles-sila-dialog.mp3`
+(6:06, kotva střihu 793 slov proti 799 — sedí).
+
+**Zbývá:** ilustrace `podklad-00.png` obrázkovým modelem (scéna 0 je jediná
+ilustrační), pak `video_podkastu.py` a nasazení do R2 + `temata.ts`.
+
+> **Proč se video nedodělalo:** na Macu běžela pečlivá anonymizace starého videa
+> („Nová Pec 2", od 8:21 ráno, kousek 21 z 29). Whisper a ffmpeg by běžely souběžně
+> a mohly to kolo shodit — přišel by celý den práce. Video se pustí, až automat dojede.
+
+**Poučení z prohlídky snímků (5. 8.):** kontaktní list zase našel to, co výpis skriptu
+neukázal — schéma přímé úměrnosti mělo protažení pružin v poměru 1 : 1,7 : 2,4, zatímco
+popisky pod nimi tvrdily 1 : 2 : 3. Opraveno na měření od nezatížené délky a doplněna
+kotva výpočtem. Dál: škrt vedený přes popisek a jablko vznášející se nad dlaní.
+
 **Na čem se pokračuje — v tomhle pořadí:**
 
 1. **Videa k dalším tématům Fyziky 6 přes OpenAI.** Pro každé téma je potřeba:
