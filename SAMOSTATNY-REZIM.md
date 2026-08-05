@@ -49,10 +49,40 @@ a jsou celá. Nejcennější nález: **dvě chyby nebyly ve scénáři, ale ve V
    zhruba stokrát jemněji. Návrh: „na velké vzdálenosti, princip odrazu světelného paprsku".
 Ve scénářích jsou obě místa zatím obejita (tvrzení vypuštěno, nic protichůdného se netvrdí).
 
-**⏸️ ČEKÁ NA UČITELE:** vložit klíč do `Omega/skripty/data/openai-klic.txt` (návod výš).
-Pak: `--test` → vzorek 1 dílu → poslech a schválení hlasu → teprve dávková výroba.
+**Dávka 2 — dalších 8 scénářů F6 hotových** (hmotnost, objem, hustota, souhrnné opakování
+veličin, čas, teplota, teplotní roztažnost, magnetismus). Kontrolor dávky 2: **3 závažné,
+12 drobných** — vše opraveno, přeměřeno (16 vstupů, 0 nálezů). Do zadání workerů dávky 2
+se promítla poučení z dávky 1 (strop délky věty 165 znaků, zákaz zobecňování přes zdroj,
+zájmeno musí mít předchůdce) — a **projevilo se to**: dávka 2 měla vět nad 160 znaků nula.
+
+**F6 HOTOVO: 16 z 21 scénářů.** Zbývá: jednoduché elektrické obvody, elektrické vlastnosti
+látek, pololetní shrnutí, roční shrnutí, dvacet pokusů. Pak F7 (33 podtémat).
+
+**❓ NÁLEZY VE VÝKLADU F6 — ČEKAJÍ NA ROZHODNUTÍ UČITELE** (pravidlo
+[[feedback-kontrolovat-spravnost-textu]]: odborný text učitele neopravovat potichu).
+Ve scénářích jsou všechny obejity — netvrdí se nic sporného. **Na webu zatím JAK BYLY.**
+
+| # | podtéma | co je ve výkladu | proč to nesedí |
+|---|---|---|---|
+| 1 | `magneticke-vlastnosti-latek` | „železo a jeho **sloučeniny** (ocel)" | ocel je **slitina** (železo + uhlík), ne sloučenina; a většina sloučenin železa feromagnetická není (rez, síran železnatý) |
+| 2 | `magneticke-vlastnosti-latek` | ocel mezi feromagnetickými, **nerezová ocel** mezi nemagnetickými | přímý rozpor bez vysvětlení; nemagnetické jsou jen austenitické nerezi, běžné nože a indukční dna magnet přitahuje |
+| 3 | `magneticke-vlastnosti-latek` | pole Země vzniká „**rotací** tekutého jádra" | pole tvoří **proudění** vodivého jádra (geodynamo); rotace sama pole nedělá |
+| 4 | `magneticke-vlastnosti-latek` | indukční čáry = „uzavřené křivky **vedoucí od** severního pólu k jižnímu" | uzavřená křivka nikam „nevede"; od N k J míří **vně** magnetu |
+| 5 | `skupenstvi-latek` | „krystalické látky — **velice tvrdé**"; „amorfní — méně tvrdé" | led 1,5, sůl 2,5, cukr 2 podle Mohse; sklo (amorfní) má 5,5, je tedy tvrdší. Tvrdost z krystalické stavby neplyne |
+| 6 | `delka` | „laserový měřič vzdáleností — **nejpřesnější**" | laser měří s odchylkou 1–2 mm, mikrometr o řádek výš na setiny mm, tedy ~100× jemněji |
+| 7 | `teplotni-roztaznost` | „látky **všech skupenství** se zahřátím zvětší" | chybí anomálie vody (0 až 4 °C se zahříváním smršťuje — proto led plave); je to učivo 6. ročníku |
+| 8 | `teplotni-roztaznost` × `teplota-a-jeji-mereni` | rtuťový teploměr jako běžná pomůcka × „rtuť dnes zakázaná" | dvě stránky si protiřečí |
+| 9 | `cas-a-jeho-mereni` | „čas udávala **hmotnost** odkapané vody" | klepsydra má stupnici na hladině, měří objem |
+| 10 | `cas-a-jeho-mereni` | „fyzika pojem **vteřina nezná**" | „vteřina" je spisovný český název, jen se přednostně říká sekunda |
+| 11 | `hmotnost` | zakazuje „váha tělesa" a o odstavec dál „1 litr vody **váží** 1 kg" | stránka si odporuje v tom, co sama zakázala |
+| 12 | `souhrnne-opakovani-velicin` | „m = 5 kg **je veličina**, 5 m je jednotka" | obojí je ZÁPIS; „m = 5 kg" je hmotnost, „5 m" je délka pět metrů |
+| 13 | `hustota` | „atom železa je **56×** těžší než vodíku" | vychází 55,4 — chybí slovo „přibližně" |
+
+**⏸️ ČEKÁ NA UČITELE:** (a) vložit klíč do `Omega/skripty/data/openai-klic.txt` (návod
+`Omega/dokumenty/NAVOD-OPENAI-API.md`), (b) rozhodnout 13 nálezů v tabulce výš.
+Po klíči: `--test` → vzorek 1 dílu → poslech a schválení hlasu → teprve dávková výroba.
 Hlas zatím nevybrán — 13 hlasů je laděných na angličtinu, vybere se poslechem vzorku.
-**Do té doby se píšou další scénáře** (F6 zbývá 13, pak F7).
+**Do té doby se píšou další scénáře** — klíč na ně potřeba není.
 
 ### ✅ Hotovo 5. 8. ráno — kolo D8: měřidlo MakeCode/VEXcode + úklid disku (chyby a nastavení)
 
