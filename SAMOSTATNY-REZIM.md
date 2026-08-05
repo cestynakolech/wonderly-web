@@ -29,6 +29,38 @@
    produkci** (učitel 5. 8. hlásil, že u hustoty video nenašel — tehdy ještě
    neexistovalo, nezaměnit s chybou nasazení).
 
+### ▶️ POTOM: učitel 5. 8. SCHVÁLIL přepsat na polemiky VŠECHNA zbývající témata F6
+
+Je jich **16** (ne 17 — gravitační síla polemiku už má). Pořadí podle učiva; ke
+každému stejný řetěz jako dosud: kvíz → polemika → brána `pokryti_kvizu.py` →
+scénosled → schémata → **prohlídka kontaktním listem** → zvuk → video → nasazení.
+
+1. `uvod-do-fyziky`
+2. `telesa-a-latky`
+3. `casticove-slozeni-latek`
+4. `atomy-a-molekuly`
+5. `skupenstvi-latek`
+6. `delka`
+7. `cas-a-jeho-mereni`
+8. `teplota-a-jeji-mereni`
+9. `teplotni-roztaznost`
+10. `elektricke-vlastnosti-latek`
+11. `magneticke-vlastnosti-latek`
+12. `jednoduche-elektricke-obvody`
+13. `pokusy`
+14. `souhrnne-opakovani-velicin`
+15. `pololetni-shrnuti`
+16. `rocni-shrnuti`
+
+**Nepracuj na víc než třech dílech v jedné session** — kontext dojde uprostřed
+a hrozí, že se ztratí rozdělaná práce. Po každém dokončeném dílu zapiš stav sem
+a commitni; pak se dá kdykoli navázat.
+
+**Ohlídej si tohle:** shrnující díly (14–16) mají kvízy složené z otázek jiných
+témat, takže brána bude chtít pokrýt hodně otázek naráz — počítej u nich s delší
+polemikou nebo je rozděl na dva díly. `pokusy` naopak nemusí mít kvíz vůbec;
+pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
+
 **Co je hotové a nasazené (5. 8. odpoledne):**
 - Dvě polemiky ke gravitační síle, obě s videem, obě živé na
   `lab.wonderly.cz/skola2/fyzika/6-rocnik/sila/gravitacni-sila/` (ověřeno curlem).
