@@ -113,6 +113,36 @@ od stolu nejde — všech 13 je laděných na angličtinu a liší se hlavně č
 znaku za sekundu proti 12,8 u vzorku téhož hlasu → sedí, žádná ze tří částí nechybí.
 Cena dílu 2 Kč. **Poslán učiteli k poslechu — čeká se na schválení, pak dávková výroba.**
 
+**🎙️ ROZHODNUTO 5. 8.: podkásty budou DIALOG dvou lidí** (učitel `fable` vysvětluje,
+žákyně `nova` se ptá). Všech 21 scénářů F6 se přepíše do rozhovoru; cena vzroste ze 40
+na ~50 Kč. Pravidlo obsahu: **tázající se smí jen ptát nebo vyslovit tip JAKO TIP**
+(„Řekla bych, že ne…"), nikdy tvrdit nepravdu jako fakt — v audiu si dítě zapamatuje
+i větu, která je vzápětí opravena.
+
+**⚙️ JAK SE DIALOG VYRÁBÍ — nápad učitele, ověřeno 5. 8. a JE TO LEPŠÍ CESTA.**
+Naivní postup (každá replika = vlastní požadavek) zní slepeně, protože model neslyší,
+co bylo předtím, a **intonace se u každé repliky resetuje**. Učitelův nápad to obchází:
+1. **Celý rozhovor přečte v kuse hlas A, pak celý znovu hlas B** (každý tedy čte i cizí
+   repliky) — díky tomu má prozódie kontext a odpověď navazuje na otázku.
+2. Obě nahrávky se pošlou na `whisper-1` s `timestamp_granularities[]=word` → čas u
+   každého slova.
+3. Slova zadání se zarovnají proti přepisu (`difflib.SequenceMatcher`, ne slovo po slovu —
+   přepis nikdy nesedí přesně; naměřeno 96 a 97 % shody) a z toho vyjdou hranice replik.
+4. Každá replika se vystřihne z nahrávky SVÉHO mluvčího a kousky se proloží (0,12 s ticha).
+**Výsledek: 74 s proti 89–91 s u slepované verze** — kratší proto, že nikdo nezačíná
+větu „od nuly". Kotva proti tichému selhání: výsledek se přepíše zpět a **porovná počet
+slov se zadáním** (153 = 153); pauzy se počítat NEDAJÍ, model dělá pauzu i mezi větami
+(naměřeno 33–38 pauz tam, kde jich mělo být 12).
+Cena: syntéza běží 2× (každý hlas čte vše) + přepis, tedy F6 asi 85 Kč místo 40 Kč.
+
+**❓ HLAS JEŠTĚ NENÍ DEFINITIVNÍ.** Učitel u `fable` slyší cizí přízvuk („ukrajinský nebo
+slovenský"). Rešerše 5. 8.: **žádné doporučení hlasu pro češtinu neexistuje** — OpenAI
+v dokumentaci sama píše, že hlasy jsou laděné na angličtinu a kvalita se liší podle jazyka,
+doporučuje vlastní zkoušku. Hlasů je **13, ne 6**; dozkoušeny zbylé (`ash`, `ballad`,
+`coral`, `sage`, `verse` a nejnovější `marin`, `cedar`) na větě nabité ř/ě/š/ž a přízvukem
+na první slabice. Čeká se na výběr učitele. Když nevyhoví ani jeden, náhradou jsou
+poskytovatelé s RODILÝMI českými hlasy (Azure, Google, ElevenLabs) — jiný účet a ceník.
+
 **📹 NOVÉ ZADÁNÍ UČITELE 5. 8.: z podkástu udělat VIDEO** podkreslené obrázky nebo
 animacemi. Výslovně **až po zvuku** — nejdřív musí být hotová a schválená zvuková stopa.
 Poznámka k návrhu, až na to dojde: web už má ke spoustě podtémat hotové interaktivní
