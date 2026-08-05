@@ -52,6 +52,37 @@ nemaže, nenahrává ven. Spuštění (i pro učitele):
 `~/.hermes/hermes-agent/venv/bin/hermes -z "Přečti /Users/radek_soukromy/Desktop/Omega/HERMES-UKOLY.md a plň úkoly po řadě podle pravidel v něm."`
 Paměť: [[feedback-hermes-zalozni-pracant]].
 
+### 🔥 ZADÁNÍ UČITELE 5. 8. RÁNO (nejvyšší priorita — „fyzika je nejdůležitější“)
+
+**A. Tajemná laboratoř → příběhová pátračka** (`src/pages/hry/laborator.astro`).
+Dnes: dole lišta otazníků, klik vybere otázku („otázka za hodiny“). Učitel chce:
+děti HLEDAJÍ V OBRÁZKU — kliknou na předmět (hodiny), otevře se otázka; po uhádnutí
+se předmět ZMĚNÍ a stane se INDICIÍ k dalšímu stanovišti (hodiny se přeřídí — ručičky
+ukážou SMĚR dalšího úkolu, nebo čas = číslo, které napoví umístění). Řetěz stanovišť
+= příběh, soutěž, ať to děti baví. Návrh řetězu si rozmyslet předem (každé razítko
+odemyká další indicii), zachovat razítka a ročníky. Vlastní kolo v ČERSTVÉ session,
+klidně vějíř (návrh příběhu × implementace × kontrola).
+
+**B. Fyzika na 100 % — v KAŽDÉM podtématu: interaktivní animace + video + audio
+podkást.** Změřeno 5. 8. z dat webu (116 podtémat fyziky):
+| ročník | podtémat | bez simulace | bez videa | bez audia |
+|---|---|---|---|---|
+| F6 | 21 | 7 | 20 | 21 |
+| F7 | 33 | 9 | 13 | 32 |
+| F8 | 37 | 14 | 32 | 37 |
+| F9 | 25 | 12 | 12 | 25 |
+Postup po kolech (fyzika má přednost před informatikou ve frontě):
+1. **Simulace (42 chybí)** — vějíře `/simulace` po 4, od F6 (nejmenší dluh, základ).
+2. **Videa (77 chybí)** — worker-media hledá ČESKÁ oficiální YouTube vložení
+   (pravidla: jen oficiální přehrávač, jen české, ověřit pokrytí učiva).
+   Co nenajde → seznam učiteli do KE-SCHVALENI.md (může natočit/dodat sám).
+3. **Audio podkásty (115 chybí — skoro vše)** — plán: Claude píše SCÉNÁŘE
+   (2–4 min na podtéma), hlas = NEJDŘÍV OTESTOVAT lokální české TTS (1 vzorek
+   učiteli ke schválení); když kvalita nestačí, učitel namluví sám podle scénářů,
+   nebo dodá TTS službu. Druh materiálu `audio` v datech existuje a web ho umí.
+Měřidlo pokrytí zapojit do brány jako sledovanou hodnotu (ne tvrdou chybu),
+ať čísla klesají viditelně každé kolo.
+
 ### 📋 ZADÁNÍ UČITELE 4. 8. (přednost před frontou)
 
 1. ~~Video `TW9Zewb9w34` nasadit + první stránka s mapou a titulky~~ — **HOTOVO
