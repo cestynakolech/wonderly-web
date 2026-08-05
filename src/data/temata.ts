@@ -120,6 +120,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Vlastnosti těles, které můžeme <strong>změřit</strong>, se nazývají <strong>fyzikální veličiny</strong> (délka, výška, hmotnost, objem, hustota…).</p>
 					`,
+					materialy: [
+						// Hlasy z OpenAI TTS — atribuci uvádět nemusíme.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je látka a těleso totéž? 🎬',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/polemika-telesa-a-latky.mp4',
+						},
+					],
 				},
 				{
 					slug: 'casticove-slozeni-latek',

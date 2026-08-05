@@ -36,7 +36,7 @@ každému stejný řetěz jako dosud: kvíz → polemika → brána `pokryti_kvi
 scénosled → schémata → **prohlídka kontaktním listem** → zvuk → video → nasazení.
 
 1. ~~`uvod-do-fyziky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
-2. `telesa-a-latky`
+2. ~~`telesa-a-latky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
 3. `casticove-slozeni-latek`
 4. `atomy-a-molekuly`
 5. `skupenstvi-latek`
@@ -69,6 +69,25 @@ pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
   → `snimky_podkastu.py` → `video_podkastu.py` → `automat_podkastu.py`.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
+
+### ✅ HOTOVO 5. 8. 2026 večer — díl 2 „Tělesa a látky"
+
+Polemika `podkasty-scenare/6/telesa-a-latky-dialog.md` (37 replik, 3 950 znaků),
+brána **12 z 12 na první pokus**. **14 nových schémat** ve `snimky_podkastu.py`
+(`latka_je_material`, `znaky_telesa`, `hrebik_zelezo`, `okno_z_vice_latek`,
+`mleko_v_lahvi`, `totez_slovo`, `dve_otazky`, `teleso_neni_jen_tvrde`,
+`vlastnosti_latek`, `tvrdost_nebo_poloha`, `teleso_ma_navic`, `fyzikalni_veliciny`,
+`zmerit_nebo_ne`, `shrnuti_telesa`) + 1 ilustrace. Video 8 MB, **5:11**, živé na
+`lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/`.
+
+**DÉLKA SE VYPLATILA.** Zvuk prošel **na první pokus** (685 slov proti 678) a stál
+**5,6 Kč** — proti dlouhému dílu 1, který potřeboval tři pokusy za ~24 Kč. Scénář
+byl schválně pod stropem 4 700 znaků, takže se nahrávka nemusela dělit na části.
+Doporučení pro další díly: **držet se pod 4 700 znaky**, ne kvůli syntéze (ta si
+už poradí), ale kvůli spolehlivosti střihu.
+
+V kresbách našla prohlídka dvě vady: popisek „materiál, obecně" ležel přes obrys
+mléka a bílé mléko vytékalo dvacet pixelů pod dno láhve. Obojí opraveno.
 
 ### ✅ HOTOVO 5. 8. 2026 večer — díl 1 „Úvod do fyziky"
 
