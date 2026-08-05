@@ -76,10 +76,18 @@ Postup po kolech (fyzika má přednost před informatikou ve frontě):
 2. **Videa (77 chybí)** — worker-media hledá ČESKÁ oficiální YouTube vložení
    (pravidla: jen oficiální přehrávač, jen české, ověřit pokrytí učiva).
    Co nenajde → seznam učiteli do KE-SCHVALENI.md (může natočit/dodat sám).
-3. **Audio podkásty (115 chybí — skoro vše)** — plán: Claude píše SCÉNÁŘE
-   (2–4 min na podtéma), hlas = NEJDŘÍV OTESTOVAT lokální české TTS (1 vzorek
-   učiteli ke schválení); když kvalita nestačí, učitel namluví sám podle scénářů,
-   nebo dodá TTS službu. Druh materiálu `audio` v datech existuje a web ho umí.
+3. **Audio podkásty (115 chybí — skoro vše)** — rozhodnutí učitele 5. 8.:
+   lokální TTS NE (moc strojové). Preferuje AUTOMATIZACI. Varianty předložené
+   učiteli (čeká na volbu + případný klíč/předplatné):
+   (a) NotebookLM Plus ~480 Kč/měs — dvouhlasý český podkást, Claude obsluhuje
+       dávkově přes učitelův Chrome (rozšíření Claude in Chrome, učitel přítomen);
+   (b) ElevenLabs API ~2 300 Kč jednorázově (Pro 1 měsíc) — nejhezčí hlas, plně
+       automatické, Claude píše scénáře a automat vyrábí;
+   (c) OpenAI TTS API ~150–300 Kč celkem — nejlevnější, obyčejnější hlas.
+   Doporučená kombinace: (a) pro dvouhlasý formát, (b) jako bezobslužná alternativa.
+   Checklist se zdroji: /Users/Shared/Škola/PODKASTY-A-VIDEA-checklist.md;
+   hotové soubory: /Users/Shared/Škola/podkasty/ (automat na zapojení do webu
+   teprve vznikne). Druh materiálu `audio` v datech existuje a web ho umí.
 Měřidlo pokrytí zapojit do brány jako sledovanou hodnotu (ne tvrdou chybu),
 ať čísla klesají viditelně každé kolo.
 
