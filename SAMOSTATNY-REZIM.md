@@ -78,11 +78,30 @@ Ve scénářích jsou všechny obejity — netvrdí se nic sporného. **Na webu 
 | 12 | `souhrnne-opakovani-velicin` | „m = 5 kg **je veličina**, 5 m je jednotka" | obojí je ZÁPIS; „m = 5 kg" je hmotnost, „5 m" je délka pět metrů |
 | 13 | `hustota` | „atom železa je **56×** těžší než vodíku" | vychází 55,4 — chybí slovo „přibližně" |
 
-**⏸️ ČEKÁ NA UČITELE:** (a) vložit klíč do `Omega/skripty/data/openai-klic.txt` (návod
-`Omega/dokumenty/NAVOD-OPENAI-API.md`), (b) rozhodnout 13 nálezů v tabulce výš.
-Po klíči: `--test` → vzorek 1 dílu → poslech a schválení hlasu → teprve dávková výroba.
-Hlas zatím nevybrán — 13 hlasů je laděných na angličtinu, vybere se poslechem vzorku.
-**Do té doby se píšou další scénáře** — klíč na ně potřeba není.
+**✅ KLÍČ VLOŽEN A OVĚŘEN 5. 8. 11:47** (`sk-proj-`, 164 znaků, práva `-rw-------`).
+Past: **`nano` se přes tlačítko Run nespustí** — interaktivní editor v neinteraktivním
+shellu nic nevytvoří a učiteli to jen zhaslo. Cesta, která zabrala: `pbpaste | tr -d`
+rovnou do souboru, s kontrolou prefixu `sk-` a délky, bez vypsání klíče kamkoli.
+Druhá past pro příště: **klíč OpenAI ukáže JEN JEDNOU** — pořadí je Copy → uložit → Done.
+
+**✅ HLAS VYBRÁN: `fable`** (učitel 5. 8., poslechem 6 vzorků na skutečném úryvku scénáře
+o gravitační síle; vzorky stály 1 Kč, leží v `Omega/podkasty-vzorky-hlasu/`). Vybírat hlas
+od stolu nejde — všech 13 je laděných na angličtinu a liší se hlavně českou výslovností.
+
+**🎧 PRVNÍ CELÝ DÍL VYROBEN** — `/Users/Shared/Škola/podkasty/6/gravitacni-sila.mp3`,
+3:58, 3,8 MB, tři části slepené. Kotva proti tichému selhání: 2795 znaků / 238 s = 11,7
+znaku za sekundu proti 12,8 u vzorku téhož hlasu → sedí, žádná ze tří částí nechybí.
+Cena dílu 2 Kč. **Poslán učiteli k poslechu — čeká se na schválení, pak dávková výroba.**
+
+**📹 NOVÉ ZADÁNÍ UČITELE 5. 8.: z podkástu udělat VIDEO** podkreslené obrázky nebo
+animacemi. Výslovně **až po zvuku** — nejdřív musí být hotová a schválená zvuková stopa.
+Poznámka k návrhu, až na to dojde: web už má ke spoustě podtémat hotové interaktivní
+simulace, takže obraz nemusí vznikat od nuly — dá se snímat běžící simulace a časovat
+na scénář (scénář má odstavce, které jdou napárovat na scény). Vlastní kolo v ČERSTVÉ
+session, ffmpeg na Macu vždy jen JEDEN proces.
+
+**⏸️ ČEKÁ NA UČITELE:** (a) schválit první díl (hlas i formát) → pak výroba zbylých,
+(b) rozhodnout 13 nálezů ve výkladu v tabulce výš.
 
 ### ✅ Hotovo 5. 8. ráno — kolo D8: měřidlo MakeCode/VEXcode + úklid disku (chyby a nastavení)
 
