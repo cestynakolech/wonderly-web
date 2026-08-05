@@ -135,6 +135,32 @@ slov se zadáním** (153 = 153); pauzy se počítat NEDAJÍ, model dělá pauzu 
 (naměřeno 33–38 pauz tam, kde jich mělo být 12).
 Cena: syntéza běží 2× (každý hlas čte vše) + přepis, tedy F6 asi 85 Kč místo 40 Kč.
 
+**🔍 STŘIH ZDARMA? ČÁSTEČNĚ (proměřeno 5. 8.).** Samotné krájení a lepení je ffmpeg,
+lokálně a zdarma. Zjistit HRANICE zdarma ale spolehlivě nejde:
+- Podle pauz to nejde vůbec — nejkratší z 12 nejdelších pauz měří 0,75 s a nejdelší
+  z nevybraných taky 0,75 s. Rozdělení nemá mezeru, odhad se mýlil o 3,7 až 10 s.
+- Lokální `whisper` (brew, model v `~/.cache/whisper`) běží a je zdarma: `small` přepsal
+  77 s zvuku za 9 s, `medium` za 25 s. Proti placenému API se ale liší průměrně
+  o 0,19–0,20 s a **useknul by konec 1–3 replikám ze 13**. `medium` proti `small`
+  prakticky nepomohl (0,185 vs 0,204 s) — nevyplatí se, model se navíc stahuje 4 minuty.
+- Přichycení hranice k nejbližšímu skutečnému tichu pomůže (useknuté 2 → 1, odchylka
+  0,20 → 0,10 s), ale nespolehlivost neodstraní.
+→ Zatím se pro hranice používá placený přepis (`whisper-1`, ~1,6 Kč na díl včetně
+kontrolního přepisu). Učitel má i **MacWhisper.app**, ale ta je GUI, do automatu nejde.
+**Časy slov poslouží DVAKRÁT** — kromě střihu i na časování obrázků do videa (nápad
+učitele 5. 8.): obrázek naskočí přesně na slovo, ke kterému patří.
+
+**💡 TŘETÍ VARIANTA ZE ZADÁNÍ = ElevenLabs, a na tenhle problém sedí líp.**
+Má endpoint **Text to Dialogue** (model Eleven v3): v JEDNOM požadavku se pošle víc
+mluvčích s různými `voice_id` a model je namluví jako skutečný rozhovor — mluvčí na sebe
+reagují, skáčou si do řeči. **Tím odpadá celý střih i dvojí syntéza** a odpadá i důvod,
+proč jsme ho vymýšleli. Čeština je mezi 70+ jazyky. Strop 2000 znaků na požadavek,
+takže scénář 2800 znaků = 2 požadavky. Výstup je nedeterministický, opakovatelnost
+zajišťuje parametr `seed`. Daň: cena je řádově vyšší než u OpenAI (účtuje se po znacích,
+zdarma 10 000 znaků měsíčně) — **přesnou částku před doporučením OVĚŘIT**.
+**Doporučený další krok: vyrobit JEDEN díl na bezplatných 10 000 znacích a porovnat
+poslechem.** Nulový závazek, a rozhodne to obě otevřené otázky naráz (přízvuk i intonace).
+
 **❓ HLAS JEŠTĚ NENÍ DEFINITIVNÍ.** Učitel u `fable` slyší cizí přízvuk („ukrajinský nebo
 slovenský"). Rešerše 5. 8.: **žádné doporučení hlasu pro češtinu neexistuje** — OpenAI
 v dokumentaci sama píše, že hlasy jsou laděné na angličtinu a kvalita se liší podle jazyka,
