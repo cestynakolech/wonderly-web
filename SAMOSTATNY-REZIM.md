@@ -20,7 +20,30 @@ načti ho jako první, je v něm řetěz, pravidla i pasti.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
 
-**ROZDĚLANÉ (5. 8. 17:30) — TŘI díly F6 hotové až na video:**
+**ROZDĚLANÉ (5. 8. 17:45) — ČTYŘI díly F6 hotové až na video:**
+
+> ### ⚠️ NÁLEZ: kotva „střih ztratil řeč" hlásí u dílů plných čísel FALEŠNÝ POPLACH
+>
+> Zvuk k hustotě selhal 3× (677 slov ze 701, práh je 2 %) a automat ho odložil.
+> Měření ale ukazuje, že řeč **nechybí**: poměr délky textu hmotnost : hustota je
+> 0,961 a poměr délky zvuku **taky 0,961** — kdyby střih ušmikl 7 % řeči, zvuk by
+> byl proti textu znatelně kratší. Příčina je nejspíš v tom, že kotva počítá slova
+> v přepisu od whisperu, jenže whisper píše čísla číslicemi: „nula celá nula nula
+> jedna" je pět slov, přepíše se jako „0,001", tedy jedno. Scénář o hustotě je
+> číslovek plný. **Je to stejná past, jakou už vyřešila brána `pokryti_kvizu.py`**
+> (má slovník `CISLA` a převádí obojí na společný tvar).
+>
+> **Kotva ZATÍM ZMĚNĚNA NEBYLA** — je mezi chráněnými pravidly a už jednou chytila
+> skutečnou ztrátu 27 % řeči. Návrh: práh nechat na 2 %, jen doplnit stejný převod
+> čísel jako v bráně kvízu. Čeká na rozhodnutí učitele (dotaz položen 5. 8.).
+> Soubor `hustota-dialog.mp3` na disku JE (5:19), jen ho automat neoznačil za hotový.
+
+**4) „Objem"** — `podkasty-scenare/6/objem-dialog.md` (38 replik, brána hlásí
+**14 z 14 otázek pokryto**), scénosled, **12 nových schémat** (`znacka_v`,
+`metr_krychlovy`, `proc_tisic`, `duta_mira`, `most_litr`, `odmerny_valec`,
+`odecitani_hladiny`, `ponoreni_telesa`, `cele_pod_hladinou`, `vzorce_objemu`,
+`priklad_krabice`, `shrnuti_objem`), zvuk se vyráběl 5. 8. v 17:45.
+Nález z prohlídky: popisky ležely přes kresbu láhve — přesunuty pod ni.
 
 **3) „Hustota"** — `podkasty-scenare/6/hustota-dialog.md` (37 replik, brána hlásí
 **15 z 15 otázek pokryto**), scénosled, **13 nových schémat** (`peri_zelezo`,
