@@ -70,6 +70,41 @@ pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
 
+### ▶️ TADY SE POKRAČUJE (stav k 5. 8. 2026, 20:30 — konec session)
+
+**Další na řadě je díl 3 `casticove-slozeni-latek`.** Postup beze změny:
+kvíz → polemika → brána → scénosled → schémata → **prohlídka kontaktním listem** →
+zvuk → video → R2 + `temata.ts` → build → push → **ověřit curlem na produkci**.
+
+**Nové pravidlo z dnešního měření: scénář drž pod 4 700 znaky.** Ne kvůli syntéze
+(ta si po opravě poradí i s delším), ale kvůli spolehlivosti střihu — viz tabulka
+u dílu 2. Dlouhý díl stál 24 Kč a tři pokusy, krátký 5,6 Kč a jeden.
+
+**Jak ověřit hotový díl** (kotva hlídá jen POČET slov, ne KTERÁ chybí): porovnej
+každou repliku scénáře se slovy v přepisu `<slug>.prepis.json` a vypiš repliky pod
+60 % shody. Repliky plné čísel a jmen vyjdou nízko, i když zazněly — u těch se
+podívej do přepisu očima. Takhle se dnes potvrdilo, že oba nasazené díly jsou úplné
+a že i `hustota-dialog.mp3` (zůstal po třech neúspěších) je v pořádku.
+
+#### ⏸️ ČEKÁ NA UČITELE: zkouška hlasu z NotebookLM
+
+Podklady jsou hotové v `~/Desktop/Omega/podkasty-vzorky-hlasu/`:
+`PRO-NOTEBOOKLM-uvod-do-fyziky.txt` (zdroj) a `NOTEBOOKLM-CO-UDELAT.md` (postup).
+Zvolené téma je schválně **Úvod do fyziky**, aby šel hlas porovnat s už nasazenou
+verzí od OpenAI; snímky i scénosled k němu existují.
+
+**Zablokované na:** rozšíření Claude in Chrome hlásí u `notebooklm.google.com`
+„This site is blocked by your site permissions", zatímco jiné weby hlásí jinou,
+dočasnou chybu — povolení tedy neplatí. Buď bylo přidáno v jiném profilu (připojené
+jsou dva, já byl v „Hlavní profil — cesty.na.kolech"), nebo rozšíření Google služby
+nepustí vůbec. **Do nastavení rozšíření nesahat** a nezkoušet to znovu dokola —
+učitel buď povolí, nebo audio vyrobí ručně (je to pět kliknutí).
+
+Až mp3 bude na místě: přepis → klíčová slova **ze skutečného přepisu**, ne ze
+scénáře → kontrola, že si NotebookLM nevymyslel nesmysl a nevynechal odpovědi na
+kvíz (brána tohle u cizího textu neuhlídá) → `video_podkastu.py --bez-scenare`.
+**Nenasazovat na web, dokud si učitel nepřečte licenci Googlu** — rozhodnutí je jeho.
+
 ### ✅ HOTOVO 5. 8. 2026 večer — díl 2 „Tělesa a látky"
 
 Polemika `podkasty-scenare/6/telesa-a-latky-dialog.md` (37 replik, 3 950 znaků),
