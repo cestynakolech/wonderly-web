@@ -35,7 +35,7 @@ Je jich **16** (ne 17 — gravitační síla polemiku už má). Pořadí podle u
 každému stejný řetěz jako dosud: kvíz → polemika → brána `pokryti_kvizu.py` →
 scénosled → schémata → **prohlídka kontaktním listem** → zvuk → video → nasazení.
 
-1. `uvod-do-fyziky`
+1. ~~`uvod-do-fyziky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
 2. `telesa-a-latky`
 3. `casticove-slozeni-latek`
 4. `atomy-a-molekuly`
@@ -69,6 +69,43 @@ pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
   → `snimky_podkastu.py` → `video_podkastu.py` → `automat_podkastu.py`.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
+
+### ✅ HOTOVO 5. 8. 2026 večer — díl 1 „Úvod do fyziky"
+
+Polemika `podkasty-scenare/6/uvod-do-fyziky-dialog.md` (47 replik, 5 456 znaků),
+brána hlásí **12 z 12 otázek pokryto**. **16 nových schémat** ve `snimky_podkastu.py`
+(`co_je_fyzika`, `co_zkouma`, `tri_nastroje`, `pokus_experiment`, `hypoteza`,
+`mereni_cisly`, `zakon_neodhlasuje`, `galileo`, `proc_papir`, `apollo_dopad`,
+`pokus_doma`, `opakovani_pokusu`, `meni_se_hypoteza`, `jazyk_fyziky`,
+`k_cemu_fyzika`, `shrnuti_uvod`) + 2 ilustrace z mfluxu. Zvuk OpenAI, video 10 MB,
+**7:11** — živé na `lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/`.
+
+> **DÉLKA: 7:11 je nad rozsahem 4–6 min, který má skill.** Vzniklo tím, že téma má
+> 12 kvízových otázek a všechny musí zaznít. Obsahově je díl v pořádku, ale kdyby
+> ho učitel chtěl kratší, je potřeba scénář zkrátit asi o 800 znaků a zvuk i video
+> vyrobit znovu (~8 Kč). **Nechat rozhodnout učitele, sám to nepřepisuj.**
+
+> ### ✅ VYŘEŠENO 5. 8. 2026 večer — dlouhý rozhovor se do syntézy nevešel
+>
+> Dialog čte každý hlas VCELKU (kvůli intonaci), takže do jednoho požadavku jde
+> celý rozhovor. OpenAI bere nejvýš 2 000 tokenů; 5 548 znaků odmítlo jako 2 159
+> tokenů a automat díl po třech pokusech **odložil**. Změřený poměr: **2,57 znaku
+> na token**, nejdelší dosud prošlý díl měl 4 747 znaků.
+>
+> Opraveno ve `vyrob_podkasty.py` (`rozdel_repliky_na_kusy`, strop **4 700 znaků**):
+> delší rozhovor se dabuje po **stejně dlouhých částech na hranici replik** a části
+> se slepí do jedné nahrávky, takže zarovnání i kotva „střih ztratil řeč" pracují
+> nad celkem **beze změny**. Kotva se NEMĚNILA. Díly pod stropem se nedělí vůbec.
+> **Obousměrný důkaz:** `skripty/testy/test_deleni_dialogu.py` (36 kontrol) —
+> nad sedmi skutečnými scénáři mlčí, šest poškozených dělení odhalí. Zapsáno do
+> `wonderly-web/testy/obousmerne.json`. **Scénáře se kvůli délce zkracovat nemusí.**
+>
+> Pozn.: kotva střihu i tak spadla dvakrát (724 a 709 slov z 952) a prošla až na
+> třetí pokus (956/952). Střih přes OpenAI zůstává křehký — počítej s opakováním.
+
+**Prohlídka snímků zase našla dvě vady** (a z výpisu skriptu vidět nebyly):
+šipky odporu vzduchu visely mimo kámen i papír a shrnující věta ležela na kresbě
+měsíčního povrchu. Obojí opraveno, seznam pastí v návodu platí dál.
 
 **ROZDĚLANÉ (5. 8. 17:45) — ČTYŘI díly F6 hotové až na video:**
 
