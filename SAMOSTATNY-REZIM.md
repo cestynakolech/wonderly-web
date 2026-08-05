@@ -76,18 +76,28 @@ Postup po kolech (fyzika má přednost před informatikou ve frontě):
 2. **Videa (77 chybí)** — worker-media hledá ČESKÁ oficiální YouTube vložení
    (pravidla: jen oficiální přehrávač, jen české, ověřit pokrytí učiva).
    Co nenajde → seznam učiteli do KE-SCHVALENI.md (může natočit/dodat sám).
-3. **Audio podkásty (115 chybí — skoro vše)** — rozhodnutí učitele 5. 8.:
-   lokální TTS NE (moc strojové). Preferuje AUTOMATIZACI. Varianty předložené
-   učiteli (čeká na volbu + případný klíč/předplatné):
-   (a) NotebookLM Plus ~480 Kč/měs — dvouhlasý český podkást, Claude obsluhuje
-       dávkově přes učitelův Chrome (rozšíření Claude in Chrome, učitel přítomen);
-   (b) ElevenLabs API ~2 300 Kč jednorázově (Pro 1 měsíc) — nejhezčí hlas, plně
-       automatické, Claude píše scénáře a automat vyrábí;
-   (c) OpenAI TTS API ~150–300 Kč celkem — nejlevnější, obyčejnější hlas.
-   Doporučená kombinace: (a) pro dvouhlasý formát, (b) jako bezobslužná alternativa.
-   Checklist se zdroji: /Users/Shared/Škola/PODKASTY-A-VIDEA-checklist.md;
-   hotové soubory: /Users/Shared/Škola/podkasty/ (automat na zapojení do webu
-   teprve vznikne). Druh materiálu `audio` v datech existuje a web ho umí.
+3. **Audio podkásty (115 chybí) — ROZHODNUTO 5. 8.: OpenAI TTS API.**
+   Lokální TTS zamítnuto (strojové). Cena potvrzena učiteli: ~150–300 Kč za všech
+   115 dílů (~350 min, ~350 tis. znaků; před spuštěním ověřit aktuální ceník).
+
+   **POVEL `WONDERLY PODKASTY` = pracuj na podkástech takto:**
+   1. Zkontroluj klíč v `~/Desktop/Omega/skripty/data/openai-klic.txt`
+      (chmod 600; NIKDY ho nevypisovat do chatu ani logů). Když tam ještě není,
+      scénáře se píší i bez něj — výroba zvuku počká.
+   2. Napiš dávku SCÉNÁŘŮ (vějíř 4× worker, po ročnících od F6): 2–4 min mluveného
+      slova na podtéma, jeden vypravěč, jazyk pro děti 2. stupně, čísla celá,
+      obsah VYCHÁZÍ z výkladu podtématu (src/data/temata.ts) — žádné nové učivo,
+      nezávislý kontrolor zkontroluje věcnou správnost proti výkladu.
+      Scénáře do `Omega/podkasty-scenare/<rocnik>/<podtema-slug>.md`.
+   3. PRVNÍ DÍL = VZOREK: vyrob MP3 (model gpt-4o-mini-tts, hlas vybrat český
+      poslechem, výstup `/Users/Shared/Škola/podkasty/<rocnik>/<slug>.mp3`),
+      pošli učiteli k poslechu (SendUserFile / Telegram) a POČKEJ na schválení
+      hlasu a formátu — do té doby jen scénáře, žádná hromadná výroba.
+   4. Po schválení: noční automat (LaunchAgent vzor zsh; baterie ≤ 30 % pauza;
+      1 těžký proces) vyrábí dávky, průběžně zapojovat na web jako materiál
+      `druh: 'audio'` k podtématu + build + push + curl. Checklist pořadí:
+      `/Users/Shared/Škola/PODKASTY-A-VIDEA-checklist.md`.
+   Druh materiálu `audio` v datech existuje a web ho umí.
 Měřidlo pokrytí zapojit do brány jako sledovanou hodnotu (ne tvrdou chybu),
 ať čísla klesají viditelně každé kolo.
 
