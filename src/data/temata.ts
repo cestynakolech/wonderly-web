@@ -78,6 +78,13 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky.mp4',
 						},
+						// Zkušební verze s hlasy z lokálního modelu OmniVoice (zdarma, běží
+						// na tomto počítači) — stejný scénář, jiné hlasy, k porovnání.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬 (zkušební hlasy)',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky-omnivoice.mp4',
+						},
 					],
 				},
 				{
