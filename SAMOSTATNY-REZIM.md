@@ -75,8 +75,14 @@ a dvojnických názvů s neviditelnými znaky Fotek. Přidána **tvrdá pojistka
 `uz_publikovano()`**: co je na YouTube, se nevyrobí znovu za žádných okolností —
 hrozilo druhé nahrání téhož místa. Důkaz: `test_video_nasazeno.py` (14/14 včetně
 regrese, že starý kód scénář nenašel) + ověřeno na skutečných datech Geisingenu.
-**Zbývá uklidit:** 431 MB přebytečných hudebních stop u 11 míst, dvojnická složka
-`⁨Geisingen⁩, 8.7. 2026` (201 MB) — mazání čeká na souhlas učitele.
+**✅ UKLIZENO 6. 8. (učitel schválil): 1,54 GB.** Smazáno 22 starších hudebních
+stop u 10 míst (477 MB; u každého místa zůstala nejnovější), složka
+`video-vystup/_duplicity` (964 MB) a dvojnická složka anonymizovaných fotek
+`⁨Geisingen⁩, 8.7. 2026` (103 MB). **Před každým mazáním kotva:** všech 7 videí
+v `_duplicity` ověřeno jako publikovaná na YouTube (jinak by je po smazání
+`uz_hotovo()` přestalo vidět a vyrobila by se znovu — proto na nich stojí pojistka
+`uz_publikovano()`); u fotek doloženo, že všech 25 souborů má zálohu ve
+`fotky-puvodni` a že kopie leží na webu (curl na `IMG_1616.jpeg` → 200, 9,8 MB).
 
 **📝 SCÉNÁŘE: `casticove-slozeni-latek` hotové jako TŘI krátké díly** (první téma
 podle nového rozhodnutí o délce): `-atomy-` (1 474 znaků, 20 replik), `-pohyb-`
