@@ -85,6 +85,14 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬 (zkušební hlasy)',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky-omnivoice.mp4',
 						},
+						// Tatáž polemika, ale dvě scény jsou POHYBLIVÉ: pád kamene a papíru
+						// na Zemi a pokus s kladivem a perem na Měsíci. Polohy počítá vzorec
+						// pádu, takže časy dopadu na obrazovce odpovídají skutečnosti.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬 (s animacemi pokusů)',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky-animace.mp4',
+						},
 					],
 				},
 				{
