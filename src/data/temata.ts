@@ -134,6 +134,11 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Je látka a těleso totéž? 🎬',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/polemika-telesa-a-latky.mp4',
 						},
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je látka a těleso totéž? 🎬 (druhé hlasy)',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/polemika-telesa-a-latky-omnivoice.mp4',
+						},
 					],
 				},
 				{
@@ -336,6 +341,11 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Síla', cesta: 'Y340hJrbpU8' },
+						{
+							druh: 'video',
+							nazev: 'Polemika: Působí míč na moji nohu? 🎬',
+							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/polemika-vzajemne-pusobeni.mp4',
+						},
 					],
 				},
 				{
@@ -400,6 +410,18 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬 (hlasy elevenlabs.io)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2.mp4',
+						},
+						// Tytéž dva díly s druhými hlasy (lokální OmniVoice, zdarma a bez
+						// atribuce). Učitel chce obě verze vedle sebe, ať si děti vyberou.
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Gravitační síla 🎬 (druhé hlasy)',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1-omnivoice.mp4',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬 (druhé hlasy)',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2-omnivoice.mp4',
 						},
 					],
 				},
@@ -502,6 +524,13 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Vážení velmi malých těles</h3>
 						<p>Zvážíme větší počet kusů (např. 100 kapek) a hmotnost jednoho kusu určíme výpočtem — dělením.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je váha totéž co hmotnost? 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/polemika-hmotnost.mp4',
+						},
+					],
 				},
 				{
 					slug: 'objem',
@@ -545,6 +574,13 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Výpočet objemu pravidelných těles</h3>
 						<p>Z matematiky: objem krychle V = a · a · a, objem kvádru V = a · b · c.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika: Jak změřit objem kamene? 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/polemika-objem.mp4',
+						},
+					],
 				},
 				{
 					slug: 'hustota',
@@ -588,6 +624,13 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>skupenství</strong> — pevné látky a kapaliny mají částice blízko u sebe ⇨ velká hustota (rtuť 13 500 kg/m³, benzín 700 kg/m³, osmium 22 660 kg/m³, lithium 534 kg/m³); plyny mají částice daleko od sebe ⇨ malá hustota (vzduch jen 1,3 kg/m³)</li>
 						</ul>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/polemika-hustota.mp4',
+						},
+					],
 				},
 				{
 					slug: 'souhrnne-opakovani-velicin',
