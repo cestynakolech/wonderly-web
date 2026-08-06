@@ -29,6 +29,15 @@ skutečným stavem, ne fází; (2) bílý text na šedém Měsíci měl kontrast
 chytalo text hlášky a vracelo stejnou hodnotu v obou časech; nález vyvrátil až
 pohled na výřez (pravidlo [[feedback-hlaska-neni-dukaz]] platí i pro vlastní měření).
 Dosednutí doloženo: kladivo i pero ±1 px od povrchu.
+**Dvě další připomínky učitele (obě opraveny):** (4) *„čas ti běží ještě v době,
+kdy už vše leží"* → stopky se zastaví na čase dopadu posledního předmětu
+(Měsíc 1,4 s, Země 3,0 s) a zůstanou stát jako naměřený výsledek; doloženo
+obousměrně rozdílem pixelů ve výřezu stopek — během pádu se mění, po dopadu je
+rozdíl přesně 0. (5) *„na zemi je vysvětlení dost splývající s barvou země"* →
+hláška má bílou plaketu. **Poučení: splnit normu kontrastu nestačí.** Tmavý text
+na trávě měl 6,2 : 1, tedy vyhovoval, a učiteli přesto splýval — barevné pozadí
+s podobným jasem ruší čitelnost i při formálně dobrém poměru. Na plakátek
+(neutrální podklad pod textem) je proto lepší spolehnout se vždy.
 
 **ODPOVĚĎ, KTERÁ SE OVĚŘILA V PRAXI: na fyzikální jev je lepší KÓD než video model.**
 Ukázka hotová za necelou minutu zdarma: `scratchpad/ukazka_animace.py` →
