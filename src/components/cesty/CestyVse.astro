@@ -95,7 +95,7 @@ const mestoPodleSlugu = new Map(vsechnaMesta.map((m) => [`${m.rok}|${m.slug}`, m
 				<ul>
 					{r.mesta.map((m) => (
 						<li>
-							<a href={cestaCesty(jazyk, `${r.rok}#${m.slug}`)}>{m.nazev}</a> ({formatujDatum(m.datum, jazyk)})
+							{vlajkyZemi(m.zeme)} <a href={cestaCesty(jazyk, `${r.rok}#${m.slug}`)}>{m.nazev}</a> ({formatujDatum(m.datum, jazyk)})
 						</li>
 					))}
 				</ul>

@@ -31,7 +31,7 @@ export interface Popisek {
  * Co se nikam nevejde, se sloučí podle ČTVERCOVÉ mřížky (velikost ≈ šířka jednoho
  * jména; s hranicemi států nemá nic společného) do souhrnu „N míst".
  * Piny zůstávají na mapě všechny — slučují se jen jména.
- * Ruční `popisekPosun` má vždy přednost a překryv se u něj neřeší.
+ * Ruční `popisekPosun` má přednost, ale jen pokud nevyteče z mapy a nekoliduje (6. 8. 2026).
  */
 export function rozmistiPopisky(
 	body: BodMapy[],
@@ -94,7 +94,11 @@ export function rozmistiPopisky(
 			const x = b.x + b.popisekPosun.dx;
 			const y = b.y + b.popisekPosun.dy;
 			const r = ramecek(x, y, b.nazev, kotva);
-			if (mimoVyrez(r)) {
+			// Posun platí, jen když jméno nevyteče z mapy A nespadne na jiné jméno.
+			// Druhá podmínka doplněna 6. 8. 2026: rok 2025 rozšířil výřez celkové
+			// mapy a ručně posunuté Vaulnaveys-le-Haut a Col d'Ornon se střetly —
+			// ruční posuny se do té doby proti sobě vůbec nekontrolovaly.
+			if (mimoVyrez(r) || prekryv(r)) {
 				zbytek.push(b);
 				continue;
 			}
@@ -411,10 +415,13 @@ function rozmistiPopiskyPolozek(
 		return { x: v.x, y: v.y, kotva: v.kotva, text: nazev, fs: v.fs, cil };
 	};
 
-	/** Záložní prstenec pozic kolem značky — pro jména, na která pár míst nestačí. */
+	/** Záložní prstenec pozic kolem značky — pro jména, na která pár míst nestačí.
+	 * Okruh 4.8 doplněn 6. 8. 2026: rok 2025 rozšířil mapu o Normandii, celkový
+	 * pohled se oddálil a Vaulnaveys-le-Haut s Col d'Ornon se sblížily natolik,
+	 * že do 3.6 žádná volná pozice nebyla (brána hlásila překryv 39 jednotek²). */
 	const prstenec = (sx: number, sy: number, sr: number): [number, number, string][] => {
 		const ven: [number, number, string][] = [];
-		for (const dal of [1, 1.8, 2.6, 3.6]) {
+		for (const dal of [1, 1.8, 2.6, 3.6, 4.8]) {
 			for (let k = 0; k < 12; k++) {
 				const uhel = (k / 12) * Math.PI * 2;
 				const vzdal = sr + pismo * dal;
