@@ -14,25 +14,42 @@ nástrahy (MPS+float16 zamrzá, hlas se musí "zamykat" referencí) v
 `~/Desktop/Omega/skripty/vyrob_omnivoice.py <slug> --rocnik <r>`.
 
 **Nasazeno na zkoušku:** díl Úvod do fyziky má teď na webu DVĚ verze vedle sebe
-(OpenAI + OmniVoice), učitel poslechl a schválil, obě live na produkci. Ostatních
-7 dílů (gravitace ×2, hmotnost, hustota, objem, tělesa a látky, vzájemné působení sil)
-má hotové OmniVoice audio+video v `/Users/Shared/Škola/podkasty/6/` a
-`~/Desktop/Omega/podkasty-video/`, ale **NENASAZENO** — čeká se, až učitel poslechne
-a rozhodne, jestli jde OmniVoice nasadit místo/vedle OpenAI verzí.
+(OpenAI + OmniVoice), učitel poslechl a schválil, obě live na produkci.
+
+**OPRAVENO AUDITEM 6. 8.:** ostatních 7 dílů má hotové **jen OmniVoice AUDIO**
+(7× `*-omnivoice.mp3` v `/Users/Shared/Škola/podkasty/6/`) — **videa NEexistují**.
+Video mají jen 3 díly (gravitace ×2, tělesa a látky) a to s PŮVODNÍM zvukem;
+4 díly (hmotnost, hustota, objem, vzájemné působení sil) nemají video vůbec
+a nejsou ani nasazené (nejsou v `temata.ts` — ověřeno curlem dvěma kontrolory).
+Než se dá „nasadit vedle", musí se u nich video teprve vyrobit.
 
 **ROZHODNUTÍ UČITELE, KTERÉ MĚNÍ FRONTU NÍŽ: díly budou kratší.** Ne 4–6 minut na
 celé téma, ale **tři kratší díly** (třetinová délka) na téma, každý na **jedno
 vysvětlení** (jeden pojem/pokus). Fronta 16 zbývajících témat níže je pořád platná
 CO SE TÉMAT TÝČE, ale každé z nich teď znamená tři krátké scénáře, ne jeden dlouhý.
 
-**Otevřené (čeká na učitele, než se pokračuje ve výrobě):**
-1. Poslechnout zbylých 7 OmniVoice dílů a rozhodnout: nasadit vedle OpenAI, nahradit,
-   nebo zahodit?
-2. Vyzkoušet JINÉ hlasy OmniVoice — současné (`instruct="female/male, moderate pitch"`)
-   učitel označil za „hodně dětské", u jednoho i s přízvukem a špatnou výslovností
-   „newton"→„Neuton". Seznam platných `instruct` značek je v `NAVOD-OMNIVOICE.md`.
-3. Až se rozhodne hlas i délka, přepsat zbývajících 16 témat na TŘI krátké scénáře
-   místo jednoho dlouhého (viz fronta níže — ta se teď musí takhle rozpadnout).
+**ROZHODNUTO UČITELEM 6. 8. 2026 (tři otevřené otázky uzavřeny):**
+1. **OmniVoice díly NASADIT VEDLE OpenAI verzí** (jako u Úvodu do fyziky — obě
+   verze vedle sebe, děti si vyberou). *Pozn. z auditu: rovnou nasadit jde jen
+   u 3 dílů s existujícím videem (nutno přezvučit na OmniVoice); u 4 dílů
+   (hmotnost, hustota, objem, vzájemné působení) se video musí teprve vyrobit
+   a půjde o PRVNÍ nasazení, ne „vedle".*
+2. **Vyrobit VZORKY jiných hlasů OmniVoice** — hlubší/dospělejší `instruct` značky
+   (současné byly „hodně dětské", u jednoho přízvuk a „newton"→„Neuton"), stejný
+   úryvek, porovnat poslechem. Seznam platných značek v `NAVOD-OMNIVOICE.md`.
+3. **Začít psát scénáře hned** — zbývajících **14** témat (16 minus 2 hotová)
+   přepsat na TŘI krátké scénáře (každý na jedno vysvětlení); psaní nezávisí
+   na hlasu, výroba zvuku počká. První téma: `casticove-slozeni-latek`.
+
+**🔍 NEZÁVISLÝ AUDIT 6. 8. 2026 PROVEDEN** (4 kontroloři s čerstvým kontextem:
+repo/tvrzení, automaty, produkce, proces). Plná zpráva:
+`~/Desktop/Omega/dokumenty/AUDIT-CINNOSTI-2026-08-06.md`. Nejzávažnější nálezy:
+stavový zápis tvrdil neexistující videa (opraveno výše); automat
+`stare-fotky-hlidac` od 30. 7. tiše padá na chybějícím `npm` (exit 0!) a změny
+6 datových souborů deníku se nikdy nenasadily; Hermes nemá žádný doložený
+výsledek (HERMES-VYSLEDKY.md neexistuje); `foto-hlidac` nenačte 2 referenční
+fotky → rozmazává tvář, která má zůstat ostrá; mrtvá cesta vrátného
+`povoleni_hook.py` v pravidlech (skutečný je `/Users/Shared/povoleni_hook.py`).
 
 ## 🎯 Předchozí stav (5. 8. 2026 večer — předání do čerstvé session)
 
