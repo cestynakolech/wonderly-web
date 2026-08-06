@@ -183,9 +183,9 @@ export const rok2025: Rok = {
 			slug: 'karlstadt',
 			nazev: 'Karlstadt',
 			zeme: 'Německo',
-			datum: '23. 7. 2025',
-			x: 307.7,
-			y: 353.9,
+			datum: '10.–11. 7. 2025',
+			x: 306.0,
+			y: 338.5,
 			popis: {
 				cs: 'Středověké městečko na řece Mohan (Main) v Dolních Frankách s téměř kompletně dochovanými hradbami, hrázděnými domy a bránou Maintor. Nad protějším břehem se zvedá zřícenina hradu Karlsburg ze 13. století s výhledem do údolí Mohanu. Ve čtvrtek se na náměstí koná trh Grüner Markt.',
 				en: 'A medieval town on the river Main in Lower Franconia with almost completely preserved town walls, half-timbered houses and the Maintor gate. Above the opposite bank rises the 13th-century Karlsburg castle ruin with views over the Main valley. On Thursdays, the Grüner Markt takes place on the market square.',
