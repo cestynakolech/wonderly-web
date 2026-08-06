@@ -1,6 +1,50 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩ KDE POKRAČOVAT (6. 8. 2026 ~23:35 — hlasy hotové, běží videa)
+## ⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~00:05 — VŠECH 8 VIDEÍ NASAZENO)
+
+**✅ HOTOVO A ŽIVÉ NA WEBU** (commit `43daee8`, ověřeno curlem na produkci —
+počty videí na stránkách: hmotnost 1, hustota 1, objem 1, vzájemné působení 1,
+gravitace 4, tělesa a látky 2, úvod 2). Učitel poslechl a schválil hlasy
+i první video („je to dobré, může se nasadit").
+
+**🆕 NOVÉ ZADÁNÍ UČITELE (7. 8. 2026): POHYBLIVÉ OBRÁZKY MÍSTO STATICKÝCH.**
+Doslova: *„ještě by se mi líbilo, kdyby se do videa nepřidávaly jen statické
+obrázky, ale hýbající se — například když říkají, že astronaut upustí kladivo
+a pero, tak by to bylo i vidět; není nějaký lokální model, který by to dokázal?"*
+Nabídl také napsat dotaz na Discord.
+
+**ODPOVĚĎ, KTERÁ SE OVĚŘILA V PRAXI: na fyzikální jev je lepší KÓD než video model.**
+Ukázka hotová za necelou minutu zdarma: `scratchpad/ukazka_animace.py` →
+`ukazka-animace-apollo.mp4`. Polohy se počítají ze vzorce volného pádu
+(s = ½·g·t², g = 1,62 m/s² pro Měsíc), takže **současný dopad je matematicky
+zaručený**. Generativní model by naopak skoro jistě nechal pero padat pomaleji —
+naučil se to z pozemských videí — a scéna by učila PRAVÝ OPAK toho, co říká zvuk.
+Je to tentýž důvod, proč schémata kreslí kód (železné pravidlo skillu `podkast-video`).
+Ověřeno měřením: kladivo dosedá na povrch s odchylkou 4 px (tloušťka čáry povrchu).
+**DALŠÍ KROK:** zavést do `snimky_podkastu.py` typ scény `animace` (sekvence PNG
+místo jednoho) a `video_podkastu.py` naučit vložit místo statického snímku klip.
+Kandidáti na animaci: pád na Měsíci, papír × kámen, difuze, píst motoru, pružina
+siloměru, ponorka, hustoměr. Video model (LTX/Wan/Hunyuan přes MLX) má smysl leda
+na ÚVODNÍ ilustraci, kde na přesnosti nezáleží — tam je dnes statický obrázek.
+
+**Discord:** psát tam nemusíme kvůli technice (řešení je hotové), ale pokud chce
+učitel názor komunity na video modely na Macu, text dotazu se připraví — odeslat
+ho musí učitel sám, tahle session do Discordu přístup nemá.
+
+**🔧 Opraveno v tomto kole (vše s obousměrným důkazem):**
+- **`pokryti_kvizu.py` měl systémovou díru: odpověď kratší než 3 znaky propadla
+  VŽDY** (prázdná množina klíčových slov → podíl 0). Týkalo se to všech značek
+  (Fe, O, m, V, F) napříč fyzikou — brána tiše hlásila chybějící odpovědi tam,
+  kde byly. Navíc špatně skládala české číslovky („sto osmnáct" → „8 100“ místo
+  118, „devadesát dva" → „90 2"). Nově obecný převod číslovek + porovnání krátkých
+  slov. **Regrese změřena na všech 8 dílech: 0 zhoršených, 3 zlepšené.**
+- `vyrob_video_automat.py` — hudba ACE-Stepem si bere `zamek_modelu.drz()`.
+- `video_podkastu.py` — nový `--nazev` (dvě verze zvuku vedle sebe).
+
+**📝 Scénáře `atomy-a-molekuly` (tři krátké díly) HOTOVÉ, brána 14 ze 14.**
+Chybí jim scénosledy → bez nich nejdou snímky ani video. To je další úkol.
+
+## ⏩⏩⏩⏩ Předchozí (6. 8. 2026 ~23:35 — hlasy hotové, běžela videa)
 
 **✅ VŠECH 8 DÍLŮ F6 MÁ NOVÝ HLAS a učitel je poslechl a SCHVÁLIL**
 („je dobré, může jít na video"). Kotva správnosti hlasů — změřená výška hlasu
