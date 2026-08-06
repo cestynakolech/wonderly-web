@@ -922,4 +922,22 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   jen 2 díly měsíčně. Čeká: videa k dalším tématům přes OpenAI, jeden pokus s NotebookLM,
   Chatterbox TTS odložen (nula stažení).
 
+- **2026-08-06 — NotebookLM zamítnuto, OmniVoice (lokální, zdarma) otestováno na 8 dílech.**
+  NotebookLM (přejmenováno na `notebook.google.com`) komentuje text jako moderátor, nehraje
+  scénář doslova — 47 replik (~5 min) vyšlo jako 13:25 dlouhý rozbor. Nepoužitelné pro
+  polemiky, verdikt v `NAVOD-NOTEBOOKLM-VIDEO.md`. Napsán nový skript
+  `vyrob_omnivoice.py` (`k2-fsa/OmniVoice`, lokální, zdarma): rozpozná dva mluvčí obecně,
+  "zamkne" hlas referenční replikou (jinak je hlas při každém volání jiný — past č. 1
+  z `NAVOD-OMNIVOICE.md`), každou repliku ověří whisperem a při neshodě přegeneruje až 3×.
+  Spuštěno na všech 8 dosavadních dialogů (314 replik): 90 % v pořádku napoprvé, 4 %
+  opraveno automatem, 6 % k ruční kontrole — a ty NEJSOU náhodné, skoro všechny obsahují
+  čísla slovy nebo hláskovaná písmena vzorců (díl bez čísel prošel 47/47 čistě, díl samá
+  čísla 7/38 k ruční kontrole). Úvod do fyziky poslechnut a schválen učitelem, nasazen na
+  web VEDLE OpenAI verze (obě live). Zbylých 7 dílů hotovo, ale nenasazeno — čeká na
+  poslech. Hlas označen za "hodně dětský" + jedna chyba výslovnosti ("newton"→"Neuton"
+  s přízvukem) — jiné hlasy zatím nevyzkoušeny.
+  **ROZHODNUTÍ UČITELE: budoucí díly kratší** — tři krátké (třetinová délka) místo
+  jednoho dlouhého na téma, každý na jedno vysvětlení. Mění frontu 16 zbývajících témat
+  v `SAMOSTATNY-REZIM.md` (stejná témata, ale každé teď = tři scénáře, ne jeden).
+
 _Starší záznamy (od začátku projektu) jsou v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — ten se automaticky nečte._

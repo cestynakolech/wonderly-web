@@ -1,6 +1,40 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩ KDE POKRAČOVAT (5. 8. 2026 večer — předání do čerstvé session)
+## ⏩⏩ KDE POKRAČOVAT (6. 8. 2026 — OmniVoice otestováno, změna délky dílů)
+
+**Co se dnes stalo:** učitel zkoušel s Claudem NotebookLM (přes rozšíření Claude
+v Chromu — trvalo dlouho kvůli povolením domén, viz paměť
+`projekt-notebooklm-pres-chrome`) a lokální modely TTS jako bezplatnou alternativu
+k OpenAI/ElevenLabs. **Výsledek NotebookLM: nepoužitelné pro polemiky** (komentuje
+text, nehraje ho — verdikt v `NAVOD-NOTEBOOKLM-VIDEO.md`). **OmniVoice ale funguje
+dobře** — otestováno na všech 8 dosavadních dialogových dílů (314 replik), 90 % v
+pořádku napoprvé, zbytek automat sám opraví nebo označí k poslechu. Podrobnosti a
+nástrahy (MPS+float16 zamrzá, hlas se musí "zamykat" referencí) v
+`~/Desktop/Omega/dokumenty/NAVOD-OMNIVOICE.md`. Skript:
+`~/Desktop/Omega/skripty/vyrob_omnivoice.py <slug> --rocnik <r>`.
+
+**Nasazeno na zkoušku:** díl Úvod do fyziky má teď na webu DVĚ verze vedle sebe
+(OpenAI + OmniVoice), učitel poslechl a schválil, obě live na produkci. Ostatních
+7 dílů (gravitace ×2, hmotnost, hustota, objem, tělesa a látky, vzájemné působení sil)
+má hotové OmniVoice audio+video v `/Users/Shared/Škola/podkasty/6/` a
+`~/Desktop/Omega/podkasty-video/`, ale **NENASAZENO** — čeká se, až učitel poslechne
+a rozhodne, jestli jde OmniVoice nasadit místo/vedle OpenAI verzí.
+
+**ROZHODNUTÍ UČITELE, KTERÉ MĚNÍ FRONTU NÍŽ: díly budou kratší.** Ne 4–6 minut na
+celé téma, ale **tři kratší díly** (třetinová délka) na téma, každý na **jedno
+vysvětlení** (jeden pojem/pokus). Fronta 16 zbývajících témat níže je pořád platná
+CO SE TÉMAT TÝČE, ale každé z nich teď znamená tři krátké scénáře, ne jeden dlouhý.
+
+**Otevřené (čeká na učitele, než se pokračuje ve výrobě):**
+1. Poslechnout zbylých 7 OmniVoice dílů a rozhodnout: nasadit vedle OpenAI, nahradit,
+   nebo zahodit?
+2. Vyzkoušet JINÉ hlasy OmniVoice — současné (`instruct="female/male, moderate pitch"`)
+   učitel označil za „hodně dětské", u jednoho i s přízvukem a špatnou výslovností
+   „newton"→„Neuton". Seznam platných `instruct` značek je v `NAVOD-OMNIVOICE.md`.
+3. Až se rozhodne hlas i délka, přepsat zbývajících 16 témat na TŘI krátké scénáře
+   místo jednoho dlouhého (viz fronta níže — ta se teď musí takhle rozpadnout).
+
+## 🎯 Předchozí stav (5. 8. 2026 večer — předání do čerstvé session)
 
 > **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
