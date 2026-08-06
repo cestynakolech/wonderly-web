@@ -1,6 +1,46 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩ KDE POKRAČOVAT (6. 8. 2026 ~23:00 — předání před /clear)
+## ⏩⏩⏩⏩ KDE POKRAČOVAT (6. 8. 2026 ~23:35 — hlasy hotové, běží videa)
+
+**✅ VŠECH 8 DÍLŮ F6 MÁ NOVÝ HLAS a učitel je poslechl a SCHVÁLIL**
+(„je dobré, může jít na video"). Kotva správnosti hlasů — změřená výška hlasu
+na hotových nahrávkách: MAREK 142–161 Hz, EVA 233–264 Hz u všech dílů, tedy
+žádné prohození. Skript měření: `zmer_f0.py` ve scratchpadu session.
+Nejlepší výsledek měl poslední díl (vzájemné působení, 42 replik ze 45 napoprvé);
+nejhorší objem (7 replik k poslechu) — slabina je vždy táž: čísla a vzorce.
+
+**🎬 BĚŽÍ VÝROBA VIDEÍ** (dvě dávky na pozadí, `nohup`, přežijí konec session;
+logy `davka_videa.log` a `davka_ilustrace.log` ve scratchpadu):
+1. `davka_videa.sh` — čtyři díly, které úvodní ilustraci MAJÍ. Hotový je
+   **uvod-do-fyziky** (9 MB, 5:59, délka obrazu sedí na zvuk na setinu, zarovnání
+   87 % slov, obraz prohlédnut vzorkem 4 snímků). Pokračuje gravitace.
+2. `davka_ilustrace.sh` — čeká na uvolnění Macu a pak čtyřem dílům
+   (hmotnost, hustota, objem, vzájemné působení) **vyrobí chybějící `podklad-00.png`**
+   mfluxem podle `popis_en` ze scénosledu → `snimky_podkastu.py --scena 0` → video.
+   **To byla příčina, proč první dávka u těch čtyř spadla** — schémata mají hotová,
+   chyběla jen úvodní ilustrace, jediná neschematická scéna.
+
+**NASAZENÍ PO DOBĚHNUTÍ** — mapa cest a názvů je připravená ve scratchpadu
+(`nasazeni.json`): čtyři díly jsou PRVNÍ nasazení (hmotnost, hustota, objem →
+celek `fyzikalni-veliciny`; vzájemné působení → `sila`), tři dostanou druhou verzi
+VEDLE stávající. Pak R2 → `temata.ts` → build → push → **ověřit curlem na produkci**.
+
+**🔧 Opraveno při tom (obojí s obousměrným důkazem):**
+- `vyrob_video_automat.py` — výroba hudby ACE-Stepem si nově bere
+  `zamek_modelu.drz()` (zapsaná vada z minulého kola). Směr „držený zámek → vzdá se"
+  ověřen proti SKUTEČNÉMU držiteli (běžící dávce hlasů), zdravý stav pustí hudbu dál.
+- `video_podkastu.py` — nový volitelný `--nazev`, aby druhá verze zvuku nepřepsala
+  video té první (učitel chce obě vedle sebe). Bez přepínače se chování nezměnilo.
+
+**📝 SCÉNÁŘE `atomy-a-molekuly` HOTOVÉ jako tři krátké díly** (vějíř 3 workerů):
+`-atom-` (20 replik, 1 543 znaků), `-molekuly-` (20, 1 747), `-smesi-` (20, 1 794).
+Formální kontrola 0 chyb, nezávislý kontrolor 1 drobnost (opraveno: „vyslovujeme
+ó dvě" → „zápis se čte ó dvě"). Brána `pokryti_kvizu.py` nad spojením tří dílů:
+**10 ze 14 otázek** deterministicky; zbylé čtyři (Fe, O, 92, „příliš malé") jsou
+v textu prokazatelně obsažené, jen je porovnání slov nepozná — **doběhnout branou
+s modelem, až bude GPU volné**. Chybí scénosledy (bez nich nejdou snímky ani video).
+
+## ⏩⏩⏩ Předchozí stav (6. 8. 2026 ~23:00 — předání před /clear)
 
 **Na pozadí BĚŽÍ dávka výroby hlasů** (`nohup`, přežije konec session):
 `/tmp/claude-502/-Users-Shared--kola/73e93873-6372-49e4-9ab1-5f51ab4c3cbf/scratchpad/davka_hlasy.sh`,
