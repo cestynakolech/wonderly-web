@@ -101,6 +101,37 @@ takže u videa se ptát jen jednou za N snímků. Haar kaskáda na auta NEEXISTU
 Záložní cesta: ONNX detektor COCO přes `cv2.dnn.readNetFromONNX` (ověřeno funkční,
 ONNX nespouští kód na rozdíl od `.pt`) — vyžadovalo by stažení, tedy souhlas učitele.
 
+### ✅ 6. 8. POZDĚ VEČER — deník: rok 2025, vlaječky, tři nálezy učitele
+
+Učitel prohlížel mapu webu a našel/zadal: dvojitý Wismar (VYSVĚTLENO: tři
+skutečné návštěvy 2024 — 10. 3., 7.–9. 7., 29. 12.), prázdný rok 2025 a přání
+vlaječek u míst. Provedeno a nasazeno (`f5f801c`, curl ověřen):
+- **Rok 2025 doplněn z fotek: 43 míst, 13 cest** (vč. 43denní letní přes
+  Normandii do Belgie a maďarského září). Fotky v hromadě BYLY, ale rok je
+  v `RUCNE_PSANE_ROKY`, tak je automat přeskakoval. Sestaveno jednorázově,
+  soubor zůstává ručně spravovaný (bez značky automatu), Karlstadt s galerií,
+  stellplatzem i Bertíkovým reportem zachován.
+- Dvě místa z geokódování přejmenována podle souřadnic (doloženo Nominatim):
+  „France métropolitaine" → **Utah Beach (Sainte-Marie-du-Mont)**,
+  „Küstengewässer…" → **Wismarský záliv** (fotky z vody 1 km od přístavu).
+- **Vlaječky zemí u každého místa** v seznamu (funkce `vlajkyZemi` už existovala).
+- **Oprava mapy:** ruční posuny popisků se nekontrolovaly proti sobě — po
+  rozšíření výřezu o Normandii se střetly Vaulnaveys-le-Haut a Col d'Ornon.
+  Posun teď platí, jen když nekoliduje (brána: 237 pohledů, 0 nálezů).
+- **OmniVoice zamrzání:** syntéza na MPS občas zamrzne; doplněn timeout 600 s
+  + záchyt ve smyčce pokusů (zamrzlý pokus = neúspěšný, jede se dál).
+
+**❓ PRO UČITELE — datum Karlstadtu nesedí s fotkami:** ruční zápis říká
+23. 7. 2025, ale fotky ho řadí mezi Rothenburg (9. 7.) a Bingen (12. 7.),
+tedy ~10.–11. 7. V seznamu proto vyčnívá z časové řady. Neopravuji potichu —
+rozhodněte, které datum platí.
+
+**🚗 Luxeuil-les-Bains — původní zvuk zapojen** (`MISTA_S_PUVODNIM_ZVUKEM`
+ve `vyrob_video_automat.py`; režim `puvodni` v sestavit_video2.py už existoval).
+POZOR zjištění: všech 36 klipů má jen ~3 s (vypadá na Live Photos) a jsou tiché
+(−28 až −48 dB) — učitel dotázán, jestli nemá delší souvislé video vystoupení.
+Složka dozraje nejdřív 11. 8.
+
 **🔍 NEZÁVISLÝ AUDIT 6. 8. 2026 PROVEDEN** (4 kontroloři s čerstvým kontextem:
 repo/tvrzení, automaty, produkce, proces). Plná zpráva:
 `~/Desktop/Omega/dokumenty/AUDIT-CINNOSTI-2026-08-06.md`. Nejzávažnější nálezy:
