@@ -1,6 +1,53 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩ KDE POKRAČOVAT (6. 8. 2026 — OmniVoice otestováno, změna délky dílů)
+## ⏩⏩⏩ KDE POKRAČOVAT (6. 8. 2026 ~23:00 — předání před /clear)
+
+**Na pozadí BĚŽÍ dávka výroby hlasů** (`nohup`, přežije konec session):
+`/tmp/claude-502/-Users-Shared--kola/73e93873-6372-49e4-9ab1-5f51ab4c3cbf/scratchpad/davka_hlasy.sh`,
+log `davka_hlasy4.log` tamtéž. Vyrábí OmniVoice audio pro 7 dílů F6 novým hlasem
+(`male, low pitch, middle-aged` — vybral učitel; hlasy se přiřazují podle JMÉNA,
+viz vada níže). Hotovo: telesa-a-latky (37/37 napoprvé, posláno učiteli).
+**Po dokončení každého dílu poslat učiteli k poslechu.** Kotva správných hlasů:
+změřit F0 referencí (muž < 160 Hz < žena; telesa: Marek 175, Eva 267).
+Pozn.: /tmp se maže restartem Macu — pak dávku spustit znovu ručně
+(`for slug in ...; do ./venv/bin/python3 vyrob_omnivoice.py $slug --rocnik 6; done`,
+hotové díly se přeskočí samy).
+
+**🔨 ROZDĚLANÉ (nezačato v kódu, jen naplánováno): Luxeuil — původní zvuk JEN
+u klipů s vystoupením.** Zadání učitele doslova: „slep videa dohromady a ty kde
+tančí s hudbou tam nech tu hudbu, aby tam k tancování nehrála jiná; pokud nejsou
+na některém videu jak tancujou, dej tam hudbu svoji." Hotové už je: režim
+`puvodni` zapojen pro klíč `luxeuil-les-bains` (`MISTA_S_PUVODNIM_ZVUKEM` ve
+`vyrob_video_automat.py`). ZBÝVÁ (do 11. 8., kdy složka dozraje):
+1. `sestavit_video2.py`: nový argument `--puvodni-klipy <soubor>` (jména klipů,
+   po řádcích) → v `sestav_vysledek()` (ř. ~331: `if snimek["typ"] == "klip"...`)
+   brát zvuk + ztlumovat hudbu JEN u klipů ze seznamu; ostatní jako `nahradit`.
+   Vybraným klipům přidat `dynaudnorm` (jsou tiché, −28 až −48 dB mean).
+   Argumenty se parsují na ř. ~416–450, volání `sestav_vysledek` ř. 523.
+2. NOVÝ `vyber_klipy_vystoupeni.py`: pro každý .MOV složky vytáhnout prostřední
+   snímek (ffmpeg) a zeptat se ThinkingCap („Je na snímku taneční vystoupení,
+   tančící lidé v krojích nebo hrající kapela? ANO/NE") → seznam do souboru.
+   MUSÍ si vzít `zamek_modelu.drz()` — video automat sám zámek NEMÁ (nález,
+   viz níže). Vzor volání vision: `_zeptej_se_vision` v `anonymizovat_fotky.py`.
+3. `vyrob_video_automat.zpracuj_mesto()`: když `rezim_zvuku == "puvodni"`,
+   spustit klasifikátor nad pracovní složkou a předat `--puvodni-klipy`.
+4. Obousměrný důkaz: vytáhnout výběr klipů do funkce + test (podvrh: klip mimo
+   seznam nesmí do zvuku; zdravý: bez seznamu se chová jako dřív).
+Kontext: 36 klipů má jen ~3 s (Live Photos), delší video učitel NEMÁ.
+
+**🐛 NOVÝ NÁLEZ (zapsat do fronty oprav): `vyrob_video_automat.py` NEBERE
+sdílený `zamek_modelu`**, přestože generuje hudbu ACE-Stepem (těžká GPU úloha)
+— může se srazit s pečlivými videi/OmniVoice. Doplnit `drz()` kolem výroby hudby.
+
+**Další připravená práce:** SPZ (úkol schválen učitelem): (1) změřit dnešní
+Haar kaskádu na zkušební sadě, (2) hledat SPZ jen uvnitř vozidel — ThinkingCap
+UMÍ vracet souřadnice vozidel (ověřeno na 3 fotkách; POZOR škála 0–1000, ne
+pixely; ~18 s/fotku), (3) přeměřit. Čeká, až Mac uvolní GPU po dávce hlasů.
+
+**Čeká na učitele:** poslech dílů novým hlasem · chmod 2 referenčních fotek na
+účtu radekmicek (žádost na mostě) · torch upgrade (2 zranitelnosti).
+
+## ⏩⏩ Předchozí stav (6. 8. 2026 — OmniVoice otestováno, změna délky dílů)
 
 **Co se dnes stalo:** učitel zkoušel s Claudem NotebookLM (přes rozšíření Claude
 v Chromu — trvalo dlouho kvůli povolením domén, viz paměť
