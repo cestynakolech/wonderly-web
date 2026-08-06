@@ -41,6 +41,16 @@ CO SE TÉMAT TÝČE, ale každé z nich teď znamená tři krátké scénáře, 
    přepsat na TŘI krátké scénáře (každý na jedno vysvětlení); psaní nezávisí
    na hlasu, výroba zvuku počká. První téma: `casticove-slozeni-latek`.
 
+**✅ OPRAVY PO AUDITU PROVEDENY 6. 8. ODPOLEDNE:** hlídač starých fotek opraven
+(npm plnou cestou + PATH + správný cwd + odchycený pád; doloženo během bez PATH),
+revize automatů posílena (časové stopy, chyby v delším okně s datováním, kontrola
+cest rejstříku — obousměrný důkaz `Omega/skripty/testy/test_revize_nalezu.py`,
+9/9), stavový soubor zeštíhlen 2 380 → 431 řádků, fronty sloučeny (FRONTA-UKOLU.md
+je už jen rozcestník). Referenční fotky: žádost o chmod na mostě (čeká na účet
+radekmicek). **Vzorky 6 hlubších hlasů OmniVoice poslány učiteli** —
+`Omega/podkasty-vzorky-hlasu/omnivoice-hlasy/` (newton vysloven správně ve všech,
+ověřeno whisperem). Čeká se na výběr hlasu.
+
 **🔍 NEZÁVISLÝ AUDIT 6. 8. 2026 PROVEDEN** (4 kontroloři s čerstvým kontextem:
 repo/tvrzení, automaty, produkce, proces). Plná zpráva:
 `~/Desktop/Omega/dokumenty/AUDIT-CINNOSTI-2026-08-06.md`. Nejzávažnější nálezy:
