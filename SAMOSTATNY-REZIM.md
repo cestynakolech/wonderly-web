@@ -13,6 +13,23 @@ obrázky, ale hýbající se — například když říkají, že astronaut upus
 a pero, tak by to bylo i vidět; není nějaký lokální model, který by to dokázal?"*
 Nabídl také napsat dotaz na Discord.
 
+**UPŘESNĚNÍ UČITELE (druhá zpráva): animace má ukazovat i OKOLÍ, ne jen předměty** —
+*„astronaut, který stojí na zaobleném měsíci, kde měsíc je šedý, a pustí předměty
+z rukou; a pak na zemi, která bude taky zaoblená a bude barevná."* **HOTOVO:**
+`Omega/skripty/animace_mesic_zeme.py` → `animace-mesic-zeme.mp4` (189 snímků, 7,5 s).
+Měsíc: zaoblený šedý povrch s krátery, černé nebe s hvězdami a modrou Zemí v dálce,
+astronaut ve skafandru se zlatým průzorem. Země: zaoblený zelený povrch, modré nebe,
+slunce, mraky, dítě v tričku. **Stopky v rohu** dělají rozdíl měřitelným:
+Měsíc 1,4 s obojí současně · Země kladivo 0,57 s, pero 2,97 s.
+Pero na Zemi se počítá z pádu s odporem (v = v_m(1 − e^(−kt)), mezní rychlost
+0,55 m/s), ne odhadem. **Tři vady nalezené vlastní kontrolou:** (1) závěrečná hláška
+tvrdila „pero se teprve snáší“ ve chvíli, kdy už leželo — hláška se nově řídí
+skutečným stavem, ne fází; (2) bílý text na šedém Měsíci měl kontrast 2,64 : 1
+(norma 3 : 1) → tmavý, 5,79 : 1; (3) vlastní MĚŘIDLO polohy pera bylo špatné —
+chytalo text hlášky a vracelo stejnou hodnotu v obou časech; nález vyvrátil až
+pohled na výřez (pravidlo [[feedback-hlaska-neni-dukaz]] platí i pro vlastní měření).
+Dosednutí doloženo: kladivo i pero ±1 px od povrchu.
+
 **ODPOVĚĎ, KTERÁ SE OVĚŘILA V PRAXI: na fyzikální jev je lepší KÓD než video model.**
 Ukázka hotová za necelou minutu zdarma: `scratchpad/ukazka_animace.py` →
 `ukazka-animace-apollo.mp4`. Polohy se počítají ze vzorce volného pádu
