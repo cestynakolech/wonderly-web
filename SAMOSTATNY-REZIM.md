@@ -51,6 +51,50 @@ radekmicek). **Vzorky 6 hlubších hlasů OmniVoice poslány učiteli** —
 `Omega/podkasty-vzorky-hlasu/omnivoice-hlasy/` (newton vysloven správně ve všech,
 ověřeno whisperem). Čeká se na výběr hlasu.
 
+### ✅ 6. 8. VEČER — hlas vybrán, opraveny dvě vážné vady, scénáře napsané
+
+**HLAS VYBRAL UČITEL: `muz-1` = `male, low pitch, middle-aged`** (poslechem šesti
+vzorků v `Omega/podkasty-vzorky-hlasu/omnivoice-hlasy/`). Zapsáno ve
+`vyrob_omnivoice.py`; ženská role dostala obdobu téhož receptu.
+
+**🐛 VADA 1 (vysvětluje „dětské hlasy"): HLASY BYLY PROHOZENÉ.** Přiřazení bralo
+pořadí prvního výskytu repliky, jenže v šesti z osmi scénářů promluví první MAREK —
+dostal tedy ženský hlas a Eva mužský. Nově se řídí JMÉNEM (`POHLAVI_JMEN`), neznámé
+jméno výrobu shodí místo tichého uhodnutí. Důkaz: `testy/test_hlasy_podle_jmena.py`
+(17/17) + změřená výška hlasu na hotové nahrávce: Marek 175 Hz, Eva 267 Hz.
+Stará audia odložena do `/Users/Shared/Škola/podkasty/6/hlas-detsky-puvodni/`
+(nic nesmazáno), všech 8 dílů se vyrábí znovu. První hotový: **telesa-a-latky,
+37 replik z 37 napoprvé, 0 oprav** (dřív 90 %).
+
+**🐛 VADA 2 (nález učitele „video udělal automat asi popáté"): bylo to SEDMKRÁT.**
+Automat pozná hotové video podle zapsané CESTY — a učitel ho odklidil do
+`video-vystup/_duplicity/`, kterou kontrola neznala. Táž past potřetí (31. 7.
+přidáno `nasazeno/`, 2. 8. zjištěno, že smyčka funkci nevolá, 6. 8. `_duplicity`).
+Nově se video hledá **podle klíče místa kdekoli ve `video-vystup`** včetně podsložek
+a dvojnických názvů s neviditelnými znaky Fotek. Přidána **tvrdá pojistka
+`uz_publikovano()`**: co je na YouTube, se nevyrobí znovu za žádných okolností —
+hrozilo druhé nahrání téhož místa. Důkaz: `test_video_nasazeno.py` (14/14 včetně
+regrese, že starý kód scénář nenašel) + ověřeno na skutečných datech Geisingenu.
+**Zbývá uklidit:** 431 MB přebytečných hudebních stop u 11 míst, dvojnická složka
+`⁨Geisingen⁩, 8.7. 2026` (201 MB) — mazání čeká na souhlas učitele.
+
+**📝 SCÉNÁŘE: `casticove-slozeni-latek` hotové jako TŘI krátké díly** (první téma
+podle nového rozhodnutí o délce): `-atomy-` (1 474 znaků, 20 replik), `-pohyb-`
+(1 550, 28), `-difuze-` (1 964, 22). Brána `pokryti_kvizu.py` nad spojením všech
+tří: **18 z 18 otázek pokryto**. Žádná věta nad 165 znaků, žádné číslice, žádné
+závorky. Pozn.: workeři `worker-vyklad` NEMAJÍ Write — vracejí text, ukládá
+hlavní model.
+
+**🚗 SPZ — učitel schválil práci** (pořadí: změřit → hledat uvnitř vozidel →
+přeměřit). Průzkum hotov: **lokální vision model ThinkingCap UMÍ vracet souřadnice
+vozidel** — ověřeno na třech skutečných fotkách deníku (najde 3 auta a sedí;
+na horách i na soše s plotem vrátí prázdno). **Past: souřadnice jsou ve škále
+0–1000, ne v pixelech** (`px = hodnota / 1000 * rozměr`). Rychlost ~18 s na fotku,
+takže u videa se ptát jen jednou za N snímků. Haar kaskáda na auta NEEXISTUJE
+(v OpenCV jsou jen obličeje, těla a ruské SPZ), insightface umí jen obličeje.
+Záložní cesta: ONNX detektor COCO přes `cv2.dnn.readNetFromONNX` (ověřeno funkční,
+ONNX nespouští kód na rozdíl od `.pt`) — vyžadovalo by stažení, tedy souhlas učitele.
+
 **🔍 NEZÁVISLÝ AUDIT 6. 8. 2026 PROVEDEN** (4 kontroloři s čerstvým kontextem:
 repo/tvrzení, automaty, produkce, proces). Plná zpráva:
 `~/Desktop/Omega/dokumenty/AUDIT-CINNOSTI-2026-08-06.md`. Nejzávažnější nálezy:
@@ -416,6 +460,27 @@ Organizace:
 - [?] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není).
 - [?] Návrh: shlukování popisků na úvodní mapě do čtverců („7 míst"), zásah
   do `trasa_uvod.py`, ~1 kolo práce.
+
+### 🚗 Nápad učitele 6. 8. — zlepšit rozmazávání SPZ (posouzeno, čeká na pokyn)
+
+Učitel navrhl dát značkám „něco jako referenční fotky obličejů", ze všech států
+a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobré.**
+
+- Reference obličejů řeší **identifikaci** (čí tvář to je), ne hledání. Detekci
+  dělá jiný model a reference k ní nepotřebuje.
+- U SPZ neselhává identifikace (značky se rozmazávají všechny stejně), ale
+  **detekce** — dnešní Haar kaskáda `haarcascade_russian_plate_number.xml`
+  hlásí střechu, plot, lavičku i terasu (doloženo v `data/pecliva-videa.log`
+  31. 7., dvě zamítnutí po sobě). Katalog vzorů by nepomohl: kaskáda neporovnává
+  obrázek s obrázkem, hledá jen přechody světla a tmy. Různé velikosti navíc
+  už řeší `detectMultiScale` sama.
+- **Co pomůže:** hledat značky jen UVNITŘ nalezených aut (střecha ani plot
+  v autě nejsou) — bez cizího `.pt` modelu, který je vědomě zakázaný.
+- **Z nápadu si vzít tohle:** sada značek z různých států a velikostí jako
+  **zkušební sada pro měření**. Dnes nikdo neví, kolik značek automat přehlédne,
+  a bez měření nejde zlepšení doložit.
+- Navržené pořadí: (1) změřit dnešní stav na zkušební sadě, (2) přidat kontext
+  auta, (3) přeměřit. Čeká na pokyn učitele.
 
 ### Další úkoly
 - [ ] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
