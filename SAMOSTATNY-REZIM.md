@@ -135,7 +135,17 @@ toho, co říká zvuk. Kotva se u každé animace ověřuje PŘED kreslením (dr
   `animace_podkastu.py`: každý snímek musí být platné XML, jinak výroba skončí.
   Brána má obousměrný důkaz i počítadlo prověřených snímků.
 - `hustota` scéna 7 „Klesá, vznáší se, plave" (ještě nezačato).
-- `objem` scéna „Objem kamene z rozdílu" — hladina stoupne po ponoření.
+- `objem` scéna 8 „Objem kamene z rozdílu" — **animace hotová 7. 8.** Kámen na
+  provázku se spouští do válce s 50 ml vody, hladina stoupá o skutečně
+  vytlačenou vodu (objem kulové úseče, ne rovnoměrně), na konci 80 ml → rozdíl
+  30 ml. Scéna tím sama ukáže, PROČ musí být kámen celý pod hladinou: v polovině
+  ponoru je hladina teprve na 65 ml, takže by odečet dal 15 místo 30 ml.
+  **Nález, na který přišla kotva, ne oko:** měřítko válce bylo zvolené tak, že
+  30 ml zvedlo hladinu o 120 px, zatímco kámen byl vysoký jen 104 px — hladina
+  by tedy měla menší plochu než průřez kamene, což je nemožné. Rovnice se kvůli
+  tomu rozkmitala a hladina **skočila z 50 rovnou na 80 ml bez mezistavů**, tedy
+  přesně to, co má scéna učit, by nebylo vidět. Opraveno na 3 px/ml a prosté
+  dosazování nahrazeno půlením intervalu. Test to hlídá třemi kontrolami.
 - Pak přezvučené díly znovu složit s animacemi a nasadit stejným postupem.
 - **Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy** — bez nich
   nejdou snímky ani video; brána pokrytí kvízu u nich hlásí 14 ze 14.

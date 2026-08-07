@@ -606,6 +606,15 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Jak změřit objem kamene? 🎬',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/polemika-objem.mp4',
 						},
+						// Tatáž polemika s POHYBLIVOU scénou měření: kámen na provázku se
+						// spouští do válce a hladina stoupá o skutečně vytlačenou vodu
+						// (objem kulové úseče). Proto je z animace vidět, PROČ musí být
+						// kámen celý pod hladinou — v polovině ponoru je odečet teprve 65 ml.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Jak změřit objem kamene? 🎬 (s animací měření)',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/polemika-objem-animace.mp4',
+						},
 					],
 				},
 				{
@@ -655,6 +664,16 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/polemika-hustota.mp4',
+						},
+						// Tatáž polemika, ale DVĚ scény jsou pohyblivé: tělesa se rozjedou
+						// podle vlastní hustoty (dřevo se zastaví se 60 % pod hladinou, což
+						// je přesně poměr 600 : 1000) a ponorka napouštěním vody mění hustotu
+						// z 900 na 1100 kg/m³. Rychlost je úměrná rozdílu hustot, takže při
+						// 1000 = 1000 se ponorka sama zastaví a vznáší se.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬 (s animacemi)',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/polemika-hustota-animace.mp4',
 						},
 					],
 				},
