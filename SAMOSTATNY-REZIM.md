@@ -53,6 +53,27 @@ Je to kopie nasazené verze `-FR8z-38PR8`. Mazání na kanálu patří učiteli.
 ### 3. Scénosledy tří dílů `atomy-a-molekuly` (všechny začínají Evou)
 ### 4. Přezvučené díly znovu složit s animacemi (starší úkol)
 
+## 📍 Col d'Ornon: fotky i video byly celou dobu pod špatným místem (7. 8. 2026, 19:50)
+
+Učitel: *„Col d'Ornon je již na mapě dlouho, ale stále bez fotek a videa."*
+Příčina: složka fotek se jmenovala `Le_Bourg-dOisans_FR`, protože roztřídění
+pojmenovává složky podle nejbližší **obce** z databáze — a Col d'Ornon je horské
+sedlo, žádná obec. **Změřeno z GPS původních fotek: všech 62 je 3,3 km od sedla**,
+tedy z místa, kde se čekalo na 19. etapu Tour.
+
+- Col d'Ornon má galerii a **34 fotek** (ověřeno na produkci: 34 + 34 náhledů).
+- Galerie `le-bourg-d-oisans` **vyprázdněna** (68 objektů smazáno na pokyn učitele,
+  ověřeno: 0 objektů) a video `-FR8z-38PR8` přesunuto ke Col d'Ornon.
+- Evidence `data/fotky-na-webu.json` srovnána (34 záznamů přepsáno).
+- **Le Bourg-d'Oisans tím zůstal bez fotek i bez videa** — je to průjezdní městečko
+  pod sedlem; kdyby k němu měly patřit vlastní fotky, musely by se dohledat zvlášť.
+
+⚠️ **Pro příště:** složky fotek pojmenované podle nejbližší obce mohou patřit
+jinam. Automat `zaloz_mista_z_fotek.py` proto zakládá místo jen tehdy, když GPS
+sedí do 25 km — ale u sedel a rozhleden, které v databázi měst nejsou, rozhodne
+až člověk. Stojí za zvážení, aby se u míst BEZ vlastní složky fotek hlásilo,
+že jsou prázdná.
+
 ## ✅ HOTOVO 7. 8. 2026 (18:00–18:45)
 
 **FOTKY DO GALERIE SE NAHRÁVAJÍ SAMY** (zadání učitele „Ano, automaticky"):
