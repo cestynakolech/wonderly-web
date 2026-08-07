@@ -595,6 +595,17 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/polemika-hmotnost.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						// Verze s POHYBLIVOU scénou rovnoramenných vah: na jednu misku
+						// přijde těleso s otazníkem, na druhou se přidávají závaží, až se
+						// vahadlo srovná — a tehdy se odhalí, že těleso má 700 g. Náklon
+						// se počítá z rovnováhy momentů, takže vodorovné vahadlo znamená
+						// opravdu shodu hmotností, ne jen hezky dojetou animaci.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Je váha totéž co hmotnost? 🎬 (s animací vah)',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/polemika-hmotnost-animace.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
 					],
 				},
 				{
