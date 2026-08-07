@@ -1,6 +1,39 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
-## ⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~15:10 — DÍL O DIFUZI ŽIVÝ)
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~17:40 — PŘED SMAZÁNÍM KONTEXTU)
+
+**Pořadí práce. První úkol je jasně daný, zbytek je fronta.**
+
+### 1. FOTKY DO GALERIE SAMY — schváleno učitelem 7. 8., NEUDĚLÁNO
+
+Učitel: *„koukal jsem, že se někde doplnily fotky na anonymizaci, ale my už jsme
+měli automatizaci, že se to nekontroluje, ale dává se to rovnou do videí a na web."*
+Ověřeno: do **videí** fotky opravdu jdou samy (VideoAutomat + nahrávač na YouTube).
+Do **galerie na webu** ne — `vyber_fotky_na_web.py` má v hlavičce natvrdo
+„NIC nenahrává — nahrání dělá až člověk po odkliknutí". Proto v
+`/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md` leží **326 nezaškrtnutých
+položek**, které nikdo nikdy neprojde.
+
+Učitel na přímý dotaz vybral: **„Ano, automaticky."**
+
+Co udělat:
+- `vyber_fotky_na_web.py` po výběru vítězů rovnou zavolá nahrání (dnes to dělá
+  ručně `nahraj_fotky.py <složka> <rok>/<mesto>`, který bere CELOU složku —
+  vítěze je tedy potřeba dát stranou, např. do dočasné složky, nebo nahrávači
+  přidat seznam souborů).
+- **Pojistka musí zůstat:** berou se jen fotky, které prošly
+  `kontrola_anonymizace.py` BEZ jediného nálezu; sporné se nenahrají a půjdou
+  učiteli k posouzení. To už skript umí (`preskoceno['nalez']`).
+- Do `KE-SCHVALENI.md` psát dál, ale jako **záznam „nahráno"**, ne zaškrtávátka.
+- Starých 326 položek označit za vyřízené (nemazat — do archivu se škrtnutím).
+- **Kotva:** po nahrání ověřit `curl` na produkci, že fotka opravdu je, a počet
+  nahraných porovnat s počtem vybraných (tiché selhání = půlka dat).
+
+### 2. Animace „tělesa a látky" (skupenství) — postup v NAVOD-ANIMACE-PODKASTU.md
+### 3. Scénosledy tří dílů `atomy-a-molekuly` (všechny začínají Evou — pozná se na nich oprava hlasů)
+### 4. Přezvučené díly znovu složit s animacemi (starší úkol)
+
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩ Předchozí (7. 8. 2026 ~15:10 — DÍL O DIFUZI ŽIVÝ)
 
 **Díl `casticove-slozeni-latek-difuze-dialog` je hotový a nasazený** — scénosled
 (12 scén), 11 nových kreseb, ilustrace, zvuk 2:37 a video 6 MB s animací difuze.
@@ -222,22 +255,22 @@ věci — po `/clear` o nich sama od sebe neví a on je nechce hledat v souborec
 Řekni je česky, stručně, vlastními slovy, **hned v první odpovědi** (a teprve
 potom se pusť do práce):
 
-1. **Torch je vyřešený** (7. 8., na jeho pokyn „oprav to") — `pip-audit` hlásí
-   `No known vulnerabilities found`. Anonymizace tváří se nezhoršila: ověřeno
-   na 35 fotkách, 14 tváří, tytéž rámečky i otisky. Cestou se našla díra, o které
-   se nevědělo: whisper se bral z homebrew, kam audit vůbec nevidí. Podrobnosti
-   v sekci „TORCH VYŘEŠEN" níže.
-2. **Animace difuze je hotová** — klip `Omega/podkasty-snimky/_klipy/difuze.mp4`
-   učitel dostal a viděl. Podíl modrých částic vlevo klesne ze 100 % na 51 %
-   (měřeno na hotových snímcích, ověřeno na pěti semínkách). Ve videu ale ještě
-   není — díl nemá scénosled ani zvuk, což je právě první úkol (viz níže).
-3. **Serena je připojená** (LSP přes MCP, na jeho přání) — v kódu se má ptát jí
-   místo grepu. **Tahle session je první, která ji má k dispozici**, takže se
-   musí ověřit, že ji dostali i workeři. Viz „SERENA PŘIPOJENA" níže.
-4. **Čeká na jeho odklik: 83 fotek ze 134** v
-   `/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md` (včetně čtyř měst visících
-   od 29. 7.) a **osm nasazených videí + pět verzí s animacemi**. Nespěchá to
-   a nic na tom nestojí — schvalování je jeho, práce běží dál.
+_Přepsáno 7. 8. 2026 v 17:40 před smazáním kontextu — starší znění (torch, ověření
+Sereny, chybějící scénosled difuze) je hotové a najdeš ho níž v historii._
+
+1. **Dva nové díly jsou živé na webu.** Difuze (`…-difuze-v2.mp4`, s animací
+   promíchávání částic) a hmotnost (`polemika-hmotnost-animace.mp4`, s animací
+   rovnoramenných vah). Obojí ověřeno otiskem md5 proti produkci.
+2. **Postavy si mezi díly prohazovaly hlasy** — Eva mluvila Markovým hlasem
+   v dílech, kde promluví první. Opraveno, jméno role si hlas pamatuje. Dva díly
+   přetočeny; do žádného nasazeného videa se vada nedostala (doloženo časy
+   vzniku souborů).
+3. **Přiznání umělé inteligence** je u všech 19 polemik — evropská pravidla platí
+   od 2. 8. 2026. Ověřeno u Komise, že slyšitelné upozornění ve zvuku se nežádá.
+   Brána nepustí novou polemiku bez něj.
+4. **Učitel schválil, že fotky do webové galerie se mají nahrávat samy**, bez
+   odklikávání (jako už fotky putují do videí). **Zatím to není udělané** — je to
+   první úkol, viz „KDE POKRAČOVAT" úplně nahoře.
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~13:30 — DIFUZE HOTOVÁ, TORCH VYŘEŠEN)
 
@@ -336,7 +369,10 @@ Co se ukázalo cestou (a proč to nebylo tak nebezpečné, jak se čekalo):
   po smazání znovu puštěna detekce tváří — **týž výsledek jako před celým
   zásahem**, torch 2.13.0, whisper CLI na místě. Ostré prostředí je jediné.
 
-## ▶️▶️ PRVNÍ ÚKOL PO CLEARU (7. 8. 2026 odpoledne): OVĚŘIT SERENU, PAK SCÉNOSLED DIFUZE
+## ✅ SPLNĚNO 7. 8. odpoledne — bývalý „PRVNÍ ÚKOL PO CLEARU" (Serena + scénosled difuze)
+
+_Serena ověřena (a opravena — subagentům chyběl `activate_project`), scénosled
+difuze hotový, díl nasazený. Text níž zůstává jen pro kontext; NENÍ to úkol._
 
 ### Krok 1 — ověř Serenu (5 minut, nepřeskakuj)
 
