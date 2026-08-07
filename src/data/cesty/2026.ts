@@ -315,16 +315,6 @@ export const rok2026: Rok = {
 			videoId: 'DbZCXE8XQuI',
 			popis: { cs: '' },
 		},
-		{
-			slug: 'le-bourg-d-oisans',
-			galerie: 'cesty/2026/le-bourg-d-oisans',
-			nazev: 'Le Bourg-d\'Oisans',
-			zeme: 'Francie',
-			datum: '24. 7. 2026',
-			x: 273.3,
-			y: 397.5,
-			popis: { cs: '' },
-		},
 	],
 	videa: [
 		{ id: '-FR8z-38PR8', nazev: '23. 07. · Le Bourg-d\'Oisans (Francie)', odkaz: 'https://youtu.be/-FR8z-38PR8' },
