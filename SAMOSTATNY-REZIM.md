@@ -40,7 +40,29 @@ Při opravě už zveřejněného videa je proto bezpečnější **nová cesta** 
 ne přepis téže. Tentokrát to nevadilo — mezi nasazením a opravou uběhlo ~45 minut
 a stáhl si ho jen kontrolní `curl`.
 
-**⏳ ČEKÁ NA ROZHODNUTÍ UČITELE — 4 nálezy v ODBORNÉM TEXTU (nesahat bez něj):**
+## 🔋 PŘERUŠENO 7. 8. 2026 v 16:03 — VYBITÁ BATERIE (dokončit po zapojení)
+
+Učitel 7. 8. schválil opravu všech čtyř odborných nálezů („vytvoř co navrhuješ").
+**Text je přepsaný a nasazený, ZVUK A VIDEO NE** — dabování se v 16:02 samo
+zastavilo podle pravidla o baterii (bylo 9 %, ~21 minut do vypnutí).
+
+**Hotové a odeslané (commit `5a3da71`):**
+- dialog `casticove-slozeni-latek-difuze-dialog.md` — přepsané repliky 3, 13, 15
+- kresby `s_zralok` („miliony let", „stovky metrů, ne kilometry")
+  a `s_shrnuti_difuze` (bod 4), obě překreslené
+- výklad na webu v `temata.ts` — všechna tři místa
+
+**Zbývá udělat (v tomhle pořadí, až bude Mac v síti):**
+1. `vyrob_podkasty.py --vzorek casticove-slozeni-latek-difuze-dialog --znovu`
+   (dialog se změnil, starý zvuk už neodpovídá obrazu — ~3 Kč)
+2. `video_podkastu.py` znovu, pak nahrát do R2 **POD NOVOU CESTOU**
+   `polemika-casticove-slozeni-latek-difuze-v2.mp4` a přepsat odkaz v `temata.ts`.
+   **Ne na starou cestu** — R2 posílá média s `immutable, max-age=1 rok`, takže
+   kdo si video otevřel dnes, dostával by rok starou verzi (viz past níže).
+   Učitel na tuhle past sám upozornil, tak ji tentokrát obejít pořádně.
+3. Ověřit otiskem md5 proti produkci, jako minule.
+
+**⏳ ČTYŘI NÁLEZY V ODBORNÉM TEXTU — SCHVÁLENO A OPRAVENO 7. 8. (zápis proč):**
 Kontrolor je spočítal, jsou v učitelově dialogu i ve výkladu na webu. Nejsou to
 překlepy, ale míra zjednodušení — to rozhoduje učitel (pravidlo „při chybě
 se zeptat, neopravovat potichu"). Spočítáno z `t = x²/2D`:
