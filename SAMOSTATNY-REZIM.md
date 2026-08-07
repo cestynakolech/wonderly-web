@@ -32,20 +32,22 @@ věci — po `/clear` o nich sama od sebe neví a on je nechce hledat v souborec
 Řekni je česky, stručně, vlastními slovy, **hned v první odpovědi** (a teprve
 potom se pusť do práce):
 
-1. ~~K ROZHODNUTÍ — knihovna `torch`.~~ **VYŘEŠENO 7. 8. 2026** (učitel řekl
-   „oprav to"). Podrobnosti v sekci „TORCH VYŘEŠEN" níže; audit hlásí
-   `No known vulnerabilities found`. Zbytek bodu už neplatí.
-2. **Animace pružiny je živá na lab.wonderly.cz.** Poměr protažení 1 : 2 : 3 není
-   nakreslený od oka — je doložený měřením na hotových snímcích: 76 : 152 : 228 px.
-3. **Audit automatů proběhl, dva zásekové nálezy jsou opravené**, revize hlásí
-   ✅ čistá (podrobnosti v sekci „AUDIT 7. 8. 2026 ráno" níže).
-4. **Zásek fotek je dohnaný: 83 fotek ze 134 čeká ve frontě na jeho odklik**
-   v `/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md`, včetně všech čtyř měst,
-   která visela od 29. 7. (Gassin, Le Bourg-d'Oisans, Saint-Bonnet, Sainte-Maxime).
-
-**Čeká taky na odsouhlasení videí:** osm nasazených dílů + pět verzí s animacemi
-(úvod do fyziky, gravitace, vzájemné působení, hustota, objem). Nespěchá to,
-nic dalšího na tom nestojí — schvalování je jeho, práce běží dál.
+1. **Torch je vyřešený** (7. 8., na jeho pokyn „oprav to") — `pip-audit` hlásí
+   `No known vulnerabilities found`. Anonymizace tváří se nezhoršila: ověřeno
+   na 35 fotkách, 14 tváří, tytéž rámečky i otisky. Cestou se našla díra, o které
+   se nevědělo: whisper se bral z homebrew, kam audit vůbec nevidí. Podrobnosti
+   v sekci „TORCH VYŘEŠEN" níže.
+2. **Animace difuze je hotová** — klip `Omega/podkasty-snimky/_klipy/difuze.mp4`
+   učitel dostal a viděl. Podíl modrých částic vlevo klesne ze 100 % na 51 %
+   (měřeno na hotových snímcích, ověřeno na pěti semínkách). Ve videu ale ještě
+   není — díl nemá scénosled ani zvuk, což je právě první úkol (viz níže).
+3. **Serena je připojená** (LSP přes MCP, na jeho přání) — v kódu se má ptát jí
+   místo grepu. **Tahle session je první, která ji má k dispozici**, takže se
+   musí ověřit, že ji dostali i workeři. Viz „SERENA PŘIPOJENA" níže.
+4. **Čeká na jeho odklik: 83 fotek ze 134** v
+   `/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md` (včetně čtyř měst visících
+   od 29. 7.) a **osm nasazených videí + pět verzí s animacemi**. Nespěchá to
+   a nic na tom nestojí — schvalování je jeho, práce běží dál.
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~13:30 — DIFUZE HOTOVÁ, TORCH VYŘEŠEN)
 
@@ -141,6 +143,76 @@ Co se ukázalo cestou (a proč to nebylo tak nebezpečné, jak se čekalo):
   jeden — díra byla přesně v tom neviděném.
 - Zbývá uklidit: `Omega/skripty/venv-torch213` (~2 GB, zkušební kopie) —
   **mazání čeká na pokyn učitele.**
+
+## ▶️▶️ PRVNÍ ÚKOL PO CLEARU (7. 8. 2026 odpoledne): OVĚŘIT SERENU, PAK SCÉNOSLED DIFUZE
+
+### Krok 1 — ověř Serenu (5 minut, nepřeskakuj)
+
+Je to první session, která ji má. Pusť `pruzkumnika` s dotazem do kódu, třeba
+*„kde je definovaná `hlaska_na_plakete` v `Omega/skripty/animace_podkastu.py`
+a kdo všechno ji volá?"*, a **podívej se, jestli opravdu použil Serenu, nebo
+grepoval.** Správná odpověď NENÍ důkaz — grep ji vrátí taky. Když nástroje
+nedostal, budou špatně pojmenované (`mcp__serena__*` je odvozený tvar, neověřený)
+— oprav podle skutečného seznamu v `~/.claude/agents/pruzkumnik.md`
+a `kontrolor.md` a zapiš sem, jak se jmenují doopravdy.
+
+### Krok 2 — scénosled dílu o difuzi (hlavní práce, počítej s několika hodinami)
+
+**Cíl:** `Omega/podkasty-scenare/6/casticove-slozeni-latek-difuze-dialog.scenosled.json`
++ deset nových kreseb, aby šla hotová animace `difuze` konečně zapojit do videa.
+
+**Co už je hotové a nemusíš dělat:** dialog (22 replik) i animace `difuze`
+včetně testu a kotvy. Chybí JEN scénosled, kresby a zvuk.
+
+**Přesný tvar scénosledu** (opsáno z `hustota-dialog.scenosled.json`):
+hlava má `slug`, `rocnik`, `tema_kvizu`, `cesta_na_webu`, `poznamka`;
+každá scéna `od_repliky`, `typ` (`ilustrace`/`schema`), `titulek`, `co`,
+`klicova_slova`, u schémat navíc `kresba` a volitelně `animace`.
+Repliky se číslují od nuly a jsou to řádky začínající `EVA:` / `MAREK:`.
+
+**Návrh členění** (22 replik → 11 scén; drž se ho, ať se to nerozjede):
+
+| scéna | od repliky | o čem | kresba |
+|---|---|---|---|
+| 0 | 0 | vůně z kuchyně projde zavřenými dveřmi | `ilustrace` (mflux) |
+| 1 | 1 | co je difuze — samovolné promíchání | nová |
+| 2 | 2 | difuze v plynu | **`animace: "difuze"`** ← už hotová |
+| 3 | 4 | čajový sáček, nikdo nemíchá | nová |
+| 4 | 6 | v horké vodě rychleji (teplota) | nová |
+| 5 | 8 | kapka inkoustu ve sklenici | nová |
+| 6 | 10 | v pevných látkách, ale nesmírně pomalu | nová |
+| 7 | 12 | plyn vs. kapalina — víc volného místa | nová |
+| 8 | 14 | žralok: krev nesou PROUDY, ne difuze | nová |
+| 9 | 16 | přilnavost — tuha na papíře, křída na tabuli | nová |
+| 10 | 18 | nesmáčivost — kapka na mastném plechu, impregnace | nová |
+| 11 | 20 | co si zapamatovat | nová (vzor `shrnuti_hustota`) |
+
+**Na co si dát pozor:**
+- Scéna 2 je jediná animovaná a musí mít `"typ": "schema"` — u `ilustrace`
+  by si skript vyžádal podklad od obrázkového modelu.
+- Blízké hotové kresby, ze kterých se dá vyjít, protože už kreslí částice:
+  `s_teply_vzduch` a `s_proc_se_lisi` v `snimky_podkastu.py`.
+- **Scéna 8 (žralok) je past na věcnou správnost** — dialog výslovně říká, že
+  difuze je na kilometry pomalá a krev nesou mořské proudy. Kresba to musí
+  ukázat taky, jinak si dítě zapamatuje opak.
+- Po nakreslení POVINNĚ kontaktní list a projít očima (postup v
+  `NAVOD-POLEMIKY-F6.md`, krok 6) — kompoziční vady měřidla nenajdou.
+
+### Krok 3 — zvuk a video
+
+```bash
+cd ~/Desktop/Omega && ./skripty/venv/bin/python3 skripty/vyrob_podkasty.py --vzorek casticove-slozeni-latek-difuze-dialog
+```
+MAREK→fable, EVA→nova, ~6 Kč za díl. Zvuky dílů leží v
+`/Users/Shared/Škola/podkasty/6/`. Pak `video_podkastu.py` a nasazení do R2
+a `temata.ts` obvyklým postupem. Zbytek pipeline je v `NAVOD-POLEMIKY-F6.md`.
+
+### Potom (fronta)
+
+1. Animace **hmotnost** (rovnoramenné váhy se vyrovnají) a **tělesa a látky**
+   (skupenství) — postup v `NAVOD-ANIMACE-PODKASTU.md`.
+2. Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy.
+3. Přezvučené díly znovu složit s animacemi.
 
 ## ▶️ PŮVODNÍ ZADÁNÍ ANIMACE DIFUZE (7. 8. 2026 — splněno, ponecháno pro kontext)
 
