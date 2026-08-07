@@ -25,9 +25,8 @@ plist opraven 7. 8.) a „mlčení" u automatů, které logují jen při práci.
 Naučit revizi číst doklad opravy (opakování TÉHOŽ kroku po datu opravy).
 
 ### 4. Rozhodnutí učitele (nikdy kvůli tomu nestát)
-- **`ollama pull llama3.1` (4,9 GB)?** Při úklidu disku se smazal i jediný
-  kontrolor kódu z jiné rodiny pro OFFLINE graf — do jeho návratu je offline
-  kontrolor dočasně `qwen3:8b` (táž rodina, degradace poctivě zapsaná v kódu).
+- ~~llama3.1~~ VYŘEŠENO 8. 8.: učitel schválil, stažena zpět (Starlink),
+  role offline kontrolora vrácena, model ověřen otázkou (odpověděl správně).
 - **open-webui**: zprovoznit až doma s Mac mini, kolem 20. 8. (paměť založena).
 - na mostě leží pokyn pro druhý účet: smazat 2 nečitelné referenční fotky.
 
