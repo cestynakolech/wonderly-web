@@ -183,6 +183,16 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>nesmáčivost (nepřilnavost)</strong> — přitažlivé síly mezi částicemi vody navzájem jsou <strong>silnější</strong> než mezi vodou a mastnotou, proto se voda radši stáhne do kapky a povrch nesmáčí; využití: impregnace bot, nepřilnavé nádobí</li>
 						</ul>
 					`,
+					materialy: [
+						// Třetí díl částicové série. Scéna s promícháním dvou látek je
+						// POHYBLIVÁ — částice se hýbou samy a počítadlo pod nádobou ukazuje,
+						// jak podíl modrých vlevo klesá ze 100 % k polovině a už tam zůstane.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Proč je vůně oběda cítit až v pokoji? 🎬 (s animací difuze)',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-difuze.mp4',
+						},
+					],
 				},
 				{
 					slug: 'atomy-a-molekuly',

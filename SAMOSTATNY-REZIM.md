@@ -1,5 +1,26 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## 🎙️ NÁLEZ 7. 8. 2026: POSTAVY SI MEZI DÍLY PROHAZOVALY HLASY (opraveno)
+
+Při výrobě zvuku k difuzi vyskočilo `EVA→fable, MAREK→nova`, kdežto osm hotových
+dílů má `MAREK→fable, EVA→nova`. Příčina: `vyrob_podkasty.py` přiřazoval hlasy
+**v pořadí prvního výskytu**, ne podle jména role. V dílech, kde promluví první
+Eva, tedy mluvila Markovým hlasem z ostatních dílů — u série se stejnými
+postavami je to vada, které si dítě všimne dřív než dospělý.
+
+- **Rozsah:** 2 hotové díly (`gravitacni-sila-dialog2` z 5. 8. a dnešní difuze)
+  + **6 dosud nevyrobených scénářů**, které také začínají Evou
+  (`atomy-a-molekuly-*` ×3, `casticove-slozeni-latek-atomy`), by chybu zdědilo.
+- **Oprava:** jméno role si hlas pamatuje v `skripty/data/hlasy-roli.json`
+  (`MAREK: fable`, `EVA: nova`); pořadí prvního výskytu rozhoduje jen u jmen,
+  která hlas ještě nemají. Obousměrně ověřeno čtyřmi případy: Eva první / Marek
+  první dají TOTÉŽ přiřazení, nová dvojice jmen pořád dostane dva různé hlasy,
+  a známé jméno + nové jméno se nepohádají o hlas.
+- **Přibyl přepínač `--znovu`** (dřív šlo hotový díl jen přeskočit, takže oprava
+  by znamenala ruční mazání mp3). Stará verze se odkládá jako `.mp3.predchozi`.
+- Difuze přetočena správně. **`gravitacni-sila-dialog2` čeká** — je nasazený,
+  takže přetočení znamená i nové video; udělat, až doběhne difuze.
+
 ## ✅ AUDIT 7. 8. 2026 ~14:30 — dva nálezy, oba opravené; SERENA OVĚŘENA
 
 Povinný vstupní audit proběhl (revize automatů, procesy, brána webu, testy, git,
