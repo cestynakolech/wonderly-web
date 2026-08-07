@@ -1,5 +1,67 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~15:10 — DÍL O DIFUZI ŽIVÝ)
+
+**Díl `casticove-slozeni-latek-difuze-dialog` je hotový a nasazený** — scénosled
+(12 scén), 11 nových kreseb, ilustrace, zvuk 2:37 a video 6 MB s animací difuze.
+V R2 jako `polemika-casticove-slozeni-latek-difuze.mp4`, v `temata.ts` u tématu
+`casticove-slozeni-latek`. Ověřeno: video na produkci HTTP 200.
+
+- Kotva animace ve videu: počítadlo modrých vlevo klesá **100 % → 93 % → 49 %**
+  (odečteno ze snímků hotového videa v čase 22 s a 30 s, ne z logu).
+- Scéna 0 (vůně) se generovala **dvakrát**: první ilustrace měla OTEVŘENÉ dveře
+  a dítě s hrnkem v ruce, zatímco Eva v dialogu říká, že je ve svém pokoji
+  a dveře jsou zavřené. Obraz nesmí říkat něco jiného než zvuk.
+- Přilnavost se překreslovala: tužka byla na hotovém snímku k nepoznání
+  (dva trojúhelníky bez těla) a šipky sil 24 px dlouhé neměly vidět hrot.
+  Ani jedno nejde poznat z výpisu skriptu — jen pohledem.
+
+**NEZÁVISLÝ KONTROLOR našel 11 věcí, 7 opraveno (jedna vážná):**
+1. ⚠️ **`s_plyn_kapalina` učila pravý opak tématu** — všech pět šipek mělo týž
+   posun, takže vyšlo pět rovnoběžek = uspořádané proudění, zatímco výklad
+   i kvízová otázka 15 stojí na tom, že pohyb je NEUSPOŘÁDANÝ. Doloženo změřením
+   směrů na vykresleném SVG (5× −21,8°). Šipky teď míří každá jinam a v kapalině
+   má šipku každá částice (dřív jedna visela v prázdnu).
+2. `s_teplota_difuze` měla vlevo 3 a vpravo 8 částic → obrázek říkal „v horké
+   vodě je barviva víc". Teď má obojí 8, liší se jen rozptylem.
+3. Popisek „dřevo či jiný kov" tvrdil, že dřevo je kov → „dřevo".
+4. `s_difuze_pevne`: nakreslená byla JEDNA přešlá částice proti popisku „pár
+   částic" → tři (a jedna opačným směrem).
+5. Tužka nestála na konci stopy a papíru se nedotýkala — vypadalo to, že se píše
+   zprava doleva. Po opravě zasahovala do sloupce „zblízka", tak i zkrácena.
+6. Shrnutí začínalo u repliky 20, jenže o impregnaci se mluví v replikách 20–21 —
+   obrázek s botou mizel přesně ve chvíli, kdy o ní Eva mluví. Posunuto na 21.
+7. Video složeno znovu a nahrazeno v R2; **shoda doložena otiskem md5**
+   `5bc0d08c…` proti souboru na produkci (velikost se u HTTP/2 neposílá).
+
+⚠️ **Past k zapamatování:** R2 servíruje média s `cache-control: immutable,
+max-age=1 rok`. Kdo si video stáhl před opravou, dostane rok starou verzi.
+Při opravě už zveřejněného videa je proto bezpečnější **nová cesta** (`-v2.mp4`),
+ne přepis téže. Tentokrát to nevadilo — mezi nasazením a opravou uběhlo ~45 minut
+a stáhl si ho jen kontrolní `curl`.
+
+**⏳ ČEKÁ NA ROZHODNUTÍ UČITELE — 4 nálezy v ODBORNÉM TEXTU (nesahat bez něj):**
+Kontrolor je spočítal, jsou v učitelově dialogu i ve výkladu na webu. Nejsou to
+překlepy, ale míra zjednodušení — to rozhoduje učitel (pravidlo „při chybě
+se zeptat, neopravovat potichu"). Spočítáno z `t = x²/2D`:
+- **„difuze by k žralokovi trvala roky"** — pro 1 km ve vodě vychází **~16 milionů
+  let**; „roky" odpovídají vzdálenosti kolem 1 metru. Je ve 4 místech (dialog,
+  kresba žraloka, shrnutí, výklad na webu). Navrhuji „statisíce let".
+- **„žralok ucítí kapku krve na kilometry"** — Marek vyvrátí jen mechanismus,
+  ne vzdálenost, takže díl mýtus spíš potvrzuje.
+- **„v plynu se částice pohybují rychleji"** — při téže teplotě je střední
+  kinetická energie stejná (voda i pára ~637 m/s); pravou příčinou je delší
+  volná dráha, kterou dialog uvádí až jako druhý důvod.
+- **vůně přes zavřené dveře „sama, i bez větru"** — čistou difuzí by přes pokoj
+  trvala ~14 dní (za 10 s urazí 1,4 cm); ve skutečnosti ji nese proudění vzduchu.
+  Přitom díl jinde argumentuje právě pomalostí difuze — je to vnitřní nesoulad.
+
+**Co dělat dál:**
+1. Další animace: **hmotnost** (rovnoramenné váhy) a **tělesa a látky** (skupenství).
+2. Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy — pozor,
+   všechny tři začínají Evou, takže se na nich hned pozná, že oprava hlasů drží.
+3. Přezvučené díly znovu složit s animacemi (starší úkol, s hlasy nesouvisí).
+
 ## 🎙️ NÁLEZ 7. 8. 2026: POSTAVY SI MEZI DÍLY PROHAZOVALY HLASY (opraveno)
 
 Při výrobě zvuku k difuzi vyskočilo `EVA→fable, MAREK→nova`, kdežto osm hotových
@@ -18,8 +80,15 @@ postavami je to vada, které si dítě všimne dřív než dospělý.
   a známé jméno + nové jméno se nepohádají o hlas.
 - **Přibyl přepínač `--znovu`** (dřív šlo hotový díl jen přeskočit, takže oprava
   by znamenala ruční mazání mp3). Stará verze se odkládá jako `.mp3.predchozi`.
-- Difuze přetočena správně. **`gravitacni-sila-dialog2` čeká** — je nasazený,
-  takže přetočení znamená i nové video; udělat, až doběhne difuze.
+- Difuze přetočena správně. **`gravitacni-sila-dialog2` také přetočen** — a při
+  té příležitosti se ukázalo, že **žádné nasazené video vadné hlasy nikdy
+  nemělo**: video `polemika-gravitace-2.mp4` vzniklo 5. 8. v 15:00 z hlasů
+  ElevenLabs (jeho přepis je z 14:59), kdežto vadný zvuk z OpenAI až v 15:14 —
+  tedy po něm. Vadný byl jen soubor `podkasty/6/gravitacni-sila-dialog2.mp3`,
+  který do žádného videa nešel; teď je opravený a stará verze leží vedle jako
+  `.mp3.predchozi`. **Do R2 se tedy nic nahrazovat nemuselo.**
+  Poučení: „díl je nasazený" ≠ „nasazená verze pochází z tohohle zvuku" —
+  doložit časem vzniku souborů, ne úvahou (viz [[feedback-verze-na-kanalu-z-logu]]).
 
 ## ✅ AUDIT 7. 8. 2026 ~14:30 — dva nálezy, oba opravené; SERENA OVĚŘENA
 
