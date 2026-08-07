@@ -127,6 +127,46 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-07 (podkásty F6 nasazené · videa se rozhýbala · dvě vady vlastních měřidel)** —
+  **Všech 8 dílů Fyziky 6 dostalo nový hlas** (lokální OmniVoice, zdarma), učitel je
+  poslechl a schválil. Kotvou správnosti byla **změřená výška hlasu** (muž 142–161 Hz,
+  žena 233–264 Hz) — prohození hlasů se jinak pozná až poslechem celého dílu.
+  **Osm videí nasazeno:** hmotnost, hustota, objem a vzájemné působení sil dostaly
+  video vůbec poprvé, tři díly druhou verzi vedle stávající, úvod do fyziky nahradil
+  starší nahrávku s prohozenými hlasy. Čtyřem dílům se musela dokreslit chybějící
+  úvodní ilustrace — schémata měly hotová, chyběla jen ta jediná neschematická scéna.
+  **Učitel pak zadal pohyblivé scény:** *„aby se do videa nepřidávaly jen statické
+  obrázky… například když říkají, že astronaut upustí kladivo a pero, tak by to bylo
+  i vidět… ne jen ty předměty, ale i to okolí."* Vznikl modul `animace_podkastu.py`;
+  `video_podkastu.py` umí vložit klip místo statického snímku a poslední snímek podrží
+  do konce scény. Nasazené jsou dva díly s animacemi: úvod do fyziky (kámen × papír
+  na Zemi, kladivo × pero na Měsíci) a gravitační síla (Newtonovo dělo — tři výstřely,
+  dva dopadnou, třetí obíhá). **Animace kreslí KÓD, ne video model:** polohy se počítají
+  z volného pádu, pádu s odporem a numerické integrace v gravitačním poli, takže
+  „dopadly současně" i „obíhá" z výpočtu VYJDOU. Generativní model se z pozemských
+  videí naučil, že lehké věci padají pomaleji vždycky — na Měsíci by učil opak zvuku.
+  **Nejdražší past dne vypadala jako vada obsahu:** učiteli se klip „zastavil po 0,07 s,
+  ani se to nerozběhlo". Animace byla v pořádku — soubor měl **index (`moov`) až za
+  obrazovými daty a žádnou zvukovou stopu**, na čemž přehrávač zamrzne hned na začátku.
+  Doloženo hledáním značek `moov`/`mdat`; nově má každý klip `+faststart` a tichou stopu.
+  Hotová videa podkástů to měla odjakživa, samostatně vyráběné klipy ne — proto to
+  nikdo dřív neodhalil.
+  **Dvě vady ve VLASTNÍCH měřidlech** (opakovaný vzorec projektu): (1) brána
+  `pokryti_kvizu.py` hlásila jako chybějící **každou odpověď kratší než tři znaky**,
+  tedy všechny značky Fe, O, m, V, F napříč fyzikou — zbyla jí prázdná množina
+  klíčových slov; k tomu špatně skládala číslovky („sto osmnáct" → „8 100" místo 118).
+  Opraveno, regrese změřena na všech 8 dílech: **0 zhoršených, 3 zlepšené**.
+  (2) Měřidlo polohy pera tvrdilo, že pero visí ve vzduchu, ačkoli leželo — měřilo
+  text hlášky a vracelo v obou časech totéž; vyvrátil to až pohled na výřez.
+  **Poučení: když si měření a pohled odporují, hledej chybu nejdřív v měření.**
+  Třetí poučení je od učitele: **splněná norma kontrastu není důkaz čitelnosti** —
+  tmavý text na trávě měl 6,2 : 1 (norma 4,5) a přesto mu splýval; text přes kresbu
+  proto patří na bílou plaketu. Splacen i zapsaný dluh: `vyrob_video_automat.py` si
+  nově bere sdílený zámek modelu kolem výroby hudby ACE-Stepem.
+  Napsané a branou prověřené jsou **scénáře `atomy-a-molekuly`** jako tři krátké díly
+  (14 ze 14 otázek pokryto); chybí jim scénosledy. Návod pro kolegu:
+  `Omega/dokumenty/NAVOD-ANIMACE-PODKASTU.md`.
+
 - **2026-08-05 (audio podkásty fyziky — celá Fyzika 6 napsaná, hlas vybrán, rozhodnut dialog)** —
   Povel `WONDERLY PODKASTY`. **Napsáno a zkontrolováno všech 21 z 21 scénářů Fyziky 6**
   (`Omega/podkasty-scenare/6/`), tři dávky vějířem workerů, ke každé **nezávislý kontrolor**;

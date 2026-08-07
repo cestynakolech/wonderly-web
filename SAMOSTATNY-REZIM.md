@@ -1,5 +1,30 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## 🔍🔍 ÚPLNĚ PRVNÍ ÚKOL PO OTEVŘENÍ SESSION: AUDIT A KONTROLA (zadal učitel 7. 8. 2026)
+
+Doslova: *„do návodu na pokračování dej, aby nejdřív udělal audit a kontrolu všech
+činností, zda se někde zase něco nezasekává, a aby si to když tak opravil."*
+**Teprve po auditu se bere další úkol z fronty.** Trvá to ~10 minut a opakovaně
+se ukázalo, že něco tiše padá (automat s exit 0, smyčka opakující týž pokus,
+video vyrobené posedmé). Postup:
+
+1. **Zdraví automatů** — `~/Desktop/Omega/skripty/venv/bin/python3 ~/Desktop/Omega/skripty/revize_automatu.py`
+   → report `Omega/dokumenty/ZDRAVI-AUTOMATU.md`. Hledej: chyby v posledních řádcích
+   logu, systémový python v plistu, mlčící automat, vadný plist.
+2. **Běží něco zaseknutého?** — `ps aux | grep -E "ffmpeg|ollama|whisper|python3" | grep -v grep`
+   a `launchctl list | grep omega`. Proces běžící přes hodinu u úlohy, která trvá
+   minuty, je zásek. Na Macu smí být **jen JEDEN těžký proces**.
+3. **Brána a testy webu** — `cd ~/Desktop/wonderly-web && node zkontroluj.mjs`
+   (musí skončit `✅ Vše zapojené správně`) a `node testy/vsechny-simulace.mjs`.
+4. **Nedokončená práce v repu** — `git status` (nic necommitnutého), `git log --oneline -5`.
+5. **Fronty čekající na člověka** — `pecliva_videa.py --stav`,
+   `Cestovatelský deník/KE-SCHVALENI.md`, sekce „ČEKÁ NA ODKLIKNUTÍ" níže.
+6. **Opakuje se táž chyba?** — projdi `Omega/skripty/data/*.log` (posledních ~30 řádků)
+   a hledej tentýž záznam víckrát po sobě. Vzorec „automat hlásí úspěch, ale nic
+   nevyrobil" se v tomhle projektu opakoval 7×; kotvou je otisk (md5) výstupu.
+7. **Co najdeš, ROVNOU OPRAV** (je to předschválené) a nález i opravu zapiš sem
+   do stavu. Co opravit nejde na 3 pokusy, zapiš do „Odloženo — zaseklo se" a jdi dál.
+
 ## ⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~02:10 — ANIMACE ZAPOJENÉ DO VIDEÍ)
 
 **Zadání učitele před spaním:** *„vymysli a vytvoř celé video včetně animací
