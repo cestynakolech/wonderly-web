@@ -1,5 +1,46 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~02:10 — ANIMACE ZAPOJENÉ DO VIDEÍ)
+
+**Zadání učitele před spaním:** *„vymysli a vytvoř celé video včetně animací
+a pokud to budeš mít, pokračuj samostatně na další práci, nečekej na odsouhlasení,
+stále pokračuj, souhlasy si pamatuj, udělám je potom najednou."*
+
+**✅ HOTOVO A ŽIVÉ NA WEBU (ověřeno curlem):**
+1. **`animace_podkastu.py`** (nový modul) — pohyblivá obdoba `snimky_podkastu.py`.
+   Registr `ANIMACE`, scénosled scénu označí klíčem `"animace": "<klíč>"`.
+   Hotové animace: `pad_zeme_papir`, `pad_mesic`, `newtonovo_delo`.
+2. **`video_podkastu.py` umí vložit KLIP místo statického snímku** — když vedle
+   `scena-NN.png` leží `scena-NN.mp4`, použije se a poslední snímek se podrží do
+   konce scény (`tpad` + `trim`). Obousměrný důkaz: bez klipu se nic nezměnilo.
+3. **Úvod do fyziky s animacemi** — `polemika-uvod-do-fyziky-animace.mp4`
+   (scéna 9 kámen × papír na Zemi, scéna 10 kladivo × pero na Měsíci).
+4. **Gravitační síla s animací Newtonova děla** — `polemika-gravitace-1-animace.mp4`
+   (scéna 2 „Proč stanice nespadne": tři výstřely, dva dopadnou, třetí obíhá).
+
+**🐛 NEJDŮLEŽITĚJŠÍ NÁLEZ: video se učiteli nepřehrálo („0,07 s, ani se to
+nerozběhlo").** Nebyla to vada animace — soubor měl **index (moov) až ZA daty**
+a **žádnou zvukovou stopu**. Přehrávač na tom zamrzne hned na začátku. Doloženo
+hledáním značek `moov`/`mdat` v souboru. **Každý klip i ukázka proto nově mají
+`-movflags +faststart` a tichou stopu AAC.** Platí pro cokoli, co se posílá
+učiteli nebo na web — hotová videa podkástů to měla odjakživa, samostatné klipy ne.
+
+**Proč animace kreslí KÓD (a ne video model):** polohy se počítají ze vzorců
+(volný pád, pád s odporem, numerická integrace v gravitačním poli), takže rozdíl
+časů dopadu i oběh družice z výpočtu VYJDOU. Generativní model se z pozemských
+videí naučil, že lehké věci padají pomaleji vždycky — na Měsíci by tedy učil opak
+toho, co říká zvuk. Kotva se u každé animace ověřuje PŘED kreslením (dráhy,
+časy dopadu) a po vyrobení pohledem na výřez.
+
+**DALŠÍ KROK (fronta animací, seřazeno podle přínosu):**
+- `vzajemne-pusobeni` scéna 11 „Dvakrát větší síla, dvakrát větší protažení" —
+  pružina se natahuje se závažím (přímá úměrnost je vidět, ne jen napsaná).
+- `hustota` scéna 9 „Jak se ponorka potopí" a scéna 7 „Klesá, vznáší se, plave".
+- `objem` scéna „Objem kamene z rozdílu" — hladina stoupne po ponoření.
+- Pak přezvučené díly znovu složit s animacemi a nasadit stejným postupem.
+- **Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy** — bez nich
+  nejdou snímky ani video; brána pokrytí kvízu u nich hlásí 14 ze 14.
+
 ## ⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~00:05 — VŠECH 8 VIDEÍ NASAZENO)
 
 **✅ HOTOVO A ŽIVÉ NA WEBU** (commit `43daee8`, ověřeno curlem na produkci —
