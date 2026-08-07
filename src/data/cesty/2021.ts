@@ -678,7 +678,7 @@ export const rok2021: Rok = {
 		{ id: 'CtELqPCIf1k', nazev: 'KOLODĚJE', odkaz: 'https://youtu.be/CtELqPCIf1k' },
 		{ id: 'mK8UqL93IrU', nazev: 'Skanzen Přerov nad Labem', odkaz: 'https://youtu.be/mK8UqL93IrU' },
 		{ id: 'wMAUWQ5_Ifs', nazev: 'Český Šternberk', odkaz: 'https://youtu.be/wMAUWQ5_Ifs' },
-		{ id: 'eTA9aFMheRw', nazev: '30. srpna 2021', odkaz: 'https://youtu.be/eTA9aFMheRw' },
+		{ id: '8NdxT2Hkj5g', nazev: '30. srpna 2021', odkaz: 'https://youtu.be/8NdxT2Hkj5g' },
 		{ id: 'fVw5DVJEqbM', nazev: 'Louňovice pod Blaníkem. Černé Budy', odkaz: 'https://youtu.be/fVw5DVJEqbM' },
 		{ id: 'mEuBqR3Jas4', nazev: 'Žleby Čihošť Zahrádky', odkaz: 'https://youtu.be/mEuBqR3Jas4' },
 		{ id: 'bXIgqEFY4do', nazev: 'Lipnice nad Sázavou', odkaz: 'https://youtu.be/bXIgqEFY4do' },
