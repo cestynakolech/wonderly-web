@@ -40,7 +40,31 @@ Při opravě už zveřejněného videa je proto bezpečnější **nová cesta** 
 ne přepis téže. Tentokrát to nevadilo — mezi nasazením a opravou uběhlo ~45 minut
 a stáhl si ho jen kontrolní `curl`.
 
-## 🔋 PŘERUŠENO 7. 8. 2026 v 16:03 — VYBITÁ BATERIE (dokončit po zapojení)
+## ✅ HOTOVO 7. 8. 2026 v 16:20 — DIFUZE v2 ŽIVÁ + ČTYŘI OPRAVY V NÁSTROJÍCH
+
+Učitel zapojil nabíječku, práce dokončena. Díl o difuzi je na webu ve verzi **v2**
+(3:00, 7 MB, `polemika-casticove-slozeni-latek-difuze-v2.mp4`), zvuk i video
+vzniklo znovu z opraveného textu. Ověřeno: otisk md5 sedí, stránka odkazuje v2.
+
+Cestou se opravily čtyři věci v nástrojích, všechny doložené (podrobně v PRAVIDLA.md):
+
+1. **Přepis z whisperu se používal i po přetočení zvuku** — mezipaměť byla
+   klíčovaná jen cestou, takže k novému zvuku sedl starý přepis a zarovnání
+   spadlo na 69 % slov. Teď přepis nese otisk zvuku (md5).
+2. **Práh baterie rozlišen podle zátěže** (rozhodnutí učitele): lokální modely
+   30 % jako dosud, síťová práce 15 %. Dabování podkástů je jen požadavek na
+   OpenAI, přesto se dnes na 30 % zbytečně zastavilo.
+3. **Nový automat `hlidac_baterie.py`** (každých 5 min): varuje ve 20 %,
+   naléhavě s pípnutím v 10 %. Dosud upozornění vzniklo jen tehdy, když se
+   zrovna pozastavila náročná úloha — a `vyrob_podkasty.py` navíc volal
+   v modulu tři funkce, které vůbec neexistují, takže neupozorňoval nikdy.
+4. **Mezipaměť médií zkrácena** z roku (`immutable`) na hodinu + worker umí
+   `304`. Ověřeno: opakovaný dotaz s otiskem stáhne 0 B místo 7,5 MB.
+
+**Co dělat dál:** animace **hmotnost** a **tělesa a látky**; scénosledy tří dílů
+`atomy-a-molekuly` (všechny začínají Evou — pozná se na nich oprava hlasů).
+
+## 🔋 Průběh: přerušeno v 16:03 vybitou baterií (vyřešeno)
 
 Učitel 7. 8. schválil opravu všech čtyř odborných nálezů („vytvoř co navrhuješ").
 **Text je přepsaný a nasazený, ZVUK A VIDEO NE** — dabování se v 16:02 samo
