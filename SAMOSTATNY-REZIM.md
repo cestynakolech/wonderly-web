@@ -25,6 +25,67 @@ video vyrobené posedmé). Postup:
 7. **Co najdeš, ROVNOU OPRAV** (je to předschválené) a nález i opravu zapiš sem
    do stavu. Co opravit nejde na 3 pokusy, zapiš do „Odloženo — zaseklo se" a jdi dál.
 
+## 📣 PO SMAZÁNÍ KONTEXTU NEJDŘÍV ŘEKNI UČITELI TOHLE (zadal 7. 8. 2026)
+
+Učitel si vyžádal, aby mu nová session **hned na začátku zopakovala** tyhle čtyři
+věci — po `/clear` o nich sama od sebe neví a on je nechce hledat v souborech.
+Řekni je česky, stručně, vlastními slovy, **hned v první odpovědi** (a teprve
+potom se pusť do práce):
+
+1. **K ROZHODNUTÍ UČITELE — knihovna `torch`.** Verze 2.10.0 má dvě známé
+   zranitelnosti (PYSEC-2026-139, PYSEC-2025-194), opravené ve verzi 2.13.0.
+   Povýšení **může rozbít `insightface`** (rozmazávání tváří ve fotkách a videích
+   deníku) **i `mflux`** (generování ilustrací). Proto to nikdo nedělá bez jeho
+   pokynu. Automat `pip-audit` sám je v pořádku — běží 1. dne v měsíci a nenulový
+   návratový kód u něj znamená „našel jsem nález", ne pád.
+2. **Animace pružiny je živá na lab.wonderly.cz.** Poměr protažení 1 : 2 : 3 není
+   nakreslený od oka — je doložený měřením na hotových snímcích: 76 : 152 : 228 px.
+3. **Audit automatů proběhl, dva zásekové nálezy jsou opravené**, revize hlásí
+   ✅ čistá (podrobnosti v sekci „AUDIT 7. 8. 2026 ráno" níže).
+4. **Zásek fotek je dohnaný: 83 fotek ze 134 čeká ve frontě na jeho odklik**
+   v `/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md`, včetně všech čtyř měst,
+   která visela od 29. 7. (Gassin, Le Bourg-d'Oisans, Saint-Bonnet, Sainte-Maxime).
+
+**Čeká taky na odsouhlasení videí:** osm nasazených dílů + pět verzí s animacemi
+(úvod do fyziky, gravitace, vzájemné působení, hustota, objem). Nespěchá to,
+nic dalšího na tom nestojí — schvalování je jeho, práce běží dál.
+
+## ▶️ PRVNÍ ÚKOL PO CLEARU: ANIMACE DIFUZE (zadal učitel 7. 8. 2026)
+
+Po auditu (viz úplně první sekce) a po sdělení čtyř bodů výše se pusť do tohohle:
+
+**Cíl:** pohyblivá scéna difuze. Zdrojový dialog **je hotový**:
+`Omega/podkasty-scenare/6/casticove-slozeni-latek-difuze-dialog.md` (22 replik:
+vůně z kuchyně → čajový sáček → rychlejší v teple → v pevných látkách skoro ne).
+
+**Ale scénosled k němu NEEXISTUJE** (ověřeno 7. 8. — hotové scénosledy má jen
+osm dílů a částicová scéna mezi nimi není). Před animací tedy musíš vyrobit
+scénosled celého dílu, a k němu i **statická schémata** pro ostatní scény do
+`snimky_podkastu.py`. Počítej s tím, že to je větší kus práce než samotná animace;
+u 22 replik vyjde zhruba 8–10 scén. Vzor scénosledu: `hustota-dialog.scenosled.json`.
+Blízké hotové kresby, ze kterých se dá vyjít: `s_teply_vzduch` (řádek 962)
+a `s_proc_se_lisi` (řádek 1035) — obě už kreslí částice.
+
+**Levnější varianta, jestli na celý díl nezbude čas:** animaci `difuze` napiš
+a zaregistruj rovnou, ale nasaď ji do dílu, který scénosled MÁ — hodí se
+`hustota-dialog` scéna 12 „Proč se hustoty liší" (tam se mluví o hustotě částic).
+Animace tím vznikne a otestuje se; scénosled difuze pak může přijít později.
+
+**Co má scéna ukázat:** dvě látky oddělené přepážkou, po jejím odstranění se
+částice **samy** promíchají a zpátky se už nerozdělí. Přesně tohle je pointa —
+difuze je jednosměrná, protože promíchaných uspořádání je nesrovnatelně víc.
+
+**Kotva (spočítej ji PŘED kreslením, jinak scéna učí nesmysl):** částice se hýbou
+náhodnou procházkou, ne po nakreslené dráze. Měř podíl modrých částic v levé
+polovině: na začátku 100 %, na konci se musí blížit 50 % (tolerance ±5 %) a už
+neklesnout zpátky. **Náhoda musí mít pevné semínko** (`random.Random(42)`), jinak
+je scéna pokaždé jiná a nedá se testovat. Kotvu zapiš jako test do
+`Omega/skripty/testy/` — vzor je `test_animace_pruziny.py`.
+
+**Postup a pasti:** `Omega/dokumenty/NAVOD-ANIMACE-PODKASTU.md` (čti CELÝ, jsou
+tam čtyři pasti, kvůli kterým se dnes dvakrát přerenderovávalo) a skill
+`/podkast-video`.
+
 ## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~11:10 — TŘI DÍLY S ANIMACEMI ŽIVÉ)
 
 Session dělala povinný audit (nálezy níže) a pak frontu animací. **Živé na webu:
