@@ -1,5 +1,31 @@
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
+## ✅ AUDIT 7. 8. 2026 ~14:30 — dva nálezy, oba opravené; SERENA OVĚŘENA
+
+Povinný vstupní audit proběhl (revize automatů, procesy, brána webu, testy, git,
+fronty, logy). Výsledky:
+
+1. **pip-audit hlídal jen jedno ze tří prostředí** (launchctl kód 1 byl starý,
+   z 1. 8. před opravou torche — ale v nehlídaném `nastroje/venv-mflux` se našly
+   4 tiché zranitelnosti: pip 26.1, setuptools 82.0.1). Opraveno: balíky povýšeny,
+   plist rozšířen na obě prostředí (cestu k mfluxu dohledává python, ne zsh —
+   hvězdička se v launchd nerozbalila), chybějící prostředí = hlasitá chyba.
+   **Obousměrně doloženo:** kod 1 na podvrhu se zranitelným balíkem, kod 0 na
+   čistém. Ostrý běh automatu: kod 0, obě prostředí `No known vulnerabilities`.
+2. **Serena u subagentů: názvy nástrojů byly SPRÁVNĚ, ale subagent stejně
+   grepoval** — Serena vrátila „No active project" a nástroj na aktivaci v sadě
+   nebyl (session běží v `/Users/Shared/Škola`, mimo oba projekty). Přesně ta
+   past „správná odpověď není důkaz". Opraveno: `mcp__serena__activate_project`
+   přidán do `pruzkumnik.md` i `kontrolor.md` + pokyn aktivovat projekt podle
+   složky a zadávat cesty relativně ke kořeni (jinak FileNotFoundError se
+   zdvojenou cestou). **Ověřeno druhým subagentem s čerstvým kontextem:** obě
+   odpovědi získal čistě přes LSP, grep nebyl potřeba.
+3. Strašidelné chyby v `skripty/data/stara-videa-anonymizace*.log` jsou STARÉ
+   (26.–27. 7.) — živý log `~/Library/Logs/omega-stara-videa-anonymizace.log`
+   končí dnešním během s kódem 0. Ostatní logy v pořádku (podkásty HOTOVO,
+   hlídač fotek jen testoval očekávanou chybu, graf-local je offline seance z 28. 7.).
+   Brána webu ✅, testy 1015/1015, git čistý, žádný zaseknutý proces.
+
 ## 🔍🔍 ÚPLNĚ PRVNÍ ÚKOL PO OTEVŘENÍ SESSION: AUDIT A KONTROLA (zadal učitel 7. 8. 2026)
 
 Doslova: *„do návodu na pokračování dej, aby nejdřív udělal audit a kontrolu všech
