@@ -76,6 +76,43 @@ nic dalšího na tom nestojí — schvalování je jeho, práce běží dál.
 3. Další animace: **hmotnost** (rovnoramenné váhy) a **tělesa a látky**
    (skupenství).
 
+## 🔎 SERENA PŘIPOJENA (7. 8. 2026) — ⚠️ JEDNU VĚC MUSÍ PŘÍŠTÍ SESSION OVĚŘIT
+
+Učitel udělal vlastní zkoušku „od dveří ke dveřím" (dvakrát totéž přejmenování
+property, s LSP a bez něj): obě větve našly identických 8 souborů a 18 řádků,
+ale bez LSP agent grepoval a otevřel přes 20 souborů jen proto, aby zjistil,
+které nepotřebuje. **Jeho postřeh:** LSP mívá jen hlavní vlákno, subagenti
+grepují dál — proto Serena, která LSP rozdává přes MCP.
+
+**Co je hotové a DOLOŽENÉ:**
+- Claude Code má vlastní LSP zapnutý ve výchozím stavu (proto existuje `--bare`,
+  který ho *vypíná*). Do `skripty/venv` doinstalován `pyright 1.1.411`.
+- Serena 1.28.1 nainstalována natrvalo (`uv tool install`), zapsána jako MCP
+  server v `~/.claude.json` **plnou cestou** `/Users/radek_soukromy/.local/bin/serena`.
+  Oficiální `serena setup claude-code` zapsal jen `serena`, jenže ta v PATH NENÍ
+  a server by se tiše nespustil — proto ta plná cesta.
+- Ostrá zkouška protokolem MCP: handshake OK, **21 nástrojů**. Na našem kódu:
+  `find_symbol("animace_difuze")` → přesná poloha ve **156 znacích** (týž dotaz
+  grepem vrátil ráno 60 řádků); `get_symbols_overview("laborky.ts")` → soubor
+  o 17 kB shrnutý do **50 znaků**.
+- **Past, která by to zabila potichu:** `Omega` NENÍ git repozitář a neměla
+  `.serena/`, takže by tam Serena nenaskočila vůbec — a je to složka s 68 pythony,
+  kde se dělá nejvíc práce. Založen projekt (`serena project create . --language
+  python`) a do `ignored_paths` vyloučena tři virtuální prostředí a těžká data;
+  bez toho chtěla indexovat i C++ zdrojáky ze `site-packages` (36 % souborů).
+- Nástěnka se už neotevírá sama při startu (`web_dashboard_open_on_launch: false`),
+  jinak by učiteli naskakoval prohlížeč při každé session.
+
+**⚠️ CO NENÍ OVĚŘENÉ — udělej to hned na začátku příští session:**
+Do `~/.claude/agents/pruzkumnik.md` a `kontrolor.md` jsem přidal nástroje pod
+názvy `mcp__serena__find_symbol` atd. Ten tvar je **odvozený** z konvence
+`mcp__<server>__<nástroj>`, kterou vidím u ostatních serverů — ověřit se v té
+session nedal, protože Serena se připojí až při dalším startu. **Ověř to takhle:**
+pusť `pruzkumnika` na dotaz do kódu (např. „kde je definovaná `hlaska_na_plakete`
+a kdo ji volá") a podívej se, jestli opravdu použil Serenu, nebo grepoval.
+Když nástroje nedostal, jsou špatně pojmenované — oprav podle skutečného
+seznamu. **Neber „vrátil správnou odpověď" jako důkaz, že Serenu použil.**
+
 ## ✅ TORCH VYŘEŠEN (7. 8. 2026, na pokyn učitele „oprav to")
 
 Poplach `pip-audit` na `torch 2.10.0` je pryč a **nic se přitom nerozbilo**.
