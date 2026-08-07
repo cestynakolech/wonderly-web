@@ -25,6 +25,28 @@ video vyrobené posedmé). Postup:
 7. **Co najdeš, ROVNOU OPRAV** (je to předschválené) a nález i opravu zapiš sem
    do stavu. Co opravit nejde na 3 pokusy, zapiš do „Odloženo — zaseklo se" a jdi dál.
 
+## ⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~11:10 — TŘI DÍLY S ANIMACEMI ŽIVÉ)
+
+Session dělala povinný audit (nálezy níže) a pak frontu animací. **Živé na webu:
+pružina (vzájemné působení), hustota se dvěma pohyblivými scénami, objem.**
+
+**Co dělat dál (v tomhle pořadí):**
+1. **Animace pro zbylé díly fyziky 6** — nejbližší kandidáti podle přínosu:
+   `casticove-slozeni-latek` (difuze — částice se promíchají), `hmotnost`
+   (rovnoramenné váhy se vyrovnají), `telesa-a-latky` (skupenství). Postup je
+   zaběhnutý: funkce do `animace_podkastu.py` → kotva spočítaná PŘED kreslením →
+   `--scena N` → prohlédnout snímek okem → složit video → R2 → `temata.ts` →
+   build → push → ověřit curlem několikrát.
+2. **Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy** — bez nich
+   nejdou snímky ani video. Pozor: budou k nim potřeba i nové kresby
+   v `snimky_podkastu.py`, tedy práce na několik hodin.
+3. Přezvučené díly znovu složit s animacemi (viz níže).
+
+**Rozpočet na renderování:** jeden snímek animace = ~3 s, takže scéna o 200–300
+snímcích trvá 10–15 minut a na Macu smí běžet **jen jedna naráz**. Plánuj podle
+toho — dopoledne 7. 8. se takhle vyrobilo pět scén a dvakrát se přerenderovávalo
+kvůli opravám, což zabralo většinu času session.
+
 ## 🔍 AUDIT 7. 8. 2026 ráno — TŘI NÁLEZY, VŠECHNY OPRAVENÉ
 
 Povinný audit před prací (viz úkol nahoře) našel tyhle věci; opravy jsou hotové
@@ -66,6 +88,11 @@ Samo by se to neuklidilo nikdy.
   při dalším běhu** — kontrolu kvality mají hotovou (21 a 16 fotek).
 - Poučení do PRAVIDEL: **každý krok pipeline musí mít budíka**, jinak se řetěz
   tiše přetrhne uprostřed a oba konce vypadají zdravě.
+
+**Doklad, že oprava #2 opravdu jede:** 7. 8. v 11:09 spuštěna kontrola naostro
+(`kontrola_anonymizace.py --vynutit --max-fotek 1`) a v jejím logu je řádek
+`výběr na web: … návrh 83 z 134 zapsán do KE-SCHVALENI.md`. Není to tedy jen
+„kód vypadá zapojeně", ale skutečný běh celého řetězu.
 
 **3. Pro učitele k rozhodnutí (neopravuji sám):** `pip-audit` hlásí u knihovny
 `torch 2.10.0` dvě známé zranitelnosti (PYSEC-2026-139, PYSEC-2025-194; opraveno
@@ -146,6 +173,17 @@ toho, co říká zvuk. Kotva se u každé animace ověřuje PŘED kreslením (dr
   tomu rozkmitala a hladina **skočila z 50 rovnou na 80 ml bez mezistavů**, tedy
   přesně to, co má scéna učit, by nebylo vidět. Opraveno na 3 px/ml a prosté
   dosazování nahrazeno půlením intervalu. Test to hlídá třemi kontrolami.
+- **HOTOVO 7. 8. dopoledne: hustota i objem složené a NASAZENÉ** (commit `2f301c3`).
+  `polemika-hustota-animace.mp4` (2 pohyblivé scény: klesá/vznáší se/plave
+  a ponorka) a `polemika-objem-animace.mp4` (měření kamene). Ověřeno curlem
+  opakovaně; ve videu doloženo měřením pixelů, že se scény opravdu hýbou
+  (~90–140 tisíc změněných pixelů mezi snímky vzdálenými 4 s).
+  **Past při ověřování nasazení:** Cloudflare šíří novou verzi po edgích
+  postupně, takže **jeden curl klidně vrátí ještě starou stránku** — hustota
+  se při šesti pokusech objevila až napodruhé a potřetí zase ne. Ověřovat
+  proto opakovaně, dokud výsledek nesedí několikrát po sobě; jediné „nenašel
+  jsem to" ještě neznamená, že nasazení selhalo (a jediné „našel" neznamená,
+  že už to vidí všichni).
 - Pak přezvučené díly znovu složit s animacemi a nasadit stejným postupem.
 - **Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy** — bez nich
   nejdou snímky ani video; brána pokrytí kvízu u nich hlásí 14 ze 14.
