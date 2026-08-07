@@ -3,6 +3,16 @@ export type Material = {
 	nazev: string;
 	/** U druhu 'youtube' je zde ID videa (např. 'oP6IJtosIp0'), jinak cesta k souboru. */
 	cesta: string;
+	/**
+	 * Čím na materiálu pomohla umělá inteligence — text se návštěvníkovi ukáže
+	 * pod přehrávačem. Od 2. 8. 2026 platí evropská pravidla transparentnosti
+	 * (článek 50 nařízení 2024/1689): obsah vytvořený nebo upravený AI se má
+	 * přiznat. Píše se sem, ČÍM přesně pomohla — u polemik jsou to hlasy
+	 * a úvodní ilustrace, kdežto schémata a animace kreslí program ze vzorců,
+	 * takže by bylo zavádějící tvrdit, že video „vytvořila AI".
+	 * Brána `zkontroluj.mjs` hlídá, že žádná polemika tenhle údaj nepostrádá.
+	 */
+	ai?: string;
 };
 export type Podtema = {
 	slug: string;
@@ -77,6 +87,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Zkušební verze s hlasy z lokálního modelu OmniVoice (zdarma, běží
 						// na tomto počítači) — stejný scénář, jiné hlasy, k porovnání.
@@ -84,6 +95,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬 (zkušební hlasy)',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky-omnivoice.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Tatáž polemika, ale dvě scény jsou POHYBLIVÉ: pád kamene a papíru
 						// na Zemi a pokus s kladivem a perem na Měsíci. Polohy počítá vzorec
@@ -92,6 +104,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Je fyzika jen sbírka vzorců? 🎬 (s animacemi pokusů)',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky-animace.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -141,11 +154,13 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Je látka a těleso totéž? 🎬',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/polemika-telesa-a-latky.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						{
 							druh: 'video',
 							nazev: 'Polemika: Je látka a těleso totéž? 🎬 (druhé hlasy)',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/polemika-telesa-a-latky-omnivoice.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -196,6 +211,7 @@ export const temata: Record<string, Tema[]> = {
 							// stáhnout první verzi, dostával by ji dál. Nová adresa =
 							// nová položka v mezipaměti, opravu tedy dostane každý.
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-difuze-v2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -368,6 +384,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Působí míč na moji nohu? 🎬',
 							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/polemika-vzajemne-pusobeni.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Tatáž polemika, ale scéna o siloměru je POHYBLIVÁ: na pružinu se
 						// postupně věší 10, 20 a 30 N a protažení roste 2, 4 a 6 cm. Délky
@@ -378,6 +395,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Působí míč na moji nohu? 🎬 (s animací pružiny)',
 							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/polemika-vzajemne-pusobeni-animace.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -438,11 +456,13 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika 1: Gravitační síla 🎬 (hlasy elevenlabs.io)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						{
 							druh: 'video',
 							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬 (hlasy elevenlabs.io)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Tytéž dva díly s druhými hlasy (lokální OmniVoice, zdarma a bez
 						// atribuce). Učitel chce obě verze vedle sebe, ať si děti vyberou.
@@ -450,11 +470,13 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika 1: Gravitační síla 🎬 (druhé hlasy)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1-omnivoice.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						{
 							druh: 'video',
 							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬 (druhé hlasy)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2-omnivoice.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Verze s pohyblivou scénou: Newtonovo dělo — tři výstřely z hory,
 						// dva dopadnou a třetí obíhá. Dráhy se počítají skutečným pohybem
@@ -463,6 +485,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika 1: Gravitační síla 🎬 (s animací: proč družice nespadne)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1-animace.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -570,6 +593,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Je váha totéž co hmotnost? 🎬',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/polemika-hmotnost.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -620,6 +644,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Jak změřit objem kamene? 🎬',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/polemika-objem.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Tatáž polemika s POHYBLIVOU scénou měření: kámen na provázku se
 						// spouští do válce a hladina stoupá o skutečně vytlačenou vodu
@@ -629,6 +654,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Jak změřit objem kamene? 🎬 (s animací měření)',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/polemika-objem-animace.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},
@@ -679,6 +705,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/polemika-hustota.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						// Tatáž polemika, ale DVĚ scény jsou pohyblivé: tělesa se rozjedou
 						// podle vlastní hustoty (dřevo se zastaví se 60 % pod hladinou, což
@@ -689,6 +716,7 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬 (s animacemi)',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/polemika-hustota-animace.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 					],
 				},

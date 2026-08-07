@@ -373,6 +373,24 @@ console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.lengt
 console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek (${vazby.vynechano} souhrnných /shrnuti/ vynecháno záměrně — skládají se z už zkontrolovaných) — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
 console.log(`Šablony simulací: prošlo ${sablony.souboru} komponent, změřeno ${sablony.dotazu} vyhledání prvku — ${sablony.nalezy.length} nálezů.`);
 console.log(`Měřidla: ${rejstrik.dolozeno} z ${rejstrik.meridel} má doložené obousměrné ověření${rejstrik.chybi.length ? ` (bez dokladu: ${rejstrik.chybi.join(', ')})` : ''}.`);
+
+// Přiznání umělé inteligence u polemik. Od 2. 8. 2026 platí evropská pravidla
+// transparentnosti (článek 50 nařízení 2024/1689) — obsah vytvořený nebo
+// upravený AI se má přiznat. Polemiky mají AI hlasy i vygenerovanou úvodní
+// ilustraci, takže bez pole `ai` se nesmí nasadit. Kdyby to hlídal jen člověk,
+// dopadlo by to jako všechna „opatření platící jen částečně“: u prvních dílů by
+// to bylo a u dalších už ne.
+let aiVsech = 0;
+const aiChybi = [];
+for (const p of vsechnaPodtemata(dataTemata)) {
+	for (const m of p.materialy ?? []) {
+		if (m.druh !== 'video' || !m.cesta.includes('polemika-')) continue;
+		aiVsech += 1;
+		if (!m.ai || !m.ai.trim()) aiChybi.push(`${p.slug}: ${m.nazev}`);
+	}
+}
+console.log(`Přiznání AI: prošlo ${aiVsech} polemik — ${aiChybi.length} bez přiznání.`);
+for (const c of aiChybi) chyby.push(`polemika bez přiznání AI (pole 'ai'): ${c}`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');

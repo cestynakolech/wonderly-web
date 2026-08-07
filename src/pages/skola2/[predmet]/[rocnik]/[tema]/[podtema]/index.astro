@@ -190,6 +190,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 						<figure class="video">
 							<video src={m.cesta} controls preload="metadata" />
 							<figcaption>{m.nazev}</figcaption>
+							{m.ai && <p class="ai-priznani">🤖 {m.ai}</p>}
 						</figure>
 					))}
 				{podtema.materialy
@@ -451,5 +452,20 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		color: var(--ztlumena);
 		font-size: 1rem;
 		margin-top: 0.4rem;
+	}
+	/* Přiznání, čím pomohla umělá inteligence (evropská pravidla od 2. 8. 2026).
+	   Musí být čitelné „na první pohled, aniž by pro to člověk cokoli dělal“.
+	   První verze používala `--ztlumena` a měřením vyšel kontrast jen 3,3 : 1 —
+	   pod normou 4,5 : 1 pro běžné písmo. Ztlumená šeď se hodí na doplňky, ne na
+	   údaj, který se má přiznat. Proto plná barva textu na světlé plaketě. */
+	.ai-priznani {
+		color: var(--inkoust);
+		background: #fffdf7;
+		border-left: 4px solid var(--oranzova-svetla);
+		border-radius: 6px;
+		font-size: 0.85rem;
+		line-height: 1.45;
+		margin: 0.5rem 0 0;
+		padding: 0.45rem 0.7rem;
 	}
 </style>
