@@ -4,11 +4,26 @@
 
 **Fronta (první je na řadě):**
 
-### 1. Zbylá města čekají na přidání do webu — 58 vybraných fotek
-`Gassin_FR` (2), `Le_Bourg-dOisans_FR` (34), `Saint-Bonnet-en-Champsaur_FR` (14),
-`Sainte-Maxime_FR` (8) mají hotový výběr, ale v `src/data/cesty/2026.ts` pro ně
-není místo, takže se nemají kam nahrát. Přidat přes `pridat_mesto.py` — pak je
-automat nahraje sám při nejbližším běhu (běží každou hodinu).
+### 1. ~~Zbylá města~~ — HOTOVO 7. 8. v 19:15
+Gassin, Le Bourg-d'Oisans, Saint-Bonnet-en-Champsaur a Sainte-Maxime jsou na webu
+i s galeriemi, **58 fotek nahráno** (ověřeno na produkci: 2 + 34 + 14 + 8, každá
+s náhledem) a u všech čtyř je i video. Fronta „čeká na přidání místa" je prázdná.
+
+Cestou opraveno v `pridat_mesto.py`: zakládá rovnou pole `galerie` (bez něj by se
+fotky neměly kam nahrát) a escapuje apostrof v názvu — „Le Bourg-d'Oisans" dřív
+rozbil TypeScript a build spadl, takže město prostě nešlo přidat.
+
+U Le Bourg-d'Oisans byly na kanálu TŘI varianty; vybrána plná **6:06 z 1. 8.**
+(`-FR8z-38PR8`) podle dotazu na YouTube, ne podle názvu souboru. Zbývá rozhodnout,
+co s duplikátem `0A1E9gsD7gQ` („KEKONTROLE (kopie)", 6:06, nahráno 3. 8.) —
+mazání na kanálu patří učiteli.
+
+### 1b. Zakládání míst z fotek NENÍ automatické (zjištěno 7. 8.)
+Učitel čekal, že se místo vytvoří samo z GPS ve fotkách. Automat `body_z_fotek.py`
+tohle umí, ale **jen pro staré výlety** z „Dřívější dovolené" (vizitkové fotky)
+a jen jako návrh do KE-SCHVALENI. Pro probíhající cestu žádný takový krok není —
+navíc anonymizované fotky už EXIF nemají, takže GPS by se musela brát z původních.
+Kdyby se to mělo dělat samo, patří to jako navazující krok za kontrolu anonymizace.
 
 ### 2. Animace „tělesa a látky" (skupenství) — postup v NAVOD-ANIMACE-PODKASTU.md
 ### 3. Scénosledy tří dílů `atomy-a-molekuly` (všechny začínají Evou)
