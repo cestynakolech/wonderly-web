@@ -32,12 +32,9 @@ věci — po `/clear` o nich sama od sebe neví a on je nechce hledat v souborec
 Řekni je česky, stručně, vlastními slovy, **hned v první odpovědi** (a teprve
 potom se pusť do práce):
 
-1. **K ROZHODNUTÍ UČITELE — knihovna `torch`.** Verze 2.10.0 má dvě známé
-   zranitelnosti (PYSEC-2026-139, PYSEC-2025-194), opravené ve verzi 2.13.0.
-   Povýšení **může rozbít `insightface`** (rozmazávání tváří ve fotkách a videích
-   deníku) **i `mflux`** (generování ilustrací). Proto to nikdo nedělá bez jeho
-   pokynu. Automat `pip-audit` sám je v pořádku — běží 1. dne v měsíci a nenulový
-   návratový kód u něj znamená „našel jsem nález", ne pád.
+1. ~~K ROZHODNUTÍ — knihovna `torch`.~~ **VYŘEŠENO 7. 8. 2026** (učitel řekl
+   „oprav to"). Podrobnosti v sekci „TORCH VYŘEŠEN" níže; audit hlásí
+   `No known vulnerabilities found`. Zbytek bodu už neplatí.
 2. **Animace pružiny je živá na lab.wonderly.cz.** Poměr protažení 1 : 2 : 3 není
    nakreslený od oka — je doložený měřením na hotových snímcích: 76 : 152 : 228 px.
 3. **Audit automatů proběhl, dva zásekové nálezy jsou opravené**, revize hlásí
@@ -50,7 +47,65 @@ potom se pusť do práce):
 (úvod do fyziky, gravitace, vzájemné působení, hustota, objem). Nespěchá to,
 nic dalšího na tom nestojí — schvalování je jeho, práce běží dál.
 
-## ▶️ PRVNÍ ÚKOL PO CLEARU: ANIMACE DIFUZE (zadal učitel 7. 8. 2026)
+## ⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~13:30 — DIFUZE HOTOVÁ, TORCH VYŘEŠEN)
+
+**Animace difuze je hotová a ověřená**, jen ještě není v žádném videu — díl
+`casticove-slozeni-latek-difuze-dialog` nemá scénosled ani nadabovaný zvuk.
+
+- Kotva: podíl modrých částic v levé polovině klesne **ze 100 % na 51 %** a už
+  se nevrátí výš než na 52,7 %. Měřeno **na hotových snímcích** (modré pixely
+  uvnitř nádoby), ne v kódu. Ověřeno na **pěti semínkách** (42, 7, 2026, 1, 99),
+  takže to není náhoda jednoho šťastného losu.
+- Test: `Omega/skripty/testy/test_animace_difuze.py` — 8 kontrol včetně dvou
+  podvrhů (nefunkční rozptyl 0,9 musí propadnout; přeplněná nádoba musí skončit
+  chybou, ne tichým výsledkem).
+- Klip: `Omega/podkasty-snimky/_klipy/difuze.mp4`. **Nové:**
+  `animace_podkastu.py --klip <klíč>` vyrobí animaci i bez scénosledu.
+- **Zavržená levnější varianta:** nasadit difuzi do dílu o hustotě (scéna 12).
+  Neudělal jsem to schválně — obraz by ukazoval promíchávání dvou látek,
+  zatímco zvuk mluví o hustotě částic. To je přesně ta vada, kterou má návod
+  na animace hlídat.
+
+**Co dělat dál (v tomhle pořadí):**
+1. **Scénosled dílu o difuzi** (22 replik → ~10 scén) + deset statických kreseb
+   do `snimky_podkastu.py`. Teprve pak jde animaci zapojit do videa. Vzor:
+   `hustota-dialog.scenosled.json`; blízké hotové kresby `s_teply_vzduch`
+   a `s_proc_se_lisi` (obě kreslí částice).
+2. **Zvuk dílu** — díl ještě není nadabovaný (`vyrob_podkasty.py`, MAREK→fable,
+   EVA→nova, ~0,25 USD za díl).
+3. Další animace: **hmotnost** (rovnoramenné váhy) a **tělesa a látky**
+   (skupenství).
+
+## ✅ TORCH VYŘEŠEN (7. 8. 2026, na pokyn učitele „oprav to")
+
+Poplach `pip-audit` na `torch 2.10.0` je pryč a **nic se přitom nerozbilo**.
+Co se ukázalo cestou (a proč to nebylo tak nebezpečné, jak se čekalo):
+
+- **`insightface` torch vůbec nepoužívá** — jede na `onnxruntime` (CPU).
+  Ověřeno: po `from insightface.app import FaceAnalysis` není `torch`
+  v `sys.modules` vůbec natažený.
+- **`mflux` má vlastní prostředí** (`nastroje/venv-mflux`) a **už dávno běží
+  na torchi 2.13.0**. Tedy přesně ta verze, které jsme se báli.
+- Torch v `skripty/venv` držel jediný balík: `openai-whisper`.
+- **Kotva místo důvěry:** detekce tváří puštěna na 35 fotkách ze tří měst,
+  starým i novým prostředím. **14 tváří, tytéž rámečky, tytéž otisky
+  příznaků — úplná shoda.** Měřidlo prověřeno i obousměrně (posun rámečku
+  o 3 px shodu shodí).
+- **Skrytá díra, která se přitom našla:** skutečně používaný `whisper` se volal
+  holým jménem, takže se bral **z homebrew** — a ten má vlastní torch 2.10.0,
+  který `pip-audit` vůbec nevidí (hlídá jen `skripty/venv`). Povýšení venvu by
+  tedy samo o sobě nic nespravilo. `video_podkastu.py` teď volá whisper plnou
+  cestou do projektového prostředí; přepis i časování jsou prokazatelně totožné
+  (na `hlas-cedar.mp3` týž text i tytéž vteřiny).
+- Při auditu vyskočila navíc `cryptography 49.0.0` (PYSEC-2026-3552) → povýšeno
+  na 50.0.0. **`pip-audit` teď hlásí `No known vulnerabilities found`.**
+- Poučení do PRAVIDEL: **hlídač kontroluje jen to prostředí, na které ho
+  namíříš.** Projekt měl tři pythony (venv, venv-mflux, homebrew) a audit viděl
+  jeden — díra byla přesně v tom neviděném.
+- Zbývá uklidit: `Omega/skripty/venv-torch213` (~2 GB, zkušební kopie) —
+  **mazání čeká na pokyn učitele.**
+
+## ▶️ PŮVODNÍ ZADÁNÍ ANIMACE DIFUZE (7. 8. 2026 — splněno, ponecháno pro kontext)
 
 Po auditu (viz úplně první sekce) a po sdělení čtyř bodů výše se pusť do tohohle:
 
