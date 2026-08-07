@@ -40,6 +40,34 @@ Při opravě už zveřejněného videa je proto bezpečnější **nová cesta** 
 ne přepis téže. Tentokrát to nevadilo — mezi nasazením a opravou uběhlo ~45 minut
 a stáhl si ho jen kontrolní `curl`.
 
+## ✅ HOTOVO 7. 8. 2026 v 17:30 — ANIMACE VAH ŽIVÁ + PŘIZNÁNÍ AI U VŠECH POLEMIK
+
+**Animace rovnoramenných vah** je v dílu o hmotnosti (`polemika-hmotnost-animace.mp4`,
+5:32, 8 MB). Na levou misku přijde těleso s otazníkem, vpravo přibývají závaží
+500 a 200 g a v rovnováze se odhalí, že těleso má 700 g.
+- Kotva: náklon se počítá z rovnováhy momentů `tan α = Δm·d/(M·h)` →
+  **18,0° → 5,3° → 0,0°**, při přetížení o 100 g se znaménko obrátí na −2,7°.
+- Test `skripty/testy/test_animace_vahy.py`: 9 kontrol, měřeno na hotových
+  snímcích podle barvy misek, včetně DVOU PODVRHŮ (animace, která do vodorovna
+  dojede vždycky; obrácené znaménko úhlu) — oba musí propadnout.
+- Scéna „Druhy vah" **rozdělena na dvě** (repliky 29 a 31): animace by po dojetí
+  zamrzla na rovnoramenných vahách, zatímco Eva už mluví o pružinové a digitální.
+
+**Přiznání umělé inteligence** u všech 19 polemik (evropská pravidla platí od
+2. 8. 2026, čl. 50 nařízení 2024/1689). Ověřeno u zdroje: Komise **nežádá
+slyšitelné upozornění ve zvuku** — to tvrdila jen jedna poradenská firma; naše
+texty jsou z povinnosti venku, protože prošly lidskou redakcí. Brána
+`zkontroluj.mjs` nepustí novou polemiku bez pole `ai` (obousměrně doloženo,
+zápis v `testy/obousmerne.json`). První verze měla kontrast 3,3 : 1 → opraveno
+na 14,1 : 1.
+
+**Rozhodnutí učitele 7. 8.:** výběr fotek do webové galerie se má nasazovat
+**automaticky**, bez odklikávání — stejně, jako už fotky samy putují do videí.
+Fronta 326 položek v `KE-SCHVALENI.md` je tím na zrušení. Pojistka zůstává:
+berou se jen fotky, které prošly kontrolou anonymizace bez jediného nálezu.
+**ZATÍM NEUDĚLÁNO** — je to další úkol (`vyber_fotky_na_web.py` má v sobě
+natvrdo „NIC nenahrává"; nahrání dělá `nahraj_fotky.py`).
+
 ## ✅ HOTOVO 7. 8. 2026 v 16:20 — DIFUZE v2 ŽIVÁ + ČTYŘI OPRAVY V NÁSTROJÍCH
 
 Učitel zapojil nabíječku, práce dokončena. Díl o difuzi je na webu ve verzi **v2**
