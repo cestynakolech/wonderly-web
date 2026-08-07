@@ -1,3 +1,40 @@
+## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~20:10 — PŘED SMAZÁNÍM KONTEXTU)
+
+**Fronta. První úkol je na řadě.**
+
+### 1. Fotky z čekárny nikam nedošly — 8 měst čeká
+V `Cestovatelský deník/2026/fotky-cekarna/` leží 8 složek (Kluesserath_DE,
+Luxeuil-les-Bains_FR, Saint-Amour_FR, Saint-Denis-en-Bugey_FR, Saint-Sauveur_FR,
+Saint-Sorlin-en-Bugey_FR, Salins-les-Bains_FR, Sassenage_FR), které se dosud
+nedostaly do anonymizace, takže pro ně nevznikla ani místa, ani galerie.
+Zjistit, proč je řetěz nepřebral (`foto-pipeline`, `foto-hlidac`), a rozjet je —
+dál už se místo i fotky udělají samy.
+
+### 2. Padá test `skripty/testy/test_revize_nalezu.py`
+Tvrzení „chybu přemazanou 24 tichými řádky najde a datuje" — [FAIL]. Nově to hlásí
+revize automatů (spouští všech 11 testů). Znamená to, že měřidlo čerstvých chyb
+v logu nemusí fungovat — a právě na to se revize spoléhá.
+
+### 3. Animace „tělesa a látky" (skupenství) — postup v NAVOD-ANIMACE-PODKASTU.md
+### 4. Scénosledy tří dílů `atomy-a-molekuly` (všechny začínají Evou)
+### 5. Přezvučené díly znovu složit s animacemi (starší úkol)
+
+**Čeká na učitele (nikdy kvůli tomu nestát):**
+- duplikát na YouTube `0A1E9gsD7gQ` („Le Bourg-dOisans FR KEKONTROLE (kopie)", 6:06)
+  — kopie nasazeného videa, mazání na kanálu patří jemu;
+- dvě referenční fotky obličeje v `reference-obliceje/ja/Starší/` nejdou přečíst
+  (práva účtu radekmicek) — prosba leží na mostu `Claude-most/od-hlavniho.md`.
+
+## 🗺️ Le Bourg-d'Oisans smazán z mapy (7. 8. 2026, 20:05)
+
+Na pokyn učitele. Místo bylo prázdné: všech 62 fotek z jeho složky bylo ve
+skutečnosti 3,3 km od Col d'Ornon (změřeno z GPS původních fotek), takže fotky
+i video patřily sedlu. Rok 2026 má nyní **15 míst** místo 16; galerie
+`cesty/2026/le-bourg-d-oisans` v R2 byla vyprázdněna (68 objektů) ještě předtím.
+Záloha souboru před zásahem: scratchpad `2026-pred-smazanim.ts` (jen do restartu).
+Zmínky „Bourg-d" zůstávají v seznamu videí a v popisech sousedních míst — to je
+v pořádku, sedlo se jím popisuje.
+
 # Samostatný režim — stav práce (drží kontinuitu mezi koly)
 
 ## ⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~18:45)
@@ -52,6 +89,8 @@ Je to kopie nasazené verze `-FR8z-38PR8`. Mazání na kanálu patří učiteli.
 ### 2. Animace „tělesa a látky" (skupenství) — postup v NAVOD-ANIMACE-PODKASTU.md
 ### 3. Scénosledy tří dílů `atomy-a-molekuly` (všechny začínají Evou)
 ### 4. Přezvučené díly znovu složit s animacemi (starší úkol)
+
+## 📚 Starší
 
 ## 📍 Col d'Ornon: fotky i video byly celou dobu pod špatným místem (7. 8. 2026, 19:50)
 
