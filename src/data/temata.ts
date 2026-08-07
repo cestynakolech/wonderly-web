@@ -190,7 +190,12 @@ export const temata: Record<string, Tema[]> = {
 						{
 							druh: 'video',
 							nazev: 'Polemika: Proč je vůně oběda cítit až v pokoji? 🎬 (s animací difuze)',
-							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-difuze.mp4',
+							// „-v2": po opravě odborného textu (žralok, rychlost v plynu,
+							// šíření vůně) vzniklo video znovu. NOVÁ cesta schválně —
+							// médium se posílá s roční mezipamětí, takže kdo si stihl
+							// stáhnout první verzi, dostával by ji dál. Nová adresa =
+							// nová položka v mezipaměti, opravu tedy dostane každý.
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-difuze-v2.mp4',
 						},
 					],
 				},

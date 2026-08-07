@@ -306,7 +306,19 @@ export default {
 			const hlavicky = new Headers();
 			objekt.writeHttpMetadata(hlavicky);
 			hlavicky.set('etag', objekt.httpEtag);
-			hlavicky.set('cache-control', 'public, max-age=31536000, immutable');
+			// Dřív tu byl rok s příznakem `immutable`, tedy slib „obsah se nikdy
+			// nezmění". Jenže videa se opravují (7. 8. 2026 hned třikrát za den),
+			// a kdo si stihl stáhnout starou verzi, měl by ji rok — bez šance to
+			// poznat. Hodina stačí: v hodině si dítě video pustí znovu z mezipaměti
+			// a oprava se rozejde do světa nejpozději za hodinu.
+			hlavicky.set('cache-control', 'public, max-age=3600');
+			// Po vypršení se prohlížeč zeptá s If-None-Match. Když se soubor
+			// nezměnil, pošleme holé 304 a nestahuje se znovu ani bajt — proto
+			// kratší doba nestojí skoro nic navíc.
+			const zna = request.headers.get('if-none-match');
+			if (zna && zna.replace(/^W\//, '') === objekt.httpEtag.replace(/^W\//, '')) {
+				return new Response(null, { status: 304, headers: hlavicky });
+			}
 			return new Response(objekt.body, { headers: hlavicky });
 		}
 
