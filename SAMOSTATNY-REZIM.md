@@ -25,6 +25,54 @@ video vyrobené posedmé). Postup:
 7. **Co najdeš, ROVNOU OPRAV** (je to předschválené) a nález i opravu zapiš sem
    do stavu. Co opravit nejde na 3 pokusy, zapiš do „Odloženo — zaseklo se" a jdi dál.
 
+## 🔍 AUDIT 7. 8. 2026 ráno — TŘI NÁLEZY, VŠECHNY OPRAVENÉ
+
+Povinný audit před prací (viz úkol nahoře) našel tyhle věci; opravy jsou hotové
+a doložené, ne jen popsané.
+
+**1. Hlídač zdraví automatů hlásil DVA falešné poplachy** — a jeden z nich už
+přerostl do „⏳ PŘETRVÁVÁ", tedy do stavu, který má křičet nejhlasitěji.
+- *Chyba, která už neplatila:* pád na chybějícím `npm` z 1. 8. byl opravený
+  6. 8., ale automat od té doby neměl co dělat, do logu nic nepřibylo — a revize
+  četla pořád tentýž traceback. Nově se hlásí jen chyba, po které v logu
+  **nenásleduje pozdější datovaný záznam** (kdyby automat padal dál, byl by ten
+  nový pád posledním nálezem, takže se to nedá „přehlušit").
+- *Ticho, které bylo v pořádku:* `stare-fotky-hlidac` je psaný tak, že když nejsou
+  nové fotky ani videa, **tiše skončí** — datový log tedy mlčí právem. Revize
+  z toho usuzovala na zásek. Buzení se nově měří počítadlem `runs` z launchd
+  (`launchctl print`): roste → automat se budí a ticho nevadí; stojí déle, než je
+  jeho interval → *tohle* je vada a hlásí se jako „launchd ho NEBUDÍ".
+- Poučení do PRAVIDEL: **datový log je důkaz PRÁCE, ne BUZENÍ.** Kdo měří jedno
+  a soudí druhé, vyrábí falešné poplachy — a ty otupí pozornost vůči skutečným.
+- Doklad: `Omega/skripty/testy/test_mlceni_vs_buzeni.py` (21 kontrol, obousměrně —
+  včetně podvrhu „počítadlo stojí 5 h" a zdravého stavu „počítadlo roste").
+  Revize po opravě: **✅ Vše v pořádku**.
+
+**2. Pipeline fotek na web byla přetržená — a nikdo to nevěděl 5 dní.**
+`vyber_fotky_na_web.py` **neměl žádného budíka** (žádný LaunchAgent ho nevolal)
+a naposled běžel 29. 7. Čtyři města (Le Bourg-d'Oisans, Gassin, Saint-Bonnet,
+Sainte-Maxime — 104 fotek) tak nikdy nedostala návrh výběru, učitel neměl co
+odkliknout, fotky se nenahrály — a video-automat kvůli tomu **94× po sobě**
+zapsal tutéž hlášku „ODLOŽENO: fotky ještě nejsou na webu, pak se uklidí samo".
+Samo by se to neuklidilo nikdy.
+- *Trvalá oprava:* výběr je nově navazujícím krokem kontroly kvality
+  (`kontrola_anonymizace.py` → `navrhni_vyber_na_web()`). Proč tam: běží nad
+  fotkami, které kontrola právě prohlásila za čisté, potřebuje tentýž vision
+  model a na Macu smí být jen JEDEN těžký proces — jako krok téhož běhu je
+  pořadí zaručené; vlastní LaunchAgent by mohl naběhnout souběžně.
+- *Dohnání zameškaného:* výběr spuštěn ručně → do `KE-SCHVALENI.md` přibyl návrh
+  **42 fotek ze 74** (Gassin a Le Bourg-d'Oisans). Dávka je 60 nově popsaných
+  fotek na běh, takže **Saint-Bonnet-en-Champsaur a Sainte-Maxime přijdou na řadu
+  při dalším běhu** — kontrolu kvality mají hotovou (21 a 16 fotek).
+- Poučení do PRAVIDEL: **každý krok pipeline musí mít budíka**, jinak se řetěz
+  tiše přetrhne uprostřed a oba konce vypadají zdravě.
+
+**3. Pro učitele k rozhodnutí (neopravuji sám):** `pip-audit` hlásí u knihovny
+`torch 2.10.0` dvě známé zranitelnosti (PYSEC-2026-139, PYSEC-2025-194; opraveno
+ve verzi 2.13.0). Povýšení torche může rozbít `insightface` (anonymizace tváří)
+i `mflux` (ilustrace), proto to nedělám bez pokynu. Automat sám je v pořádku —
+běží 1. dne v měsíci, nenulový kód znamená „našel jsem nález", ne pád.
+
 ## ⏩⏩⏩⏩⏩⏩ KDE POKRAČOVAT (7. 8. 2026 ~02:10 — ANIMACE ZAPOJENÉ DO VIDEÍ)
 
 **Zadání učitele před spaním:** *„vymysli a vytvoř celé video včetně animací

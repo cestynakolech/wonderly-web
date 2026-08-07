@@ -354,6 +354,16 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Působí míč na moji nohu? 🎬',
 							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/polemika-vzajemne-pusobeni.mp4',
 						},
+						// Tatáž polemika, ale scéna o siloměru je POHYBLIVÁ: na pružinu se
+						// postupně věší 10, 20 a 30 N a protažení roste 2, 4 a 6 cm. Délky
+						// počítá Hookův zákon (x = F/k), takže poměr 1 : 2 : 3 na obrazovce
+						// opravdu sedí — změřeno na hotových snímcích (testy/test_animace_pruziny.py
+						// v Omeze), ne odhadnuto od oka.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Působí míč na moji nohu? 🎬 (s animací pružiny)',
+							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/polemika-vzajemne-pusobeni-animace.mp4',
+						},
 					],
 				},
 				{
