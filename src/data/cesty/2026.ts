@@ -268,6 +268,7 @@ export const rok2026: Rok = {
 		{
 			slug: 'col-d-ornon',
 			galerie: 'cesty/2026/col-d-ornon',
+			videoId: '-FR8z-38PR8',
 			nazev: "Col d'Ornon",
 			zeme: 'Francie',
 			datum: '24. 7. 2026',
@@ -323,7 +324,6 @@ export const rok2026: Rok = {
 			x: 273.3,
 			y: 397.5,
 			popis: { cs: '' },
-			videoId: '-FR8z-38PR8',
 		},
 	],
 	videa: [
