@@ -267,6 +267,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'col-d-ornon',
+			galerie: 'cesty/2026/col-d-ornon',
 			nazev: "Col d'Ornon",
 			zeme: 'Francie',
 			datum: '24. 7. 2026',
