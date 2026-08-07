@@ -53,6 +53,25 @@ export async function nactiData() {
 	}
 }
 
+/**
+ * Místa cestovatelského deníku pro daný rok — SKUTEČNÁ data, ne regex nad textem.
+ *
+ * Používá `vyber_fotky_na_web.py` (Omega): fotka se smí nahrát jen do galerie,
+ * která v datech opravdu existuje. Bez toho by se nahrála „do prázdna“ — soubor
+ * by v úložišti byl, ale žádná stránka by ho nezobrazila a nikdo by si toho
+ * nevšiml. Vrací [{ slug, nazev, galerie, datum }].
+ */
+export async function nactiCesty(rok) {
+	const docasny = mkdtempSync(join(tmpdir(), 'wonderly-cesty-'));
+	try {
+		const m = await nactiModul(`src/data/cesty/${rok}.ts`, docasny);
+		const data = m[`rok${rok}`] ?? m.default ?? {};
+		return (data.mesta ?? []).map(({ slug, nazev, galerie, datum }) => ({ slug, nazev, galerie, datum }));
+	} finally {
+		rmSync(docasny, { recursive: true, force: true });
+	}
+}
+
 /** Všechna podtémata napříč ročníky jako plochý seznam. */
 export function vsechnaPodtemata(temata) {
 	const ven = [];

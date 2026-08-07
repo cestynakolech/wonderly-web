@@ -110,6 +110,11 @@
    "zdravy": "Nad dnešními daty „prošlo 18 polemik — 0 bez přiznání“ a brána končí „✅ Vše zapojené správně.“",
    "pocitadlo": "Brána vypisuje, KOLIK polemik prošlo (18 z 18 videí s 'polemika-' v cestě) — kdyby přestala vidět vstupy, bylo by to na první pohled poznat.",
    "proc": "Od 2. 8. 2026 platí evropská pravidla transparentnosti (čl. 50 nařízení 2024/1689). Bez brány by přiznání měly první díly a další už ne — vzorec „opatření platí jen částečně“."
+  },
+  "vypis-cesty.mjs": {
+   "podvrh": "Rok bez datového souboru (1999) skončí kódem 1 s hláškou o nenačtení roku; nesmyslný argument (rok2026) i chybějící argument skončí kódem 2. Ověřeno spuštěním 7. 8. 2026 — tichý prázdný výpis se stát nemůže.",
+   "zdravy": "Rok 2026 vrátí kód 0 a 12 míst, z toho 6 s vyplněnou galerií (odpovídá počtu polí galerie v src/data/cesty/2026.ts). Data se importují esbuildem, ne čtou regexem — dřívější regexové parsování téhož souboru vracelo 0 míst.",
+   "poznamka": "Není to měřidlo v pravém smyslu, ale most k datům pro mista_deniku.py (Omega): podle něj se rozhoduje, do které galerie smí fotka jít. Chybný výpis by fotky poslal do prázdna, proto doklad patří sem."
   }
  }
 }
