@@ -431,6 +431,14 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬 (druhé hlasy)',
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-2-omnivoice.mp4',
 						},
+						// Verze s pohyblivou scénou: Newtonovo dělo — tři výstřely z hory,
+						// dva dopadnou a třetí obíhá. Dráhy se počítají skutečným pohybem
+						// v gravitačním poli, takže „obíhá" z výpočtu opravdu vyjde.
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Gravitační síla 🎬 (s animací: proč družice nespadne)',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1-animace.mp4',
+						},
 					],
 				},
 			],
