@@ -18,12 +18,36 @@ U Le Bourg-d'Oisans byly na kanálu TŘI varianty; vybrána plná **6:06 z 1. 8.
 co s duplikátem `0A1E9gsD7gQ` („KEKONTROLE (kopie)", 6:06, nahráno 3. 8.) —
 mazání na kanálu patří učiteli.
 
-### 1b. Zakládání míst z fotek NENÍ automatické (zjištěno 7. 8.)
-Učitel čekal, že se místo vytvoří samo z GPS ve fotkách. Automat `body_z_fotek.py`
-tohle umí, ale **jen pro staré výlety** z „Dřívější dovolené" (vizitkové fotky)
-a jen jako návrh do KE-SCHVALENI. Pro probíhající cestu žádný takový krok není —
-navíc anonymizované fotky už EXIF nemají, takže GPS by se musela brát z původních.
-Kdyby se to mělo dělat samo, patří to jako navazující krok za kontrolu anonymizace.
+### 1b. ~~Zakládání míst z fotek není automatické~~ — HOTOVO 7. 8. v 19:20
+
+Nový `skripty/zaloz_mista_z_fotek.py` zakládá místa probíhající cesty sám a je
+zapojený do řetězu automatu (`kontrola_anonymizace.py`: kontrola → **založení
+místa** → výběr → nahrání fotek). Běží každou hodinu. Jméno a zemi bere z názvu
+složky, datum z názvů souborů, polohu z databáze měst.
+
+**Kotva, bez které se nic nezaloží:** poloha z databáze se porovná s GPS
+v PŮVODNÍCH fotkách (anonymizované už GPS nemají) a musí sedět do 25 km. Špatný
+pin na mapě je tichá chyba — vypadá stejně dobře jako správný.
+Test `skripty/testy/test_zaloz_mista.py`: 8 kontrol, z toho tři podvrhy —
+záměna měst (Paris s alpskými fotkami, 508 km → odmítnuto), fotky bez GPS,
+názvy souborů bez data.
+
+Cestou opraveno v `pridat_mesto.py`: hledání měst porovnává i „klíčem" bez
+interpunkce — složky fotek apostrof nemají (`Le_Bourg-dOisans_FR`), databáze ano
+(`Le Bourg-d'Oisans`), takže by automatické zakládání u francouzských jmen tiše
+selhávalo. Ověřeno, že známá města (Landshut, Praha→Prague, Kolín nad Rýnem→Köln)
+se hledají dál stejně.
+
+### 1c. NÁLEZ: padá test `skripty/testy/test_revize_nalezu.py`
+Tvrzení „chybu přemazanou 24 tichými řádky najde a datuje" — [FAIL]. Netýká se
+dnešní práce (revize automatů), ale znamená, že měřidlo čerstvých chyb v logu
+nemusí fungovat. Testy Omegy navíc **nespouští žádný automat** — 11 testů leží
+v `skripty/testy/` a nikdo je nevolá; stačilo by je přidat do revize automatů.
+
+### 1d. Zbývá rozhodnout: duplikát videa na kanálu
+`0A1E9gsD7gQ` — „Le Bourg-dOisans FR KEKONTROLE (kopie)", 6:06, nahráno 3. 8.
+Je to kopie nasazené verze `-FR8z-38PR8`. Mazání na kanálu patří učiteli.
+
 
 ### 2. Animace „tělesa a látky" (skupenství) — postup v NAVOD-ANIMACE-PODKASTU.md
 ### 3. Scénosledy tří dílů `atomy-a-molekuly` (všechny začínají Evou)
