@@ -1,4 +1,28 @@
-## ⏩ KDE POKRAČOVAT (8. 8. 2026, po velkém auditu a úklidu)
+## ⏩ KDE POKRAČOVAT (8. 8. 2026 v noci, kolo WONDERLY — audit hotový, jede se na díl skupenství)
+
+**AUDIT NA ZAČÁTKU KOLA (hotovo ~1:30):** brána ✅, repo čisté, test míst deníku ✅.
+Tři skutečné nálezy, všechny OPRAVENY a doloženy obousměrně:
+- **Pád řetězu kontroly anonymizace (8. 8. 00:33)**: `mista_deniku.py` volal holé
+  `node` — pod launchd (bez /opt/homebrew/bin v PATH) padá FileNotFoundError,
+  z terminálu projde, proto to ruční ověření nevidělo. Oprava: PATH se rozšiřuje
+  na úrovni modulu (zdědí ho zaloz_mista_z_fotek i vyber_fotky_na_web). Důkaz:
+  pod chudým PATH načteno 15 míst; podvrh bez opravy padá. K tomu
+  `kontrola_anonymizace.py` nově loguje KONEC tracebacku (4 poslední řádky),
+  ne useknutý začátek.
+- **Úkol 2 fronty (dávkování hlídače fotek) HOTOVO**: `hlidej_a_anonymizuj.py` —
+  fotky po dávkách 20/probuzení, **video max 1/probuzení** s evidencí pokusů
+  psanou PŘED prací (přežije signál 9); po 3 nezdarech se video odloží do
+  KE-SCHVALENI.md a jede se dál (pravidlo „automat se musí vzdát").
+  Důkaz: `testy/test_hlidac_davky.py` (13/13, našel i skutečnou chybu značky −1).
+  POZOR: čekající dávka je **88 videí + 6 fotek** v `_bez_polohy` — proto ta
+  paměť 23 GB; videa se nekrájí na kousky (na rozdíl od starých videí).
+- **Úkol 3 fronty (falešné poplachy revize) HOTOVO**: rejstřík hlásil mrtvou
+  cestu `node testy/obousmerne.mjs` — regex bral celý PŘÍKAZ jako cestu.
+  Oprava v `revize_automatu.py` + 2 nové kontroly v `test_revize_nalezu.py`
+  (14/14). Zbylé 2 nálezy revize jsou PRAVDIVÉ čekání na ostrý běh: kontrola
+  kvality se vyčistí nočním během (příčina opravená), build hlídače starých
+  fotek je doložen mechanicky (465 stránek pod chudým PATH přes skutečné
+  `spust`) a v launchd logu se doloží při příští změně dat.
 
 **Fronta. První úkol je na řadě.**
 
