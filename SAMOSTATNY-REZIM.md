@@ -106,9 +106,35 @@ toho, co říká zvuk. Kotva se u každé animace ověřuje PŘED kreslením (dr
 časy dopadu) a po vyrobení pohledem na výřez.
 
 **DALŠÍ KROK (fronta animací, seřazeno podle přínosu):**
-- `vzajemne-pusobeni` scéna 11 „Dvakrát větší síla, dvakrát větší protažení" —
-  pružina se natahuje se závažím (přímá úměrnost je vidět, ne jen napsaná).
-- `hustota` scéna 9 „Jak se ponorka potopí" a scéna 7 „Klesá, vznáší se, plave".
+- ~~`vzajemne-pusobeni` scéna 11 „Dvakrát větší síla, dvakrát větší protažení"~~
+  **HOTOVO 7. 8. dopoledne, živé na webu** (`polemika-vzajemne-pusobeni-animace.mp4`,
+  commit `d6f09d7`). Na pružinu se postupně věší 10, 20 a 30 N; protažení roste
+  2, 4 a 6 cm a ukazatel jede po stupnici s pravidelnými dílky — přesně to, co
+  Eva v dialogu říká. Délky počítá Hookův zákon (x = F/k), ustálení po zavěšení
+  je řešení tlumeného oscilátoru (závaží chvíli poskočí), takže poměr 1 : 2 : 3
+  vyjde z výpočtu, ne z ručně zvolených kroků.
+  **Dvě vady, které našla až kontrola hotového výsledku, ne kód:**
+  (1) popisky stupnice byly nalevo od dílků a přeškrtávala je čárkovaná čára
+  nezatížené délky i ukazatel — vidět to bylo teprve na vyrobeném snímku;
+  (2) první MĚŘIDLO poměru sečetlo ve sloupci všechny oranžové pixely, tedy
+  i oranžový nadpis nahoře, všem třem fázím přidalo stejných 24 px a vyšlo
+  „1 : 1,76 : 2,52" — kresba přitom byla správně. **Podruhé v tomhle projektu
+  ukázalo vadu měřidlo, ne dílo**; než se ohlásí nález, patří prověřit měřidlo
+  (tady stačilo vypsat souvislé úseky pixelů). Po opravě naměřeno 76, 152, 228 px
+  = přesně 1 : 2 : 3, doklad `Omega/skripty/testy/test_animace_pruziny.py`
+  (6 kontrol + podvrh se špatným poměrem, který měřidlo odhalí).
+- `hustota` scéna 9 „Jak se ponorka potopí" — **animace hotová 7. 8.**, čísla
+  volená tak, aby dětem vycházela celá: ponorka 1 m³ a 900 kg → hustota
+  900 kg/m³ (plave); napustí 100 l → 1000 = jako voda (vznáší se); 200 l →
+  1100 (klesá). Svislá rychlost je úměrná ROZDÍLU hustot, takže při 1000 se
+  ponorka sama zastaví — to je pointa scény a vyjde z výpočtu.
+  **Nález, který zachránila až prohlídka snímku:** text „ponorka < voda" vložil
+  do SVG syrový `<`, ten ukončil značku a renderer nakreslil místo scény růžovou
+  chybovou stránku — **skript přitom doběhl bez jediné hlášky** a video by se
+  složilo z chybových stránek. Nově to hlídá brána `zkontroluj_svg()` v
+  `animace_podkastu.py`: každý snímek musí být platné XML, jinak výroba skončí.
+  Brána má obousměrný důkaz i počítadlo prověřených snímků.
+- `hustota` scéna 7 „Klesá, vznáší se, plave" (ještě nezačato).
 - `objem` scéna „Objem kamene z rozdílu" — hladina stoupne po ponoření.
 - Pak přezvučené díly znovu složit s animacemi a nasadit stejným postupem.
 - **Scénáře `atomy-a-molekuly` (3 krátké díly) čekají na scénosledy** — bez nich
