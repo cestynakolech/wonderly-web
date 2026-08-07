@@ -141,8 +141,10 @@ Co se ukázalo cestou (a proč to nebylo tak nebezpečné, jak se čekalo):
 - Poučení do PRAVIDEL: **hlídač kontroluje jen to prostředí, na které ho
   namíříš.** Projekt měl tři pythony (venv, venv-mflux, homebrew) a audit viděl
   jeden — díra byla přesně v tom neviděném.
-- Zbývá uklidit: `Omega/skripty/venv-torch213` (~2 GB, zkušební kopie) —
-  **mazání čeká na pokyn učitele.**
+- Zkušební kopie `venv-torch213` **smazána 7. 8. na pokyn učitele** (uvolnilo
+  1,1 GB). Před smazáním ověřeno, že ji nevolá žádný skript ani LaunchAgent;
+  po smazání znovu puštěna detekce tváří — **týž výsledek jako před celým
+  zásahem**, torch 2.13.0, whisper CLI na místě. Ostré prostředí je jediné.
 
 ## ▶️▶️ PRVNÍ ÚKOL PO CLEARU (7. 8. 2026 odpoledne): OVĚŘIT SERENU, PAK SCÉNOSLED DIFUZE
 
