@@ -35,17 +35,31 @@
   do `DENIK_CHYB`. (V ostrém deníku po tom zůstal jeden záznam `z_hooku.py` —
   **čeká na odkliknutí učitele, jestli ho smazat**.)
 
-### ⏭️ DROBNÉ NÁLEZY KONTROLORA — DO FRONTY (nic z toho web nerozbíjí)
+### ✅ TŘI POKYNY UČITELE Z 9. 8. — SPLNĚNO
+
+1. **„Chyby nemaž, i když jsou zdánlivě nesmyslné — pokud se zopakuje, bude co
+   hledat."** Testovací záznam v deníku chyb tedy ZŮSTÁVÁ. `denik_chyb.py` mazání
+   vůbec neumí, jde jen zapisovat.
+2. **„Někdy jedeme do jednoho místa víckrát za rok — nech je víckrát, ale udělej
+   jedno místo popisu."** Návštěvy zůstávají samostatné, popis se bere od první
+   (`CestyRok.astro` → `popisMista`). `stare_cesty.ts_soubor()` druhou kopii už
+   negeneruje; přegenerováním ubylo **24 zdvojených popisů**, místa a videa beze změny.
+3. **„Popisy píšeš vše ty."** Nahrazuje starší pravidlo „popisy píše ČLOVĚK"
+   z 30. 7. Opraveno: Lednice („v rámci kulturního krajiny" → Lednicko-valtický
+   areál), Horní Planá (Lipenská → Lipno ve všech jazycích, fr tvrdila
+   „jihovýchodně OD Šumavy"). Dopsány popisy Rothenburgu, Dinkelsbühlu,
+   Nördlingenu (kráter Ries) a Jemnice.
+
+### ⏭️ ZBÝVÁ Z NÁLEZŮ KONTROLORA (nic z toho web nerozbíjí)
 
 1. Schongau a Geisingen mají `videoId` sestřihu, zatímco jejich **vlastní videa**
    (`k4cqRFIsEQU`, `_M3govihGYc`) nejsou u žádného místa.
 2. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
-3. Popis Lednice: „v rámci **kulturního krajiny**" (má být kulturní krajiny;
-   česky Lednicko-valtický areál) a „obec a vesnice" = doslovný překlad.
-4. Horní Planá v en/de/fr: „Lipenská Water Reservoir" místo Lipno Reservoir;
-   fr verze říká „jihovýchodně OD Šumavy" místo „na jihovýchodní Šumavě".
-5. **5 z 10 nových míst nemá popis** (Rothenburg, Dinkelsbühl, Nördlingen,
-   Landshut-2, Jemnice) — popisy píše člověk přes `zapis_popisy.py`.
+3. ~~Popis Lednice, Horní Planá, chybějící popisy~~ — **HOTOVO** (viz výše).
+4. **Rothenburg, Dinkelsbühl a Nördlingen nemají popis v roce 2025**, kde jsou
+   také (17. 4. a 21.–23. 12.). Sdílení popisu funguje jen v rámci roku —
+   `zapis_popisy.py` ručně psané roky schválně přeskakuje, takže tahle místa
+   nezná. Buď je dopsat do `2025.ts`, nebo sdílet popis napříč roky.
 
 ---
 
