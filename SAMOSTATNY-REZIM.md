@@ -1,6 +1,45 @@
 ## ⏩ KDE POKRAČOVAT (8. 8. 2026 v noci, kolo WONDERLY — trojice „Délka")
 
-### ▶️ ROZDĚLANÉ: trojice `delka` — zvuk se vyrábí, pak zbývá video a nasazení
+### ✅ TROJICE `delka` JE HOTOVÁ A ŽIVÁ (8. 8. 2026, 23:50)
+
+Tři díly na `lab.wonderly.cz/skola2/fyzika/6-rocnik/fyzikalni-veliciny/delka/`,
+ověřeno curlem — všechna tři videa vracejí 200 a velikost bajt na bajt odpovídá
+souborům na Macu. **Fyzika 6 má teď polemiku u 11 z 21 podtémat.**
+
+| díl | délka | kotva |
+|---|---|---|
+| 1/3 Proč se všude měří v metrech? | 2:56 | video 176,40 s = zvuk 176,41 s |
+| 2/3 Čím změřit vlas a čím vzdálenost ke hvězdě? | 2:37 | 157,97 = 157,97 s |
+| 3/3 Počítají se dílky podle čárek, nebo mezer? | 2:55 | 175,75 = 175,75 s |
+
+U všech tří `moov` před `mdat` a obrazová i zvuková stopa. Zvuk: 74 replik,
+64 prošlo napoprvé, 10 označeno k ruční kontrole — **z toho 9 planý poplach**
+(scénář má čísla slovy, přepis je vrací číslicemi) a **jedna skutečná vada**:
+Eva měla říct „Tak jím zkus změřit tloušťku vlasu", hlas to zkrátil na „Zkusím
+změřit" a obrátil tím smysl (má vyzvat Marka, ne mluvit o sobě). Přemluveno
+na shodu 100 %.
+
+### ⚠️ TICHÁ VADA NÁSTROJE, KTERÁ SE PŘITOM NAŠLA
+
+`vyrob_omnivoice.py` přeskakoval každou repliku, jejíž soubor už existoval —
+**takže po opravě věty ve scénáři ohlásil „hotovo" a slepil do MP3 STARÝ text.**
+Hláška vypadala stejně jako po skutečné práci a MP3 mělo tutéž velikost bajt
+na bajt; jediná cesta, jak změnu prosadit, bylo smazat soubor, o čemž nikdo
+nevěděl. Nově se vedle repliky ukládá text, ze kterého vznikla (`NN-JMENO.txt`).
+**Replika BEZ stopy se považuje za platnou** — jinak by kontrola přemluvila
+všechny dosud hotové díly. Stopa se zapisuje jen u nově vyrobené nahrávky:
+dopsat ji u přeskočené by prohlásilo za shodné to, co nikdo neověřil, a příští
+oprava věty by se už nikdy nechytila (tuhle vadu v prvním návrhu odhalil až
+vlastní test). Důkaz `testy/test_zmena_textu_repliky.py`, 6 kontrol.
+
+### ⚠️ WHISPER SE NIKDY NESPOUŠTÍ RUČNĚ
+
+Na tomhle Macu jsou dvě kopie `libomp`; bez `KMP_DUPLICATE_LIB_OK=TRUE` se
+whisper zabije při startu a **učiteli vyskočí systémový dialog „Aplikace Python
+se neočekávaně ukončila"** (viděl ho dvakrát). Volá se výhradně
+`vyrob_omnivoice.prepis_lokalne()`. Zapsáno do `PRAVIDLA.md`.
+
+### ▶️ PŘEDCHOZÍ ROZDĚLANÉ (už hotové)
 
 Fyzika 6 má polemiku u 10 z 21 podtémat (změřeno nad naimportovanými daty).
 Další díra v už rozpracovaném celku „fyzikální veličiny" je **Délka** — hmotnost,
