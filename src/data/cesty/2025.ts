@@ -184,6 +184,9 @@ export const rok2025: Rok = {
 			nazev: 'Karlstadt',
 			zeme: 'Německo',
 			datum: '10.–11. 7. 2025',
+			// doplněno 9. 8. 2026: jako jediné místo roku nemělo výjezd, takže
+			// spadlo do skupiny 1 a kreslila se z něj čára do lednové cesty
+			vyjezd: 9,
 			x: 306.0,
 			y: 338.5,
 			popis: {

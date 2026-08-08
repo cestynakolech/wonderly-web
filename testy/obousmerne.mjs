@@ -40,6 +40,7 @@ export const NENI_MERIDLO = {
 	'obousmerne.mjs': 'tenhle rejstřík',
 	'uniky-obousmerne.mjs': 'je to samo obousměrné ověření',
 	'meridla-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy pro pět měřidel)',
+	'cesty-poloha-obousmerne.mjs': 'je to samo obousměrné ověření (polohy a pořadí míst deníku)',
 };
 
 /** Vrátí seznam měřidel: soubory .mjs přímo v testy/ (mimo výjimky) + testy simulací

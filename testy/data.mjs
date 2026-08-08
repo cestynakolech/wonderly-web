@@ -72,6 +72,23 @@ export async function nactiCesty(rok) {
 	}
 }
 
+/**
+ * CELÝ objekt roku deníku — včetně `vyjezdy` a souřadnic míst.
+ *
+ * `nactiCesty` výše schválně vrací jen čtyři pole (slouží k párování galerií),
+ * takže kontrola poloh by přes ni četla `undefined` a tiše hlásila nula nálezů.
+ * Přesně to se 9. 8. 2026 na chvíli stalo, než to ukázal podvrh.
+ */
+export async function nactiRokCest(rok) {
+	const docasny = mkdtempSync(join(tmpdir(), 'wonderly-rok-'));
+	try {
+		const m = await nactiModul(`src/data/cesty/${rok}.ts`, docasny);
+		return m[`rok${rok}`] ?? m.default ?? {};
+	} finally {
+		rmSync(docasny, { recursive: true, force: true });
+	}
+}
+
 /** Všechna podtémata napříč ročníky jako plochý seznam. */
 export function vsechnaPodtemata(temata) {
 	const ven = [];

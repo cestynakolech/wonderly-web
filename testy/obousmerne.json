@@ -163,6 +163,13 @@
    "podvrh": "Replika, jejíž text se ve scénáři změnil (i o jediné slovo), se přegeneruje. Dokud se rozhodovalo jen podle existence souboru, skript ohlásil 'hotovo' a slepil do MP3 STARÝ text — velikost souboru zůstala bajt na bajt stejná. Živý případ 8. 8. 2026: Eva měla říct 'Tak jím zkus změřit tloušťku vlasu'.",
    "zdravy": "Nezměněný text se přeskočí (jinak by se každý díl mluvil pořád dokola) a replika BEZ zapsané stopy se považuje za platnou, aby se nepřemluvilo 74 hotových replik trojice ani starší díly. Stopa se zapisuje jen u nově vyrobené nahrávky: dopsat ji u přeskočené by prohlásilo za shodné to, co nikdo neověřil, a příští oprava věty by se už nikdy nechytila.",
    "kontrol": 6
+  },
+  "cesty-poloha.mjs": {
+   "test": "testy/cesty-poloha-obousmerne.mjs",
+   "podvrh": "Čtyři podvrhy nad kopií dat v paměti, každý se najde: pin téhož města 46 km vedle (skutečný případ Landshutu), místo z 25. 7. zapsané za místem z 26. 7. (falešná čára 321 km), datum mimo rozsah svého výjezdu, místo bez čísla výjezdu. Navíc doloženo na HISTORICKÝCH datech: nad stavem před opravou 9. 8. 2026 kontrola Landshut i Geisingen našla.",
+   "zdravy": "Nad všemi 274 místy v 8 rocích 0 nálezů; zdravá kopie se dvěma návštěvami téhož města na stejném bodě mlčí a pin o 5 km jinde (Stožec) se nehlásí. 16 kontrol v testu prochází.",
+   "kalibrace": "Tolerance se nastavovala NA PŘIJATÉ PRÁCI: při 3 km vracela 43 nálezů — samé rozdíly 4–8 km u Stožce, Horní Plané a Srní, kde pin vznikl z GPS fotky na okraji obce. Na 20 km ji posunul Gdaňsk (dva piny 18 km od sebe). Skutečné vady byly 45 a 35 km.",
+   "pocitadlo": "Kontrola vypisuje počet porovnaných dvojic poloh; klesne-li na nulu při nenulovém počtu míst, hlásí to sama. Vzniklo z vlastní chyby: první verze četla místa přes nactiCesty(), která souřadnice nevrací, takže měřila undefined a tiše hlásila nula nálezů."
   }
  }
 }

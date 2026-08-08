@@ -6,6 +6,7 @@
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { nactiData, maDelkovouNapovedu, vsechnaPodtemata, neznameDruhy } from './testy/data.mjs';
 import { zkontrolujPopiskyMap } from './testy/mapa-popisky.mjs';
+import { zkontrolujPolohyMist } from './testy/cesty-poloha.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
 import { zkontrolujUniky } from './testy/uniky.mjs';
@@ -233,6 +234,15 @@ for (const soubor of rokySoubory) {
 // na cizím pinu v sedmi letech z osmi — kreslil se totiž mimo rozmisťovač.
 const mapy = await zkontrolujPopiskyMap();
 for (const n of mapy.nalezy) chyby.push(`mapa cest — ${n}`);
+
+// 7b2) POLOHY A POŘADÍ MÍST (9. 8. 2026). Nezávislý kontrolor našel v datech tři
+// vady, které tu ležely měsíc: Landshut měl pin 45 km vedle, Geisingen 35 km a
+// místo z 25. 7. bylo zapsané ZA místem z 26. 7. (trasa se kreslí v pořadí pole,
+// takže vznikla falešná čára 321 km). Špatný pin je tichá vada — na mapě vypadá
+// stejně dobře jako správný. Odhalil ho teprve druhý pin téhož města, a přesně
+// na tom kontrola stojí: totéž město musí být napříč roky na stejném bodě.
+const polohy = await zkontrolujPolohyMist(cestyDir);
+for (const n of polohy.nalezy) chyby.push(`deník — ${n}`);
 
 // 7c) KOTVA PROTI TICHÉ LŽI SEKCE 7 (nález nezávislého auditu 1. 8. 2026).
 // Sekce 7 výše čte roky REGULÁRNÍMI VÝRAZY citlivými na tabulátory. Audit ukázal,
