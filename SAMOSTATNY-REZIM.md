@@ -1,57 +1,50 @@
-## ⏩ KDE POKRAČOVAT (8. 8. 2026, kolo WONDERLY — částicová série F6)
+## ⏩ KDE POKRAČOVAT (8. 8. 2026 večer, kolo WONDERLY — trojice „atomy a molekuly")
 
-**✅ ČÁSTICOVÁ SÉRIE F6 JE KOMPLETNÍ A ŽIVÁ.** Všechny tři díly jsou na
-`lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/`
-(ověřeno curlem: stránka vrací tři videa, obě nová jsou v R2 dostupná).
-Díl 1 „Z čeho je všechno složené" 1:42 · díl 2 „Jak se částice chovají" 1:52 ·
-díl 3 „difuze" už od 7. 8. Trojice pokrývá **všech 18 kvízových otázek beze zbytku**.
+**✅ TROJICE `atomy-a-molekuly` JE HOTOVÁ A ŽIVÁ.** Všechny tři díly jsou na
+`lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/`
+(ověřeno dvakrát curlem: stránka vrací 3 videa a 2 animace, všech 5 souborů
+v R2 odpovídá HTTP 200). Díl 1 „Z čeho jsou věci kolem nás" 1:42 ·
+díl 2 „Jak vzniká molekula" 1:55 · díl 3 „sloučenina a směs" 2:06.
+Předtím hotová částicová série F6 je živá dál.
 
-### ▶️ ROZDĚLANÉ: `atomy-a-molekuly` (3 krátké díly) — pokračovat TADY
+**Kotvy, kterými je trojice doložená:**
+- **zvuk:** všechny tři díly 20 replik; součet délek replik proti hotovému MP3
+  dává pauzy přesně 7,00 s (19 mezer) u každého dílu, žádná replika není tichá
+  ani kratší než 0,7 s. Díl 1 a 3 prošly 20/20 na první pokus, díl 2 19 + 1.
+- **video:** délka se rovná délce zvuku (102,62 · 114,91 · 126,39 s),
+  `moov` před `mdat` u všech tří, obraz i zvuková stopa.
+- **animace měřítka atomu:** ve všech 188 snímcích platí, že počet atomů
+  v záběru krát průměr 0,1 nm dá šířku výřezu → na milimetr vyjde 10 000 000.
+- **animace vzniku molekul:** součet atomů je ve všech 127 snímcích 16 —
+  nic nepřibylo ani neubylo (přesně to je v dílu Evin omyl). Ve videu ověřeno,
+  že se animace opravdu hýbe (4 různé snímky z 5) a poslední se drží do konce.
+- **obě animace jen na své stránce**, na žádné cizí (past ze 7. 8. s hoistovaným CSS).
 
-Scénáře i **scénosledy jsou hotové** (8. 8.) a **brána pokrytí je čistá** —
-trojice pokrývá celý kvíz beze zbytku (chybějící 4 + 7 + 6 otázek, ale průnik
-přes všechny tři díly je prázdný, takže každou otázku pokrývá aspoň jeden díl).
-Zbývá:
+### ⚠️ ČEKÁ NA ODKLIKNUTÍ UČITELEM
 
-1. **Napsat 24 kreseb** do `KRESBY` v `snimky_podkastu.py` — klíče jsou
-   v polích `kresba` scénosledů, popis scény v poli `co`. Vzor: kresby
-   částicové série (`s_castice_se_nezastavi`, `s_sily_castic`).
-2. **Dvě nové animace** do `ANIMACE` v `animace_podkastu.py`:
-   - `meritko_atomu` (díl 1, scéna 5) — úsečka 1 mm se zvětšuje po dekádách,
-     až jsou vidět jednotlivé atomy. **Kotva: 10⁷ atomů na milimetr**, tedy
-     průměr atomu 0,1 nm; zvětšení a počet viditelných atomů musí souhlasit
-     s výpočtem, ne být nakreslené od oka.
-   - `vznik_molekul` (díl 2, scéna 1) — volné atomy se potkají a spojí.
-     **Kotva: počet atomů před spojením a po něm se ROVNÁ** (molekula vzniká
-     spojením, ne rozbitím — přesně to je v dílu Evin omyl).
-3. Pak beze změny: render → **prohlídka kontaktním listem** → zvuk
-   (`vyrob_omnivoice.py`, smyčka hlídá `počká` i `počkám`) → ilustrace scény 0
-   mfluxem → `video_podkastu.py` → R2 → `temata.ts` → build → push → curl.
+1. **Hlas Marka v téhle trojici je o pětinu výš než ve zbytku ročníku.**
+   Referenční nahrávka se dřív vyráběla pro každý díl zvlášť, takže se hlas
+   pokaždé posunul: změřeno Eva 229–250 Hz, Marek 147–172 Hz. Trojice má
+   Marka 172 Hz, starší díly 147–150 Hz — zní jako jiný člověk.
+   **Kořen je opravený** (stálá reference ročníku v `podkasty-hlasy/6/`,
+   obousměrný důkaz `testy/test_stala_reference.py`), takže příští díly už
+   hlas drží. **Otázka pro učitele:** má se tahle trojice přetočit na stálý
+   hlas? Stojí to ~30 minut Macu a nová videa; posluchač by pak měl celý
+   ročník v jednom hlase.
+2. **Vedlejší popisky na starších snímcích jsou pod normou čitelnosti.**
+   Barva `SEDA` (#8a97a8) má proti pozadí 2,82 : 1; postihuje 242 textů
+   z 1315 na 142 kresbách. Nová série má tmavší `SEDA_TEXT` (5,15 : 1).
+   Sjednotit i staré díly by znamenalo přerenderovat všechna nasazená videa
+   — proto se nic nepřebarvovalo bez ptaní.
+3. **V R2 leží tři videa navíc** — první nahrání šlo omylem do cesty
+   `fyzika/6-rocnik/atomy-a-molekuly/` bez `latka-a-teleso/`. Na webu se
+   nepoužívají (odkazuje se na správnou cestu). Smazat? Mazání se neodklikává samo.
 
-**Pozor na dvě věci z dnešního dne:** čekat se musí na KONEC procesu, ne na
-existenci souboru (`until [ -f … ]` ohlásilo hotové video o 48 bajtech), a
-počítat se musí `grep -o`, ne `grep -c` (minifikované HTML je na jednom řádku).
+### ▶️ ROZDĚLANÉ: nic — fronta je volná
 
-**Kotvy, kterými je série doložená:**
-- **zvuk:** díl 1 měl 20/20 replik na první pokus; díl 2 26 v pořádku a **2 hraniční
-  prověřeny ručně** — „Molekuly vzduchu letí…" (59 %, samá čísla, známá vlastnost
-  přepisu) a „Jakými?" (0 %, jednoslovná otázka). Obě mají normální hlasitost
-  (−22,5 a −26,5 dB), tedy opravdu zazněly. **Hlasy nejsou prohozené:
-  EVA 245 Hz, MAREK 151 Hz** — obě v pásmu.
-- **video:** délka se rovná délce zvuku na setinu (102,39 s a 112,12 s),
-  `moov` před `mdat` u obou, obě mají obrazovou i zvukovou stopu.
-- **dvě vlastní chyby v MĚŘENÍ, ne v díle** (obě dnes): `until [ -f soubor ]`
-  ohlásilo hotové video o velikosti 48 bajtů — soubor existuje od první sekundy
-  zápisu, čekat se musí na konec procesu. A `grep -c` napočítal „1 video" tam,
-  kde jsou tři — HTML je na jediném řádku, takže se musí počítat `grep -o`.
-brána pokrytí kvízu — **trojice dílů pokrývá všech 18 otázek beze zbytku**
-(průnik chybějících přes všechny tři díly je prázdný) · animace Brownova
-pohybu: dráha 1091 px proti posunu 156 px (7×), na pěti semínkách 4,2–19,6× ·
-animace teploty: naměřený poměr rychlostí 1,171 proti spočtenému
-√(373/273) = 1,169 · klip má faststart (`moov` 36 < `mdat` 8978) i zvukovou stopu.
-
-**Potom:** `atomy-a-molekuly` (3 krátké díly, scénáře napsané ze 7. 8., chybí
-jim scénosledy).
+Další na řadě podle učiva 6. ročníku: `skupenstvi-latek` už polemiku má
+(nasazená 8. 8. ráno ve verzi 2). Nabízí se pokračovat dalším podtématem
+F6 bez podkástu, nebo se vrátit k názornosti informatiky.
 
 ### 🎬 HOTOVO A ŽIVÉ: animace k výkladu pod textem podtématu (přání učitele 8. 8.)
 

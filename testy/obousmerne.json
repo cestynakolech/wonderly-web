@@ -129,6 +129,14 @@
    "regrese": "Velký tučný oranžový nadpis (3,39 : 1) NESMÍ být nález — norma má pro velký text práh 3 : 1 a jediný společný práh 4,5 by odsoudil styl všech dosavadních snímků. Text na bílé plaketě nad tmavou kresbou se měří proti plaketě. Mutace prahů na nulu měřidlo oslepí a test to pozná.",
    "overeno": "2026-08-08",
    "poznamka": "Starší díly (před 8. 8. 2026) mají 242 textů z 1315 pod normou kvůli barvě SEDA #8a97a8 (2,82 : 1). Není to dnešní chyba, ale vlastnost projektu; přebarvení by znamenalo přerenderovat všechna nasazená videa. Nová série proto používá SEDA_TEXT #5c6b7f. Čeká na rozhodnutí učitele."
+  },
+  "vyrob_omnivoice.py — stálý hlas postavy napříč díly": {
+   "test": "~/Desktop/Omega/skripty/testy/test_stala_reference.py",
+   "podvrh": "Díl bez vlastní reference musí sáhnout po stálé nahrávce ročníku VČETNĚ jejího textu (jinak by ref_text neodpovídal tomu, co na nahrávce zazní). Prázdná nebo chybějící stálá nahrávka se nesmí použít — test to vynucuje podvrženým souborem o nulové délce. Test běží nasucho, syntéza je podvržená, takže měří rozhodovací logiku, kde vada byla.",
+   "zdravy": "Stálá reference ročníku 6 na disku má EVA 172 844 B a MAREK 155 564 B s texty; nový díl si ji vezme a syntézu vůbec nespustí.",
+   "regrese": "Díl, který UŽ svou referenci má (všechny díly do 8. 8. 2026), si ji musí podržet — jeho repliky jsou nadabované tím hlasem a přegenerování jediné z nich by pak vybočilo. Oprava tedy nesmí rozbít to, co fungovalo.",
+   "overeno": "2026-08-08",
+   "poznamka": "Vada nalezena měřením `vyska_hlasu.py` (autokorelace, zkalibrovaná na dílu s doloženými 245/151 Hz — dala 242/144 Hz). Reference se dřív vyráběla pro každý díl zvlášť: Eva 229–250 Hz, Marek 147–172 Hz. Trojice „atomy a molekuly\" má Marka 172 Hz, tedy o pětinu výš než starší díly — čeká na rozhodnutí učitele, jestli ji přegenerovat."
   }
  }
 }
