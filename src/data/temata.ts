@@ -199,6 +199,26 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						// PRVNÍ díl částicové série (pořadí podle učiva: nejdřív že látky
+						// z částic vůbec jsou, pak jak se chovají, teprve pak difuze).
+						// Scéna s pylovým zrnkem je POHYBLIVÁ — zrnko se nehýbe náhodně,
+						// ale podle sečtených nárazů molekul, takže vyjde samo, že uražená
+						// dráha je mnohem delší než výsledné posunutí.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Z čeho je všechno složené? 🎬 (s animací Brownova pohybu)',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-atomy.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
+						// DRUHÝ díl. Animovaná scéna zahřívání schválně NEZVELIČUJE rozdíl:
+						// rychlost roste s odmocninou teploty, takže mezi nulou a stem
+						// stupňů je to jen 17 % — proto ho měří pruh s číslem v km/h.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Jak se částice chovají? 🎬 (s animací zahřívání)',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-pohyb.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
 						// Třetí díl částicové série. Scéna s promícháním dvou látek je
 						// POHYBLIVÁ — částice se hýbou samy a počítadlo pod nádobou ukazuje,
 						// jak podíl modrých vlevo klesá ze 100 % k polovině a už tam zůstane.
