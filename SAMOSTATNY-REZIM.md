@@ -20,25 +20,37 @@ Předtím hotová částicová série F6 je živá dál.
   že se animace opravdu hýbe (4 různé snímky z 5) a poslední se drží do konce.
 - **obě animace jen na své stránce**, na žádné cizí (past ze 7. 8. s hoistovaným CSS).
 
+### ✅ PŘETOČENO NA STÁLÝ HLAS (8. 8. 2026 večer, na přání učitele)
+
+Trojice je na webu ve **verzi 2** (`polemika-atomy-a-molekuly-*-v2.mp4`,
+ověřeno dvakrát curlem, všechna tři média HTTP 200). Marek měl v první verzi
+172 Hz proti 146–150 Hz ve zbytku ročníku; po přetočení stálou referencí:
+díl 1 Eva 252 / Marek 152 · díl 2 Eva 246 / Marek 146 · díl 3 Eva 242 / Marek 150
+(starší díl pro srovnání 234 / 150). **Rozptyl Marka mezi díly klesl z 25 Hz na 6 Hz.**
+Nová adresa `-v2` schválně — média jdou s roční mezipamětí.
+
 ### ⚠️ ČEKÁ NA ODKLIKNUTÍ UČITELEM
 
-1. **Hlas Marka v téhle trojici je o pětinu výš než ve zbytku ročníku.**
-   Referenční nahrávka se dřív vyráběla pro každý díl zvlášť, takže se hlas
-   pokaždé posunul: změřeno Eva 229–250 Hz, Marek 147–172 Hz. Trojice má
-   Marka 172 Hz, starší díly 147–150 Hz — zní jako jiný člověk.
-   **Kořen je opravený** (stálá reference ročníku v `podkasty-hlasy/6/`,
-   obousměrný důkaz `testy/test_stala_reference.py`), takže příští díly už
-   hlas drží. **Otázka pro učitele:** má se tahle trojice přetočit na stálý
-   hlas? Stojí to ~30 minut Macu a nová videa; posluchač by pak měl celý
-   ročník v jednom hlase.
+1. **NEVYJASNĚNO: jeden běh výroby zvuku vyrobil 60 zmetků.** Všech 60 replik
+   byl tichý šum (shoda 0–18 %, hlasitost −39 dB proti obvyklým −26 dB), přitom
+   totéž zadání se o hodinu později povedlo. Běh startoval na 13 % baterie
+   s právě zapojeným kabelem — ale pokračoval i po dobití na 44 % a úsporný
+   režim byl vypnutý, takže **to není doložená příčina, jen podezření**.
+   Pojistka `baterie.py` se ptá jen „jsme v síti?", takže start na 13 % jí
+   projde. Práh se zvedat NEBUDE, dokud nebude důkaz — jinak by pojistka jen
+   bránila práci. Zmetky leží jako `*.zmetek-13procent`, kdyby se hledala příčina.
+   **Zavedena aspoň pojistka proti jalovému běhu:** neprojde-li ani jedna
+   z prvních pěti replik, výroba se vzdá (ušetří 45 volání ze 60).
 2. **Vedlejší popisky na starších snímcích jsou pod normou čitelnosti.**
    Barva `SEDA` (#8a97a8) má proti pozadí 2,82 : 1; postihuje 242 textů
    z 1315 na 142 kresbách. Nová série má tmavší `SEDA_TEXT` (5,15 : 1).
-   Sjednotit i staré díly by znamenalo přerenderovat všechna nasazená videa
-   — proto se nic nepřebarvovalo bez ptaní.
-3. **V R2 leží tři videa navíc** — první nahrání šlo omylem do cesty
-   `fyzika/6-rocnik/atomy-a-molekuly/` bez `latka-a-teleso/`. Na webu se
-   nepoužívají (odkazuje se na správnou cestu). Smazat? Mazání se neodklikává samo.
+   Sjednotit i staré díly by znamenalo přerenderovat všechna nasazená videa.
+3. **V R2 leží videa navíc** — tři z prvního nahrání do cesty bez
+   `latka-a-teleso/` a tři z verze 1 (`-v2` je nahradila). Na webu se
+   nepoužívají. Smazat? Mazání se neodklikává samo.
+4. **Zálohy nahrávek na disku:** `*.predchozi` (původní hlas), `*.zmetek-13procent`
+   (šum) a `*.hlas-v1` (videa první verze). Nic z toho jsem nemazal — až řeknete,
+   uklidím.
 
 ### ▶️ ROZDĚLANÉ: nic — fronta je volná
 
