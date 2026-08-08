@@ -1,9 +1,24 @@
-## ⏩ KDE POKRAČOVAT (8. 8. 2026 odpoledne, po kole WONDERLY + celkovém auditu)
+## ⏩ KDE POKRAČOVAT (8. 8. 2026, kolo WONDERLY — částicová série F6)
 
-**Na řadě: polemika `casticove-slozeni-latek`** — scénáře `atomy-a-molekuly`
-(3 krátké díly) jsou napsané a branou prověřené už ze 7. 8., chybí jim
-scénosledy. Řetěz beze změny: scénosled → schémata → kontaktní list → zvuk
-OmniVoice → video → R2 + temata.ts → build → push → curl. Začít v ČERSTVÉ session.
+**Rozpracováno:** díly 1/3 (`casticove-slozeni-latek-atomy-dialog`) a 2/3
+(`...-pohyb-dialog`) mají hotové **scénosledy, 19 schémat a dvě nové animace**;
+zbývá jim zvuk (čeká na uvolnění GPU dráhy), ilustrace scény 0 mfluxem, video
+a nasazení. Díl 3/3 (difuze) je hotový a na webu už od 7. 8.
+**Potom:** `atomy-a-molekuly` (3 krátké díly, scénáře napsané ze 7. 8., chybí
+jim scénosledy).
+
+### 🔍 Audit na startu kola (8. 8. dopoledne)
+- **Oba „přetrvávající" nálezy revize automatů jsou ZASTARALÉ, ne živé.**
+  `com.omega.foto-kontrola-kvality` padal v 00:33 na chybějícím PATH; oprava
+  (jediný domov `prostredi.py` v `mista_deniku.py`) přišla až v 09:58 téhož dne.
+  Doloženo reprodukcí s chudým PATH (`env -i PATH=/usr/bin:/bin`): oba dřív
+  padající kroky dnes doběhnou — `zaloz_mista_z_fotek.py` „založeno 0, přeskočeno 1",
+  `vyber_fotky_na_web.py` „vybráno 25 z 34". **Revize ale hlásí chybu z posledních
+  řádků logu bez ohledu na to, že skript byl mezitím opraven** — do fronty:
+  porovnávat čas chyby s časem změny skriptu.
+- **`animace_podkastu.py` si jako jediný skript řetězu podkástů nebral zámek
+  dráhy** (render Chromem + ffmpeg je těžká CPU práce). Doplněno `drz_cpu`.
+- Brána webu i testy zelené; `git status` čistý.
 
 ### ✅ HOTOVO 8. 8. (kolo WONDERLY v noci + celkový audit dopoledne)
 - **Polemika „Skupenství látek" NASAZENÁ ve verzi 2** (5:29, ověřeno curlem —
