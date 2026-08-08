@@ -2,11 +2,139 @@ import type { Rok } from './typy';
 
 export const rok2026: Rok = {
 	rok: 2026,
-	zeme: 'Německo, Francie',
+	zeme: 'Německo, Česko, Francie',
 	pinEvropa: { x: 312, y: 363 },
 	// začátek trasy = domov; poloha spočítaná stejnou projekcí jako v trasa_uvod.py
 	domov: { nazev: 'jižní Čechy', x: 344.9, y: 351.7 },
+	vyjezdy: [
+		{ cislo: 1, druh: 'vikend', od: '8. 2. 2026', do: '13. 2. 2026' },
+		{ cislo: 2, druh: 'vikend', od: '6. 3. 2026', do: '6. 3. 2026' },
+		{ cislo: 3, druh: 'vikend', od: '1. 4. 2026', do: '5. 4. 2026' },
+		{ cislo: 4, druh: 'vikend', od: '8. 5. 2026', do: '9. 5. 2026' },
+		{ cislo: 5, druh: 'vikend', od: '9. 6. 2026', do: '9. 6. 2026' },
+		{ cislo: 6, druh: 'prazdniny', od: '6. 7. 2026', do: '26. 7. 2026' },
+	],
 	mesta: [
+		{
+			slug: 'rothenburg-ob-der-tauber',
+			nazev: 'Rothenburg ob der Tauber',
+			zeme: 'Německo',
+			datum: '8. 2. 2026',
+			vyjezd: 1,
+			x: 309.3,
+			y: 345.7,
+		},
+		{
+			slug: 'dinkelsbuhl',
+			nazev: 'Dinkelsbühl',
+			zeme: 'Německo',
+			datum: '9.–10. 2. 2026',
+			vyjezd: 1,
+			x: 310.3,
+			y: 349.3,
+		},
+		{
+			slug: 'nordlingen',
+			nazev: 'Nördlingen',
+			zeme: 'Německo',
+			datum: '11. 2. 2026',
+			vyjezd: 1,
+			x: 311.7,
+			y: 352.1,
+		},
+		{
+			slug: 'landshut-2',
+			nazev: 'Landshut',
+			zeme: 'Německo',
+			datum: '13. 2. 2026',
+			vyjezd: 1,
+			x: 325.2,
+			y: 355.8,
+		},
+		{
+			slug: 'horni-plana',
+			nazev: 'Horní Planá',
+			zeme: 'Česko',
+			datum: '6. 3. 2026',
+			vyjezd: 2,
+			x: 340.5,
+			y: 352.4,
+			popis: {
+				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
+				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
+				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
+			},
+		},
+		{
+			slug: 'telc',
+			nazev: 'Telč',
+			zeme: 'Česko',
+			datum: '1. 4. 2026',
+			vyjezd: 3,
+			x: 351.3,
+			y: 346.5,
+			popis: {
+				cs: 'Město na jihozápadě Moravy pětadvacet kilometrů jihozápadně od Jihlavy, kde žije kolem 5 100 obyvatel. Jeho historické jádro je městskou památkovou rezervací a je zapsané na seznamu světového kulturního dědictví UNESCO.',
+				en: 'A town in south-western Moravia twenty-five kilometres south-west of Jihlava, home to around 5,100 people. Its historic core is an urban heritage reservation and is inscribed on the UNESCO World Heritage List.',
+				de: 'Stadt im Südwesten Mährens, 25 Kilometer südwestlich von Jihlava, mit etwa 5.100 Einwohnern. Ihr historisches Zentrum ist ein städtisches Denkmalschutzgebiet und ist in das Verzeichnis des Weltkulturerbes der UNESCO aufgenommen.',
+				fr: 'Ville située dans le sud-ouest de la Moravie, à 25 kilomètres au sud-ouest de Jihlava, où vivent environ 5 100 habitants. Son noyau historique est une réserve monumentale urbaine et est inscrit sur la liste du patrimoine culturel mondial de l\'UNESCO.',
+			},
+		},
+		{
+			slug: 'lednice',
+			nazev: 'Lednice',
+			zeme: 'Česko',
+			datum: '2.–4. 4. 2026',
+			vyjezd: 3,
+			x: 362.5,
+			y: 350.3,
+			popis: {
+				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
+				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
+				de: 'Lednice ist eine Gemeinde und ein Dorf im Landkreis Břeclav in der Südmährischen Region der Tschechischen Republik mit etwa 2 200 Einwohnern. Sie liegt innerhalb der kulturellen Landschaft Lednice–Valtice, die im UNESCO-Weltkulturerbe aufgenommen ist.',
+				fr: 'Lednice est une commune et un village dans le district de Břeclav, dans la région sud-moravienne de la République tchèque, avec environ 2 200 habitants. Elle se situe dans le paysage culturel Lednice–Valtice, qui est inscrit sur la liste du patrimoine mondial de l\'UNESCO.',
+			},
+		},
+		{
+			slug: 'jemnice',
+			nazev: 'Jemnice',
+			zeme: 'Česko',
+			datum: '5. 4. 2026',
+			vyjezd: 3,
+			x: 351.8,
+			y: 348.8,
+		},
+		{
+			slug: 'horni-plana-2',
+			nazev: 'Horní Planá',
+			zeme: 'Česko',
+			datum: '8.–9. 5. 2026',
+			vyjezd: 4,
+			x: 340.5,
+			y: 352.4,
+			popis: {
+				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
+				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
+				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
+				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
+			},
+		},
+		{
+			slug: 'srni',
+			nazev: 'Srní',
+			zeme: 'Česko',
+			datum: '9. 6. 2026',
+			vyjezd: 5,
+			x: 335.7,
+			y: 348.7,
+			popis: {
+				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
+				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
+				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
+				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
+			},
+		},
 		{
 			slug: 'landshut',
 			galerie: 'cesty/2026/landshut',
@@ -15,6 +143,7 @@ export const rok2026: Rok = {
 			nazev: 'Landshut',
 			zeme: 'Německo',
 			datum: '6. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Wohnmobilstellplatz Grieserwiese',
@@ -40,6 +169,7 @@ export const rok2026: Rok = {
 			nazev: 'Schongau',
 			zeme: 'Německo',
 			datum: '7. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Wohnmobilstellplatz Schongau',
@@ -65,6 +195,7 @@ export const rok2026: Rok = {
 			nazev: 'Geisingen',
 			zeme: 'Německo',
 			datum: '8. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Stellplatz Am Espen 8, Geisingen',
@@ -87,6 +218,7 @@ export const rok2026: Rok = {
 			nazev: 'Salbert',
 			zeme: 'Francie',
 			datum: '10. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Parkoviště Fort du Salbert',
@@ -109,6 +241,7 @@ export const rok2026: Rok = {
 			nazev: 'Le Thillot',
 			zeme: 'Francie',
 			datum: '12. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Aire Le Thillot, Chemin du Draimont',
@@ -131,6 +264,7 @@ export const rok2026: Rok = {
 			nazev: 'Rupt-sur-Moselle',
 			zeme: 'Francie',
 			datum: '14. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Aire Rupt-sur-Moselle, Rue du Riffin',
@@ -153,6 +287,7 @@ export const rok2026: Rok = {
 			nazev: 'Saint-Maurice-sur-Moselle',
 			zeme: 'Francie',
 			datum: '17. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Aire Saint-Maurice-sur-Moselle, Rue de Presles',
@@ -177,6 +312,7 @@ export const rok2026: Rok = {
 			nazev: 'Ornans',
 			zeme: 'Francie',
 			datum: '18. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'CAMPING-CAR PARK Ornans, Chemin des Essarts Cendrins',
@@ -200,6 +336,7 @@ export const rok2026: Rok = {
 			nazev: 'Frangy',
 			zeme: 'Francie',
 			datum: '20. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Přespání u vinaře mezi vinicemi',
@@ -226,6 +363,7 @@ export const rok2026: Rok = {
 			nazev: 'Vaulnaveys-le-Haut',
 			zeme: 'Francie',
 			datum: '21. 7. 2026',
+			vyjezd: 6,
 			x: 271.4,
 			y: 396.5,
 			popisekPosun: { dx: -2, dy: -2, kotva: 'end' },
@@ -243,6 +381,7 @@ export const rok2026: Rok = {
 			nazev: 'Livet-et-Gavet a Chamrousse',
 			zeme: 'Francie',
 			datum: '21. 7. 2026',
+			vyjezd: 6,
 			stellplatze: [
 				{
 					nazev: 'Chamrousse – Place des Niverolles',
@@ -272,6 +411,7 @@ export const rok2026: Rok = {
 			nazev: "Col d'Ornon",
 			zeme: 'Francie',
 			datum: '24. 7. 2026',
+			vyjezd: 6,
 			x: 272.7,
 			y: 398.0,
 			popisekPosun: { dx: -2, dy: 6, kotva: 'end' },
@@ -288,6 +428,7 @@ export const rok2026: Rok = {
 			nazev: 'Gassin',
 			zeme: 'Francie',
 			datum: '26. 7. 2026',
+			vyjezd: 6,
 			x: 277.4,
 			y: 420.3,
 			videoId: 'Rt_3BQC3_Sw',
@@ -299,6 +440,7 @@ export const rok2026: Rok = {
 			nazev: 'Saint-Bonnet-en-Champsaur',
 			zeme: 'Francie',
 			datum: '25. 7. 2026',
+			vyjezd: 6,
 			x: 273.5,
 			y: 402.1,
 			videoId: 'X38H3CJ7UoY',
@@ -310,6 +452,7 @@ export const rok2026: Rok = {
 			nazev: 'Sainte-Maxime',
 			zeme: 'Francie',
 			datum: '26. 7. 2026',
+			vyjezd: 6,
 			x: 277.9,
 			y: 419.3,
 			videoId: 'DbZCXE8XQuI',
