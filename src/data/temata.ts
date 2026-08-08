@@ -326,6 +326,17 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>nestlačitelnost kapalin</strong> — hydraulická zařízení přenášejí sílu z jednoho pístu na druhý: zvedáky v autodílnách, lisy, brzdy automobilů, bagry, vyklápěcí korby</li>
 						</ul>
 					`,
+					materialy: [
+						// Polemika Evy a Marka; scéna „Tři základní skupenství" je POHYBLIVÁ —
+						// částice kreslí program (mřížka pevné látky, sloupec kapaliny, rozlet
+						// plynu do celé nádoby jsou spočtené, kotvy změřené při renderu).
+						{
+							druh: 'video',
+							nazev: 'Polemika: Led, voda, pára — kolik látek? 🎬',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/polemika-skupenstvi-latek.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animaci částic kreslí program podle fyzikálních pravidel.',
+						},
+					],
 				},
 			],
 		},
