@@ -127,6 +127,27 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-08 v noci (kolo WONDERLY: audit + polemika skupenství nasazena)** —
+  Audit na startu kola našel a opravil tři věci: (1) řetěz kontroly anonymizace
+  padal pod launchd na holém `node` (z terminálu prošel — proto vypadal zdravě);
+  PATH se teď rozšiřuje v `mista_deniku.py` a zdědí ho všechny navazující
+  skripty; logy nově ukládají KONEC tracebacku, ne useknutý začátek.
+  (2) Hlídač nových fotek byl znovu zabit systémem bez jediného výsledku —
+  „dávka 99 fotek" je ve skutečnosti 88 VIDEÍ + 6 fotek; nový kód bere fotky
+  po 20 a video nejvýš jedno na probuzení, s evidencí pokusů psanou před prací
+  (přežije signál 9) a odložením po 3 nezdarech (test 13/13 — našel při psaní
+  skutečnou chybu). (3) Revize automatů hlásila mrtvou cestu, protože regex
+  bral celý příkaz `node testy/obousmerne.mjs` jako název souboru (test 14/14).
+  **Hlavní práce: díl `skupenstvi-latek-dialog` dotažen a NASAZEN** — zvuk
+  lokálním OmniVoice (38/38 replik na první pokus; hlasy změřeny: 146/250 Hz,
+  obě v pásmech), animace částic přerenderovaná s měřenými kotvami (mřížka
+  pevné látky, sloupec kapaliny 189 px spočtený = naměřený, plyn zaplní 97 %
+  nádoby), ilustrace scény 0 mfluxem (led správně plave), video 5:16 s
+  faststartem i zvukovou stopou, úplnost doložena porovnáním všech 38 replik
+  s přepisem. Ověřeno curlem na produkci (stránka i soubor z R2). GPU dráha se
+  celou noc střídala s automaty — čekání řešila smyčka, pojistka zámku
+  fungovala správně (odmítla OmniVoice, dokud jely fotky/pečlivá videa).
+
 - **2026-08-07 (podkásty F6 nasazené · videa se rozhýbala · dvě vady vlastních měřidel)** —
   **Všech 8 dílů Fyziky 6 dostalo nový hlas** (lokální OmniVoice, zdarma), učitel je
   poslechl a schválil. Kotvou správnosti byla **změřená výška hlasu** (muž 142–161 Hz,

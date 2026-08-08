@@ -24,29 +24,34 @@ Tři skutečné nálezy, všechny OPRAVENY a doloženy obousměrně:
   fotek je doložen mechanicky (465 stránek pod chudým PATH přes skutečné
   `spust`) a v launchd logu se doloží při příští změně dat.
 
-**Fronta. První úkol je na řadě.**
+**Fronta. Úkoly 1–3 HOTOVÉ v kole WONDERLY 8. 8. v noci (viz „HOTOVO" níž).
+Další na řadě: pokračovat polemikami F6 — díl `casticove-slozeni-latek`
+(scénáře `atomy-a-molekuly` jako 3 krátké díly jsou napsané a branou prověřené
+už ze 7. 8., chybí jim scénosledy). Začít v ČERSTVÉ session.**
 
-### 1. Dotáhnout díl `skupenstvi-latek-dialog` (scénosled i schémata HOTOVÉ)
-Stav: dialog ✅ (brána 15/15) · scénosled ✅ (19 scén, klíčová slova ověřená
-skriptem) · 18 schémat ✅ (nakreslená, prohlédnutá na kontaktním listu, 4 vady
-opravené, kotvy změřené: objemy vody shodné, počty částic 16/16/16) · animace
-`skupenstvi` ✅ hotová, ale PŘED nasazením přerenderovat (snímky jsou z verze
-před úpravou rozsypání kapaliny). Zbývá: (a) **zvuk lokálním OmniVoice**
-(`venv-omnivoice/bin/python3 skripty/vyrob_omnivoice.py skupenstvi-latek-dialog
---rocnik 6` — kontrola replik běží LOKÁLNÍM whisperem, dvoustupňově small→medium),
-(b) přerender animace, (c) video, (d) nasazení. Čeká na GPU dráhu — hlídač
-fotek dojíždí dávku 99 fotek.
-POZOR: ilustrace scény 0 (`podklad-00.png`) ještě není — vyrobit mfluxem.
+### ~~1. Dotáhnout díl `skupenstvi-latek-dialog`~~ ✅ HOTOVO A NASAZENO 8. 8. v noci
+Zvuk OmniVoice (38/38 replik na první pokus; kotva hlasů změřena: MAREK 146 Hz,
+EVA 250 Hz — obě v pásmech) · animace přerenderovaná (320 snímků, kotvy: mřížka
+pevné látky drží, sloupec kapaliny 189 px spočtený = naměřený, plyn 97 % nádoby;
+kontaktní list prohlédnut) · ilustrace scény 0 mfluxem (led plave — prohlédnuto) ·
+video 9 MB / 5:16, faststart ✅, AAC ✅, prolínačky záměrné · úplnost: všech
+38 replik v přepisu, 0 pod 60 % shody · R2 + `temata.ts` + build + push +
+**curl na produkci ✅** (stránka i soubor). Adresa:
+`lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/`
 
-### 2. Foto-hlidač: dávkovat anonymizaci (nález auditu 8. 8.)
-Automat byl zabit systémem (signál 9, nejspíš došla paměť) uprostřed dávky
-99 fotek. Upravit `hlidej_a_anonymizuj.py`, ať zpracovává po ~20 fotkách se
-zápisem průběhu — pád pak nezahodí celou noc. Průběžně: dávku teď dojíždí.
+### ~~2. Foto-hlidač: dávkovat anonymizaci~~ ✅ HOTOVO 8. 8. v noci
+Hlídač byl v noci znovu zabit (0 výsledků) — dávka je totiž **88 videí + 6 fotek**
+v `_bez_polohy`. Nový kód: fotky po 20/probuzení, **video max 1/probuzení**,
+evidence pokusů psaná PŘED prací (přežije signál 9), po 3 nezdarech se video
+odloží do KE-SCHVALENI.md. Test `skripty/testy/test_hlidac_davky.py` 13/13.
+Videa se projedou postupně sama (~1/h); fotky mají přednost.
 
-### 3. Revize automatů: falešné poplachy
-Hlásí opravené chyby jako živé (pád na `npm` z 1. 8. opraven 6. 8.; pip-audit
-plist opraven 7. 8.) a „mlčení" u automatů, které logují jen při práci.
-Naučit revizi číst doklad opravy (opakování TÉHOŽ kroku po datu opravy).
+### ~~3. Revize automatů: falešné poplachy~~ ✅ HOTOVO 8. 8. v noci
+Skutečná příčina pádů řetězu kontroly anonymizace: holé `node` pod launchd
+(oprava PATH v `mista_deniku.py`, obousměrný důkaz). Falešný poplach „mrtvá
+cesta `node testy/obousmerne.mjs`": regex bral příkaz jako cestu — opraveno
+v `revize_automatu.py`, test 14/14. Zbylé 2 nálezy revize jsou pravdivé čekání
+na ostrý běh (vyčistí se samy: noční kontrola kvality / příští změna dat cest).
 
 ### 4. Rozhodnutí učitele (nikdy kvůli tomu nestát)
 - ~~llama3.1~~ VYŘEŠENO 8. 8.: učitel schválil, stažena zpět (Starlink),
