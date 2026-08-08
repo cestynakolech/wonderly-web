@@ -1,9 +1,25 @@
 ## ⏩ KDE POKRAČOVAT (8. 8. 2026, kolo WONDERLY — částicová série F6)
 
 **Rozpracováno:** díly 1/3 (`casticove-slozeni-latek-atomy-dialog`) a 2/3
-(`...-pohyb-dialog`) mají hotové **scénosledy, 19 schémat a dvě nové animace**;
-zbývá jim zvuk (čeká na uvolnění GPU dráhy), ilustrace scény 0 mfluxem, video
-a nasazení. Díl 3/3 (difuze) je hotový a na webu už od 7. 8.
+(`...-pohyb-dialog`) mají hotové **scénosledy, 19 schémat a dvě nové animace**.
+Díl 3/3 (difuze) je hotový a na webu už od 7. 8.
+
+**Zbývá jim (v tomhle pořadí):**
+1. **zvuk** `vyrob_omnivoice.py <slug> --rocnik 6` — 8. 8. celé dopoledne
+   blokovala GPU dráhu anonymizace fotek (`hlidej_a_anonymizuj.py`, přes hodinu);
+   pouštět ve smyčce, která čeká na OBĚ pojistky (zámek dráhy **i** volnou paměť);
+2. **ilustrace scény 0** oběma dílům (mflux, taky GPU dráha) — zadání je
+   v poli `popis_en` scénosledu, cíl `podklad-00.png` ve složce snímků;
+3. **video** `video_podkastu.py <slug> --zvuk <mp3>` → R2 → `temata.ts` →
+   build → push → **ověřit curlem na produkci**.
+
+**Kotvy, které už jsou doložené** (znovu je počítat netřeba):
+brána pokrytí kvízu — **trojice dílů pokrývá všech 18 otázek beze zbytku**
+(průnik chybějících přes všechny tři díly je prázdný) · animace Brownova
+pohybu: dráha 1091 px proti posunu 156 px (7×), na pěti semínkách 4,2–19,6× ·
+animace teploty: naměřený poměr rychlostí 1,171 proti spočtenému
+√(373/273) = 1,169 · klip má faststart (`moov` 36 < `mdat` 8978) i zvukovou stopu.
+
 **Potom:** `atomy-a-molekuly` (3 krátké díly, scénáře napsané ze 7. 8., chybí
 jim scénosledy).
 
@@ -18,7 +34,17 @@ jim scénosledy).
   porovnávat čas chyby s časem změny skriptu.
 - **`animace_podkastu.py` si jako jediný skript řetězu podkástů nebral zámek
   dráhy** (render Chromem + ffmpeg je těžká CPU práce). Doplněno `drz_cpu`.
-- Brána webu i testy zelené; `git status` čistý.
+- Brána webu (94 komponent, 2479 otázek) i testy simulací (1015 kontrol, 0 spadlo)
+  zelené, `test_bez_kopii` dluh 0, `git status` čistý.
+- **Vrátný: čekání na doběhnutí rozdělané práce se už neodklikává** (přání
+  učitele 8. 8. — vyskočil dotaz na `Monitor`). Ověřeno obousměrně: `Monitor`
+  projde, `rm` se pořád ptá. Zapsáno do `PRAVIDLA.md` i do pamětí.
+- **Plánovaná úloha `wonderly-audit-nedele`** (neděle 8:00) — velký audit
+  jede od teď sám, zadání učitele z 8. 8.
+- **Vlastní chyba dne, na kterou se přišlo hned:** čekací smyčka poznala jen
+  jednu ze dvou hlášek o čekání (obsazená dráha), a na druhé (málo paměti)
+  skončila jako „hotovo". Tentýž vzorec jako „opatření platí jen částečně" —
+  když se čeká z více důvodů, musí je podmínka pokrýt všechny.
 
 ### ✅ HOTOVO 8. 8. (kolo WONDERLY v noci + celkový audit dopoledne)
 - **Polemika „Skupenství látek" NASAZENÁ ve verzi 2** (5:29, ověřeno curlem —

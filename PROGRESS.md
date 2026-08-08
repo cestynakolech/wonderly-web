@@ -127,6 +127,39 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-08 dopoledne (kolo WONDERLY: částicová série F6 — dva díly rozpracované, dvě nové animace)** —
+  Vyrobeny **scénosledy, 19 schémat a dvě animace** k dílům „Z čeho je všechno
+  složené" (Démokritos, Brown) a „Jak se částice chovají" (neuspořádaný pohyb,
+  teplota, tlak, síly). **Obě animace kreslí kód a jejich kotvy se spočítaly
+  PŘED renderem:** u Brownova pohybu se zrnko nehýbe náhodně „aby to vypadalo",
+  ale proto, že se sečtou impulzy skutečných nárazů molekul — vyšla dráha 1091 px
+  proti posunu 156 px, tedy sedmkrát delší, a na pěti semínkách 4,2× až 19,6×.
+  To je právě chování náhodné procházky, o kterém díl mluví. U teploty se poměr
+  rychlostí NEZADÁVAL, ale změřil z toho, kolik částice ujely: **1,171 proti
+  spočtenému √(373/273) = 1,169.** Rozdíl mezi 0 a 100 °C je tedy jen 17 % —
+  scéna to nesmí zveličit, a aby přesto byl vidět, měří ho pruh a číslo v km/h.
+  **Dvě vlastní chyby, obojí odhaleno vlastní kontrolou:** (1) první nastavení
+  zrnka mělo takovou hmotnost, že se za devět vteřin posunulo o 19 px a vůbec
+  nebylo vidět, že se hýbe — kotva to ukázala dřív, než se cokoli vyrenderovalo;
+  (2) čekací smyčka na uvolnění dráhy poznala jen JEDNU ze dvou hlášek o čekání
+  a na té druhé (málo volné paměti) skončila jako „hotovo" — tentýž vzorec jako
+  „opatření tiše platí jen na část případů".
+  **Prohlídka kontaktním listem našla tři vady, které z výpisu skriptu nejsou
+  vidět:** překrývající se popisky u dělení křídy, text „zahříváme" nakreslený
+  přímo v plameni a popisky start/konec ležící na dráze zrnka. Opraveno; navíc
+  mikroskop dostal jediný domov (kreslily ho dvě scény zvlášť).
+  **Brána pokrytí kvízu: trojice dílů pokrývá všech 18 otázek beze zbytku.**
+  ZBÝVÁ jim zvuk, ilustrace scény 0 a video — GPU dráhu držela celé dopoledne
+  anonymizace fotek; postup a doložené kotvy jsou v `SAMOSTATNY-REZIM.md`.
+  **Audit na startu kola:** oba „přetrvávající" nálezy revize automatů jsou
+  ZASTARALÉ, ne živé — chyba padla v 00:33, oprava PATH přišla v 09:58 téhož dne;
+  doloženo reprodukcí s chudým PATH (oba kroky dnes doběhnou). Revize by měla
+  porovnávat čas chyby s časem změny skriptu. `animace_podkastu.py` si jako
+  jediný skript řetězu nebral zámek dráhy — doplněn.
+  **Dvě přání učitele zařízena:** velký audit jede od teď **každou neděli sám**
+  (plánovaná úloha `wonderly-audit-nedele`), a **čekání na doběhnutí rozdělané
+  práce se už neodklikává** — vrátný ho propouští, ověřeno obousměrně.
+
 - **2026-08-08 odpoledne (dodatek: verze 2 dílu + všech 12 nálezů auditu uzavřeno)** —
   Na pokyn učitele dotaženy VŠECHNY nálezy celkového auditu: díl skupenství
   nasazen ve **verzi 2** („roztavíš" místo „rozpustíš", bezpečnostní věta,
