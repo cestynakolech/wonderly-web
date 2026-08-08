@@ -5,10 +5,12 @@
 Díl 3/3 (difuze) je hotový a na webu už od 7. 8.
 
 **Zbývá jim (v tomhle pořadí):**
-1. ~~zvuk dílu 1~~ ✅ HOTOVO (`casticove-slozeni-latek-atomy-dialog-omnivoice.mp3`,
-   20/20 replik na první pokus). **Zvuk dílu 2 ještě ne** —
-   `vyrob_omnivoice.py casticove-slozeni-latek-pohyb-dialog --rocnik 6`;
-   pouštět ve smyčce, která čeká na OBĚ pojistky (zámek dráhy **i** volnou paměť);
+1. ~~zvuk obou dílů~~ ✅ HOTOVO. Díl 1: 20/20 replik na první pokus.
+   Díl 2: 26 v pořádku, **2 hraniční prověřeny ručně a jsou v pořádku** —
+   „Molekuly vzduchu letí…" (59 %, samá čísla — známá vlastnost přepisu)
+   a „Jakými?" (0 %, jednoslovná otázka). Kotva: obě mají normální hlasitost
+   (−22,5 a −26,5 dB), tedy zazněly, není to ticho. **Hlasy nejsou prohozené:
+   EVA 245 Hz, MAREK 151 Hz** — obě v pásmu.
 2. **ilustrace scény 0** oběma dílům (mflux, taky GPU dráha) — zadání je
    v poli `popis_en` scénosledu, cíl `podklad-00.png` ve složce snímků;
 3. **video** `video_podkastu.py <slug> --zvuk <mp3>` → R2 → `temata.ts` →
