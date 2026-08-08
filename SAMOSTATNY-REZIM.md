@@ -6,8 +6,28 @@
 Díl 1 „Z čeho je všechno složené" 1:42 · díl 2 „Jak se částice chovají" 1:52 ·
 díl 3 „difuze" už od 7. 8. Trojice pokrývá **všech 18 kvízových otázek beze zbytku**.
 
-**Na řadě je proto `atomy-a-molekuly`** (3 krátké díly, scénáře napsané ze 7. 8.,
-chybí jim scénosledy).
+### ▶️ ROZDĚLANÉ: `atomy-a-molekuly` (3 krátké díly) — pokračovat TADY
+
+Scénáře i **scénosledy jsou hotové** (8. 8.). Zbývá:
+
+1. **Napsat 24 kreseb** do `KRESBY` v `snimky_podkastu.py` — klíče jsou
+   v polích `kresba` scénosledů, popis scény v poli `co`. Vzor: kresby
+   částicové série (`s_castice_se_nezastavi`, `s_sily_castic`).
+2. **Dvě nové animace** do `ANIMACE` v `animace_podkastu.py`:
+   - `meritko_atomu` (díl 1, scéna 5) — úsečka 1 mm se zvětšuje po dekádách,
+     až jsou vidět jednotlivé atomy. **Kotva: 10⁷ atomů na milimetr**, tedy
+     průměr atomu 0,1 nm; zvětšení a počet viditelných atomů musí souhlasit
+     s výpočtem, ne být nakreslené od oka.
+   - `vznik_molekul` (díl 2, scéna 1) — volné atomy se potkají a spojí.
+     **Kotva: počet atomů před spojením a po něm se ROVNÁ** (molekula vzniká
+     spojením, ne rozbitím — přesně to je v dílu Evin omyl).
+3. Pak beze změny: render → **prohlídka kontaktním listem** → zvuk
+   (`vyrob_omnivoice.py`, smyčka hlídá `počká` i `počkám`) → ilustrace scény 0
+   mfluxem → `video_podkastu.py` → R2 → `temata.ts` → build → push → curl.
+
+**Pozor na dvě věci z dnešního dne:** čekat se musí na KONEC procesu, ne na
+existenci souboru (`until [ -f … ]` ohlásilo hotové video o 48 bajtech), a
+počítat se musí `grep -o`, ne `grep -c` (minifikované HTML je na jednom řádku).
 
 **Kotvy, kterými je série doložená:**
 - **zvuk:** díl 1 měl 20/20 replik na první pokus; díl 2 26 v pořádku a **2 hraniční
