@@ -137,6 +137,14 @@
    "regrese": "Díl, který UŽ svou referenci má (všechny díly do 8. 8. 2026), si ji musí podržet — jeho repliky jsou nadabované tím hlasem a přegenerování jediné z nich by pak vybočilo. Oprava tedy nesmí rozbít to, co fungovalo.",
    "overeno": "2026-08-08",
    "poznamka": "Vada nalezena měřením `vyska_hlasu.py` (autokorelace, zkalibrovaná na dílu s doloženými 245/151 Hz — dala 242/144 Hz). Reference se dřív vyráběla pro každý díl zvlášť: Eva 229–250 Hz, Marek 147–172 Hz. Trojice „atomy a molekuly\" má Marka 172 Hz, tedy o pětinu výš než starší díly — čeká na rozhodnutí učitele, jestli ji přegenerovat."
+  },
+  "vyrob_omnivoice.py — pojistka proti jalovému běhu": {
+   "test": "~/Desktop/Omega/skripty/testy/test_jalovy_beh.py",
+   "podvrh": "Když neprojde ani jedna z prvních pěti replik, běh se vzdá: syntéza běžela 15× místo 60× a zmetky se vůbec neslepily do MP3. Test to měří počtem skutečných volání syntézy, ne hláškou.",
+   "zdravy": "Zdravý běh (20 replik na první pokus) pojistku ani nezavadí — přesně 20 volání, žádné zastavení.",
+   "regrese": "Pár propadlých replik je běžný provoz a běh zastavit NESMÍ: se dvěma propadlými dílo doběhne celé, slepí se všech 20 replik a obě jsou vedené k ruční kontrole. Ověřen i hraniční případ — čtyři propadlé v řadě ještě nestačí.",
+   "overeno": "2026-08-08",
+   "poznamka": "Vzniklo z jalového běhu 8. 8. 2026: 60 replik za 40 minut, všechny tichý šum (shoda 0–18 %, hlasitost −39 dB proti obvyklým −26 dB). Kotva shody je poctivě nahlásila všechny, ale až na konci — skript mezitím dotočil dva další díly. Příčina zůstala NEVYJASNĚNÁ: běh startoval na 13 % baterie, jenže pokračoval i po dobití na 44 % a úsporný režim byl vypnutý; totéž zadání se napodruhé povedlo (Eva 252 Hz, Marek 152 Hz). O to spíš se musí poznat včas."
   }
  }
 }
