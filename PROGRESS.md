@@ -127,6 +127,29 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-08 v noci (kolo WONDERLY: trojice „Délka" + dvě opravy měřidel)** —
+  Fyzika 6 má polemiku u 10 z 21 podtémat; další díra ve veličinách je **Délka**
+  (hmotnost, objem i hustota ji mají). Vznikla **trojice krátkých dílů**: metr
+  a převody (28 replik) · čím měřit, od vlasu po hvězdy (24) · jak měřit správně (22).
+  Scénáře psali **tři workeři naráz**, pak **nezávislý kontrolor**: 11 nálezů,
+  všechny opraveny. Nejvážnější: scénář prohlásil **správnou značku délky `l`
+  za omyl** (kvíz téhož podtématu píše `l = 72 mm`) a věta „mezi popsanými čárkami
+  je deset menších čárek, čili deset mezer" **bořila pointu celého dílu** — mezer je
+  deset, ale menších čárek jen devět, a scénář si to o čtyři repliky dál sám
+  vyvracel. **Brána kvízu 21 z 21.** 19 schémat kreslí kód (stupnice se počítají
+  z počtu mezer, ne od oka); kontaktní list našel oříznutý popisek a překryv textu
+  s kresbou — obojí opraveno a přerenderováno. Zvuk lokálním OmniVoice: díl 3
+  hotov (18 replik z 22 na první pokus).
+  **Dvě opravy měřidel, obě s obousměrným důkazem:** (1) revize automatů hlásila
+  dva **falešné poplachy** `⏳ PŘETRVÁVÁ` u chyb, jejichž skripty se týž den opravily
+  — doplněna druhá kotva (sleduje i importované moduly a porovnává ČAS, ne datum),
+  nález se nezahazuje, jen přeřadí do „čeká na ověření"; ostrý běh **0 nálezů**.
+  (2) brána pokrytí kvízu **neuměla trojici** (díly si otázky rozdělí, takže se
+  u trojic dala jen obejít) a **měřila jen podíl shodných slov** — dvojice dílů
+  díky tomu „pokryla" 14 ze 14 otázek, ačkoli jediná zmínka zněla „příště si povíme,
+  co jsou směsi". Nově musí zaznít i nosné slovo odpovědi; kalibrace na 137 otázkách
+  hotových dílů posílá k modelu 2 navíc (1 %).
+
 - **2026-08-08 dopoledne (kolo WONDERLY: částicová série F6 — dva díly rozpracované, dvě nové animace)** —
   Vyrobeny **scénosledy, 19 schémat a dvě animace** k dílům „Z čeho je všechno
   složené" (Démokritos, Brown) a „Jak se částice chovají" (neuspořádaný pohyb,

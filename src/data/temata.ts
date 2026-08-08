@@ -604,6 +604,29 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Odchylka měření</h3>
 						<p>Naměřená hodnota je „zaokrouhlená" na nejbližší dílek. <strong>Odchylka = polovina nejmenšího dílku stupnice.</strong> Čím menší dílek, tím přesnější měření.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1/3: Proč se všude měří v metrech? 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/polemika-delka-metr.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2/3: Čím změřit vlas a čím vzdálenost ke hvězdě? 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/polemika-delka-meridla.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							// Dílky se počítají podle MEZER, ne podle čárek — mezi popsanými
+							// čárkami je deset mezer, ale jen devět menších čárek. Schéma to
+							// proto počítá z počtu mezer, aby kresba nemohla učit opak zvuku.
+							nazev: 'Polemika 3/3: Počítají se dílky podle čárek, nebo mezer? 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/polemika-delka-mereni.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 				{
 					slug: 'hmotnost',
