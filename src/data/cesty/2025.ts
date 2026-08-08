@@ -23,7 +23,7 @@ export const rok2025: Rok = {
 		{ cislo: 10, druh: 'vikend', od: '19. 9. 2025', do: '21. 9. 2025' },
 		{ cislo: 11, druh: 'vikend', od: '25. 10. 2025', do: '28. 10. 2025' },
 		{ cislo: 12, druh: 'vikend', od: '14. 11. 2025', do: '16. 11. 2025' },
-		{ cislo: 13, druh: 'vikend', od: '21. 12. 2025', do: '29. 12. 2025' },
+		{ cislo: 13, druh: 'vikend', od: '21. 12. 2025', do: '31. 12. 2025' },
 	],
 	mesta: [
 		{
@@ -593,7 +593,8 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			slug: 'dvur-kralove-nad-labem-2',
 			nazev: 'Dvůr Králové nad Labem',
 			zeme: 'Česko',
-			datum: '29. 12. 2025',
+			// silvestr 2025/2026 — fotky z 30. a 31. 12. přibyly 8. 8. 2026
+			datum: '29.–31. 12. 2025',
 			vyjezd: 13,
 			x: 352.9,
 			y: 331.0,

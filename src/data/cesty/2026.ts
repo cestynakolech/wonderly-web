@@ -151,8 +151,11 @@ export const rok2026: Rok = {
 					gps: '48.5316,12.1447',
 				},
 			],
-			x: 324.1,
-			y: 360.7,
+			// oprava 9. 8. 2026: pin byl 45 km jižně od Landshutu. Přepočteno z GPS
+			// jeho vlastního stellplatzu (48.5316,12.1447) toutéž projekcí jako
+			// trasa_uvod.py; chyby si všiml až druhý pin téhož města (únorová cesta).
+			x: 325.2,
+			y: 355.8,
 			videoId: 'u4NmKbMRhiE',
 			popis: {
 				cs: 'Historické město na řece Isar v Dolním Bavorsku. Nad městem se tyčí hrad Trausnitz a kostel sv. Martina s nejvyšší cihlovou věží na světě (130,6 m).',
@@ -203,8 +206,11 @@ export const rok2026: Rok = {
 					gps: '47.9203,8.6498',
 				},
 			],
-			x: 300.2,
-			y: 364.8,
+			// oprava 9. 8. 2026: pin byl ~35 km východně od Geisingenu (k Pfullendorfu).
+			// Přepočteno z GPS jeho stellplatzu (47.9203,8.6498) — popis přitom mluví
+			// o Donauversinkung, takže text a poloha si odporovaly.
+			x: 296.7,
+			y: 363.3,
 			videoId: 'u4NmKbMRhiE',
 			popis: {
 				cs: 'Městečko na horním toku Dunaje v Bádensku-Württembersku, nedaleko místa, kde Dunaj po část roku mizí v podzemí (Donauversinkung).',
@@ -423,18 +429,9 @@ export const rok2026: Rok = {
 			},
 		},
 		{
-			slug: 'gassin',
-			galerie: 'cesty/2026/gassin',
-			nazev: 'Gassin',
-			zeme: 'Francie',
-			datum: '26. 7. 2026',
-			vyjezd: 6,
-			x: 277.4,
-			y: 420.3,
-			videoId: 'Rt_3BQC3_Sw',
-			popis: { cs: '' },
-		},
-		{
+			// pořadí opraveno 9. 8. 2026: Saint-Bonnet (25. 7.) byl zapsaný AŽ ZA
+			// Gassinem (26. 7.). Trasa se kreslí v pořadí pole, takže čára z Gassinu
+			// vyskočila 169 km na sever a hned zpět (+321 km falešné cesty).
 			slug: 'saint-bonnet-en-champsaur',
 			galerie: 'cesty/2026/saint-bonnet-en-champsaur',
 			nazev: 'Saint-Bonnet-en-Champsaur',
@@ -444,6 +441,18 @@ export const rok2026: Rok = {
 			x: 273.5,
 			y: 402.1,
 			videoId: 'X38H3CJ7UoY',
+			popis: { cs: '' },
+		},
+		{
+			slug: 'gassin',
+			galerie: 'cesty/2026/gassin',
+			nazev: 'Gassin',
+			zeme: 'Francie',
+			datum: '26. 7. 2026',
+			vyjezd: 6,
+			x: 277.4,
+			y: 420.3,
+			videoId: 'Rt_3BQC3_Sw',
 			popis: { cs: '' },
 		},
 		{
