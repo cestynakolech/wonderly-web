@@ -27,6 +27,17 @@ export const animace: Animace[] = [
 		podtema: 'casticove-slozeni-latek',
 	},
 	{
+		klic: 'castice_teplota',
+		nazev: 'Zahřátí zrychlí pohyb částic',
+		rocnik: 6,
+		delka: 10.0,
+		cesta: '/media/fyzika/animace/castice_teplota.mp4',
+		ukazuje: 'Dvě stejné nádoby: levá zůstává studená, pravá se zahřívá z 0 na 100 °C a její částice zrychlují. Pruh dole měří průměrnou rychlost.',
+		zeptat: 'O kolik se pohyb zrychlí, když se voda ohřeje z nuly na sto stupňů? Je to dvojnásobek?',
+		kotva: 'Rychlost roste s odmocninou absolutní teploty, tedy jen o 17 %. Naměřený poměr 1,171 proti spočtenému 1,169 — animace to schválně nezveličuje.',
+		podtema: 'casticove-slozeni-latek',
+	},
+	{
 		klic: 'difuze',
 		nazev: 'Difuze v plynu',
 		rocnik: 6,
