@@ -1,22 +1,26 @@
 ## ⏩ KDE POKRAČOVAT (8. 8. 2026, kolo WONDERLY — částicová série F6)
 
-**Rozpracováno:** díly 1/3 (`casticove-slozeni-latek-atomy-dialog`) a 2/3
-(`...-pohyb-dialog`) mají hotové **scénosledy, 19 schémat a dvě nové animace**.
-Díl 3/3 (difuze) je hotový a na webu už od 7. 8.
+**✅ ČÁSTICOVÁ SÉRIE F6 JE KOMPLETNÍ A ŽIVÁ.** Všechny tři díly jsou na
+`lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/`
+(ověřeno curlem: stránka vrací tři videa, obě nová jsou v R2 dostupná).
+Díl 1 „Z čeho je všechno složené" 1:42 · díl 2 „Jak se částice chovají" 1:52 ·
+díl 3 „difuze" už od 7. 8. Trojice pokrývá **všech 18 kvízových otázek beze zbytku**.
 
-**Zbývá jim (v tomhle pořadí):**
-1. ~~zvuk obou dílů~~ ✅ HOTOVO. Díl 1: 20/20 replik na první pokus.
-   Díl 2: 26 v pořádku, **2 hraniční prověřeny ručně a jsou v pořádku** —
-   „Molekuly vzduchu letí…" (59 %, samá čísla — známá vlastnost přepisu)
-   a „Jakými?" (0 %, jednoslovná otázka). Kotva: obě mají normální hlasitost
-   (−22,5 a −26,5 dB), tedy zazněly, není to ticho. **Hlasy nejsou prohozené:
-   EVA 245 Hz, MAREK 151 Hz** — obě v pásmu.
-2. **ilustrace scény 0** oběma dílům (mflux, taky GPU dráha) — zadání je
-   v poli `popis_en` scénosledu, cíl `podklad-00.png` ve složce snímků;
-3. **video** `video_podkastu.py <slug> --zvuk <mp3>` → R2 → `temata.ts` →
-   build → push → **ověřit curlem na produkci**.
+**Na řadě je proto `atomy-a-molekuly`** (3 krátké díly, scénáře napsané ze 7. 8.,
+chybí jim scénosledy).
 
-**Kotvy, které už jsou doložené** (znovu je počítat netřeba):
+**Kotvy, kterými je série doložená:**
+- **zvuk:** díl 1 měl 20/20 replik na první pokus; díl 2 26 v pořádku a **2 hraniční
+  prověřeny ručně** — „Molekuly vzduchu letí…" (59 %, samá čísla, známá vlastnost
+  přepisu) a „Jakými?" (0 %, jednoslovná otázka). Obě mají normální hlasitost
+  (−22,5 a −26,5 dB), tedy opravdu zazněly. **Hlasy nejsou prohozené:
+  EVA 245 Hz, MAREK 151 Hz** — obě v pásmu.
+- **video:** délka se rovná délce zvuku na setinu (102,39 s a 112,12 s),
+  `moov` před `mdat` u obou, obě mají obrazovou i zvukovou stopu.
+- **dvě vlastní chyby v MĚŘENÍ, ne v díle** (obě dnes): `until [ -f soubor ]`
+  ohlásilo hotové video o velikosti 48 bajtů — soubor existuje od první sekundy
+  zápisu, čekat se musí na konec procesu. A `grep -c` napočítal „1 video" tam,
+  kde jsou tři — HTML je na jediném řádku, takže se musí počítat `grep -o`.
 brána pokrytí kvízu — **trojice dílů pokrývá všech 18 otázek beze zbytku**
 (průnik chybějících přes všechny tři díly je prázdný) · animace Brownova
 pohybu: dráha 1091 px proti posunu 156 px (7×), na pěti semínkách 4,2–19,6× ·

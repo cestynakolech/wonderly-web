@@ -149,8 +149,14 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   přímo v plameni a popisky start/konec ležící na dráze zrnka. Opraveno; navíc
   mikroskop dostal jediný domov (kreslily ho dvě scény zvlášť).
   **Brána pokrytí kvízu: trojice dílů pokrývá všech 18 otázek beze zbytku.**
-  ZBÝVÁ jim zvuk, ilustrace scény 0 a video — GPU dráhu držela celé dopoledne
-  anonymizace fotek; postup a doložené kotvy jsou v `SAMOSTATNY-REZIM.md`.
+  **Oba díly jsou hotové a NASAZENÉ** (1:42 a 1:52; ověřeno curlem — stránka
+  vrací tři videa a obě nová jsou v R2). Délka videa se rovná délce zvuku na
+  setinu, hlasy nejsou prohozené (245 a 151 Hz). **Trojice dílů pokrývá
+  všech 18 kvízových otázek beze zbytku.**
+  **Splněno i přání učitele o samostatných animacích:** dvanáct klipů běží
+  nově i pod výkladem podtématu (přehrát/pauza, od začátku, zpomalit, dokola)
+  na osmi stránkách Fyziky 6. Klipy jsou němé (změřeno −91 dB) a přehrávač má
+  `muted`; tichá stopa v souboru ZŮSTÁVÁ, bez ní by přehrávač zamrzl.
   **Audit na startu kola:** oba „přetrvávající" nálezy revize automatů jsou
   ZASTARALÉ, ne živé — chyba padla v 00:33, oprava PATH přišla v 09:58 téhož dne;
   doloženo reprodukcí s chudým PATH (oba kroky dnes doběhnou). Revize by měla
