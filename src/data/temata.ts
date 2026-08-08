@@ -275,6 +275,33 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						// Trojice polemik k tématu. Pořadí je pořadí učiva: nejdřív atom
+						// a prvky, pak spojování do molekul, nakonec sloučenina a směs.
+						// Každý díl je krátký a stojí na JEDNOM vysvětlení.
+						{
+							druh: 'video',
+							nazev: 'Polemika: Z čeho jsou věci kolem nás? 🎬 (s animací velikosti atomu)',
+							// Animovaná scéna nezvětšuje „od oka": počet atomů v záběru
+							// se dopočítává z průměru atomu 0,1 nm, takže na milimetr
+							// jich vyjde deset milionů úplně sám.
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/polemika-atomy-a-molekuly-atom.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika: Jak vzniká molekula? 🎬 (s animací spojování atomů)',
+							// Marek v dílu vyvrací Evinu domněnku, že molekula vznikne
+							// rozpadem atomu. Animace to ukazuje měřením: atomů je po
+							// celou dobu stejně, mění se jen to, kolik jich je spojených.
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/polemika-atomy-a-molekuly-molekuly.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika: Jaký je rozdíl mezi sloučeninou a směsí? 🎬',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/polemika-atomy-a-molekuly-smesi.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle fyzikálních vzorců.',
+						},
 						{
 							druh: 'infografika',
 							nazev: 'Model atomu: jádro a obíhající elektrony',
