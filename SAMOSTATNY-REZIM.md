@@ -1,4 +1,55 @@
-## ⏩ KDE POKRAČOVAT (8. 8. 2026 v noci, kolo WONDERLY — trojice „Délka")
+## ⏩ KDE POKRAČOVAT (9. 8. 2026 v noci — deník: letošní cesty, silvestr, deník chyb)
+
+### ✅ HOTOVÉ A ŽIVÉ (9. 8. 2026, 00:15–01:00)
+
+1. **Letošní cesty před dovolenou na mapě 2026** — učitel přidal do „Dřívějších
+   dovolených" fotky z 5 víkendů (únor–červen 2026), doplněno 10 míst.
+   Rok 2026 je ručně psaný, takže do něj automat zapsat nesmí; blok se vygeneroval
+   TOUŽ funkcí `ts_soubor()`, aby platila stejná pravidla. Produkce: **36 dnů na
+   cestě · 25 míst**, 6 samostatných tras z domova a zpět.
+2. **Silvestr** (nález učitele „nevidím silvestra v mapě") — fotky z 30. a 31. 12.
+   prodloužily pobyt ve Dvoře Králové na 29.–31. 12. 2025 a s ním výjezd 13.
+   Porovnání VŠECH fotek proti datům webu (`scratchpad/co_chybi.py`) jinak nic
+   nenašlo; zbylé dva rozdíly jsou chyby geokódování z dovolené 2025
+   („France métropolitaine", „Küstengewässer") a na mapu jako místa nepatří.
+3. **Tři vady, které našel nezávislý kontrolor** (všechny doloženy přepočtem GPS):
+   Landshut měl pin **45 km** jižně, Geisingen **35 km** východně a Saint-Bonnet
+   (25. 7.) byl v poli za Gassinem (26. 7.) → falešná čára **321 km**.
+4. **DENÍK CHYB** (přání učitele) — `Omega/skripty/denik_chyb.py`, přehled
+   `Omega/dokumenty/DENIK-CHYB.md`. Plní se SÁM: hook syntaxe zapíše každou
+   chybu, kterou chytí, revize automatů své nálezy. Trvající chyba se jen
+   prodlužuje, **nový výskyt až po NÁVRATU** — jinak by jedna neopravená drobnost
+   za týden vykázala sedm „opakování". Důkazy: 25 + 14 kontrol.
+5. **Brána hlídá polohy a pořadí míst deníku** — `testy/cesty-poloha.mjs`:
+   totéž město = tentýž bod napříč roky (20 km), chronologie pole, datum uvnitř
+   svého výjezdu. Důkaz 16 kontrol, dluh rohatky 15 → 14.
+
+### 🔧 DVĚ VLASTNÍ PASTI DNEŠNÍ NOCI (obě chycené včas)
+
+- **Kontrola poloh nejdřív měřila `undefined`.** Četla místa přes `nactiCesty()`,
+  která vrací jen čtyři pole BEZ souřadnic — a tiše hlásila „0 nálezů", což
+  vypadalo jako čistá data. Odhalil to až podvrh. Proto má kontrola **počítadlo
+  porovnaných dvojic** a sama se ozve, když klesne na nulu.
+- **Zkouška si zapsala vymyšlenou chybu do ostré evidence.** Test pouštěl hook
+  jako samostatný proces a ten zapsal do ostrého deníku chyb. Nově zkoušky píšou
+  do `DENIK_CHYB`. (V ostrém deníku po tom zůstal jeden záznam `z_hooku.py` —
+  **čeká na odkliknutí učitele, jestli ho smazat**.)
+
+### ⏭️ DROBNÉ NÁLEZY KONTROLORA — DO FRONTY (nic z toho web nerozbíjí)
+
+1. Schongau a Geisingen mají `videoId` sestřihu, zatímco jejich **vlastní videa**
+   (`k4cqRFIsEQU`, `_M3govihGYc`) nejsou u žádného místa.
+2. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
+3. Popis Lednice: „v rámci **kulturního krajiny**" (má být kulturní krajiny;
+   česky Lednicko-valtický areál) a „obec a vesnice" = doslovný překlad.
+4. Horní Planá v en/de/fr: „Lipenská Water Reservoir" místo Lipno Reservoir;
+   fr verze říká „jihovýchodně OD Šumavy" místo „na jihovýchodní Šumavě".
+5. **5 z 10 nových míst nemá popis** (Rothenburg, Dinkelsbühl, Nördlingen,
+   Landshut-2, Jemnice) — popisy píše člověk přes `zapis_popisy.py`.
+
+---
+
+## ⏩ PŘEDCHOZÍ (8. 8. 2026 v noci, kolo WONDERLY — trojice „Délka")
 
 ### ✅ TROJICE `delka` JE HOTOVÁ A ŽIVÁ (8. 8. 2026, 23:50)
 
