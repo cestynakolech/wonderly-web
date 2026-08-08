@@ -2,6 +2,7 @@
 import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
 import Kviz from '../../../../../../components/skola2/Kviz.astro';
 import QrKod from '../../../../../../components/skola2/QrKod.astro';
+import AnimaceVyklad from '../../../../../../components/skola2/AnimaceVyklad.astro';
 import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
 import SkupenstviSimulace from '../../../../../../components/skola2/SkupenstviSimulace.astro';
 import DifuzeSimulace from '../../../../../../components/skola2/DifuzeSimulace.astro';
@@ -156,6 +157,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			<p class="uvodni-text">Obsah připravujeme.</p>
 		)
 	}
+	<AnimaceVyklad podtema={podtema.slug} rocnik={parseInt(rocnik.slug, 10)} />
 	{
 		podtema.odkazy && podtema.odkazy.length > 0 && (
 			<section class="ramecek odkazy-sekce">

@@ -1,0 +1,193 @@
+---
+// Animace k výkladu — přímo pod textem podtématu (přání učitele 8. 8. 2026:
+// „chci to pod text viditelně jako interaktivní video, jen přesně tu animaci").
+//
+// Je to týž klip, jaký se používá ve videu podkástu, ale SÁM O SOBĚ: bez
+// mluveného slova, aby si k němu učitel vykládal vlastními slovy a mohl si ho
+// kdykoli pustit znovu, zastavit nebo zpomalit.
+//
+// Zvuková stopa v souboru ZŮSTÁVÁ, i když je v ní digitální ticho (−91 dB):
+// bez ní se index souboru posune za data a přehrávač zamrzne hned na začátku
+// (past ověřená 7. 8. 2026). Nezní proto, že je stopa němá A přehrávač má muted.
+import { animace as vsechnyAnimace } from '../../data/animace';
+
+interface Props {
+	podtema: string;
+	rocnik: number;
+}
+// Páruje se podtéma I ROČNÍK. Podle samotného slugu se animace „Newtonovo dělo"
+// psaná pro šestý ročník přilepila i ke gravitační síle v sedmém — obsahově by
+// to snad prošlo, ale nikdo to tak nezamýšlel a popisky jsou psané pro šesťáky.
+// Náhodná shoda názvu je tichá chyba: vypadá úplně stejně jako záměr.
+const { podtema, rocnik } = Astro.props;
+const moje = vsechnyAnimace.filter((a) => a.podtema === podtema && a.rocnik === rocnik);
+---
+
+{
+	moje.length > 0 && (
+		<section class="ramecek animace-vyklad">
+			<h3>🎬 Animace k výkladu</h3>
+			<p class="uvod-animaci">
+				Pusťte si ji na projektoru a vykládejte k ní vlastními slovy. Je bez zvuku,
+				takže vás nepřeruší — a dá se kdykoli zastavit nebo zpomalit.
+			</p>
+
+			{moje.map((a) => (
+				<figure class="animace-kus" data-animace={a.klic}>
+					<figcaption class="nadpis-animace">
+						<b>{a.nazev}</b>
+						<span class="delka">{a.delka.toString().replace('.', ',')} s</span>
+					</figcaption>
+
+					<video
+						class="prehravac-animace"
+						src={a.cesta}
+						muted
+						playsinline
+						preload="metadata"
+						aria-label={`Animace: ${a.nazev}. ${a.ukazuje}`}
+					/>
+
+					<div class="ovladani-animace">
+						<button type="button" class="tl-animace" data-akce="hraj" aria-pressed="false">
+							▶︎ Přehrát
+						</button>
+						<button type="button" class="tl-animace" data-akce="znovu">
+							⟲ Od začátku
+						</button>
+						<button type="button" class="tl-animace" data-akce="tempo" aria-pressed="false">
+							🐢 Zpomalit
+						</button>
+						<button type="button" class="tl-animace" data-akce="dokola" aria-pressed="false">
+							🔁 Dokola
+						</button>
+					</div>
+
+					<div class="popis-animace">
+						<p>
+							<b>Co je vidět:</b> {a.ukazuje}
+						</p>
+						<p>
+							<b>Na co se zeptat:</b> {a.zeptat}
+						</p>
+						<p class="kotva-animace">
+							<b>Proč se na to dá spolehnout:</b> {a.kotva}
+						</p>
+					</div>
+				</figure>
+			))}
+		</section>
+	)
+}
+
+<style>
+	.animace-vyklad h3 {
+		margin: 0 0 0.3rem;
+	}
+	.uvod-animaci {
+		margin: 0 0 1rem;
+		color: #4a5568;
+	}
+	.animace-kus {
+		margin: 0 0 1.6rem;
+	}
+	.animace-kus:last-child {
+		margin-bottom: 0;
+	}
+	.nadpis-animace {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		margin-bottom: 0.4rem;
+		font-size: 1.15rem;
+	}
+	.delka {
+		color: #6b7684;
+		font-size: 0.9rem;
+	}
+	.prehravac-animace {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		border-radius: 12px;
+		border: 3px solid #12263f;
+		background: #f7f9fc;
+	}
+	.ovladani-animace {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0.6rem 0;
+	}
+	.tl-animace {
+		font: inherit;
+		font-size: 1rem;
+		padding: 0.45rem 0.9rem;
+		border: 2px solid #12263f;
+		border-radius: 10px;
+		background: #ffffff;
+		cursor: pointer;
+	}
+	.tl-animace:hover {
+		background: #e7f0f9;
+	}
+	.tl-animace[aria-pressed='true'] {
+		background: #1d6fb8;
+		border-color: #1d6fb8;
+		color: #ffffff;
+	}
+	.popis-animace p {
+		margin: 0.25rem 0;
+	}
+	.kotva-animace {
+		color: #4a5568;
+		font-size: 0.95rem;
+	}
+</style>
+
+<script>
+	document.querySelectorAll<HTMLElement>('.animace-kus').forEach((kus) => {
+		const video = kus.querySelector<HTMLVideoElement>('.prehravac-animace');
+		if (!video) return;
+		const tlacitko = (akce: string) =>
+			kus.querySelector<HTMLButtonElement>(`[data-akce="${akce}"]`);
+
+		const hraj = tlacitko('hraj');
+		// Popisek tlačítka se řídí SKUTEČNÝM stavem přehrávače, ne tím, co jsme
+		// naposledy zmáčkli — video se zastaví i samo na konci.
+		const prekresli = () => {
+			if (!hraj) return;
+			hraj.textContent = video.paused ? '▶︎ Přehrát' : '⏸ Pauza';
+			hraj.setAttribute('aria-pressed', String(!video.paused));
+		};
+		video.addEventListener('play', prekresli);
+		video.addEventListener('pause', prekresli);
+		video.addEventListener('ended', prekresli);
+
+		hraj?.addEventListener('click', () => {
+			if (video.paused) video.play();
+			else video.pause();
+		});
+
+		tlacitko('znovu')?.addEventListener('click', () => {
+			video.currentTime = 0;
+			video.play();
+		});
+
+		const tempo = tlacitko('tempo');
+		tempo?.addEventListener('click', () => {
+			const pomalu = video.playbackRate !== 1;
+			video.playbackRate = pomalu ? 1 : 0.5;
+			tempo.setAttribute('aria-pressed', String(!pomalu));
+			tempo.textContent = pomalu ? '🐢 Zpomalit' : '🐇 Normálně';
+		});
+
+		const dokola = tlacitko('dokola');
+		dokola?.addEventListener('click', () => {
+			video.loop = !video.loop;
+			dokola.setAttribute('aria-pressed', String(video.loop));
+			// Když se pustí opakování až po dojetí, video by jinak zůstalo stát.
+			if (video.loop && video.paused) video.play();
+		});
+	});
+</script>
