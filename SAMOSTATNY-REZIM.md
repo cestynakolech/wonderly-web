@@ -45,12 +45,12 @@ Nová adresa `-v2` schválně — média jdou s roční mezipamětí.
    Barva `SEDA` (#8a97a8) má proti pozadí 2,82 : 1; postihuje 242 textů
    z 1315 na 142 kresbách. Nová série má tmavší `SEDA_TEXT` (5,15 : 1).
    Sjednotit i staré díly by znamenalo přerenderovat všechna nasazená videa.
-3. **Úklid hotový (8. 8. 2026 večer).** Smazáno 6 nepoužívaných videí v R2
-   (3 ze špatné cesty bez `latka-a-teleso/`, 3 z verze 1) a 21 záloh na disku
-   — 45,5 MB. Ověřeno, že živá `-v2` videa dál vracejí 200 a smazaná 404.
-   **Nechal jsem 5 starších záloh z JINÝCH dílů** (`gravitacni-sila-dialog2`,
-   `hmotnost`, `hustota`, `uvod-do-fyziky`, `casticove-slozeni-latek-difuze`,
-   dohromady 24 MB) — nebyly součástí zadání. Smazat taky?
+3. **Úklid hotový a úplný (8. 8. 2026 večer).** Smazáno 6 nepoužívaných videí
+   v R2 (3 ze špatné cesty bez `latka-a-teleso/`, 3 z verze 1), 21 dnešních záloh
+   a na pokyn učitele i 5 starších záloh z jiných dílů — **dohromady 69,9 MB**.
+   Před každým smazáním ověřeno, že existuje živý protějšek; po smazání, že živá
+   `-v2` videa vracejí 200 a smazaná 404. Ve složce zvuku zůstalo 23 nahrávek
+   (99,4 minuty), žádná kratší než 30 s. Zálohy `.predchozi` už nikde nejsou.
 
 ### ▶️ ROZDĚLANÉ: nic — fronta je volná
 
