@@ -1,4 +1,62 @@
-## ⏩ KDE POKRAČOVAT (8. 8. 2026 večer, kolo WONDERLY — trojice „atomy a molekuly")
+## ⏩ KDE POKRAČOVAT (8. 8. 2026 v noci, kolo WONDERLY — trojice „Délka")
+
+### ▶️ ROZDĚLANÉ: trojice `delka` — zvuk se vyrábí, pak zbývá video a nasazení
+
+Fyzika 6 má polemiku u 10 z 21 podtémat (změřeno nad naimportovanými daty).
+Další díra v už rozpracovaném celku „fyzikální veličiny" je **Délka** — hmotnost,
+objem i hustota polemiku mají. Vzniká proto trojice krátkých dílů:
+
+| díl | slug | replik | schémat |
+|---|---|---|---|
+| 1/3 metr a převody | `delka-metr-dialog` | 28 | 6 |
+| 2/3 čím měřit (od vlasu po hvězdy) | `delka-meridla-dialog` | 24 | 5 |
+| 3/3 jak měřit správně | `delka-mereni-dialog` | 22 | 8 |
+
+**Hotovo:** scénáře (3 workeři naráz) · nezávislý kontrolor (11 nálezů, všechny
+opraveny) · **brána kvízu 21 z 21 otázek** · scénosledy se štítkem `"skupina": "delka"` ·
+19 schémat vykresleno a prohlédnuto očima.
+**Zbývá:** dokončit zvuk (běží, díl 3 měl v 23:04 hotových 13 replik z 22) ·
+úvodní ilustrace `podklad-00.png` ke každému dílu (mflux, GPU dráha až po zvuku) ·
+videa · nahrát do R2 + zápis do `temata.ts` + build a push · ověřit curlem.
+
+**Nálezy kontrolora, které stojí za zapamatování** (opraveno ve scénářích):
+- **Značka délky je `l`, ne `d`** — scénář prohlásil správnou odpověď za omyl.
+  Kvíz téhož podtématu píše `l = 72 mm`, učitelův podklad „dé nebo el".
+- **„mezi popsanými čárkami je deset menších čárek, čili deset mezer"** — mezer je
+  deset, ale menších čárek jen devět, a scénář si čtyři repliky nato sám odporoval.
+  Rozbíjelo to pointu celého dílu (dílek se počítá přes MEZERY).
+- **Díl 1 nebyl polemika, ale kvíz** — Marek jen přitakával. Doplněny dvě platné
+  námitky (recepty na hrnky, míle v Anglii), na které musí Eva odpovědět věcně.
+
+### 🔧 OPRAVENO V NÁSTROJÍCH (audit na startu kola)
+
+1. **Revize automatů hlásila dva falešné poplachy jako `⏳ PŘETRVÁVÁ`.** Chyby byly
+   z 8. 8. 00:33 a z 1. 8., ale skripty se opravily 8. 8. v 9:57–9:59. Doplněna
+   **druhá kotva zastaralosti**: byl dotčený skript od pádu změněn? Sleduje i
+   IMPORTOVANÉ moduly (spadl `zaloz_mista_z_fotek.py`, oprava byla v `mista_deniku.py`)
+   a porovnává ČAS, ne jen datum. Nález se **nezahazuje**, jen přeřadí do nové sekce
+   „⏳ Opraveno, čeká na ověření" — důkazem je až úspěšný běh. Ostrý běh: **0 nálezů**,
+   2 čekají na ověření. Reprodukce s chudým PATH potvrdila, že oba kroky doběhnou.
+   Důkaz `testy/test_revize_nalezu.py` 15 → **20 kontrol**.
+2. **Brána pokrytí kvízu neuměla trojici** — díly si otázky rozdělí, takže žádný
+   sám neprošel a u trojic se dala jen obejít (a obcházela se). Nově se posuzují
+   dohromady podle štítku `"skupina"` ve scénosledu (štítek, ne opsaný seznam).
+   Bez štítku se neslučuje nic, aby se `gravitacni-sila-dialog` a `dialog2`
+   (dvě VERZE téhož dílu) nesešly dohromady.
+3. **Brána měřila jen podíl shodných slov** — a odpověď z běžných slov („látka
+   vzniklá smícháním více látek") vyšla jako pokrytá i tam, kde o směsích nepadlo
+   slovo: **dvojice dílů „pokryla" 14 ze 14 otázek**, přičemž jediná zmínka zněla
+   „příště si povíme, co jsou směsi". Nově musí zaznít i nosné (nejdelší) slovo
+   odpovědi, shoda na kmeni kvůli skloňování. Kalibrace na 137 otázkách hotových
+   dílů: k modelu jde nově 2 (1 %), díru u trojice zachytí.
+   Důkaz `testy/test_skupina_kvizu.py` (12 kontrol).
+
+Audit startu kola jinak čistý: žádný zaseknutý proces, brána webu zelená
+(94 komponent, 2479 otázek), testy simulací 1015 kontrol / 0 spadlo, `git status` čistý.
+
+---
+
+## Předchozí kolo (8. 8. 2026 večer — trojice „atomy a molekuly")
 
 **✅ TROJICE `atomy-a-molekuly` JE HOTOVÁ A ŽIVÁ.** Všechny tři díly jsou na
 `lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/`

@@ -145,6 +145,18 @@
    "regrese": "Pár propadlých replik je běžný provoz a běh zastavit NESMÍ: se dvěma propadlými dílo doběhne celé, slepí se všech 20 replik a obě jsou vedené k ruční kontrole. Ověřen i hraniční případ — čtyři propadlé v řadě ještě nestačí.",
    "overeno": "2026-08-08",
    "poznamka": "Vzniklo z jalového běhu 8. 8. 2026: 60 replik za 40 minut, všechny tichý šum (shoda 0–18 %, hlasitost −39 dB proti obvyklým −26 dB). Kotva shody je poctivě nahlásila všechny, ale až na konci — skript mezitím dotočil dva další díly. Příčina zůstala NEVYJASNĚNÁ: běh startoval na 13 % baterie, jenže pokračoval i po dobití na 44 % a úsporný režim byl vypnutý; totéž zadání se napodruhé povedlo (Eva 252 Hz, Marek 152 Hz). O to spíš se musí poznat včas."
+  },
+  "pokryti_kvizu.py — trojice dílů a nosné slovo odpovědi": {
+   "test": "~/Desktop/Omega/skripty/testy/test_skupina_kvizu.py",
+   "podvrh": "Díl trojice posouzený SÁM neprojde (9 ze 14 otázek) a neúplná dvojice propadne na otázkách 'Co je směs?' a 'Co je sloučenina?'. Dokud brána měřila jen podíl slov, dvojice 'pokryla' 14 ze 14 — stačilo, že se v textu vyskytuje 'látka' a 'více'; jediná zmínka o směsi zněla 'příště si povíme, co jsou směsi'. Nosné slovo se hledá i v jiném pádě (smícháním × smícháme), nepříbuzné (směna, smích) se za shodu nepovažuje.",
+   "zdravy": "Nasazená trojice atomy-a-molekuly posouzená dohromady projde 14 ze 14. Kalibrace na 137 otázkách hotových dílů F6: zpřísnění posílá k modelu 2 otázky (1 %), tedy žádná záplava falešných poplachů. Scénář bez štítku 'skupina' zůstává sám, aby se dvě VERZE téhož dílu neslily.",
+   "kontrol": 12
+  },
+  "revize_automatu.py — opravená chyba není živý požár": {
+   "test": "~/Desktop/Omega/skripty/testy/test_revize_nalezu.py",
+   "podvrh": "Pád, jehož skript se od té doby NEZMĚNIL, se pořád hlásí jako chyba; změna skriptu PŘED pádem se za opravu nepovažuje.",
+   "zdravy": "Pád, jehož skript (nebo jím IMPORTOVANÝ modul) byl po chybě změněn, se přeřadí do 'Opraveno, čeká na ověření' — nezahodí se. Porovnává se ČAS: pád 00:33, oprava 09:58 téhož dne se uzná. Ostrý běh 8. 8. 2026: 0 nálezů, 2 čekají na ověření; reprodukce s chudým PATH potvrdila, že oba kroky doběhnou.",
+   "kontrol": 20
   }
  }
 }
