@@ -23,6 +23,9 @@ export const rok2026: Rok = {
 			vyjezd: 1,
 			x: 309.3,
 			y: 345.7,
+			popis: {
+				cs: 'Bavorské městečko nad údolím řeky Tauber, které si zachovalo úplný okruh středověkých hradeb s krytým ochozem a věžemi. Historické jádro s hrázděnými domy patří k nejzachovalejším v Německu a leží na Romantické cestě.',
+			},
 		},
 		{
 			slug: 'dinkelsbuhl',
@@ -32,6 +35,9 @@ export const rok2026: Rok = {
 			vyjezd: 1,
 			x: 310.3,
 			y: 349.3,
+			popis: {
+				cs: 'Další ze středověkých měst na bavorské Romantické cestě, asi 12 000 obyvatel. Druhá světová válka ho minula bez poškození, takže hradby, brány i řady barevných měšťanských domů stojí v původní podobě.',
+			},
 		},
 		{
 			slug: 'nordlingen',
@@ -41,6 +47,9 @@ export const rok2026: Rok = {
 			vyjezd: 1,
 			x: 311.7,
 			y: 352.1,
+			popis: {
+				cs: 'Město postavené uvnitř kráteru Ries, který vznikl dopadem meteoritu asi před 15 miliony let. Půdorys hradeb tvoří téměř dokonalý kruh a dají se obejít celé dokola po krytém ochozu. Kámen suevit v místních stavbách pochází přímo z dopadu.',
+			},
 		},
 		{
 			slug: 'landshut-2',
@@ -60,10 +69,10 @@ export const rok2026: Rok = {
 			x: 340.5,
 			y: 352.4,
 			popis: {
-				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
-				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
-				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
-				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
+				cs: 'Horní Planá je město na jihovýchodní Šumavě u lipenské přehrady, kde žije asi 1 900 obyvatel. S rozlohou přes 127 km² patří k plošně největším obcím Česka. Narodil se tu spisovatel Adalbert Stifter.',
+				en: 'Horní Planá is a town in the south-eastern Šumava mountains by the Lipno reservoir, home to about 1,900 people. With an area of over 127 km² it is one of the largest municipalities in the Czech Republic by area. The writer Adalbert Stifter was born here.',
+				de: 'Horní Planá ist eine Stadt im südöstlichen Böhmerwald am Lipno-Stausee mit etwa 1 900 Einwohnern. Mit einer Fläche von über 127 km² gehört sie zu den flächenmäßig größten Gemeinden Tschechiens. Hier wurde der Schriftsteller Adalbert Stifter geboren.',
+				fr: 'Horní Planá est une ville du sud-est de la Šumava, au bord du lac de barrage de Lipno, où vivent environ 1 900 habitants. Avec plus de 127 km², elle compte parmi les communes les plus étendues de Tchéquie. L\'écrivain Adalbert Stifter y est né.',
 			},
 		},
 		{
@@ -90,10 +99,10 @@ export const rok2026: Rok = {
 			x: 362.5,
 			y: 350.3,
 			popis: {
-				cs: 'Lednice je obec a vesnice v okrese Břeclav v Jihomoravském kraji České republiky s přibližně 2 200 obyvateli. Nachází se v rámci kulturního krajiny Lednice–Valtice, která je zařazena do seznamu světového dědictví UNESCO.',
-				en: 'Lednice is a municipality and village in Břeclav District in the South Moravian Region of the Czech Republic with approximately 2,200 inhabitants. It is located within the Lednice–Valtice Cultural Landscape, which is listed on the UNESCO World Heritage List.',
-				de: 'Lednice ist eine Gemeinde und ein Dorf im Landkreis Břeclav in der Südmährischen Region der Tschechischen Republik mit etwa 2 200 Einwohnern. Sie liegt innerhalb der kulturellen Landschaft Lednice–Valtice, die im UNESCO-Weltkulturerbe aufgenommen ist.',
-				fr: 'Lednice est une commune et un village dans le district de Břeclav, dans la région sud-moravienne de la République tchèque, avec environ 2 200 habitants. Elle se situe dans le paysage culturel Lednice–Valtice, qui est inscrit sur la liste du patrimoine mondial de l\'UNESCO.',
+				cs: 'Lednice je obec v okrese Břeclav v Jihomoravském kraji, kde žije přibližně 2 200 obyvatel. Leží v Lednicko-valtickém areálu, rozlehlé komponované krajině zámků, parků a romantických staveb, která je zapsaná na seznamu světového dědictví UNESCO.',
+				en: 'Lednice is a village in the Břeclav district of the South Moravian Region, home to about 2,200 people. It lies in the Lednice–Valtice Cultural Landscape, a vast designed landscape of chateaux, parks and romantic follies inscribed on the UNESCO World Heritage List.',
+				de: 'Lednice ist eine Gemeinde im Bezirk Břeclav in Südmähren mit etwa 2 200 Einwohnern. Sie liegt in der Kulturlandschaft Lednice–Valtice, einer weitläufigen gestalteten Landschaft aus Schlössern, Parks und romantischen Bauten, die zum UNESCO-Weltkulturerbe gehört.',
+				fr: 'Lednice est une commune du district de Břeclav, en Moravie du Sud, où vivent environ 2 200 habitants. Elle se situe dans le paysage culturel de Lednice–Valtice, vaste paysage composé de châteaux, de parcs et de fabriques romantiques, inscrit au patrimoine mondial de l\'UNESCO.',
 			},
 		},
 		{
@@ -104,6 +113,9 @@ export const rok2026: Rok = {
 			vyjezd: 3,
 			x: 351.8,
 			y: 348.8,
+			popis: {
+				cs: 'Město na jihozápadní Moravě nedaleko rakouských hranic, asi 4 000 obyvatel. Patří k nejstarším hornickým místům v zemi — už ve 13. století se tu dolovalo zlato a město dostalo královská privilegia.',
+			},
 		},
 		{
 			slug: 'horni-plana-2',
@@ -113,12 +125,8 @@ export const rok2026: Rok = {
 			vyjezd: 4,
 			x: 340.5,
 			y: 352.4,
-			popis: {
-				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
-				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
-				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
-				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
-			},
+			// popis si bere od první návštěvy téhož místa (jeden popis na místo)
+
 		},
 		{
 			slug: 'srni',

@@ -59,12 +59,6 @@ export const rok2022: Rok = {
 			vyjezd: 3,
 			x: 335.7,
 			y: 348.6,
-			popis: {
-				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
-				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
-				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
-				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
-			},
 		},
 		{
 			slug: 'valtice',
@@ -119,12 +113,6 @@ export const rok2022: Rok = {
 			vyjezd: 5,
 			x: 335.9,
 			y: 348.9,
-			popis: {
-				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
-				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
-				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
-				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
-			},
 		},
 		{
 			slug: 'tetin',

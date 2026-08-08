@@ -138,12 +138,6 @@ export const rok2023: Rok = {
 			vyjezd: 5,
 			x: 335.7,
 			y: 348.6,
-			popis: {
-				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
-				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
-				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
-				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
-			},
 		},
 		{
 			slug: 'jaromerice-nad-rokytnou',
@@ -198,12 +192,6 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 320.5,
 			y: 312.0,
-			popis: {
-				cs: 'Magdeburg je zemské hlavní město Saska-Anhaltska, ležící na Labi. Je druhým největším městem země s přibližně 240 tisíc obyvatel a sídlem katolického i evangelického luterského biskupství, kde sídlí dvě vysoké školy.',
-				en: 'Magdeburg is the state capital of Saxony-Anhalt, located on the Elbe. It is the second largest city in Saxony-Anhalt with approximately 240,000 inhabitants and the seat of both a Catholic and an Evangelical Lutheran bishopric, where two universities are located.',
-				de: 'Magdeburg ist die Landeshauptstadt von Sachsen-Anhalt, gelegen an der Elbe. Es ist die zweitgrößte Stadt des Landes mit etwa 240.000 Einwohnern und Sitz des katholischen und evangelisch-lutherischen Bistums, wo zwei Hochschulen ansässig sind.',
-				fr: 'Magdebourg est la capitale de l\'État de Saxe-Anhalt, située sur l\'Elbe. C\'est la deuxième plus grande ville de l\'État avec environ 240 000 habitants et siège de l\'évêché catholique et de l\'évêché luthérien évangélique, où sont situées deux universités.',
-			},
 		},
 		{
 			slug: 'cuxhaven-2',
@@ -213,12 +201,6 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 299.2,
 			y: 290.9,
-			popis: {
-				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
-				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
-				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
-				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
-			},
 		},
 		{
 			slug: 'bremerhaven-2',
@@ -228,12 +210,6 @@ export const rok2023: Rok = {
 			vyjezd: 7,
 			x: 298.2,
 			y: 295.3,
-			popis: {
-				cs: 'Severomořský přístav, který spolu s Brémami ležícími asi šedesát kilometrů jižněji tvoří spolkovou zemi Svobodné hanzovní město Brémy. Žije tu kolem 115 tisíc obyvatel.',
-				en: 'The North Sea port, together with Bremen, located about sixty kilometers to the south, forms the federal state of the Free Hanseatic City of Bremen. Around 115,000 people live there.',
-				de: 'Ein Nordseehafen, der zusammen mit dem etwa sechzig Kilometer südlicher gelegenen Bremen das Bundesland Freie Hansestadt Bremen bildet. Hier leben rund 115.000 Einwohner.',
-				fr: 'Port de la mer du Nord, qui, avec Brême située à environ soixante kilomètres au sud, forme la Ville hanséatique libre de Brême. Il y a environ 115 000 habitants.',
-			},
 		},
 		{
 			slug: 'bad-nieuweschans',
@@ -558,12 +534,6 @@ export const rok2023: Rok = {
 			vyjezd: 9,
 			x: 363.1,
 			y: 349.4,
-			popis: {
-				cs: 'Jihomoravské město deset kilometrů severně od Břeclavi, s vinařskými znameními ve znaku i na vlajce. S více než 780 hektary registrovaných vinic je vůbec největší vinařskou obcí v Česku; žije tu kolem 3 900 obyvatel.',
-				en: 'A South Moravian town ten kilometres north of Břeclav, with winemaking emblems in its coat of arms and on its flag. With more than 780 hectares of registered vineyards it is the largest wine-growing municipality in Czechia; around 3,900 people live here.',
-				de: 'Die südmährische Stadt zehn Kilometer nördlich von Břeclav, mit weinbezogenen Symbolen im Wappen und auf der Flagge. Mit mehr als 780 Hektar registrierter Weinberge ist sie der größte Weinort in Tschechien; dort leben etwa 3.900 Einwohner.',
-				fr: 'Ville de la région de Moravie du Sud située à dix kilomètres au nord de Břeclav, avec des symboles vinicoles dans son blason et sur son drapeau. Avec plus de 780 hectares de vignes enregistrées, elle est la plus grande commune viticole de la République tchèque ; elle compte environ 3 900 habitants.',
-			},
 		},
 		{
 			slug: 'slup',
@@ -648,12 +618,6 @@ export const rok2023: Rok = {
 			vyjezd: 12,
 			x: 335.9,
 			y: 349.0,
-			popis: {
-				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
-				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
-				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
-				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
-			},
 		},
 		{
 			slug: 'brno-2',
@@ -663,12 +627,6 @@ export const rok2023: Rok = {
 			vyjezd: 13,
 			x: 360.4,
 			y: 345.8,
-			popis: {
-				cs: 'Druhé největší město Česka a někdejší hlavní město Moravy, kde na 230 km² žije asi 403 tisíc obyvatel. Protékají jím Svratka a Svitava, které se na jihu města slévají. Nad městem se zvedají hrad a pevnost Špilberk a katedrála svatého Petra a Pavla na Petrově; k památkám patří i funkcionalistická vila Tugendhat zapsaná na seznamu UNESCO.',
-				en: 'The second largest city of the Czech Republic and former capital of Moravia, where approximately 403,000 people live on 230 km². The Svratka and Svitava rivers flow through it, which merge in the southern part of the city. Above the city rise the castle and fortress Špilberk and the Cathedral of St. Peter and Paul on Petrov; among the landmarks are the functionalist Tugendhat Villa listed on the UNESCO list.',
-				de: 'Zweite größte Stadt Tschechiens und ehemalige Hauptstadt Mährens, in der auf 230 km² etwa 403.000 Einwohner leben. Die Flüsse Svratka und Svitava fließen durch die Stadt, wo sie im Süden der Stadt zusammenfließen. Über der Stadt erheben sich Burg und Festung Špilberk sowie die Kathedrale St. Petri und Pauli auf dem Petrov; zu den Sehenswürdigkeiten gehört auch die funktionalistische Villa Tugendhat, die in die UNESCO-Liste aufgenommen wurde.',
-				fr: 'La deuxième ville de Tchéquie et ancienne capitale de la Moravie, où vivent environ 403 000 habitants sur 230 km². La Svratka et la Svitava la traversent et se rejoignent au sud de la ville. Au-dessus s\'élèvent le château fort et la forteresse du Špilberk ainsi que la cathédrale Saint-Pierre-et-Saint-Paul sur le Petrov ; parmi les monuments figure aussi la villa fonctionnaliste Tugendhat, inscrite au patrimoine mondial de l\'UNESCO.',
-			},
 		},
 		{
 			slug: 'srni-4',
@@ -678,12 +636,6 @@ export const rok2023: Rok = {
 			vyjezd: 14,
 			x: 335.7,
 			y: 348.6,
-			popis: {
-				cs: 'Srní je obec v okrese Klatovy, Plzeňském kraji, nacházející se v Národním parku Šumava, kde žije 270 obyvatel.',
-				en: 'Srní is a municipality in Klatovy District, Plzeň Region, located in Šumava National Park, with a population of 270.',
-				de: 'Srní ist eine Gemeinde im Bezirk Klatovy, in der Region Plzeň, die im Nationalpark Šumava liegt, wo 270 Einwohner leben.',
-				fr: 'Srní est une commune située dans le district de Klatovy, dans la région de Plzeň, dans le parc national de Šumava, où vivent 270 habitants.',
-			},
 		},
 		{
 			slug: 'zbytiny',

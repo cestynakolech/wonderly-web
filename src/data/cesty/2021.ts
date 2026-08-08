@@ -215,12 +215,6 @@ export const rok2021: Rok = {
 			vyjezd: 4,
 			x: 339.7,
 			y: 352.2,
-			popis: {
-				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
-				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
-				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
-				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
-			},
 		},
 		{
 			slug: 'bechyne',
@@ -655,12 +649,6 @@ export const rok2021: Rok = {
 			vyjezd: 13,
 			x: 340.5,
 			y: 352.4,
-			popis: {
-				cs: 'Horní Planá je město v Jihočeském kraji, ležící na jihovýchodní Šumavě u Lipenské vodní nádrže. S rozlohou přes 127 km² je jednou z plošně největších obcí Česka (6. místo) a žije zde přibližně 1 900 obyvatel.',
-				en: 'Horní Planá is a town in the South Bohemian Region, located on the southeastern Šumava near the Lipenská Water Reservoir. With an area of over 127 km², it is one of the largest municipalities in the Czech Republic (6th place) and approximately 1,900 residents live here.',
-				de: 'Horní Planá ist eine Stadt in der Südböhmischen Region, gelegen auf der südöstlichen Šumava bei der Lipenská Wassertalsperre. Mit einer Fläche von über 127 km² ist sie eine der flächenmäßig größten Gemeinden Tschechiens (6. Platz) und hat etwa 1.900 Einwohner.',
-				fr: 'Horní Planá est une ville de la région de Bohême du Sud, située au sud-est des monts Šumava près du réservoir de Lipenské. Avec une superficie de plus de 127 km², elle est l\'une des plus grandes communes de la République tchèque (6e place) et y résident environ 1 900 habitants.',
-			},
 		},
 	],
 	videa: [

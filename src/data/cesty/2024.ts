@@ -257,12 +257,6 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 330.8,
 			y: 308.4,
-			popis: {
-				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
-				en: 'The capital of the federal state of Brandenburg. It lies on the river Havel about twenty-six kilometres south-west of the centre of Berlin, right on its edge, and has around 187,000 inhabitants.',
-				de: 'Die Hauptstadt des Bundeslandes Brandenburg. Sie liegt an der Havel etwa sechsundzwanzig Kilometer südwestlich des Berliner Zentrums, dicht an dessen Grenze, und hat rund 187.000 Einwohner.',
-				fr: 'La capitale du Land de Brandebourg. Elle se trouve sur la Havel à environ vingt-six kilomètres au sud-ouest du centre de Berlin, tout près de sa limite, et compte quelque 187 000 habitants.',
-			},
 		},
 		{
 			slug: 'ruhstadt',
@@ -288,12 +282,6 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 319.1,
 			y: 290.8,
-			popis: {
-				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
-				en: 'Former Hanseatic city and today an important port on the Baltic coast in Mecklenburg-Western Pomerania, approximately 45 kilometers east of Lübeck. Its historic core has been listed on the UNESCO World Heritage List since 2002, together with Stralsund — it contains a number of brick buildings typical of prosperous Hanseatic cities.',
-				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
-				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
-			},
 			videoId: 'CUPCBnbsGfg',
 		},
 		{
@@ -334,12 +322,6 @@ export const rok2024: Rok = {
 			vyjezd: 7,
 			x: 298.9,
 			y: 291.0,
-			popis: {
-				cs: 'Přístavní město v Dolním Sasku, které stojí přesně tam, kde se Labe vlévá do Severního moře. Žije v něm asi osmačtyřicet tisíc lidí a jeho znakem je Kugelbake — třicet metrů vysoká dřevěná navigační stavba na břehu.',
-				en: 'Port city in Lower Saxony, located exactly where the Elbe River flows into the North Sea. It has a population of approximately forty-eight thousand people, and its symbol is the Kugelbake — a thirty-meter-high wooden navigational structure on the shore.',
-				de: 'Hafenstadt in Niedersachsen, die genau dort steht, wo die Elbe in die Nordsee mündet. Etwa 48.000 Menschen leben dort, und sein Wahrzeichen ist die Kugelbake — eine 30 Meter hohe hölzerne Navigationsbake am Ufer.',
-				fr: 'Ville portuaire de Basse-Saxe, située exactement là où l\'Elbe se jette dans la mer du Nord. Elle compte environ 48 000 habitants et son emblème est le Kugelbake — une structure de navigation en bois haute de 30 mètres sur le rivage.',
-			},
 		},
 		{
 			slug: 'leer-ostfriesland',
@@ -683,12 +665,6 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 319.0,
 			y: 290.8,
-			popis: {
-				cs: 'Bývalé hanzovní město a dnes důležitý přístav na pobřeží Baltu v Meklenbursku-Předním Pomořansku, asi pětačtyřicet kilometrů východně od Lübecku. Jeho historické jádro je od roku 2002 spolu se Stralsundem na seznamu světového dědictví UNESCO — stojí v něm řada cihlových staveb typických pro bohatá hanzovní města.',
-				en: 'Former Hanseatic city and today an important port on the Baltic coast in Mecklenburg-Western Pomerania, approximately 45 kilometers east of Lübeck. Its historic core has been listed on the UNESCO World Heritage List since 2002, together with Stralsund — it contains a number of brick buildings typical of prosperous Hanseatic cities.',
-				de: 'Ehemalige Hansestadt und heute wichtiger Hafen an der Ostseeküste in Mecklenburg-Vorpommern, etwa 45 Kilometer östlich von Lübeck. Das historische Zentrum befindet sich seit 2002 gemeinsam mit Stralsund auf der Liste des UNESCO-Weltkulturerbes – es beherbergt eine Reihe typischer Backsteinbauten reicher Hansestädte.',
-				fr: 'Ancienne ville hanséatique et aujourd\'hui un important port sur la côte balte en Mecklenbourg-Poméranie occidentale, environ quarante-cinq kilomètres à l\'est de Lübeck. Son noyau historique est inscrit depuis 2002 sur la liste du patrimoine mondial de l\'UNESCO, ensemble avec Stralsund — il y a une série de bâtiments en briques typiques des riches villes hanséatiques.',
-			},
 			videoId: 'CUPCBnbsGfg',
 		},
 		{
@@ -699,12 +675,6 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 330.7,
 			y: 308.4,
-			popis: {
-				cs: 'Hlavní město spolkové země Braniborsko, česky Postupim. Leží na řece Havole asi šestadvacet kilometrů jihozápadně od centra Berlína, těsně u jeho hranic, a žije v něm kolem 187 tisíc obyvatel.',
-				en: 'The capital of the federal state of Brandenburg. It lies on the river Havel about twenty-six kilometres south-west of the centre of Berlin, right on its edge, and has around 187,000 inhabitants.',
-				de: 'Die Hauptstadt des Bundeslandes Brandenburg. Sie liegt an der Havel etwa sechsundzwanzig Kilometer südwestlich des Berliner Zentrums, dicht an dessen Grenze, und hat rund 187.000 Einwohner.',
-				fr: 'La capitale du Land de Brandebourg. Elle se trouve sur la Havel à environ vingt-six kilomètres au sud-ouest du centre de Berlin, tout près de sa limite, et compte quelque 187 000 habitants.',
-			},
 		},
 		{
 			slug: 'moritzburg-2',
@@ -714,12 +684,6 @@ export const rok2024: Rok = {
 			vyjezd: 10,
 			x: 336.1,
 			y: 323.1,
-			popis: {
-				cs: 'Saská obec asi dvacet kilometrů severozápadně od Drážďan s 8 300 obyvateli. Stojí v ní zámek Moritzburg.',
-				en: 'Saxon municipality about twenty kilometers northwest of Dresden with 8,300 inhabitants. Moritzburg Castle stands there.',
-				de: 'Die sächsische Gemeinde etwa 20 Kilometer nordwestlich von Dresden mit 8.300 Einwohnern. In ihr steht das Schloss Moritzburg.',
-				fr: 'La commune saxonne située à environ vingt kilomètres au nord-ouest de Dresde, comptant 8 300 habitants. Le château Moritzburg s\'y dresse.',
-			},
 			videoId: 'jCRZ1xFpRSk',
 		},
 	],

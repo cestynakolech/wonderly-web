@@ -123,6 +123,19 @@ for (const uzly of korenTrasy) {
 const sipkaTvar = (s: number) => `${s},0 ${-s * 0.6},${s * 0.7} ${-s * 0.6},${-s * 0.7}`;
 // pod celkovou mapou se vypisují místa jen tehdy, když jich není moc; jinak rozcestník
 const korenUkazujeMista = data.mesta.length <= MAX_POLOZEK;
+// JEDNO MÍSTO = JEDEN POPIS (přání učitele 9. 8. 2026: „někdy jedeme do jednoho
+// místa víckrát za rok — nech je víckrát, ale udělej jeden popis"). Návštěvy
+// zůstávají samostatné (mají svá data, videa i galerie), ale text o místě se
+// nepíše dvakrát: druhá návštěva si ho vezme od té první. Kdyby se popis
+// kopíroval, oprava by dojela jen do jedné kopie — přesně ten vzorec, kvůli
+// kterému se na webu už jednou rozešly dvě podoby téhož pravidla.
+const popisPodleJmena = new Map<string, (typeof data.mesta)[number]['popis']>();
+for (const m of data.mesta) {
+	if (m.popis?.cs && !popisPodleJmena.has(m.nazev)) popisPodleJmena.set(m.nazev, m.popis);
+}
+const popisMista = (m: (typeof data.mesta)[number]) =>
+	m.popis?.cs ? m.popis : popisPodleJmena.get(m.nazev);
+
 const texty = {
 	celaCesta: t.celaCesta,
 	otevrit: t.otevrit,
@@ -278,7 +291,7 @@ const texty = {
 						<p class="meta">
 							{prelozZemi(m.zeme, jazyk)} · {formatujDatum(m.datum, jazyk)}
 						</p>
-						<p>{prelozPopis(m.popis, jazyk)}</p>
+						<p>{prelozPopis(popisMista(m), jazyk)}</p>
 						{video && (
 							<div class="videa-mrizka mesto-video">
 								<a href={video.odkaz} rel="noopener" class="video-karta">
