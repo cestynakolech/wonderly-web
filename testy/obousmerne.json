@@ -157,6 +157,12 @@
    "podvrh": "Pád, jehož skript se od té doby NEZMĚNIL, se pořád hlásí jako chyba; změna skriptu PŘED pádem se za opravu nepovažuje.",
    "zdravy": "Pád, jehož skript (nebo jím IMPORTOVANÝ modul) byl po chybě změněn, se přeřadí do 'Opraveno, čeká na ověření' — nezahodí se. Porovnává se ČAS: pád 00:33, oprava 09:58 téhož dne se uzná. Ostrý běh 8. 8. 2026: 0 nálezů, 2 čekají na ověření; reprodukce s chudým PATH potvrdila, že oba kroky doběhnou.",
    "kontrol": 20
+  },
+  "vyrob_omnivoice.py — opravená věta se do zvuku opravdu dostane": {
+   "test": "~/Desktop/Omega/skripty/testy/test_zmena_textu_repliky.py",
+   "podvrh": "Replika, jejíž text se ve scénáři změnil (i o jediné slovo), se přegeneruje. Dokud se rozhodovalo jen podle existence souboru, skript ohlásil 'hotovo' a slepil do MP3 STARÝ text — velikost souboru zůstala bajt na bajt stejná. Živý případ 8. 8. 2026: Eva měla říct 'Tak jím zkus změřit tloušťku vlasu'.",
+   "zdravy": "Nezměněný text se přeskočí (jinak by se každý díl mluvil pořád dokola) a replika BEZ zapsané stopy se považuje za platnou, aby se nepřemluvilo 74 hotových replik trojice ani starší díly. Stopa se zapisuje jen u nově vyrobené nahrávky: dopsat ji u přeskočené by prohlásilo za shodné to, co nikdo neověřil, a příští oprava věty by se už nikdy nechytila.",
+   "kontrol": 6
   }
  }
 }
