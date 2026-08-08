@@ -5,8 +5,9 @@
 Díl 3/3 (difuze) je hotový a na webu už od 7. 8.
 
 **Zbývá jim (v tomhle pořadí):**
-1. **zvuk** `vyrob_omnivoice.py <slug> --rocnik 6` — 8. 8. celé dopoledne
-   blokovala GPU dráhu anonymizace fotek (`hlidej_a_anonymizuj.py`, přes hodinu);
+1. ~~zvuk dílu 1~~ ✅ HOTOVO (`casticove-slozeni-latek-atomy-dialog-omnivoice.mp3`,
+   20/20 replik na první pokus). **Zvuk dílu 2 ještě ne** —
+   `vyrob_omnivoice.py casticove-slozeni-latek-pohyb-dialog --rocnik 6`;
    pouštět ve smyčce, která čeká na OBĚ pojistky (zámek dráhy **i** volnou paměť);
 2. **ilustrace scény 0** oběma dílům (mflux, taky GPU dráha) — zadání je
    v poli `popis_en` scénosledu, cíl `podklad-00.png` ve složce snímků;
@@ -22,6 +23,30 @@ animace teploty: naměřený poměr rychlostí 1,171 proti spočtenému
 
 **Potom:** `atomy-a-molekuly` (3 krátké díly, scénáře napsané ze 7. 8., chybí
 jim scénosledy).
+
+### 🎬 HOTOVO A ŽIVÉ: animace k výkladu pod textem podtématu (přání učitele 8. 8.)
+
+*„chci to pod text viditelně jako interaktivní video, jen přesně tu animaci"* —
+aby si k ní učitel vykládal vlastními slovy a mohl si ji sám spouštět.
+**12 animací je na 8 stránkách Fyziky 6** (ověřeno curlem na produkci).
+Ovládání: přehrát/pauza · od začátku · zpomalit na polovinu · dokola.
+
+- Komponenta `src/components/skola2/AnimaceVyklad.astro`, zapojená v šabloně
+  hned pod výkladem; data `src/data/animace.ts` **generuje**
+  `Omega/skripty/animace_na_web.py` (`--nahraj` = R2 + zápis dat).
+- **Párování animace ↔ podtéma se čte ZE SCÉNOSLEDŮ, ne z ruční mapy** —
+  ruční mapa by se rozešla při prvním přečíslování scén a nikdo by si toho
+  nevšiml (špatný klip u správného titulku vypadá dobře).
+- Didaktické popisky (co je vidět · na co se zeptat · čím je scéna podložená)
+  píše ČLOVĚK do `Omega/skripty/data/animace-popisy.json`; automat je nepřepisuje.
+  **Nová animace bez popisku se na web nedostane** a skript to vypíše.
+- **Zvuk:** klipy jsou němé (změřeno `volumedetect`: −91 dB) a přehrávač má
+  navíc `muted`. Tichou stopu ze souboru NEODSTRAŇOVAT — bez ní se `moov`
+  posune za data a přehrávač zamrzne hned na začátku (past ze 7. 8.).
+- **Tichá vada nalezená vlastní kontrolou:** podle samotného slugu se animace
+  psaná pro F6 přilepila i ke gravitační síle v F7. Páruje se proto podtéma
+  I ročník. Poučení: měřit se musí `<video class="…">`, ne výskyt jména —
+  hoistované CSS komponenty je v HTML všech 166 stránek, které ji importují.
 
 ### 🔍 Audit na startu kola (8. 8. dopoledne)
 - **Oba „přetrvávající" nálezy revize automatů jsou ZASTARALÉ, ne živé.**
