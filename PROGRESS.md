@@ -127,6 +127,15 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-08 odpoledne (dodatek: verze 2 dílu + všech 12 nálezů auditu uzavřeno)** —
+  Na pokyn učitele dotaženy VŠECHNY nálezy celkového auditu: díl skupenství
+  nasazen ve **verzi 2** („roztavíš" místo „rozpustíš", bezpečnostní věta,
+  stříkačka i v audiu, opravený závěr, popisek scény 08, bílé obrysy částic;
+  produkce vrací nový soubor bajt na bajt). Systémově: PATH pravidlo má jediný
+  domov `skripty/prostredi.py` (bylo 6 kopií; registrováno + hlídáno), atomický
+  zápis anonymizace (temp + os.replace), hlídač fotek v denní revizi, pauza
+  baterie, tautologická zkouška přepsána. Zaveden povel **`WONDERLY AUDIT`**
+  (velký audit + úklid dokumentace, každou neděli — definice ve skillu).
 - **2026-08-08 v noci (kolo WONDERLY: audit + polemika skupenství nasazena)** —
   Audit na startu kola našel a opravil tři věci: (1) řetěz kontroly anonymizace
   padal pod launchd na holém `node` (z terminálu prošel — proto vypadal zdravě);

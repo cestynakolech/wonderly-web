@@ -1,89 +1,31 @@
-## ⏩ KDE POKRAČOVAT (8. 8. 2026 v noci, kolo WONDERLY — audit hotový, jede se na díl skupenství)
+## ⏩ KDE POKRAČOVAT (8. 8. 2026 odpoledne, po kole WONDERLY + celkovém auditu)
 
-**AUDIT NA ZAČÁTKU KOLA (hotovo ~1:30):** brána ✅, repo čisté, test míst deníku ✅.
-Tři skutečné nálezy, všechny OPRAVENY a doloženy obousměrně:
-- **Pád řetězu kontroly anonymizace (8. 8. 00:33)**: `mista_deniku.py` volal holé
-  `node` — pod launchd (bez /opt/homebrew/bin v PATH) padá FileNotFoundError,
-  z terminálu projde, proto to ruční ověření nevidělo. Oprava: PATH se rozšiřuje
-  na úrovni modulu (zdědí ho zaloz_mista_z_fotek i vyber_fotky_na_web). Důkaz:
-  pod chudým PATH načteno 15 míst; podvrh bez opravy padá. K tomu
-  `kontrola_anonymizace.py` nově loguje KONEC tracebacku (4 poslední řádky),
-  ne useknutý začátek.
-- **Úkol 2 fronty (dávkování hlídače fotek) HOTOVO**: `hlidej_a_anonymizuj.py` —
-  fotky po dávkách 20/probuzení, **video max 1/probuzení** s evidencí pokusů
-  psanou PŘED prací (přežije signál 9); po 3 nezdarech se video odloží do
-  KE-SCHVALENI.md a jede se dál (pravidlo „automat se musí vzdát").
-  Důkaz: `testy/test_hlidac_davky.py` (13/13, našel i skutečnou chybu značky −1).
-  POZOR: čekající dávka je **88 videí + 6 fotek** v `_bez_polohy` — proto ta
-  paměť 23 GB; videa se nekrájí na kousky (na rozdíl od starých videí).
-- **Úkol 3 fronty (falešné poplachy revize) HOTOVO**: rejstřík hlásil mrtvou
-  cestu `node testy/obousmerne.mjs` — regex bral celý PŘÍKAZ jako cestu.
-  Oprava v `revize_automatu.py` + 2 nové kontroly v `test_revize_nalezu.py`
-  (14/14). Zbylé 2 nálezy revize jsou PRAVDIVÉ čekání na ostrý běh: kontrola
-  kvality se vyčistí nočním během (příčina opravená), build hlídače starých
-  fotek je doložen mechanicky (465 stránek pod chudým PATH přes skutečné
-  `spust`) a v launchd logu se doloží při příští změně dat.
+**Na řadě: polemika `casticove-slozeni-latek`** — scénáře `atomy-a-molekuly`
+(3 krátké díly) jsou napsané a branou prověřené už ze 7. 8., chybí jim
+scénosledy. Řetěz beze změny: scénosled → schémata → kontaktní list → zvuk
+OmniVoice → video → R2 + temata.ts → build → push → curl. Začít v ČERSTVÉ session.
 
-**Fronta. Úkoly 1–3 HOTOVÉ v kole WONDERLY 8. 8. v noci (viz „HOTOVO" níž).
-Další na řadě: pokračovat polemikami F6 — díl `casticove-slozeni-latek`
-(scénáře `atomy-a-molekuly` jako 3 krátké díly jsou napsané a branou prověřené
-už ze 7. 8., chybí jim scénosledy). Začít v ČERSTVÉ session.**
-
-### ~~1. Dotáhnout díl `skupenstvi-latek-dialog`~~ ✅ HOTOVO A NASAZENO 8. 8. v noci
-Zvuk OmniVoice (38/38 replik na první pokus; kotva hlasů změřena: MAREK 146 Hz,
-EVA 250 Hz — obě v pásmech) · animace přerenderovaná (320 snímků, kotvy: mřížka
-pevné látky drží, sloupec kapaliny 189 px spočtený = naměřený, plyn 97 % nádoby;
-kontaktní list prohlédnut) · ilustrace scény 0 mfluxem (led plave — prohlédnuto) ·
-video 9 MB / 5:16, faststart ✅, AAC ✅, prolínačky záměrné · úplnost: všech
-38 replik v přepisu, 0 pod 60 % shody · R2 + `temata.ts` + build + push +
-**curl na produkci ✅** (stránka i soubor). Adresa:
-`lab.wonderly.cz/skola2/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/`
-
-### ~~2. Foto-hlidač: dávkovat anonymizaci~~ ✅ HOTOVO 8. 8. v noci
-Hlídač byl v noci znovu zabit (0 výsledků) — dávka je totiž **88 videí + 6 fotek**
-v `_bez_polohy`. Nový kód: fotky po 20/probuzení, **video max 1/probuzení**,
-evidence pokusů psaná PŘED prací (přežije signál 9), po 3 nezdarech se video
-odloží do KE-SCHVALENI.md. Test `skripty/testy/test_hlidac_davky.py` 13/13.
-Videa se projedou postupně sama (~1/h); fotky mají přednost.
-
-### ~~3. Revize automatů: falešné poplachy~~ ✅ HOTOVO 8. 8. v noci
-Skutečná příčina pádů řetězu kontroly anonymizace: holé `node` pod launchd
-(oprava PATH v `mista_deniku.py`, obousměrný důkaz). Falešný poplach „mrtvá
-cesta `node testy/obousmerne.mjs`": regex bral příkaz jako cestu — opraveno
-v `revize_automatu.py`, test 14/14. Zbylé 2 nálezy revize jsou pravdivé čekání
-na ostrý běh (vyčistí se samy: noční kontrola kvality / příští změna dat cest).
-
-### 🔍 CELKOVÝ AUDIT 8. 8. dopoledne (3 nezávislí kontroloři, zadal učitel)
-Opraveno HNED (vše s testy 14/14 + 15/15): tautologická zkouška pořadí zápisu
-evidence (nově měřeno UVNITŘ práce) · hlídač fotek nerespektoval pravidlo
-baterie ≤ 30 % (doplněno u fotek i videa) · evidence JSON špatného typu by
-shodila každé probuzení · počítadlo „zbývá" počítalo i odložená videa ·
-falešné negativy revize (živé poslední slovo umlčelo mrtvou cestu před ním).
-
-**Do fronty z auditu (seřazeno):**
-1. **Revize dílu skupenství** (drobné vady scénáře): „Rozpustíš ho na pánvičce"
-   → správně ROZTAVÍŠ (tání × rozpouštění — v dílu o skupenstvích!); doplnit
-   bezpečnostní větu k pokusu s karamelem a svíčkou („jen s dospělým");
-   pokus se stříkačkou zmínit i v řeči (posluchač bez obrazu ho mine).
-   = 2–3 repliky přegenerovat, video složit znovu (~1 hodina GPU).
-2. **PATH /opt/homebrew/bin je opsané na 6 místech** (mista_deniku,
-   anonymizovat_fotky, pipeline_sdilene, nahraj_na_youtube, vyrob_video_automat,
-   zpracuj_rucni_vklad + env kopie v hlidac_starych_fotek) a rodina není
-   v pravidla-registr.json → dát pravidlu jeden domov + registrovat.
-3. **Zápis výstupů anonymizace není atomický** (cv2.imwrite a ffmpeg píší
-   rovnou do cíle) — zabití BĚHEM zápisu nechá v cíli poloviční soubor,
-   který se navždy počítá za hotový. Zavést temp + rename.
-4. **`com.omega.foto-hlidac` chybí v hlídání revize** (MLCENI_H/DATOVE_LOGY)
-   — fronta 80 videí potřebuje ~40 probuzení; když hlídač tiše umře, revize mlčí.
-5. Drobné vizuální: popisek „Kapaliny je pořád stejně." v ~160 s zajíždí do
-   nádoby; částice plynu v animaci se kreslí přes sebe (napočítáš míň než 36).
-6. `najdi_nove_soubory` v hlídači opisuje výběrové podmínky ze `zpracuj_strom`.
-
-**Nález pro učitele (zvyšuje naléhavost rozhodnutí č. 5 z tabulky F6):**
-video na stránce skupenství říká „tvrdost o uspořádání částic nerozhoduje",
-ale výklad NA TÉŽE STRÁNCE dál tvrdí „krystalické látky velice tvrdé" —
-žák teď dostává obě opačná tvrzení najednou. Výklad je učitelův text,
-bez pokynu se nemění.
+### ✅ HOTOVO 8. 8. (kolo WONDERLY v noci + celkový audit dopoledne)
+- **Polemika „Skupenství látek" NASAZENÁ ve verzi 2** (5:29, ověřeno curlem —
+  produkce vrací nový soubor bajt na bajt). V2 = nálezy kontrolora: „roztavíš"
+  místo „rozpustíš", bezpečnostní věta ke karamelu, pokus se stříkačkou řečený
+  i v audiu, závěr bez „limonáda = táž voda", popisek scény 08 nad nádobami,
+  bílé obrysy částic (jdou spočítat i při překryvu). Hlasy 244–254 Hz ✅,
+  38/38 replik v přepisu ✅, faststart ✅ (pozn.: mdat je za 200 kB — číst celý soubor).
+- **Fronta 1–3 hotová**: díl dotažen · hlídač fotek dávkuje (fotky 20/běh,
+  video 1/běh, evidence pokusů přežije signál 9, po 3 nezdarech odklad do
+  KE-SCHVALENI; **ostrý důkaz: evidence odpočítává, žádné další zabití**) ·
+  falešné poplachy revize opraveny.
+- **Celkový audit (3 nezávislí kontroloři)** — všech 12 nálezů uzavřeno:
+  tautologická zkouška přepsána (měří UVNITŘ práce) · pauza baterie ≤ 30 %
+  v hlídači · evidence snese JSON špatného typu · „zbývá" nepočítá odložená ·
+  falešné negativy revize (živé poslední slovo) · **PATH pravidlo má jediný
+  domov `skripty/prostredi.py`** (do té doby 6 kopií; registrováno, hlídá
+  test_bez_kopii, dluh 0) · **atomický zápis anonymizace** (temp + os.replace,
+  poloviční soubor po zabití se už nepočítá za hotový) · `com.omega.foto-hlidac`
+  přidán do denní revize · podmínky výběru souborů mají jeden domov
+  (af.najdi_nove_soubory). Testy: hlídač 14/14, revize 15/15, kopie 0 dluhu.
+- Trvalé zápisy: skill wonderly +4 řádky (import prostredi), PRAVIDLA.md +1 řádek.
 
 ### 4. Rozhodnutí učitele (nikdy kvůli tomu nestát)
 - ~~llama3.1~~ VYŘEŠENO 8. 8.: učitel schválil, stažena zpět (Starlink),
@@ -121,28 +63,7 @@ Zkráceně; plné nálezy v transkriptu session a v `Omega/dokumenty/`.
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
-### 🎯 PRVNÍ ÚKOL PO OTEVŘENÍ SESSION (5. 8. VEČER): složit čtyři videa a nasadit
-
-**Povel učitele: `WONDERLY VIDEA`.** Načti skill **`podkast-video`** a k němu
-**`~/Desktop/Omega/dokumenty/NAVOD-POLEMIKY-F6.md`** (krok za krokem pro nového kolegu).
-
-**HNED PO OTEVŘENÍ UDĚLEJ TOHLE:**
-
-1. Zkontroluj, jestli doběhl automat na stará videa:
-   `python3 ~/Desktop/Omega/skripty/pecliva_videa.py --stav`
-   (5. 8. 17:53 byl ve fázi **kontrola**, kousek 29 z 29). **Dokud běží, nespouštěj
-   ffmpeg ani whisper** — shodil bys mu kolo, které běželo osm hodin.
-2. Až je Mac volný, vyrob ke každému ze čtyř dílů ilustraci scény 0 (jediná
-   neschematická) a slož video:
-   `python3 skripty/video_podkastu.py <slug> --zvuk "/Users/Shared/Škola/podkasty/6/<slug>.mp3"`
-   Slugy: `vzajemne-pusobeni-teles-sila-dialog`, `hmotnost-dialog`, `hustota-dialog`,
-   `objem-dialog`.
-3. **U hustoty dávej pozor** — její mp3 vzniklo ještě před opravou kotvy a nová
-   verze se přeskočila jako hotová. Pokud zarovnání selže, vyrob zvuk znovu
-   (soubor odlož, ať ho skript nepřeskočí) — teď už projde.
-4. Nahraj do R2, zapoj do `temata.ts`, `npm run build`, push, **ověř curlem na
-   produkci** (učitel 5. 8. hlásil, že u hustoty video nenašel — tehdy ještě
-   neexistovalo, nezaměnit s chybou nasazení).
+> ~~Čtyři videa z 5. 8. (síla, hmotnost, hustota, objem)~~ ✅ HOTOVO a nasazeno 7. 8.
 
 ### ▶️ POTOM: učitel 5. 8. SCHVÁLIL přepsat na polemiky VŠECHNA zbývající témata F6
 
@@ -154,7 +75,7 @@ scénosled → schémata → **prohlídka kontaktním listem** → zvuk → vide
 2. ~~`telesa-a-latky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
 3. `casticove-slozeni-latek`
 4. `atomy-a-molekuly`
-5. `skupenstvi-latek`
+5. ~~`skupenstvi-latek`~~ ✅ HOTOVO a nasazeno 8. 8. (v2 po auditu)
 6. `delka`
 7. `cas-a-jeho-mereni`
 8. `teplota-a-jeji-mereni`
@@ -185,9 +106,9 @@ pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
 - Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
   přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
 
-### ▶️ TADY SE POKRAČUJE (stav k 5. 8. 2026, 20:30 — konec session)
+### ▶️ TADY SE POKRAČUJE
 
-**Další na řadě je díl 3 `casticove-slozeni-latek`.** Postup beze změny:
+**Další na řadě je díl 3 `casticove-slozeni-latek`** (souhlasí s hlavičkou nahoře). Postup beze změny:
 kvíz → polemika → brána → scénosled → schémata → **prohlídka kontaktním listem** →
 zvuk → video → R2 + `temata.ts` → build → push → **ověřit curlem na produkci**.
 
