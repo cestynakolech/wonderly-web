@@ -47,6 +47,9 @@ Ovládání: přehrát/pauza · od začátku · zpomalit na polovinu · dokola.
   psaná pro F6 přilepila i ke gravitační síle v F7. Páruje se proto podtéma
   I ročník. Poučení: měřit se musí `<video class="…">`, ne výskyt jména —
   hoistované CSS komponenty je v HTML všech 166 stránek, které ji importují.
+- **Rozhodnutí učitele 8. 8.: animace přibývají JEN tam, kde vznikají podkásty**
+  — tedy jako vedlejší produkt výroby dílů, žádná zvláštní kola navíc.
+  Nedělat proto samostatnou frontu „animace k tématům bez podkástu".
 
 ### 🔍 Audit na startu kola (8. 8. dopoledne)
 - **Oba „přetrvávající" nálezy revize automatů jsou ZASTARALÉ, ne živé.**
