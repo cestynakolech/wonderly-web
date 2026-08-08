@@ -8,7 +8,10 @@ díl 3 „difuze" už od 7. 8. Trojice pokrývá **všech 18 kvízových otázek
 
 ### ▶️ ROZDĚLANÉ: `atomy-a-molekuly` (3 krátké díly) — pokračovat TADY
 
-Scénáře i **scénosledy jsou hotové** (8. 8.). Zbývá:
+Scénáře i **scénosledy jsou hotové** (8. 8.) a **brána pokrytí je čistá** —
+trojice pokrývá celý kvíz beze zbytku (chybějící 4 + 7 + 6 otázek, ale průnik
+přes všechny tři díly je prázdný, takže každou otázku pokrývá aspoň jeden díl).
+Zbývá:
 
 1. **Napsat 24 kreseb** do `KRESBY` v `snimky_podkastu.py` — klíče jsou
    v polích `kresba` scénosledů, popis scény v poli `co`. Vzor: kresby
