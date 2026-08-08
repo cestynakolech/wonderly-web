@@ -50,6 +50,27 @@
    „jihovýchodně OD Šumavy"). Dopsány popisy Rothenburgu, Dinkelsbühlu,
    Nördlingenu (kráter Ries) a Jemnice.
 
+### 🔴 PRVNÍ PRÁCE PO CLEARU (zadal učitel 9. 8. 2026: „dopiš ty popisy i do roku 2025")
+
+**Popisy jsou HOTOVÉ a napsané, zbývá je jen vložit.** Leží v
+`Omega/skripty/data/popisy-2025-k-vlozeni.json` — 34 míst roku 2025 bez popisu
+(loňská Normandie a Francie: Arromanches, Colleville, Utah Beach, Ouistreham,
+Dunkerque, Nevers, Salins-les-Bains…, plus Rothenburg, Dinkelsbühl, Nördlingen,
+Svitavy, Kelheim, Zalakaros, Horská Kvilda…). Tvar `{"název místa": "popis"}`.
+
+Postup:
+1. `zapis_popisy.py` je NEPŘIJME — `vsechna_mista()` ručně psané roky (2025, 2026)
+   schválně přeskakuje, takže tahle místa nezná. Zapsat proto přímo do
+   `src/data/cesty/2025.ts` (je ručně psaný, automat ho nepřepíše).
+2. Párovat podle **názvu**, ne slugu, a vložit **jen k PRVNÍMU výskytu jména**
+   v roce — druhá návštěva si popis vezme od něj (`CestyRok.astro` → `popisMista`).
+3. Rohatka: počet míst (53), `videoId` a stellplatzů se NESMÍ změnit; popisů má
+   přibýt 34 (z 13 na 47 bloků `popis: {`).
+4. Pak `npm run build` (brána musí projít), `git push`, ověřit `curl`.
+5. **Fakta prověřit** — popisy jsem psal z vlastní znalosti, ne z `fakta-mist.json`.
+   Před nasazením je nechat projít nezávislým kontrolorem se zadáním „ověř, že
+   tvrzení o každém místě sedí" (u Normandie hlavně data a jména pláží).
+
 ### ⏭️ ZBÝVÁ Z NÁLEZŮ KONTROLORA (nic z toho web nerozbíjí)
 
 1. Schongau a Geisingen mají `videoId` sestřihu, zatímco jejich **vlastní videa**
