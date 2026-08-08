@@ -53,6 +53,38 @@ cesta `node testy/obousmerne.mjs`": regex bral příkaz jako cestu — opraveno
 v `revize_automatu.py`, test 14/14. Zbylé 2 nálezy revize jsou pravdivé čekání
 na ostrý běh (vyčistí se samy: noční kontrola kvality / příští změna dat cest).
 
+### 🔍 CELKOVÝ AUDIT 8. 8. dopoledne (3 nezávislí kontroloři, zadal učitel)
+Opraveno HNED (vše s testy 14/14 + 15/15): tautologická zkouška pořadí zápisu
+evidence (nově měřeno UVNITŘ práce) · hlídač fotek nerespektoval pravidlo
+baterie ≤ 30 % (doplněno u fotek i videa) · evidence JSON špatného typu by
+shodila každé probuzení · počítadlo „zbývá" počítalo i odložená videa ·
+falešné negativy revize (živé poslední slovo umlčelo mrtvou cestu před ním).
+
+**Do fronty z auditu (seřazeno):**
+1. **Revize dílu skupenství** (drobné vady scénáře): „Rozpustíš ho na pánvičce"
+   → správně ROZTAVÍŠ (tání × rozpouštění — v dílu o skupenstvích!); doplnit
+   bezpečnostní větu k pokusu s karamelem a svíčkou („jen s dospělým");
+   pokus se stříkačkou zmínit i v řeči (posluchač bez obrazu ho mine).
+   = 2–3 repliky přegenerovat, video složit znovu (~1 hodina GPU).
+2. **PATH /opt/homebrew/bin je opsané na 6 místech** (mista_deniku,
+   anonymizovat_fotky, pipeline_sdilene, nahraj_na_youtube, vyrob_video_automat,
+   zpracuj_rucni_vklad + env kopie v hlidac_starych_fotek) a rodina není
+   v pravidla-registr.json → dát pravidlu jeden domov + registrovat.
+3. **Zápis výstupů anonymizace není atomický** (cv2.imwrite a ffmpeg píší
+   rovnou do cíle) — zabití BĚHEM zápisu nechá v cíli poloviční soubor,
+   který se navždy počítá za hotový. Zavést temp + rename.
+4. **`com.omega.foto-hlidac` chybí v hlídání revize** (MLCENI_H/DATOVE_LOGY)
+   — fronta 80 videí potřebuje ~40 probuzení; když hlídač tiše umře, revize mlčí.
+5. Drobné vizuální: popisek „Kapaliny je pořád stejně." v ~160 s zajíždí do
+   nádoby; částice plynu v animaci se kreslí přes sebe (napočítáš míň než 36).
+6. `najdi_nove_soubory` v hlídači opisuje výběrové podmínky ze `zpracuj_strom`.
+
+**Nález pro učitele (zvyšuje naléhavost rozhodnutí č. 5 z tabulky F6):**
+video na stránce skupenství říká „tvrdost o uspořádání částic nerozhoduje",
+ale výklad NA TÉŽE STRÁNCE dál tvrdí „krystalické látky velice tvrdé" —
+žák teď dostává obě opačná tvrzení najednou. Výklad je učitelův text,
+bez pokynu se nemění.
+
 ### 4. Rozhodnutí učitele (nikdy kvůli tomu nestát)
 - ~~llama3.1~~ VYŘEŠENO 8. 8.: učitel schválil, stažena zpět (Starlink),
   role offline kontrolora vrácena, model ověřen otázkou (odpověděl správně).
