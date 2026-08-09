@@ -1,5 +1,148 @@
 # PROGRESS — archiv starších záznamů
 
+- **2026-08-04 (appka /tour přepnuta z mužské na ŽENSKOU Tour + poznávačka + oprava živé tabulky)** —
+  Zadání učitele: *„nyní jsme na dámské tour a jede tam minimálně jedna Češka, pokud to jde
+  předělej ji"*, pak *„pokus se tam dostat startovní číslo a dej nám sem obrázky dresu
+  a přilby, ať ji poznáme"* a *„nefungují živá data do tabulky"*.
+  **Kdo se sleduje:** Nikola Nosková (Cofidis Women, **číslo 147**) — jediná Češka na startu
+  Tour de France Femmes 2026 (1.–9. 8., Lausanne → Nice, 9 etap). Ověřeno DVĚMA nezávislými
+  cestami: startovní listinou a projetím celé výsledkové tabulky (139 jmen) na českou
+  diakritiku — druhé nalezené jméno je Slovinka Žigart, další Češka tam není.
+  **Hotovo a nasazené** (`https://lab.wonderly.cz/tour/`): zdroj dat přepnut na
+  `letourfemmes.fr` + `racecenter.letourfemmes.fr`; startovní číslo v hlavičce karty;
+  sekce „Jak ji poznáte v televizi" — vlastní SVG kresby dresu (žluté rukávy, tmavě
+  červená ramena, červeno-bílý trup, svislé COFIDIS) a bílé přilby Uvex + tabulka
+  startovního čísla; QR kód na ploše (`QR-noskova-tour-femmes.png`); koncept e-mailu
+  s odkazem připraven v Gmailu (odeslání je na učiteli).
+  **Čtyři skutečné chyby nalezené a opravené** (podrobně i s pastmi v skillu `/wonderly`,
+  sekce „Mini-aplikace /tour"): (1) ženská tabulka má **o sloupec navíc** → parser hledá
+  čas podle tvaru, ne podle indexu; (2) **pomlčka ve sloupci Gap ≠ „vede"**, ale dojezd
+  v čase vítězky — chybu měla i mužská verze (Vacek 154. „vede"); (3) endpointy mimo
+  etapu vracejí **prázdné tělo (204)**, na kterém `.json()` padal a shazoval s sebou
+  i výpis skupin; (4) **živá tabulka se nikdy nezobrazila**, protože ženský racecenter
+  nevysílá telemetrii jednotlivých závodnic — běh závodu se teď pozná podle stáří
+  posledního záznamu skupin (< 15 min) a živá pozice se odvodí ze skupiny, kde má
+  Nosková číslo. Navíc: francouzské názvy skupin přeloženy do češtiny, komentář zbaven
+  HTML značek a doplněn fallback `cs → en → fr` (česká verze u žen neexistuje).
+  **Ověřeno kotvami, ne dojmem:** worker spouštěn přímo v Node proti živým datům;
+  oprava živé tabulky doložena OBOUSMĚRNĚ (čerstvá data → jede se + pozice ve skupině;
+  stará data → skryto); SVG kresby vyrenderovány přes `qlmanage` do PNG a prohlédnuty
+  (první verze měla odsazené rukávy a moc tlusté dno přilby → opraveno).
+  **ZBÝVÁ / na příště:** živá tabulka se v ostrém provozu ukáže až za jízdy etapy —
+  ověřit ji **5.–9. 8. odpoledne** (etapa 5+); po skončení závodu 9. 8. se stránka
+  přepne zpět na mužskou Tour podle návodu ve skillu.
+
+- **2026-08-02 večer II (audit automatů: opsaná pravidla; mapa dostala videa; zkratka WONDERLY)** —
+  Učitel zadal: *„překontroluj všechny automaty, zda nedělají totéž — že se něco opraví
+  a najednou druhý automat jede z jiných příkazů."* Podnětem bylo, že se mu **videa,
+  která zkontroloval a přesunul do `nasazeno/`, po hodině vracela k revizi**.
+  **Příčina byla přesně ta, na kterou se ptal:** oprava z 31. 7. („hledej video i
+  v nasazeno/") žila ve funkci `uz_hotovo()`, jenže hlavní smyčka ji **nevolala** —
+  měla vlastní kopii podmínky. V jednom běhu logu to stálo vedle sebe: *„uklid po
+  nasazeni Gassin"* a o řádek níž *„NOVÉ MĚSTO: Gassin"*. Le Bourg vzniklo **5×**,
+  Saint-Bonnet 3×, přes 600 MB navíc.
+  **Audit 56 skriptů našel tři opsaná pravidla:** projekce mapy ve třech skriptech
+  (jeden si koeficienty tahal **regexem ze zdrojáku** druhého), denní strop YouTube
+  napsaný v druhém automatu **znovu číslem** (`DENNI_LIMIT = 2`), a rozhodnutí
+  o hotovém městě. Projekce navíc **nebyly shodné** — jedna zaokrouhlovala, druhá ne,
+  a rozdíl pod 0,05 px první měření zamaskovalo. Sjednoceno tak, že se **žádnému
+  volajícímu nezměnilo chování** (doloženo na čtyřech bodech před i po).
+  **Zavedeno:** `projekce_mapy.py` (jediný domov), registr `data/pravidla-registr.json`
+  + hlídač `test_bez_kopii.py` s rohatkou (dluh **0**), zapojený do denní revize.
+  **Dvakrát mě přitom vlastní hlídač propustil** a přišlo se na to až podvrhem:
+  hlídat jméno funkce nestačí (pravidlo se dá opsat jako holé ČÍSLO) a import smí
+  omluvit jen obálku funkce, nikdy zakázaný zápis. Nakonec 5 podvrhů chyceno, zdravý
+  stav mlčí. Vedlejší nález: **`revize_grafu.py` se vůbec nepřekládal** (česká uvozovka
+  ukončila řetězec + `*gen or [...]`) a nikdo o tom nevěděl, protože ho nic nespouštělo
+  — revize nově překládá všech 56 skriptů.
+  **Mapa deníku: odkazy na videa 15 → 37 míst.** Pečlivá anonymizace jede po jednom
+  a čeká na odklik, takže na 73 videí by mapa čekala měsíc; párovač proto bere i
+  **původní videa**, která na kanálu leží už teď. Přepracovaná verze má vždy přednost
+  a po výměně se odkaz přepíše sám. Soukromá videa se přeskočí (mrtvý odkaz).
+  **Nová simulace „Funkce v tabulkách"** (Inf8) — POČET nebere text ani prázdno,
+  PRŮMĚR dělí počtem ČÍSEL, prázdná buňka se v porovnání bere jako nula. Test 93 kontrol.
+  **Nezávislý kontrolor našel 11 vad a jedna byla vážná a věcná:** mez `KDYŽ` byla na 3,
+  takže žák s **čtyřkou** dostal „neprospěl" — ve škole je 4 dostatečná, tedy prospěl.
+  Bylo to jediné tvrzení na stránce, které si žák umí okamžitě ověřit. Opraveno i to,
+  že výklad učil `=RANK` bez třetího údaje, zatímco simulace hned pod ním tentýž tvar
+  označovala za past.
+  **Zkratka `WONDERLY`** (přání učitele): jedno slovo = celá věta „načti stav, vezmi
+  první úkol z fronty, pracuj samostatně"; noční běh `/loop WONDERLY`. Návod
+  `~/.claude/skills/wonderly/START.md`. Při tom se ukázalo, že **fronta úkolů byla
+  na dvou místech a rozešla se** — skill vedl „média k Fyzice 6", stavový soubor
+  „názornost informatiky". Nově platí dělba: skill říká JAK se pracuje,
+  `SAMOSTATNY-REZIM.md` CO je na řadě, zadání `/loop` jen to jedno slovo.
+  **Poučení dne:** tentýž vzorec „opsané pravidlo" se objevil ve třech vrstvách naráz —
+  v kódu automatů, v textu zadání a v mých vlastních měřidlech. Kdo pravidlo potřebuje,
+  ať si ho IMPORTUJE; kdo ho opíše, ať to hlídač shodí.
+
+- **2026-08-02, 20:00 (informatika 7 — hra bludiště; a proč se na okraji nesmí ořezávat)** —
+  Nová simulace `BludisteSimulace` u podtématu `hra-bludiste`. Výklad jmenuje **tři chyby,
+  „které dělá skoro každý"** — nově jdou všechny tři na přepínačích **způsobit a vidět**:
+  krok 30 px přeskočí tenkou zeď 10 px a **postava projede zdí**; obě rady výkladu (zmenšit
+  krok NEBO zeď zesílit) opravdu zaberou; návrat schovaný v ⟨opakuj stále⟩ neví, kudy
+  postava šla, vrací ji vždycky dolů a **postava uvízne ve zdi**. Test **125 kontrol**,
+  testy simulací celkem **659**, názornost informatiky **33 → 32**. Kvíz dostal **3 otázky
+  na jádro výkladu** (detekce kolize, kam patří návrat, nabírání barvy kapátkem — dosud se
+  na to neptal vůbec) a délková nápověda klesla ze 4/9 na 3/12.
+  **Nezávislý kontrolor našel 17 vad, 6 vážných**, a ta nejdražší byla neviditelná:
+  **ořez na okraji scény posunul postavu mimo mřížku velkého kroku.** Osy zdí leží schválně
+  přesně uprostřed mezi zastávkami kroku 30 (…160, 190…), jinak by postava na zeď šlápla —
+  jenže po **jediném stisku ←** se fáze posunula na 48 + 30k, všechny tři zdi padly do
+  dosahu a **zdí už nešlo projet vůbec**. Hra přitom dál vypadala, že funguje, jen postava
+  „nemohla dál" — žák by se naučil pravý opak výkladu. Okraj scény se proto nově chová jako
+  zeď: krok, který by vedl ven, se **neprovede** a fáze zůstane celá; ze stejného důvodu
+  vrací každá změna programu postavu na start (jiná délka kroku = jiná mřížka).
+  Další vážné: hláška brala čísla i směr z **aktuálních voleb** místo z toho, co se opravdu
+  stalo, takže po přepnutí tvrdila „krok 5 px je delší než zeď 40 px" a popisovala pohyb,
+  ke kterému nedošlo · týž znak **🏁 znamenal na jedné obrazovce dvě věci** (klobouk
+  programu i cíl; paleta má `EVENT_WHENFLAGCLICKED` se **zelenou** vlajkou) · postava
+  uvízlá ve zdi se kreslila **červeně přes černou zeď** (kontrast 2,83 : 1, norma je 3 : 1)
+  — nově světlá výplň, bílý obrys a ✗, aby to poznal i barvoslepý žák.
+  **Šestý vážný nález byl zase v TESTU:** deset podvrhů jím prošlo. Nejzrádnější — názvy
+  bloků se kontrolovaly ve *spojeném* textu obou variant programu, takže podvrh „dotýkáš se
+  barvy (**modrá**)" v jedné variantě prošel, protože „černá" byla v té druhé. Nově se měří
+  každá varianta zvlášť; přibyly kontroly čísel v hláškách proti nastaveným volbám,
+  `preventDefault`, `aria-pressed` u všech šesti přepínačů, `aria-label` u všech čtyř šipek
+  a poloha cíle proti popisu pro odečítač.
+  **Obousměrně doloženo 17 podvrhy** (každý na KOPII ve scratchpadu — pravidlo z minula
+  dodrženo, commit šel před ověřováním a do repa se nesahalo): každý podvrh se najde,
+  2 až 25 spadlých kontrol, zdravý stav mlčí. Poctivá poznámka k mezi metody: s krokem
+  30 px a silnými zdmi se do chodeb netrefíš vůbec (zastávky leží 15 px od osy zdi) —
+  není to vada, ale bez vysvětlení by to vypadalo jako zaseknutá simulace, takže to hláška
+  po nárazu říká nahlas.
+  *Deník:* dokončena práce, kterou nechal automat rozdělanou — rok 2021 dostal odkazy
+  na videa (Skanzen Přerov nad Labem, Nová Pec 2, Koloděje) a KRATOCHVÍLE byla vyměněna za
+  přeanonymizovanou verzi; všechna čtyři videa ověřena přes `/embed/` i názvem z oEmbedu.
+  **Kapitoly k Le Bourg-d'Oisans doběhly, ale nasadit je nejde bez rozhodnutí učitele:**
+  log nahrávače doložil, že na YouTube je soubor `_v2.mp4` (4:58), zatímco kapitoly se
+  počítaly z verze 6:06 — kapitola „3:14" by padla o minutu jinam. Tři varianty s cenou
+  jsou v `KE-SCHVALENI.md`. **Poučení: „která verze je na kanálu" se nepozná podle názvu
+  souboru ani podle jeho času — musí to doložit log nahrávače.**
+
+- **2026-08-02 večer (informatika 7 — vlastní bloky s parametry)** — Nová simulace
+  `VlastniBlokySimulace`. Program kreslí tři čtverce, ale otáčí se o **80° místo 90°**,
+  takže se čáry neuzavřou — chyba je vidět na první pohled, ne jen napsaná. Pointa výkladu
+  *„opravuješ na jednom místě"* je tím měřitelná: **tři kopie kódu si vyžádají tři opravy**
+  (a mezi nimi zůstávají dva útvary křivé), **vlastní blok jedinou**. Srovnání 3 × 1 zůstává
+  na obrazovce i po přepnutí režimu. Parametr: tentýž blok kreslí 50, 80 i 120.
+  Test **61 kontrol**, testy simulací celkem **534**, názornost informatiky **34 → 33**.
+  **Nezávislý kontrolor našel 2 vážné a 6 drobných vad.** (1) Řádky programu měly
+  `display: inline-block`, takže se skládaly **vedle sebe** a „tři kopie pod sebou" se
+  rozpadly do vodorovné změti. (2) **Test vůbec nečetl scénu** — podvrh „kresli vždy správný
+  úhel" prošel všemi 45 kontrolami, ačkoli hláška tvrdila opak toho, co bylo vidět; test teď
+  čte skutečné `points` a `stroke`, a tři podvrhy kontrolora shodí 6, 9 a 1 kontrolu.
+  Drobné: česká shoda („zbývající 1 zůstala křivá"), závěrečná věta tvrdila „na jednu se
+  zapomene" ve chvíli, kdy už byly všechny tři útvary zelené, kontrola názvů bloků běžela jen
+  v jednom ze dvou režimů a vzor měřidla neuměl interpolaci `jdi (${v}) kroků`.
+  **Vlastní chyba, a už podruhé tatáž:** opravy podle kontrolora jsem zahodil příkazem
+  `git checkout` nad necommitnutou prací. Poprvé se to stalo u měřidla šablon a je to
+  zapsané v paměti — a přesto se to opakovalo. Pravidlo pro příště: **po každé dávce oprav
+  rovnou commit, teprve pak jakékoli ověřování s podvrhem.**
+
+
+> Starší záznamy (do 2026-08-02) jsou v `PROGRESS-ARCHIV.md` — pro navázání práce se nečtou.
+
 ## Přesun 8. 8. 2026
 
 - **2026-08-02 odpoledne (celková oprava kontroly šablon — přestat hádat, začít měřit)** —
