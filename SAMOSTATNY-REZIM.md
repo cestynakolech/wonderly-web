@@ -1,10 +1,13 @@
 ## ⏩ KDE POKRAČOVAT (9. 8. 2026 odpoledne)
 
-### 🔴 ČEKÁ NA ROZHODNUTÍ UČITELE (nic se nemazalo)
+### ✅ ÚKLID PROVEDEN (učitel schválil „smazat obojí")
 
-**Na kanálu jsou dvě duplicitní videa** — `0A1E9gsD7gQ` (Le Bourg-d'Oisans) a
-`UJdbbDYmahY` (Saint-Bonnet). Web je nepoužívá, jsou neveřejná. Smazat z kanálu?
-A smazat i oba soubory `… (kopie).mp4` v `nasazeno/`? **Bez odpovědi se nemaže nic.**
+Duplicity `0A1E9gsD7gQ` a `UJdbbDYmahY` smazány z kanálu i oba soubory
+`… (kopie).mp4` z `nasazeno/`. **Kotva:** dotaz na YouTube obě ID nevrací,
+platná videa `-FR8z-38PR8` („23. 07. · Le Bourg-dOisans") a `X38H3CJ7UoY`
+(„25. 07. · Saint-Bonnet-en-Champsaur") žijí; originální soubory i
+`…kapitoly.txt` zůstaly. Evidence 17 → 15 záznamů, záloha před zásahem leží
+v `data/youtube-nahravac-stav.pred-uklidem-9-8-2026.json`. Fotek se to netýká.
 
 ### ✅ HOTOVO ODPOLEDNE: příčina duplicit nalezena a zalepena
 
@@ -33,9 +36,18 @@ velikost — jsou to druhé rendery téhož města, ne poškozené duplikáty.
 
 **Kotva:** proti evidenci podvržené do stavu před 3. 8. by nová pojistka **obě
 duplicity zastavila** (staré pravidlo je pouštělo). Testy: nový
-`testy/test_nahravac_bez_duplicit.py` 26/26, `test_video_nasazeno.py` 14/14,
-`test_bez_kopii.py` 0 kopií pravidla. Kalibrace na 1969 skutečných videích:
-změna se dotkne jen obou souborů „(kopie)" — žádné skutečné místo nepoškodí.
+`testy/test_nahravac_bez_duplicit.py` 33/33, `test_video_nasazeno.py` 14/14,
+`test_bez_kopii.py` 0 kopií pravidla (registr má nově `otisk-mista-pro-youtube`),
+`test_povoleni_hook.py` 36 případů. Kalibrace na 1969 skutečných videích a
+162 názvech míst: žádná dvě různá místa se neslijí.
+
+**Kontrolor běžel DVAKRÁT a podruhé měřil chováním** — pustil skutečný `main()`
+nad podvrženou složkou s atrapou nahrávání: dva soubory téhož místa → 1 nahrání,
+devět variant názvu → 1 nahrání, tři různá místa (včetně Frangy_FR + Frangy_CH)
+→ 3 nahrání. Jeho tři drobné nálezy z druhého kola jsou taky opravené:
+uříznutý kód země („Gassin_KEKONTROLE.mp4") už pojistku neobejde, kód země se
+porovnává bez ohledu na velikost písmen, a titulek z názvu s mezerou dá
+správné „Gassin (Francie)" místo zkomoleného „Gassin FR".
 
 ### ✅ HOTOVO: Ornans má správné datum (nasazeno, commit `d562c34`)
 
