@@ -62,14 +62,34 @@ na něj byla chyba nastavení (skutečné nahrání se ptá dál). A hooky samy
 (`/Users/Shared/*.py`) se už nehlásí jako „mimo projekt" — bydlí tam proto, že je
 sdílejí oba účty. Obousměrný test vrátného: 36 příkazů, 15 projde / 21 se zeptá ✅
 
+### ✅ GEISINGEN UŽ SE NEBUDE VYRÁBĚT (výtka učitele: „oprav to už jednou pořádně")
+
+Doloženo: klíč `geisingen` má **7 vyrobených videí** (nejvíc má Le Thillot — 9×).
+Příčina, na kterou tři starší pojistky nedosáhly: `⁨Geisingen⁩, 8.7. 2026` je
+**ručně vyexportované album z Fotek**, ne složka založená automatem.
+- `uz_hotovo()` se ptá **nejdřív na otisk fotek** (ř. 203) — ruční export má jiná
+  jména souborů, takže otisk nikdy nesedí a rozhodnutí padne dřív, než se kdokoli
+  zeptá, jestli video existuje,
+- hledání záznamu podle klíče nepomohlo, protože po první výrobě si export
+  **založil vlastní záznam** a přestal být „bezejmenný dvojník" (evidence má pro
+  Geisingen dva záznamy: `Geisingen_DE` z 29. 7. a export z 5. 8.),
+- kanonická složka `Geisingen_DE` je dávno uklizená, takže v pipeline zbyl
+  jen export — a vracel se do fronty **každou hodinu**.
+
+Nově rozhoduje, ČÍM ta složka je: `je_rucni_export()` (neviditelné znaky
+U+2068/U+2069 nebo koncové datum). **Kotva:** skutečné `zpracuj_mesto()` nad tou
+složkou vrací `False` s hláškou PŘESKAKUJI; 20 ostatních složek beze změny;
+`test_video_nasazeno.py` 20/20 se scénářem 7b.
+
+**Druhý nález z téhož dne:** automat vyrobil Sassenage ve 13:40 (32 médií) a ve
+14:40 znovu jako `_v2` (36 médií — přibalil Saint-Denis a Saint-Sorlin). To je
+správně, ale nahrávač by z dvojice vzal **starší, chudší** verzi (byla ve frontě
+první) a plnější navždy přeskakoval. Nově rozhoduje čas souboru
+(`jen_nejnovejsi_z_mista`), test 36/36.
+
 ### 🔴 PRVNÍ PRÁCE PŘÍŠTĚ
 
-1. **VideoAutomat vyrobil totéž město znovu i PO opravě z 2. 8.** — 5. 8. ve 20:36
-   vzniklo „⁨Geisingen⁩, 8.7. 2026_KEKONTROLE.mp4" (ručně vyexportovaná složka
-   z Fotek s neviditelnými znaky). `klic_mesta` ty znaky umí, ale `uz_hotovo()`
-   nejdřív porovnává OTISK FOTEK — a ten je u ručního exportu jiný, takže město
-   propadne jako nové. Kořen duplicit je tedy zalepený jen z jedné strany.
-2. **Video „23. 07. · Le Bourg-d'Oisans" visí u místa `col-d-ornon`** (24. 7.).
+1. **Video „23. 07. · Le Bourg-d'Oisans" visí u místa `col-d-ornon`** (24. 7.).
    Obsahově sedí (zdroje z 23. i 24. 7., závod), ale místo „Le Bourg-d'Oisans"
    v datech roku 2026 vůbec neexistuje — buď je založit, nebo nechat být vědomě.
 3. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
