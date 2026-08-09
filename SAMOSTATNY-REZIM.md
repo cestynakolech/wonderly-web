@@ -1,3 +1,15 @@
+## 🔴🔴🔴 PLÁN SCHVÁLEN 2 KOLY KONTROL — VYKONÁVÁ SE (10. 8. 0:50)
+
+**Řídicí dokument: `Omega/PLAN-PORADEK.md` v3** (prošel 2 koly nezávislé
+kontroly: kontrolor 7+4 nálezy, auditor 13+9; všechny zapracovány).
+**STOPKA PLATÍ:** video-automat, youtube-nahrávač a pečlivá-videa pozastaveny
+(plisty `*.pozastaveno`, evidence `data/pozastavene-automaty.json`, kotva
+`launchctl list` ověřena 0:50 — tři automaty NEběží). Nic nejde ven do konce
+kroku E. Další krok: A1 dokončit (naučit `revize_automatu.py` číst
+`pozastavene-automaty.json` + test), pak A2 (časy do tabulky).
+Vadných map 10 (vč. Saint-Maurice kvůli Ornans), správných 7 — detaily v plánu.
+Další NOVÁ videa: 1. Ballon fotkové (18. 7.), 2. Riez (25. 7., rozhodne D).
+
 ## 🔴🔴 NOVÉ ZADÁNÍ UČITELE (9. 8. pozdě večer) — PŘEBÍJÍ VŠE NÍŽE
 
 Doslova: *„udělej si nejdřív pořádek ve fotkách a videích — roztřiď si všechny
