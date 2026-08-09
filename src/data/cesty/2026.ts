@@ -190,7 +190,11 @@ export const rok2026: Rok = {
 			],
 			x: 315.3,
 			y: 364.2,
-			videoId: 'u4NmKbMRhiE',
+			// oprava 9. 8. 2026: bylo tu 'u4NmKbMRhiE' — sestřih celé německé části
+			// (Landshut + Schongau + Geisingen). Vlastní video Schongau se mezitím
+			// nahrálo (Schongau_DE_KEKONTROLE.mp4 -> k4cqRFIsEQU, 1. 8. 2026), ale
+			// nikdo ho k místu nepřiřadil, takže se k němu z webu nedalo dostat.
+			videoId: 'k4cqRFIsEQU',
 			popis: {
 				cs: 'Středověké městečko na řece Lech s dochovanými hradbami, leží na trase Romantické cesty (Romantische Straße).',
 				en: 'A medieval town on the Lech river with well-preserved town walls, located on the Romantic Road (Romantische Straße).',
@@ -219,7 +223,10 @@ export const rok2026: Rok = {
 			// o Donauversinkung, takže text a poloha si odporovaly.
 			x: 296.7,
 			y: 363.3,
-			videoId: 'u4NmKbMRhiE',
+			// oprava 9. 8. 2026: bylo tu 'u4NmKbMRhiE' — sestřih celé německé části.
+			// Vlastní video Geisingenu (Geisingen_DE_KEKONTROLE.mp4 -> _M3govihGYc,
+			// 31. 7. 2026) zůstávalo osiřelé, nevedl k němu z webu žádný odkaz.
+			videoId: '_M3govihGYc',
 			popis: {
 				cs: 'Městečko na horním toku Dunaje v Bádensku-Württembersku, nedaleko místa, kde Dunaj po část roku mizí v podzemí (Donauversinkung).',
 				en: 'A small town on the upper Danube in Baden-Württemberg, close to the spot where the Danube disappears underground for part of the year (Donauversinkung).',
