@@ -79,6 +79,12 @@ export const rok2025: Rok = {
 			vyjezd: 3,
 			x: 358.7,
 			y: 338.9,
+			popis: {
+				cs: 'Město na pomezí Čech a Moravy s dlouhým náměstím lemovaným podloubím. Narodil se tu Oskar Schindler, kterému je věnovaná část muzea, a z města vede křížová cesta na vrch Kalvárii s poutním kostelem.',
+				en: 'A town on the border between Bohemia and Moravia, with a long square lined with arcades. Oskar Schindler was born here and part of the museum is devoted to him, and a Way of the Cross leads from the town up to Calvary Hill with its pilgrimage church.',
+				de: 'Eine Stadt an der Grenze zwischen Böhmen und Mähren mit einem langen, von Arkaden gesäumten Platz. Hier wurde Oskar Schindler geboren, dem ein Teil des Museums gewidmet ist, und aus der Stadt führt ein Kreuzweg auf den Kalvarienberg mit einer Wallfahrtskirche.',
+				fr: 'Une ville à la frontière entre la Bohême et la Moravie, avec une longue place bordée d\'arcades. Oskar Schindler y est né et une partie du musée lui est consacrée ; un chemin de croix mène de la ville à la colline du Calvaire et à son église de pèlerinage.',
+			},
 		},
 		{
 			slug: 'dvur-kralove-nad-labem',
@@ -88,6 +94,12 @@ export const rok2025: Rok = {
 			vyjezd: 3,
 			x: 352.8,
 			y: 331.0,
+			popis: {
+				cs: 'Podkrkonošské město známé hlavně safari parkem, kde stáda afrických zvířat žijí ve velkých výbězích a projíždí se mezi nimi. V historickém jádru stojí gotický kostel svatého Jana Křtitele a renesanční Městská věž na náměstí.',
+				en: 'A town in the foothills of the Krkonoše mountains, known above all for its safari park, where herds of African animals live in large enclosures and you drive among them. In the historic centre stand the Gothic church of St John the Baptist and the Renaissance Town Tower on the square.',
+				de: 'Eine Stadt im Vorland des Riesengebirges, vor allem für ihren Safaripark bekannt, wo Herden afrikanischer Tiere in großen Gehegen leben und man zwischen ihnen hindurchfährt. Im historischen Kern stehen die gotische Kirche des heiligen Johannes des Täufers und der Renaissance-Stadtturm am Platz.',
+				fr: 'Une ville au pied des monts des Géants, connue surtout pour son parc safari, où des troupeaux d\'animaux africains vivent dans de grands enclos et où l\'on circule au milieu d\'eux. Dans le centre historique se dressent l\'église gothique Saint-Jean-Baptiste et la tour de ville Renaissance sur la place.',
+			},
 		},
 		{
 			slug: 'horni-plana',
@@ -112,6 +124,12 @@ export const rok2025: Rok = {
 			vyjezd: 5,
 			x: 309.3,
 			y: 345.7,
+			popis: {
+				cs: 'Bavorské městečko nad údolím řeky Tauber, které si zachovalo úplný okruh středověkých hradeb s krytým ochozem a věžemi. Historické jádro s hrázděnými domy patří k nejzachovalejším v Německu a leží na Romantické cestě.',
+				en: 'A small Bavarian town above the valley of the river Tauber, which has kept a complete ring of medieval walls with a covered walkway and towers. Its historic centre of half-timbered houses is among the best preserved in Germany and lies on the Romantic Road.',
+				de: 'Ein bayerisches Städtchen über dem Tal der Tauber, das einen vollständigen Ring mittelalterlicher Stadtmauern mit überdachtem Wehrgang und Türmen bewahrt hat. Die Altstadt mit ihren Fachwerkhäusern gehört zu den besterhaltenen in Deutschland und liegt an der Romantischen Straße.',
+				fr: 'Une petite ville bavaroise au-dessus de la vallée de la Tauber, qui a conservé un anneau complet de remparts médiévaux avec un chemin de ronde couvert et des tours. Son centre historique aux maisons à colombages compte parmi les mieux conservés d\'Allemagne et se trouve sur la Route romantique.',
+			},
 		},
 		{
 			slug: 'perlesreut',
@@ -136,6 +154,12 @@ export const rok2025: Rok = {
 			vyjezd: 6,
 			x: 311.7,
 			y: 352.0,
+			popis: {
+				cs: 'Město postavené uvnitř kráteru Ries, který vznikl dopadem meteoritu asi před 15 miliony let. Půdorys hradeb tvoří téměř dokonalý kruh a dají se obejít celé dokola po krytém ochozu. Kámen suevit v místních stavbách pochází přímo z dopadu.',
+				en: 'A town built inside the Ries crater, which was formed by a meteorite impact about 15 million years ago. The plan of the walls makes an almost perfect circle and you can walk all the way round on a covered walkway. The suevite stone in the local buildings comes straight from the impact.',
+				de: 'Eine Stadt im Inneren des Rieskraters, der vor etwa 15 Millionen Jahren durch einen Meteoriteneinschlag entstand. Der Grundriss der Stadtmauer bildet einen fast vollkommenen Kreis und lässt sich auf einem überdachten Wehrgang ganz umrunden. Der Suevit in den örtlichen Bauten stammt unmittelbar vom Einschlag.',
+				fr: 'Une ville bâtie à l\'intérieur du cratère du Ries, formé par la chute d\'une météorite il y a environ 15 millions d\'années. Le tracé des remparts dessine un cercle presque parfait et l\'on peut en faire tout le tour par un chemin de ronde couvert. La suévite des bâtiments locaux provient directement de l\'impact.',
+			},
 		},
 		{
 			slug: 'pasov',
@@ -160,6 +184,12 @@ export const rok2025: Rok = {
 			vyjezd: 8,
 			x: 344.0,
 			y: 340.7,
+			popis: {
+				cs: 'Obec ve Středočeském kraji se zámkem obklopeným anglickým parkem s rybníky. Zámek proslavila baronka Sidonie Nádherná, přítelkyně Rainera Marii Rilkeho a Karla Krause; dnes je v něm expozice Národního muzea.',
+				en: 'A village in the Central Bohemian Region with a chateau surrounded by an English park with ponds. The chateau was made famous by Baroness Sidonie Nádherná, a friend of Rainer Maria Rilke and Karl Kraus; today it holds an exhibition of the National Museum.',
+				de: 'Eine Gemeinde in Mittelböhmen mit einem Schloss, das ein englischer Park mit Teichen umgibt. Berühmt machte das Schloss die Baronin Sidonie Nádherná, eine Freundin von Rainer Maria Rilke und Karl Kraus; heute befindet sich darin eine Ausstellung des Nationalmuseums.',
+				fr: 'Un village de la région de Bohême centrale, avec un château entouré d\'un parc à l\'anglaise et de ses étangs. Le château doit sa renommée à la baronne Sidonie Nádherná, amie de Rainer Maria Rilke et de Karl Kraus ; il abrite aujourd\'hui une exposition du Musée national.',
+			},
 		},
 		{
 			slug: 'dinkelsbuhl',
@@ -169,6 +199,12 @@ export const rok2025: Rok = {
 			vyjezd: 9,
 			x: 310.4,
 			y: 349.4,
+			popis: {
+				cs: 'Další ze středověkých měst na bavorské Romantické cestě, asi 12 000 obyvatel. Druhá světová válka ho minula bez poškození, takže hradby, brány i řady barevných měšťanských domů stojí v původní podobě.',
+				en: 'Another of the medieval towns on the Bavarian Romantic Road, with about 12,000 inhabitants. The Second World War passed it by without damage, so the walls, the gates and the rows of colourful burghers\' houses stand in their original form.',
+				de: 'Eine weitere der mittelalterlichen Städte an der bayerischen Romantischen Straße, mit etwa 12.000 Einwohnern. Der Zweite Weltkrieg ging ohne Schäden an ihr vorüber, sodass Mauern, Tore und die Reihen bunter Bürgerhäuser in ihrer ursprünglichen Gestalt stehen.',
+				fr: 'Une autre des villes médiévales de la Route romantique bavaroise, avec environ 12 000 habitants. La Seconde Guerre mondiale l\'a épargnée, si bien que les remparts, les portes et les rangées de maisons bourgeoises colorées sont restés dans leur forme d\'origine.',
+			},
 		},
 		{
 			slug: 'rothenburg-ob-der-tauber-2',
@@ -222,6 +258,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 291.6,
 			y: 338.1,
+			popis: {
+				cs: 'Město v místě, kde se Nahe vlévá do Rýna, na začátku romantického průlomu řeky zapsaného v UNESCO. Uprostřed proudu stojí na ostrůvku Myší věž a nad městem hrad Klopp; žila tu Hildegarda z Bingenu.',
+				en: 'A town at the place where the Nahe flows into the Rhine, at the start of the river\'s romantic gorge listed by UNESCO. In the middle of the current, on a small island, stands the Mouse Tower, and above the town Klopp Castle; Hildegard of Bingen lived here.',
+				de: 'Eine Stadt an der Stelle, wo die Nahe in den Rhein mündet, am Beginn des romantischen Rheindurchbruchs, der zum UNESCO-Erbe gehört. Mitten im Strom steht auf einer kleinen Insel der Mäuseturm und über der Stadt die Burg Klopp; hier lebte Hildegard von Bingen.',
+				fr: 'Une ville à l\'endroit où la Nahe se jette dans le Rhin, au début de la percée romantique du fleuve inscrite à l\'UNESCO. Au milieu du courant, sur un îlot, se dresse la tour des Souris, et au-dessus de la ville le château de Klopp ; Hildegarde de Bingen y a vécu.',
+			},
 		},
 		{
 			slug: 'zell-mosel',
@@ -231,6 +273,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 285.7,
 			y: 337.4,
+			popis: {
+				cs: 'Vinařské městečko v jednom z meandrů Mosely, proslulé vínem s názvem Zeller Schwarze Katz — černá kočka je i na kašně uprostřed. Nad vinicemi se táhnou strmé břidlicové svahy.',
+				en: 'A wine-growing town in one of the bends of the Moselle, famous for the wine called Zeller Schwarze Katz — the black cat is also on the fountain in the middle of the town. Steep slate slopes stretch above the vineyards.',
+				de: 'Ein Winzerstädtchen in einer der Moselschleifen, berühmt für den Wein mit dem Namen Zeller Schwarze Katz — die schwarze Katze sitzt auch auf dem Brunnen in der Mitte. Über den Weinbergen ziehen sich steile Schieferhänge hin.',
+				fr: 'Un bourg viticole dans l\'un des méandres de la Moselle, célèbre pour son vin nommé Zeller Schwarze Katz — le chat noir figure aussi sur la fontaine au centre. Au-dessus des vignes s\'étendent de raides pentes d\'ardoise.',
+			},
 		},
 		{
 			slug: 'esch',
@@ -240,6 +288,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 283.0,
 			y: 338.7,
+			popis: {
+				cs: 'Malá obec v Porýní-Falci asi deset kilometrů jižně od Wittlichu, na vyvýšené plošině nad údolím Mosely. Slouží hlavně jako klidné zázemí pro cesty k řece.',
+				en: 'A small village in Rhineland-Palatinate about ten kilometres south of Wittlich, on a raised plateau above the Moselle valley. It serves mainly as a quiet base for trips to the river.',
+				de: 'Eine kleine Gemeinde in Rheinland-Pfalz etwa zehn Kilometer südlich von Wittlich, auf einer Hochfläche über dem Moseltal. Sie dient vor allem als ruhiger Ausgangspunkt für Fahrten an den Fluss.',
+				fr: 'Un petit village de Rhénanie-Palatinat à environ dix kilomètres au sud de Wittlich, sur un plateau surélevé au-dessus de la vallée de la Moselle. Il sert surtout de base tranquille pour les excursions vers la rivière.',
+			},
 		},
 		{
 			slug: 'bitche',
@@ -264,6 +318,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 283.2,
 			y: 360.0,
+			popis: {
+				cs: 'Vesnice ve Vogézách na silnici k průsmyku Col du Bonhomme. Sídlí tu tradiční bonbonárna Confiserie des Hautes Vosges, kde se dodnes vaří medové bonbony podle původních postupů.',
+				en: 'A village in the Vosges on the road to the Col du Bonhomme pass. It is home to the traditional sweet works Confiserie des Hautes Vosges, where honey sweets are still boiled by the original methods.',
+				de: 'Ein Dorf in den Vogesen an der Straße zum Pass Col du Bonhomme. Hier hat die traditionelle Bonbonmanufaktur Confiserie des Hautes Vosges ihren Sitz, in der bis heute Honigbonbons nach den ursprünglichen Verfahren gekocht werden.',
+				fr: 'Un village des Vosges sur la route du col du Bonhomme. On y trouve la confiserie traditionnelle Confiserie des Hautes Vosges, où l\'on cuit encore aujourd\'hui des bonbons au miel selon les procédés d\'origine.',
+			},
 		},
 		{
 			slug: 'saint-maurice-colombier',
@@ -273,6 +333,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 279.7,
 			y: 368.5,
+			popis: {
+				cs: 'Vesnice ve francouzském departementu Doubs pár kilometrů od městečka L\'Isle-sur-le-Doubs a asi patnáct kilometrů jihozápadně od Montbéliardu. Krajina kolem je zvlněná a zalesněná, typická pro předhůří Jury.',
+				en: 'A village in the French department of Doubs, a few kilometres from the small town of L\'Isle-sur-le-Doubs and about fifteen kilometres south-west of Montbéliard. The countryside around is rolling and wooded, typical of the foothills of the Jura.',
+				de: 'Ein Dorf im französischen Departement Doubs, ein paar Kilometer vom Städtchen L\'Isle-sur-le-Doubs entfernt und etwa fünfzehn Kilometer südwestlich von Montbéliard. Die Landschaft ringsum ist hügelig und bewaldet, typisch für das Vorland des Juras.',
+				fr: 'Un village du département français du Doubs, à quelques kilomètres de la petite ville de L\'Isle-sur-le-Doubs et à environ quinze kilomètres au sud-ouest de Montbéliard. Le paysage alentour est vallonné et boisé, typique du piémont du Jura.',
+			},
 		},
 		{
 			slug: 'nozeroy',
@@ -282,6 +348,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 274.3,
 			y: 376.4,
+			popis: {
+				cs: 'Malé opevněné městečko na náhorní plošině francouzské Jury, kdysi sídlo mocného rodu Chalon. Dochovaly se zbytky hradeb, městská brána a náměstí s podloubím.',
+				en: 'A small fortified town on the plateau of the French Jura, once the seat of the powerful Chalon family. Remains of the walls, a town gate and a square with arcades have survived.',
+				de: 'Ein kleines befestigtes Städtchen auf der Hochebene des französischen Juras, einst Sitz des mächtigen Geschlechts Chalon. Erhalten sind Reste der Stadtmauern, ein Stadttor und ein Platz mit Arkaden.',
+				fr: 'Une petite ville fortifiée sur le plateau du Jura français, autrefois siège de la puissante famille de Chalon. Il subsiste des vestiges des remparts, une porte de ville et une place à arcades.',
+			},
 		},
 		{
 			slug: 'salins-les-bains',
@@ -291,6 +363,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 273.1,
 			y: 374.3,
+			popis: {
+				cs: 'Lázeňské město v Juře, kde se sůl těžila přes tisíc let. Podzemní solné komory jsou zapsané na seznamu UNESCO spolu s královskou solivarnou v nedalekém Arc-et-Senans.',
+				en: 'A spa town in the Jura where salt was mined for over a thousand years. The underground salt chambers are on the UNESCO list, together with the Royal Saltworks in nearby Arc-et-Senans.',
+				de: 'Eine Kurstadt im Jura, wo über tausend Jahre lang Salz gewonnen wurde. Die unterirdischen Salzkammern stehen zusammen mit der Königlichen Saline im nahen Arc-et-Senans auf der UNESCO-Liste.',
+				fr: 'Une ville thermale du Jura où le sel a été extrait pendant plus de mille ans. Les galeries souterraines du sel sont inscrites sur la liste de l\'UNESCO avec la Saline royale d\'Arc-et-Senans, toute proche.',
+			},
 		},
 		{
 			slug: 'grande-riviere-chateau',
@@ -300,6 +378,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 273.2,
 			y: 379.2,
+			popis: {
+				cs: 'Obec v horské části Jury mezi jezery a lesy, výchozí bod k vodopádům a vyhlídkám na náhorní plošině. V zimě se tu běžkuje.',
+				en: 'A village in the mountainous part of the Jura, among lakes and forests. It is a starting point for waterfalls and viewpoints on the plateau. In winter people go cross-country skiing here.',
+				de: 'Eine Gemeinde im bergigen Teil des Jura zwischen Seen und Wäldern, Ausgangspunkt zu Wasserfällen und Aussichtspunkten auf der Hochebene. Im Winter fährt man hier Skilanglauf.',
+				fr: 'Une commune de la partie montagneuse du Jura, entre lacs et forêts, point de départ vers les cascades et les belvédères du plateau. En hiver, on y fait du ski de fond.',
+			},
 		},
 		{
 			slug: 'boissia',
@@ -309,6 +393,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 271.5,
 			y: 378.6,
+			popis: {
+				cs: 'Malá obec v Juře nedaleko jezerní oblasti kolem Clairvaux-les-Lacs. Okolí je známé koupacími jezery a vápencovými soutěskami.',
+				en: 'A small village in the Jura, not far from the lake district around Clairvaux-les-Lacs. The area is known for its bathing lakes and limestone gorges.',
+				de: 'Ein kleines Dorf im Jura, unweit des Seengebiets um Clairvaux-les-Lacs. Die Umgebung ist für ihre Badeseen und Kalksteinschluchten bekannt.',
+				fr: 'Un petit village du Jura, non loin de la région des lacs autour de Clairvaux-les-Lacs. Les environs sont connus pour leurs lacs de baignade et leurs gorges calcaires.',
+			},
 		},
 		{
 			slug: 'nevers',
@@ -318,6 +408,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 250.2,
 			y: 372.0,
+			popis: {
+				cs: 'Město na Loiře, hlavní město historického Nivernais, s vévodským palácem a katedrálou spojující románskou a gotickou část. Vyrábí se tu modrobílý fajáns a v klášteře odpočívá svatá Bernadetta Soubirous.',
+				en: 'A town on the Loire, the capital of the historic Nivernais, with a ducal palace and a cathedral that joins a Romanesque and a Gothic part. Blue-and-white faience is made here, and Saint Bernadette Soubirous rests in the convent.',
+				de: 'Eine Stadt an der Loire, Hauptstadt des historischen Nivernais, mit einem Herzogspalast und einer Kathedrale, die einen romanischen und einen gotischen Teil verbindet. Hier wird blau-weiße Fayence hergestellt, und im Kloster ruht die heilige Bernadette Soubirous.',
+				fr: 'Une ville sur la Loire, capitale de l\'ancien Nivernais, avec son palais ducal et une cathédrale qui réunit une partie romane et une partie gothique. On y fabrique la faïence bleue et blanche, et sainte Bernadette Soubirous repose dans le couvent.',
+			},
 		},
 		{
 			slug: 'meung-sur-loire',
@@ -327,6 +423,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 239.0,
 			y: 360.5,
+			popis: {
+				cs: 'Městečko na Loiře s hradem, který sloužil jako sídlo orléanských biskupů a měl vlastní vězení — seděl v něm básník François Villon. Městem protékají ramena říčky Mauves.',
+				en: 'A small town on the Loire with a castle that served as the seat of the bishops of Orléans and had its own prison — the poet François Villon was held in it. Branches of the little river Mauves flow through the town.',
+				de: 'Ein Städtchen an der Loire mit einem Schloss, das den Bischöfen von Orléans als Sitz diente und ein eigenes Gefängnis hatte — dort saß der Dichter François Villon. Durch die Stadt fließen die Arme des Flüsschens Mauves.',
+				fr: 'Une petite ville sur la Loire avec un château qui servait de résidence aux évêques d\'Orléans et possédait sa propre prison — le poète François Villon y fut enfermé. Les bras de la petite rivière des Mauves traversent la ville.',
+			},
 		},
 		{
 			slug: 'arromanches-les-bains',
@@ -336,6 +438,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 222.6,
 			y: 339.7,
+			popis: {
+				cs: 'Přímořské městečko v Normandii, kde po vylodění v roce 1944 vznikl umělý přístav Mulberry. Betonové plovoucí díly jsou v zálivu vidět dodnes a přímo na nábřeží u pláže stojí muzeum vylodění.',
+				en: 'A seaside town in Normandy where the artificial Mulberry harbour was built after the landings in 1944. The floating concrete sections can still be seen in the bay, and the landings museum stands right on the seafront by the beach.',
+				de: 'Ein Küstenstädtchen in der Normandie, wo nach der Landung 1944 der künstliche Hafen Mulberry entstand. Die schwimmenden Betonteile sind in der Bucht bis heute zu sehen, und direkt an der Uferpromenade am Strand steht das Museum der Landung.',
+				fr: 'Une petite ville balnéaire de Normandie où fut construit, après le débarquement de 1944, le port artificiel Mulberry. Les caissons de béton flottants se voient encore dans la baie, et le musée du Débarquement se dresse juste sur le front de mer, au bord de la plage.',
+			},
 		},
 		{
 			slug: 'colleville-sur-mer',
@@ -345,6 +453,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 220.7,
 			y: 339.3,
+			popis: {
+				cs: 'Obec nad plážou Omaha Beach, kde je americký hřbitov s téměř deseti tisíci hroby vojáků padlých při vylodění v Normandii. Z útesu je výhled na celou pláž.',
+				en: 'A village above Omaha Beach, with the American cemetery holding almost ten thousand graves of soldiers who fell during the Normandy landings. From the cliff there is a view over the whole beach.',
+				de: 'Eine Gemeinde oberhalb des Omaha Beach mit dem amerikanischen Friedhof, auf dem fast zehntausend Gräber von Soldaten liegen, die bei der Landung in der Normandie fielen. Von der Klippe hat man einen Blick auf den ganzen Strand.',
+				fr: 'Une commune au-dessus de la plage d\'Omaha Beach, où se trouve le cimetière américain avec près de dix mille tombes de soldats tombés lors du débarquement de Normandie. Du haut de la falaise, on voit toute la plage.',
+			},
 		},
 		{
 			slug: 'utah-beach-sainte-marie-du-mont',
@@ -354,6 +468,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 218.2,
 			y: 338.0,
+			popis: {
+				cs: 'Nejzápadnější z pěti pláží vylodění v Normandii. V dunách stojí muzeum postavené kolem původního německého bunkru a řada památníků jednotkám, které tudy 6. června 1944 přistály.',
+				en: 'The westernmost of the five landing beaches in Normandy. In the dunes stands a museum built around an original German bunker, along with a number of memorials to the units that landed here on 6 June 1944.',
+				de: 'Der westlichste der fünf Landungsstrände in der Normandie. In den Dünen steht ein Museum, das um einen originalen deutschen Bunker herum gebaut wurde, dazu eine Reihe von Denkmälern für die Einheiten, die hier am 6. Juni 1944 an Land gingen.',
+				fr: 'La plus occidentale des cinq plages du débarquement de Normandie. Dans les dunes se dresse un musée construit autour d\'un bunker allemand d\'origine, ainsi que de nombreux monuments aux unités qui y ont débarqué le 6 juin 1944.',
+			},
 		},
 		{
 			slug: 'ouistreham',
@@ -363,6 +483,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 225.5,
 			y: 340.7,
+			popis: {
+				cs: 'Přístavní město u ústí kanálu do Caen, součást pláže Sword Beach. Kousek odsud stojí Pegasus Bridge, most dobytý v prvních hodinách vylodění; dnes odsud jezdí trajekty do Anglie.',
+				en: 'A port town at the mouth of the canal to Caen, part of Sword Beach. A short way from here stands Pegasus Bridge, the bridge captured in the first hours of the landings; today ferries sail from here to England.',
+				de: 'Eine Hafenstadt an der Mündung des Kanals nach Caen, Teil des Sword Beach. Ein Stück von hier steht die Pegasus Bridge, die in den ersten Stunden der Landung eingenommene Brücke; heute fahren von hier Fähren nach England.',
+				fr: 'Une ville portuaire à l\'embouchure du canal de Caen, qui fait partie de Sword Beach. Tout près se dresse Pegasus Bridge, le pont pris dans les premières heures du débarquement ; aujourd\'hui, des ferries partent d\'ici pour l\'Angleterre.',
+			},
 		},
 		{
 			slug: 'arelaune-en-seine',
@@ -372,6 +498,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 234.1,
 			y: 339.5,
+			popis: {
+				cs: 'Obec v meandru Seiny v regionálním parku Boucles de la Seine Normande, obklopená bukovými lesy. Nedaleko stojí zbytky opatství Jumièges.',
+				en: 'A village in a meander of the Seine in the Boucles de la Seine Normande regional park, surrounded by beech forests. The remains of Jumièges Abbey stand nearby.',
+				de: 'Eine Gemeinde in einer Seine-Schleife im Regionalpark Boucles de la Seine Normande, von Buchenwäldern umgeben. Ganz in der Nähe stehen die Überreste der Abtei Jumièges.',
+				fr: 'Une commune dans un méandre de la Seine, dans le parc régional des Boucles de la Seine Normande, entourée de forêts de hêtres. Tout près se dressent les vestiges de l\'abbaye de Jumièges.',
+			},
 		},
 		{
 			slug: 'dunkerque',
@@ -381,6 +513,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 249.2,
 			y: 322.1,
+			popis: {
+				cs: 'Přístavní město na severu Francie u belgických hranic. V roce 1940 se odsud evakuovalo přes 300 tisíc spojeneckých vojáků — operace Dynamo — a připomíná to muzeum přímo v přístavu.',
+				en: 'A port city in the north of France near the Belgian border. In 1940 more than 300,000 Allied soldiers were evacuated from here — Operation Dynamo — and a museum right in the harbour recalls it.',
+				de: 'Eine Hafenstadt im Norden Frankreichs nahe der belgischen Grenze. 1940 wurden von hier über 300.000 alliierte Soldaten evakuiert — die Operation Dynamo — daran erinnert ein Museum direkt im Hafen.',
+				fr: 'Une ville portuaire du nord de la France, près de la frontière belge. En 1940, plus de 300 000 soldats alliés y ont été évacués — l\'opération Dynamo — et un musée, installé directement dans le port, le rappelle.',
+			},
 		},
 		{
 			slug: 'grobbendonk',
@@ -390,6 +528,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 267.5,
 			y: 322.1,
+			popis: {
+				cs: 'Belgická obec v provincii Antverpy na řece Kleine Nete, obklopená lesy a rašeliništi. Slouží jako klidná zastávka mezi Antverpami a nizozemskou hranicí.',
+				en: 'A Belgian municipality in the province of Antwerp, on the river Kleine Nete, surrounded by woods and peat bogs. It serves as a quiet stop between Antwerp and the Dutch border.',
+				de: 'Eine belgische Gemeinde in der Provinz Antwerpen an der Kleinen Nete, von Wäldern und Mooren umgeben. Sie dient als ruhiger Halt zwischen Antwerpen und der niederländischen Grenze.',
+				fr: 'Une commune belge de la province d\'Anvers, au bord de la Kleine Nete, entourée de forêts et de tourbières. Elle sert d\'étape tranquille entre Anvers et la frontière néerlandaise.',
+			},
 		},
 		{
 			slug: 'schuttorf',
@@ -399,6 +543,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 287.5,
 			y: 309.5,
+			popis: {
+				cs: 'Nejstarší město hrabství Bentheim v Dolním Sasku, blízko nizozemské hranice. Historické jádro je malé, s kostelem svatého Vavřince a hrázděnými domy.',
+				en: 'The oldest town in the county of Bentheim in Lower Saxony, close to the Dutch border. The historic centre is small, with the church of St Lawrence and half-timbered houses.',
+				de: 'Die älteste Stadt der Grafschaft Bentheim in Niedersachsen, nahe der niederländischen Grenze. Der historische Kern ist klein, mit der Sankt-Laurentius-Kirche und Fachwerkhäusern.',
+				fr: 'La plus ancienne ville du comté de Bentheim, en Basse-Saxe, près de la frontière néerlandaise. Le centre historique est petit, avec l\'église Saint-Laurent et des maisons à colombages.',
+			},
 		},
 		{
 			slug: 'bremy',
@@ -438,6 +588,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 306.5,
 			y: 286.2,
+			popis: {
+				cs: 'Obec v Šlesvicku-Holštýnsku hned u Kielského průplavu, nejfrekventovanější umělé vodní cesty na světě. Z břehu je vidět provoz velkých lodí a nedaleký vysoký most u Rendsburgu.',
+				en: 'A municipality in Schleswig-Holstein right by the Kiel Canal, the busiest artificial waterway in the world. From the bank you can see the big ships going past and the nearby high bridge at Rendsburg.',
+				de: 'Eine Gemeinde in Schleswig-Holstein direkt am Nord-Ostsee-Kanal, der meistbefahrenen künstlichen Wasserstraße der Welt. Vom Ufer aus sieht man den Verkehr der großen Schiffe und die nahe Hochbrücke bei Rendsburg.',
+				fr: 'Une commune du Schleswig-Holstein, juste au bord du canal de Kiel, la voie d\'eau artificielle la plus fréquentée du monde. Depuis la rive, on voit passer les grands navires et le haut pont voisin de Rendsburg.',
+			},
 		},
 		{
 			slug: 'kustengewasser-einschlielich-anteil-am-festlandsockel',
@@ -447,6 +603,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 319.0,
 			y: 290.7,
+			popis: {
+				cs: 'Mělký záliv Baltského moře mezi Wismarem a poloostrovem Wustrow, chráněný ostrovem Poel. Pobřeží je ploché, s písečnými plážemi a rákosím.',
+				en: 'A shallow bay of the Baltic Sea between Wismar and the Wustrow peninsula, sheltered by the island of Poel. The shore is flat, with sandy beaches and reeds.',
+				de: 'Eine flache Bucht der Ostsee zwischen Wismar und der Halbinsel Wustrow, von der Insel Poel geschützt. Die Küste ist flach, mit Sandstränden und Schilf.',
+				fr: 'Une baie peu profonde de la mer Baltique entre Wismar et la presqu\'île de Wustrow, abritée par l\'île de Poel. La côte est plate, avec des plages de sable et des roseaux.',
+			},
 		},
 		{
 			slug: 'am-salzhaff',
@@ -456,6 +618,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 320.0,
 			y: 289.0,
+			popis: {
+				cs: 'Obec u mělké laguny Salzhaff na pobřeží Baltu, oddělené od moře poloostrovem Wustrow. Klidná voda je vyhledávaná k plachtění a pozorování ptáků.',
+				en: 'A municipality by the shallow Salzhaff lagoon on the Baltic coast, separated from the sea by the Wustrow peninsula. The calm water is popular for sailing and for watching birds.',
+				de: 'Eine Gemeinde an der flachen Lagune Salzhaff an der Ostseeküste, durch die Halbinsel Wustrow vom Meer getrennt. Das ruhige Wasser ist zum Segeln und zur Vogelbeobachtung beliebt.',
+				fr: 'Une commune au bord de la lagune peu profonde du Salzhaff, sur la côte de la Baltique, séparée de la mer par la presqu\'île de Wustrow. L\'eau calme est prisée pour la voile et l\'observation des oiseaux.',
+			},
 		},
 		{
 			slug: 'rehau',
@@ -465,6 +633,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 9,
 			x: 323.8,
 			y: 334.8,
+			popis: {
+				cs: 'Město v severovýchodním Bavorsku nedaleko českých hranic, v kraji Fichtelgebirge. Vyrostl tu známý výrobce plastů stejného jména; okolí je zalesněné a kopcovité.',
+				en: 'A town in north-eastern Bavaria not far from the Czech border, in the Fichtel Mountains region. The well-known plastics maker of the same name grew up here; the surroundings are wooded and hilly.',
+				de: 'Eine Stadt im Nordosten Bayerns unweit der tschechischen Grenze, im Fichtelgebirge. Hier ist der bekannte Kunststoffhersteller gleichen Namens entstanden; die Umgebung ist bewaldet und hügelig.',
+				fr: 'Une ville du nord-est de la Bavière, non loin de la frontière tchèque, dans la région du Fichtelgebirge. Le célèbre fabricant de plastiques du même nom y a vu le jour ; les environs sont boisés et vallonnés.',
+			},
 		},
 		{
 			slug: 'zalakaros',
@@ -474,6 +648,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 10,
 			x: 367.9,
 			y: 377.9,
+			popis: {
+				cs: 'Maďarské lázeňské město nedaleko Balatonu, známé termálním koupalištěm s léčivou vodou z hloubky přes dva kilometry. Kolem se táhnou vinice zalského kraje.',
+				en: 'A Hungarian spa town not far from Lake Balaton, known for its thermal baths with healing water from a depth of over two kilometres. All around stretch the vineyards of the Zala region.',
+				de: 'Eine ungarische Kurstadt unweit des Balatons, bekannt für ihr Thermalbad mit Heilwasser aus über zwei Kilometern Tiefe. Ringsum erstrecken sich die Weinberge der Region Zala.',
+				fr: 'Une ville thermale hongroise proche du lac Balaton, connue pour ses bains thermaux dont l\'eau curative vient de plus de deux kilomètres de profondeur. Tout autour s\'étendent les vignobles de la région de Zala.',
+			},
 		},
 		{
 			slug: 'vonyarcvashegy',
@@ -483,6 +663,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 10,
 			x: 369.1,
 			y: 375.2,
+			popis: {
+				cs: 'Obec na severním břehu Balatonu s dlouhou písečnou pláží Lido. Nad vesnicí stojí kaple svatého Michala s výhledem na jezero a vinice.',
+				en: 'A village on the northern shore of Lake Balaton with the long sandy Lido beach. Above the village stands the chapel of St Michael, with a view of the lake and the vineyards.',
+				de: 'Eine Gemeinde am Nordufer des Balatons mit dem langen Sandstrand Lido. Über dem Dorf steht die Sankt-Michael-Kapelle mit Blick auf den See und die Weinberge.',
+				fr: 'Une commune sur la rive nord du lac Balaton, avec la longue plage de sable du Lido. Au-dessus du village se dresse la chapelle Saint-Michel, d\'où l\'on voit le lac et les vignes.',
+			},
 		},
 		{
 			slug: 'rothenburg-ob-der-tauber-3',
@@ -501,6 +687,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 11,
 			x: 323.1,
 			y: 351.2,
+			popis: {
+				cs: 'Bavorské město v místě, kde se Altmühl vlévá do Dunaje. Nad ním stojí kruhová Osvobozenecká síň postavená Ludvíkem I. a lodí se odsud jezdí soutěskou Donaudurchbruch ke klášteru Weltenburg.',
+				en: 'A Bavarian town at the place where the Altmühl flows into the Danube. Above it stands the round Hall of Liberation, built by Ludwig I, and boats go from here through the Danube Gorge to Weltenburg Abbey.',
+				de: 'Eine bayerische Stadt dort, wo die Altmühl in die Donau mündet. Über ihr steht die runde Befreiungshalle, die Ludwig I. erbauen ließ, und mit dem Schiff fährt man von hier durch den Donaudurchbruch zum Kloster Weltenburg.',
+				fr: 'Une ville bavaroise à l\'endroit où l\'Altmühl se jette dans le Danube. Au-dessus s\'élève le Hall de la Libération, un édifice rond construit par Louis Ier, et des bateaux partent d\'ici pour traverser les gorges du Danube jusqu\'à l\'abbaye de Weltenburg.',
+			},
 		},
 		{
 			slug: 'horska-kvilda',
@@ -510,6 +702,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 12,
 			x: 336.3,
 			y: 349.0,
+			popis: {
+				cs: 'Jedna z nejvýše položených obcí Česka, leží na Šumavě v nadmořské výšce kolem 1 050 metrů. Přímo zde, v mrazové kotlině pod obcí, se pravidelně měří jedny z nejnižších teplot v zemi.',
+				en: 'One of the highest-lying villages in the Czech Republic, in the Bohemian Forest at an altitude of about 1,050 metres. Right here, in the frost hollow below the village, some of the lowest temperatures in the country are regularly measured.',
+				de: 'Eine der höchstgelegenen Gemeinden Tschechiens, im Böhmerwald in einer Höhe von etwa 1 050 Metern. Genau hier, in der Frostmulde unterhalb des Ortes, werden regelmäßig einige der niedrigsten Temperaturen des Landes gemessen.',
+				fr: 'L\'une des communes les plus hautes de Tchéquie, située dans la forêt de Bohême à environ 1 050 mètres d\'altitude. C\'est ici même, dans la cuvette à gel en contrebas du village, que l\'on mesure régulièrement quelques-unes des températures les plus basses du pays.',
+			},
 		},
 		{
 			slug: 'stozec',
@@ -561,6 +759,12 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			vyjezd: 13,
 			x: 322.6,
 			y: 326.1,
+			popis: {
+				cs: 'Město v Durynsku asi dvacet kilometrů východně od Jeny, s barokním zámkem Christiansburg a bohatě zdobeným zámeckým kostelem. Kolem se rozkládá romantické údolí Mühltal s několika mlýny.',
+				en: 'A town in Thuringia about twenty kilometres east of Jena, with the baroque Christiansburg palace and a richly decorated palace church. Around it lies the romantic Mühltal valley with several mills.',
+				de: 'Eine Stadt in Thüringen etwa zwanzig Kilometer östlich von Jena, mit dem barocken Schloss Christiansburg und der reich geschmückten Schlosskirche. Ringsum erstreckt sich das romantische Mühltal mit mehreren Mühlen.',
+				fr: 'Une ville de Thuringe, à environ vingt kilomètres à l\'est d\'Iéna, avec le château baroque de Christiansburg et son église richement décorée. Tout autour s\'étend la romantique vallée du Mühltal avec plusieurs moulins.',
+			},
 		},
 		{
 			slug: 'potsdam-2',
