@@ -1,17 +1,68 @@
-## ⏩ KDE POKRAČOVAT (9. 8. 2026 v poledne — ULOŽENO PŘED /clear)
+## ⏩ KDE POKRAČOVAT (9. 8. 2026 odpoledne)
+
+### 🔴 ČEKÁ NA ROZHODNUTÍ UČITELE (nic se nemazalo)
+
+**Na kanálu jsou dvě duplicitní videa** — `0A1E9gsD7gQ` (Le Bourg-d'Oisans) a
+`UJdbbDYmahY` (Saint-Bonnet). Web je nepoužívá, jsou neveřejná. Smazat z kanálu?
+A smazat i oba soubory `… (kopie).mp4` v `nasazeno/`? **Bez odpovědi se nemaže nic.**
+
+### ✅ HOTOVO ODPOLEDNE: příčina duplicit nalezena a zalepena
+
+**Řetěz příčin je doložený z logu, ne z úvahy:**
+1. VideoAutomat vyrobil totéž město PODRUHÉ (past „město v `nasazeno/` nepoznám
+   jako hotové") — Le Bourg-d'Oisans 31. 7. v 21:21 a znovu ve 23:25, Saint-Bonnet
+   1. 8. ve 12:26 a znovu 2. 8. v 00:27. Časy sedí na minutu s `mtime` obou kopií.
+2. Druhý soubor učitel taky přesunul do `nasazeno/` → Finder přilepil „ (kopie)".
+3. **Nahrávač hlídal duplicity podle PŘESNÉHO NÁZVU SOUBORU** — přílepek název
+   změnil, takže video prohlásil za nové a poslal na kanál. Titulek proto přišel
+   i o datum („Le Bourg-dOisans FR KEKONTROLE (kopie)").
+
+Kopie NEJSOU totožné soubory: `ffprobe` ukazuje stejnou délku i stopy, ale jinou
+velikost — jsou to druhé rendery téhož města, ne poškozené duplikáty.
+
+**Co se opravilo** (`nahraj_na_youtube.py`, `vyrob_video_automat.py`):
+- rozhoduje **klíč místa v rámci roku**, ne název souboru; opakovaná návštěva
+  v jiném roce (Rothenburg 3×) i stejnojmenné místo v jiné zemi (Frangy_CH ×
+  Frangy_FR) se nezablokují,
+- pojistka se ptá **před každým nahráním uvnitř smyčky** — nález kontrolora:
+  předfiltr propustil dva NOVÉ soubory téhož místa v jedné dávce,
+- otisk místa je odolný vůči přejmenování (apostrof, mezera, pomlčka, diakritika)
+  i vůči přílepkům „ (1)", „-1", „_kopie", „_final", „.mp4.mp4",
+- `hezky_nazev` čistí název JEDINOU funkcí (domov pravidla), takže titulek
+  duplicity už nemůže přijít o datum.
+
+**Kotva:** proti evidenci podvržené do stavu před 3. 8. by nová pojistka **obě
+duplicity zastavila** (staré pravidlo je pouštělo). Testy: nový
+`testy/test_nahravac_bez_duplicit.py` 26/26, `test_video_nasazeno.py` 14/14,
+`test_bez_kopii.py` 0 kopií pravidla. Kalibrace na 1969 skutečných videích:
+změna se dotkne jen obou souborů „(kopie)" — žádné skutečné místo nepoškodí.
+
+### ✅ HOTOVO: Ornans má správné datum (nasazeno, commit `d562c34`)
+
+Datum **19. 7. 2026** místo 18. 7. — doloženo z fotek: 39 snímků z 19. 7.
+(13:59–21:12) a 18 z rána 20. 7. při odjezdu, z 18. 7. **ani jeden**.
+Chronologie míst zůstala rostoucí (17. 7. → 19. 7. → 20. 7.).
+
+### ✅ HOTOVO: vrátný přestal obtěžovat u ověřování
+
+`povoleni_hook.py`: `nahraj_na_youtube.py --stav` je pouhý výpis evidence, ptát se
+na něj byla chyba nastavení (skutečné nahrání se ptá dál). A hooky samy
+(`/Users/Shared/*.py`) se už nehlásí jako „mimo projekt" — bydlí tam proto, že je
+sdílejí oba účty. Obousměrný test vrátného: 36 příkazů, 15 projde / 21 se zeptá ✅
 
 ### 🔴 PRVNÍ PRÁCE PŘÍŠTĚ
 
-1. **Dvě nadbytečné kopie v `nasazeno/`** (`Le_Bourg-dOisans…(kopie).mp4`,
-   `Saint-Bonnet…(kopie).mp4`) způsobily, že automat nahrál na YouTube DUPLICITY
-   (`0A1E9gsD7gQ`, `UJdbbDYmahY`). Nic se nemazalo — smazání videa z kanálu i souboru
-   je na rozhodnutí učitele. **Ptát se, než se něco smaže.** Zároveň stojí za to
-   zjistit, jak se kopie do `nasazeno/` dostaly, ať se to neopakuje.
-2. **Ornans má v datech datum 18. 7. 2026, ale všechen zdrojový materiál je z 19. 7.**
-3. **Video „23. 07. · Le Bourg-d'Oisans" visí u místa `col-d-ornon`** (24. 7.).
+1. **VideoAutomat vyrobil totéž město znovu i PO opravě z 2. 8.** — 5. 8. ve 20:36
+   vzniklo „⁨Geisingen⁩, 8.7. 2026_KEKONTROLE.mp4" (ručně vyexportovaná složka
+   z Fotek s neviditelnými znaky). `klic_mesta` ty znaky umí, ale `uz_hotovo()`
+   nejdřív porovnává OTISK FOTEK — a ten je u ručního exportu jiný, takže město
+   propadne jako nové. Kořen duplicit je tedy zalepený jen z jedné strany.
+2. **Video „23. 07. · Le Bourg-d'Oisans" visí u místa `col-d-ornon`** (24. 7.).
    Obsahově sedí (zdroje z 23. i 24. 7., závod), ale místo „Le Bourg-d'Oisans"
    v datech roku 2026 vůbec neexistuje — buď je založit, nebo nechat být vědomě.
-4. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
+3. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
+   V obou evidencích nahrávačů takový titulek NENÍ (prohlédnuto 17 + 31 záznamů),
+   takže vznikl až na kanálu — ověřit dotazem na YouTube, ne v datech.
 
 ### ✅ HOTOVO A ŽIVÉ (dopoledne, ověřeno curlem)
 
