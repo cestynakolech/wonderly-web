@@ -343,7 +343,9 @@ export const rok2026: Rok = {
 			],
 			x: 275.4,
 			y: 372.4,
-			videoId: 'swDAmX8BRJA',
+			// video zde ZÁMĚRNĚ není: swDAmX8BRJA je sestřih ze Saint-Maurice-sur-Moselle
+			// (zdroj fotky-anonymizovane/Saint-Maurice-sur-Moselle_FR, dny 11.–18. 7.,
+			// kapitoly Tour de France). Z Ornans (materiál z 19. 7.) video nikdy nevzniklo.
 			popis: {
 				cs: 'Městečko v údolí řeky Loue v departementu Doubs, přezdívané „malé Benátky Franche-Comté" — domy tu stojí přímo nad vodou. Rodiště malíře Gustava Courbeta (1819), jemuž je věnováno zdejší muzeum.',
 				en: 'A small town in the Loue valley in the Doubs department, nicknamed the "little Venice of Franche-Comté" — its houses stand right above the water. Birthplace of the painter Gustave Courbet (1819), honoured by a local museum.',

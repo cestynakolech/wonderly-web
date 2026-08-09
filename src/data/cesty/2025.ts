@@ -80,10 +80,10 @@ export const rok2025: Rok = {
 			x: 358.7,
 			y: 338.9,
 			popis: {
-				cs: 'Město na pomezí Čech a Moravy s dlouhým náměstím lemovaným podloubím. Narodil se tu Oskar Schindler, kterému je věnovaná část muzea, a z města vede křížová cesta na vrch Kalvárii s poutním kostelem.',
-				en: 'A town on the border between Bohemia and Moravia, with a long square lined with arcades. Oskar Schindler was born here and part of the museum is devoted to him, and a Way of the Cross leads from the town up to Calvary Hill with its pilgrimage church.',
-				de: 'Eine Stadt an der Grenze zwischen Böhmen und Mähren mit einem langen, von Arkaden gesäumten Platz. Hier wurde Oskar Schindler geboren, dem ein Teil des Museums gewidmet ist, und aus der Stadt führt ein Kreuzweg auf den Kalvarienberg mit einer Wallfahrtskirche.',
-				fr: 'Une ville à la frontière entre la Bohême et la Moravie, avec une longue place bordée d\'arcades. Oskar Schindler y est né et une partie du musée lui est consacrée ; un chemin de croix mène de la ville à la colline du Calvaire et à son église de pèlerinage.',
+				cs: 'Město leží skoro celé na Moravě, jen malý kousek jeho území zasahuje do Čech. Narodil se tu Oskar Schindler, který zachránil před smrtí asi tisíc dvě stě Židů, a stojí tu jeho památník i Muzeum esperanta v Ottendorferově domě.',
+				en: 'Almost the whole town lies in Moravia, only a small part of its territory reaches into Bohemia. Oskar Schindler, who saved about twelve hundred Jews from death, was born here, and the town has his memorial as well as the Esperanto Museum in the Ottendorfer House.',
+				de: 'Die Stadt liegt fast ganz in Mähren, nur ein kleiner Teil ihres Gebiets reicht nach Böhmen hinein. Hier wurde Oskar Schindler geboren, der etwa eintausendzweihundert Juden vor dem Tod rettete, und es stehen hier sein Denkmal sowie das Esperanto-Museum im Ottendorfer-Haus.',
+				fr: 'La ville se trouve presque entièrement en Moravie, seule une petite partie de son territoire s\'étend en Bohême. Oskar Schindler, qui a sauvé de la mort environ mille deux cents Juifs, y est né ; on y trouve son mémorial ainsi que le Musée de l\'espéranto dans la maison Ottendorfer.',
 			},
 		},
 		{
