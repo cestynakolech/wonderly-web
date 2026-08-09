@@ -332,7 +332,9 @@ export const rok2026: Rok = {
 			obyvatele: 4000,
 			nazev: 'Ornans',
 			zeme: 'Francie',
-			datum: '18. 7. 2026',
+			// datum doloženo z fotek (fotky-cekarna/Ornans_FR): 39 snímků z 19. 7.
+			// (13:59–21:12) a 18 z rána 20. 7. při odjezdu; z 18. 7. ani jeden
+			datum: '19. 7. 2026',
 			vyjezd: 6,
 			stellplatze: [
 				{
