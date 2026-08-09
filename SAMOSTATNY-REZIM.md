@@ -48,8 +48,13 @@ a psát popisy z jeho vět — kontrolor pak neověřuje moji paměť, ale shodu
   (22 případů: 9 projít, 13 zeptat se).
 - **Deník chyb bere i opravy vlastní práce** (učitel: „zapisuj si opravy a chyby
   všechny") — dnes 8 faktických oprav + 2 vlastní chyby.
-- **Commit vznikl s identitou `Your Name <you@example.com>`** — repozitář nemá
-  nastavené `user.name` / `user.email`. Zatím jen zapsáno, ať to učitel rozhodne.
+- **Podpis commitů opraven** (rozhodl učitel 9. 8.). Dvacet starších commitů vzniklo
+  jako `Your Name <you@example.com>` — v repu byl zapsaný zástupný text a globální
+  identita nebyla žádná. Na začátku se totiž nastavovalo jen **přihlášení** ke GitHubu
+  (`gh auth` v `~/.gitconfig` jako credential helper), což je něco jiného než podpis.
+  Nově `Radek Míček <292464341+cestynakolech@users.noreply.github.com>`, lokálně
+  i globálně. Zástupná adresa GitHubu schválně: **repozitář je veřejný**, takže
+  skutečný e-mail by v historii commitů vysbírali roboti. Historie se nepřepisuje.
 
 ---
 
