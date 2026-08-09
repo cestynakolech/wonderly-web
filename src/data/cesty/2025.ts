@@ -289,10 +289,10 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			x: 283.0,
 			y: 338.7,
 			popis: {
-				cs: 'Malá obec v Porýní-Falci asi deset kilometrů jižně od Wittlichu, na vyvýšené plošině nad údolím Mosely. Slouží hlavně jako klidné zázemí pro cesty k řece.',
-				en: 'A small village in Rhineland-Palatinate about ten kilometres south of Wittlich, on a raised plateau above the Moselle valley. It serves mainly as a quiet base for trips to the river.',
-				de: 'Eine kleine Gemeinde in Rheinland-Pfalz etwa zehn Kilometer südlich von Wittlich, auf einer Hochfläche über dem Moseltal. Sie dient vor allem als ruhiger Ausgangspunkt für Fahrten an den Fluss.',
-				fr: 'Un petit village de Rhénanie-Palatinat à environ dix kilomètres au sud de Wittlich, sur un plateau surélevé au-dessus de la vallée de la Moselle. Il sert surtout de base tranquille pour les excursions vers la rivière.',
+				cs: 'Malá obec v Porýní-Falci, která leží v jižním údolí řeky Salm na okraji moselských vrchů. Poprvé se připomíná roku 1086 pod jménem Asche.',
+				en: 'A small village in Rhineland-Palatinate, lying in the southern valley of the river Salm on the edge of the Moselle hills. It was first recorded in 1086 under the name Asche.',
+				de: 'Eine kleine Gemeinde in Rheinland-Pfalz, die im südlichen Salmtal am Rande der Moselberge liegt. Erstmals erwähnt wurde sie im Jahr 1086 unter dem Namen Asche.',
+				fr: 'Un petit village de Rhénanie-Palatinat, situé dans la vallée méridionale de la Salm, en bordure des hauteurs de la Moselle. Il est mentionné pour la première fois en 1086 sous le nom d\'Asche.',
 			},
 		},
 		{
@@ -334,10 +334,10 @@ Karlstadt je pro psího reportéra lahůdka: kompaktní staré město, rychlý v
 			x: 279.7,
 			y: 368.5,
 			popis: {
-				cs: 'Vesnice ve francouzském departementu Doubs pár kilometrů od městečka L\'Isle-sur-le-Doubs a asi patnáct kilometrů jihozápadně od Montbéliardu. Krajina kolem je zvlněná a zalesněná, typická pro předhůří Jury.',
-				en: 'A village in the French department of Doubs, a few kilometres from the small town of L\'Isle-sur-le-Doubs and about fifteen kilometres south-west of Montbéliard. The countryside around is rolling and wooded, typical of the foothills of the Jura.',
-				de: 'Ein Dorf im französischen Departement Doubs, ein paar Kilometer vom Städtchen L\'Isle-sur-le-Doubs entfernt und etwa fünfzehn Kilometer südwestlich von Montbéliard. Die Landschaft ringsum ist hügelig und bewaldet, typisch für das Vorland des Juras.',
-				fr: 'Un village du département français du Doubs, à quelques kilomètres de la petite ville de L\'Isle-sur-le-Doubs et à environ quinze kilomètres au sud-ouest de Montbéliard. Le paysage alentour est vallonné et boisé, typique du piémont du Jura.',
+				cs: 'Vesnice na severu francouzského departementu Doubs, sedm kilometrů po silnici od městečka L\'Isle-sur-le-Doubs a dvacet kilometrů od Montbéliardu. Kolem je hodně lesů — pokrývají polovinu obce — a vesnicí protéká potok.',
+				en: 'A village in the north of the French department of Doubs, seven kilometres by road from the small town of L\'Isle-sur-le-Doubs and twenty kilometres from Montbéliard. There are plenty of woods around — they cover half of the commune — and a brook runs through the village.',
+				de: 'Ein Dorf im Norden des französischen Departements Doubs, sieben Kilometer über die Straße vom Städtchen L\'Isle-sur-le-Doubs und zwanzig Kilometer von Montbéliard entfernt. Ringsum gibt es viel Wald — er bedeckt die Hälfte der Gemeinde — und durch das Dorf fließt ein Bach.',
+				fr: 'Un village du nord du département français du Doubs, à sept kilomètres par la route de la petite ville de L\'Isle-sur-le-Doubs et à vingt kilomètres de Montbéliard. Il y a beaucoup de forêts alentour — elles couvrent la moitié de la commune — et un ruisseau traverse le village.',
 			},
 		},
 		{
