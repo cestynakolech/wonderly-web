@@ -1,5 +1,80 @@
 ## ⏩ KDE POKRAČOVAT (9. 8. 2026 večer — ULOŽENO PŘED /clear)
 
+### 🟡 PROBÍHÁ (9. 8. ~18:40): Ballon d'Alsace — příčina „bez uložení" NALEZENA, dávka běží
+
+**Záhada z bodu 1 vyřešena s důkazem z logu:** večerní úprava hlídače (18:22 —
+rozpočet stopáže) volala `subprocess` a `prostredi.program()` bez importu, navíc
+`prostredi` žádnou funkci `program()` nemá. Každý běh od té chvíle spadl na
+`NameError` u PRVNÍHO videa — dřív, než cokoli zpracoval. Kotva: přesně tenhle
+traceback je v `~/Library/Logs/omega-foto-hlidac-error.log`; v `data/hlidac.log`
+po 8:29 žádný zápis. **Opraveno** (import `subprocess` + `prostredi`, holé
+`ffprobe` — PATH řeší import). Ověřeno obousměrně: skutečný klip → 11,9 s,
+neexistující soubor → 180 s (drahý odhad).
+
+**Dávka doběhla (21:11): 48 klipů v cíli, zbývá JEDINÝ — `_cast3`.**
+Dlouhý klip `…16-44-58_7C63D363…` (110 s) 6× spadl (3× jako `_bez_polohy`,
+3× pod klíčem Ballon → evidence -1, zapsán do KE-SCHVALENI.md). **Rozhodnutí
+učitele 9. 8.: rozdělit na tři díly** — rozřezáno `ffmpeg -c copy` na
+`_cast1/2/3` (37,1 + 37,4 + 36,6 s) přímo v `.tmp-anon-zdroj`, originál zůstal
+netknutý a anonymizovat se nebude. cast1 hotov 21:06, cast2 21:11.
+
+**cast3 nedoběhl a příčinu NEUMÍM DOLOŽIT:** evidence měla 1 pokus, výstup
+nevznikl, v `data/hlidac.log` po 20:59 ani řádek (ani úspěch, ani CHYBY) —
+tichý konec sedí na signál 9, ale v systémovém logu po něm není stopa, takže
+je to domněnka, ne fakt.
+
+**Rozhodnutí učitele 9. 8. (druhé kolo): rozdělit cast3 ještě jednou** →
+`_cast3a` (18,1 s) + `_cast3b` (19,2 s). Původní `_cast3` má v evidenci **-1**
+(tichý přeskok, ne odložení k rozhodnutí) a v `hlidac.log` je k tomu důvod;
+soubor nikdo nemazal. Suchý běh potvrdil: přeskočí originál i cast3,
+zpracuje cast3a + cast3b. **Cílový počet je tedy 50 klipů**
+(46 + cast1 + cast2 + cast3a + cast3b).
+
+**Oprava vzkřísila i noční automat** `com.omega.foto-hlidac` — od 8:29 ráno
+padal na tomtéž `NameError`. Teď dohání svou frontu (~120 videí, začal
+Le Lavandou 21:0x). Pro automat je Ballon vyřízený (46 hotových + 1 odložený);
+o třech dílech neví, ty jsou jen v `.tmp-anon-zdroj`. **Na Macu smí běžet jen
+jeden těžký proces** — cast3 se pouští až po jeho doběhnutí.
+
+### 🟡 KROK 2 (video) — SLOŽENO, čeká na kontrolu učitele
+
+**Souběh zápisů přepsal rozhodnutí (past, kterou už pravidla znají).** Značka
+„přeskoč cast3" (21:28) zmizela: automat běžel od 21:0x, na konci ve 21:32
+uložil SVOU starou kopii evidence a klip se pak zpracoval zbytečně (~10 min
+práce). Proto jsou v cíli všechny tři verze úseku (51 souborů).
+**Opraveno v `hlidej_a_anonymizuj.uloz_evidenci`:** před zápisem se soubor
+načte znovu a mění se jen klíče, které ten běh sám změnil; zápis je atomický
+přes `.tmp` + `os.replace`; navíc se po zápisu evidence ptá, jestli klip
+mezitím někdo neoznačil -1. Nový `testy/test_evidence_soubeh.py` 4/4
+(včetně obousměrné kotvy „starý způsob cizí značku ztratí"),
+`test_hlidac_davky.py` 14/14 prošel beze změny.
+
+**Video složeno bez úvodní mapy** z pracovní složky `.tmp-video-ballon`
+(50 pevných odkazů, zdvojený `_cast3` vynechán — NIC se nemazalo):
+`Ballon-dAlsace_FR_KEKONTROLE.mp4`, 12:16, 1920×1080, 697 MB.
+**Zvuk: PŮVODNÍ, bez hudby** — volba učitele 9. 8.: u průjezdu Tour je dav
+a karavana vlastní obsah. Kotva: střední hlasitost −16,7 dB přes celé video
+(není ticho). Anonymizace ověřena pohledem na kontaktní list 4×4 — tváře
+rozmazané ve všech záběrech, žádná úvodní mapa.
+
+**Titulek:** automat z názvu složky vyrobil „Ballon-dAlsace" (složky nesmějí
+mít mezery ani apostrofy). Proto má `sestavit_video2.py` novou volbu
+`--titulek SLOZKA=Text`; mezipaměť segmentů má titulek v klíči, takže
+přerender přepsal jen první záběr. Video má nově „Ballon d'Alsace".
+
+**ZBÝVÁ (krok 3):** dát video učiteli ke shlédnutí → po schválení nahrát na
+YouTube a ID přidat k `saint-maurice-sur-moselle` do `dalsiVidea` v `2026.ts`.
+Ověřeno, že cesta je průchodná: `DOPLNKOVA_VIDEA` má klíč `ballon-dalsace`
+(automat se videa nedotkne), `typy.ts` i `CestyRok.astro` `dalsiVidea` umí,
+slug v datech existuje.
+**Úklid po schválení:** `.tmp-video-ballon`, `.tmp-anon-zdroj`,
+`.tmp-anon-1` a `video-vystup/.stara-verze-titulek.mp4` (jen odkazy a
+mezikopie, originály jsou jinde) — smazat AŽ po odsouhlasení učitelem.
+
+**Referenční fotky (vedlejší nález):** práva `600`, vlastník `radekmicek` —
+z hlavního účtu nespravitelné. Prosba na mostě od 6. 8. nevyřízená, 9. 8. přidána
+urgence do `od-hlavniho.md`.
+
 ### 🔴 PRVNÍ PRÁCE PŘÍŠTĚ: dodělat Ballon d'Alsace
 
 Fronta říká, že **na řadě je `Ballon-dAlsace_FR` (18. 7.)** — nic jiného se dělat nesmí.
@@ -17,6 +92,37 @@ Zadání učitele: *„udělej z nich video a přidej to pod stejné místo, bud
 **Vedlejší nález:** dvě referenční fotky učitele nejdou načíst
 (`reference-obliceje/ja/Starší/7a5327ab-…jpg` a `IMG_0003.jpeg`) — kvůli tomu se jeho
 tvář může rozmazávat, i když nemá.
+
+### ✅ HOTOVO V NOCI: tabulka hlásila 4 fantomové úkoly „založit na webu"
+
+Fronta po Ballonu ukazovala na Riez — ten ale **čeká záměrně**: pipeline pouští
+fotky z čekárny do `fotky-puvodni` až po 7 dnech od focení A 24 h bez přírůstku;
+Riezu přibyly soubory dnes v 10:03, takže zraje **zítra ~10:03** (totéž
+Saint-Tropez a Le Lavandou). Vynucovat se to nemá, je to pojistka proti
+rozpracovanému místu.
+
+Místo toho se prověřila položka „založit na webu" u čtyř míst — a **všechna
+čtyři byla na webu dávno**. Příčina: tabulka párovala video s webem podle
+PODOBNOSTI NÁZVŮ. Klíč z názvu souboru (`Le_Thillot_FR…mp4` → `le_thillot`)
+se nikdy nepotká s klíčem z názvu na webu („Le Thillot" → `le thillot`),
+a u „Livet-et-Gavet a Chamrousse" nebo u videa z Le Bourg-d'Oisans, které patří
+k místu `col-d-ornon`, se nepotká už vůbec.
+
+**Opraveno v `mista_prehled`:** rozhoduje YouTube ID — buď ten řetězec v datech
+webu je, nebo není (počítají se i `dalsiVidea`). Nový
+`testy/test_prehled_video_na_webu.py` 3/3 včetně obousměrné kotvy „co na webu
+není, se hlásit musí". Fronta „ČEKÁ NA UČITELE" se zkrátila o 4 položky,
+`le-thillot` nově správně hlásí chybějící galerii; hotových míst 7 → 10.
+
+**Past na sebe (stálo to jeden chybný závěr):** `grep -l "$id"` u ID
+začínajícího pomlčkou (`-FR8z-38PR8`) vzal ID jako PŘEPÍNAČ a tiše nic nenašel
+→ napoprvé jsem prohlásil to místo za skutečně chybějící. Na ID a jiné řetězce
+z dat vždy `grep -e "$x"` nebo `grep -- "$x"`.
+
+**Zbylá drobnost (neopraveno, jen zapsáno):** místo s videem má v tabulce pořád
+dva řádky — jeden podle souboru videa, druhý podle webu (např. `livet-et-gavet`
+2×). Nic to nerozbíjí, jen to plete oči; sloučení řádků je větší zásah do
+`sestav` a chce vlastní kolo.
 
 ### ✅ HOTOVO VEČER: fronta práce (jedno pravidlo pro všechny automaty)
 
