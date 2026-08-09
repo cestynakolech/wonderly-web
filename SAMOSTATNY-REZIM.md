@@ -1,4 +1,71 @@
-## ⏩ KDE POKRAČOVAT (9. 8. 2026 ráno — popisy roku 2025 NASAZENY)
+## ⏩ KDE POKRAČOVAT (9. 8. 2026 dopoledne — popisy se píšou ZE ZDROJE)
+
+### ✅ ZMĚNA PRINCIPU JE HOTOVÁ A NASAZENÁ
+
+Zadání učitele: *„pokračuj s těmi popisy ze zdroje."* Vyšlo z toho, že deník chyb
+hlásil třídu `fakt-bez-zdroje` nad prahem opakování.
+
+| co | před | po |
+|---|---|---|
+| míst v podkladech (`fakta-mist.json`) | 76 | 204 |
+| vět ze zdrojů | 400 | 2 950 |
+| popisů na webu s doloženým zdrojem | 71 % | **96 %** |
+
+1. **Sběrač vidí i ručně psané roky.** `vsechna_mista(vcetne_rucnich=True)` — jen pro
+   SBĚR; výchozí `False` zůstává, jinak by `zapis_popisy.py` začal přepisovat roky,
+   které si píšeme ručně. Kotva: zapisovač vidí dál 156 míst, sběrač 193.
+2. **Sbírá se CELÝ článek, ne jen úvod.** Úvod nese jen okres a počet obyvatel;
+   Oskar Schindler je v článku o Svitavách až na 12 423. znaku. Strop 20 000 znaků,
+   soubor má i tak 0,45 MB. V datech to pozná pole `rozsah: "clanek"`.
+3. **Místa, která nevznikla z fotek, se dohledají v datech webu**
+   (`fakta_mist.misto_z_dat_webu`) — devět míst roku 2026 do té doby nemělo z čeho
+   čerpat, protože v podkladech z GPS vůbec nebyla.
+4. **Měřidlo `kontrola_dolozitelnosti.py`** ten princip hlídá. Uznává TŘI stavy, ne
+   dva: článek nalezen · ověřeno, že článek není (malé obce ho nikdy mít nebudou) ·
+   chybí podklad. Má počítadlo vstupů — nula zkoumaných míst je tvrdá chyba, ne úspěch.
+
+### 🔍 CO UKÁZALA KONTROLA (a proč na tom záleží)
+
+| | proti ÚVODU (ráno) | proti CELÉMU ČLÁNKU (dopoledne) |
+|---|---|---|
+| posouzených tvrzení | 129 | 147 |
+| „zdroj o tom mlčí" | 67 (52 %) | 48 (33 %) |
+| **„popis odporuje zdroji"** | **0** | **2** |
+
+Obě odporující věty jsem přitom **ráno psal jako OPRAVU** starší chyby — a obě byly
+zase mimo, protože vznikly z přepočtu souřadnic a vlastní představy:
+Esch neleží „na plošině nad údolím Mosely", ale `im südlichen Salmtal am Rande der
+Moselberge`; Saint-Maurice-Colombier není 15 km od Montbéliardu (to je vzdušná čára),
+zdroj uvádí 20 km po silnici. **Dokud text vzniká z hlavy, oprava jen vymění jednu
+nedoloženou větu za druhou.** Obojí opraveno workerem z vět ve zdroji a nasazeno
+(ověřeno curlem), přibyla i doložená fakta navíc (Esch 1086 jako Asche).
+
+Zbylých 48 nedoložených tvrzení v textech ZŮSTÁVÁ — kontrolor je neoznačil za
+nepravdivá, jen za taková, která v článku nestojí (Villonovo vězení, kaple sv. Michala).
+Změna se týká toho, jak popisy vznikají PŘÍŠTĚ.
+
+### ⏭️ CO ZBÝVÁ
+
+1. **Dva nálezy přesběr nevyřeší** — křížová cesta na Kalvárii (Svitavy) v článku
+   není vůbec a český článek o Rothenburgu je pahýl bez zmínky o hradbách.
+   Chce to druhý článek ke stejnému místu (Wikipedie v jiném jazyce).
+2. **Sestřih `swDAmX8BRJA` sdílejí Saint-Maurice-sur-Moselle a Ornans** — vlastní
+   video k nim v nahrávači není.
+3. **Tři kopie videa z Le Bourg-d'Oisans** (`wZSKCdxlmeg` v2, `0A1E9gsD7gQ`,
+   `UJdbbDYmahY`), web má `-FR8z-38PR8`. Která je platná, se musí doložit Z LOGU
+   nahrávače — „v2" v názvu neznamená novější.
+4. Tři názvy videí mají zdvojený datumový prefix („25. 07. · 25. 07. · …").
+
+### ✅ MEZITÍM NASAZENO
+
+**Schongau a Geisingen dostaly svá vlastní videa** (`k4cqRFIsEQU`, `_M3govihGYc`) —
+obě ukazovala sestřih celé německé části a jejich videa nevisela u žádného místa.
+Sestřih zůstal u Landshutu, který vlastní video nemá. Kotva: míst 25 → 25,
+popisů 20 → 20, galerií 10 → 10, osiřelá videa 2 → 0.
+
+---
+
+## ⏩ PŘEDCHOZÍ (9. 8. 2026 ráno — popisy roku 2025 nasazeny)
 
 ### ✅ HOTOVO A ŽIVÉ: 34 popisů míst roku 2025 (commit `6ab972a`)
 
