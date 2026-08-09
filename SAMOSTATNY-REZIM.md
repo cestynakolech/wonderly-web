@@ -1,3 +1,42 @@
+## 🔴🔴 NOVÉ ZADÁNÍ UČITELE (9. 8. pozdě večer) — PŘEBÍJÍ VŠE NÍŽE
+
+Doslova: *„udělej si nejdřív pořádek ve fotkách a videích — roztřiď si všechny
+podle míst do složek, každá složka = místo = video, datum pořízení fotografií
+určuje, kdy se tudy projíždělo, a tedy určuje trasu. Proto jsme dělali tabulku."*
+A: *„dáváš mi videa ke kontrole, když už je dávno odsouhlasené dávání videí bez
+kontroly"* → zapsáno do paměti `feedback-videa-bez-schvalovani`: hotové video jde
+ROVNOU nahrávači, učitel nic neodklikává, jen se mu hlásí.
+
+**Doložené příčiny (z dnešního měření):**
+- Mapa Sassenage přeskakuje města: zastávka se do `trasa-stav.json` přidává AŽ
+  při výrobě videa. Sassenage/Mens se vyrobily před Riez/Le Lavandou/Saint-Tropez
+  → jejich mapy ta města neznají. Trasa se musí stavět Z TABULKY (datum focení),
+  ne z pořadí výroby.
+- Fotky z vrcholu Ballonu (18. 7., 15:53–16:32, 13 JPG + ~10 MOV) spadly podle
+  GPS pod Saint-Maurice a JSOU v jeho nasazeném videu (kapitoly „Závod Tour de
+  France", „Reklamní karavana" — ověřeno). Složka Ballon-dAlsace_FR má jen
+  47 klipů bez GPS ze sdíleného alba. Média se musí dotřídit: co je u sedla
+  (GPS ~47.8216, 6.8397), patří Ballonu.
+- V albu je 1890 položek; ~846 „zpracovaných" není na disku — ČÁST oprávněně
+  (úklid po nasazení), část jsou dny bez místa (11., 13., 16., 20., 22. 7. …).
+  Potřeba měřidlo, které to rozliší, ne paušální závěr.
+
+**NOVÁ FRONTA (v tomhle pořadí):**
+1. **Pořádek v médiích**: skript `poradek_medii.py` (deterministický automat) —
+   pro každou položku alba: datum + GPS → místo z tabulky; výstup = přehled
+   místo ↔ co má na disku ↔ co je ve videu ↔ co chybí a KDE to je. Podle něj
+   dotřídit složky (každá složka = místo). Nic nemazat, jen kopírovat/třídit.
+2. **Trasa z tabulky**: přestavět `trasa-stav.json` podle dat focení všech míst
+   z tabulky (geokódování ověřit — pravidlo navigační body). Pak přestavět mapy
+   a první segmenty Sassenage_FR a Mens_FR (zbytek videí je z mezipaměti,
+   ~minuty). Landshut zkontrolovat taky.
+3. **Ballon dokončit**: fotky od sedla přidat do složky, anonymizovat, video
+   přestavět S mapou (mapa hotová: scratchpad/mapa-ballon.png, ale po kroku 2
+   ji vzít z trvalé trasy) a s fotkami v časovém pořadí.
+4. **Nahrát bez schvalování**: opravená videa (Sassenage, Mens, Ballon, …)
+   rovnou do `nasazeno/`; učiteli jen hlásit. KEKONTROLE jako čekárna na
+   učitele KONČÍ.
+
 ## ⏩ KDE POKRAČOVAT (9. 8. 2026 večer — ULOŽENO PŘED /clear)
 
 ### 🟡 PROBÍHÁ (9. 8. ~18:40): Ballon d'Alsace — příčina „bez uložení" NALEZENA, dávka běží
