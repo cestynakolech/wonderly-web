@@ -1,3 +1,25 @@
+## ⏩ KDE POKRAČOVAT PO SMAZÁNÍ KONTEXTU (10. 8. ~2:00, ČISTÝ ŠTÍT)
+
+**Dokumentace srovnána a prošla smyčkou kontrola→oprava→kontrola (verdikt
+ČISTÝ ŠTÍT):** skill wonderly 794→363 ř., PRAVIDLA.md 400→318 ř. (kánon
+v sekci VELKÝ POŘÁDEK), AUTOMATY.md se STOPKOU v hlavičce, mapa automatů
+(AUTOMATY-mapa.html/.drawio). **Oprava kánonu z kontroly: ŽÁDNÁ videa se
+učiteli neschvalují** — stará pečlivá od 7. 8., nová od 9. 8.; člověk jen
+fáze `potrebuje-cloveka`. (Málem jsem vzkřísil výjimku ze 30. 7. — novější
+rozhodnutí vyhrává.)
+
+**PRVNÍ PRÁCE PŘÍŠTĚ = krok A plánu `Omega/PLAN-PORADEK.md` v3:**
+1. A1 dokončit: naučit `revize_automatu.py` číst `pozastavene-automaty.json`
+   (+ test) — STOPKA tří automatů UŽ PLATÍ (plisty `*.pozastaveno` od 0:50).
+2. A2: časy fotek do tabulky, deduplikace přes klic_mesta, Ramonchamp.
+3. A3: soupis kanálu + konsolidace evidence pokrytí (Le Bourg _v2!).
+Pak B (trasa z tabulky) → C (přepočet vadných map, předběžně 10) → D
+(úplnost médií + dotřídění) → E (přestavby) → F (výměny, ~3 dny po 5/den)
+→ G (měřidla: kontrola_kanalu denně do tabulky).
+**Ballon:** klipové video hotové S mapou (12:21); fotky 20/37
+anonymizovaných, zbytek další probuzení hlídače; fotkové video AŽ po kroku B
+(mapa z nové trvalé trasy). Ven NIC do konce F.
+
 ## 🔴🔴🔴 PLÁN SCHVÁLEN 2 KOLY KONTROL — VYKONÁVÁ SE (10. 8. 0:50)
 
 **Řídicí dokument: `Omega/PLAN-PORADEK.md` v3** (prošel 2 koly nezávislé
