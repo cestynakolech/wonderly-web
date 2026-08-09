@@ -27,6 +27,19 @@ i hlídač anonymizace (řadí podle fronty, ne podle abecedy).
 **Kotva:** Riez, Saint-Tropez, Kluesserath i Neumagen dnes hlásí „ČEKÁ" a jako důvod
 uvádějí Ballon d'Alsace. Výpis: `python3 Omega/skripty/fronta_mist.py`.
 
+### ✅ HOTOVO VEČER: kontrola přeskoků (mapy ve videích)
+
+Zadání: *„musí se kontrolovat, zda se něco nepřeskočilo, aby se opravily fotky
+s mapou na začátku videa."* `kontrola_poradi.py` běží denně v 7:45 a stav se
+propisuje do tabulky jako sloupec **Mapa ve videu**.
+**Výsledek: 13 videí, 0 přeskoků — všechny mapy jsou úplné.**
+
+**Pozor na past, na kterou jsem dvakrát skočil:** do TRASY se místo zapisuje při
+PRVNÍ výrobě videa, ale mapu nese ten soubor, který dnes PLATÍ (poslední
+přestavba). Napoprvé měřidlo hlásilo 11 vad ze 13, napodruhé 2 — obojí falešně.
+Vyvrátil to až pohled na úvodní snímek videa Geisingenu („jižní Čechy → 2 místa
+→ Geisingen"). Měřidlo je pak ověřené obousměrně podvrženým přeskokem.
+
 ### ✅ HOTOVO VEČER: přehled míst ve třech podobách
 
 `Omega/skripty/mista_prehled.py` sestaví z jedněch dat: **`MISTA.md`** (text),
