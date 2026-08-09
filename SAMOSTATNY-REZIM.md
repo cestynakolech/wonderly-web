@@ -1,4 +1,44 @@
-## ⏩ KDE POKRAČOVAT (9. 8. 2026 dopoledne — popisy se píšou ZE ZDROJE)
+## ⏩ KDE POKRAČOVAT (9. 8. 2026 v poledne — ULOŽENO PŘED /clear)
+
+### 🔴 PRVNÍ PRÁCE PŘÍŠTĚ
+
+1. **Dvě nadbytečné kopie v `nasazeno/`** (`Le_Bourg-dOisans…(kopie).mp4`,
+   `Saint-Bonnet…(kopie).mp4`) způsobily, že automat nahrál na YouTube DUPLICITY
+   (`0A1E9gsD7gQ`, `UJdbbDYmahY`). Nic se nemazalo — smazání videa z kanálu i souboru
+   je na rozhodnutí učitele. **Ptát se, než se něco smaže.** Zároveň stojí za to
+   zjistit, jak se kopie do `nasazeno/` dostaly, ať se to neopakuje.
+2. **Ornans má v datech datum 18. 7. 2026, ale všechen zdrojový materiál je z 19. 7.**
+3. **Video „23. 07. · Le Bourg-d'Oisans" visí u místa `col-d-ornon`** (24. 7.).
+   Obsahově sedí (zdroje z 23. i 24. 7., závod), ale místo „Le Bourg-d'Oisans"
+   v datech roku 2026 vůbec neexistuje — buď je založit, nebo nechat být vědomě.
+4. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
+
+### ✅ HOTOVO A ŽIVÉ (dopoledne, ověřeno curlem)
+
+- **Svitavy — TŘETÍ chyba v jednom popisu za den.** Ráno se opravovala „poutní cesta
+  na Vraclav" na „křížovou cestu na Kalvárii" — a i to bylo špatně: ta je
+  v **Moravské Třebové**, 12 km daleko; obě města spojuje jen název okresu. Takovou
+  záměnu žádná kontrola z paměti nechytí, zní věrohodně. Odhalilo ji až hledání ve
+  zdroji (slovo „Kalvárie" v článku o Svitavách není ani jednou). Nový text stojí
+  jen na větách ze zdroje. Deník chyb má na to novou třídu `zamena-podle-okresu`.
+- **Rothenburg má napevno německý článek** (183 vět místo českého pahýlu s 1230
+  znaky) — hradby, věže i ochoz jsou tím doložené.
+- **Ornans zbaven cizího videa** — sestřih `swDAmX8BRJA` je celý ze
+  Saint-Maurice-sur-Moselle. Pokles míst s videem 15 → 14 je ZÁMĚRNÝ.
+- **Le Bourg-d'Oisans: pravidlo o verzích znovu potvrzeno.** `wZSKCdxlmeg` má
+  v názvu „v2", ale je **NEJSTARŠÍ** (31. 7.) a leží v `_ceka-na-predelani`;
+  platné je `-FR8z-38PR8` (1. 8., dvojnásobná velikost), které web už má.
+  Do dat se nesáhlo. **„v2" v názvu neznamená novější — rozhoduje log nahrávače.**
+
+### 📌 STAV DENÍKU CHYB K DNEŠKU
+
+Třída `fakt-bez-zdroje` je na **12 výskytech** — všechny z dneška, všechny z popisů
+psaných z paměti. Nové třídy: `podklad-prilis-uzky` (sbíral se jen úvod článku),
+`zamena-podle-okresu`, `nastaveni-bez-identity`, `zkouska-spini-ostra-data` (2×).
+
+---
+
+## ⏩ PŘEDCHOZÍ (9. 8. 2026 dopoledne — popisy se píšou ZE ZDROJE)
 
 ### ✅ ZMĚNA PRINCIPU JE HOTOVÁ A NASAZENÁ
 
