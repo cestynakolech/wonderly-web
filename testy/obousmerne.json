@@ -170,6 +170,14 @@
    "zdravy": "Nad všemi 274 místy v 8 rocích 0 nálezů; zdravá kopie se dvěma návštěvami téhož města na stejném bodě mlčí a pin o 5 km jinde (Stožec) se nehlásí. 16 kontrol v testu prochází.",
    "kalibrace": "Tolerance se nastavovala NA PŘIJATÉ PRÁCI: při 3 km vracela 43 nálezů — samé rozdíly 4–8 km u Stožce, Horní Plané a Srní, kde pin vznikl z GPS fotky na okraji obce. Na 20 km ji posunul Gdaňsk (dva piny 18 km od sebe). Skutečné vady byly 45 a 35 km.",
    "pocitadlo": "Kontrola vypisuje počet porovnaných dvojic poloh; klesne-li na nulu při nenulovém počtu míst, hlásí to sama. Vzniklo z vlastní chyby: první verze četla místa přes nactiCesty(), která souřadnice nevrací, takže měřila undefined a tiše hlásila nula nálezů."
+  },
+  "kontrola_dolozitelnosti.py — popis místa má doložený zdroj": {
+   "test": "~/Desktop/Omega/skripty/testy/test_kontrola_dolozitelnosti.py",
+   "podvrh": "Když se z KOPIE podkladů odebere doklad k místu, které popis má (Stožec), měřidlo skončí kódem 1 a vypíše právě ty čtyři výskyty (2019, 2023, 2024, 2025 — totéž místo pod týmž slugem ve víc letech); počet nedoložených i počet zbylých doložených sedí na kus. Záznam, který existuje, ale nemá věty ani přiznání, je nález stejně — nález nezachrání pouhá přítomnost záznamu.",
+   "zdravy": "Nad ostrými daty 245 popisů, 0 nálezů, kód 0 — a měřilo se doopravdy: počet zkoumaných popisů se v testu porovnává s daty webu, takže prázdný výsledek neprojde jako úspěch. `bez_zdroje: true` (ověřeno, že Wikipedie článek nemá) se počítá jako doložený stav a nálezem není — malé obce článek nikdy mít nebudou a měřidlo, které je hlásí donekonečna, se přestane číst.",
+   "regrese": "Počítadlo vstupů: když měřidlo nedostane ANI JEDNO místo s popisem (žádná data webu, nebo samá místa bez popisu), musí to být tvrdá chyba s hláškou „měří se prázdno\", ne tiché „vše v pořádku\" — tudy 9. 8. 2026 protekl `undefined`. Protějšek: jediné místo s popisem a s dokladem týmž pomocníkem projde, takže test nepadá vždycky. Podvrhy běží VÝHRADNĚ na dočasné kopii přes proměnnou FAKTA_MIST; že se podstrčený soubor opravdu čte, dokládá běh nad prázdným `{}` (245 nálezů), a otisk sha256 ostrého data/fakta-mist.json se před během a po něm porovnává. MUTACE (doklad, že samotná zkouška má zuby): slepé měřidlo (`stav_dolozeni` vrací vždy „vety\") podvrh přehlédne, měřidlo bez uznání `bez_zdroje` hlásí i přiznané obce a měřidlo bez počítadla vstupů přestane hlásit prázdno — všechny tři sabotáže běží na KOPII zdrojáku v dočasné složce a zkouška je pozná.",
+   "overeno": "2026-08-09",
+   "kontrol": 26
   }
  }
 }
