@@ -1,4 +1,58 @@
-## ⏩ KDE POKRAČOVAT (9. 8. 2026 odpoledne)
+## ⏩ KDE POKRAČOVAT (9. 8. 2026 večer — ULOŽENO PŘED /clear)
+
+### 🔴 PRVNÍ PRÁCE PŘÍŠTĚ: dodělat Ballon d'Alsace
+
+Fronta říká, že **na řadě je `Ballon-dAlsace_FR` (18. 7.)** — nic jiného se dělat nesmí.
+Zadání učitele: *„udělej z nich video a přidej to pod stejné místo, budou tam dvě."*
+1. **Doanonymizovat 28 klipů** (19 z 47 hotových). Zdroj je připravený jako hardlinky
+   v `2026/.tmp-anon-zdroj/Ballon-dAlsace_FR` (skript čeká strukturu `zdroj/<Místo>/`).
+   **POZOR: jeden 24s klip trvá 9 minut** — celá dávka jsou ~4 hodiny. A poslední běh
+   doběhl BEZ ULOŽENÍ (v cíli zůstalo 19) — zjistit proč, než se pustí celá dávka.
+2. **Složit video BEZ ÚVODNÍ MAPY** přes `sestavit_video2.py --koren` (ne VideoAutomatem —
+   ten by přidal zastávku do trvalé trasy a přepočítal najeté km; proto je klíč
+   `ballon-dalsace` v `DOPLNKOVA_VIDEA`).
+3. **Nahrát** a ID přidat k `saint-maurice-sur-moselle` do pole `dalsiVidea`
+   (`2026.ts`) — web to už umí, `CestyRok.astro` vykreslí mřížku, build prošel.
+
+**Vedlejší nález:** dvě referenční fotky učitele nejdou načíst
+(`reference-obliceje/ja/Starší/7a5327ab-…jpg` a `IMG_0003.jpeg`) — kvůli tomu se jeho
+tvář může rozmazávat, i když nemá.
+
+### ✅ HOTOVO VEČER: fronta práce (jedno pravidlo pro všechny automaty)
+
+Učitel nad tabulkou: *„nesmí se nic přeskakovat; pokud nebude vyřešeno to, které bylo
+vyfoceno dřív, nemůže se dělat nic jiného."* Vznikl `Omega/skripty/fronta_mist.py` —
+JEDINÝ domov pravidla. Volá ho VideoAutomat, nahrávač (za překážkou přeruší dávku)
+i hlídač anonymizace (řadí podle fronty, ne podle abecedy).
+**Kotva:** Riez, Saint-Tropez, Kluesserath i Neumagen dnes hlásí „ČEKÁ" a jako důvod
+uvádějí Ballon d'Alsace. Výpis: `python3 Omega/skripty/fronta_mist.py`.
+
+### ✅ HOTOVO VEČER: přehled míst ve třech podobách
+
+`Omega/skripty/mista_prehled.py` sestaví z jedněch dat: **`MISTA.md`** (text),
+**`MISTA.html`** (s náhledovými fotkami, sama se obnovuje) a **`MISTA.xlsx`**
+(Excel s filtrem, zmrazenými příčkami a klikatelnými odkazy na video i do deníku).
+Automat `com.omega.mista-prehled` je přepočítává **každou půlhodinu**.
+Sloupce: foceno · staženo · anonymizováno · video · nasazeno · YouTube · web V/P/G · chybí.
+Stav 2026: **7 hotových · 10 čeká na krok · 13 rozpracovaných · 12 bez materiálu**.
+
+### ✅ HOTOVO VEČER: 89 klipů dostalo polohu podle času
+
+Videa ze sdíleného alba nemají GPS nikdy (iCloud posílá `medium.MP4` bez metadat).
+`pipeline_sdilene.doplnit_misto_podle_casu()` je přiřadí podle času — ptá se souseda
+PŘED i PO a přiřadí jen při shodě do 60 minut. Kluesserath 77 → 110 médií,
+Saint-Sauveur 14 → 48. **Zbylých 148 nešlo** — jsou ze dnů (11., 13., 16., 18., 27.,
+30. 7.), ke kterým web nemá ani jedno místo. Z 18. 7. je to průjezd Tour (viz bod 1).
+
+### ✅ HOTOVO VEČER: kontrola proti albu běží sama
+
+`kontrola_alba.py` měří OPAČNÝM směrem než tabulka — album je zdroj pravdy.
+`com.omega.kontrola-alba` denně 7:30 (přírůstky), `com.omega.kontrola-alba-uplna`
+pondělí a čtvrtek 8:00 (celé album, 1901 položek).
+
+---
+
+## ⏩ PŘEDCHOZÍ (9. 8. 2026 odpoledne)
 
 ### ✅ ÚKLID PROVEDEN (učitel schválil „smazat obojí")
 

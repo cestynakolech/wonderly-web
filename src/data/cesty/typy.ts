@@ -59,6 +59,12 @@ export type Mesto = {
 	/** Předpona fotogalerie v úložišti R2, např. "cesty/2026/landshut" */
 	galerie?: string;
 	videoId?: string;
+	/** Další videa TÉHOŽ místa. Jedno místo může mít víc záběrů, které spolu
+	 *  obsahově nesouvisejí — Saint-Maurice-sur-Moselle má procházku městem
+	 *  a zvlášť průjezd Tour de France na Ballon d'Alsace o den později.
+	 *  Zadání učitele 9. 8. 2026: „udělej z nich video a přidej to pod stejné
+	 *  místo, budou tam dvě." */
+	dalsiVidea?: string[];
 	stellplatze?: Stellplatz[];
 	/** Bertíkův report — delší zápisek psího reportéra; odstavce oddělené prázdným řádkem (jen česky) */
 	report?: string;

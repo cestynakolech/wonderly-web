@@ -278,7 +278,11 @@ const texty = {
 	<section class="mesta">
 		{
 			data.mesta.map((m) => {
-				const video = m.videoId ? videaPodleId.get(m.videoId) : undefined;
+				// Místo může mít víc videí (procházka městem × průjezd Tour o den
+				// později). `videoId` zůstává hlavní, `dalsiVidea` jdou za ním.
+				const videaMista = [m.videoId, ...(m.dalsiVidea ?? [])]
+					.map((id) => (id ? videaPodleId.get(id) : undefined))
+					.filter((v) => v !== undefined);
 				const stellplatzy = (m.stellplatze ?? []).map((s) => sCenami(m.slug, s));
 				// u cen se vždy říká, odkud jsou a že mohou být jinde: dohledané z aplikací
 				// = „jen orientační", zaplacené na místě = „platily k datu naší návštěvy"
@@ -292,12 +296,14 @@ const texty = {
 							{prelozZemi(m.zeme, jazyk)} · {formatujDatum(m.datum, jazyk)}
 						</p>
 						<p>{prelozPopis(popisMista(m), jazyk)}</p>
-						{video && (
+						{videaMista.length > 0 && (
 							<div class="videa-mrizka mesto-video">
-								<a href={video.odkaz} rel="noopener" class="video-karta">
-									<img src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`} alt={video.nazev} loading="lazy" />
-									<span>🎬 {video.nazev}</span>
-								</a>
+								{videaMista.map((video) => (
+									<a href={video.odkaz} rel="noopener" class="video-karta">
+										<img src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`} alt={video.nazev} loading="lazy" />
+										<span>🎬 {video.nazev}</span>
+									</a>
+								))}
 							</div>
 						)}
 						{m.report && (
