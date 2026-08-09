@@ -9,8 +9,13 @@ fáze `potrebuje-cloveka`. (Málem jsem vzkřísil výjimku ze 30. 7. — nověj
 rozhodnutí vyhrává.)
 
 **PRVNÍ PRÁCE PŘÍŠTĚ = krok A plánu `Omega/PLAN-PORADEK.md` v3:**
-1. A1 dokončit: naučit `revize_automatu.py` číst `pozastavene-automaty.json`
-   (+ test) — STOPKA tří automatů UŽ PLATÍ (plisty `*.pozastaveno` od 0:50).
+1. ✅ A1 HOTOVO (10. 8., kolo WONDERLY): `revize_automatu.py` →
+   `nalezy_pozastavenych()` čte `pozastavene-automaty.json`, hlásí
+   „pozastaven plánem" + obousměrně hlídá porušení stopky (nahraný
+   v launchd / aktivní plist / bez evidence). Důkaz
+   `testy/test_revize_pozastavene.py` (10/10); ostrý běh: 3 pozastavené,
+   0 falešných nálezů. Bonus: revize našla opsané pravidlo `pripony-medii`
+   v `mista_prehled.py` → nahrazeno importem z `roztridit_fotky.py`.
 2. A2: časy fotek do tabulky, deduplikace přes klic_mesta, Ramonchamp.
 3. A3: soupis kanálu + konsolidace evidence pokrytí (Le Bourg _v2!).
 Pak B (trasa z tabulky) → C (přepočet vadných map, předběžně 10) → D
