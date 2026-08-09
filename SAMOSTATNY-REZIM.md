@@ -21,6 +21,27 @@ ROVNOU nahrávači, učitel nic neodklikává, jen se mu hlásí.
   (úklid po nasazení), část jsou dny bez místa (11., 13., 16., 20., 22. 7. …).
   Potřeba měřidlo, které to rozliší, ne paušální závěr.
 
+**DALŠÍ ZADÁNÍ UČITELE (9. 8. ~23:00), stav plnění:**
+- *„Z Tour jsou videa dlouhá — udělej video z FOTEK zvlášť, přidej ke stejnému
+  bodu; u obou stejná mapa a první titulek s místem, km a cenou."*
+  ✅ 37 fotek od sedla (GPS ≤ 2,5 km, z alba) nakopírováno do
+  `fotky-puvodni/Ballon-dAlsace_FR` — hlídač je sám anonymizuje (2 dávky).
+  ✅ Mapa vyrobena z DOČASNÉ kopie trasy (trvalá netknutá): pruh nese
+  „910 km · nafta ≈ 4 373 Kč · poslední úsek 9 km" — přesně ten titulek.
+  Složka: `.tmp-video-ballon-mapa/`. ✅ KLIPOVÉ video přestavěno S mapou
+  (12:21). ⏳ Až doběhne anonymizace fotek: složit FOTKOVÉ video se STEJNOU
+  mapou a titulkem (`--koren` s hardlinky JPG, `--mapa .tmp-video-ballon-mapa`,
+  `--titulek "Ballon-dAlsace_FR=Ballon d'Alsace"`).
+  ⚠ NAHRÁVAČ: pojistka z 9. 8. blokuje druhé video téhož místa v roce —
+  pro dvojici klipy+fotky nutná VÝJIMKA (vědomá, s testem), jinak fotkové
+  video neprojde. Udělat před vložením do `nasazeno/`.
+- Seznam automatů: `Omega/AUTOMATY.md` (15 + 2 + 2, konflikty, denní osa),
+  mapa `AUTOMATY-mapa.html` (prohlížení) a `AUTOMATY-mapa.drawio`
+  (učitel edituje v app.diagrams.net). Obsahová pravda = AUTOMATY.md.
+- Galerie/ruční vklad: automaty na NOVÉ existují (album à 1 h, vklad à 1 h);
+  chybí ZPĚTNÝ průchod album ↔ obsah videa → mezera č. 9 v AUTOMATY.md,
+  řeší `poradek_medii.py` s manifesty.
+
 **NOVÁ FRONTA (v tomhle pořadí):**
 1. **Pořádek v médiích**: skript `poradek_medii.py` (deterministický automat) —
    pro každou položku alba: datum + GPS → místo z tabulky; výstup = přehled
