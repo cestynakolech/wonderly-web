@@ -1,4 +1,59 @@
-## ⏩ KDE POKRAČOVAT (9. 8. 2026 v noci — deník: letošní cesty, silvestr, deník chyb)
+## ⏩ KDE POKRAČOVAT (9. 8. 2026 ráno — popisy roku 2025 NASAZENY)
+
+### ✅ HOTOVO A ŽIVÉ: 34 popisů míst roku 2025 (commit `6ab972a`)
+
+Loňská Normandie, Francie, Bavorsko i české zastávky mají popis ve všech čtyřech
+jazycích. Ověřeno curlem: `cesty.wonderly.cz/cesty/2025/` i mutace `…/en/2025/`
+a `…/de/2025/` vracejí 200 a obsahují nový text.
+
+**Rohatka seděla:** míst zůstává 53, `videoId` i galerie beze změny, bloků
+`popis:` 13 → 47, diff **204 přidaných řádků a 0 ubraných** (34 × 6). Šest míst
+zůstává bez vlastního popisu schválně — jsou to opakované návštěvy (Rothenburg 3×,
+Nördlingen, Dinkelsbühl, Dvůr Králové) a berou si ho od první návštěvy.
+Tím padá i bod 4 ze seznamu nálezů kontrolora níže.
+
+**Tři kontroloři, osm oprav.** Fakta prověřily dvě nezávislé dvojice (17 + 17 míst),
+překlady třetí kontrolor (102 překladů, 0 nálezů). Opraveno: poutní cesta ze Svitav
+vede na **Kalvárii**, ne na Vraclav (30 km daleko); Eisenberg leží **východně** od
+Jeny (přepočet GPS: 22 km, azimut 78°), ne severně; Esch je na plošině nad Moselou,
+ne mezi vinicemi; u Saint-Maurice-Colombier se nepodařilo doložit přehradní jezero;
+muzeum vylodění v Arromanches stojí na nábřeží, ne nad městem (nahoře je kino
+Arromanches 360); mrazová kotlina patří Horské Kvildě, ne sousední Kvildě; radnice
+ve Dvoře Králové je novorenesanční, renesanční je Městská věž; „Zámek proslula" →
+„proslavila".
+
+### 🔴 PRVNÍ PRÁCE PŘÍŠTĚ: popisy z DOLOŽENÉHO zdroje, ne z hlavy
+
+Deník chyb hlásí třídu **`fakt-bez-zdroje` 9× — to je nad prahem 3, takže platí
+„změň princip, ne záplatu"**. Osm z devíti vzniklo dnes: popisy jsem psal z vlastní
+znalosti a chyby našel až kontrolor. Princip má být opačný — text vzniká z ověřeného
+zdroje. Podklad už existuje: `Omega/skripty/data/fakta-mist.json` (76 míst, věty
+z Wikipedie i se `zdroj:`), jenže popisy roku 2025 se z něj nebraly.
+
+Návrh dalšího kroku: rozšířit sběr fakt na místa, která v `fakta-mist.json` chybí,
+a psát popisy z jeho vět — kontrolor pak neověřuje moji paměť, ale shodu se zdrojem.
+
+### ⏭️ ZBÝVÁ Z NÁLEZŮ KONTROLORA (nic z toho web nerozbíjí)
+
+1. Schongau a Geisingen mají `videoId` sestřihu, zatímco jejich **vlastní videa**
+   (`k4cqRFIsEQU`, `_M3govihGYc`) nejsou u žádného místa.
+2. Tři názvy videí mají **zdvojený datumový prefix** („25. 07. · 25. 07. · …").
+
+### 🔧 CO SE PŘITOM SPRAVILO
+
+- **Vrátný se přestal ptát na úklid vlastních dočasných souborů** (přání učitele
+  „stále odklikávám to samé"). `/Users/Shared/povoleni_hook.py` → `mazani_je_bezpecne`:
+  projde `rm`, jehož každý cíl je ve složce session nebo má předponu `tmp-`; ostatní
+  mazání se ptá dál. Obousměrný důkaz `Omega/skripty/testy/test_povoleni_hook.py`
+  (22 případů: 9 projít, 13 zeptat se).
+- **Deník chyb bere i opravy vlastní práce** (učitel: „zapisuj si opravy a chyby
+  všechny") — dnes 8 faktických oprav + 2 vlastní chyby.
+- **Commit vznikl s identitou `Your Name <you@example.com>`** — repozitář nemá
+  nastavené `user.name` / `user.email`. Zatím jen zapsáno, ať to učitel rozhodne.
+
+---
+
+## ⏩ PŘEDCHOZÍ (9. 8. 2026 v noci — deník: letošní cesty, silvestr, deník chyb)
 
 ### ✅ HOTOVÉ A ŽIVÉ (9. 8. 2026, 00:15–01:00)
 
