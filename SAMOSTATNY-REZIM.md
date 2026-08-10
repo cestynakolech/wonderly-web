@@ -84,7 +84,17 @@ modelů") — SPLNĚNO:**
 3. **Odložené video Luxeuil vyřešeno** týmž postupem jako Ballon: 86 s
    rozděleno na 3 díly po ~29 s, automat je zpracovává.
 
-**Pro krok D pozor (nález z kotev kroku B):** mediány GPS u dvojic
+**✅ KROK D — 1. část hotová (10. 8.):** `poradek_medii.py` dotřídil
+**26 médií do Le Lavandou**. Přesouvá jen se souhlasem DVOU nezávislých
+kritérií (časový rozsah místa z tabulky × nejbližší médium se známou
+polohou); log nese čas i sílu důkazu, nic se nemazalo, přesun v rámci téže
+fáze. Test 14/14. **Zbývá 79 nejednoznačných** — dny bez jediné fotky
+s polohou (32), bez času v názvu (18), překryv dvou míst (25); seznam
+v `Omega/dokumenty/PORADEK-MEDII.md`. Le Lavandou má nově 156 médií.
+**Pozn.:** přísná verze (soused do 90 min) dala 0 přesunů — ve dnech, kdy se
+fotilo jen telefonem bez GPS, soused neexistuje; proto druhá úroveň „týž den".
+
+**Pro krok D2 pozor (nález z kotev kroku B):** mediány GPS u dvojic
 Saint-Sauveur ↔ Luxeuil-les-Bains (0,8 km) a Neumagen-Dhron ↔ Trittenheim
 (0,9 km) jsou podezřele blízko — nejspíš špatně roztříděné fotky mezi
 sousedními místy. Prověřit při dotřídění (D2).
