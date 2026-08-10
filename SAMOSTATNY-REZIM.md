@@ -37,13 +37,32 @@ rozhodnutí vyhrává.)
    Zdvojené datumové prefixy na kanálu UŽ NEJSOU (doloženo soupisem).
    Test `testy/test_kontrola_kanalu.py` 13/13.
 
-**KROK A CELÝ HOTOV → další práce = krok B (trasa z tabulky).**
-Pozor při B: bod místa = medián GPS PŮVODNÍCH fotek (anonymizované GPS
-nemají); vizuální kontrola mapy chce GPU dráhu — střídat se s foto-hlídačem
-(teď dohání frontu anonymizace). Pak C (přepočet vadných map, předběžně 10)
-→ D (úplnost médií + dotřídění) → E (přestavby) → F (výměny, ~3 dny po
-5/den) → G (měřidla: kontrola_kanalu denně do tabulky — skript UŽ existuje,
-zbývá LaunchAgent).
+**KROKY A, B i C HOTOVY (10. 8.) → další práce = KROK D.**
+
+**B (trasa z tabulky):** `trasa_z_tabulky.py`, 16 → **31 zastávek, 2 826 km**
+(Ballon i Ornans poprvé v trase). Bod: medián GPS původních fotek; bez fotek
+rozhoduje VĚTŠINA zdrojů (pin deníku × databáze obcí × stará trasa) — pevné
+pořadí by zapsalo chybu, doloženo u Schongau (pin 5 km mimo). Zastávka nese
+i KLÍČ místa. Mapa vizuálně ověřena. Test 19/19. Záloha staré trasy vedle.
+
+**C (přepočet map):** `prepocet_map.py` — **17 videí, 10 k přestavbě,
+7 v pořádku**, což je TÝŽ seznam, k jakému došel plán z jiných dat.
+Koncová místa map rozhodnuta výpočtem: Mens → Mens, Sassenage →
+Saint-Denis-en-Bugey, Col d'Ornon → Saint-Tropez, Saint-Maurice → Ornans.
+Tabulka `Omega/dokumenty/PREPOCET-MAP.md` (i s příkazy pro krok E). Test 19/19.
+
+**Nález učitele 10. 8. (opraveno):** tabulka u Landshutu hlásila „schválit
+video" — zrušené pravidlo přežilo v KÓDU. Nově „nasadit video" jako krok
+automatu; fronta má `pozastavene_kroky()`, takže STOPKA krok hlásí (⏸), ale
+frontu nedrží (jinak by nejstarší místo zastavilo anonymizaci všech dalších).
+Test `test_fronta_stopka.py` 9/9.
+
+**Pro krok D pozor (nález z kotev kroku B):** mediány GPS u dvojic
+Saint-Sauveur ↔ Luxeuil-les-Bains (0,8 km) a Neumagen-Dhron ↔ Trittenheim
+(0,9 km) jsou podezřele blízko — nejspíš špatně roztříděné fotky mezi
+sousedními místy. Prověřit při dotřídění (D2).
+Pak E (přestavby) → F (výměny, ~3 dny po 5/den) → G (měřidla: skript
+`kontrola_kanalu.py` UŽ existuje, zbývá LaunchAgent).
 **Ballon:** klipové video hotové S mapou (12:21); fotky 20/37
 anonymizovaných, zbytek další probuzení hlídače; fotkové video AŽ po kroku B
 (mapa z nové trvalé trasy). Ven NIC do konce F.
