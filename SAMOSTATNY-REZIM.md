@@ -16,7 +16,15 @@ rozhodnutí vyhrává.)
    `testy/test_revize_pozastavene.py` (10/10); ostrý běh: 3 pozastavené,
    0 falešných nálezů. Bonus: revize našla opsané pravidlo `pripony-medii`
    v `mista_prehled.py` → nahrazeno importem z `roztridit_fotky.py`.
-2. A2: časy fotek do tabulky, deduplikace přes klic_mesta, Ramonchamp.
+2. ✅ A2 HOTOVO (10. 8., kolo WONDERLY): tabulka nese `foceno_od`/`foceno_do`
+   (plný čas; zdroje složky deníku + evidence alba — přežije úklid; ruční
+   vklad přes své kopie ve fotky-puvodni) a řadí se podle ČASU. `klic_mesta`
+   sjednocuje `_`/`-`/mezery/apostrofy → řádky 42→39, 0 duplicit (kalibrace:
+   335 názvů, 17 slitých skupin, všechny týž objekt; nahrávač 36/36).
+   Ramonchamp je v tabulce (zdroj = pokrytí `pridano_k`, sloupec „Kryto
+   videem", vlastní video se nechce). Důkaz `testy/test_mista_casy.py` 11/11.
+   Mezera (vědomá): ruční vklad UKLIZENÝCH míst čas nedodá — doplní
+   manifesty kroku D.
 3. A3: soupis kanálu + konsolidace evidence pokrytí (Le Bourg _v2!).
 Pak B (trasa z tabulky) → C (přepočet vadných map, předběžně 10) → D
 (úplnost médií + dotřídění) → E (přestavby) → F (výměny, ~3 dny po 5/den)
