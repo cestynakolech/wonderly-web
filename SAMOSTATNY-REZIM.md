@@ -94,7 +94,23 @@ v `Omega/dokumenty/PORADEK-MEDII.md`. Le Lavandou má nově 156 médií.
 **Pozn.:** přísná verze (soused do 90 min) dala 0 přesunů — ve dnech, kdy se
 fotilo jen telefonem bez GPS, soused neexistuje; proto druhá úroveň „týž den".
 
-**Pro krok D2 pozor (nález z kotev kroku B):** mediány GPS u dvojic
+**✅ KROK D2 — dvojice míst prověřeny (10. 8.):**
+- **Saint-Sauveur × Luxeuil-les-Bains = TOTÉŽ místo** (mediány GPS 130 m od
+  sebe, fotky z jednoho večera 3. 8. 20:42→21:23; 14 ze 116 fotek Luxeuilu je
+  blíž k mediánu Saint-Sauveur). Třídění podle nejbližší obce je rozdělilo.
+  Návrh na sloučení zapsán do `KE-SCHVALENI.md` — mění to počet míst na webu,
+  proto rozhodne učitel.
+- **Neumagen-Dhron × Trittenheim v pořádku** — 930 m, ani jedna fotka nepatří
+  k sousedovi. Falešné podezření uzavřeno.
+
+**🔴 DOMĚŘENO: anonymizace videa UNIKÁ PAMĚŤ** — neroste podle délky videa,
+ale lineárně s časem: **~2,7 GB / 20 s** (40 s → 2,9 GB, 100 s → 9,3 GB).
+Po ~3 minutách je na 25 GB a systém proces zabije. Kód snímky nedrží, únik je
+pod ním (nejspíš ONNX arena v insightface). **Řešení bez hledání úniku:**
+krájet dlouhá videa a každý kousek zpracovat ve VLASTNÍM procesu (vzor
+`anonymizuj_stara_videa_po_castech`). To je další práce na řadě.
+
+**Pozn. k dřívějšímu nálezu (vyřešeno):** mediány GPS u dvojic
 Saint-Sauveur ↔ Luxeuil-les-Bains (0,8 km) a Neumagen-Dhron ↔ Trittenheim
 (0,9 km) jsou podezřele blízko — nejspíš špatně roztříděné fotky mezi
 sousedními místy. Prověřit při dotřídění (D2).
