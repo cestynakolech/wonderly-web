@@ -70,6 +70,20 @@ proto ta paměť. Do kroku D/E doplnit i tam.
 **Riez** (další v pořadí) zraje z čekárny dnes ~10:03 (7 dní + 24 h klidu),
 64 fotek — do té doby se s ním schválně nic nedělá.
 
+**✅ ZADÁNÍ UČITELE 10. 8. („nestát a čekat" + „kontrolor z lokálních
+modelů") — SPLNĚNO:**
+1. **Mapy připravené dopředu:** `priprav_mapy.py` vyrobil **všech 10 map**
+   pro videa k přestavbě (`2026/mapa-trasy/pripravene/` + `prehled.json`
+   s koncovým místem a verzí trasy). Krok E už jen skládá video — mapa je
+   nejdražší část a NEJDE VEN, takže se dala udělat hned. Vizuálně ověřeno.
+2. **Hlídač zaseknutí:** `hlidac_zaseknuti.py` + `com.omega.hlidac-zaseknuti`
+   (à 30 min, ověřeno přes `launchctl kickstart`). Měří pohyb logů, JAK
+   agenti skončili (JETSAM!), žrouty paměti, SKUTEČNĚ držené zámky a frontu;
+   větu píše lokální model jen při nálezu. Test 16/16. Sám na sobě chytil
+   3 falešné poplachy (viz PRAVIDLA.md).
+3. **Odložené video Luxeuil vyřešeno** týmž postupem jako Ballon: 86 s
+   rozděleno na 3 díly po ~29 s, automat je zpracovává.
+
 **Pro krok D pozor (nález z kotev kroku B):** mediány GPS u dvojic
 Saint-Sauveur ↔ Luxeuil-les-Bains (0,8 km) a Neumagen-Dhron ↔ Trittenheim
 (0,9 km) jsou podezřele blízko — nejspíš špatně roztříděné fotky mezi
