@@ -57,6 +57,19 @@ automatu; fronta má `pozastavene_kroky()`, takže STOPKA krok hlásí (⏸), al
 frontu nedrží (jinak by nejstarší místo zastavilo anonymizaci všech dalších).
 Test `test_fronta_stopka.py` 9/9.
 
+**🔴 NÁLEZ 10. 8. ráno (učitel: „proč se nic neděje?") — OPRAVENO:**
+Hlídač anonymizace se **10,5 hodiny točil naprázdno**: města měl hotová
+(9. 8. 21:45 „vše hotovo") a pouštěl se na 17sekundové video z `_bez_polohy`,
+kde pokaždé vyskočil na **23,5 GB paměti** a systém ho zabil
+(`OS_REASON_JETSAM`) — do logu proto nepřibyl řádek a zvenčí to vypadalo,
+že se nic neděje. Nově se média bez polohy během STOPKY odkládají (patří
+do kroku D, dotřídění); hlídač doběhne v sekundách a Mac je volný.
+Důkaz `testy/test_hlidac_bez_polohy.py` 8/8.
+**Dluh:** krájení videa na kousky má jen automat starých videí, hlídač ne —
+proto ta paměť. Do kroku D/E doplnit i tam.
+**Riez** (další v pořadí) zraje z čekárny dnes ~10:03 (7 dní + 24 h klidu),
+64 fotek — do té doby se s ním schválně nic nedělá.
+
 **Pro krok D pozor (nález z kotev kroku B):** mediány GPS u dvojic
 Saint-Sauveur ↔ Luxeuil-les-Bains (0,8 km) a Neumagen-Dhron ↔ Trittenheim
 (0,9 km) jsou podezřele blízko — nejspíš špatně roztříděné fotky mezi
