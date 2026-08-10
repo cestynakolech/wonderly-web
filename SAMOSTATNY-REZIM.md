@@ -25,10 +25,25 @@ rozhodnutí vyhrává.)
    videem", vlastní video se nechce). Důkaz `testy/test_mista_casy.py` 11/11.
    Mezera (vědomá): ruční vklad UKLIZENÝCH míst čas nedodá — doplní
    manifesty kroku D.
-3. A3: soupis kanálu + konsolidace evidence pokrytí (Le Bourg _v2!).
-Pak B (trasa z tabulky) → C (přepočet vadných map, předběžně 10) → D
-(úplnost médií + dotřídění) → E (přestavby) → F (výměny, ~3 dny po 5/den)
-→ G (měřidla: kontrola_kanalu denně do tabulky).
+3. ✅ A3 HOTOVO (10. 8., kolo WONDERLY): `kontrola_kanalu.py` — soupis
+   kanálu s celými názvy (210 videí, `data/kanal-soupis.json`), pokrytí ze
+   3 zdrojů, nesoulady evidence opraveny `--oprav` (Le Bourg: doplněna
+   `pridana_mista` [Riez, Saint-Tropez]; po opravě 0 nesouladů; záloha
+   vedle evidence). Tabulka učiteli: `Omega/dokumenty/KANAL-POKRYTI.md`.
+   **Le Bourg _v2 VYJASNĚNO z logu nahrávače:** `_v2.mp4` → `wZSKCdxlmeg`
+   (31. 7. 21:18, 248 MB, leží v `_ceka-na-predelani`); `KEKONTROLE.mp4`
+   (bez v2) → `-FR8z-38PR8` (1. 8. 9:19, 527 MB) = PLATNÉ, má ho web.
+   Obě ID v tabulce; co s duplicitou rozhodne učitel (krok F).
+   Zdvojené datumové prefixy na kanálu UŽ NEJSOU (doloženo soupisem).
+   Test `testy/test_kontrola_kanalu.py` 13/13.
+
+**KROK A CELÝ HOTOV → další práce = krok B (trasa z tabulky).**
+Pozor při B: bod místa = medián GPS PŮVODNÍCH fotek (anonymizované GPS
+nemají); vizuální kontrola mapy chce GPU dráhu — střídat se s foto-hlídačem
+(teď dohání frontu anonymizace). Pak C (přepočet vadných map, předběžně 10)
+→ D (úplnost médií + dotřídění) → E (přestavby) → F (výměny, ~3 dny po
+5/den) → G (měřidla: kontrola_kanalu denně do tabulky — skript UŽ existuje,
+zbývá LaunchAgent).
 **Ballon:** klipové video hotové S mapou (12:21); fotky 20/37
 anonymizovaných, zbytek další probuzení hlídače; fotkové video AŽ po kroku B
 (mapa z nové trvalé trasy). Ven NIC do konce F.

@@ -127,6 +127,28 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-10 dopoledne (kolo WONDERLY: KROK A plánu PORADEK celý hotov)** —
+  Deník: vykonán kompletní krok A plánu `Omega/PLAN-PORADEK.md` v3.
+  **A1:** revize automatů zná STOPKU — pozastavené automaty čte z
+  `pozastavene-automaty.json`, hlásí je „pozastaven plánem" a obousměrně hlídá
+  porušení (nahraný v launchd / aktivní plist / bez evidence); test 10/10,
+  ostrý běh 3 pozastavené a 0 falešných poplachů. Bonus: revize sama našla
+  opsané pravidlo `pripony-medii` → nahrazeno importem z domova.
+  **A2:** tabulka míst nese plný ČAS první a poslední fotky (zdroje: složky
+  deníku + evidence alba, která přežije úklid) a řadí se podle času;
+  `klic_mesta` sjednocuje oddělovače a apostrofy → 42→39 řádků, 0 duplicit
+  (kalibrace na 335 názvech: 17 slitých skupin, všechny týž objekt; testy
+  nahrávače 36/36). Ramonchamp je poprvé v tabulce (zdroj = pokrytí
+  `pridano_k`, sloupec „Kryto videem", vlastní video se po něm nechce).
+  **A3:** nový `kontrola_kanalu.py` — soupis kanálu s CELÝMI názvy
+  (210 videí), pokrytí ze tří zdrojů, nesoulad evidence Le Bourg srovnán
+  (`pridana_mista` += Riez, Saint-Tropez; poté 0 nesouladů). Z logu nahrávače
+  doloženo: `_v2` soubor = `wZSKCdxlmeg` (31. 7., 248 MB, čeká na předělání),
+  platné je `-FR8z-38PR8` (1. 8., 527 MB, má ho web) — „v2" zase neznamenalo
+  novější. Tabulka pro učitele: `Omega/dokumenty/KANAL-POKRYTI.md`; zdvojené
+  datumové prefixy na kanálu už nejsou (doloženo soupisem). Tři nové testy
+  (10+11+13 kontrol) v denní revizi. **Na řadě: krok B — trasa z tabulky.**
+
 - **2026-08-08 v noci (kolo WONDERLY: trojice „Délka" + dvě opravy měřidel)** —
   Fyzika 6 má polemiku u 10 z 21 podtémat; další díra ve veličinách je **Délka**
   (hmotnost, objem i hustota ji mají). Vznikla **trojice krátkých dílů**: metr
