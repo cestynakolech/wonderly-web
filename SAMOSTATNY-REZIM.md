@@ -1,3 +1,40 @@
+## 🟢 ZMĚNA ZPŮSOBU PRÁCE (učitel 10. 8. odpoledne)
+
+*„Záměr je všechnu práci vrhnout vždy na video, které je v pořadí, jaké se má
+nyní nasadit. Videa se budou dělat v pořadí cesty, jinak je to nelogické."*
+A: *„vše na další video a mezitím dodělat web."*
+→ **Nedělat kroky plánu do šířky. Vzít PRVNÍ video z fronty, dotáhnout ho
+celé (kontroly → nasazení → YouTube → web) a teprve pak další.**
+
+**✅ HOTOVO A ŽIVÉ (10. 8.):**
+1. **Landshut (6. 7.)** — `uuRd8CtlUJI`, 1:30. Kontroly: mapa 1/1 v pořádku,
+   zvuk −25,8 dB, obraz = zvuk (90,0 s), faststart, anonymizace ověřena
+   pohledem (cizí muž v pozadí rozmazaný, tváře učitele a manželky ostré).
+   Web: dostal VLASTNÍ video — do té doby u něj visel sestřih německé části
+   `u4NmKbMRhiE` (ten zůstává v „Videa z cesty"). Ověřeno curlem.
+2. **Ballon d'Alsace (18. 7.)** — `ghBZ3WUwQPY`, 12:21. Mapa 9/9 a **910 km
+   přesně sedí na součet úseků nové trasy** (kotva kroku B). Zvuk −16,8 dB,
+   obraz = zvuk (741,52 s), faststart, anonymizace ověřena kontaktním listem
+   5×5. Web: **nové místo** `ballon-d-alsace` s popisem z doloženého zdroje
+   (fr.wikipedia, 90 vět) ve 4 jazycích. Ověřeno curlem.
+
+**🔴 DVĚ PASTI, KTERÉ TO ODHALILO (obě opravené):**
+- **Přerušený upload vyrobí duplicitu.** Přenos Landshutu spadl na „Broken
+  pipe" v 9 %, ale video na kanálu VZNIKLO (délka `P0D`, stav `uploaded`) —
+  druhý pokus pak nahrál druhou kopii. Vadný zbytek `nZzK5Rv7Mbw` přepnut na
+  SOUKROMÝ (nemazán). Oprava: `nahraj_na_youtube.uklid_po_prerusenem_uploadu()`
+  se po každé chybě zeptá kanálu a zbytek sám přepne; důkaz v
+  `testy/test_nahravac_bez_duplicit.py` (36 → **40 kontrol**).
+- **Název z názvu složky přijde o apostrof** („Ballon-dAlsace"). Na kanálu
+  opraveno ručně; POZOR: `videos().update` s pouhým `title` projde bez chyby
+  a NIC nezmění — API vyžaduje i `categoryId` a `description`.
+  **Dluh:** `hezky_nazev()` by měl umět apostrof sám (vzor
+  `trasa_uvod.varianty_dotazu`), jinak se to bude opakovat u dalších míst.
+
+**➡️ DALŠÍ V POŘADÍ: Mens (1. 8.)** — má vadnou mapu (jedna z 10), ale nová
+mapa je **připravená** v `mapa-trasy/pripravene/mens.png` (končí u Mens).
+Postup: přestavět video s tou mapou → kontroly → nasadit → YouTube → web.
+
 ## ⏩ KDE POKRAČOVAT PO SMAZÁNÍ KONTEXTU (10. 8. ~2:00, ČISTÝ ŠTÍT)
 
 **Dokumentace srovnána a prošla smyčkou kontrola→oprava→kontrola (verdikt
