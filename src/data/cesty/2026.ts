@@ -164,7 +164,9 @@ export const rok2026: Rok = {
 			// trasa_uvod.py; chyby si všiml až druhý pin téhož města (únorová cesta).
 			x: 325.2,
 			y: 355.8,
-			videoId: 'u4NmKbMRhiE',
+			// vlastní video Landshutu (10. 8. 2026) — do té doby tu visel sestřih
+			// celé německé části `u4NmKbMRhiE`, který zůstává v „Videa z cesty"
+			videoId: 'uuRd8CtlUJI',
 			popis: {
 				cs: 'Historické město na řece Isar v Dolním Bavorsku. Nad městem se tyčí hrad Trausnitz a kostel sv. Martina s nejvyšší cihlovou věží na světě (130,6 m).',
 				en: "A historic town on the Isar river in Lower Bavaria. Trausnitz Castle towers above the town, along with St. Martin's Church and the world's tallest brick tower (130.6 m).",
@@ -490,6 +492,7 @@ export const rok2026: Rok = {
 	],
 	videa: [
 		{ id: '-FR8z-38PR8', nazev: '23. 07. · Le Bourg-d\'Oisans (Francie)', odkaz: 'https://youtu.be/-FR8z-38PR8' },
+		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
 		{ id: 'k4cqRFIsEQU', nazev: '07. 07. · Schongau (Německo)', odkaz: 'https://youtu.be/k4cqRFIsEQU' },
 		{ id: '_M3govihGYc', nazev: '08. 07. · Geisingen (Německo)', odkaz: 'https://youtu.be/_M3govihGYc' },
