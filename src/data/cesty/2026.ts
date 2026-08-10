@@ -238,6 +238,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'salbert',
+			galerie: 'cesty/2026/salbert',
 			nazev: 'Salbert',
 			zeme: 'Francie',
 			datum: '10. 7. 2026',
@@ -261,6 +262,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'le-thillot',
+			galerie: 'cesty/2026/le-thillot',
 			nazev: 'Le Thillot',
 			zeme: 'Francie',
 			datum: '12. 7. 2026',
@@ -284,6 +286,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'rupt-sur-moselle',
+			galerie: 'cesty/2026/rupt-sur-moselle',
 			nazev: 'Rupt-sur-Moselle',
 			zeme: 'Francie',
 			datum: '14. 7. 2026',
@@ -307,6 +310,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'saint-maurice-sur-moselle',
+			galerie: 'cesty/2026/saint-maurice-sur-moselle',
 			nazev: 'Saint-Maurice-sur-Moselle',
 			zeme: 'Francie',
 			datum: '17. 7. 2026',
@@ -330,6 +334,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'ballon-d-alsace',
+			galerie: 'cesty/2026/ballon-d-alsace',
 			nazev: "Ballon d'Alsace",
 			zeme: 'Francie',
 			// datum doloženo z fotek: 13 JPG + klipy z 18. 7. (15:53–16:32) od sedla
@@ -348,6 +353,7 @@ export const rok2026: Rok = {
 		},
 		{
 			slug: 'ornans',
+			galerie: 'cesty/2026/ornans',
 			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
 			obyvatele: 4000,
 			nazev: 'Ornans',
