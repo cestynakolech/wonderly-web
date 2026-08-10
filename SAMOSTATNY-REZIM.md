@@ -103,12 +103,17 @@ fotilo jen telefonem bez GPS, soused neexistuje; proto druhá úroveň „týž 
 - **Neumagen-Dhron × Trittenheim v pořádku** — 930 m, ani jedna fotka nepatří
   k sousedovi. Falešné podezření uzavřeno.
 
-**🔴 DOMĚŘENO: anonymizace videa UNIKÁ PAMĚŤ** — neroste podle délky videa,
-ale lineárně s časem: **~2,7 GB / 20 s** (40 s → 2,9 GB, 100 s → 9,3 GB).
-Po ~3 minutách je na 25 GB a systém proces zabije. Kód snímky nedrží, únik je
-pod ním (nejspíš ONNX arena v insightface). **Řešení bez hledání úniku:**
-krájet dlouhá videa a každý kousek zpracovat ve VLASTNÍM procesu (vzor
-`anonymizuj_stara_videa_po_castech`). To je další práce na řadě.
+**⚠️ VLASTNÍ CHYBA A JEJÍ OPRAVA — „únik paměti" NEEXISTUJE.**
+Ze tří prvních odečtů (0 → 2,9 → 5,5 GB) jsem vyhlásil lineární únik
+2,7 GB/20 s a zapsal to sem i do PRAVIDEL. **Doběhnuté měření (39 vzorků,
+13 minut) to vyvrátilo:** paměť kolísá 2,3–9,3 GB, průměr 5,9 GB, první
+i poslední třetina shodně 6,0 GB — **žádný trend**. Ty tři body byly náběh.
+Co platí: běžná anonymizace bere **3–9 GB a je v pořádku**; oněch 23,5 GB
+a zabití systémem způsobilo JEDNO konkrétní video z `_bez_polohy` (17 s),
+které je odložené člověku a jehož příčinu neznám. Krájení dlouhých videí
+tedy zůstává jako POJISTKA, ne jako oprava úniku — priorita klesá.
+**Doklad, že to běží:** ten samý běh zpracoval Le Lavandou ze 47 na
+**60 anonymizovaných** souborů bez jediného zabití.
 
 **Pozn. k dřívějšímu nálezu (vyřešeno):** mediány GPS u dvojic
 Saint-Sauveur ↔ Luxeuil-les-Bains (0,8 km) a Neumagen-Dhron ↔ Trittenheim
