@@ -329,6 +329,24 @@ export const rok2026: Rok = {
 			},
 		},
 		{
+			slug: 'ballon-d-alsace',
+			nazev: "Ballon d'Alsace",
+			zeme: 'Francie',
+			// datum doloženo z fotek: 13 JPG + klipy z 18. 7. (15:53–16:32) od sedla
+			datum: '18. 7. 2026',
+			vyjezd: 6,
+			// medián GPS původních fotek 47.83845, 6.83512 → projekce_mapy
+			x: 281.7,
+			y: 363.7,
+			videoId: 'ghBZ3WUwQPY',
+			popis: {
+				cs: 'Vrchol v jižních Vogézách (1 247 m) na pomezí departementů Haut-Rhin, Vosges a Territoire de Belfort. Za jasného počasí je odtud vidět Schwarzwald na východě, Jura a Belfortská brána na jihu a při dobré viditelnosti i Bernské Alpy s Mont Blancem. Mezi lety 1871 a 1919 vedla přes vrchol francouzsko-německá hranice; dnes leží hora v regionálním přírodním parku Ballons des Vosges. Vyjeli jsme sem 18. července za horskou etapou Tour de France — nahoře nás čekala reklamní karavana i celé pole závodníků.',
+				en: 'A summit in the southern Vosges (1,247 m) where the departments of Haut-Rhin, Vosges and Territoire de Belfort meet. On a clear day it looks out over the Black Forest to the east, the Jura and the Belfort Gap to the south, and as far as the Bernese Alps and Mont Blanc. From 1871 to 1919 the Franco-German border ran across the summit; today the mountain lies within the Ballons des Vosges regional nature park. We drove up on 18 July for a Tour de France mountain stage — the publicity caravan and the whole peloton came past.',
+				de: 'Ein Gipfel in den Südvogesen (1 247 m) am Dreiländereck der Départements Haut-Rhin, Vosges und Territoire de Belfort. Bei klarem Wetter reicht der Blick zum Schwarzwald im Osten, zum Jura und zur Burgundischen Pforte im Süden und bis zu den Berner Alpen mit dem Mont Blanc. Von 1871 bis 1919 verlief die deutsch-französische Grenze über den Gipfel; heute liegt der Berg im Regionalen Naturpark Ballons des Vosges. Am 18. Juli fuhren wir zur Bergetappe der Tour de France hinauf — oben zogen die Werbekarawane und das gesamte Fahrerfeld vorbei.',
+				fr: "Sommet du sud du massif vosgien (1 247 m), aux confins des départements du Haut-Rhin, des Vosges et du Territoire de Belfort. Par temps clair, on y découvre la Forêt-Noire à l'est, le Jura et la trouée de Belfort au sud, et jusqu'aux Alpes bernoises et au mont Blanc. De 1871 à 1919, la frontière franco-allemande passait par le sommet ; la montagne se trouve aujourd'hui dans le parc naturel régional des Ballons des Vosges. Nous y sommes montés le 18 juillet pour une étape de montagne du Tour de France — la caravane publicitaire et tout le peloton sont passés devant nous.",
+			},
+		},
+		{
 			slug: 'ornans',
 			/** přibližný počet obyvatel — jen pro pojmenování shluku na mapě */
 			obyvatele: 4000,
@@ -492,6 +510,7 @@ export const rok2026: Rok = {
 	],
 	videa: [
 		{ id: '-FR8z-38PR8', nazev: '23. 07. · Le Bourg-d\'Oisans (Francie)', odkaz: 'https://youtu.be/-FR8z-38PR8' },
+		{ id: 'ghBZ3WUwQPY', nazev: "18. 07. · Ballon d'Alsace (Francie)", odkaz: 'https://youtu.be/ghBZ3WUwQPY' },
 		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
 		{ id: 'k4cqRFIsEQU', nazev: '07. 07. · Schongau (Německo)', odkaz: 'https://youtu.be/k4cqRFIsEQU' },
