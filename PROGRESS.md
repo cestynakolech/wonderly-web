@@ -127,6 +127,38 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-10 (celý den: plán POŘÁDEK A–D + ZMĚNA ZPŮSOBU PRÁCE + 2 videa ven)** —
+  Dopoledne dojety **kroky A, B, C a D** plánu `Omega/PLAN-PORADEK.md`: revize
+  automatů zná STOPKU; tabulka míst má přesné ČASY focení, je bez duplicit
+  (42 → 39 řádků) a poprvé v ní je Ramonchamp; **trasa se staví z tabulky —
+  16 → 31 zastávek, 2 826 km** (Ballon i Ornans v ní byly poprvé); spočítáno,
+  že **10 map je vadných a 7 v pořádku** — týž seznam, k jakému došel plán
+  z jiných dat; dotříděno 26 médií do Le Lavandou se souhlasem dvou
+  nezávislých kritérií.
+  **Odpoledne učitel změnil způsob práce:** *„všechnu práci vrhnout vždy na
+  video, které je v pořadí; videa se budou dělat v pořadí cesty, jinak je to
+  nelogické"* a *„vše na další video a mezitím dodělat web"*. Podle toho jsou
+  **hotová a živá dvě videa**: **Landshut** (`uuRd8CtlUJI`, 1:30) a **Ballon
+  d'Alsace** (`ghBZ3WUwQPY`, 12:21) — obě prošly kontrolami (mapa, zvuk,
+  délky, anonymizace pohledem), jsou na kanálu i na webu, ověřeno curlem.
+  Ballon je na webu **nové místo** s popisem ve 4 jazycích z doloženého
+  zdroje. Landshut dostal vlastní video místo sestřihu německé části.
+  **Tři poruchy nalezené a opravené:** hlídač anonymizace se 10,5 h točil
+  naprázdno (systém ho zabíjel pro paměť na jednom videu); tabulka hlásila
+  zrušený krok „schválit video" — zrušené pravidlo přežilo v KÓDU; přerušený
+  upload vyrobil na kanálu duplicitu (vadný zbytek přepnut na soukromý,
+  nahrávač se teď po chybě sám ptá kanálu).
+  **Dvě vlastní chyby přiznané a opravené:** ze tří vzorků paměti jsem
+  vyhlásil „lineární únik" — doběhnuté měření (39 vzorků) to vyvrátilo;
+  a hlídač zaseknutí spustil čtyři falešné poplachy, než se doladil.
+  **Nové nástroje:** `hlidac_zaseknuti.py` (à 30 min, mluví lokálním modelem
+  jen při nálezu), `priprav_mapy.py` (10 map dopředu), `poradek_medii.py`,
+  `prepocet_map.py`, `trasa_z_tabulky.py`, `kontrola_kanalu.py` — každý
+  s obousměrným důkazem (dohromady ~120 kontrol).
+  **Tabulka nově ukazuje** sloupec „Mapa připravena" a dva různé časy videa
+  (výroba × nasazení) — na přání učitele: *„vše, co vytvoříš, zaznamenat do
+  tabulky, je to důležité pro kontrolu a plánování"*.
+
 - **2026-08-10 dopoledne (kolo WONDERLY: KROK A plánu PORADEK celý hotov)** —
   Deník: vykonán kompletní krok A plánu `Omega/PLAN-PORADEK.md` v3.
   **A1:** revize automatů zná STOPKU — pozastavené automaty čte z

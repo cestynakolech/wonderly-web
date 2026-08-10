@@ -1,3 +1,32 @@
+## 🔴🔴 ZAČNI TADY (uloženo 10. 8. ~14:30 před smazáním kontextu)
+
+**1) NA POZADÍ BĚŽÍ ANONYMIZACE — nejdřív se podívej, jestli doběhla.**
+Smyčka pouští hlídače po dávkách (paměť se tak pokaždé uvolní a systém
+proces nezabije): **`Omega/skripty/anon_smycka.sh`** (uložena natrvalo).
+Stav při uložení: **čekalo 107 souborů**, Le Lavandou mělo 74 z 156
+anonymizovaných; smyčka běžela ve 3. kole ze 40.
+Kontrola: `venv/bin/python3 -c "import hlidac_zaseknuti as h;
+print(h.ceka_prace_na_anonymizaci())"`. Když smyčka skončila a čeká > 0,
+pusť ji znovu (je to obyčejný `for` cyklus, nic si nepamatuje).
+
+**2) POTOM: Mens (1. 8.) — další video v pořadí.**
+- Mens **kryje i Le Lavandou**, proto se čekalo na jeho anonymizaci; bez ní
+  by video přišlo o dvě třetiny materiálu.
+- Mapa je **hotová dopředu**: `mapa-trasy/pripravene/mens.png` (končí u Mens,
+  protože Le Lavandou je starší zastávka). Do stavby se vkládá tak, že se
+  zkopíruje jako `000-uvod-trasa.png` do dočasné složky a předá přes
+  `sestavit_video2.py --mapa <složka>` (vzor: `.tmp-video-ballon-mapa`).
+- Platná verze videa je `Mens_FR_KEKONTROLE_v2.mp4` (9. 8. 22:42, 35 MB),
+  starší `…KEKONTROLE.mp4` je z 02:34 a 13 MB.
+- Pak STEJNÝ postup jako u Landshutu a Ballonu (viz níže): kontroly → přesun
+  do `nasazeno/` → `nahraj_na_youtube.py` → web (2026.ts: místo, `videoId`
+  a ZÁROVEŇ řádek v `videa:`, jinak brána shodí build) → `npm run build`,
+  push, ověřit curlem.
+- **Pak Sassenage** (mapa připravená, končí u Saint-Denis-en-Bugey).
+
+**3) Zbývá 8 dalších map k přestavbě** — všechny už mají mapu připravenou
+(`mapa-trasy/pripravene/`, přehled `prehled.json`), pořadí = pořadí cesty.
+
 ## 🟢 ZMĚNA ZPŮSOBU PRÁCE (učitel 10. 8. odpoledne)
 
 *„Záměr je všechnu práci vrhnout vždy na video, které je v pořadí, jaké se má
