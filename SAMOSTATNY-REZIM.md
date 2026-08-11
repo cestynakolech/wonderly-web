@@ -29,10 +29,22 @@ totéž místo, 130 m; rozhodne učitel).
 **② FOTKY DO GALERIÍ:** až kontrola kvality doběhne — `vyber_fotky_na_web.py`
 pro Riez, Saint-Tropez, Sassenage a obě Bugey.
 
-**③ ZÍTRA 12. 8. KVÓTA:** v `nasazeno/` čeká 5 dílů (Saint-Amour 1z2, 2z2;
-Salins 1z3, 2z3, 3z3) = přesně denní příděl. `venv/bin/python3
-nahraj_na_youtube.py` (nahrávač je pozastaven STOPKOU, pustit ručně), pak
-obě místa dopsat na web a ověřit curlem.
+**③ ZÍTRA 12. 8. KVÓTA — NAHRAJE AUTOMAT SÁM (změna 11. 8. večer, pokyn
+učitele):** `com.omega.youtube-nahravac` je ZNOVU ZAPNUT (plist vrácen,
+evidence stopky opravena, buzení 9:15 a 21:15). V `nasazeno/` čeká 5 dílů
+(Saint-Amour 1z2, 2z2; Salins 1z3, 2z3, 3z3) = přesně denní příděl.
+**Pořadí podle data focení je doloženo v kódu** (učitel to zdůraznil):
+dávka se řadí `poradi_podle_cesty` (tabulka míst → datum fotek → čas
+souboru, „nikdy název") a před KAŽDÝM nahráním se ptá `fronta_mist` —
+za překážkou dávka končí. Ostrý test 11. 8. 19:33: našel 5 čekajících,
+kanál hlásil 5/5, správně odmítl („zbytek zítra"). Po ranním nahrání
+zbývá RUČNĚ: obě místa dopsat na web (`2026.ts` + popisy ze zdroje)
+a ověřit curlem.
+
+**NOVÉ TRVALÉ PRAVIDLO (učitel 11. 8.): ZE ŠKOLY JE NEJDŮLEŽITĚJŠÍ
+FYZIKA** — volná kola na webu dělat přednostně ve fyzice (názornost F8:
+13 podtémat, F9: 10 podtémat, simulace, kvízy, podkásty); informatika
+a Pč až po ní. Zapsáno ve skillu, PRAVIDLA.md i paměti.
 
 **Drobnosti (nerozhodovat, jen vědět):** MISTA.xlsx pořád otevřený v Excelu
 (ukazuje starou kopii; zavřít bez uložení) · sjednoceno „vteřiny"→ spisovně
