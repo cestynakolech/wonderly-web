@@ -652,6 +652,17 @@ export const rok2026: Rok = {
 				fr: 'Saint-Denis-en-Bugey est située dans le Bugey, en banlieue d’Ambérieu-en-Bugey. Le territoire est relativement plat, sauf la colline d’origine alluviale où a été construit un château : détruit vers 1600 par le duc de Biron, il n’en subsiste à ce jour que la tour carrée. La commune repose sur un substrat alluvial datant principalement de l’ère Quaternaire. Les pierres utilisées dans la construction sont principalement ces galets d’origine fluvio-glaciaire, et au XXe siècle on exploitait dans la localité deux sablières et deux carrières de gravier. La commune est traversée par la route départementale 1075 (ancienne N 75 allant de Bourg-en-Bresse à Sisteron) ainsi que par la voie de chemin de fer d’Ambérieu-en-Bugey à Lyon.',
 			},
 		},
+		{
+			slug: 'luxeuil-les-bains',
+			galerie: 'cesty/2026/luxeuil-les-bains',
+			nazev: 'Luxeuil-les-Bains',
+			zeme: 'Francie',
+			datum: '3. 8. 2026',
+			vyjezd: 6,
+			x: 277.7,
+			y: 363.8,
+			popis: { cs: '' },
+		},
 	],
 	videa: [
 		{ id: '1I2qFVnNU3M', nazev: '01. 08. · Sassenage (Francie)', odkaz: 'https://youtu.be/1I2qFVnNU3M' },
