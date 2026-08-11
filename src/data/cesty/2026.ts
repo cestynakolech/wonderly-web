@@ -685,6 +685,17 @@ export const rok2026: Rok = {
 			y: 363.9,
 			popis: { cs: '' },
 		},
+		{
+			slug: 'salins-les-bains',
+			galerie: 'cesty/2026/salins-les-bains',
+			nazev: 'Salins-les-Bains',
+			zeme: 'Francie',
+			datum: '3. 8. 2026',
+			vyjezd: 6,
+			x: 273.1,
+			y: 374.2,
+			popis: { cs: '' },
+		},
 	],
 	videa: [
 		{ id: '1I2qFVnNU3M', nazev: '01. 08. · Sassenage (Francie)', odkaz: 'https://youtu.be/1I2qFVnNU3M' },
