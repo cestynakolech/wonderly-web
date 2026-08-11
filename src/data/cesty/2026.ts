@@ -674,6 +674,17 @@ export const rok2026: Rok = {
 			y: 363.8,
 			popis: { cs: '' },
 		},
+		{
+			slug: 'saint-sauveur',
+			galerie: 'cesty/2026/saint-sauveur',
+			nazev: 'Saint-Sauveur',
+			zeme: 'Francie',
+			datum: '3. 8. 2026',
+			vyjezd: 6,
+			x: 277.9,
+			y: 363.9,
+			popis: { cs: '' },
+		},
 	],
 	videa: [
 		{ id: '1I2qFVnNU3M', nazev: '01. 08. · Sassenage (Francie)', odkaz: 'https://youtu.be/1I2qFVnNU3M' },
