@@ -63,16 +63,25 @@ je ve skillu `/wonderly` (úvodní blok) a v PRAVIDLA.md.
     fotek za 20 minut a přitom správně ustoupil videu i běžícím ffmpegům.
     Zbývá ~340 fotek, tj. pár hodin místo devíti dnů.
 
-**🔴 PRVNÍ VĚC PŘÍŠTĚ: kvóta YouTube 12. 8.** — v `nasazeno/` čeká **5 dílů**
-(Saint-Amour 1z2, 2z2; Salins-les-Bains 1z3, 2z3, 3z3) = přesně denní kvóta.
-Pustit ručně `venv/bin/python3 nahraj_na_youtube.py`, pak obě místa dopsat na
-web (`2026.ts`: místo + `videoId` + řádky v `videa:`), popisy přes
-`fakta_mist.py --zdroj <slug> fr "<Název>"`, a ověřit curlem.
+**🔴 POŘADÍ PRÁCE HNED PO /clear (po kroku ⓪ — audit návodů do 0 nálezů):**
 
-**POTOM: fotky do galerií** — Riez, Saint-Tropez, Sassenage a obě Bugey mají
-galerii v datech, ale čekají na kontrolu kvality (běží sama, viz bod 10).
-Až doběhne, pustit `vyber_fotky_na_web.py`; teprve pak se uklidí i jejich
-zdrojové fotky (VideoAutomat to hlásí jako ODLOŽENO).
+**① VÝROBA DOPŘEDU (hned):** zkontrolovat, jestli vzniklo video Saint-Sauveur
+(čekač z minulé session ho spouští po doběhnutí anonymizace; když session
+skončila dřív, pustit `venv/bin/python3 vyrob_video_automat.py` — hlídá si
+dráhu i frontu sám). Hotové díly zkontrolovat `kontrola_videa.py --mesto
+Saint-Sauveur_FR` + mapa a anonymizace OKEM, pak do `nasazeno/`. Stejně
+pokračovat dalšími místy z fronty (Luxeuil, pak 7denní čekání u německých).
+
+**② FOTKY DO GALERIÍ (jakmile kontrola kvality doběhne — běží sama à 5 min):**
+`vyber_fotky_na_web.py` pro Riez, Saint-Tropez, Sassenage a obě Bugey;
+teprve pak se uklidí jejich zdrojové fotky (VideoAutomat hlásí ODLOŽENO).
+
+**③ NAHRÁT NA YOUTUBE (jakmile kvóta dovolí — obnovuje se 12. 8.):**
+v `nasazeno/` čeká **5 dílů** (Saint-Amour 1z2, 2z2; Salins 1z3, 2z3, 3z3)
+= přesně denní příděl. `venv/bin/python3 nahraj_na_youtube.py`, pak obě
+místa dopsat na web (`2026.ts`: místo + `videoId` + řádky v `videa:`),
+popisy přes `fakta_mist.py --zdroj <slug> fr "<Název>"` a ověřit curlem.
+**Kvóta blokuje JEN tenhle krok — ① a ② na ni nikdy nečekají.**
 
 **Drobnost:** `MISTA.xlsx` je otevřený v Excelu — nová data (41 míst) jsou na
 disku, ale Excel ukazuje starou kopii. Zavřít BEZ ukládání a otevřít znovu.
