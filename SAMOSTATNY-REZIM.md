@@ -1,4 +1,52 @@
-## 🔴🔴 ZAČNI TADY (uloženo 10. 8. ~20:40)
+## 🔴🔴 ZAČNI TADY (uloženo 11. 8. ~11:10)
+
+**HOTOVO DNES DOPOLEDNE (nic z toho už nedělej):**
+1. **Kvóta YouTube 5/5 vyčerpána** — nahráno **Riez `Nsrtgcc4OdU`**, **Le Lavandou
+   díl 3/4 `lQJhPVWHa8o`**, **Saint-Tropez `GiIMjJ7Hn1k`**, **Mens `oVH-Bntzf2M`**,
+   **Sassenage v4 `1I2qFVnNU3M`**. Další nahrávání až **12. 8.** (nahrávač je
+   pozastavený STOPKOU, pustit ručně `venv/bin/python3 nahraj_na_youtube.py`).
+2. **Šest nových míst na webu a živých** (commit `961c8bc`): Riez, Saint-Tropez,
+   Mens, Sassenage, Saint-Sorlin-en-Bugey, Saint-Denis-en-Bugey — všechna
+   s videem, galerií a popisem ve 4 jazycích z doloženého zdroje.
+   Sassenage v4 kryje i obě Bugey (tři místa na jedno video — kontrolor
+   upozorňuje, že je to nový rekord a stojí za rozhodnutí učitele).
+3. **Nezávislá kontrola popisů: 14 nálezů, všech 14 opraveno** (3 závažné:
+   u Saint-Denis stál na kopci „zámek", ačkoli hrad kolem 1600 zbořil vévoda
+   z Bironu a zbyla věž; kádě sassenagské byly posazené k soutoku místo do
+   ohybu vrásy; Saint-Tropez měl osvobození „po druhé světové válce" místo
+   při vylodění 1944).
+4. **Výjezd 6 prodloužen do 10. 8. 2026** (byl do 26. 7.). Cesta pokračovala —
+   fotky jdou nepřetržitě den po dni. **Až cesta skončí, datum upřesnit.**
+   Kvůli tomuhle týden padalo zakládání míst z fotek.
+5. **Tři opravy nástrojů, které to odhalilo:**
+   • `pridat_mesto.py` vypisuje při pádu buildu i stdout (důvod hlásí BRÁNA na
+     stdout, ne stderr — automat proto den co den hlásil holé „Sestavení webu
+     selhalo" bez příčiny), doplňuje `vyjezd:` podle data a vkládá místo
+     CHRONOLOGICKY (dosud lepil na konec pole → brána hlásila čáru tam a zpět);
+   • `mista_prehled.py` zná seznam `videa:` roku, takže sestřih bez vlastního
+     místa („nemecko jen hudba") se už nehlásí jako „založit na webu".
+     Obousměrně ověřeno (bez přehledu si o založení řekne, skutečné místo taky).
+6. **Trvalá trasa přepočítána do konce cesty** (32 zastávek, 2 936,7 km) a
+   vyrobena mapa `pripravene/saint-amour.png` (2 292 km, prohlédnuta očima;
+   kotva: 2 936,7 − 644,8 km zbylých úseků = 2 292).
+7. **Fotky Mens v galerii** (5 nahráno), úklid Mens proběhl.
+
+**🔴 PRVNÍ VĚC PŘÍŠTĚ: video Saint-Amour (2. 8.).** Běželo na pozadí čekání na
+volnou GPU dráhu (drží ji hlídač nových fotek) a pak `vyrob_video_automat.py`.
+Zkontrolovat, jestli video vzniklo; když ne, pustit automat znovu — mapu i
+materiál (90 médií) má připravené. Po něm Salins-les-Bains (104 médií).
+
+**POTOM: fotky do galerií** — Riez, Saint-Tropez, Sassenage a obě Bugey mají
+galerii v datech, ale fotky ještě neprošly kontrolou kvality (automat
+`com.omega.foto-kontrola-kvality` je dohání po dávkách, ~370 čekalo). Bez toho
+se neuklidí ani jejich zdrojové fotky. Pustit `vyber_fotky_na_web.py`.
+
+**Drobnost:** `MISTA.xlsx` je otevřený v Excelu — nová data (41 míst) jsou na
+disku, ale Excel ukazuje starou kopii. Zavřít BEZ ukládání a otevřít znovu.
+
+---
+
+## 🔴 Starší stav (uloženo 10. 8. ~20:40)
 
 **HOTOVO DNES ODPOLEDNE (nic z toho už nedělej):**
 1. **Anonymizace doběhla** — 0 souborů čeká (17 médií bez polohy odloženo do kroku D).
