@@ -1,4 +1,47 @@
-## 🔴🔴 ZAČNI TADY (uloženo 11. 8. ~14:30, doplněno zadání učitele)
+## 🔴🔴 ZAČNI TADY (stav 11. 8. ~18:00, po kole WONDERLY)
+
+**⓪ AUDIT NÁVODŮ HOTOV (0 nálezů po 3 kolech).** Opraveno 9 věcí, hlavní:
+skill + PRAVIDLA tvrdily „popisy míst píše člověk" (platí: píše Claude ze
+zdroje, ruční roky {2025, 2026} přímo do .ts); dokumentace vedla „7 modelů,
+llama3.1 smazán" — realita je **8 modelů, llama3.1 se týž den vrátil**
+(omylem smazaný jediný kontrolor jiné rodiny; doklad ~/ollama-log.md
+2026-08-08) a `popisy_mist.KONTROLORI` je teď `["llama3.1"]`; mrtvé cesty
+záloh v PLAN-PORADEK.md ukázány na skutečné soubory.
+
+**WEBOVÉ KOLO HOTOVO A ŽIVÉ (commit 7eb2c0c, ověřeno curlem):** úniky
+odpovědí v kvízech **38 → 0**, rohatka utažena na 0 (další únik shodí
+build). 5 workerů navrhlo, hlavní model zapsal, **5 kol nezávislé kontroly**
+(11+6+2+2+0 nálezů — mj. vlastní chyba „W není značka veličiny", zavádějící
+rychlost částic podle skupenství, únik přes sousední blok micro:bitu).
+Nahrazeny 2 otázky (zrcadla → nekonečná řada obrazů + doplněn výklad;
+micro:bit → aplikační scénář událostí). Opravena poloha loga V2 ve výkladu
+(bylo „vzadu", je vpředu nad displejem) — HLÁSIT UČITELI, je to zásah do
+výkladu.
+
+**① BĚŽÍ: anonymizace** (17:47 čekalo 89 ze 113; Saint-Sauveur 32/48).
+Čekací smyčka ji pouští po dávkách, jak jí kontrola kvality fotek uvolňuje
+dráhu. Až Saint-Sauveur doběhne → `venv/bin/python3 vyrob_video_automat.py`
+(hlídá si dráhu i frontu sám), pak `kontrola_videa.py --mesto
+Saint-Sauveur_FR` + mapa a anonymizace OKEM → `nasazeno/`. Dál Luxeuil
+(pozor: v KE-SCHVALENI.md leží návrh SLOUČIT Saint-Sauveur + Luxeuil —
+totéž místo, 130 m; rozhodne učitel).
+
+**② FOTKY DO GALERIÍ:** až kontrola kvality doběhne — `vyber_fotky_na_web.py`
+pro Riez, Saint-Tropez, Sassenage a obě Bugey.
+
+**③ ZÍTRA 12. 8. KVÓTA:** v `nasazeno/` čeká 5 dílů (Saint-Amour 1z2, 2z2;
+Salins 1z3, 2z3, 3z3) = přesně denní příděl. `venv/bin/python3
+nahraj_na_youtube.py` (nahrávač je pozastaven STOPKOU, pustit ručně), pak
+obě místa dopsat na web a ověřit curlem.
+
+**Drobnosti (nerozhodovat, jen vědět):** MISTA.xlsx pořád otevřený v Excelu
+(ukazuje starou kopii; zavřít bez uložení) · sjednoceno „vteřiny"→ spisovně
+v kvízech (2 místa) · verdikty modelů: 678 sebraných, přesnost se spočítá,
+až učitel rozhodne ≥ 10 fotek v `_na-kontrolu`.
+
+---
+
+## 🔴 Starší stav (uloženo 11. 8. ~14:30, doplněno zadání učitele)
 
 **⓪ ÚPLNĚ PRVNÍ KROK PO /clear (zadání učitele 11. 8.):** celková kontrola
 skills a návodů — rozpory hned opravit, opravu posoudí nezávislý kontrolor,

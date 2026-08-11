@@ -127,6 +127,29 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-11 (kolo WONDERLY: audit návodů do 0 + úniky kvízů 38 → 0)** —
+  Kolo začalo povinným auditem dokumentace (zadání učitele): dva hledači
+  rozporů naráz, opravy, smyčka s nezávislým kontrolorem do **0 nálezů**
+  (3 kola). Hlavní opravy: kánon popisů míst („píše Claude ze zdroje", ruční
+  roky přímo do .ts) sjednocen ve skillu i PRAVIDLA.md; **modelů je 8, ne 7**
+  — llama3.1 se po omylném smazání týž den vrátil (jediný kontrolor jiné
+  rodiny; `popisy_mist.KONTROLORI` zúžen na něj); mrtvé cesty záloh
+  v PLAN-PORADEK.md. **Web: všech 38 úniků odpovědí v kvízech opraveno na 0**
+  a rohatka utažena — příští únik shodí build. Postup diamantem: 5 workerů
+  (sonnet) navrhlo přeformulování ve ~25 blocích, hlavní model zapsal,
+  **5 kol nezávislé kontroly** (11+6+2+2+0 nálezů). Kontroloři chytili mj.:
+  moje vysvětlení tvrdilo „W není značka veličiny" (je to značka práce),
+  „částice plynu letí svižněji" (rychlost určuje teplota, ne skupenství —
+  správný důvod je volná dráha), únik počtu tlačítek micro:bitu přes
+  SOUSEDNÍ blok a šíření vůně vydávané za difuzi (je to proudění). Past dne:
+  **návrh kontrolora umí vrátit původní únik** („vraťte konkrétní ‚malé p je
+  tlak'") — oprava musí být konkrétní JINÝMI slovy. Nahrazeny 2 otázky;
+  výklad odrazu doplněn o dvě rovnoběžná zrcadla; ve výkladu micro:bitu
+  opravena poloha dotykového loga V2 (bylo „vzadu", správně vpředu nad
+  displejem). Deník mezitím: anonymizace 113 → 89 souborů (čekací smyčka
+  střídá dráhu s kontrolou kvality fotek), v `nasazeno/` čeká 5 dílů na
+  zítřejší kvótu.
+
 - **2026-08-10 (celý den: plán POŘÁDEK A–D + ZMĚNA ZPŮSOBU PRÁCE + 2 videa ven)** —
   Dopoledne dojety **kroky A, B, C a D** plánu `Omega/PLAN-PORADEK.md`: revize
   automatů zná STOPKU; tabulka míst má přesné ČASY focení, je bez duplicit
