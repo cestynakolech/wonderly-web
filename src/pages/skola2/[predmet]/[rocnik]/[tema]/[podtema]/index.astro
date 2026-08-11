@@ -97,6 +97,7 @@ import PretlakSimulace from '../../../../../../components/skola2/PretlakSimulace
 import SvacinaSimulace from '../../../../../../components/skola2/SvacinaSimulace.astro';
 import PrenosSimulace from '../../../../../../components/skola2/PrenosSimulace.astro';
 import GrafCestaSimulace from '../../../../../../components/skola2/GrafCestaSimulace.astro';
+import VykonSimulace from '../../../../../../components/skola2/VykonSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -328,6 +329,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'svacina' && <SvacinaSimulace />}
 	{podtema.interakce === 'prenos' && <PrenosSimulace />}
 	{podtema.interakce === 'graf-cesta' && <GrafCestaSimulace />}
+	{podtema.interakce === 'vykon' && <VykonSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (

@@ -1,0 +1,204 @@
+---
+// Interaktivní srovnání výkonu: jeřáb a dělník s kladkou zvedají STEJNOU bednu
+// do STEJNÉ výšky (stejná síla F, stejná práce W = F·h), ale za různý čas.
+// Jeřáb je rychlejší → dorazí dřív → má VĚTŠÍ výkon P = W/t, přestože práce je stejná.
+// Bedny se zvedají rovnoměrně nahoru (gravitace dolů, jeřáb i kladka táhnou vzhůru);
+// poloha bedny se v každém okamžiku počítá přímo z uplynulého reálného času (čistá
+// funkce času), takže animace jede správnou rychlostí i při zpomaleném rAF v náhledu.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kdo má větší výkon? 🏗️</span></h2>
+	<p>Jeřáb a dělník s kladkou zvedají <strong>stejnou bednu</strong> do <strong>stejné výšky</strong> — odvedou tedy <strong>stejnou práci</strong> W = F · h. Jeřáb to ale zvládne za <strong>kratší čas</strong>. Kdo vykoná stejnou práci rychleji, má <strong>větší výkon</strong> P = W / t. Nastav výšku a klikni na tlačítko.</p>
+
+	<canvas id="vykon-platno" width="520" height="380" role="img" aria-label="Jeřáb a dělník s kladkou zvedají stejnou bednu do stejné výšky"></canvas>
+
+	<div class="vykon-ovladace">
+		<label>Výška zvedání: <output id="vykon-h-h">3 m</output>
+			<input type="range" id="vykon-h" min="1" max="5" step="1" value="3" /></label>
+		<button id="vykon-start" class="vykon-btn">Zvednout ⬆️</button>
+	</div>
+
+	<div class="vykon-vzorce">
+		<div class="vykon-sloupec vykon-jerab">
+			<strong>🏗️ Jeřáb</strong>
+			<p id="vykon-jerab-vzorec"></p>
+		</div>
+		<div class="vykon-sloupec vykon-delnik">
+			<strong>👷 Dělník s kladkou</strong>
+			<p id="vykon-delnik-vzorec"></p>
+		</div>
+	</div>
+
+	<p class="vykon-stav" id="vykon-stav">Nastav výšku a klikni „Zvednout".</p>
+</section>
+
+<script>
+	const platno = document.getElementById('vykon-platno');
+	const ctx = platno.getContext('2d');
+	const W = platno.width, H = platno.height;
+	const GROUND = 340;
+	const PX_NA_METR = 40;
+	const F = 300; // N (bedna m = 30 kg, g = 10 N/kg → F = m·g = 300 N)
+	const BOX_W = 46, BOX_H = 34;
+	const X_JERAB = 150, X_DELNIK = 390;
+
+	const hEl = document.getElementById('vykon-h');
+	const hHEl = document.getElementById('vykon-h-h');
+	const startBtn = document.getElementById('vykon-start');
+	const stavEl = document.getElementById('vykon-stav');
+	const jerabVzorecEl = document.getElementById('vykon-jerab-vzorec');
+	const delnikVzorecEl = document.getElementById('vykon-delnik-vzorec');
+
+	let anim = null, startTime = null, bezici = false;
+	let jerabHotovo = false, delnikHotovo = false;
+
+	function hodnoty() {
+		const h = +hEl.value;
+		const w = F * h;             // práce v J (stejná pro oba stroje)
+		const tJerab = h;            // s — jeřáb: 1 s na metr
+		const tDelnik = 3 * h;       // s — dělník: 3 s na metr
+		const pJerab = Math.round(w / tJerab);
+		const pDelnik = Math.round(w / tDelnik);
+		return { h, w, tJerab, tDelnik, pJerab, pDelnik };
+	}
+
+	function aktualizujVzorce() {
+		const { h, w, tJerab, tDelnik, pJerab, pDelnik } = hodnoty();
+		hHEl.textContent = h + ' m';
+		jerabVzorecEl.innerHTML =
+			`W = F · h = 300 N × ${h} m = <strong>${w} J</strong><br>` +
+			`P = W / t = ${w} J / ${tJerab} s = <strong>${pJerab} W</strong>`;
+		delnikVzorecEl.innerHTML =
+			`W = F · h = 300 N × ${h} m = <strong>${w} J</strong><br>` +
+			`P = W / t = ${w} J / ${tDelnik} s = <strong>${pDelnik} W</strong>`;
+	}
+
+	function pozadi() {
+		ctx.clearRect(0, 0, W, H);
+		ctx.fillStyle = '#dbeeff'; ctx.fillRect(0, 0, W, GROUND);   // vzduch nahoře
+		ctx.fillStyle = '#b0a99f'; ctx.fillRect(0, GROUND, W, H - GROUND); // staveniště dole
+		ctx.strokeStyle = '#5c574f'; ctx.lineWidth = 2;
+		ctx.beginPath(); ctx.moveTo(0, GROUND); ctx.lineTo(W, GROUND); ctx.stroke();
+	}
+
+	function kresliBednu(x, topY, barva) {
+		ctx.fillStyle = barva; ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2;
+		ctx.fillRect(x - BOX_W / 2, topY, BOX_W, BOX_H);
+		ctx.strokeRect(x - BOX_W / 2, topY, BOX_W, BOX_H);
+	}
+
+	function kresliJerab(boxTopY) {
+		ctx.strokeStyle = '#495057'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+		ctx.beginPath(); ctx.moveTo(X_JERAB - 40, GROUND); ctx.lineTo(X_JERAB - 40, 60); ctx.stroke();
+		ctx.beginPath(); ctx.moveTo(X_JERAB - 40, 60); ctx.lineTo(X_JERAB + 20, 60); ctx.stroke();
+		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2;
+		ctx.beginPath(); ctx.moveTo(X_JERAB, 60); ctx.lineTo(X_JERAB, boxTopY); ctx.stroke();
+		kresliBednu(X_JERAB, boxTopY, '#ffa94d');
+	}
+
+	function kresliDelnik(boxTopY) {
+		// sloup s pevnou kladkou — kladka jen mění směr tahu, sílu nezmenšuje (F je stejná jako u jeřábu)
+		ctx.strokeStyle = '#495057'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+		ctx.beginPath(); ctx.moveTo(X_DELNIK, GROUND); ctx.lineTo(X_DELNIK, 65); ctx.stroke();
+		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 3;
+		ctx.beginPath(); ctx.arc(X_DELNIK, 58, 9, 0, 2 * Math.PI); ctx.stroke();
+		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2;
+		ctx.beginPath(); ctx.moveTo(X_DELNIK, 60); ctx.lineTo(X_DELNIK, boxTopY); ctx.stroke();
+		ctx.beginPath(); ctx.moveTo(X_DELNIK + 26, 60); ctx.lineTo(X_DELNIK + 26, 250); ctx.stroke();
+		kresliBednu(X_DELNIK, boxTopY, '#69db7c');
+		// jednoduchá postavička dělníka
+		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 3;
+		ctx.beginPath(); ctx.arc(X_DELNIK + 26, 262, 9, 0, 2 * Math.PI); ctx.stroke();
+		ctx.beginPath(); ctx.moveTo(X_DELNIK + 26, 271); ctx.lineTo(X_DELNIK + 26, GROUND - 20); ctx.stroke();
+		ctx.beginPath(); ctx.moveTo(X_DELNIK + 26, GROUND - 20); ctx.lineTo(X_DELNIK + 14, GROUND); ctx.stroke();
+		ctx.beginPath(); ctx.moveTo(X_DELNIK + 26, GROUND - 20); ctx.lineTo(X_DELNIK + 38, GROUND); ctx.stroke();
+	}
+
+	// poloha bedny je ČISTÁ FUNKCE uplynulého času (žádné přičítání kroků) —
+	// při rovnoměrném pohybu: uražená dráha = min(elapsed / t, 1) × celková dráha
+	function vykresli(elapsed) {
+		const { h, tJerab, tDelnik } = hodnoty();
+		const travel = PX_NA_METR * h;
+		const posJerab = Math.min(elapsed / tJerab, 1) * travel;
+		const posDelnik = Math.min(elapsed / tDelnik, 1) * travel;
+		const boxRestTopY = GROUND - BOX_H;
+		const boxJerabY = boxRestTopY - posJerab;
+		const boxDelnikY = boxRestTopY - posDelnik;
+		const cilY = boxRestTopY - travel + BOX_H / 2;
+
+		pozadi();
+		ctx.strokeStyle = '#e03131'; ctx.setLineDash([6, 5]); ctx.lineWidth = 2;
+		ctx.beginPath(); ctx.moveTo(50, cilY); ctx.lineTo(W - 20, cilY); ctx.stroke();
+		ctx.setLineDash([]);
+		ctx.fillStyle = '#e03131'; ctx.font = 'bold 13px sans-serif';
+		ctx.fillText(`cíl: h = ${h} m`, 55, cilY - 6);
+
+		kresliJerab(boxJerabY);
+		kresliDelnik(boxDelnikY);
+
+		if (!jerabHotovo && posJerab >= travel - 0.01) {
+			jerabHotovo = true;
+			stavEl.textContent = `🏗️ Jeřáb hotov za t = ${tJerab} s! Dělník ještě zvedá bednu…`;
+		}
+		if (!delnikHotovo && posDelnik >= travel - 0.01) {
+			delnikHotovo = true;
+			const { w, pJerab, pDelnik } = hodnoty();
+			stavEl.textContent = `✅ Hotovo! Jeřáb i dělník vykonali stejnou práci W = ${w} J. Jeřáb: t = ${tJerab} s → P = ${pJerab} W. Dělník: t = ${tDelnik} s → P = ${pDelnik} W. Stejná práce za KRATŠÍ čas = VĚTŠÍ výkon!`;
+		}
+	}
+
+	function krok(timestamp) {
+		if (startTime === null) startTime = timestamp;
+		const elapsed = (timestamp - startTime) / 1000; // reálné sekundy, ne počet snímků
+		vykresli(elapsed);
+		const { tDelnik } = hodnoty();
+		if (elapsed < tDelnik) {
+			anim = requestAnimationFrame(krok);
+		} else {
+			bezici = false;
+			hEl.disabled = false;
+			startBtn.disabled = false;
+		}
+	}
+
+	startBtn.addEventListener('click', () => {
+		cancelAnimationFrame(anim);
+		startTime = null;
+		jerabHotovo = false;
+		delnikHotovo = false;
+		bezici = true;
+		hEl.disabled = true;
+		startBtn.disabled = true;
+		stavEl.textContent = 'Zvedání běží…';
+		anim = requestAnimationFrame(krok);
+	});
+
+	hEl.addEventListener('input', () => {
+		aktualizujVzorce();
+		if (!bezici) {
+			stavEl.textContent = 'Nastav výšku a stiskni „Zvednout".';
+			vykresli(0);
+		}
+	});
+
+	aktualizujVzorce();
+	vykresli(0);
+</script>
+
+<style>
+	#vykon-platno { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.vykon-ovladace { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; margin: 0.7rem 0; }
+	.vykon-ovladace label { font-weight: 700; }
+	.vykon-btn { font-size: 1.15rem; font-weight: 800; padding: 0.5rem 1.3rem; border: 3px solid #2b2a26;
+		border-radius: 12px; background: #ffe066; cursor: pointer; }
+	.vykon-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+	.vykon-vzorce { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.8rem 0; }
+	.vykon-sloupec { border: 3px solid #2b2a26; border-radius: 10px; padding: 0.6rem 0.8rem; font-size: 0.95rem; }
+	.vykon-jerab { background: #fff4e6; }
+	.vykon-delnik { background: #ebfbee; }
+	.vykon-stav { font-size: 1.05rem; font-weight: 700; min-height: 3rem; }
+	@media (max-width: 480px) {
+		.vykon-vzorce { grid-template-columns: 1fr; }
+	}
+</style>
