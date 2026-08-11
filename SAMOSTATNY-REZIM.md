@@ -31,15 +31,35 @@
    kotva: 2 936,7 − 644,8 km zbylých úseků = 2 292).
 7. **Fotky Mens v galerii** (5 nahráno), úklid Mens proběhl.
 
-**🔴 PRVNÍ VĚC PŘÍŠTĚ: video Saint-Amour (2. 8.).** Běželo na pozadí čekání na
-volnou GPU dráhu (drží ji hlídač nových fotek) a pak `vyrob_video_automat.py`.
-Zkontrolovat, jestli video vzniklo; když ne, pustit automat znovu — mapu i
-materiál (90 médií) má připravené. Po něm Salins-les-Bains (104 médií).
+**HOTOVO ODPOLEDNE — DVĚ VIDEA ČEKAJÍ NA KVÓTU:**
+8. **Saint-Amour (2 díly)** a **Salins-les-Bains (3 díly)** vyrobeny, prošly
+   kontrolami a **LEŽÍ V `nasazeno/`**. Kontroly: obraz = zvuk (rozdíl 0,00 s
+   u všech pěti), hlasitost −21,8 až −22,1 dB, faststart, úvodní mapa
+   prohlédnuta očima u každého dílu (Saint-Amour 2 292 km, Salins 2 383 km —
+   kotva: 2 292 + 91 = 2 383), anonymizace ověřena kontaktními listy 5×5:
+   davy na Tour de France mají tváře rozmazané, referenční tváře ostré.
+9. **Kontroly videa mají konečně jediný domov:** `skripty/kontrola_videa.py`
+   (obraz = zvuk, hlasitost, faststart, úvodní snímek k prohlédnutí, úplnost
+   řady dílů). Dřív se dělaly v každé session ručně jinými příkazy.
+   **Obousměrně ověřeno na podvrzích** (ticho −91 dB ✓ chyceno, zvuk kratší
+   o 10 s ✓, moov za mdat ✓, chybějící díl 2 ze 3 ✓).
+   Past, na kterou to narazilo: snímek z času 0 je ČERNÝ (video začíná
+   prolnutím), proto se bere až 2. sekunda.
+10. **Automat kontroly kvality fotek jede naplno** (zadání učitele): zrušen
+    denní strop, buzení à 5 min místo à 1 h, dávky navazují. Ověřeno: 379 → 405
+    fotek za 20 minut a přitom správně ustoupil videu i běžícím ffmpegům.
+    Zbývá ~340 fotek, tj. pár hodin místo devíti dnů.
+
+**🔴 PRVNÍ VĚC PŘÍŠTĚ: kvóta YouTube 12. 8.** — v `nasazeno/` čeká **5 dílů**
+(Saint-Amour 1z2, 2z2; Salins-les-Bains 1z3, 2z3, 3z3) = přesně denní kvóta.
+Pustit ručně `venv/bin/python3 nahraj_na_youtube.py`, pak obě místa dopsat na
+web (`2026.ts`: místo + `videoId` + řádky v `videa:`), popisy přes
+`fakta_mist.py --zdroj <slug> fr "<Název>"`, a ověřit curlem.
 
 **POTOM: fotky do galerií** — Riez, Saint-Tropez, Sassenage a obě Bugey mají
-galerii v datech, ale fotky ještě neprošly kontrolou kvality (automat
-`com.omega.foto-kontrola-kvality` je dohání po dávkách, ~370 čekalo). Bez toho
-se neuklidí ani jejich zdrojové fotky. Pustit `vyber_fotky_na_web.py`.
+galerii v datech, ale čekají na kontrolu kvality (běží sama, viz bod 10).
+Až doběhne, pustit `vyber_fotky_na_web.py`; teprve pak se uklidí i jejich
+zdrojové fotky (VideoAutomat to hlásí jako ODLOŽENO).
 
 **Drobnost:** `MISTA.xlsx` je otevřený v Excelu — nová data (41 míst) jsou na
 disku, ale Excel ukazuje starou kopii. Zavřít BEZ ukládání a otevřít znovu.
