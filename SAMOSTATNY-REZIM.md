@@ -1,3 +1,47 @@
+## 🔴🔴 ZAČNI TADY (uloženo 10. 8. ~20:40)
+
+**HOTOVO DNES ODPOLEDNE (nic z toho už nedělej):**
+1. **Anonymizace doběhla** — 0 souborů čeká (17 médií bez polohy odloženo do kroku D).
+2. **KRÁJEČ VIDEA má jediný domov** `skripty/krajec_videa.py` a používá ho i hlídač
+   nových fotek (dřív jen stará videa — proto padal pořád dokola). Video > 45 s se
+   krájí po 30 s, každý kousek samostatný proces, pak slepení. Nesedí-li počet
+   kousků, NESLEPUJE se. Důkaz `testy/test_krajec_videa.py` 13/13.
+3. **Dlouhé video jde na DÍLY** `…_1z4.mp4` do 300 s, každý díl začíná TOUŽ mapou
+   s km i cenou nafty (zadání učitele). `sestavit_video2.rozdel_na_dily()`,
+   přepínač `--max-delka` (0 = nedělit). VideoAutomat sbírá `vystupy: [...]`.
+4. **Dvě pasti dílů, obě opravené a otestované** (test nahrávače 40 → 56 kontrol):
+   pojistka proti duplicitám díly spolkla jako kopie; a `jen_nejnovejsi_z_mista`
+   nahrála JEN díl 4/4 jako „nejnovější verzi" (odhaleno ostrým během).
+5. **Le Lavandou = vlastní video** (dřív přibalený k Mens, když měl pár souborů;
+   teď 186 souborů). 4 díly, na kanálu díly **1/4 `ZpE0ck7jxNY`, 2/4 `EeBPgVZZSCk`,
+   4/4 `qqnbhmqrGcQ`**. Na webu založen s popisem ze zdroje (fr.wikipedia, 138 vět).
+6. **Mens_FR_KEKONTROLE_v3.mp4** složen s připravenou mapou (2037 km), kontroly
+   prošly, LEŽÍ V `nasazeno/` a čeká jen na kvótu.
+7. **Galerie doplněny 6 místům** (Salbert, Le Thillot, Rupt-sur-Moselle,
+   Saint-Maurice, Ballon d'Alsace, Ornans) — automat na fotky nahrává jen tam,
+   kde je v datech `galerie:`. Živé, ověřeno proti buildu 16/16.
+8. **Ballon d'Alsace měl popis bez zdroje** → doplněno, doložitelnost 26/26.
+
+**🔴 PRVNÍ VĚC PŘÍŠTĚ: DNEŠNÍ KVÓTA YOUTUBE JE VYČERPÁNA (5/5).**
+Zítra pustit ručně `venv/bin/python3 nahraj_na_youtube.py` — čeká
+**Le Lavandou díl 3/4** a **Mens v3**. Nahrávač je pozastavený STOPKOU, takže
+sám se nespustí. Po nahrání dopsat na web (`2026.ts`: díl 3 do `videa:`,
+Mens jako nové místo s popisem ze zdroje) a ověřit curlem.
+
+**POTOM: Sassenage** — mapa připravená (`pripravene/sassenage.png`, končí
+u Saint-Denis-en-Bugey), kryje i Saint-Sorlin-en-Bugey a Saint-Denis-en-Bugey
+(mají po 4 souborech, zůstávají přibalené). Hudba je (`auto-Sassenage_FR-2.flac`,
+191 s), materiál 41 + 4 + 4. Vyjde na jeden díl (~134 s).
+
+**Zbývá 8 dalších map k přestavbě** (`mapa-trasy/pripravene/`, pořadí = pořadí cesty).
+
+**Čeká na obsahovou práci (dělá Claude, ne učitel):** založit na webu Ramonchamp,
+Riez, Saint-Tropez, Saint-Sorlin-en-Bugey, Saint-Denis-en-Bugey, „německo jen hudba".
+Fronta to hlásí správně od 10. 8. (dřív to lhalo hlavičkou „ČEKÁ NA UČITELE").
+
+**Galerie fotek**: 6 míst má prázdnou galerii — pustit `vyber_fotky_na_web.py`
+(lokální vision + nahrání do R2). Nedělalo se, protože se šetřila data na tetheringu.
+
 ## 🔴🔴 ZAČNI TADY (uloženo 10. 8. ~14:30 před smazáním kontextu)
 
 **1) NA POZADÍ BĚŽÍ ANONYMIZACE — nejdřív se podívej, jestli doběhla.**
