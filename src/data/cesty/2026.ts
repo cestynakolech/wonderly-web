@@ -653,6 +653,17 @@ export const rok2026: Rok = {
 			},
 		},
 		{
+			slug: 'saint-amour',
+			galerie: 'cesty/2026/saint-amour',
+			nazev: 'Saint-Amour',
+			zeme: 'Francie',
+			datum: '2. 8. 2026',
+			vyjezd: 6,
+			x: 268.2,
+			y: 380.1,
+			popis: { cs: '' },
+		},
+		{
 			slug: 'luxeuil-les-bains',
 			galerie: 'cesty/2026/luxeuil-les-bains',
 			nazev: 'Luxeuil-les-Bains',
