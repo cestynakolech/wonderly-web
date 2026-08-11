@@ -1,4 +1,29 @@
-## 🔴🔴 ZAČNI TADY (stav 11. 8. ~20:15, večerní kolo WONDERLY)
+## 🔴🔴 ZAČNI TADY (stav 11. 8. ~23:15, druhé večerní kolo)
+
+**DRUHÁ SMYČKA KONTROL HOTOVA — 0 nálezů po 4 kolech** (zadání učitele:
+projít dnešní chyby + rozpory v návodech). Z dnešních 10 chyb deníku chyb
+9 vyřešeno (spadlé testy → princip, JETSAM → dávková smyčka, 3× „žádná
+práce" → vše se hýbe), 1 čeká na učitele (zavřít MISTA.xlsx bez uložení,
+vysvětleno v chatu). Opraveno 7 rozporů v PLAN-PORADEK.md a AUTOMATY.md
+(zmražené snapshoty map „10/7" → odkaz na živý PREPOCET-MAP.md; otázka
+Riez uzavřena jako VYKONÁNO; konflikt trasy uzavřen krokem B; krok F už
+neradí pozastavovat běžící nahrávač; cesta k evidenci stopky).
+
+**NOVÝ KONFLIKT NALEZEN A OŠETŘEN — HLADOVĚNÍ DRÁHY** (AUTOMATY.md bod 8):
+kontrola kvality à 5 min držela dráhu nepřetržitě, anon_smycka spálila
+40 jalových kol za pár minut. Smyčka nově při obsazené dráze čeká 5 min.
+**Kontrola kvality je DOČASNĚ vyložena z launchd** (přednost videa dle
+fronty); hlídač `vratit_kvalitu.log` ji po doběhnutí anonymizace sám
+nahraje zpět — OVĚŘIT: `launchctl list | grep kontrola-kvality`.
+
+**PŘEVZATÁ 4 VIDEA Saint-Sauveur** (odložená po 3 nezdarech z doby
+paměťových špiček): značky −1 smazány, anonymizují se po jednom na klidném
+stroji. Až budou (49 souborů), čekač spustí výrobu videa sám; PAK smazat
+jejich 4 řádky z KE-SCHVALENI.md (zastaralé žádosti o rozhodnutí).
+
+---
+
+## 🔴 Starší stav (uloženo 11. 8. ~20:15, večerní kolo WONDERLY)
 
 **⓪ AUDIT NÁVODŮ PO /clear: 0 nálezů po 3 kolech** (5 drobností opraveno:
 kadence kontroly kvality v PRAVIDLA.md 2×, značky ⏸ a hlídač-zaseknutí
