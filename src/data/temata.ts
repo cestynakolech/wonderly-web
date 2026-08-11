@@ -2234,6 +2234,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><strong>nerovná plocha</strong> → rozptyl světla (díky němu vidíme i do stínu)</li>
 							<li><strong>rovná lesklá plocha</strong> → svazek zůstane rovnoběžný (zrcadlo, klidná hladina)</li>
+							<li><strong>dvě rovnoběžná zrcadla naproti sobě</strong> → obraz se odráží mezi nimi sem a tam a vzniká zdánlivě nekonečná řada zmenšujících se obrazů</li>
 						</ul>
 						<h3>Odrazka na kole</h3>
 						<p>Odrazka je poskládaná z drobných <strong>koutů</strong> — tří na sebe kolmých plošek jako roh krabice.
@@ -5418,7 +5419,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zvuk a hudba</h3>
 						<p>Zvuk umí micro:bit přehrávat jako tóny a melodie — jde z něj naprogramovat <strong>hudební nástroj</strong>: náklonem měníš výšku tónu, tlačítkem hraješ. 🎵 Starší deska (V1) k tomu potřebuje připojená <strong>sluchátka nebo bzučák</strong>, novější <strong>V2</strong> má malý reproduktor přímo na sobě.</p>
 						<h3>V1, nebo V2? Poznáš to na první pohled</h3>
-						<p>Ve škole potkáš obě generace a <strong>program je pro obě stejný</strong> — jen zvuk se chová jinak. Novější <strong>V2</strong> poznáš podle tří věcí na zadní straně: je tam <strong>reproduktor</strong>, <strong>mikrofon</strong> (vedle něj svítí kontrolka, když deska poslouchá) a <strong>zlaté logo</strong> reaguje na dotek jako čtvrté tlačítko. Starší <strong>V1</strong> nic z toho nemá, a tak k melodii potřebuje sluchátka nebo bzučák připojený na kolíky.</p>
+						<p>Ve škole potkáš obě generace a <strong>program je pro obě stejný</strong> — jen zvuk se chová jinak. Novější <strong>V2</strong> poznáš podle tří novinek: vzadu je <strong>reproduktor</strong> a <strong>mikrofon</strong> (vpředu svítí kontrolka, když deska poslouchá) a <strong>zlaté logo</strong> vpředu nad displejem reaguje na dotek jako další tlačítko. Starší <strong>V1</strong> nic z toho nemá, a tak k melodii potřebuje sluchátka nebo bzučák připojený na kolíky.</p>
 						<h3>Nápady na vyzkoušení</h3>
 						<ul>
 							<li><strong>kámen–nůžky–papír</strong>: po zatřesení ukaž náhodný symbol</li>
