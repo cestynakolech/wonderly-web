@@ -22,9 +22,19 @@
    kde je v datech `galerie:`. Živé, ověřeno proti buildu 16/16.
 8. **Ballon d'Alsace měl popis bez zdroje** → doplněno, doložitelnost 26/26.
 
+**PŘIBYLO 11. 8. dopoledne:** Sassenage v4 (mapa 2222 km), **Riez** (vlastní
+video 198 s, mapa 1638 km) a **Saint-Tropez** (vlastní video 228 s, mapa 1742 km)
+— obojí bylo v evidenci vedené jako „méně než 5 médií, přibaleno k Le Bourg",
+ale mají 64 a 74 vlastních fotek (táž past jako Le Lavandou). Ramonchamp
+založen na webu (0 fotek, kryje ho video Le Thillot, proto BEZ galerie).
+Opraveno: měřidlo si po Ramonchampu hned řeklo o galerii, ačkoli fotky nemá.
+Opraveno: díly nesmí být pahýl (Saint-Tropez měl vyjít 73 + 1 fotka) a ostrost
+tváře se měří ze STŘEDU rámečku, ne z celého (vlasy jsou ostré vždy).
+
 **🔴 PRVNÍ VĚC PŘÍŠTĚ: DNEŠNÍ KVÓTA YOUTUBE JE VYČERPÁNA (5/5).**
 Zítra pustit ručně `venv/bin/python3 nahraj_na_youtube.py` — čeká
-**Le Lavandou díl 3/4** a **Mens v3**. Nahrávač je pozastavený STOPKOU, takže
+**Le Lavandou díl 3/4**, **Mens v3**, **Sassenage v4**, **Riez** a **Saint-Tropez**
+(5 videí = přesně zítřejší kvóta). Nahrávač je pozastavený STOPKOU, takže
 sám se nespustí. Po nahrání dopsat na web (`2026.ts`: díl 3 do `videa:`,
 Mens jako nové místo s popisem ze zdroje) a ověřit curlem.
 
