@@ -1,4 +1,17 @@
-## 🔴🔴 ZAČNI TADY (uloženo 11. 8. ~11:10)
+## 🔴🔴 ZAČNI TADY (uloženo 11. 8. ~14:30, doplněno zadání učitele)
+
+**⓪ ÚPLNĚ PRVNÍ KROK PO /clear (zadání učitele 11. 8.):** celková kontrola
+skills a návodů — rozpory hned opravit, opravu posoudí nezávislý kontrolor,
+smyčka oprava → kontrola **až do 0 nálezů**, teprve pak práce. Přesný postup
+je ve skillu `/wonderly` (úvodní blok) a v PRAVIDLA.md.
+
+**Tři trvalá pravidla čerstvě zapsaná (skill + PRAVIDLA.md):**
+- mapy na úvodu videí VŽDY podle pořadí vyfocení — nic se nepřeskakuje, jinak
+  nesedí km ani šipky; místa na webu podle časů a dnů fotek, vše musí souhlasit;
+- **výroba nikdy nestojí kvůli kvótě YouTube** — vyrábět a kontrolovat dopředu,
+  hotové frontit v `nasazeno/`; při každém kole ověřit frontou, že se
+  připravuje další místo;
+- kontroly videa jediným domovem `kontrola_videa.py` (+ mapa a anonymizace okem).
 
 **HOTOVO DNES DOPOLEDNE (nic z toho už nedělej):**
 1. **Kvóta YouTube 5/5 vyčerpána** — nahráno **Riez `Nsrtgcc4OdU`**, **Le Lavandou
