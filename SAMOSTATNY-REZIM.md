@@ -38,10 +38,20 @@ Zítra pustit ručně `venv/bin/python3 nahraj_na_youtube.py` — čeká
 sám se nespustí. Po nahrání dopsat na web (`2026.ts`: díl 3 do `videa:`,
 Mens jako nové místo s popisem ze zdroje) a ověřit curlem.
 
-**POTOM: Sassenage** — mapa připravená (`pripravene/sassenage.png`, končí
-u Saint-Denis-en-Bugey), kryje i Saint-Sorlin-en-Bugey a Saint-Denis-en-Bugey
-(mají po 4 souborech, zůstávají přibalené). Hudba je (`auto-Sassenage_FR-2.flac`,
-191 s), materiál 41 + 4 + 4. Vyjde na jeden díl (~134 s).
+**POTOM (po nahrání) DOPSAT NA WEB tato místa** — všechna mají hotové video,
+ale ještě nemají stránku: **Riez**, **Saint-Tropez**, **Mens**,
+**Saint-Sorlin-en-Bugey** a **Saint-Denis-en-Bugey** (poslední dvě kryje
+Sassenage v4, takže dostanou jeho `videoId`). Postup: doplnit místo do
+`2026.ts` i s `videoId` A řádkem v `videa:` (bez toho brána shodí build),
+pak `fakta_mist.py --zdroj <slug> fr "<Název>"` a popis ve 4 jazycích psát
+PŘÍMO do `2026.ts` — rok 2026 je „ručně psaný", `zapis_popisy.py` do něj
+schválně nezapisuje. Nakonec galerii (`galerie: 'cesty/2026/<slug>'`) jen
+tam, kde místo MÁ vlastní fotky.
+
+**A DÁL: fotky do galerií.** Šest míst má prázdnou galerii (Salbert, Le Thillot,
+Rupt-sur-Moselle, Saint-Maurice, Ballon d'Alsace, Ornans) — pustit
+`vyber_fotky_na_web.py` (lokální vision vybere z sérií jednu a nahraje do R2).
+Dnes se to neudělalo, protože se šetřila data na tetheringu.
 
 **Zbývá 8 dalších map k přestavbě** (`mapa-trasy/pripravene/`, pořadí = pořadí cesty).
 
