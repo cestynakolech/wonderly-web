@@ -1,4 +1,43 @@
-## 🔴🔴 ZAČNI TADY (stav 11. 8. ~18:00, po kole WONDERLY)
+## 🔴🔴 ZAČNI TADY (stav 11. 8. ~20:15, večerní kolo WONDERLY)
+
+**⓪ AUDIT NÁVODŮ PO /clear: 0 nálezů po 3 kolech** (5 drobností opraveno:
+kadence kontroly kvality v PRAVIDLA.md 2×, značky ⏸ a hlídač-zaseknutí
+v denní ose AUTOMATY.md, kadence stellplatz). Omega NENÍ git repo — opravy
+žijí jen v souborech.
+
+**MĚŘIDLA MAP OPRAVENA V PRINCIPU (deník chyb hlásil 4× „spadly-test —
+změň princip"):** `prepocet_map` i denní `kontrola_poradi` rekonstruovaly
+obsah mapy ze STARÉ trasy i u videí složených z trvalé trasy → falešné
+„chybí Ornans/Riez" u všech nových videí (ráno 12, večer už 15). Nové
+pravidlo s JEDINÝM DOMOVEM `kontrola_poradi.mapa_z_trvale_trasy`
+(hranice = krok B, 10. 8. 8:27; ISO „T" se normalizuje): rekonstrukce jen
+pro starší soubory. Výsledek **8 k přestavbě = přesně seznam kroku E**
+(nezávislá kotva). Pevné součty 7/10 v testu nahrazeny invarianty
++ čistou funkcí `chybejici_zastavky` (obousměrné podvrhy). K tomu
+`kontrola_kanalu`: nový nesoulad `vlastni_video_kryteho` — povýšené místo
+(Riez, Saint-Tropez 11. 8.) se s `--oprav` odebere z `pridana_mista`
+krycího VČETNĚ zbylého `pridano_k` (jinak oprava oscilovala, chytil
+kontrolor). Ostrá evidence srovnána: Le Bourg už Riez/Saint-Tropez
+nekryje, 0 nesouladů. Testy 27/27 a 19/19; PREPOCET-MAP.md přegenerován
+(22 videí · 8 k přestavbě · 14 OK). Tři kola nezávislé kontroly
+(2 kontroloři na dokumentaci, 2 na měřidla).
+
+**WEB: simulace VÝKONU (F8) hotová a nasazená** — jeřáb vs. dělník,
+F = 300 N, W = F·h, P = 300 vs. 100 W (celá čísla při každé výšce 1–5 m),
+animace čistou funkcí času (max skok 0,64 px). Nezávislý kontrolor: 2 drobné
+nálezy (podmět „bedny vykonaly práci", stavový řádek po změně výšky) — oba
+opraveny. Názornost F8: 11 → 10 podtémat bez názornosti (zbývá; F9: 7).
+Závěr smyčky měřidel: 4. kolo kontrolora 1 drobnost (čistá funkce si
+normalizuje časy sama) — opraveno, protipříklady kontrolora spuštěny a projdou.
+
+**① ANONYMIZACE BĚŽÍ** (smyčka `anon_smycka.sh` znovu spuštěna ~19:20,
+kolo 5, čeká 51; Saint-Sauveur 38/48, dávka právě jede na plný výkon).
+Až doběhne → `vyrob_video_automat.py`, `kontrola_videa.py --mesto
+Saint-Sauveur_FR`, mapa+anonymizace okem, `nasazeno/`.
+
+---
+
+## 🔴 Starší stav (uloženo 11. 8. ~18:00, po kole WONDERLY)
 
 **⓪ AUDIT NÁVODŮ HOTOV (0 nálezů po 3 kolech).** Opraveno 9 věcí, hlavní:
 skill + PRAVIDLA tvrdily „popisy míst píše člověk" (platí: píše Claude ze

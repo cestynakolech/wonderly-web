@@ -127,6 +127,25 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-11 večer (kolo WONDERLY: měřidla map v principu + simulace výkonu)** —
+  Audit návodů po /clear: 3 kola, 0 nálezů (5 drobností: kadence kontroly
+  kvality, značky ⏸ v ose AUTOMATY.md). **Hlavní oprava dne: měřidla map
+  lhala o nových videích** — `prepocet_map` i denní `kontrola_poradi`
+  rekonstruovaly obsah mapy ze STARÉ trasy i u videí složených z trvalé
+  trasy (falešné „chybí Ornans/Riez", ráno 12, večer 15 „k přestavbě").
+  Nové pravidlo HRANICE TRVALÉ TRASY (jediný domov
+  `kontrola_poradi.mapa_z_trvale_trasy`, krok B = 10. 8. 8:27) → 8 map
+  k přestavbě = přesně seznam kroku E (nezávislá kotva). Pevné součty 7/10
+  v testu (4× po sobě padal) nahrazeny invarianty + čistou funkcí
+  `chybejici_zastavky` s podvrhy obou směrů. `kontrola_kanalu` umí povýšení
+  krytého místa na vlastní video (Riez, Saint-Tropez) — odebere krytí
+  i zbylé `pridano_k`; kontrolor chytil oscilaci oprav i ISO čas s „T".
+  Evidence srovnána (0 nesouladů), testy 27/27 a 19/19, 4 kola nezávislé
+  kontroly měřidel, pravidlo v PRAVIDLA.md. **Web: nová simulace VÝKONU**
+  (F8, jeřáb vs. dělník, celá čísla, čistá funkce času; kontrolor 2 drobné
+  nálezy, opraveny) — názornost F8 11 → 10. Anonymizace běží smyčkou
+  (Saint-Sauveur), zítra 9:15 nahraje automat 5 dílů sám.
+
 - **2026-08-11 (kolo WONDERLY: audit návodů do 0 + úniky kvízů 38 → 0)** —
   Kolo začalo povinným auditem dokumentace (zadání učitele): dva hledači
   rozporů naráz, opravy, smyčka s nezávislým kontrolorem do **0 nálezů**
