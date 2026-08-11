@@ -309,6 +309,22 @@ export const rok2026: Rok = {
 			},
 		},
 		{
+			slug: 'ramonchamp',
+			nazev: 'Ramonchamp',
+			zeme: 'Francie',
+			datum: '14. 7. 2026',
+			vyjezd: 6,
+			x: 280.9,
+			y: 363.0,
+			videoId: 'Tlnc-YigfTw',
+			popis: {
+				cs: 'Horská obec v departementu Vosges v regionu Grand Est, v údolí horní Mosely ve Vogézách. Leží mezi Le Thillot proti proudu a Ferdrupt po proudu, střed vesnice je v nadmořské výšce 470 metrů. Údolím prochází jediná významná silnice RN 66 od Remiremontu, 25 km severozápadně; strmé svahy nad obcí zpřístupňují jen lesní cesty. Obyvatelům se říká Ramoncenais.',
+				en: 'A mountain commune in the Vosges department of the Grand Est region, in the upper Moselle valley in the Vosges massif. It lies between Le Thillot upstream and Ferdrupt downstream, with the village centre at 470 metres. The only major road is the RN 66 from Remiremont, 25 km to the north-west; the steep slopes above are reached only by forest tracks. The inhabitants are called Ramoncenais.',
+				de: 'Eine Berggemeinde im Département Vosges in der Region Grand Est, im Tal der oberen Mosel in den Vogesen. Sie liegt zwischen Le Thillot flussaufwärts und Ferdrupt flussabwärts, der Ortskern auf 470 Metern Höhe. Einzige bedeutende Straße ist die RN 66 von Remiremont, 25 km nordwestlich; die steilen Hänge darüber erschließen nur Forstwege. Die Einwohner heißen Ramoncenais.',
+				fr: 'Commune de moyenne montagne du département des Vosges, en région Grand Est, dans la vallée de la Haute Moselle et le massif des Vosges. Enserrée entre Le Thillot en amont et Ferdrupt en aval, elle a son centre à 470 m d’altitude. La seule route notable est la RN 66 venant de Remiremont, à 25 km au nord-ouest ; les versants escarpés ne sont empruntés que par des routes forestières. Ses habitants sont appelés les Ramoncenais.',
+			},
+		},
+		{
 			slug: 'saint-maurice-sur-moselle',
 			galerie: 'cesty/2026/saint-maurice-sur-moselle',
 			nazev: 'Saint-Maurice-sur-Moselle',
