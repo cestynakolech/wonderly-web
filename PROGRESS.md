@@ -127,6 +127,21 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-11 pozdě večer (druhá smyčka: kráječ videí v principu)** —
+  Zadání učitele „projdi dnešní chyby a rozpory, smyčka do 0". Návody:
+  0 nálezů po 4 kolech (7 oprav, hlavně nedomyté snapshoty v PLAN-PORADEK).
+  Hon na 4 odložená videa Saint-Sauveur odhalil ŘETĚZ tří vad kráječe:
+  (1) `-map 0` táhl mebx stopy iPhonu → muxer segmentů nezapsal moov
+  a kousek byl nečitelný i z čerstvého střihu; (2) recyklace torza —
+  „hotové kousky se nekrájí znovu" lhalo donekonečna; (3) dítě vracelo
+  kód 0 při chybě („selhal (kód 0)"). Kontroloři ve 3 kolech přidali:
+  slep() atomicky (temp+replace) s kotvou stopáže (ffmpeg concat vrací
+  0 i při chybě demuxingu!), délková shoda recyklovaných kousků, zákaz
+  duplicit v seznamu, selektivní monkeypatch v testu (dřív zabíjel
+  i ffmpeg a měřil špatnou větev). Testy 21/21 s podvrhy obou směrů.
+  Nový konflikt HLADOVĚNÍ DRÁHY (kontrola kvality à 5 min vytlačila
+  anonymizaci; smyčka teď při obsazené dráze čeká). Videa se přes noc
+  dodělávají sama (47/49), výrobu spustí čekač.
 - **2026-08-11 večer (kolo WONDERLY: měřidla map v principu + simulace výkonu)** —
   Audit návodů po /clear: 3 kola, 0 nálezů (5 drobností: kadence kontroly
   kvality, značky ⏸ v ose AUTOMATY.md). **Hlavní oprava dne: měřidla map

@@ -1,4 +1,46 @@
-## 🔴🔴 ZAČNI TADY (stav 11. 8. ~23:15, druhé večerní kolo)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. ~0:30, uloženo před /clear)
+
+**⓪ PRVNÍ KROK PO /clear: dokončit smyčku kontrol kráječe.** Zbývá JEDNO
+kolo nezávislého kontrolora (4.) na ~/Desktop/Omega/skripty/krajec_videa.py
++ testy/test_krajec_videa.py + anonymizuj_stara_videa_po_castech.py.
+Ve 3. kole našel 4 nálezy a VŠECHNY jsou opravené: test „zabíjel" i
+ffmpeg (teď selektivní monkeypatch na anonymizovat_fotky.py, 21/21);
+slep() odmítá duplicitní cesty a tvoří si složku seznamu; pauza baterie
+má vědomý kód 0 v komentáři. Kontrolor má ověřit právě tyhle 4 opravy
+→ při 0 nálezů smyčka končí a HLÁSÍ SE učiteli.
+
+**PŘES NOC BĚŽÍ SAMY (nohup, přežijí /clear):**
+- anonymizace posledních 2 videí Saint-Sauveur (47/49 souborů;
+  `data/anon_smycka_nohup5.log`) — 4 odložená videa PŘEVZATA, příčina
+  nalezena a opravena: mebx stopy rozbíjely moov kousků + recyklace torza;
+- čekač `data/cekac_saintsauveur2.log`: při 49 souborech a prázdné frontě
+  sám spustí `vyrob_video_automat.py`;
+- hlídač `data/vratit_kvalitu2.log`: po prázdné frontě NAHRAJE ZPĚT
+  `com.omega.foto-kontrola-kvality` (teď DOČASNĚ vyložen kvůli hladovění
+  dráhy — OVĚŘIT RÁNO: `launchctl list | grep kontrola-kvality`!).
+
+**RÁNO 12. 8.:** ① 9:15 nahrávač sám nahraje 5 dílů (Saint-Amour 2×,
+Salins 3×) — po nahrání dopsat obě místa na web (2026.ts: místo + videoId
++ řádky `videa:`, popisy ze zdroje `fakta_mist.py --zdroj`) a ověřit
+curlem. ② Video Saint-Sauveur (vyrobí se v noci): `kontrola_videa.py
+--mesto Saint-Sauveur_FR` + mapa a anonymizace OKEM → `nasazeno/`;
+POZOR na návrh sloučení Saint-Sauveur+Luxeuil v KE-SCHVALENI.md (130 m,
+rozhodne učitel). ③ Smazat 4 zastaralé řádky Saint-Sauveur
+z KE-SCHVALENI.md (odložená videa — už zpracována). ④ JEDINÉ ODKLIKNUTÍ
+PRO UČITELE: zavřít MISTA.xlsx bez uložení.
+
+**Dnešní druhá smyčka (zadání „projdi chyby + rozpory, dokud 0"):**
+návody 0 nálezů po 4 kolech (7 oprav v PLAN-PORADEK/AUTOMATY, mj. krok F
+už neradí pozastavovat běžící nahrávač) · deník chyb: 9/10 vyřešeno ·
+NOVÁ pravidla v PRAVIDLA.md: hranice trvalé trasy + ověřená recyklace
+mezisouborů (slep atomicky, kotva stopáže, mebx mimo kousky) · nový
+konflikt 8 HLADOVĚNÍ DRÁHY v AUTOMATY.md (systémové řešení = přednost
+podle fronty, zatím dluh) · dluh kroku F: sjednotit duplicitní rozdel/slep
+starých videí na krajec_videa.
+
+---
+
+## 🔴 Starší stav (uloženo 11. 8. ~23:15, druhé večerní kolo)
 
 **DRUHÁ SMYČKA KONTROL HOTOVA — 0 nálezů po 4 kolech** (zadání učitele:
 projít dnešní chyby + rozpory v návodech). Z dnešních 10 chyb deníku chyb
