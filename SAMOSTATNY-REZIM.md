@@ -1,13 +1,33 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 15:00)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 17:00)
 
 **⓪ PO /clear NEJDŘÍV: audit návodů do 0 nálezů** (stálé zadání učitele,
 postup v úvodu skillu `/wonderly`), teprve pak práce.
+_(12. 8. odpoledne proběhl: dva nezávislí kontroloři, 12 doložených rozporů,
+všechny opravené — mj. interval kontroly anonymizace ve skillu, splacený dluh
+kráječe, počet zastávek, „schválit video" v PRAVIDLECH, rezerva druhého
+profilu u YouTube kvóty, účet u `cz.wonderly.ollama-env`.)_
 
-**① ČEKÁ UŽ JEN NA NAHRÁVAČ (jede sám, 9:15): LUXEUIL — 6 DÍLŮ V `nasazeno/`.**
-Video hotové a ověřené ze tří stran: `kontrola_videa.py` 6/6 čistě, mapa OKEM
-(2521 km, poslední úsek 120 km od Salins, shluk „8 míst"), anonymizace OKEM
-na kontaktních listech obou nově zpracovaných částí (davy i tanečníci
-rozmazaní). Kvóta 5/den → 6 dílů Luxeuilu + `Saint-Amour 2/2` (dnešní torzo)
+**⓵ MAPY MĚLY ŠPATNÉ KM — PŘÍČINA OPRAVENA (12. 8.).** Bod místa = medián GPS
+fotek, jenže po úklidu mezikopií fotky zmizí, medián nejde spočítat a rozhodoval
+medoid — ten dřívější přesný bod přehlasoval pinem/databází. Naráz to posunulo
+**11 míst** (Mens 9,07 km, Riez 8,11 km, Le Lavandou 5,63 km, Salins 5,55 km)
+a kotva mlčela, protože hlásí až od 25 km. V `trasa_z_tabulky.py` je nově
+**rohatka kvality** (dřívější medián se přebírá rovnou, medoid se přeskočí)
++ sjednocené hledání starého bodu pro rohatku i kotvu posunu; obousměrný test
+`testy/test_trasa_rohatka_kvality.py` 21/21, staré testy 19/19. Trasa
+přegenerována: 31 zastávek, 2936 km. **Nový dluh k F (3 body) v PLAN-PORADEK.md
+— vyřešit PŘED zvednutím stopky video-automatu.**
+
+**① ČEKÁ UŽ JEN NA NAHRÁVAČ (jede sám, 9:15): LUXEUIL — 6 DÍLŮ V `nasazeno/`,
+UŽ S OPRAVENOU MAPOU.** Díly nesly starou mapu (2521 km / poslední úsek 120 km);
+po opravě trasy mají **2509 km / 127 km** — ověřeno okem na km pruhu všech šesti
+a `kontrola_videa.py` 6/6 čistě (stopáž i zvuk na setinu jako originály).
+Protože fotky Luxeuilu už byly uklizené (viz ⑤), nešlo video přestavět — mapa se
+vyměnila přímo v mp4 novým nástrojem **`vymen_uvodni_mapu.py`** (testy 22/22,
+originál nikdy nepřepisuje; spouštět s `--prolinani-od 6`, jinak v prolnutí
+prosvítá stará mapa). Původních 6 dílů leží v `nasazeno/_stara-mapa/`
+(podsložky nahrávač nevidí, nic se nemazalo).
+Kvóta 5/den → 6 dílů Luxeuilu + `Saint-Amour 2/2` (dnešní torzo)
 se rozloží na dva dny. **Do `2026.ts` se Luxeuil dopíše až podle NOVÝCH
 videoId, teprve až budou VŠECHNY díly na kanálu** — stará (`hGBkVHDg3W4`,
 `Nit8-Kr7CjA`, torzo `qbysT_piPTE`) jsou SOUKROMÁ a v evidenci odsunutá do
@@ -32,10 +52,40 @@ video, ale jsou v cizím — sloupec zůstával prázdný a vypadalo to jako
 nedodělek. Řádek teď přebírá ID krycího videa s popiskem „ve videu X";
 ověřeno, že všechna 4 ID na kanálu opravdu jsou.
 
-**③ JEDINÉ ODKLIKNUTÍ PRO UČITELE:** zavřít `MISTA.xlsx` bez uložení.
+**③ PRO UČITELE UŽ NIC NEČEKÁ** — `MISTA.xlsx` je zavřený, tabulka ukazuje
+aktuální data (ověřeno `hlidac_zaseknuti.py` 12. 8. v 16:41).
+
+**③b OVĚŘENO, CO NAHRÁVAČ ZÍTRA UDĚLÁ** (ne odhad — spuštěné funkce
+nahrávače): čeká 8 souborů v tomto pořadí — `Saint-Amour 2z2`, **Luxeuil
+1z6…6z6**, `Salins 3z3`; kvóta 5/den → zítra prvních pět, zbytek pozítří.
+Obě pojistky prověřeny: fronta sice u Luxeuilu hlásí „krok už není potřeba"
+(místo je po úklidu vedené jako hotové), ale nahrávač má na tenhle důvod
+výjimku a nezastaví; `misto_uz_na_youtube` všech 6 dílů propouští (staré
+soukromé díly `hGBkVHDg3W4`/`Nit8-Kr7CjA` jsou odsunuté v
+`nahrana_videa_nahrazena`, takže neblokují).
 
 **④ VÝROBA DOPŘEDU:** zbývající místa (Kluesserath, Neumagen-Dhron,
 Geisingen) drží 7denní čekání od poslední fotky, dřív se vyrábět nedá.
+Kluesserath má poslední médium z 8. 8. → na řadu může nejdřív **15. 8.**
+(datum místa 4. 8. tu neplatí, čeká se od POSLEDNÍ fotky).
+
+**⑤ CHYBA, KTEROU JSEM UDĚLAL (12. 8., zapsána v deníku chyb jako třída
+`prikaz-bez-napovedy`):** `vyrob_video_automat.py --help` nevypsalo nápovědu —
+skript argparse neměl, takže se rovnou rozjel ostrý běh a **uklidil mezikopie
+Luxeuilu** (`fotky-puvodni` 623 MB + `fotky-anonymizovane` 676 MB, natvrdo, ne
+do koše). Fotky Luxeuilu na webu i originály v aplikaci Fotky zůstávají, ale
+video už z fotek přestavět nešlo — proto výměna mapy přímo v mp4 (viz ①).
+Past je zavřená: skript má teď `--help`, `-h` i `help`, které jen vypíšou
+nápovědu (s varováním, že běh bez argumentů uklízí) a **nic nespustí**.
+
+**⑥ ŠKOLA — FYZIKA 8:** nová simulace **elektrického pole**
+(`ElektrickePoleSimulace.astro`, klíč `elektricke-pole`) je zapojená do
+`temata.ts` i stránky podtématu; brána zelená (96 komponent), testy simulací
+1015/0. Fyzika 8 měla podle `node testy/nazornost.mjs` 12 podtémat bez
+názornosti (2 z nich jsou shrnutí, která ji nepotřebují) — tímhle o jedno míň.
+Další na řadě ve fyzice 8: `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
+`elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`, `tepelny-motor-parni-stroj`,
+`tuhnuti`, `kondenzace`, `skupenske-zmeny-vody-v-prirode`, `vnitrni-energie-telesa`.
 
 ---
 

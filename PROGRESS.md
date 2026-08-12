@@ -127,6 +127,33 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-12 odpoledne (mapy měly špatné km + simulace elektrického pole)** —
+  **Deník:** nalezena a opravena tichá vada bodů míst. Bod = medián GPS fotek,
+  jenže po úklidu mezikopií fotky zmizí, medián nejde spočítat a rozhodoval
+  medoid, který dřívější přesný bod přehlasoval pinem/databází — naráz to
+  posunulo **11 míst** (Mens 9,07 km, Riez 8,11 km, Le Lavandou 5,63 km,
+  Salins 5,55 km) a kotva mlčela (hlásí až od 25 km). V `trasa_z_tabulky.py`
+  je **rohatka kvality** + sjednocené hledání starého bodu pro rohatku i kotvu
+  posunu; obousměrný test 21/21, staré testy 19/19, trasa 31 zastávek/2936 km.
+  Video Luxeuilu (6 dílů) neslo 2521 km místo 2509 → mapa vyměněna přímo v mp4
+  novým nástrojem **`vymen_uvodni_mapu.py`** (testy 22/22), `kontrola_videa.py`
+  6/6 čistě, staré díly v `nasazeno/_stara-mapa/`. Ověřeno spuštěním funkcí
+  nahrávače, co zítra pošle: Saint-Amour 2z2 + Luxeuil 1z6…4z6 (kvóta 5/den).
+  **Moje chyba:** `vyrob_video_automat.py --help` nevypsalo nápovědu (skript
+  argparse neměl) a rovnou uklidilo mezikopie Luxeuilu (623 + 676 MB, natvrdo);
+  proto ta výměna mapy místo přestavby. Past zavřena — skript má teď `--help`,
+  který nic nespustí; zapsáno do deníku chyb i do pamětí.
+  **Audit návodů:** dva nezávislí kontroloři, 12 doložených rozporů, všechny
+  opraveny (interval kontroly anonymizace, splacený dluh kráječe, počet
+  zastávek, „schválit video" v PRAVIDLECH, rezerva u YouTube kvóty, účet
+  `cz.wonderly.ollama-env`, cesta k `obousmerne.json`, přegenerovaný
+  PREPOCET-MAP.md). Nový dluh k F (3 body) v PLAN-PORADEK.md.
+  **Škola (fyzika 8):** nová simulace **elektrického pole** — dvě nabitá tělesa
+  i homogenní pole mezi deskami, siločáry, tažitelný zkušební náboj. Nezávislá
+  kontrola našla 5 nálezů (závažný: pole desek neznalo geometrii), autor je
+  opravil, druhé kolo kontroly proběhlo. Fyzika 8 měla 12 podtémat bez
+  názornosti → o jedno míň.
+
 - **2026-08-12 v noci (smyčka kontrol kráječe DO NULY: kola 4–18, ~30 oprav)** —
   Dokončena smyčka oprava→kontrola z 11. 8.: 15 kol nezávislého kontrolora
   (každé kolo čerstvý kontext), poslední kolo **0 nálezů**; testy rozšířeny
