@@ -21,6 +21,7 @@ import KladkaSimulace from '../../../../../../components/skola2/KladkaSimulace.a
 import NaklonenaRovinaSimulace from '../../../../../../components/skola2/NaklonenaRovinaSimulace.astro';
 import UcinkySilySimulace from '../../../../../../components/skola2/UcinkySilySimulace.astro';
 import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
+import ElektrickePoleSimulace from '../../../../../../components/skola2/ElektrickePoleSimulace.astro';
 import MeridlaSimulace from '../../../../../../components/skola2/MeridlaSimulace.astro';
 import TabulkaVzorceSimulace from '../../../../../../components/skola2/TabulkaVzorceSimulace.astro';
 import SouradniceSimulace from '../../../../../../components/skola2/SouradniceSimulace.astro';
@@ -254,6 +255,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'naklonena-rovina' && <NaklonenaRovinaSimulace />}
 	{podtema.interakce === 'ucinky-sily' && <UcinkySilySimulace />}
 	{podtema.interakce === 'ohm' && <OhmSimulace />}
+	{podtema.interakce === 'elektricke-pole' && <ElektrickePoleSimulace />}
 	{podtema.interakce === 'meridla' && <MeridlaSimulace />}
 	{podtema.interakce === 'tabulka-vzorce' && <TabulkaVzorceSimulace />}
 	{podtema.interakce === 'souradnice' && <SouradniceSimulace />}

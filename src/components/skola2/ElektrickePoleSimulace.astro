@@ -1,0 +1,440 @@
+---
+// Interaktivní elektrické pole: dvě nabitá tělesa (nebo dvě rovnoběžné desky),
+// u nichž lze přepínat náboj + / − a měnit vzdálenost. Siločáry vždy vedou od
+// kladného náboje k zápornému, jejich hustota klesá se vzdáleností. Zkušební
+// (testovací) náboj lze tahat po ploše a šipka ukazuje sílu, která by na něj
+// v daném místě působila.
+//
+// Pohybová logika (offset tečkovaných siločar) je ČISTÁ funkce času t
+// (offset = (t*rychlost) % perioda) — žádná skrytá narůstající proměnná.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: elektrické pole 🕹️</span></h2>
+	<p>
+		Kolem každého <strong>nabitého tělesa</strong> je <strong>elektrické pole</strong> —
+		působí silou i na dálku, bez dotyku. <strong>Siločáry</strong> ukazují směr síly na
+		kladný náboj: vedou vždy od <strong>+</strong> k <strong>−</strong>. Nesouhlasné náboje
+		se <strong>přitahují</strong>, souhlasné se <strong>odpuzují</strong>. Šedou tečku
+		(<strong>zkušební náboj</strong>) můžeš chytit a táhnout — šipka ukáže, jaká síla by na
+		něj v tom místě působila.
+	</p>
+	<canvas id="epole-platno" width="640" height="380"></canvas>
+	<div class="epole-ovladani">
+		<button id="epole-a" type="button" class="epole-tl">Těleso A: +</button>
+		<button id="epole-b" type="button" class="epole-tl">Těleso B: −</button>
+		<button id="epole-scena" type="button" class="epole-tl epole-tl-scena">🔄 Přepnout na desky (homogenní pole)</button>
+		<label class="epole-checkbox"><input id="epole-silocary" type="checkbox" checked /> ukázat siločáry</label>
+	</div>
+	<label class="sim-posuvnik">
+		Vzdálenost: <output id="epole-d-out"></output>
+		<input type="range" id="epole-d" min="4" max="16" step="2" value="8" />
+	</label>
+	<p class="epole-stav" id="epole-stav"></p>
+</section>
+
+<script>
+	const platno = document.getElementById('epole-platno');
+	const ctx = platno.getContext('2d');
+	const W = platno.width, H = platno.height; // 640 x 380
+	const cx = W / 2, cy = H / 2; // 320, 190
+
+	const tlA = document.getElementById('epole-a');
+	const tlB = document.getElementById('epole-b');
+	const tlScena = document.getElementById('epole-scena');
+	const chkSilocary = document.getElementById('epole-silocary');
+	const dSlider = document.getElementById('epole-d');
+	const dOut = document.getElementById('epole-d-out');
+	const stavEl = document.getElementById('epole-stav');
+
+	let qA = 1;          // +1 nebo -1
+	let qB = -1;          // +1 nebo -1
+	let scenaDesky = false; // false = dvě tělesa, true = rovnoběžné desky
+	let vzdCm = +dSlider.value; // celé cm, 4..16 po 2
+
+	const PX_NA_CM = 20;   // převod cm -> px rozestupu
+	const R_TELESA = 22;   // poloměr kresleného tělesa (px)
+	const E0 = 0.9;        // "síla" jednoho nabitého plátu (jednotky pro animaci, ne SI)
+
+	// zkušební (testovací) náboj — poloha, kterou žák táhne myší/prstem
+	let sonda = { x: cx, y: 74 };
+	let tahnu = false;
+
+	// ---------- geometrie ----------
+	// polovina vzdálenosti mezi tělesy/deskami v px, ČISTÁ funkce stavu vzdCm
+	function polovinaPx() {
+		return (vzdCm * PX_NA_CM) / 2;
+	}
+	function telesa() {
+		const p = polovinaPx();
+		return [
+			{ x: cx - p, y: cy, q: qA },
+			{ x: cx + p, y: cy, q: qB },
+		];
+	}
+	// geometrie desek — stejné rozměry používá pole i kresba, aby si neodporovaly
+	function deskyGeom() {
+		const p = polovinaPx();
+		return { xA: cx - p, xB: cx + p, yTop: cy - 120, yBot: cy + 120 };
+	}
+
+	// ---------- pole ----------
+	// pole dvou bodových nábojů v bodě (x,y) — hladká varianta 1/r^2 (bez singularity)
+	function poleBod(x, y) {
+		let ex = 0, ey = 0;
+		for (const t of telesa()) {
+			const dx = x - t.x, dy = y - t.y;
+			const r2 = dx * dx + dy * dy;
+			const r = Math.sqrt(r2) + 6;
+			const s = t.q / (r2 + 250);
+			ex += s * dx / r;
+			ey += s * dy / r;
+		}
+		return { ex, ey, sila: Math.hypot(ex, ey) };
+	}
+
+	// pole MEZI dvěma rovnoběžnými deskami — vodorovné a nezávislé na y uvnitř
+	// prostoru desek → homogenní; MIMO nakreslené desky (jinou souřadnici x i y)
+	// je pole nulové, tam žádné desky nejsou
+	function polePlatna(x, y) {
+		const { xA, xB, yTop, yBot } = deskyGeom();
+		if (x < xA || x > xB || y < yTop || y > yBot) return { ex: 0, ey: 0, sila: 0 };
+		let ex = 0;
+		ex += qA * E0 * (x >= xA ? 1 : -1);
+		ex += qB * E0 * (x >= xB ? 1 : -1);
+		return { ex, ey: 0, sila: Math.abs(ex) };
+	}
+
+	function poleAktualni(x, y) {
+		return scenaDesky ? polePlatna(x, y) : poleBod(x, y);
+	}
+
+	// ---------- kreslicí pomůcky ----------
+	function zaobleny(x, y, w, h, r) {
+		ctx.beginPath();
+		ctx.moveTo(x + r, y);
+		ctx.arcTo(x + w, y, x + w, y + h, r);
+		ctx.arcTo(x + w, y + h, x, y + h, r);
+		ctx.arcTo(x, y + h, x, y, r);
+		ctx.arcTo(x, y, x + w, y, r);
+		ctx.closePath();
+	}
+	// světlá plaketa s textem — text přes kresbu musí být vždy čitelný
+	function plaketa(px, py, text) {
+		ctx.font = 'bold 13px sans-serif';
+		const w = ctx.measureText(text).width + 16, h = 20;
+		ctx.fillStyle = 'rgba(255,255,255,0.94)';
+		ctx.strokeStyle = '#2b2a26';
+		ctx.lineWidth = 1.5;
+		zaobleny(px - w / 2, py - h / 2, w, h, 6);
+		ctx.fill(); ctx.stroke();
+		ctx.fillStyle = '#2b2a26';
+		ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+		ctx.fillText(text, px, py + 1);
+	}
+	function sipkaHlavicka(x, y, uhel, delka = 9) {
+		ctx.beginPath();
+		ctx.moveTo(x, y);
+		ctx.lineTo(x - delka * Math.cos(uhel - 0.4), y - delka * Math.sin(uhel - 0.4));
+		ctx.lineTo(x - delka * Math.cos(uhel + 0.4), y - delka * Math.sin(uhel + 0.4));
+		ctx.closePath();
+		ctx.fill();
+	}
+
+	// ---------- siločáry: dvě tělesa ----------
+	// počáteční body: z kladných nábojů (siločáry z nich VYCHÁZEJÍ), nebo když
+	// jsou obě tělesa záporná, ze širokého kruhu okolo (siločáry do nich PŘITÉKAJÍ)
+	function pocatecniBody() {
+		const zdroje = telesa();
+		const kladne = zdroje.filter((t) => t.q > 0);
+		const body = [];
+		const N = 12;
+		if (kladne.length > 0) {
+			for (const t of kladne) {
+				for (let i = 0; i < N; i++) {
+					const a = (i / N) * Math.PI * 2;
+					body.push({ x: t.x + 26 * Math.cos(a), y: t.y + 26 * Math.sin(a) });
+				}
+			}
+		} else {
+			const Rk = 170;
+			for (let i = 0; i < 16; i++) {
+				const a = (i / 16) * Math.PI * 2;
+				body.push({ x: cx + Rk * Math.cos(a), y: cy + Rk * Math.sin(a) });
+			}
+		}
+		return body;
+	}
+
+	function nakresliSilocaryTelesa(offset) {
+		ctx.strokeStyle = 'rgba(110,110,120,0.55)';
+		ctx.fillStyle = 'rgba(110,110,120,0.55)';
+		ctx.lineWidth = 1.6;
+		ctx.setLineDash([8, 6]);
+		ctx.lineDashOffset = -offset;
+		const zdroje = telesa();
+		for (const start of pocatecniBody()) {
+			let x = start.x, y = start.y;
+			const body = [{ x, y }];
+			for (let krok = 0; krok < 240; krok++) {
+				const f = poleBod(x, y);
+				if (f.sila < 1e-8) break;
+				x += (f.ex / f.sila) * 3;
+				y += (f.ey / f.sila) * 3;
+				if (x < 0 || x > W || y < 0 || y > H) break;
+				body.push({ x, y });
+				const blizko = zdroje.some((t) => t.q < 0 && Math.hypot(x - t.x, y - t.y) < 18);
+				if (blizko) break;
+			}
+			if (body.length < 4) continue;
+			ctx.beginPath();
+			ctx.moveTo(body[0].x, body[0].y);
+			for (const b of body) ctx.lineTo(b.x, b.y);
+			ctx.stroke();
+			// šipka směru uprostřed čáry
+			const m = Math.floor(body.length / 2);
+			const p0 = body[Math.max(0, m - 1)], p1 = body[Math.min(body.length - 1, m + 1)];
+			const uhel = Math.atan2(p1.y - p0.y, p1.x - p0.x);
+			ctx.setLineDash([]);
+			sipkaHlavicka(body[m].x, body[m].y, uhel);
+			ctx.setLineDash([8, 6]);
+		}
+		ctx.setLineDash([]);
+	}
+
+	// ---------- siločáry: rovnoběžné desky (homogenní pole) ----------
+	function nakresliSilocaryDesky(offset) {
+		const g = deskyGeom();
+		const xA = g.xA + 8, xB = g.xB - 8;
+		const f = polePlatna(cx, cy);
+		if (f.sila < 0.05) return; // souhlasné náboje → pole mezi deskami se ruší
+		const zprava = f.ex > 0;
+		ctx.strokeStyle = 'rgba(110,110,120,0.6)';
+		ctx.fillStyle = 'rgba(110,110,120,0.6)';
+		ctx.lineWidth = 1.8;
+		ctx.setLineDash([8, 6]);
+		ctx.lineDashOffset = zprava ? -offset : offset;
+		for (let y = cy - 100; y <= cy + 100; y += 26) {
+			ctx.beginPath();
+			ctx.moveTo(xA, y);
+			ctx.lineTo(xB, y);
+			ctx.stroke();
+			ctx.setLineDash([]);
+			sipkaHlavicka(zprava ? xB : xA, y, zprava ? 0 : Math.PI);
+			ctx.setLineDash([8, 6]);
+		}
+		ctx.setLineDash([]);
+	}
+
+	// ---------- tělesa / desky ----------
+	function barvaNaboje(q) {
+		return q > 0 ? '#e03131' : '#1971c2';
+	}
+	function nakresliTelesa() {
+		for (const t of telesa()) {
+			ctx.fillStyle = barvaNaboje(t.q);
+			ctx.beginPath();
+			ctx.arc(t.x, t.y, R_TELESA, 0, Math.PI * 2);
+			ctx.fill();
+			ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 3; ctx.stroke();
+			ctx.fillStyle = '#fff';
+			ctx.font = 'bold 24px sans-serif';
+			ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+			ctx.fillText(t.q > 0 ? '+' : '−', t.x, t.y + 1);
+		}
+	}
+	function nakresliDesky() {
+		const { xA, xB, yTop, yBot } = deskyGeom();
+		const vys = yBot - yTop, tl = 14;
+		for (const [x, q] of [[xA, qA], [xB, qB]]) {
+			ctx.fillStyle = barvaNaboje(q);
+			ctx.fillRect(x - tl / 2, yTop, tl, vys);
+			ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 3;
+			ctx.strokeRect(x - tl / 2, yTop, tl, vys);
+			ctx.fillStyle = '#fff';
+			ctx.font = 'bold 15px sans-serif';
+			ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+			for (let i = 0; i < 5; i++) {
+				const y = yTop + vys * (i + 0.5) / 5;
+				ctx.fillText(q > 0 ? '+' : '−', x, y);
+			}
+		}
+	}
+
+	// ---------- zkušební (testovací) náboj + šipka síly ----------
+	// šipka slábne se vzdáleností, ale dokud pole existuje (sila > 0), NEZMIZÍ —
+	// má vždy aspoň 9 px (stejný princip jako piliny ve vzoru MagnetSimulace).
+	// Skutečně nulové pole (mimo desky, nebo když se pole desek vyruší) šipku
+	// správně vůbec nekreslí — to je fyzikální 0, ne "daleko slabé" pole.
+	function delkaSipkySondy(sila) {
+		const K = scenaDesky ? 45 : 260000;
+		return Math.max(9, Math.min(66, sila * K));
+	}
+	function nakresliSondu() {
+		const f = poleAktualni(sonda.x, sonda.y);
+		if (f.sila > 1e-9) {
+			const delka = delkaSipkySondy(f.sila);
+			const uhel = Math.atan2(f.ey, f.ex);
+			ctx.strokeStyle = '#e8590c'; ctx.fillStyle = '#e8590c'; ctx.lineWidth = 3;
+			ctx.beginPath();
+			ctx.moveTo(sonda.x, sonda.y);
+			const kx = sonda.x + Math.cos(uhel) * delka, ky = sonda.y + Math.sin(uhel) * delka;
+			ctx.lineTo(kx, ky);
+			ctx.stroke();
+			sipkaHlavicka(kx, ky, uhel, 11);
+		}
+		ctx.fillStyle = '#495057';
+		ctx.beginPath();
+		ctx.arc(sonda.x, sonda.y, 7, 0, Math.PI * 2);
+		ctx.fill();
+		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2; ctx.stroke();
+		plaketa(sonda.x, sonda.y - 20, 'zkušební náboj (+)');
+	}
+
+	// ---------- hlavní kreslení ----------
+	function nakresli(offset) {
+		ctx.clearRect(0, 0, W, H);
+		if (chkSilocary.checked) {
+			if (scenaDesky) nakresliSilocaryDesky(offset);
+			else nakresliSilocaryTelesa(offset);
+		}
+		if (scenaDesky) nakresliDesky();
+		else nakresliTelesa();
+		nakresliSondu();
+		plaketa(90, 24, scenaDesky ? 'rovnoběžné desky' : 'dvě tělesa');
+		// ve scéně desek dolů pod desky, aby se nepletla s plaketou zkušebního náboje nahoře
+		if (scenaDesky) plaketa(cx, H - 22, `d = ${vzdCm} cm`);
+		else plaketa(cx, cy - (R_TELESA + 24), `d = ${vzdCm} cm`);
+	}
+
+	// ---------- popisný text ----------
+	function aktualizujStav() {
+		let text;
+		if (!scenaDesky) {
+			if (qA !== qB) {
+				text = `Nesouhlasné náboje se přitahují — siločáry vedou od + k −. Tělesa jsou od sebe ${vzdCm} cm: čím blíž, tím hustší siločáry a silnější pole.`;
+			} else if (qA > 0) {
+				text = `Souhlasné náboje (+ a +) se odpuzují — siločáry vedou od obou těles pryč. Tělesa jsou od sebe ${vzdCm} cm.`;
+			} else {
+				text = `Souhlasné náboje (− a −) se odpuzují — siločáry do obou těles přitékají odjinud. Tělesa jsou od sebe ${vzdCm} cm.`;
+			}
+		} else {
+			if (qA !== qB) {
+				text = `Mezi deskami je pole všude stejně silné — siločáry jsou rovnoběžné a stejně husté.`;
+			} else {
+				text = `Obě desky mají stejný náboj — pole se ruší jak mezi deskami, tak mimo ně. Ať zkušební náboj pustíš kamkoli, žádnou sílu necítí.`;
+			}
+		}
+		stavEl.textContent = text;
+	}
+
+	// popisky tlačítek A/B musí sedět na aktuální scénu (tělesa vs. desky)
+	function aktualizujPopiskyTlacitek() {
+		const nazev = scenaDesky ? 'Deska' : 'Těleso';
+		tlA.textContent = `${nazev} A: ` + (qA > 0 ? '+' : '−');
+		tlB.textContent = `${nazev} B: ` + (qB > 0 ? '+' : '−');
+	}
+
+	function prekresli(offset = 0) {
+		dOut.textContent = vzdCm + ' cm';
+		nakresli(offset);
+		aktualizujStav();
+		aktualizujPopiskyTlacitek();
+	}
+
+	// ---------- ovládání ----------
+	tlA.addEventListener('click', () => {
+		qA *= -1;
+		prekresli(posledniOffset);
+	});
+	tlB.addEventListener('click', () => {
+		qB *= -1;
+		prekresli(posledniOffset);
+	});
+	tlScena.addEventListener('click', () => {
+		scenaDesky = !scenaDesky;
+		tlScena.textContent = scenaDesky ? '🔄 Přepnout na dvě tělesa' : '🔄 Přepnout na desky (homogenní pole)';
+		prekresli(posledniOffset);
+	});
+	chkSilocary.addEventListener('change', () => prekresli(posledniOffset));
+	dSlider.addEventListener('input', () => {
+		vzdCm = +dSlider.value;
+		prekresli(posledniOffset);
+	});
+
+	// tažení zkušebního náboje myší/prstem
+	function bodZUdalosti(e) {
+		const r = platno.getBoundingClientRect();
+		return {
+			x: (e.clientX - r.left) * (W / r.width),
+			y: (e.clientY - r.top) * (H / r.height),
+		};
+	}
+	platno.addEventListener('pointerdown', (e) => {
+		tahnu = true;
+		sonda = bodZUdalosti(e);
+		prekresli(posledniOffset);
+	});
+	platno.addEventListener('pointermove', (e) => {
+		if (!tahnu) return;
+		const b = bodZUdalosti(e);
+		sonda = { x: Math.max(4, Math.min(W - 4, b.x)), y: Math.max(4, Math.min(H - 4, b.y)) };
+		prekresli(posledniOffset);
+	});
+	window.addEventListener('pointerup', () => { tahnu = false; });
+	platno.addEventListener('pointerleave', () => {}); // sonda zůstává na místě, kde ji žák pustil
+
+	// ---------- animace: offset tečkovaných siločar je ČISTÁ funkce času t ----------
+	let posledniOffset = 0;
+	function krok(ted) {
+		const t = ted / 1000;
+		posledniOffset = (t * 40) % 14; // 40 px/s, perioda vzoru čárka+mezera = 8+6
+		nakresli(posledniOffset);
+		requestAnimationFrame(krok);
+	}
+	prekresli(0);
+	requestAnimationFrame(krok);
+
+	// ověřovací háčky pro strojovou kontrolu (čisté funkce, žádný skrytý stav)
+	platno.__poleBod = poleBod;
+	platno.__polePlatna = polePlatna;
+	platno.__offsetProCas = (t) => (t * 40) % 14;
+</script>
+
+<style>
+	#epole-platno {
+		width: 100%;
+		max-width: 640px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #f8f9fa;
+		touch-action: none;
+	}
+	.epole-ovladani {
+		display: flex;
+		gap: 0.8rem;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 0.6rem;
+	}
+	.epole-tl {
+		font: inherit;
+		font-weight: 700;
+		padding: 0.4rem 1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.epole-tl:active { transform: translateY(1px); }
+	.epole-tl-scena { background: #d0ebff; }
+	.epole-checkbox {
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 640px; display: block; margin-top: 0.3rem; }
+	.epole-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
