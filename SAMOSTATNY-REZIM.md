@@ -1,20 +1,19 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 10:20)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 15:00)
 
 **⓪ PO /clear NEJDŘÍV: audit návodů do 0 nálezů** (stálé zadání učitele,
 postup v úvodu skillu `/wonderly`), teprve pak práce.
 
-**① ROZDĚLANÁ PRÁCE: NOVÉ VIDEO LUXEUILU SE PRÁVĚ SKLÁDÁ** (spuštěno 10:11,
-217 médií, ~25 min stopáže → 6 hudebních skladeb; `tail -5
-~/Desktop/Omega/skripty/data/video-automat.log`). Až doběhne:
-`kontrola_videa.py --mesto Luxeuil-les-Bains_FR` + mapa a anonymizace OKEM
-→ přesun do `nasazeno/` → nahrávač je nahraje sám (kvóta dnes 5/5 vyčerpaná,
-takže zítra 9:15). **Do `2026.ts` se Luxeuil dopíše až podle NOVÝCH videoId**
-— stará (`hGBkVHDg3W4`, `Nit8-Kr7CjA`, torzo `qbysT_piPTE`) jsou na kanálu
-SOUKROMÁ a v evidenci odsunutá do `nahrana_videa_nahrazena`.
-🔸 **Nedodělek:** `IMG_7173_cast2/cast3` se nikdy nepodařilo anonymizovat
-(položky v KE-SCHVALENI) — v novém videu zase nebudou. Zkusit kráječem
-(vzor: ruční dokončení Saint-Sauveur), a když projdou, otisk médií se změní
-a automat video přestaví sám potřetí.
+**① ČEKÁ UŽ JEN NA NAHRÁVAČ (jede sám, 9:15): LUXEUIL — 6 DÍLŮ V `nasazeno/`.**
+Video hotové a ověřené ze tří stran: `kontrola_videa.py` 6/6 čistě, mapa OKEM
+(2521 km, poslední úsek 120 km od Salins, shluk „8 míst"), anonymizace OKEM
+na kontaktních listech obou nově zpracovaných částí (davy i tanečníci
+rozmazaní). Kvóta 5/den → 6 dílů Luxeuilu + `Saint-Amour 2/2` (dnešní torzo)
+se rozloží na dva dny. **Do `2026.ts` se Luxeuil dopíše až podle NOVÝCH
+videoId, teprve až budou VŠECHNY díly na kanálu** — stará (`hGBkVHDg3W4`,
+`Nit8-Kr7CjA`, torzo `qbysT_piPTE`) jsou SOUKROMÁ a v evidenci odsunutá do
+`nahrana_videa_nahrazena`. Pak totéž pro Saint-Amour a Salins-les-Bains
+(popisy ze zdroje `fakta_mist.py --zdroj <slug> fr "<Název>"`, rok 2026 se
+píše PŘÍMO do .ts; bez `videoId` i řádků `videa:` brána shodí build).
 
 **② HOTOVO DNES:** ✅ **Saint-Sauveur SLOUČEN do Luxeuilu** (rozhodnutí
 učitele) — 293 souborů, 6 evidencí, 9 fotek do galerie Luxeuilu, bod smazán
@@ -22,7 +21,11 @@ z webu (ověřeno na produkci); nový nástroj `slouc_mista.py`. ✅ Dvě **torz
 na kanálu** po „Broken pipe" (`qbysT_piPTE`, `m7L-nUM4-Gk`) schována
 a obrana opravena — hledala dřív, než YouTube torzo zaindexoval, a mlčela
 o tom. ✅ Odložené video už neplatí za hotové (`_ceka-na-predelani`).
-Zbývá donahrát **Saint-Amour 2/2** (torzo, kvóta zítra).
+✅ **Ballon d'Alsace se vrátil do trasy** — po úklidu fotek z ní tiše vypadl
+(hotové video teď platí jako doklad zastávky; kotva počtu rozšířena).
+✅ **Slepení kousků má záložní cestu** — po odmítnutí kotvou nastoupí concat
+filtr s překódováním, takže `IMG_7173_cast2/cast3` (3× vzdané) jsou hotové
+a příště to nebude dodělávat člověk; testy kráječe 27/27.
 
 **③ JEDINÉ ODKLIKNUTÍ PRO UČITELE:** zavřít `MISTA.xlsx` bez uložení.
 
@@ -1797,3 +1800,17 @@ a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobr
 Soupis všech dokončených kol je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — je to historie,
 která se pro navázání práce nepotřebuje, tak se nečte automaticky.
 
+
+## Drobné dluhy ze sloučení Saint-Sauveur (12. 8. 2026)
+
+- **V úložišti zůstalo 9 fotek + náhledy pod `cesty/2026/saint-sauveur`.**
+  Nikdo je nevidí (místo na webu už není, fotky jsou nahrané i pod Luxeuilem),
+  takže nespěchají — smazání z R2 je mazání, čeká na odkliknutí učitele.
+- **Poloha zastávky po úklidu fotek zhrubne.** Když VideoAutomat uklidí
+  mezikopie, místo ztratí medián GPS a trasa má na výběr pin z deníku
+  a starou trasu; při remíze dvou zdrojů vyhraje pin (u Ballonu d'Alsace
+  o 710 m vedle). Na evropské mapě je to pod rozlišením (1 px ≈ 3 km),
+  proto se to neřešilo — kdyby se mapy někdy dělaly detailnější, dát
+  přednost zdroji „medián GPS fotek" ze staré trasy.
+- **Kontaktní list pro vizuální kontrolu anonymizace nemá skript** — dělá se
+  ručně přes ffmpeg `tile`. Kandidát na doplnění do `kontrola_videa.py`.
