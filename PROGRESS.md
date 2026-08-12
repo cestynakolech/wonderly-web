@@ -151,8 +151,15 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   **Škola (fyzika 8):** nová simulace **elektrického pole** — dvě nabitá tělesa
   i homogenní pole mezi deskami, siločáry, tažitelný zkušební náboj. Nezávislá
   kontrola našla 5 nálezů (závažný: pole desek neznalo geometrii), autor je
-  opravil, druhé kolo kontroly proběhlo. Fyzika 8 měla 12 podtémat bez
-  názornosti → o jedno míň.
+  opravil, **druhé kolo našlo dalších 5** (3 závažné: obrácená podmínka na
+  okraji desky B, nepravdivá věta o rušení pole vně desek, věta odporující
+  tomu, co je u posuvníku vidět) → opraveno a kontrolováno znovu.
+  Fyzika 8 měla 12 podtémat bez názornosti → o jedno míň.
+  **Chyba v postupu (deník chyb, třída `verdikt-hadany-vzorem`):** verdikt
+  druhého kola jsem vytáhl grepem z transcriptu subagenta a chytil tím větu
+  z VLASTNÍHO zadání („Když je vše v pořádku: POČET NÁLEZŮ: 0"), takže se
+  simulace nasadila jako čistá, ačkoli měla 5 nálezů. Verdikt se čte
+  z doručeného výsledku agenta, nikdy vzorem nad transcriptem.
 
 - **2026-08-12 v noci (smyčka kontrol kráječe DO NULY: kola 4–18, ~30 oprav)** —
   Dokončena smyčka oprava→kontrola z 11. 8.: 15 kol nezávislého kontrolora

@@ -1,3 +1,20 @@
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 18:05, uloženo před /clear)
+
+**PRVNÍ ÚKOL PO /clear (jediná rozdělaná věc):** dotáhnout **3. kolo kontroly
+simulace elektrického pole**. Simulace je nasazená na produkci, ale ve verzi,
+která měla 5 nálezů (viz ⑥); opravená verze je v repu commitem níže. Zadání
+kontroly: projít `src/components/skola2/ElektrickePoleSimulace.astro`
+spuštěním kódu (skript vytáhnout do `.mjs` a pustit v Node) — okraje desek
+po 1 px u xA i xB pro obě polarity a d = 4/8/16, všechny stavové věty v obou
+scénách, překryv plaket = 0, šipka min 9 px a mizí jen při nulovém poli,
+regrese fyziky dvou nábojů a determinismus `__offsetProCas`. Při 0 nálezech
+jen ohlásit; jinak nálezy poslat autorovi a kolo opakovat.
+⚠️ **Verdikt číst z DORUČENÉHO výsledku agenta, ne grepem nad jeho
+transcriptem** — 12. 8. jsem tak chytil větu z vlastního zadání a nasadil
+vadnou verzi ([[feedback-verdikt-cist-z-vysledku]]).
+
+_(starší hlavička 17:00 pokračuje níž)_
+
 ## 🔴🔴 ZAČNI TADY (stav 12. 8. 17:00)
 
 **⓪ PO /clear NEJDŘÍV: audit návodů do 0 nálezů** (stálé zadání učitele,
@@ -84,6 +101,14 @@ nová simulace **elektrického pole**
 `temata.ts` i stránky podtématu; brána zelená (96 komponent), testy simulací
 1015/0. Fyzika 8 měla podle `node testy/nazornost.mjs` 12 podtémat bez
 názornosti (2 z nich jsou shrnutí, která ji nepotřebují) — tímhle o jedno míň.
+**Kontrola simulace: dvě kola po 5 nálezech** (1. kolo mj. pole desek neznalo
+geometrii; 2. kolo obrácená podmínka na okraji desky B, nepravdivá věta
+o rušení pole vně desek, věta odporující tomu, co je u posuvníku vidět).
+**PAST, DO KTERÉ JSEM ŠLÁPL** (deník chyb, třída `verdikt-hadany-vzorem`):
+verdikt 2. kola jsem vytáhl `grep`em z transcriptu subagenta a chytil tím větu
+z VLASTNÍHO zadání („Když je vše v pořádku: POČET NÁLEZŮ: 0") — simulace se
+proto nasadila jako čistá, ačkoli měla 5 nálezů. **Verdikt agenta se čte jen
+z doručeného výsledku, nikdy vzorem nad jeho transcriptem — je v něm i zadání.**
 Další na řadě ve fyzice 8: `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
 `elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`, `tepelny-motor-parni-stroj`,
 `tuhnuti`, `kondenzace`, `skupenske-zmeny-vody-v-prirode`, `vnitrni-energie-telesa`.

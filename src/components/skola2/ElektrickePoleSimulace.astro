@@ -14,7 +14,7 @@
 	<p>
 		Kolem každého <strong>nabitého tělesa</strong> je <strong>elektrické pole</strong> —
 		působí silou i na dálku, bez dotyku. <strong>Siločáry</strong> ukazují směr síly na
-		kladný náboj: vedou vždy od <strong>+</strong> k <strong>−</strong>. Nesouhlasné náboje
+		kladný náboj: vycházejí z <strong>kladného</strong> náboje a končí v <strong>záporném</strong>. Nesouhlasné náboje
 		se <strong>přitahují</strong>, souhlasné se <strong>odpuzují</strong>. Šedou tečku
 		(<strong>zkušební náboj</strong>) můžeš chytit a táhnout — šipka ukáže, jaká síla by na
 		něj v tom místě působila.
@@ -56,8 +56,10 @@
 	const R_TELESA = 22;   // poloměr kresleného tělesa (px)
 	const E0 = 0.9;        // "síla" jednoho nabitého plátu (jednotky pro animaci, ne SI)
 
-	// zkušební (testovací) náboj — poloha, kterou žák táhne myší/prstem
-	let sonda = { x: cx, y: 74 };
+	// zkušební (testovací) náboj — poloha, kterou žák táhne myší/prstem.
+	// Výchozí bod je mezi tělesy (na ose spojnice, kousek nad ní), kde je pole
+	// opravdu tím silnější, čím jsou tělesa blíž — mimo tento pás to neplatí.
+	let sonda = { x: cx, y: cy - 40 };
 	let tahnu = false;
 
 	// ---------- geometrie ----------
@@ -101,7 +103,7 @@
 		if (x < xA || x > xB || y < yTop || y > yBot) return { ex: 0, ey: 0, sila: 0 };
 		let ex = 0;
 		ex += qA * E0 * (x >= xA ? 1 : -1);
-		ex += qB * E0 * (x >= xB ? 1 : -1);
+		ex += qB * E0 * (x > xB ? 1 : -1); // ostrá nerovnost: x === xB je stále UVNITŘ desek
 		return { ex, ey: 0, sila: Math.abs(ex) };
 	}
 
@@ -302,9 +304,11 @@
 		else nakresliTelesa();
 		nakresliSondu();
 		plaketa(90, 24, scenaDesky ? 'rovnoběžné desky' : 'dvě tělesa');
-		// ve scéně desek dolů pod desky, aby se nepletla s plaketou zkušebního náboje nahoře
+		// plaketa se vzdáleností stranou od výchozí polohy sondy (cy-40, nad tělesy),
+		// aby se s její plaketou nikdy nepřekrývala — u desek dole pod nimi,
+		// u těles pod nimi (sonda i její popisek jsou nad tělesy)
 		if (scenaDesky) plaketa(cx, H - 22, `d = ${vzdCm} cm`);
-		else plaketa(cx, cy - (R_TELESA + 24), `d = ${vzdCm} cm`);
+		else plaketa(cx, cy + R_TELESA + 24, `d = ${vzdCm} cm`);
 	}
 
 	// ---------- popisný text ----------
@@ -312,7 +316,7 @@
 		let text;
 		if (!scenaDesky) {
 			if (qA !== qB) {
-				text = `Nesouhlasné náboje se přitahují — siločáry vedou od + k −. Tělesa jsou od sebe ${vzdCm} cm: čím blíž, tím hustší siločáry a silnější pole.`;
+				text = `Nesouhlasné náboje se přitahují — siločáry vedou od + k −. Mezi tělesy je pole tím silnější, čím jsou blíž (teď jsou od sebe ${vzdCm} cm).`;
 			} else if (qA > 0) {
 				text = `Souhlasné náboje (+ a +) se odpuzují — siločáry vedou od obou těles pryč. Tělesa jsou od sebe ${vzdCm} cm.`;
 			} else {
@@ -320,9 +324,9 @@
 			}
 		} else {
 			if (qA !== qB) {
-				text = `Mezi deskami je pole všude stejně silné — siločáry jsou rovnoběžné a stejně husté.`;
+				text = `Mezi deskami je pole všude stejně silné — siločáry jsou rovnoběžné a stejně husté. Mimo desky pole prakticky není — šipka tam zmizí.`;
 			} else {
-				text = `Obě desky mají stejný náboj — pole se ruší jak mezi deskami, tak mimo ně. Ať zkušební náboj pustíš kamkoli, žádnou sílu necítí.`;
+				text = `Obě desky mají stejný náboj — mezi deskami se pole ruší, šipka zmizí.`;
 			}
 		}
 		stavEl.textContent = text;
