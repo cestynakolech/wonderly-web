@@ -1,4 +1,62 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 22:45)
+## 🔴🔴 ZAČNI TADY (stav 13. 8. 00:15)
+
+### ✅ HOTOVO V NOCI: TITULKY NA KANÁLU · DLUH K F SPLACEN · MAPY DOPŘEDU
+
+**1. Čtyři videa na kanálu dostala datum do titulku** (zadání učitele 12. 8.).
+Nový nástroj `nahraj_na_youtube.py --oprav-titulky [--jen ID,ID] [--naostro]`
+(výchozí běh NANEČISTO). Titulek se nepočítá z toho, co na kanálu stojí, ale
+ze SOUBORU přes `hezky_nazev()` — týmž pravidlem, jakým ho video dostane při
+nahrání. Kotva: po zápisu se čte zpátky z kanálu, a to OPAKOVANĚ (0/3/8 s),
+protože YouTube chvíli vrací starou hodnotu z cache — jediné čtení hlásilo
+„nepovedlo se" u videí, která přejmenovaná byla. Ověřeno nezávisle ze soupisu
+kanálu: **ze 7 videí nahraných 12. 8. má datum 7, bez data 0.**
+_Torzo `m7L-nUM4-Gk` (P0D, soukromé) dostalo „02. 08. · Saint-Amour (Francie)
+— 2/2 (nepodařený přenos, nahradí se)", ať se nezamění s pravým dílem._
+
+⚠️ **NEOPRAVOVAT NASLEPO VŠECHNO** — nanečisto našlo 16 videí, ale dvě mají
+RUČNÍ titulek od učitele: `u4NmKbMRhiE` „01 · Německo — Landshut, Schongau,
+Geisingen" (stroj by z něj udělal „Nemecko jen hudba") a `9Sv4exafb-c`
+„02 · Salbert (Francie)" (přišlo by o ruční pořadové číslo). Nástroj je proto
+sám od sebe přeskočí: **liší-li se titulek na kanálu od evidence, měnil ho
+člověk a stroj na něj nesahá.** Zbylých ~12 starších videí (Le Thillot,
+Rupt-sur-Moselle, Vaulnaveys, Schongau…) by datum dostat mohlo — rozhodne učitel.
+
+**2. Splacen POSLEDNÍ bod dluhu ke kroku F** (medián GPS ve dvou kopiích).
+Nový modul **`median_gps_fotek.py`** = jediný domov výpočtu i seznamu fází;
+volá ho `trasa_z_tabulky.median_gps` i `zaloz_mista_z_fotek.gps_z_puvodnich`,
+a `poradnik._z_disku` si přes `median_ze_seznamu()` počítá medián taky odtud
+(polohy si sbírá vlastním průchodem, aby nečetl EXIF dvakrát). **Dluh v registru
+zůstal 0 — laťka se nepovolovala.** Pravidlo `median-gps-fotek` má vzor, který
+musel umět OBA zápisy (holou dvojici i `{"lat": …, "lon": …}`) — první podoba
+kopii v pořadníku minula a hlásila falešný klid.
+Doloženo měřením: **7 míst dostalo bod až po sjednocení** (dřív `None`, protože
+zakládání míst se dívalo jen do `fotky-puvodni`), a kde bod vracely obě podoby,
+je rozdíl **0,0 m**.
+
+**3. Trasa přepočítána a zapsána: 34 zastávek, 3136,5 km** (dřív 3138,1).
+Posunuly se jen 3 body — Ruedesheim 96 m, Ochsenfurt 3 m, Sommerhausen 2 m —
+a všechny zůstaly na „medián GPS fotek" (jen z většího vzorku). Žádné místo
+nepřibylo ani nezmizelo. **Kotva, že to nic nezneplatnilo:** v `PREPOCET-MAP.md`
+je proti předchozí verzi jediná změna — časové razítko; k přestavbě zůstalo 12,
+v pořádku 15. Čekajících 8 dílů v `nasazeno/` (Luxeuil, Saint-Amour, Salins)
+je „v pořádku", nic se nepředělává.
+
+**4. Mapy dopředu: `priprav_mapy.py` 12/12, chyb 0** (zadání „připravuj videa
+dopředu"). Nové jsou dvě — `saint-sorlin-en-bugey.png` (2212 km, poslední úsek
+109 km) a `saint-denis-en-bugey.png` (2222 km, 9 km); **obě prohlédnuty OKEM**,
+trasa i shluky sedí (7 míst → 8 míst) a km na sebe navazují.
+
+### DÁL SE PŘIPRAVUJE (nic z toho nečeká na učitele)
+
+- **Anonymizovat teď nejde**: 330 fotek sedmi míst leží v `fotky-cekarna` a ta
+  zraje 7 dní od POSLEDNÍ fotky (`pipeline_sdilene.presun_zrale`). Trittenheim
+  dozraje **13. 8.**, Kluesserath 15. 8., pak Ruedesheim, Ochsenfurt,
+  Sommerhausen, Winterhausen. Hlídač spuštěný ručně správně řekl, že má jen
+  média bez polohy, a skončil.
+- **Stopku video-automatu jsem NEZVEDAL.** Dluh k F je splacen, ale krok F má
+  ještě druhou část: vyčlenit `nahraj_a_vymen` do sdíleného modulu
+  `vymena_videa.py` a projít výměny map (12 videí k přestavbě). Zvednutí stopky
+  je zásah do nasazení — rozhodne učitel, nebo se udělá až po `vymena_videa.py`.
 
 ### PRO UČITELE NIC NEČEKÁ
 
