@@ -1,8 +1,9 @@
 ## 🔴🔴 ZAČNI TADY (stav 12. 8. 18:05, uloženo před /clear)
 
 **PRVNÍ ÚKOL PO /clear (jediná rozdělaná věc):** dotáhnout **3. kolo kontroly
-simulace elektrického pole**. Simulace je nasazená na produkci, ale ve verzi,
-která měla 5 nálezů (viz ⑥); opravená verze je v repu commitem níže. Zadání
+simulace elektrického pole**. Opravená verze (5 nálezů 2. kola opraveno) je
+nasazená commitem `a10fcb3`, brána i build zelené — chybí jen vyhodnotit
+3. kolo kontroly, které v době ukládání ještě běželo. Zadání
 kontroly: projít `src/components/skola2/ElektrickePoleSimulace.astro`
 spuštěním kódu (skript vytáhnout do `.mjs` a pustit v Node) — okraje desek
 po 1 px u xA i xB pro obě polarity a d = 4/8/16, všechny stavové věty v obou
