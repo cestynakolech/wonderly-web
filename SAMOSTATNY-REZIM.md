@@ -1,18 +1,52 @@
 ## 🔴🔴 ZAČNI TADY (stav 12. 8. 18:05, uloženo před /clear)
 
-**PRVNÍ ÚKOL PO /clear (jediná rozdělaná věc):** dotáhnout **3. kolo kontroly
-simulace elektrického pole**. Opravená verze (5 nálezů 2. kola opraveno) je
-nasazená commitem `a10fcb3`, brána i build zelené — chybí jen vyhodnotit
-3. kolo kontroly, které v době ukládání ještě běželo. Zadání
-kontroly: projít `src/components/skola2/ElektrickePoleSimulace.astro`
-spuštěním kódu (skript vytáhnout do `.mjs` a pustit v Node) — okraje desek
-po 1 px u xA i xB pro obě polarity a d = 4/8/16, všechny stavové věty v obou
-scénách, překryv plaket = 0, šipka min 9 px a mizí jen při nulovém poli,
-regrese fyziky dvou nábojů a determinismus `__offsetProCas`. Při 0 nálezech
-jen ohlásit; jinak nálezy poslat autorovi a kolo opakovat.
-⚠️ **Verdikt číst z DORUČENÉHO výsledku agenta, ne grepem nad jeho
-transcriptem** — 12. 8. jsem tak chytil větu z vlastního zadání a nasadil
-vadnou verzi ([[feedback-verdikt-cist-z-vysledku]]).
+**PRVNÍ ÚKOL PO /clear:** opravit **6 nálezů 3. kola kontroly** simulace
+`src/components/skola2/ElektrickePoleSimulace.astro`. Kontrola UŽ PROBĚHLA —
+nepouštět ji znovu, poslat nálezy workerovi a po opravě udělat 4. kolo.
+Nasazená verze (`a10fcb3`) je jinak lepší než předchozí, brána i build zelené.
+
+1. **[ZÁVAŽNÝ] U souhlasných desek je pole nulové na CELÉM plátně** — i vně,
+   kde má být plné (`±2·E0 = 1,8`). Ukazuje to dětem nabitá tělesa bez pole
+   kolem, což popírá úvodní větu i výklad („pole vzniká kolem každého nabitého
+   tělesa"). Důkaz: rastr 4 px, desky (+,+), d = 4/8/16 → **100 % bodů bez
+   šipky**, `polePlatna(100,190).ex = 0`. U nesouhlasných je nula vně správně
+   (91,6 / 83,5 / 67,5 %). Ve scéně těles přitom (+,+) dává pole všude → scény
+   si odporují. Oprava: vně desek u souhlasných vracet `±2·E0` (znaménko podle
+   strany), NEBO plátno mimo desky vizuálně odlišit a doplnit větu, že model
+   počítá jen prostor mezi deskami.
+2. **[DROBNÝ] Plaketa „zkušební náboj (+)" překrývá při d = 4 a 6 cm obě desky**
+   a ořezává jejich znaménka (280 px² na desku, znaky 48 px²; d ≥ 8 je 0).
+   Způsobila to nová výchozí poloha sondy `cy − 40`. Oprava: kreslit plaketu
+   u `sonda.y − 34` a při kolizi ji přehodit na druhou stranu, nebo sondu
+   posadit na `cy − 70` (stále mezi deskami, y > yTop = 70).
+3. **[DROBNÝ] Hranice pole leží v OSE desky, ale deska je 14 px tlustá**
+   (`tl = 14`) — polovina viditelného těla desky vrací nulu: klik na levou
+   půlku desky A šipku zhasne, o 1 px vedle je plná 66px šipka (7 px nula /
+   8 px plné). Oprava: hranici na líc (`x < xA + tl/2 || x > xB − tl/2`), nebo
+   sondu do těla desky nepouštět.
+4. **[DROBNÝ] Šipka ve scéně desek je vždy na stropu 66 px**, takže při d = 4 cm
+   prostřelí desku B o 19 px do prostoru, kde model tvrdí nulu (hrot x = 386,
+   líc desky 367, volná mezera jen 33 px). Oprava: omezit délku i geometricky
+   (~0,6 volné mezery), nebo snížit strop na ~45 px.
+5. **[DROBNÝ] Plaketa sondy vyjíždí z plátna** (kreslí se natvrdo na
+   `sonda.y − 20`): sonda (320,4) → viditelných 0 %, (4,100) i (636,100) → 53 %.
+   Oprava: srazit pozici do plátna, při `sonda.y < 34` kreslit pod tečku.
+6. **[DROBNÝ] Text o siločárách je pořád bezvýhradný** — úvod (ř. 16–18) tvrdí
+   „vycházejí z kladného náboje a končí v záporném", jenže ve scéně (−,−) žádný
+   kladný není a stavová věta říká opak („siločáry do obou těles přitékají
+   odjinud"); v hlavičce souboru (ř. 3) zůstalo dokonce původní „**vždy** vedou
+   od kladného k zápornému". Oprava: doplnit podmínku a přepsat i komentář.
+
+_Co 3. kolo potvrdilo jako správné (neopravovat):_ monotonie „čím blíž, tím
+silnější" ve výchozím bodě sondy platí v celém rozsahu posuvníku; překryv
+plaket navzájem 0 px²; fyzika dvou nábojů (od + k −, pokles 3,60× a 4,22× při
+zdvojení r, přesně nulový střed u souhlasných); šipka min 9 px;
+`__offsetProCas` deterministický, krok 0,64 px na 16 ms; posuvník celočíselný;
+popisky tlačítek ve všech 8 kombinacích; barvy i kontrasty dle `MagnetSimulace`.
+
+⚠️ **Verdikt agenta číst z DORUČENÉHO výsledku, ne grepem nad transcriptem** —
+12. 8. jsem tak chytil větu z vlastního zadání a nasadil vadnou verzi
+([[feedback-verdikt-cist-z-vysledku]]).
 
 _(starší hlavička 17:00 pokračuje níž)_
 
