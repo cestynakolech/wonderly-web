@@ -23,11 +23,15 @@ nová pravidla v PRAVIDLA.md). Nejcennější:
 (automat se 3× vzdal na paměti; po 10s kouscích prošlo všech 9; `-c copy`
 concat rozbil časové značky → kotva stopáže správně odmítla 110 s místo
 86 s → slepeno concat FILTREM s překódováním, 86,03 s, zvuk + faststart OK).
-**VÝROBA VIDEA BĚŽÍ:** čekač v 02:50 spustil `vyrob_video_automat.py` —
-uklidil nasazená místa a jako další v pořadí vzal **Luxeuil-les-Bains
-(169 médií)**; teď generuje hudbu (`data/vyrob_video_rucni2.log`, PID drží
-zámek). Po hudbě složí video → pak `kontrola_videa.py --mesto <město>`
-+ mapa a anonymizace OKEM → `nasazeno/`.
+**✅ VIDEO LUXEUIL-LES-BAINS HOTOVÉ A V `nasazeno/` (3 díly, ~3:45):**
+čekač spustil výrobu sám, `kontrola_videa.py` 3/3 čistě (obraz=zvuk 0,00 s,
+−24 dB, faststart), mapa prohlédnuta OKEM (2510 km, poslední úsek 1 km,
+končí u Luxeuil — táž ve všech dílech), anonymizace na kontaktních listech
+5×5 OKEM (davy rozmazané, freska/pes nejsou nález). Kvóta dnes padne na
+5 čekajících dílů (Saint-Amour, Salins) — Luxeuil jde na řadu zítra.
+Kontrola kvality fotek NAHRÁNA ZPĚT do launchd (hlídač, 01:46) ✓.
+Výroba dopředu: další místa (Kluesserath, Neumagen, Geisingen) drží
+7denní čekání — nic dalšího teď vyrábět nejde, fronta je čistá.
 KE-SCHVALENI.md: 4 zastaralé řádky Saint-Sauveur smazány (nahrazeny
 poznámkou); návrh sloučení Saint-Sauveur+Luxeuil tam ZŮSTÁVÁ (rozhodne
 učitel) — VideoAutomat si místa vybírá sám z fronty, do toho nesahat.
