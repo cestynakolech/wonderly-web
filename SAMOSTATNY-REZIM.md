@@ -1,6 +1,36 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 18:05, uloženo před /clear)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 19:15 — po 4. kole kontroly)
 
-**PRVNÍ ÚKOL PO /clear:** opravit **6 nálezů 3. kola kontroly** simulace
+**PRVNÍ ÚKOL:** dotáhnout simulaci `src/components/skola2/ElektrickePoleSimulace.astro`
+do čistého kola. Historie: 3. kolo našlo 6 nálezů → worker je opravil → brána
+i build zelené → **4. kolo našlo 10 nálezů, z toho 3 ZÁVAŽNÉ**. NENASAZENO,
+produkce drží starší `a10fcb3`.
+
+⚠️ **Poučení kola:** oprava č. 4 ze 3. kola (geometrický strop šipky
+`strop = volno * 0,6`) sama **zavedla regresi** — délka šipky přestala odpovídat
+síle, takže v homogenním poli mezi deskami kolísala 9–66 px podle polohy sondy
+a s posuvníkem `d` se zkracovala, ačkoli síla byla pořád 1,8. Přesně případ
+[[feedback-oprava-otevre-past]]: nová kontrola/oprava musí uznat i to, co
+fungovalo. **Nálezy 4. kola nejsou nové chyby autora, ale následek předchozí
+opravy — proto se opravuje SPECIFIKACÍ, ne dalším záplatováním.**
+
+Rozhodnutá specifikace (poslána workerovi 19:10, běží): geometrický strop zrušit;
+délka šipky závisí JEN na poli; v deskové scéně šipka **vystředěná** kolem sondy
+s pevnou L = 30 px pro plné pole; sonda se geometricky nepustí blíž než 20 px
+k líci desky ani k okraji plátna; u těles **odmocninový** převod síly na délku
+(strop 66 px dnes nasycuje celé blízké okolí, takže „čím blíž, tím silnější"
+tam není vidět a d = 4 vs. 6 cm nedělá nic); plaketa sondy se musí uhýbat i
+PEVNÝM plaketám (pevné se kreslí až po ní a přepisují ji); u souhlasných těles
+vynechat 2 siločáry končící „ve vzduchu"; popisek `d` musí měřit volnou mezeru
+mezi líci, ne osy desek (dnes chyba až 18 %); pole u desek nechat platit v celé
+výšce plátna, ať sedí věta o dvojnásobném poli vně.
+
+**Po doručení workera: brána → build → 5. kolo kontroly.** Když ani 5. kolo
+nebude čisté, úkol ODLOŽIT (pravidlo o zacyklení) a jít na další z fronty —
+produkce má funkční starší verzi, nic nehoří.
+
+_(archiv zadání 3. kola níž)_
+
+**ARCHIV — 6 nálezů 3. kola kontroly** simulace
 `src/components/skola2/ElektrickePoleSimulace.astro`. Kontrola UŽ PROBĚHLA —
 nepouštět ji znovu, poslat nálezy workerovi a po opravě udělat 4. kolo.
 Nasazená verze (`a10fcb3`) je jinak lepší než předchozí, brána i build zelené.
