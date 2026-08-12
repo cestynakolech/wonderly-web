@@ -1,25 +1,76 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 22:10, uloženo před /clear)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 22:45)
 
-### PRVNÍ ÚKOL PO /clear: ráno po 9:15 ověřit KANÁL
+### PRO UČITELE NIC NEČEKÁ
+
+_(Vadnou složku `2024-08-08_Geisingen` učitel 12. 8. ve 22:40 odsouhlasil
+smazat; smazána a doklad založen znovu jako `2026-07-09_Geisingen` — správné
+datum, vzorek jen z letošních fotek, bod z mediánu GPS fotek. Doklady:
+**8 míst, všech 8 ověřeno čtením z disku**.)_
+
+### PRVNÍ ÚKOL: ráno po 9:15 ověřit KANÁL
 
 Nahrávač jede sám v 9:15 a pošle prvních 5 z fronty. **Ověř na skutečném
 kanálu** (`kontrola_kanalu.py` nebo API nahrávače), že titulky mají DATUM ve
-tvaru `„03. 08. · Luxeuil-les-Bains (Francie) — N/6"`. Do včerejška by šla
-všechna videa BEZ data — opraveno 12. 8. večer, ale na živém kanálu to ještě
-nikdo neviděl. ⚠️ Verdikt čtu z kanálu, ne z logu ([[feedback-hlaska-neni-dukaz]]).
+tvaru `„03. 08. · Luxeuil-les-Bains (Francie) — N/6"`. ⚠️ Verdikt čtu z kanálu,
+ne z logu ([[feedback-hlaska-neni-dukaz]]).
+**Stav ověření k 12. 8. 22:00 (ne dohad — měřeno):** oprava je v kódu a funguje
+— z 35 čekajících souborů má datum **34**, bez data jen `Nemecko jen hudba`
+(není místo). Na kanálu se ale ještě NEPROJEVILA: po opravě nahrávač nic
+neposlal (ranní běh 9:15 nahrál 5 videí ještě PŘED opravou, večerní 21:15 jen
+ohlásil vyčerpanou kvótu 7/5). Proto zůstávají na kanálu bez data
+`Saint-Amour 1/2` (`Yi_xYWLPg9s`), torzo `2/2` (`m7L-nUM4-Gk`),
+`Salins 1/3` (`G-_9OjxXUwQ`) a `2/3` (`5HUecAJ14LE`) — **zvážit, jestli jim
+titulek nedoplnit přes API zpětně** (nahrávač to dnes neumí).
 Fronta (ověřeno): `Saint-Amour 2z2`, `Luxeuil 1z6…6z6`, `Salins 3z3`; kvóta 5/den.
 Až budou VŠECHNY díly Luxeuilu na kanálu, dopsat je do `2026.ts` podle NOVÝCH
 videoId (stará `hGBkVHDg3W4`, `Nit8-Kr7CjA`, `qbysT_piPTE` jsou soukromá).
 
-### DRUHÝ ÚKOL: založit doklady místům, kterým ještě zbyly fotky
+### ✅ HOTOVO 12. 8. VEČER: DOKLADY MÍST + DVĚ TICHÉ VADY (byl to DRUHÝ úkol)
 
-Doklad (`fotky-doklad/<datum>_<Místo_ZEMĚ>/`) vzniká až při úklidu, ale **místům
-s dosud existujícími fotkami se dá založit dopředu** — `vva.zapis_doklad("<Místo>")`
-nemaže, jen zakládá. Týká se: **Kluesserath_DE (113 fotek), Neumagen-Dhron_DE (43),
-Geisingen** a všeho, co ještě má mezikopie. Udělat DŘÍV, než na ně dojde úklid —
-jinak se datum a přesný bod ztratí a zbude jen to, co drží pořadník.
+**8 míst má trvalý doklad** (`fotky-doklad/<datum>_<Místo>/`, 5 fotek + JSON):
+Kluesserath (116 fotek), Neumagen-Dhron (43), Sommerhausen (72), Ruedesheim
+am Rhein (56), Ochsenfurt (32), Trittenheim (9), Winterhausen (2), Geisingen (7,
+založen znovu ve 22:42 po smazání vadné složky — datum 2026-07-09, vzorek bez
+loňských fotek, bod z mediánu GPS fotek místo náhradního z pořadníku).
+Všechny mají datum focení i bod z **mediánu GPS fotek** — ověřeno čtením
+z disku, ne z hlášky skriptu.
 
-### TŘETÍ ÚKOL: dvě mezery v automatu zálohy Omegy (12. 8. večer)
+Při zakládání vylezly **dvě tiché vady, obě opravené**:
+
+1. **Složka místa se hledala DOSLOVNÝM názvem, ne klíčem.** Ručně vyexportovaná
+   složka z Fotek `„⁨Geisingen⁩, 8.7. 2026"` tak vypadala jako cizí místo:
+   doklad hlásil „místo nemá žádné médium", ačkoli 25 fotek leželo na disku,
+   a bod místa musel ustoupit hrubšímu zdroji. `klic_mesta()` přitom tenhle
+   případ řeší od 31. 7. — jen se nepoužíval. Nový **jediný domov
+   `vva.slozky_mista()`**, volá ho i `trasa_z_tabulky.median_gps` (splátka
+   dluhu k F: medián měl dvě kopie). Kotva: medián Geisingenu z fotek teď
+   vychází `47,9221708 / 8,6465889` — **na 7 desetinných míst týž bod**, jaký
+   dosud držel jen pořadník.
+2. **Do dokladu ročníku 2026 se počítala média z roku 2024.** Ruční export nese
+   album MÍSTA, ne cesty — k šesti letošním fotkám Geisingenu přibalily Fotky
+   18 snímků z návštěvy 8. 8. 2024 a datum focení vyšlo **2024-08-08**. Datum
+   focení řídí POŘADÍ zastávek i titulek videa, takže by se místo posunulo
+   o dva roky. **Rohatka pořadníku zápis odmítla** (v žurnálu zůstalo
+   2026-07-09) — pojistka funguje. Nově `_z_rocniku()` + `_casy_mista()`: rok
+   se hledá napříč fázemi podle jména souboru, protože anonymizovaná kopie
+   EXIF nemá; médium bez času projde (nejde o něm rozhodnout).
+
+**Měřidla:** doklad 56/56 (přibyly části 4 a 5 obousměrně, včetně podvrhu
+„Geisingen an der Steige" a kalibrace „ubýt nesmí") · trasa 19/19 · rohatka
+kvality 21/21 · pořadník 53/53 · zapojení 27/27 · nahrávač 56/56 · datum 34/34
+· klíče 4/4 · časy míst 22/22 · kanál 19/19 · registr pravidel 11 pravidel,
+dluh 0. Pravidlo `slozka-mista` zapsáno do `data/pravidla-registr.json`
+(zakázaný vzor doslovné cesty; obousměrně: 3 podvrhy chyceny, 2 zdravé mlčí)
+a obě pravidla do `PRAVIDLA.md`.
+
+**Drobnost (NENÍ blokace, není to regrese):** `testy/test_prepocet_map.py` má
+26/27 — „žádné video nehlásí jako chybějící samo sebe" padá u čtveřice
+Saint-Maurice, Ornans, Saint-Sorlin, Saint-Denis. Změřeno oběma verzemi kódu:
+**4 z 27 před opravou i po ní**, takže s dnešní prací nesouvisí. Tři z nich
+jsou přibalená místa BEZ vlastní mapy (dostala krycí videoId 12. 8. dopoledne),
+čtvrté má mapu z 24. 7., tedy z doby před trvalou trasou (hranice 10. 8. 8:27).
+
+### DRUHÝ ÚKOL: dvě mezery v automatu zálohy Omegy (12. 8. večer)
 
 Omega je nově git repo + soukromý GitHub `cestynakolech/omega`, zálohuje se sama
 každé 3 h (`skripty/zaloha_git.py`, LaunchAgent `cz.wonderly.omega-zaloha`,
@@ -40,14 +91,17 @@ test 34/34). Při ostré zkoušce vyšlo najevo:
    („sk-" + …) a řetězce s vysokou entropií, plus rozmyslet, zda historii
    pročistit (`git filter-repo`) — u vymyšleného klíče to nespěchá.
 
-### ČTVRTÝ ÚKOL: poslední bod dluhu k F (PLAN-PORADEK.md, bod 3)
+### TŘETÍ ÚKOL: poslední bod dluhu k F (PLAN-PORADEK.md, bod 3) — ČÁSTEČNĚ SPLACEN
 
 **Medián GPS fotek je ve dvou kopiích s jinými parametry** —
 `trasa_z_tabulky.median_gps` (3 fáze, vzorek 60) × `zaloz_mista_z_fotek.gps_z_puvodnich`
 (jen `fotky-puvodni`, vzorek 40): pro místo s fotkami v čekárně dá jedna kopie bod
-a druhá `None`. Sjednotit a zapsat pravidlo do `data/pravidla-registr.json` (dnes
-tam chybí, takže `test_bez_kopii.py` dvojici nehlídá). **Teprve PO tomhle se smí
-zvednout stopka video-automatu** (krok F).
+a druhá `None`. **Zbývá sjednotit samotný výpočet mediánu.**
+✅ Splaceno 12. 8. večer: hledání SLOŽKY místa (dosud také dvakrát, pokaždé jinak)
+má jediný domov `vva.slozky_mista()` a vymahatelné pravidlo `slozka-mista`
+v `data/pravidla-registr.json` — `test_bez_kopii.py` už tuhle půlku hlídá
+(11 pravidel, dluh 0). **Teprve po sjednocení výpočtu se smí zvednout stopka
+video-automatu** (krok F).
 
 ---
 
