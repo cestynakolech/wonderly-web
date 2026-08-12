@@ -1,4 +1,41 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. ~0:30, uloženo před /clear)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. ~2:50, průběžný zápis)
+
+**SMYČKA KONTROL KRÁJEČE BĚŽÍ — 14. kolo kontrolora.** Kola 4–13 našla
+a opravila 25 nálezů (vše hned opraveno, testy 25/25 + 4/4 zelené). Nejcennější:
+- **6 starých videí se TIŠE nikdy neslepilo** — torza `_temp_bezzvuku` po
+  zabitých procesech se počítala jako hotové kousky; zaveden striktní vzor
+  `KOUSEK_VZOR` (jediný domov `krajec_videa.kousky_ve_slozce`), 7 torz
+  uklizeno do `_vadne-kousky`, všech 6 videí odblokováno (slepí se při
+  příštím běhu automatu starých videí).
+- **Rozpočet hlídače fotek byl mrtvý** (holé `ffprobe` pod launchd → každé
+  video „stálo" celý rozpočet → 1 video na probuzení) — proto anonymizace
+  v noci lezla tak pomalu. Opraveno delegací na `krajec.delka_s`.
+- **Kolize pracovních složek kráječe** (jméno bez cesty/přípony, náhrada
+  lomítek) → `slozka_krajece()` s md5 otiskem + otisk zdroje `.zdroj-otisk`
+  v kráječi — recyklace kousků cizího videa už nemůže tiše slepit cizí záběry.
+- Evidence selhaných slepení se stropem 3 (`stara-videa-slepeni-pokusy.json`),
+  timeouty na VŠECH ffmpeg/podprocesových voláních, tři stavy zvuku
+  (je/není/nezměřeno), kumulativní hranice kousků, čas vzorku ze začátku
+  intervalu, jediný domov `priprav_jeden_kousek`.
+
+**SAINT-SAUVEUR: poslední video PŘEVZATO ručně** (automat se 3× vzdal,
+kousek 2/3 při 30 s zabíjela paměť i na klidném stroji) — jede po 10 s
+kouscích (`scratchpad/rucni_anon_saintsauveur.py`, log
+`data/rucni_anon_saintsauveur.log`), právě kousek 8/9. Po dokončení (49/49)
+čekač `cekac_saintsauveur2.log` sám spustí `vyrob_video_automat.py`.
+KE-SCHVALENI.md: 4 zastaralé řádky Saint-Sauveur smazány (nahrazeny
+poznámkou); návrh sloučení Saint-Sauveur+Luxeuil tam ZŮSTÁVÁ (rozhodne učitel).
+
+**RÁNO 12. 8. STÁLE PLATÍ:** ① 9:15 nahrávač sám nahraje 5 dílů (Saint-Amour
+2×, Salins 3×) → dopsat obě místa na web + ověřit curlem. ② video
+Saint-Sauveur po výrobě: `kontrola_videa.py --mesto Saint-Sauveur_FR` + mapa
+a anonymizace OKEM → `nasazeno/`. ③ jediné odkliknutí učitele: zavřít
+MISTA.xlsx bez uložení. ④ ověřit `launchctl list | grep kontrola-kvality`
+(hlídač ji má vrátit po vyprázdnění fronty).
+
+---
+
+## 🔴🔴 Starší stav (12. 8. ~0:30, uloženo před /clear)
 
 **⓪ PRVNÍ KROK PO /clear: dokončit smyčku kontrol kráječe.** Zbývá JEDNO
 kolo nezávislého kontrolora (4.) na ~/Desktop/Omega/skripty/krajec_videa.py
