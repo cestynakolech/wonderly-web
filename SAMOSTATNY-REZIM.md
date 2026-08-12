@@ -78,7 +78,8 @@ video už z fotek přestavět nešlo — proto výměna mapy přímo v mp4 (viz 
 Past je zavřená: skript má teď `--help`, `-h` i `help`, které jen vypíšou
 nápovědu (s varováním, že běh bez argumentů uklízí) a **nic nespustí**.
 
-**⑥ ŠKOLA — FYZIKA 8:** nová simulace **elektrického pole**
+**⑥ ŠKOLA — FYZIKA 8 (NASAZENO, commity `25496dc` + `ad8a826`):**
+nová simulace **elektrického pole**
 (`ElektrickePoleSimulace.astro`, klíč `elektricke-pole`) je zapojená do
 `temata.ts` i stránky podtématu; brána zelená (96 komponent), testy simulací
 1015/0. Fyzika 8 měla podle `node testy/nazornost.mjs` 12 podtémat bez
