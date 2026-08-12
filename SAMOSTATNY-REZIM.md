@@ -1,3 +1,62 @@
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 22:10, uloženo před /clear)
+
+### PRVNÍ ÚKOL PO /clear: ráno po 9:15 ověřit KANÁL
+
+Nahrávač jede sám v 9:15 a pošle prvních 5 z fronty. **Ověř na skutečném
+kanálu** (`kontrola_kanalu.py` nebo API nahrávače), že titulky mají DATUM ve
+tvaru `„03. 08. · Luxeuil-les-Bains (Francie) — N/6"`. Do včerejška by šla
+všechna videa BEZ data — opraveno 12. 8. večer, ale na živém kanálu to ještě
+nikdo neviděl. ⚠️ Verdikt čtu z kanálu, ne z logu ([[feedback-hlaska-neni-dukaz]]).
+Fronta (ověřeno): `Saint-Amour 2z2`, `Luxeuil 1z6…6z6`, `Salins 3z3`; kvóta 5/den.
+Až budou VŠECHNY díly Luxeuilu na kanálu, dopsat je do `2026.ts` podle NOVÝCH
+videoId (stará `hGBkVHDg3W4`, `Nit8-Kr7CjA`, `qbysT_piPTE` jsou soukromá).
+
+### DRUHÝ ÚKOL: založit doklady místům, kterým ještě zbyly fotky
+
+Doklad (`fotky-doklad/<datum>_<Místo_ZEMĚ>/`) vzniká až při úklidu, ale **místům
+s dosud existujícími fotkami se dá založit dopředu** — `vva.zapis_doklad("<Místo>")`
+nemaže, jen zakládá. Týká se: **Kluesserath_DE (113 fotek), Neumagen-Dhron_DE (43),
+Geisingen** a všeho, co ještě má mezikopie. Udělat DŘÍV, než na ně dojde úklid —
+jinak se datum a přesný bod ztratí a zbude jen to, co drží pořadník.
+
+### TŘETÍ ÚKOL: poslední bod dluhu k F (PLAN-PORADEK.md, bod 3)
+
+**Medián GPS fotek je ve dvou kopiích s jinými parametry** —
+`trasa_z_tabulky.median_gps` (3 fáze, vzorek 60) × `zaloz_mista_z_fotek.gps_z_puvodnich`
+(jen `fotky-puvodni`, vzorek 40): pro místo s fotkami v čekárně dá jedna kopie bod
+a druhá `None`. Sjednotit a zapsat pravidlo do `data/pravidla-registr.json` (dnes
+tam chybí, takže `test_bez_kopii.py` dvojici nehlídá). **Teprve PO tomhle se smí
+zvednout stopka video-automatu** (krok F).
+
+---
+
+## ✅ HOTOVO 12. 8. VEČER — DENÍK: DATUM FOCENÍ UŽ NEZMIZÍ
+
+Zadání učitele: *„hlídej pořadí cesty map podle datumu focení, je to jediné
+měřítko"* · *„udělej si pořadník, v kterém nemažeš, jen přidáváš, v pořadí podle
+datumu, a podle toho se řiď"* · *„nesmíš uklízet před celkovým zapsáním"* ·
+*„jediné, co se může posunout, je když se přidají fotky a videa později"*.
+
+Čtyři propojené opravy (Omega NENÍ git repo — změny jsou rovnou na disku):
+1. **Pořadník** `skripty/data/poradnik-mist.jsonl` + `skripty/poradnik.py` —
+   34 míst, všechna s datem i GPS, append-only, rohatka (posun jen s přírůstkem
+   médií). Zapojen jako PRVNÍ zdroj v nahrávači i `postav()`. → [[projekt-poradnik-mist]]
+2. **Datum v titulku z tabulky/pořadníku, ne z fotek** — 34 z 35 čekajících videí
+   má datum (dřív 0); bez data zůstal jen `Nemecko_jen_hudba` (není místo).
+3. **Doklad před úklidem** — bez něj `uklid_mesto()` vrátí `ODLOŽENO`.
+   → [[projekt-doklad-pred-uklidem]]
+4. **Zastávky mají jediný domov** — automat už do `trasa-stav.json` nezapisuje.
+   (Splacen bod 1 dluhu k F.)
+
+**Trasa přestavěna:** 34 zastávek, 3138,1 km, pořadí vzestupné podle data focení,
+0 bez polohy, 0 bez zdroje. Přibyly Sommerhausen, Ochsenfurt, Winterhausen.
+
+**Testy (spuštěné hlavním modelem, ne jen hlášené agenty), vše obousměrně
+kalibrované:** pořadník 53/53 · zapojení 27/27 · doklad 46/46 · rohatka 21/21 ·
+trasa 19/19 · jediný domov 23/23 · datum 34/34 · nahrávač 56/56.
+
+---
+
 ## ✅ HOTOVO 12. 8. 20:25 — SIMULACE ELEKTRICKÉHO POLE UZAVŘENA A NASAZENA
 
 Commit `be4656a`, nasazení ověřeno curlem na
