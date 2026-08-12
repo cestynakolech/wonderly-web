@@ -26,6 +26,11 @@ o tom. ✅ Odložené video už neplatí za hotové (`_ceka-na-predelani`).
 ✅ **Slepení kousků má záložní cestu** — po odmítnutí kotvou nastoupí concat
 filtr s překódováním, takže `IMG_7173_cast2/cast3` (3× vzdané) jsou hotové
 a příště to nebude dodělávat člověk; testy kráječe 27/27.
+✅ **Přibalená místa mají v tabulce odkaz na YouTube** (nález učitele nad
+MISTA.xlsx): Ramonchamp, Ornans, Saint-Sorlin a Saint-Denis nemají vlastní
+video, ale jsou v cizím — sloupec zůstával prázdný a vypadalo to jako
+nedodělek. Řádek teď přebírá ID krycího videa s popiskem „ve videu X";
+ověřeno, že všechna 4 ID na kanálu opravdu jsou.
 
 **③ JEDINÉ ODKLIKNUTÍ PRO UČITELE:** zavřít `MISTA.xlsx` bez uložení.
 
