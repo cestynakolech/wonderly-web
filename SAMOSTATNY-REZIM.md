@@ -19,7 +19,28 @@ nemaže, jen zakládá. Týká se: **Kluesserath_DE (113 fotek), Neumagen-Dhron_
 Geisingen** a všeho, co ještě má mezikopie. Udělat DŘÍV, než na ně dojde úklid —
 jinak se datum a přesný bod ztratí a zbude jen to, co drží pořadník.
 
-### TŘETÍ ÚKOL: poslední bod dluhu k F (PLAN-PORADEK.md, bod 3)
+### TŘETÍ ÚKOL: dvě mezery v automatu zálohy Omegy (12. 8. večer)
+
+Omega je nově git repo + soukromý GitHub `cestynakolech/omega`, zálohuje se sama
+každé 3 h (`skripty/zaloha_git.py`, LaunchAgent `cz.wonderly.omega-zaloha`,
+test 34/34). Při ostré zkoušce vyšlo najevo:
+
+1. **Zastavená záloha se nikomu nepřipomene** — brána při nálezu tajemství
+   nepushne, vyskočí notifikace a zapíše se řádek do `data/zaloha-git.log`,
+   jenže `revize_automatu.py` ani `hlidac_zaseknuti.py` o tomhle automatu nevědí.
+   Když učitel notifikaci mine, Omega se přestane zálohovat a nikdo se to
+   nedozví — přesně vzorec [[feedback-mlceni-neni-klid]]. Dopsat log mezi
+   hlídané a hlásit i to, KDY se naposledy povedlo pushnout.
+2. **Brána nechytí SKLÁDANÝ klíč** — `"sk-" + "proj" + "A1b2…"` v textu souvislý
+   řetězec netvoří, takže regex nesedí a soubor projde. Doloženo naostro:
+   commit `d7b82ad` (12. 8. 21:09) takový zkušební soubor opravdu pustil na
+   GitHub; souvislý klíč naopak brána zastavila správně (`kód=1`, žádný commit).
+   Zkušební soubor byl smazán (`6fc4cbd`), šlo o VYMYŠLENÝ řetězec, ne o skutečný
+   klíč — ale v historii repa ten commit zůstal. Zvážit: hlídat i konkatenace
+   („sk-" + …) a řetězce s vysokou entropií, plus rozmyslet, zda historii
+   pročistit (`git filter-repo`) — u vymyšleného klíče to nespěchá.
+
+### ČTVRTÝ ÚKOL: poslední bod dluhu k F (PLAN-PORADEK.md, bod 3)
 
 **Medián GPS fotek je ve dvou kopiích s jinými parametry** —
 `trasa_z_tabulky.median_gps` (3 fáze, vzorek 60) × `zaloz_mista_z_fotek.gps_z_puvodnich`
