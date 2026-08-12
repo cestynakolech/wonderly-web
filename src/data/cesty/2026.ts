@@ -675,17 +675,6 @@ export const rok2026: Rok = {
 			popis: { cs: '' },
 		},
 		{
-			slug: 'saint-sauveur',
-			galerie: 'cesty/2026/saint-sauveur',
-			nazev: 'Saint-Sauveur',
-			zeme: 'Francie',
-			datum: '3. 8. 2026',
-			vyjezd: 6,
-			x: 277.9,
-			y: 363.9,
-			popis: { cs: '' },
-		},
-		{
 			slug: 'salins-les-bains',
 			galerie: 'cesty/2026/salins-les-bains',
 			nazev: 'Salins-les-Bains',
