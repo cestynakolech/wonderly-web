@@ -1,28 +1,33 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 9:30, uloženo před /clear)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 10:20)
 
 **⓪ PO /clear NEJDŘÍV: audit návodů do 0 nálezů** (stálé zadání učitele,
 postup v úvodu skillu `/wonderly`), teprve pak práce.
 
-**① NAHRÁVAČ PRÁVĚ BĚŽEL (9:15–9:2x) — ZKONTROLOVAT VÝSLEDEK JAKO PRVNÍ:**
-`tail -20 ~/Desktop/Omega/skripty/data/youtube-nahravac.log`. Do 9:25 nahrál
-**Luxeuil 1/3 `hGBkVHDg3W4`** a **Luxeuil 3/3 `Nit8-Kr7CjA`**, pak jel
-Salins 1z3. 🔴 **Luxeuil 2/3 SPADL na „Broken pipe"** — to je přesně past
-z 10. 8.: přerušený upload video na kanálu PŘESTO ZALOŽÍ (délka `P0D`)
-a druhý pokus vyrobí duplicitu. Ověřit, že `uklid_po_prerusenem_uploadu()`
-zafungoval (`venv/bin/python3 kontrola_kanalu.py` + soupis kanálu) a díl 2/3
-donahrát, až to kvóta dovolí. **Web:** až budou všechny díly na kanálu,
-dopsat do `2026.ts` místa **Luxeuil-les-Bains, Saint-Amour, Salins-les-Bains**
-(místo + `videoId` PRVNÍHO dílu + řádky v `videa:` — bez obojího brána shodí
-build; popisy ze zdroje `fakta_mist.py --zdroj <slug> fr "<Název>"`, rok 2026
-se píše PŘÍMO do .ts) a ověřit curlem.
+**① ROZDĚLANÁ PRÁCE: NOVÉ VIDEO LUXEUILU SE PRÁVĚ SKLÁDÁ** (spuštěno 10:11,
+217 médií, ~25 min stopáže → 6 hudebních skladeb; `tail -5
+~/Desktop/Omega/skripty/data/video-automat.log`). Až doběhne:
+`kontrola_videa.py --mesto Luxeuil-les-Bains_FR` + mapa a anonymizace OKEM
+→ přesun do `nasazeno/` → nahrávač je nahraje sám (kvóta dnes 5/5 vyčerpaná,
+takže zítra 9:15). **Do `2026.ts` se Luxeuil dopíše až podle NOVÝCH videoId**
+— stará (`hGBkVHDg3W4`, `Nit8-Kr7CjA`, torzo `qbysT_piPTE`) jsou na kanálu
+SOUKROMÁ a v evidenci odsunutá do `nahrana_videa_nahrazena`.
+🔸 **Nedodělek:** `IMG_7173_cast2/cast3` se nikdy nepodařilo anonymizovat
+(položky v KE-SCHVALENI) — v novém videu zase nebudou. Zkusit kráječem
+(vzor: ruční dokončení Saint-Sauveur), a když projdou, otisk médií se změní
+a automat video přestaví sám potřetí.
 
-**② JEDINÉ ODKLIKNUTÍ PRO UČITELE:** zavřít `MISTA.xlsx` bez uložení.
-V `KE-SCHVALENI.md` navíc leží návrh sloučit Saint-Sauveur + Luxeuil
-(totéž místo, 130 m) — rozhodne učitel, nespěchá.
+**② HOTOVO DNES:** ✅ **Saint-Sauveur SLOUČEN do Luxeuilu** (rozhodnutí
+učitele) — 293 souborů, 6 evidencí, 9 fotek do galerie Luxeuilu, bod smazán
+z webu (ověřeno na produkci); nový nástroj `slouc_mista.py`. ✅ Dvě **torza
+na kanálu** po „Broken pipe" (`qbysT_piPTE`, `m7L-nUM4-Gk`) schována
+a obrana opravena — hledala dřív, než YouTube torzo zaindexoval, a mlčela
+o tom. ✅ Odložené video už neplatí za hotové (`_ceka-na-predelani`).
+Zbývá donahrát **Saint-Amour 2/2** (torzo, kvóta zítra).
 
-**③ VÝROBA DOPŘEDU:** fronta je čistá — zbývající místa (Kluesserath,
-Neumagen-Dhron, Geisingen) drží 7denní čekání od poslední fotky, dřív se
-vyrábět nedá. V `nasazeno/` čeká 32 souborů (fronta pro další dny).
+**③ JEDINÉ ODKLIKNUTÍ PRO UČITELE:** zavřít `MISTA.xlsx` bez uložení.
+
+**④ VÝROBA DOPŘEDU:** zbývající místa (Kluesserath, Neumagen-Dhron,
+Geisingen) drží 7denní čekání od poslední fotky, dřív se vyrábět nedá.
 
 ---
 
