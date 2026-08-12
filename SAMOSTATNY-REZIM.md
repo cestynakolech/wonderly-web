@@ -1,7 +1,8 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. ~2:50, průběžný zápis)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. ~3:25)
 
-**SMYČKA KONTROL KRÁJEČE BĚŽÍ — 14. kolo kontrolora.** Kola 4–13 našla
-a opravila 25 nálezů (vše hned opraveno, testy 25/25 + 4/4 zelené). Nejcennější:
+**✅ SMYČKA KONTROL KRÁJEČE UZAVŘENA — 18. kolo: 0 NÁLEZŮ.** Kola 4–17
+našla a opravila ~30 nálezů (testy 25/25 + 4/4 zelené, diagnostika čistá,
+nová pravidla v PRAVIDLA.md). Nejcennější:
 - **6 starých videí se TIŠE nikdy neslepilo** — torza `_temp_bezzvuku` po
   zabitých procesech se počítala jako hotové kousky; zaveden striktní vzor
   `KOUSEK_VZOR` (jediný domov `krajec_videa.kousky_ve_slozce`), 7 torz
@@ -18,13 +19,18 @@ a opravila 25 nálezů (vše hned opraveno, testy 25/25 + 4/4 zelené). Nejcenn�
   (je/není/nezměřeno), kumulativní hranice kousků, čas vzorku ze začátku
   intervalu, jediný domov `priprav_jeden_kousek`.
 
-**SAINT-SAUVEUR: poslední video PŘEVZATO ručně** (automat se 3× vzdal,
-kousek 2/3 při 30 s zabíjela paměť i na klidném stroji) — jede po 10 s
-kouscích (`scratchpad/rucni_anon_saintsauveur.py`, log
-`data/rucni_anon_saintsauveur.log`), právě kousek 8/9. Po dokončení (49/49)
-čekač `cekac_saintsauveur2.log` sám spustí `vyrob_video_automat.py`.
+**✅ SAINT-SAUVEUR KOMPLETNÍ 49/49** — poslední video dokončeno ručně
+(automat se 3× vzdal na paměti; po 10s kouscích prošlo všech 9; `-c copy`
+concat rozbil časové značky → kotva stopáže správně odmítla 110 s místo
+86 s → slepeno concat FILTREM s překódováním, 86,03 s, zvuk + faststart OK).
+**VÝROBA VIDEA BĚŽÍ:** čekač v 02:50 spustil `vyrob_video_automat.py` —
+uklidil nasazená místa a jako další v pořadí vzal **Luxeuil-les-Bains
+(169 médií)**; teď generuje hudbu (`data/vyrob_video_rucni2.log`, PID drží
+zámek). Po hudbě složí video → pak `kontrola_videa.py --mesto <město>`
++ mapa a anonymizace OKEM → `nasazeno/`.
 KE-SCHVALENI.md: 4 zastaralé řádky Saint-Sauveur smazány (nahrazeny
-poznámkou); návrh sloučení Saint-Sauveur+Luxeuil tam ZŮSTÁVÁ (rozhodne učitel).
+poznámkou); návrh sloučení Saint-Sauveur+Luxeuil tam ZŮSTÁVÁ (rozhodne
+učitel) — VideoAutomat si místa vybírá sám z fronty, do toho nesahat.
 
 **RÁNO 12. 8. STÁLE PLATÍ:** ① 9:15 nahrávač sám nahraje 5 dílů (Saint-Amour
 2×, Salins 3×) → dopsat obě místa na web + ověřit curlem. ② video

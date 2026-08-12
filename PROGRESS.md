@@ -127,6 +127,26 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-12 v noci (smyčka kontrol kráječe DO NULY: kola 4–18, ~30 oprav)** —
+  Dokončena smyčka oprava→kontrola z 11. 8.: 15 kol nezávislého kontrolora
+  (každé kolo čerstvý kontext), poslední kolo **0 nálezů**; testy rozšířeny
+  21 → 25 + nová sada 4 (klíče složek, časy vzorků). **Tři vady s živým
+  dopadem:** (1) volný glob počítal torza `_temp_bezzvuku` jako hotové kousky
+  — **6 starých videí se tiše nikdy neslepilo**; po zavedení striktního vzoru
+  a úklidu 7 torz jsou odblokovaná. (2) Holé `ffprobe` pod launchd → rozpočet
+  hlídače mrtvý, **1 video na probuzení** (proto noční anonymizace lezla).
+  (3) Pojistka „cizí −1 má přednost" v evidenci byla mrtvý kód — rozhodnutí
+  člověka šlo tiše přepsat. Dál: kolize pracovních složek kráječe (jméno,
+  přípona, `__`) + otisk zdroje `.zdroj-otisk`; evidence selhaných slepení se
+  stropem 3; timeouty na všech podprocesech; tři stavy zvuku; kumulativní
+  hranice kousků; čas vzorku ze začátku intervalu; jediné domovy
+  (`kousky_ve_slozce`, `priprav_jeden_kousek`, `stoji_za_krajeni`,
+  `delka_s`). **Saint-Sauveur dokončen 49/49** — poslední video převzato
+  ručně po 3 nezdarech automatu (10s kousky; `-c copy` concat rozbil časové
+  značky, kotva to chytila, slepeno concat filtrem). Čekač pak sám spustil
+  výrobu — další v pořadí Luxeuil-les-Bains (169 médií), hudba se generuje.
+  Nová pravidla zapsána v PRAVIDLA.md (sekce „Kráječ videa po velké smyčce").
+
 - **2026-08-11 pozdě večer (druhá smyčka: kráječ videí v principu)** —
   Zadání učitele „projdi dnešní chyby a rozpory, smyčka do 0". Návody:
   0 nálezů po 4 kolech (7 oprav, hlavně nedomyté snapshoty v PLAN-PORADEK).
