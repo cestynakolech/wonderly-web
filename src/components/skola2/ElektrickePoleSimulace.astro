@@ -1,9 +1,10 @@
 ---
 // Interaktivní elektrické pole: dvě nabitá tělesa (nebo dvě rovnoběžné desky),
-// u nichž lze přepínat náboj + / − a měnit vzdálenost. Siločáry vždy vedou od
-// kladného náboje k zápornému, jejich hustota klesá se vzdáleností. Zkušební
-// (testovací) náboj lze tahat po ploše a šipka ukazuje sílu, která by na něj
-// v daném místě působila.
+// u nichž lze přepínat náboj + / − a měnit vzdálenost. Siločáry vedou od
+// kladného náboje k zápornému JEN když jsou náboje různé; když jsou OBA kladné,
+// jen z těles vycházejí, když jsou OBA záporné, do nich odjinud přitékají —
+// hustota čar klesá se vzdáleností. Zkušební (testovací) náboj lze tahat po
+// ploše a šipka ukazuje sílu, která by na něj v daném místě působila.
 //
 // Pohybová logika (offset tečkovaných siločar) je ČISTÁ funkce času t
 // (offset = (t*rychlost) % perioda) — žádná skrytá narůstající proměnná.
@@ -14,7 +15,9 @@
 	<p>
 		Kolem každého <strong>nabitého tělesa</strong> je <strong>elektrické pole</strong> —
 		působí silou i na dálku, bez dotyku. <strong>Siločáry</strong> ukazují směr síly na
-		kladný náboj: vycházejí z <strong>kladného</strong> náboje a končí v <strong>záporném</strong>. Nesouhlasné náboje
+		kladný náboj: když jsou náboje <strong>různé</strong>, vedou od kladného k zápornému;
+		když jsou <strong>oba stejné</strong>, jen z těles vycházejí (+ a +), nebo do nich
+		odjinud přitékají (− a −). Nesouhlasné náboje
 		se <strong>přitahují</strong>, souhlasné se <strong>odpuzují</strong>. Šedou tečku
 		(<strong>zkušební náboj</strong>) můžeš chytit a táhnout — šipka ukáže, jaká síla by na
 		něj v tom místě působila.
@@ -23,7 +26,7 @@
 	<div class="epole-ovladani">
 		<button id="epole-a" type="button" class="epole-tl">Těleso A: +</button>
 		<button id="epole-b" type="button" class="epole-tl">Těleso B: −</button>
-		<button id="epole-scena" type="button" class="epole-tl epole-tl-scena">🔄 Přepnout na desky (homogenní pole)</button>
+		<button id="epole-scena" type="button" class="epole-tl epole-tl-scena">🔄 Přepnout na desky (všude stejně silné pole)</button>
 		<label class="epole-checkbox"><input id="epole-silocary" type="checkbox" checked /> ukázat siločáry</label>
 	</div>
 	<label class="sim-posuvnik">
@@ -55,6 +58,8 @@
 	const PX_NA_CM = 20;   // převod cm -> px rozestupu
 	const R_TELESA = 22;   // poloměr kresleného tělesa (px)
 	const E0 = 0.9;        // "síla" jednoho nabitého plátu (jednotky pro animaci, ne SI)
+	const REZERVA_STRED_TELESA = R_TELESA + 8; // 30 px — nejmenší dovolená vzdálenost sondy od STŘEDU tělesa
+	const REZERVA_OKRAJ_TELESA = 33;           // polovina maximální délky šipky (strop 66 / 2) od okraje plátna
 
 	// zkušební (testovací) náboj — poloha, kterou žák táhne myší/prstem.
 	// Výchozí bod je mezi tělesy (na ose spojnice, kousek nad ní), kde je pole
@@ -75,9 +80,15 @@
 		];
 	}
 	// geometrie desek — stejné rozměry používá pole i kresba, aby si neodporovaly
+	// (tl = tloušťka desky v px, i tu sdílí pole s kresbou). Popisek "d = X cm" má
+	// odpovídat VOLNÉ MEZEŘE mezi líci desek (to je to, co dítě na obrázku vidí a
+	// změří pravítkem) — proto se osy desek počítají tak, aby (xB-tl/2)-(xA+tl/2)
+	// vyšlo přesně vzdCm*PX_NA_CM; osy jsou pak od sebe o tloušťku tl dál.
 	function deskyGeom() {
-		const p = polovinaPx();
-		return { xA: cx - p, xB: cx + p, yTop: cy - 120, yBot: cy + 120 };
+		const tl = 14;
+		const mezera = vzdCm * PX_NA_CM; // volná mezera mezi líci, přesně podle posuvníku d
+		const p = mezera / 2 + tl / 2;   // polovina rozestupu OS desek
+		return { xA: cx - p, xB: cx + p, yTop: cy - 120, yBot: cy + 120, tl };
 	}
 
 	// ---------- pole ----------
@@ -95,15 +106,30 @@
 		return { ex, ey, sila: Math.hypot(ex, ey) };
 	}
 
-	// pole MEZI dvěma rovnoběžnými deskami — vodorovné a nezávislé na y uvnitř
-	// prostoru desek → homogenní; MIMO nakreslené desky (jinou souřadnici x i y)
-	// je pole nulové, tam žádné desky nejsou
+	// pole rovnoběžných desek — každá deska se chová jako nabitá plocha, která na obě
+	// strany vysílá pole velikosti E0 (směr od + náboje, do − náboje), bez ohledu na
+	// vzdálenost (idealizace, jako u nekonečné desky — nekonečné i ve svislém směru,
+	// ne jen do stran). Součet obou desek dá:
+	//  • MEZI deskami (nesouhlasné náboje, +/−): pole 2×E0, míří od + k − — homogenní.
+	//  • MEZI deskami (souhlasné náboje, +/+ nebo −/−): pole se PŘESNĚ VYRUŠÍ na 0.
+	//  • MIMO desky (souhlasné náboje): pole se naopak SČÍTÁ na 2×E0 směrem ven. Pozor,
+	//    tohle NENÍ totéž jako u dvou bodových těles (scéna dvou těles) — tam se u
+	//    souhlasných nábojů pole ruší jen v JEDNOM bodě uprostřed, kdežto tady u
+	//    nekonečných desek se ruší v CELÉM prostoru mezi nimi (proto se tam nekreslí
+	//    žádná siločára — viz nakresliSilocaryDeskyVenku, která je kreslí VNĚ desek).
+	//  • MIMO desky (nesouhlasné náboje): obě desky se navzájem přesně ruší i venku, 0.
+	// Model bere desky jako NEKONEČNÉ (i nad a pod nakresleným obdélníkem) — proto
+	// pole platí v CELÉ výšce plátna, ne jen mezi yTop a yBot (viz text u obrázku,
+	// který mimo desky mluví o dvojnásobném poli, ne o nule).
+	// Uvnitř samotné vodivé desky (její kreslené tloušťky tl, v celé výšce) je pole 0,
+	// stejně jako v opravdovém vodiči — a zároveň to odstraní nejednoznačnost přesně
+	// v ose desky, kde by se jinak znaménko lámalo uprostřed jejího viditelného těla.
 	function polePlatna(x, y) {
-		const { xA, xB, yTop, yBot } = deskyGeom();
-		if (x < xA || x > xB || y < yTop || y > yBot) return { ex: 0, ey: 0, sila: 0 };
+		const { xA, xB, tl } = deskyGeom();
+		if (Math.abs(x - xA) <= tl / 2 || Math.abs(x - xB) <= tl / 2) return { ex: 0, ey: 0, sila: 0 };
 		let ex = 0;
 		ex += qA * E0 * (x >= xA ? 1 : -1);
-		ex += qB * E0 * (x > xB ? 1 : -1); // ostrá nerovnost: x === xB je stále UVNITŘ desek
+		ex += qB * E0 * (x > xB ? 1 : -1); // ostrá nerovnost: x === xB je stále na straně MEZI deskami
 		return { ex, ey: 0, sila: Math.abs(ex) };
 	}
 
@@ -159,7 +185,10 @@
 				}
 			}
 		} else {
-			const Rk = 170;
+			// poloměr startovní kružnice musí růst s rozestupem těles, jinak při velkém
+			// d (16 cm) padnou vodorovné starty dovnitř kuličky a 2 z 16 čar se zahodí
+			// (D8) — +60 px dává vždy aspoň 60 px odstup mezi startem a nejbližším tělesem
+			const Rk = Math.max(170, polovinaPx() + 60);
 			for (let i = 0; i < 16; i++) {
 				const a = (i / 16) * Math.PI * 2;
 				body.push({ x: cx + Rk * Math.cos(a), y: cy + Rk * Math.sin(a) });
@@ -178,9 +207,10 @@
 		for (const start of pocatecniBody()) {
 			let x = start.x, y = start.y;
 			const body = [{ x, y }];
+			let uvazla = false; // čára doběhla do nulového (stagnačního) bodu pole, ne k náboji ani z plátna
 			for (let krok = 0; krok < 240; krok++) {
 				const f = poleBod(x, y);
-				if (f.sila < 1e-8) break;
+				if (f.sila < 1e-8) { uvazla = true; break; }
 				x += (f.ex / f.sila) * 3;
 				y += (f.ey / f.sila) * 3;
 				if (x < 0 || x > W || y < 0 || y > H) break;
@@ -188,6 +218,10 @@
 				const blizko = zdroje.some((t) => t.q < 0 && Math.hypot(x - t.x, y - t.y) < 18);
 				if (blizko) break;
 			}
+			// u souhlasných nábojů umí čára "uvíznout" přesně na nulovém bodě mezi nimi —
+			// hrot by pak mířil na druhé stejné těleso a vypadalo to jako přitahování;
+			// takovou nedokončenou čáru raději vůbec nekreslíme
+			if (uvazla) continue;
 			if (body.length < 4) continue;
 			ctx.beginPath();
 			ctx.moveTo(body[0].x, body[0].y);
@@ -205,11 +239,50 @@
 	}
 
 	// ---------- siločáry: rovnoběžné desky (homogenní pole) ----------
+	// u souhlasných nábojů se pole MEZI deskami ruší na 0 v celém prostoru (viz
+	// polePlatna) — tam se tedy nekreslí nic, ale VENKU je pole 2×E0 a siločáry tam
+	// patří (D6): dřív se tam nekreslilo vůbec nic, což vypadalo jako chyba vedle
+	// textu, který dvojnásobné pole venku výslovně zmiňuje.
+	function nakresliSilocaryDeskyVenku(offset) {
+		const g = deskyGeom();
+		const DELKA = 46;
+		const smerVlevo = polePlatna(g.xA - g.tl / 2 - 20, cy).ex; // znaménko pole vlevo od desky A
+		const smerVpravo = polePlatna(g.xB + g.tl / 2 + 20, cy).ex; // znaménko pole vpravo od desky B
+		ctx.strokeStyle = 'rgba(110,110,120,0.55)';
+		ctx.fillStyle = 'rgba(110,110,120,0.55)';
+		ctx.lineWidth = 1.6;
+		for (let y = cy - 100; y <= cy + 100; y += 26) {
+			// vlevo od desky A — kladné ex míří DOVNITŘ (přitažlivé záporné desky),
+			// záporné ex míří VEN (odpudivé kladné desky)
+			const doVnitrLevo = smerVlevo > 0;
+			const xVnejsiA = g.xA - g.tl / 2 - 4;
+			ctx.setLineDash([8, 6]);
+			ctx.lineDashOffset = doVnitrLevo ? offset : -offset;
+			ctx.beginPath();
+			ctx.moveTo(xVnejsiA, y);
+			ctx.lineTo(xVnejsiA - DELKA, y);
+			ctx.stroke();
+			ctx.setLineDash([]);
+			sipkaHlavicka(doVnitrLevo ? xVnejsiA : xVnejsiA - DELKA, y, doVnitrLevo ? 0 : Math.PI);
+
+			// vpravo od desky B
+			const doVnitrVpravo = smerVpravo < 0;
+			const xVnejsiB = g.xB + g.tl / 2 + 4;
+			ctx.setLineDash([8, 6]);
+			ctx.lineDashOffset = doVnitrVpravo ? offset : -offset;
+			ctx.beginPath();
+			ctx.moveTo(xVnejsiB, y);
+			ctx.lineTo(xVnejsiB + DELKA, y);
+			ctx.stroke();
+			ctx.setLineDash([]);
+			sipkaHlavicka(doVnitrVpravo ? xVnejsiB : xVnejsiB + DELKA, y, doVnitrVpravo ? Math.PI : 0);
+		}
+	}
 	function nakresliSilocaryDesky(offset) {
 		const g = deskyGeom();
 		const xA = g.xA + 8, xB = g.xB - 8;
 		const f = polePlatna(cx, cy);
-		if (f.sila < 0.05) return; // souhlasné náboje → pole mezi deskami se ruší
+		if (f.sila < 0.05) { nakresliSilocaryDeskyVenku(offset); return; } // souhlasné náboje → mezi deskami nic, kreslí se vně
 		const zprava = f.ex > 0;
 		ctx.strokeStyle = 'rgba(110,110,120,0.6)';
 		ctx.fillStyle = 'rgba(110,110,120,0.6)';
@@ -246,8 +319,8 @@
 		}
 	}
 	function nakresliDesky() {
-		const { xA, xB, yTop, yBot } = deskyGeom();
-		const vys = yBot - yTop, tl = 14;
+		const { xA, xB, yTop, yBot, tl } = deskyGeom();
+		const vys = yBot - yTop;
 		for (const [x, q] of [[xA, qA], [xB, qB]]) {
 			ctx.fillStyle = barvaNaboje(q);
 			ctx.fillRect(x - tl / 2, yTop, tl, vys);
@@ -264,33 +337,226 @@
 	}
 
 	// ---------- zkušební (testovací) náboj + šipka síly ----------
-	// šipka slábne se vzdáleností, ale dokud pole existuje (sila > 0), NEZMIZÍ —
-	// má vždy aspoň 9 px (stejný princip jako piliny ve vzoru MagnetSimulace).
-	// Skutečně nulové pole (mimo desky, nebo když se pole desek vyruší) šipku
-	// správně vůbec nekreslí — to je fyzikální 0, ne "daleko slabé" pole.
-	function delkaSipkySondy(sila) {
-		const K = scenaDesky ? 45 : 260000;
-		return Math.max(9, Math.min(66, sila * K));
+	// Délka šipky závisí JEN na velikosti pole — žádný geometrický strop podle
+	// vzdálenosti k desce (ten dělal délku závislou na poloze sondy, ne na síle,
+	// a při stejné síle se šipka měnila s posuvníkem d — to bylo špatně).
+	// Sonda je navíc v obou scénách geometricky omezena (viz omezSonduDesky a
+	// omezSonduTelesa níže), takže šipka o pevné maximální délce vždy zbyde dost
+	// místa a nikdy neprostřelí desku ani nevyjede z plátna; ve scéně těles se navíc
+	// šipka samotná ořezává (omezSipkuTelesa), protože i s omezenou sondou by u
+	// dvou blízkých kuliček neomezená šipka mohla protnout tu druhou (viz Z1).
+	//  • Desky: pole je vždy buď 0 (šipka se nekreslí — skutečná fyzikální nula),
+	//    nebo přesně SILA_PLNA = 2×E0 (homogenní pole) — plná délka L_PLNA = 30 px,
+	//    úměrně kratší pro slabší pole.
+	//  • Dvě tělesa: pole spojitě klesá se vzdáleností podle 1/r² — odmocninová škála
+	//    (K_TEL·√sila) drží "čím blíž, tím silnější" viditelné v celém dosahu (r = 22
+	//    až 150 px), ne jen skokem těsně u povrchu; strop 66 px zůstává jako pojistka
+	//    pro extrémní blízkost, ale běžné polohy sondy ho nedosáhnou.
+	function delkaSipkySondy(f) {
+		if (scenaDesky) {
+			const L_PLNA = 30;
+			const SILA_PLNA = 2 * E0; // = 1.8, plné homogenní pole mezi/vně desek
+			return Math.min(L_PLNA, (f.sila / SILA_PLNA) * L_PLNA);
+		}
+		const strop = 66;
+		const K_TEL = 2000;
+		return Math.max(9, Math.min(strop, K_TEL * Math.sqrt(f.sila)));
+	}
+	// geometrické omezení sondy v deskové scéně: střed sondy musí zůstat aspoň
+	// REZERVA px od OBOU líců (vnitřního i VNĚJŠÍHO, D1) KAŽDÉ desky a od každého
+	// okraje plátna, aby se do tohoto odstupu vždy vešla celá šipka (poloviční délka
+	// 15 px při L_PLNA = 30). Řeší se to jako zakázaný pás o poloviční šířce
+	// tl/2 + REZERVA kolem OSY každé desky — to automaticky pokrývá vnitřní i vnější
+	// líc stejnou rezervou (dřív se hlídal jen vnitřní líc, takže šipka od vnější
+	// strany klidně zajela AŽ 9 px do desky, viz D1).
+	// Při nejužší mezeře (d = 4 cm → volná mezera 80 px) zbyde uprostřed pás
+	// 80 − 2×20 = 40 px, což je stále ≥ 20 px — REZERVA 20 tedy funguje i tam
+	// (fallback na 16 px proto není potřeba).
+	// Svisle (D4): desky jsou nakreslené jen v pásu yTop..yBot — model je sice bere
+	// jako nekonečné (viz polePlatna), ale dítě to nevidí, proto sonda nad/pod
+	// nakreslené desky vůbec nesmí (jinak plná šipka na místě, které vypadá jako
+	// "mimo desky", viz nález D4).
+	function omezOdOsyDesky(x, osaX, tl, REZERVA) {
+		const pulPasu = tl / 2 + REZERVA;
+		if (Math.abs(x - osaX) < pulPasu) return x < osaX ? osaX - pulPasu : osaX + pulPasu;
+		return x;
+	}
+	function omezSonduDesky(bod) {
+		const REZERVA = 20;
+		const g = deskyGeom();
+		let x = Math.max(REZERVA, Math.min(W - REZERVA, bod.x));
+		let y = Math.max(REZERVA, Math.min(H - REZERVA, bod.y));
+		y = Math.max(g.yTop + REZERVA, Math.min(g.yBot - REZERVA, y)); // jen v pásu desek (D4)
+		x = omezOdOsyDesky(x, g.xA, g.tl, REZERVA);
+		x = omezOdOsyDesky(x, g.xB, g.tl, REZERVA);
+		return { x, y };
+	}
+	// geometrické omezení sondy ve scéně DVOU TĚLES (Z1, Z2, D2): sonda se dřív dala
+	// zatáhnout až do samotné kuličky (`omezSondu` ji ve scéně těles ořezávalo jen na
+	// plátno 4..W-4), kde navíc model dává skokovou nulu přesně ve středu — pole tam
+	// nejdřív rostlo, pak padalo k nule a šipka se v samém středu OBRACELA (Z2).
+	// Řešení: střed sondy musí zůstat aspoň REZERVA_STRED_TELESA (= R_TELESA + 8 =
+	// 30 px) od STŘEDU KAŽDÉHO tělesa a aspoň REZERVA_OKRAJ_TELESA (= polovina
+	// maximální délky šipky, 33 px) od každého okraje plátna. Tělesa jsou od sebe
+	// vždy nejmíň 80 px (d = 4 cm), tj. víc než 2×30 px, takže odsun od jednoho
+	// tělesa nemůže sondu zase zatlačit do zakázané zóny druhého.
+	function omezSonduTelesa(bod) {
+		let x = Math.max(REZERVA_OKRAJ_TELESA, Math.min(W - REZERVA_OKRAJ_TELESA, bod.x));
+		let y = Math.max(REZERVA_OKRAJ_TELESA, Math.min(H - REZERVA_OKRAJ_TELESA, bod.y));
+		for (const t of telesa()) {
+			const dx = x - t.x, dy = y - t.y;
+			const dist = Math.hypot(dx, dy);
+			if (dist < REZERVA_STRED_TELESA) {
+				if (dist < 1e-6) { x = t.x; y = t.y - REZERVA_STRED_TELESA; }
+				else { const k = REZERVA_STRED_TELESA / dist; x = t.x + dx * k; y = t.y + dy * k; }
+			}
+		}
+		// odsun od tělesa mohl vytlačit sondu ven z plátna — dořízni znovu
+		x = Math.max(REZERVA_OKRAJ_TELESA, Math.min(W - REZERVA_OKRAJ_TELESA, x));
+		y = Math.max(REZERVA_OKRAJ_TELESA, Math.min(H - REZERVA_OKRAJ_TELESA, y));
+		return { x, y };
+	}
+	// I po omezSonduTelesa může být sonda dost blízko tělesa na to, aby neomezená
+	// šipka (strop 66 px) protnula celou kuličku — REZERVA_STRED_TELESA drží sondu
+	// jen 8 px od povrchu, ale síla pole tam roste tak rychle, že vypočtená délka
+	// šipky bývá přes 40 px (Z1). Proto se šipka navíc VŽDY ořízne, aby její hrot
+	// nikdy nevstoupil do kruhu r = R_TELESA kolem žádného tělesa (2 px rezerva pro
+	// viditelnou mezeru) — a stejně tak nikdy nevyjel z plátna (D2), bez ohledu na
+	// to, jak šikmo šipka míří.
+	function omezSipkuTelesa(px, py, uhel, delka) {
+		const cosU = Math.cos(uhel), sinU = Math.sin(uhel);
+		let maxD = delka;
+		for (const t of telesa()) {
+			const dxc = t.x - px, dyc = t.y - py;
+			const proj = dxc * cosU + dyc * sinU;
+			if (proj <= 0) continue; // těleso není ve směru, kterým šipka míří
+			const distCtr2 = dxc * dxc + dyc * dyc;
+			const perp2 = distCtr2 - proj * proj;
+			const R2 = R_TELESA * R_TELESA;
+			if (perp2 >= R2) continue; // přímka kolem kuličky mine
+			if (distCtr2 <= R2) continue; // sonda by musela být uvnitř tělesa — po omezSonduTelesa se nestává
+			const tProtnuti = proj - Math.sqrt(R2 - perp2) - 2; // −2 px pro viditelnou mezeru
+			if (tProtnuti > 0 && tProtnuti < maxD) maxD = tProtnuti;
+		}
+		const OKRAJ = 4;
+		if (cosU > 1e-6) maxD = Math.min(maxD, (W - OKRAJ - px) / cosU);
+		else if (cosU < -1e-6) maxD = Math.min(maxD, (OKRAJ - px) / cosU);
+		if (sinU > 1e-6) maxD = Math.min(maxD, (H - OKRAJ - py) / sinU);
+		else if (sinU < -1e-6) maxD = Math.min(maxD, (OKRAJ - py) / sinU);
+		return Math.max(0, maxD);
+	}
+	// rozměry plakety podle textu — stejný výpočet jako uvnitř plaketa(), aby se
+	// kolize počítaly nad přesně těmi rozměry, které se pak opravdu vykreslí
+	function rozmerPlakety(text) {
+		ctx.font = 'bold 13px sans-serif';
+		return { w: ctx.measureText(text).width + 16, h: 20 };
+	}
+	// dvě PEVNÉ plakety scény — název scény vlevo nahoře a "d = X cm"; jejich polohu
+	// potřebuje jak hlavní kreslení (nakresli), tak kolize se štítkem sondy — musí
+	// jít o STEJNÁ místa, jinak se odsun počítá nad něčím jiným, než se pak doopravdy
+	// nakreslí
+	function pevnePlakety() {
+		return [
+			{ x: 90, y: 24, text: scenaDesky ? 'rovnoběžné desky' : 'dvě tělesa' },
+			// u desek je "d" volná mezera mezi líci, u těles rozestup STŘEDŮ kuliček
+			// (jinak vypadaná viditelná mezera mezi povrchy jinak, D3) — proto se u
+			// scény těles do popisku dopisuje "(mezi středy)"
+			{
+				x: cx,
+				y: scenaDesky ? H - 22 : cy + R_TELESA + 24,
+				text: scenaDesky ? `d = ${vzdCm} cm` : `d = ${vzdCm} cm (mezi středy)`,
+			},
+		];
+	}
+	// štítek sondy: nesmí vyjet z plátna (tažením do rohu), ve scéně desek nesmí
+	// sedět NA desce (mezera mezi deskami bývá užší než text štítku) a nesmí se
+	// překrývat ani s jednou z PEVNÝCH plaket scény (název scény, "d = X cm") — ty
+	// se kreslí až po sondě, takže by jinak její nápis tiše přepsaly. Řeší se to
+	// stejným mechanismem jako u desky: při kolizi odsun nad/pod.
+	function nakresliPlaketuSondy() {
+		const text = 'zkušební náboj (+)';
+		const { w, h } = rozmerPlakety(text);
+		let px = sonda.x;
+		let py = sonda.y < 34 ? sonda.y + 20 : sonda.y - 20; // blízko horního okraje: pod tečku
+
+		if (scenaDesky) {
+			const g = deskyGeom();
+			const koliduje = (xStred) =>
+				Math.abs(px - xStred) < w / 2 + g.tl / 2 && py + h / 2 > g.yTop && py - h / 2 < g.yBot;
+			if (koliduje(g.xA) || koliduje(g.xB)) {
+				py = sonda.y - g.yTop < g.yBot - sonda.y ? g.yTop - h / 2 - 4 : g.yBot + h / 2 + 4;
+			}
+		} else {
+			// D7: štítek dřív nijak neuhýbal kuličkám a zakrýval jim znaménko —
+			// odsuň nad/pod, jakmile obdélník štítku zasahuje do kruhu r = R_TELESA
+			// kolem kteréhokoli tělesa (nejbližší bod obdélníku od středu kruhu)
+			for (const t of telesa()) {
+				const nx = Math.max(px - w / 2, Math.min(t.x, px + w / 2));
+				const ny = Math.max(py - h / 2, Math.min(t.y, py + h / 2));
+				if (Math.hypot(t.x - nx, t.y - ny) < R_TELESA) {
+					py = sonda.y <= t.y ? t.y - R_TELESA - h / 2 - 4 : t.y + R_TELESA + h / 2 + 4;
+				}
+			}
+		}
+
+		// kolize s pevnými plaketami — dva průchody, aby se doladil i řetězový
+		// případ (odsun kvůli jedné plaketě by jinak mohl nově srazit druhou)
+		for (let pruchod = 0; pruchod < 2; pruchod++) {
+			for (const p of pevnePlakety()) {
+				const rp = rozmerPlakety(p.text);
+				const koliduje = Math.abs(px - p.x) < (w + rp.w) / 2 && Math.abs(py - p.y) < (h + rp.h) / 2;
+				if (!koliduje) continue;
+				const nahoru = p.y - rp.h / 2 - h / 2 - 4;
+				const dolu = p.y + rp.h / 2 + h / 2 + 4;
+				const vejdeNahoru = nahoru - h / 2 - 2 >= 0;
+				const vejdeDolu = dolu + h / 2 + 2 <= H;
+				if (sonda.y < p.y && vejdeNahoru) py = nahoru;
+				else if (vejdeDolu) py = dolu;
+				else if (vejdeNahoru) py = nahoru;
+			}
+		}
+
+		px = Math.max(w / 2 + 2, Math.min(W - w / 2 - 2, px));
+		py = Math.max(h / 2 + 2, Math.min(H - h / 2 - 2, py));
+		plaketa(px, py, text);
 	}
 	function nakresliSondu() {
 		const f = poleAktualni(sonda.x, sonda.y);
 		if (f.sila > 1e-9) {
-			const delka = delkaSipkySondy(f.sila);
-			const uhel = Math.atan2(f.ey, f.ex);
+			const delka = delkaSipkySondy(f);
 			ctx.strokeStyle = '#e8590c'; ctx.fillStyle = '#e8590c'; ctx.lineWidth = 3;
-			ctx.beginPath();
-			ctx.moveTo(sonda.x, sonda.y);
-			const kx = sonda.x + Math.cos(uhel) * delka, ky = sonda.y + Math.sin(uhel) * delka;
-			ctx.lineTo(kx, ky);
-			ctx.stroke();
-			sipkaHlavicka(kx, ky, uhel, 11);
+			if (scenaDesky) {
+				// homogenní pole: šipka VYSTŘEDĚNÁ kolem sondy, od sonda.x−L/2 po
+				// sonda.x+L/2 (hrot na tom konci, kam pole ve skutečnosti míří) —
+				// díky omezSonduDesky se sem vždy vejde, i k desce nejblíž
+				const smer = f.ex >= 0 ? 1 : -1;
+				const ax = sonda.x - smer * (delka / 2), ay = sonda.y;
+				const bx = sonda.x + smer * (delka / 2), by = sonda.y;
+				ctx.beginPath();
+				ctx.moveTo(ax, ay);
+				ctx.lineTo(bx, by);
+				ctx.stroke();
+				sipkaHlavicka(bx, by, smer > 0 ? 0 : Math.PI, 11);
+			} else {
+				const uhel = Math.atan2(f.ey, f.ex);
+				// Z1/Z2: šipka se ořízne, aby hrot nikdy nevjel do kuličky (a D2: ani
+				// nevyjel z plátna) — bez toho šipka u blízkých poloh sondy prostě
+				// projela skrz kreslenou kuličku, často až za její střed
+				const delkaOriznuta = omezSipkuTelesa(sonda.x, sonda.y, uhel, delka);
+				ctx.beginPath();
+				ctx.moveTo(sonda.x, sonda.y);
+				const kx = sonda.x + Math.cos(uhel) * delkaOriznuta, ky = sonda.y + Math.sin(uhel) * delkaOriznuta;
+				ctx.lineTo(kx, ky);
+				ctx.stroke();
+				if (delkaOriznuta > 4) sipkaHlavicka(kx, ky, uhel, Math.min(11, delkaOriznuta));
+			}
 		}
 		ctx.fillStyle = '#495057';
 		ctx.beginPath();
 		ctx.arc(sonda.x, sonda.y, 7, 0, Math.PI * 2);
 		ctx.fill();
 		ctx.strokeStyle = '#2b2a26'; ctx.lineWidth = 2; ctx.stroke();
-		plaketa(sonda.x, sonda.y - 20, 'zkušební náboj (+)');
+		nakresliPlaketuSondy();
 	}
 
 	// ---------- hlavní kreslení ----------
@@ -303,12 +569,9 @@
 		if (scenaDesky) nakresliDesky();
 		else nakresliTelesa();
 		nakresliSondu();
-		plaketa(90, 24, scenaDesky ? 'rovnoběžné desky' : 'dvě tělesa');
-		// plaketa se vzdáleností stranou od výchozí polohy sondy (cy-40, nad tělesy),
-		// aby se s její plaketou nikdy nepřekrývala — u desek dole pod nimi,
-		// u těles pod nimi (sonda i její popisek jsou nad tělesy)
-		if (scenaDesky) plaketa(cx, H - 22, `d = ${vzdCm} cm`);
-		else plaketa(cx, cy + R_TELESA + 24, `d = ${vzdCm} cm`);
+		// pevné plakety scény (název + "d = X cm") se kreslí AŽ TEĎ — plaketa sondy
+		// výše ale s jejich polohou počítala (pevnePlakety) a v kolizi se jim uhnula
+		for (const p of pevnePlakety()) plaketa(p.x, p.y, p.text);
 	}
 
 	// ---------- popisný text ----------
@@ -324,9 +587,9 @@
 			}
 		} else {
 			if (qA !== qB) {
-				text = `Mezi deskami je pole všude stejně silné — siločáry jsou rovnoběžné a stejně husté. Mimo desky pole prakticky není — šipka tam zmizí.`;
+				text = `Mezi deskami je pole všude stejně silné — říká se mu homogenní. Siločáry jsou rovnoběžné a stejně husté a posuvník Vzdálenost tu nic nemění (pole mezi deskami zůstává pořád stejné). Mimo desky pole prakticky není — šipka tam zmizí.`;
 			} else {
-				text = `Obě desky mají stejný náboj — mezi deskami se pole ruší, šipka zmizí.`;
+				text = `Obě desky mají stejný náboj — mezi deskami se homogenní pole přesně ruší (šipka tam zmizí), ale mimo desky se naopak sčítá a je dvojnásobné. I tady zůstává pole při změně vzdálenosti stejné.`;
 			}
 		}
 		stavEl.textContent = text;
@@ -357,12 +620,16 @@
 	});
 	tlScena.addEventListener('click', () => {
 		scenaDesky = !scenaDesky;
-		tlScena.textContent = scenaDesky ? '🔄 Přepnout na dvě tělesa' : '🔄 Přepnout na desky (homogenní pole)';
+		tlScena.textContent = scenaDesky ? '🔄 Přepnout na dvě tělesa' : '🔄 Přepnout na desky (všude stejně silné pole)';
+		// sonda mohla zůstat v poloze nevhodné pro nově zvolenou scénu
+		sonda = scenaDesky ? omezSonduDesky(sonda) : omezSonduTelesa(sonda);
 		prekresli(posledniOffset);
 	});
 	chkSilocary.addEventListener('change', () => prekresli(posledniOffset));
 	dSlider.addEventListener('input', () => {
 		vzdCm = +dSlider.value;
+		// po změně d dotáhnout sondu zpět do dovolené oblasti (mění se i poloha těles)
+		sonda = scenaDesky ? omezSonduDesky(sonda) : omezSonduTelesa(sonda);
 		prekresli(posledniOffset);
 	});
 
@@ -374,15 +641,22 @@
 			y: (e.clientY - r.top) * (H / r.height),
 		};
 	}
+	// sondu vždy geometricky omez podle aktuální scény (Z1, Z2, D1, D2, D4): v
+	// deskové scéně omezSonduDesky (odstup od obou líců obou desek + svisle jen pás
+	// desek), ve scéně těles omezSonduTelesa (odstup od STŘEDU obou kuliček +
+	// odstup od okraje plátna) — dřív se ve scéně těles sonda ořezávala jen na
+	// plátno 4..W-4 a dala se zatáhnout až do samotné kuličky
+	function omezSondu(b) {
+		return scenaDesky ? omezSonduDesky(b) : omezSonduTelesa(b);
+	}
 	platno.addEventListener('pointerdown', (e) => {
 		tahnu = true;
-		sonda = bodZUdalosti(e);
+		sonda = omezSondu(bodZUdalosti(e));
 		prekresli(posledniOffset);
 	});
 	platno.addEventListener('pointermove', (e) => {
 		if (!tahnu) return;
-		const b = bodZUdalosti(e);
-		sonda = { x: Math.max(4, Math.min(W - 4, b.x)), y: Math.max(4, Math.min(H - 4, b.y)) };
+		sonda = omezSondu(bodZUdalosti(e));
 		prekresli(posledniOffset);
 	});
 	window.addEventListener('pointerup', () => { tahnu = false; });
@@ -403,6 +677,11 @@
 	platno.__poleBod = poleBod;
 	platno.__polePlatna = polePlatna;
 	platno.__offsetProCas = (t) => (t * 40) % 14;
+	platno.__telesa = telesa;
+	platno.__omezSonduTelesa = omezSonduTelesa;
+	platno.__omezSipkuTelesa = omezSipkuTelesa;
+	platno.__omezSonduDesky = omezSonduDesky;
+	platno.__deskyGeom = deskyGeom;
 </script>
 
 <style>
