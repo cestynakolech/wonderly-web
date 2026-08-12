@@ -1,4 +1,30 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. ~3:25)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 9:30, uloženo před /clear)
+
+**⓪ PO /clear NEJDŘÍV: audit návodů do 0 nálezů** (stálé zadání učitele,
+postup v úvodu skillu `/wonderly`), teprve pak práce.
+
+**① NAHRÁVAČ PRÁVĚ BĚŽEL (9:15–9:2x) — ZKONTROLOVAT VÝSLEDEK JAKO PRVNÍ:**
+`tail -20 ~/Desktop/Omega/skripty/data/youtube-nahravac.log`. Do 9:25 nahrál
+**Luxeuil 1/3 `hGBkVHDg3W4`** a **Luxeuil 3/3 `Nit8-Kr7CjA`**, pak jel
+Salins 1z3. 🔴 **Luxeuil 2/3 SPADL na „Broken pipe"** — to je přesně past
+z 10. 8.: přerušený upload video na kanálu PŘESTO ZALOŽÍ (délka `P0D`)
+a druhý pokus vyrobí duplicitu. Ověřit, že `uklid_po_prerusenem_uploadu()`
+zafungoval (`venv/bin/python3 kontrola_kanalu.py` + soupis kanálu) a díl 2/3
+donahrát, až to kvóta dovolí. **Web:** až budou všechny díly na kanálu,
+dopsat do `2026.ts` místa **Luxeuil-les-Bains, Saint-Amour, Salins-les-Bains**
+(místo + `videoId` PRVNÍHO dílu + řádky v `videa:` — bez obojího brána shodí
+build; popisy ze zdroje `fakta_mist.py --zdroj <slug> fr "<Název>"`, rok 2026
+se píše PŘÍMO do .ts) a ověřit curlem.
+
+**② JEDINÉ ODKLIKNUTÍ PRO UČITELE:** zavřít `MISTA.xlsx` bez uložení.
+V `KE-SCHVALENI.md` navíc leží návrh sloučit Saint-Sauveur + Luxeuil
+(totéž místo, 130 m) — rozhodne učitel, nespěchá.
+
+**③ VÝROBA DOPŘEDU:** fronta je čistá — zbývající místa (Kluesserath,
+Neumagen-Dhron, Geisingen) drží 7denní čekání od poslední fotky, dřív se
+vyrábět nedá. V `nasazeno/` čeká 32 souborů (fronta pro další dny).
+
+---
 
 **✅ SMYČKA KONTROL KRÁJEČE UZAVŘENA — 18. kolo: 0 NÁLEZŮ.** Kola 4–17
 našla a opravila ~30 nálezů (testy 25/25 + 4/4 zelené, diagnostika čistá,
@@ -36,12 +62,7 @@ KE-SCHVALENI.md: 4 zastaralé řádky Saint-Sauveur smazány (nahrazeny
 poznámkou); návrh sloučení Saint-Sauveur+Luxeuil tam ZŮSTÁVÁ (rozhodne
 učitel) — VideoAutomat si místa vybírá sám z fronty, do toho nesahat.
 
-**RÁNO 12. 8. STÁLE PLATÍ:** ① 9:15 nahrávač sám nahraje 5 dílů (Saint-Amour
-2×, Salins 3×) → dopsat obě místa na web + ověřit curlem. ② video
-Saint-Sauveur po výrobě: `kontrola_videa.py --mesto Saint-Sauveur_FR` + mapa
-a anonymizace OKEM → `nasazeno/`. ③ jediné odkliknutí učitele: zavřít
-MISTA.xlsx bez uložení. ④ ověřit `launchctl list | grep kontrola-kvality`
-(hlídač ji má vrátit po vyprázdnění fronty).
+_(Ranní úkoly z tohoto bloku jsou vyřízené nebo přesunuté nahoru do bodů ①–③.)_
 
 ---
 

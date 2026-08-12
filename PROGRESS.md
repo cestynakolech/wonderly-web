@@ -146,6 +146,10 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
   značky, kotva to chytila, slepeno concat filtrem). Čekač pak sám spustil
   výrobu — další v pořadí Luxeuil-les-Bains (169 médií), hudba se generuje.
   Nová pravidla zapsána v PRAVIDLA.md (sekce „Kráječ videa po velké smyčce").
+  **Ráno:** video Luxeuil-les-Bains (3 díly) prošlo kontrolami 3/3 čistě
+  (obraz = zvuk 0,00 s, −24 dB, faststart), mapa i anonymizace prohlédnuty
+  okem, a v 9:15 ho nahrávač sám začal nahrávat na kanál (díl 1/3 a 3/3
+  hotové; díl 2/3 spadl na „Broken pipe" — ověřit duplicitu na kanálu).
 
 - **2026-08-11 pozdě večer (druhá smyčka: kráječ videí v principu)** —
   Zadání učitele „projdi dnešní chyby a rozpory, smyčka do 0". Návody:
