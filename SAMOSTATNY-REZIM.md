@@ -1,4 +1,30 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 19:55 — po 5. kole kontroly)
+## ✅ HOTOVO 12. 8. 20:25 — SIMULACE ELEKTRICKÉHO POLE UZAVŘENA A NASAZENA
+
+Commit `be4656a`, nasazení ověřeno curlem na
+`lab.wonderly.cz/skola2/fyzika/8-rocnik/elektrina/elektricke-pole/`
+(produkce nese nový `ElektrickePoleSimulace…Q3RNpAb7.js`, 80 s po pushi).
+Opraveno všech 12 nálezů 5. kola + 10 nálezů 4. kola. Brána i build zelené.
+
+**Kotva místo dalšího kontrolního kola** (skript
+`scratchpad/overeni.mjs`, lze zopakovat): prošlo 61 311 poloh sondy —
+0 zanoření hrotu šipky do kuličky, 0 přesahů plátna, sonda vždy ≥ 30 px od
+středu tělesa a ≥ 27 px od osy desky, 0 poloh nad/pod deskami, monotonie
+„čím blíž, tím silnější" zachovaná (7,19e−4 → 2,87e−5 pro r = 22…160 px),
+výchozí bod sondy (320,150) zůstal dovolený, mezera mezi líci desek přesně
+160 px = 8 cm.
+
+⚠️ **Poučení pro příští simulace** (proč to trvalo 5 kol): každý nový
+kontrolor zaostří na jinou část a najde další várku — 3. kolo 6 nálezů
+(desky), 4. kolo 10 (šipka u desek, navíc REGRESE z opravy 3. kola),
+5. kolo 12 (poprvé scéna dvou těles). Nálezů neubývalo, protože se pokaždé
+kontrolovalo něco jiného. Co zabralo: poslední kolo dostalo VŠECHNY nálezy
+najednou i seznam „co nerozbít", a místo 6. otevřené kontroly se pustilo
+**cílené měření jen opravených bodů** — to nemůže vygenerovat novou várku
+a dá se zopakovat. Příště tak od 3. kola dál.
+
+---
+
+## 🔴 ARCHIV (stav 12. 8. 19:55 — po 5. kole kontroly)
 
 **Kde to je:** simulace `src/components/skola2/ElektrickePoleSimulace.astro`.
 5. kolo: **12 nálezů, 2 závažné — ale JINDE**. Desky jsou po opravách čisté;
