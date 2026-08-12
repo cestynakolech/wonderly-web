@@ -1,4 +1,27 @@
-## 🔴🔴 ZAČNI TADY (stav 12. 8. 19:15 — po 4. kole kontroly)
+## 🔴🔴 ZAČNI TADY (stav 12. 8. 19:55 — po 5. kole kontroly)
+
+**Kde to je:** simulace `src/components/skola2/ElektrickePoleSimulace.astro`.
+5. kolo: **12 nálezů, 2 závažné — ale JINDE**. Desky jsou po opravách čisté;
+nálezy se přesunuly do scény DVOU TĚLES, na kterou se dosud nesáhlo (šipka
+projíždí skrz kuličku ve 2,9 % poloh sondy až za její střed; sondu lze táhnout
+dovnitř kuličky, kde se pole skokem obrací a šipka je ve středu kratší než
+60 px od tělesa). Brána i build po 4. kole zelené.
+
+⚠️ **ROZHODNUTÍ (aby se to netočilo donekonečna):** každý nový kontrolor zaostří
+jinam a najde další várku — 3. kolo 6 nálezů, 4. kolo 10, 5. kolo 12, pokaždé
+o jiné části. Proto: **poslední opravné kolo běží (zadáno 19:50, všech 12
+nálezů), pak už ŽÁDNÁ otevřená kontrola** — místo ní cílené změření JEN
+opravených bodů (kotva), brána, build a nasazení. Zbylé kosmetické věci se
+zapíšou sem jako drobnosti, ne jako blokace ([[feedback-drobnosti-do-stavu]]).
+
+**Proč nasadit i s drobnostmi:** produkční `a10fcb3` má ZÁVAŽNOU fyzikální lež
+(u souhlasných desek nulové pole na celém plátně — nabitá tělesa bez pole
+kolem, popírá to úvodní větu i výklad). Nová verze ji nemá. Držet starší verzi
+kvůli kosmetice ve scéně těles by bylo horší pro děti.
+
+_(archiv 4. kola níž)_
+
+## 🔴 ARCHIV (stav 12. 8. 19:15 — po 4. kole kontroly)
 
 **PRVNÍ ÚKOL:** dotáhnout simulaci `src/components/skola2/ElektrickePoleSimulace.astro`
 do čistého kola. Historie: 3. kolo našlo 6 nálezů → worker je opravil → brána
