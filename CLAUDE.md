@@ -7,7 +7,7 @@
 ## Co to je
 Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři části na subdoménách:
 - **lab.wonderly.cz** — školní web 2. stupně ZŠ (Fyzika, Informatika, Pracovní činnosti; ročníky 6–9). Ke každému tématu: výklad, infografiky, písničky/videa, interaktivní procvičovací **kvíz** a **tisknutelný test pro učitele**. Hlavní práce teď.
-- **cesty.wonderly.cz** — cestovatelský deník z cest **obytným autem** (NE cyklistika! EN „Journeys on Wheels", DE „Reisen auf Rädern"). Mapa Evropy s piny měst, fotogalerie, CS/EN/DE.
+- **cesty.wonderly.cz** — cestovatelský deník z cest **obytným autem** (NE cyklistika! EN „Journeys on Wheels", DE „Reisen auf Rädern"). Mapa Evropy s piny měst, fotogalerie, CS/EN/DE/FR.
 - **fox.wonderly.cz** — 1. stupeň (paní Lišková), + **wonderly.cz** rozcestník.
 
 Web řídí `worker.js` (routing subdomén podle Host hlavičky + servírování fotek z R2 přes `/media/`).
@@ -28,7 +28,7 @@ src/
     cesty/       ← data deníku (typy, roky, mapa, překlady)
   layouts/
     SkolaLayout.astro   ← kreslený design školy
-    CestyLayout.astro   ← layout deníku (CS/EN/DE, tmavý režim)
+    CestyLayout.astro   ← layout deníku (CS/EN/DE/FR, tmavý režim)
   components/
     skola2/Kviz.astro              ← interaktivní kvíz + tančící/mlátící profesor
     skola2/HydraulikaSimulace.astro ← interaktivní simulace (Pascalův zákon)
@@ -40,7 +40,7 @@ worker.js, wrangler.jsonc                             ← routing subdomén + R2
 ```
 
 ## Zdrojové materiály školy (mimo tento repo)
-- **`/Users/Shared/Škola/<rocnik>/<celek>/<podtéma>/`** — od učitele. Určující je vždy **PDF**; k němu média + `informace-pro-podcast.txt` (pro NotebookLM) a `pisen-suno.txt` (rap pro puberťáky, styl „czech rap for teenagers, modern trap beat").
+- **`/Users/Shared/Škola/<rocnik>/<celek>/<podtéma>/`** — od učitele. Určující je vždy **PDF**; k němu média + `informace-pro-podcast.txt` (zvuk dělá lokální OmniVoice, skill `/podkast-video`) a `pisen-suno.txt` (rap pro puberťáky, styl „czech rap for teenagers, modern trap beat").
 - Podklady stahuje učitel z **Google Disku** (složka Fyzika) do sdílené složky — přes asistenta se Disk NEČTE spolehlivě.
 - Barevné štítky složek: 🟡 žlutá = doplnil učitel (nech), 🟠 oranžová = čeká na média od učitele.
 - **Přehledy a předání**: `/Users/Shared/webová stránka/` a `~/Desktop/Omega/dokumenty/` (PREHLED-PROJEKTU…, PREDANI_KOLEGOVI, kontrola-podkladu-*).
@@ -48,7 +48,7 @@ worker.js, wrangler.jsonc                             ← routing subdomén + R2
 ## Konvence a pravidla (DŮLEŽITÉ)
 - **Kontrola faktů**: každý výpočet/údaj z podkladů PŘEPOČÍTAT. Chyby NEopravovat potichu — hlásit do `Omega/dokumenty/kontrola-podkladu-*.md` (SmartBooks PDF, AI infografiky i staré prezentace měly chyby).
 - **SmartBooks PDF (uceni.smartbooks.cz) NEZVEŘEJŇOVAT** — placený obsah; jen zdroj faktů.
-- **Velká videa (>25 MB)** nejdou na web → YouTube „nezařazené", na web jen odkaz. Asistent na YouTube nahrávat NEMŮŽE (OAuth) — dělá učitel, posílá odkazy.
+- **Velká videa (>25 MB)** nejdou na web → YouTube „nezařazené", na web jen odkaz. Na YouTube nahrává automat `com.omega.youtube-nahravac`; zásahy na kanál hlídá `brana_kanalu.py` — viz `Omega/AUTOMATY.md`.
 - **Odkazy uvnitř webu školy musí být RELATIVNÍ** (fungují na lab.wonderly.cz i wonderly.cz/skola2).
 - **Kvíz**: ~21 otázek/podtéma, 3 odpovědi, správná první, doplnit `vysvetleni`.
 - **Tisknutelný test** `…/test/` je chráněný heslem **ucitel-wonderly** (jen pro učitele).
