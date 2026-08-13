@@ -64,14 +64,32 @@ _„v nasazeno/ čeká nové video — stará videa dnes počkají"_ se vztahuje
 SKUTEČNÝM dílům. Bez opravy by ta věta platila navždy i po vyprázdnění fronty
 a stará přeanonymizovaná videa by se už nikdy nenahrála.
 
-**Titulek bez data má ještě 8 letošních videí** (s datem 25). Čtyři se spraví
-samy při výměně mapy (Saint-Maurice `swDAmX8BRJA`, Frangy `mVP4b5LnuYI`,
-Livet-et-Gavet `1t5aVUDdHtI`, Vaulnaveys `nDJcjI00HQk` — nová verze dostane
-titulek podle `hezky_nazev()`). Zbylé čtyři vlastní výměnu nemají a chtěly by
-`nahraj_na_youtube.py --oprav-titulky --naostro`: Le Thillot `Tlnc-YigfTw`,
-Rupt-sur-Moselle `nBnRJsLpsCg`, Geisingen `_M3govihGYc`, Schongau `k4cqRFIsEQU`.
-**Nechal jsem to na učiteli** — je to zásah do zveřejněného obsahu a odložil ho
-už minulý běh; nástroj sám o sobě je bezpečný (ručně pojmenovaná videa přeskočí).
+### ✅ SCHVÁLENO A HOTOVO 13. 8. ~9:45: TITULKY + SCHOVÁNÍ DUPLICITY
+
+Učitel: *„to starší video přepni na soukromé a titulky oprav"*.
+
+**Starší duplicita Le Bourg-dOisans schována.** `wZSKCdxlmeg` → SOUKROMÉ přes
+`vymena_videa.schovej()` (nemazat!). Kotva čtením z kanálu: `wZSKCdxlmeg private`,
+živé `-FR8z-38PR8 unlisted`.
+
+**Titulky opraveny: 10 videí**, dvě přeskočena. Ověřeno čtením ze soupisu kanálu:
+**letošní deníková videa mají datum 33 z 33, bez data 0** (dřív 25/8).
+Opraveno: Frangy, Geisingen, Le Bourg-d'Oisans (obě ID), Le Thillot,
+Livet-et-Gavet, Rupt-sur-Moselle, Saint-Maurice, Schongau, Vaulnaveys.
+
+⚠️ **Le Bourg-d'Oisans dostal jiné DATUM, ne jen doplněk:** `23. 07.` → `22. 07.`.
+Prověřeno předem proti pořadníku (append-only zdroj pravdy) i tabulce — focení
+začalo **22. 7. 18:27**, takže `23. 07.` na kanálu bylo chybné. Zároveň se
+narovnal apostrof („Le Bourg-dOisans" → „Le Bourg-d'Oisans").
+
+⚠️ **Dvě videa nástroj přeskočil, protože se jejich titulek liší od evidence —
+tedy je psal člověk:** `u4NmKbMRhiE` (na kanálu „06. 07. · Německo — Landshut,
+Schongau, Geisingen"; stroj by z něj udělal „Nemecko jen hudba") a `ghBZ3WUwQPY`
+(„18. 07. · Ballon d'Alsace"; stroj chtěl jen jinou pomlčku). Pojistka zafungovala
+správně. Pro pořádek: evidence u nich drží starší podobu s ručním pořadovým
+číslem („01 · …", u Salbertu „02 · …"), zatímco na kanálu už je datum — ta
+ruční čísla tedy na kanálu **nejsou**. Kdyby je učitel chtěl zpátky, jde to jen
+ručně (stroj na ně sahat nesmí).
 
 **Rozvrh nahrávání výměn** (strop 5/den): zítra 3 zbylé díly + 2 výměny,
 pozítří 5 výměn, třetí den poslední. Nic z toho nečeká na učitele.
