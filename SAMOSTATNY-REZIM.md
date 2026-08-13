@@ -45,11 +45,47 @@ Opraveno dvakrát: soubory odsunuty do `nasazeno/_nova-mapa/` (fronta čte
 Test `test_nahravac_bez_duplicit.py` **64/64** (dřív 56). Ověřeno po opravě:
 fronta na 9:15 obsahuje přesně 8 očekávaných dílů, žádný `.nova-mapa`.
 
-⬜ **ZBÝVÁ:** nahrát vyměněné verze na kanál přes `vymena_videa.vymen()`
-(nahrát novou → schovat starou na SOUKROMÉ, nikdy nemazat). **Brzdí kvóta 5/den**
-a ve frontě je 8 nových dílů, takže výměny přijdou na řadu nejdřív za dva dny.
-Soubory čekají v `nasazeno/_nova-mapa/` (8 ks, ~2,9 GB; překódováním CRF 18
-vyrostly ~1,7×, obraz se nezhoršil).
+### ✅ POSLEDNÍ ČLÁNEK NAPSÁN: `vymen_mapy_na_kanale.py`
+
+Chyběl nástroj, který vyměněné verze dostane na kanál — psal jsem ho AŽ TEĎ
+schválně: ostrý zásah do kanálu měl počkat, než bude hotová brána, která
+škodu neumožní.
+
+Co dělá: vezme soubory z `nasazeno/_nova-mapa/`, k pořadí použije **pořadí
+cesty** (ne abecedu), titulek složí ze jména PŮVODNÍHO souboru přes
+`hezky_nazev()` — takže výměnou video zároveň dostane datum, pokud ho nemá —
+a nahraje přes **jediný domov `vymena_videa.vymen()`**: nahrát novou → schovat
+starší na SOUKROMÉ. Nikdy naopak, nikdy mazat.
+
+Pojistky (každá s měřidlem, `testy/test_vymen_mapy_na_kanale.py` **25/25**):
+- **kotva PŘED odesláním** — stopáž vyměněného souboru musí sedět s originálem
+  a musí mít zvuk; useknutý soubor se na kanál nedostane (kalibrace: bez kotvy
+  by prošel),
+- **bez záznamu v evidenci se nevyměňuje** — nevíme, kterou starší verzi
+  schovat, a nahrát novou bez schování = duplicita na kanálu,
+- **prázdná evidence znamená „nic", ne „všechno"**,
+- starý záznam se nepřepisuje, odsouvá se do `nahrana_videa_nahrazena`;
+  originál mp4 jde do `_stara-mapa/` a **opakovaná výměna dřívější originál
+  nepřepíše**,
+- nová verze se přejmenuje na PŮVODNÍ jméno v `nasazeno/`, takže ji fronta
+  nevezme podruhé,
+- **týž zámek jako nahrávač** (dva přenosy naráz rozhodí kvótu), společný denní
+  strop, ověřený cíl `KANAL_ID`, výchozí běh NANEČISTO.
+
+**Suchý běh: všech 8 videí projde kotvou**, u každého sedí stopáž na setinu.
+**Ostrá zkouška proběhla a nástroj sám odmítl:** „dnes už nahráno 5/5 — denní
+limit vyčerpán, zbytek zítra". Nic neodešlo, kvóta se nepřekročila.
+
+⬜ **ZBÝVÁ (čeká na kvótu, ne na učitele):** spustit
+`vymen_mapy_na_kanale.py --naostro`. Rozvrh při stropu 5/den: **zítra** 3 zbylé
+díly fronty (Luxeuil 5z6, 6z6, Salins 3z3) + **2 výměny**, pozítří 5 výměn,
+třetí den poslední. Soubory čekají v `nasazeno/_nova-mapa/` (8 ks, ~2,9 GB;
+překódováním CRF 18 vyrostly ~1,7×, obraz se nezhoršil).
+
+💡 **Nabídka pro učitele:** výměny se dají pověsit na automat, aby dobíraly
+zbytek denní kvóty po ranním nahrávači (dnes by to samo udělalo 0, zítra 2).
+Je to ale ZMĚNA NASAZENÍ (nový LaunchAgent), takže se to nedělá samo — řekni,
+jestli to založit.
 
 ### ✅ PRVNÍ ÚKOL SPLNĚN: ranní dávka 9:15 ověřena NA KANÁLU
 
