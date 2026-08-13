@@ -19,9 +19,18 @@ další. Neodklikává se nic.
    nové simulace: `node testy/nahled-simulace.mjs <komponenta> <ven.svg> id=hodnota…`
    pak `qlmanage -t -s 900 -o <složka> <ven.svg>` a PNG přečíst.
 
-**Stav názornosti** (`node testy/nazornost.mjs`): fyzika 8 **11 → 8** z 37,
+5. `tuhnuti` (F8) — křivka chladnutí s plató: během tuhnutí teplota stojí,
+   sůl plató posune dolů, led přibývá SHORA (72 kontrol, mutace 18/20).
+   ⚠️ Při té práci se ukázalo, že **`mutace.mjs` běžela bez timeoutu**:
+   mutace `-5 * sul` → `-5 / sul` dala −Infinity, test se zacyklil, nástroj
+   visel bez konce a v komponentě po sobě nechal ležet MUTACI (obnova ve
+   `finally` se nedostane ke slovu, když se čeká věčně). Opraveno; k tomu
+   pravidlo: každý test simulace potřebuje kotvu „hranice úseků jsou celá
+   čísla uvnitř rozsahu", jinak se místo nálezu jen zasekne.
+
+**Stav názornosti** (`node testy/nazornost.mjs`): fyzika 8 **11 → 7** z 37,
 fyzika 9 **10 → 9** z 25. Ze zbylých jsou 2+2 shrnutí, která názornost
-nepotřebují. **Na řadě dál** (F8): `tuhnuti`,
+nepotřebují. **Na řadě dál** (F8):
 `kondenzace`, `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
 `elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`; (F9):
 `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
