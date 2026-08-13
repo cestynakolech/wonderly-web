@@ -1,0 +1,184 @@
+---
+// Tuhnutí (F8, tuhnuti): křivka chladnutí s plató.
+//
+// Jádro je to, co výklad zdůrazňuje a co je proti selskému rozumu:
+// během tuhnutí teplota NEKLESÁ, i když chladíme dál — uvolňuje se
+// skupenské teplo. V grafu je to vodorovný úsek, který se solí posune
+// dolů (sůl snižuje teplotu tuhnutí), ale nezkrátí se.
+//
+// Druhá věc, kterou scéna ukazuje mimochodem, ale správně: led vzniká
+// SHORA, protože plave — proto rybník nezamrzá ode dna.
+// Všechna čísla jsou celá (čas po minutách, teplota po 5 °C, led po 25 %).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Tuhnutí: co dělá teplota? 🕹️</span></h2>
+	<p>Chladíme sklenici vody pořád stejně silně. Posouvej <strong>čas</strong> a hlídej teploměr — jednu chvíli se bude dít něco divného.</p>
+	<svg id="tuh-svg" viewBox="0 0 660 440" role="img" aria-label="Graf chladnutí vody a sklenice s přibývajícím ledem">
+		<rect x="0" y="0" width="660" height="440" fill="#f8f9fa" />
+		<!-- osy grafu -->
+		<line x1="60" y1="60" x2="60" y2="340" stroke="#2b2a26" stroke-width="3" />
+		<line x1="60" y1="340" x2="410" y2="340" stroke="#2b2a26" stroke-width="3" />
+		<line x1="60" y1="190" x2="410" y2="190" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 4" />
+		<text x="26" y="75" font-size="12" fill="#2b2a26">20 °C</text>
+		<text x="26" y="135" font-size="12" fill="#2b2a26">10 °C</text>
+		<text x="34" y="195" font-size="12" font-weight="bold" fill="#2b2a26">0 °C</text>
+		<text x="20" y="255" font-size="12" fill="#2b2a26">−10 °C</text>
+		<text x="20" y="315" font-size="12" fill="#2b2a26">−20 °C</text>
+		<!-- dělení časové osy: bez čísel žák z grafu nepozná, kolik minut uplynulo -->
+		<g id="tuh-osa-cas" font-size="11" fill="#2b2a26" text-anchor="middle">
+			<line x1="60" y1="340" x2="60" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="60" y="358">0</text>
+			<line x1="116" y1="340" x2="116" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="116" y="358">2</text>
+			<line x1="172" y1="340" x2="172" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="172" y="358">4</text>
+			<line x1="228" y1="340" x2="228" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="228" y="358">6</text>
+			<line x1="284" y1="340" x2="284" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="284" y="358">8</text>
+			<line x1="340" y1="340" x2="340" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="340" y="358">10</text>
+			<line x1="396" y1="340" x2="396" y2="346" stroke="#2b2a26" stroke-width="2" /><text x="396" y="358">12</text>
+		</g>
+		<text x="235" y="374" text-anchor="middle" font-size="13" fill="#2b2a26">čas (minuty)</text>
+		<!-- křivka chladnutí -->
+		<g id="tuh-krivka"></g>
+		<!-- sklenice s vodou a ledem -->
+		<g id="tuh-sklenice"></g>
+		<!-- počitadlo -->
+		<g id="tuh-pocty" font-size="14" font-weight="bold" fill="#2b2a26"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Čas: <output id="tuh-out-cas"></output>
+		<input type="range" id="tuh-cas" min="0" max="12" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Sůl ve vodě: <output id="tuh-out-sul"></output>
+		<input type="range" id="tuh-sul" min="0" max="2" step="1" value="0" />
+	</label>
+	<p class="tuh-vzorec" id="tuh-vypocet"></p>
+	<p class="tuh-stav" id="tuh-stav"></p>
+</section>
+
+<script>
+	const START = 20;        // °C na začátku
+	const KROK = 5;          // o kolik °C klesne teplota za minutu, dokud se něco nemění
+	const DELKA_TUHNUTI = 4; // minut, po které teplota STOJÍ
+	const casSlider = document.getElementById('tuh-cas');
+	const sulSlider = document.getElementById('tuh-sul');
+	const svg = document.getElementById('tuh-svg');
+
+	// ČISTÁ FUNKCE: teplota tuhnutí. Čistá voda 0 °C; rozpuštěná sůl brání
+	// částicím srovnat se do mřížky ledu, takže musí být větší zima.
+	function teplotaTuhnuti(sul) {
+		return -5 * sul;
+	}
+
+	// ČISTÁ FUNKCE: co je se sklenicí v dané minutě.
+	// Tři úseky: chladnutí kapaliny → TUHNUTÍ (teplota stojí) → chladnutí ledu.
+	function stav(cas, sul) {
+		const tuhne = teplotaTuhnuti(sul);
+		const zacatekTuhnuti = (START - tuhne) / KROK;
+		const konecTuhnuti = zacatekTuhnuti + DELKA_TUHNUTI;
+		if (cas < zacatekTuhnuti) {
+			return { teplota: START - KROK * cas, faze: 'kapalina', led: 0, tuhne, zacatekTuhnuti, konecTuhnuti };
+		}
+		if (cas < konecTuhnuti) {
+			const led = ((cas - zacatekTuhnuti) * 100) / DELKA_TUHNUTI;
+			return { teplota: tuhne, faze: 'tuhne', led, tuhne, zacatekTuhnuti, konecTuhnuti };
+		}
+		return {
+			teplota: tuhne - KROK * (cas - konecTuhnuti), faze: 'led', led: 100,
+			tuhne, zacatekTuhnuti, konecTuhnuti,
+		};
+	}
+
+	// Záporná teplota se píše typografickým mínusem — stejně jako na ose.
+	// Jinak stojí na ose „−10 °C" a v počitadle „-10 °C", což vypadá jako chyba.
+	function stupne(t) {
+		return `${String(t).replace('-', '−')} °C`;
+	}
+
+	// Skloňování: 1 minuta · 2–4 minuty · 0 a 5 a víc minut.
+	function minut(n) {
+		if (n === 1) return '1 minuta';
+		if (n >= 2 && n <= 4) return `${n} minuty`;
+		return `${n} minut`;
+	}
+
+	svg.__stav = stav;
+	svg.__teplotaTuhnuti = teplotaTuhnuti;
+	svg.__minut = minut;
+	svg.__stupne = stupne;
+	svg.__DELKA_TUHNUTI = DELKA_TUHNUTI;
+
+	// Graf: 12 minut na 336 px, 40 °C na 240 px — obojí vychází v celých pixelech.
+	// Spodek stupnice (−20 °C) leží 30 px NAD osou času: dokud byl přímo na ní,
+	// poslední bod křivky do osy zapadl a splýval s ní.
+	const xCasu = (cas) => 60 + cas * 28;
+	const yTeploty = (t) => 190 - t * 6;
+	svg.__xCasu = xCasu;
+	svg.__yTeploty = yTeploty;
+
+	function prekresli() {
+		const cas = +casSlider.value;
+		const sul = +sulSlider.value;
+		const s = stav(cas, sul);
+
+		document.getElementById('tuh-out-cas').textContent = minut(cas);
+		document.getElementById('tuh-out-sul').textContent = ['žádná (čistá voda)', 'lžíce', 'dvě lžíce'][sul];
+
+		// ── křivka: body po minutách až do teď, poslední zvýrazněný
+		const body = [];
+		for (let c = 0; c <= cas; c++) body.push(`${xCasu(c)},${yTeploty(stav(c, sul).teplota)}`);
+		let g = `<polyline points="${body.join(' ')}" fill="none" stroke="#1971c2" stroke-width="4" stroke-linejoin="round" />`
+			+ `<circle cx="${xCasu(cas)}" cy="${yTeploty(s.teplota)}" r="7" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />`;
+		// vodorovný úsek se pojmenuje, jakmile na něj žák dojede
+		if (cas >= s.zacatekTuhnuti) {
+			const x1 = xCasu(s.zacatekTuhnuti), x2 = xCasu(Math.min(cas, s.konecTuhnuti));
+			g += `<line x1="${x1}" y1="${yTeploty(s.tuhne)}" x2="${x2}" y2="${yTeploty(s.tuhne)}" stroke="#f76707" stroke-width="6" opacity="0.55" />`
+				+ `<text x="${x1}" y="${yTeploty(s.tuhne) - 12}" font-size="12" font-weight="bold" fill="#e8590c">tady teplota stojí</text>`;
+		}
+		document.getElementById('tuh-krivka').innerHTML = g;
+
+		// ── sklenice: led přibývá SHORA, protože plave (proto rybník nezamrzá ode dna)
+		const vyskaLedu = Math.round((s.led * 240) / 100);
+		document.getElementById('tuh-sklenice').innerHTML =
+			`<rect x="440" y="100" width="160" height="240" fill="#4dabf7" stroke="#2b2a26" stroke-width="3" />`
+			+ (vyskaLedu > 0
+				? `<rect x="440" y="100" width="160" height="${vyskaLedu}" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />`
+				: '')
+			+ `<text x="520" y="${vyskaLedu > 40 ? 130 : 90}" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${
+				s.led === 100 ? 'celá sklenice: led' : s.led > 0 ? `led ${s.led} %` : 'voda'}</text>`
+			+ `<text x="520" y="360" text-anchor="middle" font-size="12" fill="#2b2a26">led se drží nahoře — plave</text>`;
+
+		// ── počitadlo
+		const nazev = { kapalina: 'kapalina (voda)', tuhne: 'právě tuhne', led: 'pevná látka (led)' }[s.faze];
+		document.getElementById('tuh-pocty').innerHTML =
+			`<rect x="14" y="380" width="632" height="52" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="402">čas: ${minut(cas)}</text>`
+			+ `<text x="190" y="402">teplota: ${stupne(s.teplota)}</text>`
+			+ `<text x="360" y="402">stav: ${nazev}</text>`
+			+ `<text x="28" y="424" font-size="13" fill="#2f9e44">teplota tuhnutí této vody: ${stupne(s.tuhne)} — tuhnutí trvá ${minut(DELKA_TUHNUTI)} a po celou dobu teplota stojí</text>`;
+
+		document.getElementById('tuh-vypocet').innerHTML =
+			`Chladíme pořád stejně: <strong>o ${KROK} °C za minutu</strong>. Od ${START} °C k teplotě tuhnutí `
+			+ `(${stupne(s.tuhne)}) to trvá ${minut(s.zacatekTuhnuti)}, pak ${minut(DELKA_TUHNUTI)} teplota <strong>stojí</strong> `
+			+ `a teprve potom klesá dál — ve ${minut(12)} je z toho ${stupne(stav(12, sul).teplota)}.`;
+
+		const stavP = document.getElementById('tuh-stav');
+		if (s.faze === 'kapalina') {
+			stavP.textContent = `💧 Voda chladne o ${KROK} °C za minutu a je pořád kapalná. Teplota tuhnutí ${stupne(s.tuhne)} je ještě kus cesty.`;
+		} else if (s.faze === 'tuhne') {
+			stavP.textContent = `🧊 Voda tuhne a teplota se ANI NEHNE (${stupne(s.teplota)}), i když chladíme dál — ztuhlá voda přitom uvolňuje skupenské teplo do okolí. Hotovo je ze ${s.led} %.`;
+		} else {
+			stavP.textContent = `❄️ Všechno už je led, a teprve teď teplota zase klesá — ${stupne(s.teplota)}. Kdyby led neplaval, tvořil by se u dna a rybník by promrzl skrz naskrz.`;
+		}
+	}
+
+	for (const p of [casSlider, sulSlider]) p.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#tuh-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.tuh-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.tuh-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

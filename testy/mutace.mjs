@@ -75,6 +75,7 @@ for (const test of testy) {
 
 	const puvodniSkript = skript[1];
 	const diry = [];
+	const zaseknute = [];
 	let pouzito = 0;
 	try {
 		for (const m of MUTACE) {
@@ -92,9 +93,21 @@ for (const test of testy) {
 					puvodniSkript.slice(v.index + v[0].length);
 				pouzito++;
 				writeFileSync(komponenta, puvodni.replace(puvodniSkript, zmeneny));
+				// Timeout doplněn 13. 8. 2026: mutace `-5 * sul` → `-5 / sul` dala při
+				// nule −Infinity, test se na tom zacyklil a nástroj běžel bez konce.
+				// Horší než ztracený čas: zdroj zůstal MEZI mutacemi, tedy vadný —
+				// obnova ve `finally` se ke slovu vůbec nedostane, když se čeká věčně.
 				const beh = spawnSync('node', [join(koren, 'testy', 'simulace', test), komponenta], {
 					encoding: 'utf8',
+					timeout: 60_000,
 				});
+				// Zaseknutý test není odhalená mutace: nic netvrdí, jen se nedopočítal.
+				// Hlásí se zvlášť, ať se to nedá splést s poctivým pádem.
+				if (beh.error?.code === 'ETIMEDOUT' || beh.signal === 'SIGTERM') {
+					const okoli = puvodniSkript.slice(Math.max(0, v.index - 30), v.index + v[0].length + 20);
+					zaseknute.push(`${m.nazev} v „…${okoli.replace(/\s+/g, ' ').trim()}…"`);
+					continue;
+				}
 				// test MÁ spadnout (kód ≠ 0). Když projde, tuhle změnu nikdo nehlídá.
 				if (beh.status === 0) {
 					const okoli = puvodniSkript.slice(Math.max(0, v.index - 30), v.index + v[0].length + 20);
@@ -109,8 +122,13 @@ for (const test of testy) {
 	mutaciCelkem += pouzito;
 	dirCelkem += diry.length;
 	const znak = diry.length === 0 ? '✅' : '⚠️ ';
-	console.log(`${znak} ${test.padEnd(20)} ${pouzito - diry.length}/${pouzito} mutací odhaleno`);
+	console.log(`${znak} ${test.padEnd(20)} ${pouzito - diry.length - zaseknute.length}/${pouzito} mutací odhaleno`
+		+ (zaseknute.length ? ` (${zaseknute.length} se zaseklo)` : ''));
 	for (const d of diry) console.log(`      ✗ neodhaleno: ${d}`);
+	for (const z of zaseknute) {
+		console.log(`      ⏱  test se na téhle mutaci ZASEKL (60 s bez konce), nedopočítal se: ${z}`);
+		console.log('         Měřidlo se musí ubránit i nesmyslné hodnotě — oprav smyčku v testu, ať má strop.');
+	}
 }
 
 console.log(

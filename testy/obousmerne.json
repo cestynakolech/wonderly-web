@@ -206,6 +206,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 78 kontrol ('✅ Vnitřní energie: vše sedí.', exit 0) a brána končí bez nálezu; testy simulací hlásí 20 souborů, 1219 kontrol, 0 spadlo.",
 			"regrese": "Zbylé 4 mutace jsou kosmetika bez dopadu na výuku: tvar hrotu šipky o pixel, posun kostky o pixel a hranice barvy `t <= 100` → `101`, která leží mezi dvěma hodnotami posuvníku (kroky po 10 °C), takže se nemá jak projevit.",
 			"overeno": "2026-08-13"
+		},
+		"simulace/tuhnuti.mjs": {
+			"test": "testy/simulace/tuhnuti.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a6b54010… před i po shodný): během tuhnutí teplota místo stání nenápadně klesá (`teplota: tuhne` → `tuhne - cas`). V grafu by to skoro nebylo poznat, ale scéna by učila pravý opak výkladu. Test spadl (exit 1) a vypsal to po vzorcích: „po 4 minuty stojí teplota na −4 °C (−4, −5, −6, −7)\". K tomu mutační test `node testy/mutace.mjs tuhnuti`: 18 z 20. Chytá i rozejití měřítka s popisky os (obojí se čte z HTML, ne z komponenty), zkrácení či prodloužení tuhnutí (pokus pak neskončí na −20 °C) a obrácené podmínky u popisků sklenice a hlášek.",
+			"zdravy": "Nad hotovou komponentou prochází všech 72 kontrol ('✅ Tuhnutí: vše sedí.', exit 0) a brána končí bez nálezu.",
+			"regrese": "Zbylé 2 mutace jsou kosmetika: poloha popisku ledu o pár px a průhlednost zvýrazněného pruhu. Zvlášť doloženo, že se test neumí ZASEKNOUT: podvrh s −Infinity (`-5 * sul` → `-5 / sul`), na kterém dřív visel bez konce, teď spadne hned první kotvou o hranicích úseků.",
+			"overeno": "2026-08-13"
 		}
 	}
 }
