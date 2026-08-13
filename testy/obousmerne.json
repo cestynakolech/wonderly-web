@@ -192,6 +192,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 39 kontrol ('✅ Účinnost motoru: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
 			"regrese": "Zbylých 5 mutací je kosmetika bez dopadu na výuku: posun popisku o pixel (`x + sirka/2`), tučnost popisku, počátek pruhu X0. Měřit je by znamenalo přibít pixely, ne učivo.",
 			"overeno": "2026-08-13"
+		},
+		"simulace/kolobeh-vody.mjs": {
+			"test": "testy/simulace/kolobeh-vody.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs kolobeh-vody`: 12 z 22 mutací. Chytá všechny věcné vady — rozbitý součet dílů (scéna by učila pravý opak toho, co má výklad označený jako běžný omyl: že se voda v koloběhu nespotřebovává), obrácený vliv Slunce (voda ve vzduchu by s ním ubývala a ledovce narůstaly), zmizelé popisky přeměn i rozejití počitadla se scénou. Slabinu samotného testu odhalila mutace `CELKEM = 100` → 101: test si celek bral z komponenty, takže by přijal jakékoli číslo — doplněna zkouška na kulatých 100.",
+			"zdravy": "Nad hotovou komponentou prochází všech 33 kontrol ('✅ Koloběh vody: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
+			"regrese": "Zbylé mutace jsou kosmetika bez dopadu na učivo: rozmístění a délka slunečních paprsků, měřítko oblaku, znění hlášky u nejsilnějšího Slunce.",
+			"overeno": "2026-08-13"
 		}
 	}
 }
