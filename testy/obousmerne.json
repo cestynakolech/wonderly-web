@@ -213,6 +213,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 72 kontrol ('✅ Tuhnutí: vše sedí.', exit 0) a brána končí bez nálezu.",
 			"regrese": "Zbylé 2 mutace jsou kosmetika: poloha popisku ledu o pár px a průhlednost zvýrazněného pruhu. Zvlášť doloženo, že se test neumí ZASEKNOUT: podvrh s −Infinity (`-5 * sul` → `-5 / sul`), na kterém dřív visel bez konce, teď spadne hned první kotvou o hranicích úseků.",
 			"overeno": "2026-08-13"
+		},
+		"simulace/kondenzace.mjs": {
+			"test": "testy/simulace/kondenzace.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a2172f51 před i po shodný): voda by při dopadu taky 'kondenzovala' (voda.kondenzace 0 → KONDENZACE*m) — přesný opak učiva, obě strany by predaly stejně. Test spadl (exit 1). K tomu mutační test `node testy/mutace.mjs kondenzace`: 19 z 20 — chytá mj. rozdílné měřítko sloupců (měří se na skutečně vykreslených obdélnících proti literálům 2260 a 273, ne proti komponentě), 0 J kreslené jako proužek, rozpor slov s čísly a špatný pád ve výpočtu pro žáka. Nezávislý kontrolor prošel fyziku, soulad s výkladem, 10 stavů scény i test — jeho 4 nálezy (pád, mrtvá proměnná, 418 vs 420 kJ, komentář o poměru) opraveny a doměřeny.",
+			"zdravy": "Nad hotovou komponentou prochází všech 181 kontrol ('✅ Kondenzace: vše sedí.', exit 0).",
+			"regrese": "Jediná neodhalená mutace je kosmetika: posun účaří popisku uvnitř obdélníku o 10 px (komentář u kontroly).",
+			"overeno": "2026-08-13"
 		}
 	}
 }

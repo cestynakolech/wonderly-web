@@ -1,0 +1,159 @@
+---
+// Kondenzace (F8, kondenzace): proč pára popálí hůř než vařící voda.
+//
+// Jádro je věta z výkladu: vroucí voda i pára mají stejných 100 °C, ale
+// pára na kůži nejdřív ZKONDENZUJE a teprve pak chladne — předá tedy
+// dvě porce tepla za sebou, zatímco voda jen tu druhou. A ta první je
+// více než osmkrát větší než druhá (2260/273); celek páry proti vodě je 9,28×.
+//
+// Scéna to staví vedle sebe na jednom měřítku: 1 g vody předá 273 J,
+// 1 g páry 2 533 J. Čísla: skupenské teplo 2 260 J na gram (2 260 kJ/kg,
+// jako ve výkladu), chladnutí ze 100 °C na 35 °C = 4,2 · 65 = 273 J na gram.
+// Všechna čísla jsou celá.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Pára, nebo vařící voda? 🕹️</span></h2>
+	<p>Na kůži dopadne <strong>stejné množství</strong> vroucí vody a páry, obojí má <strong>100 °C</strong>. Přepínej, co se právě stalo, a sleduj, kolik tepla která strana kůži předala.</p>
+	<svg id="kon-svg" viewBox="0 0 660 480" role="img" aria-label="Srovnání tepla předaného vodou a párou">
+		<rect x="0" y="0" width="660" height="480" fill="#f8f9fa" />
+		<!-- nadpis drží prázdné místo nahoře: při malé dávce jsou sloupce nízko,
+		     protože měřítko je stálé — a právě to je na obrázku to podstatné -->
+		<text x="330" y="32" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Kolik tepla kůže dostala — obě strany na stejném měřítku</text>
+		<!-- čára dělí obrázek na půlku vody (vlevo) a půlku páry (vpravo) -->
+		<line x1="330" y1="46" x2="330" y2="340" stroke="#adb5bd" stroke-width="2" stroke-dasharray="8 6" />
+		<!-- kůže, na kterou to dopadlo -->
+		<rect x="0" y="340" width="660" height="30" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" />
+		<text x="330" y="360" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">kůže (35 °C)</text>
+		<!-- sloupce tepla a to, co na kůži leží -->
+		<g id="kon-sloupce"></g>
+		<!-- počitadlo -->
+		<g id="kon-pocty" font-size="14" font-weight="bold" fill="#2b2a26"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Kolik toho dopadlo: <output id="kon-out-m"></output>
+		<input type="range" id="kon-mnozstvi" min="1" max="5" step="1" value="1" />
+	</label>
+	<label class="sim-posuvnik">
+		Co už se stalo: <output id="kon-out-krok"></output>
+		<input type="range" id="kon-krok" min="1" max="2" step="1" value="1" />
+	</label>
+	<p class="kon-vzorec" id="kon-vypocet"></p>
+	<p class="kon-stav" id="kon-stav"></p>
+</section>
+
+<script>
+	const KONDENZACE = 2260;  // J, které uvolní 1 g páry při kapalnění (2 260 kJ/kg)
+	const CHLADNUTI = 273;    // J, které uvolní 1 g vody chladnutím ze 100 °C na 35 °C (4,2 · 65)
+	const mnozstviSlider = document.getElementById('kon-mnozstvi');
+	const krokSlider = document.getElementById('kon-krok');
+	const svg = document.getElementById('kon-svg');
+
+	// ČISTÁ FUNKCE: kolik tepla už která strana kůži předala.
+	// Voda kondenzovat nemá co — je kapalná od začátku, takže má jen
+	// druhou porci. Pára má obě, a to v tomhle pořadí.
+	function tepla(m, krok) {
+		const chladnuti = krok >= 2 ? CHLADNUTI * m : 0;
+		return {
+			voda: { kondenzace: 0, chladnuti, celkem: chladnuti },
+			para: { kondenzace: KONDENZACE * m, chladnuti, celkem: KONDENZACE * m + chladnuti },
+		};
+	}
+
+	// Skloňování: 1 gram · 2–4 gramy · 0 a 5 a víc gramů.
+	function gramu(n) {
+		if (n === 1) return '1 gram';
+		if (n >= 2 && n <= 4) return `${n} gramy`;
+		return `${n} gramů`;
+	}
+
+	svg.__tepla = tepla;
+	svg.__gramu = gramu;
+	svg.__KONDENZACE = KONDENZACE;
+	svg.__CHLADNUTI = CHLADNUTI;
+
+	// Měřítko je pro OBĚ strany stejné a stálé — o to tu celé jde.
+	// Nejvyšší možný sloupec (5 g páry) měří 240 px.
+	const MAX_J = (KONDENZACE + CHLADNUTI) * 5;
+	const vyskaSloupce = (J) => Math.round((J * 240) / MAX_J);
+	svg.__vyskaSloupce = vyskaSloupce;
+
+	function prekresli() {
+		const m = +mnozstviSlider.value;
+		const krok = +krokSlider.value;
+		const t = tepla(m, krok);
+
+		document.getElementById('kon-out-m').textContent = `${gramu(m)} od každého`;
+		document.getElementById('kon-out-krok').textContent = krok === 1
+			? 'pára právě zkondenzovala' : 'a obojí vychladlo na 35 °C';
+
+		// ── dva sloupce na společném měřítku; u páry jsou porce nad sebou
+		const sloupec = (x, popis, porce) => {
+			let s = '', y = 340;
+			for (const [J, barva, jmeno] of porce) {
+				if (J === 0) continue;
+				const h = Math.max(vyskaSloupce(J), 3);   // i drobná porce musí být vidět
+				y -= h;
+				s += `<rect x="${x}" y="${y}" width="80" height="${h}" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`;
+				if (h >= 18) {
+					s += `<text x="${x + 40}" y="${Math.round(y + h / 2 + 5)}" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">${jmeno}</text>`;
+				}
+			}
+			const celkem = porce.reduce((a, [J]) => a + J, 0);
+			// popisek nad sloupcem se nesmí dostat až k nadpisu (ten sedí na y = 32)
+			s += `<text x="${x + 40}" y="${Math.max(y - 10, 56)}" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">${celkem} J</text>`;
+			s += `<text x="${x + 40}" y="392" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${popis}</text>`;
+			return s;
+		};
+		// na kůži leží to, co na ni dopadlo — a je toho na obou stranách STEJNĚ
+		// (kolik gramů, tolik kapek). Kapka zůstane kapkou a pára se kondenzací
+		// promění taky v kapku; proto se to teplo vůbec uvolní.
+		const kapka = (cx) => `<path d="M${cx} 313 L${cx + 8} 326 A 9 9 0 1 1 ${cx - 8} 326 Z" fill="#4dabf7" stroke="#2b2a26" stroke-width="3" />`;
+		const kapky = (stred) => {
+			let s = '';
+			for (let i = 0; i < m; i++) s += kapka(stred + (i - (m - 1) / 2) * 24);
+			return s;
+		};
+
+		document.getElementById('kon-sloupce').innerHTML =
+			sloupec(210, `voda (${gramu(m)})`, [[t.voda.chladnuti, '#4dabf7', 'chladnutí']])
+			+ sloupec(370, `pára (${gramu(m)})`, [
+				[t.para.chladnuti, '#4dabf7', 'chladnutí'],
+				[t.para.kondenzace, '#f76707', 'kondenzace'],
+			])
+			+ `<g id="kon-dopad">${kapky(145)}${kapky(515)}</g>`;
+
+		// ── počitadlo: o ten poměr tu jde
+		const kolikrat = Math.floor(t.para.celkem / Math.max(t.voda.celkem, 1));
+		document.getElementById('kon-pocty').innerHTML =
+			`<rect x="14" y="404" width="632" height="56" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="428">voda předala: ${t.voda.celkem} J</text>`
+			+ `<text x="348" y="428">pára předala: ${t.para.celkem} J</text>`
+			+ `<text x="28" y="450" font-size="13" fill="#2f9e44">${krok === 1
+				? 'a to obojí mělo stejnou teplotu 100 °C — voda zatím nepředala nic, pára už celé skupenské teplo'
+				: `pára předala víc než ${kolikrat}× tolik co voda, a přitom měly stejnou teplotu`}</text>`;
+
+		document.getElementById('kon-vypocet').innerHTML =
+			`${gramu(m)} páry uvolní kondenzací <strong>${KONDENZACE} × ${m} = ${t.para.kondenzace} J</strong>. `
+			+ `Chladnutí ze 100 °C na 35 °C přidá u obou <strong>4,2 × 65 × ${m} = ${CHLADNUTI * m} J</strong>. `
+			+ 'Skupenské teplo je tedy ta velká porce — a voda ji nemá, protože je kapalná už od začátku.';
+
+		const stavP = document.getElementById('kon-stav');
+		if (krok === 1) {
+			stavP.textContent = `💨 Pára na kůži zkondenzovala a hned tím uvolnila ${t.para.kondenzace} J. Voda zatím nepředala nic (${t.voda.celkem} J) — ještě nezačala chladnout. Obojí přitom má pořád 100 °C.`;
+		} else {
+			stavP.textContent = `🔥 Teď obojí vychladlo na 35 °C. Voda předala ${t.voda.celkem} J, pára ${t.para.celkem} J — dvě porce za sebou. Proto pára popálí mnohem hůř než stejně horká voda.`;
+		}
+	}
+
+	for (const p of [mnozstviSlider, krokSlider]) p.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#kon-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.kon-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.kon-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
