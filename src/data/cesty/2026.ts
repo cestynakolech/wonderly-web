@@ -673,6 +673,7 @@ export const rok2026: Rok = {
 			vyjezd: 6,
 			x: 277.7,
 			y: 363.8,
+			videoId: 'ZOjLc76o10g',
 			popis: { cs: '' },
 		},
 		{
@@ -714,6 +715,7 @@ export const rok2026: Rok = {
 		{ id: 'oVH-Bntzf2M', nazev: '01. 08. · Mens (Francie)', odkaz: 'https://youtu.be/oVH-Bntzf2M' },
 		{ id: 'Yi_xYWLPg9s', nazev: '02. 08. · Saint-Amour (Francie) — 1/2', odkaz: 'https://youtu.be/Yi_xYWLPg9s' },
 		{ id: 'G-_9OjxXUwQ', nazev: '03. 08. · Salins-les-Bains (Francie) — 1/3', odkaz: 'https://youtu.be/G-_9OjxXUwQ' },
+		{ id: 'ZOjLc76o10g', nazev: '03. 08. · 03. 08. · Luxeuil-les-Bains (Francie) — 1/6', odkaz: 'https://youtu.be/ZOjLc76o10g' },
 		{ id: 'ghBZ3WUwQPY', nazev: "18. 07. · Ballon d'Alsace (Francie)", odkaz: 'https://youtu.be/ghBZ3WUwQPY' },
 	],
 };
