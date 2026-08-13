@@ -1,4 +1,138 @@
-## 🔴🔴 ZAČNI TADY (stav 13. 8. 00:15)
+## 🔴🔴 ZAČNI TADY (stav 13. 8. 09:05)
+
+### ✅ HOTOVO RÁNO 13. 8.: KROK E — MAPY VYMĚNĚNY V 8 VIDEÍCH (nahrání čeká na kvótu)
+
+**Nález, kvůli kterému by výměna nic nespravila.** `priprav_mapy.py` hlásil
+„12/12, chyb 0", ale hotovost měřil JEDINÝM měřítkem: leží PNG na disku?
+Změřeno proti dnešnímu výpočtu:
+- mapa pro **Col d'Ornon končila u Saint-Tropez** — o TŘI zastávky dál, než kam
+  to video sahá,
+- všech **8 map z 10. 8. vzniklo z trasy, ve které tehdy vůbec nebyla zastávka
+  Ballon d'Alsace** — tedy právě to, co v mapách chybí a kvůli čemu se mění.
+  Výměna by vadu nespravila, jen ji potvrdila — a v hotovém videu už opravit nejde.
+
+**Opraveno:** `priprav_mapy.otisk_vstupu()` (sha1 z domova + zastávek po konec
+mapy, 6 des. míst) + `duvod_prestavby()` — jediný domov rozhodnutí, hlásí PROČ.
+Otisk se zapisuje do `pripravene/prehled.json`. Časové razítko trasy otiskem
+NENÍ (mění se i bez posunu bodu). Záložní cesta `dolozit_otisky()`: staré mapě
+se otisk DOLOŽÍ ze zálohy `trasa-stav.pred-*.json`, když z ní vychází stejně —
+tak se **4 mapy (Ramonchamp, Ornans, Saint-Sorlin, Saint-Denis) překreslovat
+nemusely**, zbylých 8 ano. Test `testy/test_priprav_mapy.py` **24/24**,
+kalibrace: stará podoba mine 4 ze 4 podvrhů. `--nanecisto` ukáže stav bez kreslení.
+
+**Mapy překresleny (8) a prohlédnuty OKEM** — km rostou v pořadí cesty:
+Saint-Maurice→Ornans 1052 · Frangy 1242 · Vaulnaveys 1376 · Livet 1401 ·
+Col d'Ornon 1425 · Saint-Bonnet 1496 · Sainte-Maxime 1720 · Gassin 1734.
+
+**Výměna v mp4 hotová u VŠECH 8 videí** (`vymen_uvodni_mapu.py --prolinani-od 6`),
+u každého stopáž na setinu shodná s originálem a zvuk sedí; úvodní snímek
+prohlédnut u všech osmi. Originály netknuté. ⚠️ Ke kterému videu který soubor
+patří, je doloženo **velikostí souboru proti logu nahrávače**, ne názvem —
+u Le Bourg-dOisans je „_v2" ta STARŠÍ verze ([[feedback-verze-na-kanalu-z-logu]]).
+Skutečných výměn je **8, ne 12**: Ramonchamp, Ornans, Saint-Sorlin a Saint-Denis
+vlastní video nemají (tabulka: „Kryto videem"), `prepocet_map.py` je ale počítá
+jako samostatné řádky — proto padají 4 zkoušky v `test_prepocet_map.py`.
+
+🔴 **PAST, KTERÁ MĚLA SPUSTIT V 9:15 (odvrácena).** Výsledky výměny leží podle
+nástroje VEDLE originálu jako `…KEKONTROLE.nova-mapa.mp4` — tedy přímo
+v `nasazeno/`, odkud si nahrávač skládá frontu podle NÁZVŮ souborů. Změřeno:
+`otisk_mista("Frangy_FR_KEKONTROLE.nova-mapa.mp4")` = `frangyfrkekontrolenovamapa`,
+tedy nikdy neviděné místo → pojistka proti duplicitám NESEPNE a ráno by na kanál
+odešlo druhé video téhož místa s rozsypaným titulkem, za cenu denní kvóty.
+Opraveno dvakrát: soubory odsunuty do `nasazeno/_nova-mapa/` (fronta čte
+`iterdir()`, do podsložky nevidí) A fronta příponu vynechává s hlášením do logu
+(`nahraj_na_youtube`, přípona má jediný domov ve `vymen_uvodni_mapu`).
+Test `test_nahravac_bez_duplicit.py` **64/64** (dřív 56). Ověřeno po opravě:
+fronta na 9:15 obsahuje přesně 8 očekávaných dílů, žádný `.nova-mapa`.
+
+⬜ **ZBÝVÁ:** nahrát vyměněné verze na kanál přes `vymena_videa.vymen()`
+(nahrát novou → schovat starou na SOUKROMÉ, nikdy nemazat). **Brzdí kvóta 5/den**
+a ve frontě je 8 nových dílů, takže výměny přijdou na řadu nejdřív za dva dny.
+Soubory čekají v `nasazeno/_nova-mapa/` (8 ks, ~2,9 GB; překódováním CRF 18
+vyrostly ~1,7×, obraz se nezhoršil).
+
+### ✅ PRVNÍ ÚKOL SPLNĚN: ranní dávka 9:15 ověřena NA KANÁLU
+
+Nahrávač poslal 5 videí (kvóta vyčerpána) a **titulek s datem má 5 z 5** —
+ověřeno čtením ze soupisu kanálu, ne z logu ([[feedback-hlaska-neni-dukaz]]):
+`02. 08. · Saint-Amour — 2/2` (`Ylqwh-Azu3g`) a Luxeuil `1/6`–`4/6`
+(`ZOjLc76o10g`, `bHv-lf-JsDM`, `Y31pBEQpOf4`, `PtBZ3U0azE4`).
+**Ve frontě zbývají 3 díly** (Luxeuil 5z6, 6z6, Salins 3z3).
+
+Poslední řádek logu je zároveň důkaz, že oprava č. 1 níže funguje naostro:
+_„v nasazeno/ čeká nové video — stará videa dnes počkají"_ se vztahuje ke třem
+SKUTEČNÝM dílům. Bez opravy by ta věta platila navždy i po vyprázdnění fronty
+a stará přeanonymizovaná videa by se už nikdy nenahrála.
+
+**Titulek bez data má ještě 8 letošních videí** (s datem 25). Čtyři se spraví
+samy při výměně mapy (Saint-Maurice `swDAmX8BRJA`, Frangy `mVP4b5LnuYI`,
+Livet-et-Gavet `1t5aVUDdHtI`, Vaulnaveys `nDJcjI00HQk` — nová verze dostane
+titulek podle `hezky_nazev()`). Zbylé čtyři vlastní výměnu nemají a chtěly by
+`nahraj_na_youtube.py --oprav-titulky --naostro`: Le Thillot `Tlnc-YigfTw`,
+Rupt-sur-Moselle `nBnRJsLpsCg`, Geisingen `_M3govihGYc`, Schongau `k4cqRFIsEQU`.
+**Nechal jsem to na učiteli** — je to zásah do zveřejněného obsahu a odložil ho
+už minulý běh; nástroj sám o sobě je bezpečný (ručně pojmenovaná videa přeskočí).
+
+**Rozvrh nahrávání výměn** (strop 5/den): zítra 3 zbylé díly + 2 výměny,
+pozítří 5 výměn, třetí den poslední. Nic z toho nečeká na učitele.
+
+### ✅ NEZÁVISLÁ KONTROLA NAŠLA DALŠÍ ČTYŘI VADY — VŠECHNY OPRAVENY
+
+Kontrolor dostal jen hotový výsledek a spouštěl kód. Našel, co jsem přehlédl:
+
+1. **Filtr byl JEN v nahrávači — složku `nasazeno/` čtou ČTYŘI automaty.**
+   Doloženo spuštěním: `mista_prehled` udělal z osmi mezivýsledků osm
+   neexistujících míst a tabulka učiteli hlásila falešné nedodělky „založit
+   na webu" (51 řádků místo 43). `nahraj_stara_videa.ceka_nove_video()` by
+   kvůli nim čekalo **navždy** (nahrávač soubor přeskakuje → do evidence se
+   nedostane → „čeká nové video" platí pořád) a stará přeanonymizovaná videa
+   by se už nikdy nenahrála. `vyrob_video_automat.uklid_nasazena()`, která
+   MAŽE mezikopie, z názvu počítala cizí klíč města — dnes neuklidila nic
+   jen náhodou. ✅ Otázka má JEDINÝ DOMOV `vymen_uvodni_mapu.je_mezivysledek_vymeny()`
+   a ptají se ho všichni čtyři; test to hlídá u každého zvlášť (68/68).
+   Kotva: tabulka má **43 řádků, 0 falešných**; `ceka_nove_video` vrátí
+   False nad samotným mezivýsledkem a True, jakmile přibude pravé video.
+2. **Doložení otisku šlo obelstít.** `zalohy_trasy()` přidávala do slovníku
+   i ŽIVOU trasu, takže pro záznam s dnešním razítkem byl test „otisk tehdy ==
+   otisk dnes" **tautologie** — porovnával soubor sám se sebou. A razítko není
+   obsahu věrné: `trasa_uvod.py` (ř. 353–364) ukládá do `trasa-stav.json`
+   souřadnice, aniž změní `postaveno.kdy`. ✅ Živá trasa ze záloh odstraněna;
+   **čtyři otisky, které tou cestou vznikly (Ramonchamp, Ornans, Saint-Sorlin,
+   Saint-Denis), jsem zahodil a mapy překreslil načisto** — teď má všech 12
+   otisk doložený. Test: „mapa s dnešním razítkem se bez zálohy nedokládá".
+3. **Otisk padal na vadném vstupu** (`stav=None`, chybějící `zastavky`,
+   `lat="x"`) — jedna poškozená záloha by shodila celý běh. ✅ Vrací `None`
+   = „nejde o tom rozhodnout", mapa se překreslí.
+4. **Prázdné PNG se tvářilo jako hotová mapa** (kontrolovalo se jen `exists()`).
+   ✅ Soubor pod 1 kB = spadlý render, překreslí se.
+
+Kontrolor navíc doložil u všech 8 vyměněných videí stopáž na milisekundu,
+zvuk a `faststart`. A správně mě opravil, že měřidlo `test_prepocet_map.py`
+bylo ČERVENÉ (26/27) — viz níže, teď je zelené ze správného důvodu.
+
+### ✅ PŘIBALENÁ MÍSTA UŽ NEJSOU FALEŠNÁ VIDEA (červené měřidlo spraveno)
+
+`prepocet_map.py` bral Ramonchamp, Ornans, Saint-Sorlin a Saint-Denis jako
+samostatná videa — mají v tabulce ID YouTube, jenže **PŘEVZATÉ** z krycího
+videa (`youtube_prevzato_z`), vlastní soubor neexistuje. Připravovaly se pro
+ně mapy, které není kam vyměnit, počet hlásil **12 místo skutečných 8** a
+invariant „žádné video nehlásí jako chybějící samo sebe" padal (mapa krycího
+videa má končit právě u přibaleného místa). ✅ Opraveno jedinou podmínkou;
+`test_prepocet_map.py` **27/27** (dřív 26/27). **Kotva, že to sedí:** přepočet
+teď hlásí „23 videí, k přestavbě 8" a těch osm je JMÉNO PO JMÉNU týchž osm,
+které mám vyměněné na disku — dvě nezávislé cesty došly ke stejnému seznamu.
+
+**Drobnosti do stavu (nic z toho nehoří):**
+- Na kanálu jsou DVĚ veřejná videa „23. 07. · Le Bourg-dOisans": `-FR8z-38PR8`
+  (živé, 526 MB, 1. 8.) a `wZSKCdxlmeg` (starší, 248 MB, 31. 7., jeho soubor leží
+  v `_ceka-na-predelani`). Není to druhá návštěva — týž den v titulku. Starší
+  patří přepnout na SOUKROMÉ (nikdy nemazat) — **rozhodne učitel.**
+- `mens.png` a `sassenage.png` zůstaly z 10. 8. bez otisku; jejich videa jsou
+  „v pořádku", takže se nepoužijí — přesto jsou to zastaralé přípravy. Ve složce
+  `pripravene/` navíc leží 4 PNG, které v přehledu nemají záznam vůbec
+  (`le-lavandou`, `riez`, `saint-amour`, `saint-tropez`).
+- Překódování je CRF 18, takže vyměněné soubory vyrostly ~1,7× (Saint-Maurice
+  807 MB → 1,34 GB). Obraz se nezhoršil, ale nahrávání potrvá déle.
 
 ### ✅ HOTOVO V NOCI: TITULKY NA KANÁLU · DLUH K F SPLACEN · MAPY DOPŘEDU
 
