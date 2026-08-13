@@ -199,6 +199,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 33 kontrol ('✅ Koloběh vody: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
 			"regrese": "Zbylé mutace jsou kosmetika bez dopadu na učivo: rozmístění a délka slunečních paprsků, měřítko oblaku, znění hlášky u nejsilnějšího Slunce.",
 			"overeno": "2026-08-13"
+		},
+		"simulace/vnitrni-energie.mjs": {
+			"test": "testy/simulace/vnitrni-energie.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (scratchpad, otisk originálu md5 před i po shodný 80fc3d16…): `vnitrni: n * naCastici` → `n * naCastici + n * v`, tedy přesný opak učiva — vnitřní energie by rostla s rychlostí celého tělesa. Test spadl (exit 1) a pojmenoval to pěti nálezy naráz: rozešla se vnitřní energie stojící a jedoucí kostky, přeměna při tření přestala sedět na jednotku, sloupec vnitřní energie se rozjetím pohnul (102 → 133 px) a rozepsaný součin v počitadle přestal platit (10 × 33 = 380). K tomu mutační test `node testy/mutace.mjs vnitrni-energie`: 17 z 21 mutací odhaleno — chytá i obrácený posun kostky (couvala by proti své šipce), obrácené podmínky u popisků (stojící kostka by hlásila jízdu) a rozejití stropu přehřátí s maximem posuvníku.",
+			"zdravy": "Nad hotovou komponentou prochází všech 78 kontrol ('✅ Vnitřní energie: vše sedí.', exit 0) a brána končí bez nálezu; testy simulací hlásí 20 souborů, 1219 kontrol, 0 spadlo.",
+			"regrese": "Zbylé 4 mutace jsou kosmetika bez dopadu na výuku: tvar hrotu šipky o pixel, posun kostky o pixel a hranice barvy `t <= 100` → `101`, která leží mezi dvěma hodnotami posuvníku (kroky po 10 °C), takže se nemá jak projevit.",
+			"overeno": "2026-08-13"
 		}
 	}
 }
