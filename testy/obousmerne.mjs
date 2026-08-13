@@ -35,6 +35,7 @@ export const NENI_MERIDLO = {
 	'data.mjs': 'načítá data (esbuild import), sám nic neměří',
 	'vypis-kviz.mjs': 'nástroj pro člověka — jen vypíše otázky',
 	'delky.mjs': 'nástroj pro člověka — vypíše délky odpovědí bloku',
+	'nahled-simulace.mjs': 'nástroj pro člověka — složí z komponenty obrázek k prohlédnutí okem, nic netvrdí ani nehodnotí',
 	'mutace.mjs': 'nástroj na vyžádání, sám je ověřovací (mutuje zdroj a čeká pád testu)',
 	'vsechny-simulace.mjs': 'spouštěč testů simulací',
 	'obousmerne.mjs': 'tenhle rejstřík',
