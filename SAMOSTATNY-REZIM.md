@@ -98,14 +98,26 @@ více míst, tak takové video můžeš přidat do více míst."*
    tři z těch šestnácti jsou ŠKOLNÍ fyzika („Teplo, teplota"; „Jádro atomu,
    síly v jádře"; „Atom, iont, izotop"). Rozlišení podle názvu tedy nestačí
    a slepé přiřazení by nacpalo fyziku do cestovatelských míst. Skutečná
-   vícemístná videa (13): `P9x08WGWPNQ` a `_oCN2OaLc50` (obě „Třebíč, Telč,
-   Český Rudolec, Jaroměřice nad Rokytnou" — DUPLICITA, dvě videa téhož),
-   `rv_jOK1nwao` (Švihov, Roupov, Hoštice u Volyně, Nová Pec), `QSHRn4e8rMA`
-   (Přejezd Belgie, Nizozemí, Německo), `kXnQv7fQ2qU` (Port of Emden, Leer,
-   Leda, Baantjeracht), `nHrirLhTLr0` (Ediger Eller, Bremm), `dMahDoNbw5g`
-   (Volendam, Edam), `lTbl4-8u6lc` (Wesel, Ramagen), `2sBnHDxpX7Y` +
-   `u_Ss05Tva00` (obě Gdaňsk — taky duplicita), `cK3BN9_T0Gk` (Postupim),
+   vícemístná videa (13): `P9x08WGWPNQ` + `_oCN2OaLc50` (Třebíč, Telč, Český
+   Rudolec, Jaroměřice), `rv_jOK1nwao` (Švihov, Roupov, Hoštice u Volyně, Nová
+   Pec), `QSHRn4e8rMA` (Přejezd Belgie, Nizozemí, Německo), `kXnQv7fQ2qU`
+   (Port of Emden, Leer, Leda, Baantjeracht), `nHrirLhTLr0` (Ediger Eller,
+   Bremm), `dMahDoNbw5g` (Volendam, Edam), `lTbl4-8u6lc` (Wesel, Ramagen),
+   `2sBnHDxpX7Y` + `u_Ss05Tva00` (Gdaňsk), `cK3BN9_T0Gk` (Postupim),
    `-L1FRp30K5I` (Švihov), `2Wj_udTFVOM` (Nová Pec).
+
+   🔴 **OPRAVA MÉHO ZÁVĚRU — pokyn učitele 13. 8.:** *„někde jsme byli dvakrát
+   i víckrát, bude tam jiné datum, ale místa nemaž, ty jsou základ podle fotek,
+   a videa budou taky dvakrát, ty taky nech."* Dvojice, které jsem označil za
+   duplicity, jsou DVĚ NÁVŠTĚVY téhož místa — doloženo daty publikování:
+   Třebíč/Telč **25. 4. 2021 × 27. 7. 2026**, Gdaňsk **26. 7. 2022 ×
+   8. 8. 2026** (Postupim to má dokonce v názvu: „březen, červenec 24").
+   **Nic se tedy neschovává ani nemaže: jedno místo smí mít VÍC videí z různých
+   let a rozlišuje je datum.** Místa jsou základ podle fotek a zůstávají.
+   ⚠️ K prověření: nahrávač má pojistky `misto_uz_na_youtube` a
+   `jen_nejnovejsi_z_mista`, které starší video téhož místa mohou brát jako
+   nahrazené — ověřit, že opakovanou návštěvu neodfiltrují.
+
    **Návrh postupu:** místa brát z názvu, ale kotvou ověřit proti seznamu míst
    na webu — co se v něm nenajde, do míst nepřiřazovat a vypsat k rozhodnutí.
 
