@@ -82,10 +82,42 @@ díly fronty (Luxeuil 5z6, 6z6, Salins 3z3) + **2 výměny**, pozítří 5 vým�
 třetí den poslední. Soubory čekají v `nasazeno/_nova-mapa/` (8 ks, ~2,9 GB;
 překódováním CRF 18 vyrostly ~1,7×, obraz se nezhoršil).
 
-💡 **Nabídka pro učitele:** výměny se dají pověsit na automat, aby dobíraly
-zbytek denní kvóty po ranním nahrávači (dnes by to samo udělalo 0, zítra 2).
-Je to ale ZMĚNA NASAZENÍ (nový LaunchAgent), takže se to nedělá samo — řekni,
-jestli to založit.
+### ✅ AUTOMAT ZALOŽEN: `com.omega.vymena-map` (schválil učitel 13. 8.)
+
+Budí se **10:00 a 22:00**, tedy 45 minut po nahrávači (9:15 / 21:15) — nová
+videa mají přednost a výměny dobírají jen ZBYTEK denní kvóty. Sdílejí týž zámek
+i denní strop, takže se dva přenosy nepotkají ani při zpoždění. `/bin/zsh` kvůli
+oprávněním (TCC), 3 pokusy s odstupem 180 s, log
+`~/Library/Logs/omega-vymena-map.log`.
+
+**Ověřeno:** `plutil -lint` OK · `launchctl list` automat zná · spuštění PŘESNĚ
+tím příkazem z plistu proběhlo a nástroj se sám zastavil („dnes už nahráno 5/5").
+
+⚠️ **Přihlášen i k dennímu hlídání zdraví** (`revize_automatu.py`, práh 72 h) —
+jinak by mohl padat při každém probuzení a nikdo by se to nedozvěděl, přesně jako
+záloha Omegy ([[feedback-mlceni-neni-klid]]). Práh je 72 h schválně: většina běhů
+legitimně neudělá nic, protože kvótu spotřebuje ranní nahrávač, takže ticho tu
+není hned známkou poruchy.
+
+**Rozvrh sám od sebe:** zítra 9:15 fronta (3 díly), 10:00 dvě výměny; 14. 8.
+10:00 pět výměn; 15. 8. poslední. Bez zásahu člověka.
+
+### ✅ CELKOVÉ SCHVÁLENÍ (učitel 13. 8.) — co se už neodklikává
+
+Doslova: *„omega a wonderly jsou v podstatě jeden projekt"* · *„nemusíš se ptát
+na schválení… koukni na to, abych udělal celkové schválení i do budoucna."*
+Audit prošel skutečné akce z práce; jediné, co se ptalo zbytečně, bylo zakládání
+automatu (plist bydlí v systémové složce LaunchAgents).
+
+**Nově bez ptaní:** zápis plistu `com.omega.*` / `cz.wonderly.*` (zapnutí ano,
+VYPNUTÍ ne — stopka je rozhodnutí plánu). Cizí automat (Apple, Google) se ptá dál.
+
+**Na dotaz zůstávají čtyři třídy — všechno pravidla, která si nastavil sám:**
+zápis do `Škola/` (nenahraditelné podklady) · `worker.js`/`wrangler` (řídí běh
+webu) · `launchctl unload` · instalace do systému (`pip`, `brew`) a `rm`
+skutečných dat. Omega i wonderly-web jsou v `PROJEKT` OBĚ, hranice mezi nimi
+není. Měřidlo `test_povoleni_hook.py` **63 případů obousměrně** (nově měří i
+větev ZÁPISU do souboru, dřív jen příkazy).
 
 ### ✅ PRVNÍ ÚKOL SPLNĚN: ranní dávka 9:15 ověřena NA KANÁLU
 
