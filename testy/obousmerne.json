@@ -185,6 +185,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 40 kontrol ('✅ Oersted: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
 			"regrese": "Zbylých 13 mutací je kosmetika bez dopadu na výuku (opacity 0.75, tloušťka čáry, posun o 1 px, PX_NA_CM 28→29) a `uhel > 0` → `>=`, které se neprojeví: při nulové výchylce se ta věta vůbec nezobrazuje. Měřit je by znamenalo přibít pixely, ne učivo.",
 			"overeno": "2026-08-13"
+		},
+		"simulace/ucinnost-motoru.mjs": {
+			"test": "testy/simulace/ucinnost-motoru.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs ucinnost-motoru`: 9 ze 14 mutací. Chytá všechny věcné vady — změněná procenta účinnosti (pořadí turbína > spalovací > parní stroj a čísla 15/35 z výkladu), rozbité šířky pruhu (nesedly by s procenty ani nevyplnily 560 px) a hlavně sčítání→odčítání ve větě pod scénou: ta tvrdí „energie nikam nezmizí, jen se rozdělí“, takže špatný součet by učil zákon zachování energie na příkladu, který ho porušuje — a pruh by přitom byl v pořádku. Kalibrace testu samotného: první podoba měřila `width=` bez mezery a brala tloušťku obrysu (`stroke-width=\"3\"`) jako šířku dílu, takže hlásila 572 z 560 px.",
+			"zdravy": "Nad hotovou komponentou prochází všech 39 kontrol ('✅ Účinnost motoru: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
+			"regrese": "Zbylých 5 mutací je kosmetika bez dopadu na výuku: posun popisku o pixel (`x + sirka/2`), tučnost popisku, počátek pruhu X0. Měřit je by znamenalo přibít pixely, ne učivo.",
+			"overeno": "2026-08-13"
 		}
 	}
 }

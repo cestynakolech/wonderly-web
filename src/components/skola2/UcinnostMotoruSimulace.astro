@@ -28,6 +28,10 @@
 		<!-- vstupní teplo -->
 		<text id="ucm-vstup-popis" x="50" y="152" font-size="15" font-weight="bold" fill="#2b2a26"></text>
 		<rect x="50" y="160" width="560" height="34" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" rx="6" />
+		<!-- šipka: totéž teplo se níž rozdělí na užitek a ztráty -->
+		<line x1="330" y1="200" x2="330" y2="226" stroke="#2b2a26" stroke-width="3" />
+		<polygon points="330,236 322,220 338,220" fill="#2b2a26" />
+		<text x="348" y="222" font-size="13" fill="#495057">rozdělí se na:</text>
 		<!-- rozpad na pohyb a ztráty (kreslí skript) -->
 		<g id="ucm-pruh"></g>
 		<g id="ucm-popisky" font-size="14" fill="#2b2a26"></g>
@@ -88,7 +92,8 @@
 				+ '<line x1="340" y1="85" x2="380" y2="85" stroke="#2b2a26" stroke-width="3" />'
 				+ '<rect x="380" y="66" width="70" height="38" rx="5" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
 				+ '<line x1="410" y1="66" x2="410" y2="104" stroke="#2b2a26" stroke-width="4" />'
-				+ '<text x="415" y="92" text-anchor="middle" font-size="13" fill="#2b2a26">píst</text>'
+				// popisek pod válec, ne doprostřed — čára pístu ho jinak přeškrtne
+				+ '<text x="415" y="124" text-anchor="middle" font-size="13" fill="#2b2a26">píst</text>'
 				+ '<circle cx="490" cy="85" r="22" fill="none" stroke="#2b2a26" stroke-width="3" />'
 				+ '<line x1="450" y1="85" x2="468" y2="85" stroke="#2b2a26" stroke-width="3" />',
 			'turbina': '<rect x="250" y="60" width="80" height="50" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
@@ -126,9 +131,19 @@
 			x += sirka;
 		}
 		document.getElementById('ucm-pruh').innerHTML = pruh;
-		document.getElementById('ucm-popisky').innerHTML = popisky
-			+ `<text x="${X0}" y="356" font-size="13" fill="#2f9e44" font-weight="bold">▲ tohle jediné točí kola (${casti[0].popis.toLowerCase()})</text>`
-			+ `<text x="${X0}" y="376" font-size="13" fill="#495057">zbytek uteče: ${casti[1].popis}, ${casti[2].popis}, ${casti[3].popis}</text>`;
+
+		// LEGENDA barev. Bez ní pruh nic neříká: pod díly stojí jen procenta,
+		// takže žák nespojí oranžovou s komínem (nález z vyrenderovaného obrázku
+		// 13. 8.). Názvy nejdou psát přímo pod díly — nejužší má 28 px a text
+		// „chlazením" by přetekl do sousedního.
+		let legenda = '';
+		casti.forEach((c, i) => {
+			const lx = X0 + (i % 2) * 290, ly = 352 + Math.floor(i / 2) * 22;
+			legenda += `<rect x="${lx}" y="${ly - 11}" width="14" height="14" fill="${c.barva}" stroke="#2b2a26" stroke-width="2" />`;
+			legenda += `<text x="${lx + 22}" y="${ly}" font-size="13" font-weight="${c.klic === 'pohyb' ? 'bold' : 'normal'}" fill="#2b2a26">`
+				+ `${c.klic === 'pohyb' ? 'POHYB — tohle jediné točí kola' : 'uteče ' + c.popis} (${c.pct} %)</text>`;
+		});
+		document.getElementById('ucm-popisky').innerHTML = popisky + legenda;
 
 		document.getElementById('ucm-vypocet').innerHTML =
 			`z <strong>${vstup} kJ</strong> se na pohyb promění <strong>${d.pohyb} kJ</strong> (${s.pohyb} %) — `
