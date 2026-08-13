@@ -71,6 +71,44 @@ dluh 0). **Až se bude přepojovat `nahraj_stara_videa.py` a
 `nahraj_na_youtube.uklid_po_prerusenem_uploadu` (obojí schovává video vlastní
 cestou), teprve pak zapsat pravidlo s vzorem doloženým OBOUSMĚRNĚ.**
 
+### 🆕 NOVÉ ZADÁNÍ UČITELE (13. 8. 2026) — až bude cesta hotová, dělej tohle
+
+Doslova: *„pokud už bude u videí z nynější cesty vše hotové, tak můžeš
+pokračovat jednak ve škole fyzika stále dodělávej co je třeba popřípadě navrhni
+nějaké vylepšení. A u cest přidávej fotky k místům a videa ze starších cest se
+pokus přiřadit k místům podle fotek, videí je málo, ale na některých je v názvu
+více míst, tak takové video můžeš přidat do více míst."*
+
+1. **FYZIKA (nejdůležitější ze školy)** — dodělávat podtémata bez názornosti
+   a navrhovat vylepšení. Seznam dá `node testy/nazornost.mjs`; ve fyzice 8
+   zbývá mj. `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
+   `elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`,
+   `tepelny-motor-parni-stroj`, `tuhnuti`, `kondenzace`,
+   `skupenske-zmeny-vody-v-prirode`, `vnitrni-energie-telesa`. Postup: skill
+   `/simulace` (4 workeři naráz), pak nezávislý kontrolor a nasazení.
+2. **FOTKY K MÍSTŮM** — `vyber_fotky_na_web.py`; nahrává jen tam, kde už místo
+   na webu galerii má.
+3. **STARŠÍ VIDEA K MÍSTŮM podle názvu** — jedno video smí patřit VÍC místům
+   („Švihov, Roupov, Hoštice u Volyně, Nová Pec" = čtyři místa; „Třebíč, Telč,
+   Český Rudolec, Jaroměřice nad Rokytnou" = čtyři). Zdroj názvů je
+   `data/kanal-soupis.json` (228 videí). **Průzkum 13. 8. (změřeno, ne odhad):**
+   po odečtení školních a letošních zbývá 152 starších videí, z nich **16 má
+   v názvu čárku** = víc míst.
+   ⚠️ **PAST, na kterou jsem hned narazil:** čárka v názvu NEZNAMENÁ místa —
+   tři z těch šestnácti jsou ŠKOLNÍ fyzika („Teplo, teplota"; „Jádro atomu,
+   síly v jádře"; „Atom, iont, izotop"). Rozlišení podle názvu tedy nestačí
+   a slepé přiřazení by nacpalo fyziku do cestovatelských míst. Skutečná
+   vícemístná videa (13): `P9x08WGWPNQ` a `_oCN2OaLc50` (obě „Třebíč, Telč,
+   Český Rudolec, Jaroměřice nad Rokytnou" — DUPLICITA, dvě videa téhož),
+   `rv_jOK1nwao` (Švihov, Roupov, Hoštice u Volyně, Nová Pec), `QSHRn4e8rMA`
+   (Přejezd Belgie, Nizozemí, Německo), `kXnQv7fQ2qU` (Port of Emden, Leer,
+   Leda, Baantjeracht), `nHrirLhTLr0` (Ediger Eller, Bremm), `dMahDoNbw5g`
+   (Volendam, Edam), `lTbl4-8u6lc` (Wesel, Ramagen), `2sBnHDxpX7Y` +
+   `u_Ss05Tva00` (obě Gdaňsk — taky duplicita), `cK3BN9_T0Gk` (Postupim),
+   `-L1FRp30K5I` (Švihov), `2Wj_udTFVOM` (Nová Pec).
+   **Návrh postupu:** místa brát z názvu, ale kotvou ověřit proti seznamu míst
+   na webu — co se v něm nenajde, do míst nepřiřazovat a vypsat k rozhodnutí.
+
 ### DÁL SE PŘIPRAVUJE (nic z toho nečeká na učitele)
 
 - **Anonymizovat teď nejde**: 330 fotek sedmi míst leží v `fotky-cekarna` a ta
