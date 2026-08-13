@@ -8,14 +8,20 @@ názornosti, dotáhnout ho celé (simulace → test → mutační test → obous
 důkaz → **prohlédnout vyrenderovanou scénu** → build → push → curl) a hned brát
 další. Neodklikává se nic.
 
-**Hotovo v tomhle kole (3 podtémata):**
+**Hotovo v tomhle kole (4 podtémata):**
 1. `magneticke-pole-vodice-a-civky` (F9) — Oerstedův pokus, magnetka u vodiče
 2. `tepelny-motor-parni-stroj` (F8) — kam se ztratí teplo (účinnost 15/35/30 %)
 3. `skupenske-zmeny-vody-v-prirode` (F8) — koloběh vody, motorem je Slunce
+4. `vnitrni-energie-telesa` (F8) — pohyb celku vnitřní energií nehne, tření ano
+   (78 kontrol, mutace 17/21, obousměrný důkaz zapsán). K tomu nový trvalý
+   nástroj **`testy/nahled-simulace.mjs`** — složí z komponenty obrázek
+   k prohlédnutí okem (dosud se to dělalo pokaždé jinak). Používat u KAŽDÉ
+   nové simulace: `node testy/nahled-simulace.mjs <komponenta> <ven.svg> id=hodnota…`
+   pak `qlmanage -t -s 900 -o <složka> <ven.svg>` a PNG přečíst.
 
-**Stav názornosti** (`node testy/nazornost.mjs`): fyzika 8 **11 → 9** z 37,
+**Stav názornosti** (`node testy/nazornost.mjs`): fyzika 8 **11 → 8** z 37,
 fyzika 9 **10 → 9** z 25. Ze zbylých jsou 2+2 shrnutí, která názornost
-nepotřebují. **Na řadě dál** (F8): `vnitrni-energie-telesa`, `tuhnuti`,
+nepotřebují. **Na řadě dál** (F8): `tuhnuti`,
 `kondenzace`, `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
 `elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`; (F9):
 `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
