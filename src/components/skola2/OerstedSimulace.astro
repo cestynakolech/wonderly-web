@@ -1,0 +1,192 @@
+---
+// Oerstedův pokus (F9, magneticke-pole-vodice-a-civky): pohled SHORA na stůl.
+// Svislým vodičem prochází proud (0–4 A), kolem něj jsou indukční čáry jako
+// soustředné kružnice. Magnetka leží SEVERNĚ od vodiče ve vzdálenosti 1–5 cm.
+//
+// Model: pole vodiče je kolmé na spojnici (tečna ke kružnici) a slábne se
+// vzdáleností, zemské pole míří stále na sever. Střelka se natočí mezi ně:
+//   tan(výchylka) = pole vodiče / pole Země = 2·I / r
+// Výchylka se ukazuje v CELÝCH stupních a nikdy nedosáhne 90° — magnetka se
+// nemůže postavit přesně kolmo, protože zemské pole nikdy úplně nezmizí.
+//
+// Směr čar podle pravidla pravé ruky: proud k tobě (⊙) = čáry PROTI směru
+// hodinových ručiček, takže magnetka nad vodičem se stáčí k ZÁPADU (doleva).
+// Prohozením proudu se všechno obrátí. Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Oerstedův pokus — magnetka u vodiče 🕹️</span></h2>
+	<p>Díváš se <strong>shora na stůl</strong>. Uprostřed jím kolmo prochází <strong>vodič</strong>, vedle leží <strong>magnetka</strong> (střelka kompasu). Dokud proud neteče, ukazuje k <strong>severu</strong>. Pusť proud a sleduj, co udělá — přesně tohle uviděl Oersted roku 1820.</p>
+	<p>
+		<button type="button" class="oer-tl" id="oer-vypnout">🔌 ZAPNOUT proud</button>
+		<button type="button" class="oer-tl" id="oer-smer">↔️ prohoď směr proudu</button>
+		<button type="button" class="oer-tl oer-aktivni" id="oer-cary">👁️ indukční čáry: ukázat</button>
+	</p>
+	<svg id="oer-svg" viewBox="0 0 660 380" role="img" aria-label="Pohled shora: vodič s proudem a magnetka">
+		<!-- deska stolu -->
+		<rect x="0" y="0" width="660" height="380" fill="#f8f9fa" />
+		<!-- směrová růžice -->
+		<g id="oer-ruzice" opacity="0.55">
+			<line x1="600" y1="80" x2="600" y2="30" stroke="#2b2a26" stroke-width="3" />
+			<polygon points="600,22 594,36 606,36" fill="#2b2a26" />
+			<text x="600" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">S</text>
+			<text x="600" y="96" text-anchor="middle" font-size="12" fill="#2b2a26">sever</text>
+		</g>
+		<!-- indukční čáry (kreslí skript) -->
+		<g id="oer-kruznice"></g>
+		<!-- vodič: kolečko se značkou ⊙ / ⊗ -->
+		<circle cx="330" cy="240" r="17" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<g id="oer-znacka"></g>
+		<text x="330" y="288" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">vodič</text>
+		<!-- měřítko vzdálenosti -->
+		<line id="oer-mera" x1="330" y1="240" x2="330" y2="186" stroke="#868e96" stroke-width="2" stroke-dasharray="5 4" />
+		<text id="oer-mera-popis" x="344" y="216" font-size="13" fill="#495057">1 cm</text>
+		<!-- legenda: který hrot střelky je který (barvy samy o sobě nic neříkají) -->
+		<g font-size="13" fill="#2b2a26">
+			<polygon points="30,352 36,364 24,364" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" />
+			<text x="44" y="364">červený hrot = severní pól magnetky</text>
+		</g>
+		<!-- magnetka -->
+		<g id="oer-magnetka">
+			<g id="oer-strelka">
+				<polygon id="oer-sever" points="0,-30 9,4 -9,4" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<polygon id="oer-jih" points="0,30 9,-4 -9,-4" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			</g>
+			<circle id="oer-cep" r="4" fill="#2b2a26" />
+		</g>
+		<text id="oer-uhel-popis" x="20" y="34" font-size="16" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Proud vodičem: <output id="oer-out-i"></output>
+		<input type="range" id="oer-slider-i" min="0" max="4" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Vzdálenost magnetky od vodiče: <output id="oer-out-r"></output>
+		<input type="range" id="oer-slider-r" min="1" max="5" step="1" value="1" />
+	</label>
+	<p class="oer-vzorec" id="oer-vypocet"></p>
+	<p class="oer-stav" id="oer-stav"></p>
+</section>
+
+<script>
+	// Rozměry scény drží dvě věci pohromadě (ověřeno pohledem na vyrenderovaný
+	// obrázek, ne jen výpočtem): největší kružnice se musí VEJÍT do rámečku
+	// (STRED_Y + 110 < 380) a magnetka na 5 cm nesmí vyjet nahoře ven.
+	const STRED_X = 330, STRED_Y = 240;   // poloha vodiče ve scéně
+	const PX_NA_CM = 24;                  // 1 cm = 24 px
+	const POLOMERY = [40, 75, 110];       // indukční čáry
+	let smer = 1;        // 1 = proud k tobě (⊙), -1 = od tebe (⊗)
+	let caryVidet = true;
+
+	const si = document.getElementById('oer-slider-i');
+	const sr = document.getElementById('oer-slider-r');
+	const svg = document.getElementById('oer-svg');
+
+	// ČISTÁ FUNKCE: výchylka magnetky od severu ve stupních (celé číslo).
+	// Kladné číslo = stáčí se k západu (doleva), záporné k východu.
+	// Bez proudu je nula: zůstává mířit na sever.
+	function uhelVychylky(I, r, smerProudu) {
+		if (I === 0) return 0;
+		const pomer = (2 * I) / r;                       // pole vodiče / pole Země
+		return smerProudu * Math.round(Math.atan(pomer) * 180 / Math.PI);
+	}
+	svg.__uhelVychylky = uhelVychylky;
+
+	function prekresli() {
+		const I = +si.value;
+		const r = +sr.value;
+		const uhel = uhelVychylky(I, r, smer);
+		const odsazeni = 30 + r * PX_NA_CM;              // px nad vodičem
+		const mx = STRED_X, my = STRED_Y - odsazeni;
+
+		document.getElementById('oer-out-i').textContent = I + ' A';
+		document.getElementById('oer-out-r').textContent = r + ' cm';
+		document.getElementById('oer-vypnout').textContent = I === 0 ? '🔌 ZAPNOUT proud' : '🔌 VYPNOUT proud';
+		document.getElementById('oer-cary').textContent = caryVidet ? '👁️ indukční čáry: ukázat' : '🚫 indukční čáry: skrýt';
+		document.getElementById('oer-cary').classList.toggle('oer-aktivni', caryVidet);
+
+		// značka proudu ve vodiči: ⊙ k tobě, ⊗ od tebe; bez proudu prázdno
+		let z = '';
+		if (I === 0) {
+			z = `<text x="${STRED_X}" y="${STRED_Y + 6}" text-anchor="middle" font-size="18" fill="#adb5bd">—</text>`;
+		} else if (smer === 1) {
+			z = `<circle cx="${STRED_X}" cy="${STRED_Y}" r="5" fill="#2b2a26" />`;
+		} else {
+			z = `<line x1="${STRED_X - 8}" y1="${STRED_Y - 8}" x2="${STRED_X + 8}" y2="${STRED_Y + 8}" stroke="#2b2a26" stroke-width="3" />`
+			  + `<line x1="${STRED_X + 8}" y1="${STRED_Y - 8}" x2="${STRED_X - 8}" y2="${STRED_Y + 8}" stroke="#2b2a26" stroke-width="3" />`;
+		}
+		document.getElementById('oer-znacka').innerHTML = z;
+
+		// indukční čáry: soustředné kružnice se šipkou ukazující směr obíhání
+		let k = '';
+		if (I > 0 && caryVidet) {
+			POLOMERY.forEach((polomer, poradi) => {
+				const sila = Math.max(1, Math.min(4, Math.round((I * 60) / polomer) + 1));
+				k += `<circle cx="${STRED_X}" cy="${STRED_Y}" r="${polomer}" fill="none" stroke="#f08c00" stroke-width="${sila}" opacity="0.75" />`;
+				// Šipka se nakreslí vpravo od vodiče (⊙ = proti směru hodinových
+				// ručiček, takže tam míří nahoru) a CELÁ se otočí kolem vodiče.
+				// Tím zůstane tečná ke kružnici a šipky se rozprostřou dokola —
+				// nakupené v jedné řadě vypadaly jako čtyři fajfky vedle sebe,
+				// ne jako obíhající pole (nález z vyrenderovaného obrázku 13. 8.).
+				const sx = STRED_X + polomer, sy = STRED_Y;
+				const otoc = poradi * 120;
+				const hrot = smer === 1
+					? `${sx},${sy - 11} ${sx - 6},${sy + 2} ${sx + 6},${sy + 2}`
+					: `${sx},${sy + 11} ${sx - 6},${sy - 2} ${sx + 6},${sy - 2}`;
+				k += `<polygon points="${hrot}" fill="#f08c00" transform="rotate(${otoc} ${STRED_X} ${STRED_Y})" />`;
+			});
+		}
+		document.getElementById('oer-kruznice').innerHTML = k;
+
+		// magnetka: posun na místo + natočení (v SVG se kladný úhel otáčí PO směru
+		// hodinových ručiček, proto se západní výchylka zapisuje se znaménkem mínus)
+		document.getElementById('oer-magnetka').setAttribute('transform', `translate(${mx} ${my})`);
+		document.getElementById('oer-strelka').setAttribute('transform', `rotate(${-uhel})`);
+
+		// čárkovaná míra vzdálenosti
+		const mera = document.getElementById('oer-mera');
+		mera.setAttribute('y2', String(my));
+		document.getElementById('oer-mera-popis').setAttribute('y', String(STRED_Y - odsazeni / 2 + 5));
+		document.getElementById('oer-mera-popis').textContent = r + ' cm';
+
+		const velikost = Math.abs(uhel);
+		document.getElementById('oer-uhel-popis').textContent =
+			I === 0 ? 'magnetka ukazuje na sever' : `výchylka: ${velikost}° k ${uhel > 0 ? 'západu' : 'východu'}`;
+
+		document.getElementById('oer-vypocet').innerHTML = I === 0
+			? 'Proud neteče → kolem vodiče <strong>není magnetické pole</strong> a magnetku otáčí jen pole Země.'
+			: `pole vodiče ku poli Země = 2 × ${I} A ÷ ${r} cm = <strong>${(2 * I / r).toFixed(1).replace('.', ',')}</strong> → výchylka <strong>${velikost}°</strong>`;
+
+		const stav = document.getElementById('oer-stav');
+		if (I === 0) {
+			stav.textContent = '🧭 Proud neteče a magnetka klidně míří na sever. Zapni proud posuvníkem — a dívej se, jestli se hne.';
+		} else if (velikost >= 80) {
+			stav.textContent = `🧲 Velký proud těsně u vodiče: magnetka se stočila o ${velikost}° a stojí skoro kolmo na vodič — tedy po směru indukční čáry. Přesně 90° ale nikdy nedosáhne, protože pole Země působí pořád.`;
+		} else if (velikost <= 25) {
+			stav.textContent = `🧭 Výchylka je jen ${velikost}° — pole vodiče je tu slabé. Přidej proud, nebo posuň magnetku blíž: se vzdáleností pole rychle slábne.`;
+		} else {
+			stav.textContent = `🧲 Magnetka se stočila o ${velikost}° k ${uhel > 0 ? 'západu' : 'východu'}. Natáčí se po indukční čáře — a ty jsou kolem vodiče soustředné kružnice. Zkus prohodit směr proudu: vychýlí se na druhou stranu.`;
+		}
+	}
+
+	document.getElementById('oer-vypnout').addEventListener('click', () => {
+		si.value = +si.value === 0 ? '2' : '0';
+		prekresli();
+	});
+	document.getElementById('oer-smer').addEventListener('click', () => { smer = -smer; prekresli(); });
+	document.getElementById('oer-cary').addEventListener('click', () => { caryVidet = !caryVidet; prekresli(); });
+	si.addEventListener('input', prekresli);
+	sr.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#oer-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.oer-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.oer-tl.oer-aktivni { background: #ffe8cc; }
+	.oer-tl:active { transform: translateY(1px); }
+	.oer-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.oer-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
