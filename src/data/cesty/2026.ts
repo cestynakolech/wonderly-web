@@ -688,6 +688,17 @@ export const rok2026: Rok = {
 			videoId: 'G-_9OjxXUwQ',
 			popis: { cs: '' },
 		},
+		{
+			slug: 'trittenheim',
+			galerie: 'cesty/2026/trittenheim',
+			nazev: 'Trittenheim',
+			zeme: 'Německo',
+			datum: '6. 8. 2026',
+			vyjezd: 6,
+			x: 283.3,
+			y: 339.6,
+			popis: { cs: '' },
+		},
 	],
 	videa: [
 		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },

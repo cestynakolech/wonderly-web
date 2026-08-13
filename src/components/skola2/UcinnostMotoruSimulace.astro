@@ -1,0 +1,161 @@
+---
+// Účinnost tepelných motorů (F8, tepelny-motor-parni-stroj): kam se ztratí teplo.
+//
+// Píst s klikou už ukazuje SpalovaciMotorSimulace — tahle bere to, co je jádrem
+// celého tématu („liší se účinností — kolik vstupní energie promění na pohyb")
+// a nikde jinde na webu není: energetický tok. Ze vstupního tepla se jen malá
+// část promění na pohyb, zbytek odchází komínem, chlazením a třením.
+//
+// Čísla jsou z výkladu (parní stroj ~15 %, parní turbína ~35 %, spalovací motor
+// ~30 %), ztráty do nich dopočítány tak, aby VŽDY dávaly přesně 100 %.
+// Vstup je násobek 100 kJ, takže všechny výsledky vycházejí v celých číslech.
+// Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kam se ztratí teplo? 🕹️</span></h2>
+	<p>Tepelný motor mění <strong>teplo na pohyb</strong> — ale ne všechno. Vyber stroj a sleduj, kolik z dodaného tepla opravdu <strong>roztočí kola</strong> a kolik uteče pryč.</p>
+	<p id="ucm-stroje">
+		<button type="button" class="ucm-tl ucm-aktivni" data-stroj="parni-stroj">🚂 parní stroj (Watt)</button>
+		<button type="button" class="ucm-tl" data-stroj="turbina">🌀 parní turbína</button>
+		<button type="button" class="ucm-tl" data-stroj="spalovaci">🚗 spalovací motor</button>
+	</p>
+	<svg id="ucm-svg" viewBox="0 0 660 400" role="img" aria-label="Energetický tok tepelného motoru">
+		<rect x="0" y="0" width="660" height="400" fill="#f8f9fa" />
+		<text id="ucm-nazev" x="330" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
+		<!-- schéma stroje (kreslí skript) -->
+		<g id="ucm-schema"></g>
+		<!-- vstupní teplo -->
+		<text id="ucm-vstup-popis" x="50" y="152" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<rect x="50" y="160" width="560" height="34" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" rx="6" />
+		<!-- rozpad na pohyb a ztráty (kreslí skript) -->
+		<g id="ucm-pruh"></g>
+		<g id="ucm-popisky" font-size="14" fill="#2b2a26"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Dodané teplo z paliva: <output id="ucm-out"></output>
+		<input type="range" id="ucm-slider" min="100" max="1000" step="100" value="100" />
+	</label>
+	<p class="ucm-vzorec" id="ucm-vypocet"></p>
+	<p class="ucm-stav" id="ucm-stav"></p>
+</section>
+
+<script>
+	// Účinnost z výkladu; ztráty dopočítány tak, aby součet byl přesně 100 %.
+	const STROJE = {
+		'parni-stroj': { nazev: 'Parní stroj (James Watt, 1784)', pohyb: 15, komin: 50, chlazeni: 25, treni: 10,
+			komin_popis: 'komínem a s párou', pozn: 'Kotel topí pod širým nebem — většina tepla uletí dřív, než se dostane k pístu.' },
+		'turbina': { nazev: 'Parní turbína (tepelná elektrárna)', pohyb: 35, komin: 15, chlazeni: 45, treni: 5,
+			komin_popis: 'komínem', pozn: 'Pára tlačí přímo na lopatky, nic se nezastavuje a nerozjíždí — proto je ze tří strojů nejúčinnější.' },
+		'spalovaci': { nazev: 'Spalovací motor (auto)', pohyb: 30, komin: 40, chlazeni: 25, treni: 5,
+			komin_popis: 'výfukem', pozn: 'Palivo hoří přímo ve válci, teplo tedy nemusí nikam putovat — účinnost je proto vyšší než u parního stroje.' },
+	};
+	const SIRKA = 560, X0 = 50;
+	let stroj = 'parni-stroj';
+
+	const slider = document.getElementById('ucm-slider');
+	const svg = document.getElementById('ucm-svg');
+
+	// ČISTÁ FUNKCE: rozpad dodaného tepla na jednotlivé díly (kJ, celá čísla).
+	// Součet dílů se musí rovnat vstupu — energie nemůže zmizet ani přibýt.
+	function rozpad(klic, vstup) {
+		const s = STROJE[klic];
+		return {
+			pohyb: (vstup * s.pohyb) / 100,
+			komin: (vstup * s.komin) / 100,
+			chlazeni: (vstup * s.chlazeni) / 100,
+			treni: (vstup * s.treni) / 100,
+		};
+	}
+	svg.__rozpad = rozpad;
+	svg.__stroje = STROJE;
+
+	function prekresli() {
+		const vstup = +slider.value;
+		const s = STROJE[stroj];
+		const d = rozpad(stroj, vstup);
+		const ztraty = d.komin + d.chlazeni + d.treni;
+
+		document.getElementById('ucm-out').textContent = vstup + ' kJ';
+		document.getElementById('ucm-nazev').textContent = s.nazev;
+		document.getElementById('ucm-vstup-popis').textContent = `dodané teplo z paliva: ${vstup} kJ (100 %)`;
+
+		// schéma stroje — jednoduchý obrys, ať je vidět, o čem je řeč
+		const sch = {
+			'parni-stroj': '<rect x="250" y="60" width="90" height="50" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
+				+ '<rect x="266" y="42" width="16" height="20" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />'
+				+ '<text x="295" y="92" text-anchor="middle" font-size="13" fill="#2b2a26">kotel</text>'
+				+ '<line x1="340" y1="85" x2="380" y2="85" stroke="#2b2a26" stroke-width="3" />'
+				+ '<rect x="380" y="66" width="70" height="38" rx="5" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
+				+ '<line x1="410" y1="66" x2="410" y2="104" stroke="#2b2a26" stroke-width="4" />'
+				+ '<text x="415" y="92" text-anchor="middle" font-size="13" fill="#2b2a26">píst</text>'
+				+ '<circle cx="490" cy="85" r="22" fill="none" stroke="#2b2a26" stroke-width="3" />'
+				+ '<line x1="450" y1="85" x2="468" y2="85" stroke="#2b2a26" stroke-width="3" />',
+			'turbina': '<rect x="250" y="60" width="80" height="50" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
+				+ '<text x="290" y="92" text-anchor="middle" font-size="13" fill="#2b2a26">kotel</text>'
+				+ '<line x1="330" y1="85" x2="380" y2="85" stroke="#2b2a26" stroke-width="3" />'
+				+ '<circle cx="420" cy="85" r="26" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
+				+ '<line x1="420" y1="59" x2="420" y2="111" stroke="#2b2a26" stroke-width="3" />'
+				+ '<line x1="394" y1="85" x2="446" y2="85" stroke="#2b2a26" stroke-width="3" />'
+				+ '<line x1="402" y1="67" x2="438" y2="103" stroke="#2b2a26" stroke-width="3" />'
+				+ '<line x1="438" y1="67" x2="402" y2="103" stroke="#2b2a26" stroke-width="3" />'
+				+ '<text x="420" y="130" text-anchor="middle" font-size="13" fill="#2b2a26">lopatky turbíny</text>',
+			'spalovaci': '<rect x="330" y="55" width="70" height="60" rx="5" fill="#fff" stroke="#2b2a26" stroke-width="3" />'
+				+ '<rect x="338" y="70" width="54" height="14" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />'
+				+ '<text x="365" y="132" text-anchor="middle" font-size="13" fill="#2b2a26">válec s pístem</text>'
+				+ '<circle cx="365" cy="103" r="5" fill="#2b2a26" />'
+				+ '<path d="M400 62 L430 62" stroke="#e8590c" stroke-width="3" />'
+				+ '<text x="452" y="67" text-anchor="middle" font-size="12" fill="#e8590c">výfuk</text>',
+		}[stroj];
+		document.getElementById('ucm-schema').innerHTML = sch;
+
+		// pruh rozpadu: pohyb vlevo (zelený), pak jednotlivé ztráty
+		const casti = [
+			{ klic: 'pohyb', kJ: d.pohyb, pct: s.pohyb, barva: '#2f9e44', popis: 'POHYB' },
+			{ klic: 'komin', kJ: d.komin, pct: s.komin, barva: '#e8590c', popis: s.komin_popis },
+			{ klic: 'chlazeni', kJ: d.chlazeni, pct: s.chlazeni, barva: '#1971c2', popis: 'chlazením' },
+			{ klic: 'treni', kJ: d.treni, pct: s.treni, barva: '#868e96', popis: 'třením' },
+		];
+		let x = X0, pruh = '', popisky = '';
+		for (const c of casti) {
+			const sirka = (SIRKA * c.pct) / 100;
+			pruh += `<rect x="${x}" y="240" width="${sirka}" height="46" fill="${c.barva}" stroke="#2b2a26" stroke-width="3" />`;
+			// popisek pod pruh; u úzkých dílů se text nevejde dovnitř
+			popisky += `<text x="${x + sirka / 2}" y="308" text-anchor="middle" font-weight="${c.klic === 'pohyb' ? 'bold' : 'normal'}">${c.pct} %</text>`;
+			popisky += `<text x="${x + sirka / 2}" y="326" text-anchor="middle" font-size="12">${c.kJ} kJ</text>`;
+			x += sirka;
+		}
+		document.getElementById('ucm-pruh').innerHTML = pruh;
+		document.getElementById('ucm-popisky').innerHTML = popisky
+			+ `<text x="${X0}" y="356" font-size="13" fill="#2f9e44" font-weight="bold">▲ tohle jediné točí kola (${casti[0].popis.toLowerCase()})</text>`
+			+ `<text x="${X0}" y="376" font-size="13" fill="#495057">zbytek uteče: ${casti[1].popis}, ${casti[2].popis}, ${casti[3].popis}</text>`;
+
+		document.getElementById('ucm-vypocet').innerHTML =
+			`z <strong>${vstup} kJ</strong> se na pohyb promění <strong>${d.pohyb} kJ</strong> (${s.pohyb} %) — `
+			+ `zbylých <strong>${ztraty} kJ</strong> odejde jako teplo. Dohromady zase ${d.pohyb + ztraty} kJ: energie nikam nezmizí, jen se rozdělí.`;
+
+		document.getElementById('ucm-stav').textContent =
+			`${s.nazev.split(' (')[0]}: účinnost ${s.pohyb} %. ${s.pozn}`;
+	}
+
+	document.getElementById('ucm-stroje').addEventListener('click', (e) => {
+		const tl = e.target.closest('.ucm-tl');
+		if (!tl) return;
+		stroj = tl.dataset.stroj;
+		for (const b of document.querySelectorAll('#ucm-stroje .ucm-tl')) b.classList.toggle('ucm-aktivni', b === tl);
+		prekresli();
+	});
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#ucm-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.ucm-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.ucm-tl.ucm-aktivni { background: #ffe8cc; }
+	.ucm-tl:active { transform: translateY(1px); }
+	.ucm-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.ucm-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
