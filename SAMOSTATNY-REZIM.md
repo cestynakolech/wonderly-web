@@ -1,4 +1,50 @@
-## 🔴🔴 ZAČNI TADY (stav 13. 8. 09:05)
+## 🔴🔴 ZAČNI TADY (stav 13. 8. 14:10)
+
+### ✅ HOTOVO ODPOLEDNE 13. 8.: TŘI LŽOUCÍ MĚŘIDLA + SIMULACE OERSTEDA
+
+**1. Revize automatů poprvé 0 nálezů (z 49 testů).** Tři nálezy se hlásily jako
+PŘETRVÁVAJÍCÍ a všechny byly vadou MĚŘIDLA, ne systému:
+- `test_exif_heic` bral vzorek z `fotky-puvodni` **včetně kbelíku `_bez_polohy`**.
+  Po úklidu mezikopií zbylo v celém deníku 6 JPG a všech 6 leželo právě tam, kde
+  datum být NEMÁ. Dvě předchozí opravy jen přesouvaly výchozí složku — `rglob`
+  do podsložky lezl dál. Nově se bere i z `fotky-cekarna` (248 fotek, 12/12
+  s datem) a složky bez metadat se vylučují JMÉNEM; když není co měřit, hlásí
+  přeskočení místo pádu. Kalibrace: při prázdné čekárně stará podoba PADNE
+  falešně, opravená přeskočí.
+- `test_fronta_stopka` tvrdil, že při STOPCE stojí i nahrávání — učitel ho ale
+  11. 8. zapnul zpět. Opraveno na skutečné pravidlo a přibyla OPAČNÁ kotva:
+  „nahrávač pozastavený být NESMÍ" (jinak by fronta tiše přestala posílat videa).
+- **Nedělní audit si nezapisoval razítko.** Úloha 9. 8. proběhla a nálezy
+  opravila, ale nikdo nezavolal `revize_automatu.py --audit-proveden` — přepínač
+  byl v kódu od začátku, jen ho žádný postup nevykonával. Zápis razítka je nově
+  KROK 5 v `~/.claude/scheduled-tasks/wonderly-audit-nedele/SKILL.md`; razítko
+  opraveno na doložených `2026-08-09` (ne na dnešek — laťka se neposouvá).
+
+**2. Fyzika 9 — nová simulace Oerstedova pokusu** (`magneticke-pole-vodice-a-civky`,
+dosud bez názornosti). Hotová `ElektromagnetSimulace` sem nesedla: učí sílu cívky,
+kdežto tohle podtéma stojí na PŘÍMÉM vodiči. Pohled shora, magnetka severně od
+vodiče, proud 0–4 A, vzdálenost 1–5 cm, značka ⊙/⊗, indukční čáry. Výchylka
+z `tan = 2·I/r` v celých stupních, nikdy ne 90° (pole Země působí pořád).
+Scéna se otevírá s VYPNUTÝM proudem, ať žák objev udělá sám.
+⚠️ **Dvě poučení, obě zaplacená:** mutační test hnal test ze **3/24 na 11/24** —
+první podoba měřila jen fyzikální model, ne SCÉNU, a právě tam byly nejhorší vady
+(obrácená podmínka směru by prohodila ⊙/⊗ i šipky, tedy naučila pravidlo pravé
+ruky NAOPAK). A pak **pohled na vyrenderovaný obrázek našel, co měřidlo nevidělo**:
+největší kružnice přetékala dolní okraj a šipky se nakupily v jedné řadě vpravo
+místo obíhání dokola. Obojí opraveno a doměřeno. Nasazeno, brána zelená,
+1057 kontrol simulací.
+
+**3. Vrátný pouští náhled webu bez ptaní** (přání učitele: náhledový server
+`python3 -m http.server --directory dist` jen vystaví hotový build na localhost).
+Povoleny `mcp__Claude_Browser__*` KROMĚ `form_input` — odeslat formulář je jediné,
+co umí poslat něco ven. Cizí prohlížeč (claude-in-chrome) se ptá dál.
+Test vrátného: 73 případů obousměrně.
+
+⬜ **ČEKÁ NA UČITELE (ruční, stroj tam nesmí):** vrátit pořadová čísla dvěma
+videím na kanálu — `u4NmKbMRhiE` („01 · Německo — Landshut, Schongau, Geisingen",
+dnes „06. 07. · …") a `9Sv4exafb-c` („02 · Salbert (Francie)", dnes „10. 07. · …").
+Doporučený tvar: `01 · 06. 07. · Německo — …`, tedy číslo PŘIDAT a datum nechat —
+`brana_kanalu.py` pak ruční číslo neumí ubrat.
 
 ### ✅ HOTOVO RÁNO 13. 8.: KROK E — MAPY VYMĚNĚNY V 8 VIDEÍCH (nahrání čeká na kvótu)
 
