@@ -46,6 +46,31 @@ dopředu"). Nové jsou dvě — `saint-sorlin-en-bugey.png` (2212 km, poslední 
 109 km) a `saint-denis-en-bugey.png` (2222 km, 9 km); **obě prohlédnuty OKEM**,
 trasa i shluky sedí (7 míst → 8 míst) a km na sebe navazují.
 
+### ⏳ ROZDĚLANÉ: krok F — `vymena_videa.py` HOTOV, výměna map ZBÝVÁ
+
+Učitel 13. 8. schválil postup „nejdřív modul + výměna map, pak teprve stopka".
+
+✅ **Sdílený modul `vymena_videa.py` je napsaný a zapojený.** Umí `nahraj()`
+(neveřejné + playlist ročníku), `schovej()` (starší verze na SOUKROMOU, nikdy
+smazat; kotva čte stav zpátky 0/3/8 s kvůli cache) a `vymen()`. Pořadí je
+závazné: nejdřív nahrát, teprve pak schovat — kdyby nahrání selhalo, starší
+verze musí zůstat dostupná. `pecliva_videa.nahraj_a_vymen` už ho volá (starý
+opis smazán, import prochází), takže deníková videa dostanou TÝŽ kód.
+
+⬜ **Zbývá výměna úvodních map u 12 videí** (`PREPOCET-MAP.md`). Mapy jsou
+hotové v `mapa-trasy/pripravene/`, nástroj na výměnu přímo v mp4 je
+`vymen_uvodni_mapu.py` (testy 22/22, spouštět s `--prolinani-od 6`). Nahrání
+brzdí kvóta 5/den — a ráno v 9:15 ji spotřebuje nahrávač na 5 čekajících dílů,
+takže výměny půjdou dávkovat až dalšími dny.
+
+⚠️ **Pravidlo pro registr JSEM ZÁMĚRNĚ NEZAPSAL.** Vzor „výměna videa" hlásil
+✅ i pro `nahraj_stara_videa.py`, který schovává originál vlastní cestou —
+kopii minul kvůli jinému zápisu (`"privacyStatus": "private",` s dalšími poli).
+Falešné pravidlo je horší než žádné, tak jsem ho z registru odebral (zpět na 12,
+dluh 0). **Až se bude přepojovat `nahraj_stara_videa.py` a
+`nahraj_na_youtube.uklid_po_prerusenem_uploadu` (obojí schovává video vlastní
+cestou), teprve pak zapsat pravidlo s vzorem doloženým OBOUSMĚRNĚ.**
+
 ### DÁL SE PŘIPRAVUJE (nic z toho nečeká na učitele)
 
 - **Anonymizovat teď nejde**: 330 fotek sedmi míst leží v `fotky-cekarna` a ta
