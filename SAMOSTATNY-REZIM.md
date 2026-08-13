@@ -1,4 +1,40 @@
-## 🔴🔴 ZAČNI TADY (stav 13. 8. 14:10)
+## 🔴🔴 ZAČNI TADY (stav 13. 8. 14:30)
+
+### ▶️ ROZDĚLANÉ: NÁZORNOST FYZIKY, JEDNO PODTÉMA ZA DRUHÝM
+
+Zadání učitele 13. 8. odpoledne, doslova: *„pokračuj dalším podtématem fyziky
+a nemusíš se ptát, jak jedno dokončíš, začni další."* Tedy: vzít podtéma bez
+názornosti, dotáhnout ho celé (simulace → test → mutační test → obousměrný
+důkaz → **prohlédnout vyrenderovanou scénu** → build → push → curl) a hned brát
+další. Neodklikává se nic.
+
+**Hotovo v tomhle kole (3 podtémata):**
+1. `magneticke-pole-vodice-a-civky` (F9) — Oerstedův pokus, magnetka u vodiče
+2. `tepelny-motor-parni-stroj` (F8) — kam se ztratí teplo (účinnost 15/35/30 %)
+3. `skupenske-zmeny-vody-v-prirode` (F8) — koloběh vody, motorem je Slunce
+
+**Stav názornosti** (`node testy/nazornost.mjs`): fyzika 8 **11 → 9** z 37,
+fyzika 9 **10 → 9** z 25. Ze zbylých jsou 2+2 shrnutí, která názornost
+nepotřebují. **Na řadě dál** (F8): `vnitrni-energie-telesa`, `tuhnuti`,
+`kondenzace`, `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
+`elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`; (F9):
+`magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
+`elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
+
+🔴 **POSTUP, KTERÝ SE VYPLATIL — DODRŽET U DALŠÍCH.** Zelený vlastní test
+NESTAČÍ, dvakrát po sobě pustil vadu dál:
+- **Mutační test** (`node testy/mutace.mjs <název>`) u Oersteda ukázal
+  **3 z 24** — test měřil fyzikální model a vůbec ne SCÉNU. Nejhorší
+  neodhalená: obrácená podmínka směru proudu by prohodila ⊙/⊗ i šipky, takže
+  by se žák naučil pravidlo pravé ruky NAOPAK. Po doměření scény 11/24.
+- **Prohlédnout vyrenderovanou scénu** našlo u všech tří simulací vady, které
+  žádné měřidlo nevidí: useknutá kružnice, šipky nakupené v řadě, chybějící
+  legenda barev, počitadlo ležící přes oblak, popisek přeškrtnutý vlastní
+  čárou a **špatné skloňování „4 dílů"**. Jak na to: vytáhnout `outerHTML` SVG
+  ze stránky po vykreslení, doplnit `xmlns`, `qlmanage -t -s 900 -o . x.svg`
+  a PNG přečíst — screenshot prohlížeče v téhle session vracel prázdno.
+  Každý nález pak DOMĚŘIT, ať se nevrátí. Paměť [[feedback-simulaci-se-musim-podivat]].
 
 ### ✅ HOTOVO ODPOLEDNE 13. 8.: TŘI LŽOUCÍ MĚŘIDLA + SIMULACE OERSTEDA
 
