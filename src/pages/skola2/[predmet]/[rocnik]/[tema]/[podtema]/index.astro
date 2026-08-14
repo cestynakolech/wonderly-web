@@ -28,6 +28,7 @@ import KolobehVodySimulace from '../../../../../../components/skola2/KolobehVody
 import VnitrniEnergieSimulace from '../../../../../../components/skola2/VnitrniEnergieSimulace.astro';
 import TuhnutiSimulace from '../../../../../../components/skola2/TuhnutiSimulace.astro';
 import KondenzaceSimulace from '../../../../../../components/skola2/KondenzaceSimulace.astro';
+import VznikElektrickehoProuduSimulace from '../../../../../../components/skola2/VznikElektrickehoProuduSimulace.astro';
 import MeridlaSimulace from '../../../../../../components/skola2/MeridlaSimulace.astro';
 import TabulkaVzorceSimulace from '../../../../../../components/skola2/TabulkaVzorceSimulace.astro';
 import SouradniceSimulace from '../../../../../../components/skola2/SouradniceSimulace.astro';
@@ -268,6 +269,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'vnitrni-energie' && <VnitrniEnergieSimulace />}
 	{podtema.interakce === 'tuhnuti' && <TuhnutiSimulace />}
 	{podtema.interakce === 'kondenzace' && <KondenzaceSimulace />}
+	{podtema.interakce === 'vznik-elektrickeho-proudu' && <VznikElektrickehoProuduSimulace />}
 	{podtema.interakce === 'meridla' && <MeridlaSimulace />}
 	{podtema.interakce === 'tabulka-vzorce' && <TabulkaVzorceSimulace />}
 	{podtema.interakce === 'souradnice' && <SouradniceSimulace />}

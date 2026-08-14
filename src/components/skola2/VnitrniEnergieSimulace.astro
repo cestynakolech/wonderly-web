@@ -49,6 +49,8 @@
 
 <script>
 	const MAX_T = 150;          // nad tenhle rozsah scéna nejde
+	// Rychlost je v DÍLCÍCH modelu, ne v m/s — skutečné ohřátí třením by při
+	// reálných rychlostech vyšlo na zlomky stupně a scéna by neukázala nic.
 	const RYCHLOSTI = [0, 5, 10];
 	const teplotaSlider = document.getElementById('vne-teplota');
 	const casticSlider = document.getElementById('vne-castic');
@@ -115,13 +117,16 @@
 
 		document.getElementById('vne-out-t').textContent = `${t} °C`;
 		document.getElementById('vne-out-n').textContent = castic(n);
-		document.getElementById('vne-out-v').textContent = v === 0 ? 'stojí' : `${v} m/s`;
+		document.getElementById('vne-out-v').textContent =
+			v === 0 ? 'stojí' : `${v === 10 ? 'rychle' : 'pomalu'} (${v} dílků)`;
 
-		// ── kostka: 5 částic v řadě, řad podle velikosti; roste nahoru od podložky
-		const rady = n / 5;
-		const sirka = 290;
-		const vyska = rady * 44 + 28;   // rozestupy musí pojmout i nejdelší šipky
-		const x = 40 + v * 7;           // rozjetá kostka je posunutá po podložce
+		// ── kostka: mřížka částic zhruba do čtverce — i nejmenší kostka je kostka,
+		// ne tenká destička; roste nahoru od podložky
+		const vRadce = Math.ceil(Math.sqrt(n));
+		const rady = Math.ceil(n / vRadce);
+		const sirka = (vRadce - 1) * 44 + 112;   // okraje musí pojmout i nejdelší šipky
+		const vyska = (rady - 1) * 44 + 100;
+		const x = 40 + v * 7;                    // rozjetá kostka je posunutá po podložce
 		const y = 350 - vyska;
 		let k = `<rect x="${x}" y="${y}" width="${sirka}" height="${vyska}" rx="6"`
 			+ ` fill="${barva(t)}" stroke="#2b2a26" stroke-width="3" />`;
@@ -131,10 +136,13 @@
 		// od středu, vypadala částice jako ciferník s ručičkou, ne jako
 		// něco, co letí (nález z vyrenderovaného obrázku).
 		for (let i = 0; i < n; i++) {
-			const sl = i % 5, rd = Math.floor(i / 5);
-			const cx = x + 56 + sl * 44;
-			const cy = y + 36 + rd * 44;
-			// Kratší šipka než 10 px by byla samý hrot: u ledové kostky vypadala
+			const sl = i % vRadce, rd = Math.floor(i / vRadce);
+			// poslední (neúplná) řada se vystředí, ať kostka nevypadá nakousnutě
+			const vTetoRade = Math.min(vRadce, n - rd * vRadce);
+			const posun = ((vRadce - vTetoRade) * 44) / 2;
+			const cx = x + 56 + posun + sl * 44;
+			const cy = y + 50 + rd * 44;
+			// Kratší šipka než 10 px by byla samý hrot: u studené kostky vypadala
 			// částice jako kapka, ne jako něco, co se pohybuje.
 			const delka = 11 + t / 10;
 			const uhel = (i * 137 * Math.PI) / 180;
@@ -150,23 +158,25 @@
 		k += `<text x="${x}" y="${y - 8}" font-size="13" fill="#2b2a26">kostka: ${castic(n)}, ${t} °C</text>`;
 		document.getElementById('vne-teleso').innerHTML = k;
 
-		// ── šipka rychlosti celku (jen když se opravdu veze)
+		// ── šipka rychlosti celku (jen když se opravdu veze); délka podle šířky kostky
+		const konecSipky = x + sirka - 70;
 		document.getElementById('vne-rychlost').innerHTML = v === 0 ? ''
-			: `<line x1="${x + 40}" y1="${y - 26}" x2="${x + 190}" y2="${y - 26}" stroke="#e8590c" stroke-width="4" />`
-			+ `<polygon points="${x + 204},${y - 26} ${x + 186},${y - 34} ${x + 186},${y - 18}" fill="#e8590c" />`
-			+ `<text x="${x + 40}" y="${y - 36}" font-size="13" font-weight="bold" fill="#e8590c">celá kostka jede ${v} m/s</text>`;
+			: `<line x1="${x + 40}" y1="${y - 26}" x2="${konecSipky}" y2="${y - 26}" stroke="#e8590c" stroke-width="4" />`
+			+ `<polygon points="${konecSipky + 14},${y - 26} ${konecSipky - 4},${y - 34} ${konecSipky - 4},${y - 18}" fill="#e8590c" />`
+			+ `<text x="${x + 40}" y="${y - 36}" font-size="13" font-weight="bold" fill="#e8590c">celá kostka jede — rychlost ${v} dílků</text>`;
 
 		// ── sloupce: stejné měřítko, ať je vidět skutečný poměr energií
 		const MERITKO = 260 / 840;      // nejvyšší možná vnitřní energie = 260 px
-		const sloupec = (px, cx, vyskaPx, barvaS, popis, hodnota) => {
-			const h = Math.round(vyskaPx);
+		const sloupec = (px, cx, hodnota, barvaS, popis) => {
+			// nenulová energie musí být vidět: aspoň 3 px, jako u kondenzace
+			const h = hodnota === 0 ? 0 : Math.max(3, Math.round(hodnota * MERITKO));
 			return `<rect x="${px}" y="${350 - h}" width="60" height="${h}" fill="${barvaS}" stroke="#2b2a26" stroke-width="3" />`
 				+ `<text x="${cx}" y="${Math.max(344 - h, 20)}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">${hodnota}</text>`
 				+ `<text x="${cx}" y="366" text-anchor="middle" font-size="12" fill="#2b2a26">${popis}</text>`;
 		};
 		document.getElementById('vne-sloupce').innerHTML =
-			sloupec(450, 480, s.vnitrni * MERITKO, '#f76707', 'vnitřní', s.vnitrni)
-			+ sloupec(560, 590, s.pohybova * MERITKO, '#1971c2', 'pohybová celku', s.pohybova);
+			sloupec(450, 480, s.vnitrni, '#f76707', 'vnitřní')
+			+ sloupec(560, 590, s.pohybova, '#1971c2', 'pohybová celku');
 
 		// ── počitadlo: o vztah těch čísel tu jde
 		document.getElementById('vne-pocty').innerHTML =
@@ -178,15 +188,18 @@
 		document.getElementById('vne-vypocet').innerHTML =
 			`Jedna částice má při ${t} °C <strong>${s.naCastici} jednotek</strong> energie. `
 			+ `Vnitřní energie celé kostky = ${n} × ${s.naCastici} = <strong>${s.vnitrni} jednotek</strong>. `
-			+ 'Energii částic počítáme od −270 °C — proto ani u ledové kostky nevyjde nula: částice se nikdy nezastaví.';
+			+ 'Energii částic počítáme od −270 °C — proto ani u studené kostky nevyjde nula: částice se nikdy nezastaví.';
 
 		const stavP = document.getElementById('vne-stav');
 		if (hlaska) {
 			stavP.textContent = hlaska;
+		} else if (v === 0 && t >= MAX_T) {
+			// na maximu posuvníku nesmí rada znít „zvyš teplotu" — to už nejde
+			stavP.textContent = `🧊 Kostka stojí a teplota je na maximu scény. Rozjeď ji posuvníkem rychlosti a sleduj, že sloupec vnitřní energie se ani nehne — pohyb celku s ním nemá co dělat.`;
 		} else if (v === 0) {
 			stavP.textContent = `🧊 Kostka stojí. Zvyš teplotu — částice se rozběhnou rychleji (delší šipky) a vnitřní energie povyroste. Přidej částice a povyroste taky, protože vnitřní energie je součet energií všech částic.`;
 		} else {
-			stavP.textContent = `🚚 Kostka se veze ${v} m/s a má pohybovou energii ${s.pohybova} jednotek. Vnitřní energie zůstala ${s.vnitrni} jednotek — pohyb celku s ní nehne, částice se uvnitř míhají pořád stejně. Zkus ji zabrzdit třením!`;
+			stavP.textContent = `🚚 Kostka se veze (rychlost ${v} dílků) a má pohybovou energii ${s.pohybova} jednotek. Vnitřní energie zůstala ${s.vnitrni} jednotek — pohyb celku s ní nehne, částice se uvnitř míhají pořád stejně. Zkus ji zabrzdit třením!`;
 		}
 		hlaska = '';
 	}
@@ -210,7 +223,7 @@
 		const pohybova = stav(t, n, v).pohybova;
 		teplotaSlider.value = String(t + prirustek);
 		rychlostSlider.value = '0';
-		hlaska = `🔥 Tření vykonalo práci: pohybová energie ${pohybova} jednotek se změnila na vnitřní. Kostka se zastavila a ohřála se o ${prirustek} °C, na ${t + prirustek} °C. Energie se nikam neztratila — jen změnila podobu.`;
+		hlaska = `🔥 Tření vykonalo práci: pohybová energie ${pohybova} jednotek se změnila na vnitřní. Kostka se zastavila a ohřála se o ${prirustek} °C, na ${t + prirustek} °C. Energie se nikam neztratila — jen změnila podobu. Doopravdy se takhle třením ohřívají třeba brzdy auta nebo vrták — jen o mnohem míň stupňů, než ukazuje náš zjednodušený model.`;
 		prekresli();
 	});
 

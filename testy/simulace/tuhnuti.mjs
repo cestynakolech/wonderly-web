@@ -40,10 +40,14 @@ const yTeploty = svg.__yTeploty;
 const casSlider = prvky.get('tuh-cas');
 const sulSlider = prvky.get('tuh-sul');
 
+// Rozsahy posuvníků se čtou ZE ZDROJE — kdyby se v HTML změnily, test musí
+// projít nové stavy, ne dál zkoušet ty staré opsané napevno.
 const MAX_CAS = +/id="tuh-cas"[^>]*max="(\d+)"/.exec(zdroj)[1];
 const CASY = [];
 for (let c = 0; c <= MAX_CAS; c++) CASY.push(c);
-const SOLI = [0, 1, 2];
+const MAX_SUL = +/id="tuh-sul"[^>]*max="(\d+)"/.exec(zdroj)[1];
+const SOLI = [];
+for (let s = 0; s <= MAX_SUL; s++) SOLI.push(s);
 
 let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
@@ -81,7 +85,13 @@ console.log('\n— JÁDRO: během tuhnutí teplota stojí —');
 		for (let c = s0.zacatekTuhnuti; c < s0.konecTuhnuti; c++) behem.push(stav(c, sul).teplota);
 		ok(behem.length === DELKA_TUHNUTI && new Set(behem).size === 1,
 			`sůl ${sul}: po ${DELKA_TUHNUTI} minuty stojí teplota na ${behem[0]} °C (${behem.join(', ')})`);
-		ok(behem[0] === teplotaTuhnuti(sul), 'a je to přesně teplota tuhnutí té vody');
+		// KOTVA: porovnává se s číslem VYPSANÝM v počitadle pro žáka, ne s toutéž
+		// funkcí komponenty (behem[0] === teplotaTuhnuti(sul) neměřilo nic).
+		nastav(0, sul);
+		const napsano = /teplota tuhnutí této vody: (-?\d+) °C/.exec(
+			prvky.get('tuh-pocty').innerHTML.replace(/−/g, '-'));
+		ok(napsano !== null && behem[0] === +napsano[1],
+			`a je to přesně teplota tuhnutí napsaná v počitadle (${napsano?.[1]} °C)`);
 	}
 	// před plató i po něm teplota klesat MUSÍ — jinak by scéna neukazovala nic
 	for (const sul of SOLI) {
@@ -178,7 +188,7 @@ console.log('\n— měřítko grafu sedí s popsanými osami —');
 {
 	// Doměřeno podle mutačního testu: kontroly výše si braly xCasu i yTeploty
 	// z komponenty, takže se s ní NEMOHLY rozejít. Osa je přitom v HTML
-	// napsaná napevno (20 °C u y=65, 0 °C u y=205, −20 °C u y=345) — a právě
+	// napsaná napevno (20 °C u y=75, 0 °C u y=195, −20 °C u y=315) — a právě
 	// s těmi popisky musí měřítko souhlasit, jinak graf ukazuje jiná čísla,
 	// než jaká má u sebe napsaná.
 	// Popisky os jsou v HTML napevno — čtou se ODTUD, ne z komponenty, aby se
@@ -210,7 +220,7 @@ console.log('\n— měřítko grafu sedí s popsanými osami —');
 	// a celý pokus musí doběhnout přesně na spodní hranu osy — jinak by se
 	// změnila délka tuhnutí a nikdo by si toho nevšiml
 	ok(SOLI.every((s) => stav(MAX_CAS, s).teplota === -20),
-		'pokus končí u všech tří vzorků přesně na −20 °C, tedy na spodní hraně osy');
+		'pokus končí u všech tří vzorků přesně na −20 °C, tedy na spodku popsané stupnice');
 	const platoDelky = SOLI.map((s) => {
 		const st = stav(0, s);
 		let n = 0;
@@ -239,25 +249,107 @@ console.log('\n— popisky nesmí tvrdit něco jiného než scéna —');
 	ok(prvky.get('tuh-stav').textContent.includes('Všechno už je led'), 'a hláška mluví o ledu');
 }
 
-console.log('\n— sklenice: led se drží nahoře, protože plave —');
+console.log('\n— sklenice: led začíná u stěn (pevné jádro) a drží se u hladiny —');
 {
-	const ledVeSklenici = () => {
-		const r = [...sklenice.innerHTML.matchAll(/<rect x="(\d+)" y="(\d+)" width="(\d+)" height="(\d+)"/g)]
-			.map((m) => m.slice(1).map(Number));
-		return r.length > 1 ? r[1] : null;
+	// Scéna musí učit totéž co výklad a kvíz: tuhnutí začíná od PEVNÉHO JÁDRA
+	// (stěny sklenice) a led se drží u hladiny, protože plave. A protože voda
+	// tuhnutím ZVĚTŠUJE objem, musí ztuhlý obsah vystoupat NAD původní hladinu
+	// (= okraj sklenice). Měří se skutečně vykreslené obdélníky, okraj sklenice
+	// se bere z obrysu (fill="none") — ne z konstant komponenty.
+	const obrysSkla = () => {
+		const m = /<rect x="(\d+)" y="(\d+)" width="(\d+)" height="(\d+)" fill="none"/.exec(sklenice.innerHTML);
+		return m ? { x: +m[1], y: +m[2], w: +m[3], h: +m[4] } : null;
 	};
+	const ledy = () => [...sklenice.innerHTML.matchAll(/<rect x="(\d+)" y="(-?\d+)" width="(\d+)" height="(\d+)"[^>]*fill="#e7f5ff"/g)]
+		.map((m) => ({ x: +m[1], y: +m[2], w: +m[3], h: +m[4] }));
+	const voda = () => {
+		const m = /<rect x="(\d+)" y="(-?\d+)" width="(\d+)" height="(\d+)" fill="#4dabf7"/.exec(sklenice.innerHTML);
+		return m ? { x: +m[1], y: +m[2], w: +m[3], h: +m[4] } : null;
+	};
+
 	nastav(0, 0);
-	ok(ledVeSklenici() === null, 'na začátku je ve sklenici jen voda, žádný led');
+	const sklo = obrysSkla();
+	ok(sklo !== null, `sklenice má obrys (okraj = původní hladina, y=${sklo?.y})`);
+	ok(ledy().length === 0, 'na začátku je ve sklenici jen voda, žádný led');
+	ok(voda().y === sklo.y, `a voda sahá přesně po okraj (hladina na y=${voda().y})`);
+
 	const s0 = stav(0, 0);
 	nastav(s0.zacatekTuhnuti + 1, 0);
-	const trocha = ledVeSklenici();
+	const trocha = ledy();
+	const uLeveSteny = trocha.find((r) => r.x === sklo.x && r.w < sklo.w);
+	const uPraveSteny = trocha.find((r) => r.x + r.w === sklo.x + sklo.w && r.w < sklo.w);
+	const uHladiny = trocha.find((r) => r.w === sklo.w);
+	ok(uLeveSteny !== undefined && uPraveSteny !== undefined,
+		`led začíná od OBOU stěn sklenice — pevného jádra (pásy ${uLeveSteny?.w} px u každé stěny)`);
+	ok(uHladiny !== undefined, 'a zároveň drží vrstvu u hladiny — led plave');
+	ok(uHladiny.y + uHladiny.h > sklo.y,
+		`vrstva u hladiny sahá i POD okraj (do y=${uHladiny.y + uHladiny.h}), ne jen nad něj`);
+	ok([uLeveSteny, uPraveSteny].every((r) => r.y + r.h === sklo.y + sklo.h),
+		'oba pásy u stěn vedou po celé výšce až na dno — pevným jádrem je celá stěna');
+	ok(Math.min(...trocha.map((r) => r.y)) < sklo.y,
+		`ztuhlý obsah už přesahuje původní hladinu (vršek ledu y=${Math.min(...trocha.map((r) => r.y))} nad okrajem y=${sklo.y})`);
+	// obsah sklenice nesmí mít dole díru: modrá voda sahá v každé minutě až na dno
+	let vodaAzKeDnu = true, kdeVoda = '';
+	for (const c of CASY) {
+		nastav(c, 0);
+		const v = voda();
+		if (v.y + v.h !== sklo.y + sklo.h) { vodaAzKeDnu = false; kdeVoda ||= `${c}. minuta: končí na y=${v.y + v.h}`; }
+	}
+	ok(vodaAzKeDnu, `obsah sklenice sahá v každé minutě až na dno${kdeVoda ? ` (${kdeVoda})` : ''}`);
+	nastav(s0.zacatekTuhnuti + 1, 0);
+
+	nastav(s0.zacatekTuhnuti + 3, 0);
+	const vic = ledy();
+	const uSteny75 = vic.find((r) => r.x === sklo.x && r.w < sklo.w);
+	ok(uSteny75 !== undefined && uSteny75.w > uLeveSteny.w,
+		`ledu od stěn přibývá (${uLeveSteny.w} → ${uSteny75.w} px)`);
+
 	nastav(s0.konecTuhnuti, 0);
-	const vsechno = ledVeSklenici();
-	ok(trocha && vsechno && vsechno[3] > trocha[3], `ledu ve sklenici přibývá (${trocha[3]} → ${vsechno[3]} px)`);
-	ok(trocha[1] === 100 && vsechno[1] === 100,
-		'a přibývá SHORA — led plave, proto rybník nezamrzá ode dna (obojí začíná na y=100)');
-	ok(vsechno[3] === 240, 'na konci je sklenice ledem plná (240 px)');
-	ok(sklenice.innerHTML.includes('plave'), 'a ve scéně to stojí napsané');
+	const vsechno = ledy();
+	const steny = vsechno.filter((r) => r.w < sklo.w);
+	ok(steny.length === 2 && steny.reduce((a, r) => a + r.w, 0) === sklo.w,
+		'na konci se pásy ledu od obou stěn potkají — celá sklenice je led');
+	const vrchol = Math.min(...vsechno.map((r) => r.y));
+	ok(vrchol < sklo.y && vrchol < Math.min(...trocha.map((r) => r.y)),
+		`a led vystoupal nejvýš nad okraj (y=${vrchol} proti okraji ${sklo.y}) — ledu je víc, než byla voda`);
+	ok(steny.every((r) => r.y + r.h === sklo.y + sklo.h), 'led sahá až na dno sklenice — oba pásy, ne jen jeden');
+}
+
+console.log('\n— texty u sklenice říkají obě pravdy, a jen když led existuje —');
+{
+	// Nápis o plavání dřív svítil i nad čistou vodou; a „led se drží nahoře"
+	// bez zmínky o pevném jádru vedl žáka ke špatné kvízové odpovědi.
+	nastav(0, 0);
+	ok(!sklenice.innerHTML.includes('plave') && !sklenice.innerHTML.includes('pevné jádro'),
+		'dokud led není, nepíše se o něm nic');
+	ok(!sklenice.innerHTML.includes('praská'), 'ani o praskajícím potrubí');
+	const s0 = stav(0, 0);
+	nastav(s0.zacatekTuhnuti + 1, 0);
+	ok(sklenice.innerHTML.includes('pevné jádro') && sklenice.innerHTML.includes('stěn'),
+		'u ledu stojí, že začal u stěn (pevné jádro)');
+	ok(sklenice.innerHTML.includes('plave'), 'i že se drží u hladiny, protože plave');
+	ok(sklenice.innerHTML.includes('led zabírá víc místa'),
+		'a že led zabírá víc místa — proto praská potrubí');
+	ok(!sklenice.innerHTML.includes('drží nahoře'),
+		'formulace „drží se nahoře" (bez pevného jádra) už ve scéně není');
+	// hláška při tuhnutí: teplo uvolňuje voda, která PRÁVĚ tuhne, ne hotový led
+	const hlaska = prvky.get('tuh-stav').textContent;
+	ok(/práv[eě] tuhne/.test(hlaska) && hlaska.includes('skupenské teplo') && !hlaska.includes('ztuhlá voda'),
+		'skupenské teplo uvolňuje „voda, která právě tuhne" — ne ztuhlá voda');
+	ok(hlaska.includes('pevného jádra') || hlaska.includes('od stěn'),
+		'a hláška jmenuje pevné jádro, od kterého tuhnutí začíná');
+	// „Hotovo je z 25 %", ne „ze 25 %" — a časový údaj „za 12 minut", ne „ve 12 minut"
+	let spravnaPredlozka = true, kdeP = '';
+	for (const sul of SOLI) for (const c of CASY) {
+		nastav(c, sul);
+		const h = prvky.get('tuh-stav').textContent;
+		if (/Hotovo je ze \d/.test(h)) { spravnaPredlozka = false; kdeP ||= `${c}. minuta, sůl ${sul}`; }
+		if (/\bve \d+ minut/.test(prvky.get('tuh-vypocet').innerHTML)) { spravnaPredlozka = false; kdeP ||= `výpočet, ${c}. minuta`; }
+	}
+	ok(spravnaPredlozka, `všude „z 25 %" a „za 12 minut"${kdeP ? ` (špatně: ${kdeP})` : ''}`);
+	nastav(6, 0);
+	ok(/Hotovo je z \d+ %/.test(prvky.get('tuh-stav').textContent), 'hláška při tuhnutí hlásí „Hotovo je z … %"');
+	ok(/za \d+ minut/.test(prvky.get('tuh-vypocet').innerHTML), 'a výpočet říká „za 12 minut je z toho …"');
 }
 
 console.log('\n— počitadlo říká totéž co model —');

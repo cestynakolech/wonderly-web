@@ -52,6 +52,24 @@ NESTAČÍ, dvakrát po sobě pustil vadu dál:
   a PNG přečíst — screenshot prohlížeče v téhle session vracel prázdno.
   Každý nález pak DOMĚŘIT, ať se nevrátí. Paměť [[feedback-simulaci-se-musim-podivat]].
 
+
+### 📥 Fronta dalších kol (z auditů 13. 8. — zapsáno, aby se neztratilo)
+
+1. **Skript `kontrola_navodu`** (bod 20 auditu dokumentace): deterministická
+   kontrola návodů — existence odkazovaných cest, zakázané opsané konstanty,
+   mrtvé křížové odkazy. Nahradí ruční smyčku „srovnat návody" po /clear;
+   ruční zůstane jen nedělnímu auditu. Nové měřidlo ⇒ obousměrný důkaz povinně.
+2. **Sloučení sandboxu testů simulací** (audit repa): 23 kopií prologu,
+   **19 rozešlých variant**, 767 řádků / 34,8 kB; sdílený modul `testy/sandbox-simulace.mjs`
+   (do kořene testy/, NE do simulace/ — spouštěč i mutace skenují složku bez filtru!)
+   ušetří ~520 řádků. Postup po rodinách, začít 5 byte-identickými; kotva
+   `vsechny-simulace` + mutace před a po každé rodině. K tomu ok()/epilog/klik
+   do téhož modulu a `komponentaK()` na jedno místo. Skloňovací funkce
+   v komponentách NEslučovat (unikly by mutačnímu testu).
+3. **Drobnost**: hlídač session nerozliší samostatný režim od povídání —
+   při interaktivní práci a odchodu od Macu přijde po 20 min falešný poplach
+   (ztlumení: `--ticho 40` v plistu). Rozhodne učitel, zda ladit.
+
 ### ✅ HOTOVO ODPOLEDNE 13. 8.: TŘI LŽOUCÍ MĚŘIDLA + SIMULACE OERSTEDA
 
 **1. Revize automatů poprvé 0 nálezů (z 49 testů).** Tři nálezy se hlásily jako
