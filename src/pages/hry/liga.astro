@@ -175,10 +175,19 @@ const banka = bankaProLigu();
 
 	$('vytvorit').addEventListener('click', async () => {
 		const odpoved = await fetch('/api/liga/nova');
-		const { mistnost } = await odpoved.json();
+		const { mistnost, klic, chyba } = await odpoved.json();
+		if (chyba || !klic) { alert(chyba ?? 'Místnost se nepodařilo založit, zkus to znovu.'); return; }
 		$('kod-mistnosti').textContent = mistnost;
+		// Klíč tabule si drží JEN tahle stránka. Třída vidí pouze kód místnosti —
+		// kdyby k řízení hry stačil kód, mohl by hru převzít kdokoli ze třídy.
+		// sessionStorage kvůli obnovení stránky; zavřením karty klíč mizí.
+		sessionStorage.setItem('liga-klic', klic);
+		sessionStorage.setItem('liga-mistnost', mistnost);
 		const protokol = location.protocol === 'https:' ? 'wss' : 'ws';
 		ws = new WebSocket(`${protokol}://${location.host}/api/liga/ws?mistnost=${mistnost}&role=tabule`);
+		// Klíč se posílá až první zprávou po otevření spojení, ne v adrese —
+		// v URL by zůstal v historii prohlížeče i v serverových logách.
+		ws.addEventListener('open', () => ws.send(JSON.stringify({ typ: 'autorizace', klic })));
 		ws.addEventListener('message', (u) => zpracuj(JSON.parse(u.data)));
 		otazky = vyberOtazky(+$('pocet-otazek').value);
 		casNaOtazku = +$('cas-otazky').value;
@@ -187,7 +196,12 @@ const banka = bankaProLigu();
 	});
 
 	function zpracuj(zprava) {
-		if (zprava.typ === 'prihlaseni') {
+		if (zprava.typ === 'autorizovano') {
+			return; // klíč přijat, tabule může řídit hru
+		} else if (zprava.typ === 'zamitnuto') {
+			alert(`Tabuli se nepodařilo přihlásit: ${zprava.duvod ?? 'neplatný klíč'}\n\nZaložte hru znovu tlačítkem „Vytvořit místnost".`);
+			return;
+		} else if (zprava.typ === 'prihlaseni') {
 			tymy[zprava.jmeno] ??= { body: 0 };
 			vykresliCekarnu();
 		} else if (zprava.typ === 'odpojeni') {

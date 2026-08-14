@@ -234,6 +234,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 111 kontrol ('✅ Galvanický článek: vše sedí.', exit 0). Brána testy/sablony.mjs 0 nálezů.",
 			"regrese": "Brána zkontroluj.mjs odhalila, co test se 104 kontrolami neviděl: pád na cells[cells.length-1].xNubEnd při neplatném počtu článků shodil celý skript simulace. Opraveno obrannou funkcí platneCislo() a kontrolou odolnosti; záložní větev pak odstraněna, protože mrtvý kód uniká mutačnímu testu.",
 			"overeno": "2026-08-14"
+		},
+		"liga-tabule.mjs": {
+			"test": "testy/liga-tabule.mjs (spouští se samostatně: node testy/liga-tabule.mjs)",
+			"podvrh": "Podvrh na KOPII mimo repo (otisk originálu 73ae1ee520d20361ecd834f79e6c2ff9 před i po shodný): vráceno staré zranitelné chování — role tabule se získá rovnou z URL (?role=tabule) bez klíče. Test spadl: 9 chyb z 19 kontrol, mimo jiné padla kontrola „znalost čtyřpísmenného kódu k řízení hry NESTAČÍ\".",
+			"zdravy": "Nad opraveným worker.js prochází všech 19 kontrol (exit 0): tabule bez klíče nerozešle nic, se špatným klíčem dostane zamítnuto a spojení se zavře, tým se klíčem nepovýší, po 5 pokusech je místnost dočasně zavřená, klíč se týmům nikdy neposílá.",
+			"regrese": "Při psaní testu se našla skutečná vada v novém kódu: načtení klíče ze storage v konstruktoru mohlo přepsat klíč právě zapsaný zakládáním místnosti (v Cloudflare by to blockConcurrencyWhile zakryl, v testu ne). Opraveno podmínkou, aby se uložený klíč nepropsal přes už nastavený.",
+			"overeno": "2026-08-14"
 		}
 	}
 }

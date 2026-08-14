@@ -7,21 +7,46 @@
 export class LigaMistnost {
 	constructor(state) {
 		this.state = state;
-		this.spojeni = new Map(); // WebSocket -> { role: 'tabule'|'tym', id, jmeno }
+		this.spojeni = new Map(); // WebSocket -> { role: 'tabule'|'ceka'|'tym', id, jmeno }
 		this.posledniFaze = null; // poslední zpráva tabule (pro nově připojené)
 		this.dalsiId = 1;
+		// Tajný klíč tabule. Vzniká při zakládání místnosti a NIKDY se neposílá týmům.
+		// Bez něj se role tabule nedá získat — čtyřpísmenný kód místnosti zná celá
+		// třída, takže sám o sobě nesmí stačit k řízení hry.
+		this.klic = null;
+		this.spatnePokusy = 0;
+		this.blokovanoDo = 0;
+		state.blockConcurrencyWhile?.(async () => {
+			const ulozeny = await state.storage?.get('klic');
+			// pozor na pořadí: klíč zapsaný mezitím zakládáním místnosti se
+			// NESMÍ přepsat zpět na null, jinak by šlo místnost založit dvakrát
+			if (ulozeny && !this.klic) this.klic = ulozeny;
+		});
 	}
 
 	async fetch(request) {
 		const url = new URL(request.url);
+
+		// interní: založení místnosti (volá jen samotný worker, ne prohlížeč)
+		if (url.pathname.endsWith('/zaloz')) {
+			const novy = url.searchParams.get('klic') ?? '';
+			if (this.klic) return new Response('obsazeno', { status: 409 });
+			if (novy.length < 20) return new Response('slabý klíč', { status: 400 });
+			this.klic = novy;
+			await this.state.storage?.put('klic', novy);
+			return new Response('ok');
+		}
+
 		if (request.headers.get('Upgrade') !== 'websocket') {
 			return new Response('Očekáván WebSocket', { status: 426 });
 		}
-		const role = url.searchParams.get('role') === 'tabule' ? 'tabule' : 'tym';
+		// Role tabule se NEDÁVÁ podle URL — kdo o ni žádá, musí ji nejdřív doložit
+		// klíčem v první zprávě. Do té doby nemá žádná práva (role 'ceka').
+		const chceTabuli = url.searchParams.get('role') === 'tabule';
 		const par = new WebSocketPair();
 		const [klient, server] = Object.values(par);
 		server.accept();
-		const meta = { role, id: role === 'tym' ? this.dalsiId++ : 0, jmeno: '' };
+		const meta = { role: chceTabuli ? 'ceka' : 'tym', id: chceTabuli ? 0 : this.dalsiId++, jmeno: '' };
 		this.spojeni.set(server, meta);
 
 		server.addEventListener('message', (udalost) => {
@@ -31,6 +56,29 @@ export class LigaMistnost {
 			} catch {
 				return;
 			}
+
+			// čekatel na roli tabule: přijímá se JEN autorizace, nic jiného nerozesílá
+			if (meta.role === 'ceka') {
+				if (zprava.typ !== 'autorizace') return;
+				if (Date.now() < this.blokovanoDo) {
+					this.posli(server, { typ: 'zamitnuto', duvod: 'Příliš mnoho pokusů, zkus to za chvíli.' });
+					try { server.close(1008, 'blokováno'); } catch {}
+					return;
+				}
+				if (!this.klic || String(zprava.klic ?? '') !== this.klic) {
+					this.spatnePokusy++;
+					if (this.spatnePokusy >= 5) this.blokovanoDo = Date.now() + 10 * 60 * 1000;
+					this.posli(server, { typ: 'zamitnuto', duvod: 'Neplatný klíč tabule.' });
+					try { server.close(1008, 'neplatný klíč'); } catch {}
+					this.spojeni.delete(server);
+					return;
+				}
+				this.spatnePokusy = 0;
+				meta.role = 'tabule';
+				this.posli(server, { typ: 'autorizovano' });
+				return;
+			}
+
 			if (meta.role === 'tabule') {
 				// tabule vysílá stav hry všem týmům
 				if (zprava.typ === 'faze') this.posledniFaze = zprava;
@@ -79,9 +127,29 @@ export default {
 		// herní místnosti Fyzikální ligy
 		if (url.pathname === '/api/liga/nova') {
 			const abeceda = 'ABCDEFHJKMNPRSTUVXYZ';
-			let kod = '';
-			for (let i = 0; i < 4; i++) kod += abeceda[Math.floor(Math.random() * abeceda.length)];
-			return new Response(JSON.stringify({ mistnost: kod }), {
+			// Kód místnosti zná celá třída (píše se na tabuli), klíč zná jen učitel.
+			// Klíč se losuje kryptograficky, ne přes Math.random.
+			const bajty = new Uint8Array(18);
+			crypto.getRandomValues(bajty);
+			const klic = [...bajty].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+			// Kód se losuje tak dlouho, dokud nepadne na volnou místnost — do obsazené
+			// (běžící hry) se klíč nikdy nepřepíše, jinak by šlo cizí hru převzít.
+			for (let pokus = 0; pokus < 6; pokus++) {
+				let kod = '';
+				for (let i = 0; i < 4; i++) kod += abeceda[Math.floor(Math.random() * abeceda.length)];
+				const id = env.LIGA.idFromName(kod);
+				const zalozeni = await env.LIGA.get(id).fetch(
+					`https://liga/zaloz?klic=${klic}`,
+				);
+				if (zalozeni.ok) {
+					return new Response(JSON.stringify({ mistnost: kod, klic }), {
+						headers: { 'content-type': 'application/json', 'cache-control': 'no-store' },
+					});
+				}
+			}
+			return new Response(JSON.stringify({ chyba: 'Nepodařilo se založit místnost, zkus to znovu.' }), {
+				status: 503,
 				headers: { 'content-type': 'application/json' },
 			});
 		}
