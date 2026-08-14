@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Ověření ElektrickaPraceVykonSimulace.astro — elektrická práce W = P·t a příkon P = U·I.
+// Ověření ElektrickaPraceAVykonSimulace.astro — elektrická práce W = P·t a příkon P = U·I.
 //
 // Nejtišeji by lhaly dvě věci: (1) že by nějaká kombinace spotřebič×hodiny
 // dala ošklivé desetinné číslo místo pěkného kWh/Kč — proto se prochází
@@ -39,7 +39,11 @@ const {
 	__SPOTREBICE: SPOTREBICE, __kwhText: kwhText, __kcText: kcText, __uhlovaRychlost: uhlovaRychlost,
 	__CENA_KWH: CENA_KWH, __NAPETI: NAPETI,
 } = svgA;
-const { __scenaB: scenaB, __vyskaSloupceB: vyskaSloupceB, __MAX_CENA_B: MAX_CENA_B } = svgB;
+const {
+	__scenaB: scenaB, __vyskaSloupceB: vyskaSloupceB, __geometrieSloupceB: geometrieSloupceB,
+	__MAX_CENA_B: MAX_CENA_B, __CHART_BASELINE: CHART_BASELINE, __CHART_MAX_PX: CHART_MAX_PX,
+	__CHART_MIN_PX: CHART_MIN_PX, __PANEL_B: PANEL_B, __IKONA_CX: IKONA_CX, __BAR_SIRKA: BAR_SIRKA,
+} = svgB;
 
 let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
@@ -241,8 +245,16 @@ console.log('\n— scenaB: pro všech 24 hodin vychází roční úspora jako ce
 console.log('\n— sloupce ceny: výška odpovídá poměru k maximu (100 W, 24 h), LED je vždy nižší —');
 {
 	ok(MAX_CENA_B === 360, `maximální cena (100 W, 24 h) je 360 Kč (${MAX_CENA_B})`);
-	ok(vyskaSloupceB(360) === 130, `sloupec na maximu vyplní celou výšku 130 px (${vyskaSloupceB(360)})`);
-	ok(vyskaSloupceB(0) === 2, `i nulová cena má viditelný minimální sloupec 2 px, ne 0 (${vyskaSloupceB(0)})`);
+	ok(vyskaSloupceB(360) === CHART_MAX_PX, `sloupec na maximu vyplní celou výšku ${CHART_MAX_PX} px (${vyskaSloupceB(360)})`);
+	ok(vyskaSloupceB(0) === CHART_MIN_PX, `i nulová cena má viditelný minimální sloupec ${CHART_MIN_PX} px, ne jen čárku (${vyskaSloupceB(0)})`);
+	// Strukturální pojistka proti nálezu z 14. 8.: kdyby byl CHART_MIN_PX
+	// nastavený příliš vysoko, při nejnižší poloze posuvníku (t = 1 h) by se
+	// ořezaly OBA sloupce na stejnou výšku a graf by lhal, že LED a stará
+	// žárovka stojí stejně. Práh musí zůstat přísně pod nejnižší SKUTEČNOU
+	// (neořezanou) výškou sloupce staré žárovky v celém rozsahu posuvníku.
+	const staraMinTrue = (cenaZaMesic(kwhZaMesic(100, 1)) / MAX_CENA_B) * CHART_MAX_PX;
+	ok(CHART_MIN_PX < staraMinTrue,
+		`CHART_MIN_PX (${CHART_MIN_PX} px) je přísně menší než nejnižší skutečná výška staré žárovky (t=1 h → ${staraMinTrue.toFixed(2)} px) — jinak by při t=1 h sloupce splynuly do stejné výšky`);
 	let spatne = null;
 	for (let t = 1; t <= 24; t++) {
 		const v = scenaB(t);
@@ -294,23 +306,107 @@ console.log('\n— bílé plakety s jmény a wattážemi v části B se nepřekr
 	ok(l.x + l.w < r.x, `plakety se nepřekrývají (levá končí na ${(l.x + l.w).toFixed(1)}, pravá začíná na ${r.x})`);
 }
 
-console.log('\n— nic neleze z obrázku B (viewBox 660×420) —');
+console.log('\n— nic neleze z obrázku B (viewBox 660×460) —');
 {
 	let mimo = null;
 	for (const t of [1, 5, 12, 24]) {
 		nastavB(t);
 		for (const g of [prvky.get('epv-b-ikony'), prvky.get('epv-b-popisky'), prvky.get('epv-b-sloupce'), prvky.get('epv-b-shrnuti')]) {
 			for (const el of g.innerHTML.matchAll(/<text x="(-?[\d.]+)" y="(-?[\d.]+)"/g)) {
-				if (+el[1] < 5 || +el[1] > 655 || +el[2] < 10 || +el[2] > 415) mimo = `${g.id}: text x=${el[1]} y=${el[2]} (t=${t})`;
+				if (+el[1] < 5 || +el[1] > 655 || +el[2] < 10 || +el[2] > 455) mimo = `${g.id}: text x=${el[1]} y=${el[2]} (t=${t})`;
 			}
 			for (const r of g.innerHTML.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)"/g)) {
 				const [x, y, w, h] = [1, 2, 3, 4].map((i) => +r[i]);
-				if (x < 0 || x + w > 660 || y < 0 || y + h > 420) mimo = `${g.id}: obdélník ${x},${y} ${w}×${h} (t=${t})`;
+				if (x < 0 || x + w > 660 || y < 0 || y + h > 460) mimo = `${g.id}: obdélník ${x},${y} ${w}×${h} (t=${t})`;
 			}
 		}
 	}
-	ok(mimo === null, mimo ? `něco leze z obrázku B — ${mimo}` : 'texty i obdélníky zůstávají uvnitř viewBoxu 660×420 pro krajní i střední časy');
+	ok(mimo === null, mimo ? `něco leze z obrázku B — ${mimo}` : 'texty i obdélníky zůstávají uvnitř viewBoxu 660×460 pro krajní i střední časy');
 	nastavB(5);
+}
+
+console.log('\n— SKUTEČNÉ souřadnice sloupců proti panelu a proti ose žárovek (nález 14. 8.) —');
+{
+	// Panel se čte NEZÁVISLE na skriptu — je to statická značka v HTML šabloně,
+	// ne hodnota odvozená ze stejných konstant, které kreslí sloupce.
+	//
+	// Hledá se VÝHRADNĚ uvnitř bloku <svg id="epv-b-svg">…</svg> — komponenta
+	// má DVĚ scény a KAŽDÁ má svůj bílý souhrnný <rect> se stejným vzorem
+	// (x="14" width="632" rx="8" fill="#fff"). Hledání nad celým souborem by
+	// tiše našlo panel SCÉNY A (nález kontroly 14. 8.: y=230) a test by pak
+	// měřil úplně jinou dvojici čísel, než sám tvrdí — proto se nejdřív vyřízne
+	// blok scény B a teprve v NĚM se panel hledá.
+	const blokB = /<svg id="epv-b-svg"[\s\S]*?<\/svg>/.exec(zdroj)?.[0];
+	ok(!!blokB, 'v souboru je nalezitelný celý blok <svg id="epv-b-svg">…</svg>');
+
+	const panelVzor = /<rect x="14" y="(\d+)" width="632" height="(\d+)" rx="8" fill="#fff"/g;
+	const panelKandidati = blokB ? [...blokB.matchAll(panelVzor)] : [];
+	// Pojistka proti tichému výběru „prvního nalezeného": kdyby uvnitř scény B
+	// kdykoli v budoucnu přibyl další <rect> se stejným vzorem, test se MUSÍ
+	// ozvat jako nejednoznačný, ne si mlčky vybrat jeden z nich.
+	ok(panelKandidati.length === 1,
+		panelKandidati.length === 0
+			? 'uvnitř scény B chybí souhrnný panel odpovídající očekávanému vzoru'
+			: `uvnitř scény B je NEJEDNOZNAČNO — nalezeno ${panelKandidati.length} bílých panelů se stejným vzorem, test neví, který je ten pravý`);
+
+	const panelY = panelKandidati.length === 1 ? +panelKandidati[0][1] : NaN;
+	ok(panelY === PANEL_B.y, `panel nalezený uvnitř scény B (y=${panelY}) sedí s konstantou PANEL_B.y (${PANEL_B.y}) používanou skriptem`);
+	ok(panelY === 365, `panel scény B má opravdu y = 365, natvrdo ověřeno nezávisle na konstantě (${panelY})`);
+
+	const POZADOVANA_MEZERA = 15; // px čistého prostoru mezi patou sloupce a horním okrajem panelu
+	let spatne = null;
+	if (Number.isNaN(panelY)) {
+		spatne = 'panel scény B se nepodařilo jednoznačně určit — geometrie sloupců se dál neověřuje';
+	} else {
+		for (let t = 1; t <= 24 && spatne === null; t++) {
+			nastavB(t);
+			const sloupceHtml = prvky.get('epv-b-sloupce').innerHTML;
+			const ikonyHtml = prvky.get('epv-b-ikony').innerHTML;
+			const rekty = [...sloupceHtml.matchAll(/<rect x="([-\d.]+)" y="([-\d.]+)" width="([\d.]+)" height="([\d.]+)"/g)]
+				.map((m) => ({ x: +m[1], y: +m[2], w: +m[3], h: +m[4] }));
+			const kola = [...ikonyHtml.matchAll(/<circle cx="([-\d.]+)" cy="([-\d.]+)" r="(\d+)"/g)].map((m) => +m[1]);
+			if (rekty.length !== 2) { spatne = `t=${t} h: čekal jsem 2 sloupce, mám ${rekty.length}`; break; }
+			if (kola.length !== 2) { spatne = `t=${t} h: čekal jsem 2 žárovky, mám ${kola.length}`; break; }
+
+			for (const r of rekty) {
+				const dole = r.y + r.h;
+				// (1) sloupec musí ležet CELÝ nad panelem, s rezervou — žádný překryv
+				if (dole > panelY - POZADOVANA_MEZERA) spatne = `t=${t} h: sloupec končí na y=${dole.toFixed(1)}, panel začíná na y=${panelY} — mezera ${(panelY - dole).toFixed(1)} px je menší než požadovaných ${POZADOVANA_MEZERA} px`;
+				// sloupec nesmí zasahovat POD paty (CHART_BASELINE) ani vzniknout nad ní obráceně
+				if (Math.abs(dole - CHART_BASELINE) > 0.5) spatne = `t=${t} h: pata sloupce (y=${dole.toFixed(1)}) neleží na CHART_BASELINE (${CHART_BASELINE})`;
+				// (3) i nejnižší sloupec musí být vidět jako sloupec, ne jako čárka
+				if (r.h < CHART_MIN_PX - 0.5) spatne = `t=${t} h: sloupec vysoký jen ${r.h.toFixed(1)} px, méně než minimum ${CHART_MIN_PX} px`;
+			}
+
+			// (2) vodorovný střed KAŽDÉHO sloupce musí sedět přesně na ose SVÉ žárovky
+			const stredy = rekty.map((r) => r.x + r.w / 2).sort((a, b) => a - b);
+			const osy = [...kola].sort((a, b) => a - b);
+			for (let i = 0; i < 2; i++) {
+				if (Math.abs(stredy[i] - osy[i]) > 0.5) spatne = `t=${t} h: střed sloupce (x=${stredy[i].toFixed(1)}) není na ose žárovky (cx=${osy[i]})`;
+			}
+		}
+	}
+	ok(spatne === null, spatne ?? `pro všech 24 poloh posuvníku: sloupce leží celé nad panelem (≥ ${POZADOVANA_MEZERA} px mezera), paty na CHART_BASELINE, výška ≥ ${CHART_MIN_PX} px a vodorovný střed přesně na ose žárovky`);
+}
+
+console.log('\n— poměr výšek sloupců je poctivý tam, kde není omezen minimální výškou —');
+{
+	// Prochází CELÝ rozsah posuvníku a přeskakuje jen polohy, kde je sloupec
+	// LED ještě useknutý na minimální výšku — tam, kde useknutý NENÍ, MUSÍ
+	// platit přesný lineární poměr cen, žádné „hezčí“ přikreslení na úkor pravdy.
+	let spatne = null, zkontrolovanoBezOriznuti = 0;
+	for (let t = 1; t <= 24; t++) {
+		const v = scenaB(t);
+		const gStara = geometrieSloupceB(IKONA_CX.stara, v.kcStara);
+		const gLed = geometrieSloupceB(IKONA_CX.led, v.kcLed);
+		if (gLed.vyska <= CHART_MIN_PX + 0.01) continue; // stále na hraně ořezu, přeskočit
+		zkontrolovanoBezOriznuti++;
+		const pomerCen = v.kcStara / v.kcLed;
+		const pomerVysek = gStara.vyska / gLed.vyska;
+		if (Math.abs(pomerCen - pomerVysek) > 0.01) spatne = `t=${t} h: poměr cen ${pomerCen.toFixed(2)} neodpovídá poměru výšek ${pomerVysek.toFixed(2)}`;
+	}
+	ok(zkontrolovanoBezOriznuti >= 1, `aspoň jedna poloha (t 19–24) má oba sloupce nad minimální výškou — je co ověřit (${zkontrolovanoBezOriznuti})`);
+	ok(spatne === null, spatne ?? 'v neořezaných polohách sedí poměr výšek sloupců přesně s poměrem cen — žádné zkreslení');
 }
 
 console.log('\n— odolnost B: neplatná hodnota posuvníku nezhroutí překreslení —');

@@ -78,13 +78,14 @@
 
 	<h3><span class="podtrh">⚖️ Část B: Stará vs. LED žárovka</span></h3>
 	<p>Obě žárovky svítí <strong>úplně stejně</strong> — všimni si, že obrázky mají schválně stejnou velikost. Liší se jen <strong>příkon</strong>, a tedy cena.</p>
-	<svg id="epv-b-svg" viewBox="0 0 660 420" role="img" aria-label="Porovnání staré a LED žárovky: stejně velký obrázek žárovky, různě vysoký sloupec ceny">
-		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
+	<svg id="epv-b-svg" viewBox="0 0 660 460" role="img" aria-label="Porovnání staré a LED žárovky: stejně velký obrázek žárovky, sloupcový graf ceny nad souhrnným panelem">
+		<rect x="0" y="0" width="660" height="460" fill="#f8f9fa" />
 		<g id="epv-b-ikony"></g>
 		<g id="epv-b-popisky"></g>
-		<line x1="60" y1="345" x2="600" y2="345" stroke="#2b2a26" stroke-width="3" />
+		<text x="330" y="185" text-anchor="middle" font-size="12" fill="#868e96">cena za měsíc (výška sloupce):</text>
+		<line x1="100" y1="345" x2="560" y2="345" stroke="#2b2a26" stroke-width="3" />
 		<g id="epv-b-sloupce"></g>
-		<rect x="14" y="355" width="632" height="55" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<rect x="14" y="365" width="632" height="70" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
 		<g id="epv-b-shrnuti"></g>
 	</svg>
 	<label class="sim-posuvnik">
@@ -265,6 +266,26 @@
 	// ── Část B ───────────────────────────────────────────────────────────────
 	const MAX_CENA_B = cenaZaMesic(kwhZaMesic(SPOTREBICE.klasicka.p, 24)); // 360 Kč — cena při max. poloze posuvníku
 
+	// Geometrie grafu — JEDNA sada konstant, ze které se odvozuje jak poloha
+	// ikon, tak poloha sloupců. Vodorovná osa sloupce se počítá VŽDY z téhož
+	// IKONA_CX jako žárovka nad ním, takže se nemůže rozejít (nález kontroly
+	// 14. 8.: sloupec LED byl mimo osu žárovky). Mezera mezi patou sloupců
+	// (CHART_BASELINE) a souhrnným panelem (PANEL_B.y) je schválně velká
+	// (20 px čistého prostoru i po odečtení stroke-width), aby se sloupec a
+	// panel v žádném vykresleném stavu nepřekrývaly ani vizuálně nesplývaly.
+	const BAR_SIRKA = 70;
+	const IKONA_CX = { stara: 170, led: 490 };
+	const CHART_BASELINE = 345;   // y, kde stojí paty všech sloupců
+	const CHART_MAX_PX = 130;     // výška sloupce při MAX_CENA_B (360 Kč)
+	// Minimální výška sloupce (viditelnost při skoro nulové ceně). MUSÍ zůstat
+	// PŘÍSNĚ menší než nejnižší skutečná výška sloupce staré žárovky v celém
+	// rozsahu posuvníku — tou je t = 1 h: (15 Kč / 360 Kč) · 130 px ≈ 5,42 px.
+	// Kdyby byl práh vyšší (zkoušeno 10 px), při t = 1 h by se ořezaly OBA
+	// sloupce na stejnou výšku a graf by lhal, že LED a stará žárovka stojí
+	// stejně — přesně tenhle druh chyby hlídá test (viz „poměr výšek…").
+	const CHART_MIN_PX = 5;
+	const PANEL_B = { x: 14, y: 365, w: 632, h: 70 }; // 20 px pod CHART_BASELINE
+
 	// ČISTÁ FUNKCE: kompletní srovnání staré a LED žárovky pro danou dobu svícení.
 	function scenaB(tVstup) {
 		const t = platneCislo(tVstup, 1, 24, 5);
@@ -277,13 +298,28 @@
 		const rozdilKcRok = Math.round(rozdilKcMesic * 12 * 100) / 100;
 		return { t, whStara, whLed, kwhStara, kwhLed, kcStara, kcLed, rozdilKwh, rozdilKcMesic, rozdilKcRok };
 	}
-	function vyskaSloupceB(kc, maxPx = 130) { return Math.max(2, (kc / MAX_CENA_B) * maxPx); }
+	// Výška sloupce v px — lineární škála vůči MAX_CENA_B, ale nikdy pod
+	// CHART_MIN_PX (viditelnost má přednost, přesné číslo nese popisek u sloupce).
+	function vyskaSloupceB(kc, maxPx = CHART_MAX_PX) { return Math.max(CHART_MIN_PX, (kc / MAX_CENA_B) * maxPx); }
+	// ČISTÁ FUNKCE: úplná geometrie jednoho sloupce (poloha i popisek nad ním).
+	function geometrieSloupceB(cx, kc) {
+		const vyska = vyskaSloupceB(kc);
+		const y = CHART_BASELINE - vyska;
+		return { x: cx - BAR_SIRKA / 2, y, vyska, dole: CHART_BASELINE, labelY: y - 10 };
+	}
 
 	const sliderB = document.getElementById('epv-b-t');
 	const svgB = document.getElementById('epv-b-svg');
 	svgB.__scenaB = scenaB;
 	svgB.__vyskaSloupceB = vyskaSloupceB;
+	svgB.__geometrieSloupceB = geometrieSloupceB;
 	svgB.__MAX_CENA_B = MAX_CENA_B;
+	svgB.__CHART_BASELINE = CHART_BASELINE;
+	svgB.__CHART_MAX_PX = CHART_MAX_PX;
+	svgB.__CHART_MIN_PX = CHART_MIN_PX;
+	svgB.__PANEL_B = PANEL_B;
+	svgB.__IKONA_CX = IKONA_CX;
+	svgB.__BAR_SIRKA = BAR_SIRKA;
 	svgB.__kwhText = kwhText;
 	svgB.__kcText = kcText;
 	svgB.__SPOTREBICE = SPOTREBICE;
@@ -294,26 +330,30 @@
 
 		const stara = SPOTREBICE.klasicka, led = SPOTREBICE.led;
 		document.getElementById('epv-b-ikony').innerHTML =
-			ikonaSvg(stara.ikona, 170, 80, stara.barva) + ikonaSvg(led.ikona, 490, 80, led.barva);
+			ikonaSvg(stara.ikona, IKONA_CX.stara, 65, stara.barva) + ikonaSvg(led.ikona, IKONA_CX.led, 65, led.barva);
 
 		const plaketa = (cx, nazev, p) =>
-			`<rect x="${cx - 115}" y="132" width="230" height="26" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />`
-			+ `<text x="${cx}" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${nazev} — ${p} W</text>`;
+			`<rect x="${cx - 115}" y="116" width="230" height="26" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${cx}" y="134" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${nazev} — ${p} W</text>`;
 		document.getElementById('epv-b-popisky').innerHTML =
-			plaketa(170, stara.nazev, stara.p) + plaketa(490, led.nazev, led.p)
-			+ `<text x="170" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${kwhText(v.kwhStara)} / měsíc</text>`
-			+ `<text x="170" y="204" text-anchor="middle" font-size="15" font-weight="bold" fill="#e8590c">${kcText(v.kcStara)}</text>`
-			+ `<text x="490" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${kwhText(v.kwhLed)} / měsíc</text>`
-			+ `<text x="490" y="204" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44">${kcText(v.kcLed)}</text>`;
+			plaketa(IKONA_CX.stara, stara.nazev, stara.p) + plaketa(IKONA_CX.led, led.nazev, led.p)
+			+ `<text x="${IKONA_CX.stara}" y="160" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${kwhText(v.kwhStara)} / měsíc</text>`
+			+ `<text x="${IKONA_CX.led}" y="160" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${kwhText(v.kwhLed)} / měsíc</text>`;
 
-		const vyStara = vyskaSloupceB(v.kcStara), vyLed = vyskaSloupceB(v.kcLed);
+		// Sloupec i jeho popisek s cenou se počítají ze STEJNÉ geometrie
+		// (geometrieSloupceB) — barva sloupce a barva popisku k sobě patří,
+		// takže dítě spojí číslo se správným sloupcem i bez legendy.
+		const sloupec = (cx, kc, barva) => {
+			const g = geometrieSloupceB(cx, kc);
+			return `<rect x="${g.x.toFixed(1)}" y="${g.y.toFixed(1)}" width="${BAR_SIRKA}" height="${g.vyska.toFixed(1)}" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`
+				+ `<text x="${cx}" y="${g.labelY.toFixed(1)}" text-anchor="middle" font-size="14" font-weight="bold" fill="${barva === '#ff8787' ? '#e8590c' : '#2f9e44'}">${kcText(kc)}</text>`;
+		};
 		document.getElementById('epv-b-sloupce').innerHTML =
-			`<rect x="135" y="${(345 - vyStara).toFixed(1)}" width="70" height="${vyStara.toFixed(1)}" fill="#ff8787" stroke="#2b2a26" stroke-width="3" />`
-			+ `<rect x="455" y="${(345 - vyLed).toFixed(1)}" width="70" height="${vyLed.toFixed(1)}" fill="#8ce99a" stroke="#2b2a26" stroke-width="3" />`;
+			sloupec(IKONA_CX.stara, v.kcStara, '#ff8787') + sloupec(IKONA_CX.led, v.kcLed, '#51cf66');
 
 		document.getElementById('epv-b-shrnuti').innerHTML =
-			`<text x="330" y="376" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">úspora LED za měsíc: ${kwhText(v.rozdilKwh)} = ${kcText(v.rozdilKcMesic)}</text>`
-			+ `<text x="330" y="400" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44">úspora za rok (× 12): ${kcText(v.rozdilKcRok)}</text>`;
+			`<text x="330" y="${PANEL_B.y + 22}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">úspora LED za měsíc: ${kwhText(v.rozdilKwh)} = ${kcText(v.rozdilKcMesic)}</text>`
+			+ `<text x="330" y="${PANEL_B.y + 46}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44">úspora za rok (× 12): ${kcText(v.rozdilKcRok)}</text>`;
 
 		document.getElementById('epv-b-vypocet').innerHTML =
 			`Stará (100 W): ${kwhText(v.kwhStara)} → <strong>${kcText(v.kcStara)}</strong> za měsíc. LED (10 W): ${kwhText(v.kwhLed)} → <strong>${kcText(v.kcLed)}</strong> za měsíc. `
