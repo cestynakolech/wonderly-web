@@ -40,8 +40,28 @@ a hláška říkala „5 článků **dávají**". K tomu délková nápověda v 
   zatímco komponenta padala na `cells[cells.length-1]` a v prohlížeči by nefungovalo
   vůbec nic. Odhalila to až brána `testy/sablony.mjs` — **pouštět ji vždy**.
 
+**Hotovo 14. 8. odpoledne: `elektricka-prace-a-vykon` (F8)** — commity `f57c36c`
+(obsah) + `efb6f67` (opravy), nasazeno a **ověřeno čtením ze živého webu**
+(simulace, 3 odkazy, 2 videa i nové otázky tam jsou). Dvě scény: (A) spotřebič
+v zásuvce s elektroměrem, 4 spotřebiče × 1–24 h, počítá `P = U·I` při 230 V,
+spotřebu ve Wh/kWh i cenu; (B) stará 100W vs. LED 10W žárovka sloupcovým grafem.
+Kvíz doplněn na 19 otázek, test **76 kontrol**, obousměrný doklad se **třemi**
+podvrhy. Všechny simulace: 25 souborů / 1893 kontrol / 0 spadlo.
+
+🔴 **DVĚ POUČENÍ Z TOHOTO KOLA:**
+- **Rozpor čísel mezi workery je pravidlo, ne výjimka.** Výklad a simulace počítaly
+  5 Kč/kWh a 100 W, kvízový worker si nezávisle zvolil 6 Kč a 60 W — na TÉŽE
+  stránce. Workeři o sobě nevědí, takže sjednocení čísel je práce koordinátora
+  a musí se dělat VŽDY, ne jen když to padne do oka.
+- **Nové měřidlo umí mít falešný poplach a vypadá to jako vada scény.** Test hledal
+  bílý panel v celém souboru a našel ten ze scény A (y=230), takže u opravené
+  scény B hlásil překryv −115 px. Nesmí se to „spravit" změkčením prahu: panel se
+  nově hledá výhradně uvnitř `<svg id="epv-b-svg">` a přibyla pojistka
+  „nejednoznačné" místo tichého výběru prvního nálezu. Kalibrace po opravě měřidla
+  je povinná — jinak zůstane zelené proto, že nic neměří.
+
 **NA ŘADĚ DÁL — ber shora dolů (shrnutí názornost nepotřebují, vynechat):**
-F8: `elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost` → tím je fyzika 8 hotová.
+F8: `ucinky-proudu-a-bezpecnost` → tím je fyzika 8 hotová.
 F9: `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
 `chemicke-zdroje-napeti`, `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
 `obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.

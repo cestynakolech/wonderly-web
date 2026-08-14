@@ -7,16 +7,36 @@
 // jako ve výkladu na této stránce (viz temata.ts, „počítejme 5 Kč za kWh") —
 // aby si simulace a text neprotiřečily, konstanta se odnikud jinud nebere.
 //
-// Část A: žák vybere spotřebič a dobu provozu za den (1–24 h) a vidí denní
-// spotřebu (Wh), měsíční spotřebu (kWh, 30 dní) a cenu. Příkony (10/100/2000 W)
-// a celé hodiny byly zvoleny tak, aby VŠECHNY kombinace daly kWh na 1 desetinné
-// místo přesně a cenu na celé desetikoruny nebo padesátníky — žádné nekonečné
-// desetinné číslo (ověřeno výpočtem pro P∈{10,100,2000}, t=1..24):
+// Část A: žák vybere spotřebič a dobu provozu za den a vidí denní spotřebu
+// (Wh), měsíční spotřebu (kWh, 30 dní) a cenu. Příkony (10/20/100/2000 W)
+// a doby provozu byly zvoleny tak, aby VŠECHNY kombinace daly kWh na
+// 1 desetinné místo přesně a cenu na celé desetikoruny nebo padesátníky —
+// žádné nekonečné desetinné číslo (ověřeno výpočtem, t v celých hodinách
+// 1..24):
 //   10 W  → kWh/měsíc = 0,3·t  (vždy přesně 1 des. místo)
+//   20 W  → kWh/měsíc = 0,6·t  (vždy přesně 1 des. místo)
 //  100 W  → kWh/měsíc = 3·t    (vždy celé číslo)
 // 2000 W  → kWh/měsíc = 60·t   (vždy celé číslo)
 // Výchozí t = 5 h dává u klasické žárovky (100 W) přesně stejný trojpříklad,
 // jaký je rozepsaný ve výkladu: 0,5 kWh/den, 15 kWh/měsíc, 75 Kč.
+//
+// Konvice má VLASTNÍ krok posuvníku 0,25 h (15 min), 0,25–24 h — výklad totiž
+// počítá vzorový příklad právě s 15 min denně (nález nezávislé kontroly
+// 14. 8.: s krokem 1 h nešel ten příklad ve scéně vůbec nastavit). Čtvrthodiny
+// jsou v binární plovoucí čárce PŘESNÉ (0,25 = 1/4), takže žádné zaokrouhlovací
+// šumy, a 2000 W · (n/4) h · 30 dní / 1000 = 15·n kWh vychází CELÉ pro
+// libovolné n — funguje to i mimo 0,25 (viz kwhZaMesic). Ostatní spotřebiče
+// mají krok 1 h beze změny (0,25 h by u nich dávalo ošklivá čísla, viz test).
+// Přepnutí spotřebiče proto navíc přepíná min/max/step posuvníku
+// (upravPosuvnikProSpotrebic) — u konvice rovnou naskočí na 0,25 h, aby žák
+// hned viděl přesně ten příklad z výkladu (500 Wh/den, 15 kWh/měsíc, 75 Kč).
+//
+// Lednička: NE 100 W (nález nezávislé kontroly 14. 8.: 100 W je příkon BĚŽÍCÍHO
+// kompresoru, ne průměr — vydávat ho za „průměrný odběr" by dítě naučilo
+// pětinásobek skutečnosti). Běžná lednička má štítkovou spotřebu řádově
+// 150–250 kWh/rok, což je PRŮMĚRNÝ příkon cca 17–29 W (kompresor běží jen
+// část času). Použito zaokrouhlené 20 W — uprostřed reálného rozsahu a
+// zároveň dává čistá čísla (kWh/měsíc = 0,6·t, viz výše).
 //
 // Část B porovnává starou (100 W) a LED (10 W) žárovku — schválně STEJNĚ
 // VELKÝ a stejně jasný obrázek žárovky pro obě (počet/délka paprsků se
@@ -27,6 +47,17 @@
 // 13,5 kWh = 67,50 Kč/měsíc = 810 Kč/rok (13,5 kWh je vždy 0,1 des. místo:
 // rozdíl = 2,7·t; cena rozdílu = 13,5·t; ročně 162·t — všechno celé nebo na
 // padesátníky přesně, pro každé celé t 1–24).
+//
+// Měřítko grafu sloupců je odvozené OD AKTUÁLNÍ dvojice cen (Math.max),
+// NE od pevného stropu (nález nezávislé kontroly 14. 8.: pevný strop 360 Kč
+// spolu s minimální výškou sloupce při nízkém t „useknul“ LED sloupec skoro
+// na výšku staré žárovky, takže graf lhal — desetinásobný rozdíl v ceně
+// ukazoval jako sotva znatelný). Protože LED stojí VŽDY přesně desetinu
+// staré žárovky (10 W vs. 100 W při stejném čase — t se ve zlomku kcLed/kcStara
+// vykrátí), stará žárovka teď vyplní CELÝ dostupný sloupec (CHART_MAX_PX) a
+// LED sloupec je PŘESNĚ desetina jeho výšky ve VŠECH polohách posuvníku,
+// nejen tam, kde by byl nad prahem CHART_MIN_PX. Sloupce tak navíc vždy
+// vyplní celou dostupnou výšku grafu, ne jen její zlomek.
 //
 // Otáčky ručičky elektroměru JSOU vázané na příkon (rychlejší otáčení =
 // větší příkon = víc to stojí) — to je fyzikálně správná analogie ke
@@ -45,7 +76,7 @@
 	<p class="epv-radek" id="epv-a-spotrebice">
 		<button type="button" class="epv-tl epv-aktivni" data-klic="klasicka">💡 klasická žárovka (100 W)</button>
 		<button type="button" class="epv-tl" data-klic="led">💡 LED žárovka (10 W)</button>
-		<button type="button" class="epv-tl" data-klic="lednicka">❄️ lednička (100 W)</button>
+		<button type="button" class="epv-tl" data-klic="lednicka">❄️ lednička (20 W)</button>
 		<button type="button" class="epv-tl" data-klic="konvice">☕ rychlovarná konvice (2000 W)</button>
 	</p>
 	<svg id="epv-a-svg" viewBox="0 0 660 350" role="img" aria-label="Spotřebič v zásuvce a elektroměr s ručičkou, dole vypočtená spotřeba a cena">
@@ -82,7 +113,7 @@
 		<rect x="0" y="0" width="660" height="460" fill="#f8f9fa" />
 		<g id="epv-b-ikony"></g>
 		<g id="epv-b-popisky"></g>
-		<text x="330" y="185" text-anchor="middle" font-size="12" fill="#868e96">cena za měsíc (výška sloupce):</text>
+		<text x="330" y="185" text-anchor="middle" font-size="12" fill="#868e96">cena za měsíc (výška sloupce, LED = vždy desetina):</text>
 		<line x1="100" y1="345" x2="560" y2="345" stroke="#2b2a26" stroke-width="3" />
 		<g id="epv-b-sloupce"></g>
 		<rect x="14" y="365" width="632" height="70" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
@@ -102,6 +133,20 @@
 	function platneCislo(hodnota, min, max, vychozi) {
 		const n = Math.round(Number(hodnota));
 		return Number.isInteger(n) && n >= min && n <= max ? n : vychozi;
+	}
+
+	// Totéž, ale pro posuvník s VLASTNÍM krokem (konvice jede po 0,25 h) —
+	// hodnota se zarovná na nejbližší platný násobek kroku od min, ne jen na
+	// celé číslo. Čtvrthodinové kroky (0,25/0,5/0,75) jsou v binární plovoucí
+	// čárce PŘESNÉ (mocniny dvou ve jmenovateli), takže zaokrouhlení na 2
+	// desetinná místa jen zametá nepřesnost z případného řetězení výpočtů,
+	// ne skutečnou chybu kroku.
+	function platnaDoba(hodnota, min, max, krok, vychozi) {
+		const n = Number(hodnota);
+		if (!Number.isFinite(n)) return vychozi;
+		const kroky = Math.round((n - min) / krok);
+		const zarovnano = Math.round((min + kroky * krok) * 100) / 100;
+		return zarovnano >= min && zarovnano <= max ? zarovnano : vychozi;
 	}
 
 	// ── konstanty a čisté fyzikální funkce (sdílené oběma částmi) ──────────────
@@ -132,6 +177,22 @@
 		const cela = Math.trunc(r + 1e-9);
 		const setiny = Math.round((r - cela) * 100);
 		return setiny === 0 ? `${tisice(cela)} Kč` : `${tisice(cela)},${String(setiny).padStart(2, '0')} Kč`;
+	}
+	// Čas ve VZORCI (W = P · t) musí zůstat v hodinách, jinak by násobení
+	// s příkonem ve wattech nedávalo Wh — proto se do vzorce vždy dosazuje
+	// tahle desetinná podoba (0,25 h), ne minuty.
+	function tHodinyText(t) {
+		const r = Math.round(t * 100) / 100;
+		return Number.isInteger(r) ? `${r} h` : `${cz(r, 2)} h`;
+	}
+	// Čas PRO ČLOVĚKA (popisek posuvníku, hláška) — pod hodinu v minutách,
+	// nad hodinu jako „X h Y min", ať dítě nemusí počítat 0,25 h = 15 min samo.
+	function dobaText(t) {
+		if (t < 1) return `${Math.round(t * 60)} min`;
+		if (Number.isInteger(t)) return `${t} h`;
+		const hod = Math.floor(t);
+		const min = Math.round((t - hod) * 60);
+		return min === 0 ? `${hod} h` : `${hod} h ${min} min`;
 	}
 
 	// Kreslí ikonu spotřebiče. U žárovky je velikost skla i počet/délka paprsků
@@ -168,10 +229,13 @@
 			popis: 'Většinu příkonu promění na teplo, ne na světlo — proto se dnes nahrazuje LED žárovkou.' },
 		led: { nazev: 'LED žárovka', p: 10, ikona: 'zarovka', barva: '#74c0fc',
 			popis: 'Dává stejné světlo jako klasická žárovka, ale s desetkrát menším příkonem.' },
-		lednicka: { nazev: 'lednička', p: 100, ikona: 'lednicka', barva: '#a5d8ff',
-			popis: 'Běží prakticky celý den — 100 W je průměrný odběr, motor se sám zapíná a vypíná.' },
+		// 100 W je příkon BĚŽÍCÍHO kompresoru, ne průměrná spotřeba — kompresor
+		// sepne jen část času. Běžná lednička má na štítku 150–250 kWh/rok, což
+		// vychází na PRŮMĚRNÝ příkon jen ~17–29 W; použito zaokrouhlené 20 W.
+		lednicka: { nazev: 'lednička', p: 20, ikona: 'lednicka', barva: '#a5d8ff',
+			popis: 'Kompresor běží jen část času a mezitím nebere nic — 20 W je PRŮMĚRNÝ odběr přepočtený z celoroční spotřeby (běžná lednička má na štítku 150–250 kWh/rok), ne příkon, když je kompresor zrovna zapnutý.' },
 		konvice: { nazev: 'rychlovarná konvice', p: 2000, ikona: 'konvice', barva: '#ff8787',
-			popis: 'Má obrovský příkon, ale běží jen pár minut denně — proto ji nezapojuj do prodlužovačky s dalšími spotřebiči.' },
+			popis: 'Má obrovský příkon, ale běží jen pár minut denně — proto ji nezapojuj do prodlužovačky s dalšími spotřebiči. Posuvník proto jede po čtvrthodinách: nastav 15 min a uvidíš přesně příklad z výkladu.' },
 	};
 
 	// Úhlová rychlost ručičky elektroměru: vyšší příkon = rychlejší otáčení.
@@ -185,6 +249,8 @@
 	const svgA = document.getElementById('epv-a-svg');
 	const ruckaA = document.getElementById('epv-a-mer-rucicka');
 
+	const KROK_KONVICE = 0.25; // h (15 min) — jediný spotřebič s vlastním krokem, viz hlavička souboru
+
 	svgA.__whZaDen = whZaDen;
 	svgA.__kwhZaMesic = kwhZaMesic;
 	svgA.__cenaZaMesic = cenaZaMesic;
@@ -195,6 +261,10 @@
 	svgA.__uhlovaRychlost = uhlovaRychlost;
 	svgA.__CENA_KWH = CENA_KWH;
 	svgA.__NAPETI = NAPETI;
+	svgA.__platnaDoba = platnaDoba;
+	svgA.__dobaText = dobaText;
+	svgA.__tHodinyText = tHodinyText;
+	svgA.__KROK_KONVICE = KROK_KONVICE;
 
 	// ticky elektroměru se kreslí jen jednou (statické, nemění se)
 	{
@@ -213,13 +283,17 @@
 
 	function prekresliA() {
 		const s = SPOTREBICE[aktivniKlic] ?? SPOTREBICE.klasicka;
-		const t = platneCislo(sliderA.value, 1, 24, 5);
+		const jeKonvice = aktivniKlic === 'konvice';
+		const krok = jeKonvice ? KROK_KONVICE : 1;
+		const minT = jeKonvice ? KROK_KONVICE : 1;
+		const vychoziT = jeKonvice ? KROK_KONVICE : 5;
+		const t = platnaDoba(sliderA.value, minT, 24, krok, vychoziT);
 		const wh = whZaDen(s.p, t);
 		const kwh = kwhZaMesic(s.p, t);
 		const kc = cenaZaMesic(kwh);
 		const proud = proudA(s.p);
 
-		document.getElementById('epv-a-out-t').textContent = `${t} h`;
+		document.getElementById('epv-a-out-t').textContent = dobaText(t);
 		document.getElementById('epv-a-ikona').innerHTML = ikonaSvg(s.ikona, 150, 112, s.barva);
 		document.getElementById('epv-a-plaketa').innerHTML =
 			`<rect x="20" y="175" width="260" height="28" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />`
@@ -227,24 +301,46 @@
 
 		document.getElementById('epv-a-info').innerHTML =
 			`<text x="330" y="254" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">příkon P = ${s.p} W (I = P ÷ U ≈ ${cz(proud, 2)} A při U = 230 V)</text>`
-			+ `<text x="330" y="282" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">za den: P · t = ${s.p} W · ${t} h = ${whText(wh)}</text>`
+			+ `<text x="330" y="282" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">za den: P · t = ${s.p} W · ${tHodinyText(t)} = ${whText(wh)}</text>`
 			+ `<text x="330" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#e8590c">za měsíc (30 dní): ${kwhText(kwh)} → cena (5 Kč/kWh): ${kcText(kc)}</text>`;
 
 		document.getElementById('epv-a-vypocet').innerHTML =
-			`W = P · t = ${s.p} W · ${t} h = <strong>${whText(wh)}</strong> za den → × 30 dní = <strong>${kwhText(kwh)}</strong> za měsíc → `
+			`W = P · t = ${s.p} W · ${tHodinyText(t)} = <strong>${whText(wh)}</strong> za den → × 30 dní = <strong>${kwhText(kwh)}</strong> za měsíc → `
 			+ `cena = ${kwhText(kwh)} · 5 Kč/kWh = <strong>${kcText(kc)}</strong>.`;
 
 		document.getElementById('epv-a-stav').textContent =
-			`⚡ ${s.nazev} (${s.p} W): ${s.popis} Při ${t} h denně spotřebuje za měsíc ${kwhText(kwh)}, což při ceně 5 Kč/kWh stojí ${kcText(kc)}.`;
+			`⚡ ${s.nazev} (${s.p} W): ${s.popis} Při ${dobaText(t)} denně spotřebuje za měsíc ${kwhText(kwh)}, což při ceně 5 Kč/kWh stojí ${kcText(kc)}.`;
 
 		rychlostDegS = uhlovaRychlost(s.p);
 	}
+
+	// Konvice jede po čtvrthodinách (0,25–24 h), ostatní spotřebiče po celých
+	// hodinách (1–24 h) — u nich by 0,25 h dávalo ošklivá čísla (viz hlavička
+	// souboru). Při přepnutí NA konvici posuvník rovnou naskočí na 0,25 h, ať
+	// žák hned vidí přesně příklad z výkladu; při přepnutí PRYČ se hodnota
+	// zaokrouhlí zpátky na celou hodinu v platném rozsahu.
+	function upravPosuvnikProSpotrebic(klic) {
+		if (klic === 'konvice') {
+			sliderA.min = String(KROK_KONVICE);
+			sliderA.max = '24';
+			sliderA.step = String(KROK_KONVICE);
+			sliderA.value = String(KROK_KONVICE);
+		} else {
+			sliderA.min = '1';
+			sliderA.max = '24';
+			sliderA.step = '1';
+			const puvodni = Math.round(Number(sliderA.value));
+			sliderA.value = String(Number.isFinite(puvodni) && puvodni >= 1 && puvodni <= 24 ? puvodni : 5);
+		}
+	}
+	svgA.__upravPosuvnikProSpotrebic = upravPosuvnikProSpotrebic;
 
 	tlacitkaA.addEventListener('click', (e) => {
 		const tl = e.target.closest('.epv-tl');
 		if (!tl || !SPOTREBICE[tl.dataset.klic]) return;
 		aktivniKlic = tl.dataset.klic;
 		for (const b of document.querySelectorAll('#epv-a-spotrebice .epv-tl')) b.classList.toggle('epv-aktivni', b === tl);
+		upravPosuvnikProSpotrebic(aktivniKlic);
 		prekresliA();
 	});
 	sliderA.addEventListener('input', prekresliA);
@@ -264,8 +360,6 @@
 	requestAnimationFrame(krokA);
 
 	// ── Část B ───────────────────────────────────────────────────────────────
-	const MAX_CENA_B = cenaZaMesic(kwhZaMesic(SPOTREBICE.klasicka.p, 24)); // 360 Kč — cena při max. poloze posuvníku
-
 	// Geometrie grafu — JEDNA sada konstant, ze které se odvozuje jak poloha
 	// ikon, tak poloha sloupců. Vodorovná osa sloupce se počítá VŽDY z téhož
 	// IKONA_CX jako žárovka nad ním, takže se nemůže rozejít (nález kontroly
@@ -276,13 +370,12 @@
 	const BAR_SIRKA = 70;
 	const IKONA_CX = { stara: 170, led: 490 };
 	const CHART_BASELINE = 345;   // y, kde stojí paty všech sloupců
-	const CHART_MAX_PX = 130;     // výška sloupce při MAX_CENA_B (360 Kč)
-	// Minimální výška sloupce (viditelnost při skoro nulové ceně). MUSÍ zůstat
-	// PŘÍSNĚ menší než nejnižší skutečná výška sloupce staré žárovky v celém
-	// rozsahu posuvníku — tou je t = 1 h: (15 Kč / 360 Kč) · 130 px ≈ 5,42 px.
-	// Kdyby byl práh vyšší (zkoušeno 10 px), při t = 1 h by se ořezaly OBA
-	// sloupce na stejnou výšku a graf by lhal, že LED a stará žárovka stojí
-	// stejně — přesně tenhle druh chyby hlídá test (viz „poměr výšek…").
+	const CHART_MAX_PX = 130;     // výška sloupce s vyšší cenou (vždy stará žárovka)
+	// Minimální výška sloupce — čistě obranná pojistka pro degenerovaný vstup
+	// (např. referenční maximum 0), NE nástroj na „hezčí" zobrazení: měřítko
+	// grafu se teď odvozuje od AKTUÁLNÍ dvojice cen (viz vyskaSloupceB), takže
+	// při běžném použití se tenhle práh vůbec neuplatní (LED sloupec vždy
+	// vyjde 13 px, viz níž — bezpečně nad prahem).
 	const CHART_MIN_PX = 5;
 	const PANEL_B = { x: 14, y: 365, w: 632, h: 70 }; // 20 px pod CHART_BASELINE
 
@@ -298,12 +391,20 @@
 		const rozdilKcRok = Math.round(rozdilKcMesic * 12 * 100) / 100;
 		return { t, whStara, whLed, kwhStara, kwhLed, kcStara, kcLed, rozdilKwh, rozdilKcMesic, rozdilKcRok };
 	}
-	// Výška sloupce v px — lineární škála vůči MAX_CENA_B, ale nikdy pod
-	// CHART_MIN_PX (viditelnost má přednost, přesné číslo nese popisek u sloupce).
-	function vyskaSloupceB(kc, maxPx = CHART_MAX_PX) { return Math.max(CHART_MIN_PX, (kc / MAX_CENA_B) * maxPx); }
+	// Výška sloupce v px — lineární škála vůči REFERENČNÍMU maximu (nález
+	// nezávislé kontroly 14. 8.: dřív to byl pevný strop 360 Kč, kvůli kterému
+	// minimální výška při nízkém t „srovnala" LED sloupec skoro s tím starým.
+	// Volající vždy pošle jako referenciMax tu VYŠŠÍ ze dvou aktuálních cen —
+	// tou je pro tuhle dvojici vždy stará žárovka — takže se poměr 10 : 1
+	// zachová PŘESNĚ ve všech polohách posuvníku, ne jen tam, kde je sloupec
+	// nad prahem CHART_MIN_PX).
+	function vyskaSloupceB(kc, referencniMax, maxPx = CHART_MAX_PX) {
+		if (!(referencniMax > 0)) return CHART_MIN_PX;
+		return Math.max(CHART_MIN_PX, (kc / referencniMax) * maxPx);
+	}
 	// ČISTÁ FUNKCE: úplná geometrie jednoho sloupce (poloha i popisek nad ním).
-	function geometrieSloupceB(cx, kc) {
-		const vyska = vyskaSloupceB(kc);
+	function geometrieSloupceB(cx, kc, referencniMax) {
+		const vyska = vyskaSloupceB(kc, referencniMax);
 		const y = CHART_BASELINE - vyska;
 		return { x: cx - BAR_SIRKA / 2, y, vyska, dole: CHART_BASELINE, labelY: y - 10 };
 	}
@@ -313,7 +414,6 @@
 	svgB.__scenaB = scenaB;
 	svgB.__vyskaSloupceB = vyskaSloupceB;
 	svgB.__geometrieSloupceB = geometrieSloupceB;
-	svgB.__MAX_CENA_B = MAX_CENA_B;
 	svgB.__CHART_BASELINE = CHART_BASELINE;
 	svgB.__CHART_MAX_PX = CHART_MAX_PX;
 	svgB.__CHART_MIN_PX = CHART_MIN_PX;
@@ -343,8 +443,15 @@
 		// Sloupec i jeho popisek s cenou se počítají ze STEJNÉ geometrie
 		// (geometrieSloupceB) — barva sloupce a barva popisku k sobě patří,
 		// takže dítě spojí číslo se správným sloupcem i bez legendy.
+		//
+		// Měřítko (referencniMax) se počítá VŽDY z AKTUÁLNÍ dvojice cen, ne
+		// z pevného stropu — proto se sem posílá jako TŘETÍ argument, ne se
+		// dopočítává uvnitř geometrieSloupceB. Bez něj by graf pořád počítal
+		// se starým pevným stropem a LED sloupec by se u nízkého t ořezal na
+		// minimum (přesně nález nezávislé kontroly 14. 8. odpoledne).
+		const referencniMax = Math.max(v.kcStara, v.kcLed);
 		const sloupec = (cx, kc, barva) => {
-			const g = geometrieSloupceB(cx, kc);
+			const g = geometrieSloupceB(cx, kc, referencniMax);
 			return `<rect x="${g.x.toFixed(1)}" y="${g.y.toFixed(1)}" width="${BAR_SIRKA}" height="${g.vyska.toFixed(1)}" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`
 				+ `<text x="${cx}" y="${g.labelY.toFixed(1)}" text-anchor="middle" font-size="14" font-weight="bold" fill="${barva === '#ff8787' ? '#e8590c' : '#2f9e44'}">${kcText(kc)}</text>`;
 		};

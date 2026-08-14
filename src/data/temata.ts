@@ -3459,7 +3459,7 @@ export const temata: Record<string, Tema[]> = {
 						],
 						odkazy: [
 							{ nazev: 'Procvičování: Elektrická práce a výkon (Umíme fakta)', url: 'https://www.umimefakta.cz/fyzika/cviceni-elektricka-prace-a-vykon' },
-							{ nazev: 'Pracovní list: Kolik zaplatíme za elektřinu (PDF, ZŠ Horní Týn)', url: 'https://www.zshtyn.cz/wp-content/uploads/2021/04/Elektrick%C3%A1-pr%C3%A1ce-a-v%C3%BDkon-II-PDF.pdf' },
+							{ nazev: 'Prezentace: Kolik zaplatíme za elektřinu (PDF, ZŠ Horšovský Týn)', url: 'https://www.zshtyn.cz/wp-content/uploads/2021/04/Elektrick%C3%A1-pr%C3%A1ce-a-v%C3%BDkon-II-PDF.pdf' },
 							{ nazev: 'Práce a výkon elektrického proudu (Eduportál Techmania)', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/prace-vykon-elektrickeho-proudu' },
 						],
 					},

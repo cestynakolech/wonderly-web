@@ -184,3 +184,38 @@ takže kontrolor měl pravdu a brána zároveň nelhala).
 vlastní test se 104 kontrolami neviděl. Naopak nečitelný popisek na tmavé elektrodě
 nenašlo žádné měřidlo ani kontrolor — jen pohled na obrázek a nový lokální vision
 automat (ten po opravě mlčí, tedy obousměrný důkaz).
+
+## Kolo 14. 8. 2026 odpoledne — `elektricka-prace-a-vykon` (F8)
+
+**Vějíř:** 4 workeři naráz (výklad / simulace / kvíz / média). Worker A zjistil, že
+výklad k podtématu už v repu JE a je správný — nevyrobil duplicitu, jen ho ověřil
+přepočtem. To je správný výsledek vějíře, ne prázdný běh.
+
+**Nezávislý kontrolor: 12 nálezů, 4 závažné.** Plané nálezy: 0.
+
+Závažné:
+1. **Graf lhal právě tam, kde má učit.** Minimální výška sloupce (5 px) srazila
+   při t = 1–9 h oba sloupce na stejnou čárku, takže LED a stará žárovka vypadaly
+   stejně draze, ačkoli text vedle hlásil desetinásobek (doloženo: t=1 → poměr cen
+   10,0, poměr výšek 1,08). Vlastní test to nechytil, protože jeho pojistka byla
+   splněná rozdílem 0,42 px a poměr výšek u poloh 1–9 sám přeskakoval (`continue`).
+2. **Kvízová otázka prozrazovala odpověď jiné** („za 6 kWh, které spotřebovala
+   trouba z předchozí úlohy") — a odkaz „předchozí úloha" navíc neplatí, protože
+   se pořadí míchá a do tištěného testu jde jen 7 z 19 otázek.
+3. **Chladnička s příkonem 100–125 W jako „průměrný odběr"** — pětinásobek
+   skutečnosti (štítek 150–250 kWh/rok ≈ 17–29 W průměrně). 100 W je příkon
+   běžícího kompresoru, ne průměr.
+4. **Tři otázky doslovné duplicity** s `mechanicka-prace-a-vykon/vykon` (shoda
+   1,00 u dvou z nich) — obecné jednotky patří k mechanickému výkonu.
+
+**Vědomě NEOPRAVENO (rozhodnutí, ne přehlédnutí):** účinnost LED „asi 50 %" je
+podle kontrolora nadsazená (reálně ~30–40 %). Čísla 5 % a 50 % jsou zvolena tak,
+aby LED vyšla přesně na desetinu příkonu, což je pro 8. ročník srozumitelnější
+než přesná hodnota; uvnitř stránky si nic neodporuje. Kdyby to učitel chtěl
+přesně, mění se výklad, kvíz i obě scény naráz.
+
+**Co našlo co:** pohled na obrázek našel překryv sloupců s panelem (žádné měřidlo
+ho nevidělo). Nové měřidlo naopak vyrobilo FALEŠNÝ poplach — hledalo bílý panel
+v celém souboru a našlo panel scény A, takže u opravené scény hlásilo překryv
+−115 px. Kontrolor pak našel to, co nevidělo ani oko, ani měřidlo: že graf je
+věrný až od t ≥ 10 h.
