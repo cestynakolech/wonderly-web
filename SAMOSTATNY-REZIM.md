@@ -1,18 +1,32 @@
 ## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 podvečer — po /clear)
 
-### ⏳ JEDINÁ NEDOKONČENÁ VĚC: NÁLEZY KONTROLORA K `ucinky-proudu-a-bezpecnost`
+### 🔴 ZAČNI TÍMHLE: NA WEBU JE SIMULACE, KTERÁ UČÍ NEBEZPEČNOU NEPRAVDU
 
-Podtéma je **hotové a nasazené** (commit `a8cf40a`), ale nezávislý kontrolor
-běžel ve chvíli, kdy se mazal kontext, a **jeho nálezy nikdo nezpracoval**.
-Zadání, které dostal, je v této session; nové session ho pusť znovu:
+Kontrolor doběhl na konci session (nálezy celé v `METRIKY-KOL.md`, 11 nálezů,
+3 závažné). **Oprava byla zadána workerovi `worker-simulace`, ale session skončila
+dřív, než ji stihl vrátit — takže na živém webu je pořád vadná verze** (commit
+`a8cf40a`). Zadání opravy je v `METRIKY-KOL.md` a shrnuje se takhle:
 
-```
-subagent `kontrolor` na: src/components/skola2/UcinkyProuduABezpecnostSimulace.astro
-+ testy/simulace/ucinky-proudu-a-bezpecnost.mjs + blok výkladu a 19 otázek kvízu.
-Téma je BEZPEČNOST → věcná správnost má vyšší váhu; zvlášť ověřit, že špatné
-odpovědi v kvízu nejdou číst jako rada, a že scény nestraší.
-```
-Nálezy pak zapiš do `METRIKY-KOL.md` a opravy posílej PŮVODNÍM workerům.
+1. 🔴 **Volba „jedna ruka" ve scéně B hlásí `0 mA` / „bezpečné"** u postavy stojící
+   BOSKY NA ZEMI při 230 V. Část A na téže stránce přitom obvod uzavírá právě
+   nohama do země (230 mA, „zástava srdce"). Dítě si odnese „stačí sahat jednou
+   rukou". Buď postavu postav na izolaci a napiš to do scény, nebo volbu předělej
+   tak, aby ukazovala pravdu. Test to ještě potvrzoval jako správné.
+2. 🔴 **Test měří jen čísla, ne texty, které dítě čte.** Prošlo 7 podvrhů, mj.
+   varování „Zásuvka skoro nikdy neublíží", pásmo „zástava srdce" přejmenované na
+   „nepříjemné brnění" a rada „odtrhni holou rukou". Kontrola hledala jen `/nikdy/i`
+   a název pásma porovnávala sám se sebou.
+3. 🔴 **Červená cesta proudu je v SVG PŘED trupem**, takže ji tělo překreslí —
+   přes hrudník a srdce nevede nic. (Můj pohled na render to minul.)
+4. Drobné: výklad `4,5 : 100 000 = 0,05 mA` (správně 0,045) · otázka o 12 V bez
+   podmínky „ve vlhku" · **9 z 19 otázek je duplicita bloku 9. ročníku** · vlhká
+   kůže 20 000/1 250 Ω je odhad bez „≈" · nedoložené „většina úrazů v suchu" ·
+   distraktory psané jako návod k riskantnímu činu · scéna B bez varování ·
+   obvod se nedotýká zdroje.
+
+**Postup:** vzbudit `worker-simulace` (nebo spustit nového téhož typu se zadáním
+z `METRIKY-KOL.md`), po opravě si SÁM vyrenderovat obě scény a zopakovat podvrhy
+kontrolora, teprve pak nasadit. Pak znovu pustit `kontrolor`.
 
 ### ▶️ ROZDĚLANÉ: NÁZORNOST FYZIKY, JEDNO PODTÉMA ZA DRUHÝM
 

@@ -219,3 +219,41 @@ ho nevidělo). Nové měřidlo naopak vyrobilo FALEŠNÝ poplach — hledalo bí
 v celém souboru a našlo panel scény A, takže u opravené scény hlásilo překryv
 −115 px. Kontrolor pak našel to, co nevidělo ani oko, ani měřidlo: že graf je
 věrný až od t ≥ 10 h.
+
+## Kolo 14. 8. 2026 podvečer — `ucinky-proudu-a-bezpecnost` (F8)
+
+**Nezávislý kontrolor: 11 nálezů, 3 závažné.** Plané nálezy: 0. Kontrola proběhla
+až po nasazení, takže vadná verze byla chvíli na webu.
+
+🔴 **1. Scéna učila NEBEZPEČNOU NEPRAVDU.** Volba „jedna ruka" v části B: postava
+stojící BOSKY NA ZEMI se dotkne 230 V jednou rukou a měřidlo hlásí `I = 0 mA`,
+pásmo „pod prahem vnímání" (šedé = bezpečné). Přitom část A na TÉŽE stránce kreslí
+tutéž postavu, jak obvod uzavře přes nohy do země a dostane 230 mA / „zástava srdce".
+Dítě si odnese pravidlo „stačí sahat jen jednou rukou" — a nikde není řečeno, že to
+platí jen pro člověka stojícího na izolaci. Test to dokonce potvrzoval jako správné
+(„jedna ruka (0 mA) je v nejnižším pásmu — bezpečné").
+
+🔴 **2. Test měřil jen čísla, ne texty, které dítě čte.** Kontrolor doložil SEDMI
+podvrhy, které prošly bez povšimnutí (návratový kód 0): varování změněné na
+„⚠️ Zásuvka skoro nikdy neublíží" · popis pásma „postiženého co nejrychleji odtrhni
+holou rukou" · pásmo „zástava srdce" přejmenované na „nepříjemné brnění" · viditelný
+vzorec počítající 10× větší proud · „jedné ruky se můžeš dotknout klidně". Číselné
+podvrhy test naopak chytal. **Poučení: u bezpečnostního tématu je text scény
+důležitější než konstanta — a právě text nikdo neměřil.** Kontrola varování hledala
+jen `/nikdy/i`, takže „skoro nikdy neublíží" jí prošlo.
+
+🔴 **3. To hlavní ve scéně nebylo vidět.** Červená dráha proudu a tečky jsou v SVG
+PŘED trupem a hlavou, takže je tělo překreslí — přes hrudník a srdce, tedy přesně
+tam, o co ve scéně jde, nevede nic. Zůstanou dva červené pahýly na pažích.
+(Můj vlastní pohled na render tohle minul: viděl jsem červenou cestu k trupu
+a považoval ji za celou.)
+
+**Drobné (7):** ve výkladu `4,5 : 100 000 = 0,05 mA` (správně 0,045; simulace píše
+45 µA) · kvízová otázka o bezpečném napětí 12 V bez podmínky „ve vlhkých prostorách",
+což odporuje výkladu · **9 z 19 otázek je doslovná duplicita bloku 9. ročníku**
+(a ten má navíc jiné odpory těla) · „vlhká kůže 20 000/1 250 Ω" je vlastní odhad
+bez opory ve výkladu, ale dítěti se ukazuje jako tvrdý údaj · nedoložené tvrzení
+„většina smrtelných úrazů se stane právě v suchu" · dva distraktory psané jako
+konkrétní návod k riskantnímu činu · scéna B nemá v obrázku varování „nikdy
+nezkoušet" (má ho jen scéna A) · nakreslený obvod se nedotýká zdroje a u baterie
+je zpáteční cesta do země fyzikálně nesmyslná.
