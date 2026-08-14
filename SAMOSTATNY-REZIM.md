@@ -46,26 +46,44 @@ F9: `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
 `chemicke-zdroje-napeti`, `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
 `obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
 
-### 🔎 Z REVIZE (14. 8. 2026) — nálezy k opravě, seřazené
+### 🔎 Z REVIZE (14. 8. 2026) — co je hotové a co zbývá
 
-Revize celého projektu přinesla čtyři body, které stojí za práci. První (falešně
-selhávající test) je **hotový** — byl to ten `\b` nad češtinou. Zbývají:
+1. ✅ **HOTOVO** — falešně selhávající test (`\b` nad češtinou), commit `1057c29`.
+2. ✅ **HOTOVO** — **bezpečnost Fyzikální ligy**: roli tabule už nedá pouhá znalost kódu
+   místnosti. Místnost dostane při založení tajný klíč (crypto), tabule ho dokládá první
+   zprávou po připojení — do té doby nerozešle nic. Do obsazené místnosti se cizí klíč
+   nepropíše, po 5 pokusech je zavřená na 10 minut, klíč se týmům neposílá nikdy.
+   Test `testy/liga-tabule.mjs` (19 kontrol) + obousměrný důkaz (podvrh staré verze
+   shodil 9 z 19). Commit `31d249b`, ověřeno na živém webu.
+3. ✅ **HOTOVO** — **brána už nezapisuje**: `zkontroluj.mjs` laťku jen navrhne, zapisuje
+   výhradně `npm run prijmi-latku` (a jen když je jinak vše v pořádku). Cestou se našla
+   druhá, dosud skrytá vada: zápisy byly dva a druhý zapisoval starou hodnotu, takže
+   kdykoli ubyly úniky, utažení délkové nápovědy se tiše ztratilo. Commit `5b0f113`.
+   K tomu `npm test` (brána + všechny simulace + liga) a `npm run check` (čtecí kontrola).
+4. ⬜ **Manifest médií deníku** — pro každé místo strojový soupis: zdroje, GPS/čas,
+   anonymizace, výběr do galerie i videa, otisk videa, odkazy. Nejdůležitější
+   architektonické zlepšení deníku, ale je to práce na samostatné kolo.
+5. ⬜ **Atomická publikace galerií** (`nahraj_fotky.py`) — nahrávat do nové verze
+   a zveřejnit až jedním manifestem, ať při výpadku není venku neúplná galerie.
+6. ⬜ **Typová kontrola** — `astro check` na tomhle projektu hlásí **5219 chyb**, takže
+   jako brána je k ničemu (balíček jsem proto zase odebral). Zavést ji znamená ty hlášky
+   nejdřív probrat — samostatný úkol, ne desetiminutovka.
+7. ⬜ Telemetrie (zdravotní reporty) do zvláštní složky nebo větve, ať je historie čitelná.
+8. ⬜ Sjednocení dokumentace do tří vrstev — až úplně nakonec, je v ní nasbírané know-how.
 
-1. **BEZPEČNOST — Fyzikální liga, role „tabule"** (`worker.js`): kdokoli se znalostí
-   čtyřpísmenného kódu místnosti se může připojit jako tabule a posílat stav všem týmům.
-   Doporučeno: ke kódu místnosti vydat silný tajný token jen pro učitele, žákům nechat
-   jen kód; omezit počet vytvoření a pokusů. **Toto je nejvyšší priorita ze zbytku.**
-2. **Brána `zkontroluj.mjs` se tváří jako čtecí, ale zapisuje** `testy/rohatka.json`,
-   když se laťka zlepší — build tak sám mění pracovní strom (je to vidět i v commitu
-   `1057c29`). Rozdělit na čisté ověření + výslovný příkaz „přijmi zlepšenou laťku".
-3. **Deník nemá manifest médií, která do videa skutečně vstoupila** — pozdě přijatá
-   fotka se korektně anonymizuje, ale tiše chybí ve videu. Založit pro každé místo
-   strojový manifest (zdroje, GPS/čas, anonymizace, výběr do galerie i videa, otisk
-   videa, odkazy). Označeno za nejdůležitější architektonické zlepšení deníku.
-4. **Publikace galerií není atomická** (`nahraj_fotky.py`) — nahrává se postupně do
-   finální cesty, takže při výpadku je veřejně vidět neúplná galerie. Nahrávat do nové
-   verze a zveřejnit až jediným manifestem.
-5. Drobnost: chybí standardní `npm test` a `npm run check` (neměnící příkazy).
+**Deník — stavový model ujasněn (14. 8.):** `KE-SCHVALENI.md` dostal na začátek záhlaví
+„PROVOZNÍ ZÁZNAM". Schvalování se od 7. 8. nedělá, platí
+`přijato → třídí se → anonymizováno → automaticky prověřeno → zveřejněno`
+a jediný výjimkový stav je `vyžaduje zásah`. Soubor se NEpřejmenoval (přesun = věc
+na dotaz), účel plní záhlaví. Viz [[projekt-denik-bez-schvalovani]].
+
+### ▶️ ČÍM ZAČÍT PŘÍŠTĚ
+
+**Fyzika 8 — zbývají dvě podtémata bez názornosti:** `elektricka-prace-a-vykon`
+a `ucinky-proudu-a-bezpecnost`. Tím je osmička hotová, pak se pokračuje devítkou
+(seznam výš). Postup vede skill `/simulace`; nově je v něm navíc krok
+**`python3 ~/Desktop/Omega/skripty/kontrola_sceny.py <komponenta>`** — scénu nejdřív
+prohlédne lokální model zdarma, teprve pak se na ni dívám sám.
 
 ### 📥 Fronta dalších kol (z auditů 13. 8. — zapsáno, aby se neztratilo)
 
