@@ -82,8 +82,20 @@ v `METRIKY-KOL.md`. Nasazeno commitem `77cfff6`, ověřeno čtením ze živého 
   „nejednoznačné" místo tichého výběru prvního nálezu. Kalibrace po opravě měřidla
   je povinná — jinak zůstane zelené proto, že nic neměří.
 
+⬜ **DROBNOST DO STAVU (nehoří, ale je to rozpor napříč webem):** odpor lidského
+těla se v osmičce a devítce učí JINAK. F8 (`ucinky-proudu-a-bezpecnost`):
+~100 000 Ω jen při malém napětí, nad ~50 V se kůže prorazí → 1 500 Ω v suchu
+a 1 000 Ω ve vlhku (153 mA / 230 mA). F9
+(`elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost`): 150 000 Ω suchá,
+2 000 Ω mokrá. Žák, který projde oběma ročníky, dostane dvě různá čísla pro totéž.
+Sjednotit — ale je to zásah do dvou výkladů i dvou kvízů, tedy vlastní kolo.
+(Našlo se 14. 8. při psaní kvízu k F8; worker se opřel o hodnoty z devítky
+a otázka by si odporovala s výkladem nad ní.)
+
 **NA ŘADĚ DÁL — ber shora dolů (shrnutí názornost nepotřebují, vynechat):**
-F8: `ucinky-proudu-a-bezpecnost` → tím je fyzika 8 hotová.
+F8: `ucinky-proudu-a-bezpecnost` (ROZDĚLANÉ 14. 8.: výklad i 12 otázek existovaly,
+média a 4 odkazy zapsané a ověřené, kvíz se dodělává na 19, simulace se vyrábí)
+→ tím je fyzika 8 hotová.
 F9: `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
 `chemicke-zdroje-napeti`, `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
 `obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.

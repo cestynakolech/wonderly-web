@@ -3544,6 +3544,15 @@ export const temata: Record<string, Tema[]> = {
 							<p>👉 Zraněného <strong>vždy předej záchranářům</strong>, i když se probral a tvrdí,
 							že je mu dobře. Proud může poškodit srdce tak, že se to projeví až za několik hodin.</p>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Video: Účinky elektrického proudu na lidský organismus', cesta: 'VfCqvZDHUWQ' },
+						],
+						odkazy: [
+							{ nazev: 'Video: Nebezpečná elektřina (ČT edu, pořad PORT)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
+							{ nazev: 'Bezpečnost a první pomoc při zásahu proudem (ČEZ)', url: 'https://www.cez.cz/cs/clanky/bezpecnost-a-prvni-pomoc-pri-zasahu-elektrickym-proudem-163506' },
+							{ nazev: 'První pomoc krok za krokem: úraz elektrickým proudem (Stačí málo)', url: 'https://www.staci-malo.cz/detail/co-delat-pri-urazu-elektrickym-proudem' },
+							{ nazev: 'Prevence úrazů elektřinou doma (Dětství bez úrazů)', url: 'https://detstvibezurazu.cz/prevence-urazu-deti/bezpecny-domov/urazy-elektrickym-proudem/' },
+						],
 					},
 			],
 		},
