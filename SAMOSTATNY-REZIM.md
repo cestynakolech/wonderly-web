@@ -1,4 +1,18 @@
-## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 odpoledne)
+## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 podvečer — po /clear)
+
+### ⏳ JEDINÁ NEDOKONČENÁ VĚC: NÁLEZY KONTROLORA K `ucinky-proudu-a-bezpecnost`
+
+Podtéma je **hotové a nasazené** (commit `a8cf40a`), ale nezávislý kontrolor
+běžel ve chvíli, kdy se mazal kontext, a **jeho nálezy nikdo nezpracoval**.
+Zadání, které dostal, je v této session; nové session ho pusť znovu:
+
+```
+subagent `kontrolor` na: src/components/skola2/UcinkyProuduABezpecnostSimulace.astro
++ testy/simulace/ucinky-proudu-a-bezpecnost.mjs + blok výkladu a 19 otázek kvízu.
+Téma je BEZPEČNOST → věcná správnost má vyšší váhu; zvlášť ověřit, že špatné
+odpovědi v kvízu nejdou číst jako rada, a že scény nestraší.
+```
+Nálezy pak zapiš do `METRIKY-KOL.md` a opravy posílej PŮVODNÍM workerům.
 
 ### ▶️ ROZDĚLANÉ: NÁZORNOST FYZIKY, JEDNO PODTÉMA ZA DRUHÝM
 

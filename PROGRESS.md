@@ -27,6 +27,25 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 3. **CELÁ FYZIKA 2. STUPNĚ (6, 7, 8 i 9) JE KOMPLETNÍ** — tagy `fyzika-6-hotova`, `fyzika-7-hotova`, `fyzika-8-hotova`, `fyzika-9-hotova`. Každý ročník má navíc celek **„Shrnutí a opakování"** (pololetní + roční shrnutí s automaticky skládaným souhrnným kvízem a tisknutelným testem).
 4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu), předměty Informatika a Pracovní činnosti, nebo revize hotových stránek. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
 
+### 📌 Kolo 14. 8. 2026 (odpoledne až podvečer) — FYZIKA 8 MÁ NÁZORNOST HOTOVOU
+
+Změřeno `node testy/nazornost.mjs`: **fyzika 8 — bez názornosti 2 z 37**, a ty dvě
+jsou pololetní a roční shrnutí, která ji nepotřebují. Vzniklo:
+- **`elektricka-prace-a-vykon`** — simulace (spotřebič + elektroměr; stará vs. LED
+  žárovka), kvíz 19 otázek, 3 české odkazy a 2 videa. Kontrolor: 12 nálezů,
+  4 závažné, všechny opraveny (commity `f57c36c`, `efb6f67`, `49b542a`, `77cfff6`).
+- **`ucinky-proudu-a-bezpecnost`** — simulace Ohmova zákona na lidském těle
+  (napětí × stav kůže → pásmo nebezpečí; cesta proudu tělem), kvíz doplněn na 19,
+  5 ověřených českých zdrojů (commity `e3e5bf4`, `a8cf40a`). ⏳ **Kontrolor k němu
+  ještě neproběhl — viz `SAMOSTATNY-REZIM.md`, horní sekce.**
+
+**Nástroj `testy/nahled-simulace.mjs` opraven třikrát** (platí pro všechny simulace):
+doplněn `createElementNS` a `cancelAnimationFrame` do sandboxu (bez nich se náhled
+ZASEKL místo pádu — render běžel 5 minut), vkládání `textContent` zpátky do SVG
+(popisky byly v náhledu prázdné, takže vizuální kontrola ukazovala prázdné rámečky)
+a nové `klik=<id>` pro simulace ovládané tlačítky. Regresní zkouška: 5 dřívějších
+simulací se renderuje dál.
+
 ### 🔎 Měřidla a kontroly (co je po ruce)
 | Příkaz | K čemu |
 |---|---|
