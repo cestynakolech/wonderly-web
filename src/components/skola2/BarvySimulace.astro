@@ -96,7 +96,7 @@
 		g('barvy-vysledek').setAttribute('fill', s.hex);
 		g('barvy-nazev').textContent = s.nazev;
 		g('barvy-kod').textContent = `${rezim === 'rgb' ? 'složené' : 'odražené'} světlo: R ${s.r} · G ${s.g} · B ${s.b}`;
-		g('barvy-pocitac').textContent = '(v počítači se každá složka zapisuje 0–255; 100 % = 255)';
+		g('barvy-pocitac').textContent = '(v počítači: 0–255 = 100 %)';
 		g('barvy-stav').textContent = rezim === 'rgb'
 			? (s.nazev.startsWith('BÍLÁ') ? '🤍 Bílé světlo = složení VŠECH tří základních světel se stejnou intenzitou.'
 				: s.nazev.startsWith('TMA') ? '⬛ Žádné světlo = tma. Černé světlo neexistuje — černá je nepřítomnost světla.'
