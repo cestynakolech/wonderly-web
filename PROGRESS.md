@@ -146,6 +146,33 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-14 večer (F9 magnety hotové · bezpečnostní vada F8 opravena · worker neměl Bash)** —
+  **Škola:** dodělané podtéma F9 `magnety-magneticke-pole-opakovani` (nová simulace
+  se scénou třídění vzorků a scénou pólů + rozlomení magnetu, **84 kontrol**,
+  obousměrný doklad; kvíz bez délkové nápovědy 5/19 → 2/19 a bez duplicit se šestkou)
+  a dokončená **druhá kontrola** F8 `ucinky-proudu-a-bezpecnost` — **11 nálezů,
+  4 závažné, všechny opraveny a nasazeny** (`f6cc062`, `f30767b`, ověřeno curlem).
+  Nejvážnější byla **skutečná bezpečnostní vada v učivu**: první pomoc radila
+  „odsuň zraněného suchou dřevěnou tyčí" bez omezení, ačkoli o odstavec výš tatáž
+  stránka učí, že u vysokého napětí proud přeskočí obloukem i bez dotyku — dítě si
+  odnášelo univerzální postup, který u trolejového vedení zabíjí i zachránce.
+  Druhý závažný nález: **test byl slepý k textům, které dítě čte** — zakázané fráze
+  se pouštěly jen na dynamicky vykreslené texty, takže věta „suchou rukou se dá
+  klidně dotknout drátu" vepsaná do statické scény prošla **zeleně se 161 kontrolami**
+  (doloženo podvrhem před i po opravou). Dál sjednocena čísla mezi scénami A a B
+  (153 vs 115 mA pro tutéž cestu tělem) a meze napětí na platnou ČSN 33 2000-4-41.
+  **Nastavení:** nalezeno, že **`worker-simulace` neměl v definici `Bash`** — nikdy
+  tedy nemohl spustit test, který sám napsal, ani si prohlédnout scénu, a odevzdával
+  práci doloženou jen ručním trasováním kódu (jeho test padal hned na 12. řádku).
+  Doplněno; projeví se až v nové session, takže kotvy tohohle kola doběhl koordinátor.
+  Oba workeři přitom správně odmítli fabrikovat výpisy běhů, které nespustili.
+  **Dvě vlastní chyby přiznané:** test simulace jsem prohlásil za rozbitý, ačkoli
+  jsem ho jen spustil bez povinného druhého argumentu (opravil mě worker); a první
+  podvrh se nechytil, protože trefil komentář ve frontmatteru místo šablony.
+  **Nálezy na samostatné kolo:** rozpor v odporu lidského těla mezi F8 a F9, a to,
+  že `uniky.mjs` porovnává jen otázky uvnitř bloku — „0 duplicit" je proto
+  u opakovacích podtémat falešný klid (kontrolor našel křížově 6 dvojic F8 × F9).
+
 - **2026-08-13 až 14 (názornost F8: 4 simulace + hlídač session + audit dokumentace)** —
   **Škola:** čtyři podtémata fyziky 8 dostala názornost, každé přes workera
   a nezávislého kontrolora do 0 nálezů: `vnitrni-energie-telesa` (78 kontrol,

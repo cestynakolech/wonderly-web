@@ -1,31 +1,104 @@
-## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 večer — po /clear)
+## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026, 18:45 — po /clear)
 
-### ▶️ ROZDĚLANÉ: F9 `magnety-magneticke-pole-opakovani` (první úkol devítky)
+Repo je čisté, **brána zelená, build prošel, vše nasazené a ověřené curlem**
+(commity `f6cc062` a `f30767b`). Kolo jelo grafem: 4 workeři naráz, do sdílených
+souborů zapisoval jen koordinátor, kotvy (běh testů, podvrhy, build) držel koordinátor.
 
-Repo je v čistém stavu: **brána zelená, build prošel, nic nerozbitého** — jen je to
-podtéma nedodělané. Hotovo: kvíz doplněn z 12 na **19 otázek** (vloženo, ověřeno).
-Vloni zapsané otázky měly dva úniky odpovědí, ty jsou už rozpojené.
+### 🔴 PRVNÍ ÚKOL PŘÍŠTÍ SESSION: PROHLÉDNOUT SCÉNY MAGNETŮ OČIMA
 
-⏳ **Zbývá dodělat (změřeno, ne odhad):**
-- **Délková nápověda 5 z 19** — všechny ve STARŠÍCH otázkách (1, 8, 10, 11, 12).
-  Měřidlo: `node -e "…maDelkovouNapovedu…"` nebo `node testy/delky.mjs`.
-  Opravovat prodloužením ROZPTYLOVAČŮ, ne zkracováním správné odpovědi.
-- **2 doslovné duplicity se 6. ročníkem** (`fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek`):
-  „Kolik pólů má každý magnet?" a „Kde je magnetická síla magnetu nejsilnější?".
-  Devítka je opakování, takže se smí ptát na totéž učivo — ale ne doslova stejnou větou.
-- **Simulace `MagnetyOpakovaniSimulace.astro` se vyráběla, když session skončila** —
-  zkontroluj, jestli soubor existuje; pokud ne, zadej znovu `worker-simulace`.
-  Námět: scéna A třídění vzorků (feromagnetické / nemagnetické / diamagnetické),
-  scéna B póly a siločáry, rozlomený magnet má zase dva póly. Test pojmenovat
-  `testy/simulace/magnety-opakovani.mjs` (spouštěč páruje podle názvu).
-  ⚠️ Ve výkladu devítky NENÍ pole Země, kompas ani ztráta magnetismu — to je látka
-  šestky. Neptat se na ně a nedávat je do scény.
+`MagnetyOpakovaniSimulace.astro` je hotová, otestovaná (**84 kontrol**, obousměrný
+doklad zapsán) a **nasazená na webu** — ale **nikdo ji neviděl vyrenderovanou**.
+Náhled se zasekl (`nahled-simulace.mjs` běžel přes 5 minut a spadl na timeout),
+takže pravidlo „novou simulaci si musím prohlédnout" zůstalo nesplněné.
+Test měří i scénu (souřadnice, směr šipek), takže fyzikální lež je nepravděpodobná;
+riziko je VZHLED — v minulých kolech pohled na obrázek našel přetékající kružnici
+a šipky nakupené v jedné řadě, které žádné měřidlo nevidělo.
 
-### ⏳ TAKÉ BĚŽELO PŘI KONCI SESSION: druhá kontrola `ucinky-proudu-a-bezpecnost`
+```bash
+cd ~/Desktop/wonderly-web
+node testy/nahled-simulace.mjs MagnetyOpakovaniSimulace.astro /tmp/mag-a.svg
+node testy/nahled-simulace.mjs MagnetyOpakovaniSimulace.astro /tmp/mag-b.svg svg=mopak-b-svg
+qlmanage -t -s 900 -o /tmp /tmp/mag-a.svg   # pak obrázek přečíst nástrojem Read
+```
+⚠️ Náhled chce **dva argumenty** (komponenta i výstupní soubor) — bez druhého padá.
+Když se zase zasekne, je to samostatná vada nástroje: pustit na pozadí a mezitím
+dělat něco jiného, ne u něj čekat. Napřed lokální model zdarma:
+`python3 ~/Desktop/Omega/skripty/kontrola_sceny.py <komponenta>`.
 
-Podtéma je hotové a nasazené (`8978173`), všech 11 nálezů první kontroly opraveno.
-Druhý `kontrolor` byl spuštěn, ale nedoběhl — **pusť ho znovu** (zadání viz níž
-v sekci o bezpečnosti a v `METRIKY-KOL.md`).
+### ✅ HOTOVO V TOMHLE KOLE
+
+**F9 `magnety-magneticke-pole-opakovani` — podtéma dodělané.**
+- kvíz: délková nápověda **5/19 → 2/19** (obě zbylé +4 znaky, pod prahem nápovědy),
+  dvě doslovné duplicity se šestkou přepsané situačně, **0 duplicit / 0 úniků**
+- 🔴 **past, kterou zanesl worker a chytil ji až koordinátor:** jeho nové znění
+  otázky o pólech vyjmenovávalo „tyčový, podkovový magnet i magnetku" — což je
+  doslova správná odpověď na JINOU otázku téhož kvízu. Nové znění vždy porovnat
+  s CELÝM blokem, ne jen s tím, co se zrovna opravuje.
+- nová simulace: scéna A třídění 9 vzorků, scéna B póly + indukční čáry
+  + rozlomení magnetu (obě půlky mají zase oba póly). Bez pole Země, kompasu
+  a ztráty magnetismu — to je látka šestky.
+- 🔴 **měřidlo hlásilo dvě chyby kvůli AUTOROVU KOMENTÁŘI** ve frontmatteru, který
+  ta slova právě ZAKAZUJE. Test měřil celý zdroj; nově odečítá frontmatter a měří
+  jen to, co dítě vidí. (A první podvrh se nechytil, protože trefil právě ten
+  komentář — platný podvrh musí mířit do šablony.)
+
+**F8 `ucinky-proudu-a-bezpecnost` — druhá kontrola doběhla: 11 nálezů, 4 závažné,
+všechny opravené a nasazené.**
+- 🔴 **BEZPEČNOSTNÍ VADA V UČIVU:** první pomoc říkala „odsuň zraněného suchou
+  dřevěnou tyčí" bez jakéhokoli omezení, ačkoli o odstavec výš stránka sama učí,
+  že u vysokého napětí proud přeskočí obloukem i bez dotyku. Nově se výslovně
+  odlišuje VN (sloup, trafostanice, spadlý drát, trolejové vedení → nepřibližovat
+  se, nic neodsouvat, volat 155/112) od běžné domácí elektřiny.
+- 🔴 **test byl slepý k textům, které dítě čte:** `ZAKAZANE_FRAZE` se pouštěly jen
+  na dynamicky vykreslené texty. Věta „suchou rukou se dá klidně dotknout drátu"
+  vepsaná do statické scény prošla **zeleně se 161 kontrolami**. Opraveno a doloženo
+  podvrhem PŘED i PO: dřív prošel, teď padá správnou hláškou.
+- 🔴 scéna A a B dávaly pro tutéž cestu tělem jiná čísla (153 vs 115 mA) — sjednoceno
+  na jednu sadu odporů; do scény B dokreslen zdroj i vodič (dosud tekl proud „odnikud").
+- meze bezpečného napětí sjednoceny na platnou ČSN 33 2000-4-41 (staré 25 V → 30 V DC);
+  doplněn práh 15 mA z výkladu; kvízové distraktory už nejsou návod k riskantnímu činu
+  a chránič 30 mA už neslibuje, že „proud neublíží" (30 mA je nad prahem křeče).
+
+### 🔧 TRVALÁ OPRAVA NASTAVENÍ (platí pro všechna další kola)
+
+**`worker-simulace` neměl v definici Bash** (`~/.claude/agents/worker-simulace.md`),
+takže NIKDY nemohl spustit test, který sám napsal, ani si prohlédnout scénu — a
+odevzdával „hotovou" práci doloženou jen ručním trasováním kódu. Doplněno.
+⚠️ **Změna se projeví až v NOVÉ session** — oba workeři v tomhle kole ještě Bash
+neměli, takže všechny kotvy musel doběhnout koordinátor. Až příště pustíš workera
+na simulaci, ověř, že Bash opravdu má.
+Poučení: když worker vrací trasování místo výpisu běhu, **nejdřív ověř jeho `tools:`**.
+Zapsáno v paměti [[projekt-subagenti-wonderly]].
+Oba workeři se přitom zachovali správně: odmítli fabrikovat výpisy běhů, které
+nespustili, a nahlásili to jako chybu nastavení — přesně jak mají.
+
+### 📥 DVA NÁLEZY NA SAMOSTATNÉ KOLO (nehoří, ale neztratit)
+
+1. **Rozpor v odporu lidského těla mezi ročníky trvá.** F8: ~100 000 Ω při malém
+   napětí, nad ~50 V se kůže prorazí → 1 500 Ω v suchu / 1 000 Ω ve vlhku.
+   F9 (`elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost`): 150 000 Ω suchá,
+   2 000 Ω mokrá — a k tomu paušální „bezpečné napětí 12 V" bez podmínky vlhka.
+   Žák projde oběma ročníky a dostane dvě různá čísla pro totéž. Je to zásah do
+   dvou výkladů a dvou kvízů, tedy vlastní kolo. **Sjednotit podle F8.**
+2. **`testy/uniky.mjs` porovnává jen otázky UVNITŘ bloku**, takže „0 duplicit"
+   je u opakovacích podtémat falešný klid — kontrolor křížovým porovnáním našel
+   **6 dvojic** otázek F8 × F9 na tentýž fakt (shoda znění 43 %, 44 %, 33 %, 30 %,
+   dvakrát totožná odpověď „12 V"), a devítka měla u téhož učiva SNAZŠÍ znění než
+   osmička. Doplnit křížové porovnání bloků napříč ročníky — aspoň jako hlášení,
+   ne rovnou jako bránu. Paměť [[feedback-duplicity-jen-uvnitr-bloku]].
+3. **Drobnost:** hlídač session nezměřil právě běžící relaci (nespároval PID
+   s transcriptem, cwd `/Users/Shared/Skola`); ostatní kotvy měřily normálně.
+
+### ▶️ ČÍM POKRAČOVAT PO PROHLÍDCE SCÉN
+
+Názornost fyziky, jedno podtéma za druhým (zadání učitele 13. 8.: *„pokračuj dalším
+podtématem fyziky a nemusíš se ptát, jak jedno dokončíš, začni další"*).
+**F9 zbývá:** `vlastnosti-stridaveho-proudu`, `chemicke-zdroje-napeti`,
+`elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
+Postup vede skill `/simulace`; kontrolor je POVINNÝ uzel a smyčka běží do 0 nálezů.
+
+### 🗒 STARŠÍ STAV (14. 8. odpoledne) — ponecháno jako doklad
 
 ## 🗒 STARŠÍ STAV (14. 8. odpoledne)
 
