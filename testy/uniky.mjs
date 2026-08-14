@@ -36,7 +36,9 @@ export function normalizuj(text) {
 }
 
 // Slova, která nenesou význam — bez nich by „jaké je" stačilo na shodu čehokoli.
-const STOP = new Set(
+// Exportované, aby si je mohlo půjčit křížové porovnání (testy/uniky-krizove.mjs)
+// a nevznikal druhý, časem rozjetý seznam téhož.
+export const STOP = new Set(
 	('a i o u v s k z do na od po pro za pri při je jsou byl byla bylo bude co kdy kde jak jaka jake jaky jaky ktera ktere ktery ' +
 		'se si to ten ta te tim tom tomu nez nebo ale tak take vsak proto ze aby kdyz ne ano musi muze ma mit jen jeste uz ' +
 		'kolik cim cemu ceho cim jakou jakym jakych jednu jeden jedna dve tri prvni druhy treti')

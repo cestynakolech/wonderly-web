@@ -1,18 +1,43 @@
-## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026, 18:45 — po /clear)
+## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026, 19:30 — po kole „prohlídka magnetů")
 
-Repo je čisté, **brána zelená, build prošel, vše nasazené a ověřené curlem**
-(commity `f6cc062` a `f30767b`). Kolo jelo grafem: 4 workeři naráz, do sdílených
-souborů zapisoval jen koordinátor, kotvy (běh testů, podvrhy, build) držel koordinátor.
+Repo je čisté, **brána zelená (kód 0), build 465 stránek, magnety nasazené
+a ověřené curlem na živém webu** (commit `6170e99`). Kolo jelo grafem: 3 workeři
+naráz, do sdílených souborů (`obousmerne.json`, `obousmerne.mjs`) zapisoval jen
+koordinátor, kotvy (běh testů, rendery, prohlídka očima, build, curl) držel koordinátor.
 
-### 🔴 PRVNÍ ÚKOL PŘÍŠTÍ SESSION: PROHLÉDNOUT SCÉNY MAGNETŮ OČIMA
+### ▶️ ČÍM ZAČÍT: DALŠÍM PODTÉMATEM FYZIKY
 
-`MagnetyOpakovaniSimulace.astro` je hotová, otestovaná (**84 kontrol**, obousměrný
-doklad zapsán) a **nasazená na webu** — ale **nikdo ji neviděl vyrenderovanou**.
-Náhled se zasekl (`nahled-simulace.mjs` běžel přes 5 minut a spadl na timeout),
-takže pravidlo „novou simulaci si musím prohlédnout" zůstalo nesplněné.
-Test měří i scénu (souřadnice, směr šipek), takže fyzikální lež je nepravděpodobná;
-riziko je VZHLED — v minulých kolech pohled na obrázek našel přetékající kružnici
-a šipky nakupené v jedné řadě, které žádné měřidlo nevidělo.
+Prohlídka magnetů je HOTOVÁ (níže) — pokračuj názorností fyziky podle skillu
+`/simulace`, jedno podtéma za druhým, bez ptaní (zadání učitele 13. 8.).
+**F9 zbývá:** `vlastnosti-stridaveho-proudu`, `chemicke-zdroje-napeti`,
+`elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
+Kontrolor je POVINNÝ uzel a smyčka běží do 0 nálezů.
+🆕 **Nově je na scény měřidlo — pusť ho na každou novou simulaci:**
+`node testy/rozvrzeni-sceny.mjs <část názvu>` (viz níže).
+
+### ✅ SPLNĚNO: PROHLÍDKA SCÉN MAGNETŮ OČIMA
+
+Prohlédnuto **pět stavů** (scéna A: železo i plast, scéna B: výchozí / otočený /
+rozlomený). Fyzika byla v pořádku ve všech (železo se přitáhne a zvedne ze stolu,
+plast zůstane ležet; S proti N se přitahují, po otočení S proti S odpuzují; obě
+půlky rozlomeného magnetu mají zase N i S). **Vzhled v pořádku nebyl — 6 vad**,
+opraveno ve dvou kolech, nasazeno a ověřeno na živém webu:
+rámeček popisku s `x="0"` (useknutý obrys) · scéna B natlačená doleva (obsah
+končil na x=440 z 660, po rozlomení na x=255) · po rozlomení se magnety scvrkly
+z 80×50 na 36×40 a odskočily do rohu · indukční čáry vedly jen NAD magnetem ·
+vzorky ve scéně A byly vždy stejný šedý kruh (plast i dřevo vypadaly jako kov) ·
+legendové rámečky měly dole ~60 px prázdna.
+
+🔴 **NEJDŮLEŽITĚJŠÍ POUČENÍ: nejhorší vada byla schovaná ZA TLAČÍTKEM.**
+Ve výchozím stavu vidět nebyla. Náhled umí `klik=<id>`, tak se prohlíží
+**každá scéna × každý stav ovládacích prvků**, ne jeden obrázek na komponentu.
+
+🔴 **PRVNÍ OPRAVA ZAVEDLA DVĚ NOVÉ VADY** (taky viditelné jen okem, test zůstal
+celou dobu zelený): nová spodní indukční čára mizela za bílým rámečkem popisku
+a prázdné plátno se „vyřešilo" nafouknutím druhého magnetu na 220 px proti 160 px
+prvního — vypadal silnější. Poučení: **prázdno se nezaplňuje zvětšením jednoho
+objektu**, a po opravě se prohlíží znovu, ne jen jednou na začátku.
 
 ```bash
 cd ~/Desktop/wonderly-web
@@ -30,8 +55,63 @@ tlačítky se bez toho ta zajímavá polovina scén nikdy neuvidí.
 Když se zase zasekne, je to samostatná vada nástroje: pustit na pozadí a mezitím
 dělat něco jiného, ne u něj čekat. Napřed lokální model zdarma:
 `python3 ~/Desktop/Omega/skripty/kontrola_sceny.py <komponenta>`.
+(Pozn.: v tomhle kole se náhled nezasekl ani jednou — minulý pád byl ENOENT
+z chybějící cesty, ne zaseknutí.)
 
-### ✅ HOTOVO V TOMHLE KOLE
+### 🆕 NOVÉ MĚŘIDLO: ROZVRŽENÍ SCÉNY (`testy/rozvrzeni-sceny.mjs`)
+
+Vzhledové vady výše se opakují (dřív: useknutá kružnice, šipky nakupené v řadě,
+počitadlo přes oblak), takže se z té třídy stalo měřidlo. Měří **přetečení/dotyk
+okraje plátna** (tvrdá chyba) a **nevyužité plátno / obsah natlačený do rohu**
+(varování). Zdarma, bez modelu.
+
+```bash
+node testy/rozvrzeni-sceny.mjs                      # všechny simulace
+node testy/rozvrzeni-sceny.mjs Alternator           # jedna (stačí kus názvu)
+node testy/rozvrzeni-sceny.mjs <cesta> svg=<id> klik=<id>   # konkrétní stav
+node testy/rozvrzeni-sceny-obousmerne.mjs           # jeho vlastní důkaz (26 kontrol)
+```
+
+**Proč se mu dá věřit:** pustil jsem ho na nasazenou verzi magnetů z commitu
+`f30767b` a **sám našel obě vady, které téhož dne našel člověk okem**. To je
+zpětná kotva na skutečné vadě, ne na vymyšleném podvrhu; je součástí jeho testu.
+Navíc doložena mutační zkouška — po rozvolnění prahů jeho test spadne (7 z 26).
+První verze hlásila **60** tvrdých chyb; to nebylo 60 vad, ale špatně nastavené
+měřidlo (zavedený styl webu NENÍ chyba). Kalibrováno na 106 nasazených simulacích.
+
+⚠️ **DOSAH NENÍ ÚPLNÝ — jeho mlčení není důkaz pořádku.** 21 ze 106 komponent
+se nezměří: 12 nemá `<svg>` (kreslí se v HTML), 8 padá v sandboxu náhledu,
+1 nemá viewBox. Hlásí se jako „nevykresleno".
+
+📥 **NAŠLO 6 SKUTEČNÝCH VAD v nasazených simulacích — čeká na opravu:**
+`AlternatorSimulace` text „otáčka" na x=644 ve viewBoxu 660 (přetéká o 15,5 px) ·
+`DiodaSimulace` „U (V)" x=644 (9,7 px) · `HustotaSimulace` „hladina" x=428 ve
+viewBoxu 460 (6,1 px) · `BarvySimulace` `#barvy-pocitac` (3,5 px) ·
+`OkoSimulace` `#oko-predmet-pop` (levý okraj −4,2 px) · `KlonovaniSimulace`
+„podlaha" y=349 na plátně 350. Plus varování `TlakSimulace` (3,8 px od kraje).
+Jsou to drobné posuny textu; až budou opravené, dá se měřidlo zapojit do brány.
+
+### 🆕 KŘÍŽOVÉ DUPLICITY NAPŘÍČ ROČNÍKY (`testy/uniky-krizove.mjs`)
+
+Druhý nález z minulého kola vyřešen. `uniky.mjs` porovnává jen UVNITŘ bloku, takže
+bránino „0 duplicit, 0 úniků" je u opakovacích podtémat falešný klid. Nové měřidlo
+porovnává **napříč bloky a ročníky**: z 2 123 otázek a 2,2 mil. dvojic hlásí **87
+podezřelých** — mezi nimi všech 6 dvojic F8 × F9, které dřív ručně našel kontrolor
+(kalibrační kotva), a 15 dvojic, kde VYŠŠÍ ročník má snazší znění téhož.
+
+**Zatím je to HLÁŠENÍ, ne brána — a to je záměr.** Rozdíl mezi „duplicita" a
+„záměrné opakování" je věcný, ne slovní; to musí roztřídit učitel. Známý falešný
+pár, který lexikálně odlišit nejde: „souhlasné náboje" × „souhlasné póly" (obojí
+„odpuzují se", ale jiný jev). Postup povýšení na bránu je v komentáři na konci souboru.
+
+🔴 **POUČENÍ O BRÁNĚ (opraveno v tomhle kole):** worker si nový nástroj zapsal do
+`NENI_MERIDLO` v `testy/obousmerne.mjs`, protože by jinak dluh přerostl strop
+(15 proti 14) a shodil build ostatním. Odůvodnil to poctivě, ale **ten seznam není
+„co ještě neshazuje build", je to VÝJIMKA Z POVINNÉHO DOKLADU.** Výjimka byla
+zbytečná — důkaz měl hotový. Zapsán řádný doklad, `bezDokladu` zůstalo 14.
+Obecně: **strop rohatky se neobchází rozšířením výjimek, ale doložením měřidla.**
+
+### ✅ HOTOVO V MINULÉM KOLE
 
 **F9 `magnety-magneticke-pole-opakovani` — podtéma dodělané.**
 - kvíz: délková nápověda **5/19 → 2/19** (obě zbylé +4 znaky, pod prahem nápovědy),

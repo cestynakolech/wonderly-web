@@ -40,8 +40,24 @@ export const NENI_MERIDLO = {
 	'vsechny-simulace.mjs': 'spouštěč testů simulací',
 	'obousmerne.mjs': 'tenhle rejstřík',
 	'uniky-obousmerne.mjs': 'je to samo obousměrné ověření',
+	// POZOR: `uniky-krizove.mjs` sem NEPATŘÍ a nesmí se sem vracet (vyndáno 14. 8. 2026).
+	// Worker ho sem zapsal s poctivým odůvodněním „zatím jen hlášení, ne brána" — jenže
+	// tenhle seznam neznamená „co ještě neshazuje build", ale VÝJIMKU Z POVINNÉHO DOKLADU.
+	// Nástroj, který umí prohlásit „tohle je špatně", doklad potřebuje bez ohledu na to,
+	// jestli zrovna shazuje build; jinak se z něj brána jednou stane a ověřený nebude nikdy.
+	// Navíc byla ta výjimka zbytečná: obousměrný důkaz měl hotový už tehdy
+	// (`node testy/uniky-krizove.mjs --overeni`), takže stačilo ho zapsat do
+	// obousmerne.json — `bezDokladu` zůstalo 14 a nic se neshodilo.
+	// Obecně: strop rohatky se neobchází rozšířením výjimek, ale doložením měřidla.
+	// Doklad ke křížovému porovnání otázek. Musí být samostatný soubor: rejstřík spouští
+	// test jako `node <cesta>` bez argumentů, takže zabudovaný přepínač
+	// `uniky-krizove.mjs --overeni` se tudy spustit nedá (hlásí „CHYBÍ SOUBOR")
+	// a holá cesta by měřidlo spustila jen v režimu hlášení — skončilo by kódem 0
+	// a rejstřík by prohlásil za doložené něco, co se vůbec neověřilo.
+	'uniky-krizove-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy + kalibrační kotva na 6 dvojicích F8 × F9)',
 	'meridla-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy pro pět měřidel)',
 	'cesty-poloha-obousmerne.mjs': 'je to samo obousměrné ověření (polohy a pořadí míst deníku)',
+	'rozvrzeni-sceny-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy scén + zpětná kotva na nasazené vadě magnetů)',
 };
 
 /** Vrátí seznam měřidel: soubory .mjs přímo v testy/ (mimo výjimky) + testy simulací
