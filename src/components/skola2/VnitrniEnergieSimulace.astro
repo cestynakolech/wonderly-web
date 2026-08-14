@@ -199,7 +199,12 @@
 		} else if (v === 0) {
 			stavP.textContent = `🧊 Kostka stojí. Zvyš teplotu — částice se rozběhnou rychleji (delší šipky) a vnitřní energie povyroste. Přidej částice a povyroste taky, protože vnitřní energie je součet energií všech částic.`;
 		} else {
-			stavP.textContent = `🚚 Kostka se veze (rychlost ${v} dílků) a má pohybovou energii ${s.pohybova} jednotek. Vnitřní energie zůstala ${s.vnitrni} jednotek — pohyb celku s ní nehne, částice se uvnitř míhají pořád stejně. Zkus ji zabrzdit třením!`;
+			// rada musí být splnitelná: když by brzdění přeteklo strop scény,
+			// tlačítko by ji odmítlo — poraď napřed ochlazení
+			const rada = t + ohratiTrenim(v) > MAX_T
+				? `Na brzdění je ale moc horká — nejdřív ji ochlaď posuvníkem teploty, pak zabrzdi.`
+				: `Zkus ji zabrzdit třením!`;
+			stavP.textContent = `🚚 Kostka se veze (rychlost ${v} dílků) a má pohybovou energii ${s.pohybova} jednotek. Vnitřní energie zůstala ${s.vnitrni} jednotek — pohyb celku s ní nehne, částice se uvnitř míhají pořád stejně. ${rada}`;
 		}
 		hlaska = '';
 	}

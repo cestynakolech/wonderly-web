@@ -61,6 +61,7 @@
 	const START = 20;        // °C na začátku
 	const KROK = 5;          // o kolik °C klesne teplota za minutu, dokud se něco nemění
 	const DELKA_TUHNUTI = 4; // minut, po které teplota STOJÍ
+	const MAX_CAS = 12;      // délka pokusu; musí sedět s max="12" posuvníku času (hlídá test)
 	const casSlider = document.getElementById('tuh-cas');
 	const sulSlider = document.getElementById('tuh-sul');
 	const svg = document.getElementById('tuh-svg');
@@ -178,13 +179,18 @@
 		document.getElementById('tuh-vypocet').innerHTML =
 			`Chladíme pořád stejně: <strong>o ${KROK} °C za minutu</strong>. Od ${START} °C k teplotě tuhnutí `
 			+ `(${stupne(s.tuhne)}) to trvá ${minut(s.zacatekTuhnuti)}, pak ${minut(DELKA_TUHNUTI)} teplota <strong>stojí</strong> `
-			+ `a teprve potom klesá dál — za ${minut(12)} je z toho ${stupne(stav(12, sul).teplota)}.`;
+			+ `a teprve potom klesá dál — za ${minut(MAX_CAS)} je z toho ${stupne(stav(MAX_CAS, sul).teplota)}.`;
 
 		const stavP = document.getElementById('tuh-stav');
 		if (s.faze === 'kapalina') {
 			stavP.textContent = `💧 Voda chladne o ${KROK} °C za minutu a je pořád kapalná. Teplota tuhnutí ${stupne(s.tuhne)} je ještě kus cesty.`;
+		} else if (s.faze === 'tuhne' && s.led === 0) {
+			// hraniční minuta: hotového ledu je 0 % a sklenice ukazuje jen vodu —
+			// hláška proto popisuje ZAČÁTEK děje, bez procent
+			stavP.textContent = `🧊 Voda právě začíná tuhnout — první led se chytá stěn sklenice (pevného jádra). Teplota se zastavila na ${stupne(s.teplota)} a nehne se, dokud všechno neztuhne.`;
 		} else if (s.faze === 'tuhne') {
-			stavP.textContent = `🧊 Voda tuhne od pevného jádra — tady od stěn sklenice — a teplota se ANI NEHNE (${stupne(s.teplota)}), i když chladíme dál: voda, která právě tuhne, uvolňuje skupenské teplo do okolí. Hotovo je z ${s.led} %.`;
+			// „ze 75 %" (čte se „ze sedmdesáti pěti"), ale „z 25 %" a „z 50 %"
+			stavP.textContent = `🧊 Voda tuhne od pevného jádra — tady od stěn sklenice — a teplota se ANI NEHNE (${stupne(s.teplota)}), i když chladíme dál: voda, která právě tuhne, uvolňuje skupenské teplo do okolí. Hotovo je ${s.led === 75 ? 'ze' : 'z'} ${s.led} %.`;
 		} else {
 			stavP.textContent = `❄️ Všechno už je led, a teprve teď teplota zase klesá — ${stupne(s.teplota)}. Led zabírá víc místa než voda a drží se u hladiny, protože plave — kdyby neplaval, klesal by ke dnu a rybník by promrzl skrz naskrz.`;
 		}

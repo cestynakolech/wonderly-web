@@ -541,6 +541,20 @@ console.log('\n— rada v hlášce je vždy splnitelná —');
 	ok(naMaximu.includes('Rozjeď'), `a poradí něco splnitelného: „${naMaximu.slice(0, 58)}…"`);
 	nastav(TEPLOTY[0], 10, 0);
 	ok(prvky.get('vne-stav').textContent.includes('Zvyš teplotu'), 'pod maximem rada „Zvyš teplotu" platí dál');
+	// a u ROZJETÉ kostky: když by brzdění přeteklo strop scény, tlačítko by
+	// radu odmítlo — nad hranicí se proto radí napřed ochlazení. Projde se
+	// každý stav s v > 0, rada musí být splnitelná ve VŠECH.
+	let splnitelna = true, kdeR = '';
+	for (const t of TEPLOTY) for (const i of VIND.slice(1)) {
+		nastav(t, 10, i);
+		const h = prvky.get('vne-stav').textContent;
+		const pretece = t + ohratiTrenim(RYCHLOSTI[i]) > MAX_T;
+		const sedi = pretece
+			? !h.includes('Zkus ji zabrzdit') && h.includes('ochlaď') && h.includes('pak zabrzdi')
+			: h.includes('Zkus ji zabrzdit třením');
+		if (!sedi) { splnitelna = false; kdeR ||= `${t} °C, dílek ${i}: „…${h.slice(-70)}"`; }
+	}
+	ok(splnitelna, `u rozjeté kostky rada sedí se stropem: pod ním „zabrzdi třením", nad ním „nejdřív ochlaď, pak zabrzdi"${kdeR ? ` (${kdeR})` : ''}`);
 }
 
 console.log('\n— čeština: částice, částice, částic —');

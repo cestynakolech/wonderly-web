@@ -338,18 +338,37 @@ console.log('\n— texty u sklenice říkají obě pravdy, a jen když led exist
 		'skupenské teplo uvolňuje „voda, která právě tuhne" — ne ztuhlá voda');
 	ok(hlaska.includes('pevného jádra') || hlaska.includes('od stěn'),
 		'a hláška jmenuje pevné jádro, od kterého tuhnutí začíná');
-	// „Hotovo je z 25 %", ne „ze 25 %" — a časový údaj „za 12 minut", ne „ve 12 minut"
+	// Vokalizace předložky: „z 25 %" a „z 50 %", ale „ze 75 %" (čte se „ze
+	// sedmdesáti pěti") — a časový údaj „za 12 minut", ne „ve 12 minut"
 	let spravnaPredlozka = true, kdeP = '';
 	for (const sul of SOLI) for (const c of CASY) {
 		nastav(c, sul);
 		const h = prvky.get('tuh-stav').textContent;
-		if (/Hotovo je ze \d/.test(h)) { spravnaPredlozka = false; kdeP ||= `${c}. minuta, sůl ${sul}`; }
+		const mZ = /Hotovo je (ze?) (\d+) %/.exec(h);
+		if (mZ && (mZ[2] === '75' ? mZ[1] !== 'ze' : mZ[1] !== 'z')) {
+			spravnaPredlozka = false; kdeP ||= `${c}. minuta, sůl ${sul}: „${mZ[0]}"`;
+		}
 		if (/\bve \d+ minut/.test(prvky.get('tuh-vypocet').innerHTML)) { spravnaPredlozka = false; kdeP ||= `výpočet, ${c}. minuta`; }
 	}
-	ok(spravnaPredlozka, `všude „z 25 %" a „za 12 minut"${kdeP ? ` (špatně: ${kdeP})` : ''}`);
+	ok(spravnaPredlozka, `předložka je všude vokalizovaná správně: „z 25/50 %", „ze 75 %"${kdeP ? ` (špatně: ${kdeP})` : ''}`);
 	nastav(6, 0);
-	ok(/Hotovo je z \d+ %/.test(prvky.get('tuh-stav').textContent), 'hláška při tuhnutí hlásí „Hotovo je z … %"');
-	ok(/za \d+ minut/.test(prvky.get('tuh-vypocet').innerHTML), 'a výpočet říká „za 12 minut je z toho …"');
+	ok(/Hotovo je z 50 %/.test(prvky.get('tuh-stav').textContent), 'hláška při 50 % hlásí „Hotovo je z 50 %"');
+	nastav(7, 0);
+	ok(/Hotovo je ze 75 %/.test(prvky.get('tuh-stav').textContent), 'a při 75 % vokalizované „Hotovo je ze 75 %"');
+	// délka pokusu ve větě výpočtu je rozhodnutá na JEDNOM místě — musí sedět
+	// s maximem posuvníku času přečteným z HTML
+	ok(prvky.get('tuh-vypocet').innerHTML.includes(`za ${MAX_CAS} minut`),
+		`výpočet říká přesně „za ${MAX_CAS} minut" — délka pokusu sedí s posuvníkem času`);
+	// hraniční minuta začátku tuhnutí: hotového ledu je 0 % a sklenice ukazuje
+	// jen vodu — hláška popisuje začátek a nesmí hlásit procenta
+	for (const sul of SOLI) {
+		nastav(stav(0, sul).zacatekTuhnuti, sul);
+		const h = prvky.get('tuh-stav').textContent;
+		ok(h.includes('začíná tuhnout') && h.includes('stěn'),
+			`sůl ${sul}: v hraniční minutě hláška popisuje začátek — první led se chytá stěn`);
+		ok(!h.includes('%') && !h.includes('Hotovo'),
+			'a nehlásí žádná procenta — ve sklenici ještě žádný led není');
+	}
 }
 
 console.log('\n— počitadlo říká totéž co model —');
