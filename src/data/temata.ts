@@ -3488,7 +3488,7 @@ export const temata: Record<string, Tema[]> = {
 							<strong>Ohmův zákon</strong> <em>I</em> = <em>U</em> : <em>R</em>:</p>
 							<ul>
 								<li><strong>Plochá baterie 4,5 V</strong> na suchou kůži (R ≈ 100 000 Ω):
-								<em>I</em> = 4,5 : 100 000 = <strong>0,05 mA</strong> → ani to nepoznáš,
+								<em>I</em> = 4,5 : 100 000 = 0,000045 A = <strong>45 µA</strong> → ani to nepoznáš,
 								jsi hluboko pod prahem vnímání.</li>
 								<li><strong>Zásuvka 230 V</strong>: tady je zrada. Suchá kůže má sice velký odpor,
 								ale <strong>jen do zhruba 50 V</strong> — při vyšším napětí se elektricky
@@ -3499,7 +3499,8 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<p>⚠️ Podívej se do tabulky výš: <strong>obě poslední čísla jsou hluboko nad 80 mA</strong>,
 							tedy v pásmu zástavy srdce. <strong>Zásuvka je životu nebezpečná vždycky, i když jsi
-							úplně suchý</strong> — většina smrtelných úrazů se stane právě v suchu. Vlhko riziko
+							úplně suchý</strong> — už nad ~50 V se totiž prorazí kůže i v suchu, takže tě odpor
+							suché kůže vůbec nechrání. Vlhko riziko
 							jen dál zvyšuje, protože sníží odpor ještě víc.</p>
 							<p>👉 A právě proto <strong>není bezpečné napětí totéž co malé napětí</strong>: rozhoduje,
 							jestli napětí dokáže prorazit kůži. Do koupelny proto nepatří žádný spotřebič ze zásuvky
@@ -3509,7 +3510,7 @@ export const temata: Record<string, Tema[]> = {
 							<ul>
 								<li><strong>Jistič</strong> hlídá, aby obvodem netekl <em>příliš velký</em> proud
 								(typicky nad 16 A) — chrání <strong>vedení a dům před požárem</strong>. Proud
-								115 mA, který zabíjí člověka, je pro jistič naprosto nezajímavý; ani se nehne.</li>
+								153 mA, který podle výpočtu výše zabíjí, je pro jistič naprosto nezajímavý; ani se nehne.</li>
 								<li><strong>Proudový chránič</strong> porovnává, kolik proudu do spotřebiče
 								<em>přiteče</em> a kolik se ho <em>vrátí</em>. Když se část ztrácí — třeba
 								<strong>tělem člověka do země</strong> — okamžitě vypne. Reaguje už na
