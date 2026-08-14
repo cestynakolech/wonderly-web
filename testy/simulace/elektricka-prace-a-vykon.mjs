@@ -1,11 +1,18 @@
 #!/usr/bin/env node
 // Ověření ElektrickaPraceAVykonSimulace.astro — elektrická práce W = P·t a příkon P = U·I.
 //
-// Nejtišeji by lhaly dvě věci: (1) že by nějaká kombinace spotřebič×hodiny
-// dala ošklivé desetinné číslo místo pěkného kWh/Kč — proto se prochází
-// VŠECH 72 kombinací (3 příkony × 24 hodin) natvrdo; (2) že by obrázek žárovky
-// v části B naznačoval „víc wattů = víc světla" — proto se porovnávají
-// SKUTEČNĚ VYKRESLENÉ souřadnice paprsků obou žárovek, ne jen text.
+// Nejtišeji lžou tyhle věci a test je proto měří natvrdo, ne odhadem:
+// (1) že by nějaká kombinace spotřebič×čas dala ošklivé desetinné číslo
+//     místo pěkného kWh/Kč — prochází se VŠECH 96 kombinací (4 příkony ×
+//     24 celých hodin) a navíc všech 96 čtvrthodinových poloh konvice;
+// (2) že by obrázek žárovky v části B naznačoval „víc wattů = víc světla" —
+//     porovnávají se SKUTEČNĚ VYKRESLENÉ souřadnice paprsků obou žárovek;
+// (3) že by graf v části B poměrem výšek sloupců LHAL o tom, o kolik je
+//     LED levnější — měří se SKUTEČNĚ VYKRESLENÝ <rect>, ve VŠECH 24
+//     polohách posuvníku, bez jediného „continue“ nebo výjimky (nález
+//     nezávislé kontroly 14. 8. odpoledne: dřívější verze měla při t = 1 h
+//     poměr výšek 1,08 místo 10, a test to neviděl, protože si rizikové
+//     polohy sám přeskakoval).
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
@@ -37,12 +44,13 @@ const svgB = prvky.get('epv-b-svg');
 const {
 	__whZaDen: whZaDen, __kwhZaMesic: kwhZaMesic, __cenaZaMesic: cenaZaMesic, __proudA: proudA,
 	__SPOTREBICE: SPOTREBICE, __kwhText: kwhText, __kcText: kcText, __uhlovaRychlost: uhlovaRychlost,
-	__CENA_KWH: CENA_KWH, __NAPETI: NAPETI,
+	__CENA_KWH: CENA_KWH, __NAPETI: NAPETI, __platnaDoba: platnaDoba, __dobaText: dobaText,
+	__tHodinyText: tHodinyText, __KROK_KONVICE: KROK_KONVICE,
 } = svgA;
 const {
 	__scenaB: scenaB, __vyskaSloupceB: vyskaSloupceB, __geometrieSloupceB: geometrieSloupceB,
-	__MAX_CENA_B: MAX_CENA_B, __CHART_BASELINE: CHART_BASELINE, __CHART_MAX_PX: CHART_MAX_PX,
-	__CHART_MIN_PX: CHART_MIN_PX, __PANEL_B: PANEL_B, __IKONA_CX: IKONA_CX, __BAR_SIRKA: BAR_SIRKA,
+	__CHART_BASELINE: CHART_BASELINE, __CHART_MAX_PX: CHART_MAX_PX,
+	__CHART_MIN_PX: CHART_MIN_PX, __PANEL_B: PANEL_B, __IKONA_CX: IKONA_CX,
 } = svgB;
 
 let chyby = 0;
@@ -67,7 +75,7 @@ console.log('\n— tabulka spotřebičů (natvrdo, ať test nic neodkývá) —'
 	const ocek = {
 		klasicka: { p: 100, ikona: 'zarovka' },
 		led: { p: 10, ikona: 'zarovka' },
-		lednicka: { p: 100, ikona: 'lednicka' },
+		lednicka: { p: 20, ikona: 'lednicka' },
 		konvice: { p: 2000, ikona: 'konvice' },
 	};
 	let spatne = null;
@@ -77,8 +85,25 @@ console.log('\n— tabulka spotřebičů (natvrdo, ať test nic neodkývá) —'
 		if (s.p !== o.p) spatne = `${klic}: čekal jsem příkon ${o.p} W, mám ${s.p} W`;
 		if (s.ikona !== o.ikona) spatne = `${klic}: čekal jsem ikonu „${o.ikona}", mám „${s.ikona}"`;
 	}
-	ok(spatne === null, spatne ?? 'čtyři spotřebiče se správnými příkony: LED 10 W, klasická/lednička 100 W, konvice 2000 W');
+	ok(spatne === null, spatne ?? 'čtyři spotřebiče se správnými příkony: LED 10 W, lednička 20 W, klasická žárovka 100 W, konvice 2000 W');
 	ok(Object.keys(SPOTREBICE).length === 4, `žádný spotřebič navíc (${Object.keys(SPOTREBICE).length})`);
+}
+
+console.log('\n— lednička: pravdivý údaj (20 W = průměr, NE 100 W běžícího kompresoru — nález nezávislé kontroly) —');
+{
+	ok(SPOTREBICE.lednicka.p === 20, `příkon ledničky v datech je 20 W, ne 100 W (${SPOTREBICE.lednicka.p})`);
+	const tlacitkoHtml = html.match(/data-klic="lednicka">[^<]*<\/button>/)?.[0] ?? '';
+	ok(tlacitkoHtml.includes('20 W'), `tlačítko ledničky v HTML uvádí 20 W: „${tlacitkoHtml}"`);
+	ok(!tlacitkoHtml.includes('100 W'), 'a NEuvádí 100 W (to je příkon běžícího kompresoru, ne průměr)');
+	const popis = SPOTREBICE.lednicka.popis;
+	ok(/průměrný|průměr/i.test(popis), `popis vysvětluje, že jde o PRŮMĚRNÝ odběr: „${popis}"`);
+	ok(!/100\s*W/.test(popis), 'a popis netvrdí 100 W');
+	// realistický roční odhad: 20 W průměru celý rok = 175,2 kWh/rok — v pásmu
+	// běžné ledničky (150–250 kWh/rok podle štítku), na rozdíl od 100 W, což by
+	// dalo 876 kWh/rok — víc než trojnásobek reálného horního konce pásma.
+	const kwhRokoveOdhad = (20 * 8760) / 1000;
+	ok(kwhRokoveOdhad >= 150 && kwhRokoveOdhad <= 250,
+		`20 W průměrného odběru odpovídá ${kwhRokoveOdhad.toFixed(1)} kWh/rok — v reálném pásmu běžné ledničky (150–250 kWh/rok)`);
 }
 
 console.log('\n— pure funkce: W = P·t, kWh za měsíc, cena, I = P/U —');
@@ -88,12 +113,14 @@ console.log('\n— pure funkce: W = P·t, kWh za měsíc, cena, I = P/U —');
 	ok(cenaZaMesic(15) === 75, `cenaZaMesic(15) = 75 Kč — přesně příklad z výkladu (${cenaZaMesic(15)})`);
 	ok(Math.abs(proudA(2000) - 2000 / 230) < 1e-9, 'proudA počítá I = P ÷ U');
 	ok(kwhZaMesic(10, 5) === 1.5, `kwhZaMesic(10,5) = 1,5 kWh — desetina oproti klasické žárovce (${kwhZaMesic(10, 5)})`);
+	ok(kwhZaMesic(20, 5) === 3, `kwhZaMesic(20,5) = 3 kWh — lednička (${kwhZaMesic(20, 5)})`);
+	ok(kwhZaMesic(2000, 0.25) === 15, `kwhZaMesic(2000, 0,25) = 15 kWh — přesně vzorový příklad z výkladu (${kwhZaMesic(2000, 0.25)})`);
 }
 
-console.log('\n— VŠECH 72 kombinací (3 příkony × 24 hodin) dává čísla na nejvýš 1/2 desetinná místa —');
+console.log('\n— VŠECH 96 kombinací (4 příkony × 24 celých hodin) dává čísla na nejvýš 1/2 desetinná místa —');
 {
 	let spatne = null, zkontrolovano = 0;
-	for (const p of [10, 100, 2000]) {
+	for (const p of [10, 20, 100, 2000]) {
 		for (let t = 1; t <= 24; t++) {
 			zkontrolovano++;
 			const kwh = kwhZaMesic(p, t);
@@ -107,8 +134,26 @@ console.log('\n— VŠECH 72 kombinací (3 příkony × 24 hodin) dává čísla
 			if (desetinaKc !== 0 && desetinaKc !== 50) spatne = `P=${p} W, t=${t} h: cena ${kc} Kč není celá ani na padesátník`;
 		}
 	}
-	ok(zkontrolovano === 72, `zkontrolováno všech 72 kombinací (${zkontrolovano})`);
-	ok(spatne === null, spatne ?? 've všech 72 kombinacích vychází kWh na nejvýš 1 des. místo a cena celá nebo na padesátník');
+	ok(zkontrolovano === 96, `zkontrolováno všech 96 kombinací (${zkontrolovano})`);
+	ok(spatne === null, spatne ?? 've všech 96 kombinacích vychází kWh na nejvýš 1 des. místo a cena celá nebo na padesátník');
+}
+
+console.log('\n— konvice: VŠECH 96 čtvrthodinových poloh (0,25–24 h po 0,25 h) dává celé kWh a cenu na 75 Kč —');
+{
+	// 2000 W · (n/4) h · 30 dní / 1000 = 15·n kWh — vychází CELÉ pro každé n,
+	// protože 60/4 = 15 je celé číslo (0,25 h = 1/4 h je v binární plovoucí
+	// čárce přesná mocnina dvou, žádné zaokrouhlovací šumy).
+	let spatne = null, zkontrolovano = 0;
+	for (let n = 1; n <= 96; n++) {
+		const t = n * 0.25;
+		zkontrolovano++;
+		const kwh = kwhZaMesic(2000, t);
+		const kc = cenaZaMesic(kwh);
+		if (Math.abs(kwh - Math.round(kwh)) > 1e-9) spatne = `t=${t} h: kWh ${kwh} není celé číslo`;
+		if (Math.abs(kc - 75 * n) > 1e-6) spatne = `t=${t} h: cena ${kc} Kč neodpovídá 75 × ${n} = ${75 * n} Kč`;
+	}
+	ok(zkontrolovano === 96, `zkontrolováno všech 96 čtvrthodinových poloh (${zkontrolovano})`);
+	ok(spatne === null, spatne ?? 'konvice: pro všech 96 poloh (0,25–24 h po 0,25 h) vychází kWh celé a cena přesný násobek 75 Kč');
 }
 
 console.log('\n— výchozí stav části A: klasická žárovka, 5 h → přesně příklad z výkladu —');
@@ -119,6 +164,35 @@ console.log('\n— výchozí stav části A: klasická žárovka, 5 h → přesn
 	ok(info.includes('500 Wh'), `info panel ukazuje 500 Wh za den: „${info.match(/za den:[^<]*/)?.[0]}"`);
 	ok(info.includes('15 kWh'), 'a 15 kWh za měsíc');
 	ok(info.includes('75 Kč'), 'a cenu 75 Kč');
+}
+
+console.log('\n— konvice: přepnutí posuvník přepne na krok 0,25 h a rovnou ukáže příklad z výkladu —');
+{
+	// Přímý test na nález nezávislé kontroly: dřív šlo nastavit jen celé
+	// hodiny (min="1"), takže se vzorový příklad výkladu (15 min) ve scéně
+	// vůbec nedal předvést.
+	nastavA('klasicka', 5);
+	prepniA('konvice');
+	const slider = prvky.get('epv-a-t');
+	ok(slider.min === String(KROK_KONVICE), `po přepnutí na konvici je min posuvníku ${KROK_KONVICE} h (${slider.min})`);
+	ok(slider.max === '24', `max zůstává 24 h (${slider.max})`);
+	ok(slider.step === String(KROK_KONVICE), `krok posuvníku je ${KROK_KONVICE} h (${slider.step})`);
+	ok(slider.value === String(KROK_KONVICE), `hodnota rovnou naskočí na ${KROK_KONVICE} h — vzorový příklad z výkladu (${slider.value})`);
+
+	const info = prvky.get('epv-a-info').innerHTML;
+	ok(info.includes('500 Wh'), `při 15 min konvice: 500 Wh za den, přesně jako ve výkladu: „${info.match(/za den:[^<]*/)?.[0]}"`);
+	ok(info.includes('15 kWh'), 'a 15 kWh za měsíc — přesně jako ve výkladu');
+	ok(info.includes('75 Kč'), 'a cena 75 Kč — přesně jako ve výkladu');
+	ok(prvky.get('epv-a-out-t').textContent === '15 min',
+		`popisek posuvníku ukazuje „15 min", ne desetinné „0,25 h" (${prvky.get('epv-a-out-t').textContent})`);
+
+	// přepnutí PRYČ z konvice vrátí posuvník na celé hodiny 1–24
+	prepniA('klasicka');
+	ok(slider.min === '1' && slider.max === '24' && slider.step === '1',
+		`po přepnutí zpět na klasickou žárovku se posuvník vrátí na celé hodiny (min=${slider.min}, max=${slider.max}, krok=${slider.step})`);
+	ok(Number.isInteger(+slider.value) && +slider.value >= 1 && +slider.value <= 24,
+		`a hodnota je platné celé číslo v rozsahu 1–24 (${slider.value})`);
+	nastavA('klasicka', 5);
 }
 
 console.log('\n— přepnutí spotřebiče a posuvníku opravdu překreslí scénu A —');
@@ -170,10 +244,12 @@ console.log('\n— plaketa se jménem spotřebiče je bílá a text se do ní ve
 
 console.log('\n— rychlost ručičky elektroměru roste s příkonem —');
 {
-	ok(uhlovaRychlost(10) < uhlovaRychlost(100), 'LED (10 W) otáčí ručičkou pomaleji než klasická žárovka (100 W)');
+	ok(uhlovaRychlost(10) < uhlovaRychlost(20), 'LED (10 W) otáčí ručičkou pomaleji než lednička (20 W)');
+	ok(uhlovaRychlost(20) < uhlovaRychlost(100), 'a lednička pomaleji než klasická žárovka (100 W)');
 	ok(uhlovaRychlost(100) < uhlovaRychlost(2000), 'a klasická žárovka pomaleji než konvice (2000 W)');
 	ok(uhlovaRychlost(2000) === 50, `konvice: 2000/40 = 50 °/s (${uhlovaRychlost(2000)})`);
 	ok(uhlovaRychlost(10) === 0.25, `LED: 10/40 = 0,25 °/s (${uhlovaRychlost(10)})`);
+	ok(uhlovaRychlost(20) === 0.5, `lednička: 20/40 = 0,5 °/s (${uhlovaRychlost(20)})`);
 }
 
 console.log('\n— formátování kWh a Kč (čárka, mezera po tisících, jen potřebné desetiny) —');
@@ -185,6 +261,17 @@ console.log('\n— formátování kWh a Kč (čárka, mezera po tisících, jen 
 	ok(kcText(7.5) === '7,50 Kč', `7,5 → „${kcText(7.5)}"`);
 	ok(kcText(7200) === '7 200 Kč', `7200 → „${kcText(7200)}"`);
 	ok(kcText(810) === '810 Kč', `810 → „${kcText(810)}"`);
+}
+
+console.log('\n— dobaText/tHodinyText: čas pro dítě (min/h) i pro vzorec (desetinné h) —');
+{
+	ok(dobaText(0.25) === '15 min', `dobaText(0,25) → „${dobaText(0.25)}"`);
+	ok(dobaText(0.5) === '30 min', `dobaText(0,5) → „${dobaText(0.5)}"`);
+	ok(dobaText(1) === '1 h', `dobaText(1) → „${dobaText(1)}"`);
+	ok(dobaText(1.25) === '1 h 15 min', `dobaText(1,25) → „${dobaText(1.25)}"`);
+	ok(dobaText(5) === '5 h', `dobaText(5) → „${dobaText(5)}"`);
+	ok(tHodinyText(0.25) === '0,25 h', `tHodinyText(0,25) → „${tHodinyText(0.25)}"`);
+	ok(tHodinyText(5) === '5 h', `tHodinyText(5) → „${tHodinyText(5)}"`);
 }
 
 console.log('\n— odolnost: neplatné hodnoty posuvníku/spotřebiče nesmí shodit skript —');
@@ -202,6 +289,21 @@ console.log('\n— odolnost: neplatné hodnoty posuvníku/spotřebiče nesmí sh
 	ok(spadlo === null, spadlo ? `skript spadl na neplatné hodnotě: ${spadlo}` : 'neplatný klíč spotřebiče i neplatná hodnota posuvníku skript nezhroutí');
 	ok(!prvky.get('epv-a-info').innerHTML.includes('NaN'), 'a info panel neobsahuje „NaN"');
 	nastavA('klasicka', 5);
+}
+
+console.log('\n— odolnost: platnaDoba nepadá na neplatných vstupech a vrací hodnotu v rozsahu —');
+{
+	const neplatneHodnoty = [NaN, undefined, null, '', 'abc', -1, 1000];
+	let spatne = null;
+	for (const hodnota of neplatneHodnoty) {
+		try {
+			const t = platnaDoba(hodnota, 0.25, 24, 0.25, 0.25);
+			if (!(t >= 0.25 && t <= 24)) spatne = `platnaDoba(${hodnota}) vrátila ${t}, mimo rozsah 0,25–24`;
+		} catch (e) {
+			spatne = `platnaDoba(${hodnota}) SPADLA: ${e.message}`;
+		}
+	}
+	ok(spatne === null, spatne ?? `platnaDoba nespadne na žádné z ${neplatneHodnoty.length} neplatných hodnot a vrátí smysluplné číslo`);
 }
 
 console.log('\n— nic neleze z obrázku A (viewBox 660×350) —');
@@ -242,25 +344,53 @@ console.log('\n— scenaB: pro všech 24 hodin vychází roční úspora jako ce
 	ok(spatne === null, spatne ?? 'pro všech 24 poloh posuvníku je roční úspora přesně 162 × t Kč, vždy celé číslo');
 }
 
-console.log('\n— sloupce ceny: výška odpovídá poměru k maximu (100 W, 24 h), LED je vždy nižší —');
+console.log('\n— pure funkce vyskaSloupceB/geometrieSloupceB: měřítko z AKTUÁLNÍ dvojice cen, ne z pevného stropu —');
 {
-	ok(MAX_CENA_B === 360, `maximální cena (100 W, 24 h) je 360 Kč (${MAX_CENA_B})`);
-	ok(vyskaSloupceB(360) === CHART_MAX_PX, `sloupec na maximu vyplní celou výšku ${CHART_MAX_PX} px (${vyskaSloupceB(360)})`);
-	ok(vyskaSloupceB(0) === CHART_MIN_PX, `i nulová cena má viditelný minimální sloupec ${CHART_MIN_PX} px, ne jen čárku (${vyskaSloupceB(0)})`);
-	// Strukturální pojistka proti nálezu z 14. 8.: kdyby byl CHART_MIN_PX
-	// nastavený příliš vysoko, při nejnižší poloze posuvníku (t = 1 h) by se
-	// ořezaly OBA sloupce na stejnou výšku a graf by lhal, že LED a stará
-	// žárovka stojí stejně. Práh musí zůstat přísně pod nejnižší SKUTEČNOU
-	// (neořezanou) výškou sloupce staré žárovky v celém rozsahu posuvníku.
-	const staraMinTrue = (cenaZaMesic(kwhZaMesic(100, 1)) / MAX_CENA_B) * CHART_MAX_PX;
-	ok(CHART_MIN_PX < staraMinTrue,
-		`CHART_MIN_PX (${CHART_MIN_PX} px) je přísně menší než nejnižší skutečná výška staré žárovky (t=1 h → ${staraMinTrue.toFixed(2)} px) — jinak by při t=1 h sloupce splynuly do stejné výšky`);
+	// Nález nezávislé kontroly 14. 8. odpoledne: dřív se měřítko počítalo vůči
+	// pevnému stropu 360 Kč (cena při 24 h), takže při nízkém t minimální
+	// výška LED sloupec skoro srovnala se starou žárovkou. Teď se referenční
+	// maximum posílá jako explicitní argument (VŽDY vyšší ze dvou cen —
+	// u téhle dvojice vždy stará žárovka), takže poměr 10 : 1 platí PŘESNĚ
+	// ve všech polohách, ne jen tam, kde je sloupec nad prahem CHART_MIN_PX.
+	ok(vyskaSloupceB(75, 75) === CHART_MAX_PX, `cena rovná referenčnímu maximu vyplní celou výšku ${CHART_MAX_PX} px (${vyskaSloupceB(75, 75)})`);
+	ok(vyskaSloupceB(0, 0) === CHART_MIN_PX, `degenerovaný vstup (referenční maximum 0) vrátí bezpečně minimum ${CHART_MIN_PX} px, ne NaN/Infinity z dělení nulou (${vyskaSloupceB(0, 0)})`);
+
 	let spatne = null;
 	for (let t = 1; t <= 24; t++) {
 		const v = scenaB(t);
-		if (!(vyskaSloupceB(v.kcLed) < vyskaSloupceB(v.kcStara))) spatne = `t=${t} h: sloupec LED (${vyskaSloupceB(v.kcLed)}) není nižší než sloupec staré žárovky (${vyskaSloupceB(v.kcStara)})`;
+		const referencniMax = Math.max(v.kcStara, v.kcLed);
+		const gStara = geometrieSloupceB(IKONA_CX.stara, v.kcStara, referencniMax);
+		const gLed = geometrieSloupceB(IKONA_CX.led, v.kcLed, referencniMax);
+		if (Math.abs(gStara.vyska - CHART_MAX_PX) > 1e-6) spatne = `t=${t} h: stará žárovka (pure funkce) nevyplňuje celou výšku ${CHART_MAX_PX} px (${gStara.vyska})`;
+		if (Math.abs(gStara.vyska / gLed.vyska - 10) > 1e-6) spatne = `t=${t} h: pure funkce dává poměr ${(gStara.vyska / gLed.vyska).toFixed(6)}, čekal jsem přesně 10`;
+		if (!(gLed.vyska > CHART_MIN_PX)) spatne = `t=${t} h: LED sloupec (${gLed.vyska}) je na hraně minima nebo pod ním — ořez by porušil poměr`;
 	}
-	ok(spatne === null, spatne ?? 've všech 24 polohách je sloupec LED viditelně nižší než sloupec staré žárovky');
+	ok(spatne === null, spatne ?? 'pure funkce dávají pro VŠECH 24 poloh identický výsledek: stará žárovka vždy plná výška, LED vždy přesně její desetina, žádný ořez');
+}
+
+console.log('\n— PŘESNÝ poměr výšek sloupců 10 : 1 ve VŠECH 24 polohách — měřeno ze SKUTEČNĚ VYKRESLENÉHO <rect> —');
+{
+	// Tohle je test, který musí spadnout nad vadnou verzí a projít nad opravenou
+	// — měří se PŘÍMO vykreslený obsah #epv-b-sloupce (ne pure funkce výš,
+	// která by mohla být v pořádku, i kdyby ji volající kód volal špatně —
+	// přesně to se stalo: geometrieSloupceB dostal chybějící 3. argument a
+	// pořád počítal se starým pevným stropem). ŽÁDNÝ „continue" — měří se
+	// KAŽDÁ z 24 poloh, bez výjimky.
+	let spatne = null;
+	for (let t = 1; t <= 24; t++) {
+		nastavB(t);
+		const sloupceHtml = prvky.get('epv-b-sloupce').innerHTML;
+		const vysky = [...sloupceHtml.matchAll(/<rect x="([-\d.]+)" y="([-\d.]+)" width="([\d.]+)" height="([\d.]+)"/g)]
+			.map((m) => ({ x: +m[1], h: +m[4] }));
+		if (vysky.length !== 2) { spatne = `t=${t} h: čekal jsem 2 sloupce, mám ${vysky.length}`; break; }
+		// levý sloupec (nižší x) = stará žárovka, pravý = LED — dané rozvržením IKONA_CX
+		const [staraR, ledR] = vysky[0].x < vysky[1].x ? vysky : [vysky[1], vysky[0]];
+		const pomer = staraR.h / ledR.h;
+		if (Math.abs(pomer - 10) > 0.2) spatne = `t=${t} h: vykreslená výška stará=${staraR.h.toFixed(2)} px, LED=${ledR.h.toFixed(2)} px → poměr ${pomer.toFixed(2)}, čekal jsem 10 ± 0,2`;
+		if (Math.abs(staraR.h - CHART_MAX_PX) > 0.5) spatne = `t=${t} h: vykreslený sloupec staré žárovky (${staraR.h.toFixed(2)} px) nevyplňuje dostupnou výšku ${CHART_MAX_PX} px`;
+	}
+	ok(spatne === null, spatne ?? `ve všech 24 polohách posuvníku je vykreslený poměr výšek sloupců 10 : 1 (stará vyplní ${CHART_MAX_PX} px, LED přesně její desetinu) — přímo z <rect>, ne z pure funkce`);
+	nastavB(5);
 }
 
 console.log('\n— scéna B opravdu překresluje sloupce a texty při pohybu posuvníkem —');
@@ -325,7 +455,7 @@ console.log('\n— nic neleze z obrázku B (viewBox 660×460) —');
 	nastavB(5);
 }
 
-console.log('\n— SKUTEČNÉ souřadnice sloupců proti panelu a proti ose žárovek (nález 14. 8.) —');
+console.log('\n— SKUTEČNÉ souřadnice sloupců proti panelu a proti ose žárovek (nález 14. 8. dopoledne) —');
 {
 	// Panel se čte NEZÁVISLE na skriptu — je to statická značka v HTML šabloně,
 	// ne hodnota odvozená ze stejných konstant, které kreslí sloupce.
@@ -333,9 +463,9 @@ console.log('\n— SKUTEČNÉ souřadnice sloupců proti panelu a proti ose žá
 	// Hledá se VÝHRADNĚ uvnitř bloku <svg id="epv-b-svg">…</svg> — komponenta
 	// má DVĚ scény a KAŽDÁ má svůj bílý souhrnný <rect> se stejným vzorem
 	// (x="14" width="632" rx="8" fill="#fff"). Hledání nad celým souborem by
-	// tiše našlo panel SCÉNY A (nález kontroly 14. 8.: y=230) a test by pak
-	// měřil úplně jinou dvojici čísel, než sám tvrdí — proto se nejdřív vyřízne
-	// blok scény B a teprve v NĚM se panel hledá.
+	// tiše našlo panel SCÉNY A (nález kontroly: y=230) a test by pak měřil
+	// úplně jinou dvojici čísel, než sám tvrdí — proto se nejdřív vyřízne blok
+	// scény B a teprve v NĚM se panel hledá.
 	const blokB = /<svg id="epv-b-svg"[\s\S]*?<\/svg>/.exec(zdroj)?.[0];
 	ok(!!blokB, 'v souboru je nalezitelný celý blok <svg id="epv-b-svg">…</svg>');
 
@@ -343,11 +473,21 @@ console.log('\n— SKUTEČNÉ souřadnice sloupců proti panelu a proti ose žá
 	const panelKandidati = blokB ? [...blokB.matchAll(panelVzor)] : [];
 	// Pojistka proti tichému výběru „prvního nalezeného": kdyby uvnitř scény B
 	// kdykoli v budoucnu přibyl další <rect> se stejným vzorem, test se MUSÍ
-	// ozvat jako nejednoznačný, ne si mlčky vybrat jeden z nich.
-	ok(panelKandidati.length === 1,
-		panelKandidati.length === 0
+	// ozvat jako nejednoznačný, ne si mlčky vybrat jeden z nich. Zpráva má TŘI
+	// samostatné větve (0 / 1 / víc), aby ✅ na úspěchu nikdy netvrdila text
+	// napsaný pro selhání (nález nezávislé kontroly: dřív ternária pro délku
+	// 1 spadla do „NEJEDNOZNAČNO" větve, protože byla psaná jen pro 0 a >1).
+	const panelZprava = panelKandidati.length === 1
+		? 'uvnitř scény B nalezen právě jeden souhrnný panel, jak má být'
+		: panelKandidati.length === 0
 			? 'uvnitř scény B chybí souhrnný panel odpovídající očekávanému vzoru'
-			: `uvnitř scény B je NEJEDNOZNAČNO — nalezeno ${panelKandidati.length} bílých panelů se stejným vzorem, test neví, který je ten pravý`);
+			: `uvnitř scény B je NEJEDNOZNAČNO — nalezeno ${panelKandidati.length} bílých panelů se stejným vzorem, test neví, který je ten pravý`;
+	ok(panelKandidati.length === 1, panelZprava);
+	// Sebekontrola zprávy: při úspěchu nesmí znít jako selhání, a naopak.
+	ok(!(panelKandidati.length === 1 && /NEJEDNOZNAČNO|chybí souhrnný panel/.test(panelZprava)),
+		'zpráva při úspěchu (právě 1 nalezený panel) netvrdí, že je nejednoznačno nebo že panel chybí');
+	ok(!(panelKandidati.length !== 1 && !/NEJEDNOZNAČNO|chybí souhrnný panel/.test(panelZprava)),
+		'zpráva při selhání (0 nebo víc než 1 panel) skutečně popisuje selhání, ne úspěch');
 
 	const panelY = panelKandidati.length === 1 ? +panelKandidati[0][1] : NaN;
 	ok(panelY === PANEL_B.y, `panel nalezený uvnitř scény B (y=${panelY}) sedí s konstantou PANEL_B.y (${PANEL_B.y}) používanou skriptem`);
@@ -387,26 +527,7 @@ console.log('\n— SKUTEČNÉ souřadnice sloupců proti panelu a proti ose žá
 		}
 	}
 	ok(spatne === null, spatne ?? `pro všech 24 poloh posuvníku: sloupce leží celé nad panelem (≥ ${POZADOVANA_MEZERA} px mezera), paty na CHART_BASELINE, výška ≥ ${CHART_MIN_PX} px a vodorovný střed přesně na ose žárovky`);
-}
-
-console.log('\n— poměr výšek sloupců je poctivý tam, kde není omezen minimální výškou —');
-{
-	// Prochází CELÝ rozsah posuvníku a přeskakuje jen polohy, kde je sloupec
-	// LED ještě useknutý na minimální výšku — tam, kde useknutý NENÍ, MUSÍ
-	// platit přesný lineární poměr cen, žádné „hezčí“ přikreslení na úkor pravdy.
-	let spatne = null, zkontrolovanoBezOriznuti = 0;
-	for (let t = 1; t <= 24; t++) {
-		const v = scenaB(t);
-		const gStara = geometrieSloupceB(IKONA_CX.stara, v.kcStara);
-		const gLed = geometrieSloupceB(IKONA_CX.led, v.kcLed);
-		if (gLed.vyska <= CHART_MIN_PX + 0.01) continue; // stále na hraně ořezu, přeskočit
-		zkontrolovanoBezOriznuti++;
-		const pomerCen = v.kcStara / v.kcLed;
-		const pomerVysek = gStara.vyska / gLed.vyska;
-		if (Math.abs(pomerCen - pomerVysek) > 0.01) spatne = `t=${t} h: poměr cen ${pomerCen.toFixed(2)} neodpovídá poměru výšek ${pomerVysek.toFixed(2)}`;
-	}
-	ok(zkontrolovanoBezOriznuti >= 1, `aspoň jedna poloha (t 19–24) má oba sloupce nad minimální výškou — je co ověřit (${zkontrolovanoBezOriznuti})`);
-	ok(spatne === null, spatne ?? 'v neořezaných polohách sedí poměr výšek sloupců přesně s poměrem cen — žádné zkreslení');
+	nastavB(5);
 }
 
 console.log('\n— odolnost B: neplatná hodnota posuvníku nezhroutí překreslení —');
@@ -425,12 +546,14 @@ console.log('\n— odolnost B: neplatná hodnota posuvníku nezhroutí překresl
 
 console.log('\n— kotvy: napevno v HTML —');
 {
-	for (const slovo of ['Elektrická práce a výkon', 'Spotřebič a jeho příkon', 'Stará vs. LED žárovka', 'klasická žárovka', 'rychlovarná konvice']) {
+	for (const slovo of ['Elektrická práce a výkon', 'Spotřebič a jeho příkon', 'Stará vs. LED žárovka', 'klasická žárovka', 'lednička (20 W)', 'rychlovarná konvice']) {
 		ok(html.includes(slovo), `v HTML je natvrdo „${slovo}"`);
 	}
-	ok(/id="epv-a-t"[^>]*min="1"[^>]*max="24"[^>]*value="5"/.test(html), 'posuvník doby provozu (A) jde 1–24 h, výchozí 5 h');
+	ok(!html.includes('lednička (100 W)'), 'v HTML NENÍ natvrdo špatný údaj „lednička (100 W)"');
+	ok(/id="epv-a-t"[^>]*min="1"[^>]*max="24"[^>]*value="5"/.test(html), 'posuvník doby provozu (A) má výchozí statické rozmezí 1–24 h, výchozí 5 h (JS ho po výběru konvice dočasně přepne)');
 	ok(/id="epv-b-t"[^>]*min="1"[^>]*max="24"[^>]*value="5"/.test(html), 'posuvník doby svícení (B) jde 1–24 h, výchozí 5 h');
 	ok(html.includes('5 Kč/kWh') || html.includes('5 Kč'), 'cena elektřiny je vidět i v popisném textu, ne jen ve výpočtu');
+	ok(html.includes('desetina'), 've scéně je natvrdo vidět, že LED je vždy desetina ceny staré žárovky');
 }
 
 console.log(chyby === 0 ? '\n✅ Elektrická práce a výkon: vše sedí.' : `\n❌ Elektrická práce a výkon: ${chyby} chyb.`);
