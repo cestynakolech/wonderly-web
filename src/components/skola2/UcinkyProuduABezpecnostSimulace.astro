@@ -9,11 +9,19 @@
 // používá i tahle simulace, JEDNOTNĚ pro všechny tři stavy kůže (mění se jen
 // hodnota odporu před/po průrazu, ne samotný práh).
 //
-// Pásma proudu (1 / 6 / 25 / 60 / 80 mA) jsou doslova čtyři prahové hodnoty
-// z výkladu — pod 1 mA neucítíš nic, 1–6 mA brnění (mezistupeň, ve výkladu
-// nepojmenovaný, ale logicky mezi „prahem vnímání" a „křečí"), 6–25 mA křeč
-// (nemůžeš se pustit), 25–60 mA křeč dýchacích svalů, 60–80 mA fibrilace,
-// nad 80 mA trvalá zástava srdce.
+// Pásma proudu (1 / 6 / 15 / 25 / 60 / 80 mA) — VŠECH ŠEST prahů je přímo
+// z výkladu na téže stránce („~1 mA — práh vnímání", „6–15 mA — křeč, člověk
+// se nemůže pustit", „~25 mA — křeč dýchacích svalů", „~60 mA — fibrilace",
+// „nad 80 mA — trvalá zástava"): pod 1 mA neucítíš nic, 1–6 mA brnění
+// (mezistupeň, ve výkladu nepojmenovaný, ale logicky mezi „prahem vnímání"
+// a „křečí"), 6–15 mA křeč — nemůžeš se pustit (DOSLOVA z výkladu), 15–25 mA
+// křeč dál sílí a blíží se ohrožení dýchání (mezistupeň mezi výkladovými
+// „15" a „25", stejná logika jako mezistupeň 1–6), 25–60 mA křeč dýchacích
+// svalů, 60–80 mA fibrilace, nad 80 mA trvalá zástava srdce.
+// (Nezávislá kontrola 14. 8. večer našla, že simulace dřív práh 15 mA
+// vůbec neměla a jedno pásmo 6–25 mA si říkalo „6–15" jméno z výkladu i pro
+// proudy 15–25 mA, které výklad tímhle jménem nepopisuje — opraveno tímhle
+// šestým prahem.)
 //
 // Odpory těla (ODPORY níž) — u KAŽDÉ hodnoty je teď natvrdo označeno, jestli
 // je citace z výkladu (…Presny: true, žádné „≈" u čísla), nebo vlastní odhad
@@ -45,13 +53,25 @@
 // bosa na zemi: nohy uzavřou obvod do země úplně stejně, jako to dělá volba
 // „ruka → noha" o kus vedle, takže by si dítě odneslo „stačí sahat jen
 // jednou rukou" — přesně opačně, než je pravda. Teď je to PŘEPRACOVÁNO:
-//   'ruka-ruka' (R=1 000 Ω, přesná hodnota = mokrá kůže z části A):
-//     proud napříč hrudníkem přes srdce — nejnebezpečnější, 230 mA, zástava.
-//   'ruka-noha' (R=2 000 Ω, ODHAD „dvakrát delší dráha = dvakrát větší
-//     odpor", navazuje na R=ρ·l/S z odpor-vodiče): TOHLE je fyzikálně
-//     přesně to, co se stane běžnému člověku, který se bosou nohou dotkne
-//     vodiče a stojí na podlaze — i jedna ruka stačí. 115 mA, furt zástava.
-//     Popis textu to říká VÝSLOVNĚ, aby zabil mýtus „jedna ruka je bezpečná".
+//   'ruka-ruka' (R=1 000 Ω): proud napříč hrudníkem přes srdce —
+//     nejnebezpečnější dráha. Odpor je STEJNÉ číslo jako „mokrá kůže" v
+//     části A (1 000 Ω, přímo z výkladu) — scéna to VÝSLOVNĚ vysvětluje
+//     zpocenýma rukama (běžné při leknutí/nehodě), aby to číslo nebylo
+//     vytažené odnikud. 230 mA, zástava.
+//   'ruka-noha' (R=1 500 Ω): TOHLE je fyzikálně přesně to, co se stane
+//     běžnému člověku, který se bosou nohou dotkne vodiče a stojí na SUCHÉ
+//     podlaze — i jedna ruka stačí. Odpor je STEJNÉ číslo jako „suchá kůže"
+//     v části A (1 500 Ω, přímo z výkladu), takže proud vyjde ÚPLNĚ STEJNÝ
+//     jako u nejnebezpečnějšího případu v části A (≈153,3 mA) — schválně,
+//     ať si žák propojí, že jde o stejnou fyzikální situaci, jen jinak
+//     nakreslenou. Popis textu to říká VÝSLOVNĚ, aby zabil mýtus „jedna
+//     ruka je bezpečná".
+//     (NÁLEZ nezávislé kontroly 14. 8. večer: dřívější verze používala
+//     vlastní ODHAD 2 000 Ω pro „ruka-noha" a dostala 115 mA — jiné číslo
+//     než STEJNÁ fyzická situace v části A [suchá kůže, 230 V] tam dávala
+//     [153,3 mA], takže stránka sama sobě odporovala. Teď se odpory OBOU
+//     cest v části B odvozují ze STEJNÉ dvojice hodnot jako v části A
+//     [1 500 Ω suchá / 1 000 Ω mokrá/zpocená], žádné nové odhady.)
 //   'izolace' (R=null, otevřený obvod, I=0 mA): JEDINÝ způsob, jak se dá
 //     jednou rukou dotknout živého vodiče bez zásahu — a to jen s VIDITELNOU
 //     gumovou podložkou pod nohama (kreslí se jako žlutý pruh + popisek),
@@ -64,6 +84,18 @@
 // trup) se v SVG kreslí PŘED cestou proudu a tečkami, takže dráha/tečky jsou
 // AŽ NA KONCI dokumentu — SVG kreslí pozdější uzly NAD staršími, takže
 // červená dráha je vidět NAD trupem, ne pod ním překrytá.
+//
+// Zdroj a vodič ve scéně B (nález nezávislé kontroly 14. 8. odpoledne):
+// postava dřív „dostávala" proud odnikud — nebyl nakreslený žádný zdroj ani
+// vodič, takže u volby „izolace" nešlo pochopit, čeho se levá ruka vlastně
+// dotýká a proč gumová podložka obvod přeruší. Teď má scéna B STEJNOU ikonu
+// zásuvky jako scéna A (upb-b-zdroj — statická, napětí v části B se nikdy
+// nemění) + vodič k levé ruce (upb-b-drat-zdroj) + čárkovanou zpáteční cestu
+// zpět ke zdroji (upb-b-navrat — DYNAMICKÁ, vede od aktuálního výstupního
+// bodu podle vybrané cesty: pravé ruky u „ruka-ruka", pravé nohy u
+// „ruka-noha"). U volby „izolace" se zpáteční cesta VŮBEC nekreslí (obvod
+// je otevřený) a navíc se přímo u podložky objeví červená přerušovaná
+// čárka zakončená „✕" — vizuální „tady proud dál nemůže", ne jen text.
 //
 // Ikony zdroje (baterie/autobaterie/zásuvka) mají RŮZNOU šířku, takže vodič
 // od zdroje k ruce má DYNAMICKÉ x1 (ICON_PRAVY_OKRAJ) — vždy se dotýká
@@ -120,8 +152,9 @@
 
 	<h3><span class="podtrh">🫀 Část B: Kudy proud teče, na tom záleží</span></h3>
 	<p>Napětí necháme napevno na <strong>230 V</strong> — stejně nebezpečné jako zásuvka v části A, <strong>nikdy se to nezkouší</strong>. Zajímá nás, kudy proud tělem prochází — a proč nestačí „jen" nesahat oběma rukama zároveň.</p>
-	<svg id="upb-b-svg" viewBox="0 0 660 330" role="img" aria-label="Postavička se zvýrazněnou cestou proudu tělem nakreslenou NAD tělem, vpravo ampérmetr s barevnými pásmy nebezpečí a trvalé varování nikdy nezkoušet">
+	<svg id="upb-b-svg" viewBox="0 0 660 330" role="img" aria-label="Zásuvka připojená drátem k levé ruce postavičky, cesta proudu tělem nakreslená NAD tělem, čárkovaná zpáteční cesta zpět ke zdroji (u izolace přerušená křížkem), vpravo ampérmetr s barevnými pásmy nebezpečí a trvalé varování nikdy nezkoušet">
 		<rect x="0" y="0" width="660" height="330" fill="#f8f9fa" />
+		<line id="upb-b-drat-zdroj" x1="100" y1="85" x2="140" y2="85" stroke="#2b2a26" stroke-width="4" />
 		<circle cx="250" cy="70" r="22" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
 		<rect x="220" y="95" width="60" height="110" rx="16" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
 		<circle id="upb-b-srdce" cx="250" cy="145" r="13" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
@@ -133,11 +166,17 @@
 		<circle id="upb-b-noha-l" cx="220" cy="283" r="8" fill="#ced4da" stroke="#868e96" stroke-width="2" />
 		<line x1="272" y1="205" x2="280" y2="280" stroke="#2b2a26" stroke-width="4" />
 		<circle id="upb-b-noha-p" cx="283" cy="283" r="8" fill="#4dabf7" stroke="#2b2a26" stroke-width="2" />
+		<g id="upb-b-zdroj"></g>
+		<rect x="8" y="172" width="200" height="26" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="108" y="190" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">zásuvka — 230 V</text>
 		<g id="upb-b-izolace" opacity="0">
 			<rect x="195" y="291" width="115" height="12" rx="3" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
 			<rect x="175" y="307" width="150" height="22" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
 			<text x="250" y="323" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">izolace (podložka)</text>
+			<line x1="250" y1="210" x2="250" y2="289" stroke="#e03131" stroke-width="3" stroke-dasharray="5,5" />
+			<text x="250" y="286" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">✕</text>
 		</g>
+		<path id="upb-b-navrat" d="" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="7,5" />
 		<path id="upb-b-cesta-linka" d="" fill="none" stroke="#f03e3e" stroke-width="5" stroke-linecap="round" />
 		<g id="upb-b-elektrony"></g>
 		<rect x="430" y="234" width="200" height="46" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="3" />
@@ -208,8 +247,10 @@
 			popis: 'Proud je tak malý, že ho vůbec neucítíš.' },
 		{ limit: 6, klic: 'brneni', nazev: 'brnění', barva: '#ffd43b',
 			popis: 'Ucítíš mravenčení, ale svaly tě poslouchají.' },
-		{ limit: 25, klic: 'krec-sval', nazev: 'křeč svalů – nemůžeš se pustit', barva: '#ffa94d',
+		{ limit: 15, klic: 'krec-sval', nazev: 'křeč svalů – nemůžeš se pustit', barva: '#ffa94d',
 			popis: 'Svaly se křečovitě stáhnou a sám se nepustíš — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
+		{ limit: 25, klic: 'krec-silici', nazev: 'křeč sílí – blíží se ohrožení dýchání', barva: '#ff922b',
+			popis: 'Křeč dál sílí a blíží se hranici, kdy začnou selhávat i dýchací svaly — pořád platí totéž: proud musí přerušit někdo jiný, ne ty sám.' },
 		{ limit: 60, klic: 'krec-dychani', nazev: 'křeč dýchacích svalů', barva: '#ff8787',
 			popis: 'Křeč zasáhne i svaly, kterými dýcháš — hrozí udušení.' },
 		{ limit: 80, klic: 'fibrilace', nazev: 'fibrilace srdce', barva: '#f03e3e',
@@ -374,12 +415,12 @@
 		'ruka-ruka': {
 			r: 1000, presny: true, uzavrena: true, nazev: 'ruka → ruka', kontakty: ['ruka-p'],
 			waypoints: ['ruka-l', 'srdce', 'ruka-p'],
-			popis: 'Proud jde napříč hrudníkem přímo přes srdce — ze všech cest nejnebezpečnější.',
+			popis: 'Proud jde napříč hrudníkem přímo přes srdce — ze všech cest nejnebezpečnější. Při skutečné nehodě bývají ruce zpocené strachem, takže odpor kůže klesne stejně nízko jako u mokré kůže z části A (1 000 Ω).',
 		},
 		'ruka-noha': {
-			r: 2000, presny: false, uzavrena: true, nazev: 'ruka → noha', kontakty: ['noha-p'],
+			r: 1500, presny: true, uzavrena: true, nazev: 'ruka → noha', kontakty: ['noha-p'],
 			waypoints: ['ruka-l', 'srdce', 'noha-p'],
-			popis: 'Přesně tohle se stane, když se JEDNOU rukou dotkneš vodiče a bosou nohou stojíš na obyčejné podlaze — nohy uzavřou obvod do země, takže stačí i jediná ruka. Dráha tělem je asi dvakrát delší než u ruka → ruka, proud je proto menší, ale pořád prochází poblíž srdce a je životu nebezpečný.',
+			popis: 'Přesně tohle se stane, když se JEDNOU rukou dotkneš vodiče a bosou nohou stojíš na obyčejné suché podlaze — nohy uzavřou obvod do země, takže stačí i jediná ruka. Odpor je stejný jako u suché kůže v části A (1 500 Ω), a proto vyjde úplně stejný proud jako tam.',
 		},
 		izolace: {
 			r: null, presny: true, uzavrena: false, nazev: 'ruka + izolace nohou', kontakty: [],
@@ -417,6 +458,9 @@
 	const tlacitkoPlay = document.getElementById('upb-b-play');
 
 	vykresliPasmoPozadi('upb-b-pasmo-pozadi');
+	// Zdroj v části B je NAPEVNO zásuvka (napětí se tu nikdy nemění) — ikona
+	// se proto vykresluje jednou při načtení, ne uvnitř prekresliB().
+	document.getElementById('upb-b-zdroj').innerHTML = ikonaZdroje('zasuvka', 70, 85);
 
 	const POCET_TECEK = 5;
 	const teckyG = document.getElementById('upb-b-elektrony');
@@ -504,6 +548,19 @@
 			cestaLinka.setAttribute('d', '');
 			cestaWaypoints = null;
 			tecky.forEach((t) => t.setAttribute('opacity', '0'));
+		}
+
+		// Čárkovaná zpáteční cesta zpět ke zdroji (upb-b-navrat) — vede od
+		// AKTUÁLNÍHO výstupního bodu (pravá ruka nebo pravá noha, podle
+		// vybrané cesty) dolů pod scénu, k levému okraji a zpátky ke zdroji.
+		// U otevřeného obvodu (izolace) se nekreslí VŮBEC — obvod se
+		// neuzavírá, takže není co „vracet zpátky" (nález #3).
+		const navratEl = document.getElementById('upb-b-navrat');
+		if (c.uzavrena) {
+			const vystup = BODY[c.kontakty[0]];
+			navratEl.setAttribute('d', `M${vystup.x},${vystup.y} L${vystup.x},320 L4,320 L4,146 L60,146`);
+		} else {
+			navratEl.setAttribute('d', '');
 		}
 		zastavB();
 		tlacitkoPlay.textContent = '▶ pusť proud';

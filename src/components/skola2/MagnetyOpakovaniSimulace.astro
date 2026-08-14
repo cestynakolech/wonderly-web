@@ -1,0 +1,391 @@
+---
+// Magnety a magnetické pole — OPAKOVÁNÍ pro 9. ročník (F9, magneticke-pole,
+// magnety-magneticke-pole-opakovani). Dvě samostatné scény ve stejné
+// komponentě (stejně jako GalvanickyClanekSimulace má část A/B):
+//
+//  A) Roztřiď vzorky — žák bere vzorek (posuvník), přiblíží magnet a vidí
+//     VÝSLEDEK pokusu: feromagnetický vzorek se magnetu přisaje, nemagnetický
+//     zůstane na místě. Devět SKUTEČNÝCH látek z výkladu: feromagnetické
+//     železo, ocel, nikl, kobalt; nemagnetické hliník, měď, dřevo, sklo,
+//     plast. Zjednodušení (schválně, ať se scéna neplete s jemným jevem,
+//     který výklad jen zmiňuje): diamagnetismus (slabé odpuzování) se
+//     nezobrazuje — měď se tu chová jako obyčejná nemagnetická látka, přesně
+//     jak ji výklad jmenuje v seznamu nemagnetických látek.
+//
+//  B) Póly a magnetické pole — tyčový magnet s indukčními čarami (vycházejí
+//     ze severního pólu N, míří k jižnímu S), druhý magnet lze přiblížit a
+//     otočit (souhlasné póly se odpuzují, opačné přitahují), a jde ho
+//     rozlomit — KLÍČOVÁ POINTA OPAKOVÁNÍ: obě půlky mají zase svůj vlastní
+//     severní i jižní pól.
+//
+// Mimo scénu schválně (je to učivo 6. ročníku, v devítkovém výkladu není):
+// magnetické pole Země, kompas, ztráta magnetismu teplem/úderem.
+//
+// Kreslí se staticky (přepočet při každé změně posuvníku/tlačítka), bez
+// requestAnimationFrame — stejný přístup jako OerstedSimulace a
+// GalvanickyClanekSimulace, není tedy co časově kalibrovat.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: magnety a magnetické pole 🕹️</span></h2>
+	<p>
+		Zopakuj si, jak látky reagují na magnet a jak vypadá pole kolem něj —
+		na dvou pokusech.
+	</p>
+
+	<h3><span class="podtrh">🧪 Scéna A: Roztřiď vzorky</span></h3>
+	<p>
+		Přibliž magnet k různým vzorkům a sleduj, které <strong>přitáhne</strong>
+		a které nechá být. Látky, které magnet silně přitahuje a dají se
+		zmagnetovat, se nazývají <strong>feromagnetické</strong> (železo a jeho
+		slitiny, nikl, kobalt). Ostatní látky jsou <strong>nemagnetické</strong> —
+		magnet na ně skoro vůbec nepůsobí.
+	</p>
+	<svg id="mopak-a-svg" viewBox="0 0 660 450" role="img" aria-label="Test přitažlivosti různých vzorků magnetem">
+		<rect x="0" y="0" width="660" height="450" fill="#f8f9fa" />
+		<!-- stůl -->
+		<rect x="200" y="270" width="260" height="14" rx="4" fill="#c99a5b" stroke="#2b2a26" stroke-width="2" />
+		<g id="mopak-a-magnet"></g>
+		<g id="mopak-a-vzorek"></g>
+		<g id="mopak-a-legenda"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Vzorek: <output id="mopak-a-out"></output>
+		<input type="range" id="mopak-a-slider" min="0" max="8" step="1" value="0" />
+	</label>
+	<p><button type="button" class="mopak-tl" id="mopak-a-tlacitko">🧲 Přiblížit magnet ke vzorku</button></p>
+	<p class="mopak-stav" id="mopak-a-stav"></p>
+
+	<h3><span class="podtrh">🧲 Scéna B: Póly a magnetické pole</span></h3>
+	<p>
+		Každý magnet má <strong>severní pól (N)</strong> a <strong>jižní pól
+		(S)</strong>. Kolem magnetu je <strong>magnetické pole</strong> — jeho
+		<strong>indukční čáry</strong> vycházejí ze severního pólu a míří k
+		jižnímu. <strong>Souhlasné póly se odpuzují, opačné se přitahují.</strong>
+		A zkus magnet rozlomit — uvidíš, že ho nejde rozdělit na „samotné N“ a
+		„samotné S“.
+	</p>
+	<svg id="mopak-b-svg" viewBox="0 0 660 300" role="img" aria-label="Tyčový magnet, jeho pole a druhý přibližovaný magnet">
+		<rect x="0" y="0" width="660" height="300" fill="#f8f9fa" />
+		<g id="mopak-b-pole"></g>
+		<g id="mopak-b-magnet1"></g>
+		<g id="mopak-b-sily"></g>
+		<g id="mopak-b-magnet2"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Vzdálenost druhého magnetu: <output id="mopak-b-out"></output>
+		<input type="range" id="mopak-b-vzdalenost" min="1" max="5" step="1" value="3" />
+	</label>
+	<p>
+		<button type="button" class="mopak-tl" id="mopak-b-otocit">🔄 Otočit druhý magnet</button>
+		<button type="button" class="mopak-tl" id="mopak-b-rozlomit">🔨 Rozlomit magnet</button>
+	</p>
+	<p class="mopak-stav" id="mopak-b-stav"></p>
+</section>
+
+<script>
+	// ═══════════════════════════ Scéna A: třídění vzorků ═══════════════════════
+	const MATERIALY = [
+		{ nazev: 'železo', fero: true },
+		{ nazev: 'ocel', fero: true },
+		{ nazev: 'nikl', fero: true },
+		{ nazev: 'kobalt', fero: true },
+		{ nazev: 'hliník', fero: false },
+		{ nazev: 'měď', fero: false },
+		{ nazev: 'dřevo', fero: false },
+		{ nazev: 'sklo', fero: false },
+		{ nazev: 'plast', fero: false },
+	];
+
+	const A_MAGNET_W = 160, A_MAGNET_H = 50, A_MAGNET_CX = 330;
+	const A_MAGNET_TOP_DALEKO = 30, A_MAGNET_TOP_BLIZKO = 120;
+	const A_VZOREK_CY_KLID = 246;
+	const A_VZOREK_R = 24;
+
+	// Obranné čtení indexu — neplatná hodnota se tiše nahradí prvním vzorkem,
+	// ať skript nikdy nespadne na MATERIALY[NaN].
+	function platnyIndex(hodnota) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= 0 && n < MATERIALY.length ? n : 0;
+	}
+
+	// ČISTÁ FUNKCE: kam se posune vzorek. Feromagnetický vzorek se PŘI
+	// přiblížení magnetu přisaje k jeho spodní hraně; nemagnetický zůstává na
+	// stole beze změny — to je ten „výsledek pokusu“, který má být vidět.
+	function polohaVzorkuCy(idx, pribl) {
+		const m = MATERIALY[platnyIndex(idx)];
+		if (pribl && m.fero) return A_MAGNET_TOP_BLIZKO + A_MAGNET_H + A_VZOREK_R;
+		return A_VZOREK_CY_KLID;
+	}
+	// ČISTÁ FUNKCE: horní hrana magnetu podle toho, jestli je přiblížený.
+	function polohaMagnetuTop(pribl) {
+		return pribl ? A_MAGNET_TOP_BLIZKO : A_MAGNET_TOP_DALEKO;
+	}
+
+	const svgA = document.getElementById('mopak-a-svg');
+	svgA.__MATERIALY = MATERIALY;
+	svgA.__polohaVzorkuCy = polohaVzorkuCy;
+	svgA.__polohaMagnetuTop = polohaMagnetuTop;
+
+	function nakresliMagnetA(pribl) {
+		const top = polohaMagnetuTop(pribl);
+		const xN = A_MAGNET_CX - A_MAGNET_W / 2;
+		const xS = A_MAGNET_CX;
+		const html =
+			`<rect x="${xN}" y="${top}" width="${A_MAGNET_W / 2}" height="${A_MAGNET_H}" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="${xS}" y="${top}" width="${A_MAGNET_W / 2}" height="${A_MAGNET_H}" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${xN + A_MAGNET_W / 4}" y="${top + A_MAGNET_H / 2 + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">N</text>`
+			+ `<text x="${xS + A_MAGNET_W / 4}" y="${top + A_MAGNET_H / 2 + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">S</text>`;
+		document.getElementById('mopak-a-magnet').innerHTML = html;
+	}
+
+	// Popisek materiálu sedí VŽDY na bílé plaketě vpravo od vzorku — na téhle
+	// výšce (viz polohaVzorkuCy) se nikdy nekříží s magnetem ani se stolem.
+	function nakresliVzorekA(idx, pribl) {
+		const m = MATERIALY[platnyIndex(idx)];
+		const cy = polohaVzorkuCy(idx, pribl);
+		const cx = A_MAGNET_CX;
+		const text = m.nazev;
+		const w = Math.max(60, text.length * 9 + 16);
+		const px = cx + A_VZOREK_R + 10;
+		const py = cy - 12;
+		const html =
+			`<circle cx="${cx}" cy="${cy}" r="${A_VZOREK_R}" fill="#ced4da" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="${px}" y="${py}" width="${w}" height="24" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
+			+ `<text x="${px + w / 2}" y="${py + 16}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">${text}</text>`;
+		document.getElementById('mopak-a-vzorek').innerHTML = html;
+	}
+
+	// Trvalá legenda pod scénou — obě skupiny vzorků naráz, ať si žák hned
+	// vidí celé rozdělení, ne jen jeden test.
+	function nakresliLegenduA() {
+		const fero = MATERIALY.filter((m) => m.fero).map((m) => m.nazev).join(', ');
+		const nefero = MATERIALY.filter((m) => !m.fero).map((m) => m.nazev).join(', ');
+		const html =
+			`<rect x="20" y="310" width="300" height="120" rx="10" fill="#ffe3e3" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="170" y="336" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">feromagnetické (magnet přitahuje)</text>`
+			+ `<text x="170" y="364" text-anchor="middle" font-size="14" fill="#2b2a26">${fero}</text>`
+			+ `<rect x="340" y="310" width="300" height="120" rx="10" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="490" y="336" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">nemagnetické (magnet nepřitahuje)</text>`
+			+ `<text x="490" y="364" text-anchor="middle" font-size="14" fill="#2b2a26">${nefero}</text>`;
+		document.getElementById('mopak-a-legenda').innerHTML = html;
+	}
+
+	function velkeAPismeno(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+	let priblA = false;
+	const sliderA = document.getElementById('mopak-a-slider');
+	const tlacitkoA = document.getElementById('mopak-a-tlacitko');
+
+	function prekresliA() {
+		const idx = platnyIndex(sliderA.value);
+		const m = MATERIALY[idx];
+		document.getElementById('mopak-a-out').textContent = m.nazev;
+		nakresliMagnetA(priblA);
+		nakresliVzorekA(idx, priblA);
+		tlacitkoA.textContent = priblA ? '↩️ Oddálit magnet' : '🧲 Přiblížit magnet ke vzorku';
+		const stav = document.getElementById('mopak-a-stav');
+		if (!priblA) {
+			stav.textContent = `🔍 Vybraný vzorek: ${m.nazev}. Zkus na něj přiblížit magnet.`;
+		} else if (m.fero) {
+			stav.textContent = `🧲 ${velkeAPismeno(m.nazev)} je feromagnetická látka — magnet ji přitáhl a přichytil k sobě!`;
+		} else {
+			stav.textContent = `🚫 ${velkeAPismeno(m.nazev)} je nemagnetická látka — magnet na ni nepůsobí, zůstala na místě.`;
+		}
+	}
+
+	// nová volba vzorku vždy začíná od klidové polohy — žák musí přiblížení
+	// vyzkoušet znovu, ať pokus vidí vždy celý
+	sliderA.addEventListener('input', () => { priblA = false; prekresliA(); });
+	tlacitkoA.addEventListener('click', () => { priblA = !priblA; prekresliA(); });
+	nakresliLegenduA();
+	prekresliA();
+
+	// ═══════════════════════════ Scéna B: póly a pole ═══════════════════════════
+	const B_Y = 200, B_H = 50; // svislý střed a výška ležících magnetů
+	const B1_N_X0 = 60, B1_N_X1 = 140, B1_S_X0 = 140, B1_S_X1 = 220; // hlavní magnet: N vlevo, S vpravo
+	const B_MEZERA_ZAKLAD = 20, B_PX_NA_CM = 20;
+	const B2_W = 140; // šířka druhého magnetu
+
+	function platneCm(hodnota) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= 1 && n <= 5 ? n : 3;
+	}
+	// ČISTÁ FUNKCE: mezera mezi magnety v px podle vzdálenosti na posuvníku (cm).
+	function mezeraPx(cm) {
+		return B_MEZERA_ZAKLAD + platneCm(cm) * B_PX_NA_CM;
+	}
+	// ČISTÁ FUNKCE: kam se postaví levý/pravý okraj druhého magnetu.
+	function poziceMagnetu2(cm) {
+		const left = B1_S_X1 + mezeraPx(cm);
+		return { left, right: left + B2_W };
+	}
+	// ČISTÁ FUNKCE: přitahují se magnety, nebo se odpuzují? Rozhoduje jen to,
+	// jestli je druhý magnet otočený (souhlasné póly čelem k sobě = odpuzují).
+	function pritahujiSe(otoceny2) {
+		return !otoceny2;
+	}
+	// ČISTÁ FUNKCE: slovní popis síly podle vzdálenosti — blíž vždy znamená
+	// silněji (výklad: „se vzdáleností síla slábne“), bez vymýšlení vzorce,
+	// který ve výkladu není.
+	function silaPopis(cm) {
+		const n = platneCm(cm);
+		if (n <= 2) return 'silně';
+		if (n <= 4) return 'středně silně';
+		return 'slabě';
+	}
+	// ČISTÁ FUNKCE: geometrie oblouku indukční čáry z pólu N do pólu S. Vrací
+	// začátek/vrchol/konec i střed oblouku (pro šipku směru). `nx` MUSÍ být
+	// vlevo od `sx` — jinak by čára ukazovala fyzikálně opačný směr.
+	function obloukNS(nx, sx, y, h) {
+		const mid = (nx + sx) / 2;
+		return { p0: { x: nx, y }, pc: { x: mid, y: y - h }, p1: { x: sx, y }, stred: { x: mid, y: y - h / 2 } };
+	}
+	// ČISTÁ FUNKCE: geometrie obou polovin po rozlomení magnetu — KAŽDÁ
+	// polovina má zase svůj vlastní severní i jižní pól (klíčová pointa
+	// opakování). Levá půlka si nechává původní N (vnější konec) a dostává
+	// nové S na místě zlomu; pravá půlka si nechává původní S a dostává
+	// nové N na místě zlomu.
+	function rozlomeniGeom() {
+		return {
+			levy: { nX0: 60, nX1: 96, sX0: 96, sX1: 130 },
+			pravy: { nX0: 160, nX1: 196, sX0: 196, sX1: 230 },
+		};
+	}
+
+	const svgB = document.getElementById('mopak-b-svg');
+	svgB.__mezeraPx = mezeraPx;
+	svgB.__poziceMagnetu2 = poziceMagnetu2;
+	svgB.__pritahujiSe = pritahujiSe;
+	svgB.__silaPopis = silaPopis;
+	svgB.__obloukNS = obloukNS;
+	svgB.__rozlomeniGeom = rozlomeniGeom;
+
+	// Trojúhelníková šipka mířící doprava (vpravo=true) nebo doleva.
+	function sipka(x, y, vpravo) {
+		const tip = vpravo ? x + 8 : x - 8;
+		const bx = vpravo ? x - 6 : x + 6;
+		return `${tip},${y} ${bx},${y - 5} ${bx},${y + 5}`;
+	}
+
+	// Tři soustředné oblouky nad magnetem — indukční čáry vycházejí z N
+	// (vlevo) a míří k S (vpravo); uprostřed každého oblouku je šipka, která
+	// tenhle směr ukazuje.
+	function nakresliPoleM1() {
+		const VYSKY = [50, 90, 130];
+		let html = '';
+		for (const h of VYSKY) {
+			const o = obloukNS(100, 180, B_Y - 25, h);
+			html += `<path d="M ${o.p0.x},${o.p0.y} Q ${o.pc.x},${o.pc.y} ${o.p1.x},${o.p1.y}" fill="none" stroke="#495057" stroke-width="2" opacity="0.7" />`
+				+ `<polygon points="${sipka(o.stred.x, o.stred.y, true)}" fill="#495057" opacity="0.85" />`;
+		}
+		document.getElementById('mopak-b-pole').innerHTML = html;
+	}
+
+	function nakresliMagnet1Cely() {
+		const html =
+			`<rect x="${B1_N_X0}" y="${B_Y - 25}" width="${B1_N_X1 - B1_N_X0}" height="${B_H}" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="${B1_S_X0}" y="${B_Y - 25}" width="${B1_S_X1 - B1_S_X0}" height="${B_H}" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${(B1_N_X0 + B1_N_X1) / 2}" y="${B_Y + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">N</text>`
+			+ `<text x="${(B1_S_X0 + B1_S_X1) / 2}" y="${B_Y + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">S</text>`
+			+ `<rect x="0" y="${B_Y + 40}" width="280" height="22" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
+			+ `<text x="140" y="${B_Y + 55}" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">nejsilnější u pólů · nejslabší uprostřed</text>`;
+		document.getElementById('mopak-b-magnet1').innerHTML = html;
+	}
+
+	function nakresliRozlomeny() {
+		const g = rozlomeniGeom();
+		const pulka = (h) =>
+			`<rect x="${h.nX0}" y="${B_Y - 20}" width="${h.nX1 - h.nX0}" height="40" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="${h.sX0}" y="${B_Y - 20}" width="${h.sX1 - h.sX0}" height="40" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${(h.nX0 + h.nX1) / 2}" y="${B_Y + 5}" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">N</text>`
+			+ `<text x="${(h.sX0 + h.sX1) / 2}" y="${B_Y + 5}" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">S</text>`;
+		const html = pulka(g.levy) + pulka(g.pravy)
+			+ `<rect x="35" y="${B_Y + 40}" width="220" height="24" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
+			+ `<text x="145" y="${B_Y + 57}" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">obě půlky mají zase N i S pól</text>`;
+		document.getElementById('mopak-b-magnet1').innerHTML = html;
+	}
+
+	function nakresliMagnet2(otoceny2, cm) {
+		const p = poziceMagnetu2(cm);
+		const stredX = (p.left + p.right) / 2;
+		// levá (vnitřní) tvář druhého magnetu je ta, která čelí magnetu 1:
+		// N při přitahování (opačné póly), S při odpuzování (souhlasné póly)
+		const levaBarva = otoceny2 ? '#1971c2' : '#e03131';
+		const pravaBarva = otoceny2 ? '#e03131' : '#1971c2';
+		const levePismeno = otoceny2 ? 'S' : 'N';
+		const pravePismeno = otoceny2 ? 'N' : 'S';
+		const html =
+			`<rect x="${p.left}" y="${B_Y - 25}" width="${B2_W / 2}" height="${B_H}" fill="${levaBarva}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="${stredX}" y="${B_Y - 25}" width="${B2_W / 2}" height="${B_H}" fill="${pravaBarva}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${p.left + B2_W / 4}" y="${B_Y + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">${levePismeno}</text>`
+			+ `<text x="${stredX + B2_W / 4}" y="${B_Y + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">${pravePismeno}</text>`;
+		document.getElementById('mopak-b-magnet2').innerHTML = html;
+	}
+
+	// Dvě šipky v mezeře mezi magnety: při přitahování míří K SOBĚ (→ ←),
+	// při odpuzování OD SEBE (← →).
+	function nakresliInterakci(otoceny2, cm) {
+		const p = poziceMagnetu2(cm);
+		const stred = (B1_S_X1 + p.left) / 2;
+		const priblizuji = pritahujiSe(otoceny2);
+		const levaVpravo = priblizuji;
+		const pravaVpravo = !priblizuji;
+		const html =
+			`<polygon points="${sipka(stred - 20, B_Y, levaVpravo)}" fill="#f08c00" />`
+			+ `<polygon points="${sipka(stred + 20, B_Y, pravaVpravo)}" fill="#f08c00" />`;
+		document.getElementById('mopak-b-sily').innerHTML = html;
+	}
+
+	let otoceny2B = false;
+	let rozlomenyB = false;
+	const sliderB = document.getElementById('mopak-b-vzdalenost');
+	const tlOtocitB = document.getElementById('mopak-b-otocit');
+	const tlRozlomitB = document.getElementById('mopak-b-rozlomit');
+
+	function prekresliB() {
+		const cm = platneCm(sliderB.value);
+		document.getElementById('mopak-b-out').textContent = cm + ' cm';
+		tlRozlomitB.textContent = rozlomenyB ? '🧲 Slepit zpět' : '🔨 Rozlomit magnet';
+		const magnet2El = document.getElementById('mopak-b-magnet2');
+		const silyEl = document.getElementById('mopak-b-sily');
+		const poleEl = document.getElementById('mopak-b-pole');
+		const stav = document.getElementById('mopak-b-stav');
+
+		if (rozlomenyB) {
+			nakresliRozlomeny();
+			magnet2El.innerHTML = '';
+			silyEl.innerHTML = '';
+			poleEl.innerHTML = '';
+			sliderB.disabled = true;
+			tlOtocitB.disabled = true;
+			stav.textContent = '🔨 Magnet je rozlomený na dvě půlky — a KAŽDÁ z nich má zase svůj severní i jižní pól. Magnet nikdy nerozdělíš na „samotné N“ a „samotné S“.';
+		} else {
+			nakresliMagnet1Cely();
+			nakresliPoleM1();
+			nakresliMagnet2(otoceny2B, cm);
+			nakresliInterakci(otoceny2B, cm);
+			sliderB.disabled = false;
+			tlOtocitB.disabled = false;
+			const sila = silaPopis(cm);
+			stav.textContent = pritahujiSe(otoceny2B)
+				? `🧲 Nesouhlasné póly (N a S) se PŘITAHUJÍ — ${sila} (magnety jsou od sebe ${cm} cm).`
+				: `🚫 Souhlasné póly čelem k sobě se ODPUZUJÍ — ${sila} (magnety jsou od sebe ${cm} cm).`;
+		}
+	}
+
+	sliderB.addEventListener('input', prekresliB);
+	tlOtocitB.addEventListener('click', () => { otoceny2B = !otoceny2B; prekresliB(); });
+	tlRozlomitB.addEventListener('click', () => { rozlomenyB = !rozlomenyB; prekresliB(); });
+	prekresliB();
+</script>
+
+<style>
+	#mopak-a-svg, #mopak-b-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.mopak-tl { font: inherit; font-weight: 700; padding: 0.4rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffd43b; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.mopak-tl:active { transform: translateY(1px); }
+	.mopak-tl:disabled { opacity: 0.5; cursor: not-allowed; }
+	.mopak-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

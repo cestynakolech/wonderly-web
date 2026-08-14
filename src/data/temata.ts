@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -3481,7 +3481,7 @@ export const temata: Record<string, Tema[]> = {
 							<ul>
 								<li><strong>odpor člověka</strong>: velký odpor má jen <strong>suchá kůže při malém napětí</strong> (~100 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~1 500 Ω v suchu a ~1 000 Ω ve vlhku</strong>; vlhký člověk je tedy ohroženější, ale <strong>ani suchý není v bezpečí</strong></li>
 								<li><strong>cesta proudu</strong>: nejnebezpečnější přes ruku do srdce nebo přes hlavu</li>
-								<li>bezpečné napětí <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvkových <strong>230 V</strong> se to ale netýká nikde, ta jsou nebezpečná vždy</li>
+								<li>bezpečné napětí <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>30 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvkových <strong>230 V</strong> se to ale netýká nikde, ta jsou nebezpečná vždy</li>
 							</ul>
 							<h3>🧮 Spočítej si to Ohmovým zákonem</h3>
 							<p>Proč z ploché baterie nic necítíš, a přitom zásuvka zabíjí? Stačí
@@ -3549,8 +3549,12 @@ export const temata: Record<string, Tema[]> = {
 							<ol>
 								<li><strong>Vypni proud</strong> (vypínač, jistič, pojistky). Dokud proud teče,
 								nesahej na zraněného — tekl by i tebou.</li>
-								<li><strong>Mysli na vlastní bezpečnost.</strong> Když proud vypnout nejde, odsuň
-								zraněného <strong>suchou dřevěnou nebo plastovou tyčí</strong>, nikdy holou rukou.
+								<li><strong>Mysli na vlastní bezpečnost.</strong> ⚠️ Jde-li o <strong>vysoké napětí</strong>
+								(sloup, trafostanice, spadlý drát, trolejové vedení) — <strong>nepřibližuj se a nic
+								neodsouvej</strong>, proud tam přeskočí obloukem i bez dotyku. Zůstaň v bezpečné
+								vzdálenosti a volej <strong>155 nebo 112</strong>. Jde-li o běžnou domácí elektřinu
+								(zásuvka, spotřebič) a proud vypnout nejde, odsuň zraněného <strong>suchou dřevěnou
+								nebo plastovou tyčí</strong>, nikdy holou rukou.
 								Zraněný, kterému nemá kdo pomoct, protože ležíš vedle něj, je na tom hůř.</li>
 								<li><strong>Zavolej 155</strong> — hned, ještě než začneš pomáhat. Zapni si
 								<strong>hlasitý odposlech</strong>, nebo pošli volat někoho jiného. Operátor tě
@@ -3786,6 +3790,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'magnety-magneticke-pole-opakovani',
 					nazev: 'Magnety a magnetické pole (opakování)',
+					interakce: 'magnety-opakovani',
 					obsah: `
 						<h2>Magnety a magnetické pole</h2>
 						<h3>Jak látky reagují na magnet</h3>

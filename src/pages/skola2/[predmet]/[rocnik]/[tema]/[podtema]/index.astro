@@ -23,6 +23,7 @@ import UcinkySilySimulace from '../../../../../../components/skola2/UcinkySilySi
 import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
 import ElektrickePoleSimulace from '../../../../../../components/skola2/ElektrickePoleSimulace.astro';
 import OerstedSimulace from '../../../../../../components/skola2/OerstedSimulace.astro';
+import MagnetyOpakovaniSimulace from '../../../../../../components/skola2/MagnetyOpakovaniSimulace.astro';
 import UcinnostMotoruSimulace from '../../../../../../components/skola2/UcinnostMotoruSimulace.astro';
 import KolobehVodySimulace from '../../../../../../components/skola2/KolobehVodySimulace.astro';
 import VnitrniEnergieSimulace from '../../../../../../components/skola2/VnitrniEnergieSimulace.astro';
@@ -267,6 +268,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'ohm' && <OhmSimulace />}
 	{podtema.interakce === 'elektricke-pole' && <ElektrickePoleSimulace />}
 	{podtema.interakce === 'oersted' && <OerstedSimulace />}
+	{podtema.interakce === 'magnety-opakovani' && <MagnetyOpakovaniSimulace />}
 	{podtema.interakce === 'ucinnost-motoru' && <UcinnostMotoruSimulace />}
 	{podtema.interakce === 'kolobeh-vody' && <KolobehVodySimulace />}
 	{podtema.interakce === 'vnitrni-energie' && <VnitrniEnergieSimulace />}

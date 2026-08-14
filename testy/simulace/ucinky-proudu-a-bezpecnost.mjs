@@ -141,23 +141,37 @@ function ocekavaneB(cestaKlic) {
 const OCEKAVANA_PASMA = [
 	{ klic: 'nevnimas', limit: 1, nazev: 'pod prahem vnímání', popis: 'Proud je tak malý, že ho vůbec neucítíš.' },
 	{ klic: 'brneni', limit: 6, nazev: 'brnění', popis: 'Ucítíš mravenčení, ale svaly tě poslouchají.' },
-	{ klic: 'krec-sval', limit: 25, nazev: 'křeč svalů – nemůžeš se pustit', popis: 'Svaly se křečovitě stáhnou a sám se nepustíš — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
+	{ klic: 'krec-sval', limit: 15, nazev: 'křeč svalů – nemůžeš se pustit', popis: 'Svaly se křečovitě stáhnou a sám se nepustíš — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
+	{ klic: 'krec-silici', limit: 25, nazev: 'křeč sílí – blíží se ohrožení dýchání', popis: 'Křeč dál sílí a blíží se hranici, kdy začnou selhávat i dýchací svaly — pořád platí totéž: proud musí přerušit někdo jiný, ne ty sám.' },
 	{ klic: 'krec-dychani', limit: 60, nazev: 'křeč dýchacích svalů', popis: 'Křeč zasáhne i svaly, kterými dýcháš — hrozí udušení.' },
 	{ klic: 'fibrilace', limit: 80, nazev: 'fibrilace srdce', popis: 'Srdce ztrácí pravidelný rytmus — bez rychlé pomoci hrozí zástava.' },
 	{ klic: 'zastava', limit: Infinity, nazev: 'zástava srdce', popis: 'Proud zastaví srdce úplně — jde o život, je potřeba okamžitá první pomoc a rychlá záchranka.' },
 ];
+// Nález nezávislé kontroly 14. 8. večer: výklad na stránce má PRÁH 15 mA
+// („6–15 mA — křeč, nemůže se pustit"), simulace dřív měla jen 6–25 mA pod
+// jménem „6–15" a test tvrdil „přesně na prazích z výkladu", což bylo o
+// jeden práh nepravda. Tabulka výš má teď VŠECH ŠEST prahů (1/6/15/25/60/80).
 const OCEKAVANE_CESTY = {
+	// Nález nezávislé kontroly 14. 8. večer: dřívější odpory scény B (1000 Ω
+	// „z výkladu" bez zmínky o vlhkosti, 2000 Ω vlastní odhad) daly pro
+	// „ruka→noha" jiné číslo (115 mA) než STEJNÁ situace v části A (153,3 mA)
+	// — teď se OBĚ hodnoty odvozují ze stejné dvojice z výkladu jako část A
+	// (1500 Ω suchá / 1000 Ω mokrá), nic navíc.
 	'ruka-ruka': { r: 1000, presny: true, uzavrena: true, nazev: 'ruka → ruka',
-		popis: 'Proud jde napříč hrudníkem přímo přes srdce — ze všech cest nejnebezpečnější.' },
-	'ruka-noha': { r: 2000, presny: false, uzavrena: true, nazev: 'ruka → noha',
-		popis: 'Přesně tohle se stane, když se JEDNOU rukou dotkneš vodiče a bosou nohou stojíš na obyčejné podlaze — nohy uzavřou obvod do země, takže stačí i jediná ruka. Dráha tělem je asi dvakrát delší než u ruka → ruka, proud je proto menší, ale pořád prochází poblíž srdce a je životu nebezpečný.' },
+		popis: 'Proud jde napříč hrudníkem přímo přes srdce — ze všech cest nejnebezpečnější. Při skutečné nehodě bývají ruce zpocené strachem, takže odpor kůže klesne stejně nízko jako u mokré kůže z části A (1 000 Ω).' },
+	'ruka-noha': { r: 1500, presny: true, uzavrena: true, nazev: 'ruka → noha',
+		popis: 'Přesně tohle se stane, když se JEDNOU rukou dotkneš vodiče a bosou nohou stojíš na obyčejné suché podlaze — nohy uzavřou obvod do země, takže stačí i jediná ruka. Odpor je stejný jako u suché kůže v části A (1 500 Ω), a proto vyjde úplně stejný proud jako tam.' },
 	izolace: { r: null, presny: true, uzavrena: false, nazev: 'ruka + izolace nohou',
 		popis: 'Gumová podložka pod nohama přeruší cestu do země, takže se obvod NEUZAVŘE. Takhle bezpečně pracují jen vyškolení elektrikáři s ochrannými pomůckami — není to rada pro tebe: bez izolace by i jedna ruka byla stejně nebezpečná jako cesta ruka → noha.' },
 };
 // Zakázané fráze, které se NESMÍ objevit v ŽÁDNÉM textu žádné scény — ověřeno
-// plošně přes všechny stavy níž. Je to DOPLNĚK k přesné shodě s tabulkou
-// výš (chytí i to, kdyby se sama „správná" tabulka nešťastně upravila).
-const ZAKAZANE_FRAZE = [/holou rukou/i, /klidn[ěe].{0,25}dotk/i, /nic\s*(ti\s*)?nehroz[íi]/i, /skoro nikdy/i, /neubl[íi]ž/i, /odtrhni/i, /bezpečně?\s+dotkn/i];
+// plošně přes všechny stavy níž, VČETNĚ statického HTML mimo <script>
+// (nález nezávislé kontroly 14. 8. odpoledne: podvrh věty ve výkladu scény
+// „…tě spolehlivě ochrání i u zásuvky — suchou rukou se dá klidně dotknout
+// drátu." dřív prošel beze stopy, protože se ZAKAZANE_FRAZE pouštěly jen na
+// dynamicky vykreslené texty, nikdy na `html`). Je to DOPLNĚK k přesné shodě
+// s tabulkou výš (chytí i to, kdyby se sama „správná" tabulka nešťastně upravila).
+const ZAKAZANE_FRAZE = [/holou rukou/i, /klidn[ěe].{0,25}dotk/i, /nic\s*(ti\s*)?nehroz[íi]/i, /skoro nikdy/i, /neubl[íi]ž/i, /odtrhni/i, /bezpečně?\s+dotkn/i, /ochrán\w*.{0,15}u\s+zásuvky/i, /spolehliv[ěe].{0,15}ochrán/i];
 
 console.log('— scéna B se PŘI NAČTENÍ nikdy sama nerozběhne (nezávislá kontrola 14. 8.) —');
 {
@@ -190,7 +204,7 @@ console.log('\n— NEZÁVISLÁ KONTROLA TEXTŮ 1/4: pásma odpovídají natvrdo 
 		if (zive.nazev !== ocek.nazev) spatne = `${ocek.klic}: název „${zive.nazev}“, čekal jsem přesně „${ocek.nazev}“`;
 		if (zive.popis !== ocek.popis) spatne = `${ocek.klic}: popis „${zive.popis}“, čekal jsem přesně „${ocek.popis}“`;
 	}
-	ok(spatne === null, spatne ?? 'všech 6 pásem (klíč, práh, název, popis) sedí PŘESNĚ s nezávisle napsanou tabulkou');
+	ok(spatne === null, spatne ?? `všech ${OCEKAVANA_PASMA.length} pásem (klíč, práh, název, popis) sedí PŘESNĚ s nezávisle napsanou tabulkou`);
 }
 
 console.log('\n— NEZÁVISLÁ KONTROLA TEXTŮ 2/4: cesty tělem (scéna B) odpovídají natvrdo napsané tabulce —');
@@ -285,6 +299,58 @@ console.log('\n— NEZÁVISLÁ KONTROLA TEXTŮ 4/4: VŠECH 9 kombinací A + VŠE
 	nastavB(0);
 }
 
+console.log('\n— NEZÁVISLÁ KONTROLA TEXTŮ: zakázané fráze i ve STATICKÉM HTML scén, ne jen v dynamicky vykreslených textech (nález 14. 8. odpoledne) —');
+{
+	// Doklad nálezu: ZAKAZANE_FRAZE se dřív pouštěly JEN na `vsechnyTexty`
+	// (texty vykreslené JS), nikdy na `html` (statický výklad scén mimo
+	// <script>). Podvrh věty ve výkladu scény A prošel beze stopy (exit=0).
+	// Teď se STEJNÝ seznam frází pouští i na `html`.
+	let spatnaFraze = null;
+	for (const fraze of ZAKAZANE_FRAZE) {
+		const m = html.match(fraze);
+		if (m) {
+			const zacatek = Math.max(0, m.index - 40);
+			spatnaFraze = `statické HTML (mimo <script>) obsahuje zakázanou frázi ${fraze}: „…${html.slice(zacatek, m.index + 60).replace(/\s+/g, ' ')}…“`;
+			break;
+		}
+	}
+	ok(spatnaFraze === null, spatnaFraze ?? 'statické HTML (nadpisy, popisy scén, odstavce) neobsahuje žádnou zakázanou frázi');
+}
+
+console.log('\n— izolační podložka MUSÍ být vizuálně odlišená od pozadí, ne jen mít opacity=1 (nález #4, podvrh fill→barva pozadí) —');
+{
+	// Doklad nálezu: podvrh fill="#ffd43b" → fill="#f8f9fa" (přesně barva
+	// pozadí SVG) prošel beze stopy, protože se dřív hlídala jen viditelnost
+	// (opacity), nikdy skutečná barva. Teď se ověřuje, že výplň podložky NENÍ
+	// shodná s pozadím SVG (#f8f9fa) a že má kontrastní obrys.
+	const POZADI_SVG = '#f8f9fa';
+	const padMatch = html.match(/<rect x="195" y="291" width="115" height="12"[^>]*fill="([^"]+)"[^>]*stroke="([^"]+)"[^>]*stroke-width="([^"]+)"/);
+	ok(!!padMatch, 'izolační podložka (rect 195,291,115×12) je v HTML nalezitelná');
+	if (padMatch) {
+		const [, fill, stroke, sw] = padMatch;
+		ok(fill.toLowerCase() !== POZADI_SVG, `podložka má výplň „${fill}“, která se NESHODUJE s pozadím scény (${POZADI_SVG}) — jinak by byla neviditelná i s opacity="1"`);
+		ok(stroke.toLowerCase() !== fill.toLowerCase() && stroke.toLowerCase() !== POZADI_SVG, `podložka má kontrastní obrys „${stroke}“ (liší se od vlastní výplně i od pozadí)`);
+		ok(Number(sw) >= 2, `obrys podložky má tloušťku aspoň 2 px (${sw})`);
+	}
+}
+
+console.log('\n— scéna B: zdroj (zásuvka) a vodič jsou nakreslené, postava „nedostává proud odnikud“ (nález #3) —');
+{
+	nastavB(0);
+	ok((prvky.get('upb-b-zdroj').innerHTML || '').length > 0, 'ikona zdroje (zásuvky) je ve scéně B skutečně vykreslená (upb-b-zdroj má obsah)');
+	ok(html.includes('id="upb-b-drat-zdroj"'), 'vodič od zdroje k levé ruce je v HTML scény B');
+	ok(html.includes('zásuvka — 230 V'), 'popisek zdroje (zásuvka — 230 V) je vidět přímo ve scéně B');
+
+	ok(prvky.get('upb-b-navrat').getAttribute('d') !== '', 'ruka-ruka (uzavřený obvod): čárkovaná zpáteční cesta ke zdroji je nakreslená');
+	nastavB(1);
+	ok(prvky.get('upb-b-navrat').getAttribute('d') !== '', 'ruka-noha (uzavřený obvod): čárkovaná zpáteční cesta ke zdroji je nakreslená');
+	nastavB(2);
+	ok(prvky.get('upb-b-navrat').getAttribute('d') === '', 'izolace (otevřený obvod): zpáteční cesta zmizí úplně — není co „vracet“');
+	ok(/stroke="#e03131"[^>]*stroke-dasharray/.test(html) && html.includes('✕'),
+		'izolace: přerušení cesty do země je graficky naznačené (červená přerušovaná čárka + „✕“ u podložky), ne jen tvrzeno textem');
+	nastavB(0);
+}
+
 console.log('\n— konstanty odpovídají výkladu na stránce —');
 {
 	ok(PRAH_PRURAZU_V === 50, `práh průrazu kůže je 50 V, stejně jako výklad („Od zhruba 50 V se kůže prorazí“) (${PRAH_PRURAZU_V})`);
@@ -317,9 +383,13 @@ console.log('\n— jePresnyOdpor: jen skutečné citace z výkladu jsou „přes
 		`vzorec u přesné hodnoty z výkladu NEMÁ „≈“: „${prvky.get('upb-a-vypocet').innerHTML}"`);
 	nastavA(0, 0);
 
-	ok(CESTY['ruka-noha'].presny === false, '„ruka → noha“ (2× délka dráhy) je odhad, ne měřená hodnota → „≈“');
+	// Nález nezávislé kontroly 14. 8. večer: scéna B teď odvozuje OBĚ cesty
+	// přímo z dvojice hodnot výkladu (1500 Ω suchá / 1000 Ω mokrá), takže
+	// obě jsou „presny: true“, ŽÁDNÁ vlastní odhadová „≈“ hodnota v části B.
+	ok(CESTY['ruka-noha'].presny === true, '„ruka → noha“ používá STEJNOU hodnotu jako suchá kůže v části A (1 500 Ω, přímo z výkladu) → bez „≈“');
 	nastavB(1);
-	ok(prvky.get('upb-b-vypocet').innerHTML.includes('≈ 2 000 Ω'), `scéna B u odhadnutého odporu ukazuje „≈ 2 000 Ω“: „${prvky.get('upb-b-vypocet').innerHTML}"`);
+	ok(prvky.get('upb-b-vypocet').innerHTML.includes('1 500 Ω') && !prvky.get('upb-b-vypocet').innerHTML.includes('≈ 1 500'),
+		`„ruka → noha“ ukazuje „1 500 Ω“ BEZ „≈“ (stejná citace z výkladu jako v části A): „${prvky.get('upb-b-vypocet').innerHTML}"`);
 	nastavB(0);
 	ok(prvky.get('upb-b-vypocet').innerHTML.includes('1 000 Ω') && !prvky.get('upb-b-vypocet').innerHTML.includes('≈ 1 000'),
 		`„ruka → ruka“ (hodnota z výkladu) NEMÁ „≈“: „${prvky.get('upb-b-vypocet').innerHTML}"`);
@@ -340,15 +410,19 @@ console.log('\n— proudMA: čistý Ohmův zákon I = U ÷ R —');
 	ok(Math.abs(proudMA(4.5, 100000) - 0.045) < 1e-9, `proudMA(4.5,100000) = 0,045 mA (${proudMA(4.5, 100000)})`);
 }
 
-console.log('\n— pásma: hranice PŘESNĚ na prazích z výkladu (1 / 6 / 25 / 60 / 80 mA) —');
+console.log('\n— pásma: hranice PŘESNĚ na prazích z výkladu (1 / 6 / 15 / 25 / 60 / 80 mA) —');
 {
-	const prahy = [1, 6, 25, 60, 80];
+	// Nález nezávislé kontroly 14. 8. večer: výklad má DOSLOVA „6–15 mA —
+	// křeč, nemůže se pustit“, ale simulace dřív práh 15 vůbec neměla (jen
+	// 6–25 mA pod tímhle jménem) a test to přesto tvrdil jako „přesně podle
+	// výkladu“ — bylo to o jeden práh nepravda. Teď je prahů šest.
+	const prahy = [1, 6, 15, 25, 60, 80];
 	let spatne = null;
 	for (const prah of prahy) {
 		if (pasmo(prah - 0.001).limit !== prah) spatne = `těsně pod ${prah} mA je pásmo s limitem ${pasmo(prah - 0.001).limit}, čekal jsem ${prah}`;
 		if (pasmo(prah).limit === prah) spatne = `přesně na ${prah} mA už je pásmo s limitem ${prah} — hranice má být OSTRÁ (< ne ≤)`;
 	}
-	ok(spatne === null, spatne ?? 'všech 5 prahů (1,6,25,60,80 mA) je ostrých a odpovídá výkladu');
+	ok(spatne === null, spatne ?? 'všech 6 prahů (1,6,15,25,60,80 mA) je ostrých a odpovídá výkladu');
 }
 
 console.log('\n— mAtoText: celé µA pod 1 mA, nejvýš 1 desetinné místo nad 1 mA —');
@@ -466,7 +540,7 @@ console.log('\n— scéna A: ikona zdroje se skutečně mění s vybraným napě
 	nastavA(0, 0);
 }
 
-console.log('\n— pásmový ampérmetr: 6 segmentů dlaždicuje CELOU šířku, marker míří na správný segment —');
+console.log(`\n— pásmový ampérmetr: ${PASMA.length} segmentů dlaždicuje CELOU šířku, marker míří na správný segment —`);
 {
 	let spatne = null, soucetSirek = 0;
 	for (let i = 0; i < PASMA.length; i++) {
@@ -478,9 +552,9 @@ console.log('\n— pásmový ampérmetr: 6 segmentů dlaždicuje CELOU šířku,
 		}
 	}
 	if (Math.abs(soucetSirek - PASMO_BAR.sirkaCelkem) > 1e-6) spatne = `součet šířek segmentů (${soucetSirek}) neodpovídá PASMO_BAR.sirkaCelkem (${PASMO_BAR.sirkaCelkem})`;
-	ok(spatne === null, spatne ?? '6 segmentů přesně dlaždicuje celou šířku pásmového ampérmetru bez mezer a překryvů');
+	ok(spatne === null, spatne ?? `${PASMA.length} segmentů přesně dlaždicuje celou šířku pásmového ampérmetru bez mezer a překryvů`);
 
-	nastavA(2, 2); // zásuvka + mokrá → 230 mA → pásmo „zastava“ (poslední, index 5)
+	nastavA(2, 2); // zásuvka + mokrá → 230 mA → pásmo „zastava“ (poslední pásmo)
 	const idxOcek = PASMA.findIndex((p) => p.klic === 'zastava');
 	const seg = geometrieZonySegmentu(idxOcek);
 	const cxOcek = seg.x + seg.sirka / 2;
@@ -495,14 +569,19 @@ console.log('\n— pásmové pozadí je ve scéně A a B TOTOŽNÉ (stejný tvar
 {
 	ok(prvky.get('upb-a-pasmo-pozadi').innerHTML === prvky.get('upb-b-pasmo-pozadi').innerHTML,
 		'obě scény kreslí pásmový ampérmetr stejnou funkcí se stejným výsledkem');
-	ok((prvky.get('upb-a-pasmo-pozadi').innerHTML.match(/<rect/g) || []).length === 6, 'pásmové pozadí má přesně 6 obdélníků');
+	ok((prvky.get('upb-a-pasmo-pozadi').innerHTML.match(/<rect/g) || []).length === 7, 'pásmové pozadí má přesně 7 obdélníků (šest prahů → sedm pásem)');
 }
 
 // ── ČÁST B ───────────────────────────────────────────────────────────────
 console.log('\n— cesta proudu tělem: proudCestou natvrdo —');
 {
+	// Nález nezávislé kontroly 14. 8. večer: „ruka-noha“ teď používá STEJNÝ
+	// odpor jako suchá kůže v části A (1 500 Ω) → STEJNÉ číslo (≈153,3 mA),
+	// ne vlastní odhad 2000 Ω dávající jiné číslo (115 mA) pro stejnou situaci.
+	const OCEKAVANE_RUKA_NOHA_MA = 230000 / 1500; // = 153,333… mA
 	ok(proudCestou('ruka-ruka') === 230, `proudCestou(ruka-ruka) = 230 mA (${proudCestou('ruka-ruka')})`);
-	ok(proudCestou('ruka-noha') === 115, `proudCestou(ruka-noha) = 115 mA — přesně polovina, protože R je dvojnásobný (${proudCestou('ruka-noha')})`);
+	ok(Math.abs(proudCestou('ruka-noha') - OCEKAVANE_RUKA_NOHA_MA) < 1e-9,
+		`proudCestou(ruka-noha) = ${OCEKAVANE_RUKA_NOHA_MA.toFixed(3)}… mA — STEJNÉ jako suchá kůže + zásuvka v části A, protože R je STEJNÝCH 1 500 Ω (vyšlo: ${proudCestou('ruka-noha')})`);
 	ok(proudCestou('izolace') === 0, `proudCestou(izolace) = 0 mA — obvod se neuzavře (${proudCestou('izolace')})`);
 	ok(pasmo(proudCestou('ruka-ruka')).klic === 'zastava', 'ruka→ruka spadá do pásma zástavy srdce');
 	ok(pasmo(proudCestou('ruka-noha')).klic === 'zastava', 'ruka→noha ZŮSTÁVÁ v pásmu zástavy srdce, i když je proud menší — pořád smrtelně nebezpečné');
