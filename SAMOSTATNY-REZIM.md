@@ -58,6 +58,34 @@ dělat něco jiného, ne u něj čekat. Napřed lokální model zdarma:
 (Pozn.: v tomhle kole se náhled nezasekl ani jednou — minulý pád byl ENOENT
 z chybějící cesty, ne zaseknutí.)
 
+### 🔴🔴 NEJZÁVAŽNĚJŠÍ NÁLEZ KOLA: NÁHLED SÁM LHAL (opraveno, `6a14151`)
+
+`testy/nahled-simulace.mjs` je **jediná kotva, kterou se ověřuje, jak scéna doopravdy
+vypadá**. U **28 ze 107 komponent** ale vyráběl neplatné XML — atributy končily ZA
+lomítkem samouzavírací značky (`<circle … / cx="440">`). `qlmanage` takový soubor
+vykreslí **JEN DO PRVNÍ CHYBY**: nahoře červený rámeček „This page contains the
+following errors", pod ním useknutá scéna. U Alternátoru chyběl voltmetr, celý graf
+i všechny popisky — **a nástroj přitom skončil kódem 0.**
+
+Kdo se na takový náhled díval, viděl zlomek scény a nevěděl to; nebo naopak nahlásil
+jako chybějící něco, co ve scéně doopravdy je. **Všechny dřívější prohlídky těch
+28 komponent jsou tím pádem nespolehlivé** — když se k některé vrátíš, prohlédni ji
+znovu.
+
+Opraveno + **POJISTKA**: před zápisem se ověří, že je SVG dobře utvořené; když není,
+soubor se VŮBEC NEZAPÍŠE, vypíše se česká hláška s řádkem a okolím a skončí kódem 1.
+Ověřeno podvrhem koordinátora (pojistka spadla, soubor nevznikl). Zásada:
+**radši žádný náhled než falešný.**
+
+📥 **Zbylo z toho na samostatné úkoly (nehoří):**
+1. **5 scén se nově hlásí jako `⚠️ nevykresleno`** (LedDisplej, MicrobitRadio,
+   MicrobitVstupy, MotoryDisplejZvuk, SestaveniRobota, TabulkaVzorce). Nejsou to
+   falešné poplachy — jejich výstup byl nevalidní i PŘED opravou, jen to nikdo neviděl.
+   Příčina: náhled neumí vyhodnotit Astro výrazy (`x={…}`, `{pole.map(…)}`) uvnitř SVG.
+   Buď je nástroj naučit, nebo ty komponenty psát bez nich.
+2. **20 komponent náhled neumí vykreslit už z dřívějška** (14× nemá značku `<svg>` —
+   scéna se skládá jinak, 6× pád skriptu v sandboxu). S touhle vadou to nesouvisí.
+
 ### 🆕 NOVÉ MĚŘIDLO: ROZVRŽENÍ SCÉNY (`testy/rozvrzeni-sceny.mjs`)
 
 Vzhledové vady výše se opakují (dřív: useknutá kružnice, šipky nakupené v řadě,
@@ -83,13 +111,19 @@ měřidlo (zavedený styl webu NENÍ chyba). Kalibrováno na 106 nasazených sim
 se nezměří: 12 nemá `<svg>` (kreslí se v HTML), 8 padá v sandboxu náhledu,
 1 nemá viewBox. Hlásí se jako „nevykresleno".
 
-📥 **NAŠLO 6 SKUTEČNÝCH VAD v nasazených simulacích — čeká na opravu:**
-`AlternatorSimulace` text „otáčka" na x=644 ve viewBoxu 660 (přetéká o 15,5 px) ·
-`DiodaSimulace` „U (V)" x=644 (9,7 px) · `HustotaSimulace` „hladina" x=428 ve
-viewBoxu 460 (6,1 px) · `BarvySimulace` `#barvy-pocitac` (3,5 px) ·
-`OkoSimulace` `#oko-predmet-pop` (levý okraj −4,2 px) · `KlonovaniSimulace`
-„podlaha" y=349 na plátně 350. Plus varování `TlakSimulace` (3,8 px od kraje).
-Jsou to drobné posuny textu; až budou opravené, dá se měřidlo zapojit do brány.
+✅ **Prvních 6 nálezů už OPRAVENO a nasazeno** (`6981c49`): Alternator „otáčka",
+Dioda „U (V)", Hustota „hladina", Barvy `#barvy-pocitac` (text zkrácen z 55 na 27
+znaků), Oko `#oko-predmet-pop`, Klonovani „podlaha". Zbývá jen varování
+`TlakSimulace` (3,8 px od kraje) — pod prahem tvrdé chyby, nehoří.
+
+🔴 **Poučení z té opravy: zelené měřidlo nestačilo ani tady.** Dvakrát prošla
+oprava měřidlem a přitom byla špatně — u Alternátoru popisek přistál na ticku
+a sinusovce, u Klonování v šedé podlahové čáře. **Měřidlo měří okraje PLÁTNA,
+ne kolize mezi prvky**; na to je pořád potřeba oko.
+
+▶️ **DALŠÍ KROK: zapojit měřidlo do brány.** Tvrdých chyb je teď 0, takže
+`testy/rozvrzeni-sceny.mjs` může začít hlídat, aby nepřibývaly (rohatka jako
+u kvízů). Pozor: musí se počítat s tím, že 21 komponent se neměří vůbec.
 
 ### 🆕 KŘÍŽOVÉ DUPLICITY NAPŘÍČ ROČNÍKY (`testy/uniky-krizove.mjs`)
 
