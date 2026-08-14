@@ -144,6 +144,18 @@ if (podilNejdelsi > 45) {
 // neblokují, ale zhoršit se to už nesmí. Zlepšení laťku rovnou utáhne.
 const cestaRohatka = join(koren, 'testy/rohatka.json');
 const strop = existsSync(cestaRohatka) ? JSON.parse(readFileSync(cestaRohatka, 'utf8')) : null;
+
+// Brána je ČTECÍ. Utažení laťky je samostatné rozhodnutí, ne vedlejší účinek buildu:
+// dřív se rohatka přepisovala rovnou při kontrole, takže `npm run build` tiše měnil
+// pracovní strom (nález revize 14. 8. 2026). Nově se navržená laťka jen posbírá
+// a zapíše se výhradně s přepínačem --prijmi-latku (`npm run prijmi-latku`).
+//
+// Sbírá se do JEDNOHO objektu schválně: dřív si dva samostatné zápisy navzájem
+// přepisovaly výsledek (druhý zapisoval `...strop` ze staré hodnoty), takže se
+// utažení délkové nápovědy ztratilo, kdykoli zároveň ubyly úniky.
+const chceUtahnout = process.argv.includes('--prijmi-latku');
+let navrzenaLatka = null;
+const navrhniLatku = (zmena) => { navrzenaLatka = { ...(navrzenaLatka ?? strop), ...zmena }; };
 const stropPocet = strop?.pocetNejdelsi ?? Infinity;
 if (strop && (podilNejdelsi > strop.podilNejdelsi || pocetNejdelsi > stropPocet)) {
 	chyby.push(
@@ -153,9 +165,8 @@ if (strop && (podilNejdelsi > strop.podilNejdelsi || pocetNejdelsi > stropPocet)
 			`Laťku v testy/rohatka.json povoluj jen vědomě.`,
 	);
 } else if (strop && (podilNejdelsi < strop.podilNejdelsi || pocetNejdelsi < stropPocet)) {
-	writeFileSync(cestaRohatka, `${JSON.stringify(
-		{ ...strop, podilNejdelsi, pocetNejdelsi, zmeneno: new Date().toISOString().slice(0, 10) }, null, '\t')}\n`);
-	varovani.push(`kvízy se zlepšily na ${pocetNejdelsi} otázek (${podilNejdelsi} %) — laťka utažena (testy/rohatka.json).`);
+	navrhniLatku({ podilNejdelsi, pocetNejdelsi });
+	varovani.push(`kvízy se zlepšily na ${pocetNejdelsi} otázek (${podilNejdelsi} %) — laťku lze utáhnout: npm run prijmi-latku`);
 }
 
 // 6c) Každé podtéma s kvízem musí být zastoupené v ROČNÍM opakování svého ročníku.
@@ -308,8 +319,8 @@ if (vazby.uniky.length > stropUniku) {
 			`Seznam: node testy/uniky.mjs`,
 	);
 } else if (strop && vazby.uniky.length < stropUniku) {
-	writeFileSync(cestaRohatka, `${JSON.stringify({ ...strop, uniky: vazby.uniky.length, zmeneno: new Date().toISOString().slice(0, 10) }, null, '\t')}\n`);
-	varovani.push(`úniků odpovědí ubylo na ${vazby.uniky.length} — laťka utažena (testy/rohatka.json).`);
+	navrhniLatku({ uniky: vazby.uniky.length });
+	varovani.push(`úniků odpovědí ubylo na ${vazby.uniky.length} — laťku lze utáhnout: npm run prijmi-latku`);
 }
 
 // 6h) KDO HLÍDÁ HLÍDAČE (2. 8. 2026, dlouhodobý audit).
@@ -402,6 +413,23 @@ for (const p of vsechnaPodtemata(dataTemata)) {
 console.log(`Přiznání AI: prošlo ${aiVsech} polemik — ${aiChybi.length} bez přiznání.`);
 for (const c of aiChybi) chyby.push(`polemika bez přiznání AI (pole 'ai'): ${c}`);
 for (const v of varovani) console.log(`⚠️  ${v}`);
+
+// Zápis laťky až tady a JEN na výslovný pokyn — a jen když je jinak vše v pořádku.
+// Utáhnout laťku nad rozbitým webem by zabetonovalo náhodný stav.
+if (chceUtahnout) {
+	if (chyby.length > 0) {
+		console.log('⛔ laťku neutahuji — nejdřív oprav chyby níže.');
+	} else if (!navrzenaLatka) {
+		console.log('ℹ️  není co utahovat, laťka zůstává beze změny.');
+	} else {
+		const zapis = { ...navrzenaLatka, zmeneno: new Date().toISOString().slice(0, 10) };
+		writeFileSync(cestaRohatka, `${JSON.stringify(zapis, null, '\t')}\n`);
+		console.log(`✅ laťka utažena (testy/rohatka.json): ${JSON.stringify(zapis)}`);
+	}
+} else if (navrzenaLatka) {
+	console.log('ℹ️  laťku lze utáhnout příkazem: npm run prijmi-latku (brána sama nic nepřepisuje)');
+}
+
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');
 	process.exit(0);

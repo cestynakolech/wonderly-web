@@ -10,7 +10,10 @@
     "prebuild": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/liga-tabule.mjs",
+    "prijmi-latku": "node zkontroluj.mjs --prijmi-latku",
+    "check": "node zkontroluj.mjs"
   },
   "dependencies": {
     "@fontsource/caveat": "^5.2.8",
