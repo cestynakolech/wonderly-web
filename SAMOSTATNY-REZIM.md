@@ -1,6 +1,24 @@
 ## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 podvečer — po /clear)
 
-### 🔴 ZAČNI TÍMHLE: NA WEBU JE SIMULACE, KTERÁ UČÍ NEBEZPEČNOU NEPRAVDU
+### ✅ VYŘEŠENO 14. 8. VEČER — bezpečnostní vada opravena a nasazena (`261fa6e`)
+
+Volba „jedna ruka" zrušena; bezpečno ukazuje jen varianta **s viditelnou gumovou
+podložkou** („izolace"). Cesta proudu se kreslí NAD tělem, takže je vidět přes
+srdce. Varování je v obrázku obou scén, u odhadnutých odporů je „≈".
+**Test 94 → 161 kontrol** a měří i TEXTY: podvrhy, které dřív prošly, jsou chycené
+(varování „skoro nikdy neublíží" → 15 nálezů, přejmenované pásmo → 2, rada
+„odtrhni holou rukou" → chycena přesnou hláškou). Ověřeno pohledem na render
+všech tří cest i čtením ze živého webu.
+
+⏳ **Zbývá:** pět drobných nálezů kontrolora u VÝKLADU a KVÍZU (zadáno workerům
+14. 8. večer, výsledek nedorazil před koncem session):
+výklad `4,5 : 100 000 = 0,05 mA` (správně 0,045 / 45 µA jako v simulaci) ·
+nedoložené „většina smrtelných úrazů se stane v suchu" · otázka o bezpečném napětí
+12 V bez podmínky „ve vlhkých prostorách" · **9 z 19 otázek je doslovná duplicita
+bloku 9. ročníku** · distraktory psané jako návod k riskantnímu činu.
+Zadání i důkazy jsou v `METRIKY-KOL.md`. Po opravě znovu `kontrolor`.
+
+### 🗒 PŮVODNÍ ZADÁNÍ OPRAVY (splněno, ponecháno jako doklad)
 
 Kontrolor doběhl na konci session (nálezy celé v `METRIKY-KOL.md`, 11 nálezů,
 3 závažné). **Oprava byla zadána workerovi `worker-simulace`, ale session skončila
