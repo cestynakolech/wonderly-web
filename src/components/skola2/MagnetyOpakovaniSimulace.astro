@@ -65,8 +65,8 @@
 		A zkus magnet rozlomit — uvidíš, že ho nejde rozdělit na „samotné N“ a
 		„samotné S“.
 	</p>
-	<svg id="mopak-b-svg" viewBox="0 0 660 300" role="img" aria-label="Tyčový magnet, jeho pole a druhý přibližovaný magnet">
-		<rect x="0" y="0" width="660" height="300" fill="#f8f9fa" />
+	<svg id="mopak-b-svg" viewBox="0 0 520 300" role="img" aria-label="Tyčový magnet, jeho pole a druhý přibližovaný magnet">
+		<rect x="0" y="0" width="520" height="300" fill="#f8f9fa" />
 		<g id="mopak-b-pole"></g>
 		<g id="mopak-b-magnet1"></g>
 		<g id="mopak-b-sily"></g>
@@ -85,16 +85,18 @@
 
 <script>
 	// ═══════════════════════════ Scéna A: třídění vzorků ═══════════════════════
+	// `barva` (a `pruhledny` u skla) je JEN vzhled navíc — testy čtou pouze
+	// `nazev` a `fero`, takže tahle pole nic nerozbijí.
 	const MATERIALY = [
-		{ nazev: 'železo', fero: true },
-		{ nazev: 'ocel', fero: true },
-		{ nazev: 'nikl', fero: true },
-		{ nazev: 'kobalt', fero: true },
-		{ nazev: 'hliník', fero: false },
-		{ nazev: 'měď', fero: false },
-		{ nazev: 'dřevo', fero: false },
-		{ nazev: 'sklo', fero: false },
-		{ nazev: 'plast', fero: false },
+		{ nazev: 'železo', fero: true, barva: '#868e96' },
+		{ nazev: 'ocel', fero: true, barva: '#adb5bd' },
+		{ nazev: 'nikl', fero: true, barva: '#ced4da' },
+		{ nazev: 'kobalt', fero: true, barva: '#5c7cad' },
+		{ nazev: 'hliník', fero: false, barva: '#dee2e6' },
+		{ nazev: 'měď', fero: false, barva: '#c9752f' },
+		{ nazev: 'dřevo', fero: false, barva: '#a9744f' },
+		{ nazev: 'sklo', fero: false, barva: '#a5d8ff', pruhledny: true },
+		{ nazev: 'plast', fero: false, barva: '#51cf66' },
 	];
 
 	const A_MAGNET_W = 160, A_MAGNET_H = 50, A_MAGNET_CX = 330;
@@ -149,8 +151,11 @@
 		const w = Math.max(60, text.length * 9 + 16);
 		const px = cx + A_VZOREK_R + 10;
 		const py = cy - 12;
+		// Vzorek vypadá podle materiálu (barva, sklo navíc průsvitné) — ať dítě
+		// pozná, na co se dívá, ne devětkrát stejný šedý kroužek.
+		const pruhlednost = m.pruhledny ? ' fill-opacity="0.55"' : '';
 		const html =
-			`<circle cx="${cx}" cy="${cy}" r="${A_VZOREK_R}" fill="#ced4da" stroke="#2b2a26" stroke-width="3" />`
+			`<circle cx="${cx}" cy="${cy}" r="${A_VZOREK_R}" fill="${m.barva}"${pruhlednost} stroke="#2b2a26" stroke-width="3" />`
 			+ `<rect x="${px}" y="${py}" width="${w}" height="24" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
 			+ `<text x="${px + w / 2}" y="${py + 16}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">${text}</text>`;
 		document.getElementById('mopak-a-vzorek').innerHTML = html;
@@ -162,10 +167,10 @@
 		const fero = MATERIALY.filter((m) => m.fero).map((m) => m.nazev).join(', ');
 		const nefero = MATERIALY.filter((m) => !m.fero).map((m) => m.nazev).join(', ');
 		const html =
-			`<rect x="20" y="310" width="300" height="120" rx="10" fill="#ffe3e3" stroke="#2b2a26" stroke-width="3" />`
+			`<rect x="20" y="310" width="300" height="80" rx="10" fill="#ffe3e3" stroke="#2b2a26" stroke-width="3" />`
 			+ `<text x="170" y="336" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">feromagnetické (magnet přitahuje)</text>`
 			+ `<text x="170" y="364" text-anchor="middle" font-size="14" fill="#2b2a26">${fero}</text>`
-			+ `<rect x="340" y="310" width="300" height="120" rx="10" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="340" y="310" width="300" height="80" rx="10" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />`
 			+ `<text x="490" y="336" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">nemagnetické (magnet nepřitahuje)</text>`
 			+ `<text x="490" y="364" text-anchor="middle" font-size="14" fill="#2b2a26">${nefero}</text>`;
 		document.getElementById('mopak-a-legenda').innerHTML = html;
@@ -205,7 +210,9 @@
 	const B_Y = 200, B_H = 50; // svislý střed a výška ležících magnetů
 	const B1_N_X0 = 60, B1_N_X1 = 140, B1_S_X0 = 140, B1_S_X1 = 220; // hlavní magnet: N vlevo, S vpravo
 	const B_MEZERA_ZAKLAD = 20, B_PX_NA_CM = 20;
-	const B2_W = 140; // šířka druhého magnetu
+	const B2_W = 160; // šířka druhého magnetu — STEJNÁ jako magnet 1 (2×80 = 160
+	// px), ať nevypadá „silnější“. Prázdný pravý okraj řeší užší viewBox
+	// scény (520 místo 660), ne nafouknutý magnet.
 
 	function platneCm(hodnota) {
 		const n = Math.round(Number(hodnota));
@@ -246,10 +253,16 @@
 	// opakování). Levá půlka si nechává původní N (vnější konec) a dostává
 	// nové S na místě zlomu; pravá půlka si nechává původní S a dostává
 	// nové N na místě zlomu.
+	// Souřadnice NEJSOU vázané na polohu celistvého magnetu (ten musí zůstat
+	// na 60–220 kvůli testu) — po rozlomení je scéna prázdná, takže obě půlky
+	// rozložíme na střed plátna (520 px → střed 260), ať nesedí namačkané
+	// v levém rohu. Každá půlka je 80 px široká — přesně polovina délky
+	// celého magnetu (160 px) — a mezi nimi je vidět mezera, kudy se magnet
+	// zlomil.
 	function rozlomeniGeom() {
 		return {
-			levy: { nX0: 60, nX1: 96, sX0: 96, sX1: 130 },
-			pravy: { nX0: 160, nX1: 196, sX0: 196, sX1: 230 },
+			levy: { nX0: 150, nX1: 190, sX0: 190, sX1: 230 },
+			pravy: { nX0: 290, nX1: 330, sX0: 330, sX1: 370 },
 		};
 	}
 
@@ -268,14 +281,24 @@
 		return `${tip},${y} ${bx},${y - 5} ${bx},${y + 5}`;
 	}
 
-	// Tři soustředné oblouky nad magnetem — indukční čáry vycházejí z N
-	// (vlevo) a míří k S (vpravo); uprostřed každého oblouku je šipka, která
-	// tenhle směr ukazuje.
+	// Indukční čáry vycházejí z N (vlevo) a míří k S (vpravo); uprostřed
+	// každého oblouku je šipka, která tenhle směr ukazuje. Pole musí být vidět
+	// z OBOU stran magnetu (ne jen navrchu) — dvě čáry se klenou nad, jedna
+	// pod magnetem. Test má X (100/180) NATVRDO zamčené na jediný bod u obou
+	// pólů (nelze rozestoupit vodorovně), Y volné není — proto mají všechny
+	// tři jinou výchozí/koncovou výšku (175 / 170 / 225), ať aspoň nevypadají,
+	// že vycházejí ze stejného místa. Spodní čára smí klesnout jen do y=243 —
+	// dál by narazila do popisku pod magnetem (ten začíná na y=255, 12 px
+	// rezerva), viz vlastní kontrola pod touto funkcí.
 	function nakresliPoleM1() {
-		const VYSKY = [50, 90, 130];
+		const CARY = [
+			{ y: B_Y - 25, h: 45 },       // 175 → vrchol 152,5
+			{ y: B_Y - 30, h: 95 },       // 170 → vrchol 122,5
+			{ y: B_Y + 25, h: -36 },      // 225 → dno 243 (popisek začíná na 255)
+		];
 		let html = '';
-		for (const h of VYSKY) {
-			const o = obloukNS(100, 180, B_Y - 25, h);
+		for (const c of CARY) {
+			const o = obloukNS(100, 180, c.y, c.h);
 			html += `<path d="M ${o.p0.x},${o.p0.y} Q ${o.pc.x},${o.pc.y} ${o.p1.x},${o.p1.y}" fill="none" stroke="#495057" stroke-width="2" opacity="0.7" />`
 				+ `<polygon points="${sipka(o.stred.x, o.stred.y, true)}" fill="#495057" opacity="0.85" />`;
 		}
@@ -288,21 +311,25 @@
 			+ `<rect x="${B1_S_X0}" y="${B_Y - 25}" width="${B1_S_X1 - B1_S_X0}" height="${B_H}" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />`
 			+ `<text x="${(B1_N_X0 + B1_N_X1) / 2}" y="${B_Y + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">N</text>`
 			+ `<text x="${(B1_S_X0 + B1_S_X1) / 2}" y="${B_Y + 6}" text-anchor="middle" font-size="20" font-weight="bold" fill="#fff">S</text>`
-			+ `<rect x="0" y="${B_Y + 40}" width="280" height="22" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
-			+ `<text x="140" y="${B_Y + 55}" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">nejsilnější u pólů · nejslabší uprostřed</text>`;
+			+ `<rect x="15" y="${B_Y + 55}" width="250" height="22" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
+			+ `<text x="140" y="${B_Y + 70}" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">nejsilnější u pólů · nejslabší uprostřed</text>`;
 		document.getElementById('mopak-b-magnet1').innerHTML = html;
 	}
 
 	function nakresliRozlomeny() {
 		const g = rozlomeniGeom();
+		// Stejná výška jako celistvý magnet (B_H) — půlky nesmí opticky
+		// „scvrknout“, jen se rozestoupit.
 		const pulka = (h) =>
-			`<rect x="${h.nX0}" y="${B_Y - 20}" width="${h.nX1 - h.nX0}" height="40" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`
-			+ `<rect x="${h.sX0}" y="${B_Y - 20}" width="${h.sX1 - h.sX0}" height="40" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />`
-			+ `<text x="${(h.nX0 + h.nX1) / 2}" y="${B_Y + 5}" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">N</text>`
-			+ `<text x="${(h.sX0 + h.sX1) / 2}" y="${B_Y + 5}" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">S</text>`;
+			`<rect x="${h.nX0}" y="${B_Y - 25}" width="${h.nX1 - h.nX0}" height="${B_H}" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="${h.sX0}" y="${B_Y - 25}" width="${h.sX1 - h.sX0}" height="${B_H}" fill="#1971c2" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${(h.nX0 + h.nX1) / 2}" y="${B_Y + 6}" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">N</text>`
+			+ `<text x="${(h.sX0 + h.sX1) / 2}" y="${B_Y + 6}" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">S</text>`;
+		// Popisek vystředěný pod OBĚMA půlkami (střed 150–370 = 260 = střed
+		// celého plátna 520), ne jen pod levou.
 		const html = pulka(g.levy) + pulka(g.pravy)
-			+ `<rect x="35" y="${B_Y + 40}" width="220" height="24" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
-			+ `<text x="145" y="${B_Y + 57}" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">obě půlky mají zase N i S pól</text>`;
+			+ `<rect x="110" y="${B_Y + 40}" width="300" height="24" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />`
+			+ `<text x="260" y="${B_Y + 57}" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">obě půlky mají zase N i S pól</text>`;
 		document.getElementById('mopak-b-magnet1').innerHTML = html;
 	}
 

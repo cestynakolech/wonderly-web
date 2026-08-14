@@ -16,11 +16,17 @@ a šipky nakupené v jedné řadě, které žádné měřidlo nevidělo.
 
 ```bash
 cd ~/Desktop/wonderly-web
-node testy/nahled-simulace.mjs MagnetyOpakovaniSimulace.astro /tmp/mag-a.svg
-node testy/nahled-simulace.mjs MagnetyOpakovaniSimulace.astro /tmp/mag-b.svg svg=mopak-b-svg
+node testy/nahled-simulace.mjs src/components/skola2/MagnetyOpakovaniSimulace.astro /tmp/mag-a.svg svg=mopak-a-svg
+node testy/nahled-simulace.mjs src/components/skola2/MagnetyOpakovaniSimulace.astro /tmp/mag-b.svg svg=mopak-b-svg
 qlmanage -t -s 900 -o /tmp /tmp/mag-a.svg   # pak obrázek přečíst nástrojem Read
 ```
 ⚠️ Náhled chce **dva argumenty** (komponenta i výstupní soubor) — bez druhého padá.
+⚠️ 🔴 Prvním argumentem musí být **PLNÁ CESTA** ke komponentě, ne jen její jméno —
+jinak padá na `ENOENT`. Tady to bylo napsané špatně a při prvním pokusu to spadlo.
+A **nepouštěj to přes `| tail`** — roura zamaskuje nenulový návratový kód a pád
+vypadá jako úspěch (`EXIT: 0` u ENOENT). Náhled umí i **`klik=<id tlačítka>`**,
+takže se dají prohlédnout i jiné stavy než výchozí — u simulací ovládaných
+tlačítky se bez toho ta zajímavá polovina scén nikdy neuvidí.
 Když se zase zasekne, je to samostatná vada nástroje: pustit na pozadí a mezitím
 dělat něco jiného, ne u něj čekat. Napřed lokální model zdarma:
 `python3 ~/Desktop/Omega/skripty/kontrola_sceny.py <komponenta>`.
