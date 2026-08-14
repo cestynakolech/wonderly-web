@@ -1,15 +1,18 @@
 ---
 // Galvanický článek (F8, elektrina/chemicke-zdroje-napeti).
 //
-// Jádro učiva, které si žák musí odnést: napětí dělá DVOJICE RŮZNÝCH KOVŮ
-// (elektrod) v elektrolytu, ne velikost kádinky ani množství roztoku.
+// Jádro učiva, které si žák musí odnést: napětí dělá DVOJICE RŮZNÝCH MATERIÁLŮ
+// (elektrod) v elektrolytu, ne velikost kádinky ani množství roztoku. Píše
+// se důsledně „materiál", ne „kov" — uhlík není kov a oxid olovičitý je
+// sloučenina, takže „kov" by o nich lhalo (nález nezávislého kontrolora).
 // Proto část A nenabízí volný výběr dvou elektrod ze všech myslitelných
-// kovů — u kombinací, které nejsou v učivu (např. měď + uhlík), bychom
+// materiálů — u kombinací, které nejsou v učivu (např. měď + uhlík), bychom
 // museli napětí VYMYSLET, a to je zakázané. Místo toho jede žák jedním
 // posuvníkem přes 6 SKUTEČNÝCH dvojic — a schválně jsou proloženy tak,
-// aby hned vedle sebe viděl kontrast: jiný kov → napětí, stejný kov → 0 V.
-// Záporná elektroda je vždy ta MÉNĚ UŠLECHTILÁ (ta, co se rozpouští):
-// zinek u suchého článku i Voltova článku, olovo u akumulátoru.
+// aby hned vedle sebe viděl kontrast: jiný materiál → napětí, stejný
+// materiál → 0 V. Záporná elektroda je vždy ta, co se v článku ROZPOUŠTÍ
+// (pojem „elektrochemická řada"/„ušlechtilost" se v 8. ročníku nezavádí,
+// proto se nepoužívá ani ve výstupním textu).
 //
 // Část B ukazuje druhou půlku: napětí se SČÍTÁ zapojením článků za sebou
 // (3 × 1,5 V = 4,5 V, 6 × 1,5 V = 9 V) a že velikost článku (AA/D) napětí
@@ -87,21 +90,23 @@
 
 	// ── Část A: dvojice elektrod ────────────────────────────────────────────
 	// Šest SKUTEČNÝCH dvojic, schválně proložených jiný-stejný-jiný-stejný...,
-	// aby žák hned viděl kontrast. „minus" je vždy ta MÉNĚ UŠLECHTILÁ elektroda
-	// (ta, co se v článku rozpouští) — null znamená stejné elektrody → 0 V.
+	// aby žák hned viděl kontrast. „minus" je vždy ta elektroda, co se
+	// v článku ROZPOUŠTÍ — null znamená stejné elektrody → 0 V.
 	const PARY = [
 		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'uhlík', barva: '#343a40' },
-			napeti: 1.5, minus: 'e1', clanek: 'suchý článek', elektrolyt: 'salmiaková pasta' },
+			napeti: 1.5, minus: 'e1', clanek: 'stejná dvojice jako v suchém článku', elektrolyt: 'salmiakový roztok',
+			poznamka: 'Stejnou dvojici elektrod má i suchý (tužkový) článek — místo tekutého roztoku má hustou pastu.' },
 		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'zinek', barva: '#adb5bd' },
-			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiaková pasta' },
+			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiakový roztok' },
 		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'měď', barva: '#c2723a' },
-			napeti: 1.1, minus: 'e1', clanek: 'Voltův článek', elektrolyt: 'zředěná kyselina sírová' },
+			napeti: 1, minus: 'e1', clanek: 'Voltův článek', elektrolyt: 'zředěná kyselina sírová' },
 		{ e1: { nazev: 'měď', barva: '#c2723a' }, e2: { nazev: 'měď', barva: '#c2723a' },
 			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'zředěná kyselina sírová' },
 		{ e1: { nazev: 'olovo', barva: '#495057' }, e2: { nazev: 'oxid olovičitý', barva: '#5c3a21' },
-			napeti: 2, minus: 'e1', clanek: 'olověný akumulátor', elektrolyt: 'zředěná kyselina sírová' },
+			napeti: 2, minus: 'e1', clanek: 'olověný akumulátor (jeden článek)', elektrolyt: 'zředěná kyselina sírová',
+			poznamka: 'Olovo a oxid olovičitý jsou dvě různé látky se stejným prvkem — proto mezi nimi napětí vzniká. Autobaterie má 6 takových článků za sebou: 6 × 2 V = 12 V.' },
 		{ e1: { nazev: 'uhlík', barva: '#343a40' }, e2: { nazev: 'uhlík', barva: '#343a40' },
-			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiaková pasta' },
+			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiakový roztok' },
 	];
 
 	// ČISTÁ FUNKCE: znaménka obou elektrod dané dvojice.
@@ -132,20 +137,28 @@
 		document.getElementById('gc-a-u').innerHTML =
 			`<text x="330" y="46" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">U = ${napetiText(par.napeti)}</text>`;
 
-		// elektrody: tyč (barva podle kovu), čepička se znaménkem, popisek kovu
+		// elektrody: tyč (barva podle materiálu), čepička se znaménkem, popisek materiálu
+		// Popisek MUSÍ sedět na bílé plaketě: sázený rovnou na tyč splýval s kresbou
+		// (na tmavé uhlíkové elektrodě bylo slovo „uhlík" prakticky nečitelné).
+		// Šířka plakety se počítá z délky názvu a je omezená tak, aby se plakety
+		// obou elektrod (středy 270 a 390) nikdy nepřekryly.
+		const PLAKETA_MAX = 112;
 		const elektroda = (cx, e, sign) => {
 			const barvaZnamenka = sign === '+' ? '#ff8787' : sign === '−' ? '#74c0fc' : '#dee2e6';
+			const sirka = Math.min(PLAKETA_MAX, e.nazev.length * 6.2 + 12);
 			return `<rect x="${cx - 12}" y="95" width="24" height="235" fill="${e.barva}" stroke="#2b2a26" stroke-width="2" />`
 				+ `<circle cx="${cx}" cy="118" r="14" fill="${barvaZnamenka}" stroke="#2b2a26" stroke-width="2" />`
 				+ (sign ? `<text x="${cx}" y="124" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">${sign}</text>` : '')
-				+ `<text x="${cx}" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">${e.nazev}</text>`;
+				+ `<rect x="${cx - sirka / 2}" y="140" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="#2b2a26" stroke-width="1" />`
+				+ `<text x="${cx}" y="153" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">${e.nazev}</text>`;
 		};
 		document.getElementById('gc-a-elektrody').innerHTML = elektroda(270, par.e1, zn.e1) + elektroda(390, par.e2, zn.e2);
 
 		const minusNazev = par.minus === 'e1' ? par.e1.nazev : par.minus === 'e2' ? par.e2.nazev : null;
+		const plusNazev = par.minus === 'e1' ? par.e2.nazev : par.minus === 'e2' ? par.e1.nazev : null;
 		const radek3 = par.minus === null
 			? 'napětí U = 0 V — stejné elektrody nedávají žádné napětí'
-			: `napětí U = ${napetiText(par.napeti)} — záporná elektroda: ${minusNazev} (méně ušlechtilý kov)`;
+			: `napětí U = ${napetiText(par.napeti)} — záporná elektroda: ${minusNazev} (rozpouští se)`;
 		document.getElementById('gc-a-info').innerHTML =
 			`<rect x="14" y="392" width="632" height="74" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
 			+ `<text x="28" y="414" font-size="14" font-weight="bold" fill="#2b2a26">článek: ${par.clanek} (${par.e1.nazev} + ${par.e2.nazev})</text>`
@@ -153,12 +166,17 @@
 			+ `<text x="28" y="458" font-size="14" font-weight="bold" fill="#2b2a26">${radek3}</text>`;
 
 		document.getElementById('gc-a-vypocet').innerHTML =
-			`Napětí dělá <strong>dvojice různých kovů</strong>, ne velikost kádinky: ${par.e1.nazev} + ${par.e2.nazev} → <strong>${napetiText(par.napeti)}</strong>.`;
+			`Napětí dělá <strong>dvojice různých materiálů</strong>, ne velikost kádinky: ${par.e1.nazev} + ${par.e2.nazev} → <strong>${napetiText(par.napeti)}</strong>.`;
 
+		// Pojem „méně ušlechtilý kov" (elektrochemická řada) se v 8. ročníku
+		// nezavádí — proto se záporná elektroda vysvětluje jen tím, co žák
+		// vidí a chápe: v článku se ROZPOUŠTÍ. Dovětek (`poznamka`) doplňuje
+		// jen u dvojic, kde je potřeba (suchý článek, olověný akumulátor).
 		const stavP = document.getElementById('gc-a-stav');
-		stavP.textContent = par.minus === null
-			? `⚡ Obě elektrody jsou ze stejného kovu (${par.e1.nazev}) — voltmetr ukazuje 0 V. Napětí vzniká jen mezi RŮZNÝMI kovy.`
-			: `🔋 ${par.clanek}: dvojice ${par.e1.nazev} + ${par.e2.nazev} dává ${napetiText(par.napeti)}. Záporná elektroda je ${minusNazev} (méně ušlechtilý kov), kladná je ${par.minus === 'e1' ? par.e2.nazev : par.e1.nazev}.`;
+		stavP.textContent = (par.minus === null
+			? `⚡ Obě elektrody jsou ze stejného materiálu (${par.e1.nazev}) — voltmetr ukazuje 0 V. Napětí vzniká jen mezi RŮZNÝMI materiály.`
+			: `🔋 ${par.clanek}: dvojice ${par.e1.nazev} + ${par.e2.nazev} dává ${napetiText(par.napeti)}. Záporná elektroda je ${minusNazev} — ta se v článku rozpouští, kladná je ${plusNazev}.`)
+			+ (par.poznamka ? ` ${par.poznamka}` : '');
 	}
 
 	// ── Část B: články za sebou ──────────────────────────────────────────────
@@ -218,6 +236,22 @@
 		if (n >= 2 && n <= 4) return `${n} hodiny`;
 		return `${n} hodin`;
 	}
+	// „Za sebou" dává smysl až od dvou článků — u jednoho se vynechává
+	// (nález kontrolora: „1 článek za sebou" nedává smysl). Sloveso se
+	// skloňuje podle počtu: 2–4 „dávají", 1 a 5+ „dává" — obojí se musí
+	// spojit SPRÁVNĚ v jedné větě, ne kontrolovat každé zvlášť (izolované
+	// tvary prošly i s chybnou shodou podmětu s přísudkem).
+	function frazeClankyZaSebou(n) {
+		return n === 1 ? clanku(n) : `${clanku(n)} za sebou`;
+	}
+	function slovesoDavaji(n) {
+		return n >= 2 && n <= 4 ? 'dávají' : 'dává';
+	}
+	// Tisíce se oddělují mezerou (2 000 mAh), stejně jako ve výkladu na téže
+	// stránce — bez ní si scéna s výkladem protiřečily typograficky.
+	function tisice(n) {
+		return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+	}
 
 	const pocetSlider = document.getElementById('gc-b-pocet');
 	const velikostSlider = document.getElementById('gc-b-velikost');
@@ -230,6 +264,9 @@
 	svgB.__clanku = clanku;
 	svgB.__hodin = hodin;
 	svgB.__napetiText = napetiText;
+	svgB.__frazeClankyZaSebou = frazeClankyZaSebou;
+	svgB.__slovesoDavaji = slovesoDavaji;
+	svgB.__tisice = tisice;
 
 	function prekresliB() {
 		// Obranné čtení i tady (ne jen uvnitř stavB/geometriePack) — ať se
@@ -242,7 +279,7 @@
 
 		document.getElementById('gc-b-out-pocet').textContent = clanku(pocet);
 		document.getElementById('gc-b-out-velikost').textContent = s.velikost.nazev;
-		document.getElementById('gc-b-out-proud').textContent = `${s.proud} mA`;
+		document.getElementById('gc-b-out-proud').textContent = `${tisice(s.proud)} mA`;
 
 		document.getElementById('gc-b-celkem').innerHTML =
 			`<text x="330" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">Celkem: ${napetiText(s.napeti)}</text>`;
@@ -264,20 +301,20 @@
 			`<line x1="${g.startX}" y1="${g.yBottom}" x2="${g.startX}" y2="260" stroke="#495057" stroke-width="4" />`
 			+ `<line x1="${g.xLastRight}" y1="${g.yBottom}" x2="${g.xLastRight}" y2="260" stroke="#495057" stroke-width="4" />`
 			+ `<rect x="${barLeft}" y="260" width="${barRight - barLeft}" height="44" rx="6" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />`
-			+ `<text x="${Math.round((barLeft + barRight) / 2)}" y="286" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">spotřebič: proud ${s.proud} mA</text>`;
+			+ `<text x="${Math.round((barLeft + barRight) / 2)}" y="286" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">spotřebič: proud ${tisice(s.proud)} mA</text>`;
 
 		document.getElementById('gc-b-info').innerHTML =
 			`<rect x="14" y="316" width="632" height="74" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
-			+ `<text x="28" y="338" font-size="14" font-weight="bold" fill="#2b2a26">${clanku(pocet)} po 1,5 V za sebou = ${napetiText(s.napeti)}</text>`
-			+ `<text x="28" y="360" font-size="14" font-weight="bold" fill="#2b2a26">velikost: ${s.velikost.nazev}, kapacita ${s.kapacita} mAh</text>`
-			+ `<text x="28" y="382" font-size="14" font-weight="bold" fill="#2b2a26">proud ${s.proud} mA → výdrž ${hodin(s.vydrzH)}</text>`;
+			+ `<text x="28" y="338" font-size="14" font-weight="bold" fill="#2b2a26">${frazeClankyZaSebou(pocet)} po 1,5 V = ${napetiText(s.napeti)}</text>`
+			+ `<text x="28" y="360" font-size="14" font-weight="bold" fill="#2b2a26">velikost: ${s.velikost.nazev}, kapacita ${tisice(s.kapacita)} mAh</text>`
+			+ `<text x="28" y="382" font-size="14" font-weight="bold" fill="#2b2a26">proud ${tisice(s.proud)} mA → výdrž ${hodin(s.vydrzH)}</text>`;
 
 		document.getElementById('gc-b-vypocet').innerHTML =
-			`${clanku(pocet)} po 1,5 V za sebou: ${pocet} × 1,5 V = <strong>${napetiText(s.napeti)}</strong>. `
-			+ `Kapacita ${s.velikost.nazev}: ${s.kapacita} mAh ÷ ${s.proud} mA = výdrž <strong>${hodin(s.vydrzH)}</strong>.`;
+			`${frazeClankyZaSebou(pocet)} po 1,5 V: ${pocet} × 1,5 V = <strong>${napetiText(s.napeti)}</strong>. `
+			+ `Kapacita ${s.velikost.nazev}: ${tisice(s.kapacita)} mAh ÷ ${tisice(s.proud)} mA = výdrž <strong>${hodin(s.vydrzH)}</strong>.`;
 
 		document.getElementById('gc-b-stav').textContent =
-			`🔋 ${clanku(pocet)} za sebou dávají ${napetiText(s.napeti)} — napětí se SČÍTÁ. Velikost ${s.velikost.nazev} napětí nemění, jen kapacitu: při proudu ${s.proud} mA vydrží ${hodin(s.vydrzH)}.`;
+			`🔋 ${frazeClankyZaSebou(pocet)} ${slovesoDavaji(pocet)} ${napetiText(s.napeti)} — napětí se SČÍTÁ. Velikost ${s.velikost.nazev} napětí nemění, jen kapacitu: při proudu ${tisice(s.proud)} mA vydrží ${hodin(s.vydrzH)}.`;
 	}
 
 	parSlider.addEventListener('input', prekresliA);

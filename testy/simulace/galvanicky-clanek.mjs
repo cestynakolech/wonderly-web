@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 // Ověření GalvanickyClanekSimulace.astro — chemické zdroje elektrického napětí.
 //
-// Nejtišeji by lhalo právě jádro učiva: že napětí dělá DVOJICE RŮZNÝCH KOVŮ,
-// ne velikost kádinky, a že stejné kovy dají 0 V. Proto test kontroluje
-// všech 6 dvojic PROTI NAPEVNO ZAPSANÉ tabulce (1,5 / 0 / 1,1 / 0 / 2 / 0 V)
-// — kdyby se čísla brala z komponenty, test by odkýval cokoli.
+// Nejtišeji by lhalo právě jádro učiva: že napětí dělá DVOJICE RŮZNÝCH MATERIÁLŮ,
+// ne velikost kádinky, a že stejný materiál dá 0 V. Proto test kontroluje
+// všech 6 dvojic PROTI NAPEVNO ZAPSANÉ tabulce (1,5 / 0 / 1 / 0 / 2 / 0 V)
+// — kdyby se čísla brala z komponenty, test by odkýval cokoli. Píše se
+// důsledně „materiál" — uhlík není kov a oxid olovičitý je sloučenina,
+// takže „kov" by lhalo (nález nezávislého kontrolora, viz sekce níž).
 //
 // Mutační riziko: kdyby scéna spletla polaritu (zinek jako +), počitadlo by
 // to neřeklo — proto se čte přímo barva/znaménko badge u KAŽDÉ elektrody,
@@ -41,7 +43,8 @@ const svgA = prvky.get('gc-a-svg');
 const svgB = prvky.get('gc-b-svg');
 const { __PARY: PARY, __znamenka: znamenka, __napetiText: napetiText } = svgA;
 const { __VELIKOSTI: VELIKOSTI, __PROUDY: PROUDY, __stavB: stavB, __geometriePack: geometriePack,
-	__clanku: clanku, __hodin: hodin } = svgB;
+	__clanku: clanku, __hodin: hodin, __frazeClankyZaSebou: frazeClankyZaSebou,
+	__slovesoDavaji: slovesoDavaji, __tisice: tisice } = svgB;
 
 let chyby = 0;
 const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++; };
@@ -63,7 +66,7 @@ console.log('— tabulka napětí (natvrdo, ať test nic neodkývá) —');
 	const ocekavane = [
 		['zinek', 'uhlík', 1.5, 'zinek'],
 		['zinek', 'zinek', 0, null],
-		['zinek', 'měď', 1.1, 'zinek'],
+		['zinek', 'měď', 1, 'zinek'],
 		['měď', 'měď', 0, null],
 		['olovo', 'oxid olovičitý', 2, 'olovo'],
 		['uhlík', 'uhlík', 0, null],
@@ -88,7 +91,7 @@ console.log('\n— stejné elektrody vždy 0 V, jiné vždy nenulové —');
 		if (stejne && p.napeti !== 0) sedi = false;
 		if (!stejne && p.napeti === 0) sedi = false;
 	}
-	ok(sedi, 'stejné kovy → 0 V, různé kovy → nenulové napětí, bez výjimky');
+	ok(sedi, 'stejný materiál → 0 V, různý materiál → nenulové napětí, bez výjimky');
 	let znamenkaOk = true;
 	for (const p of PARY) {
 		const zn = znamenka(p);
@@ -103,6 +106,7 @@ console.log('\n— formátování napětí (čárka jen u desetinných) —');
 	ok(napetiText(0) === '0 V', `0 → „${napetiText(0)}"`);
 	ok(napetiText(1.5) === '1,5 V', `1,5 → „${napetiText(1.5)}"`);
 	ok(napetiText(1.1) === '1,1 V', `1,1 → „${napetiText(1.1)}"`);
+	ok(napetiText(1) === '1 V', `1 → „${napetiText(1)}" (Voltův článek — hodnota ze zadání)`);
 	ok(napetiText(2) === '2 V', `2 → „${napetiText(2)}" (celé číslo bez zbytečné nuly)`);
 	ok(napetiText(4.5) === '4,5 V', `4,5 → „${napetiText(4.5)}" (3 × 1,5 V ze zadání)`);
 	ok(napetiText(9) === '9 V', `9 → „${napetiText(9)}" (6 × 1,5 V ze zadání)`);
@@ -178,16 +182,98 @@ console.log('\n— TEXT hlášky jmenuje SPRÁVNOU kladnou i zápornou elektrodu
 		['zinek', 'měď'],
 		['olovo', 'oxid olovičitý'],
 	];
-	const indexyRuznych = [0, 2, 4]; // pozice s různými kovy v PARY (viz tabulka výš)
+	const indexyRuznych = [0, 2, 4]; // pozice s různými materiály v PARY (viz tabulka výš)
 	let spatne = null;
 	indexyRuznych.forEach((idx, k) => {
 		nastavA(idx);
-		const [minus, plus] = ocekavaneJmena[k]; // záporná je vždy ta první jmenovaná (méně ušlechtilá)
+		const [minus, plus] = ocekavaneJmena[k]; // záporná je vždy ta první jmenovaná (rozpouští se)
 		const stav = prvky.get('gc-a-stav').textContent;
 		if (!stav.includes(`Záporná elektroda je ${minus}`)) spatne = `dvojice ${idx}: hláška nejmenuje zápornou „${minus}" — „${stav}"`;
 		if (!stav.includes(`kladná je ${plus}`)) spatne = `dvojice ${idx}: hláška nejmenuje kladnou „${plus}" — „${stav}"`;
 	});
-	ok(spatne === null, spatne ?? 'u všech 3 dvojic s různými kovy hláška jmenuje jak zápornou, tak SPRÁVNOU kladnou elektrodu');
+	ok(spatne === null, spatne ?? 'u všech 3 dvojic s různými materiály hláška jmenuje jak zápornou, tak SPRÁVNOU kladnou elektrodu');
+}
+
+console.log('\n— TEXT hlášky mluví o „materiálu", ne o „kovu" (uhlík a PbO2 nejsou kov) —');
+{
+	// Nález nezávislého kontrolora: hláška tvrdila „ze stejného kovu (uhlík)"
+	// a „dvojice různých kovů" i u dvojic s uhlíkem/oxidem olovičitým — ani
+	// jedno není kov. Slovo „kov" (v libovolném pádu) se proto nesmí
+	// objevit v ŽÁDNÉM textu, který žák čte, u ŽÁDNÉ ze šesti dvojic.
+	//
+	// POZOR, past zaplacená falešným poplachem: hranice slova \b je v JavaScriptu
+	// definovaná jen nad [A-Za-z0-9_], takže české znaky se chovají jako oddělovače.
+	// Ve slově „tuž-kov-ý" i „salmia-kov-ý" pak /\bkov\b/ vidí samostatné slovo „kov"
+	// a test spadne na větě, která je úplně v pořádku. Nad českým textem se proto
+	// hranice slova NEPOUŽÍVÁ — text se rozseká na slova a porovnávají se CELÁ slova.
+	const TVARY_KOV = new Set(['kov', 'kova', 'kovu', 'kovy', 'kovů', 'kovem', 'kovech', 'kovům', 'kovové', 'kovoví']);
+	const obsahujeSlovoKov = (text) => (text.match(/\p{L}+/gu) ?? []).some((s) => TVARY_KOV.has(s.toLowerCase()));
+
+	let spatne = null;
+	for (let i = 0; i < PARY.length; i++) {
+		nastavA(i);
+		const vypocet = prvky.get('gc-a-vypocet').innerHTML.replace(/<[^>]*>/g, '');
+		const stav = prvky.get('gc-a-stav').textContent;
+		const info = infoA.innerHTML.replace(/<[^>]*>/g, '');
+		for (const [nazevMista, text] of [['vzorec', vypocet], ['hláška', stav], ['info panel', info]]) {
+			if (obsahujeSlovoKov(text)) spatne = `dvojice ${i}, ${nazevMista}: obsahuje slovo „kov" — „${text}"`;
+		}
+	}
+	ok(spatne === null, spatne ?? 've vzorci, hlášce i info panelu u všech 6 dvojic se slovo „kov" neobjeví');
+
+	// Sebekontrola měřidla obousměrně — musí umět česky, jinak hlásí planě.
+	const NESMI_CHYTIT = ['salmiakový roztok', 'tužkový článek', 'makový koláč', 'kovbojský klobouk'];
+	const MUSI_CHYTIT = ['ze stejného kovu', 'dvojice různých kovů', 'méně ušlechtilý kov', 'elektroda z kovu'];
+	ok(NESMI_CHYTIT.every((v) => !obsahujeSlovoKov(v)),
+		`kontrola sama sebe: slova s „kov" uvnitř (${NESMI_CHYTIT.join(', ')}) měřidlo NEodhalí jako „kov"`);
+	ok(MUSI_CHYTIT.every((v) => obsahujeSlovoKov(v)),
+		`kontrola sama sebe: skutečné „kov" ve všech pádech (${MUSI_CHYTIT.join(', ')}) měřidlo odhalí`);
+	nastavA(0);
+	ok(prvky.get('gc-a-vypocet').innerHTML.includes('materiálů'), 'a vzorec místo toho mluví o „materiálech"');
+}
+
+console.log('\n— olověný akumulátor: jasně JEDEN článek, doplněno k autobaterii (12 V) —');
+{
+	// Výklad na stránce tvrdí u olověného akumulátoru 12 V (autobaterie),
+	// simulace ukazuje 2 V — bez vysvětlení by si žák myslel, že si web
+	// protiřečí. Scéna proto musí výslovně říct, že jde o JEDEN článek,
+	// a doplnit, že autobaterie jich má 6 za sebou.
+	nastavA(4); // olovo + oxid olovičitý
+	const stav = prvky.get('gc-a-stav').textContent;
+	const info = infoA.innerHTML;
+	ok(info.includes('jeden článek'), `info panel výslovně říká „jeden článek": „${info.match(/článek: [^<]*/)[0]}"`);
+	ok(stav.includes('jeden článek'), `a hláška taky: „${stav}"`);
+	ok(stav.includes('12 V'), `hláška zmiňuje napětí autobaterie 12 V: „${stav}"`);
+	ok(stav.includes('6'), 'a počet článků autobaterie (6)');
+	ok(uA.innerHTML.includes('U = 2 V') && !uA.innerHTML.includes('U = 12 V'),
+		`voltmetr přitom ukazuje napětí JEDNOHO článku (2 V), ne 12 V: „${uA.innerHTML.replace(/<[^>]*>/g, '')}"`);
+}
+
+console.log('\n— olovo + oxid olovičitý: různé LÁTKY, ne „různé kovy" (nepodkopává pravidlo) —');
+{
+	// Obě elektrody obsahují stejný prvek (olovo) — kdyby hláška tvrdila
+	// „různé kovy", popírala by vlastní pravidlo „stejný materiál → 0 V".
+	// Musí říct, že jde o různé LÁTKY se stejným prvkem.
+	nastavA(4);
+	const stav = prvky.get('gc-a-stav').textContent;
+	ok(stav.includes('různé látky'), `hláška mluví o různých látkách: „${stav}"`);
+	ok(/stejným prvkem|stejný prvek/.test(stav), 'a přiznává, že prvek (olovo) je stejný');
+	ok(!/různé kovy|různých kovů/i.test(stav), 'a netvrdí „různé kovy" — to by byl rozpor, prvek je stejný');
+}
+
+console.log('\n— „suchý článek": kádinka je model s roztokem, ne suchý článek samotný —');
+{
+	// Suchý (tužkový) článek se jmenuje suchý právě proto, že nemá tekutý
+	// elektrolyt — kádinka s modrým roztokem proto nesmí tvrdit, že JE
+	// suchý článek, jen že má stejnou dvojici elektrod.
+	nastavA(0); // zinek + uhlík
+	const info = infoA.innerHTML;
+	const stav = prvky.get('gc-a-stav').textContent;
+	ok(info.includes('roztok') && !info.includes('pasta'),
+		`elektrolyt v kádince je roztok, ne pasta: „${info.match(/elektrolyt: [^<]*/)[0]}"`);
+	ok(!info.includes('suchý článek'), 'info panel netvrdí, že kádinka JE „suchý článek" (jen ho modeluje)');
+	ok(stav.includes('suchý') && stav.includes('pastu'),
+		`hláška vysvětluje vztah k suchému článku (ten má pastu místo roztoku): „${stav}"`);
 }
 
 console.log('\n— elektrody v kádince: voda dole, elektrody trčí do vzduchu i do roztoku —');
@@ -200,6 +286,47 @@ console.log('\n— elektrody v kádince: voda dole, elektrody trčí do vzduchu 
 	ok(tyce.every((t) => t.y < 260), 'tyče začínají NAD hladinou roztoku (ve vzduchu)');
 	ok(tyce.every((t) => t.y + 235 > 260 && t.y + 235 < 370), 'a končí ponořené v roztoku, ne až na dně kádinky');
 	ok(tyce.every((t) => t.x > 180 && t.x + 24 < 480), 'tyče jsou uvnitř stěn kádinky');
+}
+
+console.log('\n— popisek elektrody sedí na bílé plaketě a je čitelný —');
+{
+	// Sázený rovnou na tyč splýval s kresbou: na tmavé uhlíkové elektrodě bylo
+	// slovo „uhlík" nečitelné (našlo oko i lokální vision automat, žádné měřidlo
+	// nad kódem to nevidělo). Měříme VLASTNOSTI plakety, ne opsaný vzorec:
+	// musí být bílá, širší než text, ne nesmyslně široká a nesmí se překrývat
+	// s plaketou druhé elektrody.
+	const SIRKA_ZNAKU = 5.5;   // font-size 11 bold, odhad šířky znaku
+	let spatne = null;
+	for (let i = 0; i < PARY.length; i++) {
+		nastavA(i);
+		const html = elektrodyA.innerHTML;
+		const plakety = [...html.matchAll(/<rect x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="18" rx="4" fill="#ffffff"/g)]
+			.map((m) => ({ x: +m[1], y: +m[2], w: +m[3] }));
+		const popisky = [...html.matchAll(/<text x="(-?[\d.]+)" y="(-?[\d.]+)"[^>]*font-size="11"[^>]*>([^<]+)<\/text>/g)]
+			.map((m) => ({ x: +m[1], y: +m[2], text: m[3] }));
+
+		if (plakety.length !== 2) { spatne = `dvojice ${i}: čekal jsem 2 bílé plakety, našel ${plakety.length}`; break; }
+		if (popisky.length !== 2) { spatne = `dvojice ${i}: čekal jsem 2 popisky, našel ${popisky.length}`; break; }
+
+		for (let k = 0; k < 2; k++) {
+			const p = plakety[k], t = popisky[k];
+			const sirkaTextu = t.text.length * SIRKA_ZNAKU;
+			if (p.w < sirkaTextu) { spatne = `dvojice ${i}: plaketa (${p.w} px) je užší než text „${t.text}" (~${sirkaTextu.toFixed(0)} px) — popisek přeteče ven`; break; }
+			if (p.w > t.text.length * 7 + 16) { spatne = `dvojice ${i}: plaketa (${p.w} px) je nesmyslně široká na text „${t.text}"`; break; }
+			if (t.x < p.x || t.x > p.x + p.w) { spatne = `dvojice ${i}: popisek „${t.text}" (x=${t.x}) leží mimo svou plaketu (${p.x}–${(p.x + p.w).toFixed(1)})`; break; }
+			if (t.y < p.y || t.y > p.y + 18) { spatne = `dvojice ${i}: popisek „${t.text}" (y=${t.y}) není svisle uvnitř plakety (${p.y}–${p.y + 18})`; break; }
+		}
+		if (spatne) break;
+
+		const [l, r] = plakety[0].x < plakety[1].x ? plakety : [plakety[1], plakety[0]];
+		if (l.x + l.w >= r.x) { spatne = `dvojice ${i}: plakety se překrývají — levá končí na ${(l.x + l.w).toFixed(1)}, pravá začíná na ${r.x}`; break; }
+	}
+	ok(spatne === null, spatne ?? 'u všech 6 dvojic: popisek sedí na bílé plaketě, vejde se do ní a plakety se nepřekrývají');
+
+	// plaketa musí ležet NAD hladinou i nad tyčí, ať nezakrývá ponořenou část
+	nastavA(0);
+	const plaketyY = [...elektrodyA.innerHTML.matchAll(/<rect [^>]*height="18" rx="4" fill="#ffffff"/g)].length;
+	ok(plaketyY === 2, `plakety jsou obě bílé a stejně vysoké (${plaketyY})`);
 }
 
 console.log('\n— nic nevyleze z obrázku A —');
@@ -317,7 +444,7 @@ console.log('\n— počet vykreslených článků odpovídá posuvníku —');
 	}
 }
 
-console.log('\n— polarita pack: vlevo − vpravo + a napětí roste s délkou drátu badge—');
+console.log('\n— polarita pack: vlevo − vpravo + —');
 {
 	nastavB(3);
 	const pack = prvky.get('gc-b-pack');
@@ -359,6 +486,20 @@ console.log('\n— pravý (+) odznak leží AŽ ZA posledním článkem, uvnitř
 			if (plusText.length && plusText[0].y !== plusOdznak.cy + OCEKAVANY_SVISLY_POSUN) {
 				spatne = `velikost ${vel}, ${n} článků: text „+" (y=${plusText[0].y}) NENÍ ${OCEKAVANY_SVISLY_POSUN} px pod středem kroužku (cy=${plusOdznak.cy}, čekal jsem y=${plusOdznak.cy + OCEKAVANY_SVISLY_POSUN})`;
 			}
+
+			// Zrcadlově totéž pro LEVÝ (−) pól: bez toho unikla mutace
+			// `g.startX - 10` → `g.startX + 10`, po které by znaménko minus
+			// skočilo doprava na první článek.
+			const levyOkraj = Math.min(...obdelniky.map((m) => +m[1]));
+			const minusOdznak = kolecka2.find((k) => k.barva === '#74c0fc');
+			if (!minusOdznak) { spatne = `velikost ${vel}, ${n} článků: chybí − odznak`; continue; }
+			if (minusOdznak.cx >= levyOkraj) spatne = `velikost ${vel}, ${n} článků: − odznak (x=${minusOdznak.cx}) NENÍ nalevo od prvního článku (levý okraj x=${levyOkraj})`;
+			if (minusOdznak.cx < 0) spatne = `velikost ${vel}, ${n} článků: − odznak leží mimo plátno (x=${minusOdznak.cx})`;
+			const minusText = [...pack.innerHTML.matchAll(/<text x="(-?[\d.]+)" y="(-?[\d.]+)"[^>]*>−<\/text>/g)].map((m) => ({ x: +m[1], y: +m[2] }));
+			if (minusText.length === 0 || minusText[0].x !== minusOdznak.cx) spatne = `velikost ${vel}, ${n} článků: text „−" (x=${minusText[0]?.x}) nesedí vodorovně s kroužkem (x=${minusOdznak.cx})`;
+			if (minusText.length && minusText[0].y !== minusOdznak.cy + OCEKAVANY_SVISLY_POSUN) {
+				spatne = `velikost ${vel}, ${n} článků: text „−" (y=${minusText[0].y}) NENÍ ${OCEKAVANY_SVISLY_POSUN} px pod středem kroužku (cy=${minusOdznak.cy})`;
+			}
 		}
 	}
 	ok(spatne === null, spatne ?? 've všech kombinacích leží + odznak i s popiskem napravo od posledního článku a uvnitř plátna');
@@ -391,32 +532,88 @@ console.log('\n— počitadlo B ukazuje totéž co model —');
 		const s = stavB(n, vel, proud);
 		const info = prvky.get('gc-b-info').innerHTML;
 		ok(info.includes(napetiText(s.napeti)), `${n} článků, velikost ${vel}: panel ukazuje ${napetiText(s.napeti)}`);
-		ok(info.includes(`${s.kapacita} mAh`), `a kapacitu ${s.kapacita} mAh`);
+		ok(info.includes(`${tisice(s.kapacita)} mAh`), `a kapacitu ${tisice(s.kapacita)} mAh`);
 		ok(info.includes(hodin(s.vydrzH)), `a výdrž „${hodin(s.vydrzH)}"`);
 	}
 }
 
-console.log('\n— čeština: skloňování článků a hodin —');
+console.log('\n— čeština: skloňování článků a hodin (izolované tvary) —');
 {
 	const tvaryClanku = { 1: '1 článek', 2: '2 články', 3: '3 články', 4: '4 články', 5: '5 článků', 6: '6 článků' };
 	for (const [n, t] of Object.entries(tvaryClanku)) ok(clanku(+n) === t, `${n} → „${clanku(+n)}"`);
 	const tvaryHodin = { 1: '1 hodina', 2: '2 hodiny', 4: '4 hodiny', 10: '10 hodin', 12: '12 hodin', 24: '24 hodin', 60: '60 hodin' };
 	for (const [n, t] of Object.entries(tvaryHodin)) ok(hodin(+n) === t, `${n} → „${hodin(+n)}"`);
+	// izolované tvary samy o sobě NESTAČÍ (viz sekce „ČESKÁ VĚTA" níž) —
+	// obě funkce dole se testují stejně přímo, ale rozhoduje až SLOŽENÁ věta
+	ok(frazeClankyZaSebou(1) === '1 článek', `frazeClankyZaSebou(1) → „${frazeClankyZaSebou(1)}" (bez „za sebou")`);
+	ok(frazeClankyZaSebou(3) === '3 články za sebou', `frazeClankyZaSebou(3) → „${frazeClankyZaSebou(3)}"`);
+	ok(slovesoDavaji(3) === 'dávají' && slovesoDavaji(1) === 'dává' && slovesoDavaji(5) === 'dává',
+		`slovesoDavaji: 1→„${slovesoDavaji(1)}", 3→„${slovesoDavaji(3)}", 5→„${slovesoDavaji(5)}"`);
+}
+
+console.log('\n— ČESKÁ VĚTA v hlášce B: shoda podmětu s přísudkem, „za sebou" jen od 2 článků —');
+{
+	// Nález nezávislého kontrolora: „1 článek za sebou dávají 1,5 V" a
+	// „5 článků za sebou dávají 7,5 V" — špatná shoda i nesmyslné „za sebou"
+	// u jednoho článku. Izolované tvary clanku()/hodin() (sekce výš) tenhle
+	// typ chyby NEODHALÍ — obě funkce samy o sobě vracely správný tvar,
+	// problém byl ve SKLÁDÁNÍ věty. Proto se měří celá věta, napsaná
+	// nezávisle na komponentě přímo v testu (ne přes tytéž funkce).
+	const OCEKAVANE_VETY = {
+		1: '1 článek dává 1,5 V',
+		2: '2 články za sebou dávají 3 V',
+		3: '3 články za sebou dávají 4,5 V',
+		4: '4 články za sebou dávají 6 V',
+		5: '5 článků za sebou dává 7,5 V',
+		6: '6 článků za sebou dává 9 V',
+	};
+	let spatne = null;
+	for (const [n, veta] of Object.entries(OCEKAVANE_VETY)) {
+		nastavB(+n);
+		const stav = prvky.get('gc-b-stav').textContent;
+		if (!stav.includes(veta)) spatne = `${n} článků: čekal jsem přesně „${veta}" — mám „${stav}"`;
+	}
+	ok(spatne === null, spatne ?? 'u všech 6 poloh sedí celá věta: počet, „za sebou" od 2 výš, shoda slovesa 2–4 vs. 1/5/6');
+	nastavB(3);
+}
+
+console.log('\n— typografie tisíců: mezera jako oddělovač (2 000 mAh), stejně jako ve výkladu —');
+{
+	ok(tisice(2000) === '2 000', `tisice(2000) → „${tisice(2000)}"`);
+	ok(tisice(12000) === '12 000', `tisice(12000) → „${tisice(12000)}"`);
+	ok(tisice(1000) === '1 000', `tisice(1000) → „${tisice(1000)}"`);
+	ok(tisice(200) === '200', `tisice(200) → „${tisice(200)}" (tři číslice, beze změny)`);
+
+	nastavB(3, 0, 1); // AA
+	ok(prvky.get('gc-b-info').innerHTML.includes('2 000 mAh'), 'info panel u AA ukazuje „2 000 mAh"');
+	nastavB(3, 1, 1); // D
+	ok(prvky.get('gc-b-info').innerHTML.includes('12 000 mAh'), 'info panel u D ukazuje „12 000 mAh"');
+	nastavB(3, 0, 2); // proud index 2 = 1000 mA
+	ok(prvky.get('gc-b-info').innerHTML.includes('1 000 mA'),
+		`info panel u proudu 1000 mA ukazuje mezeru: „${prvky.get('gc-b-info').innerHTML.match(/proud [^<]*/)[0]}"`);
+	ok(prvky.get('gc-b-out-proud').textContent === '1 000 mA', `i posuvníkový popisek: „${prvky.get('gc-b-out-proud').textContent}"`);
+	const cistyText = prvky.get('gc-b-info').innerHTML.replace(/<[^>]*>/g, '');
+	ok(!/\d{4,}/.test(cistyText), `a nikde v panelu nezůstalo čtyřciferné číslo bez mezery: „${cistyText}"`);
+	nastavB(3); // vrátit do výchozího stavu
 }
 
 console.log('\n— žádné desetinné číslo tam, kde nemá být (kromě samotného napětí) —');
 {
 	// napětí smí mít desetinnou čárku (1,5 V / 4,5 V / 7,5 V je učivo), ale
-	// kapacita, proud a výdrž musí zůstat celá — to kontroluje zvlášť
+	// kapacita, proud a výdrž musí zůstat celá — to kontroluje zvlášť.
+	// Nález nezávislého kontrolora: `ok(false, …)` už samo počítá chybu do
+	// `chyby`, vedle stojící `chyby++` ji počítala PODRUHÉ; a `ok(true, …)`
+	// pod smyčkou hlásilo ✅ bez ohledu na to, jestli smyčka něco našla.
+	let spatne = null;
 	for (const n of [1, 2, 3, 4, 5, 6]) {
 		for (const vel of [0, 1]) {
 			for (const proud of [0, 1, 2]) {
 				const s = stavB(n, vel, proud);
-				if (!Number.isInteger(s.vydrzH)) { ok(false, `${n} článků, velikost ${vel}, proud ${PROUDY[proud]} mA: výdrž ${s.vydrzH} není celé číslo`); chyby++; }
+				if (!Number.isInteger(s.vydrzH)) spatne = `${n} článků, velikost ${vel}, proud ${PROUDY[proud]} mA: výdrž ${s.vydrzH} není celé číslo`;
 			}
 		}
 	}
-	ok(true, 've všech 36 kombinacích B vychází výdrž jako celé číslo');
+	ok(spatne === null, spatne ?? 've všech 36 kombinacích B vychází výdrž jako celé číslo');
 }
 
 console.log('\n— odolnost: neplatný počet článků NESMÍ shodit skript (nález zkontroluj.mjs) —');
