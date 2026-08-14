@@ -73,9 +73,11 @@ F9: `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
 
 **Deník — stavový model ujasněn (14. 8.):** `KE-SCHVALENI.md` dostal na začátek záhlaví
 „PROVOZNÍ ZÁZNAM". Schvalování se od 7. 8. nedělá, platí
-`přijato → třídí se → anonymizováno → automaticky prověřeno → zveřejněno`
+`přijato → třídí se → anonymizováno → automaticky prověřeno → výstup uložen / zveřejněn`
 a jediný výjimkový stav je `vyžaduje zásah`. Soubor se NEpřejmenoval (přesun = věc
 na dotaz), účel plní záhlaví. Viz [[projekt-denik-bez-schvalovani]].
+**Jediný domov znění je `Cestovatelský deník/PROVOZ-AKTUALNI.md`** — 14. 8. se ukázalo,
+že model ležel ve TŘECH kopiích a dvou zněních (PROVOZ-AKTUALNI měl o krok kratší verzi).
 
 ### ▶️ ČÍM ZAČÍT PŘÍŠTĚ
 

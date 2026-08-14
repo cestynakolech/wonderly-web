@@ -3351,6 +3351,13 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co udává účinnost spotřebiče?', odpovedi: ['kolik % energie využije na užitečnou práci', 'kolik váží', 'jak je hlučný'], vysvetleni: 'Vždy méně než 100 %.' },
 		{ text: 'Jakou účinnost má klasická žárovka?', odpovedi: ['jen ~5 %', '~70 %', '100 %'], vysvetleni: 'Většina energie je neužitečné teplo.' },
 		{ text: 'Proč se dnes používají LED žárovky?', odpovedi: ['mají vyšší účinnost (~50 %)', 'jsou levnější na výrobu', 'svítí tepleji'], vysvetleni: 'Méně energie plýtvají na teplo — klasická žárovka promění na světlo jen asi 5 %, LED kolem poloviny.' },
+		{ text: 'Kolik wattů má 1 kilowatt (kW)?', odpovedi: ['1000 W', '100 W', '10 000 W'], vysvetleni: 'Kilo znamená tisíc — 1 kW = 1000 W.' },
+		{ text: 'Trouba s příkonem 2 kW peče 3 hodiny. Kolik elektrické energie (práce) spotřebuje?', odpovedi: ['6 kWh', '3 kWh', '9 kWh'], vysvetleni: 'E = P · t = 2 kW · 3 h = 6 kWh.' },
+		{ text: '1 kWh elektřiny stojí 5 Kč. Kolik zaplatíme za 6 kWh, které spotřebovala trouba z předchozí úlohy?', odpovedi: ['30 Kč', '60 Kč', '6 Kč'], vysvetleni: '6 kWh · 5 Kč = 30 Kč.' },
+		{ text: 'LED žárovka svítí stejně jasně jako klasická 100W žárovka, ale má příkon jen 10 W. O kolik wattů méně LED spotřebuje?', odpovedi: ['90 W', '100 W', '10 W'], vysvetleni: '100 W − 10 W = 90 W úspora u LED.' },
+		{ text: 'Spotřebič s příkonem 500 W běží 4 hodiny. Kolik kWh spotřeboval?', odpovedi: ['2 kWh', '4 kWh', '500 kWh'], vysvetleni: '500 W = 0,5 kW; 0,5 kW · 4 h = 2 kWh.' },
+		{ text: 'Jak spočítáme spotřebu energie v kWh z příkonu a doby provozu?', odpovedi: ['vynásobíme příkon (kW) dobou provozu (h)', 'vydělíme dobu provozu příkonem', 'sečteme příkon (kW) s dobou provozu v hodinách'], vysvetleni: 'Spotřeba (kWh) = příkon (kW) krát čas (h).' },
+		{ text: 'Chladnička s příkonem 125 W běží nepřetržitě celý den (24 hodin). Kolik kWh spotřebuje za den?', odpovedi: ['3 kWh', '12 kWh', '30 kWh'], vysvetleni: '125 W · 24 h = 3000 Wh = 3 kWh.' },
 	],
 	'fyzika/8-rocnik/elektrina/ucinky-proudu-a-bezpecnost': [
 		{ text: 'Je lidské tělo vodič?', odpovedi: ['ano', 'ne', 'jen v zimě'], vysvetleni: 'Tělní tekutiny obsahují ionty.' },

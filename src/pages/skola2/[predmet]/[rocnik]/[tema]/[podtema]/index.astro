@@ -30,6 +30,7 @@ import TuhnutiSimulace from '../../../../../../components/skola2/TuhnutiSimulace
 import KondenzaceSimulace from '../../../../../../components/skola2/KondenzaceSimulace.astro';
 import VznikElektrickehoProuduSimulace from '../../../../../../components/skola2/VznikElektrickehoProuduSimulace.astro';
 import GalvanickyClanekSimulace from '../../../../../../components/skola2/GalvanickyClanekSimulace.astro';
+import ElektrickaPraceAVykonSimulace from '../../../../../../components/skola2/ElektrickaPraceAVykonSimulace.astro';
 import MeridlaSimulace from '../../../../../../components/skola2/MeridlaSimulace.astro';
 import TabulkaVzorceSimulace from '../../../../../../components/skola2/TabulkaVzorceSimulace.astro';
 import SouradniceSimulace from '../../../../../../components/skola2/SouradniceSimulace.astro';
@@ -272,6 +273,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'kondenzace' && <KondenzaceSimulace />}
 	{podtema.interakce === 'vznik-elektrickeho-proudu' && <VznikElektrickehoProuduSimulace />}
 	{podtema.interakce === 'galvanicky-clanek' && <GalvanickyClanekSimulace />}
+	{podtema.interakce === 'elektricka-prace-a-vykon' && <ElektrickaPraceAVykonSimulace />}
 	{podtema.interakce === 'meridla' && <MeridlaSimulace />}
 	{podtema.interakce === 'tabulka-vzorce' && <TabulkaVzorceSimulace />}
 	{podtema.interakce === 'souradnice' && <SouradniceSimulace />}

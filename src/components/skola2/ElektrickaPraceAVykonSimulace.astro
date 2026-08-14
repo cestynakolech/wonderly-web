@@ -1,0 +1,341 @@
+---
+// Elektrická práce a výkon (F8, elektrina/elektricka-prace-a-vykon).
+//
+// Jádro učiva: příkon P = U · I je to, co se PLATÍ (celý příkon ze štítku, ne
+// jen užitečný výkon) a práce W = P · t se v praxi počítá v kWh, protože joule
+// je na domácí spotřebu příliš malá jednotka. Cena 5 Kč/kWh je NAPEVNO stejná
+// jako ve výkladu na této stránce (viz temata.ts, „počítejme 5 Kč za kWh") —
+// aby si simulace a text neprotiřečily, konstanta se odnikud jinud nebere.
+//
+// Část A: žák vybere spotřebič a dobu provozu za den (1–24 h) a vidí denní
+// spotřebu (Wh), měsíční spotřebu (kWh, 30 dní) a cenu. Příkony (10/100/2000 W)
+// a celé hodiny byly zvoleny tak, aby VŠECHNY kombinace daly kWh na 1 desetinné
+// místo přesně a cenu na celé desetikoruny nebo padesátníky — žádné nekonečné
+// desetinné číslo (ověřeno výpočtem pro P∈{10,100,2000}, t=1..24):
+//   10 W  → kWh/měsíc = 0,3·t  (vždy přesně 1 des. místo)
+//  100 W  → kWh/měsíc = 3·t    (vždy celé číslo)
+// 2000 W  → kWh/měsíc = 60·t   (vždy celé číslo)
+// Výchozí t = 5 h dává u klasické žárovky (100 W) přesně stejný trojpříklad,
+// jaký je rozepsaný ve výkladu: 0,5 kWh/den, 15 kWh/měsíc, 75 Kč.
+//
+// Část B porovnává starou (100 W) a LED (10 W) žárovku — schválně STEJNĚ
+// VELKÝ a stejně jasný obrázek žárovky pro obě (počet/délka paprsků se
+// NEMĚNÍ s příkonem), aby scéna netvrdila dětem, že víc wattů = víc světla.
+// To je přesně opačně: obě svítí stejně, LED má jen menší příkon. Mění se
+// jen výška sloupce ceny. Při výchozím t = 5 h vyjde 1,5 kWh (LED) místo
+// 15 kWh (stará) — „desetina“, přesně jak říká věta ve výkladu — a úspora
+// 13,5 kWh = 67,50 Kč/měsíc = 810 Kč/rok (13,5 kWh je vždy 0,1 des. místo:
+// rozdíl = 2,7·t; cena rozdílu = 13,5·t; ročně 162·t — všechno celé nebo na
+// padesátníky přesně, pro každé celé t 1–24).
+//
+// Otáčky ručičky elektroměru JSOU vázané na příkon (rychlejší otáčení =
+// větší příkon = víc to stojí) — to je fyzikálně správná analogie ke
+// skutečnému domácímu elektroměru a bezpečně se to smí kreslit jinak než
+// žárovky. Časování animace je odvozené z reálného uplynulého času
+// (performance.now), ne z počtu snímků — v náhledu bývá requestAnimationFrame
+// zpomalený, počítání podle snímků by otáčky rozhodilo.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektrická práce a výkon: kolik to stojí? 🕹️</span></h2>
+	<p>Spotřebič zapojený do zásuvky má <strong>příkon P</strong> (údaj na štítku ve wattech). Za dobu <strong>t</strong> spotřebuje <strong>práci W = P · t</strong> — a platíš přesně za ni, v <strong>kilowatthodinách (kWh)</strong>.</p>
+
+	<h3>🔌 Část A: Spotřebič a jeho příkon</h3>
+	<p>Vyber spotřebič a dobu provozu za den. Sleduj elektroměr — čím větší příkon, tím rychleji se točí ručička. Počítáme s cenou <strong>5 Kč za 1 kWh</strong> (stejně jako ve výkladu výše).</p>
+	<p class="epv-radek" id="epv-a-spotrebice">
+		<button type="button" class="epv-tl epv-aktivni" data-klic="klasicka">💡 klasická žárovka (100 W)</button>
+		<button type="button" class="epv-tl" data-klic="led">💡 LED žárovka (10 W)</button>
+		<button type="button" class="epv-tl" data-klic="lednicka">❄️ lednička (100 W)</button>
+		<button type="button" class="epv-tl" data-klic="konvice">☕ rychlovarná konvice (2000 W)</button>
+	</p>
+	<svg id="epv-a-svg" viewBox="0 0 660 350" role="img" aria-label="Spotřebič v zásuvce a elektroměr s ručičkou, dole vypočtená spotřeba a cena">
+		<rect x="0" y="0" width="660" height="350" fill="#f8f9fa" />
+		<!-- zásuvka -->
+		<rect x="26" y="90" width="34" height="40" rx="6" fill="#e9ecef" stroke="#2b2a26" stroke-width="3" />
+		<line x1="36" y1="102" x2="36" y2="118" stroke="#2b2a26" stroke-width="4" />
+		<line x1="50" y1="102" x2="50" y2="118" stroke="#2b2a26" stroke-width="4" />
+		<line x1="60" y1="112" x2="104" y2="112" stroke="#2b2a26" stroke-width="4" />
+		<g id="epv-a-ikona"></g>
+		<g id="epv-a-plaketa"></g>
+		<!-- elektroměr -->
+		<text x="520" y="38" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">ELEKTROMĚR</text>
+		<circle cx="520" cy="110" r="55" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<g id="epv-a-mer-rysky"></g>
+		<circle cx="520" cy="110" r="5" fill="#2b2a26" />
+		<line id="epv-a-mer-rucicka" x1="520" y1="110" x2="520" y2="70" stroke="#e8590c" stroke-width="4" stroke-linecap="round" transform="rotate(0 520 110)" />
+		<rect x="410" y="180" width="220" height="26" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<text x="520" y="197" text-anchor="middle" font-size="12" fill="#2b2a26">otáčky = rychlost spotřeby</text>
+		<!-- výsledky -->
+		<rect x="14" y="230" width="632" height="104" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<g id="epv-a-info"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Doba provozu za den: <output id="epv-a-out-t"></output>
+		<input type="range" id="epv-a-t" min="1" max="24" step="1" value="5" />
+	</label>
+	<p class="epv-vzorec" id="epv-a-vypocet"></p>
+	<p class="epv-stav" id="epv-a-stav"></p>
+
+	<h3><span class="podtrh">⚖️ Část B: Stará vs. LED žárovka</span></h3>
+	<p>Obě žárovky svítí <strong>úplně stejně</strong> — všimni si, že obrázky mají schválně stejnou velikost. Liší se jen <strong>příkon</strong>, a tedy cena.</p>
+	<svg id="epv-b-svg" viewBox="0 0 660 420" role="img" aria-label="Porovnání staré a LED žárovky: stejně velký obrázek žárovky, různě vysoký sloupec ceny">
+		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
+		<g id="epv-b-ikony"></g>
+		<g id="epv-b-popisky"></g>
+		<line x1="60" y1="345" x2="600" y2="345" stroke="#2b2a26" stroke-width="3" />
+		<g id="epv-b-sloupce"></g>
+		<rect x="14" y="355" width="632" height="55" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<g id="epv-b-shrnuti"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Doba svícení za den: <output id="epv-b-out-t"></output>
+		<input type="range" id="epv-b-t" min="1" max="24" step="1" value="5" />
+	</label>
+	<p class="epv-vzorec" id="epv-b-vypocet"></p>
+	<p class="epv-stav" id="epv-b-stav"></p>
+</section>
+
+<script>
+	// Obranné čtení čísla z posuvníku — neplatná hodnota se tiše nahradí
+	// rozumným výchozím stavem, ne pádem celého skriptu (viz galvanicky-clanek).
+	function platneCislo(hodnota, min, max, vychozi) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= min && n <= max ? n : vychozi;
+	}
+
+	// ── konstanty a čisté fyzikální funkce (sdílené oběma částmi) ──────────────
+	const NAPETI = 230;       // V — napětí v zásuvce
+	const MESIC_DNI = 30;     // dní v měsíci (pro odhad měsíční spotřeby)
+	const CENA_KWH = 5;       // Kč/kWh — stejná hodnota jako ve výkladu na této stránce
+
+	function whZaDen(p, t) { return p * t; }
+	function kwhZaMesic(p, t, dny = MESIC_DNI) { return (p * t * dny) / 1000; }
+	function cenaZaMesic(kwh, cenaKwh = CENA_KWH) { return kwh * cenaKwh; }
+	function proudA(p, u = NAPETI) { return p / u; }
+
+	// ── formátování čísel (čárka jako desetinný oddělovač, mezera po tisících) ──
+	function cz(x, des) { return x.toLocaleString('cs-CZ', { minimumFractionDigits: des, maximumFractionDigits: des }); }
+	function tisice(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+	function whText(x) { return `${tisice(x)} Wh`; }
+	// kWh smí mít nejvýš 1 desetinné místo (celá čísla, kde to fyzika dovolí)
+	function kwhText(x) {
+		const r = Math.round(x * 10) / 10;
+		const cela = Math.trunc(r + 1e-9);
+		const desetina = Math.round((r - cela) * 10);
+		return desetina === 0 ? `${tisice(cela)} kWh` : `${tisice(cela)},${desetina} kWh`;
+	}
+	// cena smí mít nejvýš 2 desetinná místa (haléře), ale u nás vychází vždy
+	// buď celá, nebo přesně na padesátník
+	function kcText(x) {
+		const r = Math.round(x * 100) / 100;
+		const cela = Math.trunc(r + 1e-9);
+		const setiny = Math.round((r - cela) * 100);
+		return setiny === 0 ? `${tisice(cela)} Kč` : `${tisice(cela)},${String(setiny).padStart(2, '0')} Kč`;
+	}
+
+	// Kreslí ikonu spotřebiče. U žárovky je velikost skla i počet/délka paprsků
+	// NAPEVNO stejná bez ohledu na příkon — obě žárovky svítí stejně, mění se
+	// jen to, kolik to stojí (viz komentář v hlavičce souboru).
+	function ikonaSvg(typ, cx, cy, barva) {
+		if (typ === 'zarovka') {
+			let paprsky = '';
+			for (let i = 0; i < 8; i++) {
+				const uhel = (i * Math.PI * 2) / 8;
+				const x1 = cx + Math.cos(uhel) * 34, y1 = cy + Math.sin(uhel) * 34;
+				const x2 = cx + Math.cos(uhel) * 46, y2 = cy + Math.sin(uhel) * 46;
+				paprsky += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#ffd43b" stroke-width="3" stroke-linecap="round" />`;
+			}
+			return paprsky
+				+ `<circle cx="${cx}" cy="${cy}" r="30" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`
+				+ `<rect x="${cx - 12}" y="${cy + 24}" width="24" height="18" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />`;
+		}
+		if (typ === 'lednicka') {
+			return `<rect x="${cx - 26}" y="${cy - 40}" width="52" height="80" rx="6" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`
+				+ `<line x1="${cx - 26}" y1="${cy - 6}" x2="${cx + 26}" y2="${cy - 6}" stroke="#2b2a26" stroke-width="2" />`
+				+ `<rect x="${cx + 12}" y="${cy - 30}" width="4" height="14" fill="#2b2a26" />`
+				+ `<rect x="${cx + 12}" y="${cy + 4}" width="4" height="14" fill="#2b2a26" />`;
+		}
+		// konvice
+		return `<path d="M${cx - 24},${cy + 30} L${cx - 20},${cy - 20} Q${cx},${cy - 32} ${cx + 20},${cy - 20} L${cx + 24},${cy + 30} Z" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<path d="M${cx + 22},${cy - 8} Q${cx + 42},${cy - 14} ${cx + 40},${cy + 4}" fill="none" stroke="#2b2a26" stroke-width="4" stroke-linecap="round" />`
+			+ `<rect x="${cx - 10}" y="${cy - 38}" width="20" height="8" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" />`;
+	}
+
+	// ── Část A ───────────────────────────────────────────────────────────────
+	const SPOTREBICE = {
+		klasicka: { nazev: 'klasická žárovka', p: 100, ikona: 'zarovka', barva: '#ffd43b',
+			popis: 'Většinu příkonu promění na teplo, ne na světlo — proto se dnes nahrazuje LED žárovkou.' },
+		led: { nazev: 'LED žárovka', p: 10, ikona: 'zarovka', barva: '#74c0fc',
+			popis: 'Dává stejné světlo jako klasická žárovka, ale s desetkrát menším příkonem.' },
+		lednicka: { nazev: 'lednička', p: 100, ikona: 'lednicka', barva: '#a5d8ff',
+			popis: 'Běží prakticky celý den — 100 W je průměrný odběr, motor se sám zapíná a vypíná.' },
+		konvice: { nazev: 'rychlovarná konvice', p: 2000, ikona: 'konvice', barva: '#ff8787',
+			popis: 'Má obrovský příkon, ale běží jen pár minut denně — proto ji nezapojuj do prodlužovačky s dalšími spotřebiči.' },
+	};
+
+	// Úhlová rychlost ručičky elektroměru: vyšší příkon = rychlejší otáčení.
+	// P/40 dává konvici (2000 W) 50 °/s (otočka za 7,2 s — dobře vidět),
+	// klasické žárovce/ledničce (100 W) 2,5 °/s (pomalé, ale znatelné) a LED
+	// (10 W) jen 0,25 °/s (téměř nehybná — přesně to je učivo: skoro nic nebere).
+	function uhlovaRychlost(p) { return p / 40; }
+
+	const tlacitkaA = document.getElementById('epv-a-spotrebice');
+	const sliderA = document.getElementById('epv-a-t');
+	const svgA = document.getElementById('epv-a-svg');
+	const ruckaA = document.getElementById('epv-a-mer-rucicka');
+
+	svgA.__whZaDen = whZaDen;
+	svgA.__kwhZaMesic = kwhZaMesic;
+	svgA.__cenaZaMesic = cenaZaMesic;
+	svgA.__proudA = proudA;
+	svgA.__SPOTREBICE = SPOTREBICE;
+	svgA.__kwhText = kwhText;
+	svgA.__kcText = kcText;
+	svgA.__uhlovaRychlost = uhlovaRychlost;
+	svgA.__CENA_KWH = CENA_KWH;
+	svgA.__NAPETI = NAPETI;
+
+	// ticky elektroměru se kreslí jen jednou (statické, nemění se)
+	{
+		let rysky = '';
+		for (let i = 0; i < 12; i++) {
+			const uhel = (i * Math.PI * 2) / 12;
+			const x1 = 520 + Math.cos(uhel) * 46, y1 = 110 + Math.sin(uhel) * 46;
+			const x2 = 520 + Math.cos(uhel) * 53, y2 = 110 + Math.sin(uhel) * 53;
+			rysky += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#adb5bd" stroke-width="2" />`;
+		}
+		document.getElementById('epv-a-mer-rysky').innerHTML = rysky;
+	}
+
+	let aktivniKlic = 'klasicka';
+	let rychlostDegS = uhlovaRychlost(SPOTREBICE[aktivniKlic].p);
+
+	function prekresliA() {
+		const s = SPOTREBICE[aktivniKlic] ?? SPOTREBICE.klasicka;
+		const t = platneCislo(sliderA.value, 1, 24, 5);
+		const wh = whZaDen(s.p, t);
+		const kwh = kwhZaMesic(s.p, t);
+		const kc = cenaZaMesic(kwh);
+		const proud = proudA(s.p);
+
+		document.getElementById('epv-a-out-t').textContent = `${t} h`;
+		document.getElementById('epv-a-ikona').innerHTML = ikonaSvg(s.ikona, 150, 112, s.barva);
+		document.getElementById('epv-a-plaketa').innerHTML =
+			`<rect x="20" y="175" width="260" height="28" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="150" y="194" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${s.nazev} — ${s.p} W</text>`;
+
+		document.getElementById('epv-a-info').innerHTML =
+			`<text x="330" y="254" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">příkon P = ${s.p} W (I = P ÷ U ≈ ${cz(proud, 2)} A při U = 230 V)</text>`
+			+ `<text x="330" y="282" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">za den: P · t = ${s.p} W · ${t} h = ${whText(wh)}</text>`
+			+ `<text x="330" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#e8590c">za měsíc (30 dní): ${kwhText(kwh)} → cena (5 Kč/kWh): ${kcText(kc)}</text>`;
+
+		document.getElementById('epv-a-vypocet').innerHTML =
+			`W = P · t = ${s.p} W · ${t} h = <strong>${whText(wh)}</strong> za den → × 30 dní = <strong>${kwhText(kwh)}</strong> za měsíc → `
+			+ `cena = ${kwhText(kwh)} · 5 Kč/kWh = <strong>${kcText(kc)}</strong>.`;
+
+		document.getElementById('epv-a-stav').textContent =
+			`⚡ ${s.nazev} (${s.p} W): ${s.popis} Při ${t} h denně spotřebuje za měsíc ${kwhText(kwh)}, což při ceně 5 Kč/kWh stojí ${kcText(kc)}.`;
+
+		rychlostDegS = uhlovaRychlost(s.p);
+	}
+
+	tlacitkaA.addEventListener('click', (e) => {
+		const tl = e.target.closest('.epv-tl');
+		if (!tl || !SPOTREBICE[tl.dataset.klic]) return;
+		aktivniKlic = tl.dataset.klic;
+		for (const b of document.querySelectorAll('#epv-a-spotrebice .epv-tl')) b.classList.toggle('epv-aktivni', b === tl);
+		prekresliA();
+	});
+	sliderA.addEventListener('input', prekresliA);
+	prekresliA();
+
+	// otáčení ručičky elektroměru: rychlost počítaná z uplynulého reálného
+	// času (performance.now), ne z počtu snímků — v náhledu bývá
+	// requestAnimationFrame zpomalený a počítání podle snímků by otáčky rozhodilo
+	let uhelA = 0, minuleA = performance.now();
+	function krokA(ted) {
+		const dt = Math.min(0.1, (ted - minuleA) / 1000);
+		minuleA = ted;
+		uhelA = (uhelA + dt * rychlostDegS) % 360;
+		ruckaA.setAttribute('transform', `rotate(${uhelA.toFixed(2)} 520 110)`);
+		requestAnimationFrame(krokA);
+	}
+	requestAnimationFrame(krokA);
+
+	// ── Část B ───────────────────────────────────────────────────────────────
+	const MAX_CENA_B = cenaZaMesic(kwhZaMesic(SPOTREBICE.klasicka.p, 24)); // 360 Kč — cena při max. poloze posuvníku
+
+	// ČISTÁ FUNKCE: kompletní srovnání staré a LED žárovky pro danou dobu svícení.
+	function scenaB(tVstup) {
+		const t = platneCislo(tVstup, 1, 24, 5);
+		const stara = SPOTREBICE.klasicka, led = SPOTREBICE.led;
+		const whStara = whZaDen(stara.p, t), whLed = whZaDen(led.p, t);
+		const kwhStara = kwhZaMesic(stara.p, t), kwhLed = kwhZaMesic(led.p, t);
+		const kcStara = cenaZaMesic(kwhStara), kcLed = cenaZaMesic(kwhLed);
+		const rozdilKwh = Math.round((kwhStara - kwhLed) * 10) / 10;
+		const rozdilKcMesic = Math.round((kcStara - kcLed) * 100) / 100;
+		const rozdilKcRok = Math.round(rozdilKcMesic * 12 * 100) / 100;
+		return { t, whStara, whLed, kwhStara, kwhLed, kcStara, kcLed, rozdilKwh, rozdilKcMesic, rozdilKcRok };
+	}
+	function vyskaSloupceB(kc, maxPx = 130) { return Math.max(2, (kc / MAX_CENA_B) * maxPx); }
+
+	const sliderB = document.getElementById('epv-b-t');
+	const svgB = document.getElementById('epv-b-svg');
+	svgB.__scenaB = scenaB;
+	svgB.__vyskaSloupceB = vyskaSloupceB;
+	svgB.__MAX_CENA_B = MAX_CENA_B;
+	svgB.__kwhText = kwhText;
+	svgB.__kcText = kcText;
+	svgB.__SPOTREBICE = SPOTREBICE;
+
+	function prekresliB() {
+		const v = scenaB(sliderB.value);
+		document.getElementById('epv-b-out-t').textContent = `${v.t} h`;
+
+		const stara = SPOTREBICE.klasicka, led = SPOTREBICE.led;
+		document.getElementById('epv-b-ikony').innerHTML =
+			ikonaSvg(stara.ikona, 170, 80, stara.barva) + ikonaSvg(led.ikona, 490, 80, led.barva);
+
+		const plaketa = (cx, nazev, p) =>
+			`<rect x="${cx - 115}" y="132" width="230" height="26" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${cx}" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${nazev} — ${p} W</text>`;
+		document.getElementById('epv-b-popisky').innerHTML =
+			plaketa(170, stara.nazev, stara.p) + plaketa(490, led.nazev, led.p)
+			+ `<text x="170" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${kwhText(v.kwhStara)} / měsíc</text>`
+			+ `<text x="170" y="204" text-anchor="middle" font-size="15" font-weight="bold" fill="#e8590c">${kcText(v.kcStara)}</text>`
+			+ `<text x="490" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">${kwhText(v.kwhLed)} / měsíc</text>`
+			+ `<text x="490" y="204" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44">${kcText(v.kcLed)}</text>`;
+
+		const vyStara = vyskaSloupceB(v.kcStara), vyLed = vyskaSloupceB(v.kcLed);
+		document.getElementById('epv-b-sloupce').innerHTML =
+			`<rect x="135" y="${(345 - vyStara).toFixed(1)}" width="70" height="${vyStara.toFixed(1)}" fill="#ff8787" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="455" y="${(345 - vyLed).toFixed(1)}" width="70" height="${vyLed.toFixed(1)}" fill="#8ce99a" stroke="#2b2a26" stroke-width="3" />`;
+
+		document.getElementById('epv-b-shrnuti').innerHTML =
+			`<text x="330" y="376" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">úspora LED za měsíc: ${kwhText(v.rozdilKwh)} = ${kcText(v.rozdilKcMesic)}</text>`
+			+ `<text x="330" y="400" text-anchor="middle" font-size="14" font-weight="bold" fill="#2f9e44">úspora za rok (× 12): ${kcText(v.rozdilKcRok)}</text>`;
+
+		document.getElementById('epv-b-vypocet').innerHTML =
+			`Stará (100 W): ${kwhText(v.kwhStara)} → <strong>${kcText(v.kcStara)}</strong> za měsíc. LED (10 W): ${kwhText(v.kwhLed)} → <strong>${kcText(v.kcLed)}</strong> za měsíc. `
+			+ `Rozdíl: ${kwhText(v.rozdilKwh)} = <strong>${kcText(v.rozdilKcMesic)}</strong> za měsíc, tedy <strong>${kcText(v.rozdilKcRok)}</strong> za rok.`;
+
+		document.getElementById('epv-b-stav').textContent =
+			`💡 Obě žárovky svítí stejně jasně, ale LED má desetkrát menší příkon. Při ${v.t} h denně ušetří ${kcText(v.rozdilKcMesic)} za měsíc — za rok je to ${kcText(v.rozdilKcRok)}.`;
+	}
+
+	sliderB.addEventListener('input', prekresliB);
+	prekresliB();
+</script>
+
+<style>
+	#epv-a-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	#epv-b-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.epv-radek { margin: 0.6rem 0; }
+	.epv-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.epv-tl.epv-aktivni { background: #ffe8cc; }
+	.epv-tl:active { transform: translateY(1px); }
+	.epv-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.epv-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
