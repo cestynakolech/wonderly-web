@@ -139,11 +139,21 @@ for (const [id, p] of prvky) {
 	// atributy zapsané přes setAttribute (points, fill, …)
 	if (Object.keys(p.atributy).length) {
 		svg = svg.replace(new RegExp(`<(\\w+)([^>]*\\bid="${id}"[^>]*)>`), (cely, tag, atributy) => {
-			let a = atributy;
+			// SAMOUZAVÍRACÍ ZNAČKA (<circle … />): lomítko patří až ÚPLNĚ NAKONEC.
+			// Dřív se nové atributy lepily na konec zachyceného úseku — a ten
+			// u samouzavírací značky končí lomítkem, takže vznikalo
+			// `… cx="440"/ fill="red"`, tedy NEPLATNÉ XML. qlmanage takovou
+			// stránku vykreslí jen do první chyby, z náhledu byla vidět jen část
+			// scény a nikdo to nepoznal (Alternátoru chyběl voltmetr, graf
+			// i všechny popisky). Proto se lomítko (i s mezerami a novými řádky
+			// před ním) odřízne, atributy se vloží PŘED něj a lomítko se vrátí zpět.
+			const uzavreni = atributy.match(/^([\s\S]*?)\s*\/\s*$/);
+			let a = uzavreni ? uzavreni[1] : atributy;
+			const konec = uzavreni ? ' /' : '';
 			for (const [k, v] of Object.entries(p.atributy)) {
 				a = new RegExp(`\\s${k}="[^"]*"`).test(a) ? a.replace(new RegExp(`\\s${k}="[^"]*"`), ` ${k}="${v}"`) : `${a} ${k}="${v}"`;
 			}
-			return `<${tag}${a}>`;
+			return `<${tag}${a}${konec}>`;
 		});
 	}
 	// obsah zapsaný přes innerHTML
@@ -161,6 +171,101 @@ for (const [id, p] of prvky) {
 	}
 }
 svg = svg.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// POJISTKA: než se soubor uloží, ověří se, že je SVG dobře utvořené.
+//
+// Proč: `qlmanage` vykreslí vadné SVG JEN DO PRVNÍ CHYBY — místo obrázku vznikne
+// červený rámeček „error parsing attribute name" a pod ním USEKNUTÁ scéna.
+// Kdo si takový náhled prohlíží, vidí půlku scény a netuší to: buď mu chybějící
+// části uniknou, nebo nahlásí jako chybu něco, co ve scéně doopravdy je.
+// Falešná kotva je horší než žádná — proto se vadné SVG raději NEULOŽÍ vůbec
+// a nástroj skončí nenulovým kódem.
+//
+// Kontrola je psaná vlastním kódem (žádná další závislost): projde text jako
+// XML — komentáře, značky, atributy, párování — a u první vady řekne, kde je.
+function zkontrolujUtvorenost(text) {
+	const misto = (i) => {
+		const pred = text.slice(0, i);
+		const radek = pred.split('\n').length;
+		const sloupec = i - pred.lastIndexOf('\n');
+		return { radek, sloupec, vyrez: text.slice(Math.max(0, i - 60), i + 60).replace(/\n/g, ' ') };
+	};
+	const vada = (i, popis) => ({ ...misto(i), popis });
+	const JMENO = /^[A-Za-z_][A-Za-z0-9_.:-]*/;
+	const stoh = [];
+	let i = 0;
+	while (i < text.length) {
+		const lt = text.indexOf('<', i);
+		const usek = text.slice(i, lt === -1 ? text.length : lt);
+		const amp = usek.search(/&(?!(amp|lt|gt|quot|apos|#\d+|#x[0-9A-Fa-f]+);)/);
+		if (amp !== -1) return vada(i + amp, 'znak „&" mimo platnou entitu (má být &amp;)');
+		if (lt === -1) break;
+		if (text.startsWith('<!--', lt)) {
+			const konec = text.indexOf('-->', lt + 4);
+			if (konec === -1) return vada(lt, 'neukončený komentář <!-- … -->');
+			i = konec + 3; continue;
+		}
+		if (text.startsWith('<![CDATA[', lt)) {
+			const konec = text.indexOf(']]>', lt + 9);
+			if (konec === -1) return vada(lt, 'neukončená sekce <![CDATA[ … ]]>');
+			i = konec + 3; continue;
+		}
+		if (text.startsWith('<!', lt) || text.startsWith('<?', lt)) {
+			const konec = text.indexOf('>', lt);
+			if (konec === -1) return vada(lt, 'neukončená hlavička <! … > / <? … >');
+			i = konec + 1; continue;
+		}
+		if (text.startsWith('</', lt)) {
+			const m = JMENO.exec(text.slice(lt + 2));
+			if (!m) return vada(lt, 'koncová značka bez jména');
+			let j = lt + 2 + m[0].length;
+			while (/\s/.test(text[j])) j++;
+			if (text[j] !== '>') return vada(j, `v koncové značce </${m[0]}> je něco navíc`);
+			const otevrena = stoh.pop();
+			if (!otevrena) return vada(lt, `koncová značka </${m[0]}> bez odpovídající otevírací`);
+			if (otevrena.jmeno !== m[0]) return vada(lt, `</${m[0]}> zavírá jinou značku, než která je otevřená (<${otevrena.jmeno}> z řádku ${misto(otevrena.kde).radek})`);
+			i = j + 1; continue;
+		}
+		const m = JMENO.exec(text.slice(lt + 1));
+		if (!m) return vada(lt, 'znak „<" mimo značku (má být &lt;)');
+		const jmeno = m[0];
+		let j = lt + 1 + jmeno.length;
+		for (;;) {
+			const zacatekMezer = j;
+			while (/\s/.test(text[j])) j++;
+			if (text[j] === '>') { stoh.push({ jmeno, kde: lt }); j++; break; }
+			if (text.startsWith('/>', j)) { j += 2; break; }
+			if (text[j] === '/') {
+				return vada(j, `ve značce <${jmeno}> je za lomítkem samouzavírací značky ještě další atribut — lomítko musí být až úplně na konci (…/>)`);
+			}
+			if (j >= text.length) return vada(lt, `neukončená značka <${jmeno}`);
+			if (j === zacatekMezer) return vada(j, `ve značce <${jmeno}> chybí mezera mezi atributy`);
+			const a = /^[A-Za-z_][A-Za-z0-9_.:-]*\s*=\s*("[^"]*"|'[^']*')/.exec(text.slice(j));
+			if (!a) return vada(j, `ve značce <${jmeno}> je něco, co není atribut ve tvaru jméno="hodnota"`);
+			j += a[0].length;
+		}
+		i = j;
+	}
+	if (stoh.length) {
+		const p = stoh[stoh.length - 1];
+		return { ...misto(p.kde), popis: `značka <${p.jmeno}> zůstala neuzavřená` };
+	}
+	return null;
+}
+
+const vada = zkontrolujUtvorenost(svg);
+if (vada) {
+	console.error('❌ NÁHLED SE NEULOŽIL: složené SVG není dobře utvořené (neplatné XML).');
+	console.error(`   Kde: řádek ${vada.radek}, sloupec ${vada.sloupec} — ${vada.popis}`);
+	console.error(`   Okolí: …${vada.vyrez}…`);
+	console.error('   Proč to vadí: qlmanage vykreslí takový soubor JEN DO PRVNÍ CHYBY,');
+	console.error('   takže by vznikl obrázek s USEKNUTOU scénou a chybovou hláškou navrchu —');
+	console.error('   a člověk by si myslel, že scénu viděl celou. Radši nic než falešný náhled.');
+	console.error(`   Komponenta: ${komponenta}`);
+	process.exit(1);
+}
+
 writeFileSync(vystup, svg);
 
 console.log(`✅ ${vystup} — ${svg.length} znaků`);
