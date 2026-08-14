@@ -3521,6 +3521,23 @@ export const temata: Record<string, Tema[]> = {
 							<strong>Pozor — chránič není důvod si dovolit víc:</strong> zásuvka v koupelně je
 							přípustná jen mimo prostor vany a sprchy a spotřebič se v ní nikdy nepoužívá
 							u vody. Chránič je poslední záchrana, když se něco pokazí, ne povolení riskovat.</p>
+							<h3>Rizika mimo domácí zásuvku</h3>
+							<p>Bezpečnost s elektřinou nekončí u zásuvky doma — pár pravidel platí i venku a při mimořádných situacích.</p>
+							<ul>
+								<li>⚠️ <strong>Hoří zapojený spotřebič?</strong> Nejdřív <strong>vypni proud</strong> —
+								vytáhni zástrčku ze zásuvky, nebo vypni jistič. Teprve pak has. <strong>Vodou se zapojený
+								spotřebič nikdy nehasí</strong> — voda vede proud a proud by tekl vodním proudem
+								až k tobě.</li>
+								<li>⚠️ <strong>Trafostanice, sloupy a vedení vysokého napětí:</strong> nikdy
+								nepodlézej ani nepřelézej oplocení a nelez na stožár. U vysokého napětí může
+								proud <strong>přeskočit obloukem i bez dotyku</strong> — stačí se přiblížit,
+								sáhnout na vedení vůbec nemusíš.</li>
+								<li>⚠️ <strong>Spadlý drát na zemi</strong> (i u trolejového vedení vlaků) se
+								chová stejně — může být pod napětím, i když nejiskří a nic neukazuje. Nepřibližuj
+								se k němu, varuj ostatní a volej <strong>112 nebo 155</strong>.</li>
+							</ul>
+							<p>👉 U vysokého napětí neplatí „nic jsem se nedotkl, tak je to bezpečné" — rozhoduje
+							vzdálenost, ne dotyk.</p>
 							<h3>Bezpečná pravidla</h3>
 							<ul>
 								<li>nesahat na vypínač/kabely <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše</li>
