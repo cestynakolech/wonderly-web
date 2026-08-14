@@ -48,7 +48,29 @@ spotřebu ve Wh/kWh i cenu; (B) stará 100W vs. LED 10W žárovka sloupcovým gr
 Kvíz doplněn na 19 otázek, test **76 kontrol**, obousměrný doklad se **třemi**
 podvrhy. Všechny simulace: 25 souborů / 1893 kontrol / 0 spadlo.
 
-🔴 **DVĚ POUČENÍ Z TOHOTO KOLA:**
+**Nezávislý kontrolor: 12 nálezů, 4 závažné — všechny opraveny, plané 0.**
+Graf lhal (poměr výšek 1,08 místo 10 při t = 1–9 h) · kvízová otázka prozrazovala
+odpověď jiné · lednička uváděná jako „průměrný odběr 100 W" = 876 kWh/rok, tedy
+pětinásobek (nově 20 W = 175 kWh/rok, uvnitř štítkových 150–250) · tři otázky byly
+doslovné duplicity s `mechanicka-prace-a-vykon/vykon`. Po opravách: kvíz 19 otázek,
+**0 duplicit, 0 úniků, 0 délkové nápovědy** (dřív 8/19), test simulace **108 kontrol**.
+Vědomě NEOPRAVENO: účinnost LED „asi 50 %" je nadsazená (reálně 30–40 %), ale čísla
+5 % / 50 % jsou zvolena tak, aby LED vyšla na desetinu příkonu — podrobnosti
+v `METRIKY-KOL.md`. Nasazeno commitem `77cfff6`, ověřeno čtením ze živého webu.
+
+🔴 **TŘI POUČENÍ Z TOHOTO KOLA:**
+- **KOMENTÁŘ POPISOVAL OPRAVU, KTEROU KÓD NEDĚLAL.** Worker zavedl parametr
+  dynamického měřítka do `vyskaSloupceB`/`geometrieSloupceB`, ale volání
+  v `prekresliB` nechal se dvěma argumenty. V hlavičce souboru přitom stálo
+  „LED sloupec je PŘESNĚ desetina jeho výšky ve VŠECH polohách" — a test byl
+  zelený, protože slíbenou kontrolu nepřidal. Odhalilo to jedině vyrenderování
+  scény při t = 1 h a změření `<rect>` (5,4 px vs 5,0 px). **Hlášení „opraveno"
+  ani zelený test nejsou důkaz; u vzhledu je důkaz obrázek.**
+  [[feedback-hlaska-neni-dukaz]]
+- **Podvrh musí rozbít PRÁVĚ tu vlastnost, kterou kontrola slibuje.** První podvrh
+  (pevný strop) test chytil, ale hláškou „sloupec nevyplňuje dostupnou výšku" —
+  tedy jinou kontrolou. Teprve podvrh, který nechá výšku staré žárovky správnou
+  a rozbije JEN poměr (LED × 3), dokázal, že se poměr opravdu měří.
 - **Rozpor čísel mezi workery je pravidlo, ne výjimka.** Výklad a simulace počítaly
   5 Kč/kWh a 100 W, kvízový worker si nezávisle zvolil 6 Kč a 60 W — na TÉŽE
   stránce. Workeři o sobě nevědí, takže sjednocení čísel je práce koordinátora
