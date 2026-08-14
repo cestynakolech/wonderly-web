@@ -38,10 +38,16 @@ if (!komponenta || !vystup) {
 
 // `svg=` je jediné vyhrazené klíčové slovo — vybírá scénu, nenastavuje prvek.
 // Všechno ostatní jde do nastavení ovládacích prvků přesně jako dosud.
+// `klik=<id>` (14. 8. 2026) klikne na tlačítko — bez toho šlo prohlédnout jen
+// výchozí stav u simulací ovládaných TLAČÍTKY, ne posuvníky, takže se u nich
+// nedala udělat povinná vizuální kontrola jiného než výchozího stavu. Klikat lze
+// i opakovaně (`klik=a klik=b`), pořadí se zachovává.
 let volbaScény = null;
 const nastaveni = [];
+const kliky = [];
 for (const dvojice of argumenty) {
 	if (dvojice.startsWith('svg=')) volbaScény = dvojice.slice(4);
+	else if (dvojice.startsWith('klik=')) kliky.push(dvojice.slice(5));
 	else nastaveni.push(dvojice);
 }
 
@@ -70,8 +76,15 @@ const document = {
 	// stačí, aby se o něj skript nezabil (dřív tu createElement chyběl úplně
 	// a celá komponenta spadla ještě před vykreslením, viz micro:bit rádio).
 	createElement: () => prazdnyPrvek(undefined),
+	// Totéž pro SVG prvky (14. 8. 2026): komponenta, která si tečky/značky skládá
+	// přes createElementNS, tu jinak spadne uprostřed kreslení — a protože se to
+	// stane až v posluchači, náhled se ZASEKNE místo aby zhavaroval (hledalo se
+	// to půl hodiny u simulace účinků proudu). Chová se stejně jako createElement.
+	createElementNS: () => prazdnyPrvek(undefined),
 };
-const sandbox = { document, performance: { now: () => 0 }, requestAnimationFrame: () => {}, console, Math };
+// cancelAnimationFrame patří k requestAnimationFrame — komponenta, která umí
+// animaci zastavit (a to má umět každá), by bez něj spadla při prvním zastavení.
+const sandbox = { document, performance: { now: () => 0 }, requestAnimationFrame: () => {}, cancelAnimationFrame: () => {}, console, Math };
 vm.createContext(sandbox);
 vm.runInContext(skript, sandbox);
 
@@ -82,8 +95,18 @@ for (const dvojice of nastaveni) {
 	p.value = hodnota;
 }
 let prekresleno = 0;
-for (const p of prvky.values()) for (const f of p.posluchaci.input ?? []) { f(); prekresleno++; break; }
-if (!prekresleno) console.log('⚠️  žádný posuvník neměl posluchač „input" — kreslí se výchozí stav');
+for (const p of [...prvky.values()]) for (const f of p.posluchaci.input ?? []) { f(); prekresleno++; break; }
+if (!prekresleno && !kliky.length) console.log('⚠️  žádný posuvník neměl posluchač „input" — kreslí se výchozí stav');
+
+// klikání (po nastavení posuvníků, aby šlo obojí kombinovat)
+for (const id of kliky) {
+	const p = prvky.get(id);
+	if (!p) { console.error(`❌ klik=${id}: prvek s tímhle id ve scéně není`); process.exit(1); }
+	const posluchaci = p.posluchaci.click ?? [];
+	if (!posluchaci.length) { console.error(`❌ klik=${id}: prvek nemá posluchač „click" — nedá se na něj kliknout`); process.exit(1); }
+	for (const f of posluchaci) f({ currentTarget: p, target: p, preventDefault() {} });
+	console.log(`   klik: ${id}`);
+}
 
 // SVG ze zdroje + to, co do něj skript zapsal
 const sceny = zdroj.match(/<svg[\s\S]*?<\/svg>/g) ?? [];
@@ -126,6 +149,15 @@ for (const [id, p] of prvky) {
 	// obsah zapsaný přes innerHTML
 	if (p.innerHTML) {
 		svg = svg.replace(new RegExp(`(<(\\w+)[^>]*\\bid="${id}"[^>]*>)[\\s\\S]*?(</\\2>)`), `$1${p.innerHTML}$3`);
+	}
+	// …a totéž pro textContent (14. 8. 2026). Bez tohohle zůstávaly v náhledu
+	// PRÁZDNÉ všechny <text> popisky plněné přes textContent — na webu přitom
+	// text mají. Vizuální kontrola pak ukazovala prázdné bílé rámečky a nedalo
+	// se rozeznat, jestli je vada ve scéně, nebo jen v náhledu (stálo to hledání
+	// u simulace účinků proudu). innerHTML má přednost, když je zapsané obojí.
+	else if (p.textContent) {
+		const text = String(p.textContent).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+		svg = svg.replace(new RegExp(`(<(\\w+)[^>]*\\bid="${id}"[^>]*>)[\\s\\S]*?(</\\2>)`), `$1${text}$3`);
 	}
 }
 svg = svg.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');

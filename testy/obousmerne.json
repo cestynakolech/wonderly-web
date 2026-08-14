@@ -248,6 +248,13 @@
 			"zdravy": "Nad skutečnou komponentou 108 kontrol, 0 chyb. Změřeno nezávisle na testu vyrenderováním scény pro t=1/5/24 h: stará 130,0 px, LED 13,0 px, poměr přesně 10,00 ve všech třech.",
 			"regrese": "Cena 5 Kč/kWh a dvojice 100 W / 10 W musí zůstat shodná s výkladem v temata.ts a s kvízem — rozpor mezi simulací a výkladem na jedné stránce žádné jiné měřidlo nehlídá (past z kola D1). POZOR na tichou past: 14. 8. worker zavedl parametr dynamického měřítka do vyskaSloupceB/geometrieSloupceB, ale volání v prekresliB nechal se dvěma argumenty — komentář v hlavičce opravu podrobně POPISOVAL, kód ji nedělal a test byl zelený. Odhalilo to jen měření vykresleného <rect>. Proto se poměr měří z renderu, nikdy z pure funkce.",
 			"overeno": "2026-08-14"
+		},
+		"simulace/ucinky-proudu-a-bezpecnost.mjs": {
+			"test": "testy/simulace/ucinky-proudu-a-bezpecnost.mjs (80 kontrol, spouští se s cestou ke komponentě)",
+			"podvrh": "Dva podvrhy na KOPII ve scratchpadu, originál netknutý. (1) Odpor mokré kůže po průrazu 1 000 → 5 000 Ω: test hlásí 3 nálezy — rozpor s hodnotou z výkladu, porušené pořadí odporů (suchá > vlhká > mokrá) a hlavně že kombinace zásuvka+mokrá kůže spadla z pásma „zástava srdce\" do „křeč dýchacích svalů\". (2) Ve varování u zásuvky přepsáno „nikdy nezkoušet!\" na „zkus si to doma!\": test hlásí, že ve varovacím boxu chybí slovo „nikdy\", a to zvlášť pro suchou i mokrou kůži. Druhý podvrh je bezpečnostní kotva — u tohohle tématu je ztráta výstrahy horší než chyba ve výpočtu.",
+			"zdravy": "Nad skutečnou komponentou 80 kontrol, 0 chyb. Čísla sedí s výkladem na téže stránce: suchá po průrazu 1 500 Ω → ≈153 mA, mokrá 1 000 Ω → 230 mA, prahy pásem 1/6/25/60/80 mA doslova z výkladu.",
+			"regrese": "Znění varování se hledá bez ohledu na velikost písmen a na tvar slova (`/nikdy/i`) — první podoba testu hledala `/NIKDY/` a řetězec „nikdy nezkouší\", zatímco komponenta má „nikdy nezkoušet\", takže hlásila 3 falešné poplachy nad zdravým souborem. Nad češtinou nepoužívat `\\b` (v JS je jen ASCII).",
+			"overeno": "2026-08-14"
 		}
 	}
 }

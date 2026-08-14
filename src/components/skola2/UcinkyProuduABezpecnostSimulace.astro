@@ -1,0 +1,510 @@
+---
+// Účinky proudu na člověka, bezpečnost (F8, elektrina/ucinky-proudu-a-bezpecnost).
+//
+// Jádro učiva: lidské tělo je vodič, takže na něj platí Ohmův zákon I = U ÷ R
+// úplně stejně jako na drát (odpor-vodice). Klíčové číslo z výkladu na téže
+// stránce: kůže se PRORAZÍ přibližně nad 50 V — pod touto hranicí má SUCHÁ
+// kůže odpor cca 100 000 Ω a nic neucítíš, nad ní klesne na cca 1 500 Ω
+// (mokrý člověk cca 1 000 Ω) a proud prudce vzroste. Přesně tenhle práh (50 V)
+// používá i tahle simulace, JEDNOTNĚ pro všechny tři stavy kůže (mění se jen
+// hodnota odporu před/po průrazu, ne samotný práh).
+//
+// Pásma proudu (1 / 6 / 25 / 60 / 80 mA) jsou doslova čtyři prahové hodnoty
+// z výkladu — pod 1 mA neucítíš nic, 1–6 mA brnění (mezistupeň, ve výkladu
+// nepojmenovaný, ale logicky mezi „prahem vnímání" a „křečí"), 6–25 mA křeč
+// (nemůžeš se pustit), 25–60 mA křeč dýchacích svalů, 60–80 mA fibrilace,
+// nad 80 mA trvalá zástava srdce.
+//
+// Odpory těla (ODPORY níž):
+//   suchá: 100 000 Ω (≤50 V) / 1 500 Ω (>50 V)   — OBĚ hodnoty přímo z výkladu
+//   mokrá:   7 500 Ω (≤50 V) / 1 000 Ω (>50 V)   — 1 000 Ω přímo z výkladu
+//   vlhká:  20 000 Ω (≤50 V) / 1 250 Ω (>50 V)   — mezistupeň, ve výkladu
+//     není číselně uveden (výklad zná jen „sucho"/„vlhko" po průrazu), zvolen
+//     mezi suchou a mokrou tak, aby: (a) při zásuvce (230 V) vyšlo pěkné
+//     celé číslo (184 mA) a (b) při nízkém napětí (baterie/autobaterie)
+//     zůstal proud v pásmu „nevnímáš"/„brnění", NIKDY v „křeči" — to je
+//     důležité, protože výklad tvrdí, že stejnosměrné napětí do 25 V je
+//     bezpečné i ve vlhku, a 12 V (autobaterie) je pod touto hranicí.
+// Hodnoty „vysoký odpor při ≤50 V" pro vlhkou/mokrou kůži (20 000/7 500 Ω)
+// jsou TEDY vlastní odhad této simulace, ne citace z výkladu — je to
+// simplifikace: bez ní by 12 V + mokrá kůže s odporem rovnou 1 000 Ω dávalo
+// 12 mA (křeč), což by tvrdilo, že běžné zacházení s autobaterií za mokra
+// způsobuje svalovou křeč — to odporuje běžné praxi (auťák se startuje bez
+// rukavic běžně) i výkladovému pravidlu „DC do 25 V je ve vlhku bezpečné".
+//
+// Ověřeno výpočtem pro VŠECH 9 kombinací (3 napětí × 3 stavy kůže) — všechny
+// dávají čisté celé číslo v µA, nebo nejvýš 1 desetinné místo v mA, KROMĚ
+// jediné výjimky: 230 V / suchá (1 500 Ω) = 153,33… mA (periodická desetina,
+// protože 230/1,5 se nekrátí) — zobrazuje se zaokrouhleně jako „≈ 153,3 mA",
+// stejným způsobem přibližného zápisu („≈153 mA"), jaký používá i samotný
+// výklad pro tentýž příklad.
+//
+// Část B: cesta proudu tělem. Napětí je NAPEVNO 230 V (stejné jako
+// nejnebezpečnější případ z části A — schválně, ať si žák propojí obě části,
+// a NIKDY se to nezkouší). Odpor "ruka→ruka" = 1 000 Ω (stejná hodnota jako
+// mokrá kůže v části A, worst case). "Ruka→noha" má odpor 2× větší (2 000 Ω)
+// — zjednodušený odhad založený na tom, že dráha tělem je zhruba dvakrát
+// delší (navazuje na R = ρ·l/S z podtématu odpor-vodiče: delší dráha = větší
+// odpor), NE na měřeném datu. Coby výsledek 115 mA pořád spadá do pásma
+// „zástava srdce" (≥80 mA) — schválně: cesta ruka→noha zůstává extrémně
+// nebezpečná, protože pořád prochází poblíž srdce, jen s menším proudem.
+// "Jedna ruka" = otevřený obvod (druhá ruka se ničeho nedotýká) → I = 0 mA:
+// to je fyzikálně přesné (bez uzavřené smyčky tělem nic neteče) a je to
+// důvod, proč elektrikáři při práci na živém vodiči druhou ruku schovávají.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Účinky proudu na tělo: kdy je to nebezpečné? 🕹️</span></h2>
+	<p>Lidské tělo je vodič, takže na něj platí stejný <strong>Ohmův zákon</strong> <em>I = U ÷ R</em> jako na drát. Zkus různá napětí a různě vlhkou kůži a sleduj, do jakého pásma proud spadne.</p>
+
+	<h3>⚡ Část A: Napětí, vlhkost kůže a velikost proudu</h3>
+	<p>Suchá kůže má velký odpor a chrání tě — ale <strong>jen do napětí zhruba 50 V</strong>. Nad touto hranicí se kůže „prorazí" a odpor prudce klesne. Vlhká a mokrá kůže mají odpor mnohem menší už od začátku.</p>
+	<svg id="upb-a-svg" viewBox="0 0 660 350" role="img" aria-label="Zdroj napětí připojený přes ruku a tělo postavičky k zemi, vpravo ampérmetr s barevnými pásmy nebezpečí">
+		<rect x="0" y="0" width="660" height="350" fill="#f8f9fa" />
+		<line x1="150" y1="95" x2="225" y2="95" stroke="#2b2a26" stroke-width="4" />
+		<path d="M270,273 L270,320 L120,320 L120,150 L150,150" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="7,5" />
+		<circle cx="290" cy="90" r="20" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+		<rect x="265" y="112" width="50" height="95" rx="14" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+		<circle id="upb-a-srdce" cx="290" cy="150" r="11" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+		<line x1="275" y1="122" x2="225" y2="95" stroke="#2b2a26" stroke-width="4" />
+		<circle id="upb-a-ruka" cx="225" cy="95" r="8" fill="#ffd8a8" stroke="#2b2a26" stroke-width="3" />
+		<line x1="305" y1="122" x2="335" y2="170" stroke="#2b2a26" stroke-width="4" />
+		<circle cx="335" cy="170" r="7" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />
+		<line x1="280" y1="207" x2="272" y2="270" stroke="#2b2a26" stroke-width="4" />
+		<circle cx="270" cy="273" r="8" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />
+		<line x1="300" y1="207" x2="308" y2="270" stroke="#2b2a26" stroke-width="4" />
+		<circle cx="310" cy="273" r="7" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />
+		<line x1="230" y1="283" x2="350" y2="283" stroke="#495057" stroke-width="4" />
+		<g id="upb-a-zdroj"></g>
+		<rect x="8" y="172" width="200" height="26" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="upb-a-zdroj-text" x="108" y="190" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<rect x="430" y="65" width="200" height="72" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<g id="upb-a-info"></g>
+		<g id="upb-a-pasmo-pozadi"></g>
+		<polygon id="upb-a-marker" points="447,140 447,140 447,140" fill="#2b2a26" />
+		<rect x="430" y="196" width="200" height="28" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="upb-a-pasmo-text" x="530" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<g id="upb-a-varovani"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Zdroj napětí: <output id="upb-a-out-napeti"></output>
+		<input type="range" id="upb-a-napeti" min="0" max="2" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Stav kůže: <output id="upb-a-out-kuze"></output>
+		<input type="range" id="upb-a-kuze" min="0" max="2" step="1" value="0" />
+	</label>
+	<p class="upb-vzorec" id="upb-a-vypocet"></p>
+	<p class="upb-stav" id="upb-a-stav"></p>
+
+	<h3><span class="podtrh">🫀 Část B: Kudy proud teče, na tom záleží</span></h3>
+	<p>Napětí necháme napevno na <strong>230 V</strong> — stejně nebezpečné jako zásuvka v části A, <strong>nikdy se to nezkouší</strong>. Zajímá nás, kudy proud tělem prochází.</p>
+	<svg id="upb-b-svg" viewBox="0 0 660 300" role="img" aria-label="Postavička se zvýrazněnou cestou proudu tělem mezi dvěma kontakty, vpravo ampérmetr s barevnými pásmy nebezpečí">
+		<rect x="0" y="0" width="660" height="300" fill="#f8f9fa" />
+		<path id="upb-b-cesta-linka" d="" fill="none" stroke="#f03e3e" stroke-width="5" stroke-linecap="round" />
+		<g id="upb-b-elektrony"></g>
+		<circle cx="250" cy="70" r="22" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+		<rect x="220" y="95" width="60" height="110" rx="16" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+		<circle id="upb-b-srdce" cx="250" cy="145" r="13" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+		<line x1="228" y1="108" x2="140" y2="85" stroke="#2b2a26" stroke-width="4" />
+		<circle id="upb-b-ruka-l" cx="140" cy="85" r="9" fill="#4dabf7" stroke="#2b2a26" stroke-width="3" />
+		<line x1="272" y1="108" x2="360" y2="85" stroke="#2b2a26" stroke-width="4" />
+		<circle id="upb-b-ruka-p" cx="360" cy="85" r="9" fill="#4dabf7" stroke="#2b2a26" stroke-width="3" />
+		<line x1="228" y1="205" x2="222" y2="280" stroke="#2b2a26" stroke-width="4" />
+		<circle id="upb-b-noha-l" cx="220" cy="283" r="8" fill="#ced4da" stroke="#868e96" stroke-width="2" />
+		<line x1="272" y1="205" x2="280" y2="280" stroke="#2b2a26" stroke-width="4" />
+		<circle id="upb-b-noha-p" cx="283" cy="283" r="8" fill="#4dabf7" stroke="#2b2a26" stroke-width="2" />
+		<rect x="430" y="65" width="200" height="72" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<g id="upb-b-info"></g>
+		<g id="upb-b-pasmo-pozadi"></g>
+		<polygon id="upb-b-marker" points="447,140 447,140 447,140" fill="#2b2a26" />
+		<rect x="430" y="196" width="200" height="28" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="upb-b-pasmo-text" x="530" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Cesta proudu tělem: <output id="upb-b-out-cesta"></output>
+		<input type="range" id="upb-b-cesta" min="0" max="2" step="1" value="0" />
+	</label>
+	<p class="upb-radek"><button type="button" id="upb-b-play" class="upb-tl">▶ pusť proud</button></p>
+	<p class="upb-vzorec" id="upb-b-vypocet"></p>
+	<p class="upb-stav" id="upb-b-stav"></p>
+</section>
+
+<script>
+	// Obranné čtení celočíselného indexu z posuvníku (0..max) — neplatná
+	// hodnota se tiše nahradí výchozím stavem, ne pádem skriptu.
+	function platnyIndex(hodnota, max, vychozi) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= 0 && n <= max ? n : vychozi;
+	}
+
+	const cz = (x, des) => x.toLocaleString('cs-CZ', { maximumFractionDigits: des });
+	const tisice = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
+	// ── konstanty sdílené oběma scénami ─────────────────────────────────────
+	const NAPETI_KLICE = ['baterie', 'autobaterie', 'zasuvka'];
+	const NAPETI = { baterie: 4.5, autobaterie: 12, zasuvka: 230 };
+	const NAPETI_NAZEV = { baterie: 'plochá baterie', autobaterie: 'autobaterie', zasuvka: 'zásuvka' };
+
+	const KUZE_KLICE = ['sucha', 'vlhka', 'mokra'];
+	const KUZE_NAZEV = { sucha: 'suchá kůže', vlhka: 'vlhká kůže', mokra: 'mokrá kůže' };
+	const KUZE_BARVA = { sucha: '#ffd8a8', vlhka: '#a5d8ff', mokra: '#4dabf7' };
+
+	// Práh průrazu kůže — STEJNÝ pro všechny stavy kůže (mění se jen R před/po).
+	const PRAH_PRURAZU_V = 50;
+	const ODPORY = {
+		sucha: { vysoky: 100000, nizky: 1500 },
+		vlhka: { vysoky: 20000, nizky: 1250 },
+		mokra: { vysoky: 7500, nizky: 1000 },
+	};
+	function odporTela(kuzeKlic, U) {
+		const o = ODPORY[kuzeKlic] ?? ODPORY.sucha;
+		return U > PRAH_PRURAZU_V ? o.nizky : o.vysoky;
+	}
+	function proudMA(U, R) { return (U / R) * 1000; }
+
+	// Pásma podle výkladu (prahy 1 / 6 / 25 / 60 / 80 mA), setříděná vzestupně.
+	const PASMA = [
+		{ limit: 1, klic: 'nevnimas', nazev: 'pod prahem vnímání', barva: '#adb5bd',
+			popis: 'Proud je tak malý, že ho vůbec neucítíš.' },
+		{ limit: 6, klic: 'brneni', nazev: 'brnění', barva: '#ffd43b',
+			popis: 'Ucítíš mravenčení, ale svaly tě poslouchají.' },
+		{ limit: 25, klic: 'krec-sval', nazev: 'křeč svalů – nemůžeš se pustit', barva: '#ffa94d',
+			popis: 'Svaly se křečovitě stáhnou a sám se nepustíš — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
+		{ limit: 60, klic: 'krec-dychani', nazev: 'křeč dýchacích svalů', barva: '#ff8787',
+			popis: 'Křeč zasáhne i svaly, kterými dýcháš — hrozí udušení.' },
+		{ limit: 80, klic: 'fibrilace', nazev: 'fibrilace srdce', barva: '#f03e3e',
+			popis: 'Srdce ztrácí pravidelný rytmus — bez rychlé pomoci hrozí zástava.' },
+		{ limit: Infinity, klic: 'zastava', nazev: 'zástava srdce', barva: '#862e2e',
+			popis: 'Proud zastaví srdce úplně — jde o život, je potřeba okamžitá první pomoc a rychlá záchranka.' },
+	];
+	function pasmo(mA) {
+		for (const p of PASMA) if (mA < p.limit) return p;
+		return PASMA[PASMA.length - 1];
+	}
+
+	// Zobrazení proudu: pod 1 mA v µA (celé číslo), jinak v mA na nejvýš
+	// 1 desetinné místo. Jediná kombinace v téhle simulaci, která nedá PŘESNÉ
+	// číslo (230 V / suchá kůže = 230000/1500 = 153,33… mA, periodická
+	// desetina), se zobrazí se znaménkem ≈ — stejně jako to dělá i výklad
+	// pro tentýž příklad („≈153 mA").
+	function mAtoText(mA) {
+		if (mA <= 0) return '0 mA';
+		if (mA < 1) return `${Math.round(mA * 1000)} µA`;
+		const r = Math.round(mA * 10) / 10;
+		const presne = Math.abs(mA - r) < 1e-6;
+		return `${presne ? '' : '≈ '}${cz(r, 1)} mA`;
+	}
+
+	// Geometrie barevného pásového ampérmetru — SDÍLENÁ oběma scénami (stejný
+	// vzhled = stejný význam napříč simulací).
+	const PASMO_BAR = { x: 430, y: 150, sirkaCelkem: 198, vyska: 26 };
+	function geometrieZonySegmentu(i) {
+		const sirka = PASMO_BAR.sirkaCelkem / PASMA.length;
+		return { x: PASMO_BAR.x + sirka * i, y: PASMO_BAR.y, sirka, vyska: PASMO_BAR.vyska };
+	}
+	function vykresliPasmoPozadi(elId) {
+		const g = document.getElementById(elId);
+		let html = '';
+		PASMA.forEach((p, i) => {
+			const s = geometrieZonySegmentu(i);
+			html += `<rect x="${s.x.toFixed(1)}" y="${s.y}" width="${s.sirka.toFixed(1)}" height="${s.vyska}" fill="${p.barva}" stroke="#2b2a26" stroke-width="1.5" />`;
+		});
+		g.innerHTML = html;
+	}
+	function nastavMarker(elId, idx) {
+		const seg = geometrieZonySegmentu(idx);
+		const cx = seg.x + seg.sirka / 2;
+		const el = document.getElementById(elId);
+		el.setAttribute('points', `${(cx - 8).toFixed(1)},${PASMO_BAR.y - 10} ${(cx + 8).toFixed(1)},${PASMO_BAR.y - 10} ${cx.toFixed(1)},${PASMO_BAR.y - 2}`);
+		el.setAttribute('fill', PASMA[idx].barva);
+	}
+
+	// Ikony zdroje napětí — jen tvar, text (napětí) je na samostatné bílé
+	// plaketě pod obrázkem (aby text nesplýval s kresbou).
+	function ikonaZdroje(typ, cx, cy) {
+		if (typ === 'baterie') {
+			return `<rect x="${cx - 40}" y="${cy - 30}" width="80" height="60" rx="6" fill="#495057" stroke="#2b2a26" stroke-width="3" />`
+				+ `<rect x="${cx - 28}" y="${cy - 42}" width="18" height="14" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />`
+				+ `<rect x="${cx + 10}" y="${cy - 42}" width="18" height="14" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />`;
+		}
+		if (typ === 'autobaterie') {
+			return `<rect x="${cx - 48}" y="${cy - 32}" width="96" height="64" rx="6" fill="#2b2a26" stroke="#2b2a26" stroke-width="3" />`
+				+ `<rect x="${cx - 22}" y="${cy - 44}" width="16" height="16" rx="4" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />`
+				+ `<rect x="${cx + 6}" y="${cy - 44}" width="16" height="16" rx="4" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />`;
+		}
+		// zásuvka
+		return `<rect x="${cx - 30}" y="${cy - 35}" width="60" height="70" rx="8" fill="#e9ecef" stroke="#2b2a26" stroke-width="3" />`
+			+ `<line x1="${cx - 10}" y1="${cy - 15}" x2="${cx - 10}" y2="${cy + 5}" stroke="#2b2a26" stroke-width="4" />`
+			+ `<line x1="${cx + 10}" y1="${cy - 15}" x2="${cx + 10}" y2="${cy + 5}" stroke="#2b2a26" stroke-width="4" />`;
+	}
+
+	// ── Část A ───────────────────────────────────────────────────────────────
+	const sliderNapeti = document.getElementById('upb-a-napeti');
+	const sliderKuze = document.getElementById('upb-a-kuze');
+	const outNapeti = document.getElementById('upb-a-out-napeti');
+	const outKuze = document.getElementById('upb-a-out-kuze');
+	const svgA = document.getElementById('upb-a-svg');
+
+	vykresliPasmoPozadi('upb-a-pasmo-pozadi');
+
+	function prekresliA() {
+		const iN = platnyIndex(sliderNapeti.value, 2, 0);
+		const iK = platnyIndex(sliderKuze.value, 2, 0);
+		const napetiKlic = NAPETI_KLICE[iN];
+		const kuzeKlic = KUZE_KLICE[iK];
+		const U = NAPETI[napetiKlic];
+		const R = odporTela(kuzeKlic, U);
+		const mA = proudMA(U, R);
+		const p = pasmo(mA);
+		const idx = PASMA.indexOf(p);
+
+		outNapeti.textContent = `${NAPETI_NAZEV[napetiKlic]} (${cz(U, 2)} V)`;
+		outKuze.textContent = KUZE_NAZEV[kuzeKlic];
+
+		document.getElementById('upb-a-zdroj').innerHTML = ikonaZdroje(napetiKlic, 95, 115);
+		document.getElementById('upb-a-zdroj-text').textContent = `${NAPETI_NAZEV[napetiKlic]} — ${cz(U, 2)} V`;
+		document.getElementById('upb-a-ruka').setAttribute('fill', KUZE_BARVA[kuzeKlic]);
+		document.getElementById('upb-a-srdce').setAttribute('fill', p.barva);
+
+		document.getElementById('upb-a-info').innerHTML =
+			`<text x="530" y="90" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">U = ${cz(U, 2)} V, R = ${tisice(R)} Ω</text>`
+			+ `<text x="530" y="110" text-anchor="middle" font-size="15" font-weight="bold" fill="${p.barva}">I = ${mAtoText(mA)}</text>`
+			+ `<text x="530" y="128" text-anchor="middle" font-size="12" fill="#2b2a26">pásmo: ${p.nazev}</text>`;
+
+		nastavMarker('upb-a-marker', idx);
+		const textEl = document.getElementById('upb-a-pasmo-text');
+		textEl.textContent = p.nazev;
+		textEl.setAttribute('fill', p.barva);
+
+		document.getElementById('upb-a-varovani').innerHTML = napetiKlic === 'zasuvka'
+			? `<rect x="430" y="234" width="200" height="46" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="3" />`
+				+ `<text x="530" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#e03131">⚠️ Zásuvka je nebezpečná</text>`
+				+ `<text x="530" y="268" text-anchor="middle" font-size="12" font-weight="bold" fill="#e03131">VŽDY — nikdy nezkoušet!</text>`
+			: '';
+
+		document.getElementById('upb-a-vypocet').innerHTML =
+			`I = U ÷ R = ${cz(U, 2)} V ÷ ${tisice(R)} Ω = <strong>${mAtoText(mA)}</strong>`;
+		document.getElementById('upb-a-stav').textContent =
+			`${NAPETI_NAZEV[napetiKlic]} (${cz(U, 2)} V) na ${KUZE_NAZEV[kuzeKlic]}: proud ${mAtoText(mA)} spadá do pásma „${p.nazev}“ – ${p.popis}`
+			+ (napetiKlic === 'zasuvka' ? ' ⚠️ Zásuvka je nebezpečná VŽDY, i pro úplně suchého člověka — nikdy se to nezkouší.' : '');
+	}
+	sliderNapeti.addEventListener('input', prekresliA);
+	sliderKuze.addEventListener('input', prekresliA);
+	prekresliA();
+
+	svgA.__odporTela = odporTela;
+	svgA.__proudMA = proudMA;
+	svgA.__pasmo = pasmo;
+	svgA.__mAtoText = mAtoText;
+	svgA.__cz = cz;
+	svgA.__tisice = tisice;
+	svgA.__PASMA = PASMA;
+	svgA.__ODPORY = ODPORY;
+	svgA.__NAPETI = NAPETI;
+	svgA.__NAPETI_KLICE = NAPETI_KLICE;
+	svgA.__NAPETI_NAZEV = NAPETI_NAZEV;
+	svgA.__KUZE_KLICE = KUZE_KLICE;
+	svgA.__KUZE_NAZEV = KUZE_NAZEV;
+	svgA.__KUZE_BARVA = KUZE_BARVA;
+	svgA.__PRAH_PRURAZU_V = PRAH_PRURAZU_V;
+	svgA.__geometrieZonySegmentu = geometrieZonySegmentu;
+	svgA.__PASMO_BAR = PASMO_BAR;
+
+	// ── Část B ───────────────────────────────────────────────────────────────
+	const BODY = {
+		'ruka-l': { x: 140, y: 85 },
+		srdce: { x: 250, y: 145 },
+		'ruka-p': { x: 360, y: 85 },
+		'noha-p': { x: 283, y: 283 },
+	};
+	const NAPETI_B = 230; // V — stejné napětí jako nejnebezpečnější případ v části A, nikdy nezkoušet
+	const CESTA_KLICE = ['ruka-ruka', 'ruka-noha', 'jedna-ruka'];
+	const CESTY = {
+		'ruka-ruka': {
+			r: 1000, uzavrena: true, nazev: 'ruka → ruka', kontakty: ['ruka-p'],
+			waypoints: ['ruka-l', 'srdce', 'ruka-p'],
+			popis: 'Proud jde napříč hrudníkem přímo přes srdce — ze všech cest nejnebezpečnější.',
+		},
+		'ruka-noha': {
+			r: 2000, uzavrena: true, nazev: 'ruka → noha', kontakty: ['noha-p'],
+			waypoints: ['ruka-l', 'srdce', 'noha-p'],
+			popis: 'Dráha tělem je zhruba dvakrát delší, a proto má i dvakrát větší odpor (stejně jako u drátu) — proud je menší, ale pořád prochází poblíž srdce, takže je to pořád životu nebezpečné.',
+		},
+		'jedna-ruka': {
+			r: null, uzavrena: false, nazev: 'jedna ruka (bez uzemnění)', kontakty: [],
+			waypoints: [],
+			popis: 'Druhá ruka se ničeho nedotýká — obvod se neuzavře.',
+		},
+	};
+
+	// ČISTÁ funkce: poloha bodu na lomené čáře (waypoints) v čase t ∈ ⟨0,1) —
+	// použito pro animaci „proudu" putujícího po cestě tělem.
+	function boduNaCeste(t, body) {
+		if (!body || body.length < 2) return body && body[0] ? { x: body[0].x, y: body[0].y } : { x: 0, y: 0 };
+		const useky = [];
+		let celkem = 0;
+		for (let i = 0; i < body.length - 1; i++) {
+			const dx = body[i + 1].x - body[i].x, dy = body[i + 1].y - body[i].y;
+			const d = Math.hypot(dx, dy);
+			useky.push({ d, a: body[i], b: body[i + 1] });
+			celkem += d;
+		}
+		let vzdal = (((t % 1) + 1) % 1) * celkem;
+		for (const u of useky) {
+			if (vzdal <= u.d || u === useky[useky.length - 1]) {
+				const frac = u.d === 0 ? 0 : Math.min(1, vzdal / u.d);
+				return { x: u.a.x + (u.b.x - u.a.x) * frac, y: u.a.y + (u.b.y - u.a.y) * frac };
+			}
+			vzdal -= u.d;
+		}
+		return { x: body[body.length - 1].x, y: body[body.length - 1].y };
+	}
+
+	const sliderCesta = document.getElementById('upb-b-cesta');
+	const outCesta = document.getElementById('upb-b-out-cesta');
+	const svgB = document.getElementById('upb-b-svg');
+	const tlacitkoPlay = document.getElementById('upb-b-play');
+
+	vykresliPasmoPozadi('upb-b-pasmo-pozadi');
+
+	const POCET_TECEK = 5;
+	const teckyG = document.getElementById('upb-b-elektrony');
+	const tecky = [];
+	for (let k = 0; k < POCET_TECEK; k++) {
+		const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+		c.setAttribute('r', '4');
+		c.setAttribute('fill', '#ffd43b');
+		c.setAttribute('stroke', '#2b2a26');
+		c.setAttribute('stroke-width', '1');
+		teckyG.appendChild(c);
+		tecky.push(c);
+	}
+	let cestaWaypoints = null;
+
+	// Animace „proudu" putujícího po cestě smí běžet JEN po kliknutí žáka na
+	// tlačítko (posluchač níž) — NIKDY sama při načtení stránky. Bez uloženého
+	// animIdB a bez zastavB() by requestAnimationFrame běžel navěky a nástroj,
+	// který stránku jen vyrenderuje a čeká na doběhnutí (náhled/tisk/test),
+	// by zamrzl — přesně tenhle nález nezávislé kontroly 14. 8. večer (5 minut
+	// běhu, exit 143 po zabití procesu). Rychlost je odvozená od reálného
+	// uplynulého času (performance.now), ne od počtu snímků.
+	let jedeB = false, animIdB = null, minuleB = null, casB = 0;
+	function zastavB() {
+		jedeB = false;
+		if (animIdB !== null) cancelAnimationFrame(animIdB);
+		animIdB = null;
+	}
+	function krokB(ted) {
+		if (!jedeB) return;
+		if (minuleB === null) minuleB = ted;
+		const dt = Math.min(0.1, (ted - minuleB) / 1000);
+		minuleB = ted;
+		casB += dt;
+		if (cestaWaypoints) {
+			for (let k = 0; k < POCET_TECEK; k++) {
+				const t = (casB * 0.4 + k / POCET_TECEK) % 1;
+				const bod = boduNaCeste(t, cestaWaypoints);
+				tecky[k].setAttribute('cx', bod.x.toFixed(1));
+				tecky[k].setAttribute('cy', bod.y.toFixed(1));
+			}
+		}
+		animIdB = requestAnimationFrame(krokB);
+	}
+
+	function prekresliB() {
+		const i = platnyIndex(sliderCesta.value, 2, 0);
+		const cestaKlic = CESTA_KLICE[i];
+		const c = CESTY[cestaKlic];
+		const mA = c.uzavrena ? proudMA(NAPETI_B, c.r) : 0;
+		const p = pasmo(mA);
+		const idx = PASMA.indexOf(p);
+
+		outCesta.textContent = c.nazev;
+
+		const aktivni = new Set(c.kontakty);
+		for (const id of ['ruka-p', 'noha-p']) {
+			const el = document.getElementById(`upb-b-${id}`);
+			el.setAttribute('fill', aktivni.has(id) ? '#4dabf7' : '#ced4da');
+			el.setAttribute('stroke', aktivni.has(id) ? '#2b2a26' : '#868e96');
+		}
+		document.getElementById('upb-b-ruka-l').setAttribute('fill', '#4dabf7');
+		document.getElementById('upb-b-srdce').setAttribute('fill', p.barva);
+
+		const cestaLinka = document.getElementById('upb-b-cesta-linka');
+		if (c.uzavrena) {
+			const body = c.waypoints.map((bid) => BODY[bid]);
+			cestaLinka.setAttribute('d', `M${body[0].x},${body[0].y} L${body[1].x},${body[1].y} L${body[2].x},${body[2].y}`);
+			cestaWaypoints = body;
+			// Statické rozmístění teček ROVNOMĚRNĚ po cestě — scéna musí být
+			// srozumitelná, i když animace nikdy neběžela (tisk, náhled, žák,
+			// který na play nekliknul). Používá STEJNOU čistou funkci
+			// (boduNaCeste) jako animace níž, jen s pevnými t = 0, 1/5, 2/5…
+			tecky.forEach((t, k) => {
+				t.setAttribute('opacity', '1');
+				const bod = boduNaCeste(k / POCET_TECEK, body);
+				t.setAttribute('cx', bod.x.toFixed(1));
+				t.setAttribute('cy', bod.y.toFixed(1));
+			});
+		} else {
+			cestaLinka.setAttribute('d', '');
+			cestaWaypoints = null;
+			tecky.forEach((t) => t.setAttribute('opacity', '0'));
+		}
+		zastavB();
+		tlacitkoPlay.textContent = '▶ pusť proud';
+		tlacitkoPlay.disabled = !c.uzavrena;
+
+		document.getElementById('upb-b-info').innerHTML =
+			`<text x="530" y="90" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">U = ${cz(NAPETI_B, 0)} V, R = ${c.uzavrena ? tisice(c.r) + ' Ω' : '∞ (obvod otevřen)'}</text>`
+			+ `<text x="530" y="110" text-anchor="middle" font-size="15" font-weight="bold" fill="${p.barva}">I = ${mAtoText(mA)}</text>`
+			+ `<text x="530" y="128" text-anchor="middle" font-size="12" fill="#2b2a26">pásmo: ${p.nazev}</text>`;
+
+		nastavMarker('upb-b-marker', idx);
+		const textEl = document.getElementById('upb-b-pasmo-text');
+		textEl.textContent = p.nazev;
+		textEl.setAttribute('fill', p.barva);
+
+		document.getElementById('upb-b-vypocet').innerHTML = c.uzavrena
+			? `I = U ÷ R = ${cz(NAPETI_B, 0)} V ÷ ${tisice(c.r)} Ω = <strong>${mAtoText(mA)}</strong>`
+			: `Obvod se neuzavře (jen jeden kontakt) → <strong>I = 0 mA</strong>`;
+		document.getElementById('upb-b-stav').textContent = c.uzavrena
+			? `${c.nazev}: ${c.popis} Proud ${mAtoText(mA)} spadá do pásma „${p.nazev}“.`
+			: `${c.nazev}: ${c.popis} Bez uzavřeného obvodu tělem nic neteče — proto elektrikáři při práci na živém vodiči druhou ruku raději schovají za záda.`;
+	}
+	sliderCesta.addEventListener('input', prekresliB);
+	// rAF se spouští VÝHRADNĚ tady, po kliknutí — ne při načtení stránky.
+	// Druhé kliknutí animaci zastaví (přepínač play/pauza, stejný vzor jako
+	// AlternatorSimulace). U otevřeného obvodu (jedna ruka) není co animovat,
+	// tlačítko je vyřazené (disabled) a klik nic nespustí.
+	tlacitkoPlay.addEventListener('click', () => {
+		if (jedeB) { zastavB(); tlacitkoPlay.textContent = '▶ pusť proud'; return; }
+		if (!cestaWaypoints) return;
+		jedeB = true;
+		minuleB = null;
+		tlacitkoPlay.textContent = '⏸ zastav proud';
+		animIdB = requestAnimationFrame(krokB);
+	});
+	prekresliB();
+
+	svgB.__proudCestou = (klic) => { const c = CESTY[klic]; return c.uzavrena ? proudMA(NAPETI_B, c.r) : 0; };
+	svgB.__CESTY = CESTY;
+	svgB.__CESTA_KLICE = CESTA_KLICE;
+	svgB.__BODY = BODY;
+	svgB.__NAPETI_B = NAPETI_B;
+	svgB.__boduNaCeste = boduNaCeste;
+	svgB.__jedeB = () => jedeB; // pro test: ověření, že se animace nespouští sama
+</script>
+
+<style>
+	#upb-a-svg, #upb-b-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.upb-stav { font-size: 1.05rem; font-weight: 700; min-height: 2.4rem; }
+	.upb-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.upb-radek { margin: 0.6rem 0; }
+	.upb-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; }
+	.upb-tl:active { transform: translateY(1px); }
+	.upb-tl:disabled { opacity: 0.5; cursor: not-allowed; }
+	#upb-b-play { background: #d3f9d8; }
+</style>
