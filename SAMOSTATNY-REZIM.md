@@ -1,58 +1,71 @@
-## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026, po /clear)
+## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 odpoledne)
 
 ### ▶️ ROZDĚLANÉ: NÁZORNOST FYZIKY, JEDNO PODTÉMA ZA DRUHÝM
 
 Zadání učitele 13. 8., doslova: *„pokračuj dalším podtématem fyziky a nemusíš
-se ptát, jak jedno dokončíš, začni další."* Tedy: vzít podtéma bez názornosti,
-dotáhnout ho celé (simulace → test → mutační test → obousměrný důkaz →
-**prohlédnout vyrenderovanou scénu** → **nezávislý kontrolor do 0 nálezů** →
-build → push → curl) a hned brát další. Neodklikává se nic. Hlavní model je
-KOORDINÁTOR: zadává workerům, hlídá souběh a kotvy, commituje — nevyrábí sám.
-Postup vede skill `/simulace` (sem se neopisuje).
+se ptát, jak jedno dokončíš, začni další."* Postup vede skill `/simulace`.
+Hlavní model je KOORDINÁTOR — zadává workerům, hlídá brány, slučuje sdílené
+soubory; obsah workerů píší workeři.
 
-**Hotovo 13.–14. 8. (4 nová podtémata F8, každé doložené):**
-1. `vnitrni-energie-telesa` — pohyb celku s ní nehne, tření ano (78 kontrol,
-   mutace 17/21, obousměrný důkaz) · commit `ffb1f51`
-2. `tuhnuti` — křivka chladnutí s plató, led přibývá shora (72 kontrol,
-   mutace 18/20) · `2afff7d`; k tomu opraven `mutace.mjs` (běžel bez timeoutu,
-   zacyklená mutace nechala v komponentě ležet MUTACI — nyní timeout 60 s)
-3. `kondenzace` — pára popálí hůř: 2260 J/g kondenzace + 273 J/g chladnutí
-   (181 kontrol, mutace 19/20, kontrolor 4 nálezy → 0) · `a16745b`
-4. `vznik-elektrickeho-proudu` — proud je USPOŘÁDANÝ pohyb; kov / roztok /
-   izolant, DC i AC (156 kontrol, mutace 24/25, kontrolor 6 → 2 → 1 → 0)
-   · `b89c66e` + zapojení do stránky `ec65720`
+**Hotovo 14. 8.: `chemicke-zdroje-napeti` (F8) — simulace galvanického článku**
+· commity `e9f365b` (nasazení) + `1057c29` (opravy po kontrole), na živém webu ověřeno.
+Dvě scény: (A) kádinka, výběr dvojice elektrod, voltmetr — stejné elektrody dají 0 V;
+(B) řada 1–6 článků, napětí se sčítá, AA/D nemění napětí, jen výdrž.
+Doloženo: 142 kontrol, **mutační test 25/25**, všechny simulace 24 souborů /
+1817 kontrol / 0 spadlo, obousměrný důkaz zapsán. Kvíz doplněn na 20 otázek,
+4 ověřené české odkazy, vlastní video `wC1cAYJitUk` zapojeno k 9. ročníku.
 
-K tomu trvalý nástroj **`testy/nahled-simulace.mjs`** (`fa2f2d4`) — složí
-z komponenty obrázek k prohlédnutí okem. U KAŽDÉ nové simulace:
-`node testy/nahled-simulace.mjs <komponenta> <ven.svg> id=hodnota…`, pak
-`qlmanage -t -s 900 -o <složka> <ven.svg>` a PNG přečíst. A kvíz `tuhnuti`
-zbaven délkové nápovědy (8/13 → 5/13, `8bbc792`).
+Nezávislý kontrolor vrátil **16 nálezů, tři závažné** — všechny opraveny:
+uhlík a PbO₂ se vydávaly za KOV, olověný akumulátor měl na téže stránce 2 V i 12 V,
+a hláška říkala „5 článků **dávají**". K tomu délková nápověda v kvízu 7 otázek → 1.
 
-**Změřený stav** (14. 8., `node testy/nazornost.mjs`, `node testy/vsechny-simulace.mjs`):
-- fyzika 8: **5 bez názornosti z 37** (z toho 2 jsou shrnutí → **3 skutečná**)
-- fyzika 9: **9 bez názornosti z 25** (z toho 2 shrnutí → **7 skutečných**)
-- testy simulací: **23 souborů, 1674 kontrol, 0 spadlo**
+**⚙️ Nové nástroje, které v tomhle kole vznikly (platí pro všechna další):**
+1. **`Omega/skripty/kontrola_sceny.py`** — vzhled scény prohlíží lokální ThinkingCap
+   ZDARMA místo drahého modelu. Kalibrováno obousměrně: na přijaté simulaci tuhnutí
+   mlčí, na vadné scéně našlo nečitelný popisek. Kód 2 = „nezměřeno" (obsazená GPU
+   dráha), aby se nepletlo s „v pořádku". **Používat u každé nové simulace PŘED
+   vlastní prohlídkou** (prohlídka okem zůstává povinná, tohle je první síto).
+2. **`testy/nahled-simulace.mjs` umí `svg=<id|pořadí>`** — dřív bral vždy jen PRVNÍ
+   scénu, takže dvoudílné simulace šlo prohlédnout jen zpola.
+3. **RAG `zeptej` nově indexuje i `Omega/skripty/*.py` a `wonderly-web/testy/*.mjs`** —
+   dřív neuměl odpovědět ani na „jak automaty volají vision model" a hledalo se to
+   grepem za tokeny. Přeindexování po přidání skriptů trvá ~1,5 h, pouštět mimo práci.
+
+🔴 **DVĚ NOVÉ PASTI, obě zaplacené celým kolem oprav:**
+- **`\b` nad českým textem NEFUNGUJE** — v JS je definovaná jen nad ASCII, takže
+  „tuž-kov-ý" vypadá jako slovo „kov". Měřidlo hlásilo planě. Nad češtinou sekat text
+  na slova (`/\p{L}+/gu`) a porovnávat celá slova + sebekontrola obou směrů.
+  [[feedback-hranice-slova-neumi-cesky]]
+- **Vlastní test simulace neodhalí pád skriptu.** Test se 104 kontrolami byl zelený,
+  zatímco komponenta padala na `cells[cells.length-1]` a v prohlížeči by nefungovalo
+  vůbec nic. Odhalila to až brána `testy/sablony.mjs` — **pouštět ji vždy**.
 
 **NA ŘADĚ DÁL — ber shora dolů (shrnutí názornost nepotřebují, vynechat):**
-F8: `chemicke-zdroje-napeti`, `elektricka-prace-a-vykon`,
-`ucinky-proudu-a-bezpecnost` → tím je fyzika 8 hotová.
+F8: `elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost` → tím je fyzika 8 hotová.
 F9: `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
-`chemicke-zdroje-napeti`, `elektricka-energie-a-premeny`,
-`jaderna-energie-a-reakce`, `obnovitelne-a-neobnovitelne-zdroje`,
-`vesmir-a-galaxie`.
+`chemicke-zdroje-napeti`, `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
 
-🔴 **POSTUP, KTERÝ SE VYPLATIL — DODRŽET.** Zelený vlastní test NESTAČÍ:
-- **Mutační test** (`node testy/mutace.mjs <název>`) — u Oersteda 3 z 24, test
-  měřil fyzikální model a vůbec ne scénu.
-- **Prohlédnout vyrenderovanou scénu** — najde vady, které žádné měřidlo
-  nevidí (useknutá kružnice, počitadlo přes oblak, špatné skloňování).
-  [[feedback-simulaci-se-musim-podivat]]
-- **Nezávislý kontrolor je POVINNÝ UZEL** před nasazením a po opravách jde
-  DRUHÉ kolo — dnes kondenzace 4 → 0, vznik proudu 6 → 2 → 1 → 0. Verdikt číst z doručeného
-  výsledku agenta, nikdy grepem nad transcriptem.
-- Každá opravená chyba → deník chyb (`Omega/skripty/denik_chyb.py`) s dokladem,
-  že oprava funguje.
+### 🔎 Z REVIZE (14. 8. 2026) — nálezy k opravě, seřazené
 
+Revize celého projektu přinesla čtyři body, které stojí za práci. První (falešně
+selhávající test) je **hotový** — byl to ten `\b` nad češtinou. Zbývají:
+
+1. **BEZPEČNOST — Fyzikální liga, role „tabule"** (`worker.js`): kdokoli se znalostí
+   čtyřpísmenného kódu místnosti se může připojit jako tabule a posílat stav všem týmům.
+   Doporučeno: ke kódu místnosti vydat silný tajný token jen pro učitele, žákům nechat
+   jen kód; omezit počet vytvoření a pokusů. **Toto je nejvyšší priorita ze zbytku.**
+2. **Brána `zkontroluj.mjs` se tváří jako čtecí, ale zapisuje** `testy/rohatka.json`,
+   když se laťka zlepší — build tak sám mění pracovní strom (je to vidět i v commitu
+   `1057c29`). Rozdělit na čisté ověření + výslovný příkaz „přijmi zlepšenou laťku".
+3. **Deník nemá manifest médií, která do videa skutečně vstoupila** — pozdě přijatá
+   fotka se korektně anonymizuje, ale tiše chybí ve videu. Založit pro každé místo
+   strojový manifest (zdroje, GPS/čas, anonymizace, výběr do galerie i videa, otisk
+   videa, odkazy). Označeno za nejdůležitější architektonické zlepšení deníku.
+4. **Publikace galerií není atomická** (`nahraj_fotky.py`) — nahrává se postupně do
+   finální cesty, takže při výpadku je veřejně vidět neúplná galerie. Nahrávat do nové
+   verze a zveřejnit až jediným manifestem.
+5. Drobnost: chybí standardní `npm test` a `npm run check` (neměnící příkazy).
 
 ### 📥 Fronta dalších kol (z auditů 13. 8. — zapsáno, aby se neztratilo)
 

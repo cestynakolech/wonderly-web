@@ -158,3 +158,29 @@ Nasazovat u každého nového učiva — je to nejlevnější krok s největší
   jen technické úlohy (fotky, videa, nahrávání), ne tvorba učiva.
 - Naopak PŘEVZATO: tvrdá brána před buildem (`zkontroluj.mjs`) a oddělení
   autora od kontrolora (pátý worker po merge) — obojí zapsáno ve skillu `/simulace`.
+
+## 14. 8. 2026 — galvanický článek (F8, chemicke-zdroje-napeti)
+
+| co | číslo |
+|---|---|
+| kontrol ve vlastním testu | 142 |
+| mutační test | 25/25 (cesta: 21 → 24 → 25) |
+| všechny simulace po nasazení | 24 souborů, 1817 kontrol, 0 spadlo |
+| nálezy nezávislého kontrolora | **16** (3 závažné) — všechny opraveny |
+| délková nápověda v kvízu | 7 z 20 otázek → 1 (náskok max 1 znak) |
+| kola oprav u workera | 6 |
+
+**Nálezy kontrolora, které by žádné měřidlo nenašlo:** uhlík a oxid olovičitý
+vydávané za KOV (výklad na téže stránce přitom správně mluví o materiálech);
+olověný akumulátor uváděný jako 2 V i 12 V na jedné stránce; „5 článků **dávají**";
+Voltův článek s hodnotou Daniellova (1,1 V místo ~1 V); pravdivý rozptylovač
+v kvízu (článek D má opravdu menší vnitřní odpor než AA).
+
+**Plané nálezy: 0** — ověřoval jsem každý, i ten, který si odporoval s bránou
+(délková nápověda: brána hlídá jen globální trend přes celý web, ne jednotlivý blok,
+takže kontrolor měl pravdu a brána zároveň nelhala).
+
+**Co našlo měřidlo, a co oko:** brána `sablony.mjs` odhalila pád skriptu, který
+vlastní test se 104 kontrolami neviděl. Naopak nečitelný popisek na tmavé elektrodě
+nenašlo žádné měřidlo ani kontrolor — jen pohled na obrázek a nový lokální vision
+automat (ten po opravě mlčí, tedy obousměrný důkaz).
