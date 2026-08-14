@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -3151,6 +3151,7 @@ export const temata: Record<string, Tema[]> = {
 					},
 				{
 						slug: 'chemicke-zdroje-napeti',
+						interakce: 'galvanicky-clanek',
 						nazev: 'Chemické zdroje elektrického napětí',
 						obsah: `
 							<h2>Chemické zdroje napětí — galvanické články</h2>
@@ -3201,6 +3202,12 @@ export const temata: Record<string, Tema[]> = {
 							a kovy z nich se dají použít znovu.</li>
 						</ul>
 						`,
+						odkazy: [
+							{ nazev: 'Pokusy: Baterky (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5462-pokusy-baterky' },
+							{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
+							{ nazev: 'Jak probíhá recyklace baterií (ECOBAT)', url: 'https://www.ecobat.cz/jak-probiha-recyklace-baterii/' },
+							{ nazev: 'Druhy baterií — spojovačka (Wordwall)', url: 'https://wordwall.net/cs/resource/71804207/druhy-bateri%C3%AD' },
+						],
 					},
 				{
 						slug: 'elektricke-obvody',
@@ -4125,6 +4132,15 @@ export const temata: Record<string, Tema[]> = {
 							palivo (vodík) <strong>průběžně dodává</strong>. Odpadem je čistá voda.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Chemické zdroje elektrického napětí', cesta: 'wC1cAYJitUk' },
+					],
+					odkazy: [
+						{ nazev: 'Pokusy: Baterky (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5462-pokusy-baterky' },
+						{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
+						{ nazev: 'Jak probíhá recyklace baterií (ECOBAT)', url: 'https://www.ecobat.cz/jak-probiha-recyklace-baterii/' },
+						{ nazev: 'Druhy baterií — spojovačka (Wordwall)', url: 'https://wordwall.net/cs/resource/71804207/druhy-bateri%C3%AD' },
+					],
 				},
 				{
 					slug: 'vedeni-proudu-v-plynech',

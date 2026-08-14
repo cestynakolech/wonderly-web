@@ -1,0 +1,295 @@
+---
+// Galvanický článek (F8, elektrina/chemicke-zdroje-napeti).
+//
+// Jádro učiva, které si žák musí odnést: napětí dělá DVOJICE RŮZNÝCH KOVŮ
+// (elektrod) v elektrolytu, ne velikost kádinky ani množství roztoku.
+// Proto část A nenabízí volný výběr dvou elektrod ze všech myslitelných
+// kovů — u kombinací, které nejsou v učivu (např. měď + uhlík), bychom
+// museli napětí VYMYSLET, a to je zakázané. Místo toho jede žák jedním
+// posuvníkem přes 6 SKUTEČNÝCH dvojic — a schválně jsou proloženy tak,
+// aby hned vedle sebe viděl kontrast: jiný kov → napětí, stejný kov → 0 V.
+// Záporná elektroda je vždy ta MÉNĚ UŠLECHTILÁ (ta, co se rozpouští):
+// zinek u suchého článku i Voltova článku, olovo u akumulátoru.
+//
+// Část B ukazuje druhou půlku: napětí se SČÍTÁ zapojením článků za sebou
+// (3 × 1,5 V = 4,5 V, 6 × 1,5 V = 9 V) a že velikost článku (AA/D) napětí
+// vůbec nemění — mění jen kapacitu, a tedy výdrž. Kapacity (AA 2 000 mAh,
+// D 12 000 mAh) a nabízené proudy (200/500/1000 mA) jsou zvolené schválně
+// tak, aby výdrž vždy vyšla v celých hodinách (2 až 60 h).
+//
+// Kreslí se staticky, bez animací — jen kolečka/obdélníky přepočítané
+// z posuvníků.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Galvanický článek: odkud se bere napětí? 🕹️</span></h2>
+	<p>Ponoř do kádinky dvě elektrody a sleduj voltmetr. Pak zapoj víc článků za sebe a zjisti, co dělá <strong>napětí</strong> a co jen <strong>výdrž</strong>.</p>
+
+	<h3>🧪 Část A: Sestav článek</h3>
+	<p>Vyber dvojici elektrod. Pozor na chyták: <strong>dvě stejné elektrody nedají žádné napětí</strong>, ať je kádinka jakkoli velká.</p>
+	<svg id="gc-a-svg" viewBox="0 0 660 480" role="img" aria-label="Kádinka s elektrolytem, dvě elektrody a voltmetr">
+		<rect x="0" y="0" width="660" height="480" fill="#f8f9fa" />
+		<!-- kádinka: otevřená nahoře (vzduch), roztok dole (voda/elektrolyt dole — kotva scény) -->
+		<path d="M180,170 L180,370 L480,370 L480,170" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect x="184" y="260" width="292" height="106" fill="#a5d8ff" />
+		<!-- voltmetr nahoře, svorky pevně na místě -->
+		<rect x="260" y="15" width="140" height="50" rx="10" fill="#fff3bf" stroke="#2b2a26" stroke-width="3" />
+		<circle cx="270" cy="65" r="8" fill="#dee2e6" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="390" cy="65" r="8" fill="#dee2e6" stroke="#2b2a26" stroke-width="2" />
+		<line x1="270" y1="65" x2="270" y2="95" stroke="#495057" stroke-width="4" />
+		<line x1="390" y1="65" x2="390" y2="95" stroke="#495057" stroke-width="4" />
+		<g id="gc-a-u"></g>
+		<g id="gc-a-elektrody"></g>
+		<g id="gc-a-info"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Dvojice elektrod: <output id="gc-a-out-par"></output>
+		<input type="range" id="gc-a-par" min="0" max="5" step="1" value="0" />
+	</label>
+	<p class="gc-vzorec" id="gc-a-vypocet"></p>
+	<p class="gc-stav" id="gc-a-stav"></p>
+
+	<h3><span class="podtrh">🔋 Část B: Zapoj za sebou</span></h3>
+	<p>Poskládej víc článků za sebe a zvol jejich velikost. Napětí se <strong>sčítá</strong>, ale velikost mění jen to, jak dlouho článek vydrží.</p>
+	<svg id="gc-b-svg" viewBox="0 0 660 420" role="img" aria-label="Řada článků zapojených za sebou napájí spotřebič">
+		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
+		<g id="gc-b-celkem"></g>
+		<g id="gc-b-pack"></g>
+		<g id="gc-b-obvod"></g>
+		<g id="gc-b-info"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Počet článků za sebou: <output id="gc-b-out-pocet"></output>
+		<input type="range" id="gc-b-pocet" min="1" max="6" step="1" value="3" />
+	</label>
+	<label class="sim-posuvnik">
+		Velikost článku: <output id="gc-b-out-velikost"></output>
+		<input type="range" id="gc-b-velikost" min="0" max="1" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Proud spotřebiče: <output id="gc-b-out-proud"></output>
+		<input type="range" id="gc-b-proud" min="0" max="2" step="1" value="1" />
+	</label>
+	<p class="gc-vzorec" id="gc-b-vypocet"></p>
+	<p class="gc-stav" id="gc-b-stav"></p>
+</section>
+
+<script>
+	// Obranné čtení čísla z posuvníku. Chybějící prvek, prázdná hodnota nebo
+	// NaN se nesmí propsat do indexu pole (PARY[NaN], VELIKOSTI[NaN]…) — to by
+	// spadlo na „Cannot read properties of undefined" a shodilo by to CELÝ
+	// skript, tedy obě části simulace najednou. Neplatná hodnota se proto
+	// tiše nahradí rozumným výchozím stavem, ne pádem.
+	function platneCislo(hodnota, min, max, vychozi) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= min && n <= max ? n : vychozi;
+	}
+
+	// ── Část A: dvojice elektrod ────────────────────────────────────────────
+	// Šest SKUTEČNÝCH dvojic, schválně proložených jiný-stejný-jiný-stejný...,
+	// aby žák hned viděl kontrast. „minus" je vždy ta MÉNĚ UŠLECHTILÁ elektroda
+	// (ta, co se v článku rozpouští) — null znamená stejné elektrody → 0 V.
+	const PARY = [
+		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'uhlík', barva: '#343a40' },
+			napeti: 1.5, minus: 'e1', clanek: 'suchý článek', elektrolyt: 'salmiaková pasta' },
+		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'zinek', barva: '#adb5bd' },
+			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiaková pasta' },
+		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'měď', barva: '#c2723a' },
+			napeti: 1.1, minus: 'e1', clanek: 'Voltův článek', elektrolyt: 'zředěná kyselina sírová' },
+		{ e1: { nazev: 'měď', barva: '#c2723a' }, e2: { nazev: 'měď', barva: '#c2723a' },
+			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'zředěná kyselina sírová' },
+		{ e1: { nazev: 'olovo', barva: '#495057' }, e2: { nazev: 'oxid olovičitý', barva: '#5c3a21' },
+			napeti: 2, minus: 'e1', clanek: 'olověný akumulátor', elektrolyt: 'zředěná kyselina sírová' },
+		{ e1: { nazev: 'uhlík', barva: '#343a40' }, e2: { nazev: 'uhlík', barva: '#343a40' },
+			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiaková pasta' },
+	];
+
+	// ČISTÁ FUNKCE: znaménka obou elektrod dané dvojice.
+	function znamenka(par) {
+		if (par.minus === null) return { e1: null, e2: null };
+		return par.minus === 'e1' ? { e1: '−', e2: '+' } : { e1: '+', e2: '−' };
+	}
+
+	// Napětí se píše s čárkou, jen když je opravdu desetinné (1,5 V, 1,1 V) —
+	// celá čísla (0 V, 2 V) zůstávají bez zbytečné nuly za čárkou.
+	function napetiText(n) {
+		const r = Math.round(n * 10) / 10;
+		return Number.isInteger(r) ? `${r} V` : `${String(r).replace('.', ',')} V`;
+	}
+
+	const parSlider = document.getElementById('gc-a-par');
+	const svgA = document.getElementById('gc-a-svg');
+	svgA.__PARY = PARY;
+	svgA.__znamenka = znamenka;
+	svgA.__napetiText = napetiText;
+
+	function prekresliA() {
+		const idx = platneCislo(parSlider.value, 0, PARY.length - 1, 0);
+		const par = PARY[idx];
+		const zn = znamenka(par);
+
+		document.getElementById('gc-a-out-par').textContent = `${par.e1.nazev} + ${par.e2.nazev} (${par.clanek})`;
+		document.getElementById('gc-a-u').innerHTML =
+			`<text x="330" y="46" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">U = ${napetiText(par.napeti)}</text>`;
+
+		// elektrody: tyč (barva podle kovu), čepička se znaménkem, popisek kovu
+		const elektroda = (cx, e, sign) => {
+			const barvaZnamenka = sign === '+' ? '#ff8787' : sign === '−' ? '#74c0fc' : '#dee2e6';
+			return `<rect x="${cx - 12}" y="95" width="24" height="235" fill="${e.barva}" stroke="#2b2a26" stroke-width="2" />`
+				+ `<circle cx="${cx}" cy="118" r="14" fill="${barvaZnamenka}" stroke="#2b2a26" stroke-width="2" />`
+				+ (sign ? `<text x="${cx}" y="124" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">${sign}</text>` : '')
+				+ `<text x="${cx}" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">${e.nazev}</text>`;
+		};
+		document.getElementById('gc-a-elektrody').innerHTML = elektroda(270, par.e1, zn.e1) + elektroda(390, par.e2, zn.e2);
+
+		const minusNazev = par.minus === 'e1' ? par.e1.nazev : par.minus === 'e2' ? par.e2.nazev : null;
+		const radek3 = par.minus === null
+			? 'napětí U = 0 V — stejné elektrody nedávají žádné napětí'
+			: `napětí U = ${napetiText(par.napeti)} — záporná elektroda: ${minusNazev} (méně ušlechtilý kov)`;
+		document.getElementById('gc-a-info').innerHTML =
+			`<rect x="14" y="392" width="632" height="74" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="414" font-size="14" font-weight="bold" fill="#2b2a26">článek: ${par.clanek} (${par.e1.nazev} + ${par.e2.nazev})</text>`
+			+ `<text x="28" y="436" font-size="14" font-weight="bold" fill="#2b2a26">elektrolyt: ${par.elektrolyt}</text>`
+			+ `<text x="28" y="458" font-size="14" font-weight="bold" fill="#2b2a26">${radek3}</text>`;
+
+		document.getElementById('gc-a-vypocet').innerHTML =
+			`Napětí dělá <strong>dvojice různých kovů</strong>, ne velikost kádinky: ${par.e1.nazev} + ${par.e2.nazev} → <strong>${napetiText(par.napeti)}</strong>.`;
+
+		const stavP = document.getElementById('gc-a-stav');
+		stavP.textContent = par.minus === null
+			? `⚡ Obě elektrody jsou ze stejného kovu (${par.e1.nazev}) — voltmetr ukazuje 0 V. Napětí vzniká jen mezi RŮZNÝMI kovy.`
+			: `🔋 ${par.clanek}: dvojice ${par.e1.nazev} + ${par.e2.nazev} dává ${napetiText(par.napeti)}. Záporná elektroda je ${minusNazev} (méně ušlechtilý kov), kladná je ${par.minus === 'e1' ? par.e2.nazev : par.e1.nazev}.`;
+	}
+
+	// ── Část B: články za sebou ──────────────────────────────────────────────
+	const VELIKOSTI = [
+		{ nazev: 'AA (tužková)', kapacita: 2000 },
+		{ nazev: 'D (monočlánek)', kapacita: 12000 },
+	];
+	const PROUDY = [200, 500, 1000]; // mA — s kapacitami dávají vždy celé hodiny
+
+	// ČISTÁ FUNKCE: napětí, kapacita a výdrž pro dané nastavení. Obranně čte
+	// i tady — kdyby sem někdo poslal neplatný počet/index, dřív spadlo na
+	// „velikost.kapacita" stejně jako geometriePack na xNubEnd.
+	function stavB(pocet, velikostIdx, proudIdx) {
+		const n = platneCislo(pocet, 1, 6, 3);
+		const vIdx = platneCislo(velikostIdx, 0, VELIKOSTI.length - 1, 0);
+		const pIdx = platneCislo(proudIdx, 0, PROUDY.length - 1, 1);
+		const velikost = VELIKOSTI[vIdx];
+		const proud = PROUDY[pIdx];
+		const napeti = Math.round(n * 1.5 * 10) / 10;
+		return { pocet: n, napeti, velikost, kapacita: velikost.kapacita, proud, vydrzH: velikost.kapacita / proud };
+	}
+
+	// ČISTÁ FUNKCE: geometrie řady článků. Spodní hrana (yBottom) je NATVRDO
+	// stejná pro AA i D — velikost roste jen nahoru, takže vodiče dolů ke
+	// spotřebiči vždy vycházejí ze stejné výšky.
+	function geometriePack(pocet, velikostIdx) {
+		// Obranné čtení: neplatný počet by dal prázdné pole `cells` a
+		// `cells[cells.length - 1].xNubEnd` o pár řádků níž by spadlo na
+		// „Cannot read properties of undefined" a shodilo celý skript.
+		// Platnost počtu hlídá VÝHRADNĚ tohle místo (jedno rozhodnutí, jedno
+		// místo) — díky tomu je `n` vždy celé číslo 1–6 a `cells` níž proto
+		// nikdy nemůže zůstat prázdné.
+		const n = platneCislo(pocet, 1, 6, 3);
+		const cellWidth = velikostIdx === 0 ? 56 : 88;
+		const cellHeight = velikostIdx === 0 ? 40 : 64;
+		const NUB = 6; // šířka +čepičky = mezera mezi články, aby na sebe navazovaly
+		const totalWidth = n * cellWidth + (n - 1) * NUB;
+		const startX = Math.round(330 - totalWidth / 2);
+		const yBottom = 150;
+		const yTop = yBottom - cellHeight;
+		const yMid = yBottom - cellHeight / 2;
+		const cells = [];
+		for (let i = 0; i < n; i++) {
+			const x = startX + i * (cellWidth + NUB);
+			cells.push({ x, xNubEnd: x + cellWidth + NUB });
+		}
+		return { cellWidth, cellHeight, NUB, startX, yTop, yBottom, yMid, cells, xLastRight: cells[cells.length - 1].xNubEnd };
+	}
+
+	function clanku(n) {
+		if (n === 1) return '1 článek';
+		if (n >= 2 && n <= 4) return `${n} články`;
+		return `${n} článků`;
+	}
+	function hodin(n) {
+		if (n === 1) return '1 hodina';
+		if (n >= 2 && n <= 4) return `${n} hodiny`;
+		return `${n} hodin`;
+	}
+
+	const pocetSlider = document.getElementById('gc-b-pocet');
+	const velikostSlider = document.getElementById('gc-b-velikost');
+	const proudSlider = document.getElementById('gc-b-proud');
+	const svgB = document.getElementById('gc-b-svg');
+	svgB.__VELIKOSTI = VELIKOSTI;
+	svgB.__PROUDY = PROUDY;
+	svgB.__stavB = stavB;
+	svgB.__geometriePack = geometriePack;
+	svgB.__clanku = clanku;
+	svgB.__hodin = hodin;
+	svgB.__napetiText = napetiText;
+
+	function prekresliB() {
+		// Obranné čtení i tady (ne jen uvnitř stavB/geometriePack) — ať se
+		// „NaN článků" nebo „NaN × 1,5 V" nikdy neukáže v textu pro žáky.
+		const pocet = platneCislo(pocetSlider.value, 1, 6, 3);
+		const velikostIdx = platneCislo(velikostSlider.value, 0, VELIKOSTI.length - 1, 0);
+		const proudIdx = platneCislo(proudSlider.value, 0, PROUDY.length - 1, 1);
+		const s = stavB(pocet, velikostIdx, proudIdx);
+		const g = geometriePack(pocet, velikostIdx);
+
+		document.getElementById('gc-b-out-pocet').textContent = clanku(pocet);
+		document.getElementById('gc-b-out-velikost').textContent = s.velikost.nazev;
+		document.getElementById('gc-b-out-proud').textContent = `${s.proud} mA`;
+
+		document.getElementById('gc-b-celkem').innerHTML =
+			`<text x="330" y="60" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">Celkem: ${napetiText(s.napeti)}</text>`;
+
+		let cellsHtml = '';
+		for (const c of g.cells) {
+			cellsHtml += `<rect x="${c.x}" y="${g.yTop}" width="${g.cellWidth}" height="${g.cellHeight}" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />`
+				+ `<rect x="${c.x + g.cellWidth}" y="${Math.round(g.yMid - g.cellHeight * 0.2)}" width="${g.NUB}" height="${Math.round(g.cellHeight * 0.4)}" fill="#f1c40f" stroke="#2b2a26" stroke-width="1" />`;
+		}
+		cellsHtml += `<circle cx="${g.startX - 10}" cy="${g.yMid}" r="10" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${g.startX - 10}" y="${g.yMid + 5}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">−</text>`
+			+ `<circle cx="${g.xLastRight + 10}" cy="${g.yMid}" r="10" fill="#ff8787" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${g.xLastRight + 10}" y="${g.yMid + 5}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">+</text>`;
+		document.getElementById('gc-b-pack').innerHTML = cellsHtml;
+
+		const barLeft = g.startX - 16;
+		const barRight = g.xLastRight + 16;
+		document.getElementById('gc-b-obvod').innerHTML =
+			`<line x1="${g.startX}" y1="${g.yBottom}" x2="${g.startX}" y2="260" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${g.xLastRight}" y1="${g.yBottom}" x2="${g.xLastRight}" y2="260" stroke="#495057" stroke-width="4" />`
+			+ `<rect x="${barLeft}" y="260" width="${barRight - barLeft}" height="44" rx="6" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${Math.round((barLeft + barRight) / 2)}" y="286" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">spotřebič: proud ${s.proud} mA</text>`;
+
+		document.getElementById('gc-b-info').innerHTML =
+			`<rect x="14" y="316" width="632" height="74" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="338" font-size="14" font-weight="bold" fill="#2b2a26">${clanku(pocet)} po 1,5 V za sebou = ${napetiText(s.napeti)}</text>`
+			+ `<text x="28" y="360" font-size="14" font-weight="bold" fill="#2b2a26">velikost: ${s.velikost.nazev}, kapacita ${s.kapacita} mAh</text>`
+			+ `<text x="28" y="382" font-size="14" font-weight="bold" fill="#2b2a26">proud ${s.proud} mA → výdrž ${hodin(s.vydrzH)}</text>`;
+
+		document.getElementById('gc-b-vypocet').innerHTML =
+			`${clanku(pocet)} po 1,5 V za sebou: ${pocet} × 1,5 V = <strong>${napetiText(s.napeti)}</strong>. `
+			+ `Kapacita ${s.velikost.nazev}: ${s.kapacita} mAh ÷ ${s.proud} mA = výdrž <strong>${hodin(s.vydrzH)}</strong>.`;
+
+		document.getElementById('gc-b-stav').textContent =
+			`🔋 ${clanku(pocet)} za sebou dávají ${napetiText(s.napeti)} — napětí se SČÍTÁ. Velikost ${s.velikost.nazev} napětí nemění, jen kapacitu: při proudu ${s.proud} mA vydrží ${hodin(s.vydrzH)}.`;
+	}
+
+	parSlider.addEventListener('input', prekresliA);
+	prekresliA();
+	for (const p of [pocetSlider, velikostSlider, proudSlider]) p.addEventListener('input', prekresliB);
+	prekresliB();
+</script>
+
+<style>
+	#gc-a-svg, #gc-b-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.gc-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.gc-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

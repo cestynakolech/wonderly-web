@@ -227,6 +227,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 156 kontrol (exit 0).",
 			"regrese": "Smyčka s nezávislým kontrolorem uzavřena na 0 nálezů (6 → 2 → 1 → 0): opraveno počitadlo roztoku (12 doprava a 12 doleva), AC hláška pro oba druhy iontů, svorky bez znamének při 0 V, efektové kontroly posluchačů všech čtyř posuvníků (mrtvý posluchač padá), dovětek izolantu větvený podle napětí. Mutační test 24/25 — jediná neodhalená mutace mění komentář ve zdroji.",
 			"overeno": "2026-08-13"
+		},
+		"simulace/galvanicky-clanek.mjs": {
+			"test": "testy/simulace/galvanicky-clanek.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Podvrh na KOPII mimo repo (otisk originálu 1d4905e041bf8babd35bcd1a2f866e06 před i po shodný, kopie d5856ab352a4fc76bac37a9411426845): 3× prohozena záporná elektroda na tu UŠLECHTILEJŠÍ (minus: e1 → e2), tedy přesný opak učiva — dítě by se naučilo polaritu naopak. Test spadl (3 chyby, exit 1). K tomu mutační test node testy/mutace.mjs galvanicky-clanek: 25 z 25. Cesta k němu: první podoba měla 21/25 (neviděla obrácenou polaritu v TEXTU hlášky, jen barvu odznaku, a tři souřadnice kresby), po dvou kolech oprav 24/25 a po odstranění nedosažitelné záložní větve v geometriePack 25/25.",
+			"zdravy": "Nad hotovou komponentou prochází všech 111 kontrol ('✅ Galvanický článek: vše sedí.', exit 0). Brána testy/sablony.mjs 0 nálezů.",
+			"regrese": "Brána zkontroluj.mjs odhalila, co test se 104 kontrolami neviděl: pád na cells[cells.length-1].xNubEnd při neplatném počtu článků shodil celý skript simulace. Opraveno obrannou funkcí platneCislo() a kontrolou odolnosti; záložní větev pak odstraněna, protože mrtvý kód uniká mutačnímu testu.",
+			"overeno": "2026-08-14"
 		}
 	}
 }
