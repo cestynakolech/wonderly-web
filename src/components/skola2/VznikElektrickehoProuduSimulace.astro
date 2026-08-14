@@ -1,0 +1,339 @@
+---
+// Vznik elektrického proudu ve vodiči (F8, vznik-elektrickeho-proudu).
+//
+// Jádro učiva: PROUD JE USPOŘÁDANÝ POHYB volných nabitých částic. Typický omyl
+// stojí přímo v kvízu („Jak se pohybují částice bez napětí?" — špatná odpověď
+// „vůbec se nehýbou"). Scéna je proto postavená na tomhle rozdílu: při 0 V mají
+// částice šipky pořád, jen každá míří jinam a výsledný přesun řezem je nula;
+// s napětím se šipky srovnají do jednoho směru a řezem začne procházet
+// vypočítaný počet částic za sekundu.
+//
+// Druhá půlka učiva je materiál: kov nese proud volnými elektrony, roztok
+// kladnými i zápornými ionty (jdou proti sobě a oba pohyby proud tvoří),
+// izolant nemá volné nabité částice — a proud jím neprojde ani při největším
+// napětí. Přepínač druhu proudu ukazuje, že střídavý zdroj svorky každých
+// 10 ms prohodí (perioda 20 ms = 50 Hz): mění se jen SMĚR, ne velikost.
+//
+// Všechna čísla jsou celá: napětí jde po 3 V a 3 V = 1 uspořádaný krok
+// za sekundu. Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vznik elektrického proudu ve vodiči 🕹️</span></h2>
+	<p>Přidej <strong>napětí</strong> a sleduj šipky částic. Pozor na chyták: <strong>i bez napětí se částice hýbou</strong> — proud je až <strong>uspořádaný</strong> pohyb jedním směrem.</p>
+	<svg id="vep-svg" viewBox="0 0 660 500" role="img" aria-label="Vodič s volnými částicemi připojený ke zdroji napětí">
+		<rect x="0" y="0" width="660" height="500" fill="#f8f9fa" />
+		<!-- popisek zdroje (natvrdo — kotva scény) -->
+		<text x="330" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">zdroj napětí</text>
+		<!-- vodiče obvodu: od svorek dolů ke zkoumanému úseku -->
+		<path d="M225 72 L60 72 L60 295 L100 295" fill="none" stroke="#868e96" stroke-width="6" />
+		<path d="M435 72 L600 72 L600 295 L560 295" fill="none" stroke="#868e96" stroke-width="6" />
+		<line x1="255" y1="72" x2="270" y2="72" stroke="#868e96" stroke-width="6" />
+		<line x1="405" y1="72" x2="420" y2="72" stroke="#868e96" stroke-width="6" />
+		<!-- zdroj, jeho svorky a poznámka o čase (kreslí skript) -->
+		<g id="vep-zdroj"></g>
+		<g id="vep-svorky"></g>
+		<g id="vep-cas"></g>
+		<!-- zkoumaný úsek vodiče -->
+		<g id="vep-material-popis"></g>
+		<rect id="vep-usek" x="100" y="240" width="460" height="110" rx="10" fill="#ced4da" stroke="#2b2a26" stroke-width="3" />
+		<!-- řez, kterým se počítají procházející částice (natvrdo — kotva scény) -->
+		<line x1="330" y1="240" x2="330" y2="350" stroke="#2b2a26" stroke-width="2" stroke-dasharray="7 5" />
+		<text x="330" y="232" text-anchor="middle" font-size="12" fill="#2b2a26">řez</text>
+		<g id="vep-castice"></g>
+		<!-- co se ve vodiči přesouvá -->
+		<g id="vep-tok"></g>
+		<!-- počitadlo v pruhu dole -->
+		<g id="vep-pocty" font-size="14" font-weight="bold" fill="#2b2a26"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Napětí zdroje: <output id="vep-out-u"></output>
+		<input type="range" id="vep-napeti" min="0" max="12" step="3" value="6" />
+	</label>
+	<label class="sim-posuvnik">
+		Co je mezi svorkami: <output id="vep-out-m"></output>
+		<input type="range" id="vep-material" min="0" max="2" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Druh proudu: <output id="vep-out-d"></output>
+		<input type="range" id="vep-druh" min="0" max="1" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Okamžik od zapnutí: <output id="vep-out-t"></output>
+		<input type="range" id="vep-okamzik" min="0" max="3" step="1" value="0" />
+	</label>
+	<p class="vep-vzorec" id="vep-vypocet"></p>
+	<p class="vep-stav" id="vep-stav"></p>
+</section>
+
+<script>
+	// Kolik voltů dá jeden uspořádaný krok částice za sekundu. Díky téhle
+	// trojce vychází proud i kroky vždycky jako celé číslo.
+	const VOLTU_NA_KROK = 3;
+	const PERIODA = 20;              // ms — 50 Hz, jako v zásuvce
+	const OKAMZIKY = [2, 7, 12, 17]; // ms; první dva v první půlperiodě, další dva ve druhé
+	const ATOMU = 8;                 // kolik atomů se nakreslí do izolantu
+
+	const MATERIALY = [
+		{ nazev: 'měděný drát (kov)', nosic: 'volné elektrony', kladnych: 0, zapornych: 8, barva: '#ced4da' },
+		{ nazev: 'slaná voda (roztok)', nosic: 'kladné i záporné ionty', kladnych: 3, zapornych: 3, barva: '#a5d8ff' },
+		{ nazev: 'plastová tyčka (izolant)', nosic: 'náboje vázané v atomech', kladnych: 0, zapornych: 0, barva: '#ffd8a8' },
+	];
+
+	const napetiSlider = document.getElementById('vep-napeti');
+	const materialSlider = document.getElementById('vep-material');
+	const druhSlider = document.getElementById('vep-druh');
+	const okamzikSlider = document.getElementById('vep-okamzik');
+	const svg = document.getElementById('vep-svg');
+
+	// ČISTÁ FUNKCE: kolik kroků udělá jedna částice za sekundu.
+	// Napětí je PŘÍČINA proudu — bez napětí žádný uspořádaný krok.
+	function kroky(napeti) {
+		return napeti / VOLTU_NA_KROK;
+	}
+
+	// ČISTÁ FUNKCE: celý stav vodiče.
+	// prochazi = kolik částic za sekundu projde řezem NAVÍC jedním směrem.
+	// Bez napětí je to nula, i když se částice hýbou dál — tam a zpět se vyruší.
+	// smer = +1 znamená „záporné částice míří doprava (ke svorce + vpravo)".
+	function stav(napeti, material, druh, okamzik) {
+		const mat = MATERIALY[material];
+		const volnych = mat.kladnych + mat.zapornych;
+		const k = kroky(napeti);
+		const smer = druh === 0 ? 1 : (OKAMZIKY[okamzik] < PERIODA / 2 ? 1 : -1);
+		const prochazi = volnych * k;
+		return { volnych, kroky: k, prochazi, smer, tece: prochazi > 0 };
+	}
+
+	// ČISTÁ FUNKCE: kam se ve zkoumaném úseku nakreslí která částice.
+	// Kov má elektrony v pravidelné mřížce 2 × 4, roztok má ionty prostřídané
+	// (kladné nahoře, záporné dole — v kapalině nejsou v mřížce), izolant má
+	// místo volných částic atomy s vázaným párem nábojů.
+	function rozmisteni(material) {
+		const mat = MATERIALY[material];
+		const body = [];
+		if (mat.kladnych === 0 && mat.zapornych === 0) {
+			for (let i = 0; i < ATOMU; i++) body.push({ x: 150 + (i % 4) * 120, y: i < 4 ? 272 : 318, naboj: 0 });
+			return body;
+		}
+		if (mat.kladnych > 0) {
+			for (let i = 0; i < mat.kladnych; i++) body.push({ x: 190 + i * 160, y: 272, naboj: 1 });
+			for (let i = 0; i < mat.zapornych; i++) body.push({ x: 150 + i * 160, y: 318, naboj: -1 });
+			return body;
+		}
+		for (let i = 0; i < mat.zapornych; i++) body.push({ x: 150 + (i % 4) * 120, y: i < 4 ? 272 : 318, naboj: -1 });
+		return body;
+	}
+
+	// Skloňování: 1 částice · 2–4 částice · 0 a 5 a víc částic.
+	function castic(n) {
+		if (n === 1) return '1 částice';
+		if (n >= 2 && n <= 4) return `${n} částice`;
+		return `${n} částic`;
+	}
+	// Skloňování: 1 krok · 2–4 kroky · 0 a 5 a víc kroků.
+	function kroku(n) {
+		if (n === 1) return '1 krok';
+		if (n >= 2 && n <= 4) return `${n} kroky`;
+		return `${n} kroků`;
+	}
+	// Celá fráze i se slovesem — u 2 až 4 částic se musí říct „projdou".
+	function projdeRezem(n) {
+		if (n === 1) return 'projde řezem 1 částice';
+		if (n >= 2 && n <= 4) return `projdou řezem ${n} částice`;
+		return `projde řezem ${n} částic`;
+	}
+
+	svg.__stav = stav;
+	svg.__kroky = kroky;
+	svg.__rozmisteni = rozmisteni;
+	svg.__castic = castic;
+	svg.__kroku = kroku;
+	svg.__projdeRezem = projdeRezem;
+	svg.__MATERIALY = MATERIALY;
+	svg.__OKAMZIKY = OKAMZIKY;
+	svg.__PERIODA = PERIODA;
+
+	function prekresli() {
+		const napeti = +napetiSlider.value;
+		const material = +materialSlider.value;
+		const druh = +druhSlider.value;
+		const okamzik = +okamzikSlider.value;
+		const mat = MATERIALY[material];
+		const s = stav(napeti, material, druh, okamzik);
+		const cas = OKAMZIKY[okamzik];
+		const izolant = mat.kladnych === 0 && mat.zapornych === 0;
+
+		document.getElementById('vep-out-u').textContent = `${napeti} V`;
+		document.getElementById('vep-out-m').textContent = mat.nazev;
+		document.getElementById('vep-out-d').textContent = druh === 0 ? 'stejnosměrný (baterie)' : 'střídavý (zásuvka)';
+		document.getElementById('vep-out-t').textContent = `${cas} ms`;
+
+		// ── zdroj napětí
+		document.getElementById('vep-zdroj').innerHTML =
+			`<rect x="270" y="40" width="120" height="64" rx="10" fill="${druh === 0 ? '#ffd43b' : '#91a7ff'}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="330" y="72" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">${napeti} V</text>`
+			+ `<text x="330" y="92" text-anchor="middle" font-size="12" fill="#2b2a26">${druh === 0 ? '⎓ stejnosměrný' : '∿ střídavý'}</text>`;
+
+		// ── svorky: u střídavého zdroje se znaménka prohazují.
+		// Při 0 V znaménka NEJSOU: napětí je rozdíl nábojů mezi svorkami,
+		// takže bez napětí není žádná svorka + ani − (nález kontrolora).
+		const leva = s.smer === 1 ? '−' : '+';
+		const prava = leva === '+' ? '−' : '+';
+		const svorka = (cx, zn) =>
+			`<circle cx="${cx}" cy="72" r="15" fill="${zn === '+' ? '#ff8787' : '#74c0fc'}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${cx}" y="79" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">${zn}</text>`
+			+ `<text x="${cx}" y="120" text-anchor="middle" font-size="12" fill="#2b2a26">svorka ${zn}</text>`;
+		const svorkaBezNaboje = (cx) =>
+			`<circle cx="${cx}" cy="72" r="15" fill="#dee2e6" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${cx}" y="120" text-anchor="middle" font-size="12" fill="#2b2a26">svorka</text>`;
+		document.getElementById('vep-svorky').innerHTML = napeti === 0
+			? svorkaBezNaboje(240) + svorkaBezNaboje(420)
+			: svorka(240, leva) + svorka(420, prava);
+
+		// ── poznámka o čase (u střídavého zdroje má smysl, u baterie ne;
+		// při 0 V se místo ní vysvětlí, proč svorky nemají znaménka)
+		const radky = napeti === 0
+			? ['0 V: mezi svorkami není rozdíl nábojů,', 'žádná není + ani −']
+			: druh === 0
+				? ['baterie: svorky se nemění,', 'proud teče stále jedním směrem']
+				: [`čas ${cas} ms · perioda ${PERIODA} ms`, `svorky se prohodí každých ${PERIODA / 2} ms`];
+		document.getElementById('vep-cas').innerHTML =
+			`<text x="450" y="46" font-size="11" fill="#495057">${radky[0]}</text>`
+			+ `<text x="450" y="62" font-size="11" fill="#495057">${radky[1]}</text>`;
+
+		// ── zkoumaný úsek: barva a popisek podle materiálu
+		document.getElementById('vep-usek').setAttribute('fill', mat.barva);
+		// Popisek má vlastní řádek NAD řezem: dokud stál v jedné výšce s ním,
+		// delší názvy do popisku „řez" narážely („…záporné ionty" přes „řez")
+		// — nález z vyrenderovaného obrázku, měřidlo o něm nevědělo.
+		document.getElementById('vep-material-popis').innerHTML =
+			`<text x="104" y="212" font-size="13" font-weight="bold" fill="#2b2a26">${mat.nazev}: ${mat.nosic}</text>`;
+
+		// ── částice i se šipkami svého pohybu
+		// Bez napětí míří každá šipka jinam (neuspořádaný tepelný pohyb),
+		// s napětím se všechny srovnají — v tom je celé učivo.
+		let c = '';
+		rozmisteni(material).forEach((b, i) => {
+			const vypln = b.naboj === 1 ? '#ff8787' : b.naboj === -1 ? '#74c0fc' : '#dee2e6';
+			c += `<circle cx="${b.x}" cy="${b.y}" r="13" fill="${vypln}" stroke="#2b2a26" stroke-width="2" />`;
+			if (b.naboj === 0) {
+				// Atom izolantu: kladný i záporný náboj u sebe, oba VÁZANÉ.
+				// Napsané „+−" v jednom textu vypadalo na obrázku jako šipka
+				// doleva — proto dvě samostatná kolečka vedle sebe.
+				c += `<circle cx="${b.x - 6}" cy="${b.y}" r="5" fill="#ff8787" stroke="#2b2a26" stroke-width="1" />`
+					+ `<text x="${b.x - 6}" y="${b.y + 4}" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">+</text>`
+					+ `<circle cx="${b.x + 6}" cy="${b.y}" r="5" fill="#74c0fc" stroke="#2b2a26" stroke-width="1" />`
+					+ `<text x="${b.x + 6}" y="${b.y + 4}" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">−</text>`;
+				return;   // v izolantu se náboj nemá jak rozjet
+			}
+			c += `<text x="${b.x}" y="${b.y + 5}" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">`
+				+ `${b.naboj === 1 ? '+' : '−'}</text>`;
+			const smerCastice = b.naboj === -1 ? s.smer : -s.smer;
+			const uhel = s.kroky === 0
+				? (i * 137 * Math.PI) / 180              // každá jinam, a pořád stejně (bez animace)
+				: (smerCastice === 1 ? 0 : Math.PI);
+			const delka = 8 + s.kroky * 4;
+			const dx = Math.cos(uhel), dy = Math.sin(uhel);
+			const zx = Math.round(b.x + dx * 15), zy = Math.round(b.y + dy * 15);
+			const kx = Math.round(b.x + dx * (15 + delka)), ky = Math.round(b.y + dy * (15 + delka));
+			const hx = Math.round(b.x + dx * (10 + delka)), hy = Math.round(b.y + dy * (10 + delka));
+			c += `<line x1="${zx}" y1="${zy}" x2="${kx}" y2="${ky}" stroke="#2b2a26" stroke-width="2" />`
+				+ `<polygon points="${kx},${ky} ${Math.round(hx - dy * 5)},${Math.round(hy + dx * 5)}`
+				+ ` ${Math.round(hx + dy * 5)},${Math.round(hy - dx * 5)}" fill="#2b2a26" />`;
+		});
+		document.getElementById('vep-castice').innerHTML = c;
+
+		// ── co se ve vodiči přesouvá (šipky pod úsekem)
+		const sipka = (y, dir, barva, popis) => {
+			const x1 = dir === 1 ? 110 : 210;
+			const x2 = dir === 1 ? 200 : 120;
+			return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="${barva}" stroke-width="4" />`
+				+ `<polygon points="${x2 + dir * 12},${y} ${x2},${y - 8} ${x2},${y + 8}" fill="${barva}" />`
+				+ `<text x="228" y="${y + 5}" font-size="13" font-weight="bold" fill="${barva}">${popis}</text>`;
+		};
+		let tok = '';
+		if (!s.tece) {
+			tok = `<text x="110" y="381" font-size="13" font-weight="bold" fill="#c92a2a">`
+				+ `${izolant ? 'volné částice tu nejsou — proud neprojde' : 'pohyb je neuspořádaný — výsledný přesun je nulový'}</text>`;
+		} else if (mat.kladnych > 0) {
+			tok = sipka(374, s.smer, '#1971c2', `záporné ionty míří ke svorce ${leva === '−' ? '+ vpravo' : '+ vlevo'}`)
+				+ sipka(400, -s.smer, '#c92a2a', `kladné ionty míří ke svorce ${leva === '−' ? '− vlevo' : '− vpravo'}`);
+		} else {
+			tok = sipka(381, s.smer, '#1971c2', `elektrony míří ke svorce ${leva === '−' ? '+ vpravo' : '+ vlevo'}`);
+		}
+		document.getElementById('vep-tok').innerHTML = tok;
+
+		// ── počitadlo: o těch třech číslech to celé je
+		document.getElementById('vep-pocty').innerHTML =
+			`<rect x="14" y="418" width="632" height="76" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="442">volné částice v úseku: ${s.volnych}</text>`
+			// U izolantu by „každá udělá 4 kroky" mluvilo o nule částic — proto
+			// se tam napětí popíše jako nabídka, kterou nemá kdo přijmout.
+			+ `<text x="300" y="442">${izolant ? `napětí by dalo ${kroku(s.kroky)}, nemá je ale co rozpohybovat` : `každá udělá ${kroku(s.kroky)} za sekundu`}</text>`
+			// Směr platí jen tam, kde jdou všechny částice stejně (kov). V roztoku
+			// jde půlka doprava a půlka doleva — „24 částic doprava" by lhalo
+			// o polovině z nich (nález kontrolora).
+			+ `<text x="28" y="466">za sekundu ${projdeRezem(s.prochazi)}`
+			+ `${!s.tece
+				? (izolant ? ' — není tu co rozpohybovat' : ' — pohyb se vyruší')
+				: (mat.kladnych > 0
+					? ` — ${s.prochazi / 2} doprava a ${s.prochazi / 2} doleva, oba pohyby tvoří proud`
+					: (s.smer === 1 ? ' doprava' : ' doleva'))}</text>`
+			+ `<text x="28" y="486" font-size="12" font-weight="normal" fill="#2f9e44">`
+			+ (izolant
+				? 'v izolantu nejsou volné nabité částice — proud jím neprojde ani při největším napětí'
+				: 'bez napětí se částice hýbou taky — jen každá jinam, a v součtu se přesun vyruší')
+			+ '</text>';
+
+		// U izolantu by generický dovětek „teprve ono srovná pohyb částic…"
+		// mluvil o částicích, které tam nejsou (nález kontrolora) — proto
+		// vlastní zakončení o chybějících volných částicích, jako v počitadle.
+		document.getElementById('vep-vypocet').innerHTML =
+			`${s.volnych} volných částic × ${kroku(s.kroky)} za sekundu = <strong>${s.prochazi} průchodů řezem</strong>. `
+			+ (izolant
+				// „Napětí tu je" smí zaznít jen s napětím — při 0 V žádné není
+				// (svorky bez znamének to samy říkají; nález kontrolora).
+				? (napeti > 0
+					? 'Napětí tu je, jenže v izolantu nejsou žádné volné nabité částice, které by mohlo srovnat — proto proud neteče.'
+					: 'A ani napětí by tu nepomohlo: v izolantu nejsou žádné volné nabité částice, které by mohlo srovnat.')
+				: 'Napětí je příčinou proudu: teprve ono srovná pohyb částic do jednoho směru. '
+					+ 'Bez něj se částice hýbou dál, jen každá jinam — a v součtu se to vyruší.');
+
+		const stavP = document.getElementById('vep-stav');
+		if (izolant) {
+			stavP.textContent = napeti === 0
+				? '🚫 Plast je izolant: náboje v něm jsou pevně vázané v atomech. Přidej napětí — uvidíš, že se ani tak nic nerozjede.'
+				: `🚫 Zdroj dává ${napeti} V, a přesto proud neteče: v plastu není žádná volná nabitá částice, kterou by napětí mohlo rozpohybovat. Proto se izolant používá na obaly vodičů.`;
+		} else if (napeti === 0) {
+			stavP.textContent = `⚡ Napětí 0 V — a částice se přesto hýbou! Každá si to ale míří jinam, tam a zpět se přesun vyruší a řezem neprojde nic navíc. Proud je až uspořádaný pohyb a musí ho něco vyvolat: napětí.`;
+		} else {
+			let t = mat.kladnych > 0
+				? `🧂 V roztoku nesou proud ionty a jdou proti sobě: záporné ke svorce +, kladné ke svorce −. Oba pohyby se do proudu počítají, za sekundu ${projdeRezem(s.prochazi)}.`
+				: `🔋 Napětí ${napeti} V srovnalo volné elektrony do jednoho směru: každý udělá ${kroku(s.kroky)} za sekundu a za sekundu ${projdeRezem(s.prochazi)}.`;
+			// „Míří částice doleva" platí jen v kovu — v roztoku jdou oba druhy
+			// iontů proti sobě, takže se musí říct obojí (nález kontrolora).
+			t += druh === 0
+				? ' Baterie dává stejnosměrný proud — svorky se nemění, proud teče stále stejným směrem.'
+				: ` Zásuvka dává střídavý proud: každých ${PERIODA / 2} ms se svorky prohodí, takže v čase ${cas} ms `
+					+ (mat.kladnych > 0
+						? `míří záporné ionty ${s.smer === 1 ? 'doprava' : 'doleva'} a kladné ${s.smer === 1 ? 'doleva' : 'doprava'}.`
+						: `míří elektrony ${s.smer === 1 ? 'doprava' : 'doleva'}.`)
+					+ ' Velikost proudu je přitom pořád stejná.';
+			stavP.textContent = t;
+		}
+	}
+
+	for (const p of [napetiSlider, materialSlider, druhSlider, okamzikSlider]) {
+		p.addEventListener('input', prekresli);
+	}
+	prekresli();
+</script>
+
+<style>
+	#vep-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.vep-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.vep-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

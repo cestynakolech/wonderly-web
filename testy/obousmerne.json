@@ -220,6 +220,13 @@
 			"zdravy": "Nad hotovou komponentou prochází všech 181 kontrol ('✅ Kondenzace: vše sedí.', exit 0).",
 			"regrese": "Jediná neodhalená mutace je kosmetika: posun účaří popisku uvnitř obdélníku o 10 px (komentář u kontroly).",
 			"overeno": "2026-08-13"
+		},
+		"simulace/vznik-elektrickeho-proudu.mjs": {
+			"test": "testy/simulace/vznik-elektrickeho-proudu.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs vznik-elektrickeho-proudu`: 23 z 24 (jediná neodhalená mutace mění text v komentáři zdroje, bez vlivu na chování). Worker při stavbě odhalil i past vlastního měřidla: test chvíli padal výjimkou a mutační nástroj proto falešně hlásil 24/24 — měřidlo teď chybějící číslo pojmenuje a čistě selže. Podvrh na kopii (překryv popisku materiálu s popiskem řezu) test shodí.",
+			"zdravy": "Nad hotovou komponentou prochází všech 156 kontrol (exit 0).",
+			"regrese": "Smyčka s nezávislým kontrolorem uzavřena na 0 nálezů (6 → 2 → 1 → 0): opraveno počitadlo roztoku (12 doprava a 12 doleva), AC hláška pro oba druhy iontů, svorky bez znamének při 0 V, efektové kontroly posluchačů všech čtyř posuvníků (mrtvý posluchač padá), dovětek izolantu větvený podle napětí. Mutační test 24/25 — jediná neodhalená mutace mění komentář ve zdroji.",
+			"overeno": "2026-08-13"
 		}
 	}
 }
