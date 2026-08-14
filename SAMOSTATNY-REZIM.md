@@ -1,4 +1,33 @@
-## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 podvečer — po /clear)
+## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026 večer — po /clear)
+
+### ▶️ ROZDĚLANÉ: F9 `magnety-magneticke-pole-opakovani` (první úkol devítky)
+
+Repo je v čistém stavu: **brána zelená, build prošel, nic nerozbitého** — jen je to
+podtéma nedodělané. Hotovo: kvíz doplněn z 12 na **19 otázek** (vloženo, ověřeno).
+Vloni zapsané otázky měly dva úniky odpovědí, ty jsou už rozpojené.
+
+⏳ **Zbývá dodělat (změřeno, ne odhad):**
+- **Délková nápověda 5 z 19** — všechny ve STARŠÍCH otázkách (1, 8, 10, 11, 12).
+  Měřidlo: `node -e "…maDelkovouNapovedu…"` nebo `node testy/delky.mjs`.
+  Opravovat prodloužením ROZPTYLOVAČŮ, ne zkracováním správné odpovědi.
+- **2 doslovné duplicity se 6. ročníkem** (`fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek`):
+  „Kolik pólů má každý magnet?" a „Kde je magnetická síla magnetu nejsilnější?".
+  Devítka je opakování, takže se smí ptát na totéž učivo — ale ne doslova stejnou větou.
+- **Simulace `MagnetyOpakovaniSimulace.astro` se vyráběla, když session skončila** —
+  zkontroluj, jestli soubor existuje; pokud ne, zadej znovu `worker-simulace`.
+  Námět: scéna A třídění vzorků (feromagnetické / nemagnetické / diamagnetické),
+  scéna B póly a siločáry, rozlomený magnet má zase dva póly. Test pojmenovat
+  `testy/simulace/magnety-opakovani.mjs` (spouštěč páruje podle názvu).
+  ⚠️ Ve výkladu devítky NENÍ pole Země, kompas ani ztráta magnetismu — to je látka
+  šestky. Neptat se na ně a nedávat je do scény.
+
+### ⏳ TAKÉ BĚŽELO PŘI KONCI SESSION: druhá kontrola `ucinky-proudu-a-bezpecnost`
+
+Podtéma je hotové a nasazené (`8978173`), všech 11 nálezů první kontroly opraveno.
+Druhý `kontrolor` byl spuštěn, ale nedoběhl — **pusť ho znovu** (zadání viz níž
+v sekci o bezpečnosti a v `METRIKY-KOL.md`).
+
+## 🗒 STARŠÍ STAV (14. 8. odpoledne)
 
 ### ✅ VYŘEŠENO 14. 8. VEČER — bezpečnostní vada opravena a nasazena (`261fa6e`)
 
