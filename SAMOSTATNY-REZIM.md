@@ -1,56 +1,57 @@
-## 🔴🔴 ZAČNI TADY (stav 13. 8. 14:30)
+## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026, po /clear)
 
 ### ▶️ ROZDĚLANÉ: NÁZORNOST FYZIKY, JEDNO PODTÉMA ZA DRUHÝM
 
-Zadání učitele 13. 8. odpoledne, doslova: *„pokračuj dalším podtématem fyziky
-a nemusíš se ptát, jak jedno dokončíš, začni další."* Tedy: vzít podtéma bez
-názornosti, dotáhnout ho celé (simulace → test → mutační test → obousměrný
-důkaz → **prohlédnout vyrenderovanou scénu** → build → push → curl) a hned brát
-další. Neodklikává se nic. Výroba podtématu jde přes workery a nezávislého
-kontrolora — postup vede skill `/simulace` (sem se neopisuje).
+Zadání učitele 13. 8., doslova: *„pokračuj dalším podtématem fyziky a nemusíš
+se ptát, jak jedno dokončíš, začni další."* Tedy: vzít podtéma bez názornosti,
+dotáhnout ho celé (simulace → test → mutační test → obousměrný důkaz →
+**prohlédnout vyrenderovanou scénu** → **nezávislý kontrolor do 0 nálezů** →
+build → push → curl) a hned brát další. Neodklikává se nic. Hlavní model je
+KOORDINÁTOR: zadává workerům, hlídá souběh a kotvy, commituje — nevyrábí sám.
+Postup vede skill `/simulace` (sem se neopisuje).
 
-**Hotovo v tomhle kole (4 podtémata):**
-1. `magneticke-pole-vodice-a-civky` (F9) — Oerstedův pokus, magnetka u vodiče
-2. `tepelny-motor-parni-stroj` (F8) — kam se ztratí teplo (účinnost 15/35/30 %)
-3. `skupenske-zmeny-vody-v-prirode` (F8) — koloběh vody, motorem je Slunce
-4. `vnitrni-energie-telesa` (F8) — pohyb celku vnitřní energií nehne, tření ano
-   (78 kontrol, mutace 17/21, obousměrný důkaz zapsán). K tomu nový trvalý
-   nástroj **`testy/nahled-simulace.mjs`** — složí z komponenty obrázek
-   k prohlédnutí okem (dosud se to dělalo pokaždé jinak). Používat u KAŽDÉ
-   nové simulace: `node testy/nahled-simulace.mjs <komponenta> <ven.svg> id=hodnota…`
-   pak `qlmanage -t -s 900 -o <složka> <ven.svg>` a PNG přečíst.
+**Hotovo 13.–14. 8. (4 nová podtémata F8, každé doložené):**
+1. `vnitrni-energie-telesa` — pohyb celku s ní nehne, tření ano (78 kontrol,
+   mutace 17/21, obousměrný důkaz) · commit `ffb1f51`
+2. `tuhnuti` — křivka chladnutí s plató, led přibývá shora (72 kontrol,
+   mutace 18/20) · `2afff7d`; k tomu opraven `mutace.mjs` (běžel bez timeoutu,
+   zacyklená mutace nechala v komponentě ležet MUTACI — nyní timeout 60 s)
+3. `kondenzace` — pára popálí hůř: 2260 J/g kondenzace + 273 J/g chladnutí
+   (181 kontrol, mutace 19/20, kontrolor 4 nálezy → 0) · `a16745b`
+4. `vznik-elektrickeho-proudu` — proud je USPOŘÁDANÝ pohyb; kov / roztok /
+   izolant, DC i AC (156 kontrol, mutace 24/25, kontrolor 6 → 2 → 1 → 0)
+   · `b89c66e` + zapojení do stránky `ec65720`
 
-5. `tuhnuti` (F8) — křivka chladnutí s plató: během tuhnutí teplota stojí,
-   sůl plató posune dolů, led přibývá SHORA (72 kontrol, mutace 18/20).
-   ⚠️ Při té práci se ukázalo, že **`mutace.mjs` běžela bez timeoutu**:
-   mutace `-5 * sul` → `-5 / sul` dala −Infinity, test se zacyklil, nástroj
-   visel bez konce a v komponentě po sobě nechal ležet MUTACI (obnova ve
-   `finally` se nedostane ke slovu, když se čeká věčně). Opraveno; k tomu
-   pravidlo: každý test simulace potřebuje kotvu „hranice úseků jsou celá
-   čísla uvnitř rozsahu", jinak se místo nálezu jen zasekne.
+K tomu trvalý nástroj **`testy/nahled-simulace.mjs`** (`fa2f2d4`) — složí
+z komponenty obrázek k prohlédnutí okem. U KAŽDÉ nové simulace:
+`node testy/nahled-simulace.mjs <komponenta> <ven.svg> id=hodnota…`, pak
+`qlmanage -t -s 900 -o <složka> <ven.svg>` a PNG přečíst. A kvíz `tuhnuti`
+zbaven délkové nápovědy (8/13 → 5/13, `8bbc792`).
 
-**Stav názornosti** (`node testy/nazornost.mjs`): fyzika 8 **11 → 7** z 37,
-fyzika 9 **10 → 9** z 25. Ze zbylých jsou 2+2 shrnutí, která názornost
-nepotřebují. **Na řadě dál** (F8):
-`kondenzace`, `vznik-elektrickeho-proudu`, `chemicke-zdroje-napeti`,
-`elektricka-prace-a-vykon`, `ucinky-proudu-a-bezpecnost`; (F9):
-`magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
-`elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
-`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
+**Změřený stav** (14. 8., `node testy/nazornost.mjs`, `node testy/vsechny-simulace.mjs`):
+- fyzika 8: **5 bez názornosti z 37** (z toho 2 jsou shrnutí → **3 skutečná**)
+- fyzika 9: **9 bez názornosti z 25** (z toho 2 shrnutí → **7 skutečných**)
+- testy simulací: **23 souborů, 1674 kontrol, 0 spadlo**
 
-🔴 **POSTUP, KTERÝ SE VYPLATIL — DODRŽET U DALŠÍCH.** Zelený vlastní test
-NESTAČÍ, dvakrát po sobě pustil vadu dál:
-- **Mutační test** (`node testy/mutace.mjs <název>`) u Oersteda ukázal
-  **3 z 24** — test měřil fyzikální model a vůbec ne SCÉNU. Nejhorší
-  neodhalená: obrácená podmínka směru proudu by prohodila ⊙/⊗ i šipky, takže
-  by se žák naučil pravidlo pravé ruky NAOPAK. Po doměření scény 11/24.
-- **Prohlédnout vyrenderovanou scénu** našlo u všech tří simulací vady, které
-  žádné měřidlo nevidí: useknutá kružnice, šipky nakupené v řadě, chybějící
-  legenda barev, počitadlo ležící přes oblak, popisek přeškrtnutý vlastní
-  čárou a **špatné skloňování „4 dílů"**. Jak na to: vytáhnout `outerHTML` SVG
-  ze stránky po vykreslení, doplnit `xmlns`, `qlmanage -t -s 900 -o . x.svg`
-  a PNG přečíst — screenshot prohlížeče v téhle session vracel prázdno.
-  Každý nález pak DOMĚŘIT, ať se nevrátí. Paměť [[feedback-simulaci-se-musim-podivat]].
+**NA ŘADĚ DÁL — ber shora dolů (shrnutí názornost nepotřebují, vynechat):**
+F8: `chemicke-zdroje-napeti`, `elektricka-prace-a-vykon`,
+`ucinky-proudu-a-bezpecnost` → tím je fyzika 8 hotová.
+F9: `magnety-magneticke-pole-opakovani`, `vlastnosti-stridaveho-proudu`,
+`chemicke-zdroje-napeti`, `elektricka-energie-a-premeny`,
+`jaderna-energie-a-reakce`, `obnovitelne-a-neobnovitelne-zdroje`,
+`vesmir-a-galaxie`.
+
+🔴 **POSTUP, KTERÝ SE VYPLATIL — DODRŽET.** Zelený vlastní test NESTAČÍ:
+- **Mutační test** (`node testy/mutace.mjs <název>`) — u Oersteda 3 z 24, test
+  měřil fyzikální model a vůbec ne scénu.
+- **Prohlédnout vyrenderovanou scénu** — najde vady, které žádné měřidlo
+  nevidí (useknutá kružnice, počitadlo přes oblak, špatné skloňování).
+  [[feedback-simulaci-se-musim-podivat]]
+- **Nezávislý kontrolor je POVINNÝ UZEL** před nasazením a po opravách jde
+  DRUHÉ kolo — dnes kondenzace 4 → 0, vznik proudu 6 → 2 → 1 → 0. Verdikt číst z doručeného
+  výsledku agenta, nikdy grepem nad transcriptem.
+- Každá opravená chyba → deník chyb (`Omega/skripty/denik_chyb.py`) s dokladem,
+  že oprava funguje.
 
 
 ### 📥 Fronta dalších kol (z auditů 13. 8. — zapsáno, aby se neztratilo)

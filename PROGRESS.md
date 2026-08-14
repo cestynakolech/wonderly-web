@@ -127,6 +127,36 @@ Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `
 
 ## 🗓️ Historie (changelog — přidávej nahoru, staré nech)
 
+- **2026-08-13 až 14 (názornost F8: 4 simulace + hlídač session + audit dokumentace)** —
+  **Škola:** čtyři podtémata fyziky 8 dostala názornost, každé přes workera
+  a nezávislého kontrolora do 0 nálezů: `vnitrni-energie-telesa` (78 kontrol,
+  mutace 17/21), `tuhnuti` (72 kontrol, 18/20), `kondenzace` (181 kontrol,
+  19/20, kontrolor 4 → 0) a `vznik-elektrickeho-proudu` (156 kontrol, 24/25,
+  kontrolor 6 → 2 → 1 → 0; nejvážnější nález: počitadlo roztoku tvrdilo
+  „24 částic doprava", ač polovina jde doleva). Nový trvalý nástroj
+  **`testy/nahled-simulace.mjs`** — složí z komponenty obrázek k prohlédnutí
+  okem (dosud pokaždé jinak, screenshot prohlížeče v session vracel prázdno);
+  u všech čtyř simulací našel vady, které žádné měřidlo nevidí (šipky jako
+  ručičky ciferníku, popisek splývající s podložkou, chybějící dělení osy).
+  Opraven **`mutace.mjs`**: běžel bez timeoutu, mutace `-5 * sul` → `-5 / sul`
+  dala −Infinity, nástroj visel bez konce a nechal v komponentě ležet MUTACI
+  (obnova ve `finally` se ke slovu nedostane) — nyní timeout 60 s a zaseknutá
+  mutace se hlásí zvlášť. Kvíz `tuhnuti` zbaven délkové nápovědy (8/13 → 5/13),
+  úniky 0 ve dvou kolech. Stav názornosti: **F8 5 z 37** (2 z nich shrnutí),
+  **F9 9 z 25** (2 shrnutí); testy simulací 23 souborů / 1674 kontrol / 0 spadlo.
+  **Automaty:** nový **hlídač session** (`hlidac_session.py` +
+  `com.omega.hlidac-session`, à 10 min) — pravidlo „smyčka se sama nezastavuje"
+  existovalo jen jako text bez vykonavatele; poplach jde notifikací i Telegramem
+  (kanál do té doby uměl jen přijímat), 17 obousměrných kontrol. Vrátný
+  `povoleni_hook.py` nově **překládá python-heredocy** před spuštěním (10. výskyt
+  rozbité syntaxe) a pouští náhledový server bez ptaní. Nedělní audit si zapisuje
+  razítko; revize automatů poprvé **0 nálezů ze 49 testů**.
+  **Dokumentace:** audit se **22 nálezy** opraven (YouTube automat, jazyky,
+  delegace, `vymena-map` v AUTOMATY.md, opsané konstanty nahrazeny odkazy);
+  stavový soubor uříznut do archivu (−94 kB). **Deník chyb** dostal zápis
+  17 chyb a je nadále jediným místem, kam se opravená chyba zapisuje s dokladem,
+  že oprava funguje (`Omega/skripty/denik_chyb.py`).
+
 - **2026-08-12 odpoledne (mapy měly špatné km + simulace elektrického pole)** —
   **Deník:** nalezena a opravena tichá vada bodů míst. Bod = medián GPS fotek,
   jenže po úklidu mezikopií fotky zmizí, medián nejde spočítat a rozhodoval
