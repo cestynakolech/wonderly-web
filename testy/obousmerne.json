@@ -275,6 +275,12 @@
       "zdravy": "Nad neporusenou src/components/skola2/PremenyEnergieSimulace.astro projdou vsechny kontroly (scena A vyber zarizeni + smer premeny, scena B invarianta zachovani energie pres mrizku cilu a casu i nad vykreslenym SVG, obranne cteni indexu a cile), vystup '✅ VŠECHNY TESTY PROŠLY', kod 0.",
       "overeno": "2026-08-15"
     },
+    "simulace/retezova-reakce.mjs": {
+      "test": "testy/simulace/retezova-reakce.mjs",
+      "podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenen NASOBEK u nerizene reakce z 2 na 1.5 (poruseni exponencialniho zdvojnasobovani i celociselnosti). Test to chytil 8 chybami — mj. '❌ generace 5 u neřízené: 5.0625 (2^4 = 16 ...)', necela cisla v poctech i celkovem souctu, rozdil rizena/nerizena uz neni radovy, konec kodem 1.",
+      "zdravy": "Nad neporusenou src/components/skola2/RetezovaReakceSimulace.astro projdou vsechny kontroly (scena A stepeni krok po kroku vc. vykresleni SVG, scena B rizena=linearni vs. nerizena=exponencialni rustova posloupnost, celociselnost vsech hodnot, texty na displeji sedi s vypoctem), vystup '✅ VŠE V POŘÁDKU', kod 0.",
+      "overeno": "2026-08-15"
+    },
     "rozvrzeni-sceny.mjs": {
       "test": "testy/rozvrzeni-sceny-obousmerne.mjs",
       "podvrh": "A) rámeček popisku posunutý z x=300 na x=0 → '❌ <rect> přetéká plátno vlevo o 1.8 px — obdélník [0, 28]–[60, 92] (+ obrys 1.8 px)', konec kódem 1. B) plátno rozšířené na viewBox 0 0 1100 380 při stejném obsahu → '⚠️ obsah zabírá jen 38 % šířky plátna (x 180–599.5 z 1100)'. ZPĚTNÁ KOTVA NA SKUTEČNÉ VADĚ (ověřil koordinátor 14. 8. 2026): nasazená verze MagnetyOpakovaniSimulace z commitu f30767b (git show do /tmp, repo netknuto) → měřidlo najde obě vady, které téhož dne našel člověk pohledem na render: '<rect> přetéká plátno vlevo o 0.8 px — obdélník [0, 240]–[280, 262]' a 'obsah je natlačený doleva — střed obsahu je o 17 % šířky mimo střed plátna (x 0–440 z 660)'.",
