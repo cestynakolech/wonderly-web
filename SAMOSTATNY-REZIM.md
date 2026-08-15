@@ -164,6 +164,12 @@ hlášením „hotovo".
 
 ✅ **F9 `obnovitelne-a-neobnovitelne-zdroje` HOTOVO A NASAZENO** (commit `626199a`, ověřeno přes id `oz-b-cerpat` na živé stránce). Kvíz 11→19, doplněk výkladu (přečerpávací elektrárna, 3 úlohy), 1 video + 3 odkazy, nová simulace `obnovitelne-zdroje` (třídění zdrojů + vodík jako chyták, přečerpávací elektrárna). Vizuální kontrola opět našla reálnou vadu — výchozí hladina (80 %) náhodou splývala s cílovou hodnotou režimu čerpat (80 %), takže první klik nezpůsobil vůbec žádnou změnu; opraveno (výchozí 50 %) a potvrzeno pixelovým měřením. Třetí simulace dnes ze čtyř měla stejnou třídu chyby (klik/animace bez viditelného efektu) — je to zjevně systematické riziko u téhle skupiny simulací, ne náhoda.
 
+✅ **F6 `souhrnne-opakovani-velicin` + `pokusy` HOTOVO A NASAZENO** (commit `b76cd7b`, obě URL ověřeny přes vlastní id `ov-a-svg` a `poka-svg`). Dvě nové simulace, k podtématu `pokusy` vznikl ZCELA NOVÝ kvíz (17 otázek — dosud nemělo žádný), média k oběma. **Názornost fyziky podle `testy/nazornost.mjs`: 6. ročník 2 z 21, 7. ročník 2 z 33, 8. ročník 2 z 37, 9. ročník 2 z 25 bez názornosti — ve všech čtyřech ročnících zbývají už jen `shrnuti/pololetni-shrnuti` a `shrnuti/rocni-shrnuti`, žádné jiné podtéma.**
+
+🔧 **Opraven sdílený nástroj `testy/nahled-simulace.mjs`** — mock elementů neuměl `querySelectorAll`/`querySelector`, takže komponenta, která je volá, se vůbec nedala vyrenderovat a NEŠLA u ní vizuální kontrola (nástroj padal na `TypeError`). Doplněno hledání potomků podle pozice ve zdroji (podporuje `.trida` i tag); omezení: spoléhá na správně párované značky. Regrese ověřena na 5 dřívějších simulacích. **Poučení: když nástroj na komponentu padá, opravuje se NÁSTROJ, ne komponenta** — předchozí pokus ohnul komponentu podle omezení mocku a tím ji rozbil pro jiné omezení téhož mocku.
+
+📌 Vizuální kontrola i dnes našla vadu, kterou testy neviděly: kovová kulička ve třetím pokusu visela ve vzduchu bez závěsu ke stojanu (doplněn drátek).
+
 ---
 
 ## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"
