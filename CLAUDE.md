@@ -37,7 +37,7 @@ public/                  ← statické soubory (materialy/ škola, obrazky/, ces
 **Orchestrátorský režim:** zapíná se příkazem `/orch-on` (vytvoří značku `~/.claude/ORCHESTRATOR_ON`; vrátný pak hlavnímu sezení blokuje Read/Edit/Write/Grep/Glob i neřídicí Bash a práce se deleguje subagentům), vypíná `/orch-off` nebo `rm ~/.claude/ORCHESTRATOR_ON`.
 
 ## Pravidlo řezu dokumentace
-Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové CLAUDE.md (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/CLAUDE.md`.
+Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové CLAUDE.md (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/CLAUDE.md`. Orchestrátor tato specifika sám nevidí (má zakázané čtení) — musí nechat příslušný `CLAUDE.md` načíst agentovi, který v dané sekci pracuje.
 
 ## Postup nasazení (společný pro všechny sekce)
 ```

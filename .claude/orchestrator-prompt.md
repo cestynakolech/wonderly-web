@@ -48,3 +48,46 @@ projekt: fronta úkolů je jedna (`SAMOSTATNY-REZIM.md`) a stav vede `PROGRESS.m
     ven, platby a instalace.
 11. Neusínej na dotazu. Kolo nekončí otázkou „mám pokračovat?“ — rozhodni, pusť
     další úkol z fronty (`SAMOSTATNY-REZIM.md`) a hlas, co je hotové.
+
+## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
+
+Kroky standardního rozkladu a model, na kterém mají běžet:
+
+| krok rozkladu | model |
+|---|---|
+| průzkumník (čtení dlouhých věcí) | gemma4:26b `[neověřeno]` — nejbližší doklad je jen shrnutí JEDNÉ krátké věty (ollama-log.md 2026-07-14 23:25), ne dlouhý text |
+| kvízy, příklady, výklad | Claude — kvůli přesnosti |
+| simulace (kód komponenty) | Claude — kód |
+| média a hledání | gemma4:26b pro text / ThinkingCap pro obrázky `[neověřeno]` — v ollama-log.md není žádná zkouška na hledání ani ověřování zdrojů; ThinkingCap má doložené jen ANO/NE kontroly fotek a map (2026-07-21, 2026-07-23), ne vyhledávání |
+| zápis do souborů | Claude |
+| kontrolor | Claude — musí chytat faktické chyby |
+
+Je to VÝCHOZÍ stav, ne dogma: po každém měření se tabulka posouvá směrem k lokálním
+modelům tam, kde se ukáže, že lokál stačí. Měření se zapisuje do `METRIKY-KOL.md`,
+sekce srovnání režimů.
+
+**Stav modelů k 15. 8. 2026:** `ollama list` (jeden profil, neznámo který ze dvou —
+NEZJIŠTĚNO) ukazuje 8 modelů: llama3.1:latest (4,9 GB), ThinkingCap-Qwen3.6-27B-GGUF
+Q4_K_M (17 GB), qwen3:30b-a3b (18 GB), bge-m3 (1,2 GB), qwen3-coder:30b (18 GB),
+gemma4:31b (19 GB), qwen3:8b (5,2 GB), gemma4:26b (17 GB). Rozpory proti pravidlům:
+gemma4:31b je nainstalovaný, ale v logu k němu není ŽÁDNÁ zkouška (jen zmínka jako
+alternativa k 26b); qwen3-coder:30b má test z 2026-07-14, ale záznam z 2026-07-16 ho
+označuje za nahrazený rychlejším qwen3:30b-a3b — dnes se nepoužívá, ač je nainstalovaný.
+Pro role „průzkumník" a „média a hledání" v logu chybí zkouška na SKUTEČNOU úlohu
+(dlouhý text / hledání zdrojů) — zařazení výše je jen odvozený odhad z obecných rolí,
+ne měření. Příští kolo (až se obnoví tokeny) proběhne nový průzkum modelů: každý se
+vyzkouší na skutečné úloze z projektu (dlouhé shrnutí, ověření zdroje) a tabulka se
+podle výsledku přeřadí; do té doby platí `[neověřeno]` zařazení jen jako výchozí odhad.
+
+Neinteraktivní volání Hermese: `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"
+--provider ollama --model <model>`; přes OpenRouter `--provider openrouter --model
+openai/gpt-5.5`. Alias `hermes` míří na interaktivní `chat` a pro skriptování se
+nehodí.
+
+⚠️ Varování: příklad `--model qwen2.5:14b` neprojde — model byl 8. 8. 2026 smazán.
+Lokálně jsou na české texty `gemma4:26b`, na kód a dávky `qwen3:30b-a3b`; před
+spuštěním vždy ověřit `ollama list`.
+
+U kroku „média a hledání“ platí, že lokální model si nesmí vymýšlet zdroje: každý
+odkaz i YouTube ID se ověřuje (HTTP kód / oembed) a učitel je vidí ke schválení,
+než se dostanou na web.

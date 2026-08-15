@@ -1091,6 +1091,30 @@ a dá se zopakovat. Příště tak od 3. kola dál.
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
 > Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
 
+> **wonderly je JEDEN web, tři sekce — fronta je SPOLEČNÁ pro všechny.** Každá
+> položka fronty nese na začátku značku sekce: `[fox]` = web pro 1. stupeň,
+> `[skola2]` = lab.wonderly.cz (2. stupeň, tenhle repo — dosud jediný obsah fronty),
+> `[cesty]` = cestovatelský deník. Bez značky se nezakládá nová položka.
+
+### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
+
+- [cesty] Doplnění starších fotek. Rozsah zadá učitel — zatím jen založeno,
+  aby se na deník ve frontě nezapomnělo.
+- [cesty] Doplnění cest z minulých let. Rozsah zadá učitel — zatím jen založeno,
+  aby se na deník ve frontě nezapomnělo.
+- [příprava] Vyzkoušet průzkumníka přes Hermese na lokálním modelu a porovnat
+  výstup s Claude verzí; výsledek zapsat do `METRIKY-KOL.md` do tabulky srovnání
+  režimů (řádek režimu B). Tvar volání pro neinteraktivní běh:
+  `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání" --provider ollama --model <model>`,
+  případně `--provider openrouter --model openai/gpt-5.5`.
+  ⚠️ Učitelem uvedený příklad `--model qwen2.5:14b` NEBUDE fungovat — ten model byl
+  při úklidu 8. 8. 2026 smazán. Z lokálních je na české texty `gemma4:26b`, na
+  kód/dávky `qwen3:30b-a3b`; před spuštěním ověřit `ollama list`.
+- [příprava] Revidovat tabulku směrování modelů v `.claude/orchestrator-prompt.md`
+  podle prvního měření (viz položka výše). Výchozí tabulka už je zapsaná
+  (15. 8. 2026); tahle položka znamená její posun směrem k lokálním modelům tam,
+  kde měření ukáže, že stačí.
+
 > ~~Čtyři videa z 5. 8. (síla, hmotnost, hustota, objem)~~ ✅ HOTOVO a nasazeno 7. 8.
 
 ### ▶️ POTOM: učitel 5. 8. SCHVÁLIL přepsat na polemiky VŠECHNA zbývající témata F6
@@ -1099,22 +1123,22 @@ Je jich **16** (ne 17 — gravitační síla polemiku už má). Pořadí podle u
 každému stejný řetěz jako dosud: kvíz → polemika → brána `pokryti_kvizu.py` →
 scénosled → schémata → **prohlídka kontaktním listem** → zvuk → video → nasazení.
 
-1. ~~`uvod-do-fyziky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
-2. ~~`telesa-a-latky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
-3. `casticove-slozeni-latek`
-4. `atomy-a-molekuly`
-5. ~~`skupenstvi-latek`~~ ✅ HOTOVO a nasazeno 8. 8. (v2 po auditu)
-6. `delka`
-7. `cas-a-jeho-mereni`
-8. `teplota-a-jeji-mereni`
-9. `teplotni-roztaznost`
-10. `elektricke-vlastnosti-latek`
-11. `magneticke-vlastnosti-latek`
-12. `jednoduche-elektricke-obvody`
-13. `pokusy`
-14. `souhrnne-opakovani-velicin`
-15. `pololetni-shrnuti`
-16. `rocni-shrnuti`
+1. [skola2] ~~`uvod-do-fyziky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
+2. [skola2] ~~`telesa-a-latky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
+3. [skola2] `casticove-slozeni-latek`
+4. [skola2] `atomy-a-molekuly`
+5. [skola2] ~~`skupenstvi-latek`~~ ✅ HOTOVO a nasazeno 8. 8. (v2 po auditu)
+6. [skola2] `delka`
+7. [skola2] `cas-a-jeho-mereni`
+8. [skola2] `teplota-a-jeji-mereni`
+9. [skola2] `teplotni-roztaznost`
+10. [skola2] `elektricke-vlastnosti-latek`
+11. [skola2] `magneticke-vlastnosti-latek`
+12. [skola2] `jednoduche-elektricke-obvody`
+13. [skola2] `pokusy`
+14. [skola2] `souhrnne-opakovani-velicin`
+15. [skola2] `pololetni-shrnuti`
+16. [skola2] `rocni-shrnuti`
 
 **Nepracuj na víc než třech dílech v jedné session** — kontext dojde uprostřed
 a hrozí, že se ztratí rozdělaná práce. Po každém dokončeném dílu zapiš stav sem
@@ -1198,7 +1222,7 @@ Paměť: [[feedback-hermes-zalozni-pracant]].
 
 ### 🔥 ZADÁNÍ UČITELE 5. 8. RÁNO (nejvyšší priorita — „fyzika je nejdůležitější“)
 
-**A. Tajemná laboratoř → příběhová pátračka** (`src/pages/hry/laborator.astro`).
+**[skola2] A. Tajemná laboratoř → příběhová pátračka** (`src/pages/hry/laborator.astro`).
 Dnes: dole lišta otazníků, klik vybere otázku („otázka za hodiny“). Učitel chce:
 děti HLEDAJÍ V OBRÁZKU — kliknou na předmět (hodiny), otevře se otázka; po uhádnutí
 se předmět ZMĚNÍ a stane se INDICIÍ k dalšímu stanovišti (hodiny se přeřídí — ručičky
@@ -1207,7 +1231,7 @@ ukážou SMĚR dalšího úkolu, nebo čas = číslo, které napoví umístění
 odemyká další indicii), zachovat razítka a ročníky. Vlastní kolo v ČERSTVÉ session,
 klidně vějíř (návrh příběhu × implementace × kontrola).
 
-**B. Fyzika na 100 % — v KAŽDÉM podtématu: interaktivní animace + video + audio
+**[skola2] B. Fyzika na 100 % — v KAŽDÉM podtématu: interaktivní animace + video + audio
 podkást.** Změřeno 5. 8. z dat webu (116 podtémat fyziky):
 | ročník | podtémat | bez simulace | bez videa | bez audia |
 |---|---|---|---|---|
@@ -1247,18 +1271,18 @@ ať čísla klesají viditelně každé kolo.
 
 ### 🌙 FRONTA (pořadí drž)
 
-1. **Názornost informatiky** — zbývá **22 podtémat** (4. 8. kolo D3 přidalo 4:
+1. [skola2] **Názornost informatiky** — zbývá **22 podtémat** (4. 8. kolo D3 přidalo 4:
    celá `roboticka-stavebnice` + `hra-ping-pong`). Na řadě podle měřidla
    `node testy/nazornost.mjs`: Inf8 `hry-ve-scratchi` (2 zbylé: střílečka, skákačka),
    `hromadne-zpracovani-dat`, `co-umi-vex-iq`; Inf7 `hra-honicka`;
    Inf9 `programovaci-projekty`, `digitalni-technologie` (3).
    Dávka 4+ patří do vějíře (`/simulace`).
-2. **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
+2. [cesty] **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
    leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
    z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
    Saint-Tropez, Le Lavandou a Riez**, delší (6:06) je jen z Le Bourg (77 médií).
    Když v delší opravdu chybí, složit ze dvou jednu.
-3. **Testy simulací jsou z poloviny slepé — DOMĚŘIT.** Mutační test přes všech 16
+3. [skola2] **Testy simulací jsou z poloviny slepé — DOMĚŘIT.** Mutační test přes všech 16
    simulací (3. 8. dopoledne) skončil: **310 mutací, odhaleno 155, prošlo 155**.
    Pořadí podle toho, kde je díra největší (odhaleno / celkem):
 
@@ -1283,8 +1307,8 @@ ať čísla klesají viditelně každé kolo.
    Začít od `tabulka-vzorce` (6/26) — tam je slepota největší.
    Splácení zároveň umořuje dluh rohatky: ke každému doměřenému testu zapsat
    podvrh + zdravý stav do `testy/obousmerne.json` (dluh `bezDokladu` = 14, jen klesat).
-4. `cz()` chybí v 11 simulacích, které formátují čísla.
-4b. **Z auditu 4. 8.** (celý výstup v `AUDIT-2026-08-04.md`):
+4. [skola2] `cz()` chybí v 11 simulacích, které formátují čísla.
+4b. [skola2] **Z auditu 4. 8.** (celý výstup v `AUDIT-2026-08-04.md`):
    - ~~Měřidlo názvů bloků MakeCode + VEXcode~~ — **HOTOVO 5. 8. (kolo D8)**,
      hned našlo a opravilo 4 živé vady.
    - **Čísla v PROGRESS.md generovat, ne opisovat** („14 simulací" × realita 86) —
@@ -1296,18 +1320,18 @@ ať čísla klesají viditelně každé kolo.
    - **PRAVIDLA.md v Omeze má rozbité tabulky** (ř. 35–41, 115–126) — srovnat.
    - **Commit = jedno téma** — tour.astro/worker.js nepřibalovat k nesouvisejícím
      commitům (a718292, e90a0d2); zapsáno i do skillu /wonderly.
-5. **BLOKOVÁNO, ne zapomenuto:** obě nové simulace (funkce v tabulkách, senzory robota)
+5. [skola2] **BLOKOVÁNO, ne zapomenuto:** obě nové simulace (funkce v tabulkách, senzory robota)
    neprošly očima v prohlížeči — port 8788 drží dev server jiné session a cizí server
    tahle session zastavit nesmí (zkoušeno 3. 8. dvakrát). Až bude volný, projít je
    pohledem; kotvou jsou zatím testy, build a kontrola vygenerovaného HTML.
 
 ### ⏳ ČEKÁ NA ODKLIKNUTÍ UČITELE (nikdy kvůli tomu nestát — jít dál)
 
-- **KOLODĚJE** — pečlivá anonymizace hotová, kontrolor 0 nálezů, čeká od 21:24.
+- [cesty] **KOLODĚJE** — pečlivá anonymizace hotová, kontrolor 0 nálezů, čeká od 21:24.
   `pecliva_videa.py --schvaleno` (nebo `--zamitnuto "důvod"`).
-- **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou v `KE-SCHVALENI.md`
+- [cesty] **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou v `KE-SCHVALENI.md`
   (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
-- **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
+- [skola2] **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
   se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
 
 ## 🧰 POSTUP PRÁCE S KVÍZY (referenční zápis, ne úkol)
@@ -1325,7 +1349,7 @@ třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo 
 
 ## Fronta nápadů (seřazeno podle priority)
 
-### 🚴 Appka /tour — automatické přepínání mezi velkými závody (zadáno 4. 8. 2026)
+### [skola2] 🚴 Appka /tour — automatické přepínání mezi velkými závody (zadáno 4. 8. 2026)
 
 Přání učitele: *„aby se to samostatně přepínalo na zrovna aktuální velké závody a vše
 šlo automaticky — Vuelta a tak dále."* Rozpracované zadání, ověřený průzkum:
@@ -1385,38 +1409,39 @@ vesmír má simulaci soustavy) a témata s hotovou příbuznou simulací.
 ### Přestěhováno z FRONTA-UKOLU.md (6. 8. 2026 — sloučení dvou front, nález auditu)
 
 Škola (web):
-- [ ] `zkontroluj.mjs`: počítadlo otázek (`^\s*text:\s*'`) nepočítá starší jednořádkový
+- [skola2] `zkontroluj.mjs`: počítadlo otázek (`^\s*text:\s*'`) nepočítá starší jednořádkový
   zápis kvízů — jen kosmetika výpisu, opravit regex (nález 28. 7. u F8 tepelná výměna).
-- [ ] Simulace „Rozpálená kolejnice" (dilatační spára, výpočet prodloužení) — F6/F8.
-- [ ] Simulace „Změř to rukou, nebo teploměrem?" (tři kádinky) — F6 teplota.
-- [ ] Generátor příkladů na průměrnou teplotu s grafem (celá čísla) — F6.
-- [ ] Doplnit kompenzátor (expanzní smyčku) do výkladu teplotní roztažnosti.
+- [skola2] Simulace „Rozpálená kolejnice" (dilatační spára, výpočet prodloužení) — F6/F8.
+- [skola2] Simulace „Změř to rukou, nebo teploměrem?" (tři kádinky) — F6 teplota.
+- [skola2] Generátor příkladů na průměrnou teplotu s grafem (celá čísla) — F6.
+- [skola2] Doplnit kompenzátor (expanzní smyčku) do výkladu teplotní roztažnosti.
 
 Deník:
-- [ ] Opravit 8 VAD z auditu webu 29. 7. (datum „červenec 2026" v EN/DE, neklikací
+- [cesty] Opravit 8 VAD z auditu webu 29. 7. (datum „červenec 2026" v EN/DE, neklikací
   piny bez JS, překryv pinů roků, atribuce mapy, video bez datové předpony,
   `satisfies` v preklady.ts) — drobné, bez rozhodování.
-- [ ] Připomínky učitele 29. 7.: úvodní mapa roku začíná doma (jižní Čechy) ·
+- [cesty] Připomínky učitele 29. 7.: úvodní mapa roku začíná doma (jižní Čechy) ·
   u karty místa jen jeho vlastní video · fotogalerie u míst 2026 (náhled + zvětšení).
-- [ ] Stará videa a fotky k bodům starších cest (zadání 2. 8., postup
+- [cesty] Stará videa a fotky k bodům starších cest (zadání 2. 8., postup
   v `Cestovatelský deník/KE-SCHVALENI.md`) — začít bodem (a): `videa_k_mistum.py`.
 
 Organizace:
-- [ ] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
+- [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
 
 Čeká na rozhodnutí učitele (přestěhováno tamtéž):
-- [?] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
+- [cesty] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
   se přestane rozmazávat, potvrzuje vždy učitel).
-- [?] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará
+- [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará
   skrýt? (YouTube neumí vyměnit soubor.)
-- [?] Rozhodovací tabulky z 29. 7.: laboratorní práce (12), nové simulace (10),
-  UX školy (8), mapa+poutavost deníku (14).
-- [?] 9 videí „k rozhodnutí" — `Cestovatelský deník/KE-SCHVALENI.md`.
-- [?] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není).
-- [?] Návrh: shlukování popisků na úvodní mapě do čtverců („7 míst"), zásah
+- [skola2] Rozhodovací tabulky z 29. 7.: laboratorní práce (12), nové simulace (10),
+  UX školy (8).
+- [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14).
+- [cesty] 9 videí „k rozhodnutí" — `Cestovatelský deník/KE-SCHVALENI.md`.
+- [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není).
+- [cesty] Návrh: shlukování popisků na úvodní mapě do čtverců („7 míst"), zásah
   do `trasa_uvod.py`, ~1 kolo práce.
 
-### 🚗 Nápad učitele 6. 8. — zlepšit rozmazávání SPZ (posouzeno, čeká na pokyn)
+### [cesty] 🚗 Nápad učitele 6. 8. — zlepšit rozmazávání SPZ (posouzeno, čeká na pokyn)
 
 Učitel navrhl dát značkám „něco jako referenční fotky obličejů", ze všech států
 a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobré.**
@@ -1438,18 +1463,18 @@ a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobr
   auta, (3) přeměřit. Čeká na pokyn učitele.
 
 ### Další úkoly
-- [ ] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
-- [ ] Projít prezentace /Users/Shared/Škola/6/ — DOKONČIT: zbývá „Stavba látek" (snímky 4+ bez textu — jen obrázky), „TEPLOTA" snímky 2–10 (obrázky), „Dráha puzzle", „Fyzika opakování rok"; z „Síla 6" zpracována tabulka planet (kolo 15)
-- [ ] Projít prezentace /Users/Shared/Škola/7/ — dtto
-- [ ] Projít prezentace /Users/Shared/Škola/8/ — dtto
-- [ ] Projít prezentace /Users/Shared/Škola/9/ — dtto
+- [skola2] Média k Fyzice 6 (infografiky/písně/videa z YouTube automatu — dosud nedodělané)
+- [skola2] Projít prezentace /Users/Shared/Škola/6/ — DOKONČIT: zbývá „Stavba látek" (snímky 4+ bez textu — jen obrázky), „TEPLOTA" snímky 2–10 (obrázky), „Dráha puzzle", „Fyzika opakování rok"; z „Síla 6" zpracována tabulka planet (kolo 15)
+- [skola2] Projít prezentace /Users/Shared/Škola/7/ — dtto
+- [skola2] Projít prezentace /Users/Shared/Škola/8/ — dtto
+- [skola2] Projít prezentace /Users/Shared/Škola/9/ — dtto
 
 ## Čeká na odkliknutí (uživatel schválí, až bude u počítače)
-- **Hermes — sjednocení návodů (audit z noci 29. 7.):** `Omega/dokumenty/HERMES-audit-navodu-2026-07-29.md`
+- [skola2] **Hermes — sjednocení návodů (audit z noci 29. 7.):** `Omega/dokumenty/HERMES-audit-navodu-2026-07-29.md`
   — Hermes JE nainstalovaný (~/.hermes), návody z 11. 6. a pasáž v OFFLINE-REZIM.md zastaraly.
   Návrh: jeden HERMES-NAVOD.md + pokyn v ~/.hermes/SOUL.md „čti CLAUDE.md/PROGRESS.md" (Hermes
   md soubory pro Clauda číst UMÍ). Rozhodnutí ráno.
-- **Automatický restart samostatného režimu po obnově tokenů:** šlo by naplánovanou úlohou
+- [skola2] **Automatický restart samostatného režimu po obnově tokenů:** šlo by naplánovanou úlohou
   (cron v danou hodinu spustí novou session). Nová trvalá konfigurace → jen se souhlasem.
 
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
@@ -1466,14 +1491,14 @@ která se pro navázání práce nepotřebuje, tak se nečte automaticky.
 
 ## Drobné dluhy ze sloučení Saint-Sauveur (12. 8. 2026)
 
-- **V úložišti zůstalo 9 fotek + náhledy pod `cesty/2026/saint-sauveur`.**
+- [cesty] **V úložišti zůstalo 9 fotek + náhledy pod `cesty/2026/saint-sauveur`.**
   Nikdo je nevidí (místo na webu už není, fotky jsou nahrané i pod Luxeuilem),
   takže nespěchají — smazání z R2 je mazání, čeká na odkliknutí učitele.
-- **Poloha zastávky po úklidu fotek zhrubne.** Když VideoAutomat uklidí
+- [cesty] **Poloha zastávky po úklidu fotek zhrubne.** Když VideoAutomat uklidí
   mezikopie, místo ztratí medián GPS a trasa má na výběr pin z deníku
   a starou trasu; při remíze dvou zdrojů vyhraje pin (u Ballonu d'Alsace
   o 710 m vedle). Na evropské mapě je to pod rozlišením (1 px ≈ 3 km),
   proto se to neřešilo — kdyby se mapy někdy dělaly detailnější, dát
   přednost zdroji „medián GPS fotek" ze staré trasy.
-- **Kontaktní list pro vizuální kontrolu anonymizace nemá skript** — dělá se
+- [cesty] **Kontaktní list pro vizuální kontrolu anonymizace nemá skript** — dělá se
   ručně přes ffmpeg `tile`. Kandidát na doplnění do `kontrola_videa.py`.

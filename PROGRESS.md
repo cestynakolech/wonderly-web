@@ -6,7 +6,8 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > **Aktuální stav práce, živá fronta úkolů i jediný seznam otevřených dotazů na učitele
 > jsou v `SAMOSTATNY-REZIM.md`, v jeho NEJHORNĚJŠÍ sekci** — ne tady. Tenhle soubor je
 > spíš technická příručka (jak co přidat, kde co leží); jeho jednotlivé sekce mohou být
-> staršího data.
+> staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
+> každá položka nese na začátku značku, do které sekce patří.
 >
 > Poslední stav: **3. 8. 2026** — kolo D1: **4 nové simulace informatiky naráz**
 > (klonování ve Scratchi, vstupy micro:bitu, rádio micro:bitu, první program ve VEXcode);
