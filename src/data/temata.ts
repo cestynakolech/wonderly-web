@@ -3996,13 +3996,13 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Maximální a efektivní hodnota</h3>
 						<ul>
-							<li><strong>Maximální hodnota</strong> (I<sub>m</sub>, U<sub>m</sub>) — největší okamžitá hodnota; nastává dvakrát za periodu.</li>
+							<li><strong>Maximální hodnota</strong> (I<sub>m</sub>, U<sub>m</sub>) — největší velikost proudu nebo napětí během periody; nastává dvakrát za periodu — jednou v jednom směru a jednou v opačném.</li>
 							<li><strong>Efektivní hodnota</strong> (I, U) — odpovídá stejnosměrnému proudu se <strong>stejnými účinky</strong>; právě tu měří přístroje. Je rovna zhruba <strong>70 % maximální hodnoty</strong>.</li>
 						</ul>
 						<h3>Výkon a síť</h3>
 						<p>Výkon se počítá z efektivních hodnot: <strong>P = U · I</strong>. V rozvodné síti používáme napětí s efektivní hodnotou <strong>230 V</strong> a frekvencí <strong>50 Hz</strong>.</p>
 					
-						<p>Proud v síti se sto­krát za sekundu na okamžik vynuluje, a přesto žárovka nebliká: vlákno
+						<p>Proud v síti se stokrát za sekundu na okamžik vynuluje, a přesto žárovka nebliká: vlákno
 							je tak rozžhavené, že za tu setinu sekundy nestihne vychladnout — a naše oko by tak
 							rychlou změnu stejně nepostřehlo.</p>
 						<h3>🧮 Co ta čísla ze zásuvky znamenají</h3>
@@ -4012,8 +4012,9 @@ export const temata: Record<string, Tema[]> = {
 							tedy <strong>20 milisekund</strong> na jednu otočku cívky v alternátoru. Za tu dobu
 							projde napětí nulou <em>dvakrát</em> — proto těch stokrát za sekundu.</li>
 							<li><strong>230 V</strong> je hodnota <strong>efektivní</strong>, ne největší. Maximum
-							z ní dostaneš vynásobením <strong>1,4</strong> (přesněji √2): 230 · 1,4 ≈
-							<strong>325 V</strong>. Ve špičce má tedy napětí v zásuvce kolem 325 V.
+							z ní dostaneš vynásobením koeficientem <strong>1,4</strong>: 230 · 1,4 =
+							<strong>322 V</strong>. Přesnější koeficient je √2 ≈ 1,41, a s ním vyjde
+							skutečná špička napětí v zásuvce asi <strong>325 V</strong>.
 							Právě proto se u součástek hlídá, jaké napětí <em>vydrží</em> — a proto je
 							zásuvka ještě nebezpečnější, než se podle čísla 230 zdá.</li>
 						</ul>
