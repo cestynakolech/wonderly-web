@@ -39,6 +39,26 @@ všechny pozastavené kroky, takže pauza video-automatu smazala i blokádu
 pořadí na kanálu. Nezávislý kontrolor: 4 drobné nálezy, žádný závažný; dva
 opraveny (hláška teď radí cestu ven, obsahové kroky pořadí neomezuje).
 
+✅ **F9 `vesmir-a-galaxie` HOTOVO A NASAZENO** (commit `5bb3eab`, ověřeno přes id
+`rv-a-spiralni-ring`). Kvíz 10→17, sekce „Věděl(a) jsi, že...", 1 video + 2 odkazy,
+nová simulace `rozpinani-vesmiru` (tvary galaxií, Hubbleův zákon). Dvě opravy po
+vizuální kontrole — scéna A vůbec nereagovala na klik.
+
+🔴🔴 **TÍM JE VYČERPANÁ CELÁ TEHDEJŠÍ FRONTA F9 podtémat bez názornosti**
+(chemicke-zdroje-napeti, elektricka-energie-a-premeny, jaderna-energie-a-reakce,
+obnovitelne-a-neobnovitelne-zdroje, vesmir-a-galaxie) — 4 nové simulace,
+1 starší doplněná o simulaci, hotovo a nasazeno v jednom samostatném bloku
+15. 8. 2026 večer.
+
+📌 **SYSTÉMOVÉ POUČENÍ (4. výskyt stejné třídy chyby dnes):** simulace, které
+mění stav přes CSS třídu (`classList.add/remove`) nebo zapisují popisek MIMO
+`<svg>...</svg>` tag, jsou pro `testy/nahled-simulace.mjs` neviditelné —
+sandbox má `classList` jako no-op a extrakce SVG bloku ignoruje vše mimo něj.
+VŽDY zapisuj viditelný stav jako přímý SVG atribut (`stroke`, `fill`,
+`opacity`, `height`, `y`...) na element UVNITŘ `<svg>`. Popisky/texty patřící
+ke stavu scény taky raději jako `<text>` uvnitř SVG, ne jako `<p>` vedle.
+Zapsáno i do definice `worker-simulace` (viz níže).
+
 🔴 **POZOR při zvedání pauzy video-automatu:** `pozastavene-automaty.json` je
 pořád pozastavený (důvod „PLAN-PORADEK.md v3"). Až se pauza zvedne, rohatka
 vynutí pořadí — první na řadě bude Kluesserath, ne Ruedesheim.
