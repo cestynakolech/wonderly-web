@@ -1,3 +1,19 @@
+# ⚡ ČÍM ZAČÍT (stav po bloku 15. 8. 2026, večer)
+
+**Vše je nasazené a brána je zelená.** Poslední commit wonderly-web: `b9726cd`.
+
+**Fyzika: názornost HOTOVÁ** (6–9, zbývají jen shrnutí, která ji nepotřebují). Dnes vzniklo 7 simulací.
+
+**NA ŘADĚ — vyber si:**
+1. `[skola2]` **Délková nápověda — pokračovat.** Rohatka `pocetNaskok15` v `testy/rohatka.json` je na **205** (bylo 247). Zbývá ~200 otázek fyziky, kde je správná odpověď nejdelší. Postup: spočítat žebříček nejhorších bloků skriptem nad `testy/data.mjs`, dát worker-kvizu 5 bloků, prodloužit distraktory (NIKDY neměnit, která odpověď je správná), nechat zkontrolovat (hrozí vznik druhé správné odpovědi — dnes se to jednou stalo), pak `npm run prijmi-latku` sníží strop.
+2. `[skola2]` **Informatika 9 — dokončit 3 hotové simulace.** `SeznamySimulace`, `BezpecnostSimulace`, `VexGyroskopSimulace` jsou v repu, otestované, ale NEZAPOJENÉ (chybí `interakce` v temata.ts + import v index.astro, kontrolor a vizuální kontrola). Klíče: `seznamy`, `bezpecnost`, `vex-gyroskop`. Detaily v sekci ODLOŽENO níže.
+3. `[skola2]` **Média fyziky** — 46 podtémat nemá žádná média, nejhorší 8. ročník (29).
+4. `[cesty]` **Deník ČEKÁ, nedá se nic dělat** — video-automat je zapnutý a správně čeká na 7denní lhůtu klidu médií. Vyprší **19. 8. ve 13:11** (skupina Klüsserath + Ochsenfurt + Rüdesheim + Sommerhausen + Winterhausen), a posune se dál, až se zanonymizují novější soubory z `fotky-cekarna`. Do té doby na deníku NENÍ co dělat.
+
+**❓ Čekají 2 otázky na učitele** (nepřesnosti v jeho textu u `teplota-a-jeji-mereni`: Fahrenheit „v anglicky mluvících zemích" → spíš jen USA; Klementinum minimum uvedeno s rokem 1785, rekord je 1929). Viz sekce níže.
+
+**Pravidla, která dnes vznikla:** bod 12 (worker nevrací text do kontextu, jen cestu do scratchpadu) · bod 13 (exekutor ověřuje zápis počtem v souboru, ne hlášením) · agenti musí do repa psát ABSOLUTNÍ cestou · u simulací zapisovat viditelný stav jako SVG atribut, nikdy `classList` ani text mimo `<svg>` · když náhledový nástroj na komponentu padá, opravuje se NÁSTROJ, ne komponenta.
+
 ## 🔴🔴 ZAČNI TADY (stav 15. 8. 2026 — po kole „chemické zdroje napětí (textová část)")
 
 **Hotovo a NASAZENO** (commit `b9726cd`, ověřeno curlem — HTTP 200, „Příklady
