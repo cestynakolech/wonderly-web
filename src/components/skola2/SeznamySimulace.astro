@@ -1,0 +1,245 @@
+---
+// Seznamy ve Scratchi (informatika 9): SEZNAM oproti samostatným proměnným.
+//
+// Scéna A — políčka očíslovaná 1, 2, 3… jako opravdový seznam ve Scratchi.
+// Pointa, na které se žáci nejčastěji spletou: po smazání prvku č. 2 se VŠECHNA
+// políčka za ním posunou a dostanou NOVÉ (nižší) číslo indexu — index není
+// nálepka na věci, ale jen „kolikáté v pořadí právě je".
+//
+// Scéna B — vlevo pět SAMOSTATNÝCH proměnných skore1…skore5 (jako by je žák
+// založil bez seznamu), vpravo tentýž obsah jako jeden seznam. Tlačítko
+// „přidej dalšího hráče": vpravo prostě přibude prvek, vlevo by bylo potřeba
+// ručně založit skore6 a všude v programu ho ošetřit — proto na obrazovce
+// přibývá „přízračné“ (přerušovaně orámované) políčko s otazníkem, které
+// ukazuje neexistující proměnnou, ne skutečná data.
+//
+// Všechny operace jsou ČISTÉ funkce nad polem (přidej-na-konec, vlož-na-začátek,
+// smaž-index), takže jde ověřit výpočtem, ne jen okem.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Seznam ve Scratchi 🕹️</span></h2>
+	<p><strong>Proměnná</strong> uchová jednu hodnotu. <strong>Seznam</strong> jich uchová mnoho, očíslovaných 1., 2., 3… Vyzkoušej si operace se seznamem <em>nákup</em> a sleduj, jak se po smazání <strong>přečíslují indexy</strong> políček za ním.</p>
+
+	<p class="sez-radek">
+		<button type="button" class="sez-tl" id="sez-a-pridej">➕ přidej (jahody) do [nákup]</button>
+		<button type="button" class="sez-tl" id="sez-a-vloz">⬆️ vlož (mrkev) do [nákup] na pozici (1)</button>
+		<button type="button" class="sez-tl sez-nebezpecne" id="sez-a-smaz2">🗑️ smaž (2) z [nákup]</button>
+		<button type="button" class="sez-tl" id="sez-a-reset">↺ obnov seznam</button>
+	</p>
+
+	<svg id="sez-a-svg" viewBox="0 0 960 220" role="img" aria-label="Seznam nákup zobrazený jako řada očíslovaných políček">
+		<rect x="0" y="0" width="960" height="220" fill="#f8f9fa" />
+		<text x="20" y="30" font-size="14" font-weight="bold" fill="#868e96">délka [nákup] =</text>
+		<text id="sez-a-delka-hodnota" x="185" y="30" font-size="16" font-weight="bold" fill="#1971c2">4</text>
+		<g id="sez-a-krabicky"></g>
+	</svg>
+	<p class="sez-stav" id="sez-a-stav" aria-live="polite"></p>
+
+	<hr class="sez-oddil" />
+
+	<h3>Proč seznamy vůbec existují?</h3>
+	<p>Vlevo je hra se 5 samostatnými proměnnými <em>skore1…skore5</em>, vpravo tentýž obsah jako <strong>jeden seznam</strong>. Zkus <strong>přidat dalšího hráče</strong> a sleduj rozdíl.</p>
+	<p class="sez-radek">
+		<button type="button" class="sez-tl" id="sez-b-pridej">➕ přidej dalšího hráče</button>
+		<button type="button" class="sez-tl" id="sez-b-reset">↺ začni znovu</button>
+	</p>
+	<svg id="sez-b-svg" viewBox="0 0 700 400" role="img" aria-label="Srovnání pěti samostatných proměnných a jednoho seznamu">
+		<rect x="0" y="0" width="700" height="400" fill="#f8f9fa" />
+		<text x="150" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">5 proměnných</text>
+		<text x="550" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">1 seznam</text>
+		<g id="sez-b-promenne"></g>
+		<g id="sez-b-seznam"></g>
+	</svg>
+	<p class="sez-stav" id="sez-b-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	const NS = 'http://www.w3.org/2000/svg';
+
+	// ——— ČISTÉ funkce nad polem (index je vždy 1-based, jako ve Scratchi) ———
+	function pridejNaKonec(pole, hodnota) {
+		return [...pole, hodnota];
+	}
+	function vlozNaZacatek(pole, hodnota) {
+		return [hodnota, ...pole];
+	}
+	function smazIndex(pole, index1) {
+		const i = index1 - 1;
+		if (i < 0 || i >= pole.length) return pole.slice();
+		return [...pole.slice(0, i), ...pole.slice(i + 1)];
+	}
+
+	// ————————————————————————————————————————————————————————————
+	// SCÉNA A — seznam „nákup“
+	// ————————————————————————————————————————————————————————————
+	const PUVODNI_A = ['jablka', 'chleba', 'mléko', 'vejce'];
+	let seznamA = PUVODNI_A.slice();
+
+	const boxW = 110, gap = 14, startX = 20, boxY = 50, boxH = 90;
+	const gA = document.getElementById('sez-a-krabicky');
+	const delkaAEl = document.getElementById('sez-a-delka-hodnota');
+	const svgA = document.getElementById('sez-a-svg');
+	const stavAEl = document.getElementById('sez-a-stav');
+
+	function vykresliA(posledniAkce) {
+		while (gA.firstChild) gA.removeChild(gA.firstChild);
+		seznamA.forEach((hodnota, i) => {
+			const x = startX + i * (boxW + gap);
+			const rect = document.createElementNS(NS, 'rect');
+			rect.setAttribute('x', String(x));
+			rect.setAttribute('y', String(boxY));
+			rect.setAttribute('width', String(boxW));
+			rect.setAttribute('height', String(boxH));
+			rect.setAttribute('fill', '#fff3bf');
+			rect.setAttribute('stroke', '#2b2a26');
+			rect.setAttribute('stroke-width', '3');
+			rect.setAttribute('rx', '8');
+			gA.appendChild(rect);
+
+			const idxT = document.createElementNS(NS, 'text');
+			idxT.setAttribute('x', String(x + boxW / 2));
+			idxT.setAttribute('y', String(boxY - 8));
+			idxT.setAttribute('text-anchor', 'middle');
+			idxT.setAttribute('font-size', '14');
+			idxT.setAttribute('font-weight', 'bold');
+			idxT.setAttribute('fill', '#e8590c');
+			idxT.textContent = `index ${i + 1}`;
+			gA.appendChild(idxT);
+
+			const valT = document.createElementNS(NS, 'text');
+			valT.setAttribute('x', String(x + boxW / 2));
+			valT.setAttribute('y', String(boxY + boxH / 2 + 6));
+			valT.setAttribute('text-anchor', 'middle');
+			valT.setAttribute('font-size', '15');
+			valT.setAttribute('font-weight', 'bold');
+			valT.setAttribute('fill', '#2b2a26');
+			valT.textContent = hodnota;
+			gA.appendChild(valT);
+		});
+		delkaAEl.textContent = String(seznamA.length);
+		const sirka = Math.max(960, startX * 2 + seznamA.length * (boxW + gap));
+		svgA.setAttribute('viewBox', `0 0 ${sirka} 220`);
+		if (posledniAkce) stavAEl.textContent = posledniAkce;
+	}
+
+	document.getElementById('sez-a-pridej').addEventListener('click', () => {
+		seznamA = pridejNaKonec(seznamA, 'jahody');
+		vykresliA(`Přibyla „jahody“ na konec — index ${seznamA.length}. Ostatní indexy se NEZMĚNILY.`);
+	});
+	document.getElementById('sez-a-vloz').addEventListener('click', () => {
+		seznamA = vlozNaZacatek(seznamA, 'mrkev');
+		vykresliA('Vložena „mrkev“ na pozici 1 — VŠECHNY ostatní položky dostaly index o 1 vyšší.');
+	});
+	document.getElementById('sez-a-smaz2').addEventListener('click', () => {
+		if (seznamA.length < 2) { vykresliA('Seznam je moc krátký, není co mazat na pozici 2.'); return; }
+		const smazana = seznamA[1];
+		seznamA = smazIndex(seznamA, 2);
+		vykresliA(`Smazána „${smazana}“ z pozice 2 — položky za ní se posunuly o 1 index DOLŮ (pozor, žáky to nejčastěji zaskočí).`);
+	});
+	document.getElementById('sez-a-reset').addEventListener('click', () => {
+		seznamA = PUVODNI_A.slice();
+		vykresliA('Seznam obnoven na začátek.');
+	});
+	vykresliA('');
+
+	// ————————————————————————————————————————————————————————————
+	// SCÉNA B — proměnné × seznam
+	// ————————————————————————————————————————————————————————————
+	const PUVODNI_B = [10, 8, 6, 4, 2];
+	let seznamB = PUVODNI_B.slice();
+	let pokusyNavic = 0; // kolikrát se zkusilo přidat hráče NAD 5 proměnných
+
+	const gProm = document.getElementById('sez-b-promenne');
+	const gList = document.getElementById('sez-b-seznam');
+	const stavBEl = document.getElementById('sez-b-stav');
+	const radekVyska = 46, radekMezera = 10;
+
+	function box(g, x, y, w, h, fill, stroke, dash) {
+		const rect = document.createElementNS(NS, 'rect');
+		rect.setAttribute('x', String(x));
+		rect.setAttribute('y', String(y));
+		rect.setAttribute('width', String(w));
+		rect.setAttribute('height', String(h));
+		rect.setAttribute('rx', '6');
+		rect.setAttribute('fill', fill);
+		rect.setAttribute('stroke', stroke);
+		rect.setAttribute('stroke-width', '3');
+		if (dash) rect.setAttribute('stroke-dasharray', '6 5');
+		g.appendChild(rect);
+		return rect;
+	}
+	function popisek(g, x, y, txt, fill) {
+		const t = document.createElementNS(NS, 'text');
+		t.setAttribute('x', String(x));
+		t.setAttribute('y', String(y));
+		t.setAttribute('font-size', '15');
+		t.setAttribute('font-weight', 'bold');
+		t.setAttribute('fill', fill);
+		t.textContent = txt;
+		g.appendChild(t);
+		return t;
+	}
+
+	function vykresliB() {
+		while (gProm.firstChild) gProm.removeChild(gProm.firstChild);
+		while (gList.firstChild) gList.removeChild(gList.firstChild);
+
+		// vlevo: 5 SKUTEČNÝCH proměnných (vždy přesně 5, nikdy víc)
+		for (let i = 0; i < 5; i++) {
+			const y = 46 + i * (radekVyska + radekMezera);
+			box(gProm, 20, y, 260, radekVyska, '#fff3bf', '#2b2a26', false);
+			popisek(gProm, 32, y + 29, `skore${i + 1} = ${seznamB[i]}`, '#2b2a26');
+		}
+		// vlevo dole: přízračná políčka za každý neúspěšný pokus (proměnná NEEXISTUJE)
+		for (let p = 0; p < pokusyNavic; p++) {
+			const y = 46 + (5 + p) * (radekVyska + radekMezera);
+			box(gProm, 20, y, 260, radekVyska, '#fff5f5', '#e03131', true);
+			popisek(gProm, 32, y + 29, `skore${6 + p} = ??? (proměnná neexistuje!)`, '#e03131');
+		}
+
+		// vpravo: JEDEN seznam, tolik políček, kolik má prvků
+		seznamB.forEach((hodnota, i) => {
+			const y = 46 + i * (radekVyska + radekMezera);
+			box(gList, 380, y, 260, radekVyska, '#d0ebff', '#1971c2', false);
+			popisek(gList, 392, y + 29, `index ${i + 1} = ${hodnota}`, '#1971c2');
+		});
+
+		stavBEl.textContent = pokusyNavic === 0
+			? 'Zatím 5 hráčů na obou stranách.'
+			: `Vpravo přibylo ${pokusyNavic}× „přidej do [seznam]“ — hotovo. Vlevo by bylo potřeba ${pokusyNavic}× ručně založit novou proměnnou (skore${5 + pokusyNavic}) a upravit s ní CELÝ program.`;
+	}
+
+	document.getElementById('sez-b-pridej').addEventListener('click', () => {
+		pokusyNavic += 1;
+		seznamB = pridejNaKonec(seznamB, 0);
+		vykresliB();
+	});
+	document.getElementById('sez-b-reset').addEventListener('click', () => {
+		seznamB = PUVODNI_B.slice();
+		pokusyNavic = 0;
+		vykresliB();
+	});
+	vykresliB();
+
+	// ——— ověřovací háčky ———
+	svgA.__pridejNaKonec = pridejNaKonec;
+	svgA.__vlozNaZacatek = vlozNaZacatek;
+	svgA.__smazIndex = smazIndex;
+	svgA.__seznam = () => seznamA.slice();
+	const svgB = document.getElementById('sez-b-svg');
+	svgB.__seznam = () => seznamB.slice();
+	svgB.__pokusyNavic = () => pokusyNavic;
+</script>
+
+<style>
+	#sez-a-svg, #sez-b-svg { width: 100%; border: 3px solid #2b2a26; border-radius: 12px; margin-top: 0.4rem; }
+	#sez-a-svg { max-width: 960px; }
+	#sez-b-svg { max-width: 700px; }
+	.sez-radek { margin: 0.6rem 0; }
+	.sez-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.sez-tl.sez-nebezpecne { background: #ffe3e3; }
+	.sez-tl:active { transform: translateY(1px); }
+	.sez-stav { font-size: 1.02rem; font-weight: 700; min-height: 1.6rem; }
+	.sez-oddil { border: none; border-top: 3px solid #2b2a26; margin: 1.2rem 0; }
+</style>

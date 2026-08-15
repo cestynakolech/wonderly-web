@@ -170,6 +170,14 @@ hlášením „hotovo".
 
 📌 Vizuální kontrola i dnes našla vadu, kterou testy neviděly: kovová kulička ve třetím pokusu visela ve vzduchu bez závěsu ke stojanu (doplněn drátek).
 
+⏸️ **ODLOŽENO: tři hotové simulace informatiky 9. ročníku, NEZAPOJENÉ a NENASAZENÉ** (učitel 15. 8. večer přesměroval práci zpět na fyziku). Komponenty i testy JSOU HOTOVÉ a zelené, chybí jen zapojení do `temata.ts`/`index.astro`, kontrolor a vizuální kontrola:
+- `SeznamySimulace.astro` → klíč `interakce: 'seznamy'` pro `informatika/9-rocnik/programovaci-projekty/seznamy-a-promenne-v-projektech`. Test `testy/simulace/seznamy.mjs` 25/25. Přidána už do registru `SIMULACE_SE_SCRATCHEM` v `testy/nazvy-bloku.mjs`. ⚠️ Nález k dořešení: výklad v `temata.ts` používá tvar bloku „přidej … k [nákup]", komponenta „přidej … do [seznam]" — sjednotit.
+- `BezpecnostSimulace.astro` → klíč `interakce: 'bezpecnost'` pro `informatika/9-rocnik/digitalni-technologie/bezpecnost-pocitace-a-dat`. Test 73/73.
+- `VexGyroskopSimulace.astro` → klíč `interakce: 'vex-gyroskop'` pro `informatika/9-rocnik/robotika-vex-iq/vex-iq-navody`. Test 21/21. Scéna B změněna z sledovače čáry na parkování s čidlem vzdálenosti, protože sledovač čáry už pokrývá existující `CaraSimulace`.
+Zbylé díry informatiky 9. roč. po nich: `plan-projektu-a-ladeni`, `hardware-a-software`, `digitalni-stopa-a-identita`.
+
+🔴 **PRAVIDLO PRO AGENTY — absolutní cesty.** Vrátný dnes zastavil zápis do `/Users/Shared/Škola/wonderly-web/src/components/skola2/BezpecnostSimulace.astro`. To NEBYL planý poplach: agent použil relativní cestu `wonderly-web/src/…`, která se z pracovního adresáře `/Users/Shared/Škola` rozvinula do složky se zdrojovými podklady učitele. Repo je `/Users/radek_soukromy/Desktop/wonderly-web`. **Agenti musí do repa psát absolutní cestou**, jinak hrozí, že vznikne cizí kopie webu ve Škole. Whitelist vrátného se kvůli tomu NEMĚNÍ — zachytil skutečnou chybu.
+
 ---
 
 ## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"

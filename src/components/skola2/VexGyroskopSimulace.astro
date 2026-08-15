@@ -1,0 +1,247 @@
+---
+// VEX IQ — proč gyroskop a proč čidlo vzdálenosti.
+//
+// Scéna A: robot má objet čtverec a na každém rohu se otočit o 90°.
+// Bez gyra se otáčí "podle otáček kol" — kola prokluzují, takže se skutečně
+// otočí jen o 87° (chyba 3°). Po čtyřech rozích je součet otočení jen
+// 4×87° = 348° místo 360° → chyba 12° se NEVYRUŠÍ, robot nedojede zpátky
+// na start. S gyrem se otočí přesně o 90° pokaždé a robot skončí přesně tam,
+// kde začal.
+//
+// Scéna B: existující CaraSimulace.astro už pokrývá sledovač čáry (bang-bang
+// řízení podle dvou čidel barvy), proto je tahle scéna o JINÉ výzvě z téhož
+// podtématu — parkování na přesnou vzdálenost od zdi (čidlo vzdálenosti).
+// Řízení "podle otáček kol" trpí stejným neduhem jako scéna A: kola
+// prokluzují, takže auto ujede o pár cm víc, než mělo, a zastaví jinde, než
+// bylo v plánu. Čidlo vzdálenosti měří SKUTEČNOU vzdálenost od zdi, takže
+// zastaví přesně na cíl bez ohledu na prokluz kol — stejná myšlenka jako
+// u gyra, jen pro vzdálenost místo úhlu.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Proč gyroskop a čidlo vzdálenosti? 🕹️</span></h2>
+
+	<h3>A) Přesný čtverec — otáčky kol, nebo gyroskop?</h3>
+	<p>
+		Robot má objet čtverec a na každém rohu se otočit o <strong>90°</strong>. Bez gyra program
+		otáčení jen odhadne z počtu otáček kol — jenže kola na hladké podlaze <strong>prokluzují</strong>,
+		takže se robot skutečně otočí jen o <strong>87°</strong> (chyba 3°). Přepni řízení a spusť jízdu.
+	</p>
+	<svg id="vg-a-svg" viewBox="0 0 480 366" role="img" aria-label="Robot objíždí čtverec, s gyrem nebo bez něj">
+		<rect x="0" y="0" width="480" height="366" fill="#f8f9fa" />
+		<rect id="vg-a-ideal" x="100" y="190" width="90" height="90" fill="none" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 5" />
+		<polyline id="vg-a-cesta" points="100,280 100,190 190,190 190,280 100,280" fill="none" stroke="#1971c2" stroke-width="4" stroke-linejoin="round" />
+		<line id="vg-a-mezera" x1="100" y1="280" x2="100" y2="280" stroke="#e03131" stroke-width="3" opacity="0" />
+		<circle id="vg-a-start" cx="100" cy="280" r="7" fill="#2f9e44" stroke="#2b2a26" stroke-width="2" />
+		<g id="vg-a-robot" transform="translate(100 280) rotate(0)">
+			<rect x="-14" y="-10" width="28" height="20" rx="4" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5" />
+			<polygon points="0,-18 -7,-10 7,-10" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+		</g>
+		<text x="230" y="26" font-size="13" font-weight="bold" fill="#2b2a26">Ideál: šedá čára</text>
+		<text id="vg-a-rezim" x="230" y="46" font-size="13" font-weight="bold" fill="#e8590c">Bez gyra (podle kol)</text>
+		<text id="vg-a-text1" x="10" y="322" font-size="13" fill="#2b2a26">Roh: otočí se jen o 87° místo 90°.</text>
+		<text id="vg-a-text2a" x="10" y="339" font-size="13" font-weight="bold" fill="#e03131">4 × 87° = 348° místo 360°.</text>
+		<text id="vg-a-text2b" x="10" y="355" font-size="13" font-weight="bold" fill="#e03131">Chyba 12° → NEDOJEL na start.</text>
+	</svg>
+	<div class="vg-ovladani">
+		<button id="vg-a-gyro" type="button" class="vg-tl">Přepnout na gyroskop 🔄</button>
+		<button id="vg-a-jet" type="button" class="vg-tl vg-tl-hlavni">▶ Objet čtverec</button>
+	</div>
+
+	<h3>B) Parkování na přesnou vzdálenost — kola, nebo čidlo vzdálenosti?</h3>
+	<p>
+		Robot má zastavit přesně <strong>na zvolenou vzdálenost před zdí</strong>. Bez čidla program počítá,
+		kolik se ujelo z otáček kol — ale kola <strong>prokluzují o 3 cm</strong>, takže auto zastaví
+		jinde, než mělo. Čidlo vzdálenosti měří vzdálenost od zdi PŘÍMO, takže je jedno, co dělají kola.
+	</p>
+	<svg id="vg-b-svg" viewBox="0 0 480 220" role="img" aria-label="Robot parkuje před zdí, s čidlem nebo bez něj">
+		<rect x="0" y="0" width="480" height="220" fill="#f8f9fa" />
+		<line x1="20" y1="140" x2="460" y2="140" stroke="#adb5bd" stroke-width="3" />
+		<rect x="450" y="40" width="16" height="110" fill="#495057" />
+		<text x="452" y="34" font-size="13" font-weight="bold" fill="#495057">zeď</text>
+		<line id="vg-b-mereni" x1="100" y1="120" x2="450" y2="120" stroke="#2f9e44" stroke-width="3" stroke-dasharray="5 4" />
+		<g id="vg-b-robot" transform="translate(80 140)">
+			<rect x="-20" y="-14" width="40" height="28" rx="5" fill="#4dabf7" stroke="#2b2a26" stroke-width="2.5" />
+			<circle cx="16" cy="0" r="4" fill="#2b2a26" />
+		</g>
+		<text id="vg-b-rezim" x="20" y="26" font-size="13" font-weight="bold" fill="#e8590c">Bez čidla (podle kol)</text>
+		<text id="vg-b-info" x="20" y="182" font-size="13" font-weight="bold" fill="#2b2a26">Nastav cíl a klikni na Zaparkuj.</text>
+		<text id="vg-b-info2" x="20" y="200" font-size="12" fill="#495057"></text>
+	</svg>
+	<div class="vg-ovladani">
+		<button id="vg-b-mod" type="button" class="vg-tl">Přepnout na čidlo vzdálenosti 📡</button>
+		<label>Cíl <input id="vg-b-cil" type="range" min="5" max="20" step="5" value="10" /> <span id="vg-b-cil-text">10</span> cm</label>
+		<button id="vg-b-start" type="button" class="vg-tl vg-tl-hlavni">▶ Zaparkuj</button>
+	</div>
+</section>
+
+<script>
+	// ─────────────────────────── Scéna A: čtverec, gyro vs. otáčky kol ───────
+	const aSvg = document.getElementById('vg-a-svg');
+	const aCesta = document.getElementById('vg-a-cesta');
+	const aMezera = document.getElementById('vg-a-mezera');
+	const aRobot = document.getElementById('vg-a-robot');
+	const aRezim = document.getElementById('vg-a-rezim');
+	const aText1 = document.getElementById('vg-a-text1');
+	const aText2a = document.getElementById('vg-a-text2a');
+	const aText2b = document.getElementById('vg-a-text2b');
+
+	const A_START = { x: 100, y: 280 };
+	const A_LEG = 90;
+	const DEG2RAD = Math.PI / 180;
+	const smer = (deg) => ({ dx: Math.sin(deg * DEG2RAD), dy: -Math.cos(deg * DEG2RAD) });
+
+	let gyroZapnuty = false; // start bez gyra — hned je vidět problém
+
+	function spocitejDrahu(turnAngle) {
+		let h = 0;
+		let p = { ...A_START };
+		const body = [p];
+		for (let i = 0; i < 4; i++) {
+			const s = smer(h);
+			p = { x: p.x + A_LEG * s.dx, y: p.y + A_LEG * s.dy };
+			body.push(p);
+			h += turnAngle;
+		}
+		return { body, headingKonecny: ((h % 360) + 360) % 360 };
+	}
+
+	function vykresliA() {
+		const turnAngle = gyroZapnuty ? 90 : 87;
+		const { body, headingKonecny } = spocitejDrahu(turnAngle);
+		aCesta.setAttribute('points', body.map((b) => `${Math.round(b.x)},${Math.round(b.y)}`).join(' '));
+		const konec = body[body.length - 1];
+		aRobot.setAttribute('transform', `translate(${konec.x.toFixed(1)} ${konec.y.toFixed(1)}) rotate(${headingKonecny.toFixed(1)})`);
+
+		if (gyroZapnuty) {
+			aMezera.setAttribute('x1', String(A_START.x));
+			aMezera.setAttribute('y1', String(A_START.y));
+			aMezera.setAttribute('x2', String(A_START.x));
+			aMezera.setAttribute('y2', String(A_START.y));
+			aMezera.setAttribute('opacity', '0');
+			aRezim.textContent = 'S gyroskopem';
+			aRezim.setAttribute('fill', '#2f9e44');
+			aText1.textContent = 'Roh: otočí se přesně o 90° — gyro hlídá úhel.';
+			aText2a.textContent = '4 × 90° = 360° přesně.';
+			aText2a.setAttribute('fill', '#2f9e44');
+			aText2b.textContent = 'Robot dojel přesně zpátky na start.';
+			aText2b.setAttribute('fill', '#2f9e44');
+		} else {
+			aMezera.setAttribute('x1', String(A_START.x));
+			aMezera.setAttribute('y1', String(A_START.y));
+			aMezera.setAttribute('x2', konec.x.toFixed(1));
+			aMezera.setAttribute('y2', konec.y.toFixed(1));
+			aMezera.setAttribute('opacity', '1');
+			aRezim.textContent = 'Bez gyra (podle kol)';
+			aRezim.setAttribute('fill', '#e8590c');
+			aText1.textContent = 'Roh: otočí se jen o 87° místo 90°.';
+			aText2a.textContent = '4 × 87° = 348° místo 360°.';
+			aText2a.setAttribute('fill', '#e03131');
+			aText2b.textContent = 'Chyba 12° → NEDOJEL na start.';
+			aText2b.setAttribute('fill', '#e03131');
+		}
+	}
+
+	document.getElementById('vg-a-gyro').addEventListener('click', () => {
+		gyroZapnuty = !gyroZapnuty;
+		vykresliA();
+	});
+	document.getElementById('vg-a-jet').addEventListener('click', () => {
+		vykresliA();
+	});
+	vykresliA();
+
+	// ─────────────────────── Scéna B: parkování, kola vs. čidlo vzdálenosti ──
+	const bRobot = document.getElementById('vg-b-robot');
+	const bMereni = document.getElementById('vg-b-mereni');
+	const bRezim = document.getElementById('vg-b-rezim');
+	const bInfo = document.getElementById('vg-b-info');
+	const bInfo2 = document.getElementById('vg-b-info2');
+	const bCil = document.getElementById('vg-b-cil');
+	const bCilText = document.getElementById('vg-b-cil-text');
+
+	const WALL_X = 450;
+	const SCALE = 4; // px na 1 cm
+	const ROBOT_POLOSIRKA = 20;
+	const PROKLUZ_CM = 3;
+
+	let cidloZapnuto = false; // start bez čidla — hned je vidět problém
+
+	function vykresliB() {
+		const cil = Number(bCil.value);
+		bCilText.textContent = String(cil);
+		const skutecna = cidloZapnuto ? cil : Math.max(0, cil - PROKLUZ_CM);
+		const predniHrana = WALL_X - skutecna * SCALE;
+		const stredX = predniHrana - ROBOT_POLOSIRKA;
+
+		bRobot.setAttribute('transform', `translate(${stredX} 140)`);
+		bMereni.setAttribute('x1', String(predniHrana));
+		bMereni.setAttribute('x2', String(WALL_X));
+		bMereni.setAttribute('stroke', cidloZapnuto ? '#2f9e44' : '#e03131');
+
+		if (cidloZapnuto) {
+			bRezim.textContent = 'S čidlem vzdálenosti';
+			bRezim.setAttribute('fill', '#2f9e44');
+			bInfo.textContent = `Čidlo naměřilo přesně ${skutecna} cm od zdi.`;
+			bInfo2.textContent = 'Sedí to přesně — prokluz kol čidlo nezajímá.';
+			bInfo.setAttribute('fill', '#2f9e44');
+		} else {
+			bRezim.textContent = 'Bez čidla (podle kol)';
+			bRezim.setAttribute('fill', '#e8590c');
+			bInfo.textContent = `Auto skončilo ${skutecna} cm od zdi místo ${cil} cm.`;
+			bInfo2.textContent = `Kola prokluzují o ${PROKLUZ_CM} cm víc, než program čekal.`;
+			bInfo.setAttribute('fill', '#e03131');
+		}
+	}
+
+	document.getElementById('vg-b-mod').addEventListener('click', () => {
+		cidloZapnuto = !cidloZapnuto;
+		vykresliB();
+	});
+	document.getElementById('vg-b-start').addEventListener('click', () => {
+		vykresliB();
+	});
+	bCil.addEventListener('input', () => {
+		vykresliB();
+	});
+	vykresliB();
+</script>
+
+<style>
+	#vg-a-svg, #vg-b-svg {
+		width: 100%;
+		max-width: 480px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #f8f9fa;
+		display: block;
+		margin: 0 auto;
+	}
+	.vg-ovladani {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.7rem 0 1.4rem;
+	}
+	.vg-ovladani label {
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.vg-tl {
+		font-size: 1rem;
+		font-weight: 800;
+		padding: 0.45rem 1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffe066;
+		cursor: pointer;
+	}
+	.vg-tl-hlavni {
+		background: #4dabf7;
+		color: #fff;
+	}
+</style>

@@ -1,0 +1,306 @@
+---
+// Bezpečnost počítače a dat (informatika 9, digitalni-technologie/bezpecnost-pocitace-a-dat).
+//
+// Scéna A: poznej podvodný odkaz. Podle výkladu na téže stránce je skutečnou
+// adresou ta část, co je TĚSNĚ PŘED PRVNÍM LOMÍTKEM (příklad z výkladu:
+// mojebanka.csob.cz.prihlaseni-overeni.cz → skutečná adresa je
+// prihlaseni-overeni.cz). Zjednodušeně: skutečná doména jsou poslední dvě
+// tečkované části hostitele (před cestou za lomítkem) — přesně to, na co má
+// žák koukat. Zvýraznění se počítá z INDEXU ve stringu (monospace, pevná
+// šířka znaku), ne z měření textu prohlížečem — v headless náhledu žádné
+// měření fontů není a text by se jinak netrefil pod rámeček.
+//
+// Scéna B: vrstvy obrany kolem počítače (soustředné kružnice zvenčí dovnitř:
+// aktualizace → antivir → heslo → 2FA → data uprostřed). Útok postupuje
+// odzvenčí a zastaví se na PRVNÍ zapnuté vrstvě, kterou potká — přesně
+// ukazuje, že jedna vrstva nestačí, ale i jedna zapnutá už něco zastaví.
+// Záloha NENÍ v řadě soustředných kružnic (nic neblokuje) — je to poslední
+// záchrana: když útok dojde až k datům (ransomware je zašifruje), zapnutá
+// záloha data zachrání, vypnutá ne. To odpovídá výkladu: „nejspolehlivější
+// způsob, jak se z ransomwaru dostat zpátky".
+//
+// Klik mění SVG SYNCHRONNĚ (žádné requestAnimationFrame) — v testovacím
+// náhledu i v prohlížeči běží časování jinak, proto se rovnou nastaví
+// koncový stav.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Bezpečnost: poznej podvod a postav obranu 🛡️</span></h2>
+
+	<h3>A) Pravá, nebo podvodná adresa?</h3>
+	<p>
+		V adrese je důležitá část <strong>těsně před prvním lomítkem</strong> — to je skutečná doména.
+		Zbytek si útočník může napsat, jaký chce.
+	</p>
+	<svg id="bz-a-svg" viewBox="0 0 560 170" role="img"
+		aria-label="Adresní řádek prohlížeče s webovou adresou, žák hádá, jestli je pravá nebo podvodná">
+		<rect x="0" y="0" width="560" height="170" fill="#f8f9fa" />
+		<rect x="16" y="30" width="528" height="46" rx="10" fill="#fff" stroke="#495057" stroke-width="2" />
+		<rect id="bz-a-ramecek" x="0" y="0" width="0" height="0" fill="none" stroke="none" stroke-width="3" rx="4" opacity="0" />
+		<text id="bz-a-predpona" x="26" y="60" font-family="monospace" font-size="20" fill="#495057"></text>
+		<text id="bz-a-domena" x="26" y="60" font-family="monospace" font-size="20" font-weight="bold" fill="#212529"></text>
+		<text id="bz-a-cesta" x="26" y="60" font-family="monospace" font-size="20" fill="#868e96"></text>
+		<text id="bz-a-znacka" x="524" y="60" text-anchor="middle" font-size="26" font-weight="bold" fill="#000"></text>
+		<text id="bz-a-vysvetleni" x="16" y="105" font-family="sans-serif" font-size="15" fill="#212529"></text>
+		<text id="bz-a-vysvetleni2" x="16" y="128" font-family="sans-serif" font-size="15" fill="#212529"></text>
+		<text x="16" y="155" font-size="13" fill="#868e96">Příklad <tspan id="bz-a-poradi">1</tspan> z <tspan id="bz-a-celkem">5</tspan></text>
+	</svg>
+	<p class="bz-radek">
+		<button type="button" class="bz-tl" id="bz-a-prava">✅ Adresa je pravá</button>
+		<button type="button" class="bz-tl" id="bz-a-podvodna">🚩 Adresa je podvodná</button>
+		<button type="button" class="bz-tl" id="bz-a-dalsi">➡️ Další příklad</button>
+	</p>
+	<p class="bz-stav" id="bz-a-stav" aria-live="polite">Přečti si adresu a rozhodni, jestli je pravá, nebo podvodná.</p>
+
+	<h3>B) Vrstvy obrany — kolik jich stačí?</h3>
+	<p>
+		Zapínej a vypínej vrstvy obrany kolem počítače, pak spusť útok. Útok se zastaví na
+		<strong>první zapnuté vrstvě</strong> — a záloha navíc zachrání data, i když útok projde úplně dovnitř.
+	</p>
+	<svg id="bz-b-svg" viewBox="0 0 480 480" role="img"
+		aria-label="Počítač obklopený vrstvami obrany (aktualizace, antivir, heslo, dvoufázové ověření); záloha je mimo tyto vrstvy">
+		<rect x="0" y="0" width="480" height="480" fill="#f8f9fa" />
+		<circle id="bz-b-vrstva-aktualizace" cx="240" cy="240" r="200" fill="none" stroke="#adb5bd" stroke-width="8" stroke-dasharray="6 8" opacity="0.7" />
+		<circle id="bz-b-vrstva-antivir" cx="240" cy="240" r="160" fill="none" stroke="#adb5bd" stroke-width="8" stroke-dasharray="6 8" opacity="0.7" />
+		<circle id="bz-b-vrstva-heslo" cx="240" cy="240" r="120" fill="none" stroke="#adb5bd" stroke-width="8" stroke-dasharray="6 8" opacity="0.7" />
+		<circle id="bz-b-vrstva-2fa" cx="240" cy="240" r="80" fill="none" stroke="#adb5bd" stroke-width="8" stroke-dasharray="6 8" opacity="0.7" />
+		<rect x="205" y="205" width="70" height="70" rx="8" fill="#495057" />
+		<text x="240" y="248" text-anchor="middle" font-size="30">💻</text>
+		<text id="bz-b-label-aktualizace" x="240" y="46" text-anchor="middle" font-size="13" fill="#495057">aktualizace</text>
+		<text id="bz-b-label-antivir" x="240" y="86" text-anchor="middle" font-size="13" fill="#495057">antivir</text>
+		<text id="bz-b-label-heslo" x="240" y="126" text-anchor="middle" font-size="13" fill="#495057">heslo</text>
+		<text id="bz-b-label-2fa" x="240" y="166" text-anchor="middle" font-size="13" fill="#495057">2FA</text>
+		<circle id="bz-b-utok" cx="240" cy="40" r="10" fill="none" stroke="none" opacity="0" />
+		<circle id="bz-b-zasah" cx="240" cy="40" r="16" fill="none" stroke="none" stroke-width="4" opacity="0" />
+		<rect x="392" y="392" width="64" height="64" rx="10" id="bz-b-zaloha" fill="#adb5bd" stroke="#495057" stroke-width="3" opacity="0.7" />
+		<text x="424" y="430" text-anchor="middle" font-size="26">💾</text>
+		<text x="424" y="466" text-anchor="middle" font-size="12" fill="#495057">záloha</text>
+		<text id="bz-b-vysledek" x="240" y="472" text-anchor="middle" font-size="14" font-weight="bold" fill="#212529"></text>
+	</svg>
+	<p class="bz-radek">
+		<button type="button" class="bz-tl bz-vrstva-tl" id="bz-b-tl-aktualizace" data-vrstva="aktualizace" aria-pressed="false">🔄 aktualizace</button>
+		<button type="button" class="bz-tl bz-vrstva-tl" id="bz-b-tl-antivir" data-vrstva="antivir" aria-pressed="false">🛡️ antivir</button>
+		<button type="button" class="bz-tl bz-vrstva-tl" id="bz-b-tl-heslo" data-vrstva="heslo" aria-pressed="false">🔑 silné heslo</button>
+		<button type="button" class="bz-tl bz-vrstva-tl" id="bz-b-tl-2fa" data-vrstva="2fa" aria-pressed="false">📱 2FA</button>
+		<button type="button" class="bz-tl bz-vrstva-tl" id="bz-b-tl-zaloha" data-vrstva="zaloha" aria-pressed="false">💾 záloha</button>
+	</p>
+	<p class="bz-radek">
+		<button type="button" class="bz-tl bz-utok-tl" id="bz-b-spustit">⚡ Spustit útok</button>
+	</p>
+	<p class="bz-stav" id="bz-b-stav" aria-live="polite">Zapni pár vrstev a spusť útok — uvidíš, kde se zastaví.</p>
+</section>
+
+<script>
+	// ————————————————————————————————— Scéna A: pravá / podvodná adresa —————————————————————————————————
+	const PRIKLADY = [
+		{ url: 'www.seznam.cz/email', spravna: true,
+			vysvetleni1: 'Skutečná doména je seznam.cz — přesně ta, na kterou to vypadá.',
+			vysvetleni2: '„www." je jen obvyklá předpona, ne podvod.' },
+		{ url: 'seznam.cz.utok.ru/prihlaseni', spravna: false,
+			vysvetleni1: 'Skutečná doména je utok.ru, ne seznam.cz!',
+			vysvetleni2: '„seznam.cz" je tu jen podřízená část cizí domény.' },
+		{ url: 'mojebanka.csob.cz.prihlaseni-overeni.cz/login', spravna: false,
+			vysvetleni1: 'Skutečná doména je prihlaseni-overeni.cz, ne banka.',
+			vysvetleni2: 'Jméno banky v adrese nic nezaručuje.' },
+		{ url: 'www.sezanm.cz/posta', spravna: false,
+			vysvetleni1: 'Skutečná doména je sezanm.cz — přehozená písmena, není to seznam.cz!',
+			vysvetleni2: 'Překlep v doméně je typický trik phishingu.' },
+		{ url: 'obchod.alza.cz/kosik', spravna: true,
+			vysvetleni1: 'Skutečná doména je alza.cz — obchod je jen podstránka (subdoména).',
+			vysvetleni2: 'Subdoména PŘED hlavní doménou je v pořádku.' },
+	];
+
+	/** Rozdělí adresu na (předpona, doména, cesta). Doména = poslední dvě tečkované
+	 *  části hostitele (té části před prvním lomítkem) — přesně jak to učí výklad. */
+	function rozdelAdresu(url) {
+		const lomitko = url.indexOf('/');
+		const host = lomitko === -1 ? url : url.slice(0, lomitko);
+		const casti = host.split('.');
+		const domena = casti.length >= 2 ? casti.slice(-2).join('.') : host;
+		const start = host.length - domena.length;
+		// od konce domény (= konec hostitele) do konce URL je JEDNA věc — zbytek cesty za
+		// lomítkem. Dřív se sem lepilo i „zbytek" počítané zvlášť, takže se cesta zdvojila
+		// (nález z porovnání SVG před/po kliku — /email vyšlo jako /email/email).
+		return { predpona: url.slice(0, start), domena: url.slice(start, start + domena.length), cesta: url.slice(start + domena.length) };
+	}
+
+	const CW = 12; // šířka znaku monospace fontu 20px (pevná, žádné měření DOM)
+	const X0 = 26, Y = 60;
+
+	const aPredponaEl = document.getElementById('bz-a-predpona');
+	const aDomenaEl = document.getElementById('bz-a-domena');
+	const aCestaEl = document.getElementById('bz-a-cesta');
+	const aRamecekEl = document.getElementById('bz-a-ramecek');
+	const aZnackaEl = document.getElementById('bz-a-znacka');
+	const aVysvetleni1El = document.getElementById('bz-a-vysvetleni');
+	const aVysvetleni2El = document.getElementById('bz-a-vysvetleni2');
+	const aPoradiEl = document.getElementById('bz-a-poradi');
+	const aStavEl = document.getElementById('bz-a-stav');
+	const btnPrava = document.getElementById('bz-a-prava');
+	const btnPodvodna = document.getElementById('bz-a-podvodna');
+	const btnDalsi = document.getElementById('bz-a-dalsi');
+
+	let aIndex = 0;
+	let aOdpovezeno = false;
+
+	function nakresliAdresu() {
+		const p = PRIKLADY[aIndex];
+		const { predpona, domena, cesta } = rozdelAdresu(p.url);
+		aPredponaEl.textContent = predpona;
+		aDomenaEl.textContent = domena;
+		aDomenaEl.setAttribute('x', String(X0 + predpona.length * CW));
+		aCestaEl.textContent = cesta;
+		aCestaEl.setAttribute('x', String(X0 + (predpona.length + domena.length) * CW));
+		aPoradiEl.textContent = String(aIndex + 1);
+		// skryté zvýraznění a vysvětlení, dokud žák neodpoví
+		aRamecekEl.setAttribute('opacity', '0');
+		aRamecekEl.setAttribute('stroke', 'none');
+		aZnackaEl.textContent = '';
+		aVysvetleni1El.textContent = '';
+		aVysvetleni2El.textContent = '';
+		aStavEl.textContent = 'Přečti si adresu a rozhodni, jestli je pravá, nebo podvodná.';
+		aOdpovezeno = false;
+	}
+
+	function odpovedA(reklPravaJe) {
+		if (aOdpovezeno) return;
+		aOdpovezeno = true;
+		const p = PRIKLADY[aIndex];
+		const { predpona, domena } = rozdelAdresu(p.url);
+		const spravnaOdpoved = reklPravaJe === p.spravna;
+		// zvýraznění skutečné domény — VŽDY se ukáže, ať odpověď byla jakákoli
+		aRamecekEl.setAttribute('x', String(X0 + predpona.length * CW - 4));
+		aRamecekEl.setAttribute('y', String(Y - 20));
+		aRamecekEl.setAttribute('width', String(domena.length * CW + 8));
+		aRamecekEl.setAttribute('height', '28');
+		aRamecekEl.setAttribute('stroke', p.spravna ? '#2b8a3e' : '#e03131');
+		aRamecekEl.setAttribute('opacity', '1');
+		aZnackaEl.textContent = spravnaOdpoved ? '✅' : '❌';
+		aVysvetleni1El.textContent = p.vysvetleni1;
+		aVysvetleni2El.textContent = p.vysvetleni2;
+		aStavEl.textContent = spravnaOdpoved
+			? `Správně — adresa je ${p.spravna ? 'PRAVÁ' : 'PODVODNÁ'}.`
+			: `Ne tak docela — adresa je ve skutečnosti ${p.spravna ? 'PRAVÁ' : 'PODVODNÁ'}.`;
+	}
+
+	btnPrava.addEventListener('click', () => odpovedA(true));
+	btnPodvodna.addEventListener('click', () => odpovedA(false));
+	btnDalsi.addEventListener('click', () => {
+		aIndex = (aIndex + 1) % PRIKLADY.length;
+		nakresliAdresu();
+	});
+	nakresliAdresu();
+
+	// ————————————————————————————————— Scéna B: vrstvy obrany —————————————————————————————————
+	// Pořadí ZVENČÍ DOVNITŘ — útok postupuje přesně v tomhle pořadí a zastaví se
+	// na první zapnuté vrstvě. Poloměry musí sedět s kruhy nakreslenými v šabloně.
+	const VRSTVY = [
+		{ klic: 'aktualizace', r: 200 },
+		{ klic: 'antivir', r: 160 },
+		{ klic: 'heslo', r: 120 },
+		{ klic: '2fa', r: 80 },
+	];
+	const CX = 240, CY = 240;
+
+	const zapnuto = { aktualizace: false, antivir: false, heslo: false, '2fa': false, zaloha: false };
+
+	const KLICE_VRSTEV = ['aktualizace', 'antivir', 'heslo', '2fa', 'zaloha'];
+	const utokEl = document.getElementById('bz-b-utok');
+	const zasahEl = document.getElementById('bz-b-zasah');
+	const zalohaEl = document.getElementById('bz-b-zaloha');
+	const vysledekEl = document.getElementById('bz-b-vysledek');
+	const bStavEl = document.getElementById('bz-b-stav');
+	const btnSpustit = document.getElementById('bz-b-spustit');
+
+	function prekresliVrstvu(klic) {
+		const el = document.getElementById('bz-b-vrstva-' + klic);
+		if (!el) return; // 'zaloha' nemá kruh, řeší se zvlášť
+		const zap = zapnuto[klic];
+		el.setAttribute('stroke', zap ? '#2b8a3e' : '#adb5bd');
+		el.setAttribute('stroke-width', zap ? '10' : '8');
+		el.setAttribute('stroke-dasharray', zap ? 'none' : '6 8');
+		el.setAttribute('opacity', zap ? '1' : '0.7');
+	}
+
+	function prekresliZalohu() {
+		zalohaEl.setAttribute('fill', zapnuto.zaloha ? '#4dabf7' : '#adb5bd');
+		zalohaEl.setAttribute('opacity', zapnuto.zaloha ? '1' : '0.7');
+	}
+
+	KLICE_VRSTEV.forEach((k) => {
+		const btn = document.getElementById('bz-b-tl-' + k);
+		btn.addEventListener('click', () => {
+			zapnuto[k] = !zapnuto[k];
+			btn.setAttribute('aria-pressed', String(zapnuto[k]));
+			if (k === 'zaloha') prekresliZalohu(); else prekresliVrstvu(k);
+			// nová volba vrstev = staré zjištění o útoku už neplatí
+			utokEl.setAttribute('opacity', '0');
+			zasahEl.setAttribute('opacity', '0');
+			vysledekEl.textContent = '';
+			bStavEl.textContent = 'Zapni pár vrstev a spusť útok — uvidíš, kde se zastaví.';
+		});
+	});
+
+	btnSpustit.addEventListener('click', () => {
+		// najde první ZAPNUTOU vrstvu ve směru zvenčí dovnitř
+		const zastavilo = VRSTVY.find((v) => zapnuto[v.klic]);
+		utokEl.setAttribute('fill', '#e03131');
+		utokEl.setAttribute('opacity', '1');
+		if (zastavilo) {
+			// útok se zastaví přesně NA té vrstvě (na kružnici s poloměrem té vrstvy)
+			utokEl.setAttribute('cx', String(CX));
+			utokEl.setAttribute('cy', String(CY - zastavilo.r));
+			zasahEl.setAttribute('cx', String(CX));
+			zasahEl.setAttribute('cy', String(CY - zastavilo.r));
+			zasahEl.setAttribute('r', '16');
+			zasahEl.setAttribute('stroke', '#e03131');
+			zasahEl.setAttribute('opacity', '1');
+			vysledekEl.textContent = `Útok zastaven na vrstvě: ${zastavilo.klic}`;
+			bStavEl.textContent = `Útok se dostal jen k vrstvě „${zastavilo.klic}" a dál neprošel.`;
+		} else {
+			// žádná vrstva nezastavila útok — dostane se až k datům uprostřed
+			utokEl.setAttribute('cx', String(CX));
+			utokEl.setAttribute('cy', String(CY));
+			zasahEl.setAttribute('cx', String(CX));
+			zasahEl.setAttribute('cy', String(CY));
+			zasahEl.setAttribute('r', '40');
+			zasahEl.setAttribute('stroke', '#e03131');
+			zasahEl.setAttribute('opacity', '1');
+			if (zapnuto.zaloha) {
+				vysledekEl.textContent = 'Útok prošel až k datům — ale záloha je zachránila!';
+				bStavEl.textContent = 'Žádná vrstva útok nezastavila, data se ale díky záloze podařilo obnovit.';
+			} else {
+				vysledekEl.textContent = 'Útok prošel až k datům — bez zálohy jsou ztracená.';
+				bStavEl.textContent = 'Žádná vrstva útok nezastavila a bez zálohy nejde data obnovit.';
+			}
+		}
+	});
+</script>
+
+<style>
+	.bz-radek {
+		display: flex;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0.6rem 0;
+	}
+	.bz-tl {
+		font-weight: 700;
+		padding: 0.4rem 0.9rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.bz-vrstva-tl[aria-pressed="true"] {
+		background: #8ce99a;
+	}
+	.bz-utok-tl {
+		background: #ff8787;
+	}
+	.bz-stav {
+		font-weight: 600;
+		min-height: 1.4em;
+	}
+</style>
