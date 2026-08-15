@@ -136,6 +136,10 @@ hlášením „hotovo".
    (Cloudflare auto-deploy), ne zálohovacího GitHub repozitáře Omega bez
    automatického nasazení. Pokud je to jinak, řekni a příště se bude čekat i na tohle.
 
+✅ **F9 `jaderna-energie-a-reakce` HOTOVO A NASAZENO** (commit `c2f80b6`, ověřeno přes `id="rr-a-svg"` v živém HTML, count 3). Kvíz 13→21, 1 video + 2 odkazy, nová simulace `retezova-reakce` (štěpení jádra, řízená vs. neřízená exponenciální reakce s testovatelnou invariantou). Kód-kontrola 0 nálezů, vizuální kontrola 1 drobný (počet puntíků u 6. generace neseděl s popiskem 32×) — opraveno.
+
+📌 **Poučení o ověřování nasazení:** hledání doslovného názvu komponenty (`RetezovaReakce`) v živém HTML 10× selhalo, přestože nasazení bylo v pořádku — Astro název komponenty do výstupu nepropisuje, kompiluje se pryč. Spolehlivý důkaz je hledání KONKRÉTNÍHO `id` atributu z komponenty (např. `rr-a-svg`), ne jejího jména. Platí i pro dřívější ověření `razeni-clanku`/`PremenyEnergie` v tomto kole — pokud se k nim někdo vrátí, ověřovat stejně přes id, ne přes název.
+
 ---
 
 ## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"
