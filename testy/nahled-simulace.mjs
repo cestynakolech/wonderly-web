@@ -55,6 +55,52 @@ const zdroj = readFileSync(komponenta, 'utf8');
 const skript = zdroj.match(/<script>([\s\S]*?)<\/script>/)[1];
 const prvky = new Map();
 const hodnotaZHtml = (id) => (zdroj.match(new RegExp(`id="${id}"[^>]*value="([^"]*)"`)) || [])[1];
+// najde ve ZDROJI konec bloku otevřeného na pozici `odKonecOteviraci` (index za
+// úvodním „>") pro danou značku — počítá zanoření stejné značky, aby si třeba
+// vnořené <div> uvnitř <div> nespletl s koncem toho vnějšího.
+function najdiKonecBloku(tag, odKonecOteviraci) {
+	const udalosti = [
+		...[...zdroj.matchAll(new RegExp(`<${tag}(?=[\\s>])`, 'g'))].map((m) => ({ i: m.index, d: 1 })),
+		...[...zdroj.matchAll(new RegExp(`</${tag}>`, 'g'))].map((m) => ({ i: m.index, d: -1 })),
+	].filter((u) => u.i >= odKonecOteviraci).sort((a, b) => a.i - b.i);
+	let hloubka = 1;
+	for (const u of udalosti) { hloubka += u.d; if (hloubka === 0) return u.i; }
+	return zdroj.length;
+}
+// querySelectorAll na jednotlivém prvku (14. 8. 2026): komponenta, která si
+// potomky hledá přes `nejakyElement.querySelectorAll('.trida')` (typicky
+// přepínání záložek), tu jinak spadne — mock DOM to uměl jen na `document`.
+// OMEZENÍ: prvek se hledá podle POZICE VE ZDROJI (od jeho otvírací značky po
+// spárovanou zavírací téhož jména), ne podle skutečného stromu DOM — u dobře
+// vnořeného HTML/SVG to vyjde stejně, u neplatně/křížem vnořeného značkování
+// ne. Podporuje selektor podle třídy (`.trida`) a podle jména značky.
+function najdiPotomky(elementId, selektor) {
+	if (!elementId) return [];
+	const otevM = zdroj.match(new RegExp(`<(\\w+)[^>]*\\bid="${elementId}"[^>]*>`));
+	if (!otevM) return [];
+	const tag = otevM[1];
+	const konecOtev = zdroj.indexOf(otevM[0]) + otevM[0].length;
+	const konecBloku = najdiKonecBloku(tag, konecOtev);
+	const blok = zdroj.slice(konecOtev, konecBloku);
+	const podleTridy = selektor.startsWith('.');
+	const hledana = podleTridy ? selektor.slice(1) : selektor;
+	const vysledky = [];
+	for (const m of blok.matchAll(/<(\w+)([^>]*)>/g)) {
+		const [, tagJmeno, atributy] = m;
+		const tridy = (atributy.match(/\bclass="([^"]*)"/) || [])[1]?.split(/\s+/) ?? [];
+		if (podleTridy ? tridy.includes(hledana) : tagJmeno === hledana) {
+			// Skutečné id má přednost. Bez id (běžné u <button> ve výběru
+			// záložek) se prvek zaregistruje pod hodnotou PRVNÍHO data-* atributu
+			// (u záložek typicky data-exp="balonek") — jinak by šlo tenhle prvek
+			// vrátit z querySelectorAll, ale nedal by se adresovat argumentem
+			// `klik=`, protože ten hledá výhradně podle id v mapě `prvky`.
+			const id = (atributy.match(/\bid="([^"]+)"/) || [])[1]
+				?? (atributy.match(/\bdata-\w+="([^"]+)"/) || [])[1];
+			vysledky.push(id ? (prvky.get(id) || novy(id)) : prazdnyPrvek(undefined));
+		}
+	}
+	return vysledky;
+}
 const prazdnyPrvek = (id) => ({
 	id, atributy: {}, textContent: '', innerHTML: '', style: {}, dataset: {}, posluchaci: {},
 	value: hodnotaZHtml(id) ?? '',
@@ -63,6 +109,8 @@ const prazdnyPrvek = (id) => ({
 	getAttribute(k) { return this.atributy[k]; },
 	appendChild() {},
 	addEventListener(e, f) { (this.posluchaci[e] ||= []).push(f); },
+	querySelectorAll(selektor) { return najdiPotomky(this.id, selektor); },
+	querySelector(selektor) { return najdiPotomky(this.id, selektor)[0] ?? null; },
 });
 const novy = (id) => {
 	const p = prazdnyPrvek(id);

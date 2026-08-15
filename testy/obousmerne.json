@@ -306,6 +306,18 @@
 			"podvrh": "Na kopii komponenty mimo repo (scratchpad) nahrazen výpočet ve scéně B `gal.vzdal * NASOBEK` za `gal.vzdal + 20` (posun stejný pro všechny galaxie místo úměrného vzdálenosti, popření Hubbleova zákona). Test to chytil 2 chybami — '❌ nejbližší galaxie se posunula o 30 px (je 19.9)' a '❌ nejvzdálenější galaxie se posunula o 110 px (je 20.0)', konec kódem 1.",
 			"zdravy": "Nad nezměněnou src/components/skola2/RozpinaniVesmiruSimulace.astro projdou všechny kontroly (scéna A popisek ke každému ze 3 tvarů galaxie, scéna B počáteční vzdálenosti 30/110 px, posun po rozepnutí přesně 30/110 px, vzdálenější posun větší než bližší, text zmiňuje Hubbleův zákon, návrat na původní vzdálenost tlačítkem zpět), výstup '✅ VŠE V POŘÁDKU', kód 0.",
 			"overeno": "2026-08-15"
+		},
+		"simulace/pokusy.mjs": {
+			"test": "testy/podvrhy/pokusy-podvrhy.mjs",
+			"podvrh": "8 mutací komponenty na kopii v dočasné složce: schování scén po přepnutí, protažení gumičky, zobrazení závaží, nafouknutí balónku i změna barvy kuličky po Spustit, neceločíselná perioda kyvadla (jiné délky), pevná délka provázku bez ohledu na L, neaktualizovaná čtečka délky. Každá shodí 2–5 kontrol.",
+			"zdravy": "Nad nezměněnou komponentou test projde beze zbytku (17 kontrol ve scéně A i B); ověření zdravou kopií je první krok skriptu.",
+			"overeno": "2026-08-15"
+		},
+		"simulace/opakovani-velicin.mjs": {
+			"test": "testy/podvrhy/opakovani-velicin-podvrhy.mjs",
+			"podvrh": "13 mutací komponenty na kopii v dočasné složce: špatná jednotka/měřidlo v datech tabulky, vymyšlený distraktor místo skutečné hodnoty jiné veličiny, nulová rotace pozice správné odpovědi, opakující se distraktory, chybějící zezelenání/odkrytí tlačítka/přičtení skóre, možnost přepsat už zodpovězenou otázku, chybějící zvýraznění správné odpovědi po chybě, i chyby v části B (klik na řádek nezvýrazní/nepopíše/nezruší předchozí zvýraznění). Každá shodí 2–4 kontroly.",
+			"zdravy": "Nad nezměněnou komponentou test projde beze zbytku (přes 25 kontrol v částech A i B); ověření zdravou kopií je první krok skriptu.",
+			"overeno": "2026-08-15"
 		}
 	}
 }

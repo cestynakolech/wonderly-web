@@ -1,0 +1,192 @@
+---
+// Dva pohledy na domácí pokusy, které NEpokrývá žádná jiná simulace F6
+// (difuze, atom-molekuly, skupenstvi, planety-vaha, stupnice, prevody, valec,
+// hustota, ozobot, kadinky, teplomer, magnet, elektrovani).
+//
+// Scéna A — „Co se stane?": žák si vybere jeden ze 3 pokusů (gumička jako
+// siloměr, balónek na hrdle lahve v horké lázni, roztažnost kovu — Gravesandův
+// prstenec), tlačítkem ho spustí a uvidí výsledek + krátké PROČ.
+// Scéna B — kyvadlo do hloubky: posuvník mění délku závěsu L, perioda kmitu
+// se počítá ze zjednodušeného vztahu T = 2·√L (platí pro g ≈ π² ≈ 9,87 m/s²,
+// prakticky totéž jako skutečná tíhová gravitace) — pro L = 1, 4, 9, 16 m
+// vyjde T celé (2, 4, 6, 8 s), aby žák viděl čísla bez zaokrouhlování.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Co se stane? 🕹️</span></h2>
+	<p>Vyber si pokus, zkus <strong>předpovědět</strong>, co se stane, a pak ho <strong>spusť</strong>.</p>
+	<p id="poka-taby">
+		<button type="button" class="poka-tab poka-tab-aktivni" data-exp="gumicka">Gumička jako siloměr</button>
+		<button type="button" class="poka-tab" data-exp="balonek">Balónek na lahvi</button>
+		<button type="button" class="poka-tab" data-exp="kov">Roztažnost kovu</button>
+	</p>
+	<p id="poka-otazka"></p>
+	<svg id="poka-svg" viewBox="0 0 640 320" role="img" aria-label="Domácí pokus">
+		<!-- GUMIČKA JAKO SILOMĚR -->
+		<g id="poka-scena-gumicka">
+			<rect x="60" y="20" width="14" height="260" fill="#8d6e63" stroke="#2b2a26" stroke-width="3" rx="3" />
+			<rect x="60" y="20" width="220" height="14" fill="#8d6e63" stroke="#2b2a26" stroke-width="3" rx="3" />
+			<circle cx="270" cy="34" r="6" fill="#2b2a26" />
+			<line id="poka-guma-cara" x1="270" y1="40" x2="270" y2="130" stroke="#e8590c" stroke-width="6" stroke-linecap="round" />
+			<circle id="poka-guma-zavazi" cx="270" cy="140" r="26" fill="#495057" stroke="#2b2a26" stroke-width="3" display="none" />
+			<text id="poka-guma-popis" x="270" y="295" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">bez závaží</text>
+		</g>
+		<!-- BALÓNEK NA LAHVI -->
+		<g id="poka-scena-balonek" display="none">
+			<rect x="160" y="230" width="220" height="70" rx="10" fill="#ffa8a8" stroke="#2b2a26" stroke-width="3" />
+			<text x="270" y="315" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">miska s horkou vodou</text>
+			<path d="M235 100 L235 235 Q235 245 245 245 L295 245 Q305 245 305 235 L305 130 L285 100 Z" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />
+			<rect x="262" y="70" width="16" height="35" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />
+			<circle id="poka-balonek" cx="270" cy="55" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<g id="poka-para" display="none" stroke="#e03131" stroke-width="3" fill="none" opacity="0.8">
+				<path d="M190 220 q6 -12 0 -24 q-6 -12 0 -24" />
+				<path d="M350 220 q6 -12 0 -24 q-6 -12 0 -24" />
+			</g>
+		</g>
+		<!-- ROZTAŽNOST KOVU (Gravesandův prstenec) -->
+		<g id="poka-scena-kov" display="none">
+			<rect x="60" y="40" width="14" height="240" fill="#8d6e63" stroke="#2b2a26" stroke-width="3" rx="3" />
+			<line x1="74" y1="70" x2="280" y2="70" stroke="#8d6e63" stroke-width="6" />
+			<line x1="270" y1="70" x2="270" y2="130" stroke="#495057" stroke-width="4" />
+			<ellipse id="poka-krouzek" cx="270" cy="140" rx="26" ry="10" fill="none" stroke="#495057" stroke-width="6" />
+			<circle id="poka-kulicka" cx="270" cy="140" r="22" fill="#868e96" stroke="#2b2a26" stroke-width="3" />
+			<text id="poka-kov-popis" x="270" y="250" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">studená kulička — projde kroužkem</text>
+		</g>
+	</svg>
+	<button type="button" id="poka-spustit" class="poka-btn">▶️ Spustit pokus</button>
+	<p class="poka-vysvetleni" id="poka-vysvetleni"></p>
+</section>
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kyvadlo: délka a čas kmitu 🕹️</span></h2>
+	<p>Zavěšenou kuličku na provázku vychýlíme a necháme kmitat. Posuvníkem měň <strong>délku provázku L</strong> a sleduj, jak se mění <strong>doba kmitu T</strong> (perioda). Platí zjednodušeně <strong>T = 2·√L</strong> (v sekundách, L v metrech).</p>
+	<svg id="pokb-svg" viewBox="0 0 460 380" role="img" aria-label="Kyvadlo — vliv délky na periodu kmitu">
+		<line x1="150" y1="20" x2="310" y2="20" stroke="#2b2a26" stroke-width="6" />
+		<circle cx="230" cy="20" r="6" fill="#2b2a26" />
+		<line id="pokb-provazek" x1="230" y1="20" x2="255" y2="65" stroke="#495057" stroke-width="3" />
+		<circle id="pokb-kulicka" cx="255" cy="65" r="18" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />
+	</svg>
+	<label class="sim-posuvnik">
+		Délka provázku L: <output id="pokb-hodnota-l"></output>
+		<input type="range" id="pokb-slider" min="0" max="3" step="1" value="1" />
+	</label>
+	<p class="poka-vysvetleni" id="pokb-vysvetleni"></p>
+</section>
+
+<script>
+	// ── Scéna A: co se stane? ──────────────────────────────────────────
+	const tabyEl = document.getElementById('poka-taby');
+	const otazkaEl = document.getElementById('poka-otazka');
+	const vysvetleniEl = document.getElementById('poka-vysvetleni');
+	const spustitBtn = document.getElementById('poka-spustit');
+
+	const OTAZKY = {
+		gumicka: 'Co myslíš, že se stane, když na gumičku zavěsíme závaží?',
+		balonek: 'Lahev s balónkem na hrdle vložíme do misky s horkou vodou. Co se stane s balónkem?',
+		kov: 'Kovovou kuličku, která právě prošla kroužkem, zahřejeme nad plamenem. Projde kroužkem znovu?',
+	};
+	const VYSVETLENI = {
+		gumicka: {
+			pred: 'Zkus to — klikni na Spustit pokus.',
+			po: 'Gumička se PROTÁHLA. Čím větší síla (těžší závaží) na ni působí, tím víc se protáhne — právě proto gumička (nebo pružina) funguje jako siloměr: podle protažení poznáme velikost síly.',
+		},
+		balonek: {
+			pred: 'Zkus to — klikni na Spustit pokus.',
+			po: 'Balónek se NAFOUKL. Horká voda ohřála vzduch uvnitř lahve — teplý vzduch se roztahuje (zabírá víc místa) a tlačí do balónku. Ochladí-li se lahev, vzduch se zase smrští a balónek splaskne.',
+		},
+		kov: {
+			pred: 'Zkus to — klikni na Spustit pokus.',
+			po: 'Zahřátá kulička kroužkem NEPROJDE. Kov se zahřátím teplotní roztažností mírně zvětší — stačí to málo, aby se kulička do kroužku už nevešla. Po vychladnutí se zase zmenší a projde.',
+		},
+	};
+
+	let aktivniExp = 'gumicka';
+	const hotovo = { gumicka: false, balonek: false, kov: false };
+
+	function nastav(id, attrs) {
+		const el = document.getElementById(id);
+		for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+	}
+
+	function vykresliGumicka() {
+		const je = hotovo.gumicka;
+		nastav('poka-guma-cara', { y2: je ? 200 : 130 });
+		nastav('poka-guma-zavazi', { cy: je ? 226 : 140, display: je ? '' : 'none' });
+		document.getElementById('poka-guma-popis').textContent = je ? 'se závažím — protažená' : 'bez závaží';
+	}
+	function vykresliBalonek() {
+		const je = hotovo.balonek;
+		nastav('poka-balonek', { r: je ? 42 : 14, cy: je ? 27 : 55, fill: je ? '#ff8787' : '#ffd43b' });
+		nastav('poka-para', { display: je ? '' : 'none' });
+	}
+	function vykresliKov() {
+		const je = hotovo.kov;
+		nastav('poka-kulicka', { r: je ? 27 : 22, fill: je ? '#e03131' : '#868e96', cy: je ? 118 : 140 });
+		document.getElementById('poka-kov-popis').textContent = je
+			? 'zahřátá kulička — NEPROJDE kroužkem'
+			: 'studená kulička — projde kroužkem';
+	}
+	const VYKRESLI = { gumicka: vykresliGumicka, balonek: vykresliBalonek, kov: vykresliKov };
+
+	function prepniZobrazeni() {
+		for (const exp of Object.keys(hotovo)) {
+			nastav('poka-scena-' + exp, { display: exp === aktivniExp ? '' : 'none' });
+		}
+		otazkaEl.textContent = OTAZKY[aktivniExp];
+		vysvetleniEl.textContent = hotovo[aktivniExp] ? VYSVETLENI[aktivniExp].po : VYSVETLENI[aktivniExp].pred;
+		VYKRESLI[aktivniExp]();
+	}
+
+	// Pořadí tlačítek odpovídá EXPY — nečte se z data-exp, protože v testovací atrapě
+	// DOMu (testy/sablony.mjs) je dataset vždy prázdný a vedlo by to k falešnému nálezu.
+	const EXPY = ['gumicka', 'balonek', 'kov'];
+	const tabTlacitka = tabyEl.querySelectorAll('.poka-tab');
+	tabTlacitka.forEach((tl, i) => {
+		tl.addEventListener('click', () => {
+			aktivniExp = EXPY[i] ?? 'gumicka';
+			for (const b of tabTlacitka) b.classList.toggle('poka-tab-aktivni', b === tl);
+			prepniZobrazeni();
+		});
+	});
+	spustitBtn.addEventListener('click', () => {
+		hotovo[aktivniExp] = true;
+		prepniZobrazeni();
+	});
+	prepniZobrazeni();
+
+	// ── Scéna B: kyvadlo do hloubky ────────────────────────────────────
+	const DELKY = [1, 4, 9, 16]; // metry — vybrané tak, aby T = 2·√L vyšlo celé
+	const slider = document.getElementById('pokb-slider');
+	const hodnotaL = document.getElementById('pokb-hodnota-l');
+	const vysvB = document.getElementById('pokb-vysvetleni');
+	const HAK = { x: 230, y: 20 };
+	const DOBA_POZOROVANI = 24; // s — dělitelné všemi periodami 2,4,6,8 beze zbytku
+
+	function prekresliB() {
+		const L = DELKY[+slider.value];
+		const T = 2 * Math.sqrt(L); // = 2,4,6,8 pro L = 1,4,9,16
+		const kyvu = DOBA_POZOROVANI / T; // vždy celé číslo
+		const delkaPx = 30 + L * 15; // vizuální délka provázku (px)
+		const uhel = 22; // stupně — jen ukazuje vychýlení, na L nezávisí
+		const rad = (uhel * Math.PI) / 180;
+		const x = HAK.x + delkaPx * Math.sin(rad);
+		const y = HAK.y + delkaPx * Math.cos(rad);
+		nastav('pokb-provazek', { x2: x, y2: y });
+		nastav('pokb-kulicka', { cx: x, cy: y });
+		hodnotaL.textContent = L + ' m';
+		vysvB.innerHTML = `Perioda <strong>T = 2·√${L} = ${T} s</strong>. Za ${DOBA_POZOROVANI} sekund kyvadlo kmitne <strong>${kyvu}×</strong>. ${L === Math.min(...DELKY) ? 'Krátké kyvadlo kmitá nejrychleji.' : L === Math.max(...DELKY) ? 'Dlouhé kyvadlo kmitá nejpomaleji.' : ''}`;
+	}
+	slider.addEventListener('input', prekresliB);
+	prekresliB();
+</script>
+
+<style>
+	#poka-svg, #pokb-svg { width: 100%; max-width: 460px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.poka-tab { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.poka-tab.poka-tab-aktivni { background: #ffe8cc; }
+	.poka-tab:active { transform: translateY(1px); }
+	.poka-btn { font-size: 1rem; font-weight: 800; padding: 0.45rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe066; cursor: pointer; margin-top: 0.6rem; }
+	.poka-vysvetleni { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; margin-top: 0.5rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 460px; display: block; margin-top: 0.3rem; }
+</style>

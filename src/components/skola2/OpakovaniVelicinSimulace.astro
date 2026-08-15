@@ -1,0 +1,241 @@
+---
+// Souhrnné opakování fyzikálních veličin 6. ročníku (F6, fyzikalni-veliciny/
+// souhrnne-opakovani-velicin). Sedm veličin z tabulky v temata.ts (délka,
+// hmotnost, objem, hustota, teplota, čas, síla) — značky, jednotky a měřidla
+// jsou opsané PŘESNĚ z tabulky výkladu, nic se nevymýšlí.
+//
+// Nejde o fyzikální jev, ale o dvě procvičovací scény:
+//  A) kvíz — u zobrazené veličiny žák postupně vybírá značku, jednotku
+//     a měřidlo ze tří možností (dvě špatné jsou vždy skutečné hodnoty
+//     JINÉ veličiny z tabulky, ne vymyšlené nesmysly).
+//  B) přehledová mapa — klik na řádek veličiny zvýrazní celý řádek
+//     (značka, jednotka, měřidlo) pro rychlé opakování před testem.
+//
+// Všechny tlačítka odpovědí i řádky tabulky jsou prvky rect a text uvnitř
+// značky svg — barva/zvýraznění po kliknutí se mění jako atribut fill, ne přes
+// classList, takže je vidět i v testovacím náhledu. Distraktory i pořadí
+// možností jsou deterministické (funkce moznosti), aby šly ověřit testem.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Opakování fyzikálních veličin 🕹️</span></h2>
+
+	<h3>🅰️ Část A: Přiřaď k veličině</h3>
+	<p>U zobrazené veličiny postupně vyber správnou <strong>značku</strong>, <strong>jednotku</strong> a <strong>měřidlo</strong>. Klikni na jednu ze tří možností.</p>
+	<svg id="ov-a-svg" viewBox="0 0 640 340" role="img" aria-label="Kvíz: přiřaď značku, jednotku a měřidlo k veličině">
+		<rect x="0" y="0" width="640" height="340" fill="#f8f9fa" />
+		<text id="ov-a-nazev" x="320" y="46" text-anchor="middle" font-size="28" font-weight="bold" fill="#1971c2"></text>
+		<text id="ov-a-otazka" x="320" y="76" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26"></text>
+		<g id="ov-a-volba-0" style="cursor:pointer">
+			<rect id="ov-a-rect-0" x="20" y="100" width="600" height="46" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+			<text x="320" y="129" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26" id="ov-a-text-0"></text>
+		</g>
+		<g id="ov-a-volba-1" style="cursor:pointer">
+			<rect id="ov-a-rect-1" x="20" y="156" width="600" height="46" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+			<text x="320" y="185" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26" id="ov-a-text-1"></text>
+		</g>
+		<g id="ov-a-volba-2" style="cursor:pointer">
+			<rect id="ov-a-rect-2" x="20" y="212" width="600" height="46" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+			<text x="320" y="241" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26" id="ov-a-text-2"></text>
+		</g>
+		<text id="ov-a-hlaska" x="320" y="282" text-anchor="middle" font-size="16" font-weight="bold" fill="#2f9e44"></text>
+		<g id="ov-a-dalsi" opacity="0" style="cursor:pointer">
+			<rect x="230" y="296" width="180" height="34" rx="10" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+			<text x="320" y="318" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">Další otázka →</text>
+		</g>
+		<text id="ov-a-skore" x="320" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057"></text>
+	</svg>
+
+	<h3><span class="podtrh">🅱️ Část B: Kdo k sobě patří</span></h3>
+	<p>Klikni na veličinu — zvýrazní se celý řádek se značkou, jednotkou i měřidlem.</p>
+	<svg id="ov-b-svg" viewBox="0 0 640 430" role="img" aria-label="Přehledová tabulka veličin, značek, jednotek a měřidel">
+		<rect x="0" y="0" width="640" height="430" fill="#f8f9fa" />
+		<text x="70" y="24" font-size="13" font-weight="bold" fill="#495057">Veličina</text>
+		<text x="230" y="24" font-size="13" font-weight="bold" fill="#495057">Značka</text>
+		<text x="330" y="24" font-size="13" font-weight="bold" fill="#495057">Jednotka</text>
+		<text x="470" y="24" font-size="13" font-weight="bold" fill="#495057">Měřidlo</text>
+		<g id="ov-b-radek-0" style="cursor:pointer">
+			<rect id="ov-b-rect-0" x="10" y="40" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="66" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-0"></text>
+			<text x="210" y="66" font-size="13" fill="#1971c2" id="ov-b-znacka-0"></text>
+			<text x="330" y="66" font-size="13" fill="#2b2a26" id="ov-b-jednotka-0"></text>
+			<text x="470" y="66" font-size="11" fill="#495057" id="ov-b-meridlo-0"></text>
+		</g>
+		<g id="ov-b-radek-1" style="cursor:pointer">
+			<rect id="ov-b-rect-1" x="10" y="86" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="112" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-1"></text>
+			<text x="210" y="112" font-size="13" fill="#1971c2" id="ov-b-znacka-1"></text>
+			<text x="330" y="112" font-size="13" fill="#2b2a26" id="ov-b-jednotka-1"></text>
+			<text x="470" y="112" font-size="11" fill="#495057" id="ov-b-meridlo-1"></text>
+		</g>
+		<g id="ov-b-radek-2" style="cursor:pointer">
+			<rect id="ov-b-rect-2" x="10" y="132" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="158" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-2"></text>
+			<text x="210" y="158" font-size="13" fill="#1971c2" id="ov-b-znacka-2"></text>
+			<text x="330" y="158" font-size="13" fill="#2b2a26" id="ov-b-jednotka-2"></text>
+			<text x="470" y="158" font-size="11" fill="#495057" id="ov-b-meridlo-2"></text>
+		</g>
+		<g id="ov-b-radek-3" style="cursor:pointer">
+			<rect id="ov-b-rect-3" x="10" y="178" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="204" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-3"></text>
+			<text x="210" y="204" font-size="13" fill="#1971c2" id="ov-b-znacka-3"></text>
+			<text x="330" y="204" font-size="13" fill="#2b2a26" id="ov-b-jednotka-3"></text>
+			<text x="470" y="204" font-size="11" fill="#495057" id="ov-b-meridlo-3"></text>
+		</g>
+		<g id="ov-b-radek-4" style="cursor:pointer">
+			<rect id="ov-b-rect-4" x="10" y="224" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="250" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-4"></text>
+			<text x="210" y="250" font-size="13" fill="#1971c2" id="ov-b-znacka-4"></text>
+			<text x="330" y="250" font-size="13" fill="#2b2a26" id="ov-b-jednotka-4"></text>
+			<text x="470" y="250" font-size="11" fill="#495057" id="ov-b-meridlo-4"></text>
+		</g>
+		<g id="ov-b-radek-5" style="cursor:pointer">
+			<rect id="ov-b-rect-5" x="10" y="270" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="296" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-5"></text>
+			<text x="210" y="296" font-size="13" fill="#1971c2" id="ov-b-znacka-5"></text>
+			<text x="330" y="296" font-size="13" fill="#2b2a26" id="ov-b-jednotka-5"></text>
+			<text x="470" y="296" font-size="11" fill="#495057" id="ov-b-meridlo-5"></text>
+		</g>
+		<g id="ov-b-radek-6" style="cursor:pointer">
+			<rect id="ov-b-rect-6" x="10" y="316" width="620" height="40" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text x="20" y="342" font-size="15" font-weight="bold" fill="#2b2a26" id="ov-b-nazev-6"></text>
+			<text x="210" y="342" font-size="13" fill="#1971c2" id="ov-b-znacka-6"></text>
+			<text x="330" y="342" font-size="13" fill="#2b2a26" id="ov-b-jednotka-6"></text>
+			<text x="470" y="342" font-size="11" fill="#495057" id="ov-b-meridlo-6"></text>
+		</g>
+		<rect x="10" y="366" width="620" height="30" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="ov-b-detail" x="320" y="386" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Klikni na některou veličinu.</text>
+	</svg>
+</section>
+
+<script>
+	const SVG = 'http://www.w3.org/2000/svg';
+
+	// Sedm veličin PŘESNĚ podle tabulky výkladu (temata.ts, podtéma
+	// souhrnne-opakovani-velicin) — značky, jednotky i měřidla opsané doslova.
+	const VELICINY = [
+		{ nazev: 'Délka', znacka: 'd, l (h, s, o, r)', jednotka: 'metr (m)', meridlo: 'pravítko, metr, pásmo, posuvné měřítko, mikrometr' },
+		{ nazev: 'Hmotnost', znacka: 'm', jednotka: 'kilogram (kg)', meridlo: 'váhy' },
+		{ nazev: 'Objem', znacka: 'V', jednotka: 'metr krychlový (m³)', meridlo: 'odměrný válec' },
+		{ nazev: 'Hustota', znacka: 'ρ (ró)', jednotka: 'kg/m³', meridlo: 'hustoměr / výpočet' },
+		{ nazev: 'Teplota', znacka: 't', jednotka: 'stupeň Celsia (°C)', meridlo: 'teploměr' },
+		{ nazev: 'Čas', znacka: 't', jednotka: 'sekunda (s)', meridlo: 'hodiny, stopky' },
+		{ nazev: 'Síla', znacka: 'F', jednotka: 'newton (N)', meridlo: 'siloměr' },
+	];
+	const KLICE = ['znacka', 'jednotka', 'meridlo'];
+	const POPISKY = ['ZNAČKU', 'JEDNOTKU', 'MĚŘIDLO'];
+
+	// ČISTÁ FUNKCE (testovaná): pro veličinu `i` a vlastnost `klic` vrátí tři
+	// možnosti (jedna správná, dvě od JINÝCH skutečných veličin) a index
+	// správné. Pořadí je deterministické podle (i + krokIndex) — ne náhodné —
+	// aby šlo ověřit testem a aby správná odpověď nebyla vždy na stejném místě.
+	function moznosti(i, klic, krokIndex) {
+		const spravna = VELICINY[i][klic];
+		const distraktori = [];
+		for (let d = 1; d < VELICINY.length && distraktori.length < 2; d++) {
+			const kandidat = VELICINY[(i + d) % VELICINY.length][klic];
+			if (kandidat !== spravna && !distraktori.includes(kandidat)) distraktori.push(kandidat);
+		}
+		const poleOptions = [spravna, ...distraktori];
+		const posun = (i + krokIndex) % poleOptions.length;
+		const rotated = poleOptions.slice(posun).concat(poleOptions.slice(0, posun));
+		return { options: rotated, correctIndex: rotated.indexOf(spravna) };
+	}
+
+	// ── Část A: kvíz ─────────────────────────────────────────────────────────
+	const nazevEl = document.getElementById('ov-a-nazev');
+	const otazkaEl = document.getElementById('ov-a-otazka');
+	const hlaskaEl = document.getElementById('ov-a-hlaska');
+	const skoreEl = document.getElementById('ov-a-skore');
+	const dalsiBtn = document.getElementById('ov-a-dalsi');
+	const skupinyA = [0, 1, 2].map((k) => document.getElementById('ov-a-volba-' + k));
+	const rectyA = [0, 1, 2].map((k) => document.getElementById('ov-a-rect-' + k));
+	const textyA = [0, 1, 2].map((k) => document.getElementById('ov-a-text-' + k));
+
+	let idx = 0, krok = 0, spravnych = 0, celkem = 0, odpovezeno = false;
+	let aktualni = null;
+
+	function vykresliA() {
+		const v = VELICINY[idx];
+		nazevEl.textContent = v.nazev;
+		otazkaEl.textContent = `Vyber správnou ${POPISKY[krok]}:`;
+		aktualni = moznosti(idx, KLICE[krok], krok);
+		for (let k = 0; k < 3; k++) {
+			textyA[k].textContent = aktualni.options[k];
+			rectyA[k].setAttribute('fill', '#ffffff');
+		}
+		hlaskaEl.textContent = '';
+		dalsiBtn.setAttribute('opacity', '0');
+		skoreEl.textContent = `Skóre: ${spravnych} / ${celkem}`;
+	}
+
+	function vyber(k) {
+		if (odpovezeno) return;
+		odpovezeno = true;
+		celkem++;
+		const spravne = k === aktualni.correctIndex;
+		if (spravne) spravnych++;
+		rectyA[k].setAttribute('fill', spravne ? '#b2f2bb' : '#ffc9c9');
+		if (!spravne) rectyA[aktualni.correctIndex].setAttribute('fill', '#b2f2bb');
+		hlaskaEl.textContent = spravne ? '✅ Správně!' : `❌ Správně je: ${aktualni.options[aktualni.correctIndex]}`;
+		skoreEl.textContent = `Skóre: ${spravnych} / ${celkem}`;
+		dalsiBtn.setAttribute('opacity', '1');
+	}
+
+	function dalsi() {
+		if (!odpovezeno) return;
+		krok++;
+		if (krok > 2) { krok = 0; idx = (idx + 1) % VELICINY.length; }
+		odpovezeno = false;
+		vykresliA();
+	}
+
+	skupinyA.forEach((g, k) => g.addEventListener('click', () => vyber(k)));
+	rectyA.forEach((r, k) => r.addEventListener('click', () => vyber(k)));
+	dalsiBtn.addEventListener('click', dalsi);
+	vykresliA();
+
+	// ── Část B: přehledová mapa ──────────────────────────────────────────────
+	// Sedm řádků je napsaných staticky přímo v <svg> (viz markup výše) — každý
+	// s vlastním id — a skript jen doplní texty a poslouchá kliky na obdélník.
+	// (Řádky se schválně NEGENERUJÍ za běhu přes createElementNS/appendChild:
+	// nástroj na vykreslení náhledu umí vrátit zpátky do obrázku jen prvky
+	// napsané v markupu se svým id, dynamicky vytvořené uzly by v náhledu
+	// zůstaly neviditelné.)
+	const detailEl = document.getElementById('ov-b-detail');
+	const radky = VELICINY.map((v, i) => document.getElementById('ov-b-rect-' + i));
+	VELICINY.forEach((v, i) => {
+		document.getElementById('ov-b-nazev-' + i).textContent = v.nazev;
+		document.getElementById('ov-b-znacka-' + i).textContent = v.znacka;
+		document.getElementById('ov-b-jednotka-' + i).textContent = v.jednotka;
+		document.getElementById('ov-b-meridlo-' + i).textContent =
+			v.meridlo.length > 26 ? v.meridlo.slice(0, 24) + '…' : v.meridlo;
+		document.getElementById('ov-b-radek-' + i).addEventListener('click', () => vyberRadek(i));
+		radky[i].addEventListener('click', () => vyberRadek(i));
+	});
+
+	function vyberRadek(i) {
+		radky.forEach((r, j) => {
+			r.setAttribute('fill', j === i ? '#ffe8cc' : '#ffffff');
+			r.setAttribute('stroke-width', j === i ? '4' : '2');
+		});
+		const v = VELICINY[i];
+		detailEl.textContent = `${v.nazev} (${v.znacka}) — jednotka ${v.jednotka}, měří se: ${v.meridlo}.`;
+	}
+
+	// ověřovací háčky pro testy (kontrola výpočtem, ne okem)
+	const svgA = document.getElementById('ov-a-svg');
+	svgA.__moznosti = moznosti;
+	svgA.__veliciny = VELICINY;
+	svgA.__vyber = vyber;
+	svgA.__dalsi = dalsi;
+
+	const svgB = document.getElementById('ov-b-svg');
+	svgB.__vyberRadek = vyberRadek;
+	svgB.__radky = radky;
+	svgB.__veliciny = VELICINY;
+</script>
+
+<style>
+	#ov-a-svg, #ov-b-svg { width: 100%; max-width: 640px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+</style>

@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie' | 'retezova-reakce' | 'obnovitelne-zdroje' | 'rozpinani-vesmiru';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie' | 'retezova-reakce' | 'obnovitelne-zdroje' | 'rozpinani-vesmiru' | 'opakovani-velicin' | 'pokusy';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -819,6 +819,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'souhrnne-opakovani-velicin',
 					nazev: 'Souhrnné opakování fyzikálních veličin',
+					interakce: 'opakovani-velicin',
 					obsah: `
 						<h2>Přehled fyzikálních veličin 6. ročníku</h2>
 						<table>
@@ -873,6 +874,15 @@ export const temata: Record<string, Tema[]> = {
 						a hmotnost v kilogramech dohromady dají nesmysl. A výsledek bez jednotky není odpověď —
 						„8" samo o sobě neříká vůbec nic.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Fyzikální veličiny a jednotky: zábavný průvodce pro 6. třídu!', cesta: 'YzndXUYdx9c' },
+						{ druh: 'youtube', nazev: 'Fyzikální veličiny - Fyzika ZŠ', cesta: 'W037t5ZympQ' },
+					],
+					odkazy: [
+						{ nazev: 'Fyzika na Vltavě — Přehled fyzikálních veličin ZŠ', url: 'https://www.zsvltava.cz/fyzika/?p=3432' },
+						{ nazev: 'Převody jednotek délky (Wordwall)', url: 'https://wordwall.net/cs/resource/26529328/p%C5%99evody-jednotek-d%C3%A9lky' },
+						{ nazev: 'Měření hmotnosti a objemu - měřidla (Wordwall)', url: 'https://wordwall.net/cs/resource/13392084/m%C4%9B%C5%99en%C3%AD-hmotnosti-a-objemu-m%C4%9B%C5%99idla' },
+					],
 				},
 			],
 		},
@@ -1299,6 +1309,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'pokusy',
 					nazev: '20 jednoduchých pokusů',
+					interakce: 'pokusy',
 					obsah: `
 						<h2>20 jednoduchých fyzikálních pokusů</h2>
 						<p>Krátké, levné pokusy na doma i do třídy. 👉 Vždy s dohledem dospělého a bezpečně (horká voda → opatrně, rukavice)!</p>
@@ -1335,6 +1346,11 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Vodivost tepla</strong> — kovovou a plastovou lžíci ponoř do horké vody a po minutě sáhni na horní konce. Kov vede teplo mnohem lépe než plast.</li>
 						</ol>
 					`,
+					odkazy: [
+						{ nazev: 'Pokus: Teplotní roztažnost plynů (balónek na lahvi) (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6168-pokus-teplotni-roztaznost-plynu' },
+						{ nazev: 'Pokus: Pokusy s magnetismem (kompas, plovoucí jehla) (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3414-pokusy-s-magnetismem' },
+						{ nazev: 'Pevnost poznání — Zkuste s námi fyzikální pokusy s vajíčky', url: 'https://www.pevnostpoznani.cz/zkuste-s-nami-fyzikalni-pokusy-s-vajicky/' },
+					],
 				},
 			],
 		},

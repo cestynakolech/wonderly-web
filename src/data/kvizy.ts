@@ -1859,6 +1859,161 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Bezpečnost: nejprve obvod bez zdroje, kontrola izolace a žárovky, spínač vypnutý — zdroj až nakonec.',
 		},
 	],
+	'fyzika/6-rocnik/shrnuti/pokusy': [
+		{
+			text: 'Proč se papírky přitahují k balónku, kterým jsme třeli o vlasy?',
+			odpovedi: [
+				'balónek se nabil a opačné náboje se přitahují',
+				'balónek papírky nasákl vlhkostí',
+				'balónek papírky zahřál a ty se k němu přilepily',
+			],
+			vysvetleni: 'Třením se balónek zelektruje a jeho náboj přitahuje lehké papírky s opačným nábojem.',
+		},
+		{
+			text: 'Proč se dva nafouknuté balónky třené o vlasy od sebe odpuzují?',
+			odpovedi: [
+				'mají stejný elektrický náboj',
+				'jsou moc těžké na to, aby se přitahovaly',
+				'vzduch mezi nimi je studený',
+			],
+			vysvetleni: 'Stejné elektrické náboje se navzájem odpuzují, opačné přitahují.',
+		},
+		{
+			text: 'Co se stane se střelkou kompasu, když k ní přiblížíme silný magnet?',
+			odpovedi: [
+				'vychýlí se, protože magnet přemůže zemské magnetické pole',
+				'nic, kompas na magnety nereaguje',
+				'střelka se roztaví',
+			],
+			vysvetleni: 'Blízký magnet je silnější než zemské magnetické pole, a tak střelku vychýlí ke svým pólům.',
+		},
+		{
+			text: 'Zmuchlaný papír padá k zemi rychleji než rozložený list. Proč?',
+			odpovedi: [
+				'má menší odpor vzduchu',
+				'je přitahován Zemí větší silou',
+				'je lehčí, a proto padá rychleji',
+			],
+			vysvetleni: 'Gravitace působí na oba listy stejně, ale zmuchlaný papír klade vzduchu menší odpor, proto padá rychleji.',
+		},
+		{
+			text: 'Na čem hlavně závisí perioda (doba kmitu) kyvadla?',
+			odpovedi: [
+				'na délce kyvadla',
+				'na hmotnosti závaží na kyvadle',
+				'na barvě provázku',
+			],
+			vysvetleni: 'Delší kyvadlo kmitá pomaleji — perioda závisí především na délce, hmotnost závaží roli téměř nehraje.',
+		},
+		{
+			text: 'Co ukazuje pokus s gumičkou, na kterou zavěšujeme různě těžká závaží?',
+			odpovedi: [
+				'čím větší síla, tím větší prodloužení gumičky',
+				'gumička se vždy prodlouží stejně bez ohledu na váhu',
+				'těžší závaží gumičku zkrátí',
+			],
+			vysvetleni: 'Větší zavěšená síla (váha závaží) prodlouží gumičku více — na tom funguje siloměr.',
+		},
+		{
+			text: 'Jak zjistíme objem kamene pomocí odměrného válce s vodou?',
+			odpovedi: [
+				'z rozdílu hladiny vody před vložením kamene a po něm',
+				'kámen zvážíme a objem vypočítáme ze vzorce pro krychli',
+				'objem se dá zjistit jen rozpuštěním kamene',
+			],
+			vysvetleni: 'Kámen vytlačí tolik vody, kolik sám zabírá — rozdíl hladin udává jeho objem.',
+		},
+		{
+			text: 'Proč syrové vejce ve sklenici s vodou po přisypání soli nakonec vyplave?',
+			odpovedi: [
+				'slaná voda má větší hustotu než vejce',
+				'sůl vejce nadlehčí vlastní vahou',
+				'sůl se přichytí na vejce a nadnese ho',
+			],
+			vysvetleni: 'Přidáním soli roste hustota vody. Když je vyšší než hustota vejce, vejce se nadnese a vyplave.',
+		},
+		{
+			text: 'Proč se brčko s modelínou ponoří ve slané vodě méně než v obyčejné vodě?',
+			odpovedi: [
+				'slaná voda má větší hustotu',
+				'sůl brčko nadlehčí zevnitř',
+				'slaná voda je teplejší',
+			],
+			vysvetleni: 'Čím hustší kapalina, tím méně se do ní hustoměr (brčko) ponoří — přesně jako u opravdového hustoměru.',
+		},
+		{
+			text: 'Proč se med, jar, obarvená voda a olej ve sklenici srovnají do zřetelných vrstev?',
+			odpovedi: [
+				'každá kapalina má jinou hustotu',
+				'kapaliny mají různou barvu',
+				'kapaliny se navzájem odpuzují jako magnety',
+			],
+			vysvetleni: 'Kapaliny se vrství podle hustoty — nejhustší klesne nejníž, nejřidší zůstane nahoře.',
+		},
+		{
+			text: 'Kostka ledu plave ve vodě, ale v oleji klesá ke dnu. Proč?',
+			odpovedi: [
+				'led má menší hustotu než voda, ale větší než olej',
+				'olej led rozpouští, a proto klesá',
+				'voda je hustší než led i olej',
+			],
+			vysvetleni: 'Led je řidší (méně hustý) než voda, proto v ní plave. Olej je ale ještě řidší než led, proto v něm led klesá.',
+		},
+		{
+			text: 'Proč nám líh na ruce připadá chladivější než voda?',
+			odpovedi: [
+				'líh se odpařuje rychleji a při odpařování odebírá teplo',
+				'líh je sám o sobě mrazivě studený',
+				'líh na kůži chemicky reaguje a mrzne',
+			],
+			vysvetleni: 'Rychlejší odpařování lihu odebírá pokožce více tepla, proto cítíme chlad.',
+		},
+		{
+			text: 'Proč se na studeném víčku nad hrncem s párou objevují kapičky vody?',
+			odpovedi: [
+				'vodní pára se na chladnějším povrchu sráží (kondenzuje)',
+				'víčko vodu samo vytváří',
+				'pára víčko rozpouští',
+			],
+			vysvetleni: 'Teplá vodní pára se při dotyku s chladnějším povrchem mění zpět na kapalnou vodu — kondenzuje.',
+		},
+		{
+			text: 'Proč se balónek navlečený na PET lahvi v horké vodě nafoukne?',
+			odpovedi: [
+				'teplý vzduch v lahvi se roztáhne a potřebuje víc místa',
+				'horká voda balónek sama nafoukne párou zvenku',
+				'balónek se zahřátím zvětší jako guma',
+			],
+			vysvetleni: 'Zahřátý vzduch se rozpíná, zvětšuje svůj objem, a proto tlačí do balónku a nafukuje ho.',
+		},
+		{
+			text: 'Proč se zaseknuté kovové víčko sklenice po nahřátí v teplé vodě snáze otevře?',
+			odpovedi: [
+				'kov se zahřátím roztáhne a víčko povolí',
+				'teplo víčko změkčí jako vosk',
+				'voda víčko promaže a je kluzké',
+			],
+			vysvetleni: 'Kov se při zahřátí roztáhne (tepelná roztažnost), víčko se tím nepatrně zvětší a jde snáz odšroubovat.',
+		},
+		{
+			text: 'Proč teploměr zabalený do černého papíru na slunci ukazuje vyšší teplotu než teploměr ve stínu?',
+			odpovedi: [
+				'černý povrch pohlcuje sluneční záření lépe',
+				'černý papír teplo sám vyrábí',
+				'stín teploměr aktivně ochlazuje',
+			],
+			vysvetleni: 'Tmavé povrchy pohlcují více slunečního záření než světlé, a proto se více zahřejí.',
+		},
+		{
+			text: 'Proč po minutě v horké vodě pálí horní konec kovové lžíce víc než konec plastové?',
+			odpovedi: [
+				'kov vede teplo mnohem lépe než plast',
+				'kov je v horké vodě těžší, a proto se víc zahřeje',
+				'plast teplo odráží zpět do vody',
+			],
+			vysvetleni: 'Kovy jsou dobré vodiče tepla, plasty naopak teplo vedou špatně (jsou to izolanty).',
+		},
+	],
 	'fyzika/7-rocnik/tlak-v-kapalinach/tlak': [
 		{
 			text: 'Jak působí tlaková síla na plochu tělesa?',

@@ -116,6 +116,8 @@ import PremenyEnergieSimulace from '../../../../../../components/skola2/PremenyE
 import RetezovaReakceSimulace from '../../../../../../components/skola2/RetezovaReakceSimulace.astro';
 import ObnovitelneZdrojeSimulace from '../../../../../../components/skola2/ObnovitelneZdrojeSimulace.astro';
 import RozpinaniVesmiruSimulace from '../../../../../../components/skola2/RozpinaniVesmiruSimulace.astro';
+import OpakovaniVelicinSimulace from '../../../../../../components/skola2/OpakovaniVelicinSimulace.astro';
+import PokusySimulace from '../../../../../../components/skola2/PokusySimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -366,6 +368,8 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'retezova-reakce' && <RetezovaReakceSimulace />}
 	{podtema.interakce === 'obnovitelne-zdroje' && <ObnovitelneZdrojeSimulace />}
 	{podtema.interakce === 'rozpinani-vesmiru' && <RozpinaniVesmiruSimulace />}
+	{podtema.interakce === 'opakovani-velicin' && <OpakovaniVelicinSimulace />}
+	{podtema.interakce === 'pokusy' && <PokusySimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (
