@@ -318,6 +318,24 @@
 			"podvrh": "13 mutací komponenty na kopii v dočasné složce: špatná jednotka/měřidlo v datech tabulky, vymyšlený distraktor místo skutečné hodnoty jiné veličiny, nulová rotace pozice správné odpovědi, opakující se distraktory, chybějící zezelenání/odkrytí tlačítka/přičtení skóre, možnost přepsat už zodpovězenou otázku, chybějící zvýraznění správné odpovědi po chybě, i chyby v části B (klik na řádek nezvýrazní/nepopíše/nezruší předchozí zvýraznění). Každá shodí 2–4 kontroly.",
 			"zdravy": "Nad nezměněnou komponentou test projde beze zbytku (přes 25 kontrol v částech A i B); ověření zdravou kopií je první krok skriptu.",
 			"overeno": "2026-08-15"
+		},
+		"simulace/bezpecnost.mjs": {
+			"test": "testy/simulace/bezpecnost.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) pozměněno určení domény z posledních dvou tečkovaných částí hostitele (`casti.slice(-2)`) na PRVNÍ dvě (`casti.slice(0, 2)`) — přesně opačná chyba, kterou má scéna A učit rozpoznávat (subdoménový trik). Test to chytil 6 chybami — mj. '❌ první příklad: doména se určí správně' i '❌ ★ subdoménový trik: doména je utok.ru, i když adresa vypadá jako seznam.cz' — konec kódem 1.",
+			"zdravy": "Nad nezměněnou src/components/skola2/BezpecnostSimulace.astro projde všech 73 kontrol (scéna A rozpoznání domény v 5 záludných adresách, scéna B pořadí bezpečnostních vrstev a role zálohy), výstup '✅ Bezpečnost: všech 73 kontrol prošlo.', kód 0.",
+			"overeno": "2026-08-15"
+		},
+		"simulace/seznamy.mjs": {
+			"test": "testy/simulace/seznamy.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) rozbité přepočítání indexů ve funkci smazIndex: `const i = index1 - 1` → `const i = index1`, tedy mazání o pozici vedle. Test to chytil 2 chybami — '❌ smaž index 2 z [a,b,c] → [\"a\",\"b\"]' (mělo být [a,c]) a '❌ „chleba\" zmizel, ostatní se posunuli: [...]' (chleba přitom v poli zůstal) — konec kódem 1.",
+			"zdravy": "Nad nezměněnou src/components/skola2/SeznamySimulace.astro projdou všechny kontroly čistých operací nad polem i obou scén (A: seznam jako řada políček s přečíslováním indexů po smazání/vložení, B: seznam × 5 samostatných proměnných), výstup '✅ VŠE V POŘÁDKU', kód 0.",
+			"overeno": "2026-08-15"
+		},
+		"simulace/vex-gyroskop.mjs": {
+			"test": "testy/simulace/vex-gyroskop.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) sjednocen úhel otočení na rohu s gyrem i bez gyra: `gyroZapnuty ? 90 : 87` → `gyroZapnuty ? 90 : 90` — přesně ta chyba, kterou má scéna A demonstrovat (bez gyra kola prokluzují). Test to chytil 3 chybami — '❌ dráha BEZ gyra se neshoduje s ideálním čtvercem', '❌ bez gyra robot NEKONČÍ přesně na startu' a '❌ ★ klik změnil vykreslenou dráhu i polohu robota' — konec kódem 1.",
+			"zdravy": "Nad nezměněnou src/components/skola2/VexGyroskopSimulace.astro projde všech 21 kontrol (scéna A gyroskop vs. prokluz kol při otáčení, scéna B čidlo vzdálenosti vs. prokluz kol při jízdě), výstup '✅ Vše v pořádku.', kód 0.",
+			"overeno": "2026-08-15"
 		}
 	}
 }
