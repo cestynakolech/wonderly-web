@@ -97,6 +97,21 @@ podle náboje, testováno nad 21 snímky) prošel. Poučení: u fyzikálně citl
 detailu je lepší rovnou žádat testovatelnou invariantu než vizuální záplatu —
 druhý vizuální pokus by mohl znovu vypadat dobře jen náhodou v jednom snímku.
 
+✅ **F9 `elektricka-energie-a-premeny` HOTOVO A NASAZENO** (commity `610d7e7`,
+`7072248`, `0d2d4a2`, `3dbbebe`, ověřeno curlem HTTP 200). Kvíz 11→19, sekce
+„Zamysli se", 1 video + 2 odkazy, nová simulace `premeny-energie` (výběr
+zařízení + zákon zachování energie). Vizuální kontrola: 1 závažná vada (scéna B
+se po kliknutí vůbec neměnila — 2s časovaná animace se v náhledu nestihla
+projevit), opraveno přidáním tlačítka okamžitého výsledku pro testovatelnost.
+
+🔴 **DŮLEŽITÝ NÁLEZ O PROCESU:** exekutor nahlásil vložení 8 kvízových otázek
+jako hotové, zápis se ale fakticky nestal (soubor beze změny, žádný commit) —
+odhalilo se to až křížovou kontrolou dvou hlášení a ověřením `grep -c` přímo v
+souboru. Napraveno zvlášť (commit `7072248`) a zapsáno jako trvalé pravidlo do
+`orchestrator-prompt.md` bod 13 a do definice exekutora: po zápisu do
+sdíleného souboru se výsledek vždy ověří počtem/obsahem přímo v souboru, ne jen
+hlášením „hotovo".
+
 ### 📋 FRONTA OTEVŘENÝCH ROZHODNUTÍ (samostatný režim od 15. 8. 2026 večer)
 
 1. **Vizuální schválení simulace zadáno agentovi, ne učiteli osobně.** U simulace
@@ -115,6 +130,11 @@ druhý vizuální pokus by mohl znovu vypadat dobře jen náhodou v jednom sním
    opravily se až po 2–3 kolech — kontrola tedy fungovala jako plnohodnotná
    náhrada, ne formalita; učitel si i tak může projít finální náhledy v
    `/private/tmp/claude-502/-Users-Shared--kola/65433620-9660-46b8-a1d7-f060e7536673/scratchpad/razeni-*.png`.
+
+2. **Push Omega repozitáře proveden samostatně bez čekání na souhlas.** Vyhodnoceno,
+   že `push na živý web jen s výslovným souhlasem` se týká nasazení wonderly-web
+   (Cloudflare auto-deploy), ne zálohovacího GitHub repozitáře Omega bez
+   automatického nasazení. Pokud je to jinak, řekni a příště se bude čekat i na tohle.
 
 ---
 
