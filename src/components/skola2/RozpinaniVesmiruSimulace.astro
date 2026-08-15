@@ -1,0 +1,151 @@
+---
+// Vesmír a galaxie: A) tvary galaxií (klik na tvar = popisek), B) rozpínání
+// vesmíru — Hubbleův zákon: vzdálenější galaxie se při „rozepnutí" posune o
+// VĚTŠÍ vzdálenost než bližší (poloha škáluje lineárně násobkem, ne posunem
+// o stejnou hodnotu) + barva se posouvá k červené (rudý posuv).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Tvary galaxií 🌌</span></h2>
+	<p>Galaxie mají různý tvar. <strong>Klikni na jeden z tvarů</strong> a zjisti o něm víc. Naše galaxie, <strong>Mléčná dráha</strong>, je spirální s příčkou.</p>
+	<svg id="rv-a-svg" viewBox="0 0 520 200" role="img" aria-label="Tři tvary galaxií ke kliknutí">
+		<rect x="0" y="0" width="520" height="200" fill="#0b0d1a" />
+		<g id="rv-a-spiralni" class="rv-galaxie" style="cursor:pointer">
+			<circle cx="100" cy="100" r="34" fill="#232860" />
+			<path d="M100,100 C130,90 130,60 100,66 C78,70 78,92 100,100 C122,108 140,96 132,76" fill="none" stroke="#a5b4fc" stroke-width="4" stroke-linecap="round" />
+			<circle cx="100" cy="100" r="7" fill="#ffe066" />
+		</g>
+		<g id="rv-a-elipticka" class="rv-galaxie" style="cursor:pointer">
+			<ellipse cx="260" cy="100" rx="38" ry="24" fill="#ffd8a8" />
+			<ellipse cx="260" cy="100" rx="22" ry="13" fill="#ffb347" />
+		</g>
+		<g id="rv-a-nepravidelna" class="rv-galaxie" style="cursor:pointer">
+			<circle cx="410" cy="90" r="14" fill="#74c0fc" />
+			<circle cx="428" cy="106" r="10" fill="#a5d8ff" />
+			<circle cx="400" cy="112" r="9" fill="#63e6be" />
+			<circle cx="420" cy="80" r="7" fill="#eebefa" />
+		</g>
+		<circle id="rv-a-spiralni-ring" cx="100" cy="100" r="40" fill="none" stroke="none" stroke-width="4" />
+		<circle id="rv-a-elipticka-ring" cx="260" cy="100" r="44" fill="none" stroke="none" stroke-width="4" />
+		<circle id="rv-a-nepravidelna-ring" cx="414" cy="97" r="38" fill="none" stroke="none" stroke-width="4" />
+		<text x="100" y="150" text-anchor="middle" font-size="12" fill="#ced4da">spirální</text>
+		<text x="260" y="150" text-anchor="middle" font-size="12" fill="#ced4da">eliptická</text>
+		<text x="414" y="150" text-anchor="middle" font-size="12" fill="#ced4da">nepravidelná</text>
+	</svg>
+	<p class="rv-stav" id="rv-a-stav">Klikni na tvar galaxie.</p>
+
+	<h2><span class="podtrh">Rozpínání vesmíru a Hubbleův zákon 🕹️</span></h2>
+	<p>Uprostřed je naše galaxie. Tečky kolem jsou vzdálené galaxie. Klikni na <strong>„rozepnout"</strong> — všimni si, že vzdálenější galaxie se posunou o VĚTŠÍ kus dráhy než ty bližší. Přesně to říká <strong>Hubbleův zákon</strong>: čím dál galaxie je, tím rychleji se od nás vzdaluje. Jejich světlo se navíc posouvá k červené barvě (rudý posuv).</p>
+	<svg id="rv-b-svg" viewBox="0 0 520 220" role="img" aria-label="Rozpínání vesmíru — galaxie se vzdalují od středu">
+		<rect x="0" y="0" width="520" height="220" fill="#0b0d1a" />
+		<circle id="rv-b-stred" cx="260" cy="110" r="10" fill="#ffe066" />
+		<text x="260" y="130" text-anchor="middle" font-size="11" fill="#ffe066">naše galaxie</text>
+		<circle id="rv-b-g0" cx="289.7" cy="114.5" r="6" fill="#96b4ff" />
+		<circle id="rv-b-g1" cx="307.0" cy="92.9" r="6" fill="#b096d2" />
+		<circle id="rv-b-g2" cx="324.5" cy="137.3" r="6" fill="#cb78a5" />
+		<circle id="rv-b-g3" cx="348.2" cy="92.1" r="6" fill="#e55a78" />
+		<circle id="rv-b-g4" cx="151.1" cy="125.5" r="6" fill="#ff3c4b" />
+	</svg>
+	<p class="rv-tlacitka">
+		<button type="button" id="rv-b-rozepnout" class="rv-tl">rozepnout ▶</button>
+		<button type="button" id="rv-b-zpet" class="rv-tl">zpět ↺</button>
+	</p>
+	<p class="rv-stav" id="rv-b-stav">Vzdálenosti od středu: 30, 50, 70, 90, 110 px.</p>
+</section>
+
+<script>
+	// ── Scéna A: tvary galaxií ──
+	const aStav = document.getElementById('rv-a-stav');
+	const TVARY = {
+		'rv-a-spiralni': 'Spirální galaxie — má ramena vinoucí se od středu. Naše Mléčná dráha je spirální galaxie s příčkou, obsahuje stovky miliard hvězd.',
+		'rv-a-elipticka': 'Eliptická galaxie — má tvar koule nebo elipsy, málo nového plynu a prachu, hvězdy jsou hlavně staré.',
+		'rv-a-nepravidelna': 'Nepravidelná galaxie — nemá pravidelný tvar, často vznikla srážkou nebo narušením gravitací jiné galaxie.',
+	};
+	for (const id of Object.keys(TVARY)) {
+		const g = document.getElementById(id);
+		g.addEventListener('click', () => {
+			// zvýraznění zapisujeme PŘÍMO do atributu SVG (ne přes CSS třídu) —
+			// projeví se tak i ve statickém náhledu, který jen čte atributy.
+			for (const jine of Object.keys(TVARY)) {
+				document.getElementById(jine).classList.remove('rv-vybrano');
+				document.getElementById(jine + '-ring').setAttribute('stroke', 'none');
+			}
+			g.classList.add('rv-vybrano');
+			document.getElementById(id + '-ring').setAttribute('stroke', '#ffe066');
+			aStav.textContent = TVARY[id];
+		});
+	}
+
+	// ── Scéna B: rozpínání vesmíru ──
+	const bStav = document.getElementById('rv-b-stav');
+	const CX = 260, CY = 110;
+
+	// vzdálenost od středu (px) a úhel — lineární škálování polohy = Hubbleův
+	// zákon (rychlost/dráha úměrná vzdálenosti); barva se posouvá k červené
+	// s rostoucí vzdáleností (rudý posuv). Kruhy jsou v HTML předkreslené
+	// (rv-b-g0…g4) ve výchozím rozestavení a skript jen mění jejich polohu.
+	const GALAXIE = [
+		{ vzdal: 30, uhel: 0.15, id: 'rv-b-g0' },
+		{ vzdal: 50, uhel: -0.35, id: 'rv-b-g1' },
+		{ vzdal: 70, uhel: 0.4, id: 'rv-b-g2' },
+		{ vzdal: 90, uhel: -0.2, id: 'rv-b-g3' },
+		{ vzdal: 110, uhel: 3.0, id: 'rv-b-g4' },
+	];
+	const NASOBEK = 2; // po „rozepnutí" je každá galaxie 2× dál — celá čísla
+
+	function barvaProVzdalenost(vzdal) {
+		// blízko = bělomodrá, daleko = červenější (rudý posuv)
+		const t = Math.min(1, (vzdal - 30) / 80);
+		const r = Math.round(150 + 105 * t);
+		const g = Math.round(180 - 120 * t);
+		const b = Math.round(255 - 180 * t);
+		return `rgb(${r},${g},${b})`;
+	}
+
+	function poloha(vzdal, uhel) {
+		return [CX + vzdal * Math.cos(uhel), CY + vzdal * Math.sin(uhel)];
+	}
+
+	for (const gal of GALAXIE) {
+		gal.el = document.getElementById(gal.id);
+	}
+
+	let rozepnuto = false;
+	function vykresli() {
+		for (const gal of GALAXIE) {
+			const vzdal = rozepnuto ? gal.vzdal * NASOBEK : gal.vzdal;
+			const [x, y] = poloha(vzdal, gal.uhel);
+			gal.el.setAttribute('cx', x.toFixed(1));
+			gal.el.setAttribute('cy', y.toFixed(1));
+			gal.el.setAttribute('fill', barvaProVzdalenost(vzdal));
+		}
+		const puvodni = GALAXIE.map((g) => g.vzdal).join(', ');
+		const nove = GALAXIE.map((g) => (rozepnuto ? g.vzdal * NASOBEK : g.vzdal)).join(', ');
+		if (rozepnuto) {
+			const nejblizsi = GALAXIE.reduce((a, b) => (a.vzdal < b.vzdal ? a : b));
+			const nejdalsi = GALAXIE.reduce((a, b) => (a.vzdal > b.vzdal ? a : b));
+			bStav.textContent = `Po rozepnutí: ${puvodni} px → ${nove} px. Bližší galaxie (${nejblizsi.vzdal} px) se posunula o ${nejblizsi.vzdal * (NASOBEK - 1)} px, vzdálenější (${nejdalsi.vzdal} px) o ${nejdalsi.vzdal * (NASOBEK - 1)} px — čím dál, tím větší skok. To je Hubbleův zákon.`;
+		} else {
+			bStav.textContent = `Vzdálenosti od středu: ${puvodni} px.`;
+		}
+	}
+
+	document.getElementById('rv-b-rozepnout').addEventListener('click', () => {
+		rozepnuto = true;
+		vykresli(); // OKAMŽITÁ synchronní změna SVG, žádná časovaná animace
+	});
+	document.getElementById('rv-b-zpet').addEventListener('click', () => {
+		rozepnuto = false;
+		vykresli();
+	});
+</script>
+
+<style>
+	#rv-a-svg, #rv-b-svg { width: 100%; max-width: 520px; border: 3px solid #2b2a26; border-radius: 12px; display: block; margin-bottom: 0.5rem; }
+	.rv-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
+<style is:global>
+	.rv-galaxie.rv-vybrano circle:first-child, .rv-galaxie.rv-vybrano ellipse:first-child { stroke: #ffe066; stroke-width: 3; }
+	.rv-tl { font: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.3rem 0.8rem; border: 2px solid #2b2a26; border-radius: 8px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.rv-tl:active { transform: translateY(1px); }
+</style>

@@ -3793,6 +3793,13 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaký průměr má Mléčná dráha?', odpovedi: ['asi 100 000 světelných let', 'asi 100 000 kilometrů', 'asi 8 světelných minut'], vysvetleni: '8 světelných minut je vzdálenost Země–Slunce.' },
 		{ text: 'Co bývá ve středu mnoha galaxií?', odpovedi: ['obří černá díra', 'největší planeta', 'prázdný prostor'], vysvetleni: 'I v centru Mléčné dráhy je supermasivní černá díra.' },
 		{ text: 'Co dokazuje, že se vesmír rozpíná?', odpovedi: ['rudý posuv světla vzdálených galaxií', 'modrá barva oblohy', 'střídání dne a noci'], vysvetleni: 'Čím dál galaxie je, tím rychleji se vzdaluje (Hubbleův zákon).' },
+		{ text: 'Jak vypadá eliptická galaxie?', odpovedi: ['má oválný tvar bez ramen', 'má výrazná spirální ramena s příčkou', 'nemá žádný pravidelný tvar ani strukturu'], vysvetleni: 'Eliptické galaxie nemají spirální ramena jako Mléčná dráha.' },
+		{ text: 'Jak se nazývá supermasivní černá díra ve středu Mléčné dráhy?', odpovedi: ['Sagittarius A*', 'Proxima Centauri', 'Velký Magellanův mrak'], vysvetleni: 'Leží přesně ve středu naší galaxie.' },
+		{ text: 'S jakou galaxií se má Mléčná dráha v budoucnu srazit?', odpovedi: ['s galaxií Andromeda', 'se Sluneční soustavou', 's Velkým vozem'], vysvetleni: 'Ke srážce dojde až za miliardy let.' },
+		{ text: 'Kde se nachází naše Slunce v Mléčné dráze?', odpovedi: ['v okrajové části galaktického disku', 'přesně ve středu galaxie u černé díry', 'daleko mimo Mléčnou dráhu'], vysvetleni: 'Slunce je jen jedna obyčejná hvězda z mnoha.' },
+		{ text: 'Co říká Hubbleův zákon?', odpovedi: ['vzdálenější galaxie se vzdaluje rychleji než bližší', 'všechny galaxie se vzdalují stejnou rychlostí', 'galaxie se k sobě přibližují'], vysvetleni: 'Je to hlavní důkaz rozpínání vesmíru.' },
+		{ text: 'Jaký tvar má galaxie bez spirál i bez pravidelné elipsy?', odpovedi: ['nepravidelná galaxie', 'spirální galaxie s příčkou', 'čočkovitá galaxie s ramenem'], vysvetleni: 'Nemá jasně danou geometrickou strukturu.' },
+		{ text: 'Co je typické pro spirální galaxii?', odpovedi: ['má ramena vinoucí se od středu', 'má jen oválný tvar bez struktury', 'nemá žádný pravidelný tvar'], vysvetleni: 'Tahle ramena jsou dobře vidět třeba na snímcích jiných galaxií z vesmíru.' },
 	],
 	'informatika/7-rocnik/programovani-podminky-udalosti/opakovani-s-podminkou': [
 		{ text: 'Co je v programování podmínka?', odpovedi: ['otázka s odpovědí ANO/NE', 'číslo uložené v proměnné', 'název spuštěného programu'], vysvetleni: 'Např. „je skóre nad 10?" — je splněna, nebo ne.' },

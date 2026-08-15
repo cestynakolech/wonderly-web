@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie' | 'retezova-reakce' | 'obnovitelne-zdroje';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie' | 'retezova-reakce' | 'obnovitelne-zdroje' | 'rozpinani-vesmiru';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -4727,7 +4727,22 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Vesmír se rozpíná</h3>
 						<p>Vzdálené galaxie se od nás vzdalují — jejich světlo je posunuté k červené barvě (<strong>rudý posuv</strong>). Čím je galaxie dál, tím rychleji se vzdaluje (<strong>Hubbleův zákon</strong>). Právě to je hlavní důkaz, že se vesmír stále <strong>rozpíná</strong>.</p>
+						<h3>✏️ Věděl(a) jsi, že...</h3>
+						<ul>
+							<li>Přesně uprostřed Mléčné dráhy se skrývá obří <strong>černá díra</strong> se jménem <strong>Sagittarius A*</strong>? Je tak hmotná, že svou gravitací drží na oběžné dráze celou naši galaxii.</li>
+							<li>Naše Mléčná dráha se řítí vesmírem vstříc sousední galaxii <strong>Andromeda</strong> — až se za přibližně <strong>4,5 miliardy let</strong> srazí, jednotlivé hvězdy se ale skoro určitě do sebe nenarazí, protože jsou od sebe v galaxii nesmírně daleko.</li>
+							<li>Ve viditelném vesmíru je odhadem přes <strong>100 miliard galaxií</strong> — a v každé z nich mohou být stovky miliard hvězd.</li>
+							<li>Světlo z nejvzdálenějších galaxií k nám letí miliardy let — když se na ně díváme, vidíme vlastně vesmír takový, jaký vypadal dávno v minulosti.</li>
+						</ul>
 					`,
+					interakce: 'rozpinani-vesmiru',
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Co je Velký třesk? Jak vznikl vesmír a co mu předcházelo?', cesta: 'pAFuy0FHf4A' },
+					],
+					odkazy: [
+						{ nazev: 'ČT edu: Velký třesk', url: 'https://edu.ceskatelevize.cz/video/2317-velky-tresk' },
+						{ nazev: 'ČT edu: Vznik vesmíru (rozšiřující, spíše pro SŠ)', url: 'https://edu.ceskatelevize.cz/video/2319-vznik-vesmiru' },
+					],
 				},
 			],
 		},

@@ -300,6 +300,12 @@
 			"podvrh": "11 mutací komponenty na kopii v dočasné složce — scéna A (vodík/uhlí přeřazené jako obnovitelné, barvy typů zaměněné, ztráta slov \"nosič\"/\"Chyták\" u vodíku) a scéna B (obrácený výchozí režim, čerpání snižuje místo zvyšování horní hladinu, špatná konstanta výšky nádrže, chybějící okamžitá změna po kliku, krok animace přestřelí nebo jde opačným směrem). Každá shodí 2–8 kontrol.",
 			"zdravy": "Nad nezměněnou komponentou testy/simulace/obnovitelne-zdroje.mjs projde beze zbytku (0 chyb) a skript hlásí ZDRAVÁ KOPIE prošla.",
 			"overeno": "2026-08-15"
+		},
+		"simulace/rozpinani-vesmiru.mjs": {
+			"test": "testy/simulace/rozpinani-vesmiru.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) nahrazen výpočet ve scéně B `gal.vzdal * NASOBEK` za `gal.vzdal + 20` (posun stejný pro všechny galaxie místo úměrného vzdálenosti, popření Hubbleova zákona). Test to chytil 2 chybami — '❌ nejbližší galaxie se posunula o 30 px (je 19.9)' a '❌ nejvzdálenější galaxie se posunula o 110 px (je 20.0)', konec kódem 1.",
+			"zdravy": "Nad nezměněnou src/components/skola2/RozpinaniVesmiruSimulace.astro projdou všechny kontroly (scéna A popisek ke každému ze 3 tvarů galaxie, scéna B počáteční vzdálenosti 30/110 px, posun po rozepnutí přesně 30/110 px, vzdálenější posun větší než bližší, text zmiňuje Hubbleův zákon, návrat na původní vzdálenost tlačítkem zpět), výstup '✅ VŠE V POŘÁDKU', kód 0.",
+			"overeno": "2026-08-15"
 		}
 	}
 }
