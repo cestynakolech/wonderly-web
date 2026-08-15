@@ -1,0 +1,442 @@
+---
+// Řazení článků za sebou a proud v obvodu s chemickým zdrojem (F9,
+// elektricky-proud-v-latkach/chemicke-zdroje-napeti). Doplňuje
+// GalvanickyClanekSimulace.astro (F8, chemicke-zdroje-napeti), která učí ODKUD
+// SE BERE napětí (dvojice různých materiálů) a že napětí se sčítá řazením za
+// sebou. Tahle komponenta NEOPAKUJE tu látku — jede dál, tam, kde F8 končí:
+//
+//  A) Sériové řazení: žák si SÁM tlačítky/posuvníky skládá řadu 1–6 článků
+//     dvou SKUTEČNÝCH typů (suchý 1,5 V / olověný 2 V) a sleduje, jak roste
+//     napětí na voltmetru a jak jasněji svítí žárovka. Desetinné hodnoty
+//     (1,5 → 3 → 4,5 V …) jsou schválně vidět — to je přesně to, co učivo
+//     zdůrazňuje u násobků 1,5 V. Výchozí stav (4 suché články) dává 6 V,
+//     tedy celé číslo — přesně příklad z hodiny na této stránce.
+//
+//  B) Co se děje UVNITŘ a VNĚ článku: dvě různé elektrody v elektrolytu,
+//     vnější obvod se žárovkou. Tlačítko rozpohybuje náboje: VNĚ obvodu tečou
+//     elektrony od − k + (to je SKUTEČNÝ pohyb elektronů), UVNITŘ elektrolytu
+//     migrují ionty — kladné k + elektrodě, záporné k − elektrodě (přesně to,
+//     co dohromady uzavírá obvod). Popisek navíc ukazuje TECHNICKÝ SMĚR
+//     PROUDU (od + přes vnější obvod k −) — opačně než skutečný pohyb
+//     elektronů, což je právě ten rozdíl, který si žáci pletou nejvíc.
+//
+// Kreslí se: scéna A staticky (přepočet při každé změně posuvníku), scéna B
+// animovaně přes requestAnimationFrame — perioda běhu je zvolena jako reálný
+// čas (3 s na jeden průchod), ne počet snímků, takže zpomalený rAF v náhledu
+// časování jen protáhne, nezkreslí.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Řazení článků a proud v obvodu 🕹️</span></h2>
+	<p>Poskládej si vlastní baterii z několika článků a podívej se, co se děje s náboji uvnitř i vně chemického zdroje napětí.</p>
+
+	<h3><span class="podtrh">🔋 Scéna A: Sestav baterii ze článků</span></h3>
+	<p>Přidávej články za sebe a zkus oba typy. Napětí se <strong>sčítá</strong> a žárovka svítí tím jasněji, čím vyšší napětí baterie dává.</p>
+	<svg id="rc-a-svg" viewBox="0 0 660 420" role="img" aria-label="Řada článků zapojených za sebou napájí žárovku">
+		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
+		<g id="rc-a-voltmetr"></g>
+		<g id="rc-a-obvod"></g>
+		<g id="rc-a-zarovka"></g>
+		<g id="rc-a-pack"></g>
+		<g id="rc-a-info"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Počet článků za sebou: <output id="rc-a-out-pocet"></output>
+		<input type="range" id="rc-a-pocet" min="1" max="6" step="1" value="4" />
+	</label>
+	<label class="sim-posuvnik">
+		Typ článku: <output id="rc-a-out-typ"></output>
+		<input type="range" id="rc-a-typ" min="0" max="1" step="1" value="0" />
+	</label>
+	<p class="rc-vzorec" id="rc-a-vypocet"></p>
+	<p class="rc-stav" id="rc-a-stav"></p>
+
+	<h3><span class="podtrh">⚡ Scéna B: Co teče uvnitř a co vně článku</span></h3>
+	<p>
+		Klikni na tlačítko a sleduj náboje. <strong>Vně</strong> obvodu tečou drátem
+		<strong>elektrony</strong> od záporné elektrody ke kladné. <strong>Uvnitř</strong>
+		elektrolytu je to naopak — putují tam <strong>ionty</strong>: kladné ke kladné
+		elektrodě, záporné k záporné. Pozor na past: <strong>technický směr proudu</strong>
+		je definovaný opačně než skutečný pohyb elektronů — vede od + přes vnější obvod k −.
+	</p>
+	<svg id="rc-b-svg" viewBox="0 0 660 480" role="img" aria-label="Chemický zdroj napětí s vnějším obvodem a žárovkou, pohyb elektronů a iontů">
+		<rect x="0" y="0" width="660" height="480" fill="#f8f9fa" />
+		<!-- kádinka: otevřená nahoře (vzduch), elektrolyt dole (voda dole — kotva scény) -->
+		<path d="M180,170 L180,370 L480,370 L480,170" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect x="184" y="260" width="292" height="106" fill="#a5d8ff" />
+		<g id="rc-b-smer"></g>
+		<g id="rc-b-obvod"></g>
+		<g id="rc-b-elektrody"></g>
+		<g id="rc-b-castice"></g>
+		<g id="rc-b-info"></g>
+	</svg>
+	<p><button type="button" class="rc-tl" id="rc-b-tlacitko">▶️ Spustit</button></p>
+	<p class="rc-stav" id="rc-b-stav"></p>
+</section>
+
+<script>
+	// Obranné čtení čísla z posuvníku — neplatná hodnota se tiše nahradí
+	// rozumným výchozím stavem, ne pádem (stejný vzor jako u ostatních simulací).
+	function platneCislo(hodnota, min, max, vychozi) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= min && n <= max ? n : vychozi;
+	}
+
+	// Napětí se píše s čárkou, jen když je opravdu desetinné (1,5 V) — celá
+	// čísla (3 V, 6 V) zůstávají bez zbytečné nuly za čárkou.
+	function napetiText(n) {
+		const r = Math.round(n * 10) / 10;
+		return Number.isInteger(r) ? `${r} V` : `${String(r).replace('.', ',')} V`;
+	}
+
+	function clanku(n) {
+		if (n === 1) return '1 článek';
+		if (n >= 2 && n <= 4) return `${n} články`;
+		return `${n} článků`;
+	}
+
+	// ═══════════════════════════ Scéna A: sériové řazení ═══════════════════════
+	// Dva SKUTEČNÉ typy z výkladu téhle stránky — suchý (tužkový) 1,5 V a
+	// olověný 2 V. Žádné vymýšlení: obě napětí jsou přímo v textu podtématu.
+	const TYPY = [
+		{ nazev: 'suchý (tužkový)', napeti: 1.5, barva: '#ffd43b' },
+		{ nazev: 'olověný', napeti: 2, barva: '#495057' },
+	];
+	const NAPETI_MAX_MOZNE = 6 * 2; // 6 olověných článků = 12 V — strop škály jasu žárovky
+
+	// ČISTÁ FUNKCE: napětí baterie pro daný počet a typ článků.
+	function stavA(pocet, typIdx) {
+		const n = platneCislo(pocet, 1, 6, 4);
+		const tIdx = platneCislo(typIdx, 0, TYPY.length - 1, 0);
+		const typ = TYPY[tIdx];
+		const napeti = Math.round(n * typ.napeti * 10) / 10;
+		return { pocet: n, typ, napeti };
+	}
+
+	// ČISTÁ FUNKCE: jas žárovky 0–1, poměrem ke skutečně nejvyššímu dosažitelnému
+	// napětí (12 V) — takže při STEJNÉM počtu článků svítí olověná baterie jasněji
+	// než suchá (vyšší napětí na článek), a žák to hned vidí.
+	function jasZarovky(napeti) {
+		return Math.min(1, napeti / NAPETI_MAX_MOZNE);
+	}
+	function jasPopis(jas) {
+		if (jas >= 0.75) return 'jasně';
+		if (jas >= 0.4) return 'středně jasně';
+		return 'slabě';
+	}
+
+	// ČISTÁ FUNKCE: počet „paprsků“ žárovky (0–8) podle jasu. Samotná opacita
+	// kruhu je na malém náhledu těžko postřehnutelná (bledě žlutá na bledě
+	// šedém pozadí), proto je hlavní VIDITELNÝ nosič jasu tenhle POČET
+	// paprsků — diskrétní, dobře spočitatelný rozdíl, ne jen odstín barvy.
+	function pocetPaprsku(jas) {
+		return Math.round(Math.min(1, Math.max(0, jas)) * 8);
+	}
+
+	// ČISTÁ FUNKCE: geometrie řady článků — stejný přístup jako u ostatních
+	// simulací (NUB = spojka mezi články), ale navíc KAŽDÝ článek nese vlastní
+	// popisky pólů (− vlevo, + vpravo), aby byla vidět SPRÁVNÁ POLARITA všech
+	// článků v řadě, ne jen krajních svorek baterie.
+	function geometriePack(pocet) {
+		const n = platneCislo(pocet, 1, 6, 4);
+		const cellWidth = 70, cellHeight = 50, NUB = 8;
+		const totalWidth = n * cellWidth + (n - 1) * NUB;
+		const startX = Math.round(330 - totalWidth / 2);
+		const yTop = 230, yBottom = 280, yMid = 255;
+		const cells = [];
+		for (let i = 0; i < n; i++) {
+			const x = startX + i * (cellWidth + NUB);
+			cells.push({ x, xEnd: x + cellWidth });
+		}
+		return { cellWidth, cellHeight, NUB, startX, yTop, yBottom, yMid, cells, xLastRight: cells[cells.length - 1].xEnd };
+	}
+
+	const pocetSlider = document.getElementById('rc-a-pocet');
+	const typSlider = document.getElementById('rc-a-typ');
+	const svgA = document.getElementById('rc-a-svg');
+	svgA.__TYPY = TYPY;
+	svgA.__stavA = stavA;
+	svgA.__jasZarovky = jasZarovky;
+	svgA.__jasPopis = jasPopis;
+	svgA.__pocetPaprsku = pocetPaprsku;
+	svgA.__geometriePack = geometriePack;
+	svgA.__napetiText = napetiText;
+	svgA.__NAPETI_MAX_MOZNE = NAPETI_MAX_MOZNE;
+
+	// ČISTÁ FUNKCE: SVG úseček paprsků kolem žárovky — pevných 8 poloh (po
+	// 45°), viditelných je jen prvních `pocet`. Díky pevným pozicím vzniká
+	// při přibývání jasu ROSTOUCÍ hvězdička, ne blikání na náhodných místech.
+	function paprskyHtml(cx, cy, pocet) {
+		let html = '';
+		for (let i = 0; i < pocet; i++) {
+			const uhel = (i * 45 * Math.PI) / 180;
+			const x1 = cx + Math.cos(uhel) * 24, y1 = cy + Math.sin(uhel) * 24;
+			const x2 = cx + Math.cos(uhel) * 38, y2 = cy + Math.sin(uhel) * 38;
+			html += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#f08c00" stroke-width="3" stroke-linecap="round" />`;
+		}
+		return html;
+	}
+
+	function prekresliA() {
+		const pocet = platneCislo(pocetSlider.value, 1, 6, 4);
+		const typIdx = platneCislo(typSlider.value, 0, TYPY.length - 1, 0);
+		const s = stavA(pocet, typIdx);
+		const g = geometriePack(s.pocet);
+		const jas = jasZarovky(s.napeti);
+
+		document.getElementById('rc-a-out-pocet').textContent = clanku(s.pocet);
+		document.getElementById('rc-a-out-typ').textContent = s.typ.nazev;
+
+		document.getElementById('rc-a-voltmetr').innerHTML =
+			`<text x="330" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">Celkem: U = ${napetiText(s.napeti)}</text>`;
+
+		// vodiče od krajních svorek baterie nahoru k žárovce
+		const leftX = g.startX - 16, rightX = g.xLastRight + 16;
+		document.getElementById('rc-a-obvod').innerHTML =
+			`<line x1="${leftX}" y1="${g.yMid}" x2="${leftX}" y2="100" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${leftX}" y1="100" x2="306" y2="100" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${rightX}" y1="${g.yMid}" x2="${rightX}" y2="100" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${rightX}" y1="100" x2="354" y2="100" stroke="#495057" stroke-width="4" />`;
+
+		// žárovka: vnější záře + jádro sílí s napětím, ale HLAVNÍ nosič
+		// rozdílu jsou paprsky (0–8, viz pocetPaprsku) — na malém náhledu je
+		// rozdílný POČET čárek mnohem lépe vidět než odstín poloprůhledné
+		// žluté na světlém pozadí.
+		const pocetPapr = pocetPaprsku(jas);
+		const outerR = 18 + jas * 24;
+		const outerOp = (0.1 + jas * 0.6).toFixed(2);
+		const coreOp = (0.25 + jas * 0.75).toFixed(2);
+		document.getElementById('rc-a-zarovka').innerHTML =
+			paprskyHtml(330, 100, pocetPapr)
+			+ `<circle cx="330" cy="100" r="${outerR.toFixed(1)}" fill="#ffd43b" opacity="${outerOp}" />`
+			+ `<circle cx="330" cy="100" r="20" fill="#ffd43b" opacity="${coreOp}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<line x1="322" y1="92" x2="338" y2="108" stroke="#2b2a26" stroke-width="2" />`
+			+ `<line x1="338" y1="92" x2="322" y2="108" stroke="#2b2a26" stroke-width="2" />`;
+
+		// řada článků: každý se svým + a − popiskem, spojky mezi nimi
+		let cellsHtml = '';
+		for (const c of g.cells) {
+			cellsHtml += `<rect x="${c.x}" y="${g.yTop}" width="${g.cellWidth}" height="${g.cellHeight}" fill="${s.typ.barva}" stroke="#2b2a26" stroke-width="2" />`
+				+ `<text x="${c.x + 14}" y="${g.yMid + 5}" text-anchor="middle" font-size="16" font-weight="bold" fill="#74c0fc">−</text>`
+				+ `<text x="${c.xEnd - 14}" y="${g.yMid + 5}" text-anchor="middle" font-size="16" font-weight="bold" fill="#ff8787">+</text>`;
+			if (c.xEnd < g.xLastRight) {
+				cellsHtml += `<rect x="${c.xEnd}" y="${Math.round(g.yMid - g.cellHeight * 0.15)}" width="${g.NUB}" height="${Math.round(g.cellHeight * 0.3)}" fill="#adb5bd" stroke="#2b2a26" stroke-width="1" />`;
+			}
+		}
+		cellsHtml += `<circle cx="${leftX}" cy="${g.yMid}" r="10" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${leftX}" y="${g.yMid + 5}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">−</text>`
+			+ `<circle cx="${rightX}" cy="${g.yMid}" r="10" fill="#ff8787" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${rightX}" y="${g.yMid + 5}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">+</text>`;
+		document.getElementById('rc-a-pack').innerHTML = cellsHtml;
+
+		document.getElementById('rc-a-info').innerHTML =
+			`<rect x="14" y="310" width="632" height="74" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="332" font-size="14" font-weight="bold" fill="#2b2a26">${s.pocet} × ${napetiText(s.typ.napeti)} (${s.typ.nazev}) = ${napetiText(s.napeti)}</text>`
+			+ `<text x="28" y="354" font-size="14" font-weight="bold" fill="#2b2a26">žárovka svítí ${jasPopis(jas)}</text>`
+			+ `<text x="28" y="376" font-size="14" font-weight="bold" fill="#2b2a26">svorky celé baterie: − vlevo, + vpravo — všechny články jsou zapojené SPRÁVNĚ za sebou</text>`;
+
+		document.getElementById('rc-a-vypocet').innerHTML =
+			`${s.pocet} × ${napetiText(s.typ.napeti)} = <strong>${napetiText(s.napeti)}</strong>. Napětí se řazením za sebou <strong>sčítá</strong>.`;
+
+		document.getElementById('rc-a-stav').textContent =
+			`🔋 ${clanku(s.pocet)} typu „${s.typ.nazev}“ dává dohromady ${napetiText(s.napeti)} — žárovka svítí ${jasPopis(jas)}.`;
+	}
+
+	pocetSlider.addEventListener('input', prekresliA);
+	typSlider.addEventListener('input', prekresliA);
+	prekresliA();
+
+	// ═══════════════════════ Scéna B: proud uvnitř a vně ═══════════════════════
+	// Souřadnice elektrod stejně jako u kádinky ve stylu ostatních simulací —
+	// otevřená nahoře (vzduch), elektrolyt dole (voda dole — kotva scény).
+	const ELEKTRODA1_X = 270; // zinek, záporná
+	const ELEKTRODA2_X = 390; // měď, kladná
+	const ELEKTRODA_TOP = 95, ELEKTRODA_BOTTOM = 330;
+
+	// Dráha elektronů VNĚ obvodu: od − elektrody (270) nahoru, přes žárovku,
+	// dolů ke + elektrodě (390). Skutečný pohyb elektronů: OD − K +.
+	const DRAHA_ELEKTRONU = [
+		{ x: ELEKTRODA1_X, y: ELEKTRODA_TOP }, { x: ELEKTRODA1_X, y: 40 },
+		{ x: ELEKTRODA2_X, y: 40 }, { x: ELEKTRODA2_X, y: ELEKTRODA_TOP },
+	];
+	// Dráhy iontů UVNITŘ elektrolytu: kladné ionty táhnou ke KLADNÉ elektrodě
+	// (měď), záporné táhnou k ZÁPORNÉ elektrodě (zinek).
+	//
+	// DŮLEŽITÉ (oprava po 2. neúspěšném pokusu, nezávislá kontrola 15. 8. 2026):
+	// dráhy NESMÍ sdílet stejný rozsah x přes celou šířku elektrolytu. Kdyby
+	// kation jel celých 270→390 a anion celých 390→270 (opačným směrem po
+	// TÉŽE ose), musí se nutně v půli cesty potkat — a v tu chvíli by na
+	// jednom snímku byl anion NAPRAVO od kationtu, tedy invarianta „blíž mědi
+	// = kladný, blíž zinku = záporný“ by na žádné plné křižující se dráze
+	// nemohla platit VŽDY, jen v průměru. Proto mají obě dráhy DISJUNKTNÍ
+	// rozsah x se svislou mezerou uprostřed (325–335, MEZERA_STRED) — kation
+	// se pohybuje jen v pravé polovině (blíž mědi), anion jen v levé (blíž
+	// zinku). Invarianta pak platí STRUKTURÁLNĚ (rozsahy se nikdy nepřekryjí),
+	// ne jen „obvykle“ na jednom snímku.
+	const STRED_X = (ELEKTRODA1_X + ELEKTRODA2_X) / 2; // 330 — půlka elektrolytu
+	const MEZERA_STRED = 10; // šířka prázdného pásu uprostřed, kam ani jeden iont nevkročí
+	const DRAHA_KATIONTU = [{ x: STRED_X + MEZERA_STRED / 2, y: 290 }, { x: ELEKTRODA2_X, y: 290 }]; // 335 → 390, jen pravá polovina (blíž mědi/+)
+	const DRAHA_ANIONTU = [{ x: STRED_X - MEZERA_STRED / 2, y: 320 }, { x: ELEKTRODA1_X, y: 320 }]; // 325 → 270, jen levá polovina (blíž zinku/−)
+	const PERIODA_MS = 3000; // reálný čas na jeden průchod — časování kalibrované na skutečné ms, ne na počet snímků
+
+	// ČISTÁ FUNKCE: bod na lomené čáře pro parametr t ∈ [0,1]. Používá se pro
+	// všechny tři dráhy náboje — test tak může ověřit směr (začátek/konec)
+	// nezávisle na tom, jak vypadá vykreslení.
+	function bodNaCeste(body, t) {
+		const tt = Math.min(1, Math.max(0, t));
+		const delky = [];
+		let celkem = 0;
+		for (let i = 1; i < body.length; i++) {
+			const d = Math.hypot(body[i].x - body[i - 1].x, body[i].y - body[i - 1].y);
+			delky.push(d);
+			celkem += d;
+		}
+		let cil = tt * celkem;
+		for (let i = 0; i < delky.length; i++) {
+			const posledni = i === delky.length - 1;
+			if (cil <= delky[i] || posledni) {
+				const frac = delky[i] ? Math.min(1, cil / delky[i]) : 0;
+				return {
+					x: body[i].x + (body[i + 1].x - body[i].x) * frac,
+					y: body[i].y + (body[i + 1].y - body[i].y) * frac,
+				};
+			}
+			cil -= delky[i];
+		}
+		return { ...body[body.length - 1] };
+	}
+
+	const svgB = document.getElementById('rc-b-svg');
+	svgB.__DRAHA_ELEKTRONU = DRAHA_ELEKTRONU;
+	svgB.__DRAHA_KATIONTU = DRAHA_KATIONTU;
+	svgB.__DRAHA_ANIONTU = DRAHA_ANIONTU;
+	svgB.__bodNaCeste = bodNaCeste;
+
+	function nakresliElektrody() {
+		const PLAKETA_MAX = 100;
+		const elektroda = (cx, nazev, sign, barva) => {
+			const znBarva = sign === '+' ? '#ff8787' : '#74c0fc';
+			const sirka = Math.min(PLAKETA_MAX, nazev.length * 6.2 + 12);
+			return `<rect x="${cx - 12}" y="${ELEKTRODA_TOP}" width="24" height="${ELEKTRODA_BOTTOM - ELEKTRODA_TOP}" fill="${barva}" stroke="#2b2a26" stroke-width="2" />`
+				+ `<circle cx="${cx}" cy="${ELEKTRODA_TOP + 20}" r="14" fill="${znBarva}" stroke="#2b2a26" stroke-width="2" />`
+				+ `<text x="${cx}" y="${ELEKTRODA_TOP + 26}" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">${sign}</text>`
+				+ `<rect x="${cx - sirka / 2}" y="${ELEKTRODA_TOP + 45}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="#2b2a26" stroke-width="1" />`
+				+ `<text x="${cx}" y="${ELEKTRODA_TOP + 58}" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">${nazev}</text>`;
+		};
+		document.getElementById('rc-b-elektrody').innerHTML =
+			elektroda(ELEKTRODA1_X, 'zinek', '−', '#adb5bd') + elektroda(ELEKTRODA2_X, 'měď', '+', '#c2723a');
+	}
+
+	// Šipka technického směru proudu (napevno viditelná, nezávislá na animaci):
+	// vede od + přes vnější obvod k − — tedy OPAČNĚ než skutečný pohyb elektronů.
+	function nakresliSmer() {
+		document.getElementById('rc-b-smer').innerHTML =
+			`<path d="M 375,20 L 285,20" fill="none" stroke="#f08c00" stroke-width="3" stroke-dasharray="6 4" />`
+			+ `<polygon points="278,20 292,14 292,26" fill="#f08c00" />`
+			+ `<text x="330" y="14" text-anchor="middle" font-size="12" font-weight="bold" fill="#f08c00">technický směr proudu (+ → −)</text>`;
+	}
+
+	function nakresliObvod(bezi) {
+		const jas = bezi ? 1 : 0;
+		const outerR = 18 + jas * 10;
+		const outerOp = (0.15 + jas * 0.5).toFixed(2);
+		const coreOp = (0.35 + jas * 0.55).toFixed(2);
+		document.getElementById('rc-b-obvod').innerHTML =
+			`<line x1="${ELEKTRODA1_X}" y1="${ELEKTRODA_TOP}" x2="${ELEKTRODA1_X}" y2="40" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${ELEKTRODA1_X}" y1="40" x2="306" y2="40" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${ELEKTRODA2_X}" y1="${ELEKTRODA_TOP}" x2="${ELEKTRODA2_X}" y2="40" stroke="#495057" stroke-width="4" />`
+			+ `<line x1="${ELEKTRODA2_X}" y1="40" x2="354" y2="40" stroke="#495057" stroke-width="4" />`
+			+ `<circle cx="330" cy="40" r="${outerR}" fill="#ffd43b" opacity="${outerOp}" />`
+			+ `<circle cx="330" cy="40" r="18" fill="#ffd43b" opacity="${coreOp}" stroke="#2b2a26" stroke-width="3" />`;
+	}
+
+	// Fáze částic jsou schválně POSUNUTÉ o půl kroku ((i+0,5)/3, ne i/3) — při
+	// i/3 by v prvním snímku (t=0) jedna částice z každé trojice seděla přesně
+	// ve SVÉM výchozím bodě, tedy vizuálně „zaparkovaná“ hned na kraji dráhy.
+	// Posunuté fáze zajistí, že hned od prvního vykreslení jsou všechny
+	// částice VIDITELNĚ NA CESTĚ. (Skutečnou příčinu prohozených nábojů —
+	// kation a anion na téže sdílené ose — řeší až DISJUNKTNÍ rozsah x
+	// v DRAHA_KATIONTU/DRAHA_ANIONTU výše, ne tenhle posun fáze.)
+	function vykresliCastice(t) {
+		let html = '';
+		for (let i = 0; i < 3; i++) {
+			const faze = (t + (i + 0.5) / 3) % 1;
+			const p1 = bodNaCeste(DRAHA_ELEKTRONU, faze);
+			html += `<circle cx="${p1.x.toFixed(1)}" cy="${p1.y.toFixed(1)}" r="6" fill="#1c7ed6" stroke="#2b2a26" stroke-width="1.5" data-castice="elektron" />`
+				+ `<text x="${p1.x.toFixed(1)}" y="${(p1.y + 3).toFixed(1)}" text-anchor="middle" font-size="7" fill="#fff">e⁻</text>`;
+			const p2 = bodNaCeste(DRAHA_KATIONTU, faze);
+			html += `<circle cx="${p2.x.toFixed(1)}" cy="${p2.y.toFixed(1)}" r="7" fill="#ff8787" stroke="#2b2a26" stroke-width="1.5" data-castice="kation" />`
+				+ `<text x="${p2.x.toFixed(1)}" y="${(p2.y + 3).toFixed(1)}" text-anchor="middle" font-size="9" font-weight="bold" fill="#2b2a26">+</text>`;
+			const p3 = bodNaCeste(DRAHA_ANIONTU, faze);
+			html += `<circle cx="${p3.x.toFixed(1)}" cy="${p3.y.toFixed(1)}" r="7" fill="#74c0fc" stroke="#2b2a26" stroke-width="1.5" data-castice="anion" />`
+				+ `<text x="${p3.x.toFixed(1)}" y="${(p3.y + 3).toFixed(1)}" text-anchor="middle" font-size="9" font-weight="bold" fill="#2b2a26">−</text>`;
+		}
+		document.getElementById('rc-b-castice').innerHTML = html;
+	}
+	svgB.__vykresliCastice = vykresliCastice;
+	// Vystavené konstanty pásem — test tak může ověřit invariantu i přímo nad
+	// definicí drah, nezávisle na tom, jak se zrovna vykresluje HTML.
+	svgB.__STRED_X = STRED_X;
+	svgB.__MEZERA_STRED = MEZERA_STRED;
+
+	function nakresliInfo() {
+		document.getElementById('rc-b-info').innerHTML =
+			`<rect x="14" y="395" width="632" height="74" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="28" y="417" font-size="14" font-weight="bold" fill="#2b2a26">vně obvodu: elektrony tečou od − (zinek) k + (měď)</text>`
+			+ `<text x="28" y="439" font-size="14" font-weight="bold" fill="#2b2a26">uvnitř elektrolytu: kladné ionty k + pólu, záporné ionty k − pólu</text>`
+			+ `<text x="28" y="461" font-size="14" font-weight="bold" fill="#2b2a26">technický směr proudu je definovaný OPAČNĚ: od + přes obvod k −</text>`;
+	}
+
+	let bezi = false;
+	let casStart = 0;
+	let rafId = null;
+	const tlacitkoB = document.getElementById('rc-b-tlacitko');
+	const stavB = document.getElementById('rc-b-stav');
+
+	function tick(ts) {
+		if (!bezi) return;
+		if (!casStart) casStart = ts;
+		const t = ((ts - casStart) % PERIODA_MS) / PERIODA_MS;
+		vykresliCastice(t);
+		rafId = requestAnimationFrame(tick);
+	}
+
+	function prepniBB() {
+		bezi = !bezi;
+		nakresliObvod(bezi);
+		if (bezi) {
+			casStart = 0;
+			vykresliCastice(0);
+			rafId = requestAnimationFrame(tick);
+			tlacitkoB.textContent = '⏸️ Zastavit';
+			stavB.textContent = '⚡ Obvod je zapnutý: vně tečou elektrony od − k +, uvnitř elektrolytu migrují kladné ionty k + a záporné ionty k −.';
+		} else {
+			if (rafId) cancelAnimationFrame(rafId);
+			rafId = null;
+			document.getElementById('rc-b-castice').innerHTML = '';
+			tlacitkoB.textContent = '▶️ Spustit';
+			stavB.textContent = '🔌 Obvod je vypnutý — klikni na tlačítko a spusť pohyb nábojů.';
+		}
+	}
+
+	tlacitkoB.addEventListener('click', prepniBB);
+
+	nakresliElektrody();
+	nakresliSmer();
+	nakresliObvod(false);
+	nakresliInfo();
+	document.getElementById('rc-b-castice').innerHTML = '';
+	tlacitkoB.textContent = '▶️ Spustit';
+	stavB.textContent = '🔌 Obvod je vypnutý — klikni na tlačítko a spusť pohyb nábojů.';
+</script>
+
+<style>
+	#rc-a-svg, #rc-b-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.rc-tl { font: inherit; font-weight: 700; padding: 0.4rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffd43b; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.rc-tl:active { transform: translateY(1px); }
+	.rc-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.rc-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
+</content>

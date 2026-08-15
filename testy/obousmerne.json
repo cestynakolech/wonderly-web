@@ -263,6 +263,12 @@
       "zdravy": "Nad neporusenou komponentou src/components/skola2/MagnetyOpakovaniSimulace.astro projde 84 kontrol, vystup '✅ Magnety — opakování: vše sedí.'",
       "poznamka": "14. 8. 2026: puvodni podoba meridla merila cely zdroj vcetne Astro frontmatteru, takze hlasila 2 chyby kvuli AUTOROVU KOMENTARI, ktery ta slova prave ZAKAZUJE (falesny poplach). Opraveno tak, ze 'html' odecita i frontmatter — meri se jen to, co dite skutecne vidi. Prvni podvrh navic nahradil prvni vyskyt slova, ktery lezel prave v komentari, a proto se nechytil; platny podvrh musi mirit do sablony."
     },
+    "simulace/razeni-clanku.mjs": {
+      "test": "testy/simulace/razeni-clanku.mjs",
+      "podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenena cista funkce stavA: napeti = pocet*napeti_clanku + 5 (posun o 5 V navic). Test to chytil 11 chybami — mj. '❌ 4 suché články = 6 V (mám 11)' a '❌ voltmetr ukazuje 6 V: ... Celkem: U = 11 V', konec kodem 1.",
+      "zdravy": "Nad neporusenou src/components/skola2/RazeniClankuSimulace.astro projde vsech 40 kontrol (scena A razeni clanku i scena B proud elektronu/iontu), vystup '✅ Řazení článků: vše sedí.', kod 0.",
+      "overeno": "2026-08-15"
+    },
     "rozvrzeni-sceny.mjs": {
       "test": "testy/rozvrzeni-sceny-obousmerne.mjs",
       "podvrh": "A) rámeček popisku posunutý z x=300 na x=0 → '❌ <rect> přetéká plátno vlevo o 1.8 px — obdélník [0, 28]–[60, 92] (+ obrys 1.8 px)', konec kódem 1. B) plátno rozšířené na viewBox 0 0 1100 380 při stejném obsahu → '⚠️ obsah zabírá jen 38 % šířky plátna (x 180–599.5 z 1100)'. ZPĚTNÁ KOTVA NA SKUTEČNÉ VADĚ (ověřil koordinátor 14. 8. 2026): nasazená verze MagnetyOpakovaniSimulace z commitu f30767b (git show do /tmp, repo netknuto) → měřidlo najde obě vady, které téhož dne našel člověk pohledem na render: '<rect> přetéká plátno vlevo o 0.8 px — obdélník [0, 240]–[280, 262]' a 'obsah je natlačený doleva — střed obsahu je o 17 % šířky mimo střed plátna (x 0–440 z 660)'.",
