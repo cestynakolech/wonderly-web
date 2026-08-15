@@ -8,7 +8,7 @@
 Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na subdoménách:
 - **lab.wonderly.cz** = `/skola2` — 2. stupeň ZŠ. Specifika: `src/pages/skola2/CLAUDE.md`.
 - **cesty.wonderly.cz** = `/cesty` — cestovatelský deník. Specifika: `src/pages/cesty/CLAUDE.md`.
-- **fox.wonderly.cz** = `/fox` — 1. stupeň (paní Lišková): jediná stránka `src/pages/fox.astro` s cvičeními odkazovanými na Wordwall.net. Externí kvíz přidat jen po ověření, že testuje probrané učivo; hry jen odkazem. (Až fox poroste do vlastní složky, dostane vlastní CLAUDE.md jako ostatní sekce.)
+- **fox.wonderly.cz** = `/fox` — 1. stupeň. Specifika: `src/pages/fox/CLAUDE.md`.
 - **wonderly.cz** — rozcestník (`src/pages/index.astro`).
 
 **JEDNO repo, JEDEN build, JEDEN Worker.** Subdomény jsou jen přesměrování v `worker.js` podle Host hlavičky (fox.→`/fox`, lab.→`/skola2`, cesty.→`/cesty`) + servírování fotek z R2 přes `/media/`. Žádná sekce se nenasazuje samostatně — **push na `main` nasazuje vždy všechny tři sekce naráz**, takže rozbitá prebuild brána kvůli jedné sekci zablokuje nasazení všech.
