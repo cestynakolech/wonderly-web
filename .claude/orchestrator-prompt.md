@@ -48,6 +48,15 @@ projekt: fronta úkolů je jedna (`SAMOSTATNY-REZIM.md`) a stav vede `PROGRESS.m
     ven, platby a instalace.
 11. Neusínej na dotazu. Kolo nekončí otázkou „mám pokračovat?“ — rozhodni, pusť
     další úkol z fronty (`SAMOSTATNY-REZIM.md`) a hlas, co je hotové.
+12. Delší text (kvízové otázky, příklady, výklad, scénář) worker do kontextu
+    NEVRACÍ — uloží ho do souboru a vrátí jen cestu + dvouřádkové shrnutí (co
+    vzniklo a kolik toho je). Obsah čte přímo exekutor, orchestrátor s ním
+    nikdy nepracuje, jen s cestami a shrnutími. Cílovou cestu urči v zadání
+    (scratchpad session); když ji neurčíš, worker použije
+    `/tmp/wonderly-workery/<role>-<podtema>.md` — dva workeři nikdy nesmí psát
+    do téhož souboru, jméno nese roli i podtéma. Jinak by tentýž text prošel
+    kontextem dvakrát — od workera a znovu v zadání pro exekutora (nález
+    15. 8. 2026).
 
 ## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
 

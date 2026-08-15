@@ -46,3 +46,6 @@ jediné, co mu zabírá kontextové okno**. Proto se drž kontraktu níže do p�
 - Zapisovat smíš do `wonderly-web` a `Omega`. Ve složce `/Users/Shared/Škola` jsou
   jediné zdrojové podklady učitele — tam jen čti. Nic nikde nemaž ani nepřesouvej
   (`rm`, `mv`) — takové kroky patří orchestrátorovi a učiteli.
+- Když zadání uvádí cestu k souboru s připraveným obsahem (výklad worker-a,
+  kvíz, soupis médií), **obsah si sám přečti z té cesty** — nikdy nespoléhej,
+  že ti ho orchestrátor opíše do zadání (on ho tam z úspory kontextu nedává).

@@ -86,6 +86,21 @@ podtémata F9 `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
 vs. „první nástřel Hermes/lokální model"). Dnešní kolo je v ní zapsané jako
 základní čára; příští kolo v režimu Hermes se zapíše do stejné tabulky.
 
+### 📋 FRONTA OTEVŘENÝCH ROZHODNUTÍ (samostatný režim od 15. 8. 2026 večer)
+
+1. **Vizuální schválení simulace zadáno agentovi, ne učiteli osobně.** U simulace
+   `RazeniClankuSimulace` (F9 chemické zdroje napětí) platilo výslovné dřívější
+   zadání učitele z téhož dne: i když se prohlídka scén zadá agentovi, rozhodnutí
+   „vypadá to správně" chce vidět učitel osobně. Po přepnutí do plně samostatného
+   režimu (pokyn: nezastavovat se, otevřená rozhodnutí zapisovat a pokračovat)
+   jsem vizuální kontrolu nechal udělat nezávislým agentem se čtením obrázků
+   místo čekání na učitele. Důvod: bez toho by práce stála, a agent skutečně
+   našel 2 závažné vady (žárovka se vizuálně neměnila mezi 6 V a 12 V, ionty ve
+   scéně B byly prohozené vůči vlastnímu popisku) — tedy fungovalo to jako
+   reálná kontrola, ne jako formalita. Navrhované řešení: až se učitel vrátí,
+   měl by se i tak podívat na finální náhledy sám, než se simulace považuje za
+   definitivně schválenou — cesty k náhledům budou v hlášení o dokončení.
+
 ---
 
 ## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"
