@@ -112,6 +112,7 @@ import PrenosSimulace from '../../../../../../components/skola2/PrenosSimulace.a
 import GrafCestaSimulace from '../../../../../../components/skola2/GrafCestaSimulace.astro';
 import VykonSimulace from '../../../../../../components/skola2/VykonSimulace.astro';
 import RazeniClankuSimulace from '../../../../../../components/skola2/RazeniClankuSimulace.astro';
+import PremenyEnergieSimulace from '../../../../../../components/skola2/PremenyEnergieSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -358,6 +359,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'graf-cesta' && <GrafCestaSimulace />}
 	{podtema.interakce === 'vykon' && <VykonSimulace />}
 	{podtema.interakce === 'razeni-clanku' && <RazeniClankuSimulace />}
+	{podtema.interakce === 'premeny-energie' && <PremenyEnergieSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (

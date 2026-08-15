@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -4330,7 +4330,41 @@ export const temata: Record<string, Tema[]> = {
 						protiklad k tomu, co ses učil(a) o ztrátách — je to případ, kdy je „ztrátové" teplo
 						<strong>přesně tím, co po stroji chceme</strong>. Totéž teplo je u počítače nebo motoru
 						ztráta. <strong>Jestli je energie užitečná, nerozhoduje fyzika, ale náš záměr.</strong></p>
+						<h3>✏️ Zamysli se</h3>
+						<p>Vyzkoušej si přeměny energie na zařízeních, o kterých se ve výkladu ještě nemluvilo.</p>
+						<ol>
+							<li>Diktafon nebo telefon zaznamená tvůj hlas pomocí <strong>mikrofonu</strong>. Uvnitř má mikrofon
+							(podobně jako reproduktor) cívku a magnet. Jaká přeměna energie v mikrofonu nastává?
+							<details><summary>řešení</summary>Zvuková vlna rozkmitá membránu s cívkou v magnetickém poli,
+							pohyb cívky vyvolá v ní elektrické napětí — jde tedy o přeměnu <strong>pohybová → elektrická</strong>
+							(elektromagnetická indukce). Mikrofon pracuje přesně opačně než reproduktor.</details></li>
+							<li><strong>Elektrický zvonek</strong> u domovních dveří po zmáčknutí tlačítka klepe kladívkem
+							o zvonek. Přes jaké mezikroky se elektrická energie promění na zvuk, který slyšíš?
+							<details><summary>řešení</summary>Proud protéká cívkou a vytvoří <strong>magnetické</strong> pole,
+							to přitáhne kovové kladívko — vzniká <strong>pohybová</strong> energie. Úder kladívka o zvonek
+							pak rozechvěje vzduch a vznikne zvuk. Řetězec je: elektrická → magnetická → pohybová → zvuková.</details></li>
+							<li><strong>Indukční varná deska</strong> se sama téměř nezahřívá, přesto uvaří vodu v hrnci
+							rychleji než klasická plotýnka. Kde v tomto případě vzniká teplo a jaké přeměny tomu předchází?
+							<details><summary>řešení</summary>Cívka pod deskou vytváří střídavé <strong>magnetické</strong>
+							pole. To v kovovém dně hrnce vyvolá vířivé elektrické proudy, a teprve ty zahřejí dno hrnce
+							odporem materiálu. Přeměna je tedy elektrická → magnetická → (elektrická) → <strong>tepelná</strong>
+							— ale teplo vzniká přímo v hrnci, ne v desce.</details></li>
+							<li><strong>Powerbanka</strong> nejdřív nabiješ ze zásuvky a později z ní nabiješ telefon.
+							Popiš, jaké dvě přeměny energie při tom postupně proběhnou.
+							<details><summary>řešení</summary>Při nabíjení powerbanky probíhá přeměna
+							<strong>elektrická → chemická</strong> (energie se uloží v akumulátoru). Při nabíjení telefonu
+							pak probíhá opačná přeměna <strong>chemická → elektrická</strong> — a v telefonu se znovu uloží
+							jako chemická energie v jeho vlastní baterii.</details></li>
+						</ol>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce', cesta: 'MaQ4DzuqK5E' },
+					],
+					odkazy: [
+						{ nazev: 'Video: Generátor elektrického proudu (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3524-generator-elektrickeho-proudu' },
+						{ nazev: 'Video: Solární panely (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1924-solarni-panely' },
+					],
+					interakce: 'premeny-energie',
 				},
 				{
 					slug: 'ucinky-proudu-bezpecnost',

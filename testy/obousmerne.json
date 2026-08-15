@@ -269,6 +269,12 @@
       "zdravy": "Nad neporusenou src/components/skola2/RazeniClankuSimulace.astro projde vsech 40 kontrol (scena A razeni clanku i scena B proud elektronu/iontu), vystup '✅ Řazení článků: vše sedí.', kod 0.",
       "overeno": "2026-08-15"
     },
+    "simulace/premeny-energie.mjs": {
+      "test": "testy/simulace/premeny-energie.mjs",
+      "podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenen vypocet ve scene B: elektrickaPx = VYSKA_CELKEM_PX - tepelnaPx + 5 (posun o 5 px navic, poruseni zakona zachovani energie). Test to chytil 5 chybami — mj. '❌ zbývá 4 díly elektrické, celé číslo (mám 4.25)' a chybami v invariante souctu vysek, konec kodem 1.",
+      "zdravy": "Nad neporusenou src/components/skola2/PremenyEnergieSimulace.astro projdou vsechny kontroly (scena A vyber zarizeni + smer premeny, scena B invarianta zachovani energie pres mrizku cilu a casu i nad vykreslenym SVG, obranne cteni indexu a cile), vystup '✅ VŠECHNY TESTY PROŠLY', kod 0.",
+      "overeno": "2026-08-15"
+    },
     "rozvrzeni-sceny.mjs": {
       "test": "testy/rozvrzeni-sceny-obousmerne.mjs",
       "podvrh": "A) rámeček popisku posunutý z x=300 na x=0 → '❌ <rect> přetéká plátno vlevo o 1.8 px — obdélník [0, 28]–[60, 92] (+ obrys 1.8 px)', konec kódem 1. B) plátno rozšířené na viewBox 0 0 1100 380 při stejném obsahu → '⚠️ obsah zabírá jen 38 % šířky plátna (x 180–599.5 z 1100)'. ZPĚTNÁ KOTVA NA SKUTEČNÉ VADĚ (ověřil koordinátor 14. 8. 2026): nasazená verze MagnetyOpakovaniSimulace z commitu f30767b (git show do /tmp, repo netknuto) → měřidlo najde obě vady, které téhož dne našel člověk pohledem na render: '<rect> přetéká plátno vlevo o 0.8 px — obdélník [0, 240]–[280, 262]' a 'obsah je natlačený doleva — střed obsahu je o 17 % šířky mimo střed plátna (x 0–440 z 660)'.",

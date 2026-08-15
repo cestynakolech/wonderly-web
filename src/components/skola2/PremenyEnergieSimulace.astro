@@ -1,0 +1,363 @@
+---
+// Přeměny elektrické energie — F9, elektricka-energie-a-bezpecnost /
+// elektricka-energie-a-premeny. Téma je KVALITATIVNÍ (žádné vzorce jako u
+// výkonu/práce), takže obě scény ukazují SMĚR přeměny a zákon zachování, ne
+// číselné výpočty:
+//
+//  A) Vyber zařízení — šest SKUTEČNÝCH zařízení přímo z výkladu této stránky
+//     (žádné vymyšlené): vařič a LED a elektromotor (elektrická → jiná forma),
+//     alternátor, transformátor a solární panel (jiná forma → elektrická,
+//     OPAČNÝ směr). Směry jsou opsané doslova z výkladu — POZOR, transformátor
+//     tu podle textu stránky mění MAGNETICKOU energii na elektrickou (výklad
+//     zjednodušuje krok elektrická→magnetická→elektrická na jeho druhou půlku),
+//     ne „elektrickou na elektrickou“, jak by se dalo čekat. U elektromotoru je
+//     navíc vidět MENŠÍ ztrátová šipka k teplu (většina jde na pohyb, část na
+//     teplo) — u vařiče žádná ztrátová šipka není, protože tam je teplo přímo
+//     ÚČELEM, ne ztrátou (přesně pointa odstavce o přímotopu ve výkladu).
+//
+//  B) Zákon zachování — svislý sloupec pevné výšky (10 dílků energie) uvnitř
+//     pevného rámečku: při „Přeměně“ roste podíl tepelné (horní, červený) úsek
+//     přesně o to, o kolik klesá elektrický (dolní, žlutý) úsek — SOUČET obou
+//     úseků je STRUKTURÁLNĚ (ne jen vizuálně) vždy roven celé výšce rámečku,
+//     protože elektrická část se počítá jako `celkem − tepelná`, ne nezávisle.
+//     Animace běží v reálném čase (PERIODA_MS), aby zpomalený rAF v náhledu
+//     časování jen protáhl, ne zkreslil.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: přeměny elektrické energie 🕹️</span></h2>
+	<p>
+		Elektrická energie se snadno mění na jiné druhy energie — a naopak. Vyzkoušej
+		šest skutečných zařízení a podívej se, jak energie nikdy nezmizí, jen změní formu.
+	</p>
+
+	<h3><span class="podtrh">🔌 Scéna A: Vyber zařízení</span></h3>
+	<p>Klikni na zařízení a pak na tlačítko — uvidíš šipku, která ukazuje, na jakou formu
+		se elektrická energie mění (nebo ze které formy elektrická energie vzniká).</p>
+	<div class="pe-vyber">
+		<button type="button" class="pe-dev" id="pe-a-dev-0">🍳 Vařič</button>
+		<button type="button" class="pe-dev" id="pe-a-dev-1">💡 LED žárovka</button>
+		<button type="button" class="pe-dev" id="pe-a-dev-2">🌀 Elektromotor</button>
+		<button type="button" class="pe-dev" id="pe-a-dev-3">🔄 Alternátor</button>
+		<button type="button" class="pe-dev" id="pe-a-dev-4">🧲 Transformátor</button>
+		<button type="button" class="pe-dev" id="pe-a-dev-5">☀️ Solární panel</button>
+	</div>
+	<svg id="pe-a-svg" viewBox="0 0 660 360" role="img" aria-label="Přeměna elektrické energie u vybraného zařízení">
+		<rect x="0" y="0" width="660" height="360" fill="#f8f9fa" />
+		<g id="pe-a-scena"></g>
+	</svg>
+	<p><button type="button" class="pe-tl" id="pe-a-tlacitko">⚡ Zapnout zařízení</button></p>
+	<p class="pe-stav" id="pe-a-stav"></p>
+
+	<h3><span class="podtrh">⚖️ Scéna B: Zákon zachování energie</span></h3>
+	<p>
+		Nastav, kolik energie se má přeměnit, a spusť přeměnu. Sloupec má pořád
+		<strong>stejnou celkovou výšku</strong> — energie se neztrácí, jen mění barvu
+		(formu): dole zůstává <strong>elektrická</strong>, nahoře přibývá <strong>tepelná</strong>.
+	</p>
+	<svg id="pe-b-svg" viewBox="0 0 660 420" role="img" aria-label="Sloupec energie, který mění formu, ale ne celkovou výšku">
+		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
+		<g id="pe-b-legenda"></g>
+		<g id="pe-b-ramecek"></g>
+		<g id="pe-b-pas"></g>
+		<g id="pe-b-info"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Cílový podíl přeměny: <output id="pe-b-out"></output>
+		<input type="range" id="pe-b-cil" min="0" max="100" step="10" value="60" />
+	</label>
+	<p>
+		<button type="button" class="pe-tl" id="pe-b-tlacitko">🔄 Spustit přeměnu</button>
+		<button type="button" class="pe-tl" id="pe-b-ihned">⏩ Ukázat výsledek ihned</button>
+	</p>
+	<p class="pe-stav" id="pe-b-stav"></p>
+</section>
+
+<script>
+	// ══════════════════════ Společné: formy energie a jejich vzhled ══════════════════════
+	const FORMY = {
+		elektricka: { nazev: 'elektrická', barva: '#ffd43b', emoji: '⚡' },
+		tepelna: { nazev: 'tepelná', barva: '#ff6b6b', emoji: '🔥' },
+		svetelna: { nazev: 'světelná', barva: '#fff3bf', emoji: '💡' },
+		pohybova: { nazev: 'pohybová', barva: '#63e6be', emoji: '🌀' },
+		magneticka: { nazev: 'magnetická', barva: '#9775fa', emoji: '🧲' },
+	};
+
+	// ═══════════════════════════ Scéna A: vyber zařízení ═══════════════════════════
+	// Šest SKUTEČNÝCH zařízení a jejich SKUTEČNÝ směr přeměny — doslova podle
+	// výkladu téhle stránky. `ztrata` má jen elektromotor (menší ztrátová šipka
+	// k teplu) — vařič ji schválně NEMÁ, protože tam je teplo cílem, ne ztrátou.
+	const ZARIZENI = [
+		{ nazev: 'Vařič', emoji: '🍳', z: 'elektricka', c: 'tepelna', ztrata: null },
+		{ nazev: 'LED žárovka', emoji: '💡', z: 'elektricka', c: 'svetelna', ztrata: null },
+		{ nazev: 'Elektromotor', emoji: '🌀', z: 'elektricka', c: 'pohybova', ztrata: { forma: 'tepelna', podil: 0.1 } },
+		{ nazev: 'Alternátor', emoji: '🔄', z: 'pohybova', c: 'elektricka', ztrata: null },
+		{ nazev: 'Transformátor', emoji: '🧲', z: 'magneticka', c: 'elektricka', ztrata: null },
+		{ nazev: 'Solární panel', emoji: '☀️', z: 'svetelna', c: 'elektricka', ztrata: null },
+	];
+
+	// Obranné čtení indexu — neplatná hodnota se tiše nahradí prvním zařízením.
+	function platnyIndexZarizeni(hodnota) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= 0 && n < ZARIZENI.length ? n : 0;
+	}
+
+	// ČISTÁ FUNKCE: text šipky hlavní přeměny — vždy „ze zdroje do cíle“, ať už
+	// je zdrojem elektrická energie (vařič, LED, motor), nebo cílem (alternátor,
+	// transformátor, solární panel).
+	function textSmeru(zarizeni) {
+		const z = FORMY[zarizeni.z], c = FORMY[zarizeni.c];
+		return `${z.emoji} ${z.nazev} energie → ${c.emoji} ${c.nazev} energie`;
+	}
+
+	const svgA = document.getElementById('pe-a-svg');
+	svgA.__ZARIZENI = ZARIZENI;
+	svgA.__FORMY = FORMY;
+	svgA.__platnyIndexZarizeni = platnyIndexZarizeni;
+	svgA.__textSmeru = textSmeru;
+
+	// Rozměry a pozice boxů: zdroj vlevo, cíl vpravo, hlavní šipka mezi nimi;
+	// ztrátová šipka (pokud je) míří šikmo dolů k malému boxu teplé ztráty.
+	const A_BOX_W = 180, A_BOX_H = 90, A_BOX_Y = 90;
+	const A_ZDROJ_X = 40, A_CIL_X = 440;
+	const A_SIPKA_Y = A_BOX_Y + A_BOX_H / 2;
+
+	function boxHtml(x, forma, label) {
+		const f = FORMY[forma];
+		return `<rect x="${x}" y="${A_BOX_Y}" width="${A_BOX_W}" height="${A_BOX_H}" rx="12" fill="${f.barva}" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="${x + A_BOX_W / 2}" y="${A_BOX_Y + 36}" text-anchor="middle" font-size="28">${f.emoji}</text>`
+			+ `<text x="${x + A_BOX_W / 2}" y="${A_BOX_Y + 66}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">${f.nazev} energie</text>`
+			+ (label ? `<text x="${x + A_BOX_W / 2}" y="${A_BOX_Y + A_BOX_H + 22}" text-anchor="middle" font-size="13" fill="#495057">${label}</text>` : '');
+	}
+
+	function sipkaHtml(x1, y1, x2, y2, barva, sirka) {
+		const dx = x2 - x1, dy = y2 - y1;
+		const delka = Math.hypot(dx, dy) || 1;
+		const ux = dx / delka, uy = dy / delka;
+		const hrotX = x2, hrotY = y2;
+		const bx1 = hrotX - ux * 14 - uy * 8, by1 = hrotY - uy * 14 + ux * 8;
+		const bx2 = hrotX - ux * 14 + uy * 8, by2 = hrotY - uy * 14 - ux * 8;
+		return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${barva}" stroke-width="${sirka}" />`
+			+ `<polygon points="${hrotX},${hrotY} ${bx1.toFixed(1)},${by1.toFixed(1)} ${bx2.toFixed(1)},${by2.toFixed(1)}" fill="${barva}" />`;
+	}
+
+	function nakresliScenuA(idx, zapnuto) {
+		const z = ZARIZENI[platnyIndexZarizeni(idx)];
+		let html = boxHtml(A_ZDROJ_X, z.z, `${z.emoji} ${z.nazev}`)
+			+ boxHtml(A_CIL_X, z.c, '');
+		if (zapnuto) {
+			html += sipkaHtml(A_ZDROJ_X + A_BOX_W + 10, A_SIPKA_Y, A_CIL_X - 10, A_SIPKA_Y, '#f08c00', 6);
+			html += `<text x="330" y="${A_SIPKA_Y - 14}" text-anchor="middle" font-size="15" font-weight="bold" fill="#e8590c">${textSmeru(z)}</text>`;
+			if (z.ztrata) {
+				const ztX1 = A_ZDROJ_X + A_BOX_W / 2, ztY1 = A_BOX_Y + A_BOX_H;
+				const ztX2 = A_ZDROJ_X + A_BOX_W / 2, ztY2 = 300;
+				html += sipkaHtml(ztX1, ztY1, ztX2, ztY2, '#adb5bd', 3);
+				html += `<rect x="${ztX2 - 70}" y="305" width="140" height="44" rx="8" fill="${FORMY[z.ztrata.forma].barva}" stroke="#2b2a26" stroke-width="2" />`
+					+ `<text x="${ztX2}" y="323" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">malá ztráta jako teplo</text>`
+					+ `<text x="${ztX2}" y="341" text-anchor="middle" font-size="12" fill="#2b2a26">(zbytek jde na ${FORMY[z.c].nazev})</text>`;
+			}
+		}
+		document.getElementById('pe-a-scena').innerHTML = html;
+	}
+
+	let zapnutoA = false;
+	const tlacitkoA = document.getElementById('pe-a-tlacitko');
+	const stavA = document.getElementById('pe-a-stav');
+
+	function prekresliA() {
+		nakresliScenuA(vybranaA, zapnutoA);
+		tlacitkoA.textContent = zapnutoA ? '⏹️ Vypnout zařízení' : '⚡ Zapnout zařízení';
+		const z = ZARIZENI[platnyIndexZarizeni(vybranaA)];
+		if (!zapnutoA) {
+			stavA.textContent = `🔍 Vybráno: ${z.nazev}. Zapni ho a uvidíš směr přeměny energie.`;
+		} else if (z.ztrata) {
+			stavA.textContent = `⚡ ${z.nazev}: ${textSmeru(z)} (a menší část se ztrácí jako teplo).`;
+		} else {
+			stavA.textContent = `⚡ ${z.nazev}: ${textSmeru(z)}.`;
+		}
+	}
+
+	let vybranaA = 0;
+	for (let i = 0; i < ZARIZENI.length; i++) {
+		const tl = document.getElementById(`pe-a-dev-${i}`);
+		tl.addEventListener('click', () => { vybranaA = i; zapnutoA = false; prekresliA(); });
+	}
+	tlacitkoA.addEventListener('click', () => { zapnutoA = !zapnutoA; prekresliA(); });
+	prekresliA();
+
+	// ═══════════════════════════ Scéna B: zákon zachování ═══════════════════════════
+	// Vše se počítá v PIXELECH pevného rámečku (VYSKA_CELKEM_PX), ne v abstraktních
+	// „dílcích“ převáděných zpět — díky tomu je součet obou úseků STRUKTURÁLNĚ
+	// (výpočtem `celkem − tepelná`) vždy roven celé výšce, ne jen po zaokrouhlení.
+	const CELKEM_JEDNOTEK = 10; // dílků energie — jen pro čitelný popisek
+	const PX_NA_JEDNOTKU = 20; // 10 × 20 = 200 px — kulaté číslo
+	const VYSKA_CELKEM_PX = CELKEM_JEDNOTEK * PX_NA_JEDNOTKU; // 200
+	const B_X = 260, B_SIRKA = 100, B_Y_TOP = 100, B_Y_BOTTOM = B_Y_TOP + VYSKA_CELKEM_PX;
+	const PERIODA_MS = 2000; // reálný čas na celou animaci — kalibrováno, ne počet snímků
+
+	// Obranné čtení cíle přeměny — jen násobky 10 v rozsahu 0–100.
+	function platnyCil(hodnota) {
+		const n = Math.round(Number(hodnota) / 10) * 10;
+		return Number.isInteger(n) && n >= 0 && n <= 100 ? n : 60;
+	}
+
+	// ČISTÁ FUNKCE: kolik pixelů výšky je právě tepelných, podle cíle přeměny
+	// (v %) a průběhu animace `t` ∈ [0,1]. Elektrická výška se NIKDY nepočítá
+	// nezávisle — je to `celkem − tepelná`, takže součet je vždy `celkem`.
+	function stavPremenyPx(cil, t) {
+		const c = platnyCil(cil);
+		const tt = Math.min(1, Math.max(0, Number(t) || 0));
+		const cilovaTepelnaPx = Math.round((VYSKA_CELKEM_PX * c) / 100);
+		const tepelnaPx = Math.round(cilovaTepelnaPx * tt);
+		const elektrickaPx = VYSKA_CELKEM_PX - tepelnaPx;
+		return { tepelnaPx, elektrickaPx, celkemPx: VYSKA_CELKEM_PX };
+	}
+
+	const svgB = document.getElementById('pe-b-svg');
+	svgB.__CELKEM_JEDNOTEK = CELKEM_JEDNOTEK;
+	svgB.__PX_NA_JEDNOTKU = PX_NA_JEDNOTKU;
+	svgB.__VYSKA_CELKEM_PX = VYSKA_CELKEM_PX;
+	svgB.__platnyCil = platnyCil;
+	svgB.__stavPremenyPx = stavPremenyPx;
+
+	// Legenda vlevo — vyvažuje kompozici (bez ní byla scéna natlačená doprava)
+	// a zároveň připomíná, co která barva ve sloupci znamená.
+	function nakresliLegenduB() {
+		document.getElementById('pe-b-legenda').innerHTML =
+			`<rect x="30" y="150" width="180" height="140" rx="10" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<rect x="46" y="168" width="26" height="26" fill="${FORMY.elektricka.barva}" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="82" y="187" font-size="13" font-weight="bold" fill="#2b2a26">⚡ elektrická</text>`
+			+ `<rect x="46" y="208" width="26" height="26" fill="${FORMY.tepelna.barva}" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="82" y="227" font-size="13" font-weight="bold" fill="#2b2a26">🔥 tepelná</text>`
+			+ `<text x="46" y="256" font-size="12" fill="#495057">energie se jen</text>`
+			+ `<text x="46" y="272" font-size="12" fill="#495057">přeměňuje formy</text>`;
+	}
+
+	// Barva rámečku ukazuje, jestli přeměna zrovna běží — tahle změna je vidět
+	// HNED po kliknutí (synchronně, viz spousteniB níž), i než doběhne první
+	// requestAnimationFrame — bez ní by náhled po kliknutí vypadal úplně stejně
+	// jako před ním.
+	function nakresliRamecekB(bezi) {
+		const barvaOkraje = bezi ? '#f08c00' : '#2b2a26';
+		document.getElementById('pe-b-ramecek').innerHTML =
+			`<rect x="${B_X - 4}" y="${B_Y_TOP - 4}" width="${B_SIRKA + 8}" height="${VYSKA_CELKEM_PX + 8}" rx="10" fill="none" stroke="${barvaOkraje}" stroke-width="4" />`
+			+ `<text x="${B_X + B_SIRKA / 2}" y="${B_Y_TOP - 16}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">celková energie (stále stejná)</text>`;
+	}
+
+	// Tepelná část NAHOŘE, elektrická DOLE — jedna dorůstá přesně o tolik, kolik
+	// druhá ubývá, obě sedí přímo na sobě uvnitř rámečku beze zbytku a beze mezery.
+	function nakresliPasB(cil, t) {
+		const s = stavPremenyPx(cil, t);
+		const html =
+			`<rect x="${B_X}" y="${B_Y_TOP}" width="${B_SIRKA}" height="${s.tepelnaPx}" fill="${FORMY.tepelna.barva}" stroke="#2b2a26" stroke-width="2" data-cast="tepelna" />`
+			+ `<rect x="${B_X}" y="${B_Y_TOP + s.tepelnaPx}" width="${B_SIRKA}" height="${s.elektrickaPx}" fill="${FORMY.elektricka.barva}" stroke="#2b2a26" stroke-width="2" data-cast="elektricka" />`;
+		document.getElementById('pe-b-pas').innerHTML = html;
+		return s;
+	}
+
+	function nakresliInfoB(cil, t) {
+		const s = stavPremenyPx(cil, t);
+		const tepelnaJednotek = Math.round(s.tepelnaPx / PX_NA_JEDNOTKU);
+		const elektrickaJednotek = CELKEM_JEDNOTEK - tepelnaJednotek;
+		document.getElementById('pe-b-info').innerHTML =
+			`<rect x="430" y="140" width="200" height="120" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="530" y="164" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">⚡ elektrická: ${elektrickaJednotek} dílů</text>`
+			+ `<text x="530" y="190" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">🔥 tepelná: ${tepelnaJednotek} dílů</text>`
+			+ `<text x="530" y="216" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">dohromady: ${elektrickaJednotek + tepelnaJednotek} dílů</text>`
+			+ `<text x="530" y="242" text-anchor="middle" font-size="12" fill="#495057">energie se neztratila!</text>`;
+		return { tepelnaJednotek, elektrickaJednotek };
+	}
+
+	const sliderCilB = document.getElementById('pe-b-cil');
+	const outCilB = document.getElementById('pe-b-out');
+	const tlacitkoB = document.getElementById('pe-b-tlacitko');
+	const stavB = document.getElementById('pe-b-stav');
+
+	let bB = false;
+	// `null`, ne 0 — první časové razítko rAF smí legitimně BÝT 0 (přesně to
+	// se stává v testu, který volá tick(0)); kontrola `!casStartB` by ho brala
+	// jako „ještě nezačalo“ napořád a start by se posouval při každém snímku.
+	let casStartB = null;
+	let rafIdB = null;
+
+	function popisB(cil, t) {
+		if (t <= 0) return `📦 Zatím vše: ${CELKEM_JEDNOTEK} dílů elektrické energie. Spusť přeměnu.`;
+		if (t >= 1) return `✅ Přeměna hotová — energie se přerozdělila (${platnyCil(cil)} % na teplo), ale dohromady je jí pořád stejně.`;
+		return `🔄 Přeměna běží…`;
+	}
+
+	function tickB(ts) {
+		if (!bB) return;
+		if (casStartB === null) casStartB = ts;
+		const t = Math.min(1, (ts - casStartB) / PERIODA_MS);
+		nakresliPasB(sliderCilB.value, t);
+		nakresliInfoB(sliderCilB.value, t);
+		stavB.textContent = popisB(sliderCilB.value, t);
+		if (t < 1) {
+			rafIdB = requestAnimationFrame(tickB);
+		} else {
+			bB = false;
+			nakresliRamecekB(false);
+			tlacitkoB.textContent = '↺ Spustit znovu';
+		}
+	}
+
+	function prekresliB() {
+		const cil = platnyCil(sliderCilB.value);
+		outCilB.textContent = cil + ' %';
+		if (!bB) {
+			nakresliPasB(cil, rafIdB ? 1 : 0);
+			nakresliInfoB(cil, rafIdB ? 1 : 0);
+			stavB.textContent = popisB(cil, rafIdB ? 1 : 0);
+		}
+	}
+
+	sliderCilB.addEventListener('input', () => { rafIdB = null; tlacitkoB.textContent = '🔄 Spustit přeměnu'; prekresliB(); });
+	tlacitkoB.addEventListener('click', () => {
+		if (rafIdB) cancelAnimationFrame(rafIdB);
+		bB = true;
+		casStartB = null;
+		// Synchronní první snímek HNED při kliknutí (oranžový rámeček „běží") —
+		// bez něj by se scéna změnila až po prvním requestAnimationFrame, což
+		// v náhledu (kde je rAF jen zaznamenaný, ne spouštěný) nikdy nenastane.
+		nakresliRamecekB(true);
+		nakresliPasB(sliderCilB.value, 0);
+		nakresliInfoB(sliderCilB.value, 0);
+		stavB.textContent = '🔄 Přeměna běží…';
+		rafIdB = requestAnimationFrame(tickB);
+	});
+
+	// „Ukázat výsledek ihned“ — skočí rovnou na t=1 BEZ čekání na 2 s reálného
+	// času. Dvojí důvod: 1) žák, který nechce čekat, si může výsledek prohlédnout
+	// hned; 2) jde o jediný spolehlivý způsob, jak dostat konečný stav do
+	// statického náhledu/testu — ty spouští posluchače kliknutí synchronně,
+	// ale NIKDY nespouští naplánovaný requestAnimationFrame (viz komentář u
+	// tlacitkoB), takže stav po 2s animaci by jinak nešel vůbec zobrazit ani
+	// ověřit jinak než ručním voláním interních funkcí.
+	const tlacitkoIhned = document.getElementById('pe-b-ihned');
+	tlacitkoIhned.addEventListener('click', () => {
+		if (rafIdB) cancelAnimationFrame(rafIdB);
+		bB = false;
+		casStartB = null;
+		rafIdB = null;
+		nakresliRamecekB(false);
+		nakresliPasB(sliderCilB.value, 1);
+		nakresliInfoB(sliderCilB.value, 1);
+		stavB.textContent = popisB(sliderCilB.value, 1);
+		tlacitkoB.textContent = '↺ Spustit znovu';
+	});
+
+	nakresliLegenduB();
+	nakresliRamecekB(false);
+	prekresliB();
+</script>
+
+<style>
+	#pe-a-svg, #pe-b-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin-bottom: 0.6rem; }
+	.pe-vyber { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
+	.pe-dev, .pe-tl { font: inherit; font-weight: 700; padding: 0.4rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffd43b; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.pe-dev:active, .pe-tl:active { transform: translateY(1px); }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.pe-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
