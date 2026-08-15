@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # zdrojove prezentace, do webu se nenahravaji
 Prezentace/
+
+# osobní nastavení Claude Code — necommitovat
+.claude/settings.local.json
