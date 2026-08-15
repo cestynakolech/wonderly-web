@@ -178,6 +178,17 @@ Zbylé díry informatiky 9. roč. po nich: `plan-projektu-a-ladeni`, `hardware-a
 
 🔴 **PRAVIDLO PRO AGENTY — absolutní cesty.** Vrátný dnes zastavil zápis do `/Users/Shared/Škola/wonderly-web/src/components/skola2/BezpecnostSimulace.astro`. To NEBYL planý poplach: agent použil relativní cestu `wonderly-web/src/…`, která se z pracovního adresáře `/Users/Shared/Škola` rozvinula do složky se zdrojovými podklady učitele. Repo je `/Users/radek_soukromy/Desktop/wonderly-web`. **Agenti musí do repa psát absolutní cestou**, jinak hrozí, že vznikne cizí kopie webu ve Škole. Whitelist vrátného se kvůli tomu NEMĚNÍ — zachytil skutečnou chybu.
 
+🔴 **AUDIT FYZIKY (15. 8. večer) — názornost hotová, ale našly se JINÉ plošné vady.** Měřidlo `nazornost.mjs`: fyzika 6–9 už má jen pololetní/roční shrnutí bez názornosti, ta ji nepotřebují. Zbytek auditu (měřeno nad naimportovanými daty, ne regexem):
+- **DÉLKOVÁ NÁPOVĚDA — plošná vada, řeší se.** 657 otázek fyziky mělo správnou odpověď striktně nejdelší; ve 84 z 108 zdrojových bloků. Dosavadní kontrola hlásila až blok s poměrem 0,75, jednotlivé otázky propadaly tiše. **Nová rohatka** v `zkontroluj.mjs` (sekce 6b2) počítá otázky s náskokem ≥15 znaků, strop v `testy/rohatka.json` (`pocetNaskok15`), shodí build při zhoršení; souhrnné kvízy vynechány, aby se otázky nepočítaly dvakrát; obousměrně doložena. **Stav: 247 → 205** (commit `24798f4`), opraveno 5 nejhorších bloků (42 otázek). Snižovat se smí jen `npm run prijmi-latku` po skutečné opravě. **Zbývá ~200 otázek** — pokračovat po dávkách 5 bloků, žebříček nejhorších se dá znovu spočítat pomocným skriptem nad `testy/data.mjs`.
+- **MÉDIA: 46 podtémat fyziky nemá ani `materialy`, ani `odkazy`** — po ročnících 6.: 8, 7.: 4, **8.: 29 (nejhorší)**, 9.: 5. Příklady slugů: `cas/cas-a-jeho-mereni`, `teplota/teplota-a-jeji-mereni`, `elektrina-a-magnetismus/magneticke-vlastnosti-latek`, `jednoduche-elektricke-obvody`, `7-rocnik/jednoduche-stroje/kladka`.
+- **KRÁTKÉ VÝKLADY: 41 podtémat fyziky pod 1200 znaků** (nejkratší `7-rocnik/sily-kolem-nas/skladani-sil`, 559 znaků) — všechna ale mají názornost, takže to není hluchá stránka.
+- **PŘÍKLADY: 27 podtémat fyziky má počítané příklady.** Chybí v `7-rocnik/atmosfera-a-tlak-vzduchu` a v F9 celcích `elektricka-energie-a-bezpecnost` a `magneticke-pole`.
+- **Kvízy: v pořádku** — žádný blok fyziky pod 10 otázek, žádné podtéma bez kvízu.
+
+❓ **DVĚ OTÁZKY NA UČITELE (nepřesnosti v jeho vlastním textu, NEOPRAVENY potichu):**
+1. `teplota-a-jeji-mereni` (kvizy.ts i temata.ts ř. 973) tvrdí, že Fahrenheit se používá „v anglicky mluvících zemích". Prakticky ho ale používají jen USA (a Belize, Kajmanské ostrovy); Velká Británie, Irsko, Kanada, Austrálie i Nový Zéland používají Celsia. Přeformulovat na „v USA"?
+2. Totéž podtéma, vysvětlení u Klementina uvádí teplotní minimum „−27,6 °C (1785)". Rekordní minimum Klementina je z 11. února 1929; rok 1785 je pravděpodobně záměna (1775 je začátek měření). Opravit rok?
+
 ---
 
 ## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"
