@@ -37,6 +37,10 @@ jediné, co mu zabírá kontextové okno**. Proto se drž kontraktu níže do p�
 - Velké soubory (`temata.ts`, `kvizy.ts`) **nečti celé** — hledej Grepem a čti výřezem.
 - Ověřuj kotvou, ne dojmem: proběhlý build, spočítané číslo, skutečný soubor.
   „Mělo by to fungovat“ není výsledek — buď to doložíš, nebo píšeš `NEHOTOVO`.
+- Po zápisu do SDÍLENÉHO datového souboru (`temata.ts`, `kvizy.ts`, `index.astro`
+  a podobně) si před nahlášením „hotovo" vždy spočítej/ověř výsledek přímo
+  v souboru (grep, diff, počet otázek/klíčů) — nestačí, že se edit „provedl".
+  Hlášení „vloženo X" bez ověření je jen tvrzení, ne důkaz.
 - Příklady a simulace pro děti musí vycházet v **celých číslech**, pokud desetinná
   nejsou přímo učivem.
 - **Vlastní práci nekontroluješ.** Nezávislou kontrolu zadává orchestrátor jinému
