@@ -1,4 +1,42 @@
-## 🔴🔴 ZAČNI TADY (stav 14. 8. 2026, 19:30 — po kole „prohlídka magnetů")
+## 🔴🔴 ZAČNI TADY (stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu")
+
+**Hotovo a NASAZENO** (commit `9f4ffdd`, ověřeno curlem na živém webu — HTTP 200,
+obě scény, příklady i video jsou tam). Brána kód 0, build 465 stránek,
+`rozvrzeni-sceny.mjs` 0 tvrdých chyb.
+
+F9 `vlastnosti-stridaveho-proudu` — podtéma mělo bohatý výklad, ale žádnou
+simulaci a žádná média. Vějíř 4 workerů: nová komponenta
+`StridavyProudSimulace.astro` (scéna A perioda/frekvence s pevným oknem 0–40 ms:
+25 Hz = 1 vlna, 50 Hz = 2, 100 Hz = 4; scéna B efektivní 230 V vs. maximální
+325 V a dvě stejně svítící žárovky) · kvíz 12 → 20 otázek · 4 počítané příklady
+· české video `9fOhc78FDAI`.
+
+🔴 **Prohlídka očima našla 6 vad, které měřidlo NEVIDĚLO** (hlásilo 0 tvrdých
+chyb i 0 varování, brána 0, build OK). Nejhorší dvě: křivka scény B nebyla
+sinusoida, ale obdélník s plochým vrcholem (přímý rozpor s výkladem na téže
+stránce), a přepnutí frekvence nezměnilo obrázek — okno grafu se škálovalo
+s periodou, takže 50 a 100 Hz vypadaly pixelově stejně. **Poučení: u ovládacího
+prvku se prohlíží, jestli se po přepnutí doopravdy něco změní; různý md5 dvou
+stavů ještě neznamená viditelný rozdíl.** Podrobně v `METRIKY-KOL.md`.
+
+▶️ **NEDOKONČENO: kontrolor.** Nezávislá kontrola podtématu běžela, ale session
+se restartovala; agent byl vzbuzen znovu. Jeho nálezy dopsat do `METRIKY-KOL.md`
+a případné opravy poslat workerovi, ne dělat sám.
+
+### Vrátný povolení — tři opravy (učitel u Macu není, dotaz zastaví práci)
+
+`/Users/Shared/povoleni_hook.py`: (1) úklid v `/tmp` a `/var/folders` bez dotazu,
+(2) `bez_tela_heredocu()` — text o zakázaném příkazu není zakázaný příkaz
+(rozhoduje, kdo tělo dostane: `cat`/`tee` = jen zápis), (3) doplněno 6 věcí
+z návrhu nastavení včetně **čtení klíčů** (`.ssh`, `.aws`, `.env`), které dosud
+procházelo úplně bez dotazu. Test vrátného **113 případů**, obousměrně zelený —
+a sám našel starou díru: `os.system('rm …')` z pythonu černou listinou nikdy
+neprošlo. Návrh `settings.local.json` se NENASADIL (byl užší než zavedený stav,
+`git push` by se odklikával); leží jako podklad v `Omega/dokumenty/nastaveni/`.
+
+---
+
+## Stav 14. 8. 2026, 19:30 — po kole „prohlídka magnetů"
 
 Repo je čisté, **brána zelená (kód 0), build 465 stránek, magnety nasazené
 a ověřené curlem na živém webu** (commit `6170e99`). Kolo jelo grafem: 3 workeři
