@@ -1,7 +1,8 @@
 {
 	"_": "Laťka kvality kvízů. Brána SELŽE, když se číslo zhorší. Zlepšení laťku NEUTÁHNE samo — brána je čtecí a jen to navrhne; utažení je samostatný krok `npm run prijmi-latku` (změna 14. 8. 2026, dřív build tiše přepisoval tenhle soubor). Staré dluhy nikoho neblokují — hlídá se jen směr. Zavedeno 31. 7. 2026 poté, co se podíl za jediný den zhoršil ze 64 % na 66 %.",
-	"podilNejdelsi": 35,
-	"zmeneno": "2026-08-14",
-	"pocetNejdelsi": 746,
-	"uniky": 0
+	"podilNejdelsi": 34,
+	"zmeneno": "2026-08-15",
+	"pocetNejdelsi": 734,
+	"uniky": 0,
+	"pocetNaskok15": 205
 }

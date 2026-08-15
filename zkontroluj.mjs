@@ -169,6 +169,51 @@ if (strop && (podilNejdelsi > strop.podilNejdelsi || pocetNejdelsi > stropPocet)
 	varovani.push(`kvízy se zlepšily na ${pocetNejdelsi} otázek (${podilNejdelsi} %) — laťku lze utáhnout: npm run prijmi-latku`);
 }
 
+// 6b2) NÁSKOK SPRÁVNÉ ODPOVĚDI (15. 8. 2026). Podíl/počet z 6b schovává NEJHORŠÍ případy:
+// otázka s náskokem 2 znaky ("kov" × "koks") se počítá stejně jako otázka, kde je
+// správná odpověď o 60 znaků delší než cokoli ostatního — a právě u té žák hádá jistě,
+// ne jen s vyšší pravděpodobností. Počítá se STRIKTNÍ náskok (délka správné odpovědi,
+// která je v datech vždy odpovedi[0], minus nejdelší z distraktorů). Problémová je
+// otázka, kde je správná odpověď striktně nejdelší A náskok je ≥15 znaků.
+// Souhrnné kvízy (/shrnuti/) se VYNECHÁVAJÍ — `slozSouhrnnyKviz` je skládá ze STEJNÝCH
+// objektů otázek jako mateřské bloky, takže by se každá vadná otázka počítala 2×
+// (stejná past jako u úniků v 6g a u délkové nápovědy v 6b výš).
+let vynechanoNaskok = 0;
+const problemoveNaskok = [];
+for (const [klic, otazky] of Object.entries(dataKvizy)) {
+	if (!Array.isArray(otazky)) continue;
+	if (klic.includes('/shrnuti/')) {
+		vynechanoNaskok++;
+		continue;
+	}
+	for (const o of otazky) {
+		const delky = (o.odpovedi ?? []).map((a) => String(a).length);
+		if (delky.length < 2) continue;
+		const naskok = delky[0] - Math.max(...delky.slice(1));
+		if (delky[0] > Math.max(...delky.slice(1)) && naskok >= 15) {
+			problemoveNaskok.push({ klic, text: o.text, naskok });
+		}
+	}
+}
+const pocetNaskok = problemoveNaskok.length;
+const stropNaskok = strop?.pocetNaskok15 ?? Infinity;
+if (strop && pocetNaskok > stropNaskok) {
+	const priklad = [...problemoveNaskok]
+		.sort((a, b) => b.naskok - a.naskok)
+		.slice(0, 3)
+		.map((p) => `${p.klic}: „${String(p.text).slice(0, 40)}…" (náskok ${p.naskok} znaků)`)
+		.join('; ');
+	chyby.push(
+		`přibyly otázky s obřím náskokem správné odpovědi (striktně nejdelší, náskok ≥15 znaků): ${pocetNaskok}, ` +
+			`naposledy ${stropNaskok}. Takovou otázku žák uhodne bez znalosti látky prakticky jistě. ` +
+			`Zkrať správnou odpověď nebo prodluž distraktory, ať je rozdíl pod 15 znaků. Např. ${priklad}. ` +
+			`Laťku v testy/rohatka.json povoluj jen vědomě (npm run prijmi-latku) — ne novou výjimkou, jen skutečným snížením čísla.`,
+	);
+} else if (strop && pocetNaskok < stropNaskok) {
+	navrhniLatku({ pocetNaskok15: pocetNaskok });
+	varovani.push(`otázek s obřím náskokem (≥15 znaků) ubylo na ${pocetNaskok} — laťku lze utáhnout: npm run prijmi-latku`);
+}
+
 // 6c) Každé podtéma s kvízem musí být zastoupené v ROČNÍM opakování svého ročníku.
 // Souhrnný kvíz bere otázky po kolech do stropu — když je strop menší než počet
 // podtémat, poslední témata se do opakování NIKDY nedostanou (fyzika 8 měla 35 podtémat
@@ -388,6 +433,7 @@ console.log(
 );
 console.log(`Deník: ${rokySoubory.length} roků, ${mistCelkem} míst.`);
 console.log(`Kontrola webu — ${unikatni.length} interakcí (+${unikatni2.length} druhých na stránce), ${komponenty.length} komponent simulací, ${pocetOtazek} kvízových otázek v ${bloky.size} blocích.`);
+console.log(`Náskok správné odpovědi: ${pocetNaskok} otázek s náskokem ≥15 znaků (${vynechanoNaskok} souhrnných /shrnuti/ vynecháno záměrně — počítaly by se dvakrát).`);
 // Počítadlo vstupů (nález auditu: opatření tiše platí jen na část případů — u map se
 // takhle celá společná mapa neměřila vůbec, u filtru falešných poplachů se kontrola
 // volala jen u fotek). Kontrola, která nic neprošla, musí být poznat na první pohled.
