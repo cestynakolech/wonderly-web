@@ -19,6 +19,10 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 - **Cloudflare R2** — úložiště `wonderly-media` pro plnokvalitní fotky deníku (binding MEDIA).
 - Fonty: `@fontsource/patrick-hand` + `caveat` (kreslený „whiteboard" styl, latin-ext = česká diakritika).
 - `worker.js`, `wrangler.jsonc` — routing subdomén + R2. **NEMĚNIT bez důvodu.**
+- **Hermes Agent** (lokální modely, Ollama) — neinteraktivně přes plnou cestu:
+  `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"` (vrací jen holý text odpovědi).
+  Alias `hermes` ukazuje na podpříkaz `chat` (interaktivní) a pro skriptovaná volání
+  se nehodí. Zatím nepoužívat — jen zapsáno pro budoucí použití.
 
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:
@@ -29,6 +33,8 @@ src/data/                ← datové soubory školy; src/data/cesty/ = data den�
                            (v obou složkách CLAUDE.md-ukazatel, ať se pravidla načtou i tady)
 public/                  ← statické soubory (materialy/ škola, obrazky/, cesty/)
 ```
+
+**Orchestrátorský režim:** zapíná se příkazem `/orch-on` (vytvoří značku `~/.claude/ORCHESTRATOR_ON`; vrátný pak hlavnímu sezení blokuje Read/Edit/Write/Grep/Glob i neřídicí Bash a práce se deleguje subagentům), vypíná `/orch-off` nebo `rm ~/.claude/ORCHESTRATOR_ON`.
 
 ## Pravidlo řezu dokumentace
 Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové CLAUDE.md (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/CLAUDE.md`.
