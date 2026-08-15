@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie' | 'retezova-reakce';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud' | 'razeni-clanku' | 'premeny-energie' | 'retezova-reakce' | 'obnovitelne-zdroje';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -4614,7 +4614,50 @@ export const temata: Record<string, Tema[]> = {
 						<p>Přečerpáním se část energie ztratí, takže dolů se jí vrátí míň, než kolik stálo čerpání
 						nahoru. Přesto se to vyplatí — <strong>elektřina, která by se jinak vůbec nevyužila,
 						takhle počká</strong> na chvíli, kdy je jí potřeba.</p>
+						<h3>📐 Spočítej si to: kolik se na přečerpávání "ztratí"</h3>
+						<p>Přečerpávací elektrárna má čerpadla o výkonu <strong>500 MW</strong> a turbíny
+						o výkonu <strong>750 MW</strong>.</p>
+						<ul>
+							<li>V noci čerpadla běží <strong>8 hodin</strong> → spotřebují
+							500 MW × 8 h = <strong>4 000 MWh</strong>.</li>
+							<li>Přes den turbíny vyrábí <strong>4 hodiny</strong> → vyrobí
+							750 MW × 4 h = <strong>3 000 MWh</strong>.</li>
+						</ul>
+						<p>Zpátky se tedy vrátí jen 3 000 MWh ze 4 000 MWh — <strong>1 000 MWh (25 %)</strong>
+						se cestou "ztratí" (tření vody v potrubí, teplo na ložiskách čerpadel a turbín).
+						I tak se to vyplatí: bez přečerpávání by se noční přebytek elektřiny nevyužil vůbec.</p>
+						<h3>✏️ Zamysli se / Z praxe</h3>
+						<ol>
+							<li>Malá vesnice si pořídila jen sluneční elektrárnu jako <strong>jediný</strong> zdroj
+							elektřiny pro celou nemocnici. Proč je to nebezpečný nápad?
+							<details><summary>řešení</summary>Sluneční panely v noci nevyrábí vůbec a přes den
+							závisí na počasí — výkon <strong>nejde poručit</strong>. Nemocnice ale potřebuje
+							elektřinu nepřetržitě (přístroje na oddělení JIP, chlazení léků). Musí mít vždy
+							záložní zdroj (např. dieselový agregát nebo připojení do sítě), který doplní výpadek.</details></li>
+							<li>Přečerpávací elektrárna čerpá v noci a vyrábí ve dne. Proč se jí to i přes
+							ztráty vyplatí, když by se dalo čekat, že je to "zbytečná práce navíc"?
+							<details><summary>řešení</summary>Elektřinu ve velkém nejde uskladnit jinak
+							(baterie na celé město by byly obrovské a drahé). Noční elektřina z jaderných
+							nebo větrných elektráren by jinak <strong>propadla bez užitku</strong>, protože
+							v noci je nízká spotřeba. I se ztrátou 25 % je lepší část energie zachránit
+							a použít ji přes den ve špičce, než ji nevyužít vůbec.</details></li>
+							<li>Je vodík obnovitelný zdroj energie? Zdůvodni.
+							<details><summary>řešení</summary>Ne — vodík se na Zemi v čisté podobě prakticky
+							nevyskytuje, musí se <strong>vyrobit</strong> (nejčastěji elektrolýzou vody),
+							a to spotřebuje víc energie, než kolik z vodíku později získáme. Vodík je proto
+							<strong>nosič energie</strong> (jako baterie), ne zdroj — na rozdíl třeba od
+							slunečního záření nebo větru, které jsou tu "zadarmo" a stále se doplňují.</details></li>
+						</ol>
 					`,
+					interakce: 'obnovitelne-zdroje',
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Dlouhé stráně — technický div Česka', cesta: 'KcaN4mqje7c' },
+					],
+					odkazy: [
+						{ nazev: 'Obnovitelné zdroje energie (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/2605-obnovitelne-zdroje-energie' },
+						{ nazev: 'Přečerpávací elektrárna Dlouhé stráně (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/8796-precerpavaci-elektrarna-dlouhe-strane' },
+						{ nazev: 'Výroba elektřiny (Svět energie, ČEZ)', url: 'https://www.svetenergie.cz/cz/elektrina/vyroba-elektriny' },
+					],
 				},
 				{
 					slug: 'slunecni-soustava',

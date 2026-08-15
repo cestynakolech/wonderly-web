@@ -1,0 +1,186 @@
+---
+// Scéna A: třídění zdrojů energie na obnovitelné/neobnovitelné klikáním na kartičky
+// (vodík je „chyták" — je to nosič energie, ani jedno ani druhé).
+// Scéna B: přečerpávací elektrárna (Dlouhé stráně) — přepínání ČERPAT/VYRÁBĚT musí
+// hladiny změnit OKAMŽITĚ (synchronně s klikem), animace jen plynule dokreslí pohyb.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Odkud bereme energii? 🕹️</span></h2>
+	<p>Klikni na kartičku zdroje energie — zařadí se mezi <strong>obnovitelné</strong> (zelená) nebo <strong>neobnovitelné</strong> (šedá). Jeden zdroj je <strong>chyták</strong>!</p>
+	<div id="oz-karty" class="oz-karty">
+		<button class="oz-karta" data-id="slunce" type="button">☀️ Slunce</button>
+		<button class="oz-karta" data-id="vitr" type="button">💨 Vítr</button>
+		<button class="oz-karta" data-id="voda" type="button">🌊 Tekoucí voda</button>
+		<button class="oz-karta" data-id="biomasa" type="button">🌱 Biomasa</button>
+		<button class="oz-karta" data-id="uhli" type="button">⚫ Uhlí</button>
+		<button class="oz-karta" data-id="ropa" type="button">🛢️ Ropa</button>
+		<button class="oz-karta" data-id="plyn" type="button">🔥 Zemní plyn</button>
+		<button class="oz-karta" data-id="jaderne" type="button">☢️ Jaderné palivo</button>
+		<button class="oz-karta" data-id="vodik" type="button">💧 Vodík</button>
+	</div>
+	<p class="oz-stav" id="oz-stav">Vyber libovolnou kartičku.</p>
+
+	<h3>Přečerpávací elektrárna (např. Dlouhé stráně)</h3>
+	<p>Přepínej mezi <strong>čerpáním</strong> (v noci je elektřiny přebytek, čerpadlo tlačí vodu nahoru) a <strong>výrobou</strong> (ve dne ve špičce voda teče dolů přes turbínu a vyrábí elektřinu).</p>
+	<p>
+		<button id="oz-b-cerpat" type="button" class="oz-tl">🌙 Čerpat (noc)</button>
+		<button id="oz-b-vyrabet" type="button" class="oz-tl oz-tl-aktivni">☀️ Vyrábět (den)</button>
+	</p>
+	<svg id="oz-b-svg" viewBox="0 0 480 340" role="img" aria-label="Přečerpávací elektrárna: horní a dolní nádrž s vodou">
+		<rect x="0" y="0" width="480" height="340" fill="#e7f5ff" />
+		<!-- horní nádrž -->
+		<rect x="40" y="20" width="160" height="110" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<rect id="oz-b-horni-hladina" x="40" width="160" fill="#4dabf7" stroke="none" />
+		<text x="120" y="14" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">horní nádrž</text>
+		<!-- dolní nádrž -->
+		<rect x="280" y="190" width="160" height="110" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+		<rect id="oz-b-dolni-hladina" x="280" width="160" fill="#1971c2" stroke="none" />
+		<text x="380" y="184" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">dolní nádrž</text>
+		<!-- potrubí spojující nádrže (vstupuje u levého okraje dolní nádrže, ať nekříží její popisek) -->
+		<path d="M 100 130 L 100 160 L 300 160 L 300 190" fill="none" stroke="#495057" stroke-width="6" />
+		<!-- turbína -->
+		<circle cx="300" cy="175" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
+		<text x="300" y="179" text-anchor="middle" font-size="12">⚙️</text>
+		<!-- šipka směru toku -->
+		<path id="oz-b-sipka" d="M 220 160 L 260 160" stroke="#e03131" stroke-width="5" marker-end="url(#oz-hrot)" />
+		<defs>
+			<marker id="oz-hrot" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+				<path d="M0,0 L10,5 L0,10 z" fill="#e03131" />
+			</marker>
+		</defs>
+		<!-- ikona elektřiny -->
+		<text id="oz-b-ikona" x="340" y="100" text-anchor="middle" font-size="26">⚡</text>
+		<text id="oz-b-popis" x="240" y="322" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<p class="oz-stav" id="oz-b-stav"></p>
+</section>
+
+<script>
+	// ——— Scéna A: třídění zdrojů ———
+	const INFO = {
+		slunce: { typ: 'obnovitelny', text: 'Obnovitelný — sluneční záření dopadá na Zemi stále.' },
+		vitr: { typ: 'obnovitelny', text: 'Obnovitelný — vítr fouká znovu každý den, doplňuje se sám.' },
+		voda: { typ: 'obnovitelny', text: 'Obnovitelný — koloběh vody se stále opakuje.' },
+		biomasa: { typ: 'obnovitelny', text: 'Obnovitelný — rostliny znovu dorostou.' },
+		uhli: { typ: 'neobnovitelny', text: 'Neobnovitelný — vznikalo miliony let, zásoby se nedoplní.' },
+		ropa: { typ: 'neobnovitelny', text: 'Neobnovitelný — fosilní palivo, zásoby se vyčerpají.' },
+		plyn: { typ: 'neobnovitelny', text: 'Neobnovitelný — fosilní palivo, zásoby se vyčerpají.' },
+		jaderne: { typ: 'neobnovitelny', text: 'Neobnovitelný — uranu je na Zemi jen omezené množství.' },
+		vodik: { typ: 'nosic', text: 'Chyták! Vodík není ani obnovitelný, ani neobnovitelný zdroj — na Zemi se volný skoro nevyskytuje, musí se VYROBIT. Je to NOSIČ energie, jako baterie.' },
+	};
+
+	const karty = document.querySelectorAll('.oz-karta');
+	const stavEl = document.getElementById('oz-stav');
+	const vybrane = {};
+
+	function barvaProTyp(typ) {
+		if (typ === 'obnovitelny') return { pozadi: '#d3f9d8', okraj: '#2f9e44' };
+		if (typ === 'neobnovitelny') return { pozadi: '#e9ecef', okraj: '#5c5343' };
+		return { pozadi: '#fff3bf', okraj: '#e8590c' };
+	}
+
+	function vyber(id, btn) {
+		vybrane[id] = true;
+		const info = INFO[id];
+		const barvy = barvaProTyp(info.typ);
+		btn.style.background = barvy.pozadi;
+		btn.style.borderColor = barvy.okraj;
+		btn.classList.add('oz-hotovo');
+		stavEl.textContent = info.text;
+	}
+
+	karty.forEach((btn) => {
+		btn.addEventListener('click', () => vyber(btn.dataset.id, btn));
+	});
+
+	// ——— Scéna B: přečerpávací elektrárna ———
+	// Nádrže: šířka 160, výška prostoru 110. Objem vody přechází mezi nádržemi.
+	// Necháváme celá čísla: obě nádrže mají výšku hladiny v procentech (0-100).
+	const horniHladina = document.getElementById('oz-b-horni-hladina');
+	const dolniHladina = document.getElementById('oz-b-dolni-hladina');
+	const sipka = document.getElementById('oz-b-sipka');
+	const ikona = document.getElementById('oz-b-ikona');
+	const popisEl = document.getElementById('oz-b-popis');
+	const stavBEl = document.getElementById('oz-b-stav');
+	const btnCerpat = document.getElementById('oz-b-cerpat');
+	const btnVyrabet = document.getElementById('oz-b-vyrabet');
+
+	const HORNI_Y0 = 20, HORNI_VYSKA = 110, HORNI_DNO = HORNI_Y0 + HORNI_VYSKA; // 130
+	const DOLNI_Y0 = 190, DOLNI_VYSKA = 110, DOLNI_DNO = DOLNI_Y0 + DOLNI_VYSKA; // 300
+
+	// Výchozí stav: 50 % (den je v polovině, čeká na klik). Schválně NE 80 ani 20 —
+	// 80/20 jsou právě cíle obou režimů, takže kdyby start seděl na jednom z nich,
+	// klik na TEN režim by nezpůsobil žádnou viditelnou změnu (přesně tahle chyba
+	// se objevila 14.8.2026: klik=oz-b-cerpat proti startu 80 vyšel jako no-op).
+	// VYRÁBĚT je výchozí aktivní tlačítko, proto cíl při startu = 20 (dál klesá).
+	let horniProcent = 50;
+	let cilHorniProcent = 20;
+	let rezim = 'vyrabet';
+
+	function vykresliHladiny() {
+		const dolniProcent = 100 - horniProcent;
+		const hHorni = (horniProcent / 100) * HORNI_VYSKA;
+		horniHladina.setAttribute('y', String(HORNI_DNO - hHorni));
+		horniHladina.setAttribute('height', String(hHorni));
+		const hDolni = (dolniProcent / 100) * DOLNI_VYSKA;
+		dolniHladina.setAttribute('y', String(DOLNI_DNO - hDolni));
+		dolniHladina.setAttribute('height', String(hDolni));
+	}
+
+	function nastavRezim(novy) {
+		rezim = novy;
+		if (rezim === 'cerpat') {
+			cilHorniProcent = 80;
+			sipka.setAttribute('d', 'M 260 160 L 220 160');
+			ikona.textContent = '🔌';
+			popisEl.textContent = 'Čerpadlo tlačí vodu NAHORU — spotřebovává elektřinu';
+			stavBEl.textContent = '🌙 Noc, elektřiny je přebytek (levná): čerpadlo žene vodu z dolní nádrže do horní. Voda v horní nádrži STOUPÁ.';
+			btnCerpat.classList.add('oz-tl-aktivni');
+			btnVyrabet.classList.remove('oz-tl-aktivni');
+		} else {
+			cilHorniProcent = 20;
+			sipka.setAttribute('d', 'M 220 160 L 260 160');
+			ikona.textContent = '⚡';
+			popisEl.textContent = 'Voda teče DOLŮ přes turbínu — vyrábí elektřinu';
+			stavBEl.textContent = '☀️ Den, špička poptávky: voda z horní nádrže teče dolů přes turbínu a vyrábí elektřinu. Voda v horní nádrži KLESÁ.';
+			btnVyrabet.classList.add('oz-tl-aktivni');
+			btnCerpat.classList.remove('oz-tl-aktivni');
+		}
+		// OKAMŽITÁ, viditelná změna hladiny hned při kliku — animace níž jen doladí plynulost,
+		// ale výsledný SMĚR i alespoň část posunu je vidět ihned (synchronně s klikem).
+		horniProcent = horniProcent + (cilHorniProcent - horniProcent) * 0.4;
+		vykresliHladiny();
+	}
+
+	btnCerpat.addEventListener('click', () => nastavRezim('cerpat'));
+	btnVyrabet.addEventListener('click', () => nastavRezim('vyrabet'));
+
+	function animuj() {
+		const rozdil = cilHorniProcent - horniProcent;
+		if (Math.abs(rozdil) > 0.3) {
+			horniProcent += rozdil * 0.08;
+			vykresliHladiny();
+		}
+		requestAnimationFrame(animuj);
+	}
+
+	vykresliHladiny();
+	requestAnimationFrame(animuj);
+
+	// ověřovací háček pro testy
+	const svgB = document.getElementById('oz-b-svg');
+	svgB.__stavHladin = () => ({ horniProcent, rezim });
+</script>
+
+<style>
+	.oz-karty { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0; }
+	.oz-karta { font: inherit; font-weight: 700; padding: 0.5rem 0.9rem; border: 3px solid #2b2a26;
+		border-radius: 10px; background: #fff; cursor: pointer; }
+	.oz-karta.oz-hotovo { cursor: default; }
+	.oz-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.oz-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.9rem; border: 3px solid #2b2a26;
+		border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.oz-tl.oz-tl-aktivni { background: #ffe8cc; }
+	#oz-b-svg { width: 100%; max-width: 480px; border: 3px solid #2b2a26; border-radius: 12px; }
+</style>

@@ -1,299 +1,305 @@
 {
-  "_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
-  "_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá. | 4. 8. 2026: rohatka rozšířena i na testy/simulace/ (nález auditu — 16 testů simulací bylo mimo kontrolu); dnešní dluh 14 zapsán, nový test simulace bez důkazu už bránou neprojde. Dluh splácet podle fronty (mutační díry nejdřív).",
-  "_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
-  "bezDokladu": 14,
-  "meridla": {
-    "uniky.mjs": {
-      "test": "testy/uniky-obousmerne.mjs",
-      "podvrh": "Vložená duplicitní otázka ('Co je fyzika?' dvakrát) i únik odpovědi (vysvětlení u vlhkoměru odpovídá na otázku o anemometru) se najdou; brána na nich končí kódem 1. Navíc ověřeno na HISTORICKÝCH datech: nad verzí kvízů před opravou 31. 7. najde 4 duplicity, mezi nimi dvakrát doslova tutéž otázku.",
-      "zdravy": "Nad dnešními daty 0 duplicit a 39 úniků, brána končí '✅ Vše zapojené správně.'; 15 kontrol v testu prochází.",
-      "regrese": "Součástí testu jsou konkrétní falešné poplachy první verze: dvojice lišící se jen číslem (0 °C × 100 °C, 120 min × 7200 s) a sdílený odborný pojem ('hmotnost') NESMÍ být nález. Mutace prahů to shodí.",
-      "overeno": "2026-08-02"
-    },
-    "cisla-ve-vykladu.mjs": {
-      "test": "testy/meridla-obousmerne.mjs",
-      "podvrh": "Odpověď '1013 hPa' u výkladu, kde číslo 1013 není, se najde.",
-      "zdravy": "Týž kvíz s číslem doplněným do výkladu nehlásí nic.",
-      "regrese": "Výsledek početní úlohy (zadání obsahuje čísla) a malá čísla ('3 druhy čípků') nesmí být nález — to byla příčina 20 falešných poplachů z 34 nálezů 1. 8. Mutace MALE=0 i vypnutí početní výjimky test shodí.",
-      "overeno": "2026-08-02"
-    },
-    "nazvy-bloku.mjs": {
-      "test": "testy/meridla-obousmerne.mjs",
-      "podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu. ROZŠÍŘENO 3. 8. 2026: podvrh „pokud ⟨y < -160?⟩ tak\" + „nastav x na (náhodnou hodnotu)\" v KlonovaniSimulace → 2 nálezy (otisk souboru se podvrhem změnil d6c0ace… → eea8e8d…, po obnově zpět na d6c0ace…, takže měřidlo měřilo opravdu tenhle soubor). ROZŠÍŘENO 5. 8. 2026 o MakeCode a VEXcode: podvrhy „ukaž číslo\", „ukaž ikonu (vykřičník)\" a „drive for 30 cm\" měřidlo najde, zdravé tvary (zobraz číslo, čekej ms, drive for 300 mm, „vzdálenost > 10 cm\" ve větě) mlčí — testy/meridla-obousmerne.mjs (54 → 60 kontrol). Důkaz komponentové cesty: první ostrý běh našel 4 SKUTEČNÉ vady (ukaž řetězec + odešli řetězec v MicrobitRadioSimulace, blok „pauza 400 ms\" ve výkladu i kvízu) — po opravě 0 nálezů.",
-      "zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic. Po obnově zdravých tvarů („když ⟨ ⟩ tak\", „náhodné číslo od … do …\") opět 0 nálezů.",
-      "regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť. ROZŠÍŘENO 3. 8. 2026 po nálezu kontrolora: měřidlo nemělo vzor pro „pokud ⟨⟩ tak\" ani pro „náhodnou hodnotu\", takže obojí prošlo se zelenou bránou. Nové vzory se schválně ptají na TVAR BLOKU (závorka s podmínkou + „tak\"/„pak\"), aby nehlásily běžnou českou větu — ověřeno, že mlčí nad „pokud chceš, zkus to znovu\", „pokud (a) platí, program pokračuje\" i nad makecodovým „pokud zrychlení (y) > 500 pak\". ZNÁMÁ MEZERA: měřidlo hlídá jen Scratch. Názvy bloků MakeCode (micro:bit) a VEXcode nekontroluje NIC — kontrolor v nich 3. 8. našel neexistující „ukaž ikonu (šipka doleva)\" a jednotku cm, kterou VEXcode IQ nemá.",
-      "overeno": "2026-08-05"
-    },
-    "nazornost.mjs": {
-      "test": "testy/meridla-obousmerne.mjs",
-      "podvrh": "Neznámý druh materiálu ('gif') se najde jako chyba, ne jako ticho.",
-      "zdravy": "Známé druhy (infografika, youtube, pdf) nehlásí nic.",
-      "regrese": "PŘÍMO TA HISTORICKÁ VADA: 'infografika' se MUSÍ počítat jako obrázek a hodnota 'obrazek' nesmí ve slovníku existovat — původní měřidlo hledalo 'obrazek', který v datech není ani jednou, takže infografiky nikdy nezapočítalo. Mutace slovníku test shodí (2 kontroly).",
-      "overeno": "2026-08-02"
-    },
-    "kratke-vyklady.mjs": {
-      "test": "testy/meridla-obousmerne.mjs",
-      "podvrh": "Krátký výklad bez obrázku, videa i simulace je označen za hluchou stránku.",
-      "zdravy": "Dlouhý výklad, krátký výklad se simulací i krátký výklad s infografikou hluché nejsou (tři různé důvody, tři kontroly).",
-      "regrese": "HTML značky se do délky nepočítají — jinak by `<strong>` udělal z krátké stránky dlouhou. Mutace odstraňování značek test shodí.",
-      "overeno": "2026-08-02"
-    },
-    "mapa-popisky.mjs": {
-      "test": "testy/meridla-obousmerne.mjs",
-      "podvrh": "Dva popisky ležící na sobě mají nenulovou plochu překryvu.",
-      "zdravy": "Vzdálené popisky mají překryv 0; nad daty webu 186 pohledů a 0 nálezů.",
-      "regrese": "Rámeček musí růst s délkou jména, jinak by dlouhý název ('Vaulnaveys-le-Haut') nikdy nepřetekl — a přesně ten popisek přetékal ve všech čtyřech jazycích. Mutace na konstantní šířku test shodí.",
-      "overeno": "2026-08-02"
-    },
-    "sablony.mjs": {
-      "test": "testy/meridla-obousmerne.mjs",
-      "podvrh": "Skript komponenty se SPOUŠTÍ nad DOMem ze skutečné šablony, takže se chybějící prvek najde bez ohledu na způsob zápisu: getElementById, zkratka $(id), querySelector('#x'), backticky, složený selektor, <script is:inline> i kód uvnitř obsluhy kliknutí a DOMContentLoaded. Kotva nad SKUTEČNOU komponentou: po smazání id ze šablony PakaSimulace (kterou regexová verze neviděla vůbec) měřidlo nález hlásí a brána končí kódem 1.",
-      "zdravy": "Nad všemi 78 komponentami 0 nálezů. Pokrytí měřeno kontrolorovou metodou: z 983 vyhledání mířících na prvek ze šablony se jich 977 (99,4 %) prokazatelně změří - smazání toho prvku se odhalí.",
-      "regrese": "(1) Prvky, které si kód vyrábí za běhu (className, classList.add, innerHTML, insertAdjacentHTML), NESMÍ být nález - ale jen když se prvek do stránky opravdu vloží. (2) Chybějící prohlížečové API (canvas, performance, style.setProperty, children[0], getElementsByClassName, window.AudioContext) nesmí skript shodit. (3) Nedoběhlý skript nálezem BÝT MUSÍ. (4) Zakomentovaná scéna se nepočítá jako existující. (5) Dynamické class={} nesmí umlčet kontrolu id. (6) Dva bloky <script> se nesmí slepit do jednoho rozsahu. (7) Brána končí chybou, když se v některé komponentě nezměří ani jedno vyhledání.",
-      "mez": "Změřit jde jen kód, který se opravdu provede. Šest vyhledání (ElektromotorSimulace emo-f-*, OkoSimulace oko-bryle-*, PrumerSimulace prum-novy) je ve větvích, kam běh při načtení nedojde. Měřidlo také nehlídá překlep v názvu prohlížečové metody - neznámé API atrapa tiše obslouží.",
-      "duvod": "První verze hledala volání regulárními výrazy a 270 z 945 vyhledání nebylo měřeno vůbec; druhá měřila jen kód doběhlý při načtení a přišla o dalších 32. Záplatovat vzor po vzoru je nekonečné, proto se měří výsledek spuštění.",
-      "overeno": "2026-08-02"
-    },
-    "simulace/funkce-tabulky.mjs": {
-      "test": "testy/podvrhy/funkce-tabulky-podvrhy.mjs",
-      "podvrh": "24 mutací komponenty na kopii v dočasné složce — texty vzorců (mez v hlavičce 4→3, rozsah B2:B8, anglická čárka, =PRUMER bez háčků, prohozený popisek MIN, prohozené popisky přepínače, smyšlený chybový kód), přístupnost (scope pryč, 1. pád v aria-label, bledá šrafa #dee2e6 = 1,30 : 1, bledá mřížka #f8f9fa) a naučné texty (text prý MENŠÍ než číslo, MIN/MAX prý hlásí chybu, průměr napevno „20 ÷ 6\", poznámka RANK jmenuje jiného žáka, lživá nápověda ke kolečku, „platí jen pro řádek 2\", úvod posílá sledovat jiné funkce, nadpis o grafech). Každá shodí 2–7 kontrol.",
-      "zdravy": "Nad nezměněnou komponentou projde všech 167 kontrol a skript hlásí „zdravá kopie mlčí\"; ověření se zdravou kopií je první krok skriptu, takže se pozná i to, že se měří jiný soubor, než se myslí.",
-      "regrese": "Předchozí verze testu (93 kontrol) propustila 8 z těchto podvrhů, verze z rána (143 kontrol) dalších 11 — obojí je v seznamu a nesmí se vrátit.",
-      "overeno": "2026-08-03"
-    },
-    "simulace/senzory-robota.mjs": {
-      "test": "testy/podvrhy/senzory-robota-podvrhy.mjs",
-      "podvrh": "21 mutací komponenty na kopii v dočasné složce — naučné texty (poznámka tvrdí, že senzor u šikmé stěny měří přesně; hláška chválí zastavení po nárazu; program bez opakování prý měřil pořád; tlačítko slibuje „nikdy nezastav\"; zácloně se říká zeď; náraz sváděný na ultrazvuk i tam, kde měřil dobře), scéna (robot ve vzduchu, podlaha nahoře, zeď visící, paprsek dozadu, žádný odraz od šikmé stěny, popis obrázku o teplotě) a hodnoty (MAX_DOSAH 0, dotyk sepne metr předem, program se ptá i bez opakování, výchozí program prohozený, záclona vypadá jako zeď). Každá shodí aspoň jednu kontrolu.",
-      "zdravy": "Nad nezměněnou komponentou projde všech 154 kontrol a skript hlásí „zdravá kopie mlčí\" — první krok skriptu, takže se pozná i měření jiného souboru, než se myslí.",
-      "regrese": "První verze testu (122 kontrol) propustila 5 podvrhů v textech a 5 ve scéně; mutační test testy/mutace.mjs odhalí 14 ze 14.",
-      "overeno": "2026-08-03"
-    },
-    "vyrob_podkasty.py — dělení dialogu na části": {
-      "test": "~/Desktop/Omega/skripty/testy/test_deleni_dialogu.py",
-      "podvrh": "Šest poškozených dělení téhož rozhovoru: vypadlá replika, prohozené části, oddělovač '\\n' místo '\\n\\n', uříznutých 40 znaků na konci části, zdvojená část a naivní řez po znacích uprostřed repliky. Všech šest kontrola odhalí (36 kontrol celkem).",
-      "zdravy": "Nad všemi sedmi skutečnými scénáři F6 dá slepení částí přesně původní text, žádná část nepřekročí strop a hranice padnou jen mezi repliky. Pět dílů pod stropem se NEDĚLÍ vůbec, takže se u nich proti dosavadnímu chování nemění nic.",
-      "regrese": "Zavedeno 5. 8. 2026, když OpenAI odmítlo díl „Úvod do fyziky\" (5 548 znaků = 2 159 tokenů proti stropu 2 000) a automat ho po třech pokusech odložil. Strop 4 700 znaků je odvozen z MĚŘENÍ, ne z odhadu: nejdelší prošlý díl měl 4 747 znaků a poměr vyšel 2,57 znaku na token. Části se dělají stejně dlouhé, aby jeden krátký zbytek nezněl jinak než celek. Kotva „střih ztratil řeč\" se NEMĚNILA — pracuje dál nad slepenou nahrávkou.",
-      "overeno": "2026-08-05"
-    },
-    "vyrob_podkasty.py — kotva „střih ztratil řeč\"": {
-      "test": "~/Desktop/Omega/skripty/testy/test_kotva_cisla.py",
-      "podvrh": "Ze zdravého přepisu se odebere 10 % slov (pětinásobek tolerance). Kotva to zachytí u všech čtyř dílů F6: hustota 591/657, objem 539/599, hmotnost 617/686, síla 699/777 — všechny nad prahem, výroba by skončila chybou.",
-      "zdravy": "Simulovaný přepis od whisperu (souvislé číslovky splácnuté do jedné číslice) projde u všech čtyř dílů se shodou 657/657, 599/599, 686/686 a 777/777 slov, tedy bez jediného falešného poplachu.",
-      "regrese": "Zavedeno 5. 8. 2026 poté, co kotva TŘIKRÁT po sobě odmítla zdravý zvuk k hustotě (677 slov ze 701) a zarovnání u objemu spárovalo jen 547 z 659 slov. Že řeč nechyběla, doložil poměr délek: text hustota:hmotnost = 0,961 a zvuk taky 0,961. Příčinou byly číslovky — scénář je má slovy („dvě stě padesát“), whisper číslicemi („250“). Oprava čísla z porovnání VYPOUŠTÍ na obou stranách; práh zůstal 2 %, kotva se tedy neoslabila.",
-      "overeno": "2026-08-05"
-    },
-    "vyrob_video_automat.py — město se nevyrobí podruhé": {
-      "test": "~/Desktop/Omega/skripty/test_video_nasazeno.py",
-      "podvrh": "Hotové video se odklidí do `video-vystup/_duplicity/` (i do vnořené `prestavby-.../`) a pod dvojnickým názvem s neviditelnými znaky Fotek. Stará podmínka takové video NENAJDE (doloženo v testu funkcí `stara_podminka` → False), nová ho pozná podle klíče místa → True. Bez opravy se video vyrobí znovu.",
-      "zdravy": "Video ÚPLNĚ JINÉHO města ve stejné složce nesmí prohlásit místo za hotové (jinak by se nevyrobilo nic) → False. Změna médií (jiný otisk) pořád vede k přestavbě → False. Celkem 14 kontrol, všechny prošly.",
-      "regrese": "Nález učitele 6. 8. 2026: „toto video udělal automat snad asi po páté“ — diagnostika ukázala SEDM výrob Geisingenu. Táž past potřetí: 31. 7. se přidalo hledání v `nasazeno/`, 2. 8. se zjistilo, že hlavní smyčka funkci vůbec nevolala, a 6. 8., že kontrola nezná `_duplicity/`. Ověřeno na skutečných datech: `uz_hotovo` = True, `uz_publikovano` = Geisingen_DE_KEKONTROLE.mp4 → video se znovu nevyrobí.",
-      "overeno": "2026-08-06"
-    },
-    "vyrob_omnivoice.py — hlas podle pohlaví jména": {
-      "test": "~/Desktop/Omega/skripty/testy/test_hlasy_podle_jmena.py",
-      "podvrh": "Scénář, kde první promluví MUŽ (šest z osmi scénářů F6). Staré přiřazení podle pořadí replik mu dalo ŽENSKÝ hlas. Test dále odmítne neznámé jméno mluvčího a dvojici téhož pohlaví — obojí shodí výrobu místo tichého uhodnutí.",
-      "zdravy": "Nad všemi osmi skutečnými scénáři F6 vychází právě jeden ženský a jeden mužský hlas, nezávisle na pořadí replik. 17 kontrol, všechny prošly. Změřená kotva na hotové nahrávce: Marek 175 Hz, Eva 267 Hz.",
-      "regrese": "Nalezeno 6. 8. 2026 při přechodu na hlas vybraný učitelem. Vysvětluje, proč mu dosavadní OmniVoice díly zněly „hodně dětsky“ — hlasy byly prohozené.",
-      "overeno": "2026-08-06"
-    },
-    "revize_automatu.py — chyby v lozích a mrtvé cesty": {
-      "test": "~/Desktop/Omega/skripty/testy/test_revize_nalezu.py",
-      "podvrh": "Pád buildu přemazaný 24 tichými řádky (přesně případ z 1. 8., kdy revize mlčela) se najde a datuje. Mrtvá cesta v tabulce rejstříku PRAVIDLA.md se najde (případ `povoleni_hook.py`).",
-      "zdravy": "Chyba starší než sedm dní se nehlásí (ochrana proti falešným poplachům z 30. 7.), zdravý i chybějící log mlčí, existující cesty a řádky přiznávající zánik se nehlásí. Nad skutečným rejstříkem 0 nálezů. 9 kontrol.",
-      "regrese": "Audit 6. 8. 2026: revize hlásila exit 0, přestože automat od 30. 7. při každém buzení padal na chybějícím `npm`; hledalo se jen v posledních 15 řádcích.",
-      "overeno": "2026-08-06"
-    },
-    "priznaniAi": {
-      "test": "zkontroluj.mjs — sekce „Přiznání AI“ (podvrh se dělá ručně odebráním pole `ai`)",
-      "podvrh": "Jednomu z 18 videí odebráno pole `ai` → brána vypsala „prošlo 18 polemik — 1 bez přiznání“, jmenovala konkrétní díl (uvod-do-fyziky) a skončila kódem 1.",
-      "zdravy": "Nad dnešními daty „prošlo 18 polemik — 0 bez přiznání“ a brána končí „✅ Vše zapojené správně.“",
-      "pocitadlo": "Brána vypisuje, KOLIK polemik prošlo (18 z 18 videí s 'polemika-' v cestě) — kdyby přestala vidět vstupy, bylo by to na první pohled poznat.",
-      "proc": "Od 2. 8. 2026 platí evropská pravidla transparentnosti (čl. 50 nařízení 2024/1689). Bez brány by přiznání měly první díly a další už ne — vzorec „opatření platí jen částečně“."
-    },
-    "vypis-cesty.mjs": {
-      "podvrh": "Rok bez datového souboru (1999) skončí kódem 1 s hláškou o nenačtení roku; nesmyslný argument (rok2026) i chybějící argument skončí kódem 2. Ověřeno spuštěním 7. 8. 2026 — tichý prázdný výpis se stát nemůže.",
-      "zdravy": "Rok 2026 vrátí kód 0 a 12 míst, z toho 6 s vyplněnou galerií (odpovídá počtu polí galerie v src/data/cesty/2026.ts). Data se importují esbuildem, ne čtou regexem — dřívější regexové parsování téhož souboru vracelo 0 míst.",
-      "poznamka": "Není to měřidlo v pravém smyslu, ale most k datům pro mista_deniku.py (Omega): podle něj se rozhoduje, do které galerie smí fotka jít. Chybný výpis by fotky poslal do prázdna, proto doklad patří sem."
-    },
-    "vyrob_omnivoice.shoda_lokalne": {
-      "test": "Omega/skripty/vyrob_omnivoice.py — dvoustupňová kontrola replik lokálním whisperem (změřeno ručně 7. 8. 2026, výstup v SAMOSTATNY-REZIM.md)",
-      "podvrh": "Replika useknutá v polovině (ffmpeg -t 5.2 z 10,5 s nahrávky) dá shodu 57 % modelem small a 63 % po přeměření modelem medium — pod prahem 80 %, tedy ZACHYCENA. Přesnější model chybějící řeč nedoplní, přeměření tedy kontrolu neoslabuje.",
-      "zdravy": "Deset hotových replik dílu gravitacni-sila-dialog: shody 81–100 %, žádný falešný poplach (0/10 pod prahem). Dvě hraniční (82 %, 81 %) po přeměření modelem medium 93 % a 83 % — chybu dělal přepis modelu small, ne nahrávka.",
-      "regrese": "Práh přeměření 0,90 a spodní mez PRAH_SHODY/2: pod ní se přeměřovat nemá (jasně rozbitá replika by jen brala čas), nad 0,90 taky ne (jasně dobrá). Kdyby se max() nahradilo hodnotou z medium bez porovnání, podvrh by pořád propadl (63 %) — brána drží."
-    },
-    "kontrast_snimku.py — čitelnost textů na schématech": {
-      "test": "~/Desktop/Omega/skripty/testy/test_kontrast_snimku.py",
-      "podvrh": "Bílá značka „H\" na světlé kuličce vodíku (1,3 : 1) i bílé „Au\" na zlaté (2,38 : 1) se najdou; drobný šedý popisek 2,82 : 1 taky. Není to vymyšlený podvrh — přesně tahle vada vznikla 8. 8. 2026 sjednocením barev atomů a skript přitom doběhl bez jediné hlášky.",
-      "zdravy": "Celá série „atomy a molekuly\" (21 kreseb, 257 textů) má 0 nálezů, a měřidlo přitom doopravdy měřilo — počet textů se v testu kontroluje, aby prázdný výsledek neprošel jako úspěch.",
-      "regrese": "Velký tučný oranžový nadpis (3,39 : 1) NESMÍ být nález — norma má pro velký text práh 3 : 1 a jediný společný práh 4,5 by odsoudil styl všech dosavadních snímků. Text na bílé plaketě nad tmavou kresbou se měří proti plaketě. Mutace prahů na nulu měřidlo oslepí a test to pozná.",
-      "overeno": "2026-08-08",
-      "poznamka": "Starší díly (před 8. 8. 2026) mají 242 textů z 1315 pod normou kvůli barvě SEDA #8a97a8 (2,82 : 1). Není to dnešní chyba, ale vlastnost projektu; přebarvení by znamenalo přerenderovat všechna nasazená videa. Nová série proto používá SEDA_TEXT #5c6b7f. Čeká na rozhodnutí učitele."
-    },
-    "vyrob_omnivoice.py — stálý hlas postavy napříč díly": {
-      "test": "~/Desktop/Omega/skripty/testy/test_stala_reference.py",
-      "podvrh": "Díl bez vlastní reference musí sáhnout po stálé nahrávce ročníku VČETNĚ jejího textu (jinak by ref_text neodpovídal tomu, co na nahrávce zazní). Prázdná nebo chybějící stálá nahrávka se nesmí použít — test to vynucuje podvrženým souborem o nulové délce. Test běží nasucho, syntéza je podvržená, takže měří rozhodovací logiku, kde vada byla.",
-      "zdravy": "Stálá reference ročníku 6 na disku má EVA 172 844 B a MAREK 155 564 B s texty; nový díl si ji vezme a syntézu vůbec nespustí.",
-      "regrese": "Díl, který UŽ svou referenci má (všechny díly do 8. 8. 2026), si ji musí podržet — jeho repliky jsou nadabované tím hlasem a přegenerování jediné z nich by pak vybočilo. Oprava tedy nesmí rozbít to, co fungovalo.",
-      "overeno": "2026-08-08",
-      "poznamka": "Vada nalezena měřením `vyska_hlasu.py` (autokorelace, zkalibrovaná na dílu s doloženými 245/151 Hz — dala 242/144 Hz). Reference se dřív vyráběla pro každý díl zvlášť: Eva 229–250 Hz, Marek 147–172 Hz. Trojice „atomy a molekuly\" má Marka 172 Hz, tedy o pětinu výš než starší díly — čeká na rozhodnutí učitele, jestli ji přegenerovat."
-    },
-    "vyrob_omnivoice.py — pojistka proti jalovému běhu": {
-      "test": "~/Desktop/Omega/skripty/testy/test_jalovy_beh.py",
-      "podvrh": "Když neprojde ani jedna z prvních pěti replik, běh se vzdá: syntéza běžela 15× místo 60× a zmetky se vůbec neslepily do MP3. Test to měří počtem skutečných volání syntézy, ne hláškou.",
-      "zdravy": "Zdravý běh (20 replik na první pokus) pojistku ani nezavadí — přesně 20 volání, žádné zastavení.",
-      "regrese": "Pár propadlých replik je běžný provoz a běh zastavit NESMÍ: se dvěma propadlými dílo doběhne celé, slepí se všech 20 replik a obě jsou vedené k ruční kontrole. Ověřen i hraniční případ — čtyři propadlé v řadě ještě nestačí.",
-      "overeno": "2026-08-08",
-      "poznamka": "Vzniklo z jalového běhu 8. 8. 2026: 60 replik za 40 minut, všechny tichý šum (shoda 0–18 %, hlasitost −39 dB proti obvyklým −26 dB). Kotva shody je poctivě nahlásila všechny, ale až na konci — skript mezitím dotočil dva další díly. Příčina zůstala NEVYJASNĚNÁ: běh startoval na 13 % baterie, jenže pokračoval i po dobití na 44 % a úsporný režim byl vypnutý; totéž zadání se napodruhé povedlo (Eva 252 Hz, Marek 152 Hz). O to spíš se musí poznat včas."
-    },
-    "pokryti_kvizu.py — trojice dílů a nosné slovo odpovědi": {
-      "test": "~/Desktop/Omega/skripty/testy/test_skupina_kvizu.py",
-      "podvrh": "Díl trojice posouzený SÁM neprojde (9 ze 14 otázek) a neúplná dvojice propadne na otázkách 'Co je směs?' a 'Co je sloučenina?'. Dokud brána měřila jen podíl slov, dvojice 'pokryla' 14 ze 14 — stačilo, že se v textu vyskytuje 'látka' a 'více'; jediná zmínka o směsi zněla 'příště si povíme, co jsou směsi'. Nosné slovo se hledá i v jiném pádě (smícháním × smícháme), nepříbuzné (směna, smích) se za shodu nepovažuje.",
-      "zdravy": "Nasazená trojice atomy-a-molekuly posouzená dohromady projde 14 ze 14. Kalibrace na 137 otázkách hotových dílů F6: zpřísnění posílá k modelu 2 otázky (1 %), tedy žádná záplava falešných poplachů. Scénář bez štítku 'skupina' zůstává sám, aby se dvě VERZE téhož dílu neslily.",
-      "kontrol": 12
-    },
-    "revize_automatu.py — opravená chyba není živý požár": {
-      "test": "~/Desktop/Omega/skripty/testy/test_revize_nalezu.py",
-      "podvrh": "Pád, jehož skript se od té doby NEZMĚNIL, se pořád hlásí jako chyba; změna skriptu PŘED pádem se za opravu nepovažuje.",
-      "zdravy": "Pád, jehož skript (nebo jím IMPORTOVANÝ modul) byl po chybě změněn, se přeřadí do 'Opraveno, čeká na ověření' — nezahodí se. Porovnává se ČAS: pád 00:33, oprava 09:58 téhož dne se uzná. Ostrý běh 8. 8. 2026: 0 nálezů, 2 čekají na ověření; reprodukce s chudým PATH potvrdila, že oba kroky doběhnou.",
-      "kontrol": 20
-    },
-    "vyrob_omnivoice.py — opravená věta se do zvuku opravdu dostane": {
-      "test": "~/Desktop/Omega/skripty/testy/test_zmena_textu_repliky.py",
-      "podvrh": "Replika, jejíž text se ve scénáři změnil (i o jediné slovo), se přegeneruje. Dokud se rozhodovalo jen podle existence souboru, skript ohlásil 'hotovo' a slepil do MP3 STARÝ text — velikost souboru zůstala bajt na bajt stejná. Živý případ 8. 8. 2026: Eva měla říct 'Tak jím zkus změřit tloušťku vlasu'.",
-      "zdravy": "Nezměněný text se přeskočí (jinak by se každý díl mluvil pořád dokola) a replika BEZ zapsané stopy se považuje za platnou, aby se nepřemluvilo 74 hotových replik trojice ani starší díly. Stopa se zapisuje jen u nově vyrobené nahrávky: dopsat ji u přeskočené by prohlásilo za shodné to, co nikdo neověřil, a příští oprava věty by se už nikdy nechytila.",
-      "kontrol": 6
-    },
-    "cesty-poloha.mjs": {
-      "test": "testy/cesty-poloha-obousmerne.mjs",
-      "podvrh": "Čtyři podvrhy nad kopií dat v paměti, každý se najde: pin téhož města 46 km vedle (skutečný případ Landshutu), místo z 25. 7. zapsané za místem z 26. 7. (falešná čára 321 km), datum mimo rozsah svého výjezdu, místo bez čísla výjezdu. Navíc doloženo na HISTORICKÝCH datech: nad stavem před opravou 9. 8. 2026 kontrola Landshut i Geisingen našla.",
-      "zdravy": "Nad všemi 274 místy v 8 rocích 0 nálezů; zdravá kopie se dvěma návštěvami téhož města na stejném bodě mlčí a pin o 5 km jinde (Stožec) se nehlásí. 16 kontrol v testu prochází.",
-      "kalibrace": "Tolerance se nastavovala NA PŘIJATÉ PRÁCI: při 3 km vracela 43 nálezů — samé rozdíly 4–8 km u Stožce, Horní Plané a Srní, kde pin vznikl z GPS fotky na okraji obce. Na 20 km ji posunul Gdaňsk (dva piny 18 km od sebe). Skutečné vady byly 45 a 35 km.",
-      "pocitadlo": "Kontrola vypisuje počet porovnaných dvojic poloh; klesne-li na nulu při nenulovém počtu míst, hlásí to sama. Vzniklo z vlastní chyby: první verze četla místa přes nactiCesty(), která souřadnice nevrací, takže měřila undefined a tiše hlásila nula nálezů."
-    },
-    "kontrola_dolozitelnosti.py — popis místa má doložený zdroj": {
-      "test": "~/Desktop/Omega/skripty/testy/test_kontrola_dolozitelnosti.py",
-      "podvrh": "Když se z KOPIE podkladů odebere doklad k místu, které popis má (Stožec), měřidlo skončí kódem 1 a vypíše právě ty čtyři výskyty (2019, 2023, 2024, 2025 — totéž místo pod týmž slugem ve víc letech); počet nedoložených i počet zbylých doložených sedí na kus. Záznam, který existuje, ale nemá věty ani přiznání, je nález stejně — nález nezachrání pouhá přítomnost záznamu.",
-      "zdravy": "Nad ostrými daty 245 popisů, 0 nálezů, kód 0 — a měřilo se doopravdy: počet zkoumaných popisů se v testu porovnává s daty webu, takže prázdný výsledek neprojde jako úspěch. `bez_zdroje: true` (ověřeno, že Wikipedie článek nemá) se počítá jako doložený stav a nálezem není — malé obce článek nikdy mít nebudou a měřidlo, které je hlásí donekonečna, se přestane číst.",
-      "regrese": "Počítadlo vstupů: když měřidlo nedostane ANI JEDNO místo s popisem (žádná data webu, nebo samá místa bez popisu), musí to být tvrdá chyba s hláškou „měří se prázdno\", ne tiché „vše v pořádku\" — tudy 9. 8. 2026 protekl `undefined`. Protějšek: jediné místo s popisem a s dokladem týmž pomocníkem projde, takže test nepadá vždycky. Podvrhy běží VÝHRADNĚ na dočasné kopii přes proměnnou FAKTA_MIST; že se podstrčený soubor opravdu čte, dokládá běh nad prázdným `{}` (245 nálezů), a otisk sha256 ostrého data/fakta-mist.json se před během a po něm porovnává. MUTACE (doklad, že samotná zkouška má zuby): slepé měřidlo (`stav_dolozeni` vrací vždy „vety\") podvrh přehlédne, měřidlo bez uznání `bez_zdroje` hlásí i přiznané obce a měřidlo bez počítadla vstupů přestane hlásit prázdno — všechny tři sabotáže běží na KOPII zdrojáku v dočasné složce a zkouška je pozná.",
-      "overeno": "2026-08-09",
-      "kontrol": 26
-    },
-    "simulace/oersted.mjs": {
-      "test": "testy/simulace/oersted.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Mutační test `node testy/mutace.mjs oersted`: první podoba testu měřila jen fyzikální model a odhalila 3 z 24 mutací. Po rozšíření o SCÉNU odhalí 11 z 24 a chytá všechny věcné vady: obrácená podmínka `smer === 1` (prohodila by značku ⊙/⊗ i šipky na indukčních čarách — žák by si pravidlo pravé ruky zapamatoval naopak), obrácené `odsazeni` (posuvník vzdálenosti by magnetku k vodiči naopak přibližoval), `I > 0` → `>=` u čar (pole by se kreslilo i bez proudu, přímo proti Oerstedovi), obrácený text tlačítka ZAPNOUT/VYPNOUT a rozejití poměru pod scénou s natočením střelky.",
-      "zdravy": "Nad hotovou komponentou prochází všech 40 kontrol ('✅ Oersted: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
-      "regrese": "Zbylých 13 mutací je kosmetika bez dopadu na výuku (opacity 0.75, tloušťka čáry, posun o 1 px, PX_NA_CM 28→29) a `uhel > 0` → `>=`, které se neprojeví: při nulové výchylce se ta věta vůbec nezobrazuje. Měřit je by znamenalo přibít pixely, ne učivo.",
-      "overeno": "2026-08-13"
-    },
-    "simulace/ucinnost-motoru.mjs": {
-      "test": "testy/simulace/ucinnost-motoru.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Mutační test `node testy/mutace.mjs ucinnost-motoru`: 9 ze 14 mutací. Chytá všechny věcné vady — změněná procenta účinnosti (pořadí turbína > spalovací > parní stroj a čísla 15/35 z výkladu), rozbité šířky pruhu (nesedly by s procenty ani nevyplnily 560 px) a hlavně sčítání→odčítání ve větě pod scénou: ta tvrdí „energie nikam nezmizí, jen se rozdělí“, takže špatný součet by učil zákon zachování energie na příkladu, který ho porušuje — a pruh by přitom byl v pořádku. Kalibrace testu samotného: první podoba měřila `width=` bez mezery a brala tloušťku obrysu (`stroke-width=\"3\"`) jako šířku dílu, takže hlásila 572 z 560 px.",
-      "zdravy": "Nad hotovou komponentou prochází všech 39 kontrol ('✅ Účinnost motoru: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
-      "regrese": "Zbylých 5 mutací je kosmetika bez dopadu na výuku: posun popisku o pixel (`x + sirka/2`), tučnost popisku, počátek pruhu X0. Měřit je by znamenalo přibít pixely, ne učivo.",
-      "overeno": "2026-08-13"
-    },
-    "simulace/kolobeh-vody.mjs": {
-      "test": "testy/simulace/kolobeh-vody.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Mutační test `node testy/mutace.mjs kolobeh-vody`: 12 z 22 mutací. Chytá všechny věcné vady — rozbitý součet dílů (scéna by učila pravý opak toho, co má výklad označený jako běžný omyl: že se voda v koloběhu nespotřebovává), obrácený vliv Slunce (voda ve vzduchu by s ním ubývala a ledovce narůstaly), zmizelé popisky přeměn i rozejití počitadla se scénou. Slabinu samotného testu odhalila mutace `CELKEM = 100` → 101: test si celek bral z komponenty, takže by přijal jakékoli číslo — doplněna zkouška na kulatých 100.",
-      "zdravy": "Nad hotovou komponentou prochází všech 33 kontrol ('✅ Koloběh vody: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
-      "regrese": "Zbylé mutace jsou kosmetika bez dopadu na učivo: rozmístění a délka slunečních paprsků, měřítko oblaku, znění hlášky u nejsilnějšího Slunce.",
-      "overeno": "2026-08-13"
-    },
-    "simulace/vnitrni-energie.mjs": {
-      "test": "testy/simulace/vnitrni-energie.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Ruční podvrh na KOPII mimo repo (scratchpad, otisk originálu md5 před i po shodný 80fc3d16…): `vnitrni: n * naCastici` → `n * naCastici + n * v`, tedy přesný opak učiva — vnitřní energie by rostla s rychlostí celého tělesa. Test spadl (exit 1) a pojmenoval to pěti nálezy naráz: rozešla se vnitřní energie stojící a jedoucí kostky, přeměna při tření přestala sedět na jednotku, sloupec vnitřní energie se rozjetím pohnul (102 → 133 px) a rozepsaný součin v počitadle přestal platit (10 × 33 = 380). K tomu mutační test `node testy/mutace.mjs vnitrni-energie`: 17 z 21 mutací odhaleno — chytá i obrácený posun kostky (couvala by proti své šipce), obrácené podmínky u popisků (stojící kostka by hlásila jízdu) a rozejití stropu přehřátí s maximem posuvníku.",
-      "zdravy": "Nad hotovou komponentou prochází všech 78 kontrol ('✅ Vnitřní energie: vše sedí.', exit 0) a brána končí bez nálezu; testy simulací hlásí 20 souborů, 1219 kontrol, 0 spadlo.",
-      "regrese": "Zbylé 4 mutace jsou kosmetika bez dopadu na výuku: tvar hrotu šipky o pixel, posun kostky o pixel a hranice barvy `t <= 100` → `101`, která leží mezi dvěma hodnotami posuvníku (kroky po 10 °C), takže se nemá jak projevit.",
-      "overeno": "2026-08-13"
-    },
-    "simulace/tuhnuti.mjs": {
-      "test": "testy/simulace/tuhnuti.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a6b54010… před i po shodný): během tuhnutí teplota místo stání nenápadně klesá (`teplota: tuhne` → `tuhne - cas`). V grafu by to skoro nebylo poznat, ale scéna by učila pravý opak výkladu. Test spadl (exit 1) a vypsal to po vzorcích: „po 4 minuty stojí teplota na −4 °C (−4, −5, −6, −7)\". K tomu mutační test `node testy/mutace.mjs tuhnuti`: 18 z 20. Chytá i rozejití měřítka s popisky os (obojí se čte z HTML, ne z komponenty), zkrácení či prodloužení tuhnutí (pokus pak neskončí na −20 °C) a obrácené podmínky u popisků sklenice a hlášek.",
-      "zdravy": "Nad hotovou komponentou prochází všech 72 kontrol ('✅ Tuhnutí: vše sedí.', exit 0) a brána končí bez nálezu.",
-      "regrese": "Zbylé 2 mutace jsou kosmetika: poloha popisku ledu o pár px a průhlednost zvýrazněného pruhu. Zvlášť doloženo, že se test neumí ZASEKNOUT: podvrh s −Infinity (`-5 * sul` → `-5 / sul`), na kterém dřív visel bez konce, teď spadne hned první kotvou o hranicích úseků.",
-      "overeno": "2026-08-13"
-    },
-    "simulace/kondenzace.mjs": {
-      "test": "testy/simulace/kondenzace.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a2172f51 před i po shodný): voda by při dopadu taky 'kondenzovala' (voda.kondenzace 0 → KONDENZACE*m) — přesný opak učiva, obě strany by predaly stejně. Test spadl (exit 1). K tomu mutační test `node testy/mutace.mjs kondenzace`: 19 z 20 — chytá mj. rozdílné měřítko sloupců (měří se na skutečně vykreslených obdélnících proti literálům 2260 a 273, ne proti komponentě), 0 J kreslené jako proužek, rozpor slov s čísly a špatný pád ve výpočtu pro žáka. Nezávislý kontrolor prošel fyziku, soulad s výkladem, 10 stavů scény i test — jeho 4 nálezy (pád, mrtvá proměnná, 418 vs 420 kJ, komentář o poměru) opraveny a doměřeny.",
-      "zdravy": "Nad hotovou komponentou prochází všech 181 kontrol ('✅ Kondenzace: vše sedí.', exit 0).",
-      "regrese": "Jediná neodhalená mutace je kosmetika: posun účaří popisku uvnitř obdélníku o 10 px (komentář u kontroly).",
-      "overeno": "2026-08-13"
-    },
-    "simulace/vznik-elektrickeho-proudu.mjs": {
-      "test": "testy/simulace/vznik-elektrickeho-proudu.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Mutační test `node testy/mutace.mjs vznik-elektrickeho-proudu`: 23 z 24 (jediná neodhalená mutace mění text v komentáři zdroje, bez vlivu na chování). Worker při stavbě odhalil i past vlastního měřidla: test chvíli padal výjimkou a mutační nástroj proto falešně hlásil 24/24 — měřidlo teď chybějící číslo pojmenuje a čistě selže. Podvrh na kopii (překryv popisku materiálu s popiskem řezu) test shodí.",
-      "zdravy": "Nad hotovou komponentou prochází všech 156 kontrol (exit 0).",
-      "regrese": "Smyčka s nezávislým kontrolorem uzavřena na 0 nálezů (6 → 2 → 1 → 0): opraveno počitadlo roztoku (12 doprava a 12 doleva), AC hláška pro oba druhy iontů, svorky bez znamének při 0 V, efektové kontroly posluchačů všech čtyř posuvníků (mrtvý posluchač padá), dovětek izolantu větvený podle napětí. Mutační test 24/25 — jediná neodhalená mutace mění komentář ve zdroji.",
-      "overeno": "2026-08-13"
-    },
-    "simulace/galvanicky-clanek.mjs": {
-      "test": "testy/simulace/galvanicky-clanek.mjs (spouští testy/vsechny-simulace.mjs)",
-      "podvrh": "Podvrh na KOPII mimo repo (otisk originálu 1d4905e041bf8babd35bcd1a2f866e06 před i po shodný, kopie d5856ab352a4fc76bac37a9411426845): 3× prohozena záporná elektroda na tu UŠLECHTILEJŠÍ (minus: e1 → e2), tedy přesný opak učiva — dítě by se naučilo polaritu naopak. Test spadl (3 chyby, exit 1). K tomu mutační test node testy/mutace.mjs galvanicky-clanek: 25 z 25. Cesta k němu: první podoba měla 21/25 (neviděla obrácenou polaritu v TEXTU hlášky, jen barvu odznaku, a tři souřadnice kresby), po dvou kolech oprav 24/25 a po odstranění nedosažitelné záložní větve v geometriePack 25/25.",
-      "zdravy": "Nad hotovou komponentou prochází všech 111 kontrol ('✅ Galvanický článek: vše sedí.', exit 0). Brána testy/sablony.mjs 0 nálezů.",
-      "regrese": "Brána zkontroluj.mjs odhalila, co test se 104 kontrolami neviděl: pád na cells[cells.length-1].xNubEnd při neplatném počtu článků shodil celý skript simulace. Opraveno obrannou funkcí platneCislo() a kontrolou odolnosti; záložní větev pak odstraněna, protože mrtvý kód uniká mutačnímu testu.",
-      "overeno": "2026-08-14"
-    },
-    "liga-tabule.mjs": {
-      "test": "testy/liga-tabule.mjs (spouští se samostatně: node testy/liga-tabule.mjs)",
-      "podvrh": "Podvrh na KOPII mimo repo (otisk originálu 73ae1ee520d20361ecd834f79e6c2ff9 před i po shodný): vráceno staré zranitelné chování — role tabule se získá rovnou z URL (?role=tabule) bez klíče. Test spadl: 9 chyb z 19 kontrol, mimo jiné padla kontrola „znalost čtyřpísmenného kódu k řízení hry NESTAČÍ\".",
-      "zdravy": "Nad opraveným worker.js prochází všech 19 kontrol (exit 0): tabule bez klíče nerozešle nic, se špatným klíčem dostane zamítnuto a spojení se zavře, tým se klíčem nepovýší, po 5 pokusech je místnost dočasně zavřená, klíč se týmům nikdy neposílá.",
-      "regrese": "Při psaní testu se našla skutečná vada v novém kódu: načtení klíče ze storage v konstruktoru mohlo přepsat klíč právě zapsaný zakládáním místnosti (v Cloudflare by to blockConcurrencyWhile zakryl, v testu ne). Opraveno podmínkou, aby se uložený klíč nepropsal přes už nastavený.",
-      "overeno": "2026-08-14"
-    },
-    "simulace/elektricka-prace-a-vykon.mjs": {
-      "test": "testy/simulace/elektricka-prace-a-vykon.mjs (108 kontrol, spouští se s cestou ke komponentě)",
-      "podvrh": "Dva podvrhy na KOPII ve scratchpadu, originál netknutý (md5 5d09af4a86fd2ce827f42b6e58c2dc7a před i po). (1) Příkon konvice 2000 W → 2100 W: test hlásí 2 chyby ('čekal jsem příkon 2000 W, mám 2100 W' + text scény). Chytá to proti NAPEVNO zapsané tabulce příkonů, ne proti hodnotě z komponenty. (2) Paprsky žárovky v části B prodlouženy jen u jedné (46 → 60): test hlásí 'paprsky mají u obou PŘESNĚ stejné souřadnice' — tedy odhalí, že by scéna dětem tvrdila 'víc wattů = víc světla', což je právě to, co má část B vyvracet. (3) Panel scény B posunut z y=365 na y=350 (kopie ve scratchpadu): test hlásí 3 nálezy — rozpor s konstantou PANEL_B.y, nezávislé ověření polohy panelu a mezeru 5 px pod požadovaných 15 px. Tenhle podvrh je kalibrace PO opravě měřidla: první podoba kontroly hledala bílý <rect> v celém souboru a našla panel scény A (y=230), takže hlásila falešný překryv −115 px u scény, která byla v pořádku. Nově se panel hledá výhradně uvnitř <svg id=\"epv-b-svg\">. (4) Po nálezu kontrolora, že graf lhal (poměr výšek 1,08 místo 10 při t=1–9 h), přibyla kontrola měřící PŘÍMO vykreslený <rect> v #epv-b-sloupce ve všech 24 polohách bez jediného continue. Kalibrace dvěma podvrhy na kopii: pevný strop místo dynamického měřítka → chyceno; a LED sloupec vynásobený 3× (výška staré žárovky přitom zůstane správných 130 px, rozbitý je JEN poměr) → chyceno přesnou hláškou 'poměr 3.33, čekal jsem 10 ± 0,2'. Druhý podvrh je důležitější: dokazuje, že kontrola měří poměr, ne jen vyplnění výšky.",
-      "zdravy": "Nad skutečnou komponentou 108 kontrol, 0 chyb. Změřeno nezávisle na testu vyrenderováním scény pro t=1/5/24 h: stará 130,0 px, LED 13,0 px, poměr přesně 10,00 ve všech třech.",
-      "regrese": "Cena 5 Kč/kWh a dvojice 100 W / 10 W musí zůstat shodná s výkladem v temata.ts a s kvízem — rozpor mezi simulací a výkladem na jedné stránce žádné jiné měřidlo nehlídá (past z kola D1). POZOR na tichou past: 14. 8. worker zavedl parametr dynamického měřítka do vyskaSloupceB/geometrieSloupceB, ale volání v prekresliB nechal se dvěma argumenty — komentář v hlavičce opravu podrobně POPISOVAL, kód ji nedělal a test byl zelený. Odhalilo to jen měření vykresleného <rect>. Proto se poměr měří z renderu, nikdy z pure funkce.",
-      "overeno": "2026-08-14"
-    },
-    "simulace/ucinky-proudu-a-bezpecnost.mjs": {
-      "test": "testy/simulace/ucinky-proudu-a-bezpecnost.mjs (161 kontrol, spouští se s cestou ke komponentě)",
-      "podvrh": "Dva podvrhy na KOPII ve scratchpadu, originál netknutý. (1) Odpor mokré kůže po průrazu 1 000 → 5 000 Ω: test hlásí 3 nálezy — rozpor s hodnotou z výkladu, porušené pořadí odporů (suchá > vlhká > mokrá) a hlavně že kombinace zásuvka+mokrá kůže spadla z pásma „zástava srdce\" do „křeč dýchacích svalů\". (2) Ve varování u zásuvky přepsáno „nikdy nezkoušet!\" na „zkus si to doma!\": test hlásí, že ve varovacím boxu chybí slovo „nikdy\", a to zvlášť pro suchou i mokrou kůži. Druhý podvrh je bezpečnostní kotva — u tohohle tématu je ztráta výstrahy horší než chyba ve výpočtu. (3) Po nálezech kontrolora 14. 8. přibyly kontroly TEXTŮ, které dítě čte — do té doby test měřil jen čísla v konstantách a prošlo mu SEDM podvrhů (mj. varování „Zásuvka skoro nikdy neublíží“, pásmo „zástava srdce“ přejmenované na „nepříjemné brnění“, rada „odtrhni holou rukou“, vzorec počítající 10× větší proud). Znovu změřeno po opravě: varování → 15 nálezů, přejmenované pásmo → 2 nálezy, nebezpečná rada jako název pásma → chyceno hláškou „čekal jsem přesně ‚křeč dýchacích svalů‘“. Texty se porovnávají s NEZÁVISLE napsanou tabulkou v testu, ne samy se sebou.",
-      "zdravy": "Nad skutečnou komponentou 161 kontrol, 0 chyb. Ověřeno i pohledem na render všech tří cest: dráha proudu vede viditelně přes srdce (kreslí se NAD tělem), u odhadnutých odporů je „≈“, varování „230 V je nebezpečné VŽDY / nikdy nezkoušet“ je v obrázku obou scén.",
-      "regrese": "Znění varování se hledá bez ohledu na velikost písmen a na tvar slova (`/nikdy/i`) — první podoba testu hledala `/NIKDY/` a řetězec „nikdy nezkouší\", zatímco komponenta má „nikdy nezkoušet\", takže hlásila 3 falešné poplachy nad zdravým souborem. Nad češtinou nepoužívat `\\b` (v JS je jen ASCII). NEBEZPEČNÁ NEPRAVDA, kterou našel až kontrolor: volba „jedna ruka“ hlásila u postavy stojící bosky na zemi I = 0 mA a šedé pásmo „bezpečné“, ačkoli část A na téže stránce obvod uzavírá právě nohama do země. Volba je zrušena a nahrazena volbou „izolace“, kde je bezpečnost podmíněna VIDITELNOU gumovou podložkou; test hlídá, že klíč „jedna-ruka“ se nevrátí a že „ruka → noha“ nikdy nevyjde bezpečně.",
-      "overeno": "2026-08-14",
-      "podvrh_texty_14_8": "Do VIDITELNEHO textu sceny (mimo <script>) vlozena veta 'Sucha kuze ma tak velky odpor, ze te spolehlive ochrani i u zasuvky — suchou rukou se da klidne dotknout dratu.' PRED opravou test tuto vetu PROPUSTIL (kontrolor 14. 8.: exit=0, 161x ✅, 0x ❌) — zakazane fraze se poustely jen na dynamicky vykreslene texty. PO oprave test pada spravnou hlaskou: '❌ statické HTML (mimo <script>) obsahuje zakázanou frázi /klidn[ěe].{0,25}dotk/i'. Podvrh delan na kopii mimo repo.",
-      "zdravy_14_8": "Nad neporusenou komponentou test prochazi cely ('✅ Účinky proudu na člověka, bezpečnost: vše sedí.'), sablony.mjs 0 nalezu."
-    },
-    "simulace/magnety-opakovani.mjs": {
-      "podvrh": "Do VIDITELNE sablony komponenty (mimo frontmatter) vlozeno 'feromagnetické (poznáš je kompasem)' — tedy pojem 6. rocniku, ktery v devitkovem opakovani byt nema. Test to chytil PRAVE tou kontrolou: '❌ scéna neplete opakování s kompasem/magnetkou (to je látka 6. ročníku)', celkem 1 chyba. Podvrh delan na KOPII mimo repo (scratchpad), repo nedotceno.",
-      "zdravy": "Nad neporusenou komponentou src/components/skola2/MagnetyOpakovaniSimulace.astro projde 84 kontrol, vystup '✅ Magnety — opakování: vše sedí.'",
-      "poznamka": "14. 8. 2026: puvodni podoba meridla merila cely zdroj vcetne Astro frontmatteru, takze hlasila 2 chyby kvuli AUTOROVU KOMENTARI, ktery ta slova prave ZAKAZUJE (falesny poplach). Opraveno tak, ze 'html' odecita i frontmatter — meri se jen to, co dite skutecne vidi. Prvni podvrh navic nahradil prvni vyskyt slova, ktery lezel prave v komentari, a proto se nechytil; platny podvrh musi mirit do sablony."
-    },
-    "simulace/razeni-clanku.mjs": {
-      "test": "testy/simulace/razeni-clanku.mjs",
-      "podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenena cista funkce stavA: napeti = pocet*napeti_clanku + 5 (posun o 5 V navic). Test to chytil 11 chybami — mj. '❌ 4 suché články = 6 V (mám 11)' a '❌ voltmetr ukazuje 6 V: ... Celkem: U = 11 V', konec kodem 1.",
-      "zdravy": "Nad neporusenou src/components/skola2/RazeniClankuSimulace.astro projde vsech 40 kontrol (scena A razeni clanku i scena B proud elektronu/iontu), vystup '✅ Řazení článků: vše sedí.', kod 0.",
-      "overeno": "2026-08-15"
-    },
-    "simulace/premeny-energie.mjs": {
-      "test": "testy/simulace/premeny-energie.mjs",
-      "podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenen vypocet ve scene B: elektrickaPx = VYSKA_CELKEM_PX - tepelnaPx + 5 (posun o 5 px navic, poruseni zakona zachovani energie). Test to chytil 5 chybami — mj. '❌ zbývá 4 díly elektrické, celé číslo (mám 4.25)' a chybami v invariante souctu vysek, konec kodem 1.",
-      "zdravy": "Nad neporusenou src/components/skola2/PremenyEnergieSimulace.astro projdou vsechny kontroly (scena A vyber zarizeni + smer premeny, scena B invarianta zachovani energie pres mrizku cilu a casu i nad vykreslenym SVG, obranne cteni indexu a cile), vystup '✅ VŠECHNY TESTY PROŠLY', kod 0.",
-      "overeno": "2026-08-15"
-    },
-    "simulace/retezova-reakce.mjs": {
-      "test": "testy/simulace/retezova-reakce.mjs",
-      "podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenen NASOBEK u nerizene reakce z 2 na 1.5 (poruseni exponencialniho zdvojnasobovani i celociselnosti). Test to chytil 8 chybami — mj. '❌ generace 5 u neřízené: 5.0625 (2^4 = 16 ...)', necela cisla v poctech i celkovem souctu, rozdil rizena/nerizena uz neni radovy, konec kodem 1.",
-      "zdravy": "Nad neporusenou src/components/skola2/RetezovaReakceSimulace.astro projdou vsechny kontroly (scena A stepeni krok po kroku vc. vykresleni SVG, scena B rizena=linearni vs. nerizena=exponencialni rustova posloupnost, celociselnost vsech hodnot, texty na displeji sedi s vypoctem), vystup '✅ VŠE V POŘÁDKU', kod 0.",
-      "overeno": "2026-08-15"
-    },
-    "rozvrzeni-sceny.mjs": {
-      "test": "testy/rozvrzeni-sceny-obousmerne.mjs",
-      "podvrh": "A) rámeček popisku posunutý z x=300 na x=0 → '❌ <rect> přetéká plátno vlevo o 1.8 px — obdélník [0, 28]–[60, 92] (+ obrys 1.8 px)', konec kódem 1. B) plátno rozšířené na viewBox 0 0 1100 380 při stejném obsahu → '⚠️ obsah zabírá jen 38 % šířky plátna (x 180–599.5 z 1100)'. ZPĚTNÁ KOTVA NA SKUTEČNÉ VADĚ (ověřil koordinátor 14. 8. 2026): nasazená verze MagnetyOpakovaniSimulace z commitu f30767b (git show do /tmp, repo netknuto) → měřidlo najde obě vady, které téhož dne našel člověk pohledem na render: '<rect> přetéká plátno vlevo o 0.8 px — obdélník [0, 240]–[280, 262]' a 'obsah je natlačený doleva — střed obsahu je o 17 % šířky mimo střed plátna (x 0–440 z 660)'.",
-      "zdravy": "Nezměněná kopie ArchimedesSimulace: '0 tvrdých chyb, 0 varování, ✅ Rozvržení scén v pořádku', kód 0. Nad 106 nasazenými simulacemi (bez právě opravovaných magnetů) 89 scén / 1259 změřených prvků a jen 6 tvrdých chyb + 1 varování — všech 6 jsou skutečné vady ověřené ve zdroji (Alternator text x=644 'otáčka' ve viewBoxu 660, Dioda x=644 'U (V)', Hustota x=428 'hladina' ve viewBoxu 460, Barvy #barvy-pocitac 55 znaků na střed x=540, Oko #oko-predmet-pop levý okraj −4,2 px, Klonovani text y=349 na plátně 350).",
-      "regrese": "První verze měřidla hlásila 60 tvrdých chyb — zavedený styl webu NENÍ chyba. Nálezem proto NESMÍ být: pruh přes celou šířku/výšku (nebe, zem, hladina, stůl, podzemí) sedící na okraji, úsečka nebo lomená čára končící na okraji (obrys se počítá jen u uzavřených tvarů), prvek bez rozměru nebo vystředěný přesně na počátek [0,0] (zástupka, kterou posouvá až animace — náhled ji nespouští) a atribut psaný astro výrazem `x={55 + (i % 5) * 36}`, ze kterého by vyšla nula (jinak by displej micro:bitu 'přetékal' v rohu). Mutace prahů (dotykOkraje, celoplosnyPodil, rezervaTextu) nebo návrat obrysu k otevřeným tvarům tyhle plané poplachy vrátí. Kontrola B se nepouští na scény pod 8 změřených prvků — u scén kreslených animací (Honička, TabulkaVzorce, Vlnění) by 'prázdné plátno' bylo falešné. DOSAH NENÍ ÚPLNÝ: 21 ze 106 komponent se nezměří (12 nemá <svg>, 8 padá v sandboxu náhledu, 1 nemá viewBox) — hlásí se jako 'nevykresleno' a jejich mlčení NENÍ důkaz pořádku.",
-      "overeno": "2026-08-14"
-    },
-    "uniky-krizove.mjs": {
-      "test": "testy/uniky-krizove-obousmerne.mjs",
-      "podvrh": "Do bloku o délce v 6. ročníku se vloží otázka na napětí ploché baterie (4,5 V), která tam nepatří → měřidlo ji najde jako dvojici proti 8. i 9. ročníku ('✅ podvrh nalezen'). KALIBRAČNÍ KOTVA NA SKUTEČNÉM NÁLEZU (ověřil koordinátor 14. 8. 2026): měřidlo najde všech 6 dvojic F8 × F9, které dřív ručně našel nezávislý kontrolor — mj. dvakrát doslova totožné znění o ploché baterii, 'odpor kovu při zahřátí' dvakrát, zinková elektroda dvakrát a dvakrát táž odpověď '12 V'.",
-      "zdravy": "Past na záměnu podobných pojmů: 'Co je elektrostatická indukce?' × 'Co je elektromagnetická indukce?' má 100 % shodných slov, ale různé odpovědi → měřidlo mlčí ('✅ mlčí správně'). Nad celým webem 2123 otázek ze 150 bloků, 2 237 408 dvojic, z toho 438 se shoduje v jádru odpovědi a jen 87 se nahlásí.",
-      "regrese": "První verze vracela 163 dvojic a ocas byl planý (spojovala 'rychlost 2×' se 'součtem 4' přes sdílenou číslici). Nálezem proto NESMÍ být: číslo bez jednotky, shodný výsledek dvou různých výpočtů (zadání nese jiná čísla), ani slovní odpověď spojená JEDINÝM společným slovem (jinak se 'lithiový' pojí přes 'článek'). Jediné společné slovo stačí pouze u vzácné číselné hodnoty S JEDNOTKOU — na té stojí nejtěsnější platný nález (autobaterie 12 V × norma 12 V, krytí 18 %). Hodnoty se čtou i s jednotkou, protože normalizace by z '4,5 V' udělala '4 5 v' a '4,5 V' by splynulo s '5,4 V'. České hranice slov: `\\b` se nepoužívá vůbec (zná jen ASCII), slova se porovnávají společným prefixem ≥ 4 znaky a ≥ 55 % délky delšího — doloženo: 'tuzkovy × kov = různá slova', ale 'odpor × odporem = totéž' a 'elektrostaticka × elektromagneticka = různá' (pevný kmen 4 znaků, jaký má uniky.mjs, by je splynul).",
-      "overeno": "2026-08-14"
-    }
-  }
+	"_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
+	"_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá. | 4. 8. 2026: rohatka rozšířena i na testy/simulace/ (nález auditu — 16 testů simulací bylo mimo kontrolu); dnešní dluh 14 zapsán, nový test simulace bez důkazu už bránou neprojde. Dluh splácet podle fronty (mutační díry nejdřív).",
+	"_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
+	"bezDokladu": 14,
+	"meridla": {
+		"uniky.mjs": {
+			"test": "testy/uniky-obousmerne.mjs",
+			"podvrh": "Vložená duplicitní otázka ('Co je fyzika?' dvakrát) i únik odpovědi (vysvětlení u vlhkoměru odpovídá na otázku o anemometru) se najdou; brána na nich končí kódem 1. Navíc ověřeno na HISTORICKÝCH datech: nad verzí kvízů před opravou 31. 7. najde 4 duplicity, mezi nimi dvakrát doslova tutéž otázku.",
+			"zdravy": "Nad dnešními daty 0 duplicit a 39 úniků, brána končí '✅ Vše zapojené správně.'; 15 kontrol v testu prochází.",
+			"regrese": "Součástí testu jsou konkrétní falešné poplachy první verze: dvojice lišící se jen číslem (0 °C × 100 °C, 120 min × 7200 s) a sdílený odborný pojem ('hmotnost') NESMÍ být nález. Mutace prahů to shodí.",
+			"overeno": "2026-08-02"
+		},
+		"cisla-ve-vykladu.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Odpověď '1013 hPa' u výkladu, kde číslo 1013 není, se najde.",
+			"zdravy": "Týž kvíz s číslem doplněným do výkladu nehlásí nic.",
+			"regrese": "Výsledek početní úlohy (zadání obsahuje čísla) a malá čísla ('3 druhy čípků') nesmí být nález — to byla příčina 20 falešných poplachů z 34 nálezů 1. 8. Mutace MALE=0 i vypnutí početní výjimky test shodí.",
+			"overeno": "2026-08-02"
+		},
+		"nazvy-bloku.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Neexistující český název bloku ('pero dolů') se najde ve výkladu i v kvízu. ROZŠÍŘENO 3. 8. 2026: podvrh „pokud ⟨y < -160?⟩ tak\" + „nastav x na (náhodnou hodnotu)\" v KlonovaniSimulace → 2 nálezy (otisk souboru se podvrhem změnil d6c0ace… → eea8e8d…, po obnově zpět na d6c0ace…, takže měřidlo měřilo opravdu tenhle soubor). ROZŠÍŘENO 5. 8. 2026 o MakeCode a VEXcode: podvrhy „ukaž číslo\", „ukaž ikonu (vykřičník)\" a „drive for 30 cm\" měřidlo najde, zdravé tvary (zobraz číslo, čekej ms, drive for 300 mm, „vzdálenost > 10 cm\" ve větě) mlčí — testy/meridla-obousmerne.mjs (54 → 60 kontrol). Důkaz komponentové cesty: první ostrý běh našel 4 SKUTEČNÉ vady (ukaž řetězec + odešli řetězec v MicrobitRadioSimulace, blok „pauza 400 ms\" ve výkladu i kvízu) — po opravě 0 nálezů.",
+			"zdravy": "Správné názvy z české palety ('pero zapni', 'smaž') nehlásí nic. Po obnově zdravých tvarů („když ⟨ ⟩ tak\", „náhodné číslo od … do …\") opět 0 nálezů.",
+			"regrese": "Mimo celky, kde se programuje ve Scratchi, se nehlídá nic — jinak by 'pero dolů' ve fyzice bylo nálezem. Mutace, která hlídání rozšíří na celý web, test shodí. ROZŠÍŘENO 2. 8. 2026: měřidlo nově čte i KOMPONENTY SIMULACÍ (do té doby jen výklady a kvízy z dat, takže dvě nové simulace beztrestně učily „jdi 10 kroků\" a „když na okraji, odraz se\" — obojí v české paletě neexistuje, a brána byla zelená). Ověřeno podvrhem s kontrolou OTISKU souboru: první verze rozšíření podvrh NENAŠLA, protože na zdrojový kód pouštěla `text()`, který maže vše mezi „<\" a „>\" a v JS podmínce (`i < 80`) spolkne celé řádky. Nově se HTML a řetězce z kódu čtou zvlášť. ROZŠÍŘENO 3. 8. 2026 po nálezu kontrolora: měřidlo nemělo vzor pro „pokud ⟨⟩ tak\" ani pro „náhodnou hodnotu\", takže obojí prošlo se zelenou bránou. Nové vzory se schválně ptají na TVAR BLOKU (závorka s podmínkou + „tak\"/„pak\"), aby nehlásily běžnou českou větu — ověřeno, že mlčí nad „pokud chceš, zkus to znovu\", „pokud (a) platí, program pokračuje\" i nad makecodovým „pokud zrychlení (y) > 500 pak\". ZNÁMÁ MEZERA: měřidlo hlídá jen Scratch. Názvy bloků MakeCode (micro:bit) a VEXcode nekontroluje NIC — kontrolor v nich 3. 8. našel neexistující „ukaž ikonu (šipka doleva)\" a jednotku cm, kterou VEXcode IQ nemá.",
+			"overeno": "2026-08-05"
+		},
+		"nazornost.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Neznámý druh materiálu ('gif') se najde jako chyba, ne jako ticho.",
+			"zdravy": "Známé druhy (infografika, youtube, pdf) nehlásí nic.",
+			"regrese": "PŘÍMO TA HISTORICKÁ VADA: 'infografika' se MUSÍ počítat jako obrázek a hodnota 'obrazek' nesmí ve slovníku existovat — původní měřidlo hledalo 'obrazek', který v datech není ani jednou, takže infografiky nikdy nezapočítalo. Mutace slovníku test shodí (2 kontroly).",
+			"overeno": "2026-08-02"
+		},
+		"kratke-vyklady.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Krátký výklad bez obrázku, videa i simulace je označen za hluchou stránku.",
+			"zdravy": "Dlouhý výklad, krátký výklad se simulací i krátký výklad s infografikou hluché nejsou (tři různé důvody, tři kontroly).",
+			"regrese": "HTML značky se do délky nepočítají — jinak by `<strong>` udělal z krátké stránky dlouhou. Mutace odstraňování značek test shodí.",
+			"overeno": "2026-08-02"
+		},
+		"mapa-popisky.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Dva popisky ležící na sobě mají nenulovou plochu překryvu.",
+			"zdravy": "Vzdálené popisky mají překryv 0; nad daty webu 186 pohledů a 0 nálezů.",
+			"regrese": "Rámeček musí růst s délkou jména, jinak by dlouhý název ('Vaulnaveys-le-Haut') nikdy nepřetekl — a přesně ten popisek přetékal ve všech čtyřech jazycích. Mutace na konstantní šířku test shodí.",
+			"overeno": "2026-08-02"
+		},
+		"sablony.mjs": {
+			"test": "testy/meridla-obousmerne.mjs",
+			"podvrh": "Skript komponenty se SPOUŠTÍ nad DOMem ze skutečné šablony, takže se chybějící prvek najde bez ohledu na způsob zápisu: getElementById, zkratka $(id), querySelector('#x'), backticky, složený selektor, <script is:inline> i kód uvnitř obsluhy kliknutí a DOMContentLoaded. Kotva nad SKUTEČNOU komponentou: po smazání id ze šablony PakaSimulace (kterou regexová verze neviděla vůbec) měřidlo nález hlásí a brána končí kódem 1.",
+			"zdravy": "Nad všemi 78 komponentami 0 nálezů. Pokrytí měřeno kontrolorovou metodou: z 983 vyhledání mířících na prvek ze šablony se jich 977 (99,4 %) prokazatelně změří - smazání toho prvku se odhalí.",
+			"regrese": "(1) Prvky, které si kód vyrábí za běhu (className, classList.add, innerHTML, insertAdjacentHTML), NESMÍ být nález - ale jen když se prvek do stránky opravdu vloží. (2) Chybějící prohlížečové API (canvas, performance, style.setProperty, children[0], getElementsByClassName, window.AudioContext) nesmí skript shodit. (3) Nedoběhlý skript nálezem BÝT MUSÍ. (4) Zakomentovaná scéna se nepočítá jako existující. (5) Dynamické class={} nesmí umlčet kontrolu id. (6) Dva bloky <script> se nesmí slepit do jednoho rozsahu. (7) Brána končí chybou, když se v některé komponentě nezměří ani jedno vyhledání.",
+			"mez": "Změřit jde jen kód, který se opravdu provede. Šest vyhledání (ElektromotorSimulace emo-f-*, OkoSimulace oko-bryle-*, PrumerSimulace prum-novy) je ve větvích, kam běh při načtení nedojde. Měřidlo také nehlídá překlep v názvu prohlížečové metody - neznámé API atrapa tiše obslouží.",
+			"duvod": "První verze hledala volání regulárními výrazy a 270 z 945 vyhledání nebylo měřeno vůbec; druhá měřila jen kód doběhlý při načtení a přišla o dalších 32. Záplatovat vzor po vzoru je nekonečné, proto se měří výsledek spuštění.",
+			"overeno": "2026-08-02"
+		},
+		"simulace/funkce-tabulky.mjs": {
+			"test": "testy/podvrhy/funkce-tabulky-podvrhy.mjs",
+			"podvrh": "24 mutací komponenty na kopii v dočasné složce — texty vzorců (mez v hlavičce 4→3, rozsah B2:B8, anglická čárka, =PRUMER bez háčků, prohozený popisek MIN, prohozené popisky přepínače, smyšlený chybový kód), přístupnost (scope pryč, 1. pád v aria-label, bledá šrafa #dee2e6 = 1,30 : 1, bledá mřížka #f8f9fa) a naučné texty (text prý MENŠÍ než číslo, MIN/MAX prý hlásí chybu, průměr napevno „20 ÷ 6\", poznámka RANK jmenuje jiného žáka, lživá nápověda ke kolečku, „platí jen pro řádek 2\", úvod posílá sledovat jiné funkce, nadpis o grafech). Každá shodí 2–7 kontrol.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 167 kontrol a skript hlásí „zdravá kopie mlčí\"; ověření se zdravou kopií je první krok skriptu, takže se pozná i to, že se měří jiný soubor, než se myslí.",
+			"regrese": "Předchozí verze testu (93 kontrol) propustila 8 z těchto podvrhů, verze z rána (143 kontrol) dalších 11 — obojí je v seznamu a nesmí se vrátit.",
+			"overeno": "2026-08-03"
+		},
+		"simulace/senzory-robota.mjs": {
+			"test": "testy/podvrhy/senzory-robota-podvrhy.mjs",
+			"podvrh": "21 mutací komponenty na kopii v dočasné složce — naučné texty (poznámka tvrdí, že senzor u šikmé stěny měří přesně; hláška chválí zastavení po nárazu; program bez opakování prý měřil pořád; tlačítko slibuje „nikdy nezastav\"; zácloně se říká zeď; náraz sváděný na ultrazvuk i tam, kde měřil dobře), scéna (robot ve vzduchu, podlaha nahoře, zeď visící, paprsek dozadu, žádný odraz od šikmé stěny, popis obrázku o teplotě) a hodnoty (MAX_DOSAH 0, dotyk sepne metr předem, program se ptá i bez opakování, výchozí program prohozený, záclona vypadá jako zeď). Každá shodí aspoň jednu kontrolu.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 154 kontrol a skript hlásí „zdravá kopie mlčí\" — první krok skriptu, takže se pozná i měření jiného souboru, než se myslí.",
+			"regrese": "První verze testu (122 kontrol) propustila 5 podvrhů v textech a 5 ve scéně; mutační test testy/mutace.mjs odhalí 14 ze 14.",
+			"overeno": "2026-08-03"
+		},
+		"vyrob_podkasty.py — dělení dialogu na části": {
+			"test": "~/Desktop/Omega/skripty/testy/test_deleni_dialogu.py",
+			"podvrh": "Šest poškozených dělení téhož rozhovoru: vypadlá replika, prohozené části, oddělovač '\\n' místo '\\n\\n', uříznutých 40 znaků na konci části, zdvojená část a naivní řez po znacích uprostřed repliky. Všech šest kontrola odhalí (36 kontrol celkem).",
+			"zdravy": "Nad všemi sedmi skutečnými scénáři F6 dá slepení částí přesně původní text, žádná část nepřekročí strop a hranice padnou jen mezi repliky. Pět dílů pod stropem se NEDĚLÍ vůbec, takže se u nich proti dosavadnímu chování nemění nic.",
+			"regrese": "Zavedeno 5. 8. 2026, když OpenAI odmítlo díl „Úvod do fyziky\" (5 548 znaků = 2 159 tokenů proti stropu 2 000) a automat ho po třech pokusech odložil. Strop 4 700 znaků je odvozen z MĚŘENÍ, ne z odhadu: nejdelší prošlý díl měl 4 747 znaků a poměr vyšel 2,57 znaku na token. Části se dělají stejně dlouhé, aby jeden krátký zbytek nezněl jinak než celek. Kotva „střih ztratil řeč\" se NEMĚNILA — pracuje dál nad slepenou nahrávkou.",
+			"overeno": "2026-08-05"
+		},
+		"vyrob_podkasty.py — kotva „střih ztratil řeč\"": {
+			"test": "~/Desktop/Omega/skripty/testy/test_kotva_cisla.py",
+			"podvrh": "Ze zdravého přepisu se odebere 10 % slov (pětinásobek tolerance). Kotva to zachytí u všech čtyř dílů F6: hustota 591/657, objem 539/599, hmotnost 617/686, síla 699/777 — všechny nad prahem, výroba by skončila chybou.",
+			"zdravy": "Simulovaný přepis od whisperu (souvislé číslovky splácnuté do jedné číslice) projde u všech čtyř dílů se shodou 657/657, 599/599, 686/686 a 777/777 slov, tedy bez jediného falešného poplachu.",
+			"regrese": "Zavedeno 5. 8. 2026 poté, co kotva TŘIKRÁT po sobě odmítla zdravý zvuk k hustotě (677 slov ze 701) a zarovnání u objemu spárovalo jen 547 z 659 slov. Že řeč nechyběla, doložil poměr délek: text hustota:hmotnost = 0,961 a zvuk taky 0,961. Příčinou byly číslovky — scénář je má slovy („dvě stě padesát“), whisper číslicemi („250“). Oprava čísla z porovnání VYPOUŠTÍ na obou stranách; práh zůstal 2 %, kotva se tedy neoslabila.",
+			"overeno": "2026-08-05"
+		},
+		"vyrob_video_automat.py — město se nevyrobí podruhé": {
+			"test": "~/Desktop/Omega/skripty/test_video_nasazeno.py",
+			"podvrh": "Hotové video se odklidí do `video-vystup/_duplicity/` (i do vnořené `prestavby-.../`) a pod dvojnickým názvem s neviditelnými znaky Fotek. Stará podmínka takové video NENAJDE (doloženo v testu funkcí `stara_podminka` → False), nová ho pozná podle klíče místa → True. Bez opravy se video vyrobí znovu.",
+			"zdravy": "Video ÚPLNĚ JINÉHO města ve stejné složce nesmí prohlásit místo za hotové (jinak by se nevyrobilo nic) → False. Změna médií (jiný otisk) pořád vede k přestavbě → False. Celkem 14 kontrol, všechny prošly.",
+			"regrese": "Nález učitele 6. 8. 2026: „toto video udělal automat snad asi po páté“ — diagnostika ukázala SEDM výrob Geisingenu. Táž past potřetí: 31. 7. se přidalo hledání v `nasazeno/`, 2. 8. se zjistilo, že hlavní smyčka funkci vůbec nevolala, a 6. 8., že kontrola nezná `_duplicity/`. Ověřeno na skutečných datech: `uz_hotovo` = True, `uz_publikovano` = Geisingen_DE_KEKONTROLE.mp4 → video se znovu nevyrobí.",
+			"overeno": "2026-08-06"
+		},
+		"vyrob_omnivoice.py — hlas podle pohlaví jména": {
+			"test": "~/Desktop/Omega/skripty/testy/test_hlasy_podle_jmena.py",
+			"podvrh": "Scénář, kde první promluví MUŽ (šest z osmi scénářů F6). Staré přiřazení podle pořadí replik mu dalo ŽENSKÝ hlas. Test dále odmítne neznámé jméno mluvčího a dvojici téhož pohlaví — obojí shodí výrobu místo tichého uhodnutí.",
+			"zdravy": "Nad všemi osmi skutečnými scénáři F6 vychází právě jeden ženský a jeden mužský hlas, nezávisle na pořadí replik. 17 kontrol, všechny prošly. Změřená kotva na hotové nahrávce: Marek 175 Hz, Eva 267 Hz.",
+			"regrese": "Nalezeno 6. 8. 2026 při přechodu na hlas vybraný učitelem. Vysvětluje, proč mu dosavadní OmniVoice díly zněly „hodně dětsky“ — hlasy byly prohozené.",
+			"overeno": "2026-08-06"
+		},
+		"revize_automatu.py — chyby v lozích a mrtvé cesty": {
+			"test": "~/Desktop/Omega/skripty/testy/test_revize_nalezu.py",
+			"podvrh": "Pád buildu přemazaný 24 tichými řádky (přesně případ z 1. 8., kdy revize mlčela) se najde a datuje. Mrtvá cesta v tabulce rejstříku PRAVIDLA.md se najde (případ `povoleni_hook.py`).",
+			"zdravy": "Chyba starší než sedm dní se nehlásí (ochrana proti falešným poplachům z 30. 7.), zdravý i chybějící log mlčí, existující cesty a řádky přiznávající zánik se nehlásí. Nad skutečným rejstříkem 0 nálezů. 9 kontrol.",
+			"regrese": "Audit 6. 8. 2026: revize hlásila exit 0, přestože automat od 30. 7. při každém buzení padal na chybějícím `npm`; hledalo se jen v posledních 15 řádcích.",
+			"overeno": "2026-08-06"
+		},
+		"priznaniAi": {
+			"test": "zkontroluj.mjs — sekce „Přiznání AI“ (podvrh se dělá ručně odebráním pole `ai`)",
+			"podvrh": "Jednomu z 18 videí odebráno pole `ai` → brána vypsala „prošlo 18 polemik — 1 bez přiznání“, jmenovala konkrétní díl (uvod-do-fyziky) a skončila kódem 1.",
+			"zdravy": "Nad dnešními daty „prošlo 18 polemik — 0 bez přiznání“ a brána končí „✅ Vše zapojené správně.“",
+			"pocitadlo": "Brána vypisuje, KOLIK polemik prošlo (18 z 18 videí s 'polemika-' v cestě) — kdyby přestala vidět vstupy, bylo by to na první pohled poznat.",
+			"proc": "Od 2. 8. 2026 platí evropská pravidla transparentnosti (čl. 50 nařízení 2024/1689). Bez brány by přiznání měly první díly a další už ne — vzorec „opatření platí jen částečně“."
+		},
+		"vypis-cesty.mjs": {
+			"podvrh": "Rok bez datového souboru (1999) skončí kódem 1 s hláškou o nenačtení roku; nesmyslný argument (rok2026) i chybějící argument skončí kódem 2. Ověřeno spuštěním 7. 8. 2026 — tichý prázdný výpis se stát nemůže.",
+			"zdravy": "Rok 2026 vrátí kód 0 a 12 míst, z toho 6 s vyplněnou galerií (odpovídá počtu polí galerie v src/data/cesty/2026.ts). Data se importují esbuildem, ne čtou regexem — dřívější regexové parsování téhož souboru vracelo 0 míst.",
+			"poznamka": "Není to měřidlo v pravém smyslu, ale most k datům pro mista_deniku.py (Omega): podle něj se rozhoduje, do které galerie smí fotka jít. Chybný výpis by fotky poslal do prázdna, proto doklad patří sem."
+		},
+		"vyrob_omnivoice.shoda_lokalne": {
+			"test": "Omega/skripty/vyrob_omnivoice.py — dvoustupňová kontrola replik lokálním whisperem (změřeno ručně 7. 8. 2026, výstup v SAMOSTATNY-REZIM.md)",
+			"podvrh": "Replika useknutá v polovině (ffmpeg -t 5.2 z 10,5 s nahrávky) dá shodu 57 % modelem small a 63 % po přeměření modelem medium — pod prahem 80 %, tedy ZACHYCENA. Přesnější model chybějící řeč nedoplní, přeměření tedy kontrolu neoslabuje.",
+			"zdravy": "Deset hotových replik dílu gravitacni-sila-dialog: shody 81–100 %, žádný falešný poplach (0/10 pod prahem). Dvě hraniční (82 %, 81 %) po přeměření modelem medium 93 % a 83 % — chybu dělal přepis modelu small, ne nahrávka.",
+			"regrese": "Práh přeměření 0,90 a spodní mez PRAH_SHODY/2: pod ní se přeměřovat nemá (jasně rozbitá replika by jen brala čas), nad 0,90 taky ne (jasně dobrá). Kdyby se max() nahradilo hodnotou z medium bez porovnání, podvrh by pořád propadl (63 %) — brána drží."
+		},
+		"kontrast_snimku.py — čitelnost textů na schématech": {
+			"test": "~/Desktop/Omega/skripty/testy/test_kontrast_snimku.py",
+			"podvrh": "Bílá značka „H\" na světlé kuličce vodíku (1,3 : 1) i bílé „Au\" na zlaté (2,38 : 1) se najdou; drobný šedý popisek 2,82 : 1 taky. Není to vymyšlený podvrh — přesně tahle vada vznikla 8. 8. 2026 sjednocením barev atomů a skript přitom doběhl bez jediné hlášky.",
+			"zdravy": "Celá série „atomy a molekuly\" (21 kreseb, 257 textů) má 0 nálezů, a měřidlo přitom doopravdy měřilo — počet textů se v testu kontroluje, aby prázdný výsledek neprošel jako úspěch.",
+			"regrese": "Velký tučný oranžový nadpis (3,39 : 1) NESMÍ být nález — norma má pro velký text práh 3 : 1 a jediný společný práh 4,5 by odsoudil styl všech dosavadních snímků. Text na bílé plaketě nad tmavou kresbou se měří proti plaketě. Mutace prahů na nulu měřidlo oslepí a test to pozná.",
+			"overeno": "2026-08-08",
+			"poznamka": "Starší díly (před 8. 8. 2026) mají 242 textů z 1315 pod normou kvůli barvě SEDA #8a97a8 (2,82 : 1). Není to dnešní chyba, ale vlastnost projektu; přebarvení by znamenalo přerenderovat všechna nasazená videa. Nová série proto používá SEDA_TEXT #5c6b7f. Čeká na rozhodnutí učitele."
+		},
+		"vyrob_omnivoice.py — stálý hlas postavy napříč díly": {
+			"test": "~/Desktop/Omega/skripty/testy/test_stala_reference.py",
+			"podvrh": "Díl bez vlastní reference musí sáhnout po stálé nahrávce ročníku VČETNĚ jejího textu (jinak by ref_text neodpovídal tomu, co na nahrávce zazní). Prázdná nebo chybějící stálá nahrávka se nesmí použít — test to vynucuje podvrženým souborem o nulové délce. Test běží nasucho, syntéza je podvržená, takže měří rozhodovací logiku, kde vada byla.",
+			"zdravy": "Stálá reference ročníku 6 na disku má EVA 172 844 B a MAREK 155 564 B s texty; nový díl si ji vezme a syntézu vůbec nespustí.",
+			"regrese": "Díl, který UŽ svou referenci má (všechny díly do 8. 8. 2026), si ji musí podržet — jeho repliky jsou nadabované tím hlasem a přegenerování jediné z nich by pak vybočilo. Oprava tedy nesmí rozbít to, co fungovalo.",
+			"overeno": "2026-08-08",
+			"poznamka": "Vada nalezena měřením `vyska_hlasu.py` (autokorelace, zkalibrovaná na dílu s doloženými 245/151 Hz — dala 242/144 Hz). Reference se dřív vyráběla pro každý díl zvlášť: Eva 229–250 Hz, Marek 147–172 Hz. Trojice „atomy a molekuly\" má Marka 172 Hz, tedy o pětinu výš než starší díly — čeká na rozhodnutí učitele, jestli ji přegenerovat."
+		},
+		"vyrob_omnivoice.py — pojistka proti jalovému běhu": {
+			"test": "~/Desktop/Omega/skripty/testy/test_jalovy_beh.py",
+			"podvrh": "Když neprojde ani jedna z prvních pěti replik, běh se vzdá: syntéza běžela 15× místo 60× a zmetky se vůbec neslepily do MP3. Test to měří počtem skutečných volání syntézy, ne hláškou.",
+			"zdravy": "Zdravý běh (20 replik na první pokus) pojistku ani nezavadí — přesně 20 volání, žádné zastavení.",
+			"regrese": "Pár propadlých replik je běžný provoz a běh zastavit NESMÍ: se dvěma propadlými dílo doběhne celé, slepí se všech 20 replik a obě jsou vedené k ruční kontrole. Ověřen i hraniční případ — čtyři propadlé v řadě ještě nestačí.",
+			"overeno": "2026-08-08",
+			"poznamka": "Vzniklo z jalového běhu 8. 8. 2026: 60 replik za 40 minut, všechny tichý šum (shoda 0–18 %, hlasitost −39 dB proti obvyklým −26 dB). Kotva shody je poctivě nahlásila všechny, ale až na konci — skript mezitím dotočil dva další díly. Příčina zůstala NEVYJASNĚNÁ: běh startoval na 13 % baterie, jenže pokračoval i po dobití na 44 % a úsporný režim byl vypnutý; totéž zadání se napodruhé povedlo (Eva 252 Hz, Marek 152 Hz). O to spíš se musí poznat včas."
+		},
+		"pokryti_kvizu.py — trojice dílů a nosné slovo odpovědi": {
+			"test": "~/Desktop/Omega/skripty/testy/test_skupina_kvizu.py",
+			"podvrh": "Díl trojice posouzený SÁM neprojde (9 ze 14 otázek) a neúplná dvojice propadne na otázkách 'Co je směs?' a 'Co je sloučenina?'. Dokud brána měřila jen podíl slov, dvojice 'pokryla' 14 ze 14 — stačilo, že se v textu vyskytuje 'látka' a 'více'; jediná zmínka o směsi zněla 'příště si povíme, co jsou směsi'. Nosné slovo se hledá i v jiném pádě (smícháním × smícháme), nepříbuzné (směna, smích) se za shodu nepovažuje.",
+			"zdravy": "Nasazená trojice atomy-a-molekuly posouzená dohromady projde 14 ze 14. Kalibrace na 137 otázkách hotových dílů F6: zpřísnění posílá k modelu 2 otázky (1 %), tedy žádná záplava falešných poplachů. Scénář bez štítku 'skupina' zůstává sám, aby se dvě VERZE téhož dílu neslily.",
+			"kontrol": 12
+		},
+		"revize_automatu.py — opravená chyba není živý požár": {
+			"test": "~/Desktop/Omega/skripty/testy/test_revize_nalezu.py",
+			"podvrh": "Pád, jehož skript se od té doby NEZMĚNIL, se pořád hlásí jako chyba; změna skriptu PŘED pádem se za opravu nepovažuje.",
+			"zdravy": "Pád, jehož skript (nebo jím IMPORTOVANÝ modul) byl po chybě změněn, se přeřadí do 'Opraveno, čeká na ověření' — nezahodí se. Porovnává se ČAS: pád 00:33, oprava 09:58 téhož dne se uzná. Ostrý běh 8. 8. 2026: 0 nálezů, 2 čekají na ověření; reprodukce s chudým PATH potvrdila, že oba kroky doběhnou.",
+			"kontrol": 20
+		},
+		"vyrob_omnivoice.py — opravená věta se do zvuku opravdu dostane": {
+			"test": "~/Desktop/Omega/skripty/testy/test_zmena_textu_repliky.py",
+			"podvrh": "Replika, jejíž text se ve scénáři změnil (i o jediné slovo), se přegeneruje. Dokud se rozhodovalo jen podle existence souboru, skript ohlásil 'hotovo' a slepil do MP3 STARÝ text — velikost souboru zůstala bajt na bajt stejná. Živý případ 8. 8. 2026: Eva měla říct 'Tak jím zkus změřit tloušťku vlasu'.",
+			"zdravy": "Nezměněný text se přeskočí (jinak by se každý díl mluvil pořád dokola) a replika BEZ zapsané stopy se považuje za platnou, aby se nepřemluvilo 74 hotových replik trojice ani starší díly. Stopa se zapisuje jen u nově vyrobené nahrávky: dopsat ji u přeskočené by prohlásilo za shodné to, co nikdo neověřil, a příští oprava věty by se už nikdy nechytila.",
+			"kontrol": 6
+		},
+		"cesty-poloha.mjs": {
+			"test": "testy/cesty-poloha-obousmerne.mjs",
+			"podvrh": "Čtyři podvrhy nad kopií dat v paměti, každý se najde: pin téhož města 46 km vedle (skutečný případ Landshutu), místo z 25. 7. zapsané za místem z 26. 7. (falešná čára 321 km), datum mimo rozsah svého výjezdu, místo bez čísla výjezdu. Navíc doloženo na HISTORICKÝCH datech: nad stavem před opravou 9. 8. 2026 kontrola Landshut i Geisingen našla.",
+			"zdravy": "Nad všemi 274 místy v 8 rocích 0 nálezů; zdravá kopie se dvěma návštěvami téhož města na stejném bodě mlčí a pin o 5 km jinde (Stožec) se nehlásí. 16 kontrol v testu prochází.",
+			"kalibrace": "Tolerance se nastavovala NA PŘIJATÉ PRÁCI: při 3 km vracela 43 nálezů — samé rozdíly 4–8 km u Stožce, Horní Plané a Srní, kde pin vznikl z GPS fotky na okraji obce. Na 20 km ji posunul Gdaňsk (dva piny 18 km od sebe). Skutečné vady byly 45 a 35 km.",
+			"pocitadlo": "Kontrola vypisuje počet porovnaných dvojic poloh; klesne-li na nulu při nenulovém počtu míst, hlásí to sama. Vzniklo z vlastní chyby: první verze četla místa přes nactiCesty(), která souřadnice nevrací, takže měřila undefined a tiše hlásila nula nálezů."
+		},
+		"kontrola_dolozitelnosti.py — popis místa má doložený zdroj": {
+			"test": "~/Desktop/Omega/skripty/testy/test_kontrola_dolozitelnosti.py",
+			"podvrh": "Když se z KOPIE podkladů odebere doklad k místu, které popis má (Stožec), měřidlo skončí kódem 1 a vypíše právě ty čtyři výskyty (2019, 2023, 2024, 2025 — totéž místo pod týmž slugem ve víc letech); počet nedoložených i počet zbylých doložených sedí na kus. Záznam, který existuje, ale nemá věty ani přiznání, je nález stejně — nález nezachrání pouhá přítomnost záznamu.",
+			"zdravy": "Nad ostrými daty 245 popisů, 0 nálezů, kód 0 — a měřilo se doopravdy: počet zkoumaných popisů se v testu porovnává s daty webu, takže prázdný výsledek neprojde jako úspěch. `bez_zdroje: true` (ověřeno, že Wikipedie článek nemá) se počítá jako doložený stav a nálezem není — malé obce článek nikdy mít nebudou a měřidlo, které je hlásí donekonečna, se přestane číst.",
+			"regrese": "Počítadlo vstupů: když měřidlo nedostane ANI JEDNO místo s popisem (žádná data webu, nebo samá místa bez popisu), musí to být tvrdá chyba s hláškou „měří se prázdno\", ne tiché „vše v pořádku\" — tudy 9. 8. 2026 protekl `undefined`. Protějšek: jediné místo s popisem a s dokladem týmž pomocníkem projde, takže test nepadá vždycky. Podvrhy běží VÝHRADNĚ na dočasné kopii přes proměnnou FAKTA_MIST; že se podstrčený soubor opravdu čte, dokládá běh nad prázdným `{}` (245 nálezů), a otisk sha256 ostrého data/fakta-mist.json se před během a po něm porovnává. MUTACE (doklad, že samotná zkouška má zuby): slepé měřidlo (`stav_dolozeni` vrací vždy „vety\") podvrh přehlédne, měřidlo bez uznání `bez_zdroje` hlásí i přiznané obce a měřidlo bez počítadla vstupů přestane hlásit prázdno — všechny tři sabotáže běží na KOPII zdrojáku v dočasné složce a zkouška je pozná.",
+			"overeno": "2026-08-09",
+			"kontrol": 26
+		},
+		"simulace/oersted.mjs": {
+			"test": "testy/simulace/oersted.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs oersted`: první podoba testu měřila jen fyzikální model a odhalila 3 z 24 mutací. Po rozšíření o SCÉNU odhalí 11 z 24 a chytá všechny věcné vady: obrácená podmínka `smer === 1` (prohodila by značku ⊙/⊗ i šipky na indukčních čarách — žák by si pravidlo pravé ruky zapamatoval naopak), obrácené `odsazeni` (posuvník vzdálenosti by magnetku k vodiči naopak přibližoval), `I > 0` → `>=` u čar (pole by se kreslilo i bez proudu, přímo proti Oerstedovi), obrácený text tlačítka ZAPNOUT/VYPNOUT a rozejití poměru pod scénou s natočením střelky.",
+			"zdravy": "Nad hotovou komponentou prochází všech 40 kontrol ('✅ Oersted: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
+			"regrese": "Zbylých 13 mutací je kosmetika bez dopadu na výuku (opacity 0.75, tloušťka čáry, posun o 1 px, PX_NA_CM 28→29) a `uhel > 0` → `>=`, které se neprojeví: při nulové výchylce se ta věta vůbec nezobrazuje. Měřit je by znamenalo přibít pixely, ne učivo.",
+			"overeno": "2026-08-13"
+		},
+		"simulace/ucinnost-motoru.mjs": {
+			"test": "testy/simulace/ucinnost-motoru.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs ucinnost-motoru`: 9 ze 14 mutací. Chytá všechny věcné vady — změněná procenta účinnosti (pořadí turbína > spalovací > parní stroj a čísla 15/35 z výkladu), rozbité šířky pruhu (nesedly by s procenty ani nevyplnily 560 px) a hlavně sčítání→odčítání ve větě pod scénou: ta tvrdí „energie nikam nezmizí, jen se rozdělí“, takže špatný součet by učil zákon zachování energie na příkladu, který ho porušuje — a pruh by přitom byl v pořádku. Kalibrace testu samotného: první podoba měřila `width=` bez mezery a brala tloušťku obrysu (`stroke-width=\"3\"`) jako šířku dílu, takže hlásila 572 z 560 px.",
+			"zdravy": "Nad hotovou komponentou prochází všech 39 kontrol ('✅ Účinnost motoru: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
+			"regrese": "Zbylých 5 mutací je kosmetika bez dopadu na výuku: posun popisku o pixel (`x + sirka/2`), tučnost popisku, počátek pruhu X0. Měřit je by znamenalo přibít pixely, ne učivo.",
+			"overeno": "2026-08-13"
+		},
+		"simulace/kolobeh-vody.mjs": {
+			"test": "testy/simulace/kolobeh-vody.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs kolobeh-vody`: 12 z 22 mutací. Chytá všechny věcné vady — rozbitý součet dílů (scéna by učila pravý opak toho, co má výklad označený jako běžný omyl: že se voda v koloběhu nespotřebovává), obrácený vliv Slunce (voda ve vzduchu by s ním ubývala a ledovce narůstaly), zmizelé popisky přeměn i rozejití počitadla se scénou. Slabinu samotného testu odhalila mutace `CELKEM = 100` → 101: test si celek bral z komponenty, takže by přijal jakékoli číslo — doplněna zkouška na kulatých 100.",
+			"zdravy": "Nad hotovou komponentou prochází všech 33 kontrol ('✅ Koloběh vody: vše sedí.') a brána končí '✅ Vše zapojené správně.'",
+			"regrese": "Zbylé mutace jsou kosmetika bez dopadu na učivo: rozmístění a délka slunečních paprsků, měřítko oblaku, znění hlášky u nejsilnějšího Slunce.",
+			"overeno": "2026-08-13"
+		},
+		"simulace/vnitrni-energie.mjs": {
+			"test": "testy/simulace/vnitrni-energie.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (scratchpad, otisk originálu md5 před i po shodný 80fc3d16…): `vnitrni: n * naCastici` → `n * naCastici + n * v`, tedy přesný opak učiva — vnitřní energie by rostla s rychlostí celého tělesa. Test spadl (exit 1) a pojmenoval to pěti nálezy naráz: rozešla se vnitřní energie stojící a jedoucí kostky, přeměna při tření přestala sedět na jednotku, sloupec vnitřní energie se rozjetím pohnul (102 → 133 px) a rozepsaný součin v počitadle přestal platit (10 × 33 = 380). K tomu mutační test `node testy/mutace.mjs vnitrni-energie`: 17 z 21 mutací odhaleno — chytá i obrácený posun kostky (couvala by proti své šipce), obrácené podmínky u popisků (stojící kostka by hlásila jízdu) a rozejití stropu přehřátí s maximem posuvníku.",
+			"zdravy": "Nad hotovou komponentou prochází všech 78 kontrol ('✅ Vnitřní energie: vše sedí.', exit 0) a brána končí bez nálezu; testy simulací hlásí 20 souborů, 1219 kontrol, 0 spadlo.",
+			"regrese": "Zbylé 4 mutace jsou kosmetika bez dopadu na výuku: tvar hrotu šipky o pixel, posun kostky o pixel a hranice barvy `t <= 100` → `101`, která leží mezi dvěma hodnotami posuvníku (kroky po 10 °C), takže se nemá jak projevit.",
+			"overeno": "2026-08-13"
+		},
+		"simulace/tuhnuti.mjs": {
+			"test": "testy/simulace/tuhnuti.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a6b54010… před i po shodný): během tuhnutí teplota místo stání nenápadně klesá (`teplota: tuhne` → `tuhne - cas`). V grafu by to skoro nebylo poznat, ale scéna by učila pravý opak výkladu. Test spadl (exit 1) a vypsal to po vzorcích: „po 4 minuty stojí teplota na −4 °C (−4, −5, −6, −7)\". K tomu mutační test `node testy/mutace.mjs tuhnuti`: 18 z 20. Chytá i rozejití měřítka s popisky os (obojí se čte z HTML, ne z komponenty), zkrácení či prodloužení tuhnutí (pokus pak neskončí na −20 °C) a obrácené podmínky u popisků sklenice a hlášek.",
+			"zdravy": "Nad hotovou komponentou prochází všech 72 kontrol ('✅ Tuhnutí: vše sedí.', exit 0) a brána končí bez nálezu.",
+			"regrese": "Zbylé 2 mutace jsou kosmetika: poloha popisku ledu o pár px a průhlednost zvýrazněného pruhu. Zvlášť doloženo, že se test neumí ZASEKNOUT: podvrh s −Infinity (`-5 * sul` → `-5 / sul`), na kterém dřív visel bez konce, teď spadne hned první kotvou o hranicích úseků.",
+			"overeno": "2026-08-13"
+		},
+		"simulace/kondenzace.mjs": {
+			"test": "testy/simulace/kondenzace.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a2172f51 před i po shodný): voda by při dopadu taky 'kondenzovala' (voda.kondenzace 0 → KONDENZACE*m) — přesný opak učiva, obě strany by predaly stejně. Test spadl (exit 1). K tomu mutační test `node testy/mutace.mjs kondenzace`: 19 z 20 — chytá mj. rozdílné měřítko sloupců (měří se na skutečně vykreslených obdélnících proti literálům 2260 a 273, ne proti komponentě), 0 J kreslené jako proužek, rozpor slov s čísly a špatný pád ve výpočtu pro žáka. Nezávislý kontrolor prošel fyziku, soulad s výkladem, 10 stavů scény i test — jeho 4 nálezy (pád, mrtvá proměnná, 418 vs 420 kJ, komentář o poměru) opraveny a doměřeny.",
+			"zdravy": "Nad hotovou komponentou prochází všech 181 kontrol ('✅ Kondenzace: vše sedí.', exit 0).",
+			"regrese": "Jediná neodhalená mutace je kosmetika: posun účaří popisku uvnitř obdélníku o 10 px (komentář u kontroly).",
+			"overeno": "2026-08-13"
+		},
+		"simulace/vznik-elektrickeho-proudu.mjs": {
+			"test": "testy/simulace/vznik-elektrickeho-proudu.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs vznik-elektrickeho-proudu`: 23 z 24 (jediná neodhalená mutace mění text v komentáři zdroje, bez vlivu na chování). Worker při stavbě odhalil i past vlastního měřidla: test chvíli padal výjimkou a mutační nástroj proto falešně hlásil 24/24 — měřidlo teď chybějící číslo pojmenuje a čistě selže. Podvrh na kopii (překryv popisku materiálu s popiskem řezu) test shodí.",
+			"zdravy": "Nad hotovou komponentou prochází všech 156 kontrol (exit 0).",
+			"regrese": "Smyčka s nezávislým kontrolorem uzavřena na 0 nálezů (6 → 2 → 1 → 0): opraveno počitadlo roztoku (12 doprava a 12 doleva), AC hláška pro oba druhy iontů, svorky bez znamének při 0 V, efektové kontroly posluchačů všech čtyř posuvníků (mrtvý posluchač padá), dovětek izolantu větvený podle napětí. Mutační test 24/25 — jediná neodhalená mutace mění komentář ve zdroji.",
+			"overeno": "2026-08-13"
+		},
+		"simulace/galvanicky-clanek.mjs": {
+			"test": "testy/simulace/galvanicky-clanek.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Podvrh na KOPII mimo repo (otisk originálu 1d4905e041bf8babd35bcd1a2f866e06 před i po shodný, kopie d5856ab352a4fc76bac37a9411426845): 3× prohozena záporná elektroda na tu UŠLECHTILEJŠÍ (minus: e1 → e2), tedy přesný opak učiva — dítě by se naučilo polaritu naopak. Test spadl (3 chyby, exit 1). K tomu mutační test node testy/mutace.mjs galvanicky-clanek: 25 z 25. Cesta k němu: první podoba měla 21/25 (neviděla obrácenou polaritu v TEXTU hlášky, jen barvu odznaku, a tři souřadnice kresby), po dvou kolech oprav 24/25 a po odstranění nedosažitelné záložní větve v geometriePack 25/25.",
+			"zdravy": "Nad hotovou komponentou prochází všech 111 kontrol ('✅ Galvanický článek: vše sedí.', exit 0). Brána testy/sablony.mjs 0 nálezů.",
+			"regrese": "Brána zkontroluj.mjs odhalila, co test se 104 kontrolami neviděl: pád na cells[cells.length-1].xNubEnd při neplatném počtu článků shodil celý skript simulace. Opraveno obrannou funkcí platneCislo() a kontrolou odolnosti; záložní větev pak odstraněna, protože mrtvý kód uniká mutačnímu testu.",
+			"overeno": "2026-08-14"
+		},
+		"liga-tabule.mjs": {
+			"test": "testy/liga-tabule.mjs (spouští se samostatně: node testy/liga-tabule.mjs)",
+			"podvrh": "Podvrh na KOPII mimo repo (otisk originálu 73ae1ee520d20361ecd834f79e6c2ff9 před i po shodný): vráceno staré zranitelné chování — role tabule se získá rovnou z URL (?role=tabule) bez klíče. Test spadl: 9 chyb z 19 kontrol, mimo jiné padla kontrola „znalost čtyřpísmenného kódu k řízení hry NESTAČÍ\".",
+			"zdravy": "Nad opraveným worker.js prochází všech 19 kontrol (exit 0): tabule bez klíče nerozešle nic, se špatným klíčem dostane zamítnuto a spojení se zavře, tým se klíčem nepovýší, po 5 pokusech je místnost dočasně zavřená, klíč se týmům nikdy neposílá.",
+			"regrese": "Při psaní testu se našla skutečná vada v novém kódu: načtení klíče ze storage v konstruktoru mohlo přepsat klíč právě zapsaný zakládáním místnosti (v Cloudflare by to blockConcurrencyWhile zakryl, v testu ne). Opraveno podmínkou, aby se uložený klíč nepropsal přes už nastavený.",
+			"overeno": "2026-08-14"
+		},
+		"simulace/elektricka-prace-a-vykon.mjs": {
+			"test": "testy/simulace/elektricka-prace-a-vykon.mjs (108 kontrol, spouští se s cestou ke komponentě)",
+			"podvrh": "Dva podvrhy na KOPII ve scratchpadu, originál netknutý (md5 5d09af4a86fd2ce827f42b6e58c2dc7a před i po). (1) Příkon konvice 2000 W → 2100 W: test hlásí 2 chyby ('čekal jsem příkon 2000 W, mám 2100 W' + text scény). Chytá to proti NAPEVNO zapsané tabulce příkonů, ne proti hodnotě z komponenty. (2) Paprsky žárovky v části B prodlouženy jen u jedné (46 → 60): test hlásí 'paprsky mají u obou PŘESNĚ stejné souřadnice' — tedy odhalí, že by scéna dětem tvrdila 'víc wattů = víc světla', což je právě to, co má část B vyvracet. (3) Panel scény B posunut z y=365 na y=350 (kopie ve scratchpadu): test hlásí 3 nálezy — rozpor s konstantou PANEL_B.y, nezávislé ověření polohy panelu a mezeru 5 px pod požadovaných 15 px. Tenhle podvrh je kalibrace PO opravě měřidla: první podoba kontroly hledala bílý <rect> v celém souboru a našla panel scény A (y=230), takže hlásila falešný překryv −115 px u scény, která byla v pořádku. Nově se panel hledá výhradně uvnitř <svg id=\"epv-b-svg\">. (4) Po nálezu kontrolora, že graf lhal (poměr výšek 1,08 místo 10 při t=1–9 h), přibyla kontrola měřící PŘÍMO vykreslený <rect> v #epv-b-sloupce ve všech 24 polohách bez jediného continue. Kalibrace dvěma podvrhy na kopii: pevný strop místo dynamického měřítka → chyceno; a LED sloupec vynásobený 3× (výška staré žárovky přitom zůstane správných 130 px, rozbitý je JEN poměr) → chyceno přesnou hláškou 'poměr 3.33, čekal jsem 10 ± 0,2'. Druhý podvrh je důležitější: dokazuje, že kontrola měří poměr, ne jen vyplnění výšky.",
+			"zdravy": "Nad skutečnou komponentou 108 kontrol, 0 chyb. Změřeno nezávisle na testu vyrenderováním scény pro t=1/5/24 h: stará 130,0 px, LED 13,0 px, poměr přesně 10,00 ve všech třech.",
+			"regrese": "Cena 5 Kč/kWh a dvojice 100 W / 10 W musí zůstat shodná s výkladem v temata.ts a s kvízem — rozpor mezi simulací a výkladem na jedné stránce žádné jiné měřidlo nehlídá (past z kola D1). POZOR na tichou past: 14. 8. worker zavedl parametr dynamického měřítka do vyskaSloupceB/geometrieSloupceB, ale volání v prekresliB nechal se dvěma argumenty — komentář v hlavičce opravu podrobně POPISOVAL, kód ji nedělal a test byl zelený. Odhalilo to jen měření vykresleného <rect>. Proto se poměr měří z renderu, nikdy z pure funkce.",
+			"overeno": "2026-08-14"
+		},
+		"simulace/ucinky-proudu-a-bezpecnost.mjs": {
+			"test": "testy/simulace/ucinky-proudu-a-bezpecnost.mjs (161 kontrol, spouští se s cestou ke komponentě)",
+			"podvrh": "Dva podvrhy na KOPII ve scratchpadu, originál netknutý. (1) Odpor mokré kůže po průrazu 1 000 → 5 000 Ω: test hlásí 3 nálezy — rozpor s hodnotou z výkladu, porušené pořadí odporů (suchá > vlhká > mokrá) a hlavně že kombinace zásuvka+mokrá kůže spadla z pásma „zástava srdce\" do „křeč dýchacích svalů\". (2) Ve varování u zásuvky přepsáno „nikdy nezkoušet!\" na „zkus si to doma!\": test hlásí, že ve varovacím boxu chybí slovo „nikdy\", a to zvlášť pro suchou i mokrou kůži. Druhý podvrh je bezpečnostní kotva — u tohohle tématu je ztráta výstrahy horší než chyba ve výpočtu. (3) Po nálezech kontrolora 14. 8. přibyly kontroly TEXTŮ, které dítě čte — do té doby test měřil jen čísla v konstantách a prošlo mu SEDM podvrhů (mj. varování „Zásuvka skoro nikdy neublíží“, pásmo „zástava srdce“ přejmenované na „nepříjemné brnění“, rada „odtrhni holou rukou“, vzorec počítající 10× větší proud). Znovu změřeno po opravě: varování → 15 nálezů, přejmenované pásmo → 2 nálezy, nebezpečná rada jako název pásma → chyceno hláškou „čekal jsem přesně ‚křeč dýchacích svalů‘“. Texty se porovnávají s NEZÁVISLE napsanou tabulkou v testu, ne samy se sebou.",
+			"zdravy": "Nad skutečnou komponentou 161 kontrol, 0 chyb. Ověřeno i pohledem na render všech tří cest: dráha proudu vede viditelně přes srdce (kreslí se NAD tělem), u odhadnutých odporů je „≈“, varování „230 V je nebezpečné VŽDY / nikdy nezkoušet“ je v obrázku obou scén.",
+			"regrese": "Znění varování se hledá bez ohledu na velikost písmen a na tvar slova (`/nikdy/i`) — první podoba testu hledala `/NIKDY/` a řetězec „nikdy nezkouší\", zatímco komponenta má „nikdy nezkoušet\", takže hlásila 3 falešné poplachy nad zdravým souborem. Nad češtinou nepoužívat `\\b` (v JS je jen ASCII). NEBEZPEČNÁ NEPRAVDA, kterou našel až kontrolor: volba „jedna ruka“ hlásila u postavy stojící bosky na zemi I = 0 mA a šedé pásmo „bezpečné“, ačkoli část A na téže stránce obvod uzavírá právě nohama do země. Volba je zrušena a nahrazena volbou „izolace“, kde je bezpečnost podmíněna VIDITELNOU gumovou podložkou; test hlídá, že klíč „jedna-ruka“ se nevrátí a že „ruka → noha“ nikdy nevyjde bezpečně.",
+			"overeno": "2026-08-14",
+			"podvrh_texty_14_8": "Do VIDITELNEHO textu sceny (mimo <script>) vlozena veta 'Sucha kuze ma tak velky odpor, ze te spolehlive ochrani i u zasuvky — suchou rukou se da klidne dotknout dratu.' PRED opravou test tuto vetu PROPUSTIL (kontrolor 14. 8.: exit=0, 161x ✅, 0x ❌) — zakazane fraze se poustely jen na dynamicky vykreslene texty. PO oprave test pada spravnou hlaskou: '❌ statické HTML (mimo <script>) obsahuje zakázanou frázi /klidn[ěe].{0,25}dotk/i'. Podvrh delan na kopii mimo repo.",
+			"zdravy_14_8": "Nad neporusenou komponentou test prochazi cely ('✅ Účinky proudu na člověka, bezpečnost: vše sedí.'), sablony.mjs 0 nalezu."
+		},
+		"simulace/magnety-opakovani.mjs": {
+			"podvrh": "Do VIDITELNE sablony komponenty (mimo frontmatter) vlozeno 'feromagnetické (poznáš je kompasem)' — tedy pojem 6. rocniku, ktery v devitkovem opakovani byt nema. Test to chytil PRAVE tou kontrolou: '❌ scéna neplete opakování s kompasem/magnetkou (to je látka 6. ročníku)', celkem 1 chyba. Podvrh delan na KOPII mimo repo (scratchpad), repo nedotceno.",
+			"zdravy": "Nad neporusenou komponentou src/components/skola2/MagnetyOpakovaniSimulace.astro projde 84 kontrol, vystup '✅ Magnety — opakování: vše sedí.'",
+			"poznamka": "14. 8. 2026: puvodni podoba meridla merila cely zdroj vcetne Astro frontmatteru, takze hlasila 2 chyby kvuli AUTOROVU KOMENTARI, ktery ta slova prave ZAKAZUJE (falesny poplach). Opraveno tak, ze 'html' odecita i frontmatter — meri se jen to, co dite skutecne vidi. Prvni podvrh navic nahradil prvni vyskyt slova, ktery lezel prave v komentari, a proto se nechytil; platny podvrh musi mirit do sablony."
+		},
+		"simulace/razeni-clanku.mjs": {
+			"test": "testy/simulace/razeni-clanku.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenena cista funkce stavA: napeti = pocet*napeti_clanku + 5 (posun o 5 V navic). Test to chytil 11 chybami — mj. '❌ 4 suché články = 6 V (mám 11)' a '❌ voltmetr ukazuje 6 V: ... Celkem: U = 11 V', konec kodem 1.",
+			"zdravy": "Nad neporusenou src/components/skola2/RazeniClankuSimulace.astro projde vsech 40 kontrol (scena A razeni clanku i scena B proud elektronu/iontu), vystup '✅ Řazení článků: vše sedí.', kod 0.",
+			"overeno": "2026-08-15"
+		},
+		"simulace/premeny-energie.mjs": {
+			"test": "testy/simulace/premeny-energie.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenen vypocet ve scene B: elektrickaPx = VYSKA_CELKEM_PX - tepelnaPx + 5 (posun o 5 px navic, poruseni zakona zachovani energie). Test to chytil 5 chybami — mj. '❌ zbývá 4 díly elektrické, celé číslo (mám 4.25)' a chybami v invariante souctu vysek, konec kodem 1.",
+			"zdravy": "Nad neporusenou src/components/skola2/PremenyEnergieSimulace.astro projdou vsechny kontroly (scena A vyber zarizeni + smer premeny, scena B invarianta zachovani energie pres mrizku cilu a casu i nad vykreslenym SVG, obranne cteni indexu a cile), vystup '✅ VŠECHNY TESTY PROŠLY', kod 0.",
+			"overeno": "2026-08-15"
+		},
+		"simulace/retezova-reakce.mjs": {
+			"test": "testy/simulace/retezova-reakce.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) pozmenen NASOBEK u nerizene reakce z 2 na 1.5 (poruseni exponencialniho zdvojnasobovani i celociselnosti). Test to chytil 8 chybami — mj. '❌ generace 5 u neřízené: 5.0625 (2^4 = 16 ...)', necela cisla v poctech i celkovem souctu, rozdil rizena/nerizena uz neni radovy, konec kodem 1.",
+			"zdravy": "Nad neporusenou src/components/skola2/RetezovaReakceSimulace.astro projdou vsechny kontroly (scena A stepeni krok po kroku vc. vykresleni SVG, scena B rizena=linearni vs. nerizena=exponencialni rustova posloupnost, celociselnost vsech hodnot, texty na displeji sedi s vypoctem), vystup '✅ VŠE V POŘÁDKU', kod 0.",
+			"overeno": "2026-08-15"
+		},
+		"rozvrzeni-sceny.mjs": {
+			"test": "testy/rozvrzeni-sceny-obousmerne.mjs",
+			"podvrh": "A) rámeček popisku posunutý z x=300 na x=0 → '❌ <rect> přetéká plátno vlevo o 1.8 px — obdélník [0, 28]–[60, 92] (+ obrys 1.8 px)', konec kódem 1. B) plátno rozšířené na viewBox 0 0 1100 380 při stejném obsahu → '⚠️ obsah zabírá jen 38 % šířky plátna (x 180–599.5 z 1100)'. ZPĚTNÁ KOTVA NA SKUTEČNÉ VADĚ (ověřil koordinátor 14. 8. 2026): nasazená verze MagnetyOpakovaniSimulace z commitu f30767b (git show do /tmp, repo netknuto) → měřidlo najde obě vady, které téhož dne našel člověk pohledem na render: '<rect> přetéká plátno vlevo o 0.8 px — obdélník [0, 240]–[280, 262]' a 'obsah je natlačený doleva — střed obsahu je o 17 % šířky mimo střed plátna (x 0–440 z 660)'.",
+			"zdravy": "Nezměněná kopie ArchimedesSimulace: '0 tvrdých chyb, 0 varování, ✅ Rozvržení scén v pořádku', kód 0. Nad 106 nasazenými simulacemi (bez právě opravovaných magnetů) 89 scén / 1259 změřených prvků a jen 6 tvrdých chyb + 1 varování — všech 6 jsou skutečné vady ověřené ve zdroji (Alternator text x=644 'otáčka' ve viewBoxu 660, Dioda x=644 'U (V)', Hustota x=428 'hladina' ve viewBoxu 460, Barvy #barvy-pocitac 55 znaků na střed x=540, Oko #oko-predmet-pop levý okraj −4,2 px, Klonovani text y=349 na plátně 350).",
+			"regrese": "První verze měřidla hlásila 60 tvrdých chyb — zavedený styl webu NENÍ chyba. Nálezem proto NESMÍ být: pruh přes celou šířku/výšku (nebe, zem, hladina, stůl, podzemí) sedící na okraji, úsečka nebo lomená čára končící na okraji (obrys se počítá jen u uzavřených tvarů), prvek bez rozměru nebo vystředěný přesně na počátek [0,0] (zástupka, kterou posouvá až animace — náhled ji nespouští) a atribut psaný astro výrazem `x={55 + (i % 5) * 36}`, ze kterého by vyšla nula (jinak by displej micro:bitu 'přetékal' v rohu). Mutace prahů (dotykOkraje, celoplosnyPodil, rezervaTextu) nebo návrat obrysu k otevřeným tvarům tyhle plané poplachy vrátí. Kontrola B se nepouští na scény pod 8 změřených prvků — u scén kreslených animací (Honička, TabulkaVzorce, Vlnění) by 'prázdné plátno' bylo falešné. DOSAH NENÍ ÚPLNÝ: 21 ze 106 komponent se nezměří (12 nemá <svg>, 8 padá v sandboxu náhledu, 1 nemá viewBox) — hlásí se jako 'nevykresleno' a jejich mlčení NENÍ důkaz pořádku.",
+			"overeno": "2026-08-14"
+		},
+		"uniky-krizove.mjs": {
+			"test": "testy/uniky-krizove-obousmerne.mjs",
+			"podvrh": "Do bloku o délce v 6. ročníku se vloží otázka na napětí ploché baterie (4,5 V), která tam nepatří → měřidlo ji najde jako dvojici proti 8. i 9. ročníku ('✅ podvrh nalezen'). KALIBRAČNÍ KOTVA NA SKUTEČNÉM NÁLEZU (ověřil koordinátor 14. 8. 2026): měřidlo najde všech 6 dvojic F8 × F9, které dřív ručně našel nezávislý kontrolor — mj. dvakrát doslova totožné znění o ploché baterii, 'odpor kovu při zahřátí' dvakrát, zinková elektroda dvakrát a dvakrát táž odpověď '12 V'.",
+			"zdravy": "Past na záměnu podobných pojmů: 'Co je elektrostatická indukce?' × 'Co je elektromagnetická indukce?' má 100 % shodných slov, ale různé odpovědi → měřidlo mlčí ('✅ mlčí správně'). Nad celým webem 2123 otázek ze 150 bloků, 2 237 408 dvojic, z toho 438 se shoduje v jádru odpovědi a jen 87 se nahlásí.",
+			"regrese": "První verze vracela 163 dvojic a ocas byl planý (spojovala 'rychlost 2×' se 'součtem 4' přes sdílenou číslici). Nálezem proto NESMÍ být: číslo bez jednotky, shodný výsledek dvou různých výpočtů (zadání nese jiná čísla), ani slovní odpověď spojená JEDINÝM společným slovem (jinak se 'lithiový' pojí přes 'článek'). Jediné společné slovo stačí pouze u vzácné číselné hodnoty S JEDNOTKOU — na té stojí nejtěsnější platný nález (autobaterie 12 V × norma 12 V, krytí 18 %). Hodnoty se čtou i s jednotkou, protože normalizace by z '4,5 V' udělala '4 5 v' a '4,5 V' by splynulo s '5,4 V'. České hranice slov: `\\b` se nepoužívá vůbec (zná jen ASCII), slova se porovnávají společným prefixem ≥ 4 znaky a ≥ 55 % délky delšího — doloženo: 'tuzkovy × kov = různá slova', ale 'odpor × odporem = totéž' a 'elektrostaticka × elektromagneticka = různá' (pevný kmen 4 znaků, jaký má uniky.mjs, by je splynul).",
+			"overeno": "2026-08-14"
+		},
+		"simulace/obnovitelne-zdroje.mjs": {
+			"test": "testy/podvrhy/obnovitelne-zdroje-podvrhy.mjs",
+			"podvrh": "11 mutací komponenty na kopii v dočasné složce — scéna A (vodík/uhlí přeřazené jako obnovitelné, barvy typů zaměněné, ztráta slov \"nosič\"/\"Chyták\" u vodíku) a scéna B (obrácený výchozí režim, čerpání snižuje místo zvyšování horní hladinu, špatná konstanta výšky nádrže, chybějící okamžitá změna po kliku, krok animace přestřelí nebo jde opačným směrem). Každá shodí 2–8 kontrol.",
+			"zdravy": "Nad nezměněnou komponentou testy/simulace/obnovitelne-zdroje.mjs projde beze zbytku (0 chyb) a skript hlásí ZDRAVÁ KOPIE prošla.",
+			"overeno": "2026-08-15"
+		}
+	}
 }

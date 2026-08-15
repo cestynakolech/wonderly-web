@@ -114,6 +114,7 @@ import VykonSimulace from '../../../../../../components/skola2/VykonSimulace.ast
 import RazeniClankuSimulace from '../../../../../../components/skola2/RazeniClankuSimulace.astro';
 import PremenyEnergieSimulace from '../../../../../../components/skola2/PremenyEnergieSimulace.astro';
 import RetezovaReakceSimulace from '../../../../../../components/skola2/RetezovaReakceSimulace.astro';
+import ObnovitelneZdrojeSimulace from '../../../../../../components/skola2/ObnovitelneZdrojeSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -362,6 +363,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'razeni-clanku' && <RazeniClankuSimulace />}
 	{podtema.interakce === 'premeny-energie' && <PremenyEnergieSimulace />}
 	{podtema.interakce === 'retezova-reakce' && <RetezovaReakceSimulace />}
+	{podtema.interakce === 'obnovitelne-zdroje' && <ObnovitelneZdrojeSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (
