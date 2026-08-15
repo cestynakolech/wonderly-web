@@ -287,3 +287,37 @@ paprsky, dolní (stejnosměrná) ne, a rámeček pod nimi tvrdil „obě svítí
 popisky ticků scény A nevystředěné a poslední kolidoval s hrotem šipky osy ·
 čárkovaná čára stejnosměrného napětí ležela nad maximem sinusoidy (budí dojem,
 že stejnosměrné napětí je větší).
+
+### Nezávislý kontrolor: 9 nálezů (1 závažný), všechny opravené a nasazené
+
+🔴 **ZÁVAŽNÝ — číslo, které si dítě přepočítá, nesedělo.** Výklad zaváděl koeficient
+1,4 jako návod („maximum dostaneš vynásobením 1,4") a hned uváděl výsledek
+„230 · 1,4 ≈ 325 V". Jenže 230 · 1,4 = **322**; 325 V vychází až z √2 ≈ 1,41.
+Deváťák, který ten součin provede, dostane jiné číslo, než na stránce stojí.
+Nově text počítá poctivě 322 V a teprve pak dodává přesnější koeficient a skutečnou
+špičku 325 V. **Poučení: zaokrouhlený koeficient a přesný výsledek se nesmí potkat
+v jedné větě** — buď obojí přibližné, nebo výpočet doveden do konce tím, čím počítá žák.
+
+**Drobné (8):** délková nápověda u jedné otázky (40 znaků proti 37 a 35) · tvarová
+nápověda — oba distraktory začínaly „protože", správná ne, a nosnou myšlenku
+(rozžhavené vlákno nestihne vychladnout) nesla až věta pro toho, kdo odpoví špatně ·
+otázka na maximum měla dvě obhajitelné odpovědi, protože výklad definoval maximum
+jako „největší okamžitou hodnotu, nastává dvakrát za periodu" (největší okamžitá
+hodnota se znaménkem nastává jednou; dvakrát nastává největší VELIKOST) · ve slově
+„stokrát" byl skrytý měkký spojovník U+00AD · tři otázky byly téměř doslovnou kopií
+otázek ze zvuku v 8. ročníku (shoda znění 1,00 / 0,75 / 0,57) · popisek scény A sliboval
+„čtyřikrát tolik vlnek", ale přepnutí z 50 na 25 Hz dá vlnek MÉNĚ · scéna B kreslila
+tři tečky průchodu nulou, zatímco text pod nimi tvrdil „2× za periodu" · čárkovaná
+čára na 70 % amplitudy znamenala ve scéně A stejnosměrné napětí a ve scéně B efektivní
+hodnotu — táž grafická věc ve dvou významech na jedné stránce.
+
+🔴 **Poučení o dělbě rolí:** všech 9 nálezů opravili PŮVODNÍ workeři (výklad, kvíz,
+simulace běžely naráz, každý ve svém souboru); koordinátor jen zapsal sdílené soubory,
+změřil a nasadil. Kontrolor přitom viděl jen hotový výsledek, ne postup vzniku —
+a našel věci, které vlastní autoři i měřidla přehlédli.
+
+📥 **Nález na samostatné kolo:** měřidlo délkové nápovědy v `zkontroluj.mjs` (ř. 131)
+hlásí blok teprve při **poměru 0,75 a výš** (`nejdelsi / celkem >= 0.75`), takže
+JEDNA otázka s nejdelší správnou odpovědí projde tiše. Kontrolor ji našel ručně.
+Zvážit druhý práh „aspoň jedna otázka s velkým náskokem" — a napřed kalibrovat
+na nasazené práci, ať nezačne hlásit zavedený styl.

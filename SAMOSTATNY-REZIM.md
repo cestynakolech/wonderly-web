@@ -19,9 +19,22 @@ s periodou, takže 50 a 100 Hz vypadaly pixelově stejně. **Poučení: u ovlád
 prvku se prohlíží, jestli se po přepnutí doopravdy něco změní; různý md5 dvou
 stavů ještě neznamená viditelný rozdíl.** Podrobně v `METRIKY-KOL.md`.
 
-▶️ **NEDOKONČENO: kontrolor.** Nezávislá kontrola podtématu běžela, ale session
-se restartovala; agent byl vzbuzen znovu. Jeho nálezy dopsat do `METRIKY-KOL.md`
-a případné opravy poslat workerovi, ne dělat sám.
+✅ **KONTROLOR DOBĚHL: 9 nálezů, všechny opravené a nasazené** (commit po opravách,
+ověřeno curlem: „322 V", nová definice maxima i opravené otázky jsou na živém webu).
+Závažný byl jeden: výklad učil násobit koeficientem 1,4 a vzápětí tvrdil
+„230 · 1,4 ≈ 325 V", jenže ten součin dá **322**. Nově se počítá poctivě 322 V
+a teprve pak se dodává přesnější √2 ≈ 1,41 → skutečná špička 325 V.
+Opravy dělali PŮVODNÍ workeři (tři naráz, každý ve svém souboru); koordinátor jen
+zapsal sdílené soubory a změřil. Podrobně v `METRIKY-KOL.md`.
+
+📥 **Zbylo na samostatné kolo:** měřidlo délkové nápovědy (`zkontroluj.mjs` ř. 131)
+hlásí blok až při poměru `nejdelsi/celkem >= 0,75`, takže JEDNA otázka s nejdelší
+správnou odpovědí projde tiše — kontrolor ji našel ručně. Zvážit druhý práh
+„aspoň jedna otázka s velkým náskokem", napřed kalibrovat na nasazené práci.
+
+▶️ **DALŠÍ PODTÉMA:** `chemicke-zdroje-napeti` (F9). Zbývají po něm
+`elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
 
 ### Vrátný povolení — tři opravy (učitel u Macu není, dotaz zastaví práci)
 
