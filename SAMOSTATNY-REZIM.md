@@ -15,6 +15,49 @@ z hodiny" jsou na živé stránce). Brána kód 0, build 468 stránek.
   Li-ion); správná odpověď „elektrody z různých kovů" odporovala vlastnímu
   výkladu (suchý článek = zinek + UHLÍK) → nově „z různých materiálů".
 
+**Fronta a pravidla (nasazeno, commit `4deb5e9`):** fronta má u každé položky
+značku sekce `[fox]`/`[skola2]`/`[cesty]` a je jediná pro celý web (41 položek
+skola2, 18 cesty — deník ve frontě byl už dřív, jen nebyl odlišitelný, proto se
+na něj nikdy nedostalo). Nové obecné položky `[cesty]`: doplnění starších
+fotek, doplnění cest z minulých let (rozsah zadá učitel). Dvě `[příprava]`:
+zkouška průzkumníka přes Hermese + revize směrování modelů podle měření.
+`orchestrator-prompt.md` má tabulku směrování kroků na modely (průzkumník
+a média = lokální `[neověřeno]`, obsah/kód/zápis/kontrolor = Claude) a nový
+bod 12: delší text worker nevrací do kontextu, uloží do souboru a vrátí cestu
++ dvouřádkové shrnutí. Skill `/pokracuj` nově shrnuje stav VŠECH TŘÍ sekcí
+a při práci ve víc sekcích se ptá učitele, kterou dělat. Workerům
+kvíz/výklad/média byl doplněn nástroj Write, ale POUZE na zápis vlastního
+výstupu do scratchpadu — do projektových souborů zapisuje výhradně exekutor.
+
+**Deník — rohatka pořadí videí (Omega, commit `c17d363`):** nalezena a opravena
+vada, kterou objevil učitel. Fronta hlásila jako „NA ŘADĚ" Ruedesheim (foceno
+10. 8.), přestože tři starší místa (Kluesserath 4. 8., Neumagen-Dhron 6. 8.,
+Trittenheim 6. 8.) nemají video. Příčina: `prekazky()` mazala z překážek
+všechny pozastavené kroky, takže pauza video-automatu smazala i blokádu
+„starší místo nemá video". Geometrie trasy ani km v pořádku byly
+(`trasa_z_tabulky.py` bere `foceno_od` z tabulky), špatné by bylo publikační
+pořadí na kanálu. Nezávislý kontrolor: 4 drobné nálezy, žádný závažný; dva
+opraveny (hláška teď radí cestu ven, obsahové kroky pořadí neomezuje).
+
+🔴 **POZOR při zvedání pauzy video-automatu:** `pozastavene-automaty.json` je
+pořád pozastavený (důvod „PLAN-PORADEK.md v3"). Až se pauza zvedne, rohatka
+vynutí pořadí — první na řadě bude Kluesserath, ne Ruedesheim.
+
+📥 **Vědomě odložené (nálezy kontrolora, které se NEopravovaly):**
+1. Rohatka porovnává jen místa téhož roku; produkční volání
+   (`vyrob_video_automat.py`, `nahraj_na_youtube.py`) předávají rok napevno
+   „2026", takže trasa přes přelom roku by se neporovnala a pořadí by se
+   mohlo porušit beze zprávy.
+2. Odmítací hláška ukazuje u míst z téhož dne jen datum bez času
+   (Neumagen-Dhron 13:26 a Trittenheim 13:59 vypadají stejně); řazení uvnitř
+   je podle plného času správné, jde jen o srozumitelnost.
+3. Ze školní části dál platí: délková nápověda u 7 starších otázek
+   `chemicke-zdroje-napeti` a čtyři odkazy shodné s 8. ročníkem (čeká na
+   rozhodnutí učitele, zda vada nebo záměr).
+4. Kluesserath má kromě videa nedodělaný i obsahový krok „založit na webu",
+   který se ve výpisu fronty tiše neukazuje, protože řádek má zároveň
+   automatový krok — zvážit opravu výpisu.
+
 🔴 **SIMULACE SE NEDĚLALA** — vědomé rozhodnutí učitele uprostřed kola
 (docházely tokeny). Worker `worker-simulace` byl zastaven, `git status` po něm
 byl PRÁZDNÝ (nic rozepsaného nezůstalo). Zadání na příště je připravené: nová
