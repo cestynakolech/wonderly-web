@@ -140,6 +140,8 @@ hlášením „hotovo".
 
 📌 **Poučení o ověřování nasazení:** hledání doslovného názvu komponenty (`RetezovaReakce`) v živém HTML 10× selhalo, přestože nasazení bylo v pořádku — Astro název komponenty do výstupu nepropisuje, kompiluje se pryč. Spolehlivý důkaz je hledání KONKRÉTNÍHO `id` atributu z komponenty (např. `rr-a-svg`), ne jejího jména. Platí i pro dřívější ověření `razeni-clanku`/`PremenyEnergie` v tomto kole — pokud se k nim někdo vrátí, ověřovat stejně přes id, ne přes název.
 
+✅ **F9 `obnovitelne-a-neobnovitelne-zdroje` HOTOVO A NASAZENO** (commit `626199a`, ověřeno přes id `oz-b-cerpat` na živé stránce). Kvíz 11→19, doplněk výkladu (přečerpávací elektrárna, 3 úlohy), 1 video + 3 odkazy, nová simulace `obnovitelne-zdroje` (třídění zdrojů + vodík jako chyták, přečerpávací elektrárna). Vizuální kontrola opět našla reálnou vadu — výchozí hladina (80 %) náhodou splývala s cílovou hodnotou režimu čerpat (80 %), takže první klik nezpůsobil vůbec žádnou změnu; opraveno (výchozí 50 %) a potvrzeno pixelovým měřením. Třetí simulace dnes ze čtyř měla stejnou třídu chyby (klik/animace bez viditelného efektu) — je to zjevně systematické riziko u téhle skupiny simulací, ne náhoda.
+
 ---
 
 ## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"
