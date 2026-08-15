@@ -257,3 +257,33 @@ bez opory ve výkladu, ale dítěti se ukazuje jako tvrdý údaj · nedoložené
 konkrétní návod k riskantnímu činu · scéna B nemá v obrázku varování „nikdy
 nezkoušet" (má ho jen scéna A) · nakreslený obvod se nedotýká zdroje a u baterie
 je zpáteční cesta do země fyzikálně nesmyslná.
+
+---
+
+## Kolo 15. 8. 2026 — F9 `vlastnosti-stridaveho-proudu` (graf: 4 workeři naráz)
+
+Podtéma mělo bohatý výklad, ale **žádnou simulaci a žádná média**. Vějíř: A výklad
+(4 příklady), B nová simulace `StridavyProudSimulace.astro`, C 8 kvízových otázek
+(blok 12 → 20), D média. Do sdílených souborů (`temata.ts`, `kvizy.ts`, `index.astro`)
+zapisoval jen koordinátor.
+
+**Prohlídka scén očima našla 6 vad, které měřidlo NEVIDĚLO** (`rozvrzeni-sceny.mjs`
+hlásilo 0 tvrdých chyb i 0 varování, `zkontroluj.mjs` kód 0, build 465 stránek OK):
+
+🔴 **1. Křivka ve scéně B nebyla sinusoida, ale obdélník s plochým vrcholem.**
+Přímý rozpor s výkladem na TÉŽE stránce („grafem je sinusoida"). Měřidlo měří
+okraje plátna, ne tvar křivky — na tohle je pořád potřeba oko.
+
+🔴 **2. Přepnutí frekvence nezměnilo obrázek.** Worker zvolil okno grafu „vždy
+přesně 2×T", takže 50 Hz a 100 Hz vypadaly pixelově stejně, lišila se jen čísla
+na ose. Zmizela tím JEDINÁ věc, kterou má scéna ukázat: vyšší frekvence = hustší
+vlny. Poučení: **u ovládacího prvku se prohlíží, jestli se po jeho přepnutí
+doopravdy něco změní** — dva stavy s různým md5 ještě neznamenají viditelný rozdíl.
+
+🔴 **3. Dvě žárovky si odporovaly s vlastním popiskem.** Horní (efektivní) měla
+paprsky, dolní (stejnosměrná) ne, a rámeček pod nimi tvrdil „obě svítí stejně silně".
+
+**Drobné (3):** popisky ticků scény B překryté křivkou a useknuté („1" místo „10") ·
+popisky ticků scény A nevystředěné a poslední kolidoval s hrotem šipky osy ·
+čárkovaná čára stejnosměrného napětí ležela nad maximem sinusoidy (budí dojem,
+že stejnosměrné napětí je větší).

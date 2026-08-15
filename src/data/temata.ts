@@ -22,7 +22,7 @@ export type Podtema = {
 	/** Externí odkazy k tématu — na stránce se ukážou s QR kódem pro naskenování */
 	odkazy?: { nazev: string; url: string }[];
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
-	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani';
+	interakce?: 'hydraulika' | 'skupenstvi' | 'obvod' | 'hustota' | 'teplomer' | 'skladani-sil' | 'vrh' | 'teziste' | 'cara' | 'binarni' | 'pakety' | 'paka' | 'magnet' | 'kladka' | 'ohm' | 'rychlost' | 'odraz' | 'lom' | 'mesic' | 'hydrostatika' | 'vlneni' | 'zapojeni' | 'transformator' | 'rozpad' | 'soustava' | 'ohrev' | 'elektrovani' | 'valec' | 'planety-vaha' | 'atom-molekuly' | 'izotopy' | 'difuze' | 'tlak-plocha' | 'cocka' | 'zrcadlo' | 'stupnice' | 'prevody' | 'ozobot' | 'prace' | 'kadinky' | 'treni' | 'archimedes' | 'kalorimetr' | 'skatepark' | 'indukce' | 'elektromagnet' | 'rovinne-zrcadlo' | 'motor' | 'dioda' | 'barometr' | 'oko' | 'elektrolyza' | 'barvy' | 'alternator' | 'elektromotor' | 'vyparovani' | 'jiskra' | 'duha' | 'reaktor' | 'decibely' | 'pretlak' | 'svacina' | 'prenos' | 'graf-cesta' | 'naklonena-rovina' | 'ucinky-sily' | 'meridla' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'reostat' | 'tabulka-vzorce' | 'souradnice' | 'promenne' | 'led-displej' | 'vetveni' | 'opakovani' | 'udalosti' | 'vlastni-bloky' | 'bludiste' | 'funkce-tabulky' | 'senzory-robota' | 'klonovani' | 'microbit-vstupy' | 'microbit-radio' | 'vexcode' | 'sestaveni-robota' | 'motory-displej-zvuk' | 'projekt-robot' | 'ping-pong' | 'honicka' | 'strilecka' | 'skakacka' | 'razeni-filtrovani' | 'vykon' | 'elektricke-pole' | 'oersted' | 'ucinnost-motoru' | 'kolobeh-vody' | 'vnitrni-energie' | 'tuhnuti' | 'kondenzace' | 'vznik-elektrickeho-proudu' | 'galvanicky-clanek' | 'elektricka-prace-a-vykon' | 'ucinky-proudu-a-bezpecnost' | 'magnety-opakovani' | 'stridavy-proud';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
 };
@@ -3984,6 +3984,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'vlastnosti-stridaveho-proudu',
 					nazev: 'Vlastnosti střídavého proudu',
+					interakce: 'stridavy-proud',
 					obsah: `
 						<h2>Vlastnosti střídavého proudu</h2>
 						<p>Při rovnoměrném otáčení cívky v magnetickém poli vzniká <strong>pravidelně proměnné napětí</strong> a obvodem teče proud se stejným průběhem. Zdrojem je nejčastěji <strong>zásuvka</strong>. Elektrony ve vodiči přitom <strong>opakovaně mění směr</strong> podle polarity zdroje.</p>
@@ -4023,7 +4024,17 @@ export const temata: Record<string, Tema[]> = {
 						(ne s napětím). Elektrárna proto napětí <strong>vytransformuje nahoru</strong> na stovky
 						kilovoltů — tím při stejném výkonu <em>klesne proud</em> a vedení skoro netopí — a před
 						domem se zase <strong>sníží na 230 V</strong>. Bez střídavého proudu by dálkový přenos
-						elektřiny nebyl možný a elektrárna by musela stát v každém městě.</p>`,
+						elektřiny nebyl možný a elektrárna by musela stát v každém městě.</p>
+						<h3>✏️ Příklady z hodiny</h3>
+						<ol>
+							<li>Cívka alternátoru se otáčí s frekvencí <strong>25 Hz</strong>. Jak dlouho trvá jedna otočka (perioda)? <details><summary>řešení</summary>T = 1 / f = 1 / 25 = <strong>0,04 s</strong> (40 milisekund)</details></li>
+							<li>Perioda střídavého proudu je <strong>0,01 s</strong>. Jaká je jeho frekvence? <details><summary>řešení</summary>f = 1 / T = 1 / 0,01 = <strong>100 Hz</strong></details></li>
+							<li>Na cívce naměříme <strong>maximální napětí 140 V</strong>. Jaké napětí ukáže voltmetr (efektivní hodnota)? <details><summary>řešení</summary>Voltmetr ukazuje efektivní hodnotu: U = U<sub>m</sub> / 1,4 = 140 / 1,4 = <strong>100 V</strong></details></li>
+							<li>Elektrickým vařičem v zásuvce (230 V) prochází proud <strong>2 A</strong>. Jaký je jeho výkon? <details><summary>řešení</summary>P = U · I = 230 · 2 = <strong>460 W</strong></details></li>
+						</ol>`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Generátor střídavého proudu, střídavý proud', cesta: '9fOhc78FDAI' },
+					],
 				},
 				{
 					slug: 'transformator',
