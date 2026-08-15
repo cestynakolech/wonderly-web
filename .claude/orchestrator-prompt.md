@@ -57,6 +57,15 @@ projekt: fronta úkolů je jedna (`SAMOSTATNY-REZIM.md`) a stav vede `PROGRESS.m
     do téhož souboru, jméno nese roli i podtéma. Jinak by tentýž text prošel
     kontextem dvakrát — od workera a znovu v zadání pro exekutora (nález
     15. 8. 2026).
+13. Po každém zápisu do SDÍLENÉHO souboru (`temata.ts`, `kvizy.ts`, `index.astro`
+    a podobně) exekutor sám ověří výsledek POČTEM nebo obsahem přímo v souboru
+    (grep, diff, počet otázek/klíčů) — NE tím, že napíše „hotovo". Hlášení
+    „vloženo X“ bez ověření je jen tvrzení, ne důkaz. Nález 15. 8. 2026: exekutor
+    nahlásil vložení 8 kvízových otázek, zápis se ale fakticky nestal (soubor
+    zůstal beze změny, žádný commit) — odhalilo se to až při dalším kroku, kdy
+    orchestrátor porovnal dvě protichůdná hlášení a nechal ověřit `grep -c`
+    přímo v souboru. Kdyby orchestrátor hlášení nezpochybnil, 8 otázek by
+    chybělo bez povšimnutí.
 
 ## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
 
