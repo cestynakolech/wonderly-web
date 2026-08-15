@@ -86,6 +86,17 @@ podtémata F9 `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
 vs. „první nástřel Hermes/lokální model"). Dnešní kolo je v ní zapsané jako
 základní čára; příští kolo v režimu Hermes se zapíše do stejné tabulky.
 
+✅ **Simulace `razeni-clanku` k F9 `chemicke-zdroje-napeti` HOTOVA A NASAZENA**
+(commity `dd779e8`, `7a594dd`, ověřeno curlem HTTP 200). Scéna A (řazení 1–6
+článků, jas žárovky), scéna B (ionty vs. elektrony). Nezávislá vizuální
+kontrola potřebovala DVĚ kola oprav: 1) žárovka se viditelně neměnila mezi
+napětími — opraveno počtem vyzařovaných paprsků; 2) ionty byly u opačné
+elektrody, dva pokusy o opravu selhaly (špatná diagnóza — nešlo o snímek
+animace), teprve třetí pokus se strukturální invariantou (disjunktní dráhy
+podle náboje, testováno nad 21 snímky) prošel. Poučení: u fyzikálně citlivého
+detailu je lepší rovnou žádat testovatelnou invariantu než vizuální záplatu —
+druhý vizuální pokus by mohl znovu vypadat dobře jen náhodou v jednom snímku.
+
 ### 📋 FRONTA OTEVŘENÝCH ROZHODNUTÍ (samostatný režim od 15. 8. 2026 večer)
 
 1. **Vizuální schválení simulace zadáno agentovi, ne učiteli osobně.** U simulace
@@ -100,6 +111,10 @@ základní čára; příští kolo v režimu Hermes se zapíše do stejné tabul
    reálná kontrola, ne jako formalita. Navrhované řešení: až se učitel vrátí,
    měl by se i tak podívat na finální náhledy sám, než se simulace považuje za
    definitivně schválenou — cesty k náhledům budou v hlášení o dokončení.
+   Update: obě vady, které agent při vizuální kontrole našel, byly reálné a
+   opravily se až po 2–3 kolech — kontrola tedy fungovala jako plnohodnotná
+   náhrada, ne formalita; učitel si i tak může projít finální náhledy v
+   `/private/tmp/claude-502/-Users-Shared--kola/65433620-9660-46b8-a1d7-f060e7536673/scratchpad/razeni-*.png`.
 
 ---
 
