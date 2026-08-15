@@ -1,4 +1,51 @@
-## 🔴🔴 ZAČNI TADY (stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu")
+## 🔴🔴 ZAČNI TADY (stav 15. 8. 2026 — po kole „chemické zdroje napětí (textová část)")
+
+**Hotovo a NASAZENO** (commit `b9726cd`, ověřeno curlem — HTTP 200, „Příklady
+z hodiny" jsou na živé stránce). Brána kód 0, build 468 stránek.
+
+- F9 `chemicke-zdroje-napeti` — kvízový blok 11 → 20 otázek (řazení článků,
+  ionty uvnitř vs. elektrony vně, dvojice kovů určuje napětí, pokus s citronem,
+  palivový článek, Li-ion), nová sekce „✏️ Příklady z hodiny" se 4 počítanými
+  úlohami (9 : 1,5 = 6 článků · 4 · 1,5 = 6 V · 12 : 2 = 6 článků · 18 : 4,5 = 4
+  baterie), 2 ověřená česká videa (`ygDqVDZvA64` Badatelna/Milujeme vědu,
+  `gEvWqe5KIQY` Paní Učitelka) a 2 odkazy (Sbírka pokusů MFF UK — citronová
+  baterie, Uč se online — galvanické články; oba ověřeny curlem HTTP 200).
+- Opraveny 2 věcné chyby ve STARŠÍCH otázkách téhož bloku: vysvětlení tvrdilo,
+  že jednorázové lithiové články jsou v mobilech a noteboocích (tam je dobíjecí
+  Li-ion); správná odpověď „elektrody z různých kovů" odporovala vlastnímu
+  výkladu (suchý článek = zinek + UHLÍK) → nově „z různých materiálů".
+
+🔴 **SIMULACE SE NEDĚLALA** — vědomé rozhodnutí učitele uprostřed kola
+(docházely tokeny). Worker `worker-simulace` byl zastaven, `git status` po něm
+byl PRÁZDNÝ (nic rozepsaného nezůstalo). Zadání na příště je připravené: nová
+komponenta `RazeniClankuSimulace.astro`, klíč `interakce: 'razeni-clanku'`,
+scéna A = sériové řazení 1–6 článků (suchý 1,5 V / olověný 2 V, voltmetr
+ukazuje součet, žárovka svítí jasněji), scéna B = proud uvnitř (ionty) vs. vně
+(elektrony) + technický směr proudu. POZOR: `GalvanickyClanekSimulace.astro`
+už existuje (používá ji F8) — nová simulace nesmí opakovat, co ukazuje ona.
+
+📥 **ODLOŽENÉ NÁLEZY KONTROLORA** (týkají se STARŠÍ, už nasazené práce, ne
+dnešního kola):
+1. Délková nápověda — u 7 starších otázek bloku `chemicke-zdroje-napeti` je
+   správná odpověď nejdelší ze tří. Souvisí s dřívějším restem: měřidlo
+   v `zkontroluj.mjs` (ř. 131) hlásí až při poměru 0,75, takže jednotlivé
+   otázky propadnou tiše. Zvážit druhý práh „aspoň jedna otázka s velkým
+   náskokem", NAPŘED kalibrovat na nasazené práci.
+2. Odkazy u F9 `chemicke-zdroje-napeti` jsou 4× doslova tytéž jako u F8
+   podtématu se stejným slugem — žák procházející oběma ročníky dostane totéž.
+   Rozhodnout, jestli je to vada, nebo záměr.
+
+▶️ **DALŠÍ V POŘADÍ:** simulace k `chemicke-zdroje-napeti` (zadání výše), pak
+podtémata F9 `elektricka-energie-a-premeny`, `jaderna-energie-a-reakce`,
+`obnovitelne-a-neobnovitelne-zdroje`, `vesmir-a-galaxie`.
+
+📊 Nově: `METRIKY-KOL.md` má sekci se srovnávací tabulkou režimů („plný Claude"
+vs. „první nástřel Hermes/lokální model"). Dnešní kolo je v ní zapsané jako
+základní čára; příští kolo v režimu Hermes se zapíše do stejné tabulky.
+
+---
+
+## Stav 15. 8. 2026, 12:00 — po kole „vlastnosti střídavého proudu"
 
 **Hotovo a NASAZENO** (commit `9f4ffdd`, ověřeno curlem na živém webu — HTTP 200,
 obě scény, příklady i video jsou tam). Brána kód 0, build 465 stránek,
