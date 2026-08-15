@@ -44,6 +44,10 @@ opraveny (hláška teď radí cestu ven, obsahové kroky pořadí neomezuje).
 nová simulace `rozpinani-vesmiru` (tvary galaxií, Hubbleův zákon). Dvě opravy po
 vizuální kontrole — scéna A vůbec nereagovala na klik.
 
+🚐 **DENÍK — vše připravené, čeká se legitimně na dozrání fotek.** Video-automat byl znovu zapnut (splněna podmínka `zvednout_po: kroku F` — dodělán bod 4 plánu, append-only rejstřík kvality bodu `skripty/data/kvalita-bodu.jsonl`, commit `ce12a3e`). Před zapnutím doplněna chybějící pojistka: render videa (nejtěžší krok) dosud neuzamykal CPU dráhu, zámek měla jen výroba hudby — doplněno do `vyrob_video_automat.py:666`. Automat po nakopnutí doběhl bez chyby a správně čeká: skupinové video Klüsserath (+ Ochsenfurt, Rüdesheim, Sommerhausen, Winterhausen) potřebuje, aby nejnovější médium ve skupině bylo 7 dní staré. Nejnovější je Winterhausen 12. 8. 13:11 → **lhůta vyprší 19. 8. 2026 ve 13:11**, ale ve `fotky-cekarna` leží novější soubory (Sommerhausen 12. 8. 19:41, Ochsenfurt 12. 8. 08:19), které termín po zanonymizování posunou ještě dál. Rohatka pořadí ověřena: `smi_zpracovat("Kluesserath_DE","video")` → True, Eibelstadt/Rüdesheim → False. Výpis `fronta_mist.py` nově odděluje FRONTU VIDEÍ a FRONTU ANONYMIZACE — sloučený výpis dnes zmátl učitele i orchestrátora (Eibelstadt hlášený jako „NA ŘADĚ" byl na řadě jen pro anonymizaci, ne pro video).
+
+📊 **Stav názornosti (měřidlo `testy/nazornost.mjs`, 15. 8.):** fyzika 7, 8, 9 čistá (zbývají jen pololetní/roční shrnutí, která názornost nepotřebují). Fyzika 6 má ještě **2 skutečné díry**: `souhrnne-opakovani-velicin` a `pokusy`. Informatika: 7. roč. 6/18, 8. roč. 3/18, **9. roč. 9/11 — největší díra v celém webu**.
+
 🔴🔴 **TÍM JE VYČERPANÁ CELÁ TEHDEJŠÍ FRONTA F9 podtémat bez názornosti**
 (chemicke-zdroje-napeti, elektricka-energie-a-premeny, jaderna-energie-a-reakce,
 obnovitelne-a-neobnovitelne-zdroje, vesmir-a-galaxie) — 4 nové simulace,
@@ -78,14 +82,12 @@ vynutí pořadí — první na řadě bude Kluesserath, ne Ruedesheim.
    který se ve výpisu fronty tiše neukazuje, protože řádek má zároveň
    automatový krok — zvážit opravu výpisu.
 
-🔴 **SIMULACE SE NEDĚLALA** — vědomé rozhodnutí učitele uprostřed kola
-(docházely tokeny). Worker `worker-simulace` byl zastaven, `git status` po něm
-byl PRÁZDNÝ (nic rozepsaného nezůstalo). Zadání na příště je připravené: nová
-komponenta `RazeniClankuSimulace.astro`, klíč `interakce: 'razeni-clanku'`,
-scéna A = sériové řazení 1–6 článků (suchý 1,5 V / olověný 2 V, voltmetr
-ukazuje součet, žárovka svítí jasněji), scéna B = proud uvnitř (ionty) vs. vně
-(elektrony) + technický směr proudu. POZOR: `GalvanickyClanekSimulace.astro`
-už existuje (používá ji F8) — nová simulace nesmí opakovat, co ukazuje ona.
+✅ **OPRAVA ZASTARALÉHO ZÁZNAMU (15. 8. 2026):** položka níže původně tvrdila
+„SIMULACE SE NEDĚLALA" — TO UŽ NEPLATÍ. Simulace `RazeniClankuSimulace.astro`
+(`razeni-clanku`) byla dnes dokončena a nasazena, viz ✅ HOTOVO A NASAZENO
+níže (commity `dd779e8`, `7a594dd`, ověřeno curlem). Worker `worker-simulace`
+nebyl třeba znovu spouštět od nuly — zadání z tohoto odstavce bylo použito
+beze změny (scéna A řazení článků, scéna B ionty vs. elektrony).
 
 📥 **ODLOŽENÉ NÁLEZY KONTROLORA** (týkají se STARŠÍ, už nasazené práce, ne
 dnešního kola):
