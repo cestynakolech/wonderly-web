@@ -4186,15 +4186,26 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Palivový článek</strong> — zvláštní případ: nevybíjí se, protože se do něj
 							palivo (vodík) <strong>průběžně dodává</strong>. Odpadem je čistá voda.</li>
 						</ul>
+						<h3>✏️ Příklady z hodiny</h3>
+						<ol>
+						<li>Kolik tužkových článků (1,5 V) musíš zapojit za sebou, aby vznikla devítivoltová baterie (9 V)? <details><summary>řešení</summary>n = U / U₁ = 9 : 1,5 = <strong>6 článků</strong></details></li>
+						<li>V baterii svítilny jsou za sebou čtyři tužkové články po <strong>1,5 V</strong>. Jaké je celkové napětí zdroje? <details><summary>řešení</summary>U = 4 · 1,5 = <strong>6 V</strong></details></li>
+						<li>Autobaterie (olověný akumulátor) je uvnitř složená z několika článků po <strong>2 V</strong> zapojených za sebou. Kolik článků potřebuje, aby dala napětí 12 V? <details><summary>řešení</summary>n = 12 : 2 = <strong>6 článků</strong></details></li>
+						<li>Kolik plochých baterií (4,5 V) musíš spojit za sebou, aby dohromady daly napětí 18 V? <details><summary>řešení</summary>n = 18 : 4,5 = <strong>4 ploché baterie</strong></details></li>
+						</ol>
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Chemické zdroje elektrického napětí', cesta: 'wC1cAYJitUk' },
+						{ druh: 'youtube', nazev: 'Badatelna: Jak funguje baterie (galvanický článek)', cesta: 'ygDqVDZvA64' },
+						{ druh: 'youtube', nazev: 'Zdroje napětí — Galvanický článek (Voltův článek)', cesta: 'gEvWqe5KIQY' },
 					],
 					odkazy: [
 						{ nazev: 'Pokusy: Baterky (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5462-pokusy-baterky' },
 						{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
 						{ nazev: 'Jak probíhá recyklace baterií (ECOBAT)', url: 'https://www.ecobat.cz/jak-probiha-recyklace-baterii/' },
 						{ nazev: 'Druhy baterií — spojovačka (Wordwall)', url: 'https://wordwall.net/cs/resource/71804207/druhy-bateri%C3%AD' },
+						{ nazev: 'Pokus: Citronová baterie (Sbírka pokusů MFF UK)', url: 'https://fyzikalnipokusy.cz/2206/citronova-baterie' },
+						{ nazev: 'Galvanické články — zápisky (Uč se online)', url: 'https://www.ucseonline.cz/skola/zakladni-skola/skolni-zapisky/chemie/galvanicke-clanky/' },
 					],
 				},
 				{

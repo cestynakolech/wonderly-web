@@ -321,3 +321,26 @@ hlásí blok teprve při **poměru 0,75 a výš** (`nejdelsi / celkem >= 0.75`),
 JEDNA otázka s nejdelší správnou odpovědí projde tiše. Kontrolor ji našel ručně.
 Zvážit druhý práh „aspoň jedna otázka s velkým náskokem" — a napřed kalibrovat
 na nasazené práci, ať nezačne hlásit zavedený styl.
+
+---
+
+## Srovnání režimů: kdo dělá první nástřel (Claude vs. Hermes/lokální model)
+
+Účel: do budoucna vedle sebe porovnat (A) první nástřel dělá Claude a (B) první
+nástřel dělá lokální model přes Hermese, Claude jen kontroluje a opravuje.
+Hlavička je fixní — řádek režimu B se zapisuje beze změny sloupců.
+
+| Datum | Podtéma | Rozsah | Režim | Tokeny nástřel | Tokeny kontrola+opravy | Tokeny celkem (měřené) | Nálezy kontrolora | Opravné smyčky | Čas agentů | Poznámka |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 15. 8. 2026 | F9 `chemicke-zdroje-napeti` | textová část BEZ simulace (9 nových kvízových otázek → blok 11 → 20, sekce „Příklady z hodiny" se 4 počítanými úlohami, 2 česká videa, 2 odkazy) | A — plný Claude (první nástřel i opravy Claude, lokální model nepoužit) | 232 901 (průzkumník 62 284 + worker kvíz 32 413 + worker výklad/příklady 47 099 + worker média 52 021 + exekutor zápis 39 084) | 53 680 (kontrolor) + exekutor oprav NEMĚŘENO (běžel souběžně, číslo se nevrátilo) | 286 581 (jen průzkumník+workeři+zápis+kontrolor; exekutor oprav v součtu chybí) | 4 (1 závažný, 3 drobné) — žádný nález se netýkal dnešní nové práce, všechny byly ve starším už nasazeném obsahu; nové příklady i otázky kontrolor přepočítal jako správné | 1 | 864 s ≈ 14 min (součet dob běhu agentů, ne wall-clock — ten neměřen) | NEMĚŘENO: spotřeba hlavní orchestrátorské session (čísla výše jsou jen subagenti); worker simulace zastaven v půlce kola (rozsah kola se zmenšil) a spotřebu nevrátil, není v součtu |
+
+**Legenda sloupců** (pro jednoznačný zápis příště, hlavně u režimu B):
+- **Rozsah** — co přesně vzniklo v tomto kole (typ obsahu + počty), aby šlo srovnávat kola podobné velikosti.
+- **Režim** — kdo dělal PRVNÍ NÁSTŘEL: „A — plný Claude" nebo „B — Hermes/lokální model, Claude kontroluje+opravuje". Zapisovat i jméno modelu u B (např. „B — qwen3:30b-a3b").
+- **Tokeny nástřel** — součet tokenů všech agentů/modelů, kteří vyráběli PRVNÍ verzi (u B sem patří i tokeny/čas Hermese, pokud je lokální model měří; když neměří, psát „NEMĚŘENO" a nedopočítávat).
+- **Tokeny kontrola+opravy** — tokeny kontrolora + tokeny exekutora/workerů, kteří podle kontrolora opravovali. Když část běží souběžně a číslo se nevrátí, psát u položky NEMĚŘENO, ne odhad.
+- **Tokeny celkem (měřené)** — prostý součet dvou předchozích sloupců NAD tím, co je skutečně měřené; k číslu vždy poznámkou (v závorce), co přesně zahrnuje a co ne.
+- **Nálezy kontrolora** — počet a kolik z nich závažných; vždy uvést, zda se týkaly nové práce, nebo staršího obsahu.
+- **Opravné smyčky** — kolikrát šel výsledek zpět na opravu, než byl kontrolorem uznán.
+- **Čas agentů** — součet dob běhu jednotlivých agentů (ne wall-clock, pokud wall-clock neměřen — to napsat výslovně).
+- **Poznámka** — sem vždy explicitně NEMĚŘENÉ položky (nikdy neodhadovat) a cokoliv, co by jinak zkreslilo srovnání A×B (např. část práce zastavená uprostřed kola).
