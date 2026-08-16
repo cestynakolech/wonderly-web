@@ -945,6 +945,20 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Výpočet doby trvání</h3>
 						<p>Známe-li čas začátku t₁ a konce t₂ události, doba trvání <strong>t = t₂ − t₁</strong> (např. jak dlouho trvala cesta vlakem).</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Jak se měřil čas dřív a dnes? 🎬',
+							cesta: '/media/fyzika/6-rocnik/cas/cas-a-jeho-mereni/polemika-cas-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬',
+							cesta: '/media/fyzika/6-rocnik/cas/cas-a-jeho-mereni/polemika-cas-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 			],
 		},
