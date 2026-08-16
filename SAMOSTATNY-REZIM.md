@@ -113,7 +113,7 @@ scénosled → schémata → **prohlídka kontaktním listem** → zvuk → vide
 11. [skola2] `magneticke-vlastnosti-latek`
 12. [skola2] `jednoduche-elektricke-obvody`
 13. [skola2] `pokusy`
-14. [skola2] `souhrnne-opakovani-velicin`
+14. [skola2] `souhrnne-opakovani-velicin` — scénáře hotové (2× dialog, brána 13/13), čeká na schémata/video/nasazení
 15. [skola2] `pololetni-shrnuti`
 16. [skola2] `rocni-shrnuti`
 
@@ -373,6 +373,15 @@ Organizace:
 - [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
 
 Čeká na rozhodnutí učitele (přestěhováno tamtéž):
+- **BLOKUJE VÝROBU: došel kredit na OpenAI účtu.** 16. 8. 2026 ~14:00 spadlo TTS
+  (`vyrob_podkasty.py`) na `HTTP 429 insufficient_quota — credit_balance_exhausted`.
+  Díl 15 „Pololetní shrnutí" má hotové 4 scénáře
+  (`~/Desktop/Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md`,
+  brána 24/24), ale nejde na ně vyrobit zvuk. AKCE PRO UČITELE: dobít kredit na
+  https://platform.openai.com/settings/organization/billing/ — platbu nesmím
+  provést sám. Až bude dobito, stačí spustit
+  `python3 ~/Desktop/Omega/skripty/vyrob_podkasty.py --vzorek pololetni-shrnuti-dialog[2/3/4] --rocnik 6`
+  4× a pokračovat v pipeline (schémata → video → nasazení) jako u dílů 7–14.
 - **Smazat zbloudilé kopie v R2.** V bucketu `wonderly-media` zůstaly dvě kopie na chybném
   klíči `media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4` a
   `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na
