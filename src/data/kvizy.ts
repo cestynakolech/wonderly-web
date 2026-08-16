@@ -1264,7 +1264,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Pokus: levou ruku podržíš ve studené vodě, pravou v horké, pak dáš obě do vlažné. Co ucítíš?',
 			odpovedi: [
-				'levá ruka cítí vodu jako teplou, pravá jako studenou',
+				'levá ruka cítí teplo, pravá cítí chlad',
 				'obě ruce cítí úplně stejnou teplotu vody',
 				'obě ruce najednou cítí vodu jako velmi horkou',
 			],
@@ -1273,7 +1273,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co z pokusu se třemi kádinkami plyne?',
 			odpovedi: [
-				'tělesný pocit teplotu spolehlivě neurčí — potřebujeme teploměr',
+				'tělesný pocit teplotu neurčí, je nutný teploměr',
 				'lidská ruka je vždy přesnější než jakýkoli teploměr',
 				'vlažná voda mění svou teplotu podle toho, čí je ruka',
 			],
@@ -1281,12 +1281,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Vlažnou vodu (25 °C) cítí jedna ruka jako teplou a druhá jako studenou. Jakou teplotu voda doopravdy má?',
-			odpovedi: ['pořád 25 °C — pro obě ruce stejně', 'pro každou ruku jinou', 'nedá se to zjistit'],
+			odpovedi: ['pořád 25 °C', 'pro každou ruku jinou', 'nedá se to zjistit'],
 			vysvetleni: 'Voda má jedinou skutečnou teplotu (změří ji teploměr). Liší se jen pocity rukou, ne voda.',
 		},
 		{
 			text: 'Jaká je značka a jednotka teploty?',
-			odpovedi: ['t, stupeň Celsia (°C)', 'T, newton (N)', 'm, kilogram (kg)'],
+			odpovedi: ['t, stupeň Celsia (°C)', 'T, jednotka newton (N)', 'm, jednotka kilogram (kg)'],
 			vysvetleni: 'Teplota má značku t a jednotku °C. Měříme ji teploměrem.',
 		},
 		{
@@ -1301,12 +1301,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kdo navrhl dnes nejpoužívanější teplotní stupnici?',
-			odpovedi: ['Anders Celsius', 'Isaac Newton', 'Robert Brown'],
+			odpovedi: ['Anders Celsius', 'Isaac Newton (fyzik)', 'Robert Brown (botanik)'],
 			vysvetleni: 'Celsiova stupnice (18. století) vychází z tuhnutí a varu vody. Původně byla obrácená!',
 		},
 		{
 			text: 'Kde se dodnes používá Fahrenheitova stupnice?',
-			odpovedi: ['v anglicky mluvících zemích', 'v celé Evropě', 'jen v laboratořích'],
+			odpovedi: ['v anglicky mluvících zemích', 'v celé Evropě', 'pouze ve vědeckých laboratořích'],
 			vysvetleni: 'Fahrenheit sestrojil přesný rtuťový teploměr a vlastní stupnici — teplota těla je asi 98 °F.',
 		},
 		{
@@ -1319,7 +1319,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: [
 				'na teplotní roztažnosti kapalin',
 				'na elektrickém proudu',
-				'na tlaku vzduchu',
+				'na změnách tlaku okolního vzduchu',
 			],
 			vysvetleni: 'Kapalina (rtuť či obarvený líh) při zahřátí zvětší objem a stoupá v trubičce.',
 		},
@@ -1330,13 +1330,13 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Proč se rtuťové teploměry dnes už moc nepoužívají?',
-			odpovedi: ['při rozbití hrozí otrava rtutí', 'jsou málo přesné', 'rtuť je příliš drahá'],
+			odpovedi: ['při rozbití hrozí otrava rtutí', 'rtuťové teploměry jsou málo přesné', 'rtuť je příliš drahá'],
 			vysvetleni: 'Rtuť je jedovatá — dnes se používají hlavně digitální teploměry: přesné a bezpečné.',
 		},
 		{
 			text: 'Jak funguje bimetalový teploměr?',
 			odpovedi: [
-				'pásek ze dvou kovů se při změně teploty stáčí a hýbe ručičkou',
+				'pásek ze dvou kovů se stáčí a hýbe ručičkou',
 				'barevná kapalina stoupá vzhůru po tenké trubičce',
 				'snímač uvnitř přístroje snímá neviditelné tepelné záření',
 			],
@@ -1351,7 +1351,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'K čemu slouží termokamera?',
 			odpovedi: [
 				'převádí tepelné záření okolí na obraz',
-				'měří teplotu jen jednoho bodu',
+				'měří teplotu pouze v jednom jediném bodě',
 				'promítá filmy',
 			],
 			vysvetleni: 'Termokamera zobrazí teploty v celém okolí — odhalí úniky tepla z budov či prokrvení těla.',
@@ -1364,7 +1364,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se vypočítá průměrná teplota z několika měření?',
 			odpovedi: [
-				'všechny teploty sečteme a součet vydělíme počtem měření',
+				'teploty sečteme a vydělíme počtem měření',
 				'vezmeme jen tu nejvyšší ze všech naměřených teplot',
 				'sečteme jen nejnižší a nejvyšší naměřenou teplotu',
 			],
