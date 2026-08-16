@@ -408,6 +408,17 @@ Organizace:
   u tohoto příkladu odporují (mluvený dialog se pasti vyhnul — mluví neutrálně
   o „odvedení přebytečného náboje"). Návrh: přeformulovat obousměrně na „náboj
   se odvede do země / vyrovná se se zemí". NEOPRAVENO — čeká na rozhodnutí učitele.
+- [skola2] **Značení magnetických pólů — N/S vs. S/J (rozpor napříč webem).** Text i kvíz
+  značí póly anglicky: `temata.ts` ř. 1121 a 1140, `kvizy.ts` ř. 1453 a 1492 („severní
+  (N — north, značí se červeně) a jižní (S — south)", „vycházejí z N a směřují k S").
+  Video a dialog dílu 11 ale používají české S = severní (červená) / J = jižní (modrá)
+  — všech 13 snímků. Písmeno „S" tak v textu znamená jižní pól a ve videu severní pól,
+  tedy přesný opak. Žák, který si pustí video i přečte text, to má proti sobě. Týká se
+  i tématu `magneticke-pole` (temata.ts ř. 3885, 3895), nejde o ojedinělý překlep.
+  Doporučení: sjednotit na české S/J (běžné v českých učebnicích) a v textu jednou
+  větou zmínit, že na koupených magnetech bývá anglické N/S, kde N = severní.
+  NEOPRAVENO — jde o volbu konvence, rozhodne učitel. Po rozhodnutí je oprava mechanická
+  (text + kvíz, videa už konvenci mají).
 - [cesty] **`MISTA.xlsx` otevřený v Excelu** ukazuje starou kopii — zavřít bez ukládání
   (akce pro učitele, ne pro automat).
 
