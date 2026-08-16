@@ -710,6 +710,17 @@ export const rok2026: Rok = {
 			y: 339.2,
 			popis: { cs: '' },
 		},
+		{
+			slug: 'klusserath',
+			galerie: 'cesty/2026/klusserath',
+			nazev: 'Klüsserath',
+			zeme: 'Německo',
+			datum: '8. 8. 2026',
+			vyjezd: 6,
+			x: 283.0,
+			y: 339.3,
+			popis: { cs: '' },
+		},
 	],
 	videa: [
 		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },
