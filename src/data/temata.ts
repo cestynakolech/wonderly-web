@@ -3592,6 +3592,9 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Rezistor</h3>
 							<p><strong>Rezistor</strong> je součástka s přesnou hodnotou odporu — tenký odporový drát (konstantan) navinutý na keramickém válečku. Hodnotu udávají <strong>barevné proužky</strong>. Slouží k <strong>regulaci proudu</strong> v obvodu.</p>
 						`,
+						odkazy: [
+							{ nazev: 'Odpor vodiče (Eduportál Techmania)', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/odpor-vodice' },
+						],
 					},
 				{
 						slug: 'ohmuv-zakon',
