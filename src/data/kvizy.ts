@@ -1764,7 +1764,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: [
 				'slaná voda má větší hustotu než vejce',
 				'sůl vejce nadlehčí vlastní vahou',
-				'sůl se přichytí na vejce a nadnese ho',
+				'sůl se pevně přichytí na vejce a nadnese ho',
 			],
 			vysvetleni: 'Přidáním soli roste hustota vody. Když je vyšší než hustota vejce, vejce se nadnese a vyplave.',
 		},
@@ -1809,7 +1809,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: [
 				'vodní pára se na chladnějším povrchu sráží (kondenzuje)',
 				'víčko vodu samo od sebe nepřetržitě a neustále vytváří',
-				'pára víčko postupně úplně rozpouští jako silná kyselina',
+				'pára víčko postupně úplně rozpouští jako velmi silná kyselina',
 			],
 			vysvetleni: 'Teplá vodní pára se při dotyku s chladnějším povrchem mění zpět na kapalnou vodu — kondenzuje.',
 		},
