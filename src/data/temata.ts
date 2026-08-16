@@ -3565,6 +3565,13 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Tepelné účinky proudu</h3>
 							<p>Zahřívání vodiče proudem <strong>využíváme</strong> (žárovka — wolframové vlákno 2200–3000 °C, vařič, konvice, žehlička, pojistka), ale má i <strong>nebezpečné důsledky</strong> — při přetížení nebo zkratu se dráty roztaví a hrozí <strong>požár</strong>.</p>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Elektrický odpor R - fyzika 8 ZŠ', cesta: 'oqmDoQH2Xoc' },
+							{ druh: 'youtube', nazev: 'Odpor vodiče', cesta: 'CGyiGNbxAHg' },
+						],
+						odkazy: [
+							{ nazev: 'Nebezpečná elektřina (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
+						],
 					},
 				{
 						slug: 'zavislost-odporu-na-vodici',
@@ -3607,6 +3614,10 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pozor na teplotu</h3>
 							<p>Ohmův zákon platí přesně jen <strong>za stálé teploty</strong>. Odpor kovů s teplotou <strong>roste</strong> (rozžhavené vlákno žárovky), takže tam už proud není přímo úměrný napětí. Výjimkou je slitina <strong>konstantan</strong>, jejíž odpor se s teplotou skoro nemění — proto se z ní dělají rezistory.</p>
 						`,
+						odkazy: [
+							{ nazev: 'Pokus: Elektrický proud a Ohmův zákon (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5420-pokus-elektricky-proud-a-ohmuv-zakon' },
+							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
+						],
 					},
 				{
 						slug: 'zapojeni-spotrebicu-za-sebou',
@@ -3628,6 +3639,13 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>nedělí</strong> → dělí se napětí. Nevýhoda série: přeruší-li se jeden spotřebič (vánoční řetěz), <strong>zhasne celý obvod</strong>.</p>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Sériové a paralelní zapojení - fyzika 8 ZŠ', cesta: '-swoFnETsac' },
+						],
+						odkazy: [
+							{ nazev: 'Sériové a paralelní zapojení — výklad (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
+							{ nazev: 'Sériové a paralelní zapojení v obvodu — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/seriove-a-paralelni-zapojeni-v-obvodu/' },
+						],
 					},
 				{
 						slug: 'zapojeni-spotrebicu-vedle-sebe',
@@ -3649,6 +3667,9 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>dělí</strong> → napětí se nedělí. Výhoda paralelu: když jeden spotřebič vypadne, <strong>ostatní fungují dál</strong>.</p>
 						`,
+						odkazy: [
+							{ nazev: 'Sériové a paralelní zapojení (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
+						],
 					},
 				{
 						slug: 'rezistor-s-promennym-odporem',
@@ -3670,6 +3691,10 @@ export const temata: Record<string, Tema[]> = {
 								<li>využití: ovládání <strong>hlasitosti, jasu, otáček</strong>; jako <strong>snímač polohy či úhlu</strong> v robotice a průmyslu</li>
 							</ul>
 						`,
+						odkazy: [
+							{ nazev: 'Reostat, dělič napětí (potenciometr) — F8 (vyuka.p3k.eu)', url: 'https://vyuka.p3k.eu/f8-reostat-delic-napeti-potenciometr/' },
+							{ nazev: 'Rezistory s proměnnou hodnotou (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Rezistory_s_prom%C4%9Bnnou_hodnotou' },
+						],
 					},
 				{
 						slug: 'elektricka-prace-a-vykon',
