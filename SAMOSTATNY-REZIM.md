@@ -373,6 +373,10 @@ Organizace:
 - [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
 
 Čeká na rozhodnutí učitele (přestěhováno tamtéž):
+- **Smazat zbloudilé kopie v R2.** V bucketu `wonderly-media` zůstaly dvě kopie na chybném
+  klíči `media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4` a
+  `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na
+  chybném klíči nikdo nečte — smazat? (mazání se neprovádí bez souhlasu)
 - [cesty] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
   se přestane rozmazávat, potvrzuje vždy učitel).
 - [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará
