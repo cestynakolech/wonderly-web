@@ -795,7 +795,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kolik miligramů je 1 gram?',
-			odpovedi: ['1000 mg', '100,0 mg', '10 mg'],
+			odpovedi: ['1000 mg', '100 mg', '10 mg'],
 			vysvetleni: '1 g = 1000 mg. V miligramech se udávají třeba dávky léků.',
 		},
 		{
@@ -827,12 +827,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kolik dm³ je 1 m³?',
-			odpovedi: ['1 000 dm³', '100,0 dm³', '10 dm³'],
+			odpovedi: ['1 000 dm³', '100 dm³', '10 dm³'],
 			vysvetleni: 'Krychlové jednotky se převádí po tisících: 1 m³ = 1 000 dm³, 1 dm³ = 1 000 cm³.',
 		},
 		{
 			text: 'Kolik mililitrů je 1 litr?',
-			odpovedi: ['1 000 ml', '100,0 ml', '10 ml'],
+			odpovedi: ['1 000 ml', '100 ml', '10 ml'],
 			vysvetleni: '1 l = 10 dl = 100 cl = 1 000 ml.',
 		},
 		{
@@ -922,7 +922,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kolik kg/m³ je 1 g/cm³?',
-			odpovedi: ['1 000 kg/m³', '1 kg/m³', '100,0 kg/m³'],
+			odpovedi: ['1 000 kg/m³', '1 kg/m³', '100 kg/m³'],
 			vysvetleni: '1 g/cm³ = 1 000 kg/m³. Jednotka g/cm³ se používá v chemii a farmacii.',
 		},
 		{
@@ -932,7 +932,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Proč zabere kilogram peří víc místa než kilogram železa?',
-			odpovedi: ['je řidší', 'peří je těžší', 'železo obsahuje vzduch'],
+			odpovedi: ['peří je méně husté než železo', 'peří je při stejné hmotnosti těžší', 'železo obsahuje uvnitř vzduch'],
 			vysvetleni: 'Při stejné hmotnosti je největší těleso z látky s nejmenší hustotou.',
 		},
 		{
@@ -966,7 +966,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Která kapalina má největší hustotu?',
-			odpovedi: ['rtuť (13500 kg/m³)', 'voda (1 000 kg/m³)', 'benzín (700 kg/m³)'],
+			odpovedi: ['rtuť (13 500 kg/m³)', 'voda (1 000 kg/m³)', 'benzín (700 kg/m³)'],
 			vysvetleni: 'Rtuť je nejhustší běžná kapalina — 13 500 kg/m³.',
 		},
 	],
@@ -1434,7 +1434,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek': [
 		{
 			text: 'Které látky patří mezi feromagnetické?',
-			odpovedi: ['železo, kobalt', 'hliník, měď, zinek', 'dřevo, papír, korek'],
+			odpovedi: ['železo, kobalt, nikl', 'hliník, měď, zinek a cín', 'dřevo, papír, korek a sklo'],
 			vysvetleni: 'Feromagnetické látky silně reagují na magnetické pole a lze je zmagnetovat: železo (a ocel), kobalt, nikl.',
 		},
 		{
@@ -1488,7 +1488,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co jsou magnetické indukční čáry?',
-			odpovedi: ['křivky od severu k jihu', 'přímky od jihu na sever', 'kruhy kolem středu magnetu'],
+			odpovedi: ['uzavřené křivky od severu k jihu', 'otevřené přímky od jihu k severu', 'soustředné kruhy kolem středu magnetu'],
 			vysvetleni: 'Indukční čáry graficky znázorňují pole — vycházejí z N a směřují k S; jejich směr udává severní pól magnetky.',
 		},
 		{
@@ -1498,7 +1498,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Před čím nás chrání magnetické pole Země?',
-			odpovedi: ['před sluncem', 'před deštěm', 'před zemětřesením'],
+			odpovedi: ['před slunečním větrem', 'před silným deštěm a bouřkou', 'před náhlým zemětřesením'],
 			vysvetleni: 'Pole odkloní proud nebezpečných nabitých částic ze Slunce. Částice u pólů vytvářejí polární záři.',
 		},
 		{
@@ -1605,7 +1605,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Proč se při tankování benzínu vypíná motor?',
-			odpovedi: ['kvůli jiskrám', 'aby se ušetřilo palivo', 'kvůli hluku'],
+			odpovedi: ['kvůli statické elektřině (jiskrám)', 'aby se ušetřilo palivo za jízdy', 'kvůli nadměrnému hluku motoru'],
 			vysvetleni: 'Při přesunu elektronů mohou přeskočit jiskry — u hořlavin hrozí požár. Cisterny mají uzemňovací proužek.',
 		},
 	],
@@ -1681,7 +1681,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je zkrat?',
-			odpovedi: ['holé spojení svorek', 'úplně vypnutý obvod', 'příliš slabý proud'],
+			odpovedi: ['spojení svorek bez spotřebiče', 'obvod, kterým neprotéká proud', 'příliš malý proud tekoucí obvodem'],
 			vysvetleni: 'Při zkratu protéká velký proud, vodiče se zahřívají a hrozí požár!',
 		},
 		{
@@ -1718,8 +1718,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co se stane se střelkou kompasu, když k ní přiblížíme silný magnet?',
 			odpovedi: [
 				'vychýlí se, protože magnet přemůže zemské magnetické pole',
-				'nic, kompas na magnety nereaguje',
-				'střelka se roztaví',
+				'nic se neděje, kompas na magnetické pole vůbec nereaguje ani trochu',
+				'střelka se přiblížením silného magnetu roztaví jako vosk',
 			],
 			vysvetleni: 'Blízký magnet je silnější než zemské magnetické pole, a tak střelku vychýlí ke svým pólům.',
 		},
@@ -1772,8 +1772,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč se brčko s modelínou ponoří ve slané vodě méně než v obyčejné vodě?',
 			odpovedi: [
 				'slaná voda má větší hustotu',
-				'sůl brčko nadlehčí zevnitř',
-				'slaná voda je teplejší',
+				'sůl brčko zevnitř nadlehčí a nadnese',
+				'slaná voda je vždycky výrazně teplejší',
 			],
 			vysvetleni: 'Čím hustší kapalina, tím méně se do ní hustoměr (brčko) ponoří — přesně jako u opravdového hustoměru.',
 		},
@@ -1790,8 +1790,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Kostka ledu plave ve vodě, ale v oleji klesá ke dnu. Proč?',
 			odpovedi: [
 				'led má menší hustotu než voda, ale větší než olej',
-				'olej led rozpouští, a proto klesá',
-				'voda je hustší než led i olej',
+				'olej postupně rozpouští led, a proto klesá ke dnu',
+				'voda je hustší než led i olej, proto plave nahoře',
 			],
 			vysvetleni: 'Led je řidší (méně hustý) než voda, proto v ní plave. Olej je ale ještě řidší než led, proto v něm led klesá.',
 		},
@@ -1799,8 +1799,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč nám líh na ruce připadá chladivější než voda?',
 			odpovedi: [
 				'líh se odpařuje rychleji a při odpařování odebírá teplo',
-				'líh je sám o sobě mrazivě studený',
-				'líh na kůži chemicky reaguje a mrzne',
+				'líh je sám o sobě velmi mrazivě studený jako led z mrazáku',
+				'líh na kůži chemicky reaguje a při tom pokaždé silně mrzne',
 			],
 			vysvetleni: 'Rychlejší odpařování lihu odebírá pokožce více tepla, proto cítíme chlad.',
 		},
@@ -1808,8 +1808,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč se na studeném víčku nad hrncem s párou objevují kapičky vody?',
 			odpovedi: [
 				'vodní pára se na chladnějším povrchu sráží (kondenzuje)',
-				'víčko vodu samo vytváří',
-				'pára víčko rozpouští',
+				'víčko vodu samo od sebe nepřetržitě a neustále vytváří',
+				'pára víčko postupně úplně rozpouští jako silná kyselina',
 			],
 			vysvetleni: 'Teplá vodní pára se při dotyku s chladnějším povrchem mění zpět na kapalnou vodu — kondenzuje.',
 		},
@@ -1817,8 +1817,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč se balónek navlečený na PET lahvi v horké vodě nafoukne?',
 			odpovedi: [
 				'teplý vzduch v lahvi se roztáhne a potřebuje víc místa',
-				'horká voda balónek sama nafoukne párou zvenku',
-				'balónek se zahřátím zvětší jako guma',
+				'horká voda balónek sama nafoukne párou zvenku přes stěnu',
+				'balónek se zahřátím zvětší jako guma nafouknutá zevnitř',
 			],
 			vysvetleni: 'Zahřátý vzduch se rozpíná, zvětšuje svůj objem, a proto tlačí do balónku a nafukuje ho.',
 		},
@@ -1826,8 +1826,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč se zaseknuté kovové víčko sklenice po nahřátí v teplé vodě snáze otevře?',
 			odpovedi: [
 				'kov se zahřátím roztáhne a víčko povolí',
-				'teplo víčko změkčí jako vosk',
-				'voda víčko promaže a je kluzké',
+				'teplo víčko změkčí, jako by bylo z vosku ze svíčky',
+				'voda víčko důkladně promaže a udělá ho kluzkým',
 			],
 			vysvetleni: 'Kov se při zahřátí roztáhne (tepelná roztažnost), víčko se tím nepatrně zvětší a jde snáz odšroubovat.',
 		},
@@ -1835,8 +1835,8 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Proč teploměr zabalený do černého papíru na slunci ukazuje vyšší teplotu než teploměr ve stínu?',
 			odpovedi: [
 				'černý povrch pohlcuje sluneční záření lépe',
-				'černý papír teplo sám vyrábí',
-				'stín teploměr aktivně ochlazuje',
+				'černý papír teplo sám od sebe průběžně vyrábí',
+				'stín teploměr aktivně a velmi rychle ochlazuje',
 			],
 			vysvetleni: 'Tmavé povrchy pohlcují více slunečního záření než světlé, a proto se více zahřejí.',
 		},
