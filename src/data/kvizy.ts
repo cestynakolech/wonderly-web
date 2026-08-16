@@ -1638,7 +1638,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jaké napětí má tužková baterie?',
 			odpovedi: ['1,5 V', '4,5 V', '12 V'],
-			vysvetleni: 'Tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie 12,6 V.',
+			vysvetleni: 'Tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie asi 12 V.',
 		},
 		{
 			text: 'Jaké jsou účinky průchodu proudu vodičem?',

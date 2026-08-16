@@ -1255,7 +1255,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li><strong>elektrárna</strong> ➪ zásuvky ve zdi (230 V — při špatném zacházení velmi nebezpečné!)</li>
 							<li><strong>elektrocentrála</strong> — náhradní zdroj (práce na silnicích, záloha v nemocnici)</li>
-							<li><strong>přenosné zdroje</strong> — baterie a akumulátory: tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie 12,6 V</li>
+							<li><strong>přenosné zdroje</strong> — baterie a akumulátory: tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie asi 12 V</li>
 						</ul>
 						<h2>Elektrický obvod</h2>
 						<ul>
