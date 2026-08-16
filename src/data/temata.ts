@@ -3019,6 +3019,13 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>💡 U některých látek se pevné skupenství mění <strong>rovnou na plynné</strong> — to je <strong>sublimace</strong> (např. jód, tvorba ohonu komet); opačný děj je <strong>desublimace</strong>.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Skupenství látek - fyzika 6 ZŠ', cesta: 'cCfwaq-wjBY' },
+					],
+					odkazy: [
+						{ nazev: 'Změny skupenství — tuhnutí, tání, var, kondenzace, sublimace (OnlineSchool.cz)', url: 'https://onlineschool.cz/fyzika/zmeny-skupenstvi/' },
+						{ nazev: 'Skupenství látek (Fyzika na Vltavě)', url: 'https://www.zsvltava.cz/fyzika/?p=253' },
+					],
 				},
 				{
 					slug: 'tani',
@@ -3041,6 +3048,13 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Skupenské teplo tání</h3>
 						<p>Teplo potřebné, aby látka roztála; nemění teplotu, jen uvolní částice. <strong>L<sub>t</sub> = l<sub>t</sub> · m</strong> (l<sub>t</sub> = měrné skupenské teplo tání, J/kg). Pro led je l<sub>t</sub> = <strong>332 kJ/kg</strong>. Měrné teplo tání a tuhnutí téže látky je stejné.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Skupenské teplo, 8. ročník, Fyzika ZŠ', cesta: 'GLnAtzjH4j4' },
+					],
+					odkazy: [
+						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
+						{ nazev: 'Fyzika 8. ročník, změny skupenství (Wordwall)', url: 'https://wordwall.net/cs/resource/42774194/fyzika-8-ro%C4%8Dn%C3%ADk-zm%C4%9Bny-skupenstv%C3%AD' },
+					],
 				},
 				{
 					slug: 'tuhnuti',
@@ -3089,6 +3103,13 @@ export const temata: Record<string, Tema[]> = {
 						a v lahvi zůstane <strong>ledová kaše</strong>. Aby zmrzla celá, muselo by být podchlazení
 						nemožných 80 °C.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Tání a tuhnutí - fyzika 8 ZŠ', cesta: 'Yg6YPyw0qDw' },
+					],
+					odkazy: [
+						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
+						{ nazev: 'Proč se v zimě solí silnice? (RVP)', url: 'https://clanky.rvp.cz/clanek/r/GCACA/11637/PROC-SE-V-ZIME-SOLI-SILNICE.html' },
+					],
 				},
 				{
 					slug: 'vyparovani',
@@ -3108,6 +3129,12 @@ export const temata: Record<string, Tema[]> = {
 						<p>Částice potřebují k uvolnění energii, proto vypařující se kapalina <strong>odebírá okolí teplo</strong> → ochlazuje se. Proto je plavci po vylezení z vody zima, tělo se chladí <strong>pocením</strong>, pes vyplazením jazyka, při horečce pomáhají mokré zábaly.</p>
 						<p>Vodní pára je <strong>neviditelná</strong> — co „vidíme" je mlha (drobné kapičky). Vlhkost vzduchu měří <strong>vlhkoměr</strong>.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Vypařování, var, kapalnění - fyzika 8 ZŠ', cesta: 'x4shgXPmB4M' },
+					],
+					odkazy: [
+						{ nazev: 'Vypařování, var a kapalnění (Fyzika007)', url: 'https://www.fyzika007.cz/struktura-avlastnosti-l%C3%A1tek/vypa%C5%99ov%C3%A1n%C3%AD-var-a-kapaln%C4%9Bn%C3%AD' },
+					],
 				},
 				{
 					slug: 'var',
@@ -3131,6 +3158,10 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Destilace</strong> odděluje složky směsi podle různé teploty varu (destilovaná voda, líh, zpracování ropy).</p>
 						<p>Skupenské teplo varu: <strong>L<sub>v</sub> = l<sub>v</sub> · m</strong>; pro vodu l<sub>v</sub> = <strong>2 260 kJ/kg</strong>.</p>
 					`,
+					odkazy: [
+						{ nazev: 'Pokus: Var vody — osolená vs. neosolená (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6143-pokus-var-vody' },
+						{ nazev: 'Pokus: Závislost teploty varu na tlaku (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6330-pokus-zavislost-teploty-varu-na-tlaku' },
+					],
 				},
 				{
 					slug: 'kondenzace',
@@ -3176,6 +3207,13 @@ export const temata: Record<string, Tema[]> = {
 						je stlačením zkapalněný, kdežto dusík ani kyslík se za pokojové teploty stlačit na kapalinu
 						nedají a v tlakové lahvi zůstávají plynné; ty se musí nejdřív pořádně ochladit.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Skupenské přeměny - vypařování, kondenzace', cesta: 'h930ay2ZnEk' },
+						{ druh: 'youtube', nazev: 'Kondenzace vodních par (pokus)', cesta: 'e__ea1VxQdE' },
+					],
+					odkazy: [
+						{ nazev: 'Techmania Edu — Vypařování a kondenzace', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/vyparovani-kondenzace' },
+					],
 				},
 				{
 					slug: 'skupenske-zmeny-vody-v-prirode',
@@ -3216,6 +3254,10 @@ export const temata: Record<string, Tema[]> = {
 						a ten je úplně <em>průhledný</em>. Mlha, obláček z úst i „pára" nad hrncem jsou už
 						<strong>drobné kapičky vody</strong> — tedy zkondenzovaná voda, ne pára.</p>
 					`,
+					odkazy: [
+						{ nazev: 'Jak vznikají kroupy? (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/15702-jak-vznikaji-kroupy' },
+						{ nazev: 'Techmania Edu — Atmosférické srážky', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/meteorologie/atmosfericke-srazky' },
+					],
 				},
 			],
 		},
