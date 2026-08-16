@@ -1424,6 +1424,20 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Vodivost tepla</strong> — kovovou a plastovou lžíci ponoř do horké vody a po minutě sáhni na horní konce. Kov vede teplo mnohem lépe než plast.</li>
 						</ol>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Elektřina, magnetismus, síly a čas 🎬',
+							cesta: '/media/fyzika/6-rocnik/shrnuti/pokusy/polemika-pokusy-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: Objem, hustota, teplota a teplo 🎬',
+							cesta: '/media/fyzika/6-rocnik/shrnuti/pokusy/polemika-pokusy-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 					odkazy: [
 						{ nazev: 'Pokus: Teplotní roztažnost plynů (balónek na lahvi) (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6168-pokus-teplotni-roztaznost-plynu' },
 						{ nazev: 'Pokus: Pokusy s magnetismem (kompas, plovoucí jehla) (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3414-pokusy-s-magnetismem' },
