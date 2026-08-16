@@ -875,6 +875,18 @@ export const temata: Record<string, Tema[]> = {
 						„8" samo o sobě neříká vůbec nic.</p>
 					`,
 					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Délka, hmotnost, objem a hustota 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/polemika-souhrn-velicin-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: Teplota, čas a síla 🎬',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/polemika-souhrn-velicin-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
 						{ druh: 'youtube', nazev: 'Fyzikální veličiny a jednotky: zábavný průvodce pro 6. třídu!', cesta: 'YzndXUYdx9c' },
 						{ druh: 'youtube', nazev: 'Fyzikální veličiny - Fyzika ZŠ', cesta: 'W037t5ZympQ' },
 					],
