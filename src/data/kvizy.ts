@@ -30,16 +30,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Která z těchto činností patří mezi hlavní pracovní metody fyzika?',
-			odpovedi: ['pozorování', 'hlasování', 'malování'],
+			odpovedi: ['pozorování', 'vyprávění pohádek', 'malování'],
 			vysvetleni: 'Fyzik pracuje pozorováním, pokusem (experimentem) a měřením.',
 		},
 		{
 			text: 'Co dělá fyzik při pokusu (experimentu)?',
-			odpovedi: [
-				'vytváří různé podmínky a sleduje výsledky',
-				'pouze si čte v učebnici',
-				'odhaduje výsledek bez zkoušení',
-			],
+				odpovedi: ['mění podmínky, pozoruje', 'pouze si čte v učebnici', 'odhaduje výsledek bez zkoušení'],
 			vysvetleni: 'Při pokusu fyzik vytváří různé podmínky a sleduje, co se stane — tak ověřuje své hypotézy.',
 		},
 		{
@@ -49,31 +45,27 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'K čemu slouží fyzikům měření?',
-			odpovedi: ['k popisu vlastností pomocí čísel', 'ke zkrášlení pokusu', 'k ničemu — měřit netřeba'],
+			odpovedi: ['popsat vlastnosti čísly', 'ke zkrášlení pokusu', 'k ničemu — měřit netřeba'],
 			vysvetleni: 'Měřením fyzik popisuje vlastnosti těles a jevů přesnými čísly.',
 		},
 		{
 			text: 'Co vysloví fyzici z ověřených poznatků?',
-			odpovedi: ['fyzikální zákony', 'státní zákony', 'přísloví'],
+			odpovedi: ['fyzikální zákony', 'státní zákony a vyhlášky', 'přísloví'],
 			vysvetleni: 'Z poznatků ověřených pozorováním, pokusy a měřením fyzici formulují fyzikální zákony.',
 		},
 		{
 			text: 'Jak se fyzik vyjadřuje?',
-			odpovedi: ['odbornými pojmy, značkami, grafy a vzorci', 'jen dlouhými slohovými pracemi', 'pouze obrázky'],
+			odpovedi: ['odbornými pojmy a vzorci', 'jen dlouhými slohovými pracemi', 'pouze obrázky'],
 			vysvetleni: 'Fyzik používá odborné pojmy a značky (hmotnost, objem…) a vztahy zapisuje grafy a vzorci.',
 		},
 		{
 			text: 'Co je příkladem fyzikálního pojmu se značkou?',
-			odpovedi: ['hmotnost', 'krása', 'radost'],
+			odpovedi: ['hmotnost', 'krása', 'velká radost'],
 			vysvetleni: 'Hmotnost je fyzikální veličina se značkou m. Krása ani radost se ve fyzice měřit nedají.',
 		},
 		{
 			text: 'Proč je dobré znát fyziku?',
-			odpovedi: [
-				'umíme vysvětlit a předvídat přírodní děje',
-				'nemusíme pak chodit do školy',
-				'abychom uměli zpaměti všechna čísla',
-			],
+			odpovedi: ['vysvětlíme a předvídáme děje', 'nemusíme pak chodit do školy', 'abychom uměli zpaměti všechna čísla'],
 			vysvetleni: 'Díky fyzice umíme vysvětlit, proč se věci dějí, předvídat, co se stane, a využít přírodu v náš prospěch.',
 		},
 		{
@@ -284,11 +276,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Je atom skutečně nedělitelný?',
-			odpovedi: [
-				'ne — skládá se z ještě menších částeček',
-				'ano — nic menšího neexistuje',
-				'ano, ale jen u kovů',
-			],
+			odpovedi: ['ne, má menší částice', 'ano — nic menšího neexistuje', 'ano, ale jen u kovů'],
 			vysvetleni: 'Dlouho se to myslelo, ale dnes víme, že atom se skládá z ještě menších částic.',
 		},
 		{
@@ -298,7 +286,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je chemický prvek?',
-			odpovedi: ['látka tvořená stejnými atomy', 'látka tvořená různými atomy', 'směs více látek'],
+			odpovedi: ['látka se stejnými atomy', 'látka tvořená různými atomy', 'směs více látek'],
 			vysvetleni: 'Prvek tvoří jen stejné atomy — např. železo, kyslík, zlato.',
 		},
 		{
@@ -318,39 +306,27 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kde jsou zapsány všechny známé prvky?',
-			odpovedi: ['v periodické soustavě prvků', 'v telefonním seznamu', 've slovníku cizích slov'],
+			odpovedi: ['v periodické soustavě', 'v telefonním seznamu', 've slovníku cizích slov'],
 			vysvetleni: 'Periodická soustava prvků obsahuje všechny známé prvky — přírodní i vyrobené v laboratoři.',
 		},
 		{
 			text: 'Jak vzniká molekula?',
-			odpovedi: ['spojením dvou a více atomů', 'rozdělením atomu', 'zahřátím látky'],
+			odpovedi: ['spojením atomů', 'rozdělením atomu', 'zahřátím látky'],
 			vysvetleni: 'Molekuly vznikají spojením atomů — stejných (O₂) nebo různých (H₂O).',
 		},
 		{
 			text: 'Z čeho se skládá molekula vody H₂O?',
-			odpovedi: [
-				'ze 2 atomů vodíku a 1 atomu kyslíku',
-				'z 1 atomu vodíku a 2 atomů kyslíku',
-				'ze 2 atomů kyslíku',
-			],
+			odpovedi: ['2 atomy vodíku a 1 atom kyslíku', 'z 1 atomu vodíku a 2 atomů kyslíku', 'ze 2 atomů kyslíku'],
 			vysvetleni: 'H₂O = 2 atomy vodíku (H) + 1 atom kyslíku (O).',
 		},
 		{
 			text: 'Co je sloučenina?',
-			odpovedi: [
-				'látka ze stejných molekul vzniklých z různých atomů',
-				'látka tvořená jen stejnými atomy',
-				'jakákoli smíchaná látka',
-			],
+			odpovedi: ['stejné molekuly z různých atomů', 'látka tvořená jen stejnými atomy', 'jakákoli smíchaná látka'],
 			vysvetleni: 'Sloučenina = stejné molekuly složené z různých druhů atomů — voda H₂O, sůl NaCl, oxid uhličitý CO₂.',
 		},
 		{
 			text: 'Co je směs?',
-			odpovedi: [
-				'látka vzniklá smícháním více látek',
-				'látka tvořená jen jedním prvkem',
-				'jiný název pro molekulu',
-			],
+			odpovedi: ['látka ze smíchání látek', 'látka tvořená jen jedním prvkem', 'jiný název pro molekulu'],
 			vysvetleni: 'Směs obsahuje různé druhy molekul a atomů — např. vzduch (dusík, kyslík, oxid uhličitý, vodní pára…).',
 		},
 		{
@@ -473,26 +449,22 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kopneš do míče. Působí míč také na tvou nohu?',
-			odpovedi: ['ano, zatlačí do nohy stejně velkou silou', 'ne, působí jen noha na míč', 'jen když je míč těžký'],
+			odpovedi: ['ano, zatlačí stejnou silou', 'ne, působí jen noha na míč', 'jen když je míč těžký'],
 			vysvetleni: 'Působení je vždy vzájemné — proto kopnutí do těžkého míče „cítíme" v noze.',
 		},
 		{
 			text: 'Který z těchto účinků síly je pohybový?',
-			odpovedi: ['změna rychlosti cyklisty při brzdění', 'promáčknutí plastelíny', 'natažení pružiny'],
+			odpovedi: ['zpomalení cyklisty', 'promáčknutí plastelíny', 'natažení pružiny'],
 			vysvetleni: 'Pohybové účinky: uvedení do pohybu, změna směru, změna rychlosti, zastavení. Změny tvaru jsou účinky deformační.',
 		},
 		{
 			text: 'Jaká je deformace matrace, která se po zvednutí člověka vrátí do původního tvaru?',
-			odpovedi: ['dočasná', 'trvalá', 'žádná'],
+			odpovedi: ['dočasná', 'natrvalo', 'žádná'],
 			vysvetleni: 'Dočasná deformace — těleso se vrátí do původního tvaru. Plastelína se nevrátí — to je deformace trvalá.',
 		},
 		{
 			text: 'Existuje síla sama o sobě?',
-			odpovedi: [
-				'ne — vždy existuje těleso, které je příčinou působení',
-				'ano — síla je samostatná věc',
-				'jen ve vesmíru',
-			],
+			odpovedi: ['ne, vždy je za ní těleso', 'ano — síla je samostatná věc', 'jen ve vesmíru'],
 			vysvetleni: 'Síla jen zkráceně vyjadřuje, že jedno těleso působí na druhé. Bez těles není síla.',
 		},
 		{
@@ -502,7 +474,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak mohou tělesa působit na dálku?',
-			odpovedi: ['pomocí silových polí', 'pouze dotykem', 'křikem'],
+			odpovedi: ['pomocí silových polí', 'pouze přímým dotykem', 'křikem'],
 			vysvetleni: 'Na dálku působí gravitační, magnetická a elektrická síla — prostřednictvím silových polí.',
 		},
 		{
@@ -537,32 +509,24 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Na jakém principu funguje pružinový siloměr?',
-			odpovedi: [
-				'protažení pružiny je přímo úměrné síle',
-				'pružina mění barvu podle síly',
-				'pružina se silou zkracuje',
-			],
+			odpovedi: ['protažení je úměrné síle', 'pružina mění barvu podle síly', 'pružina se silou zkracuje'],
 			vysvetleni: 'Kolikrát větší síla, tolikrát větší prodloužení pružiny. Při překročení rozsahu se pružina trvale poškodí.',
 		},
 		{
 			text: 'Jak se znázorňuje směr síly?',
-			odpovedi: ['úsečkou se šipkou z působiště', 'kroužkem', 'vlnovkou'],
+			odpovedi: ['úsečkou se šipkou', 'zakroucenou klikatou čarou', 'kroužkem'],
 			vysvetleni: 'Síla se kreslí jako úsečka se šipkou: začíná v působišti a její délka odpovídá velikosti síly.',
 		},
 		{
 			text: 'Jaké síle přibližně odpovídá 1 N?',
-			odpovedi: [
-				'síle, kterou Země přitahuje těleso o hmotnosti 100 g',
-				'síle, kterou Země přitahuje těleso o hmotnosti 1 kg',
-				'síle stisku ruky dospělého',
-			],
+			odpovedi: ['síle na těleso 100 g', 'síle, kterou Země přitahuje těleso o hmotnosti 1 kg', 'síle stisku ruky dospělého'],
 			vysvetleni: '1 N ≈ gravitační síla Země na těleso o hmotnosti 100 g (0,1 kg) — třeba na menší jablko.',
 		},
 	],
 	'fyzika/6-rocnik/sila/gravitacni-sila': [
 		{
 			text: 'Mezi kterými tělesy působí gravitační síla?',
-			odpovedi: ['mezi všemi tělesy s hmotností', 'jen mezi planetami', 'jen mezi magnety'],
+			odpovedi: ['u všech těles', 'jen mezi planetami', 'jen mezi magnety'],
 			vysvetleni: 'Gravitační silou na sebe působí všechna tělesa s hmotností — jen u malých těles je nepatrná.',
 		},
 		{
@@ -587,11 +551,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Země a padající míč se přitahují stejně velkou silou. Proč vidíme padat jen míč?',
-			odpovedi: [
-				'lehký míč se uvede do pohybu snadno, obrovskou Zemí síla nepohne znatelně',
-				'Země žádnou silou nepůsobí',
-				'míč je k Zemi přitahován větší silou než Země k míči',
-			],
+			odpovedi: ['lehký míč se pohne snadno, těžká Země ne', 'Země žádnou silou nepůsobí', 'míč je k Zemi přitahován větší silou než Země k míči'],
 			vysvetleni: 'Síly jsou stejně velké, ale Země je nesrovnatelně těžší, takže její pohyb nepozorujeme.',
 		},
 		{
@@ -621,59 +581,39 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jaký úhel svírá svislý a vodorovný směr?',
-			odpovedi: ['jsou na sebe kolmé (90°)', '45°', 'jsou rovnoběžné'],
+			odpovedi: ['kolmé (90°)', '45°', 'jsou rovnoběžné'],
 			vysvetleni: 'Svislý směr (olovnice) a vodorovný směr (hladina) jsou na sebe kolmé.',
 		},
 		{
 			text: 'Proč se astronauti na vesmírné stanici vznášejí?',
-			odpovedi: [
-				'stanice i astronauti neustále volně padají po oběžné dráze kolem Země',
-				've výšce 400 km už žádná gravitace není',
-				'jsou příliš lehcí',
-			],
+			odpovedi: ['stanice s nimi volně padá kolem Země', 've výšce 400 km už žádná gravitace není', 'jsou příliš lehcí'],
 			vysvetleni: 'Gravitace je tam stále téměř tak silná jako na povrchu — ale stanice s astronauty kolem Země volně „padá" po oběžné dráze, proto se vůči sobě vznášejí.',
 		},
 		{
 			text: 'Proč se astronaut na Měsíci jakoby vznáší při chůzi?',
-			odpovedi: [
-				'na Měsíci na něj působí 6× menší gravitační síla než na Zemi',
-				'na Měsíci není žádná gravitace',
-				'má speciální nadnášející skafandr',
-			],
+			odpovedi: ['na Měsíci je gravitace 6× menší', 'na Měsíci není žádná gravitace', 'má speciální nadnášející skafandr'],
 			vysvetleni: 'Měsíc je menší a lehčí než Země, jeho gravitační síla je asi 6× menší.',
 		},
 		{
 			text: 'Proč planety obíhají kolem Slunce?',
-			odpovedi: [
-				'Slunce má díky obrovské hmotnosti silné gravitační pole',
-				'Slunce planety odpuzuje',
-				'planety pohání sluneční vítr',
-			],
+			odpovedi: ['drží je gravitace Slunce', 'Slunce planety odpuzuje', 'planety pohání sluneční vítr'],
 			vysvetleni: 'Čím hmotnější těleso, tím silnější gravitační pole — gravitace Slunce drží planety na oběžných drahách.',
 		},
 		{
 			text: 'Proč měsíce obíhají kolem planet, a ne kolem Slunce?',
-			odpovedi: [
-				'jsou planetám mnohem blíž, takže je planety přitahují větší silou',
-				'Slunce o nich neví',
-				'měsíce jsou příliš rychlé',
-			],
+			odpovedi: ['planeta je mnohem blíž', 'Slunce o nich neví', 'měsíce jsou příliš rychlé'],
 			vysvetleni: 'Gravitační síla klesá se vzdáleností — blízká planeta přitahuje svůj měsíc silněji než vzdálené Slunce.',
 		},
 		{
 			text: 'Co způsobuje příliv a odliv?',
-			odpovedi: [
-				'gravitační síla Měsíce působící na vodu v oceánech',
-				'vítr na moři',
-				'otáčení lodních šroubů',
-			],
+			odpovedi: ['gravitace Měsíce', 'vítr na moři', 'otáčení lodních šroubů'],
 			vysvetleni: 'Měsíc přitahuje vodu v oceánech — vzniká příliv a odliv (slapové jevy).',
 		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/delka': [
 		{
 			text: 'Co popisuje fyzikální veličina délka?',
-			odpovedi: ['rozměry těles nebo vzdálenosti', 'množství látky v tělese', 'teplotu tělesa'],
+			odpovedi: ['rozměry a vzdálenosti', 'množství látky v tělese', 'teplotu tělesa'],
 			vysvetleni: 'Délka popisuje rozměry a vzdálenosti — i šířka, výška či tloušťka jsou délky.',
 		},
 		{
@@ -693,31 +633,27 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co uděláme s desetinnou čárkou při převodu na menší jednotky?',
-			odpovedi: ['posuneme doprava (přidáme nuly)', 'posuneme doleva (škrtáme nuly)', 'nic se nemění'],
+			odpovedi: ['posuneme ji doprava', 'posuneme doleva (škrtáme nuly)', 'nic se nemění'],
 			vysvetleni: 'Na menší jednotky = větší číslo → čárka doprava. Na větší jednotky = menší číslo → čárka doleva.',
 		},
 		{
 			text: 'Jaká byla nevýhoda starých jednotek jako loket nebo stopa?',
-			odpovedi: ['v každém městě byly jinak velké', 'byly příliš přesné', 'nedaly se sčítat'],
+			odpovedi: ['všude byly jiné', 'byly příliš přesné', 'nedaly se sčítat'],
 			vysvetleni: 'Jednotky odvozené z lidského těla se lišily místo od místa — proto vznikl jednotný metr.',
 		},
 		{
 			text: 'Co je astronomická jednotka (AU)?',
-			odpovedi: ['vzdálenost Země–Slunce (150 milionů km)', 'vzdálenost Země–Měsíc', 'průměr Slunce'],
+			odpovedi: ['vzdálenost od Slunce', 'vzdálenost Země–Měsíc', 'průměr Slunce'],
 			vysvetleni: '1 AU = 150 milionů km, vzdálenost Země od Slunce. Jupiter je od Slunce asi 5 AU.',
 		},
 		{
 			text: 'Co udává světelný rok?',
-			odpovedi: [
-				'vzdálenost, kterou světlo urazí za 1 rok',
-				'dobu, za kterou Země oběhne Slunce',
-				'stáří hvězdy',
-			],
+			odpovedi: ['vzdálenost světla za rok', 'dobu, za kterou Země oběhne Slunce', 'stáří hvězdy'],
 			vysvetleni: 'Světelný rok je jednotka VZDÁLENOSTI — Polárka je od nás 433 světelných let, její světlo k nám letí 433 let.',
 		},
 		{
 			text: 'Kterým měřidlem změříš obvod hlavy?',
-			odpovedi: ['krejčovským metrem', 'pravítkem', 'mikrometrem'],
+			odpovedi: ['krejčovským metrem', 'pravítkem', 'přesným mikrometrem'],
 			vysvetleni: 'Krejčovský metr je ohebný — hodí se na nerovná tělesa jako obvod hlavy či pasu.',
 		},
 		{
@@ -737,7 +673,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co nesmí chybět u zapsané naměřené hodnoty?',
-			odpovedi: ['jednotka', 'podpis', 'datum'],
+			odpovedi: ['jednotka', 'podpis', 'přesné datum'],
 			vysvetleni: 'Hodnota bez jednotky nemá smysl — správně např. l = 72 mm.',
 		},
 		{
@@ -747,11 +683,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak velká je odchylka měření?',
-			odpovedi: [
-				'polovina nejmenšího dílku stupnice',
-				'celý nejmenší dílek stupnice',
-				'desetina rozsahu měřidla',
-			],
+			odpovedi: ['polovina nejmenšího dílku', 'celý nejmenší dílek stupnice', 'desetina rozsahu měřidla'],
 			vysvetleni: 'Odchylka = polovina nejmenšího dílku. Čím menší dílek, tím přesnější měření.',
 		},
 		{
@@ -776,7 +708,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Proč musí být nula stupnice přesně u začátku měřeného tělesa?',
-			odpovedi: ['jinak naměříme špatnou délku', 'aby se pravítko neprohnulo', 'kvůli teplotní roztažnosti'],
+			odpovedi: ['jinak bude délka špatná', 'aby se pravítko neprohnulo', 'kvůli teplotní roztažnosti'],
 			vysvetleni: 'Kdybychom začali měřit jinde než u nuly, měřili bychom od špatného místa a výsledek by byl chybný.',
 		},
 		{
@@ -793,16 +725,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jaká je základní jednotka hmotnosti?',
-			odpovedi: ['kilogram (kg)', 'gram (g)', 'tuna (t)'],
+			odpovedi: ['kilogram (kg)', 'gram (g)', 'velká tuna (t)'],
 			vysvetleni: 'Základní jednotka je kilogram — jediná základní jednotka s předponou kilo-.',
 		},
 		{
 			text: 'Proč je špatně říkat „váha tělesa"?',
-			odpovedi: [
-				'těleso má hmotnost, váha je měřidlo',
-				'váha je zastaralé slovo pro objem',
-				'není to špatně',
-			],
+			odpovedi: ['těleso má hmotnost, ne váhu', 'váha je zastaralé slovo pro objem', 'není to špatně'],
 			vysvetleni: 'Ve fyzice: těleso má HMOTNOST a VÁHA slouží k jejímu měření.',
 		},
 		{
@@ -832,48 +760,32 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Na jakém principu pracují rovnoramenné váhy?',
-			odpovedi: [
-				'porovnávají hmotnost tělesa a závaží',
-				'natahují pružinu',
-				'měří elektrický proud',
-			],
+			odpovedi: ['váží proti závaží', 'natahují pružinu', 'měří elektrický proud'],
 			vysvetleni: 'Na misky se dává těleso a závaží, dokud nenastane rovnováha — pak se hmotnosti rovnají.',
 		},
 		{
 			text: 'Jak funguje pružinová váha?',
-			odpovedi: [
-				'těleso natahuje pružinu a ta pohybuje ručičkou',
-				'porovnává dvě misky',
-				'posouvá závaží po rameni',
-			],
+			odpovedi: ['táhne pružinu s ručičkou', 'porovnává dvě misky', 'posouvá závaží po rameni'],
 			vysvetleni: 'Pružinová váha (osobní, mincíř, rybářská) — natažení pružiny odpovídá hmotnosti.',
 		},
 		{
 			text: 'Kde musí stát váhy při měření?',
-			odpovedi: ['na vodorovném povrchu', 'na šikmé podložce', 'kdekoli'],
+			odpovedi: ['vodorovně', 'na šikmé podložce', 'kdekoli'],
 			vysvetleni: 'Váhy musí stát vodorovně a předmět dáváme doprostřed misky.',
 		},
 		{
 			text: 'Jak zvážíme kapalinu?',
-			odpovedi: [
-				'zvážíme prázdnou a pak plnou nádobu a hodnoty odečteme',
-				'nalijeme ji přímo na váhu',
-				'kapalina se zvážit nedá',
-			],
+			odpovedi: ['odečteme hmotnosti nádob', 'nalijeme ji přímo na váhu', 'kapalina se zvážit nedá'],
 			vysvetleni: 'm = m₂ − m₁: od hmotnosti nádoby s kapalinou odečteme hmotnost prázdné nádoby.',
 		},
 		{
 			text: 'Jak určíme hmotnost jedné kapky léku?',
-			odpovedi: [
-				'zvážíme třeba 100 kapek a vydělíme',
-				'zvážíme jednu kapku na osobní váze',
-				'odhadneme podle barvy',
-			],
+			odpovedi: ['zvážíme 100 kapek a vydělíme', 'zvážíme jednu kapku na osobní váze', 'odhadneme podle barvy'],
 			vysvetleni: 'Velmi malá tělesa vážíme ve větším počtu a hmotnost jednoho kusu určíme výpočtem.',
 		},
 		{
 			text: 'Převádíš kilogramy na gramy — gram je menší jednotka. Co se stane s číslem?',
-			odpovedi: ['zvětší se, násobíme 1000', 'zmenší se, dělíme 1000', 'zůstane stejné'],
+			odpovedi: ['zvětší se', 'zmenší se, dělíme 1000', 'zůstane stejné'],
 			vysvetleni: 'Menší jednotka → potřebujeme jich víc, číslo se ZVĚTŠÍ. Na větší jednotku je to naopak.',
 		},
 		{
@@ -883,7 +795,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kolik miligramů je 1 gram?',
-			odpovedi: ['1000 mg', '100 mg', '10 mg'],
+			odpovedi: ['1000 mg', '100,0 mg', '10 mg'],
 			vysvetleni: '1 g = 1000 mg. V miligramech se udávají třeba dávky léků.',
 		},
 		{
@@ -900,31 +812,27 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/6-rocnik/fyzikalni-veliciny/objem': [
 		{
 			text: 'Co vyjadřuje fyzikální veličina objem?',
-			odpovedi: [
-				'jak velký prostor těleso zaplňuje',
-				'množství látky v tělese',
-				'rozměr tělesa v jednom směru',
-			],
+			odpovedi: ['jak velký prostor zaplňuje', 'množství látky v tělese', 'rozměr tělesa v jednom směru'],
 			vysvetleni: 'Objem (značka V) vyjadřuje, jak velký prostor těleso zaplňuje.',
 		},
 		{
 			text: 'Jakou značku má objem?',
-			odpovedi: ['velké V', 'malé v', 'O'],
+			odpovedi: ['velké V', 'malé písmeno v', 'O'],
 			vysvetleni: 'Objem značíme velkým V — malým v budeme značit rychlost!',
 		},
 		{
 			text: 'Jaká je základní jednotka objemu?',
-			odpovedi: ['metr krychlový (m³)', 'litr (l)', 'metr (m)'],
+			odpovedi: ['metr krychlový', 'litr (l)', 'obyčejný metr (m)'],
 			vysvetleni: 'Základní jednotka je m³ — objem krychle s hranou 1 metr. Litr patří mezi duté míry.',
 		},
 		{
 			text: 'Kolik dm³ je 1 m³?',
-			odpovedi: ['1 000 dm³', '100 dm³', '10 dm³'],
+			odpovedi: ['1 000 dm³', '100,0 dm³', '10 dm³'],
 			vysvetleni: 'Krychlové jednotky se převádí po tisících: 1 m³ = 1 000 dm³, 1 dm³ = 1 000 cm³.',
 		},
 		{
 			text: 'Kolik mililitrů je 1 litr?',
-			odpovedi: ['1 000 ml', '100 ml', '10 ml'],
+			odpovedi: ['1 000 ml', '100,0 ml', '10 ml'],
 			vysvetleni: '1 l = 10 dl = 100 cl = 1 000 ml.',
 		},
 		{
@@ -939,7 +847,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Čím měříme objem kapalin?',
-			odpovedi: ['odměrným válcem', 'pravítkem', 'siloměrem'],
+			odpovedi: ['odměrkou', 'pravítkem', 'siloměrem'],
 			vysvetleni: 'Odměrný válec má na skle stupnici, nejčastěji v mililitrech.',
 		},
 		{
@@ -953,11 +861,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak změříme objem malého kamene?',
-			odpovedi: [
-				'ponoříme ho do odměrného válce s vodou a odečteme rozdíl objemů',
-				'změříme ho pravítkem ze všech stran',
-				'zvážíme ho',
-			],
+			odpovedi: ['ponoříme do vody, odečteme rozdíl', 'změříme ho pravítkem ze všech stran', 'zvážíme ho'],
 			vysvetleni: 'V = V₂ − V₁: objem s tělesem minus objem samotné vody. Těleso musí být celé ponořené.',
 		},
 		{
@@ -984,21 +888,17 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/6-rocnik/fyzikalni-veliciny/hustota': [
 		{
 			text: 'Co určuje hustota látky?',
-			odpovedi: [
-				'jakou hmotnost má jednotka objemu látky',
-				'jak velké je těleso',
-				'jak rychle látka teče',
-			],
+			odpovedi: ['kolik váží 1 m³', 'jak velké je těleso', 'jak rychle látka teče'],
 			vysvetleni: 'Hustota říká, kolik váží 1 m³ (nebo 1 cm³) dané látky.',
 		},
 		{
 			text: 'Jakou značku má hustota?',
-			odpovedi: ['ρ (řecké ró)', 'h', 'm'],
+			odpovedi: ['ρ', 'h', 'm'],
 			vysvetleni: 'Hustota se značí řeckým písmenem ρ (ró).',
 		},
 		{
 			text: 'Jaká je základní jednotka hustoty?',
-			odpovedi: ['kg/m³', 'kg', 'm³'],
+			odpovedi: ['kg/m³', 'jen kg', 'm³'],
 			vysvetleni: 'Kilogram na metr krychlový — kolik kilogramů váží jeden metr krychlový látky.',
 		},
 		{
@@ -1022,21 +922,17 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kolik kg/m³ je 1 g/cm³?',
-			odpovedi: ['1 000 kg/m³', '1 kg/m³', '100 kg/m³'],
+			odpovedi: ['1 000 kg/m³', '1 kg/m³', '100,0 kg/m³'],
 			vysvetleni: '1 g/cm³ = 1 000 kg/m³. Jednotka g/cm³ se používá v chemii a farmacii.',
 		},
 		{
 			text: 'Kde najdeme hustoty jednotlivých látek?',
-			odpovedi: ['ve fyzikálních a chemických tabulkách', 'v telefonním seznamu', 'musíme je vždy měřit'],
+			odpovedi: ['v tabulkách hustot', 'v telefonním seznamu', 'musíme je vždy měřit'],
 			vysvetleni: 'Hustoty prvků i sloučenin jsou v tabulkách — podle vypočtené hustoty poznáme i neznámou látku.',
 		},
 		{
 			text: 'Proč zabere kilogram peří víc místa než kilogram železa?',
-			odpovedi: [
-				'peří má mnohem menší hustotu',
-				'peří je těžší',
-				'železo obsahuje vzduch',
-			],
+			odpovedi: ['je řidší', 'peří je těžší', 'železo obsahuje vzduch'],
 			vysvetleni: 'Při stejné hmotnosti je největší těleso z látky s nejmenší hustotou.',
 		},
 		{
@@ -1055,16 +951,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak se ponorka potopí?',
-			odpovedi: [
-				'napustí do nádrží vodu a zvýší svou hustotu',
-				'vypustí vodu z nádrží',
-				'zapne silnější motor',
-			],
+			odpovedi: ['zvýší hustotu vodou', 'vypustí vodu z nádrží', 'zapne silnější motor'],
 			vysvetleni: 'Načerpáním vody zvětší hmotnost při stejném objemu — její hustota převýší hustotu okolní vody.',
 		},
 		{
 			text: 'Čím měříme hustotu kapalin?',
-			odpovedi: ['hustoměrem', 'siloměrem', 'pásmem'],
+			odpovedi: ['hustoměrem', 'přesným siloměrem', 'pásmem'],
 			vysvetleni: 'Hustoměr je baňka se zátěží a stupnicí — čím hustší kapalina, tím méně se ponoří.',
 		},
 		{
@@ -1074,34 +966,34 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Která kapalina má největší hustotu?',
-			odpovedi: ['rtuť (13 500 kg/m³)', 'voda (1 000 kg/m³)', 'benzín (700 kg/m³)'],
+			odpovedi: ['rtuť (13500 kg/m³)', 'voda (1 000 kg/m³)', 'benzín (700 kg/m³)'],
 			vysvetleni: 'Rtuť je nejhustší běžná kapalina — 13 500 kg/m³.',
 		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin': [
 		{
 			text: 'Jaká je značka a základní jednotka délky?',
-			odpovedi: ['l (nebo d), metr', 'm, kilogram', 'V, litr'],
+			odpovedi: ['l, metr', 'm, kilogram', 'V, litr'],
 			vysvetleni: 'Délka: značky d, l, h, s, o, r; základní jednotka metr (m).',
 		},
 		{
 			text: 'Jaká je značka a základní jednotka hmotnosti?',
-			odpovedi: ['m, kilogram (kg)', 'h, gram (g)', 'F, newton (N)'],
+			odpovedi: ['m, kilogram', 'h, gram (g)', 'F, newton (N)'],
 			vysvetleni: 'Hmotnost: značka m, jednotka kilogram, měřidlo váhy.',
 		},
 		{
 			text: 'Jaká je značka a základní jednotka objemu?',
-			odpovedi: ['V, metr krychlový (m³)', 'v, litr (l)', 'O, metr (m)'],
+			odpovedi: ['V, m³', 'v, litr (l)', 'O, metr (m)'],
 			vysvetleni: 'Objem: značka velké V, základní jednotka m³, měřidlo odměrný válec.',
 		},
 		{
 			text: 'Jaká je značka a jednotka hustoty?',
-			odpovedi: ['ρ, kg/m³', 'h, kg', 'p, Pa'],
+			odpovedi: ['ρ, kg/m³', 'h, kg', 'p, jen Pa'],
 			vysvetleni: 'Hustota: řecké ρ (ró), jednotka kilogram na metr krychlový.',
 		},
 		{
 			text: 'Jaká je značka a jednotka teploty?',
-			odpovedi: ['t, stupeň Celsia (°C)', 'T, newton (N)', 'č, sekunda (s)'],
+			odpovedi: ['t, °C', 'T, newton (N)', 'č, sekunda (s)'],
 			vysvetleni: 'Teplota: značka t, jednotka °C, měřidlo teploměr.',
 		},
 		{
@@ -1116,7 +1008,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Čím měříme objem kapaliny?',
-			odpovedi: ['odměrným válcem', 'siloměrem', 'pásmem'],
+			odpovedi: ['válcem', 'siloměrem', 'pásmem'],
 			vysvetleni: 'Objem kapalin měříme odměrným válcem (nejčastěji v ml).',
 		},
 		{
@@ -1542,7 +1434,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek': [
 		{
 			text: 'Které látky patří mezi feromagnetické?',
-			odpovedi: ['železo, kobalt, nikl', 'hliník, měď, zinek', 'dřevo, papír, korek'],
+			odpovedi: ['železo, kobalt', 'hliník, měď, zinek', 'dřevo, papír, korek'],
 			vysvetleni: 'Feromagnetické látky silně reagují na magnetické pole a lze je zmagnetovat: železo (a ocel), kobalt, nikl.',
 		},
 		{
@@ -1552,12 +1444,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak se jmenuje přírodní magnet — nerost s obsahem železa?',
-			odpovedi: ['magnetit (magnetovec)', 'diamant', 'křemen'],
+			odpovedi: ['magnetit', 'čirý diamant', 'křemen'],
 			vysvetleni: 'Magnetit (magnetovec) je přírodní magnet. Umělé magnety jsou např. feritové a neodymové.',
 		},
 		{
 			text: 'Kolik pólů má každý magnet?',
-			odpovedi: ['dva — severní a jižní', 'jeden', 'čtyři'],
+			odpovedi: ['dva póly', 'jeden', 'celkem čtyři'],
 			vysvetleni: 'Každý magnet má severní (N) a jižní (S) pól — i po rozdělení má každá část zase oba póly.',
 		},
 		{
@@ -1581,30 +1473,22 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je dočasný magnet z magneticky měkké oceli?',
-			odpovedi: [
-				'po oddálení magnetu jeho magnetismus zaniká',
-				'magnet, který funguje jen v zimě',
-				'magnet, který nikdy neztratí magnetismus',
-			],
+			odpovedi: ['po oddálení magnetu magnetismus zmizí', 'magnet, který funguje jen v zimě', 'magnet, který nikdy neztratí magnetismus'],
 			vysvetleni: 'Magneticky měkká ocel se zmagnetuje jen dočasně; magneticky tvrdá ocel zůstane trvalým magnetem.',
 		},
 		{
 			text: 'Jak lze magnet odmagnetovat?',
-			odpovedi: ['zahřátím na vyšší teplotu', 'ochlazením', 'namočením do vody'],
+			odpovedi: ['zahřátím', 'ochlazením', 'namočením do vody'],
 			vysvetleni: 'Odmagnetování: zahřátím, třením opačným pólem nebo cívkou se střídavým proudem.',
 		},
 		{
 			text: 'Čím zviditelníme magnetické pole?',
-			odpovedi: ['železnými pilinami (pilinový obrazec)', 'vodou', 'papírem'],
+			odpovedi: ['pilinami', 'vodou', 'barevným papírem'],
 			vysvetleni: 'Piliny se v poli zmagnetují a uspořádají — ukazují směr magnetické síly. Pole zjišťujeme i magnetkou.',
 		},
 		{
 			text: 'Co jsou magnetické indukční čáry?',
-			odpovedi: [
-				'uzavřené křivky od severního pólu k jižnímu',
-				'přímky od jihu na sever',
-				'kruhy kolem středu magnetu',
-			],
+			odpovedi: ['křivky od severu k jihu', 'přímky od jihu na sever', 'kruhy kolem středu magnetu'],
 			vysvetleni: 'Indukční čáry graficky znázorňují pole — vycházejí z N a směřují k S; jejich směr udává severní pól magnetky.',
 		},
 		{
@@ -1614,32 +1498,24 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Před čím nás chrání magnetické pole Země?',
-			odpovedi: [
-				'před slunečním větrem a kosmickým zářením',
-				'před deštěm',
-				'před zemětřesením',
-			],
+			odpovedi: ['před sluncem', 'před deštěm', 'před zemětřesením'],
 			vysvetleni: 'Pole odkloní proud nebezpečných nabitých částic ze Slunce. Částice u pólů vytvářejí polární záři.',
 		},
 		{
 			text: 'Díky čemu vzniká magnetické pole Země?',
-			odpovedi: [
-				'rotaci tekutého železného jádra',
-				'množství magnetů v zemské kůře',
-				'přitažlivosti Měsíce',
-			],
+			odpovedi: ['rotaci železného jádra', 'množství magnetů v zemské kůře', 'přitažlivosti Měsíce'],
 			vysvetleni: 'Pole vytváří rotující tekuté železné jádro Země. Magnetické póly se pomalu pohybují.',
 		},
 		{
 			text: 'Co může magnet poškodit?',
-			odpovedi: ['hodinky, elektroniku a data na disku', 'dřevěný nábytek', 'skleněné nádobí'],
+			odpovedi: ['data na disku', 'dřevěný nábytek', 'skleněné nádobí'],
 			vysvetleni: 'Magnet ničí data na discích a kazetách a poškozuje hodinky či obrazovky — pozor na něj u elektroniky.',
 		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek': [
 		{
 			text: 'Z čeho se skládá atom?',
-			odpovedi: ['z jádra a obalu', 'jen z jádra', 'z molekul'],
+			odpovedi: ['jádro, obal', 'jen z jádra', 'z molekul'],
 			vysvetleni: 'Atom má maličké jádro (protony + neutrony) a obal (elektrony).',
 		},
 		{
@@ -1649,7 +1525,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jaký náboj nesou elektrony?',
-			odpovedi: ['záporný (−)', 'kladný (+)', 'žádný'],
+			odpovedi: ['záporný (−)', 'kladný (+)', 'žádný vůbec'],
 			vysvetleni: 'Elektrony v obalu atomu nesou záporný náboj — stejně velký jako proton, ale opačný.',
 		},
 		{
@@ -1659,21 +1535,17 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co určuje počet protonů v jádře?',
-			odpovedi: ['o jaký chemický prvek se jedná', 'barvu látky', 'teplotu atomu'],
+			odpovedi: ['druh prvku', 'barvu látky', 'teplotu atomu'],
 			vysvetleni: 'Počet protonů = protonové číslo určuje prvek (7 protonů = dusík). Najdeme ho v periodické tabulce.',
 		},
 		{
 			text: 'Počet kterých částic lze v atomu jednoduše měnit (např. třením)?',
-			odpovedi: ['elektronů', 'protonů', 'neutronů'],
+			odpovedi: ['elektronů', 'protonů', 'jen neutronů'],
 			vysvetleni: 'Elektrony lze z obalu odtrhnout nebo přijmout. Protony a neutrony běžným zacházením měnit nelze.',
 		},
 		{
 			text: 'Co je kladný iont?',
-			odpovedi: [
-				'atom, ze kterého se odtrhl jeden či více elektronů',
-				'atom, který přijal elektrony navíc',
-				'atom s více neutrony',
-			],
+			odpovedi: ['atom, kterému chybí elektron', 'atom, který přijal elektrony navíc', 'atom s více neutrony'],
 			vysvetleni: 'Po odtržení elektronů převažuje kladný náboj protonů. Záporný iont naopak elektrony přijal.',
 		},
 		{
@@ -1683,38 +1555,22 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak se nabíjejí tělesa při vzájemném tření?',
-			odpovedi: [
-				'jedno kladně a druhé záporně',
-				'obě kladně',
-				'jen jedno se nabije',
-			],
+			odpovedi: ['mají opačný náboj', 'obě kladně', 'jen jedno se nabije'],
 			vysvetleni: 'Elektrony přejdou z jednoho tělesa na druhé — nabijí se vždy obě, opačně. Plast vždy záporně, sklo kladně.',
 		},
 		{
 			text: 'Co jsou elektrické vodiče?',
-			odpovedi: [
-				'látky, které snadno přenášejí náboj — všechny kovy',
-				'látky, které brání přenosu náboje',
-				'jen kapaliny',
-			],
+			odpovedi: ['látky, co snadno vedou náboj', 'látky, které brání přenosu náboje', 'jen kapaliny'],
 			vysvetleni: 'Vodiče (kovy) snadno přijímají a odevzdávají elektrony. Izolanty (dřevo, plast, guma) přenosu brání.',
 		},
 		{
 			text: 'K čemu slouží izolanty?',
-			odpovedi: [
-				'k ochraně před úrazem elektrickým proudem',
-				'k vedení proudu',
-				'k výrobě magnetů',
-			],
+			odpovedi: ['k ochraně před proudem', 'k vedení proudu', 'k výrobě silných magnetů'],
 			vysvetleni: 'Izolanty nepropouštějí náboj — proto jsou kabely obalené plastem či gumou.',
 		},
 		{
 			text: 'Co je uzemnění?',
-			odpovedi: [
-				'vodivé spojení nabitého tělesa se Zemí',
-				'zakopání tělesa do země',
-				'nabití tělesa třením',
-			],
+			odpovedi: ['spojení tělesa se Zemí', 'zakopání tělesa do země', 'nabití tělesa třením'],
 			vysvetleni: 'Země přijme volné elektrony a těleso se vybije — ochrana zařízení i lidí (např. před bleskem).',
 		},
 		{
@@ -1724,7 +1580,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kde vzniká elektrické pole?',
-			odpovedi: ['kolem každého nabitého tělesa', 'jen kolem magnetů', 'jen v drátech'],
+			odpovedi: ['kolem nabité věci', 'jen kolem magnetů', 'jen v drátech'],
 			vysvetleni: 'Elektrické pole obklopuje každé nabité těleso a působí elektrickou silou i na dálku.',
 		},
 		{
@@ -1734,16 +1590,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Čím zjistíme, zda je těleso nabité?',
-			odpovedi: ['elektroskopem', 'teploměrem', 'siloměrem'],
+			odpovedi: ['elektroskopem', 'obyčejným teploměrem', 'siloměrem'],
 			vysvetleni: 'U nabitého tělesa se ručička elektroskopu vychýlí (tyčinka a ručička se souhlasně nabijí a odpuzují).',
 		},
 		{
 			text: 'Co umí elektrometr?',
-			odpovedi: [
-				'porovnávat velikosti nábojů podle výchylky',
-				'přesně změřit náboj v jednotkách',
-				'vyrábět elektřinu',
-			],
+			odpovedi: ['porovnat náboje podle výchylky', 'přesně změřit náboj v jednotkách', 'vyrábět elektřinu'],
 			vysvetleni: 'Elektrometr je elektroskop se stupnicí bez jednotek — čím větší výchylka, tím větší náboj.',
 		},
 		{
@@ -1753,22 +1605,14 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Proč se při tankování benzínu vypíná motor?',
-			odpovedi: [
-				'kvůli jiskrám statické elektřiny',
-				'aby se ušetřilo palivo',
-				'kvůli hluku',
-			],
+			odpovedi: ['kvůli jiskrám', 'aby se ušetřilo palivo', 'kvůli hluku'],
 			vysvetleni: 'Při přesunu elektronů mohou přeskočit jiskry — u hořlavin hrozí požár. Cisterny mají uzemňovací proužek.',
 		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/jednoduche-elektricke-obvody': [
 		{
 			text: 'Čím vzniká elektrický proud ve vodiči?',
-			odpovedi: [
-				'uspořádaným pohybem volných nabitých částic',
-				'chaotickým pohybem všech atomů',
-				'zahřátím vodiče',
-			],
+			odpovedi: ['pohybem volných částic', 'chaotickým pohybem všech atomů', 'zahřátím vodiče'],
 			vysvetleni: 'Proud = uspořádaný pohyb volných elektronů (v kovech) nebo iontů (v roztocích).',
 		},
 		{
@@ -1778,7 +1622,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jaká je jednotka elektrického proudu a čím ho měříme?',
-			odpovedi: ['ampér (A), ampérmetrem', 'volt (V), voltmetrem', 'newton (N), siloměrem'],
+			odpovedi: ['ampér (A), ampérmetr', 'volt (V), voltmetrem', 'newton (N), siloměrem'],
 			vysvetleni: 'Proud se měří v ampérech ampérmetrem. Napětí ve voltech voltmetrem.',
 		},
 		{
@@ -1798,16 +1642,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jaké jsou účinky průchodu proudu vodičem?',
-			odpovedi: [
-				'zahřívání vodiče a magnetické účinky',
-				'jen ochlazování vodiče',
-				'změna barvy vodiče',
-			],
+			odpovedi: ['zahřívání, magnetismus', 'jen ochlazování vodiče', 'změna barvy vodiče'],
 			vysvetleni: 'Proud vodič zahřívá (topení, vlákno žárovky svítí) a má magnetické účinky (elektromagnet).',
 		},
 		{
 			text: 'Co musí obsahovat každý elektrický obvod?',
-			odpovedi: ['zdroj, vodiče, spotřebič', 'jenom několik vodičů', 'jenom jednu baterii'],
+			odpovedi: ['zdroj, vodiče, spotřebič', 'jenom několik vodičů', 'jenom jednu starou baterii'],
 			vysvetleni: 'Bez zdroje, vodičů a spotřebiče obvod nefunguje. Navíc může mít spínač, měřidla či pojistku.',
 		},
 		{
@@ -1821,7 +1661,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je schéma obvodu?',
-			odpovedi: ['zakreslení pomocí značek', 'fotografie obvodu', 'seznam všech součástek'],
+			odpovedi: ['zakreslení značkami', 'fotografie obvodu', 'seznam všech součástek'],
 			vysvetleni: 'Každý prvek má dohodnutou značku; vodiče kreslíme přímými čarami, spojení vodičů je uzel.',
 		},
 		{
@@ -1841,7 +1681,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co je zkrat?',
-			odpovedi: ['spojení svorek bez spotřebiče', 'úplně vypnutý obvod', 'příliš slabý proud'],
+			odpovedi: ['holé spojení svorek', 'úplně vypnutý obvod', 'příliš slabý proud'],
 			vysvetleni: 'Při zkratu protéká velký proud, vodiče se zahřívají a hrozí požár!',
 		},
 		{
@@ -1851,11 +1691,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jak správně postupujeme při zapojování obvodu?',
-			odpovedi: [
-				'zapojíme vše bez zdroje, zkontrolujeme a teprve pak připojíme zdroj',
-				'nejdřív připojíme zdroj, pak zapojujeme prvky',
-				'na pořadí nezáleží',
-			],
+			odpovedi: ['nejdřív bez zdroje, kontrola, pak zdroj', 'nejdřív připojíme zdroj, pak zapojujeme prvky', 'na pořadí nezáleží'],
 			vysvetleni: 'Bezpečnost: nejprve obvod bez zdroje, kontrola izolace a žárovky, spínač vypnutý — zdroj až nakonec.',
 		},
 	],
