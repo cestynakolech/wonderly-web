@@ -1280,6 +1280,20 @@ export const temata: Record<string, Tema[]> = {
 							<li>teprve po kontrole připojíme zdroj a nakonec sepneme spínač</li>
 						</ol>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Proud, napětí a zdroje napětí 🎬',
+							cesta: '/media/fyzika/6-rocnik/elektrina-a-magnetismus/jednoduche-elektricke-obvody/polemika-obvody-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: Elektrický obvod, zkrat a bezpečnost 🎬',
+							cesta: '/media/fyzika/6-rocnik/elektrina-a-magnetismus/jednoduche-elektricke-obvody/polemika-obvody-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 			],
 		},
