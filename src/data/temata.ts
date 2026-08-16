@@ -1027,6 +1027,20 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Kontrola „zdravým rozumem": průměr musí vždy ležet <strong>mezi nejmenší a největší naměřenou hodnotou</strong>. Kdyby vyšlo 25 °C u týdne, kde nejtepleji bylo 24 °C, je ve výpočtu chyba.</p>
 						<p>👉 Pozor: nezapomeň dělit <strong>počtem měření</strong> (kolik čísel jsme sčítali), ne počtem dnů v týdnu nebo jiným číslem.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Jak se měří teplota? 🎬',
+							cesta: '/media/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/polemika-teplota-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: co se dá spočítat a ověřit 🎬',
+							cesta: '/media/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/polemika-teplota-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 				{
 					slug: 'teplotni-roztaznost',
