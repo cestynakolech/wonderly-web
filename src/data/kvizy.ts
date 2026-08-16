@@ -1605,7 +1605,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Proč se při tankování benzínu vypíná motor?',
-			odpovedi: ['kvůli statické elektřině (jiskrám)', 'aby se ušetřilo palivo za jízdy', 'kvůli nadměrnému hluku motoru'],
+			odpovedi: ['kvůli statické elektřině (jiskrám)', 'aby řidič nezapomněl zaplatit za palivo', 'kvůli nadměrnému hluku benzínového motoru'],
 			vysvetleni: 'Při přesunu elektronů mohou přeskočit jiskry — u hořlavin hrozí požár. Cisterny mají uzemňovací proužek.',
 		},
 	],
