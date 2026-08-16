@@ -2700,6 +2700,13 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4 km vykoná práci 800 MJ?<br>
 						s = 4 000 m, W = 800 000 000 J → F = W : s = 800 000 000 : 4 000 = <strong>200 000 N = 200 kN</strong></p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Práce, 8. ročník', cesta: 'QeSCVL-rak0' },
+						{ druh: 'youtube', nazev: 'Video: Příklady na práci, 8. ročník', cesta: 'SEQlTxAyT0E' },
+					],
+					odkazy: [
+						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
+					],
 				},
 				{
 					slug: 'vykon',
@@ -2727,6 +2734,14 @@ export const temata: Record<string, Tema[]> = {
 						W = P · t = 9 kW · 16 h = <strong>144 kWh</strong></p>
 						<p>💡 Starší jednotka výkonu motorů je <strong>koňská síla</strong> (hp): 1 hp = 0,735 kW.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Výkon', cesta: 'guwdueOQ_oc' },
+						{ druh: 'youtube', nazev: 'Video: Výkon — příklady', cesta: 'D0eBntqkyJ8' },
+					],
+					odkazy: [
+						{ nazev: 'Umíme fakta — Výkon (cvičení)', url: 'https://www.umimefakta.cz/fyzika/cviceni-vykon' },
+						{ nazev: 'Wordwall — Výkon', url: 'https://wordwall.net/resource/64369600' },
+					],
 				},
 			],
 		},
@@ -2755,6 +2770,14 @@ export const temata: Record<string, Tema[]> = {
 							<li>značka <strong>E</strong>, jednotka <strong>joule (J)</strong> — stejná jako u práce; u elektrické energie také Wh a kWh</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
+						{ druh: 'youtube', nazev: 'Video: Přeměna mechanické energie, zákon zachování — fyzika 8 ZŠ', cesta: 'WWSDK9i7sWk' },
+					],
+					odkazy: [
+						{ nazev: 'ČT edu — Přeměna energie (pořad PORT)', url: 'https://edu.ceskatelevize.cz/video/5421-premena-energie' },
+						{ nazev: 'Umíme fakta — Zákon zachování mechanické energie', url: 'https://www.umimefakta.cz/fyzika/cviceni-mechanicka-energie-zakon-zachovani-8-trida' },
+					],
 				},
 				{
 					slug: 'pohybova-a-polohova-energie',
@@ -2777,6 +2800,13 @@ export const temata: Record<string, Tema[]> = {
 						<p>Dosazujeme v základních jednotkách: hmotnost v kg, výšku v m, g = 10 N/kg. Výšku měříme vzhledem k tomu, co je pro děj důležité (podlaha, hřebík, zem). Odvozené: m = E<sub>p</sub> : (g·h), h = E<sub>p</sub> : (m·g).</p>
 						<p><strong>B) Polohová energie pružnosti</strong> — má ji každé natažené, stlačené či zkroucené pružné těleso (pružina, ohnutý luk, natažená guma). Využití: střelba z luku, natahovací hračky, pinball.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Pohybová (kinetická) energie', cesta: 'cEa9OnP-Yo8' },
+						{ druh: 'youtube', nazev: 'Video: Polohová (potenciální) energie', cesta: 'Vq4Kwsi1A7I' },
+					],
+					odkazy: [
+						{ nazev: 'Wordwall — kvíz Energie (pohybová, polohová, zachování)', url: 'https://wordwall.net/resource/37856406/energie' },
+					],
 				},
 				{
 					slug: 'zakon-zachovani-mechanicke-energie',
@@ -2817,6 +2847,13 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Energetická hodnota se udává nejčastěji <strong>na 100 g</strong> potraviny. Kolik energie jsi snědl, spočítáš podle hmotnosti jednotlivých potravin.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Kalorimetrické stanovení energetické hodnoty potravin', cesta: 'cQhhT-iBEoc' },
+					],
+					odkazy: [
+						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
+						{ nazev: '100+1 zahraniční zajímavost — Jak se zjišťuje energetická hodnota potravin', url: 'https://www.stoplusjednicka.cz/kdyz-se-pali-jidlo-jak-se-zjistuje-energeticka-hodnota-potravin' },
+					],
 				},
 				{
 					slug: 'vnitrni-energie-telesa',
@@ -2846,6 +2883,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Využití: rozdělání ohně třením, zahřátí rukou. Naopak přehřátí třením ničí materiál — proto se stroje <strong>chladí</strong> (voda, olej, vzduch).</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Vnitřní energie — fyzika 8 ZŠ', cesta: 'ETF1RTkDoW0' },
+						{ druh: 'youtube', nazev: 'Video: Vnitřní energie tělesa (ZŠ Štípa)', cesta: 'ou1bT2ahw_I' },
+					],
+					odkazy: [
+						{ nazev: 'Fyzika007 — Vnitřní energie tělesa (výklad + příklady)', url: 'https://www.fyzika007.cz/molekulov%C3%A1-fyzika-atermika/vnit%C5%99n%C3%AD-energie-t%C4%9Blesa' },
+						{ nazev: 'Eductify — procvičení: Změny vnitřní energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zvet/zmeny-vnitrne-energie' },
+					],
 				},
 				{
 					slug: 'tepelna-vymena-a-teplo',
@@ -2903,6 +2948,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Parní turbína</h3>
 						<p>Vodní <strong>pára roztáčí lopatky turbíny</strong> — energie páry se mění na otáčivý pohyb. Používá se v <strong>tepelných elektrárnách</strong> k pohonu generátorů (výkon 200–600 MW). Účinnost <strong>max. ~35 %</strong> — vyšší než u parního stroje.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
+					],
+					odkazy: [
+						{ nazev: 'ČT edu — Vznik parního stroje', url: 'https://edu.ceskatelevize.cz/video/3536-vznik-parniho-stroje' },
+						{ nazev: 'Techmania — Princip parního stroje (animace)', url: 'https://digital.techmania.cz/stroje/princip-parniho-stroje/' },
+						{ nazev: 'Wordwall — kvíz Tepelné motory', url: 'https://wordwall.net/cs/resource/111383163/tepeln%C3%A9-motory' },
+					],
 				},
 				{
 					slug: 'spalovaci-motory',
@@ -2929,6 +2982,14 @@ export const temata: Record<string, Tema[]> = {
 						<p>Palivo <strong>nafta</strong> (nebo zemní plyn). <strong>Nemá svíčku</strong> — směs se stlačením prudce zahřeje a <strong>sama se vznítí</strong>. Použití: auta, náklaďáky, autobusy, lokomotivy. Účinnost <strong>30–40 %</strong>. Výhody: větší výkon při rozjezdu, nižší spotřeba; nevýhody: těžší, dražší, více emisí (filtr pevných částic), často turbodmychadlo.</p>
 						<p>👉 Každý motor je nutné <strong>nastartovat</strong> (roztočit setrvačník), <strong>chladit</strong> (voda/vzduch) a <strong>mazat</strong> olejem.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: 4-dobý zážehový motor', cesta: 'BmQdE7Ct8Cs' },
+						{ druh: 'youtube', nazev: 'Video: Spalovací motory — fyzika 8 ZŠ', cesta: 'lwMR-5llFtY' },
+					],
+					odkazy: [
+						{ nazev: 'Techmania — Čtyřdobý zážehový motor', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/ctyrdoby-zazehovy-motor' },
+						{ nazev: 'Wordwall — kvíz Spalovací motory', url: 'https://wordwall.net/cs/resource/108360943/spalovací-motory-kviz' },
+					],
 				},
 			],
 		},
