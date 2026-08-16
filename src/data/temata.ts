@@ -3296,6 +3296,13 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Elektrická síla</h3>
 							<p><strong>Souhlasné náboje se odpuzují, nesouhlasné přitahují.</strong> Síla je tím větší, čím <strong>větší jsou náboje</strong> a čím <strong>menší je vzdálenost</strong> mezi nimi. Proto se rozčesané vlasy lepí k hřebenu, ale navzájem se rozestupují.</p>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Fyzika - 8. třída - Elektrický náboj', cesta: 'omPnTlrs9kk' },
+							{ druh: 'youtube', nazev: 'Fyzika v Klidu 8 - Elektrický náboj', cesta: 'vj-ljNnUCss' },
+						],
+						odkazy: [
+							{ nazev: 'Elekrostatika – 8. ročník ZŠ (test, 13 otázek) — testi.cz', url: 'https://testi.cz/testy/fyzika/elekrostatika-8.rocnik-zs/' },
+						],
 					},
 				{
 						slug: 'elektricke-pole',
@@ -3342,6 +3349,13 @@ export const temata: Record<string, Tema[]> = {
 							délku statisíckrát menší a proletí bez problémů. Proto dovnitř vidíš, a přesto se
 							u dvířek neohřeješ.</p>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Vodič a izolant v elektrickém poli, siločáry el. pole', cesta: 'yYRrFdz5dyo' },
+						],
+						odkazy: [
+							{ nazev: 'Elektrický náboj a elektrické pole — rozcestník videí (ČT edu)', url: 'https://edu.ceskatelevize.cz/tema/elektricky-naboj-a-elektricke-pole' },
+							{ nazev: 'Pokusy: Umělé blesky — Faradayova klec (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5393-pokusy-umele-blesky' },
+						],
 					},
 				{
 						slug: 'vznik-elektrickeho-proudu',
@@ -3371,6 +3385,14 @@ export const temata: Record<string, Tema[]> = {
 								<li><strong>střídavý (AC)</strong> — pravidelně mění směr; z elektráren, máme ho v zásuvce; pohání velké spotřebiče (pračka, fén)</li>
 							</ul>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Video: Elektrický proud a napětí, Fyzika ZŠ', cesta: 'ifqwDnBemhU' },
+							{ druh: 'youtube', nazev: 'Video: Elektrický proud, 6. ročník, Fyzika ZŠ', cesta: 'i4_W9-ghMzw' },
+						],
+						odkazy: [
+							{ nazev: 'ČT edu — Elektrický proud a napětí (video, 2 min)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
+							{ nazev: 'Wordwall — Elektrický proud a napětí, 8. třída (kvíz)', url: 'https://wordwall.net/cs/resource/89308040' },
+						],
 					},
 				{
 						slug: 'chemicke-zdroje-napeti',
@@ -3451,6 +3473,10 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Bezpečné zapojování</h3>
 							<p>Nejdřív sestav obvod <strong>bez zdroje</strong> a se spínačem <strong>vypnutým</strong>, zkontroluj vodiče i žárovku, teprve pak připoj zdroj a nakonec sepni spínač.</p>
 						`,
+						odkazy: [
+							{ nazev: 'Pokus: Elektrické obvody (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3427-pokus-elektricke-obvody' },
+							{ nazev: 'Pokus: Elektrický zkrat (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6931-pokus-elektricky-zkrat' },
+						],
 					},
 				{
 						slug: 'elektricky-proud-mereni',
@@ -3474,6 +3500,13 @@ export const temata: Record<string, Tema[]> = {
 								<li>při špatném zapojení hrozí <strong>poškození ampérmetru</strong></li>
 							</ul>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Měření elektrického proudu, Ampérmetr', cesta: 'ynKK6mLiUXs' },
+						],
+						odkazy: [
+							{ nazev: 'Měření elektrického proudu ampérmetrem (RVP.CZ)', url: 'https://dum.rvp.cz/materialy/mereni-elektrickeho-proudu-ampermetrem.html' },
+							{ nazev: 'Elektrický proud a napětí — převody jednotek (Wordwall)', url: 'https://wordwall.net/cs/resource/74196967/elektrick%C3%BD-proud-a-nap%C4%9Bt%C3%AD-p%C5%99evody-jednotek' },
+						],
 					},
 				{
 						slug: 'elektricke-napeti-mereni',
@@ -3500,6 +3533,14 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<p>💡 <strong>Multimetr</strong> umí měřit proud i napětí, ale vždy jen <strong>jednu veličinu</strong> — pro každou se jinak nastaví i zapojí.</p>
 						`,
+						materialy: [
+							{ druh: 'youtube', nazev: 'Elektrické napětí, zdroje, měření, voltmetr (zapojení)', cesta: 'D9MRTiEXwhA' },
+							{ druh: 'youtube', nazev: 'Sériové a paralelní zapojení - fyzika 8 ZŠ', cesta: '-swoFnETsac' },
+						],
+						odkazy: [
+							{ nazev: 'Elektrický proud a napětí (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
+							{ nazev: 'Elektrický proud, napětí, odpor, Ohmův zákon — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/elektricky-proud-napeti-odpor-ohmuv-zakon/' },
+						],
 					},
 				{
 						slug: 'elektricky-proud-v-kovech-odpor',
