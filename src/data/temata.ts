@@ -1076,6 +1076,20 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Při vyšší teplotě se částice pohybují rychleji ⇨ mají mezi sebou větší mezery ⇨ <strong>hustota látky se zmenšuje</strong>.</p>
 						<p>📌 Shrnutí: s rostoucí teplotou se objem tělesa <strong>zvětšuje</strong> a hustota <strong>zmenšuje</strong>; s klesající teplotou naopak.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Zahřátí a ochlazení mění rozměry 🎬',
+							cesta: '/media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: roztažnost v praxi a jejích potížích 🎬',
+							cesta: '/media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 			],
 		},
