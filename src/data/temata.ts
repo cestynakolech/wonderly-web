@@ -1152,6 +1152,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs" target="_blank" rel="noopener">simulace Magnet a kompas</a> — pohybuj kompasem kolem magnetu, pak si zvol Zemi.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika: Magnetické vlastnosti látek a magnetické pole 🎬',
+							cesta: '/media/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/polemika-magnetismus-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 				{
 					slug: 'elektricke-vlastnosti-latek',
