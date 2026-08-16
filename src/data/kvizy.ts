@@ -1158,29 +1158,29 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Zná fyzika pojem „vteřina"?',
-			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, je to základní jednotka', 'ano, je to tisícina sekundy'],
+			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, vteřina je základní jednotka fyziky', 'ano, vteřina je tisícina jedné minuty'],
 			vysvetleni: 'Vteřina je jen běžná mluva; fyzika používá sekundu.',
 		},
 		{
 			text: 'Co je milisekunda (ms)?',
-			odpovedi: ['tisícina sekundy', 'setina sekundy', 'milion sekund'],
+			odpovedi: ['tisícina sekundy', 'jedna setina sekundy', 'milion celých sekund'],
 			vysvetleni: 'Mili- = tisícina: 1 ms = 0,001 s. Používá se pro velmi krátké děje.',
 		},
 		{
 			text: 'Jaká byla nevýhoda slunečních hodin?',
 			odpovedi: [
-				'Slunce nesvítí každý den v roce na stejném místě',
-				'stín se pohyboval příliš rychle',
-				'fungovaly jen v zimě',
+				'v noci a při zatažení neukázaly čas vůbec',
+				'stín se během dne pohyboval příliš rychle a nepravidelně',
+				'fungovaly spolehlivě jen v zimních měsících roku',
 			],
-			vysvetleni: 'Sluneční hodiny závisí na slunci — v noci a při zatažené obloze nefungují a poloha Slunce se během roku mění.',
+			vysvetleni: 'Sluneční hodiny závisí na slunci — v noci a při zatažené obloze slunce nesvítí, takže hodiny neukážou vůbec nic.',
 		},
 		{
 			text: 'Jak fungovaly vodní hodiny?',
 			odpovedi: [
-				'voda odkapávala stejně rychle a její množství udávalo čas',
-				'voda se vařila přesně hodinu',
-				'hladina stoupala s přílivem',
+				'odkapávala rovnoměrně a dávala čas',
+				'voda se musela vařit přesně jednu hodinu',
+				'hladina vody stoupala a klesala s přílivem',
 			],
 			vysvetleni: 'Voda odkapávala stálou rychlostí — hmotnost odkapané vody udávala uplynulý čas.',
 		},
@@ -1201,7 +1201,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co využívají moderní hodiny k měření času?',
-			odpovedi: ['pravidelně se opakující děje', 'náhodné děje', 'sílu gravitace'],
+			odpovedi: ['děj, který se pravidelně opakuje', 'úplně náhodný a nepředvídatelný děj', 'velikost síly zemské gravitace'],
 			vysvetleni: 'Kmitání kyvadla, nepokoje či atomů — vždy jde o pravidelně se opakující děj.',
 		},
 		{
