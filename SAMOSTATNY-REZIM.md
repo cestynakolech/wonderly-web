@@ -386,6 +386,17 @@ Organizace:
   klíči `media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4` a
   `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na
   chybném klíči nikdo nečte — smazat? (mazání se neprovádí bez souhlasu)
+- **Cloudflare Workers Build dnes jednou spadl bez viditelné příčiny.** 16. 8. 2026
+  commit `edb1137` se po pushi na `main` normálně nenasadil (jiné komity ten den se
+  propsaly do ~1 minuty, tenhle vůbec). Přes GitHub API zjištěno: check run
+  „Workers Builds: wonderly-web" má `conclusion: failure`, ale text chyby nejde
+  stáhnout (`Cloudflare Builds API` vrací „Authentication error 10000" — aktuální
+  `wrangler` token nemá scope pro Builds API). Lokální `npm run build` přitom prošel
+  čistě (469 stránek), takže nešlo o chybu v datech. Obejito ručním
+  `npx wrangler deploy` — funguje jako záložní cesta, ale nenahrazuje trvalou opravu.
+  Doporučení: podívat se do Cloudflare dashboardu na konkrétní chybu buildu (odkaz
+  na build byl v logu agenta) a/nebo doplnit `wrangler` token o Builds scope, ať se
+  dá příčina zjistit automaticky příště, místo ručního obcházení.
 - [cesty] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
   se přestane rozmazávat, potvrzuje vždy učitel).
 - [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará
