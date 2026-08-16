@@ -400,6 +400,14 @@ Organizace:
 - [skola2] **Přeskoky v pořadí úvodních map videí.** Automat `kontrola_poradi.py`
   dlouhodobě hlásí 8 přeskoků (např. chybí zastávka ballon-d-alsace). Čeká na
   rozhodnutí, jestli se mapy mají předělat.
+- [skola2] **Uzemnění — jednosměrná formulace** (viz nález #16). V `temata.ts`
+  (~ř. 1196) i v kvízu `kvizy.ts` (~ř. 1574) stojí „Země přijme volné elektrony
+  a těleso se vybije" — platí jen pro záporně nabité těleso, u kladně nabitého
+  proudí elektrony opačně (ze Země do tělesa). Nový doklad: video dílu 10
+  ilustruje právě kladně nabitou cisternu s benzínem, takže obrázek a text si
+  u tohoto příkladu odporují (mluvený dialog se pasti vyhnul — mluví neutrálně
+  o „odvedení přebytečného náboje"). Návrh: přeformulovat obousměrně na „náboj
+  se odvede do země / vyrovná se se zemí". NEOPRAVENO — čeká na rozhodnutí učitele.
 - [cesty] **`MISTA.xlsx` otevřený v Excelu** ukazuje starou kopii — zavřít bez ukládání
   (akce pro učitele, ne pro automat).
 
