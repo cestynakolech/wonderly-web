@@ -392,6 +392,16 @@ Organizace:
   Nerealizováno — vyžaduje přihlášení do jeho účtu Suno a stažení souborů, chce se
   potvrdit rozsah: jen znělka na začátek/konec, nebo podkres celého dílu? Jednotná
   znělka pro celou sérii, nebo jiná ke každému dílu?
+  Upřesnění (16. 8.): předplatné Suno Pro, ~2000 skladeb zbývá z 2500/měsíc, komerční
+  použití na kanálu povoleno. Cíl A: hudba/podkres pod videa podkastů — čeká se lepší
+  kvalita než z lokálního modelu (dosavadní řešení: kreslené animace + ticho/jednoduchý
+  podkres, viz [[projekt-animace-podkastu]]). Cíl B: existuje loňská básnička učitele,
+  kterou nechal v jiném projektu (repu) přepracovat na písničku — rytmická, svižná;
+  potřeba nastavit hlas/styl ve Suno tak, aby to NEZPÍVALY DĚTI (cílovka 2. stupeň,
+  dětský zpěv by na ně působil nevhodně/nudně). Pokud se cíl B osvědčí, učitel chce
+  zadávat další písničky přímo a přidávat je na web do míst, kde zatím hudba/píseň
+  chybí. Realizace čeká, až bude učitel u počítače — přihlášení do Suno účtu a
+  stažení výstupů vyžaduje jeho potvrzení v tu chvíli, nejde předschválit dopředu.
 - [skola2] **Fahrenheit — formulace.** V dialogu dílu 8 (`teplota-a-jeji-mereni`) zaznělo
   „v anglicky mluvících zemích", reálně se Fahrenheit používá hlavně v USA. Přeformulovat?
 - [skola2] **Klementinum — rok.** Sporné číslo (1775 začátek měření vs. 1785/1929 rekord,
