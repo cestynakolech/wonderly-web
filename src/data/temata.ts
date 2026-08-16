@@ -1210,6 +1210,20 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/john-travoltage/latest/john-travoltage_all.html?locale=cs" target="_blank" rel="noopener">simulace John Travoltage</a> (nabíjení a vybíjení) a <a href="https://phet.colorado.edu/cs/simulations/balloons-and-static-electricity" target="_blank" rel="noopener">Balónek a statická elektřina</a>.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika 1: Stavba atomu, náboj a elektrizování 🎬',
+							cesta: '/media/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/polemika-elektrina-1.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika 2: Elektrické pole a jeho zjišťování 🎬',
+							cesta: '/media/fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek/polemika-elektrina-2.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+					],
 				},
 				{
 					slug: 'jednoduche-elektricke-obvody',
