@@ -721,6 +721,17 @@ export const rok2026: Rok = {
 			y: 339.3,
 			popis: { cs: '' },
 		},
+		{
+			slug: 'rudesheim-am-rhein',
+			galerie: 'cesty/2026/rudesheim-am-rhein',
+			nazev: 'Rüdesheim am Rhein',
+			zeme: 'Německo',
+			datum: '10. 8. 2026',
+			vyjezd: 6,
+			x: 291.5,
+			y: 338.0,
+			popis: { cs: '' },
+		},
 	],
 	videa: [
 		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },
