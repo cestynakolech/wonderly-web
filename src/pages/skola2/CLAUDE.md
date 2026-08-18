@@ -16,7 +16,8 @@ infografiky, písničky/videa, interaktivní **simulace**, procvičovací **kví
 `temata.ts` a `kvizy.ts` jsou velké — **nečíst celé**, hledat Grepem a číst výřezem.
 
 ## Konvence a pravidla (DŮLEŽITÉ)
-- **Kvíz**: ~21 otázek/podtéma, 3 odpovědi, **správná VŽDY první** (na webu se míchá),
+- **Kvíz**: cílem je medián kolem **13 otázek/podtéma** (měřeno nad daty 18. 8. 2026,
+  150 bloků, rozsah 8–22 — viz `HERMES-POKRACUJ.md`), 3 odpovědi, **správná VŽDY první** (na webu se míchá),
   doplnit pole `vysvetleni` (ukáže se při špatné odpovědi). Správná odpověď nesmí být
   soustavně nejdelší.
 - **Tisknutelný test** `…/test/` je chráněný heslem **ucitel-wonderly** (jen pro učitele).
@@ -40,4 +41,4 @@ infografiky, písničky/videa, interaktivní **simulace**, procvičovací **kví
   přes asistenta se Disk NEČTE spolehlivě.
 - Barevné štítky složek: 🟡 žlutá = doplnil učitel (nech), 🟠 oranžová = čeká na média od učitele.
 - **Přehledy a předání**: `/Users/Shared/webová stránka/` a `~/Desktop/Omega/dokumenty/`
-  (PREHLED-PROJEKTU…, PREDANI_KOLEGOVI, kontrola-podkladu-*).
+  (PREHLED-PROJEKTU…, `PREDANI_KOLEGOVI.md`, kontrola-podkladu-*).

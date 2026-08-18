@@ -19,10 +19,12 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 - **Cloudflare R2** — úložiště `wonderly-media` pro plnokvalitní fotky deníku (binding MEDIA).
 - Fonty: `@fontsource/patrick-hand` + `caveat` (kreslený „whiteboard" styl, latin-ext = česká diakritika).
 - `worker.js`, `wrangler.jsonc` — routing subdomén + R2. **NEMĚNIT bez důvodu.**
-- **Hermes Agent** (lokální modely, Ollama) — neinteraktivně přes plnou cestu:
-  `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"` (vrací jen holý text odpovědi).
-  Alias `hermes` ukazuje na podpříkaz `chat` (interaktivní) a pro skriptovaná volání
-  se nehodí. Zatím nepoužívat — jen zapsáno pro budoucí použití.
+- **Hermes Agent** (lokální modely, Ollama) — ZAPOJEN jako záložní pracant na
+  mechanickou práci (paměť `feedback-hermes-zalozni-pracant`), spouští se
+  neinteraktivně přes plnou cestu: `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"`
+  (vrací jen holý text odpovědi). Alias `hermes` ukazuje na podpříkaz `chat`
+  (interaktivní) a pro skriptovaná volání se nehodí. **Hermes nikdy nepushuje,
+  nemaže ani nenahrává ven** — výsledky jen odevzdává k převzetí (viz `SAMOSTATNY-REZIM.md`).
 
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:

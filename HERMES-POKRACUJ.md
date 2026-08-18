@@ -5,15 +5,21 @@ Tento soubor VŽDY popisuje aktuální rozdělanou práci. Hermes: přečti obec
 v `~/Desktop/wonderly-web` a udělej úkoly ze sekce „Co je teď rozdělané".
 Po resetu kreditů Claude všechno zkontroluje a opraví.
 
-## Co je teď rozdělané (stav 29. 7. 2026, ~17:00)
+## Co je teď rozdělané (stav 29. 7. 2026, ~17:00 — ✅ SPLNĚNO, ověřeno 18. 8. 2026)
 
 Dorovnání slabých kvízů (pokračování). Upravuj JEN `src/data/kvizy.ts`.
-Tyto 4 bloky mají po 6 otázkách — každý doplň na 10 (tedy +4 otázky na blok):
+Tyto 4 bloky měly po 6 otázkách; kontrola nad daty (`node testy/data.mjs`,
+18. 8. 2026) ukazuje, že už mají 10–11 otázek — úkol je hotový, není co dělat:
 
-1. `informatika/9-rocnik/bezpecnost-a-digitalni-svet/bezpecnost-pocitace-a-dat`
-2. `informatika/9-rocnik/bezpecnost-a-digitalni-svet/digitalni-stopa-a-identita`
-3. `informatika/9-rocnik/site-a-sluzby/pocitacove-site-a-internet`
-4. `informatika/8-rocnik/hry-ve-scratchi/klonovani-animace-hry`
+1. `informatika/9-rocnik/digitalni-technologie/bezpecnost-pocitace-a-dat` (11)
+2. `informatika/9-rocnik/digitalni-technologie/digitalni-stopa-a-identita` (11)
+3. `informatika/9-rocnik/digitalni-technologie/pocitacove-site-a-internet` (10)
+4. `informatika/9-rocnik/programovaci-projekty/klonovani-animace-hry` (10)
+
+Obecný cíl počtu otázek na podtéma: měřením nad daty (`node`, medián ze všech
+150 kvízových bloků, 18. 8. 2026) vychází **medián 13 otázek/podtéma, rozsah 8–22**
+— tímto číslem se řídit u nových/slabých bloků (viz `src/pages/skola2/CLAUDE.md`),
+ne dřívějším „10" ani „~21".
 
 POZOR: přesné klíče si ověř grepem v kvizy.ts — když blok nenajdeš přesně,
 najdi ho podle poslední části (např. `digitalni-stopa`), NEZAKLÁDEJ nový.
@@ -42,7 +48,10 @@ najdi ho podle poslední části (např. `digitalni-stopa`), NEZAKLÁDEJ nový.
 cd ~/Desktop/wonderly-web && node zkontroluj.mjs && npm run build
 ```
 
-Když obojí projde: `git add src/data/kvizy.ts && git commit -m "Hermes: doplnen kviz <blok>" && git push`.
+Když obojí projde: `git add src/data/kvizy.ts && git commit -m "Hermes: doplnen kviz <blok>"`
+(commit ANO, `git push` NE — Hermes nikdy nepushuje, nemaže ani nenahrává ven;
+změnu odevzdá jako necommitnutou/commitnutou lokálně a Claude/učitel ji při
+převzetí zkontroluje a pushne).
 Když něco selže, vrať změnu (`git checkout -- src/data/kvizy.ts`) a zapiš problém dolů do Poznámek.
 
 ## Poznámky Hermese

@@ -1,18 +1,18 @@
 # ⚡ ČÍM ZAČÍT (stav po bloku 16. 8. 2026, večer)
 
-**Vše je nasazené a brána je zelená.** Poslední commit wonderly-web: `1e8cf9b` (deník; poslední skola2 commit `ed585b6`).
+**Poslední commit wonderly-web: `b057ac5`** (poslední skola2 commit `ed585b6`). V pracovním stromu jsou necommitnuté změny (`PROGRESS.md`, `SAMOSTATNY-REZIM.md`) — než se prohlásí „vše nasazené", je třeba je zkontrolovat, commitnout a pushnout.
 
 **Fyzika: názornost HOTOVÁ** (6–9, zbývají jen shrnutí, která ji nepotřebují).
 
 **HOTOVO 16. 8.:** polemiky F6 díly 7–14 (nasazené, kontrolované, opravené — viz PROGRESS.md), média fyziky 8. ročníku (27 podtémat), Informatika 9 zapojení 3 simulací, délková nápověda kvízů F6 (rohatka 616/28 %), meta tag Google Search Console.
 
-**🔴 BLOKUJE — vyřešit jako první, jakmile bude dobito:**
-- `[skola2]` **Díl 15 `pololetni-shrnuti` fyziky 6** — 4 scénáře hotové v `Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md` (brána 24/24). TTS nejde — **došel kredit na OpenAI**. Až bude dobito: TTS 4×, schémata/animace, video, R2, nasazení, kontrolor. Pak zbývá poslední díl 16 `rocni-shrnuti`.
+**🔴 NA ŘADĚ — vyřešit jako první:**
+- `[skola2]` **Díl 15 `pololetni-shrnuti` fyziky 6** — 4 scénáře hotové v `Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md` (brána 24/24). Vyrábí se lokálně OmniVoice (`vyrob_omnivoice.py`): TTS 4×, schémata/animace, video, R2, nasazení, kontrolor. Pak zbývá poslední díl 16 `rocni-shrnuti`.
 
-**NA ŘADĚ — vyber si (mimo blokovaný díl 15):**
+**NA ŘADĚ — vyber si (díl 15 už NENÍ blokován, je ve frontě výše jako první):**
 1. `[skola2]` **Délková nápověda — pokračovat.** Rohatka na 616/28 %, zbývá dotahovat žebříček nejhorších bloků (skript nad `testy/data.mjs`), prodlužovat distraktory (NIKDY neměnit správnou odpověď), nechat zkontrolovat, pak `npm run prijmi-latku` sníží strop.
 2. `[skola2]` **Média fyziky 8. ročníku — 2 podtémata shrnutí** (`pololetni-shrnuti`, `rocni-shrnuti`) zatím bez médií — nejspíš je nepotřebují, rozhodnout a uzavřít.
-3. `[cesty]` **Deník ČEKÁ na Kluesserath_DE, pak jede dál sám.** Poznámka o lhůtě „19. 8. 13:11" byla zastaralá, opraveno dle ověření 16. 8. přímo ze souborů: `Kluesserath_DE` má poslední pořízení 9. 8. 2026, 7denní lhůta „dojezdilo" vyprší **cca 16. 8. večer** (v 16. 8. odpoledne chybělo ~14 hodin). `Neumagen-Dhron_DE` (45 médií, 16 anonymizovaných klipů, doklad kompletní) je připraveno, ale automat `vyrob_video_automat.py` ho nesmí předběhnout — fronta drží pořadí, Kluesserath_DE je před ním. Až Kluesserath_DE „dojezdí" (dnes večer/v noci), pustit `vyrob_video_automat.py` znovu bez zásahů — obě místa by měl zpracovat sám v pořadí. `Trittenheim_DE` (další v pořadí) ještě nemá anonymizované klipy (0 MP4) — anonymizace zatím neproběhla.
+3. `[cesty]` **Deník: lhůta Kluesserath_DE už uplynula, automat lze pustit.** `Kluesserath_DE` má poslední pořízení 9. 8. 2026, 7denní lhůta „dojezdilo" vypršela cca 16. 8. večer — dnes je 18. 8., takže je po lhůtě a `vyrob_video_automat.py` je možné pustit (ověřit, že už neběží samo). `Neumagen-Dhron_DE` (45 médií, 16 anonymizovaných klipů, doklad kompletní) je připraveno a je ve frontě za Kluesserath_DE. `Trittenheim_DE` (další v pořadí) ještě nemá anonymizované klipy (0 MP4) — anonymizace zatím neproběhla.
 
 **❓ Čekají 2 otázky na učitele** (nepřesnosti v jeho textu u `teplota-a-jeji-mereni`: Fahrenheit „v anglicky mluvících zemích" → spíš jen USA; Klementinum minimum uvedeno s rokem 1785, rekord je 1929). Viz sekce níže.
 
@@ -41,7 +41,7 @@ Zbylé díry informatiky 9. roč. po nich: `plan-projektu-a-ladeni`, `hardware-a
 
 > **Stačí napsat `WONDERLY`.** Znamená to: vezmi první nehotový úkol z fronty níž
 > a pracuj samostatně (kontrolor, kotvy, obousměrné ověření, build, push).
-> Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `START.md`).
+> Fronta je JEN tady — ve skillu se o pořadí práce nerozhoduje (viz `~/.claude/skills/wonderly/START.md`).
 
 > **wonderly je JEDEN web, tři sekce — fronta je SPOLEČNÁ pro všechny.** Každá
 > položka fronty nese na začátku značku sekce: `[fox]` = web pro 1. stupeň,
@@ -118,7 +118,7 @@ scénosled → schémata → **prohlídka kontaktním listem** → zvuk → vide
 12. [skola2] ~~`jednoduche-elektricke-obvody`~~ ✅ HOTOVO a nasazeno 16. 8. (87a7f71, oprava ac44f1d)
 13. [skola2] ~~`pokusy`~~ ✅ HOTOVO a nasazeno 16. 8. (36aa669, oprava 8976f26)
 14. [skola2] ~~`souhrnne-opakovani-velicin`~~ ✅ HOTOVO a nasazeno 16. 8. (ed585b6)
-15. [skola2] `pololetni-shrnuti` — 🔴 BLOKOVÁNO, viz „ČÍM ZAČÍT" nahoře (scénáře hotové, čeká TTS na dobitý kredit OpenAI)
+15. [skola2] `pololetni-shrnuti` — viz „ČÍM ZAČÍT" nahoře (scénáře hotové, vyrábí se lokálně OmniVoice)
 16. [skola2] `rocni-shrnuti` — čeká na díl 15
 
 **Nepracuj na víc než třech dílech v jedné session** — kontext dojde uprostřed
@@ -136,16 +136,16 @@ pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
   Hlasy z ElevenLabs, proto je v názvu atribuce `elevenlabs.io` — free tarif ji žádá.
 - Celý řetěz skriptů: `pokryti_kvizu.py` → `vyrob_podkasty.py` / `vyrob_dialog_elevenlabs.py`
   → `snimky_podkastu.py` → `video_podkastu.py` → `automat_podkastu.py`.
-- Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). Jelo se
-  přes OpenAI, cena ověřená na 6,20 Kč za díl. **16. 8. 2026 večer: došel i kredit
-  na OpenAI** — TTS teď nejde vůbec, viz blokující bod v „ČÍM ZAČÍT" nahoře.
+- Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **ROZHODNUTO
+  18. 8. 2026: zvuk podkástů výhradně lokálním OmniVoice (`vyrob_omnivoice.py`),
+  placené hlasové služby (OpenAI TTS, ElevenLabs) se nepoužívají vůbec.**
 
 ### ▶️ TADY SE POKRAČUJE
 
 **Díly 7–14 jsou HOTOVÉ a nasazené (16. 8. 2026)** — viz seznam výše a PROGRESS.md.
 **Další na řadě je díl 15 `pololetni-shrnuti`** — 4 dialogové scénáře hotové
 (`Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md`, brána
-24/24), ale **BLOKOVÁNO** došlým kreditem OpenAI (TTS). Jakmile bude dobito:
+24/24). Vyrábí se lokálně OmniVoice (`vyrob_omnivoice.py`):
 TTS 4× → schémata/animace → **prohlídka kontaktním listem** → video →
 R2 + `temata.ts` → build → push → **ověřit curlem na produkci**. Pak zbývá
 poslední díl 16 `rocni-shrnuti`.
@@ -230,21 +230,25 @@ Postup po kolech (fyzika má přednost před informatikou ve frontě):
 2. **Videa (77 chybí)** — worker-media hledá ČESKÁ oficiální YouTube vložení
    (pravidla: jen oficiální přehrávač, jen české, ověřit pokrytí učiva).
    Co nenajde → seznam učiteli do KE-SCHVALENI.md (může natočit/dodat sám).
-3. **Audio podkásty (115 chybí) — ROZHODNUTO 5. 8.: OpenAI TTS API.**
-   Lokální TTS zamítnuto (strojové). Cena potvrzena učiteli: ~150–300 Kč za všech
-   115 dílů (~350 min, ~350 tis. znaků; před spuštěním ověřit aktuální ceník).
+3. **Audio podkásty (115 chybí) — ROZHODNUTO 18. 8. 2026: zvuk výhradně lokálním
+   OmniVoice (`vyrob_omnivoice.py`), placené služby (OpenAI TTS, ElevenLabs) se
+   nepoužívají vůbec.**
 
    **POVEL `WONDERLY PODKASTY` = pracuj na podkástech takto:**
-   1. Zkontroluj klíč v `~/Desktop/Omega/skripty/data/openai-klic.txt`
-      (chmod 600; NIKDY ho nevypisovat do chatu ani logů). Když tam ještě není,
-      scénáře se píší i bez něj — výroba zvuku počká.
+   1. Zkontroluj dostupnost lokálního OmniVoice: venv
+      `~/Desktop/Omega/nastroje/venv-omnivoice/bin/python3` a skript
+      `~/Desktop/Omega/skripty/vyrob_omnivoice.py`. Když chybí, výroba zvuku
+      počká — scénáře se ale píší i bez nich.
    2. Napiš dávku SCÉNÁŘŮ (vějíř 4× worker, po ročnících od F6): 2–4 min mluveného
       slova na podtéma, jeden vypravěč, jazyk pro děti 2. stupně, čísla celá,
       obsah VYCHÁZÍ z výkladu podtématu (src/data/temata.ts) — žádné nové učivo,
       nezávislý kontrolor zkontroluje věcnou správnost proti výkladu.
       Scénáře do `Omega/podkasty-scenare/<rocnik>/<podtema-slug>.md`.
-   3. PRVNÍ DÍL = VZOREK: vyrob MP3 (model gpt-4o-mini-tts, hlas vybrat český
-      poslechem, výstup `/Users/Shared/Škola/podkasty/<rocnik>/<slug>.mp3`),
+   3. PRVNÍ DÍL = VZOREK: vyrob MP3 lokálně
+      (`venv-omnivoice/bin/python3 vyrob_omnivoice.py <slug> --rocnik <r>`,
+      hlasy EVA/MAREK drží referenční nahrávka v `podkasty-hlasy/<rocnik>/`,
+      kontrolní přepis LOKÁLNÍM whisperem), výstup
+      `/Users/Shared/Škola/podkasty/<rocnik>/<slug>-omnivoice.mp3`,
       pošli učiteli k poslechu (SendUserFile / Telegram) a POČKEJ na schválení
       hlasu a formátu — do té doby jen scénáře, žádná hromadná výroba.
    4. Po schválení: noční automat (LaunchAgent vzor zsh; baterie ≤ 30 % pauza;
@@ -380,35 +384,6 @@ Organizace:
 - [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
 
 Čeká na rozhodnutí učitele (přestěhováno tamtéž):
-- **BLOKUJE VÝROBU + ROZHODNUTÍ: čím dělat hlas — OpenAI, nebo lokální OmniVoice?**
-  16. 8. 2026 spadlo TTS na `HTTP 429 insufficient_quota` (došel kredit OpenAI). Při
-  dohledávání se ukázal ROZPOR, který nikdo nezapsal:
-  - Pravidlo ze 7. 8. 2026 (paměť „Zvuk lokálně" + skill `podkast-video`): zvuk
-    podkástů VÝHRADNĚ lokální OmniVoice, placené služby jen nouzově. Funkční cesta
-    existuje: `Omega/skripty/vyrob_omnivoice.py` (vlastní venv
-    `nastroje/venv-omnivoice`, umí dialog EVA/MAREK, zamyká hlas referenční
-    replikou, lokální whisper kontrola). Volá ji `automat_podkastu.py`.
-  - Praxe 9.–16. 8.: díly 7–14 se vyrobily přes PLACENÉ OpenAI (`vyrob_podkasty.py`,
-    `gpt-4o-mini-tts`, hlasy EVA→`nova`, MAREK→`fable`, ~6,20 Kč/díl).
-    `vyrob_podkasty.py` nemá přepínač na lokální cestu — je čistě OpenAI.
-  - DŮVOD návratu k OpenAI NENÍ NIKDE ZAPSANÝ (prohledán PROGRESS.md,
-    SAMOSTATNY-REZIM.md, ollama-log.md).
-  - Existuje i protichůdný zápis (SAMOSTATNY-REZIM.md ~ř. 233): „ROZHODNUTO 5. 8.:
-    OpenAI TTS API. Lokální TTS zamítnuto (strojové)" — týká se ale jednohlasých
-    podkástů, ne polemik.
-  - STAV SÉRIE: starší díly (gravitace, hustota, objem, tělesa a látky…) zní
-    OmniVoicem, díly 7–14 zní OpenAI. V sérii je už teď mix dvou enginů — pravidlo
-    „postava drží hlas" je narušené tak jako tak.
-
-  ROZHODNUTÍ PRO UČITELE (jedna ze tří cest):
-  (a) Dobít kredit OpenAI a pokračovat jako díly 7–14 (zvuková návaznost na
-      poslední díly, ale platí se).
-  (b) Přepnout díl 15+ na lokální OmniVoice (zdarma, v souladu s pravidlem ze
-      7. 8., ale odliší se od dílů 7–14).
-  (c) Sjednotit celou sérii na jeden engine (nejvíc práce — znamená přenahrát
-      část dílů).
-  Až padne rozhodnutí, srovnat i dokumentaci: skill `podkast-video` a paměť
-  „Zvuk lokálně" tvrdí něco jiného než praxe.
 - **Smazat zbloudilé kopie v R2.** V bucketu `wonderly-media` zůstaly dvě kopie na chybném
   klíči `media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4` a
   `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na

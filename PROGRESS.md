@@ -15,16 +15,17 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > nezávisle zkontrolované, nálezy opravené (viz commity ba80617…ed585b6 v git logu).
 > Doplněna média 8. ročníku fyziky (27 podtémat, commity 21b8dc6…0d803d6) a zapojeny
 > 3 hotové simulace Informatiky 9 (d0861d1). Rohatka délkové nápovědy utažena na
-> **616/28 %** (`node zkontroluj.mjs`). **Díl 15 `pololetni-shrnuti` BLOKOVÁN** —
-> scénáře hotové (4×, brána 24/24 v `Omega/podkasty-scenare/6/`), ale došel kredit
-> na OpenAI TTS. Detaily a fronta v `SAMOSTATNY-REZIM.md`.
+> **616/28 %** (`node zkontroluj.mjs`). **Díl 15 `pololetni-shrnuti` NENÍ BLOKOVÁN** —
+> scénáře hotové (4×, brána 24/24 v `Omega/podkasty-scenare/6/`), vyrobí se
+> lokálně OmniVoice. Detaily a fronta v `SAMOSTATNY-REZIM.md`.
 >
 > Poslední stav před tím: **3. 8. 2026** — kolo D1: **4 nové simulace informatiky naráz**
 > (klonování ve Scratchi, vstupy micro:bitu, rádio micro:bitu, první program ve VEXcode);
 > názornost informatiky **30 → 26** podtémat bez názornosti. Měřidlo `testy/nazvy-bloku.mjs`
 > rozšířeno o vzory `pokud ⟨⟩ tak` a „náhodnou hodnotu" i s obousměrným důkazem.
-> **Nedoběhla druhá kontrola oprav** (došel týdenní limit) — zadání je připravené
-> v `SAMOSTATNY-REZIM.md`, sekce „🔴 NEDOKONČENO Z KOLA D1". Předchozí stav (2. 8.):
+> Druhá kontrola oprav z kola D1 mezitím proběhla (viz záznam „14. 8. večer" níže
+> v Historii) — dobová sekce „🔴 NEDOKONČENO Z KOLA D1" v `SAMOSTATNY-REZIM.md`
+> už dnes neexistuje (uzavřená kola se stěhují do archivu). Předchozí stav (2. 8.):
 > hluché stránky 36 → **0**, dojetý celý audit kontrol (brána čte data, měří se i mapa
 > „všechna místa", slovník druhů materiálu, mutační test simulací).
 
@@ -47,8 +48,9 @@ jsou pololetní a roční shrnutí, která ji nepotřebují. Vzniklo:
   4 závažné, všechny opraveny (commity `f57c36c`, `efb6f67`, `49b542a`, `77cfff6`).
 - **`ucinky-proudu-a-bezpecnost`** — simulace Ohmova zákona na lidském těle
   (napětí × stav kůže → pásmo nebezpečí; cesta proudu tělem), kvíz doplněn na 19,
-  5 ověřených českých zdrojů (commity `e3e5bf4`, `a8cf40a`). ⏳ **Kontrolor k němu
-  ještě neproběhl — viz `SAMOSTATNY-REZIM.md`, horní sekce.**
+  5 ověřených českých zdrojů (commity `e3e5bf4`, `a8cf40a`). ✅ **Druhá kontrola
+  proběhla 14. 8. večer — 11 nálezů, 4 závažné, všechny opraveny** (viz záznam
+  „2026-08-14 večer" v Historii níže).
 
 **Nástroj `testy/nahled-simulace.mjs` opraven třikrát** (platí pro všechny simulace):
 doplněn `createElementNS` a `cancelAnimationFrame` do sandboxu (bez nich se náhled
@@ -97,16 +99,15 @@ Aktuální počet simulací vypisuje brána `node zkontroluj.mjs` (číslo sem n
 
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
-**NÁZORNOST (zadání učitele 31. 7. 2026):** `public/materialy/fyzika/` má jen 6. a 7. ročník.
-Bez obrázku, videa i simulace je **40 podtémat informatiky** (nejhorší díra — ani jeden
-obrázek či video ve všech třech ročnících; řeší se PRÁVĚ TEĎ), **13 podtémat fyziky 8** (z původních 22 — 3 vyřešena
-novými simulacemi, 4 recyklací hotových, 2 jsou shrnutí, která názornost nepotřebují)
-a **10 podtémat fyziky 9**. **Skutečně nejhůř je na tom informatika**: 47 podtémat,
-5 simulací a ani jedno podtéma s obrázkem či videem — to je podle auditu větší díra
-než zbytek fyziky 8. Pořadí dalších kol i fronta z auditu viz `SAMOSTATNY-REZIM.md`.
+**NÁZORNOST (zadání učitele 31. 7. 2026):** dobové číslo je zastaralé, aktuální stav
+je změřený přímo nad daty `node testy/nazornost.mjs` (18. 8. 2026): **26 podtémat
+ze 166 je bez jakékoli názornosti** (simulace/infografika/video), z toho fyzika 6 i 7
+po 2 (obě shrnutí, která ji nepotřebují), fyzika 8 2, fyzika 9 2, informatika
+7.–9. ročník dohromady 15 (6+3+6) a Pracovní činnosti 3. Pořadí dalších kol i fronta
+z auditu viz `SAMOSTATNY-REZIM.md`.
 Zbývá dál: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
 
-## 📋 Fyzika 8 — ROZPRACOVÁNO (struktura dle skutečného učiva 1–35)
+## 📋 Fyzika 8 — HOTOVO (dobová poznámka z doby rozpracování, struktura dle skutečného učiva 1–35)
 Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učitele `/Users/Shared/Škola/8/` — 6 celků:
 1. **mechanicka-prace-a-vykon** ✅ HOTOVO (mechanicka-prace, vykon)
 2. **energie** ✅ HOTOVO (energie-a-jeji-premeny, pohybova-a-polohova-energie, zakon-zachovani-mechanicke-energie, energeticka-hodnota-potravin, vnitrni-energie-telesa, tepelna-vymena-a-teplo)
@@ -115,9 +116,12 @@ Struktura `temata.ts` klíč `fyzika/8-rocnik` PŘESTAVĚNA podle složek učite
 5. **elektrina** ✅ HOTOVO (15 podtémat: náboj, pole, vznik proudu, chemické zdroje, obvody, proud+měření, napětí+měření, proud v kovech+odpor, závislost odporu, Ohmův zákon, sériové/paralelní zapojení, reostat/potenciometr, práce+výkon, účinky+bezpečnost) — výklad + kvízy z SmartBooks PDF 18–32. Bez chyb v podkladu.
 6. **zvuk** ✅ HOTOVO (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost) — výklad + kvízy + YouTube videa z automatu. Bez chyb v podkladu (SmartBooks PDF 33–35).
 
-Postup: číst PDF (lokálně nebo přes Google Drive MCP text) → obsah do temata.ts + kvízy do kvizy.ts → build → push. Média (infografiky/písně) dodá uživatel lokálně; videa řeší YouTube automat.
-- **Google Disk čitelný pro text** (search_files vrací contentSnippet), binárky ne. Přehled ke stažení: `Omega/dokumenty/fyzika8-ke-stazeni.md`. Kontrola chyb: `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
-- **Fyzika 9** zatím nezpracována; struktura `fyzika/9-rocnik` je zatím starý placeholder (přestavět dle `Škola/9/` až budou podklady).
+Postup (dobový, pro Fyziku 8): číst PDF lokálně → obsah do temata.ts + kvízy do kvizy.ts → build → push. Média (infografiky/písně) dodá uživatel lokálně; videa řeší YouTube automat.
+  Poznámka: „přes Google Drive MCP text" v původním postupu odkazovalo na nástroj,
+  který v tomto prostředí NENÍ k dispozici — Disk čte jen učitel/lokálně, ne asistent.
+- Přehled ke stažení: `Omega/dokumenty/fyzika8-ke-stazeni.md`. Kontrola chyb: `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
+- **Fyzika 9 je HOTOVÁ** (tag `fyzika-9-hotova`, viz `:99` výše i git log) — dobová
+  poznámka „zatím nezpracována" už neplatí.
 - Časové plány 8B (59 h) a 9 (41 h) v `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/`.
 - **Kvíz: profesor je nově VIDEO** (`public/video/profesor/tanci.mp4` a `lomi-rukama.mp4`) — správně = tančí, špatně = lomí rukama.
 
