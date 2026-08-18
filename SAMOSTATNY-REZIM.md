@@ -1,14 +1,18 @@
-# ⚡ ČÍM ZAČÍT (stav po bloku 15. 8. 2026, večer)
+# ⚡ ČÍM ZAČÍT (stav po bloku 16. 8. 2026, večer)
 
-**Vše je nasazené a brána je zelená.** Poslední commit wonderly-web: `b9726cd`.
+**Vše je nasazené a brána je zelená.** Poslední commit wonderly-web: `1e8cf9b` (deník; poslední skola2 commit `ed585b6`).
 
-**Fyzika: názornost HOTOVÁ** (6–9, zbývají jen shrnutí, která ji nepotřebují). Dnes vzniklo 7 simulací.
+**Fyzika: názornost HOTOVÁ** (6–9, zbývají jen shrnutí, která ji nepotřebují).
 
-**NA ŘADĚ — vyber si:**
-1. `[skola2]` **Délková nápověda — pokračovat.** Rohatka `pocetNaskok15` v `testy/rohatka.json` je na **205** (bylo 247). Zbývá ~200 otázek fyziky, kde je správná odpověď nejdelší. Postup: spočítat žebříček nejhorších bloků skriptem nad `testy/data.mjs`, dát worker-kvizu 5 bloků, prodloužit distraktory (NIKDY neměnit, která odpověď je správná), nechat zkontrolovat (hrozí vznik druhé správné odpovědi — dnes se to jednou stalo), pak `npm run prijmi-latku` sníží strop.
-2. `[skola2]` **Informatika 9 — dokončit 3 hotové simulace.** `SeznamySimulace`, `BezpecnostSimulace`, `VexGyroskopSimulace` jsou v repu, otestované, ale NEZAPOJENÉ (chybí `interakce` v temata.ts + import v index.astro, kontrolor a vizuální kontrola). Klíče: `seznamy`, `bezpecnost`, `vex-gyroskop`. Detaily v sekci ODLOŽENO níže.
-3. `[skola2]` **Média fyziky** — 46 podtémat nemá žádná média, nejhorší 8. ročník (29).
-4. `[cesty]` **Deník ČEKÁ na Kluesserath_DE, pak jede dál sám.** Poznámka o lhůtě „19. 8. 13:11" byla zastaralá, opraveno dle ověření 16. 8. přímo ze souborů: `Kluesserath_DE` má poslední pořízení 9. 8. 2026, 7denní lhůta „dojezdilo" vyprší **cca 16. 8. večer** (v 16. 8. odpoledne chybělo ~14 hodin). `Neumagen-Dhron_DE` (45 médií, 16 anonymizovaných klipů, doklad kompletní) je připraveno, ale automat `vyrob_video_automat.py` ho nesmí předběhnout — fronta drží pořadí, Kluesserath_DE je před ním. Až Kluesserath_DE „dojezdí" (dnes večer/v noci), pustit `vyrob_video_automat.py` znovu bez zásahů — obě místa by měl zpracovat sám v pořadí. `Trittenheim_DE` (další v pořadí) ještě nemá anonymizované klipy (0 MP4) — anonymizace zatím neproběhla.
+**HOTOVO 16. 8.:** polemiky F6 díly 7–14 (nasazené, kontrolované, opravené — viz PROGRESS.md), média fyziky 8. ročníku (27 podtémat), Informatika 9 zapojení 3 simulací, délková nápověda kvízů F6 (rohatka 616/28 %), meta tag Google Search Console.
+
+**🔴 BLOKUJE — vyřešit jako první, jakmile bude dobito:**
+- `[skola2]` **Díl 15 `pololetni-shrnuti` fyziky 6** — 4 scénáře hotové v `Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md` (brána 24/24). TTS nejde — **došel kredit na OpenAI**. Až bude dobito: TTS 4×, schémata/animace, video, R2, nasazení, kontrolor. Pak zbývá poslední díl 16 `rocni-shrnuti`.
+
+**NA ŘADĚ — vyber si (mimo blokovaný díl 15):**
+1. `[skola2]` **Délková nápověda — pokračovat.** Rohatka na 616/28 %, zbývá dotahovat žebříček nejhorších bloků (skript nad `testy/data.mjs`), prodlužovat distraktory (NIKDY neměnit správnou odpověď), nechat zkontrolovat, pak `npm run prijmi-latku` sníží strop.
+2. `[skola2]` **Média fyziky 8. ročníku — 2 podtémata shrnutí** (`pololetni-shrnuti`, `rocni-shrnuti`) zatím bez médií — nejspíš je nepotřebují, rozhodnout a uzavřít.
+3. `[cesty]` **Deník ČEKÁ na Kluesserath_DE, pak jede dál sám.** Poznámka o lhůtě „19. 8. 13:11" byla zastaralá, opraveno dle ověření 16. 8. přímo ze souborů: `Kluesserath_DE` má poslední pořízení 9. 8. 2026, 7denní lhůta „dojezdilo" vyprší **cca 16. 8. večer** (v 16. 8. odpoledne chybělo ~14 hodin). `Neumagen-Dhron_DE` (45 médií, 16 anonymizovaných klipů, doklad kompletní) je připraveno, ale automat `vyrob_video_automat.py` ho nesmí předběhnout — fronta drží pořadí, Kluesserath_DE je před ním. Až Kluesserath_DE „dojezdí" (dnes večer/v noci), pustit `vyrob_video_automat.py` znovu bez zásahů — obě místa by měl zpracovat sám v pořadí. `Trittenheim_DE` (další v pořadí) ještě nemá anonymizované klipy (0 MP4) — anonymizace zatím neproběhla.
 
 **❓ Čekají 2 otázky na učitele** (nepřesnosti v jeho textu u `teplota-a-jeji-mereni`: Fahrenheit „v anglicky mluvících zemích" → spíš jen USA; Klementinum minimum uvedeno s rokem 1785, rekord je 1929). Viz sekce níže.
 
@@ -106,16 +110,16 @@ scénosled → schémata → **prohlídka kontaktním listem** → zvuk → vide
 4. [skola2] ~~`atomy-a-molekuly`~~ ✅ HOTOVO a nasazeno
 5. [skola2] ~~`skupenstvi-latek`~~ ✅ HOTOVO a nasazeno 8. 8. (v2 po auditu)
 6. [skola2] ~~`delka`~~ ✅ HOTOVO a nasazeno
-7. [skola2] `cas-a-jeho-mereni`
-8. [skola2] `teplota-a-jeji-mereni`
-9. [skola2] `teplotni-roztaznost`
-10. [skola2] `elektricke-vlastnosti-latek`
-11. [skola2] `magneticke-vlastnosti-latek`
-12. [skola2] `jednoduche-elektricke-obvody`
-13. [skola2] `pokusy`
-14. [skola2] `souhrnne-opakovani-velicin` — scénáře hotové (2× dialog, brána 13/13), čeká na schémata/video/nasazení
-15. [skola2] `pololetni-shrnuti`
-16. [skola2] `rocni-shrnuti`
+7. [skola2] ~~`cas-a-jeho-mereni`~~ ✅ HOTOVO a nasazeno 16. 8. (ba80617, oprava ac4e043)
+8. [skola2] ~~`teplota-a-jeji-mereni`~~ ✅ HOTOVO a nasazeno 16. 8. (42f356d, oprava 7db6abe)
+9. [skola2] ~~`teplotni-roztaznost`~~ ✅ HOTOVO a nasazeno 16. 8. (dec574d)
+10. [skola2] ~~`elektricke-vlastnosti-latek`~~ ✅ HOTOVO a nasazeno 16. 8. (16a258e, oprava b1280e6)
+11. [skola2] ~~`magneticke-vlastnosti-latek`~~ ✅ HOTOVO a nasazeno 16. 8. (495d32a)
+12. [skola2] ~~`jednoduche-elektricke-obvody`~~ ✅ HOTOVO a nasazeno 16. 8. (87a7f71, oprava ac44f1d)
+13. [skola2] ~~`pokusy`~~ ✅ HOTOVO a nasazeno 16. 8. (36aa669, oprava 8976f26)
+14. [skola2] ~~`souhrnne-opakovani-velicin`~~ ✅ HOTOVO a nasazeno 16. 8. (ed585b6)
+15. [skola2] `pololetni-shrnuti` — 🔴 BLOKOVÁNO, viz „ČÍM ZAČÍT" nahoře (scénáře hotové, čeká TTS na dobitý kredit OpenAI)
+16. [skola2] `rocni-shrnuti` — čeká na díl 15
 
 **Nepracuj na víc než třech dílech v jedné session** — kontext dojde uprostřed
 a hrozí, že se ztratí rozdělaná práce. Po každém dokončeném dílu zapiš stav sem
@@ -132,16 +136,19 @@ pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
   Hlasy z ElevenLabs, proto je v názvu atribuce `elevenlabs.io` — free tarif ji žádá.
 - Celý řetěz skriptů: `pokryti_kvizu.py` → `vyrob_podkasty.py` / `vyrob_dialog_elevenlabs.py`
   → `snimky_podkastu.py` → `video_podkastu.py` → `automat_podkastu.py`.
-- Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **Dál se jede
-  přes OpenAI**, cena ověřená na 6,20 Kč za díl, tedy asi 700 Kč za všech 115.
+- Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). Jelo se
+  přes OpenAI, cena ověřená na 6,20 Kč za díl. **16. 8. 2026 večer: došel i kredit
+  na OpenAI** — TTS teď nejde vůbec, viz blokující bod v „ČÍM ZAČÍT" nahoře.
 
 ### ▶️ TADY SE POKRAČUJE
 
-**Další na řadě je díl 7 `cas-a-jeho-mereni`** (souhlasí s hlavičkou nahoře). Existuje
-jen starý monologický scénář `Omega/podkasty-scenare/6/cas-a-jeho-mereni.md` — dialog,
-scénosled ani video zatím nejsou, pracuje se na tom teď. Postup beze změny:
-kvíz → polemika → brána → scénosled → schémata → **prohlídka kontaktním listem** →
-zvuk → video → R2 + `temata.ts` → build → push → **ověřit curlem na produkci**.
+**Díly 7–14 jsou HOTOVÉ a nasazené (16. 8. 2026)** — viz seznam výše a PROGRESS.md.
+**Další na řadě je díl 15 `pololetni-shrnuti`** — 4 dialogové scénáře hotové
+(`Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md`, brána
+24/24), ale **BLOKOVÁNO** došlým kreditem OpenAI (TTS). Jakmile bude dobito:
+TTS 4× → schémata/animace → **prohlídka kontaktním listem** → video →
+R2 + `temata.ts` → build → push → **ověřit curlem na produkci**. Pak zbývá
+poslední díl 16 `rocni-shrnuti`.
 
 **Nové pravidlo z dnešního měření: scénář drž pod 4 700 znaky.** Ne kvůli syntéze
 (ta si po opravě poradí i s delším), ale kvůli spolehlivosti střihu — viz tabulka

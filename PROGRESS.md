@@ -9,7 +9,17 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> Poslední stav: **3. 8. 2026** — kolo D1: **4 nové simulace informatiky naráz**
+> Poslední stav: **16. 8. 2026** — polemiky-podkásty F6 dokončeny díly **7–14**
+> (čas a měření, teplota, teplotní roztažnost, elektrické a magnetické vlastnosti,
+> jednoduché obvody, pokusy, souhrnné opakování veličin) — všechny nasazené,
+> nezávisle zkontrolované, nálezy opravené (viz commity ba80617…ed585b6 v git logu).
+> Doplněna média 8. ročníku fyziky (27 podtémat, commity 21b8dc6…0d803d6) a zapojeny
+> 3 hotové simulace Informatiky 9 (d0861d1). Rohatka délkové nápovědy utažena na
+> **616/28 %** (`node zkontroluj.mjs`). **Díl 15 `pololetni-shrnuti` BLOKOVÁN** —
+> scénáře hotové (4×, brána 24/24 v `Omega/podkasty-scenare/6/`), ale došel kredit
+> na OpenAI TTS. Detaily a fronta v `SAMOSTATNY-REZIM.md`.
+>
+> Poslední stav před tím: **3. 8. 2026** — kolo D1: **4 nové simulace informatiky naráz**
 > (klonování ve Scratchi, vstupy micro:bitu, rádio micro:bitu, první program ve VEXcode);
 > názornost informatiky **30 → 26** podtémat bez názornosti. Měřidlo `testy/nazvy-bloku.mjs`
 > rozšířeno o vzory `pokud ⟨⟩ tak` a „náhodnou hodnotu" i s obousměrným důkazem.
