@@ -380,15 +380,35 @@ Organizace:
 - [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
 
 Čeká na rozhodnutí učitele (přestěhováno tamtéž):
-- **BLOKUJE VÝROBU: došel kredit na OpenAI účtu.** 16. 8. 2026 ~14:00 spadlo TTS
-  (`vyrob_podkasty.py`) na `HTTP 429 insufficient_quota — credit_balance_exhausted`.
-  Díl 15 „Pololetní shrnutí" má hotové 4 scénáře
-  (`~/Desktop/Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md`,
-  brána 24/24), ale nejde na ně vyrobit zvuk. AKCE PRO UČITELE: dobít kredit na
-  https://platform.openai.com/settings/organization/billing/ — platbu nesmím
-  provést sám. Až bude dobito, stačí spustit
-  `python3 ~/Desktop/Omega/skripty/vyrob_podkasty.py --vzorek pololetni-shrnuti-dialog[2/3/4] --rocnik 6`
-  4× a pokračovat v pipeline (schémata → video → nasazení) jako u dílů 7–14.
+- **BLOKUJE VÝROBU + ROZHODNUTÍ: čím dělat hlas — OpenAI, nebo lokální OmniVoice?**
+  16. 8. 2026 spadlo TTS na `HTTP 429 insufficient_quota` (došel kredit OpenAI). Při
+  dohledávání se ukázal ROZPOR, který nikdo nezapsal:
+  - Pravidlo ze 7. 8. 2026 (paměť „Zvuk lokálně" + skill `podkast-video`): zvuk
+    podkástů VÝHRADNĚ lokální OmniVoice, placené služby jen nouzově. Funkční cesta
+    existuje: `Omega/skripty/vyrob_omnivoice.py` (vlastní venv
+    `nastroje/venv-omnivoice`, umí dialog EVA/MAREK, zamyká hlas referenční
+    replikou, lokální whisper kontrola). Volá ji `automat_podkastu.py`.
+  - Praxe 9.–16. 8.: díly 7–14 se vyrobily přes PLACENÉ OpenAI (`vyrob_podkasty.py`,
+    `gpt-4o-mini-tts`, hlasy EVA→`nova`, MAREK→`fable`, ~6,20 Kč/díl).
+    `vyrob_podkasty.py` nemá přepínač na lokální cestu — je čistě OpenAI.
+  - DŮVOD návratu k OpenAI NENÍ NIKDE ZAPSANÝ (prohledán PROGRESS.md,
+    SAMOSTATNY-REZIM.md, ollama-log.md).
+  - Existuje i protichůdný zápis (SAMOSTATNY-REZIM.md ~ř. 233): „ROZHODNUTO 5. 8.:
+    OpenAI TTS API. Lokální TTS zamítnuto (strojové)" — týká se ale jednohlasých
+    podkástů, ne polemik.
+  - STAV SÉRIE: starší díly (gravitace, hustota, objem, tělesa a látky…) zní
+    OmniVoicem, díly 7–14 zní OpenAI. V sérii je už teď mix dvou enginů — pravidlo
+    „postava drží hlas" je narušené tak jako tak.
+
+  ROZHODNUTÍ PRO UČITELE (jedna ze tří cest):
+  (a) Dobít kredit OpenAI a pokračovat jako díly 7–14 (zvuková návaznost na
+      poslední díly, ale platí se).
+  (b) Přepnout díl 15+ na lokální OmniVoice (zdarma, v souladu s pravidlem ze
+      7. 8., ale odliší se od dílů 7–14).
+  (c) Sjednotit celou sérii na jeden engine (nejvíc práce — znamená přenahrát
+      část dílů).
+  Až padne rozhodnutí, srovnat i dokumentaci: skill `podkast-video` a paměť
+  „Zvuk lokálně" tvrdí něco jiného než praxe.
 - **Smazat zbloudilé kopie v R2.** V bucketu `wonderly-media` zůstaly dvě kopie na chybném
   klíči `media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4` a
   `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na
