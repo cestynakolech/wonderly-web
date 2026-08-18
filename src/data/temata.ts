@@ -4106,6 +4106,12 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zviditelnění pole</h3>
 						<p>Na papír nad magnetem nasypeme <strong>železné piliny</strong> — uspořádají se do <strong>pilinového obrazce</strong>. Graficky pole kreslíme jako <strong>magnetické indukční čáry</strong>: jsou to uzavřené křivky, které vychází ze <strong>severního pólu (N)</strong> a míří k <strong>jižnímu (S)</strong>; jejich směr udává severní pól magnetky.</p>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Magnety, 6. ročník ZŠ', cesta: 'mFVcDxdDbeg' },
+					],
+					odkazy: [
+						{ nazev: 'Magnetismus — kvíz (Wordwall)', url: 'https://wordwall.net/cs/resource/27704217/magnetismus-2' },
+					],
 				},
 				{
 					slug: 'magneticke-pole-vodice-a-civky',
@@ -4154,6 +4160,12 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>reproduktor a sluchátka</strong> — cívka v poli magnetu rozkmitá membránu</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Magnetické pole cívky s proudem', cesta: 'MD1lKThi2xk' },
+					],
+					odkazy: [
+						{ nazev: 'Test: Cívka a magnetické pole (Wordwall)', url: 'https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole' },
+					],
 				},
 				{
 					slug: 'elektromagnet',
@@ -4182,6 +4194,12 @@ export const temata: Record<string, Tema[]> = {
 							<li>oční lékařství — vytahování kovových pilin z oka.</li>
 						</ul>
 					`,
+					materialy: [
+						{ druh: 'youtube', nazev: 'Video: Elektromagnet', cesta: 'peZ_-lL1euE' },
+					],
+					odkazy: [
+						{ nazev: 'Elektromagnet, elektromotor — kvíz (Wordwall)', url: 'https://wordwall.net/resource/100782493/fyzika/elektromagnet-elektromotor' },
+					],
 				},
 			],
 		},

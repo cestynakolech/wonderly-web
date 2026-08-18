@@ -215,7 +215,7 @@ export const rok2026: Rok = {
 			obyvatele: 6000,
 			nazev: 'Geisingen',
 			zeme: 'Německo',
-			datum: '8. 7. 2026',
+			datum: '9. 7. 2026',
 			vyjezd: 6,
 			stellplatze: [
 				{
@@ -262,6 +262,35 @@ export const rok2026: Rok = {
 				en: 'A village on the north-western edge of Belfort in Franche-Comté. Above it rises the wooded Salbert hill with Fort du Salbert, built in the 1870s as part of the Belfort fortifications, overlooking the town and the Vosges.',
 				de: 'Gemeinde am nordwestlichen Rand von Belfort in der Franche-Comté. Darüber erhebt sich der bewaldete Hügel Salbert mit dem Fort du Salbert aus den 1870er Jahren (Teil der Belforter Befestigungen) mit Blick auf die Stadt und die Vogesen.',
 				fr: "Commune à la lisière nord-ouest de Belfort, en Franche-Comté. Au-dessus s’élève la colline boisée du Salbert, avec le fort du Salbert des années 1870 (élément des fortifications de Belfort) et une vue sur la ville et les Vosges.",
+			},
+		},
+		{
+			// oprava 18. 8. 2026: datum bylo '17. 7.', ale pořadník (foceno od
+			// 11. 7. 11:29) i tabulka MISTA.xlsx uvádějí 11. 7. — tady byl tábor,
+			// ze kterého se jezdilo na Le Thillot, Rupt, Ramonchamp a Ballon
+			// d'Alsace. Proto se blok zároveň posunul PŘED Le Thillot: trasa se
+			// kreslí v pořadí pole, jinak by 11. 7. viselo za 14. 7.
+			slug: 'saint-maurice-sur-moselle',
+			galerie: 'cesty/2026/saint-maurice-sur-moselle',
+			nazev: 'Saint-Maurice-sur-Moselle',
+			zeme: 'Francie',
+			datum: '11. 7. 2026',
+			vyjezd: 6,
+			stellplatze: [
+				{
+					nazev: 'Aire Saint-Maurice-sur-Moselle, Rue de Presles',
+					odkaz: 'https://park4night.com/en/place/41807',
+					gps: '47.8498,6.8101',
+				},
+			],
+			x: 281.6,
+			y: 363.5,
+			videoId: 'C-QZVOglbIM',
+			popis: {
+				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo hned dvakrát ve dvou dnech po sobě: 17. července etapu do Belfortu a nazítří horskou etapu z Mulhouse do Le Markstein, jejíž součástí bylo stoupání na Ballon d’Alsace (9,8 km, průměrně 6,9 %). Viděli jsme reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',
+				en: 'A village in the southern Vosges at the foot of the Ballon d’Alsace (1,247 m). The climb starting here was the first mountain ascent in Tour de France history (1905) — and this year we saw the Tour live on two consecutive days: the stage to Belfort on 17 July and, the next day, the mountain stage from Mulhouse to Le Markstein, which included the Ballon d’Alsace climb (9.8 km at 6.9%). We watched the publicity caravan and the riders go by (see the chaptered video).',
+				de: 'Ein Dorf in den Südvogesen am Fuß des Ballon d’Alsace (1 247 m). Der hier beginnende Anstieg war 1905 die erste Bergwertung der Tour-de-France-Geschichte — und dieses Jahr erlebten wir die Tour an zwei aufeinanderfolgenden Tagen live: am 17. Juli die Etappe nach Belfort und tags darauf die Bergetappe von Mulhouse nach Le Markstein mit dem Anstieg zum Ballon d’Alsace (9,8 km, im Schnitt 6,9 %). Wir sahen Werbekarawane und Fahrerfeld (siehe Video mit Kapiteln).',
+				fr: "Village du sud des Vosges, au pied du Ballon d’Alsace (1 247 m). C’est d’ici que part la montée qui fut, en 1905, la première ascension de montagne de l’histoire du Tour de France — et cette année, nous avons vu le Tour en direct deux fois en deux jours : le 17 juillet l’étape vers Belfort, et le lendemain l’étape de montagne de Mulhouse au Markstein, avec la montée du Ballon d’Alsace (9,8 km à 6,9 % de moyenne). Nous avons vu la caravane publicitaire et le passage des coureurs (dans la vidéo avec chapitres).",
 			},
 		},
 		{
@@ -329,30 +358,6 @@ export const rok2026: Rok = {
 			},
 		},
 		{
-			slug: 'saint-maurice-sur-moselle',
-			galerie: 'cesty/2026/saint-maurice-sur-moselle',
-			nazev: 'Saint-Maurice-sur-Moselle',
-			zeme: 'Francie',
-			datum: '17. 7. 2026',
-			vyjezd: 6,
-			stellplatze: [
-				{
-					nazev: 'Aire Saint-Maurice-sur-Moselle, Rue de Presles',
-					odkaz: 'https://park4night.com/en/place/41807',
-					gps: '47.8498,6.8101',
-				},
-			],
-			x: 281.6,
-			y: 363.5,
-			videoId: 'swDAmX8BRJA',
-			popis: {
-				cs: 'Vesnice v jižních Vogézách pod horou Ballon d’Alsace (1 247 m). Právě odtud startuje stoupání, které bylo v roce 1905 prvním horským stoupáním v historii Tour de France — a letos jsme tu Tour zažili naživo hned dvakrát ve dvou dnech po sobě: 17. července etapu do Belfortu a nazítří horskou etapu z Mulhouse do Le Markstein, jejíž součástí bylo stoupání na Ballon d’Alsace (9,8 km, průměrně 6,9 %). Viděli jsme reklamní karavanu i průjezd závodníků (ve videu s kapitolami).',
-				en: 'A village in the southern Vosges at the foot of the Ballon d’Alsace (1,247 m). The climb starting here was the first mountain ascent in Tour de France history (1905) — and this year we saw the Tour live on two consecutive days: the stage to Belfort on 17 July and, the next day, the mountain stage from Mulhouse to Le Markstein, which included the Ballon d’Alsace climb (9.8 km at 6.9%). We watched the publicity caravan and the riders go by (see the chaptered video).',
-				de: 'Ein Dorf in den Südvogesen am Fuß des Ballon d’Alsace (1 247 m). Der hier beginnende Anstieg war 1905 die erste Bergwertung der Tour-de-France-Geschichte — und dieses Jahr erlebten wir die Tour an zwei aufeinanderfolgenden Tagen live: am 17. Juli die Etappe nach Belfort und tags darauf die Bergetappe von Mulhouse nach Le Markstein mit dem Anstieg zum Ballon d’Alsace (9,8 km, im Schnitt 6,9 %). Wir sahen Werbekarawane und Fahrerfeld (siehe Video mit Kapiteln).',
-				fr: "Village du sud des Vosges, au pied du Ballon d’Alsace (1 247 m). C’est d’ici que part la montée qui fut, en 1905, la première ascension de montagne de l’histoire du Tour de France — et cette année, nous avons vu le Tour en direct deux fois en deux jours : le 17 juillet l’étape vers Belfort, et le lendemain l’étape de montagne de Mulhouse au Markstein, avec la montée du Ballon d’Alsace (9,8 km à 6,9 % de moyenne). Nous avons vu la caravane publicitaire et le passage des coureurs (dans la vidéo avec chapitres).",
-			},
-		},
-		{
 			slug: 'ballon-d-alsace',
 			galerie: 'cesty/2026/ballon-d-alsace',
 			nazev: "Ballon d'Alsace",
@@ -391,10 +396,13 @@ export const rok2026: Rok = {
 			],
 			x: 275.4,
 			y: 372.4,
-			// video zde ZÁMĚRNĚ není: swDAmX8BRJA je sestřih ze Saint-Maurice-sur-Moselle
-			// (zdroj fotky-anonymizovane/Saint-Maurice-sur-Moselle_FR, dny 11.–18. 7.,
-			// kapitoly Tour de France). Z Ornans (materiál z 19. 7.) video nikdy nevzniklo.
-			videoId: 'swDAmX8BRJA',
+			// Z Ornans vlastní video nevzniklo — místo je KRYTO videem ze
+			// Saint-Maurice-sur-Moselle (tabulka MISTA.xlsx, sloupec „Kryto videem").
+			// oprava 18. 8. 2026: bylo tu 'swDAmX8BRJA' — tu verzi krycího sestřihu
+			// nahrávač 17. 8. přepnul na soukromou (oembed 403), přehrávač na webu
+			// zůstal prázdný. Platná veřejná verze je 'C-QZVOglbIM' (oembed 200,
+			// název „11. 07. · Saint-Maurice-sur-Moselle (Francie)").
+			videoId: 'C-QZVOglbIM',
 			popis: {
 				cs: 'Městečko v údolí řeky Loue v departementu Doubs, přezdívané „malé Benátky Franche-Comté" — domy tu stojí přímo nad vodou. Rodiště malíře Gustava Courbeta (1819), jemuž je věnováno zdejší muzeum.',
 				en: 'A small town in the Loue valley in the Doubs department, nicknamed the "little Venice of Franche-Comté" — its houses stand right above the water. Birthplace of the painter Gustave Courbet (1819), honoured by a local museum.',
@@ -421,7 +429,9 @@ export const rok2026: Rok = {
 			],
 			x: 272.9,
 			y: 385.6,
-			videoId: 'mVP4b5LnuYI',
+			// oprava 18. 8. 2026: bylo 'mVP4b5LnuYI' — nahrávač ho 17. 8. přepnul na
+			// soukromé (oembed 403). Platná verze: owH9c_pMDLU (oembed 200).
+			videoId: 'owH9c_pMDLU',
 			popis: {
 				cs: 'Vinařská obec v Horním Savojsku asi 30 km jižně od Ženevského jezera. Okolní svahy osázené odrůdou Altesse dávají bílé víno Roussette de Savoie – Frangy, jeden ze čtyř vyhlášených krů této apelace. Přespali jsme přímo u vinaře mezi vinicemi — krásný výhled, milí lidé a dobré víno.',
 				en: 'A wine-growing village in Haute-Savoie, some 30 km south of Lake Geneva. The surrounding slopes planted with the Altesse grape yield the white Roussette de Savoie – Frangy, one of the four named crus of the appellation. We stayed overnight at a winery among the vineyards — a lovely view, kind people and good wine.',
@@ -482,7 +492,7 @@ export const rok2026: Rok = {
 			videoId: '-FR8z-38PR8',
 			nazev: "Col d'Ornon",
 			zeme: 'Francie',
-			datum: '24. 7. 2026',
+			datum: '22. 7. 2026',
 			vyjezd: 6,
 			x: 272.7,
 			y: 398.0,
@@ -689,6 +699,26 @@ export const rok2026: Rok = {
 			popis: { cs: '' },
 		},
 		{
+			// oprava 18. 8. 2026: datum bylo '8. 8.', pořadník (klíč „kluesserath",
+			// popis „Kluesserath_DE") má foceno od 4. 8. 20:24. Blok se proto posunul
+			// PŘED Trittenheim — trasa se kreslí v pořadí pole.
+			// Počet médií: 116 (poslední zápis pořadníku 12. 8. 21:51 „doklad před
+			// úklidem"; starší zápis téhož dne uváděl 113). Dřívější údaj „149 médií"
+			// z MISTA.xlsx do dat nepatří — platí append-only pořadník.
+			// Video zatím ZÁMĚRNĚ chybí: na kanálu je jen díl 3/3 (hL9QxPGPds0),
+			// díly 1/3 a 2/3 spadly 18. 8. na „write operation timed out"
+			// (youtube-nahravac.log). Doplnit, až nahrávač dotáhne celou trojici.
+			slug: 'klusserath',
+			galerie: 'cesty/2026/klusserath',
+			nazev: 'Klüsserath',
+			zeme: 'Německo',
+			datum: '4. 8. 2026',
+			vyjezd: 6,
+			x: 283.0,
+			y: 339.3,
+			popis: { cs: '' },
+		},
+		{
 			slug: 'trittenheim',
 			galerie: 'cesty/2026/trittenheim',
 			nazev: 'Trittenheim',
@@ -711,17 +741,6 @@ export const rok2026: Rok = {
 			popis: { cs: '' },
 		},
 		{
-			slug: 'klusserath',
-			galerie: 'cesty/2026/klusserath',
-			nazev: 'Klüsserath',
-			zeme: 'Německo',
-			datum: '8. 8. 2026',
-			vyjezd: 6,
-			x: 283.0,
-			y: 339.3,
-			popis: { cs: '' },
-		},
-		{
 			slug: 'rudesheim-am-rhein',
 			galerie: 'cesty/2026/rudesheim-am-rhein',
 			nazev: 'Rüdesheim am Rhein',
@@ -734,34 +753,36 @@ export const rok2026: Rok = {
 		},
 	],
 	videa: [
+		// úklid 18. 8. 2026: ze seznamu vypadly 'swDAmX8BRJA' (Saint-Maurice, verze
+		// s kapitolami) a 'mVP4b5LnuYI' (Frangy) — nahrávač je 17. 8. přepnul na
+		// soukromé (oembed 403) a v mřížce videí zůstávaly mrtvé přehrávače.
+		// Jejich veřejné náhrady C-QZVOglbIM a owH9c_pMDLU jsou v seznamu níž.
 		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
 		{ id: 'k4cqRFIsEQU', nazev: '07. 07. · Schongau (Německo)', odkaz: 'https://youtu.be/k4cqRFIsEQU' },
-		{ id: '_M3govihGYc', nazev: '08. 07. · Geisingen (Německo)', odkaz: 'https://youtu.be/_M3govihGYc' },
+		{ id: '_M3govihGYc', nazev: '09. 07. · Geisingen (Německo)', odkaz: 'https://youtu.be/_M3govihGYc' },
 		{ id: '9Sv4exafb-c', nazev: '10. 07. · Salbert (Francie)', odkaz: 'https://youtu.be/9Sv4exafb-c' },
 		{ id: 'Tlnc-YigfTw', nazev: '12. 07. · Le Thillot (Francie)', odkaz: 'https://youtu.be/Tlnc-YigfTw' },
 		{ id: 'nBnRJsLpsCg', nazev: '14. 07. · Rupt-sur-Moselle (Francie)', odkaz: 'https://youtu.be/nBnRJsLpsCg' },
-		{ id: 'swDAmX8BRJA', nazev: '17. 07. · Saint-Maurice-sur-Moselle (Francie) — Tour de France, s kapitolami', odkaz: 'https://youtu.be/swDAmX8BRJA' },
-		{ id: 'C-QZVOglbIM', nazev: '17. 07. · 11. 07. · Saint-Maurice-sur-Moselle (Francie)', odkaz: 'https://youtu.be/C-QZVOglbIM' },
-		{ id: 'mVP4b5LnuYI', nazev: '20. 07. · Frangy (Francie)', odkaz: 'https://youtu.be/mVP4b5LnuYI' },
-		{ id: 'owH9c_pMDLU', nazev: '20. 07. · 20. 07. · Frangy (Francie)', odkaz: 'https://youtu.be/owH9c_pMDLU' },
+		{ id: 'C-QZVOglbIM', nazev: '11. 07. · Saint-Maurice-sur-Moselle (Francie)', odkaz: 'https://youtu.be/C-QZVOglbIM' },
+		{ id: 'owH9c_pMDLU', nazev: '20. 07. · Frangy (Francie)', odkaz: 'https://youtu.be/owH9c_pMDLU' },
 		{ id: 'nDJcjI00HQk', nazev: '21. 07. · Vaulnaveys-le-Haut (Francie)', odkaz: 'https://youtu.be/nDJcjI00HQk' },
 		{ id: '1t5aVUDdHtI', nazev: '21. 07. · Livet-et-Gavet (Francie)', odkaz: 'https://youtu.be/1t5aVUDdHtI' },
-		{ id: '-FR8z-38PR8', nazev: '23. 07. · Le Bourg-d\'Oisans (Francie)', odkaz: 'https://youtu.be/-FR8z-38PR8' },
+		{ id: '-FR8z-38PR8', nazev: '22. 07. · Le Bourg-d\'Oisans (Francie)', odkaz: 'https://youtu.be/-FR8z-38PR8' },
 		{ id: 'Nsrtgcc4OdU', nazev: '25. 07. · Riez (Francie)', odkaz: 'https://youtu.be/Nsrtgcc4OdU' },
-		{ id: 'X38H3CJ7UoY', nazev: '25. 07. · 25. 07. · Saint-Bonnet-en-Champsaur (Francie)', odkaz: 'https://youtu.be/X38H3CJ7UoY' },
+		{ id: 'X38H3CJ7UoY', nazev: '25. 07. · Saint-Bonnet-en-Champsaur (Francie)', odkaz: 'https://youtu.be/X38H3CJ7UoY' },
 		{ id: 'GiIMjJ7Hn1k', nazev: '26. 07. · Saint-Tropez (Francie)', odkaz: 'https://youtu.be/GiIMjJ7Hn1k' },
 		{ id: 'ZpE0ck7jxNY', nazev: '26. 07. · Le Lavandou (Francie) — 1/4', odkaz: 'https://youtu.be/ZpE0ck7jxNY' },
 		{ id: 'EeBPgVZZSCk', nazev: '26. 07. · Le Lavandou (Francie) — 2/4', odkaz: 'https://youtu.be/EeBPgVZZSCk' },
 		{ id: 'lQJhPVWHa8o', nazev: '26. 07. · Le Lavandou (Francie) — 3/4', odkaz: 'https://youtu.be/lQJhPVWHa8o' },
 		{ id: 'qqnbhmqrGcQ', nazev: '26. 07. · Le Lavandou (Francie) — 4/4', odkaz: 'https://youtu.be/qqnbhmqrGcQ' },
-		{ id: 'Rt_3BQC3_Sw', nazev: '26. 07. · 26. 07. · Gassin (Francie)', odkaz: 'https://youtu.be/Rt_3BQC3_Sw' },
-		{ id: 'DbZCXE8XQuI', nazev: '26. 07. · 26. 07. · Sainte-Maxime (Francie)', odkaz: 'https://youtu.be/DbZCXE8XQuI' },
+		{ id: 'Rt_3BQC3_Sw', nazev: '26. 07. · Gassin (Francie)', odkaz: 'https://youtu.be/Rt_3BQC3_Sw' },
+		{ id: 'DbZCXE8XQuI', nazev: '26. 07. · Sainte-Maxime (Francie)', odkaz: 'https://youtu.be/DbZCXE8XQuI' },
 		{ id: '1I2qFVnNU3M', nazev: '01. 08. · Sassenage (Francie)', odkaz: 'https://youtu.be/1I2qFVnNU3M' },
 		{ id: 'oVH-Bntzf2M', nazev: '01. 08. · Mens (Francie)', odkaz: 'https://youtu.be/oVH-Bntzf2M' },
 		{ id: 'Yi_xYWLPg9s', nazev: '02. 08. · Saint-Amour (Francie) — 1/2', odkaz: 'https://youtu.be/Yi_xYWLPg9s' },
 		{ id: 'G-_9OjxXUwQ', nazev: '03. 08. · Salins-les-Bains (Francie) — 1/3', odkaz: 'https://youtu.be/G-_9OjxXUwQ' },
-		{ id: 'ZOjLc76o10g', nazev: '03. 08. · 03. 08. · Luxeuil-les-Bains (Francie) — 1/6', odkaz: 'https://youtu.be/ZOjLc76o10g' },
+		{ id: 'ZOjLc76o10g', nazev: '03. 08. · Luxeuil-les-Bains (Francie) — 1/6', odkaz: 'https://youtu.be/ZOjLc76o10g' },
 		{ id: 'ghBZ3WUwQPY', nazev: "18. 07. · Ballon d'Alsace (Francie)", odkaz: 'https://youtu.be/ghBZ3WUwQPY' },
 	],
 };
