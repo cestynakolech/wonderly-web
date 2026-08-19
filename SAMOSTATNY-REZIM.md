@@ -31,6 +31,17 @@
     ukazované dítěti s jednotkou (m, s, N, °C, m/s…) vzniklo z FYZIKÁLNÍHO výpočtu, ne
     z pixelů nebo snímků. Podrobné zadání v sekci `[skola2]` níže — začít se dá hned,
     nečeká na nic.
+11. **Plán propojení dvou Maců — rozhodnout zítra (20. 8. 2026).** Vznikly tři nezávislé
+    návrhy architektury (Mac mini 24 GB 24/7 jako řídicí stroj + MacBook 64 GB jako výkonný,
+    starý Intel MacBook ve škole, iPad a iPhone). Porovnání a doporučený jeden plán jsou
+    v `~/Desktop/Omega/dokumenty/PLAN-ZITRA.md`, zdrojové návrhy tamtéž (`PLAN-DVA-MACY.md`,
+    `KONCEPT-ZELENA-LOUKA-A.md`, `KONCEPT-ZELENA-LOUKA-B.md`). Hlavní zjištění: Tailscale je
+    ROZBITÝ — tři zařízení ve výpisu jsou tři identity téhož MacBooku, mini v síti není
+    (oprava je první krok); návod `~/Desktop/Omega/navody/tailscale-oprava-duplicitni-identity.md`
+    obsahuje CHYBU (adresa 100.114.89.73 patří MacBooku, ne mini); na mini (24 GB) se
+    z dnešních modelů vejdou jen `bge-m3`, `qwen3:8b` a `llama3.1` (~11 GB), modely od
+    17 GB výš musí zůstat na 64GB stroji. První rozhodnutí učitele: fronta práce přes git,
+    nebo přes sdílenou složku — mění to všechno ostatní.
 
 ---
 
