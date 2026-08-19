@@ -4914,10 +4914,6 @@ export const temata: Record<string, Tema[]> = {
 							<li>Pohyb planet popisují <strong>Keplerovy zákony</strong>: planety obíhají po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.</li>
 						</ul>
 					`,
-					odkazy: [
-						{ nazev: 'Video: Planety vnitřní (kamenné) — fyzika 9 ZŠ (Petr Němec)', url: 'https://www.youtube.com/watch?v=9K0boEQVY-s' },
-						{ nazev: 'Video: Planety vnější (plynní obři) — fyzika 9 ZŠ (Petr Němec)', url: 'https://www.youtube.com/watch?v=FVnJjclojns' },
-					],
 				},
 				{
 					slug: 'vesmir-a-galaxie',
