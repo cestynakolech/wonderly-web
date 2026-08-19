@@ -705,9 +705,6 @@ export const rok2026: Rok = {
 			// Počet médií: 116 (poslední zápis pořadníku 12. 8. 21:51 „doklad před
 			// úklidem"; starší zápis téhož dne uváděl 113). Dřívější údaj „149 médií"
 			// z MISTA.xlsx do dat nepatří — platí append-only pořadník.
-			// Video zatím ZÁMĚRNĚ chybí: na kanálu je jen díl 3/3 (hL9QxPGPds0),
-			// díly 1/3 a 2/3 spadly 18. 8. na „write operation timed out"
-			// (youtube-nahravac.log). Doplnit, až nahrávač dotáhne celou trojici.
 			slug: 'klusserath',
 			galerie: 'cesty/2026/klusserath',
 			nazev: 'Klüsserath',
@@ -716,6 +713,7 @@ export const rok2026: Rok = {
 			vyjezd: 6,
 			x: 283.0,
 			y: 339.3,
+			videoId: 'wS_EwtFr3gY',
 			popis: { cs: '' },
 		},
 		{
@@ -738,6 +736,7 @@ export const rok2026: Rok = {
 			vyjezd: 6,
 			x: 283.4,
 			y: 339.2,
+			videoId: 'g_HifrIntzM',
 			popis: { cs: '' },
 		},
 		{
@@ -753,18 +752,14 @@ export const rok2026: Rok = {
 		},
 	],
 	videa: [
-		// úklid 18. 8. 2026: ze seznamu vypadly 'swDAmX8BRJA' (Saint-Maurice, verze
-		// s kapitolami) a 'mVP4b5LnuYI' (Frangy) — nahrávač je 17. 8. přepnul na
-		// soukromé (oembed 403) a v mřížce videí zůstávaly mrtvé přehrávače.
-		// Jejich veřejné náhrady C-QZVOglbIM a owH9c_pMDLU jsou v seznamu níž.
 		{ id: 'uuRd8CtlUJI', nazev: '06. 07. · Landshut (Německo)', odkaz: 'https://youtu.be/uuRd8CtlUJI' },
 		{ id: 'u4NmKbMRhiE', nazev: '06. 07. · Německo — Landshut, Schongau, Geisingen', odkaz: 'https://youtu.be/u4NmKbMRhiE' },
 		{ id: 'k4cqRFIsEQU', nazev: '07. 07. · Schongau (Německo)', odkaz: 'https://youtu.be/k4cqRFIsEQU' },
 		{ id: '_M3govihGYc', nazev: '09. 07. · Geisingen (Německo)', odkaz: 'https://youtu.be/_M3govihGYc' },
 		{ id: '9Sv4exafb-c', nazev: '10. 07. · Salbert (Francie)', odkaz: 'https://youtu.be/9Sv4exafb-c' },
+		{ id: 'C-QZVOglbIM', nazev: '11. 07. · Saint-Maurice-sur-Moselle (Francie)', odkaz: 'https://youtu.be/C-QZVOglbIM' },
 		{ id: 'Tlnc-YigfTw', nazev: '12. 07. · Le Thillot (Francie)', odkaz: 'https://youtu.be/Tlnc-YigfTw' },
 		{ id: 'nBnRJsLpsCg', nazev: '14. 07. · Rupt-sur-Moselle (Francie)', odkaz: 'https://youtu.be/nBnRJsLpsCg' },
-		{ id: 'C-QZVOglbIM', nazev: '11. 07. · Saint-Maurice-sur-Moselle (Francie)', odkaz: 'https://youtu.be/C-QZVOglbIM' },
 		{ id: 'owH9c_pMDLU', nazev: '20. 07. · Frangy (Francie)', odkaz: 'https://youtu.be/owH9c_pMDLU' },
 		{ id: 'nDJcjI00HQk', nazev: '21. 07. · Vaulnaveys-le-Haut (Francie)', odkaz: 'https://youtu.be/nDJcjI00HQk' },
 		{ id: '1t5aVUDdHtI', nazev: '21. 07. · Livet-et-Gavet (Francie)', odkaz: 'https://youtu.be/1t5aVUDdHtI' },
@@ -783,6 +778,14 @@ export const rok2026: Rok = {
 		{ id: 'Yi_xYWLPg9s', nazev: '02. 08. · Saint-Amour (Francie) — 1/2', odkaz: 'https://youtu.be/Yi_xYWLPg9s' },
 		{ id: 'G-_9OjxXUwQ', nazev: '03. 08. · Salins-les-Bains (Francie) — 1/3', odkaz: 'https://youtu.be/G-_9OjxXUwQ' },
 		{ id: 'ZOjLc76o10g', nazev: '03. 08. · Luxeuil-les-Bains (Francie) — 1/6', odkaz: 'https://youtu.be/ZOjLc76o10g' },
+		{ id: 'wS_EwtFr3gY', nazev: '04. 08. · Kluesserath (Německo) — 1/3', odkaz: 'https://youtu.be/wS_EwtFr3gY' },
+		{ id: 'OZ_5WB4SAiE', nazev: '04. 08. · Kluesserath (Německo) — 2/3', odkaz: 'https://youtu.be/OZ_5WB4SAiE' },
+		{ id: 'hL9QxPGPds0', nazev: '04. 08. · Kluesserath (Německo) — 3/3', odkaz: 'https://youtu.be/hL9QxPGPds0' },
+		{ id: 'g_HifrIntzM', nazev: '06. 08. · 06. 08. · Neumagen-Dhron (Německo) — 1/2', odkaz: 'https://youtu.be/g_HifrIntzM' },
+		// úklid 18. 8. 2026: ze seznamu vypadly 'swDAmX8BRJA' (Saint-Maurice, verze
+		// s kapitolami) a 'mVP4b5LnuYI' (Frangy) — nahrávač je 17. 8. přepnul na
+		// soukromé (oembed 403) a v mřížce videí zůstávaly mrtvé přehrávače.
+		// Jejich veřejné náhrady C-QZVOglbIM a owH9c_pMDLU jsou v seznamu níž.
 		{ id: 'ghBZ3WUwQPY', nazev: "18. 07. · Ballon d'Alsace (Francie)", odkaz: 'https://youtu.be/ghBZ3WUwQPY' },
 	],
 };
