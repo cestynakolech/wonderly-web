@@ -5,7 +5,8 @@
 //
 // Model: pole vodiče je kolmé na spojnici (tečna ke kružnici) a slábne se
 // vzdáleností, zemské pole míří stále na sever. Střelka se natočí mezi ně:
-//   tan(výchylka) = pole vodiče / pole Země = 2·I / r
+//   B_vodič = μ0·I / (2π·r)   (r v metrech), B_Země ~ 20 µT
+//   tan(výchylka) = B_vodič / B_Země
 // Výchylka se ukazuje v CELÝCH stupních a nikdy nedosáhne 90° — magnetka se
 // nemůže postavit přesně kolmo, protože zemské pole nikdy úplně nezmizí.
 //
@@ -82,12 +83,23 @@
 	const sr = document.getElementById('oer-slider-r');
 	const svg = document.getElementById('oer-svg');
 
+	const MU_0 = 4 * Math.PI * 1e-7;   // permeabilita vakua, T·m/A
+	const B_ZEME = 2e-5;               // vodorovná složka magnetického pole Země, ~20 µT
+
+	// ČISTÁ FUNKCE: poměr pole vodiče ku vodorovné složce pole Země.
+	// B_vodiče = μ0·I / (2π·r), r se dosazuje v METRECH (posuvník je v cm).
+	function pomerPoli(I, r) {
+		const r_m = r / 100;                             // cm → m
+		const B_vodic = (MU_0 * I) / (2 * Math.PI * r_m);
+		return B_vodic / B_ZEME;
+	}
+
 	// ČISTÁ FUNKCE: výchylka magnetky od severu ve stupních (celé číslo).
 	// Kladné číslo = stáčí se k západu (doleva), záporné k východu.
 	// Bez proudu je nula: zůstává mířit na sever.
 	function uhelVychylky(I, r, smerProudu) {
 		if (I === 0) return 0;
-		const pomer = (2 * I) / r;                       // pole vodiče / pole Země
+		const pomer = pomerPoli(I, r);
 		return smerProudu * Math.round(Math.atan(pomer) * 180 / Math.PI);
 	}
 	svg.__uhelVychylky = uhelVychylky;
@@ -155,12 +167,12 @@
 
 		document.getElementById('oer-vypocet').innerHTML = I === 0
 			? 'Proud neteče → kolem vodiče <strong>není magnetické pole</strong> a magnetku otáčí jen pole Země.'
-			: `pole vodiče ku poli Země = 2 × ${I} A ÷ ${r} cm = <strong>${(2 * I / r).toFixed(1).replace('.', ',')}</strong> → výchylka <strong>${velikost}°</strong>`;
+			: `pole vodiče ku poli Země = μ0·${I} A ÷ (2π·${(r / 100).toString().replace('.', ',')} m) ÷ 20 µT = <strong>${pomerPoli(I, r).toFixed(1).replace('.', ',')}</strong> → výchylka <strong>${velikost}°</strong>`;
 
 		const stav = document.getElementById('oer-stav');
 		if (I === 0) {
 			stav.textContent = '🧭 Proud neteče a magnetka klidně míří na sever. Zapni proud posuvníkem — a dívej se, jestli se hne.';
-		} else if (velikost >= 80) {
+		} else if (velikost >= 70) {
 			stav.textContent = `🧲 Velký proud těsně u vodiče: magnetka se stočila o ${velikost}° a stojí skoro kolmo na vodič — tedy po směru indukční čáry. Přesně 90° ale nikdy nedosáhne, protože pole Země působí pořád.`;
 		} else if (velikost <= 25) {
 			stav.textContent = `🧭 Výchylka je jen ${velikost}° — pole vodiče je tu slabé. Přidej proud, nebo posuň magnetku blíž: se vzdáleností pole rychle slábne.`;

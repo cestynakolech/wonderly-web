@@ -9,7 +9,19 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **19. 8. 2026 v noci (uzávěrka session)**
+> ### Poslední stav: **19. 8. 2026 — kontrola fyzikálních jednotek DOKONČENA**
+> Prošlo se všech **98 simulací s fyzikální jednotkou** (z 118 komponent `src/components/skola2/`),
+> 5 nezávislých kontrolorů. Jediná vadná: **`OerstedSimulace`** (chyběla μ0, poloměr v cm místo m →
+> 22° místo 11°) — **OPRAVENO** (B = μ0·I/(2π·r), tan α = B/B_Země; kontrolor: PROJDE). **`VrhSimulace`
+> byla už opravená** commitem `dfd800e` — evidence ji mylně vedla jako neopravenou, oprava potvrzena
+> (dolety sedí s teorií na 0,2 %). `DifuzeSimulace` a `CaraSimulace` prošly bez nálezu, uzavřeno.
+> `snimky_podkastu.py` sjednocen na konstantu `PX_NA_CM = 25` (kontrolor: PROJDE). Build po opravách:
+> brána „✅ Vše zapojené správně", 2579 kontrol testů simulací, 0 spadlo, 469 stránek. Nový podnět do
+> fronty: sjednotit `s_pevna_tvar_objem` (17 px/cm) na `PX_NA_CM`. Otevřeno pro učitele: přegenerovat
+> `skupenstvi-latek-dialog`, `6/objem-dialog`, `6/souhrnne-opakovani-velicin-dialog`? Podrobně
+> v `SAMOSTATNY-REZIM.md`, nahoře.
+>
+> ### Předchozí stav: **19. 8. 2026 v noci (uzávěrka session)**
 > **Nasazeno:** kvízy F8 elektřina — `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`
 > na **21 otázek**, `elektricky-proud-mereni` na 18 (víc výklad neunese, podnět k rozšíření zapsán);
 > commity **6262f9f**, **17084f4**. **Popisy prezentací fyziky 6 KOMPLETNÍ** (6 nových, ověřeno proti
@@ -19,9 +31,8 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > **Nálezy:** `popis_prezentace.py` nenastavoval `num_ctx` → jel na ~4096 místo 262144 a **tiše ořezával**
 > vstup (opravuje se, hotové popisy možná předělat); kostka 170 px → 10 cm opravena v `snimky_podkastu.py`,
 > ale **chybná verze je v nasazeném videu `skupenstvi-latek-dialog`** (čeká rozhodnutí);
-> **🔴 `VrhSimulace.astro`** (F7 pohyb) ukazuje dětem „doletěl X m" z pixelů dělených číslem 6, gravitace
-> 0,22 px/snímek² ≈ 132 m/s² — **čísla nesouvisí s fyzikou, NEOPRAVENO**; mírněji též `DifuzeSimulace`
-> a `CaraSimulace`. **Díl 15 se přepracovává** — učitel rozhodl, že v polemikách se MAREK plete a EVA
+> `VrhSimulace.astro` (F7 pohyb) — **opravena** (viz nejnovější stav výše, potvrzeno 19. 8.);
+> mírnější podezření `DifuzeSimulace` a `CaraSimulace` prošla kontrolou bez nálezu. **Díl 15 se přepracovává** — učitel rozhodl, že v polemikách se MAREK plete a EVA
 > ho opravuje (pravidlo v ústavě, skillu i zadání); zvuk i videa znovu, nasazení až po kontrolorovi.
 > **Otevřeno pro učitele:** přegenerovat `skupenstvi-latek-dialog`? opravit `VrhSimulace`? povýšit
 > ollamu (0.32.9 < potřebných 0.32.12, blokuje zkoušku Qwenu 3.8 dne 20. 8. odpoledne)? napsat
@@ -48,6 +59,11 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > nezávislé kontroly), popisy 6 prezentací (čeká na GPU), dorovnání kvízů na 21 (**chybí 495 otázek
 > u 82 podtémat**: F6 76, F7 39, F8 225, F9 155), deník Trittenheim + výměna Kluesserath 3 → 6 dílů.
 > **Fronta a přesný postup: `SAMOSTATNY-REZIM.md`, úplně nahoře.**
+>
+> Poslední stav před tím: **19. 8. 2026 — kontrola fyzikálních jednotek** — 98/118 komponent
+> `skola2` obsahuje fyzikální jednotku, prošlo 5 kontrolorů, jediná vada `OerstedSimulace`
+> opravena (μ0 doplněno, cm→m), `VrhSimulace` potvrzena jako už opravená (commit `dfd800e`),
+> `DifuzeSimulace`/`CaraSimulace` bez nálezu, `snimky_podkastu.py` sjednocen na `PX_NA_CM = 25`.
 >
 > Poslední stav: **16. 8. 2026** — polemiky-podkásty F6 dokončeny díly **7–14**
 > (čas a měření, teplota, teplotní roztažnost, elektrické a magnetické vlastnosti,

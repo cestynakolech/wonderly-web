@@ -137,6 +137,16 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Video ke školnímu webu se **VYRÁBÍ vlastním automatem** (obrázky + zvuková stopa, hlas lokálním OmniVoice).
   **Videa se NEVYHLEDÁVAJÍ** — viz zákazy.
 - Formát: **polemika dvou postav** (EVA a MAREK), ne výklad. Marek se plete tak, jak se plete většina lidí.
+- **⭐ MAREK SE PLETE, EVA HO OPRAVUJE** (rozhodnutí učitele 19. 8. 2026 — platí pro VŠECHNY díly).
+  V každé části musí Marek udělat **jednu až dvě typické žákovské chyby** (plete si hmotnost
+  a tíhu, myslí si, že těžší těleso padá rychleji, že pára je to bílé nad hrncem) a Eva ho
+  opraví. Do 19. 8. 2026 se Eva jen ptala a Marek vždycky odpověděl správně — to NENÍ
+  polemika, je to skrytý výklad a rozchází se se zásadou „spor nesmí být jednostranný".
+  - Omyl se říká jako **názor postavy** („já myslím, že…", „mně to přijde, že…"), nikdy
+    jako tvrzení vypravěče ani jako fakt.
+  - **Nikdy nesmí zaznít nesprávná informace bez okamžité opravy** — Eva ji vyvrátí hned
+    v nejbližší replice a vysvětlí, jak to je správně; po opravě musí být jasno.
+  - Chyba se musí týkat **probrané látky** (ohraničení výkladem na webu platí i pro omyl).
 - **Kratší díly — jedno vysvětlení na díl** (rozhodnutí 6. 8. 2026); raději tři díly než jeden dlouhý.
 - **Spor nesmí být jednostranný:** Marek klade námitky, které Evu nutí odpovídat přesněji.
   Jinak to není polemika, ale skrytý výklad.

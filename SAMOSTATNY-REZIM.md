@@ -5,12 +5,12 @@
    skillu `/podkast-video` i do zadání workerů. **Zvuk i videa se vyrábějí ZNOVU** — staré díly se
    nepředělávají, tohle je jen díl 15. **NENASAZOVAT bez nezávislého kontrolora.**
 2. **ROZHODNUTÍ, KTERÁ ČEKAJÍ NA UČITELE** (zeptat se hned na začátku, blokují práci):
-   a) přegenerovat nasazené video `skupenstvi-latek-dialog` (má v sobě chybnou kostku 170 px)?
-   b) opravit `VrhSimulace.astro` (viz vážný nález níže — dětem se ukazují nefyzikální čísla)?
-   c) povýšit ollamu 0.32.9 → ≥ 0.32.12 (bez toho nemá zkouška Qwenu 3.8 smysl)?
-   d) napsat Petru Němcovi o svolení k jeho 13 videím?
-3. **VÁŽNÝ NÁLEZ `VrhSimulace.astro`** (fyzika 7, pohyb) — dětem se ukazují vymyšlená čísla
-   („doletěl X m"). NEOPRAVENO, čeká na rozhodnutí. Podrobně v sekci nálezů níže.
+   a) přegenerovat nasazená videa `skupenstvi-latek-dialog`, `6/objem-dialog` a
+      `6/souhrnne-opakovani-velicin-dialog` (vyrobena vadným měřítkem px→cm)?
+   b) povýšit ollamu 0.32.9 → ≥ 0.32.12 (bez toho nemá zkouška Qwenu 3.8 smysl)?
+   c) napsat Petru Němcovi o svolení k jeho 13 videím?
+3. **`VrhSimulace.astro` je OPRAVENÁ** (commit `dfd800e`) — počítá v metrech a sekundách,
+   dolety sedí s teorií na 0,2 %. Nález uzavřen, viz sekce fyzikálních jednotek níže.
 4. **Popisy prezentací fyziky 6 jsou KOMPLETNÍ** (6 nových, ověřeno proti obsahu) — blokáda
    fyziky 6 tím padla. **Běží dávka na ostatní ročníky** (7. ročník má 23 prezentací) — její
    soubory nechat být. ⚠️ Napřed dořešit `num_ctx` (nález níže), hotové popisy může být
@@ -23,6 +23,11 @@
 8. Deník až po fyzice: 20. 8. nahrát Trittenheim (vyčerpaná kvóta), pak výměna Kluesserath
    3 → 6 dílů — přesný postup v sekci `[cesty]` níže.
 9. **20. 8. odpoledne (jen na wifi):** zkouška modelu Qwen 3.8 — `python3 ~/Desktop/Omega/skripty/zkouska_qwen38.py --zkouska`.
+10. **KONTROLA FYZIKÁLNÍCH JEDNOTEK NA CELÉM WEBU** (zadáno učitelem 19. 8. 2026) — projít
+    všech ~122 simulací, kreslicí skripty podkástů i texty výkladu a ověřit, že každé číslo
+    ukazované dítěti s jednotkou (m, s, N, °C, m/s…) vzniklo z FYZIKÁLNÍHO výpočtu, ne
+    z pixelů nebo snímků. Podrobné zadání v sekci `[skola2]` níže — začít se dá hned,
+    nečeká na nic.
 
 ---
 
@@ -145,15 +150,40 @@ a podtéma prostě zůstane na 18 otázkách (schváleno učitelem 19. 8. 2026).
 - **Nasazené video `skupenstvi-latek-dialog` obsahuje CHYBNOU verzi kostky** (oprava je jen
   v kódu) → **čeká rozhodnutí učitele, zda video přegenerovat.** Drobnost k témuž: kostka
   v kulaté misce mírně propadá pod dno.
-- **🔴 VÁŽNÝ NÁLEZ — `VrhSimulace.astro`** (fyzika 7, pohyb): ukazuje dětem „kámen doletěl X m,
-  vystoupal Y m", ale **čísla vznikají dělením pixelových souřadnic číslem 6, které nikde není
-  definované jako měřítko**; gravitace v kódu je 0,22 px/snímek², což by odpovídalo ~132 m/s².
-  Dítě tedy dostane věrohodně vypadající číslo, které **s fyzikou nesouvisí**. **NEOPRAVENO,
-  čeká rozhodnutí.** Mírnější případy téhož druhu: `DifuzeSimulace` (čas = snímky/60 vydávaný
-  za dobu difuze) a `CaraSimulace` („Rychlost 2" = px/snímek).
+- `VrhSimulace.astro` OPRAVENO (commit `dfd800e`, potvrzeno 19. 8.) — dolety sedí s teorií
+  na 0,2 %. `DifuzeSimulace` a `CaraSimulace` prošly kontrolou 19. 8. bez nálezu, uzavřeno.
 
-**🟠 OTEVŘENÉ OTÁZKY NA UČITELE:** přegenerovat `skupenstvi-latek-dialog`? · opravit `VrhSimulace`? ·
-povýšit ollamu na ≥ 0.32.12? · napsat Petru Němcovi o svolení k jeho 13 videím?
+### ✅ ÚKOL OD UČITELE (19. 8. 2026) — **fyzikální jednotky, ne vnitřní jednotky programu — HOTOVO**
+
+**ÚKOL:** projít **celý web** a ověřit, že **každé číslo, které se dítěti ukazuje s fyzikální
+jednotkou** (m, cm, s, N, °C, m/s, km/h, ml…), skutečně **vzniklo z fyzikálního výpočtu**, a ne
+z pixelových souřadnic na plátně nebo z počtu snímků animace.
+
+**VÝSLEDEK (19. 8. 2026, doloženo):** prošlo se všech **98 simulací s fyzikální jednotkou**
+(z 118 komponent v `src/components/skola2/`), 5 nezávislých kontrolorů. Jediná vadná:
+**`OerstedSimulace`** — výchylka magnetky počítaná z konstanty „2" bez μ0, poloměr v cm místo
+v m (22° místo 11°). **OPRAVENO**: B = μ0·I/(2π·r), tan α = B/B_Země (B_Země = 20 µT); pro 1 A /
+5 cm nyní 11°, pro 5 A / 2 cm 68°. Kontrolor: PROJDE.
+- `VrhSimulace.astro` už opravená commitem `dfd800e` — evidence ji mylně vedla jako
+  neopravenou, ověřeno: dolety sedí s teorií na 0,2 %.
+- `DifuzeSimulace` a `CaraSimulace` prošly kontrolou bez nálezu, uzavřeno.
+- `snimky_podkastu.py` — dva různé poměry px→cm sjednoceny na konstantu `PX_NA_CM = 25`,
+  `py_compile` OK. Kontrolor: PROJDE.
+- Build po opravách: brána „✅ Vše zapojené správně", 2579 kontrol testů simulací, 0 spadlo,
+  469 stránek.
+- **V pořádku a NEPŘEPISOVAT:** `RozpinaniVesmiruSimulace` a `BludisteSimulace` px používají, ale
+  jednotku „px" **přiznávají** — to je korektní.
+
+**FRONTA — nové podněty (nedělat rovnou, jen zapsáno):**
+- sjednotit poměr px→cm i ve scéně `s_pevna_tvar_objem` (17 px/cm) na `PX_NA_CM` (25) — kontrolor
+  to obhájil jako neblokující, ale napříč sérií je to nekonzistentní.
+- **rozhodnutí pro učitele**: díly `6/objem-dialog` a `6/souhrnne-opakovani-velicin-dialog` byly
+  vyrobeny vadným měřítkem a jsou nasazené — přegenerovat, nebo nechat? (stejná otázka jako
+  u `skupenstvi-latek-dialog`, viz bod 2a výše).
+
+**🟠 OTEVŘENÉ OTÁZKY NA UČITELE:** přegenerovat `skupenstvi-latek-dialog`, `6/objem-dialog` a
+`6/souhrnne-opakovani-velicin-dialog`? · povýšit ollamu na ≥ 0.32.12? · napsat Petru Němcovi
+o svolení k jeho 13 videím?
 
 ## [cesty] Cestovatelský deník
 
