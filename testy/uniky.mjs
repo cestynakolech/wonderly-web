@@ -22,6 +22,43 @@
 //       (co je ve všech třech odpovědích B, nerozhoduje a nic neprozrazuje), a
 //   (b) A zároveň ukazuje na TÉMA otázky B (sdílí s jejím zněním nosné slovo),
 //       aby žák vůbec poznal, ke které otázce se ta informace hodí.
+//
+// ════════════════════════════════════════════════════════════════════════════════
+// ZNÁMÉ MEZE MĚŘIDLA (sepsáno 19. 8. 2026 po třetím kole ladění — ať se příště
+// neztrácí čas objevováním téhož). Heuristika nikdy nebude neprůstřelná; tohle je
+// hranice, kterou má vědomě a kterou nemá smysl donekonečna posouvat.
+//
+// CO SPOLEHLIVĚ CHYTÁ (každé kryto testem v testy/uniky-obousmerne.mjs):
+//   • vysvětlení jedné otázky doslova odpovídá na jinou (vlhkoměr × anemometr),
+//   • číselnou odpověď prozrazenou i JINÝM ZÁPISEM TÉŽE JEDNOTKY („80 °C" × „80 stupňů",
+//     „230 minut" × „230 min", „3000 metrů" × „3000 m"),
+//   • holou číselnou odpověď bez jednotky („1,4"), i když ji zdroj vysloví ve výpočtu,
+//   • hodnotu prozrazenou v ZNĚNÍ zdrojové otázky, ne jen ve vysvětlení,
+//   • duplicitní páry otázek se shodnou správnou odpovědí a podobným zněním.
+//
+// CO PRINCIPIÁLNĚ NECHYTÍ (ověřeno zkouškou, ne odhadem):
+//   1. ČÍSLO NAPSANÉ SLOVEM. „…voda vře kolem osmdesáti stupňů Celsia" proti odpovědi
+//      „přibližně 80 stupňů" NENAJDE — `hodnotyZTextu` čte jen číslice. Změřeno:
+//      týž pár psaný číslicí dá 1 nález, psaný slovem 0. Šlo by doplnit slovník
+//      českých číslovek (jedna…dvacet, desítky, sta), ale je to práce navíc a
+//      v datech se čísla slovem skoro nepíšou.
+//   2. TÁŽ HODNOTA V JINÉ JEDNOTCE. Měřidlo jednotky NEPŘEPOČÍTÁVÁ: „1 m" a „100 cm",
+//      „300 000 km za sekundu" a „300 000 km/s" jsou pro něj různé hodnoty. Přepočet
+//      by šel doplnit (převodní tabulka na základní jednotku), ale hrozí, že spolu
+//      začnou splývat úlohy na převod jednotek, které jsou legitimní.
+//   3. NEZNÁMÁ JEDNOTKA = žádná jednotka. Co není v SYMBOLY/SLOVA_JEDNOTEK („25 LED"),
+//      dostane prázdnou jednotku a porovnává se jen číslem — tam platí stará, hrubší
+//      přesnost. Rozšíření = dopsat řádek do tabulky.
+//   4. VÝZNAM. Přeformulovaná odpověď bez sdílených slov („částice se rozkmitají"
+//      × „roste vnitřní energie") je pro měřidlo neviditelná — porovnávají se slova
+//      a hodnoty, ne smysl. Na tohle je potřeba člověk nebo jazykový model.
+//   5. JEN UVNITŘ JEDNOHO BLOKU. Únik mezi otázkami RŮZNÝCH bloků hlídá jiné měřidlo
+//      (testy/uniky-krizove.mjs); tady se bloky neporovnávají.
+//   6. ÚNIK MIMO TEXT OTÁZEK. Odpověď prozrazená ve výkladu podtématu, v popisku
+//      simulace nebo v obrázku sem vůbec nedosáhne.
+//   7. JEDNOCIFERNÁ ČÍSLA se za hodnotu nepovažují („6 N"). Bez toho by každý příklad
+//      hlásil únik proti každému; cena je slepota vůči odpovědím typu „5 V".
+// ════════════════════════════════════════════════════════════════════════════════
 import { nactiData } from './data.mjs';
 
 /** malá písmena, bez diakritiky, jen slova */
@@ -101,6 +138,126 @@ export function dvojiceSCislem(text) {
 		if (jeCislo(t[i]) || jeCislo(t[i + 1])) out.add(`${t[i]} ${t[i + 1]}`);
 	}
 	return out;
+}
+
+/**
+ * JEDNOTKY: různé zápisy téže jednotky sjednocené na jeden tvar.
+ *
+ * Dva seznamy schválně:
+ *   • SYMBOLY se porovnávají PŘESNĚ VČETNĚ VELIKOSTI PÍSMEN. Kdyby se „V" hledalo
+ *     i malé, spadla by do jednotky napětí česká předložka („100 v roce") a stejně
+ *     tak „a" do ampérů. Velké písmeno je tady jediné, co jednotku od slova odliší.
+ *   • SLOVA (jednotka vypsaná česky) se porovnávají bez diakritiky a malými písmeny.
+ *
+ * Rozlišuje se ÚROVEŇ JEDNOTKY, ne jen veličina: „16 Hz" a „16 kHz" jsou dvě různé
+ * hodnoty a nesmí splynout.
+ */
+const SYMBOLY = new Map(
+	Object.entries({
+		'°C': '°C',
+		mm: 'mm', cm: 'cm', dm: 'dm', m: 'm', km: 'km',
+		m2: 'm2', 'm²': 'm2', cm2: 'cm2',
+		l: 'l', ml: 'ml', dl: 'dl', hl: 'hl',
+		mg: 'mg', g: 'g', dkg: 'dkg', kg: 'kg', t: 't',
+		s: 's', ms: 'ms', min: 'min', h: 'h', hod: 'h',
+		N: 'N', 'N·cm': 'N·cm', 'N.cm': 'N·cm', Ncm: 'N·cm',
+		'N·m': 'N·m', 'N.m': 'N·m', Nm: 'N·m', 'N/kg': 'N/kg',
+		Pa: 'Pa', hPa: 'hPa', kPa: 'kPa', MPa: 'MPa', bar: 'bar',
+		J: 'J', kJ: 'kJ', MJ: 'MJ', W: 'W', kW: 'kW', MW: 'MW', Wh: 'Wh', kWh: 'kWh',
+		V: 'V', mV: 'mV', kV: 'kV', A: 'A', mA: 'mA', 'Ω': 'Ω',
+		Hz: 'Hz', kHz: 'kHz', MHz: 'MHz',
+		'km/h': 'km/h', 'm/s': 'm/s', 'km/hod': 'km/h',
+		'%': '%',
+	}),
+);
+const SLOVA_JEDNOTEK = new Map();
+for (const [kanon, varianty] of [
+	['°C', 'stupnu stupne stupen stupnech stupni celsia'],
+	['mm', 'milimetr milimetru milimetry milimetrech'],
+	['cm', 'centimetr centimetru centimetry centimetrech'],
+	['m', 'metr metru metry metrech'],
+	['km', 'kilometr kilometru kilometry kilometrech'],
+	['l', 'litr litru litry litrech'],
+	['g', 'gram gramu gramy gramech'],
+	['kg', 'kilogram kilogramu kilogramy kilogramech kilo'],
+	['t', 'tuna tuny tun'],
+	['s', 'sekunda sekundy sekund sekundu sekundach vterin vteriny vterinu'],
+	['min', 'minuta minuty minut minutu minutach minutami'],
+	['h', 'hodina hodiny hodin hodinu hodinach'],
+	['N', 'newton newtonu newtony newtonech'],
+	['Pa', 'pascal pascalu pascaly pascalech'],
+	['J', 'joule joulu jouly joulech'],
+	['W', 'watt wattu watty wattech'],
+	['V', 'volt voltu volty voltech'],
+	['A', 'amper amperu ampery amperech'],
+	['Ω', 'ohm ohmu ohmy omu'],
+	['Hz', 'hertz hertzu hertzy'],
+	['%', 'procent procenta procento'],
+]) {
+	for (const v of varianty.split(' ')) SLOVA_JEDNOTEK.set(v, kanon);
+}
+
+/**
+ * HODNOTY = ČÍSLO SPOLU S JEDNOTKOU. Vrací množinu klíčů „60|N·cm", „80|°C", „230|min".
+ *
+ * PROČ (nález nezávislé kontroly 19. 8. 2026): všechny tři průlomy měřidla měly JEDNU
+ * příčinu — čísla se porovnávala jako HOLÉ ŘETĚZCE ČÍSLIC, bez ohledu na veličinu.
+ * „60 cm" v zadání pak umlčelo únik hodnoty „60 N·cm", „230 V" ve zdroji zamaskovalo
+ * doslova citovaných „230 minut" a „80 °C" se nespárovalo s „80 stupňů".
+ * SHODA ČÍSLA U JINÉ VELIČINY NENÍ DŮVOD KONTROLU VYPNOUT — právě ta bývá únikem.
+ *
+ * Nejde to číst z `normalizuj()`: ta z desetinné čárky udělá mezeru („4,5 V" → „4 5 v")
+ * a ze „N·cm" dva tokeny. Čte se proto ze syrového textu.
+ *
+ * Číslo bez rozpoznané jednotky (nebo následované obyčejným slovem, „25 LED") dostane
+ * prázdnou jednotku — takové hodnoty se porovnávají mezi sebou, tak jako dřív holá čísla.
+ * Jednociferná čísla se zahazují: „2" v „2 kg" je běžná součást zadání, ne hodnota.
+ */
+export function hodnotyZTextu(text) {
+	const ven = new Set();
+	// číslo · volitelná mezera · volitelná jednotka (písmena / ° / Ω / %, případně se
+	// zlomkovou částí BEZ MEZER — „km/h", „N·cm", „N/kg"). Mezera kolem lomítka se
+	// nepřipouští schválně: „230 V. Mimochodem" by jinak vyrobilo jednotku „V. Mimoc".
+	const re = /(\d+(?:[.,]\d+)?)[  ]?(°?[\p{L}Ω]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?/gu;
+	for (const m of String(text ?? '').matchAll(re)) {
+		const cislo = m[1].replace(',', '.');
+		if (cislo.replace(/[^0-9]/g, '').length < 2) continue;
+		const syrova = (m[2] ?? '').normalize('NFC');
+		const bezDiakritiky = syrova
+			.normalize('NFD')
+			.replace(/[̀-ͯ]/g, '')
+			.toLowerCase();
+		const jednotka = SYMBOLY.get(syrova) ?? SLOVA_JEDNOTEK.get(bezDiakritiky) ?? '';
+		ven.add(`${cislo}|${jednotka}`);
+	}
+	return ven;
+}
+
+/** Má tahle hodnota rozpoznanou jednotku? („60|N·cm" ano, „60|" ne) */
+function maJednotku(klic) {
+	return klic.slice(klic.indexOf('|') + 1) !== '';
+}
+
+/**
+ * Je to POČETNÍ ÚLOHA? = má v zadání aspoň jednu MĚŘITELNOU hodnotu, tedy číslo
+ * s rozpoznanou jednotkou („2 kg", „4 cm", „3000 metrů").
+ *
+ * Schválně NE `hodnotyZTextu`: ta zahazuje jednociferná čísla (aby „2" v „2 kg" nešlo
+ * za prozrazenou hodnotu), jenže vstupem výpočtu „2 kg" být může a bez něj se z běžné
+ * úlohy stal falešný poplach („Dráha je z 20 dílků a každý měří 4 cm").
+ *
+ * A schválně NE dřívější `/[0-9]/.test(...)`: pouhá číslice v zadání dělala početní
+ * úlohu i z otázky, kde bylo číslo jen kulisa („…ve výšce 3000 metrů?" s odpovědí
+ * 80 °C) — tím se vypínala kontrola úniku (útok C, 19. 8. 2026).
+ */
+function maMeritelnyVstup(text) {
+	const re = /(\d+(?:[.,]\d+)?)[  ]?(°?[\p{L}Ω]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?/gu;
+	for (const m of String(text ?? '').matchAll(re)) {
+		const syrova = (m[2] ?? '').normalize('NFC');
+		const bez = syrova.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+		if (SYMBOLY.has(syrova) || SLOVA_JEDNOTEK.has(bez)) return true;
+	}
+	return false;
 }
 
 /**
@@ -248,36 +405,68 @@ export function zkontrolujBlok(klic, otazky) {
 				//      (dvě úlohy počítající s tíhou 100 N) — kvůli němu výjimka vznikla.
 				// Číslo, které zdroj vysloví až ve VYSVĚTLENÍ, vstup příkladu není: to je
 				// prozrazený výsledek a hlásí se.
+				// Kolik nosných slov musí cíl a zdroj sdílet, aby žák poznal, KE KTERÉ otázce
+				// se údaj hodí. U číselných nálezů to bývaly dvě — čísla se ve fyzice
+				// opakují náhodně a jedno sdílené slovo je přemostilo do falešného poplachu.
+				// Když se ale shoduje celá HODNOTA I S JEDNOTKOU („80 °C" × „80 stupňů"),
+				// je náhoda podstatně nepravděpodobnější a stačí jedno sdílené slovo;
+				// bez toho měřidlo minulo doložený útok C. Pro čísla BEZ jednotky
+				// („1,4", „25 LED") zůstává laťka dvě.
+				let latkaSpolecnych = maCislo ? 2 : 1;
 				if (maCislo) {
-					const cislaZneniCile = cislaZTextu(cil.o.text);
-					const cislaZneniZdroje = cislaZTextu(zdroj.o.text);
-					const cislaOdpovediZdroje = cislaZTextu((zdroj.o.odpovedi ?? [])[0]);
-					// (1) Číslo, které stojí v zadání SAMOTNÉHO cíle, nemůže nikdo prozradit —
-					//     žák ho má rovnou v otázce („…při napětí 230 V?" s odpovědí „230 mA").
-					const uzVZadaniCile =
-						prozrazenaCisla.length > 0 && prozrazenaCisla.every((c) => cislaZneniCile.has(c));
-					// (2) LEGITIMNÍ PŮJČENÍ HODNOTY MEZI PŘÍKLADY — kvůli němu výjimka vznikla.
-					//     Cíl je početní úloha (v zadání má vlastní čísla) a unikající hodnota je
-					//     u zdroje „doma": buď jako vstup jeho zadání (dvě úlohy s tíhou 100 N),
-					//     nebo jako jeho vlastní správná odpověď (dva příklady, kterým náhodou
-					//     vyjde totéž — 60 N a 60 N). Hodnotu, kterou zdroj vysloví až ve
-					//     VYSVĚTLENÍ a svou vlastní odpovědí není, sem nepočítáme: to je
-					//     prozrazený cizí výsledek a hlásí se.
-					const pujcenaHodnota =
-						cislaZneniCile.size > 0 &&
-						prozrazenaCisla.length > 0 &&
-						prozrazenaCisla.every(
-							(c) => !cislaZneniCile.has(c) && (cislaZneniZdroje.has(c) || cislaOdpovediZdroje.has(c)),
-						);
-					// (3) Číslo prozrazuje, jen když ho zdroj vyslovil U TÉHOŽ SLOVA jako odpověď
-					//     cíle („kolem 80 °C" × „…kolem 80 °C"). Holá shoda číslic nestačí:
-					//     „58 kg × 10 = 580 N" mluví o převodu, ne o odpovědi „asi 10 N".
-					const dvojiceOdpovedi = dvojiceSCislem((cil.o.odpovedi ?? [])[0]);
-					const dvojiceZdroje = dvojiceSCislem(textOtazky(zdroj.o));
-					const cisloUSvehoSlova = [...dvojiceOdpovedi].some((d) => dvojiceZdroje.has(d));
-					if (uzVZadaniCile || pujcenaHodnota || !cisloUSvehoSlova) continue;
+					// ══ POROVNÁVÁ SE HODNOTA (ČÍSLO + JEDNOTKA), NE HOLÁ ČÍSLICE ══
+					// Oprava jediné společné příčiny tří průlomů z 19. 8. 2026. Dřív si
+					// všechny tři výjimky níž braly `cislaZTextu()`, tedy holé řetězce
+					// číslic — a stačilo podstrčit stejné číslo u JINÉ veličiny, aby se
+					// kontrola vypnula: „60 cm" v zadání umlčelo únik „60 N·cm",
+					// „230 V" ve zdroji zamaskovalo doslova citovaných „230 minut",
+					// „80 stupňů" se nespárovalo s „80 °C".
+					const hodnotyOdpovediCile = hodnotyZTextu((cil.o.odpovedi ?? [])[0]);
+					const hodnotyZneniCile = hodnotyZTextu(cil.o.text);
+					const hodnotyZdrojeCele = hodnotyZTextu(textOtazky(zdroj.o));
+					const hodnotyZneniZdroje = hodnotyZTextu(zdroj.o.text);
+					const hodnotyOdpovediZdroje = hodnotyZTextu((zdroj.o.odpovedi ?? [])[0]);
+
+					if (hodnotyOdpovediCile.size > 0) {
+						const shodne = [...hodnotyOdpovediCile].filter((h) => hodnotyZdrojeCele.has(h));
+						// (0) NÁHODNÁ SHODA ČÍSLIC. Zdroj musí vyslovit TUTÉŽ HODNOTU
+						//     i s toutéž jednotkou, a to všechny hodnoty odpovědi —
+						//     půlka („230 V a 50 Hz", shoduje se jen 50 Hz) odpověď nedává.
+						//     Tohle nahradilo dřívější pravidlo „číslo u svého slova"
+						//     (`dvojiceSCislem`), které bylo jen hrubou náhražkou jednotky:
+						//     minulo „80 °C" × „přibližně 80 stupňů" a naopak si nechalo
+						//     projít shodu čísel u dvou různých veličin.
+						if (shodne.length < hodnotyOdpovediCile.size) continue;
+						// (1) HODNOTA UŽ V ZADÁNÍ CÍLE — tu nemůže nikdo prozradit, žák ji
+						//     má rovnou v otázce („…při napětí 230 V?" s odpovědí „230 mA").
+						//     Musí to být táž hodnota I S JEDNOTKOU; „60 cm" v zadání
+						//     neomlouvá prozrazený moment „60 N·cm" (útok A).
+						if (shodne.every((h) => hodnotyZneniCile.has(h))) continue;
+						// (2) LEGITIMNÍ PŮJČENÍ HODNOTY MEZI PŘÍKLADY — kvůli němu výjimka
+						//     vznikla (dvě úlohy s tíhou 100 N, konstanta g = 10 N/kg).
+						//     Musí platit obojí: cíl je POČETNÍ ÚLOHA a hodnota je u zdroje
+						//     „doma" jako vstup jeho zadání nebo jeho vlastní odpověď.
+						//
+						//     `cilJePocetni` už neznamená „v zadání je jakákoli číslice"
+						//     (tak se dřív za vstup výpočtu vydávala i pouhá kulisa, viz
+						//     útok C: „…ve výšce 3000 metrů?" s odpovědí 80 °C), ale
+						//     „v zadání je aspoň jedna MĚŘITELNÁ hodnota s jednotkou".
+						//     A hlavně: „doma u zdroje" se posuzuje po jednotkách, takže
+						//     zdrojová odpověď „230 V" už nepokryje citovaných „230 minut"
+						//     (útok B) a „× 10" v převodu hmotnosti nepokryje „10 N/kg".
+						const cilJePocetni = maMeritelnyVstup(cil.o.text);
+						const pujcenaHodnota =
+							cilJePocetni &&
+							shodne.every(
+								(h) =>
+									!hodnotyZneniCile.has(h) &&
+									(hodnotyZneniZdroje.has(h) || hodnotyOdpovediZdroje.has(h)),
+							);
+						if (pujcenaHodnota) continue;
+						if (shodne.some(maJednotku)) latkaSpolecnych = 1;
+					}
 				}
-				if (spolecna.length < (maCislo ? 2 : 1)) continue;
+				if (spolecna.length < latkaSpolecnych) continue;
 				uniky.push({
 					klic,
 					prozrazuje: zdroj.o.text,

@@ -126,6 +126,39 @@ const zdravy = [
 	tvrdi('týž vstup (100 N) ve dvou početních úlohách NENÍ únik', v.uniky.length === 0);
 }
 
+// PODVRH ze SKUTEČNÝCH DAT (9. ročník, střídavý proud — stav před opravou dat 19. 8. 2026):
+// FAKTICKÁ otázka bez čísel v zadání („Jakým číslem vynásobíš…?") s holou číselnou
+// odpovědí „1,4". Zdroj ji vysloví ve svém výpočtu („230 · 1,4 ≈ 325 V") — a tím ji
+// dá zadarmo. Pravidlo „číslo u svého slova" tenhle únik zaslepilo: odpověď „1,4" je
+// holé číslo, žádné „své slovo" u sebe nemá, tak se nemělo s čím shodnout.
+{
+	const podvrh = [
+		ot('Efektivní napětí v zásuvce je 230 V. Jaké je přibližně maximální (špičkové) napětí?', ['asi 325 V', 'asi 230 V', 'asi 460 V'],
+			'230 · 1,4 ≈ 325 V — maximum je vždy vyšší než efektivní hodnota.'),
+		ot('Jakým přibližným číslem vynásobíš efektivní napětí, abys dostal maximální hodnotu?', ['1,4', '0,7', '2'],
+			'Přesněji odmocninou ze dvou (√2 ≈ 1,4).'),
+	];
+	const v = zkontrolujBlok('test/unik-holé-cislo', podvrh);
+	tvrdi('únik holé číselné odpovědi („1,4") se najde', v.uniky.length >= 1);
+	tvrdi('nález ukazuje na otázku po násobiteli', v.uniky.some((u) => /vynásobíš/.test(u.otazka)));
+}
+
+// PODVRH ze SKUTEČNÝCH DAT (informatika, micro:bit — stav před opravou dat 19. 8. 2026):
+// Zase FAKTICKÁ otázka bez čísel v zadání („Kolik LED má displej micro:bitu?"), jejíž
+// odpověď „25, tedy 5×5" zdroj prozradí větou „Má displej z 25 LED". Číslo tu u sebe
+// slovo má („25 LED"), ale jiné než v odpovědi („25, tedy"), takže shoda dvojic selhala.
+{
+	const podvrh = [
+		ot('Co je micro:bit?', ['malá programovatelná deska', 'herní konzole do ruky', 'druh chytrého mobilu'],
+			'Má displej z 25 LED, dvě tlačítka, senzory pohybu a teploty i rádio.'),
+		ot('Kolik LED má displej micro:bitu?', ['25, tedy 5×5', '100, tedy 10×10', '10 v jedné řadě'],
+			'Pět řádků po pěti. I na 25 LED se vejde písmeno — delší text se posouvá.'),
+	];
+	const v = zkontrolujBlok('test/unik-fakticka-otazka', podvrh);
+	tvrdi('únik čísla u faktické otázky („25 LED") se najde', v.uniky.length >= 1);
+	tvrdi('nález ukazuje na otázku po počtu LED', v.uniky.some((u) => /Kolik LED/.test(u.otazka)));
+}
+
 // REGRESE ze SKUTEČNÝCH DAT (7. ročník, gravitační síla): číslo musí zdroj vyslovit
 // U TÉHOŽ SLOVA jako odpověď cíle. „0,6 kg × 10 = 6 N" mluví o převodu hmotnosti,
 // ne o odpovědi „přibližně 10 N" — konstantu g dosazuje každý příklad v bloku.
@@ -159,6 +192,119 @@ const zdravy = [
 	];
 	const v = zkontrolujBlok('test/regrese-pulka-cisla', pulka);
 	tvrdi('prozrazené jen jedno ze dvou čísel odpovědi NENÍ únik', v.uniky.length === 0);
+}
+
+
+// ================================================================ JEDNOTKY A VELIČINY
+// Nález nezávislé kontroly 19. 8. 2026: měřidlo porovnávalo čísla jako HOLÉ ŘETĚZCE
+// ČÍSLIC, bez ohledu na to, jakou veličinu to číslo měří. Tři různé výjimky se tím
+// daly prolomit jedním trikem — podstrčit do zadání cíle (nebo do zdroje) NÁHODNOU
+// SHODU ČÍSLICE u úplně jiné veličiny. Opraveno porovnáváním hodnoty i s jednotkou.
+
+// ÚTOK A — výjimka „hodnota už v zadání cíle": číslo 60 je v zadání jako DÉLKA (60 cm),
+// unikající hodnota je MOMENT SÍLY (60 N·cm). Shoda jen v číslici.
+// (Kontrola: kdyby v zadání stálo „55 cm", starý kód únik našel — jediný rozdíl je
+// náhodná shoda číslice, což je důkaz, že rozhodovala číslice, ne hodnota.)
+{
+	const podvrh = [
+		ot('Co je moment síly?', ['otáčivý účinek síly kolem osy otáčení', 'tíha tělesa', 'rychlost otáčení'],
+			'Spočítá se jako síla krát rameno — u síly 2 N na rameni 30 cm vyjde moment síly okolo 60 N·cm.'),
+		ot('Tyč dlouhá 60 cm je podepřená uprostřed. Jaký moment síly vyvolá závaží silou 2 N na konci tyče?',
+			['60 N·cm', '30 N·cm', '120 N·cm'], 'Rameno je polovina tyče.'),
+	];
+	const v = zkontrolujBlok('test/utok-a-jina-velicina-v-zadani', podvrh);
+	tvrdi('A: shoda číslice u jiné veličiny (60 cm × 60 N·cm) nevypne kontrolu', v.uniky.length >= 1);
+	tvrdi('A: nález ukazuje na otázku o tyči', v.uniky.some((u) => /Tyč dlouhá/.test(u.otazka)));
+}
+
+// ÚTOK B — výjimka „půjčená hodnota": zdroj DOSLOVA napíše odpověď cíle („230 minut"),
+// ale maskuje se tím, že jeho vlastní odpověď je „zhruba 230 V". 230 minut a 230 V
+// jsou různé veličiny — to není náhodná shoda výsledků dvou příkladů, to je citace.
+{
+	const podvrh = [
+		ot('Jaké napětí je v české síti?', ['zhruba 230 V', 'zhruba 12 V', 'zhruba 400 V'],
+			'V české síti je napětí zhruba 230 V. Mimochodem — takový výlet měří 115 km a při rychlosti 30 km/h trvá 230 minut.'),
+		ot('Výlet měří 115 km, rychlost 30 km/h. Jak dlouho výlet trvá?',
+			['230 minut', '345 minut', '115 minut'], 'Čas spočítáš jako dráhu dělenou rychlostí.'),
+	];
+	const v = zkontrolujBlok('test/utok-b-pujcena-jina-velicina', podvrh);
+	tvrdi('B: doslovná citace odpovědi (230 minut) se nesmí schovat za „230 V" zdroje', v.uniky.length >= 1);
+	tvrdi('B: nález ukazuje na otázku o výletu', v.uniky.some((u) => /Jak dlouho výlet trvá/.test(u.otazka)));
+}
+
+// ÚTOK C — výjimka „početní cíl bez čísla u svého slova": zdroj říká „kolem 80 °C",
+// odpověď zní „přibližně 80 stupňů". Táž veličina, jiný zápis jednotky a jiné slovo
+// před číslem. Navíc kontrolu vypínalo číslo 3000 v zadání, které je pouhá kulisa —
+// není to vstup výpočtu vedoucího k odpovědi.
+{
+	const podvrh = [
+		ot('Jak závisí teplota varu vody na tlaku?', ['s nižším tlakem klesá', 's nižším tlakem roste', 'na tlaku nezávisí'],
+			'Vysoko v horách je tlak vzduchu nižší, a proto tam voda vře už kolem 80 °C.'),
+		ot('Na kolik stupňů se dá ohřát vroucí voda ve výšce 3000 metrů?',
+			['přibližně 80 stupňů', 'přibližně 100 stupňů', 'přibližně 120 stupňů'], 'V horách je tlak nižší.'),
+	];
+	const v = zkontrolujBlok('test/utok-c-jiny-zapis-jednotky', podvrh);
+	tvrdi('C: „80 °C" × „80 stupňů" je táž hodnota — únik se musí najít', v.uniky.length >= 1);
+	tvrdi('C: nález ukazuje na otázku o výšce 3000 m', v.uniky.some((u) => /3000 metrů/.test(u.otazka)));
+}
+
+// PROTIPŘÍKLAD 1 k útokům: dvě LEGITIMNÍ úlohy sdílející tíhu 100 N. Táž hodnota,
+// TÁŽ veličina, a u zdroje je doma jako vstup jeho vlastního zadání. To je běžné
+// půjčení hodnoty mezi příklady a hlásit se nesmí.
+{
+	const sdilenaTiha = [
+		ot('Břemeno o tíze 100 N visí na pevné kladce. Jakou silou musíme táhnout za lano?',
+			['100 N', '50 N', '200 N'], 'Pevná kladka mění jen směr síly.'),
+		ot('Jakou silou zvedneme na volné kladce břemeno o tíze 200 N?',
+			['100 N', '200 N', '400 N'], 'Volná kladka sílu půlí.'),
+	];
+	const v = zkontrolujBlok('test/protipriklad-sdilena-tiha-100N', sdilenaTiha);
+	tvrdi('protipříklad 1: sdílená tíha 100 N ve dvou úlohách NENÍ únik', v.uniky.length === 0);
+}
+
+// PROTIPŘÍKLAD 2 k útokům: konstanta g = 10 N/kg. Dosazuje ji každý příklad v bloku;
+// „× 10" ve výpočtu hmotnosti není totéž co odpověď „přibližně 10 N/kg".
+{
+	const konstantaG = [
+		ot('Kolik je tíhová síla působící na závaží o hmotnosti 3 kg?', ['30 N', '3 N', '300 N'],
+			'Dosadíme g = 10 N/kg: 3 kg × 10 N/kg = 30 N.'),
+		ot('Jakou hodnotu má v našich výpočtech tíhové zrychlení g?', ['10 N/kg', '100 N/kg', '1 N/kg'],
+			'Zaokrouhlujeme, přesněji je to asi 9,81.'),
+	];
+	const v = zkontrolujBlok('test/protipriklad-konstanta-g', konstantaG);
+	tvrdi('protipříklad 2: konstanta g dosazená ve výpočtu NENÍ únik', v.uniky.length === 0);
+}
+
+
+// REGRESE k pravidlu (0) „shodovat se musí CELÁ hodnota": táž číslice u JINÉ jednotky
+// odpověď nedává. Odpověď „230 V a 50 Hz" proti zdroji, který říká „230 mA" a „50 Hz" —
+// na úrovni číslic se shodují obě čísla, na úrovni hodnot jen jedno. Bez pravidla (0)
+// je z toho falešný poplach.
+{
+	const jinaJednotka = [
+		ot('Kolik miliampérů odebírá malá LED a jak často se mění směr proudu v síti?',
+			['asi 230 mA a 50 Hz', 'asi 5 mA a 10 Hz', 'asi 1 A a 100 Hz'],
+			'Malá LED odebírá asi 230 mA; směr proudu v síti se mění s frekvencí 50 Hz.'),
+		ot('Jaké napětí a frekvence jsou v české rozvodné síti?',
+			['230 V a 50 Hz', '110 V a 60 Hz', '400 V a 16 Hz'], ''),
+	];
+	const v = zkontrolujBlok('test/regrese-jina-jednotka-tataz-cislice', jinaJednotka);
+	tvrdi('shoda číslic u jiné jednotky (230 mA × 230 V) NENÍ únik', v.uniky.length === 0);
+}
+
+// REGRESE k tomu, co dělá z otázky POČETNÍ ÚLOHU: musí to být MĚŘITELNÝ vstup
+// (číslo s jednotkou), ne jakákoli číslovka. „vyber ze 3 hodnot" je kulisa; kdyby
+// stačila, výjimka „půjčená hodnota" by tenhle doslovný únik („1,5 V" přímo ve znění
+// zdroje) umlčela.
+{
+	const kulisaVZadani = [
+		ot('Kolik článků po 1,5 V má plochá baterie?', ['tři', 'dva', 'čtyři'],
+			'Plochá baterie je z několika stejných článků; každý suchý článek dává 1,5 V.'),
+		ot('Jaké napětí má běžný suchý článek (vyber ze 3 nabídnutých hodnot)?',
+			['1,5 V', '12 V', '230 V'], ''),
+	];
+	const v = zkontrolujBlok('test/regrese-kulisa-neni-vstup', kulisaVZadani);
+	tvrdi('číslovka bez jednotky („ze 3 hodnot") nedělá z otázky početní úlohu', v.uniky.length >= 1);
 }
 
 // ---------------------------------------------------------------- REGRESE FALEŠNÝCH POPLACHŮ
