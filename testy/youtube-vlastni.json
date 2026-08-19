@@ -1,0 +1,294 @@
+{
+	"_": "Schválená YouTube ID pro ŠKOLNÍ část webu. Na lab.wonderly.cz smí jen videa z kanálu učitele (Radek Micek, https://www.youtube.com/@radekmicek5258). Brána testy/cizi-videa.mjs porovnává data učiva proti tomuto seznamu — offline a bez dotazu na síť. Zápis sem se NEDĚLÁ ručně: přidává ho skript `node youtube-schval.mjs`, který u každého ID nejdřív ověří autora přes YouTube oembed. Ručně dopsané ID bez pole `kanal` s kanálem učitele brána odmítne.",
+	"_kanal": "https://www.youtube.com/@radekmicek5258",
+	"videa": {
+		"0vmDKVXisgE": {
+			"nazev": "Fyzika - 7. rocnik - síla / vzájemné působení sil - Porozumění_síle_a_deformaci",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"109chWMF7RI": {
+			"nazev": "Cesta zvuku  Ticho a bolest",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"1mdQ5Th3Vro": {
+			"nazev": "Parní stroj  Síla moderního světa",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"1WUlh2HBpwA": {
+			"nazev": "Fyzika - 7. rocnik - Tlak / Pascalův zákon - pas 2",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"2_f7R5E_rrY": {
+			"nazev": "Fyzika - 7. rocnik - Světlo / Stín, fáze Měsíce - Stíny,_fáze_a_zatmění",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"3Y_USuTTVbw": {
+			"nazev": "Fyzika - 9. rocnik - Elektřina / Generátor - Příběh_střídavého_proudu",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"4uaNca3El9A": {
+			"nazev": "Fyzika zvuku  Vysvětlení",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"5WUfEMAbwQM": {
+			"nazev": "Atom, iont, izotop",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"7JG_JbKRw70": {
+			"nazev": "Třecí síla",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"8QArttMYsHA": {
+			"nazev": "Radioaktivita  Neviditelná síla",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"aXsCK4BXLe4": {
+			"nazev": "Fyzika - 7. rocnik - síla / Páka - Páky__Nadlidská_síla (1)",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"BJbAvgpwCWc": {
+			"nazev": "Fyzika - 9. rocnik - Jaderný reaktor - Jak_funguje_jaderná_elektrárna",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"cERyrQE-PBQ": {
+			"nazev": "Fyzika - 7. rocnik - Čočky - Svět_skrz_čočku",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"D_aMAsD-EKM": {
+			"nazev": "Fyzika - 9. rocnik - Elektřina / Vedení elek trick ého proudu v kapalinách - Vedení_proudu_v_kapali",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"fimbeSGx8iY": {
+			"nazev": "Fyzika - 9. rocnik - 9.  Přenos elektrické energie, energetická rozvodná síť - Cesta_elektřin",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"fKLqHBIS1Xk": {
+			"nazev": "Fyzika - 7. rocnik - Meteorologie a měření počasí - Meteorologická_pozorování",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"gbUMqax9SMs": {
+			"nazev": "Jádro atomu , síly v jádře",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"gn-CN3StDUs": {
+			"nazev": "2 Elektromagnetické indukce",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"GWJnn_4_zHc": {
+			"nazev": "Skládání sil",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"Hi-Tc84eglY": {
+			"nazev": "Fyzika - 9. rocnik - Elektřina / Elektromotor - Jak_se_točí_elektromotory",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"HTQTf58aXBQ": {
+			"nazev": "1 Elektromagnetické indukce",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"irfetAid_y0": {
+			"nazev": "Akustický diktát 1",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"jhqpxSjUCMk": {
+			"nazev": "Fyzika - 9. rocnik - Schéma domovní elektroinstalace - Srdce_vašeho_domova",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"JkgrUOUgZ7Q": {
+			"nazev": "Fyzika - 7. rocnik - Světlo / Zdroje - Odhalený_svět__Světlo",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"jPZ2a2J8MHc": {
+			"nazev": "Fyzika - 8. rocnik - Elektřina / Elektrická práce, výkon a účinnost spotřebičů - Tajná_řeč_spotř",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"JsleRYDXXwM": {
+			"nazev": "Fyzika - 7. rocnik - Světlo / Zrcadlo / Rovinné zrcadlo - Iluze_reality__Rovinná_zrcadla",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"MaQ4DzuqK5E": {
+			"nazev": "Fyzika - 9. rocnik - Elektřina / Elektromagnetická indukce - Elektromagnetická_indukce",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"oP6IJtosIp0": {
+			"nazev": "Kmitání a vlnění 1",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"pTdNlwI_0aY": {
+			"nazev": "Fyzika - 7. rocnik - Tlak / Pascalův zákon - Pascalův_zákon__Síla_kapalin",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"Pzxvvf0fbTg": {
+			"nazev": "Fyzika - 7. rocnik - Tlak - Porozumění_tlaku",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"qLAoiYEeaSA": {
+			"nazev": "Páka REP",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"RRSRb_6VXt0": {
+			"nazev": "Fyzika - 7. rocnik - síla / vzájemné působení sil - Fyzika__Síla_a_interakce",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"rTo2z2xTOGk": {
+			"nazev": "Fyzika - 9. rocnik - Elektřina / vedení v plynech - Jak_funguje_blesk",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"Tx5X_3g1sHE": {
+			"nazev": "Fyzika - 7. rocnik - Tlak / Hydrostatický tlak - Hydrostatický_tlak",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"uoLW-OHBDls": {
+			"nazev": "Fyzika - 9. rocnik - Polovodiče typu N a P, dioda a mikročipy - Polovodiče__Srdce_elektroniky",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"uszDiE3FDQk": {
+			"nazev": "Fyzika – Atomy a modely",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"v4EdVxeZ9J0": {
+			"nazev": "Fyzika - 7. rocnik - Světlo / Zdroje - Světlo__Od_plamene_ke_hvězdám",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"vDavukfb5qU": {
+			"nazev": "Zákon zachování energie",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"VfCqvZDHUWQ": {
+			"nazev": "Fyzika - 9. rocnik - Účinky elektrického proudu na lidský organismus - Elektrická_bezpečnost",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"vWIJeVNdiyM": {
+			"nazev": "Fyzika - 7. rocnik - Tlak / Přetlak, podtlak, vakuum - Neviditelná_síla_tlaku",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"W7V0PBb97eY": {
+			"nazev": "Fyzika - 9. rocnik - Polovodiče a jejich vlastní vodivost - Polovodiče__Pohánějí_náš_svět",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"wC1cAYJitUk": {
+			"nazev": "Fyzika - 9. rocnik - Elektřina / Chemické zdroje elektrického napětí - Překvapivá_věda_o_baterií",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"xJMpwGyOibQ": {
+			"nazev": "Fyzika - 7. rocnik - Tlak / Hydrostatický tlak - Skrytá_síla_vody",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"xkCEjfT11L8": {
+			"nazev": "Fyzika - 7. rocnik - Světlo / Zrcadlo / Kulová zrcadla, duté zrcadlo, vypuklé - Fyzika_kulových_",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"XvJnyVH_WMk": {
+			"nazev": "Fyzika - 7. rocnik - Tlak / Tělesa stejnorodá a nestejnorodá - Ocelový_paradox__Tajemství_vztlaku",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"Y340hJrbpU8": {
+			"nazev": "Fyzika - 7. rocnik - síla - Síla",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"YLiXzSWoRRg": {
+			"nazev": "Teplo, teplota",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		},
+		"Zme6eL0Mzr8": {
+			"nazev": "Fyzika - 9. rocnik - Transformátor - Transformátor__Skrytý_motor_našeho_světa",
+			"kanal": "https://www.youtube.com/@radekmicek5258",
+			"autor": "Radek Micek",
+			"overeno": "2026-08-19"
+		}
+	}
+}

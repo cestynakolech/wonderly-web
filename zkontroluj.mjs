@@ -12,6 +12,7 @@ import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
 import { zkontrolujUniky } from './testy/uniky.mjs';
 import { zkontrolujSablony } from './testy/sablony.mjs';
 import { zkontrolujRejstrik } from './testy/obousmerne.mjs';
+import { zkontrolujCiziVidea } from './testy/cizi-videa.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -440,6 +441,20 @@ console.log(`Náskok správné odpovědi: ${pocetNaskok} otázek s náskokem ≥
 console.log(`Vazby v kvízech: prošlo ${vazby.bloku} bloků / ${vazby.otazek} otázek (${vazby.vynechano} souhrnných /shrnuti/ vynecháno záměrně — skládají se z už zkontrolovaných) — ${vazby.duplicity.length} duplicit, ${vazby.uniky.length} úniků odpovědí.`);
 console.log(`Šablony simulací: prošlo ${sablony.souboru} komponent, změřeno ${sablony.dotazu} vyhledání prvku — ${sablony.nalezy.length} nálezů.`);
 console.log(`Měřidla: ${rejstrik.dolozeno} z ${rejstrik.meridel} má doložené obousměrné ověření${rejstrik.chybi.length ? ` (bez dokladu: ${rejstrik.chybi.join(', ')})` : ''}.`);
+
+// CIZÍ VIDEA VE ŠKOLNÍ ČÁSTI. Na lab.wonderly.cz smí jen videa z kanálu učitele.
+// Do 19. 8. 2026 to bylo jen textové pravidlo — a textové pravidlo nezastavilo nic:
+// cizí videa se na web dostala, protože je pokyn ve frontě přímo zadával. Tady je z toho
+// brána. Porovnává se proti seznamu ID ověřených JEDNOU (testy/youtube-vlastni.json,
+// plní ho `node youtube-schval.mjs` přes YouTube oembed), takže build projde i offline,
+// ale neznámé ID neprojde nikdy. Deník cesty.wonderly.cz se netýká — má jiný datový
+// strom i jiný tvar záznamu a brána dostává výhradně `temata`.
+const ciziVidea = zkontrolujCiziVidea(dataTemata);
+console.log(
+	`Videa školní části: prošlo ${ciziVidea.podtemat} podtémat, ${ciziVidea.videi} YouTube výskytů ` +
+		`(${ciziVidea.vlozenych} vložených, ${ciziVidea.odkazu} odkazů) proti ${ciziVidea.schvalenych} schváleným ID — ${ciziVidea.nalezy.length} nálezů.`,
+);
+for (const n of ciziVidea.nalezy) chyby.push(n);
 
 // Přiznání umělé inteligence u polemik. Od 2. 8. 2026 platí evropská pravidla
 // transparentnosti (článek 50 nařízení 2024/1689) — obsah vytvořený nebo

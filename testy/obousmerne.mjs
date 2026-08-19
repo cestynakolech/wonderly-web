@@ -57,6 +57,7 @@ export const NENI_MERIDLO = {
 	'uniky-krizove-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy + kalibrační kotva na 6 dvojicích F8 × F9)',
 	'meridla-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy pro pět měřidel)',
 	'cesty-poloha-obousmerne.mjs': 'je to samo obousměrné ověření (polohy a pořadí míst deníku)',
+	'cizi-videa-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy cizích videí + kotva ubráním ID ze seznamu)',
 	'rozvrzeni-sceny-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy scén + zpětná kotva na nasazené vadě magnetů)',
 };
 

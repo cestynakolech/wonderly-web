@@ -351,6 +351,15 @@
 			"zdravy": "Nad nezměněným verdikty.py/sesbirej_verdikty.py test projde vše: '✅ sběr verdiktů: 16 kontrol — obě strany chyby, prázdná přesnost bez člověka, návrat do řetězu, podvrhy na dvojí zápis i přepis souboru.', exit 0.",
 			"regrese": "Test existoval a procházel už 7. 8. 2026, ale chyběl mu záznam v rejstříku, takže obousměrnost nebyla NIKDE doložena, jen tvrzena v PRAVIDLA.md. Auditor 16. 8. mutační zkouškou doplnil chybějící důkaz.",
 			"overeno": "2026-08-16"
+		},
+		"cizi-videa.mjs": {
+			"test": "testy/cizi-videa-obousmerne.mjs",
+			"podvrh": "Osm podvrhů nad kopií dat v paměti, každý se najde: (1) cizí ID jako vložené video (druh 'youtube') — hláška nese ID, klíč podtématu i návod, co s tím; (2) cizí ID schované v poli 'odkazy' jako https://www.youtube.com/watch?v=… — právě tudy díra vedla dál, dvě cizí videa kanálu @nemecpetr u podtématu slunecni-soustava přežila odstraňování 19. 8. 2026, protože se hledal jen druh 'youtube'; (3) cizí ID zapsané jako celá URL v poli 'cesta' (obejití tvarem zápisu); (4) ID ručně dopsané na seznam schválených bez pole 'kanal'; (5) ID dopsané s CIZÍM kanálem; (6) schválení bez data ověření. Navíc KOTVA nad ostrými daty: ubere-li se ze seznamu jediné ID, brána na skutečném temata.ts spadne — 'nula nálezů' tedy nemůže znamenat, že se neporovnává nic. Ověřeno i v ostrém buildu: podvržené ID '9bZkp7q19f0' u fyzika/7-rocnik/sily/sila shodilo `npm run build` v prebuildu s kódem 1.",
+			"zdravy": "Nad skutečnými daty (166 podtémat, 50 YouTube výskytů, 48 schválených ID) 0 nálezů; schválené video mlčí a přitom se prokazatelně měřilo (počítadlo vypisuje vložená i odkazovaná videa zvlášť), odkaz mimo YouTube (zemepis.cz) se nepočítá jako video. 23 kontrol v testu prochází.",
+			"vyjimka": "Deník cesty.wonderly.cz je z brány vyňatý STRUKTUROU, ne názvem souboru: školní učivo žije v objektu `temata` (podtémata s poli materialy/odkazy), videa deníku jsou v src/data/cesty/<rok>.ts jako záznamy { id, nazev, odkaz }. Brána dostává na vstup výhradně `temata`. Doloženo testem: podstrčený záznam videa deníku se jako materiál učiva nesbírá (0 výskytů).",
+			"offline": "Build se schválně NEPTÁ YouTube na autora — jinak by ho shodil výpadek sítě a první, co by kdokoli udělal, je kontrolu obejít. Autorství se ověřuje jednou, ručním `node youtube-schval.mjs` s internetem (YouTube oembed), a jeho výsledek leží v repu (testy/youtube-vlastni.json). Opačná volba 'při výpadku sítě propustit' je tichá díra: kontrola, která se umí sama vypnout, nekontroluje nic. Skript sám nezapíše ID, na které YouTube neodpoví — mlčení sítě není doklad autorství.",
+			"pocitadlo": "Kontrola vypisuje počet prošlých podtémat a zvlášť počet vložených videí a odkazů. Kdyby sběr odkazů tiše přestal fungovat, ukáže se to jako nula odkazů — a test to hlídá zvlášť ('odkaz se opravdu sbíral').",
+			"overeno": "2026-08-19"
 		}
 	}
 }

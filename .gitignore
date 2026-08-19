@@ -30,3 +30,6 @@ Prezentace/
 
 # osobní nastavení Claude Code — necommitovat
 .claude/settings.local.json
+
+# zbytek po mereni kvizu (655 kB), nepatri do repa
+src/data/kvizy.ts.mjs
