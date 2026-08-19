@@ -887,8 +887,6 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/polemika-souhrn-velicin-2.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
-						{ druh: 'youtube', nazev: 'Fyzikální veličiny a jednotky: zábavný průvodce pro 6. třídu!', cesta: 'YzndXUYdx9c' },
-						{ druh: 'youtube', nazev: 'Fyzikální veličiny - Fyzika ZŠ', cesta: 'W037t5ZympQ' },
 					],
 					odkazy: [
 						{ nazev: 'Fyzika na Vltavě — Přehled fyzikálních veličin ZŠ', url: 'https://www.zsvltava.cz/fyzika/?p=3432' },
@@ -2700,10 +2698,6 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4 km vykoná práci 800 MJ?<br>
 						s = 4 000 m, W = 800 000 000 J → F = W : s = 800 000 000 : 4 000 = <strong>200 000 N = 200 kN</strong></p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Práce, 8. ročník', cesta: 'QeSCVL-rak0' },
-						{ druh: 'youtube', nazev: 'Video: Příklady na práci, 8. ročník', cesta: 'SEQlTxAyT0E' },
-					],
 					odkazy: [
 						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
 					],
@@ -2734,10 +2728,6 @@ export const temata: Record<string, Tema[]> = {
 						W = P · t = 9 kW · 16 h = <strong>144 kWh</strong></p>
 						<p>💡 Starší jednotka výkonu motorů je <strong>koňská síla</strong> (hp): 1 hp = 0,735 kW.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Výkon', cesta: 'guwdueOQ_oc' },
-						{ druh: 'youtube', nazev: 'Video: Výkon — příklady', cesta: 'D0eBntqkyJ8' },
-					],
 					odkazy: [
 						{ nazev: 'Umíme fakta — Výkon (cvičení)', url: 'https://www.umimefakta.cz/fyzika/cviceni-vykon' },
 						{ nazev: 'Wordwall — Výkon', url: 'https://wordwall.net/resource/64369600' },
@@ -2772,7 +2762,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
-						{ druh: 'youtube', nazev: 'Video: Přeměna mechanické energie, zákon zachování — fyzika 8 ZŠ', cesta: 'WWSDK9i7sWk' },
 					],
 					odkazy: [
 						{ nazev: 'ČT edu — Přeměna energie (pořad PORT)', url: 'https://edu.ceskatelevize.cz/video/5421-premena-energie' },
@@ -2800,10 +2789,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>Dosazujeme v základních jednotkách: hmotnost v kg, výšku v m, g = 10 N/kg. Výšku měříme vzhledem k tomu, co je pro děj důležité (podlaha, hřebík, zem). Odvozené: m = E<sub>p</sub> : (g·h), h = E<sub>p</sub> : (m·g).</p>
 						<p><strong>B) Polohová energie pružnosti</strong> — má ji každé natažené, stlačené či zkroucené pružné těleso (pružina, ohnutý luk, natažená guma). Využití: střelba z luku, natahovací hračky, pinball.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Pohybová (kinetická) energie', cesta: 'cEa9OnP-Yo8' },
-						{ druh: 'youtube', nazev: 'Video: Polohová (potenciální) energie', cesta: 'Vq4Kwsi1A7I' },
-					],
 					odkazy: [
 						{ nazev: 'Wordwall — kvíz Energie (pohybová, polohová, zachování)', url: 'https://wordwall.net/resource/37856406/energie' },
 					],
@@ -2847,9 +2832,6 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Energetická hodnota se udává nejčastěji <strong>na 100 g</strong> potraviny. Kolik energie jsi snědl, spočítáš podle hmotnosti jednotlivých potravin.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Kalorimetrické stanovení energetické hodnoty potravin', cesta: 'cQhhT-iBEoc' },
-					],
 					odkazy: [
 						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
 						{ nazev: '100+1 zahraniční zajímavost — Jak se zjišťuje energetická hodnota potravin', url: 'https://www.stoplusjednicka.cz/kdyz-se-pali-jidlo-jak-se-zjistuje-energeticka-hodnota-potravin' },
@@ -2883,10 +2865,6 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Využití: rozdělání ohně třením, zahřátí rukou. Naopak přehřátí třením ničí materiál — proto se stroje <strong>chladí</strong> (voda, olej, vzduch).</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Vnitřní energie — fyzika 8 ZŠ', cesta: 'ETF1RTkDoW0' },
-						{ druh: 'youtube', nazev: 'Video: Vnitřní energie tělesa (ZŠ Štípa)', cesta: 'ou1bT2ahw_I' },
-					],
 					odkazy: [
 						{ nazev: 'Fyzika007 — Vnitřní energie tělesa (výklad + příklady)', url: 'https://www.fyzika007.cz/molekulov%C3%A1-fyzika-atermika/vnit%C5%99n%C3%AD-energie-t%C4%9Blesa' },
 						{ nazev: 'Eductify — procvičení: Změny vnitřní energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zvet/zmeny-vnitrne-energie' },
@@ -2982,10 +2960,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>Palivo <strong>nafta</strong> (nebo zemní plyn). <strong>Nemá svíčku</strong> — směs se stlačením prudce zahřeje a <strong>sama se vznítí</strong>. Použití: auta, náklaďáky, autobusy, lokomotivy. Účinnost <strong>30–40 %</strong>. Výhody: větší výkon při rozjezdu, nižší spotřeba; nevýhody: těžší, dražší, více emisí (filtr pevných částic), často turbodmychadlo.</p>
 						<p>👉 Každý motor je nutné <strong>nastartovat</strong> (roztočit setrvačník), <strong>chladit</strong> (voda/vzduch) a <strong>mazat</strong> olejem.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: 4-dobý zážehový motor', cesta: 'BmQdE7Ct8Cs' },
-						{ druh: 'youtube', nazev: 'Video: Spalovací motory — fyzika 8 ZŠ', cesta: 'lwMR-5llFtY' },
-					],
 					odkazy: [
 						{ nazev: 'Techmania — Čtyřdobý zážehový motor', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/ctyrdoby-zazehovy-motor' },
 						{ nazev: 'Wordwall — kvíz Spalovací motory', url: 'https://wordwall.net/cs/resource/108360943/spalovací-motory-kviz' },
@@ -3019,9 +2993,6 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>💡 U některých látek se pevné skupenství mění <strong>rovnou na plynné</strong> — to je <strong>sublimace</strong> (např. jód, tvorba ohonu komet); opačný děj je <strong>desublimace</strong>.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Skupenství látek - fyzika 6 ZŠ', cesta: 'cCfwaq-wjBY' },
-					],
 					odkazy: [
 						{ nazev: 'Změny skupenství — tuhnutí, tání, var, kondenzace, sublimace (OnlineSchool.cz)', url: 'https://onlineschool.cz/fyzika/zmeny-skupenstvi/' },
 						{ nazev: 'Skupenství látek (Fyzika na Vltavě)', url: 'https://www.zsvltava.cz/fyzika/?p=253' },
@@ -3048,9 +3019,6 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Skupenské teplo tání</h3>
 						<p>Teplo potřebné, aby látka roztála; nemění teplotu, jen uvolní částice. <strong>L<sub>t</sub> = l<sub>t</sub> · m</strong> (l<sub>t</sub> = měrné skupenské teplo tání, J/kg). Pro led je l<sub>t</sub> = <strong>332 kJ/kg</strong>. Měrné teplo tání a tuhnutí téže látky je stejné.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Skupenské teplo, 8. ročník, Fyzika ZŠ', cesta: 'GLnAtzjH4j4' },
-					],
 					odkazy: [
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
 						{ nazev: 'Fyzika 8. ročník, změny skupenství (Wordwall)', url: 'https://wordwall.net/cs/resource/42774194/fyzika-8-ro%C4%8Dn%C3%ADk-zm%C4%9Bny-skupenstv%C3%AD' },
@@ -3103,9 +3071,6 @@ export const temata: Record<string, Tema[]> = {
 						a v lahvi zůstane <strong>ledová kaše</strong>. Aby zmrzla celá, muselo by být podchlazení
 						nemožných 80 °C.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Tání a tuhnutí - fyzika 8 ZŠ', cesta: 'Yg6YPyw0qDw' },
-					],
 					odkazy: [
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
 						{ nazev: 'Proč se v zimě solí silnice? (RVP)', url: 'https://clanky.rvp.cz/clanek/r/GCACA/11637/PROC-SE-V-ZIME-SOLI-SILNICE.html' },
@@ -3129,9 +3094,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>Částice potřebují k uvolnění energii, proto vypařující se kapalina <strong>odebírá okolí teplo</strong> → ochlazuje se. Proto je plavci po vylezení z vody zima, tělo se chladí <strong>pocením</strong>, pes vyplazením jazyka, při horečce pomáhají mokré zábaly.</p>
 						<p>Vodní pára je <strong>neviditelná</strong> — co „vidíme" je mlha (drobné kapičky). Vlhkost vzduchu měří <strong>vlhkoměr</strong>.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Vypařování, var, kapalnění - fyzika 8 ZŠ', cesta: 'x4shgXPmB4M' },
-					],
 					odkazy: [
 						{ nazev: 'Vypařování, var a kapalnění (Fyzika007)', url: 'https://www.fyzika007.cz/struktura-avlastnosti-l%C3%A1tek/vypa%C5%99ov%C3%A1n%C3%AD-var-a-kapaln%C4%9Bn%C3%AD' },
 					],
@@ -3207,10 +3169,6 @@ export const temata: Record<string, Tema[]> = {
 						je stlačením zkapalněný, kdežto dusík ani kyslík se za pokojové teploty stlačit na kapalinu
 						nedají a v tlakové lahvi zůstávají plynné; ty se musí nejdřív pořádně ochladit.</p>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Skupenské přeměny - vypařování, kondenzace', cesta: 'h930ay2ZnEk' },
-						{ druh: 'youtube', nazev: 'Kondenzace vodních par (pokus)', cesta: 'e__ea1VxQdE' },
-					],
 					odkazy: [
 						{ nazev: 'Techmania Edu — Vypařování a kondenzace', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/vyparovani-kondenzace' },
 					],
@@ -3296,10 +3254,6 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Elektrická síla</h3>
 							<p><strong>Souhlasné náboje se odpuzují, nesouhlasné přitahují.</strong> Síla je tím větší, čím <strong>větší jsou náboje</strong> a čím <strong>menší je vzdálenost</strong> mezi nimi. Proto se rozčesané vlasy lepí k hřebenu, ale navzájem se rozestupují.</p>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Fyzika - 8. třída - Elektrický náboj', cesta: 'omPnTlrs9kk' },
-							{ druh: 'youtube', nazev: 'Fyzika v Klidu 8 - Elektrický náboj', cesta: 'vj-ljNnUCss' },
-						],
 						odkazy: [
 							{ nazev: 'Elekrostatika – 8. ročník ZŠ (test, 13 otázek) — testi.cz', url: 'https://testi.cz/testy/fyzika/elekrostatika-8.rocnik-zs/' },
 						],
@@ -3349,9 +3303,6 @@ export const temata: Record<string, Tema[]> = {
 							délku statisíckrát menší a proletí bez problémů. Proto dovnitř vidíš, a přesto se
 							u dvířek neohřeješ.</p>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Vodič a izolant v elektrickém poli, siločáry el. pole', cesta: 'yYRrFdz5dyo' },
-						],
 						odkazy: [
 							{ nazev: 'Elektrický náboj a elektrické pole — rozcestník videí (ČT edu)', url: 'https://edu.ceskatelevize.cz/tema/elektricky-naboj-a-elektricke-pole' },
 							{ nazev: 'Pokusy: Umělé blesky — Faradayova klec (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5393-pokusy-umele-blesky' },
@@ -3385,10 +3336,6 @@ export const temata: Record<string, Tema[]> = {
 								<li><strong>střídavý (AC)</strong> — pravidelně mění směr; z elektráren, máme ho v zásuvce; pohání velké spotřebiče (pračka, fén)</li>
 							</ul>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Video: Elektrický proud a napětí, Fyzika ZŠ', cesta: 'ifqwDnBemhU' },
-							{ druh: 'youtube', nazev: 'Video: Elektrický proud, 6. ročník, Fyzika ZŠ', cesta: 'i4_W9-ghMzw' },
-						],
 						odkazy: [
 							{ nazev: 'ČT edu — Elektrický proud a napětí (video, 2 min)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Wordwall — Elektrický proud a napětí, 8. třída (kvíz)', url: 'https://wordwall.net/cs/resource/89308040' },
@@ -3500,9 +3447,6 @@ export const temata: Record<string, Tema[]> = {
 								<li>při špatném zapojení hrozí <strong>poškození ampérmetru</strong></li>
 							</ul>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Měření elektrického proudu, Ampérmetr', cesta: 'ynKK6mLiUXs' },
-						],
 						odkazy: [
 							{ nazev: 'Měření elektrického proudu ampérmetrem (RVP.CZ)', url: 'https://dum.rvp.cz/materialy/mereni-elektrickeho-proudu-ampermetrem.html' },
 							{ nazev: 'Elektrický proud a napětí — převody jednotek (Wordwall)', url: 'https://wordwall.net/cs/resource/74196967/elektrick%C3%BD-proud-a-nap%C4%9Bt%C3%AD-p%C5%99evody-jednotek' },
@@ -3533,10 +3477,6 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<p>💡 <strong>Multimetr</strong> umí měřit proud i napětí, ale vždy jen <strong>jednu veličinu</strong> — pro každou se jinak nastaví i zapojí.</p>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Elektrické napětí, zdroje, měření, voltmetr (zapojení)', cesta: 'D9MRTiEXwhA' },
-							{ druh: 'youtube', nazev: 'Sériové a paralelní zapojení - fyzika 8 ZŠ', cesta: '-swoFnETsac' },
-						],
 						odkazy: [
 							{ nazev: 'Elektrický proud a napětí (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Elektrický proud, napětí, odpor, Ohmův zákon — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/elektricky-proud-napeti-odpor-ohmuv-zakon/' },
@@ -3565,10 +3505,6 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Tepelné účinky proudu</h3>
 							<p>Zahřívání vodiče proudem <strong>využíváme</strong> (žárovka — wolframové vlákno 2200–3000 °C, vařič, konvice, žehlička, pojistka), ale má i <strong>nebezpečné důsledky</strong> — při přetížení nebo zkratu se dráty roztaví a hrozí <strong>požár</strong>.</p>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Elektrický odpor R - fyzika 8 ZŠ', cesta: 'oqmDoQH2Xoc' },
-							{ druh: 'youtube', nazev: 'Odpor vodiče', cesta: 'CGyiGNbxAHg' },
-						],
 						odkazy: [
 							{ nazev: 'Nebezpečná elektřina (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
 						],
@@ -3642,9 +3578,6 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>nedělí</strong> → dělí se napětí. Nevýhoda série: přeruší-li se jeden spotřebič (vánoční řetěz), <strong>zhasne celý obvod</strong>.</p>
 						`,
-						materialy: [
-							{ druh: 'youtube', nazev: 'Sériové a paralelní zapojení - fyzika 8 ZŠ', cesta: '-swoFnETsac' },
-						],
 						odkazy: [
 							{ nazev: 'Sériové a paralelní zapojení — výklad (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
 							{ nazev: 'Sériové a paralelní zapojení v obvodu — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/seriove-a-paralelni-zapojeni-v-obvodu/' },
@@ -3747,7 +3680,6 @@ export const temata: Record<string, Tema[]> = {
 						`,
 						materialy: [
 							{ druh: 'youtube', nazev: 'Video: Elektrická práce, výkon a účinnost spotřebičů', cesta: 'jPZ2a2J8MHc' },
-							{ druh: 'youtube', nazev: 'Video: Elektrická práce (Paní Učitelka)', cesta: 'Rzn-wcHklFo' },
 						],
 						odkazy: [
 							{ nazev: 'Procvičování: Elektrická práce a výkon (Umíme fakta)', url: 'https://www.umimefakta.cz/fyzika/cviceni-elektricka-prace-a-vykon' },
@@ -4334,9 +4266,6 @@ export const temata: Record<string, Tema[]> = {
 							<li>Na cívce naměříme <strong>maximální napětí 140 V</strong>. Jaké napětí ukáže voltmetr (efektivní hodnota)? <details><summary>řešení</summary>Voltmetr ukazuje efektivní hodnotu: U = U<sub>m</sub> / 1,4 = 140 / 1,4 = <strong>100 V</strong></details></li>
 							<li>Elektrickým vařičem v zásuvce (230 V) prochází proud <strong>2 A</strong>. Jaký je jeho výkon? <details><summary>řešení</summary>P = U · I = 230 · 2 = <strong>460 W</strong></details></li>
 						</ol>`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Generátor střídavého proudu, střídavý proud', cesta: '9fOhc78FDAI' },
-					],
 				},
 				{
 					slug: 'transformator',
@@ -4498,8 +4427,6 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Chemické zdroje elektrického napětí', cesta: 'wC1cAYJitUk' },
-						{ druh: 'youtube', nazev: 'Badatelna: Jak funguje baterie (galvanický článek)', cesta: 'ygDqVDZvA64' },
-						{ druh: 'youtube', nazev: 'Zdroje napětí — Galvanický článek (Voltův článek)', cesta: 'gEvWqe5KIQY' },
 					],
 					odkazy: [
 						{ nazev: 'Pokusy: Baterky (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5462-pokusy-baterky' },
@@ -4818,9 +4745,6 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Řízená</strong> — část neutronů se pohltí → stálý výkon → <strong>jaderný reaktor</strong>.</li>
 						</ul>
 					`,
-					materialy: [
-						{ druh: 'youtube', nazev: 'NEZkreslená věda X: Jaderná fúze, tokamak', cesta: 'bGZ90HU6U1I' },
-					],
 					odkazy: [
 						{ nazev: 'e-manuel.cz: Umělé jaderné reakce (štěpení, fúze)', url: 'https://e-manuel.cz/kapitoly/jaderna-fyzika/vyklad/umele-reakce/' },
 						{ nazev: 'Techmania: Štěpení jader', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/atomy-castice/stepeni-jader' },
@@ -4951,9 +4875,6 @@ export const temata: Record<string, Tema[]> = {
 						</ol>
 					`,
 					interakce: 'obnovitelne-zdroje',
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Dlouhé stráně — technický div Česka', cesta: 'KcaN4mqje7c' },
-					],
 					odkazy: [
 						{ nazev: 'Obnovitelné zdroje energie (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/2605-obnovitelne-zdroje-energie' },
 						{ nazev: 'Přečerpávací elektrárna Dlouhé stráně (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/8796-precerpavaci-elektrarna-dlouhe-strane' },
@@ -5037,9 +4958,6 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					interakce: 'rozpinani-vesmiru',
-					materialy: [
-						{ druh: 'youtube', nazev: 'Video: Co je Velký třesk? Jak vznikl vesmír a co mu předcházelo?', cesta: 'pAFuy0FHf4A' },
-					],
 					odkazy: [
 						{ nazev: 'ČT edu: Velký třesk', url: 'https://edu.ceskatelevize.cz/video/2317-velky-tresk' },
 						{ nazev: 'ČT edu: Vznik vesmíru (rozšiřující, spíše pro SŠ)', url: 'https://edu.ceskatelevize.cz/video/2319-vznik-vesmiru' },
