@@ -1,8 +1,9 @@
 {
 	"_": "Laťka kvality kvízů. Brána SELŽE, když se číslo zhorší. Zlepšení laťku NEUTÁHNE samo — brána je čtecí a jen to navrhne; utažení je samostatný krok `npm run prijmi-latku` (změna 14. 8. 2026, dřív build tiše přepisoval tenhle soubor). Staré dluhy nikoho neblokují — hlídá se jen směr. Zavedeno 31. 7. 2026 poté, co se podíl za jediný den zhoršil ze 64 % na 66 %.",
+	"_pocetNaskok10": "Práh náskoku zpřísněn 19. 8. 2026 z 15 na 10 znaků. Ne níž: při prahu 1 znak vyskočí počet problémových otázek na 614 z 2300 (naměřeno) — to by rohatku jen zahltilo šumem místo skutečných nálezů. Strop 276 je PŘESNĚ naměřený počet otázek s náskokem ≥10 znaků k tomuto datu (build nad aktuálními daty, ne odhad). Dál se má snižovat postupně, jak se otázky s přehnaným náskokem opravují v kvizy.ts — pokaždé `npm run prijmi-latku`, ne skokem.",
 	"podilNejdelsi": 28,
-	"zmeneno": "2026-08-16",
+	"zmeneno": "2026-08-19",
 	"pocetNejdelsi": 616,
 	"uniky": 0,
-	"pocetNaskok15": 175
+	"pocetNaskok10": 276
 }

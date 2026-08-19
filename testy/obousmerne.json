@@ -105,6 +105,13 @@
 			"regrese": "Audit 6. 8. 2026: revize hlásila exit 0, přestože automat od 30. 7. při každém buzení padal na chybějícím `npm`; hledalo se jen v posledních 15 řádcích.",
 			"overeno": "2026-08-06"
 		},
+		"naskokSpravneOdpovedi (rohatka pocetNaskok10)": {
+			"test": "zkontroluj.mjs — sekce 6b2 (podvrh se dělá ručně snížením testy/rohatka.json.pocetNaskok10 o 1 pod naměřenou hodnotu)",
+			"podvrh": "19. 8. 2026: strop uměle snížen z naměřených 276 na 275 → brána vypsala „přibyly otázky s obřím náskokem… 276, naposledy 275“, jmenovala 3 konkrétní otázky (fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/atmosfericky-tlak aj.) a skončila kódem 1.",
+			"zdravy": "Nad dnešními daty (2300 otázek, 16 souhrnných vynecháno) „Náskok správné odpovědi: 276 otázek s náskokem ≥10 znaků“, strop v rohatka.json vrácen na 276 → brána končí kódem 0, `npm run build` projde (469 stránek).",
+			"proc": "19. 8. 2026 zpřísněn práh délkové nápovědy z 15 na 10 znaků (při 1 znaku by vyskočilo 614 problémových otázek z 2300 — jen šum). Strop rohatky nastaven přesně na naměřený počet, aby šel postupně utahovat s opravami otázek.",
+			"overeno": "2026-08-19"
+		},
 		"priznaniAi": {
 			"test": "zkontroluj.mjs — sekce „Přiznání AI“ (podvrh se dělá ručně odebráním pole `ai`)",
 			"podvrh": "Jednomu z 18 videí odebráno pole `ai` → brána vypsala „prošlo 18 polemik — 1 bez přiznání“, jmenovala konkrétní díl (uvod-do-fyziky) a skončila kódem 1.",

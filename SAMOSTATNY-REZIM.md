@@ -380,6 +380,18 @@ třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo 
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### [skola2] 🔒 Rohatka bez klíče tiše projde (zadáno 19. 8. 2026)
+
+Brána `zkontroluj.mjs` čte stropy rohatek z `testy/rohatka.json` vzorem `?? Infinity`.
+Když klíč v souboru chybí (překlep, ruční editace, poškozený nebo špatně slitý soubor),
+strop se stane nekonečnem a měřidlo **mlčky projde** místo aby build shodilo — zmizí
+celá kontrola a nikdo si toho nevšimne, protože build je zelený. Netýká se jen dnes
+zavedeného klíče `pocetNaskok10`, ale VŠECH stropů v souboru, například `pocetNejdelsi`.
+Řešení: chybějící klíč má být tvrdá chyba (build spadne s hláškou, který klíč chybí),
+ne tiché Infinity — nové rohatky se pak musí zakládat vědomě, ne vzniknout nedopatřením.
+Doloženo: nezávislý kontrolor 19. 8. 2026 při kontrole prahu délkové nápovědy — po
+odstranění klíče brána skončila exit 0.
+
 ### [skola2] 🚴 Appka /tour — automatické přepínání mezi velkými závody (zadáno 4. 8. 2026)
 
 Přání učitele: *„aby se to samostatně přepínalo na zrovna aktuální velké závody a vše

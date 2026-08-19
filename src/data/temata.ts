@@ -2831,6 +2831,25 @@ export const temata: Record<string, Tema[]> = {
 							<li>starší, dnes už jen u potravin: <strong>kalorie (cal)</strong>, <strong>kilokalorie (kcal)</strong></li>
 						</ul>
 						<p>👉 Energetická hodnota se udává nejčastěji <strong>na 100 g</strong> potraviny. Kolik energie jsi snědl, spočítáš podle hmotnosti jednotlivých potravin.</p>
+						<h3>Co dodává energii nejvíc</h3>
+						<p>Potravu tvoří tři hlavní <strong>živiny</strong> a každá dodává jinak velký díl energie na 1 gram:</p>
+						<ul>
+							<li><strong>bílkoviny</strong> — asi <strong>17 kJ</strong> na 1 g</li>
+							<li><strong>sacharidy</strong> (cukry, škroby) — asi <strong>17 kJ</strong> na 1 g</li>
+							<li><strong>tuky</strong> — asi <strong>38 kJ</strong> na 1 g, tedy víc než dvojnásobek</li>
+						</ul>
+						<p>Tuky mají víc energie na gram proto, že jejich molekuly obsahují mnohem víc vodíku a uhlíku, které se při hoření (i při „spalování" v těle) slučují s kyslíkem a uvolňují teplo — čím víc takových vazeb, tím víc energie se uvolní. Proto je tučné jídlo výživnější, ale i snáz vede k nadváze.</p>
+						<h3>Čtení obalu potraviny</h3>
+						<p>Na obalu bývá energetická hodnota uvedená <strong>dvakrát</strong>: na <strong>100 g</strong> (aby šly potraviny mezi sebou porovnat) a na <strong>jednu porci</strong> (kolik sníš skutečně najednou). Například tyčinka müsli může mít na obalu „1 700 kJ / 100 g", ale jedna tyčinka váží jen 50 g — sníš tedy 850 kJ (1 700 : 100 · 50 = 850 kJ).</p>
+						<h3>Kolik energie potřebuje tělo za den</h3>
+						<p>Náctiletý člověk s běžným pohybem (škola, chůze, trochu sportu) potřebuje denně přibližně <strong>9 000 až 10 000 kJ</strong>. Kdo sportuje víc (např. denní trénink), potřebuje energie víc — klidně přes <strong>12 000 kJ</strong>. Kdo se naopak moc nehýbe, potřebuje méně, a přebytečná energie z jídla se v těle ukládá jako <strong>tuk</strong>.</p>
+						<h3>Kolik energie spálí běžná činnost</h3>
+						<ul>
+							<li>sezení, škola — asi <strong>250 kJ</strong> za hodinu</li>
+							<li>chůze — asi <strong>800 kJ</strong> za hodinu</li>
+							<li>fotbal, běh — asi <strong>2 000 kJ</strong> za hodinu</li>
+						</ul>
+						<p>👉 Příklad: hodina fotbalu spálí zhruba tolik energie, kolik dodají dvě tyčinky müsli z obalu výše (2 · 850 = 1 700 kJ) — zbytek si tělo vezme z vlastních zásob.</p>
 					`,
 					odkazy: [
 						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
@@ -3626,6 +3645,20 @@ export const temata: Record<string, Tema[]> = {
 								<li>slouží k <strong>regulaci napětí</strong>: jezdec rozdělí drát na dva sériové rezistory a napětí se mezi ně rozdělí</li>
 								<li>využití: ovládání <strong>hlasitosti, jasu, otáček</strong>; jako <strong>snímač polohy či úhlu</strong> v robotice a průmyslu</li>
 							</ul>
+							<h3>Jak je reostat vyrobený</h3>
+							<ul>
+								<li>na keramickém nebo plastovém válci je navinutý <strong>odporový drát</strong> (např. slitina nichrom nebo konstantan) — má vyšší odpor než měděný vodič a vydrží vysokou teplotu</li>
+								<li>po drátu klouže kovový <strong>jezdec</strong>, který ho spojuje s výstupní svorkou — posunem jezdce se mění, kolik závitů drátu je zapojeno do obvodu</li>
+								<li>čím delší kus drátu je zapojen, tím <strong>větší je odpor</strong> (odpor drátu roste s jeho délkou)</li>
+							</ul>
+							<h3>Proč se reostat zahřívá</h3>
+							<p>Reostat mění elektrickou energii na teplo úmyslně — tím právě omezuje proud. Platí pro něj vzorec pro výkon <strong>P = U · I</strong> (nebo P = I² · R). Každý reostat má výrobcem daný <strong>jmenovitý výkon</strong> (např. 25 W) — kolik tepla dokáže bez poškození vyzářit. Když jím prochází moc velký proud, přehřeje se a odporový drát se může přepálit.</p>
+							<h3>Příklad výpočtu</h3>
+							<p>Zdroj s napětím <strong>12 V</strong> je připojen k reostatu. Jezdec je nastaven na odpor <strong>6 Ω</strong>: proud I = U/R = 12/6 = <strong>2 A</strong>. Posuneme jezdec tak, aby v obvodu zůstal jen odpor <strong>3 Ω</strong> (poloviční): proud vzroste na I = 12/3 = <strong>4 A</strong> — dvakrát menší odpor znamená dvakrát větší proud. Výkon na reostatu při 3 Ω je P = U · I = 12 · 4 = <strong>48 W</strong> — pokud je jeho jmenovitý výkon jen 25 W, reostat by se poškodil.</p>
+							<h3>Co se stane při nulovém odporu</h3>
+							<p>Když jezdec posuneme na doraz tak, že v obvodu nezůstane žádný kus drátu (R = 0 Ω), reostat přestane proud omezovat vůbec. V obvodu pak teče proud omezený jen odporem ostatních součástek — může být nebezpečně velký a spálit spotřebič nebo vodiče. Proto se u reostatu vždy dává pozor, na jakou hodnotu je jezdec nastavený, než se obvod zapne.</p>
+							<h3>Využití dnes</h3>
+							<p>Čisté reostaty se dnes kvůli ztrátám teplem používají málo — nahradily je elektronické součástky (tranzistory, triaky), které teplo neplýtvají. Potenciometry se naopak používají běžně: jako <strong>otočný knoflík hlasitosti</strong> u starších zesilovačů a rádií, jako <strong>snímač polohy plynového pedálu</strong> v autech nebo páky u herních ovladačů. Stmívače světel dnes obvykle pracují na jiném principu (elektronicky spínají proud), ale staré typy stmívačů fungovaly přímo jako reostat.</p>
 						`,
 						odkazy: [
 							{ nazev: 'Reostat, dělič napětí (potenciometr) — F8 (vyuka.p3k.eu)', url: 'https://vyuka.p3k.eu/f8-reostat-delic-napeti-potenciometr/' },
