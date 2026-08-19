@@ -9,6 +9,9 @@
       `6/souhrnne-opakovani-velicin-dialog` (vyrobena vadným měřítkem px→cm)?
    b) povýšit ollamu 0.32.9 → ≥ 0.32.12 (bez toho nemá zkouška Qwenu 3.8 smysl)?
    c) napsat Petru Němcovi o svolení k jeho 13 videím?
+   d) sjednotit `s_pevna_tvar_objem` (17 px/cm) na `PX_NA_CM = 25` (stejná úprava jako u `snimky_podkastu.py`)?
+   e) zpřísnit práh délkové nápovědy v `zkontroluj.mjs` (dnes hlídá až rozdíl 15 znaků, kontrolor
+      19. 8. našel těsný případ, který prošel)?
 3. **`VrhSimulace.astro` je OPRAVENÁ** (commit `dfd800e`) — počítá v metrech a sekundách,
    dolety sedí s teorií na 0,2 %. Nález uzavřen, viz sekce fyzikálních jednotek níže.
 4. **Popisy prezentací fyziky 6 jsou KOMPLETNÍ** (6 nových, ověřeno proti obsahu) — blokáda
@@ -75,6 +78,9 @@
    - **CELÝ WEB** (fyzika+informatika+prac. činnosti): **891 chybějících otázek, 124 podtémat pod cílem**
      (F6 88, F7 39, F8 165, F9 155, I7 176, I8 163, I9 96, PC6 9).
    - **JEN FYZIKA**: **447 chybějících, 78 podtémat pod cílem** (F6 88, F7 39, F8 165, F9 155).
+   ⚠️ AKTUALIZACE 19. 8. odpoledne (commity `7868c64` + `e996a51`, 54 nových otázek u 6 podtémat F8):
+   celý web **891 chybějících / 124 podtémat**, jen fyzika **447 / 78**, F8 **138** (číslo v této
+   sekci výše je z okamžiku PŘED touto dávkou, dorovnání pokračuje dál).
    Před dnešním dorovnáním (27 otázek do 3 bloků F8 elektřina) bylo naměřeno 918 celkem / 192 u F8 —
    918−27=891 a 192−27=165 přesně sedí, takže rozdíl u F8 (225→192→165) je z přírůstku otázek, ne z chyby měření.
    **Podnět ke kontrole:** brána `zkontroluj.mjs` hlídá délkovou nápovědu až od rozdílu 15 znaků — u otázky

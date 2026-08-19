@@ -21,6 +21,19 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > `skupenstvi-latek-dialog`, `6/objem-dialog`, `6/souhrnne-opakovani-velicin-dialog`? Podrobně
 > v `SAMOSTATNY-REZIM.md`, nahoře.
 >
+> ### Předchozí stav: **19. 8. 2026 odpoledne (uzávěrka pracovního bloku)**
+> **Nasazeno:** kvízy F8 dorovnány z 12 na 21 otázek u 6 podtémat (54 nových otázek): `ohmuv-zakon`,
+> `elektricke-napeti-mereni`, `elektricky-proud-v-kovech-odpor` (commit **7868c64**) a
+> `zavislost-odporu-na-vodici`, `zapojeni-spotrebicu-za-sebou`, `zapojeni-spotrebicu-vedle-sebe`
+> (commit **e996a51**); obě dávky prošly nezávislým kontrolorem (první opravila 2 střední nálezy,
+> druhá bez nálezu). Kontrola fyzikálních jednotek DOKONČENA a opravena `OerstedSimulace`
+> (commit **b96c935**, viz stav výše). **Evidence srovnána s měřením** nad naimportovanými daty:
+> celý web **891 chybějících otázek / 124 podtémat pod cílem 21**, jen fyzika **447 / 78**, F8 **138**
+> (staré číslo 495 bylo zastaralé a počítalo jen fyziku). Do fronty: přegenerovat `6/objem-dialog` a
+> `6/souhrnne-opakovani-velicin-dialog` (stejné vadné měřítko jako `skupenstvi-latek-dialog`), sjednotit
+> `s_pevna_tvar_objem` (17 px/cm) na `PX_NA_CM = 25`, zpřísnit práh délkové nápovědy v `zkontroluj.mjs`
+> (dnes 15 znaků, kontrolor našel těsný případ, který prošel).
+>
 > ### Předchozí stav: **19. 8. 2026 v noci (uzávěrka session)**
 > **Nasazeno:** kvízy F8 elektřina — `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`
 > na **21 otázek**, `elektricky-proud-mereni` na 18 (víc výklad neunese, podnět k rozšíření zapsán);
