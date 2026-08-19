@@ -49,6 +49,26 @@
 - `kvizy-f7-jednoduche-stroje.md`, `kvizy-f8-teplo.md` — už zapsané do dat, ponechány jako doklad dávky.
 - `smazane-pokyny-vyhledavani-videi.md` — záloha smazaných pokynů (nevracet zpět!).
 
+### 📝 PODNĚT K ROZŠÍŘENÍ VÝKLADU — `fyzika/8-rocnik/elektrina/elektricky-proud-mereni` (19. 8. 2026)
+
+Dávky 2 a 3 (`Omega/rozdelane/kvizy-f8-elektrina-2.md`, `-3.md`) jsou **zapsané do `src/data/kvizy.ts`**:
+`elektricke-pole` 21, `vznik-elektrickeho-proudu` 21, `elektricke-obvody` 21 — hotovo.
+`elektricky-proud-mereni` zůstává na **18/21**: ve výkladu (`temata.ts`) už není další netestovaná
+látka, ze které by šly poctivě udělat další 3 otázky bez duplicity nebo úniku odpovědi.
+Otázky se proto NEVYMÝŠLEJÍ — čeká se na rozšíření výkladu. Navrženo doplnit:
+
+1. **Jméno jednotky ampér a André-Marie Ampère** — analogicky k odstavci o Georgu Simonu Ohmovi
+   u podtématu `ohmuv-zakon`. Dá jednu faktografickou otázku.
+2. **Praktická volba rozsahu ampérmetru s konkrétními čísly** (např. dva reálné rozsahy přístroje,
+   postup „neznámý proud → začít na největším rozsahu a zmenšovat"). Výklad teď říká jen obecně
+   „nastavíme rozsah", což už zkouší stávající otázka.
+3. **Čtení stupnice / přesnost měření** — ale **POUZE pokud to je v podkladech** (PDF a prezentace
+   v `/Users/Shared/Škola/8/`). Když to tam není, tento bod se vynechá.
+
+⚠️ Rozšíření výkladu se musí **opřít o zdrojové podklady učitele** (`/Users/Shared/Škola/8/`),
+nesmí se vymyslet — obsahová ústava, kap. 1. Bez doložení v podkladech se bod nedoplňuje
+a podtéma prostě zůstane na 18 otázkách (schváleno učitelem 19. 8. 2026).
+
 ## [cesty] Cestovatelský deník
 
 **HOTOVÉ A NASAZENÉ** (též commit `30eabd1`): opraveno 3× mrtvé `videoId`, 4 data míst, 8 + 1 názvů videí.
@@ -130,42 +150,7 @@ ho přepnout na `private` také.
 
 ---
 
-# 🗄️ STARŠÍ STAV (blok 16. 8. 2026) — jen historie a nedořešené drobnosti
-
-> **Tady se NEZAČÍNÁ** — začíná se blokem ČÍM ZAČÍT PO /clear úplně nahoře.
-> Sekce zůstává kvůli otevřeným otázkám na učitele a odloženým simulacím informatiky
-> (informatika se podle rozhodnutí učitele z 19. 8. 2026 zatím NEDĚLÁ).
-
-**Fyzika: názornost HOTOVÁ** (6–9, zbývají jen shrnutí, která ji nepotřebují).
-
-**HOTOVO 16. 8.:** polemiky F6 díly 7–14 (nasazené, kontrolované, opravené — viz PROGRESS.md), média fyziky 8. ročníku (27 podtémat), Informatika 9 zapojení 3 simulací, délková nápověda kvízů F6 (rohatka 616/28 %), meta tag Google Search Console.
-
-**🔴 NA ŘADĚ — vyřešit jako první:**
-- `[skola2]` **Díl 15 `pololetni-shrnuti` fyziky 6** — 4 scénáře hotové v `Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md` (brána 24/24). Vyrábí se lokálně OmniVoice (`vyrob_omnivoice.py`): TTS 4×, schémata/animace, video, R2, nasazení, kontrolor. Pak zbývá poslední díl 16 `rocni-shrnuti`.
-
-**NA ŘADĚ — vyber si (díl 15 už NENÍ blokován, je ve frontě výše jako první):**
-1. `[skola2]` **Délková nápověda — pokračovat.** Rohatka na 616/28 %, zbývá dotahovat žebříček nejhorších bloků (skript nad `testy/data.mjs`), prodlužovat distraktory (NIKDY neměnit správnou odpověď), nechat zkontrolovat, pak `npm run prijmi-latku` sníží strop.
-2. `[skola2]` **Média fyziky 8. ročníku — 2 podtémata shrnutí** (`pololetni-shrnuti`, `rocni-shrnuti`) zatím bez médií — nejspíš je nepotřebují, rozhodnout a uzavřít.
-3. `[cesty]` **Deník: lhůta Kluesserath_DE už uplynula, automat lze pustit.** `Kluesserath_DE` má poslední pořízení 9. 8. 2026, 7denní lhůta „dojezdilo" vypršela cca 16. 8. večer — dnes je 18. 8., takže je po lhůtě a `vyrob_video_automat.py` je možné pustit (ověřit, že už neběží samo). `Neumagen-Dhron_DE` (45 médií, 16 anonymizovaných klipů, doklad kompletní) je připraveno a je ve frontě za Kluesserath_DE. `Trittenheim_DE` (další v pořadí) ještě nemá anonymizované klipy (0 MP4) — anonymizace zatím neproběhla.
-
-**❓ Čekají 2 otázky na učitele** (nepřesnosti v jeho textu u `teplota-a-jeji-mereni`: Fahrenheit „v anglicky mluvících zemích" → spíš jen USA; Klementinum minimum uvedeno s rokem 1785, rekord je 1929). Viz sekce níže.
-
-**Pravidla, která dnes vznikla:** bod 12 (worker nevrací text do kontextu, jen cestu do scratchpadu) · bod 13 (exekutor ověřuje zápis počtem v souboru, ne hlášením) · agenti musí do repa psát ABSOLUTNÍ cestou · u simulací zapisovat viditelný stav jako SVG atribut, nikdy `classList` ani text mimo `<svg>` · když náhledový nástroj na komponentu padá, opravuje se NÁSTROJ, ne komponenta.
-
-
-### 📎 Podrobnosti k položkám výše (přesunuto z historie, beze změny)
-
-⏸️ **ODLOŽENO: tři hotové simulace informatiky 9. ročníku, NEZAPOJENÉ a NENASAZENÉ** (učitel 15. 8. večer přesměroval práci zpět na fyziku). Komponenty i testy JSOU HOTOVÉ a zelené, chybí jen zapojení do `temata.ts`/`index.astro`, kontrolor a vizuální kontrola:
-- `SeznamySimulace.astro` → klíč `interakce: 'seznamy'` pro `informatika/9-rocnik/programovaci-projekty/seznamy-a-promenne-v-projektech`. Test `testy/simulace/seznamy.mjs` 25/25. Přidána už do registru `SIMULACE_SE_SCRATCHEM` v `testy/nazvy-bloku.mjs`. ⚠️ Nález k dořešení: výklad v `temata.ts` používá tvar bloku „přidej … k [nákup]", komponenta „přidej … do [seznam]" — sjednotit.
-- `BezpecnostSimulace.astro` → klíč `interakce: 'bezpecnost'` pro `informatika/9-rocnik/digitalni-technologie/bezpecnost-pocitace-a-dat`. Test 73/73.
-- `VexGyroskopSimulace.astro` → klíč `interakce: 'vex-gyroskop'` pro `informatika/9-rocnik/robotika-vex-iq/vex-iq-navody`. Test 21/21. Scéna B změněna z sledovače čáry na parkování s čidlem vzdálenosti, protože sledovač čáry už pokrývá existující `CaraSimulace`.
-Zbylé díry informatiky 9. roč. po nich: `plan-projektu-a-ladeni`, `hardware-a-software`, `digitalni-stopa-a-identita`.
-
-❓ **DVĚ OTÁZKY NA UČITELE (nepřesnosti v jeho vlastním textu, NEOPRAVENY potichu):**
-1. `teplota-a-jeji-mereni` (kvizy.ts i temata.ts ř. 973) tvrdí, že Fahrenheit se používá „v anglicky mluvících zemích". Prakticky ho ale používají jen USA (a Belize, Kajmanské ostrovy); Velká Británie, Irsko, Kanada, Austrálie i Nový Zéland používají Celsia. Přeformulovat na „v USA"?
-2. Totéž podtéma, vysvětlení u Klementina uvádí teplotní minimum „−27,6 °C (1785)". Rekordní minimum Klementina je z 11. února 1929; rok 1785 je pravděpodobně záměna (1775 je začátek měření). Opravit rok?
-
----
+> ⤵️ Starší blok (od původního řádku 133) je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
 
 ## 📌 Živé zadání, fronta a reference
 
@@ -232,223 +217,7 @@ Zbylé díry informatiky 9. roč. po nich: `plan-projektu-a-ladeni`, `hardware-a
 - [skola2] Rozhodnout: odkazy F9 `chemicke-zdroje-napeti` jsou 4× doslova
   stejné jako u F8 stejného slugu — vada, nebo záměr?
 
-### ▶️ POTOM: učitel 5. 8. SCHVÁLIL přepsat na polemiky VŠECHNA zbývající témata F6
-
-Je jich **16** (ne 17 — gravitační síla polemiku už má). Pořadí podle učiva; ke
-každému stejný řetěz jako dosud: kvíz → polemika → brána `pokryti_kvizu.py` →
-scénosled → schémata → **prohlídka kontaktním listem** → zvuk → video → nasazení.
-
-1. [skola2] ~~`uvod-do-fyziky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
-2. [skola2] ~~`telesa-a-latky`~~ ✅ HOTOVO a nasazeno 5. 8. 2026 večer
-3. [skola2] ~~`casticove-slozeni-latek`~~ ✅ HOTOVO a nasazeno (3× dialog)
-4. [skola2] ~~`atomy-a-molekuly`~~ ✅ HOTOVO a nasazeno
-5. [skola2] ~~`skupenstvi-latek`~~ ✅ HOTOVO a nasazeno 8. 8. (v2 po auditu)
-6. [skola2] ~~`delka`~~ ✅ HOTOVO a nasazeno
-7. [skola2] ~~`cas-a-jeho-mereni`~~ ✅ HOTOVO a nasazeno 16. 8. (ba80617, oprava ac4e043)
-8. [skola2] ~~`teplota-a-jeji-mereni`~~ ✅ HOTOVO a nasazeno 16. 8. (42f356d, oprava 7db6abe)
-9. [skola2] ~~`teplotni-roztaznost`~~ ✅ HOTOVO a nasazeno 16. 8. (dec574d)
-10. [skola2] ~~`elektricke-vlastnosti-latek`~~ ✅ HOTOVO a nasazeno 16. 8. (16a258e, oprava b1280e6)
-11. [skola2] ~~`magneticke-vlastnosti-latek`~~ ✅ HOTOVO a nasazeno 16. 8. (495d32a)
-12. [skola2] ~~`jednoduche-elektricke-obvody`~~ ✅ HOTOVO a nasazeno 16. 8. (87a7f71, oprava ac44f1d)
-13. [skola2] ~~`pokusy`~~ ✅ HOTOVO a nasazeno 16. 8. (36aa669, oprava 8976f26)
-14. [skola2] ~~`souhrnne-opakovani-velicin`~~ ✅ HOTOVO a nasazeno 16. 8. (ed585b6)
-15. [skola2] `pololetni-shrnuti` — viz „ČÍM ZAČÍT" nahoře (scénáře hotové, vyrábí se lokálně OmniVoice)
-16. [skola2] `rocni-shrnuti` — čeká na díl 15
-
-**Nepracuj na víc než třech dílech v jedné session** — kontext dojde uprostřed
-a hrozí, že se ztratí rozdělaná práce. Po každém dokončeném dílu zapiš stav sem
-a commitni; pak se dá kdykoli navázat.
-
-**Ohlídej si tohle:** shrnující díly (14–16) mají kvízy složené z otázek jiných
-témat, takže brána bude chtít pokrýt hodně otázek naráz — počítej u nich s delší
-polemikou nebo je rozděl na dva díly. `pokusy` naopak nemusí mít kvíz vůbec;
-pokud ho brána nenajde, ověř to a poznač, ať se to nehledá znovu.
-
-**Co je hotové a nasazené (5. 8. odpoledne):**
-- Dvě polemiky ke gravitační síle, obě s videem, obě živé na
-  `lab.wonderly.cz/skola2/fyzika/6-rocnik/sila/gravitacni-sila/` (ověřeno curlem).
-  Hlasy z ElevenLabs, proto je v názvu atribuce `elevenlabs.io` — free tarif ji žádá.
-- Celý řetěz skriptů: `pokryti_kvizu.py` → `vyrob_podkasty.py` / `vyrob_dialog_elevenlabs.py`
-  → `snimky_podkastu.py` → `video_podkastu.py` → `automat_podkastu.py`.
-- Kvóta ElevenLabs vyčerpaná (zbývá 1 410 znaků, obnoví se za měsíc). **ROZHODNUTO
-  18. 8. 2026: zvuk podkástů výhradně lokálním OmniVoice (`vyrob_omnivoice.py`),
-  placené hlasové služby (OpenAI TTS, ElevenLabs) se nepoužívají vůbec.**
-
-### ▶️ TADY SE POKRAČUJE
-
-**Díly 7–14 jsou HOTOVÉ a nasazené (16. 8. 2026)** — viz seznam výše a PROGRESS.md.
-**Další na řadě je díl 15 `pololetni-shrnuti`** — 4 dialogové scénáře hotové
-(`Omega/podkasty-scenare/6/pololetni-shrnuti-dialog.md` až `-dialog4.md`, brána
-24/24). Vyrábí se lokálně OmniVoice (`vyrob_omnivoice.py`):
-TTS 4× → schémata/animace → **prohlídka kontaktním listem** → video →
-R2 + `temata.ts` → build → push → **ověřit curlem na produkci**. Pak zbývá
-poslední díl 16 `rocni-shrnuti`.
-
-**Nové pravidlo z dnešního měření: scénář drž pod 4 700 znaky.** Ne kvůli syntéze
-(ta si po opravě poradí i s delším), ale kvůli spolehlivosti střihu — viz tabulka
-u dílu 2. Dlouhý díl stál 24 Kč a tři pokusy, krátký 5,6 Kč a jeden.
-
-**Jak ověřit hotový díl** (kotva hlídá jen POČET slov, ne KTERÁ chybí): porovnej
-každou repliku scénáře se slovy v přepisu `<slug>.prepis.json` a vypiš repliky pod
-60 % shody. Repliky plné čísel a jmen vyjdou nízko, i když zazněly — u těch se
-podívej do přepisu očima. Takhle se dnes potvrdilo, že oba nasazené díly jsou úplné
-a že i `hustota-dialog.mp3` (zůstal po třech neúspěších) je v pořádku.
-
-
-### ❓ Nálezy ve výkladu F6 — čekají na rozhodnutí učitele
-
-_(přesunuto z uzavřeného kola D9, ať rozhodnutí nezapadne v archivu)_
-
-**❓ NÁLEZY VE VÝKLADU F6 — ČEKAJÍ NA ROZHODNUTÍ UČITELE** (pravidlo
-[[feedback-kontrolovat-spravnost-textu]]: odborný text učitele neopravovat potichu).
-Ve scénářích jsou všechny obejity — netvrdí se nic sporného. **Na webu zatím JAK BYLY.**
-
-| # | podtéma | co je ve výkladu | proč to nesedí |
-|---|---|---|---|
-| 1 | `magneticke-vlastnosti-latek` | „železo a jeho **sloučeniny** (ocel)" | ocel je **slitina** (železo + uhlík), ne sloučenina; a většina sloučenin železa feromagnetická není (rez, síran železnatý) |
-| 2 | `magneticke-vlastnosti-latek` | ocel mezi feromagnetickými, **nerezová ocel** mezi nemagnetickými | přímý rozpor bez vysvětlení; nemagnetické jsou jen austenitické nerezi, běžné nože a indukční dna magnet přitahuje |
-| 3 | `magneticke-vlastnosti-latek` | pole Země vzniká „**rotací** tekutého jádra" | pole tvoří **proudění** vodivého jádra (geodynamo); rotace sama pole nedělá |
-| 4 | `magneticke-vlastnosti-latek` | indukční čáry = „uzavřené křivky **vedoucí od** severního pólu k jižnímu" | uzavřená křivka nikam „nevede"; od N k J míří **vně** magnetu |
-| 5 | `skupenstvi-latek` | „krystalické látky — **velice tvrdé**"; „amorfní — méně tvrdé" | led 1,5, sůl 2,5, cukr 2 podle Mohse; sklo (amorfní) má 5,5, je tedy tvrdší. Tvrdost z krystalické stavby neplyne |
-| 6 | `delka` | „laserový měřič vzdáleností — **nejpřesnější**" | laser měří s odchylkou 1–2 mm, mikrometr o řádek výš na setiny mm, tedy ~100× jemněji |
-| 7 | `teplotni-roztaznost` | „látky **všech skupenství** se zahřátím zvětší" | chybí anomálie vody (0 až 4 °C se zahříváním smršťuje — proto led plave); je to učivo 6. ročníku |
-| 8 | `teplotni-roztaznost` × `teplota-a-jeji-mereni` | rtuťový teploměr jako běžná pomůcka × „rtuť dnes zakázaná" | dvě stránky si protiřečí |
-| 9 | `cas-a-jeho-mereni` | „čas udávala **hmotnost** odkapané vody" | klepsydra má stupnici na hladině, měří objem |
-| 10 | `cas-a-jeho-mereni` | „fyzika pojem **vteřina nezná**" | „vteřina" je spisovný český název, jen se přednostně říká sekunda |
-| 11 | `hmotnost` | zakazuje „váha tělesa" a o odstavec dál „1 litr vody **váží** 1 kg" | stránka si odporuje v tom, co sama zakázala |
-| 12 | `souhrnne-opakovani-velicin` | „m = 5 kg **je veličina**, 5 m je jednotka" | obojí je ZÁPIS; „m = 5 kg" je hmotnost, „5 m" je délka pět metrů |
-| 13 | `hustota` | „atom železa je **56×** těžší než vodíku" | vychází 55,4 — chybí slovo „přibližně" |
-| 14 | `pokusy` | balónek a papírky = „opačné náboje se přitahují" | papírky **nejsou nabité**; jde o polarizaci, kterou tatáž stránka jinde správně vysvětluje |
-| 15 | `pokusy` | Archimédův pohár bez podmínky ponoření | bez „celý pod hladinou, voda nesmí přetéct" vyjde objem jen ponořené části |
-| 16 | `elektricke-vlastnosti-latek` | „uzemnění — Země **přijme** volné elektrony" | platí jen pro záporně nabité těleso; u kladného elektrony ze Země naopak přitečou |
-| 17 | `elektricke-vlastnosti-latek` | „plast se nabije **vždy** záporně, sklo kladně" | znaménko závisí na DVOJICI třených látek, ne na materiálu samotném |
-| 18 | `elektricke-vlastnosti-latek` | nabité těleso „**obsahuje ionty**" | u kovů jde o přebytek či nedostatek volných elektronů, ionty nevznikají |
-| 19 | `rocni-shrnuti` | v přehledu veličin mají proud a napětí ve sloupci Značka „—" | chybí `I` a `U`, jako jediné ze všech devíti veličin |
-| 20 | `pokusy` | řetěz sponek „ukáže dosah magnetické síly" | ukazuje slábnutí přenesené magnetizace při dotyku; pole působí i bez dotyku |
-
-### 🤖 HERMES ZAPOJEN (rozhodnutí učitele 4. 8. večer — tokeny docházely)
-
-Pokyn učitele: orchestrátor přednostně řeší **chyby a nastavení** (slabší model pak
-pracuje s dobře seřízeným strojem); mechanickou práci přebírá **Hermes** — lokální
-agent `~/.hermes/hermes-agent`, model gemma4:31b přes Ollamu, tedy zdarma.
-Fronta úkolů: `~/Desktop/Omega/HERMES-UKOLY.md` — **ŽIVÝ soubor: aktualizovat na
-konci KAŽDÉHO kola spolu s tímto stavem** (hotové odškrtnout, nové mechanické úkoly
-z čerstvé práce doplnit — přání učitele 4. 8.) (popisy prezentací 7/8/9, mutační
-měření 6 nejslepějších testů, soupis chybějícího `cz()`, tabulky PRAVIDLA.md,
-zdraví automatů) → výsledky do `Omega/HERMES-VYSLEDKY.md`. Hermes nikdy nepushuje,
-nemaže, nenahrává ven. Spuštění (i pro učitele):
-`~/.hermes/hermes-agent/venv/bin/hermes -z "Přečti /Users/radek_soukromy/Desktop/Omega/HERMES-UKOLY.md a plň úkoly po řadě podle pravidel v něm."`
-Paměť: [[feedback-hermes-zalozni-pracant]].
-
-### 🔥 ZADÁNÍ UČITELE 5. 8. RÁNO (nejvyšší priorita — „fyzika je nejdůležitější“)
-
-**[skola2] A. Tajemná laboratoř → příběhová pátračka** (`src/pages/hry/laborator.astro`).
-Dnes: dole lišta otazníků, klik vybere otázku („otázka za hodiny“). Učitel chce:
-děti HLEDAJÍ V OBRÁZKU — kliknou na předmět (hodiny), otevře se otázka; po uhádnutí
-se předmět ZMĚNÍ a stane se INDICIÍ k dalšímu stanovišti (hodiny se přeřídí — ručičky
-ukážou SMĚR dalšího úkolu, nebo čas = číslo, které napoví umístění). Řetěz stanovišť
-= příběh, soutěž, ať to děti baví. Návrh řetězu si rozmyslet předem (každé razítko
-odemyká další indicii), zachovat razítka a ročníky. Vlastní kolo v ČERSTVÉ session,
-klidně vějíř (návrh příběhu × implementace × kontrola).
-
-**[skola2] B. Fyzika na 100 % — v KAŽDÉM podtématu: interaktivní animace + video + audio
-podkást.** Změřeno 5. 8. z dat webu (116 podtémat fyziky):
-| ročník | podtémat | bez simulace | bez videa | bez audia |
-|---|---|---|---|---|
-| F6 | 21 | 7 | 20 | 21 |
-| F7 | 33 | 9 | 13 | 32 |
-| F8 | 37 | 14 | 32 | 37 |
-| F9 | 25 | 12 | 12 | 25 |
-Postup po kolech (fyzika má přednost před informatikou ve frontě):
-1. **Simulace (42 chybí)** — vějíře `/simulace` po 4, od F6 (nejmenší dluh, základ).
-2. **Názornost (77 chybí) — NEVYHLEDÁVAT, VYRÁBĚT.** Videa se pro školní web
-   nehledají (rozhodnutí učitele 19. 8. 2026, [[feedback-youtube-jen-oficialni-vlozeni]]).
-   Chybějící názornost vyrábí vlastní automat: obrázky + vysvětlující zvuková
-   stopa, zvuk lokálním OmniVoice — stejný řetěz jako podkásty (bod 3 níže).
-3. **Audio podkásty (115 chybí) — ROZHODNUTO 18. 8. 2026: zvuk výhradně lokálním
-   OmniVoice (`vyrob_omnivoice.py`), placené služby (OpenAI TTS, ElevenLabs) se
-   nepoužívají vůbec.**
-
-   **POVEL `WONDERLY PODKASTY` = pracuj na podkástech takto:**
-   1. Zkontroluj dostupnost lokálního OmniVoice: venv
-      `~/Desktop/Omega/nastroje/venv-omnivoice/bin/python3` a skript
-      `~/Desktop/Omega/skripty/vyrob_omnivoice.py`. Když chybí, výroba zvuku
-      počká — scénáře se ale píší i bez nich.
-   2. Napiš dávku SCÉNÁŘŮ (vějíř 4× worker, po ročnících od F6): 2–4 min mluveného
-      slova na podtéma, jeden vypravěč, jazyk pro děti 2. stupně, čísla celá,
-      obsah VYCHÁZÍ z výkladu podtématu (src/data/temata.ts) — žádné nové učivo,
-      nezávislý kontrolor zkontroluje věcnou správnost proti výkladu.
-      Scénáře do `Omega/podkasty-scenare/<rocnik>/<podtema-slug>.md`.
-   3. PRVNÍ DÍL = VZOREK: vyrob MP3 lokálně
-      (`venv-omnivoice/bin/python3 vyrob_omnivoice.py <slug> --rocnik <r>`,
-      hlasy EVA/MAREK drží referenční nahrávka v `podkasty-hlasy/<rocnik>/`,
-      kontrolní přepis LOKÁLNÍM whisperem), výstup
-      `/Users/Shared/Škola/podkasty/<rocnik>/<slug>-omnivoice.mp3`,
-      pošli učiteli k poslechu (SendUserFile / Telegram) a POČKEJ na schválení
-      hlasu a formátu — do té doby jen scénáře, žádná hromadná výroba.
-   4. Po schválení: noční automat (LaunchAgent vzor zsh; baterie ≤ 30 % pauza;
-      1 těžký proces) vyrábí dávky, průběžně zapojovat na web jako materiál
-      `druh: 'audio'` k podtématu + build + push + curl. Checklist pořadí:
-      `/Users/Shared/Škola/PODKASTY-A-VIDEA-checklist.md`.
-   Druh materiálu `audio` v datech existuje a web ho umí.
-Měřidlo pokrytí zapojit do brány jako sledovanou hodnotu (ne tvrdou chybu),
-ať čísla klesají viditelně každé kolo.
-
-### 🌙 FRONTA (pořadí drž)
-
-1. [skola2] **Názornost informatiky** — zbývá **22 podtémat** (4. 8. kolo D3 přidalo 4:
-   celá `roboticka-stavebnice` + `hra-ping-pong`). Na řadě podle měřidla
-   `node testy/nazornost.mjs`: Inf8 `hry-ve-scratchi` (2 zbylé: střílečka, skákačka),
-   `hromadne-zpracovani-dat`, `co-umi-vex-iq`; Inf7 `hra-honicka`;
-   Inf9 `programovaci-projekty`, `digitalni-technologie` (3).
-   Dávka 4+ patří do vějíře (`/simulace`).
-2. [cesty] **Dvojice videí v `nasazeno/`** (zadání učitele): u Le Bourg-d'Oisans a Saint-Bonnet
-   leží dvě verze. Nechat tu, **kde je toho víc**, a ověřit, jestli v delší nechybí něco
-   z kratší — u Le Bourg to hrozí: kratší verze (4:58) obsahuje **přibalená místa
-   Saint-Tropez, Le Lavandou a Riez**, delší (6:06) je jen z Le Bourg (77 médií).
-   Když v delší opravdu chybí, složit ze dvou jednu.
-3. [skola2] **Testy simulací jsou z poloviny slepé — DOMĚŘIT.** Mutační test přes všech 16
-   simulací (3. 8. dopoledne) skončil: **310 mutací, odhaleno 155, prošlo 155**.
-   Pořadí podle toho, kde je díra největší (odhaleno / celkem):
-
-   | simulace | odhaleno | simulace | odhaleno |
-   |---|---|---|---|
-   | `tabulka-vzorce` | **6/26** | `promenne` | 6/15 |
-   | `souradnice` | **7/25** | `led-displej` | 6/12 |
-   | `zapojeni` | **8/26** | `meridla` | 7/15 |
-   | `vetveni` | **6/19** | `bludiste` | 10/22 |
-   | `reostat` | 8/21 | `opakovani` | 8/18 |
-   | `odpor-vodice` | 11/25 | `elektrovani` | 12/18 |
-   | `vlastni-bloky` | 15/20 | `udalosti` | 18/20 |
-   | `funkce-tabulky` | 13/14 | `senzory-robota` | **14/14 ✅** |
-
-   Detail k jedné simulaci: `node testy/mutace.mjs <název>` (vypíše, které mutace prošly
-   a kus kódu, který nikdo neměří). Celý běh trvá přes 10 minut — pouštět na pozadí.
-   **Jak se díra zavírá** (vzor z 3. 8., obojí doloženo podvrhy): měřit skutečnou scénu
-   a vypsané hodnoty, ne text zdroje · texty vázat na chování (popisek proti tomu, co
-   tlačítko udělá) · očekávání psát ručně, ne brát z testované komponenty (tautologie) ·
-   projít VŠECHNY stavy, ne jen výchozí. Ke každé opravené simulaci patří skript podvrhů
-   v `testy/podvrhy/` a záznam v `testy/obousmerne.json`.
-   Začít od `tabulka-vzorce` (6/26) — tam je slepota největší.
-   Splácení zároveň umořuje dluh rohatky: ke každému doměřenému testu zapsat
-   podvrh + zdravý stav do `testy/obousmerne.json` (dluh `bezDokladu` = 14, jen klesat).
-4. [skola2] `cz()` chybí v 11 simulacích, které formátují čísla.
-4b. [skola2] **Z auditu 4. 8.** (celý výstup v `AUDIT-2026-08-04.md`):
-   - ~~Měřidlo názvů bloků MakeCode + VEXcode~~ — **HOTOVO 5. 8. (kolo D8)**,
-     hned našlo a opravilo 4 živé vady.
-   - **Čísla v PROGRESS.md generovat, ne opisovat** („14 simulací" × realita 86) —
-     buď skriptem z brány, nebo nahradit odkazem na `node zkontroluj.mjs`.
-   - **Checkpointy vázat na datum, ne číslo kola** — „revize à 10 kol" umřela
-     přečíslováním (od 29. 7. bez checkpointu); totéž metriky kol 29–72 chybí.
-   - **U počítadla vazeb přiznat výluku** — „prošlo 150 ze 165 bloků": 15 souhrnných
-     skládaných bloků je mimo záměrně, ale nikde to není napsáno.
-   - **PRAVIDLA.md v Omeze má rozbité tabulky** (ř. 35–41, 115–126) — srovnat.
-   - **Commit = jedno téma** — tour.astro/worker.js nepřibalovat k nesouvisejícím
-     commitům (a718292, e90a0d2); zapsáno i do skillu /wonderly.
-5. [skola2] **BLOKOVÁNO, ne zapomenuto:** obě nové simulace (funkce v tabulkách, senzory robota)
-   neprošly očima v prohlížeči — port 8788 drží dev server jiné session a cizí server
-   tahle session zastavit nesmí (zkoušeno 3. 8. dvakrát). Až bude volný, projít je
-   pohledem; kotvou jsou zatím testy, build a kontrola vygenerovaného HTML.
+> ⤵️ Starší blok (od původního řádku 235) je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
 
 ### ⏳ ČEKÁ NA ODKLIKNUTÍ UČITELE (nikdy kvůli tomu nestát — jít dál)
 

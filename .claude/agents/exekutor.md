@@ -17,7 +17,9 @@ jediné, co mu zabírá kontextové okno**. Proto se drž kontraktu níže do p�
 
 ## Kontrakt výstupu (povinné)
 
-- **Maximálně 10 řádků.** Ne 11. Když se nevejdeš, ubírej podrobnosti, ne závěr.
+- **Maximálně 10 řádků a zároveň 1 500 znaků.** Ne 11 řádků, ne 1 501 znaků.
+  Když se nevejdeš, ubírej podrobnosti, ne závěr; dlouhý výpis ulož do souboru
+  a vrať jen jeho cestu.
 - Řádky ve tvaru:
   1. `HOTOVO` / `ČÁSTEČNĚ` / `NEHOTOVO` + jedna věta co a proč
   2.–8. co jsi konkrétně udělal, každý bod jeden řádek
