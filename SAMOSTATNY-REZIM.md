@@ -1,10 +1,28 @@
-# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 večer)
+# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 v noci — TENTO blok platí, starší verze níže neplatí)
 
-1. **Díl 15 `pololetni-shrnuti` fyziky 6** — zvuk části 1 hotový, části 2–4 se dovyrábějí lokálním OmniVoice; scénáře `~/Desktop/Omega/podkasty-scenare/6/pololetni-shrnuti-dialog{,2,3,4}.md`, postup skill `/podkast-video`. **NENASAZOVAT bez nezávislého kontrolora.**
-2. Než se sáhne na další obsah fyziky 6: **dopsat popisy 6 chybějících prezentací** automatem `~/Desktop/Omega/skripty/popis_prezentace.py` (běží, čeká na volnou GPU) — závazné rozhodnutí učitele z 19. 8.
-3. Pak **dorovnání kvízů na 21 otázek** (chybí 495 otázek u 82 podtémat); hotové nezapsané dávky leží v `~/Desktop/Omega/rozdelane/kvizy-f8-elektrina.md` a `kvizy-f9-magneticke-indukce.md` — stačí vložit do `src/data/kvizy.ts`.
-4. **Před každou obsahovou prací přečíst `~/Desktop/wonderly-web/OBSAH-PRAVIDLA.md`** (obsahová ústava, závazná) — a pravidlo z ní vždy vložit i do zadání workera, jinak pro něj NEPLATÍ.
-5. Deník až po fyzice: 20. 8. nahrát Trittenheim (kvóta), pak výměna Kluesserath 3 → 6 dílů — přesný postup v sekci `[cesty]` níže.
+1. **Díl 15 `pololetni-shrnuti` fyziky 6 se PŘEPRACOVÁVÁ OD ZAČÁTKU.** Učitel rozhodl: v polemikách
+   se **MAREK plete a EVA ho opravuje** (dřív to bylo naopak). Pravidlo je zapsané do obsahové ústavy,
+   skillu `/podkast-video` i do zadání workerů. **Zvuk i videa se vyrábějí ZNOVU** — staré díly se
+   nepředělávají, tohle je jen díl 15. **NENASAZOVAT bez nezávislého kontrolora.**
+2. **ROZHODNUTÍ, KTERÁ ČEKAJÍ NA UČITELE** (zeptat se hned na začátku, blokují práci):
+   a) přegenerovat nasazené video `skupenstvi-latek-dialog` (má v sobě chybnou kostku 170 px)?
+   b) opravit `VrhSimulace.astro` (viz vážný nález níže — dětem se ukazují nefyzikální čísla)?
+   c) povýšit ollamu 0.32.9 → ≥ 0.32.12 (bez toho nemá zkouška Qwenu 3.8 smysl)?
+   d) napsat Petru Němcovi o svolení k jeho 13 videím?
+3. **VÁŽNÝ NÁLEZ `VrhSimulace.astro`** (fyzika 7, pohyb) — dětem se ukazují vymyšlená čísla
+   („doletěl X m"). NEOPRAVENO, čeká na rozhodnutí. Podrobně v sekci nálezů níže.
+4. **Popisy prezentací fyziky 6 jsou KOMPLETNÍ** (6 nových, ověřeno proti obsahu) — blokáda
+   fyziky 6 tím padla. **Běží dávka na ostatní ročníky** (7. ročník má 23 prezentací) — její
+   soubory nechat být. ⚠️ Napřed dořešit `num_ctx` (nález níže), hotové popisy může být
+   potřeba předělat.
+5. **Dorovnání kvízů na 21 otázek** — pokračovat dál (stav a podněty níže).
+6. **Před každou obsahovou prací přečíst `~/Desktop/wonderly-web/OBSAH-PRAVIDLA.md`** (obsahová
+   ústava, závazná) — a pravidlo z ní vždy vložit i do zadání workera, jinak pro něj NEPLATÍ.
+7. **Úspora kontextu je zavedená:** agenti mají strop **1 500 znaků** odpovědi, do sdílených
+   souborů zapisuje **výhradně exekutor**, historie PROGRESS/SAMOSTATNY je v archivech.
+8. Deník až po fyzice: 20. 8. nahrát Trittenheim (vyčerpaná kvóta), pak výměna Kluesserath
+   3 → 6 dílů — přesný postup v sekci `[cesty]` níže.
+9. **20. 8. odpoledne (jen na wifi):** zkouška modelu Qwen 3.8 — `python3 ~/Desktop/Omega/skripty/zkouska_qwen38.py --zkouska`.
 
 ---
 
@@ -36,8 +54,8 @@
 - **Hotová videa se nepředělávají**; lokální hlas schválen.
 
 **🔴 ROZDĚLANÉ (běží nebo čeká):**
-1. **Díl 15 `pololetni-shrnuti`** — zvuk části 1 hotový, části 2–4 se vyrábějí. Pak brána pokrytí, schémata, video, R2, nasazení. **NENASAZOVAT bez nezávislé kontroly.**
-2. **Popisy 6 chybějících prezentací fyziky 6** — automat běží, čeká na volnou GPU. Blokuje další práci na fyzice 6 (rozhodnutí učitele).
+1. **Díl 15 `pololetni-shrnuti`** — ⚠️ AKTUALIZACE 19. 8. v noci: **PŘEPRACOVÁVÁ SE OD ZAČÁTKU** (nové pravidlo: MAREK se plete, EVA opravuje). Zvuk i videa se vyrábějí ZNOVU. **NENASAZOVAT bez nezávislé kontroly.**
+2. ~~Popisy 6 chybějících prezentací fyziky 6~~ — ✅ **HOTOVO 19. 8. v noci**, fyzika 6 už není blokovaná. Běží dávka na ostatní ročníky (7. ročník 23 prezentací).
 3. **Nasazení hotových zkontrolovaných podkástových videí** — běží.
 4. **DOROVNÁNÍ KVÍZŮ NA 21 OTÁZEK — chybí 495 otázek u 82 podtémat** (F6 76, F7 39, F8 225, F9 155).
    ⚠️ U krátkých výkladů nemusí být z čeho 21 otázek udělat — pak se **hlásí podnět k rozšíření výkladu**, NEobchází se to opakováním téže otázky jinými slovy (obsahová ústava: kvíz smí zkoušet jen to, co je ve výkladu).
@@ -48,6 +66,35 @@
 - `kvizy-f9-magneticke-indukce.md` — hotové otázky F9 k magnetické indukci.
 - `kvizy-f7-jednoduche-stroje.md`, `kvizy-f8-teplo.md` — už zapsané do dat, ponechány jako doklad dávky.
 - `smazane-pokyny-vyhledavani-videi.md` — záloha smazaných pokynů (nevracet zpět!).
+
+### 🆕 ÚKOL NA **20. 8. 2026 ODPOLEDNE** — stáhnout a otestovat Qwen 3.8 (JEN NA WIFI)
+
+Připraveno 19. 8. 2026 na mobilních datech, proto se nic nestahovalo. **Termín: 20. 8. 2026 odpoledne**
+(12:00–20:00, přání učitele) — a **jen na skutečné wifi**, nikdy na hotspotu z iPhonu (model má ~18 GB).
+
+**Spustit jedním příkazem:**
+```bash
+python3 ~/Desktop/Omega/skripty/zkouska_qwen38.py --zkouska
+```
+
+- Skript: `~/Desktop/Omega/skripty/zkouska_qwen38.py` · návod: `zkouska_qwen38-NAVOD.md` (vedle něj)
+- Podklady a zdroje: `~/Desktop/Omega/rozdelane/pruzkum-modelu-2026-08.md`
+- Skript se **sám odmítne spustit** mimo odpoledne, na mobilních datech (ověřeno měřením — hotspot
+  se podepíše `sname = iPhone` a jede z rozsahu 172.20.10.0/28), při málu místa a na staré ollamě.
+  Když si typem připojení není jistý, taky nejede (fail-closed).
+- **Doma na wifi napřed jednou:** `python3 ~/Desktop/Omega/skripty/zkouska_qwen38.py --zapamatuj-sit`
+
+**🚧 BLOKUJE TO:** nainstalovaná **ollama je 0.32.9, potřeba ≥ 0.32.12** — MLX varianta na ní nepojede.
+Povýšení ollamy je zásah do instalace → **rozhodne učitel**, sám to nedělám. Bez toho zkouška nemá smysl.
+
+**Zkouška = skutečná práce, ne benchmark:** tatáž prezentace `Škola/6/06Teplota/TEPLOTA.pptx`,
+měřítko ThinkingCapu z 19. 8. 2026 = **23 snímků / ~10 min / 11 237 B / 0 selhaných popisů**.
+Kvalitu rozhoduje **člověk nebo nezávislý kontrolor pohledem na 3 skutečné snímky**, ne model sám.
+
+**⚠️ VEDLEJŠÍ NÁLEZ (platí i bez Qwenu):** `Omega/skripty/popis_prezentace.py` **nenastavuje `num_ctx`**
+a `OLLAMA_CONTEXT_LENGTH` není nikde v systému (ověřeno) → jede na výchozích ~4096, které dlouhé
+vstupy **tiše ořezávají**. Může nám to ubírat obsah už teď u velkých snímků. Doplnit `num_ctx: 32768`
+i do ThinkingCapového volání a jednu hustou prezentaci přepsat nanovo jako důkaz.
 
 ### 📝 PODNĚT K ROZŠÍŘENÍ VÝKLADU — `fyzika/8-rocnik/elektrina/elektricky-proud-mereni` (19. 8. 2026)
 
@@ -68,6 +115,45 @@ Otázky se proto NEVYMÝŠLEJÍ — čeká se na rozšíření výkladu. Navrže
 ⚠️ Rozšíření výkladu se musí **opřít o zdrojové podklady učitele** (`/Users/Shared/Škola/8/`),
 nesmí se vymyslet — obsahová ústava, kap. 1. Bez doložení v podkladech se bod nedoplňuje
 a podtéma prostě zůstane na 18 otázkách (schváleno učitelem 19. 8. 2026).
+
+### 🆕 PŘIBYLO 19. 8. 2026 V NOCI (uzávěrka session)
+
+**HOTOVÉ A NASAZENÉ:**
+- **Kvízy fyziky 8, elektřina:** `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`
+  dorovnány na **21 otázek**; `elektricky-proud-mereni` na **18** (na 21 výklad nestačí — podnět
+  k rozšíření výkladu je zapsaný níže). Commity **6262f9f** a **17084f4**.
+- **Úspora kontextu:** subagenti mají **strop 1 500 znaků** odpovědi, zápis do sdílených souborů
+  dělá **výhradně exekutor**, historie `PROGRESS.md` a `SAMOSTATNY-REZIM.md` přesunuta do
+  `PROGRESS-ARCHIV.md` a `SAMOSTATNY-REZIM-ARCHIV.md`.
+- **Popisy prezentací fyziky 6 jsou KOMPLETNÍ** — 6 nových popisů, ověřeno proti skutečnému obsahu
+  prezentací. Tím padla blokáda další práce na fyzice 6. **Běží dávka na ostatní ročníky**
+  (7. ročník má 23 prezentací) — do jejích souborů teď nesahat.
+- **Přejmenována prezentace** `Škola/6/05 Čas/,.pptx` (uložená omylem pod názvem čárka) na
+  **`Čas a jeho měření.pptx`**; stejně přejmenován i její popis
+  `Omega/dokumenty/prezentace-popisy/Čas a jeho měření.md` a sjednocena cesta v jeho hlavičce.
+  Ověřeno kontrolním součtem SHA-256 před i po (`468411ab…a7c952`, shoda). Evidence
+  `Omega/dokumenty/kontrola-podkladu-fyzika6.md` opravena; v archivech zůstává starý název
+  jako historický zápis. Schválil učitel.
+- **Kostka 170 px → 10 cm** opravena ve `Omega/skripty/snimky_podkastu.py` (oprava je v KÓDU,
+  ne v obrázku).
+
+**🔴 NÁLEZY K OPRAVĚ / ROZHODNUTÍ:**
+- **`num_ctx` (vážné, opravuje se):** `Omega/skripty/popis_prezentace.py` nenastavoval velikost
+  kontextu → model jel na výchozích **~4096 tokenech místo 262144** a dlouhý vstup se **tiše
+  ořezával**. Doplňuje se. **Hotové popisy může být potřeba předělat** — ukáže to zkouška
+  na husté prezentaci.
+- **Nasazené video `skupenstvi-latek-dialog` obsahuje CHYBNOU verzi kostky** (oprava je jen
+  v kódu) → **čeká rozhodnutí učitele, zda video přegenerovat.** Drobnost k témuž: kostka
+  v kulaté misce mírně propadá pod dno.
+- **🔴 VÁŽNÝ NÁLEZ — `VrhSimulace.astro`** (fyzika 7, pohyb): ukazuje dětem „kámen doletěl X m,
+  vystoupal Y m", ale **čísla vznikají dělením pixelových souřadnic číslem 6, které nikde není
+  definované jako měřítko**; gravitace v kódu je 0,22 px/snímek², což by odpovídalo ~132 m/s².
+  Dítě tedy dostane věrohodně vypadající číslo, které **s fyzikou nesouvisí**. **NEOPRAVENO,
+  čeká rozhodnutí.** Mírnější případy téhož druhu: `DifuzeSimulace` (čas = snímky/60 vydávaný
+  za dobu difuze) a `CaraSimulace` („Rychlost 2" = px/snímek).
+
+**🟠 OTEVŘENÉ OTÁZKY NA UČITELE:** přegenerovat `skupenstvi-latek-dialog`? · opravit `VrhSimulace`? ·
+povýšit ollamu na ≥ 0.32.12? · napsat Petru Němcovi o svolení k jeho 13 videím?
 
 ## [cesty] Cestovatelský deník
 

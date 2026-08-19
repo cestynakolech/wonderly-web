@@ -9,7 +9,26 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **19. 8. 2026 (uzávěrka dlouhé session)** — vše commitnuté a PUSHNUTÉ
+> ### Poslední stav: **19. 8. 2026 v noci (uzávěrka session)**
+> **Nasazeno:** kvízy F8 elektřina — `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`
+> na **21 otázek**, `elektricky-proud-mereni` na 18 (víc výklad neunese, podnět k rozšíření zapsán);
+> commity **6262f9f**, **17084f4**. **Popisy prezentací fyziky 6 KOMPLETNÍ** (6 nových, ověřeno proti
+> obsahu) — blokáda fyziky 6 padla; běží dávka na ostatní ročníky. Zavedena **úspora kontextu**
+> (agenti max 1 500 znaků, do sdílených souborů píše jen exekutor, historie v archivech).
+> Prezentace `Škola/6/05 Čas/,.pptx` přejmenována na **`Čas a jeho měření.pptx`** (i její popis).
+> **Nálezy:** `popis_prezentace.py` nenastavoval `num_ctx` → jel na ~4096 místo 262144 a **tiše ořezával**
+> vstup (opravuje se, hotové popisy možná předělat); kostka 170 px → 10 cm opravena v `snimky_podkastu.py`,
+> ale **chybná verze je v nasazeném videu `skupenstvi-latek-dialog`** (čeká rozhodnutí);
+> **🔴 `VrhSimulace.astro`** (F7 pohyb) ukazuje dětem „doletěl X m" z pixelů dělených číslem 6, gravitace
+> 0,22 px/snímek² ≈ 132 m/s² — **čísla nesouvisí s fyzikou, NEOPRAVENO**; mírněji též `DifuzeSimulace`
+> a `CaraSimulace`. **Díl 15 se přepracovává** — učitel rozhodl, že v polemikách se MAREK plete a EVA
+> ho opravuje (pravidlo v ústavě, skillu i zadání); zvuk i videa znovu, nasazení až po kontrolorovi.
+> **Otevřeno pro učitele:** přegenerovat `skupenstvi-latek-dialog`? opravit `VrhSimulace`? povýšit
+> ollamu (0.32.9 < potřebných 0.32.12, blokuje zkoušku Qwenu 3.8 dne 20. 8. odpoledne)? napsat
+> Petru Němcovi o svolení k jeho 13 videím?
+> **Fronta a přesný postup: `SAMOSTATNY-REZIM.md`, úplně nahoře.**
+>
+> ### Předchozí stav: **19. 8. 2026 (uzávěrka dlouhé session)** — vše commitnuté a PUSHNUTÉ
 > **Nasazeno:** zrušena placená výroba zvuku (zarážka v obou skriptech, zvuk je výhradně
 > lokální OmniVoice — učitel hlas schválil); odstraněno **41 cizích videí** z webu (zůstalo
 > 50 videí učitele) a postavena **brána `testy/cizi-videa.mjs`** + seznam `testy/youtube-vlastni.json`
