@@ -69,6 +69,98 @@ const zdravy = [
 	);
 }
 
+// ------------------------------------------------- PODVRH: ČÍSELNÝ ÚNIK (nález 19. 8. 2026)
+// Měřidlo bylo vůči číslům slepé: `rozlisujiciSlova()` používalo `slova()`, které zahazuje
+// tokeny kratší než 4 znaky VČETNĚ ČÍSEL. U odpovědi „kolem 80 °C" tak zbylo jediné
+// rozlišující slovo a podmínka `prozrazena.length >= 2` se nemohla splnit. Tenhle skutečný
+// únik z bloku 8. ročníku (teplo a změny skupenství / var) proto proklouzl na web.
+{
+	const podvrh = [
+		ot('Jak závisí teplota varu na tlaku?', ['nižší tlak → nižší teplota varu', 'nižší tlak → vyšší teplota varu', 'nezávisí'],
+			'V horách vře voda dřív (~80 °C).'),
+		ot('Kolik přibližně stupňů má vroucí voda vysoko v horách?', ['kolem 80 °C', 'přesně 100 °C', 'přes 120 °C'],
+			'Nízký tlak vysoko nad mořem posune bod varu dolů.'),
+	];
+	const v = zkontrolujBlok('test/unik-cislo', podvrh);
+	tvrdi('číselný únik („80 °C") se najde', v.uniky.length >= 1);
+	tvrdi('číselný únik ukazuje na otázku o horách', v.uniky.some((u) => /vysoko v horách/.test(u.otazka)));
+}
+
+// REGRESE k tomu: čísla si početní úlohy půjčují pořád. Kdyby stačila samotná shoda čísla,
+// hlásilo měřidlo nad daty webu 59 nálezů místo 4 — samé příklady se stejnou hodnotou.
+{
+	const pujcenaCisla = [
+		ot('Břemeno 100 N visí na volné kladce. Jak se jeho tíha rozdělí mezi dvě části lana?', ['každá nese 50 N', 'každá nese 100 N', 'jedna nese vše'], ''),
+		ot('Břemeno váží 200 N. Jakou silou ho zvednu na jedné volné kladce?', ['100 N', '200 N', '400 N'], 'Volná kladka sílu půlí.'),
+	];
+	const v = zkontrolujBlok('test/regrese-pujcene-cislo', pujcenaCisla);
+	tvrdi('stejné číslo ve dvou početních úlohách NENÍ únik', v.uniky.length === 0);
+}
+
+// PODVRH: ČÍSLO V ZADÁNÍ CÍLE NEDĚLÁ Z OTÁZKY POČETNÍ ÚLOHU (nález kontroly 19. 8. 2026)
+// Výjimka „početní úloha jako cíl" byla děravá: vypnula se, jakmile znění cílové otázky
+// obsahovalo JAKÉKOLI číslo — i takové, které s unikající hodnotou vůbec nesouvisí.
+// Tady je „5 minut ohřevu" pouhá kulisa, unikající hodnota 80 v zadání není a zdroj ji
+// vyzradí ve vysvětlení. To je skutečný únik a měřidlo ho musí najít.
+{
+	const podvrh = [
+		ot('Jak závisí teplota varu na tlaku vzduchu v horách?', ['nižší tlak → nižší teplota varu', 'nižší tlak → vyšší teplota varu', 'nezávisí'],
+			'V horách vře voda dřív, kolem 80 °C.'),
+		ot('Na kolik stupňů vře voda v horách po 5 minutách ohřevu?', ['80 °C', '100 °C', '60 °C'], ''),
+	];
+	const v = zkontrolujBlok('test/unik-cislo-kulisa', podvrh);
+	tvrdi('číslo jako kulisa v zadání cíle nevypne kontrolu úniku', v.uniky.length >= 1);
+	tvrdi('nález ukazuje na otázku o varu v horách', v.uniky.some((u) => /po 5 minutách/.test(u.otazka)));
+}
+
+// REGRESE k témuž: dvě početní úlohy si legitimně půjčují TÝŽ VSTUP (tíha 100 N).
+// Unikající hodnota je tu ve ZNĚNÍ zdrojové otázky jako vstup příkladu — to není
+// prozrazení, ale běžné sdílení hodnoty mezi příklady. Tohle byl původní důvod
+// výjimky a nesmí se sem vrátit 20+ falešných poplachů.
+{
+	const pujcenyVstup = [
+		ot('Kolik váží těleso o tíze 100 N zavěšené na pevné kladce, tahá-li lano silou stejné velikosti?', ['100 N', '250 N', '400 N'], 'Pevná kladka velikost síly nemění.'),
+		ot('Jakou silou zvednu na volné kladce břemeno o tíze 200 N?', ['100 N', '200 N', '400 N'], 'Volná kladka sílu půlí.'),
+	];
+	const v = zkontrolujBlok('test/regrese-pujceny-vstup', pujcenyVstup);
+	tvrdi('týž vstup (100 N) ve dvou početních úlohách NENÍ únik', v.uniky.length === 0);
+}
+
+// REGRESE ze SKUTEČNÝCH DAT (7. ročník, gravitační síla): číslo musí zdroj vyslovit
+// U TÉHOŽ SLOVA jako odpověď cíle. „0,6 kg × 10 = 6 N" mluví o převodu hmotnosti,
+// ne o odpovědi „přibližně 10 N" — konstantu g dosazuje každý příklad v bloku.
+{
+	const gVeVypoctu = [
+		ot('Žehlička má hmotnost 0,6 kg. Jakou silou ji Země přitahuje?', ['6 N', '60 N', '0,6 N'], '0,6 kg × 10 = 6 N.'),
+		ot('Jakou silou působí Země na těleso o hmotnosti 1 kg?', ['přibližně 10 N', 'přibližně 1 N', 'přibližně 100 N'], 'Gravitační síla na 1 kg je asi 10 N.'),
+	];
+	const v = zkontrolujBlok('test/regrese-g-ve-vypoctu', gVeVypoctu);
+	tvrdi('konstanta g použitá ve výpočtu („× 10") NENÍ únik odpovědi „10 N"', v.uniky.length === 0);
+}
+
+// REGRESE ze SKUTEČNÝCH DAT (7. ročník, jednoduché stroje): hodnotu, kterou má žák
+// rovnou ve VLASTNÍM zadání („Zvedáme 2 kg (20 N)…" s odpovědí „20 N"), nemůže nikdo
+// prozradit — otázka si ji říká sama. Jediné, co tuhle dvojici drží mimo nálezy, je
+// pravidlo „číslo už v zadání cíle"; bez něj tenhle případ spadne.
+{
+	const uzVZadani = [
+		ot('Zvedáme 2 kg (20 N) přes pevnou kladku. Jakou silou táhneme?', ['20 N', '10 N', '40 N'], 'Pevná kladka jen mění směr — síla zůstává 20 N.'),
+		ot('Jakou silou zvedneme 20 N přes volnou kladku?', ['10 N', '20 N', '5 N'], 'Volná kladka sílu půlí — lano nese břemeno nadvakrát.'),
+	];
+	const v = zkontrolujBlok('test/regrese-cislo-uz-v-zadani', uzVZadani);
+	tvrdi('číslo stojící ve vlastním zadání cíle NENÍ únik', v.uniky.length === 0);
+}
+
+// REGRESE: prozrazená POLOVINA číselné odpovědi ještě odpověď nedává.
+{
+	const pulka = [
+		ot('Kolikrát za sekundu projde napětí v síti nulou (frekvence 50 Hz)?', ['stokrát', 'padesátkrát', 'jednou'], ''),
+		ot('Jaké napětí a frekvence jsou v české rozvodné síti?', ['230 V a 50 Hz', '110 V a 60 Hz', '400 V a 50 Hz'], ''),
+	];
+	const v = zkontrolujBlok('test/regrese-pulka-cisla', pulka);
+	tvrdi('prozrazené jen jedno ze dvou čísel odpovědi NENÍ únik', v.uniky.length === 0);
+}
+
 // ---------------------------------------------------------------- REGRESE FALEŠNÝCH POPLACHŮ
 // Tyhle čtyři dvojice první verze měřidla hlásila jako duplicity. Nejsou to duplicity:
 // liší se číslem nebo písmenem, tedy přesně tím, na co se ptají. Filtr slov ≥ 4 znaky

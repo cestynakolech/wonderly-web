@@ -1,3 +1,47 @@
+# 🧭 STAV K 19. 8. 2026 (zápis před výpadkem internetu — NIC SE NEPUSHOVALO)
+
+> Internet vypadl / vypadne. Vše níže je LOKÁLNĚ commitnuté. Až bude síť: `git push` v `wonderly-web` i v `Omega`.
+
+## [skola2] Školní web — fyzika
+
+**HOTOVÉ A NASAZENÉ** (commit `30eabd1`, ověřeno `curl` na živém webu):
+- F9 `magneticke-pole` — 3 podtémata dostala video + Wordwall.
+- F7 `kladka` a `naklonena-rovina` — kvízy 10 → 19 otázek.
+
+**HOTOVÉ, NENASAZENÉ** (leží v pracovním stromu / lokálním commitu, čeká jen na push):
+- F8 `teplo-a-zmeny-skupenstvi` — 4 podtémata, kvízy 12 → 18 otázek.
+- Oprava měřidla `testy/uniky.mjs` (nově vidí i číselné úniky) + **3 skutečné úniky opravené v datech**: `atmosfericky-tlak`, `vlastnosti-stridaveho-proudu`, `microbit`.
+
+**🔴 ROZDĚLANÉ — PŘÍŠTÍ KROK (tady se pokračuje):**
+Měřidlo `testy/uniky.mjs` má **děravou výjimku „početní úloha jako cíl"**: kontrolu vypne, jakmile cílová otázka obsahuje JAKÉKOLI číslo — i úplně nesouvisející.
+- Doložený podvrh, který dnes propadne: otázka A s vysvětlením „V horách vře voda dřív, kolem 80 °C." + otázka B „Na kolik stupňů vře voda v horách po 5 minutách ohřevu?" s odpovědí „80 °C" → měřidlo vrátí **0 nálezů, má vrátit ≥ 1**.
+- Oprava musí zároveň **NEhlásit** dva příklady, které legitimně sdílejí stejnou vstupní hodnotu (např. 100 N).
+- Postup: 1) přidat OBA případy do `testy/uniky-obousmerne.mjs`, 2) teprve pak opravit podmínku, 3) projít nové nálezy nad celými daty.
+
+**⏳ ČEKÁ (připravené, stačí vložit):**
+F8 elektřina — **24 hotových otázek** v `~/Desktop/Omega/rozdelane/kvizy-f8-elektrina.md`, vložit do `src/data/kvizy.ts`: `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`, `elektricky-proud-mereni` — každé 12 → 18.
+
+## [cesty] Cestovatelský deník
+
+**HOTOVÉ A NASAZENÉ** (též commit `30eabd1`): opraveno 3× mrtvé `videoId`, 4 data míst, 8 + 1 názvů videí.
+
+**HOTOVÉ, NENASAZENÉ:**
+- Kluesserath — trojdílné video zapsané na web.
+- Oprava příčiny zdvojených názvů ve `Omega/skripty/videa_na_web.py`.
+- Oprava hlídače `Omega/skripty/hlidac_zaseknuti.py` (poznával vlastní `grep` jako běžící automat).
+
+**Stav míst:** Kluesserath i Neumagen-Dhron nahrané na YouTube a kompletní.
+
+**Fronta dál:** **Trittenheim** čeká na krok „nasadit video" = **ruční přesun do složky `nasazeno/`** — žádný automat to nedělá.
+
+**🔧 VADNÉ MAPY k přegenerování:**
+- nasazené `Sassenage_v4` má na úvodní mapě jako cíl **Saint-Denis-en-Bugey místo Sassenage** (58 km vedle),
+- `Saint-Maurice-sur-Moselle` ukazuje jako cíl **Ornans**.
+
+**❓ NEROZHODNUTO:** u Kluesserathu je na kanálu **starší 3dílná verze ze 16. 8.**, novější **6dílný render ze 17. 8.** leží nenasazený — výměna by šla přes `vymena_videa.vymen()`.
+
+---
+
 # ⚡ ČÍM ZAČÍT (stav po bloku 16. 8. 2026, večer)
 
 **Poslední commit wonderly-web: `b057ac5`** (poslední skola2 commit `ed585b6`). V pracovním stromu jsou necommitnuté změny (`PROGRESS.md`, `SAMOSTATNY-REZIM.md`) — než se prohlásí „vše nasazené", je třeba je zkontrolovat, commitnout a pushnout.

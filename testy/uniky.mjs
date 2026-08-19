@@ -56,6 +56,54 @@ export function slova(text) {
 }
 
 /**
+ * Nosná slova VČETNĚ ČÍSEL — pro hledání úniku odpovědi.
+ *
+ * Proč zvlášť od `slova()` (nález 19. 8. 2026): filtr „≥ 4 znaky" zahazoval i čísla,
+ * takže u číselné odpovědi („kolem 80 °C") zbylo jediné rozlišující slovo a podmínka
+ * `prozrazena.length >= 2` se nemohla nikdy splnit — měřidlo bylo vůči číselným
+ * únikům slepé. Skutečný únik, který takhle proklouzl: vysvětlení u „Jak závisí
+ * teplota varu na tlaku?" znělo „V horách vře voda dřív (~80 °C)." a jiná otázka
+ * v témž bloku se ptala, kolik stupňů má vroucí voda v horách (odpověď „kolem 80 °C").
+ * Právě u čísel je přitom únik nejtvrdší — číslo JE celá odpověď.
+ * (Totéž už dřív řešila `slovaZneni()` pro porovnání dvou znění; tady se ale kmeny
+ * needěláme, protože se porovnává se skutečným textem otázky, ne dvě znění mezi sebou.)
+ */
+export function slovaSCisly(text) {
+	return new Set(
+		normalizuj(text)
+			.split(' ')
+			.filter((s) => (s.length >= 4 || /[0-9]/.test(s)) && !STOP.has(s)),
+	);
+}
+
+/**
+ * Vícemístná čísla obsažená v textu (po normalizaci). Jednociferná se nepočítají —
+ * stejně jako u `celeCislo` níž: „2" v „2 kg" je běžná součást zadání, ne hodnota.
+ */
+export function cislaZTextu(text) {
+	return new Set(
+		normalizuj(text)
+			.split(' ')
+			.filter((s) => /^[0-9]+$/.test(s) && s.length >= 2),
+	);
+}
+
+/**
+ * Dvojice sousedních slov, v nichž je vícemístné číslo („80 c", „100 kg", "kolem 80").
+ * Samotné číslo nic neznamená — teprve číslo U SVÉ JEDNOTKY je odpověď. Bez tohohle
+ * rozlišení hlásilo měřidlo za únik i „× 10" ve výpočtu F = m · g proti odpovědi „asi 10 N".
+ */
+export function dvojiceSCislem(text) {
+	const t = normalizuj(text).split(' ').filter(Boolean);
+	const jeCislo = (x) => /^[0-9]+$/.test(x) && x.length >= 2;
+	const out = new Set();
+	for (let i = 0; i + 1 < t.length; i++) {
+		if (jeCislo(t[i]) || jeCislo(t[i + 1])) out.add(`${t[i]} ${t[i + 1]}`);
+	}
+	return out;
+}
+
+/**
  * Slova pro POROVNÁNÍ DVOU ZNĚNÍ — na rozdíl od `slova()` bere i krátké tokeny s číslicí.
  *
  * První verze měřidla tohle neuměla a byl z toho rovnou falešný poplach: „Co platí
@@ -93,9 +141,9 @@ function jaccard(a, b) {
 export function rozlisujiciSlova(otazka) {
 	const odpovedi = otazka.odpovedi ?? [];
 	if (odpovedi.length < 2) return new Set();
-	const spravna = slova(odpovedi[0]);
+	const spravna = slovaSCisly(odpovedi[0]);
 	const ostatni = new Set();
-	for (const o of odpovedi.slice(1)) for (const s of slova(o)) ostatni.add(s);
+	for (const o of odpovedi.slice(1)) for (const s of slovaSCisly(o)) ostatni.add(s);
 	return new Set([...spravna].filter((s) => !ostatni.has(s)));
 }
 
@@ -117,7 +165,7 @@ export function zkontrolujBlok(klic, otazky) {
 		o,
 		slovaTextu: slova(o.text),
 		zneni: slovaZneni(o.text),
-		slovaCele: slova(textOtazky(o)),
+		slovaCele: slovaSCisly(textOtazky(o)),
 		rozlisujici: rozlisujiciSlova(o),
 		odpovediNorm: (o.odpovedi ?? []).map((x) => normalizuj(x)).sort().join('|'),
 		spravnaNorm: normalizuj((o.odpovedi ?? [])[0]),
@@ -161,11 +209,75 @@ export function zkontrolujBlok(klic, otazky) {
 				// (a) dost rozlišujících slov cíle: dvě libovolná, nebo jedno dlouhé (≥ 8 znaků,
 				//     takové slovo je samo o sobě odpověď — „kondenzace", „anemometr")
 				const pokryti = prozrazena.length / cil.rozlisujici.size;
-					const dostSlov = prozrazena.length >= 2 && pokryti >= 0.7;
+				// Dvě libovolná rozlišující slova při vysokém pokrytí — původní pravidlo.
+				// NEBO jediné vícemístné číslo při pokrytí aspoň poloviny: u číselné
+				// odpovědi („kolem 80 °C" → rozlišující {kolem, 80}) je to číslo celá
+				// odpověď a druhé slovo se prostě nemá kde vzít. Jednociferná čísla se
+				// nepočítají — „2" v „2 kg" je běžná součást zadání, ne prozrazení.
+				const cislaCile = [...cil.rozlisujici].filter((s) => /[0-9]/.test(s) && s.length >= 2);
+				const prozrazenaCisla = prozrazena.filter((s) => /[0-9]/.test(s) && s.length >= 2);
+				// Číselný únik se hlásí, jen když jsou prozrazena VŠECHNA vícemístná čísla
+				// odpovědi. Půlka („230 V a 50 Hz", shoduje se jen 50) odpověď nedává.
+				const celeCislo = cislaCile.length >= 1 && prozrazenaCisla.length === cislaCile.length;
+				const dostSlov =
+					(prozrazena.length >= 2 && pokryti >= 0.7) ||
+					(celeCislo && pokryti >= 0.5);
 				if (!dostSlov) continue;
-				// (b) žák musí poznat, KE KTERÉ otázce to patří — sdílené nosné slovo se zněním cíle
-				const spolecneTema = [...cil.slovaTextu].some((s) => zdroj.slovaCele.has(s));
-				if (!spolecneTema) continue;
+				// POČETNÍ ÚLOHA jako cíl se u číselných nálezů přeskakuje — týž postup, jaký
+				// už používá `cisla-ve-vykladu.mjs`: má-li ZADÁNÍ otázky vlastní čísla, je
+				// odpověď VÝSLEDEK, který si žák spočítá. Že se stejné číslo („100 N", „10 N")
+				// objeví i u jiné úlohy téhož bloku, mu nic neprozradí — příklady si čísla
+				// půjčují pořád. Bez téhle výjimky hlásilo měřidlo 27 nálezů, z toho 21
+				// právě takových půjčených čísel z příkladů.
+				// (b) žák musí poznat, KE KTERÉ otázce to patří — sdílená nosná slova se zněním cíle.
+				// U ČÍSELNÝCH nálezů je laťka dvě sdílená slova, ne jedno: čísla se ve fyzice
+				// opakují náhodně (80 cm × 80 s, 50 N × 50 km/h, 100 Pa × 100 kg) a jedno sdílené
+				// slovo je pak přemostí do falešného poplachu. Měřeno 19. 8. 2026: s laťkou 1
+				// hlásilo měřidlo 59 nálezů, drtivou většinou početních úloh, které si jen půjčují
+				// stejné číslo; s laťkou 2 zbydou jen nálezy, kde otázky mluví opravdu o témže.
+				const spolecna = [...cil.slovaTextu].filter((s) => zdroj.slovaCele.has(s));
+				const maCislo = prozrazena.some((s) => /[0-9]/.test(s));
+				// Výjimka platí JEN pro skutečnou početní úlohu jako cíl. Poznají se podle
+				// dvou znaků naráz (oprava po nezávislé kontrole 19. 8. 2026 — dřív stačilo,
+				// že cíl měl v zadání JAKÉKOLI číslo, a výjimka vypnula kontrolu i tam,
+				// kde ta číslovka byla pouhá kulisa: „…po 5 minutách ohřevu?" s odpovědí 80 °C):
+				//   1. unikající hodnota NENÍ v zadání cíle — je to teprve výsledek výpočtu
+				//      (v zadání početní úlohy stojí vstupy, ne výsledek), a
+				//   2. tutéž hodnotu má ve svém ZNĚNÍ zdrojová otázka, tedy jako vstup svého
+				//      vlastního příkladu. Teprve to je legitimní půjčení hodnoty mezi příklady
+				//      (dvě úlohy počítající s tíhou 100 N) — kvůli němu výjimka vznikla.
+				// Číslo, které zdroj vysloví až ve VYSVĚTLENÍ, vstup příkladu není: to je
+				// prozrazený výsledek a hlásí se.
+				if (maCislo) {
+					const cislaZneniCile = cislaZTextu(cil.o.text);
+					const cislaZneniZdroje = cislaZTextu(zdroj.o.text);
+					const cislaOdpovediZdroje = cislaZTextu((zdroj.o.odpovedi ?? [])[0]);
+					// (1) Číslo, které stojí v zadání SAMOTNÉHO cíle, nemůže nikdo prozradit —
+					//     žák ho má rovnou v otázce („…při napětí 230 V?" s odpovědí „230 mA").
+					const uzVZadaniCile =
+						prozrazenaCisla.length > 0 && prozrazenaCisla.every((c) => cislaZneniCile.has(c));
+					// (2) LEGITIMNÍ PŮJČENÍ HODNOTY MEZI PŘÍKLADY — kvůli němu výjimka vznikla.
+					//     Cíl je početní úloha (v zadání má vlastní čísla) a unikající hodnota je
+					//     u zdroje „doma": buď jako vstup jeho zadání (dvě úlohy s tíhou 100 N),
+					//     nebo jako jeho vlastní správná odpověď (dva příklady, kterým náhodou
+					//     vyjde totéž — 60 N a 60 N). Hodnotu, kterou zdroj vysloví až ve
+					//     VYSVĚTLENÍ a svou vlastní odpovědí není, sem nepočítáme: to je
+					//     prozrazený cizí výsledek a hlásí se.
+					const pujcenaHodnota =
+						cislaZneniCile.size > 0 &&
+						prozrazenaCisla.length > 0 &&
+						prozrazenaCisla.every(
+							(c) => !cislaZneniCile.has(c) && (cislaZneniZdroje.has(c) || cislaOdpovediZdroje.has(c)),
+						);
+					// (3) Číslo prozrazuje, jen když ho zdroj vyslovil U TÉHOŽ SLOVA jako odpověď
+					//     cíle („kolem 80 °C" × „…kolem 80 °C"). Holá shoda číslic nestačí:
+					//     „58 kg × 10 = 580 N" mluví o převodu, ne o odpovědi „asi 10 N".
+					const dvojiceOdpovedi = dvojiceSCislem((cil.o.odpovedi ?? [])[0]);
+					const dvojiceZdroje = dvojiceSCislem(textOtazky(zdroj.o));
+					const cisloUSvehoSlova = [...dvojiceOdpovedi].some((d) => dvojiceZdroje.has(d));
+					if (uzVZadaniCile || pujcenaHodnota || !cisloUSvehoSlova) continue;
+				}
+				if (spolecna.length < (maCislo ? 2 : 1)) continue;
 				uniky.push({
 					klic,
 					prozrazuje: zdroj.o.text,

@@ -9,6 +9,18 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
+> ### Poslední stav: **19. 8. 2026** — úklid před výpadkem internetu, NIC NENÍ PUSHNUTÉ
+> Nasazeno (commit `30eabd1`, ověřeno curlem): F9 `magneticke-pole` 3 podtémata video+Wordwall;
+> F7 `kladka` a `naklonena-rovina` kvízy 10 → 19; deník 3× mrtvé videoId, 4 data míst, 8+1 názvů videí.
+> Lokálně commitnuté, čeká na push: F8 `teplo-a-zmeny-skupenstvi` 12 → 18 otázek; Kluesserath
+> trojdílné video na webu; oprava měřidla `testy/uniky.mjs` (číselné úniky) + 3 opravené úniky
+> (`atmosfericky-tlak`, `vlastnosti-stridaveho-proudu`, `microbit`); opravy `videa_na_web.py`
+> a `hlidac_zaseknuti.py` v Omeze. **Příští krok:** děravá výjimka „početní úloha jako cíl"
+> v `testy/uniky.mjs` — doložený podvrh (voda vře v horách, 80 °C) propadne; nejdřív oba
+> případy do `testy/uniky-obousmerne.mjs`, pak opravit podmínku. Připraveno k vložení:
+> 24 otázek F8 elektřina v `~/Desktop/Omega/rozdelane/kvizy-f8-elektrina.md`.
+> Podrobnosti a deník: **`SAMOSTATNY-REZIM.md`, úplně nahoře.**
+>
 > Poslední stav: **16. 8. 2026** — polemiky-podkásty F6 dokončeny díly **7–14**
 > (čas a měření, teplota, teplotní roztažnost, elektrické a magnetické vlastnosti,
 > jednoduché obvody, pokusy, souhrnné opakování veličin) — všechny nasazené,
