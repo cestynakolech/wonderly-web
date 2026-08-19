@@ -62,8 +62,23 @@
 1. **Díl 15 `pololetni-shrnuti`** — ⚠️ AKTUALIZACE 19. 8. v noci: **PŘEPRACOVÁVÁ SE OD ZAČÁTKU** (nové pravidlo: MAREK se plete, EVA opravuje). Zvuk i videa se vyrábějí ZNOVU. **NENASAZOVAT bez nezávislé kontroly.**
 2. ~~Popisy 6 chybějících prezentací fyziky 6~~ — ✅ **HOTOVO 19. 8. v noci**, fyzika 6 už není blokovaná. Běží dávka na ostatní ročníky (7. ročník 23 prezentací).
 3. **Nasazení hotových zkontrolovaných podkástových videí** — běží.
-4. **DOROVNÁNÍ KVÍZŮ NA 21 OTÁZEK — chybí 495 otázek u 82 podtémat** (F6 76, F7 39, F8 225, F9 155).
+4. **DOROVNÁNÍ KVÍZŮ NA 21 OTÁZEK** — číslo 495/82 podtémat bylo zastaralé, viz vyjasnění 19. 8. níže.
    ⚠️ U krátkých výkladů nemusí být z čeho 21 otázek udělat — pak se **hlásí podnět k rozšíření výkladu**, NEobchází se to opakováním téže otázky jinými slovy (obsahová ústava: kvíz smí zkoušet jen to, co je ve výkladu).
+
+   **📏 VYJASNĚNÍ ROZPORU 19. 8. 2026 (naimportovaná data, ne regex nad textem):**
+   Staré číslo 495/82 (řádek 57: „jen fyzika") skutečně počítalo POUZE fyziku, ne celý web — proto sedí
+   řádově blíž číslu za fyziku samotnou, ne za celý web. Navíc mezitím přibyly otázky (commit `6262f9f`
+   elektřina +33, dnešní `7868c64` dorovnání bloků `ohmuv-zakon`, `elektricke-napeti-mereni`,
+   `elektricky-proud-v-kovech-odpor` +27), takže 495 je prostě zastaralý otisk, ne chyba filtru.
+   **Dnešní přesný stav (PO commitu 7868c64)**, změřeno příkazem nad naimportovanými daty
+   (`node -e "import('./testy/data.mjs').then(async({nactiData})=>{...})"`, cíl 21/podtéma):
+   - **CELÝ WEB** (fyzika+informatika+prac. činnosti): **891 chybějících otázek, 124 podtémat pod cílem**
+     (F6 88, F7 39, F8 165, F9 155, I7 176, I8 163, I9 96, PC6 9).
+   - **JEN FYZIKA**: **447 chybějících, 78 podtémat pod cílem** (F6 88, F7 39, F8 165, F9 155).
+   Před dnešním dorovnáním (27 otázek do 3 bloků F8 elektřina) bylo naměřeno 918 celkem / 192 u F8 —
+   918−27=891 a 192−27=165 přesně sedí, takže rozdíl u F8 (225→192→165) je z přírůstku otázek, ne z chyby měření.
+   **Podnět ke kontrole:** brána `zkontroluj.mjs` hlídá délkovou nápovědu až od rozdílu 15 znaků — u otázky
+   o multimetru prošla správná odpověď delší jen o 3 znaky. Zvážit zpřísnění prahu (NEUPRAVOVAT bez schválení).
 5. **Jediná otevřená otázka ústavy: bod F** (jedno vysvětlení na díl × polemika pokryje celý kvíz) — čeká na učitele.
 
 **⏳ PŘIPRAVENÁ PRÁCE, KTERÁ JEŠTĚ NENÍ ZAPSANÁ DO DAT** (leží v `~/Desktop/Omega/rozdelane/`, stačí vložit do `src/data/kvizy.ts`):
