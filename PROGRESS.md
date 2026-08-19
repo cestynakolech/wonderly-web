@@ -9,17 +9,26 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **19. 8. 2026** — úklid před výpadkem internetu, NIC NENÍ PUSHNUTÉ
-> Nasazeno (commit `30eabd1`, ověřeno curlem): F9 `magneticke-pole` 3 podtémata video+Wordwall;
-> F7 `kladka` a `naklonena-rovina` kvízy 10 → 19; deník 3× mrtvé videoId, 4 data míst, 8+1 názvů videí.
-> Lokálně commitnuté, čeká na push: F8 `teplo-a-zmeny-skupenstvi` 12 → 18 otázek; Kluesserath
-> trojdílné video na webu; oprava měřidla `testy/uniky.mjs` (číselné úniky) + 3 opravené úniky
-> (`atmosfericky-tlak`, `vlastnosti-stridaveho-proudu`, `microbit`); opravy `videa_na_web.py`
-> a `hlidac_zaseknuti.py` v Omeze. **Příští krok:** děravá výjimka „početní úloha jako cíl"
-> v `testy/uniky.mjs` — doložený podvrh (voda vře v horách, 80 °C) propadne; nejdřív oba
-> případy do `testy/uniky-obousmerne.mjs`, pak opravit podmínku. Připraveno k vložení:
-> 24 otázek F8 elektřina v `~/Desktop/Omega/rozdelane/kvizy-f8-elektrina.md`.
-> Podrobnosti a deník: **`SAMOSTATNY-REZIM.md`, úplně nahoře.**
+> ### Poslední stav: **19. 8. 2026 (uzávěrka dlouhé session)** — vše commitnuté a PUSHNUTÉ
+> **Nasazeno:** zrušena placená výroba zvuku (zarážka v obou skriptech, zvuk je výhradně
+> lokální OmniVoice — učitel hlas schválil); odstraněno **41 cizích videí** z webu (zůstalo
+> 50 videí učitele) a postavena **brána `testy/cizi-videa.mjs`** + seznam `testy/youtube-vlastni.json`
+> (neschválené YouTube ID shodí build, funguje offline); smazány všechny pokyny k vyhledávání
+> videí (záloha v `Omega/rozdelane/smazane-pokyny-vyhledavani-videi.md`); nasazeno **12 vlastních
+> animací** k výkladu fyziky 6; měřidlo `testy/uniky.mjs` porovnává čísla i s jednotkou a odhalilo
+> **8 skutečných úniků** (opraveny); kvízy F7 kladka + nakloněná rovina 10 → 19 a F8 teplo 12 → 18;
+> opraveny 3 otázky testující mimo výklad; deník: 3 mrtvá videoId, 4 data míst, 9 názvů videí,
+> Kluesserath (3 díly) a Neumagen-Dhron (2 díly) na YouTube; opraven hlídač automatů.
+> **Nově vznikla obsahová ústava `OBSAH-PRAVIDLA.md`** (řetěz PDF + prezentace → text výkladu →
+> kvízy/hry/videa), zapojená do zadání všech workerů a skillů.
+> **Závazná rozhodnutí učitele 19. 8.:** kvíz cíl **21 otázek/podtéma** (5–8 je jen velikost dávky);
+> prezentace rovnocenné s PDF; chybějící popisy prezentací dopsat automatem před další prací na
+> fyzice 6; rozdíl plán × web není vada webu; hry defaultně jen probrané učivo; **ostatní předměty
+> se teď nedělají — jen fyzika**; na web jen vlastní videa učitele; hotová videa se nepředělávají.
+> **Rozděláno:** díl 15 `pololetni-shrnuti` (zvuk část 1 hotový, 2–4 se vyrábějí — nenasazovat bez
+> nezávislé kontroly), popisy 6 prezentací (čeká na GPU), dorovnání kvízů na 21 (**chybí 495 otázek
+> u 82 podtémat**: F6 76, F7 39, F8 225, F9 155), deník Trittenheim + výměna Kluesserath 3 → 6 dílů.
+> **Fronta a přesný postup: `SAMOSTATNY-REZIM.md`, úplně nahoře.**
 >
 > Poslední stav: **16. 8. 2026** — polemiky-podkásty F6 dokončeny díly **7–14**
 > (čas a měření, teplota, teplotní roztažnost, elektrické a magnetické vlastnosti,

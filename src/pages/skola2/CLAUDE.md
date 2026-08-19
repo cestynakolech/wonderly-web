@@ -16,8 +16,10 @@ infografiky, písničky/videa, interaktivní **simulace**, procvičovací **kví
 `temata.ts` a `kvizy.ts` jsou velké — **nečíst celé**, hledat Grepem a číst výřezem.
 
 ## Konvence a pravidla (DŮLEŽITÉ)
-- **Kvíz**: cílem je medián kolem **13 otázek/podtéma** (měřeno nad daty 18. 8. 2026,
-  150 bloků, rozsah 8–22 — viz `HERMES-POKRACUJ.md`), 3 odpovědi, **správná VŽDY první** (na webu se míchá),
+- **Kvíz**: ZÁVAZNÝ CÍL je **21 otázek na podtéma** (rozhodnutí učitele 19. 8. 2026;
+  plné znění `~/Desktop/wonderly-web/OBSAH-PRAVIDLA.md` kap. 4). „5–8 otázek" je jen velikost
+  JEDNÉ pracovní dávky workera, ne cíl; dřívější „medián ~13" byl popis naměřeného stavu
+  k 18. 8. 2026, jako cíl NEPLATÍ. Dál: 3 odpovědi, **správná VŽDY první** (na webu se míchá),
   doplnit pole `vysvetleni` (ukáže se při špatné odpovědi). Správná odpověď nesmí být
   soustavně nejdelší.
 - **Tisknutelný test** `…/test/` je chráněný heslem **ucitel-wonderly** (jen pro učitele).
@@ -34,7 +36,10 @@ infografiky, písničky/videa, interaktivní **simulace**, procvičovací **kví
 
 ## Zdrojové materiály školy (mimo tento repo)
 - **`/Users/Shared/Škola/<rocnik>/<celek>/<podtéma>/`** — od učitele; NIC tam nemazat
-  ani nepřesouvat. Určující je vždy **PDF**; k němu média + `informace-pro-podcast.txt`
+  ani nepřesouvat. **PDF a původní prezentace jsou ROVNOCENNÉ zdroje** (rozhodnutí učitele
+  19. 8. 2026 — dřívější „určující je vždy PDF" NEPLATÍ); výklad musí pokrýt oba a rozpor mezi
+  nimi se ověří a zapíše do `Omega/dokumenty/kontrola-podkladu-*.md`, netiší se ve prospěch PDF.
+  K podkladům média + `informace-pro-podcast.txt`
   (zvuk dělá lokální OmniVoice, skill `/podkast-video`) a `pisen-suno.txt`
   (rap pro puberťáky, styl „czech rap for teenagers, modern trap beat").
 - Podklady stahuje učitel z **Google Disku** (složka Fyzika) do sdílené složky —

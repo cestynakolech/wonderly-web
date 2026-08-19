@@ -1,25 +1,53 @@
-# 🧭 STAV K 19. 8. 2026 (zápis před výpadkem internetu — NIC SE NEPUSHOVALO)
+# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 večer)
 
-> Internet vypadl / vypadne. Vše níže je LOKÁLNĚ commitnuté. Až bude síť: `git push` v `wonderly-web` i v `Omega`.
+1. **Díl 15 `pololetni-shrnuti` fyziky 6** — zvuk části 1 hotový, části 2–4 se dovyrábějí lokálním OmniVoice; scénáře `~/Desktop/Omega/podkasty-scenare/6/pololetni-shrnuti-dialog{,2,3,4}.md`, postup skill `/podkast-video`. **NENASAZOVAT bez nezávislého kontrolora.**
+2. Než se sáhne na další obsah fyziky 6: **dopsat popisy 6 chybějících prezentací** automatem `~/Desktop/Omega/skripty/popis_prezentace.py` (běží, čeká na volnou GPU) — závazné rozhodnutí učitele z 19. 8.
+3. Pak **dorovnání kvízů na 21 otázek** (chybí 495 otázek u 82 podtémat); hotové nezapsané dávky leží v `~/Desktop/Omega/rozdelane/kvizy-f8-elektrina.md` a `kvizy-f9-magneticke-indukce.md` — stačí vložit do `src/data/kvizy.ts`.
+4. **Před každou obsahovou prací přečíst `~/Desktop/wonderly-web/OBSAH-PRAVIDLA.md`** (obsahová ústava, závazná) — a pravidlo z ní vždy vložit i do zadání workera, jinak pro něj NEPLATÍ.
+5. Deník až po fyzice: 20. 8. nahrát Trittenheim (kvóta), pak výměna Kluesserath 3 → 6 dílů — přesný postup v sekci `[cesty]` níže.
+
+---
+
+# 🧭 STAV K 19. 8. 2026 (uzávěrka dlouhé session, před /clear)
+
+> Obojí repo (`wonderly-web`, `Omega`) je commitnuté a **pushnuté**, internet funguje.
 
 ## [skola2] Školní web — fyzika
 
-**HOTOVÉ A NASAZENÉ** (commit `30eabd1`, ověřeno `curl` na živém webu):
-- F9 `magneticke-pole` — 3 podtémata dostala video + Wordwall.
-- F7 `kladka` a `naklonena-rovina` — kvízy 10 → 19 otázek.
+**HOTOVÉ A NASAZENÉ 19. 8. 2026:**
+- **Placená výroba zvuku ZRUŠENA** — zarážka v obou skriptech (OpenAI TTS i ElevenLabs), pravidlo přepsané všude. Ověřeno, že lokální OmniVoice funguje (díl 15 část 1, hlasy změřené F0), **učitel hlas SCHVÁLIL**.
+- **Odstraněno 41 cizích videí** ze školního webu (39 vložených + 2 vedená jako odkazy). Na webu zůstalo jen **50 videí učitele**.
+- **Brána proti cizím videím**: `testy/cizi-videa.mjs` + seznam schválených ID `testy/youtube-vlastni.json` + doplňovač `testy/youtube-schval.mjs`. Zapojena do `zkontroluj.mjs` → **neschválené ID shodí build**, funguje offline, obousměrně doložená.
+- **SMAZÁNY (ne opraveny) všechny pokyny k vyhledávání videí** — z `worker-media`, skillů, pamětí i fronty. Záloha smazaných textů: `~/Desktop/Omega/rozdelane/smazane-pokyny-vyhledavani-videi.md`.
+- **Nasazeno 12 vlastních animací k výkladu fyziky 6** (ležely hotové na disku bez popisků). Opravena past ve `Omega/skripty/animace_na_web.py`.
+- **Měřidlo úniků `testy/uniky.mjs`** porovnává čísla i s jednotkou, známé meze sepsané → odhalilo a opraveno **8 skutečných úniků** v datech.
+- **Kvízy:** F7 `kladka` + `naklonena-rovina` 10 → 19; F8 `teplo-a-zmeny-skupenstvi` (4 podtémata) 12 → 18. Opraveny **3 starší otázky**, které testovaly mimo výklad (otázka o kroupách odporovala výkladu).
+- Opraven hlídač automatů `Omega/skripty/hlidac_zaseknuti.py` (považoval vlastní `grep` za běžící automat → mohl umlčet poplach).
+- **ZALOŽENA OBSAHOVÁ ÚSTAVA `~/Desktop/wonderly-web/OBSAH-PRAVIDLA.md`** — řetěz *PDF + prezentace → text výkladu na webu → kvízy, hry, videa*. Zapojená do zadání všech workerů a skillů. Plné znění nikam neopisovat, jen odkazovat.
 
-**HOTOVÉ, NENASAZENÉ** (leží v pracovním stromu / lokálním commitu, čeká jen na push):
-- F8 `teplo-a-zmeny-skupenstvi` — 4 podtémata, kvízy 12 → 18 otázek.
-- Oprava měřidla `testy/uniky.mjs` (nově vidí i číselné úniky) + **3 skutečné úniky opravené v datech**: `atmosfericky-tlak`, `vlastnosti-stridaveho-proudu`, `microbit`.
+**⚖️ ROZHODNUTÍ UČITELE Z 19. 8. 2026 (závazná, nediskutovat znovu):**
+- **Kvíz: cíl 21 otázek na podtéma.** „5–8 otázek" je jen velikost JEDNÉ dávky workera, ne cíl. Dřívější „medián ~13" byl popis stavu, ne cíl.
+- **Prezentace jsou rovnocenný zdroj s PDF** (dřívější „určující je vždy PDF" NEPLATÍ).
+- **Chybějící popisy prezentací dopsat automatem PŘED další prací na fyzice 6.**
+- **Rozdíl mezi časovým plánem a webem NENÍ vada webu.**
+- **Hry mají defaultně nabízet jen probrané učivo** podle časového plánu.
+- **Ostatní předměty (informatika, Pč) SE TEĎ NEDĚLAJÍ — jen fyzika.**
+- **Na web jen vlastní videa učitele**; u Petra Němce ani odkaz bez jeho svolení (13 jeho videí odstraněno).
+- **Hotová videa se nepředělávají**; lokální hlas schválen.
 
-**🔴 ROZDĚLANÉ — PŘÍŠTÍ KROK (tady se pokračuje):**
-Měřidlo `testy/uniky.mjs` má **děravou výjimku „početní úloha jako cíl"**: kontrolu vypne, jakmile cílová otázka obsahuje JAKÉKOLI číslo — i úplně nesouvisející.
-- Doložený podvrh, který dnes propadne: otázka A s vysvětlením „V horách vře voda dřív, kolem 80 °C." + otázka B „Na kolik stupňů vře voda v horách po 5 minutách ohřevu?" s odpovědí „80 °C" → měřidlo vrátí **0 nálezů, má vrátit ≥ 1**.
-- Oprava musí zároveň **NEhlásit** dva příklady, které legitimně sdílejí stejnou vstupní hodnotu (např. 100 N).
-- Postup: 1) přidat OBA případy do `testy/uniky-obousmerne.mjs`, 2) teprve pak opravit podmínku, 3) projít nové nálezy nad celými daty.
+**🔴 ROZDĚLANÉ (běží nebo čeká):**
+1. **Díl 15 `pololetni-shrnuti`** — zvuk části 1 hotový, části 2–4 se vyrábějí. Pak brána pokrytí, schémata, video, R2, nasazení. **NENASAZOVAT bez nezávislé kontroly.**
+2. **Popisy 6 chybějících prezentací fyziky 6** — automat běží, čeká na volnou GPU. Blokuje další práci na fyzice 6 (rozhodnutí učitele).
+3. **Nasazení hotových zkontrolovaných podkástových videí** — běží.
+4. **DOROVNÁNÍ KVÍZŮ NA 21 OTÁZEK — chybí 495 otázek u 82 podtémat** (F6 76, F7 39, F8 225, F9 155).
+   ⚠️ U krátkých výkladů nemusí být z čeho 21 otázek udělat — pak se **hlásí podnět k rozšíření výkladu**, NEobchází se to opakováním téže otázky jinými slovy (obsahová ústava: kvíz smí zkoušet jen to, co je ve výkladu).
+5. **Jediná otevřená otázka ústavy: bod F** (jedno vysvětlení na díl × polemika pokryje celý kvíz) — čeká na učitele.
 
-**⏳ ČEKÁ (připravené, stačí vložit):**
-F8 elektřina — **24 hotových otázek** v `~/Desktop/Omega/rozdelane/kvizy-f8-elektrina.md`, vložit do `src/data/kvizy.ts`: `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`, `elektricky-proud-mereni` — každé 12 → 18.
+**⏳ PŘIPRAVENÁ PRÁCE, KTERÁ JEŠTĚ NENÍ ZAPSANÁ DO DAT** (leží v `~/Desktop/Omega/rozdelane/`, stačí vložit do `src/data/kvizy.ts`):
+- `kvizy-f8-elektrina.md` — 24 hotových otázek: `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`, `elektricky-proud-mereni` (každé 12 → 18; do cíle 21 pak zbývá po 3).
+- `kvizy-f9-magneticke-indukce.md` — hotové otázky F9 k magnetické indukci.
+- `kvizy-f7-jednoduche-stroje.md`, `kvizy-f8-teplo.md` — už zapsané do dat, ponechány jako doklad dávky.
+- `smazane-pokyny-vyhledavani-videi.md` — záloha smazaných pokynů (nevracet zpět!).
 
 ## [cesty] Cestovatelský deník
 
@@ -32,19 +60,81 @@ F8 elektřina — **24 hotových otázek** v `~/Desktop/Omega/rozdelane/kvizy-f8
 
 **Stav míst:** Kluesserath i Neumagen-Dhron nahrané na YouTube a kompletní.
 
-**Fronta dál:** **Trittenheim** čeká na krok „nasadit video" = **ruční přesun do složky `nasazeno/`** — žádný automat to nedělá.
+**Fronta dál:** **Trittenheim** — ✅ 19. 8. 2026 PŘESUNUTO do `nasazeno/` (video zkontrolované: úvodní mapa má správný cíl Trittenheim, čitelné km „Celkem z domova: 2825 km · nafta ≈ 13 574 Kč · Poslední úsek do Trittenheim: 1 km"; 33 s, jednodílné, všech 9 médií anonymizovaných).
+⏸️ **ODLOŽENO na 20. 8.: nahrání na YouTube.** Nahrávač skončil bez pokusu — hláška: `1 videí čeká, dnes už nahráno 5/5 (kanál hlásí 5, vlastní evidence 4) → denní limit 5 vyčerpán — zbytek zítra`. Není to chyba, jen vyčerpaná denní kvóta YouTube API. Zítra stačí znovu spustit `~/Desktop/Omega/skripty/venv/bin/python3 ~/Desktop/Omega/skripty/nahraj_na_youtube.py` (systémový python3 spadne na chybějící `pillow_heif`) a ověřit oembed názvem „06. 08. · Trittenheim (Německo)".
 
 **🔧 VADNÉ MAPY k přegenerování:**
 - nasazené `Sassenage_v4` má na úvodní mapě jako cíl **Saint-Denis-en-Bugey místo Sassenage** (58 km vedle),
 - `Saint-Maurice-sur-Moselle` ukazuje jako cíl **Ornans**.
 
-**❓ NEROZHODNUTO:** u Kluesserathu je na kanálu **starší 3dílná verze ze 16. 8.**, novější **6dílný render ze 17. 8.** leží nenasazený — výměna by šla přes `vymena_videa.vymen()`.
+**🔁 KLUESSERATH — VÝMĚNA 3 DÍLY → 6 DÍLŮ (učitel 19. 8. SCHVÁLIL, výměna ODLOŽENA na 20.–21. 8.)**
+
+Prohlídka nového renderu `/Users/Shared/Cestovatelský deník/2026/video-vystup/Kluesserath_DE_KEKONTROLE_{1..6}z6.mp4`
+(19. 8., snímky přes ffmpeg) — **v pořádku, výměna se smí provést**: úvodní mapa má trasu
+z jižních Čech přes Landshut a Schongau do Francie a zpět na sever, cíl je popsaný
+**Kluesserath** (správně, ne cizí město), lišta je čitelná: „Celkem z domova: 2823 km ·
+nafta ≈ 13 561 Kč · Poslední úsek do Kluesserath: 313 km". Těla dílů nejsou prázdná
+(motokrosový závod, obytná auta, tváře rozmazané), všech 6 má zvukovou stopu AAC.
+Nová verze má **26:43** (238+271+274+266+272+282 s) proti 11:12 staré trojdílné — je
+podstatně plnější.
+
+**PROČ SE 19. 8. NIC NENAHRÁLO:** kotva z kanálu hlásí `nahrano_dnes_na_kanale = 5`,
+strop `NAHRANI_ZA_DEN = 5` → dnes 0 volných nahrání. Navíc **6 dílů se do jednoho dne
+nevejde ani teoreticky**: 6 × 1 600 jednotek = 9 600 + režie (playlisty, změny
+viditelnosti) je přes denní kvótu 10 000. Výměna proto musí přes dva dny.
+
+**⛔ SOUBORY NEPŘESOUVAT do `nasazeno/`, dokud výměna neproběhne.** Změřeno 19. 8.:
+`nahraj_na_youtube.dil_videa()` vrací u `…_1z6` i `…_1z3` shodně 1, takže pojistka
+`misto_uz_na_youtube()` by díly 1–3 spolkla jako duplicity, ale díly **4z6–6z6** by
+nahrála jako nová videa → na kanálu by vznikla rozbitá směs 3 starých + 3 nových dílů.
+Ve `video-vystup/` je fronta nahrávače nevidí (čte jen `nasazeno/`), takže tam jsou v bezpečí.
+
+**POSTUP PRO ZÍTŘEK (20. 8.) — pořadí drž:**
+1. Nejdřív běžná fronta: `nahraj_na_youtube.py` nahraje `Trittenheim_DE_KEKONTROLE.mp4` (1 z 5).
+2. Pak nahrát **4 díly** (1z6–4z6) jako NEVEŘEJNÁ videa přes jediný domov
+   `vymena_videa.nahraj(yt, soubor, nyt.hezky_nazev(soubor), 2026, stav)` — titulky
+   vyjdou „04. 08. · Kluesserath (Německo) — 1/6" … „— 4/6" (ověřeno).
+   **Staré díly zatím NEschovávat a web NEMĚNIT** — než je na kanálu všech šest,
+   platí stará trojdílná verze; nová videa jsou zatím unlisted a nikdo na ně neodkazuje.
+3. Po každém nahrání zapsat do `stav["nahrana_videa"]` pod klíčem názvu souboru
+   (`Kluesserath_DE_KEKONTROLE_1z6.mp4` …) a uložit `nyt.uloz_stav(stav)`.
+
+**POSTUP PRO 21. 8. — DOKONČENÍ (teprve tady se přepíná):**
+4. Nahrát zbývající **5z6 a 6z6** týmž způsobem.
+5. Až je na kanálu všech šest, schovat **tři stará ID** přes `vymena_videa.schovej(yt, id)`
+   (přepne na `private`, nikdy nemaže; brána pustí unlisted → private):
+   `wS_EwtFr3gY` (1/3), `OZ_5WB4SAiE` (2/3), `hL9QxPGPds0` (3/3).
+6. Staré záznamy odsunout do `stav["nahrana_videa_nahrazena"]` pod klíčem
+   `"Kluesserath_DE_KEKONTROLE_1z3.mp4 (nahrazeno 6dílnou verzí)"` atd. — vzor je
+   `vymen_mapy_na_kanale.po_vymene()`; přepisovat se nesmí, jinak zmizí, které ID bylo která verze.
+7. Soubory srovnat: `…_{1..6}z6.mp4` z `video-vystup/` do `nasazeno/`, staré
+   `…_{1..3}z3.mp4` z `nasazeno/` stranou (`nasazeno/_stara-mapa/`) — nic nemazat.
+8. **Web `src/data/cesty/2026.ts`, místo `klusserath`** (19. 8. se do repa záměrně nezapisovalo — pracoval tam jiný agent):
+   - `videoId: 'wS_EwtFr3gY'` → ID **prvního nového dílu**,
+   - v seznamu videí nahradit tři řádky `wS_EwtFr3gY` / `OZ_5WB4SAiE` / `hL9QxPGPds0`
+     šesti novými (pořadí 1/6 … 6/6, zůstávají mezi „03. 08. · Luxeuil-les-Bains — 1/6"
+     a „06. 08. · Neumagen-Dhron — 1/2", pořadí pole = pořadí cesty),
+   - **názvy opsat PŘESNĚ z oembedu** každého nového ID
+     (`curl -s "https://www.youtube.com/oembed?url=https://youtu.be/<ID>&format=json"`),
+     ne z předpokladu — v tomhle souboru se už dvakrát opravovaly zdvojené a posunuté názvy.
+9. Kotva na závěr: oembed 200 u šesti nových ID a **403 u wS_EwtFr3gY, OZ_5WB4SAiE, hL9QxPGPds0**.
+
+**Stav ověřený 19. 8. (kotva oembed + API):** `wS_EwtFr3gY`, `OZ_5WB4SAiE`, `hL9QxPGPds0`
+= unlisted, oembed 200, na webu zapsané. `TlmBTR0VW2A`, `FNOFp6Q5zqo` = private (403),
+zbytky dřívějších pokusů.
+
+**🧹 Drobný nález (ne úkol dneška):** `ZLQ88zKrIoI` „04. 08. · Kluesserath (Německo) — 1/3"
+z 18. 8. 22:07 je na kanálu **unlisted s délkou 0 s** — zbytek přerušeného uploadu,
+který `uklid_po_prerusenem_uploadu()` nepřepnul. Na webu není. Při dokončení výměny
+ho přepnout na `private` také.
 
 ---
 
-# ⚡ ČÍM ZAČÍT (stav po bloku 16. 8. 2026, večer)
+# 🗄️ STARŠÍ STAV (blok 16. 8. 2026) — jen historie a nedořešené drobnosti
 
-**Poslední commit wonderly-web: `b057ac5`** (poslední skola2 commit `ed585b6`). V pracovním stromu jsou necommitnuté změny (`PROGRESS.md`, `SAMOSTATNY-REZIM.md`) — než se prohlásí „vše nasazené", je třeba je zkontrolovat, commitnout a pushnout.
+> **Tady se NEZAČÍNÁ** — začíná se blokem ČÍM ZAČÍT PO /clear úplně nahoře.
+> Sekce zůstává kvůli otevřeným otázkám na učitele a odloženým simulacím informatiky
+> (informatika se podle rozhodnutí učitele z 19. 8. 2026 zatím NEDĚLÁ).
 
 **Fyzika: názornost HOTOVÁ** (6–9, zbývají jen shrnutí, která ji nepotřebují).
 
@@ -271,9 +361,10 @@ podkást.** Změřeno 5. 8. z dat webu (116 podtémat fyziky):
 | F9 | 25 | 12 | 12 | 25 |
 Postup po kolech (fyzika má přednost před informatikou ve frontě):
 1. **Simulace (42 chybí)** — vějíře `/simulace` po 4, od F6 (nejmenší dluh, základ).
-2. **Videa (77 chybí)** — worker-media hledá ČESKÁ oficiální YouTube vložení
-   (pravidla: jen oficiální přehrávač, jen české, ověřit pokrytí učiva).
-   Co nenajde → seznam učiteli do KE-SCHVALENI.md (může natočit/dodat sám).
+2. **Názornost (77 chybí) — NEVYHLEDÁVAT, VYRÁBĚT.** Videa se pro školní web
+   nehledají (rozhodnutí učitele 19. 8. 2026, [[feedback-youtube-jen-oficialni-vlozeni]]).
+   Chybějící názornost vyrábí vlastní automat: obrázky + vysvětlující zvuková
+   stopa, zvuk lokálním OmniVoice — stejný řetěz jako podkásty (bod 3 níže).
 3. **Audio podkásty (115 chybí) — ROZHODNUTO 18. 8. 2026: zvuk výhradně lokálním
    OmniVoice (`vyrob_omnivoice.py`), placené služby (OpenAI TTS, ElevenLabs) se
    nepoužívají vůbec.**
