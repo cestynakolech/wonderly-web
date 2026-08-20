@@ -725,6 +725,7 @@ export const rok2026: Rok = {
 			vyjezd: 6,
 			x: 283.3,
 			y: 339.6,
+			videoId: 'd_t-AcH3dLY',
 			popis: { cs: '' },
 		},
 		{
@@ -782,6 +783,7 @@ export const rok2026: Rok = {
 		{ id: 'OZ_5WB4SAiE', nazev: '04. 08. · Kluesserath (Německo) — 2/3', odkaz: 'https://youtu.be/OZ_5WB4SAiE' },
 		{ id: 'hL9QxPGPds0', nazev: '04. 08. · Kluesserath (Německo) — 3/3', odkaz: 'https://youtu.be/hL9QxPGPds0' },
 		{ id: 'g_HifrIntzM', nazev: '06. 08. · Neumagen-Dhron (Německo) — 1/2', odkaz: 'https://youtu.be/g_HifrIntzM' },
+		{ id: 'd_t-AcH3dLY', nazev: '06. 08. · Trittenheim (Německo)', odkaz: 'https://youtu.be/d_t-AcH3dLY' },
 		// úklid 18. 8. 2026: ze seznamu vypadly 'swDAmX8BRJA' (Saint-Maurice, verze
 		// s kapitolami) a 'mVP4b5LnuYI' (Frangy) — nahrávač je 17. 8. přepnul na
 		// soukromé (oembed 403) a v mřížce videí zůstávaly mrtvé přehrávače.
