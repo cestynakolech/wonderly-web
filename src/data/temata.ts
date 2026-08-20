@@ -3465,6 +3465,14 @@ export const temata: Record<string, Tema[]> = {
 								<li>nastavíme druh proudu (stejnosměrný/střídavý) a <strong>rozsah</strong>, <strong>svorku + přístroje</strong> spojíme se <strong>svorkou + zdroje</strong></li>
 								<li>při špatném zapojení hrozí <strong>poškození ampérmetru</strong></li>
 							</ul>
+							<h3>Vnitřní odpor ampérmetru</h3>
+							<p>Ampérmetr má schválně <strong>velmi malý vnitřní odpor</strong> (skoro nulový). Je to proto, že ho zapojujeme přímo do cesty proudu — kdyby měl velký odpor, sám by proud v obvodu brzdil a naměřená hodnota by neodpovídala skutečnosti.</p>
+							<p>⚠️ Právě malý vnitřní odpor je důvod, proč se ampérmetr <strong>nikdy nezapojuje paralelně</strong> (vedle spotřebiče nebo přímo ke svorkám zdroje). Prakticky bez odporu by mezi + a − zdroje vznikl <strong>zkrat</strong> — obvodem by protekl obrovský proud, který ampérmetr (i zdroj) může zničit.</p>
+							<h3>Volba rozsahu</h3>
+							<p>Když neznáme velikost měřeného proudu, začínáme vždy na <strong>největším rozsahu</strong> a teprve podle výchylky ručičky nebo čísla na displeji přepneme na menší, přesnější rozsah. Kdybychom začali rovnou na malém rozsahu, hrozí <strong>přetížení a poškození</strong> přístroje.</p>
+							<h3>Ampérmetr uvnitř multimetru</h3>
+							<p>Multimetr měří proud jen tehdy, když ho <strong>přepneme do režimu ampérmetru</strong> a měřicí hroty zapojíme do správných zdířek — pro malé proudy (mA) bývá jiná zdířka než pro velké proudy (jednotky A). Zapojuje se přitom pořád <strong>sériově</strong>, stejně jako samostatný ampérmetr.</p>
+							<p>💡 Před zapojováním měřidla do obvodu obvod raději <strong>odpojíme od zdroje</strong> a nedotýkáme se holých vodičů — tak zabráníme zkratu i úrazu elektrickým proudem.</p>
 						`,
 						odkazy: [
 							{ nazev: 'Měření elektrického proudu ampérmetrem (RVP.CZ)', url: 'https://dum.rvp.cz/materialy/mereni-elektrickeho-proudu-ampermetrem.html' },

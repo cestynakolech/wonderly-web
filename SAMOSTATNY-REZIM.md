@@ -391,6 +391,14 @@ třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo 
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### [skola2] ⚡ Nekonzistence bezpečného napětí mezi 8. a 9. ročníkem (zadáno 20. 8. 2026)
+
+Nález nezávislého kontrolora při revizi dávek 7+8 kvízů fyziky 8: `temata.ts:3749`
+(8. ročník) uvádí bezpečné napětí ve vlhkých prostorách stejnosměrné **30 V**
+(sucho **120 V**), ale `temata.ts:4656` (9. ročník) uvádí obecně stejnosměrné
+**25 V**. Sjednotit podle platné normy (rozlišit případně vlhko/sucho i v 9. ročníku,
+nebo ověřit, která hodnota je aktuálně správná) — teď se to neopravovalo, jen zapsáno.
+
 ### [skola2] 🔒 Rohatka bez klíče tiše projde (zadáno 19. 8. 2026)
 
 Brána `zkontroluj.mjs` čte stropy rohatek z `testy/rohatka.json` vzorem `?? Infinity`.
