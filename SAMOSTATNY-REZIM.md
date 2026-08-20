@@ -1,4 +1,10 @@
-# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 v noci — TENTO blok platí, starší verze níže neplatí)
+# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 večer — TENTO blok platí, starší verze níže neplatí)
+
+**FYZIKA 8 JE KOMPLETNÍ (kvízy 35/35 podtémat na 21 otázkách).** Další na řadě podle počtu
+chybějících otázek: F9 (155) nebo F6 (88) — F7 má jen 39, rozhodnutí nechat na orchestrátorovi
+příští session.
+
+
 
 1. **Díl 15 `pololetni-shrnuti` fyziky 6 se PŘEPRACOVÁVÁ OD ZAČÁTKU.** Učitel rozhodl: v polemikách
    se **MAREK plete a EVA ho opravuje** (dřív to bylo naopak). Pravidlo je zapsané do obsahové ústavy,

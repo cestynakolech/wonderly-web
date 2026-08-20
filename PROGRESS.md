@@ -206,6 +206,18 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 19. 8. 2026 večer (uzávěrka)
+**Fyzika 8 KOMPLET: všech 35 podtémat na 21 otázkách.** Dnes přibylo 187 otázek v 8 dávkách
+(kvízové commity 7868c64, e996a51, 530e6d6, 1cb25f0, 1100df4, 55261f1 + dvě dávky v 166835a
+a e6d576d). Každá dávka prošla nezávislým kontrolorem; chyceno: otázka o turbodmychadlu
+mimo probranou látku, duplicity mezi bloky, nepravdivé hlášení o úniku (vyvráceno git stash
++ uniky.mjs). Rozšířeny výklady 3 podtémat (rezistor-s-promennym-odporem,
+energeticka-hodnota-potravin, elektricky-proud-mereni), aby kvíz netestoval neprobranou látku.
+Ollama povýšena 0.32.9 → 0.32.14, stažen qwen3.8:27b-mlx (18 GB), zkouška na TEPLOTA.pptx:
+23/23 snímků, 0 selhání, ~1,6x pomalejší než ThinkingCap (16,2 vs. 10 min). popis_prezentace.py
+rozšířen o POPIS_MODEL/POPIS_OPTIONS/POPIS_VYSTUP (zpětně slučitelné). Zbývá dořešit chybějící
+otázky: F6 88, F7 39, F9 155 (F8 už 0) — čísla z odpoledního měření, přepočet příště.
+
 ## 📝 Pravidlo aktualizace (na konci každé session)
 1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).
 2. Aktualizuj sekce „HOTOVÉ" a „ZBÝVÁ" výše podle reálného stavu.
