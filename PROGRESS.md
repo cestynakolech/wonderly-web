@@ -9,7 +9,17 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **19. 8. 2026 — kontrola fyzikálních jednotek DOKONČENA**
+> ### Poslední stav: **19. 8. 2026 pozdní večer — kvízy fyziky 9 KOMPLET**
+> **Fyzika 9: vsech 22 podtemat na 21 otazkach** (155 novych otazek v 5 vlnach; klicove commity
+> vlozeni a oprav az po `7d3d2c9`). Kontrola: **TŘI paralelní nezávislí kontroloři** nad celým
+> rozsahem (magnetismus/střídavý proud · elektřina/polovodiče · jádro/vesmír) — nálezy 0+1+2,
+> vše opraveno: prohozené hranice vzdáleností od spadlého vedení (20 m ↔ 400 kV), vágní
+> vysvětlení u záření gama (vráceno olovo/beton), překryv aktivní zóny s kontejnmentem
+> (nahrazeno moderátorem). **Cíl 21 otázek: F7, F8 i F9 hotové**, zbývá jen fyzika 6 (88 otázek,
+> přesné rozdělení změřit) a pak informatika/Pč (rozhodnutí učitele „teď jen fyzika" platí).
+> Otevřeno: nesoulad bezpečných napětí F8×F9 (ve frontě).
+>
+> ### Předchozí stav: **19. 8. 2026 — kontrola fyzikálních jednotek DOKONČENA**
 > Prošlo se všech **98 simulací s fyzikální jednotkou** (z 118 komponent `src/components/skola2/`),
 > 5 nezávislých kontrolorů. Jediná vadná: **`OerstedSimulace`** (chyběla μ0, poloměr v cm místo m →
 > 22° místo 11°) — **OPRAVENO** (B = μ0·I/(2π·r), tan α = B/B_Země; kontrolor: PROJDE). **`VrhSimulace`

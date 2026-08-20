@@ -1,8 +1,9 @@
-# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 večer — TENTO blok platí, starší verze níže neplatí)
+# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 pozdní večer — TENTO blok platí, starší verze níže neplatí)
 
-**FYZIKA 8 JE KOMPLETNÍ (kvízy 35/35 podtémat na 21 otázkách).** Další na řadě podle počtu
-chybějících otázek: F9 (155) nebo F6 (88) — F7 má jen 39, rozhodnutí nechat na orchestrátorovi
-příští session.
+**FYZIKA 9 JE KOMPLETNÍ (kvízy 22/22 podtémat na 21 otázkách)** — spolu s F7 a F8 tak
+**cíl 21 otázek splňuje celá fyzika 7, 8 i 9**. Zbývá jen **fyzika 6 (88 chybějících otázek)**,
+pak případně informatika/Pč (rozhodnutí učitele „teď jen fyzika" zatím platí). Otevřeno:
+nesoulad bezpečných napětí F8×F9 (ve frontě, viz níže).
 
 
 
