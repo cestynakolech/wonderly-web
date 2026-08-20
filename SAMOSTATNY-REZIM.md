@@ -12,10 +12,30 @@
   **POZOR: pracovní strom `src/data/kvizy.ts` má necommitnuté změny — NEZAHAZOVAT (žádný
   `git checkout`/`stash` na tomto souboru)!** Další krok: 2 nezávislí kontroloři nad celou F6,
   opravy, build, teprve pak commit `kvizy.ts` a push.
-- Tailscale: MacBook čistý (macbook-pro-2, 1.102.2), mini se musí dočistit — na mini
-  aktualizovat aplikaci, **Log out** (vymění zděděný klíč), Log in; v administraci smazat
-  ducha `radek--macbook-pro-2` a osiřelé řádky; pak z MacBooku `tailscale status` (2 stroje
-  bez Duplicate node key) a `tailscale ping` na mini; nakonec zkouška přes hotspot.
+- **Tailscale — stav 19. 8. 2026 večer a zbývající postup:**
+  - MacBook: ČISTÝ — v administraci `macbook-pro-2`, 100.113.130.91, klient 1.102.2, připojen.
+  - Mini: připojené jako `radek--mac-mini` (100.114.89.73), ale má štítek **Duplicate node
+    key** (sdílí klíč s MacBookem — stav zděděný migrací) a STAROU aplikaci 1.96.4.
+  - V administraci zbývá duch `radek--macbook-pro-2` (100.74.57.38, offline od května).
+  - Obyčejný ping MacBook→mini funguje (0,3 ms) po domácí LAN; tailscale tunel zatím neověřen.
+  - Zbývající kroky (na mini + administrace, pak ověření z MacBooku):
+    1. Na mini: aktualizovat aplikaci Tailscale (lišta → Check for updates / App Store)
+       na ~1.102.
+    2. Na mini: Tailscale → **Log out** (klíčový krok — vymění zděděný duplicitní klíč;
+       pouhé Log in bez odhlášení klíč nevymění, to už se ověřilo).
+    3. Na mini: Log in stejným účtem (cesty.na.kolech@gmail.com).
+    4. V administraci console.tailscale.com smazat ducha `radek--macbook-pro-2` a případný
+       osiřelý starý řádek mini.
+    5. Z MacBooku ověřit: `/opt/homebrew/bin/tailscale status` → právě 2 stroje, ŽÁDNÝ
+       štítek Duplicate node key; `tailscale ping -c 4 <adresa mini>` musí projít (adresa
+       se po novém přihlášení mini může změnit — vzít ze statusu!).
+    6. Závěrečný důkaz: MacBook na hotspot iPhonu (mini zůstane na domácí wifi) →
+       `tailscale ping` musí projít i tak (direct nebo relay) — teprve to dokazuje spojení
+       přes internet.
+  - Pozn.: Tailscale zapínat vždy jen v JEDNOM profilu každého stroje — druhý profil =
+    druhá identita = duplicity (příčina původního zmatku).
+  - Návod `Omega/navody/tailscale-oprava-duplicitni-identity.md` obsahuje chybnou
+    identifikaci adres — neřídit se jím slepě, adresy vždy ověřit ze statusu.
   Plán architektury: `Omega/dokumenty/PLAN-ZITRA.md`.
 - Qwen 3.8: nepřijat a smazán (verdikt v `ollama-log.md`), vision zůstává ThinkingCap.
 
