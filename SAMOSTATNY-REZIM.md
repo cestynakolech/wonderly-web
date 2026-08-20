@@ -1,4 +1,24 @@
-# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 19. 8. 2026 pozdní večer — TENTO blok platí, starší verze níže neplatí)
+# 🚀 ČÍM ZAČÍT PO /clear (zapsáno 20. 8. 2026 — TENTO blok platí, starší verze níže neplatí)
+
+**PŘEDÁVACÍ STAV 20. 8. 2026:**
+- Kvízy F7, F8, F9 KOMPLET na 21 (nasazeno, poslední commit `8525421`).
+- **F6 KOMPLET na 21** (necommitnuto): `uvod`, `telesa`, `opakovani-velicin` (vložené dřív) +
+  nově ověřeno (`node testy/vypis-kviz.mjs <blok>`) na 21 otázek: `atomy-a-molekuly`, `objem`,
+  `skupenstvi-latek`, `hustota`, `magneticke-vlastnosti-latek`, `vzajemne-pusobeni-teles-sila`,
+  `jednoduche-elektricke-obvody`, `casticove-slozeni-latek`, `hmotnost`, `teplotni-roztaznost`,
+  `elektricke-vlastnosti-latek`, `cas-a-jeho-mereni`, 6. ročníková `gravitacni-sila` — to je
+  všech 16 bloků F6, žádný nechybí. Zdrojové otázky jsou v
+  `~/Desktop/Omega/rozdelane/kvizy-f6-2026-08-19/` (jen záloha, nic už netřeba dovkládat).
+  **POZOR: pracovní strom `src/data/kvizy.ts` má necommitnuté změny — NEZAHAZOVAT (žádný
+  `git checkout`/`stash` na tomto souboru)!** Další krok: 2 nezávislí kontroloři nad celou F6,
+  opravy, build, teprve pak commit `kvizy.ts` a push.
+- Tailscale: MacBook čistý (macbook-pro-2, 1.102.2), mini se musí dočistit — na mini
+  aktualizovat aplikaci, **Log out** (vymění zděděný klíč), Log in; v administraci smazat
+  ducha `radek--macbook-pro-2` a osiřelé řádky; pak z MacBooku `tailscale status` (2 stroje
+  bez Duplicate node key) a `tailscale ping` na mini; nakonec zkouška přes hotspot.
+  Plán architektury: `Omega/dokumenty/PLAN-ZITRA.md`.
+- Qwen 3.8: nepřijat a smazán (verdikt v `ollama-log.md`), vision zůstává ThinkingCap.
+
 
 **FYZIKA 9 JE KOMPLETNÍ (kvízy 22/22 podtémat na 21 otázkách)** — spolu s F7 a F8 tak
 **cíl 21 otázek splňuje celá fyzika 7, 8 i 9**. Zbývá jen **fyzika 6 (88 chybějících otázek)**,
