@@ -6,6 +6,13 @@ teplota) — „hlavně v USA" místo „v anglicky mluvících zemích", stejn�
 curl ověřeno; úkol přesunut ve `wonderly-fronta` do `hotovo/skola2-fahrenheit-formulace.md`.
 Informatika zůstává zamčená dle `OBSAH-PRAVIDLA.md` bod H — nedotčeno.
 
+**NASAZENO 22. 8. 2026:** Návazný kvíz `kvizy.ts` (teplota-a-jeji-mereni) protiřečil
+opravenému výkladu — otázka o Fahrenheitovi měla za správnou odpověď „v anglicky
+mluvících zemích". Opraveno na „hlavně v USA" + doplněné vysvětlení, komit `b2b4a97`,
+curl na `skola2/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/test` potvrdil novou
+formulaci v JSON dat kvízu, stará zmizela. Zapsáno do deníku chyb (třída
+`kviz-protireci-vykladu`).
+
 **AKTUALIZACE 21. 8. 2026 večer (blok):**
 1. **Písničky fyziky 26/26 NASAZENO A OVĚŘENO** nezávislým kontrolorem (curl 200 na všech, whisper na živých m4a potvrdil nosná slova). Drobnost: slug `energie-a-vesmir` (podklady měly `zdroje-energie-a-vesmir`) — jen nekonzistence pojmenování, funkčně OK. Záloha 12 WAV: `Omega/rozdelane/pisnicky-audio-f9/`.
 2. Mapy Sassenage + Saint-Maurice-sur-Moselle přegenerované (`Omega/rozdelane/mapy-oprava-2026-08-21/`), vizuální kontrola ANO — čekají na zapojení do videí.
