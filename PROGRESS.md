@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **19. 8. 2026 pozdní večer — kvízy fyziky 9 KOMPLET**
+> ### Poslední stav: **21. 8. 2026 ráno — kvízy CELÉ fyziky (6–9) KOMPLET na 21 otázkách**
+> **Fyzika 6 dokončena** (16 bloků), kontrola 2 nezávislými kontrolory + 1 po opravách; nálezy:
+> 3 otázky mimo výklad nahrazeny, 5 oprav brány, 1 nesoulad s výkladem opraven. Commit `8fb4e0d`,
+> tag `kvizy-fyzika-21-komplet`. Celá fyzika 6–9 tím splňuje cíl 21 otázek na podtéma.
+>
+> ### Předchozí stav: **19. 8. 2026 pozdní večer — kvízy fyziky 9 KOMPLET**
 > **Fyzika 9: vsech 22 podtemat na 21 otazkach** (155 novych otazek v 5 vlnach; klicove commity
 > vlozeni a oprav az po `7d3d2c9`). Kontrola: **TŘI paralelní nezávislí kontroloři** nad celým
 > rozsahem (magnetismus/střídavý proud · elektřina/polovodiče · jádro/vesmír) — nálezy 0+1+2,
@@ -215,6 +220,14 @@ git push origin main                  # nasadí návrat
 ```
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
+
+## Historie — 21. 8. 2026 ráno
+**Fyzika 6 dokončena, celá fyzika 6–9 KOMPLET na 21 otázkách.** 16 bloků F6 zkontrolováno
+2 nezávislými kontrolory + 1 po opravách; nálezy: 3 otázky mimo výklad nahrazeny, 5 oprav
+brány, 1 nesoulad s výkladem opraven. Commit `8fb4e0d`, tag `kvizy-fyzika-21-komplet`.
+Souběžně noční stavba propojení Maců: opraven Tailscale, obousměrné SSH, git fronta
+`wonderly-fronta` se 54 migrovanými úkoly, `tep.py` + hlídač ticha, Ollama na mini
+s modely bge-m3 a qwen3:8b.
 
 ## Historie — 19. 8. 2026 večer (uzávěrka)
 **Fyzika 8 KOMPLET: všech 35 podtémat na 21 otázkách.** Dnes přibylo 187 otázek v 8 dávkách

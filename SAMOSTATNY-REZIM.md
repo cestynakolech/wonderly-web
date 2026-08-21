@@ -2,16 +2,8 @@
 
 **PŘEDÁVACÍ STAV 20. 8. 2026:**
 - Kvízy F7, F8, F9 KOMPLET na 21 (nasazeno, poslední commit `8525421`).
-- **F6 KOMPLET na 21** (necommitnuto): `uvod`, `telesa`, `opakovani-velicin` (vložené dřív) +
-  nově ověřeno (`node testy/vypis-kviz.mjs <blok>`) na 21 otázek: `atomy-a-molekuly`, `objem`,
-  `skupenstvi-latek`, `hustota`, `magneticke-vlastnosti-latek`, `vzajemne-pusobeni-teles-sila`,
-  `jednoduche-elektricke-obvody`, `casticove-slozeni-latek`, `hmotnost`, `teplotni-roztaznost`,
-  `elektricke-vlastnosti-latek`, `cas-a-jeho-mereni`, 6. ročníková `gravitacni-sila` — to je
-  všech 16 bloků F6, žádný nechybí. Zdrojové otázky jsou v
-  `~/Desktop/Omega/rozdelane/kvizy-f6-2026-08-19/` (jen záloha, nic už netřeba dovkládat).
-  **POZOR: pracovní strom `src/data/kvizy.ts` má necommitnuté změny — NEZAHAZOVAT (žádný
-  `git checkout`/`stash` na tomto souboru)!** Další krok: 2 nezávislí kontroloři nad celou F6,
-  opravy, build, teprve pak commit `kvizy.ts` a push.
+- **F6 COMMITNUTA A NASAZENA 21. 8.** (commit `8fb4e0d`, tag `kvizy-fyzika-21-komplet`) —
+  celá fyzika 6–9 na cíli 21. Varování kvizy.ts už nemá necommitnuté změny.
 - **Tailscale — OPRAVENO 21. 8. 2026 ~0:45.** Příčiny (obě nalezeny a odstraněny): 1) sdílený STROJOVÝ klíč v systémové klíčence (položka `tailscale-machinekey` z 6. 5.) — na mini zálohován (`/var/root/tailscale-keychain-zaloha-2026-08-20.txt`, jen root) a smazán, mini po novém přihlášení = **radek--mac-mini-2 / 100.104.154.38**; 2) na obou strojích běžel zapomenutý démon `/usr/local/bin/tailscaled` 1.96.4 (LaunchDaemon `com.tailscale.tailscaled`) — na obou zastaven a plist/state odsunuty do záloh `*.zaloha-2026-08-2x`. MacBook = **radek--mac-mini-1 / 100.113.130.91** (GUI 1.102.2). KOTVA: ping MacBook→mini pong 8 ms DIRECT (21. 8. 0:44). UZAVŘENO 21. 8. ~1:05: ping ověřen OBĚMA směry (MacBook→mini 5–8 ms, mini→MacBook 4 ms, vždy direct); učitel v konzoli smazal oba mrtvé řádky → tailnet má PŘESNĚ 2 stroje (macbook-pro-2 100.113.130.91, radek--mac-mini-2 100.104.154.38); starý démon na obou strojích odstaven (pgrep prázdný). Dokončeno i volitelné: mini přejmenováno na mac-mini (tailscale set --hostname, ověřeno statusem) a test přes hotspot iPhonu PROŠEL 21. 8. ~1:30 (MacBook na 172.20.10.5, ping mini 6/6 za 53–73 ms přes DERP relay nue) — spojení funguje přes internet. Tailscale KOMPLETNĚ HOTOVO. Pozn.: e-mailová komunikace obou Claudů funguje; vyhledávání podle subjectu zaostává, hledat `in:inbox newer_than:…`.
 - **Propojení Maců — krok 2 a SSH hotové (21. 8. ~1:45):** Rozhodnutí učitele: **fronta přes git** — založeno privátní repo github.com/cestynakolech/wonderly-fronta (složky prijate/pripravene/bezi/na-shlednuti/hotovo/odlozeno, SABLONA-UKOLU.md; lokálně ~/Desktop/wonderly-fronta, první commit 68b8675). **SSH MacBook → mini FUNGUJE**: `ssh radek_soukromy@100.104.154.38` (klíč ~/.ssh/id_ed25519, bez hesla; hostname Radek--Mac-mini) — na mini lze pracovat přímo, e-mailový most mezi Claudy už není nutný (sudo akce dál zadává učitel). SSH je OBOUSMĚRNÉ (21. 8. ~1:55, okruh MacBook→mini→MacBook vrátil MacBook-Pro-2.local; klíče vyměněny, Remote Login zapnut na obou). Další kroky plánu (PLAN-ZITRA.md: zapojit mini jako pozorovatele, přesun lehkých automatů).
 - Qwen 3.8: nepřijat a smazán (verdikt v `ollama-log.md`), vision zůstává ThinkingCap.
