@@ -162,6 +162,11 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/polemika-telesa-a-latky-omnivoice.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Píseň: Z čeho je svět 🎵',
+							cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/pisen-z-ceho-je-svet.m4a',
+						},
 					],
 				},
 				{
@@ -1923,6 +1928,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Páky — nadlidská síla', cesta: 'aXsCK4BXLe4' },
 						{ druh: 'youtube', nazev: 'Video: Páka — opakování', cesta: 'qLAoiYEeaSA' },
 						{ druh: 'infografika', nazev: 'Tahák: moment síly', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/infografika-moment-sily.jpg' },
+						{ druh: 'video', nazev: 'Píseň: Něco za něco 🎵', cesta: '/materialy/fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky/pisen-neco-za-neco.m4a' },
 					],
 				},
 				{
@@ -2762,6 +2768,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
+						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
 					],
 					odkazy: [
 						{ nazev: 'ČT edu — Přeměna energie (pořad PORT)', url: 'https://edu.ceskatelevize.cz/video/5421-premena-energie' },
