@@ -12,31 +12,8 @@
   **POZOR: pracovní strom `src/data/kvizy.ts` má necommitnuté změny — NEZAHAZOVAT (žádný
   `git checkout`/`stash` na tomto souboru)!** Další krok: 2 nezávislí kontroloři nad celou F6,
   opravy, build, teprve pak commit `kvizy.ts` a push.
-- **Tailscale — stav 19. 8. 2026 večer a zbývající postup:**
-  - MacBook: ČISTÝ — v administraci `macbook-pro-2`, 100.113.130.91, klient 1.102.2, připojen.
-  - Mini: připojené jako `radek--mac-mini` (100.114.89.73), ale má štítek **Duplicate node
-    key** (sdílí klíč s MacBookem — stav zděděný migrací) a STAROU aplikaci 1.96.4.
-  - V administraci zbývá duch `radek--macbook-pro-2` (100.74.57.38, offline od května).
-  - Obyčejný ping MacBook→mini funguje (0,3 ms) po domácí LAN; tailscale tunel zatím neověřen.
-  - Zbývající kroky (na mini + administrace, pak ověření z MacBooku):
-    1. Na mini: aktualizovat aplikaci Tailscale (lišta → Check for updates / App Store)
-       na ~1.102.
-    2. Na mini: Tailscale → **Log out** (klíčový krok — vymění zděděný duplicitní klíč;
-       pouhé Log in bez odhlášení klíč nevymění, to už se ověřilo).
-    3. Na mini: Log in stejným účtem (cesty.na.kolech@gmail.com).
-    4. V administraci console.tailscale.com smazat ducha `radek--macbook-pro-2` a případný
-       osiřelý starý řádek mini.
-    5. Z MacBooku ověřit: `/opt/homebrew/bin/tailscale status` → právě 2 stroje, ŽÁDNÝ
-       štítek Duplicate node key; `tailscale ping -c 4 <adresa mini>` musí projít (adresa
-       se po novém přihlášení mini může změnit — vzít ze statusu!).
-    6. Závěrečný důkaz: MacBook na hotspot iPhonu (mini zůstane na domácí wifi) →
-       `tailscale ping` musí projít i tak (direct nebo relay) — teprve to dokazuje spojení
-       přes internet.
-  - Pozn.: Tailscale zapínat vždy jen v JEDNOM profilu každého stroje — druhý profil =
-    druhá identita = duplicity (příčina původního zmatku).
-  - Návod `Omega/navody/tailscale-oprava-duplicitni-identity.md` obsahuje chybnou
-    identifikaci adres — neřídit se jím slepě, adresy vždy ověřit ze statusu.
-  Plán architektury: `Omega/dokumenty/PLAN-ZITRA.md`.
+- **Tailscale — OPRAVENO 21. 8. 2026 ~0:45.** Příčiny (obě nalezeny a odstraněny): 1) sdílený STROJOVÝ klíč v systémové klíčence (položka `tailscale-machinekey` z 6. 5.) — na mini zálohován (`/var/root/tailscale-keychain-zaloha-2026-08-20.txt`, jen root) a smazán, mini po novém přihlášení = **radek--mac-mini-2 / 100.104.154.38**; 2) na obou strojích běžel zapomenutý démon `/usr/local/bin/tailscaled` 1.96.4 (LaunchDaemon `com.tailscale.tailscaled`) — na obou zastaven a plist/state odsunuty do záloh `*.zaloha-2026-08-2x`. MacBook = **radek--mac-mini-1 / 100.113.130.91** (GUI 1.102.2). KOTVA: ping MacBook→mini pong 8 ms DIRECT (21. 8. 0:44). UZAVŘENO 21. 8. ~1:05: ping ověřen OBĚMA směry (MacBook→mini 5–8 ms, mini→MacBook 4 ms, vždy direct); učitel v konzoli smazal oba mrtvé řádky → tailnet má PŘESNĚ 2 stroje (macbook-pro-2 100.113.130.91, radek--mac-mini-2 100.104.154.38); starý démon na obou strojích odstaven (pgrep prázdný). Dokončeno i volitelné: mini přejmenováno na mac-mini (tailscale set --hostname, ověřeno statusem) a test přes hotspot iPhonu PROŠEL 21. 8. ~1:30 (MacBook na 172.20.10.5, ping mini 6/6 za 53–73 ms přes DERP relay nue) — spojení funguje přes internet. Tailscale KOMPLETNĚ HOTOVO. Pozn.: e-mailová komunikace obou Claudů funguje; vyhledávání podle subjectu zaostává, hledat `in:inbox newer_than:…`.
+- **Propojení Maců — krok 2 a SSH hotové (21. 8. ~1:45):** Rozhodnutí učitele: **fronta přes git** — založeno privátní repo github.com/cestynakolech/wonderly-fronta (složky prijate/pripravene/bezi/na-shlednuti/hotovo/odlozeno, SABLONA-UKOLU.md; lokálně ~/Desktop/wonderly-fronta, první commit 68b8675). **SSH MacBook → mini FUNGUJE**: `ssh radek_soukromy@100.104.154.38` (klíč ~/.ssh/id_ed25519, bez hesla; hostname Radek--Mac-mini) — na mini lze pracovat přímo, e-mailový most mezi Claudy už není nutný (sudo akce dál zadává učitel). SSH je OBOUSMĚRNÉ (21. 8. ~1:55, okruh MacBook→mini→MacBook vrátil MacBook-Pro-2.local; klíče vyměněny, Remote Login zapnut na obou). Další kroky plánu (PLAN-ZITRA.md: zapojit mini jako pozorovatele, přesun lehkých automatů).
 - Qwen 3.8: nepřijat a smazán (verdikt v `ollama-log.md`), vision zůstává ThinkingCap.
 
 
@@ -634,3 +611,7 @@ která se pro navázání práce nepotřebuje, tak se nečte automaticky.
   přednost zdroji „medián GPS fotek" ze staré trasy.
 - [cesty] **Kontaktní list pro vizuální kontrolu anonymizace nemá skript** — dělá se
   ručně přes ffmpeg `tile`. Kandidát na doplnění do `kontrola_videa.py`.
+
+> ⚠️ MIGRACE 21. 8. 2026: položky výše jsou překopírované do git fronty
+> wonderly-fronta (složka `prijate/`). Nové položky zakládat UŽ JEN tam.
+> Tato textová fronta je jen pro čtení a po ověření se uklidí.
