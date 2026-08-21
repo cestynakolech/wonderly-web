@@ -1,3 +1,11 @@
+**NASAZENO 22. 8. 2026 (blok):** Nová simulace ozvěny u F8 zvuk (`OzvenaSimulace.astro`,
+zapojena do `zvuk-vznik-a-sireni`) — nezávislá kontrola 0 nálezů, nasazeno commitem `9e83f37`,
+curl na `skola2/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/` potvrdil prvky simulace („Vyšli
+zvuk", „ozvěna", „překážka"). Oprava formulace o Fahrenheitovi (`temata.ts:1005`, 6. ročník
+teplota) — „hlavně v USA" místo „v anglicky mluvících zemích", stejným commitem nasazeno a
+curl ověřeno; úkol přesunut ve `wonderly-fronta` do `hotovo/skola2-fahrenheit-formulace.md`.
+Informatika zůstává zamčená dle `OBSAH-PRAVIDLA.md` bod H — nedotčeno.
+
 **AKTUALIZACE 21. 8. 2026 večer (blok):**
 1. **Písničky fyziky 26/26 NASAZENO A OVĚŘENO** nezávislým kontrolorem (curl 200 na všech, whisper na živých m4a potvrdil nosná slova). Drobnost: slug `energie-a-vesmir` (podklady měly `zdroje-energie-a-vesmir`) — jen nekonzistence pojmenování, funkčně OK. Záloha 12 WAV: `Omega/rozdelane/pisnicky-audio-f9/`.
 2. Mapy Sassenage + Saint-Maurice-sur-Moselle přegenerované (`Omega/rozdelane/mapy-oprava-2026-08-21/`), vizuální kontrola ANO — čekají na zapojení do videí.
