@@ -975,6 +975,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/cas/cas-a-jeho-mereni/polemika-cas-2.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
+						{ druh: 'video', nazev: 'Píseň: Sekunda po sekundě 🎵', cesta: '/materialy/fyzika/6-rocnik/cas/cas-a-jeho-mereni/pisen-sekunda-po-sekunde.m4a' },
 					],
 				},
 			],
@@ -1057,6 +1058,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/polemika-teplota-2.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
+						{ druh: 'video', nazev: 'Píseň: Teploměr nelže 🎵', cesta: '/materialy/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/pisen-teplomer-nelze.m4a' },
 					],
 				},
 				{
@@ -1176,6 +1178,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/polemika-magnetismus-1.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
+						{ druh: 'video', nazev: 'Píseň: Plus a minus, sever s jihem 🎵', cesta: '/materialy/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/pisen-plus-a-minus-sever-s-jihem.m4a' },
 					],
 				},
 				{
@@ -2710,6 +2713,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Mechanická práce a výkon 🎵', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a' },
+					],
 				},
 				{
 					slug: 'vykon',
@@ -2957,6 +2963,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
+						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
 					],
 					odkazy: [
 						{ nazev: 'ČT edu — Vznik parního stroje', url: 'https://edu.ceskatelevize.cz/video/3536-vznik-parniho-stroje' },
@@ -3025,6 +3032,9 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Změny skupenství — tuhnutí, tání, var, kondenzace, sublimace (OnlineSchool.cz)', url: 'https://onlineschool.cz/fyzika/zmeny-skupenstvi/' },
 						{ nazev: 'Skupenství látek (Fyzika na Vltavě)', url: 'https://www.zsvltava.cz/fyzika/?p=253' },
+					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Teplo mění skupenství 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/pisen-teplo-meni-skupenstvi.m4a' },
 					],
 				},
 				{
@@ -3594,6 +3604,9 @@ export const temata: Record<string, Tema[]> = {
 							{ nazev: 'Pokus: Elektrický proud a Ohmův zákon (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5420-pokus-elektricky-proud-a-ohmuv-zakon' },
 							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
 						],
+						materialy: [
+							{ druh: 'video', nazev: 'Píseň: U děleno R 🎵', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/pisen-u-deleno-r.m4a' },
+						],
 					},
 				{
 						slug: 'zapojeni-spotrebicu-za-sebou',
@@ -3959,6 +3972,7 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Video: Akustický diktát',
 							cesta: '4uaNca3El9A',
 						},
+						{ druh: 'video', nazev: 'Píseň: Ve vakuu ticho 🎵', cesta: '/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/pisen-ve-vakuu-ticho.m4a' },
 					],
 				},
 				{
