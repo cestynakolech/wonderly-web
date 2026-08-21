@@ -73,6 +73,51 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['vymýšlet nové vynálezy', 'měnit minulost', 'ovládat počasí myšlenkami'],
 			vysvetleni: 'Poznání přírodních zákonů umožňuje vymýšlet vynálezy — od jednoduchých strojů po rakety.',
 		},
+		{
+			text: 'Kdo pokusem s kuličkami na nakloněné rovině ukázal, že bez vzduchu padají tělesa stejně rychle?',
+			odpovedi: ['Galileo Galilei', 'Isaac Newton', 'Albert Einstein'],
+			vysvetleni: 'Newton a Einstein přišli později a zabývali se jinými objevy — pokus s padajícími tělesy provedl Galileo Galilei.',
+		},
+		{
+			text: 'Co ukázal pokus astronauta mise Apollo 15, který na Měsíci pustil kladivo a pero současně?',
+			odpovedi: ['Dopadly ve stejný okamžik', 'Kladivo dopadlo o dost dřív', 'Pero dopadlo mnohem dřív'],
+			vysvetleni: 'Na Měsíci není vzduch, který by peru překážel — proto dopadly současně, i když má kladivo mnohem větší hmotnost.',
+		},
+		{
+			text: 'Proč list papíru normálně dopadne na zem pomaleji než kniha, když bez vzduchu padají stejně rychle?',
+			odpovedi: ['Vzduch listu víc překáží', 'List je vyrobený z jiné látky', 'List má úplně jinou barvu'],
+			vysvetleni: 'Barva ani látka na rychlost pádu nemají vliv — rozdíl v pádu způsobuje jen odpor vzduchu, kterému se list kvůli velkému povrchu brání víc.',
+		},
+		{
+			text: 'Co udělá fyzik s hypotézou, kterou měření nepotvrdí?',
+			odpovedi: ['Změní ji nebo ji zavrhne', 'Dál ji hlásá jako pravdu', 'Zapíše ji rovnou jako zákon'],
+			vysvetleni: 'Zákonem se stává jen ověřená hypotéza — pokud měření hypotézu nepotvrdí, fyzik ji musí opravit nebo opustit, ne dál tvrdit, že platí.',
+		},
+		{
+			text: 'Co ve fyzice nakonec rozhoduje o tom, co je pravda?',
+			odpovedi: ['Výsledek pokusu a měření', 'Názor většiny lidí', 'Jak dlouho se něčemu věřilo'],
+			vysvetleni: 'Ani dlouhá tradice, ani většinový názor nejsou důkaz — přes dva tisíce let se věřilo, že těžší tělesa padají rychleji, dokud to Galileo pokusem nevyvrátil.',
+		},
+		{
+			text: 'Jak se ve fyzice zapisuje vztah mezi veličinami pomocí písmen a čísel?',
+			odpovedi: ['Vzorcem', 'Básní', 'Obrázkem bez popisků'],
+			vysvetleni: 'Báseň ani obrázek bez popisků vztah mezi veličinami přesně nevyjádří — k tomu slouží vzorec, případně graf.',
+		},
+		{
+			text: 'Přibližně jak dlouho se věřilo, že těžší tělesa padají rychleji než lehká?',
+			odpovedi: ['Skoro dva tisíce let', 'Jen tak asi deset let', 'Asi jen pár posledních měsíců'],
+			vysvetleni: 'Tak krátkou dobu by si mylná představa sotva stihla vžít — tento omyl se traduje téměř dva tisíce let, než ho Galileo vyvrátil.',
+		},
+		{
+			text: 'Co musí platit, aby list papíru položený navrch na knize dopadl na zem současně s ní?',
+			odpovedi: ['Nesmí přesahovat okraj knihy', 'Musí být z velmi tvrdého papíru', 'Kniha musí být otevřená dokořán'],
+			vysvetleni: 'Tvrdost papíru ani otevřená kniha na pokus vliv nemají — když list přesahuje okraj, chytí se ho vzduch a strhne ho pryč, proto musí být menší a přesně na knize.',
+		},
+		{
+			text: 'Co dělá fyzik, když pozorováním a pokusy potvrdí svou hypotézu u mnoha měření?',
+			odpovedi: ['Vysloví z ní fyzikální zákon', 'Prohlásí si to jen za náhodu', 'Přestane se tím vůbec zabývat'],
+			vysvetleni: 'Náhoda ani ukončení zkoumání nejsou cílem vědy — z opakovaně potvrzené a ověřené hypotézy fyzik vysloví fyzikální zákon.',
+		},
 	],
 	'fyzika/6-rocnik/latka-a-teleso/telesa-a-latky': [
 		{
@@ -138,6 +183,51 @@ export const kvizy: Record<string, Otazka[]> = {
 				'obojí jsou látky',
 			],
 			vysvetleni: 'Mléko je materiál (látka); láhev i mléko v ní (konkrétní ohraničené množství) jsou tělesa.',
+		},
+		{
+			text: 'Jak poznáš, že jde o těleso, a ne o látku?',
+			odpovedi: ['dá se to spočítat na kusy', 'má to výraznou barvu', 'dá se to rozpustit ve vodě'],
+			vysvetleni: 'Tělesa se dají počítat (dvě sklenice, tři hřebíky) — u látky to nedává smysl, barva a rozpustnost jsou jen vlastnosti látky.',
+		},
+		{
+			text: 'Proč věta „Přines mi tři dřeva" zní divně?',
+			odpovedi: ['dřevo je látka, nepočítá se', 'dřevo se nedá nosit v rukou', 'dřevo je moc těžké na počítání'],
+			vysvetleni: 'Dřevo je látka (materiál) — počítat na kusy lze tělesa (tři prkna), ne látky samotné.',
+		},
+		{
+			text: 'Voda nalitá do sklenice je…',
+			odpovedi: ['těleso, má tvar i hmotnost', 'pořád jen látka, nádoba to nemění', 'fyzikální veličina'],
+			vysvetleni: 'Voda ve sklenici má tvar, objem i hmotnost — je to konkrétní kus, tedy těleso, ne jen materiál.',
+		},
+		{
+			text: 'Voda, o které mluvíme obecně (bez nádoby), je…',
+			odpovedi: ['látka — obecný materiál', 'těleso, protože má hmotnost', 'fyzikální veličina jako délka'],
+			vysvetleni: 'Bez konkrétního tvaru a hranic jde jen o materiál, tedy látku — teprve v nádobě se z ní stává těleso.',
+		},
+		{
+			text: 'Je oblak na obloze těleso?',
+			odpovedi: ['ano, i když nemá pevný tvar', 'ne, protože není tvrdý', 'ne, protože ho nejde spočítat'],
+			vysvetleni: 'Těleso nemusí být tvrdé ani mít pevné hranice — oblak i kapka deště jsou tělesa stejně jako cihla.',
+		},
+		{
+			text: 'Je vzduch v pneumatice těleso?',
+			odpovedi: ['ano, i když ho nevidíme', 'ne, protože je neviditelný', 'ne, protože vzduch je jen látka'],
+			vysvetleni: 'Těleso nemusí být vidět — vzduch v pneumatice nebo balonku je těleso stejně jako viditelná cihla.',
+		},
+		{
+			text: 'Která otázka nepomůže rozeznat těleso od látky?',
+			odpovedi: ['Jakou to má barvu?', 'Dá se to spočítat na kusy?', 'Zeptáš se „z čeho je to?"'],
+			vysvetleni: 'Barva je jen vlastnost látky a mají ji obě věci — nerozliší, jestli jde o materiál, nebo o konkrétní kus.',
+		},
+		{
+			text: 'Hřebík je vyroben z…',
+			odpovedi: ['kovu', 'dřeva', 'skla'],
+			vysvetleni: 'Hřebík je těleso typicky vyrobené z kovu (železa nebo oceli), ne ze dřeva ani skla.',
+		},
+		{
+			text: 'Zeptáme se: „Sklenice, z čeho je to?" Dává smysl zeptat se stejně na sklo?',
+			odpovedi: ['ne, sklo je látka a je prostě sklo', 'ano, sklo je vyrobené z křemičitého písku', 'ano, protože sklo je těleso'],
+			vysvetleni: 'U látky se „z čeho je to" ptát nedá — sklo je prostě sklo, zatímco sklenice je z něčeho vyrobená (je to těleso).',
 		},
 	],
 	'fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek': [
@@ -267,6 +357,21 @@ export const kvizy: Record<string, Otazka[]> = {
 			],
 			vysvetleni: 'Částice plynu mají mezi sebou mnohem víc volného místa než částice kapaliny, difuze je proto nejrychlejší právě v plynu.',
 		},
+		{
+			text: 'Co znamená řecké slovo „atomos", podle kterého dostaly atomy jméno?',
+			odpovedi: ['nedělitelný', 'neviditelný', 'nehybný'],
+			vysvetleni: 'Atomos znamená nedělitelný — Démokritos si myslel, že atom je nejmenší částice, kterou už nejde rozdělit na menší kousky.',
+		},
+		{
+			text: 'Proč je nafouknutý fotbalový míč vyhřátý na slunci tvrdší než stejný míč ve stínu?',
+			odpovedi: ['teplejší vzduch prudčeji naráží svými drobky do stěn míče', 'na slunci se do míče dostane víc vzduchu zvenku ventilkem', 'sluneční světlo míč stlačí a zahřeje'],
+			vysvetleni: 'Čím je plyn teplejší, tím větší silou naráží do stěn nádoby (míče) — proto uvnitř stoupá tlak.',
+		},
+		{
+			text: 'Jaký je přibližný pohybový stav molekul vzduchu při teplotě 0 °C?',
+			odpovedi: ['ženou se ohromnou rychlostí kolem 1700 km/h', 'jsou téměř úplně a docela bez jakéhokoli pohybu', 'krouží pomalu jako mírný vánek'],
+			vysvetleni: 'I při nízké teplotě 0 °C se vzduchová zrnka řítí ohromnou rychlostí kolem 1700 kilometrů za hodinu — tepelný pohyb se nikdy nezastaví.',
+		},
 	],
 	'fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly': [
 		{
@@ -292,7 +397,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik prvků se vyskytuje v přírodě?',
 			odpovedi: ['92', '10', '1 000'],
-			vysvetleni: 'V přírodě se vyskytuje 92 prvků; další byly vyrobeny v laboratořích (věda jich dnes zná 118).',
+			vysvetleni: 'V přírodě se vyskytuje 92 prvků; zbytek periodické soustavy se podařilo připravit teprve uměle v laboratořích.',
 		},
 		{
 			text: 'Jaká je chemická značka železa?',
@@ -323,6 +428,41 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co je sloučenina?',
 			odpovedi: ['stejné molekuly z různých atomů', 'látka tvořená jen stejnými atomy', 'jakákoli smíchaná látka'],
 			vysvetleni: 'Sloučenina = stejné molekuly složené z různých druhů atomů — voda H₂O, sůl NaCl, oxid uhličitý CO₂.',
+		},
+		{
+			text: 'Jaká je chemická značka zlata?',
+			odpovedi: ['Au', 'Zl', 'Z'],
+			vysvetleni: 'Chemická značka zlata je Au (z latinského aurum). Značka „Zl" ani „Z" v periodické soustavě neexistuje.',
+		},
+		{
+			text: 'Jaká je chemická značka uhlíku?',
+			odpovedi: ['C', 'U', 'Cu'],
+			vysvetleni: 'Uhlík má značku C (z latinského carbo/carboneum). Cu je značka mědi, ne uhlíku.',
+		},
+		{
+			text: 'Kolik atomů obsahuje molekula dusíku N₂?',
+			odpovedi: ['2 atomy dusíku', '1 atom dusíku', '2 atomy různých prvků'],
+			vysvetleni: 'Index 2 u N₂ znamená, že molekula je tvořena dvěma stejnými atomy dusíku, ne dvěma různými prvky.',
+		},
+		{
+			text: 'Z kolika a jakých atomů se skládá molekula oxidu uhličitého CO₂?',
+			odpovedi: ['1 atom uhlíku a 2 atomy kyslíku', '2 atomy uhlíku a 1 atom kyslíku', '2 atomy uhlíku a 2 atomy kyslíku'],
+			vysvetleni: 'Ve vzorci CO₂ znamená C bez čísla jediný uhlíkový kousek, O₂ dvojici kyslíkových kousků.',
+		},
+		{
+			text: 'Čím se liší sloučenina od prvku?',
+			odpovedi: ['Sloučeninu tvoří různé atomy, prvek jen stejné', 'Sloučenina má vždy větší molekuly než prvek', 'Sloučenina je vždy kapalina, prvek pevná látka'],
+			vysvetleni: 'Prvek je tvořen shodnými částicemi (např. železo Fe), sloučenina vzniká spojením více druhů dohromady (např. voda H₂O).',
+		},
+		{
+			text: 'Proč je vzduch směsí, a ne sloučeninou?',
+			odpovedi: ['Obsahuje víc druhů molekul najednou (N₂, O₂, CO₂…)', 'Protože obsahuje pouze čisté atomy jednoho vzácného prvku', 'Protože jde o jedinou molekulu O₂'],
+			vysvetleni: 'Směs vzniká smícháním více látek s různými druhy molekul a atomů. Vzduch obsahuje N₂, O₂, CO₂ i vodu zároveň, proto je směs.',
+		},
+		{
+			text: 'Kolik různých prvků dnešní věda celkem zná?',
+			odpovedi: ['118', '92', '1000'],
+			vysvetleni: 'Věda dnes zná 118 prvků — část se v přírodě vůbec nevyskytuje, podařilo se je připravit teprve uměle v laboratořích.',
 		},
 		{
 			text: 'Co je směs?',
@@ -440,6 +580,36 @@ export const kvizy: Record<string, Otazka[]> = {
 			],
 			vysvetleni: 'Hydraulika přenáší sílu z jednoho pístu na druhý pomocí nestlačitelné kapaliny — zvedáky, lisy, brzdy aut.',
 		},
+		{
+			text: 'Jak se pohybují částice v kapalném skupenství?',
+			odpovedi: ['jsou blízko sebe a kloužou po sobě', 'jen kmitají kolem pevných poloh', 'pohybují se zcela volně, neuspořádaně a rychle'],
+			vysvetleni: 'Částice kapaliny jsou blízko sebe, ale mohou měnit polohu a klouzat po sobě — proto je kapalina tekutá. Kmitání kolem pevných poloh je u pevných látek, volný rychlý pohyb u plynů.',
+		},
+		{
+			text: 'Jak se pohybují částice v plynném skupenství?',
+			odpovedi: ['zcela volně, neuspořádaně a velmi rychle', 'jen kmitají kolem pevných poloh', 'jsou blízko sebe a kloužou po sobě a mění tvar'],
+			vysvetleni: 'Částice plynu jsou daleko od sebe a pohybují se volně, neuspořádaně a rychle — proto je plyn rozpínavý. Kmitání je u pevných látek, klouzání po sobě u kapalin.',
+		},
+		{
+			text: 'Proč mají pevné látky stálý tvar?',
+			odpovedi: ['částice na sebe silně působí, a proto jen kmitají na svém místě', 'částice se volně pohybují úplně neuspořádaně po celém prostoru', 'částice na sebe vůbec nepůsobí žádnými přitažlivými ani odpudivými silami'],
+			vysvetleni: 'V pevné látce drží částice mezi sebou velké síly, takže se nemohou volně přesouvat — jen se chvějí na místě. Proto si těleso zachovává tvar.',
+		},
+		{
+			text: 'Co se stane s amorfní (beztvarou) látkou, třeba sklem nebo voskem, když ji pomalu zahříváme?',
+			odpovedi: ['postupně měkne', 'okamžitě se změní na plyn', 'zůstane úplně beze změny'],
+			vysvetleni: 'Amorfní látky nemají pravidelné uspořádání částic, a proto při zahřívání postupně měknou — na rozdíl od krystalických látek, které mění skupenství náhle.',
+		},
+		{
+			text: 'K čemu se využívá vodorovná hladina kapaliny ve vodováze?',
+			odpovedi: ['k ověření, jestli je plocha vodorovná (rovná)', 'k měření hustoty stavebního materiálu', 'k měření teploty vzduchu v celé velké místnosti'],
+			vysvetleni: 'Kapalina v klidu vždy tvoří vodorovnou hladinu. Vodováha toho využívá — podle polohy bublinky poznáme, zda je plocha rovná.',
+		},
+		{
+			text: 'Jakou vlastnost kapalin využíváme při čerpání benzínu do nádrže auta?',
+			odpovedi: ['tekutost — kapalinu lze přelévat a čerpat hadicí', 'stlačitelnost kapaliny při velkém a náhlém tlaku', 'stálý tvar kapaliny jako u pevné látky'],
+			vysvetleni: 'Kapaliny (i plyny) jsou tekuté, dají se přelévat a čerpat hadicí. Kapaliny navíc nejsou stlačitelné a nemají vlastní stálý tvar.',
+		},
 	],
 	'fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila': [
 		{
@@ -521,6 +691,31 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Jaké síle přibližně odpovídá 1 N?',
 			odpovedi: ['síle na těleso 100 g', 'síle, kterou Země přitahuje těleso o hmotnosti 1 kg', 'síle stisku ruky dospělého'],
 			vysvetleni: '1 N ≈ gravitační síla Země na těleso o hmotnosti 100 g (0,1 kg) — třeba na menší jablko.',
+		},
+		{
+			text: 'Jaká je deformace plastelíny, která po zmáčknutí zůstane zmáčklá?',
+			odpovedi: ['trvalá', 'dočasná', 'žádná'],
+			vysvetleni: 'Plastelína zůstane zmáčknutá — jde o trvalou deformaci. Dočasná deformace se po skončení působení síly vrátí do původního tvaru (jako matrace).',
+		},
+		{
+			text: 'Která síla působí na dálku mezi elektricky nabitými tělesy?',
+			odpovedi: ['elektrická síla', 'magnetická síla', 'jaderná síla'],
+			vysvetleni: 'Elektrická síla působí mezi nabitými tělesy, například při elektrování vlasů hřebenem. Magnetická síla působí mezi magnety, jaderná síla drží pohromadě jádro atomu.',
+		},
+		{
+			text: 'Jak na sebe mohou tělesa působit, když se přímo dotýkají?',
+			odpovedi: ['tlakem nebo tahem', 'jen na dálku přes silové pole', 'nijak, dotyk sílu neumožňuje'],
+			vysvetleni: 'Při vzájemném dotyku těles jde o tlak nebo tah. Na dálku (bez dotyku) působí naopak silová pole, například magnetické nebo gravitační.',
+		},
+		{
+			text: 'Kolik newtonů je 1 meganewton (MN)?',
+			odpovedi: ['1 000 000 N', '1 000 N celkem', '100 N'],
+			vysvetleni: '1 MN = 1 000 000 N. Hodnota 1 000 N odpovídá jednomu kilonewtonu (kN), ne meganewtonu.',
+		},
+		{
+			text: 'Jaká je odchylka měření pružinovým siloměrem?',
+			odpovedi: ['polovina dílku stupnice siloměru', 'celá hodnota rozsahu použitého siloměru', 'vždy přesně 1 N'],
+			vysvetleni: 'Odchylka měření siloměrem je polovina hodnoty nejmenšího dílku stupnice — nezávisí na rozsahu ani není pevně 1 N.',
 		},
 	],
 	'fyzika/6-rocnik/sila/gravitacni-sila': [
@@ -608,6 +803,26 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co způsobuje příliv a odliv?',
 			odpovedi: ['gravitace Měsíce', 'vítr na moři', 'otáčení lodních šroubů'],
 			vysvetleni: 'Měsíc přitahuje vodu v oceánech — vzniká příliv a odliv (slapové jevy).',
+		},
+		{
+			text: 'Co je gravitační pole?',
+			odpovedi: ['prostor kolem tělesa s gravitační silou', 'vrstva vzduchu obklopující celou planetu', 'jiný název pro tíhovou sílu'],
+			vysvetleni: 'Gravitační pole vzniká v okolí každého hmotného tělesa a projevuje se působením gravitační síly na tělesa v okolí. Vzduch s ním nesouvisí.',
+		},
+		{
+			text: 'Proč je hladina klidné kapaliny vždy vodorovná?',
+			odpovedi: ['gravitace srovná hladinu kapaliny do stejné výšky', 'molekuly kapaliny se navzájem prudce odpuzují na povrchu', 'kapalina se odpuzuje od dna nádoby'],
+			vysvetleni: 'Gravitační síla táhne molekuly dolů a ony po sobě kloužou, dokud se hladina nesrovná do stejné výšky.',
+		},
+		{
+			text: 'Kolikrát menší je gravitační síla na Měsíci než na Zemi?',
+			odpovedi: ['asi 6×', 'asi 2×', 'asi 60×'],
+			vysvetleni: 'Měsíc je menší a lehčí než Země, proto na astronauta na Měsíci působí zhruba 6× menší gravitační síla.',
+		},
+		{
+			text: 'Co drží Měsíc na oběžné dráze kolem Země?',
+			odpovedi: ['přitažlivost mezi Zemí a Měsícem', 'magnetické pole Země', 'tlak vzduchu v zemské atmosféře, který sahá až do vesmíru'],
+			vysvetleni: 'Měsíc je ve vesmíru bez vzduchu, na dráze ho drží vzájemné přitahování mezi tělesy, ne magnetismus ani vzduch.',
 		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/delka': [
@@ -808,6 +1023,21 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['500 kg', '50 kg', '5000 kg'],
 			vysvetleni: 'Tuna je větší jednotka než kilogram → násobíme: 0,5 × 1000 = 500 kg.',
 		},
+		{
+			text: 'K čemu se dřív používala kyvadlová váha s jazýčkem na stupnici?',
+			odpovedi: ['na vážení dopisů a drobných cenností', 'na vážení nákladních aut a velkých kamionů', 'na vážení celých pytlů obilí'],
+			vysvetleni: 'Kyvadlová váha s jazýčkem na stupnici se hodila na lehké předměty jako dopisy nebo drobné cennosti, ne na těžké náklady.',
+		},
+		{
+			text: 'Jak funguje decimálka jako druh nerovnoramenné váhy?',
+			odpovedi: ['těleso na jedné misce váží desetkrát víc než závaží', 'obě misky mají vždy úplně stejnou hmotnost jako závaží', 'závaží se posouvá po rameni k tělesu'],
+			vysvetleni: 'Decimálka využívá různě dlouhá ramena tak, že těleso váží desetkrát víc než závaží — odtud název (deci- = desetina).',
+		},
+		{
+			text: 'Proč se vážený předmět klade doprostřed misky vah, ne na kraj?',
+			odpovedi: ['na kraji by se váha naklonila a měření by bylo nepřesné', 'na kraji misky by se předmět mohl snadno rozbít a spadnout', 'je to jen zvyk, na přesnost to nemá vliv'],
+			vysvetleni: 'Předmět položený na kraji misky ji nakloní a stupnice se nesprávně vychýlí — proto se vždy klade doprostřed.',
+		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/objem': [
 		{
@@ -833,7 +1063,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik mililitrů je 1 litr?',
 			odpovedi: ['1 000 ml', '100 ml', '10 ml'],
-			vysvetleni: '1 l = 10 dl = 100 cl = 1 000 ml.',
+			vysvetleni: 'Mili- znamená tisícina: 1 000 ml tvoří litr.',
 		},
 		{
 			text: 'Kolik litrů je 1 hektolitr?',
@@ -883,6 +1113,41 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Odměrný válec ukazoval 250 ml, po odlití vody ukazuje 200 ml. Kolik vody bylo odlito?',
 			odpovedi: ['50 ml', '450 ml', '200 ml'],
 			vysvetleni: 'Odečteme: 250 − 200 = 50 ml. Stejným rozdílem hladin měříme i objem ponořeného tělesa.',
+		},
+		{
+			text: 'Kolik cm³ je 1 dm³?',
+			odpovedi: ['1 000 cm³', '100 cm³', '10 000 cm³'],
+			vysvetleni: '1 dm³ = 1 000 cm³ (krychlové jednotky se převádějí po tisících, protože se násobí do tří rozměrů: 10 × 10 × 10).',
+		},
+		{
+			text: 'Kolik decilitrů je 1 litr?',
+			odpovedi: ['10 dl', '100 dl', '1 000 dl'],
+			vysvetleni: '1 l = 10 dl. Časté chyby vznikají záměnou s menšími dutými jednotkami — centilitry i mililitry.',
+		},
+		{
+			text: 'Kolik litrů má nádrž o objemu 3 hl?',
+			odpovedi: ['300 l', '30 l', '3 000 l'],
+			vysvetleni: 'Hektolitr je sto litrů, takže tři hektolitry jsou třikrát tolik = 300 l.',
+		},
+		{
+			text: 'Proč platí, že 1 litr = 1 dm³?',
+			odpovedi: ['Je to smluvený převodní vztah pro objem jakékoli látky', 'Protože litr je jiný oficiální název pro metr krychlový', 'Platí to jen pro vodu, u jiných kapalin ne'],
+			vysvetleni: 'Objem lze měřit ve dvou soustavách (l, ml… a m³, dm³, cm³) a 1 l = 1 dm³ je smluvený vztah, který je propojuje — platí pro jakoukoli látku.',
+		},
+		{
+			text: 'Odměrný válec ukazuje objem vody 40 ml. Ponoříme do něj kámen a hladina vystoupá na 70 ml. Jaký je objem kamene?',
+			odpovedi: ['30 cm³', '70 cm³', '110 cm³'],
+			vysvetleni: 'Objem tělesa = V₂ − V₁ = 70 ml − 40 ml = 30 ml = 30 cm³. Nesmíme sčítat ani brát jen výsledný údaj.',
+		},
+		{
+			text: 'Krychle má hranu 3 cm. Jaký je její objem?',
+			odpovedi: ['27 cm³', '9 cm³', '18 cm³'],
+			vysvetleni: 'V = a · a · a = 3 · 3 · 3 = 27 cm³. Nestačí hranu jen vynásobit třemi (to by bylo 9) ani sečíst (6).',
+		},
+		{
+			text: 'Proč musí být odměrný válec při měření na vodorovné podložce a odečítáme kolmo v úrovni očí?',
+			odpovedi: ['Jinak by se hladina zdála výš nebo níž a odečet by byl chybný', 'Protože by se z válce úplně a velmi rychle vylila všechna voda', 'Protože nakloněný válec by se mohl převrhnout a rozbít'],
+			vysvetleni: 'Šikmý pohled nebo nakloněný válec zkreslí polohu hladiny vzhledem ke stupnici, proto se odečítá kolmo, v nejnižším bodě zaoblené hladiny.',
 		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/hustota': [
@@ -969,6 +1234,36 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['rtuť (13 500 kg/m³)', 'voda (1 000 kg/m³)', 'benzín (700 kg/m³)'],
 			vysvetleni: 'Rtuť je nejhustší běžná kapalina — 13 500 kg/m³.',
 		},
+		{
+			text: 'Kostka má hmotnost 15 kg a objem 3 m³. Jaká je její hustota?',
+			odpovedi: ['5 kg/m³', '18 kg/m³', '45 kg/m³'],
+			vysvetleni: 'Hustota je ρ = m : V = 15 : 3 = 5 kg/m³. 18 kg/m³ vznikne sečtením hodnot, 45 kg/m³ jejich vynásobením — to není podle vzorce.',
+		},
+		{
+			text: 'Látka má hustotu 8 kg/m³ a zabírá objem 5 m³. Jakou má hmotnost?',
+			odpovedi: ['40 kg', '3 kg', '1,6 kg'],
+			vysvetleni: 'Hmotnost spočítáme jako m = ρ · V = 8 · 5 = 40 kg. 3 kg vznikne odečtením hodnot, 1,6 kg prohozením dělení místo násobení.',
+		},
+		{
+			text: 'Látka má hustotu 4 kg/m³ a hmotnost 20 kg. Jaký má objem?',
+			odpovedi: ['5 m³', '80 m³', '16 m³'],
+			vysvetleni: 'Objem spočítáme jako V = m : ρ = 20 : 4 = 5 m³. 80 m³ vznikne vynásobením místo dělení, 16 m³ odečtením hodnot.',
+		},
+		{
+			text: 'Dvě tělesa mají stejnou velikost (objem), ale různou hustotu. Které z nich je těžší?',
+			odpovedi: ['to s větší hustotou', 'to s menší hustotou', 'obě váží při stejném objemu vždy stejně'],
+			vysvetleni: 'Při stejném objemu je těžší těleso s větší hustotou — hustota totiž udává, kolik hmotnosti připadá na jednotku objemu.',
+		},
+		{
+			text: 'Dvě tělesa mají stejnou hmotnost, ale různou hustotu. Které z nich zabírá víc místa?',
+			odpovedi: ['to s menší hustotou', 'to s větší hustotou', 'obě zabírají při stejné hmotnosti vždy stejně místa'],
+			vysvetleni: 'Čím menší hustotu látka má, tím víc místa (objemu) potřebuje na stejnou hmotnost — proto kilogram peří zabere víc místa než kilogram železa.',
+		},
+		{
+			text: 'Hmotnost je zadaná v gramech a objem v metrech krychlových. Co musíme udělat, než dosadíme do vzorce ρ = m : V?',
+			odpovedi: ['převést hodnoty na související jednotky (kg a m³)', 'obě hodnoty úplně bez rozmyslu jen tak vynásobit stem', 'rovnou dosadit, na jednotkách vůbec nezáleží'],
+			vysvetleni: 'Do vzorce musíme dosazovat jednotky, které patří k sobě — kg s m³, nebo g s cm³. Jinak vyjde nesmyslné číslo.',
+		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin': [
 		{
@@ -1036,6 +1331,46 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['siloměr', 'hustoměr', 'teploměr'],
 			vysvetleni: 'Sílu měříme siloměrem — pružina se protahuje úměrně síle.',
 		},
+		{
+			text: 'Značka t v fyzice znamená čas i teplotu. Podle čeho ty dva významy rozlišíme?',
+			odpovedi: ['podle jednotky (s pro čas, °C pro teplotu)', 'podle toho, jestli je psaná tiskacím, nebo psacím písmem', 'podle barvy zápisu ve sešitě'],
+			vysvetleni: 'Značka t je pro obě veličiny stejná, rozlišuje je až jednotka za číslem: t = 20 s je čas, t = 20 °C je teplota.',
+		},
+		{
+			text: 'Značka m může znamenat hmotnost i jednotku metr. Jak fyzici tyto dva významy rozlišují?',
+			odpovedi: ['podle toho, jestli m stojí před číslem, nebo za ním', 'podle toho, jestli je psané velkým, nebo malým písmenem', 'nijak, obě mají úplně stejný význam'],
+			vysvetleni: 'm = 5 kg je zápis veličiny hmotnost, ale 5 m je délka pět metrů — jednotka stojí za číslem.',
+		},
+		{
+			text: 'Jaká je základní jednotka teploty v mezinárodní soustavě SI (ne ta, kterou běžně používáme)?',
+			odpovedi: ['kelvin (K)', 'stupeň Celsia (°C)', 'stupeň Fahrenheita (°F)'],
+			vysvetleni: 'My běžně měříme ve stupních Celsia, ale SI má jako základní jednotku teploty kelvin. Dílek je stejně velký, jen kelvinová stupnice začíná od nejnižší možné teploty.',
+		},
+		{
+			text: 'Kolika stupňům Celsia odpovídá přibližně 0 kelvinů, nejnižší možná teplota?',
+			odpovedi: ['−273 °C', '−100 °C', '0 °C'],
+			vysvetleni: '0 K = −273,15 °C, zaokrouhleně −273 °C. Nižší teplota už fyzikálně neexistuje.',
+		},
+		{
+			text: 'Při převodu na VĚTŠÍ jednotku (třeba z metrů na kilometry) desetinnou čárku...',
+			odpovedi: ['posouváme doleva a škrtáme nuly', 'posouváme doprava a přidáváme nuly', 'neposouváme vůbec'],
+			vysvetleni: 'Na větší jednotku čárka jde doleva (číslo se zmenšuje), na menší jednotku doprava (číslo se zvětšuje). Výjimka je čas.',
+		},
+		{
+			text: 'Kvádr má rozměry 3 cm, 4 cm a 5 cm a hmotnost 120 g. Jaká je jeho hustota?',
+			odpovedi: ['2 g/cm³', '20 g/cm³', '60 g/cm³'],
+			vysvetleni: 'Objem V = 3 · 4 · 5 = 60 cm³, hustota ρ = m : V = 120 : 60 = 2 g/cm³.',
+		},
+		{
+			text: 'Proč nestačí napsat k výsledku fyzikálního příkladu jen holé číslo, třeba „8"?',
+			odpovedi: ['protože číslo bez jednotky nic neznamená', 'protože jedno číslo vypadá málo', 'protože přesnější je uvést více desetinných míst'],
+			vysvetleni: '„8" samo o sobě neříká, jestli jde o 8 kg, 8 cm, nebo 8 °C — jednotka patří k výsledku vždycky.',
+		},
+		{
+			text: 'Který krok má být při počítání fyzikálního příkladu vždy první?',
+			odpovedi: ['vypsat, co víme, pomocí značek', 'rovnou dosadit čísla do vzorce', 'převést všechny jednotky na milimetry'],
+			vysvetleni: 'Nejdřív se vypíše, co víme (a = ..., m = ...) a co hledáme, teprve pak se sjednotí jednotky a dosadí do vzorce.',
+		},
 	],
 	'fyzika/6-rocnik/cas/cas-a-jeho-mereni': [
 		{
@@ -1059,13 +1394,13 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Mili- = tisícina: 1 ms = 0,001 s. Používá se pro velmi krátké děje.',
 		},
 		{
-			text: 'Jaká byla nevýhoda slunečních hodin?',
+			text: 'Jaká byla nevýhoda slunečních hodin v průběhu roku?',
 			odpovedi: [
-				'v noci a při zatažení neukázaly čas vůbec',
-				'stín se během dne pohyboval příliš rychle a nepravidelně',
-				'fungovaly spolehlivě jen v zimních měsících roku',
+				'poloha Slunce se v roce mění, stín tak ukazoval různý čas',
+				'stín se během roku vůbec neposouval a hodiny byly stále stejně přesné',
+				'sluneční hodiny fungovaly přesně jen v zimě, kdy je Slunce nejníže',
 			],
-			vysvetleni: 'Sluneční hodiny závisí na slunci — v noci a při zatažené obloze slunce nesvítí, takže hodiny neukážou vůbec nic.',
+			vysvetleni: 'Slunce nesvítí každý den v roce na stejném místě na obloze — jeho dráha se mění, takže stín ze stejné tyče ukazoval jiný čas podle ročního období.',
 		},
 		{
 			text: 'Jak fungovaly vodní hodiny?',
@@ -1122,19 +1457,19 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 't = t₂ − t₁: od 8:15 do 10:05 je 1 hodina a 50 minut.',
 		},
 		{
-			text: 'Robot objíždí obdélníkovou dráhu. Co je dráha, kterou ujede?',
-			odpovedi: ['obvod obdélníku', 'obsah obdélníku', 'delší strana obdélníku'],
-			vysvetleni: 'Robot jede PO OBVODU. Obsah je plocha uvnitř, po té nejede — proto se počítá obvod: o = 2 · (a + b).',
+			text: 'Kde archeologové našli nejstarší sluneční hodiny (asi 13. stol. př. n. l.)?',
+			odpovedi: ['v Egyptě, v Údolí králů', 'v Řecku, v přístavu Pireus', 'v Číně, u řeky Chuang-che'],
+			vysvetleni: 'Nejstarší nalezené sluneční hodiny pocházejí z Egypta, z Údolí králů — čas ukazoval pohybující se stín.',
 		},
 		{
-			text: 'Dráha je poskládaná z 20 dílků a každý měří 4 cm. Jak je dlouhá?',
-			odpovedi: ['80 cm', '24 cm', '800 cm'],
-			vysvetleni: '20 dílků × 4 cm = 80 cm. Délku dílku musíme nejdřív změřit pravítkem.',
+			text: 'Čím odměřovaly čas svíčkové hodiny?',
+			odpovedi: ['vyrytou stupnicí na svíčce', 'barvou plamene, která se postupně měnila s časem hoření', 'počtem svíček spálených za celý jeden den v domácnosti'],
+			vysvetleni: 'Svíčka měla vyrytou stupnici a uhořívala stále stejně rychle, takže podle ubývající stupnice šel odečíst čas.',
 		},
 		{
-			text: 'Robot ujel 80 cm za 20 sekund. Jaká byla jeho rychlost?',
-			odpovedi: ['4 cm/s', '0,25 cm/s', '1600 cm/s'],
-			vysvetleni: 'Rychlost = dráha : čas → 80 cm : 20 s = 4 cm/s. Za každou sekundu ujede 4 cm.',
+			text: 'Proč je pro GPS navigaci a světový čas UTC nutné mít atomové hodiny?',
+			odpovedi: ['protože se nezpozdí ani o sekundu za miliony let', 'protože jako jediné dokážou ukazovat časová pásma na celém světě', 'protože GPS satelity bez nich vůbec nevysílají žádný signál'],
+			vysvetleni: 'Atomové hodiny jsou nejpřesnější — nezpozdí se ani o sekundu za miliony let, což GPS i světový čas UTC potřebují.',
 		},
 		{
 			text: 'Kolik sekund je 2,5 minuty?',
@@ -1145,6 +1480,11 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Kolik hodin je 0,5 dne?',
 			odpovedi: ['12 h', '5 h', '24 h'],
 			vysvetleni: 'Den má 24 hodin, polovina je 24 : 2 = 12 hodin.',
+		},
+		{
+			text: 'Který vědec sestrojil v roce 1656 první kyvadlové hodiny?',
+			odpovedi: ['Christiaan Huygens', 'Robert Brown z Anglie', 'Isaac Newton'],
+			vysvetleni: 'První kyvadlové hodiny sestrojil roku 1656 holandský fyzik Christiaan Huygens — kyvadlo je skoro ideální pravidelně kmitající součástka.',
 		},
 	],
 	'fyzika/6-rocnik/teplota/teplota-a-jeji-mereni': [
@@ -1430,6 +1770,21 @@ export const kvizy: Record<string, Otazka[]> = {
 			],
 			vysvetleni: 'Horké potrubí se prodlužuje. Pružná smyčka ve tvaru U se prohne a prodloužení bezpečně pojme — potrubí se neprohne ani nepraskne.',
 		},
+		{
+			text: 'Proč se na konvice a hrnce určené na sporák nepoužívá běžné okenní sklo, ale varné sklo?',
+			odpovedi: ['varné sklo má jiné složení a odolá náhlé změně teploty', 'varné sklo je jen jinak barevné, vlastnosti má úplně stejné', 'varné sklo teplotní roztažnost vůbec nemá'],
+			vysvetleni: 'Varné sklo má jiné chemické složení než okenní, takže snese náhlé zahřátí či ochlazení bez prasknutí — obyčejné sklo by prasklo jako sklenice s vroucí vodou.',
+		},
+		{
+			text: 'Proč mají ocelové pruty v železobetonu stejnou teplotní roztažnost jako beton kolem nich?',
+			odpovedi: ['kdyby se roztahovaly jinak, beton by kolem prutů popraskal', 'ocel by v takovém betonu úplně a velmi rychle celá zrezivěla', 'ocel a beton by se jinak vůbec nespojily'],
+			vysvetleni: 'Kdyby se ocel při zahřátí roztahovala jinak než beton, vznikalo by mezi nimi pnutí a beton by praskal — proto mají stejnou roztažnost.',
+		},
+		{
+			text: 'Proč se kotel teplovodního topení umísťuje volně v prostoru a nepřipevňuje se napevno ke zdi?',
+			odpovedi: ['aby se mohl při zahřátí a ochlazení volně roztahovat', 'aby šel snadněji přenášet při stěhování domů a chalup', 'protože pevné uchycení by ho ochladilo'],
+			vysvetleni: 'Kotel mění teplotu, a tak i rozměry — volné umístění mu dovolí se roztahovat a smršťovat, aniž by se poškodil nebo praskl.',
+		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek': [
 		{
@@ -1510,6 +1865,36 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co může magnet poškodit?',
 			odpovedi: ['data na disku', 'dřevěný nábytek', 'skleněné nádobí'],
 			vysvetleni: 'Magnet ničí data na discích a kazetách a poškozuje hodinky či obrazovky — pozor na něj u elektroniky.',
+		},
+		{
+			text: 'Jak se nazývají látky, které magnet nepatrně odpuzuje?',
+			odpovedi: ['diamagnetické', 'feromagnetické', 'nemagnetické'],
+			vysvetleni: 'Diamagnetické látky (např. měď, zlato) magnet nepatrně odpuzuje. Feromagnetické jsou naopak silně přitahovány a lze je zmagnetovat, nemagnetické na magnet vůbec nereagují.',
+		},
+		{
+			text: 'Jak vznikají umělé magnety, například feritové nebo neodymové?',
+			odpovedi: ['silnou magnetizací feromagnetického tělesa', 'vytěžením z hlubinného dolu jako nerost', 'ochlazením obyčejné oceli na teplotu mrazu'],
+			vysvetleni: 'Umělé magnety vznikají silnou magnetizací feromagnetického tělesa. Přírodním magnetem je naopak nerost magnetit, žádný magnet nevzniká pouhým zmrazením.',
+		},
+		{
+			text: 'Z čeho se vyrábí trvalý magnet, který si magnetismus podrží?',
+			odpovedi: ['z magneticky tvrdé oceli', 'z magneticky měkké oceli', 'z hliníku'],
+			vysvetleni: 'Trvalý magnet se vyrábí z magneticky tvrdé oceli. Magneticky měkká ocel drží magnetismus jen dočasně a hliník je nemagnetická látka, kterou vůbec zmagnetovat nelze.',
+		},
+		{
+			text: 'Co se stane, když k sobě přiblížíme opačné póly dvou magnetů?',
+			odpovedi: ['přitáhnou se', 'odpudí se', 'na sebe vůbec nepůsobí'],
+			vysvetleni: 'Opačné póly (N a S) se přitahují — mezi nimi je magnetické pole nejsilnější. Odpuzují se naopak stejné (souhlasné) póly.',
+		},
+		{
+			text: 'Kde je na magnetu magnetická síla nejslabší?',
+			odpovedi: ['uprostřed, v netečném pásmu', 'na obou pólech úplně zároveň', 'na severním pólu'],
+			vysvetleni: 'Uprostřed magnetu mezi póly je tzv. netečné pásmo, kde je magnetická síla nejslabší. Nejsilnější je naopak na pólech.',
+		},
+		{
+			text: 'Jak vzniká polární záře?',
+			odpovedi: ['nabité částice ze Slunce proniknou u pólů polem Země', 'odrazem slunečního světla od ledovců, sněhu a mořské hladiny', 'výbuchy sopek pod polárním ledem'],
+			vysvetleni: 'Magnetické pole Země většinu nebezpečných částic slunečního větru odkloní, ale u pólů některé proniknou a vytvoří polární záři — nesouvisí s odrazem světla ani se sopkami.',
 		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek': [
@@ -1608,6 +1993,16 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['kvůli statické elektřině (jiskrám)', 'aby řidič nezapomněl zaplatit za palivo', 'kvůli nadměrnému hluku benzínového motoru'],
 			vysvetleni: 'Při přesunu elektronů mohou přeskočit jiskry — u hořlavin hrozí požár. Cisterny mají uzemňovací proužek.',
 		},
+		{
+			text: 'Co se stane s volnými elektrony v nenabitém kovovém tělese, když se k němu přiblíží nabité těleso (elektrostatická indukce)?',
+			odpovedi: ['přesunou se k jedné straně, kde vznikne přebytek náboje', 'zůstanou rozmístěné úplně stejně jako předtím a nikdy jinak', 'úplně a bez jediné stopy z tělesa nadobro zmizí'],
+			vysvetleni: 'Při elektrostatické indukci se volné elektrony v kovu posunou na jednu stranu — tam vznikne záporný přebytek, na opačné straně kladný.',
+		},
+		{
+			text: 'Čím se liší polarizace izolantu od elektrostatické indukce ve vodiči?',
+			odpovedi: ['u izolantu se posunou jen uvnitř atomů, ne volně po tělese', 'u izolantu se elektrony přesunou stejně volně jako u vodiče', 'u izolantu k žádnému posunu elektronů vůbec nedochází'],
+			vysvetleni: 'V izolantu se elektrony nemohou volně pohybovat po celém tělese jako ve vodiči — posunou se jen nepatrně uvnitř svých atomů, proto mluvíme o polarizaci.',
+		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/jednoduche-elektricke-obvody': [
 		{
@@ -1638,7 +2033,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jaké napětí má tužková baterie?',
 			odpovedi: ['1,5 V', '4,5 V', '12 V'],
-			vysvetleni: 'Tužkový článek 1,5 V, plochá baterie 4,5 V, autobaterie asi 12 V.',
+			vysvetleni: 'Tužkový článek má 1,5 V, plochá baterie 4,5 V — jiné zdroje bývají silnější.',
 		},
 		{
 			text: 'Jaké jsou účinky průchodu proudu vodičem?',
@@ -1693,6 +2088,31 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Jak správně postupujeme při zapojování obvodu?',
 			odpovedi: ['nejdřív bez zdroje, kontrola, pak zdroj', 'nejdřív připojíme zdroj, pak zapojujeme prvky', 'na pořadí nezáleží'],
 			vysvetleni: 'Bezpečnost: nejprve obvod bez zdroje, kontrola izolace a žárovky, spínač vypnutý — zdroj až nakonec.',
+		},
+		{
+			text: 'Kterými z uvedených látek prochází elektrický proud?',
+			odpovedi: ['kovy a roztoky solí', 'dřevo, plast a suchý vzduch', 'jen suchý vzduch'],
+			vysvetleni: 'Proud vede vodiče — kovy (volné elektrony) a roztoky solí či kyselin (ionty). Dřevo a plast jsou izolanty, proud jimi neprochází.',
+		},
+		{
+			text: 'Co je izolant?',
+			odpovedi: ['látka, kterou proud neprochází', 'látka, která proud vždycky vede', 'jiný název pro spotřebič'],
+			vysvetleni: 'Izolant (dřevo, plast, guma) proud nevede — proto se jím obalují vodiče. Spotřebič je prvek obvodu, ne vlastnost látky.',
+		},
+		{
+			text: 'Čím měříme elektrické napětí?',
+			odpovedi: ['voltmetrem', 'ampérmetrem', 'siloměrem'],
+			vysvetleni: 'Napětí se měří voltmetrem ve voltech. Ampérmetr měří proud, siloměr sílu.',
+		},
+		{
+			text: 'Co znamená uzel ve schématu elektrického obvodu?',
+			odpovedi: ['místo, kde se spojují vodiče', 'schematická značka baterie', 'místo, kde je obvod přerušen'],
+			vysvetleni: 'Uzel je bod vodivého spojení více vodičů ve schématu. Baterie i přerušení obvodu mají jiné vlastní značky.',
+		},
+		{
+			text: 'Jaké přibližné napětí má autobaterie?',
+			odpovedi: ['12 V', '1,5 V', '230 V'],
+			vysvetleni: 'Autobaterie dává asi 12 V — mnohem víc než tužkový článek, ale méně než síťové napětí ze zdi.',
 		},
 	],
 	'fyzika/6-rocnik/shrnuti/pokusy': [
