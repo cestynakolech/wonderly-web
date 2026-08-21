@@ -303,6 +303,15 @@ Dnes (21. 8., log 02:38–02:46) nahrány **1z6 = `MV5BFF8COBk`, 2z6 = `5toR6xwK
 navíc orphan duplicity `_wdFZBC_1Dw` (2z6) a `OsrcWfBUFaU` (3z6) — obě rovnou schovány
 na private. Oprava zámku běží samostatně. Kvóta 5/den vyčerpána → **4z6–6z6 na 22. 8.**
 
+**✅ STAV 21. 8. 2026 dopoledne — VÝMĚNA DOKONČENA (kvóta se obnovila v 9:00, nečekalo se na 22. 8.):**
+10:23–10:31 nahrány 4z6 = `MjuzIMfmnWw`, 5z6 = `VyO_5mlGTGk`, 6z6 = `BdVyyyFtT4g` (neveřejné,
+log nahrávače, jeden běh pod sdíleným zámkem — žádné duplicity). Stará ID `wS_EwtFr3gY`,
+`OZ_5WB4SAiE`, `hL9QxPGPds0` i torzo `ZLQ88zKrIoI` schována na private (`vymena_videa.schovej`,
+oembed 403 ověřen). Evidence: 3 staré záznamy v `nahrana_videa_nahrazena` (klíč „…(nahrazeno
+6dílnou verzí)“). Soubory: 6× `…z6` v `nasazeno/`, 3× `…z3` v `nasazeno/_stara-mapa/` (nic smazáno).
+Web `src/data/cesty/2026.ts`: `videoId` místa = `MV5BFF8COBk`, v seznamu 6 dílů s titulky opsanými
+z oembedu. Oembed všech 6 nových ID = 200. Kroky 4–9 tohoto postupu jsou HOTOVÉ.
+
 **POSTUP PRO 22. 8. — DOKONČENÍ (teprve tady se přepíná):**
 4. Nahrát zbývající **4z6, 5z6 a 6z6** týmž způsobem.
 5. Až je na kanálu všech šest, schovat **tři stará ID** přes `vymena_videa.schovej(yt, id)`
