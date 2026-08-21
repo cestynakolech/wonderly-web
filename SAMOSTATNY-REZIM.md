@@ -40,7 +40,8 @@ nesoulad bezpečných napětí F8×F9 (ve frontě, viz níže).
 7. **Úspora kontextu je zavedená:** agenti mají strop **1 500 znaků** odpovědi, do sdílených
    souborů zapisuje **výhradně exekutor**, historie PROGRESS/SAMOSTATNY je v archivech.
 8. Deník až po fyzice: 20. 8. nahrát Trittenheim (vyčerpaná kvóta), pak výměna Kluesserath
-   3 → 6 dílů — přesný postup v sekci `[cesty]` níže.
+   3 → 6 dílů — přesný postup v sekci `[cesty]` níže. **21. 8. ráno nahrány 1z6–3z6**
+   (`MV5BFF8COBk`, `5toR6xwKrAU`, `YXHB2UC7-Aw`), kvóta vyčerpána → 4z6–6z6 na 22. 8.
 9. **20. 8. odpoledne (jen na wifi):** zkouška modelu Qwen 3.8 — `python3 ~/Desktop/Omega/skripty/zkouska_qwen38.py --zkouska`.
 10. **KONTROLA FYZIKÁLNÍCH JEDNOTEK NA CELÉM WEBU** (zadáno učitelem 19. 8. 2026) — projít
     všech ~122 simulací, kreslicí skripty podkástů i texty výkladu a ověřit, že každé číslo
@@ -273,18 +274,14 @@ viditelnosti) je přes denní kvótu 10 000. Výměna proto musí přes dva dny.
 nahrála jako nová videa → na kanálu by vznikla rozbitá směs 3 starých + 3 nových dílů.
 Ve `video-vystup/` je fronta nahrávače nevidí (čte jen `nasazeno/`), takže tam jsou v bezpečí.
 
-**POSTUP PRO ZÍTŘEK (20. 8.) — pořadí drž:**
-1. Nejdřív běžná fronta: `nahraj_na_youtube.py` nahraje `Trittenheim_DE_KEKONTROLE.mp4` (1 z 5).
-2. Pak nahrát **4 díly** (1z6–4z6) jako NEVEŘEJNÁ videa přes jediný domov
-   `vymena_videa.nahraj(yt, soubor, nyt.hezky_nazev(soubor), 2026, stav)` — titulky
-   vyjdou „04. 08. · Kluesserath (Německo) — 1/6" … „— 4/6" (ověřeno).
-   **Staré díly zatím NEschovávat a web NEMĚNIT** — než je na kanálu všech šest,
-   platí stará trojdílná verze; nová videa jsou zatím unlisted a nikdo na ně neodkazuje.
-3. Po každém nahrání zapsat do `stav["nahrana_videa"]` pod klíčem názvu souboru
-   (`Kluesserath_DE_KEKONTROLE_1z6.mp4` …) a uložit `nyt.uloz_stav(stav)`.
+**STAV 21. 8. 2026 ráno:** 20. 8. se 1–4 nikdy nenahrály (kvóta padla ještě před tím).
+Dnes (21. 8., log 02:38–02:46) nahrány **1z6 = `MV5BFF8COBk`, 2z6 = `5toR6xwKrAU`,
+3z6 = `YXHB2UC7-Aw`** (neveřejné). Souběžným spuštěním skriptu (chyběl zámek) vznikly
+navíc orphan duplicity `_wdFZBC_1Dw` (2z6) a `OsrcWfBUFaU` (3z6) — obě rovnou schovány
+na private. Oprava zámku běží samostatně. Kvóta 5/den vyčerpána → **4z6–6z6 na 22. 8.**
 
-**POSTUP PRO 21. 8. — DOKONČENÍ (teprve tady se přepíná):**
-4. Nahrát zbývající **5z6 a 6z6** týmž způsobem.
+**POSTUP PRO 22. 8. — DOKONČENÍ (teprve tady se přepíná):**
+4. Nahrát zbývající **4z6, 5z6 a 6z6** týmž způsobem.
 5. Až je na kanálu všech šest, schovat **tři stará ID** přes `vymena_videa.schovej(yt, id)`
    (přepne na `private`, nikdy nemaže; brána pustí unlisted → private):
    `wS_EwtFr3gY` (1/3), `OZ_5WB4SAiE` (2/3), `hL9QxPGPds0` (3/3).
