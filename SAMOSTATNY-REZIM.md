@@ -40,7 +40,7 @@ nesoulad bezpečných napětí F8×F9 (ve frontě, viz níže).
 4. **Popisy prezentací fyziky 6 jsou KOMPLETNÍ** (6 nových, ověřeno proti obsahu) — blokáda
    fyziky 6 tím padla. **Běží dávka na ostatní ročníky** (7. ročník má 23 prezentací) — její
    soubory nechat být. ⚠️ Napřed dořešit `num_ctx` (nález níže), hotové popisy může být
-   potřeba předělat.
+   potřeba předělat. **UZAVŘENO 21. 8. 2026** — viz nález níže, přegenerování se neprokázalo.
 5. **Dorovnání kvízů na 21 otázek** — pokračovat dál (stav a podněty níže).
 6. **Před každou obsahovou prací přečíst `~/Desktop/wonderly-web/OBSAH-PRAVIDLA.md`** (obsahová
    ústava, závazná) — a pravidlo z ní vždy vložit i do zadání workera, jinak pro něj NEPLATÍ.
@@ -157,6 +157,10 @@ a `OLLAMA_CONTEXT_LENGTH` není nikde v systému (ověřeno) → jede na výchoz
 vstupy **tiše ořezávají**. Může nám to ubírat obsah už teď u velkých snímků. Doplnit `num_ctx: 32768`
 i do ThinkingCapového volání a jednu hustou prezentaci přepsat nanovo jako důkaz.
 
+**UZAVŘENO 21. 8. 2026** — num_ctx: 32768 je ve skriptu od 20. 8. (commit Omega `358dd81`), důkaz
+přegenerováním TEPLOTA.pptx: 11 262 B vs. 11 237 B, jen formulační rozdíly → ořez se neprokázal,
+hromadné přegenerování hotových popisů NENÍ potřeba. Zapsáno v DENIK-CHYB.md, commit Omega `fd4af8f`.
+
 ### 📝 PODNĚT K ROZŠÍŘENÍ VÝKLADU — `fyzika/8-rocnik/elektrina/elektricky-proud-mereni` (19. 8. 2026)
 
 Dávky 2 a 3 (`Omega/rozdelane/kvizy-f8-elektrina-2.md`, `-3.md`) jsou **zapsané do `src/data/kvizy.ts`**:
@@ -203,6 +207,10 @@ a podtéma prostě zůstane na 18 otázkách (schváleno učitelem 19. 8. 2026).
   kontextu → model jel na výchozích **~4096 tokenech místo 262144** a dlouhý vstup se **tiše
   ořezával**. Doplňuje se. **Hotové popisy může být potřeba předělat** — ukáže to zkouška
   na husté prezentaci.
+  **UZAVŘENO 21. 8. 2026** — num_ctx: 32768 je ve skriptu od 20. 8. (commit Omega `358dd81`),
+  důkaz přegenerováním TEPLOTA.pptx: 11 262 B vs. 11 237 B, jen formulační rozdíly → ořez se
+  neprokázal, hromadné přegenerování hotových popisů NENÍ potřeba. Zapsáno v DENIK-CHYB.md,
+  commit Omega `fd4af8f`.
 - **Nasazené video `skupenstvi-latek-dialog` obsahuje CHYBNOU verzi kostky** (oprava je jen
   v kódu) → **čeká rozhodnutí učitele, zda video přegenerovat.** Drobnost k témuž: kostka
   v kulaté misce mírně propadá pod dno.
