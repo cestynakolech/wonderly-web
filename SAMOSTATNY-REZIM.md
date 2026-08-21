@@ -2,7 +2,7 @@
 1. **Písničky fyziky 26/26 NASAZENO A OVĚŘENO** nezávislým kontrolorem (curl 200 na všech, whisper na živých m4a potvrdil nosná slova). Drobnost: slug `energie-a-vesmir` (podklady měly `zdroje-energie-a-vesmir`) — jen nekonzistence pojmenování, funkčně OK. Záloha 12 WAV: `Omega/rozdelane/pisnicky-audio-f9/`.
 2. Mapy Sassenage + Saint-Maurice-sur-Moselle přegenerované (`Omega/rozdelane/mapy-oprava-2026-08-21/`), vizuální kontrola ANO — čekají na zapojení do videí.
 3. `graf_local.py` rozšířen o `--fronta` (`python3 ~/Desktop/Omega/skripty/graf_local.py --fronta 3`), otestováno na ostrém úkolu. Dokumentace: `OFFLINE-REZIM.md`, `VYZKUM-ORCHESTRACE-2026-08-21.md`, plán `STINOVY-PROVOZ.md`, `NAVOD-PRO-KOLEGU.md` (poslán i mailem), iPhone: `telegram_hlaseni.py` + `NAVOD-IPHONE.md`.
-4. **OTEVŘENÁ OTÁZKA PRO UČITELE:** aktivace Mac mini pro frontu vyžaduje stáhnout llama3.1 (4,9 GB), disk mini skoro plný — rozhodnout stáhnout / uklidit disk napřed / zatím ne. Do rozhodnutí bere úkoly jen MacBook.
+4. **OTEVŘENÁ OTÁZKA VYŘEŠENA (21. 8. noc):** Mac mini aktivován pro frontu — llama3.1 stažena (4,9 GB, `~/bin/ollama list` potvrzuje), test odpovědi OK ("4"), volné místo po stažení 16 GiB (bylo 20 GiB, dost). `graf_local.py --fronta --na-sucho` na mini proběhl bez pádu (fronta byla prázdná, žádná chyba kontrolora). Mini smí od teď brát úkoly z fronty.
 5. Deník chyb: nový záznam „prace-domyslena-mimo-zadani" (smazaná pracovní kopie) — stav „opraveno, ověřeno" (záloha obnovena a přepočítána: 12 souborů).
 
 # PŘEDÁVACÍ STAV 22. 8. 2026 (před /clear, linka písniček v běhu)
