@@ -464,6 +464,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/polemika-vzajemne-pusobeni-animace.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						{ druh: 'video', nazev: 'Píseň: Síla má směr 🎵', cesta: '/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/pisen-sila-ma-smer.m4a' },
 					],
 				},
 				{
@@ -631,6 +632,7 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/polemika-delka-mereni.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
+						{ druh: 'video', nazev: 'Píseň: Fyzikální veličiny 🎵', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/pisen-fyzikalni-veliciny.m4a' },
 					],
 				},
 				{
@@ -1702,6 +1704,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'infografika', nazev: 'Tahák: síla a její znázornění', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/infografika-prehled.jpg' },
+						{ druh: 'video', nazev: 'Píseň: Síly kolem nás 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/pisen-sily-kolem-nas.m4a' },
 					],
 				},
 				{
