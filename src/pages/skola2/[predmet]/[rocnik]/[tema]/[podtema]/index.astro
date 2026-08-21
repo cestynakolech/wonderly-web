@@ -106,6 +106,7 @@ import JiskraSimulace from '../../../../../../components/skola2/JiskraSimulace.a
 import DuhaSimulace from '../../../../../../components/skola2/DuhaSimulace.astro';
 import ReaktorSimulace from '../../../../../../components/skola2/ReaktorSimulace.astro';
 import DecibelySimulace from '../../../../../../components/skola2/DecibelySimulace.astro';
+import OzvenaSimulace from '../../../../../../components/skola2/OzvenaSimulace.astro';
 import PretlakSimulace from '../../../../../../components/skola2/PretlakSimulace.astro';
 import SvacinaSimulace from '../../../../../../components/skola2/SvacinaSimulace.astro';
 import PrenosSimulace from '../../../../../../components/skola2/PrenosSimulace.astro';
@@ -361,6 +362,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'duha' && <DuhaSimulace />}
 	{podtema.interakce === 'reaktor' && <ReaktorSimulace />}
 	{podtema.interakce === 'decibely' && <DecibelySimulace />}
+	{podtema.interakce === 'ozvena' && <OzvenaSimulace />}
 	{podtema.interakce === 'pretlak' && <PretlakSimulace />}
 	{podtema.interakce === 'svacina' && <SvacinaSimulace />}
 	{podtema.interakce === 'prenos' && <PrenosSimulace />}

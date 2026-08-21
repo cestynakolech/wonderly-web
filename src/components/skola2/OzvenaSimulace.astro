@@ -1,0 +1,137 @@
+---
+// Zvuk, vznik a šíření zvuku (F8): zvuková vlna se šíří rychlostí v = 340 m/s
+// (rychlost zvuku ve vzduchu z výkladu) od zdroje k překážce a zpět. Posuvník
+// mění vzdálenost překážky (5–51 m po 1 m, aby překážka nikdy nestála na
+// reproduktoru a popisky se nepřekrývaly); výchozí hodnota 17 m dává celé
+// číslo t = 2·17/340 = 0,1 s — přesně hranice z výkladu ("aspoň 0,1 s = aspoň
+// 17 m znamená OZVĚNU, blíž je zvuk DOZVUK, splyne s původním"). Animace pulzu
+// (tam a zpět) běží ve vlastním "divadelním" čase (1000 + 30·d ms), aby byla
+// vždy dobře vidět, ale skutečný čas t = 2d/340 s se počítá fyzikálně správně
+// a zobrazuje se vedle. Pohyb je ČISTÁ funkce stavOzveny(tMs, d) na SVG
+// (__stavOzveny) — kontrolovatelná výpočtem bez DOM.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Ozvěna, nebo dozvuk? 🕹️</span></h2>
+	<p>Zvuk se šíří vzduchem rychlostí <strong>≈ 340 m/s</strong>. Když narazí na překážku, odrazí se zpět. Vrátí-li se se zpožděním aspoň <strong>0,1 s</strong> (překážka je aspoň <strong>17 m</strong> daleko), uslyšíme ho <strong>zvlášť — ozvěnu</strong>. Blíž se odražený zvuk s původním <strong>splyne — je to dozvuk</strong>.</p>
+	<svg id="ozv-svg" viewBox="0 0 660 260" role="img" aria-label="Zvuková vlna letí od zdroje k překážce a zpět">
+		<line x1="20" y1="200" x2="640" y2="200" stroke="#868e96" stroke-width="3" />
+		<text id="ozv-zdroj" x="60" y="180" text-anchor="middle" font-size="34">📢</text>
+		<text x="60" y="222" text-anchor="middle" font-size="11" fill="#868e96">zdroj zvuku</text>
+		<rect id="ozv-stena" x="0" y="120" width="16" height="80" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+		<text id="ozv-stena-pop" x="0" y="222" text-anchor="middle" font-size="11" fill="#868e96">překážka</text>
+		<circle id="ozv-pulz" cx="60" cy="180" r="8" fill="#ff6b6b" stroke="#2b2a26" stroke-width="2" opacity="0" />
+		<!-- plaketa se stavem (bílé pozadí přes kresbu) -->
+		<rect x="150" y="20" width="360" height="66" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="ozv-cas" x="330" y="46" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<text id="ozv-verdikt" x="330" y="70" text-anchor="middle" font-size="16" font-weight="bold"></text>
+	</svg>
+	<p>
+		<button type="button" class="ozv-tl" id="ozv-play">🔊 Vyšli zvuk</button>
+	</p>
+	<label class="sim-posuvnik">
+		Vzdálenost překážky: <output id="ozv-out"></output>
+		<input type="range" id="ozv-slider" min="5" max="51" step="1" value="17" />
+	</label>
+	<p class="ozv-vzorec" id="ozv-vzorec"></p>
+	<p class="ozv-stav" id="ozv-stav">👉 Nastav vzdálenost posuvníkem a stiskni „Vyšli zvuk" — sleduj, jestli se odražený zvuk vrátí jako ozvěna, nebo jako dozvuk.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	const V = 340; // rychlost zvuku ve vzduchu (m/s), z výkladu
+	function stavOzveny(tMs, d) {
+		const cas = (2 * d) / V; // skutečný fyzikální čas cesty tam a zpět (s)
+		const ozvena = d >= 17; // hranice z výkladu: 0,1 s ⇔ 17 m
+		const ANIM = 1000 + d * 30; // "divadelní" délka animace (ms) — jen pro pohyb na scéně
+		const half = ANIM / 2;
+		let faze, zlomek;
+		if (tMs <= half) { faze = 'tam'; zlomek = half > 0 ? tMs / half : 1; }
+		else if (tMs <= ANIM) { faze = 'zpet'; zlomek = half > 0 ? (tMs - half) / half : 1; }
+		else { faze = 'hotovo'; zlomek = 1; }
+		return { cas, ozvena, ANIM, faze, zlomek };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('ozv-svg');
+	svg.__stavOzveny = stavOzveny; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+
+	const X_ZDROJ = 60, X_STENA_MAX = 60 + 51 * 9.5, PX_NA_M = 9.5;
+	let d = 17;
+	let animId = null, t0 = null, hraje = false;
+
+	function xStena(dd) { return X_ZDROJ + dd * PX_NA_M; }
+
+	function nakresliScenu(dd) {
+		const xs = xStena(dd);
+		g('ozv-stena').setAttribute('x', xs);
+		g('ozv-stena-pop').setAttribute('x', xs + 8);
+	}
+
+	function popis(dd) {
+		const cas = (2 * dd) / V;
+		const casText = cas.toLocaleString('cs-CZ', { maximumFractionDigits: 3 });
+		g('ozv-out').textContent = `${dd} m`;
+		g('ozv-cas').textContent = `vzdálenost ${dd} m → zvuk se vrátí za ${casText} s`;
+		const ozvena = dd >= 17;
+		const verdikt = g('ozv-verdikt');
+		verdikt.textContent = ozvena ? '🔁 OZVĚNA — uslyšíš ji zvlášť' : '〰️ DOZVUK — splyne s původním zvukem';
+		verdikt.setAttribute('fill', ozvena ? '#2f9e44' : '#e8590c');
+		g('ozv-vzorec').innerHTML = `t = 2 · d / v = 2 · ${dd} m / 340 m/s = <strong>${casText} s</strong>. Hranice ozvěny je <strong>0,1 s</strong>, tedy <strong>17 m</strong>.`;
+	}
+
+	function kresliPulz(s, dd) {
+		const xs = xStena(dd);
+		let x, opacity = 1;
+		if (s.faze === 'tam') x = X_ZDROJ + (xs - X_ZDROJ) * s.zlomek;
+		else if (s.faze === 'zpet') x = xs - (xs - X_ZDROJ) * s.zlomek;
+		else { x = X_ZDROJ; opacity = 0; }
+		g('ozv-pulz').setAttribute('cx', x);
+		g('ozv-pulz').setAttribute('opacity', opacity);
+	}
+
+	function snimek(cas) {
+		if (!hraje) return;
+		if (t0 === null) t0 = cas;
+		const s = stavOzveny(cas - t0, d);
+		kresliPulz(s, d);
+		if (s.faze === 'hotovo') {
+			hraje = false;
+			g('ozv-play').textContent = '🔊 Vyšli zvuk';
+			g('ozv-stav').textContent = s.ozvena
+				? '✅ Zvuk doletěl k překážce a vrátil se dost pozdě — mozek ho rozliší jako DRUHÝ, samostatný zvuk. To je ozvěna.'
+				: '✅ Zvuk se vrátil moc brzy — sluch ho už nerozliší od původního, oba zvuky splynou v jeden. To je dozvuk.';
+			return;
+		}
+		animId = requestAnimationFrame(snimek);
+	}
+
+	g('ozv-slider').addEventListener('input', () => {
+		d = +g('ozv-slider').value;
+		nakresliScenu(d);
+		popis(d);
+		if (!hraje) { g('ozv-pulz').setAttribute('cx', X_ZDROJ); g('ozv-pulz').setAttribute('opacity', 0); }
+	});
+
+	g('ozv-play').addEventListener('click', () => {
+		if (hraje) return;
+		hraje = true; t0 = null;
+		g('ozv-play').textContent = '⏳ zvuk letí…';
+		g('ozv-stav').textContent = '🔊 Zvuk letí k překážce…';
+		requestAnimationFrame(snimek);
+	});
+
+	nakresliScenu(d);
+	popis(d);
+</script>
+
+<style>
+	#ozv-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.ozv-tl { font: inherit; font-weight: 800; padding: 0.45rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #d3f9d8; cursor: pointer; }
+	.ozv-tl:active { transform: translateY(1px); }
+	.ozv-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.ozv-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
