@@ -4103,6 +4103,9 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zviditelnění pole</h3>
 						<p>Na papír nad magnetem nasypeme <strong>železné piliny</strong> — uspořádají se do <strong>pilinového obrazce</strong>. Graficky pole kreslíme jako <strong>magnetické indukční čáry</strong>: jsou to uzavřené křivky, které vychází ze <strong>severního pólu (N)</strong> a míří k <strong>jižnímu (S)</strong>; jejich směr udává severní pól magnetky.</p>
 					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Ze severu na jih 🎵', cesta: '/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a' },
+					],
 					odkazy: [
 						{ nazev: 'Magnetismus — kvíz (Wordwall)', url: 'https://wordwall.net/cs/resource/27704217/magnetismus-2' },
 					],
@@ -4250,6 +4253,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 2', cesta: 'gn-CN3StDUs' },
+						{ druh: 'video', nazev: 'Píseň: Magnet v pohybu 🎵', cesta: '/materialy/fyzika/9-rocnik/magneticke-pole/elektromagneticka-indukce/pisen-magnet-v-pohybu.m4a' },
 					],
 				},
 				{
@@ -4394,6 +4398,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Cesta elektřiny', cesta: 'fimbeSGx8iY' },
+						{ druh: 'video', nazev: 'Píseň: Proud si cestu najde 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/prenos-elektricke-energie/pisen-proud-si-cestu-najde.m4a' },
 					],
 				},
 				{
@@ -4652,6 +4657,7 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce', cesta: 'MaQ4DzuqK5E' },
+						{ druh: 'video', nazev: 'Píseň: Dobrý sluha, zlý pán 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/pisen-dobry-sluha-zly-pan.m4a' },
 					],
 					odkazy: [
 						{ nazev: 'Video: Generátor elektrického proudu (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3524-generator-elektrickeho-proudu' },
@@ -4749,6 +4755,7 @@ export const temata: Record<string, Tema[]> = {
 						{ druh: 'youtube', nazev: 'Video: Jádro atomu a síly v jádře', cesta: 'gbUMqax9SMs' },
 						{ druh: 'youtube', nazev: 'Video: Atom, iont, izotop', cesta: '5WUfEMAbwQM' },
 						{ druh: 'youtube', nazev: 'Video: Atomy a modely', cesta: 'uszDiE3FDQk' },
+						{ druh: 'video', nazev: 'Píseň: Síla z jádra 🎵', cesta: '/materialy/fyzika/9-rocnik/jaderna-fyzika/jadro-atomu/pisen-sila-z-jadra.m4a' },
 					],
 				},
 				{
@@ -4939,6 +4946,9 @@ export const temata: Record<string, Tema[]> = {
 							slunečního záření nebo větru, které jsou tu "zadarmo" a stále se doplňují.</details></li>
 						</ol>
 					`,
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Od uhlí ke hvězdám 🎵', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/pisen-od-uhli-ke-hvezdam.m4a' },
+					],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [
 						{ nazev: 'Obnovitelné zdroje energie (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/2605-obnovitelne-zdroje-energie' },
