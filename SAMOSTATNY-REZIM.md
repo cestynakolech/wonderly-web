@@ -1,6 +1,13 @@
+**AKTUALIZACE 21. 8. 2026 večer (blok):**
+1. **Písničky fyziky 26/26 NASAZENO A OVĚŘENO** nezávislým kontrolorem (curl 200 na všech, whisper na živých m4a potvrdil nosná slova). Drobnost: slug `energie-a-vesmir` (podklady měly `zdroje-energie-a-vesmir`) — jen nekonzistence pojmenování, funkčně OK. Záloha 12 WAV: `Omega/rozdelane/pisnicky-audio-f9/`.
+2. Mapy Sassenage + Saint-Maurice-sur-Moselle přegenerované (`Omega/rozdelane/mapy-oprava-2026-08-21/`), vizuální kontrola ANO — čekají na zapojení do videí.
+3. `graf_local.py` rozšířen o `--fronta` (`python3 ~/Desktop/Omega/skripty/graf_local.py --fronta 3`), otestováno na ostrém úkolu. Dokumentace: `OFFLINE-REZIM.md`, `VYZKUM-ORCHESTRACE-2026-08-21.md`, plán `STINOVY-PROVOZ.md`, `NAVOD-PRO-KOLEGU.md` (poslán i mailem), iPhone: `telegram_hlaseni.py` + `NAVOD-IPHONE.md`.
+4. **OTEVŘENÁ OTÁZKA PRO UČITELE:** aktivace Mac mini pro frontu vyžaduje stáhnout llama3.1 (4,9 GB), disk mini skoro plný — rozhodnout stáhnout / uklidit disk napřed / zatím ne. Do rozhodnutí bere úkoly jen MacBook.
+5. Deník chyb: nový záznam „prace-domyslena-mimo-zadani" (smazaná pracovní kopie) — stav „opraveno, ověřeno" (záloha obnovena a přepočítána: 12 souborů).
+
 # PŘEDÁVACÍ STAV 22. 8. 2026 (před /clear, linka písniček v běhu)
 
-**AKTUALIZACE těsně před /clear (22. 8.):** Písničky 20/26 témat NASAZENO (dávky 3+4 = commit `2faab21`, curl 8/8; vítězové ve VYBER-davka3-4.md). **Zbývá JEN 6× F9** — texty schválené (kopie v Omega/rozdelane/pisnicky-texty-zaloha/), dávka 5 se PRÁVĚ GENEROVALA na Suno v době /clear → nová session NEJDŘÍV zkontroluje knihovnu na suno.com (klipy „Ze severu na jih", „Magnet v pohybu", „Proud si cestu najde", „Dobrý sluha, zlý pán", „Síla z jádra", „Od uhlí ke hvězdám" tam nejspíš UŽ JSOU — negenerovat znovu, jen stáhnout WAV obě varianty do /tmp/wonderly-workery/pisnicky-kopie/), pak whisper výběr + nasazení dle vzoru 2faab21. Kluesserath HOTOVO (f0b21ce). Kredity ~2160–2220. Pozn. pasti: whisper přes SSH potřebuje KMP_DUPLICATE_LIB_OK=TRUE; push mostem přes scratchpad; klíčenka je tabu (nová paměť).
+**AKTUALIZACE 21. 8. 2026 večer:** Písničky **26/26 HOTOVO** — poslední dávka F9 (Od uhlí ke hvězdám, Síla z jádra, Dobrý sluha zlý pán, Proud si cestu najde, Magnet v pohybu, Ze severu na jih) nasazena commitem `c2027e1`, whisper výběr viz hudba-suno/EVIDENCE.md (dávka 5). Curl na živé m4a se ověřuje po nasazení Cloudflare. Celý cyklus písniček fyziky je uzavřen.
 
 
 **PÍSNIČKY FYZIKY (rap ze Suno, samoobslužný řetěz — pravidlo v paměti pisnicky-samoobsluzne):**
