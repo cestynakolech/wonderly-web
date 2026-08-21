@@ -251,6 +251,13 @@ o svolení k jeho 13 videím?
 
 ## [cesty] Cestovatelský deník
 
+**Hudba videí ze Suno (22. 8. 2026):** automat deníku od teď bere podkres z knihovny
+`~/Desktop/Omega/hudba-suno/` (12 nálad, výběr md5 hashem názvu města, krátká skladba
+se spojuje concatem), záložní cesta ACE-Step při chybějící knihovně; použitá skladba
+se loguje. Kontrolor PROJDE bez nálezu, commit Omega `884c713`, testovací video
+`Omega/rozdelane/suno-video-test/Winterhausen_test.mp4`. Doklad licence:
+`hudba-suno/EVIDENCE.md` (Suno Pro, komerční užití). Od 3. 9. limit 20 stažení/měsíc.
+
 **HOTOVÉ A NASAZENÉ** (též commit `30eabd1`): opraveno 3× mrtvé `videoId`, 4 data míst, 8 + 1 názvů videí.
 
 **HOTOVÉ, NENASAZENÉ:**
