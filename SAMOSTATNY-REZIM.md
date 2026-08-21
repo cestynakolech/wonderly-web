@@ -20,6 +20,13 @@ nesoulad bezpečných napětí F8×F9 (ve frontě, viz níže).
    se **MAREK plete a EVA ho opravuje** (dřív to bylo naopak). Pravidlo je zapsané do obsahové ústavy,
    skillu `/podkast-video` i do zadání workerů. **Zvuk i videa se vyrábějí ZNOVU** — staré díly se
    nepředělávají, tohle je jen díl 15. **NENASAZOVAT bez nezávislého kontrolora.**
+   **ODLOŽENO 21. 8. 2026** — scénáře všech 4 částí přepsané na nové pravidlo (MAREK se plete,
+   EVA opravuje) ✅, ale nový zvuk má 55 vadných replik a přegenerování selhalo všemi přístupy
+   (oprava ref_text v pomocném skriptu → jen 2/31; jiné seedy; dělení vět; syntéza na CPU → 0/5,
+   čili nejde o MPS bug). Vada je v samotné syntéze OmniVoice na těchto replikách. Celá historie +
+   doporučení: `~/Desktop/Omega/rozdelane/dil15-prepracovani-doklad.md` (ZÁVĚR). Čeká na
+   rozhodnutí učitele: nová verze OmniVoice / jiný lokální TTS / zkusit jindy. Videa se
+   nerenderují, nenasazuje se.
 2. **ROZHODNUTÍ, KTERÁ ČEKAJÍ NA UČITELE** (zeptat se hned na začátku, blokují práci):
    a) přegenerovat nasazená videa `skupenstvi-latek-dialog`, `6/objem-dialog` a
       `6/souhrnne-opakovani-velicin-dialog` (vyrobena vadným měřítkem px→cm)?
