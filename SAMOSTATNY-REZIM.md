@@ -1,3 +1,16 @@
+# PŘEDÁVACÍ STAV 22. 8. 2026 (před /clear, linka písniček v běhu)
+
+**PÍSNIČKY FYZIKY (rap ze Suno, samoobslužný řetěz — pravidlo v paměti pisnicky-samoobsluzne):**
+- NASAZENO (commit 9451e34): F6 Látka a těleso „Z čeho je svět", F7 Jednoduché stroje „Něco za něco", F8 Energie „Nedá se zničit" — curl ověřeno 3/3.
+- **DÁVKA 2 ZE SUNO HOTOVÁ** (aktualizace 22. 8.): Síla má směr (F6), Fyzikální veličiny (F6), Síly kolem nás (F7) — 6 WAV stažených v `/tmp/wonderly-workery/pisnicky-kopie/`, evidence `EVIDENCE-davka2.md`, zbývající kredity 2310. **Právě jde na whisper výběr A/B + nasazení** (vzor výběru: `/tmp/wonderly-workery/pisnicky-kopie/VYBER-f7-f8.md`; pak m4a 192k, zápis do temata.ts dle vzoru, build, push, curl).
+- TEXTY SCHVÁLENÉ, ČEKAJÍ NA SUNO: pisen-f6-cas.md (Sekunda po sekundě), pisen-f6-teplota.md (Teploměr nelže), pisen-f6-elektrina-a-magnetismus.md (Plus a minus, sever s jihem), pisen-f8-mechanicka-prace-a-vykon.md, pisen-f8-tepelne-motory.md (Teplo na pohyb), pisen-f8-zvuk.md (Ve vakuu ticho), pisen-f8-elektrina.md (U děleno R) — vše v `/tmp/wonderly-workery/` (POZOR: /tmp nepřežije restart Macu — záloha .md je v `~/Desktop/Omega/rozdelane/pisnicky-texty-zaloha/`, po /clear ji udržovat aktuální!).
+- V OPRAVĚ: pisen-f8-teplo-a-zmeny-skupenstvi.md (2 nálezy: vedení/proudění/záření není ve výkladu; sůl −20 °C ne −21) — po opravě re-check kontrolorem.
+- F9 TEXTY (stav 22. 8.): magneticke-pole (Ze severu na jih) **PROŠLO kontrolou**; elektromagneticka-indukce (Magnet v pohybu) hotová, čeká kontrolu; proud-v-latkach, jaderna-fyzika, zdroje-energie-a-vesmir hotové, čekají na kontrolu; **píše se energie-a-bezpecnost** (celkem texty hotové 4/6 + 1 po kontrole).
+- Postup výroby: Suno Custom (text ze souboru, styl czech rap catchy energetic clear adult male vocal 100 BPM + czech language, Instrumental OFF), stahovat OBĚ varianty WAV do `/tmp/wonderly-workery/pisnicky-kopie/` (NE na Plochu — TCC!), evidence do hudba-suno/EVIDENCE.md. Limit 20 stažení/měsíc od 3. 9.!
+- Cíl: všech 26 témat (bez Shrnutí); hotovo 9, tabulka `/tmp/wonderly-workery/pruzkum-pisnicky.md` (kopie v záloze).
+
+**OSTATNÍ V BĚHU 22. 8.:** Kluesserath díly 4–6 se nahrávají (po dokončení: schovat stará ID, přepsat 2026.ts, build, push, oembed+curl — agent na tom pracuje); tep-mini se zapínal na mini (ověřit log); mini disk: Xcode simulátory 136 GB + Deleted Users 31 GB — mazání čeká na učitele; video-kanál z knihovny Fotek postaven, čeká na TCC odklik učitele (příkaz v AUTOMATY.md); NAS Vejhon54 = 192.168.50.226, DSM 7 OK (paměť nas-vejhon54); TCC blokuje agentům Plochu — trvalé řešení: povolit v Nastavení → Soukromí → Soubory a složky.
+
 # 🚀 ČÍM ZAČÍT PO /clear (zapsáno 20. 8. 2026 — TENTO blok platí, starší verze níže neplatí)
 
 **PŘEDÁVACÍ STAV 20. 8. 2026:**
