@@ -1,5 +1,8 @@
 # PŘEDÁVACÍ STAV 22. 8. 2026 (před /clear, linka písniček v běhu)
 
+**AKTUALIZACE těsně před /clear (22. 8.):** Písničky 20/26 témat NASAZENO (dávky 3+4 = commit `2faab21`, curl 8/8; vítězové ve VYBER-davka3-4.md). **Zbývá JEN 6× F9** — texty schválené (kopie v Omega/rozdelane/pisnicky-texty-zaloha/), dávka 5 se PRÁVĚ GENEROVALA na Suno v době /clear → nová session NEJDŘÍV zkontroluje knihovnu na suno.com (klipy „Ze severu na jih", „Magnet v pohybu", „Proud si cestu najde", „Dobrý sluha, zlý pán", „Síla z jádra", „Od uhlí ke hvězdám" tam nejspíš UŽ JSOU — negenerovat znovu, jen stáhnout WAV obě varianty do /tmp/wonderly-workery/pisnicky-kopie/), pak whisper výběr + nasazení dle vzoru 2faab21. Kluesserath HOTOVO (f0b21ce). Kredity ~2160–2220. Pozn. pasti: whisper přes SSH potřebuje KMP_DUPLICATE_LIB_OK=TRUE; push mostem přes scratchpad; klíčenka je tabu (nová paměť).
+
+
 **PÍSNIČKY FYZIKY (rap ze Suno, samoobslužný řetěz — pravidlo v paměti pisnicky-samoobsluzne):**
 - NASAZENO (commit 9451e34): F6 Látka a těleso „Z čeho je svět", F7 Jednoduché stroje „Něco za něco", F8 Energie „Nedá se zničit" — curl ověřeno 3/3.
 - **DÁVKA 2 ZE SUNO HOTOVÁ** (aktualizace 22. 8.): Síla má směr (F6), Fyzikální veličiny (F6), Síly kolem nás (F7) — 6 WAV stažených v `/tmp/wonderly-workery/pisnicky-kopie/`, evidence `EVIDENCE-davka2.md`, zbývající kredity 2310. **Právě jde na whisper výběr A/B + nasazení** (vzor výběru: `/tmp/wonderly-workery/pisnicky-kopie/VYBER-f7-f8.md`; pak m4a 192k, zápis do temata.ts dle vzoru, build, push, curl).
