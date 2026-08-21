@@ -1,0 +1,178 @@
+---
+// Světlo a jeho zdroje (F7, 7. ročník): rychlost světla v různých prostředích
+// — přesně 4 hodnoty z výkladu (300 000 / 225 000 / 200 000 / 125 000 km/s pro
+// vzduch/vodu/sklo/diamant). Posuvník mění POUZE dobu letu t (1–5 s, celé),
+// vzdálenost s = v·t je vždy násobek dvou celých čísel → celá pro každou
+// polohu posuvníku. Pořadí doletu (vzduch→voda→sklo→diamant) je na t
+// NEZÁVISLÉ — ukazuje žákovi, že rychlost je vlastnost látky, kdežto s roste
+// úměrně s t. Lana jsou seřazena shora dolů podle hustoty/pomalosti látky
+// (vzduch nahoře — nejřidší a nejrychlejší, diamant dole — nejhustší
+// a nejpomalejší), v souladu s pravidlem "hustší dole". Animace běží ve
+// vlastním "divadelním" čase ANIM = K/v (K=90 000 000 zvoleno tak, aby ANIM
+// vyšel na celé milisekundy pro všechny 4 rychlosti). Čistá část
+// (stavZavodu, vzdalenost) je bez DOM a zavěšená na svg.__ pro kontrolu.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Závod světla: vzduch, voda, sklo, diamant 🕹️</span></h2>
+	<p>Světlo se šíří <strong>přímočaře</strong>, ale v různých prostředích různě rychle. Ve <strong>vakuu a ve vzduchu</strong> letí skoro stejně rychle — <strong>300 000 km/s</strong>. Ve <strong>vodě</strong> je to už jen 225 000 km/s, ve <strong>skle</strong> 200 000 km/s a v <strong>diamantu</strong> pouhých 125 000 km/s. Nastav dobu letu a spusť závod — pořadí v cíli bude pořád stejné, mění se jen to, jak daleko se paprsky dostanou.</p>
+	<svg id="rs-svg" viewBox="0 0 680 320" role="img" aria-label="Čtyři paprsky světla závodí vzduchem, vodou, sklem a diamantem">
+		<!-- lano: vzduch -->
+		<text x="20" y="36" font-size="13" font-weight="700" fill="#2b2a26">💡 Vzduch — 300 000 km/s</text>
+		<rect id="rs-box-vzduch" x="250" y="46" width="140" height="20" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />
+		<text id="rs-vzd-vzduch" x="320" y="61" text-anchor="middle" font-size="12" font-weight="700" fill="#2b2a26"></text>
+		<line x1="20" y1="70" x2="620" y2="70" stroke="#dee2e6" stroke-width="4" />
+		<text x="633" y="75" text-anchor="middle" font-size="16">👁️</text>
+		<circle id="rs-bod-vzduch" cx="20" cy="70" r="9" fill="#74c0fc" stroke="#2b2a26" stroke-width="2" />
+		<text id="rs-poradi-vzduch" x="658" y="75" text-anchor="middle" font-size="16" font-weight="800" fill="#2b2a26" opacity="0"></text>
+
+		<!-- lano: voda -->
+		<text x="20" y="106" font-size="13" font-weight="700" fill="#2b2a26">💧 Voda — 225 000 km/s</text>
+		<rect id="rs-box-voda" x="250" y="116" width="140" height="20" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />
+		<text id="rs-vzd-voda" x="320" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#2b2a26"></text>
+		<line x1="20" y1="140" x2="620" y2="140" stroke="#dee2e6" stroke-width="4" />
+		<text x="633" y="145" text-anchor="middle" font-size="16">👁️</text>
+		<circle id="rs-bod-voda" cx="20" cy="140" r="9" fill="#4dabf7" stroke="#2b2a26" stroke-width="2" />
+		<text id="rs-poradi-voda" x="658" y="145" text-anchor="middle" font-size="16" font-weight="800" fill="#2b2a26" opacity="0"></text>
+
+		<!-- lano: sklo -->
+		<text x="20" y="176" font-size="13" font-weight="700" fill="#2b2a26">🪟 Sklo — 200 000 km/s</text>
+		<rect id="rs-box-sklo" x="250" y="186" width="140" height="20" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />
+		<text id="rs-vzd-sklo" x="320" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#2b2a26"></text>
+		<line x1="20" y1="210" x2="620" y2="210" stroke="#dee2e6" stroke-width="4" />
+		<text x="633" y="215" text-anchor="middle" font-size="16">👁️</text>
+		<circle id="rs-bod-sklo" cx="20" cy="210" r="9" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<text id="rs-poradi-sklo" x="658" y="215" text-anchor="middle" font-size="16" font-weight="800" fill="#2b2a26" opacity="0"></text>
+
+		<!-- lano: diamant (dole = nejhustší a nejpomalejší) -->
+		<text x="20" y="246" font-size="13" font-weight="700" fill="#2b2a26">💎 Diamant — 125 000 km/s</text>
+		<rect id="rs-box-diamant" x="250" y="256" width="140" height="20" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5" />
+		<text id="rs-vzd-diamant" x="320" y="271" text-anchor="middle" font-size="12" font-weight="700" fill="#2b2a26"></text>
+		<line x1="20" y1="280" x2="620" y2="280" stroke="#dee2e6" stroke-width="4" />
+		<text x="633" y="285" text-anchor="middle" font-size="16">👁️</text>
+		<circle id="rs-bod-diamant" cx="20" cy="280" r="9" fill="#9775fa" stroke="#2b2a26" stroke-width="2" />
+		<text id="rs-poradi-diamant" x="658" y="285" text-anchor="middle" font-size="16" font-weight="800" fill="#2b2a26" opacity="0"></text>
+	</svg>
+	<p>
+		<button type="button" class="rs-tl" id="rs-play">🚀 Vyšli paprsky</button>
+	</p>
+	<label class="sim-posuvnik">
+		Doba letu: <output id="rs-out"></output>
+		<input type="range" id="rs-slider" min="1" max="5" step="1" value="1" />
+	</label>
+	<p class="rs-vzorec" id="rs-vzorec"></p>
+	<p class="rs-stav" id="rs-stav">👉 Nastav dobu letu a stiskni „Vyšli paprsky" — sleduj, kdo doletí do cíle první.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	const MEDIA = [
+		{ klic: 'vzduch', nazev: 'Vzduch', v: 300000 },
+		{ klic: 'voda', nazev: 'Voda', v: 225000 },
+		{ klic: 'sklo', nazev: 'Sklo', v: 200000 },
+		{ klic: 'diamant', nazev: 'Diamant', v: 125000 },
+	];
+	const K = 90000000; // ms·km/s — zvoleno tak, aby ANIM vyšel celý (300/400/450/720 ms)
+
+	function vzdalenost(v, t) {
+		return v * t; // km — vždy celé, protože v i t jsou celá
+	}
+	function animCas(v) {
+		return K / v; // ms — 300, 400, 450, 720 pro naše 4 rychlosti
+	}
+	function stavZavodu(tMs) {
+		return MEDIA.map((m) => {
+			const ANIM = animCas(m.v);
+			const zlomek = Math.min(1, tMs / ANIM);
+			return { klic: m.klic, zlomek, hotovo: tMs >= ANIM, ANIM };
+		});
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('rs-svg');
+	svg.__stavZavodu = stavZavodu; // pro nezávislou kontrolu výpočtem
+	svg.__vzdalenost = vzdalenost;
+	const g = (id) => document.getElementById(id);
+
+	const X_START = 20, X_CIL = 620;
+	let t = 1;
+	let animId = null, t0 = null, hraje = false, hotovoFlags = {}, poradiCitac = 0;
+
+	function fmt(cislo) {
+		return cislo.toLocaleString('cs-CZ') + ' km';
+	}
+
+	function popis(tt) {
+		g('rs-out').textContent = `${tt} s`;
+		for (const m of MEDIA) {
+			g(`rs-vzd-${m.klic}`).textContent = fmt(vzdalenost(m.v, tt));
+		}
+		const d1 = vzdalenost(MEDIA[0].v, tt);
+		g('rs-vzorec').innerHTML = `s = v · t → Vzduch: s = 300 000 km/s · ${tt} s = <strong>${d1.toLocaleString('cs-CZ')} km</strong>. Rychlost světla v látce se s časem nemění, roste jen uražená vzdálenost.`;
+	}
+
+	function resetScenu() {
+		for (const m of MEDIA) {
+			g(`rs-bod-${m.klic}`).setAttribute('cx', X_START);
+			g(`rs-poradi-${m.klic}`).setAttribute('opacity', 0);
+			g(`rs-poradi-${m.klic}`).textContent = '';
+		}
+		hotovoFlags = {};
+		poradiCitac = 0;
+	}
+
+	function snimek(cas) {
+		if (!hraje) return;
+		if (t0 === null) t0 = cas;
+		const tMs = cas - t0;
+		const stavy = stavZavodu(tMs);
+		let vsechnyHotovo = true;
+		for (const s of stavy) {
+			const x = X_START + s.zlomek * (X_CIL - X_START);
+			g(`rs-bod-${s.klic}`).setAttribute('cx', x);
+			if (s.hotovo && !hotovoFlags[s.klic]) {
+				hotovoFlags[s.klic] = true;
+				poradiCitac++;
+				const lab = g(`rs-poradi-${s.klic}`);
+				lab.textContent = `${poradiCitac}.`;
+				lab.setAttribute('opacity', 1);
+			}
+			if (!s.hotovo) vsechnyHotovo = false;
+		}
+		if (vsechnyHotovo) {
+			hraje = false;
+			g('rs-play').textContent = '🚀 Vyšli paprsky';
+			g('rs-stav').textContent = '✅ Pořadí v cíli je vždy stejné: vzduch, voda, sklo, diamant — je to dané rychlostí světla v dané látce, ne dobou letu.';
+			return;
+		}
+		animId = requestAnimationFrame(snimek);
+	}
+
+	g('rs-slider').addEventListener('input', () => {
+		t = +g('rs-slider').value;
+		popis(t);
+		if (!hraje) resetScenu();
+	});
+
+	g('rs-play').addEventListener('click', () => {
+		if (hraje) return;
+		hraje = true; t0 = null;
+		resetScenu();
+		g('rs-play').textContent = '⏳ paprsky letí…';
+		g('rs-stav').textContent = '🚀 Paprsky letí — sleduj, který dorazí k oku první.';
+		requestAnimationFrame(snimek);
+	});
+
+	popis(t);
+	resetScenu();
+</script>
+
+<style>
+	#rs-svg { width: 100%; max-width: 680px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 680px; display: block; margin-top: 0.3rem; }
+	.rs-tl { font: inherit; font-weight: 800; padding: 0.45rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #d3f9d8; cursor: pointer; }
+	.rs-tl:active { transform: translateY(1px); }
+	.rs-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.rs-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
