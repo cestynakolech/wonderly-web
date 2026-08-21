@@ -1538,8 +1538,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Kde se dodnes používá Fahrenheitova stupnice?',
-			odpovedi: ['v anglicky mluvících zemích', 'v celé Evropě', 'pouze ve vědeckých laboratořích'],
-			vysvetleni: 'Fahrenheit sestrojil přesný rtuťový teploměr a vlastní stupnici — teplota těla je asi 98 °F.',
+			odpovedi: ['hlavně v USA', 'v celé Evropě', 'pouze ve vědeckých laboratořích'],
+			vysvetleni: 'Fahrenheitova stupnice se dnes běžně používá hlavně v USA. V Evropě i ve většině světa se měří ve stupních Celsia.',
 		},
 		{
 			text: 'Jak se jmenuje teplota, kterou používají vědci, se základní jednotkou kelvin?',
