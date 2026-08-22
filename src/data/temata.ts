@@ -3775,7 +3775,7 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<h3>Co velikost proudu ovlivňuje</h3>
 							<ul>
-								<li><strong>odpor člověka</strong>: velký odpor má jen <strong>suchá kůže při malém napětí</strong> (~100 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~1 500 Ω v suchu a ~1 000 Ω ve vlhku</strong>; vlhký člověk je tedy ohroženější, ale <strong>ani suchý není v bezpečí</strong></li>
+								<li><strong>odpor člověka</strong>: velký odpor má jen <strong>suchá kůže a suchá obuv při malém napětí</strong> (~150 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~2000 Ω</strong>, ať jsi suchý nebo mokrý; vlhký člověk je ohrožen stejným nízkým odporem hned od začátku, ale <strong>ani suchý po proražení kůže není v bezpečí</strong></li>
 								<li><strong>cesta proudu</strong>: nejnebezpečnější přes ruku do srdce nebo přes hlavu</li>
 								<li>bezpečné napětí <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvkových <strong>230 V</strong> se to ale netýká nikde, ta jsou nebezpečná vždy</li>
 							</ul>
@@ -3783,21 +3783,22 @@ export const temata: Record<string, Tema[]> = {
 							<p>Proč z ploché baterie nic necítíš, a přitom zásuvka zabíjí? Stačí
 							<strong>Ohmův zákon</strong> <em>I</em> = <em>U</em> : <em>R</em>:</p>
 							<ul>
-								<li><strong>Plochá baterie 4,5 V</strong> na suchou kůži (R ≈ 100 000 Ω):
-								<em>I</em> = 4,5 : 100 000 = 0,000045 A = <strong>45 µA</strong> → ani to nepoznáš,
+								<li><strong>Plochá baterie 4,5 V</strong> na suchou kůži (R ≈ 150 000 Ω):
+								<em>I</em> = 4,5 : 150 000 = 0,00003 A = <strong>30 µA</strong> → ani to nepoznáš,
 								jsi hluboko pod prahem vnímání.</li>
 								<li><strong>Zásuvka 230 V</strong>: tady je zrada. Suchá kůže má sice velký odpor,
 								ale <strong>jen do zhruba 50 V</strong> — při vyšším napětí se elektricky
 								<strong>prorazí</strong> a přestane chránit. Odpor těla pak klesne na
-								<strong>asi 1 500 Ω</strong> a vyjde <em>I</em> = 230 : 1 500 ≈ <strong>153 mA</strong>.</li>
-								<li><strong>Mokrý člověk</strong> (R ≈ 1 000 Ω): <em>I</em> = 230 : 1 000 =
-								<strong>230 mA</strong> — a to je ještě horší.</li>
+								<strong>asi 2000 Ω</strong> a vyjde <em>I</em> = 230 : 2000 = <strong>115 mA</strong>.</li>
+								<li><strong>Mokrý člověk</strong> (R ≈ 2000 Ω): stejný nízký odpor má vlhká kůže
+								hned od malého napětí, proto vyjde stejně <em>I</em> = 230 : 2000 = <strong>115 mA</strong>
+								— nebezpečné, ať je člověk suchý po proražení kůže, nebo rovnou mokrý.</li>
 							</ul>
 							<p>⚠️ Podívej se do tabulky výš: <strong>obě poslední čísla jsou hluboko nad 80 mA</strong>,
 							tedy v pásmu zástavy srdce. <strong>Zásuvka je životu nebezpečná vždycky, i když jsi
 							úplně suchý</strong> — už nad ~50 V se totiž prorazí kůže i v suchu, takže tě odpor
-							suché kůže vůbec nechrání. Vlhko riziko
-							jen dál zvyšuje, protože sníží odpor ještě víc.</p>
+							suché kůže vůbec nechrání. Vlhký člověk je ohrožen stejně, jen k tomu nepotřebuje
+							žádné vysoké napětí — nízký odpor má hned od začátku.</p>
 							<p>👉 A právě proto <strong>není bezpečné napětí totéž co malé napětí</strong>: rozhoduje,
 							jestli napětí dokáže prorazit kůži. Do koupelny proto nepatří žádný spotřebič ze zásuvky
 							ani prodlužovačka a na vypínač se nesahá mokrou rukou.</p>
@@ -3806,7 +3807,7 @@ export const temata: Record<string, Tema[]> = {
 							<ul>
 								<li><strong>Jistič</strong> hlídá, aby obvodem netekl <em>příliš velký</em> proud
 								(typicky nad 16 A) — chrání <strong>vedení a dům před požárem</strong>. Proud
-								153 mA, který podle výpočtu výše zabíjí, je pro jistič naprosto nezajímavý; ani se nehne.</li>
+								115 mA, který podle výpočtu výše zabíjí, je pro jistič naprosto nezajímavý; ani se nehne.</li>
 								<li><strong>Proudový chránič</strong> porovnává, kolik proudu do spotřebiče
 								<em>přiteče</em> a kolik se ho <em>vrátí</em>. Když se část ztrácí — třeba
 								<strong>tělem člověka do země</strong> — okamžitě vypne. Reaguje už na
@@ -3830,7 +3831,7 @@ export const temata: Record<string, Tema[]> = {
 								sáhnout na vedení vůbec nemusíš.</li>
 								<li>⚠️ <strong>Spadlý drát na zemi</strong> (i u trolejového vedení vlaků) se
 								chová stejně — může být pod napětím, i když nejiskří a nic neukazuje. Nepřibližuj
-								se k němu, varuj ostatní a volej <strong>112 nebo 155</strong>.</li>
+								se k němu, varuj ostatní a volej <strong>112</strong> (případně <strong>150</strong> hasiče); <strong>155</strong> volej navíc jen tehdy, je-li někdo zraněný.</li>
 							</ul>
 							<p>👉 U vysokého napětí neplatí „nic jsem se nedotkl, tak je to bezpečné" — rozhoduje
 							vzdálenost, ne dotyk.</p>
@@ -4700,7 +4701,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Míra poškození podle velikosti proudu</h3>
 						<ul>
 							<li>0,5–1 mA — práh vnímání,</li>
-							<li>1–8 mA — podráždění nervů, stoupá krevní tlak,</li>
+							<li>2–5 mA — podráždění nervů, stoupá krevní tlak,</li>
 							<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong>,</li>
 							<li>25 mA — křeč dýchacích svalů,</li>
 							<li>60 mA — fibrilace (chvění) srdce,</li>
@@ -4708,29 +4709,39 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Co velikost proudu ovlivňuje</h3>
 						<ul>
-							<li><strong>Odpor člověka:</strong> v suchu a suché obuvi asi <strong>150 000 Ω</strong>, ve vlhku jen asi <strong>2000 Ω</strong> → mokrý člověk je mnohem víc ohrožen.</li>
+							<li><strong>Odpor člověka:</strong> velký odpor má jen <strong>suchá kůže a suchá obuv při malém napětí</strong> (~150 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~2000 Ω</strong>, ať jsi suchý nebo mokrý; vlhký člověk je ohrožen stejným nízkým odporem hned od začátku, ale <strong>ani suchý po proražení kůže není v bezpečí</strong>.</li>
 							<li><strong>Cesta proudu:</strong> nejnebezpečnější je přes <strong>levou ruku do srdce</strong> a dál, nebo přes hlavu (mozek).</li>
-							<li><strong>Bezpečné napětí</strong> dle normy: stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong> (zásuvka 230 V je nebezpečná).</li>
+							<li><strong>Bezpečné napětí</strong> dle normy <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvka 230 V je nebezpečná vždy.</li>
 						</ul>
 						<h3>Bezpečná pravidla</h3>
+						<p>Základní pravidla u domácích spotřebičů (mokrá ruka, jistič, poškozené kabely) znáš
+						z 8. ročníku — tady jde navíc o vedení venku:</p>
 						<ul>
-							<li>na vypínač ani kabely nesahat <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše,</li>
-							<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat předměty,</li>
-							<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení.</li>
+							<li>vysoké stroje a předměty (jeřáb, sklápěč, žebřík, i draka nebo model letadla) nikdy
+							nezvedej ani nepouštěj do blízkosti vedení — ochranné pásmo platí i pro techniku,
+							ne jen pro lidi,</li>
+							<li>na poli pod vedením dávej pozor na výšku zemědělských strojů (kombajn, postřikovač)
+							— dotyk výložníku s drátem je jedna z nejčastějších příčin úrazů elektřinou u dospělých,</li>
+							<li>po vichřici nebo bouřce buď u vedení obzvlášť opatrný — spadlý drát bývá právě tehdy.</li>
 						</ul>
 						<h3>⚡ Vedení vysokého napětí</h3>
-						<p><strong>Nedotýkáme se nosných stožárů elektrického vedení ani drátů spadlých na zem.</strong> U vysokého napětí navíc nerozhoduje jen dotyk — proud umí <strong>přeskočit vzduchem obloukem</strong>, takže ani se stožárem nebo drátem vůbec nemusíš přijít do styku a přesto hrozí nebezpečí. Proto se k vedení (i spadlému drátu) vůbec nepřibližuj.</p>
+						<p><strong>Nedotýkáme se nosných stožárů elektrického vedení ani drátů spadlých na zem.</strong> U vysokého napětí navíc nerozhoduje jen dotyk — proud umí <strong>přeskočit vzduchem obloukem</strong>, takže ani se stožárem nebo drátem vůbec nemusíš přijít do styku a přesto hrozí nebezpečí. Proto se k vedení nikdy nepřibližuj a nezkoušej se ho dotknout ani nepřímo — <strong>tyčí, prutem, žebříkem ani dronem</strong>. Ze stejného důvodu se nikdy neleze na stožáry vedení ani na vagony a jiné vysoké konstrukce v jejich blízkosti.</p>
+						<p>Proto zákon (energetický zákon č. 458/2000 Sb.) kolem vedení stanovuje <strong>ochranné pásmo</strong> — vzdálenost od krajního drátu, kam se nesmí stavět, sázet stromy ani vjíždět s technikou. Platí, že <strong>čím vyšší napětí vedení má, tím širší ochranné pásmo je</strong>; přesnou šířku pro každou hladinu napětí stanovuje energetický zákon.</p>
+						<p><strong>Spadlý drát na zemi bývá pořád pod napětím</strong>, i když se nehýbe a vůbec nejiskří — na pohled to nepoznáš. K němu se nikdy nepřibližuj, ihned volej <strong>112</strong> (případně <strong>150</strong> hasiče) — <strong>155</strong> navíc jen tehdy, je-li někdo zraněný — a od místa odcházej <strong>drobnými krůčky</strong>, nikdy neutíkej velkými skoky.</p>
 						<h3>První pomoc při úrazu proudem</h3>
 						<ol>
 							<li><strong>vypni proud</strong> (vypínač, jistič, pojistky),</li>
-							<li>pokud to nejde a zraněný se stále dotýká vodiče, odděl ho <strong>izolující tyčí</strong> (suché dřevo, plast) — <strong>nikdy se ho ani jeho oděvu nedotýkej holou rukou</strong>, dokud není mimo dosah proudu,</li>
-							<li>zkontroluj dech a tep, případně <strong>masáž srdce a umělé dýchání</strong>,</li>
-							<li>zavolej <strong>155</strong>.</li>
+							<li>pokud to nejde a zraněný se stále dotýká vodiče, odděl ho <strong>izolující tyčí</strong> (suché dřevo, plast) — <strong>nikdy se ho ani jeho oděvu nedotýkej holou rukou</strong>, dokud není mimo dosah proudu; u vysokého napětí se raději vůbec nepřibližuj, viz výše,</li>
+							<li><strong>volej 155 souběžně:</strong> zapni si hlasitý odposlech, nebo pošli volat někoho jiného — s voláním nečekej, až budeš s pomocí hotový,</li>
+							<li><strong>nedýchá normálně?</strong> Začni stlačovat hrudník. Puls nehledej, jen ztrácíš čas a laik ho stejně spolehlivě nenahmatá.</li>
 						</ol>
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektrická bezpečnost', cesta: 'VfCqvZDHUWQ' },
 						{ druh: 'youtube', nazev: 'Video: Domovní elektroinstalace', cesta: 'jhqpxSjUCMk' },
+					],
+					odkazy: [
+						{ nazev: 'Bezpečně s elektřinou (ČEZ Distribuce)', url: 'https://www.cezdistribuce.cz/cs/bezpecnost/bezpecnost-a-ochrana-zdravi/bezpecne-s-elektrinou' },
 					],
 				},
 			],
