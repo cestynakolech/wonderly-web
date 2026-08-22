@@ -796,6 +796,15 @@ výklad bit/bajt/ASCII u soubory-slozky-aplikace). Otevřené drobnosti:
   s odstavením llama3.1 z role kontrolora 22. 8.
 - `BinarniSimulace` měla výklad bez opory ve zdroji — vyřešeno doplněním.
 
+**22. 8. 2026 — dávka 2 revize simulací hotová a nasazená:** 5 simulací
+prošlo kontrolou (3 v pořádku, 2 opravené — PakaSimulace počítala moment bez
+tíhové síly m·r místo F·r, KladkaSimulace měla matoucí metaforu), commity
+`292ec38`/`64ed687`, curl na produkci potvrdil „N·m" v podtématu
+`jednoduche-stroje-paky`. Kvíz `soubory-slozky-aplikace` dorovnán na cíl
+21 otázek, opraveny 2 křížové úniky vysvětlení→odpověď, které brána
+`uniky.mjs` nechytila — nová úloha na posílení brány založena do
+wonderly-fronta.
+
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 

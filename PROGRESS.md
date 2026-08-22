@@ -377,6 +377,11 @@ vyrenderovat simulace kreslené do `<canvas>` (padá na
 se prověřit jen čtením kódu, ne okem. Stojí za doplnění.
 **Čím pokračovat:** audit dalších ročníků (6., 7., 9.) týmiž měřítky.
 
+## Historie — 22. 8. 2026 (dávka 2 revize simulací)
+Nasazena dávka 2 revize simulací: PakaSimulace a KladkaSimulace opravené
+(commit `292ec38`), kvíz `soubory-slozky-aplikace` dorovnán na 21 otázek
+a zbaven křížových úniků (commit `64ed687`), ověřeno curl na produkci.
+
 ## 📝 Pravidlo aktualizace (na konci každé session)
 1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).
 2. Aktualizuj sekce „HOTOVÉ" a „ZBÝVÁ" výše podle reálného stavu.
