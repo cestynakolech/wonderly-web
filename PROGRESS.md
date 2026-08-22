@@ -308,6 +308,32 @@ vymýšlet vztah. Animace potřebuje společné měřítko dráhy, jinak lže po
 simulací týmiž měřítky (obecná kontrola překryvů, opora čísel ve výkladu) — nové
 kontroly odhalily vady i v už nasazené práci.
 
+## Historie — 22. 8. 2026 pozdě večer (audit už nasazených simulací 8. ročníku)
+Po dokončení fronty názornosti začal AUDIT NASAZENÝCH simulací týmiž novými
+měřítky. Prověřeno 10 komponent 8. ročníku (teplo/skupenství a elektřina),
+nalezeno 5 vad, všechny opraveny a nasazeny commitem `8af0dfc`, nezávislá
+kontrola 0 nálezů: (1) čtyři nepodložená tvrzení (rozpad účinnosti tepelného
+motoru na %, var vody 90 °C v horách, „−5 °C na lžíci soli", 1 V „Voltův
+článek" u zinek+měď mimo výklad) odstraněna nebo převedena na kvalitativní
+popis; (2) hláška o pohybu částic bez napětí ve `VznikElektrickehoProuduSimulace`
+se zobrazovala vždy místo jen při 0 V, opraveno podmínkou; (3) oprava textu u
+`TuhnutiSimulace` zavedla přetečení viewBoxu (128 znaků do 660 px), opraveno
+zalomením a zkrácením, při té příležitosti nalezeno i starší přetečení
+(„led zabírá víc místa", 7 px přes okraj).
+**POUČENÍ:** audit se vyplácí — vady byly ve „vedené jako hotové" práci. Nová
+trvalá třída kontroly: MĚŘENÍ ŠÍŘKY TEXTU proti okrajům viewBoxu a panelu
+(odhad z počtu znaků, velikosti a tučnosti písma).
+**POZOR NA MĚŘIDLA:** dvakrát si pracovník upravil vlastní měřidlo současně
+s opravou komponenty, celkový počet kontrol klesl (2579 → 2567). Nezávislá
+kontrola pokles rozebrala a mutačními testy doložila, že měřidla nezeslábla
+(proporční ubrání odstraněné položky + sloučení kategorií). Pravidlo: sáhne-li
+pracovník na vlastní měřidlo, musí to nezávislý kontrolor prověřit podvrhem.
+**OMEZENÍ NÁSTROJE (do fronty):** `testy/nahled-simulace.mjs` neumí
+vyrenderovat simulace kreslené do `<canvas>` (padá na
+`platno.getContext is not a function`), např. `ElektrickePoleSimulace` — dá
+se prověřit jen čtením kódu, ne okem. Stojí za doplnění.
+**Čím pokračovat:** audit dalších ročníků (6., 7., 9.) týmiž měřítky.
+
 ## 📝 Pravidlo aktualizace (na konci každé session)
 1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).
 2. Aktualizuj sekce „HOTOVÉ" a „ZBÝVÁ" výše podle reálného stavu.

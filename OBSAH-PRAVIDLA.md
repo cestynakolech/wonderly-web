@@ -40,6 +40,16 @@ Tři pravidla řetězu — platí na KAŽDÝ článek zvlášť:
 3. **Žák si musí mít možnost procvičit VŠECHNO, co je ve výkladu.**
    Když je ve výkladu jev, ke kterému není otázka, chybí otázka — ne naopak.
 
+4. **U ČÍSEL A FAKTICKÝCH TVRZENÍ NESTAČÍ OPORA VE VÝKLADU — MUSÍ SE DOLOŽIT AŽ VE ZDROJI**
+   (PDF nebo popis prezentace). Výklad sám může nést nepodložený údaj a kontrola proti
+   němu pak jen srovnává vymyšlené s vymyšleným. Doloženo 22. 8. 2026: bezpečné vzdálenosti
+   od elektrického vedení (7/10/12/15/20/25 m) prošly kontrolorem, protože přesně seděly
+   s výkladem — teprve prohledání všech PDF a prezentací ukázalo, že čísla nejsou v žádném
+   podkladu. Autor i kontrolor u konkrétního čísla musí umět uvést CITACI ZE ZDROJE
+   (soubor + strana/úryvek); bez ní se číslo do obsahu nedostane — buď se dohledá zdroj,
+   nebo se tvrzení podá kvalitativně bez čísla. Chybí-li číslo ve zdroji a je přesto
+   potřeba, rozhoduje učitel.
+
 **Když se články rozejdou:** chybu opravuj v tom SMĚRU řetězu, kde vznikla.
 Chybí-li kvíz k látce → přidej otázku. Zkouší-li kvíz neprobrané → doplň výklad,
 nebo otázku vyřaď. Chybí-li ve výkladu látka z PDF → dopiš výklad.

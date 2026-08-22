@@ -1,3 +1,13 @@
+**AUDIT 22. 8. 2026 pozdě večer (už nasazené simulace 8. ročníku):** prověřeno
+10 komponent teplo/skupenství a elektřina, nalezeno a opraveno 5 vad (4×
+nepodložené číslo/tvrzení mimo výklad, hláška zobrazená mimo svůj stav,
+oprava zavedla přetečení viewBoxu) — commit `8af0dfc`, nezávislá kontrola
+0 nálezů. Nová trvalá kontrola: měření šířky textu proti okraji. Dvakrát
+upravené vlastní měřidlo prověřeno mutačním testem, kontroly nezeslábly.
+Nedodělek: `testy/nahled-simulace.mjs` neumí `<canvas>` simulace (např.
+`ElektrickePoleSimulace`). Další cíl: audit 6., 7., 9. ročníku. Detaily
+v PROGRESS.md.
+
 **NASAZENO A OVĚŘENO 22. 8. 2026 večer (dokončení fronty názornosti fyziky):**
 povětrnostní mapa (F7 `meteorologie-a-mereni-tlaku`, commit `36259f7`), stejnorodá
 a nestejnorodá tělesa (F7 `telesa-stejnoroda-a-nestejnoroda`, commit `bb66548` +

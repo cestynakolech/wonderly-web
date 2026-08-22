@@ -4112,12 +4112,31 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Zviditelnění pole</h3>
 						<p>Na papír nad magnetem nasypeme <strong>železné piliny</strong> — uspořádají se do <strong>pilinového obrazce</strong>. Graficky pole kreslíme jako <strong>magnetické indukční čáry</strong>: jsou to uzavřené křivky, které vychází ze <strong>severního pólu (N)</strong> a míří k <strong>jižnímu (S)</strong>; jejich směr udává severní pól magnetky.</p>
+						<h3>Využití magnetismu</h3>
+						<ul>
+							<li>rychlé <strong>připevnění</strong> — nástěnka, autoanténa, magnet na svítilně, držák dvířek</li>
+							<li><strong>kompas, buzola</strong></li>
+							<li><strong>reproduktory</strong></li>
+							<li>magnetické stavebnice</li>
+							<li><strong>pevný disk počítače</strong> (harddisk)</li>
+							<li>páska videokazety, audiokazety</li>
+							<li>menší <strong>elektromotor</strong> (stěrače, autíčka)</li>
+							<li><strong>sběrač kovových štěpin</strong> v motoru či topení</li>
+						</ul>
+						<h3>Magnetické pole Země</h3>
+						<ul>
+							<li>Země se chová jako <strong>velký tyčový magnet</strong>.</li>
+							<li>Střelka kompasu ukazuje svým severním magnetickým pólem na sever, a proto platí: <strong>na severním zeměpisném pólu Země je jižní magnetický pól</strong> (magnetické póly neleží přesně na zeměpisných pólech, ale jen poblíž).</li>
+							<li><strong>Magnetické pole Země nás chrání</strong> před slunečním větrem a kosmickým zářením — proudem nebezpečných nabitých částic, které pole odkloní, takže Zemi ve velké míře obejdou.</li>
+						</ul>
+						<p>💡 Pro zajímavost: Magnetické pole Země vzniká díky <strong>rotaci tekutého železného jádra Země</strong>, a díky tomu se magnetické póly Země pomalu, ale neustále pohybují a mění svou polohu. Nabité částice, které se v magnetickém poli Země neodkloní, se v jeho okolí pohybují právě po křivkách indukčních čar, a proto se hromadí na pólech, kde díky srážkám se vzduchem vzniká <strong>polární záře</strong>.</p>
 					`,
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Ze severu na jih 🎵', cesta: '/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a' },
 					],
 					odkazy: [
 						{ nazev: 'Magnetismus — kvíz (Wordwall)', url: 'https://wordwall.net/cs/resource/27704217/magnetismus-2' },
+						{ nazev: 'Simulace: Magnet a kompas (PhET, česky)', url: 'https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs' },
 					],
 				},
 				{
@@ -4157,13 +4176,9 @@ export const temata: Record<string, Tema[]> = {
 						Levou rukou vyjde všechno obráceně.</p>
 						<h3>K čemu je cívka dobrá</h3>
 						<p>Tenhle magnet má oproti obyčejnému jednu obrovskou výhodu: <strong>dá se vypnout</strong>.
-						A to je základ spousty věcí kolem tebe:</p>
+						Podrobně to (jeřáb, zvonek, relé) najdeš u tématu <strong>Elektromagnet</strong> — tady jen to,
+						co se týká přímo cívky v běžných spotřebičích:</p>
 						<ul>
-							<li><strong>jeřáb na vrakovišti</strong> — přitáhne auto a nad hromadou proud vypne, náklad pustí</li>
-							<li><strong>zvonek</strong> — cívka přitáhne kladívko, to <em>udeří do kovové misky</em>
-							a přitom rozpojí obvod; kladívko se vrátí, obvod se zase spojí a všechno se opakuje.
-							Zvuk vydává rozezvučená miska, ne to přepínání — kladívko na ni jen rychle bubnuje</li>
-							<li><strong>relé</strong> — malým proudem se spíná velký (tak startér nastartuje auto)</li>
 							<li><strong>reproduktor a sluchátka</strong> — cívka v poli magnetu rozkmitá membránu</li>
 						</ul>
 					`,
@@ -4402,7 +4417,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<h3>Prvky sítě a spotřebitel</h3>
 						<ul>
-							<li><strong>Vedení</strong> (doma měděné vodiče v izolaci, při dálkovém přenosu neizolovaná hliníková lana s ocelovým jádrem, zavěšená vysoko nad zemí — hliník je proti mědi mnohem lehčí a ocelová duše lano unese), <strong>transformátory</strong>, <strong>rozvodny</strong> a ochranná zařízení.</li>
+							<li><strong>Vedení</strong> — nadzemní nebo podzemní vodiče, kterými prochází proud; jsou vyrobené z <strong>mědi</strong> (má malý elektrický odpor). Při dálkovém přenosu se používají neizolované dráty zavěšené vysoko a dostatečně daleko od sebe, takže nehrozí zkrat ani úraz; v kabelech vedoucích do domácností jsou fázové vodiče izolované, barevně odlišené a umístěné v jednom kabelu vedle sebe. Síť dále tvoří <strong>transformátory</strong> (mění velikost napětí v síti, každá fáze se transformuje zvlášť), <strong>rozvodny</strong> a ochranná zařízení.</li>
 							<li>Domácnost využívá <strong>jednu fázi (230 V)</strong>; velké stroje všechny tři fáze (3×400 V). V zásuvce je <strong>fázový</strong> vodič, <strong>nulovací</strong> (uzemněný) a <strong>ochranný kolík</strong>.</li>
 						</ul>
 					`,
@@ -4703,18 +4718,12 @@ export const temata: Record<string, Tema[]> = {
 							<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat předměty,</li>
 							<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení.</li>
 						</ul>
-						<h3>⚡ Bezpečné vzdálenosti od elektrického vedení</h3>
-						<p>Čím vyšší napětí, tím dál dokáže elektřina <strong>přeskočit vzduchem</strong> — proto se od vedení (i spadlých drátů) drž dál:</p>
-						<ul>
-							<li>do 1 kV (dráty na ulici): <strong>7 metrů</strong></li>
-							<li>do 35 kV (venkovské vedení): <strong>10 metrů</strong></li>
-							<li>do 110 kV: <strong>12 metrů</strong> · do 220 kV: <strong>15 metrů</strong></li>
-							<li>do 400 kV (velké stožáry dálkového přenosu): <strong>20 metrů</strong>, nad 400 kV až <strong>25 metrů</strong></li>
-						</ul>
+						<h3>⚡ Vedení vysokého napětí</h3>
+						<p><strong>Nedotýkáme se nosných stožárů elektrického vedení ani drátů spadlých na zem.</strong> U vysokého napětí navíc nerozhoduje jen dotyk — proud umí <strong>přeskočit vzduchem obloukem</strong>, takže ani se stožárem nebo drátem vůbec nemusíš přijít do styku a přesto hrozí nebezpečí. Proto se k vedení (i spadlému drátu) vůbec nepřibližuj.</p>
 						<h3>První pomoc při úrazu proudem</h3>
 						<ol>
 							<li><strong>vypni proud</strong> (vypínač, jistič, pojistky),</li>
-							<li>dbej na <strong>vlastní bezpečnost</strong> — zraněného odsuň <strong>suchou dřevěnou/plastovou tyčí</strong>, ne holou rukou,</li>
+							<li>pokud to nejde a zraněný se stále dotýká vodiče, odděl ho <strong>izolující tyčí</strong> (suché dřevo, plast) — <strong>nikdy se ho ani jeho oděvu nedotýkej holou rukou</strong>, dokud není mimo dosah proudu,</li>
 							<li>zkontroluj dech a tep, případně <strong>masáž srdce a umělé dýchání</strong>,</li>
 							<li>zavolej <strong>155</strong>.</li>
 						</ol>
@@ -4762,6 +4771,8 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Izotopy</strong> téhož prvku mají stejné protonové číslo, ale <strong>různé nukleonové číslo</strong> (různý počet neutronů). Mají stejné chemické vlastnosti, ale liší se hmotností a chováním při jaderných reakcích. Např. uhlík ¹²C, ¹³C, ¹⁴C nebo vodík (lehký, deuterium, tritium).</p>
 						<h3>Jaderné síly</h3>
 						<p><strong>Jaderné síly</strong> jsou velmi silné přitažlivé síly, které působí jen na krátkou vzdálenost (uvnitř jádra) a drží nukleony pohromadě — překonávají odpudivou elektrickou sílu mezi protony. Čím je jádro větší, tím je <strong>méně stabilní</strong> a snáz se rozpadá.</p>
+						<h3>Hmotnostní úbytek a E = mc²</h3>
+						<p>Když se protony a neutrony spojí do jádra, výsledné jádro je <strong>lehčí</strong> než součet hmotností všech nukleonů zvlášť. Tomuto rozdílu se říká <strong>hmotnostní úbytek</strong>. Kam ta chybějící hmotnost zmizela? Přeměnila se na energii, která nukleony v jádře drží pohromadě — na <strong>vazebnou energii</strong>. Platí pro to Einsteinův slavný vzorec <strong>E = mc²</strong>, kde m je hmotnostní úbytek a c je rychlost světla. Protože c je obrovské číslo (300 000 km/s) a ve vzorci se navíc umocňuje, i malinký hmotnostní úbytek uvolní <strong>obrovské množství energie</strong> — proto je jaderná energie tak silná ve srovnání s chemickými reakcemi (hořením).</p>
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jádro atomu a síly v jádře', cesta: 'gbUMqax9SMs' },
@@ -4857,6 +4868,12 @@ export const temata: Record<string, Tema[]> = {
 							<li>V ČR vyrábějí elektřinu jaderné elektrárny <strong>Temelín</strong> a <strong>Dukovany</strong>.</li>
 							<li>Reaktory pohánějí i ponorky, ledoborce a kosmické sondy a vyrábějí radiofarmaka pro lékařství.</li>
 						</ul>
+						<h3>Výhody a nevýhody jaderné elektrárny</h3>
+						<p>Stejně jako každý jiný typ elektrárny má i jaderná elektrárna své klady a zápory:</p>
+						<ul>
+							<li><strong>Výhody:</strong> nevznikají skleníkové plyny (do ovzduší uniká jen čistá vodní pára), a je vysoce efektivní — na výrobu stejného množství elektřiny stačí mnohem menší množství paliva než u uhlí.</li>
+							<li><strong>Nevýhody:</strong> „vyhořelé" radioaktivní palivo se musí bezpečně skladovat i tisíce let a teprve se řeší, jak ho dál využít; uran je stejně jako uhlí nebo ropa <strong>neobnovitelný</strong> zdroj; výstavba elektrárny a výroba obohaceného uranu jsou velmi nákladné; a případná havárie může mít <strong>katastrofické následky</strong>.</li>
+						</ul>
 					`,
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak funguje jaderná elektrárna', cesta: 'BJbAvgpwCWc' },
@@ -4877,15 +4894,16 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Obnovitelné zdroje</h3>
 						<ul>
 							<li>doplňují se <strong>tak rychle, jak je stačíme využívat</strong> — zítra jich bude zas tolik co dnes,</li>
-							<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální teplo, biomasa a bioplyn</strong>.</li>
+							<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální teplo, biomasa a bioplyn i vodík</strong>.</li>
 						</ul>
 						<p>👉 „Obnovitelný" ale neznamená „nevyčerpatelný": les vykácený rychleji, než stačí dorůst,
 						nebo přetížený geotermální vrt dojdou stejně jako uhlí. Rozhoduje <strong>rychlost, jakou se
 						zdroj obnovuje</strong>, ne jeho množství.</p>
-						<p>⚠️ <strong>Vodík mezi zdroje nepatří</strong>, ačkoli se to často říká. Na Zemi se volný
-						skoro nevyskytuje — musí se vyrobit, a to spotřebuje víc energie, než z něj potom získáme.
-						Vodík je proto <strong>nosič energie</strong>, něco jako baterie: umí ji přenést a uchovat,
-						ale sám ji nedodá.</p>
+						<p>🔍 <strong>Vodík je zvláštní případ.</strong> Řadíme ho mezi obnovitelné zdroje,
+						ale na Zemi se volný skoro nevyskytuje — musíme ho <strong>vyrobit</strong>
+						(nejčastěji elektrolýzou vody), a to spotřebuje energii. Proto se o vodíku
+						často mluví spíš jako o <strong>nosiči energie</strong>: umí energii uchovat
+						a přenést (např. pro auta na vodíkový pohon), podobně jako baterie.</p>
 						<h3>Neobnovitelné zdroje</h3>
 						<ul>
 							<li>jsou jen v <strong>omezeném množství</strong> a za určitou dobu se vyčerpají,</li>
@@ -4917,14 +4935,15 @@ export const temata: Record<string, Tema[]> = {
 						<p>Sluneční panel nevyrábí v noci a větrník za bezvětří — a naopak: v poledne dodá elektrárna
 						víc, než je zrovna potřeba. Elektřina se přitom <strong>ve velkém špatně skladuje</strong>
 						a sítí musí každou vteřinu protékat přesně tolik, kolik se právě spotřebuje.</p>
-						<h3>Přečerpávací elektrárna (Dlouhé stráně)</h3>
-						<p>Právě to je odpověď na potíž popsanou výš — je to obrovská <strong>baterie z vody</strong>.
+						<h3>Přečerpávací elektrárna</h3>
+						<p>Příkladem takové elektrárny v ČR je <strong>Dlouhé stráně</strong> v Jeseníkách.
+						Právě to je odpověď na potíž popsanou výš — je to obrovská <strong>baterie z vody</strong>.
 						Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>; v době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>
 						<p>Přečerpáním se část energie ztratí, takže dolů se jí vrátí míň, než kolik stálo čerpání
 						nahoru. Přesto se to vyplatí — <strong>elektřina, která by se jinak vůbec nevyužila,
 						takhle počká</strong> na chvíli, kdy je jí potřeba.</p>
 						<h3>📐 Spočítej si to: kolik se na přečerpávání "ztratí"</h3>
-						<p>Přečerpávací elektrárna má čerpadla o výkonu <strong>500 MW</strong> a turbíny
+						<p>Modelová přečerpávací elektrárna má čerpadla o výkonu <strong>500 MW</strong> a turbíny
 						o výkonu <strong>750 MW</strong>.</p>
 						<ul>
 							<li>V noci čerpadla běží <strong>8 hodin</strong> → spotřebují
@@ -4951,11 +4970,11 @@ export const temata: Record<string, Tema[]> = {
 							v noci je nízká spotřeba. I se ztrátou 25 % je lepší část energie zachránit
 							a použít ji přes den ve špičce, než ji nevyužít vůbec.</details></li>
 							<li>Je vodík obnovitelný zdroj energie? Zdůvodni.
-							<details><summary>řešení</summary>Ne — vodík se na Zemi v čisté podobě prakticky
-							nevyskytuje, musí se <strong>vyrobit</strong> (nejčastěji elektrolýzou vody),
-							a to spotřebuje víc energie, než kolik z vodíku později získáme. Vodík je proto
-							<strong>nosič energie</strong> (jako baterie), ne zdroj — na rozdíl třeba od
-							slunečního záření nebo větru, které jsou tu "zadarmo" a stále se doplňují.</details></li>
+							<details><summary>řešení</summary>Ano, řadí se mezi obnovitelné zdroje. Na
+							Zemi se ale v čisté podobě skoro nevyskytuje — musí se <strong>vyrobit</strong>
+							(nejčastěji elektrolýzou vody), a to stojí energii. Proto se mu často říká
+							<strong>nosič energie</strong> (jako baterie): umí energii uchovat a přenést,
+							ne ji sám „zadarmo" dodat jako slunce nebo vítr.</details></li>
 						</ol>
 					`,
 					materialy: [
