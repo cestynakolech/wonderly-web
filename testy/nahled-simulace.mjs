@@ -18,6 +18,21 @@
 //   node testy/nahled-simulace.mjs src/components/skola2/VnitrniEnergieSimulace.astro \
 //        /tmp/nahled.svg vne-teplota=60 vne-castic=20 vne-rychlost-slider=2
 //
+// `cas=<sekundy>` (22. 8. 2026) nechá po klikání DOBĚHNOUT animaci o zadaný čas
+// místo jediného prvního snímku. Dřív byl requestAnimationFrame v sandboxu
+// no-op — po kliknutí na tlačítko proběhl jen první krok animace (t≈0,05 s) a
+// scéna vypadala jako výchozí stav, i když logika počítala správně (bedna
+// tažená 50 N nahoru vypadala, že stojí na podlaze). Teď se rAF chová jako
+// FRONTA: každé zavolání se zařadí a teprve po klicích se fronta postupně
+// vyprazdňuje po krocích ~16 ms (fake performance.now), dokud neuplyne
+// požadovaný čas, fronta nezůstane prázdná (animace sama skončila) nebo se
+// nevyčerpá pojistka 100 000 kroků (nekonečná animace by jinak zacyklila skript).
+// Příklad (bedna 3 s po startu, síla už nastavená posuvníkem/klikem):
+//   node testy/nahled-simulace.mjs src/components/skola2/SilaVektorSimulace.astro \
+//        /tmp/sv.svg sv-smer-90=1 klik=sv-smer-90 sv-f=50 klik=sv-jed cas=3
+// BEZ `cas=` se chová přesně jako dosud (žádná fronta, jediný synchronní krok) —
+// zpětná kompatibilita ověřena porovnáním otisků výstupu před/po této úpravě.
+//
 // Když má komponenta VÍC samostatných scén (víc značek <svg>), vykreslí se bez
 // další volby ta PRVNÍ — jako vždycky. Druhou a další scénu vybere vyhrazený
 // argument `svg=` (jediný, který se nechápe jako nastavení ovládacího prvku):
@@ -43,11 +58,13 @@ if (!komponenta || !vystup) {
 // nedala udělat povinná vizuální kontrola jiného než výchozího stavu. Klikat lze
 // i opakovaně (`klik=a klik=b`), pořadí se zachovává.
 let volbaScény = null;
+let pozadovanyCas = null; // ms — `cas=`, viz komentář nahoře
 const nastaveni = [];
 const kliky = [];
 for (const dvojice of argumenty) {
 	if (dvojice.startsWith('svg=')) volbaScény = dvojice.slice(4);
 	else if (dvojice.startsWith('klik=')) kliky.push(dvojice.slice(5));
+	else if (dvojice.startsWith('cas=')) pozadovanyCas = Number(dvojice.slice(4)) * 1000;
 	else nastaveni.push(dvojice);
 }
 
@@ -132,7 +149,20 @@ const document = {
 };
 // cancelAnimationFrame patří k requestAnimationFrame — komponenta, která umí
 // animaci zastavit (a to má umět každá), by bez něj spadla při prvním zastavení.
-const sandbox = { document, performance: { now: () => 0 }, requestAnimationFrame: () => {}, cancelAnimationFrame: () => {}, console, Math };
+//
+// Bez `cas=` zůstává requestAnimationFrame no-op jako dosud (zpětná kompatibilita).
+// S `cas=` se zavolání zařadí do fronty `radaFronta` a fronta se vyprázdní až po
+// klikání — viz smyčka „doběhnutí animace" níže.
+let fakeNyni = 0;
+const radaFronta = [];
+const sandbox = {
+	document,
+	performance: { now: () => fakeNyni },
+	requestAnimationFrame: pozadovanyCas === null ? () => {} : (cb) => { radaFronta.push(cb); return radaFronta.length; },
+	cancelAnimationFrame: pozadovanyCas === null ? () => {} : (id) => { radaFronta[id - 1] = null; },
+	console,
+	Math,
+};
 vm.createContext(sandbox);
 vm.runInContext(skript, sandbox);
 
@@ -154,6 +184,24 @@ for (const id of kliky) {
 	if (!posluchaci.length) { console.error(`❌ klik=${id}: prvek nemá posluchač „click" — nedá se na něj kliknout`); process.exit(1); }
 	for (const f of posluchaci) f({ currentTarget: p, target: p, preventDefault() {} });
 	console.log(`   klik: ${id}`);
+}
+
+// doběhnutí animace (`cas=`, 22. 8. 2026): fronta requestAnimationFrame se
+// vyprazdňuje po krocích ~16 ms, dokud neuplyne požadovaný čas, fronta
+// nezůstane prázdná (animace sama doběhla), nebo se nevyčerpá pojistka —
+// bez pojistky by nekonečná animace (nikdy nevolá cancelAnimationFrame)
+// zacyklila skript navždy.
+if (pozadovanyCas !== null) {
+	let kroky = 0;
+	const POJISTKA = 100000;
+	while (fakeNyni < pozadovanyCas && radaFronta.length && kroky < POJISTKA) {
+		const cb = radaFronta.shift();
+		fakeNyni += 16;
+		kroky++;
+		if (cb) cb(fakeNyni);
+	}
+	if (kroky >= POJISTKA) console.log(`⚠️  doběhnutí animace zastaveno pojistkou po ${POJISTKA} krocích — animace sama nekončí`);
+	console.log(`   doběhlo: ${(fakeNyni / 1000).toFixed(2)} s (${kroky} kroků)`);
 }
 
 // SVG ze zdroje + to, co do něj skript zapsal
