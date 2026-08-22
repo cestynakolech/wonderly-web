@@ -1486,6 +1486,31 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['Christiaan Huygens', 'Robert Brown z Anglie', 'Isaac Newton'],
 			vysvetleni: 'První kyvadlové hodiny sestrojil roku 1656 holandský fyzik Christiaan Huygens — kyvadlo je skoro ideální pravidelně kmitající součástka.',
 		},
+		{
+			text: 'Co Ozobotovi určuje délku ujeté dráhy po obdélníkovém okruhu — obvod, nebo obsah obdélníku?',
+			odpovedi: ['obvod, protože jede po okraji', 'obsah, protože je to plocha uvnitř', 'ani jedno, záleží jen na čase'],
+			vysvetleni: 'Ozobot jede po vyznačené trase (okraji obdélníku), takže ujetá dráha je obvod, ne obsah plochy uvnitř.',
+		},
+		{
+			text: 'Ozobot jede po obdélníkové dráze 6×4 dílků, jeden dílek měří 4 cm. Jaký je obvod dráhy?',
+			odpovedi: ['80 cm', '96 cm', '40 cm'],
+			vysvetleni: 'o = 2·(a+b) = 2·(6+4) = 20 dílků, 20 dílků × 4 cm = 80 cm.',
+		},
+		{
+			text: 'Ozobot ujede dráhu 80 cm za 20 sekund. Jaká je jeho rychlost?',
+			odpovedi: ['4 cm/s', '5 cm/s', '16 cm/s'],
+			vysvetleni: 'v = s : t = 80 cm : 20 s = 4 cm/s.',
+		},
+		{
+			text: 'Kolik dílků (políček) je uvnitř obdélníkové dráhy 6×4 dílků – tedy jaký je její obsah?',
+			odpovedi: ['24 dílků', '20 dílků', '10 dílků'],
+			vysvetleni: 'S = a·b = 6 × 4 = 24 dílků; obsah je jiné číslo než obvod (20 dílků).',
+		},
+		{
+			text: 'Jak se vypočítá rychlost, když známe uraženou dráhu s a čas t?',
+			odpovedi: ['v = s : t', 'v = s · t', 'v = t : s'],
+			vysvetleni: 'Rychlost je dráha dělená časem: v = s : t.',
+		},
 	],
 	'fyzika/6-rocnik/teplota/teplota-a-jeji-mereni': [
 		{
@@ -4785,7 +4810,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu slouží tabulka ASCII?', odpovedi: ['přiřazuje písmenům čísla', 'zrychluje internet', 'chrání jen heslo uživatele'], vysvetleni: 'Díky ní počítač ví, které číslo patří kterému písmenu.' },
 		{ text: 'Jak podle ASCII počítač pozná písmeno „A"?', odpovedi: ['jako číslo 65', 'jako číslo 0', 'slovo napsané písmeny'], vysvetleni: 'Počítač uvnitř nezná písmenka, jen čísla — „A" má v ASCII hodnotu 65.' },
 		{ text: 'Která přípona patří textovému dokumentu?', odpovedi: ['.docx', '.pptx', '.png'], vysvetleni: '.pptx je prezentace, .png obrázek.' },
-		{ text: 'Podle čeho pozná operační systém, kterou aplikací soubor otevřít?', odpovedi: ['podle přípony souboru', 'podle velikosti souboru', 'podle barvy ikony'], vysvetleni: 'Přípona jako .jpg nebo .mp3 prozradí druh souboru.' },
+		{ text: 'Podle čeho pozná operační systém, kterou aplikací soubor otevřít?', odpovedi: ['podle přípony souboru', 'podle velikosti souboru', 'podle barvy ikony'], vysvetleni: 'Písmena za tečkou v názvu souboru prozradí, o jaký druh dat jde.' },
 		{ text: 'Proč je vhodné nepoužívané aplikace odinstalovat?', odpovedi: ['uvolní se místo a sníží se riziko', 'zrychlí se internetové připojení', 'automaticky se vytvoří záloha dat'], vysvetleni: 'Staré nepoužívané programy jen zabírají místo.' },
 		{ text: 'Jak se NEMÁ jmenovat soubor, aby ho šlo za půl roku snadno najít?', odpovedi: ['bezejmenný_final2_OPRAVDU.docx', 'zapis_fyzika_kapaliny.docx', 'projekt_skola_2026.docx'], vysvetleni: 'Výstižný název usnadní pozdější hledání souboru.' },
 		{ text: 'Jak by měla vypadat promyšlená struktura složek podle textu?', odpovedi: ['Škola → Informatika → Projekty', 'Stažené → Stažené → Stažené', 'Vše v jedné složce na ploše'], vysvetleni: 'Vnořené složky podle tématu usnadní orientaci.' },
