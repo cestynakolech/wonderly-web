@@ -814,6 +814,15 @@ Dávka 6 (Prenos, Reaktor, SpalovaciMotor, Svacina, Pretlak) — 1 nález oprave
 a nasazen (PretlakSimulace: tyč pístu překrývala popisek PODTLAK u manometru,
 zkrácena před manometrem, commit `dabfca1`), kontrolor 0 nálezů, zkontrolováno
 30/37 simulací.
+Dávka 7 (Pakety, Hydrostatika, Lom, Odraz, Rozpad, Soustava, Valec) — 0 nálezů.
+
+**REVIZE KVALITY STARŠÍCH SIMULACÍ DOKONČENA: 37/37, celkem 6 nálezů, všechny
+opravené a nasazené** (panáčci skládání sil mimo viewBox, Binarni bez opory
+→ doplněn výklad + kvíz na 21 otázek, páka počítala m·r místo F·r + doplněny
+metry, kladka měla matoucí metaforu, Ozobot doplněn výklad ze zdroje +
+zeštíhlené jednotky, přetlak — tyč pístu překrývala popisek u manometru).
+2 mezery náhledového nástroje (role modelů, brána uniky.mjs) založeny jako
+úkoly ve frontě wonderly-fronta.
 
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.

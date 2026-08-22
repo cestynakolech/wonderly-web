@@ -220,6 +220,11 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 22. 8. 2026 (revize starších simulací dokončena)
+Revize kvality starších simulací dokončena 37/37, 6 nálezů opraveno a nasazeno
+(panáčci, Binarni, páka, kladka, Ozobot, přetlak). Kvíz `soubory-slozky-aplikace`
+dorovnán na cíl 21 otázek.
+
 ## Historie — 22. 8. 2026 (dokončeny úkoly z rozhodnutí učitele)
 **Dokončeny oba úkoly z „ROZHODNUTÍ UČITELE 22. 8. 2026" (SAMOSTATNY-REZIM.md):**
 1) měď vs. hliník ve vedení rozlišeno ve výkladu i kvízu `prenos-elektricke-energie`
