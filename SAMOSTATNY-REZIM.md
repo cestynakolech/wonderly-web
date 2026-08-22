@@ -1,3 +1,25 @@
+## ROZHODNUTÍ UČITELE 22. 8. 2026 (OTEVŘENÉ ÚKOLY)
+
+1. **Měď vs. hliník ve vedení** — měď patří k DOMÁCÍM ROZVODŮM (podle praxe), ne
+   k dálkovému vedení. Dnešní oprava (commit `d834875`) sjednotila vedení na měď
+   podle PDF i tam, kde jde o dálkové vedení — to je špatně. Úkol: v podtématu
+   `prenos-elektricke-energie` (F9) rozlišit ve výkladu i kvízu domácí rozvody
+   (měď) od dálkového vedení (hliníková lana s ocelovým jádrem).
+2. **Bezpečné vzdálenosti od vedení** — přesná čísla učitel nezná, dohledat
+   v normách/u ČEZ. Hlavní smysl je OBRAZNÝ: aby si děti představily, že výboj
+   může přeskočit na velkou vzdálenost, a chovaly se zodpovědně (nelézt na vagony
+   pod trolejí). Komisí `d834875` byly metry úplně odstraněny, myšlenka z webu
+   zmizela — vrátit ji do `ucinky-proudu-bezpecnost` (F9) v obrazné podobě;
+   konkrétní hodnotu uvádět jen s citací doloženého zdroje.
+3. **Energetická hodnota potravin** — NECHAT, brát obecně jako ukázku, že
+   existuje; hlavní je ROVNOVÁHA příjem/výdej, ne memorování přesných čísel.
+   Drobný úkol: projít text a kvíz podtématu, aby po dítěti nechtěl přesná čísla.
+4. **Obecné pravidlo napříč webem:** vše je pro žáky ZÁKLADNÍ ŠKOLY, ne pro
+   gymnázia a vědce. Zjednodušené informace jsou v pořádku. Podrobnosti nad
+   rámec ZŠ mají být do budoucna NADSTAVBA k rozkliknutí (směr, ne úkol na teď).
+
+---
+
 **AUDIT 22. 8. 2026 pozdě večer (už nasazené simulace 8. ročníku):** prověřeno
 10 komponent teplo/skupenství a elektřina, nalezeno a opraveno 5 vad (4×
 nepodložené číslo/tvrzení mimo výklad, hláška zobrazená mimo svůj stav,

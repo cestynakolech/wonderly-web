@@ -220,6 +220,26 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 22. 8. 2026 noc (uzávěrka bloku, rozhodnutí učitele)
+**Dokončena názornost fyziky:** 92 ze 101 podtémat má simulaci, zbylých 9 jsou
+shrnutí/úvod, kde simulace nedává smysl. **Audit starších simulací F8:** 10
+komponent (teplo/skupenství, elektřina), 5 vad opraveno, commit `8af0dfc`.
+**Kontrola podkladů F9** kompletní (22 PDF, protokol
+`Omega/dokumenty/kontrola-podkladu-fyzika9.md`), **F8 dokončen** (protokol
+doplněn), nasazeno commity `d834875` a `3ed197c`. Nezkontrolováno:
+„Od_výbuchu_k_pohybu_Svět_motorů.pdf" (F8) — obrázkové PDF bez textové vrstvy.
+**Pokrytí materiálů fyziky:** kvíz 116/116, simulace 107/116, video 61/116,
+písnička 22/116, infografika 17/116 (F8 i F9 nula) — infografiky další velký
+úkol. **Lokální modely:** sběr verdiktů rozšířen na filtry map a rozmazávání
+(dřív rozhodovaly bez měření), hlídač rolí vidí i přiřazení přes slovník
+v `graf_local.py`. Zjištění: žádný dostupný lokální model neprošel zároveň
+zkouškou `cestina` i `kontrola` (grounding) — offline kontrola textů je proto
+nespolehlivá. **ROZHODNUTÍ UČITELE 22. 8. 2026** (viz blok nahoře
+SAMOSTATNY-REZIM.md) — 3 věcné opravy (měď/hliník ve vedení, bezpečné
+vzdálenosti obrazně vrátit, energie potravin nechat obecně) + obecné pravidlo
+„obsah pro ZŠ, podrobnosti do budoucí nadstavby". Otevřeno: připravit učiteli
+souhrn o možnostech orchestrace lokálních modelů (dotaz nestihnut zodpovědět).
+
 ## Historie — 22. 8. 2026 večer (samostatný režim)
 **NASAZENO A OVĚŘENO:** simulace síly jako vektoru (F7, podtéma `sila`) —
 `src/components/skola2/SilaVektorSimulace.astro`, klíč interakce `sila-vektor`, commit
