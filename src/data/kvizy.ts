@@ -2947,6 +2947,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Břemeno zvedneme do stejné výšky jednou pevnou a podruhé volnou kladkou. Jak se liší vykonaná práce?', odpovedi: ['práce je v obou případech stejná', 'u volné kladky je práce poloviční', 'u pevné kladky je práce dvojnásobná'], vysvetleni: 'Volná kladka sice zmenší sílu na polovinu, ale ve stejném poměru zvětší dráhu — součin síly a dráhy, tedy práce, zůstane nezměněný. Práci si žádným strojem neušetříme.' },
 		{ text: 'Kladkostroj nese břemeno čtyřmi částmi lana. Břemeno stoupne o 1 m. Jak dlouhé lano musíme vytáhnout?', odpovedi: ['4 m', '1 m', '2 m'], vysvetleni: 'Kolikrát je síla menší, tolikrát je dráha delší — se čtyřmi částmi lana vytáhneme lano čtyřikrát delší, než je zdvih.' },
 		{ text: 'Kladkostroj zmenší potřebnou sílu 3×. Kolikrát delší lano musíme vytáhnout oproti výšce zdvihu?', odpovedi: ['3×', '1×', '9×'], vysvetleni: 'Platí zlaté pravidlo mechaniky: kolikrát menší síla, tolikrát delší dráha.' },
+		{ text: 'Z čeho vznikne kladkostroj?', odpovedi: ['spojením několika pevných a volných kladek', 'použitím jedné velké pevné kladky', 'spojením dvou úplně stejných pevných kladek'], vysvetleni: 'Kladkostroj vznikne spojením několika pevných a volných kladek dohromady — díky tomu zvedneme velmi těžká břemena malou silou.' },
+		{ text: 'Břemeno má tíhu 60 N. Jakou silou ho zvedneme na volné kladce?', odpovedi: ['30 N', '60 N', '120 N'], vysvetleni: 'Na volné kladce se tíha dělí mezi dvě části lana na polovinu: 60 N ÷ 2 = 30 N.' },
 	],
 	'fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina': [
 		{ text: 'Co je nakloněná rovina?', odpovedi: ['šikmá plocha, po které vytlačíme těleso do výšky menší silou', 'kolo s drážkou pro lano', 'tuhá tyč otáčivá kolem osy'], vysvetleni: 'Nakloněná rovina je jednoduchý stroj — šikmá plocha usnadňující zvedání břemen.' },
@@ -2968,6 +2970,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč se při nakládání těžkých beden do auta používá nájezdová rampa?', odpovedi: ['stačí menší síla, i když je dráha delší', 'aby se bedna při jízdě vůbec nikam nehýbala', 'aby řidič nemusel otevírat celé zadní dveře'], vysvetleni: 'Rampa je nakloněná rovina — vyžaduje menší sílu než zvedání beden nahoru, za cenu delšího posunu.' },
 		{ text: 'Jak namáhavé by bylo tlačit břemeno po nakloněné rovině, jejíž délka l by se rovnala výšce h?', odpovedi: ['stejně namáhavé jako svislé zvedání', 'mnohem snazší nežli svislé zvedání nahoru', 'úplně bez námahy, síla by byla nulová'], vysvetleni: 'Když l = h, vyjde F = G — žádnou sílu bychom neušetřili, rovina by byla vlastně svislá.' },
 		{ text: 'Co mají nakloněná rovina a kladka společného?', odpovedi: ['obě šetří sílu za cenu delší dráhy', 'obě zvětšují potřebnou sílu i dráhu', 'obě fungují jen s elektrickým pohonem'], vysvetleni: 'U všech jednoduchých strojů platí zlaté pravidlo mechaniky: menší síla znamená delší dráhu.' },
+		{ text: 'Jak se s nakloněnou rovinou (bez tření) změní práce potřebná ke zvednutí břemene do stejné výšky ve srovnání se svislým zvedáním?', odpovedi: ['práce zůstane stejná (menší síla, delší dráha)', 'práce se zmenší, protože použijeme menší sílu', 'práce se zvětší, protože je dráha mnohem delší'], vysvetleni: 'Nakloněná rovina práci neušetří, jen ji rozloží: kolikrát se zmenší síla, tolikrát se prodlouží dráha — celková vykonaná práce je stejná jako při svislém zvedání.' },
+		{ text: 'Sáňky s nákladem o tíze 800 N táhneme po nakloněné rovině dlouhé 10 m na výšku 2 m. Jaká síla je potřeba (bez tření)?', odpovedi: ['160 N', '1600 N', '4000 N'], vysvetleni: 'F = G · h : l = 800 · 2 : 10 = 160 N.' },
 	],
 	'fyzika/7-rocnik/jednoduche-stroje/jednoduche-stroje-paky': [
 		{ text: 'K čemu slouží jednoduché stroje?', odpovedi: ['usnadňují práci — menší silou zvedáme těžká tělesa', 'vyrábějí zbytečně mnoho energie úplně z ničeho', 'slouží jenom k pěknému vyzdobení dílny'], vysvetleni: 'Páka, kladka či nakloněná rovina mění velikost potřebné síly.' },
@@ -3195,6 +3199,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Otáčivý účinek síly znamená, že síla…', odpovedi: ['otáčí tělesem kolem osy', 'posouvá těleso rovně', 'mění barvu tělesa'], vysvetleni: 'Např. otevírání dveří — síla mimo osu způsobí otáčení.' },
 		{ text: 'Když modelínu zmáčkneme do jiného tvaru, jde o…', odpovedi: ['trvalou deformaci', 'pružnou deformaci', 'posuvný účinek'], vysvetleni: 'Modelína si nový tvar podrží — deformace je trvalá.' },
 		{ text: 'Může jedna síla způsobit více účinků najednou?', odpovedi: ['ano, účinky se mohou kombinovat', 'ne, vždy jen jeden', 'jen u kapalin'], vysvetleni: 'Kopnutý míč se současně posune, roztočí i chvíli zdeformuje.' },
+		{ text: 'Kniha leží v klidu na stole, tíhová síla a síla stolu se navzájem ruší. Jaké je to působení?', odpovedi: ['statické', 'dynamické', 'deformační'], vysvetleni: 'Těleso zůstává v klidu, protože se síly navzájem vyruší — to je statické působení.' },
+		{ text: 'Auto se rozjíždí ze zastávky a zvyšuje rychlost. Jaké je to působení?', odpovedi: ['dynamické', 'statické', 'vůbec žádné, síla nepůsobí'], vysvetleni: 'Mění se rychlost tělesa — to je dynamické působení.' },
+		{ text: 'Jablko padá ze stromu k zemi, aniž se ho něco dotkne. O jaké působení jde?', odpovedi: ['působení na dálku', 'dotykové působení', 'žádné působení'], vysvetleni: 'Zemská přitažlivost (gravitační pole) působí i bez dotyku — je to působení na dálku.' },
 	],
 	'fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda': [
 		{ text: 'Z čeho je stejnorodé těleso?', odpovedi: ['z jedné jediné látky', 'ze dvou různých látek', 'z mnoha různých látek'], vysvetleni: 'Stejnorodé těleso tvoří jen jedna jediná látka, žádná jiná v něm není zastoupená.' },
@@ -3211,6 +3218,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Je železobetonový panel stejnorodý, nebo nestejnorodý?', odpovedi: ['nestejnorodý', 'stejnorodý', 'záleží na barvě'], vysvetleni: 'Beton a ocelová výztuž jsou dvě látky — panel je nestejnorodý.' },
 		{ text: 'Kdyby loď měla plný ocelový trup bez dutin, co by se stalo?', odpovedi: ['potopila by se', 'plula by ještě lépe', 'nic by se nezměnilo'], vysvetleni: 'Bez vzduchu uvnitř je průměrná hustota velká — loď klesne ke dnu.' },
 		{ text: 'Značka ρp znamená…', odpovedi: ['průměrnou hustotu', 'objem celého tělesa', 'hmotnost tělesa'], vysvetleni: 'ρp = průměrná hustota nestejnorodého tělesa.' },
+		{ text: 'Kolikrát je hustota oceli (asi 8 000 kg/m³) větší než hustota vody (1 000 kg/m³)?', odpovedi: ['přibližně osmkrát', 'přibližně dvakrát', 'přibližně čtyřikrát'], vysvetleni: '8 000 : 1 000 = 8 — ocel je asi osmkrát hustší než voda.' },
+		{ text: 'Jaká je přibližná hustota vody, se kterou porovnáváme plování těles?', odpovedi: ['1 000 kg/m³', '8 000 kg/m³', '100 kg/m³'], vysvetleni: 'Voda má hustotu asi 1 000 kg/m³ — s tímto číslem se porovnává průměrná hustota tělesa.' },
+		{ text: 'Proč i malá vzduchová dutina hodně sníží celkovou hustotu ocelového tělesa?', odpovedi: ['vzduch je vůči oceli téměř nehmotný', 'vzduch má stejnou hustotu jako ocel', 'vzduch zvyšuje hmotnost tělesa'], vysvetleni: 'Vzduch má hustotu jen kolem kilogramu na metr krychlový, proto i malá dutina hodně sníží výslednou hustotu celého tělesa.' },
+		{ text: 'Co znamená, že průměrná hustota tělesa je menší než hustota vody?', odpovedi: ['těleso na vodě plove', 'těleso se ve vodě potopí', 'těleso má stejnou hustotu jako led'], vysvetleni: 'Menší průměrná hustota než voda → těleso plove na hladině.' },
+		{ text: 'Proč je ocelový hřebík stejnorodé těleso?', odpovedi: ['je celý jen z jedné látky, oceli', 'je malý, lehký a levně se vyrábí', 'má uvnitř dutinu se vzduchem'], vysvetleni: 'Hřebík netvoří žádná jiná látka než ocel — proto je stejnorodý.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla': [
 		{ text: 'Díky čemu vidíme obraz tělesa v zrcadle?', odpovedi: ['odrazu světla od zrcadla', 'lomu světla uvnitř zrcadla', 'pohlcení světla zrcadlem'], vysvetleni: 'Světlo se od zrcadla odrazí podle zákona odrazu a vytvoří obraz.' },
@@ -3229,6 +3241,11 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Vyhodnotí to, zda vidíme předmět, nebo jen jeho obraz…', odpovedi: ['náš mozek', 'samo zrcadlo', 'zdroj světla'], vysvetleni: 'Oko dodá paprsky, ale význam (skutečné/obraz) posoudí mozek.' },
 		{ text: 'K čemu se využívají estetická rovinná zrcadla v místnostech?', odpovedi: ['opticky zvětšují prostor', 'ohřívají vzduch v pokoji', 'čistí vzduch'], vysvetleni: 'Zrcadlo zdvojí pohled a místnost působí větší.' },
 		{ text: 'Zákon odrazu říká, že úhel odrazu je…', odpovedi: ['stejný jako úhel dopadu', 'vždy větší než úhel dopadu', 'vždycky rovný 90°'], vysvetleni: 'Úhel odrazu = úhel dopadu (měřeno od kolmice).' },
+		{ text: 'Paprsek světla dopadá na rovinné zrcadlo pod úhlem 25° od kolmice. Pod jakým úhlem od kolmice se odrazí?', odpovedi: ['25°', '50°', '65°'], vysvetleni: 'Úhel odrazu se vždy rovná úhlu dopadu (zákon odrazu).' },
+		{ text: 'Paprsek dopadá na rovinné zrcadlo a odražený paprsek svírá s dopadajícím paprskem úhel 60°. Jaký úhel svírá každý z paprsků s kolmicí zrcadla?', odpovedi: ['30°', '60°', '15°'], vysvetleni: 'Úhel dopadu se rovná úhlu odrazu, dohromady dají 60°, proto každý zvlášť měří 30°.' },
+		{ text: 'Stojíš 4 metry od rovinného zrcadla. V jaké vzdálenosti za zrcadlem uvidíš svůj obraz?', odpovedi: ['4 metry', '2 metry', '8 metrů'], vysvetleni: 'Obraz je v rovinném zrcadle stejně vzdálený za zrcadlem jako předmět před ním.' },
+		{ text: 'Jak vypadá nápis AMBULANCE na sanitce, když se na něj podíváme přímo — ne ve zpětném zrcátku?', odpovedi: ['je napsaný zrcadlově (pozpátku)', 'je napsaný úplně normálně a čitelně', 'je úplně neviditelný, nejde přečíst'], vysvetleni: 'Nápis je schválně otočen, aby ho řidič vpředu přečetl správně až v zrcátku.' },
+		{ text: 'Proč vidíme hory, přestože samy nesvítí?', odpovedi: ['odrážejí sluneční světlo', 'vydávají vlastní světlo', 'jsou průhledné jako sklo'], vysvetleni: 'Hory jsou osvětlené sluncem a odražené světlo dopadá do našich očí.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/kulova-zrcadla-dute-zrcadlo': [
 		{ text: 'Co tvoří odraznou plochu vyráběného kulového zrcadla?', odpovedi: ['malá část koule', 'celá koule', 'rovná deska skla'], vysvetleni: 'Kulové zrcadlo je jen výseč — malá část kulové plochy.' },
@@ -3248,6 +3265,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kde se používá vypuklé zrcadlo?', odpovedi: ['dopravní zrcadlo', 'zubní zrcátko', 'solární elektrárna'], vysvetleni: 'Široký záběr se hodí k dopravním a bezpečnostním zrcadlům.' },
 		{ text: 'K čemu se využívá duté zrcadlo v solární elektrárně?', odpovedi: ['soustředí paprsky', 'rozptyluje světlo do okolí', 'chladí vodu'], vysvetleni: 'Rovnoběžné sluneční paprsky se odrazem od zrcadla soustředí do jediného bodu a předají tam svou energii.' },
 		{ text: 'Jaká zrcadla mají lepší zobrazení než kulová a používají je dalekohledy?', odpovedi: ['parabolická', 'rovinná', 'vypuklá kulová'], vysvetleni: 'Parabolická zrcadla zobrazují ostřeji — Hubbleův i Webbův teleskop.' },
+		{ text: 'Co je poloměr křivosti r kulového zrcadla?', odpovedi: ['poloměr kulové plochy zrcadla', 'vzdálenost ohniska od vrcholu', 'vzdálenost předmětu od zrcadla'], vysvetleni: 'r je poloměr té kulové plochy, ze které je zrcadlo vyrobeno.' },
+		{ text: 'Co je optická osa o kulového zrcadla?', odpovedi: ['spojnice středu křivosti a vrcholu', 'spojnice ohniska a středu křivosti', 'přímka rovnoběžná s odraznou plochou'], vysvetleni: 'Optická osa spojuje střed křivosti S a vrchol V zrcadla.' },
+		{ text: 'Jaký obraz vytváří duté zrcadlo, když je předmět mezi ohniskem f a poloměrem křivosti r?', odpovedi: ['skutečný, převrácený, zvětšený', 'skutečný, převrácený, zmenšený', 'zdánlivý, vzpřímený, zvětšený'], vysvetleni: 'V tomto pásmu vzniká skutečný, převrácený a navíc zvětšený obraz.' },
+		{ text: 'Kam se po odrazu od dutého zrcadla šíří paprsky vycházející z ohniska?', odpovedi: ['jako rovnoběžný svazek s osou', 'rozptýlí se úplně do všech stran', 'vrátí se zase zpátky do ohniska'], vysvetleni: 'Je to opačný jev než sbíhání rovnoběžných paprsků — proto reflektory světel.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka': [
 		{ text: 'Z čeho jsou vyrobené optické čočky?', odpovedi: ['z průhledné látky (sklo, plast)', 'z kovu', 'ze zrcadlové fólie'], vysvetleni: 'Čočka musí propouštět světlo — je z průhledné látky.' },
@@ -3268,6 +3289,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Který přístroj využívá spojku?', odpovedi: ['lupa nebo mikroskop', 'dveřní kukátko', 'dopravní zrcadlo'], vysvetleni: 'Lupa, mikroskop, dalekohled i objektiv jsou spojky.' },
 		{ text: 'Kde se využívá rozptylka?', odpovedi: ['dveřní kukátko', 'lupa', 'zápalné sklo na oheň'], vysvetleni: 'Kukátko dá zmenšený, ale širokoúhlý obraz — to je rozptylka.' },
 		{ text: 'Proč lze spojkou (lupou) rozdělat oheň?', odpovedi: ['soustředí sluneční paprsky do ohniska', 'rozptýlí paprsky', 'odrazí paprsky zpět'], vysvetleni: 'V ohnisku se energie slunečních paprsků soustředí do malého bodu.' },
+		{ text: 'Jak se láme paprsek, který prochází ohniskem spojky?', odpovedi: ['láme se rovnoběžně s optickou osou', 'láme se do ohniska na druhé straně', 'neláme se vůbec'], vysvetleni: 'Ohniskový paprsek se po lomu vydá rovnoběžně s optickou osou čočky.' },
+		{ text: 'Jaký obraz dá spojka, když je předmět mezi ohniskem a dvojnásobkem ohniskové vzdálenosti?', odpovedi: ['skutečný, převrácený, zvětšený', 'skutečný, převrácený, zmenšený', 'zdánlivý, vzpřímený, zvětšený'], vysvetleni: 'Mezi f a 2f dá spojka skutečný, převrácený a zvětšený obraz — tak funguje dataprojektor.' },
+		{ text: 'Které optické pomůcky mohou obsahovat jak spojku, tak rozptylku?', odpovedi: ['brýle', 'lupa', 'kukátko'], vysvetleni: 'Brýle mohou mít podle vady zraku buď spojku (dalekozrakost), nebo rozptylku (krátkozrakost).' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka': [
 		{ text: 'Co je hlavním úkolem oka?', odpovedi: ['vytvořit obraz na sítnici', 'vydávat vlastní světlo do okolí', 'zesilovat zvuk'], vysvetleni: 'Oko je optická soustava, která zachytí obraz na citlivé vrstvě vzadu v oku.' },
@@ -3288,6 +3312,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co dalekozraké oko vidí ostře?', odpovedi: ['vzdálené předměty', 'blízké předměty i písmo', 'nic'], vysvetleni: 'Dalekozraký vidí do dálky ostře, blízko rozmazaně.' },
 		{ text: 'Co umožňují dvě oči?', odpovedi: ['prostorové vidění', 'vidět mnohem více barev', 'vidět ve tmě'], vysvetleni: 'Mozek spojí dva obrazy do jednoho prostorového vjemu.' },
 		{ text: 'Kde je na sítnici místo nejostřejšího vidění?', odpovedi: ['ve žluté skvrně', 'na okraji sítnice', 'na slepé skvrně'], vysvetleni: 'Ve žluté skvrně jsou nahuštěné čípky — nejostřejší barevné vidění.' },
+		{ text: 'Kolik druhů čípků máme v oku a co dělají?', odpovedi: ['tři — každý na jinou barvu', 'dva, jen černá a bílá barva', 'pět, podle barev duhy'], vysvetleni: 'Tři druhy čípků reagují každý na jinou vlnovou délku světla — z toho pak mozek poskládá barevný vjem.' },
+		{ text: 'Do jaké nejmenší vzdálenosti dokáže zdravé oko zaostřit?', odpovedi: ['asi 10–15 cm', 'asi 1–2 centimetry', 'asi 100 cm'], vysvetleni: 'Zdravé oko dokáže akomodací zaostřit na blízko asi na 10–15 cm.' },
+		{ text: 'Co udělá mozek s obrazem, přeneseným zrakovým nervem?', odpovedi: ['zpracuje ho a otočí', 'obraz ještě zvětší', 'nechá ho převrácený'], vysvetleni: 'Vzniklý obraz je převrácený, mozek zrakový vjem zpracuje a „otočí".' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/rozklad-svetla-duha': [
 		{ text: 'Jako jaké vnímáme sluneční světlo?', odpovedi: ['bílé', 'zelené', 'černé'], vysvetleni: 'Sluneční světlo se nám jeví bílé, ač je složené z více barev.' },
@@ -3306,6 +3333,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaké je pořadí barev u vedlejší duhy oproti hlavní?', odpovedi: ['opačné', 'stejné', 'jen černobílé'], vysvetleni: 'Druhý odraz obrátí pořadí barev.' },
 		{ text: 'Kde ještě můžeme rozklad světla pozorovat?', odpovedi: ['u vodopádu nebo při zalévání hadicí', 've tmě', 'na suché zdi'], vysvetleni: 'Kdekoli slunce prosvítí kapky vody — vodopád, kropení zahrady.' },
 		{ text: 'Který český vědec správně vysvětlil podstatu duhy?', odpovedi: ['Jan Marcus Marci', 'Otto Wichterle', 'Jan Evangelista Purkyně'], vysvetleni: 'Jan Marcus Marci vysvětlil duhu lomem paprsků v 17. století.' },
+		{ text: 'Čím Newton dokázal, že bílé světlo je složené z barev?', odpovedi: ['spojnou čočkou složil barvy zpět v bílé', 'hranol prudce zahřál na velmi vysokou teplotu', 'paprsky odrazil rovným zrcadlem'], vysvetleni: 'Newton spojnou čočkou znovu spojil rozložené barvy do bílého světla — důkaz, že bílé světlo je jejich součtem.' },
+		{ text: 'Co se stane se spektrem barev, když paprsek vystupuje z dešťové kapky ven?', odpovedi: ['spektrum se ještě rozšíří', 'barvy se smíchají zpět na bílou', 'zůstane stejně úzké jako uvnitř'], vysvetleni: 'Při výstupu z kapky se paprsek znovu láme a barevný pruh se ještě víc rozšíří.' },
+		{ text: 'Kolikrát se paprsek světla odrazí uvnitř kapky u vedlejší (dvojité) duhy?', odpovedi: ['dvakrát', 'jednou', 'třikrát'], vysvetleni: 'Vedlejší duha vzniká dvěma vnitřními odrazy — proto je slabší a má obrácené pořadí barev.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/vnimani-barev': [
 		{ text: 'Kolik druhů čípků máme na sítnici?', odpovedi: ['tři — červený, zelený, modrý', 'jeden pro všechny barvy zvlášť', 'sedm podle barev duhy'], vysvetleni: 'Tři druhy čípků — každý citlivý na jednu základní barvu světla.' },
@@ -3324,6 +3354,10 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co se stane, když smícháme více barviv?', odpovedi: ['výsledek je tmavší', 'výsledek je světlejší', 'vznikne bílá'], vysvetleni: 'Čím víc barviv, tím víc světla pohltí → tmavší barva.' },
 		{ text: 'Čím se liší skládání světel od míchání barviv?', odpovedi: ['světla se sčítají, barviva ubírají', 'světla ztmavnou, barviva naopak zesvětlí', 'obojí dopadne úplně stejně'], vysvetleni: 'Světla se sčítají k bílé, barviva se pohlcováním blíží k černé.' },
 		{ text: 'Proč se do tiskáren přidává černá (K)?', odpovedi: ['kvůli sytosti a úspoře inkoustu', 'bez ní by tiskárna vůbec netiskla', 'kvůli lesku potištěného papíru'], vysvetleni: 'Černá dá lepší odstín a šetří barevné inkousty při černém tisku.' },
+		{ text: 'Jaká barva vznikne složením červeného a zeleného světla?', odpovedi: ['žlutá', 'purpurová', 'azurová'], vysvetleni: 'Červená + zelená dají v RGB žlutou.' },
+		{ text: 'Jaká barva vznikne složením červeného a modrého světla?', odpovedi: ['purpurová', 'žlutá barva', 'azurová'], vysvetleni: 'Červená + modrá dají v RGB purpurovou (magenta).' },
+		{ text: 'Jaká barva vznikne složením zeleného a modrého světla?', odpovedi: ['azurová', 'žlutá', 'purpurová'], vysvetleni: 'Zelená + modrá dají v RGB azurovou (cyan).' },
+		{ text: 'Proč se černá v CMYK značí písmenem K, a ne B?', odpovedi: ['B už značí modrou (blue) v RGB', 'K je první písmeno slova černá v angličtině', 'B se v tiskárnách vůbec nepoužívá'], vysvetleni: 'Aby nedošlo k záměně s modrou (blue) z RGB, black se značí K.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace': [
 		{ text: 'Kdy těleso ve fyzice koná práci?', odpovedi: ['když působí silou a těleso se posune ve směru síly', 'když jen drží těžké těleso', 'když se zahřeje'], vysvetleni: 'Musí být splněné obě podmínky — síla i posunutí ve směru síly.' },
