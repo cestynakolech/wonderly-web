@@ -19,7 +19,7 @@ import PakaSimulace from '../../../../../../components/skola2/PakaSimulace.astro
 import MagnetSimulace from '../../../../../../components/skola2/MagnetSimulace.astro';
 import KladkaSimulace from '../../../../../../components/skola2/KladkaSimulace.astro';
 import NaklonenaRovinaSimulace from '../../../../../../components/skola2/NaklonenaRovinaSimulace.astro';
-import UcinkySilySimulace from '../../../../../../components/skola2/UcinkySilySimulace.astro';
+import UcinkySilyADeformaceSimulace from '../../../../../../components/skola2/UcinkySilyADeformaceSimulace.astro';
 import OhmSimulace from '../../../../../../components/skola2/OhmSimulace.astro';
 import ElektrickePoleSimulace from '../../../../../../components/skola2/ElektrickePoleSimulace.astro';
 import OerstedSimulace from '../../../../../../components/skola2/OerstedSimulace.astro';
@@ -282,7 +282,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'magnet' && <MagnetSimulace />}
 	{podtema.interakce === 'kladka' && <KladkaSimulace />}
 	{podtema.interakce === 'naklonena-rovina' && <NaklonenaRovinaSimulace />}
-	{podtema.interakce === 'ucinky-sily' && <UcinkySilySimulace />}
+	{podtema.interakce === 'ucinky-sily' && <UcinkySilyADeformaceSimulace />}
 	{podtema.interakce === 'ohm' && <OhmSimulace />}
 	{podtema.interakce === 'elektricke-pole' && <ElektrickePoleSimulace />}
 	{podtema.interakce === 'oersted' && <OerstedSimulace />}

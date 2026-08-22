@@ -1,0 +1,371 @@
+---
+// Podtéma "pusobeni-teles-a-deformace" (7. ročník) — POUZE to, co učí výklad:
+// 1) účinky síly na těleso podle místa působení: síla v těžišti → posuvný účinek
+//    (těleso se posune, neotočí), síla mimo těžiště (u pevné osy) → otáčivý účinek
+//    (těleso se otočí kolem osy). Vektor síly samotný (velikost/směr/působiště)
+//    už simuluje podtéma "sila" — tady jde jen o VÝSLEDNÝ ÚČINEK podle místa působení.
+// 2) deformace tělesa: pružná (elastická) — po skončení síly se vrátí do tvaru,
+//    vs. trvalá (plastická) — zůstane zdeformované. Posuvný/otáčivý pohyb obecně
+//    (rychlost bodů apod.) je jiné podtéma "posuvny-otacivy-pohyb" — tady se
+//    NEřeší rychlost bodů, jen ANO/NE otočení vs. posun podle místa síly.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Účinky síly a deformace 🎯</span></h2>
+	<p>
+		Sleduj, co síla s tělesem udělá. V první části vyber, <strong>kde</strong> síla
+		působí, a uvidíš <strong>posuvný</strong>, nebo <strong>otáčivý</strong> účinek.
+		Ve druhé části zkus stlačit gumu a plastelínu a sleduj rozdíl mezi
+		<strong>pružnou</strong> a <strong>trvalou deformací</strong>.
+	</p>
+
+	<svg id="uts-svg" viewBox="0 0 500 300" role="img" aria-label="Účinky síly na těleso a deformace tělesa">
+		<rect x="0" y="0" width="500" height="260" fill="#eef6ff" />
+		<rect x="0" y="260" width="500" height="40" fill="#d8f5a2" />
+		<line x1="0" y1="260" x2="500" y2="260" stroke="#2b2a26" stroke-width="3" />
+		<g id="uts-obsah"></g>
+	</svg>
+
+	<div class="uts-mody" id="uts-mody" role="group" aria-label="Co chceš zkoumat">
+		<button type="button" id="uts-mod-ucinek" class="uts-mod-btn uts-mod-aktivni" data-mod="ucinek">🏋️ Kam síla působí</button>
+		<button type="button" id="uts-mod-deformace" class="uts-mod-btn" data-mod="deformace">🫧 Jak se těleso deformuje</button>
+	</div>
+
+	<div class="uts-ovladani" id="uts-ovladani-ucinek">
+		<div class="uts-prepinac" id="uts-pusobiste" role="group" aria-label="Místo působení síly">
+			<button type="button" id="uts-pusobiste-teziste" class="uts-mala-btn uts-mala-aktivni" data-p="teziste">🎯 v těžišti</button>
+			<button type="button" id="uts-pusobiste-kraj" class="uts-mala-btn" data-p="kraj">📍 u pevné osy</button>
+		</div>
+	</div>
+
+	<div class="uts-ovladani" id="uts-ovladani-deformace" style="display:none">
+		<div class="uts-prepinac" id="uts-material" role="group" aria-label="Materiál tělesa">
+			<button type="button" id="uts-material-pruzna" class="uts-mala-btn uts-mala-aktivni" data-m="pruzna">🟢 guma (pružná)</button>
+			<button type="button" id="uts-material-trvala" class="uts-mala-btn" data-m="trvala">🟤 plastelína (trvalá)</button>
+		</div>
+		<label>síla
+			<input id="uts-sila" type="range" min="1" max="3" step="1" value="2" />
+			<output id="uts-sila-t">4 N</output>
+		</label>
+	</div>
+
+	<div class="uts-tlacitka">
+		<button id="uts-spustit" type="button">▶️ Spusť</button>
+		<button id="uts-reset" type="button">↺ Zpět</button>
+	</div>
+
+	<p id="uts-vysledek" class="uts-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const VIEW_W = 500, VIEW_H = 300, OKRAJ = 10;
+	const T_ANIM = 3; // s, kalibrováno na "cas=3" v náhledu
+
+	let mod = 'ucinek'; // 'ucinek' | 'deformace'
+	let pusobiste = 'teziste'; // 'teziste' | 'kraj'
+	let material = 'pruzna'; // 'pruzna' | 'trvala'
+	let sila = 2; // 1..3 (slider), přepočet na N je 2×sila
+	let progress = 0; // 0..1, vždy přesně 0 nebo 1 mimo animaci
+	let animace = false;
+
+	// --- čisté výpočetní funkce (funkce postupu 0..1, testovatelné bez prohlížeče) ---
+
+	function silaN(stupen) {
+		return stupen * 2; // 2 / 4 / 6 N — celé
+	}
+
+	// bílá plaketa s barevným okrajem — šířka VŽDY dynamická podle délky textu
+	function plaketa(textX, textY, text, barva) {
+		const sirka = String(text).length * 8 + 8;
+		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, textX - 4));
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, textY - 14));
+		return `
+			<rect x="${rectX}" y="${rectY}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
+			<text x="${rectX + 4}" y="${rectY + 14}" font-size="12" font-weight="bold" fill="${barva}">${text}</text>
+		`;
+	}
+
+	function sipka(x1, y1, x2, y2, barva) {
+		const uhel = Math.atan2(y2 - y1, x2 - x1);
+		const hrot = 10;
+		const ax = x2 - hrot * Math.cos(uhel - Math.PI / 7);
+		const ay = y2 - hrot * Math.sin(uhel - Math.PI / 7);
+		const bx = x2 - hrot * Math.cos(uhel + Math.PI / 7);
+		const by = y2 - hrot * Math.sin(uhel + Math.PI / 7);
+		return `
+			<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${barva}" stroke-width="4" />
+			<polygon points="${x2},${y2} ${ax},${ay} ${bx},${by}" fill="${barva}" />
+		`;
+	}
+
+	// --- mód "ucinek": krabice 80x60, buď se posune (síla v těžišti), nebo se
+	// otočí kolem pevné osy v rohu (síla mimo těžiště) ---
+
+	const KRABICE_W = 80, KRABICE_H = 60;
+	const POSUV_X = 100, POSUV_Y = 200; // levý horní roh krabice
+	const POSUV_DX = 120; // px posunu, celé
+	const OTOC_X = 260, OTOC_Y = 200; // levý horní roh krabice
+	const OTOC_PIVOT = { x: OTOC_X + KRABICE_W, y: OTOC_Y + KRABICE_H }; // pevná osa = pravý dolní roh, = (340, 260)
+	const OTOC_UHEL_MAX = 30; // stupňů, celé — krabice se naklápí (tipuje) kolem osy
+
+	function posunPosuv(p) {
+		return POSUV_DX * p; // px, může být necelé v průběhu animace, ustálené stavy 0 a 120 jsou celé
+	}
+
+	function uhelOtoceni(p) {
+		return OTOC_UHEL_MAX * p; // stupně, ustálené stavy 0 a 30 jsou celé
+	}
+
+	function kresliUcinek() {
+		let sc = '';
+		if (pusobiste === 'teziste') {
+			const dx = posunPosuv(progress);
+			const tezX = POSUV_X + KRABICE_W / 2 + dx;
+			const tezY = POSUV_Y + KRABICE_H / 2;
+			// vodicí trajektorie těžiště
+			sc += `<line x1="${POSUV_X + KRABICE_W / 2}" y1="${tezY}" x2="${POSUV_X + KRABICE_W / 2 + POSUV_DX}" y2="${tezY}" stroke="#adb5bd" stroke-width="2" stroke-dasharray="5 4" />`;
+			sc += `<g transform="translate(${dx},0)">`;
+			sc += `<rect x="${POSUV_X}" y="${POSUV_Y}" width="${KRABICE_W}" height="${KRABICE_H}" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
+			sc += `<circle cx="${POSUV_X + KRABICE_W / 2}" cy="${POSUV_Y + KRABICE_H / 2}" r="5" fill="#e03131" />`;
+			sc += sipka(POSUV_X - 40, tezY, POSUV_X - 4, tezY, '#1971c2');
+			sc += `</g>`;
+			sc += plaketa(POSUV_X - 40, tezY - 14, 'F', '#1971c2');
+			sc += plaketa(tezX - 6, tezY + 24, 'T', '#e03131');
+		} else {
+			const uhel = uhelOtoceni(progress);
+			// stojan osy (uzemněný sloupek, aby scéna dávala smysl)
+			sc += `<rect x="${OTOC_PIVOT.x - 16}" y="256" width="32" height="10" rx="2" fill="#495057" />`;
+			sc += `<g transform="rotate(${uhel} ${OTOC_PIVOT.x} ${OTOC_PIVOT.y})">`;
+			sc += `<rect x="${OTOC_X}" y="${OTOC_Y}" width="${KRABICE_W}" height="${KRABICE_H}" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
+			sc += sipka(OTOC_X - 40, OTOC_Y, OTOC_X - 4, OTOC_Y, '#1971c2');
+			sc += `</g>`;
+			sc += plaketa(OTOC_X - 40, OTOC_Y - 14, 'F', '#1971c2');
+			sc += `<circle cx="${OTOC_PIVOT.x}" cy="${OTOC_PIVOT.y}" r="6" fill="#495057" stroke="#2b2a26" stroke-width="2" />`;
+			sc += plaketa(OTOC_PIVOT.x - 12, OTOC_PIVOT.y + 24, 'osa', '#495057');
+		}
+		return sc;
+	}
+
+	function hlaskaUcinek() {
+		const dokonceno = progress === 1;
+		if (!dokonceno) return 'Vyber, kde síla působí, a klikni na tlačítko Spusť.';
+		if (pusobiste === 'teziste') {
+			return `Síla F působila v těžišti krabice — krabice se posunula o ${POSUV_DX} px a vůbec se neotočila. To je posuvný účinek síly.`;
+		}
+		return `Síla F působila mimo těžiště, u pevné osy — krabice se otočila o ${OTOC_UHEL_MAX}° kolem osy. To je otáčivý účinek síly.`;
+	}
+
+	// --- mód "deformace": míč (guma/plastelína) stlačovaný silou shora ---
+
+	const MIC_CX = 250, MIC_R = 40;
+	const MIC_CY0 = 260 - MIC_R; // střed, když má míč plný poloměr a dotýká se podložky
+
+	function maxStlaceni(stupen) {
+		return stupen * 10; // px, celé — 10 / 20 / 30
+	}
+
+	// stlačení v daném postupu p: 0..0.5 = stlačování, 0.5..1 = puštění
+	function stlaceni(p, stupen, mat) {
+		const max = maxStlaceni(stupen);
+		if (p <= 0.5) return max * (p / 0.5);
+		if (mat === 'pruzna') return max * (1 - (p - 0.5) / 0.5);
+		return max; // trvalá — zůstává zdeformovaná
+	}
+
+	function kresliDeformaci() {
+		const s = stlaceni(progress, sila, material);
+		const ry = MIC_R - s;
+		const rx = MIC_R + s * 0.5;
+		const cy = 260 - ry;
+		const barva = material === 'pruzna' ? '#2f9e44' : '#8d6b47';
+		let sc = '';
+		sc += sipka(MIC_CX, 130, MIC_CX, cy - ry - 6, '#1971c2');
+		sc += plaketa(MIC_CX - 40, 118, `F = ${silaN(sila)} N`, '#1971c2');
+		if (material === 'pruzna') {
+			// u pružné deformace je konečný stav (kruh) vizuálně stejný jako klid —
+			// bez tohoto přerušovaného obrysu by na STATICKÉM snímku nebylo poznat,
+			// že se guma vůbec stlačila a vrátila. Obrys ukazuje nejvíc stlačený tvar,
+			// kterým guma při působení síly prošla, i když teď je zpátky kulatá.
+			const maxS = maxStlaceni(sila);
+			const ryMax = MIC_R - maxS;
+			const rxMax = MIC_R + maxS * 0.5;
+			const cyMax = 260 - ryMax;
+			sc += `<ellipse cx="${MIC_CX}" cy="${cyMax}" rx="${rxMax}" ry="${ryMax}" fill="none" stroke="#2f9e44" stroke-width="2" stroke-dasharray="5 4" opacity="0.6" />`;
+		}
+		sc += `<ellipse cx="${MIC_CX}" cy="${cy}" rx="${rx}" ry="${ry}" fill="${barva}" stroke="#2b2a26" stroke-width="2" />`;
+		return sc;
+	}
+
+	function hlaskaDeformace() {
+		const dokonceno = progress === 1;
+		const max = maxStlaceni(sila);
+		if (!dokonceno) return 'Nastav sílu a materiál tělesa, pak klikni na tlačítko Spusť.';
+		if (material === 'pruzna') {
+			return `Guma se silou ${silaN(sila)} N stlačila až o ${max} px, ale po skončení působení síly se vrátila do původního tvaru — to je pružná (elastická) deformace.`;
+		}
+		return `Plastelína se silou ${silaN(sila)} N stlačila až o ${max} px a zůstala zmáčknutá i po skončení působení síly — to je trvalá (plastická) deformace.`;
+	}
+
+	function prekresli() {
+		$('uts-sila-t').textContent = `${silaN(sila)} N`;
+		const sc = mod === 'ucinek' ? kresliUcinek() : kresliDeformaci();
+		$('uts-obsah').innerHTML = sc;
+		$('uts-vysledek').textContent = mod === 'ucinek' ? hlaskaUcinek() : hlaskaDeformace();
+	}
+
+	function animuj() {
+		animace = true;
+		let t = 0;
+		function tik() {
+			t += 0.05;
+			if (t < T_ANIM) {
+				progress = t / T_ANIM;
+				prekresli();
+				requestAnimationFrame(tik);
+			} else {
+				progress = 1;
+				animace = false;
+				prekresli();
+			}
+		}
+		tik();
+	}
+
+	$('uts-mody').querySelectorAll('.uts-mod-btn').forEach((b) =>
+		b.addEventListener('click', () => {
+			if (animace) return;
+			$('uts-mody').querySelectorAll('.uts-mod-btn').forEach((x) => x.classList.remove('uts-mod-aktivni'));
+			b.classList.add('uts-mod-aktivni');
+			mod = b.dataset.mod;
+			$('uts-ovladani-ucinek').style.display = mod === 'ucinek' ? '' : 'none';
+			$('uts-ovladani-deformace').style.display = mod === 'deformace' ? '' : 'none';
+			progress = 0;
+			prekresli();
+		}));
+
+	$('uts-pusobiste').querySelectorAll('.uts-mala-btn').forEach((b) =>
+		b.addEventListener('click', () => {
+			if (animace) return;
+			$('uts-pusobiste').querySelectorAll('.uts-mala-btn').forEach((x) => x.classList.remove('uts-mala-aktivni'));
+			b.classList.add('uts-mala-aktivni');
+			pusobiste = b.dataset.p;
+			progress = 0;
+			prekresli();
+		}));
+
+	$('uts-material').querySelectorAll('.uts-mala-btn').forEach((b) =>
+		b.addEventListener('click', () => {
+			if (animace) return;
+			$('uts-material').querySelectorAll('.uts-mala-btn').forEach((x) => x.classList.remove('uts-mala-aktivni'));
+			b.classList.add('uts-mala-aktivni');
+			material = b.dataset.m;
+			progress = 0;
+			prekresli();
+		}));
+
+	$('uts-sila').addEventListener('input', () => {
+		if (animace) return;
+		sila = +$('uts-sila').value;
+		progress = 0;
+		prekresli();
+	});
+
+	$('uts-spustit').addEventListener('click', () => {
+		if (animace) return;
+		progress = 0;
+		animuj();
+	});
+
+	$('uts-reset').addEventListener('click', () => {
+		if (animace) return;
+		progress = 0;
+		prekresli();
+	});
+
+	prekresli();
+</script>
+
+<style>
+	#uts-svg {
+		width: 100%;
+		max-width: 500px;
+		display: block;
+		margin: 0 auto;
+		background: #eef6ff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.uts-mody {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.8rem 0 0.5rem;
+	}
+	.uts-mod-btn {
+		font-weight: 700;
+		font-size: 0.9rem;
+		padding: 0.4rem 0.8rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.uts-mod-aktivni {
+		background: #ffd43b;
+	}
+	.uts-ovladani {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0.5rem 0;
+	}
+	.uts-prepinac {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.uts-mala-btn {
+		font-weight: 700;
+		font-size: 0.85rem;
+		padding: 0.35rem 0.7rem;
+		border: 2px solid #2b2a26;
+		border-radius: 8px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.uts-mala-aktivni {
+		background: #a5d8ff;
+	}
+	.uts-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 700;
+	}
+	.uts-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.uts-tlacitka button {
+		font-weight: 700;
+		padding: 0.45rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.uts-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		text-align: center;
+		min-height: 3rem;
+	}
+</style>
