@@ -1,0 +1,215 @@
+---
+// Meteorologie a měření tlaku (F7): povětrnostní mapa s tlakovou výší V
+// (jen popisek „nad normálem", bez vymyšlené hodnoty) a tlakovou nížemi N
+// (posuvník 973–1013 hPa po 10, vždy srovnáváno s normálem 1013 hPa z výkladu).
+// Rozdíl tlaku (1013 − N) → hustota izobar kolem N (0–4 kruhy) a KVALITATIVNÍ
+// síla větru slovem (bezvětří/slabší/silnější vítr) + délkou a tloušťkou
+// šipky — ŽÁDNÉ vymyšlené číslo km/h (ve výkladu není vzorec vítr=f(tlak)).
+// Druhý posuvník: tendence tlaku za 3 h (-15..+15 po 5) ukazuje PEVNOU
+// mřížku 3 hodnot (před 6 h/před 3 h/teď — řádky se nikdy nehýbou, takže se
+// popisky nemůžou potkat) + velkou šipku nahoru/dolů/vodorovně (otočení a
+// barva, poloha pevná) a dává předpověď (klesá/stoupá/stálý, pokles VÍC než
+// 10 hPa/3 h = varování před vichřicí; N < 980 hPa = hluboká níže — obojí
+// přesně dle textu výkladu). Kreslený graf s osou byl po opakovaných vadách
+// (plaketa přes čáru/kruh/plaketu) nahrazen pevnou mřížkou — učivo (klesá/
+// stoupá/stálý a co to znamená) zůstává. Bez časové animace; stav je čistá
+// funkce stavPocasi(N, trend) na SVG (__stavPocasi). Text nad kresbou vždy
+// na bílé plaketě přes sdílenou funkci plaketa().
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Povětrnostní mapa 🕹️</span></h2>
+	<p>Vzduch proudí z místa s <strong>vyšším tlakem</strong> (tlaková výše V) do místa s <strong>nižším tlakem</strong> (tlaková níže N) — to je vítr. Čím <strong>hustěji</strong> jsou izobary u sebe, tím tlak na krátkou vzdálenost mění se prudčeji a tím <strong>silnější vítr</strong> fouká. Druhý posuvník ukáže, jak se tlak měnil poslední hodiny — a co to znamená pro předpověď.</p>
+	<svg id="meteo-svg" viewBox="0 0 660 360" role="img" aria-label="Povětrnostní mapa s tlakovou výší a nížemi a barograf">
+		<!-- levý panel: mapa -->
+		<rect x="4" y="4" width="408" height="352" rx="10" fill="#eef6fb" stroke="#2b2a26" stroke-width="2" />
+		<text x="208" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">povětrnostní mapa</text>
+
+		<!-- izobary kolem V (pevné 2 kruhy) -->
+		<g id="meteo-V-izobary" fill="none" stroke="#e03131" stroke-width="2">
+			<circle cx="100" cy="170" r="30" />
+			<circle cx="100" cy="170" r="48" />
+		</g>
+		<circle cx="100" cy="170" r="17" fill="#fff" stroke="#e03131" stroke-width="2.5" />
+		<text x="100" y="176" text-anchor="middle" font-size="18" font-weight="bold" fill="#e03131">V</text>
+
+		<!-- izobary kolem N (dynamický počet) -->
+		<g id="meteo-N-izobary" fill="none" stroke="#1971c2" stroke-width="2"></g>
+		<circle cx="330" cy="170" r="17" fill="#fff" stroke="#1971c2" stroke-width="2.5" />
+		<text x="330" y="176" text-anchor="middle" font-size="18" font-weight="bold" fill="#1971c2">N</text>
+
+		<!-- šipka větru V → N -->
+		<line id="meteo-vitr-sipka" x1="154" y1="170" x2="288" y2="170" stroke="#495057" stroke-width="4" />
+		<polygon id="meteo-vitr-hrot" points="288,170 276,163 276,177" fill="#495057" />
+
+		<!-- plaketa: hodnota V -->
+		<g id="meteo-plaketa-v"><rect id="meteo-plaketa-v-rect" y="196" height="20" rx="6" fill="#fff" stroke="#e03131" stroke-width="1.5" /><text id="meteo-plaketa-v-text" y="211" text-anchor="middle" font-size="12" font-weight="bold" fill="#e03131"></text></g>
+		<!-- plaketa: hodnota N -->
+		<g id="meteo-plaketa-n"><rect id="meteo-plaketa-n-rect" y="196" height="20" rx="6" fill="#fff" stroke="#1971c2" stroke-width="1.5" /><text id="meteo-plaketa-n-text" y="211" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2"></text></g>
+		<!-- plaketa: síla větru -->
+		<g id="meteo-plaketa-vitr"><rect id="meteo-plaketa-vitr-rect" y="140" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="meteo-plaketa-vitr-text" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="208" y="345" text-anchor="middle" font-size="11" fill="#868e96">V = tlaková výše, N = tlaková níže</text>
+
+		<!-- pravý panel: vývoj tlaku — PEVNÁ mřížka (nic se nehýbe, mění se jen
+		     text/barva/otočení), takže se popisky nemůžou nikdy potkat -->
+		<rect x="420" y="4" width="236" height="352" rx="10" fill="#f8f9fa" stroke="#2b2a26" stroke-width="2" />
+		<text x="538" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">vývoj tlaku</text>
+
+		<text x="436" y="94" font-size="12" fill="#495057">před 6 h:</text>
+		<g id="meteo-plaketa-pred6"><rect id="meteo-plaketa-pred6-rect" y="80" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="meteo-plaketa-pred6-text" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="436" y="134" font-size="12" fill="#495057">před 3 h:</text>
+		<g id="meteo-plaketa-pred3"><rect id="meteo-plaketa-pred3-rect" y="120" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="meteo-plaketa-pred3-text" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="436" y="178" font-size="13" font-weight="bold" fill="#e8590c">teď:</text>
+		<g id="meteo-plaketa-ted"><rect id="meteo-plaketa-ted-rect" y="163" height="20" rx="6" fill="#fff" stroke="#e8590c" stroke-width="2" /><text id="meteo-plaketa-ted-text" y="0" text-anchor="middle" font-size="13" font-weight="bold" fill="#e8590c"></text></g>
+
+		<line x1="436" y1="196" x2="640" y2="196" stroke="#dee2e6" stroke-width="1.5" />
+
+		<!-- velká šipka: nahoru/dolů/vodorovně podle tendence, poloha i rozměr
+		     pevné (60×60 kolem středu), mění se jen otočení a barva -->
+		<g id="meteo-sipka-tendence" transform="rotate(0 538 250)">
+			<polygon id="meteo-sipka-polygon" points="538,215 515,255 528,255 528,285 548,285 548,255 561,255" fill="#868e96" />
+		</g>
+		<g id="meteo-plaketa-smer"><rect id="meteo-plaketa-smer-rect" y="300" height="22" rx="6" fill="#fff" stroke="#868e96" stroke-width="1.5" /><text id="meteo-plaketa-smer-text" y="316" text-anchor="middle" font-size="13" font-weight="bold" fill="#868e96"></text></g>
+	</svg>
+
+	<label class="sim-posuvnik">
+		Tlak v níži N: <output id="meteo-out-n"></output>
+		<input type="range" id="meteo-slider-n" min="973" max="1013" step="10" value="993" />
+	</label>
+	<label class="sim-posuvnik">
+		Tendence za poslední 3 h: <output id="meteo-out-trend"></output>
+		<input type="range" id="meteo-slider-trend" min="-15" max="15" step="5" value="-5" />
+	</label>
+	<p class="meteo-vzorec" id="meteo-vzorec"></p>
+	<p class="meteo-stav" id="meteo-stav"></p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (kontrolovatelná výpočtem) ===
+	function stavPocasi(N, trend) {
+		// rozdíl proti normálu z výkladu (1013 hPa) — V je vždy definována jako
+		// „vyšší než normál", žádná vymyšlená hodnota V se nepoužívá
+		const rozdil = 1013 - N; // celé hPa, vždy násobek 10 (0..40)
+		const ringCount = rozdil / 10; // 0..4 izobar kolem N — celé číslo
+		let vitrSlovo;
+		if (rozdil === 0) vitrSlovo = 'bezvětří';
+		else if (rozdil <= 20) vitrSlovo = 'slabší vítr';
+		else vitrSlovo = 'silnější vítr';
+		const pred6 = N - 2 * trend;
+		const pred3 = N - trend;
+		const jeNormal = N === 1013;
+		let smer, hlaska;
+		if (trend < 0) {
+			smer = 'klesá';
+			hlaska = trend < -10
+				? `⚠️ Tlak prudce klesá o ${Math.abs(trend)} hPa za 3 hodiny — víc než 10 hPa varuje před vichřicí.`
+				: `📉 Tlak klesá o ${Math.abs(trend)} hPa za 3 hodiny — počasí se bude kazit.`;
+		} else if (trend > 0) {
+			smer = 'stoupá';
+			hlaska = `📈 Tlak stoupá o ${trend} hPa za 3 hodiny — obloha se bude vyjasňovat.`;
+		} else {
+			smer = 'stálý';
+			hlaska = '➖ Tlak je stálý — počasí se zatím výrazně nemění.';
+		}
+		if (N < 980) hlaska += ' Hluboká níže pod 980 hPa přináší bouřky a vichřice.';
+		return { N, rozdil, ringCount, vitrSlovo, pred6, pred3, jeNormal, smer, hlaska };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('meteo-svg');
+	svg.__stavPocasi = stavPocasi; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	// jedna sdílená funkce pro dynamickou šířku plakety podle délky textu
+	function sirkaPlakety(text) {
+		return Math.max(34, text.length * 6.6 + 16);
+	}
+	function plaketa(prefix, cx, cy, text) {
+		const sirka = sirkaPlakety(text);
+		nastav(`${prefix}-rect`, { x: cx - sirka / 2, y: cy - 12, width: sirka });
+		const t = g(`${prefix}-text`);
+		t.setAttribute('x', cx);
+		t.setAttribute('y', cy + 4);
+		t.textContent = text;
+	}
+
+	const sliderN = document.getElementById('meteo-slider-n');
+	const sliderTrend = document.getElementById('meteo-slider-trend');
+
+	function prekresli() {
+		const N = +sliderN.value;
+		const trend = +sliderTrend.value;
+		const s = stavPocasi(N, trend);
+
+		g('meteo-out-n').textContent = `${s.N} hPa`;
+		g('meteo-out-trend').textContent = `${trend > 0 ? '+' : ''}${trend} hPa`;
+
+		// izobary kolem N — zapsáno jako innerHTML (SVG atributy uvnitř <svg>)
+		let izoHtml = '';
+		for (let i = 1; i <= s.ringCount; i++) {
+			izoHtml += `<circle cx="330" cy="170" r="${22 + i * 13}" />`;
+		}
+		g('meteo-N-izobary').innerHTML = izoHtml;
+
+		// šipka větru — délka i tloušťka roste s rozdílem tlaku (žádné km/h,
+		// jen obrázek + slovo); při bezvětří (rozdil=0) je šipka schovaná
+		// šipka začíná těsně ZA okrajem kruhu V (poloměr 48, pevný) a její hrot
+		// se počítá ze SKUTEČNÉ velikosti kresby — nesmí dojet dál, než kousek
+		// PŘED nejvzdálenější izobaru kolem N (jinak by do ní zajel, viz nález)
+		const SIPKA_START = 100 + 48 + 6; // 154 — za vnějším kruhem V + mezera
+		const REZERVA = 10;
+		const nOkrajIzobary = 330 - (s.ringCount > 0 ? 22 + s.ringCount * 13 : 17);
+		const hrotX = Math.min(SIPKA_START + s.rozdil * 3, nOkrajIzobary - REZERVA);
+		nastav('meteo-vitr-sipka', { x1: SIPKA_START, x2: hrotX, opacity: s.rozdil === 0 ? 0 : 1 });
+		nastav('meteo-vitr-hrot', { points: `${hrotX},170 ${hrotX - 12},163 ${hrotX - 12},177`, opacity: s.rozdil === 0 ? 0 : 1 });
+		nastav('meteo-vitr-sipka', { 'stroke-width': 2 + s.ringCount * 2 });
+
+		// Popisky se posazují MIMO nejvzdálenější izobaru — ne na pevný pixel.
+		// V má vždy 2 statické kruhy (max poloměr 48), N má 0–4 dynamické kruhy
+		// (max poloměr 22+4*13=74). Aby plaketa NIKDY nepřekryla ani nejširší
+		// možný kruh (u obou popisků dole, u větru nahoře), počítá se z
+		// nejhoršího možného poloměru NEJŠIRŠÍHO kruhu (74 px) + bezpečná mezera.
+		const NEJVETSI_MOZNY_POLOMER = 74; // 22 + 4×13 (viz izobary kolem N)
+		const podRingem = 170 + NEJVETSI_MOZNY_POLOMER + 20; // pod oběma sadami kruhů
+		const nadRingem = 170 - NEJVETSI_MOZNY_POLOMER - 20; // nad oběma sadami kruhů
+		plaketa('meteo-plaketa-v', 100, podRingem, 'V: nad normálem');
+		plaketa('meteo-plaketa-n', 330, podRingem, s.jeNormal ? `N: ${s.N} hPa (normál)` : `N: ${s.N} hPa`);
+		plaketa('meteo-plaketa-vitr', 214, nadRingem, s.vitrSlovo);
+
+		// vývoj tlaku — PEVNÁ mřížka: každá hodnota má svůj vlastní řádek,
+		// který se nikdy nehýbe (mění se jen text uvnitř plakety), takže se
+		// popisky nikdy nemůžou potkat — ani mezi sebou, ani s ničím jiným
+		plaketa('meteo-plaketa-pred6', 600, 90, `${s.pred6} hPa`);
+		plaketa('meteo-plaketa-pred3', 600, 130, `${s.pred3} hPa`);
+		plaketa('meteo-plaketa-ted', 600, 173, `${s.N} hPa`);
+
+		// šipka tendence — pevná poloha a velikost (60×60 kolem středu 538,250),
+		// mění se jen OTOČENÍ (nahoru/dolů/vodorovně) a barva podle směru
+		const uhel = trend > 0 ? 0 : trend < 0 ? 180 : 90;
+		const barva = trend > 0 ? '#2f9e44' : trend < 0 ? '#e8590c' : '#868e96';
+		nastav('meteo-sipka-tendence', { transform: `rotate(${uhel} 538 250)` });
+		nastav('meteo-sipka-polygon', { fill: barva });
+		nastav('meteo-plaketa-smer-rect', { stroke: barva });
+		plaketa('meteo-plaketa-smer', 538, 311, `tlak ${s.smer}`);
+		g('meteo-plaketa-smer-text').setAttribute('fill', barva);
+
+		g('meteo-vzorec').innerHTML = `Tlak v níži je o <strong>${s.rozdil} hPa</strong> nižší než normál → <strong>${s.vitrSlovo}</strong>. Za poslední 3 hodiny tlak <strong>${s.smer}</strong> (${trend > 0 ? '+' : ''}${trend} hPa).`;
+		g('meteo-stav').textContent = s.hlaska;
+	}
+
+	sliderN.addEventListener('input', prekresli);
+	sliderTrend.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#meteo-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #fff; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.meteo-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.meteo-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
