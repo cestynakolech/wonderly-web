@@ -132,6 +132,7 @@ import PokusySimulace from '../../../../../../components/skola2/PokusySimulace.a
 import SeznamySimulace from '../../../../../../components/skola2/SeznamySimulace.astro';
 import BezpecnostSimulace from '../../../../../../components/skola2/BezpecnostSimulace.astro';
 import VexGyroskopSimulace from '../../../../../../components/skola2/VexGyroskopSimulace.astro';
+import VzajemnePusobeniSimulace from '../../../../../../components/skola2/VzajemnePusobeniSimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -398,6 +399,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'seznamy' && <SeznamySimulace />}
 	{podtema.interakce === 'bezpecnost-pocitace' && <BezpecnostSimulace />}
 	{podtema.interakce === 'vex-gyroskop' && <VexGyroskopSimulace />}
+	{podtema.interakce === 'vzajemne-pusobeni' && <VzajemnePusobeniSimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (

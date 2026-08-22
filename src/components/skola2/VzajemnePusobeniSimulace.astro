@@ -1,0 +1,192 @@
+---
+// Vzájemné působení těles (F6, podtéma "sila" — ÚPLNĚ jiná věc než sila-vektor
+// (7. ročník, velikost/směr/působiště), skladani-sil (skládání víc sil) nebo
+// ucinky-sily (posuvný/otáčivý/deformační účinek) — tady se NEDUPLIKUJE nic z nich.
+// Jádro výkladu: „Působí-li jedno těleso na druhé, působí i to druhé na první."
+// Dvě scény přesně podle textu: „kopnu do míče — a míč zatlačí do mé nohy" a
+// „brankář zastaví míč — a míč při tom tlačí brankáři do rukou". Míč se kutálí
+// po zemi (gravitace dolů, míč nikdy nelítá nad hlavou), po nárazu se ukážou
+// DVĚ šipky současně (modrá = síla těla na míč, červená = síla míče na tělo) a
+// postava se mírně odrazí dozadu — vidět, že síla působí na OBĚ tělesa najednou,
+// ne jen na míč. Žádná čísla v newtonech se nevymýšlejí — tenhle podtext je
+// čistě kvalitativní, N se učí až v dalším odstavci výkladu (síla jako veličina).
+// Časování je čistá funkce uplynulého času (t1 = doba doletu, RECOIL_T = doba
+// odrazu, ARROW_T = jak dlouho svítí obě šipky) — žádné počítání snímků.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Míč a síla jsou dva 🕹️</span></h2>
+	<p>Vyber si příběh a klikni na <strong>Spustit</strong>. Sleduj, co se stane s míčem — a co se stane s tělem, které do něj strčí.</p>
+	<p>👉 <strong>Působení těles je vždy vzájemné.</strong> Kopneš-li do míče, míč zatlačí i do tvé nohy. Chytíš-li míč, míč zatlačí i do tvých rukou.</p>
+	<p>
+		<button id="vzaj-scenar-kop" type="button" class="vzaj-tl vzaj-aktivni">⚽ Kopnu do míče</button>
+		<button id="vzaj-scenar-chyt" type="button" class="vzaj-tl">🧤 Brankář chytá míč</button>
+	</p>
+	<svg id="vzaj-svg" viewBox="0 0 480 300" role="img" aria-label="Kutálející se míč naráží na nohu nebo ruce, obě síly se ukážou zároveň">
+		<rect x="0" y="0" width="480" height="250" fill="#e7f5ff" />
+		<rect x="0" y="250" width="480" height="50" fill="#8ce99a" />
+		<line x1="0" y1="250" x2="480" y2="250" stroke="#2b8a3e" stroke-width="3" />
+		<g id="vzaj-scena"></g>
+	</svg>
+	<p>
+		<button id="vzaj-spustit" type="button" class="vzaj-tl vzaj-hlavni">▶️ Spustit</button>
+		<button id="vzaj-reset" type="button" class="vzaj-tl">🔄 Znovu od začátku</button>
+	</p>
+	<p class="vzaj-stav" id="vzaj-stav"></p>
+</section>
+
+<script>
+	const VIEW_W = 480, VIEW_H = 300, OKRAJ = 6;
+	const GROUND_Y = 250, BALL_R = 14, BALL_Y = GROUND_Y - BALL_R;
+	const START_X = 40;
+	const PERSON_X = 420; // klidová poloha postavy (osa těla)
+	const FOOT_X = 380; // konec nohy/rukavice v klidu (kontaktní bod)
+	const CONTACT_X = FOOT_X - BALL_R - 4; // střed míče, kde se dotkne nohy/rukavice
+	const KOP_END_X = 50; // kam míč doletí po vykopnutí, ať zůstane celý ve viewBoxu
+
+	const RYCHLOST_PRILET = 200; // px/s, jak rychle se míč valí k noze/ruce
+	const RYCHLOST_KOP = 260; // px/s, jak rychle míč odletí po kopnutí
+	const RECOIL_T = 0.3; // s, jak dlouho trvá odraz těla dozadu
+	const RECOIL_AMP = 14; // px, jak daleko se tělo odrazí
+	const ARROW_T = 0.7; // s, jak dlouho svítí obě šipky po nárazu
+
+	const T1 = (CONTACT_X - START_X) / RYCHLOST_PRILET; // s, doba doletu k tělu
+
+	const svg = document.getElementById('vzaj-svg');
+	const scena = document.getElementById('vzaj-scena');
+	const stavEl = document.getElementById('vzaj-stav');
+	const btnKop = document.getElementById('vzaj-scenar-kop');
+	const btnChyt = document.getElementById('vzaj-scenar-chyt');
+	const btnSpustit = document.getElementById('vzaj-spustit');
+	const btnReset = document.getElementById('vzaj-reset');
+
+	let scenar = 'kop';
+	let startCas = null; // performance.now() v okamžiku kliknutí na Spustit; null = klid
+
+	// bílá plaketa s barevným okrajem pod textem — ŠÍŘKA VŽDY dynamická podle délky textu
+	function plaketa(textX, textY, text, barva) {
+		const sirka = String(text).length * 7 + 10;
+		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, textX - sirka / 2));
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, textY - 14));
+		return `
+			<rect x="${rectX}" y="${rectY}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
+			<text x="${rectX + sirka / 2}" y="${rectY + 14}" text-anchor="middle" font-size="12" font-weight="bold" fill="${barva}">${text}</text>
+		`;
+	}
+
+	function sipka(x1, y1, x2, y2, barva) {
+		const uhel = Math.atan2(y2 - y1, x2 - x1);
+		const h1x = x2 - 10 * Math.cos(uhel - 0.4), h1y = y2 - 10 * Math.sin(uhel - 0.4);
+		const h2x = x2 - 10 * Math.cos(uhel + 0.4), h2y = y2 - 10 * Math.sin(uhel + 0.4);
+		return `
+			<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${barva}" stroke-width="4" />
+			<polygon points="${x2},${y2} ${h1x},${h1y} ${h2x},${h2y}" fill="${barva}" />
+		`;
+	}
+
+	// ČISTÁ funkce: stav scény v čase `t` (s) od kliknutí na Spustit. `t === null` = klid před startem.
+	function stav(t, sc) {
+		if (t === null) return { faze: 'klid', ballX: START_X, recoil: 0, arrows: false, hotovo: false };
+		if (t < T1) return { faze: 'privoz', ballX: START_X + RYCHLOST_PRILET * t, recoil: 0, arrows: false, hotovo: false };
+		const dt = t - T1;
+		const u = Math.min(1, dt / RECOIL_T);
+		const recoil = dt < RECOIL_T ? RECOIL_AMP * Math.sin(Math.PI * u) : 0;
+		const arrows = dt < ARROW_T;
+		if (sc === 'kop') {
+			const ballX = Math.max(KOP_END_X, CONTACT_X - RYCHLOST_KOP * dt);
+			return { faze: 'po', ballX, recoil, arrows, hotovo: ballX <= KOP_END_X + 0.5 };
+		}
+		return { faze: 'po', ballX: CONTACT_X, recoil, arrows, hotovo: dt >= RECOIL_T };
+	}
+
+	function osobaSvg(sc, recoil) {
+		const x = PERSON_X + recoil;
+		let s = `<g transform="translate(${x} 0)">`;
+		if (sc === 'kop') {
+			s += `<line x1="0" y1="225" x2="-40" y2="250" stroke="#2b2a26" stroke-width="6" />`; // kopající noha
+			s += `<line x1="0" y1="225" x2="12" y2="250" stroke="#2b2a26" stroke-width="6" />`; // stojná noha
+			s += `<line x1="0" y1="184" x2="0" y2="225" stroke="#364fc7" stroke-width="8" />`; // trup
+			s += `<line x1="0" y1="192" x2="-14" y2="206" stroke="#364fc7" stroke-width="5" />`;
+			s += `<line x1="0" y1="192" x2="14" y2="206" stroke="#364fc7" stroke-width="5" />`;
+			s += `<circle cx="0" cy="170" r="14" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
+		} else {
+			s += `<line x1="0" y1="235" x2="-8" y2="250" stroke="#2b2a26" stroke-width="6" />`;
+			s += `<line x1="0" y1="235" x2="12" y2="250" stroke="#2b2a26" stroke-width="6" />`;
+			s += `<line x1="0" y1="204" x2="0" y2="235" stroke="#2f9e44" stroke-width="8" />`; // dres brankáře
+			s += `<line x1="0" y1="210" x2="-40" y2="236" stroke="#2f9e44" stroke-width="6" />`; // paže k rukavici
+			s += `<circle cx="-40" cy="236" r="9" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />`; // rukavice
+			s += `<circle cx="0" cy="190" r="14" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
+		}
+		s += '</g>';
+		return s;
+	}
+
+	function micSvg(x) {
+		return `
+			<circle cx="${x}" cy="${BALL_Y}" r="${BALL_R}" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5" />
+			<line x1="${x - 6}" y1="${BALL_Y - 6}" x2="${x + 6}" y2="${BALL_Y + 6}" stroke="#2b2a26" stroke-width="1.5" />
+			<line x1="${x - 6}" y1="${BALL_Y + 6}" x2="${x + 6}" y2="${BALL_Y - 6}" stroke="#2b2a26" stroke-width="1.5" />
+		`;
+	}
+
+	function popisText(faze, sc, hotovo) {
+		const cast = sc === 'kop' ? 'nohy' : 'rukou';
+		const cast2 = sc === 'kop' ? 'nohu' : 'ruce';
+		if (faze === 'klid') return 'Klikni na Spustit — míč se rozjede po zemi k tělu.';
+		if (faze === 'privoz') return 'Míč se kutálí po zemi k tělu…';
+		if (faze === 'po' && !hotovo) return `Náraz! Síla ${cast} zatlačila na míč (modrá šipka) a ZÁROVEŇ míč zatlačil na ${cast2} (červená šipka). Obě síly existují SOUČASNĚ.`;
+		if (sc === 'kop') return `✅ Míč odletěl pryč, protože na něj zapůsobila síla nohy. Přesto v tu chvíli i míč zatlačil do nohy — proto se noha odrazila. Působení bylo vzájemné.`;
+		return `✅ Míč se zastavil v rukou, protože na něj zapůsobily ruce. Přesto v tu chvíli i míč zatlačil do rukou — proto se ruce odrazily. Působení bylo vzájemné.`;
+	}
+
+	function vykresli() {
+		const t = startCas === null ? null : (performance.now() - startCas) / 1000;
+		const s = stav(t, scenar);
+		let html = osobaSvg(scenar, s.recoil);
+		html += micSvg(s.ballX);
+		if (s.arrows) {
+			const cast = scenar === 'kop' ? 'nohy' : 'rukou';
+			const cast2 = scenar === 'kop' ? 'nohu' : 'ruce';
+			// modrá šipka: síla těla na míč (směr k míči, doleva)
+			html += sipka(CONTACT_X + 4, BALL_Y - 40, CONTACT_X - 34, BALL_Y - 40, '#1971c2');
+			html += plaketa(CONTACT_X - 15, BALL_Y - 52, `síla ${cast} na míč`, '#1971c2');
+			// červená šipka: síla míče na tělo (směr k tělu, doprava)
+			html += sipka(CONTACT_X - 4, BALL_Y - 74, CONTACT_X + 34, BALL_Y - 74, '#e03131');
+			html += plaketa(CONTACT_X + 15, BALL_Y - 86, `síla míče na ${cast2}`, '#e03131');
+		}
+		scena.innerHTML = html;
+		stavEl.textContent = popisText(s.faze, scenar, s.hotovo);
+	}
+
+	function vyberScenar(novy) {
+		scenar = novy;
+		startCas = null;
+		btnKop.classList.toggle('vzaj-aktivni', novy === 'kop');
+		btnChyt.classList.toggle('vzaj-aktivni', novy === 'chyt');
+		vykresli();
+	}
+
+	btnKop.addEventListener('click', () => vyberScenar('kop'));
+	btnChyt.addEventListener('click', () => vyberScenar('chyt'));
+	btnSpustit.addEventListener('click', () => { startCas = performance.now(); vykresli(); });
+	btnReset.addEventListener('click', () => { startCas = null; vykresli(); });
+
+	function smycka() {
+		vykresli();
+		requestAnimationFrame(smycka);
+	}
+	requestAnimationFrame(smycka);
+	vykresli();
+
+	// ověřovací háček (kontrola výpočtem, ne okem)
+	svg.__stav = stav;
+</script>
+
+<style>
+	#vzaj-svg { width: 100%; max-width: 480px; border: 3px solid #2b2a26; border-radius: 12px; }
+	.vzaj-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.vzaj-tl.vzaj-aktivni { background: #ffe8cc; }
+	.vzaj-tl.vzaj-hlavni { background: #b2f2bb; }
+	.vzaj-tl:active { transform: translateY(1px); }
+	.vzaj-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
