@@ -78,7 +78,10 @@
 		// píst: objem V dílků = šířka V×44 px od levého čela (x=43)
 		const pistX = 43 + s.V * 44;
 		nastav('pre-pist', { x: pistX });
-		nastav('pre-tyc', { x: pistX + 22 });
+		// tyč nesmí zasahovat do manometru (začíná na x=460) — šířku omezíme podle polohy pístu
+		const tycX = pistX + 22;
+		const tycW = Math.max(10, Math.min(150, 450 - tycX));
+		nastav('pre-tyc', { x: tycX, width: tycW });
 		g('pre-objem-pop').textContent = `uzavřený vzduch: ${s.V} ${s.V === 1 ? 'dílek' : s.V < 5 ? 'dílky' : 'dílků'} objemu`;
 		g('pre-out').textContent = ['úplně stlačený', 'stlačený', 'výchozí', 'roztažený'][poloha];
 		// molekuly: 12 kusů rozmístěných v objemu (s vývěvou žádné)
