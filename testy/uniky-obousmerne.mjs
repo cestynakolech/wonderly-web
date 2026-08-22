@@ -358,6 +358,44 @@ const zdravy = [
 	tvrdi('dvě sdílená slova z dlouhé odpovědi NEJSOU únik (nízké pokrytí)', v.uniky.length === 0);
 }
 
+// ---------------------------------------------------------------- ÚNIK PŘÍPONY (JEDEN TOKEN)
+// Nález nezávislé kontroly 22. 8. 2026 (blok soubory-slozky-aplikace): odpověď je
+// CELÁ jeden krátký token — přípona souboru („.docx") — a starší laťka „aspoň dvě
+// slova" na to nikdy nedosáhla. Podvrh vrací PŮVODNÍ prozrazující vysvětlení
+// (commit 64ed687 před opravou), zdravý stav používá opravené znění.
+{
+	const zdravyPripony = [
+		ot('Která přípona patří zvuku?', ['.mp3', '.docx', '.png'], 'Zvuk se ukládá s příponou .mp3, ne jako dokument nebo obrázek.'),
+		ot('Která přípona patří textovému dokumentu?', ['.docx', '.pptx', '.png'], '.pptx je prezentace, .png obrázek.'),
+	];
+	const v = zkontrolujBlok('test/zdravy-pripony', zdravyPripony);
+	tvrdi('opravené znění přípon nehlásí únik', v.uniky.length === 0);
+
+	const podvrhPripony = [
+		ot('Která přípona patří zvuku?', ['.mp3', '.docx', '.png'], '.docx je dokument, .png obrázek.'),
+		ot('Která přípona patří textovému dokumentu?', ['.docx', '.pptx', '.png'], '.pptx je prezentace, .png obrázek.'),
+	];
+	const v2 = zkontrolujBlok('test/podvrh-pripony', podvrhPripony);
+	tvrdi('doslovné „.docx je dokument" v cizím vysvětlení SE najde', v2.uniky.length >= 1);
+	tvrdi(
+		'únik ukazuje na správnou dvojici',
+		v2.uniky.some((u) => /zvuku/.test(u.prozrazuje) && /textovému dokumentu/.test(u.otazka)),
+	);
+}
+
+// Jednoslovná odpověď na BĚŽNÉ odborné téma (bez tečky na začátku) se přes tuhle
+// novou větev únikem stát nesmí — jinak by se vrátila přesně ta záplava (fyzika:
+// „objem", „plazma", „hypotéza"), kterou první pokus o tuhle větev vyrobil (166 nálezů
+// nad celým webem, než se omezila jen na přípony souborů).
+{
+	const podvrh = [
+		ot('Jak se nazývá myšlenka o fungování přírody, kterou fyzik teprve ověřuje?', ['hypotéza', 'zákon', 'teorie'], ''),
+		ot('Co udělá fyzik s hypotézou, kterou měření nepotvrdí?', ['zamítne ji', 'prohlásí ji za zákon', 'ututlá ji'], 'Hypotéza, která neobstojí, se opouští.'),
+	];
+	const v = zkontrolujBlok('test/regrese-jednoslovna-odborna', podvrh);
+	tvrdi('jednoslovný odborný pojem mimo přípony NENÍ únik', v.uniky.length === 0);
+}
+
 // ---------------------------------------------------------------- POČÍTADLO VSTUPŮ
 // Kontrola, která nic neprojde, musí být poznat — nález auditu „opatření platí jen
 // na část případů a na tu druhou se tiše zapomene".

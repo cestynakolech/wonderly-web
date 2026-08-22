@@ -34,7 +34,11 @@
 //     „230 minut" × „230 min", „3000 metrů" × „3000 m"),
 //   • holou číselnou odpověď bez jednotky („1,4"), i když ji zdroj vysloví ve výpočtu,
 //   • hodnotu prozrazenou v ZNĚNÍ zdrojové otázky, ne jen ve vysvětlení,
-//   • duplicitní páry otázek se shodnou správnou odpovědí a podobným zněním.
+//   • duplicitní páry otázek se shodnou správnou odpovědí a podobným zněním,
+//   • JEDNOTOKENOVOU odpověď, která je PŘÍPONA SOUBORU („.docx"), doslova citovanou
+//     v cizím vysvětlení (doplněno 22. 8. 2026 po nálezu nezávislé kontroly). Úzce
+//     omezeno jen na tento tvar (odpověď začíná tečkou) — obecné jednoslovné odborné
+//     pojmy („objem", „hypotéza", „plazma") úmyslně únikem NEJSOU, viz mez 8 níž.
 //
 // CO PRINCIPIÁLNĚ NECHYTÍ (ověřeno zkouškou, ne odhadem):
 //   1. ČÍSLO NAPSANÉ SLOVEM. „…voda vře kolem osmdesáti stupňů Celsia" proti odpovědi
@@ -58,6 +62,14 @@
 //      simulace nebo v obrázku sem vůbec nedosáhne.
 //   7. JEDNOCIFERNÁ ČÍSLA se za hodnotu nepovažují („6 N"). Bez toho by každý příklad
 //      hlásil únik proti každému; cena je slepota vůči odpovědím typu „5 V".
+//   8. JEDNOSLOVNÁ ODPOVĚĎ, KTERÁ NENÍ PŘÍPONA. „Nepoužívané aplikace zabírají místo
+//      a mohou být riziko." proti odpovědi „uvolní se místo a sníží se riziko" (2 ze
+//      4 rozlišujících slov, pokrytí 50 %) NENAJDE — laťka „aspoň dvě slova při
+//      pokrytí 70 %" na to nedosáhne a snížení laťky bylo zkusmo změřeno: vyrobilo
+//      166 falešných poplachů nad celým webem (odborné pojmy typu „objem" se
+//      v tematickém bloku přirozeně opakují). Na tenhle typ (přeformulovaná fráze
+//      bez jediného stoprocentně unikátního slova) je potřeba člověk nebo jazykový
+//      model — přesně nezávislý kontrolor, který ho 22. 8. 2026 našel.
 // ════════════════════════════════════════════════════════════════════════════════
 import { nactiData } from './data.mjs';
 
@@ -376,9 +388,28 @@ export function zkontrolujBlok(klic, otazky) {
 				// Číselný únik se hlásí, jen když jsou prozrazena VŠECHNA vícemístná čísla
 				// odpovědi. Půlka („230 V a 50 Hz", shoduje se jen 50) odpověď nedává.
 				const celeCislo = cislaCile.length >= 1 && prozrazenaCisla.length === cislaCile.length;
+				// CELÁ ODPOVĚĎ JE JEDEN KRÁTKÝ TECHNICKÝ TOKEN („.docx", „.mp3" — přípona
+				// souboru) a ten token se objeví v cizím vysvětlení doslova. Tohle NEPROŠLO
+				// starší laťkou „dvě slova" (nález nezávislé kontroly 22. 8. 2026, blok
+				// soubory-slozky-aplikace: vysvětlení „.docx je dokument, .png obrázek."
+				// prozrazovalo jednoslovnou odpověď „.docx" jiné otázky bloku a měřidlo
+				// mlčelo, protože jediné rozlišující slovo nikdy nesplnilo podmínku
+				// „aspoň dvě slova"). Jeden token ale smí stačit JEN pro tuhle úzkou
+				// třídu (přípona začínající tečkou) — zkoušelo se to pustit na libovolné
+				// jednoslovné odpovědi (i dlouhé, „hypotéza", „anemometr"), ale to je
+				// v jednom tematickém bloku BĚŽNÉ odborné slovo, ne prozrazení: naměřilo
+				// to přes 160 falešných poplachů (fyzika, pojmy jako „objem", „plazma",
+				// „hypotéza" se v bloku přirozeně opakují). Přípony souborů jsou naproti
+				// tomu jednoznačný, nezaměnitelný identifikátor — tam se plete jen
+				// skutečný únik.
+				const celaOdpovedJedenToken =
+					cil.rozlisujici.size === 1 &&
+					cil.spravnaNorm === [...cil.rozlisujici][0] &&
+					/^\./.test(((cil.o.odpovedi ?? [])[0] ?? '').trim());
 				const dostSlov =
 					(prozrazena.length >= 2 && pokryti >= 0.7) ||
-					(celeCislo && pokryti >= 0.5);
+					(celeCislo && pokryti >= 0.5) ||
+					(celaOdpovedJedenToken && prozrazena.length === 1);
 				if (!dostSlov) continue;
 				// POČETNÍ ÚLOHA jako cíl se u číselných nálezů přeskakuje — týž postup, jaký
 				// už používá `cisla-ve-vykladu.mjs`: má-li ZADÁNÍ otázky vlastní čísla, je
