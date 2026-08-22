@@ -114,6 +114,7 @@ import RelativitaPohybuSimulace from '../../../../../../components/skola2/Relati
 import BezpecnaVzdalenostVedeniSimulace from '../../../../../../components/skola2/BezpecnaVzdalenostVedeniSimulace.astro';
 import PosuvnyOtacivyPohybSimulace from '../../../../../../components/skola2/PosuvnyOtacivyPohybSimulace.astro';
 import PovetrnostniMapaSimulace from '../../../../../../components/skola2/PovetrnostniMapaSimulace.astro';
+import NestejnorodaSimulace from '../../../../../../components/skola2/NestejnorodaSimulace.astro';
 import PretlakSimulace from '../../../../../../components/skola2/PretlakSimulace.astro';
 import SvacinaSimulace from '../../../../../../components/skola2/SvacinaSimulace.astro';
 import PrenosSimulace from '../../../../../../components/skola2/PrenosSimulace.astro';
@@ -377,6 +378,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'bezpecna-vzdalenost-vedeni' && <BezpecnaVzdalenostVedeniSimulace />}
 	{podtema.interakce === 'posuvny-otacivy' && <PosuvnyOtacivyPohybSimulace />}
 	{podtema.interakce === 'povetrnostni-mapa' && <PovetrnostniMapaSimulace />}
+	{podtema.interakce === 'nestejnoroda-lod' && <NestejnorodaSimulace />}
 	{podtema.interakce === 'pretlak' && <PretlakSimulace />}
 	{podtema.interakce === 'svacina' && <SvacinaSimulace />}
 	{podtema.interakce === 'prenos' && <PrenosSimulace />}

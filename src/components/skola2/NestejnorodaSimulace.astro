@@ -1,0 +1,185 @@
+---
+// Tělesa stejnorodá a nestejnorodá (F7): dutá ocelová „loď" v nádobě s vodou.
+// Jediný posuvník mění podíl dutiny (vzduchu) v tělese 0–99 % po 1 % (JEMNÝ
+// krok, aby si žák „ohmatal" přesný zlom mezi potápěním a plováním — dřívější
+// krok po 5 % dával PLOVE jen ve 2 polohách z 20, oprava dle kontrolora
+// 22. 8. 2026). Při d = 0 % je těleso STEJNORODÉ (jen ocel), při d > 0 %
+// NESTEJNORODÉ (ocel + vzduch) — přesně dvojice pojmů z výkladu. Počítá se
+// PRŮMĚRNÁ hustota ρp = m : V (stejný vzorec jako u hustoty, jen na celé
+// nestejnorodé těleso) a porovnává se s hustotou vody 1000 kg/m³ z výkladu —
+// to rozhoduje o plování, přesně jako věta výkladu o duté ocelové lodi.
+// Konstanty: V = 25 000 cm³ (25 l, pevné — voleno schválně tak, aby
+// m = ρ(ocel)·V·(100−d)/100 = 2·(100−d) vyšlo CELÉ kilogramy pro KAŽDÉ celé
+// d, ne jen pro násobky 5), ρ(ocel) = 8000 kg/m³ (stejná hodnota jako
+// v sousední simulaci ArchimedesSimulace — jeden tvar/hodnota, jeden význam
+// napříč webem). ρp = m : V = 80·(100−d), taky vždy celé. Zlom nastává mezi
+// d=87 % (ρp=1040, potápí se) a d=88 % (ρp=960, plove) — obě hodnoty vidí
+// žák přímo v okénkách.
+//
+// Druhý didaktický prvek proti „mrtvým polohám": vodorovný ukazatel (gauge)
+// v pravém panelu srovnává ρp s pevnou značkou vody (1000 kg/m³) PRO KAŽDOU
+// polohu posuvníku — ukazuje, jak blízko k hladině plování těleso právě je,
+// i když ještě fyzicky leží na dně nádoby.
+//
+// Levý panel (nádoba) a pravý panel (čtecí okénka + gauge) jsou úplně
+// oddělené oblasti SVG, takže se plaketa nikdy nemůže potkat s ničím jiným.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Dutá ocelová loď — stejnorodá, nebo nestejnorodá? 🕹️</span></h2>
+	<p>Ocelové těleso má uvnitř <strong>dutinu vyplněnou vzduchem</strong>. Beze dutiny je těleso <strong>stejnorodé</strong> (jen ocel) a potápí se. Táhni posuvníkem a zvětšuj dutinu — těleso se stává <strong>nestejnorodým</strong> (ocel + vzduch) a jeho <strong>průměrná hustota ρp</strong> klesá. Ukazatel dole ukazuje, jak blízko k hladině vody (plování) právě jsi — sleduj, kdy ji ρp přesně přeskočí.</p>
+	<svg id="nest-svg" viewBox="0 0 660 400" role="img" aria-label="Nádoba s vodou a duté ocelové těleso, vedle čtecí okénka s výpočtem a ukazatele hustoty">
+		<!-- levý panel: nádoba s vodou -->
+		<rect x="4" y="4" width="404" height="352" rx="10" fill="#eef6fb" stroke="#2b2a26" stroke-width="2" />
+		<text x="206" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">nádoba s vodou</text>
+		<path d="M60 60 L60 320 L350 320 L350 60" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect x="64" y="140" width="282" height="176" fill="#a5d8ff" opacity="0.75" />
+		<!-- těleso: ocelový plášť + dutina (vzduch) -->
+		<rect id="nest-blok" x="150" width="110" height="80" rx="4" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+		<rect id="nest-dutina" x="160" width="90" height="0" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2" stroke-dasharray="4 3" />
+
+		<!-- pravý panel: čtecí okénka (pevné řádky, mění se jen text v plaketě) -->
+		<rect x="420" y="4" width="236" height="392" rx="10" fill="#f8f9fa" stroke="#2b2a26" stroke-width="2" />
+		<text x="538" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">výpočet</text>
+
+		<text x="436" y="66" font-size="12" fill="#495057">objem V:</text>
+		<g id="nest-plaketa-v"><rect id="nest-plaketa-v-rect" y="49" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="nest-plaketa-v-text" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="436" y="106" font-size="12" fill="#495057">podíl dutiny:</text>
+		<g id="nest-plaketa-d"><rect id="nest-plaketa-d-rect" y="89" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="nest-plaketa-d-text" y="104" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="436" y="146" font-size="12" fill="#495057">typ tělesa:</text>
+		<g id="nest-plaketa-typ"><rect id="nest-plaketa-typ-rect" y="129" height="20" rx="6" fill="#fff" stroke="#e8590c" stroke-width="1.5" /><text id="nest-plaketa-typ-text" y="144" text-anchor="middle" font-size="12" font-weight="bold" fill="#e8590c"></text></g>
+
+		<text x="436" y="186" font-size="12" fill="#495057">hmotnost m:</text>
+		<g id="nest-plaketa-m"><rect id="nest-plaketa-m-rect" y="169" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="nest-plaketa-m-text" y="184" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<line x1="436" y1="200" x2="640" y2="200" stroke="#dee2e6" stroke-width="1.5" />
+
+		<text x="436" y="230" font-size="12" font-weight="bold" fill="#1971c2">ρp (průměrná):</text>
+		<g id="nest-plaketa-rhop"><rect id="nest-plaketa-rhop-rect" y="213" height="22" rx="6" fill="#fff" stroke="#1971c2" stroke-width="2" /><text id="nest-plaketa-rhop-text" y="229" text-anchor="middle" font-size="13" font-weight="bold" fill="#1971c2"></text></g>
+
+		<text x="436" y="270" font-size="12" fill="#495057">ρ vody:</text>
+		<g id="nest-plaketa-rhov"><rect id="nest-plaketa-rhov-rect" y="253" height="20" rx="6" fill="#fff" stroke="#495057" stroke-width="1.5" /><text id="nest-plaketa-rhov-text" y="268" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text></g>
+
+		<!-- ukazatel (gauge): 0–8000 kg/m³, pevná značka vody (1000), dynamický
+		     ukazatel ρp — vidět v KAŽDÉ poloze posuvníku, ne jen při plování -->
+		<text x="538" y="298" text-anchor="middle" font-size="11" fill="#868e96">ρp na stupnici (0 – 8000 kg/m³)</text>
+		<g id="nest-plaketa-gvoda"><rect id="nest-plaketa-gvoda-rect" x="435" y="306" width="75" height="16" rx="5" fill="#fff" stroke="#1971c2" stroke-width="1.5" /><text id="nest-plaketa-gvoda-text" x="472.5" y="318" text-anchor="middle" font-size="10" font-weight="bold" fill="#1971c2">voda 1000</text></g>
+		<rect id="nest-gauge-trat" x="450" y="328" width="180" height="16" rx="8" fill="#e9ecef" stroke="#2b2a26" stroke-width="1.5" />
+		<rect id="nest-gauge-vypln" x="450" y="328" width="0" height="16" rx="8" fill="#e03131" />
+		<line id="nest-gauge-voda-cara" x1="472.5" y1="322" x2="472.5" y2="350" stroke="#1971c2" stroke-width="2.5" />
+
+		<g id="nest-vysledek-ikona" transform="translate(538,372)">
+			<circle id="nest-vysledek-kruh" r="20" fill="#fff" stroke="#2b2a26" stroke-width="3" />
+			<text id="nest-vysledek-text" y="7" text-anchor="middle" font-size="20"></text>
+		</g>
+	</svg>
+	<p class="nest-legenda">🔲 šedá = ocelový plášť &nbsp; 🔵 čárkovaná = dutina (vzduch) &nbsp; | &nbsp; modrá čára v ukazateli = hustota vody (zlom mezi plováním a potápěním)</p>
+	<label class="sim-posuvnik">
+		Podíl dutiny (vzduchu) v tělese: <output id="nest-out-d"></output>
+		<input type="range" id="nest-slider-d" min="0" max="99" step="1" value="85" />
+	</label>
+	<p class="nest-vzorec" id="nest-vzorec"></p>
+	<p class="nest-stav" id="nest-stav"></p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (kontrolovatelná výpočtem) ===
+	const RHO_OCEL = 8000; // kg/m³ — stejná hodnota jako v ArchimedesSimulace
+	const RHO_VODA = 1000; // kg/m³ — z výkladu (hustota vody)
+	const V_CM3 = 25000;   // 25 l — voleno tak, aby m vyšlo celé pro KAŽDÉ celé d
+	const V_M3 = V_CM3 / 1000000;
+
+	function vypocitejLod(d) {
+		const podilOceli = (100 - d) / 100;
+		const m = Math.round(RHO_OCEL * V_M3 * podilOceli); // kg, vždy celé pro každé celé d (2·(100−d))
+		const rhoP = Math.round(m / V_M3); // kg/m³, vždy celé (80·(100−d))
+		const typ = d === 0 ? 'stejnorodé' : 'nestejnorodé';
+		const plove = rhoP < RHO_VODA;
+		const vynoreno = plove ? 1 - rhoP / RHO_VODA : 0; // podíl objemu nad hladinou
+		let hlaska;
+		if (plove) {
+			hlaska = `🛟 PLOVE! Průměrná hustota ρp = ${rhoP} kg/m³ je menší než hustota vody (${RHO_VODA} kg/m³) — dutina s ${d} % vzduchu odlehčila ocelové těleso, přesně jako u ocelové lodi.`;
+		} else {
+			hlaska = `⬇️ POTÁPÍ SE. Průměrná hustota ρp = ${rhoP} kg/m³ je větší nebo rovna hustotě vody (${RHO_VODA} kg/m³) — dutina zabírá jen ${d} % objemu, na nadlehčení to nestačí.`;
+		}
+		return { d, typ, m, rhoP, plove, vynoreno, hlaska };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('nest-svg');
+	svg.__vypocitejLod = vypocitejLod; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	// jedna sdílená funkce pro dynamickou šířku plakety podle délky textu
+	function sirkaPlakety(text) {
+		return Math.max(34, text.length * 6.6 + 16);
+	}
+	function plaketa(prefix, cx, cy, text) {
+		const sirka = sirkaPlakety(text);
+		nastav(`${prefix}-rect`, { x: cx - sirka / 2, width: sirka });
+		const t = g(`${prefix}-text`);
+		t.setAttribute('x', cx);
+		t.textContent = text;
+	}
+
+	const sliderD = document.getElementById('nest-slider-d');
+	const GAUGE_X0 = 450, GAUGE_W = 180, GAUGE_MAX = RHO_OCEL;
+
+	function prekresli() {
+		const d = +sliderD.value;
+		const s = vypocitejLod(d);
+
+		g('nest-out-d').textContent = `${d} %`;
+
+		// dutina (vzduch) — roste shora dolů uvnitř tělesa
+		const H = 80, PAD = 10, cavMaxH = H - 2 * PAD;
+		const cavH = Math.round(cavMaxH * (d / 100));
+		nastav('nest-dutina', { height: cavH });
+
+		// poloha tělesa: plove (částečně nad hladinou) nebo leží na dně nádoby
+		const HLADINA = 140, DNO = 316;
+		let y;
+		if (s.plove) {
+			y = HLADINA - H * s.vynoreno;
+		} else {
+			y = DNO - H;
+		}
+		nastav('nest-blok', { y });
+		nastav('nest-dutina', { y: y + PAD });
+
+		// pravý panel — čtecí okénka
+		plaketa('nest-plaketa-v', 600, 59, `${V_CM3 / 1000} l`);
+		plaketa('nest-plaketa-d', 600, 99, `${d} %`);
+		plaketa('nest-plaketa-typ', 600, 139, s.typ);
+		plaketa('nest-plaketa-m', 600, 179, `${s.m} kg`);
+		plaketa('nest-plaketa-rhop', 600, 224, `${s.rhoP} kg/m³`);
+		plaketa('nest-plaketa-rhov', 600, 263, `${RHO_VODA} kg/m³`);
+
+		// ukazatel (gauge) — vyplň roste s ρp, značka vody je pevná (1000/8000
+		// z celkové stupnice), barva vyplně signalizuje plove/potápí se
+		const vyplnW = Math.min(GAUGE_W, (s.rhoP / GAUGE_MAX) * GAUGE_W);
+		nastav('nest-gauge-vypln', { width: vyplnW, fill: s.plove ? '#2f9e44' : '#e03131' });
+
+		const barvaVysledku = s.plove ? '#2f9e44' : '#e03131';
+		nastav('nest-vysledek-kruh', { stroke: barvaVysledku });
+		g('nest-vysledek-text').textContent = s.plove ? '🛟' : '⬇️';
+
+		g('nest-vzorec').innerHTML = `ρp = m : V = ${s.m} kg : ${V_M3} m³ = <strong>${s.rhoP} kg/m³</strong>`;
+		g('nest-stav').textContent = s.hlaska;
+	}
+
+	sliderD.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#nest-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #fff; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.nest-legenda { font-size: 0.85rem; color: #495057; margin: 0.4rem 0; }
+	.nest-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.nest-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
