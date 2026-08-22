@@ -166,6 +166,18 @@ formulaci v JSON dat kvízu, stará zmizela. Zapsáno do deníku chyb (třída
 
 # 🚀 ČÍM ZAČÍT PO /clear (zapsáno 20. 8. 2026 — TENTO blok platí, starší verze níže neplatí)
 
+### 🆕 ÚKOL (zadáno 22. 8. 2026) — POSÍLIT BRÁNU `testy/uniky.mjs`, měří jen část úniků
+Při práci na `prenos-elektricke-energie` (22. 8. 2026) hlásila brána 0 úniků odpovědí, ale
+nezávislý kontrolor našel v témž bloku 6 úniků: vysvětlení jedné otázky doslova obsahovalo
+správnou odpověď JINÉ otázky téhož bloku (např. vysvětlení „Alternátor má tři cívky = tři
+fáze." prozrazovalo odpovědi 'tři' a 'Tři cívky'). Měřidlo tedy porovnává jen některé dvojice,
+ne každou správnou odpověď proti všem vysvětlením i zadáním v bloku.
+**Úkol:** rozšířit kontrolu tak, aby porovnávala každou správnou odpověď bloku proti VŠEM
+ostatním zadáním i vysvětlením (nad naimportovanými daty, ne regexem nad textem), ošetřit
+češtinu (`\b` v JS neumí diakritiku) a doplnit obousměrný důkaz do `testy/obousmerne.json`
+— bez něj měřidlo shodí build. POZOR na kalibraci na už přijaté práci: nová kontrola nesmí
+shodit build kvůli obsahu, který je v pořádku.
+
 **PŘEDÁVACÍ STAV 20. 8. 2026:**
 - Kvízy F7, F8, F9 KOMPLET na 21 (nasazeno, poslední commit `8525421`).
 - **F6 COMMITNUTA A NASAZENA 21. 8.** (commit `8fb4e0d`, tag `kvizy-fyzika-21-komplet`) —
