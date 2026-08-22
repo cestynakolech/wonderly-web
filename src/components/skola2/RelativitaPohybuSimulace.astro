@@ -1,0 +1,246 @@
+---
+// Klid a pohyb tělesa jsou RELATIVNÍ (podtéma "klid-a-pohyb-telesa" — jen tohle,
+// žádný výpočet rychlosti ani druhy trajektorie, ty jsou v jiných podtématech).
+// Klasický příklad z výkladu: cestující ve vlaku je v klidu vzhledem k sedadlu,
+// ale v pohybu vzhledem k lidem na nástupišti. Vlak jede po rovné trati (přímočarý
+// posuvný pohyb — nádraží vlevo dole, kolej vodorovně, gravitace/podlaha dole).
+// Žák nastaví rychlost vlaku v (km/h) a přepíná, VŮČI ČEMU cestujícího sleduje
+// (sedadlo × nástupiště) — scéna i hláška se mění podle zvolené vztažné soustavy,
+// pohyb vlaku samotný je na volbě nezávislý (fyzikálně jede pořád stejně).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Klid, nebo pohyb? Záleží na pozorovateli! 🕹️</span></h2>
+	<p>
+		Cestující sedí ve vlaku. Je v klidu, nebo v pohybu? <strong>Záleží, vůči
+		čemu ho sledujeme!</strong> Nastav rychlost vlaku a přepínej vztažné
+		těleso — sedadlo, nebo nástupiště.
+	</p>
+
+	<svg id="kp-svg" viewBox="0 0 500 300" role="img" aria-label="Vlak jedoucí kolem nádraží s cestujícím uvnitř">
+		<!-- obloha -->
+		<rect x="0" y="0" width="500" height="230" fill="#eef6ff" />
+		<!-- kolej / zem -->
+		<rect x="0" y="230" width="500" height="70" fill="#d8f5a2" />
+		<line x1="0" y1="230" x2="500" y2="230" stroke="#2b2a26" stroke-width="3" />
+		<!-- pražce a kolejnice -->
+		<line x1="0" y1="238" x2="500" y2="238" stroke="#495057" stroke-width="2" />
+		<line x1="0" y1="230" x2="500" y2="230" stroke="#495057" stroke-width="1" />
+		<!-- nádraží (pevná stavba, nehýbe se) -->
+		<rect x="30" y="190" width="90" height="40" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+		<text x="75" y="204" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">NÁDRAŽÍ</text>
+		<!-- pozorovatel na nástupišti (nehýbe se) -->
+		<circle cx="75" cy="220" r="7" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+		<g id="kp-obsah"></g>
+	</svg>
+
+	<div class="kp-ovladani">
+		<label>rychlost vlaku v
+			<input id="kp-v" type="range" min="0" max="100" step="20" value="40" />
+			<output id="kp-v-t">40</output> km/h
+		</label>
+	</div>
+
+	<div class="kp-ramy" id="kp-ramy" role="group" aria-label="Vztažná soustava">
+		<button type="button" id="kp-ram-vagon" class="kp-ram-btn kp-ram-aktivni" data-ram="vagon">🚃 vůči sedadlu (vagon)</button>
+		<button type="button" id="kp-ram-nastupiste" class="kp-ram-btn" data-ram="nastupiste">🚉 vůči nástupišti</button>
+	</div>
+
+	<div class="kp-tlacitka">
+		<button id="kp-jed" type="button">🚂 Rozjeď vlak!</button>
+		<button id="kp-reset" type="button">↺ Zpět</button>
+	</div>
+
+	<p id="kp-vysledek" class="kp-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const VIEW_W = 500, VIEW_H = 300, OKRAJ = 6;
+	const START_X = 200; // klidová poloha vlaku (viditelná na koleji vedle nádraží)
+	const K = 0.4; // px na (km/h · s) — kalibrováno, ať se vlak při max rychlosti hýbe znatelně, ale nevyjede ze scény
+	const T_ANIM = 3; // s, kalibrováno na požadovaný "cas=3" v náhledu
+	const TRAIN_W = 90, TRAIN_H = 44; // rozměry vagonu
+	const MIN_X = 60 + TRAIN_W / 2, MAX_X = VIEW_W - OKRAJ - TRAIN_W / 2; // doraz, aby vagon nikdy nevyjel ze scény ani nepřekryl nádraží
+
+	let v = 40; // km/h
+	let ram = 'vagon'; // 'vagon' nebo 'nastupiste'
+	let animace = false;
+	let trainX = START_X;
+
+	// --- čisté výpočetní funkce (testovatelné bez prohlížeče) ---
+
+	// poloha vlaku (střed vagonu) v čase t (s) při rychlosti v (km/h) — čistá funkce, žádné DOM
+	function polohaVlaku(t, vKmh) {
+		const x = START_X + vKmh * K * t;
+		return Math.max(MIN_X, Math.min(MAX_X, x));
+	}
+
+	// bílá plaketa s barevným okrajem pod textem — ŠÍŘKA VŽDY dynamická podle délky textu
+	function plaketa(textX, textY, text, barva) {
+		const sirka = String(text).length * 8 + 8;
+		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, textX - 4));
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, textY - 14));
+		return `
+			<rect x="${rectX}" y="${rectY}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
+			<text x="${rectX + 4}" y="${rectY + 14}" font-size="12" font-weight="bold" fill="${barva}">${text}</text>
+		`;
+	}
+
+	function prekresli() {
+		$('kp-v-t').textContent = String(v);
+
+		const cx = trainX;
+		const cy = 200; // střed vagonu svisle (na kolejích)
+		const top = cy - TRAIN_H / 2;
+
+		// vagon
+		let sc = `<rect x="${cx - TRAIN_W / 2}" y="${top}" width="${TRAIN_W}" height="${TRAIN_H}" rx="8" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />`;
+		// okno
+		sc += `<rect x="${cx - 20}" y="${top + 8}" width="40" height="18" rx="3" fill="#eef6ff" stroke="#2b2a26" stroke-width="2" />`;
+		// sedadlo uvnitř vagonu (vždy stejné místo VZHLEDEM K VAGONU)
+		const sedadloX = cx - 6, sedadloY = top + 17;
+		sc += `<rect x="${sedadloX - 5}" y="${sedadloY - 5}" width="10" height="10" fill="#495057" opacity="${ram === 'vagon' ? '1' : '0.35'}" />`;
+		// cestující (kroužek) — sedí na sedadle, poloha vůči vagonu se NIKDY nemění
+		sc += `<circle cx="${sedadloX}" cy="${sedadloY}" r="6" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />`;
+		// kolo vlaku
+		sc += `<circle cx="${cx - 28}" cy="${top + TRAIN_H}" r="7" fill="#2b2a26" />`;
+		sc += `<circle cx="${cx + 28}" cy="${top + TRAIN_H}" r="7" fill="#2b2a26" />`;
+
+		// zvýrazňovací spojnice + popisek podle zvolené vztažné soustavy
+		let zvyrazneni = '';
+		if (ram === 'vagon') {
+			// spojnice sedadlo–cestující je vždy nulová (splývají) — zvýrazníme kroužek kolem obou
+			zvyrazneni += `<circle cx="${sedadloX}" cy="${sedadloY}" r="11" fill="none" stroke="#2f9e44" stroke-width="2" stroke-dasharray="3 3" />`;
+			zvyrazneni += plaketa(sedadloX + 16, sedadloY - 20, 'stále u sedadla', '#2f9e44');
+		} else {
+			// spojnice pozorovatel na nástupišti (75,220) -- cestující (sedadloX,sedadloY)
+			zvyrazneni += `<line x1="75" y1="220" x2="${sedadloX}" y2="${sedadloY}" stroke="#e03131" stroke-width="2" stroke-dasharray="5 4" />`;
+			zvyrazneni += `<circle cx="75" cy="220" r="10" fill="none" stroke="#e03131" stroke-width="2" />`;
+			const stred = { x: (75 + sedadloX) / 2, y: Math.min(220, sedadloY) - 22 };
+			zvyrazneni += plaketa(stred.x, stred.y, v === 0 ? 'vzdálenost 0' : 'vzdálenost roste', '#e03131');
+		}
+
+		$('kp-obsah').innerHTML = sc + zvyrazneni;
+
+		// text výsledku — musí sedět s obrázkem ve VŠECH kombinacích v × ram
+		const el = $('kp-vysledek');
+		let text;
+		if (v === 0) {
+			text = `Vlak stojí (v = 0 km/h) — cestující je v klidu úplně vůči všemu: vůči sedadlu i vůči nástupišti.`;
+		} else if (ram === 'vagon') {
+			text = `Vůči sedadlu je cestující stále v klidu — jeho poloha vůči vagonu se nemění, i když vlak jede rychlostí ${v} km/h vůči nádraží.`;
+		} else {
+			text = `Vůči nástupišti je cestující v pohybu — vzdálenost od pozorovatele na nástupišti roste, protože vlak jede rychlostí ${v} km/h.`;
+		}
+		el.textContent = text;
+	}
+
+	// Krokovaná animace: první krok synchronně, ať je reakce vidět i v náhledu
+	function animuj() {
+		animace = true;
+		let t = 0;
+		function tik() {
+			t += 0.05;
+			trainX = polohaVlaku(t, v);
+			prekresli();
+			if (t < T_ANIM) requestAnimationFrame(tik);
+			else animace = false;
+		}
+		tik();
+	}
+
+	$('kp-v').addEventListener('input', () => {
+		if (animace) return;
+		v = +$('kp-v').value;
+		trainX = START_X;
+		prekresli();
+	});
+
+	$('kp-ramy').querySelectorAll('.kp-ram-btn').forEach((b) =>
+		b.addEventListener('click', () => {
+			if (animace) return;
+			$('kp-ramy').querySelectorAll('.kp-ram-btn').forEach((x) => x.classList.remove('kp-ram-aktivni'));
+			b.classList.add('kp-ram-aktivni');
+			ram = b.dataset.ram;
+			prekresli();
+		}));
+
+	$('kp-jed').addEventListener('click', () => {
+		if (animace) return;
+		trainX = START_X;
+		animuj();
+	});
+
+	$('kp-reset').addEventListener('click', () => {
+		if (animace) return;
+		trainX = START_X;
+		prekresli();
+	});
+
+	prekresli();
+</script>
+
+<style>
+	#kp-svg {
+		width: 100%;
+		max-width: 500px;
+		display: block;
+		margin: 0 auto;
+		background: #eef6ff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.kp-ovladani {
+		display: flex;
+		justify-content: center;
+		margin: 0.8rem 0 0.5rem;
+	}
+	.kp-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 700;
+	}
+	.kp-ramy {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.5rem 0;
+	}
+	.kp-ram-btn {
+		font-weight: 700;
+		font-size: 0.9rem;
+		padding: 0.4rem 0.8rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.kp-ram-aktivni {
+		background: #ffd43b;
+	}
+	.kp-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.kp-tlacitka button {
+		font-weight: 700;
+		padding: 0.45rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.kp-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		text-align: center;
+		min-height: 3rem;
+	}
+</style>
