@@ -810,6 +810,10 @@ Dávka 4 revize: 4 simulace OK, Ozobot vyřešen doplněním výkladu ze zdroje
 a zeštíhlením jednotek; zkontrolováno 20/37 simulací.
 Dávka 5 (Vlnění, Zrcadlo, Barometr, Decibely, Duha) — 0 nálezů, zkontrolováno
 25/37 simulací.
+Dávka 6 (Prenos, Reaktor, SpalovaciMotor, Svacina, Pretlak) — 1 nález opraven
+a nasazen (PretlakSimulace: tyč pístu překrývala popisek PODTLAK u manometru,
+zkrácena před manometrem, commit `dabfca1`), kontrolor 0 nálezů, zkontrolováno
+30/37 simulací.
 
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
