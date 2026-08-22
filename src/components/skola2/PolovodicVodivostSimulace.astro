@@ -1,0 +1,133 @@
+---
+// Vlastní vodivost polovodiče (F9): posuvník teploty −20…100 °C po 20 °C
+// (7 kroků, výchozí 20 °C = pokojová teplota). V ČISTÉM polovodiči (křemíku)
+// teplo uvolňuje vazebné elektrony → vzniká PÁR elektron+díra. Počet párů
+// roste s teplotou v celých kusech: páry = (teplota+20)/20 → 0…6. Proud
+// I = páry × 5 µA (vychází vždy celé). Pointa (opak kovů): čím TEPLEJŠÍ
+// polovodič, tím VÍC párů a VĚTŠÍ proud. Elektrony (modrý kroužek „e⁻")
+// putují k pólu +, díry (červený kroužek „d") zdánlivě k pólu − — stejný
+// tvar a barva v celé simulaci. Pohyb částic je čistá funkce casu
+// pozicePartice(t, i, poradi) na SVG (__stavPolovodice, __pozicePartice),
+// kontrolovatelná výpočtem bez prohlížeče.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vlastní vodivost polovodiče 🕹️</span></h2>
+	<p>V čistém křemíku je za nízké teploty proud <strong>skoro nulový</strong> — všechny elektrony pevně drží ve vazbách. Teplo je z vazby vyrazí a vznikne <strong>pár elektron + díra</strong> (díra je jen <strong>prázdné místo</strong> po uvolněném elektronu, ale chová se jako kladný náboj). Elektrony táhnou k pólu <strong>+</strong>, díry zdánlivě k pólu <strong>−</strong>. Čím vyšší teplota, tím <strong>víc párů</strong> a <strong>větší proud</strong> — u polovodičů přesně naopak než u kovů!</p>
+	<svg id="pol-svg" viewBox="0 0 660 300" role="img" aria-label="Kousek křemíku mezi dvěma elektrodami, elektrony a díry vznikají teplem a putují k pólům">
+		<!-- vodiče k baterii -->
+		<path d="M60 150 L150 150" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<path d="M450 150 L560 150" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<!-- elektrody -->
+		<rect x="40" y="90" width="20" height="120" fill="#495057" />
+		<text x="50" y="230" text-anchor="middle" font-size="20" font-weight="bold" fill="#1971c2">−</text>
+		<rect x="560" y="90" width="20" height="120" fill="#495057" />
+		<text x="570" y="230" text-anchor="middle" font-size="20" font-weight="bold" fill="#e03131">+</text>
+		<!-- vzorek křemíku -->
+		<rect x="150" y="90" width="300" height="120" fill="#e9ecef" stroke="#2b2a26" stroke-width="4" />
+		<text x="300" y="80" text-anchor="middle" font-size="13" fill="#868e96">čistý křemík</text>
+		<!-- žárovka ukazující sílu proudu -->
+		<circle id="pol-zarovka" cx="300" cy="255" r="16" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+		<text x="300" y="260" text-anchor="middle" font-size="14">💡</text>
+		<g id="pol-paprsky" stroke="#fab005" stroke-width="2" stroke-linecap="round">
+			<line x1="278" y1="245" x2="268" y2="235" />
+			<line x1="300" y1="235" x2="300" y2="223" />
+			<line x1="322" y1="245" x2="332" y2="235" />
+		</g>
+		<!-- teploměr -->
+		<rect x="595" y="80" width="14" height="130" rx="7" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<rect id="pol-teplomer-sloupec" x="598" y="150" width="8" height="55" fill="#e8590c" />
+		<circle cx="602" cy="212" r="10" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />
+		<!-- pohybující se páry elektron-díra -->
+		<g id="pol-castice"></g>
+		<!-- plaketa se stavem -->
+		<rect x="150" y="20" width="360" height="50" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="pol-teplota-text" x="330" y="40" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<text id="pol-proud-text" x="330" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<label class="sim-posuvnik">
+		Teplota polovodiče: <output id="pol-out-t"></output>
+		<input type="range" id="pol-slider" min="-20" max="100" step="20" value="20" />
+	</label>
+	<p class="pol-vzorec" id="pol-vzorec"></p>
+	<p class="pol-stav" id="pol-stav">👉 Posouvej teplotu a sleduj, jak přibývají páry elektron + díra a jak roste proud.</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
+	const PROUD_NA_PAR = 5; // µA na jeden pár elektron-díra (voleno pro celá čísla)
+	function stavPolovodice(teplota) {
+		const pocetParu = (teplota + 20) / 20; // −20 °C → 0, 100 °C → 6, vždy celé
+		const proud = pocetParu * PROUD_NA_PAR; // µA, vždy celé
+		return { teplota, pocetParu, proud };
+	}
+	const OBDOBI = 3000; // "divadelní" doba, za kterou pár doputuje od středu k okraji (ms)
+	const X_STRED = 300, X_MINUS = 160, X_PLUS = 440;
+	// pozice i-tého páru (0-indexovaný) z celkového počtu poradi=pocetParu v čase t (ms)
+	function pozicePartice(t, i, pocetParu) {
+		if (pocetParu <= 0) return null;
+		const posun = OBDOBI / pocetParu; // páry vznikají rovnoměrně za sebou
+		const faze = ((t - i * posun) % OBDOBI + OBDOBI) % OBDOBI; // 0..OBDOBI
+		const zlomek = faze / OBDOBI; // 0 (vznik uprostřed) → 1 (dorazil k elektrodě)
+		const xElektron = X_STRED + (X_PLUS - X_STRED) * zlomek;
+		const xDira = X_STRED - (X_STRED - X_MINUS) * zlomek;
+		return { xElektron, xDira, y: 110 + (i % 4) * 24 };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('pol-svg');
+	svg.__stavPolovodice = stavPolovodice; // pro nezávislou kontrolu výpočtem
+	svg.__pozicePartice = pozicePartice;
+	const g = (id) => document.getElementById(id);
+	const slider = document.getElementById('pol-slider');
+
+	function vykresliCastice(t, s) {
+		let html = '';
+		for (let i = 0; i < s.pocetParu; i++) {
+			const p = pozicePartice(t, i, s.pocetParu);
+			if (!p) continue;
+			html += `<circle cx="${p.xElektron}" cy="${p.y}" r="10" fill="#1971c2" stroke="#2b2a26" stroke-width="1.5" /><text x="${p.xElektron}" y="${p.y + 4}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">e⁻</text>`;
+			html += `<circle cx="${p.xDira}" cy="${p.y}" r="10" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" /><text x="${p.xDira}" y="${p.y + 4}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">d</text>`;
+		}
+		g('pol-castice').innerHTML = html || ' ';
+	}
+
+	function popis(s) {
+		g('pol-out-t').textContent = `${s.teplota} °C`;
+		g('pol-teplota-text').textContent = `Teplota: ${s.teplota} °C`;
+		g('pol-proud-text').textContent = `Páry elektron+díra: ${s.pocetParu} ks → proud ${s.proud} µA`;
+		g('pol-vzorec').innerHTML = `I = počet párů × ${PROUD_NA_PAR} µA = ${s.pocetParu} × ${PROUD_NA_PAR} µA = <strong>${s.proud} µA</strong>`;
+		g('pol-teplomer-sloupec').setAttribute('y', 205 - (s.teplota + 20) * 0.79);
+		g('pol-teplomer-sloupec').setAttribute('height', (s.teplota + 20) * 0.79 + 5);
+		const svitiZarovka = s.proud > 0;
+		g('pol-paprsky').setAttribute('opacity', svitiZarovka ? Math.min(1, s.proud / 30) : 0);
+		g('pol-zarovka').setAttribute('fill', svitiZarovka ? '#ffe066' : '#e9ecef');
+		g('pol-stav').textContent = s.pocetParu === 0
+			? '🥶 Nízká teplota: elektrony pevně drží ve vazbách, páry nevznikají, proud neteče.'
+			: `🔥 Teplo uvolnilo ${s.pocetParu} ${s.pocetParu === 1 ? 'pár' : s.pocetParu < 5 ? 'páry' : 'párů'} elektron+díra — elektrony (modré) letí k +, díry (červené) zdánlivě k −. Teče ${s.proud} µA.`;
+	}
+
+	let stav = stavPolovodice(+slider.value);
+	function snimek(t) {
+		vykresliCastice(t, stav);
+		requestAnimationFrame(snimek);
+	}
+
+	slider.addEventListener('input', () => {
+		stav = stavPolovodice(+slider.value);
+		popis(stav);
+		vykresliCastice(0, stav);
+	});
+
+	popis(stav);
+	vykresliCastice(0, stav); // vykreslit i bez běžícího requestAnimationFrame (statický náhled)
+	requestAnimationFrame(snimek);
+</script>
+
+<style>
+	#pol-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.pol-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.pol-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>
