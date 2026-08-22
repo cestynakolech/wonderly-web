@@ -183,12 +183,11 @@ Aktuální počet simulací vypisuje brána `node zkontroluj.mjs` (číslo sem n
 
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6, 7, 8 i 9 — HOTOVO (100 %)** (tagy `fyzika-6/7/8/9-hotova`) včetně pololetních a ročních shrnutí.
-**NÁZORNOST (zadání učitele 31. 7. 2026):** dobové číslo je zastaralé, aktuální stav
-je změřený přímo nad daty `node testy/nazornost.mjs` (18. 8. 2026): **26 podtémat
-ze 166 je bez jakékoli názornosti** (simulace/infografika/video), z toho fyzika 6 i 7
-po 2 (obě shrnutí, která ji nepotřebují), fyzika 8 2, fyzika 9 2, informatika
-7.–9. ročník dohromady 15 (6+3+6) a Pracovní činnosti 3. Pořadí dalších kol i fronta
-z auditu viz `SAMOSTATNY-REZIM.md`.
+**NÁZORNOST FYZIKY (zadání učitele 31. 7. 2026) — HOTOVO, FRONTA PRÁZDNÁ** (stav
+22. 8. 2026 večer): ze 101 podtémat fyziky 6.–9. má simulaci 92, zbylých 9 je
+8 opakovacích shrnutí (logicky bez simulace) + `uvod-do-fyziky` (rozhodnuto, že
+simulace nedává smysl). Informatika a Pracovní činnosti zůstávají ve frontě —
+podrobnosti viz `SAMOSTATNY-REZIM.md`.
 Zbývá dál: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
 
 > ⤵️ Historická část (od původního řádku 131) je v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — beze změny, jen se nečte automaticky.
@@ -288,6 +287,26 @@ stránky. Přeměřeno: chybí 5 podtémat — F6: `uvod-do-fyziky`, `telesa-a-l
 `telesa-stejnoroda-a-nestejnoroda`. Obecná kontrola scény (obalové obdélníky všech
 prvků proti sobě, přes všechny kombinace ovládání) je jediná, co spolehlivě chytá vady —
 kontrola po jedné třídě vad pokaždé jednu nechala projít.
+
+## Historie — 22. 8. 2026 večer (samostatný režim, dokončení fronty názornosti)
+**NASAZENO A OVĚŘENO posledních 5 simulací — FRONTA NÁZORNOSTI FYZIKY JE PRÁZDNÁ:**
+povětrnostní mapa (F7 `meteorologie-a-mereni-tlaku`, commit `36259f7`), stejnorodá a
+nestejnorodá tělesa (F7 `telesa-stejnoroda-a-nestejnoroda`, commit `bb66548` + doplnění
+hustot do výkladu), výpočet rychlosti (F7 `priklady-na-vypocet-rychlosti`) a třídění
+těleso vs. látka (F6 `telesa-a-latky`) společným commitem `65db871`, vzájemné působení
+těles (F6 `vzajemne-pusobeni-teles-sila`, commit `11492a7`). Přeměřeno nad daty: 101
+podtémat fyziky 6.–9., 92 má simulaci, 9 ne — 8 opakovacích shrnutí (logicky bez
+simulace) + `uvod-do-fyziky` (rozhodnuto: simulace nedává smysl, jediný jev pokrývá video).
+**Nástroj:** `testy/nahled-simulace.mjs` opraven podruhé (commit `434958a`) — sandbox
+teď zvládá dynamicky vytvářené prvky (`createElementNS`+`appendChild`); `RozpadSimulace`
+se dosud kreslila prázdná (0 kruhů), teď 400.
+**Poučení:** kontrola scény musí být OBECNÁ (obalové obdélníky všech prvků proti sobě
+i okrajům, přes všechny kombinace ovládání) — kontrola po jedné třídě vad vždy jednu
+nechala projít. Simulace nesmí tvrdit vzorec, který výklad neučí — doplnit výklad, ne
+vymýšlet vztah. Animace potřebuje společné měřítko dráhy, jinak lže pořadí v cíli.
+**Čím pokračovat:** názornost fyziky hotová, další cíl je kontrola kvality STARŠÍCH
+simulací týmiž měřítky (obecná kontrola překryvů, opora čísel ve výkladu) — nové
+kontroly odhalily vady i v už nasazené práci.
 
 ## 📝 Pravidlo aktualizace (na konci každé session)
 1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).

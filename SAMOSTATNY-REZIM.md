@@ -1,3 +1,15 @@
+**NASAZENO A OVĚŘENO 22. 8. 2026 večer (dokončení fronty názornosti fyziky):**
+povětrnostní mapa (F7 `meteorologie-a-mereni-tlaku`, commit `36259f7`), stejnorodá
+a nestejnorodá tělesa (F7 `telesa-stejnoroda-a-nestejnoroda`, commit `bb66548` +
+doplnění hustot do výkladu), výpočet rychlosti (F7 `priklady-na-vypocet-rychlosti`)
+a třídění těleso vs. látka (F6 `telesa-a-latky`) commitem `65db871`, vzájemné
+působení těles (F6 `vzajemne-pusobeni-teles-sila`, commit `11492a7`). **FRONTA
+NÁZORNOSTI FYZIKY JE PRÁZDNÁ** (101 podtémat, 92 se simulací, 9 logicky bez —
+opakovací shrnutí + `uvod-do-fyziky`). Nástroj `testy/nahled-simulace.mjs`
+opraven podruhé (commit `434958a`) — sandbox teď zvládá dynamicky vytvářené
+prvky. Další cíl: revize kvality STARŠÍCH simulací týmiž měřítky (obecná
+kontrola překryvů, opora čísel ve výkladu). Detaily v PROGRESS.md.
+
 **NASAZENO A OVĚŘENO 22. 8. 2026 odpoledne (blok 4 simulací/oprav):** Klid a pohyb
 (F7 `klid-a-pohyb-telesa`, commit `2a31dc9`); bezpečná vzdálenost od vedení
 (F9 `ucinky-proudu-bezpecnost`, commit `67af855`); posuvný a otáčivý pohyb
@@ -6,9 +18,8 @@ výměna simulace `pusobeni-teles-a-deformace` (F7) — stará dělila podle sí
 plastelína) dělí podle materiálu jako výklad, commit `573ebc9`; povětrnostní mapa
 (F7 `meteorologie-a-mereni-tlaku`, `PovetrnostniMapaSimulace`, 6 kol kontroly), commit
 `36259f7`, curl potvrdil `meteo-svg` na 2. pokusu. Detaily v PROGRESS.md.
-**FRONTA NÁZORNOSTI — přepočteno, zbývá 5 podtémat (stav 22. 8. odpoledne, starý seznam
-neplatí):** F6 uvod-do-fyziky, telesa-a-latky, vzajemne-pusobeni-teles-sila; F7
-priklady-na-vypocet-rychlosti, telesa-stejnoroda-a-nestejnoroda. 8. a 9. ročník pokryté celé.
+**FRONTA NÁZORNOSTI FYZIKY — VYPRÁZDNĚNA 22. 8. 2026 večer** (viz blok nahoře souboru),
+starý seznam pěti podtémat je hotový a už neplatí.
 
 **NASAZENO A OVĚŘENO 22. 8. 2026 večer:** Simulace síly jako vektoru F7 (`SilaVektorSimulace.astro`,
 klíč `sila-vektor`, podtéma `sila`) — commit `fdb6cd7`, curl potvrdil `sv-f`, `sv-jed`,
