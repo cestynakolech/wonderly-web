@@ -111,6 +111,7 @@ import DecibelySimulace from '../../../../../../components/skola2/DecibelySimula
 import OzvenaSimulace from '../../../../../../components/skola2/OzvenaSimulace.astro';
 import RychlostSvetlaSimulace from '../../../../../../components/skola2/RychlostSvetlaSimulace.astro';
 import RelativitaPohybuSimulace from '../../../../../../components/skola2/RelativitaPohybuSimulace.astro';
+import BezpecnaVzdalenostVedeniSimulace from '../../../../../../components/skola2/BezpecnaVzdalenostVedeniSimulace.astro';
 import PretlakSimulace from '../../../../../../components/skola2/PretlakSimulace.astro';
 import SvacinaSimulace from '../../../../../../components/skola2/SvacinaSimulace.astro';
 import PrenosSimulace from '../../../../../../components/skola2/PrenosSimulace.astro';
@@ -371,6 +372,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'ozvena' && <OzvenaSimulace />}
 	{podtema.interakce === 'rychlost-svetla' && <RychlostSvetlaSimulace />}
 	{podtema.interakce === 'relativita-pohybu' && <RelativitaPohybuSimulace />}
+	{podtema.interakce === 'bezpecna-vzdalenost-vedeni' && <BezpecnaVzdalenostVedeniSimulace />}
 	{podtema.interakce === 'pretlak' && <PretlakSimulace />}
 	{podtema.interakce === 'svacina' && <SvacinaSimulace />}
 	{podtema.interakce === 'prenos' && <PrenosSimulace />}

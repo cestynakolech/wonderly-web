@@ -1,0 +1,219 @@
+---
+// Bezpečné vzdálenosti od elektrického vedení (F9, elektricka-energie-a-bezpecnost/
+// ucinky-proudu-bezpecnost). Podtéma o účincích proudu na tělo a bezpečnosti MÁ
+// svou simulaci už v 8. ročníku (UcinkyProuduABezpecnostSimulace: dotyk, cesta
+// proudu tělem, Ohmův zákon I = U ÷ R) — tahle simulace ji záměrně NEOPAKUJE.
+// Jde na věc z JINÉ strany: 9. ročník navíc učí, že u vedení VYSOKÉHO napětí
+// nerozhoduje DOTYK, ale VZDÁLENOST — proud umí přeskočit vzduchem obloukem, i
+// když se ničeho nedotkneš. Přesně tahle myšlenka („nic jsem se nedotkl, tak je
+// to bezpečné" neplatí) je z výkladu ("⚡ Bezpečné vzdálenosti od elektrického
+// vedení") a v 8. ročníku vůbec není.
+//
+// Šest tříd napětí a jejich bezpečná vzdálenost jsou OPSÁNY přesně z výkladu:
+//   do 1 kV (dráty na ulici)      → 7 m
+//   do 35 kV (venkovské vedení)   → 10 m
+//   do 110 kV                     → 12 m
+//   do 220 kV                     → 15 m
+//   do 400 kV (velké stožáry)     → 20 m
+//   nad 400 kV                    → 25 m
+// Všechno jsou to celá čísla přímo z výkladu, žádný dopočet ani zaokrouhlování.
+//
+// Druhý posuvník je vzdálenost osoby od vedení (0–30 m, krok 1 m, celé číslo).
+// Scéna JEN porovnává dvě celá čísla (vzdálenost < bezpečná vzdálenost?) —
+// žádné dělení, takže žádné riziko desetinné rovnosti ani zaokrouhlování.
+// Bezpečnostní rámec: osoba stojí ZA plotem/za cedulí (siluetu nikdy nekreslíme
+// jak leze k vedení nebo se ho dotýká), scéna ukazuje jen odstup a to, jestli
+// pomyslný oblouk dosáhne k místu, kde osoba stojí — je to znázornění FYZIKÁLNÍHO
+// jevu (přeskok vzduchem), ne návod, jak se přiblížit.
+//
+// Dynamická šířka plaket: sdílená funkce `plaketa()` (stejný vzor jako
+// RelativitaPohybuSimulace) — šířka = délka textu × 8 px + 8 px odsazení,
+// použitá pro VŠECHNY popisky uvnitř SVG (název třídy napětí, vzdálenost,
+// stav bezpečno/nebezpečno).
+//
+// Statická scéna beze smyčky requestAnimationFrame — žádná animace neběží
+// sama od načtení, jen se scéna vykresluje znovu při každé změně posuvníku
+// (čistá funkce stavu, žádná časová složka potřeba).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Bezpečná vzdálenost od vedení ⚡🕹️</span></h2>
+	<p>
+		U elektrického vedení nerozhoduje jen <strong>dotyk</strong> — čím vyšší napětí,
+		tím dál dokáže proud <strong>přeskočit vzduchem obloukem</strong>, i když se
+		vedení vůbec nedotkneš. Nastav třídu napětí a vzdálenost postavy od vedení
+		a sleduj, kdy je odstup bezpečný.
+	</p>
+
+	<svg id="bvv-svg" viewBox="0 0 640 320" role="img" aria-label="Stožár elektrického vedení, postava v proměnlivé vzdálenosti, hranice bezpečné vzdálenosti a případný elektrický oblouk">
+		<rect x="0" y="0" width="640" height="320" fill="#eef6ff" />
+		<rect x="0" y="255" width="640" height="65" fill="#d8f5a2" />
+		<line x1="0" y1="255" x2="640" y2="255" stroke="#2b2a26" stroke-width="3" />
+		<g id="bvv-zony"></g>
+		<g id="bvv-stozar"></g>
+		<g id="bvv-hranice"></g>
+		<g id="bvv-oblouk"></g>
+		<g id="bvv-postava"></g>
+		<g id="bvv-popisky"></g>
+	</svg>
+
+	<label class="sim-posuvnik">
+		Třída napětí: <output id="bvv-out-trida"></output>
+		<input type="range" id="bvv-trida" min="0" max="5" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Vzdálenost postavy od vedení: <output id="bvv-out-vzdal"></output>
+		<input type="range" id="bvv-vzdal" min="0" max="30" step="1" value="10" />
+	</label>
+
+	<p class="bvv-vzorec" id="bvv-vypocet"></p>
+	<p class="bvv-stav" id="bvv-stav"></p>
+</section>
+
+<script>
+	function platnyIndex(hodnota, max, vychozi) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= 0 && n <= max ? n : vychozi;
+	}
+	function platneCislo(hodnota, min, max, vychozi) {
+		const n = Math.round(Number(hodnota));
+		return Number.isInteger(n) && n >= min && n <= max ? n : vychozi;
+	}
+
+	const VIEW_W = 640, VIEW_H = 320, OKRAJ = 6;
+
+	// Šest tříd napětí — čísla PŘESNĚ z výkladu (bezpečná vzdálenost v metrech).
+	const TRIDY = [
+		{ nazev: 'dráty na ulici (do 1 kV)', bezpecna: 7 },
+		{ nazev: 'venkovské vedení (do 35 kV)', bezpecna: 10 },
+		{ nazev: 'vedení do 110 kV', bezpecna: 12 },
+		{ nazev: 'vedení do 220 kV', bezpecna: 15 },
+		{ nazev: 'velké stožáry (do 400 kV)', bezpecna: 20 },
+		{ nazev: 'nejvyšší napětí (nad 400 kV)', bezpecna: 25 },
+	];
+
+	// Stožár stojí u pravého okraje scény (x=580), postava se pohybuje
+	// vlevo od něj. Měřítko px/m je DYNAMICKÉ, aby se maximální vzdálenost
+	// (30 m) i největší bezpečná vzdálenost (25 m) vešly do scény beze
+	// zbytku, ale hodnoty v metrech zůstávají celá čísla — mění se jen
+	// vykreslení, ne fyzika.
+	const STOZAR_X = 580;
+	const LEVY_OKRAJ = 40;
+	const MAX_M = 30;
+	const PX_NA_M = (STOZAR_X - LEVY_OKRAJ) / MAX_M;
+	function xproVzdalenost(m) { return STOZAR_X - m * PX_NA_M; }
+
+	// bílá plaketa s barevným okrajem pod textem — ŠÍŘKA VŽDY dynamická podle délky textu.
+	// Jedna sdílená funkce pro VŠECHNY plakety ve scéně (stejný vzor jako
+	// RelativitaPohybuSimulace).
+	function plaketa(textX, textY, text, barva) {
+		const sirka = String(text).length * 8 + 8;
+		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, textX - sirka / 2));
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, textY - 14));
+		return `<rect x="${rectX.toFixed(1)}" y="${rectY.toFixed(1)}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />`
+			+ `<text x="${(rectX + sirka / 2).toFixed(1)}" y="${(rectY + 14).toFixed(1)}" text-anchor="middle" font-size="12" font-weight="bold" fill="${barva}">${text}</text>`;
+	}
+
+	function stozarHtml() {
+		const x = STOZAR_X;
+		let s = '';
+		s += `<line x1="${x}" y1="255" x2="${x}" y2="60" stroke="#495057" stroke-width="6" />`;
+		s += `<line x1="${x - 45}" y1="90" x2="${x + 45}" y2="90" stroke="#495057" stroke-width="5" />`;
+		s += `<line x1="${x - 30}" y1="255" x2="${x}" y2="90" stroke="#868e96" stroke-width="3" />`;
+		s += `<line x1="${x + 30}" y1="255" x2="${x}" y2="90" stroke="#868e96" stroke-width="3" />`;
+		// dráty visící ze stožáru, mírně prohnuté, vedou přes celou scénu
+		s += `<path d="M0,${100} Q${x - 200},70 ${x - 45},90" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		s += `<path d="M0,${120} Q${x - 200},95 ${x + 45},90" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		return s;
+	}
+
+	function postavaHtml(x, barva) {
+		let s = '';
+		s += `<circle cx="${x}" cy="228" r="10" fill="${barva}" stroke="#2b2a26" stroke-width="2.5" />`;
+		s += `<line x1="${x}" y1="238" x2="${x}" y2="255" stroke="#2b2a26" stroke-width="4" />`;
+		s += `<line x1="${x}" y1="242" x2="${x - 10}" y2="255" stroke="#2b2a26" stroke-width="4" />`;
+		s += `<line x1="${x}" y1="242" x2="${x + 10}" y2="255" stroke="#2b2a26" stroke-width="4" />`;
+		s += `<line x1="${x}" y1="245" x2="${x - 9}" y2="235" stroke="#2b2a26" stroke-width="3" />`;
+		s += `<line x1="${x}" y1="245" x2="${x + 9}" y2="235" stroke="#2b2a26" stroke-width="3" />`;
+		return s;
+	}
+
+	// Cik-cak dráha oblouku od dolního drátu (nad stožárem) k postavě —
+	// ČISTÁ funkce dvou bodů, žádný náhodný ani časový prvek (musí být
+	// stejná ve všech kontrolách, opakovaně).
+	function obloukPath(x1, y1, x2, y2) {
+		const dy = y2 - y1;
+		const kroky = 6;
+		let d = `M${x1.toFixed(1)},${y1.toFixed(1)}`;
+		for (let i = 1; i < kroky; i++) {
+			const t = i / kroky;
+			const vychylka = i % 2 === 0 ? 10 : -10;
+			const px = x1 + vychylka;
+			const py = y1 + dy * t;
+			d += ` L${px.toFixed(1)},${py.toFixed(1)}`;
+		}
+		d += ` L${x2.toFixed(1)},${y2.toFixed(1)}`;
+		return d;
+	}
+
+	const sliderTrida = document.getElementById('bvv-trida');
+	const sliderVzdal = document.getElementById('bvv-vzdal');
+	const outTrida = document.getElementById('bvv-out-trida');
+	const outVzdal = document.getElementById('bvv-out-vzdal');
+
+	document.getElementById('bvv-stozar').innerHTML = stozarHtml();
+
+	function prekresli() {
+		const iT = platnyIndex(sliderTrida.value, TRIDY.length - 1, 0);
+		const m = platneCislo(sliderVzdal.value, 0, MAX_M, 10);
+		const trida = TRIDY[iT];
+		const bezpecno = m >= trida.bezpecna;
+
+		outTrida.textContent = trida.nazev;
+		outVzdal.textContent = `${m} m`;
+
+		const barvaZony = bezpecno ? '#2f9e44' : '#e03131';
+		const x = xproVzdalenost(m);
+		const hranX = xproVzdalenost(trida.bezpecna);
+
+		// barevné pozadí: nebezpečná zóna (blíž k stožáru) červeně, bezpečná zeleně
+		document.getElementById('bvv-zony').innerHTML =
+			`<rect x="${hranX.toFixed(1)}" y="255" width="${(STOZAR_X - hranX).toFixed(1)}" height="65" fill="#ffc9c9" opacity="0.6" />`
+			+ `<rect x="${LEVY_OKRAJ}" y="255" width="${(hranX - LEVY_OKRAJ).toFixed(1)}" height="65" fill="#b2f2bb" opacity="0.6" />`;
+
+		// hranice bezpečné vzdálenosti — svislá čárkovaná čára + plaketa
+		document.getElementById('bvv-hranice').innerHTML =
+			`<line x1="${hranX.toFixed(1)}" y1="255" x2="${hranX.toFixed(1)}" y2="150" stroke="#2b2a26" stroke-width="2" stroke-dasharray="5,4" />`
+			+ plaketa(hranX, 138, `hranice ${trida.bezpecna} m`, '#2b2a26');
+
+		document.getElementById('bvv-postava').innerHTML = postavaHtml(x, bezpecno ? '#4dabf7' : '#ff8787')
+			+ plaketa(x, 208, bezpecno ? 'bezpečno' : 'nebezpečno', barvaZony);
+
+		// elektrický oblouk se kreslí JEN v nebezpečné zóně — ukazuje jev
+		// "přeskočí vzduchem", ne dotyk (osoba stojí, oblouk míří k ní zdálky)
+		document.getElementById('bvv-oblouk').innerHTML = bezpecno
+			? ''
+			: `<path d="${obloukPath(x, 100, x, 218)}" fill="none" stroke="#f59f00" stroke-width="3" stroke-linecap="round" />`;
+
+		document.getElementById('bvv-popisky').innerHTML =
+			plaketa(STOZAR_X, 40, trida.nazev, '#2b2a26');
+
+		document.getElementById('bvv-vypocet').innerHTML =
+			`Vzdálenost ${m} m ${bezpecno ? '≥' : '<'} bezpečná vzdálenost ${trida.bezpecna} m → <strong>${bezpecno ? 'bezpečno' : 'nebezpečno'}</strong>`;
+		document.getElementById('bvv-stav').textContent = bezpecno
+			? `Ve vzdálenosti ${m} m od vedení „${trida.nazev}“ je odstup dostatečný — bezpečná vzdálenost je ${trida.bezpecna} m.`
+			: `Pozor, ${m} m je MÉNĚ než bezpečná vzdálenost ${trida.bezpecna} m pro „${trida.nazev}“ — proud může přeskočit vzduchem obloukem, i když se ničeho nedotkneš.`;
+	}
+
+	sliderTrida.addEventListener('input', prekresli);
+	sliderVzdal.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#bvv-svg { width: 100%; max-width: 640px; border: 3px solid #2b2a26; border-radius: 12px; background: #eef6ff; margin-bottom: 0.6rem; display: block; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 640px; display: block; margin-top: 0.3rem; }
+	.bvv-stav { font-size: 1.05rem; font-weight: 700; min-height: 2.4rem; }
+	.bvv-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>
