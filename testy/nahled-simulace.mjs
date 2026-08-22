@@ -118,34 +118,63 @@ function najdiPotomky(elementId, selektor) {
 	}
 	return vysledky;
 }
-const prazdnyPrvek = (id) => ({
-	id, atributy: {}, textContent: '', innerHTML: '', style: {}, dataset: {}, posluchaci: {},
+// prazdnyPrvek: dřív byl appendChild no-op, takže prvky VYROBENÉ ZA BĚHU
+// (createElement/createElementNS + appendChild — běžný a správný způsob
+// dynamického kreslení) se v náhledu neobjevily vůbec, i když komponenta
+// nespadla. Autoři pak kreslení přepisovali na innerHTML jen kvůli nástroji.
+// Od 22. 8. 2026 (viz hlavička souboru) appendChild/insertBefore/removeChild
+// SKUTEČNĚ zařazují potomky do `p.potomci` a ty se na konci serializují zpátky
+// do výsledného SVG (viz `serializujPotomky` a smyčka „obsah zapsaný přes…“).
+// Beze změny zůstává: prvek bez id (typicky nový, ještě nikam nezapojený)
+// se do zdroje vkládat nemá kam — proto ho `querySelectorAll` na `document`
+// pořád nevidí a je vidět, jen když ho někdo appendChildem zavěsí pod prvek
+// se ZNÁMÝM id ze zdroje.
+const prazdnyPrvek = (id, tag) => ({
+	id, tagName: tag, atributy: {}, textContent: '', innerHTML: '', style: {}, dataset: {}, posluchaci: {},
+	potomci: [], rodic: null,
 	value: hodnotaZHtml(id) ?? '',
-	classList: { add() {}, remove() {}, toggle() {} },
+	classList: {
+		_mnozina(atributy) { return new Set((atributy.class ?? '').split(/\s+/).filter(Boolean)); },
+		add(...t) { const s = this._mnozina(this._p.atributy); t.forEach((x) => s.add(x)); this._p.atributy.class = [...s].join(' '); },
+		remove(...t) { const s = this._mnozina(this._p.atributy); t.forEach((x) => s.delete(x)); this._p.atributy.class = [...s].join(' '); },
+		toggle(t) { const s = this._mnozina(this._p.atributy); s.has(t) ? s.delete(t) : s.add(t); this._p.atributy.class = [...s].join(' '); },
+		contains(t) { return this._mnozina(this._p.atributy).has(t); },
+	},
 	setAttribute(k, v) { this.atributy[k] = String(v); },
 	getAttribute(k) { return this.atributy[k]; },
-	appendChild() {},
+	removeAttribute(k) { delete this.atributy[k]; },
+	appendChild(dite) { this.potomci.push(dite); dite.rodic = this; return dite; },
+	insertBefore(novy, pred) {
+		const i = pred ? this.potomci.indexOf(pred) : -1;
+		if (i === -1) this.potomci.push(novy); else this.potomci.splice(i, 0, novy);
+		novy.rodic = this;
+		return novy;
+	},
+	removeChild(dite) { const i = this.potomci.indexOf(dite); if (i > -1) this.potomci.splice(i, 1); dite.rodic = null; return dite; },
+	remove() { if (this.rodic) this.rodic.removeChild(this); },
 	addEventListener(e, f) { (this.posluchaci[e] ||= []).push(f); },
 	querySelectorAll(selektor) { return najdiPotomky(this.id, selektor); },
 	querySelector(selektor) { return najdiPotomky(this.id, selektor)[0] ?? null; },
 });
-const novy = (id) => {
-	const p = prazdnyPrvek(id);
-	prvky.set(id, p);
+const novy = (id, tag) => {
+	const p = prazdnyPrvek(id, tag);
+	p.classList._p = p; // classList potřebuje odkaz na svůj prvek, viz výše
+	if (id) prvky.set(id, p);
 	return p;
 };
 const document = {
 	getElementById: (id) => prvky.get(id) || novy(id),
 	querySelectorAll: () => [],
-	// Prvek vyrobený za běhu nemá id, takže se do náhledu nevkládá zpátky —
-	// stačí, aby se o něj skript nezabil (dřív tu createElement chyběl úplně
-	// a celá komponenta spadla ještě před vykreslením, viz micro:bit rádio).
-	createElement: () => prazdnyPrvek(undefined),
-	// Totéž pro SVG prvky (14. 8. 2026): komponenta, která si tečky/značky skládá
-	// přes createElementNS, tu jinak spadne uprostřed kreslení — a protože se to
-	// stane až v posluchači, náhled se ZASEKNE místo aby zhavaroval (hledalo se
-	// to půl hodiny u simulace účinků proudu). Chová se stejně jako createElement.
-	createElementNS: () => prazdnyPrvek(undefined),
+	// Prvek vyrobený za běhu nemá id, takže ho `document.getElementById` nenajde —
+	// do výsledku se dostane, JEN když ho skript appendChildem/insertBefore zavěsí
+	// pod prvek se známým id ze zdroje (viz `serializujPotomky` níže). Bez zavěšení
+	// zůstává osamocený stejně jako ve skutečném prohlížeči bez vložení do stromu.
+	createElement: (tag) => novy(undefined, tag),
+	// Totéž pro SVG prvky (14. 8. 2026, appendChild doplněn 22. 8. 2026): komponenta,
+	// která si tečky/značky skládá přes createElementNS, tu dřív spadla uprostřed
+	// kreslení (chyběl createElement) nebo se prvky ztratily (appendChild byl no-op).
+	// Jmenný prostor se ignoruje — pro serializaci do SVG stačí jméno značky.
+	createElementNS: (_ns, tag) => novy(undefined, tag),
 };
 // cancelAnimationFrame patří k requestAnimationFrame — komponenta, která umí
 // animaci zastavit (a to má umět každá), by bez něj spadla při prvním zastavení.
@@ -231,7 +260,39 @@ if (volbaScény !== null) {
 }
 if (sceny.length > 1) console.log(`ℹ️  scén v komponentě: ${sceny.length} — kreslí se ${index + 1}. (id: ${idScény(sceny[index])})`);
 let svg = sceny[index];
+// serializace prvků vyrobených za běhu (createElement/createElementNS + appendChild),
+// zavěšených pod prvek se ZNÁMÝM id ze zdroje — viz komentář u `prazdnyPrvek` výše.
+const escXml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const escAtrib = (s) => escXml(s).replace(/"/g, '&quot;');
+function serializujPrvek(el) {
+	const tag = el.tagName || 'g';
+	const idAtr = el.id ? ` id="${escAtrib(el.id)}"` : '';
+	const ostatni = Object.entries(el.atributy).map(([k, v]) => ` ${k}="${escAtrib(v)}"`).join('');
+	const obsahPotomku = el.potomci.map(serializujPrvek).join('');
+	const obsah = obsahPotomku || (el.innerHTML || (el.textContent ? escXml(el.textContent) : ''));
+	return `<${tag}${idAtr}${ostatni}>${obsah}</${tag}>`;
+}
 for (const [id, p] of prvky) {
+	// potomci zavěšení za běhu (appendChild/insertBefore) — vloží se AŽ ZA stávající
+	// obsah značky, ten se nemaže (na rozdíl od innerHTML, které obsah nahrazuje celý).
+	if (p.potomci.length) {
+		const parovy = new RegExp(`(<(\\w+)([^>]*)\\bid="${id}"[^>]*>)([\\s\\S]*?)(</\\2>)`);
+		if (parovy.test(svg)) {
+			svg = svg.replace(parovy, (cely, otev, tag, _atr, stred, konec) => `${otev}${stred}${p.potomci.map(serializujPrvek).join('')}${konec}`);
+		} else {
+			// rodič může být zapsaný jako SAMOUZAVÍRACÍ (<g id="x" />) — párový
+			// regex výše na něj tiše nesedne a potomci by beze stopy zmizeli
+			// (mlčení není klid). Takový tag se rozvine na párový a potomci
+			// se vloží dovnitř; když nesedne ani tohle, jde o chybu k nahlášení.
+			const samouzaviraci = new RegExp(`<(\\w+)([^>]*)\\bid="${id}"([^>]*)\\/\\s*>`);
+			if (samouzaviraci.test(svg)) {
+				svg = svg.replace(samouzaviraci, (cely, tag, pred, za) => `<${tag}${pred}id="${id}"${za}>${p.potomci.map(serializujPrvek).join('')}</${tag}>`);
+			} else {
+				console.error(`❌ V komponentě ${komponenta} nebyl nalezen prvek s id="${id}" (ani párový, ani samouzavírací tag) — vygenerovaní potomci se nevloží.`);
+				process.exit(1);
+			}
+		}
+	}
 	// atributy zapsané přes setAttribute (points, fill, …)
 	if (Object.keys(p.atributy).length) {
 		svg = svg.replace(new RegExp(`<(\\w+)([^>]*\\bid="${id}"[^>]*)>`), (cely, tag, atributy) => {
