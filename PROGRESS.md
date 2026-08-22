@@ -359,6 +359,13 @@ zalomením a zkrácením, při té příležitosti nalezeno i starší přeteče
 **POUČENÍ:** audit se vyplácí — vady byly ve „vedené jako hotové" práci. Nová
 trvalá třída kontroly: MĚŘENÍ ŠÍŘKY TEXTU proti okrajům viewBoxu a panelu
 (odhad z počtu znaků, velikosti a tučnosti písma).
+
+## Historie — 22. 8. 2026 noc (revize starších simulací, dávka 1)
+Revize 5 nejstarších simulací dokončena, kontrolor 0 nálezů. Opraveno: (1)
+`SkladaniSilSimulace` — panáčci od 3. kusu mimo viewBox, přerovnáno do mřížky
+3×2 (commit `7801897`); (2) doplněn výklad bit/bajt/ASCII k podtématu
+soubory-slozky-aplikace + 6 otázek kvízu (blok 10→16, commit `d09155d`).
+Nasazeno, ověřeno curl přímo na produkci (slovo „bajt" na živé stránce).
 **POZOR NA MĚŘIDLA:** dvakrát si pracovník upravil vlastní měřidlo současně
 s opravou komponenty, celkový počet kontrol klesl (2579 → 2567). Nezávislá
 kontrola pokles rozebrala a mutačními testy doložila, že měřidla nezeslábla

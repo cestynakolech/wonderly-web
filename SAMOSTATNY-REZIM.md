@@ -788,6 +788,14 @@ a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobr
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
 (zatím nic — pravidlo: po 3 neúspěšných pokusech změny vrátit, sem zapsat co selhalo a co bylo vyzkoušeno, a vzít další úkol z fronty)
 
+### 22. 8. 2026 noc — revize starších simulací, dávka 1 (5 nejstarších), hotovo
+2 nálezy opravené a nasazené (panáčci `SkladaniSilSimulace` mimo viewBox,
+výklad bit/bajt/ASCII u soubory-slozky-aplikace). Otevřené drobnosti:
+- Blok soubory-slozky-aplikace má 16/21 otázek kvízu (chybí 5).
+- Revize automatů hlásí „role modelů: llama3.1 PROPADL" 3× — souvisí
+  s odstavením llama3.1 z role kontrolora 22. 8.
+- `BinarniSimulace` měla výklad bez opory ve zdroji — vyřešeno doplněním.
+
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
