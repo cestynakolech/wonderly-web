@@ -29,7 +29,10 @@
 	const detailEl = document.getElementById('pla-detail');
 	const stavEl = document.getElementById('pla-stav');
 
-	// koeficient = kolikrát jiná gravitační síla než na Zemi (tabulka učitele)
+	// koeficient = kolikrát jiná gravitační síla než na Zemi (tabulka učitele, Síla 6.pptx, snímek 11 „Nezkreslená věda")
+	// Ověřeno 22. 8. 2026: koeficienty jsou PŘESNÝ přepočet z tabulky (člověk 75 kg na Zemi → 177 kg Jupiter = 2,36×, 80 kg Saturn = 1,067×).
+	// Jde o EFEKTIVNÍ tíhové zrychlení na rovníku (zahrnuje i odstředivou sílu od rychlé rotace planet),
+	// proto je nižší než prostý výpočet G·M/R² (ten dává cca 2,53× Jupiter, 1,06× Saturn) — čísla NEJSOU chyba, shoda s výukovou tabulkou je záměrná.
 	const TELESA = [
 		{ n: 'Merkur', pad: 'na Merkuru', k: 0.373, e: '☿', pozn: 'malá planeta → malá síla' },
 		{ n: 'Venuše', pad: 'na Venuši', k: 0.907, e: '♀', pozn: 'skoro jako doma' },
