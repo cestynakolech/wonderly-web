@@ -2595,6 +2595,7 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li>příčinou rozkladu je, že <strong>každá barva se láme jinak</strong> — <strong>červená nejméně, fialová nejvíce</strong></li>
 							<li>vzniká spojitý pás <strong>sedmi</strong> barev v pořadí: <strong>červená, oranžová, žlutá, zelená, modrá, indigová, fialová</strong></li>
+							<li>barvy spektra se liší <strong>vlnovou délkou světla</strong> — červená má vlnovou délku nejdelší, fialová nejkratší</li>
 						</ul>
 						<h3>Duha — přirozený rozklad světla</h3>
 						<ul>
@@ -2602,6 +2603,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>vidíme ji, když máme <strong>Slunce za zády</strong> a déšť před sebou; <strong>červená je nahoře</strong>, fialová dole</li>
 							<li>bílé světlo vstoupí do kapky (láme se a rozkládá), uvnitř se <strong>jednou odrazí</strong> a při výstupu se spektrum ještě rozšíří</li>
 							<li><strong>dvojitá duha</strong>: slabší vedlejší duha vzniká <strong>dvěma</strong> odrazy v kapce a má <strong>opačné pořadí barev</strong></li>
+							<li>duha je <strong>optický jev</strong>, ne hmotný předmět — každý pozorovatel ji vidí z jiných kapek podle své polohy vůči Slunci, proto se k ní nikdy nedá přiblížit</li>
 						</ul>
 						<p>💡 Podstatu duhy správně vysvětlil lomem paprsků český fyzik a lékař <strong>Jan Marcus Marci</strong> (17. století).</p>
 					`,

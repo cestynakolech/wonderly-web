@@ -3223,6 +3223,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč i malá vzduchová dutina hodně sníží celkovou hustotu ocelového tělesa?', odpovedi: ['vzduch je vůči oceli téměř nehmotný', 'vzduch má stejnou hustotu jako ocel', 'vzduch zvyšuje hmotnost tělesa'], vysvetleni: 'Vzduch má hustotu jen kolem kilogramu na metr krychlový, proto i malá dutina hodně sníží výslednou hustotu celého tělesa.' },
 		{ text: 'Co znamená, že průměrná hustota tělesa je menší než hustota vody?', odpovedi: ['těleso na vodě plove', 'těleso se ve vodě potopí', 'těleso má stejnou hustotu jako led'], vysvetleni: 'Menší průměrná hustota než voda → těleso plove na hladině.' },
 		{ text: 'Proč je ocelový hřebík stejnorodé těleso?', odpovedi: ['je celý jen z jedné látky, oceli', 'je malý, lehký a levně se vyrábí', 'má uvnitř dutinu se vzduchem'], vysvetleni: 'Hřebík netvoří žádná jiná látka než ocel — proto je stejnorodý.' },
+		{ text: 'Z čeho se počítá průměrná hustota ocelové lodi s dutinami?', odpovedi: ['z hmotnosti a objemu tělesa', 'jen z hustoty samotné oceli', 'jen z objemu vzduchové dutiny'], vysvetleni: 'Počítá se z hmotnosti a objemu tělesa jako celku — oceli i vzduchu uvnitř dohromady.' },
+		{ text: 'Kolikrát je hustota vody (1 000 kg/m³) větší než hustota vzduchu (asi 1 kg/m³)?', odpovedi: ['přibližně tisíckrát', 'přibližně stokrát', 'přibližně desetkrát'], vysvetleni: '1 000 : 1 = 1 000 — voda je asi tisíckrát hustší než vzduch.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/optika-rovinneho-zrcadla': [
 		{ text: 'Díky čemu vidíme obraz tělesa v zrcadle?', odpovedi: ['odrazu světla od zrcadla', 'lomu světla uvnitř zrcadla', 'pohlcení světla zrcadlem'], vysvetleni: 'Světlo se od zrcadla odrazí podle zákona odrazu a vytvoří obraz.' },
@@ -3336,6 +3338,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Čím Newton dokázal, že bílé světlo je složené z barev?', odpovedi: ['spojnou čočkou složil barvy zpět v bílé', 'hranol prudce zahřál na velmi vysokou teplotu', 'paprsky odrazil rovným zrcadlem'], vysvetleni: 'Newton spojnou čočkou znovu spojil rozložené barvy do bílého světla — důkaz, že bílé světlo je jejich součtem.' },
 		{ text: 'Co se stane se spektrem barev, když paprsek vystupuje z dešťové kapky ven?', odpovedi: ['spektrum se ještě rozšíří', 'barvy se smíchají zpět na bílou', 'zůstane stejně úzké jako uvnitř'], vysvetleni: 'Při výstupu z kapky se paprsek znovu láme a barevný pruh se ještě víc rozšíří.' },
 		{ text: 'Kolikrát se paprsek světla odrazí uvnitř kapky u vedlejší (dvojité) duhy?', odpovedi: ['dvakrát', 'jednou', 'třikrát'], vysvetleni: 'Vedlejší duha vzniká dvěma vnitřními odrazy — proto je slabší a má obrácené pořadí barev.' },
+		{ text: 'Čím se od sebe liší jednotlivé barvy spektra z fyzikálního hlediska?', odpovedi: ['různou vlnovou délkou světla', 'různou barvou hranolu, kterým prochází', 'různou teplotou jednotlivých paprsků'], vysvetleni: 'Každá barva odpovídá jiné vlnové délce viditelného světla — červená má vlnovou délku nejdelší, fialová nejkratší.' },
+		{ text: 'Proč se k duze nikdy nedá přiblížit?', odpovedi: ['je to jev závislý jen na poloze pozorovatele', 'duha je pevný barevný oblouk zavěšený na obloze', 'duha uteče, protože se otáčí spolu se Sluncem'], vysvetleni: 'Duha je optický jev — poloha, kde ji vidíme, závisí na tom, kde stojíme vůči Slunci a kapkám, proto se k ní nedá dojít.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/vnimani-barev': [
 		{ text: 'Kolik druhů čípků máme na sítnici?', odpovedi: ['tři — červený, zelený, modrý', 'jeden pro všechny barvy zvlášť', 'sedm podle barev duhy'], vysvetleni: 'Tři druhy čípků — každý citlivý na jednu základní barvu světla.' },
@@ -3358,6 +3362,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaká barva vznikne složením červeného a modrého světla?', odpovedi: ['purpurová', 'žlutá barva', 'azurová'], vysvetleni: 'Červená + modrá dají v RGB purpurovou (magenta).' },
 		{ text: 'Jaká barva vznikne složením zeleného a modrého světla?', odpovedi: ['azurová', 'žlutá', 'purpurová'], vysvetleni: 'Zelená + modrá dají v RGB azurovou (cyan).' },
 		{ text: 'Proč se černá v CMYK značí písmenem K, a ne B?', odpovedi: ['B už značí modrou (blue) v RGB', 'K je první písmeno slova černá v angličtině', 'B se v tiskárnách vůbec nepoužívá'], vysvetleni: 'Aby nedošlo k záměně s modrou (blue) z RGB, black se značí K.' },
+		{ text: 'Jak se odborně nazývá pohlcení světla tělesem?', odpovedi: ['absorpce', 'reflexe', 'disperze'], vysvetleni: 'Pohlcení světla tělesem se odborně nazývá absorpce.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace': [
 		{ text: 'Kdy těleso ve fyzice koná práci?', odpovedi: ['když působí silou a těleso se posune ve směru síly', 'když jen drží těžké těleso', 'když se zahřeje'], vysvetleni: 'Musí být splněné obě podmínky — síla i posunutí ve směru síly.' },
