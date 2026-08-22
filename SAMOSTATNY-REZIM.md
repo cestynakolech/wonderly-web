@@ -1,22 +1,39 @@
 ## ROZHODNUTÍ UČITELE 22. 8. 2026 (OTEVŘENÉ ÚKOLY)
 
-1. **Měď vs. hliník ve vedení** — měď patří k DOMÁCÍM ROZVODŮM (podle praxe), ne
-   k dálkovému vedení. Dnešní oprava (commit `d834875`) sjednotila vedení na měď
-   podle PDF i tam, kde jde o dálkové vedení — to je špatně. Úkol: v podtématu
-   `prenos-elektricke-energie` (F9) rozlišit ve výkladu i kvízu domácí rozvody
+1. **Měď vs. hliník ve vedení** — HOTOVO 22. 8. 2026, commit `8c31c26`. Ve výkladu
+   i kvízu podtématu `prenos-elektricke-energie` (F9) rozlišeny domácí rozvody
    (měď) od dálkového vedení (hliníková lana s ocelovým jádrem).
-2. **Bezpečné vzdálenosti od vedení** — přesná čísla učitel nezná, dohledat
-   v normách/u ČEZ. Hlavní smysl je OBRAZNÝ: aby si děti představily, že výboj
-   může přeskočit na velkou vzdálenost, a chovaly se zodpovědně (nelézt na vagony
-   pod trolejí). Komisí `d834875` byly metry úplně odstraněny, myšlenka z webu
-   zmizela — vrátit ji do `ucinky-proudu-bezpecnost` (F9) v obrazné podobě;
-   konkrétní hodnotu uvádět jen s citací doloženého zdroje.
+2. **Bezpečné vzdálenosti od vedení** — HOTOVO 22. 8. 2026, commit `acd1292`.
+   Obrazný smysl vrácen do `ucinky-proudu-bezpecnost` (F9) — výboj může přeskočit
+   na velkou vzdálenost, chovat se zodpovědně (nelézt na vagony pod trolejí);
+   konkrétní metry záměrně zatím vynechané, viz blok „ČEKÁ NA ROZHODNUTÍ
+   UČITELE (23. 8. 2026)" níže.
 3. **Energetická hodnota potravin** — NECHAT, brát obecně jako ukázku, že
    existuje; hlavní je ROVNOVÁHA příjem/výdej, ne memorování přesných čísel.
    Drobný úkol: projít text a kvíz podtématu, aby po dítěti nechtěl přesná čísla.
 4. **Obecné pravidlo napříč webem:** vše je pro žáky ZÁKLADNÍ ŠKOLY, ne pro
    gymnázia a vědce. Zjednodušené informace jsou v pořádku. Podrobnosti nad
    rámec ZŠ mají být do budoucna NADSTAVBA k rozkliknutí (směr, ne úkol na teď).
+
+## ČEKÁ NA ROZHODNUTÍ UČITELE (23. 8. 2026)
+
+U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,
+„číst dál" končí u zdi) — chybějící číslo tedy nemusí být chyba na webu, jen
+oříznutý zdroj. Rozhoduje učitel.
+
+1. **Ochranná pásma vedení** — prezentace učitele („Elektřina 9", popis v
+   `Omega/dokumenty/prezentace-popisy/`) uvádí do 1 kV = 7 m a 1–35 kV = 10 m,
+   dohledané zdroje k zákonu 458/2000 Sb. ale uvádí 7/12/15/20 m podle napětí
+   a 1 m u izolovaného kabelu do 1 kV — zdroje se rozcházejí, proto jsou
+   konkrétní metry na webu zatím VYNECHANÉ (jen zásada „čím vyšší napětí, tím
+   širší pásmo"). Doplnit tabulku podle zákona, podle prezentace, nebo nechat
+   bez čísel?
+2. **Práh „od ~50 V se prorazí kůže"** (výklad F8 i F9) nemá oporu ve zdrojovém
+   PDF SmartBooks — to dokládá jen odpory kůže 150 000 Ω (sucho) a 2000 Ω
+   (vlhko), ne konkrétní napětí. Ponechat, nebo upravit?
+3. **Bezpečné napětí „v suchých místnostech 50 V střídavé / 120 V stejnosměrné"**
+   také nemá oporu ve zdrojovém PDF — to uvádí jen 25 V ss / 12 V st bez
+   rozlišení prostoru. Ponechat, nebo upravit?
 
 ---
 

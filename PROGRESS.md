@@ -220,6 +220,18 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 22. 8. 2026 (dokončeny úkoly z rozhodnutí učitele)
+**Dokončeny oba úkoly z „ROZHODNUTÍ UČITELE 22. 8. 2026" (SAMOSTATNY-REZIM.md):**
+1) měď vs. hliník ve vedení rozlišeno ve výkladu i kvízu `prenos-elektricke-energie`
+(F9), commit `8c31c26`; 2) bezpečné vzdálenosti od vedení vráceny obrazně do
+`ucinky-proudu-bezpecnost` (F9), commit `acd1292`. Kvíz po zásahu: F9
+`prenos-elektricke-energie` 22 otázek, `ucinky-proudu-bezpecnost` 24 otázek.
+Nezávislý kontrolor běžel do 0 nálezů (7, resp. 8 kol). **3 body čekají na
+rozhodnutí učitele** (ochranná pásma vedení — rozpor prezentace vs. zákon
+458/2000 Sb.; práh ~50 V na kůži; bezpečné napětí 50 V st/120 V ss v suchu —
+podklad SmartBooks je útržkovitý) — viz blok „ČEKÁ NA ROZHODNUTÍ UČITELE
+(23. 8. 2026)" v SAMOSTATNY-REZIM.md.
+
 ## Historie — 22. 8. 2026 noc (uzávěrka bloku, rozhodnutí učitele)
 **Dokončena názornost fyziky:** 92 ze 101 podtémat má simulaci, zbylých 9 jsou
 shrnutí/úvod, kde simulace nedává smysl. **Audit starších simulací F8:** 10
