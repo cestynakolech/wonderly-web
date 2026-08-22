@@ -221,6 +221,18 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 22. 8. 2026 (samostatný režim)
+**NASAZENO:** simulace vlastní vodivosti polovodiče (`PolovodicVodivostSimulace.astro`)
+zapojena k `polovodice-vlastni-vodivost` (F9) přes klíč `polovodic`. Kontrolor: 0 nálezů
+(neplete vlastní a příměsovou vodivost, scéna prohlédnuta při −20 °C i 100 °C). Commit `c73087f`,
+curl ověřil `pol-svg`, `pol-slider`, `pol-teplomer-sloupec`, `pol-vzorec`, `pol-castice`, `pol-zarovka`.
+**ROZDĚLANÉ:** simulace vektoru síly F7 (`SilaVektorSimulace.astro`) — hotová, čeká na
+prohlédnutí scény, kontrolora a zapojení do `temata.ts`, necommitnuto.
+**ZJIŠTĚNÍ:** `testy/vsechny-simulace.mjs` měří jen komponenty s ručním testem v
+`testy/simulace/*.mjs` — nové simulace (Dioda, Ozvěna, PolovodicVodivost, RychlostSvetla)
+takový test nemají, počet „37 souborů" o nich mlčí. Do fronty: dopsat chybějící testy nebo
+zviditelnit, které komponenty ruční test nemají.
+
 ## Historie — 21. 8. 2026 ráno
 **Fyzika 6 dokončena, celá fyzika 6–9 KOMPLET na 21 otázkách.** 16 bloků F6 zkontrolováno
 2 nezávislými kontrolory + 1 po opravách; nálezy: 3 otázky mimo výklad nahrazeny, 5 oprav
