@@ -138,10 +138,9 @@
 		const rychlost = draha / cas;                     // cm/s
 		vysledekEl.innerHTML =
 			`<strong>Dráha (obvod):</strong> o = 2 · (${a} + ${b}) = <strong>${obvodDilku} dílků</strong>`
-			+ ` &nbsp;→&nbsp; ${obvodDilku} · ${cz(dilek)} cm = <strong>${cz(draha)} cm</strong> = ${cz(draha / 100, 2)} m<br>`
+			+ ` &nbsp;→&nbsp; ${obvodDilku} · ${cz(dilek)} cm = <strong>${cz(draha)} cm</strong><br>`
 			+ `<strong>Obsah (plocha uvnitř):</strong> S = ${a} · ${b} = ${a * b} dílků² &nbsp;→&nbsp; <strong>${cz(obsah)} cm²</strong><br>`
-			+ `<strong>Rychlost:</strong> v = s / t = ${cz(draha)} cm : ${cas} s = <strong>${cz(rychlost, 2)} cm/s</strong>`
-			+ ` = ${cz(rychlost / 100, 3)} m/s = ${cz(rychlost * 0.036, 2)} km/h`;
+			+ `<strong>Rychlost:</strong> v = s / t = ${cz(draha)} cm : ${cas} s = <strong>${cz(rychlost, 2)} cm/s</strong>`;
 		pozorEl.innerHTML = a === b
 			? '⚠️ Máš čtverec — zkus různé strany, ať je vidět, že obvod a obsah jsou dvě různé věci.'
 			: `💡 Kdyby robot jel po delší straně tam a zpět, ujel by ${cz(2 * a * dilek)} cm — a to je něco jiného než celý obvod ${cz(draha)} cm.`;

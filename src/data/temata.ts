@@ -963,6 +963,18 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 POZOR — častá chyba: u času <strong>neposouváme desetinnou čárku</strong>! 0,75 h není 75 minut, ale 45 minut (0,75 × 60).</p>
 						<h3>Výpočet doby trvání</h3>
 						<p>Známe-li čas začátku t₁ a konce t₂ události, doba trvání <strong>t = t₂ − t₁</strong> (např. jak dlouho trvala cesta vlakem).</p>
+						<h3>🕹️ Praktická úloha: dráha pro robota Ozobota</h3>
+						<p>Ozobota se dá naučit jezdit po dráze poskládané ze stavebnicových dílků do tvaru <strong>obdélníku</strong>. Na dráhu se navíc dají umístit dílky s příkazy — <strong>start</strong>, <strong>zrychlit</strong>, <strong>zatáčka</strong>, <strong>zpomalit</strong> a <strong>cíl</strong>. Než robot vyjede, změříme délku jednoho dílku a spočítáme, kolik dílků je na šířku (a) a kolik na výšku (b) dráhy.</p>
+						<p>Robot jede <strong>po obvodu</strong> obdélníku — obvod je tedy dráha (s), kterou robot skutečně ujede:</p>
+						<ul>
+							<li><strong>o = 2 · (a + b)</strong></li>
+						</ul>
+						<p>Plocha, kterou dráha uvnitř ohraničuje, se nazývá <strong>obsah</strong> — po ní robot NEjede:</p>
+						<ul>
+							<li><strong>S = a · b</strong></li>
+						</ul>
+						<p>👉 Časté chybné myšlení: čím větší obsah, tím delší dráha. Není to tak — obvod a obsah jsou dvě různé věci a počítají se jinak.</p>
+						<p>💡 Příklad: dráha má na šířku 6 dílků, na výšku 4 dílky, jeden dílek měří 4 cm. Obvod (v dílcích): o = 2 · (6 + 4) = 20 dílků, což je 20 · 4 cm = <strong>80 cm</strong> dráhy. Obsah: S = 6 · 4 = <strong>24 dílků²</strong>. Když robot projede celou dráhu za 20 sekund (naměříme stopkami), jeho rychlost je <strong>v = s / t = 80 cm : 20 s = 4 cm/s</strong>.</p>
 					`,
 					materialy: [
 						{
