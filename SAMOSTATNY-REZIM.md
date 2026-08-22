@@ -852,3 +852,10 @@ která se pro navázání práce nepotřebuje, tak se nečte automaticky.
 > ⚠️ MIGRACE 21. 8. 2026: položky výše jsou překopírované do git fronty
 > wonderly-fronta (složka `prijate/`). Nové položky zakládat UŽ JEN tam.
 > Tato textová fronta je jen pro čtení a po ověření se uklidí.
+
+**ÚKLID 22. 8. 2026 večer:** Mac mini připraveno jako 24/7 orchestrátor
+(Claude CLI přihlášen, Hermes nakonfigurován na llama3.1, hlas lokálně
+faster-whisper + Piper) — čeká se na spuštění Telegram brány ze session
+BEZ telegram kanálu (past jednoho bot tokenu). Obsahová práce dne
+(měď/hliník F9, bezpečné vzdálenosti F9) dokončena a nasazena, viz commity
+výše. Otevřené body čekají na rozhodnutí učitele 23. 8. (viz sekce výše).
