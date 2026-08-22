@@ -1,3 +1,14 @@
+**NASAZENO 22. 8. 2026 (blok):** Simulace rychlosti světla (`RychlostSvetlaSimulace.astro`,
+„Závod světla") zapojena k podtématu Světlo a jeho zdroje (F7) přes nový klíč interakce
+`rychlost-svetla` — nezávislá kontrola 0 nálezů, nasazeno commitem `9f44b1f`, curl na
+`skola2/fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje/` potvrdil prvky simulace
+(„Vyšli paprsky", `rs-svg`). Zároveň nasazena oprava bezpečného stejnosměrného napětí ve
+vlhkých prostorách (`temata.ts:3772`, 30 V → 25 V, F8 elektřina), týmž commitem; curl na
+`skola2/fyzika/8-rocnik/elektrina/ucinky-proudu-a-bezpecnost/` potvrdil „25 V" u bezpečného
+napětí, staré chybné 30 V se v textu bezpečného napětí už nevyskytuje. Úkol přesunut ve
+`wonderly-fronta` do `hotovo/skola2-nekonzistence-bezpecneho-napeti.md`. Klementinum-rok:
+planý poplach, obsah beze změny.
+
 **NASAZENO 22. 8. 2026 (blok):** Nová simulace ozvěny u F8 zvuk (`OzvenaSimulace.astro`,
 zapojena do `zvuk-vznik-a-sireni`) — nezávislá kontrola 0 nálezů, nasazeno commitem `9e83f37`,
 curl na `skola2/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/` potvrdil prvky simulace („Vyšli
