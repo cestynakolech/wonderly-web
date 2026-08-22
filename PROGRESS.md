@@ -221,6 +221,20 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 22. 8. 2026 večer (samostatný režim)
+**NASAZENO A OVĚŘENO:** simulace síly jako vektoru (F7, podtéma `sila`) —
+`src/components/skola2/SilaVektorSimulace.astro`, klíč interakce `sila-vektor`, commit
+`fdb6cd7`, curl na produkci potvrdil `sv-f`, `sv-jed`, `sv-smer-90`, značení `Fg`. Kontrolní
+smyčka měla PĚT kol (3→2→1→2→0 nálezů): porovnání desetin na rovnost (hláška se nikdy
+nezobrazila), skládání sil mimo výklad podtématu (obsah zúžen), tíha značená „G" místo
+`Fg`, posuvník nikdy nedosáhl „bedna se zvedá" (mrtvá větev), plaketa useknutá/popisky mimo
+scénu u 10 z 55 kombinací. Poučení: autor si má sám před odevzdáním projet všechny kombinace
+ovládání a ověřit obalové obdélníky, pravdivost hlášek a celá čísla.
+**NASAZENO:** `testy/nahled-simulace.mjs` umí nově `cas=<sekundy>` — snímek až po doběhnutí
+animace (commit `4996115`), bez argumentu beze změny (ověřeno shodným otiskem).
+**ROZDĚLANÉ:** simulace k podtématu `klid-a-pohyb-telesa` (F7).
+**FRONTA NÁZORNOSTI** zkrácena na 10 podtémat (viz SAMOSTATNY-REZIM.md).
+
 ## Historie — 22. 8. 2026 (samostatný režim)
 **NASAZENO:** simulace vlastní vodivosti polovodiče (`PolovodicVodivostSimulace.astro`)
 zapojena k `polovodice-vlastni-vodivost` (F9) přes klíč `polovodic`. Kontrolor: 0 nálezů

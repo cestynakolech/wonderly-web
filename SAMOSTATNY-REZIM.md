@@ -1,3 +1,11 @@
+**NASAZENO A OVĚŘENO 22. 8. 2026 večer:** Simulace síly jako vektoru F7 (`SilaVektorSimulace.astro`,
+klíč `sila-vektor`, podtéma `sila`) — commit `fdb6cd7`, curl potvrdil `sv-f`, `sv-jed`,
+`sv-smer-90`, `Fg`. Kontrola 5 kol (chyby: rovnost desetin, skládání sil mimo výklad, tíha
+značená „G", mrtvá větev posuvníku, useknutá plaketa u 10/55 kombinací) — poučení do
+NAVOD-SIMULACE.md/PRAVIDLA: projet si sám všechny kombinace ovládání před odevzdáním.
+`testy/nahled-simulace.mjs` umí `cas=<sekundy>` (snímek po doběhnutí animace), commit `4996115`.
+ROZDĚLANÉ: simulace `klid-a-pohyb-telesa` (F7).
+
 **NASAZENO 22. 8. 2026 (blok):** Simulace vlastní vodivosti polovodiče
 (`PolovodicVodivostSimulace.astro`) zapojena k `polovodice-vlastni-vodivost` (F9) přes klíč
 `polovodic` — kontrolor 0 nálezů, commit `c73087f`, curl ověřil prvky simulace i text
@@ -6,11 +14,11 @@
 **NOVÝ ÚKOL DO FRONTY:** `testy/vsechny-simulace.mjs` neměří nové simulace bez ručního
 testu v `testy/simulace/*.mjs` (Dioda, Ozvěna, PolovodicVodivost, RychlostSvetla) — dopsat
 testy nebo zviditelnit chybějící pokrytí.
-**FRONTA NÁZORNOSTI — bez simulace zůstává 11 podtémat:** F6 uvod-do-fyziky, telesa-a-latky,
-vzajemne-pusobeni-teles-sila; F7 klid-a-pohyb-telesa, posuvny-otacivy-pohyb,
-priklady-na-vypocet-rychlosti, sila (rozděláno), pusobeni-teles-a-deformace,
-telesa-stejnoroda-a-nestejnoroda, meteorologie-a-mereni-tlaku; F9 ucinky-proudu-bezpecnost.
-8. ročník je pokrytý celý.
+**FRONTA NÁZORNOSTI — bez simulace zůstává 10 podtémat (stav 22. 8. večer, `sila` hotová a
+vypadla ze seznamu):** F6 uvod-do-fyziky, telesa-a-latky, vzajemne-pusobeni-teles-sila; F7
+klid-a-pohyb-telesa (rozděláno), posuvny-otacivy-pohyb, priklady-na-vypocet-rychlosti,
+pusobeni-teles-a-deformace, telesa-stejnoroda-a-nestejnoroda, meteorologie-a-mereni-tlaku;
+F9 ucinky-proudu-bezpecnost. 8. ročník je pokrytý celý.
 
 **NASAZENO 22. 8. 2026 (blok):** Simulace rychlosti světla (`RychlostSvetlaSimulace.astro`,
 „Závod světla") zapojena k podtématu Světlo a jeho zdroje (F7) přes nový klíč interakce
