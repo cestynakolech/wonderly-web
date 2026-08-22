@@ -96,7 +96,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co ve fyzice nakonec rozhoduje o tom, co je pravda?',
 			odpovedi: ['Výsledek pokusu a měření', 'Názor většiny lidí', 'Jak dlouho se něčemu věřilo'],
-			vysvetleni: 'Ani dlouhá tradice, ani většinový názor nejsou důkaz — přes dva tisíce let se věřilo, že těžší tělesa padají rychleji, dokud to Galileo pokusem nevyvrátil.',
+			vysvetleni: 'Ani dlouhá tradice, ani většinový názor nejsou důkaz — přes dva tisíce let se věřilo, že těžší tělesa padají rychleji, dokud to jeden vědec pokusem s kuličkami na nakloněné rovině nevyvrátil.',
 		},
 		{
 			text: 'Jak se ve fyzice zapisuje vztah mezi veličinami pomocí písmen a čísel?',
@@ -106,7 +106,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Přibližně jak dlouho se věřilo, že těžší tělesa padají rychleji než lehká?',
 			odpovedi: ['Skoro dva tisíce let', 'Jen tak asi deset let', 'Asi jen pár posledních měsíců'],
-			vysvetleni: 'Tak krátkou dobu by si mylná představa sotva stihla vžít — tento omyl se traduje téměř dva tisíce let, než ho Galileo vyvrátil.',
+			vysvetleni: 'Tak krátkou dobu by si mylná představa sotva stihla vžít — tento omyl se traduje téměř dva tisíce let, než to jeden vědec pokusem vyvrátil.',
 		},
 		{
 			text: 'Co musí platit, aby list papíru položený navrch na knize dopadl na zem současně s ní?',
@@ -555,7 +555,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Které látky patří mezi amorfní (beztvaré)?',
 			odpovedi: ['sklo, plasty, asfalt', 'led, kuchyňská sůl, diamant', 'železo, zlato, měď'],
-			vysvetleni: 'Amorfní látky mají nepravidelné uspořádání částic a při zahřátí postupně měknou.',
+			vysvetleni: 'Amorfní látky mají nepravidelné (neuspořádané) rozmístění částic, na rozdíl od krystalických látek, kde jsou částice srovnané pravidelně jako v mřížce.',
 		},
 		{
 			text: 'Proč jsou kapaliny nestlačitelné?',
@@ -583,12 +583,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se pohybují částice v kapalném skupenství?',
 			odpovedi: ['jsou blízko sebe a kloužou po sobě', 'jen kmitají kolem pevných poloh', 'pohybují se zcela volně, neuspořádaně a rychle'],
-			vysvetleni: 'Částice kapaliny jsou blízko sebe, ale mohou měnit polohu a klouzat po sobě — proto je kapalina tekutá. Kmitání kolem pevných poloh je u pevných látek, volný rychlý pohyb u plynů.',
+			vysvetleni: 'Částice kapaliny jsou blízko sebe, ale mohou měnit polohu a klouzat po sobě — proto je kapalina tekutá, na rozdíl od pevné látky, kde se částice od sebe nevzdalují, a plynu, kde se pohybují mnohem volněji.',
 		},
 		{
 			text: 'Jak se pohybují částice v plynném skupenství?',
 			odpovedi: ['zcela volně, neuspořádaně a velmi rychle', 'jen kmitají kolem pevných poloh', 'jsou blízko sebe a kloužou po sobě a mění tvar'],
-			vysvetleni: 'Částice plynu jsou daleko od sebe a pohybují se volně, neuspořádaně a rychle — proto je plyn rozpínavý. Kmitání je u pevných látek, klouzání po sobě u kapalin.',
+			vysvetleni: 'Částice plynu jsou daleko od sebe a pohybují se volně, neuspořádaně a rychle — proto je plyn rozpínavý, na rozdíl od pevné látky a kapaliny, kde jsou částice mnohem blíž u sebe.',
 		},
 		{
 			text: 'Proč mají pevné látky stálý tvar?',
@@ -620,7 +620,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kopneš do míče. Působí míč také na tvou nohu?',
 			odpovedi: ['ano, zatlačí stejnou silou', 'ne, působí jen noha na míč', 'jen když je míč těžký'],
-			vysvetleni: 'Působení je vždy vzájemné — proto kopnutí do těžkého míče „cítíme" v noze.',
+			vysvetleni: 'Kopneš-li do míče, míč zase zatlačí do tvé nohy — proto těžký míč v noze „cítíme“.',
 		},
 		{
 			text: 'Který z těchto účinků síly je pohybový?',
@@ -645,7 +645,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak mohou tělesa působit na dálku?',
 			odpovedi: ['pomocí silových polí', 'pouze přímým dotykem', 'křikem'],
-			vysvetleni: 'Na dálku působí gravitační, magnetická a elektrická síla — prostřednictvím silových polí.',
+			vysvetleni: 'Na dálku působí síly, které vznikají díky silovým polím kolem těles — patří mezi ně třeba gravitační nebo magnetická síla.',
 		},
 		{
 			text: 'Která síla působí mezi magnety?',
@@ -787,7 +787,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč se astronaut na Měsíci jakoby vznáší při chůzi?',
 			odpovedi: ['na Měsíci je gravitace 6× menší', 'na Měsíci není žádná gravitace', 'má speciální nadnášející skafandr'],
-			vysvetleni: 'Měsíc je menší a lehčí než Země, jeho gravitační síla je asi 6× menší.',
+			vysvetleni: 'Měsíc je menší a lehčí než Země, a proto je jeho gravitace mnohem slabší, než jsme zvyklí ze Země.',
 		},
 		{
 			text: 'Proč planety obíhají kolem Slunce?',
@@ -894,7 +894,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se nazývá největší délka, kterou měřidlo dokáže změřit?',
 			odpovedi: ['měřicí rozsah', 'přesnost měřidla', 'odchylka měření'],
-			vysvetleni: 'Rozsah = nejmenší a největší hodnota na stupnici. Přesnost určuje nejmenší dílek, odchylka je polovina dílku.',
+			vysvetleni: 'Rozsah je úsek od nejmenší po největší hodnotu, kterou měřidlo na stupnici umí ukázat.',
 		},
 		{
 			text: 'Jak velká je odchylka měření?',
@@ -956,7 +956,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik gramů je 1 kilogram?',
 			odpovedi: ['1 000 g', '100 g', '10 000 g'],
-			vysvetleni: '1 kg = 1 000 g. Také 1 g = 1 000 mg a 1 t = 1 000 kg.',
+			vysvetleni: '1 kg = 1 000 g. Stejným způsobem se převádí i g na mg.',
 		},
 		{
 			text: 'Kolik kilogramů je 1 tuna?',
@@ -1058,7 +1058,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik dm³ je 1 m³?',
 			odpovedi: ['1 000 dm³', '100 dm³', '10 dm³'],
-			vysvetleni: 'Krychlové jednotky se převádí po tisících: 1 m³ = 1 000 dm³, 1 dm³ = 1 000 cm³.',
+			vysvetleni: 'Krychlové jednotky se převádí po tisících — u každého kroku na menší jednotku (m³ na dm³, dm³ na cm³) násobíme 1000.',
 		},
 		{
 			text: 'Kolik mililitrů je 1 litr?',
@@ -1147,7 +1147,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Proč musí být odměrný válec při měření na vodorovné podložce a odečítáme kolmo v úrovni očí?',
 			odpovedi: ['Jinak by se hladina zdála výš nebo níž a odečet by byl chybný', 'Protože by se z válce úplně a velmi rychle vylila všechna voda', 'Protože nakloněný válec by se mohl převrhnout a rozbít'],
-			vysvetleni: 'Šikmý pohled nebo nakloněný válec zkreslí polohu hladiny vzhledem ke stupnici, proto se odečítá kolmo, v nejnižším bodě zaoblené hladiny.',
+			vysvetleni: 'Šikmý pohled nebo nakloněný válec zkreslí polohu hladiny vzhledem ke stupnici, a naměřená hodnota by pak neodpovídala skutečnému objemu.',
 		},
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/hustota': [
@@ -1188,7 +1188,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik kg/m³ je 1 g/cm³?',
 			odpovedi: ['1 000 kg/m³', '1 kg/m³', '100 kg/m³'],
-			vysvetleni: '1 g/cm³ = 1 000 kg/m³. Jednotka g/cm³ se používá v chemii a farmacii.',
+			vysvetleni: 'Kilogram je tisíc gramů a metr krychlový je milion centimetrů krychlových, takže se hodnota v jednotce g/cm³ převede na kg/m³ vynásobením tisícem. Jednotka g/cm³ se používá třeba v chemii.',
 		},
 		{
 			text: 'Kde najdeme hustoty jednotlivých látek?',
@@ -1909,17 +1909,17 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co se stane, když k sobě přiblížíme opačné póly dvou magnetů?',
 			odpovedi: ['přitáhnou se', 'odpudí se', 'na sebe vůbec nepůsobí'],
-			vysvetleni: 'Opačné póly (N a S) se přitahují — mezi nimi je magnetické pole nejsilnější. Odpuzují se naopak stejné (souhlasné) póly.',
+			vysvetleni: 'Opačné póly (N a S) se přitahují — mezi nimi je magnetické pole nejsilnější. Stejné (souhlasné) póly se k sobě chovají právě naopak.',
 		},
 		{
 			text: 'Kde je na magnetu magnetická síla nejslabší?',
 			odpovedi: ['uprostřed, v netečném pásmu', 'na obou pólech úplně zároveň', 'na severním pólu'],
-			vysvetleni: 'Uprostřed magnetu mezi póly je tzv. netečné pásmo, kde je magnetická síla nejslabší. Nejsilnější je naopak na pólech.',
+			vysvetleni: 'Uprostřed magnetu mezi póly je tzv. netečné pásmo, kde je magnetická síla nejslabší — směrem k oběma koncům magnetu naopak stále sílí.',
 		},
 		{
 			text: 'Jak vzniká polární záře?',
 			odpovedi: ['nabité částice ze Slunce proniknou u pólů polem Země', 'odrazem slunečního světla od ledovců, sněhu a mořské hladiny', 'výbuchy sopek pod polárním ledem'],
-			vysvetleni: 'Magnetické pole Země většinu nebezpečných částic slunečního větru odkloní, ale u pólů některé proniknou a vytvoří polární záři — nesouvisí s odrazem světla ani se sopkami.',
+			vysvetleni: 'Magnetické pole Země většinu nebezpečných nabitých částic ze Slunce odkloní, ale u pólů některé proniknou a vytvoří polární záři — nesouvisí s odrazem světla ani se sopkami.',
 		},
 	],
 	'fyzika/6-rocnik/elektrina-a-magnetismus/elektricke-vlastnosti-latek': [
@@ -2058,7 +2058,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jaké napětí má tužková baterie?',
 			odpovedi: ['1,5 V', '4,5 V', '12 V'],
-			vysvetleni: 'Tužkový článek má 1,5 V, plochá baterie 4,5 V — jiné zdroje bývají silnější.',
+			vysvetleni: 'Tužkový článek má 1,5 V — jiné zdroje, třeba autobaterie, mívají napětí mnohem vyšší.',
 		},
 		{
 			text: 'Jaké jsou účinky průchodu proudu vodičem?',
@@ -2097,7 +2097,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jaké napětí dají 3 tužkové baterie zapojené za sebou?',
 			odpovedi: ['4,5 V', '1,5 V', '9 V'],
-			vysvetleni: '3 × 1,5 V = 4,5 V. Při zapojení za sebou se napětí sčítá (+ připojíme k −).',
+			vysvetleni: 'Zapojíme-li zdroje za sebou (+ k −), jejich napětí se sčítají — tři stejné tužkové baterie tak dají trojnásobek napětí jednoho článku.',
 		},
 		{
 			text: 'Co je zkrat?',
@@ -2339,7 +2339,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kolik pascalů je 1 hektopascal (hPa), který se používá v meteorologii?',
 			odpovedi: ['100 Pa', '1 000 Pa', '10 Pa'],
-			vysvetleni: 'Předpona hekto- znamená sto: 1 hPa = 100 Pa. Normální atmosférický tlak je asi 1 013 hPa.',
+			vysvetleni: 'Předpona hekto- znamená sto, stejně jako u hektolitru (1 hl = 100 l). Normální atmosférický tlak je asi 1 013 hPa.',
 		},
 		{
 			text: 'Jak závisí velikost tlaku na velikosti tlakové síly?',
@@ -2724,8 +2724,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je pohyb tělesa?', odpovedi: ['změna polohy tělesa vzhledem k jinému tělesu', 'jakékoli chvění tělesa', 'změna teploty tělesa'], vysvetleni: 'Pohyb = změna polohy vzhledem k jinému tělesu. Bez porovnání s jiným tělesem o pohybu mluvit nejde.' },
 		{ text: 'Kdy je těleso v klidu?', odpovedi: ['když vzhledem k jinému tělesu nemění svou polohu', 'když se nehýbe vzhledem k čemukoli ve vesmíru', 'když na něj nepůsobí žádná síla'], vysvetleni: 'Klid posuzujeme vždy vzhledem ke zvolenému tělesu — proto je klid relativní.' },
 		{ text: 'Cestující sedí v jedoucím vlaku. Vzhledem k sedadlu je…', odpovedi: ['v klidu', 'v pohybu', 'ani jedno'], vysvetleni: 'Vůči sedadlu polohu nemění — je v klidu; vůči nádraží se ale pohybuje.' },
-		{ text: 'Tentýž cestující je vzhledem k lidem na nástupišti…', odpovedi: ['v pohybu', 'v klidu', 'nelze rozhodnout'], vysvetleni: 'Vzhledem k nástupišti svou polohu mění — je v pohybu. Záleží na pozorovateli.' },
-		{ text: 'Říkáme, že klid a pohyb jsou…', odpovedi: ['relativní — záleží, k čemu je vztahujeme', 'absolutní — platí vždy stejně', 'náhodné'], vysvetleni: 'Stejné těleso může být současně v klidu (k sedadlu) i v pohybu (k nádraží).' },
+		{ text: 'Tentýž cestující je vzhledem k lidem na nástupišti…', odpovedi: ['v pohybu', 'v klidu', 'nelze rozhodnout'], vysvetleni: 'Vzhledem k nástupišti cestující svou polohu mění, protože vlak jede — proto o něm mluvíme jako o pohybujícím se tělese. Záleží vždy na tom, s čím pohyb porovnáváme.' },
+		{ text: 'Říkáme, že klid a pohyb jsou…', odpovedi: ['relativní — záleží, k čemu je vztahujeme', 'absolutní — platí vždy stejně', 'náhodné'], vysvetleni: 'Stejné těleso může být zároveň klidné vzhledem k jednomu tělesu a pohybující se vzhledem k jinému — třeba cestující v jedoucím vlaku.' },
 		{ text: 'Co je trajektorie?', odpovedi: ['čára, po které se těleso pohybuje', 'délka uražené cesty', 'čas pohybu tělesa'], vysvetleni: 'Trajektorie je čára pohybu — např. stopa lyžaře ve sněhu.' },
 		{ text: 'Trajektorie může být…', odpovedi: ['viditelná (stopa lyžaře) i myšlená (let letadla)', 'jen viditelná', 'jen myšlená'], vysvetleni: 'Někdy trajektorii vidíme (stopa), jindy si ji jen představujeme (dráha letu).' },
 		{ text: 'Co je dráha?', odpovedi: ['délka trajektorie', 'tvar trajektorie', 'rychlost pohybu'], vysvetleni: 'Dráha s = délka čáry, kterou těleso opsalo; měříme ji v metrech.' },
@@ -2740,7 +2740,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Ujel jsi na kole 2 km. Číslo 2 km je…', odpovedi: ['dráha', 'trajektorie', 'rychlost'], vysvetleni: '2 km je DÉLKA cesty = dráha. Trajektorie je samotná čára cesty.' },
 		{ text: 'Který z těchto údajů popisuje trajektorii?', odpovedi: ['tvar čáry pohybu (přímka, kružnice…)', 'počet kilometrů', 'počet minut'], vysvetleni: 'Trajektorie = tvar čáry; kilometry jsou dráha, minuty čas.' },
 		{ text: 'Spolujezdec v autě je v klidu vzhledem k…', odpovedi: ['řidiči', 'domům u silnice', 'chodcům na chodníku'], vysvetleni: 'Vzhledem k řidiči polohu nemění; vůči domům a chodcům se pohybuje.' },
-		{ text: 'Může být těleso zároveň v klidu i v pohybu?', odpovedi: ['ano — vzhledem k různým tělesům', 'ne, nikdy', 'jen ve vesmíru'], vysvetleni: 'Ano! Cestující: v klidu k vlaku, v pohybu k nádraží. Proto je pohyb relativní.' },
+		{ text: 'Může být těleso zároveň v klidu i v pohybu?', odpovedi: ['ano — vzhledem k různým tělesům', 'ne, nikdy', 'jen ve vesmíru'], vysvetleni: 'Ano — třeba cestující ve vlaku je klidný vzhledem k sedadlu, ale pohybuje se vzhledem k nádraží. Proto je klid i pohyb vždy relativní, závislý na porovnávaném tělese.' },
 		{ text: 'Dráha 1 km je kolik metrů?', odpovedi: ['1 000 m', '100 m', '10 000 m'], vysvetleni: '1 km = 1 000 m (kilo- znamená tisíc).' },
 	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb': [
@@ -2750,7 +2750,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Který pohyb je posuvný?', odpovedi: ['vlak jedoucí po rovné trati', 'hodinová ručička', 'krasobruslařka při piruetě'], vysvetleni: 'Vlak na rovné trati: všechny body jedou stejně. Ručička i pirueta jsou otáčivé pohyby.' },
 		{ text: 'Zboží na pokladním pásu koná pohyb…', odpovedi: ['posuvný', 'otáčivý', 'složený'], vysvetleni: 'Pás nese zboží rovně stejnou rychlostí — posuvný pohyb.' },
 		{ text: 'Může být posuvný pohyb i křivočarý?', odpovedi: ['ano — body opisují shodné křivky', 'ne, posuvný pohyb musí být vždy přímočarý', 'jen u vlaků jedoucích po rovných kolejích'], vysvetleni: 'Ano — důležité je, že všechny body opíší stejnou čáru; ta může být i křivka.' },
-		{ text: 'Jak se pohybují body tělesa při otáčivém pohybu?', odpovedi: ['po kružnicích kolem osy otáčení', 'všechny stejně rychle', 'po přímkách'], vysvetleni: 'Body krouží po kružnicích se středy na ose otáčení.' },
+		{ text: 'Jak se pohybují body tělesa při otáčivém pohybu?', odpovedi: ['po kružnicích kolem osy otáčení', 'všechny stejně rychle', 'po přímkách'], vysvetleni: 'Body opisují kruhové dráhy se středy na ose otáčení.' },
 		{ text: 'Co je osa otáčení?', odpovedi: ['pevná přímka, kolem které se těleso otáčí', 'bod tělesa, který se pohybuje vůbec nejrychleji', 'vzdálenost, kterou opíše celá kružnice'], vysvetleni: 'Osa otáčení je pevná část, kolem níž se vše točí — třeba hřídel kola.' },
 		{ text: 'Který bod tělesa se při otáčení pohybuje nejrychleji?', odpovedi: ['bod nejdál od osy otáčení', 'bod nejblíž ose', 'všechny stejně'], vysvetleni: 'Čím dál od osy, tím větší kružnici bod opisuje za stejný čas — je rychlejší.' },
 		{ text: 'Konec hodinové ručičky se oproti jejímu středu pohybuje…', odpovedi: ['rychleji', 'pomaleji', 'stejně'], vysvetleni: 'Konec je dál od osy → větší kružnice za stejný čas → větší rychlost.' },
@@ -2856,7 +2856,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Vpřed táhne 70 N, dozadu brzdí tření 20 N. Výslednice?', odpovedi: ['50 N vpřed', '90 N vpřed', '50 N vzad'], vysvetleni: '70 − 20 = 50 N vpřed — proto se těleso pohybuje dopředu.' },
 		{ text: 'Co uděláme, když na těleso působí více sil a chceme znát jejich celkový účinek?', odpovedi: ['určíme výslednici', 'vybereme si jednu', 'síly ignorujeme'], vysvetleni: 'Celkový účinek popisuje právě výslednice sil.' },
 		{ text: 'Knize ležící na stole působí tíhová síla 5 N dolů. Jakou silou působí stůl?', odpovedi: ['5 N vzhůru', '5 N dolů', '0 N'], vysvetleni: 'Kniha je v klidu, takže síla stolu musí tíhu knihy přesně vyvážit — míří vzhůru a má také 5 N.' },
-		{ text: 'Výslednice sil v rovnováze je…', odpovedi: ['nulová', 'největší možná', 'záporná'], vysvetleni: 'Rovnováha znamená výslednici 0 N — jako by žádná síla nepůsobila.' },
+		{ text: 'Výslednice sil v rovnováze je…', odpovedi: ['nulová', 'největší možná', 'záporná'], vysvetleni: 'Rovnováha znamená, že se síly navzájem přesně vyruší — jako by na těleso vůbec nic nepůsobilo.' },
 	],
 	'fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila': [
 		{ text: 'Mezi kterými tělesy působí gravitační síla?', odpovedi: ['mezi všemi tělesy s hmotností', 'jen mezi planetami', 'jen mezi magnety'], vysvetleni: 'Gravitačně se přitahují úplně všechna tělesa — u malých je síla jen nepatrná.' },
@@ -2996,12 +2996,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jakým směrem působí vztlaková síla na ponořené těleso?', odpovedi: ['svisle vzhůru', 'svisle dolů k zemi', 'vodorovně'], vysvetleni: 'Vztlaková síla těleso nadlehčuje — míří vzhůru, proti tíhové síle.' },
 		{ text: 'Jaká je značka vztlakové síly?', odpovedi: ['Fvz', 'Fg1', 'Ft2'], vysvetleni: 'Vztlaková síla je Fvz; Fg je tíhová, Ft třecí.' },
 		{ text: 'Co říká Archimédův zákon?', odpovedi: ['nadlehčuje ho tíha vytlačené kapaliny', 'těleso v kapalině vždycky plave nahoře', 'tlak se šíří všemi směry'], vysvetleni: 'Vztlak = tíha vytlačené kapaliny o objemu ponořené části tělesa.' },
-		{ text: 'Podle jakého vzorce vypočítáme vztlakovou sílu?', odpovedi: ['Fvz = V · ρ · g', 'Fvz = m · v · h', 'Fvz = h · S · ρ'], vysvetleni: 'Objem ponořené části × hustota kapaliny × g.' },
+		{ text: 'Podle jakého vzorce vypočítáme vztlakovou sílu?', odpovedi: ['Fvz = V · ρ · g', 'Fvz = m · v · h', 'Fvz = h · S · ρ'], vysvetleni: 'Objem ponořené části krát to, jak hutná je okolní tekutina, krát tíhové zrychlení g.' },
 		{ text: 'Co znamená V ve vzorci Fvz = V · ρ · g?', odpovedi: ['objem ponořené části', 'výška tělesa', 'rychlost ponořování tělesa'], vysvetleni: 'V je objem ponořené části (m³) — jen ta vytlačuje kapalinu.' },
 		{ text: 'Co znamená ρ ve vzorci pro vztlak?', odpovedi: ['hustota kapaliny', 'hustota celého tělesa', 'hmotnost tělesa'], vysvetleni: 'Do vzorce patří hustota KAPALINY, ne tělesa!' },
 		{ text: 'Proč nám věci pod vodou připadají lehčí?', odpovedi: ['nadlehčuje je vztlak', 'voda zmenšuje hmotnost', 'je tam menší gravitace'], vysvetleni: 'Hmotnost se nemění — vztlak jen působí proti tíze.' },
 		{ text: 'Těleso vážilo na vzduchu 500 g, ve vodě 400 g. Jak velký je vztlak?', odpovedi: ['1 N', '10 N', '100 N'], vysvetleni: 'Rozdíl je 100 g = 0,1 kg; Fvz = 0,1 · 10 = 1 N.' },
-		{ text: 'Kdy se těleso v kapalině potápí?', odpovedi: ['když tíhová síla převáží', 'když je vztlak větší než tíha', 'vždy'], vysvetleni: 'Fg > Fvz → klesá ke dnu (hustota tělesa > hustota kapaliny).' },
+		{ text: 'Kdy se těleso v kapalině potápí?', odpovedi: ['když tíhová síla převáží', 'když je vztlak větší než tíha', 'vždy'], vysvetleni: 'Fg > Fvz → klesá ke dnu (těleso je hutnější než tekutina, ve které je ponořené).' },
 		{ text: 'Kdy se těleso v kapalině vznáší?', odpovedi: ['když Fg = Fvz', 'když Fg > Fvz', 'když je duté'], vysvetleni: 'Rovnováha sil → těleso zůstává v libovolné hloubce (ryba).' },
 		{ text: 'Kdy těleso plove na hladině?', odpovedi: ['když vztlak převáží tíhu', 'když je tíhová síla větší', 'když je z kovu'], vysvetleni: 'Fvz > Fg → těleso stoupá, až se ustálí částečně vynořené.' },
 		{ text: 'Kámen ve vodě klesá ke dnu, protože…', odpovedi: ['má větší hustotu než voda', 'má menší hustotu než voda', 'je studený'], vysvetleni: 'Hustota kamene > 1000 kg/m³ → Fg > Fvz → potápí se.' },
@@ -3089,7 +3089,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč vidíme Měsíc, když sám nesvítí?', odpovedi: ['odráží sluneční světlo', 'svítí elektřinou', 'hoří'], vysvetleni: 'Měsíc jen odráží světlo Slunce — není zdrojem.' },
 		{ text: 'Který zdroj světla je přirozený?', odpovedi: ['Slunce', 'žárovka', 'displej mobilu'], vysvetleni: 'Přirozené: Slunce, oheň, blesk, světluška; umělé vyrobil člověk.' },
 		{ text: 'Který zdroj světla je umělý?', odpovedi: ['LED žárovka', 'světluška', 'blesk při bouřce'], vysvetleni: 'Umělé zdroje vyrobil člověk: žárovky, zářivky, LED, svíčka.' },
-		{ text: 'Světluška je zdroj…', odpovedi: ['přirozený', 'umělý', 'odražený'], vysvetleni: 'Světluška světlo sama vyrábí (bioluminiscence) — přírodní zdroj.' },
+		{ text: 'Světluška je zdroj…', odpovedi: ['přirozený', 'umělý', 'odražený'], vysvetleni: 'Světluška svítí díky chemické reakci ve svém těle (bioluminiscence) — jde o přírodní zdroj.' },
 		{ text: 'Jak dělíme zdroje světla podle velikosti?', odpovedi: ['bodové a plošné', 'velké a malé', 'denní a noční'], vysvetleni: 'Bodový zdroj je „jako bod" (vzdálená hvězda), plošný svítí celou plochou (zářivkový panel).' },
 		{ text: 'Jak se světlo šíří ve stejnorodém prostředí?', odpovedi: ['přímočaře — po přímkách', 'v kruzích', 'klikatě'], vysvetleni: 'Paprsky jdou rovně — proto vznikají ostré stíny.' },
 		{ text: 'Co je světelný paprsek?', odpovedi: ['myšlená přímka znázorňující směr šíření světla', 'proud vody', 'druh stínu'], vysvetleni: 'Paprsek je model — čára, po které světlo putuje.' },
@@ -3112,7 +3112,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak zní zákon odrazu?', odpovedi: ['úhel odrazu = úhel dopadu', 'úhel odrazu je dvojnásobný', 'odraz je vždycky kolmý'], vysvetleni: 'α\' = α — světlo se odráží „férově" pod stejným úhlem.' },
 		{ text: 'Co uvidíš, když postavíš dvě rovnoběžná zrcadla naproti sobě?', odpovedi: ['nekonečnou řadu zmenšujících se obrazů', 'jen jediný svůj obraz uprostřed mezi zrcadly', 'úplně černou plochu'], vysvetleni: 'Obraz se odráží sem a tam mezi zrcadly — vzniká zdánlivě nekonečná řada obrazů.' },
 		{ text: 'Co je kolmice dopadu?', odpovedi: ['kolmice v bodě dopadu', 'nejdelší paprsek svazku', 'okraj zrcadla'], vysvetleni: 'Pomocná kolmá čára v místě dopadu — od ní měříme úhly.' },
-		{ text: 'Paprsek dopadá pod úhlem 30° od kolmice. Pod jakým úhlem se odrazí?', odpovedi: ['30°', '60°', '90°'], vysvetleni: 'Úhel odrazu = úhel dopadu = 30°.' },
+		{ text: 'Paprsek dopadá pod úhlem 30° od kolmice. Pod jakým úhlem se odrazí?', odpovedi: ['30°', '60°', '90°'], vysvetleni: 'Paprsek se odráží vždy pod stejným úhlem, jakým dopadl, tedy 30°.' },
 		{ text: 'Paprsek dopadne kolmo na zrcadlo (úhel dopadu 0°). Co se stane?', odpovedi: ['vrátí se stejnou cestou', 'odrazí se někam do strany', 'zmizí uvnitř zrcadla'], vysvetleni: 'Úhel odrazu 0° — paprsek se vrací po stejné přímce.' },
 		{ text: 'Dopadající paprsek, odražený paprsek a kolmice leží…', odpovedi: ['v jedné rovině', 'v různých rovinách', 'na jedné přímce vždy'], vysvetleni: 'Všechny tři patří do téže roviny — proto jde odraz kreslit na papír.' },
 		{ text: 'Co se stane se svazkem rovnoběžných paprsků na nerovné ploše?', odpovedi: ['rozptýlí se do stran', 'zůstane rovnoběžný', 'celý se pohltí v ploše'], vysvetleni: 'Každý paprsek dopadne na jinak nakloněný hrbolek — rozptyl.' },
@@ -3132,10 +3132,10 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla': [
 		{ text: 'Proč se světlo na rozhraní prostředí láme?', odpovedi: ['mění svou rychlost', 'mění barvu', 'ztrácí energii'], vysvetleni: 'V každém prostředí má světlo jinou rychlost — změna rychlosti ohne směr.' },
-		{ text: 'Kdy nastává lom KE kolmici?', odpovedi: ['při přechodu z řidšího do hustšího prostředí (vzduch → voda)', 'z hustšího do řidšího', 'nikdy'], vysvetleni: 'Do „pomalejšího" prostředí se paprsek přiklání ke kolmici.' },
-		{ text: 'Při lomu ke kolmici je úhel lomu β oproti úhlu dopadu α…', odpovedi: ['menší', 'větší', 'stejný'], vysvetleni: 'Ke kolmici = úhel se zmenší (β < α).' },
-		{ text: 'Kdy nastává lom OD kolmice?', odpovedi: ['při přechodu z hustšího do řidšího prostředí (voda → vzduch)', 'z řidšího do hustšího', 'při odrazu'], vysvetleni: 'Do „rychlejšího" prostředí se paprsek odklání od kolmice.' },
-		{ text: 'Při lomu od kolmice je úhel lomu oproti úhlu dopadu…', odpovedi: ['větší', 'menší', 'nulový'], vysvetleni: 'Od kolmice = úhel se zvětší (β > α).' },
+		{ text: 'Kdy nastává lom KE kolmici?', odpovedi: ['při přechodu z řidšího do hustšího prostředí (vzduch → voda)', 'z hustšího do řidšího', 'nikdy'], vysvetleni: 'Do opticky hustšího („pomalejšího") prostředí se paprsek při lomu přiklání blíž k pomyslné svislé čáře v bodě dopadu.' },
+		{ text: 'Při lomu ke kolmici je úhel lomu β oproti úhlu dopadu α…', odpovedi: ['menší', 'větší', 'stejný'], vysvetleni: 'Když se paprsek přiklání blíž k pomyslné svislé čáře, úhel lomu je menší než úhel dopadu (β < α).' },
+		{ text: 'Kdy nastává lom OD kolmice?', odpovedi: ['při přechodu z hustšího do řidšího prostředí (voda → vzduch)', 'z řidšího do hustšího', 'při odrazu'], vysvetleni: 'Do opticky řidšího („rychlejšího") prostředí se paprsek při lomu odklání dál od pomyslné svislé čáry v bodě dopadu.' },
+		{ text: 'Při lomu od kolmice je úhel lomu oproti úhlu dopadu…', odpovedi: ['větší', 'menší', 'nulový'], vysvetleni: 'Když se paprsek odklání dál od pomyslné svislé čáry, úhel lomu je větší než úhel dopadu (β > α).' },
 		{ text: 'Paprsek jde ze vzduchu do skla. Láme se…', odpovedi: ['ke kolmici', 'od kolmice', 'neláme se'], vysvetleni: 'Sklo je opticky hustší → lom ke kolmici.' },
 		{ text: 'Paprsek jde z vody do vzduchu. Láme se…', odpovedi: ['od kolmice', 'ke kolmici', 'kolmo dolů'], vysvetleni: 'Vzduch je řidší → lom od kolmice.' },
 		{ text: 'Co je mezní úhel?', odpovedi: ['největší úhel dopadu, při kterém ještě nastává lom', 'úhel přesně 45°', 'úhel odrazu'], vysvetleni: 'Nad mezním úhlem se světlo už nezlomí ven — jen se odrazí.' },
@@ -3143,7 +3143,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Při přechodu z kterého do kterého prostředí může nastat úplný odraz?', odpovedi: ['z hustšího do řidšího', 'z řidšího do hustšího', 'jen ve vakuu'], vysvetleni: 'Úplný odraz jen směrem „ven" z hustšího prostředí (voda→vzduch, sklo→vzduch).' },
 		{ text: 'Kde se úplný odraz využívá?', odpovedi: ['v optických vláknech', 'v žárovkách', 've stínidlech'], vysvetleni: 'Světlo se ve vlákně odráží tam a zpět — přenáší internet i TV signál.' },
 		{ text: 'Proč vypadá brčko ve sklenici s vodou zlomené?', odpovedi: ['paprsky od ponořené části se na hladině lámou', 'brčko se ohýbá teplem', 'voda ho zkřivila'], vysvetleni: 'Lom na hladině posune obraz ponořené části — brčko se „zlomí".' },
-		{ text: 'Proč se dno bazénu zdá mělčí, než je?', odpovedi: ['kvůli lomu světla na hladině', 'voda dno nadnáší', 'oko se mýlí jen v šeru'], vysvetleni: 'Paprsky ode dna se lámou od kolmice — obraz dna se zvedne.' },
+		{ text: 'Proč se dno bazénu zdá mělčí, než je?', odpovedi: ['kvůli lomu světla na hladině', 'voda dno nadnáší', 'oko se mýlí jen v šeru'], vysvetleni: 'Paprsky vycházející ode dna se při přechodu do vzduchu ohýbají směrem dál od svislé pomocné čáry — obraz dna se opticky zvedne.' },
 		{ text: 'Ve kterém prostředí je světlo rychlejší — ve vodě, nebo ve skle?', odpovedi: ['ve vodě (~225 000 km/s)', 've skle', 'stejně'], vysvetleni: 'Voda ~225 000, sklo ~200 000 km/s — sklo je opticky hustší.' },
 		{ text: 'Opticky hustší prostředí znamená…', odpovedi: ['světlo se v něm šíří pomaleji', 'je těžší na váhu', 'je tmavší'], vysvetleni: 'Optická hustota = jak moc prostředí světlo zpomalí.' },
 		{ text: 'Paprsek dopadá kolmo na hladinu (0° od kolmice). Co se stane?', odpovedi: ['projde bez lomu', 'zlomí se o 45°', 'odrazí se zpět'], vysvetleni: 'Kolmý paprsek jen zpomalí, směr nemění.' },
@@ -3204,7 +3204,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Který příklad je nestejnorodé těleso?', odpovedi: ['tužka — dřevo a tuha', 'skleněná kulička z jednoho skla', 'ocelový hřebík'], vysvetleni: 'Tužka je ze dřeva a tuhy — dvě různé látky.' },
 		{ text: 'Proč je žula nestejnorodé těleso?', odpovedi: ['je směs více nerostů', 'je jen z čistého křemene', 'je z jedné čisté látky'], vysvetleni: 'Žula je směs více nerostů — křemen, živec, slída.' },
 		{ text: 'Mají různé části nestejnorodého tělesa stejné vlastnosti?', odpovedi: ['ne, liší se', 'ano, jsou všude stejné', 'jen stejnou barvu'], vysvetleni: 'Různé látky → různé vlastnosti v různých částech tělesa.' },
-		{ text: 'Co počítáme u nestejnorodých těles místo hustoty látky?', odpovedi: ['průměrnou hustotu', 'jen celkovou hmotnost', 'jen objem'], vysvetleni: 'Protože jde o více látek, určujeme průměrnou hustotu celého tělesa.' },
+		{ text: 'Co počítáme u nestejnorodých těles místo hustoty látky?', odpovedi: ['průměrnou hustotu', 'jen celkovou hmotnost', 'jen objem'], vysvetleni: 'Protože je těleso z více látek dohromady, počítáme, kolik v průměru váží jeho objem jako celek.' },
 		{ text: 'Podle čeho se řídí, zda těleso plove?', odpovedi: ['podle průměrné hustoty', 'podle barvy povrchu', 'podle tvaru a velikosti'], vysvetleni: 'Rozhoduje průměrná hustota tělesa v porovnání s hustotou kapaliny.' },
 		{ text: 'Proč ocelová loď plove, i když ocel je těžší než voda?', odpovedi: ['vzduch uvnitř sníží hustotu', 'ocel je ve vodě mnohem lehčí', 'voda ji nadnáší magneticky'], vysvetleni: 'Uvnitř lodi je hodně vzduchu → průměrná hustota je menší než u vody.' },
 		{ text: 'Je skleněná kulička stejnorodé, nebo nestejnorodé těleso?', odpovedi: ['stejnorodé', 'nestejnorodé', 'nelze určit'], vysvetleni: 'Je z jediné látky (sklo) — tedy stejnorodé.' },
@@ -3246,7 +3246,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaký obraz vytváří vypuklé zrcadlo?', odpovedi: ['zdánlivý a zmenšený', 'vždy skutečný a zvětšený', 'mění se podle vzdálenosti'], vysvetleni: 'Nezávisle na poloze předmětu je obraz zdánlivý, vzpřímený, zmenšený.' },
 		{ text: 'Jaká je hlavní výhoda vypuklého zrcadla?', odpovedi: ['zachytí velký kus okolí', 'hodně zvětšuje obraz', 'vůbec nic nezkresluje obraz'], vysvetleni: 'Vidíme v něm mnohem větší kus okolí než v rovinném zrcadle.' },
 		{ text: 'Kde se používá vypuklé zrcadlo?', odpovedi: ['dopravní zrcadlo', 'zubní zrcátko', 'solární elektrárna'], vysvetleni: 'Široký záběr se hodí k dopravním a bezpečnostním zrcadlům.' },
-		{ text: 'K čemu se využívá duté zrcadlo v solární elektrárně?', odpovedi: ['soustředí paprsky', 'rozptyluje světlo do okolí', 'chladí vodu'], vysvetleni: 'Rovnoběžné sluneční paprsky se soustředí do ohniska a předají energii.' },
+		{ text: 'K čemu se využívá duté zrcadlo v solární elektrárně?', odpovedi: ['soustředí paprsky', 'rozptyluje světlo do okolí', 'chladí vodu'], vysvetleni: 'Rovnoběžné sluneční paprsky se odrazem od zrcadla soustředí do jediného bodu a předají tam svou energii.' },
 		{ text: 'Jaká zrcadla mají lepší zobrazení než kulová a používají je dalekohledy?', odpovedi: ['parabolická', 'rovinná', 'vypuklá kulová'], vysvetleni: 'Parabolická zrcadla zobrazují ostřeji — Hubbleův i Webbův teleskop.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka': [
@@ -3270,7 +3270,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč lze spojkou (lupou) rozdělat oheň?', odpovedi: ['soustředí sluneční paprsky do ohniska', 'rozptýlí paprsky', 'odrazí paprsky zpět'], vysvetleni: 'V ohnisku se energie slunečních paprsků soustředí do malého bodu.' },
 	],
 	'fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka': [
-		{ text: 'Co je hlavním úkolem oka?', odpovedi: ['vytvořit obraz na sítnici', 'vydávat vlastní světlo do okolí', 'zesilovat zvuk'], vysvetleni: 'Oko je optická soustava — vytváří obraz na sítnici.' },
+		{ text: 'Co je hlavním úkolem oka?', odpovedi: ['vytvořit obraz na sítnici', 'vydávat vlastní světlo do okolí', 'zesilovat zvuk'], vysvetleni: 'Oko je optická soustava, která zachytí obraz na citlivé vrstvě vzadu v oku.' },
 		{ text: 'V jakém pořadí prochází světlo okem?', odpovedi: ['rohovka → zornice → čočka → sítnice', 'sítnice → čočka → rohovka → zornice', 'čočka → rohovka → sítnice'], vysvetleni: 'rohovka → komorová voda → zornice → čočka → sklivec → sítnice.' },
 		{ text: 'Jako co funguje zornice?', odpovedi: ['jako clona fotoaparátu', 'jako zdroj světla v oku', 'jako zrcadlo'], vysvetleni: 'Při silném světle se zúží, při slabém rozšíří.' },
 		{ text: 'Jaká je čočka v oku?', odpovedi: ['pružná spojka', 'rozptylka z kovu', 'ploché zrcadlo'], vysvetleni: 'Oční čočka je pružná spojka s proměnlivou ohniskovou vzdáleností.' },
@@ -3282,9 +3282,9 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaká je nejvhodnější vzdálenost pro čtení a psaní?', odpovedi: ['25–30 cm', '5 cm', 'dva metry'], vysvetleni: 'Na 25–30 cm oko čte ostře a přitom se tolik neunaví.' },
 		{ text: 'Jak se mění schopnost akomodace s věkem?', odpovedi: ['klesá', 'roste', 'nemění se'], vysvetleni: 'Čočka postupně ztrácí pružnost, hůř se zaostřuje na blízko.' },
 		{ text: 'Kde vzniká obraz u dalekozrakého oka?', odpovedi: ['za sítnicí', 'před sítnicí', 'přesně na sítnici'], vysvetleni: 'Dalekozraké oko láme málo — obraz by vznikl až za sítnicí.' },
-		{ text: 'Čím se koriguje dalekozrakost?', odpovedi: ['brýlemi se spojkami', 'brýlemi s rozptylkami', 'zatemněnými brýlemi'], vysvetleni: 'Spojka pomůže oku více lámat — obraz se posune na sítnici.' },
+		{ text: 'Čím se koriguje dalekozrakost?', odpovedi: ['brýlemi se spojkami', 'brýlemi s rozptylkami', 'zatemněnými brýlemi'], vysvetleni: 'Spojka pomůže oku více lámat, takže se obraz posune přesně tam, kde vzniká ostrý obraz.' },
 		{ text: 'Kde vzniká obraz u krátkozrakého oka?', odpovedi: ['před sítnicí', 'až za sítnicí', 'na rohovce'], vysvetleni: 'Krátkozraké oko láme příliš — obraz vznikne před sítnicí.' },
-		{ text: 'Čím se koriguje krátkozrakost?', odpovedi: ['brýlemi s rozptylkami', 'brýlemi se spojkami na čtení', 'lupou'], vysvetleni: 'Rozptylka lom oka zeslabí — obraz se posune až na sítnici.' },
+		{ text: 'Čím se koriguje krátkozrakost?', odpovedi: ['brýlemi s rozptylkami', 'brýlemi se spojkami na čtení', 'lupou'], vysvetleni: 'Rozptylka lom oka zeslabí, takže se obraz posune přesně tam, kde vzniká ostrý obraz.' },
 		{ text: 'Co dalekozraké oko vidí ostře?', odpovedi: ['vzdálené předměty', 'blízké předměty i písmo', 'nic'], vysvetleni: 'Dalekozraký vidí do dálky ostře, blízko rozmazaně.' },
 		{ text: 'Co umožňují dvě oči?', odpovedi: ['prostorové vidění', 'vidět mnohem více barev', 'vidět ve tmě'], vysvetleni: 'Mozek spojí dva obrazy do jednoho prostorového vjemu.' },
 		{ text: 'Kde je na sítnici místo nejostřejšího vidění?', odpovedi: ['ve žluté skvrně', 'na okraji sítnice', 'na slepé skvrně'], vysvetleni: 'Ve žluté skvrně jsou nahuštěné čípky — nejostřejší barevné vidění.' },
@@ -3419,7 +3419,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie': [
 		{ text: 'Co je celková mechanická energie tělesa?', odpovedi: ['součet polohové a pohybové energie', 'jen pohybová energie', 'rozdíl energií'], vysvetleni: 'E = Ep + Ek.' },
-		{ text: 'Co říká zákon zachování mechanické energie?', odpovedi: ['součet Ep a Ek je stále stejný (pokud se nemění v jiné druhy)', 'energie se stále zvětšuje', 'energie mizí'], vysvetleni: 'Pohybová a polohová se přeměňují, ale jejich součet zůstává.' },
+		{ text: 'Co říká zákon zachování mechanické energie?', odpovedi: ['součet Ep a Ek je stále stejný (pokud se nemění v jiné druhy)', 'energie se stále zvětšuje', 'energie mizí'], vysvetleni: 'Ep a Ek na sebe navzájem přecházejí, ale dohromady mají po celou dobu stejnou hodnotu — nic nepřibude ani neubude.' },
 		{ text: 'Co se děje s energií při pádu tělesa?', odpovedi: ['polohová se mění na pohybovou', 'pohybová se mění na polohovou', 'energie mizí'], vysvetleni: 'Padá → ubývá výška (Ep), roste rychlost (Ek).' },
 		{ text: 'Kde má padající těleso největší pohybovou energii?', odpovedi: ['těsně před dopadem', 'na začátku pádu', 'uprostřed pádu'], vysvetleni: 'Dole je rychlost (a tím Ek) maximální, výška nulová.' },
 		{ text: 'Čemu se rovná pohybová energie při dopadu?', odpovedi: ['polohové energii na začátku pádu', 'nule', 'polovině polohové energie'], vysvetleni: 'Celá polohová energie se přemění na pohybovou.' },
@@ -3428,7 +3428,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kulička na dráze má nahoře Ep = 10 J, Ek = 0 J. Jaká je dole (výška 0)?', odpovedi: ['Ep = 0 J, Ek = 10 J', 'Ep = 10 J, Ek = 10 J', 'Ep = 5 J, Ek = 0 J'], vysvetleni: 'Celková energie 10 J se zachová — dole je celá pohybová.' },
 		{ text: 'Jak se přenáší energie při střelbě z luku?', odpovedi: ['z napnuté tětivy na šíp', 'ze šípu na tětivu', 'z terče na šíp'], vysvetleni: 'Energie uložená v napjaté tětivě se při výstřelu předá šípu, který díky ní vyletí velkou rychlostí.' },
 		{ text: 'Co se stane při nárazu koule do klidné koule v kulečníku?', odpovedi: ['první koule předá část pohybové energie druhé', 'energie zanikne', 'obě se zastaví natrvalo'], vysvetleni: 'Energie se přenese z jednoho tělesa na druhé.' },
-		{ text: 'Proč skateboardista na U-rampě nevyjede do stejné výšky?', odpovedi: ['tření mu ubere část energie (změní se na teplo)', 'zvětší se jeho hmotnost', 'poruší se zákon zachování'], vysvetleni: 'Část mechanické energie se třením mění na teplo.' },
+		{ text: 'Proč skateboardista na U-rampě nevyjede do stejné výšky?', odpovedi: ['tření mu ubere část energie (změní se na teplo)', 'zvětší se jeho hmotnost', 'poruší se zákon zachování'], vysvetleni: 'Tření mu ubere kousek energie, která se dál neprojevuje jako pohyb ani výška, ale ohřeje kolečka a rampu.' },
 		{ text: 'Na co se ztrácí mechanická energie třením?', odpovedi: ['na teplo', 'na světlo', 'na zvuk hlavně'], vysvetleni: 'Tření mění mechanickou energii na teplo.' },
 		{ text: 'Zůstává celková energie zachována, i když se část ztratí třením?', odpovedi: ['ano — jen se změní na teplo, což je taky energie', 'ne, energie zmizí', 'ano, ale jen ve vakuu'], vysvetleni: 'Teplo je také energie — celková energie se zachovává.' },
 		{ text: 'Kde má horská dráha nejvyšší rychlost?', odpovedi: ['v nejnižším bodě', 'v nejvyšším bodě', 'na začátku'], vysvetleni: 'Dole je polohová energie nejmenší a pohybová největší.' },
@@ -3456,7 +3456,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Z jakých dvou zdrojů člověk získává potraviny bohaté na energii?', odpovedi: ['z rostlin a živočichů', 'jen z rostlinné stravy', 'jen z masa a ryb'], vysvetleni: 'Text uvádí oba zdroje — rostliny i živočichy; omezení jen na jeden z nich neodpovídá textu.' },
 		{ text: 'Tyčinka müsli má na 50 g energetickou hodnotu 300 kJ. Kolik kJ má porce 100 g (dvojnásobná hmotnost)?', odpovedi: ['600 kJ', '300 kJ', '150 kJ'], vysvetleni: 'Dvojnásobná hmotnost = dvojnásobná energie: 300 · 2 = 600 kJ. Ponechat stejné (300) nebo hodnotu zmenšit (150) je chyba, protože hmotnost se zvětšila.' },
 		{ text: 'Porce jogurtu 100 g má energetickou hodnotu 400 kJ. Kolik kJ má poloviční porce 50 g?', odpovedi: ['200 kJ', '400 kJ', '100 kJ'], vysvetleni: 'Poloviční hmotnost = poloviční energie: 400 : 2 = 200 kJ. Ponechat plnou hodnotu (400) je chyba, protože jíš míň jídla; 100 kJ je zmenšení o víc, než odpovídá polovině.' },
-		{ text: 'Kolik kilojoulů je 2 000 J?', odpovedi: ['2 kJ', '20 kJ', '200 kJ'], vysvetleni: '1 kJ = 1 000 J, takže 2 000 J : 1 000 = 2 kJ. Odpovědi 20 kJ a 200 kJ vznikly chybným dělením (jen o jeden, resp. o žádný řád).' },
+		{ text: 'Kolik kilojoulů je 2 000 J?', odpovedi: ['2 kJ', '20 kJ', '200 kJ'], vysvetleni: 'Kilo- znamená tisíc, takže počet joulů dělíme tisícem: 2 000 : 1000 = 2 kJ. Odpovědi 20 kJ a 200 kJ vznikly chybným dělením (jen o jeden, resp. o žádný řád).' },
 		{ text: 'Ovocná tyčinka má na 100 g energetickou hodnotu 250 kJ. Kolik kJ mají tři takové tyčinky (300 g)?', odpovedi: ['750 kJ', '500 kJ', '250 kJ'], vysvetleni: 'Trojnásobná hmotnost = trojnásobná energie: 250 · 3 = 750 kJ. Menší číslo počítá jen se dvěma tyčinkami, nejmenší jen s jednou.' },
 		{ text: 'Balení keksů má hmotnost 300 g a energetickou hodnotu 1500 kJ. Kolik kJ připadá na 100 g?', odpovedi: ['500 kJ', '1500 kJ', '300 kJ'], vysvetleni: 'Celé balení (1500 kJ) je třeba vydělit třemi třetinami (300 g : 100 g = 3): 1500 : 3 = 500 kJ. Ponechat hodnotu celého balení (1500 kJ) je chyba, protože ptáme se jen na 100 g.' },
 		{ text: 'Měří kalorie (cal) a joule (J) stejnou fyzikální veličinu?', odpovedi: ['ano, obojí je energie v jiné jednotce', 'ne, kalorie měří teplotu vzduchu', 'ne, kalorie měří jen hmotnost potraviny'], vysvetleni: 'Kalorie i joule jsou jednotky energie — kalorie se dnes používá hlavně u potravin, ale vyjadřuje totéž co joule. Kalorie neměří ani teplotu, ani hmotnost.' },
@@ -3471,7 +3471,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Proč se čaj v horké vodě obarví rychleji než ve studené?', odpovedi: ['částice se pohybují rychleji', 'horká voda je hustší a těžší', 'studená voda barvivo pohltí'], vysvetleni: 'Rychlejší částice = rychlejší promíchání (difuze).' },
 		{ text: 'Jaké energie má každá částice tělesa?', odpovedi: ['pohybovou i polohovou', 'jen pohybovou, ne jinou', 'jen chemickou a světelnou'], vysvetleni: 'Pohybovou (pohybuje se) a polohovou (poloha vůči ostatním).' },
 		{ text: 'Co je vnitřní energie tělesa?', odpovedi: ['součet energií jeho částic', 'rychlost pohybu celého tělesa', 'jeho hmotnost a objem'], vysvetleni: 'Vnitřní energie = součet energií všech částic.' },
-		{ text: 'Na čem závisí vnitřní energie tělesa?', odpovedi: ['na počtu částic a teplotě', 'na barvě a na povrchu tělesa', 'na poloze v místnosti'], vysvetleni: 'Víc částic a vyšší teplota → větší vnitřní energie.' },
+		{ text: 'Na čem závisí vnitřní energie tělesa?', odpovedi: ['na počtu částic a teplotě', 'na barvě a na povrchu tělesa', 'na poloze v místnosti'], vysvetleni: 'Víc částic a jejich rychlejší pohyb — to, čemu říkáme teplota — znamená větší vnitřní energii.' },
 		{ text: 'Ovlivní vnitřní energii to, jestli se celé těleso pohybuje?', odpovedi: ['ne, jde o částice uvnitř', 'ano, čím rychleji, tím víc', 'ano, ale jen u kapalin'], vysvetleni: 'Vnitřní energie závisí na částicích, ne na pohybu tělesa jako celku.' },
 		{ text: 'Jak lze zvýšit vnitřní energii tělesa?', odpovedi: ['zahřátím nebo třením', 'ochlazením v mrazáku', 'zmenšením jeho hmotnosti'], vysvetleni: 'Zahřátí, tření, stlačení nebo přidání částic zvýší vnitřní energii.' },
 		{ text: 'Čím se navenek projeví zvýšení vnitřní energie?', odpovedi: ['vyšší teplotou', 'změnou barvy povrchu', 'větší hmotností'], vysvetleni: 'Vyšší vnitřní energie = vyšší teplota.' },
@@ -3480,8 +3480,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Dofoukneš pneumatiku. Co se stane s její vnitřní energií?', odpovedi: ['zvýší se — přibyly částice', 'nezmění se, je to jen vzduch', 'zmenší se, guma se roztáhne'], vysvetleni: 'Přidání částic je jeden ze způsobů zvýšení vnitřní energie.' },
 		{ text: 'Co drží částice tělesa v rovnovážné poloze, přestože se neustále pohybují?', odpovedi: ['Přitažlivé i odpudivé síly mezi částicemi', 'Jen přitažlivé síly, odpudivé mezi částicemi nepůsobí', 'Částice na sebe navzájem silově nepůsobí'], vysvetleni: 'Mezi částicemi působí zároveň síly přitažlivé i odpudivé — teprve jejich rovnováha drží částice na místě, přestože se pořád pohybují.' },
 		{ text: 'Vnitřní energie tělesa se sníží. Jak se to navenek projeví?', odpovedi: ['Teplota tělesa klesne', 'Teplota tělesa stoupne', 'Navenek se to nijak neprojeví'], vysvetleni: 'Teplota je projev vnitřní energie — když energie klesá, částice se zpomalují a teplota klesá s ní.' },
-		{ text: 'Drát, který opakovaně ohýbáme tam a zpět, se v místě ohybu zahřeje a nakonec přetrhne. Proč?', odpovedi: ['Ohýbáním se koná práce, roste vnitřní energie drátu', 'Drát ztrácí částice, a proto chladne', 'Ohyb drát ochlazuje, snižuje se jeho vnitřní energie'], vysvetleni: 'Ohýbání je tření mezi částicemi drátu — koná se práce, která vnitřní energii zvyšuje, ne snižuje ani neubírá částice.' },
-		{ text: 'Když nemáš rukavice, promneš si ruce o sebe, aby ses zahřál. Proč to pomůže?', odpovedi: ['Třením koná práci, roste vnitřní energie rukou', 'Ruce si tím jen rozproudíš krev, teplo se nemění', 'Pohyb rukou jako celku sám o sobě zvyšuje jejich vnitřní energii'], vysvetleni: 'Zahřátí způsobuje tření (konání práce), ne samotný pohyb rukou jako celku — ten vnitřní energii neovlivňuje.' },
+		{ text: 'Drát, který opakovaně ohýbáme tam a zpět, se v místě ohybu zahřeje a nakonec přetrhne. Proč?', odpovedi: ['Ohýbáním se koná práce, roste vnitřní energie drátu', 'Drát ztrácí částice, a proto chladne', 'Ohyb drát ochlazuje, snižuje se jeho vnitřní energie'], vysvetleni: 'Ohýbáním se částice drátu o sebe navzájem odírají a silově na sebe působí, čímž se vnitřní energie drátu zvyšuje — nesnižuje se ani mu neubývají částice.' },
+		{ text: 'Když nemáš rukavice, promneš si ruce o sebe, aby ses zahřál. Proč to pomůže?', odpovedi: ['Třením koná práci, roste vnitřní energie rukou', 'Ruce si tím jen rozproudíš krev, teplo se nemění', 'Pohyb rukou jako celku sám o sobě zvyšuje jejich vnitřní energii'], vysvetleni: 'Vzájemné odírání dlaní o sebe zvyšuje jejich vnitřní energii, ne samotný pohyb rukou jako celku — ten na energii vliv nemá.' },
 		{ text: 'Vrták se při dlouhém vrtání do kovu silně rozehřeje. Co je příčinou?', odpovedi: ['Tření koná práci, roste vnitřní energie vrtáku', 'Vrták při vrtání přijímá částice z kovu', 'Rychlé otáčení vrtáku jako celku zvyšuje jeho vnitřní energii'], vysvetleni: 'Za rozehřátí může tření mezi vrtákem a materiálem, ne přibývání částic ani otáčení vrtáku jako celku.' },
 		{ text: 'Studený hrnek postavíš na teplý talíř. Jak se zvýší vnitřní energie hrnku?', odpovedi: ['Přijme teplo od teplejšího talíře', 'Odevzdá teplo talíři', 'Vnitřní energie hrnku se nezmění, dokud se nedotkne ohně'], vysvetleni: 'Teplejší talíř teplo odevzdává, studenější hrnek ho přijímá — tak roste jeho vnitřní energie i bez ohně.' },
 		{ text: 'Topná spirála elektrického vařiče se po zapnutí rozžhaví. Proč?', odpovedi: ['Prochází jí proud, roste vnitřní energie', 'Spirála přijímá částice ze vzduchu kolem', 'Spirála se začne pohybovat rychleji jako celek'], vysvetleni: 'Vnitřní energii spirály zvyšuje elektrický proud, ne přibývání částic ze vzduchu ani pohyb spirály jako celku.' },
@@ -3498,13 +3498,13 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Podle jakého vzorce počítáme teplo?', odpovedi: ['Q = m · c · (t₂ − t₁)', 'Q = m : c · (t₂ − t₁)', 'Q = c · t₂ · t₁'], vysvetleni: 'Teplo = hmotnost · měrná tepelná kapacita · rozdíl teplot.' },
 		{ text: 'Na čem závisí množství přijatého tepla?', odpovedi: ['na rozdílu teplot, hmotnosti a látce', 'na tvaru nádoby a barvě povrchu tělesa', 'jen na barvě'], vysvetleni: 'Q závisí na rozdílu teplot, na hmotnosti a na měrné tepelné kapacitě c.' },
 		{ text: 'Co udává měrná tepelná kapacita c?', odpovedi: ['teplo na ohřátí 1 kg o 1 °C', 'hmotnost jednoho litru látky', 'teplotu, při které látka vře'], vysvetleni: 'c porovnává, jak snadno se látka ohřívá.' },
-		{ text: 'Jaká je měrná tepelná kapacita vody?', odpovedi: ['4 200 J/(kg·°C)', '2 100 J/(kg·°C)', '420 J/(kg·°C)'], vysvetleni: 'Na ohřátí 1 kg vody o 1 °C je třeba 4 200 J — proto se voda ohřívá pomalu.' },
+		{ text: 'Jaká je měrná tepelná kapacita vody?', odpovedi: ['4 200 J/(kg·°C)', '2 100 J/(kg·°C)', '420 J/(kg·°C)'], vysvetleni: 'Voda potřebuje na každý kilogram a každý stupeň zahřátí poměrně hodně energie — přesně 4 200 J — proto se ohřívá pomalu.' },
 		{ text: 'Látka s vysokým c (např. voda) se…', odpovedi: ['ohřívá i chladne pomalu', 'ohřeje se velmi rychle', 'nedá se ohřát vůbec nikdy'], vysvetleni: 'Vysoké c → pomalé ohřívání, dobrý zásobník tepla.' },
 		{ text: 'Proč se kovy hodí na chladiče a topná tělesa?', odpovedi: ['mají nízké c a rychle se ohřejí', 'jsou lehké a dobře se jim ohýbá', 'jsou lesklé a hezky vypadají'], vysvetleni: 'Nízké c = rychlé ohřátí i ochlazení = dobrý tepelný vodič.' },
 		{ text: 'Uvařit vodu pro 20 lidí potřebuje oproti vodě pro 2 lidi…', odpovedi: ['více tepla — je jí víc', 'méně tepla, protože se ředí', 'stejně tepla jako pro dva'], vysvetleni: 'Větší hmotnost → větší spotřeba tepla.' },
 		{ text: 'V kalorimetru smícháš horkou a studenou vodu. Jak souvisí odevzdané a přijaté teplo (bez ztrát)?', odpovedi: ['jsou si přesně rovny', 'odevzdané je vždy větší', 'přijaté je vždy větší'], vysvetleni: 'Kolik tepla teplejší voda odevzdá, přesně tolik studenější přijme — energie se nikam neztrácí.' },
 		{ text: 'Smícháš 1 kg vody o 20 °C a 1 kg vody o 60 °C (stejné hmotnosti). Jaká bude výsledná teplota?', odpovedi: ['40 °C', '30 °C', '80 °C'], vysvetleni: 'Při STEJNÝCH hmotnostech je výsledek prostý průměr: (20+60):2 = 40 °C. Při různých hmotnostech by to tak jednoduché nebylo.' },
-		{ text: 'Jaká je jednotka měrné tepelné kapacity?', odpovedi: ['J/(kg·°C)', 'J/°C', 'kg/(J·°C)'], vysvetleni: 'Měrná tepelná kapacita udává, kolik joulů potřebuje 1 kg látky na ohřátí o 1 °C — jednotka musí obsahovat joul, kilogram i stupeň Celsia. „J/°C" chybí kilogram, „kg/(J·°C)" má veličiny prohozené.' },
+		{ text: 'Jaká je jednotka měrné tepelné kapacity?', odpovedi: ['J/(kg·°C)', 'J/°C', 'kg/(J·°C)'], vysvetleni: 'Měrná tepelná kapacita se skládá ze tří veličin dohromady — joulů, kilogramů a stupňů Celsia — proto je musí obsahovat i její jednotka. „J/°C" chybí kilogram, „kg/(J·°C)" má veličiny prohozené.' },
 		{ text: 'Co znamenají t₁ a t₂ ve vzorci Q = m · c · (t₂ − t₁)?', odpovedi: ['t₁ je počáteční teplota, t₂ konečná', 't₁ je konečná teplota, t₂ počáteční', 't₁ i t₂ jsou průměrná teplota'], vysvetleni: 'Teplo počítáme z rozdílu konečné a počáteční teploty, proto se t₁ (počáteční) odečítá od t₂ (konečné) — obráceně by u ohřívání vyšlo záporné teplo.' },
 		{ text: 'Kolik tepla přijme 2 kg vody při ohřátí z 20 °C na 30 °C? (c vody = 4200 J/(kg·°C))', odpovedi: ['84 000 J', '42 000 J', '8 400 J'], vysvetleni: 'Q = m · c · Δt = 2 · 4200 · 10 = 84 000 J. Zapomenutá hmotnost (1 kg místo 2) dá 42 000 J, zapomenutý rozdíl teplot (Δt = 1 °C) dá 8 400 J.' },
 		{ text: 'Kolik tepla odevzdá 3 kg vody při ochlazení z 80 °C na 60 °C? (c vody = 4200 J/(kg·°C))', odpovedi: ['252 000 J', '126 000 J', '240 000 J'], vysvetleni: 'Q = m · c · Δt = 3 · 4200 · 20 = 252 000 J. Špatný rozdíl teplot (10 °C místo 20 °C) dá 126 000 J, zaokrouhlená kapacita (c = 4000 místo 4200) dá jen 240 000 J.' },
