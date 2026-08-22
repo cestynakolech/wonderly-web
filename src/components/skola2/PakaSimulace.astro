@@ -7,8 +7,8 @@
 	<h2><span class="podtrh">Vyzkoušej: páka a moment síly 🕹️</span></h2>
 	<p>
 		Páka je v rovnováze, když se <strong>momenty sil</strong> na obou stranách rovnají:
-		<strong>M = F · r</strong> (síla krát rameno). Nastav hmotnosti a jejich vzdálenosti
-		od osy a najdi rovnováhu — jako na houpačce.
+		<strong>M = F · r</strong> (síla krát rameno). Síla se počítá z tíhy F = m · g (g = 10 N/kg).
+		Nastav hmotnosti a jejich vzdálenosti od osy a najdi rovnováhu — jako na houpačce.
 	</p>
 	<svg id="paka-svg" viewBox="0 0 600 320" role="img" aria-label="Páka na ose">
 		<!-- podstavec -->
@@ -30,12 +30,12 @@
 		<div class="paka-strana">
 			<strong>⬅️ Levá strana</strong>
 			<label>hmotnost <input id="paka-ml" type="range" min="1" max="10" value="4" /> <span id="paka-ml-t">4</span> kg</label>
-			<label>vzdálenost <input id="paka-rl" type="range" min="1" max="5" value="3" /> <span id="paka-rl-t">3</span> dílků</label>
+			<label>vzdálenost <input id="paka-rl" type="range" min="1" max="5" value="3" /> <span id="paka-rl-t">3</span> m</label>
 		</div>
 		<div class="paka-strana">
 			<strong>Pravá strana ➡️</strong>
 			<label>hmotnost <input id="paka-mp" type="range" min="1" max="10" value="3" /> <span id="paka-mp-t">3</span> kg</label>
-			<label>vzdálenost <input id="paka-rp" type="range" min="1" max="5" value="2" /> <span id="paka-rp-t">2</span> dílků</label>
+			<label>vzdálenost <input id="paka-rp" type="range" min="1" max="5" value="2" /> <span id="paka-rp-t">2</span> m</label>
 		</div>
 	</div>
 	<p id="paka-vysledek" class="paka-vysledek"></p>
@@ -43,7 +43,7 @@
 
 <script>
 	const $ = (id) => document.getElementById(id);
-	const OSA_X = 300, OSA_Y = 250, DILEK = 44;
+	const OSA_X = 300, OSA_Y = 250, DILEK = 44; // 1 dílek pravítka = 1 m
 
 	function prekresli() {
 		const ml = +$('paka-ml').value, rl = +$('paka-rl').value;
@@ -51,13 +51,15 @@
 		$('paka-ml-t').textContent = ml; $('paka-rl-t').textContent = rl;
 		$('paka-mp-t').textContent = mp; $('paka-rp-t').textContent = rp;
 
-		const momL = ml * rl, momP = mp * rp;
+		const G = 10; // N/kg (stejně jako výklad, kvůli celým číslům)
+		const fgL = ml * G, fgP = mp * G;
+		const momL = fgL * rl, momP = fgP * rp;
 		// úhel náklonu: kladný = klesá pravá strana; omezíme na ±12°
 		const rozdil = momP - momL;
 		const uhel = Math.max(-12, Math.min(12, rozdil * 1.2));
 		$('paka-brevno').setAttribute('transform', `rotate(${uhel} ${OSA_X} ${OSA_Y})`);
 
-		// značky dílků
+		// značky metrů
 		let znacky = '';
 		for (let d = -5; d <= 5; d++) {
 			if (d === 0) continue;
@@ -77,9 +79,9 @@
 
 		// výsledek
 		let text;
-		if (momL === momP) text = `✅ ROVNOVÁHA! Moment vlevo (${ml}·${rl}=${momL}) = moment vpravo (${mp}·${rp}=${momP}).`;
-		else if (momL > momP) text = `⬅️ Klesá levá strana. Vlevo ${ml}·${rl}=${momL} > vpravo ${mp}·${rp}=${momP}.`;
-		else text = `➡️ Klesá pravá strana. Vpravo ${mp}·${rp}=${momP} > vlevo ${ml}·${rl}=${momL}.`;
+		if (momL === momP) text = `✅ ROVNOVÁHA! Moment vlevo (F=${fgL} N · ${rl}=${momL} N·m) = moment vpravo (F=${fgP} N · ${rp}=${momP} N·m).`;
+		else if (momL > momP) text = `⬅️ Klesá levá strana. Vlevo ${fgL}·${rl}=${momL} N·m > vpravo ${fgP}·${rp}=${momP} N·m.`;
+		else text = `➡️ Klesá pravá strana. Vpravo ${fgP}·${rp}=${momP} N·m > vlevo ${fgL}·${rl}=${momL} N·m.`;
 		const el = $('paka-vysledek');
 		el.textContent = text;
 		el.classList.toggle('rovnovaha', momL === momP);
