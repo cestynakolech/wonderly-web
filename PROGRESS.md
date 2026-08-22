@@ -269,6 +269,7 @@ ovládání a ověřit obalové obdélníky, pravdivost hlášek a celá čísla
 animace (commit `4996115`), bez argumentu beze změny (ověřeno shodným otiskem).
 **ROZDĚLANÉ:** simulace k podtématu `klid-a-pohyb-telesa` (F7).
 **FRONTA NÁZORNOSTI** zkrácena na 10 podtémat (viz SAMOSTATNY-REZIM.md).
+**NASAZENO A OVĚŘENO (dávka 4 revize):** F6 `cas-a-jeho-mereni` — doplněn výklad úlohy s Ozobotem (obvod, obsah, v=s/t) dle prezentace Dráha puzzle, `OzobotSimulace.astro` zeštíhlena na cm/s, commit `a9f671b`; zkontrolováno 20/37 simulací.
 
 ## Historie — 22. 8. 2026 (samostatný režim)
 **NASAZENO:** simulace vlastní vodivosti polovodiče (`PolovodicVodivostSimulace.astro`)
