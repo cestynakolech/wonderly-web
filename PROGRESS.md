@@ -251,6 +251,10 @@ SAMOSTATNY-REZIM.md) — 3 věcné opravy (měď/hliník ve vedení, bezpečné
 vzdálenosti obrazně vrátit, energie potravin nechat obecně) + obecné pravidlo
 „obsah pro ZŠ, podrobnosti do budoucí nadstavby". Otevřeno: připravit učiteli
 souhrn o možnostech orchestrace lokálních modelů (dotaz nestihnut zodpovědět).
+**Audit nasazených simulací dokončen pro VŠECHNY ročníky:** F8 (22. 8., 5 vad
+opraveno, commit `8af0dfc`), F9 (23 komponent, 0 nálezů), F6+F7 (48 komponent,
+1 nález = falešný poplach u tíže planet, vysvětlen v kódu commitem `6469422`).
+Kotva `node testy/vsechny-simulace.mjs` exit 0 (37 souborů, 2567 kontrol).
 
 ## Historie — 22. 8. 2026 večer (samostatný režim)
 **NASAZENO A OVĚŘENO:** simulace síly jako vektoru (F7, podtéma `sila`) —

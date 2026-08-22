@@ -48,6 +48,14 @@ oříznutý zdroj. Rozhoduje učitel.
    střídavé / 120 V stejnosměrné v suchu) i práh 50 V pro proražení kůže
    tedy ve zdroji opravdu nejsou; na webu zůstávají, protože podklad je
    útržkovitý a rozhodnutí je na učiteli.
+4. Tíže na Jupiteru v simulaci PlanetyVahaSimulace (F6): hodnota 2,36× Země je
+   PŘESNÝM přepisem tabulky z prezentace „Síla 6.pptx" (snímek 11, Nezkreslená
+   věda: člověk 75 kg → Jupiter 177 kg, Saturn 80 kg). Fyzikální přepočet ale
+   dává Jupiter 2,53× (prostý vzorec g=G·M/R²), tedy zhruba o 7 % víc; Saturn
+   1,067× sedí. Tabulka v prezentaci je nejspíš zaokrouhlená nebo nepřesná.
+   Nechat podle prezentace (žák uvidí totéž co v hodině), nebo opravit na
+   fyzikálně přesnou hodnotu? Simulace zatím ZŮSTÁVÁ podle prezentace, jen
+   s vysvětlujícím komentářem v kódu (commit 6469422).
 
 **AUDIT 22. 8. 2026 (nasazené simulace 9. ročníku):** prověřeno 23 komponent,
 0 nálezů, kotva `node testy/vsechny-simulace.mjs` exit 0.
