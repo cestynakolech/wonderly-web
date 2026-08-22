@@ -2720,8 +2720,8 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb': [
 		{ text: 'Kolik existuje základních jednoduchých pohybů těles?', odpovedi: ['dva — posuvný a otáčivý', 'tři — posuvný, otáčivý a šikmý', 'jeden — posuvný'], vysvetleni: 'Základní pohyby jsou dva: posuvný a otáčivý. Vše složitější je jejich kombinace.' },
-		{ text: 'Jak se pohybují body tělesa při posuvném pohybu?', odpovedi: ['všechny stejným směrem a stejnou rychlostí', 'každý bod se pohybuje jinou rychlostí', 'po kružnicích kolem společné osy otáčení'], vysvetleni: 'Při posuvném pohybu se každý bod pohybuje úplně stejně — po stejné trajektorii.' },
-		{ text: 'Jaké trajektorie mají body tělesa při posuvném pohybu?', odpovedi: ['stejný tvar i stejnou délku', 'různé tvary', 'vždy kružnice'], vysvetleni: 'Trajektorie všech bodů jsou shodné — každý bod urazí stejnou dráhu.' },
+		{ text: 'Jak se pohybují body tělesa při posuvném pohybu?', odpovedi: ['všechny stejným směrem a stejnou rychlostí', 'každý bod se pohybuje jinou rychlostí', 'po kružnicích kolem společné osy otáčení'], vysvetleni: 'Při posuvném pohybu se každý bod pohybuje stejným směrem a stejnou rychlostí.' },
+		{ text: 'Jaké trajektorie mají body tělesa při posuvném pohybu?', odpovedi: ['stejný tvar i stejnou délku', 'různé tvary', 'vždy kružnice'], vysvetleni: 'Dráhy jednotlivých bodů jsou rovnoběžné a stejně dlouhé, i když nejsou totožné.' },
 		{ text: 'Který pohyb je posuvný?', odpovedi: ['vlak jedoucí po rovné trati', 'hodinová ručička', 'krasobruslařka při piruetě'], vysvetleni: 'Vlak na rovné trati: všechny body jedou stejně. Ručička i pirueta jsou otáčivé pohyby.' },
 		{ text: 'Zboží na pokladním pásu koná pohyb…', odpovedi: ['posuvný', 'otáčivý', 'složený'], vysvetleni: 'Pás nese zboží rovně stejnou rychlostí — posuvný pohyb.' },
 		{ text: 'Může být posuvný pohyb i křivočarý?', odpovedi: ['ano — body opisují shodné křivky', 'ne, posuvný pohyb musí být vždy přímočarý', 'jen u vlaků jedoucích po rovných kolejích'], vysvetleni: 'Ano — důležité je, že všechny body opíší stejnou čáru; ta může být i křivka.' },

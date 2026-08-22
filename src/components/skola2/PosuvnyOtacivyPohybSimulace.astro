@@ -1,0 +1,294 @@
+---
+// Podtéma "posuvny-otacivy-pohyb" (7. ročník) — POUZE dva základní jednoduché
+// pohyby tělesa (žádný výpočet rychlosti, ten je v jiném podtématu "rychlost-draha-cas",
+// a žádná relativita klidu/pohybu, ta je v "klid-a-pohyb-telesa").
+// Trojúhelníkové pravítko se třemi značenými body A (červený), B (modrý), C (zelený) —
+// stejné jako v ilustracích výkladu (posuvny-pohyb.jpg / otacivy-pohyb.jpg).
+// Posuvný pohyb: pravítko se posouvá po podložce, všechny body urazí STEJNOU dráhu
+// stejným směrem po rovnoběžných přímkách.
+// Otáčivý pohyb: pravítko je připevněné k ose v bodě A (ten se vůbec nehýbe), body B a C
+// opisují kružnice se středem na ose — čím dál bod od osy (C dál než B), tím větší
+// kružnice a tím rychlejší pohyb bodu (přesně jako v textu: konec ručičky je rychlejší
+// než její střed).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Posuvný, nebo otáčivý pohyb? 🕹️</span></h2>
+	<p>
+		Sleduj trojúhelníkové pravítko se třemi značenými body: 🔴 A, 🔵 B, 🟢 C.
+		Přepni <strong>posuvný</strong> a <strong>otáčivý</strong> pohyb, nastav rychlost
+		a klikni na tlačítko — uvidíš, jak se body pohybují.
+	</p>
+
+	<svg id="pop-svg" viewBox="0 0 500 300" role="img" aria-label="Trojúhelníkové pravítko konající posuvný nebo otáčivý pohyb">
+		<rect x="0" y="0" width="500" height="260" fill="#eef6ff" />
+		<rect x="0" y="260" width="500" height="40" fill="#d8f5a2" />
+		<line x1="0" y1="260" x2="500" y2="260" stroke="#2b2a26" stroke-width="3" />
+		<g id="pop-obsah"></g>
+	</svg>
+
+	<div class="pop-mody" id="pop-mody" role="group" aria-label="Druh pohybu">
+		<button type="button" id="pop-mod-posuvny" class="pop-mod-btn pop-mod-aktivni" data-mod="posuvny">↔️ Posuvný pohyb</button>
+		<button type="button" id="pop-mod-otacivy" class="pop-mod-btn" data-mod="otacivy">🔄 Otáčivý pohyb</button>
+	</div>
+
+	<div class="pop-ovladani">
+		<label>rychlost
+			<input id="pop-rychlost" type="range" min="1" max="3" step="1" value="2" />
+			<output id="pop-rychlost-t">středně rychle</output>
+		</label>
+	</div>
+
+	<div class="pop-tlacitka">
+		<button id="pop-spustit" type="button">▶️ Spusť pohyb</button>
+		<button id="pop-reset" type="button">↺ Zpět</button>
+	</div>
+
+	<p id="pop-vysledek" class="pop-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const VIEW_W = 500, VIEW_H = 300, OKRAJ = 10;
+	const T_ANIM = 3; // s, kalibrováno na "cas=3" v náhledu
+
+	// --- geometrie pravítka (čisté konstanty, žádný DOM) ---
+	const START_PIVOT = { x: 80, y: 250 }; // startovní poloha bodu A při posuvném pohybu
+	const OSA = { x: 330, y: 150 }; // pevná osa otáčení při otáčivém pohybu
+	const OFFSET_B = { dx: 0, dy: -40 }; // bod B: 40 px od bodu A/osy
+	const OFFSET_C = { dx: 80, dy: 0 }; // bod C: 80 px od bodu A/osy (dál než B)
+	const R_B = 40, R_C = 80;
+
+	let mod = 'posuvny'; // 'posuvny' nebo 'otacivy'
+	let rychlost = 2; // 1, 2, 3
+	let progress = 0; // 0 (klid) .. 1 (dokončeno) — vždy přesně 0 nebo 1 mimo animaci
+	let animace = false;
+
+	// --- čisté výpočetní funkce (funkce času/postupu, testovatelné bez prohlížeče) ---
+
+	function vzdalenostPosun(rychlostStupen) {
+		return rychlostStupen * 60; // px — 60 / 120 / 180, vždy celé číslo
+	}
+
+	function uhelOtoceni(rychlostStupen) {
+		return rychlostStupen * 40; // stupně — 40 / 80 / 120, vždy celé číslo
+	}
+
+	// body A, B, C při posuvném pohybu v daném postupu p (0..1)
+	function bodyPosuvny(p, rychlostStupen) {
+		const dx = vzdalenostPosun(rychlostStupen) * p;
+		const A = { x: START_PIVOT.x + dx, y: START_PIVOT.y };
+		const B = { x: A.x + OFFSET_B.dx, y: A.y + OFFSET_B.dy };
+		const C = { x: A.x + OFFSET_C.dx, y: A.y + OFFSET_C.dy };
+		return { A, B, C };
+	}
+
+	// body A, B, C při otáčivém pohybu v daném postupu p (0..1) — A je pevně na ose
+	function bodyOtacivy(p, rychlostStupen) {
+		const uhel = uhelOtoceni(rychlostStupen) * p;
+		const rad = (uhel * Math.PI) / 180;
+		const cos = Math.cos(rad), sin = Math.sin(rad);
+		const otoc = (dx, dy) => ({
+			x: OSA.x + dx * cos - dy * sin,
+			y: OSA.y + dx * sin + dy * cos,
+		});
+		const A = { x: OSA.x, y: OSA.y };
+		const B = otoc(OFFSET_B.dx, OFFSET_B.dy);
+		const C = otoc(OFFSET_C.dx, OFFSET_C.dy);
+		return { A, B, C };
+	}
+
+	// bílá plaketa s barevným okrajem pod textem — ŠÍŘKA VŽDY dynamická podle délky textu
+	function plaketa(textX, textY, text, barva) {
+		const sirka = String(text).length * 8 + 8;
+		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, textX - 4));
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, textY - 14));
+		return `
+			<rect x="${rectX}" y="${rectY}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
+			<text x="${rectX + 4}" y="${rectY + 14}" font-size="12" font-weight="bold" fill="${barva}">${text}</text>
+		`;
+	}
+
+	function trojuhelnikSvg(body) {
+		const { A, B, C } = body;
+		let sc = `<polygon points="${A.x},${A.y} ${B.x},${B.y} ${C.x},${C.y}" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
+		sc += `<circle cx="${A.x}" cy="${A.y}" r="7" fill="#e03131" stroke="#2b2a26" stroke-width="2" />`;
+		sc += `<circle cx="${B.x}" cy="${B.y}" r="7" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />`;
+		sc += `<circle cx="${C.x}" cy="${C.y}" r="7" fill="#2f9e44" stroke="#2b2a26" stroke-width="2" />`;
+		return sc;
+	}
+
+	function rychlostSlovo(rychlostStupen) {
+		if (rychlostStupen === 1) return 'pomalu';
+		if (rychlostStupen === 3) return 'rychle';
+		return 'středně rychle';
+	}
+
+	function prekresli() {
+		$('pop-rychlost-t').textContent = rychlostSlovo(rychlost);
+
+		let sc = '';
+
+		if (mod === 'posuvny') {
+			// vodicí (plánovaná) trajektorie — tři rovnoběžné přerušované úsečky stejné délky
+			const cil = bodyPosuvny(1, rychlost);
+			[
+				[START_PIVOT, cil.A],
+				[{ x: START_PIVOT.x + OFFSET_B.dx, y: START_PIVOT.y + OFFSET_B.dy }, cil.B],
+				[{ x: START_PIVOT.x + OFFSET_C.dx, y: START_PIVOT.y + OFFSET_C.dy }, cil.C],
+			].forEach(([od, kam]) => {
+				sc += `<line x1="${od.x}" y1="${od.y}" x2="${kam.x}" y2="${kam.y}" stroke="#adb5bd" stroke-width="2" stroke-dasharray="5 4" />`;
+			});
+
+			const body = bodyPosuvny(progress, rychlost);
+			sc += trojuhelnikSvg(body);
+			sc += plaketa(body.A.x - 6, body.A.y + 22, 'A', '#e03131');
+			sc += plaketa(body.B.x - 6, body.B.y - 14, 'B', '#1971c2');
+			sc += plaketa(body.C.x + 8, body.C.y + 22, 'C', '#2f9e44');
+		} else {
+			// vodicí kružnice se středem na ose (bod A má poloměr 0, proto kružnici nemá)
+			sc += `<circle cx="${OSA.x}" cy="${OSA.y}" r="${R_B}" fill="none" stroke="#1971c2" stroke-width="2" stroke-dasharray="5 4" opacity="0.6" />`;
+			sc += `<circle cx="${OSA.x}" cy="${OSA.y}" r="${R_C}" fill="none" stroke="#2f9e44" stroke-width="2" stroke-dasharray="5 4" opacity="0.6" />`;
+			// stojan osy (uzemněný sloupek, aby scéna dávala smysl — osa je na něčem přišroubovaná)
+			sc += `<rect x="${OSA.x - 5}" y="${OSA.y}" width="10" height="${260 - OSA.y}" fill="#868e96" />`;
+			sc += `<rect x="${OSA.x - 16}" y="256" width="32" height="10" rx="2" fill="#495057" />`;
+
+			const body = bodyOtacivy(progress, rychlost);
+			sc += trojuhelnikSvg(body);
+			sc += plaketa(body.A.x - 20, body.A.y - 16, 'A (osa)', '#e03131');
+			sc += plaketa(body.B.x + 8, body.B.y - 12, 'B', '#1971c2');
+			sc += plaketa(body.C.x + 8, body.C.y - 12, 'C', '#2f9e44');
+		}
+
+		$('pop-obsah').innerHTML = sc;
+
+		const el = $('pop-vysledek');
+		let text;
+		const dokonceno = progress === 1; // nastaveno jen na přesné 0/1 v kódu, ne porovnáním desetinných čísel
+		if (mod === 'posuvny') {
+			const d = vzdalenostPosun(rychlost);
+			text = dokonceno
+				? `Posuvný pohyb: body A, B i C se posunuly stejným směrem a o stejnou dráhu ${d} px po rovnoběžných přímkách — celé pravítko jede jako jeden bod.`
+				: `Pravítko zatím klidně leží na podložce. Klikni na tlačítko a sleduj, jak se posouvá.`;
+		} else {
+			const u = uhelOtoceni(rychlost);
+			text = dokonceno
+				? `Otáčivý pohyb: bod A leží přímo na ose, proto se vůbec nepohnul. Za otočení o ${u}° opsal bod B (${R_B} px od osy) menší kružnici, ale bod C (${R_C} px od osy) opsal větší kružnici — pohyboval se rychleji.`
+				: `Pravítko je připevněné k ose v bodě A. Klikni na tlačítko a sleduj otáčení.`;
+		}
+		el.textContent = text;
+	}
+
+	function animuj() {
+		animace = true;
+		let t = 0;
+		function tik() {
+			t += 0.05;
+			if (t < T_ANIM) {
+				progress = t / T_ANIM;
+				prekresli();
+				requestAnimationFrame(tik);
+			} else {
+				progress = 1;
+				animace = false;
+				prekresli();
+			}
+		}
+		tik();
+	}
+
+	$('pop-mody').querySelectorAll('.pop-mod-btn').forEach((b) =>
+		b.addEventListener('click', () => {
+			if (animace) return;
+			$('pop-mody').querySelectorAll('.pop-mod-btn').forEach((x) => x.classList.remove('pop-mod-aktivni'));
+			b.classList.add('pop-mod-aktivni');
+			mod = b.dataset.mod;
+			progress = 0;
+			prekresli();
+		}));
+
+	$('pop-rychlost').addEventListener('input', () => {
+		if (animace) return;
+		rychlost = +$('pop-rychlost').value;
+		progress = 0;
+		prekresli();
+	});
+
+	$('pop-spustit').addEventListener('click', () => {
+		if (animace) return;
+		progress = 0;
+		animuj();
+	});
+
+	$('pop-reset').addEventListener('click', () => {
+		if (animace) return;
+		progress = 0;
+		prekresli();
+	});
+
+	prekresli();
+</script>
+
+<style>
+	#pop-svg {
+		width: 100%;
+		max-width: 500px;
+		display: block;
+		margin: 0 auto;
+		background: #eef6ff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.pop-mody {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.8rem 0 0.5rem;
+	}
+	.pop-mod-btn {
+		font-weight: 700;
+		font-size: 0.9rem;
+		padding: 0.4rem 0.8rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.pop-mod-aktivni {
+		background: #ffd43b;
+	}
+	.pop-ovladani {
+		display: flex;
+		justify-content: center;
+		margin: 0.5rem 0;
+	}
+	.pop-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 700;
+	}
+	.pop-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.pop-tlacitka button {
+		font-weight: 700;
+		padding: 0.45rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.pop-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		text-align: center;
+		min-height: 3rem;
+	}
+</style>
