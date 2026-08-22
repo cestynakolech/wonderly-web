@@ -62,8 +62,11 @@
 	function lide(id, n, zleva) {
 		let g = '';
 		for (let i = 0; i < n; i++) {
-			const x = zleva ? 50 - i * 26 : 550 + i * 26;
-			g += `<text x="${x}" y="130" font-size="26" text-anchor="middle">${zleva ? '💪' : '💪'}</text>`;
+			const radek = Math.floor(i / 3);
+			const sloupec = i % 3;
+			const x = zleva ? 50 - sloupec * 18 : 550 + sloupec * 18;
+			const y = 130 - radek * 16;
+			g += `<text x="${x}" y="${y}" font-size="26" text-anchor="middle">💪</text>`;
 		}
 		document.getElementById(id).innerHTML = g;
 	}
