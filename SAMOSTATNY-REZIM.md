@@ -28,12 +28,29 @@ oříznutý zdroj. Rozhoduje učitel.
    konkrétní metry na webu zatím VYNECHANÉ (jen zásada „čím vyšší napětí, tím
    širší pásmo"). Doplnit tabulku podle zákona, podle prezentace, nebo nechat
    bez čísel?
+   Ověřeno 22. 8. přímo ve zdrojovém PDF učitele („16 Účinky proudu na
+   lidský organismus…", 9. ročník, str. 3–5): ŽÁDNÉ metry tam nejsou (str. 6
+   je zamčený placený obsah). Vynechání konkrétních metrů z výkladu je tedy
+   doložené, ne odhad. Rozpor zůstává jen mezi prezentací „Elektřina 9" (7 m
+   do 1 kV, 10 m pro 1–35 kV) a energetickým zákonem 458/2000 Sb. (7 m do
+   35 kV, 12/15/20/30 m výš, 1 m izolovaný kabel do 1 kV) — kategorie i
+   hodnoty se liší. Simulace BezpecnaVzdalenostVedeniSimulace.astro už metry
+   také neuvádí, takže na stránce není rozpor.
 2. **Práh „od ~50 V se prorazí kůže"** (výklad F8 i F9) nemá oporu ve zdrojovém
    PDF SmartBooks — to dokládá jen odpory kůže 150 000 Ω (sucho) a 2000 Ω
    (vlhko), ne konkrétní napětí. Ponechat, nebo upravit?
 3. **Bezpečné napětí „v suchých místnostech 50 V střídavé / 120 V stejnosměrné"**
    také nemá oporu ve zdrojovém PDF — to uvádí jen 25 V ss / 12 V st bez
    rozlišení prostoru. Ponechat, nebo upravit?
+   Ověřeno v témž PDF, str. 4: doslova „Nejvyšší bezpečná hodnota
+   stejnosměrného napětí podle normy je 25 V a střídavého napětí 12 V" — BEZ
+   rozlišení suchých a vlhkých prostor. Rozlišení podle prostoru (50 V
+   střídavé / 120 V stejnosměrné v suchu) i práh 50 V pro proražení kůže
+   tedy ve zdroji opravdu nejsou; na webu zůstávají, protože podklad je
+   útržkovitý a rozhodnutí je na učiteli.
+
+**AUDIT 22. 8. 2026 (nasazené simulace 9. ročníku):** prověřeno 23 komponent,
+0 nálezů, kotva `node testy/vsechny-simulace.mjs` exit 0.
 
 ---
 
