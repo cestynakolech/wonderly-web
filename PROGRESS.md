@@ -267,6 +267,28 @@ Ollama povýšena 0.32.9 → 0.32.14, stažen qwen3.8:27b-mlx (18 GB), zkouška 
 rozšířen o POPIS_MODEL/POPIS_OPTIONS/POPIS_VYSTUP (zpětně slučitelné). Zbývá dořešit chybějící
 otázky: F6 88, F7 39, F9 155 (F8 už 0) — čísla z odpoledního měření, přepočet příště.
 
+## Historie — 22. 8. 2026 odpoledne (samostatný režim, pokračování bloku názornosti)
+**NASAZENO 4 simulace/opravy v jednom bloku, vše ověřeno curlem na produkci:**
+- Klid a pohyb (F7, `klid-a-pohyb-telesa`, `RelativitaPohybuSimulace`) — commit `2a31dc9`.
+- Bezpečná vzdálenost od vedení (F9, `ucinky-proudu-bezpecnost`, `BezpecnaVzdalenostVedeniSimulace`) — commit `67af855`.
+- Posuvný a otáčivý pohyb (F7, `posuvny-otacivy-pohyb`) + oprava věcné chyby ve výkladu
+  („po úplně stejné trajektorii" → „dráhy mají stejný tvar i délku a jsou rovnoběžné, ale
+  nejsou totožné", temata.ts + 2× kvizy.ts) — commit `179d699`.
+- Výměna simulace `pusobeni-teles-a-deformace` (F7): stará dělila deformaci podle VELIKOSTI
+  SÍLY, výklad a kvíz ji dělí podle MATERIÁLU (guma vs. plastelína) — commit `573ebc9`,
+  starý soubor `UcinkySilySimulace.astro` zachován nezapojený.
+- Povětrnostní mapa (F7, `meteorologie-a-mereni-tlaku`, `PovetrnostniMapaSimulace`) —
+  commit `36259f7`. 6 kol kontroly odstranilo vymyšlený vzorec „vítr = rozdíl tlaku × 1,5 km/h"
+  a kreslený barograf (nahrazen pevnou mřížkou 3 hodnot). Curl potvrdil `meteo-svg` na 2. pokusu.
+
+**Poučení:** průzkum názornosti nad textem se spletl a označil pokryté podtéma za
+nepokryté — měřit se musí nad naimportovanými daty s křížovou kontrolou proti větvím
+stránky. Přeměřeno: chybí 5 podtémat — F6: `uvod-do-fyziky`, `telesa-a-latky`,
+`vzajemne-pusobeni-teles-sila`; F7: `priklady-na-vypocet-rychlosti`,
+`telesa-stejnoroda-a-nestejnoroda`. Obecná kontrola scény (obalové obdélníky všech
+prvků proti sobě, přes všechny kombinace ovládání) je jediná, co spolehlivě chytá vady —
+kontrola po jedné třídě vad pokaždé jednu nechala projít.
+
 ## 📝 Pravidlo aktualizace (na konci každé session)
 1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).
 2. Aktualizuj sekce „HOTOVÉ" a „ZBÝVÁ" výše podle reálného stavu.

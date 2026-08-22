@@ -1,3 +1,15 @@
+**NASAZENO A OVĚŘENO 22. 8. 2026 odpoledne (blok 4 simulací/oprav):** Klid a pohyb
+(F7 `klid-a-pohyb-telesa`, commit `2a31dc9`); bezpečná vzdálenost od vedení
+(F9 `ucinky-proudu-bezpecnost`, commit `67af855`); posuvný a otáčivý pohyb
+(F7 `posuvny-otacivy-pohyb`) + oprava věcné chyby ve výkladu o trajektoriích, commit `179d699`;
+výměna simulace `pusobeni-teles-a-deformace` (F7) — stará dělila podle síly, nová (guma vs.
+plastelína) dělí podle materiálu jako výklad, commit `573ebc9`; povětrnostní mapa
+(F7 `meteorologie-a-mereni-tlaku`, `PovetrnostniMapaSimulace`, 6 kol kontroly), commit
+`36259f7`, curl potvrdil `meteo-svg` na 2. pokusu. Detaily v PROGRESS.md.
+**FRONTA NÁZORNOSTI — přepočteno, zbývá 5 podtémat (stav 22. 8. odpoledne, starý seznam
+neplatí):** F6 uvod-do-fyziky, telesa-a-latky, vzajemne-pusobeni-teles-sila; F7
+priklady-na-vypocet-rychlosti, telesa-stejnoroda-a-nestejnoroda. 8. a 9. ročník pokryté celé.
+
 **NASAZENO A OVĚŘENO 22. 8. 2026 večer:** Simulace síly jako vektoru F7 (`SilaVektorSimulace.astro`,
 klíč `sila-vektor`, podtéma `sila`) — commit `fdb6cd7`, curl potvrdil `sv-f`, `sv-jed`,
 `sv-smer-90`, `Fg`. Kontrola 5 kol (chyby: rovnost desetin, skládání sil mimo výklad, tíha
@@ -14,11 +26,9 @@ ROZDĚLANÉ: simulace `klid-a-pohyb-telesa` (F7).
 **NOVÝ ÚKOL DO FRONTY:** `testy/vsechny-simulace.mjs` neměří nové simulace bez ručního
 testu v `testy/simulace/*.mjs` (Dioda, Ozvěna, PolovodicVodivost, RychlostSvetla) — dopsat
 testy nebo zviditelnit chybějící pokrytí.
-**FRONTA NÁZORNOSTI — bez simulace zůstává 10 podtémat (stav 22. 8. večer, `sila` hotová a
-vypadla ze seznamu):** F6 uvod-do-fyziky, telesa-a-latky, vzajemne-pusobeni-teles-sila; F7
-klid-a-pohyb-telesa (rozděláno), posuvny-otacivy-pohyb, priklady-na-vypocet-rychlosti,
-pusobeni-teles-a-deformace, telesa-stejnoroda-a-nestejnoroda, meteorologie-a-mereni-tlaku;
-F9 ucinky-proudu-bezpecnost. 8. ročník je pokrytý celý.
+**FRONTA NÁZORNOSTI — SEZNAM NEPLATÍ (viz aktuální stav v bloku nahoře souboru, 22. 8.
+odpoledne): klid-a-pohyb-telesa, posuvny-otacivy-pohyb, pusobeni-teles-a-deformace,
+meteorologie-a-mereni-tlaku a ucinky-proudu-bezpecnost jsou od té doby hotové.**
 
 **NASAZENO 22. 8. 2026 (blok):** Simulace rychlosti světla (`RychlostSvetlaSimulace.astro`,
 „Závod světla") zapojena k podtématu Světlo a jeho zdroje (F7) přes nový klíč interakce
