@@ -180,10 +180,11 @@ výsledek 0 úniků, nasazeno (commit `cbbebb9`).
 - Qwen 3.8: nepřijat a smazán (verdikt v `ollama-log.md`), vision zůstává ThinkingCap.
 
 
-**FYZIKA 9 JE KOMPLETNÍ (kvízy 22/22 podtémat na 21 otázkách)** — spolu s F7 a F8 tak
-**cíl 21 otázek splňuje celá fyzika 7, 8 i 9**. Zbývá jen **fyzika 6 (88 chybějících otázek)**,
-pak případně informatika/Pč (rozhodnutí učitele „teď jen fyzika" zatím platí). Otevřeno:
-nesoulad bezpečných napětí F8×F9 (ve frontě, viz níže).
+**FYZIKA JE HOTOVÁ CELÁ (22. 8. 2026 večer):** dorovnána i fyzika 7 (10 bloků,
++44 otázek, kontrolor 0 nálezů, nasazeno `acceba4`, ověřeno obsahem na produkci) —
+spolu s F6, F8 a F9 tak **cíl 21 otázek splňuje celá fyzika 6–9**. Zbývá **informatika
+7/8/9 (40 bloků, 415 otázek)** a **pracovní činnosti 6 (2 bloky, 9 otázek)** — plný
+seznam bloků je v měření z 22. 8. Otevřeno: nesoulad bezpečných napětí F8×F9 (ve frontě, viz níže).
 
 
 

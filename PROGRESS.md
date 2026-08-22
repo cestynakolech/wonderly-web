@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 8. 2026 ráno — kvízy CELÉ fyziky (6–9) KOMPLET na 21 otázkách**
+> ### Poslední stav: **22. 8. 2026 večer — kvízy fyziky 7 dorovnány, celá fyzika 6–9 na cíli 21**
+> Fyzika 7 dorovnána na 21 otázek (10 bloků, 44 nových otázek, doplněny 2 věty výkladu
+> duhy/barev). Kontrolor 0 nálezů, nasazeno commit `acceba4`, ověřeno obsahem na produkci.
+> Celá fyzika 6–9 tím splňuje cíl 21 otázek na podtéma. Zbývá informatika + Pč (424 otázek).
+>
+> ### Předchozí stav: **21. 8. 2026 ráno — kvízy CELÉ fyziky (6–9) KOMPLET na 21 otázkách**
 > **Fyzika 6 dokončena** (16 bloků), kontrola 2 nezávislými kontrolory + 1 po opravách; nálezy:
 > 3 otázky mimo výklad nahrazeny, 5 oprav brány, 1 nesoulad s výkladem opraven. Commit `8fb4e0d`,
 > tag `kvizy-fyzika-21-komplet`. Celá fyzika 6–9 tím splňuje cíl 21 otázek na podtéma.
