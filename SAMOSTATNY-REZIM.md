@@ -804,6 +804,8 @@ tíhové síly m·r místo F·r, KladkaSimulace měla matoucí metaforu), commit
 21 otázek, opraveny 2 křížové úniky vysvětlení→odpověď, které brána
 `uniky.mjs` nechytila — nová úloha na posílení brány založena do
 wonderly-fronta.
+Dávka 3 (PraceSimulace, DifuzeSimulace, StupniceSimulace, PrevodySimulace,
+CockaSimulace) — 0 nálezů, vše ověřeno výpočtem i náhledem.
 
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
