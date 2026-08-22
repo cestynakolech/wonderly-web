@@ -3424,7 +3424,6 @@ export const temata: Record<string, Tema[]> = {
 						<ul>
 							<li>plochá baterie = 3 články → 3 · 1,5 V = <strong>4,5 V</strong></li>
 							<li>devítivoltová baterie = 6 článků → 6 · 1,5 V = <strong>9 V</strong></li>
-							<li>autobaterie = 6 olověných článků po 2 V → <strong>12 V</strong></li>
 						</ul>
 						<p>👉 Malá tužková AA a velká buřtová D mají <strong>obě 1,5 V</strong>. Větší článek
 						neznamená větší napětí — znamená, že <strong>vydrží déle</strong>. Tomu se říká
@@ -4493,7 +4492,7 @@ export const temata: Record<string, Tema[]> = {
 							<li>napětí <strong>nezáleží na velikosti</strong> článku — tužková i buřtová dají 1,5 V;
 							větší jen vydrží déle (<strong>kapacita</strong> v mAh)</li>
 							<li>vyššího napětí se dosáhne <strong>sériovým zapojením</strong>: 3 × 1,5 V = 4,5 V
-							(plochá), 6 × 2 V = 12 V (autobaterie)</li>
+							(plochá baterie)</li>
 							<li>ze <strong>dvou stejných materiálů</strong> žádný článek nesestavíš — rozdíl by byl nulový</li>
 						</ul>
 						<p>💡 Vyzkoušej doma: zapíchni do citronu <strong>zinkový</strong> plíšek (postačí
@@ -4516,7 +4515,7 @@ export const temata: Record<string, Tema[]> = {
 						<ol>
 						<li>Kolik tužkových článků (1,5 V) musíš zapojit za sebou, aby vznikla devítivoltová baterie (9 V)? <details><summary>řešení</summary>n = U / U₁ = 9 : 1,5 = <strong>6 článků</strong></details></li>
 						<li>V baterii svítilny jsou za sebou čtyři tužkové články po <strong>1,5 V</strong>. Jaké je celkové napětí zdroje? <details><summary>řešení</summary>U = 4 · 1,5 = <strong>6 V</strong></details></li>
-						<li>Autobaterie (olověný akumulátor) je uvnitř složená z několika článků po <strong>2 V</strong> zapojených za sebou. Kolik článků potřebuje, aby dala napětí 12 V? <details><summary>řešení</summary>n = 12 : 2 = <strong>6 článků</strong></details></li>
+						<li>Kolik tužkových článků (1,5 V) bys musel zapojit za sebou, abys jejich součtem dosáhl napětí olověného akumulátoru (12 V)? <details><summary>řešení</summary>n = 12 : 1,5 = <strong>8 článků</strong></details></li>
 						<li>Kolik plochých baterií (4,5 V) musíš spojit za sebou, aby dohromady daly napětí 18 V? <details><summary>řešení</summary>n = 18 : 4,5 = <strong>4 ploché baterie</strong></details></li>
 						</ol>
 					`,
@@ -4701,6 +4700,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Míra poškození podle velikosti proudu</h3>
 						<ul>
 							<li>0,5–1 mA — práh vnímání,</li>
+							<li>1–8 mA — podráždění nervů, stoupá krevní tlak,</li>
 							<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong>,</li>
 							<li>25 mA — křeč dýchacích svalů,</li>
 							<li>60 mA — fibrilace (chvění) srdce,</li>
@@ -4709,7 +4709,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Co velikost proudu ovlivňuje</h3>
 						<ul>
 							<li><strong>Odpor člověka:</strong> v suchu a suché obuvi asi <strong>150 000 Ω</strong>, ve vlhku jen asi <strong>2000 Ω</strong> → mokrý člověk je mnohem víc ohrožen.</li>
-							<li><strong>Cesta proudu:</strong> nejnebezpečnější je přes <strong>ruku do srdce</strong> nebo přes hlavu (mozek).</li>
+							<li><strong>Cesta proudu:</strong> nejnebezpečnější je přes <strong>levou ruku do srdce</strong> a dál, nebo přes hlavu (mozek).</li>
 							<li><strong>Bezpečné napětí</strong> dle normy: stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong> (zásuvka 230 V je nebezpečná).</li>
 						</ul>
 						<h3>Bezpečná pravidla</h3>
@@ -5003,20 +5003,35 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Osm planet</h3>
 						<p>Merkur, Venuše, Země, Mars, Jupiter, Saturn, Uran, Neptun.</p>
 						<ul>
-							<li><strong>Kamenné planety</strong> (Merkur, Venuše, Země, Mars) — mají <strong>pevný povrch</strong> a málo nebo žádné měsíce. <strong>Země</strong> je jediná planeta s podmínkami pro život; <strong>Mars</strong> je „rudá planeta".</li>
-							<li><strong>Plynné planety</strong> (Jupiter, Saturn, Uran, Neptun) — „plynní obři" bez pevného povrchu, složené hlavně z vodíku a helia, s mnoha měsíci. <strong>Jupiter</strong> je největší, <strong>Saturn</strong> má výrazné prstence.</li>
+							<li><strong>Kamenné planety</strong> (Merkur, Venuše, Země, Mars) — mají <strong>pevný povrch</strong> a málo nebo žádné měsíce.
+								<ul>
+									<li><strong>Merkur</strong> — nejmenší planeta, vzhledem podobná Měsíci (plná kráterů), nemá žádný měsíc.</li>
+									<li><strong>Venuše</strong> — má nejhustší atmosféru ze všech planet (oxid uhličitý), na povrchu je kvůli skleníkovému efektu asi <strong>460 °C</strong>; je téměř stejně velká jako Země, proto se jí říká „sesterská planeta Země"; na obloze ji vidíme jako jitřenku nebo večernici.</li>
+									<li><strong>Země</strong> — jediná planeta s podmínkami pro život.</li>
+									<li><strong>Mars</strong> — „rudá planeta" (barvu dávají horniny s oxidem železa), má dva malé měsíce <strong>Phobos</strong> a <strong>Deimos</strong> a nejvyšší sopku celé sluneční soustavy <strong>Olympus Mons</strong> (24 km nad okolím). Den na Marsu trvá skoro stejně dlouho jako na Zemi — asi 24 hodin a 40 minut.</li>
+								</ul>
+							</li>
+							<li><strong>Plynné planety</strong> (Jupiter, Saturn, Uran, Neptun) — „plynní obři" bez pevného povrchu, složené hlavně z vodíku a helia, s mnoha měsíci.
+								<ul>
+									<li><strong>Jupiter</strong> — největší planeta a s více než 95 měsíci jich má i nejvíc; čtyři největší (Io, Europa, Ganymed, Callisto) objevil už v 17. století Galileo Galilei. Na povrchu má obří bouři zvanou <strong>Velká rudá skvrna</strong>.</li>
+									<li><strong>Saturn</strong> — výrazné <strong>prstence</strong> z ledu, prachu a kamení; jeho největší měsíc <strong>Titan</strong> je jediný měsíc ve sluneční soustavě s hustou atmosférou.</li>
+									<li><strong>Uran</strong> — „ledový obr", modrozelená barva; jako jediná planeta má osu otáčení natočenou „naležato".</li>
+									<li><strong>Neptun</strong> — také ledový obr, nejchladnější planeta (asi −220 °C), s extrémně silným prouděním v atmosféře (vítr přes 900 km/h).</li>
+								</ul>
+							</li>
 						</ul>
 						<h3>Další tělesa</h3>
 						<ul>
-							<li><strong>Trpasličí planety</strong> — např. Pluto a Ceres.</li>
-							<li><strong>Planetky (asteroidy)</strong> — drobná tělesa, většina v pásu mezi Marsem a Jupiterem.</li>
+							<li><strong>Trpasličí planety</strong> — podobné planetám, ale v jejich blízkosti obíhají další podobná tělesa; např. <strong>Pluto</strong> (dřív počítané mezi planety, obíhá až za Neptunem), <strong>Ceres</strong> (v pásu planetek mezi Marsem a Jupiterem), Eris, Haumea, Makemake.</li>
+							<li><strong>Planetky (asteroidy)</strong> — drobná tělesa nepravidelného tvaru, většina v <strong>hlavním pásu mezi Marsem a Jupiterem</strong>; některé mohou křížit dráhu Země.</li>
 							<li><strong>Komety</strong> — obíhají po protáhlých elipsách, mají jádro z ledu a prachu a při přiblížení ke Slunci jim vzniká <strong>ohon</strong> (Halleyova kometa se vrací každých 76 let).</li>
-							<li><strong>Meteor</strong> („padající hvězda") vzniká, když těleso shoří v atmosféře; co dopadne na zem, je <strong>meteorit</strong>.</li>
+							<li><strong>Meteoroid</strong> vzniká rozpadem komety; <strong>meteor</strong> („padající hvězda") je jev, kdy meteoroid v atmosféře shoří; co dopadne na zem, je <strong>meteorit</strong>.</li>
 						</ul>
 						<h3>Vzdálenosti a pohyb</h3>
 						<ul>
 							<li><strong>Astronomická jednotka (AU)</strong> = střední vzdálenost Země–Slunce, asi <strong>150 milionů km</strong>.</li>
 							<li><strong>Světelný rok (ly)</strong> = vzdálenost, kterou urazí světlo za rok (9,46 bilionu km).</li>
+							<li><strong>Parsek (pc)</strong> = další jednotka pro vzdálenosti hvězd; je to vzdálenost, ze které by astronomická jednotka byla vidět pod úhlem jedné úhlové vteřiny.</li>
 							<li>Pohyb planet popisují <strong>Keplerovy zákony</strong>: planety obíhají po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.</li>
 						</ul>
 					`,
