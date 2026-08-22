@@ -8,7 +8,7 @@
 // měřidla opravdu vyrobila. Kdyby se práh někdy povolil zpátky, spadne to tady.
 //
 // Spuštění: node testy/uniky-obousmerne.mjs
-import { zkontrolujBlok, slovnikTematu, zkontrolujUniky } from './uniky.mjs';
+import { zkontrolujBlok, slovnikTematu, zkontrolujUniky, hodnotyZTextu } from './uniky.mjs';
 
 let chyb = 0;
 let kontrol = 0;
@@ -795,6 +795,29 @@ const zdravy = [
 	];
 	const v = zkontrolujBlok('test/vadaC-regrese-jednociferny-unik-fraze', teplotaUnik);
 	tvrdi('VADA C: skutečný jednociferný fráziový únik („5 kg") dál funguje', v.uniky.length >= 1);
+}
+
+// ---------------------------------------------------------------- PŘÍMÝ TEST: hodnotyZTextu ²/³
+// Regresní test JÁDRA (ne přes zkontrolujBlok/jeCistaHodnota) — mutace SYMBOLY-mapy
+// (m³/m² v `uniky.mjs`) nebo mutace regexu s třídou znaků `[\p{L}Ω²³]` (řádek 254,
+// stejný vzor na 289) tohle musí spadnout. Bez tohoto testu měřidlo neodhalí, že
+// se ²/³ v jádru extrakce hodnot ztratily (nález nezávislé kontroly 22. 8. 2026).
+// Dvojciferné číslo schválně — `hodnotyZTextu` jednociferná čísla zahazuje.
+{
+	const m3 = hodnotyZTextu('Krabice má objem 12 m³.');
+	const m2 = hodnotyZTextu('Zahrada má plochu 12 m².');
+	const holeM = hodnotyZTextu('Tyč má délku 12 m.');
+	tvrdi('hodnotyZTextu: „12 m³" má rozpoznanou jednotku „m3"', m3.has('12|m3'));
+	tvrdi('hodnotyZTextu: „12 m²" má rozpoznanou jednotku „m2"', m2.has('12|m2'));
+	tvrdi('hodnotyZTextu: „12 m³" se NEPLETE s „12 m²"', JSON.stringify([...m3]) !== JSON.stringify([...m2]));
+	tvrdi(
+		'hodnotyZTextu: „12 m³" se NEPLETE s holým „12 m" (VADA C)',
+		JSON.stringify([...m3]) !== JSON.stringify([...holeM]),
+	);
+	tvrdi(
+		'hodnotyZTextu: „12 m²" se NEPLETE s holým „12 m"',
+		JSON.stringify([...m2]) !== JSON.stringify([...holeM]),
+	);
 }
 
 console.log(chyb === 0 ? `✅ uniky.mjs — obousměrně ověřeno, ${kontrol} kontrol.` : `❌ ${chyb} z ${kontrol} kontrol selhalo.`);
