@@ -115,6 +115,8 @@ import BezpecnaVzdalenostVedeniSimulace from '../../../../../../components/skola
 import PosuvnyOtacivyPohybSimulace from '../../../../../../components/skola2/PosuvnyOtacivyPohybSimulace.astro';
 import PovetrnostniMapaSimulace from '../../../../../../components/skola2/PovetrnostniMapaSimulace.astro';
 import NestejnorodaSimulace from '../../../../../../components/skola2/NestejnorodaSimulace.astro';
+import VypocetRychlostiSimulace from '../../../../../../components/skola2/VypocetRychlostiSimulace.astro';
+import TelesoLatkaSimulace from '../../../../../../components/skola2/TelesoLatkaSimulace.astro';
 import PretlakSimulace from '../../../../../../components/skola2/PretlakSimulace.astro';
 import SvacinaSimulace from '../../../../../../components/skola2/SvacinaSimulace.astro';
 import PrenosSimulace from '../../../../../../components/skola2/PrenosSimulace.astro';
@@ -379,6 +381,8 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'posuvny-otacivy' && <PosuvnyOtacivyPohybSimulace />}
 	{podtema.interakce === 'povetrnostni-mapa' && <PovetrnostniMapaSimulace />}
 	{podtema.interakce === 'nestejnoroda-lod' && <NestejnorodaSimulace />}
+	{podtema.interakce === 'vypocet-rychlosti' && <VypocetRychlostiSimulace />}
+	{podtema.interakce === 'teleso-latka' && <TelesoLatkaSimulace />}
 	{podtema.interakce === 'pretlak' && <PretlakSimulace />}
 	{podtema.interakce === 'svacina' && <SvacinaSimulace />}
 	{podtema.interakce === 'prenos' && <PrenosSimulace />}

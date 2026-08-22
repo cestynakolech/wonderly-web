@@ -1,0 +1,179 @@
+---
+// Třídicí hra: TĚLESO, nebo LÁTKA? Žák u karty klikne na jednu ze dvou
+// možností. Karty jsou přímo z příkladů ve výkladu (mléko / mléko v láhvi,
+// vzduch / vzduch v balónku, papír / kniha, voda / oblak) — schválně ve
+// dvojicích stejné slovo jednou jako látka, podruhé jako těleso z ní, aby
+// vyniklo pravidlo „dá se to spočítat? / jde se zeptat, z čeho to je?".
+// Kreslí se staticky (žádný requestAnimationFrame), překresluje se po kliku.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Těleso, nebo látka? 🕹️</span></h2>
+	<p>Ke každé kartě rozhodni: je to <strong>TĚLESO</strong> (konkrétní věc s tvarem, dá se spočítat), nebo <strong>LÁTKA</strong> (materiál, ze kterého je něco uděláno)? Pomůže otázka: <em>dá se to spočítat?</em> a <em>jde se zeptat „z čeho je to?"</em></p>
+	<svg id="tl-svg" viewBox="0 0 640 360" role="img" aria-label="Karta s předmětem nebo látkou k zařazení">
+		<rect x="0" y="0" width="640" height="360" fill="#f8f9fa" />
+		<!-- horní lišta: postup a skóre -->
+		<rect id="tl-postup-r" y="14" height="28" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<text id="tl-postup-t" y="33" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<rect id="tl-skore-r" y="14" height="28" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<text id="tl-skore-t" y="33" text-anchor="middle" font-size="15" font-weight="bold" fill="#2f9e44"></text>
+		<!-- karta -->
+		<rect x="170" y="60" width="300" height="150" rx="16" fill="#ffe8cc" stroke="#2b2a26" stroke-width="3" />
+		<text id="tl-emoji" x="320" y="150" text-anchor="middle" font-size="70"></text>
+		<rect id="tl-slovo-r" y="182" height="26" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+		<text id="tl-slovo-t" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26"></text>
+		<!-- zpětná vazba -->
+		<text id="tl-fb-ikona" x="320" y="252" text-anchor="middle" font-size="34"></text>
+		<rect id="tl-fb-r" x="60" y="270" width="520" height="70" rx="12" fill="#fff" stroke="#2b2a26" stroke-width="2.5" opacity="0" />
+		<text id="tl-fb-l1" x="320" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<text id="tl-fb-l2" x="320" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<text id="tl-fb-l3" x="320" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<p class="tl-tlacitka" id="tl-volby">
+		<button type="button" id="tl-btn-teleso" class="tl-tl">📦 TĚLESO</button>
+		<button type="button" id="tl-btn-latka" class="tl-tl">🧱 LÁTKA</button>
+	</p>
+	<p class="tl-tlacitka">
+		<button type="button" id="tl-dalsi" class="tl-tl tl-dalsi" disabled>Další ➡️</button>
+		<button type="button" id="tl-reset" class="tl-tl">🔄 Začít znovu</button>
+	</p>
+</section>
+
+<script>
+	const karty = [
+		{ emoji: '🥛', slovo: 'mléko', spravne: 'latka', text: 'Mléko samo o sobě je LÁTKA — materiál. Teprve když ho nalijeme do láhve, vznikne z něj těleso.' },
+		{ emoji: '🍼', slovo: 'mléko v láhvi', spravne: 'teleso', text: 'Mléko V LÁHVI má tvar a objem, dá se spočítat — je to TĚLESO. Je z látky zvané mléko.' },
+		{ emoji: '💨', slovo: 'vzduch', spravne: 'latka', text: 'Vzduch je LÁTKA. Neřekneme „tři vzduchy" a nedává smysl ptát se, z čeho vzduch je.' },
+		{ emoji: '🎈', slovo: 'vzduch v balónku', spravne: 'teleso', text: 'Vzduch v balónku má hranice a tvar — je to TĚLESO, i když je neviditelné. Je ze vzduchu.' },
+		{ emoji: '📄', slovo: 'papír', spravne: 'latka', text: 'Papír je LÁTKA — materiál, ze kterého se dělají různá tělesa (kniha, sešit…).' },
+		{ emoji: '📖', slovo: 'kniha', spravne: 'teleso', text: 'Kniha má tvar, dá se spočítat (dvě knihy) — je to TĚLESO. Je z papíru.' },
+		{ emoji: '💧', slovo: 'voda', spravne: 'latka', text: 'Voda obecně je LÁTKA. Ptát se „z čeho je voda?" nedává smysl — voda je prostě voda.' },
+		{ emoji: '☁️', slovo: 'oblak', spravne: 'teleso', text: 'Oblak má tvar a hranice, i když není tvrdý — je to TĚLESO. Je z vody.' },
+	];
+
+	const RADKY_ID = ['tl-fb-l1', 'tl-fb-l2', 'tl-fb-l3']; // pevný počet řádků, žádné appendChild/removeChild
+	let index = 0;
+	let skore = 0;
+	let odpovezeno = false;
+
+	// Sdílená funkce: nastaví plaketu (bílá deska) přesně pod jednořádkový text,
+	// šířka podle délky textu.
+	function plaketa(rectEl, textEl, cx, y, text, fontSize) {
+		textEl.textContent = text;
+		textEl.setAttribute('x', cx);
+		textEl.setAttribute('y', y);
+		textEl.setAttribute('font-size', fontSize);
+		const sirka = text.length * fontSize * 0.58 + 24;
+		rectEl.setAttribute('x', cx - sirka / 2);
+		rectEl.setAttribute('width', sirka);
+	}
+
+	// Víceřádková plaketa pro delší vysvětlení — zalomí text po slovech a zapíše
+	// ho do PEVNÉHO počtu předpřipravených <text> řádků (RADKY_ID). Žádné
+	// appendChild/removeChild za běhu — jen nastavování atributů na existujících
+	// prvcích, ať funguje spolehlivě i v testovacím náhledu.
+	function plaketaViceradkova(rectEl, cx, yStart, text, fontSize, maxZnaku) {
+		const slova = text.split(' ');
+		const radky = [];
+		let radek = '';
+		for (const slovo of slova) {
+			const zkus = radek ? radek + ' ' + slovo : slovo;
+			if (zkus.length > maxZnaku && radek) { radky.push(radek); radek = slovo; }
+			else radek = zkus;
+		}
+		if (radek) radky.push(radek);
+		const lineH = fontSize + 6;
+		let nejdelsi = 0;
+		RADKY_ID.forEach((id, i) => {
+			const t = document.getElementById(id);
+			const r = radky[i] ?? '';
+			t.textContent = r;
+			t.setAttribute('y', yStart + i * lineH);
+			t.setAttribute('font-size', fontSize);
+			if (r) nejdelsi = Math.max(nejdelsi, r.length);
+		});
+		const sirka = nejdelsi * fontSize * 0.56 + 28;
+		rectEl.setAttribute('x', cx - sirka / 2);
+		rectEl.setAttribute('width', sirka);
+		rectEl.setAttribute('y', yStart - fontSize - 4);
+		rectEl.setAttribute('height', radky.length * lineH + 14);
+	}
+
+	const postupR = document.getElementById('tl-postup-r');
+	const postupT = document.getElementById('tl-postup-t');
+	const skoreR = document.getElementById('tl-skore-r');
+	const skoreT = document.getElementById('tl-skore-t');
+	const emojiEl = document.getElementById('tl-emoji');
+	const slovoR = document.getElementById('tl-slovo-r');
+	const slovoT = document.getElementById('tl-slovo-t');
+	const fbIkona = document.getElementById('tl-fb-ikona');
+	const fbR = document.getElementById('tl-fb-r');
+	const fbRadky = RADKY_ID.map((id) => document.getElementById(id));
+	const btnTeleso = document.getElementById('tl-btn-teleso');
+	const btnLatka = document.getElementById('tl-btn-latka');
+	const btnDalsi = document.getElementById('tl-dalsi');
+	const btnReset = document.getElementById('tl-reset');
+
+	function ukaziKartu() {
+		odpovezeno = false;
+		btnDalsi.disabled = true;
+		btnTeleso.disabled = false;
+		btnLatka.disabled = false;
+		fbR.setAttribute('opacity', '0');
+		fbIkona.textContent = '';
+		fbRadky.forEach((t) => { t.textContent = ''; });
+
+		if (index >= karty.length) {
+			emojiEl.textContent = '🏁';
+			plaketa(slovoR, slovoT, 320, 200, 'Hotovo!', 18);
+			plaketa(postupR, postupT, 130, 33, 'Konec hry', 15);
+			plaketa(skoreR, skoreT, 500, 33, `Skóre: ${skore}/${karty.length}`, 15);
+			plaketaViceradkova(fbR, 320, 300, `Zvládl(a) jsi ${skore} z ${karty.length} karet správně. Klikni na „Začít znovu" a zkus to znovu.`, 15, 44);
+			fbR.setAttribute('opacity', '1');
+			btnTeleso.disabled = true;
+			btnLatka.disabled = true;
+			return;
+		}
+		const k = karty[index];
+		emojiEl.textContent = k.emoji;
+		plaketa(slovoR, slovoT, 320, 200, k.slovo, 16);
+		plaketa(postupR, postupT, 130, 33, `Karta ${index + 1}/${karty.length}`, 15);
+		plaketa(skoreR, skoreT, 500, 33, `Skóre: ${skore}/${karty.length}`, 15);
+	}
+
+	function odpoved(volba) {
+		if (odpovezeno) return;
+		odpovezeno = true;
+		btnTeleso.disabled = true;
+		btnLatka.disabled = true;
+		btnDalsi.disabled = false;
+		const k = karty[index];
+		const spravneNazev = k.spravne === 'teleso' ? 'TĚLESO' : 'LÁTKA';
+		if (volba === k.spravne) {
+			skore++;
+			fbIkona.textContent = '✅';
+			plaketaViceradkova(fbR, 320, 300, `Správně! ${k.text}`, 15, 46);
+		} else {
+			fbIkona.textContent = '❌';
+			plaketaViceradkova(fbR, 320, 300, `Není to tak, správně je ${spravneNazev}. ${k.text}`, 15, 46);
+		}
+		fbR.setAttribute('opacity', '1');
+		plaketa(skoreR, skoreT, 500, 33, `Skóre: ${skore}/${karty.length}`, 15);
+	}
+
+	btnTeleso.addEventListener('click', () => odpoved('teleso'));
+	btnLatka.addEventListener('click', () => odpoved('latka'));
+	btnDalsi.addEventListener('click', () => { index++; ukaziKartu(); });
+	btnReset.addEventListener('click', () => { index = 0; skore = 0; ukaziKartu(); });
+
+	ukaziKartu();
+</script>
+
+<style>
+	#tl-svg { width: 100%; max-width: 640px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.tl-tlacitka { margin: 0.6rem 0; }
+	.tl-tl { font: inherit; font-weight: 700; padding: 0.35rem 0.9rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.tl-tl:disabled { opacity: 0.45; cursor: not-allowed; }
+	.tl-tl:active:not(:disabled) { transform: translateY(1px); }
+	.tl-dalsi { background: #d3f9d8; }
+</style>

@@ -1,0 +1,235 @@
+---
+// Příklady na výpočet rychlosti (F7): "počítadlo s příběhem" — žák vybere
+// posuvníkem jeden ze ČTYŘ slovních příkladů PŘESNĚ tak, jak jsou uvedené
+// ve výkladu podtématu (Příklad 1 auto, Příklad 2 lyžař, Příklad 3 cyklisté,
+// Příklad 4 vlak — všechny čtyři v km a hodinách, žádný převod jednotek,
+// aby se čísla nemíchala s jinými jednotkami než ve výkladu). Dráha s a čas
+// t jsou daná zadáním úlohy (nejsou to náhodná čísla), rychlost v = s : t
+// se dopočítá a zobrazí AŽ po doběhnutí animace — přesně vzorec z výkladu.
+// Kontrola celých čísel: 200:4=50, 30:2=15, 45:3=15, 360:4=90 — všechny čtyři
+// kombinace vychází celé.
+//
+// Animace: dopravní prostředek jede po silnici čistou funkci času
+// stav(prIdx, teSekund) — 1 simulovaná sekunda = 1 hodina z příběhu (stejné
+// měřítko pro všechny čtyři příklady, takže se dá i navzájem porovnat, kdo
+// dojel dřív). Vozidlo se zastaví přesně na konci silnice (zlomek se ořízne
+// na <=1), aby nikdy nevyjelo mimo viewBox.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kolik km/h? Spočítej rychlost z příběhu 🕹️</span></h2>
+	<p>Vyber si posuvníkem jeden ze čtyř příkladů z výkladu. Nejdřív zkus rychlost spočítat sám (v = s : t), pak stiskni <strong>Start</strong> a sleduj jízdu — na konci se objeví výpočet.</p>
+	<svg id="vr-svg" viewBox="0 0 640 300" role="img" aria-label="Dopravní prostředek jede po silnici, vedle se počítá rychlost ze vzorce v = s děleno t">
+		<!-- úloha (příběh) -->
+		<g id="vr-plaketa-uloha">
+			<rect id="vr-plaketa-uloha-rect" y="16" height="34" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text id="vr-plaketa-uloha-text" y="38" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		</g>
+
+		<!-- silnice: délka úměrná dráze s (společné měřítko km→px pro všechny 4 příklady).
+		     Vozovka má navíc lem ROAD_PAD z každé strany, aby se do ní celé (ne
+		     jen středem) vešlo vozidlo i na startu, i v cíli. -->
+		<rect id="vr-silnice" x="40" y="120" width="20" height="36" rx="6" fill="#495057" />
+		<line id="vr-silnice-cara" x1="50" y1="138" x2="50" y2="138" stroke="#ffd43b" stroke-width="3" stroke-dasharray="16 12" />
+		<text id="vr-nula-km" x="40" y="112" font-size="12" fill="#868e96">0 km</text>
+		<g id="vr-plaketa-cil">
+			<rect id="vr-plaketa-cil-rect" y="90" height="20" rx="6" fill="#ffffff" stroke="#495057" stroke-width="1.5" />
+			<text id="vr-plaketa-cil-text" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057"></text>
+		</g>
+		<text id="vr-vozidlo" x="75" y="147" text-anchor="middle" font-size="30">🚗</text>
+
+		<!-- srovnávací stupnice: bledý pruh přes CELÉ měřítko (0–360 km, nejdelší
+		     ze 4 tras) — u kratších tras je vidět, jak malý kousek je 30 km nebo
+		     45 km proti 360 km. Rysky po 100 km jsou jen měřítko (žádné nové číslo
+		     z výkladu), nepřekrývá vozovku ani popisky (vlastní volný pruh pod ní). -->
+		<rect id="vr-meritko-pozadi" x="60" y="160" width="500" height="8" rx="4" fill="#e9ecef" stroke="#ced4da" stroke-width="1" />
+		<rect id="vr-meritko-vyplna" x="60" y="160" width="0" height="8" rx="4" fill="#4dabf7" opacity="0.55" />
+		<g id="vr-rysky" font-size="9" fill="#adb5bd"></g>
+		<text x="40" y="184" font-size="9" fill="#adb5bd">měřítko 0–360 km:</text>
+
+		<!-- výpočet: tři čtecí okénka pod silnicí -->
+		<text x="140" y="200" text-anchor="middle" font-size="12" fill="#495057">dráha s</text>
+		<g id="vr-plaketa-s"><rect id="vr-plaketa-s-rect" y="207" height="26" rx="7" fill="#ffffff" stroke="#495057" stroke-width="1.5" /><text id="vr-plaketa-s-text" y="225" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="320" y="200" text-anchor="middle" font-size="12" fill="#495057">čas t</text>
+		<g id="vr-plaketa-t"><rect id="vr-plaketa-t-rect" y="207" height="26" rx="7" fill="#ffffff" stroke="#495057" stroke-width="1.5" /><text id="vr-plaketa-t-text" y="225" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057"></text></g>
+
+		<text x="500" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2">rychlost v</text>
+		<g id="vr-plaketa-v"><rect id="vr-plaketa-v-rect" y="207" height="26" rx="7" fill="#ffffff" stroke="#1971c2" stroke-width="2" /><text id="vr-plaketa-v-text" y="225" text-anchor="middle" font-size="14" font-weight="bold" fill="#1971c2"></text></g>
+
+		<!-- stavová hláška -->
+		<g id="vr-plaketa-stav">
+			<rect id="vr-plaketa-stav-rect" y="253" height="34" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text id="vr-plaketa-stav-text" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		</g>
+	</svg>
+	<label class="sim-posuvnik">
+		Příklad: <output id="vr-priklad-out"></output>
+		<input type="range" id="vr-priklad" min="1" max="4" step="1" value="1" />
+	</label>
+	<p>
+		<button id="vr-start" type="button" class="vr-tl">▶ Start</button>
+		<button id="vr-reset" type="button" class="vr-tl">↺ Znovu</button>
+	</p>
+</section>
+
+<script>
+	// === ČISTÁ ČÁST (kontrolovatelná výpočtem, bez DOM) ===
+	// s v km, t v hodinách — přesně čísla ze čtyř slovních příkladů výkladu.
+	const PRIKLADY = [
+		{ s: 200, t: 4, v: 50, vozidlo: '🚗', priblih: 'Auto ujelo 200 km za 4 hodiny.' },
+		{ s: 30, t: 2, v: 15, vozidlo: '⛷️', priblih: 'Běžec na lyžích urazil 30 km za 2 hodiny.' },
+		{ s: 45, t: 3, v: 15, vozidlo: '🚴', priblih: 'Skupina cyklistů ujela 45 km za 3 hodiny.' },
+		{ s: 360, t: 4, v: 90, vozidlo: '🚆', priblih: 'Vlak ujel 360 km za 4 hodiny.' },
+	];
+	// 1 simulovaná sekunda = 1 hodina z příběhu (společné měřítko pro všechny čtyři)
+	function stav(prIdx, teSekund) {
+		const p = PRIKLADY[Number.isInteger(prIdx) && prIdx >= 0 && prIdx < PRIKLADY.length ? prIdx : 0];
+		const zlomek = Math.min(1, Math.max(0, teSekund / p.t));
+		const hotovo = teSekund >= p.t;
+		return { ...p, zlomek, hotovo };
+	}
+	// === KONEC ČISTÉ ČÁSTI ===
+
+	const svg = document.getElementById('vr-svg');
+	svg.__stav = stav; // pro nezávislou kontrolu výpočtem
+	const g = (id) => document.getElementById(id);
+	const nastav = (id, attrs) => { const el = g(id); for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v); };
+
+	// jedna sdílená funkce pro dynamickou šířku plakety podle délky textu
+	function sirkaPlakety(text) {
+		return Math.max(34, text.length * 6.6 + 16);
+	}
+	function plaketa(prefix, cx, text) {
+		const sirka = sirkaPlakety(text);
+		nastav(`${prefix}-rect`, { x: cx - sirka / 2, width: sirka });
+		const t = g(`${prefix}-text`);
+		t.setAttribute('x', cx);
+		t.textContent = text;
+	}
+
+	const slider = document.getElementById('vr-priklad');
+	const out = document.getElementById('vr-priklad-out');
+	const vozidlo = g('vr-vozidlo');
+	const btnStart = document.getElementById('vr-start');
+	const btnReset = document.getElementById('vr-reset');
+
+	// SPOLEČNÉ měřítko dráhy (px na km) — stejné pro všechny 4 příklady, aby
+	// rychlejší jezdec byl na obrazovce vidět rychleji (delší trasa = delší čára).
+	// Nejdelší trasa (360 km) vyplní celý dostupný pás, kratší trasy jsou
+	// úměrně kratší (30 km ~ 42 px), ale start i cíl zůstávají mimo okraj scény.
+	const X0 = 60;               // střed vozidla na STARTU (px)
+	const PX_ROZSAH = 500;       // px vyhrazené pro nejdelší trasu
+	const S_MAX = 360;           // km — nejdelší trasa ze 4 příkladů
+	const PX_NA_KM = PX_ROZSAH / S_MAX;
+	const X1 = (s) => X0 + s * PX_NA_KM; // střed vozidla V CÍLI pro danou dráhu s
+	// vozidlo (font-size 30) má na šířku cca 30 px → poloviční šířka ~17 px;
+	// vozovka se kreslí o kousek ŠIRŠÍ (ROAD_PAD), aby vozidlo celé (ne jen
+	// středem) leželo na vozovce i na startu (X0), i v cíli (X1) — okraje karoserie
+	// se tak nikdy nedotknou hrany vozovky (3 px rezerva navíc).
+	const ROAD_PAD = 20;
+
+	// srovnávací stupnice: bledý pruh 0–360 km je STATICKÝ (stejný pro všechny
+	// příklady — celé maximální měřítko), jen výplň (0–s km) a rysky se dopočtou.
+	function kresliRysky() {
+		let html = '';
+		for (const km of [100, 200, 300, 360]) {
+			const x = (X0 + km * PX_NA_KM).toFixed(1);
+			html += `<line x1="${x}" y1="168" x2="${x}" y2="172" stroke="#adb5bd" stroke-width="1" />`;
+			html += `<text x="${x}" y="184" text-anchor="middle">${km} km</text>`;
+		}
+		g('vr-rysky').innerHTML = html;
+	}
+	kresliRysky();
+
+	// slider.value může chvíli chybět (šablona bez načteného DOM) — bez pojistky
+	// by NaN index do PRIKLADY spadl na „reading 't' of undefined".
+	function prIdxOd(slider) {
+		const cislo = parseInt(slider.value, 10);
+		return Number.isFinite(cislo) ? Math.min(PRIKLADY.length - 1, Math.max(0, cislo - 1)) : 0;
+	}
+
+	let te = 0, bezi = false, minule = performance.now();
+
+	function prekresli() {
+		const prIdx = prIdxOd(slider);
+		const s = stav(prIdx, te);
+		out.textContent = 'č. ' + (prIdx + 1);
+
+		plaketa('vr-plaketa-uloha', 320, s.priblih);
+		plaketa('vr-plaketa-s', 140, s.s + ' km');
+		plaketa('vr-plaketa-t', 320, s.t + ' h');
+
+		const cilX = X1(s.s);
+		const silniceX0 = X0 - ROAD_PAD;
+		nastav('vr-silnice', { x: silniceX0.toFixed(1), width: (cilX - X0 + 2 * ROAD_PAD).toFixed(1) });
+		nastav('vr-silnice-cara', { x1: (silniceX0 + 10).toFixed(1), x2: (cilX + ROAD_PAD - 10).toFixed(1) });
+		nastav('vr-nula-km', { x: silniceX0.toFixed(1) });
+		plaketa('vr-plaketa-cil', cilX, s.s + ' km');
+
+		// výplň srovnávací stupnice: kolik z maximální (360 km) trasy tvoří ta
+		// aktuální — stejné měřítko X0/PX_NA_KM jako u vozovky, takže délka
+		// výplně vždy sedí s délkou vozovky nahoře.
+		nastav('vr-meritko-vyplna', { width: (cilX - X0).toFixed(1) });
+
+		// vozidlo jede STŘEDEM od X0 (start) do cilX (cíl) — tahle vzdálenost
+		// určuje rychlost na obrazovce (viz komentář u ROAD_PAD/PX_NA_KM výš),
+		// lem ROAD_PAD kolem ní je jen vizuální — na proporcionalitu rychlostí
+		// mezi příklady nesahá.
+		vozidlo.textContent = s.vozidlo;
+		nastav('vr-vozidlo', { x: (X0 + s.zlomek * (cilX - X0)).toFixed(1) });
+
+		if (s.hotovo) {
+			plaketa('vr-plaketa-v', 500, s.v + ' km/h');
+			plaketa('vr-plaketa-stav', 320, `🏁 Dojel! v = s : t = ${s.s} : ${s.t} = ${s.v} km/h`);
+		} else if (bezi) {
+			plaketa('vr-plaketa-v', 500, '?');
+			plaketa('vr-plaketa-stav', 320, '🚦 Jede… sleduj, kdy dorazí do cíle.');
+		} else {
+			plaketa('vr-plaketa-v', 500, '?');
+			plaketa('vr-plaketa-stav', 320, '👉 Nejdřív zkus v = s : t spočítat sám, pak stiskni Start.');
+		}
+	}
+
+	function krok(ted) {
+		const dt = Math.min(0.1, (ted - minule) / 1000);
+		minule = ted;
+		if (bezi) {
+			const prIdx = prIdxOd(slider);
+			te += dt;
+			if (te >= PRIKLADY[prIdx].t) { te = PRIKLADY[prIdx].t; bezi = false; btnStart.textContent = '▶ Start'; }
+			prekresli();
+		}
+		requestAnimationFrame(krok);
+	}
+
+	btnStart.addEventListener('click', () => {
+		const prIdx = prIdxOd(slider);
+		if (te >= PRIKLADY[prIdx].t) return; // už dojel, čeká na Znovu
+		bezi = !bezi;
+		btnStart.textContent = bezi ? '⏸ Pauza' : '▶ Start';
+		minule = performance.now();
+		prekresli();
+	});
+	btnReset.addEventListener('click', () => {
+		te = 0; bezi = false;
+		btnStart.textContent = '▶ Start';
+		prekresli();
+	});
+	slider.addEventListener('input', () => {
+		te = 0; bezi = false;
+		btnStart.textContent = '▶ Start';
+		prekresli();
+	});
+
+	prekresli();
+	requestAnimationFrame(krok);
+</script>
+
+<style>
+	#vr-svg { width: 100%; max-width: 640px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 640px; display: block; margin-top: 0.3rem; }
+	.vr-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe8cc; cursor: pointer; margin-right: 0.5rem; }
+	.vr-tl:active { transform: translateY(1px); }
+</style>
