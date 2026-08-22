@@ -95,6 +95,7 @@ import RovinneZrcadloSimulace from '../../../../../../components/skola2/RovinneZ
 import SpalovaciMotorSimulace from '../../../../../../components/skola2/SpalovaciMotorSimulace.astro';
 import DiodaSimulace from '../../../../../../components/skola2/DiodaSimulace.astro';
 import PolovodicVodivostSimulace from '../../../../../../components/skola2/PolovodicVodivostSimulace.astro';
+import SilaVektorSimulace from '../../../../../../components/skola2/SilaVektorSimulace.astro';
 import BarometrSimulace from '../../../../../../components/skola2/BarometrSimulace.astro';
 import OkoSimulace from '../../../../../../components/skola2/OkoSimulace.astro';
 import ElektrolyzaSimulace from '../../../../../../components/skola2/ElektrolyzaSimulace.astro';
@@ -353,6 +354,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'motor' && <SpalovaciMotorSimulace />}
 	{podtema.interakce === 'dioda' && <DiodaSimulace />}
 	{podtema.interakce === 'polovodic' && <PolovodicVodivostSimulace />}
+	{podtema.interakce === 'sila-vektor' && <SilaVektorSimulace />}
 	{podtema.interakce === 'barometr' && <BarometrSimulace />}
 	{podtema.interakce === 'oko' && <OkoSimulace />}
 	{podtema.interakce === 'elektrolyza' && <ElektrolyzaSimulace />}

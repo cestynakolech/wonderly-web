@@ -1,0 +1,322 @@
+---
+// Síla jako vektor: velikost, směr a působiště (podtéma "sila" — jen tyto 3
+// vlastnosti + tíha jako příklad síly svisle dolů; skládání sil UČÍ jiné
+// podtéma "skladani-sil" se svou vlastní simulací, tady se NEDUPLIKUJE).
+// Bedna leží na podlaze (podlaha dole, tíhová síla Fg táhne dolů). Žák nastaví VELIKOST
+// tažné síly F (posuvník) a SMĚR (5 tlačítek, jen nad podlahu — nikdy "do podlahy").
+// Šipka vychází vždy ze stejného PŮSOBIŠTĚ (madlo na bedně). Když je F nahoru menší
+// než Fg, bedna zůstane na zemi (jen se posune, pokud má i vodorovnou složku). Značení
+// Fg (ne "G") je schválně stejné jako u Fg = m·g v temata.ts a v navazujícím podtématu
+// gravitacni-sila — "G" by sedmákovi splynulo s gravitační konstantou.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Síla jako šipka 🕹️</span></h2>
+	<p>
+		Sílu kreslíme jako <strong>šipku</strong>: začíná v <strong>působišti</strong>
+		(místo, kde síla působí — tady madlo na bedně), <strong>směr</strong> šipky je
+		směr síly a <strong>délka</strong> šipky odpovídá její <strong>velikosti</strong>
+		(F v newtonech, N). Bednu stále táhne dolů i <strong>tíhová síla Fg = 30 N</strong>.
+		Nastav sílu a zkus bednu rozjet!
+	</p>
+
+	<svg id="sv-svg" viewBox="0 0 500 400" role="img" aria-label="Bedna na podlaze a síla znázorněná šipkou">
+		<!-- podlaha -->
+		<rect x="0" y="300" width="500" height="100" fill="#d8f5a2" />
+		<line x1="0" y1="300" x2="500" y2="300" stroke="#2b2a26" stroke-width="3" />
+		<g id="sv-obsah"></g>
+	</svg>
+
+	<div class="sv-ovladani">
+		<label>velikost síly F
+			<input id="sv-f" type="range" min="0" max="50" step="5" value="10" />
+			<output id="sv-f-t">10</output> N
+		</label>
+	</div>
+
+	<div class="sv-smery" id="sv-smery" role="group" aria-label="Směr síly">
+		<button type="button" id="sv-smer-180" class="sv-smer-btn" data-deg="180">⬅️ doleva</button>
+		<button type="button" id="sv-smer-135" class="sv-smer-btn" data-deg="135">↖️ šikmo nahoru</button>
+		<button type="button" id="sv-smer-90" class="sv-smer-btn" data-deg="90">⬆️ nahoru</button>
+		<button type="button" id="sv-smer-45" class="sv-smer-btn" data-deg="45">↗️ šikmo nahoru</button>
+		<button type="button" id="sv-smer-0" class="sv-smer-btn sv-smer-aktivni" data-deg="0">➡️ doprava</button>
+	</div>
+
+	<div class="sv-tlacitka">
+		<button id="sv-jed" type="button">🏃 Rozjeď bednu!</button>
+		<button id="sv-reset" type="button">↺ Zpět</button>
+	</div>
+
+	<p id="sv-vysledek" class="sv-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const Fg = 30; // tíhová síla bedny v N (pevná, gravitace vždy dolů) — stejné značení jako v temata.ts (Fg = m·g)
+	const AX = 200, AY = 240; // působiště síly (madlo na vrchu bedny), lokální souřadnice bedny při ox=oy=0
+	const SCALE = 3; // px na 1 N (jako "měřítko" z učebnice)
+	const EPS = 1e-6; // tolerance pro porovnání desetinného výsledku sin/cos s nulou
+	const VIEW_W = 500, VIEW_H = 400, OKRAJ = 4; // rozměry viewBoxu scény a bezpečný okraj pro popisky i tvary
+
+	let F = 10;
+	let deg = 0;
+	let ox = 0, oy = 0; // aktuální posun bedny
+	let animace = false;
+
+	// --- čisté výpočetní funkce (testovatelné bez prohlížeče) ---
+
+	function jeNula(x) {
+		return Math.abs(x) < EPS;
+	}
+
+	// složky síly (N) — vodorovná (kladná = doprava) a svislá nahoru (>=0, směry jsou jen 0-180°)
+	// POZOR: Math.cos(90°) v JS nevyjde přesně 0 (je to ~6·10⁻¹⁷) — porovnávat jen přes jeNula().
+	function slozky(velikostN, uhelDeg) {
+		const rad = (uhelDeg * Math.PI) / 180;
+		return {
+			vodorovna: velikostN * Math.cos(rad),
+			nahoru: velikostN * Math.sin(rad),
+		};
+	}
+
+	// poloha bedny v čase t (s) — čistá funkce, žádné DOM
+	function poloha(t, vodorovna, liftN) {
+		const tc = Math.min(t, 3); // po 3 s se pohyb ustálí
+		const K = 2; // px na (N·s)
+		let dx = vodorovna * K * tc;
+		dx = Math.max(-140, Math.min(140, dx));
+		let dy = -liftN * K * tc; // nahoru = záporné y v SVG
+		dy = Math.max(-90, Math.min(0, dy));
+		return { dx, dy };
+	}
+
+	// Doořízne vodorovný posun `ox`, aby při velké síle (dlouhá šipka + posunutá bedna
+	// dohromady) nevyjel žádný TVAR (bedna, šipka) ze scény — počítá se zvlášť od
+	// `poloha()`, protože závisí i na délce šipky (F, deg), ne jen na rychlosti pohybu.
+	function oriznoutOx(ox, F, deg) {
+		if (F <= 0) return ox;
+		const rad = (deg * Math.PI) / 180;
+		const x2local = AX + Math.cos(rad) * (F * SCALE); // lokální (netranslovaný) hrot šipky
+		const minLocal = Math.min(170, x2local); // 170 = levý okraj bedny
+		const maxLocal = Math.max(230, x2local); // 230 = pravý okraj bedny
+		const oxMin = OKRAJ - minLocal;
+		const oxMax = VIEW_W - OKRAJ - maxLocal;
+		return Math.max(oxMin, Math.min(oxMax, ox));
+	}
+
+	function popisSmeru(d) {
+		return { 0: 'doprava', 45: 'šikmo nahoru doprava', 90: 'přímo nahoru', 135: 'šikmo nahoru doleva', 180: 'doleva' }[d];
+	}
+
+	// bílá plaketa s barevným okrajem pod textem — ŠÍŘKA VŽDY dynamická podle délky textu
+	// (jediné místo, kde se to počítá — používá ji šipka i popisek Fg, ať se to nikdy nerozejde)
+	function plaketa(textX, textY, text, barva) {
+		const sirka = String(text).length * 8 + 8;
+		return `
+			<rect x="${textX - 4}" y="${textY - 14}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />
+			<text x="${textX}" y="${textY}" font-size="13" font-weight="bold" fill="${barva}">${text}</text>
+		`;
+	}
+
+	// Vrací jen ČÁRU A HROT šipky (bez popisku) — popisek se kreslí zvlášť,
+	// mimo pohyblivou skupinu bedny, viz `prekresli()`, ať nikdy nevyjede ze scény.
+	function nakresliSipku(velikostN, uhelDeg, barva) {
+		if (velikostN <= 0) return { tvar: '', tx: 0, ty: 0 };
+		const rad = (uhelDeg * Math.PI) / 180;
+		const dx = Math.cos(rad), dy = -Math.sin(rad);
+		const delka = velikostN * SCALE;
+		const x1 = AX, y1 = AY;
+		const x2 = x1 + dx * delka, y2 = y1 + dy * delka;
+		const hrotUhel = Math.atan2(y2 - y1, x2 - x1);
+		const h1x = x2 - 12 * Math.cos(hrotUhel - 0.4), h1y = y2 - 12 * Math.sin(hrotUhel - 0.4);
+		const h2x = x2 - 12 * Math.cos(hrotUhel + 0.4), h2y = y2 - 12 * Math.sin(hrotUhel + 0.4);
+		const tvar = `
+			<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${barva}" stroke-width="5" />
+			<polygon points="${x2},${y2} ${h1x},${h1y} ${h2x},${h2y}" fill="${barva}" />
+		`;
+		return { tvar, tx: x2 + dx * 14, ty: y2 + dy * 14 - 4 };
+	}
+
+	// Ořízne polohu popisku (plaketa+text), aby celá zůstala uvnitř viewBoxu (VIEW_W×VIEW_H) —
+	// používá se na VŠECHNY popisky ve scéně, ať žádný nikdy nevyjede mimo plátno.
+	function oriznoutPopisek(x, y, text) {
+		const sirka = String(text).length * 8 + 8;
+		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, x - 4));
+		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, y - 14));
+		return { x: rectX + 4, y: rectY + 14 };
+	}
+
+	function prekresli() {
+		$('sv-f-t').textContent = String(F);
+
+		const { vodorovna, nahoru } = slozky(F, deg);
+		const liftN = Math.max(0, nahoru - Fg);
+
+		// skupina bedny (posunutá o ox,oy) — jen TVARY (bedna, madlo, čáry+hroty šipek),
+		// ŽÁDNÉ popisky uvnitř — ty se kreslí zvlášť níž, ať se translací nevytáhnou ze scény
+		let bedna = `<rect x="170" y="240" width="60" height="60" rx="6" fill="#e8590c" stroke="#2b2a26" stroke-width="3" />`;
+		// popisek uvnitř bedny — v horní části krabice, mimo kříž působiště NAD ním a mimo šipku Fg POD ním
+		bedna += `<text x="200" y="262" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">bedna</text>`;
+		// působiště (madlo) — kříž
+		bedna += `<line x1="${AX - 7}" y1="${AY}" x2="${AX + 7}" y2="${AY}" stroke="#2b2a26" stroke-width="3" />`;
+		bedna += `<line x1="${AX}" y1="${AY - 7}" x2="${AX}" y2="${AY + 7}" stroke="#2b2a26" stroke-width="3" />`;
+
+		// tíhová síla dolů — vychází ze spodní hrany bedny (na úrovni podlahy), stejné měřítko jako F
+		const gx = 200, gy = 300, gDelka = Fg * SCALE;
+		bedna += `<line x1="${gx}" y1="${gy}" x2="${gx}" y2="${gy + gDelka}" stroke="#495057" stroke-width="4" />`;
+		bedna += `<polygon points="${gx},${gy + gDelka} ${gx - 6},${gy + gDelka - 10} ${gx + 6},${gy + gDelka - 10}" fill="#495057" />`;
+
+		// tažná síla F — jediná síla v obrázku (velikost, směr, působiště — bez skládání sil)
+		const sipkaF = nakresliSipku(F, deg, '#e03131');
+		bedna += sipkaF.tvar;
+
+		// popisky (plaketa+text) — kreslí se MIMO translate skupinu, v absolutních
+		// souřadnicích (lokální bod + aktuální posun ox,oy) a ořízlé do viewBoxu,
+		// aby při velkém posunu bedny nikdy nevyjely ze scény (byly by jinak vidět
+		// jen zpola nebo úplně mimo).
+		let popisky = '';
+		const fgPop = oriznoutPopisek(gx + 10 + ox, gy + gDelka + 4 + oy, `Fg = ${Fg} N`);
+		popisky += plaketa(fgPop.x, fgPop.y, `Fg = ${Fg} N`, '#495057');
+		if (F > 0) {
+			const fPop = oriznoutPopisek(sipkaF.tx + ox, sipkaF.ty + oy, `F = ${F} N`);
+			popisky += plaketa(fPop.x, fPop.y, `F = ${F} N`, '#e03131');
+		}
+
+		const svg = `<g transform="translate(${ox} ${oy})">${bedna}</g><g>${popisky}</g>`;
+		$('sv-obsah').innerHTML = svg;
+
+		// text výsledku
+		const el = $('sv-vysledek');
+		let text;
+		if (F === 0) {
+			text = `Na bednu nepůsobí žádná tažná síla — jen tíhová síla Fg = ${Fg} N, která ji tlačí k podlaze. Bedna se proto nikam nerozjíždí.`;
+		} else if (nahoru > 0 && liftN === 0 && jeNula(vodorovna)) {
+			text = `Síla míří nahoru, ale není větší než tíha bedny (Fg = ${Fg} N) — bedna zůstává na podlaze.`;
+		} else if (nahoru > 0 && liftN === 0 && !jeNula(vodorovna)) {
+			const smerVodorovny = vodorovna > 0 ? 'doprava' : 'doleva';
+			text = `Síla míří šikmo nahoru, ale její svislá část nestačí zvednout bednu (tíha Fg = ${Fg} N) — bedna se proto jen sune po podlaze ${smerVodorovny}.`;
+		} else if (liftN > 0) {
+			text = `Síla (F = ${F} N) je větší než tíha Fg = ${Fg} N — bedna se ${!jeNula(vodorovna) ? 'zvedá a zároveň sune do strany' : 'zvedá ze země'}!`;
+		} else {
+			text = `Bedna se rozjíždí směrem ${popisSmeru(deg)} — síla F = ${F} N.`;
+		}
+		el.textContent = text;
+	}
+
+	// Krokovaná animace (0,05 s/snímek — kalibrováno výpočtem, ne na reálný čas):
+	// první krok se spustí SYNCHRONNĚ, aby reakce byla vidět i v náhledu, kde
+	// requestAnimationFrame nic samo nespouští.
+	function animuj() {
+		const { vodorovna, nahoru } = slozky(F, deg);
+		const liftN = Math.max(0, nahoru - Fg);
+		animace = true;
+		let t = 0;
+		function tik() {
+			t += 0.05;
+			const p = poloha(t, vodorovna, liftN);
+			ox = oriznoutOx(p.dx, F, deg); oy = p.dy;
+			prekresli();
+			if (t < 3) requestAnimationFrame(tik);
+			else animace = false;
+		}
+		tik();
+	}
+
+	// Vazba na hodnotu jde přes POŘADÍ tlačítek (ne přes data-* atributy) —
+	// testovací sandbox neumí vyplnit .dataset ze statického HTML, takže by
+	// čtení data-deg vracelo NaN. Pole musí přesně sedět s pořadím <button> v HTML.
+	const SMER_HODNOTY = [180, 135, 90, 45, 0];
+	$('sv-smery').querySelectorAll('.sv-smer-btn').forEach((b, i) =>
+		b.addEventListener('click', () => {
+			if (animace) return;
+			$('sv-smery').querySelectorAll('.sv-smer-btn').forEach((x) => x.classList.remove('sv-smer-aktivni'));
+			b.classList.add('sv-smer-aktivni');
+			deg = SMER_HODNOTY[i];
+			ox = 0; oy = 0;
+			prekresli();
+		}));
+
+	$('sv-f').addEventListener('input', () => {
+		F = +$('sv-f').value;
+		ox = 0; oy = 0;
+		prekresli();
+	});
+
+	$('sv-jed').addEventListener('click', () => {
+		if (animace) return;
+		ox = 0; oy = 0;
+		animuj();
+	});
+
+	$('sv-reset').addEventListener('click', () => {
+		if (animace) return;
+		ox = 0; oy = 0;
+		prekresli();
+	});
+
+	prekresli();
+</script>
+
+<style>
+	#sv-svg {
+		width: 100%;
+		max-width: 500px;
+		display: block;
+		margin: 0 auto;
+		background: #eef6ff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.sv-ovladani {
+		display: flex;
+		justify-content: center;
+		margin: 0.8rem 0 0.5rem;
+	}
+	.sv-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 700;
+	}
+	.sv-smery {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.5rem 0;
+	}
+	.sv-smer-btn {
+		font-weight: 700;
+		font-size: 0.9rem;
+		padding: 0.4rem 0.8rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+	}
+	.sv-smer-aktivni {
+		background: #ffd43b;
+	}
+	.sv-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.sv-tlacitka button {
+		font-weight: 700;
+		padding: 0.45rem 1.1rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		cursor: pointer;
+	}
+	.sv-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		text-align: center;
+		min-height: 3rem;
+	}
+</style>
