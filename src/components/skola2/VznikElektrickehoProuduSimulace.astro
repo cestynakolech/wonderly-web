@@ -280,11 +280,13 @@
 				: (mat.kladnych > 0
 					? ` — ${s.prochazi / 2} doprava a ${s.prochazi / 2} doleva, oba pohyby tvoří proud`
 					: (s.smer === 1 ? ' doprava' : ' doleva'))}</text>`
-			+ `<text x="28" y="486" font-size="12" font-weight="normal" fill="#2f9e44">`
-			+ (izolant
-				? 'v izolantu nejsou volné nabité částice — proud jím neprojde ani při největším napětí'
-				: 'bez napětí se částice hýbou taky — jen každá jinam, a v součtu se přesun vyruší')
-			+ '</text>';
+			+ (izolant || napeti === 0
+				? `<text x="28" y="486" font-size="12" font-weight="normal" fill="#2f9e44">`
+					+ (izolant
+						? 'v izolantu nejsou volné nabité částice — proud jím neprojde ani při největším napětí'
+						: 'bez napětí se částice hýbou taky — jen každá jinam, a v součtu se přesun vyruší')
+					+ '</text>'
+				: '');
 
 		// U izolantu by generický dovětek „teprve ono srovná pohyb částic…"
 		// mluvil o částicích, které tam nejsou (nález kontrolora) — proto

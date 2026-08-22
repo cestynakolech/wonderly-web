@@ -8,7 +8,8 @@
 // Proto část A nenabízí volný výběr dvou elektrod ze všech myslitelných
 // materiálů — u kombinací, které nejsou v učivu (např. měď + uhlík), bychom
 // museli napětí VYMYSLET, a to je zakázané. Místo toho jede žák jedním
-// posuvníkem přes 6 SKUTEČNÝCH dvojic — a schválně jsou proloženy tak,
+// posuvníkem přes 5 SKUTEČNÝCH dvojic (doložených výkladem podtématu
+// chemicke-zdroje-napeti) — a schválně jsou proloženy tak,
 // aby hned vedle sebe viděl kontrast: jiný materiál → napětí, stejný
 // materiál → 0 V. Záporná elektroda je vždy ta, co se v článku ROZPOUŠTÍ
 // (pojem „elektrochemická řada"/„ušlechtilost" se v 8. ročníku nezavádí,
@@ -47,7 +48,7 @@
 	</svg>
 	<label class="sim-posuvnik">
 		Dvojice elektrod: <output id="gc-a-out-par"></output>
-		<input type="range" id="gc-a-par" min="0" max="5" step="1" value="0" />
+		<input type="range" id="gc-a-par" min="0" max="4" step="1" value="0" />
 	</label>
 	<p class="gc-vzorec" id="gc-a-vypocet"></p>
 	<p class="gc-stav" id="gc-a-stav"></p>
@@ -98,8 +99,6 @@
 			poznamka: 'Stejnou dvojici elektrod má i suchý (tužkový) článek — místo tekutého roztoku má hustou pastu.' },
 		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'zinek', barva: '#adb5bd' },
 			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'salmiakový roztok' },
-		{ e1: { nazev: 'zinek', barva: '#adb5bd' }, e2: { nazev: 'měď', barva: '#c2723a' },
-			napeti: 1, minus: 'e1', clanek: 'Voltův článek', elektrolyt: 'zředěná kyselina sírová' },
 		{ e1: { nazev: 'měď', barva: '#c2723a' }, e2: { nazev: 'měď', barva: '#c2723a' },
 			napeti: 0, minus: null, clanek: 'stejné elektrody', elektrolyt: 'zředěná kyselina sírová' },
 		{ e1: { nazev: 'olovo', barva: '#495057' }, e2: { nazev: 'oxid olovičitý', barva: '#5c3a21' },

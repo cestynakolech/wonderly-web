@@ -4,11 +4,13 @@
 // Píst s klikou už ukazuje SpalovaciMotorSimulace — tahle bere to, co je jádrem
 // celého tématu („liší se účinností — kolik vstupní energie promění na pohyb")
 // a nikde jinde na webu není: energetický tok. Ze vstupního tepla se jen malá
-// část promění na pohyb, zbytek odchází komínem, chlazením a třením.
+// část promění na pohyb, zbytek odchází jako teplo pryč.
 //
-// Čísla jsou z výkladu (parní stroj ~15 %, parní turbína ~35 %, spalovací motor
-// ~30 %), ztráty do nich dopočítány tak, aby VŽDY dávaly přesně 100 %.
-// Vstup je násobek 100 kJ, takže všechny výsledky vycházejí v celých číslech.
+// Účinnost je z výkladu (parní stroj ~15 %, parní turbína max. ~35 %,
+// zážehový spalovací motor 20–33 % → uprostřed 30 %). Výklad NEuvádí, jak přesně
+// se ztráty dělí mezi komín/výfuk, chlazení a tření — proto simulace ukazuje
+// jen POHYB vs. ZTRÁTY jako celek, cesty ztrát jmenuje slovně, bez procent.
+// Vstup je násobek 100 kJ, takže výsledky vycházejí v celých číslech.
 // Kreslí se staticky, bez animací.
 ---
 
@@ -45,14 +47,15 @@
 </section>
 
 <script>
-	// Účinnost z výkladu; ztráty dopočítány tak, aby součet byl přesně 100 %.
+	// Účinnost z výkladu (celé %). Výklad nedělí ztráty na konkrétní podíly —
+	// proto se cesty ztrát jen JMENUJÍ (bez procent), viz `cesty` níže.
 	const STROJE = {
-		'parni-stroj': { nazev: 'Parní stroj (James Watt, 1784)', pohyb: 15, komin: 50, chlazeni: 25, treni: 10,
-			komin_popis: 'komínem a s párou', pozn: 'Kotel topí pod širým nebem — většina tepla uletí dřív, než se dostane k pístu.' },
-		'turbina': { nazev: 'Parní turbína (tepelná elektrárna)', pohyb: 35, komin: 15, chlazeni: 45, treni: 5,
-			komin_popis: 'komínem', pozn: 'Pára tlačí přímo na lopatky, nic se nezastavuje a nerozjíždí — proto je ze tří strojů nejúčinnější.' },
-		'spalovaci': { nazev: 'Spalovací motor (auto)', pohyb: 30, komin: 40, chlazeni: 25, treni: 5,
-			komin_popis: 'výfukem', pozn: 'Palivo hoří přímo ve válci, teplo tedy nemusí nikam putovat — účinnost je proto vyšší než u parního stroje.' },
+		'parni-stroj': { nazev: 'Parní stroj (James Watt, 1784)', pohyb: 15,
+			cesty: 'komínem, unikající párou i třením', pozn: 'Kotel topí pod širým nebem — většina tepla uletí dřív, než se dostane k pístu.' },
+		'turbina': { nazev: 'Parní turbína (tepelná elektrárna)', pohyb: 35,
+			cesty: 'komínem, chlazením páry i třením', pozn: 'Pára tlačí přímo na lopatky, nic se nezastavuje a nerozjíždí — proto je ze tří strojů nejúčinnější.' },
+		'spalovaci': { nazev: 'Spalovací motor (auto)', pohyb: 30,
+			cesty: 'výfukem, chlazením motoru i třením', pozn: 'Palivo hoří přímo ve válci, teplo tedy nemusí nikam putovat — účinnost je proto vyšší než u parního stroje.' },
 	};
 	const SIRKA = 560, X0 = 50;
 	let stroj = 'parni-stroj';
@@ -60,16 +63,14 @@
 	const slider = document.getElementById('ucm-slider');
 	const svg = document.getElementById('ucm-svg');
 
-	// ČISTÁ FUNKCE: rozpad dodaného tepla na jednotlivé díly (kJ, celá čísla).
-	// Součet dílů se musí rovnat vstupu — energie nemůže zmizet ani přibýt.
+	// ČISTÁ FUNKCE: rozpad dodaného tepla na pohyb a celkové ztráty (kJ, celá čísla).
+	// Součet obou dílů se musí rovnat vstupu — energie nemůže zmizet ani přibýt.
+	// Výklad nerozepisuje ztráty na komín/chlazení/tření čísly, proto se tu
+	// dál nedělí — jen se JMENUJÍ cesty, kterými teplo uniká (bez procent).
 	function rozpad(klic, vstup) {
 		const s = STROJE[klic];
-		return {
-			pohyb: (vstup * s.pohyb) / 100,
-			komin: (vstup * s.komin) / 100,
-			chlazeni: (vstup * s.chlazeni) / 100,
-			treni: (vstup * s.treni) / 100,
-		};
+		const pohyb = (vstup * s.pohyb) / 100;
+		return { pohyb, ztraty: vstup - pohyb };
 	}
 	svg.__rozpad = rozpad;
 	svg.__stroje = STROJE;
@@ -78,7 +79,6 @@
 		const vstup = +slider.value;
 		const s = STROJE[stroj];
 		const d = rozpad(stroj, vstup);
-		const ztraty = d.komin + d.chlazeni + d.treni;
 
 		document.getElementById('ucm-out').textContent = vstup + ' kJ';
 		document.getElementById('ucm-nazev').textContent = s.nazev;
@@ -114,40 +114,35 @@
 		}[stroj];
 		document.getElementById('ucm-schema').innerHTML = sch;
 
-		// pruh rozpadu: pohyb vlevo (zelený), pak jednotlivé ztráty
+		// pruh rozpadu: jen dva díly (výklad nedává čísla na konkrétní cesty ztrát) —
+		// POHYB (zelený) a ZTRÁTY jako celek (šedý).
 		const casti = [
 			{ klic: 'pohyb', kJ: d.pohyb, pct: s.pohyb, barva: '#2f9e44', popis: 'POHYB' },
-			{ klic: 'komin', kJ: d.komin, pct: s.komin, barva: '#e8590c', popis: s.komin_popis },
-			{ klic: 'chlazeni', kJ: d.chlazeni, pct: s.chlazeni, barva: '#1971c2', popis: 'chlazením' },
-			{ klic: 'treni', kJ: d.treni, pct: s.treni, barva: '#868e96', popis: 'třením' },
+			{ klic: 'ztraty', kJ: d.ztraty, pct: 100 - s.pohyb, barva: '#868e96', popis: 'ZTRÁTY' },
 		];
 		let x = X0, pruh = '', popisky = '';
 		for (const c of casti) {
 			const sirka = (SIRKA * c.pct) / 100;
 			pruh += `<rect x="${x}" y="240" width="${sirka}" height="46" fill="${c.barva}" stroke="#2b2a26" stroke-width="3" />`;
-			// popisek pod pruh; u úzkých dílů se text nevejde dovnitř
 			popisky += `<text x="${x + sirka / 2}" y="308" text-anchor="middle" font-weight="${c.klic === 'pohyb' ? 'bold' : 'normal'}">${c.pct} %</text>`;
 			popisky += `<text x="${x + sirka / 2}" y="326" text-anchor="middle" font-size="12">${c.kJ} kJ</text>`;
 			x += sirka;
 		}
 		document.getElementById('ucm-pruh').innerHTML = pruh;
 
-		// LEGENDA barev. Bez ní pruh nic neříká: pod díly stojí jen procenta,
-		// takže žák nespojí oranžovou s komínem (nález z vyrenderovaného obrázku
-		// 13. 8.). Názvy nejdou psát přímo pod díly — nejužší má 28 px a text
-		// „chlazením" by přetekl do sousedního.
+		// LEGENDA barev + SLOVNÍ výčet cest ztrát (bez procent — ta výklad neuvádí).
 		let legenda = '';
 		casti.forEach((c, i) => {
-			const lx = X0 + (i % 2) * 290, ly = 352 + Math.floor(i / 2) * 22;
+			const lx = X0, ly = 352 + i * 22;
 			legenda += `<rect x="${lx}" y="${ly - 11}" width="14" height="14" fill="${c.barva}" stroke="#2b2a26" stroke-width="2" />`;
 			legenda += `<text x="${lx + 22}" y="${ly}" font-size="13" font-weight="${c.klic === 'pohyb' ? 'bold' : 'normal'}" fill="#2b2a26">`
-				+ `${c.klic === 'pohyb' ? 'POHYB — tohle jediné točí kola' : 'uteče ' + c.popis} (${c.pct} %)</text>`;
+				+ `${c.klic === 'pohyb' ? 'POHYB — tohle jediné točí kola' : 'teplo uteče ' + s.cesty} (${c.pct} %)</text>`;
 		});
 		document.getElementById('ucm-popisky').innerHTML = popisky + legenda;
 
 		document.getElementById('ucm-vypocet').innerHTML =
 			`z <strong>${vstup} kJ</strong> se na pohyb promění <strong>${d.pohyb} kJ</strong> (${s.pohyb} %) — `
-			+ `zbylých <strong>${ztraty} kJ</strong> odejde jako teplo. Dohromady zase ${d.pohyb + ztraty} kJ: energie nikam nezmizí, jen se rozdělí.`;
+			+ `zbylých <strong>${d.ztraty} kJ</strong> odejde jako teplo. Dohromady zase ${d.pohyb + d.ztraty} kJ: energie nikam nezmizí, jen se rozdělí.`;
 
 		document.getElementById('ucm-stav').textContent =
 			`${s.nazev.split(' (')[0]}: účinnost ${s.pohyb} %. ${s.pozn}`;

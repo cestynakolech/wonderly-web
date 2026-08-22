@@ -16,8 +16,8 @@
 <section class="ramecek simulace">
 	<h2><span class="podtrh">Tuhnutí: co dělá teplota? 🕹️</span></h2>
 	<p>Chladíme sklenici vody pořád stejně silně. Posouvej <strong>čas</strong> a hlídej teploměr — jednu chvíli se bude dít něco divného.</p>
-	<svg id="tuh-svg" viewBox="0 0 660 440" role="img" aria-label="Graf chladnutí vody a sklenice s přibývajícím ledem">
-		<rect x="0" y="0" width="660" height="440" fill="#f8f9fa" />
+	<svg id="tuh-svg" viewBox="0 0 660 460" role="img" aria-label="Graf chladnutí vody a sklenice s přibývajícím ledem">
+		<rect x="0" y="0" width="660" height="460" fill="#f8f9fa" />
 		<!-- osy grafu -->
 		<line x1="60" y1="60" x2="60" y2="340" stroke="#2b2a26" stroke-width="3" />
 		<line x1="60" y1="340" x2="410" y2="340" stroke="#2b2a26" stroke-width="3" />
@@ -51,7 +51,7 @@
 	</label>
 	<label class="sim-posuvnik">
 		Sůl ve vodě: <output id="tuh-out-sul"></output>
-		<input type="range" id="tuh-sul" min="0" max="2" step="1" value="0" />
+		<input type="range" id="tuh-sul" min="0" max="1" step="1" value="0" />
 	</label>
 	<p class="tuh-vzorec" id="tuh-vypocet"></p>
 	<p class="tuh-stav" id="tuh-stav"></p>
@@ -67,9 +67,13 @@
 	const svg = document.getElementById('tuh-svg');
 
 	// ČISTÁ FUNKCE: teplota tuhnutí. Čistá voda 0 °C; rozpuštěná sůl brání
-	// částicím srovnat se do mřížky ledu, takže musí být větší zima.
+	// částicím srovnat se do mřížky ledu, takže musí být větší zima. Výklad
+	// neuvádí přesný krok na množství soli (žádné „−5 °C na lžíci"), jen horní
+	// mez: solí lze mrznutí odsunout NEJVÝŠ k −21 °C. Simulace proto ukazuje
+	// jen dva stavy — bez soli, a s hodně solí kousek pod touto mezí (−20 °C,
+	// kulaté číslo kvůli celočíselnému grafu) — hláška mez −21 °C zmiňuje.
 	function teplotaTuhnuti(sul) {
-		return -5 * sul;
+		return sul === 0 ? 0 : -20;
 	}
 
 	// ČISTÁ FUNKCE: co je se sklenicí v dané minutě.
@@ -124,7 +128,7 @@
 		const s = stav(cas, sul);
 
 		document.getElementById('tuh-out-cas').textContent = minut(cas);
-		document.getElementById('tuh-out-sul').textContent = ['žádná (čistá voda)', 'lžíce', 'dvě lžíce'][sul];
+		document.getElementById('tuh-out-sul').textContent = ['žádná (čistá voda)', 'hodně soli'][sul];
 
 		// ── křivka: body po minutách až do teď, poslední zvýrazněný
 		const body = [];
@@ -156,7 +160,7 @@
 		sklo += `<rect x="440" y="100" width="160" height="240" fill="none" stroke="#2b2a26" stroke-width="3" />`;
 		if (zdvih > 0) {
 			sklo += `<rect x="440" y="${vrsek}" width="160" height="${zdvih}" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />`
-				+ `<text x="520" y="74" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8590c">led zabírá víc místa — proto praská potrubí</text>`;
+				+ `<text x="520" y="74" text-anchor="middle" font-size="11" font-weight="bold" fill="#e8590c">led zabírá víc místa — praská potrubí</text>`;
 		}
 		sklo += `<rect x="450" y="200" width="140" height="24" rx="6" fill="#fff" stroke="#2b2a26" stroke-width="2" />`
 			+ `<text x="520" y="217" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">${
@@ -169,12 +173,15 @@
 
 		// ── počitadlo
 		const nazev = { kapalina: 'kapalina (voda)', tuhne: 'právě tuhne', led: 'pevná látka (led)' }[s.faze];
+		// Dvě krátké věty místo jedné dlouhé — na 660px šířky se dlouhá věta
+		// s citací meze −21 °C nevešla (viz kontrola šablon).
 		document.getElementById('tuh-pocty').innerHTML =
-			`<rect x="14" y="380" width="632" height="52" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			`<rect x="14" y="380" width="632" height="72" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
 			+ `<text x="28" y="402">čas: ${minut(cas)}</text>`
 			+ `<text x="190" y="402">teplota: ${stupne(s.teplota)}</text>`
 			+ `<text x="360" y="402">stav: ${nazev}</text>`
-			+ `<text x="28" y="424" font-size="13" fill="#2f9e44">teplota tuhnutí této vody: ${stupne(s.tuhne)} — tuhnutí trvá ${minut(DELKA_TUHNUTI)} a po celou dobu teplota stojí</text>`;
+			+ `<text x="28" y="422" font-size="12" fill="#2f9e44">teplota tuhnutí této vody: ${stupne(s.tuhne)}${s.tuhne < 0 ? ' (sůl, mez −21 °C)' : ''}</text>`
+			+ `<text x="28" y="440" font-size="12" fill="#2f9e44">tuhnutí trvá ${minut(DELKA_TUHNUTI)} a po celou dobu teplota stojí</text>`;
 
 		document.getElementById('tuh-vypocet').innerHTML =
 			`Chladíme pořád stejně: <strong>o ${KROK} °C za minutu</strong>. Od ${START} °C k teplotě tuhnutí `

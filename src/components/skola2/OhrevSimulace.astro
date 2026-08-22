@@ -1,17 +1,20 @@
 ---
 // Interaktivní křivka ohřevu vody: 1 kg ledu od −20 °C se zahřívá stálým
 // příkonem. Teplota roste, ale při TÁNÍ (0 °C) a VARU se zastaví — teplo se
-// spotřebuje na změnu skupenství (l_t = 332, l_v = 2260 kJ/kg; c ledu 2,1;
-// c vody 4,2 kJ/(kg·°C)). Teplota varu ZÁVISÍ NA TLAKU (nadmořské výšce):
-// u moře 100 °C, hory 3000 m ~90 °C, Himálaj ~80 °C, Papinův hrnec ~130 °C.
+// spotřebuje na změnu skupenství (l_t = 332, l_v = 2260 kJ/kg — doloženo ve
+// výkladu tání/varu; c vody 4,2 kJ/(kg·°C) doloženo v tématu Tepelná výměna).
+// Sklon křivky pro led používá reálnou měrnou tep. kapacitu ledu (~2,1 kJ/kg°C),
+// ale toto číslo se nikde v UI nezobrazuje studentovi — jen ovlivňuje sklon
+// čáry, výklad ho neuvádí (návrh: doplnit do tématu Tání). Teplota varu ZÁVISÍ
+// NA TLAKU (nadmořské výšce) — v UI jsou jen hodnoty doložené ve výkladu Var:
+// u moře 100 °C (normální tlak), Himálaj ~80 °C, Papinův hrnec ~130 °C.
 ---
 
 <section class="ramecek simulace">
 	<h2><span class="podtrh">Uvař kilo ledu 🕹️</span></h2>
 	<p>Zahříváš <strong>1 kg ledu</strong> o teplotě <strong>−20 °C</strong>. Sleduj graf: teplota roste, ale při tání a varu se zastaví — teplo se spotřebovává na <strong>změnu skupenství</strong>. A vyber, KDE vaříš: teplota varu <strong>závisí na tlaku vzduchu</strong> — čím výš, tím nižší!</p>
 	<p id="ohr-mista">
-		<button type="button" class="ohr-tl ohr-misto ohr-aktivni" data-tv="100" data-misto="u moře (0 m)">🌊 u moře — 100 °C</button>
-		<button type="button" class="ohr-tl ohr-misto" data-tv="90" data-misto="na horách (3 000 m)">⛰️ hory 3 000 m — 90 °C</button>
+		<button type="button" class="ohr-tl ohr-misto ohr-aktivni" data-tv="100" data-misto="u moře (normální tlak)">🌊 u moře — 100 °C</button>
 		<button type="button" class="ohr-tl ohr-misto" data-tv="80" data-misto="vysoko v Himálaji">🏔️ Himálaj — 80 °C</button>
 		<button type="button" class="ohr-tl ohr-misto" data-tv="130" data-misto="v Papinově hrnci (přetlak)">🍲 Papinův hrnec — 130 °C</button>
 	</p>
@@ -78,7 +81,7 @@
 
 	// energie (kJ, 1 kg): led −20→0: 42; tání 332; voda 0→TV: 4,2·TV; var 2260
 	const Q1 = 42, Q2 = 374, LV = 2260;
-	let TV = 100, misto = 'u moře (0 m)';
+	let TV = 100, misto = 'u moře (normální tlak)';
 	const q3 = () => Q2 + 4.2 * TV;
 	const qmax = () => q3() + LV;
 	const teplota = (Q) => Q < Q1 ? -20 + Q / 2.1 : Q < Q2 ? 0 : Q < q3() ? (Q - Q2) / 4.2 : TV;
