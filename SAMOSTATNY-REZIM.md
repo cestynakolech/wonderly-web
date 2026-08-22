@@ -827,7 +827,9 @@ zeštíhlené jednotky, přetlak — tyč pístu překrývala popisek u manometr
 ## Zkontrolováno (ať se neprochází znovu)
 - Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových → kandidáti sepsáni výše. Shrnutí, opakovací a čistě výkladová témata bez jevu k animaci přeskočena záměrně.
 
-## Hotová vylepšení
+## Hotová vylepšení (22. 8. 2026)
+- Kvíz podtématu `cas-a-jeho-mereni` (F6) rozšířen o úlohu s Ozobotem (obvod, obsah, rychlost) na 26 otázek.
+
 
 Soupis všech dokončených kol je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — je to historie,
 která se pro navázání práce nepotřebuje, tak se nečte automaticky.
