@@ -322,19 +322,47 @@ function textOtazky(o) {
 }
 
 /**
+ * Kmen slova pro porovnání ÚNIKU odolné vůči skloňování — číslo se nechává celé.
+ * Slovo delší než 4 znaky se zkrátí na prvních 4 (stejné pravidlo jako u `slovaZneni()"
+ * níž, kde se osvědčilo na duplicitách — „tlaková"/„tlakovou" má společný začátek „tlak").
+ * Slovo dlouhé přesně 4 znaky (nejkratší, co `slovaSCisly` vůbec propustí) se zkrátí
+ * na 3 — čtyřznaková slova mívají v češtině jednopísmennou pádovou koncovku
+ * („síla"/„sílu", „kniha"/„knihu") a `slice(0, 4)` by u nich nezkrátilo vůbec nic.
+ *
+ * PROČ (nález nezávislé kontroly 22. 8. 2026, doloženo podvrhem): `slovaSCisly`
+ * porovnávala rozlišující slovo správné odpovědi s textem cizí otázky v PŘESNÉM
+ * tvaru. „drží právě tlaková síla" brána našla, ale „drží právě tlakovou sílu"
+ * (jiný pád téhož slovního spojení) ne — měřidlo bylo vůči české flexi slepé.
+ * Samo „tlaková"/„tlakovou" už zachytí obecné pravidlo (4 znaky), ale „síla"/„sílu"
+ * ne — proto zvláštní větev pro přesně čtyřznaková slova. Tahle mez v seznamu
+ * ZNÁMÝCH MEZÍ výše (řádky 43–72) nebyla — nešlo o vědomý kompromis, ale o díru.
+ *
+ * Riziko: kratší kmen (3 znaky) srazí dohromady i nepříbuzná čtyřznaková slova se
+ * stejným začátkem (např. „síla"/„silo"). Proto jen pro tuhle úzkou délku, ne obecně
+ * — a proto se výsledek dál kalibruje na ostrých datech (`testy/uniky-obousmerne.mjs`,
+ * regrese „prací" × „práce").
+ */
+function kmen(s) {
+	if (/[0-9]/.test(s)) return s;
+	return s.length === 4 ? s.slice(0, 3) : s.slice(0, 4);
+}
+
+/**
  * Projde jeden blok otázek a vrátí nálezy.
  * @returns {{duplicity: Array, uniky: Array}}
  */
 export function zkontrolujBlok(klic, otazky) {
 	const duplicity = [];
 	const uniky = [];
-	if (!Array.isArray(otazky)) return { duplicity, uniky };
+	let dvojic = 0;
+	if (!Array.isArray(otazky)) return { duplicity, uniky, dvojic };
 
 	const pripravene = otazky.map((o) => ({
 		o,
 		slovaTextu: slova(o.text),
 		zneni: slovaZneni(o.text),
 		slovaCele: slovaSCisly(textOtazky(o)),
+		slovaCeleKmen: new Set([...slovaSCisly(textOtazky(o))].map(kmen)),
 		rozlisujici: rozlisujiciSlova(o),
 		odpovediNorm: (o.odpovedi ?? []).map((x) => normalizuj(x)).sort().join('|'),
 		spravnaNorm: normalizuj((o.odpovedi ?? [])[0]),
@@ -344,6 +372,12 @@ export function zkontrolujBlok(klic, otazky) {
 		for (let j = i + 1; j < pripravene.length; j++) {
 			const A = pripravene[i];
 			const B = pripravene[j];
+			// POČÍTADLO DVOJIC: každá dvojice otázek v bloku se má porovnat právě jednou
+			// (obě porovnání úniku, zdroj→cíl i cíl→zdroj, jedou uvnitř téhož běhu smyčky
+			// níž) — bez tohohle čítače by nešlo poznat, jestli měřidlo tiše přeskočilo
+			// část bloku (nález auditu 22. 8. 2026: brána hlásila 0 úniků, aniž bylo vidět,
+			// kolik dvojic vůbec prošlo kontrolou).
+			dvojic++;
 
 			// --- DUPLICITA ---
 			// PODMÍNKA, BEZ KTERÉ TO NEFUNGUJE: obě otázky mají TOTOŽNOU správnou odpověď.
@@ -374,7 +408,12 @@ export function zkontrolujBlok(klic, otazky) {
 				[B, A],
 			]) {
 				if (!cil.rozlisujici.size) continue;
-				const prozrazena = [...cil.rozlisujici].filter((s) => zdroj.slovaCele.has(s));
+				// Porovnává se KMENEM (viz `kmen()` výše), ne přesným tvarem — jinak
+				// skloněný tvar rozlišujícího slova v cizím textu projde bez povšimnutí
+				// (doklad: „tlaková síla" × „tlakovou sílu"). Původní slovo se ale
+				// dál nese v `prozrazena` (jen filtr jde přes kmen), aby výpis i
+				// navazující kontroly (číslo, jediný token) viděly skutečný text.
+				const prozrazena = [...cil.rozlisujici].filter((s) => zdroj.slovaCeleKmen.has(kmen(s)));
 				// (a) dost rozlišujících slov cíle: dvě libovolná, nebo jedno dlouhé (≥ 8 znaků,
 				//     takové slovo je samo o sobě odpověď — „kondenzace", „anemometr")
 				const pokryti = prozrazena.length / cil.rozlisujici.size;
@@ -508,7 +547,7 @@ export function zkontrolujBlok(klic, otazky) {
 			}
 		}
 	}
-	return { duplicity, uniky };
+	return { duplicity, uniky, dvojic };
 }
 
 /** Projde všechny bloky webu. Souhrnná shrnutí se přeskakují — skládají se z týchž
@@ -520,6 +559,7 @@ export async function zkontrolujUniky(data) {
 	let bloku = 0;
 	let otazek = 0;
 	let vynechano = 0;
+	let dvojic = 0;
 	for (const [klic, otazky] of Object.entries(kvizy)) {
 		if (!Array.isArray(otazky) || otazky.length < 2) continue;
 		// Souhrnné bloky /shrnuti/ se skládají programově z už zkontrolovaných otázek —
@@ -534,10 +574,15 @@ export async function zkontrolujUniky(data) {
 		const v = zkontrolujBlok(klic, otazky);
 		duplicity.push(...v.duplicity);
 		uniky.push(...v.uniky);
+		dvojic += v.dvojic;
 	}
 	// Počítadlo vstupů: kontrola, která nic neprojde, musí být poznat (nález auditu —
-	// „opatření platí jen na část případů a na tu druhou se tiše zapomene").
-	return { duplicity, uniky, bloku, otazek, vynechano };
+	// „opatření platí jen na část případů a na tu druhou se tiše zapomene"). ZÁMĚRNĚ
+	// se počítá i POČET POROVNANÝCH DVOJIC otázek (ne jen bloků/otázek) — nález
+	// nezávislé kontroly 22. 8. 2026: bloky a otázky mohly projít kontrolou, i kdyby
+	// se uvnitř bloku srovnávala jen podmnožina dvojic (tichá selektivní chyba).
+	// dvojic === 0 při bloku > 0 je selhání měřidla, ne zdravý stav.
+	return { duplicity, uniky, bloku, otazek, vynechano, dvojic };
 }
 
 // Spuštění z příkazové řádky: `node testy/uniky.mjs [část-klíče]`
@@ -547,7 +592,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	const vyber = (pole) => (filtr ? pole.filter((x) => x.klic.includes(filtr)) : pole);
 	const dup = vyber(v.duplicity);
 	const un = vyber(v.uniky);
-	console.log(`Prošlo ${v.bloku} bloků / ${v.otazek} otázek.\n`);
+	console.log(`Prošlo ${v.bloku} bloků / ${v.otazek} otázek / ${v.dvojic} porovnaných dvojic (vynecháno ${v.vynechano} souhrnných bloků).\n`);
+	if (v.bloku > 0 && v.dvojic === 0) {
+		console.error('SELHÁNÍ MĚŘIDLA: 0 porovnaných dvojic při nenulovém počtu bloků — kontrola nic neprošla.');
+		process.exitCode = 1;
+	}
 	console.log(`DUPLICITNÍ PÁRY: ${dup.length}`);
 	for (const d of dup) console.log(`  ${d.klic}\n    A: ${d.a}\n    B: ${d.b}\n    (${d.duvod})`);
 	console.log(`\nÚNIKY ODPOVĚDÍ: ${un.length}`);

@@ -396,6 +396,47 @@ const zdravy = [
 	tvrdi('jednoslovný odborný pojem mimo přípony NENÍ únik', v.uniky.length === 0);
 }
 
+// ---------------------------------------------------------------- ÚNIK PŘES SKLOŇOVÁNÍ (kmen)
+// Nález nezávislé kontroly 22. 8. 2026, doložený podvrhem: rozlišující slovo správné
+// odpovědi „tlaková síla" se v přesném tvaru najde ve větě „drží právě tlaková síla",
+// ale ne ve větě „drží právě tlakovou sílu" (jiný pád). Měřidlo teď porovnává kmenem
+// (`kmen()`), stejně jako už dřív duplicity přes `slovaZneni()`.
+{
+	const podvrhSklonovani = [
+		ot('Co udržuje kapalinu v nádobě navzdory gravitaci?', ['tlaková síla', 'setrvačnost', 'tření'], ''),
+		ot('Jak vzniká atmosférický tlak vzduchu?', ['tíhou vzduchového sloupce', 'otáčením Země', 'sálavým teplem Slunce'],
+			'Kapalinu ve skutečnosti drží právě tlakovou sílu, kterou vyvíjí okolní vzduch.'),
+	];
+	const v = zkontrolujBlok('test/unik-sklonovani', podvrhSklonovani);
+	tvrdi('skloněný tvar („tlakovou sílu") se teď najde jako únik', v.uniky.length >= 1);
+	tvrdi('nález ukazuje na otázku o kapalině v nádobě', v.uniky.some((u) => /navzdory gravitaci/.test(u.otazka)));
+}
+// Zdravý protějšek: totéž rozlišující slovní spojení v cizí otázce chybí úplně — musí dál mlčet.
+{
+	const zdravySklonovani = [
+		ot('Co udržuje kapalinu v nádobě navzdory gravitaci?', ['tlaková síla', 'setrvačnost', 'tření'], ''),
+		ot('Jak vzniká atmosférický tlak vzduchu?', ['tíhou vzduchového sloupce', 'otáčením Země', 'sálavým teplem Slunce'],
+			'Vzduchový sloupec sahá desítky kilometrů nad hlavu.'),
+	];
+	const v = zkontrolujBlok('test/zdravy-sklonovani', zdravySklonovani);
+	tvrdi('bez skloněné shody zůstává ticho', v.uniky.length === 0);
+}
+
+// REGRESE FALEŠNÉHO POPLACHU: kmenování na 4 znaky umí náhodně slít i dvě NEPŘÍBUZNÁ
+// česká slova se stejným začátkem („prací" — mycí prostředek/program vs. „práce" —
+// fyzikální veličina, oboje normalizuj/kmen dá „prac"). Jediná taková shoda ale nesmí
+// stačit — brána pořád vyžaduje aspoň dvě rozlišující slova (nebo dlouhé číslo/token),
+// takže náhodná shoda jednoho kmene zůstane bez nálezu.
+{
+	const nepribuzneKmeny = [
+		ot('Jaký program zvolíš na pračce pro běžné bavlněné prádlo?', ['prací program 40 stupňů', 'odstřeďovací program', 'namáčecí program'],
+			'Prací program pere prádlo při teplotě kolem 40 °C.'),
+		ot('Jak se nazývá fyzikální veličina daná součinem síly a dráhy?', ['práce', 'výkon', 'energie'], ''),
+	];
+	const v = zkontrolujBlok('test/regrese-nepribuzne-kmeny', nepribuzneKmeny);
+	tvrdi('náhodná shoda kmene dvou nepříbuzných slov („prací" × „práce") NENÍ únik', v.uniky.length === 0);
+}
+
 // ---------------------------------------------------------------- POČÍTADLO VSTUPŮ
 // Kontrola, která nic neprojde, musí být poznat — nález auditu „opatření platí jen
 // na část případů a na tu druhou se tiše zapomene".
@@ -404,6 +445,30 @@ const zdravy = [
 	tvrdi('prázdný blok nespadne', Array.isArray(v.duplicity) && Array.isArray(v.uniky));
 	const vNic = zkontrolujBlok('test/neplatny', null);
 	tvrdi('neplatný vstup nespadne', vNic.duplicity.length === 0);
+	tvrdi('neplatný vstup hlásí 0 porovnaných dvojic (ne undefined)', vNic.dvojic === 0);
+}
+
+// POČET POROVNANÝCH DVOJIC (doplněno 22. 8. 2026, nález nezávislé kontroly „měřidlo
+// hlásí 0 úniků, aniž je vidět, kolik se toho vůbec porovnalo"). PODVRH: blok o pěti
+// otázkách musí porovnat přesně C(5,2) = 10 dvojic — kdyby smyčka vevnitř tiše
+// přeskočila část bloku (např. porovnávala jen sousední otázky místo každou s každou),
+// číslo by bylo nižší a tenhle test to najde.
+{
+	const petOtazek = [
+		ot('Jaká je jednotka tlaku?', ['pascal', 'newton', 'joule']),
+		ot('Jaká je jednotka síly?', ['newton', 'pascal', 'joule']),
+		ot('Jaká je jednotka práce?', ['joule', 'newton', 'pascal']),
+		ot('Jaká je jednotka výkonu?', ['watt', 'newton', 'joule']),
+		ot('Jaká je jednotka napětí?', ['volt', 'ampér', 'ohm']),
+	];
+	const v = zkontrolujBlok('test/pocet-dvojic', petOtazek);
+	tvrdi('5 otázek dá přesně 10 porovnaných dvojic (5×4/2)', v.dvojic === 10);
+}
+// ZDRAVÝ STAV počítadla: kontrola samotného zdravého bloku výše (3 otázky) musí dát
+// C(3,2) = 3 dvojice, ne 0 a ne víc.
+{
+	const v = zkontrolujBlok('test/zdravy-dvojic', zdravy);
+	tvrdi('zdravý 3prvkový blok dá právě 3 dvojice', v.dvojic === 3);
 }
 
 console.log(chyb === 0 ? `✅ uniky.mjs — obousměrně ověřeno, ${kontrol} kontrol.` : `❌ ${chyb} z ${kontrol} kontrol selhalo.`);
