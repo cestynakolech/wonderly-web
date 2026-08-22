@@ -73,9 +73,18 @@
 // ════════════════════════════════════════════════════════════════════════════════
 import { nactiData } from './data.mjs';
 
-/** malá písmena, bez diakritiky, jen slova */
+/** malá písmena, bez diakritiky, jen slova
+ *
+ * MOCNINOVÉ ZNAKY „²"/„³" se PŘEVÁDÍ na obyčejné „2"/„3" (ne zahazují) — jinak by
+ * `[^a-z0-9\s]` smazal jednotku plochy/objemu na jednotku délky a „5 m³" by
+ * splynulo s „5 m" (nález nezávislé kontroly 22. 8. 2026, blok o objemu: fráze
+ * „1 m³" se takhle normalizovala na „1 m" a `fraziovyUnik` pak hlásil únik mezi
+ * dvěma otázkami, které mluví o dvou různých veličinách).
+ */
 export function normalizuj(text) {
 	return String(text ?? '')
+		.replace(/²/g, '2')
+		.replace(/³/g, '3')
 		.normalize('NFD')
 		.replace(/[̀-ͯ]/g, '')
 		.toLowerCase()
@@ -90,7 +99,11 @@ export function normalizuj(text) {
 export const STOP = new Set(
 	('a i o u v s k z do na od po pro za pri při je jsou byl byla bylo bude co kdy kde jak jaka jake jaky jaky ktera ktere ktery ' +
 		'se si to ten ta te tim tom tomu nez nebo ale tak take vsak proto ze aby kdyz ne ano musi muze ma mit jen jeste uz ' +
-		'kolik cim cemu ceho cim jakou jakym jakych jednu jeden jedna dve tri prvni druhy treti')
+		'kolik cim cemu ceho cim jakou jakym jakych jednu jeden jedna dve tri prvni druhy treti ' +
+		// Generická tázací zájmena a kvantifikátory — nesou gramatiku otázky, ne
+		// odpověď. Bez nich se „kterými" a „všech" počítaly jako nosné slovo a
+		// zbytečně přemosťovaly dvě jinak nesouvisející otázky (nález 22. 8. 2026).
+		'kterym kterymi kterem kterou vsech vsechny vsechna vsichni jakykoli jakekoli')
 		.split(' ')
 		.filter(Boolean),
 );
@@ -168,7 +181,13 @@ const SYMBOLY = new Map(
 	Object.entries({
 		'°C': '°C',
 		mm: 'mm', cm: 'cm', dm: 'dm', m: 'm', km: 'km',
-		m2: 'm2', 'm²': 'm2', cm2: 'cm2',
+		m2: 'm2', 'm²': 'm2', cm2: 'cm2', 'cm²': 'cm2', dm2: 'dm2', 'dm²': 'dm2',
+		mm2: 'mm2', 'mm²': 'mm2', km2: 'km2', 'km²': 'km2',
+		// KRYCHLOVÉ (objemové) jednotky — bez vlastního záznamu regex v `hodnotyZTextu`
+		// zahodí „³" (není `\p{L}`) a „5 m³" splyne s „5 m" (nález 22. 8. 2026, VADA C:
+		// „1 m³" × „1 m" v jiné otázce dávalo falešný číselný únik).
+		m3: 'm3', 'm³': 'm3', cm3: 'cm3', 'cm³': 'cm3', dm3: 'dm3', 'dm³': 'dm3',
+		mm3: 'mm3', 'mm³': 'mm3', km3: 'km3', 'km³': 'km3',
 		l: 'l', ml: 'ml', dl: 'dl', hl: 'hl',
 		mg: 'mg', g: 'g', dkg: 'dkg', kg: 'kg', t: 't',
 		s: 's', ms: 'ms', min: 'min', h: 'h', hod: 'h',
@@ -230,7 +249,9 @@ export function hodnotyZTextu(text) {
 	// číslo · volitelná mezera · volitelná jednotka (písmena / ° / Ω / %, případně se
 	// zlomkovou částí BEZ MEZER — „km/h", „N·cm", „N/kg"). Mezera kolem lomítka se
 	// nepřipouští schválně: „230 V. Mimochodem" by jinak vyrobilo jednotku „V. Mimoc".
-	const re = /(\d+(?:[.,]\d+)?)[  ]?(°?[\p{L}Ω]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?/gu;
+	// KRYCHLOVÉ/PLOŠNÉ MOCNINY „²"/„³" musí patřit do jednotky, ne se ztratit — bez
+	// nich by „m³" a „m" byly nerozlišitelná stejná jednotka (VADA C, nález 22. 8. 2026).
+	const re = /(\d+(?:[.,]\d+)?)[  ]?(°?[\p{L}Ω²³]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?/gu;
 	for (const m of String(text ?? '').matchAll(re)) {
 		const cislo = m[1].replace(',', '.');
 		if (cislo.replace(/[^0-9]/g, '').length < 2) continue;
@@ -263,7 +284,9 @@ function maJednotku(klic) {
  * 80 °C) — tím se vypínala kontrola úniku (útok C, 19. 8. 2026).
  */
 function maMeritelnyVstup(text) {
-	const re = /(\d+(?:[.,]\d+)?)[  ]?(°?[\p{L}Ω]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?/gu;
+	// KRYCHLOVÉ/PLOŠNÉ MOCNINY „²"/„³" musí patřit do jednotky, ne se ztratit — bez
+	// nich by „m³" a „m" byly nerozlišitelná stejná jednotka (VADA C, nález 22. 8. 2026).
+	const re = /(\d+(?:[.,]\d+)?)[  ]?(°?[\p{L}Ω²³]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?/gu;
 	for (const m of String(text ?? '').matchAll(re)) {
 		const syrova = (m[2] ?? '').normalize('NFC');
 		const bez = syrova.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -322,6 +345,26 @@ function textOtazky(o) {
 }
 
 /**
+ * DISTRAKTORY otázky — nesprávné nabízené možnosti (bez SPRÁVNÉ, ta je vždy PRVNÍ
+ * v poli `odpovedi`; proto `slice(1)`). Žák je vidí na obrazovce stejně jako text
+ * otázky, takže mohou prozradit odpověď jiné otázky (nález nezávislé kontroly
+ * 22. 8. 2026, čtvrté kolo, blok o dalekozrakosti/krátkozrakosti: rozptylka je
+ * distraktor jedné otázky a správná odpověď druhé).
+ *
+ * Schválně SAMOSTATNĚ od `textOtazky()`, ne v ní — jde do vlastního pole
+ * `distraktorKmen` a čte se JEN v `malyBlokUnik` (malé bloky, viz níž). Hlavní
+ * porovnání (`slovaCeleKmen`), číselné porovnání (`hodnotyZTextu`) i doslovná fráze
+ * (`fraziovyUnik`) distraktory záměrně NEČTOU: přidání distraktorů všude by srazilo
+ * dohromady i čistě náhodné shody vlastního nesprávného slova s nesouvisející otázkou
+ * (ověřeno na regresi „kolize kmenů") a u recyklované nabídky možností (přípony
+ * souborů) by hlásilo únik mezi každou dvojicí otázek se stejnou nabídkou (ověřeno
+ * na regresi s příponami — proto je to omezené jen na malé bloky).
+ */
+function distraktory(o) {
+	return (o.odpovedi ?? []).slice(1).join(' ');
+}
+
+/**
  * Kmen slova pro porovnání ÚNIKU odolné vůči skloňování — číslo se nechává celé.
  * Slovo delší než 4 znaky se zkrátí na prvních 4 (stejné pravidlo jako u `slovaZneni()"
  * níž, kde se osvědčilo na duplicitách — „tlaková"/„tlakovou" má společný začátek „tlak").
@@ -333,25 +376,141 @@ function textOtazky(o) {
  * porovnávala rozlišující slovo správné odpovědi s textem cizí otázky v PŘESNÉM
  * tvaru. „drží právě tlaková síla" brána našla, ale „drží právě tlakovou sílu"
  * (jiný pád téhož slovního spojení) ne — měřidlo bylo vůči české flexi slepé.
- * Samo „tlaková"/„tlakovou" už zachytí obecné pravidlo (4 znaky), ale „síla"/„sílu"
- * ne — proto zvláštní větev pro přesně čtyřznaková slova. Tahle mez v seznamu
+ * Samo „tlaková"/„tlakovou" už zachytí obecné pravidlo, ale „síla"/„sílu"
+ * ne — proto zvláštní větev pro nejkratší slova. Tahle mez v seznamu
  * ZNÁMÝCH MEZÍ výše (řádky 43–72) nebyla — nešlo o vědomý kompromis, ale o díru.
  *
- * Riziko: kratší kmen (3 znaky) srazí dohromady i nepříbuzná čtyřznaková slova se
- * stejným začátkem (např. „síla"/„silo"). Proto jen pro tuhle úzkou délku, ne obecně
- * — a proto se výsledek dál kalibruje na ostrých datech (`testy/uniky-obousmerne.mjs`,
- * regrese „prací" × „práce").
+ * DÉLKA PODLE VLASTNÍ DÉLKY SLOVA (nález nezávislé kontroly 22. 8. 2026, TŘETÍ kolo,
+ * doloženo podvrhem): kmen na pevná 4 znaky náhodně slévá i zcela NEPŘÍBUZNÁ slova —
+ * „neustálý" a „neuspořádaný" (bez diakritiky „neustaly"/„neusporadany", obě DLOUHÁ)
+ * mají shodný začátek „neus" a brána v cizí otázce hlásila prozrazení OBOU slov,
+ * ačkoli tam figurovalo jen jedno. Prosté zvednutí hranice na 5 znaků pro VŠECHNA
+ * slova by ale rozbilo skloňování u KRATŠÍCH slov se stejnou stavbou navenek —
+ * „měknou"/„měkne" (dlouhá 6 a 5 znaků) se liší už na 5. znaku úplně stejně jako
+ * „neustaly"/„neusporadany" („mekn-O" × „mekn-E"), a přesto jde o tvar téhož slovesa,
+ * ne o dvě různá slova (regrese v `testy/uniky-obousmerne.mjs`, „skutečný únik
+ * postupně měknou/měkne"). Čistě znakový rozdíl na 5. pozici obojí případy nerozliší.
+ * Řešení: hranice kmene se odvíjí od DÉLKY SLOVA SAMÉHO — u kratších slov (≤ 6 znaků,
+ * kde bývá pádová/slovesná koncovka jen 1–2 znaky) zůstává kmen na 4 znacích jako dřív;
+ * teprve u DELŠÍCH slov (≥ 7 znaků, kde náhodná shoda prvních 4 znaků dvou různých
+ * slov je pravděpodobnější) se kmen prodlužuje na 5. „tlaková"(7)/„tlakovou"(8) jsou
+ * obě ≥ 7 → kmen 5 znaků, sdílí „tlako", skloňování dál funguje (test níž). Zvláštní
+ * větev pro přesně čtyřznaková slova („síla"/„sílu") zůstává beze změny.
+ *
+ * Riziko: kratší kmen srazí dohromady i nepříbuzná slova se stejným začátkem
+ * (např. „síla"/„silo", „prací"/„práce" — kryto testem níž: jediná taková shoda
+ * nesmí sama stačit, brána pořád vyžaduje aspoň dvě rozlišující slova). Proto se
+ * hranice nesnižuje pod nutnou míru a výsledek se dál kalibruje na ostrých datech
+ * (`testy/uniky-obousmerne.mjs`).
  */
 function kmen(s) {
 	if (/[0-9]/.test(s)) return s;
-	return s.length === 4 ? s.slice(0, 3) : s.slice(0, 4);
+	if (s.length === 4) return s.slice(0, 3);
+	return s.length <= 6 ? s.slice(0, 4) : s.slice(0, 5);
+}
+
+/**
+ * ŠIRŠÍ kmen — jen pro poznání SLOVNÍKU TÉMATU (viz `slovnikTematu()` a
+ * `zkontrolujUniky()` níž), NE pro porovnání úniku samotné (tam zůstává `kmen()`).
+ *
+ * Nález nezávislé kontroly 22. 8. 2026 (druhé kolo): `kmen()` (4, u čtyřznakových 3)
+ * nestačí na rozpoznání jednoho slovníkového slova napříč pády — „látka" a genitiv
+ * množného čísla „látek" mají kmen jen 3 znaky („lát-"), `kmen()` by z nich udělal
+ * „latk" a „late" a slovník tématu by je nespároval. Riziko srážky nepříbuzných
+ * slov (3 znaky sráží víc než 4) je tady vědomě přijaté — jde jen o VYLOUČENÍ
+ * (false negative = slovo se nevyloučí = nejhůř zůstane přísnější kontrola,
+ * ne že projde skutečný únik).
+ */
+function kmenSirsi(s) {
+	if (/[0-9]/.test(s)) return s;
+	return s.length >= 4 ? s.slice(0, 3) : s;
+}
+
+/**
+ * SLOVNÍK TÉMATU: slova z NÁZVU A KLÍČE podtématu a tématu (celku), do kterého blok
+ * patří — čtená ze SKUTEČNÝCH DAT (`temata.ts`), ne odhadem. Taková slova se nutně
+ * opakují v každé otázce bloku (blok JE o tomhle pojmu), takže sama o sobě nikdy
+ * nejsou nosná — na rozdíl od SDÍLENÉ slovní zásoby, kterou dvě otázky nesou navíc.
+ *
+ * PROČ (nález nezávislé kontroly 22. 8. 2026, 7 z 16 nálezů byly přesně tohle):
+ * „těleso z více látek" u bloku „Látka a těleso", „elektrický náboj" u bloku
+ * „Elektrický náboj", „magnetické pole" u bloku „Magnetické pole" — to není únik,
+ * je to jméno tématu, které se objeví v každé druhé otázce.
+ */
+export function slovnikTematu(temata, klic) {
+	// Jen HLAVNÍ část názvu (do první čárky) — `nazev` podtématu bývá vyjmenovaný
+	// seznam pojmů celé kapitoly („Elektrický náboj, elektrování těles, elektrická
+	// síla", „Atomy a molekuly, prvek, sloučenina, směs"). Vzít CELÝ název by
+	// vyloučilo i slova, která jsou ve skutečnosti ODPOVĚĎ konkrétní otázky
+	// (nález 22. 8. 2026, podvrh: takhle zmizely i doložené skutečné úniky
+	// „sloučenina"/„oddělení složek" — celý název bloku o sloučenině obsahoval
+	// slovo „sloučenina" jako TÉMA, ale otázka „Co je sloučenina?" ho zároveň
+	// používá jako SVOU odpověď). Klíč (slug) na rozdíl od názvu vždy jen krátce
+	// pojmenovává TÉMA, ne vyjmenovává odpovědi — ten se bere celý.
+	const hlavni = (n) => String(n ?? '').split(',')[0];
+	for (const [rocnik, celky] of Object.entries(temata ?? {})) {
+		for (const celek of celky ?? []) {
+			for (const pod of celek.podtemata ?? []) {
+				if (`${rocnik}/${celek.slug}/${pod.slug}` !== klic) continue;
+				const text = `${hlavni(celek.nazev)} ${celek.slug} ${hlavni(pod.nazev)} ${pod.slug}`;
+				return new Set([...slova(text)].map(kmenSirsi));
+			}
+		}
+	}
+	return new Set();
+}
+
+/**
+ * Podíl otázek bloku, ve kterých se slovo (širší kmen) objeví, od kterého se bere
+ * jako SLOVNÍKOVÉ SLOVO BLOKU, i když doslova není v názvu podtématu/tématu —
+ * typicky odborný pojem, který blok probírá napříč skoro všemi otázkami
+ * („působiště" a „směr" u bloku Síla, „perioda" u bloku o střídavém proudu,
+ * „barva světla" u bloku o vnímání barev). Laťka a spodní mez počtu otázek jsou
+ * KALIBROVANÉ na `testy/uniky-obousmerne.mjs`: „působiště"/„směr" nad čtvrtinou
+ * otázek bloku o síle musí PATŘIT do slovníku bloku (nejsou únik samy o sobě);
+ * skutečný únik („postupně měknou"/„měkne") musí zůstat i po zavedení slovníku.
+ * „posuvný jezdec" má frekvenci jen 33 % (pod prahem 40 %), takže do slovníku
+ * bloku nespadne — přesto se nesmí spolehnout jen na TUHLE mez: prozrazení
+ * jediného slova „jezdec" z dvouslovné odpovědi řeší až samostatná laťka
+ * `jedinePodstatneJmenoDlouhe` níž, ne `PRAH_FREKVENCE_BLOKU`.
+ */
+const PRAH_FREKVENCE_BLOKU = 0.4;
+const MIN_OTAZEK_PRO_FREKVENCI = 5;
+
+/**
+ * Malý blok (≤ 3 otázky) je příliš krátký na to, aby se u něj dala počítat FREKVENCE
+ * (`MIN_OTAZEK_PRO_FREKVENCI` = 5) — a přesně tam se objevují krátké ANTONYMNÍ páry
+ * („vede" × „nevede", izolant/vodič), kde už jediné jednoznačně rozlišující slovo je
+ * celá odpověď. Normální laťka („aspoň dvě slova") na jedno slovo nikdy nedosáhne
+ * (nález nezávislé kontroly 22. 8. 2026, páté kolo, doloženo podvrhem — vada 5).
+ */
+const MALY_BLOK_MAX = 3;
+
+/**
+ * Slovo `s` a JEHO NEGACE („vede"/„nevede") se v `text` objevují OBĚ NARÁZ — obecný
+ * (nikoli slovníkový) signál, že cizí vysvětlení výslovně staví rozlišující vlastnost
+ * cíle DO PROTIKLADU, ne že jen náhodou používá stejné odborné slovo (na rozdíl třeba
+ * od „hypotéza", kterou nejde takhle negovat předponou „ne-"). Bez tohohle omezení by
+ * se stejná úleva na jedno slovo vztahovala i na běžné jednoslovné pojmy a vrátila by
+ * přesně tu záplavu (166 nálezů), kvůli které vznikla mez č. 8 výše.
+ */
+function jeAntonymniDvojice(text, s) {
+	const slova2 = new Set(normalizuj(text).split(' ').filter(Boolean));
+	const zaklad = s.startsWith('ne') && s.length > 2 ? s.slice(2) : s;
+	const negace = s.startsWith('ne') ? s : `ne${s}`;
+	return zaklad !== negace && slova2.has(zaklad) && slova2.has(negace);
 }
 
 /**
  * Projde jeden blok otázek a vrátí nálezy.
+ * @param {string} klic
+ * @param {Array} otazky
+ * @param {Set<string>} [slovnikTem] slovník tématu (viz `slovnikTematu()`) — slova
+ *   z názvu/klíče podtématu a tématu, do kterého blok patří. Bez parametru se
+ *   nevylučuje nic (užitečné pro testy s uměle vyrobenými bloky bez `temata.ts`).
  * @returns {{duplicity: Array, uniky: Array}}
  */
-export function zkontrolujBlok(klic, otazky) {
+export function zkontrolujBlok(klic, otazky, slovnikTem = new Set()) {
 	const duplicity = [];
 	const uniky = [];
 	let dvojic = 0;
@@ -362,11 +521,40 @@ export function zkontrolujBlok(klic, otazky) {
 		slovaTextu: slova(o.text),
 		zneni: slovaZneni(o.text),
 		slovaCele: slovaSCisly(textOtazky(o)),
-		slovaCeleKmen: new Set([...slovaSCisly(textOtazky(o))].map(kmen)),
+		// PROZRAZUJÍCÍ SLOVA SE HLEDAJÍ JEN VE VYSVĚTLENÍ, NE V CELÉM ZADÁNÍ (oprava vad
+		// 1 a 2, nález nezávislé kontroly 22. 8. 2026, páté kolo, doloženo podvrhy) — stejný
+		// princip jako u `fraziovyUnik` níž. Vysvětlení otázky prozrazuje fakt, který patří
+		// odpovědi jinam; vlastní ZNĚNÍ (zadání) jiné otázky ale běžně používá tatáž slova
+		// jako SVÉ VLASTNÍ TÉMA („Jaká je jednotka elektrického napětí?" — obecný odborný
+		// pojem bloku o obvodech), ne jako prozrazení cizí odpovědi. Číselné hodnoty ve
+		// ZNĚNÍ zdroje řeší samostatná, jednotkově přesná kontrola (`hodnotyZTextu` níž),
+		// která `textOtazky()` (text i vysvětlení) dál používá beze změny.
+		slovaCeleKmen: new Set([...slovaSCisly(o.vysvetleni ?? '')].map(kmen)),
+		// Kmeny VLASTNÍCH DISTRAKTORŮ, ZVLÁŠŤ od `slovaCeleKmen` (viz `distraktory()` a
+		// `malyBlokUnik` níž) — schválně JEN pro malé bloky, ne pro obecné porovnání:
+		// blok s dokola recyklovanou nabídkou možností (přípony souborů, typy čoček) by
+		// jinak hlásil únik mezi KAŽDOU dvojicí otázek, které sdílí stejnou nabídku
+		// (nález nezávislé kontroly 22. 8. 2026, páté kolo — regrese na testu s příponami).
+		distraktorKmen: new Set([...slovaSCisly(distraktory(o))].map(kmen)),
 		rozlisujici: rozlisujiciSlova(o),
 		odpovediNorm: (o.odpovedi ?? []).map((x) => normalizuj(x)).sort().join('|'),
 		spravnaNorm: normalizuj((o.odpovedi ?? [])[0]),
 	}));
+
+	// SLOVNÍKOVÁ SLOVA BLOKU podle FREKVENCE (viz komentář u `PRAH_FREKVENCE_BLOKU`):
+	// kolik RŮZNÝCH otázek bloku slovo (širší kmen) obsahuje.
+	const frekvence = new Map();
+	pripravene.forEach((p) => {
+		for (const s of new Set([...p.slovaCele].map(kmenSirsi))) {
+			frekvence.set(s, (frekvence.get(s) ?? 0) + 1);
+		}
+	});
+	const jeSlovnikBloku = (slovo) => {
+		const k = kmenSirsi(slovo);
+		if (slovnikTem.has(k)) return true;
+		if (pripravene.length < MIN_OTAZEK_PRO_FREKVENCI) return false;
+		return (frekvence.get(k) ?? 0) / pripravene.length >= PRAH_FREKVENCE_BLOKU;
+	};
 
 	for (let i = 0; i < pripravene.length; i++) {
 		for (let j = i + 1; j < pripravene.length; j++) {
@@ -413,10 +601,26 @@ export function zkontrolujBlok(klic, otazky) {
 				// (doklad: „tlaková síla" × „tlakovou sílu"). Původní slovo se ale
 				// dál nese v `prozrazena` (jen filtr jde přes kmen), aby výpis i
 				// navazující kontroly (číslo, jediný token) viděly skutečný text.
-				const prozrazena = [...cil.rozlisujici].filter((s) => zdroj.slovaCeleKmen.has(kmen(s)));
-				// (a) dost rozlišujících slov cíle: dvě libovolná, nebo jedno dlouhé (≥ 8 znaků,
-				//     takové slovo je samo o sobě odpověď — „kondenzace", „anemometr")
-				const pokryti = prozrazena.length / cil.rozlisujici.size;
+				// SLOVNÍK TÉMATU (název podtématu/tématu) a SLOVNÍKOVÁ SLOVA BLOKU (pojem
+				// opakující se napříč velkou částí bloku podle frekvence) se z rozlišujících
+				// slov rovnou VYŘAZUJÍ — nikdy nejsou to jediné, co únik dokazuje (viz
+				// `jeSlovnikBloku` výše). Jinak by třeba „elektrický náboj" v bloku o
+				// elektrickém náboji nebo „působiště"/„směr" v bloku o síle prošly jako
+				// prozrazení, ačkoli je to jen slovní zásoba, kterou blok nutně opakuje.
+				// Jmenovatel „pokrytí" MUSÍ jít přes stejné síto — jinak by odečtení
+				// slovníkových slov jen v čitateli uměle SNÍŽILO pokrytí a smazalo
+				// i skutečný únik (podvrh 22. 8. 2026: blok o sloučenině měl „atomy"
+				// v názvu podtématu, po vyřazení jen v čitateli kleslo pokrytí ze 100 %
+				// na 50 % a doložený únik „stejné molekuly z různých atomů" zmizel).
+				const rozlisujiciBezSlovniku = [...cil.rozlisujici].filter((s) => !jeSlovnikBloku(s));
+				const prozrazena = rozlisujiciBezSlovniku.filter((s) => zdroj.slovaCeleKmen.has(kmen(s)));
+				// (a) dost rozlišujících slov cíle: dvě libovolná při vysokém pokrytí (viz
+				//     `dostSlov` níž). POZOR: „jedno dlouhé slovo (≥ 8 znaků) samo stačí"
+				//     tu NENÍ implementováno — zkoušelo se to (mez č. 8 výš, „hypotéza",
+				//     „anemometr") a zrušilo se pro přes 160 falešných poplachů; jednoslovné
+				//     odpovědi řeší jen úzká výjimka `celaOdpovedJedenToken` (přípona
+				//     souboru) níž, nic obecnějšího.
+				const pokryti = rozlisujiciBezSlovniku.length ? prozrazena.length / rozlisujiciBezSlovniku.length : 0;
 				// Dvě libovolná rozlišující slova při vysokém pokrytí — původní pravidlo.
 				// NEBO jediné vícemístné číslo při pokrytí aspoň poloviny: u číselné
 				// odpovědi („kolem 80 °C" → rozlišující {kolem, 80}) je to číslo celá
@@ -445,11 +649,100 @@ export function zkontrolujBlok(klic, otazky) {
 					cil.rozlisujici.size === 1 &&
 					cil.spravnaNorm === [...cil.rozlisujici][0] &&
 					/^\./.test(((cil.o.odpovedi ?? [])[0] ?? '').trim());
+				// POKUS O ROZŠÍŘENÍ NA „PŘESNĚ DVĚ ROZLIŠUJÍCÍ SLOVA, PROZRAZENO JEDNO"
+				// (VADA B, nález nezávislé kontroly 22. 8. 2026, blok o proměnném rezistoru:
+				// „posuvný jezdec" × „jezdec") byl VYZKOUŠEN a ZAMÍTNUT — i s laťkou na délku
+				// (≥ 6 znaků), frekvenční ochranou a sebepotvrzením u cíle vyrobil na celém
+				// webu 100–300+ nových nálezů (většina falešných poplachů typu „vlastnostmi",
+				// „material", „Galileo" — přesně ta záplava, kvůli které vznikla původní
+				// laťka „dvě slova při 70 %"). Řešení TOHOTO konkrétního páru čeká na
+				// bezpečnější, úžeji zacílené pravidlo — bez něj brána tenhle typ úniku
+				// (jedno podstatné jméno ze dvouslovné odpovědi) neumí odlišit od běžné
+				// odborné slovní zásoby bloku.
 				const dostSlov =
 					(prozrazena.length >= 2 && pokryti >= 0.7) ||
 					(celeCislo && pokryti >= 0.5) ||
 					(celaOdpovedJedenToken && prozrazena.length === 1);
-				if (!dostSlov) continue;
+
+				// --- MALÝ BLOK, JEDNO ROZLIŠUJÍCÍ SLOVO STAČÍ (oprava vad 4 a 5, nález
+				// nezávislé kontroly 22. 8. 2026, páté kolo, doloženo podvrhy) — viz
+				// `jeAntonymniDvojice()`, `distraktory()` a `MALY_BLOK_MAX` výš. U bloku
+				// ≤ 3 otázek, kde nejde počítat frekvenci (`MIN_OTAZEK_PRO_FREKVENCI` = 5),
+				// stačí JEDNO rozlišující slovo cíle, když platí ASPOŇ JEDNO z obecných
+				// pravidel níž — obojí bez seznamu konkrétních slov:
+				//   (a) cizí VYSVĚTLENÍ ho staví proti jeho negaci („nevede… vede") — jasné
+				//       prozrazení, ne náhodná shoda odborného pojmu (viz `jeAntonymniDvojice`);
+				//   (b) slovo se objeví jako DISTRAKTOR jiné otázky (rozptylka/spojka u páru
+				//       o čočkách) — žák ho vidí na obrazovce. VYNECHÁVÁ SE u odpovědí, které
+				//       jsou celé JEDEN TOKEN ZAČÍNAJÍCÍ TEČKOU (přípona souboru) — pro ty už
+				//       existuje vlastní, užší pravidlo (`celaOdpovedJedenToken` výš, hledá
+				//       jen ve vysvětlení); bez týhle výjimky by malý blok s dokola recyklovanou
+				//       nabídkou přípon (.docx/.pptx/.png) hlásil únik mezi každou dvojicí otázek,
+				//       které sdílí stejnou nabídku — to není prozrazení, jen sdílený seznam možností.
+				// ČÍSLA se z obou větví VYNECHÁVAJÍ — pro ně existuje samostatná, jednotkově
+				// přesná kontrola (`hodnotyZTextu` níž); shoda jediné číslice u malého bloku
+				// (např. „20" v odpovědi jedné otázky a náhodou i v distraktoru druhé) by bez
+				// týhle výjimky obcházela tu přesnější kontrolu (regrese „číslo už v zadání").
+				const rozlisujiciNecislo = rozlisujiciBezSlovniku.filter((s) => !/[0-9]/.test(s));
+				const prozrazenaNecislo = prozrazena.filter((s) => !/[0-9]/.test(s));
+				const jeCilPripona = /^\./.test(((cil.o.odpovedi ?? [])[0] ?? '').trim());
+				const prozrazenaDistraktorem = rozlisujiciNecislo.filter((s) => zdroj.distraktorKmen.has(kmen(s)));
+				const malyBlokUnik =
+					pripravene.length <= MALY_BLOK_MAX &&
+					rozlisujiciNecislo.length > 0 &&
+					((prozrazenaNecislo.length === rozlisujiciNecislo.length &&
+						prozrazenaNecislo.some((s) => jeAntonymniDvojice(zdroj.o.vysvetleni ?? '', s))) ||
+						(!jeCilPripona && prozrazenaDistraktorem.length === rozlisujiciNecislo.length));
+
+				// --- DOSLOVNÁ SHODA CELÉ VÍCESLOVNÉ ODPOVĚDI (oprava vady 2, nález nezávislé
+				// kontroly 22. 8. 2026, čtvrté kolo, doloženo podvrhem) ---
+				// Frekvenční vyloučení (`jeSlovnikBloku`, viz komentář u `PRAH_FREKVENCE_BLOKU`)
+				// smí vyřadit jen JEDNOTLIVÉ slovo. Nesmí ale smazat únik, kdy se CELÉ slovní
+				// spojení správné odpovědi cíle objeví v cizí otázce DOSLOVA — malý blok s
+				// dominantním opakovaným pojmem („gravitační síla Slunce" ve 3 z 5 otázek,
+				// 60 % ≥ 40 %) smazal frekvencí obě slova z `rozlisujici`, a přesto vysvětlení
+				// JINÉ otázky tu samou frázi cituje doslova — to je únik i tehdy, když jsou ta
+				// slova v bloku běžná. SLOVNÍK TÉMATU (`slovnikTem`, skutečný název podtématu
+				// z `temata.ts`) frázi dál smí vyloučit (fráze JE název tématu, ne prozrazení),
+				// ale frekvenční počítadlo uvnitř bloku o tom rozhodovat nesmí.
+				//
+				// HLEDÁ SE JEN VE VYSVĚTLENÍ ZDROJE, NE V CELÉM ZADÁNÍ (oprava vad 1 a 2,
+				// nález nezávislé kontroly 22. 8. 2026, páté kolo, doloženo dvěma nezávislými
+				// podvrhy). Vysvětlení otázky prozrazuje — cituje fakt, který patří odpovědi
+				// jinam. Vlastní ZNĚNÍ (zadání) jiné otázky ale běžně obsahuje tutéž frázi jako
+				// SVŮJ VLASTNÍ ÚDAJ, ne jako prozrazení: „Těleso 2 kg je ve výšce 3 m…" (vstup
+				// jednoho příkladu) a „…Jaká je hmotnost tělesa? [2 kg]" (výsledek druhého) sdílí
+				// dvouslovnou frázi „2 kg" čistě náhodou — číselné hodnoty už navíc řeší
+				// samostatná, jednotkově přesná kontrola (`hodnotyZTextu`) níž. Stejně tak
+				// obecný odborný pojem („elektrické napětí") se v zadání JINÉ otázky bloku o
+				// obvodech objevuje jako JEJÍ VLASTNÍ TÉMA, ne jako prozrazení cizí odpovědi.
+				const slovaSpravneFraze = cil.spravnaNorm.split(' ').filter(Boolean);
+				const jeVicelovaFraze = slovaSpravneFraze.length >= 2;
+				const frazeJeNazevTematu =
+					jeVicelovaFraze && slovaSpravneFraze.every((s) => slovnikTem.has(kmenSirsi(s)));
+				// CELÁ ODPOVĚĎ JE JEN „ČÍSLO + JEDNOTKA" A ZDROJ TUTÉŽ HODNOTU MÁ I VE
+				// SVÉM VLASTNÍM ZADÁNÍ („1 m³" v „Kolik dm³ je 1 m³?") — pak jde o VLASTNÍ
+				// VSTUP zdrojova příkladu, který se ve vysvětlení jen zopakuje při výpočtu,
+				// ne o prozrazení cizí odpovědi (stejný princip jako „hodnota už v zadání
+				// cíle" u `hodnotyZTextu" výš, jen zrcadlově pro ZDROJ). Když se fráze ve
+				// vysvětlení objeví BEZ opory ve vlastním zadání zdroje (klasický „5 kg" na
+				// štítku krabice v cizím vysvětlení), pořád jde o skutečné prozrazení.
+				// (nález nezávislé kontroly 22. 8. 2026, VADA C: „1 m³" u „Kolik dm³ je
+				// 1 m³?" takhle doslovně „prozrazovalo" objem krabice 2×1×0,5 m, ačkoli šlo
+				// o dvě různé počítané úlohy sdílející kulaté vstupní číslo zdroje).
+				const jeCistaHodnota = /^\d+(?:[.,]\d+)?[  ]?(°?[\p{L}Ω²³]{1,12}(?:[·./][\p{L}]{1,4})?|%|°C)?$/u.test(
+					String((cil.o.odpovedi ?? [])[0] ?? '').trim(),
+				);
+				const eskejpovanaFraze = cil.spravnaNorm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+				const frazeVeVlastnimZadaniZdroje =
+					jeCistaHodnota &&
+					new RegExp(`(^|\\s)${eskejpovanaFraze}(\\s|$)`).test(normalizuj(zdroj.o.text ?? ''));
+				let fraziovyUnik = false;
+				if (!dostSlov && jeVicelovaFraze && !frazeJeNazevTematu && !frazeVeVlastnimZadaniZdroje) {
+					const textZdroje = normalizuj(zdroj.o.vysvetleni ?? '');
+					if (new RegExp(`(^|\\s)${eskejpovanaFraze}(\\s|$)`).test(textZdroje)) fraziovyUnik = true;
+				}
+				if (!dostSlov && !fraziovyUnik && !malyBlokUnik) continue;
 				// POČETNÍ ÚLOHA jako cíl se u číselných nálezů přeskakuje — týž postup, jaký
 				// už používá `cisla-ve-vykladu.mjs`: má-li ZADÁNÍ otázky vlastní čísla, je
 				// odpověď VÝSLEDEK, který si žák spočítá. Že se stejné číslo („100 N", „10 N")
@@ -495,7 +788,6 @@ export function zkontrolujBlok(klic, otazky) {
 					const hodnotyZneniCile = hodnotyZTextu(cil.o.text);
 					const hodnotyZdrojeCele = hodnotyZTextu(textOtazky(zdroj.o));
 					const hodnotyZneniZdroje = hodnotyZTextu(zdroj.o.text);
-					const hodnotyOdpovediZdroje = hodnotyZTextu((zdroj.o.odpovedi ?? [])[0]);
 
 					if (hodnotyOdpovediCile.size > 0) {
 						const shodne = [...hodnotyOdpovediCile].filter((h) => hodnotyZdrojeCele.has(h));
@@ -515,7 +807,7 @@ export function zkontrolujBlok(klic, otazky) {
 						// (2) LEGITIMNÍ PŮJČENÍ HODNOTY MEZI PŘÍKLADY — kvůli němu výjimka
 						//     vznikla (dvě úlohy s tíhou 100 N, konstanta g = 10 N/kg).
 						//     Musí platit obojí: cíl je POČETNÍ ÚLOHA a hodnota je u zdroje
-						//     „doma" jako vstup jeho zadání nebo jeho vlastní odpověď.
+						//     „doma" jako VSTUP jeho zadání.
 						//
 						//     `cilJePocetni` už neznamená „v zadání je jakákoli číslice"
 						//     (tak se dřív za vstup výpočtu vydávala i pouhá kulisa, viz
@@ -524,25 +816,39 @@ export function zkontrolujBlok(klic, otazky) {
 						//     A hlavně: „doma u zdroje" se posuzuje po jednotkách, takže
 						//     zdrojová odpověď „230 V" už nepokryje citovaných „230 minut"
 						//     (útok B) a „× 10" v převodu hmotnosti nepokryje „10 N/kg".
+						//
+						//     SCHVÁLNĚ JEN `hodnotyZneniZdroje` (VLASTNÍ ZADÁNÍ zdroje), NIKDY
+						//     `hodnotyOdpovediZdroje` (vlastní ODPOVĚĎ zdroje) — nález nezávislé
+						//     kontroly 22. 8. 2026, páté kolo, doloženo podvrhem (vada 3):
+						//     hodnota, kterou zdroj sám má jako SVOU SPRÁVNOU ODPOVĚĎ (ne jako
+						//     vstup svého příkladu), není „půjčený vstup" — je to prozrazený
+						//     VÝSLEDEK. „Jak dlouho trvalo zatmění Slunce? → 230 minut" (230
+						//     minut je odpověď, ne vstup) + „Film běžel 3h50min, kolik je to
+						//     minut?" (230 min se teprve DOPOČÍTÁ) je únik, ne půjčka — stará
+						//     verze to výjimkou omylem pouštěla.
 						const cilJePocetni = maMeritelnyVstup(cil.o.text);
 						const pujcenaHodnota =
 							cilJePocetni &&
-							shodne.every(
-								(h) =>
-									!hodnotyZneniCile.has(h) &&
-									(hodnotyZneniZdroje.has(h) || hodnotyOdpovediZdroje.has(h)),
-							);
+							shodne.every((h) => !hodnotyZneniCile.has(h) && hodnotyZneniZdroje.has(h));
 						if (pujcenaHodnota) continue;
 						if (shodne.some(maJednotku)) latkaSpolecnych = 1;
 					}
 				}
-				if (spolecna.length < latkaSpolecnych) continue;
+				// Doslovná shoda celé fráze (viz `fraziovyUnik` výš), antonymní dvojice v
+				// malém bloku (`malyBlokUnik` výš) i JEDINÉ DLOUHÉ PODSTATNÉ JMÉNO ze
+				// dvouslovné odpovědi (`jedinePodstatneJmenoDlouhe` výš) prozrazují odpověď
+				// i bez obvyklé podmínky (b) — žák frázi/protiklad/to jedno slovo přečte
+				// doslova, není co dalšího „poznávat" podle sdíleného kontextu (nález
+				// nezávislé kontroly 22. 8. 2026, VADA B: „jezdec" u „Co udělá jezdec s
+				// odporovým drátem…" nesdílí s cílovou otázkou „Která část mění odpor…"
+				// žádné DALŠÍ nosné slovo, přesto samo slovo „jezdec" k odpovědi vede).
+				if (!fraziovyUnik && !malyBlokUnik && spolecna.length < latkaSpolecnych) continue;
 				uniky.push({
 					klic,
 					prozrazuje: zdroj.o.text,
 					odpoved: (cil.o.odpovedi ?? [])[0],
 					otazka: cil.o.text,
-					slova: prozrazena,
+					slova: prozrazena.length ? prozrazena : slovaSpravneFraze,
 				});
 			}
 		}
@@ -553,7 +859,23 @@ export function zkontrolujBlok(klic, otazky) {
 /** Projde všechny bloky webu. Souhrnná shrnutí se přeskakují — skládají se z týchž
  *  objektů otázek jako zdrojové bloky, takže by se každý nález počítal několikrát. */
 export async function zkontrolujUniky(data) {
-	const { kvizy } = data ?? (await nactiData());
+	const { kvizy, temata } = data ?? (await nactiData());
+	// POJISTKA (nález 22. 8. 2026, rozdvojení ostré brány a testovacího spuštění):
+	// volající SMÍ předat vlastní `data`, ale NESMÍ tiše vynechat `temata` — bez nich
+	// `slovnikTematu()` dostane prázdno a výjimka „slovník tématu" se v ostré bráně
+	// vůbec neuplatní, takže brána měří MÍŇ úniků než `node testy/uniky.mjs`. Prázdný
+	// objekt `{}` je legitimní (žádná ročníková data), ale CHYBĚJÍCÍ, `undefined`
+	// nebo `null` `temata` u vlastních dat je chyba volajícího — kontroluje se
+	// HODNOTA (`data.temata == null`), ne pouhá přítomnost klíče (`'temata' in data`
+	// je splněné i pro `temata: undefined` a pojistku by obešla) — shodit hned,
+	// ne tiše dopočítat.
+	if (data && data.temata == null) {
+		throw new Error(
+			'zkontrolujUniky: chybí `temata` ve vstupních datech — bez nich se výjimka ' +
+				'„slovník tématu" tiše neuplatní a měřidlo najde jiný (nižší) počet úniků ' +
+				'než `node testy/uniky.mjs`. Předej stejná `temata`, jaká používá výchozí nactiData().',
+		);
+	}
 	const duplicity = [];
 	const uniky = [];
 	let bloku = 0;
@@ -571,7 +893,7 @@ export async function zkontrolujUniky(data) {
 		}
 		bloku++;
 		otazek += otazky.length;
-		const v = zkontrolujBlok(klic, otazky);
+		const v = zkontrolujBlok(klic, otazky, slovnikTematu(temata, klic));
 		duplicity.push(...v.duplicity);
 		uniky.push(...v.uniky);
 		dvojic += v.dvojic;

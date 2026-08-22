@@ -8,7 +8,7 @@
 // měřidla opravdu vyrobila. Kdyby se práh někdy povolil zpátky, spadne to tady.
 //
 // Spuštění: node testy/uniky-obousmerne.mjs
-import { zkontrolujBlok } from './uniky.mjs';
+import { zkontrolujBlok, slovnikTematu, zkontrolujUniky } from './uniky.mjs';
 
 let chyb = 0;
 let kontrol = 0;
@@ -469,6 +469,332 @@ const zdravy = [
 {
 	const v = zkontrolujBlok('test/zdravy-dvojic', zdravy);
 	tvrdi('zdravý 3prvkový blok dá právě 3 dvojice', v.dvojic === 3);
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+// SLOVNÍK TÉMATU (doplněno 22. 8. 2026, druhé kolo nezávislé kontroly): jedno
+// sdílené slovo, které je zároveň NÁZVEM podtématu/tématu nebo se v bloku podle
+// FREKVENCE opakuje jako jeho vlastní slovní zásoba, nesmí samo o sobě stačit
+// na hlášení úniku — na ostrých datech to bylo 7 ze 16 ručně ověřených nálezů.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// PODVRH (musí zmizet): slovo shodné s NÁZVEM PODTÉMATU se sdílí napříč skoro
+// každou otázkou bloku — to není únik, je to jméno tématu (doklad na ostrých
+// datech: „elektrický náboj" v bloku o elektrickém náboji, „u všech těles"
+// v bloku o gravitační síle).
+{
+	const temataTest = {
+		'6-rocnik': [
+			{
+				slug: 'elektrina',
+				nazev: 'Elektřina',
+				podtemata: [{ slug: 'elektricky-naboj', nazev: 'Elektrický náboj, elektrování těles' }],
+			},
+		],
+	};
+	const klic = '6-rocnik/elektrina/elektricky-naboj';
+	const slovnik = slovnikTematu(temataTest, klic);
+	tvrdi('slovník tématu zná slovo z názvu podtématu', slovnik.has('nab'));
+	const blok = [
+		ot('Co je příčinou silového působení mezi zelektrovanými tělesy?', ['elektrický náboj', 'teplota', 'hmotnost'],
+			'Elektrický náboj způsobuje elektrickou sílu.'),
+		ot('Jak lze náboj přesouvat mezi tělesy?', ['jen s elektrony, náboj se nedá vyrobit ani zničit', 'vznikem nových protonů', 'zničením elektronů'],
+			'Náboj nelze vyrobit ani zničit, jen přesouvat spolu s elektrony.'),
+	];
+	const v = zkontrolujBlok(klic, blok, slovnik);
+	tvrdi('shoda jen v názvu podtématu (elektrický náboj) NENÍ únik', v.uniky.length === 0);
+}
+
+// PODVRH (musí zmizet): slovo se v bloku podle FREKVENCE opakuje jako jeho vlastní
+// odborná slovní zásoba, i když doslova není v názvu podtématu (doklad: „působiště"
+// a „směr" ve víc než čtvrtině otázek bloku o síle). Blok musí mít aspoň 5 otázek,
+// jinak se frekvence nepočítá.
+{
+	const blokSlovniku = [
+		ot('Kterými třemi údaji je síla určena?', ['velikostí, směrem a působištěm', 'barvou a tvarem', 'hmotností a objemem'],
+			'Bez velikosti, směru a působiště sílu nelze popsat.'),
+		ot('Co je působiště síly?', ['bod, ve kterém síla působí', 'nejtěžší bod tělesa', 'konec šipky'], ''),
+		ot('Jaký je směr gravitační síly?', ['směrem ke středu Země', 'vodorovně', 'nahoru'], ''),
+		ot('Co udává délka šipky při kreslení síly?', ['velikost síly podle měřítka', 'směr síly', 'hmotnost tělesa'], ''),
+		ot('Čím měříme sílu?', ['siloměrem', 'teploměrem', 'tachometrem'], ''),
+		ot('Podle čeho má síla posuvné, nebo otáčivé účinky?', ['podle umístění působiště a směru síly', 'podle barvy', 'podle tvaru'],
+			''),
+	];
+	const v = zkontrolujBlok('test/slovnik-bloku-sila', blokSlovniku);
+	tvrdi(
+		'slovníková slova bloku (působiště, směr) NEJSOU únik jen sama o sobě',
+		!v.uniky.some((u) => /působišt/.test(u.odpoved) || /působišt/.test(u.prozrazuje)),
+	);
+}
+
+// SKUTEČNÝ ÚNIK MUSÍ ZŮSTAT i po zavedení slovníku tématu — dvě sdílená slova, která
+// NEJSOU jménem tématu ani jeho slovníkovou zásobou, pořád unikem jsou.
+{
+	const blokSeSkutecnymUnikem = [
+		ot('Jak se chovají amorfní látky při zahřívání?', ['postupně měknou', 'okamžitě se roztaví', 'zůstanou beze změny'],
+			'Amorfní látky nemají pravidelné uspořádání částic a při zahřátí postupně měknou.'),
+		ot('Co se stane s amorfní látkou, když ji pomalu zahříváme?', ['postupně měkne', 'okamžitě se změní na plyn', 'nezmění se'],
+			''),
+		ot('Čím se od sebe liší dvě prvky uhlík a diamant?', ['uspořádáním atomů', 'barvou', 'hmotností'], ''),
+	];
+	const v = zkontrolujBlok('test/skutecny-unik-po-slovniku', blokSeSkutecnymUnikem);
+	tvrdi(
+		'skutečný únik (postupně měknou/měkne) zůstává i po zavedení slovníku tématu',
+		v.uniky.some((u) => /postupně měkn/.test(u.odpoved)),
+	);
+}
+
+// ==================================================================================
+// ČTVRTÉ KOLO (22. 8. 2026) — dvě vady doložené nezávislou kontrolou v `kmen()`
+// a ve frekvenčním prahu `jeSlovnikBloku`. Umělé bloky (ne odkaz na kvizy.ts).
+
+// (a) KOLIZE KMENŮ: „neustálý" a „neuspořádaný" nemají nic společného, jen náhodou
+// začínají stejně. V cizí otázce smí figurovat jen jedno z nich — brána nesmí
+// nahlásit obě.
+{
+	const kolizeKmenu = [
+		ot('Jak se liší plyn od pevné látky ve vnitřním uspořádání částic?', ['neuspořádaný pohyb částic', 'stálý tvar', 'malá stlačitelnost'],
+			'V plynu je pohyb částic zcela neuspořádaný — částice létají všemi směry.'),
+		ot('Jaký je pohyb částic v kapalině navzájem?', ['neustálý a neuspořádaný', 'dokonale pravidelný', 'žádný'],
+			'Částice kapaliny jsou v neustálém pohybu a navzájem se míjejí.'),
+	];
+	const v = zkontrolujBlok('test/kolize-kmenu', kolizeKmenu);
+	tvrdi(
+		'„neustálý" × „neuspořádaný" v cizí otázce NEvyvolá nález (kolize kmenů)',
+		!v.uniky.some((u) => /neuspoř/.test(u.odpoved) || /neustál/.test(u.odpoved)),
+	);
+}
+
+// (b) SKLOŇOVÁNÍ MUSÍ DÁL FUNGOVAT: „tlaková síla" × „tlakovou sílu" (jiný pád)
+// pořád musí být nalezeno — kmenování se kvůli tomuhle zavedlo.
+{
+	const sklonovaniFunguje = [
+		ot('Co udržuje kapalinu v nádobě navzdory gravitaci?', ['tlaková síla', 'setrvačnost', 'tření'], ''),
+		ot('Jak vzniká atmosférický tlak vzduchu?', ['tíhou vzduchového sloupce', 'otáčením Země', 'sálavým teplem Slunce'],
+			'Kapalinu ve skutečnosti drží právě tlakovou sílu, kterou vyvíjí okolní vzduch.'),
+	];
+	const v = zkontrolujBlok('test/sklonovani-funguje-4kolo', sklonovaniFunguje);
+	tvrdi('skloněný tvar („tlakovou sílu") je po opravě dál nalezen', v.uniky.length >= 1);
+}
+
+// (c) FREKVENČNÍ PRÁH NESMÍ SCHOVAT MALÝ BLOK S DOMINANTNÍM POJMEM: „gravitační síla
+// Slunce" se opakuje ve 3 z 5 otázek (60 % ≥ 40% práh), takže obě slova zmizí z
+// rozlišujících — ale doslovná shoda CELÉ fráze v cizím vysvětlení je pořád únik.
+{
+	const frekvenceSkryje = [
+		ot('Co drží planety na oběžné dráze?', ['gravitační síla Slunce', 'odstředivá síla', 'magnetické pole'],
+			'Gravitační síla Slunce zakřivuje dráhu planety.'),
+		ot('Proč padá jablko ze stromu dolů?', ['táhne ho gravitační síla Země', 'odpuzuje ho vzduch', 'přitahuje ho vítr'],
+			'Gravitační síla Země táhne tělesa k zemi — proto jablko padá.'),
+		ot('Co způsobuje slapové jevy (příliv a odliv)?', ['gravitační síla Slunce', 'vítr nad oceánem', 'otáčení Země kolem osy'],
+			'Gravitační síla Slunce a Měsíce mění hladinu oceánu — proto vzniká příliv a odliv.'),
+		ot('Jaké těleso ve sluneční soustavě má největší hmotnost?', ['Slunce', 'Jupiter', 'Země'],
+			'Slunce má naprosto největší hmotnost ze všech těles soustavy.'),
+		ot('Proč Země obíhá kolem Slunce a ne naopak?', ['gravitační síla Slunce je díky jeho hmotnosti mnohem větší', 'Slunce je blíž středu vesmíru', 'Země je lehčí, a tak létá'],
+			'Slunce má obrovskou hmotnost, a tak jeho gravitační síla ovládá pohyb celé soustavy — Slunce Zemi drží na oběžné dráze.'),
+	];
+	const v = zkontrolujBlok('test/frekvence-skryje-4kolo', frekvenceSkryje);
+	tvrdi(
+		'malý blok s dominantním opakovaným pojmem a doslova shodnou odpovědí je nalezen',
+		v.uniky.some((u) => /gravitační síla/.test(u.odpoved)),
+	);
+}
+
+// ==================================================================================
+// PÁTÉ KOLO (22. 8. 2026) — pět vad doložených nezávislou kontrolou (podvrhy
+// test.mjs a test2.mjs, scratchpad kontrola-uniky3). U každé oba směry: co má
+// mlčet, mlčí; co má hlásit, hlásí.
+
+// VADA 1 — fráziový únik obcházel výjimku pro jednociferná čísla u dvouslovné
+// hodnoty typu „2 kg". Dva samostatné příklady náhodou sdílející zadanou hodnotu.
+{
+	const dvaPriklady = [
+		ot('Těleso 2 kg je ve výšce 3 m. Jaká je jeho polohová energie? (g = 10)', ['60 J', '6 J', '600 J'], 'Ep = m·g·h = 2·10·3 = 60 J.'),
+		ot('Polohová energie tělesa je 60 J, výška 3 m, g = 10 N/kg. Jaká je hmotnost tělesa?', ['2 kg', '20 kg', '6 kg'],
+			'Z Ep = m · g · h plyne m = Ep : (g · h) = 60 : (10 · 3) = 2 kg.'),
+	];
+	const v = zkontrolujBlok('test/vada1-cislo-jednotka', dvaPriklady);
+	tvrdi('VADA 1: dva příklady sdílející „2 kg" NEJSOU únik', v.uniky.length === 0);
+}
+// Zdravý protějšek zůstává skutečným únikem: hodnota je PROZRAZENA jako fráze
+// v cizím VYSVĚTLENÍ, ne jen jako vstup jiného příkladu.
+{
+	const skutecnyUnikFraze = [
+		ot('Kolik váží krabice, kterou neseme?', ['5 kg', '50 kg', '500 kg'], ''),
+		ot('Podle čeho poznáme hmotnost krabice s knihami?', ['podle štítku', 'podle odhadu od oka', 'podle velikosti krabice'],
+			'Na štítku krabice stálo přesně 5 kg.'),
+	];
+	const v = zkontrolujBlok('test/vada1-fraze-ve-vysvetleni', skutecnyUnikFraze);
+	tvrdi('VADA 1: fráze „5 kg" doslovně citovaná v cizím vysvětlení zůstává únikem', v.uniky.length >= 1);
+}
+
+// VADA 2 — frekvenční vyloučení jednotlivých slov neplatilo na CELOU frázi;
+// obecný dvouslovný odborný pojem („elektrické napětí") vyšel jako únik, když se
+// doslova objevil v ZADÁNÍ jiné otázky bloku o obvodech.
+{
+	const obvody = [
+		ot('Co je příčinou elektrického proudu v obvodu?', ['elektrické napětí', 'magnetické pole Země', 'teplota vodiče'],
+			'Napětí mezi konci vodiče vytváří elektrické pole, které uvádí nabité částice do pohybu.'),
+		ot('Jaká je jednotka elektrického napětí?', ['volt (V)', 'ampér (A)', 'watt (W)'], 'Napětí měříme ve voltech voltmetrem.'),
+	];
+	const v = zkontrolujBlok('test/vada2-odborny-pojem-v-zadani', obvody);
+	tvrdi('VADA 2: „elektrické napětí" v zadání jiné otázky NENÍ únik', v.uniky.length === 0);
+}
+// Zdravý protějšek: stejná fráze doslova citovaná v CIZÍM VYSVĚTLENÍ (ne ve
+// vlastním zadání otázky) skutečným únikem zůstává.
+{
+	const obvodyUnik = [
+		ot('Co je příčinou elektrického proudu v obvodu?', ['elektrické napětí', 'magnetické pole Země', 'teplota vodiče'], ''),
+		ot('Co je zkrat?', ['spojení svorek bez spotřebiče', 'porucha izolace', 'vypnutý spínač'],
+			'Nejčastější příčinou požáru je právě elektrické napětí, které náhle najde zkratovou cestu.'),
+	];
+	const v = zkontrolujBlok('test/vada2-fraze-ve-vysvetleni-zustava', obvodyUnik);
+	tvrdi('VADA 2: fráze doslova citovaná v cizím vysvětlení zůstává únikem', v.uniky.length >= 1);
+}
+
+// VADA 3 — výjimka „legitimní půjčení hodnoty" pouštěla i případ, kdy zdroj má
+// hodnotu jako SVOU SPRÁVNOU ODPOVĚĎ (výsledek), ne jako vstup příkladu.
+// Podvrh kontrolora (test2.mjs, blokB).
+{
+	const zatmeniAFilm = [
+		ot('Jak dlouho trvalo zatmění Slunce podle staré kroniky?', ['230 minut', '30 minut', '130 minut'], 'Kronika uvádí přesně 230 minut.'),
+		ot('Film běžel 3 hodiny a 50 minut. Kolik to je minut?', ['230 min', '210 min', '190 min'], 'Sečteme 180 + 50 = 230 min.'),
+	];
+	const v = zkontrolujBlok('test/vada3-hodnota-je-vysledek', zatmeniAFilm);
+	tvrdi('VADA 3: hodnota, kterou má zdroj jako SVOU ODPOVĚĎ, není půjčený vstup — únik se najde', v.uniky.length >= 1);
+	tvrdi('VADA 3: nález ukazuje na otázku o filmu', v.uniky.some((u) => /Film běžel/.test(u.otazka)));
+}
+// Zdravý protějšek (regrese už existuje výš jako „regrese-pujceny-vstup" a
+// „regrese-pujcene-cislo") — hodnota, kterou zdroj má VE SVÉM VLASTNÍM ZADÁNÍ
+// (skutečný vstup, ne jeho odpověď), pořád legitimně mlčí.
+{
+	const legitimniVstup = [
+		ot('Kolik váží těleso o tíze 100 N zavěšené na pevné kladce, tahá-li lano silou stejné velikosti?', ['100 N', '250 N', '400 N'], ''),
+		ot('Jakou silou zvednu na volné kladce břemeno o tíze 200 N?', ['100 N', '200 N', '400 N'], 'Volná kladka sílu půlí.'),
+	];
+	const v = zkontrolujBlok('test/vada3-hodnota-je-vstup-zustava-ticho', legitimniVstup);
+	tvrdi('VADA 3: hodnota jako VSTUP vlastního zadání zdroje pořád legitimně mlčí', v.uniky.length === 0);
+}
+
+// VADA 4 — `textOtazky()` prohledávala jen text a vysvětlení, nikdy pole
+// `odpovedi`; vlastní DISTRAKTOR jiné otázky (viditelný na obrazovce) mohl
+// prozradit odpověď. Podvrh kontrolora (test2.mjs, blokC).
+{
+	const cocky = [
+		ot('Jaká čočka se používá na korekci krátkozrakosti?', ['rozptylka', 'spojka', 'zrcadlo'], 'Krátkozrakost se koriguje rozptylkou.'),
+		ot('Jaká čočka se používá na korekci dalekozrakosti?', ['spojka', 'rozptylka', 'zrcadlo'], 'Dalekozrakost se koriguje spojkou.'),
+	];
+	const v = zkontrolujBlok('test/vada4-vlastni-distraktor', cocky);
+	tvrdi('VADA 4: vlastní distraktor druhé otázky („spojka"/„rozptylka") se teď najde jako únik', v.uniky.length >= 1);
+}
+// Regrese: recyklovaná nabídka možností (přípony souborů) se dál nesmí hlásit
+// jako únik jen proto, že se stejné možnosti opakují napříč otázkami bloku.
+{
+	const priponyRecyklovane = [
+		ot('Která přípona patří zvuku?', ['.mp3', '.docx', '.png'], 'Zvuk se ukládá jako .mp3.'),
+		ot('Která přípona patří textovému dokumentu?', ['.docx', '.pptx', '.png'], 'Dokument má příponu .docx.'),
+	];
+	const v = zkontrolujBlok('test/vada4-regrese-recyklovana-nabidka', priponyRecyklovane);
+	tvrdi('VADA 4: recyklovaná nabídka přípon mezi dvěma otázkami dál NENÍ únik', v.uniky.length === 0);
+}
+
+// VADA 5 — krátké bloky (2–3 otázky) s antonymním párem („vede" × „nevede")
+// neodhalily jednoslovný, ale jednoznačně prozrazující rozdíl. Podvrh kontrolora
+// (test.mjs, blokD).
+{
+	const izolantVodic = [
+		ot('Co je to izolant?', ['látka, která nevede proud', 'látka, která vede proud', 'kov'],
+			'Izolant nevede proud, na rozdíl od vodiče, který proud vede.'),
+		ot('Co je to vodič?', ['látka, která vede proud', 'látka, která nevede proud', 'plast'], 'Vodič proud vede.'),
+	];
+	const v = zkontrolujBlok('test/vada5-antonymni-par', izolantVodic);
+	tvrdi('VADA 5: antonymní pár („vede"/„nevede") v malém bloku se teď najde jako únik', v.uniky.length >= 1);
+}
+// Zdravý protějšek: malý blok se dvěma jednoslovnými odpověďmi, které NEJSOU
+// antonymní dvojicí ani distraktorem — musí dál mlčet (jinak by se vrátila záplava
+// z mezí #8, „hypotéza"/„objem"/„plazma").
+{
+	const maleBlokyBezAntonyma = [
+		ot('Jak se nazývá myšlenka o fungování přírody, kterou fyzik teprve ověřuje?', ['hypotéza', 'zákon', 'teorie'], ''),
+		ot('Co udělá fyzik s hypotézou, kterou měření nepotvrdí?', ['zamítne ji', 'prohlásí ji za zákon', 'ututlá ji'], 'Hypotéza, která neobstojí, se opouští.'),
+	];
+	const v = zkontrolujBlok('test/vada5-regrese-bez-antonyma', maleBlokyBezAntonyma);
+	tvrdi('VADA 5: malý blok bez antonyma/distraktoru („hypotéza") pořád legitimně mlčí', v.uniky.length === 0);
+}
+
+// POJISTKA — rozdvojení ostré brány (nález 22. 8. 2026): `zkontrolujUniky({kvizy})`
+// bez `temata` musí HLASITĚ selhat, ne tiše dopočítat s prázdným slovníkem tématu
+// (to přesně dělala ostrá brána `zkontroluj.mjs` a naměřila jiný počet úniků než
+// `node testy/uniky.mjs`). Test: volání bez `temata` musí vyhodit výjimku.
+{
+	let vyhozeno = false;
+	try {
+		await zkontrolujUniky({ kvizy: {} });
+	} catch (e) {
+		vyhozeno = /temata/i.test(String(e.message));
+	}
+	tvrdi('POJISTKA: zkontrolujUniky bez `temata` hlasitě selže (nemlčí)', vyhozeno);
+}
+// Zdravý protějšek: `temata` explicitně prázdné (`{}`) je legitimní vstup — nesmí spadnout.
+{
+	let prošlo = true;
+	try {
+		await zkontrolujUniky({ kvizy: {}, temata: {} });
+	} catch {
+		prošlo = false;
+	}
+	tvrdi('POJISTKA: zkontrolujUniky s prázdným (ale přítomným) `temata: {}` nespadne', prošlo);
+}
+// OBCHVAT POJISTKY (nález nezávislé kontroly 22. 8. 2026, VADA A): `'temata' in data`
+// je splněné i pro `temata: undefined` — klíč PŘÍTOMNÝ, hodnota chybí. Pojistka musí
+// kontrolovat HODNOTU (`data.temata == null`), ne pouhou přítomnost klíče.
+{
+	let vyhozenoObchvat = false;
+	try {
+		await zkontrolujUniky({ kvizy: {}, temata: undefined });
+	} catch (e) {
+		vyhozenoObchvat = /temata/i.test(String(e.message));
+	}
+	tvrdi('POJISTKA: `temata: undefined` (klíč přítomný, hodnota chybí) taky hlasitě selže', vyhozenoObchvat);
+}
+
+// ==================================================================================
+// PÁTÉ KOLO (22. 8. 2026) — VADA B, ZNÁMÁ MEZERA (NEOPRAVENO): dvouslovná odpověď
+// „posuvný jezdec" prozrazená jen jedním slovem („jezdec") z jiné otázky téhož bloku
+// o proměnném rezistoru (src/data/kvizy.ts,
+// fyzika/8-rocnik/elektrina/rezistor-s-promennym-odporem) brána dodnes NENAJDE.
+// Obecné pravidlo „dvě rozlišující slova, prozrazeno jedno, laťka na délku + frekvenci
+// + sebepotvrzení u cíle" bylo 22. 8. 2026 vyzkoušeno a ZAMÍTNUTO — i s těmito pojistkami
+// vyrobilo na celém webu 100–300+ nových nálezů, většinou falešných poplachů (běžná
+// slovní zásoba bloku typu „vlastnostmi", „material", „Galileo"). Bez seznamu výjimek
+// (ten je zakázaný) není bezpečné obecné pravidlo zatím nalezeno — rozhodnutí, jestli
+// tenhle typ úniku (jedno podstatné jméno z dvouslovné odpovědi) stojí za riziko
+// falešných poplachů, patří učiteli/orchestrátorovi.
+
+// ŠESTÉ KOLO (22. 8. 2026) — VADA C: mocninné jednotky „m³"/„m²" splývaly s „m" (regex
+// nezachytával „³"/„²"), takže obecná číselná shoda „1, m" dělala falešné poplachy u
+// úplně jiných veličin (objem × délka). Skutečný pár ze `src/data/kvizy.ts`
+// (fyzika/6-rocnik/fyzikalni-veliciny/objem).
+{
+	const objem = [
+		ot('Kolik dm³ je 1 m³?', ['1 000 dm³', '100 dm³', '10 dm³'],
+			'Krychlové jednotky se převádí po tisících: 1 m³ = 1 000 dm³, 1 dm³ = 1 000 cm³.'),
+		ot('Krabice má rozměry 2 m, 1 m a 0,5 m. Jaký má objem?', ['1 m³', '3,5 m³', '2,5 m³'],
+			'V = a · b · c = 2 · 1 · 0,5 = 1 m³.'),
+	];
+	const v = zkontrolujBlok('test/vadaC-m3-nesplyva-s-m', objem);
+	tvrdi('VADA C: „1 m³" (objem) NENÍ únik jen kvůli náhodné shodě s „1 m" (délka) jinde v zadání', v.uniky.length === 0);
+}
+// Zdravý protějšek: skutečný číselný únik na jednociferné hodnotě s jednotkou musí
+// dál fungovat i po opravě VADA C (aby oprava nezneškodnila i legitimní nálezy).
+{
+	const teplotaUnik = [
+		ot('Kolik váží krabice, kterou neseme?', ['5 kg', '50 kg', '500 kg'], ''),
+		ot('Podle čeho poznáme hmotnost krabice s knihami?', ['podle štítku', 'podle odhadu od oka', 'podle velikosti krabice'],
+			'Na štítku krabice stálo přesně 5 kg.'),
+	];
+	const v = zkontrolujBlok('test/vadaC-regrese-jednociferny-unik-fraze', teplotaUnik);
+	tvrdi('VADA C: skutečný jednociferný fráziový únik („5 kg") dál funguje', v.uniky.length >= 1);
 }
 
 console.log(chyb === 0 ? `✅ uniky.mjs — obousměrně ověřeno, ${kontrol} kontrol.` : `❌ ${chyb} z ${kontrol} kontrol selhalo.`);

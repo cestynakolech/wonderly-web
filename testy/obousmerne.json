@@ -2,7 +2,7 @@
 	"_": "Rejstřík obousměrného ověření měřidel. Ke každému měřidlu v testy/ patří doklad, že (1) PODVRH najde a (2) nad ZDRAVÝMI daty mlčí. Bez obou směrů je záznam neplatný — samotné 'ověřeno' je tvrzení, ne důkaz. Zavedeno 2. 8. 2026 po dlouhodobém auditu: nejčastější vadou projektu je měřidlo, které ukazuje číslo a přitom nic neměří (20 výskytů ve 4 dnech, z toho 5 za jedinou noc).",
 	"_rohatka": "Počet měřidel BEZ dokladu nesmí růst (brána selže). Nové měřidlo se tedy bez důkazu nasadit nedá. | 4. 8. 2026: rohatka rozšířena i na testy/simulace/ (nález auditu — 16 testů simulací bylo mimo kontrolu); dnešní dluh 14 zapsán, nový test simulace bez důkazu už bránou neprojde. Dluh splácet podle fronty (mutační díry nejdřív).",
 	"_spusteni": "node testy/obousmerne.mjs — vypíše stav a spustí všechny registrované testy.",
-	"bezDokladu": 10,
+	"bezDokladu": 0,
 	"meridla": {
 		"uniky.mjs": {
 			"test": "testy/uniky-obousmerne.mjs",
@@ -12,7 +12,8 @@
 			"overeno": "2026-08-22",
 			"meze": "Sepsáno v hlavičce testy/uniky.mjs. CHYTÁ: doslovný únik ve vysvětlení i ve znění, číselnou odpověď i při jiném zápisu téže jednotky, holé číslo bez jednotky, duplicitní páry, jednotokenovou odpověď typu přípona souboru (\".docx\"). NECHYTÍ (ověřeno zkouškou): 1) číslo napsané SLOVEM; 2) tutéž hodnotu v JINÉ jednotce; 3) neznámou jednotku; 4) přeformulovaný VÝZNAM bez sdílených slov; 5) únik mezi RŮZNÝMI bloky (od toho testy/uniky-krizove.mjs); 6) únik mimo text otázek; 7) jednociferná čísla; 8) jednoslovnou odpověď, která NENÍ přípona souboru, prozrazenou jen ČÁSTEČNĚ (2 ze 4 rozlišujících slov) — na to je potřeba člověk nebo jazykový model, viz níž.",
 			"22-08-2026-krizove-vysvetleni": "Zadání fronty 2026-08-22-posilit-branu-uniky.md: nezávislý kontrolor 22. 8. 2026 našel 2 křížové úniky vysvětlení→odpověď v bloku informatika/7-rocnik/pocitace/soubory-slozky-aplikace, brána hlásila 0 (commit 64ed687 opravil data). Rozbor příčiny (reprodukováno na naimportovaných datech): (1) \".docx je dokument, .png obrázek.\" prozrazovalo jednoslovnou odpověď \".docx\" jiné otázky — jediné rozlišující slovo nikdy nesplnilo starou podmínku \"aspoň dvě slova\"; (2) \"Nepoužívané aplikace zabírají místo a mohou být riziko.\" prozrazovalo 2 ze 4 rozlišujících slov odpovědi \"uvolní se místo a sníží se riziko\" — pokrytí 50 % nedosáhlo laťky 70 %. ŘEŠENÍ: přidána úzká větev celaOdpovedJedenToken (jen pro odpovědi začínající tečkou — přípony souborů), NE obecné snížení laťky. ZKOUŠENO A ZAMÍTNUTO: obecné snížení laťky pokrytí 0,7→0,5 vyrobilo 288 nálezů nad celým webem (150 bloků/2704 otázek); povolení JAKÉKOLI jednoslovné odpovědi (ne jen přípon) vyrobilo 166 nálezů (odborné pojmy jako \"objem\", \"hypotéza\", \"plazma\" se v bloku přirozeně opakují a nejsou únik). Po omezení na přípony: 0 nálezů nad celým webem (KALIBRACE PROŠLA). Navíc při stejné příležitosti nalezena a OPRAVENA třetí, dosud neodhalená shoda stejného typu (objevila ji sama kalibrace): tamtéž, \"Podle čeho pozná operační systém, kterou aplikací soubor otevřít?\" mělo vysvětlení \"Přípona jako .jpg nebo .mp3 prozradí druh souboru.\" a doslova prozrazovalo odpověď \".mp3\" otázky \"Která přípona patří zvuku?\" — přepsáno na \"Písmena za tečkou v názvu souboru prozradí, o jaký druh dat jde.\" OBOUSMĚRNÝ DŮKAZ v testy/uniky-obousmerne.mjs: podvrh (vrácené staré znění) se najde a ukazuje na správnou dvojici; zdravé (opravené) znění mlčí; regresní test s jednoslovnou odbornou odpovědí bez tečky (\"hypotéza\") potvrzuje, že větev NEplane na běžná slova. Zbylý dokumentovaný nedostatek (case 2, částečné pokrytí u frázovité odpovědi) zůstává vědomě NEPOKRYT — je to mez 8 výše, na tuhle třídu je zatím potřeba nezávislý kontrolor/jazykový model. Stav po opravě: node testy/uniky.mjs 0 duplicit/0 úniků nad 150 bloky/2704 otázkami; testy/uniky-obousmerne.mjs 42 kontrol prochází.",
-			"22-08-2026-pocitadlo-dvojic": "Doplněno POČÍTADLO POROVNANÝCH DVOJIC (dvojic) — dřív bylo vidět jen počet bloků a otázek, ne kolik dvojic uvnitř bloku měřidlo skutečně srovnalo; tichá selektivní chyba (porovnávat jen podmnožinu) by tak zůstala neviditelná. PODVRH (mutace: vypuštěn dvojic++ v testy/uniky.mjs): testy/uniky-obousmerne.mjs okamžitě spadne na 2 kontrolách (\"5 otázek dá přesně 10 dvojic\" a \"zdravý 3prvkový blok dá právě 3 dvojice\") — 43/45 místo 45/45. ZDRAVÝ STAV: nemutovaná verze projde 45/45 kontrolami. NAD OSTRÝMI DATY (node testy/uniky.mjs): 150 bloků / 2704 otázek / 24675 porovnaných dvojic (vynecháno 16 souhrnných bloků), 0 duplicit, 0 úniků — počet dvojic není 0, takže brána skutečně něco porovnala. CLI navíc hlásí SELHÁNÍ (exitCode 1), pokud je bloku > 0 a dvojic === 0."
+			"22-08-2026-pocitadlo-dvojic": "Doplněno POČÍTADLO POROVNANÝCH DVOJIC (dvojic) — dřív bylo vidět jen počet bloků a otázek, ne kolik dvojic uvnitř bloku měřidlo skutečně srovnalo; tichá selektivní chyba (porovnávat jen podmnožinu) by tak zůstala neviditelná. PODVRH (mutace: vypuštěn dvojic++ v testy/uniky.mjs): testy/uniky-obousmerne.mjs okamžitě spadne na 2 kontrolách (\"5 otázek dá přesně 10 dvojic\" a \"zdravý 3prvkový blok dá právě 3 dvojice\") — 43/45 místo 45/45. ZDRAVÝ STAV: nemutovaná verze projde 45/45 kontrolami. NAD OSTRÝMI DATY (node testy/uniky.mjs): 150 bloků / 2704 otázek / 24675 porovnaných dvojic (vynecháno 16 souhrnných bloků), 0 duplicit, 0 úniků — počet dvojic není 0, takže brána skutečně něco porovnala. CLI navíc hlásí SELHÁNÍ (exitCode 1), pokud je bloku > 0 a dvojic === 0.",
+			"2026-08-22-kmenovani-flexe": "Kontrola úniků (`slovaSCisly`, funkce `kmen()` u řádku ~337) porovnávala rozlišující slova v přesném tvaru, takže skloněný tvar (\"tlaková síla\" x \"tlakovou sílu\") unikal. Opraveno kmenováním (4 znaky, u přesně čtyřznakových slov 3 znaky). DŮSLEDEK: Po opravě brána `node testy/uniky.mjs` nahlásila 146 nálezů úniků (dřív 0) napříč 150 bloky. Ruční prohlídka celého výpisu (473 řádků, uloženo v scratchpad/uniky-ostro.txt) neodhalila zjevný falešný poplach — nálezy odpovídají definici (2+ rozlišující slova správné odpovědi se objevují ve vysvětlení jiné otázky téhož bloku a sdílí nosné slovo s jejím zněním). TEST: testy/uniky-obousmerne.mjs — přidány testy 'test/unik-sklonovani', 'test/zdravy-sklonovani', 'test/regrese-nepribuzne-kmeny' (49 kontrol, vše zelené). DŮKAZ: ✅ uniky.mjs — obousměrně ověřeno, 49 kontrol. | ostro: Prošlo 150 bloků / 2704 otázek / 24675 porovnaných dvojic (vynecháno 16 souhrnných bloků). ÚNIKY ODPOVĚDÍ: 146 POZNÁMKA: 146 skutečných nálezů NEBYLO opravováno v kvizy.ts — čeká na jiného workera. Plný seznam (blok + obě otázky + prozrazená slova) je v scratchpad/uniky-ostro.txt."
 		},
 		"cisla-ve-vykladu.mjs": {
 			"test": "testy/meridla-obousmerne.mjs",
@@ -375,6 +376,36 @@
 			"zdravy": "Nad nezměněnou src/components/skola2/VexGyroskopSimulace.astro projde všech 21 kontrol (scéna A gyroskop vs. prokluz kol při otáčení, scéna B čidlo vzdálenosti vs. prokluz kol při jízdě), výstup '✅ Vše v pořádku.', kód 0.",
 			"overeno": "2026-08-15"
 		},
+		"simulace/tabulka-vzorce.mjs": {
+			"test": "testy/simulace/tabulka-vzorce.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) sjednocen výpočet ve vzorci na relativním odkazu: `return odkaz === 'absolutni' ? cena * kurz : cena * hodnotaB(radek - 1);` → `return cena * kurz;` (relativní odkaz se přestane odkazovat na předchozí výsledek, chyba se přestane lavinovitě zvětšovat). Test to chytil (❌ 1 chyba, konec kódem 1).",
+			"zdravy": "Nad nezměněnou src/components/skola2/TabulkaVzorceSimulace.astro projde vše (výchozí stav, kopírování absolutního i relativního vzorce, lavinovité zvětšování chyby, zápis vzorců), výstup '✅ VŠE V POŘÁDKU', kód 0.",
+			"overeno": "2026-08-22"
+		},
+		"simulace/udalosti.mjs": {
+			"test": "testy/simulace/udalosti.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) upravena `scenareProUdalost`: podmínka `s.udalost !== null && s.udalost === udalost` → `s.udalost === udalost || s.udalost === null`, takže scénář BEZ klobouku (hlavní pointa stránky) by se rozjel spolu se zelenou vlajkou. Test to chytil (❌ 6 z 100 kontrol selhalo, konec kódem 1).",
+			"zdravy": "Nad nezměněnou src/components/skola2/UdalostiSimulace.astro projde všech 100 kontrol, výstup '✅ Události a vstupy: všech 100 kontrol prošlo.', kód 0.",
+			"overeno": "2026-08-22"
+		},
+		"simulace/vetveni.mjs": {
+			"test": "testy/simulace/vetveni.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) přidáno přičtení skóre i do větve „tak“ (dřív se bod sbíral jen ve větvi „jinak“), takže by skóre rostlo bez ohledu na to, která větev proběhla. Test to chytil (❌ 2 z 49 kontrol selhalo, konec kódem 1).",
+			"zdravy": "Nad nezměněnou src/components/skola2/VetveniSimulace.astro projde všech 49 kontrol, výstup '✅ Větvení: všech 49 kontrol prošlo.', kód 0.",
+			"overeno": "2026-08-22"
+		},
+		"simulace/vlastni-bloky.mjs": {
+			"test": "testy/simulace/vlastni-bloky.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) upravena funkce `oprav`: jedna oprava v režimu „kopie“ teď spraví rovnou všechny tři kopie najednou (`kopieOpravene: VELIKOSTI.map((_, i) => i)`) — ztrácí se hlavní pointa stránky (tři kopie = tři opravy, vlastní blok = jedna). Test to chytil (❌ 7 z 61 kontrol selhalo, konec kódem 1).",
+			"zdravy": "Nad nezměněnou src/components/skola2/VlastniBlokySimulace.astro projde všech 61 kontrol, výstup '✅ Vlastní bloky: všech 61 kontrol prošlo.', kód 0.",
+			"overeno": "2026-08-22"
+		},
+		"simulace/zapojeni.mjs": {
+			"test": "testy/simulace/zapojeni.mjs",
+			"podvrh": "Na kopii komponenty mimo repo (scratchpad) prohozen poměr v `pomerKulicek`: `[R2/d, R1/d]` → `[R1/d, R2/d]`, takže by proud tekl ve STEJNÉM poměru jako odpor místo obráceném (fyzikální chyba — větším odporem by teklo víc kuliček). Test to chytil (❌ CHYB: 8, konec kódem 1).",
+			"zdravy": "Nad nezměněnou src/components/skola2/ZapojeniSimulace.astro projde vše (poměr proudů obráceně k odporům, dělení „ob kuličku“ při stejných odporech, zachování počtu kuliček), výstup '✅ VŠE V POŘÁDKU', kód 0.",
+			"overeno": "2026-08-22"
+		},
 		"kontrola_syntaxe_hook.py — česká uvozovka v kódu se hlídá automaticky": {
 			"test": "~/Desktop/Omega/skripty/testy/test_hook_zapisuje_chyby.py",
 			"podvrh": "Soubor s typografickou uvozovkou uvnitř řetězce ('věta „uvnitř\" a dál') hook najde, vypíše radu o typografické uvozovce a zapíše chybu do deníku pod třídou 'ceska-uvozovka-v-kodu' (nezdvojí se při druhém zápisu). Stejně tak vadný JSON dostane třídu 'syntaxe-json'. Ostrý běh přes subprocess (jak hook volá Claude Code) na 'x = \"a „b\" c\"' vrátí kód 2 a hlášku na stderr.",
@@ -397,6 +428,36 @@
 			"offline": "Build se schválně NEPTÁ YouTube na autora — jinak by ho shodil výpadek sítě a první, co by kdokoli udělal, je kontrolu obejít. Autorství se ověřuje jednou, ručním `node youtube-schval.mjs` s internetem (YouTube oembed), a jeho výsledek leží v repu (testy/youtube-vlastni.json). Opačná volba 'při výpadku sítě propustit' je tichá díra: kontrola, která se umí sama vypnout, nekontroluje nic. Skript sám nezapíše ID, na které YouTube neodpoví — mlčení sítě není doklad autorství.",
 			"pocitadlo": "Kontrola vypisuje počet prošlých podtémat a zvlášť počet vložených videí a odkazů. Kdyby sběr odkazů tiše přestal fungovat, ukáže se to jako nula odkazů — a test to hlídá zvlášť ('odkaz se opravdu sbíral').",
 			"overeno": "2026-08-19"
+		},
+		"simulace/odpor-vodice.mjs": {
+			"test": "testy/simulace/odpor-vodice.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu 8eadc506… před i po shodný): ve funkci `odpor` se `(rho * l) / s * cinitel(...)` přepsalo na `(rho * l) * s * cinitel(...)` — odpor by rostl se šířkou průřezu místo klesal (obrácená fyzika R = ρ·l/S). Test spadl na 2 kontrolách: „poloviční průřez → dvojnásobný odpor“ a „konstantan dává celé ohmy ve všech 20 kombinacích“.",
+			"zdravy": "Nad hotovou komponentou test hlásí „✅ VŠE V POŘÁDKU“ (exit 0).",
+			"overeno": "2026-08-22"
+		},
+		"simulace/opakovani.mjs": {
+			"test": "testy/simulace/opakovani.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu 4e05d421… před i po shodný): v `jedenPruchod` se podmínka konce bloku „opakuj (10) krát“ změnila z `stav.pruchody >= POCET_KRAT` na `> POCET_KRAT` (klasická chyba o jedna — smyčka by proběhla 11×). Test spadl na 2 kontrolách: „opakuj (10) krát“ proběhne přesně 10× a „…a končí kvůli počtu, ne kvůli podmínce“ (2 z 47 kontrol).",
+			"zdravy": "Nad hotovou komponentou test hlásí „✅ Opakování: všech 47 kontrol prošlo.“ (exit 0).",
+			"overeno": "2026-08-22"
+		},
+		"simulace/promenne.mjs": {
+			"test": "testy/simulace/promenne.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu ddd937f1… před i po shodný): v obsluze bloku „změň o“ se `skore += p.o` přepsalo na `skore = p.o` — blok by skóre PŘEPISOVAL místo přičítal, přesně pointa výkladu (rozdíl „nastav“ × „změň o“). Test spadl na 10 z kontrol, mimo jiné „změň skóre o 1: z 99 udělá 100 (přičtení)“ a „druhý běh končí na 6 — hodnota se přenesla“.",
+			"zdravy": "Nad hotovou komponentou test hlásí „✅ VŠE V POŘÁDKU“ (exit 0).",
+			"overeno": "2026-08-22"
+		},
+		"simulace/reostat.mjs": {
+			"test": "testy/simulace/reostat.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu e9e164dc… před i po shodný): ve funkci `potenciometr` se `Uvystup: U * (1 - f)` přepsalo na `Uvystup: U * f` — dělič napětí by fungoval obráceně (jezdec vlevo by dával 0 V místo 12 V). Test spadl na 3 kontrolách: „jezdec vlevo → plných 12 V“, „jezdec vpravo → 0 V“ a „potenciometr umí stáhnout na nulu, reostat ne“.",
+			"zdravy": "Nad hotovou komponentou test hlásí „✅ VŠE V POŘÁDKU“ (exit 0).",
+			"overeno": "2026-08-22"
+		},
+		"simulace/souradnice.mjs": {
+			"test": "testy/simulace/souradnice.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu c1540e16… před i po shodný): v `popisPolohy` se prohodilo přiřazení „DOLŮ od středu“ a „nahoru od středu“ podle znaménka y — záporné y by hlásilo „nahoru“ a kladné „DOLŮ“ (obrácená osa y). Test spadl na 2 kontrolách: „y −100: … nahoru od středu“ a „y 100: … DOLŮ od středu“.",
+			"zdravy": "Nad hotovou komponentou test hlásí „✅ VŠE V POŘÁDKU“ (exit 0).",
+			"overeno": "2026-08-22"
 		}
 	}
 }

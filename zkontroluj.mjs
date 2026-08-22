@@ -355,7 +355,7 @@ for (const n of neznameDruhy(dataTemata)) {
 // nikoho neblokuje starý dluh — spadne až nová duplicita. Ověřeno na historických datech:
 // nad verzí kvízů z 31. 7. najde 4, mezi nimi dvakrát doslova tutéž otázku.
 // Úniky drží rohatka jako u délkové nápovědy: dnešní dluh nevadí, zhoršit se nesmí.
-const vazby = await zkontrolujUniky({ kvizy: dataKvizy });
+const vazby = await zkontrolujUniky({ kvizy: dataKvizy, temata: dataTemata });
 for (const d of vazby.duplicity) {
 	chyby.push(`${d.klic}: dvě otázky se ptají na totéž — „${d.a}" × „${d.b}" (${d.duvod})`);
 }
