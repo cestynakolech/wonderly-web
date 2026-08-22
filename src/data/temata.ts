@@ -5510,6 +5510,9 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>.jpg .png</strong> — obrázky; <strong>.mp3</strong> — zvuk; <strong>.mp4</strong> — video</li>
 							<li>operační systém podle přípony pozná, <strong>kterou aplikací</strong> soubor otevřít</li>
 						</ul>
+						<h3>Uvnitř souboru: samé nuly a jedničky</h3>
+						<p>Počítač uvnitř nezná písmenka ani obrázky — zná jen dva stavy, <strong>0</strong> a <strong>1</strong>, jako zhasnutou a rozsvícenou žárovku. Takové jedno číslo (0 nebo 1) se nazývá <strong>bit</strong>. Když bitů dáme dohromady osm, vznikne <strong>bajt</strong> — a osm žárovek, které mohou svítit nebo ne, dokáže zapsat libovolné číslo od <strong>0 do 255</strong>.</p>
+						<p>Každý soubor je v počítači jen dlouhá řada bajtů (čísel 0–255) za sebou. Aby počítač věděl, které písmeno která hodnota znamená, používá tabulku <strong>ASCII</strong>: číslo 65 je písmeno „A", číslo 97 je „a" a tak dále. Obrázky a zvuky fungují podobně — jen čísla znamenají barvu bodu nebo výšku tónu místo písmene.</p>
 						<h3>Aplikace se instalují — a aktualizují</h3>
 						<p><strong>Instalace</strong> = nakopírování programu do počítače (z oficiálního obchodu či webu výrobce!). <strong>Aktualizace</strong> opravují chyby a bezpečnostní díry — neodkládej je. Nepoužívané aplikace <strong>odinstaluj</strong>.</p>
 						<h3>Pořádek se vyplatí</h3>
