@@ -388,6 +388,14 @@ Nasazena dávka 2 revize simulací: PakaSimulace a KladkaSimulace opravené
 (commit `292ec38`), kvíz `soubory-slozky-aplikace` dorovnán na 21 otázek
 a zbaven křížových úniků (commit `64ed687`), ověřeno curl na produkci.
 
+## Historie — 22. 8. 2026 (brána úniků posílena a nasazena)
+Brána `testy/uniky.mjs` posílena (flexe, slovník tématu, distraktory, pojistka
+temata, jednotky ²/³), 50/50 měřidel obousměrně doloženo. Po opravě 106 textů
+0 úniků, smazána zastaralá `UcinkySilySimulace` (schválil učitel), nasazeno
+a ověřeno HTTP 200 (commit `cbbebb9`). V Omeze: kontroloři llama3.1 vyměněni
+za gemma4:26b/qwen3:30b-a3b, hlídač rolí měří doménovou zkouškou, návody
+lokál+Hermes srovnány, nový skill `/kolega`.
+
 ## 📝 Pravidlo aktualizace (na konci každé session)
 1. Přidej NOVÝ datovaný záznam do sekce „Historie" níže (staré NEmaž — je to lidsky čitelná historie).
 2. Aktualizuj sekce „HOTOVÉ" a „ZBÝVÁ" výše podle reálného stavu.
