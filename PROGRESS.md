@@ -121,6 +121,13 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 23. 8. 2026 večer (mini jako pracoviště)
+Mac mini vybaven jako plnohodnotné pracoviště Claude Code (skilly/agenti/paměť/repa),
+obousměrný sync paměti (`sync-mini-pamet.sh`), hybridní směrování práce
+(`Omega/SMEROVANI-PRACE.md`), spouštěcí rohatka `wonderly-uloha.sh` se stropem 10/den;
+dokumentační balík pro učitele (8 dokumentů) na Macu i disku T7. Otevřené: allowlist
+Hermese nevynucuje omezení technicky (viz paměť `projekt-mini-jako-pracoviste`).
+
 ## Historie — 23. 8. 2026 — nedělní WONDERLY AUDIT
 Kotvy zelené: `zkontroluj.mjs` exit 0 (3145 otázek/166 bloků, 130 komponent),
 `vsechny-simulace.mjs` exit 0 (2567 kontrol), `uniky.mjs` exit 0 (0 duplicit/0 úniků),
