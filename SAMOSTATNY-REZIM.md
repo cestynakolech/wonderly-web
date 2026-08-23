@@ -1,20 +1,3 @@
-## ROZHODNUTÍ UČITELE 22. 8. 2026 (OTEVŘENÉ ÚKOLY)
-
-1. **Měď vs. hliník ve vedení** — HOTOVO 22. 8. 2026, commit `8c31c26`. Ve výkladu
-   i kvízu podtématu `prenos-elektricke-energie` (F9) rozlišeny domácí rozvody
-   (měď) od dálkového vedení (hliníková lana s ocelovým jádrem).
-2. **Bezpečné vzdálenosti od vedení** — HOTOVO 22. 8. 2026, commit `acd1292`.
-   Obrazný smysl vrácen do `ucinky-proudu-bezpecnost` (F9) — výboj může přeskočit
-   na velkou vzdálenost, chovat se zodpovědně (nelézt na vagony pod trolejí);
-   konkrétní metry záměrně zatím vynechané, viz blok „ČEKÁ NA ROZHODNUTÍ
-   UČITELE (23. 8. 2026)" níže.
-3. **Energetická hodnota potravin** — NECHAT, brát obecně jako ukázku, že
-   existuje; hlavní je ROVNOVÁHA příjem/výdej, ne memorování přesných čísel.
-   Drobný úkol: projít text a kvíz podtématu, aby po dítěti nechtěl přesná čísla.
-4. **Obecné pravidlo napříč webem:** vše je pro žáky ZÁKLADNÍ ŠKOLY, ne pro
-   gymnázia a vědce. Zjednodušené informace jsou v pořádku. Podrobnosti nad
-   rámec ZŠ mají být do budoucna NADSTAVBA k rozkliknutí (směr, ne úkol na teď).
-
 ## ČEKÁ NA ROZHODNUTÍ UČITELE (23. 8. 2026)
 
 U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,
@@ -71,6 +54,14 @@ upravené vlastní měřidlo prověřeno mutačním testem, kontroly nezeslábly
 Nedodělek: `testy/nahled-simulace.mjs` neumí `<canvas>` simulace (např.
 `ElektrickePoleSimulace`). Další cíl: audit 6., 7., 9. ročníku. Detaily
 v PROGRESS.md.
+
+**AUDIT 23. 8. 2026 (nedělní WONDERLY AUDIT):** kotvy zelené (zkontroluj.mjs,
+vsechny-simulace.mjs, uniky.mjs, test_bez_kopii.py, oba weby HTTP 200), 3 nezávislí
+kontroloři → 3 nálezy opraveny (denik_chyb.py třídy pádů, AUTOMATY.md rozpor,
+duplicitní bloky v PROGRESS.md), kontrola oprav 0 nálezů. Startovní čtení 144 677 B
+(nová základna, viz PROGRESS.md Historie). Detaily v PROGRESS.md.
+
+---
 
 **NASAZENO A OVĚŘENO 22. 8. 2026 večer (dokončení fronty názornosti fyziky):**
 povětrnostní mapa (F7 `meteorologie-a-mereni-tlaku`, commit `36259f7`), stejnorodá
@@ -140,6 +131,22 @@ mluvících zemích". Opraveno na „hlavně v USA" + doplněné vysvětlení, k
 curl na `skola2/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/test` potvrdil novou
 formulaci v JSON dat kvízu, stará zmizela. Zapsáno do deníku chyb (třída
 `kviz-protireci-vykladu`).
+
+**HOTOVO 22. 8. 2026 (ROZHODNUTÍ UČITELE 22. 8., 4/4 body uzavřeny, úklid commitem `a3f12fc`):**
+1. **Měď vs. hliník ve vedení** — HOTOVO, commit `8c31c26`. Ve výkladu i kvízu
+   podtématu `prenos-elektricke-energie` (F9) rozlišeny domácí rozvody (měď)
+   od dálkového vedení (hliníková lana s ocelovým jádrem).
+2. **Bezpečné vzdálenosti od vedení** — HOTOVO, commit `acd1292`. Obrazný smysl
+   vrácen do `ucinky-proudu-bezpecnost` (F9) — výboj může přeskočit na velkou
+   vzdálenost, chovat se zodpovědně (nelézt na vagony pod trolejí); konkrétní
+   metry záměrně zatím vynechané, viz blok „ČEKÁ NA ROZHODNUTÍ UČITELE
+   (23. 8. 2026)" výše.
+3. **Energetická hodnota potravin** — NECHAT, brát obecně jako ukázku, že
+   existuje; hlavní je ROVNOVÁHA příjem/výdej, ne memorování přesných čísel.
+   Drobný úkol (projít text a kvíz, aby po dítěti nechtěl přesná čísla) hotov.
+4. **Obecné pravidlo napříč webem:** vše je pro žáky ZÁKLADNÍ ŠKOLY, ne pro
+   gymnázia a vědce. Zjednodušené informace jsou v pořádku. Podrobnosti nad
+   rámec ZŠ mají být do budoucna NADSTAVBA k rozkliknutí (směr, ne úkol na teď).
 
 **AKTUALIZACE 21. 8. 2026 večer (blok):**
 1. **Písničky fyziky 26/26 NASAZENO A OVĚŘENO** nezávislým kontrolorem (curl 200 na všech, whisper na živých m4a potvrdil nosná slova). Drobnost: slug `energie-a-vesmir` (podklady měly `zdroje-energie-a-vesmir`) — jen nekonzistence pojmenování, funkčně OK. Záloha 12 WAV: `Omega/rozdelane/pisnicky-audio-f9/`.
