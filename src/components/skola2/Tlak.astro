@@ -1,0 +1,91 @@
+---
+// F6 Tlak: Základní koncept tlaku (síla na plochu)
+// Vzorec: p = F/S, demonstrace na reálných příkladech
+// Interaktivní posuvník pro sílu a plochu s vizualizací tlaku
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Tlak: Síla na plochu 🕹️</span></h2>
+	<p>Tlak je <strong>síla rozložená na plochu</strong>. Vzorec: <strong>p = F / S</strong>. Stejná síla, menší plocha = větší tlak!</p>
+	<svg id="tlak-svg" viewBox="0 0 600 400" role="img" aria-label="Demonstrace tlaku: síla na plochu">
+		<!-- podlaha -->
+		<rect x="20" y="350" width="560" height="30" fill="#8b7355" stroke="#2b2a26" stroke-width="2" />
+		<line x1="20" y1="350" x2="580" y2="350" stroke="#2b2a26" stroke-width="3" />
+		
+		<!-- levá strana: obsáhlá plocha -->
+		<g id="tlak-leva">
+			<rect x="50" y="320" width="100" height="30" fill="#ffb3ba" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="100" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Velká plocha</text>
+			<text id="tlak-leva-s" x="100" y="295" text-anchor="middle" font-size="12" fill="#1971c2">S = 100 cm²</text>
+		</g>
+		
+		<!-- pravá strana: malá plocha -->
+		<g id="tlak-prava">
+			<rect x="480" y="330" width="20" height="20" fill="#ffb3ba" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="490" y="305" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Malá plocha</text>
+			<text id="tlak-prava-s" x="490" y="325" text-anchor="middle" font-size="12" fill="#1971c2">S = 1 cm²</text>
+		</g>
+		
+		<!-- šipka síly -->
+		<line id="tlak-sipka" x1="300" y1="50" x2="300" y2="180" stroke="#e03131" stroke-width="8" marker-end="url(#tlak-markerF)" />
+		<text id="tlak-sila-label" x="330" y="120" font-size="14" font-weight="bold" fill="#e03131">F = 100 N</text>
+		
+		<!-- výsledný tlak -->
+		<g id="tlak-vysledek-leva">
+			<text x="100" y="180" text-anchor="middle" font-size="16" font-weight="bold" fill="#1971c2">p = 1 Pa</text>
+		</g>
+		<g id="tlak-vysledek-prava">
+			<text x="490" y="180" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">p = 100 Pa</text>
+		</g>
+		
+		<!-- značky -->
+		<defs>
+			<marker id="tlak-markerF" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#e03131" />
+			</marker>
+		</defs>
+	</svg>
+	
+	<label class="sim-posuvnik">
+		Síla: <output id="tlak-out-f"></output> N
+		<input type="range" id="tlak-slider-f" min="10" max="500" step="10" value="100" />
+	</label>
+	
+	<p id="tlak-vysvetleni" class="arch-vzorec"></p>
+</section>
+
+<script>
+	const sliderF = document.getElementById('tlak-slider-f');
+	const outF = document.getElementById('tlak-out-f');
+	const vysvetleniEl = document.getElementById('tlak-vysvetleni');
+	
+	function prekresli() {
+		const F = +sliderF.value;
+		const S_leva = 100;  // cm²
+		const S_prava = 1;   // cm²
+		
+		const p_leva = (F / S_leva).toFixed(1);
+		const p_prava = (F / S_prava).toFixed(0);
+		
+		outF.textContent = F;
+		
+		// šipka podle síly (měřítko: max 130 px pro 500 N)
+		const vyskaS = Math.min(130, F * 0.26);
+		document.getElementById('tlak-sipka').setAttribute('y2', 180 + vyskaS);
+		document.getElementById('tlak-sila-label').setAttribute('y', 120 + vyskaS / 2);
+		
+		document.getElementById('tlak-vysledek-leva').innerHTML = `<text x="100" y="180" text-anchor="middle" font-size="16" font-weight="bold" fill="#1971c2">p = ${p_leva} Pa</text>`;
+		document.getElementById('tlak-vysledek-prava').innerHTML = `<text x="490" y="180" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">p = ${p_prava} Pa</text>`;
+		
+		vysvetleniEl.innerHTML = `p = F / S &nbsp;→&nbsp; <strong>levá</strong>: ${F} / ${S_leva} = <strong>${p_leva} Pa</strong> &nbsp;·&nbsp; <strong>pravá</strong>: ${F} / ${S_prava} = <strong>${p_prava} Pa</strong>. Stejná síla, ale malá plocha = obrovský tlak! ⚡`;
+	}
+	
+	sliderF.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#tlak-svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 600px; display: block; margin-top: 0.3rem; }
+</style>

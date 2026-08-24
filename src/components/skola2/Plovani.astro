@@ -1,0 +1,151 @@
+---
+// F6 Plování: Jak tělesa plavou — částečně ponořená v kapalině
+// Vztlaková síla = tíze vytlačené kapaliny (jen objemu pod hladinou)
+// Interaktivní: objem tělesa + hustota → hloubka ponoru
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Plování: Rovnováha sil 🕹️</span></h2>
+	<p>Když těleso <strong>plove</strong>, ponořená část vytlačuje právě tolik kapaliny, aby její tíha (vztlaková síla) rovnala tíze celého tělesa. Čím hustší těleso, tím hlouběji se ponorí.</p>
+	
+	<svg id="plavani-svg" viewBox="0 0 550 420" role="img" aria-label="Plování: ponor tělesa v kapalině">
+		<!-- voda -->
+		<defs>
+			<linearGradient id="vodniGradientPlavani" x1="0%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" style="stop-color:#87ceeb;stop-opacity:0.7" />
+				<stop offset="100%" style="stop-color:#1971c2;stop-opacity:0.8" />
+			</linearGradient>
+		</defs>
+		<rect x="80" y="80" width="390" height="280" fill="url(#vodniGradientPlavani)" stroke="#2b2a26" stroke-width="3" />
+		<line x1="80" y1="80" x2="470" y2="80" stroke="#2b2a26" stroke-width="3" />
+		<text x="75" y="75" font-size="12" font-weight="bold" fill="#1971c2">hladina vody</text>
+		
+		<!-- měřítko ponoru (vlevo) -->
+		<line x1="40" y1="80" x2="40" y2="360" stroke="#2b2a26" stroke-width="2" />
+		<circle cx="40" cy="80" r="3" fill="#2b2a26" />
+		<circle cx="40" cy="360" r="3" fill="#2b2a26" />
+		<text x="30" y="85" text-anchor="end" font-size="11" fill="#2b2a26">0%</text>
+		<text x="30" y="365" text-anchor="end" font-size="11" fill="#2b2a26">100%</text>
+		
+		<!-- těleso (pluta, částečně v půdě) -->
+		<g id="plavani-telo">
+			<rect id="plavani-telo-cely" x="220" y="60" width="110" height="200" fill="#deb887" stroke="#2b2a26" stroke-width="2.5" rx="6" />
+			<rect id="plavani-telo-ponor" x="220" y="120" width="110" height="140" fill="#8b7355" opacity="0.5" stroke="none" />
+			<text id="plavani-ponor-text" x="275" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">70% ponoreno</text>
+		</g>
+		
+		<!-- šipky sil -->
+		<line x1="380" y1="50" x2="380" y2="110" stroke="#e03131" stroke-width="7" marker-end="url(#plavani-mg)" />
+		<text x="405" y="85" font-size="13" font-weight="bold" fill="#e03131">Fg = 700 N</text>
+		
+		<line x1="430" y1="260" x2="430" y2="190" stroke="#1971c2" stroke-width="7" marker-end="url(#plavani-mup)" />
+		<text x="455" y="230" font-size="13" font-weight="bold" fill="#1971c2">Fvz = 700 N</text>
+		
+		<!-- vyvážení -->
+		<text x="275" y="390" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">⚖️ Rovnováha: Fg = Fvz</text>
+		
+		<defs>
+			<marker id="plavani-mg" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#e03131" />
+			</marker>
+			<marker id="plavani-mup" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#1971c2" />
+			</marker>
+		</defs>
+	</svg>
+	
+	<p style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+		<strong>Materiál:</strong>
+		<span id="plavani-materialy">
+			<button class="plavani-tl plavani-aktivni" data-mat="drevo">🪵 Dřevo (ρ=600)</button>
+			<button class="plavani-tl" data-mat="korek">🍾 Korek (ρ=300)</button>
+			<button class="plavani-tl" data-mat="plast">🧴 Plast (ρ=900)</button>
+		</span>
+	</p>
+	
+	<label class="sim-posuvnik">
+		Objem tělesa: <output id="plavani-out-v"></output> litrů
+		<input type="range" id="plavani-slider-v" min="1" max="10" step="1" value="5" />
+	</label>
+	
+	<p id="plavani-vysvetleni" class="arch-vzorec"></p>
+</section>
+
+<script>
+	const MATERIALY_PL = {
+		drevo: { nazev: 'dřevo', rho: 600, barva: '#deb887' },
+		korek: { nazev: 'korek', rho: 300, barva: '#f5deb3' },
+		plast: { nazev: 'plast', rho: 900, barva: '#ffe066' },
+	};
+	
+	let mat = 'drevo';
+	const sliderV = document.getElementById('plavani-slider-v');
+	const outV = document.getElementById('plavani-out-v');
+	const vysvetleniEl = document.getElementById('plavani-vysvetleni');
+	
+	const rho_voda = 1000;
+	const g = 10;
+	
+	function prekresli() {
+		const V_litr = +sliderV.value;
+		const V_m3 = V_litr / 1000;
+		const m = MATERIALY_PL[mat];
+		
+		// Fyzika: Fg = ρ_tělesa · V · g
+		const Fg = m.rho * V_m3 * g;
+		
+		// Při plování: Fvz = Fg, tedy ρ_vody · V_ponor · g = Fg
+		// V_ponor = Fg / (ρ_vody · g) = (ρ_tělesa · V · g) / (ρ_vody · g) = ρ_tělesa · V / ρ_voda
+		const V_ponor = (m.rho * V_m3) / rho_voda; // m³
+		const V_ponor_litr = V_ponor * 1000; // litry
+		const procentoPonoru = (V_ponor / V_m3) * 100; // procento
+		
+		outV.textContent = V_litr;
+		
+		// Vizualizace: měníme výšku tělesa podle V_litr
+		const vyska = Math.round(60 + V_litr * 14);
+		const y_telaStart = 80 - vyska / 2;
+		
+		// Ponořená část: y = hladina - V_ponor část výšky
+		const vyska_ponor = (procentoPonoru / 100) * vyska;
+		const y_ponor = 80; // hladina
+		
+		document.getElementById('plavani-telo-cely').setAttribute('y', y_telaStart);
+		document.getElementById('plavani-telo-cely').setAttribute('height', vyska);
+		document.getElementById('plavani-telo-cely').setAttribute('fill', m.barva);
+		
+		document.getElementById('plavani-telo-ponor').setAttribute('y', y_ponor);
+		document.getElementById('plavani-telo-ponor').setAttribute('height', vyska_ponor);
+		
+		document.getElementById('plavani-ponor-text').setAttribute('y', y_ponor + vyska_ponor / 2);
+		document.getElementById('plavani-ponor-text').textContent = `${procentoPonoru.toFixed(0)}% ponoreno`;
+		
+		// Síly
+		document.querySelector('text[x="405"]').textContent = `Fg = ${Fg.toFixed(0)} N`;
+		document.querySelector('text[x="455"]').textContent = `Fvz = ${Fg.toFixed(0)} N`;
+		
+		vysvetleniEl.innerHTML = `Plujeme! 🌊 Objem tělesa: ${V_litr} l, hustota: ${m.rho} kg/m³. Ponořená část: ${V_ponor_litr.toFixed(2)} l (${procentoPonoru.toFixed(0)}%), která vytlačuje vodu o tíze ${Fg.toFixed(0)} N = Fg. Dokonalá rovnováha! ⚖️`;
+	}
+	
+	document.getElementById('plavani-materialy').addEventListener('click', (e) => {
+		const tl = e.target.closest('.plavani-tl');
+		if (!tl) return;
+		mat = tl.dataset.mat;
+		for (const b of document.querySelectorAll('.plavani-tl')) {
+			b.classList.toggle('plavani-aktivni', b === tl);
+		}
+		prekresli();
+	});
+	
+	sliderV.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#plavani-svg { width: 100%; max-width: 550px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 550px; display: block; margin-top: 0.3rem; }
+	.plavani-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.3rem 0.3rem 0; }
+	.plavani-tl.plavani-aktivni { background: #ffe8cc; }
+	.plavani-tl:active { transform: translateY(1px); }
+</style>

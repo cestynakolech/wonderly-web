@@ -1,0 +1,95 @@
+---
+// Statická infografika: Čas — F6 měření
+// Čas je fyzikální veličina udávající trvání a posloupnost jevů
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Čas — fyzikální veličina ⏱️</span></h2>
+	<p><strong>Čas</strong> je fyzikální veličina charakterizující trvání a posloupnost jevů. Jednotka v SI soustavě je <strong>sekunda (s)</strong>.</p>
+	<svg viewBox="0 0 750 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="750" height="380" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="375" y="35" text-anchor="middle" class="transform-title">ČAS — SI jednotky</text>
+		
+		<!-- Hodiny -->
+		<circle cx="85" cy="105" r="25" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+		<circle cx="85" cy="105" r="20" fill="#ecf0f1"/>
+		<line x1="85" y1="105" x2="85" y2="85" stroke="#333" stroke-width="2"/>
+		<line x1="85" y1="105" x2="100" y2="105" stroke="#333" stroke-width="2"/>
+		<circle cx="85" cy="105" r="3" fill="#333"/>
+		<text x="85" y="160" text-anchor="middle" class="energy-label">Hodiny</text>
+		<text x="85" y="175" text-anchor="middle" class="energy-label">měřit čas</text>
+		
+		<!-- Sekunda -->
+		<rect x="165" y="85" width="100" height="30" fill="#16a085" stroke="#138d75" stroke-width="2"/>
+		<text x="215" y="108" text-anchor="middle" fill="white" font-weight="bold" font-size="12">1 sekunda</text>
+		<text x="215" y="155" text-anchor="middle" class="energy-label">Základní SI jednotka</text>
+		
+		<!-- Střed - tabulka převodů -->
+		<rect x="310" y="70" width="430" height="140" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="325" y="95" class="law-title">Převody jednotek</text>
+		<line x1="320" y1="105" x2="735" y2="105" stroke="#95a5a6" stroke-width="1"/>
+		
+		<text x="330" y="125" class="balance-label"><tspan font-weight="bold">Milisekunda (ms):</tspan> 1 ms = 0,001 s</text>
+		<text x="330" y="145" class="balance-label"><tspan font-weight="bold">Minuta (min):</tspan> 1 min = 60 s</text>
+		<text x="330" y="165" class="balance-label"><tspan font-weight="bold">Hodina (h):</tspan> 1 h = 3600 s = 60 min</text>
+		<text x="330" y="185" class="balance-label"><tspan font-weight="bold">Den (d):</tspan> 1 d = 86400 s = 24 h</text>
+		
+		<!-- Měření -->
+		<text x="375" y="240" text-anchor="middle" class="law-title">Příklady časových intervalů</text>
+		<line x1="50" y1="255" x2="710" y2="255" stroke="#95a5a6" stroke-width="1"/>
+		
+		<!-- Příklady -->
+		<text x="60" y="280" class="balance-label"><tspan font-weight="bold">Tep srdce:</tspan> ~1 sekunda</text>
+		<text x="60" y="300" class="balance-label"><tspan font-weight="bold">Školní vyučovací hodina:</tspan> 45 minut</text>
+		<text x="60" y="320" class="balance-label"><tspan font-weight="bold">Průměrný životní věk:</tspan> ~80 let</text>
+		<text x="60" y="340" class="balance-label"><tspan font-weight="bold">Čas oběhu Země kolem Slunce:</tspan> 1 rok</text>
+		
+		<!-- Měřicí přístroje -->
+		<text x="520" y="280" class="law-title">Měřicí přístroje</text>
+		<text x="520" y="305" class="balance-label">• Mechanické hodiny</text>
+		<text x="520" y="325" class="balance-label">• Digitální stopky</text>
+		<text x="520" y="345" class="balance-label">• Atomové hodiny</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 750px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.law-title {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.balance-note {
+		font-size: 11px;
+		fill: #7f8c8d;
+		font-style: italic;
+	}
+</style>

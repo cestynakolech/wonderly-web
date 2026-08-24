@@ -1,0 +1,93 @@
+---
+// Statická infografika: Teplota — F6 měření
+// Teplota je fyzikální veličina udávající míru tepelného pohybu částic
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Teplota — míra tepla 🌡️</span></h2>
+	<p><strong>Teplota</strong> je fyzikální veličina charakterizující míru tepelného pohybu částic. Jednotka v SI soustavě je <strong>kelvin (K)</strong>, ale běžně používáme <strong>Celsius (°C)</strong>.</p>
+	<svg viewBox="0 0 750 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="750" height="380" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="375" y="35" text-anchor="middle" class="transform-title">TEPLOTA — SI jednotky</text>
+		
+		<!-- Teploměr -->
+		<rect x="70" y="80" width="20" height="70" fill="#ecf0f1" stroke="#2980b9" stroke-width="2"/>
+		<circle cx="80" cy="160" r="12" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+		<circle cx="80" cy="70" r="6" fill="#c0392b"/>
+		<text x="80" y="200" text-anchor="middle" class="energy-label">Teploměr</text>
+		<text x="80" y="215" text-anchor="middle" class="energy-label">měřit teplotu</text>
+		
+		<!-- Kelvin -->
+		<rect x="165" y="85" width="100" height="30" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+		<text x="215" y="108" text-anchor="middle" fill="white" font-weight="bold" font-size="12">1 Kelvin</text>
+		<text x="215" y="155" text-anchor="middle" class="energy-label">Základní SI jednotka</text>
+		
+		<!-- Střed - tabulka převodů -->
+		<rect x="310" y="70" width="430" height="140" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="325" y="95" class="law-title">Převody jednotek</text>
+		<line x1="320" y1="105" x2="735" y2="105" stroke="#95a5a6" stroke-width="1"/>
+		
+		<text x="330" y="125" class="balance-label"><tspan font-weight="bold">Celsius (°C):</tspan> běžná jednotka, voda mrzne 0°C</text>
+		<text x="330" y="145" class="balance-label"><tspan font-weight="bold">Kelvin (K):</tspan> SI jednotka, absolutní nula -273,15°C</text>
+		<text x="330" y="165" class="balance-label"><tspan font-weight="bold">Převod:</tspan> T(K) = T(°C) + 273,15</text>
+		<text x="330" y="185" class="balance-label"><tspan font-weight="bold">Fahrenheit (°F):</tspan> používáno v USA</text>
+		
+		<!-- Měření -->
+		<text x="375" y="240" text-anchor="middle" class="law-title">Příklady teplot</text>
+		<line x1="50" y1="255" x2="710" y2="255" stroke="#95a5a6" stroke-width="1"/>
+		
+		<!-- Příklady -->
+		<text x="60" y="280" class="balance-label"><tspan font-weight="bold">Absolutní nula:</tspan> -273,15°C (0 K)</text>
+		<text x="60" y="300" class="balance-label"><tspan font-weight="bold">Normální teplota lidského těla:</tspan> 37°C</text>
+		<text x="60" y="320" class="balance-label"><tspan font-weight="bold">Bod tání ledu:</tspan> 0°C (273,15 K)</text>
+		<text x="60" y="340" class="balance-label"><tspan font-weight="bold">Bod varu vody:</tspan> 100°C (373,15 K)</text>
+		
+		<!-- Měřicí přístroje -->
+		<text x="520" y="280" class="law-title">Měřicí přístroje</text>
+		<text x="520" y="305" class="balance-label">• Skleněný teploměr</text>
+		<text x="520" y="325" class="balance-label">• Digitální teploměr</text>
+		<text x="520" y="345" class="balance-label">• Infračervený teploměr</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 750px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.law-title {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.balance-note {
+		font-size: 11px;
+		fill: #7f8c8d;
+		font-style: italic;
+	}
+</style>

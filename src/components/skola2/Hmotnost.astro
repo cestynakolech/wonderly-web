@@ -1,0 +1,93 @@
+---
+// Statická infografika: Hmotnost — F6 měření
+// Hmotnost je fyzikální veličina udávající množství hmoty
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Hmotnost — měření množství hmoty ⚖️</span></h2>
+	<p><strong>Hmotnost</strong> je fyzikální veličina, která charakterizuje množství hmoty. Jednotka v SI soustavě je <strong>kilogram (kg)</strong>.</p>
+	<svg viewBox="0 0 750 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="750" height="380" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="375" y="35" text-anchor="middle" class="transform-title">HMOTNOST — SI jednotky</text>
+		
+		<!-- Váha -->
+		<circle cx="100" cy="100" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+		<circle cx="100" cy="100" r="12" fill="#ecf0f1"/>
+		<text x="100" y="110" text-anchor="middle" class="energy-label" fill="#2c3e50">⚖️</text>
+		<text x="100" y="160" text-anchor="middle" class="energy-label">Váhy</text>
+		<text x="100" y="175" text-anchor="middle" class="energy-label">měřit hmotnost</text>
+		
+		<!-- Kilogram -->
+		<rect x="170" y="85" width="100" height="30" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+		<text x="220" y="108" text-anchor="middle" fill="white" font-weight="bold" font-size="12">1 kilogram</text>
+		<text x="220" y="155" text-anchor="middle" class="energy-label">1 kg = 1000 g</text>
+		
+		<!-- Střed - tabulka převodů -->
+		<rect x="310" y="70" width="430" height="140" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="325" y="95" class="law-title">Převody SI jednotek</text>
+		<line x1="320" y1="105" x2="735" y2="105" stroke="#95a5a6" stroke-width="1"/>
+		
+		<text x="330" y="125" class="balance-label"><tspan font-weight="bold">Miligram (mg):</tspan> 1 mg = 0,001 g</text>
+		<text x="330" y="145" class="balance-label"><tspan font-weight="bold">Gram (g):</tspan> 1 g = 0,001 kg</text>
+		<text x="330" y="165" class="balance-label"><tspan font-weight="bold">Tuna (t):</tspan> 1 t = 1000 kg</text>
+		<text x="330" y="185" class="balance-label"><tspan font-weight="bold">Poznámka:</tspan> hmotnost ≠ váha (váha = síla)</text>
+		
+		<!-- Měření -->
+		<text x="375" y="240" text-anchor="middle" class="law-title">Příklady hmotností</text>
+		<line x1="50" y1="255" x2="710" y2="255" stroke="#95a5a6" stroke-width="1"/>
+		
+		<!-- Příklady -->
+		<text x="60" y="280" class="balance-label"><tspan font-weight="bold">Zrnko rýže:</tspan> ~20 mg</text>
+		<text x="60" y="300" class="balance-label"><tspan font-weight="bold">Sešit:</tspan> ~50 g</text>
+		<text x="60" y="320" class="balance-label"><tspan font-weight="bold">Průměrný člověk:</tspan> ~70 kg</text>
+		<text x="60" y="340" class="balance-label"><tspan font-weight="bold">Auto:</tspan> ~1500 kg (1,5 t)</text>
+		
+		<!-- Měřicí přístroje -->
+		<text x="520" y="280" class="law-title">Měřicí přístroje</text>
+		<text x="520" y="305" class="balance-label">• Kuchyňská váha</text>
+		<text x="520" y="325" class="balance-label">• Laboratorní váha</text>
+		<text x="520" y="345" class="balance-label">• Osová váha</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 750px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.law-title {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.balance-note {
+		font-size: 11px;
+		fill: #7f8c8d;
+		font-style: italic;
+	}
+</style>

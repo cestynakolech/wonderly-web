@@ -1,0 +1,145 @@
+---
+// F6 Vztlak: Srovnání sil — tíha vs. vztlaková síla
+// Když Fvz > Fg → plove, Fvz = Fg → vznáší se, Fvz < Fg → potápí se
+// Interaktivní: objem a materiál → výsledek
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vztlak: Plování vs. Potopení 🕹️</span></h2>
+	<p>Výsledek závisí na <strong>porovnání sil</strong>: je-li vztlaková síla <strong>Fvz</strong> větší/rovna tíze <strong>Fg</strong>? Pokud ano → <strong>plove</strong>! Pokud ne → <strong>potopí se</strong>.</p>
+	
+	<svg id="vztlak-svg" viewBox="0 0 500 380" role="img" aria-label="Vztlak: porovnání sil">
+		<!-- voda -->
+		<rect x="60" y="100" width="380" height="250" fill="#a5d8ff" opacity="0.6" stroke="#2b2a26" stroke-width="3" />
+		<line x1="60" y1="100" x2="440" y2="100" stroke="#2b2a26" stroke-width="3" />
+		<text x="50" y="95" font-size="12" font-weight="bold" fill="#1971c2">hladina</text>
+		
+		<!-- těleso v kapalině (uprostřed) -->
+		<rect id="vztlak-telo" x="210" y="200" width="80" height="80" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2.5" rx="5" />
+		<text id="vztlak-telo-info" x="250" y="245" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Těleso</text>
+		
+		<!-- šipky sil -->
+		<line id="vztlak-fg" x1="320" y1="150" x2="320" y2="180" stroke="#e03131" stroke-width="6" marker-end="url(#vztlak-mg)" />
+		<text id="vztlak-fg-label" x="345" y="170" font-size="13" font-weight="bold" fill="#e03131">Fg = ?</text>
+		
+		<line id="vztlak-fvz" x1="380" y1="280" x2="380" y2="210" stroke="#1971c2" stroke-width="6" marker-end="url(#vztlak-mup)" />
+		<text id="vztlak-fvz-label" x="410" y="250" font-size="13" font-weight="bold" fill="#1971c2">Fvz = ?</text>
+		
+		<!-- výsledek (dole) -->
+		<g id="vztlak-vysledek">
+			<text x="250" y="360" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">Výsledek: ?</text>
+		</g>
+		
+		<defs>
+			<marker id="vztlak-mg" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#e03131" />
+			</marker>
+			<marker id="vztlak-mup" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#1971c2" />
+			</marker>
+		</defs>
+	</svg>
+	
+	<p style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+		<strong>Materiál:</strong>
+		<span id="vztlak-materialy">
+			<button class="vztlak-tl vztlak-aktivni" data-mat="drevo">🪵 Dřevo</button>
+			<button class="vztlak-tl" data-mat="led">🧊 Led</button>
+			<button class="vztlak-tl" data-mat="plast">🧴 Plast</button>
+			<button class="vztlak-tl" data-mat="ocel">⚙️ Ocel</button>
+		</span>
+	</p>
+	
+	<label class="sim-posuvnik">
+		Objem: <output id="vztlak-out-v"></output> litrů
+		<input type="range" id="vztlak-slider-v" min="1" max="5" step="1" value="2" />
+	</label>
+	
+	<p id="vztlak-vysvetleni" class="arch-vzorec"></p>
+</section>
+
+<script>
+	const MATERIALY = {
+		drevo: { nazev: 'dřevo', rho: 600 },
+		led: { nazev: 'led', rho: 900 },
+		plast: { nazev: 'plast', rho: 1200 },
+		ocel: { nazev: 'ocel', rho: 8000 },
+	};
+	
+	let mat = 'drevo';
+	const sliderV = document.getElementById('vztlak-slider-v');
+	const outV = document.getElementById('vztlak-out-v');
+	const vysvetleniEl = document.getElementById('vztlak-vysvetleni');
+	
+	const rho_kapalina = 1000; // voda
+	const g = 10;
+	
+	function prekresli() {
+		const V_litr = +sliderV.value;
+		const V_m3 = V_litr / 1000;
+		
+		const m = MATERIALY[mat];
+		const Fg = (m.rho * V_m3 * g).toFixed(0); // tíha tělesa
+		const Fvz = (rho_kapalina * V_m3 * g).toFixed(0); // vztlaková síla
+		
+		outV.textContent = V_litr;
+		
+		// Velikost tělesa
+		const strana = Math.round(40 + V_litr * 8);
+		const x = 250 - strana / 2;
+		
+		document.getElementById('vztlak-telo').setAttribute('width', strana);
+		document.getElementById('vztlak-telo').setAttribute('height', strana);
+		document.getElementById('vztlak-telo').setAttribute('x', x);
+		document.getElementById('vztlak-telo-info').textContent = `${m.nazev}\n${V_litr} l`;
+		
+		// Šipky sil
+		const skalaFg = Math.min(80, Fg * 0.05);
+		const skalaFvz = Math.min(80, Fvz * 0.05);
+		
+		document.getElementById('vztlak-fg').setAttribute('y2', 180 + skalaFg);
+		document.getElementById('vztlak-fg-label').setAttribute('y', 170 + skalaFg / 2);
+		document.getElementById('vztlak-fg-label').textContent = `Fg = ${Fg} N`;
+		
+		document.getElementById('vztlak-fvz').setAttribute('y2', 210 - skalaFvz);
+		document.getElementById('vztlak-fvz-label').setAttribute('y', 250 - skalaFvz / 2);
+		document.getElementById('vztlak-fvz-label').textContent = `Fvz = ${Fvz} N`;
+		
+		// Výsledek
+		let vysledek = '';
+		if (Fvz > Fg) {
+			vysledek = `🛟 PLOVE — Fvz (${Fvz} N) > Fg (${Fg} N)`;
+		} else if (Fvz === Fg) {
+			vysledek = `🐟 VZNÁŠÍ SE — Fvz (${Fvz} N) = Fg (${Fg} N)`;
+		} else {
+			vysledek = `⬇️ POTÁPÍ SE — Fvz (${Fvz} N) < Fg (${Fg} N)`;
+		}
+		
+		document.getElementById('vztlak-vysledek').innerHTML = `<text x="250" y="360" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">${vysledek}</text>`;
+		
+		vysvetleniEl.innerHTML = `Porovnáním: Fg = m·g = ${m.rho} × ${V_m3} × ${g} = <strong>${Fg} N</strong> vs. Fvz = <strong>${Fvz} N</strong>. Pokud Fvz > Fg → <strong>plove</strong>! 🌊`;
+	}
+	
+	// Volba materiálu
+	document.getElementById('vztlak-materialy').addEventListener('click', (e) => {
+		const tl = e.target.closest('.vztlak-tl');
+		if (!tl) return;
+		mat = tl.dataset.mat;
+		for (const b of document.querySelectorAll('.vztlak-tl')) {
+			b.classList.toggle('vztlak-aktivni', b === tl);
+		}
+		prekresli();
+	});
+	
+	sliderV.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#vztlak-svg { width: 100%; max-width: 500px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 500px; display: block; margin-top: 0.3rem; }
+	.vztlak-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.3rem 0.3rem 0; }
+	.vztlak-tl.vztlak-aktivni { background: #ffe8cc; }
+	.vztlak-tl:active { transform: translateY(1px); }
+</style>

@@ -1,0 +1,115 @@
+---
+// F6 Hydrostatický tlak: Tlak v kapalinách, která se zvyšuje s hloubkou
+// Vzorec: p = ρ·g·h (hustota × gravitace × hloubka)
+// Interaktivní: hloubka → tlak, součásti se zvyšující se barvou
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Hydrostatický tlak: Hloubka → Tlak 🕹️</span></h2>
+	<p>Čím hlouběji v kapalině, tím větší tlak. Vzorec: <strong>p = ρ·g·h</strong> (ρ = hustota, g = 10, h = hloubka v metrech).</p>
+	
+	<svg id="hydro-svg" viewBox="0 0 500 480" role="img" aria-label="Hydrostatický tlak: změna s hloubkou">
+		<!-- voda -->
+		<defs>
+			<linearGradient id="vodniPrechodHydro" x1="0%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" style="stop-color:#87ceeb;stop-opacity:0.8" />
+				<stop offset="100%" style="stop-color:#1971c2;stop-opacity:0.9" />
+			</linearGradient>
+		</defs>
+		<rect x="80" y="60" width="340" height="380" fill="url(#vodniPrechodHydro)" stroke="#2b2a26" stroke-width="3" />
+		
+		<!-- hloubka (měřítko vlevo) -->
+		<line x1="40" y1="60" x2="40" y2="440" stroke="#2b2a26" stroke-width="2" />
+		<text x="30" y="65" text-anchor="end" font-size="11" fill="#2b2a26">0 m</text>
+		<text x="30" y="250" text-anchor="end" font-size="11" fill="#2b2a26">5 m</text>
+		<text x="30" y="435" text-anchor="end" font-size="11" fill="#2b2a26">10 m</text>
+		
+		<!-- 3 úrovně s tlakem -->
+		<g id="hydro-uroven1">
+			<rect x="100" y="80" width="300" height="80" fill="#ffccff" opacity="0.6" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">h = 0 m</text>
+			<text id="hydro-p1" x="250" y="135" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">p = 0 Pa</text>
+		</g>
+		
+		<g id="hydro-uroven2">
+			<rect x="100" y="200" width="300" height="80" fill="#ffb3b3" opacity="0.6" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="230" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">h = 5 m</text>
+			<text id="hydro-p2" x="250" y="255" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">p = 50000 Pa</text>
+		</g>
+		
+		<g id="hydro-uroven3">
+			<rect x="100" y="320" width="300" height="80" fill="#ff6b6b" opacity="0.6" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="350" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">h = 10 m</text>
+			<text id="hydro-p3" x="250" y="375" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">p = 100000 Pa</text>
+		</g>
+	</svg>
+	
+	<label class="sim-posuvnik">
+		Hloubka: <output id="hydro-out-h"></output> m
+		<input type="range" id="hydro-slider-h" min="0" max="10" step="0.5" value="0" />
+	</label>
+	
+	<p id="hydro-vysvetleni" class="arch-vzorec"></p>
+</section>
+
+<script>
+	const sliderH = document.getElementById('hydro-slider-h');
+	const outH = document.getElementById('hydro-out-h');
+	const vysvetleniEl = document.getElementById('hydro-vysvetleni');
+	
+	const rho = 1000; // hustota vody kg/m³
+	const g = 10;    // m/s²
+	
+	function prekresli() {
+		const h = +sliderH.value;
+		const p = rho * g * h; // Pa
+		
+		outH.textContent = h.toFixed(1);
+		
+		// Změna barvy s hloubkou (gradient)
+		const opacityVal = Math.min(0.9, 0.1 + (h / 10) * 0.8);
+		const barvaBeznaOpacita = Math.max(200, 255 - Math.round(h * 5));
+		const barvaR = Math.round(barvaBeznaOpacita);
+		const barvaG = Math.round(Math.max(50, 200 - h * 15));
+		const barvaB = 200;
+		
+		// Aktuální tlak
+		if (h <= 5) {
+			document.getElementById('hydro-uroven1').innerHTML = `<rect x="100" y="80" width="300" height="80" fill="#ffccff" opacity="${Math.min(0.6, 0.1 + h/10)}" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">h = ${h.toFixed(1)} m (horní vrstva)</text>
+			<text x="250" y="135" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">p = ${p.toLocaleString('cs-CZ')} Pa</text>`;
+		} else {
+			document.getElementById('hydro-uroven1').innerHTML = `<rect x="100" y="80" width="300" height="80" fill="#ccccff" opacity="0.3" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="135" text-anchor="middle" font-size="12" fill="#666">↓ jsi hlouběji</text>`;
+		}
+		
+		if (h >= 5 && h <= 10) {
+			document.getElementById('hydro-uroven2').innerHTML = `<rect x="100" y="200" width="300" height="80" fill="#ffb3b3" opacity="${Math.min(0.7, 0.3 + (h-5)/10)}" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="230" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">h = ${h.toFixed(1)} m (střední vrstva)</text>
+			<text x="250" y="255" text-anchor="middle" font-size="16" font-weight="bold" fill="#e03131">p = ${p.toLocaleString('cs-CZ')} Pa</text>`;
+		} else if (h > 10) {
+			document.getElementById('hydro-uroven2').innerHTML = `<rect x="100" y="200" width="300" height="80" fill="#ffcccc" opacity="0.3" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="255" text-anchor="middle" font-size="12" fill="#666">↓ jsi hlouběji</text>`;
+		}
+		
+		if (h >= 10) {
+			document.getElementById('hydro-uroven3').innerHTML = `<rect x="100" y="320" width="300" height="80" fill="#ff6b6b" opacity="0.8" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="350" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">h = ${h.toFixed(1)} m (nejhlubší vrstva)</text>
+			<text x="250" y="375" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">p = ${p.toLocaleString('cs-CZ')} Pa</text>`;
+		} else {
+			document.getElementById('hydro-uroven3').innerHTML = `<rect x="100" y="320" width="300" height="80" fill="#ffcccc" opacity="0.2" stroke="#2b2a26" stroke-width="2" />
+			<text x="250" y="375" text-anchor="middle" font-size="12" fill="#666">↓ glubší vody</text>`;
+		}
+		
+		vysvetleniEl.innerHTML = `p = ρ·g·h = ${rho} × ${g} × ${h.toFixed(1)} = <strong>${p.toLocaleString('cs-CZ')} Pa</strong> (${(p/1000).toFixed(0)} kPa). S každým metrem vody je tlak vyšší o 10 kPa!`;
+	}
+	
+	sliderH.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#hydro-svg { width: 100%; max-width: 500px; border: 3px solid #2b2a26; border-radius: 12px; background: #f0f0f0; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 500px; display: block; margin-top: 0.3rem; }
+</style>

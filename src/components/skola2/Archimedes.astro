@@ -1,0 +1,111 @@
+---
+// F6 Archimédův zákon: Vztlaková síla rovna tíze vytlačené kapaliny
+// Vzorec: Fvz = ρk·V·g (hustota kapaliny × objem tělesa × gravitace)
+// Interaktivní: objem tělesa → vztlaková síla
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Archimédův zákon: Vztlaková síla 🕹️</span></h2>
+	<p><strong>Archimédův zákon</strong>: Těleso ponořené v kapalině zažívá vztlakovou sílu rovnou <strong>tíze vytlačené kapaliny</strong>. Vzorec: <strong>Fvz = ρ·V·g</strong>.</p>
+	
+	<svg id="arch2-svg" viewBox="0 0 550 400" role="img" aria-label="Archimédův zákon: vytlačená kapalina">
+		<!-- nádoba s vodou vlevo -->
+		<path d="M50 200 L50 350 L200 350 L200 200" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<rect x="54" y="240" width="142" height="106" fill="#a5d8ff" opacity="0.6" stroke="none" />
+		<text x="125" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">Původní objem vody</text>
+		
+		<!-- těleso v kapalině vlevo -->
+		<rect id="arch2-telo" x="95" y="260" width="60" height="60" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2.5" rx="4" />
+		<text id="arch2-telo-text" x="125" y="296" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">V</text>
+		
+		<!-- vytlačená kapalina (kvádr vpravo) -->
+		<g id="arch2-vytlacena">
+			<rect x="350" y="240" width="60" height="60" fill="#a5d8ff" opacity="0.8" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="380" y="275" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2">Vytlačená kapalina</text>
+		</g>
+		
+		<!-- šipka mezi nádobami -->
+		<path d="M220 280 L320 280" stroke="#e03131" stroke-width="3" fill="none" marker-end="url(#arch2-markerF)" />
+		<text x="270" y="265" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131">Stejný objem!</text>
+		
+		<!-- síly -->
+		<text x="125" y="360" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">Těleso vytlačuje vodu</text>
+		<line x1="445" y1="150" x2="445" y2="220" stroke="#1971c2" stroke-width="7" marker-end="url(#arch2-markerUp)" />
+		<text x="465" y="190" font-size="14" font-weight="bold" fill="#1971c2">Fvz</text>
+		
+		<!-- vzorec -->
+		<text x="375" y="340" text-anchor="middle" font-size="13" fill="#2b2a26">Tíha vytlačené vody =</text>
+		<text id="arch2-vypocet" x="375" y="360" text-anchor="middle" font-size="15" font-weight="bold" fill="#1971c2">Fvz = ?</text>
+		
+		<defs>
+			<marker id="arch2-markerF" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#e03131" />
+			</marker>
+			<marker id="arch2-markerUp" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="12" refY="8" orient="auto">
+				<path d="M0,0 L14,8 L0,16 z" fill="#1971c2" />
+			</marker>
+		</defs>
+	</svg>
+	
+	<label class="sim-posuvnik">
+		Objem tělesa: <output id="arch2-out-v"></output> litrů
+		<input type="range" id="arch2-slider-v" min="1" max="5" step="1" value="2" />
+	</label>
+	
+	<p id="arch2-vysvetleni" class="arch-vzorec"></p>
+</section>
+
+<script>
+	const sliderV = document.getElementById('arch2-slider-v');
+	const outV = document.getElementById('arch2-out-v');
+	const vypocetEl = document.getElementById('arch2-vypocet');
+	const vysvetleniEl = document.getElementById('arch2-vysvetleni');
+	
+	const rho = 1000; // hustota vody kg/m³
+	const g = 10;    // m/s²
+	
+	function prekresli() {
+		const V_litr = +sliderV.value;
+		const V_m3 = V_litr / 1000; // převod na m³
+		const Fvz = rho * V_m3 * g; // vztlaková síla v N
+		
+		outV.textContent = V_litr;
+		
+		// Velikost tělesa a vytlačené kapaliny (čtverec, strana ~ V)
+		const strana = Math.round(30 + V_litr * 8);
+		
+		const teloX = 125 - strana / 2;
+		const teloY = 280 - strana / 2;
+		
+		document.getElementById('arch2-telo').setAttribute('width', strana);
+		document.getElementById('arch2-telo').setAttribute('height', strana);
+		document.getElementById('arch2-telo').setAttribute('x', teloX);
+		document.getElementById('arch2-telo').setAttribute('y', teloY);
+		document.getElementById('arch2-telo-text').setAttribute('x', teloX + strana / 2);
+		document.getElementById('arch2-telo-text').setAttribute('y', teloY + strana / 2 + 5);
+		document.getElementById('arch2-telo-text').textContent = V_litr + ' l';
+		
+		// Vytlačená kapalina (stejná velikost)
+		document.getElementById('arch2-vytlacena').innerHTML = `
+			<rect x="${380 - strana/2}" y="240" width="${strana}" height="${strana}" fill="#a5d8ff" opacity="0.8" stroke="#2b2a26" stroke-width="2.5" />
+			<text x="380" y="${245 + strana/2}" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2">${V_litr} l vody</text>
+		`;
+		
+		// Síla (měřítko: 1 l = 10 N, max 130 px)
+		const vyskaS = Math.min(130, Fvz * 0.8);
+		document.querySelector('line[x1="445"][y1="150"]').setAttribute('y2', 220 + vyskaS);
+		
+		vypocetEl.textContent = `Fvz = ${rho} × ${V_m3} × ${g} = ${Fvz} N`;
+		
+		vysvetleniEl.innerHTML = `Fvz = ρ·V·g = ${rho} × ${V_m3} × ${g} = <strong>${Fvz} N</strong>. Těleso vytlačuje ${V_litr} litrů vody; ta má tíhu ${Fvz} N. Právě ta je vztlaková síla! 🛟`;
+	}
+	
+	sliderV.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#arch2-svg { width: 100%; max-width: 550px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 550px; display: block; margin-top: 0.3rem; }
+</style>
