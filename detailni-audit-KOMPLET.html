@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderly — Detailní Audit VŠE (F6–F9, 116 podtémat)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0f0f1e;
+            color: #eee;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        
+        h2 {
+            color: #00ff88;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(0,212,255,0.3);
+            padding-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .rocnik-section {
+            margin-bottom: 50px;
+        }
+        
+        /* TABULKA */
+        .table-wrapper {
+            overflow-x: auto;
+            background: rgba(0,0,0,0.3);
+            border: 2px solid rgba(0,212,255,0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+        
+        th {
+            background: rgba(0,212,255,0.2);
+            color: #00d4ff;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(0,212,255,0.3);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        th:first-child {
+            text-align: left;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        
+        td:first-child {
+            text-align: left;
+            background: rgba(0,212,255,0.05);
+            font-weight: bold;
+            color: #00ff88;
+            min-width: 250px;
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(0,0,0,0.2);
+        }
+        
+        tr:hover {
+            background: rgba(0,212,255,0.1);
+        }
+        
+        .status-ok {
+            color: #00ff64;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .status-partial {
+            color: #ffc800;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .status-fail {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .summary-row {
+            background: rgba(0,212,255,0.15);
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85em;
+        }
+        
+        .legend {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0,212,255,0.1);
+            border-left: 4px solid rgba(0,212,255,0.3);
+            border-radius: 4px;
+        }
+        
+        .legend p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Wonderly — Detailní Audit VŠE (F6–F9: 116 Podtémat)</h1>
+        
+        <div class="legend">
+            <p><strong>Legenda:</strong></p>
+            <p>✅ = Hotovo (100%) | 🟡 = Částečně (1–99%) | ❌ = Chybí (0%)</p>
+            <p><strong>Sloupce:</strong> Kvíz | Text | Infografika | Píseň | Simulace | Lab. práce | Tisk. test</p>
+        </div>
+
+        <!-- FYZIKA 6 -->
+        <div class="rocnik-section">
+            <h2>📚 Fyzika 6. ročník (21 podtémat)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Téma / Podtéma</th>
+                            <th>Kvíz</th>
+                            <th>Text</th>
+                            <th>Infografika</th>
+                            <th>Píseň</th>
+                            <th>Simulace</th>
+                            <th>Lab. práce</th>
+                            <th>Tisk. test</th>
+                            <th>% Hotovo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Čas a měření</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Fyzikální veličiny</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektřina a magnetismus</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Látka a těleso</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-partial">🟡</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>64%</td>
+                        </tr>
+                        <tr>
+                            <td>Síly a pohyb</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Teplota a teplo</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Shrnutí a opakování</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr>
+                            <td>Délka a jednotky</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Hmotnost a váha</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Objem a obsah</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Skupenství látek</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Atomy a molekuly</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <td>Třecí síla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Vztlaková síla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Zvuk a jeho zdroj</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Světlo a stín</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Teplotní roztažnost</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr>
+                            <td>Vlastnosti magnetů</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Těsnění a těsnější látky</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Rozpouštění a krystalizace</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Chemické změny a reakce</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td><strong>CELKEM F6</strong></td>
+                            <td class="status-ok">✅ 21/21</td>
+                            <td class="status-ok">✅ 21/21</td>
+                            <td class="status-fail">❌ 1/21</td>
+                            <td class="status-partial">🟡 12/21</td>
+                            <td class="status-ok">✅ 18/21</td>
+                            <td class="status-fail">❌ 0/21</td>
+                            <td class="status-ok">✅ 21/21</td>
+                            <td><strong>61%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FYZIKA 7 -->
+        <div class="rocnik-section">
+            <h2>📚 Fyzika 7. ročník (33 podtémat)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Téma / Podtéma</th>
+                            <th>Kvíz</th>
+                            <th>Text</th>
+                            <th>Infografika</th>
+                            <th>Píseň</th>
+                            <th>Simulace</th>
+                            <th>Lab. práce</th>
+                            <th>Tisk. test</th>
+                            <th>% Hotovo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pohyb a rychlost — Klid a pohyb tělesa</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Pohyb a rychlost — Posuvný a rotační pohyb</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <td>Pohyb a rychlost — Rychlost, dráha, čas</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Pohyb a rychlost — Příklady na výpočet rychlosti</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <td>Síly kolem nás — Síla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Síly kolem nás — Gravitační síla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Síly kolem nás — Třecí síla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Síly kolem nás — Skládání sil</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Síly kolem nás — Těžiště</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Jednoduché stroje — Páka</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-partial">🟡</td>
+                            <td class="status-ok">✅</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <td>Jednoduché stroje — Kladka</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Jednoduché stroje — Páka a moment síly</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Jednoduché stroje — Klín a šroub</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Tlak v kapalinách — Tlak</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Tlak v kapalinách — Pascalův zákon</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Tlak v kapalinách — Hydrostatický tlak</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Vztlaková síla — Archimédův zákon</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Vztlaková síla — Tělesa stejnorodá a nestejnorodá</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Atmosféra a tlak — Atmosferický tlak</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Atmosféra a tlak — Přetlak, podtlak, vakuum</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Atmosféra a tlak — Meteorologie a měření tlaku</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Světlo a jeho šíření — Světlo a jeho zdroje</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Světlo a jeho šíření — Odraz světla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Světlo a jeho šíření — Lom světla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Světlo a jeho šíření — Stín, fáze Měsíce</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Zrcadla a čočky — Optika rovinného zrcadla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Zrcadla a čočky — Kulová zrcadla, duté zrcadlo</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Zrcadla a čočky — Optická čočka</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <td>Zrcadla a čočky — Oko, vady oka</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Zrcadla a čočky — Rozklad světla, duha</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Zrcadla a čočky — Vnímání barev</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Shrnutí a opakování — Pololetní shrnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr>
+                            <td>Shrnutí a opakování — Roční shrnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td><strong>CELKEM F7</strong></td>
+                            <td class="status-ok">✅ 33/33</td>
+                            <td class="status-ok">✅ 33/33</td>
+                            <td class="status-ok">✅ 17/33</td>
+                            <td class="status-partial">🟡 5/33</td>
+                            <td class="status-ok">✅ 27/33</td>
+                            <td class="status-partial">🟡 2/33</td>
+                            <td class="status-ok">✅ 33/33</td>
+                            <td><strong>72%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FYZIKA 8 -->
+        <div class="rocnik-section">
+            <h2>📚 Fyzika 8. ročník (37 podtémat)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Téma / Podtéma</th>
+                            <th>Kvíz</th>
+                            <th>Text</th>
+                            <th>Infografika</th>
+                            <th>Píseň</th>
+                            <th>Simulace</th>
+                            <th>Lab. práce</th>
+                            <th>Tisk. test</th>
+                            <th>% Hotovo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Elektrické pole</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektrický náboj</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Vodič a izolant</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektron a proton</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektrická síla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Příklady elektrické síly</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Vedení elektřiny</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Sériové zapojení</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Paralelní zapojení</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektrický proud</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Zapojování v praxi</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektrické napětí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Ohmův zákon</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektrický odpor</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Výkon a energie v elektřině</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Energie jako concept</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Potenciální energie</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Kinetická energia</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Přeměny energie</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Účinnost</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Obnovitelné zdroje</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Mechanická práce</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Výkon a výkonnost</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Spalovací motor</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Parní stroj</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Vnitřní energie</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Tání a tuhnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Var a kondenzace</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Sublimace</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Skupenství látek</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Měrná tepelná kapacita</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Vedení tepla</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Zvuk a jeho zdroj</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Vlastnosti zvuku</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Odraz zvuku</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Pololetní shrnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr>
+                            <td>Roční shrnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td><strong>CELKEM F8</strong></td>
+                            <td class="status-ok">✅ 37/37</td>
+                            <td class="status-ok">✅ 37/37</td>
+                            <td class="status-fail">❌ 0/37</td>
+                            <td class="status-partial">🟡 7/37</td>
+                            <td class="status-ok">✅ 35/37</td>
+                            <td class="status-fail">❌ 0/37</td>
+                            <td class="status-ok">✅ 37/37</td>
+                            <td><strong>63%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FYZIKA 9 -->
+        <div class="rocnik-section">
+            <h2>📚 Fyzika 9. ročník (25 podtémat)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Téma / Podtéma</th>
+                            <th>Kvíz</th>
+                            <th>Text</th>
+                            <th>Infografika</th>
+                            <th>Píseň</th>
+                            <th>Simulace</th>
+                            <th>Lab. práce</th>
+                            <th>Tisk. test</th>
+                            <th>% Hotovo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Domácí elektřina</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Bezpečnost v domácnosti</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Proud v kovech</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Proud v kapalinách</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Proud v plynech</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Polovodiče a diody</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Tranzistory</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektronové zařízení</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Energie ve vesmíru</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Sluneční energie</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Zdroje energie</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektromagnetická indukce</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Střídavý proud</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Transformátor</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Generátor</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Elektromotor</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Jádro atomu</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Radioaktivita</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Štěpení atomů</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Ochrana před zářením</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>71%</td>
+                        </tr>
+                        <tr>
+                            <td>Magnet a magnetické pole</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Magnetické pole Země</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Magnetické vlastnosti látek</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>57%</td>
+                        </tr>
+                        <tr>
+                            <td>Pololetní shrnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr>
+                            <td>Roční shrnutí</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-ok">✅</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-fail">❌</td>
+                            <td class="status-ok">✅</td>
+                            <td>43%</td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td><strong>CELKEM F9</strong></td>
+                            <td class="status-ok">✅ 25/25</td>
+                            <td class="status-ok">✅ 25/25</td>
+                            <td class="status-fail">❌ 0/25</td>
+                            <td class="status-partial">🟡 6/25</td>
+                            <td class="status-ok">✅ 23/25</td>
+                            <td class="status-fail">❌ 0/25</td>
+                            <td class="status-ok">✅ 25/25</td>
+                            <td><strong>64%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📊 Wonderly Detailní Audit KOMPLET — 24. srpna 2026</p>
+            <p>Kompletní tabulka pro fyziku F6–F9 (116 podtémat celkem)</p>
+            <p style="margin-top: 15px; font-weight: bold; color: #00ff88;">
+                ✅ F6: 21 podtémat | ✅ F7: 33 podtémat | ✅ F8: 37 podtémat | ✅ F9: 25 podtémat
+            </p>
+            <p style="margin-top: 10px; color: #ffc800;">🎯 CELKEM: 116 PODTÉMAT — VŠECHNY 4 ROČNÍKY</p>
+        </div>
+    </div>
+</body>
+</html>
