@@ -1,0 +1,107 @@
+---
+// Střídavý proud — F9 TOP 5 infografika
+// Komponenta zobrazuje rozdíl mezi stejnosměrným a střídavým proudem
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Střídavý proud 〰️</span></h2>
+	<p>
+		V domácnostech používáme <strong>střídavý proud</strong> (AC). Na rozdíl od
+		<strong>stejnosměrného proudu</strong> (DC), který teče pořád jedním směrem, střídavý
+		proud se pravidelně mění — teče jedním směrem, pak se obrátí a teče opačným
+		směrem. Tento cyklus se opakuje 50× za sekundu (50 Hz).
+	</p>
+
+	<svg viewBox="0 0 600 400" role="img" aria-label="Porovnání stejnosměrného a střídavého proudu">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="400" fill="#f8f9fa" />
+
+		<!-- STEJNOSMĚRNÝ PROUD (vlevo) -->
+		<g id="stejnomerne">
+			<text x="150" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Stejnosměrný proud (DC)</text>
+
+			<!-- Baterie -->
+			<g>
+				<rect x="100" y="70" width="15" height="50" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+				<text x="107" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">+</text>
+				<text x="107" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">−</text>
+			</g>
+
+			<!-- Vodiče -->
+			<line x1="115" y1="85" x2="200" y2="85" stroke="#1971c2" stroke-width="3" />
+			<line x1="115" y1="125" x2="200" y2="125" stroke="#2b2a26" stroke-width="3" />
+
+			<!-- Graf stejnosměrného proudu -->
+			<g id="graf-dc">
+				<rect x="30" y="180" width="240" height="140" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" rx="6" />
+				<text x="150" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Napětí v čase</text>
+
+				<!-- Čáry pro orientaci -->
+				<line x1="50" y1="290" x2="260" y2="290" stroke="#ccc" stroke-width="1" stroke-dasharray="2,2" />
+				<line x1="155" y1="190" x2="155" y2="310" stroke="#ccc" stroke-width="1" stroke-dasharray="2,2" />
+
+				<!-- Konstantní přímka (stejnosměrný proud) -->
+				<line x1="50" y1="250" x2="260" y2="250" stroke="#e03131" stroke-width="4" />
+
+				<!-- Popis -->
+				<text x="150" y="330" text-anchor="middle" font-size="11" fill="#2b2a26">
+					Napětí je vždy stejné a stejného směru
+				</text>
+			</g>
+
+			<text x="150" y="365" text-anchor="middle" font-size="11" fill="#495057">
+				Zdroje: baterie, akumulátor
+			</text>
+		</g>
+
+		<!-- STŘÍDAVÝ PROUD (vpravo) -->
+		<g id="stridave">
+			<text x="450" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Střídavý proud (AC)</text>
+
+			<!-- Generátor -->
+			<g>
+				<circle cx="450" cy="95" r="15" fill="none" stroke="#2b2a26" stroke-width="2" />
+				<line x1="450" y1="80" x2="450" y2="55" stroke="#2b2a26" stroke-width="2" />
+				<line x1="435" y1="95" x2="420" y2="95" stroke="#2b2a26" stroke-width="2" />
+				<line x1="465" y1="95" x2="480" y2="95" stroke="#2b2a26" stroke-width="2" />
+				<text x="450" y="100" text-anchor="middle" font-size="10" fill="#2b2a26">~</text>
+			</g>
+
+			<!-- Graf střídavého proudu -->
+			<g id="graf-ac">
+				<rect x="360" y="180" width="240" height="140" fill="#ffe3e3" stroke="#2b2a26" stroke-width="2" rx="6" />
+				<text x="480" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Napětí v čase</text>
+
+				<!-- Čáry pro orientaci -->
+				<line x1="380" y1="290" x2="590" y2="290" stroke="#ccc" stroke-width="1" stroke-dasharray="2,2" />
+				<line x1="485" y1="190" x2="485" y2="310" stroke="#ccc" stroke-width="1" stroke-dasharray="2,2" />
+
+				<!-- Sinusovka (střídavý proud) -->
+				<path d="M 380 250 Q 410 220 440 250 Q 470 280 500 250 Q 530 220 560 250 Q 590 280 600 250" 
+					  fill="none" stroke="#e03131" stroke-width="4" />
+
+				<!-- Popis -->
+				<text x="480" y="330" text-anchor="middle" font-size="11" fill="#2b2a26">
+					Napětí se pravidelně mění a obrací směr (50× za sekunu)
+				</text>
+			</g>
+
+			<text x="480" y="365" text-anchor="middle" font-size="11" fill="#495057">
+				Zdroj: elektrárna, rozvodná síť
+			</text>
+		</g>
+
+		<!-- Informační box -->
+		<rect x="20" y="375" width="560" height="18" rx="4" fill="#fff3bf" stroke="#2b2a26" stroke-width="1" />
+		<text x="300" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">
+			V Česku máme v zásuvkách střídavý proud 230V, 50Hz
+		</text>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

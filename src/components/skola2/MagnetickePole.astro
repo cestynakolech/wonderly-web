@@ -1,0 +1,69 @@
+---
+// Magnetické pole — F9 TOP 5 infografika
+// Komponenta zobrazuje vznik magnetického pole kolem magnetu a indukční čáry
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Magnetické pole 🧲</span></h2>
+	<p>
+		Kolem každého magnetu vzniká <strong>magnetické pole</strong> — silové pole, které
+		působí na feromagnetické látky (železo, ocel). Pole si představujeme pomoci
+		<strong>indukčních čar</strong>, které vycházejí ze severního pólu (N) a míří k
+		jižnímu pólu (S).
+	</p>
+
+	<svg viewBox="0 0 600 350" role="img" aria-label="Magnetické pole kolem tyčového magnetu">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="350" fill="#f8f9fa" />
+
+		<!-- Indukční čáry -->
+		<g id="pole-cary" opacity="0.6">
+			<!-- Horní oblouk -->
+			<path d="M 150 180 Q 300 50 450 180" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4,3" />
+			<!-- Střední oblouk -->
+			<path d="M 150 180 Q 300 100 450 180" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4,3" />
+			<!-- Spodní oblouk -->
+			<path d="M 150 180 Q 300 310 450 180" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="4,3" />
+
+			<!-- Šipky na čarách (směr N → S) -->
+			<polygon points="320,60 315,70 325,70" fill="#495057" />
+			<polygon points="320,110 315,120 325,120" fill="#495057" />
+			<polygon points="320,300 315,310 325,310" fill="#495057" />
+		</g>
+
+		<!-- Tyčový magnet -->
+		<g id="magnet">
+			<!-- Severní pól (N) — červený -->
+			<rect x="150" y="155" width="80" height="50" fill="#e03131" stroke="#2b2a26" stroke-width="3" rx="4" />
+			<text x="190" y="188" text-anchor="middle" font-size="28" font-weight="bold" fill="#fff">N</text>
+
+			<!-- Jižní pól (S) — modrý -->
+			<rect x="370" y="155" width="80" height="50" fill="#1971c2" stroke="#2b2a26" stroke-width="3" rx="4" />
+			<text x="410" y="188" text-anchor="middle" font-size="28" font-weight="bold" fill="#fff">S</text>
+		</g>
+
+		<!-- Popisky -->
+		<g id="popisky">
+			<text x="190" y="230" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">severní pól (N)</text>
+			<text x="410" y="230" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">jižní pól (S)</text>
+
+			<rect x="20" y="260" width="560" height="70" rx="8" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />
+			<text x="300" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">
+				Indukční čáry vycházejí ze severního pólu a míří k jižnímu
+			</text>
+			<text x="300" y="304" text-anchor="middle" font-size="12" fill="#2b2a26">
+				Pointa: pole je nejsilnější u pólů, nejslabší uprostřed
+			</text>
+			<text x="300" y="323" text-anchor="middle" font-size="12" fill="#2b2a26">
+				Kolem magnetu existuje pole i v prázdném prostoru!
+			</text>
+		</g>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

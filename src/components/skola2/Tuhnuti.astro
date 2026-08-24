@@ -1,0 +1,171 @@
+---
+// Statická infografika: Tuhnutí
+// Fázová přeměna: voda → led bez změny teploty (opak tání)
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Tuhnutí: přeměna vody na led ❄️🧊</span></h2>
+	<p><strong>Tuhnutí</strong> je opak tání — přeměna kapaliny na pevnou látku. Během tuhnutí se <strong>teplota nemění</strong>, uvolňuje se skupenské teplo (teplo se odvádí).</p>
+	<svg viewBox="0 0 700 420" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="700" height="420" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="350" y="35" text-anchor="middle" class="diagram-title">PROCES TUHNUTÍ VODY</text>
+		
+		<!-- DOBA 1: Teplá voda -->
+		<g id="doba-1">
+			<text x="120" y="80" text-anchor="middle" class="stage-label">VODA (10 °C)</text>
+			
+			<!-- Kapalina -->
+			<ellipse cx="110" cy="125" rx="40" ry="20" fill="#4fc3f7" stroke="#01579b" stroke-width="2"/>
+			<line x1="70" y1="145" x2="150" y2="145" stroke="#01579b" stroke-width="1"/>
+			
+			<!-- Molekuly se pohybují -->
+			<circle cx="90" cy="115" r="3" fill="#01579b"/>
+			<circle cx="120" cy="120" r="3" fill="#01579b"/>
+			<circle cx="140" cy="130" r="3" fill="#01579b"/>
+			<circle cx="100" cy="135" r="3" fill="#01579b"/>
+			
+			<!-- Termometr -->
+			<rect x="160" y="100" width="8" height="50" fill="white" stroke="#333" stroke-width="1"/>
+			<circle cx="164" cy="120" r="5" fill="#e74c3c"/>
+			<text x="190" y="130" class="temp-label">T = 10 °C</text>
+			
+			<!-- Info -->
+			<text x="120" y="170" text-anchor="middle" class="info-text">Molekuly</text>
+			<text x="120" y="185" text-anchor="middle" class="info-text">se volně pohybují</text>
+			<text x="120" y="210" text-anchor="middle" class="key-point">Teplota padá</text>
+		</g>
+		
+		<!-- ŠIPKA: Chladíme -->
+		<path d="M 200" stroke="#3498db" stroke-width="3"/>
+		<path d="M 200 140 L 260 140" stroke="#3498db" stroke-width="3"/>
+		<path d="M 255 135 L 270 140 L 255 145" fill="#3498db"/>
+		<text x="230" y="130" text-anchor="middle" class="action-text">− TEPLO</text>
+		
+		<!-- DOBA 2: Tuhnutí - teplota se NEMĚNÍ -->
+		<g id="doba-2">
+			<text x="380" y="80" text-anchor="middle" class="stage-label">TUHNUTÍ (0 °C) ⚠️</text>
+			
+			<!-- Částečně zatuhnutá voda -->
+			<ellipse cx="380" cy="125" rx="30" ry="18" fill="#81d4fa" stroke="#01579b" stroke-width="1" rx="2"/>
+			<rect x="340" y="105" width="18" height="35" fill="#b3e5fc" stroke="#0277bd" stroke-width="2" rx="2"/>
+			<rect x="365" y="105" width="18" height="35" fill="#b3e5fc" stroke="#0277bd" stroke-width="2" rx="2"/>
+			
+			<!-- Molekuly se upevňují -->
+			<circle cx="350" cy="125" r="3" fill="#01579b"/>
+			<circle cx="375" cy="125" r="3" fill="#01579b"/>
+			<circle cx="400" cy="120" r="3" fill="#01579b"/>
+			
+			<!-- Termometr -->
+			<rect x="420" y="100" width="8" height="40" fill="white" stroke="#333" stroke-width="1"/>
+			<circle cx="424" cy="140" r="5" fill="#3498db"/>
+			<text x="450" y="125" class="temp-label">T = 0 °C</text>
+			
+			<!-- Info -->
+			<text x="380" y="170" text-anchor="middle" class="info-text">Mřížka se</text>
+			<text x="380" y="185" text-anchor="middle" class="info-text">vytváří</text>
+			<text x="380" y="210" text-anchor="middle" class="key-point">Teplota se NEMĚNÍ!</text>
+		</g>
+		
+		<!-- ŠIPKA: Pokračujeme v chladnutí -->
+		<path d="M 480 140 L 540 140" stroke="#3498db" stroke-width="3"/>
+		<path d="M 535 135 L 550 140 L 535 145" fill="#3498db"/>
+		<text x="510" y="130" text-anchor="middle" class="action-text">− VÍCE TEPLA</text>
+		
+		<!-- DOBA 3: Studený led -->
+		<g id="doba-3">
+			<text x="630" y="80" text-anchor="middle" class="stage-label">LED (−10 °C)</text>
+			
+			<!-- Pevné kryštaly ledu -->
+			<rect x="600" y="105" width="18" height="40" fill="#b3e5fc" stroke="#0277bd" stroke-width="2" rx="2"/>
+			<rect x="625" y="105" width="18" height="40" fill="#b3e5fc" stroke="#0277bd" stroke-width="2" rx="2"/>
+			<rect x="650" y="105" width="18" height="40" fill="#b3e5fc" stroke="#0277bd" stroke-width="2" rx="2"/>
+			
+			<!-- Molekuly vibřují - staticky -->
+			<circle cx="610" cy="130" r="3" fill="#01579b"/>
+			<circle cx="635" cy="130" r="3" fill="#01579b"/>
+			<circle cx="660" cy="130" r="3" fill="#01579b"/>
+			
+			<!-- Info -->
+			<text x="630" y="170" text-anchor="middle" class="info-text">Molekuly</text>
+			<text x="630" y="185" text-anchor="middle" class="info-text">pevně svázány</text>
+			<text x="630" y="210" text-anchor="middle" class="key-point">Teplota dále padá</text>
+		</g>
+		
+		<!-- Dolní část: Graf tuhnutí -->
+		<text x="50" y="280" class="graph-title">GRAF TUHNUTÍ (teplota vs. čas):</text>
+		
+		<!-- Osy grafu -->
+		<line x1="80" y1="320" x2="80" y2="380" stroke="#2b2a26" stroke-width="2"/>
+		<line x1="80" y1="380" x2="650" y2="380" stroke="#2b2a26" stroke-width="2"/>
+		
+		<!-- Označení os -->
+		<text x="40" y="350" text-anchor="middle" class="axis-label">Teplota</text>
+		<text x="350" y="405" text-anchor="middle" class="axis-label">Čas</text>
+		
+		<!-- Křivka tuhnutí: padá → plató (tuhnutí) → padá -->
+		<polyline points="90,320 150,290 250,290 350,260" stroke="#3498db" stroke-width="3" fill="none"/>
+		
+		<!-- Značka na plató -->
+		<circle cx="200" cy="290" r="4" fill="#3498db"/>
+		<text x="200" y="275" text-anchor="middle" class="info-text" font-weight="bold">TUHNUTÍ</text>
+		<text x="200" y="315" text-anchor="middle" class="info-text">(T = konst.)</text>
+		
+		<!-- Srovnání -->
+		<text x="50" y="350" class="compare-text">Poznámka: <tspan font-weight="bold">Tání = studium vody při 0 °C (stoupá)</tspan> | <tspan font-weight="bold">Tuhnutí = chladnutí vody při 0 °C (padá)</tspan></text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 700px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.diagram-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.stage-label {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.info-text {
+		font-size: 11px;
+		fill: #555;
+	}
+	.temp-label {
+		font-size: 12px;
+		fill: #3498db;
+		font-weight: bold;
+	}
+	.action-text {
+		font-size: 11px;
+		fill: #3498db;
+		font-weight: bold;
+	}
+	.key-point {
+		font-size: 12px;
+		fill: #3498db;
+		font-weight: bold;
+	}
+	.graph-title {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.axis-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.compare-text {
+		font-size: 10px;
+		fill: #555;
+	}
+</style>

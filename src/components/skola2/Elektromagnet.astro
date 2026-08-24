@@ -1,0 +1,94 @@
+---
+// Elektromagnet — F9 TOP 5 infografika
+// Komponenta zobrazuje princip elektromagnetu a jeho fungování
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Elektromagnet ⚡🧲</span></h2>
+	<p>
+		<strong>Elektromagnet</strong> je magnet, který vzniká kolem vodiče s elektrickým
+		proudem. Pokud navineme drát do cívky a pustíme jím proud, vzniká silné magnetické
+		pole. Na rozdíl od permanentního magnetu se elektromagnet dá vypnout.
+	</p>
+
+	<svg viewBox="0 0 600 380" role="img" aria-label="Elektromagnet a jeho magnetické pole">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="380" fill="#f8f9fa" />
+
+		<!-- Baterie (zdroj proudu) -->
+		<g id="baterie">
+			<rect x="30" y="150" width="20" height="80" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="40" cy="140" r="3" fill="#1971c2" stroke="#2b2a26" stroke-width="1" />
+			<circle cx="40" cy="250" r="3" fill="#1971c2" stroke="#2b2a26" stroke-width="1" />
+			<text x="60" y="195" font-size="13" font-weight="bold" fill="#2b2a26">+</text>
+			<text x="15" y="195" font-size="13" font-weight="bold" fill="#2b2a26">−</text>
+		</g>
+
+		<!-- Drát od baterie -->
+		<g id="drat" stroke="#1971c2" stroke-width="2" fill="none">
+			<line x1="40" y1="140" x2="120" y2="140" />
+			<line x1="120" y1="140" x2="120" y2="110" />
+		</g>
+
+		<!-- Cívka (elektromagnet) -->
+		<g id="civka">
+			<!-- Závinování drátu -->
+			<circle cx="280" cy="140" r="50" fill="none" stroke="#e03131" stroke-width="6" opacity="0.7" />
+			<circle cx="280" cy="140" r="45" fill="none" stroke="#e03131" stroke-width="5" opacity="0.6" />
+			<circle cx="280" cy="140" r="40" fill="none" stroke="#e03131" stroke-width="4" opacity="0.5" />
+
+			<!-- Jádro cívky (železo) -->
+			<rect x="270" y="80" width="20" height="120" fill="#868e96" stroke="#2b2a26" stroke-width="2" rx="3" />
+
+			<!-- Popis cívky -->
+			<text x="280" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">cívka (drát navinutý kolem jádra)</text>
+		</g>
+
+		<!-- Indukční čáry kolem elektromagnetu -->
+		<g id="pole" opacity="0.5">
+			<path d="M 240 100 Q 150 90 140 140 Q 150 190 240 180" fill="none" stroke="#e03131" stroke-width="2" stroke-dasharray="4,3" />
+			<path d="M 320 100 Q 410 90 420 140 Q 410 190 320 180" fill="none" stroke="#e03131" stroke-width="2" stroke-dasharray="4,3" />
+			<path d="M 240 160 Q 150 160 140 180 Q 150 200 240 200" fill="none" stroke="#e03131" stroke-width="2" stroke-dasharray="4,3" />
+			<path d="M 320 160 Q 410 160 420 180 Q 410 200 320 200" fill="none" stroke="#e03131" stroke-width="2" stroke-dasharray="4,3" />
+
+			<!-- Šipky směru pole -->
+			<polygon points="230,95 225,105 235,105" fill="#e03131" />
+			<polygon points="330,95 325,105 335,105" fill="#e03131" />
+		</g>
+
+		<!-- Přepínač -->
+		<g id="prepinac">
+			<circle cx="120" cy="240" r="10" fill="none" stroke="#2b2a26" stroke-width="2" />
+			<text x="115" y="180" font-size="12" font-weight="bold" fill="#2b2a26">vypínač</text>
+		</g>
+
+		<!-- Drát zpět k baterii -->
+		<g stroke="#1971c2" stroke-width="2" fill="none">
+			<line x1="120" y1="250" x2="120" y2="300" />
+			<line x1="120" y1="300" x2="40" y2="300" />
+			<line x1="40" y1="300" x2="40" y2="250" />
+		</g>
+
+		<!-- Informační box -->
+		<rect x="20" y="280" width="560" height="90" rx="8" fill="#ffe3e3" stroke="#2b2a26" stroke-width="2" />
+		<text x="300" y="303" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">
+			Princip elektromagnetu:
+		</text>
+		<text x="300" y="325" text-anchor="middle" font-size="12" fill="#2b2a26">
+			Proud teče drátem → drát je navinutý do cívky → vzniká magnetické pole
+		</text>
+		<text x="300" y="345" text-anchor="middle" font-size="12" fill="#2b2a26">
+			Průhyb železa v jádře zesílí pole → silný elektromagnet
+		</text>
+		<text x="300" y="362" text-anchor="middle" font-size="12" fill="#2b2a26">
+			Vypnutí proudu = vypnutí magnetu (na rozdíl od permanentního magnetu)
+		</text>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

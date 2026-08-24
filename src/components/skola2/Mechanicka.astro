@@ -1,0 +1,104 @@
+---
+// Statická infografika: Mechanická práce
+// Práce se konná, když síla posunuje těleso v tom samém směru
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Mechanická práce (W) 💪</span></h2>
+	<p>Mechanická práce se vykonává, když <strong>síla</strong> posune těleso v <strong>směru působení síly</strong>. Vzorec: <code>W = F × s</code>, kde W je práce (J), F je síla (N) a s je dráha (m).</p>
+	<svg viewBox="0 0 700 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="700" height="380" fill="#f5f0e8"/>
+		<line x1="0" y1="320" x2="700" y2="320" stroke="#8b7355" stroke-width="10"/>
+		<text x="350" y="345" text-anchor="middle" class="label">PODLAHA</text>
+		
+		<!-- Scénář 1: Práce se vykonává (síla ve směru pohybu) -->
+		<text x="100" y="40" class="scenar-titulek">PRÁCE = F × s (vykonává se)</text>
+		
+		<!-- Krabice -->
+		<rect x="50" y="220" width="70" height="60" fill="#d4af37" stroke="#8b7814" stroke-width="2"/>
+		<text x="85" y="255" text-anchor="middle" class="krabice-text">20 kg</text>
+		
+		<!-- Síla (šipka) -->
+		<path d="M 125 250 L 200 250" stroke="#e74c3c" stroke-width="4"/>
+		<path d="M 195 245 L 210 250 L 195 255" fill="#e74c3c"/>
+		<text x="160" y="240" class="formula-text">F = 100 N</text>
+		
+		<!-- Pohyb (čárkovaná čára) -->
+		<line x1="50" y1="290" x2="240" y2="290" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5 5"/>
+		<text x="145" y="310" text-anchor="middle" class="formula-text">s = 5 m</text>
+		
+		<!-- Výsledek -->
+		<rect x="30" y="130" width="150" height="60" fill="#e8f8f5" stroke="#16a085" stroke-width="2" rx="5"/>
+		<text x="105" y="150" text-anchor="middle" class="result-title">PRÁCE</text>
+		<text x="105" y="170" text-anchor="middle" class="result-formula">W = 500 J</text>
+		
+		<!-- Scénář 2: Práce se NEVYKONÁVÁ (síla kolmá na pohyb) -->
+		<text x="520" y="40" class="scenar-titulek">PRÁCE = 0 (nevykonává se)</text>
+		
+		<!-- Krabice -->
+		<rect x="450" y="220" width="70" height="60" fill="#d4af37" stroke="#8b7814" stroke-width="2"/>
+		<text x="485" y="255" text-anchor="middle" class="krabice-text">20 kg</text>
+		
+		<!-- Síla KOLMÁ na pohyb (šipka nahoru) -->
+		<path d="M 485 220 L 485 140" stroke="#3498db" stroke-width="4"/>
+		<path d="M 480 145 L 485 130 L 490 145" fill="#3498db"/>
+		<text x="510" y="180" class="formula-text">F = 100 N</text>
+		
+		<!-- Pohyb (čárkovaná čára - vodorovně) -->
+		<line x1="450" y1="290" x2="640" y2="290" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5 5"/>
+		<text x="545" y="310" text-anchor="middle" class="formula-text">s = 5 m</text>
+		
+		<!-- Výsledek -->
+		<rect x="430" y="130" width="150" height="60" fill="#fadbd8" stroke="#c0392b" stroke-width="2" rx="5"/>
+		<text x="505" y="150" text-anchor="middle" class="result-title">PRÁCE</text>
+		<text x="505" y="170" text-anchor="middle" class="result-formula">W = 0 J</text>
+		
+		<!-- Legenda -->
+		<text x="30" y="370" class="legenda-text">✓ Práce se vykonává, jen když síla posunuje těleso v tom samém směru</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 700px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.scenar-titulek {
+		font-size: 15px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.krabice-text {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.formula-text {
+		font-size: 13px;
+		font-weight: 600;
+		fill: #2c3e50;
+	}
+	.result-title {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.result-formula {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #16a085;
+	}
+	.label {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #555;
+	}
+	.legenda-text {
+		font-size: 12px;
+		fill: #555;
+	}
+</style>
