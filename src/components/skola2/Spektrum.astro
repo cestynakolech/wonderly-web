@@ -1,0 +1,103 @@
+---
+// Statická infografika: Spektrum
+// Elektromagnetické spektrum od rádiových vln po gama záření
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektromagnetické spektrum 📊</span></h2>
+	<p>Světlo je jen malá část <strong>elektromagnetického spektra</strong>. Okolo nás letí rádiové vlny, mikrovlny, infračervené záření a rentgeny.</p>
+	<svg viewBox="0 0 780 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="780" height="380" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="390" y="35" text-anchor="middle" class="transform-title">ELEKTROMAGNETICKÉ SPEKTRUM</text>
+		
+		<!-- Měřítko vlnové délky -->
+		<text x="390" y="60" text-anchor="middle" font-size="10" fill="#7f8c8d">Čím delší vlna → čím nižší energie; čím kratší vlna → čím vyšší energie</text>
+		
+		<!-- Rádiové vlny -->
+		<rect x="30" y="90" width="50" height="60" fill="#c0a9e2" stroke="#8e7cc3" stroke-width="1.5" rx="3"/>
+		<text x="55" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Rádio</text>
+		<text x="55" y="180" text-anchor="middle" font-size="8" fill="#555">Dlouhé</text>
+		
+		<!-- Mikrovlny -->
+		<rect x="90" y="90" width="50" height="60" fill="#b19cd9" stroke="#8e7cc3" stroke-width="1.5" rx="3"/>
+		<text x="115" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Mikro</text>
+		<text x="115" y="180" text-anchor="middle" font-size="8" fill="#555">Trouby</text>
+		
+		<!-- Infračervené -->
+		<rect x="150" y="90" width="50" height="60" fill="#ff7f7f" stroke="#e74c3c" stroke-width="1.5" rx="3"/>
+		<text x="175" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Infra</text>
+		<text x="175" y="180" text-anchor="middle" font-size="8" fill="#555">Teplo</text>
+		
+		<!-- Viditelné SPEKTRUM (duha) -->
+		<rect x="210" y="90" width="50" height="60" fill="url(#spektrumGradient)" stroke="#333" stroke-width="2" rx="3"/>
+		<defs>
+			<linearGradient id="spektrumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+				<stop offset="50%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
+				<stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+			</linearGradient>
+		</defs>
+		<text x="235" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">VID</text>
+		<text x="235" y="180" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">Oči</text>
+		
+		<!-- Ultrafialové -->
+		<rect x="270" y="90" width="50" height="60" fill="#d8a4f8" stroke="#9370db" stroke-width="1.5" rx="3"/>
+		<text x="295" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Ultra</text>
+		<text x="295" y="180" text-anchor="middle" font-size="8" fill="#555">Spálí</text>
+		
+		<!-- Rentgeny -->
+		<rect x="330" y="90" width="50" height="60" fill="#7dd3c0" stroke="#16a085" stroke-width="1.5" rx="3"/>
+		<text x="355" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Rentg.</text>
+		<text x="355" y="180" text-anchor="middle" font-size="8" fill="#555">Léčba</text>
+		
+		<!-- Gama záření -->
+		<rect x="390" y="90" width="50" height="60" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5" rx="3"/>
+		<text x="415" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Gama</text>
+		<text x="415" y="180" text-anchor="middle" font-size="8" fill="white">Jádro</text>
+		
+		<!-- Šipka bezpečnosti -->
+		<text x="450" y="130" font-size="12" fill="#e74c3c" font-weight="bold">← Nebezpečné!</text>
+		
+		<!-- Dolní část - vysvětlení -->
+		<rect x="30" y="210" width="720" height="150" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="390" y="240" text-anchor="middle" class="law-title">VŠE JE SVĚTLO, JEN RŮZNÉ VLNOVÉ DÉLKY!</text>
+		<line x1="40" y1="260" x2="750" y2="260" stroke="#95a5a6" stroke-width="1"/>
+		
+		<text x="50" y="285" class="balance-label"><tspan font-weight="bold">Viditelné světlo:</tspan> jediná část spektra, kterou vidíme oči (380–760 nm)</text>
+		<text x="50" y="310" class="balance-label"><tspan font-weight="bold">Ostatní záření:</tspan> kolem nás existuje, ale nevidíme ho (rádio, mikrovlny, rentgeny…)</text>
+		<text x="50" y="335" class="balance-note">Všechny typy se šíří stejnou rychlostí — rychlostí světla (300 000 km/s)!</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 780px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.law-title {
+		font-size: 15px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.balance-note {
+		font-size: 11px;
+		fill: #7f8c8d;
+		font-style: italic;
+	}
+</style>

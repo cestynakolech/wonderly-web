@@ -1,0 +1,171 @@
+---
+// Ochrana před elektrickým úrazem — F8 TOP 5 infografika
+// Komponenta zobrazuje rizika, pojistky, uzemňování a bezpečnost
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Ochrana před úrazem ⚠️</span></h2>
+	<p>
+		Elektrický proud může být <strong>nebezpečný a smrtelný</strong>. Lidské tělo je vodičem —
+		obsahuje vodu a ionty. Už proud <strong>0,05 A (50 mA)</strong> prochází srdcem skrz
+		rozhraní hrudníku může způsobit fibrilaci a smrt. Existují způsoby, jak se chránit.
+	</p>
+
+	<svg viewBox="0 0 600 450" role="img" aria-label="Bezpečnost elektrických instalací a úrazy">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="450" fill="#f8f9fa" />
+
+		<!-- NEBEZPEČÍ PROUDU (nahoře) -->
+		<g id="nebezpeci">
+			<text x="300" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Jak elektrický proud škodí tělu</text>
+
+			<!-- Člověk držící vodič -->
+			<g>
+				<circle cx="100" cy="80" r="12" fill="#d4a76a" stroke="#2b2a26" stroke-width="2" />
+				<line x1="100" y1="92" x2="100" y2="130" stroke="#d4a76a" stroke-width="3" />
+				<line x1="100" y1="105" x2="75" y2="115" stroke="#d4a76a" stroke-width="3" />
+				<line x1="100" y1="105" x2="125" y2="115" stroke="#d4a76a" stroke-width="3" />
+
+				<!-- Vodič v ruce -->
+				<line x1="125" y1="115" x2="160" y2="90" stroke="#1971c2" stroke-width="3" />
+
+				<!-- Srdce (uzavřeno prsty) -->
+				<path d="M 100 115 L 108 110 L 110 120 Z" fill="#e03131" opacity="0.6" />
+
+				<text x="100" y="150" text-anchor="middle" font-size="10" fill="#2b2a26">Proud skrz</text>
+				<text x="100" y="162" text-anchor="middle" font-size="10" fill="#2b2a26">hrudník</text>
+			</g>
+
+			<!-- Tabulka nebezpečí -->
+			<rect x="200" y="50" width="350" height="120" rx="6" fill="#ffe3e3" stroke="#2b2a26" stroke-width="2" />
+
+			<text x="220" y="70" text-anchor="start" font-size="11" font-weight="bold" fill="#2b2a26">Proud (mA)</text>
+			<text x="280" y="70" text-anchor="start" font-size="11" font-weight="bold" fill="#2b2a26">Účinky</text>
+
+			<!-- Řádky tabulky -->
+			<line x1="200" y1="75" x2="550" y2="75" stroke="#2b2a26" stroke-width="1" />
+
+			<text x="220" y="90" text-anchor="start" font-size="9" fill="#2b2a26">&lt; 1</text>
+			<text x="280" y="90" text-anchor="start" font-size="9" fill="#2b2a26">Neznatelný; bezpečný</text>
+
+			<line x1="200" y1="95" x2="550" y2="95" stroke="#ccc" stroke-width="1" />
+
+			<text x="220" y="110" text-anchor="start" font-size="9" fill="#2b2a26">1–5</text>
+			<text x="280" y="110" text-anchor="start" font-size="9" fill="#2b2a26">Pocit brnění, svěracího křeče</text>
+
+			<line x1="200" y1="115" x2="550" y2="115" stroke="#ccc" stroke-width="1" />
+
+			<text x="220" y="130" text-anchor="start" font-size="9" fill="#2b2a26">5–20</text>
+			<text x="280" y="130" text-anchor="start" font-size="9" fill="#2b2a26">Silné bolesti, křeče svalů</text>
+
+			<line x1="200" y1="135" x2="550" y2="135" stroke="#ccc" stroke-width="1" />
+
+			<text x="220" y="150" text-anchor="start" font-size="9" fill="#2b2a26">&gt; 50</text>
+			<text x="280" y="150" text-anchor="start" font-size="9" fill="#2b2a26"><tspan font-weight="bold">SMRTELNÝ!</tspan> Fibrilace srdce</text>
+
+			<line x1="200" y1="155" x2="550" y2="155" stroke="#ccc" stroke-width="1" />
+		</g>
+
+		<!-- OCHRANÉ PRVKY (uprostřed) -->
+		<g id="ochrana">
+			<text x="300" y="200" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">Způsoby ochrany</text>
+
+			<!-- Pojistka -->
+			<g>
+				<rect x="50" y="220" width="35" height="50" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" rx="2" />
+				<circle cx="67" cy="235" r="6" fill="#e03131" />
+				<circle cx="67" cy="255" r="6" fill="#e03131" />
+
+				<text x="67" y="285" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Pojistka</text>
+				<text x="67" y="299" text-anchor="middle" font-size="9" fill="#495057">Přepálí se,</text>
+				<text x="67" y="308" text-anchor="middle" font-size="9" fill="#495057">přeruší proud</text>
+			</g>
+
+			<!-- Jistič (přívod v pojistce) -->
+			<g>
+				<rect x="150" y="220" width="35" height="50" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" rx="2" />
+				<circle cx="167" cy="235" r="5" fill="#ffd700" />
+				<rect x="160" y="245" width="14" height="20" fill="#1971c2" stroke="#2b2a26" stroke-width="1" />
+
+				<text x="167" y="285" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Jistič</text>
+				<text x="167" y="299" text-anchor="middle" font-size="9" fill="#495057">Vypne se</text>
+				<text x="167" y="308" text-anchor="middle" font-size="9" fill="#495057">v 0,1 s</text>
+			</g>
+
+			<!-- Uzemňovací kabel (koupelna) -->
+			<g>
+				<rect x="250" y="220" width="40" height="50" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" rx="2" />
+				<!-- Zemní vodič -->
+				<line x1="270" y1="270" x2="270" y2="290" stroke="#ffd700" stroke-width="2" />
+				<line x1="265" y1="290" x2="275" y2="290" stroke="#ffd700" stroke-width="2" />
+				<line x1="263" y1="295" x2="277" y2="295" stroke="#ffd700" stroke-width="2" />
+
+				<text x="270" y="285" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">PE</text>
+
+				<text x="270" y="315" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Uzemňování</text>
+				<text x="270" y="329" text-anchor="middle" font-size="9" fill="#495057">Svedení do</text>
+				<text x="270" y="338" text-anchor="middle" font-size="9" fill="#495057">Země</text>
+			</g>
+
+			<!-- Gumové rukavice -->
+			<g>
+				<path d="M 380 235 Q 380 220 395 220 Q 410 220 410 235 L 410 265 Q 410 270 405 270 L 375 270 Q 370 270 370 265 Z" fill="#d4a76a" stroke="#2b2a26" stroke-width="2" />
+
+				<text x="395" y="285" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Izolace</text>
+				<text x="395" y="299" text-anchor="middle" font-size="9" fill="#495057">Guma, suché</text>
+				<text x="395" y="308" text-anchor="middle" font-size="9" fill="#495057">dřevo, plast</text>
+			</g>
+
+			<!-- Vzdálenost -->
+			<g>
+				<line x1="490" y1="235" x2="530" y2="235" stroke="#e03131" stroke-width="2" />
+				<line x1="490" y1="265" x2="530" y2="265" stroke="#e03131" stroke-width="2" />
+				<line x1="490" y1="235" x2="490" y2="265" stroke="#e03131" stroke-width="2" />
+				<line x1="530" y1="235" x2="530" y2="265" stroke="#e03131" stroke-width="2" />
+				<text x="510" y="253" text-anchor="middle" font-size="14" font-weight="bold" fill="#e03131">?</text>
+
+				<text x="510" y="285" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Vzdálenost</text>
+				<text x="510" y="299" text-anchor="middle" font-size="9" fill="#495057">Nehaste blesk</text>
+				<text x="510" y="308" text-anchor="middle" font-size="9" fill="#495057">blízko vody</text>
+			</g>
+		</g>
+
+		<!-- PRAKTICKÁ PRAVIDLA (dole) -->
+		<g id="pravidla">
+			<rect x="40" y="350" width="520" height="90" rx="8" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />
+
+			<text x="300" y="370" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">
+				Praktická bezpečnostní pravidla
+			</text>
+
+			<text x="60" y="390" text-anchor="start" font-size="9" fill="#2b2a26">
+				✓ Domácnost: NIKDY nevkládej nůž či vidličku do zásuvky — elektrolyz tě zabije za 0,1 s
+			</text>
+
+			<text x="60" y="405" text-anchor="start" font-size="9" fill="#2b2a26">
+				✓ Mokré ruce = NEBEZPEČÍ — odpor těla klesne z 1000 Ω na 1 Ω
+			</text>
+
+			<text x="60" y="420" text-anchor="start" font-size="9" fill="#2b2a26">
+				✓ Blesk: běž do auta (Faradayova klec) nebo domu. Nikdy né pod strom!
+			</text>
+
+			<text x="60" y="435" text-anchor="start" font-size="9" fill="#2b2a26">
+				✓ Pojistky/Jističe: zkontroluj stav — mají chránit pily / topidla / sušičky
+			</text>
+		</g>
+
+		<!-- Informační box -->
+		<rect x="20" y="445" width="560" height="18" rx="4" fill="#fff3bf" stroke="#2b2a26" stroke-width="1" />
+		<text x="300" y="460" text-anchor="middle" font-size="9" font-weight="bold" fill="#2b2a26">
+			Elektrina zabíjí — neblahuj si s ní, respektuj ji! V nouzi přeřeš proud přes jistič, pak okamžitě zavolej záchranku.
+		</text>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

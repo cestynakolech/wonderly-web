@@ -1,0 +1,160 @@
+---
+// Tlumení magnetických oscilací — F9 pokročilé
+// Jak se magnety zastaví: tření a indukované proudy
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Tlumení magnetických oscilací 🔄</span></h2>
+	<p>
+		Když se magnet pohybuje, jeho kinetická energie se postupně ztrácí. Existují dva hlavní mechanismy tlumení:
+		<strong>mechanické tření</strong> a <strong>elektromagnetická indukce</strong> (Eddy proudy).
+	</p>
+
+	<svg viewBox="0 0 900 520" role="img" aria-label="Tlumení magnetických oscilací">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="900" height="520" fill="#f8f9fa" />
+
+		<!-- Nadpis -->
+		<text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">
+			Mechanismy tlumení magnetických oscilací
+		</text>
+
+		<!-- ČÁST 1: MECHANICKÉ TŘENÍ (vlevo) -->
+		<g id="treni">
+			<rect x="20" y="60" width="280" height="420" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+
+			<text x="160" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#d97706">
+				Mechanické tření
+			</text>
+
+			<!-- Ilustrace: magnet v leadnech -->
+			<line x1="80" y1="110" x2="240" y2="110" stroke="#2b2a26" stroke-width="2" />
+
+			<!-- Magnet pohybující se -->
+			<rect x="100" y="125" width="40" height="50" rx="3" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="120" y="158" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">N</text>
+
+			<rect x="160" y="125" width="40" height="50" rx="3" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<text x="180" y="158" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">S</text>
+
+			<!-- Šipka pohybu -->
+			<path d="M 200 140 L 240 140" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-orange)" />
+
+			<!-- Obsah -->
+			<text x="35" y="210" font-size="12" font-weight="bold" fill="#2b2a26">Příčiny:</text>
+			<text x="35" y="230" font-size="11" fill="#2b2a26">→ Opora vzduchu</text>
+			<text x="35" y="250" font-size="11" fill="#2b2a26">→ Tření v ložisku</text>
+			<text x="35" y="270" font-size="11" fill="#2b2a26">→ Deformace podloží</text>
+			<text x="35" y="290" font-size="11" fill="#2b2a26">→ Kontakt s povrchem</text>
+
+			<text x="35" y="320" font-size="12" font-weight="bold" fill="#2b2a26">Efekt:</text>
+			<text x="35" y="340" font-size="11" fill="#2b2a26">→ Při každé oscilaci se</text>
+			<text x="35" y="360" font-size="11" fill="#2b2a26">  část energie mění</text>
+			<text x="35" y="380" font-size="11" fill="#2b2a26">  v teplo</text>
+			<text x="35" y="400" font-size="11" fill="#2b2a26">→ Amplituda oscilací klesá</text>
+			<text x="35" y="420" font-size="11" fill="#2b2a26">→ Magnet se postupně zastaví</text>
+		</g>
+
+		<!-- ČÁST 2: EDDY PROUDY (uprostřed) -->
+		<g id="eddy">
+			<rect x="320" y="60" width="280" height="420" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+
+			<text x="460" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#0284c7">
+				Elektromagnetické tlumení
+			</text>
+
+			<!-- Ilustrace: Magnet v kovové trubici -->
+			<!-- Trubice -->
+			<rect x="400" y="115" width="120" height="120" rx="3" fill="none" stroke="#0284c7" stroke-width="3" />
+
+			<!-- Magnet uvnitř -->
+			<rect x="425" y="150" width="25" height="50" rx="2" fill="#e03131" stroke="#2b2a26" stroke-width="1" />
+			<text x="437" y="178" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">N</text>
+
+			<rect x="450" y="150" width="25" height="50" rx="2" fill="#1971c2" stroke="#2b2a26" stroke-width="1" />
+			<text x="462" y="178" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">S</text>
+
+			<!-- Indukované proudy (Eddy) -->
+			<circle cx="405" cy="145" r="12" fill="none" stroke="#e03131" stroke-width="1.5" stroke-dasharray="2,2" />
+			<circle cx="515" cy="145" r="12" fill="none" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="2,2" />
+			<circle cx="405" cy="225" r="12" fill="none" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="2,2" />
+			<circle cx="515" cy="225" r="12" fill="none" stroke="#e03131" stroke-width="1.5" stroke-dasharray="2,2" />
+
+			<text x="360" y="175" font-size="9" fill="#e03131" font-weight="bold">Eddy</text>
+
+			<!-- Obsah -->
+			<text x="335" y="270" font-size="12" font-weight="bold" fill="#2b2a26">Princip:</text>
+			<text x="335" y="290" font-size="11" fill="#2b2a26">→ Pohybující se magnet</text>
+			<text x="335" y="310" font-size="11" fill="#2b2a26">  indukuje elektr. proud</text>
+			<text x="335" y="330" font-size="11" fill="#2b2a26">→ Lenzův zákon: proud</text>
+			<text x="335" y="350" font-size="11" fill="#2b2a26">  se brání pohybu</text>
+
+			<text x="335" y="380" font-size="12" font-weight="bold" fill="#2b2a26">Efekt:</text>
+			<text x="335" y="400" font-size="11" fill="#2b2a26">→ Velmi silné tlumení</text>
+			<text x="335" y="420" font-size="11" fill="#2b2a26">→ Magnet v trubici rychle</text>
+			<text x="335" y="440" font-size="11" fill="#2b2a26">  dosáhne konst. rychlosti</text>
+		</g>
+
+		<!-- ČÁST 3: POROVNÁNÍ (vpravo) -->
+		<g id="porovnani">
+			<rect x="620" y="60" width="260" height="420" rx="8" fill="#ede9fe" stroke="#a78bfa" stroke-width="2" />
+
+			<text x="750" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#a78bfa">
+				Porovnání těchto jevů
+			</text>
+
+			<!-- Tabulka -->
+			<text x="640" y="125" font-size="11" font-weight="bold" fill="#2b2a26">Vlastnost</text>
+			<text x="720" y="125" font-size="11" font-weight="bold" fill="#2b2a26">Tření</text>
+			<text x="800" y="125" font-size="11" font-weight="bold" fill="#2b2a26">Eddy</text>
+
+			<line x1="625" y1="135" x2="865" y2="135" stroke="#a78bfa" stroke-width="1" />
+
+			<!-- Řádek 1: Síla tlumení -->
+			<text x="640" y="160" font-size="10" fill="#2b2a26">Síla tlumení</text>
+			<text x="720" y="160" font-size="10" fill="#2b2a26">Slabá</text>
+			<text x="800" y="160" font-size="10" fill="#2b2a26">Silná</text>
+
+			<!-- Řádek 2: Závislost na rychlosti -->
+			<text x="640" y="185" font-size="10" fill="#2b2a26">Na rychlosti</text>
+			<text x="715" y="185" font-size="10" fill="#2b2a26">Nezávisí</text>
+			<text x="795" y="185" font-size="10" fill="#2b2a26">Lineární</text>
+
+			<!-- Řádek 3: Průběh -->
+			<text x="640" y="210" font-size="10" fill="#2b2a26">Průběh A(t)</text>
+			<text x="720" y="210" font-size="10" fill="#2b2a26">Exp. pokles</text>
+			<text x="800" y="210" font-size="10" fill="#2b2a26">Exp. pokles</text>
+
+			<!-- Řádek 4: Kam jde energie -->
+			<text x="640" y="235" font-size="10" fill="#2b2a26">Energie</text>
+			<text x="720" y="235" font-size="10" fill="#2b2a26">→ Teplo</text>
+			<text x="800" y="235" font-size="10" fill="#2b2a26">→ Teplo</text>
+
+			<!-- Řádek 5: Příklady -->
+			<text x="640" y="265" font-size="10" fill="#2b2a26">Příklady:</text>
+
+			<text x="640" y="290" font-size="10" fill="#d97706" font-weight="bold">Tření:</text>
+			<text x="640" y="310" font-size="9" fill="#2b2a26">• Pendel na vzduchu</text>
+			<text x="640" y="330" font-size="9" fill="#2b2a26">• Auto se klouzavou silou</text>
+
+			<text x="640" y="360" font-size="10" fill="#0284c7" font-weight="bold">Eddy proudy:</text>
+			<text x="640" y="380" font-size="9" fill="#2b2a26">• Magnet v hliníkové</text>
+			<text x="640" y="400" font-size="9" fill="#2b2a26">  trubici</text>
+			<text x="640" y="420" font-size="9" fill="#2b2a26">• Elektromagnetické brzdy</text>
+		</g>
+
+		<!-- SVG markery -->
+		<defs>
+			<marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#d97706" />
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 900px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

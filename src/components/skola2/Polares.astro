@@ -1,0 +1,242 @@
+---
+// Statická infografika: Elektrický náboj (Polares)
+// Ukazuje protony, elektrony, typy náboje a elektrování
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektrický náboj ⚡</span></h2>
+	<p>Náboj je vlastnost částic. Proton má kladný náboj (+), elektron záporný (−). Náboj nelze vytvořit ani zničit — jen se přesunuje.</p>
+	<svg viewBox="0 0 800 500" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="800" height="500" fill="#f5f0e8"/>
+		
+		<!-- Sekce 1: ATOM -->
+		<g id="atom-section">
+			<!-- Nadpis -->
+			<text x="150" y="35" text-anchor="middle" class="section-title">ATOM</text>
+			
+			<!-- Jádro -->
+			<circle cx="150" cy="100" r="25" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+			<text x="150" y="108" text-anchor="middle" class="nucleus-text" fill="white">JÁ DRO</text>
+			
+			<!-- Protony v jádře (6 ks) -->
+			<circle cx="135" cy="85" r="6" fill="#fff" stroke="#333" stroke-width="1"/>
+			<text x="135" y="90" text-anchor="middle" class="particle-label" font-size="8">p⁺</text>
+			
+			<circle cx="150" cy="75" r="6" fill="#fff" stroke="#333" stroke-width="1"/>
+			<text x="150" y="80" text-anchor="middle" class="particle-label" font-size="8">p⁺</text>
+			
+			<circle cx="165" cy="85" r="6" fill="#fff" stroke="#333" stroke-width="1"/>
+			<text x="165" y="90" text-anchor="middle" class="particle-label" font-size="8">p⁺</text>
+			
+			<!-- Neutrony v jádře (3 ks) -->
+			<circle cx="140" cy="115" r="6" fill="#999" stroke="#333" stroke-width="1"/>
+			<text x="140" y="120" text-anchor="middle" class="particle-label" font-size="8">n⁰</text>
+			
+			<circle cx="155" cy="125" r="6" fill="#999" stroke="#333" stroke-width="1"/>
+			<text x="155" y="130" text-anchor="middle" class="particle-label" font-size="8">n⁰</text>
+			
+			<circle cx="170" cy="115" r="6" fill="#999" stroke="#333" stroke-width="1"/>
+			<text x="170" y="120" text-anchor="middle" class="particle-label" font-size="8">n⁰</text>
+			
+			<!-- Elektronový obal -->
+			<circle cx="150" cy="100" r="45" fill="none" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+			
+			<!-- Elektrony v obalu (6 ks) -->
+			<circle cx="195" cy="100" r="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+			<text x="195" y="115" text-anchor="middle" class="particle-label" font-size="8">e⁻</text>
+			
+			<circle cx="150" cy="145" r="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+			<text x="150" y="160" text-anchor="middle" class="particle-label" font-size="8">e⁻</text>
+			
+			<circle cx="105" cy="100" r="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+			<text x="105" y="115" text-anchor="middle" class="particle-label" font-size="8">e⁻</text>
+			
+			<circle cx="170" cy="60" r="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+			<text x="170" y="50" text-anchor="middle" class="particle-label" font-size="8">e⁻</text>
+			
+			<circle cx="130" cy="60" r="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+			<text x="130" y="50" text-anchor="middle" class="particle-label" font-size="8">e⁻</text>
+			
+			<circle cx="150" cy="60" r="5" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+			<text x="150" y="45" text-anchor="middle" class="particle-label" font-size="8">e⁻</text>
+			
+			<!-- Legenda -->
+			<text x="150" y="185" text-anchor="middle" class="atom-description">Neutrální atom</text>
+			<text x="150" y="205" text-anchor="middle" class="atom-description" font-size="12">6 protonů = 6 elektronů</text>
+		</g>
+		
+		<!-- Sekce 2: TŘI STAVY -->
+		<!-- Kladný iont -->
+		<g id="positive-ion">
+			<text x="400" y="35" text-anchor="middle" class="section-title">KLADNÝ IONT</text>
+			<circle cx="400" cy="100" r="30" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
+			
+			<!-- Několik elektronů (5) -->
+			<circle cx="430" cy="80" r="4" fill="#3498db"/>
+			<circle cx="425" cy="70" r="4" fill="#3498db"/>
+			<circle cx="410" cy="65" r="4" fill="#3498db"/>
+			<circle cx="390" cy="70" r="4" fill="#3498db"/>
+			<circle cx="385" cy="85" r="4" fill="#3498db"/>
+			
+			<!-- Plus v kruhu -->
+			<text x="400" y="110" text-anchor="middle" class="charge-symbol" font-size="24">+</text>
+			
+			<text x="400" y="155" text-anchor="middle" class="ion-description">Elektron chybí</text>
+			<text x="400" y="175" text-anchor="middle" class="ion-description" font-size="12">Více protonů</text>
+		</g>
+		
+		<!-- Záporný iont -->
+		<g id="negative-ion">
+			<text x="650" y="35" text-anchor="middle" class="section-title">ZÁPORNÝ IONT</text>
+			<circle cx="650" cy="100" r="30" fill="#fff" stroke="#3498db" stroke-width="2"/>
+			
+			<!-- Několik elektronů (7) -->
+			<circle cx="680" cy="85" r="4" fill="#3498db"/>
+			<circle cx="680" cy="115" r="4" fill="#3498db"/>
+			<circle cx="660" cy="65" r="4" fill="#3498db"/>
+			<circle cx="660" cy="135" r="4" fill="#3498db"/>
+			<circle cx="635" cy="90" r="4" fill="#3498db"/>
+			<circle cx="635" cy="110" r="4" fill="#3498db"/>
+			<circle cx="650" cy="50" r="4" fill="#3498db"/>
+			
+			<!-- Minus v kruhu -->
+			<text x="650" y="110" text-anchor="middle" class="charge-symbol" font-size="24">−</text>
+			
+			<text x="650" y="155" text-anchor="middle" class="ion-description">Elektron přibyl</text>
+			<text x="650" y="175" text-anchor="middle" class="ion-description" font-size="12">Více elektronů</text>
+		</g>
+		
+		<!-- SEKCE 3: ELEKTROVÁNÍ -->
+		<rect x="40" y="230" width="720" height="240" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="400" y="260" text-anchor="middle" class="section-title">ELEKTROVÁNÍ TŘENÍ — PŘESUN ELEKTRONŮ</text>
+		
+		<!-- Před třením -->
+		<g id="before-friction">
+			<text x="180" y="295" text-anchor="middle" class="step-label">1. PŘED TŘENÍM</text>
+			
+			<!-- Plast neutrální -->
+			<rect x="120" y="310" width="60" height="40" fill="#27ae60" stroke="#229954" stroke-width="2" rx="3"/>
+			<text x="150" y="340" text-anchor="middle" class="material-text" font-size="12">plast</text>
+			
+			<!-- Sklo neutrální -->
+			<rect x="200" y="310" width="60" height="40" fill="#e8daef" stroke="#9b59b6" stroke-width="2" rx="3"/>
+			<text x="230" y="340" text-anchor="middle" class="material-text" font-size="12">sklo</text>
+		</g>
+		
+		<!-- Třeni - šipka -->
+		<path d="M 190 365 L 210 365" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowRed)"/>
+		<text x="200" y="385" text-anchor="middle" class="action-text">TŘENÍ</text>
+		
+		<!-- Po třením -->
+		<g id="after-friction">
+			<text x="180" y="425" text-anchor="middle" class="step-label">2. PO TŘENÍ</text>
+			
+			<!-- Plast záporný (má přebyt elektronů) -->
+			<rect x="120" y="440" width="60" height="40" fill="#27ae60" stroke="#3498db" stroke-width="3" rx="3"/>
+			<text x="150" y="470" text-anchor="middle" class="material-text" font-size="12">plast</text>
+			<text x="150" y="485" text-anchor="middle" class="charge-symbol" font-size="16">−</text>
+			
+			<!-- Sklo kladné (ztratilo elektrony) -->
+			<rect x="200" y="440" width="60" height="40" fill="#e8daef" stroke="#e74c3c" stroke-width="3" rx="3"/>
+			<text x="230" y="470" text-anchor="middle" class="material-text" font-size="12">sklo</text>
+			<text x="230" y="485" text-anchor="middle" class="charge-symbol" font-size="16">+</text>
+		</g>
+		
+		<!-- Šipky elektronů -->
+		<path d="M 175 350 Q 180 365 185 380" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+		<text x="155" y="368" text-anchor="middle" class="action-text" font-size="11">elektrony</text>
+		
+		<!-- Pravidlo -->
+		<rect x="320" y="425" width="280" height="70" fill="#fff" stroke="#2c3e50" stroke-width="2" rx="5"/>
+		<text x="460" y="450" text-anchor="middle" class="rule-title">PRAVIDLO ELEKTROVÁNÍ</text>
+		<text x="330" y="475" class="rule-text" font-size="12">• <strong>Plast</strong> se třením nabíjí <strong>ZÁPORNĚ</strong> (přebývají elektrony)</text>
+		<text x="330" y="492" class="rule-text" font-size="12">• <strong>Sklo</strong> se třením nabíjí <strong>KLADNĚ</strong> (chybějí elektrony)</text>
+	</svg>
+	
+	<!-- Šipky pro SVG -->
+	<svg style="display: none;">
+		<defs>
+			<marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+				<path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+			</marker>
+			<marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+				<path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 800px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	
+	.section-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.nucleus-text {
+		font-size: 9px;
+		font-weight: bold;
+	}
+	
+	.particle-label {
+		font-size: 10px;
+		fill: #333;
+		font-weight: bold;
+	}
+	
+	.atom-description {
+		font-size: 13px;
+		fill: #555;
+		font-weight: bold;
+	}
+	
+	.charge-symbol {
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.ion-description {
+		font-size: 13px;
+		fill: #555;
+		font-weight: bold;
+	}
+	
+	.step-label {
+		font-size: 14px;
+		fill: #2c3e50;
+		font-weight: bold;
+	}
+	
+	.material-text {
+		font-size: 12px;
+		fill: #fff;
+		font-weight: bold;
+	}
+	
+	.action-text {
+		font-size: 12px;
+		fill: #e74c3c;
+		font-weight: bold;
+	}
+	
+	.rule-title {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.rule-text {
+		fill: #2c3e50;
+		font-weight: bold;
+	}
+</style>

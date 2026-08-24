@@ -1,0 +1,143 @@
+---
+// Elektrické pole — F8 TOP 5 infografika
+// Komponenta zobrazuje elektrické siločáry a Faradayovu klec
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Elektrické pole 🔋</span></h2>
+	<p>
+		<strong>Elektrické pole</strong> vzniká kolem každého nabitého tělesa. Projevuje se tím, že
+		působí <strong>elektrickou silou na jiná tělesa</strong> — i na dálku, bez dotyku. Pole si
+		představujeme pomocí <strong>siločar</strong>, které ukazují směr síly na kladný náboj.
+	</p>
+
+	<svg viewBox="0 0 600 400" role="img" aria-label="Elektrické pole a siločáry kolem nabitých těles">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="400" fill="#f8f9fa" />
+
+		<!-- POLE KOLEM JEDNOHO NÁBOJE (vlevo) -->
+		<g id="jednoduche-pole">
+			<text x="150" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Kolem jednoho náboje</text>
+
+			<!-- Siločáry radiálně -->
+			<g opacity="0.5">
+				<line x1="150" y1="80" x2="150" y2="40" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="170" y1="90" x2="185" y2="75" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="180" y1="110" x2="195" y2="125" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="170" y1="130" x2="185" y2="155" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="150" y1="140" x2="150" y2="180" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="130" y1="130" x2="115" y2="155" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="120" y1="110" x2="105" y2="125" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="130" y1="90" x2="115" y2="75" stroke="#e03131" stroke-width="2" stroke-dasharray="3,2" />
+			</g>
+
+			<!-- Šipky na siločárách (směr od + k −) -->
+			<g>
+				<polygon points="150,65 147,75 153,75" fill="#e03131" />
+				<polygon points="178,82 188,77 184,87" fill="#e03131" />
+				<polygon points="188,118 198,123 192,133" fill="#e03131" />
+				<polygon points="178,148 188,163 178,158" fill="#e03131" />
+				<polygon points="150,175 153,165 147,165" fill="#e03131" />
+				<polygon points="122,148 112,163 122,158" fill="#e03131" />
+				<polygon points="112,118 102,123 108,133" fill="#e03131" />
+				<polygon points="122,82 112,77 118,87" fill="#e03131" />
+			</g>
+
+			<!-- Kladný náboj uprostřed -->
+			<circle cx="150" cy="110" r="15" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="150" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">+</text>
+
+			<!-- Popis -->
+			<text x="150" y="210" text-anchor="middle" font-size="12" fill="#2b2a26">Pole vychází od +</text>
+			<text x="150" y="230" text-anchor="middle" font-size="11" fill="#495057">Čím dál, tím slabší</text>
+		</g>
+
+		<!-- POLE MEZI DVĚMA OPAČNÝMI NÁBOJI (vpravo) -->
+		<g id="pole-mezi">
+			<text x="450" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Mezi opačnými náboji</text>
+
+			<!-- Rovnoběžné siločáry -->
+			<g opacity="0.5">
+				<line x1="380" y1="80" x2="520" y2="80" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="380" y1="105" x2="520" y2="105" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="380" y1="130" x2="520" y2="130" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+				<line x1="380" y1="155" x2="520" y2="155" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+			</g>
+
+			<!-- Šipky směr + → − -->
+			<g>
+				<polygon points="440,78 450,75 450,85" fill="#1971c2" />
+				<polygon points="440,103 450,100 450,110" fill="#1971c2" />
+				<polygon points="440,128 450,125 450,135" fill="#1971c2" />
+				<polygon points="440,153 450,150 450,160" fill="#1971c2" />
+			</g>
+
+			<!-- Kladný náboj (vlevo) -->
+			<circle cx="380" cy="118" r="12" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="380" y="124" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">+</text>
+
+			<!-- Záporný náboj (vpravo) -->
+			<circle cx="520" cy="118" r="12" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<text x="520" y="124" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">−</text>
+
+			<!-- Popis -->
+			<text x="450" y="210" text-anchor="middle" font-size="12" fill="#2b2a26">Homogenní pole</text>
+			<text x="450" y="230" text-anchor="middle" font-size="11" fill="#495057">Rovnoběžné siločáry</text>
+		</g>
+
+		<!-- FARADAYOVA KLEC (dole) -->
+		<g id="faradayova-klec">
+			<rect x="40" y="270" width="520" height="120" rx="8" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />
+
+			<text x="300" y="295" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">
+				⚠️ Faradayova klec — vnější pole se neuplatní uvnitř kovu
+			</text>
+
+			<!-- Auto v bouřce (půl příkladu) -->
+			<g>
+				<rect x="60" y="310" width="80" height="50" rx="4" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" />
+				<circle cx="80" cy="340" r="8" fill="#2b2a26" />
+				<circle cx="100" cy="340" r="8" fill="#2b2a26" />
+				<rect x="70" y="315" width="20" height="15" fill="#a6e3a1" />
+				<text x="100" y="345" text-anchor="middle" font-size="10" fill="#2b2a26">Bezpečne</text>
+			</g>
+
+			<!-- Blesk -->
+			<g>
+				<path d="M 35 310 L 30 330 L 40 340 L 35 360" fill="none" stroke="#FFD700" stroke-width="3" />
+				<text x="20" y="330" text-anchor="middle" font-size="10" fill="#2b2a26">Blesk</text>
+			</g>
+
+			<!-- Mikrovlnná trouba -->
+			<g>
+				<rect x="380" y="310" width="80" height="50" rx="4" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" />
+				<!-- Mřížka -->
+				<line x1="385" y1="320" x2="455" y2="320" stroke="#2b2a26" stroke-width="1" />
+				<line x1="385" y1="330" x2="455" y2="330" stroke="#2b2a26" stroke-width="1" />
+				<line x1="390" y1="315" x2="390" y2="355" stroke="#2b2a26" stroke-width="1" />
+				<line x1="410" y1="315" x2="410" y2="355" stroke="#2b2a26" stroke-width="1" />
+				<line x1="430" y1="315" x2="430" y2="355" stroke="#2b2a26" stroke-width="1" />
+				<line x1="450" y1="315" x2="450" y2="355" stroke="#2b2a26" stroke-width="1" />
+				<circle cx="420" cy="340" r="6" fill="#FFD700" opacity="0.6" />
+				<text x="420" y="380" text-anchor="middle" font-size="10" fill="#2b2a26">Vidíme, tepla ne</text>
+			</g>
+
+			<text x="300" y="420" text-anchor="middle" font-size="10" fill="#495057">
+				Auto: blesk neprochází. Trouba: mikrovlny zůstávají, světlo prochází (vidíme)
+			</text>
+		</g>
+
+		<!-- Informační box -->
+		<rect x="20" y="400" width="560" height="18" rx="4" fill="#fff3bf" stroke="#2b2a26" stroke-width="1" />
+		<text x="300" y="415" text-anchor="middle" font-size="10" font-weight="bold" fill="#2b2a26">
+			Pole působí bez dotyku a bez hmotného prostředku — skrz vakuum
+		</text>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

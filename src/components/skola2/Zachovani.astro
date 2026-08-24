@@ -1,0 +1,111 @@
+---
+// F8 Energetika - Zákony zachování energie
+// SVG komponenta s diagramem transformace energií
+---
+
+<svg 
+  viewBox="0 0 800 600" 
+  xmlns="http://www.w3.org/2000/svg" 
+  class="energy-conservation"
+>
+  <!-- Definice stylů -->
+  <defs>
+    <style>
+      .conservation-bg { fill: #f8fafc; }
+      .energy-box { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+      .energy-arrow { stroke: #6366f1; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .energy-label { font-family: 'Segoe UI', sans-serif; font-size: 16px; fill: #1e293b; font-weight: 600; }
+      .energy-value { font-family: 'Segoe UI', sans-serif; font-size: 14px; fill: #475569; }
+      .energy-title { font-family: 'Segoe UI', sans-serif; font-size: 28px; fill: #0f172a; font-weight: 700; }
+      .energy-subtitle { font-family: 'Segoe UI', sans-serif; font-size: 13px; fill: #64748b; }
+      .transformation-text { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #0284c7; font-weight: 500; }
+      .percentage { font-family: 'Segoe UI', sans-serif; font-size: 18px; fill: #059669; font-weight: 700; }
+      .energy-circle { fill: #bfdbfe; stroke: #0284c7; stroke-width: 2; }
+      .glow { filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.3)); }
+    </style>
+    
+    <!-- Šipka pro spojnice -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#6366f1" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Pozadí -->
+  <rect width="800" height="600" class="conservation-bg" />
+  
+  <!-- Titulek -->
+  <text x="400" y="35" class="energy-title" text-anchor="middle">Zákony Zachování Energie</text>
+  <text x="400" y="60" class="energy-subtitle" text-anchor="middle">Transformace a přenos energie - Zákon o zachování</text>
+  
+  <!-- Levá strana: Mechanická energie -->
+  <g class="glow">
+    <rect x="30" y="100" width="160" height="140" class="energy-box" rx="8" />
+    <text x="110" y="125" class="energy-label" text-anchor="middle">Mechanická</text>
+    <text x="110" y="145" class="energy-label" text-anchor="middle">Energie</text>
+    <text x="110" y="175" class="percentage" text-anchor="middle">E = ½mv²</text>
+    <text x="110" y="200" class="energy-value" text-anchor="middle">Kinetická</text>
+    <text x="110" y="220" class="energy-value" text-anchor="middle">+ Potenciální</text>
+  </g>
+  
+  <!-- Stredová sekce: Transformace -->
+  <path d="M 220 180 Q 320 140, 400 140" class="energy-arrow" />
+  <text x="310" y="130" class="transformation-text" text-anchor="middle">Transformace</text>
+  
+  <!-- Pravá strana: Tepelná energie -->
+  <g class="glow">
+    <rect x="430" y="100" width="160" height="140" class="energy-box" rx="8" />
+    <text x="510" y="125" class="energy-label" text-anchor="middle">Tepelná</text>
+    <text x="510" y="145" class="energy-label" text-anchor="middle">Energie</text>
+    <text x="510" y="175" class="percentage" text-anchor="middle">Q = mcΔT</text>
+    <text x="510" y="200" class="energy-value" text-anchor="middle">Přenesená</text>
+    <text x="510" y="220" class="energy-value" text-anchor="middle">skrz látku</text>
+  </g>
+  
+  <!-- Spodní šipka: Zpět -->
+  <path d="M 400 240 Q 400 320, 400 380" class="energy-arrow" stroke-width="2" />
+  <text x="445" y="315" class="transformation-text" text-anchor="start">Cirkulace</text>
+  
+  <!-- Dolní část: Práce a výkon -->
+  <g class="glow">
+    <rect x="30" y="380" width="340" height="180" class="energy-box" rx="8" />
+    <text x="200" y="410" class="energy-label" text-anchor="middle">Práce a Výkon</text>
+    
+    <!-- Horní řádek -->
+    <circle cx="85" cy="450" r="25" class="energy-circle" />
+    <text x="85" y="460" class="energy-value" text-anchor="middle" font-size="12">W = F·d</text>
+    <text x="85" y="520" class="energy-value" text-anchor="middle" font-size="11">Práce</text>
+    
+    <!-- Střední řádek -->
+    <circle cx="200" cy="450" r="25" class="energy-circle" />
+    <text x="200" y="455" class="energy-value" text-anchor="middle" font-size="12">P = W/t</text>
+    <text x="200" y="520" class="energy-value" text-anchor="middle" font-size="11">Výkon</text>
+    
+    <!-- Pravý řádek -->
+    <circle cx="315" cy="450" r="25" class="energy-circle" />
+    <text x="315" y="460" class="energy-value" text-anchor="middle" font-size="11">E_zach</text>
+    <text x="315" y="520" class="energy-value" text-anchor="middle" font-size="11">Součet konst.</text>
+  </g>
+  
+  <!-- Vzorec zachování -->
+  <g class="glow">
+    <rect x="430" y="380" width="340" height="180" class="energy-box" rx="8" />
+    <text x="600" y="410" class="energy-label" text-anchor="middle">Zákon Zachování Energie</text>
+    
+    <rect x="450" y="440" width="300" height="60" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="5,5" rx="4" />
+    <text x="600" y="465" class="energy-label" text-anchor="middle" font-size="18">E_celk = konst.</text>
+    <text x="600" y="495" class="energy-value" text-anchor="middle">Energie se nemůže vytvořit,</text>
+    <text x="600" y="515" class="energy-value" text-anchor="middle">ani zničit, jen transformovat</text>
+  </g>
+</svg>
+
+<style>
+  .energy-conservation {
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>

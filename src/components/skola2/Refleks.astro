@@ -1,0 +1,81 @@
+---
+// Statická infografika: Odraz/Reflexe
+// Zákon odrazu: úhel dopadu = úhel odrazu
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Odraz světla — zákon odrazu 🪞</span></h2>
+	<p>Když světlo dopadá na lesklý povrch (zrcadlo), <strong>odrazí se pod stejným úhlem, pod kterým dopadlo</strong>.</p>
+	<svg viewBox="0 0 720 360" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="720" height="360" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="360" y="35" text-anchor="middle" class="transform-title">ZÁKON ODRAZU SVĚTLA</text>
+		
+		<!-- Zrcadlo (lesklá plocha) -->
+		<rect x="250" y="80" width="220" height="15" fill="#c0c0c0" stroke="#808080" stroke-width="2" rx="2"/>
+		<text x="360" y="210" text-anchor="middle" class="energy-label" fill="#333">ZRCADLO</text>
+		
+		<!-- Normála (kolmice) -->
+		<line x1="360" y1="80" x2="360" y2="0" stroke="#ccc" stroke-width="1" stroke-dasharray="3 3"/>
+		
+		<!-- Dopadajicí paprsek -->
+		<line x1="280" y1="20" x2="360" y2="95" stroke="#f39c12" stroke-width="3" marker-end="url(#arrowhead)"/>
+		<defs>
+			<marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#f39c12" />
+			</marker>
+		</defs>
+		
+		<!-- Odražený paprsek -->
+		<line x1="360" y1="95" x2="440" y2="20" stroke="#e74c3c" stroke-width="3"/>
+		<polygon points="440,20 437,27 445,25" fill="#e74c3c"/>
+		
+		<!-- Úhly -->
+		<arc x="360" y="95" r="40" start="45" end="90" stroke="#2980b9" stroke-width="1.5" fill="none"/>
+		<text x="330" y="65" font-size="12" font-weight="bold" fill="#2980b9">α</text>
+		
+		<arc x="360" y="95" r="40" start="90" end="135" stroke="#2980b9" stroke-width="1.5" fill="none"/>
+		<text x="390" y="65" font-size="12" font-weight="bold" fill="#2980b9">β</text>
+		
+		<!-- Popis úhlů -->
+		<text x="280" y="150" text-anchor="middle" font-size="11" fill="#333">Úhel dopadu = α</text>
+		<text x="440" y="150" text-anchor="middle" font-size="11" fill="#333">Úhel odrazu = β</text>
+		<text x="360" y="250" text-anchor="middle" class="energy-type" fill="#2980b9" font-weight="bold">α = β</text>
+		
+		<!-- Dolní část - příklady -->
+		<rect x="30" y="280" width="660" height="60" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="40" y="305" class="balance-label"><tspan font-weight="bold">Příklady:</tspan> Zrcadlo, jezero v klidu, lesklý kov — všechny se řídí zákonem odrazu</text>
+		<text x="40" y="325" class="balance-label"><tspan font-weight="bold">Difúzní odraz:</tspan> Papír, stěna — rozptylují světlo všemi směry (nejsou hladké)</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 720px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+</style>

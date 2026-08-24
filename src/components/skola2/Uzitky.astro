@@ -1,0 +1,164 @@
+---
+// F8 Energetika - Aplikace a užitky energie
+// SVG komponenta s diagramem praktických využití energetiky
+---
+
+<svg 
+  viewBox="0 0 800 600" 
+  xmlns="http://www.w3.org/2000/svg" 
+  class="energy-applications"
+>
+  <!-- Definice stylů -->
+  <defs>
+    <style>
+      .app-bg { fill: #f0fdf4; }
+      .app-circle { fill: #dbeafe; stroke: #0284c7; stroke-width: 2; }
+      .app-circle-heat { fill: #fed7aa; stroke: #ea580c; stroke-width: 2; }
+      .app-circle-light { fill: #fef08a; stroke: #eab308; stroke-width: 2; }
+      .app-circle-mech { fill: #d1d5db; stroke: #6b7280; stroke-width: 2; }
+      .app-circle-med { fill: #f3e8ff; stroke: #a855f7; stroke-width: 2; }
+      .app-label { font-family: 'Segoe UI', sans-serif; font-size: 15px; fill: #1e293b; font-weight: 600; }
+      .app-value { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #475569; }
+      .app-title { font-family: 'Segoe UI', sans-serif; font-size: 28px; fill: #0f172a; font-weight: 700; }
+      .app-subtitle { font-family: 'Segoe UI', sans-serif; font-size: 13px; fill: #64748b; }
+      .app-icon { fill: none; stroke-width: 2; }
+      .connection-line { stroke: #cbd5e1; stroke-width: 2; fill: none; }
+      .glow { filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.2)); }
+      .stat-box { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1.5; }
+      .icon-light { fill: #fbbf24; }
+      .icon-heat { fill: #f97316; }
+      .icon-mech { fill: #6b7280; }
+    </style>
+  </defs>
+  
+  <!-- Pozadí -->
+  <rect width="800" height="600" class="app-bg" />
+  
+  <!-- Titulek -->
+  <text x="400" y="35" class="app-title" text-anchor="middle">Aplikace Energie v Praxi</text>
+  <text x="400" y="60" class="app-subtitle" text-anchor="middle">Praktické využití energetiky v každodenním životě</text>
+  
+  <!-- Centrální zdroj energie -->
+  <circle cx="400" cy="120" r="35" fill="#fbbf24" stroke="#d97706" stroke-width="3" />
+  <text x="400" y="125" class="app-label" text-anchor="middle" font-size="22">⚡</text>
+  <text x="400" y="155" class="app-label" text-anchor="middle">ENERGIE</text>
+  
+  <!-- Levá horní část: Teplo -->
+  <line x1="365" y1="145" x2="120" y2="210" class="connection-line" />
+  <g class="glow">
+    <circle cx="85" cy="250" r="55" class="app-circle-heat" />
+    <text x="85" y="240" class="app-label" text-anchor="middle" font-size="24">🔥</text>
+    <text x="85" y="270" class="app-label" text-anchor="middle">Teplo</text>
+    <text x="85" y="290" class="app-value" text-anchor="middle" font-size="10">Vytápění, Ohřev</text>
+  </g>
+  
+  <!-- Levá část: Podrobnosti tepla -->
+  <g class="glow">
+    <rect x="30" y="330" width="150" height="140" class="stat-box" rx="6" />
+    <text x="105" y="355" class="app-label" text-anchor="middle" font-size="13">Tepelné Aplikace</text>
+    
+    <text x="40" y="380" class="app-value" font-weight="700">• Topení domů</text>
+    <text x="45" y="395" class="app-value" font-size="11">Radiátory, podlahové topení</text>
+    
+    <text x="40" y="420" class="app-value" font-weight="700">• Vaření</text>
+    <text x="45" y="435" class="app-value" font-size="11">Elektrické sporáky</text>
+    
+    <text x="40" y="460" class="app-value" font-weight="700">• Průmysl</text>
+    <text x="45" y="475" class="app-value" font-size="11">Ohřev procesů</text>
+  </g>
+  
+  <!-- Horní střed: Světlo -->
+  <line x1="400" y1="155" x2="400" y2="210" class="connection-line" />
+  <g class="glow">
+    <circle cx="400" cy="250" r="55" class="app-circle-light" />
+    <text x="400" y="240" class="app-label" text-anchor="middle" font-size="24">💡</text>
+    <text x="400" y="270" class="app-label" text-anchor="middle">Světlo</text>
+    <text x="400" y="290" class="app-value" text-anchor="middle" font-size="10">Osvětlení</text>
+  </g>
+  
+  <!-- Horní střed: Podrobnosti světla -->
+  <g class="glow">
+    <rect x="325" y="330" width="150" height="140" class="stat-box" rx="6" />
+    <text x="400" y="355" class="app-label" text-anchor="middle" font-size="13">Světelné Aplikace</text>
+    
+    <text x="335" y="380" class="app-value" font-weight="700">• LED osvětlení</text>
+    <text x="340" y="395" class="app-value" font-size="11">Úsporné, dlouhodobé</text>
+    
+    <text x="335" y="420" class="app-value" font-weight="700">• Zářivky</text>
+    <text x="340" y="435" class="app-value" font-size="11">Všeobecné užití</text>
+    
+    <text x="335" y="460" class="app-value" font-weight="700">• Lasery</text>
+    <text x="340" y="475" class="app-value" font-size="11">Medicína, průmysl</text>
+  </g>
+  
+  <!-- Pravá horní část: Mechanika -->
+  <line x1="435" y1="145" x2="680" y2="210" class="connection-line" />
+  <g class="glow">
+    <circle cx="715" cy="250" r="55" class="app-circle-mech" />
+    <text x="715" y="240" class="app-label" text-anchor="middle" font-size="24">⚙️</text>
+    <text x="715" y="270" class="app-label" text-anchor="middle">Mechanika</text>
+    <text x="715" y="290" class="app-value" text-anchor="middle" font-size="10">Pohon</text>
+  </g>
+  
+  <!-- Pravá část: Podrobnosti mechaniky -->
+  <g class="glow">
+    <rect x="620" y="330" width="150" height="140" class="stat-box" rx="6" />
+    <text x="695" y="355" class="app-label" text-anchor="middle" font-size="13">Mechanické Aplikace</text>
+    
+    <text x="630" y="380" class="app-value" font-weight="700">• Motory</text>
+    <text x="635" y="395" class="app-value" font-size="11">DC, AC motory</text>
+    
+    <text x="630" y="420" class="app-value" font-weight="700">• Doprava</text>
+    <text x="635" y="435" class="app-value" font-size="11">Elektromobily</text>
+    
+    <text x="630" y="460" class="app-value" font-weight="700">• Stroje</text>
+    <text x="635" y="475" class="app-value" font-size="11">Průmyslové zařízení</text>
+  </g>
+  
+  <!-- Spodní levá část: Medicína -->
+  <line x1="380" y1="155" x2="200" y2="210" class="connection-line" />
+  <g class="glow">
+    <circle cx="165" cy="250" r="55" class="app-circle-med" />
+    <text x="165" y="245" class="app-label" text-anchor="middle" font-size="24">🏥</text>
+    <text x="165" y="270" class="app-label" text-anchor="middle">Medicína</text>
+    <text x="165" y="290" class="app-value" text-anchor="middle" font-size="10">Zdravotnictví</text>
+  </g>
+  
+  <!-- Spodní střed: Telekomunikace -->
+  <line x1="420" y1="155" x2="600" y2="210" class="connection-line" />
+  <g class="glow">
+    <circle cx="635" cy="250" r="55" class="app-circle" />
+    <text x="635" y="240" class="app-label" text-anchor="middle" font-size="24">📱</text>
+    <text x="635" y="270" class="app-label" text-anchor="middle">Telekomunikace</text>
+    <text x="635" y="290" class="app-value" text-anchor="middle" font-size="10">Komunikace</text>
+  </g>
+  
+  <!-- Dolní řada: Efektivita a trendy -->
+  <g class="glow">
+    <rect x="30" y="490" width="740" height="100" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" rx="8" />
+    
+    <text x="400" y="520" class="app-label" text-anchor="middle" font-size="16">Efektivita a Budoucí Trendy</text>
+    
+    <text x="50" y="550" class="app-value" font-weight="700">✓ Obnovitelné zdroje</text>
+    <text x="170" y="550" class="app-value">Slunce, vítr, voda</text>
+    
+    <text x="430" y="550" class="app-value" font-weight="700">✓ Chytré sítě</text>
+    <text x="540" y="550" class="app-value">Optimalizace spotřeby</text>
+    
+    <text x="50" y="575" class="app-value" font-weight="700">✓ Baterie a akumulátory</text>
+    <text x="280" y="575" class="app-value">Lepší skladování energie</text>
+    
+    <text x="430" y="575" class="app-value" font-weight="700">✓ Vodíková ekonomika</text>
+    <text x="590" y="575" class="app-value">Čistý paliv budoucnosti</text>
+  </g>
+</svg>
+
+<style>
+  .energy-applications {
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>

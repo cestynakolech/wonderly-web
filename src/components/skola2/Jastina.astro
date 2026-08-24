@@ -1,0 +1,200 @@
+---
+// Statická infografika: Elektrické pole (Jastina)
+// Siločáry, přitahování a odpuzování, Faradayova klec
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektrické pole 🌐</span></h2>
+	<p>Pole vzniká kolem nabitého tělesa a působí na jiné tělesa na dálku. <strong>Siločáry</strong> ukazují směr síly.</p>
+	<svg viewBox="0 0 850 550" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="850" height="550" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="425" y="35" text-anchor="middle" class="main-title">ELEKTRICKÉ POLE A SILOČÁRY</text>
+		
+		<!-- ČÁST 1: KLADNÉ TĚLESO -->
+		<g id="positive-field">
+			<text x="150" y="70" text-anchor="middle" class="section-title">KLADNÉ TĚLESO (+)</text>
+			
+			<!-- Kladné těleso -->
+			<circle cx="150" cy="140" r="25" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+			<text x="150" y="150" text-anchor="middle" class="charge-label" fill="white" font-size="20">+</text>
+			
+			<!-- Siločáry z kladného tělesa (radiálně ven) -->
+			<line x1="150" y1="115" x2="150" y2="60" stroke="#e74c3c" stroke-width="2"/>
+			<polygon points="150,58 148,65 152,65" fill="#e74c3c"/>
+			
+			<line x1="175" y1="125" x2="220" y2="80" stroke="#e74c3c" stroke-width="2"/>
+			<polygon points="222,77 216,83 218,89" fill="#e74c3c"/>
+			
+			<line x1="175" y1="155" x2="220" y2="200" stroke="#e74c3c" stroke-width="2"/>
+			<polygon points="222,203 218,197 216,203" fill="#e74c3c"/>
+			
+			<line x1="150" y1="165" x2="150" y2="220" stroke="#e74c3c" stroke-width="2"/>
+			<polygon points="150,222 152,215 148,215" fill="#e74c3c"/>
+			
+			<line x1="125" y1="155" x2="80" y2="200" stroke="#e74c3c" stroke-width="2"/>
+			<polygon points="78,203 84,197 82,203" fill="#e74c3c"/>
+			
+			<line x1="125" y1="125" x2="80" y2="80" stroke="#e74c3c" stroke-width="2"/>
+			<polygon points="78,77 82,83 84,77" fill="#e74c3c"/>
+			
+			<!-- Text -->
+			<text x="150" y="260" text-anchor="middle" class="field-description">Siločáry <strong>vycházejí</strong></text>
+			<text x="150" y="280" text-anchor="middle" class="field-description">z kladného náboje</text>
+		</g>
+		
+		<!-- ČÁST 2: ZÁPORNÉ TĚLESO -->
+		<g id="negative-field">
+			<text x="425" y="70" text-anchor="middle" class="section-title">ZÁPORNÉ TĚLESO (−)</text>
+			
+			<!-- Záporné těleso -->
+			<circle cx="425" cy="140" r="25" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+			<text x="425" y="150" text-anchor="middle" class="charge-label" fill="white" font-size="20">−</text>
+			
+			<!-- Siločáry do záporného tělesa (radiálně dovnitř) -->
+			<line x1="425" y1="115" x2="425" y2="60" stroke="#3498db" stroke-width="2"/>
+			<polygon points="425,62 427,69 423,69" fill="#3498db"/>
+			
+			<line x1="400" y1="125" x2="355" y2="80" stroke="#3498db" stroke-width="2"/>
+			<polygon points="353,77 359,83 361,77" fill="#3498db"/>
+			
+			<line x1="400" y1="155" x2="355" y2="200" stroke="#3498db" stroke-width="2"/>
+			<polygon points="357,203 353,197 351,203" fill="#3498db"/>
+			
+			<line x1="425" y1="165" x2="425" y2="220" stroke="#3498db" stroke-width="2"/>
+			<polygon points="425,222 423,215 427,215" fill="#3498db"/>
+			
+			<line x1="450" y1="155" x2="495" y2="200" stroke="#3498db" stroke-width="2"/>
+			<polygon points="497,203 493,197 491,203" fill="#3498db"/>
+			
+			<line x1="450" y1="125" x2="495" y2="80" stroke="#3498db" stroke-width="2"/>
+			<polygon points="497,77 491,83 493,77" fill="#3498db"/>
+			
+			<!-- Text -->
+			<text x="425" y="260" text-anchor="middle" class="field-description">Siločáry <strong>vstupují</strong></text>
+			<text x="425" y="280" text-anchor="middle" class="field-description">do záporného náboje</text>
+		</g>
+		
+		<!-- ČÁST 3: OBĚ TĚLESA -->
+		<g id="both-bodies">
+			<text x="700" y="70" text-anchor="middle" class="section-title">OPAČNÉ NÁBOJE</text>
+			
+			<!-- Kladné těleso vlevo -->
+			<circle cx="670" cy="140" r="18" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+			<text x="670" y="148" text-anchor="middle" class="charge-label" fill="white" font-size="16">+</text>
+			
+			<!-- Záporné těleso vpravo -->
+			<circle cx="730" cy="140" r="18" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+			<text x="730" y="148" text-anchor="middle" class="charge-label" fill="white" font-size="16">−</text>
+			
+			<!-- Siločáry mezi nimi (přitahování) -->
+			<path d="M 688 135 Q 700 130 712 135" stroke="#9b59b6" stroke-width="2" fill="none"/>
+			<polygon points="714,136 710,130 708,136" fill="#9b59b6"/>
+			
+			<path d="M 688 145 Q 700 150 712 145" stroke="#9b59b6" stroke-width="2" fill="none"/>
+			<polygon points="708,144 710,150 714,144" fill="#9b59b6"/>
+			
+			<!-- Text -->
+			<text x="700" y="185" text-anchor="middle" class="field-description" font-weight="bold">PŘITAHOVÁNÍ</text>
+			<text x="700" y="205" text-anchor="middle" class="field-description" font-size="12">(opačné náboje se přitahují)</text>
+		</g>
+		
+		<!-- SEKCE 4: FARADAYOVA KLEC -->
+		<rect x="35" y="310" width="780" height="210" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="425" y="345" text-anchor="middle" class="section-title">FARADAYOVA KLEC — OCHRANA ELEKTRICKÝM POLEM</text>
+		
+		<!-- Vnější pole -->
+		<g id="outer-field">
+			<text x="140" y="380" text-anchor="middle" class="sub-title">VNĚ KLECE</text>
+			
+			<!-- Siločáry zvenčí (hustě) -->
+			<line x1="110" y1="400" x2="110" y2="460" stroke="#f39c12" stroke-width="2" opacity="0.6"/>
+			<line x1="125" y1="395" x2="125" y2="465" stroke="#f39c12" stroke-width="2" opacity="0.6"/>
+			<line x1="140" y1="393" x2="140" y2="467" stroke="#f39c12" stroke-width="2" opacity="0.6"/>
+			<line x1="155" y1="395" x2="155" y2="465" stroke="#f39c12" stroke-width="2" opacity="0.6"/>
+			<line x1="170" y1="400" x2="170" y2="460" stroke="#f39c12" stroke-width="2" opacity="0.6"/>
+			
+			<!-- Kovová síť klece -->
+			<rect x="110" y="410" width="60" height="40" fill="none" stroke="#333" stroke-width="2"/>
+			<line x1="125" y1="410" x2="125" y2="450" stroke="#333" stroke-width="1"/>
+			<line x1="140" y1="410" x2="140" y2="450" stroke="#333" stroke-width="1"/>
+			<line x1="155" y1="410" x2="155" y2="450" stroke="#333" stroke-width="1"/>
+			<text x="140" y="438" text-anchor="middle" class="detail-text" font-size="10">kov</text>
+		</g>
+		
+		<!-- Vnitřní klece (chráněné) -->
+		<g id="inner-field">
+			<text x="425" y="380" text-anchor="middle" class="sub-title">UVNITŘ KLECE</text>
+			
+			<!-- Bez siločar uvnitř! -->
+			<circle cx="425" cy="430" r="20" fill="#e8f8f5" stroke="#16a085" stroke-width="2" stroke-dasharray="3,3"/>
+			<text x="425" y="437" text-anchor="middle" class="charge-label" fill="#16a085" font-size="18">?</text>
+			
+			<text x="425" y="475" text-anchor="middle" class="detail-text">Bez vnějšího pole</text>
+			<text x="425" y="492" text-anchor="middle" class="detail-text" font-size="11">(elektrony se přesunou na kov)</text>
+		</g>
+		
+		<!-- Příklady -->
+		<g id="examples">
+			<text x="710" y="380" text-anchor="middle" class="sub-title">PŘÍKLADY V PŘÍRODĚ</text>
+			
+			<text x="710" y="405" text-anchor="middle" class="example-item" font-size="12">🚗 Auto v bouřce</text>
+			<text x="710" y="425" text-anchor="middle" class="example-item" font-size="12">✈️ Letadlo</text>
+			<text x="710" y="445" text-anchor="middle" class="example-item" font-size="12">📻 Oплét kabelu</text>
+			<text x="710" y="465" text-anchor="middle" class="example-item" font-size="12">🔥 Mikrovlnná trouba</text>
+			<text x="710" y="488" text-anchor="middle" class="detail-text" font-size="10">Všechny chrání</text>
+			<text x="710" y="503" text-anchor="middle" class="detail-text" font-size="10">elektrickým polem!</text>
+		</g>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 850px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	
+	.main-title {
+		font-size: 18px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.section-title {
+		font-size: 15px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.sub-title {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.charge-label {
+		font-weight: bold;
+	}
+	
+	.field-description {
+		font-size: 12px;
+		fill: #555;
+		font-weight: bold;
+	}
+	
+	.detail-text {
+		font-size: 11px;
+		fill: #666;
+	}
+	
+	.example-item {
+		fill: #2c3e50;
+		font-weight: bold;
+	}
+</style>

@@ -1,0 +1,166 @@
+---
+// Měření proudu a napětí — F8 TOP 5 infografika
+// Komponenta zobrazuje měřidla a jejich umístění v obvodu
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Měření proudu a napětí 📊</span></h2>
+	<p>
+		Elektrický proud měříme <strong>ampérmetrem</strong> (jednotka <strong>ampér, A</strong>), napětí
+		měříme <strong>voltmetrem</strong> (jednotka <strong>volt, V</strong>). Obě měřidla se zapojují
+		<strong>jinak</strong> — to je klíčové pro správné měření.
+	</p>
+
+	<svg viewBox="0 0 600 420" role="img" aria-label="Měření proudu a napětí v obvodu">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="420" fill="#f8f9fa" />
+
+		<!-- MĚŘIDLA (nahoře) -->
+		<g id="meridla">
+			<text x="300" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Analogová měřidla</text>
+
+			<!-- Ampérmetr -->
+			<g>
+				<circle cx="120" cy="80" r="35" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" />
+				<text x="120" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">A</text>
+
+				<!-- Stupnice -->
+				<g opacity="0.5">
+					<line x1="105" y1="50" x2="105" y2="60" stroke="#2b2a26" stroke-width="1" />
+					<line x1="120" y1="45" x2="120" y2="60" stroke="#2b2a26" stroke-width="2" />
+					<line x1="135" y1="50" x2="135" y2="60" stroke="#2b2a26" stroke-width="1" />
+				</g>
+
+				<!-- Ručička -->
+				<line x1="120" y1="80" x2="120" y2="55" stroke="#e03131" stroke-width="2" />
+
+				<text x="120" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Ampérmetr</text>
+				<text x="120" y="140" text-anchor="middle" font-size="9" fill="#495057">Měří proud (A)</text>
+				<text x="120" y="150" text-anchor="middle" font-size="9" fill="#495057">Zapojení: SÉRIOVĚ</text>
+			</g>
+
+			<!-- Voltmetr -->
+			<g>
+				<circle cx="300" cy="80" r="35" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" />
+				<text x="300" y="70" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">V</text>
+
+				<!-- Stupnice -->
+				<g opacity="0.5">
+					<line x1="285" y1="50" x2="285" y2="60" stroke="#2b2a26" stroke-width="1" />
+					<line x1="300" y1="45" x2="300" y2="60" stroke="#2b2a26" stroke-width="2" />
+					<line x1="315" y1="50" x2="315" y2="60" stroke="#2b2a26" stroke-width="1" />
+				</g>
+
+				<!-- Ručička -->
+				<line x1="300" y1="80" x2="310" y2="65" stroke="#1971c2" stroke-width="2" />
+
+				<text x="300" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Voltmetr</text>
+				<text x="300" y="140" text-anchor="middle" font-size="9" fill="#495057">Měří napětí (V)</text>
+				<text x="300" y="150" text-anchor="middle" font-size="9" fill="#495057">Zapojení: PARALELNĚ</text>
+			</g>
+
+			<!-- Multimetr -->
+			<g>
+				<rect x="450" y="45" width="60" height="70" fill="#333" stroke="#2b2a26" stroke-width="2" rx="3" />
+				<!-- Display -->
+				<rect x="460" y="50" width="40" height="20" fill="#0c0c0c" stroke="#2b2a26" stroke-width="1" />
+				<text x="480" y="62" text-anchor="middle" font-size="8" font-weight="bold" fill="#00ff00">12.5V</text>
+
+				<!-- Tlačítka -->
+				<circle cx="465" cy="85" r="3" fill="#ffd700" stroke="#2b2a26" stroke-width="1" />
+				<circle cx="485" cy="85" r="3" fill="#ffd700" stroke="#2b2a26" stroke-width="1" />
+
+				<text x="480" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">Multimetr</text>
+				<text x="480" y="140" text-anchor="middle" font-size="9" fill="#495057">Měří více: V, A, Ω</text>
+				<text x="480" y="150" text-anchor="middle" font-size="9" fill="#495057">Digitální</text>
+			</g>
+		</g>
+
+		<!-- ZAPOJENÍ V OBVODU (uprostřed) -->
+		<g id="zapojeni">
+			<text x="300" y="195" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">Jak se zapojují v obvodu</text>
+
+			<!-- SÉRIOVÉ ZAPOJENÍ (vlevo) -->
+			<g>
+				<text x="140" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Sériové (Ampérmetr)</text>
+
+				<!-- Obvod s ampérmetrem -->
+				<!-- Baterie -->
+				<rect x="100" y="250" width="12" height="30" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" />
+
+				<!-- Vodiče -->
+				<line x1="106" y1="265" x2="130" y2="265" stroke="#2b2a26" stroke-width="2" />
+				<line x1="130" y1="265" x2="130" y2="290" stroke="#2b2a26" stroke-width="2" />
+				<line x1="130" y1="290" x2="170" y2="290" stroke="#2b2a26" stroke-width="2" />
+
+				<!-- Ampérmetr (síť) -->
+				<circle cx="170" cy="280" r="12" fill="#fff" stroke="#e03131" stroke-width="2" />
+				<text x="170" y="285" text-anchor="middle" font-size="10" font-weight="bold" fill="#e03131">A</text>
+
+				<line x1="170" y1="268" x2="170" y2="250" stroke="#2b2a26" stroke-width="2" />
+				<line x1="170" y1="250" x2="100" y2="250" stroke="#2b2a26" stroke-width="2" />
+
+				<text x="140" y="315" text-anchor="middle" font-size="10" fill="#2b2a26">Proud teče skrz</text>
+				<text x="140" y="328" text-anchor="middle" font-size="9" fill="#495057">ampérmetr v řadě</text>
+			</g>
+
+			<!-- PARALELNÍ ZAPOJENÍ (vpravo) -->
+			<g>
+				<text x="460" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Paralelní (Voltmetr)</text>
+
+				<!-- Obvod s voltmetrem -->
+				<!-- Baterie -->
+				<rect x="420" y="250" width="12" height="30" fill="#d4d4d8" stroke="#2b2a26" stroke-width="2" />
+
+				<!-- Vodiče -->
+				<line x1="426" y1="265" x2="450" y2="265" stroke="#2b2a26" stroke-width="2" />
+				<line x1="450" y1="265" x2="450" y2="280" stroke="#2b2a26" stroke-width="2" />
+
+				<!-- Žárovka -->
+				<circle cx="450" cy="290" r="8" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+				<path d="M 446 288 Q 450 284 454 288" fill="none" stroke="#ffd700" stroke-width="1" />
+
+				<line x1="450" y1="298" x2="450" y2="310" stroke="#2b2a26" stroke-width="2" />
+				<line x1="450" y1="310" x2="420" y2="310" stroke="#2b2a26" stroke-width="2" />
+
+				<!-- Voltmetr (paralelně) -->
+				<line x1="490" y1="265" x2="490" y2="300" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+				<circle cx="490" cy="282" r="10" fill="#fff" stroke="#1971c2" stroke-width="2" />
+				<text x="490" y="287" text-anchor="middle" font-size="9" font-weight="bold" fill="#1971c2">V</text>
+
+				<text x="460" y="325" text-anchor="middle" font-size="10" fill="#2b2a26">Voltmetr připojen</text>
+				<text x="460" y="338" text-anchor="middle" font-size="9" fill="#495057">vedle (paralelně)</text>
+			</g>
+		</g>
+
+		<!-- PRAKTICKÝ POKYN (dole) -->
+		<g id="pokyn">
+			<rect x="40" y="360" width="520" height="55" rx="8" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />
+
+			<text x="300" y="380" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">
+				⚠️ Důležitý rozdíl
+			</text>
+
+			<text x="60" y="400" text-anchor="start" font-size="10" fill="#2b2a26">
+				✓ <tspan font-weight="bold">Ampérmetr</tspan> — SÉRIOVĚ (proud skrz něj teče)
+			</text>
+
+			<text x="60" y="415" text-anchor="start" font-size="10" fill="#2b2a26">
+				✓ <tspan font-weight="bold">Voltmetr</tspan> — PARALELNĚ (měří napětí mezi body)
+			</text>
+		</g>
+
+		<!-- Informační box -->
+		<rect x="20" y="420" width="560" height="18" rx="4" fill="#fff3bf" stroke="#2b2a26" stroke-width="1" />
+		<text x="300" y="435" text-anchor="middle" font-size="10" font-weight="bold" fill="#2b2a26">
+			Rozpomenutí: A = ampér (proud), V = volt (napětí), Ω = ohm (odpor)
+		</text>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

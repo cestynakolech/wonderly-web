@@ -1,0 +1,222 @@
+---
+// Statická infografika: Elektrický odpor (Odpor)
+// Ukazuje, na čem závisí odpor vodiče a Ohmův zákon
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Elektrický odpor 🔌</span></h2>
+	<p>Odpor je vlastnost vodiče klást odpor průchodu proudu. Závisí na <strong>délce, tloušťce, materiálu a teplotě</strong> vodiče.</p>
+	<svg viewBox="0 0 850 600" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="850" height="600" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="425" y="35" text-anchor="middle" class="main-title">NA ČEM ZÁVISÍ ELEKTRICKÝ ODPOR?</text>
+		
+		<!-- ČÁST 1: DÉLKA VODIČE -->
+		<g id="length-dependence">
+			<text x="150" y="75" text-anchor="middle" class="factor-title">1. DÉLKA</text>
+			
+			<!-- Krátký vodič -->
+			<g id="short-wire">
+				<rect x="80" y="90" width="80" height="8" fill="#9b59b6" stroke="#663399" stroke-width="1" rx="2"/>
+				<text x="170" y="100" class="wire-label" font-size="11">l = 1 m</text>
+				<text x="170" y="115" class="wire-label" font-size="11">R = 1,6 Ω</text>
+			</g>
+			
+			<!-- Dlouhý vodič -->
+			<g id="long-wire">
+				<rect x="80" y="130" width="160" height="8" fill="#9b59b6" stroke="#663399" stroke-width="1" rx="2"/>
+				<text x="250" y="140" class="wire-label" font-size="11">l = 2 m</text>
+				<text x="250" y="155" class="wire-label" font-size="11">R = 3,2 Ω (2× větší!)</text>
+			</g>
+			
+			<!-- Pravidlo -->
+			<rect x="60" y="175" width="140" height="60" fill="#fff" stroke="#9b59b6" stroke-width="2" rx="3"/>
+			<text x="130" y="195" text-anchor="middle" class="rule-text" font-size="11">Čím <strong>delší</strong></text>
+			<text x="130" y="210" text-anchor="middle" class="rule-text" font-size="11">vodič, tím</text>
+			<text x="130" y="225" text-anchor="middle" class="rule-text" font-size="11"><strong>větší</strong> odpor</text>
+		</g>
+		
+		<!-- ČÁST 2: TLOUŠŤKA VODIČE -->
+		<g id="thickness-dependence">
+			<text x="425" y="75" text-anchor="middle" class="factor-title">2. TLOUŠŤKA (průřez)</text>
+			
+			<!-- Tenký vodič -->
+			<g id="thin-wire">
+				<rect x="380" y="95" width="90" height="5" fill="#e74c3c" stroke="#c0392b" stroke-width="1" rx="1"/>
+				<text x="485" y="105" class="wire-label" font-size="11">tenký</text>
+				<text x="485" y="120" class="wire-label" font-size="11">R = 4,0 Ω</text>
+			</g>
+			
+			<!-- Silnější vodič -->
+			<g id="thick-wire">
+				<rect x="380" y="135" width="90" height="12" fill="#e74c3c" stroke="#c0392b" stroke-width="1" rx="2"/>
+				<text x="485" y="150" class="wire-label" font-size="11">silnější</text>
+				<text x="485" y="165" class="wire-label" font-size="11">R = 1,0 Ω (4× menší!)</text>
+			</g>
+			
+			<!-- Pravidlo -->
+			<rect x="360" y="185" width="140" height="60" fill="#fff" stroke="#e74c3c" stroke-width="2" rx="3"/>
+			<text x="430" y="205" text-anchor="middle" class="rule-text" font-size="11">Čím <strong>tenčí</strong></text>
+			<text x="430" y="220" text-anchor="middle" class="rule-text" font-size="11">vodič, tím</text>
+			<text x="430" y="235" text-anchor="middle" class="rule-text" font-size="11"><strong>větší</strong> odpor</text>
+		</g>
+		
+		<!-- ČÁST 3: MATERIÁL VODIČE -->
+		<g id="material-dependence">
+			<text x="700" y="75" text-anchor="middle" class="factor-title">3. MATERIÁL</text>
+			
+			<!-- Tabulka materiálů -->
+			<rect x="630" y="90" width="140" height="165" fill="#fff" stroke="#27ae60" stroke-width="2" rx="3"/>
+			
+			<!-- Hlavička -->
+			<rect x="630" y="90" width="140" height="20" fill="#27ae60"/>
+			<text x="700" y="105" text-anchor="middle" class="table-header" fill="white" font-size="10">Měrný odpor</text>
+			
+			<!-- Řádky -->
+			<line x1="630" y1="110" x2="770" y2="110" stroke="#ecf0f1" stroke-width="1"/>
+			
+			<text x="640" y="124" class="material-text" font-size="10">Stříbro</text>
+			<text x="750" y="124" text-anchor="end" class="material-value" font-size="9">0,016</text>
+			
+			<text x="640" y="141" class="material-text" font-size="10">Měď ✓</text>
+			<text x="750" y="141" text-anchor="end" class="material-value" font-size="9">0,018</text>
+			
+			<text x="640" y="158" class="material-text" font-size="10">Hliník</text>
+			<text x="750" y="158" text-anchor="end" class="material-value" font-size="9">0,028</text>
+			
+			<line x1="630" y1="165" x2="770" y2="165" stroke="#ecf0f1" stroke-width="1"/>
+			
+			<text x="640" y="182" class="material-text" font-size="10">Nichrom!</text>
+			<text x="750" y="182" text-anchor="end" class="material-value" font-size="9">1,1</text>
+			
+			<!-- Legenda -->
+			<text x="700" y="215" text-anchor="middle" class="material-note" font-size="9">(Ω·mm²/m)</text>
+			<text x="700" y="235" text-anchor="middle" class="material-note" font-size="9">Nichrom se zahřívá!</text>
+			<text x="700" y="250" text-anchor="middle" class="material-note" font-size="8">(topné spirály)</text>
+		</g>
+		
+		<!-- ČÁST 4: TEPLOTA -->
+		<g id="temperature-dependence">
+			<text x="150" y="275" text-anchor="middle" class="factor-title">4. TEPLOTA</text>
+			
+			<!-- Studený vodič -->
+			<g id="cold-wire">
+				<rect x="80" y="295" width="120" height="10" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="3"/>
+				<text x="190" y="310" class="wire-label" font-size="11">T = 20 °C</text>
+				<text x="190" y="325" class="wire-label" font-size="11">R = 50 Ω</text>
+			</g>
+			
+			<!-- Teplý vodič -->
+			<g id="hot-wire">
+				<rect x="80" y="345" width="130" height="10" fill="#e74c3c" stroke="#c0392b" stroke-width="2" rx="3"/>
+				<text x="210" y="360" class="wire-label" font-size="11">T = 100 °C</text>
+				<text x="210" y="375" class="wire-label" font-size="11">R = 60 Ω (větší!)</text>
+			</g>
+			
+			<!-- Pravidlo -->
+			<rect x="60" y="395" width="140" height="60" fill="#fff" stroke="#3498db" stroke-width="2" rx="3"/>
+			<text x="130" y="415" text-anchor="middle" class="rule-text" font-size="11">Čím <strong>vyšší</strong></text>
+			<text x="130" y="430" text-anchor="middle" class="rule-text" font-size="11">teplota, tím</text>
+			<text x="130" y="445" text-anchor="middle" class="rule-text" font-size="11"><strong>větší</strong> odpor</text>
+		</g>
+		
+		<!-- SEKCE: OHMŮV ZÁKON -->
+		<rect x="40" y="480" width="770" height="100" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="425" y="510" text-anchor="middle" class="section-title">OHMŮV ZÁKON — VZTAH NAPĚTÍ, PROUDU A ODPORU</text>
+		
+		<!-- Formule -->
+		<text x="100" y="545" class="formula-label" font-size="13"><strong>Vzorce:</strong></text>
+		<text x="100" y="565" class="formula" font-size="14"><strong>I = U / R</strong>  (proud)</text>
+		<text x="280" y="565" class="formula" font-size="14"><strong>U = R · I</strong>  (napětí)</text>
+		<text x="480" y="565" class="formula" font-size="14"><strong>R = U / I</strong>  (odpor)</text>
+		
+		<!-- Příklad -->
+		<rect x="100" y="570" width="650" height="25" fill="#fff" stroke="#2c3e50" stroke-width="1" rx="3"/>
+		<text x="110" y="589" class="example-text" font-size="11">Příklad: napětí 10 V, proud 0,5 A  →  odpor R = 10 / 0,5 = <strong>20 Ω</strong></text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 850px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	
+	.main-title {
+		font-size: 18px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	
+	.factor-title {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #2c3e50;
+		text-anchor: middle;
+	}
+	
+	.wire-label {
+		font-size: 11px;
+		fill: #555;
+		font-weight: bold;
+	}
+	
+	.rule-text {
+		font-size: 11px;
+		fill: #2c3e50;
+		font-weight: bold;
+		text-anchor: middle;
+	}
+	
+	.table-header {
+		font-size: 11px;
+		font-weight: bold;
+	}
+	
+	.material-text {
+		font-size: 11px;
+		fill: #2c3e50;
+		font-weight: bold;
+	}
+	
+	.material-value {
+		font-size: 10px;
+		fill: #666;
+		font-weight: bold;
+	}
+	
+	.material-note {
+		font-size: 9px;
+		fill: #666;
+		text-anchor: middle;
+	}
+	
+	.section-title {
+		font-size: 15px;
+		font-weight: bold;
+		fill: #2c3e50;
+		text-anchor: middle;
+	}
+	
+	.formula-label {
+		fill: #2c3e50;
+		font-weight: bold;
+	}
+	
+	.formula {
+		fill: #e74c3c;
+		font-weight: bold;
+		text-anchor: start;
+	}
+	
+	.example-text {
+		fill: #2c3e50;
+		font-weight: bold;
+	}
+</style>

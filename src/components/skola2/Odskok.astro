@@ -1,0 +1,82 @@
+---
+// Statická infografika: Odskok/Elastická srážka
+// Pružná srážka — dokonalá odrazu energie
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Pružná srážka — odskok 🏀</span></h2>
+	<p>V <strong>pružné srážce</strong> se předá veškerá energie; míč odskočí přesně tak rychle, jak do země dopadl (ignorujeme vzduch).</p>
+	<svg viewBox="0 0 700 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="700" height="380" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="350" y="35" text-anchor="middle" class="transform-title">ELASTICKÁ SRÁŽKA — ODSKOK</text>
+		
+		<!-- Horní část: Pád -->
+		<text x="100" y="65" class="energy-type">1. PÁD</text>
+		<circle cx="100" cy="100" r="20" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+		<text x="100" y="105" text-anchor="middle" font-size="11" fill="white" font-weight="bold">m</text>
+		
+		<!-- Šipka dolů -->
+		<path d="M 100 120 L 100 160" stroke="#333" stroke-width="2"/>
+		<path d="M 95 155 L 100 170 L 105 155" fill="#333"/>
+		
+		<!-- Energie -->
+		<text x="100" y="190" text-anchor="middle" font-size="11" fill="#333">Ek = mgh</text>
+		<text x="100" y="210" text-anchor="middle" font-size="10" fill="#555">(všechna rovina)</text>
+		
+		<!-- Střední část: Dopad a odskok -->
+		<rect x="50" y="240" width="100" height="15" fill="#8b4513" stroke="#654321" stroke-width="2"/>
+		<text x="100" y="270" text-anchor="middle" class="energy-label">ODSKOK</text>
+		
+		<!-- Horní část: Odskok -->
+		<text x="500" y="65" class="energy-type">2. ODSKOK</text>
+		<circle cx="500" cy="100" r="20" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+		<text x="500" y="105" text-anchor="middle" font-size="11" fill="white" font-weight="bold">m</text>
+		
+		<!-- Šipka nahoru -->
+		<path d="M 500 80 L 500 20" stroke="#333" stroke-width="2"/>
+		<path d="M 495 25 L 500 10 L 505 25" fill="#333"/>
+		
+		<!-- Energie -->
+		<text x="500" y="190" text-anchor="middle" font-size="11" fill="#333">Ek' = mgh</text>
+		<text x="500" y="210" text-anchor="middle" font-size="10" fill="#555">(veškerá rovina)</text>
+		
+		<!-- Dolní část - srovnání -->
+		<rect x="40" y="300" width="620" height="60" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="50" y="325" class="balance-label"><tspan font-weight="bold">Dopad:</tspan> v = √(2gh) → Ek = mgh</text>
+		<text x="50" y="345" class="balance-label"><tspan font-weight="bold">Odskok (pružný):</tspan> míč se vrátí stejně vysoko — v' = v, h' = h</text>
+		<text x="350" y="325" class="balance-label"><tspan font-weight="bold">Realita:</tspan> trenie + zvuk → energie se ztrácí</text>
+		<text x="350" y="345" class="balance-label"><tspan font-weight="bold">Míč klesá:</tspan> h' &lt; h (odskok je nižší)</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 700px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+</style>

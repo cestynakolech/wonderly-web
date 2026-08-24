@@ -1,0 +1,137 @@
+---
+// F8 Energetika - Fotovoltaika a sluneční články
+// SVG komponenta s diagramem fotovoltaického článku
+---
+
+<svg 
+  viewBox="0 0 800 600" 
+  xmlns="http://www.w3.org/2000/svg" 
+  class="photovoltaic"
+>
+  <!-- Definice stylů -->
+  <defs>
+    <style>
+      .pv-bg { fill: #fffbeb; }
+      .pv-cell { fill: #fef3c7; stroke: #d97706; stroke-width: 2; }
+      .pv-layer { fill: none; stroke: #ea580c; stroke-width: 2; }
+      .pv-electron { r: 3; fill: #dc2626; }
+      .pv-label { font-family: 'Segoe UI', sans-serif; font-size: 16px; fill: #1f2937; font-weight: 600; }
+      .pv-value { font-family: 'Segoe UI', sans-serif; font-size: 13px; fill: #4b5563; }
+      .pv-title { font-family: 'Segoe UI', sans-serif; font-size: 28px; fill: #0f172a; font-weight: 700; }
+      .pv-subtitle { font-family: 'Segoe UI', sans-serif; font-size: 13px; fill: #64748b; }
+      .sun-rays { stroke: #fbbf24; stroke-width: 2.5; fill: none; }
+      .efficiency-box { fill: #fcd34d; stroke: #d97706; stroke-width: 2; }
+      .output-box { fill: #86efac; stroke: #16a34a; stroke-width: 2; }
+      .glow { filter: drop-shadow(0 0 8px rgba(217, 119, 6, 0.25)); }
+      .sun { fill: #fcd34d; filter: drop-shadow(0 0 12px rgba(252, 211, 77, 0.6)); }
+    </style>
+  </defs>
+  
+  <!-- Pozadí -->
+  <rect width="800" height="600" class="pv-bg" />
+  
+  <!-- Titulek -->
+  <text x="400" y="35" class="pv-title" text-anchor="middle">Fotovoltaika - Sluneční Články</text>
+  <text x="400" y="60" class="pv-subtitle" text-anchor="middle">Přeměna světelné energie na elektrickou</text>
+  
+  <!-- Slunce v rohu -->
+  <circle cx="700" cy="80" r="30" class="sun" />
+  <line x1="700" y1="35" x2="700" y2="10" class="sun-rays" />
+  <line x1="745" y1="80" x2="770" y2="80" class="sun-rays" />
+  <line x1="733" y1="47" x2="752" y2="28" class="sun-rays" />
+  <line x1="733" y1="113" x2="752" y2="132" class="sun-rays" />
+  
+  <!-- Paprsky slunce na panel -->
+  <g class="sun-rays">
+    <line x1="680" y1="120" x2="550" y2="150" stroke-dasharray="3,3" />
+    <line x1="700" y1="120" x2="600" y2="170" stroke-dasharray="3,3" />
+    <line x1="720" y1="120" x2="650" y2="180" stroke-dasharray="3,3" />
+  </g>
+  
+  <!-- Levá strana: Struktura solárního článku -->
+  <g class="glow">
+    <!-- Vnější rámec -->
+    <rect x="30" y="120" width="280" height="350" class="pv-cell" rx="8" />
+    
+    <!-- Titulek sekce -->
+    <text x="170" y="150" class="pv-label" text-anchor="middle">Struktura Solárního Článku</text>
+    
+    <!-- Vrstva 1: Přední kontakt -->
+    <rect x="50" y="170" width="240" height="25" class="pv-layer" />
+    <text x="60" y="190" class="pv-value" font-size="11">Přední kontakt (Au/Ag)</text>
+    
+    <!-- Vrstva 2: Antireflexní pokrytí -->
+    <rect x="50" y="200" width="240" height="20" class="pv-layer" />
+    <text x="60" y="215" class="pv-value" font-size="11">Antireflexní vrstva</text>
+    
+    <!-- Vrstva 3: Emisor (N-vrstva) -->
+    <rect x="50" y="225" width="240" height="30" fill="#fecaca" stroke="#dc2626" stroke-width="2" />
+    <text x="60" y="245" class="pv-value" font-size="11">N-vrstva (Fosforem legovaný Si)</text>
+    <circle cx="270" cy="235" r="2" class="pv-electron" />
+    <circle cx="280" cy="240" r="2" class="pv-electron" />
+    
+    <!-- Vrstva 4: PN přechod -->
+    <line x1="50" y1="260" x2="290" y2="260" stroke="#ea580c" stroke-width="3" stroke-dasharray="5,3" />
+    <text x="60" y="280" class="pv-value" font-size="10" font-weight="700">PN Přechod</text>
+    
+    <!-- Vrstva 5: Báze (P-vrstva) -->
+    <rect x="50" y="290" width="240" height="40" fill="#bfdbfe" stroke="#0284c7" stroke-width="2" />
+    <text x="60" y="320" class="pv-value" font-size="11">P-vrstva (Borem legovaný Si)</text>
+    
+    <!-- Vrstva 6: Zadní kontakt -->
+    <rect x="50" y="335" width="240" height="25" class="pv-layer" />
+    <text x="60" y="355" class="pv-value" font-size="11">Zadní kontakt (Al)</text>
+    
+    <!-- Výstupní svorky -->
+    <circle cx="50" cy="375" r="6" fill="#ea580c" />
+    <text x="35" y="380" class="pv-value" text-anchor="end" font-size="11">-</text>
+    
+    <circle cx="290" cy="375" r="6" fill="#ea580c" />
+    <text x="305" y="380" class="pv-value" font-size="11">+</text>
+  </g>
+  
+  <!-- Pravá strana: Charakteristiky a výkon -->
+  <g class="glow">
+    <!-- Rámec 1: Fyzikální princip -->
+    <rect x="370" y="120" width="400" height="160" class="efficiency-box" rx="8" />
+    <text x="570" y="150" class="pv-label" text-anchor="middle">Fyzikální Princip</text>
+    
+    <text x="385" y="180" class="pv-value" font-weight="700">1. Absorpce fotonů</text>
+    <text x="395" y="195" class="pv-value" font-size="12">Fotony přenášejí energii e = h·f</text>
+    
+    <text x="385" y="220" class="pv-value" font-weight="700">2. Generace nositelů náboje</text>
+    <text x="395" y="235" class="pv-value" font-size="12">Elektrony-díry páry vznikají v Si</text>
+    
+    <text x="385" y="260" class="pv-value" font-weight="700">3. Separace nábojů</text>
+    <text x="395" y="275" class="pv-value" font-size="12">PN přechod oddělí + a - částice</text>
+    
+    <!-- Rámec 2: Parametry -->
+    <rect x="370" y="310" width="400" height="160" class="output-box" rx="8" />
+    <text x="570" y="340" class="pv-label" text-anchor="middle">Elektrické Parametry</text>
+    
+    <circle cx="395" cy="385" r="18" fill="none" stroke="#16a34a" stroke-width="2" />
+    <text x="395" y="390" class="pv-value" text-anchor="middle" font-size="14" font-weight="700">Voc</text>
+    <text x="395" y="420" class="pv-value" text-anchor="middle" font-size="11">Napětí naprázdno</text>
+    <text x="395" y="435" class="pv-value" text-anchor="middle" font-size="10">0.6-0.8V</text>
+    
+    <circle cx="570" cy="385" r="18" fill="none" stroke="#16a34a" stroke-width="2" />
+    <text x="570" y="390" class="pv-value" text-anchor="middle" font-size="14" font-weight="700">Isc</text>
+    <text x="570" y="420" class="pv-value" text-anchor="middle" font-size="11">Proud nakrátko</text>
+    <text x="570" y="435" class="pv-value" text-anchor="middle" font-size="10">~40A/m²</text>
+    
+    <circle cx="745" cy="385" r="18" fill="none" stroke="#16a34a" stroke-width="2" />
+    <text x="745" y="390" class="pv-value" text-anchor="middle" font-size="14" font-weight="700">η</text>
+    <text x="745" y="420" class="pv-value" text-anchor="middle" font-size="11">Účinnost</text>
+    <text x="745" y="435" class="pv-value" text-anchor="middle" font-size="10">15-22%</text>
+  </g>
+</svg>
+
+<style>
+  .photovoltaic {
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>

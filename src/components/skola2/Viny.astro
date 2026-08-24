@@ -1,0 +1,160 @@
+---
+// Magnetické jevy v přírodě a technologiích — F9 pokročilé
+// Příklady viny: migrace zvířat, polární záře, technologie
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Magnetické jevy kolem nás 🌍🔬</span></h2>
+	<p>
+		Magnetismus není jen fyzikální jev — je všude kolem nás! V přírodě a technologiích vidíme
+		jeho účinky od migrace ptáků přes polární záře až po moderní elektromobily.
+	</p>
+
+	<svg viewBox="0 0 900 600" role="img" aria-label="Magnetické jevy v přírodě a technologiích">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="900" height="600" fill="#f8f9fa" />
+
+		<!-- Nadpis -->
+		<text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">
+			Magnetické jevy v přírodě a technologiích
+		</text>
+
+		<!-- ČÁST 1: PŘÍRODNÍ JEVY (vlevo) -->
+		<g id="priroda">
+			<rect x="20" y="60" width="420" height="510" rx="8" fill="#e6fcf5" stroke="#12b886" stroke-width="2" />
+
+			<text x="230" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#12b886">
+				Magnetismus v přírodě
+			</text>
+
+			<!-- 1. Magnetické pole Země -->
+			<g id="zeme">
+				<circle cx="100" cy="150" r="30" fill="#87ceeb" stroke="#12b886" stroke-width="2" />
+				<path d="M 70 150 Q 50 120 50 90" fill="none" stroke="#12b886" stroke-width="2" marker-end="url(#arrow-green)" />
+				<path d="M 130 150 Q 150 180 150 210" fill="none" stroke="#12b886" stroke-width="2" marker-end="url(#arrow-green)" />
+
+				<text x="100" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Země</text>
+
+				<text x="200" y="140" font-size="12" font-weight="bold" fill="#12b886">Magnetické pole Země</text>
+				<text x="200" y="160" font-size="10" fill="#2b2a26">• Vzniká v jádru (tekuté železo)</text>
+				<text x="200" y="178" font-size="10" fill="#2b2a26">• Chrání Before slunečního větru</text>
+				<text x="200" y="196" font-size="10" fill="#2b2a26">• Umožňuje přežití života</text>
+			</g>
+
+			<!-- 2. Migrace zvířat -->
+			<g id="migrace">
+				<circle cx="100" cy="265" r="10" fill="#e03131" />
+				<circle cx="90" cy="250" r="8" fill="#e03131" />
+				<circle cx="110" cy="250" r="8" fill="#e03131" />
+				<path d="M 85 260 L 70 270" stroke="#e03131" stroke-width="1" />
+				<path d="M 115 260 L 130 270" stroke="#e03131" stroke-width="1" />
+
+				<text x="200" y="255" font-size="12" font-weight="bold" fill="#12b886">Migrace ptáků a živočichů</text>
+				<text x="200" y="273" font-size="10" fill="#2b2a26">• Ptáci orientují se pomocí B₀</text>
+				<text x="200" y="291" font-size="10" fill="#2b2a26">• Mají magnetoreceptory (kompas)</text>
+				<text x="200" y="309" font-size="10" fill="#2b2a26">• Létají na tisíce km přesně</text>
+			</g>
+
+			<!-- 3. Polární záře -->
+			<g id="zare">
+				<!-- Země -->
+				<circle cx="100" cy="390" r="25" fill="#1a365d" stroke="#12b886" stroke-width="2" />
+
+				<!-- Polární záře -->
+				<path d="M 70 370 Q 80 350 100 345 Q 120 350 130 370" fill="#76c93d" opacity="0.6" />
+				<path d="M 65 375 Q 80 355 100 340 Q 120 355 135 375" fill="#76c93d" opacity="0.4" />
+
+				<text x="200" y="380" font-size="12" font-weight="bold" fill="#12b886">Polární záře (Aurora)</text>
+				<text x="200" y="398" font-size="10" fill="#2b2a26">• Sluneční vítr = nabité částice</text>
+				<text x="200" y="416" font-size="10" fill="#2b2a26">• Zachycuje je magnetosféra</text>
+				<text x="200" y="434" font-size="10" fill="#2b2a26">• Ionizují atmosféru → viditelné světlo</text>
+			</g>
+
+			<!-- 4. Magnetické bakterie -->
+			<g id="bakterie">
+				<circle cx="90" cy="515" r="5" fill="#e03131" />
+				<rect x="75" y="505" width="30" height="20" fill="none" stroke="#e03131" stroke-width="1" rx="2" />
+				<circle cx="85" cy="515" r="2" fill="#e03131" />
+				<circle cx="95" cy="515" r="2" fill="#e03131" />
+
+				<text x="200" y="505" font-size="12" font-weight="bold" fill="#12b886">Magnetotaktické bakterie</text>
+				<text x="200" y="523" font-size="10" fill="#2b2a26">• Obsahují částice magnetitu (Fe₃O₄)</text>
+				<text x="200" y="541" font-size="10" fill="#2b2a26">• Orientují se v magnetickém poli</text>
+				<text x="200" y="559" font-size="10" fill="#2b2a26">• Hledají ideální podmínky v půdě</text>
+			</g>
+		</g>
+
+		<!-- ČÁST 2: TECHNOLOGICKÉ APLIKACE (vpravo) -->
+		<g id="technologie">
+			<rect x="460" y="60" width="420" height="510" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+
+			<text x="670" y="90" text-anchor="middle" font-size="15" font-weight="bold" fill="#d97706">
+				Technologické aplikace
+			</text>
+
+			<!-- 1. Elektromobily (motor) -->
+			<g id="motor">
+				<circle cx="540" cy="150" r="25" fill="none" stroke="#d97706" stroke-width="2" />
+				<rect x="530" y="140" width="20" height="20" fill="#d97706" />
+				<path d="M 565 150 L 590 150" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-orange)" />
+
+				<text x="680" y="140" font-size="12" font-weight="bold" fill="#d97706">Elektromotory</text>
+				<text x="680" y="158" font-size="10" fill="#2b2a26">• Elektromobily (EV motory)</text>
+				<text x="680" y="176" font-size="10" fill="#2b2a26">• Interakce: I × B = síla</text>
+				<text x="680" y="194" font-size="10" fill="#2b2a26">• Velmi účinné (95%+ účinnost)</text>
+			</g>
+
+			<!-- 2. Magnetické brzdy -->
+			<g id="brzdy">
+				<rect x="520" y="250" width="50" height="35" fill="#d97706" stroke="#2b2a26" stroke-width="1" rx="2" />
+				<text x="545" y="273" text-anchor="middle" font-size="9" fill="#fff">Brzdový</text>
+				<text x="545" y="285" text-anchor="middle" font-size="9" fill="#fff">magnet</text>
+
+				<text x="680" y="260" font-size="12" font-weight="bold" fill="#d97706">Elektromagnetické brzdy</text>
+				<text x="680" y="278" font-size="10" fill="#2b2a26">• Vlaky (Maglev, brzdy)</text>
+				<text x="680" y="296" font-size="10" fill="#2b2a26">• Bezstykové brzdění (bezpečnější)</text>
+				<text x="680" y="314" font-size="10" fill="#2b2a26">• Eddy proudy = brzdící síla</text>
+			</g>
+
+			<!-- 3. Medicína (MRI) -->
+			<g id="medi">
+				<rect x="520" y="360" width="50" height="40" fill="none" stroke="#d97706" stroke-width="2" rx="2" />
+				<circle cx="545" cy="380" r="12" fill="#d97706" opacity="0.3" />
+				<text x="545" y="385" text-anchor="middle" font-size="9" fill="#2b2a26">MRI</text>
+
+				<text x="680" y="370" font-size="12" font-weight="bold" fill="#d97706">Medicína (MRI skenery)</text>
+				<text x="680" y="388" font-size="10" fill="#2b2a26">• Bezpečné zobrazení bez RTG</text>
+				<text x="680" y="406" font-size="10" fill="#2b2a26">• Vysoké magnetické pole (3-7 T)</text>
+				<text x="680" y="424" font-size="10" fill="#2b2a26">• Diagnóza nádorů, mozku, srdce</text>
+			</g>
+
+			<!-- 4. Technologie (RFID, hovězí) -->
+			<g id="rfid">
+				<circle cx="540" cy="500" r="15" fill="none" stroke="#d97706" stroke-width="2" />
+				<rect x="538" y="495" width="4" height="10" fill="#d97706" />
+
+				<text x="680" y="490" font-size="12" font-weight="bold" fill="#d97706">RFID a bezdrátové nabíjení</text>
+				<text x="680" y="508" font-size="10" fill="#2b2a26">• RFID čipy v kartách, pasech</text>
+				<text x="680" y="526" font-size="10" fill="#2b2a26">• Bezdrátové nabíjení telefonů</text>
+				<text x="680" y="544" font-size="10" fill="#2b2a26">• Indukční vazba (transformátor)</text>
+			</g>
+		</g>
+
+		<!-- SVG markery -->
+		<defs>
+			<marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#12b886" />
+			</marker>
+			<marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#d97706" />
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 900px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

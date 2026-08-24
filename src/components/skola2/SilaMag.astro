@@ -1,0 +1,134 @@
+---
+// Magnetická síla a její vzorce — F9 pokročilé
+// Vznik a výpočet magnetické síly mezi magnety
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Magnetická síla a Coulombův zákon 📏</span></h2>
+	<p>
+		Magnetická síla mezi dvěma magnety se řídí <strong>Coulombovým zákonem</strong> podobně jako elektrostatická síla.
+		Síla závisí na <strong>magnetických nábojích</strong> (pólech) a <strong>vzdálenosti</strong>.
+	</p>
+
+	<svg viewBox="0 0 800 500" role="img" aria-label="Magnetická síla a její vzorce">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="800" height="500" fill="#f8f9fa" />
+
+		<!-- Nadpis -->
+		<text x="400" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">
+			Magnetická síla a Coulombův zákon
+		</text>
+
+		<!-- Část 1: Vzorec (vlevo nahoře) -->
+		<g id="vzorec">
+			<rect x="30" y="60" width="350" height="180" rx="8" fill="#e7f5ff" stroke="#0284c7" stroke-width="2" />
+
+			<text x="50" y="90" font-size="14" font-weight="bold" fill="#0284c7">Coulombův zákon pro magnetismus:</text>
+
+			<!-- Matematika -->
+			<text x="50" y="125" font-size="13" fill="#2b2a26" font-family="monospace">F = k × (q₁ × q₂) / r²</text>
+
+			<!-- Vysvětlení -->
+			<text x="50" y="155" font-size="11" fill="#2b2a26">F = magnetická síla [N]</text>
+			<text x="50" y="175" font-size="11" fill="#2b2a26">k = Coulombova konstanta ≈ 10⁻⁷ H/m</text>
+			<text x="50" y="195" font-size="11" fill="#2b2a26">q₁, q₂ = magnetické "náboje" (póly) [Wb]</text>
+			<text x="50" y="215" font-size="11" fill="#2b2a26">r = vzdálenost pólů [m]</text>
+		</g>
+
+		<!-- Část 2: Přitažlivá síla (vpravo nahoře) -->
+		<g id="pritahy">
+			<rect x="420" y="60" width="350" height="180" rx="8" fill="#ffe0e0" stroke="#c92a2a" stroke-width="2" />
+
+			<text x="440" y="90" font-size="14" font-weight="bold" fill="#c92a2a">Přitažlivá síla (N ≠ S):</text>
+
+			<!-- Dva magnety -->
+			<rect x="450" y="115" width="50" height="40" rx="3" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="475" y="138" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">N</text>
+
+			<rect x="560" y="115" width="50" height="40" rx="3" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+			<text x="585" y="138" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">S</text>
+
+			<!-- Šipky (síly) -->
+			<path d="M 510 135 L 540 135" stroke="#e03131" stroke-width="3" marker-end="url(#arrow-red)" />
+			<path d="M 550 135 L 520 135" stroke="#1971c2" stroke-width="3" marker-end="url(#arrow-blue)" />
+
+			<text x="530" y="160" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b2a26">F</text>
+
+			<!-- Poznámka -->
+			<text x="440" y="190" font-size="11" fill="#2b2a26">→ Síla je nepřímo úměrná r²</text>
+			<text x="440" y="210" font-size="11" fill="#2b2a26">→ S menší vzdáleností roste síla</text>
+		</g>
+
+		<!-- Část 3: Odpudivá síla (vlevo dole) -->
+		<g id="odpudy">
+			<rect x="30" y="270" width="350" height="200" rx="8" fill="#fff3e0" stroke="#f76707" stroke-width="2" />
+
+			<text x="50" y="300" font-size="14" font-weight="bold" fill="#f76707">Odpudivá síla (N = N nebo S = S):</text>
+
+			<!-- Dva magnety (stejné póly) -->
+			<rect x="70" y="320" width="50" height="40" rx="3" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="95" y="343" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">N</text>
+
+			<rect x="290" y="320" width="50" height="40" rx="3" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			<text x="315" y="343" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">N</text>
+
+			<!-- Šipky (odpuzování) -->
+			<path d="M 130 340 L 270 340" stroke="#f76707" stroke-width="3" marker-end="url(#arrow-orange)" />
+			<path d="M 280 340 L 140 340" stroke="#f76707" stroke-width="3" marker-end="url(#arrow-orange)" />
+
+			<!-- Poznámka -->
+			<text x="50" y="395" font-size="11" fill="#2b2a26">→ Stejné póly se vždy odpuzují</text>
+			<text x="50" y="415" font-size="11" fill="#2b2a26">→ Vzniká odpudivá síla F</text>
+			<text x="50" y="435" font-size="11" fill="#2b2a26">→ Důsledek: magnetické pole se nevytváří</text>
+		</g>
+
+		<!-- Část 4: Pokles síly s vzdáleností (vpravo dole) -->
+		<g id="pokles">
+			<rect x="420" y="270" width="350" height="200" rx="8" fill="#e6fcf5" stroke="#12b886" stroke-width="2" />
+
+			<text x="440" y="300" font-size="14" font-weight="bold" fill="#12b886">Závislost síly na vzdálenosti:</text>
+
+			<!-- Graf -->
+			<svg x="430" y="310" width="330" height="140" viewBox="0 0 200 100">
+				<!-- Osy -->
+				<line x1="20" y1="90" x2="190" y2="90" stroke="#2b2a26" stroke-width="1" />
+				<line x1="20" y1="10" x2="20" y2="90" stroke="#2b2a26" stroke-width="1" />
+
+				<!-- Síta na osách -->
+				<text x="15" y="100" font-size="10" fill="#2b2a26">0</text>
+				<text x="180" y="100" font-size="10" fill="#2b2a26">r</text>
+				<text x="0" y="15" font-size="10" fill="#2b2a26">F</text>
+
+				<!-- Hyperbola (1/r²) -->
+				<path d="M 20 20 Q 50 60 100 82 Q 130 88 160 92" 
+					  fill="none" stroke="#e03131" stroke-width="2" />
+
+				<!-- Popis -->
+				<text x="70" y="50" font-size="10" fill="#e03131" font-weight="bold">F ~ 1/r²</text>
+			</svg>
+
+			<text x="440" y="470" font-size="11" fill="#2b2a26">→ Zvýšení r na 2× → síla se sníží na 1/4</text>
+			<text x="440" y="450" font-size="11" fill="#2b2a26">→ Magnetická síla klesá kvadraticky</text>
+		</g>
+
+		<!-- SVG markery -->
+		<defs>
+			<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#e03131" />
+			</marker>
+			<marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#1971c2" />
+			</marker>
+			<marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#f76707" />
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 800px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

@@ -1,0 +1,104 @@
+---
+// Diagram: Přehledný diagram všech skupenských změn
+// Ukazuje všechny přechody: tání, tuhnutí, vypařování, kondenzaci, sublimaci, desublimaci
+---
+
+<section class="ramecek diagram">
+	<h2><span class="podtrh">Diagram skupenských změn 🔄</span></h2>
+	<p>Přehled <strong>všech skupenských změn</strong> — šipky ukazují, do kterého stavu se látka změní a jaký proces to je.</p>
+	
+	<svg id="diag-svg" viewBox="0 0 600 420" role="img" aria-label="Diagram skupenských změn">
+		<!-- Tři skupenství -->
+		<g id="pevna">
+			<rect x="30" y="80" width="120" height="80" fill="#c7e9f5" stroke="#1971c2" stroke-width="3" rx="8" />
+			<text x="90" y="115" text-anchor="middle" font-size="16" font-weight="bold" fill="#1971c2">PEVNÁ</text>
+			<text x="90" y="138" text-anchor="middle" font-size="12" fill="#0c5a7a">ledová krystal</text>
+		</g>
+		
+		<g id="kapalna">
+			<rect x="240" y="80" width="120" height="80" fill="#a5d8ff" stroke="#1971c2" stroke-width="3" rx="8" />
+			<text x="300" y="115" text-anchor="middle" font-size="16" font-weight="bold" fill="#1971c2">KAPALNÁ</text>
+			<text x="300" y="138" text-anchor="middle" font-size="12" fill="#0c5a7a">voda</text>
+		</g>
+		
+		<g id="plynna">
+			<rect x="450" y="80" width="120" height="80" fill="#74c0fc" stroke="#1971c2" stroke-width="3" rx="8" />
+			<text x="510" y="115" text-anchor="middle" font-size="16" font-weight="bold" fill="#1971c2">PLYNNÁ</text>
+			<text x="510" y="138" text-anchor="middle" font-size="12" fill="#0c5a7a">vodní pára</text>
+		</g>
+		
+		<!-- TÁNÍ (Pevná → Kapalná) -->
+		<defs>
+			<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#e03131" />
+			</marker>
+			<marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#4c6ef5" />
+			</marker>
+		</defs>
+		
+		<!-- TÁNÍ (nahoru, teplo) -->
+		<line x1="150" y1="100" x2="240" y2="100" stroke="#e03131" stroke-width="3" marker-end="url(#arrow-red)" />
+		<text x="195" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131">TÁNÍ</text>
+		<text x="195" y="105" text-anchor="middle" font-size="11" fill="#c92a2a">(+ teplo)</text>
+		
+		<!-- TUHNUTÍ (dolů, chlad) -->
+		<line x1="240" y1="160" x2="150" y2="160" stroke="#4c6ef5" stroke-width="3" marker-end="url(#arrow-blue)" />
+		<text x="195" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#4c6ef5">TUHNUTÍ</text>
+		<text x="195" y="205" text-anchor="middle" font-size="11" fill="#364fc7">(- teplo)</text>
+		
+		<!-- VYPAŘOVÁNÍ (nahoru, teplo) -->
+		<line x1="360" y1="100" x2="450" y2="100" stroke="#e03131" stroke-width="3" marker-end="url(#arrow-red)" />
+		<text x="405" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="#e03131">VYPAŘOVÁNÍ</text>
+		<text x="405" y="105" text-anchor="middle" font-size="11" fill="#c92a2a">(+ teplo)</text>
+		
+		<!-- KONDENZACE (dolů, chlad) -->
+		<line x1="450" y1="160" x2="360" y2="160" stroke="#4c6ef5" stroke-width="3" marker-end="url(#arrow-blue)" />
+		<text x="405" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="#4c6ef5">KONDENZACE</text>
+		<text x="405" y="205" text-anchor="middle" font-size="11" fill="#364fc7">(- teplo)</text>
+		
+		<!-- SUBLIMACE (diagonální, nahoru doprava, přímá) -->
+		<path d="M 150 80 Q 300 20 450 80" fill="none" stroke="#f59f00" stroke-width="3" marker-end="url(#arrow-red)" stroke-dasharray="5,5" />
+		<text x="300" y="35" text-anchor="middle" font-size="13" font-weight="bold" fill="#f59f00">SUBLIMACE</text>
+		<text x="300" y="55" text-anchor="middle" font-size="11" fill="#d97706">(pevná → plynná, bez kapaliny)</text>
+		
+		<!-- DESUBLIMACE (diagonální, dolů doleva, obrácená) -->
+		<path d="M 450 160 Q 300 240 150 160" fill="none" stroke="#7c3aed" stroke-width="3" marker-end="url(#arrow-blue)" stroke-dasharray="5,5" />
+		<text x="300" y="270" text-anchor="middle" font-size="13" font-weight="bold" fill="#7c3aed">DESUBLIMACE</text>
+		<text x="300" y="290" text-anchor="middle" font-size="11" fill="#5b21b6">(plynná → pevná, bez kapaliny)</text>
+		
+		<!-- Tabulka vedle -->
+		<text x="30" y="340" font-size="14" font-weight="bold" fill="#2b2a26">Přehled procesů:</text>
+		
+		<!-- Tání -->
+		<circle cx="40" cy="365" r="6" fill="#e03131" />
+		<text x="55" y="370" font-size="12" fill="#2b2a26"><tspan font-weight="bold">TÁNÍ:</tspan> Led + teplo → Voda</text>
+		
+		<!-- Tuhnutí -->
+		<circle cx="40" cy="390" r="6" fill="#4c6ef5" />
+		<text x="55" y="395" font-size="12" fill="#2b2a26"><tspan font-weight="bold">TUHNUTÍ:</tspan> Voda - teplo → Led</text>
+		
+		<!-- Vypařování -->
+		<circle cx="280" cy="365" r="6" fill="#e03131" />
+		<text x="295" y="370" font-size="12" fill="#2b2a26"><tspan font-weight="bold">VYPAŘOVÁNÍ:</tspan> Voda + teplo → Pára</text>
+		
+		<!-- Kondenzace -->
+		<circle cx="280" cy="390" r="6" fill="#4c6ef5" />
+		<text x="295" y="395" font-size="12" fill="#2b2a26"><tspan font-weight="bold">KONDENZACE:</tspan> Pára - teplo → Voda</text>
+		
+		<!-- Sublimace -->
+		<line x1="520" y1="360" x2="540" y2="360" stroke="#f59f00" stroke-width="2" stroke-dasharray="3,3" />
+		<text x="545" y="365" font-size="12" fill="#2b2a26"><tspan font-weight="bold">SUBLIMACE:</tspan> Led → Pára</text>
+		
+		<!-- Desublimace -->
+		<line x1="520" y1="385" x2="540" y2="385" stroke="#7c3aed" stroke-width="2" stroke-dasharray="3,3" />
+		<text x="545" y="390" font-size="12" fill="#2b2a26"><tspan font-weight="bold">DESUBLIMACE:</tspan> Pára → Led</text>
+	</svg>
+</section>
+
+<style>
+	#diag-svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.diagram { padding: 2rem; }
+	.diagram p { margin-bottom: 1.5rem; }
+	.diagram h2 { margin-bottom: 0.5rem; }
+</style>

@@ -1,0 +1,157 @@
+---
+// F8 Energetika - Paliva a energetika
+// SVG komponenta s diagramem zdrojů paliva a jejich energetické hodnoty
+---
+
+<svg 
+  viewBox="0 0 800 600" 
+  xmlns="http://www.w3.org/2000/svg" 
+  class="fuel-energy"
+>
+  <!-- Definice stylů -->
+  <defs>
+    <style>
+      .fuel-bg { fill: #f5f3ff; }
+      .fuel-card { fill: #e9d5ff; stroke: #a855f7; stroke-width: 2; }
+      .fuel-circle { fill: none; stroke: #a855f7; stroke-width: 2; }
+      .fuel-label { font-family: 'Segoe UI', sans-serif; font-size: 16px; fill: #2d1b4e; font-weight: 600; }
+      .fuel-value { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #553399; }
+      .fuel-title { font-family: 'Segoe UI', sans-serif; font-size: 28px; fill: #0f172a; font-weight: 700; }
+      .fuel-subtitle { font-family: 'Segoe UI', sans-serif; font-size: 13px; fill: #64748b; }
+      .energy-bar-bg { fill: #ddd6fe; }
+      .energy-bar { fill: #a855f7; }
+      .comparison-text { font-family: 'Segoe UI', sans-serif; font-size: 11px; fill: #553399; }
+      .energy-amount { font-family: 'Segoe UI', sans-serif; font-size: 14px; fill: #7c3aed; font-weight: 700; }
+      .glow { filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.25)); }
+      .fire { fill: #f97316; }
+    </style>
+  </defs>
+  
+  <!-- Pozadí -->
+  <rect width="800" height="600" class="fuel-bg" />
+  
+  <!-- Titulek -->
+  <text x="400" y="35" class="fuel-title" text-anchor="middle">Paliva a Energetika</text>
+  <text x="400" y="60" class="fuel-subtitle" text-anchor="middle">Chemické zdroje energie - Spalitelná paliva</text>
+  
+  <!-- Horní část: Typy paliv -->
+  <g class="glow">
+    <!-- Uhlí -->
+    <rect x="30" y="100" width="110" height="150" class="fuel-card" rx="6" />
+    <circle cx="85" cy="135" r="25" fill="#2d2d2d" />
+    <text x="85" y="195" class="fuel-label" text-anchor="middle" font-size="14">Uhlí</text>
+    <text x="85" y="213" class="energy-amount" text-anchor="middle">24 MJ/kg</text>
+    <text x="85" y="230" class="comparison-text" text-anchor="middle" font-size="10">Nejstarší zdroj</text>
+  </g>
+  
+  <g class="glow">
+    <!-- Ropa/Benzín -->
+    <rect x="160" y="100" width="110" height="150" class="fuel-card" rx="6" />
+    <circle cx="215" cy="135" r="25" fill="#1a1a1a" />
+    <path d="M 215 110 L 220 135 L 215 145 L 210 135 Z" fill="#ff6b00" />
+    <text x="215" y="195" class="fuel-label" text-anchor="middle" font-size="14">Ropa</text>
+    <text x="215" y="213" class="energy-amount" text-anchor="middle">46 MJ/kg</text>
+    <text x="215" y="230" class="comparison-text" text-anchor="middle" font-size="10">Energeticky bohatá</text>
+  </g>
+  
+  <g class="glow">
+    <!-- Zemní plyn -->
+    <rect x="290" y="100" width="110" height="150" class="fuel-card" rx="6" />
+    <circle cx="345" cy="135" r="25" fill="#87ceeb" />
+    <path d="M 340 120 Q 345 125 350 120" stroke="#a855f7" stroke-width="2" fill="none" />
+    <path d="M 340 135 Q 345 140 350 135" stroke="#a855f7" stroke-width="2" fill="none" />
+    <text x="345" y="195" class="fuel-label" text-anchor="middle" font-size="14">Plyn</text>
+    <text x="345" y="213" class="energy-amount" text-anchor="middle">55 MJ/kg</text>
+    <text x="345" y="230" class="comparison-text" text-anchor="middle" font-size="10">Nejčistší fosilní</text>
+  </g>
+  
+  <g class="glow">
+    <!-- Biomasa -->
+    <rect x="420" y="100" width="110" height="150" class="fuel-card" rx="6" />
+    <circle cx="475" cy="135" r="25" fill="#22c55e" />
+    <path d="M 465 125 L 475 140 L 485 125" stroke="#16a34a" stroke-width="2" fill="none" />
+    <text x="475" y="195" class="fuel-label" text-anchor="middle" font-size="14">Biomasa</text>
+    <text x="475" y="213" class="energy-amount" text-anchor="middle">15 MJ/kg</text>
+    <text x="475" y="230" class="comparison-text" text-anchor="middle" font-size="10">Obnovitelný zdroj</text>
+  </g>
+  
+  <g class="glow">
+    <!-- Vodík -->
+    <rect x="550" y="100" width="110" height="150" class="fuel-card" rx="6" />
+    <circle cx="605" cy="135" r="25" fill="#60a5fa" />
+    <text x="605" y="140" class="fuel-label" text-anchor="middle" font-size="16">H₂</text>
+    <text x="605" y="195" class="fuel-label" text-anchor="middle" font-size="14">Vodík</text>
+    <text x="605" y="213" class="energy-amount" text-anchor="middle">143 MJ/kg</text>
+    <text x="605" y="230" class="comparison-text" text-anchor="middle" font-size="10">Nejlepší palivo</text>
+  </g>
+  
+  <g class="glow">
+    <!-- Jaderné palivo -->
+    <rect x="680" y="100" width="110" height="150" class="fuel-card" rx="6" />
+    <circle cx="735" cy="135" r="25" fill="#fbbf24" />
+    <text x="735" y="137" class="fuel-value" text-anchor="middle" font-size="20" font-weight="700">⚛</text>
+    <text x="735" y="195" class="fuel-label" text-anchor="middle" font-size="14">Jádro</text>
+    <text x="735" y="213" class="energy-amount" text-anchor="middle">8×10⁷</text>
+    <text x="735" y="230" class="comparison-text" text-anchor="middle" font-size="10">MJ/kg - Extrémní</text>
+  </g>
+  
+  <!-- Dolní část: Srovnění energetické hodnoty -->
+  <g class="glow">
+    <rect x="30" y="300" width="740" height="280" fill="#f3e8ff" stroke="#a855f7" stroke-width="2" rx="8" />
+    
+    <!-- Titulek -->
+    <text x="400" y="335" class="fuel-label" text-anchor="middle" font-size="18">Energetická Srovnění a Spalovací Procesy</text>
+    
+    <!-- Uhlí -->
+    <text x="45" y="370" class="fuel-label">Uhlí</text>
+    <rect x="120" y="360" width="150" height="20" class="energy-bar-bg" rx="3" />
+    <rect x="120" y="360" width="60" height="20" class="energy-bar" rx="3" />
+    <text x="280" y="375" class="comparison-text">C + O₂ → CO₂ + teplo</text>
+    <text x="550" y="375" class="energy-value">Emise SO₂, NOₓ</text>
+    
+    <!-- Ropa/Benzín -->
+    <text x="45" y="410" class="fuel-label">Benzín</text>
+    <rect x="120" y="400" width="150" height="20" class="energy-bar-bg" rx="3" />
+    <rect x="120" y="400" width="115" height="20" class="energy-bar" rx="3" />
+    <text x="280" y="415" class="comparison-text">C₈H₁₈ + 12.5O₂ → 8CO₂ + 9H₂O</text>
+    <text x="550" y="415" class="energy-value">Mobilní palivo</text>
+    
+    <!-- Zemní plyn -->
+    <text x="45" y="450" class="fuel-label">Plyn</text>
+    <rect x="120" y="440" width="150" height="20" class="energy-bar-bg" rx="3" />
+    <rect x="120" y="440" width="138" height="20" class="energy-bar" rx="3" />
+    <text x="280" y="455" class="comparison-text">CH₄ + 2O₂ → CO₂ + 2H₂O</text>
+    <text x="550" y="455" class="energy-value">Nejčistší spalování</text>
+    
+    <!-- Vodík -->
+    <text x="45" y="490" class="fuel-label">Vodík</text>
+    <rect x="120" y="480" width="150" height="20" class="energy-bar-bg" rx="3" />
+    <rect x="120" y="480" width="150" height="20" class="energy-bar" rx="3" />
+    <text x="280" y="495" class="comparison-text">2H₂ + O₂ → 2H₂O (jen voda!)</text>
+    <text x="550" y="495" class="energy-value">Zeleného energetika</text>
+    
+    <!-- Jádro -->
+    <text x="45" y="530" class="fuel-label">Jádro</text>
+    <rect x="120" y="520" width="150" height="20" class="energy-bar-bg" rx="3" />
+    <rect x="120" y="520" width="150" height="20" class="energy-bar" rx="3" />
+    <text x="280" y="535" class="comparison-text">U-235 (fize) → Obrovské energie</text>
+    <text x="550" y="535" class="energy-value">Radioaktivní odpad</text>
+    
+    <!-- Biomasa -->
+    <text x="45" y="570" class="fuel-label">Biomasa</text>
+    <rect x="120" y="560" width="150" height="20" class="energy-bar-bg" rx="3" />
+    <rect x="120" y="560" width="45" height="20" class="energy-bar" rx="3" />
+    <text x="280" y="575" class="comparison-text">Organické látky spalování</text>
+    <text x="550" y="575" class="energy-value">Neutrální emise CO₂</text>
+  </g>
+</svg>
+
+<style>
+  .fuel-energy {
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>

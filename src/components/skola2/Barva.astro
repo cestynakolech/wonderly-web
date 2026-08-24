@@ -1,0 +1,103 @@
+---
+// Statická infografika: Barva
+// Barva je vjem, který vzniká, když oko vidí světlo různých vlnových délek
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Barvy — vjem ze světla 🌈</span></h2>
+	<p><strong>Barva není vlastnost věcí</strong>, je to vjem mozku. Oko vnímá různé vlnové délky světla jako různé barvy.</p>
+	<svg viewBox="0 0 750 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="750" height="380" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="375" y="35" text-anchor="middle" class="transform-title">SPEKTRUM VIDITELNÉHO SVĚTLA</text>
+		
+		<!-- Bílé světlo ze Slunce -->
+		<circle cx="80" cy="100" r="28" fill="#fffacd" stroke="#ffd700" stroke-width="2"/>
+		<text x="80" y="145" text-anchor="middle" class="energy-label">Bílé</text>
+		<text x="80" y="160" text-anchor="middle" class="energy-label">světlo</text>
+		
+		<!-- Šipka -->
+		<path d="M 115 100 L 155 100" stroke="#333" stroke-width="2"/>
+		<path d="M 150 95 L 165 100 L 150 105" fill="#333"/>
+		
+		<!-- Hranol -->
+		<polygon points="170,60 170,140 240,100" fill="#e8f4f8" stroke="#2980b9" stroke-width="2"/>
+		<text x="200" y="110" text-anchor="middle" font-size="11" fill="#2980b9">Hranol</text>
+		
+		<!-- Spektrum (duha) -->
+		<rect x="280" y="50" width="20" height="100" fill="#ff0000" rx="3"/>
+		<rect x="305" y="50" width="20" height="100" fill="#ff7f00" rx="3"/>
+		<rect x="330" y="50" width="20" height="100" fill="#ffff00" rx="3"/>
+		<rect x="355" y="50" width="20" height="100" fill="#00ff00" rx="3"/>
+		<rect x="380" y="50" width="20" height="100" fill="#0000ff" rx="3"/>
+		<rect x="405" y="50" width="20" height="100" fill="#4b0082" rx="3"/>
+		<rect x="430" y="50" width="20" height="100" fill="#9400d3" rx="3"/>
+		
+		<!-- Popisky barev -->
+		<text x="290" y="170" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="bold">Červená</text>
+		<text x="340" y="170" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="bold">Žlutá</text>
+		<text x="390" y="170" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="bold">Zelená</text>
+		<text x="440" y="170" text-anchor="middle" font-size="10" fill="#2980b9" font-weight="bold">Modrá</text>
+		
+		<!-- Výkon vlnové délky -->
+		<text x="280" y="195" text-anchor="middle" font-size="8" fill="#7f8c8d">760 nm</text>
+		<text x="430" y="195" text-anchor="middle" font-size="8" fill="#7f8c8d">380 nm</text>
+		
+		<!-- Oko vnímá barvy -->
+		<circle cx="550" cy="100" r="22" fill="#d4a574" stroke="#8b6f47" stroke-width="2"/>
+		<circle cx="550" cy="100" r="12" fill="#2c3e50"/>
+		<circle cx="555" cy="95" r="3" fill="#fff"/>
+		<text x="550" y="155" text-anchor="middle" class="energy-label">Oko</text>
+		<text x="550" y="170" text-anchor="middle" class="energy-label">vidí barvu</text>
+		
+		<!-- Dolní část - vysvětlení -->
+		<rect x="40" y="210" width="670" height="150" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="8"/>
+		
+		<text x="375" y="240" text-anchor="middle" class="law-title">BARVA JE VJEM, NE VLASTNOST</text>
+		<line x1="50" y1="260" x2="710" y2="260" stroke="#95a5a6" stroke-width="1"/>
+		
+		<text x="60" y="285" class="balance-label"><tspan font-weight="bold">Vlnová délka:</tspan> určuje, jakou barvu vidíme</text>
+		<text x="60" y="310" class="balance-label"><tspan font-weight="bold">Bez světla:</tspan> bez barev — tmavou místnost nevidíme barvy</text>
+		<text x="60" y="335" class="balance-note">Každá barva má svou vlnovou délku; lidské oko ji vnímá jako konkrétní barvu.</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 750px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.law-title {
+		font-size: 15px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.balance-note {
+		font-size: 11px;
+		fill: #7f8c8d;
+		font-style: italic;
+	}
+</style>

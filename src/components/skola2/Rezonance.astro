@@ -1,0 +1,176 @@
+---
+// Magnetická rezonance — F9 pokročilé
+// Jevy rezonance v magnetických systémech a jejich aplikace
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Magnetická rezonance a její aplikace 📡</span></h2>
+	<p>
+		<strong>Magnetická rezonance</strong> nastane, když se externí magnetické pole mění s přesně správnou frekvencí.
+		Tento jev se využívá v MRI skeneru, jaderné spektroskopii a dalších aplikacích.
+	</p>
+
+	<svg viewBox="0 0 850 550" role="img" aria-label="Magnetická rezonance a jejích aplikace">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="850" height="550" fill="#f8f9fa" />
+
+		<!-- Nadpis -->
+		<text x="425" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#2b2a26">
+			Magnetická rezonance a její aplikace
+		</text>
+
+		<!-- ČÁST 1: PRINCIP REZONANCE (vlevo nahoře) -->
+		<g id="princip">
+			<rect x="20" y="60" width="380" height="200" rx="8" fill="#e7f5ff" stroke="#0284c7" stroke-width="2" />
+
+			<text x="210" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">
+				Princip magnetické rezonance
+			</text>
+
+			<!-- Spin částice -->
+			<circle cx="100" cy="145" r="25" fill="none" stroke="#2b2a26" stroke-width="2" />
+			<circle cx="85" cy="140" r="4" fill="#e03131" />
+			<path d="M 85 140 L 120 130" stroke="#2b2a26" stroke-width="1" marker-end="url(#arrow-black)" />
+			<text x="60" y="175" font-size="10" text-anchor="middle" fill="#2b2a26">Spin elektrónu</text>
+
+			<!-- Magnetické pole -->
+			<rect x="150" y="130" width="80" height="20" fill="#1971c2" rx="3" />
+			<text x="190" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">B₀</text>
+
+			<circle cx="190" cy="160" r="3" fill="#1971c2" />
+			<circle cx="190" cy="170" r="3" fill="#1971c2" />
+			<circle cx="190" cy="180" r="3" fill="#1971c2" />
+
+			<!-- RF pulz -->
+			<rect x="280" y="120" width="70" height="50" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="3" />
+			<text x="315" y="155" text-anchor="middle" font-size="11" font-weight="bold" fill="#d97706">RF pulz</text>
+			<text x="315" y="172" text-anchor="middle" font-size="9" fill="#2b2a26">ν = ν₀</text>
+
+			<!-- Popis -->
+			<text x="35" y="200" font-size="11" fill="#2b2a26">1. Částice se orientuje v B₀ (precezie)</text>
+			<text x="35" y="220" font-size="11" fill="#2b2a26">2. RF pulz na frekvenci ν₀ vychyluje orientaci</text>
+
+			<text x="35" y="240" font-size="11" font-weight="bold" fill="#0284c7">Larmourova frekvence: ν₀ = (γ × B₀) / (2π)</text>
+			<text x="35" y="255" font-size="9" fill="#666">γ = gyromagnetický poměr, B₀ = pole</text>
+		</g>
+
+		<!-- ČÁST 2: CO JE REZONANCE (vpravo nahoře) -->
+		<g id="je-to">
+			<rect x="450" y="60" width="380" height="200" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2" />
+
+			<text x="640" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#d97706">
+				Co se stane při rezonanci?
+			</text>
+
+			<!-- Grafy ztráty energie -->
+			<text x="470" y="130" font-size="11" font-weight="bold" fill="#2b2a26">Absorpce RF energie:</text>
+
+			<!-- Malý graf -->
+			<svg x="470" y="135" width="140" height="50" viewBox="0 0 100 40">
+				<line x1="10" y1="30" x2="90" y2="30" stroke="#2b2a26" stroke-width="1" />
+				<line x1="10" y1="5" x2="10" y2="30" stroke="#2b2a26" stroke-width="1" />
+				<circle cx="30" cy="25" r="2" fill="#d97706" />
+				<circle cx="45" cy="20" r="2" fill="#d97706" />
+				<circle cx="60" cy="10" r="2" fill="#d97706" />
+				<circle cx="75" cy="5" r="2" fill="#d97706" />
+				<polyline points="30,25 45,20 60,10 75,5" fill="none" stroke="#d97706" stroke-width="1" />
+				<text x="5" y="8" font-size="8" fill="#2b2a26">E</text>
+				<text x="88" y="35" font-size="8" fill="#2b2a26">ν</text>
+			</svg>
+
+			<!-- Popis -->
+			<text x="470" y="210" font-size="10" fill="#2b2a26">→ Když RF frekvence = Larmourova frekvence</text>
+			<text x="470" y="228" font-size="10" fill="#2b2a26">→ Částice silně absorbuje energii</text>
+			<text x="470" y="246" font-size="10" fill="#2b2a26">→ Spin se vychýlí (90° nebo 180° pulz)</text>
+
+			<text x="470" y="265" font-size="11" font-weight="bold" fill="#d97706">Základa všech spektroskopií!</text>
+		</g>
+
+		<!-- ČÁST 3: MRI (vlevo dole) -->
+		<g id="mri">
+			<rect x="20" y="280" width="280" height="240" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+
+			<text x="160" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#0284c7">
+				Magnetická rezonance (MRI)
+			</text>
+
+			<!-- Ilustrace MRI -->
+			<rect x="60" y="330" width="200" height="80" fill="none" stroke="#0284c7" stroke-width="3" rx="5" />
+			<circle cx="160" cy="370" r="20" fill="#1971c2" opacity="0.3" />
+			<circle cx="160" cy="370" r="15" fill="#fff" stroke="#0284c7" stroke-width="1" />
+			<text x="160" y="375" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">Pacient</text>
+
+			<!-- Magnetické pole směrem -->
+			<path d="M 40 370 L 70 370" stroke="#1971c2" stroke-width="2" marker-end="url(#arrow-blue)" />
+			<path d="M 250 370 L 280 370" stroke="#1971c2" stroke-width="2" marker-end="url(#arrow-blue)" />
+
+			<text x="50" y="440" font-size="11" fill="#2b2a26">Jak funguje:</text>
+			<text x="50" y="460" font-size="10" fill="#2b2a26">1. Silné magnetické pole B₀</text>
+			<text x="50" y="476" font-size="10" fill="#2b2a26">2. RF pulzy na ν₀</text>
+			<text x="50" y="492" font-size="10" fill="#2b2a26">3. Detekce signálu z tkání</text>
+			<text x="50" y="508" font-size="10" fill="#2b2a26">4. Rekonstrukce 3D obrazu</text>
+		</g>
+
+		<!-- ČÁST 4: ESR/EPR (střed dole) -->
+		<g id="esr">
+			<rect x="320" y="280" width="280" height="240" rx="8" fill="#ede9fe" stroke="#a78bfa" stroke-width="2" />
+
+			<text x="460" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#a78bfa">
+				Elektronová spinová rezonance (ESR)
+			</text>
+
+			<!-- Schéma ESR -->
+			<text x="340" y="345" font-size="11" fill="#2b2a26">Spektrometr detekuje:</text>
+
+			<rect x="340" y="355" width="220" height="25" fill="#f3f4f6" stroke="#a78bfa" stroke-width="1" rx="3" />
+			<text x="350" y="373" font-size="10" fill="#2b2a26">• Hladiny energií nepárových elektronů</text>
+
+			<rect x="340" y="390" width="220" height="25" fill="#f3f4f6" stroke="#a78bfa" stroke-width="1" rx="3" />
+			<text x="350" y="408" font-size="10" fill="#2b2a26">• Hyperjemnou strukturu</text>
+
+			<rect x="340" y="425" width="220" height="25" fill="#f3f4f6" stroke="#a78bfa" stroke-width="1" rx="3" />
+			<text x="350" y="443" font-size="10" fill="#2b2a26">• Interakci s magnetickým polem</text>
+
+			<text x="340" y="475" font-size="10" fill="#2b2a26">Aplikace:</text>
+			<text x="340" y="495" font-size="9" fill="#2b2a26">→ Charakterizace volných radikálů</text>
+			<text x="340" y="510" font-size="9" fill="#2b2a26">→ Studium defektů v materiálech</text>
+		</g>
+
+		<!-- ČÁST 5: NMR (vpravo dole) -->
+		<g id="nmr">
+			<rect x="620" y="280" width="210" height="240" rx="8" fill="#e6fcf5" stroke="#12b886" stroke-width="2" />
+
+			<text x="725" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#12b886">
+				Jaderná magnetická rezonance (NMR)
+			</text>
+
+			<text x="640" y="345" font-size="11" fill="#2b2a26">Studuje jádra atomů:</text>
+
+			<text x="640" y="370" font-size="10" fill="#2b2a26">• ¹H (proton)</text>
+			<text x="640" y="390" font-size="10" fill="#2b2a26">• ¹³C (uhlík)</text>
+			<text x="640" y="410" font-size="10" fill="#2b2a26">• ¹⁵N (dusík)</text>
+			<text x="640" y="430" font-size="10" fill="#2b2a26">• ³¹P (fosfor)</text>
+
+			<text x="640" y="465" font-size="11" font-weight="bold" fill="#2b2a26">Užití:</text>
+			<text x="640" y="485" font-size="9" fill="#2b2a26">→ Organická chemie</text>
+			<text x="640" y="505" font-size="9" fill="#2b2a26">→ Strukturní analýza</text>
+		</g>
+
+		<!-- SVG markery -->
+		<defs>
+			<marker id="arrow-black" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#2b2a26" />
+			</marker>
+			<marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#1971c2" />
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 850px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

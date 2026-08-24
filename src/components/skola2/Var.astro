@@ -1,0 +1,139 @@
+---
+// Var: zesílené vypařování — skupenská změna z kapaliny na plyn, která probíhá
+// v CELÉM objemu (vidíš bubliny uvnitř kapaliny)
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Var ⚡</span></h2>
+	<p>Var je zesílené vypařování. Na rozdíl od pomalého vypařování se kapalina vaří <strong>v celém objemu</strong> — vidíš bubliny plynů, které stoupají nahoru.</p>
+	
+	<svg id="var-svg" viewBox="0 0 500 340" role="img" aria-label="Vírící voda s bublinami">
+		<!-- Nápis nahoře -->
+		<text x="250" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Var: Bubliny plynu stoupají z kapaliny</text>
+		
+		<!-- Konvice / nádoba -->
+		<rect x="70" y="80" width="360" height="200" fill="none" stroke="#2b2a26" stroke-width="3" rx="4" />
+		
+		<!-- Kapalina (gradient modrá) -->
+		<defs>
+			<linearGradient id="var-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" style="stop-color:#a5d8ff;stop-opacity:0.8" />
+				<stop offset="100%" style="stop-color:#1971c2;stop-opacity:0.8" />
+			</linearGradient>
+		</defs>
+		<rect id="var-kapalina" x="75" y="180" width="350" height="95" fill="url(#var-gradient)" rx="3" />
+		
+		<!-- Horní molekuly (kapalina) -->
+		<g id="var-molekuly-hore">
+			<circle cx="110" cy="200" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="145" cy="210" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="180" cy="195" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="215" cy="205" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="250" cy="198" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="285" cy="208" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="320" cy="200" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="355" cy="207" r="3.5" fill="#1971c2" class="mol-kap" />
+			<circle cx="390" cy="202" r="3.5" fill="#1971c2" class="mol-kap" />
+		</g>
+		
+		<!-- BUBLINY s plynem uvnitř (animované stoupání) -->
+		<g id="var-bubliny">
+			<circle id="bublina-1" cx="120" cy="240" r="8" fill="none" stroke="#ff922b" stroke-width="2" />
+			<circle id="bublina-2" cx="220" cy="250" r="7" fill="none" stroke="#ff922b" stroke-width="2" />
+			<circle id="bublina-3" cx="340" cy="245" r="8" fill="none" stroke="#ff922b" stroke-width="2" />
+			<circle id="bublina-4" cx="160" cy="260" r="6" fill="none" stroke="#ff922b" stroke-width="2" />
+			<circle id="bublina-5" cx="280" cy="270" r="7" fill="none" stroke="#ff922b" stroke-width="2" />
+		</g>
+		
+		<!-- Páry vzdoru (nahoře, jak se plny uvolňují) -->
+		<g id="var-pary">
+			<path id="para-1" d="M 250 80 Q 240 60 250 40" fill="none" stroke="#b3d9ff" stroke-width="3" opacity="0.6" />
+			<path id="para-2" d="M 200 75 Q 190 55 205 35" fill="none" stroke="#b3d9ff" stroke-width="3" opacity="0.6" />
+			<path id="para-3" d="M 300 78 Q 315 58 305 38" fill="none" stroke="#b3d9ff" stroke-width="3" opacity="0.6" />
+		</g>
+		
+		<!-- Teplota indikátor (červeně) -->
+		<text x="20" y="330" font-size="13" font-weight="bold" fill="#2b2a26">Teplota:</text>
+		<rect x="90" y="315" width="200" height="20" fill="none" stroke="#868e96" stroke-width="1" rx="3" />
+		<rect id="var-tepl-ukazatel" x="90" y="315" width="100" height="20" fill="#e03131" rx="3" />
+		<text id="var-tepl-text" x="310" y="330" font-size="13" fill="#2b2a26">100 °C</text>
+	</svg>
+	
+	<label class="sim-posuvnik">
+		Teplota: <output id="var-hodnota"></output>
+		<input type="range" id="var-slider" min="50" max="110" step="2" value="50" />
+	</label>
+	
+	<p class="tepl-stav" id="var-stav">Při teplotě pod 100 °C: občas se objeví bublina, ale brzy se zhroutí zpátky do kapaliny.</p>
+</section>
+
+<script>
+	const slider = document.getElementById('var-slider');
+	const hodnota = document.getElementById('var-hodnota');
+	const stavEl = document.getElementById('var-stav');
+	const teplText = document.getElementById('var-tepl-text');
+	const teplUkazatel = document.getElementById('var-tepl-ukazatel');
+	
+	// Animační loop pro bubliny
+	let animace = 0;
+	function animujBubliny(t) {
+		const vari = t >= 98; // Viditelné var od ~98 °C
+		const bubliny = ['bublina-1', 'bublina-2', 'bublina-3', 'bublina-4', 'bublina-5'];
+		
+		bubliny.forEach((id, i) => {
+			const el = document.getElementById(id);
+			if (vari) {
+				const offset = i * 15;
+				const y = 240 + ((animace + offset) % 200);
+				const x = el.getAttribute('cx');
+				el.setAttribute('cy', y);
+				el.style.opacity = y < 80 ? 0 : 1;
+			} else {
+				el.style.opacity = 0.2;
+			}
+		});
+		
+		animace += 0.5;
+		if (animace > 200) animace = 0;
+		requestAnimationFrame(() => animujBubliny(+slider.value));
+	}
+	
+	function prekresli() {
+		const t = +slider.value; // 50..110
+		hodnota.textContent = t + ' °C';
+		teplText.textContent = t + ' °C';
+		
+		// Teplota ukazatel (procentuální výplň)
+		const procenta = ((t - 50) / 60) * 100;
+		const sirkaTeploty = 200 * procenta / 100;
+		teplUkazatel.setAttribute('width', Math.max(0, sirkaTeploty));
+		
+		// Síla páry (více viditelných par při vyšší teplotě)
+		const pary = ['para-1', 'para-2', 'para-3'];
+		pary.forEach(id => {
+			const el = document.getElementById(id);
+			const opacity = Math.min(1, 0.2 + ((t - 50) / 60) * 0.8);
+			el.style.opacity = opacity;
+		});
+		
+		// Popisy
+		if (t < 90) {
+			stavEl.textContent = '🌡️ Pod 100 °C: vidíš jen občasné bubliny na dně. Nejde o skutečný var.';
+		} else if (t === 100 || Math.abs(t - 100) < 1) {
+			stavEl.textContent = '🔥 100 °C — TEPLOTA VARU: Bubliny se tvoří v celém objemu a stoupají ke hladině. Voda se aktivně mění na páru!';
+		} else {
+			stavEl.textContent = '💨 Nad 100 °C: Intenzivní var. Skoro všechna voda se mění na páru, která uniká do vzduchu.';
+		}
+	}
+	
+	slider.addEventListener('input', prekresli);
+	animujBubliny(50);
+	prekresli();
+</script>
+
+<style>
+	#var-svg { width: 100%; max-width: 500px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 500px; display: block; margin-top: 0.3rem; }
+	.tepl-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+</style>

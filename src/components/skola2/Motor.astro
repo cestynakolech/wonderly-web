@@ -1,0 +1,167 @@
+---
+// F8 Energetika - Elektrické motory
+// SVG komponenta s diagramem části elektrických motorů
+---
+
+<svg 
+  viewBox="0 0 800 600" 
+  xmlns="http://www.w3.org/2000/svg" 
+  class="electric-motor"
+>
+  <!-- Definice stylů -->
+  <defs>
+    <style>
+      .motor-bg { fill: #f0f4f8; }
+      .motor-frame { fill: #cbd5e1; stroke: #334155; stroke-width: 2; }
+      .motor-coil { fill: none; stroke: #dc2626; stroke-width: 2.5; }
+      .motor-magnet { fill: #fbbf24; stroke: #b45309; stroke-width: 2; }
+      .magnetic-field { stroke: #60a5fa; stroke-width: 1.5; fill: none; stroke-dasharray: "3,3"; }
+      .rotor { fill: #8b5cf6; stroke: #6d28d9; stroke-width: 2; }
+      .commutator { fill: #d97706; }
+      .brush { fill: #000; }
+      .motor-label { font-family: 'Segoe UI', sans-serif; font-size: 16px; fill: #1e293b; font-weight: 600; }
+      .motor-value { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #475569; }
+      .motor-title { font-family: 'Segoe UI', sans-serif; font-size: 28px; fill: #0f172a; font-weight: 700; }
+      .motor-subtitle { font-family: 'Segoe UI', sans-serif; font-size: 13px; fill: #64748b; }
+      .force-arrow { stroke: #059669; stroke-width: 3; fill: none; marker-end: url(#arrowhead-green); }
+      .current-arrow { stroke: #dc2626; stroke-width: 2; fill: none; marker-end: url(#arrowhead-red); stroke-dasharray: "4,4"; }
+      .equation-box { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+      .glow { filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)); }
+    </style>
+    
+    <!-- Šipky -->
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#059669" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#dc2626" />
+    </marker>
+  </defs>
+  
+  <!-- Pozadí -->
+  <rect width="800" height="600" class="motor-bg" />
+  
+  <!-- Titulek -->
+  <text x="400" y="35" class="motor-title" text-anchor="middle">Elektrické Motory</text>
+  <text x="400" y="60" class="motor-subtitle" text-anchor="middle">Přeměna elektrické energie na mechanickou</text>
+  
+  <!-- Levá strana: Schéma DC motoru -->
+  <g class="glow">
+    <!-- Vnější kruh stator (magnety) -->
+    <circle cx="130" cy="200" r="80" class="motor-frame" />
+    
+    <!-- Severní magnet -->
+    <path d="M 100 140 L 120 140 L 120 160 L 100 160 Z" class="motor-magnet" />
+    <text x="110" y="152" class="motor-value" text-anchor="middle" font-size="14" font-weight="700">N</text>
+    
+    <!-- Jižní magnet -->
+    <path d="M 140 240 L 160 240 L 160 260 L 140 260 Z" class="motor-magnet" />
+    <text x="150" y="252" class="motor-value" text-anchor="middle" font-size="14" font-weight="700">S</text>
+    
+    <!-- Magnetické pole -->
+    <path d="M 90 200 Q 100 180 120 170" class="magnetic-field" />
+    <path d="M 90 200 Q 100 220 120 230" class="magnetic-field" />
+    <path d="M 170 200 Q 160 180 140 170" class="magnetic-field" />
+    <path d="M 170 200 Q 160 220 140 230" class="magnetic-field" />
+    
+    <!-- Rotor (cívka) -->
+    <circle cx="130" cy="200" r="40" class="rotor" />
+    
+    <!-- Cívka - reprezentace -->
+    <ellipse cx="130" cy="180" rx="25" ry="12" fill="none" stroke="#fbbf24" stroke-width="2" />
+    <ellipse cx="130" cy="220" rx="25" ry="12" fill="none" stroke="#fbbf24" stroke-width="2" />
+    <path d="M 105 180 L 105 220" stroke="#fbbf24" stroke-width="2" />
+    <path d="M 155 180 L 155 220" stroke="#fbbf24" stroke-width="2" />
+    
+    <!-- Komutátor (segmenty) -->
+    <circle cx="130" cy="200" r="15" fill="none" stroke="#d97706" stroke-width="2" />
+    <path d="M 130 185 L 130 215" stroke="#d97706" stroke-width="1.5" />
+    <path d="M 115 200 L 145 200" stroke="#d97706" stroke-width="1.5" />
+    
+    <!-- Kartáče -->
+    <rect x="125" y="218" width="10" height="8" class="brush" rx="1" />
+    <rect x="125" y="154" width="10" height="8" class="brush" rx="1" />
+    
+    <!-- Síly na cívku -->
+    <path d="M 105 170 L 85 170" class="force-arrow" stroke-width="3" />
+    <path d="M 155 230 L 175 230" class="force-arrow" stroke-width="3" />
+    <text x="80" y="165" class="motor-value" text-anchor="end" font-size="11" fill="#059669">F</text>
+    <text x="180" y="235" class="motor-value" font-size="11" fill="#059669">F</text>
+    
+    <!-- Proud -->
+    <path d="M 130 155 L 130 145" class="current-arrow" />
+    <text x="135" y="150" class="motor-value" text-anchor="start" font-size="11" fill="#dc2626">I</text>
+  </g>
+  
+  <!-- Pravá horní část: Fyzikální principy -->
+  <g class="glow">
+    <rect x="310" y="120" width="450" height="150" class="equation-box" rx="8" />
+    
+    <text x="535" y="150" class="motor-label" text-anchor="middle">Lorentzova Síla</text>
+    
+    <!-- Rovnice -->
+    <rect x="330" y="165" width="400" height="35" fill="none" stroke="#0284c7" stroke-width="2" stroke-dasharray="3,3" rx="4" />
+    <text x="530" y="190" class="motor-label" text-anchor="middle" font-size="18">F = B·I·L·sin(θ)</text>
+    
+    <text x="320" y="220" class="motor-value" font-size="12">F... síla [N]  |  B... magnetické pole [T]  |  I... proud [A]</text>
+  </g>
+  
+  <!-- Pravá dolní část: Parametry a charakteristiky -->
+  <g class="glow">
+    <rect x="310" y="310" width="450" height="270" class="equation-box" rx="8" />
+    
+    <text x="535" y="340" class="motor-label" text-anchor="middle">Charakteristiky Motoru</text>
+    
+    <!-- Řádek 1 -->
+    <circle cx="340" cy="380" r="20" fill="none" stroke="#0284c7" stroke-width="2" />
+    <text x="340" y="390" class="motor-value" text-anchor="middle" font-size="16" font-weight="700">P</text>
+    <text x="340" y="415" class="motor-value" text-anchor="middle" font-size="11" font-weight="600">Výkon</text>
+    <text x="340" y="430" class="motor-value" text-anchor="middle" font-size="10">P = U·I</text>
+    
+    <!-- Řádek 2 -->
+    <circle cx="460" cy="380" r="20" fill="none" stroke="#0284c7" stroke-width="2" />
+    <text x="460" y="388" class="motor-value" text-anchor="middle" font-size="14" font-weight="700">M</text>
+    <text x="460" y="415" class="motor-value" text-anchor="middle" font-size="11" font-weight="600">Moment</text>
+    <text x="460" y="430" class="motor-value" text-anchor="middle" font-size="10">M = F·r</text>
+    
+    <!-- Řádek 3 -->
+    <circle cx="580" cy="380" r="20" fill="none" stroke="#0284c7" stroke-width="2" />
+    <text x="580" y="388" class="motor-value" text-anchor="middle" font-size="14" font-weight="700">ω</text>
+    <text x="580" y="415" class="motor-value" text-anchor="middle" font-size="11" font-weight="600">Úhlová</text>
+    <text x="580" y="430" class="motor-value" text-anchor="middle" font-size="10">otáčky</text>
+    
+    <!-- Řádek 4 -->
+    <circle cx="700" cy="380" r="20" fill="none" stroke="#0284c7" stroke-width="2" />
+    <text x="700" y="390" class="motor-value" text-anchor="middle" font-size="14" font-weight="700">η</text>
+    <text x="700" y="415" class="motor-value" text-anchor="middle" font-size="11" font-weight="600">Účinnost</text>
+    <text x="700" y="430" class="motor-value" text-anchor="middle" font-size="10">85-95%</text>
+    
+    <!-- Typy motorů -->
+    <text x="320" y="475" class="motor-label" font-size="14">Typy Motorů:</text>
+    
+    <rect x="320" y="490" width="130" height="70" fill="#fecaca" stroke="#dc2626" stroke-width="1.5" rx="4" />
+    <text x="385" y="510" class="motor-value" text-anchor="middle" font-weight="700">DC Motor</text>
+    <text x="385" y="525" class="motor-value" text-anchor="middle" font-size="10">Stejnosměrný</text>
+    <text x="385" y="538" class="motor-value" text-anchor="middle" font-size="9">Jednoduché řízení</text>
+    
+    <rect x="470" y="490" width="130" height="70" fill="#bfdbfe" stroke="#0284c7" stroke-width="1.5" rx="4" />
+    <text x="535" y="510" class="motor-value" text-anchor="middle" font-weight="700">AC Motor</text>
+    <text x="535" y="525" class="motor-value" text-anchor="middle" font-size="10">Třífázový/Asyn.</text>
+    <text x="535" y="538" class="motor-value" text-anchor="middle" font-size="9">Průmyslový</text>
+    
+    <rect x="620" y="490" width="130" height="70" fill="#d1fae5" stroke="#059669" stroke-width="1.5" rx="4" />
+    <text x="685" y="510" class="motor-value" text-anchor="middle" font-weight="700">Stepper</text>
+    <text x="685" y="525" class="motor-value" text-anchor="middle" font-size="10">Krokovací</text>
+    <text x="685" y="538" class="motor-value" text-anchor="middle" font-size="9">Přesné pozice</text>
+  </g>
+</svg>
+
+<style>
+  .electric-motor {
+    width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>

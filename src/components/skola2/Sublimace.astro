@@ -1,0 +1,165 @@
+---
+// Sublimace: přímá skupenská změna z pevné látky na plyn (bez kapaliny)
+// Např. suchý led, zapařená bílá prádla (led se mění přímo na páru)
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Sublimace ❄️ ➜ 💨</span></h2>
+	<p>Sublimace je speciální skupenská změna: pevná látka se mění <strong>přímo na plyn</strong>, bez průchodu kapalinou. Např. suchý led se přímo mění na oxid uhličitý, nebo ledové krystaly se v zimě vypařují bez tání.</p>
+	
+	<svg id="subl-svg" viewBox="0 0 500 340" role="img" aria-label="Sublimace ledu na páru">
+		<!-- Nápis -->
+		<text x="250" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Sublimace: Pevná látka → Plyn (bez kapaliny)</text>
+		
+		<!-- Teplota indikátor -->
+		<text x="20" y="50" font-size="12" font-weight="bold" fill="#2b2a26">Teplota:</text>
+		<rect x="85" y="35" width="180" height="20" fill="none" stroke="#868e96" stroke-width="1" rx="3" />
+		<rect id="subl-tepl-ukazatel" x="85" y="35" width="20" height="20" fill="#4a90e2" rx="3" />
+		<text id="subl-tepl-text" x="285" y="50" font-size="12" fill="#2b2a26">-30 °C</text>
+		
+		<!-- LED KRYSTAL (pevná látka nahoře vlevo) -->
+		<g id="subl-led">
+			<rect x="100" y="120" width="50" height="50" fill="#c7e9f5" stroke="#1971c2" stroke-width="2" rx="2" />
+			<circle cx="110" cy="130" r="3" fill="#e3f2fd" opacity="0.6" />
+			<circle cx="140" cy="135" r="2" fill="#e3f2fd" opacity="0.6" />
+			<circle cx="115" cy="155" r="2.5" fill="#e3f2fd" opacity="0.6" />
+			<circle cx="135" cy="150" r="3" fill="#e3f2fd" opacity="0.6" />
+			<!-- Nápis -->
+			<text x="125" y="185" text-anchor="middle" font-size="11" fill="#2b2a26" font-weight="bold">LED</text>
+		</g>
+		
+		<!-- Molekuly v ledu (pevně spojené) -->
+		<g id="subl-molekuly-led">
+			<circle cx="105" cy="125" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="120" cy="125" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="135" cy="125" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="105" cy="140" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="120" cy="140" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="135" cy="140" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="105" cy="155" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="120" cy="155" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+			<circle cx="135" cy="155" r="2" fill="#1971c2" opacity="0.7" class="mol-led" />
+		</g>
+		
+		<!-- Molekuly páry (postupně se objevují) -->
+		<g id="subl-molekuly-plyn">
+			<circle id="mol-par-1" cx="200" cy="80" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-2" cx="250" cy="100" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-3" cx="180" cy="120" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-4" cx="280" cy="75" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-5" cx="320" cy="110" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-6" cx="240" cy="140" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-7" cx="200" cy="60" r="3" fill="#74c0fc" opacity="0" />
+			<circle id="mol-par-8" cx="350" cy="90" r="3" fill="#74c0fc" opacity="0" />
+		</g>
+		
+		<!-- Šipky ukazující přechod (led → plyn) -->
+		<defs>
+			<marker id="arrow-right" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#e03131" />
+			</marker>
+		</defs>
+		
+		<!-- Šipky od ledu nahoru a doprava -->
+		<line x1="150" y1="145" x2="180" y2="110" stroke="#e03131" stroke-width="2" marker-end="url(#arrow-right)" opacity="0" id="sipka-subl-1" />
+		<line x1="150" y1="135" x2="200" y2="85" stroke="#e03131" stroke-width="2" marker-end="url(#arrow-right)" opacity="0" id="sipka-subl-2" />
+		<line x1="150" y1="155" x2="220" y2="130" stroke="#e03131" stroke-width="2" marker-end="url(#arrow-right)" opacity="0" id="sipka-subl-3" />
+		
+		<!-- Teplota graf (v časopisu/učebnici by to byla teplota a čas) -->
+		<text x="30" y="270" font-size="11" font-weight="bold" fill="#2b2a26">Energie:</text>
+		<rect x="95" y="255" width="250" height="20" fill="none" stroke="#868e96" stroke-width="1" rx="3" />
+		<rect id="subl-energie-bar" x="95" y="255" width="30" height="20" fill="#e03131" rx="3" />
+		<text id="subl-energie-text" x="360" y="270" font-size="11" fill="#2b2a26">Nízká</text>
+	</svg>
+	
+	<label class="sim-posuvnik">
+		Teplota: <output id="subl-hodnota"></output>
+		<input type="range" id="subl-slider" min="-40" max="0" step="2" value="-30" />
+	</label>
+	
+	<p class="tepl-stav" id="subl-stav">Teplota -30 °C: Led má nižší energii. Molekuly se velmi pomalu uvolňují (sublimují) do vzduchu.</p>
+	
+	<!-- Příklad v reálu -->
+	<div style="background: #f0f4ff; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+		<strong>Reálné příklady sublimace:</strong>
+		<ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+			<li>🧊 <strong>Suchý led</strong> (CO₂) — mění se přímo na plyn bez kapky vody</li>
+			<li>❄️ <strong>Sníh a led v zimě</strong> — bez tání se vypařují přímo na páru (sníh zmizí i když neroztaje)</li>
+			<li>👕 <strong>Zapařená bílá prádla</strong> — v mrazu se led prachu sublimuje na vzduch</li>
+		</ul>
+	</div>
+</section>
+
+<script>
+	const slider = document.getElementById('subl-slider');
+	const hodnota = document.getElementById('subl-hodnota');
+	const stavEl = document.getElementById('subl-stav');
+	const teplText = document.getElementById('subl-tepl-text');
+	const teplUkazatel = document.getElementById('subl-tepl-ukazatel');
+	const energieBar = document.getElementById('subl-energie-bar');
+	const energieText = document.getElementById('subl-energie-text');
+	
+	function prekresli() {
+		const t = +slider.value; // -40..0 °C
+		hodnota.textContent = t + ' °C';
+		teplText.textContent = t + ' °C';
+		
+		// Teplota ukazatel (čím nižší teplota, tím MÉNĚ energie pro sublimaci)
+		// Obráceno: -40 = minimum, 0 = maximum
+		const energia = (t + 40) / 40; // 0..1
+		const sirkaTeploty = 180 * energia;
+		teplUkazatel.setAttribute('width', Math.max(5, sirkaTeploty));
+		
+		// Energie bar
+		const energieBaru = 250 * energia;
+		energieBar.setAttribute('width', Math.max(30, energieBaru));
+		
+		// Text energie
+		if (energia < 0.3) energieText.textContent = 'Velmi nízká';
+		else if (energia < 0.6) energieText.textContent = 'Nízká';
+		else if (energia < 0.8) energieText.textContent = 'Střední';
+		else energieText.textContent = 'Vysoká (blízko tání)';
+		
+		// Molekuly páry (více viditelné s vyšší energií)
+		const viditelnych = Math.ceil(energia * 8);
+		const moly = ['mol-par-1', 'mol-par-2', 'mol-par-3', 'mol-par-4', 'mol-par-5', 'mol-par-6', 'mol-par-7', 'mol-par-8'];
+		moly.forEach((id, i) => {
+			const el = document.getElementById(id);
+			if (i < viditelnych) {
+				el.style.opacity = energia * 0.8;
+			} else {
+				el.style.opacity = 0;
+			}
+		});
+		
+		// Šipky (více viditelné s vyšší energií)
+		const sipky = ['sipka-subl-1', 'sipka-subl-2', 'sipka-subl-3'];
+		sipky.forEach(id => {
+			const el = document.getElementById(id);
+			el.style.opacity = energia * 0.7;
+		});
+		
+		// Popisy
+		if (t < -35) {
+			stavEl.textContent = '❄️ Extrémní chlad (-40 °C): Led je velmi stabilní. Sublimace je nesmírně pomalá (téměř se neděje).';
+		} else if (t < -20) {
+			stavEl.textContent = '🧊 Hluboký mráz (-20 až -35 °C): Postupně se některé molekuly z povrchu ledu uvolňují přímo na páru (sublimace).';
+		} else if (t < -5) {
+			stavEl.textContent = '❄️ Mírný mráz (-5 až -20 °C): Sublimace je patrná — sníh a led bez tání postupně mizí.';
+		} else {
+			stavEl.textContent = '🌡️ Blízko bodu tání (0 °C): Led se již více toří, ale sublimace se stále děje (konkuruje tání).';
+		}
+	}
+	
+	slider.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#subl-svg { width: 100%; max-width: 500px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 500px; display: block; margin-top: 0.3rem; }
+	.tepl-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; margin-bottom: 1rem; }
+	ul { list-style-position: inside; }
+	li { margin: 0.3rem 0; }
+</style>

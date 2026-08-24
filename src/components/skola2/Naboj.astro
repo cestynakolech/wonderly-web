@@ -1,0 +1,129 @@
+---
+// Elektrický náboj — F8 TOP 5 infografika
+// Komponenta zobrazuje dva druhy náboje, atomy a jejich struktura
+---
+
+<section class="ramecek infografika">
+	<h2><span class="podtrh">Elektrický náboj ⚡</span></h2>
+	<p>
+		Když si češeš umyté vlasy plastovým hřebenem, vlasy se zvednou a lepí se k hřebenu.
+		Důvodem je <strong>elektrický náboj</strong> — vlastnost částic, kterou poznáme podle
+		toho, že na sebe působí <strong>elektrickou silou</strong>. Existují dva druhy: <strong>kladný</strong> (+)
+		a <strong>záporný</strong> (−).
+	</p>
+
+	<svg viewBox="0 0 600 450" role="img" aria-label="Dva druhy náboje a struktura atomu">
+		<!-- Pozadí -->
+		<rect x="0" y="0" width="600" height="450" fill="#f8f9fa" />
+
+		<!-- KLADNÝ NÁBOJ (vlevo) -->
+		<g id="kladny">
+			<text x="150" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Kladný náboj (+)</text>
+
+			<!-- Atom s chybějícím elektronem -->
+			<g>
+				<!-- Jádro -->
+				<circle cx="150" cy="100" r="8" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<text x="150" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">p+</text>
+
+				<!-- Elektronový obal (menší než by měl být) -->
+				<ellipse cx="150" cy="100" rx="30" ry="20" fill="none" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+
+				<!-- Zbývající elektrony -->
+				<circle cx="175" cy="95" r="4" fill="#1971c2" />
+				<circle cx="170" cy="115" r="4" fill="#1971c2" />
+				<circle cx="145" cy="80" r="4" fill="#1971c2" />
+
+				<!-- Značka chybějícího elektronu -->
+				<text x="155" y="130" text-anchor="middle" font-size="11" fill="#2b2a26">atom bez 1e⁻</text>
+			</g>
+
+			<!-- Popis -->
+			<rect x="90" y="160" width="120" height="60" rx="6" fill="#ffe3e3" stroke="#2b2a26" stroke-width="2" />
+			<text x="150" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Kladný iont</text>
+			<text x="150" y="198" text-anchor="middle" font-size="11" fill="#2b2a26">(kationt)</text>
+			<text x="150" y="214" text-anchor="middle" font-size="10" fill="#495057">Chybí elektron</text>
+		</g>
+
+		<!-- ZÁPORNÝ NÁBOJ (vpravo) -->
+		<g id="zaporny">
+			<text x="450" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Záporný náboj (−)</text>
+
+			<!-- Atom s nadbytečným elektronem -->
+			<g>
+				<!-- Jádro -->
+				<circle cx="450" cy="100" r="8" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<text x="450" y="105" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">p+</text>
+
+				<!-- Elektronový obal (více elektronů) -->
+				<ellipse cx="450" cy="100" rx="30" ry="20" fill="none" stroke="#1971c2" stroke-width="2" stroke-dasharray="3,2" />
+
+				<!-- Elektrony (více) -->
+				<circle cx="475" cy="95" r="4" fill="#1971c2" />
+				<circle cx="470" cy="115" r="4" fill="#1971c2" />
+				<circle cx="445" cy="80" r="4" fill="#1971c2" />
+				<circle cx="435" cy="105" r="4" fill="#1971c2" />
+				<circle cx="455" cy="120" r="4" fill="#1971c2" />
+
+				<!-- Značka nadbytečného elektronu -->
+				<text x="455" y="130" text-anchor="middle" font-size="11" fill="#2b2a26">atom + 1e⁻</text>
+			</g>
+
+			<!-- Popis -->
+			<rect x="390" y="160" width="120" height="60" rx="6" fill="#ffe3e3" stroke="#2b2a26" stroke-width="2" />
+			<text x="450" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Záporný iont</text>
+			<text x="450" y="198" text-anchor="middle" font-size="11" fill="#2b2a26">(aniont)</text>
+			<text x="450" y="214" text-anchor="middle" font-size="10" fill="#495057">Navíc elektron</text>
+		</g>
+
+		<!-- PŘITAHOVÁNÍ A ODPUZOVÁNÍ -->
+		<g id="sily">
+			<rect x="40" y="280" width="520" height="150" rx="8" fill="#e7f5ff" stroke="#2b2a26" stroke-width="2" />
+
+			<!-- Opačné náboje se přitahují -->
+			<g>
+				<circle cx="120" cy="330" r="12" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<text x="120" y="335" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">+</text>
+
+				<circle cx="200" cy="330" r="12" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />
+				<text x="200" y="335" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">−</text>
+
+				<!-- Šipky přitahování -->
+				<polygon points="150,325 140,330 145,335" fill="#2b2a26" />
+				<polygon points="170,325 180,330 175,335" fill="#2b2a26" />
+
+				<text x="160" y="375" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Přitahují se 🤝</text>
+				<text x="160" y="393" text-anchor="middle" font-size="10" fill="#495057">Opačné náboje</text>
+			</g>
+
+			<!-- Stejné náboje se odpuzují -->
+			<g>
+				<circle cx="380" cy="330" r="12" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<text x="380" y="335" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">+</text>
+
+				<circle cx="460" cy="330" r="12" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<text x="460" y="335" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">+</text>
+
+				<!-- Šipky odpuzování -->
+				<polygon points="370,325 360,330 365,335" fill="#2b2a26" />
+				<polygon points="470,325 480,330 475,335" fill="#2b2a26" />
+
+				<text x="420" y="375" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">Odpuzují se ⚖️</text>
+				<text x="420" y="393" text-anchor="middle" font-size="10" fill="#495057">Stejné náboje</text>
+			</g>
+		</g>
+
+		<!-- Informační box -->
+		<rect x="20" y="445" width="560" height="18" rx="4" fill="#fff3bf" stroke="#2b2a26" stroke-width="1" />
+		<text x="300" y="460" text-anchor="middle" font-size="10" font-weight="bold" fill="#2b2a26">
+			Náboj se přenáší přesunem elektronů; protony v jádře se pohybují jen na vteřiny
+		</text>
+	</svg>
+</section>
+
+<style>
+	.infografika { padding: 1.5rem; }
+	.infografika h2 { margin-top: 0; }
+	.infografika svg { width: 100%; max-width: 600px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; margin: 1rem 0; display: block; margin-left: auto; margin-right: auto; }
+	.podtrh { border-bottom: 3px solid #ffd43b; padding-bottom: 2px; }
+</style>

@@ -1,0 +1,97 @@
+---
+// Statická infografika: Zvuk
+// Zvuk je mechanické vlnění, vzniká kmitáním zdrojů zvuku
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Zvuk — vznik a šíření 🔊</span></h2>
+	<p>Zvuk vzniká <strong>kmitáním zdrojů</strong> a šíří se prostředím (vzduch, voda, látky). Bez prostředí — ve vakuu — je ticho.</p>
+	<svg viewBox="0 0 700 340" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="700" height="340" fill="#f5f0e8"/>
+		
+		<!-- Nadpis -->
+		<text x="350" y="35" text-anchor="middle" class="transform-title">VZNIK A ŠÍŘENÍ ZVUKU</text>
+		
+		<!-- Zdroj zvuku - zvonečekkmitá -->
+		<rect x="40" y="80" width="70" height="60" fill="#f39c12" stroke="#e67e22" stroke-width="2" rx="5"/>
+		<text x="75" y="120" text-anchor="middle" class="energy-type" fill="white">ZDROJ</text>
+		<text x="75" y="155" text-anchor="middle" class="energy-label">Kmitá</text>
+		<text x="75" y="170" text-anchor="middle" class="energy-label">→ Vlny</text>
+		
+		<!-- Vlnky šíření -->
+		<circle cx="130" cy="110" r="18" fill="none" stroke="#3498db" stroke-width="2" opacity="0.7"/>
+		<circle cx="130" cy="110" r="28" fill="none" stroke="#3498db" stroke-width="2" opacity="0.5"/>
+		<circle cx="130" cy="110" r="38" fill="none" stroke="#3498db" stroke-width="2" opacity="0.3"/>
+		
+		<!-- Prostor s molekulami -->
+		<rect x="200" y="70" width="200" height="100" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="5"/>
+		<text x="300" y="90" text-anchor="middle" class="energy-type">Vzduch</text>
+		
+		<!-- Molekuly vzduchu - pohybují se -->
+		<circle cx="230" cy="120" r="4" fill="#2ecc71"/>
+		<circle cx="260" cy="115" r="4" fill="#2ecc71"/>
+		<circle cx="290" cy="125" r="4" fill="#2ecc71"/>
+		<circle cx="320" cy="110" r="4" fill="#2ecc71"/>
+		<circle cx="350" cy="130" r="4" fill="#2ecc71"/>
+		<circle cx="380" cy="115" r="4" fill="#2ecc71"/>
+		
+		<!-- Šipka šíření -->
+		<path d="M 410 110 L 450 110" stroke="#e74c3c" stroke-width="3"/>
+		<path d="M 445 105 L 460 110 L 445 115" fill="#e74c3c"/>
+		
+		<!-- Ucho -->
+		<ellipse cx="520" cy="110" rx="30" ry="35" fill="#d4a574" stroke="#8b6f47" stroke-width="2"/>
+		<circle cx="520" cy="110" r="15" fill="#9d6b47"/>
+		<text x="520" y="113" text-anchor="middle" class="energy-type" fill="white">👂</text>
+		<text x="520" y="165" text-anchor="middle" class="energy-label">VNÍMÁ</text>
+		
+		<!-- Dělka 2: Bez prostředí -->
+		<rect x="40" y="210" width="620" height="110" fill="#ffebee" stroke="#e74c3c" stroke-width="2" rx="8"/>
+		
+		<text x="350" y="235" text-anchor="middle" class="law-title">VE VAKUU JE TICHO!</text>
+		<line x1="50" y1="250" x2="650" y2="250" stroke="#e74c3c" stroke-width="1"/>
+		
+		<text x="60" y="275" class="balance-label">🌍 Na Měsíci nemůžete slyšet exploze — není tam vzduch!</text>
+		<text x="60" y="295" class="balance-label">🔬 Zvuk se šíří různě rychle: vzduch (340 m/s), voda (1500 m/s), ocel (5000 m/s)</text>
+		<text x="60" y="315" class="balance-note">Čím hustší prostředí, tím rychleji se zvuk šíří!</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 700px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.transform-title {
+		font-size: 16px;
+		font-weight: bold;
+		fill: #2c3e50;
+	}
+	.energy-type {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.energy-label {
+		font-size: 11px;
+		fill: #555;
+	}
+	.law-title {
+		font-size: 15px;
+		font-weight: bold;
+		fill: #c0392b;
+	}
+	.balance-label {
+		font-size: 12px;
+		fill: #2c3e50;
+	}
+	.balance-note {
+		font-size: 11px;
+		fill: #7f8c8d;
+		font-style: italic;
+	}
+</style>
