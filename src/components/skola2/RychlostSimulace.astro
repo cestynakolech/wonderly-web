@@ -86,7 +86,7 @@
 		out.textContent = vKmh() + ' km/h = ' + cz(vMs(), 1) + ' m/s (÷ 3,6)';
 	}
 	function prekresli() {
-		auto.setAttribute('transform', `translate(${autoX(s).toFixed(1)} 66) scaleX(-1)`);
+		auto.setAttribute('transform', `translate(${autoX(s).toFixed(1)} 66)`);
 		udajV.textContent = 'okamžitá rychlost: ' + vKmh() + ' km/h = ' + cz(vMs(), 1) + ' m/s';
 		udajST.textContent = 'dráha s = ' + Math.round(s) + ' m   |   čas t = ' + cz(t, 1) + ' s';
 	}
