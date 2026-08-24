@@ -20,8 +20,8 @@ const { otazky } = Astro.props;
 		<p class="kviz-otazka" id="kviz-otazka"></p>
 		<div class="kviz-odpovedi" id="kviz-odpovedi"></div>
 		<div class="kviz-vedec" id="kviz-vedec" hidden>
-			<video class="kviz-video" id="kviz-video-tanci" src="/video/profesor/tanci.mp4" muted loop playsinline preload="auto" aria-label="Profesor tančí — správná odpověď" hidden></video>
-			<video class="kviz-video" id="kviz-video-lomi" src="/video/profesor/lomi-rukama.mp4" muted loop playsinline preload="auto" aria-label="Profesor si lomí rukama — špatná odpověď" hidden></video>
+			<video class="kviz-video" id="kviz-video-tanci" src="/video/profesor/tanci.mp4" muted loop playsinline preload="auto" data-video-type="success" aria-label="Profesor tančí — správná odpověď" hidden></video>
+			<video class="kviz-video" id="kviz-video-lomi" src="/video/profesor/lomi-rukama.mp4" muted loop playsinline preload="auto" data-video-type="error" aria-label="Profesor si lomí rukama — špatná odpověď" hidden></video>
 		</div>
 		<p class="kviz-vysvetleni" id="kviz-vysvetleni" hidden></p>
 		<button class="kviz-tlacitko" id="kviz-dalsi" hidden>Další otázka →</button>

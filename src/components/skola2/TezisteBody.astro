@@ -1,0 +1,81 @@
+---
+// Statická infografika: Těžiště
+// Stabilita tělesa a poloha těžiště
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Těžiště (T) ⚖️</span></h2>
+	<p><strong>Těžiště</strong> je bod, v kterém můžeme soustředit celou hmotnost tělesa. Poloha těžiště určuje, zda je těleso <strong>stabilní</strong> nebo <strong>labílní</strong>.</p>
+	<svg viewBox="0 0 600 340" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="340" fill="#f5e6ff"/>
+		
+		<!-- Sekce 1: Stejnorodé těleso -->
+		<text x="80" y="40" class="nadpis-sekce">Homogenní krychle</text>
+		<rect x="40" y="60" width="80" height="80" fill="#7c3aed" stroke="#5b21b6" stroke-width="2"/>
+		<circle cx="80" cy="100" r="4" fill="#ffff00" stroke="#000" stroke-width="1"/>
+		<text x="80" y="135" text-anchor="middle" class="label">T = střed</text>
+		<line x1="80" y1="125" x2="80" y2="165" stroke="#ffff00" stroke-width="1" stroke-dasharray="2,2"/>
+		<text x="80" y="180" text-anchor="middle" class="stability">Stabilní</text>
+		
+		<!-- Sekce 2: Nehomogenní těleso -->
+		<text x="250" y="40" class="nadpis-sekce">Nehomogenní těleso</text>
+		<circle cx="260" cy="80" r="40" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+		<rect x="290" y="60" width="40" height="60" fill="#1f2937" opacity="0.3" stroke="#000" stroke-width="1"/>
+		<circle cx="305" cy="75" r="3" fill="#ff0000" stroke="#000" stroke-width="1"/>
+		<text x="305" y="105" text-anchor="middle" class="label">T</text>
+		<line x1="305" y1="95" x2="305" y2="135" stroke="#ff0000" stroke-width="1" stroke-dasharray="2,2"/>
+		<text x="305" y="150" text-anchor="middle" class="stability">Posunuto!</text>
+		
+		<!-- Sekce 3: Stabilita — přetlačování -->
+		<text x="420" y="40" class="nadpis-sekce">Přetlačení tělesa</text>
+		<!-- Stabilní poloha -->
+		<text x="420" y="65" class="malý-label">Stabilní:</text>
+		<rect x="390" y="75" width="60" height="40" fill="#10b981" stroke="#065f46" stroke-width="2"/>
+		<circle cx="420" cy="95" r="3" fill="#ffff00" stroke="#000" stroke-width="1"/>
+		<text x="420" y="125" text-anchor="middle" class="label">T uvnitř podstavy</text>
+		
+		<!-- Labílní poloha -->
+		<text x="420" y="175" class="malý-label">Labílní:</text>
+		<rect x="375" y="185" width="40" height="60" fill="#ef4444" stroke="#7f1d1d" stroke-width="2"/>
+		<circle cx="393" cy="195" r="3" fill="#ffff00" stroke="#000" stroke-width="1"/>
+		<text x="420" y="265" text-anchor="middle" class="label">T mimo podstavu</text>
+		
+		<!-- Pozn. -->
+		<text x="50" y="310" class="legenda-text">💡 Těžiště je „střed hmotnosti" — bez podpory by se těleso otáčelo kolem T.</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis-sekce {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.label {
+		font-size: 11px;
+		fill: #333;
+		font-weight: 600;
+	}
+	.stability {
+		font-size: 12px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.malý-label {
+		font-size: 10px;
+		fill: #666;
+		font-weight: 600;
+	}
+	.legenda-text {
+		font-size: 11px;
+		fill: #555;
+	}
+</style>

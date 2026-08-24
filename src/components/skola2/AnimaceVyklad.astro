@@ -45,6 +45,8 @@ const moje = vsechnyAnimace.filter((a) => a.podtema === podtema && a.rocnik === 
 						muted
 						playsinline
 						preload="metadata"
+						data-animace-id={a.klic}
+						data-animace-typ="vyklad"
 						aria-label={`Animace: ${a.nazev}. ${a.ukazuje}`}
 					/>
 

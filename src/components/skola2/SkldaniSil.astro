@@ -1,0 +1,86 @@
+---
+// Statická infografika: Skládání sil
+// Paralelogram sil a výslednice
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Skládání sil 💪</span></h2>
+	<p>Když na těleso působí dvě síly najednou, můžeme je nahradit jednou <strong>výslednicí silou</strong>. Výslednici najdeme pomocí <strong>paralelogramu sil</strong>.</p>
+	<svg viewBox="0 0 600 360" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="360" fill="#fff0e6"/>
+		
+		<!-- Nadpis -->
+		<text x="300" y="35" text-anchor="middle" class="nadpis">Paralelogram sil</text>
+		
+		<!-- Počátek sil -->
+		<circle cx="150" cy="150" r="5" fill="#000"/>
+		
+		<!-- Síla 1: vodorovná (modrá) -->
+		<path d="M 150 150 L 280 150" stroke="#1971c2" stroke-width="4" marker-end="url(#arrow-blue)"/>
+		<text x="220" y="140" class="sila-label">F₁ = 6 N</text>
+		
+		<!-- Síla 2: svislá (červená) -->
+		<path d="M 150 150 L 150 280" stroke="#e85d75" stroke-width="4" marker-end="url(#arrow-red)"/>
+		<text x="115" y="215" class="sila-label">F₂ = 8 N</text>
+		
+		<!-- Paralelogram -->
+		<path d="M 280 150 L 280 280 L 150 280" stroke="#999" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+		
+		<!-- Výslednice (zelená, diagonála) -->
+		<path d="M 150 150 L 280 280" stroke="#51cf66" stroke-width="5" marker-end="url(#arrow-green)"/>
+		<text x="220" y="190" class="sila-vyslednice">F = 10 N</text>
+		
+		<!-- SVG markery pro šipky -->
+		<defs>
+			<marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#1971c2"/>
+			</marker>
+			<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#e85d75"/>
+			</marker>
+			<marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#51cf66"/>
+			</marker>
+		</defs>
+		
+		<!-- Příklad 2: Různé úhly -->
+		<text x="50" y="330" class="legenda-title">Příklad pod úhlem 45°:</text>
+		<line x1="350" y1="200" x2="450" y2="200" stroke="#1971c2" stroke-width="3" marker-end="url(#arrow-blue)"/>
+		<line x1="350" y1="200" x2="420" y2="270" stroke="#e85d75" stroke-width="3" marker-end="url(#arrow-red)"/>
+		<line x1="350" y1="200" x2="450" y2="270" stroke="#51cf66" stroke-width="4" marker-end="url(#arrow-green)"/>
+		<text x="460" y="215" class="sila-label">F₁</text>
+		<text x="410" y="295" class="sila-label">F₂</text>
+		<text x="465" y="250" class="sila-vyslednice">F</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis {
+		font-size: 20px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.sila-label {
+		font-size: 12px;
+		fill: #333;
+		font-weight: 600;
+	}
+	.sila-vyslednice {
+		font-size: 14px;
+		fill: #2f9e44;
+		font-weight: bold;
+	}
+	.legenda-title {
+		font-size: 12px;
+		font-weight: bold;
+		fill: #333;
+	}
+</style>

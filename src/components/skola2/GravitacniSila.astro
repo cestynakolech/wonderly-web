@@ -1,0 +1,76 @@
+---
+// Statická infografika: Gravitační síla
+// Všechny objekty padají stejně rychle
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Gravitační síla (Fg) 🌍</span></h2>
+	<p>Gravitační síla táhne všechna tělesa k Zemi. Je úměrná <strong>hmotnosti</strong>: <code>Fg = m × g</code>, kde <code>g = 10 N/kg</code> (gravitační konstanta).</p>
+	<svg viewBox="0 0 600 340" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="340" fill="#e8f4f8"/>
+		<line x1="0" y1="300" x2="600" y2="300" stroke="#8b7355" stroke-width="8"/>
+		<text x="300" y="320" text-anchor="middle" class="label">ZEMĚ</text>
+		
+		<!-- Tři objekty s různou hmotností -->
+		<!-- Objekt 1: 1 kg -->
+		<circle cx="100" cy="80" r="25" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2"/>
+		<text x="100" y="90" text-anchor="middle" class="hmotnost-text">1 kg</text>
+		<path d="M 100 110 L 100 180" stroke="#ff6b6b" stroke-width="3"/>
+		<path d="M 95 175 L 100 185 L 105 175" fill="#ff6b6b"/>
+		<text x="120" y="145" class="sila-text">Fg = 10 N</text>
+		
+		<!-- Objekt 2: 2 kg -->
+		<circle cx="300" cy="60" r="32" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+		<text x="300" y="72" text-anchor="middle" class="hmotnost-text">2 kg</text>
+		<path d="M 300 95 L 300 210" stroke="#4dabf7" stroke-width="4"/>
+		<path d="M 294 205 L 300 215 L 306 205" fill="#4dabf7"/>
+		<text x="325" y="150" class="sila-text">Fg = 20 N</text>
+		
+		<!-- Objekt 3: 3 kg -->
+		<circle cx="500" cy="50" r="38" fill="#51cf66" stroke="#2f9e44" stroke-width="2"/>
+		<text x="500" y="65" text-anchor="middle" class="hmotnost-text">3 kg</text>
+		<path d="M 500 90 L 500 235" stroke="#51cf66" stroke-width="5"/>
+		<path d="M 493 230 L 500 240 L 507 230" fill="#51cf66"/>
+		<text x="525" y="160" class="sila-text">Fg = 30 N</text>
+		
+		<!-- Legenda -->
+		<text x="50" y="270" class="legenda-title">Poznámka:</text>
+		<text x="50" y="290" class="legenda-text">Všechna tělesa padají se stejným zrychlením a = 10 m/s²</text>
+		<text x="50" y="310" class="legenda-text">Čím větší hmotnost, tím větší gravitační síla.</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.hmotnost-text {
+		font-size: 14px;
+		font-weight: bold;
+		fill: white;
+	}
+	.sila-text {
+		font-size: 12px;
+		font-weight: 600;
+		fill: #333;
+	}
+	.label {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #555;
+	}
+	.legenda-title {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.legenda-text {
+		font-size: 11px;
+		fill: #555;
+	}
+</style>

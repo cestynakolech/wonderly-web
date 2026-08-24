@@ -1,0 +1,87 @@
+---
+// Statická infografika: Pascalův zákon v praxi
+// Příklady aplikace v technologii
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Pascalův zákon v praxi 🔧</span></h2>
+	<p>Pascalův zákon říká, že <strong>tlak</strong> se v kapalinách šíří <strong>všemi směry stejně</strong>. Využívá se v hydraulických zařízeních (zvedák, lis, brzdy).</p>
+	<svg viewBox="0 0 600 340" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="340" fill="#ffe6e6"/>
+		
+		<!-- Nadpis -->
+		<text x="300" y="35" text-anchor="middle" class="nadpis">Aplikace Pascalova zákona</text>
+		
+		<!-- Příklad 1: Hydraulický zvedák -->
+		<text x="80" y="85" class="priklad-nadpis">1. Hydraulický zvedák</text>
+		<rect x="30" y="100" width="80" height="100" fill="#e8e8e8" stroke="#333" stroke-width="2" rx="5"/>
+		<circle cx="70" cy="130" r="12" fill="#ff6b6b" stroke="#000" stroke-width="1"/>
+		<text x="70" y="138" text-anchor="middle" class="maly-text">100 N</text>
+		<text x="105" y="125" class="label">Tlak rozpohybuje</text>
+		<text x="105" y="145" class="label">velký píst dole</text>
+		<circle cx="70" cy="180" r="25" fill="#ffd700" stroke="#000" stroke-width="2"/>
+		<text x="70" y="188" text-anchor="middle" class="maly-text" font-weight="bold">500 N</text>
+		<text x="105" y="195" class="label">Zvedne auto!</text>
+		
+		<!-- Příklad 2: Diskové brzdy -->
+		<text x="320" y="85" class="priklad-nadpis">2. Diskové brzdy (kolo)</text>
+		<circle cx="400" cy="140" r="45" fill="none" stroke="#666" stroke-width="3"/>
+		<rect x="370" y="105" width="60" height="35" fill="#333" rx="3"/>
+		<text x="400" y="130" text-anchor="middle" class="label" fill="white" font-size="10">brzdové destičky</text>
+		<path d="M 380 110 L 380 90" stroke="#ff0000" stroke-width="2"/>
+		<path d="M 420 110 L 420 90" stroke="#ff0000" stroke-width="2"/>
+		<text x="375" y="85" class="maly-text">p</text>
+		<text x="415" y="85" class="maly-text">p</text>
+		
+		<!-- Příklad 3: Vztlak -->
+		<text x="80" y="250" class="priklad-nadpis">3. Tlak v kapalinách (vztlak)</text>
+		<rect x="30" y="265" width="160" height="50" fill="#87ceeb" stroke="#0066cc" stroke-width="2" rx="3"/>
+		<rect x="90" y="255" width="40" height="20" fill="#ffaa44" stroke="#000" stroke-width="1" rx="2"/>
+		<path d="M 80 275 L 60 275" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 140 275 L 160 275" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 110 260 L 110 240" stroke="#00aa00" stroke-width="3" marker-end="url(#arrow-green)"/>
+		<text x="130" y="220" class="label">Vztlak</text>
+		<text x="50" y="325" class="label">Tlak zezdola > tlak shora</text>
+		
+		<!-- SVG markery -->
+		<defs>
+			<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#ff0000"/>
+			</marker>
+			<marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#00aa00"/>
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis {
+		font-size: 20px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.priklad-nadpis {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.label {
+		font-size: 11px;
+		fill: #333;
+		font-weight: 500;
+	}
+	.maly-text {
+		font-size: 10px;
+		fill: #333;
+		font-weight: 600;
+	}
+</style>

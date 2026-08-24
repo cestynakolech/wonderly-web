@@ -1,0 +1,100 @@
+---
+// Statická infografika: Vztlak a Archimédův zákon
+// Vztlak a rovnováha sil ve vodě
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vztlak a Archimédův zákon 🚢</span></h2>
+	<p><strong>Vztlak</strong> je síla, kterou voda tlačí na ponořené těleso nahoru. Podle <strong>Archimedova zákona</strong> se rovná tíze vytlačené kapaliny: <code>Fv = ρ × V × g</code>.</p>
+	<svg viewBox="0 0 600 360" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="360" fill="#e6f9ff"/>
+		
+		<!-- Hladina vody -->
+		<line x1="0" y1="150" x2="600" y2="150" stroke="#0066cc" stroke-width="3"/>
+		<text x="20" y="145" class="label">Hladina vody</text>
+		
+		<!-- Voda -->
+		<rect x="0" y="150" width="600" height="210" fill="#87ceeb" opacity="0.5"/>
+		
+		<!-- Případ 1: Těleso plave -->
+		<text x="80" y="50" class="nadpis-sekce">Plovoucí těleso</text>
+		<rect x="30" y="80" width="100" height="70" fill="#fbbf24" stroke="#b45309" stroke-width="2" rx="5"/>
+		<circle cx="80" cy="155" r="3" fill="#000"/>
+		<text x="80" y="162" text-anchor="middle" class="label" font-size="10">T (těžiště)</text>
+		<!-- Gravitační síla -->
+		<path d="M 80 150 L 80 190" stroke="#ff0000" stroke-width="3" marker-end="url(#arrow-red)"/>
+		<text x="95" y="170" class="sila-label">Fg</text>
+		<!-- Vztlak -->
+		<path d="M 80 155 L 80 115" stroke="#00aa00" stroke-width="3" marker-end="url(#arrow-green)"/>
+		<text x="95" y="130" class="sila-label">Fv</text>
+		<text x="80" y="215" text-anchor="middle" class="rovnice">Fv = Fg → plave</text>
+		
+		<!-- Případ 2: Těleso topí se -->
+		<text x="380" y="50" class="nadpis-sekce">Potápějící se těleso</text>
+		<rect x="340" y="110" width="80" height="60" fill="#1f2937" stroke="#000" stroke-width="2" rx="3"/>
+		<circle cx="380" cy="140" r="3" fill="#fff"/>
+		<text x="380" y="147" text-anchor="middle" class="label" font-size="10" fill="white">T</text>
+		<!-- Gravitační síla -->
+		<path d="M 380 170 L 380 220" stroke="#ff0000" stroke-width="3" marker-end="url(#arrow-red)"/>
+		<text x="395" y="195" class="sila-label">Fg</text>
+		<!-- Vztlak (menší) -->
+		<path d="M 380 165 L 380 145" stroke="#00aa00" stroke-width="2" marker-end="url(#arrow-green)"/>
+		<text x="395" y="150" class="sila-label">Fv</text>
+		<text x="380" y="245" text-anchor="middle" class="rovnice">Fg > Fv → klesá</text>
+		
+		<!-- Archimédův zákon v boxu -->
+		<rect x="50" y="290" width="500" height="50" fill="#fff9e6" stroke="#ff8c00" stroke-width="2" rx="5"/>
+		<text x="300" y="310" text-anchor="middle" class="archimedes-title">Archimédův zákon</text>
+		<text x="300" y="330" text-anchor="middle" class="archimedes-text">Vztlak = tíha vytlačené kapaliny</text>
+		
+		<!-- SVG markery -->
+		<defs>
+			<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#ff0000"/>
+			</marker>
+			<marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#00aa00"/>
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis-sekce {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.label {
+		font-size: 11px;
+		fill: #333;
+		font-weight: 500;
+	}
+	.sila-label {
+		font-size: 12px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.rovnice {
+		font-size: 12px;
+		font-weight: 600;
+		fill: #0066cc;
+	}
+	.archimedes-title {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #cc5500;
+	}
+	.archimedes-text {
+		font-size: 12px;
+		fill: #cc5500;
+	}
+</style>

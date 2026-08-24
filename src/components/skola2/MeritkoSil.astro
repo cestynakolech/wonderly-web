@@ -1,0 +1,93 @@
+---
+// Statická infografika: Měřítko sil
+// Jednotky síly a příklady
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Měřítko sil a jednotky 📊</span></h2>
+	<p><strong>Síla</strong> se měří v <strong>newtonech (N)</strong>. Jeden newton je síla, která zrychlí těleso o hmotnosti 1 kg na 1 m/s².</p>
+	<svg viewBox="0 0 600 360" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="360" fill="#f0e6ff"/>
+		
+		<!-- Nadpis -->
+		<text x="300" y="35" text-anchor="middle" class="nadpis">Síla v newtonech — příklady</text>
+		
+		<!-- Stupnice sil (vertikální) -->
+		<line x1="100" y1="280" x2="100" y2="80" stroke="#333" stroke-width="2"/>
+		<!-- Značky na stupnici -->
+		<line x1="95" y1="280" x2="105" y1="280" stroke="#333" stroke-width="1"/>
+		<line x1="95" y1="240" x2="105" y1="240" stroke="#333" stroke-width="1"/>
+		<line x1="95" y1="200" x2="105" y1="200" stroke="#333" stroke-width="1"/>
+		<line x1="95" y1="160" x2="105" y1="160" stroke="#333" stroke-width="1"/>
+		<line x1="95" y1="120" x2="105" y1="120" stroke="#333" stroke-width="1"/>
+		<line x1="95" y1="80" x2="105" y1="80" stroke="#333" stroke-width="1"/>
+		
+		<!-- Popis stupnice -->
+		<text x="60" y="285" text-anchor="end" class="label">0 N</text>
+		<text x="60" y="245" text-anchor="end" class="label">10 N</text>
+		<text x="60" y="205" text-anchor="end" class="label">20 N</text>
+		<text x="60" y="165" text-anchor="end" class="label">30 N</text>
+		<text x="60" y="125" text-anchor="end" class="label">40 N</text>
+		<text x="60" y="85" text-anchor="end" class="label">50 N</text>
+		
+		<!-- Příklady sil -->
+		<!-- 1 N -->
+		<circle cx="150" cy="270" r="8" fill="#a0e7e5"/>
+		<text x="180" y="275" class="priklad-text">Jablko (0,1 kg) ≈ 1 N</text>
+		
+		<!-- 10 N -->
+		<circle cx="150" cy="240" r="12" fill="#f4a261"/>
+		<text x="180" y="245" class="priklad-text">Jeden kilogram ≈ 10 N</text>
+		
+		<!-- 20 N -->
+		<circle cx="150" cy="200" r="14" fill="#e76f51"/>
+		<text x="180" y="205" class="priklad-text">Dvě kila (člověk drží) ≈ 20 N</text>
+		
+		<!-- 30 N -->
+		<circle cx="150" cy="160" r="16" fill="#d62828"/>
+		<text x="180" y="165" class="priklad-text">Tři kila (dítě zvedá) ≈ 30 N</text>
+		
+		<!-- 40 N -->
+		<circle cx="150" cy="120" r="18" fill="#a4161a"/>
+		<text x="180" y="125" class="priklad-text">4 kg (schwung jít do kroku) ≈ 40 N</text>
+		
+		<!-- 50 N -->
+		<circle cx="150" cy="80" r="20" fill="#58181c"/>
+		<text x="180" y="85" class="priklad-text">5 kg (dítě táhá bagetu) ≈ 50 N</text>
+		
+		<!-- Vztah mezi N a kily -->
+		<rect x="60" y="310" width="480" height="40" fill="#fff9e6" stroke="#ff8c00" stroke-width="2" rx="5"/>
+		<text x="300" y="330" text-anchor="middle" class="vzorec">1 newton = síla, která zrychlí 1 kg na 1 m/s²  |  Na Zemi: 1 kg ≈ 10 N</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis {
+		font-size: 20px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.label {
+		font-size: 12px;
+		fill: #333;
+		font-weight: 600;
+	}
+	.priklad-text {
+		font-size: 11px;
+		fill: #333;
+		font-weight: 500;
+	}
+	.vzorec {
+		font-size: 11px;
+		fill: #cc5500;
+		font-weight: 600;
+	}
+</style>

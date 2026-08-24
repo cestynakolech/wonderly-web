@@ -1,0 +1,73 @@
+---
+// Statická infografika: Rychlost, dráha a čas
+// Vztah s = v · t vizualizován
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Rychlost, dráha a čas 📏</span></h2>
+	<p>Průměrná <strong>rychlost</strong> je poměr <strong>dráhy</strong> a <strong>času</strong>: <code>v = s / t</code>. Všechny tři veličiny spolu souvisí.</p>
+	<svg viewBox="0 0 600 340" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="340" fill="#fff9e6"/>
+		
+		<!-- Nadpis -->
+		<text x="300" y="35" text-anchor="middle" class="nadpis">Vztah: dráha = rychlost × čas</text>
+		
+		<!-- Příklad 1: Auto -->
+		<text x="50" y="90" class="priklad-nadpis">Auto: 60 km/h, čas = 2 h</text>
+		<rect x="50" y="110" width="480" height="8" fill="#ddd" rx="4"/>
+		<rect x="50" y="110" width="240" height="8" fill="#ff6b9d" rx="4"/>
+		<text x="300" y="135" text-anchor="middle" class="vysledek">Dráha = 60 × 2 = 120 km</text>
+		
+		<!-- Příklad 2: Běžec -->
+		<text x="50" y="190" class="priklad-nadpis">Běžec: 10 m/s, čas = 5 s</text>
+		<rect x="50" y="210" width="480" height="8" fill="#ddd" rx="4"/>
+		<rect x="50" y="210" width="250" height="8" fill="#4ecdc4" rx="4"/>
+		<text x="300" y="235" text-anchor="middle" class="vysledek">Dráha = 10 × 5 = 50 m</text>
+		
+		<!-- Tabulka -->
+		<rect x="50" y="270" width="500" height="50" fill="none" stroke="#999" stroke-width="1"/>
+		<text x="65" y="290" class="tabulka-header">Veličina</text>
+		<text x="200" y="290" class="tabulka-header">Jednotka</text>
+		<text x="380" y="290" class="tabulka-header">Značka</text>
+		
+		<line x1="50" y1="300" x2="550" y2="300" stroke="#999" stroke-width="1"/>
+		<text x="65" y="315" class="tabulka-text">Dráha</text>
+		<text x="200" y="315" class="tabulka-text">m, km</text>
+		<text x="380" y="315" class="tabulka-text">s</text>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis {
+		font-size: 20px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.priklad-nadpis {
+		font-size: 14px;
+		font-weight: 600;
+		fill: #333;
+	}
+	.vysledek {
+		font-size: 13px;
+		font-weight: bold;
+		fill: #1e40af;
+	}
+	.tabulka-header {
+		font-size: 12px;
+		font-weight: bold;
+		fill: #444;
+	}
+	.tabulka-text {
+		font-size: 12px;
+		fill: #666;
+	}
+</style>

@@ -1,0 +1,88 @@
+---
+// Statická infografika: Tlak v kapalinách
+// Pascalův zákon a příklady
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Tlak v kapalinách 💧</span></h2>
+	<p><strong>Tlak</strong> je síla připadající na jednotku plochy: <code>p = F / S</code>. V kapalinách se tlak šíří <strong>všemi směry stejně</strong> (Pascalův zákon).</p>
+	<svg viewBox="0 0 600 360" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="360" fill="#e0f2ff"/>
+		
+		<!-- Příklad: Hydraulika -->
+		<text x="300" y="35" text-anchor="middle" class="nadpis">Hydraulický lis (Pascalův zákon)</text>
+		
+		<!-- Levý píst (malý) -->
+		<circle cx="120" cy="140" r="20" fill="#666" stroke="#000" stroke-width="2"/>
+		<text x="120" y="145" text-anchor="middle" class="piston-label">S₁</text>
+		<path d="M 120 120 L 120 80" stroke="#333" stroke-width="3"/>
+		<text x="95" y="100" class="label" text-anchor="middle">F₁</text>
+		
+		<!-- Kapalina -->
+		<rect x="60" y="160" width="180" height="80" fill="#87ceeb" stroke="#0066cc" stroke-width="2"/>
+		<!-- Šipky tlaku dolů -->
+		<path d="M 100 140 L 100 160" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 150 140 L 150 160" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 200 140 L 200 160" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<!-- Šipky tlaku dolů -->
+		<path d="M 100 240 L 100 260" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 150 240 L 150 260" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 200 240 L 200 260" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<!-- Tlak vodorovně -->
+		<path d="M 40 200 L 60 200" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		<path d="M 240 200 L 260 200" stroke="#ff0000" stroke-width="2" marker-end="url(#arrow-red)"/>
+		
+		<!-- Pravý píst (velký) -->
+		<circle cx="380" cy="140" r="30" fill="#666" stroke="#000" stroke-width="2"/>
+		<text x="380" y="150" text-anchor="middle" class="piston-label">S₂</text>
+		<path d="M 380 100 L 380 30" stroke="#333" stroke-width="4"/>
+		<text x="405" y="65" class="label" text-anchor="middle">F₂</text>
+		
+		<!-- Vzorec Pascalova zákona -->
+		<rect x="80" y="280" width="440" height="50" fill="#fff9e6" stroke="#ff8c00" stroke-width="2" rx="5"/>
+		<text x="300" y="305" text-anchor="middle" class="formula">Pascalův zákon: p₁ = p₂</text>
+		<text x="300" y="325" text-anchor="middle" class="formula-sub">F₁/S₁ = F₂/S₂ → F₂ = F₁ × (S₂/S₁)</text>
+		
+		<!-- Defs -->
+		<defs>
+			<marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<path d="M0,0 L0,6 L9,3 z" fill="#ff0000"/>
+			</marker>
+		</defs>
+	</svg>
+</section>
+
+<style>
+	.infografika-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		border: 2px solid #ddd;
+		border-radius: 8px;
+	}
+	.nadpis {
+		font-size: 20px;
+		font-weight: bold;
+		fill: #333;
+	}
+	.piston-label {
+		font-size: 12px;
+		fill: white;
+		font-weight: bold;
+	}
+	.label {
+		font-size: 13px;
+		fill: #333;
+		font-weight: 600;
+	}
+	.formula {
+		font-size: 14px;
+		font-weight: bold;
+		fill: #cc5500;
+	}
+	.formula-sub {
+		font-size: 12px;
+		fill: #cc5500;
+	}
+</style>
