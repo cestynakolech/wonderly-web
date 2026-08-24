@@ -1,0 +1,107 @@
+---
+// F9 Elektrina — Proton (základní kladný náboj v jádru atomu)
+// SVG diagram ukazuje strukturu jádra a roli protonů
+---
+
+<section class="ramecek f9-diagram">
+	<h3>⚛️ Proton — kladný náboj v jádře</h3>
+	<svg viewBox="0 0 400 300" class="diagram-svg proton-diagram">
+		<!-- Pozadí -->
+		<rect width="400" height="300" fill="#f7f9fc" />
+
+		<!-- Nadpis části -->
+		<text x="200" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">Jádro atomu — složeno z protonů a neutronů</text>
+
+		<!-- Přední řez jádrem -->
+		<g transform="translate(200, 140)">
+			<!-- Kruh jádra -->
+			<circle cx="0" cy="0" r="50" fill="none" stroke="#8b0000" stroke-width="2" />
+
+			<!-- Protony (kladné náboje) -->
+			<circle cx="-30" cy="-20" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="2" />
+			<text x="-30" y="-15" text-anchor="middle" font-size="11" font-weight="bold" fill="white">+</text>
+
+			<circle cx="0" cy="-35" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="2" />
+			<text x="0" y="-30" text-anchor="middle" font-size="11" font-weight="bold" fill="white">+</text>
+
+			<circle cx="30" cy="-20" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="2" />
+			<text x="30" y="-15" text-anchor="middle" font-size="11" font-weight="bold" fill="white">+</text>
+
+			<circle cx="-25" cy="25" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="2" />
+			<text x="-25" y="30" text-anchor="middle" font-size="11" font-weight="bold" fill="white">+</text>
+
+			<circle cx="25" cy="25" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="2" />
+			<text x="25" y="30" text-anchor="middle" font-size="11" font-weight="bold" fill="white">+</text>
+
+			<!-- Neutrony (bez náboje) — šedé -->
+			<circle cx="0" cy="0" r="7" fill="#999" stroke="#666" stroke-width="1.5" />
+			<text x="0" y="3" text-anchor="middle" font-size="9" fill="white">n</text>
+
+			<circle cx="20" cy="10" r="7" fill="#999" stroke="#666" stroke-width="1.5" />
+			<text x="20" y="13" text-anchor="middle" font-size="9" fill="white">n</text>
+
+			<circle cx="-20" cy="10" r="7" fill="#999" stroke="#666" stroke-width="1.5" />
+			<text x="-20" y="13" text-anchor="middle" font-size="9" fill="white">n</text>
+
+			<!-- Titulek "Jádro" -->
+			<text x="0" y="65" text-anchor="middle" font-size="12" font-weight="600" fill="#8b0000">Jádro atomu</text>
+		</g>
+
+		<!-- Legenda vlevo -->
+		<g>
+			<rect x="15" y="85" width="12" height="12" fill="#c41e3a" stroke="#8b0000" stroke-width="1" />
+			<text x="35" y="94" font-size="10" fill="#333">PROTON (náboj +)</text>
+
+			<rect x="15" y="105" width="12" height="12" fill="#999" stroke="#666" stroke-width="1" />
+			<text x="35" y="114" font-size="10" fill="#333">NEUTRON (bez náboje)</text>
+		</g>
+
+		<!-- Hlavní vlastnosti protonů (box) -->
+		<rect x="15" y="210" width="370" height="75" fill="#ffebee" stroke="#c41e3a" stroke-width="1.5" rx="4" />
+		<text x="25" y="230" font-size="11" font-weight="600" fill="#b71c1c">Vlastnosti protonu:</text>
+		<text x="25" y="245" font-size="10" fill="#333">• Náboj: KLADNÝ (+), stejně velký jako elektron, ale opačný</text>
+		<text x="25" y="258" font-size="10" fill="#333">• Umístění: V JÁDRU atomu (spolu s neutrony)</text>
+		<text x="25" y="271" font-size="10" fill="#333">• Pohyb: Protony se NEPOHYBUJÍ − zůstávají v jádře vždy. Elektrický proud tedy vzniká jen pohybem ELEKTRONŮ!</text>
+	</svg>
+
+	<div class="poznamka">
+		<strong>Zapamatuj si:</strong> Proton je kladně nabitá částice v jádře atomu. Počet protonů určuje, 
+		jakého prvku je atom. Protony se nikdy nepohybují − proud tvoří jen elektrony!
+	</div>
+</section>
+
+<style>
+	.f9-diagram {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		border: 2px solid #c41e3a;
+		border-radius: 8px;
+		background: #f9fafc;
+	}
+
+	.f9-diagram h3 {
+		margin: 0 0 1rem 0;
+		color: #b71c1c;
+		font-size: 1.25rem;
+	}
+
+	.diagram-svg {
+		width: 100%;
+		max-width: 500px;
+		margin: 1rem auto;
+		display: block;
+		border-radius: 6px;
+		background: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.poznamka {
+		margin-top: 1rem;
+		padding: 0.8rem;
+		background: #fff3cd;
+		border-left: 4px solid #ffc107;
+		border-radius: 4px;
+		font-size: 0.95rem;
+		color: #856404;
+	}
+</style>

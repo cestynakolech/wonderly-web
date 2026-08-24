@@ -1,0 +1,146 @@
+---
+// F6 Pohyb — Pohyb (základní pojmy a druhy pohybu)
+// SVG diagram ukazuje příklady pohybu (přímočarý, křivočarý, otáčivý)
+---
+
+<section class="ramecek f6-diagram">
+	<h3>🎯 Pohyb — změna polohy tělesa v prostoru</h3>
+	<svg viewBox="0 0 450 350" class="diagram-svg pohyb-diagram">
+		<!-- Pozadí -->
+		<rect width="450" height="350" fill="#f7f9fc" />
+
+		<!-- Název oddílu: Druhy pohybu -->
+		<text x="225" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#1565c0">Druhy pohybu</text>
+
+		<!-- 1. Přímočarý pohyb -->
+		<g>
+			<!-- Pozadí -->
+			<rect x="20" y="45" width="130" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5" rx="4" />
+			<!-- Obrázek -->
+			<circle cx="60" cy="80" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="1.5" />
+			<line x1="75" y1="80" x2="130" y2="80" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)" />
+			<text x="75" y="95" font-size="10" fill="#333">Přímočarý</text>
+			<!-- Popis -->
+			<text x="30" y="125" font-size="9" fill="#0d47a1" font-weight="600">Těleso se pohybuje</text>
+			<text x="30" y="138" font-size="9" fill="#333">v jedné přímce (např.</text>
+			<text x="30" y="151" font-size="9" fill="#333">vlak na kolej)</text>
+		</g>
+
+		<!-- 2. Křivočarý pohyb -->
+		<g>
+			<!-- Pozadí -->
+			<rect x="160" y="45" width="130" height="100" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5" rx="4" />
+			<!-- Obrázek -->
+			<circle cx="200" cy="80" r="8" fill="#c41e3a" stroke="#8b0000" stroke-width="1.5" />
+			<path d="M 215 80 Q 230 70 245 85" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+			<text x="200" y="95" font-size="10" fill="#333" text-anchor="middle">Křivočarý</text>
+			<!-- Popis -->
+			<text x="170" y="125" font-size="9" fill="#4a148c" font-weight="600">Těleso se pohybuje</text>
+			<text x="170" y="138" font-size="9" fill="#333">po křivce (např.</text>
+			<text x="170" y="151" font-size="9" fill="#333">projektil, planeta)</text>
+		</g>
+
+		<!-- 3. Otáčivý pohyb -->
+		<g>
+			<!-- Pozadí -->
+			<rect x="300" y="45" width="130" height="100" fill="#e0f2f1" stroke="#00695c" stroke-width="1.5" rx="4" />
+			<!-- Obrázek -->
+			<circle cx="340" cy="80" r="15" fill="none" stroke="#00695c" stroke-width="2" />
+			<circle cx="340" cy="70" r="4" fill="#c41e3a" stroke="#8b0000" stroke-width="1.5" />
+			<path d="M 350 75 A 12 12 0 0 1 348 62" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead-rot)" />
+			<text x="340" y="105" font-size="10" fill="#333" text-anchor="middle">Otáčivý</text>
+			<!-- Popis -->
+			<text x="310" y="125" font-size="9" fill="#00695c" font-weight="600">Těleso se otáčí</text>
+			<text x="310" y="138" font-size="9" fill="#333">kolem osy (např.</text>
+			<text x="310" y="151" font-size="9" fill="#333">vrtule, planeta)</text>
+		</g>
+
+		<!-- Centrální diagram: Relativnost pohybu -->
+		<rect x="20" y="170" width="410" height="155" fill="#fff3e0" stroke="#e65100" stroke-width="1.5" rx="4" />
+		<text x="225" y="190" text-anchor="middle" font-size="13" font-weight="bold" fill="#e65100">Relativnost pohybu — pohyb závisí na pozorovateli!</text>
+
+		<!-- Příklad 1: Cestující v autě -->
+		<g>
+			<rect x="35" y="205" width="180" height="105" fill="#fff9c4" stroke="#fbc02d" stroke-width="1" rx="3" />
+			<text x="45" y="223" font-size="10" font-weight="600" fill="#f57f17">Cestující v autě:</text>
+			<!-- Auto -->
+			<rect x="80" y="245" width="50" height="20" fill="#e0e0e0" stroke="#616161" stroke-width="1" />
+			<circle cx="90" cy="270" r="4" fill="#424242" />
+			<circle cx="120" cy="270" r="4" fill="#424242" />
+			<path d="M 130 245 L 140 235" stroke="#ffb300" stroke-width="2" marker-end="url(#arrowhead-sm)" />
+			<text x="45" y="290" font-size="8" fill="#333">• Vůči autu: NEHYBNÝ</text>
+			<text x="45" y="302" font-size="8" fill="#333">• Vůči silnici: POHYBUJÍCÍ SE</text>
+		</g>
+
+		<!-- Příklad 2: Západ slunce -->
+		<g>
+			<rect x="235" y="205" width="180" height="105" fill="#fff9c4" stroke="#fbc02d" stroke-width="1" rx="3" />
+			<text x="245" y="223" font-size="10" font-weight="600" fill="#f57f17">Západ slunce:</text>
+			<!-- Slunce a horizont -->
+			<circle cx="295" cy="255" r="15" fill="#fdd835" stroke="#f9a825" stroke-width="1.5" />
+			<line x1="265" y1="275" x2="325" y2="275" stroke="#d4a574" stroke-width="2" />
+			<path d="M 265 275 L 270 280" stroke="#90a4ae" stroke-width="1" />
+			<path d="M 325 275 L 320 280" stroke="#90a4ae" stroke-width="1" />
+			<text x="245" y="295" font-size="8" fill="#333">• Slunce ZANIKÁ pod horizont</text>
+			<text x="245" y="307" font-size="8" fill="#333">• Ve skutečnosti se OTÁČÍ Země</text>
+		</g>
+
+		<!-- Povinné definice v boxu -->
+		<rect x="20" y="335" width="410" height="20" fill="#e0f2f1" stroke="#00695c" stroke-width="1" rx="2" />
+		<text x="30" y="352" font-size="9" fill="#00695c" font-weight="600">Posunutí = vektorová změna polohy | Dráha = délka trajektorie | Trajektorie = křivka, kterou těleso opisuje</text>
+
+		<!-- Arrow markers -->
+		<defs>
+			<marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#333" />
+			</marker>
+			<marker id="arrowhead-rot" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#333" />
+			</marker>
+			<marker id="arrowhead-sm" markerWidth="6" markerHeight="6" refX="5" refY="2" orient="auto">
+				<polygon points="0 0, 6 2, 0 4" fill="#ffb300" />
+			</marker>
+		</defs>
+	</svg>
+
+	<div class="poznamka">
+		<strong>Zapamatuj si:</strong> Pohyb je změna polohy tělesa vůči určitému vztažnému bodu (pozorovateli).
+		Stejný pohyb se může jevit různě pro různé pozorovatele — všechno závisí na jejich vlastním pohybu.
+	</div>
+</section>
+
+<style>
+	.f6-diagram {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		border: 2px solid #1976d2;
+		border-radius: 8px;
+		background: #f9fafc;
+	}
+
+	.f6-diagram h3 {
+		margin: 0 0 1rem 0;
+		color: #1565c0;
+		font-size: 1.25rem;
+	}
+
+	.diagram-svg {
+		width: 100%;
+		max-width: 500px;
+		margin: 1rem auto;
+		display: block;
+		border-radius: 6px;
+		background: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.poznamka {
+		margin-top: 1rem;
+		padding: 0.8rem;
+		background: #fff3cd;
+		border-left: 4px solid #ffc107;
+		border-radius: 4px;
+		font-size: 0.95rem;
+		color: #856404;
+	}
+</style>

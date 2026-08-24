@@ -1,0 +1,125 @@
+---
+// F6 Pohyb — Čas (měření, jednotky, vztah s pohybem)
+// SVG diagram ukazuje čas v kontextu pohybu
+---
+
+<section class="ramecek f6-diagram">
+	<h3>⏱️ Čas — fyzikální veličina charakterizující děje</h3>
+	<svg viewBox="0 0 450 380" class="diagram-svg cas-diagram">
+		<!-- Pozadí -->
+		<rect width="450" height="380" fill="#f7f9fc" />
+
+		<!-- Název -->
+		<text x="225" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#1565c0">Čas (t)</text>
+
+		<!-- Základní informace -->
+		<rect x="20" y="40" width="410" height="50" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5" rx="4" />
+		<text x="30" y="60" font-size="11" font-weight="600" fill="#4a148c">DEFINICE: Čas je fyzikální veličina popisující posloupnost jevů</text>
+		<text x="30" y="75" font-size="10" fill="#333">Základní jednotka: sekunda (s) — nejmenší jednotka času v soustavě SI</text>
+		<text x="30" y="88" font-size="9" fill="#7b1fa2">Symbol: t | Měří se: stopkami, hodinami, chronometry</text>
+
+		<!-- Jednotky času -->
+		<g>
+			<rect x="20" y="110" width="410" height="75" fill="#e1f5fe" stroke="#0277bd" stroke-width="1.5" rx="4" />
+			<text x="30" y="130" font-size="11" font-weight="600" fill="#01579b">Jednotky času</text>
+
+			<!-- Tabulka přepočtů -->
+			<g font-size="9" fill="#333">
+				<text x="30" y="150">1 sekunda (s) = základní jednotka</text>
+				<text x="30" y="165">1 minuta (min) = 60 sekund</text>
+				<text x="30" y="180">1 hodina (h) = 60 minut = 3600 sekund</text>
+
+				<text x="230" y="150">1 den = 24 hodin</text>
+				<text x="230" y="165">1 týden = 7 dní</text>
+				<text x="230" y="180">1 rok = 365,25 dní</text>
+			</g>
+		</g>
+
+		<!-- Měření času v pohybu -->
+		<g>
+			<rect x="20" y="200" width="410" height="100" fill="#fff3e0" stroke="#e65100" stroke-width="1.5" rx="4" />
+			<text x="30" y="220" font-size="11" font-weight="600" fill="#e65100">Čas v pohybu: Vztah v rovnici pohybu</text>
+
+			<!-- Příklady situací -->
+			<g font-size="9" fill="#333">
+				<text x="30" y="245" font-weight="600" fill="#c41e3a">Příklad 1: Výpočet času</text>
+				<text x="40" y="258">Auto ujede 180 km rychlostí 90 km/h.</text>
+				<text x="40" y="271">Čas? t = s ÷ v = 180 ÷ 90 = 2 hodiny</text>
+
+				<text x="230" y="245" font-weight="600" fill="#c41e3a">Příklad 2: Čas a dráha</text>
+				<text x="240" y="258">Běžec běží 30 sekund. Jakou dráhu ujede</text>
+				<text x="240" y="271">rychlostí 8 m/s? s = v × t = 8 × 30 = 240 m</text>
+			</g>
+		</g>
+
+		<!-- Časová osa: Od minulosti k budoucnosti -->
+		<rect x="20" y="315" width="410" height="50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1.5" rx="4" />
+		<text x="30" y="335" font-size="10" font-weight="600" fill="#1b5e20">Časová osa pohybu</text>
+
+		<!-- Přímka času -->
+		<line x1="35" y1="355" x2="420" y2="355" stroke="#333" stroke-width="2" />
+
+		<!-- Body na časové ose -->
+		<circle cx="50" cy="355" r="4" fill="#ffc107" stroke="#f57f17" stroke-width="1.5" />
+		<text x="45" y="370" text-anchor="middle" font-size="8" fill="#333">t=0s</text>
+
+		<circle cx="140" cy="355" r="4" fill="#4caf50" stroke="#2e7d32" stroke-width="1.5" />
+		<text x="140" y="370" text-anchor="middle" font-size="8" fill="#333">t=1s</text>
+
+		<circle cx="230" cy="355" r="4" fill="#2196f3" stroke="#0277bd" stroke-width="1.5" />
+		<text x="230" y="370" text-anchor="middle" font-size="8" fill="#333">t=2s</text>
+
+		<circle cx="320" cy="355" r="4" fill="#ff9800" stroke="#e65100" stroke-width="1.5" />
+		<text x="320" y="370" text-anchor="middle" font-size="8" fill="#333">t=3s</text>
+
+		<circle cx="410" cy="355" r="4" fill="#f44336" stroke="#c41e3a" stroke-width="1.5" />
+		<text x="410" y="370" text-anchor="middle" font-size="8" fill="#333">t=4s</text>
+
+		<!-- Šipka času -->
+		<polygon points="420,355 430,350 430,360" fill="#333" />
+
+		<!-- Pozn: Interval času -->
+		<text x="220" y="380" text-anchor="middle" font-size="8" fill="#666" font-style="italic">Každý bod = okamžik v čase | Vzdálenost mezi body = interval času</text>
+	</svg>
+
+	<div class="poznamka">
+		<strong>Zapamatuj si:</strong> Čas je nezbytný pro popis pohybu. Bez času bychom nemohli vyjádřit rychlost
+		nebo zrychlení. Čas je vždy kladný (teče dopředu) a v kinematice jej měříme v sekundách.
+	</div>
+</section>
+
+<style>
+	.f6-diagram {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		border: 2px solid #1976d2;
+		border-radius: 8px;
+		background: #f9fafc;
+	}
+
+	.f6-diagram h3 {
+		margin: 0 0 1rem 0;
+		color: #1565c0;
+		font-size: 1.25rem;
+	}
+
+	.diagram-svg {
+		width: 100%;
+		max-width: 500px;
+		margin: 1rem auto;
+		display: block;
+		border-radius: 6px;
+		background: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.poznamka {
+		margin-top: 1rem;
+		padding: 0.8rem;
+		background: #fff3cd;
+		border-left: 4px solid #ffc107;
+		border-radius: 4px;
+		font-size: 0.95rem;
+		color: #856404;
+	}
+</style>

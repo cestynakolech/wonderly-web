@@ -1,0 +1,134 @@
+---
+// F9 Elektrina — Zákony (Ohmův zákon, Coulombův zákon, Kirchhoffovy zákony)
+// SVG diagram ukazuje základní zákony elektřiny a jejich vzorce
+---
+
+<section class="ramecek f9-diagram">
+	<h3>⚡ Zákony elektřiny — Základní principy</h3>
+	<svg viewBox="0 0 500 400" class="diagram-svg zakon-diagram">
+		<!-- Pozadí -->
+		<rect width="500" height="400" fill="#f7f9fc" />
+
+		<!-- OHM'S LAW — Ohmův zákon -->
+		<rect x="15" y="15" width="220" height="160" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="6" />
+		<text x="125" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#1565c0">OHMŮV ZÁKON</text>
+
+		<!-- Vzorec -->
+		<rect x="25" y="45" width="200" height="50" fill="white" stroke="#90caf9" stroke-width="1" rx="3" />
+		<text x="125" y="62" text-anchor="middle" font-size="13" font-weight="600" fill="#0d47a1">U = I · R</text>
+		<text x="125" y="78" text-anchor="middle" font-size="10" fill="#555">Napětí = Proud × Odpor</text>
+
+		<!-- Jednotky -->
+		<text x="25" y="110" font-size="9" fill="#333"><tspan font-weight="600">U</tspan> ... Napětí [V, volt]</text>
+		<text x="25" y="125" font-size="9" fill="#333"><tspan font-weight="600">I</tspan> ... Proud [A, ampér]</text>
+		<text x="25" y="140" font-size="9" fill="#333"><tspan font-weight="600">R</tspan> ... Odpor [Ω, ohm]</text>
+
+		<text x="25" y="160" font-size="8" fill="#999" font-style="italic">Nejdůležitější zákon elektřiny!</text>
+
+		<!-- COULOMB'S LAW — Coulombův zákon -->
+		<rect x="265" y="15" width="220" height="160" fill="#fce4ec" stroke="#c2185b" stroke-width="2" rx="6" />
+		<text x="375" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#c2185b">COULOMBŮV ZÁKON</text>
+
+		<!-- Vzorec -->
+		<rect x="275" y="45" width="200" height="50" fill="white" stroke="#f8bbd0" stroke-width="1" rx="3" />
+		<text x="375" y="62" text-anchor="middle" font-size="13" font-weight="600" fill="#880e4f">F = k · (q₁ · q₂) / r²</text>
+		<text x="375" y="78" text-anchor="middle" font-size="10" fill="#555">Síla mezi náboji</text>
+
+		<!-- Jednotky -->
+		<text x="275" y="110" font-size="9" fill="#333"><tspan font-weight="600">F</tspan> ... Síla [N, newton]</text>
+		<text x="275" y="125" font-size="9" fill="#333"><tspan font-weight="600">q</tspan> ... Náboj [C, coulomb]</text>
+		<text x="275" y="140" font-size="9" fill="#333"><tspan font-weight="600">r</tspan> ... Vzdálenost [m]</text>
+
+		<text x="275" y="160" font-size="8" fill="#999" font-style="italic">Síla působí na dálku!</text>
+
+		<!-- KIRCHHOFF'S LAWS — Kirchhoffovy zákony -->
+		<rect x="15" y="190" width="470" height="100" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="6" />
+		<text x="250" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#7b1fa2">KIRCHHOFFOVY ZÁKONY (pro obvody)</text>
+
+		<text x="25" y="235" font-size="10" font-weight="600" fill="#4a148c">1️⃣ Zákon proudů (uzel):</text>
+		<text x="35" y="250" font-size="9" fill="#333">Součet proudů vstupujících do uzlu = Součet proudů z uzlu</text>
+
+		<text x="25" y="270" font-size="10" font-weight="600" fill="#4a148c">2️⃣ Zákon napětí (smyčka):</text>
+		<text x="35" y="285" font-size="9" fill="#333">Součet napětí kolem uzavřené smyčky = 0 (nebo součet zdrojů = součet úbytků)</text>
+
+		<!-- VÝKON a ENERGIE — Power and Energy -->
+		<rect x="15" y="305" width="470" height="80" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" rx="6" />
+		<text x="250" y="325" text-anchor="middle" font-size="12" font-weight="700" fill="#2e7d32">VÝKON a ENERGIE</text>
+
+		<text x="25" y="348" font-size="9" fill="#333"><tspan font-weight="600">Výkon:</tspan> P = U · I (jednotka: W, watt) — jak rychle se energia používá</text>
+		<text x="25" y="362" font-size="9" fill="#333"><tspan font-weight="600">Energie:</tspan> E = P · t (jednotka: J, joule nebo kWh) — kolik energie se spotřebuje</text>
+
+		<text x="25" y="378" font-size="8" fill="#666" font-style="italic">Příklad: Lednice 100 W běží 24 h → E = 100 W × 24 h = 2,4 kWh za den</text>
+	</svg>
+
+	<div class="poznamka">
+		<strong>Zapamatuj si:</strong> Ohmův zákon (U = I · R) je to nejdůležitější. Vrátí se ti v každé 
+		úloze s elektřinou. Kirchhoffovy zákony popisují, jak se proud a napětí chová v obvodech. 
+		Výkon a energia jsou to, co účtujem za elektřinu!
+	</div>
+
+	<div class="tipy">
+		<strong>💡 Tipy k pamatování:</strong>
+		<ul>
+			<li><strong>Ohmův zákon:</strong> Více napětí → více proudu. Více odporu → méně proudu.</li>
+			<li><strong>Coulombův zákon:</strong> Stejné náboje se ODPUZUJÍ, opačné se PŘITAHUJÍ. Blíž = větší síla.</li>
+			<li><strong>Výkon:</strong> Když připojíš víc zařízení, proud vzroste a koeficient kvadratické věci.</li>
+		</ul>
+	</div>
+</section>
+
+<style>
+	.f9-diagram {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		border: 2px solid #7b1fa2;
+		border-radius: 8px;
+		background: #f9fafc;
+	}
+
+	.f9-diagram h3 {
+		margin: 0 0 1rem 0;
+		color: #6a1b9a;
+		font-size: 1.25rem;
+	}
+
+	.diagram-svg {
+		width: 100%;
+		max-width: 600px;
+		margin: 1rem auto;
+		display: block;
+		border-radius: 6px;
+		background: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.poznamka {
+		margin-top: 1rem;
+		padding: 0.8rem;
+		background: #fff3cd;
+		border-left: 4px solid #ffc107;
+		border-radius: 4px;
+		font-size: 0.95rem;
+		color: #856404;
+	}
+
+	.tipy {
+		margin-top: 1rem;
+		padding: 1rem;
+		background: #e1f5fe;
+		border-left: 4px solid #0288d1;
+		border-radius: 4px;
+		font-size: 0.9rem;
+		color: #01579b;
+	}
+
+	.tipy ul {
+		margin: 0.5rem 0 0 0;
+		padding-left: 1.5rem;
+	}
+
+	.tipy li {
+		margin: 0.3rem 0;
+		list-style-type: disc;
+	}
+</style>

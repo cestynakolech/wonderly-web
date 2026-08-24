@@ -1,0 +1,166 @@
+---
+// F9 Elektrina — Vodič (drátky, kabely, vedení a jejich vlastnosti)
+// SVG diagram ukazuje strukturu kabelů a vodivost různých materiálů
+---
+
+<section class="ramecek f9-diagram">
+	<h3>🔗 Vodič — Drátky, kabely a vedení</h3>
+	<svg viewBox="0 0 500 420" class="diagram-svg vodic-diagram">
+		<!-- Pozadí -->
+		<rect width="500" height="420" fill="#f7f9fc" />
+
+		<!-- HORNÍ ŘÁDEK: STRUKTURA KABELU -->
+		<text x="250" y="25" text-anchor="middle" font-size="12" font-weight="700" fill="#333">Struktura elektrického kabelu</text>
+
+		<!-- Příčný řez kabelem -->
+		<circle cx="90" cy="80" r="30" fill="white" stroke="#333" stroke-width="2" />
+
+		<!-- Vnitřní vodič (měď) -->
+		<circle cx="90" cy="80" r="10" fill="#b87333" stroke="#8b6914" stroke-width="1.5" />
+
+		<!-- Izolace (plast) -->
+		<circle cx="90" cy="80" r="20" fill="none" stroke="#f57c00" stroke-width="6" />
+
+		<!-- Vnější ochrana -->
+		<circle cx="90" cy="80" r="25" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="2,3" />
+
+		<!-- Popis s šipkami -->
+		<line x1="50" y1="110" x2="35" y2="130" stroke="#333" stroke-width="1" />
+		<text x="30" y="135" font-size="9" fill="#333">Vnější ochrana</text>
+
+		<line x1="100" y1="100" x2="130" y2="120" stroke="#f57c00" stroke-width="1" />
+		<text x="135" y="125" font-size="9" fill="#f57c00" font-weight="600">Izolace (plast)</text>
+
+		<line x1="90" y1="50" x2="90" y2="30" stroke="#b87333" stroke-width="1" />
+		<text x="95" y="35" font-size="9" fill="#b87333" font-weight="600">Vodič (měď)</text>
+
+		<!-- Délkový řez kabelem -->
+		<g transform="translate(20, 170)">
+			<text x="230" y="0" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Vedení elektrického proudu v drátku</text>
+
+			<!-- Drát s pruhem -->
+			<rect x="0" y="20" width="460" height="20" fill="white" stroke="#666" stroke-width="1" rx="3" />
+
+			<!-- Volné elektrony -->
+			<circle cx="50" cy="30" r="3" fill="#4169e1" />
+			<circle cx="100" cy="35" r="3" fill="#4169e1" />
+			<circle cx="150" cy="30" r="3" fill="#4169e1" />
+			<circle cx="200" cy="32" r="3" fill="#4169e1" />
+			<circle cx="250" cy="35" r="3" fill="#4169e1" />
+			<circle cx="300" cy="30" r="3" fill="#4169e1" />
+			<circle cx="350" cy="33" r="3" fill="#4169e1" />
+			<circle cx="400" cy="31" r="3" fill="#4169e1" />
+
+			<!-- Šipky směru proudu -->
+			<path d="M 20 50 L 40 50" stroke="#4169e1" stroke-width="2" marker-end="url(#arrowblue)" />
+			<path d="M 100 50 L 120 50" stroke="#4169e1" stroke-width="2" marker-end="url(#arrowblue)" />
+			<path d="M 200 50 L 220 50" stroke="#4169e1" stroke-width="2" marker-end="url(#arrowblue)" />
+			<path d="M 300 50 L 320 50" stroke="#4169e1" stroke-width="2" marker-end="url(#arrowblue)" />
+			<path d="M 400 50 L 420 50" stroke="#4169e1" stroke-width="2" marker-end="url(#arrowblue)" />
+
+			<text x="230" y="80" text-anchor="middle" font-size="9" fill="#333">Elektrony se pohybují v jednom směru = ELEKTRICKÝ PROUD</text>
+
+			<defs>
+				<marker id="arrowblue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+					<path d="M0,0 L0,6 L9,3 z" fill="#4169e1" />
+				</marker>
+			</defs>
+		</g>
+
+		<!-- TABULKA: VODIVOST RŮZNÝCH MATERIÁLŮ -->
+		<rect x="15" y="290" width="470" height="125" fill="#f5f5f5" stroke="#666" stroke-width="1" rx="4" />
+		<text x="250" y="310" text-anchor="middle" font-size="11" font-weight="700" fill="#333">Vodivost různých materiálů (relativně)</text>
+
+		<!-- Tabulka řádky -->
+		<text x="30" y="330" font-size="9" fill="#333"><tspan font-weight="600">Materiál</tspan></text>
+		<text x="200" y="330" font-size="9" fill="#333"><tspan font-weight="600">Vodivost</tspan></text>
+		<text x="330" y="330" font-size="9" fill="#333"><tspan font-weight="600">Použití</tspan></text>
+
+		<line x1="25" y1="335" x2="475" y2="335" stroke="#ccc" stroke-width="1" />
+
+		<!-- Řádky tabulky -->
+		<text x="30" y="352" font-size="9" fill="#333">Měď (Cu)</text>
+		<text x="200" y="352" font-size="9" fill="#b87333" font-weight="600">⭐⭐⭐⭐⭐</text>
+		<text x="330" y="352" font-size="9" fill="#333">Dráty v kabelech</text>
+
+		<text x="30" y="368" font-size="9" fill="#333">Hliník (Al)</text>
+		<text x="200" y="368" font-size="9" fill="#c0c0c0" font-weight="600">⭐⭐⭐⭐</text>
+		<text x="330" y="368" font-size="9" fill="#333">Vedení VN</text>
+
+		<text x="30" y="384" font-size="9" fill="#333">Plast, guma</text>
+		<text x="200" y="384" font-size="9" fill="#ff6b6b" font-weight="600">❌ Isolant</text>
+		<text x="330" y="384" font-size="9" fill="#333">Ochrana drátků</text>
+	</svg>
+
+	<div class="poznamka">
+		<strong>Zapamatuj si:</strong> Vodič je materiál, který snadno vede elektrický proud. Ideální vodič je měď — 
+		tanká, elastická a má minimální odpor. Každý vodič je vždy obalený izolačním pláštěm pro bezpečnost. 
+		Velmi vysoké napětí se vede hliníkem (lehčí) místo mědi.
+	</div>
+
+	<div class="tipy">
+		<strong>💡 Praktické vlastnosti vodiče:</strong>
+		<ul>
+			<li><strong>Odpor vodiče:</strong> Závisí na materiálu (ρ), délce (L) a průřezu (S): R = ρ · L / S</li>
+			<li><strong>Teplo vodiče:</strong> Proud vytvářející teplo (Jouleovo teplo) = I² · R. Proto se dlouhé kabely zahřívají!</li>
+			<li><strong>Průměr vodiče:</strong> Čím silnější drát, tím méně odporu. Proto se v domě používá silnější vodiče na kuchyň (mraznička) než do ložnice.</li>
+			<li><strong>Bezpečnost:</strong> Vodič se VŽDY izoluje. Голой drát = nebezpečí úrazu!</li>
+		</ul>
+	</div>
+</section>
+
+<style>
+	.f9-diagram {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		border: 2px solid #666;
+		border-radius: 8px;
+		background: #f9fafc;
+	}
+
+	.f9-diagram h3 {
+		margin: 0 0 1rem 0;
+		color: #444;
+		font-size: 1.25rem;
+	}
+
+	.diagram-svg {
+		width: 100%;
+		max-width: 600px;
+		margin: 1rem auto;
+		display: block;
+		border-radius: 6px;
+		background: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.poznamka {
+		margin-top: 1rem;
+		padding: 0.8rem;
+		background: #fff3cd;
+		border-left: 4px solid #ffc107;
+		border-radius: 4px;
+		font-size: 0.95rem;
+		color: #856404;
+	}
+
+	.tipy {
+		margin-top: 1rem;
+		padding: 1rem;
+		background: #e0f2f1;
+		border-left: 4px solid #00897b;
+		border-radius: 4px;
+		font-size: 0.9rem;
+		color: #004d40;
+	}
+
+	.tipy ul {
+		margin: 0.5rem 0 0 0;
+		padding-left: 1.5rem;
+	}
+
+	.tipy li {
+		margin: 0.4rem 0;
+		list-style-type: disc;
+	}
+</style>
