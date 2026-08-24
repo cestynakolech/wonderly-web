@@ -133,6 +133,18 @@ import SeznamySimulace from '../../../../../../components/skola2/SeznamySimulace
 import BezpecnostSimulace from '../../../../../../components/skola2/BezpecnostSimulace.astro';
 import VexGyroskopSimulace from '../../../../../../components/skola2/VexGyroskopSimulace.astro';
 import VzajemnePusobeniSimulace from '../../../../../../components/skola2/VzajemnePusobeniSimulace.astro';
+// Komponenty z F6Pohyb
+import Cas from '../../../../../../components/skola2/F6Pohyb/Cas.astro';
+import Draha from '../../../../../../components/skola2/F6Pohyb/Draha.astro';
+import Pohyb from '../../../../../../components/skola2/F6Pohyb/Pohyb.astro';
+import Rychlost from '../../../../../../components/skola2/F6Pohyb/Rychlost.astro';
+import Zrychleni from '../../../../../../components/skola2/F6Pohyb/Zrychleni.astro';
+// Komponenty z F9Elektrina
+import Elektron from '../../../../../../components/skola2/F9Elektrina/Elektron.astro';
+import Proton from '../../../../../../components/skola2/F9Elektrina/Proton.astro';
+import Vedeni from '../../../../../../components/skola2/F9Elektrina/Vedeni.astro';
+import Vodic from '../../../../../../components/skola2/F9Elektrina/Vodic.astro';
+import Zakon from '../../../../../../components/skola2/F9Elektrina/Zakon.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -400,6 +412,15 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'bezpecnost-pocitace' && <BezpecnostSimulace />}
 	{podtema.interakce === 'vex-gyroskop' && <VexGyroskopSimulace />}
 	{podtema.interakce === 'vzajemne-pusobeni' && <VzajemnePusobeniSimulace />}
+	{podtema.interakce === 'cas' && <Cas />}
+	{podtema.interakce === 'draha' && <Draha />}
+	{podtema.interakce === 'pohyb' && <Pohyb />}
+	{podtema.interakce === 'zrychleni' && <Zrychleni />}
+	{podtema.interakce === 'elektron' && <Elektron />}
+	{podtema.interakce === 'proton' && <Proton />}
+	{podtema.interakce === 'vedeni' && <Vedeni />}
+	{podtema.interakce === 'vodic' && <Vodic />}
+	{podtema.interakce === 'zakon' && <Zakon />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (
