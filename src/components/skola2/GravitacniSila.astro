@@ -1,11 +1,15 @@
 ---
 // Statická infografika: Gravitační síla
-// Všechny objekty padají stejně rychle
+// Bez odporu vzduchu vs. s odporem vzduchu (balistická křivka)
 ---
 
 <section class="ramecek simulace">
-	<h2><span class="podtrh">Gravitační síla (Fg) 🌍</span></h2>
-	<p>Gravitační síla táhne všechna tělesa k Zemi. Je úměrná <strong>hmotnosti</strong>: <code>Fg = m × g</code>, kde <code>g = 10 N/kg</code> (gravitační konstanta).</p>
+	<h2><span class="podtrh">Gravitační síla (Fg) 🌍 — Bez vs. s odporem vzduchu</span></h2>
+	<p>Gravitační síla táhne všechna tělesa k Zemi: <code>Fg = m × g</code>, kde <code>g = 10 N/kg</code>. 
+	<strong>BEZ odporu vzduchu</strong> padají všechna tělesa stejně. <strong>S odporem vzduchu</strong> se vytváří <strong>BALISTICKÁ KŘIVKA</strong> — lehčí objekty padají pomaleji a jejich dráha je více zakřivená!</p>
+	
+	<!-- TAB 1: BEZ ODPORU VZDUCHU -->
+	<h3 style="margin-top: 20px; color: #2f9e44;">✓ BEZ ODPORU VZDUCHU (ideální vakuum)</h3>
 	<svg viewBox="0 0 600 340" class="infografika-svg">
 		<!-- Pozadí -->
 		<rect width="600" height="340" fill="#e8f4f8"/>
@@ -16,29 +20,128 @@
 		<!-- Objekt 1: 1 kg -->
 		<circle cx="100" cy="80" r="25" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2"/>
 		<text x="100" y="90" text-anchor="middle" class="hmotnost-text">1 kg</text>
-		<path d="M 100 110 L 100 180" stroke="#ff6b6b" stroke-width="3"/>
+		<path d="M 100 110 L 100 180" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="3,3"/>
 		<path d="M 95 175 L 100 185 L 105 175" fill="#ff6b6b"/>
 		<text x="120" y="145" class="sila-text">Fg = 10 N</text>
+		<text x="100" y="210" text-anchor="middle" class="poznamka-text" font-size="10">Padá B = 2.0 s</text>
 		
 		<!-- Objekt 2: 2 kg -->
 		<circle cx="300" cy="60" r="32" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
 		<text x="300" y="72" text-anchor="middle" class="hmotnost-text">2 kg</text>
-		<path d="M 300 95 L 300 210" stroke="#4dabf7" stroke-width="4"/>
+		<path d="M 300 95 L 300 210" stroke="#4dabf7" stroke-width="4" stroke-dasharray="3,3"/>
 		<path d="M 294 205 L 300 215 L 306 205" fill="#4dabf7"/>
 		<text x="325" y="150" class="sila-text">Fg = 20 N</text>
+		<text x="300" y="230" text-anchor="middle" class="poznamka-text" font-size="10">Padá B = 2.0 s</text>
 		
 		<!-- Objekt 3: 3 kg -->
 		<circle cx="500" cy="50" r="38" fill="#51cf66" stroke="#2f9e44" stroke-width="2"/>
 		<text x="500" y="65" text-anchor="middle" class="hmotnost-text">3 kg</text>
-		<path d="M 500 90 L 500 235" stroke="#51cf66" stroke-width="5"/>
+		<path d="M 500 90 L 500 235" stroke="#51cf66" stroke-width="5" stroke-dasharray="3,3"/>
 		<path d="M 493 230 L 500 240 L 507 230" fill="#51cf66"/>
 		<text x="525" y="160" class="sila-text">Fg = 30 N</text>
+		<text x="500" y="255" text-anchor="middle" class="poznamka-text" font-size="10">Padá B = 2.0 s</text>
 		
 		<!-- Legenda -->
-		<text x="50" y="270" class="legenda-title">Poznámka:</text>
-		<text x="50" y="290" class="legenda-text">Všechna tělesa padají se stejným zrychlením a = 10 m/s²</text>
-		<text x="50" y="310" class="legenda-text">Čím větší hmotnost, tím větší gravitační síla.</text>
+		<text x="50" y="270" class="legenda-title">Všechna tělesa padají STEJNĚ RYCHLE (a = 10 m/s²)</text>
+		<text x="50" y="290" class="legenda-text">Hmotnost NENÍ důležitá (Galilei experiment na Měsíci)</text>
 	</svg>
+	
+	<!-- TAB 2: S ODPOREM VZDUCHU (REÁLNÁ SITUACE) -->
+	<h3 style="margin-top: 30px; color: #c92a2a;">✗ S ODPOREM VZDUCHU (reálný svět)</h3>
+	<p style="font-size: 12px; color: #c92a2a; font-weight: bold;">⚠️ KLÍČOVÉ POZOROVÁNÍ: Lehčí objekty padají POMALEJI a jejich trajektorie je VÍCE ZAKŘIVENÁ (balistická křivka)!</p>
+	<svg viewBox="0 0 600 380" class="infografika-svg">
+		<!-- Pozadí -->
+		<rect width="600" height="380" fill="#fff3cd"/>
+		<line x1="0" y1="340" x2="600" y2="340" stroke="#8b7355" stroke-width="8"/>
+		<text x="300" y="360" text-anchor="middle" class="label">ZEMĚ</text>
+		
+		<!-- Legenda vzduchových linií -->
+		<text x="20" y="30" class="legenda-title" font-size="12">Vzdušný odpor (Fd):</text>
+		<line x1="20" y1="40" x2="80" y2="40" stroke="#ff9999" stroke-width="2"/>
+		<text x="90" y="45" class="legenda-text" font-size="11">Slabá (lehký obj.)</text>
+		<line x1="20" y1="60" x2="80" y2="60" stroke="#ff3333" stroke-width="4"/>
+		<text x="90" y="65" class="legenda-text" font-size="11">Silná (těžký obj.)</text>
+		
+		<!-- OBJEKT 1: VELMI LEHKÝ (např. PERO!) -->
+		<circle cx="80" cy="50" r="15" fill="#ff6b6b" stroke="#c92a2a" stroke-width="2"/>
+		<text x="80" y="58" text-anchor="middle" class="hmotnost-text" font-size="12">0.05kg</text>
+		<!-- BALISTICKÁ KŘIVKA — Extrémně zakřivená! -->
+		<path d="M 80 70 Q 85 100, 95 150 Q 105 200, 120 280" stroke="#ff6b6b" stroke-width="3" fill="none" stroke-linecap="round"/>
+		<!-- Vzduchový odpor (šipky) -->
+		<path d="M 85 90 L 70 85" stroke="#ff9999" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+		<path d="M 92 140 L 75 130" stroke="#ff9999" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+		<path d="M 110 240 L 90 235" stroke="#ff9999" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+		<!-- Značka padajícího objektu na konci -->
+		<circle cx="120" cy="290" r="12" fill="#ff6b6b" stroke="#c92a2a" stroke-width="1"/>
+		<text x="135" y="295" class="poznamka-text" font-size="11" fill="#c92a2a"><strong>Padá = 5.5 s!</strong></text>
+		<text x="135" y="310" class="poznamka-text" font-size="10" fill="#c92a2a">(2.75× POMALEJI)</text>
+		
+		<!-- OBJEKT 2: STŘEDNÍ (např. TENIS) -->
+		<circle cx="300" cy="40" r="22" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+		<text x="300" y="50" text-anchor="middle" class="hmotnost-text" font-size="12">0.3 kg</text>
+		<!-- BALISTICKÁ KŘIVKA — Středně zakřivená -->
+		<path d="M 300 65 Q 305 110, 320 190 Q 335 260, 350 330" stroke="#4dabf7" stroke-width="4" fill="none" stroke-linecap="round"/>
+		<!-- Vzduchový odpor (šipky) -->
+		<path d="M 308 100 L 290 95" stroke="#ff3366" stroke-width="2.5" marker-end="url(#arrowhead-mid)"/>
+		<path d="M 325 210 L 300 200" stroke="#ff3366" stroke-width="2.5" marker-end="url(#arrowhead-mid)"/>
+		<path d="M 345 310 L 320 305" stroke="#ff3366" stroke-width="2.5" marker-end="url(#arrowhead-mid)"/>
+		<!-- Značka padajícího objektu na konci -->
+		<circle cx="350" cy="340" r="18" fill="#4dabf7" stroke="#1971c2" stroke-width="1"/>
+		<text x="375" y="348" class="poznamka-text" font-size="11" fill="#1971c2"><strong>Padá = 2.8 s</strong></text>
+		<text x="375" y="363" class="poznamka-text" font-size="10" fill="#1971c2">(1.4× pomaleji)</text>
+		
+		<!-- OBJEKT 3: TĚŽKÝ (např. KAMÍNEK) -->
+		<circle cx="520" cy="35" r="28" fill="#51cf66" stroke="#2f9e44" stroke-width="2"/>
+		<text x="520" y="48" text-anchor="middle" class="hmotnost-text" font-size="12">1.5 kg</text>
+		<!-- BALISTICKÁ KŘIVKA — Téměř rovná (podobně jako bez odporu) -->
+		<path d="M 520 65 Q 521 130, 522 200 Q 523 270, 524 325" stroke="#51cf66" stroke-width="5" fill="none" stroke-linecap="round"/>
+		<!-- Vzduchový odpor (šipky) — SLABÉ -->
+		<path d="M 527 110 L 515 108" stroke="#ff6b6b" stroke-width="1.5" marker-end="url(#arrowhead-small)"/>
+		<path d="M 528 240 L 516 238" stroke="#ff6b6b" stroke-width="1.5" marker-end="url(#arrowhead-small)"/>
+		<!-- Značka padajícího objektu na konci -->
+		<circle cx="524" cy="335" r="24" fill="#51cf66" stroke="#2f9e44" stroke-width="1"/>
+		<text x="555" y="342" class="poznamka-text" font-size="11" fill="#2f9e44"><strong>Padá ≈ 2.0 s</strong></text>
+		<text x="555" y="357" class="poznamka-text" font-size="10" fill="#2f9e44">(téměř ideálně)</text>
+		
+		<!-- Šipka pro definici gravitační síly -->
+		<line x1="20" y1="340" x2="20" y2="370" stroke="#555" stroke-width="2" marker-end="url(#arrowhead-gray)"/>
+		<line x1="580" y1="340" x2="580" y2="370" stroke="#555" stroke-width="2" marker-end="url(#arrowhead-gray)"/>
+		
+		<!-- SVG markers pro šipky -->
+		<defs>
+			<marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#ff9999"/>
+			</marker>
+			<marker id="arrowhead-mid" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#ff3366"/>
+			</marker>
+			<marker id="arrowhead-small" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#ff6b6b"/>
+			</marker>
+			<marker id="arrowhead-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+				<polygon points="0 0, 10 3, 0 6" fill="#555"/>
+			</marker>
+		</defs>
+	</svg>
+	
+	<!-- FYZIKÁLNÍ VYSVĚTLENÍ -->
+	<div style="background: #fff3cd; border-left: 5px solid #ff6b6b; padding: 15px; margin-top: 20px; border-radius: 4px;">
+		<h4 style="color: #c92a2a; margin: 0 0 10px 0;">⚡ KLÍČOVÝ EFEKT: Balistická křivka s odporem vzduchu!</h4>
+		<p style="margin: 8px 0; font-size: 12px;">
+			<strong>Bez odporu:</strong> Všechna tělesa padají stejně (a = 10 m/s²), trajektorie jsou svislé.
+		</p>
+		<p style="margin: 8px 0; font-size: 12px;">
+			<strong>S odporem:</strong> Vzdušná síla <code>Fd</code> působí PROTI pohybu. Čím lehčí těleso, tím větší vliv odporu:
+		</p>
+		<ul style="margin: 8px 0 8px 20px; font-size: 11px;">
+			<li><strong>Pero (0.05 kg):</strong> Fd ≈ Fg → padá VELMI pomalu, křivka EXTRÉMNĚ zakřivená (5.5 s!)</li>
+			<li><strong>Tenis (0.3 kg):</strong> Fd < Fg → padá pomaleji, křivka středně zakřivená (2.8 s)</li>
+			<li><strong>Kamínek (1.5 kg):</strong> Fd ≪ Fg → padá téměř normálně, křivka skoro přímá (2.0 s)</li>
+		</ul>
+		<p style="margin: 8px 0; font-size: 12px; color: #c92a2a;">
+			<strong>REALITA:</strong> Odpor vzduchu je <strong>nelineární</strong> — silněji se projevuje u lehčích objektů! To je důvod, proč pero padá pomaleji než kamínek v reálném světě.
+		</p>
+	</div>
 </section>
 
 <style>
