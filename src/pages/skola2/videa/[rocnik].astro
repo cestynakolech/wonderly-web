@@ -1,0 +1,176 @@
+---
+import SkolaLayout from '../../../layouts/SkolaLayout.astro';
+import VideoCard from '../../../components/skola2/VideoCard.astro';
+
+interface Props {
+  params: {
+    rocnik: string;
+  };
+}
+
+const { rocnik } = Astro.params;
+
+// Volej API endpoint
+const apiUrl = `http://localhost:3000/api/videos/${rocnik}`;
+let videos: Array<{
+  nazev: string;
+  cesta: string;
+  tema: string;
+  podtema: string;
+  ai?: string;
+}> = [];
+let error = '';
+
+try {
+  // V buildtime se API nekončí, tak sem generuj data přímo z temata.ts
+  const { temata } = await import('../../../data/temata.ts');
+  const key = `fyzika/${rocnik}`;
+  const temaList = temata[key];
+  
+  if (temaList) {
+    for (const tema of temaList) {
+      if (tema.podtemata) {
+        for (const podtema of tema.podtemata) {
+          if (podtema.materialy) {
+            for (const material of podtema.materialy) {
+              if (material.druh === 'video' && !material.cesta?.endsWith('.m4a')) {
+                videos.push({
+                  nazev: material.nazev,
+                  cesta: material.cesta,
+                  tema: tema.nazev,
+                  podtema: podtema.nazev,
+                  ai: material.ai
+                });
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+} catch (e) {
+  error = `Chyba při načítání videí: ${e}`;
+}
+
+const videoCount = videos.length;
+---
+
+<SkolaLayout title={`Videa - Fyzika ${rocnik}. ročník`}>
+  <main class="videos-container">
+    <header class="videos-header">
+      <h1>🎬 Videa - Fyzika {rocnik}. ročník</h1>
+      <p class="subtitle">
+        Celkem <strong>{videoCount} videí</strong> z celého ročníku
+        <span class="progress">({Math.round((videoCount / 40) * 100)}% pokrytí cíle 40)</span>
+      </p>
+    </header>
+
+    {error && (
+      <div class="error-message">
+        {error}
+      </div>
+    )}
+
+    {videos.length === 0 ? (
+      <div class="no-videos">
+        <p>Pro tento ročník nejsou k dispozici videa.</p>
+      </div>
+    ) : (
+      <div class="videos-grid">
+        {videos.map((video) => (
+          <VideoCard
+            nazev={video.nazev}
+            cesta={video.cesta}
+            tema={video.tema}
+            podtema={video.podtema}
+            ai={video.ai}
+          />
+        ))}
+      </div>
+    )}
+
+    <footer class="videos-footer">
+      <p>
+        ℹ️ Videa delší než 15 minut se otevírají v samostatné záložce.
+        Kratší videa si můžete přehrát přímo zde.
+      </p>
+    </footer>
+  </main>
+</SkolaLayout>
+
+<style>
+  .videos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .videos-header {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .videos-header h1 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    color: #333;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+
+  .progress {
+    font-size: 14px;
+    color: #999;
+  }
+
+  .error-message {
+    background: #fee;
+    border: 1px solid #fcc;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 20px;
+    color: #c33;
+  }
+
+  .no-videos {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .videos-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .videos-container {
+      padding: 12px;
+    }
+
+    .videos-header h1 {
+      font-size: 22px;
+    }
+
+    .videos-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+  }
+</style>

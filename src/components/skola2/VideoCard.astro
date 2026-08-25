@@ -1,0 +1,223 @@
+---
+/**
+ * VideoCard.astro
+ * 
+ * Komponenta pro zobrazení videa v gridu
+ * - Videa do 15 minut: iframe (embedded YouTube)
+ * - Videa nad 15 minut: link card (s popisem a odkazem)
+ * - Lazy loading
+ * - Responsive grid (1-4 sloupce)
+ */
+
+interface Props {
+	id: string;
+	nazev: string;
+	popis: string;
+	delka: number;
+	typ: 'youtube' | 'media' | 'link';
+	zdroj: string;
+	rocnik: 'F6' | 'F7' | 'F8' | 'F9';
+	tema: string;
+}
+
+const { id, nazev, popis, delka, typ, zdroj, rocnik, tema } = Astro.props;
+
+const isShort = delka <= 15;
+const iframeUrl = typ === 'youtube' ? `https://www.youtube.com/embed/${zdroj}` : null;
+
+// Barvy ročníku
+const rocnikColors: Record<string, string> = {
+	F6: '#f59e0b', // Amber
+	F7: '#10b981', // Emerald
+	F8: '#3b82f6', // Blue
+	F9: '#8b5cf6', // Violet
+};
+
+const rocnikColor = rocnikColors[rocnik] || '#6366f1';
+---
+
+<div class="video-card" data-id={id} data-delka={delka} data-rocnik={rocnik}>
+	{
+		isShort && typ === 'youtube' ? (
+			// Krátké videa: iframe
+			<div class="iframe-container">
+				<iframe
+					src={iframeUrl}
+					title={nazev}
+					allowFullScreen
+					loading="lazy"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				/>
+			</div>
+		) : (
+			// Dlouhá videa nebo jiné typy: link card
+			<a href={zdroj} class="link-card" target={typ === 'link' ? '_blank' : '_self'} rel={typ === 'link' ? 'noopener noreferrer' : ''}>
+				<div class="link-card-content">
+					<div class="link-card-icon">
+						{typ === 'youtube' ? '▶' : '🔗'}
+					</div>
+					<div class="link-card-text">
+						<h3>{nazev}</h3>
+						<p class="popis">{popis}</p>
+						<div class="meta">
+							<span class="delka">⏱️ {delka} minut</span>
+							<span class="tema">{tema}</span>
+						</div>
+					</div>
+				</div>
+			</a>
+		)
+	}
+
+	<div class="card-footer">
+		<span class="rocnik-badge" style={`background-color: ${rocnikColor}`}>
+			{rocnik}
+		</span>
+		<span class="typ-badge">
+			{typ === 'youtube' && '▶ YouTube'}
+			{typ === 'media' && '🎬 Video'}
+			{typ === 'link' && '🔗 Odkaz'}
+		</span>
+	</div>
+</div>
+
+<style>
+	.video-card {
+		display: flex;
+		flex-direction: column;
+		background: white;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+		border: 1px solid #e5e7eb;
+	}
+
+	.video-card:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		transform: translateY(-2px);
+	}
+
+	/* Iframe kontejner — 16:9 ratio */
+	.iframe-container {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%; /* 16:9 */
+		background: #f3f4f6;
+		overflow: hidden;
+	}
+
+	.iframe-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+
+	/* Link card — pro videa > 15 minut */
+	.link-card {
+		display: block;
+		padding: 1.25rem;
+		text-decoration: none;
+		color: inherit;
+		flex: 1;
+		background: #f9fafb;
+		transition: background 0.2s ease;
+	}
+
+	.link-card:hover {
+		background: #f3f4f6;
+	}
+
+	.link-card-content {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+	}
+
+	.link-card-icon {
+		font-size: 2rem;
+		flex-shrink: 0;
+		opacity: 0.7;
+	}
+
+	.link-card-text {
+		flex: 1;
+	}
+
+	.link-card-text h3 {
+		margin: 0 0 0.5rem 0;
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: #111827;
+		line-height: 1.4;
+	}
+
+	.popis {
+		margin: 0.5rem 0 0.75rem 0;
+		font-size: 0.85rem;
+		color: #6b7280;
+		line-height: 1.5;
+	}
+
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		font-size: 0.75rem;
+	}
+
+	.delka {
+		background: #e0f2fe;
+		color: #0369a1;
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+	}
+
+	.tema {
+		background: #dbeafe;
+		color: #1e40af;
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+	}
+
+	/* Zápatí karty */
+	.card-footer {
+		display: flex;
+		gap: 0.5rem;
+		justify-content: space-between;
+		padding: 0.75rem 1rem;
+		background: #fafbfc;
+		border-top: 1px solid #e5e7eb;
+		font-size: 0.75rem;
+	}
+
+	.rocnik-badge {
+		color: white;
+		padding: 0.25rem 0.75rem;
+		border-radius: 4px;
+		font-weight: 600;
+		font-size: 0.7rem;
+	}
+
+	.typ-badge {
+		color: #6b7280;
+		padding: 0.25rem 0.5rem;
+		background: #e5e7eb;
+		border-radius: 4px;
+	}
+
+	/* Responsive grid — definováno v matce (VideoGrid) */
+	@media (max-width: 768px) {
+		.link-card-text h3 {
+			font-size: 0.9rem;
+		}
+
+		.popis {
+			font-size: 0.8rem;
+		}
+	}
+</style>

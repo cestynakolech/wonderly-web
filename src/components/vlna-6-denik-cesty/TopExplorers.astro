@@ -1,0 +1,217 @@
+---
+// TopExplorers.astro - Leaderboard průzkumců
+interface Props {}
+
+const explorers = [
+  { rank: 1, name: 'Jana K.', points: 2540, badges: 12, avatar: '👩‍🚀' },
+  { rank: 2, name: 'Petr N.', points: 2210, badges: 10, avatar: '👨‍🔭' },
+  { rank: 3, name: 'Marie V.', points: 1890, badges: 9, avatar: '🧗‍♀️' },
+  { rank: 4, name: 'David L.', points: 1650, badges: 7, avatar: '🏕️' },
+  { rank: 5, name: 'Eva R.', points: 1420, badges: 6, avatar: '⛺' },
+];
+---
+
+<section class="leaderboard-section">
+  <div class="leaderboard-header">
+    <h2>🏆 Top Průzkumci</h2>
+    <p>Nejaktivnější objevitelé v komunitě</p>
+  </div>
+
+  <div class="leaderboard-table">
+    <div class="table-header">
+      <div class="col-rank">Pořadí</div>
+      <div class="col-explorer">Průzkumce</div>
+      <div class="col-points">Body</div>
+      <div class="col-badges">Odznaky</div>
+    </div>
+
+    {explorers.map((explorer) => (
+      <div class="table-row" data-rank={explorer.rank}>
+        <div class="col-rank">
+          <span class="rank-badge">#{explorer.rank}</span>
+        </div>
+        <div class="col-explorer">
+          <div class="explorer-info">
+            <span class="avatar">{explorer.avatar}</span>
+            <span class="name">{explorer.name}</span>
+          </div>
+        </div>
+        <div class="col-points">
+          <span class="points">{explorer.points}</span>
+        </div>
+        <div class="col-badges">
+          <span class="badge-count">{explorer.badges} 🎖️</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <button class="view-all-btn">📊 Zobrazit všechny průzkumce</button>
+</section>
+
+<style>
+  .leaderboard-section {
+    padding: 80px 0;
+  }
+
+  .leaderboard-header {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .leaderboard-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .leaderboard-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .leaderboard-table {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .table-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 150px 150px;
+    gap: 20px;
+    padding: 20px 30px;
+    background: rgba(37, 99, 235, 0.1);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 150px 150px;
+    gap: 20px;
+    padding: 20px 30px;
+    align-items: center;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .table-row:hover {
+    background: rgba(37, 99, 235, 0.05);
+    transform: translateX(5px);
+  }
+
+  .table-row[data-rank="1"] {
+    background: rgba(236, 72, 153, 0.05);
+  }
+
+  .table-row[data-rank="1"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+  }
+
+  .rank-badge {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .col-rank {
+    display: flex;
+    justify-content: center;
+  }
+
+  .explorer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .avatar {
+    font-size: 1.8rem;
+  }
+
+  .name {
+    font-weight: 600;
+    color: var(--text-light);
+  }
+
+  .points {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary);
+  }
+
+  .badge-count {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .view-all-btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 12px 30px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .view-all-btn:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .leaderboard-section {
+      padding: 60px 0;
+    }
+
+    .leaderboard-header h2 {
+      font-size: 2rem;
+    }
+
+    .table-header,
+    .table-row {
+      grid-template-columns: 60px 1fr 100px;
+      gap: 15px;
+      padding: 15px 20px;
+    }
+
+    .col-badges {
+      display: none;
+    }
+
+    .rank-badge {
+      width: 40px;
+      height: 40px;
+      font-size: 0.9rem;
+    }
+  }
+</style>

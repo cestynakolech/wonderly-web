@@ -1,0 +1,277 @@
+---
+// RecentEntries.astro - Feed posledních příspěvků z deníku
+interface Props {}
+
+const entries = [
+  {
+    id: 1,
+    location: 'Praha - Petřín',
+    title: 'Kde vidím gravitaci?',
+    description: 'Pozorování vlivu tíhové síly v přírodě. Jsem na zámku Petřín a podívám se, jak padají listy z stromů...',
+    author: 'Jana K.',
+    date: '24. srp 2026',
+    physics: '🔬 Gravitace, Pohyb',
+    image: '🏰',
+    likes: 42,
+  },
+  {
+    id: 2,
+    location: 'Krkonoše - Pec pod Sněžkou',
+    title: 'Energie ve výšce - skok z balvanu',
+    description: 'Jak se mění potenciální energie na kinetickou? Měřím si výšku a padám dolů. Fyzika v praxi!',
+    author: 'Petr N.',
+    date: '22. srp 2026',
+    physics: '⚡ Energie, Dynamika',
+    image: '⛰️',
+    likes: 58,
+  },
+  {
+    id: 3,
+    location: 'Vltava - Malá Strana',
+    title: 'Voda a vlnění - případ řeky',
+    description: 'Studuju, jak se tvoří vlny ve vodě. Házím kameny a měřím periodu kmitů...',
+    author: 'Marie V.',
+    date: '20. srp 2026',
+    physics: '🌊 Vlnění, Optika',
+    image: '💧',
+    likes: 35,
+  },
+];
+---
+
+<section class="recent-entries-section">
+  <div class="entries-header">
+    <h2>📝 Poslední příspěvky</h2>
+    <p>Čerstvé objevy z mapy fyziky a přírody</p>
+  </div>
+
+  <div class="entries-grid">
+    {entries.map((entry) => (
+      <article class="entry-card">
+        <div class="entry-image">{entry.image}</div>
+        
+        <div class="entry-content">
+          <div class="entry-meta">
+            <span class="location">📍 {entry.location}</span>
+            <span class="date">{entry.date}</span>
+          </div>
+
+          <h3 class="entry-title">{entry.title}</h3>
+
+          <p class="entry-description">{entry.description}</p>
+
+          <div class="entry-tags">
+            <span class="physics-tag">{entry.physics}</span>
+          </div>
+
+          <div class="entry-footer">
+            <div class="entry-author">
+              <span class="author-name">od {entry.author}</span>
+            </div>
+            <div class="entry-actions">
+              <button class="action-btn">❤️ {entry.likes}</button>
+              <button class="action-btn">💬 Komentář</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <button class="view-all-entries-btn">Prohlédnout všechny příspěvky →</button>
+</section>
+
+<style>
+  .recent-entries-section {
+    padding: 80px 0;
+  }
+
+  .entries-header {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .entries-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .entries-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .entries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .entry-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entry-card:hover {
+    border-color: rgba(148, 163, 184, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+  }
+
+  .entry-image {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(124, 58, 237, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .entry-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .entry-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  .location {
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .entry-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .entry-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .entry-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .physics-tag {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .entry-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .entry-author {
+    font-size: 0.9rem;
+  }
+
+  .author-name {
+    color: var(--text-muted);
+  }
+
+  .entry-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .action-btn {
+    background: transparent;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .action-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.1);
+  }
+
+  .view-all-entries-btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+  }
+
+  .view-all-entries-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .recent-entries-section {
+      padding: 60px 0;
+    }
+
+    .entries-header h2 {
+      font-size: 2rem;
+    }
+
+    .entries-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .entry-image {
+      height: 140px;
+      font-size: 3rem;
+    }
+  }
+</style>

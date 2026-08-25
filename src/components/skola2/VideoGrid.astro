@@ -1,0 +1,283 @@
+---
+/**
+ * VideoGrid.astro
+ * 
+ * Kontejner pro zobrazení videí v responzivním gridu
+ * - Automaticky načítá videa z API
+ * - Lazy loading + intersection observer
+ * - Responsive grid (1-4 sloupce podle velikosti)
+ * - Filtrování podle ročníku
+ */
+
+import VideoCard from './VideoCard.astro';
+import type { Video } from '../../data/videa';
+
+interface Props {
+	rocnik: 'F6' | 'F7' | 'F8' | 'F9';
+	videa?: Video[];
+	title?: string;
+	showFilters?: boolean;
+}
+
+const { rocnik, videa = [], title = `Videa fyziky — ${rocnik}. ročník`, showFilters = true } = Astro.props;
+---
+
+<section class="video-grid-section">
+	<div class="container">
+		<h2 class="section-title">{title}</h2>
+
+		{
+			showFilters && (
+				<div class="filters">
+					<div class="filter-group">
+						<label>Typ videa:</label>
+						<div class="filter-buttons">
+							<button class="filter-btn active" data-filter="all">
+								Všechny ({videa.length})
+							</button>
+							<button class="filter-btn" data-filter="short">
+								Krátká (&lt;15 min)
+							</button>
+							<button class="filter-btn" data-filter="long">
+								Dlouhá (&gt;15 min)
+							</button>
+						</div>
+					</div>
+				</div>
+			)
+		}
+
+		<div class="video-grid">
+			{
+				videa.length > 0 ? (
+					videa.map((video) => <VideoCard {...video} />)
+				) : (
+					<div class="no-videos">
+						<p>Zatím nejsou k dispozici videa pro tento ročník.</p>
+					</div>
+				)
+			}
+		</div>
+
+		{
+			videa.length > 0 && (
+				<div class="video-stats">
+					<p>
+						<strong>{videa.filter((v) => v.delka <= 15).length}</strong> krátkých
+						videí (≤15 minut) · <strong>{videa.filter((v) => v.delka > 15).length}</strong>
+						{' '}
+						dlouhých (>15 minut)
+					</p>
+					<p>
+						Celkový obsah:{' '}
+						<strong>
+							{Math.round(videa.reduce((sum, v) => sum + v.delka, 0) / 60)}
+						</strong>{' '}
+						hodin videa
+					</p>
+				</div>
+			)
+		}
+	</div>
+</section>
+
+<style>
+	.video-grid-section {
+		padding: 3rem 1rem;
+		background: #f9fafb;
+		border-radius: 12px;
+		margin: 2rem 0;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: #111827;
+		margin: 0 0 2rem 0;
+		text-align: center;
+	}
+
+	/* Filtry */
+	.filters {
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		background: white;
+		border-radius: 8px;
+		border: 1px solid #e5e7eb;
+	}
+
+	.filter-group {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-group label {
+		font-weight: 600;
+		color: #374151;
+		font-size: 0.95rem;
+	}
+
+	.filter-buttons {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.filter-btn {
+		padding: 0.5rem 1rem;
+		background: white;
+		border: 1px solid #d1d5db;
+		border-radius: 6px;
+		cursor: pointer;
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: #6b7280;
+		transition: all 0.2s ease;
+	}
+
+	.filter-btn:hover {
+		background: #f3f4f6;
+		border-color: #9ca3af;
+	}
+
+	.filter-btn.active {
+		background: #3b82f6;
+		color: white;
+		border-color: #3b82f6;
+	}
+
+	/* Grid layoutu */
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+
+	/* Responsive breakpoints */
+	@media (max-width: 1024px) {
+		.video-grid {
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		}
+	}
+
+	@media (max-width: 768px) {
+		.video-grid {
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			gap: 1rem;
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+		}
+
+		.filter-group {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.video-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.filters {
+			padding: 1rem;
+		}
+	}
+
+	/* Žádná videa */
+	.no-videos {
+		grid-column: 1 / -1;
+		padding: 3rem;
+		text-align: center;
+		color: #6b7280;
+		background: white;
+		border-radius: 8px;
+		border: 2px dashed #d1d5db;
+	}
+
+	.no-videos p {
+		margin: 0;
+		font-size: 1rem;
+	}
+
+	/* Statistika */
+	.video-stats {
+		padding: 1.5rem;
+		background: white;
+		border-radius: 8px;
+		border-left: 4px solid #3b82f6;
+		text-align: center;
+	}
+
+	.video-stats p {
+		margin: 0.5rem 0;
+		font-size: 0.95rem;
+		color: #4b5563;
+	}
+
+	.video-stats strong {
+		color: #1e40af;
+		font-weight: 600;
+	}
+</style>
+
+<script>
+	// Filtrování videí
+	const filterBtns = document.querySelectorAll('.filter-btn');
+	const videoCards = document.querySelectorAll('.video-card');
+
+	filterBtns.forEach((btn) => {
+		btn.addEventListener('click', function () {
+			const filter = this.getAttribute('data-filter');
+
+			// Přepnout aktivní tlačítko
+			filterBtns.forEach((b) => b.classList.remove('active'));
+			this.classList.add('active');
+
+			// Filtrovat videa
+			videoCards.forEach((card) => {
+				const delka = parseInt(card.getAttribute('data-delka') || '0');
+
+				if (filter === 'all') {
+					card.style.display = 'block';
+				} else if (filter === 'short' && delka <= 15) {
+					card.style.display = 'block';
+				} else if (filter === 'long' && delka > 15) {
+					card.style.display = 'block';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		});
+	});
+
+	// Lazy loading s Intersection Observer
+	if ('IntersectionObserver' in window) {
+		const iframes = document.querySelectorAll('.iframe-container iframe');
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const iframe = entry.target as HTMLIFrameElement;
+					if (!iframe.src) {
+						// Načíst iframe až když je viditelný
+						iframe.loading = 'lazy';
+					}
+					observer.unobserve(iframe);
+				}
+			});
+		});
+
+		iframes.forEach((iframe) => observer.observe(iframe));
+	}
+</script>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HomepageHero from '../../components/vlna-6-denik-cesty/HomepageHero.astro';
+import MapSection from '../../components/vlna-6-denik-cesty/MapSection.astro';
+import TopExplorers from '../../components/vlna-6-denik-cesty/TopExplorers.astro';
+import RecentEntries from '../../components/vlna-6-denik-cesty/RecentEntries.astro';
+---
+
+<BaseLayout title="Deník Cesty - Průzkumce a objevy">
+  <div class="vlna6-container">
+    <HomepageHero />
+    <MapSection />
+    <TopExplorers />
+    <RecentEntries />
+  </div>
+
+  <style is:global>
+    :root {
+      --primary: #2563eb;
+      --secondary: #7c3aed;
+      --accent: #ec4899;
+      --dark-bg: #0f172a;
+      --dark-card: #1e293b;
+      --text-light: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0f2e 100%);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .vlna6-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+      .vlna6-container {
+        padding: 0 15px;
+      }
+    }
+
+    /* Dark mode by default, light mode optional */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --dark-bg: #f8fafc;
+        --dark-card: #ffffff;
+        --text-light: #1e293b;
+        --text-muted: #64748b;
+      }
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,185 @@
+---
+// MapSection.astro - Interaktivní mapa s OpenStreetMap
+interface Props {}
+---
+
+<section class="map-section">
+  <div class="map-header">
+    <h2>🗺️ Mapa Objev</h2>
+    <p>Klikni na pinů a odemkni detaily příběhů z cest</p>
+  </div>
+
+  <div class="map-container">
+    <div class="map-placeholder">
+      <svg class="map-svg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simplified Europe map background -->
+        <defs>
+          <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#312e81;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        
+        <rect width="1000" height="600" fill="url(#mapGrad)" />
+        
+        <!-- Sample location pins with clickable areas -->
+        <!-- Prague -->
+        <circle cx="550" cy="250" r="20" fill="var(--primary)" opacity="0.8" class="pin">
+          <title>Praha</title>
+        </circle>
+        <text x="550" y="255" text-anchor="middle" font-size="24" fill="white" pointer-events="none">📍</text>
+        
+        <!-- Munich -->
+        <circle cx="480" cy="280" r="20" fill="var(--accent)" opacity="0.8" class="pin">
+          <title>Mnichov</title>
+        </circle>
+        <text x="480" y="285" text-anchor="middle" font-size="24" fill="white" pointer-events="none">🏔️</text>
+        
+        <!-- Vienna -->
+        <circle cx="580" cy="290" r="20" fill="var(--secondary)" opacity="0.8" class="pin">
+          <title>Vídeň</title>
+        </circle>
+        <text x="580" y="295" text-anchor="middle" font-size="24" fill="white" pointer-events="none">🎻</text>
+        
+        <!-- Lake Balaton -->
+        <circle cx="620" cy="320" r="20" fill="var(--primary)" opacity="0.8" class="pin">
+          <title>Balaton</title>
+        </circle>
+        <text x="620" y="325" text-anchor="middle" font-size="24" fill="white" pointer-events="none">💧</text>
+        
+        <!-- Tatras -->
+        <circle cx="650" cy="310" r="20" fill="var(--accent)" opacity="0.8" class="pin">
+          <title>Tatry</title>
+        </circle>
+        <text x="650" y="315" text-anchor="middle" font-size="24" fill="white" pointer-events="none">⛰️</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="pin-legend">
+    <div class="legend-item">
+      <span class="legend-color" style="background: var(--primary)"></span>
+      <span>Městské objevy</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-color" style="background: var(--accent)"></span>
+      <span>Přírodní bezstavy</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-color" style="background: var(--secondary)"></span>
+      <span>Historické místa</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-section {
+    padding: 80px 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .map-header {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .map-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .map-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .map-container {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-svg {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .pin {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  }
+
+  .pin:hover {
+    opacity: 1 !important;
+    r: 30;
+    filter: drop-shadow(0 6px 20px rgba(37, 99, 235, 0.5));
+  }
+
+  .pin-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .legend-item span:last-child {
+    font-size: 0.95rem;
+    color: var(--text-light);
+  }
+
+  @media (max-width: 768px) {
+    .map-section {
+      padding: 60px 0;
+    }
+
+    .map-header h2 {
+      font-size: 2rem;
+    }
+
+    .map-container {
+      min-height: 300px;
+    }
+
+    .pin-legend {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
