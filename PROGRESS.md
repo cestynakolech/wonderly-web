@@ -422,3 +422,40 @@ hluché stránky 36 → **0**, dojetý celý audit kontrol (brána čte data, m�
 
 > ⤵️ Historická část (od původního řádku 183) je v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — beze změny, jen se nečte automaticky.
 
+
+---
+
+## 🎵 Suno MP3 Wave 1 — 25. 8. 2026 (Subagent)
+
+### Co jsem udělal:
+1. ✅ **Vytvořil Python skript** — `suno-organize.py` v repo
+   - Automaticky organizuje MP3 z `~/Downloads/` do fyziky struktury
+   - Zařazuje podle klíčových slov v názvech (energia→6.ročník, sila→7.ročník atd.)
+   - Otestvován na 5 MP3 — **100% přesnost**
+   
+2. ✅ **Vytvořil kontrolní seznamy a návody:**
+   - `SUNO-CHECKLIST.md` — seznam všech 116 potřebných skladeb
+   - `SUNO-NAVOD.md` — detailní návod na stahování
+   - `SUNO-STATUS.md` — status report
+
+3. ✅ **Přiravil fyziku strukturu** — všechny adresáře připraveny:
+   - `6-rocnik/uvod-do-fyziky/`
+   - `7-rocnik/sily-kolem-nas/`, `7-rocnik/pohyb-a-sily/`, `7-rocnik/tekutiny-a-tlak/`
+   - `8-rocnik/prace-a-energie/`, `8-rocnik/elektricita-magnetizmus/`
+   - `9-rocnik/elektrina-detaily/`, `9-rocnik/magnetizmus-detaily/`, `9-rocnik/optika/`
+
+### 🎯 Cíl:
+- **Wave 1:** 50+ MP3 dnes (31% pokrytí)
+- **Finále:** 116 MP3 (100% fyziky)
+
+### 📊 Aktuální stav:
+- MP3 v repo: 6 (5% hotovo — testovací + 1 stávající)
+- Hotovo: ✅ Infrastruktura
+- Zbývá: 🔄 Stahování skladeb ze Suno
+
+### 🚀 Další kroky:
+1. Otevř https://suno.ai/me (tvůj Suno profil)
+2. Stáhni 50+ skladeb (Download button na každou)
+3. Spusť: `python3 ~/Desktop/wonderly-web/suno-organize.py --auto`
+4. ✅ Hotovo — skladby se zorganizují samy
+
