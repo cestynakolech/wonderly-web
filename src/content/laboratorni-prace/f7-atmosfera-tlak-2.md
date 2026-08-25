@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Atmosféra a tlak: atmosfericky tlak"
+description: "Laboratorní práce: Atmosféra a tlak: atmosfericky tlak"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Atmosféra vykonává tlak na všechny objekty. Měříme barometrický tlak a jeho změny. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 

@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Jednoduché stroje: kladka"
+description: "Laboratorní práce: Jednoduché stroje: kladka"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Kladka je jednoduchý stroj usnadňující práci. Zkoumáme, jak kladky umožňují překonávat síly. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 

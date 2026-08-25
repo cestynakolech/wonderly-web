@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Fyzikální veličiny: objem"
+description: "Laboratorní práce: Fyzikální veličiny: objem"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Objem je prostor zaujímaný tělesem. Měřit ho budeme pro tělesa různých tvarů. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 

@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Pohyb a rychlost: posuvny otacivy pohyb"
+description: "Laboratorní práce: Pohyb a rychlost: posuvny otacivy pohyb"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Pohyb je změna polohy v čase. Studujeme různé typy pohybu a jejich vlastnosti. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 

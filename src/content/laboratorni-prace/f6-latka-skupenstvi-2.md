@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Látka a těleso: skupenstvi latek"
+description: "Laboratorní práce: Látka a těleso: skupenstvi latek"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Látky existují ve třech skupenstvích: tuhém, kapalném a plynném. Probereme jejich vlastnosti. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 

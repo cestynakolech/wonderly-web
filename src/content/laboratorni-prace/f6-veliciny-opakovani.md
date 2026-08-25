@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Fyzikální veličiny: souhrnne opakovani velicin"
+description: "Laboratorní práce: Fyzikální veličiny: souhrnne opakovani velicin"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Laboratorní práce na téma Fyzikální veličiny. Budeme experimentovat a pozorovat příslušné fyzikální jevy. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 

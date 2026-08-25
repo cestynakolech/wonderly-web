@@ -1,12 +1,12 @@
 ---
-title: "Jednoduché stroje: pusobeni teles a deformace"
-description: "Laboratorní práce: Jednoduché stroje: pusobeni teles a deformace"
+title: "Elektřina a magnetismus: jednoduche elektricke obvody"
+description: "Laboratorní práce: Elektřina a magnetismus: jednoduche elektricke obvody"
 updated: 2026-08-25
 ---
 
 ## Úvod
 
-Síly deformují tělesa. Měříme, jak se tělesa deformují a jak se obnovu. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
+Laboratorní práce na téma Elektřina a magnetismus. Budeme experimentovat a pozorovat příslušné fyzikální jevy. Naučíme se měřit, pozorovat a vysvětlovat pozorované jevy.
 
 ## Pomůcky
 
