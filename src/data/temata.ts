@@ -150,6 +150,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Vlastnosti těles, které můžeme <strong>změřit</strong>, se nazývají <strong>fyzikální veličiny</strong> (délka, výška, hmotnost, objem, hustota…).</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Tělesa a látky — přehled', cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/infografika-prehled.jpg' },
 						// Hlasy z OpenAI TTS — atribuci uvádět nemusíme.
 						{
 							druh: 'video',
@@ -281,6 +282,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Atomy a molekuly', cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/infografika-prehled.jpg' },
 						// „-v2": zvuk přetočen 8. 8. 2026 na stálý hlas ročníku (Marek byl
 						// v první verzi 172 Hz proti 146–152 Hz ve zbytku F6, zněl jako
 						// jiný člověk). NOVÁ adresa schválně — média jdou s roční
@@ -448,6 +450,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Síla 1 N odpovídá přibližně síle, kterou Země přitahuje těleso o hmotnosti 100 g. Na tomto principu fungují pružinové váhy.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Vzájemné působení těles — síla', cesta: '/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/infografika-prehled.jpg' },
 						{ druh: 'youtube', nazev: 'Video: Síla', cesta: 'Y340hJrbpU8' },
 						{
 							druh: 'video',
@@ -613,6 +616,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Naměřená hodnota je „zaokrouhlená" na nejbližší dílek. <strong>Odchylka = polovina nejmenšího dílku stupnice.</strong> Čím menší dílek, tím přesnější měření.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Délka — měření', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/infografika-prehled.jpg' },
 						{
 							druh: 'video',
 							nazev: 'Polemika 1/3: Proč se všude měří v metrech? 🎬',
@@ -977,6 +981,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>💡 Příklad: dráha má na šířku 6 dílků, na výšku 4 dílky, jeden dílek měří 4 cm. Obvod (v dílcích): o = 2 · (6 + 4) = 20 dílků, což je 20 · 4 cm = <strong>80 cm</strong> dráhy. Obsah: S = 6 · 4 = <strong>24 dílků²</strong>. Když robot projede celou dráhu za 20 sekund (naměříme stopkami), jeho rychlost je <strong>v = s / t = 80 cm : 20 s = 4 cm/s</strong>.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Čas a jeho měření — přehled', cesta: '/materialy/fyzika/6-rocnik/cas/cas-a-jeho-mereni/infografika-prehled.jpg' },
 						{
 							druh: 'video',
 							nazev: 'Polemika 1: Jak se měřil čas dřív a dnes? 🎬',
@@ -1060,6 +1065,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Pozor: nezapomeň dělit <strong>počtem měření</strong> (kolik čísel jsme sčítali), ne počtem dnů v týdnu nebo jiným číslem.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Teplota a její měření', cesta: '/materialy/fyzika/6-rocnik/teplota/teplota-a-jeji-mereni/infografika-prehled.jpg' },
 						{
 							druh: 'video',
 							nazev: 'Polemika 1: Jak se měří teplota? 🎬',
@@ -1186,6 +1192,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>🌟 Vyzkoušej: <a href="https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs" target="_blank" rel="noopener">simulace Magnet a kompas</a> — pohybuj kompasem kolem magnetu, pak si zvol Zemi.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Magnetické vlastnosti látek', cesta: '/materialy/fyzika/6-rocnik/elektrina-a-magnetismus/magneticke-vlastnosti-latek/infografika-prehled.jpg' },
 						{
 							druh: 'video',
 							nazev: 'Polemika: Magnetické vlastnosti látek a magnetické pole 🎬',
@@ -2737,6 +2744,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
 					],
 					materialy: [
+						{ druh: 'infografika', nazev: 'Mechanická práce', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/infografika-prehled.jpg' },
 						{ druh: 'video', nazev: 'Píseň: Mechanická práce a výkon 🎵', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a' },
 					],
 				},
@@ -2799,6 +2807,7 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Energie a její přeměny', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/infografika-prehled.jpg' },
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
 					],
@@ -2985,6 +2994,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Vodní <strong>pára roztáčí lopatky turbíny</strong> — energie páry se mění na otáčivý pohyb. Používá se v <strong>tepelných elektrárnách</strong> k pohonu generátorů (výkon 200–600 MW). Účinnost <strong>max. ~35 %</strong> — vyšší než u parního stroje.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Tepelný motor — parní stroj', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/infografika-prehled.jpg' },
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
 					],
@@ -3057,6 +3067,7 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Skupenství látek (Fyzika na Vltavě)', url: 'https://www.zsvltava.cz/fyzika/?p=253' },
 					],
 					materialy: [
+						{ druh: 'infografika', nazev: 'Teplo a přeměny skupenství', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/infografika-prehled.jpg' },
 						{ druh: 'video', nazev: 'Píseň: Teplo mění skupenství 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi/pisen-teplo-meni-skupenstvi.m4a' },
 					],
 				},
@@ -3627,6 +3638,8 @@ export const temata: Record<string, Tema[]> = {
 							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
 						],
 						materialy: [
+						{ druh: 'infografika', nazev: 'Elektrický náboj', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-a-naboj/elektricky-naboj/infografika-prehled.jpg' },
+						{ druh: 'infografika', nazev: 'Ohmův zákon', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/infografika-prehled.jpg' },
 							{ druh: 'video', nazev: 'Píseň: U děleno R 🎵', cesta: '/materialy/fyzika/8-rocnik/elektrina/ohmuv-zakon/pisen-u-deleno-r.m4a' },
 						],
 					},
@@ -3660,17 +3673,17 @@ export const temata: Record<string, Tema[]> = {
 						nazev: 'Zapojení spotřebičů vedle sebe (paralelně)',
 						interakce: 'zapojeni',
 						obsah: `
-							<h2>Zapojení spotřebičů vedle sebe (paralelně)</h2>
-							<p>V paralelním obvodu je <strong>každý spotřebič připojen přímo ke zdroji</strong>. Obvod je <strong>rozvětvený</strong>, vodiče se spojují v <strong>uzlech</strong>. Takto jsou zapojené zásuvky v domácnosti.</p>
-							<h3>Napětí</h3>
-							<p>Všechny rezistory jsou svými konci připojené na póly zdroje → <strong>napětí na všech je stejné</strong> jako napětí zdroje.</p>
-							<h3>Proud</h3>
+							<h2>Zapojení spotřebičů vedle sebe (paralelně) — elektrické obvody</h2>
+							<p>V paralelním obvodu je <strong>každý spotřebič připojen přímo ke zdroji</strong>. Obvod je <strong>rozvětvený</strong>, vodiče se spojují v <strong>uzlech</strong>. Takto jsou zapojené zásuvky v domácnosti — paralelní zapojení spotřebičů je důležitý typ elektrického obvodu.</p>
+							<h3>Napětí — rozdělení na paralelní rezistory</h3>
+							<p>Všechny rezistory jsou svými konci připojené na póly zdroje → <strong>napětí na všech je stejné</strong> jako napětí zdroje — elektrické napětí se v paralelním zapojení nedělí.</p>
+							<h3>Proud — rozdělení v uzlech</h3>
 							<ul>
-								<li>v uzlu se proud <strong>rozdělí do větví</strong> — <strong>I = I₁ + I₂</strong></li>
+								<li>v uzlu se proud <strong>rozdělí do větví</strong> — <strong>I = I₁ + I₂</strong> (zákon o zachování proudu)</li>
 								<li>rozdělí se v <strong>opačném poměru než odpory</strong>: větším odporem teče menší proud</li>
 								<li>na jednotlivé větvi z Ohmova zákona: I₁ = U / R₁, I₂ = U / R₂</li>
 							</ul>
-							<h3>Celkový odpor</h3>
+							<h3>Celkový odpor — vlastnosti paralelního zapojení</h3>
 							<p>Rezistory vedle sebe tvoří <strong>větší plochu průřezu</strong>, takže <strong>celkový odpor klesá</strong> (je menší než nejmenší z nich). Platí <strong>1/R = 1/R₁ + 1/R₂</strong>.</p>
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>dělí</strong> → napětí se nedělí. Výhoda paralelu: když jeden spotřebič vypadne, <strong>ostatní fungují dál</strong>.</p>
@@ -3986,6 +3999,7 @@ export const temata: Record<string, Tema[]> = {
 						<p>Obor fyziky, který zkoumá vznik, šíření a vnímání zvuku, se nazývá <strong>akustika</strong>.</p>
 					`,
 					materialy: [
+						{ druh: 'infografika', nazev: 'Zvuk — vznik a šíření', cesta: '/materialy/fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni/infografika-prehled.jpg' },
 						{
 							druh: 'youtube',
 							nazev: 'Video: Fyzika zvuku – vysvětlení',
@@ -4205,14 +4219,14 @@ export const temata: Record<string, Tema[]> = {
 					interakce: 'elektromagnet',
 					nazev: 'Elektromagnet a jeho využití',
 					obsah: `
-						<h2>Elektromagnet a jeho využití</h2>
-						<p><strong>Elektromagnet</strong> je cívka s jádrem z <strong>magneticky měkké oceli</strong>. Ta se při zapnutí proudu rychle zmagnetuje a po vypnutí proudu její magnetické pole rychle zaniká. Pole má stejný tvar jako u tyčového magnetu.</p>
-						<h3>Co ovlivňuje sílu elektromagnetu</h3>
+						<h2>Elektromagnet — magnetické pole pomocí elektrického proudu</h2>
+						<p><strong>Elektromagnet</strong> je cívka s jádrem z <strong>magneticky měkké oceli</strong>. Ta se při zapnutí elektrického proudu rychle zmagnetuje a po vypnutí proudu její magnetické pole rapidně zaniká. Pole má stejný tvar jako u tyčového magnetu — vzniká interakcí proudu a magnetického materiálu.</p>
+						<h3>Co ovlivňuje sílu elektromagnetu — faktory</h3>
 						<ul>
-							<li>Čím <strong>více závitů</strong> cívka má, tím silnější je pole.</li>
-							<li>Čím <strong>větší proud</strong> cívkou teče, tím silnější je pole.</li>
+							<li>Čím <strong>více závitů</strong> cívka má, tím silnější je magnetické pole.</li>
+							<li>Čím <strong>větší proud</strong> cívkou teče, tím silnější je pole — přímá závislost.</li>
 						</ul>
-						<h3>Výhody oproti permanentnímu magnetu</h3>
+						<h3>Výhody oproti permanentnímu magnetu — elektromagnetismus vs. magnetizmus</h3>
 						<ul>
 							<li>lze ho <strong>zapnout a vypnout</strong> (spolu s proudem),</li>
 							<li>lze <strong>prohodit póly</strong> (změnou pólů zdroje),</li>
