@@ -2272,22 +2272,22 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Přetlak, podtlak, vakuum',
 					interakce: 'pretlak',
 					obsah: `
-						<h2>Přetlak, podtlak, vakuum</h2>
-						<p>Je-li v uzavřené nádobě jiný tlak než v okolí, vzniká přetlak, podtlak, nebo dokonce vakuum.</p>
-						<h3>Přetlak — uvnitř VÍC než venku</h3>
+						<h2>Přetlak, podtlak, vakuum — fyzikální jevy atmosférického tlaku</h2>
+						<p>Je-li v uzavřené nádobě jiný tlak než v okolí, vzniká <strong>přetlak</strong>, <strong>podtlak</strong>, nebo dokonce <strong>vakuum</strong>. Tyto stavy patří mezi důležité fyzikální jevy související s atmosférickým tlakem.</p>
+						<h3>Přetlak — uvnitř VÍC než venku (tlak nad Pa)</h3>
 						<ul>
 							<li>nafouknutý míč, pneumatika, sprej, tlakové lahve potápěčů, kabina letadla, plíce při výdechu</li>
 							<li>vytváří ho <strong>hustilka nebo kompresor</strong>, měří ho <strong>manometr</strong> (trubička se při tlaku narovnává jako papírová frkačka)</li>
 							<li>manometry mívají stupnici v barech: <strong>1 bar = 100 000 Pa</strong> ≈ tlak jedné atmosféry; pneumatika se hustí asi na 2,5 baru přetlaku</li>
 						</ul>
-						<h3>Podtlak — uvnitř MÍŇ než venku</h3>
+						<h3>Podtlak — uvnitř MÍŇ než venku (tlak pod Pa)</h3>
 						<ul>
 							<li>vzniká odsátím vzduchu nebo zvětšením prostoru; okolí se <strong>nasává dovnitř</strong> (tlak se chce vyrovnat)</li>
 							<li>pití brčkem, vysavač, přísavky, gumový zvon na odpad, pumpa u studny, plíce při nádechu</li>
 						</ul>
-						<h3>Vakuum — téměř NIC</h3>
+						<h3>Vakuum — téměř NIC (absolutní nedostatek tlaku)</h3>
 						<ul>
-							<li>téměř všechen vzduch odčerpán <strong>vývěvou</strong>, tlak skoro nulový</li>
+							<li>téměř všechen vzduch odčerpán <strong>vývěvou</strong>, tlak skoro nulový — fyzikální vakuum neexistuje dokonalé</li>
 							<li>baňka žárovky, vakuově balené potraviny, vesmírný prostor</li>
 						</ul>
 					`,
