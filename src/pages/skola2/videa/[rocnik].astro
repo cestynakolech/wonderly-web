@@ -3,6 +3,15 @@ import SkolaLayout from '../../../layouts/SkolaLayout.astro';
 import VideoGrid from '../../../components/skola2/VideoGrid.astro';
 import { getVideosByRocnik, type Video } from '../../../data/videa';
 
+export function getStaticPaths() {
+	return [
+		{ params: { rocnik: 'F6' } },
+		{ params: { rocnik: 'F7' } },
+		{ params: { rocnik: 'F8' } },
+		{ params: { rocnik: 'F9' } },
+	];
+}
+
 interface Props {
 	rocnik?: string;
 }
