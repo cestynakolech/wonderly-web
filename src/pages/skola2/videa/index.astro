@@ -1,0 +1,380 @@
+---
+import SkolaLayout from '../../../layouts/SkolaLayout.astro';
+import { videa } from '../../../data/videa';
+
+// Počty videí
+const stats = {
+	F6: videa.F6.length,
+	F7: videa.F7.length,
+	F8: videa.F8.length,
+	F9: videa.F9.length,
+};
+
+const total = Object.values(stats).reduce((a, b) => a + b, 0);
+const totalMinutes = Object.values(videa)
+	.flat()
+	.reduce((sum, v) => sum + v.delka, 0);
+const totalHours = (totalMinutes / 60).toFixed(1);
+---
+
+<SkolaLayout title="Videa fyziky — 2. stupeň">
+	<main class="videa-index">
+		<header class="hero">
+			<h1>🎬 Videa fyziky</h1>
+			<p class="tagline">Výukové videa pro všechny ročníky fyziky</p>
+
+			<div class="hero-stats">
+				<div class="stat">
+					<strong>{total}</strong>
+					<span>videí</span>
+				</div>
+				<div class="stat">
+					<strong>{totalHours}</strong>
+					<span>h obsahu</span>
+				</div>
+				<div class="stat">
+					<strong>4</strong>
+					<span>ročníky</span>
+				</div>
+			</div>
+		</header>
+
+		<section class="rocniky-grid">
+			<h2>Vyberte si ročník</h2>
+
+			{
+				['F6', 'F7', 'F8', 'F9'].map((rocnik) => (
+					<a href={`/skola2/videa/${rocnik}`} class={`rocnik-card rocnik-${rocnik}`}>
+						<div class="rocnik-badge">{rocnik}</div>
+						<div class="rocnik-info">
+							<h3>{rocnik}. ročník</h3>
+							<p class="count">{stats[rocnik as keyof typeof stats]} videí</p>
+							<div class="rocnik-description">
+								{rocnik === 'F6' &&
+									'Látky, tělesa, skupenství, teplota, tlak'}
+								{rocnik === 'F7' &&
+									'Pohyb, síly, jednoduché stroje, magnetismus'}
+								{rocnik === 'F8' &&
+									'Energie, teplo, zvuk, elektřina, magnetismus'}
+								{rocnik === 'F9' &&
+									'Gravitace, elektromagnetismus, atomy, jádro'}
+							</div>
+						</div>
+						<span class="arrow">→</span>
+					</a>
+				))
+			}
+		</section>
+
+		<section class="features">
+			<h2>Jak videa fungují?</h2>
+
+			<div class="features-grid">
+				<div class="feature">
+					<div class="feature-icon">📺</div>
+					<h3>Krátká videa</h3>
+					<p>Videa do 15 minut se přehrají přímo na stránce. Praktické a zaměřené.</p>
+				</div>
+
+				<div class="feature">
+					<div class="feature-icon">🔗</div>
+					<h3>Dlouhá videa</h3>
+					<p>
+						Videa delší než 15 minut se otevírají v samostatné záložce na YouTube.
+					</p>
+				</div>
+
+				<div class="feature">
+					<div class="feature-icon">🏷️</div>
+					<h3>Organizace</h3>
+					<p>
+						Videa jsou strukturována podle tématu. Filtrujte podle délky a typu.
+					</p>
+				</div>
+
+				<div class="feature">
+					<div class="feature-icon">📱</div>
+					<h3>Responzivní</h3>
+					<p>Videa se přizpůsobují velikosti obrazovky — počítač i mobil.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<h2>Začít se učit</h2>
+			<p>
+				Zvolte svůj ročník a prohlédněte si dostupná videa. Nejlepší cesta k pochopení
+				fyziky je kombinace výkladu a vizualizace!
+			</p>
+			<a href="/skola2/videa/F6" class="btn btn-primary">Otevřít videa →</a>
+		</section>
+	</main>
+</SkolaLayout>
+
+<style>
+	.videa-index {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
+	.hero {
+		text-align: center;
+		margin-bottom: 4rem;
+		padding-bottom: 2rem;
+	}
+
+	.hero h1 {
+		font-size: 2.75rem;
+		font-weight: 700;
+		color: #111827;
+		margin: 0;
+	}
+
+	.tagline {
+		font-size: 1.25rem;
+		color: #6b7280;
+		margin: 0.5rem 0 2rem 0;
+	}
+
+	.hero-stats {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+		flex-wrap: wrap;
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.stat strong {
+		font-size: 2rem;
+		color: #3b82f6;
+		font-weight: 700;
+	}
+
+	.stat span {
+		font-size: 0.9rem;
+		color: #6b7280;
+		margin-top: 0.25rem;
+	}
+
+	/* Ročníky grid */
+	.rocniky-grid {
+		margin-bottom: 4rem;
+	}
+
+	.rocniky-grid h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+		color: #111827;
+	}
+
+	.rocniky-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 4rem;
+	}
+
+	.rocnik-card {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 1.5rem;
+		border: 2px solid #e5e7eb;
+		border-radius: 8px;
+		text-decoration: none;
+		color: inherit;
+		transition: all 0.3s ease;
+		background: white;
+	}
+
+	.rocnik-card:hover {
+		border-color: #3b82f6;
+		box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+		transform: translateY(-2px);
+	}
+
+	.rocnik-badge {
+		font-size: 1.75rem;
+		font-weight: 700;
+		width: 80px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 8px;
+		color: white;
+		flex-shrink: 0;
+	}
+
+	.rocnik-F6 .rocnik-badge {
+		background: linear-gradient(135deg, #f59e0b, #f97316);
+	}
+
+	.rocnik-F7 .rocnik-badge {
+		background: linear-gradient(135deg, #10b981, #34d399);
+	}
+
+	.rocnik-F8 .rocnik-badge {
+		background: linear-gradient(135deg, #3b82f6, #60a5fa);
+	}
+
+	.rocnik-F9 .rocnik-badge {
+		background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+	}
+
+	.rocnik-info {
+		flex: 1;
+	}
+
+	.rocnik-info h3 {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin: 0 0 0.25rem 0;
+	}
+
+	.count {
+		font-size: 0.9rem;
+		color: #6b7280;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.rocnik-description {
+		font-size: 0.9rem;
+		color: #6b7280;
+		line-height: 1.4;
+	}
+
+	.arrow {
+		font-size: 1.5rem;
+		color: #3b82f6;
+		flex-shrink: 0;
+	}
+
+	/* Features */
+	.features {
+		margin-bottom: 4rem;
+	}
+
+	.features h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+		text-align: center;
+		color: #111827;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.feature {
+		padding: 1.5rem;
+		background: #f9fafb;
+		border-radius: 8px;
+		border: 1px solid #e5e7eb;
+		text-align: center;
+	}
+
+	.feature-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.feature h3 {
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin: 0 0 0.5rem 0;
+		color: #111827;
+	}
+
+	.feature p {
+		font-size: 0.9rem;
+		color: #6b7280;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* CTA */
+	.cta {
+		text-align: center;
+		padding: 2rem;
+		background: linear-gradient(135deg, #3b82f6, #2563eb);
+		color: white;
+		border-radius: 8px;
+		margin-bottom: 2rem;
+	}
+
+	.cta h2 {
+		font-size: 1.75rem;
+		font-weight: 700;
+		margin: 0 0 1rem 0;
+	}
+
+	.cta p {
+		font-size: 1.1rem;
+		margin: 0 0 1.5rem 0;
+		opacity: 0.95;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.75rem 2rem;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.2s ease;
+		cursor: pointer;
+		border: none;
+	}
+
+	.btn-primary {
+		background: white;
+		color: #2563eb;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.hero-stats {
+			gap: 1.5rem;
+		}
+
+		.stat strong {
+			font-size: 1.5rem;
+		}
+
+		.rocnik-card {
+			flex-direction: column;
+			text-align: center;
+			padding: 1.25rem;
+		}
+
+		.rocnik-info {
+			flex: none;
+		}
+
+		.arrow {
+			display: none;
+		}
+
+		.rocniky-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
