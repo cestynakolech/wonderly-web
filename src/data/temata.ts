@@ -1498,14 +1498,14 @@ export const temata: Record<string, Tema[]> = {
 					nazev: 'Klid a pohyb tělesa',
 					interakce: 'relativita-pohybu',
 					obsah: `
-						<h2>Klid a pohyb tělesa</h2>
-						<p><strong>Pohyb tělesa</strong> je změna polohy tělesa vzhledem k jinému tělesu.</p>
-						<p>Těleso je vzhledem k jinému tělesu <strong>v klidu</strong>, pokud se vzhledem k němu nepohybuje.</p>
-						<p>👉 Vždy záleží na pozorovateli: cestující ve vlaku je <strong>v klidu vzhledem k sedadlu</strong>, ale <strong>v pohybu vzhledem k lidem na nástupišti</strong>. Klid a pohyb jsou relativní.</p>
-						<h3>Trajektorie a dráha</h3>
+						<h2>Klid a pohyb tělesa — základní fyzikální pojmy</h2>
+						<p><strong>Pohyb tělesa</strong> je změna polohy tělesa vzhledem k jinému tělesu — základní fyzikální jev, kterým se zabývá kinematika.</p>
+						<p>Těleso je vzhledem k jinému tělesu <strong>v klidu</strong>, pokud se vzhledem k němu nepohybuje — klid je speciální případ pohybu s nulovou rychlostí.</p>
+						<p>👉 Vždy záleží na pozorovateli: cestující ve vlaku je <strong>v klidu vzhledem k sedadlu</strong>, ale <strong>v pohybu vzhledem k lidem na nástupišti</strong>. Klid a pohyb jsou relativní — závisí na volbě vztažné soustavy.</p>
+						<h3>Trajektorie a dráha — fyzikální veličiny pohybu</h3>
 						<ul>
 							<li><strong>Trajektorie</strong> je čára, po které se těleso pohybuje — může být viditelná (stopa lyžaře) i myšlená (let letadla)</li>
-							<li><strong>Dráha (s)</strong> je délka trajektorie; fyzikální veličina se základní jednotkou <strong>metr (m)</strong></li>
+							<li><strong>Dráha (s)</strong> je délka trajektorie; fyzikální veličina se základní jednotkou <strong>metr (m)</strong> — měřitelná vlastnost pohybu</li>
 						</ul>
 						<h3>Druhy pohybu podle tvaru trajektorie</h3>
 						<ul>
@@ -3648,18 +3648,18 @@ export const temata: Record<string, Tema[]> = {
 						nazev: 'Zapojení spotřebičů za sebou (sériově)',
 						interakce: 'zapojeni',
 						obsah: `
-							<h2>Zapojení spotřebičů za sebou (sériově)</h2>
-							<p>Spotřebiče (pro výpočty je nahradíme <strong>rezistory</strong>) jsou v sériovém obvodu zapojeny <strong>jeden za druhým</strong>. Obvod se <strong>nerozvětvuje</strong>.</p>
-							<h3>Proud</h3>
-							<p>Proud se <strong>nedělí</strong> — je ve všech částech obvodu (i ve všech rezistorech) <strong>stejný</strong>. Všechny elektrony procházejí každou částí obvodu.</p>
-							<h3>Napětí</h3>
+							<h2>Zapojení spotřebičů za sebou (sériově) — jednoduchý elektrický obvod</h2>
+							<p>Spotřebiče (pro výpočty je nahradíme <strong>rezistory</strong>) jsou v sériovém obvodu zapojeny <strong>jeden za druhým</strong>. Obvod se <strong>nerozvětvuje</strong> — jednoduché sériové zapojení je nejbasičtější typ elektrického obvodu.</p>
+							<h3>Proud — tok bez dělení</h3>
+							<p>Proud se <strong>nedělí</strong> — je ve všech částech obvodu (i ve všech rezistorech) <strong>stejný</strong>. Všechny elektrony procházejí každou částí obvodu — zákon zachování toku.</p>
+							<h3>Napětí — rozdělení mezi rezistory</h3>
 							<ul>
-								<li>napětí zdroje se <strong>rozdělí mezi rezistory</strong> — <strong>U = U₁ + U₂</strong></li>
+								<li>napětí zdroje se <strong>rozdělí mezi rezistory</strong> — <strong>U = U₁ + U₂</strong> (zákon o úbytcích napětí)</li>
 								<li>rozdělí se ve <strong>stejném poměru jako odpory</strong>: na větším odporu je větší napětí</li>
 								<li>na jednotlivém rezistoru z Ohmova zákona: U₁ = R₁ · I, U₂ = R₂ · I</li>
 							</ul>
-							<h3>Celkový odpor</h3>
-							<p>Rezistory za sebou tvoří <strong>delší odporový drát</strong>, proto se odpory <strong>sčítají</strong>: <strong>R = R₁ + R₂</strong> — celkový odpor je <strong>větší</strong> než jednotlivé.</p>
+							<h3>Celkový odpor — součet rezistorů</h3>
+							<p>Rezistory za sebou tvoří <strong>delší odporový drát</strong>, proto se odpory <strong>sčítají</strong>: <strong>R = R₁ + R₂</strong> — celkový odpor je <strong>větší</strong> než jednotlivé (suma odporů v sérii).</p>
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>nedělí</strong> → dělí se napětí. Nevýhoda série: přeruší-li se jeden spotřebič (vánoční řetěz), <strong>zhasne celý obvod</strong>.</p>
 						`,
