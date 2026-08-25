@@ -1,78 +1,18 @@
-import type { APIRoute, GetStaticPaths } from 'astro';
-import { temata } from '../../../data/temata';
+import type { GetStaticPaths } from 'astro';
 
-export const getStaticPaths = (async () => {
-	// Vygeneruj cesty pro všechny ročníky: 6, 7, 8, 9
-	return [
-		{ params: { rocnik: '6-rocnik' } },
-		{ params: { rocnik: '7-rocnik' } },
-		{ params: { rocnik: '8-rocnik' } },
-		{ params: { rocnik: '9-rocnik' } },
-		// Také bez "-rocnik"
-		{ params: { rocnik: '6' } },
-		{ params: { rocnik: '7' } },
-		{ params: { rocnik: '8' } },
-		{ params: { rocnik: '9' } },
-	];
-}) satisfies GetStaticPaths;
-
-export const GET: APIRoute = async ({ params }) => {
-	const rocnik = params.rocnik;
-	
-	// Převod ročníku - přijmi jak "6" tak "6-rocnik"
-	let key = `fyzika/${rocnik}`;
-	if (!rocnik?.includes('-')) {
-		key = `fyzika/${rocnik}-rocnik`;
-	}
-	
-	const temaList = temata[key as keyof typeof temata];
-	
-	if (!temaList) {
-		return new Response(JSON.stringify({ error: 'Ročník nenalezen' }), {
-			status: 404,
-			headers: { 'Content-Type': 'application/json' }
-		});
-	}
-	
-	const videos: Array<{
-		nazev: string;
-		cesta: string;
-		tema: string;
-		podtema: string;
-		ai?: string;
-	}> = [];
-	
-	// Iteruj přes všechna témata a podtémata
-	for (const tema of temaList) {
-		if (tema.podtemata) {
-			for (const podtema of tema.podtemata) {
-				if (podtema.materialy) {
-					for (const material of podtema.materialy) {
-						// Vezmi jen videa (ne audio)
-						if (material.druh === 'video' && !material.cesta?.endsWith?.('.m4a')) {
-							videos.push({
-								nazev: material.nazev,
-								cesta: material.cesta,
-								tema: tema.nazev,
-								podtema: podtema.nazev,
-								ai: material.ai
-							});
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	// Omez na 40 videí (nebo kolik jich máme)
-	const limited = videos.slice(0, 40);
-	
-	return new Response(JSON.stringify({
-		rocnik,
-		total: limited.length,
-		videos: limited
-	}), {
-		status: 200,
-		headers: { 'Content-Type': 'application/json' }
-	});
+export const getStaticPaths: GetStaticPaths = async () => {
+	return [];
 };
+
+export async function GET() {
+	return new Response(
+		JSON.stringify({
+			error: 'Use /api/videos.json instead',
+			status: 404
+		}),
+		{
+			status: 404,
+			headers: { 'Content-Type': 'application/json' },
+		}
+	);
+}
