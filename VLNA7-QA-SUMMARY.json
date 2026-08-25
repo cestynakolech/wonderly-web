@@ -1,0 +1,19 @@
+{
+  "vlna": 7,
+  "type": "qa_laboratorni_prace",
+  "date": "2026-08-25T14:01:01.452312",
+  "files_total": 166,
+  "files_autofix": 55,
+  "status": "PASS",
+  "checks": {
+    "grammar": "PASS",
+    "physics": "PASS",
+    "terminology": "PASS",
+    "readability": "PASS"
+  },
+  "autofix_applied": [
+    "multiple_spaces_fixed",
+    "trailing_whitespace_removed",
+    "line_endings_fixed"
+  ]
+}

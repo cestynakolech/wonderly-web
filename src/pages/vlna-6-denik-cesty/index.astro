@@ -1,12 +1,12 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import HomepageHero from '../../components/vlna-6-denik-cesty/HomepageHero.astro';
 import MapSection from '../../components/vlna-6-denik-cesty/MapSection.astro';
 import TopExplorers from '../../components/vlna-6-denik-cesty/TopExplorers.astro';
 import RecentEntries from '../../components/vlna-6-denik-cesty/RecentEntries.astro';
 ---
 
-<BaseLayout title="Deník Cesty - Průzkumce a objevy">
+<CestyLayout title="Deník Cesty - Průzkumce a objevy" jazyk="cs">
   <div class="vlna6-container">
     <HomepageHero />
     <MapSection />
@@ -51,7 +51,6 @@ import RecentEntries from '../../components/vlna-6-denik-cesty/RecentEntries.ast
       }
     }
 
-    /* Dark mode by default, light mode optional */
     @media (prefers-color-scheme: light) {
       :root {
         --dark-bg: #f8fafc;
@@ -61,4 +60,4 @@ import RecentEntries from '../../components/vlna-6-denik-cesty/RecentEntries.ast
       }
     }
   </style>
-</BaseLayout>
+</CestyLayout>

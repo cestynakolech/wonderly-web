@@ -10,9 +10,9 @@ podtéma: Modely atomů a molekul
 
 ## 1. Úvod
 
-**Atomy a molekuly** jsou stavební kameny všech látek. V této práci si vytvoříme modely atomů a molekul, abychom lépe pochopili jejich strukturu.
+**Atomy a molekuly** jsou stavební kameny všech látek. **Atom** je nejmenší jednotka prvku s jádrem (protony a neutrony) a elektronovým obalem. **Molekula** je skupinou atomů, které se drží pohromadě **chemickými vazbami**. V této práci si vytvoříme modely atomů a molekul, abychom lépe pochopili jejich **složení** a **strukturu**.
 
-👉 Pozn: Atomy jsou nesmírně malé — nemůžeme je vidět ani Best mikroskopem. Modely, které si vytvoříme, jsou jen schematické znázornění.
+👉 Pozn: Atomy jsou nesmírně malé — nemůžeme je vidět ani Best mikroskopem. Modely, které si vytvoříme, jsou jen schematické znázornění realitou **částicového složení látek**.
 
 ---
 

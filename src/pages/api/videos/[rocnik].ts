@@ -1,12 +1,30 @@
-import type { APIRoute } from 'astro';
+import type { APIRoute, GetStaticPaths } from 'astro';
 import { temata } from '../../../data/temata';
+
+export const getStaticPaths = (async () => {
+	// Vygeneruj cesty pro všechny ročníky: 6, 7, 8, 9
+	return [
+		{ params: { rocnik: '6-rocnik' } },
+		{ params: { rocnik: '7-rocnik' } },
+		{ params: { rocnik: '8-rocnik' } },
+		{ params: { rocnik: '9-rocnik' } },
+		// Také bez "-rocnik"
+		{ params: { rocnik: '6' } },
+		{ params: { rocnik: '7' } },
+		{ params: { rocnik: '8' } },
+		{ params: { rocnik: '9' } },
+	];
+}) satisfies GetStaticPaths;
 
 export const GET: APIRoute = async ({ params }) => {
 	const rocnik = params.rocnik;
 	
 	// Převod ročníku - přijmi jak "6" tak "6-rocnik"
-	const rocnikNum = rocnik?.split('-')?.[0] || rocnik;
-	const key = `fyzika/${rocnikNum}-rocnik`;
+	let key = `fyzika/${rocnik}`;
+	if (!rocnik?.includes('-')) {
+		key = `fyzika/${rocnik}-rocnik`;
+	}
+	
 	const temaList = temata[key as keyof typeof temata];
 	
 	if (!temaList) {

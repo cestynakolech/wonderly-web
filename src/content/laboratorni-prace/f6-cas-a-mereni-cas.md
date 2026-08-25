@@ -6,7 +6,7 @@ updated: 2026-08-25
 
 ## Úvod
 
-V této práci si budeme měřit čas pomocí stopek a jednoduchého kyvadla. Naučíme se přesně měřit časové intervaly a pochopit pojem perioda kmitání.
+V této práci si budeme měřit **čas** pomocí stopek a jednoduchého **kyvadla**. Naučíme se přesně měřit **časové intervaly** a pochopit základní fyzikální pojmy: **perioda kmitání** (čas jednoho úplného kmitu — tam a zpět) a **frekvence** (počet kmitů za sekundu). Kyvadlo je ideálním modelovým systémem pro studium **periodického pohybu**.
 
 ## Pomůcky
 
