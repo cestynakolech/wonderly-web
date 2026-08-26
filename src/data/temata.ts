@@ -5023,6 +5023,16 @@ export const temata: Record<string, Tema[]> = {
 						druh: 'youtube',
 						nazev: 'Video: Energie Zdroje Energie',
 						cesta: 'E2hVk7q3nX0',
+					},
+					{
+						druh: 'youtube',
+						nazev: 'Video: Magnetizmus Prvky Magnetismu',
+						cesta: 'T8k7Q5Zt_fk',
+					},
+					{
+						druh: 'infografika',
+						nazev: 'Simulace: Elektromotor Princip',
+						cesta: '/components/elektromotor_princip_Simulace',
 					}],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [
