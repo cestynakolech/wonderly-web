@@ -1,0 +1,285 @@
+---
+// Polovodiče: 3 scény — vlastní vodivost, N-typ, P-typ dopování (F9)
+// Uživatel si může zvolit scénu přes radio buttony:
+// - Scéna 1: Vlastní vodivost (čistý křemík, teplota → páry elektron+díra)
+// - Scéna 2: N-typ (dopování arsenu → přebytečné elektrony)
+// - Scéna 3: P-typ (dopování boru → přebytečné díry)
+// Všechny scény sdílí styl a animaci. Pohyb částic je čistá funkce času.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Polovodiče a dopování 🕹️</span></h2>
+	<p>
+		V <strong>čistém křemíku</strong> je při nízké teplotě proud skoro nulový — všechny elektrony
+		pevně drží ve vazbách. <strong>Teplo</strong> je z vazby vyrazí → vzniká <strong>pár elektron + díra</strong>
+		(díra = prázdné místo, ale chová se jako kladný náboj).
+	</p>
+	<p>
+		<strong>Dopování</strong> je záměrné přidání cizích atomů:
+		<strong>N-typ</strong> (arsen: 5 valenčních elektronů) → přebytečné elektrony (volné nosiče náboje).
+		<strong>P-typ</strong> (bor: 3 valenční elektrony) → přebytečné díry.
+	</p>
+
+	<!-- Výběr scény -->
+	<fieldset class="pol-scenar">
+		<legend>Zvolte scénu:</legend>
+		<label><input type="radio" id="pol-radio-1" name="scena" value="1" checked /> 1️⃣ Vlastní vodivost (čistý křemík)</label>
+		<label><input type="radio" id="pol-radio-2" name="scena" value="2" /> 2️⃣ N-typ (arsen = přebytky e⁻)</label>
+		<label><input type="radio" id="pol-radio-3" name="scena" value="3" /> 3️⃣ P-typ (bor = přebytky d)</label>
+	</fieldset>
+
+	<!-- SVG pro všechny tři scény -->
+	<svg id="pol-svg" viewBox="0 0 660 300" role="img" aria-label="Polovodič mezi dvěma elektrodami, elektrony a díry putují k pólům">
+		<!-- vodiče k baterii -->
+		<path d="M60 150 L150 150" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<path d="M450 150 L560 150" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<!-- elektrody -->
+		<rect x="40" y="90" width="20" height="120" fill="#495057" />
+		<text x="50" y="230" text-anchor="middle" font-size="20" font-weight="bold" fill="#1971c2">−</text>
+		<rect x="560" y="90" width="20" height="120" fill="#495057" />
+		<text x="570" y="230" text-anchor="middle" font-size="20" font-weight="bold" fill="#e03131">+</text>
+
+		<!-- vzorek materiálu (měnit podle scény) -->
+		<rect id="pol-vzorek" x="150" y="90" width="300" height="120" fill="#e9ecef" stroke="#2b2a26" stroke-width="4" />
+		<text id="pol-vzorek-text" x="300" y="80" text-anchor="middle" font-size="13" fill="#868e96">čistý křemík</text>
+
+		<!-- žárovka ukazující sílu proudu -->
+		<circle id="pol-zarovka" cx="300" cy="255" r="16" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+		<text x="300" y="260" text-anchor="middle" font-size="14">💡</text>
+		<g id="pol-paprsky" stroke="#fab005" stroke-width="2" stroke-linecap="round">
+			<line x1="278" y1="245" x2="268" y2="235" />
+			<line x1="300" y1="235" x2="300" y2="223" />
+			<line x1="322" y1="245" x2="332" y2="235" />
+		</g>
+
+		<!-- teploměr (viditelný jen v scéně 1) -->
+		<g id="pol-teplomer-grupa">
+			<rect x="595" y="80" width="14" height="130" rx="7" fill="#fff" stroke="#2b2a26" stroke-width="2" />
+			<rect id="pol-teplomer-sloupec" x="598" y="150" width="8" height="55" fill="#e8590c" />
+			<circle cx="602" cy="212" r="10" fill="#e8590c" stroke="#2b2a26" stroke-width="2" />
+		</g>
+
+		<!-- pohybující se páry elektron-díra -->
+		<g id="pol-castice"></g>
+
+		<!-- plaketa se stavem -->
+		<rect x="150" y="20" width="360" height="50" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="pol-stav-text" x="330" y="40" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<text id="pol-proud-text" x="330" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+
+	<!-- Ovládání — mění se podle scény -->
+	<div id="pol-ovladani"></div>
+
+	<!-- Popis a vzorec -->
+	<p class="pol-vzorec" id="pol-vzorec"></p>
+	<p class="pol-popis" id="pol-popis"></p>
+</section>
+
+<script>
+	// === Konfigurrace scén ===
+	const sceny = {
+		1: {
+			nazev: 'Vlastní vodivost (čistý křemík)',
+			barva: '#e9ecef',
+			text: 'čistý křemík',
+			popis: 'V čistém křemíku vznikají páry elektron+díra teplem. Čím vyšší teplota, tím víc párů a větší proud.',
+			vzorec: 'I = počet párů × 5 µA',
+			// pro scénu 1: teplota 0…6 párů
+			stav: (t) => {
+				const pocetParu = (t + 20) / 20;
+				const proud = pocetParu * 5;
+				return { pocetParu, proud, popis: `Teplota: ${t} °C → Páry: ${pocetParu} ks → Proud: ${proud} µA` };
+			},
+			ovladani: `<label class="sim-posuvnik">
+				Teplota: <output id="pol-out-param"></output> °C
+				<input type="range" id="pol-slider" min="-20" max="100" step="20" value="20" />
+			</label>`
+		},
+		2: {
+			nazev: 'N-typ (arsen — přebytky e⁻)',
+			barva: '#fff3cd',
+			text: 'N-typ (As dopování)',
+			popis: 'Arsen (As) má 5 valenčních elektronů. Čtvrtý elektron zůstane navíc — volný k pohybu! Výsledek: O(1) přebytečných elektronů, bez teplotní závislosti.',
+			vzorec: 'I = koncentrace donovoru × e',
+			stav: (t) => {
+				// N-typ je "konstantní" — proud nezávisí na čase, jen na dopování
+				return { pocetParu: 3, proud: 15, popis: `N-typ (As): 3 volné elektrony → Proud: 15 µA (téměř nezávislý na teplotě)` };
+			},
+			ovladani: `<label class="sim-posuvnik">
+				Úroveň dopování: <output id="pol-out-param"></output>
+				<input type="range" id="pol-slider" min="1" max="5" step="1" value="3" />
+			</label>`
+		},
+		3: {
+			nazev: 'P-typ (bor — přebytky d)',
+			barva: '#f8d7da',
+			text: 'P-typ (B dopování)',
+			popis: 'Bor (B) má 3 valenční elektrony. Chybí jeden elektron — vzniká prázdné místo = díra, která chová se jako kladný náboj. Výsledek: Přebytečné díry.',
+			vzorec: 'I = koncentrace akceptoru × e',
+			stav: (t) => {
+				// P-typ je také "konstantní"
+				return { pocetParu: 3, proud: 15, popis: `P-typ (B): 3 volné díry → Proud: 15 µA (téměř nezávislý na teplotě)` };
+			},
+			ovladani: `<label class="sim-posuvnik">
+				Úroveň dopování: <output id="pol-out-param"></output>
+				<input type="range" id="pol-slider" min="1" max="5" step="1" value="3" />
+			</label>`
+		}
+	};
+
+	// === Animační logika (čistá část) ===
+	const OBDOBI = 3000;
+	const X_STRED = 300, X_MINUS = 160, X_PLUS = 440;
+
+	function pozicePartice(t, i, pocetParu) {
+		if (pocetParu <= 0) return null;
+		const posun = OBDOBI / pocetParu;
+		const faze = ((t - i * posun) % OBDOBI + OBDOBÍ) % OBDOBÍ;
+		const zlomek = faze / OBDOBÍ;
+		const xElektron = X_STRED + (X_PLUS - X_STRED) * zlomek;
+		const xDira = X_STRED - (X_STRED - X_MINUS) * zlomek;
+		return { xElektron, xDira, y: 110 + (i % 4) * 24 };
+	}
+
+	// === DOM references ===
+	const g = (id) => document.getElementById(id);
+	const radios = Array.from(document.querySelectorAll('input[name="scena"]'));
+	const slider = () => document.getElementById('pol-slider');
+	const output = () => document.getElementById('pol-out-param');
+
+	let aktualni_scena = 1;
+	let aktualni_stav = sceny[1].stav(-20);
+
+	function vykresliCastice(t, s) {
+		let html = '';
+		for (let i = 0; i < s.pocetParu; i++) {
+			const p = pozicePartice(t, i, s.pocetParu);
+			if (!p) continue;
+			html += `<circle cx="${p.xElektron}" cy="${p.y}" r="10" fill="#1971c2" stroke="#2b2a26" stroke-width="1.5" /><text x="${p.xElektron}" y="${p.y + 4}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">e⁻</text>`;
+			html += `<circle cx="${p.xDira}" cy="${p.y}" r="10" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" /><text x="${p.xDira}" y="${p.y + 4}" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">d</text>`;
+		}
+		g('pol-castice').innerHTML = html || ' ';
+	}
+
+	function zmeniScenu(cislo) {
+		aktualni_scena = +cislo;
+		const s = sceny[cislo];
+
+		// Aktualizuj SVG
+		g('pol-vzorek').setAttribute('fill', s.barva);
+		g('pol-vzorek-text').textContent = s.text;
+
+		// Skryi/zobraz teploměr (jen v scéně 1)
+		g('pol-teplomer-grupa').style.display = cislo === 1 ? 'block' : 'none';
+
+		// Aktualizuj ovládání
+		g('pol-ovladani').innerHTML = s.ovladani;
+
+		// Přepoj event na nový slider
+		const novy_slider = slider();
+		if (novy_slider) {
+			novy_slider.addEventListener('input', () => {
+				const param = +novy_slider.value;
+				if (cislo === 1) {
+					aktualni_stav = s.stav(param);
+					output().textContent = param;
+				} else {
+					aktualni_stav = s.stav(param);
+					output().textContent = param;
+				}
+				g('pol-stav-text').textContent = aktualni_stav.popis.split(' → ')[0] || 'Dopování:';
+				g('pol-proud-text').textContent = aktualni_stav.popis;
+				g('pol-vzorec').innerHTML = s.vzorec;
+				vykresliCastice(0, aktualni_stav);
+			});
+		}
+
+		// Aktualizuj popis
+		g('pol-popis').textContent = s.popis;
+		g('pol-vzorec').innerHTML = s.vzorec;
+
+		// Vykreslí iniciální stav
+		const param = cislo === 1 ? 20 : 3; // výchozí parametr
+		aktualni_stav = s.stav(param);
+		g('pol-stav-text').textContent = aktualni_stav.popis.split(' → ')[0] || 'Dopování:';
+		g('pol-proud-text').textContent = aktualni_stav.popis;
+		vykresliCastice(0, aktualni_stav);
+	}
+
+	// Event listeners na radio buttony
+	radios.forEach(r => r.addEventListener('change', () => zmeniScenu(r.value)));
+
+	// Animační smyčka
+	function snimek(t) {
+		if (aktualni_scena === 1) {
+			// Jen v scéně 1 se animuje
+			vykresliCastice(t, aktualni_stav);
+		}
+		requestAnimationFrame(snimek);
+	}
+
+	// Inicializace
+	zmeniScenu(1);
+	requestAnimationFrame(snimek);
+</script>
+
+<style>
+	#pol-svg {
+		width: 100%;
+		max-width: 660px;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+		background: #f8f9fa;
+	}
+
+	.pol-scenar {
+		background: #f1f3f5;
+		border: 2px solid #2b2a26;
+		border-radius: 8px;
+		padding: 0.7rem 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.pol-scenar legend {
+		font-weight: bold;
+		padding: 0 0.3rem;
+	}
+
+	.pol-scenar label {
+		display: inline-block;
+		margin-right: 1.5rem;
+		margin-top: 0.5rem;
+		cursor: pointer;
+	}
+
+	.pol-scenar input[type="radio"] {
+		margin-right: 0.3rem;
+	}
+
+	.sim-posuvnik {
+		display: block;
+		font-weight: 700;
+		margin: 0.7rem 0;
+	}
+
+	.sim-posuvnik input {
+		width: 100%;
+		max-width: 660px;
+		display: block;
+		margin-top: 0.3rem;
+	}
+
+	.pol-vzorec {
+		font-size: 0.95rem;
+		background: #f1f3f5;
+		border-radius: 8px;
+		padding: 0.5rem 0.7rem;
+	}
+
+	.pol-popis {
+		font-size: 1rem;
+		font-weight: 500;
+		min-height: 2rem;
+	}
+</style>
