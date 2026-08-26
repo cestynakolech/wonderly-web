@@ -5033,6 +5033,11 @@ export const temata: Record<string, Tema[]> = {
 						druh: 'infografika',
 						nazev: 'Simulace: Elektromotor Princip',
 						cesta: '/components/elektromotor_princip_Simulace',
+					},
+					{
+						druh: 'youtube',
+						nazev: 'Video: Test Finalni Video',
+						cesta: 'E0fXFQCQHtY',
 					}],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [
