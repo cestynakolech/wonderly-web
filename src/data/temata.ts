@@ -5018,7 +5018,17 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Od uhlí ke hvězdám 🎵', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/pisen-od-uhli-ke-hvezdam.m4a' },
-					],
+					,
+					{
+						druh: 'youtube',
+						nazev: 'Video: Elektromagnetismus Magneticke Pole',
+						cesta: 'dG_JJDxN-g8',
+					},,
+					{
+						druh: 'infografika',
+						nazev: 'Simulace: Sila Skladani Sil',
+						cesta: '/components/sila_skladani_sil_Simulace',
+					},],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [
 						{ nazev: 'Obnovitelné zdroje energie (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/2605-obnovitelne-zdroje-energie' },
