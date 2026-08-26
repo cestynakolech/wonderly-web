@@ -5021,14 +5021,9 @@ export const temata: Record<string, Tema[]> = {
 					,
 					{
 						druh: 'youtube',
-						nazev: 'Video: Elektromagnetismus Magneticke Pole',
-						cesta: 'dG_JJDxN-g8',
-					},,
-					{
-						druh: 'infografika',
-						nazev: 'Simulace: Sila Skladani Sil',
-						cesta: '/components/sila_skladani_sil_Simulace',
-					},],
+						nazev: 'Video: Energie Zdroje Energie',
+						cesta: 'E2hVk7q3nX0',
+					}],
 					interakce: 'obnovitelne-zdroje',
 					odkazy: [
 						{ nazev: 'Obnovitelné zdroje energie (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/2605-obnovitelne-zdroje-energie' },
