@@ -458,6 +458,11 @@
 			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu c1540e16… před i po shodný): v `popisPolohy` se prohodilo přiřazení „DOLŮ od středu“ a „nahoru od středu“ podle znaménka y — záporné y by hlásilo „nahoru“ a kladné „DOLŮ“ (obrácená osa y). Test spadl na 2 kontrolách: „y −100: … nahoru od středu“ a „y 100: … DOLŮ od středu“.",
 			"zdravy": "Nad hotovou komponentou test hlásí „✅ VŠE V POŘÁDKU“ (exit 0).",
 			"overeno": "2026-08-22"
+		},
+		"zavislosti.mjs": {
+			"test": "testy/zavislosti-obousmerne.mjs",
+			"podvrh": "PŘESNÁ REKONSTRUKCE HAVÁRIE z 24.–29. 8. 2026, ne vymyšlený případ: soubor importuje 'pdfkit', který není ani v package.json, ani v package-lock.json → měřidlo to hlásí jako CHYBU (ne varování), hláška obsahuje 'BUILD TAM SPADNE' i cestu k souboru. Ověřeno i NAOSTRO nad skutečnými daty webu: po vrácení souboru generate-test.json.ts zpět do src/pages/ brána končí kódem 1 a jmenuje přesně ten soubor; po jeho odebrání mlčí. Dále chytá: podcestu 'pdfkit/js/mixins/text' (pozná balíček pdfkit) a balíček s předponou '@sentry/node/esm' (pozná '@sentry/node'). Rozlišuje dvě úrovně — balíček mimo package.json, ale PŘÍTOMNÝ v zámku jako cizí podzávislost, je jen VAROVÁNÍ (dnešní skutečný případ: esbuild v testy/data.mjs a testy/mapa-popisky.mjs).",
+			"zdravy": "Nad zdravými daty mlčí: řádně deklarovaný balíček (v package.json i v zámku) nehlásí nic; vestavěné moduly Node ('node:fs', 'fs', 'path'), virtuální moduly Astra ('astro:content') ani relativní importy ('../data/temata') se nehlásí. REGRESE, která se opravdu stala: první běh měřidla 29. 8. nahlásil neexistující balíček 'y' z ukázky `import x from 'y'` v komentáři vlastní hlavičky — test proto obsahuje případ, kdy jsou importy JEN v komentářích (řádkovém i blokovém) a měřidlo musí mlčet. Falešný poplach je stejná vada jako přehlédnutý nález. Nad celým skutečným webem: 0 chyb, 1 varování (esbuild). Celkem 13 kontrol, všechny prošly."
 		}
 	}
 }

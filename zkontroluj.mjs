@@ -13,6 +13,7 @@ import { zkontrolujUniky } from './testy/uniky.mjs';
 import { zkontrolujSablony } from './testy/sablony.mjs';
 import { zkontrolujRejstrik } from './testy/obousmerne.mjs';
 import { zkontrolujCiziVidea } from './testy/cizi-videa.mjs';
+import { zkontrolujZavislosti } from './testy/zavislosti.mjs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -476,6 +477,15 @@ for (const p of vsechnaPodtemata(dataTemata)) {
 }
 console.log(`Přiznání AI: prošlo ${aiVsech} polemik — ${aiChybi.length} bez přiznání.`);
 for (const c of aiChybi) chyby.push(`polemika bez přiznání AI (pole 'ai'): ${c}`);
+// ZÁVISLOSTI — je každý importovaný balíček opravdu deklarovaný?
+// Bez téhle kontroly prošla brána zeleně i ve chvíli, kdy build na Cloudflare
+// padal na chybějící pdfkit (viz testy/zavislosti.mjs). Kontrola obsahu nestačí:
+// web se musí dát postavit i jinde než na tomhle Macu.
+const zavislosti = zkontrolujZavislosti(koren);
+console.log(zavislosti.souhrn);
+chyby.push(...zavislosti.chyby);
+varovani.push(...zavislosti.varovani);
+
 for (const v of varovani) console.log(`⚠️  ${v}`);
 
 // Zápis laťky až tady a JEN na výslovný pokyn — a jen když je jinak vše v pořádku.
