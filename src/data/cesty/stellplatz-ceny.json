@@ -23,17 +23,6 @@
  },
  {
   "rok": 2026,
-  "slug": "le-thillot",
-  "stellplatz": "Aire Le Thillot, Chemin du Draimont",
-  "cenaNoc": "Gratuit",
-  "elektrina": null,
-  "voda": null,
-  "kdy": null,
-  "zdroj": "park4night",
-  "aktualizovano": "08/2026"
- },
- {
-  "rok": 2026,
   "slug": "ornans",
   "stellplatz": "CAMPING-CAR PARK Ornans, Chemin des Essarts Cendrins",
   "cenaNoc": "21.32€",
@@ -102,6 +91,17 @@
   "rok": 2026,
   "slug": "salbert",
   "stellplatz": "Parkoviště Fort du Salbert",
+  "cenaNoc": "Gratuit",
+  "elektrina": null,
+  "voda": null,
+  "kdy": null,
+  "zdroj": "park4night",
+  "aktualizovano": "09/2026"
+ },
+ {
+  "rok": 2026,
+  "slug": "le-thillot",
+  "stellplatz": "Aire Le Thillot, Chemin du Draimont",
   "cenaNoc": "Gratuit",
   "elektrina": null,
   "voda": null,
