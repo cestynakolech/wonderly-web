@@ -1,17 +1,6 @@
 [
  {
   "rok": 2026,
-  "slug": "geisingen",
-  "stellplatz": "Stellplatz Am Espen 8, Geisingen",
-  "cenaNoc": "€14,-",
-  "elektrina": "€0,50/kwh",
-  "voda": "€1,-/80ltr",
-  "kdy": null,
-  "zdroj": "park4night",
-  "aktualizovano": "07/2026"
- },
- {
-  "rok": 2026,
   "slug": "rupt-sur-moselle",
   "stellplatz": "Aire Rupt-sur-Moselle, Rue du Riffin",
   "cenaNoc": "gratuit",
@@ -105,6 +94,17 @@
   "cenaNoc": "8 €/24h",
   "elektrina": "0,50€",
   "voda": "1,€",
+  "kdy": null,
+  "zdroj": "park4night",
+  "aktualizovano": "09/2026"
+ },
+ {
+  "rok": 2026,
+  "slug": "geisingen",
+  "stellplatz": "Stellplatz Am Espen 8, Geisingen",
+  "cenaNoc": "€14,-",
+  "elektrina": "€0,50/kwh",
+  "voda": "€1,-/80ltr",
   "kdy": null,
   "zdroj": "park4night",
   "aktualizovano": "09/2026"
