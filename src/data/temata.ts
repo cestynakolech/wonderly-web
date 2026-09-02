@@ -2001,6 +2001,18 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/polemika-kladka-pevna.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence. Všechna schémata kreslí program podle fyzikálních vzorců.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Polemika: Volná kladka (2/3)',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/polemika-kladka-volna.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence. Všechna schémata kreslí program podle fyzikálních vzorců.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Polemika: Kladkostroj a zlaté pravidlo (3/3)',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/polemika-kladka-kladkostroj.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence. Všechna schémata kreslí program podle fyzikálních vzorců.',
+						},
 					],
 				},
 				{
