@@ -1994,6 +1994,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zlaté pravidlo mechaniky</h3>
 						<p>U každého jednoduchého stroje platí: <strong>kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat.</strong> Práci si nikdy neušetříme — jen ji rozložíme pohodlněji.</p>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Polemika: Pevná kladka (1/3)',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/polemika-kladka-pevna.mp4',
+							ai: 'Hlasy Evy a Marka namluvila umělá inteligence. Všechna schémata kreslí program podle fyzikálních vzorců.',
+						},
+					],
 				},
 				{
 					slug: 'naklonena-rovina',
