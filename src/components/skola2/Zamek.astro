@@ -1,0 +1,101 @@
+---
+// Sdílený heslový zámek pro nehotový obsah 2. stupně (informatika, pracovní
+// činnosti). Stejný princip jako u tisku testů (viz
+// [podtema]/test/index.astro): SHA-256 otisk hesla se porovná v prohlížeči,
+// odemčení se pamatuje v sessionStorage, aby nešlo o vteřinu bruteforcovat.
+// Heslo je stejné jako u testů — učitel si nemusí pamatovat dvě.
+interface Props {
+	/** klíč v sessionStorage — stejný napříč celou sekcí, stačí zadat heslo jednou */
+	klic?: string;
+	/** false = zámek se nevykreslí vůbec (použití na veřejných předmětech jako fyzika) */
+	aktivni?: boolean;
+}
+
+const { klic = 'ucitel-sekce', aktivni = true } = Astro.props;
+---
+
+{
+	aktivni ? (
+		<div class="zamek-sekce" data-zamek-klic={klic}>
+			<section class="zamek" data-zamek-formular>
+				<h1>🔒 Připravujeme</h1>
+				<p>Tahle část je zatím rozpracovaná, žáci ji nevidí. Učiteli se odemkne heslem:</p>
+				<form data-zamek-form>
+					<input type="password" data-zamek-heslo autocomplete="off" autofocus />
+					<button type="submit">Odemknout</button>
+				</form>
+				<p class="zamek-chyba" data-zamek-chyba hidden>
+					Špatné heslo, zkus to znovu.
+				</p>
+			</section>
+			<div data-zamek-obsah hidden>
+				<slot />
+			</div>
+		</div>
+	) : (
+		<slot />
+	)
+}
+
+{
+	aktivni && (
+		<script is:inline>
+			(() => {
+				const OTISK = '8c0a8e314ec61cb5d61faea8ffa0dbded53adc2aa21f138cfcf90979f40a81fb';
+				for (const obal of document.querySelectorAll('[data-zamek-klic]')) {
+					const klicSekce = obal.dataset.zamekKlic;
+					const formularSekce = obal.querySelector('[data-zamek-formular]');
+					const obsah = obal.querySelector('[data-zamek-obsah]');
+					const odemkni = () => {
+						formularSekce.remove();
+						obsah.hidden = false;
+					};
+					if (sessionStorage.getItem(klicSekce) === '1') {
+						odemkni();
+						continue;
+					}
+					obal.querySelector('[data-zamek-form]').addEventListener('submit', async (udalost) => {
+						udalost.preventDefault();
+						const heslo = obal.querySelector('[data-zamek-heslo]').value;
+						const data = new TextEncoder().encode(heslo);
+						const otisk = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', data)))
+							.map((b) => b.toString(16).padStart(2, '0'))
+							.join('');
+						if (otisk === OTISK) {
+							sessionStorage.setItem(klicSekce, '1');
+							odemkni();
+						} else {
+							obal.querySelector('[data-zamek-chyba]').hidden = false;
+						}
+					});
+				}
+			})();
+		</script>
+	)
+}
+
+<style>
+	.zamek {
+		max-width: 26rem;
+		margin: 4rem auto 0;
+		padding: 2rem;
+		background: #fff;
+		border-radius: 12px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+		text-align: center;
+	}
+	.zamek input {
+		font-size: 1.1rem;
+		padding: 0.5rem;
+		width: 60%;
+	}
+	.zamek button {
+		font-size: 1.1rem;
+		padding: 0.5rem 1rem;
+		margin-left: 0.5rem;
+		cursor: pointer;
+	}
+	.zamek-chyba {
+		color: #c92a2a;
+	}
+</style>

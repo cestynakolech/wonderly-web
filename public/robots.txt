@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /skola2/informatika/
+Disallow: /skola2/pracovni-cinnosti/
+Allow: /

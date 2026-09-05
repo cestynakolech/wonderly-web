@@ -1,5 +1,6 @@
 ---
 import SkolaLayout from '../../../../layouts/SkolaLayout.astro';
+import Zamek from '../../../../components/skola2/Zamek.astro';
 import { predmety, rocniky } from '../../../../data/predmety';
 import { temata } from '../../../../data/temata';
 
@@ -15,6 +16,8 @@ export function getStaticPaths() {
 
 const { predmet, rocnik } = Astro.props;
 const seznamTemat = temata[`${predmet.slug}/${rocnik.slug}`] ?? [];
+// informatika a pracovní činnosti ještě nejsou hotové — vidí je jen učitel po zadání hesla
+const zamknuto = predmet.slug !== 'fyzika';
 ---
 
 <SkolaLayout
@@ -24,24 +27,26 @@ const seznamTemat = temata[`${predmet.slug}/${rocnik.slug}`] ?? [];
 		{ text: predmet.nazev, href: '../' },
 	]}
 >
-	<h1><span class="podtrh">{predmet.nazev} – {rocnik.nazev}</span></h1>
-	{
-		seznamTemat.length > 0 ? (
-			<>
-				<p class="uvodni-text">Vyber si téma.</p>
-				<ul class="karty">
-					{seznamTemat.map((t, i) => (
-						<li>
-							<a class="karta" href={`${t.slug}/`}>
-								<span class="cislo">{i + 1}</span>
-								<span class="nazev">{t.nazev}</span>
-							</a>
-						</li>
-					))}
-				</ul>
-			</>
-		) : (
-			<p class="uvodni-text">Témata připravujeme.</p>
-		)
-	}
+	<Zamek aktivni={zamknuto}>
+		<h1><span class="podtrh">{predmet.nazev} – {rocnik.nazev}</span></h1>
+		{
+			seznamTemat.length > 0 ? (
+				<>
+					<p class="uvodni-text">Vyber si téma.</p>
+					<ul class="karty">
+						{seznamTemat.map((t, i) => (
+							<li>
+								<a class="karta" href={`${t.slug}/`}>
+									<span class="cislo">{i + 1}</span>
+									<span class="nazev">{t.nazev}</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</>
+			) : (
+				<p class="uvodni-text">Témata připravujeme.</p>
+			)
+		}
+	</Zamek>
 </SkolaLayout>

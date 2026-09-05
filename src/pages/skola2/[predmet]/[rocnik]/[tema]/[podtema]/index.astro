@@ -1,5 +1,6 @@
 ---
 import SkolaLayout from '../../../../../../layouts/SkolaLayout.astro';
+import Zamek from '../../../../../../components/skola2/Zamek.astro';
 import Kviz from '../../../../../../components/skola2/Kviz.astro';
 import QrKod from '../../../../../../components/skola2/QrKod.astro';
 import AnimaceVyklad from '../../../../../../components/skola2/AnimaceVyklad.astro';
@@ -169,6 +170,8 @@ export function getStaticPaths() {
 }
 
 const { predmet, rocnik, tema, podtema } = Astro.props;
+// informatika a pracovní činnosti ještě nejsou hotové — vidí je jen učitel po zadání hesla
+const zamknuto = predmet.slug !== 'fyzika';
 const klicKvizu = `${predmet.slug}/${rocnik.slug}/${tema.slug}/${podtema.slug}`;
 const otazky = kvizy[klicKvizu];
 const laborka = laborky[klicKvizu];
@@ -192,6 +195,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		{ text: tema.nazev, href: '../' },
 	]}
 >
+	<Zamek aktivni={zamknuto}>
 	<h1><span class="podtrh">{podtema.nazev}</span></h1>
 	<details class="qr-podtema">
 		<summary>📱 QR na toto téma (pro promítnutí)</summary>
@@ -442,6 +446,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			{dalsi && <a class="sousedni-odkaz sousedni-dalsi" href={`../${dalsi.slug}/`}>{dalsi.nazev} →</a>}
 		</nav>
 	)}
+	</Zamek>
 </SkolaLayout>
 
 <style is:global>

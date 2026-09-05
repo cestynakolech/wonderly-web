@@ -45,13 +45,15 @@ export function otazkyNapricRocniky(pocet: number, seed = 2026): Otazka[] {
 export type CelekBanky = { predmet: string; rocnik: string; celek: string; nazev: string; otazky: Otazka[] };
 
 /**
- * Úplná banka pro ligu: VŠECHNY otázky fyziky a informatiky 6–9 seskupené po
- * celcích (bez složených shrnutí). Učitel si na tabuli vybere předmět, ročník
- * a celek — soutěž tak jde postavit jen z probrané látky.
+ * Úplná banka pro ligu: VŠECHNY otázky fyziky 6–9 seskupené po celcích (bez
+ * složených shrnutí). Učitel si na tabuli vybere ročník a celek — soutěž tak
+ * jde postavit jen z probrané látky.
+ * Informatika se sem záměrně nedává — není hotová, žáci by ji viděli bez
+ * hesla (stránka /hry/liga není za zámkem).
  */
 export function bankaProLigu(): CelekBanky[] {
 	const vysledek: CelekBanky[] = [];
-	for (const predmet of ['fyzika', 'informatika']) {
+	for (const predmet of ['fyzika']) {
 		for (const rocnik of ['6', '7', '8', '9']) {
 			for (const celek of temata[`${predmet}/${rocnik}-rocnik`] ?? []) {
 				if (celek.slug === 'shrnuti') continue; // složeniny — duplikáty podtémat

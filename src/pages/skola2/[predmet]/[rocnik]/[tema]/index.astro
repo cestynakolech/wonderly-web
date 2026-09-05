@@ -1,5 +1,6 @@
 ---
 import SkolaLayout from '../../../../../layouts/SkolaLayout.astro';
+import Zamek from '../../../../../components/skola2/Zamek.astro';
 import { predmety, rocniky } from '../../../../../data/predmety';
 import { temata } from '../../../../../data/temata';
 import { kvizy } from '../../../../../data/kvizy';
@@ -22,6 +23,8 @@ export function getStaticPaths() {
 }
 
 const { predmet, rocnik, tema } = Astro.props;
+// informatika a pracovní činnosti ještě nejsou hotové — vidí je jen učitel po zadání hesla
+const zamknuto = predmet.slug !== 'fyzika';
 
 // odznaky karty: co podtéma nabízí (🎮 simulace, ✏️ kvíz, 🎬 video)
 function odznaky(pt) {
@@ -42,31 +45,33 @@ function odznaky(pt) {
 		{ text: rocnik.nazev, href: '../' },
 	]}
 >
-	<h1><span class="podtrh">{tema.nazev}</span></h1>
-	{
-		tema.podtemata && tema.podtemata.length > 0 ? (
-			<>
-				<p class="uvodni-text">Vyber si podtéma.</p>
-				<ul class="karty">
-					{tema.podtemata.map((pt, i) => (
-						<li>
-							<a class="karta" href={`${pt.slug}/`} data-kviz-karta>
-								<span class="cislo">{i + 1}</span>
-								<span class="nazev">{pt.nazev}</span>
-								{odznaky(pt).length > 0 && (
-									<span class="karta-odznaky" title={odznaky(pt).map((o) => o.popis).join(' · ')}>
-										{odznaky(pt).map((o) => o.znak).join(' ')}
-									</span>
-								)}
-							</a>
-						</li>
-					))}
-				</ul>
-			</>
-		) : (
-			<p class="uvodni-text">Obsah připravujeme.</p>
-		)
-	}
+	<Zamek aktivni={zamknuto}>
+		<h1><span class="podtrh">{tema.nazev}</span></h1>
+		{
+			tema.podtemata && tema.podtemata.length > 0 ? (
+				<>
+					<p class="uvodni-text">Vyber si podtéma.</p>
+					<ul class="karty">
+						{tema.podtemata.map((pt, i) => (
+							<li>
+								<a class="karta" href={`${pt.slug}/`} data-kviz-karta>
+									<span class="cislo">{i + 1}</span>
+									<span class="nazev">{pt.nazev}</span>
+									{odznaky(pt).length > 0 && (
+										<span class="karta-odznaky" title={odznaky(pt).map((o) => o.popis).join(' · ')}>
+											{odznaky(pt).map((o) => o.znak).join(' ')}
+										</span>
+									)}
+								</a>
+							</li>
+						))}
+					</ul>
+				</>
+			) : (
+				<p class="uvodni-text">Obsah připravujeme.</p>
+			)
+		}
+	</Zamek>
 </SkolaLayout>
 
 <script>

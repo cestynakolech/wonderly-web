@@ -12,7 +12,7 @@ import { predmety } from '../../data/predmety';
 	<ul class="karty">
 		{
 			predmety.map((p, i) => (
-				<li>
+				<li hidden={p.slug !== 'fyzika'} data-predmet-zamceny={p.slug !== 'fyzika' ? '1' : undefined}>
 					<a class="karta" href={`${p.slug}/`}>
 						<span class="cislo">{i + 1}</span>
 						<span class="ikona">{p.ikona}</span>
@@ -22,6 +22,13 @@ import { predmety } from '../../data/predmety';
 			))
 		}
 	</ul>
+	<script is:inline>
+		// informatika a pracovní činnosti ještě nejsou hotové — žák dlaždice nevidí,
+		// učiteli se objeví, jakmile jednou zadá heslo na kterékoli zamčené stránce
+		if (sessionStorage.getItem('ucitel-sekce') === '1') {
+			for (const li of document.querySelectorAll('[data-predmet-zamceny]')) li.hidden = false;
+		}
+	</script>
 	<section class="qr-pristup">
 		<h2><span class="podtrh">📱 Rychlý přístup</span></h2>
 		<p>Naskenuj telefonem a jsi rovnou na webu — nic nemusíš psát.</p>

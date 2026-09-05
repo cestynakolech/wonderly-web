@@ -1,5 +1,6 @@
 ---
 import SkolaLayout from '../../../layouts/SkolaLayout.astro';
+import Zamek from '../../../components/skola2/Zamek.astro';
 import { predmety, rocniky } from '../../../data/predmety';
 
 export function getStaticPaths() {
@@ -7,21 +8,25 @@ export function getStaticPaths() {
 }
 
 const { predmet } = Astro.props;
+// informatika a pracovní činnosti ještě nejsou hotové — vidí je jen učitel po zadání hesla
+const zamknuto = predmet.slug !== 'fyzika';
 ---
 
 <SkolaLayout titulek={`${predmet.nazev} – 2. stupeň – Wonderly`} drobky={[{ text: '2. stupeň', href: '../' }]}>
-	<h1><span class="ikona">{predmet.ikona}</span> <span class="podtrh">{predmet.nazev}</span></h1>
-	<p class="uvodni-text">Vyber si ročník.</p>
-	<ul class="karty">
-		{
-			rocniky.map((r, i) => (
-				<li>
-					<a class="karta" href={`${r.slug}/`}>
-						<span class="cislo">{i + 1}</span>
-						<span class="nazev">{r.nazev}</span>
-					</a>
-				</li>
-			))
-		}
-	</ul>
+	<Zamek aktivni={zamknuto}>
+		<h1><span class="ikona">{predmet.ikona}</span> <span class="podtrh">{predmet.nazev}</span></h1>
+		<p class="uvodni-text">Vyber si ročník.</p>
+		<ul class="karty">
+			{
+				rocniky.map((r, i) => (
+					<li>
+						<a class="karta" href={`${r.slug}/`}>
+							<span class="cislo">{i + 1}</span>
+							<span class="nazev">{r.nazev}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</Zamek>
 </SkolaLayout>
