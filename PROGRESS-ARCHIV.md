@@ -1506,3 +1506,102 @@ Postup (dobový, pro Fyziku 8): číst PDF lokálně → obsah do temata.ts + kv
   nepomohl). ZBÝVÁ: zkušební díl na **ElevenLabs Text to Dialogue** (víc mluvčích v jednom
   požadavku → odpadá střih i dvojí syntéza), ověřit jeho cenu, pak přepsat 21 scénářů
   do dialogu, vyrobit, zapojit na web jako `druh: 'audio'` a pokračovat F7 (33 podtémat).
+---
+
+## Přesun 6. 9. 2026 — sedm nejstarších záznamů Historie z PROGRESS.md
+
+## Historie — 19. 8. 2026 pozdní večer (kvízy fyziky 9 KOMPLET)
+**Fyzika 9: vsech 22 podtemat na 21 otazkach** (155 novych otazek v 5 vlnach; klicove commity
+vlozeni a oprav az po `7d3d2c9`). Kontrola: **TŘI paralelní nezávislí kontroloři** nad celým
+rozsahem (magnetismus/střídavý proud · elektřina/polovodiče · jádro/vesmír) — nálezy 0+1+2,
+vše opraveno: prohozené hranice vzdáleností od spadlého vedení (20 m ↔ 400 kV), vágní
+vysvětlení u záření gama (vráceno olovo/beton), překryv aktivní zóny s kontejnmentem
+(nahrazeno moderátorem). **Cíl 21 otázek: F7, F8 i F9 hotové**, zbývá jen fyzika 6 (88 otázek,
+přesné rozdělení změřit) a pak informatika/Pč (rozhodnutí učitele „teď jen fyzika" platí).
+Otevřeno: nesoulad bezpečných napětí F8×F9 (ve frontě).
+
+## Historie — 19. 8. 2026 (kontrola fyzikálních jednotek DOKONČENA)
+Prošlo se všech **98 simulací s fyzikální jednotkou** (z 118 komponent `src/components/skola2/`),
+5 nezávislých kontrolorů. Jediná vadná: **`OerstedSimulace`** (chyběla μ0, poloměr v cm místo m →
+22° místo 11°) — **OPRAVENO** (B = μ0·I/(2π·r), tan α = B/B_Země; kontrolor: PROJDE). **`VrhSimulace`
+byla už opravená** commitem `dfd800e` — evidence ji mylně vedla jako neopravenou, oprava potvrzena
+(dolety sedí s teorií na 0,2 %). `DifuzeSimulace` a `CaraSimulace` prošly bez nálezu, uzavřeno.
+`snimky_podkastu.py` sjednocen na konstantu `PX_NA_CM = 25` (kontrolor: PROJDE). Build po opravách:
+brána „✅ Vše zapojené správně", 2579 kontrol testů simulací, 0 spadlo, 469 stránek. Nový podnět do
+fronty: sjednotit `s_pevna_tvar_objem` (17 px/cm) na `PX_NA_CM`. Otevřeno pro učitele: přegenerovat
+`skupenstvi-latek-dialog`, `6/objem-dialog`, `6/souhrnne-opakovani-velicin-dialog`? Podrobně
+v `SAMOSTATNY-REZIM.md`, nahoře.
+
+## Historie — 19. 8. 2026 odpoledne (uzávěrka pracovního bloku)
+**Nasazeno:** kvízy F8 dorovnány z 12 na 21 otázek u 6 podtémat (54 nových otázek): `ohmuv-zakon`,
+`elektricke-napeti-mereni`, `elektricky-proud-v-kovech-odpor` (commit **7868c64**) a
+`zavislost-odporu-na-vodici`, `zapojeni-spotrebicu-za-sebou`, `zapojeni-spotrebicu-vedle-sebe`
+(commit **e996a51**); obě dávky prošly nezávislým kontrolorem (první opravila 2 střední nálezy,
+druhá bez nálezu). Kontrola fyzikálních jednotek DOKONČENA a opravena `OerstedSimulace`
+(commit **b96c935**, viz stav výše). **Evidence srovnána s měřením** nad naimportovanými daty:
+celý web **891 chybějících otázek / 124 podtémat pod cílem 21**, jen fyzika **447 / 78**, F8 **138**
+(staré číslo 495 bylo zastaralé a počítalo jen fyziku). Do fronty: přegenerovat `6/objem-dialog` a
+`6/souhrnne-opakovani-velicin-dialog` (stejné vadné měřítko jako `skupenstvi-latek-dialog`), sjednotit
+`s_pevna_tvar_objem` (17 px/cm) na `PX_NA_CM = 25`, zpřísnit práh délkové nápovědy v `zkontroluj.mjs`
+(dnes 15 znaků, kontrolor našel těsný případ, který prošel).
+
+## Historie — 19. 8. 2026 v noci (uzávěrka session)
+**Nasazeno:** kvízy F8 elektřina — `elektricke-pole`, `vznik-elektrickeho-proudu`, `elektricke-obvody`
+na **21 otázek**, `elektricky-proud-mereni` na 18 (víc výklad neunese, podnět k rozšíření zapsán);
+commity **6262f9f**, **17084f4**. **Popisy prezentací fyziky 6 KOMPLETNÍ** (6 nových, ověřeno proti
+obsahu) — blokáda fyziky 6 padla; běží dávka na ostatní ročníky. Zavedena **úspora kontextu**
+(agenti max 1 500 znaků, do sdílených souborů píše jen exekutor, historie v archivech).
+Prezentace `Škola/6/05 Čas/,.pptx` přejmenována na **`Čas a jeho měření.pptx`** (i její popis).
+**Nálezy:** `popis_prezentace.py` nenastavoval `num_ctx` → jel na ~4096 místo 262144 a **tiše ořezával**
+vstup (opravuje se, hotové popisy možná předělat); kostka 170 px → 10 cm opravena v `snimky_podkastu.py`,
+ale **chybná verze je v nasazeném videu `skupenstvi-latek-dialog`** (čeká rozhodnutí);
+`VrhSimulace.astro` (F7 pohyb) — **opravena** (viz nejnovější stav výše, potvrzeno 19. 8.);
+mírnější podezření `DifuzeSimulace` a `CaraSimulace` prošla kontrolou bez nálezu. **Díl 15 se přepracovává** — učitel rozhodl, že v polemikách se MAREK plete a EVA
+ho opravuje (pravidlo v ústavě, skillu i zadání); zvuk i videa znovu, nasazení až po kontrolorovi.
+**Otevřeno pro učitele:** přegenerovat `skupenstvi-latek-dialog`? opravit `VrhSimulace`? povýšit
+ollamu (0.32.9 < potřebných 0.32.12, blokuje zkoušku Qwenu 3.8 dne 20. 8. odpoledne)? napsat
+Petru Němcovi o svolení k jeho 13 videím?
+**Fronta a přesný postup: `SAMOSTATNY-REZIM.md`, úplně nahoře.**
+
+## Historie — 19. 8. 2026 (uzávěrka dlouhé session, vše commitnuté a pushnuté)
+**Nasazeno:** zrušena placená výroba zvuku (zarážka v obou skriptech, zvuk je výhradně
+lokální OmniVoice — učitel hlas schválil); odstraněno **41 cizích videí** z webu (zůstalo
+50 videí učitele) a postavena **brána `testy/cizi-videa.mjs`** + seznam `testy/youtube-vlastni.json`
+(neschválené YouTube ID shodí build, funguje offline); smazány všechny pokyny k vyhledávání
+videí (záloha v `Omega/rozdelane/smazane-pokyny-vyhledavani-videi.md`); nasazeno **12 vlastních
+animací** k výkladu fyziky 6; měřidlo `testy/uniky.mjs` porovnává čísla i s jednotkou a odhalilo
+**8 skutečných úniků** (opraveny); kvízy F7 kladka + nakloněná rovina 10 → 19 a F8 teplo 12 → 18;
+opraveny 3 otázky testující mimo výklad; deník: 3 mrtvá videoId, 4 data míst, 9 názvů videí,
+Kluesserath (3 díly) a Neumagen-Dhron (2 díly) na YouTube; opraven hlídač automatů.
+**Nově vznikla obsahová ústava `OBSAH-PRAVIDLA.md`** (řetěz PDF + prezentace → text výkladu →
+kvízy/hry/videa), zapojená do zadání všech workerů a skillů.
+**Závazná rozhodnutí učitele 19. 8.:** kvíz cíl **21 otázek/podtéma** (5–8 je jen velikost dávky);
+prezentace rovnocenné s PDF; chybějící popisy prezentací dopsat automatem před další prací na
+fyzice 6; rozdíl plán × web není vada webu; hry defaultně jen probrané učivo; **ostatní předměty
+se teď nedělají — jen fyzika**; na web jen vlastní videa učitele; hotová videa se nepředělávají.
+**Rozděláno:** díl 15 `pololetni-shrnuti` (zvuk část 1 hotový, 2–4 se vyrábějí — nenasazovat bez
+nezávislé kontroly), popisy 6 prezentací (čeká na GPU), dorovnání kvízů na 21 (**chybí 495 otázek
+u 82 podtémat**: F6 76, F7 39, F8 225, F9 155), deník Trittenheim + výměna Kluesserath 3 → 6 dílů.
+**Fronta a přesný postup: `SAMOSTATNY-REZIM.md`, úplně nahoře.**
+
+## Historie — 16. 8. 2026 (polemiky-podkásty F6 dokončeny díly 7–14)
+**Polemiky-podkásty F6 díly 7–14** (čas a měření, teplota, teplotní roztažnost, elektrické a magnetické vlastnosti,
+jednoduché obvody, pokusy, souhrnné opakování veličin) — všechny nasazené,
+nezávisle zkontrolované, nálezy opravené (viz commity ba80617…ed585b6 v git logu).
+Doplněna média 8. ročníku fyziky (27 podtémat, commity 21b8dc6…0d803d6) a zapojeny
+3 hotové simulace Informatiky 9 (d0861d1). Rohatka délkové nápovědy utažena na
+**616/28 %** (`node zkontroluj.mjs`). **Díl 15 `pololetni-shrnuti` NENÍ BLOKOVÁN** —
+scénáře hotové (4×, brána 24/24 v `Omega/podkasty-scenare/6/`), vyrobí se
+lokálně OmniVoice. Detaily a fronta v `SAMOSTATNY-REZIM.md`.
+
+## Historie — 3. 8. 2026 (kolo D1 — 4 nové simulace informatiky)
+**Kolo D1: 4 nové simulace informatiky naráz** (klonování ve Scratchi, vstupy micro:bitu, rádio micro:bitu, první program ve VEXcode);
+názornost informatiky **30 → 26** podtémat bez názornosti. Měřidlo `testy/nazvy-bloku.mjs`
+rozšířeno o vzory `pokud ⟨⟩ tak` a „náhodnou hodnotu" i s obousměrným důkazem.
+Druhá kontrola oprav z kola D1 mezitím proběhla (viz záznam „14. 8. večer" níže
+v Historii) — dobová sekce „🔴 NEDOKONČENO Z KOLA D1" v `SAMOSTATNY-REZIM.md`
+už dnes neexistuje (uzavřená kola se stěhují do archivu). Předchozí stav (2. 8.):
+hluché stránky 36 → **0**, dojetý celý audit kontrol (brána čte data, měří se i mapa
+„všechna místa", slovník druhů materiálu, mutační test simulací).
+
+
