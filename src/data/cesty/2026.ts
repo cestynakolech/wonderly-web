@@ -778,6 +778,7 @@ export const rok2026: Rok = {
 		{ id: 'Rt_3BQC3_Sw', nazev: '26. 07. · Gassin (Francie)', odkaz: 'https://youtu.be/Rt_3BQC3_Sw' },
 		{ id: 'DbZCXE8XQuI', nazev: '26. 07. · Sainte-Maxime (Francie)', odkaz: 'https://youtu.be/DbZCXE8XQuI' },
 		{ id: 'HS116JE8zgs', nazev: '26. 07. · Gassin (Francie)', odkaz: 'https://youtu.be/HS116JE8zgs' },
+		{ id: 'O-QafbZpeLI', nazev: '26. 07. · Sainte-Maxime (Francie)', odkaz: 'https://youtu.be/O-QafbZpeLI' },
 		{ id: '1I2qFVnNU3M', nazev: '01. 08. · Sassenage (Francie)', odkaz: 'https://youtu.be/1I2qFVnNU3M' },
 		{ id: 'oVH-Bntzf2M', nazev: '01. 08. · Mens (Francie)', odkaz: 'https://youtu.be/oVH-Bntzf2M' },
 		{ id: 'Yi_xYWLPg9s', nazev: '02. 08. · Saint-Amour (Francie) — 1/2', odkaz: 'https://youtu.be/Yi_xYWLPg9s' },
