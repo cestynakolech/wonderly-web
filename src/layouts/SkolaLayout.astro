@@ -66,8 +66,17 @@ const korenSkoly = drobky[0]?.href ?? '';
 					var(--papir);
 				color: var(--inkoust);
 				font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
-				font-size: 1.15rem;
+				font-size: 1.3rem;
 				line-height: 1.55;
+			}
+			/* Na telefonu zpět na původní velikost — velké písmo je kvůli
+			   čitelnosti ze zadních lavic při promítání, na malém displeji
+			   by jen lámalo nadpisy. */
+			@media (max-width: 640px) {
+				html,
+				body {
+					font-size: 1.15rem;
+				}
 			}
 			main {
 				max-width: 62rem;
