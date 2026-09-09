@@ -1,19 +1,26 @@
 #!/usr/bin/env node
 // Vypíše, co kterému podtématu fyziky chybí. Bez modelu — jen čte data.
-// Použití:  node testy/soupis-der.mjs [--vse] [--rocniky=7,8,9]
+// Použití:  node soupis-der.mjs [--vse] [--rocniky=7,8,9]
+// Není to měřidlo kvality (proto nepatří do testy/) — jen vypisuje stav.
 
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const KOREN = join(dirname(fileURLToPath(import.meta.url)), '..')
+const KOREN = dirname(fileURLToPath(import.meta.url))
 const cti = (p) => readFileSync(join(KOREN, p), 'utf8')
 
 const args = process.argv.slice(2)
 const vse = args.includes('--vse')
 const rocniky = (args.find((a) => a.startsWith('--rocniky'))?.split('=')[1] ?? '7,8,9').split(',')
 
-const klice = (text) => new Set([...text.matchAll(/'(fyzika\/[^']+)'\s*:/g)].map((m) => m[1]))
+// Klíče se v datech zapisují dvěma způsoby: uvnitř literálu jako 'klíč': …
+// a u souhrnných kvízů až za ním jako kvizy['klíč'] = slozSouhrnnyKviz(…).
+const klice = (text) =>
+	new Set([
+		...[...text.matchAll(/'(fyzika\/[^']+)'\s*:/g)].map((m) => m[1]),
+		...[...text.matchAll(/\[\s*'(fyzika\/[^']+)'\s*\]\s*=/g)].map((m) => m[1]),
+	])
 const maKviz = klice(cti('src/data/kvizy.ts'))
 const maLaborku = klice(cti('src/data/laborky.ts'))
 
@@ -25,8 +32,15 @@ let ted = null
 const podtemata = []
 
 for (const radek of cti('src/data/temata.ts').split('\n')) {
-	const mRocnik = radek.match(/^\t'fyzika\/(\d)-rocnik'\s*:/)
-	if (mRocnik) { rocnik = mRocnik[1]; tema = null; ted = null; continue }
+	// V temata.ts jsou za fyzikou i informatika a pracovní činnosti. Bez tohohle
+	// vynulování by jejich podtémata spadla pod naposledy viděný ročník fyziky.
+	const mPredmet = radek.match(/^\t'([a-z-]+)\/(\d)-rocnik'\s*:/)
+	if (mPredmet) {
+		rocnik = mPredmet[1] === 'fyzika' ? mPredmet[2] : null
+		tema = null
+		ted = null
+		continue
+	}
 	if (!rocnik) continue
 
 	const mTema = radek.match(/^\t{3}slug:\s*'([^']+)'/)
