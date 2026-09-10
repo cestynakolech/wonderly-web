@@ -8,3 +8,4 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 06:57 CEST — ODLOŽENO — fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa — doplněna laborka; node zkontroluj.mjs: exit 0; nezávislá kontrola nedokončena (subagent: Connection error), proto bez commitu a push.
 
 - 2026-09-10 08:25 CEST — Doplněny zápisy: priklady-na-vypocet-rychlosti, energie-a-jeji-premeny, elektromagnet — node zkontroluj.mjs: exit 0.
+- 2026-09-10 08:42 CEST — Doplněny zápisy: sila, pohybova-a-polohova-energie, pusobeni-pole-na-vodic-elektromotor — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).

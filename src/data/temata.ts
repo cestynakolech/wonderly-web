@@ -1790,6 +1790,14 @@ export const temata: Record<string, Tema[]> = {
 						<p>Směr síly udává směr šipky, <strong>působiště</strong> je bod, ve kterém síla na těleso působí.</p>
 						<p>Podle umístění působiště na tělese může mít síla <strong>posuvné</strong> nebo <strong>otáčivé</strong> účinky.</p>
 					`,
+					zapis: {
+						body: [
+							'Síla je fyzikální veličina, která popisuje vzájemné působení těles.',
+							'Sílu značíme F a její jednotkou je newton (N).',
+							'Síla je určená velikostí, směrem a působištěm, proto ji znázorňujeme šipkou.',
+							'Podle umístění působiště může mít síla posuvný nebo otáčivý účinek.',
+						],
+					},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Síly kolem nás 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/pisen-sily-kolem-nas.m4a' },
 					],
@@ -2951,6 +2959,23 @@ export const temata: Record<string, Tema[]> = {
 						<p>Dosazujeme v základních jednotkách: hmotnost v kg, výšku v m, g = 10 N/kg. Výšku měříme vzhledem k tomu, co je pro děj důležité (podlaha, hřebík, zem). Odvozené: m = E<sub>p</sub> : (g·h), h = E<sub>p</sub> : (m·g).</p>
 						<p><strong>B) Polohová energie pružnosti</strong> — má ji každé natažené, stlačené či zkroucené pružné těleso (pružina, ohnutý luk, natažená guma). Využití: střelba z luku, natahovací hračky, pinball.</p>
 					`,
+					zapis: {
+						body: [
+							'Mechanickou energii dělíme na pohybovou a polohovou.',
+							'Pohybovou energii má každé pohybující se těleso; roste s jeho hmotností a s druhou mocninou rychlosti.',
+							'Polohovou energii v gravitačním poli má těleso ve výšce nad zvolenou základní úrovní.',
+							'Polohovou energii pružnosti má natažené, stlačené nebo zkroucené pružné těleso.',
+						],
+						vzorec: 'Eₚ = m · g · h      (odvozeně: m = Eₚ : (g · h),  h = Eₚ : (m · g))',
+						jednotky: [
+							'polohová energie Eₚ — joule (J)',
+							'hmotnost m — kilogram (kg)',
+							'gravitační konstanta g — newton na kilogram (N/kg), na Zemi g = 10 N/kg',
+							'výška h — metr (m)',
+							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J',
+							'Do vzorce dosazuj vždy v základních jednotkách: hmotnost v kg, g v N/kg a výšku v m.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Wordwall — kvíz Energie (pohybová, polohová, zachování)', url: 'https://wordwall.net/resource/37856406/energie' },
 					],
@@ -4420,6 +4445,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>Využití: vysavač, výtah, elektromobil, elektrické nářadí, tramvaje, hračky.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Na vodič nebo cívku s proudem působí v magnetickém poli síla.',
+							'Směr síly závisí na směru proudu a orientaci magnetického pole; určíme ho Flemingovým pravidlem levé ruky.',
+							'Na otáčivou cívku působí dvojice sil, které ji roztáčejí.',
+							'Elektromotor mění elektrickou energii na mechanickou a skládá se z pevného statoru a otáčivého rotoru.',
+							'Komutátor ve stejnosměrném motoru každou půlotočku obrací směr proudu v cívce.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak se točí elektromotory', cesta: 'Hi-Tc84eglY' },
 					],
