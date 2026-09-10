@@ -2033,6 +2033,14 @@ export const temata: Record<string, Tema[]> = {
 						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/pruzna-deformace.jpg" alt="Pružná deformace – tenisový míček a raketa" />
 						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/trvala-deformace.jpg" alt="Trvalá deformace – havarované auto" />
 					`,
+					zapis: {
+						body: [
+							'Vzájemné působení těles může probíhat dotykem nebo na dálku.',
+							'Statické působení ponechává těleso v klidu, dynamické působení mění jeho rychlost nebo směr pohybu.',
+							'Síla může mít posuvný, otáčivý nebo deformační účinek.',
+							'Pružná deformace po skončení působení síly zmizí, trvalá deformace zůstává.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Porozumění síle a deformaci', cesta: '0vmDKVXisgE' },
 						{ druh: 'youtube', nazev: 'Video: Síla a interakce', cesta: 'RRSRb_6VXt0' },
@@ -3236,6 +3244,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Parní turbína</h3>
 						<p>Vodní <strong>pára roztáčí lopatky turbíny</strong> — energie páry se mění na otáčivý pohyb. Používá se v <strong>tepelných elektrárnách</strong> k pohonu generátorů (výkon 200–600 MW). Účinnost <strong>max. ~35 %</strong> — vyšší než u parního stroje.</p>
 					`,
+					zapis: {
+						body: [
+							'Tepelný motor je stroj, který přeměňuje teplo na pohyb.',
+							'Parní stroj využívá páru k pohybu pístu; klikový mechanismus mění přímočarý pohyb pístu na otáčení kola.',
+							'Parní stroj je velký, těžký, náročný na údržbu a má malou účinnost.',
+							'V parní turbíně pára roztáčí lopatky a vzniklý otáčivý pohyb pohání generátor v elektrárně.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
@@ -4783,6 +4799,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>Domácnost využívá <strong>jednu fázi (230 V)</strong>; velké stroje všechny tři fáze (3×400 V). V zásuvce je <strong>fázový</strong> vodič, <strong>nulovací</strong> vodič (vede proud zpátky do sítě) a <strong>ochranný kolík PE</strong> — ten je spojený se zemí a připojený na kovovou kostru spotřebiče; dostane-li se na kostru napětí, ochranný vodič ho svede do země a jistič nebo proudový chránič vypne.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Elektrická energie se vyrábí v alternátorech jako trojfázový střídavý proud.',
+							'Na velké vzdálenosti se přenáší velmi vysokým napětím, protože menší proud způsobuje menší ztráty ve vedení.',
+							'Přenosová soustava dopravuje energii na velké vzdálenosti, distribuční soustava ji rozvádí k odběratelům.',
+							'Transformátory postupně mění napětí až na 230 V používaných v domácnostech.',
+							'Ochranný vodič spojuje kovovou kostru spotřebiče se zemí a při poruše pomáhá odpojit přívod proudu.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Cesta elektřiny', cesta: 'fimbeSGx8iY' },
 						{ druh: 'video', nazev: 'Píseň: Proud si cestu najde 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/prenos-elektricke-energie/pisen-proud-si-cestu-najde.m4a' },
