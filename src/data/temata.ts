@@ -4675,6 +4675,23 @@ export const temata: Record<string, Tema[]> = {
 							<p>👉 Zraněného <strong>vždy předej záchranářům</strong>, i když se probral a tvrdí,
 							že je mu dobře. Proud může poškodit srdce tak, že se to projeví až za několik hodin.</p>
 						`,
+						zapis: {
+							body: [
+								'Lidské tělo je vodič a průchod proudu může způsobit popáleniny, svalové křeče, poškození nervů nebo zástavu srdce.',
+								'Nebezpečí závisí na velikosti proudu, odporu člověka a cestě proudu tělem; mokrá kůže má malý odpor.',
+								'Jistič chrání vedení před příliš velkým proudem, zatímco proudový chránič chrání člověka při úniku proudu.',
+								'Při úrazu nejdříve vypni proud, nedotýkej se zraněného, dokud proud teče, a zavolej 155 nebo 112.',
+							],
+							zakon: 'Elektrický proud je přímo úměrný napětí a nepřímo úměrný elektrickému odporu.',
+							vzorec: 'I = U : R      (odvozeně: U = I · R,  R = U : I)',
+							jednotky: [
+								'elektrický proud I — ampér (A)',
+								'elektrické napětí U — volt (V)',
+								'elektrický odpor R — ohm (Ω)',
+								'1 A = 1 000 mA = 1 000 000 µA',
+								'Do vzorce dosazuj napětí ve V a odpor v Ω; proud vyjde v A.',
+							],
+						},
 						materialy: [
 							{ druh: 'youtube', nazev: 'Video: Účinky elektrického proudu na lidský organismus', cesta: 'VfCqvZDHUWQ' },
 						],
