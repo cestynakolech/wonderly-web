@@ -2459,6 +2459,23 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>vzduch nadnáší také</strong> — horkovzdušný balon i balonek s heliem stoupají, protože jsou řidší než okolní vzduch</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Na těleso ponořené do kapaliny působí svisle vzhůru vztlaková síla.',
+							'Vztlaková síla je tím větší, čím větší je objem ponořené části tělesa a hustota kapaliny.',
+							'Těleso se potápí, vznáší nebo plove podle porovnání vztlakové a tíhové síly.',
+							'Ve slané vodě působí větší vztlaková síla než ve sladké vodě, protože slaná voda má větší hustotu.',
+						],
+						zakon: 'Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořené části tělesa.',
+						vzorec: 'Fvz = V · ρ · g      (odvozeně: V = Fvz : (ρ · g),  ρ = Fvz : (V · g))',
+						jednotky: [
+							'vztlaková síla Fvz — newton (N)',
+							'objem ponořené části V — metr krychlový (m³)',
+							'hustota kapaliny ρ — kilogram na metr krychlový (kg/m³)',
+							'gravitační konstanta g — newton na kilogram (N/kg), pro výpočty g = 10 N/kg',
+							'Do vzorce dosazuj objem v m³, hustotu v kg/m³ a g v N/kg; výsledek vyjde v N.',
+						],
+					},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Archimédes 🎵', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/pisen-archimedes.mp4' },
 					],
@@ -3666,6 +3683,15 @@ export const temata: Record<string, Tema[]> = {
 						je stlačením zkapalněný, kdežto dusík ani kyslík se za pokojové teploty stlačit na kapalinu
 						nedají a v tlakové lahvi zůstávají plynné; ty se musí nejdřív pořádně ochladit.</p>
 					`,
+					zapis: {
+						body: [
+							'Kondenzace neboli kapalnění je změna plynného skupenství na kapalné a je opačným dějem k vypařování.',
+							'Při ochlazení částice páry zpomalují a shlukují se do kapiček.',
+							'Při kondenzaci se teplo uvolňuje do okolí.',
+							'Rosný bod je teplota, při které začne vodní pára ve vzduchu kondenzovat.',
+							'Vodní pára je průhledný plyn; viditelná mlha nebo obláček jsou drobné kapičky vody.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Techmania Edu — Vypařování a kondenzace', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/vyparovani-kondenzace' },
 					],
@@ -5295,6 +5321,15 @@ export const temata: Record<string, Tema[]> = {
 							jako chemická energie v jeho vlastní baterii.</details></li>
 						</ol>
 					`,
+					zapis: {
+						body: [
+							'Elektrická energie se snadno mění na tepelnou, světelnou, magnetickou, pohybovou nebo chemickou energii.',
+							'Pohybová, světelná a chemická energie se mohou naopak měnit na elektrickou energii.',
+							'Při přeměnách část energie často skončí jako teplo rozptýlené do okolí.',
+							'Žádný stroj nemůže vydat více energie, než do něj dodáme.',
+						],
+						zakon: 'Energie nevzniká ani nezaniká, pouze se přeměňuje z jednoho druhu na jiný.',
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce', cesta: 'MaQ4DzuqK5E' },
 						{ druh: 'video', nazev: 'Píseň: Dobrý sluha, zlý pán 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny/pisen-dobry-sluha-zly-pan.m4a' },
