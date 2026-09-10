@@ -2865,6 +2865,14 @@ export const temata: Record<string, Tema[]> = {
 						<p>Využití: <strong>dopravní zrcadla</strong> u nepřehledných křižovatek, zpětná zrcátka, bezpečnostní zrcadla v obchodech.</p>
 						<p>💡 Kulová zrcadla se snadno vyrábějí, ale ostře zobrazují jen předměty u osy. Přesnější jsou <strong>parabolická zrcadla</strong> — používají je dalekohledy, radioteleskopy i Hubbleův a Webbův teleskop.</p>
 					`,
+					zapis: {
+						body: [
+							'Kulové zrcadlo tvoří část lesklého povrchu koule a popisujeme u něj vrchol, optickou osu, střed křivosti a ohnisko.',
+							'Duté zrcadlo odráží světlo vnitřní stranou a rovnoběžné paprsky soustředí do skutečného ohniska před zrcadlem.',
+							'Obraz v dutém zrcadle může být podle vzdálenosti předmětu skutečný nebo zdánlivý, zmenšený nebo zvětšený.',
+							'Vypuklé zrcadlo odráží světlo vnější stranou a vždy vytváří zdánlivý, vzpřímený a zmenšený obraz.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Fyzika kulových zrcadel', cesta: 'xkCEjfT11L8' },
 					],
@@ -3928,6 +3936,14 @@ export const temata: Record<string, Tema[]> = {
 							délku statisíckrát menší a proletí bez problémů. Proto dovnitř vidíš, a přesto se
 							u dvířek neohřeješ.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrické pole vzniká kolem každého nabitého tělesa a působí elektrickou silou na dálku.',
+								'Nesouhlasně nabitá tělesa se přitahují a souhlasně nabitá tělesa se odpuzují.',
+								'Ve vodiči způsobí elektrické pole přesun volných elektronů, tedy elektrostatickou indukci; v izolantu nastává polarizace.',
+								'Siločáry míří od kladného náboje k zápornému a jejich hustota ukazuje sílu pole.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Elektrický náboj a elektrické pole — rozcestník videí (ČT edu)', url: 'https://edu.ceskatelevize.cz/tema/elektricky-naboj-a-elektricke-pole' },
 							{ nazev: 'Pokusy: Umělé blesky — Faradayova klec (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5393-pokusy-umele-blesky' },
@@ -6012,6 +6028,22 @@ export const temata: Record<string, Tema[]> = {
 							<li>střídavý proud v síti: 50 Hz, 230 V</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Magnetické pole vzniká také kolem vodiče s proudem a cívky; elektromagnet toto pole využívá.',
+							'Elektromagnetická indukce umožňuje vznik střídavého proudu v alternátoru a transformátor mění jeho napětí.',
+							'Elektrický proud mohou vést kapaliny, plyny a polovodiče; patří sem také chemické zdroje napětí a dioda.',
+							'Střídavý proud v elektrické síti má frekvenci 50 Hz a napětí 230 V.',
+						],
+						vzorec: 'U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂,  N₂ = N₁ · U₂ : U₁,  N₁ = N₂ · U₁ : U₂)',
+						jednotky: [
+							'vstupní napětí U₁ — volt (V)',
+							'výstupní napětí U₂ — volt (V)',
+							'počet závitů vstupní cívky N₁ — bez jednotky',
+							'počet závitů výstupní cívky N₂ — bez jednotky',
+							'Napětí dosazuj ve stejných jednotkách, obvykle ve voltech; počty závitů jsou celá čísla.',
+						],
+					},
 				},
 				{
 					slug: 'rocni-shrnuti',
