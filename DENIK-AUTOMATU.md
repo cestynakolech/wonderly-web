@@ -17,3 +17,4 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 11:05 CEST — Doplněny zápisy: jednoduche-stroje-paky, spalovaci-motory, vedeni-proudu-v-kapalinach — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 11:46 CEST — Doplněny zápisy: kladka, teplo-a-premeny-skupenstvi, chemicke-zdroje-napeti — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 12:02 CEST — Doplněny zápisy: fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani, fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 12:22 CEST — Doplněny zápisy: fyzika/7-rocnik/tlak-v-kapalinach/tlak, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti, fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).

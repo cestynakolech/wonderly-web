@@ -2265,6 +2265,23 @@ export const temata: Record<string, Tema[]> = {
 							<li>převody: 1 m² = 100 dm², 1 dm² = 100 cm², 1 cm² = 100 mm²</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Tlaková síla působí při dotyku těles kolmo na plochu.',
+							'Tlak vyjadřuje, jak velký účinek má tlaková síla na určitou plochu.',
+							'Čím větší síla působí, tím je tlak větší; čím větší je plocha, tím je tlak menší.',
+							'Tlak zvětšíme soustředěním síly na malou plochu a zmenšíme rozložením síly na velkou plochu.',
+						],
+						vzorec: 'p = F : S      (odvozeně: F = p · S,  S = F : p)',
+						jednotky: [
+							'tlak p — pascal (Pa)',
+							'tlaková síla F — newton (N)',
+							'plocha S — metr čtvereční (m²)',
+							'1 hPa = 100 Pa,  1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa',
+							'1 m² = 100 dm²,  1 dm² = 100 cm²,  1 cm² = 100 mm²',
+							'Do vzorce dosazuj v základních jednotkách: sílu v N a plochu v m²; tlak vyjde v Pa.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Porozumění tlaku', cesta: 'Pzxvvf0fbTg' },
 						{
@@ -3483,6 +3500,15 @@ export const temata: Record<string, Tema[]> = {
 						a v lahvi zůstane <strong>ledová kaše</strong>. Aby zmrzla celá, muselo by být podchlazení
 						nemožných 80 °C.</p>
 					`,
+					zapis: {
+						body: [
+							'Tuhnutí je změna kapalného skupenství na pevné při odebírání tepla; u vody se nazývá mrznutí.',
+							'Během tuhnutí se teplota nemění, dokud všechna látka neztuhne, a do okolí se uvolňuje skupenské teplo.',
+							'U krystalických látek je teplota tuhnutí stejná jako teplota tání.',
+							'Většina látek při tuhnutí zmenšuje objem, ale voda jej zvětšuje, takže led má menší hustotu než voda a plave.',
+							'Rozpuštěná sůl snižuje teplotu tuhnutí vody.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
 						{ nazev: 'Proč se v zimě solí silnice? (RVP)', url: 'https://clanky.rvp.cz/clanek/r/GCACA/11637/PROC-SE-V-ZIME-SOLI-SILNICE.html' },
@@ -5055,6 +5081,14 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Výboj ve zředěných plynech</strong> — barva světla závisí na plynu; využití: <strong>světelné reklamy</strong>.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Vzduch je za běžných podmínek špatný vodič, ale horký vzduch vede elektrický proud lépe.',
+							'Při ionizaci plynu vznikají volné elektrony a kladné i záporné ionty, které umožňují vedení proudu.',
+							'Blesk je jiskrový výboj; hrom vzniká rychlým rozpínáním vzduchu zahřátého bleskem.',
+							'Elektrický oblouk se používá při svařování a výboje ve zředěných plynech ve světelných reklamách.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak funguje blesk', cesta: 'rTo2z2xTOGk' },
 					],
