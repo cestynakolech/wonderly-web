@@ -242,7 +242,7 @@ export const laborky: Record<string, Laborka> = {
 		otazky: [
 			'Proč je orientace šipky síly vždy ve směru působení? Kde je působiště, když visí předmět?',
 			'Byla změřená síla pro 300 g přibližně třikrát vyšší než pro 100 g? Proč ne vždy přesně?',
-			'Jaká chyba ve měření vzniká, když je měření prováděno s rozkmitáváním závaží?',
+			'Jaká chyba při měření vzniká, když se závaží houpe a siloměrem se kýve?',
 		],
 		pozor: 'Drž siloměr i závaží klidně a nechej ho přestat kmitat; přetížení přístroje zvyšuje nepřesnost.',
 		tip: 'Pro 300 g vyjde školní síla F = 3 N; když je postup konzistentní, měla by být síla téměř trojnásobná proti 100 g.',
