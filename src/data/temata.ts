@@ -1904,6 +1904,22 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Výhody:</strong> brzdění, posyp silnic (bezpečnost), psaní po tabuli/papíře</p>
 						<p><strong>Nevýhody:</strong> brzdění (ztráty), zahřívání součástí strojů, odírání styčných ploch</p>
 					`,
+					zapis: {
+						body: [
+							'Třecí síla působí proti síle, která se snaží těleso uvést do pohybu.',
+							'Je-li třecí síla větší, těleso zůstává v klidu; převládne-li působící síla, těleso se pohybuje.',
+							'Tření zvětšujeme zdrsněním povrchu a zmenšujeme vyhlazením, mazáním nebo použitím ložisek.',
+							'Tření umožňuje například brzdění, bezpečný posyp silnic a psaní, ale také zahřívá a opotřebovává součásti.',
+						],
+						vzorec: 'Ft = Fn · f      (odvozeně: Fn = Ft : f,  f = Ft : Fn)',
+						jednotky: [
+							'třecí síla Ft — newton (N)',
+							'normálová síla Fn — newton (N)',
+							'součinitel tření f — bez jednotky',
+							'1 kN = 1 000 N',
+							'Do vzorce dosazuj síly v N; součinitel tření je bez jednotky.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Třecí síla', cesta: '7JG_JbKRw70' },
 					],
@@ -3069,6 +3085,15 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 Příklad: hodina fotbalu spálí zhruba tolik energie, kolik dodají dvě tyčinky müsli z obalu výše (2 · 850 = 1 700 kJ) — zbytek si tělo vezme z vlastních zásob.</p>
 					`,
+					zapis: {
+						body: [
+							'Člověk získává energii hlavně z potravy a využívá ji pro práci svalů i činnost mozku.',
+							'Energetická hodnota potraviny se zjišťuje jejím spálením v laboratoři a změřením uvolněného tepla.',
+							'Na obalu se energetická hodnota uvádí nejčastěji na 100 g a na jednu porci.',
+							'Bílkoviny a sacharidy dodávají asi 17 kJ na 1 g, tuky asi 38 kJ na 1 g.',
+							'Přebytečná energie z potravy se v těle ukládá jako tuk.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
 						{ nazev: '100+1 zahraniční zajímavost — Jak se zjišťuje energetická hodnota potravin', url: 'https://www.stoplusjednicka.cz/kdyz-se-pali-jidlo-jak-se-zjistuje-energeticka-hodnota-potravin' },
@@ -4551,6 +4576,15 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Kde se využívá</h3>
 						<p>V <strong>automobilu</strong> (za jízdy nabíjí akumulátor), v <strong>elektrocentrále</strong> (záložní zdroj) a ve <strong>všech elektrárnách kromě solárních</strong> — turbína roztáčí rotor alternátoru.</p>
 					`,
+					zapis: {
+						body: [
+							'Při pohybu magnetu u cívky se indukuje proud a napětí; při otáčení se směr proudu pravidelně obrací.',
+							'Střídavý proud mění svou velikost i směr a odebíráme ho ze zásuvky.',
+							'Alternátor je generátor, který elektromagnetickou indukcí mění rotační energii na elektrickou energii.',
+							'Rotor je otáčející se část vytvářející proměnlivé magnetické pole, stator je pevná část s cívkami, v nichž se indukuje napětí.',
+							'Alternátory se používají v automobilech, elektrocentrálách a elektrárnách kromě solárních.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Příběh střídavého proudu (generátor)', cesta: '3Y_USuTTVbw' },
 					],
