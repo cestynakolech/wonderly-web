@@ -57,6 +57,7 @@ for (const radek of cti('src/data/temata.ts').split('\n')) {
 
 const chybejici = (p) => {
 	const chybi = []
+	if (!/^\t+zapis\s*:/m.test(p.blok)) chybi.push('zápis')
 	if (!/^\t{5}interakce2?\s*:/m.test(p.blok)) chybi.push('animace')
 	if (!/druh:\s*'audio'|nazev:\s*'Pís/i.test(p.blok)) chybi.push('písnička')
 	if (!/cesta:\s*'[^']*polemika-/.test(p.blok)) chybi.push('polemika')
