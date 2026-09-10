@@ -1942,6 +1942,20 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>F = F₁ − F₂</strong></p>
 						<p>Výsledná síla má směr té větší ze sil. Pokud jsou síly stejně velké a míří proti sobě, jsou v <strong>rovnováze</strong> a výslednice je nulová – těleso zůstává v klidu (např. přetahování lanem, kdy ani jedno družstvo nevyhrává).</p>
 					`,
+					zapis: {
+						body: [
+							'Více sil působících na těleso můžeme nahradit jedinou výslednicí se stejným účinkem.',
+							'Síly stejného směru sčítáme.',
+							'Síly opačného směru odčítáme a výslednice má směr větší síly.',
+							'Jsou-li dvě opačné síly stejně velké, jsou v rovnováze a jejich výslednice je nulová.',
+						],
+						vzorec: 'stejný směr: F = F₁ + F₂      opačný směr: F = F₁ − F₂',
+						jednotky: [
+							'výsledná síla F — newton (N)',
+							'síly F₁ a F₂ — newton (N)',
+							'Převod: 1 kN = 1 000 N. Do vztahů dosazuj všechny síly v N.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Skládání sil', cesta: 'GWJnn_4_zHc' },
 						{ druh: 'audio', nazev: 'Poslech: jak složit síly do jedné výslednice 🎧', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/audio-pravidlo-rovnobezniku.mp3' },
@@ -3127,6 +3141,15 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Využití: rozdělání ohně třením, zahřátí rukou. Naopak přehřátí třením ničí materiál — proto se stroje <strong>chladí</strong> (voda, olej, vzduch).</p>
 					`,
+					zapis: {
+						body: [
+							'Částice tělesa mají pohybovou energii i polohovou energii podle své polohy vůči ostatním částicím.',
+							'Vnitřní energie tělesa je součet energií všech jeho částic.',
+							'Vnitřní energie závisí na počtu částic a na teplotě tělesa, ne na pohybu nebo poloze tělesa jako celku.',
+							'Vnitřní energii zvýšíme zahřátím, přidáním částic, konáním práce nebo přijetím tepla od teplejšího tělesa.',
+							'Zvýšení vnitřní energie se projeví zvýšením teploty, snížení jejím poklesem.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Fyzika007 — Vnitřní energie tělesa (výklad + příklady)', url: 'https://www.fyzika007.cz/molekulov%C3%A1-fyzika-atermika/vnit%C5%99n%C3%AD-energie-t%C4%9Blesa' },
 						{ nazev: 'Eductify — procvičení: Změny vnitřní energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zvet/zmeny-vnitrne-energie' },
@@ -4641,6 +4664,24 @@ export const temata: Record<string, Tema[]> = {
 							<li>Na cívce naměříme <strong>maximální napětí 140 V</strong>. Jaké napětí ukáže voltmetr (efektivní hodnota)? <details><summary>řešení</summary>Voltmetr ukazuje efektivní hodnotu: U = U<sub>m</sub> / 1,4 = 140 / 1,4 = <strong>100 V</strong></details></li>
 							<li>Elektrickým vařičem v zásuvce (230 V) prochází proud <strong>2 A</strong>. Jaký je jeho výkon? <details><summary>řešení</summary>P = U · I = 230 · 2 = <strong>460 W</strong></details></li>
 						</ol>`,
+					zapis: {
+						body: [
+							'Střídavý proud pravidelně mění svou velikost i směr a jeho grafem je sinusoida.',
+							'Perioda T je nejkratší doba, za kterou se průběh opakuje, a frekvence f udává počet period za sekundu.',
+							'Maximální hodnota je největší velikost proudu nebo napětí během periody; efektivní hodnota odpovídá stejnosměrnému proudu se stejnými účinky.',
+							'V rozvodné síti je efektivní napětí 230 V a frekvence 50 Hz.',
+							'Výkon střídavého proudu počítáme z efektivních hodnot napětí a proudu.',
+						],
+						vzorec: 'f = 1 : T      (odvozeně: T = 1 : f)      P = U · I      (odvozeně: U = P : I,  I = P : U)',
+						jednotky: [
+							'frekvence f — hertz (Hz)',
+							'perioda T — sekunda (s)',
+							'výkon P — watt (W)',
+							'napětí U — volt (V)',
+							'proud I — ampér (A)',
+							'Převody: 1 kHz = 1 000 Hz, 1 ms = 0,001 s, 1 kW = 1 000 W. Do vztahů dosazuj periodu v s, frekvenci v Hz, napětí ve V a proud v A.',
+						],
+					},
 				},
 				{
 					slug: 'transformator',
