@@ -3090,6 +3090,15 @@ export const temata: Record<string, Tema[]> = {
 						<h3>8. <a href="../../zrcadla-a-cocky/">Zrcadla a čočky</a></h3>
 						<ul><li>rovinné a kulová zrcadla; čočky (spojka, rozptylka); oko a jeho vady; rozklad světla, duha a vnímání barev</li></ul>
 					`,
+					zapis: {
+						body: [
+							'Pohyb popisujeme pomocí trajektorie, dráhy a rychlosti; klid i pohyb vždy posuzujeme vzhledem k jinému tělesu.',
+							'U sil sledujeme jejich velikost, směr a působiště; síly můžeme skládat a těžiště určuje působiště gravitační síly.',
+							'Jednoduché stroje usnadňují práci a rovnováha páky závisí na síle a jejím rameni.',
+							'V kapalinách a plynech pracujeme s tlakem, vztlakovou silou a zákony, které vysvětlují hydraulická zařízení i plování těles.',
+							'Světlo se odráží a láme; zrcadla a čočky vytvářejí obrazy a oko nám umožňuje vnímat světlo a barvy.',
+						],
+					},
 				},
 			],
 		},
@@ -4199,6 +4208,14 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<p>💡 <strong>Multimetr</strong> umí měřit proud i napětí, ale vždy jen <strong>jednu veličinu</strong> — pro každou se jinak nastaví i zapojí.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrické napětí je vlastnost zdroje nebo spotřebiče, značí se U a jeho jednotkou je volt (V).',
+								'Při spojení zdrojů za sebou se správnou orientací se jejich napětí sčítají.',
+								'Napětí měříme voltmetrem, který zapojujeme paralelně ke spotřebiči nebo ke svorkám zdroje.',
+								'Před měřením nastavíme správný druh napětí a rozsah a spojíme kladné svorky přístroje a zdroje.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Elektrický proud a napětí (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Elektrický proud, napětí, odpor, Ohmův zákon — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/elektricky-proud-napeti-odpor-ohmuv-zakon/' },
@@ -4227,6 +4244,14 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Tepelné účinky proudu</h3>
 							<p>Zahřívání vodiče proudem <strong>využíváme</strong> (žárovka — wolframové vlákno 2200–3000 °C, vařič, konvice, žehlička, pojistka), ale má i <strong>nebezpečné důsledky</strong> — při přetížení nebo zkratu se dráty roztaví a hrozí <strong>požár</strong>.</p>
 						`,
+						zapis: {
+							body: [
+								'V kovech se volné elektrony bez proudu pohybují neuspořádaně, ale elektrické pole je usměrní od záporného pólu ke kladnému.',
+								'Elektrický odpor vzniká tím, že elektrony narážejí do atomů krystalové mřížky.',
+								'Elektrický odpor se značí R a jeho jednotkou je ohm (Ω); malý odpor mají dobré vodiče a velký odpor špatné vodiče.',
+								'Při srážkách předávají elektrony energii atomům, proto se vodič zahřívá; toho využívají topná zařízení, ale při přetížení může vzniknout požár.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Nebezpečná elektřina (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
 						],
