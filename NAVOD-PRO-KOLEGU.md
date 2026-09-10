@@ -3,6 +3,26 @@
 Píšu to pro člověka (nebo Claude), který o projektu neví nic a má na něm zítra
 pokračovat. Bez omáčky, prakticky.
 
+## 0. DVĚ ODDĚLENÉ LINIE — nemíchat je v jedné konverzaci
+
+Od 10. 9. 2026 se práce vede ve **dvou samostatných session**, protože se
+vzájemně ruší: obsah pro děti potřebuje klid na text, infrastruktura zase
+zkoušení a restarty.
+
+| linie | čím začít | co tam patří |
+|---|---|---|
+| **OBSAH** | napiš `/wonderly` | výklad, zápisy do sešitu, kvízy, laborky, testy, vzhled stránek |
+| **AUTOMAT** | napiš `/hermes` | Hermes, naplánované úlohy, modely, mosty, přístupy, proč něco neběží |
+
+Oba skilly mají hned na začátku sekci **„ČÍM ZAČÍT"** s aktuálním stavem
+a s příkazy, kterými se ověří, co je doopravdy hotové. Vždycky začni tou sekcí —
+čísla v dokumentech stárnou rychle.
+
+**Nejdůležitější pravidlo napříč oběma:** „hotovo" se nepozná z toho, co kdo
+tvrdí, ale z commitu v repozitáři, z `exit 0` u kontroly a ze souboru, který
+opravdu existuje. 9. 9. 2026 jeden automat 32× po sobě ohlásil „vše ověřeno"
+nad prací, kterou vůbec neudělal.
+
 ## 1. Co to je
 
 Statický web **wonderly.cz** (Astro, Cloudflare Workers, zdarma). Tři sekce na
