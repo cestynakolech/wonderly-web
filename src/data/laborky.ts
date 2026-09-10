@@ -18,6 +18,30 @@ export type Laborka = {
 };
 
 export const laborky: Record<string, Laborka> = {
+	'fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa': {
+		nazev: 'Autíčko ve vagonu — klid a pohyb závisí na pozorovateli',
+		cil: 'Ověřit, že stejné těleso může být současně v klidu vzhledem k jednomu tělesu a v pohybu vzhledem k jinému.',
+		pomucky: ['malé autíčko', 'pruh pevného kartonu dlouhý alespoň 50 cm', 'pravítko nebo metr', 'lepicí páska', 'tužka'],
+		postup: [
+			'Polož karton na lavici — představuje vagon. Na karton nakresli značku pro cestujícího a vedle ní postav autíčko.',
+			'Autíčko připevni malým kouskem pásky, aby se po kartonu neposouvalo. Tužkou označ na lavici počáteční polohu přední hrany kartonu i autíčka.',
+			'Posuň celý karton po lavici přesně o 40 cm. Autíčko musí zůstat u své značky na kartonu.',
+			'Zapiš, o kolik centimetrů změnilo autíčko polohu vzhledem ke kartonu a o kolik vzhledem k lavici.',
+			'Vrať karton na začátek, pásku odlep a karton drž na místě. Posuň autíčko po kartonu přesně o 30 cm a znovu zapiš obě změny polohy.',
+			'U každého pokusu rozhodni, zda bylo autíčko vzhledem ke kartonu a vzhledem k lavici v klidu, nebo v pohybu.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'změna vůči kartonu (cm)', 'klid/pohyb vůči kartonu', 'změna vůči lavici (cm)', 'klid/pohyb vůči lavici'],
+			radky: 2,
+		},
+		otazky: [
+			'V prvním pokusu bylo autíčko v klidu vzhledem ke kartonu. Proč přesto bylo v pohybu vzhledem k lavici?',
+			'Ke kterému tělesu je cestující sedící v jedoucím vlaku v klidu a ke kterému je v pohybu?',
+			'Lze o tělese říct jen „je v klidu“, aniž uvedeme, vzhledem k čemu? Vysvětli.',
+		],
+		pozor: 'Karton posouvej pomalu po volné lavici, aby autíčko nespadlo na zem.',
+		tip: 'Klid a pohyb jsou relativní: vždy musíme uvést těleso, vzhledem ke kterému polohu sledujeme.',
+	},
 	'fyzika/6-rocnik/cas/cas-a-jeho-mereni': {
 		nazev: 'Kyvadlo — měříme čas stopkami',
 		cil: 'Změřit dobu kyvu kyvadla a zjistit, na čem závisí.',
