@@ -2819,6 +2819,15 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Využití</h3>
 						<p>Kosmetická a estetická zrcadla (opticky zvětšují místnost), <strong>periskop</strong> ponorky, zrcadlové nápisy. Proto se na sanitkách píše nápis <strong>AMBULANCE zrcadlově</strong> — ve zpětném zrcátku ho pak řidič vpředu přečte správně.</p>
 					`,
+					zapis: {
+						body: [
+							'Rovinné zrcadlo vytváří obraz odrazem světla.',
+							'Obraz je zdánlivý, vzpřímený, stejně velký jako předmět a stejně vzdálený od zrcadla.',
+							'V zrcadle se pravá strana jeví jako levá a naopak.',
+							'Obraz sestrojíme pomocí osové souměrnosti podle roviny zrcadla.',
+						],
+						zakon: 'Zákon odrazu: úhel odrazu se rovná úhlu dopadu.',
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Iluze reality — rovinná zrcadla', cesta: 'JsleRYDXXwM' },
 					],
@@ -3860,6 +3869,16 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Elektrická síla</h3>
 							<p><strong>Souhlasné náboje se odpuzují, nesouhlasné přitahují.</strong> Síla je tím větší, čím <strong>větší jsou náboje</strong> a čím <strong>menší je vzdálenost</strong> mezi nimi. Proto se rozčesané vlasy lepí k hřebenu, ale navzájem se rozestupují.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrický náboj je příčinou elektrické síly mezi zelektrovanými tělesy.',
+								'Proton má kladný náboj, elektron záporný náboj a neutron je bez náboje.',
+								'Neutrální těleso má stejný počet protonů a elektronů; při elektrování se přesouvají elektrony.',
+								'Souhlasné náboje se odpuzují a nesouhlasné náboje se přitahují.',
+								'Vodiče náboj snadno přenášejí, izolanty ho nepřenášejí.',
+							],
+							zakon: 'Zákon zachování náboje: celkový náboj se v izolované soustavě elektrováním nemění.',
+						},
 						odkazy: [
 							{ nazev: 'Elekrostatika – 8. ročník ZŠ (test, 13 otázek) — testi.cz', url: 'https://testi.cz/testy/fyzika/elekrostatika-8.rocnik-zs/' },
 						],
@@ -5953,6 +5972,16 @@ export const temata: Record<string, Tema[]> = {
 							<li>Světlo z nejvzdálenějších galaxií k nám letí miliardy let — když se na ně díváme, vidíme vlastně vesmír takový, jaký vypadal dávno v minulosti.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Vesmír vznikl před přibližně 13,8 miliardami let z velmi hustého a horkého stavu při velkém třesku.',
+							'Od svého vzniku se vesmír rozpíná a postupně v něm vznikly částice, atomy, hvězdy a galaxie.',
+							'Galaxie je obrovské seskupení hvězd, plynu a prachu, které drží pohromadě gravitace.',
+							'Naše Mléčná dráha je spirální galaxie s příčkou a Slunce leží v jednom z jejích ramen.',
+							'Rudý posuv světla vzdálených galaxií je hlavním důkazem rozpínání vesmíru.',
+						],
+						zakon: 'Hubbleův zákon: čím je galaxie dál, tím rychleji se vzdaluje.',
+					},
 					interakce: 'rozpinani-vesmiru',
 					odkazy: [
 						{ nazev: 'ČT edu: Velký třesk', url: 'https://edu.ceskatelevize.cz/video/2317-velky-tresk' },

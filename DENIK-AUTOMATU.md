@@ -29,3 +29,5 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 15:25 CEST — Doplněny ZÁPISY DO SEŠITU: fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje; fyzika/8-rocnik/shrnuti/pololetni-shrnuti; fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna. Kontrola `node zkontroluj.mjs`: exit 0. Důkaz přítomnosti `zapis:`: všechny tři klíče potvrzeny.
 - 2026-09-10 15:44:46 CEST — doplněny zápisy: fyzika/7-rocnik/svetlo-a-jeho-sireni/odraz-svetla; fyzika/8-rocnik/shrnuti/rocni-shrnuti; fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje. Kontrola: node zkontroluj.mjs — exit 0.
 - 2026-09-10 16:03:55 CEST — Doplněny zápisy: fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla; fyzika/9-rocnik/energie-a-vesmir/slunecni-soustava; fyzika/7-rocnik/svetlo-a-jeho-sireni/stin-faze-mesice. Kontrola `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`). Důkaz přítomnosti `zapis:`: všechny tři klíče potvrzeny.
+
+- 2026-09-10 16:24 CEST — Doplněny zápisy: `optika-rovinneho-zrcadla`, `elektricky-naboj`, `vesmir-a-galaxie`. Kontrola `node zkontroluj.mjs`: HOTOVO, exit 0.
