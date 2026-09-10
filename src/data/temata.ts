@@ -1841,6 +1841,21 @@ export const temata: Record<string, Tema[]> = {
 						<p>5) Těleso o hmotnosti 12 t (12 000 kg)<br>
 						Fg = 12 000 · 10 = 120 000 N = <strong>120 kN</strong></p>
 					`,
+					zapis: {
+						body: [
+							'Země přitahuje každé těleso gravitační silou.',
+							'Čím větší má těleso hmotnost, tím větší gravitační silou je přitahováno.',
+							'Na Zemi připadá na každý kilogram hmotnosti přibližně 10 N gravitační síly.',
+							'Poměr gravitační síly a hmotnosti značíme g a na Zemi používáme g = 10 N/kg.',
+						],
+						vzorec: 'Fg = m · g      (odvozeně: m = Fg : g,  g = Fg : m)',
+						jednotky: [
+							'gravitační síla Fg — newton (N)',
+							'hmotnost m — kilogram (kg)',
+							'gravitační konstanta g — newton na kilogram (N/kg), na Zemi g = 10 N/kg',
+							'Převody: 1 kN = 1 000 N, 1 t = 1 000 kg. Do vzorce dosazuj sílu v N, hmotnost v kg a g v N/kg.',
+						],
+					},
 					materialy: [
 					],
 				},
@@ -2999,6 +3014,22 @@ export const temata: Record<string, Tema[]> = {
 						<h3>V běžném životě</h3>
 						<p>Každá přeměna je spojená se <strong>ztrátami</strong> — část energie se třením mění na <strong>teplo</strong>, které už na pohyb nevyužijeme. Proto skateboardista na U-rampě nevyjede do stejné výšky, ze které vyjel.</p>
 					`,
+					zapis: {
+						body: [
+							'Celková mechanická energie tělesa je součet jeho polohové a pohybové energie.',
+							'Při pádu se polohová energie mění na pohybovou, při pohybu vzhůru se pohybová energie mění na polohovou.',
+							'Energie může přecházet také z jednoho tělesa na druhé.',
+							'Při tření se část mechanické energie mění na teplo, proto například skateboardista nevyjede zpět do stejné výšky.',
+						],
+						zakon: 'Pokud se mechanická energie nemění v jiné druhy energie, je součet polohové a pohybové energie stále stejný.',
+						vzorec: 'E = Ep + Ek      (odvozeně: Ep = E − Ek,  Ek = E − Ep)',
+						jednotky: [
+							'celková mechanická energie E — joule (J)',
+							'polohová energie Ep — joule (J)',
+							'pohybová energie Ek — joule (J)',
+							'Převody: 1 kJ = 1 000 J, 1 MJ = 1 000 000 J. Do vzorce dosazuj všechny energie v J.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 					],
@@ -4482,6 +4513,15 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Kde se využívá</h3>
 						<p>Alternátor a dynamo v elektrárnách, zapalovací svíčky motorů, „protřepávací" svítilny, <strong>indukční brzdy</strong>, <strong>indukční varná deska</strong>, indukční pec na tavení kovů, <strong>bezdrátové nabíječky</strong>, transformátor i elektrická kytara.</p>
 					`,
+					zapis: {
+						body: [
+							'Elektromagnetická indukce nastává při změně magnetického pole v okolí vodiče nebo cívky.',
+							'Při změně pole vzniká indukované napětí a v uzavřeném obvodu také indukovaný proud.',
+							'Když se magnetické pole nemění, nic se neindukuje.',
+							'Rychlejší pohyb magnetu, silnější magnet nebo více závitů cívky způsobí větší indukované napětí.',
+							'Při opačném směru pohybu magnetu se obrátí polarita indukovaného napětí.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 2', cesta: 'gn-CN3StDUs' },
