@@ -2749,6 +2749,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Proč brčko ve sklenici vypadá zlomené?</h3>
 						<p>Paprsky od ponořené části se na hladině lámou — oko je prodlouží rovně a brčko se zdá zalomené. Ze stejného důvodu vypadá bazén mělčí, než je.</p>
 					`,
+					zapis: {
+						body: [
+							'Při přechodu do jiného optického prostředí světlo mění rychlost, a proto se láme.',
+							'Z opticky řidšího prostředí do hustšího se paprsek láme ke kolmici.',
+							'Z opticky hustšího prostředí do řidšího se paprsek láme od kolmice.',
+							'Při přechodu z hustšího do řidšího prostředí může při mezním úhlu nastat úplný odraz.',
+						],
+					},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Index lomu 🎵', cesta: '/materialy/fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla/pisen-index-lomu.mp4' },
 					],
@@ -2772,6 +2780,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zatmění Slunce</h3>
 						<p>Nastane, když se <strong>Měsíc dostane mezi Zemi a Slunce</strong> a zakryje ho. Pozorovat jen se <strong>speciálními ochrannými brýlemi</strong> — nikdy přímo!</p>
 					`,
+					zapis: {
+						body: [
+							'Za neprůhledným tělesem vzniká stín, kam světlo nedopadá; u plošného zdroje vzniká také polostín.',
+							'Měsíc sám nesvítí a ze Země vidíme jeho osvětlenou polovinu z různých úhlů.',
+							'Fáze Měsíce se střídají v pořadí nov, první čtvrť, úplněk a poslední čtvrť.',
+							'Při zatmění Měsíce leží Země mezi Sluncem a Měsícem, při zatmění Slunce leží Měsíc mezi Zemí a Sluncem.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Stíny, fáze a zatmění', cesta: '2_f7R5E_rrY' },
 					],
@@ -5889,6 +5905,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>Pohyb planet popisují <strong>Keplerovy zákony</strong>: planety obíhají po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Sluneční soustavu tvoří Slunce a tělesa, která se pohybují v jeho gravitačním poli.',
+							'Kolem Slunce obíhá osm planet v pořadí Merkur, Venuše, Země, Mars, Jupiter, Saturn, Uran a Neptun.',
+							'Merkur, Venuše, Země a Mars jsou kamenné planety; Jupiter, Saturn, Uran a Neptun jsou plynní obři.',
+							'Do Sluneční soustavy patří také trpasličí planety, planetky, komety a meteoroidy.',
+						],
+						zakon: 'Keplerovy zákony: Planety obíhají kolem Slunce po elipsách a čím blíž jsou Slunci, tím rychleji se pohybují.',
+					},
 				},
 				{
 					slug: 'vesmir-a-galaxie',
