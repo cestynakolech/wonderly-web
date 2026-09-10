@@ -121,6 +121,31 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 10. 9. 2026 (zápisy do sešitu, dělba práce s automatem)
+
+**Hotovo a živé na webu:** zápisy do sešitu k prvním třem podtématům v pořadí
+7 → 8 → 9 — `rychlost-draha-cas`, `vykon`, `magneticke-pole-vodice-a-civky`.
+Nezávislý kontrolor ve třech kolech (3 → 2 → 0 nálezů), po sloučení s prací
+automatu ještě jednou (2 → 1 → 0). Ověřeno curlem na produkci.
+
+**Souběh s automatem — vyřešeno rozhodnutím učitele.** Automat
+`wonderly-fyzika-doplnovani-1h` plnil tutéž frontu ve stejném pořadí, obě větve
+vyrobily tytéž tři zápisy zvlášť (pracují ve dvou různých kopiích repa —
+`~/Desktop/wonderly-web` a `~/wonderly-web`). Nic se nezahodilo, verze se
+sloučily. Učitel pak rozhodl: **zápisy, laborky, kvízy a animace dělá automat**
+(dopoledne poslal 24 commitů a srazil chybějící zápisy ze 76 na 22),
+**session dělá polemiky a písničky**, které automat výslovně přeskakuje.
+
+**Rozpracováno a odloženo:** polemika F7 „Klid a pohyb tělesa" — tři scénáře
+trojice hotové a zkontrolované, pokrytí kvízu 21/21, scénosledy napsané.
+Výroba zvuku stojí na právech (`/Users/Shared/Škola/podkasty` patří účtu
+`radekmicek`) a most na druhý účet neexistuje. Podrobně i s tím, co má
+rozhodnout učitel, v `SAMOSTATNY-REZIM.md`, sekce „Odloženo — zaseklo se".
+
+**Nález u měřidla:** `pokryti_kvizu.py` volá `~/bin/ask-local`, který neexistuje
+— nikdy se tedy nezeptá modelu a hlásí falešné díry (u této trojice 2 z 21).
+Navíc chce `gemma4:26b`, který na mini není stažený. Oprava čeká.
+
 ## Historie — 23. 8. 2026 večer (mini jako pracoviště)
 Mac mini vybaven jako plnohodnotné pracoviště Claude Code (skilly/agenti/paměť/repa),
 obousměrný sync paměti (`sync-mini-pamet.sh`), hybridní směrování práce
