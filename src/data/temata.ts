@@ -2669,6 +2669,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>neprůhledné</strong> — světlo se pohlcuje nebo odráží (zeď, zrcadlo)</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Zdroje světla světlo vyrábějí, zatímco ostatní předměty jen odrážejí cizí světlo.',
+							'Zdroje světla mohou být přirozené nebo umělé a podle velikosti bodové nebo plošné.',
+							'Světlo se šíří všemi směry a ve stejnorodém prostředí se jeho paprsky šíří přímočaře.',
+							'Optické prostředí může být průhledné, průsvitné nebo neprůhledné podle toho, jak jím světlo prochází.',
+							'Ve vakuu se světlo šíří rychlostí 300 000 km/s, v jiných prostředích pomaleji.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Světlo — od plamene ke hvězdám', cesta: 'v4EdVxeZ9J0' },
 						{ druh: 'youtube', nazev: 'Video: Odhalený svět světla', cesta: 'JkgrUOUgZ7Q' },
@@ -4611,6 +4620,25 @@ export const temata: Record<string, Tema[]> = {
 							<li>1 kWh = 3,6 MJ</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Mechanická práce vzniká působením síly po určité dráze a výkon udává, jak rychle se práce vykoná.',
+							'Energie se může přeměňovat mezi pohybovou a polohovou, ale celková mechanická energie se zachovává.',
+							'Vnitřní energie tělesa se mění tepelnou výměnou a teplo může způsobit změnu skupenství.',
+							'Tepelné motory, například parní stroj a spalovací motor, využívají tepelnou energii.',
+						],
+						zakon: 'Zákon zachování mechanické energie: mechanická energie se může přeměňovat mezi pohybovou a polohovou, ale její celková velikost se zachovává.',
+						vzorec: 'W = F · s      (odvozeně: F = W : s,  s = W : F);  P = W : t      (odvozeně: W = P · t,  t = W : P)',
+						jednotky: [
+							'práce W — joule (J)',
+							'síla F — newton (N)',
+							'dráha s — metr (m)',
+							'výkon P — watt (W)',
+							'čas t — sekunda (s)',
+							'1 kWh = 3,6 MJ',
+							'Do vzorců dosazuj v základních jednotkách: práci v J, sílu v N, dráhu v m a čas v s.',
+						],
+					},
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -5660,6 +5688,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Nevýhody:</strong> „vyhořelé" radioaktivní palivo se musí bezpečně skladovat i tisíce let a teprve se řeší, jak ho dál využít; uran je stejně jako uhlí nebo ropa <strong>neobnovitelný</strong> zdroj; výstavba elektrárny a výroba obohaceného uranu jsou velmi nákladné; a případná havárie může mít <strong>katastrofické následky</strong>.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Jaderný reaktor je zařízení, ve kterém probíhá řízená řetězová reakce.',
+							'Palivo obsahuje uran 235, moderátor zpomaluje neutrony, chladivo odvádí teplo a regulační tyče řídí výkon reaktoru.',
+							'V jaderné elektrárně teplo vytvoří páru, která roztáčí turbínu s generátorem a vzniká elektřina.',
+							'Vodní tlaková elektrárna má tři oddělené vodní okruhy: primární, sekundární a terciární.',
+							'Jaderná elektrárna spotřebuje málo paliva, ale vyhořelé radioaktivní palivo se musí dlouhodobě bezpečně skladovat.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak funguje jaderná elektrárna', cesta: 'BJbAvgpwCWc' },
 					],
