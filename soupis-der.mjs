@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Vypíše, co kterému podtématu fyziky chybí. Bez modelu — jen čte data.
-// Použití:  node soupis-der.mjs [--vse] [--rocniky=7,8,9]
+// Použití:  node soupis-der.mjs [--vse] [--rocniky=7,8,9] [--druh=zápis]
 // Není to měřidlo kvality (proto nepatří do testy/) — jen vypisuje stav.
 
 import { readFileSync } from 'node:fs'
@@ -13,6 +13,11 @@ const cti = (p) => readFileSync(join(KOREN, p), 'utf8')
 const args = process.argv.slice(2)
 const vse = args.includes('--vse')
 const rocniky = (args.find((a) => a.startsWith('--rocniky'))?.split('=')[1] ?? '7,8,9').split(',')
+// Bez --druh vypíše fronta všechny díry dohromady. Automat, který doplňuje JEN
+// jeden druh (třeba zápisy), by pak dostal na prvních místech položky, kterým
+// chybí něco jiného — a buď by tápal, nebo doplnil, co nemá. S --druh=zápis
+// zůstane ve frontě jen to, co tomu automatu opravdu patří.
+const druh = args.find((a) => a.startsWith('--druh'))?.split('=')[1] ?? null
 
 // Klíče se v datech zapisují dvěma způsoby: uvnitř literálu jako 'klíč': …
 // a u souhrnných kvízů až za ním jako kvizy['klíč'] = slozSouhrnnyKviz(…).
@@ -57,6 +62,7 @@ for (const radek of cti('src/data/temata.ts').split('\n')) {
 
 const chybejici = (p) => {
 	const chybi = []
+	if (!/^\t+zapis\s*:/m.test(p.blok)) chybi.push('zápis')
 	if (!/^\t{5}interakce2?\s*:/m.test(p.blok)) chybi.push('animace')
 	if (!/druh:\s*'audio'|nazev:\s*'Pís/i.test(p.blok)) chybi.push('písnička')
 	if (!/cesta:\s*'[^']*polemika-/.test(p.blok)) chybi.push('polemika')
@@ -87,12 +93,17 @@ for (const [r, seznam] of podle) {
 }
 
 // Pořadí práce: první u 7, první u 8, první u 9, druhé u 7 …
-const kurzory = rocniky.map((r) => (podle.get(r) ?? []).filter((p) => p.chybi.length > 0))
+const patriDoFronty = (p) => (druh ? p.chybi.includes(druh) : p.chybi.length > 0)
+const kurzory = rocniky.map((r) => (podle.get(r) ?? []).filter(patriDoFronty))
 const fronta = []
 for (let i = 0; i < Math.max(0, ...kurzory.map((k) => k.length)); i++) {
 	for (const k of kurzory) if (k[i]) fronta.push(k[i])
 }
 
-console.log(`\nCelkem ${celkem} podtémat, kompletních ${hotovych}, s dírou ${fronta.length}.`)
-console.log('\nPrvních 10 v pořadí 7→8→9:')
+console.log(
+	druh
+		? `\nCelkem ${celkem} podtémat; chybí ${druh} u ${fronta.length} z nich.`
+		: `\nCelkem ${celkem} podtémat, kompletních ${hotovych}, s dírou ${fronta.length}.`,
+)
+console.log(`\nPrvních 10 v pořadí 7→8→9${druh ? ` (jen s chybějícím: ${druh})` : ''}:`)
 for (const p of fronta.slice(0, 10)) console.log(`   ${p.klic}\n        chybí: ${p.chybi.join(', ')}`)

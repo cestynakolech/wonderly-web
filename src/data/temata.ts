@@ -1636,6 +1636,22 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>⚠️ Pozor: mezi m/s a km/h se <strong>neposouvá desetinná čárka</strong>! Hodina má 3 600 s a kilometr 1 000 m — proto koeficient 3,6 (10 m/s = 36 km/h).</p>
 					`,
+					zapis: {
+						body: [
+							'Rychlost udává, jakou dráhu těleso urazí za určitý čas.',
+							'Při rovnoměrném pohybu urazí těleso za stejné doby vždy stejné dráhy a jeho rychlost se nemění.',
+							'Okamžitá rychlost popisuje pohyb právě teď, průměrná rychlost je celková dráha dělená celkovým časem.',
+							'V grafu dráhy podle času je rovnoměrný pohyb znázorněn přímkou.',
+						],
+						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)',
+						jednotky: [
+							'rychlost v — metr za sekundu (m/s) nebo kilometr za hodinu (km/h)',
+							'dráha s — metr (m) nebo kilometr (km)',
+							'čas t — sekunda (s) nebo hodina (h)',
+							'1 km = 1 000 m,  1 h = 3 600 s; z km/h na m/s děl 3,6, z m/s na km/h násob 3,6',
+							'Do vzorce dosazuj jednotky ve shodné soustavě: m a s pro výsledek v m/s, nebo km a h pro výsledek v km/h.',
+						],
+					},
 					materialy: [
 						{
 							druh: 'infografika',
@@ -2828,6 +2844,22 @@ export const temata: Record<string, Tema[]> = {
 						W = P · t = 9 kW · 16 h = <strong>144 kWh</strong></p>
 						<p>💡 Starší jednotka výkonu motorů je <strong>koňská síla</strong> (hp): 1 hp = 0,735 kW.</p>
 					`,
+					zapis: {
+						body: [
+							'Výkon udává, jak rychle se koná práce, tedy jak velká práce se vykoná za jednu sekundu.',
+							'Čím větší práci stroj vykoná za stejný čas, tím větší má výkon.',
+							'Těleso s výkonem 1 W vykoná za 1 s práci 1 J.',
+							'Elektrická práce neboli spotřebovaná energie se často udává v kilowatthodinách.',
+						],
+						vzorec: 'P = W : t      (odvozeně: W = P · t,  t = W : P)',
+						jednotky: [
+							'výkon P — watt (W)',
+							'práce W — joule (J)',
+							'čas t — sekunda (s)',
+							'1 kW = 1 000 W,  1 MW = 1 000 000 W,  1 kWh = 3 600 000 J',
+							'Do vzorce dosazuj v základních jednotkách: práci v J a čas v s; výkon vyjde ve W.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Umíme fakta — Výkon (cvičení)', url: 'https://www.umimefakta.cz/fyzika/cviceni-vykon' },
 						{ nazev: 'Wordwall — Výkon', url: 'https://wordwall.net/resource/64369600' },
@@ -4271,6 +4303,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>reproduktor a sluchátka</strong> — cívka v poli magnetu rozkmitá membránu</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Kolem vodiče, kterým prochází elektrický proud, vzniká magnetické pole.',
+							'Indukční čáry kolem přímého vodiče mají tvar soustředných kružnic a jejich směr určí pravidlo pravé ruky.',
+							'Cívka s proudem se chová jako tyčový magnet a její nejsilnější magnetické pole je uvnitř.',
+							'Více závitů a železné jádro magnetické pole cívky zesilují.',
+							'Když obrátíme směr proudu, póly cívky se prohodí.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Test: Cívka a magnetické pole (Wordwall)', url: 'https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole' },
 					],
