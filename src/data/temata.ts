@@ -2936,6 +2936,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Dvě oči umožňují <strong>prostorové vidění</strong> — mozek spojí dva obrazy do jednoho vjemu.</p>
 					`,
+					zapis: {
+						body: [
+							'Oko je optická soustava, která vytváří obraz okolních předmětů na sítnici.',
+							'Obraz na sítnici je skutečný, zmenšený a převrácený. Mozek tento vjem zpracuje.',
+							'Oko zaostřuje změnou zakřivení pružné čočky. Tento děj se nazývá akomodace.',
+							'Dalekozrakost se koriguje spojkami, krátkozrakost rozptylkami.',
+						],
+					},
 					materialy: [
 						{ druh: 'infografika', nazev: 'Oko jako optická soustava', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-oko.jpg' },
 						{ druh: 'infografika', nazev: 'Historie brýlí (nad rámec RVP)', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/oko-vady-oka/infografika-historie-bryli.jpg' },
@@ -2964,6 +2972,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>💡 Podstatu duhy správně vysvětlil lomem paprsků český fyzik a lékař <strong>Jan Marcus Marci</strong> (17. století).</p>
 					`,
+					zapis: {
+						body: [
+							'Bílé světlo je složené z barev a optický hranol je rozkládá na barevné spektrum.',
+							'Červené světlo se láme nejméně a fialové nejvíce. Červená má nejdelší vlnovou délku a fialová nejkratší.',
+							'Duha vzniká lomem, rozkladem a odrazem slunečního světla v dešťových kapkách.',
+							'Duhu vidíme, když máme Slunce za zády a déšť před sebou. Červená barva je nahoře a fialová dole.',
+						],
+					},
 					materialy: [
 					],
 				},
@@ -4069,6 +4085,14 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Bezpečné zapojování</h3>
 							<p>Nejdřív sestav obvod <strong>bez zdroje</strong> a se spínačem <strong>vypnutým</strong>, zkontroluj vodiče i žárovku, teprve pak připoj zdroj a nakonec sepni spínač.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrický obvod tvoří zdroj napětí, vodiče a spotřebič. Může obsahovat také spínač, měřidla nebo pojistku.',
+								'Elektrický proud teče pouze uzavřeným obvodem, ve kterém jsou všechny části vodivě spojené.',
+								'Více spotřebičů lze zapojit za sebou sériově nebo vedle sebe paralelně.',
+								'Zkrat vznikne vodivým spojením svorek zdroje bez spotřebiče. Před velkým proudem a přehřátím chrání pojistka.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Pokus: Elektrické obvody (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3427-pokus-elektricke-obvody' },
 							{ nazev: 'Pokus: Elektrický zkrat (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6931-pokus-elektricky-zkrat' },
