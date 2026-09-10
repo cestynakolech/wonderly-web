@@ -8,3 +8,26 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 06:57 CEST — ODLOŽENO — fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa — doplněna laborka; node zkontroluj.mjs: exit 0; nezávislá kontrola nedokončena (subagent: Connection error), proto bez commitu a push.
 
 - 2026-09-10 08:25 CEST — Doplněny zápisy: priklady-na-vypocet-rychlosti, energie-a-jeji-premeny, elektromagnet — node zkontroluj.mjs: exit 0.
+- 2026-09-10 08:42 CEST — Doplněny zápisy: sila, pohybova-a-polohova-energie, pusobeni-pole-na-vodic-elektromotor — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 09:02 CEST — Doplněny zápisy: gravitacni-sila, zakon-zachovani-mechanicke-energie, elektromagneticka-indukce — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 09:23 CEST — Doplněny zápisy: treci-sila, energeticka-hodnota-potravin, vznik-stridaveho-proudu-alternator — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 09:43 CEST — Doplněny zápisy: skladani-sil, vnitrni-energie-telesa, vlastnosti-stridaveho-proudu — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 10:05 CEST — Doplněny zápisy: teziste, tepelna-vymena-a-teplo, transformator — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 10:22 CEST — Doplněny zápisy: pusobeni-teles-a-deformace, tepelny-motor-parni-stroj, prenos-elektricke-energie — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 11:05 CEST — Doplněny zápisy: jednoduche-stroje-paky, spalovaci-motory, vedeni-proudu-v-kapalinach — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 11:46 CEST — Doplněny zápisy: kladka, teplo-a-premeny-skupenstvi, chemicke-zdroje-napeti — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 12:02 CEST — Doplněny zápisy: fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani, fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 12:22 CEST — Doplněny zápisy: fyzika/7-rocnik/tlak-v-kapalinach/tlak, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti, fyzika/9-rocnik/elektricky-proud-v-latkach/vedeni-proudu-v-plynech — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 12:42 CEST — Doplněny zápisy: fyzika/7-rocnik/tlak-v-kapalinach/pascaluv-zakon, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani, fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-vlastni-vodivost — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 13:05 CEST — Doplněny zápisy: fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var, fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 13:23 CEST — Doplněny zápisy: fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace, fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 13:42 CEST — Doplněny zápisy: fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode, fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+
+- 2026-09-10 14:03 CEST — doplněny zápisy: `atmosfericky-tlak`, `kmitani-a-vlneni`, `jadro-atomu`; `node zkontroluj.mjs` exit 0.
+- 2026-09-10 14:23:44 CEST — Doplněny zápisy: fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum, fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni, fyzika/9-rocnik/jaderna-fyzika/radioaktivita — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 14:42:37 CEST — Doplněny zápisy: fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku, fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost, fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 15:25 CEST — Doplněny ZÁPISY DO SEŠITU: fyzika/7-rocnik/svetlo-a-jeho-sireni/svetlo-jeho-zdroje; fyzika/8-rocnik/shrnuti/pololetni-shrnuti; fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna. Kontrola `node zkontroluj.mjs`: exit 0. Důkaz přítomnosti `zapis:`: všechny tři klíče potvrzeny.
+- 2026-09-10 15:44:46 CEST — doplněny zápisy: fyzika/7-rocnik/svetlo-a-jeho-sireni/odraz-svetla; fyzika/8-rocnik/shrnuti/rocni-shrnuti; fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje. Kontrola: node zkontroluj.mjs — exit 0.
+- 2026-09-10 16:03:55 CEST — Doplněny zápisy: fyzika/7-rocnik/svetlo-a-jeho-sireni/lom-svetla; fyzika/9-rocnik/energie-a-vesmir/slunecni-soustava; fyzika/7-rocnik/svetlo-a-jeho-sireni/stin-faze-mesice. Kontrola `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`). Důkaz přítomnosti `zapis:`: všechny tři klíče potvrzeny.
+
+- 2026-09-10 16:24 CEST — Doplněny zápisy: `optika-rovinneho-zrcadla`, `elektricky-naboj`, `vesmir-a-galaxie`. Kontrola `node zkontroluj.mjs`: HOTOVO, exit 0.
