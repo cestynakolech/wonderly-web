@@ -25,3 +25,4 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 
 - 2026-09-10 14:03 CEST — doplněny zápisy: `atmosfericky-tlak`, `kmitani-a-vlneni`, `jadro-atomu`; `node zkontroluj.mjs` exit 0.
 - 2026-09-10 14:23:44 CEST — Doplněny zápisy: fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum, fyzika/8-rocnik/zvuk/zvuk-vznik-a-sireni, fyzika/9-rocnik/jaderna-fyzika/radioaktivita — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 14:42:37 CEST — Doplněny zápisy: fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku, fyzika/8-rocnik/zvuk/vnimani-zvuku-a-hlasitost, fyzika/9-rocnik/jaderna-fyzika/jaderna-energie-a-reakce — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).

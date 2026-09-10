@@ -2622,6 +2622,15 @@ export const temata: Record<string, Tema[]> = {
 							</ul>
 							<p>Měří se <strong>v pravidelných termínech</strong> (u nás hlavně v 7, 14 a 21 hodin), aby šly hodnoty z různých míst a různých dnů poctivě porovnat. Předpověď počasí pomáhá dopravě, zemědělství i záchranářům — a také energetikům, protože podle ní plánují, kolik proudu vyrobí větrné a solární elektrárny a kolik ho bude potřeba na topení.</p>
 					`,
+					zapis: {
+						body: [
+							'Tlaková výše je oblast s vyšším tlakem než v okolí a obvykle přináší jasné počasí. Tlaková níže má nižší tlak než okolí a často přináší oblačnost a srážky.',
+							'Vítr proudí z místa s vyšším tlakem do místa s nižším tlakem.',
+							'Atmosférický tlak měříme barometrem, jeho průběh v čase zapisuje barograf.',
+							'Izobary na povětrnostní mapě spojují místa se stejným tlakem. Čím jsou blíž u sebe, tím silnější vítr v oblasti fouká.',
+							'Meteorologové sledují také teplotu, vlhkost, srážky, vítr a oblačnost.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Meteorologická pozorování', cesta: 'fKLqHBIS1Xk' },
 						{ druh: 'video', nazev: 'Píseň: Šumí satelit 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku/pisen-sumi-satelit.mp4' },
@@ -4559,6 +4568,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Ochrana:</strong> protihluková sluchátka a špunty, dostatečná vzdálenost od zdroje, rozumná hlasitost ve sluchátkách, tlumiče a protihlukové stěny, ohleduplnost.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Ušní boltec zachytí zvuk a zvukovod ho vede k bubínku, který se rozkmitá.',
+							'Kůstky přenesou kmity do vnitřního ucha, vláskové buňky je změní na nervový signál a mozek ho vyhodnotí jako zvuk.',
+							'Hladinu intenzity zvuku udáváme v decibelech. Práh slyšitelnosti je 0 dB a práh bolesti přibližně 130 dB.',
+							'Dlouhodobý hluk nad 90 dB může nevratně poškodit vláskové buňky, které se neobnovují.',
+							'Sluch chráníme menší hlasitostí, vzdáleností od zdroje, špunty nebo protihlukovými sluchátky.',
+						],
+					},
 					materialy: [
 						{
 							druh: 'youtube',
@@ -5597,6 +5615,16 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Řízená</strong> — část neutronů se pohltí → stálý výkon → <strong>jaderný reaktor</strong>.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Jaderná energie je energie uložená v jádře atomu. Při jaderné reakci se uvolňuje hlavně jako teplo.',
+							'Jaderná reakce je vyvolaná přeměna jádra po srážce s jinou částicí, při které vzniká jádro jiného prvku.',
+							'Při fúzi se lehčí jádra slučují na těžší, při štěpení se těžké jádro rozpadá na dvě lehčí jádra.',
+							'Při štěpení uranu 235 se uvolňují neutrony, které mohou štěpit další jádra a vytvořit řetězovou reakci.',
+							'Řízená řetězová reakce probíhá v jaderném reaktoru, neřízená uvolní energii naráz.',
+						],
+						zakon: 'Při jaderných reakcích se zachovává celkový počet nukleonů i celkový počet protonů.',
+					},
 					odkazy: [
 						{ nazev: 'e-manuel.cz: Umělé jaderné reakce (štěpení, fúze)', url: 'https://e-manuel.cz/kapitoly/jaderna-fyzika/vyklad/umele-reakce/' },
 						{ nazev: 'Techmania: Štěpení jader', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/atomy-castice/stepeni-jader' },
