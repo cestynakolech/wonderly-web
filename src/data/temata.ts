@@ -2326,6 +2326,23 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Hodí se vědět</h3>
 						<p>Obsah kruhového pístu o poloměru r: <strong>S = π · r²</strong> (π ≈ 3,14).</p>
 					`,
+					zapis: {
+						body: [
+							'Tlak vyvolaný vnější silou v uzavřené kapalině se přenáší rovnoměrně do všech směrů.',
+							'Kapaliny jsou téměř nestlačitelné, a proto tlak dobře přenášejí.',
+							'V hydraulickém zařízení jsou dva propojené písty a tlak je v celém systému stejný.',
+							'Kolikrát je plocha druhého pístu větší, tolikrát větší síla na něj působí.',
+						],
+						zakon: 'Tlak vyvolaný vnější silou působící na kapalinu v uzavřené nádobě se přenáší rovnoměrně do všech směrů.',
+						vzorec: 'p = F₁ : S₁ = F₂ : S₂      (odvozeně: F₂ = F₁ · (S₂ : S₁))',
+						jednotky: [
+							'tlak p — pascal (Pa)',
+							'síla F₁, F₂ — newton (N)',
+							'obsah pístu S₁, S₂ — metr čtvereční (m²)',
+							'1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa',
+							'Do vzorce dosazuj síly v N a obsahy obou pístů ve stejné jednotce plochy.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Pascalův zákon — síla kapalin', cesta: 'pTdNlwI_0aY' },
 						{ druh: 'youtube', nazev: 'Video: Pascalův zákon 2', cesta: '1WUlh2HBpwA' },
@@ -3532,6 +3549,15 @@ export const temata: Record<string, Tema[]> = {
 						<p>Částice potřebují k uvolnění energii, proto vypařující se kapalina <strong>odebírá okolí teplo</strong> → ochlazuje se. Proto je plavci po vylezení z vody zima, tělo se chladí <strong>pocením</strong>, pes vyplazením jazyka, při horečce pomáhají mokré zábaly.</p>
 						<p>Vodní pára je <strong>neviditelná</strong> — co „vidíme" je mlha (drobné kapičky). Vlhkost vzduchu měří <strong>vlhkoměr</strong>.</p>
 					`,
+					zapis: {
+						body: [
+							'Vypařování je změna kapalného skupenství na plynné.',
+							'Probíhá na povrchu kapaliny při každé teplotě.',
+							'Vypařování urychluje vyšší teplota, větší povrch, odvádění par a také druh kapaliny.',
+							'Při vypařování kapalina odebírá okolí teplo, a proto se ochlazuje.',
+							'Vodní pára je neviditelná; viditelnou mlhu tvoří drobné kapičky.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Vypařování, var a kapalnění (Fyzika007)', url: 'https://www.fyzika007.cz/struktura-avlastnosti-l%C3%A1tek/vypa%C5%99ov%C3%A1n%C3%AD-var-a-kapaln%C4%9Bn%C3%AD' },
 					],
@@ -5118,6 +5144,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Fotorezistor</strong> — mění odpor podle osvětlení (fotobuňka, optická závora).</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Nejznámější polovodiče jsou křemík a germanium.',
+							'Při nízké teplotě mají polovodiče velký odpor; s rostoucí teplotou jejich odpor klesá a vodivost roste.',
+							'Zahřátím vzniká vždy pár volný elektron–díra.',
+							'Díra se chová jako kladná částice a pohybuje se opačným směrem než elektrony.',
+							'Elektrický proud v polovodiči tvoří pohyb volných elektronů a děr.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče pohánějí náš svět', cesta: 'W7V0PBb97eY' },
 					],
