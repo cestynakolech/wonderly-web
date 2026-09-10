@@ -121,6 +121,15 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 10. 9. 2026 (deterministická inventura podtématu)
+
+Přidán `inventura-podtematu.mjs`, který bez modelu a sítě vypíše pro jedno
+podtéma stav videa, polemiky, infografiky, kvízu, písničky a laborky včetně
+důkazu. `ANO` vychází jen z `HEAD`; pracovní strom a neověřitelné externí cíle
+jsou `NEJISTÉ`. Regresní test pokrývá ručně ověřené `Klid a pohyb tělesa`,
+MP4 písničku oddělenou od videa, souhrnný kvíz přiřazený za literálem a hlubší
+odsazení podtémat elektřiny F8.
+
 ## Historie — 10. 9. 2026 (zápisy do sešitu, dělba práce s automatem)
 
 **Hotovo a živé na webu:** zápisy do sešitu k prvním třem podtématům v pořadí
