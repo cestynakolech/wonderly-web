@@ -2394,6 +2394,23 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>plavební komora (zdymadlo)</strong> — pomáhá lodím překonat výškové rozdíly hladin</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Hydrostatický tlak vzniká působením gravitační síly Země na kapalinu.',
+							'Čím větší je hloubka pod hladinou a hustota kapaliny, tím větší je hydrostatický tlak.',
+							'Tlak u dna nezávisí na tvaru nádoby ani na množství kapaliny, ale na hloubce a hustotě.',
+							'Ve spojených nádobách je hladina kapaliny ve všech částech ve stejné výšce.',
+						],
+						vzorec: 'pₕ = h · ρ · g      (odvozeně: h = pₕ : (ρ · g),  ρ = pₕ : (h · g))',
+						jednotky: [
+							'hydrostatický tlak pₕ — pascal (Pa)',
+							'hloubka h — metr (m)',
+							'hustota kapaliny ρ — kilogram na metr krychlový (kg/m³)',
+							'gravitační konstanta g — newton na kilogram (N/kg)',
+							'1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa',
+							'Do vzorce dosazuj hloubku v m, hustotu v kg/m³ a gravitační konstantu v N/kg.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Skrytá síla vody', cesta: 'xJMpwGyOibQ' },
 						{ druh: 'youtube', nazev: 'Video: Hydrostatický tlak', cesta: 'Tx5X_3g1sHE' },
@@ -3584,6 +3601,22 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Destilace</strong> odděluje složky směsi podle různé teploty varu (destilovaná voda, líh, zpracování ropy).</p>
 						<p>Skupenské teplo varu: <strong>L<sub>v</sub> = l<sub>v</sub> · m</strong>; pro vodu l<sub>v</sub> = <strong>2 260 kJ/kg</strong>.</p>
 					`,
+					zapis: {
+						body: [
+							'Var je změna kapalného skupenství na plynné, která probíhá v celém objemu kapaliny při teplotě varu.',
+							'Při varu vznikají uvnitř kapaliny bubliny páry, které stoupají k hladině.',
+							'Během varu se teplota nemění, dokud se všechna kapalina nevyvaří.',
+							'Teplota varu závisí na druhu látky, tlaku a příměsích.',
+						],
+						vzorec: 'Lᵥ = lᵥ · m      (odvozeně: lᵥ = Lᵥ : m,  m = Lᵥ : lᵥ)',
+						jednotky: [
+							'skupenské teplo varu Lᵥ — joule (J)',
+							'měrné skupenské teplo varu lᵥ — joule na kilogram (J/kg)',
+							'hmotnost m — kilogram (kg)',
+							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J',
+							'Do vzorce dosazuj měrné skupenské teplo v J/kg a hmotnost v kg.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Pokus: Var vody — osolená vs. neosolená (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6143-pokus-var-vody' },
 						{ nazev: 'Pokus: Závislost teploty varu na tlaku (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6330-pokus-zavislost-teploty-varu-na-tlaku' },
@@ -5181,6 +5214,14 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Tranzistor</strong> — dva přechody PN, funguje jako rychlý spínač; základ veškeré elektroniky.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Přidáním nepatrné příměsi do křemíku vznikne nevlastní polovodič s větší vodivostí.',
+							'Polovodič typu N má volné elektrony navíc, polovodič typu P má díry navíc.',
+							'Přechod PN propouští proud v propustném směru, ale v závěrném směru proud neprochází.',
+							'Dioda propouští proud jen jedním směrem; LED v propustném zapojení mění elektřinu na světlo.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče — srdce elektroniky', cesta: 'uoLW-OHBDls' },
 					],
