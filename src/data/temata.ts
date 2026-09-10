@@ -1982,6 +1982,14 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Volná (indiferentní)</strong> – těleso zůstává v jakékoli nové poloze (těžiště zůstává ve stejné výšce, např. valící se koule)</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Těžiště je bod tělesa, ve kterém si můžeme představit soustředěnou jeho hmotnost a ve kterém působí celková tíhová síla.',
+							'U pravidelných souměrných těles leží těžiště ve středu souměrnosti. U nepravidelných těles ho můžeme určit zavěšením na niti.',
+							'Čím níže a blíže ke středu podstavy těžiště leží, tím je těleso stabilnější.',
+							'Rovnovážná poloha může být stabilní, labilní nebo volná.',
+						],
+					},
 					materialy: [
 					],
 				},
@@ -3181,6 +3189,23 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>nízké c</strong> (kovy): ohřívají i chladnou rychle → dobré tepelné vodiče (žebra chladičů)</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Při dotyku těles s různou teplotou předává teplejší těleso část své vnitřní energie chladnějšímu. Tepelná výměna končí vyrovnáním teplot.',
+							'Teplo Q je energie předaná při tepelné výměně; teplota popisuje stav tělesa.',
+							'Přijaté teplo závisí na hmotnosti tělesa, rozdílu teplot a látce, ze které je těleso.',
+							'Měrná tepelná kapacita c udává, kolik tepla je třeba k ohřátí 1 kg látky o 1 °C.',
+						],
+						vzorec: 'Q = m · c · (t₂ − t₁)      (odvozeně: m = Q : [c · (t₂ − t₁)],  c = Q : [m · (t₂ − t₁)])',
+						jednotky: [
+							'teplo Q — joule (J)',
+							'hmotnost m — kilogram (kg)',
+							'měrná tepelná kapacita c — joule na kilogram a stupeň Celsia (J/(kg·°C))',
+							'počáteční teplota t₁ a konečná teplota t₂ — stupeň Celsia (°C)',
+							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J,  1 kg = 1 000 g',
+							'Do vzorce dosazuj teplo v J, hmotnost v kg, kapacitu v J/(kg·°C) a teploty v °C.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Teplo a teplota (ústřední topení)', cesta: 'YLiXzSWoRRg' },
 					],
@@ -4710,6 +4735,21 @@ export const temata: Record<string, Tema[]> = {
 							<li>Primární cívka má <strong>100 závitů</strong> a napětí <strong>200 V</strong>; sekundární má <strong>500 závitů</strong>. Jaké je výstupní napětí? <details><summary>řešení</summary>k = N₂/N₁ = 500/100 = 5 → U₂ = 5 · 200 = <strong>1 000 V</strong> (transformace nahoru)</details></li>
 						</ol>
 					`,
+					zapis: {
+						body: [
+							'Transformátor mění velikost střídavého napětí a používá se při přenosu elektrické energie.',
+							'Tvoří ho primární a sekundární cívka na společném ocelovém jádře. V sekundární cívce se indukuje střídavé napětí.',
+							'Napětí se mění ve stejném poměru jako počet závitů cívek.',
+							'Při transformaci nahoru napětí roste a proud klesá; při transformaci dolů napětí klesá a proud roste.',
+						],
+						vzorec: 'U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂)',
+						jednotky: [
+							'primární napětí U₁ a sekundární napětí U₂ — volt (V)',
+							'počet závitů primární cívky N₁ a sekundární cívky N₂ — bez jednotky',
+							'1 kV = 1 000 V',
+							'Do vztahu dosazuj obě napětí ve V a počty závitů jako celá čísla.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Transformátor — skrytý motor našeho světa', cesta: 'Zme6eL0Mzr8' },
 					],

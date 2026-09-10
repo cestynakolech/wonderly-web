@@ -12,3 +12,4 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 09:02 CEST — Doplněny zápisy: gravitacni-sila, zakon-zachovani-mechanicke-energie, elektromagneticka-indukce — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 09:23 CEST — Doplněny zápisy: treci-sila, energeticka-hodnota-potravin, vznik-stridaveho-proudu-alternator — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 09:43 CEST — Doplněny zápisy: skladani-sil, vnitrni-energie-telesa, vlastnosti-stridaveho-proudu — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 10:05 CEST — Doplněny zápisy: teziste, tepelna-vymena-a-teplo, transformator — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
