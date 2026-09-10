@@ -2910,6 +2910,14 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Využití</h3>
 						<p>Spojka: lupa, mikroskop, dalekohled, objektiv, brýle. Rozptylka: kukátko, brýle, složitější optické soustavy.</p>
 					`,
+					zapis: {
+						body: [
+							'Čočka je průhledné těleso, které využívá lom světla.',
+							'Spojka je uprostřed nejširší a rovnoběžné paprsky spojuje do skutečného ohniska. Má kladnou ohniskovou vzdálenost i kladný počet dioptrií.',
+							'Rozptylka je uprostřed nejtenčí a rovnoběžné paprsky rozptyluje, jako by vycházely ze zdánlivého ohniska. Má zápornou ohniskovou vzdálenost i záporný počet dioptrií.',
+							'Spojka vytváří obraz podle vzdálenosti předmětu, zatímco rozptylka vytváří vždy obraz zdánlivý, vzpřímený a zmenšený.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Svět skrz čočku', cesta: 'cERyrQE-PBQ' },
 						{ druh: 'video', nazev: 'Píseň: Optická jízda 🎵', cesta: '/materialy/fyzika/7-rocnik/zrcadla-a-cocky/opticka-cocka/pisen-opticka-jizda.mp4' },
@@ -4025,9 +4033,17 @@ export const temata: Record<string, Tema[]> = {
 							<ul>
 								<li><strong>stejnosměrný (DC)</strong> — teče stále stejným směrem; z baterií a akumulátorů. U některých spotřebičů na směru záleží (LED dioda, elektronika), u jiných ne (žárovka)</li>
 								<li><strong>střídavý (AC)</strong> — pravidelně mění směr; z elektráren, máme ho v zásuvce; pohání velké spotřebiče (pračka, fén)</li>
-							</ul>
-						`,
-						odkazy: [
+								</ul>
+								`,
+								zapis: {
+								body: [
+									'Elektrický proud je uspořádaný pohyb volných nabitých částic.',
+									'V kovech proud přenášejí volné elektrony, v roztocích solí a kyselin ionty a za zvláštních podmínek také částice ve vzduchu.',
+									'Proud prochází vodičem, když je mezi jeho konci elektrické napětí. Napětí vzniká rozdílem nábojů a je příčinou elektrického proudu.',
+									'Stejnosměrný proud teče stále stejným směrem, zatímco střídavý proud svůj směr pravidelně mění.',
+								],
+								},
+								odkazy: [
 							{ nazev: 'ČT edu — Elektrický proud a napětí (video, 2 min)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Wordwall — Elektrický proud a napětí, 8. třída (kvíz)', url: 'https://wordwall.net/cs/resource/89308040' },
 						],
@@ -4275,6 +4291,23 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Rezistor</h3>
 							<p><strong>Rezistor</strong> je součástka s přesnou hodnotou odporu — tenký odporový drát (konstantan) navinutý na keramickém válečku. Hodnotu udávají <strong>barevné proužky</strong>. Slouží k <strong>regulaci proudu</strong> v obvodu.</p>
 						`,
+						zapis: {
+							body: [
+								'Odpor vodiče roste s jeho délkou a u kovů také s teplotou.',
+								'Čím je vodič tenčí, tím větší má odpor.',
+								'Odpor závisí i na materiálu, který popisuje měrný odpor neboli rezistivita.',
+								'Rezistor je součástka s daným odporem a používá se k regulaci proudu v obvodu.',
+							],
+							vzorec: 'R = ρ · l : S      (odvozeně: l = R · S : ρ,  S = ρ · l : R,  ρ = R · S : l)',
+							jednotky: [
+								'elektrický odpor R — ohm (Ω)',
+								'měrný odpor ρ — ohmmetr (Ω·m)',
+								'délka vodiče l — metr (m)',
+								'průřez vodiče S — metr čtvereční (m²)',
+								'1 kΩ = 1 000 Ω,  1 MΩ = 1 000 000 Ω; 1 mm² = 0,000 001 m²',
+								'Do vzorce dosazuj v Ω·m, m a m². Při ρ v Ω·mm²/m dosazuj délku v m a průřez v mm².',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Odpor vodiče (Eduportál Techmania)', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/odpor-vodice' },
 						],
@@ -4300,6 +4333,23 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pozor na teplotu</h3>
 							<p>Ohmův zákon platí přesně jen <strong>za stálé teploty</strong>. Odpor kovů s teplotou <strong>roste</strong> (rozžhavené vlákno žárovky), takže tam už proud není přímo úměrný napětí. Výjimkou je slitina <strong>konstantan</strong>, jejíž odpor se s teplotou skoro nemění — proto se z ní dělají rezistory.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrický proud ve vodiči roste přímo úměrně s napětím mezi jeho konci.',
+								'Při stejném napětí prochází vodičem s větším odporem menší proud.',
+								'Odpor lze určit nepřímo tak, že změříme napětí a proud a vypočítáme jejich podíl.',
+								'Ohmův zákon platí přesně jen při stálé teplotě.',
+							],
+							zakon: 'Elektrický proud I procházející vodičem je přímo úměrný napětí U mezi konci vodiče a nepřímo úměrný elektrickému odporu R.',
+							vzorec: 'I = U : R      (odvozeně: U = R · I,  R = U : I)',
+							jednotky: [
+								'elektrický proud I — ampér (A)',
+								'elektrické napětí U — volt (V)',
+								'elektrický odpor R — ohm (Ω)',
+								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω',
+								'Do vzorce dosazuj proud v A, napětí ve V a odpor v Ω.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Pokus: Elektrický proud a Ohmův zákon (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5420-pokus-elektricky-proud-a-ohmuv-zakon' },
 							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
@@ -4328,6 +4378,23 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>nedělí</strong> → dělí se napětí. Nevýhoda série: přeruší-li se jeden spotřebič (vánoční řetěz), <strong>zhasne celý obvod</strong>.</p>
 						`,
+						zapis: {
+							body: [
+								'V sériovém obvodu jsou spotřebiče zapojeny jeden za druhým a obvod se nerozvětvuje.',
+								'Proud se nedělí, proto je ve všech částech sériového obvodu stejný.',
+								'Napětí zdroje se rozdělí mezi spotřebiče; na větším odporu je větší napětí.',
+								'Celkový odpor je součtem odporů jednotlivých spotřebičů.',
+								'Přeruší-li se jeden spotřebič, přestane fungovat celý obvod.',
+							],
+							vzorec: 'I = I₁ = I₂,  U = U₁ + U₂,  R = R₁ + R₂',
+							jednotky: [
+								'elektrický proud I, I₁, I₂ — ampér (A)',
+								'elektrické napětí U, U₁, U₂ — volt (V)',
+								'elektrický odpor R, R₁, R₂ — ohm (Ω)',
+								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω',
+								'Do vztahů dosazuj proud v A, napětí ve V a odpor v Ω.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Sériové a paralelní zapojení — výklad (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
 							{ nazev: 'Sériové a paralelní zapojení v obvodu — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/seriove-a-paralelni-zapojeni-v-obvodu/' },
@@ -6158,9 +6225,26 @@ export const temata: Record<string, Tema[]> = {
 							<li>transformátor: U₂ : U₁ = N₂ : N₁</li>
 							<li>záření α (helium), β (elektrony), γ (elektromagnetické) — ochrana vzdáleností, stíněním a časem</li>
 							<li>1 AU = 150 milionů km; světelný rok = vzdálenost, kterou světlo urazí za rok</li>
-						</ul>
-					`,
-				},
+							</ul>
+							`,
+							zapis: {
+							body: [
+								'Magnetické pole vzniká kolem magnetu, vodiče s proudem i cívky; k tématu patří také elektromagnet.',
+								'Elektromagnetická indukce se využívá v alternátoru a transformátor mění elektrické napětí.',
+								'Elektrický proud mohou vést kapaliny, plyny i polovodiče; k učivu patří také dioda, chemické zdroje a přenos elektrické energie.',
+								'Elektrická energie se přeměňuje na jiné druhy energie a při práci s proudem musíme dodržovat bezpečnost.',
+								'Jaderná fyzika popisuje jádro atomu, radioaktivitu a jadernou energii; mezi další témata patří zdroje energie a sluneční soustava.',
+							],
+							vzorec: 'U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂,  N₂ = N₁ · U₂ : U₁,  N₁ = N₂ · U₁ : U₂)',
+							jednotky: [
+								'vstupní napětí U₁ — volt (V)',
+								'výstupní napětí U₂ — volt (V)',
+								'počet závitů vstupní cívky N₁ — bez jednotky',
+								'počet závitů výstupní cívky N₂ — bez jednotky',
+								'Napětí dosazuj ve stejných jednotkách, obvykle ve voltech; počty závitů jsou celá čísla.',
+							],
+							},
+							},
 			],
 		},
 	],
