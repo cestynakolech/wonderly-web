@@ -14,3 +14,4 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 09:43 CEST — Doplněny zápisy: skladani-sil, vnitrni-energie-telesa, vlastnosti-stridaveho-proudu — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 10:05 CEST — Doplněny zápisy: teziste, tepelna-vymena-a-teplo, transformator — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 10:22 CEST — Doplněny zápisy: pusobeni-teles-a-deformace, tepelny-motor-parni-stroj, prenos-elektricke-energie — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+- 2026-09-10 11:05 CEST — Doplněny zápisy: jednoduche-stroje-paky, spalovaci-motory, vedeni-proudu-v-kapalinach — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).

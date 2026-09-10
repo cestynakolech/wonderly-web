@@ -2080,6 +2080,21 @@ export const temata: Record<string, Tema[]> = {
 						<p>F<sub>2</sub> = (F<sub>1</sub> &middot; a<sub>1</sub>) : a<sub>2</sub> = (20 &middot; 2) : 4 = 10 N</p>
 						<p>Na delší rameno tedy stačí poloviční síla.</p>
 					`,
+					zapis: {
+						body: [
+							'Jednoduché stroje usnadňují práci tím, že umožňují zvedat nebo přemísťovat těžká tělesa menší silou.',
+							'Páka je tuhá tyč, která se otáčí kolem osy otáčení; vzdálenost působiště síly od osy se nazývá rameno síly.',
+							'Čím delší je rameno síly, tím menší síla stačí k vyvážení stejného účinku.',
+							'Páka je v rovnováze, když jsou součiny síly a jejího ramene na obou stranách stejné.',
+						],
+						vzorec: 'F₁ · a₁ = F₂ · a₂      (odvozeně: F₁ = F₂ · a₂ : a₁,  F₂ = F₁ · a₁ : a₂,  a₁ = F₂ · a₂ : F₁,  a₂ = F₁ · a₁ : F₂)',
+						jednotky: [
+							'síly F₁, F₂ — newton (N)',
+							'ramena sil a₁, a₂ — metr (m)',
+							'1 kN = 1 000 N,  1 m = 100 cm',
+							'Do vzorce dosazuj síly v N a obě ramena ve stejné jednotce délky, nejlépe v m.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Páky — nadlidská síla', cesta: 'aXsCK4BXLe4' },
 						{ druh: 'youtube', nazev: 'Video: Páka — opakování', cesta: 'qLAoiYEeaSA' },
@@ -3287,6 +3302,15 @@ export const temata: Record<string, Tema[]> = {
 						<p>Palivo <strong>nafta</strong> (nebo zemní plyn). <strong>Nemá svíčku</strong> — směs se stlačením prudce zahřeje a <strong>sama se vznítí</strong>. Použití: auta, náklaďáky, autobusy, lokomotivy. Účinnost <strong>30–40 %</strong>. Výhody: větší výkon při rozjezdu, nižší spotřeba; nevýhody: těžší, dražší, více emisí (filtr pevných částic), často turbodmychadlo.</p>
 						<p>👉 Každý motor je nutné <strong>nastartovat</strong> (roztočit setrvačník), <strong>chladit</strong> (voda/vzduch) a <strong>mazat</strong> olejem.</p>
 					`,
+					zapis: {
+						body: [
+							'Spalovací motor získává teplo spalováním paliva uvnitř motoru a mění chemickou energii na tepelnou a pohybovou.',
+							'Píst se pohybuje ve válci a přes klikový hřídel pohání kola; přívod směsi a odvod spalin řídí ventily.',
+							'Čtyřtaktní zážehový motor pracuje ve čtyřech taktech: sání, stlačení, výbuch a rozpínání, výfuk.',
+							'Zážehový motor spaluje benzín a směs zapaluje svíčka, vznětový motor spaluje naftu a palivo se vznítí stlačením.',
+							'Motor je nutné nastartovat, chladit a mazat olejem.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Techmania — Čtyřdobý zážehový motor', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/ctyrdoby-zazehovy-motor' },
 						{ nazev: 'Wordwall — kvíz Spalovací motory', url: 'https://wordwall.net/cs/resource/108360943/spalovací-motory-kviz' },
@@ -4837,6 +4861,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>pokovování</strong> — pozlacení, pochromování, pozinkování (kvůli vzhledu, ceně a ochraně proti korozi).</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Destilovaná voda elektrický proud nevede, ale roztoky solí, kyselin a zásad jsou vodivé elektrolyty.',
+							'V roztoku soli vznikají kladné kationty a záporné anionty.',
+							'Elektrický proud v elektrolytu tvoří usměrněný pohyb iontů: kationty míří ke katodě a anionty k anodě.',
+							'Elektrolýza je děj, při kterém průchod proudu elektrolytem způsobuje látkové změny.',
+							'Elektrolýza se využívá k výrobě čistých látek a k pokovování.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Vedení proudu v kapalinách', cesta: 'D_aMAsD-EKM' },
 					],
