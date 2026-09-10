@@ -306,7 +306,51 @@ a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobr
   (cron v danou hodinu spustí novou session). Nová trvalá konfigurace → jen se souhlasem.
 
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
-(zatím nic — pravidlo: po 3 neúspěšných pokusech změny vrátit, sem zapsat co selhalo a co bylo vyzkoušeno, a vzít další úkol z fronty)
+
+### Polemika F7 „Klid a pohyb tělesa" — zvuk nejde vyrobit z účtu radek_soukromy (10. 9. 2026)
+
+**Hotovo a připraveno k převzetí** (nic z toho se neztratilo):
+- tři scénáře trojice v `~/Desktop/Omega/podkasty-scenare/7/`:
+  `klid-a-pohyb-telesa-relativnost-dialog`, `-trajektorie-dialog`, `-draha-dialog`
+  (2 872 / 2 783 / 2 644 znaků, tedy pod stropem 4 700)
+- ke každému hotový `.scenosled.json` se štítkem `"skupina": "klid-a-pohyb-telesa-7"`
+- **pokrytí kvízu 21 z 21 otázek doloženo**; brána sama hlásí 19, protože jí u dvou
+  otázek chybí model (viz nález níže) — doplňkové posouzení udělal `qwen3:8b`
+  a bylo ověřeno obousměrně (ANO na to, co ve scénáři je; NE na jednotku síly
+  a hustotu, které tam nejsou)
+- nezávislý kontrolor scénářů: 2 nálezy, oba opraveny (krkolomná věta, foneticky
+  nesmyslný omyl „es jako sto" nahrazen typickou žákovskou chybou „dé jako dráha")
+
+**Na čem to stojí — dvě nezávislé překážky, obě mimo dosah této session:**
+1. `vyrob_omnivoice.py` ukládá zvuk do `/Users/Shared/Škola/podkasty/<rocnik>/`.
+   Ta složka patří účtu **radekmicek** (`drwxr-xr-x radekmicek wheel`) a z účtu
+   `radek_soukromy` do ní zapsat nejde — `PermissionError` už při `mkdir`.
+   Složka `podkasty` navíc zatím vůbec neexistuje.
+2. Most na druhý účet (`/Users/Shared/Claude-most/`), kterým by se práce dala
+   předat, **neexistuje** — takže ani obchvat není otevřený.
+
+**Vyzkoušeno (2 různé přístupy, dál se netočím):** přímá výroba pod tímto účtem
+(napoprvé zastavena pojistkou paměti — správně, model `qwen3:8b` držel 11 GB;
+po jeho uvolnění selhala na právech) · předání přes most (most není).
+
+**Zbývá dodělat, až bude cesta otevřená:** zvuk 3 dílů · 12 nových schémat
+(k tématu klid/pohyb/trajektorie/dráha neexistuje ani jedno z 307 hotových —
+názvy kreseb jsou už zapsané ve scénosledech) · videa · nahrání do R2 · zápis
+do `temata.ts`.
+
+**Rozhodnout musí učitel:** má se výroba zvuku dělat z účtu `radekmicek`, nebo
+se má složce `/Users/Shared/Škola/podkasty` nastavit zápis i pro `radek_soukromy`?
+(Změna práv je zásah do systému, proto se neudělala sama.)
+
+### Nález u brány `pokryti_kvizu.py` — nikdy se nezeptá modelu (10. 9. 2026)
+Brána volá `~/bin/ask-local`, jenže **ten soubor neexistuje** (ověřeno `find`
+přes ~/bin, Omegu i /Users/Shared). Každá otázka, která neprojde porovnáním slov,
+proto vždy propadne jako nepokrytá — hlášku „lokální model není k dispozici, beru
+jako nepokryté" nelze odlišit od skutečné díry. Druhá vada: `MODEL = "gemma4:26b"`,
+ale ten model na mini vůbec není stažený (`ollama list`: bge-m3, llama3.1,
+qwen3:8b, gpt-oss:20b) a s 24 GB RAM by se tam podle pravidla přesnosti ani
+neměl cpát. Dokud se obojí nespraví, hlásí brána falešné díry — u této trojice
+2 z 21. Oprava je zásah do měřidla, patří k ní obousměrný důkaz.
 
 > Hotové logy dávek revize starších simulací (22. 8. 2026, 37/37 dokončeno) přesunuty do archivu.
 
