@@ -2134,6 +2134,21 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zlaté pravidlo mechaniky</h3>
 						<p>U každého jednoduchého stroje platí: <strong>kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat.</strong> Práci si nikdy neušetříme — jen ji rozložíme pohodlněji.</p>
 					`,
+					zapis: {
+						body: [
+							'Kladka je kolo s drážkou pro lano a patří mezi jednoduché stroje.',
+							'Pevná kladka nemění velikost síly, ale mění směr tahu.',
+							'Volná kladka zmenší potřebnou sílu na polovinu, ale musíme vytáhnout dvakrát delší lano.',
+							'V kladkostroji platí: kolik částí lana nese břemeno, tolikrát menší silou ho zvedáme.',
+						],
+						vzorec: 'pevná kladka: F = F_G; volná kladka: F = F_G : 2      (odvozeně pro volnou: F_G = 2 · F)',
+						jednotky: [
+							'síla tahu F — newton (N)',
+							'tíhová síla F_G — newton (N)',
+							'1 kN = 1 000 N',
+							'Do vztahů dosazuj obě síly v newtonech (N).',
+						],
+					},
 					materialy: [
 						{
 							druh: 'video',
@@ -3344,6 +3359,15 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>💡 U některých látek se pevné skupenství mění <strong>rovnou na plynné</strong> — to je <strong>sublimace</strong> (např. jód, tvorba ohonu komet); opačný děj je <strong>desublimace</strong>.</p>
 					`,
+					zapis: {
+						body: [
+							'Látky se běžně vyskytují v pevném, kapalném a plynném skupenství.',
+							'Částice pevné látky kmitají kolem stálých poloh, částice kapaliny po sobě kloužou a částice plynu jsou daleko od sebe.',
+							'Při dodávání tepla probíhá tání, vypařování nebo var; při odebírání tepla probíhá kapalnění a tuhnutí.',
+							'Sublimace je přímá změna pevné látky na plyn a opačný děj se nazývá desublimace.',
+							'Změny skupenství ovlivňuje hlavně teplota, ale také vnější tlak.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Změny skupenství — tuhnutí, tání, var, kondenzace, sublimace (OnlineSchool.cz)', url: 'https://onlineschool.cz/fyzika/zmeny-skupenstvi/' },
 						{ nazev: 'Skupenství látek (Fyzika na Vltavě)', url: 'https://www.zsvltava.cz/fyzika/?p=253' },
@@ -3745,9 +3769,18 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Baterie nepatří do koše.</strong> Obsahují těžké kovy, které by se dostaly
 							do půdy a vody. Sběrné nádoby jsou ve školách, obchodech i na obecních úřadech —
 							a kovy z nich se dají použít znovu.</li>
-						</ul>
-						`,
-						odkazy: [
+							</ul>
+							`,
+							zapis: {
+							body: [
+							'Galvanický článek vytváří elektrické napětí chemickou reakcí dvou různých elektrod v elektrolytu.',
+							'Na jedné elektrodě se hromadí elektrony a vzniká záporný pól, na druhé elektrony ubývají a vzniká kladný pól.',
+							'Články zapojené za sebou mají napětí rovné součtu napětí jednotlivých článků.',
+							'Jednorázová baterie se nedobíjí, zatímco akumulátor lze opakovaně nabíjet.',
+							'Vybité baterie nepatří do koše a jejich svorky se nikdy nesmějí zkratovat.',
+							],
+							},
+							odkazy: [
 							{ nazev: 'Pokusy: Baterky (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5462-pokusy-baterky' },
 							{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
 							{ nazev: 'Jak probíhá recyklace baterií (ECOBAT)', url: 'https://www.ecobat.cz/jak-probiha-recyklace-baterii/' },
