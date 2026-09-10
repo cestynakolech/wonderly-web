@@ -2576,6 +2576,14 @@ export const temata: Record<string, Tema[]> = {
 							<li>baňka žárovky, vakuově balené potraviny, vesmírný prostor</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Přetlak je stav, kdy je v uzavřené nádobě větší tlak než v okolí. Vytváří ho například hustilka nebo kompresor a měří ho manometr.',
+							'Podtlak vzniká, když je tlak uvnitř menší než v okolí. Okolní vzduch pak proudí dovnitř, například při pití brčkem nebo práci vysavače.',
+							'Vakuum je prostor, ze kterého je téměř všechen vzduch odčerpán vývěvou. Dokonalé fyzikální vakuum neexistuje.',
+							'Jeden bar odpovídá 100 000 Pa a přibližně tlaku jedné atmosféry.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Neviditelná síla tlaku', cesta: 'vWIJeVNdiyM' },
 						{ druh: 'video', nazev: 'Píseň: Podtlak & mrak 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum/pisen-podtlak-a-mrak.mp4' },
@@ -4498,6 +4506,15 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>Obor fyziky, který zkoumá vznik, šíření a vnímání zvuku, se nazývá <strong>akustika</strong>.</p>
 					`,
+					zapis: {
+						body: [
+							'Zvuk je mechanické vlnění, které vzniká chvěním těles a vnímáme ho sluchem.',
+							'Zvuk se šíří jen látkovým prostředím. Ve vakuu se nešíří, protože v něm nejsou částice.',
+							'Frekvence udává počet kmitů za jednu sekundu a určuje výšku tónu. Nízká frekvence znamená hluboký tón, vysoká frekvence vysoký tón.',
+							'Zvuk se šíří nejrychleji v pevných látkách a nejpomaleji v plynech. Ve vzduchu má rychlost přibližně 340 m/s.',
+							'Ozvěna je odražený zvuk, který uslyšíme odděleně od původního zvuku.',
+						],
+					},
 					materialy: [
 						{
 							druh: 'youtube',
@@ -5541,6 +5558,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Utěsnit a opravit dům</strong> — uzavřít praskliny v podlaze a odvést radon mimo dům</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Radioaktivita je samovolný rozpad nestabilních jader, při kterém vzniká ionizující záření. Tento rozpad nelze ovlivnit.',
+							'Záření alfa zastaví list papíru, záření beta hliníkový plech a pronikavé záření gama silná vrstva olova nebo betonu.',
+							'Poločas rozpadu je doba, za kterou se rozpadne polovina jader radionuklidu.',
+							'Před zářením se chráníme stíněním, bezpečnou vzdáleností a zkrácením doby vystavení.',
+							'Radon je přírodní radioaktivní plyn, který může pronikat do domů. Jeho množství zjistíme jen měřením a snižujeme ho větráním a utěsněním domu.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Radioaktivita — neviditelná síla', cesta: '8QArttMYsHA' },
 					],
