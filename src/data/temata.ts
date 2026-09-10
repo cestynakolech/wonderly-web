@@ -5733,7 +5733,7 @@ export const temata: Record<string, Tema[]> = {
 							'Jaderný reaktor je zařízení, ve kterém probíhá řízená řetězová reakce.',
 							'Palivo obsahuje uran 235, moderátor zpomaluje neutrony, chladivo odvádí teplo a regulační tyče řídí výkon reaktoru.',
 							'V jaderné elektrárně teplo vytvoří páru, která roztáčí turbínu s generátorem a vzniká elektřina.',
-							'Vodní tlaková elektrárna má tři oddělené vodní okruhy: primární, sekundární a terciární.',
+							'Jaderná elektrárna s vodním tlakovým reaktorem má tři oddělené vodní okruhy: primární, sekundární a terciární.',
 							'Jaderná elektrárna spotřebuje málo paliva, ale vyhořelé radioaktivní palivo se musí dlouhodobě bezpečně skladovat.',
 						],
 					},
