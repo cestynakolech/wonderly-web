@@ -1736,6 +1736,22 @@ export const temata: Record<string, Tema[]> = {
 							<li>Letadlo uletělo 650 km za 1 h 18 min. <details><summary>řešení</summary>18 min = 0,3 h → celkem 1,3 h; v = 650 / 1,3 = <strong>500 km/h</strong> (zkouška: 1,3 · 500 = 650). ⚠️ Častá chyba: dělit jen 0,3 h — vyšlo by přes 2 000 km/h!</details></li>
 						</ol>
 					`,
+					zapis: {
+						body: [
+							'Průměrnou rychlost vypočítáme tak, že celkovou dráhu vydělíme celkovým časem.',
+							'Před výpočtem převedeme čas na jednu jednotku, například minuty na hodiny nebo sekundy.',
+							'Výsledek zapisujeme v km/h nebo m/s podle jednotek dráhy a času.',
+							'U rovnoměrného pohybu je graf rychlosti vodorovná přímka a graf dráhy stoupající přímka.',
+						],
+						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)',
+						jednotky: [
+							'rychlost v — kilometr za hodinu (km/h) nebo metr za sekundu (m/s)',
+							'dráha s — kilometr (km) nebo metr (m)',
+							'čas t — hodina (h) nebo sekunda (s)',
+							'1 h = 60 min = 3 600 s,  1 km = 1 000 m',
+							'Dosazuj odpovídající jednotky: km a h pro km/h, m a s pro m/s.',
+						],
+					},
 					materialy: [
 						{
 							druh: 'infografika',
@@ -2892,6 +2908,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>značka <strong>E</strong>, jednotka <strong>joule (J)</strong> — stejná jako u práce; u elektrické energie také Wh a kWh</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Energie vyjadřuje schopnost tělesa konat práci a vykonaná práce se může uložit jako energie.',
+							'Energie se může přeměňovat z jednoho druhu na jiný.',
+							'Mezi druhy energie patří mechanická, chemická, elektrická, magnetická, světelná, jaderná a tepelná energie.',
+							'Energie má značku E a její jednotkou je joule (J); elektrická energie se udává také ve Wh a kWh.',
+						],
+						zakon: 'Energii nelze vytvořit ani zničit — může se jen přeměňovat z jednoho druhu na jiný.',
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
@@ -4343,6 +4368,14 @@ export const temata: Record<string, Tema[]> = {
 							<li>oční lékařství — vytahování kovových pilin z oka.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Elektromagnet je cívka s jádrem z magneticky měkké oceli.',
+							'Po zapnutí proudu se jádro rychle zmagnetuje a po vypnutí proudu jeho magnetické pole rychle zaniká.',
+							'Čím více závitů cívka má a čím větší proud jí prochází, tím silnější je magnetické pole.',
+							'Elektromagnet lze zapnout, vypnout i přepólovat; využívá se například v jeřábech, elektromotorech, jističích, zvoncích a relé.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Elektromagnet, elektromotor — kvíz (Wordwall)', url: 'https://wordwall.net/resource/100782493/fyzika/elektromagnet-elektromotor' },
 					],
