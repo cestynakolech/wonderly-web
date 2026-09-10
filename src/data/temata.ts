@@ -2203,6 +2203,24 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Shrnutí</h3>
 						<p>Nakloněná rovina je jednoduchý stroj, který nahrazuje svislé zvedání břemene tažením po šikmé ploše. Platí vztah F = G &middot; h : l: čím delší a mírnější je rovina, tím menší síla stačí — ale dráha, kterou musíme urazit, se úměrně prodlouží. Práci si nikdy neušetříme, jen ji „rozprostřeme" na delší dráhu s menší silou.</p>
 					`,
+					zapis: {
+						body: [
+							'Nakloněná rovina je jednoduchý stroj, po kterém zvedáme nebo spouštíme břemeno.',
+							'Při stejné výšce potřebujeme na delší a mírnější rovině menší sílu, ale urazíme delší dráhu.',
+							'Nakloněná rovina práci neušetří, pouze ji rozloží na menší sílu a delší dráhu.',
+							'Ve skutečnosti potřebnou sílu zvětšuje tření; ve výpočtech uvažujeme ideální rovinu bez tření.',
+						],
+						zakon: 'Zlaté pravidlo mechaniky: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.',
+						vzorec: 'F = G · h : l      (odvozeně: l = G · h : F,  h = F · l : G,  G = F · l : h)',
+						jednotky: [
+							'síla F — newton (N)',
+							'tíha břemene G — newton (N)',
+							'výška h — metr (m)',
+							'délka nakloněné roviny l — metr (m)',
+							'1 kN = 1 000 N,  1 m = 100 cm',
+							'Do vzorce dosazuj síly v N a délky v m.',
+						],
+					},
 				},
 			],
 		},
@@ -3397,6 +3415,22 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Skupenské teplo tání</h3>
 						<p>Teplo potřebné, aby látka roztála; nemění teplotu, jen uvolní částice. <strong>L<sub>t</sub> = l<sub>t</sub> · m</strong> (l<sub>t</sub> = měrné skupenské teplo tání, J/kg). Pro led je l<sub>t</sub> = <strong>332 kJ/kg</strong>. Měrné teplo tání a tuhnutí téže látky je stejné.</p>
 					`,
+					zapis: {
+						body: [
+							'Tání je změna pevné látky na kapalinu; u kovů se nazývá tavení.',
+							'Látka začne tát po dosažení teploty tání, která je pro každou látku jiná.',
+							'Během tání se teplota nemění, dokud se všechna pevná látka nepřemění na kapalinu.',
+							'Dodané skupenské teplo při tání uvolňuje částice z vazeb, ale nezvyšuje jejich teplotu.',
+						],
+						vzorec: 'Lₜ = lₜ · m      (odvozeně: lₜ = Lₜ : m,  m = Lₜ : lₜ)',
+						jednotky: [
+							'skupenské teplo tání Lₜ — joule (J)',
+							'měrné skupenské teplo tání lₜ — joule na kilogram (J/kg)',
+							'hmotnost m — kilogram (kg)',
+							'1 kJ = 1 000 J',
+							'Do vzorce dosazuj teplo v J, měrné skupenské teplo v J/kg a hmotnost v kg.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
 						{ nazev: 'Fyzika 8. ročník, změny skupenství (Wordwall)', url: 'https://wordwall.net/cs/resource/42774194/fyzika-8-ro%C4%8Dn%C3%ADk-zm%C4%9Bny-skupenstv%C3%AD' },
@@ -4973,6 +5007,23 @@ export const temata: Record<string, Tema[]> = {
 						<li>Kolik plochých baterií (4,5 V) musíš spojit za sebou, aby dohromady daly napětí 18 V? <details><summary>řešení</summary>n = 18 : 4,5 = <strong>4 ploché baterie</strong></details></li>
 						</ol>
 					`,
+					zapis: {
+						body: [
+							'Chemický zdroj napětí tvoří elektrolyt a dvě elektrody z různých materiálů.',
+							'Chemické reakce vytvoří mezi elektrodami elektrické napětí; u vybíjejícího se článku je anoda záporná a katoda kladná.',
+							'Vně článku proud vedou elektrony v drátu, uvnitř článku se v elektrolytu pohybují kladné i záporné ionty.',
+							'Napětí článku určuje dvojice materiálů, ne jeho velikost; větší článek má větší kapacitu a déle vydrží.',
+							'Sériovým zapojením článků se jejich napětí sčítají.',
+						],
+						vzorec: 'U = n · U₁      (odvozeně: n = U : U₁,  U₁ = U : n)',
+						jednotky: [
+							'celkové napětí U — volt (V)',
+							'napětí jednoho článku U₁ — volt (V)',
+							'počet článků n — bez jednotky',
+							'1 kV = 1 000 V,  1 V = 1 000 mV',
+							'Do vzorce dosazuj obě napětí ve voltech; počet článků je celé číslo.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Chemické zdroje elektrického napětí', cesta: 'wC1cAYJitUk' },
 					],
