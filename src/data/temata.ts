@@ -4420,6 +4420,23 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Pomůcka</h3>
 							<p>Když se proud <strong>dělí</strong> → napětí se nedělí. Výhoda paralelu: když jeden spotřebič vypadne, <strong>ostatní fungují dál</strong>.</p>
 						`,
+						zapis: {
+							body: [
+								'V paralelním obvodu je každý spotřebič připojen přímo ke zdroji a vodiče se spojují v uzlech.',
+								'Napětí na všech větvích je stejné jako napětí zdroje.',
+								'V uzlu se proud rozdělí do větví; větším odporem prochází menší proud.',
+								'Celkový odpor paralelního zapojení je menší než nejmenší z odporů ve větvích.',
+							],
+							zakon: 'Proud, který přitéká do uzlu, se rozdělí do větví: I = I₁ + I₂.',
+							vzorec: 'U = U₁ = U₂,  I = I₁ + I₂,  1 : R = 1 : R₁ + 1 : R₂',
+							jednotky: [
+								'elektrické napětí U, U₁, U₂ — volt (V)',
+								'elektrický proud I, I₁, I₂ — ampér (A)',
+								'elektrický odpor R, R₁, R₂ — ohm (Ω)',
+								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω',
+								'Do vztahů dosazuj proud v A, napětí ve V a odpor v Ω.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Sériové a paralelní zapojení (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
 						],
@@ -4458,6 +4475,23 @@ export const temata: Record<string, Tema[]> = {
 							<h3>Využití dnes</h3>
 							<p>Čisté reostaty se dnes kvůli ztrátám teplem používají málo — nahradily je elektronické součástky (tranzistory, triaky), které teplo neplýtvají. Potenciometry se naopak používají běžně: jako <strong>otočný knoflík hlasitosti</strong> u starších zesilovačů a rádií, jako <strong>snímač polohy plynového pedálu</strong> v autech nebo páky u herních ovladačů. Stmívače světel dnes obvykle pracují na jiném principu (elektronicky spínají proud), ale staré typy stmívačů fungovaly přímo jako reostat.</p>
 						`,
+						zapis: {
+							body: [
+								'Rezistor s proměnným odporem má odporový drát a jezdec, jehož posunem měníme délku zapojeného drátu.',
+								'Čím delší část drátu je zapojena, tím větší je odpor.',
+								'Reostat reguluje proud, zatímco potenciometr rozděluje napětí.',
+								'Reostat se zahřívá, protože mění část elektrické energie na teplo; příliš velký proud ho může poškodit.',
+							],
+							vzorec: 'I = U : R      (odvozeně: U = I · R,  R = U : I);  P = U · I',
+							jednotky: [
+								'elektrický proud I — ampér (A)',
+								'elektrické napětí U — volt (V)',
+								'elektrický odpor R — ohm (Ω)',
+								'výkon P — watt (W)',
+								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω,  1 kW = 1 000 W',
+								'Do vzorců dosazuj proud v A, napětí ve V, odpor v Ω a výkon ve W.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Reostat, dělič napětí (potenciometr) — F8 (vyuka.p3k.eu)', url: 'https://vyuka.p3k.eu/f8-reostat-delic-napeti-potenciometr/' },
 							{ nazev: 'Rezistory s proměnnou hodnotou (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Rezistory_s_prom%C4%9Bnnou_hodnotou' },
@@ -4509,6 +4543,24 @@ export const temata: Record<string, Tema[]> = {
 							(5 hodin denně) je to <strong>1,5 kWh</strong> místo 15 kWh — <strong>desetina</strong>.
 							A přebytek u staré žárovky nezmizel: <strong>topil ti do pokoje</strong>.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrický proud přenáší energii ze zdroje ke spotřebiči a síly elektrického pole přitom konají elektrickou práci.',
+								'Ve spotřebiči se elektrická energie mění například na pohyb, teplo, světlo nebo chemickou energii.',
+								'Příkon udává, kolik energie spotřebič odebírá ze sítě za sekundu; užitečný výkon je menší kvůli ztrátám.',
+								'Spotřebu elektřiny v domácnosti počítáme v kilowatthodinách.',
+							],
+							vzorec: 'P₀ = U · I;  W = P₀ · t = U · I · t      (odvozeně: t = W : P₀,  P₀ = W : t)',
+							jednotky: [
+								'elektrická práce a energie W — joule (J) nebo kilowatthodina (kWh)',
+								'příkon P₀ — watt (W)',
+								'elektrické napětí U — volt (V)',
+								'elektrický proud I — ampér (A)',
+								'čas t — sekunda (s), při výpočtu v kWh hodina (h)',
+								'1 Wh = 3 600 J,  1 kWh = 1 000 Wh = 3 600 000 J,  1 kW = 1 000 W',
+								'Pro výsledek v J dosazuj příkon ve W a čas v s; pro výsledek v kWh příkon v kW a čas v h.',
+							],
+						},
 						materialy: [
 							{ druh: 'youtube', nazev: 'Video: Elektrická práce, výkon a účinnost spotřebičů', cesta: 'jPZ2a2J8MHc' },
 						],
