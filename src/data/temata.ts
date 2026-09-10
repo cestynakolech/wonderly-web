@@ -2711,6 +2711,21 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Zrcadla</h3>
 						<p>Tělesa s hladkým lesklým povrchem (vyleštěný kov chráněný sklem). Podle tvaru: <strong>rovinná, kulová, válcová</strong>.</p>
 					`,
+					zapis: {
+						body: [
+							'Při dopadu světla na rozhraní může nastat odraz, lom nebo pohlcení světla.',
+							'Na nerovném povrchu se světlo rozptyluje, zatímco na rovném lesklém povrchu zůstává odražený svazek rovnoběžný.',
+							'Úhel dopadu i úhel odrazu měříme od kolmice k ploše v bodě dopadu.',
+							'Dopadající paprsek, odražený paprsek a kolmice dopadu leží v jedné rovině.',
+						],
+						zakon: 'Úhel odrazu je roven úhlu dopadu.',
+						vzorec: 'α′ = α',
+						jednotky: [
+							'úhel dopadu α — stupeň (°)',
+							'úhel odrazu α′ — stupeň (°)',
+							'Oba úhly dosazuj ve stupních (°) a měř je od kolmice dopadu.',
+						],
+					},
 					materialy: [
 					],
 				},
@@ -4665,6 +4680,15 @@ export const temata: Record<string, Tema[]> = {
 							<li>rychlost zvuku ve vzduchu ≈ 340 m/s</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Mechanická práce závisí na síle a dráze, výkon vyjadřuje práci vykonanou za určitý čas.',
+							'Energie může být pohybová, polohová nebo vnitřní; při přeměnách platí zákon zachování energie.',
+							'Teplo souvisí s tepelnou výměnou a změnami skupenství: táním, tuhnutím, vypařováním, varem a kondenzací.',
+							'V elektrických obvodech měříme proud a napětí, pracujeme s odporem a Ohmovým zákonem a rozlišujeme sériové a paralelní zapojení.',
+							'Zvuk vzniká kmitáním, šíří se vlněním a jeho hlasitost vyjadřujeme v decibelech.',
+						],
+					},
 				},
 			],
 		},
@@ -5799,6 +5823,14 @@ export const temata: Record<string, Tema[]> = {
 							ne ji sám „zadarmo" dodat jako slunce nebo vítr.</details></li>
 						</ol>
 					`,
+					zapis: {
+						body: [
+							'Obnovitelné zdroje se doplňují tak rychle, jak je stačíme využívat; patří mezi ně sluneční záření, vítr, voda, geotermální teplo a biomasa.',
+							'Neobnovitelné zdroje jsou v omezeném množství a postupně se vyčerpají; patří mezi ně fosilní paliva a jaderné palivo.',
+							'Výkon slunečních a větrných elektráren závisí na počasí a elektřina se ve velkém špatně skladuje.',
+							'Přečerpávací elektrárna ukládá přebytečnou energii čerpáním vody do horní nádrže a podle potřeby ji získává zpět přes turbínu s generátorem.',
+						],
+					},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Od uhlí ke hvězdám 🎵', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/pisen-od-uhli-ke-hvezdam.m4a' },
 					],
