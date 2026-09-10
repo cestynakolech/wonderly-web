@@ -67,7 +67,10 @@ for (const radek of cti('src/data/temata.ts').split('\n')) {
 const chybejici = (p) => {
 	const chybi = []
 	if (!/^\t+zapis\s*:/m.test(p.blok)) chybi.push('zápis')
-	if (!/^\t{5}interakce2?\s*:/m.test(p.blok)) chybi.push('animace')
+	// {5,6} ze stejného důvodu jako u slugu výše: téma „elektřina" v 8. ročníku
+	// je odsazené o tabulátor hlouběji. S pevnou pětkou hlásil soupis chybějící
+	// animaci u 14 podtémat, která ji mají — falešné díry, ne skutečné.
+	if (!/^\t{5,6}interakce2?\s*:/m.test(p.blok)) chybi.push('animace')
 	if (!/druh:\s*'audio'|nazev:\s*'Pís/i.test(p.blok)) chybi.push('písnička')
 	if (!/cesta:\s*'[^']*polemika-/.test(p.blok)) chybi.push('polemika')
 	if (!maKviz.has(p.klic)) chybi.push('kvíz')
