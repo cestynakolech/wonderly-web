@@ -3146,7 +3146,7 @@ export const temata: Record<string, Tema[]> = {
 							'Těleso koná práci, když na jiné těleso působí silou a to se posune ve směru síly. Musí platit obě podmínky zároveň.',
 							'Když těleso jen držíme a nepohne se, práci nekonáme.',
 							'Práci může konat i silové pole — třeba gravitační síla, když jablko spadne ze stromu.',
-							'Práce je tím větší, čím větší silou působíme a čím delší dráhu těleso urazí.',
+							'Práce je tím větší, čím větší silou působíme a čím delší dráhu ve směru síly těleso urazí.',
 						],
 						vzorec: 'W = F · s      (odvozeně: s = W : F,  F = W : s)',
 						jednotky: [
