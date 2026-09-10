@@ -1638,19 +1638,19 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					zapis: {
 						body: [
-							'Pro rovnoměrný pohyb platí vztah mezi rychlostí, dráhou a časem.',
-							'Rychlost vypočítáme jako dráhu děleno časem.',
-							'Rychlost se udává v m/s nebo v km/h; mezi jednotkami se násobí nebo dělí číslem 3,6, desetinná čárka se neposouvá.',
-							'Okamžitá rychlost ukazuje, jak rychle se těleso pohybuje právě teď, průměrná rychlost je celková dráha děleno celkový čas.',
+							'Rychlost udává, jakou dráhu těleso urazí za určitý čas.',
+							'Při rovnoměrném pohybu urazí těleso za stejné doby vždy stejné dráhy a jeho rychlost se nemění.',
+							'Okamžitá rychlost popisuje pohyb právě teď, průměrná rychlost je celková dráha dělená celkovým časem.',
 							'Rovnoměrný pohyb má v grafu dráhy na čase přímku, nerovnoměrný pohyb přímku nemá; nerovnoměrný pohyb může být zrychlený nebo zpomalený.',
+							'Rychlost se udává v m/s nebo v km/h; mezi jednotkami se násobí nebo dělí číslem 3,6, desetinná čárka se neposouvá.',
 						],
 						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)',
 						jednotky: [
-							'rychlost v — metr za sekundu (m/s)',
-							'dráha s — metr (m)',
-							'čas t — sekunda (s)',
-							'1 m/s = 3,6 km/h,  z km/h na m/s děl 3,6, z m/s na km/h násob 3,6',
-							'Do vzorce dosazuj vždy v základních jednotkách: dráhu v metrech, čas v sekundách — rychlost pak vyjde v m/s.',
+							'rychlost v — metr za sekundu (m/s) nebo kilometr za hodinu (km/h)',
+							'dráha s — metr (m) nebo kilometr (km)',
+							'čas t — sekunda (s) nebo hodina (h)',
+							'1 km = 1 000 m,  1 h = 3 600 s; z km/h na m/s děl 3,6, z m/s na km/h násob 3,6',
+							'Do vzorce dosazuj jednotky ve shodné soustavě: m a s pro výsledek v m/s, nebo km a h pro výsledek v km/h.',
 						],
 					},
 					materialy: [
@@ -2847,20 +2847,21 @@ export const temata: Record<string, Tema[]> = {
 					`,
 					zapis: {
 						body: [
-							'Výkon vyjadřuje, jak rychle se práce koná — jak velkou práci vykonáme za 1 sekundu.',
+							'Výkon udává, jak rychle se koná práce, tedy jak velká práce se vykoná za jednu sekundu.',
 							'Dva stroje mohou vykonat stejnou práci, ale ten s větším výkonem ji zvládne za kratší čas.',
+							'Těleso s výkonem 1 W vykoná za 1 s práci 1 J.',
+							'Elektrická práce neboli spotřebovaná energie se často udává v kilowatthodinách.',
 							'Značka výkonu je velké P, jednotkou je watt (W); pozor, malé p je značka tlaku.',
-							'Elektrické spotřebiče mají práci (spotřebovanou energii) uvedenou v kilowatthodinách.',
 						],
 						vzorec: 'P = W : t      (odvozeně: W = P · t,  t = W : P)      P = F · v',
 						jednotky: [
 							'výkon P — watt (W)',
-							'práce W — joule (J); pozor, písmeno W je zároveň značka práce i jednotka watt — poznáš je podle toho, že jednotka stojí až za číslem (W = 60 J, P = 60 W)',
+							'práce W — joule (J); pozor, písmeno W je zároveň značka práce i jednotka watt — pozná se podle polohy: jednotka stojí až za číslem (W = 60 J, P = 60 W)',
 							'čas t — sekunda (s)',
-							'síla F — newton (N),  rychlost v — metr za sekundu (m/s)',
+							'síla F — newton (N), rychlost v — metr za sekundu (m/s)',
 							'1 kW = 1 000 W,  1 MW = 1 000 000 W',
 							'1 kWh = 3 600 000 J,  1 hp (koňská síla) = 0,735 kW',
-							'Do vzorce dosazuj vždy v základních jednotkách: práci v J, čas v s.',
+							'Do vzorce dosazuj v základních jednotkách: práci v J a čas v s; výkon vyjde ve W.',
 						],
 					},
 					odkazy: [
@@ -4309,10 +4310,10 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {
 						body: [
 							'Kolem vodiče, kterým prochází elektrický proud, vzniká magnetické pole; objevil ho roku 1820 H. Ch. Oersted.',
-							'Magnetické indukční čáry kolem přímého vodiče mají tvar soustředných kružnic se středem ve vodiči.',
-							'Dva rovnoběžné vodiče se stejným směrem proudu se přitahují, s opačným směrem se odpuzují; toho využívají elektromotory.',
+							'Indukční čáry kolem přímého vodiče mají tvar soustředných kružnic; směr pole u vodiče i u cívky určíme pravidlem pravé ruky.',
+							'Na vodič s proudem I působí magnetické pole silou, tím větší, čím větší je proud a silnější pole. Proto se dva rovnoběžné vodiče se stejným směrem proudu přitahují a s opačným odpuzují; toho využívají elektromotory.',
 							'Cívka je vodič navinutý do mnoha závitů; chová se jako tyčový magnet, nejsilnější pole má uvnitř a se železným jádrem je pole ještě silnější.',
-							'Směr magnetického pole u vodiče i u cívky určíme pravidlem pravé ruky.',
+							'Když obrátíme směr proudu, póly cívky se prohodí.',
 						],
 						zakon: 'Pravidlo pravé ruky: u přímého vodiče palec míří po směru proudu a zahnuté prsty ukazují směr indukčních čar kolem vodiče; u cívky prsty směřují po směru proudu v závitech a odtažený palec ukazuje k severnímu pólu cívky.',
 						jednotky: [
