@@ -1524,11 +1524,6 @@ export const temata: Record<string, Tema[]> = {
 							'Trajektorie je čára, po které se těleso pohybuje, a dráha je délka této trajektorie.',
 							'Podle tvaru trajektorie rozlišujeme pohyb přímočarý a křivočarý.',
 						],
-						jednotky: [
-							'dráha s — metr (m)',
-							'1 km = 1 000 m,  1 m = 100 cm',
-							'V tomto tématu nepoužíváme výpočetní vzorec; dráhu zapisujeme v metrech.',
-						],
 					},
 					materialy: [
 						{
@@ -5029,10 +5024,6 @@ export const temata: Record<string, Tema[]> = {
 							'Magnetické pole vzniká v okolí magnetu a jeho přítomnost zjistíme magnetkou.',
 							'Magnetické indukční čáry jsou uzavřené křivky; vně magnetu míří od severního pólu k jižnímu.',
 							'Země se chová jako velký tyčový magnet a její magnetické pole odklání nebezpečné nabité částice.',
-						],
-						jednotky: [
-							'magnetické póly — severní (N) a jižní (S); nejde o fyzikální veličiny ani jednotky',
-							'V tomto tématu nepoužíváme výpočetní vzorec, proto se do něj žádné jednotky nedosazují.',
 						],
 					},
 					materialy: [
