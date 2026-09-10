@@ -443,14 +443,22 @@ const POCET_V_TESTU = 7;
 					background: #fff;
 				}
 				.ovladani,
+				.propustka,
+				.zamek,
 				.oznaceni-archu,
 				.napoveda {
-					display: none;
+					display: none !important;
 				}
 				.arch {
 					margin: 0;
 					box-shadow: none;
-					page-break-after: always;
+					/* zlom PŘED každým dalším archem — poslední arch tak nenechá
+					   za sebou prázdnou stránku (skrytý arch zlom nevyvolá) */
+					page-break-after: auto;
+					page-break-before: always;
+				}
+				.arch:first-of-type {
+					page-break-before: auto;
 				}
 				@page {
 					size: A4 portrait;
