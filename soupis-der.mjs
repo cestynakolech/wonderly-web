@@ -51,7 +51,11 @@ for (const radek of cti('src/data/temata.ts').split('\n')) {
 	const mTema = radek.match(/^\t{3}slug:\s*'([^']+)'/)
 	if (mTema) { tema = mTema[1]; ted = null; continue }
 
-	const mPod = radek.match(/^\t{5}slug:\s*'([^']+)'/)
+	// Podtémata mají odsazení 5 tabulátorů — kromě tématu „elektřina" v 8. ročníku,
+	// které je celé odsazené o tabulátor hlouběji (formátovací nekonzistence v datech).
+	// Než se sem 10. 9. 2026 doplnilo `{5,6}`, bylo těch 15 podtémat elektřiny pro
+	// soupis neviditelných a žádný automat o nich nevěděl.
+	const mPod = radek.match(/^\t{5,6}slug:\s*'([^']+)'/)
 	if (mPod) {
 		ted = { klic: `fyzika/${rocnik}-rocnik/${tema}/${mPod[1]}`, rocnik, blok: '' }
 		podtemata.push(ted)
