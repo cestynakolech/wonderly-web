@@ -3007,6 +3007,14 @@ export const temata: Record<string, Tema[]> = {
 							<li>černá se do tiskáren přidává navíc — kvůli sytosti a úspoře barevných inkoustů</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Na sítnici jsou tři druhy čípků citlivé na červené, zelené a modré světlo. Výslednou barvu vytváří mozek složením jejich vjemů.',
+							'Obrazovky skládají barevná světla systémem RGB. Stejně silné červené, zelené a modré světlo vytvoří bílé světlo.',
+							'Barvu tělesa vnímáme podle světla, které těleso odráží. Bílé těleso odráží všechny barvy, černé je pohlcuje.',
+							'Tiskárny míchají barviva systémem CMYK. Čím více barviv smícháme, tím tmavší je výsledek.',
+						],
+					},
 					materialy: [
 					],
 				},
@@ -3041,6 +3049,23 @@ export const temata: Record<string, Tema[]> = {
 							<li><a href="https://wordwall.net/cs/resource/80876088" target="_blank" rel="noopener">Skládání sil — kvíz</a></li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'V prvním pololetí opakujeme pohyb těles, trajektorii, dráhu a rychlost.',
+							'Sílu měříme siloměrem. Probíráme gravitační a třecí sílu, skládání sil a těžiště tělesa.',
+							'Sledujeme působení těles a deformaci, páku a moment síly.',
+							'U kapalin počítáme tlak a poznáváme Pascalův zákon, hydrauliku a hydrostatický tlak.',
+						],
+						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)      p = F : S      (odvozeně: F = p · S,  S = F : p)',
+						jednotky: [
+							'rychlost v — metr za sekundu (m/s)',
+							'dráha s — metr (m), čas t — sekunda (s)',
+							'tlak p — pascal (Pa)',
+							'síla F — newton (N), obsah plochy S — metr čtvereční (m²)',
+							'1 m/s = 3,6 km/h; gravitační síla na 1 kg je přibližně 10 N.',
+							'Do vzorců dosazuj dráhu v m, čas v s, sílu v N a obsah plochy v m².',
+						],
+					},
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -4128,6 +4153,22 @@ export const temata: Record<string, Tema[]> = {
 							<p>Multimetr měří proud jen tehdy, když ho <strong>přepneme do režimu ampérmetru</strong> a měřicí hroty zapojíme do správných zdířek — pro malé proudy (mA) bývá jiná zdířka než pro velké proudy (jednotky A). Zapojuje se přitom pořád <strong>sériově</strong>, stejně jako samostatný ampérmetr.</p>
 							<p>💡 Před zapojováním měřidla do obvodu obvod raději <strong>odpojíme od zdroje</strong> a nedotýkáme se holých vodičů — tak zabráníme zkratu i úrazu elektrickým proudem.</p>
 						`,
+						zapis: {
+							body: [
+								'Elektrický proud udává, kolik elektrického náboje projde vodičem za jednu sekundu. Značka proudu je I.',
+								'Dohodnutý směr proudu je od kladné svorky k záporné. Elektrony se v kovovém vodiči pohybují opačně.',
+								'Elektrický proud měříme ampérmetrem, který zapojujeme do obvodu sériově. Celý měřený proud musí projít ampérmetrem.',
+								'Neznámý proud začínáme měřit na největším rozsahu. Ampérmetr nikdy nezapojujeme paralelně, protože by mohl způsobit zkrat.',
+							],
+							vzorec: 'I = Q : t      (odvozeně: Q = I · t,  t = Q : I)',
+							jednotky: [
+								'elektrický proud I — ampér (A)',
+								'elektrický náboj Q — coulomb (C)',
+								'čas t — sekunda (s)',
+								'1 A = 1 000 mA,  1 A = 1 000 000 µA',
+								'Do vzorce dosazuj proud v A, náboj v C a čas v s.',
+							],
+						},
 						odkazy: [
 							{ nazev: 'Měření elektrického proudu ampérmetrem (RVP.CZ)', url: 'https://dum.rvp.cz/materialy/mereni-elektrickeho-proudu-ampermetrem.html' },
 							{ nazev: 'Elektrický proud a napětí — převody jednotek (Wordwall)', url: 'https://wordwall.net/cs/resource/74196967/elektrick%C3%BD-proud-a-nap%C4%9Bt%C3%AD-p%C5%99evody-jednotek' },
