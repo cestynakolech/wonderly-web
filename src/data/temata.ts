@@ -25,6 +25,17 @@ export type Podtema = {
 	interakce?: 'alternator' | 'archimedes' | 'atom-molekuly' | 'barometr' | 'barva' | 'barvy' | 'bezpecna-vzdalenost-vedeni' | 'bezpecnost-pocitace' | 'binarni' | 'bludiste' | 'cara' | 'cas' | 'cocka' | 'decibely' | 'diagram' | 'difuze' | 'dioda' | 'draha' | 'duha' | 'el-polje' | 'elektricka-prace-a-vykon' | 'elektricke-pole' | 'elektrolyza' | 'elektromagnet' | 'elektromotor' | 'elektron' | 'elektrovani' | 'energia' | 'fotovoltaika' | 'funkce-tabulky' | 'galvanicky-clanek' | 'graf-cesta' | 'gravitacni-sila' | 'honicka' | 'hustota' | 'hydraulika' | 'hydrostatika' | 'indukce' | 'izotopy' | 'jaderna-energia' | 'jastina' | 'jiskra' | 'kadinky' | 'kalorimetr' | 'kladka' | 'klonovani' | 'kolobeh-vody' | 'kondenzace' | 'led-displej' | 'lom' | 'magnet' | 'magneticke-pole' | 'magnety-opakovani' | 'material' | 'mechanicka' | 'meridla' | 'mereni' | 'mesic' | 'microbit-radio' | 'microbit-vstupy' | 'motor' | 'motory-displej-zvuk' | 'naboj' | 'naklonena-rovina' | 'napeti' | 'nestejnoroda-lod' | 'obnovitelne-zdroje' | 'obvod' | 'odpor' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'odraz' | 'oersted' | 'ohm' | 'ohrev' | 'oko' | 'opakovani' | 'opakovani-velicin' | 'odskok' | 'ozobot' | 'ozvena' | 'paka' | 'pakety' | 'palivo' | 'ping-pong' | 'planety-vaha' | 'pohyb' | 'pokusy' | 'polares' | 'polovodic' | 'posuvny-otacivy' | 'povetrnostni-mapa' | 'prace' | 'premeny-energie' | 'prenos' | 'pretlak' | 'prevody' | 'projekt-robot' | 'promenne' | 'proton' | 'proud' | 'razeni-clanku' | 'razeni-filtrovani' | 'reaktor' | 'refleks' | 'relativita-pohybu' | 'rezonance' | 'reostat' | 'retezova-reakce' | 'rovinne-zrcadlo' | 'rozpad' | 'rozpinani-vesmiru' | 'rychlost' | 'rychlost-svetla' | 'senzory-robota' | 'sestaveni-robota' | 'seznamy' | 'sila-mag' | 'sila-vektor' | 'skakacka' | 'skatepark' | 'skladani-sil' | 'skupenstvi' | 'souradnice' | 'soustava' | 'spektrum' | 'stridavy-proud' | 'strilecka' | 'stupnice' | 'sublimace' | 'svacina' | 'tabulka-vzorce' | 'tani' | 'teleso-latka' | 'teplomer' | 'teziste' | 'tlak' | 'tlak-plocha' | 'tlmeni' | 'transformator' | 'treni' | 'tuhnuti' | 'ucinky-proudu-a-bezpecnost' | 'ucinky-sily' | 'ucinnost-motoru' | 'udalosti' | 'uzitky' | 'valec' | 'var' | 'vedeni' | 'vetveni' | 'vesmiruni' | 'vex-gyroskop' | 'vexcode' | 'vlastni-bloky' | 'vlneni' | 'vnitrni-energie' | 'vodic' | 'vrh' | 'vykon' | 'vyparovani' | 'vypocet-rychlosti' | 'vzajemne-pusobeni' | 'vznik-elektrickeho-proudu' | 'viny' | 'zachovani' | 'zakon' | 'zapojeni' | 'zrcadlo' | 'zrychleni' | 'zvuk';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
 	interakce2?: 'kolejnice' | 'prumer';
+	/**
+	 * Zápis do sešitu — to nejdůležitější ze stránky k opsání. Jen body, které
+	 * si žák opravdu má odnést; u veličin vždy značka i jednotka, ať je pozná
+	 * ve vzorci. Zákon a vzorec se uvádějí, jen když k tématu patří.
+	 */
+	zapis?: {
+		body: string[];
+		zakon?: string;
+		vzorec?: string;
+		jednotky?: string[];
+	};
 };
 export type Tema = { slug: string; nazev: string; podtemata?: Podtema[] };
 
@@ -2745,7 +2756,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Práce jako fyzikální veličina</h3>
 						<ul>
 							<li>značka <strong>W</strong>, jednotka <strong>joule (J)</strong> (čti „džaul")</li>
-							<li>těleso vykoná práci 1 J, když silou 1 N posune těleso po dráze 1 m</li>
+							<li>těleso vykoná práci <strong>W</strong> = 1 J, když silou <strong>F</strong> = 1 N posune těleso po dráze <strong>s</strong> = 1 m</li>
 							<li>násobky: <strong>1 kJ = 1 000 J</strong>, <strong>1 MJ = 1 000 000 J</strong></li>
 						</ul>
 						<h3>Výpočet</h3>
@@ -2760,6 +2771,22 @@ export const temata: Record<string, Tema[]> = {
 						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4 km vykoná práci 800 MJ?<br>
 						s = 4 000 m, W = 800 000 000 J → F = W : s = 800 000 000 : 4 000 = <strong>200 000 N = 200 kN</strong></p>
 					`,
+					zapis: {
+						body: [
+							'Těleso koná práci, když na jiné těleso působí silou a to se posune ve směru síly. Musí platit obě podmínky zároveň.',
+							'Když těleso jen držíme a nepohne se, práci nekonáme.',
+							'Práci může konat i silové pole — třeba gravitační síla, když jablko spadne ze stromu.',
+							'Práce je tím větší, čím větší silou působíme a čím delší dráhu těleso urazí.',
+						],
+						vzorec: 'W = F · s      (odvozeně: s = W : F,  F = W : s)',
+						jednotky: [
+							'práce W — joule (J), čti „džaul"',
+							'síla F — newton (N)',
+							'dráha s — metr (m)',
+							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J',
+							'Do vzorce dosazuj vždy v základních jednotkách: sílu v N, dráhu v m.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
 					],

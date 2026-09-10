@@ -209,6 +209,34 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			<p class="uvodni-text">Obsah připravujeme.</p>
 		)
 	}
+	{
+		podtema.zapis && (
+			<section class="ramecek zapis-sesit">
+				<h2><span class="podtrh">📓 Zápis do sešitu</span></h2>
+				<ul class="zapis-body">
+					{podtema.zapis.body.map((b) => (
+						<li>{b}</li>
+					))}
+				</ul>
+				{podtema.zapis.zakon && (
+					<p class="zapis-zakon">
+						<strong>Zákon:</strong> {podtema.zapis.zakon}
+					</p>
+				)}
+				{podtema.zapis.vzorec && <p class="zapis-vzorec">{podtema.zapis.vzorec}</p>}
+				{podtema.zapis.jednotky && podtema.zapis.jednotky.length > 0 && (
+					<>
+						<h3 class="zapis-nadpis">Značky a jednotky</h3>
+						<ul class="zapis-jednotky">
+							{podtema.zapis.jednotky.map((j) => (
+								<li>{j}</li>
+							))}
+						</ul>
+					</>
+				)}
+			</section>
+		)
+	}
 	<AnimaceVyklad podtema={podtema.slug} rocnik={parseInt(rocnik.slug, 10)} />
 	{
 		podtema.odkazy && podtema.odkazy.length > 0 && (
@@ -494,6 +522,50 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	}
 	.vyklad h2 {
 		margin-top: 0;
+	}
+	/* Zápis do sešitu — to nejdůležitější ze stránky k opsání. */
+	.zapis-sesit {
+		border-left: 6px solid var(--oranzova);
+		background:
+			repeating-linear-gradient(
+				transparent,
+				transparent calc(1.9em - 1px),
+				rgba(43, 42, 38, 0.08) calc(1.9em - 1px),
+				rgba(43, 42, 38, 0.08) 1.9em
+			),
+			#fffdf6;
+	}
+	.zapis-sesit h3.zapis-nadpis {
+		margin: 1.2rem 0 0.4rem;
+	}
+	.zapis-body,
+	.zapis-jednotky {
+		margin: 0.4rem 0;
+		padding-left: 1.3em;
+		line-height: 1.9;
+	}
+	.zapis-body li,
+	.zapis-jednotky li {
+		margin-bottom: 0.2rem;
+	}
+	.zapis-zakon {
+		line-height: 1.9;
+	}
+	.zapis-vzorec {
+		margin: 1rem 0;
+		padding: 0.6em 0.4em;
+		border: 2px dashed var(--oranzova);
+		border-radius: 10px;
+		background: rgba(232, 89, 12, 0.07);
+		text-align: center;
+		font-size: 1.35em;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+	}
+	@media print {
+		.zapis-sesit {
+			break-inside: avoid;
+		}
 	}
 	.qr-podtema {
 		margin: 0 0 1.2rem;
