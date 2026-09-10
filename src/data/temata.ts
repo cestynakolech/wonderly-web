@@ -2500,6 +2500,14 @@ export const temata: Record<string, Tema[]> = {
 						</ul>
 						<p>👉 U nestejnorodých těles neurčujeme hustotu látky, ale počítáme jejich <strong>průměrnou hustotu ρp</strong>. Podle ní se řídí i plování — loď z oceli plove, protože její průměrná hustota (ocel + vzduch uvnitř) je menší než hustota vody. Voda má hustotu 1 000 kg/m³, ocel asi 8 000 kg/m³ — kus plné oceli je tedy osmkrát hustší než voda, a proto se ve vodě potopí. Když je ale v ocelovém tělese dutina vyplněná vzduchem, počítá se průměrná hustota z hmotnosti a objemu CELÉHO tělesa (ocel i vzduch dohromady) — a protože vzduch má hustotu jen kolem 1 kg/m³, i malá dutina průměrnou hustotu hodně sníží. Klesne-li tak průměrná hustota lodi pod 1 000 kg/m³, loď na vodě plove, přestože je celá vyrobená z oceli.</p>
 					`,
+					zapis: {
+						body: [
+							'Stejnorodé těleso je z jedné látky a v celém objemu má stejné vlastnosti.',
+							'Nestejnorodé těleso se skládá ze dvou nebo více různých látek a jeho části mají odlišné vlastnosti.',
+							'U nestejnorodého tělesa určujeme průměrnou hustotu z hmotnosti a objemu celého tělesa.',
+							'Ocelová loď plove, protože vzduch v dutině sníží její průměrnou hustotu pod hustotu vody.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Ocelový paradox — tajemství vztlaku', cesta: 'XvJnyVH_WMk' },
 					],
@@ -3735,6 +3743,15 @@ export const temata: Record<string, Tema[]> = {
 						a ten je úplně <em>průhledný</em>. Mlha, obláček z úst i „pára" nad hrncem jsou už
 						<strong>drobné kapičky vody</strong> — tedy zkondenzovaná voda, ne pára.</p>
 					`,
+					zapis: {
+						body: [
+							'Vypařování, kondenzace, sublimace a desublimace vody společně tvoří koloběh vody v přírodě.',
+							'Vodní pára při ochlazení kondenzuje na kapičky; u země vzniká rosa nebo mlha a ve výšce oblaka.',
+							'Kapky v oblacích se spojují a padají jako déšť, zatímco z páry mohou desublimací vznikat led a sněhové vločky.',
+							'Koloběh vody pohání Slunce: vypařování teplo spotřebovává a kondenzace je uvolňuje.',
+							'Vodní pára je průhledný plyn; bílá mlha a oblaka jsou drobné kapičky vody.',
+						],
+					},
 					odkazy: [
 						{ nazev: 'Jak vznikají kroupy? (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/15702-jak-vznikaji-kroupy' },
 						{ nazev: 'Techmania Edu — Atmosférické srážky', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/meteorologie/atmosfericke-srazky' },
@@ -5385,6 +5402,15 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>nedýchá normálně?</strong> Začni stlačovat hrudník. Puls nehledej, jen ztrácíš čas a laik ho stejně spolehlivě nenahmatá.</li>
 						</ol>
 					`,
+					zapis: {
+						body: [
+							'Lidské tělo vede elektrický proud, který může způsobit popáleniny, svalové křeče, fibrilaci srdce a poškození nervů.',
+							'Nebezpečí závisí na velikosti proudu, odporu těla a cestě proudu; zásuvka 230 V je nebezpečná vždy.',
+							'K vedení vysokého napětí ani ke spadlému drátu se nepřibližujeme, protože proud může přeskočit vzduchem.',
+							'Při úrazu nejprve vypneme proud, zraněného pod proudem se nedotýkáme holou rukou a souběžně voláme 155.',
+							'Když zraněný nedýchá normálně, začneme stlačovat hrudník.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektrická bezpečnost', cesta: 'VfCqvZDHUWQ' },
 						{ druh: 'youtube', nazev: 'Video: Domovní elektroinstalace', cesta: 'jhqpxSjUCMk' },
