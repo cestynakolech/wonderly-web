@@ -22,3 +22,5 @@ Jeden řádek za běh: datum a čas, podtéma, co se doplnilo, výsledek kontrol
 - 2026-09-10 13:05 CEST — Doplněny zápisy: fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var, fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-typu-n-a-p-dioda — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 13:23 CEST — Doplněny zápisy: fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/kondenzace, fyzika/9-rocnik/elektricka-energie-a-bezpecnost/elektricka-energie-a-premeny — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
 - 2026-09-10 13:42 CEST — Doplněny zápisy: fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda, fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/skupenske-zmeny-vody-v-prirode, fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost — `node zkontroluj.mjs`: exit 0 (`✅ Vše zapojené správně.`).
+
+- 2026-09-10 14:03 CEST — doplněny zápisy: `atmosfericky-tlak`, `kmitani-a-vlneni`, `jadro-atomu`; `node zkontroluj.mjs` exit 0.

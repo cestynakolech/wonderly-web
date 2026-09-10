@@ -2539,6 +2539,15 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Využití v praxi</h3>
 						<p>Přísavky drží na hladkém povrchu díky tlaku atmosféry (pod přísavkou vzduch není). Tlak vzduchu souvisí i s počasím — viz Meteorologie.</p>
 					`,
+					zapis: {
+						body: [
+							'Atmosféra je plynný obal Země tvořený převážně dusíkem a kyslíkem.',
+							'Atmosférický tlak vzniká působením gravitační síly na částice vzduchu.',
+							'Atmosférický tlak je největší u povrchu Země a s nadmořskou výškou klesá.',
+							'Normální atmosférický tlak u hladiny moře je přibližně 1 013 hPa.',
+							'Atmosférický tlak měříme barometrem; aneroid je kovový barometr a barograf zapisuje průběh tlaku.',
+						],
+					},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Kolem Země vzduch se točí 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/atmosfericky-tlak/pisen-atmosfericky-tlak.mp4' },
 					],
@@ -4416,6 +4425,23 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Vlnění podélné</strong> — částice kmitají <strong>ve směru</strong> šíření, vzniká nahuštěním a zředěním částic (např. <strong>zvuk</strong>, padající kostky domina). Existuje ve všech skupenstvích.</li>
 						</ul>
 					`,
+					zapis: {
+						body: [
+							'Kmitání je pohyb, při kterém se těleso opakovaně vychyluje z rovnovážné polohy a vrací se do ní.',
+							'Perioda udává dobu jednoho kmitu, frekvence udává počet kmitů za jednu sekundu.',
+							'Perioda a frekvence jsou převrácené hodnoty.',
+							'Vlnění vzniká šířením kmitavého pohybu látkovým prostředím.',
+							'U příčného vlnění částice kmitají kolmo na směr šíření, u podélného vlnění kmitají ve směru šíření.',
+						],
+						vzorec: 'f = 1 : T      (odvozeně: T = 1 : f)      λ = v · T = v : f      (odvozeně: v = λ : T,  T = λ : v,  v = λ · f,  f = v : λ)',
+						jednotky: [
+							'frekvence f — hertz (Hz)',
+							'perioda T — sekunda (s)',
+							'vlnová délka λ — metr (m)',
+							'rychlost šíření vlnění v — metr za sekundu (m/s)',
+							'Do vzorců dosazuj periodu v s, frekvenci v Hz a rychlost v m/s; vlnová délka vyjde v m.',
+						],
+					},
 					materialy: [
 						{
 							druh: 'youtube',
@@ -5460,6 +5486,25 @@ export const temata: Record<string, Tema[]> = {
 						<h3>Hmotnostní úbytek a E = mc²</h3>
 						<p>Když se protony a neutrony spojí do jádra, výsledné jádro je <strong>lehčí</strong> než součet hmotností všech nukleonů zvlášť. Tomuto rozdílu se říká <strong>hmotnostní úbytek</strong>. Kam ta chybějící hmotnost zmizela? Přeměnila se na energii, která nukleony v jádře drží pohromadě — na <strong>vazebnou energii</strong>. Platí pro to Einsteinův slavný vzorec <strong>E = mc²</strong>, kde m je hmotnostní úbytek a c je rychlost světla. Protože c je obrovské číslo (300 000 km/s) a ve vzorci se navíc umocňuje, i malinký hmotnostní úbytek uvolní <strong>obrovské množství energie</strong> — proto je jaderná energie tak silná ve srovnání s chemickými reakcemi (hořením).</p>
 					`,
+					zapis: {
+						body: [
+							'Atom se skládá z jádra a elektronového obalu; v jádře je soustředěna téměř všechna hmotnost atomu.',
+							'Jádro tvoří kladné protony a neutrony bez náboje, kterým společně říkáme nukleony.',
+							'Protonové číslo Z udává počet protonů a určuje prvek, nukleonové číslo A udává počet protonů a neutronů.',
+							'Izotopy téhož prvku mají stejný počet protonů, ale různý počet neutronů.',
+							'Jaderné síly drží nukleony pohromadě a hmotnostnímu úbytku odpovídá vazebná energie.',
+						],
+						vzorec: 'N = A − Z      (odvozeně: A = N + Z,  Z = A − N)      E = m · c²      (odvozeně: m = E : c²)',
+						jednotky: [
+							'počet neutronů N — bez jednotky',
+							'nukleonové číslo A — počet nukleonů (bez jednotky)',
+							'protonové číslo Z — počet protonů (bez jednotky)',
+							'vazebná energie E — joule (J)',
+							'hmotnostní úbytek m — kilogram (kg)',
+							'rychlost světla c — metr za sekundu (m/s)',
+							'300 000 km/s = 300 000 000 m/s. Do vztahu E = m · c² dosazuj m v kg a c v m/s; energie vyjde v J.',
+						],
+					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jádro atomu a síly v jádře', cesta: 'gbUMqax9SMs' },
 						{ druh: 'youtube', nazev: 'Video: Atom, iont, izotop', cesta: '5WUfEMAbwQM' },
