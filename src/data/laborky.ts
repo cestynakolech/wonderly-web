@@ -247,6 +247,31 @@ export const laborky: Record<string, Laborka> = {
 		pozor: 'Drž siloměr i závaží klidně a nechej ho přestat kmitat; přetížení přístroje zvyšuje nepřesnost.',
 		tip: 'Pro 300 g vyjde školní síla F = 3 N; když je postup konzistentní, měla by být síla téměř trojnásobná proti 100 g.',
 	},
+	'fyzika/7-rocnik/svetlo-a-jeho-sireni/odraz-svetla': {
+		nazev: 'Odraz světla — změříme úhel dopadu a odrazu',
+		cil: 'Změřit úhel dopadu a úhel odrazu světelného paprsku a ověřit zákon odrazu.',
+		pomucky: ['malé rovinné zrcátko s rovnou hranou', 'stojánek na zrcátko nebo plastelína pro jeho svislé upevnění', 'bílý papír A4', 'tužka', 'pravítko', 'úhloměr', 'lepicí páska', 'školní paprskový zdroj nebo svítilna', 'dva kousky neprůsvitného kartonu pro vytvoření úzké štěrbiny'],
+		postup: [
+			'Polož papír na lavici. Uprostřed narýsuj přímku a označ na ní bod O. Zrcátko postav svisle hranou přesně na přímku a připevni je páskou, aby se nepohnulo.',
+			'V bodě O narýsuj kolmici k zrcátku — normálu. Úhly budeme vždy měřit mezi paprskem a normálou, ne mezi paprskem a zrcátkem.',
+			'Pokud nemáš školní paprskový zdroj, zakryj čelo svítilny dvěma kousky kartonu tak, aby mezi nimi zůstala úzká svislá štěrbina. Kartony upevni páskou.',
+			'Úhloměrem narýsuj k bodu O první čáru svírající s normálou úhel dopadu 20°. Po této čáře namiř úzký světelný paprsek přesně do bodu O.',
+			'Na papíře tužkou označ dva body ve středu odraženého paprsku. Zhasni zdroj, spoj oba body s bodem O a úhloměrem změř úhel odrazu mezi odraženým paprskem a normálou.',
+			'Měření zopakuj pro úhly dopadu 40° a 60°. Pro každý pokus zapiš úhel dopadu, úhel odrazu a jejich rozdíl.',
+			'Porovnej oba úhly ve všech třech pokusech a napiš vlastní závěr o odrazu světla.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'úhel dopadu (°)', 'úhel odrazu (°)', 'rozdíl úhlů (°)'],
+			radky: 3,
+		},
+		otazky: [
+			'Jsou úhel dopadu a úhel odrazu v mezích přesnosti měření stejné?',
+			'Proč měříme oba úhly od normály, a ne od plochy zrcátka?',
+			'Jak se změní směr odraženého paprsku vzhledem k normále, když zvětšíš úhel dopadu?',
+		],
+		pozor: 'Nikdy nesviť spolužákům ani sobě do očí. Použij běžnou svítilnu nebo školní paprskový zdroj, ne laserové ukazovátko.',
+		tip: 'Při úhlu dopadu 40° má podle zákona odrazu vyjít také úhel odrazu 40°. Malý rozdíl způsobí šířka paprsku, posunutí zrcátka nebo nepřesné odečtení úhloměru.',
+	},
 	'fyzika/8-rocnik/energie/tepelna-vymena-a-teplo': {
 		nazev: 'Míchání teplé a studené vody',
 		cil: 'Předpovědět výslednou teplotu smíchané vody a ověřit ji měřením.',
