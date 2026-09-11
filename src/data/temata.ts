@@ -5023,7 +5023,7 @@ export const temata: Record<string, Tema[]> = {
 							'Každý magnet má severní pól N a jižní pól S; stejné póly se odpuzují a opačné póly se přitahují.',
 							'Magnetické pole vzniká v okolí magnetu a jeho přítomnost zjistíme magnetkou.',
 							'Magnetické indukční čáry jsou uzavřené křivky; vně magnetu míří od severního pólu k jižnímu.',
-							'Země se chová jako velký tyčový magnet a její magnetické pole odklání nebezpečné nabité částice.',
+							'Země se chová jako velký tyčový magnet a její magnetické pole odklání část nebezpečných nabitých částic ze slunečního větru.',
 						],
 					},
 					materialy: [
