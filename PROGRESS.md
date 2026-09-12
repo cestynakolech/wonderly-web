@@ -407,3 +407,11 @@ lokál+Hermes srovnány, nový skill `/kolega`.
 3. Spusť: `python3 ~/Desktop/wonderly-web/suno-organize.py --auto`
 4. ✅ Hotovo — skladby se zorganizují samy
 
+
+
+## Historie — 12. 9. 2026: pilot Mechanické práce a píseň u Výkonu
+- Publikační balík pouze pro F8: první plně animovaný díl Mechanické práce s přiznáním AI a existující společná píseň zapojená také u Výkonu. Nové výklady, kvízy ani herní kód tento commit neobsahuje.
+- Pilot v existujícím R2, SHA256 535bed1edce8c653760df004107575dfe1e045753b0276781c68cbc116dd5df2; zpětný R2 get i browser fetch živé mediální URL potvrdily shodných2146630 B. Předchozí obsahová kontrola prvního scénáře Gemma31b bez nálezu, pokrytí skupiny21/21 a finální technická/vizuální kontrola pilotu doloženy v Omeze.
+- Základ aktuální origin/main8da45ea; starý MacBook main byl zastaralý, jeho odmítnutý push nic nepřepsal. Čistý oddělený worktree zachovává novější zápisy i odstranění starých infografik. Nový get/set pouze materialy obou podtémat, outsideRangeUnchanged=true a read-back; zkontroluj.mjs a npm run build exit0.
+- Herní odkazy/předvolba zatím místně: chybí doložené nezávislé code review. Infografika Výkonu a laborka Mechanické práce zůstávají DRAFT_WAITING_CONTENT_REVIEW. Cizí načtený model nevypnut, jiný velký model nenačten.
+- Celé téma není dokončeno. Kanonický stav a ověření nasazení po pushi: Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md; důkazy Omega/dokumenty/wonderly-audit/8/mechanicka-prace-video-denik.md.

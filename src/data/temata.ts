@@ -3160,11 +3160,10 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
 					],
-					materialy: [
-						{ druh: 'video', nazev: 'Píseň: Mechanická práce a výkon 🎵', cesta: '/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a' },
-					],
+					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"},{"druh":"video","nazev":"Mechanická práce — 1. díl: síla a posunutí","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
 				},
 				{
+					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"}],
 					slug: 'vykon',
 					nazev: 'Výkon',
 					interakce: 'vykon',
