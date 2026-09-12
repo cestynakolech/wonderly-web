@@ -419,3 +419,7 @@ lokál+Hermes srovnány, nový skill `/kolega`.
 
 ### F8 — upozornění na neúplnou sérii (2026-09-12T10:45:18.450924+02:00)
 - U pilotu výslovně uvedeno, že další díly připravujeme a série není úplná. Nemění se učivo, média, odkazy ani kód; jde o pravdivý publikační stav. Dokončení série ani celého tématu tím není splněno. Kanonický stav: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
+
+
+## Historie — 2026-09-12T11:20:42.545186+02:00 — Infografika Výkon (F8)
+Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, porovnání práce a času, kWh. Nezávislá kontrola gemma4:31b BEZ NÁLEZU, vizuální kontrola a výpočty ověřeny; detail Omega/dokumenty/wonderly-audit/8/vykon-infografika/. Zapojeno pouze u Výkonu, společná píseň zachována. Pokračování videosérie stále není hotové.

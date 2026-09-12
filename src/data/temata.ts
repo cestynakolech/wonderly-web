@@ -3163,7 +3163,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"},{"druh":"video","nazev":"Mechanická práce — 1. díl: síla a posunutí. Další díly připravujeme; série zatím není úplná.","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
 				},
 				{
-					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"}],
+					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"},{"druh":"infografika","nazev":"Infografika: Výkon — základní přehled","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/vykon/infografika-prehled.jpg"}],
 					slug: 'vykon',
 					nazev: 'Výkon',
 					interakce: 'vykon',
