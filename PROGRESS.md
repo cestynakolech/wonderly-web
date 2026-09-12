@@ -415,3 +415,7 @@ lokál+Hermes srovnány, nový skill `/kolega`.
 - Základ aktuální origin/main8da45ea; starý MacBook main byl zastaralý, jeho odmítnutý push nic nepřepsal. Čistý oddělený worktree zachovává novější zápisy i odstranění starých infografik. Nový get/set pouze materialy obou podtémat, outsideRangeUnchanged=true a read-back; zkontroluj.mjs a npm run build exit0.
 - Herní odkazy/předvolba zatím místně: chybí doložené nezávislé code review. Infografika Výkonu a laborka Mechanické práce zůstávají DRAFT_WAITING_CONTENT_REVIEW. Cizí načtený model nevypnut, jiný velký model nenačten.
 - Celé téma není dokončeno. Kanonický stav a ověření nasazení po pushi: Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md; důkazy Omega/dokumenty/wonderly-audit/8/mechanicka-prace-video-denik.md.
+
+
+### F8 — upozornění na neúplnou sérii (2026-09-12T10:45:18.450924+02:00)
+- U pilotu výslovně uvedeno, že další díly připravujeme a série není úplná. Nemění se učivo, média, odkazy ani kód; jde o pravdivý publikační stav. Dokončení série ani celého tématu tím není splněno. Kanonický stav: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
