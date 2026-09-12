@@ -3157,9 +3157,7 @@ export const temata: Record<string, Tema[]> = {
 							'Do vzorce dosazuj vždy v základních jednotkách: sílu v N, dráhu v m.',
 						],
 					},
-					odkazy: [
-						{ nazev: 'Wordwall — Práce, výkon, energie (veličiny a značky)', url: 'https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky' },
-					],
+					odkazy: [{"nazev":"Wordwall — Práce, výkon, energie (veličiny a značky)","url":"https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky"},{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
 					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"},{"druh":"video","nazev":"Mechanická práce — 1. díl: síla a posunutí. Další díly připravujeme; série zatím není úplná.","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
 				},
 				{
@@ -3208,10 +3206,7 @@ export const temata: Record<string, Tema[]> = {
 							'Do vzorce dosazuj v základních jednotkách: práci v J a čas v s; výkon vyjde ve W.',
 						],
 					},
-					odkazy: [
-						{ nazev: 'Umíme fakta — Výkon (cvičení)', url: 'https://www.umimefakta.cz/fyzika/cviceni-vykon' },
-						{ nazev: 'Wordwall — Výkon', url: 'https://wordwall.net/resource/64369600' },
-					],
+					odkazy: [{"nazev":"Umíme fakta — Výkon (cvičení)","url":"https://www.umimefakta.cz/fyzika/cviceni-vykon"},{"nazev":"Wordwall — Výkon","url":"https://wordwall.net/resource/64369600"},{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
 				},
 			],
 		},
