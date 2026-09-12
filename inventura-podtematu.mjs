@@ -49,14 +49,15 @@ const souborVHEAD = (cesta) => {
 // za literálem a podtémata elektřiny v 8. ročníku mají o tabulátor navíc.
 const klice = (text = '') =>
 	new Set([
-		...[...text.matchAll(/'(fyzika\/[^']+)'\s*:/g)].map((m) => m[1]),
-		...[...text.matchAll(/\[\s*'(fyzika\/[^']+)'\s*\]\s*=/g)].map((m) => m[1]),
+		...[...text.matchAll(/(['"])(fyzika\/.*?)\1\s*:/g)].map((m) => m[2]),
+		...[...text.matchAll(/\[\s*(['"])(fyzika\/.*?)\1\s*\]\s*=/g)].map((m) => m[2]),
 	])
 
 function nactiPodtemata(text = '') {
 	let rocnik = null
 	let tema = null
 	let ted = null
+	let predSlug = ''
 	const podtemata = []
 	for (const radek of text.split('\n')) {
 		const mPredmet = radek.match(/^\t'([a-z-]+)\/(\d)-rocnik'\s*:/)
@@ -67,15 +68,17 @@ function nactiPodtemata(text = '') {
 			continue
 		}
 		if (!rocnik) continue
+		// Pole mohou předcházet slug; hranicí je začátek objektu, ne název pole.
+		if (/^\t{4,5}\{\s*$/.test(radek)) { ted = null; predSlug = ''; continue }
 		const mTema = radek.match(/^\t{3}slug:\s*'([^']+)'/)
 		if (mTema) { tema = mTema[1]; ted = null; continue }
 		const mPod = radek.match(/^\t{5,6}slug:\s*'([^']+)'/)
 		if (mPod) {
-			ted = { slug: mPod[1], nazev: '', klic: `fyzika/${rocnik}-rocnik/${tema}/${mPod[1]}`, rocnik, blok: '' }
+			ted = { slug: mPod[1], nazev: '', klic: `fyzika/${rocnik}-rocnik/${tema}/${mPod[1]}`, rocnik, blok: predSlug }
 			podtemata.push(ted)
 			continue
 		}
-		if (!ted) continue
+		if (!ted) { predSlug += radek + '\n'; continue }
 		const mNazev = radek.match(/^\t{5,6}nazev:\s*'([^']+)'/)
 		if (mNazev && !ted.nazev) ted.nazev = mNazev[1]
 		ted.blok += radek + '\n'
@@ -109,9 +112,9 @@ const p = pHEAD ?? pStrom
 
 function materialy(blok = '') {
 	const vysledek = []
-	for (const m of blok.matchAll(/\{([^{}]*\bdruh\s*:\s*'[^']+'[^{}]*)\}/gs)) {
+	for (const m of blok.matchAll(/\{([^{}]*\bdruh['"]?\s*:\s*(['"])[^'"]+\2[^{}]*)\}/gs)) {
 		const telo = m[1]
-		const hodnota = (jmeno) => telo.match(new RegExp(`\\b${jmeno}\\s*:\\s*'([^']*)'`))?.[1] ?? ''
+		const hodnota = (jmeno) => telo.match(new RegExp(`\\b${jmeno}['"]?\\s*:\\s*(['"])(.*?)\\1`))?.[2] ?? ''
 		vysledek.push({ druh: hodnota('druh'), nazev: hodnota('nazev'), cesta: hodnota('cesta') || hodnota('url') })
 	}
 	for (const m of blok.matchAll(/youtubeId\s*:\s*'([^']+)'/g)) {
