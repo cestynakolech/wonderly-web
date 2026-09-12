@@ -373,3 +373,22 @@ lokál+Hermes srovnány, nový skill `/kolega`.
 3. Spusť: `python3 ~/Desktop/wonderly-web/suno-organize.py --auto`
 4. ✅ Hotovo — skladby se zorganizují samy
 
+
+2026-09-12T02:38:57.602817+02:00
+## Lokální doplňování F8 — první téma Mechanická práce a výkon
+- Tento celek není z hlediska nově požadovaných médií kompletní. Jediný aktuální stav: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md; důkazy ../Omega/dokumenty/wonderly-audit/8/mechanicka-prace-video-denik.md.
+- Hotový animovaný pilot je místně v Omega/podkasty-video/mechanicka-prace-dialog.mp4; přenos na Mini a technická/vizuální kontrola ověřeny. Video není nahrané do R2 ani zapojené jako dostupné veřejné médium.
+- V místním pracovním stromě je společná píseň zapojena i u Výkonu a obě podtémata odkazují na existující Fyzikální ligu s předvolbou tohoto celku. Celá brána i nový build prošly; nové HTML obsahuje oba odkazy a píseň. Herní test skutečného JS používá reálnou banku42 otázek.
+- Zbývají další videa/polemiky, statická infografika Výkonu a laborka Mechanické práce; po nich závěrečná inventura. Změny nejsou commitnuté ani tímto během publikované. Nenačítán další těžký model vedle cizí gemma4:26b; podrobný stav pokračování je v kanonickém checkpointu, nikoli zde.
+
+
+2026-09-12T07:45:26.878817+02:00
+### F8 — bezpečná příprava při cizí modelové obsazenosti
+Nově připravený a vyrenderovaný návrh infografiky Výkonu a laboratorního listu Mechanické práce, zatím mimo web a bez obsahové brány. Pilot neopakován, žádná publikace. Kanonický stav a jediný další krok: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md, poslední AKTUÁLNÍ CHECKPOINT; podrobnosti v mechanicka-prace-video-denik.md.
+
+
+### F8 — publikace ověřeného pilotu a společné písně (2026-09-12T09:54:37.430797+02:00)
+- Do R2 nahrán pilot mechanicka-prace-dialog.mp4, SHA256 535bed1edce8c653760df004107575dfe1e045753b0276781c68cbc116dd5df2. Zpětný R2 get i skutečný browser fetch živého /media/ vrací stejné bajty (2146630 B, video/mp4).
+- Tento publikační commit obsahuje pouze zapojení již obsahově zkontrolovaného pilotu (s přiznáním AI) a existující společné písně u Výkonu; žádný nový výklad, otázky ani herní kód. Kandidát odvozen z HEAD, přesný staged temata.ts je shodný s testovaným kandidátem. zkontroluj.mjs a npm run build exit0; konkrétní HTML ověřeno.
+- Herní předvolba a odkazy zůstávají místně rozpracované: deterministický test existuje, ale nezávislé code review nebylo doloženo a cizí gemma4:26b brání bezpečnému použití povolené modelové dráhy. Infografika a laborka jsou DRAFT_WAITING_CONTENT_REVIEW. Brány neobcházeny, další model nenačten.
+- Stav deploye se ověří po pushi a zapíše do kanonické matice ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Celé téma stále není kompletní.
