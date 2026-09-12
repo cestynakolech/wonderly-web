@@ -18,6 +18,41 @@ export type Laborka = {
 };
 
 export const laborky: Record<string, Laborka> = {
+	"fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace": {
+  "nazev": "Držení a zvedání: kdy konáme mechanickou práci?",
+  "cil": "Rozlišit držení předmětu od jeho zvedání a určit práci z naměřené síly a dráhy ve směru síly.",
+  "pomucky": [
+    "siloměr vhodného rozsahu",
+    "lehké nerozbitné závaží bezpečně zavěšené na siloměru",
+    "pravítko nebo metr",
+    "pracovní list a tužka"
+  ],
+  "postup": [
+    "S učitelem vyber lehké závaží a siloměr, jehož rozsah nebude překročen. Zkontroluj upevnění a nulovou polohu siloměru. Pracuj nízko nad volnou lavicí.",
+    "Zvedni závaží nad podložku a potom je nehybně drž. Odečti sílu F. Do prvního řádku zapiš držení, naměřenou sílu a nulovou dráhu s. Zapiš práci W = F · s.",
+    "Na měřítku označ počáteční a koncovou výšku. Závaží pomalu a rovnoměrně zvedej mezi značkami. Jeden ze dvojice sleduje siloměr, druhý dráhu. Síla má směřovat svisle vzhůru stejně jako posunutí.",
+    "Do druhého řádku zapiš zvedání, sílu F v newtonech a svislou dráhu s v metrech. Použij hodnotu síly při rovnoměrném zvedání, nikoli při rozbíhání nebo zastavování. Pokud ručička výrazně kolísala, měření zopakuj.",
+    "Polož závaží zpět na podložku. Se stejným závažím zopakuj rovnoměrné zvedání po delší dráze a zapiš třetí řádek. Každá dráha musí zůstat bezpečně v dosahu nad lavicí.",
+    "Pro obě zvedání vypočítej W = F · s. Sílu dosazuj v newtonech, dráhu v metrech, výsledek zapiš v joulech. Naměřené údaje nevymýšlej ani nezaokrouhluj jen proto, aby vyšlo celé číslo.",
+    "Porovnej držení a zvedání. Potom porovnej obě zvedání: změnila se výrazně síla? Jak se při přibližně stejné síle změnila práce s dráhou?"
+  ],
+  "tabulka": {
+    "sloupce": [
+      "situace",
+      "F (N)",
+      "s (m)",
+      "W (J)"
+    ],
+    "radky": 3
+  },
+  "otazky": [
+    "Proč je při nehybném držení práce síly působící na závaží nulová, přestože siloměr ukazuje nenulovou sílu?",
+    "Jaké dvě podmínky musí být splněny, abychom v této úloze konali mechanickou práci?",
+    "Při kterém z obou zvedání vyšla větší práce? Zdůvodni odpověď pomocí naměřené síly a dráhy.",
+    "Co musíš převést, jestliže jsi dráhu odečetl v centimetrech, ale práci chceš určit v joulech?"
+  ],
+  "pozor": "Pracuj pod dohledem učitele. Použij jen lehký nerozbitný předmět a nepoškozený siloměr. Nepřekračuj rozsah siloměru, netrhej jím a závaží nepouštěj. Nestrkej ruce pod zavěšené závaží. Nezvedej nic nad hlavu, nestoupej na židli a po měření vše polož na lavici."
+},
 	'fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa': {
 		nazev: 'Autíčko ve vagonu — klid a pohyb závisí na pozorovateli',
 		cil: 'Ověřit, že stejné těleso může být současně v klidu vzhledem k jednomu tělesu a v pohybu vzhledem k jinému.',

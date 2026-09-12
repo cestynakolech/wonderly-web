@@ -423,3 +423,10 @@ lokál+Hermes srovnány, nový skill `/kolega`.
 
 ## Historie — 2026-09-12T11:20:42.545186+02:00 — Infografika Výkon (F8)
 Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, porovnání práce a času, kWh. Nezávislá kontrola gemma4:31b BEZ NÁLEZU, vizuální kontrola a výpočty ověřeny; detail Omega/dokumenty/wonderly-audit/8/vykon-infografika/. Zapojeno pouze u Výkonu, společná píseň zachována. Pokračování videosérie stále není hotové.
+
+
+### F8 — laborka Držení a zvedání (2026-09-12T11:49:53.123894+02:00)
+- Doplněn jeden laboratorní list Mechanické práce z PDF kotev str.1/2/4; měření zůstává prázdné, skutečný pokus nebyl proveden.
+- Nezávislá Gemma31b kontrola bez nálezu, přesný JSON hash a095b5fd8757311a40d5e87e284cb788abeca350bf43e97c22628720c3a2dbe0; převzetí rodičem proti zdroji a schématu.
+- Dokončení celého F8 stále NE. Navazující videa čekají doložení zdrojů tří příkladů a výrobu; pilot ani infografika se neopakují. Kanonický checkpoint: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
+- Brána, nový build a skutečné nasazení se ověřují před označením publikace za dokončenou.
