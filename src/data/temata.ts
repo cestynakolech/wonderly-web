@@ -5009,7 +5009,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [{"nazev":"Magnetismus — kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/27704217/magnetismus-2"},{"nazev":"Simulace: Magnet a kompas (PhET, česky)","url":"https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
-					materialy: [{"druh":"infografika","nazev":"Infografika: Magnetické pole vodiče a cívky","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-vodic-civka-prehled.png"}],
+					materialy: [{"druh":"infografika","nazev":"Infografika: Magnetické pole vodiče a cívky","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-vodic-civka-prehled.png"},{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"}],
 					slug: 'magneticke-pole-vodice-a-civky',
 					nazev: 'Magnetické pole vodiče a cívky s proudem',
 					interakce: 'oersted',
@@ -5070,6 +5070,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [{"nazev":"Test: Cívka a magnetické pole (Wordwall)","url":"https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
+					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"}],
 					slug: 'elektromagnet',
 					interakce: 'elektromagnet',
 					nazev: 'Elektromagnet a jeho využití',

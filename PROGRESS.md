@@ -466,3 +466,8 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
 ### F9 — laboratorní práce Proud v cívce a směr magnetky (2026-09-13T23:22:47.820215+02:00)
 - Nový pracovní list: bezpečný školní zdroj s proudovým omezením, čtyři pozorované situace a prázdná tabulka; nejde o provedený pokus. Nezávislá kontrola Gemma31b BEZ NÁLEZU pro přesný návrh623a4b1c740a3ad5c146b80fdea7862fc9ad22bdf33dd288d15213f749bab368.
 - Node syntax, inventura, zkontroluj a build prošly; přesný import a všechna pole skutečné dist routy ověřena. Živé nasazení se přebírá odděleně. Jediný stav a další krok: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Audio A/B tím není zveřejněno, celé F9 stále nedokončeno.
+
+
+### F9 — zapojení společné písně (2026-09-13T23:27:25.496375+02:00)
+- Původní výrobní evidence hudba-suno/EVIDENCE.md dávka5 určuje Ze severu na jih pro celý celek magneticke-pole. Stejný existující M4A beze změny bajtů doplněn u vodiče/cívky a elektromagnetu. Nejde o novou píseň ani obsahový reaudit hotového média.
+- Blokové set/get potvrzují nezměněná ostatní pole; zkontroluj/build PASS a dvě dist routy obsahují přesnou cestu. Živé převzetí samostatně v kanonické matici Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Audio polemiky tím není publikováno.
