@@ -5005,9 +5005,7 @@ export const temata: Record<string, Tema[]> = {
 							'Země se chová jako velký tyčový magnet a její magnetické pole odklání část nebezpečných nabitých částic ze slunečního větru.',
 						],
 					},
-					materialy: [
-						{ druh: 'video', nazev: 'Píseň: Ze severu na jih 🎵', cesta: '/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a' },
-					],
+					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"infografika","nazev":"Infografika: Magnety a magnetické pole","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-prehled.png"}],
 					odkazy: [
 						{ nazev: 'Magnetismus — kvíz (Wordwall)', url: 'https://wordwall.net/cs/resource/27704217/magnetismus-2' },
 						{ nazev: 'Simulace: Magnet a kompas (PhET, česky)', url: 'https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs' },

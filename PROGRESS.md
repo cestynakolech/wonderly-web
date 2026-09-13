@@ -442,3 +442,8 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 - Výklad a 21 otázek navázány výhradně na PDF Pohyb tělesa str.1–4. Odstraněny nepodložené pojmy kinematika, vztažná soustava a nulová rychlost i otázka na převod kilometru. Doplněno přirovnání stromu vůči Slunci a rozdíl trajektorie/dráhy z podkladu.
 - Nezávislé obsahové kontroly Gemma31b po opravě přesných vstupů bez nálezu; původně odhalené dva úniky odpovědí opraveny bez změny bran. Zkontroluj rc0, 0 duplicit/úniků, build478 stránek, cílená RED/GREEN regrese s mutantem.
 - Zdrojová mapa, reporty a důkazy: Omega/dokumenty/wonderly-audit/7/klid-a-pohyb-*. Původní materiály, interakce a laborka zachovány; nejsou nově obsahově schvalovány tímto zápisem. Polemika/video a píseň zatím nejsou doplněné, celé podtéma není hotové.
+
+
+### F9 Magnety — nová statická infografika
+- Přidán přehled šesti panelů dle zdroje, bez změny hotového výkladu a kvízu. Gemma31b review2 přesné v3 BEZ NÁLEZU, skutečný PNG vizuálně vyhovuje, layout RED v1/v2 → GREEN v3 (59 textů, žádný překryv ani ořez). Důkazy Omega/dokumenty/wonderly-audit/9/magnety-opakovani-infografika/.
+- Tři hotové audio díly nadále čekají na poslech, nejsou touto změnou zapojeny. Celé F9 není dokončeno, žádná práce F7.
