@@ -18,6 +18,42 @@ export type Laborka = {
 };
 
 export const laborky: Record<string, Laborka> = {
+	"fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky": {
+  "nazev": "Proud v cívce a směr magnetky",
+  "cil": "Pomocí kompasu pozorovat magnetické účinky cívky s proudem a porovnat je po obrácení směru proudu.",
+  "pomucky": [
+    "školní vzduchová cívka bez železného jádra s označenými vývody",
+    "kompas nebo volně otočná magnetka",
+    "školní stejnosměrný zdroj bezpečného malého napětí s proudovým omezením",
+    "spínač a propojovací vodiče s izolovanými koncovkami",
+    "nekovová podložka, papír a tužka"
+  ],
+  "postup": [
+    "Pracuj pod dohledem učitele. Učitel podle údajů cívky nastaví napětí a proudové omezení zdroje a ověří vhodnost celé soupravy. Zdroj zatím nech vypnutý a spínač rozepnutý. Nepoužívej síťovou zásuvku jako přímý zdroj pokusu.",
+    "Na nekovovou podložku polož papír a kompas dál od magnetů a ocelových předmětů. Počkej, až se střelka ustálí, a na papíru vyznač směr jejího severního konce. Poznáš jej podle označení přístroje, nikoli jen podle barvy.",
+    "Polož cívku vodorovně tak, aby její osa byla přibližně kolmá na vyznačený směr střelky. Kompas umísti na prodloužení osy u jednoho konce cívky. Obkresli polohu cívky i kompasu; po celý pokus je už neposouvej. Do prvního řádku tabulky zapiš „rozepnuto před pokusem“ a směr severního konce střelky zakresli jako šipku vůči původní značce.",
+    "Při vypnutém zdroji zapoj jeden obvod: kladný vývod zdroje → spínač → první vývod cívky → druhý vývod cívky → záporný vývod zdroje. Učitel zapojení zkontroluje. Poznamenej si, který vývod cívky je připojen ke kladnému vývodu zdroje.",
+    "Zapni zdroj a krátce sepni spínač jen na dobu potřebnou k pozorování střelky. Do druhého řádku zapiš „sepnuto, první zapojení“, připojení vývodů a pozorovaný směr střelky. Spínač opět rozepni. Do třetího řádku zapiš „rozepnuto po pokusu“ a směr střelky po ustálení.",
+    "Vypni zdroj. Prohoď mezi sebou pouze připojení obou vývodů cívky, její polohu ani kompas neměň. Po kontrole učitelem znovu zapni zdroj a krátce sepni spínač. Do čtvrtého řádku zapiš „sepnuto, obrácené zapojení“, nové připojení vývodů a pozorovaný směr střelky. Potom rozepni spínač, vypni zdroj a obvod odpoj.",
+    "Porovnej směry střelky ve všech čtyřech situacích. Zapisuj pouze skutečná pozorování. Pokud vychýlení nebylo patrné, uveď to; s učitelem ověř funkčnost obvodu a vhodnou vzájemnou polohu součástí. Nezvyšuj svévolně napětí ani proud a nevymýšlej očekávaný výsledek."
+  ],
+  "tabulka": {
+    "sloupce": [
+      "stav obvodu",
+      "vývod cívky připojený k +",
+      "směr severního konce střelky – náčrtek"
+    ],
+    "radky": 4
+  },
+  "otazky": [
+    "Jak se ve tvém pokusu změnil směr střelky po sepnutí a po rozepnutí obvodu?",
+    "Co jsi pozoroval po prohození vývodů cívky? Jak změna směru proudu souvisí s magnetickými póly cívky?",
+    "Proč jsme při porovnávání obou zapojení zachovali polohu cívky i kompasu?",
+    "Proč se střelka orientuje i při rozepnutém obvodu? Znamená malé nebo nepozorované vychýlení samo o sobě, že magnetické pole neexistuje?"
+  ],
+  "pozor": "Jen školní zdroj bezpečného malého napětí s proudovým omezením nastaveným učitelem pro danou cívku. Vývody přepojuj výhradně při vypnutém zdroji a rozepnutém spínači. Cívku nenechávej zbytečně zapnutou. Při zahřívání, zápachu nebo poškození ihned vypni zdroj a přivolej učitele. Magnetické pomůcky nepřibližuj ke zdravotním implantátům; při implantátu se před pokusem domluv s učitelem.",
+  "tip": "Kompas ukazuje výsledný směr pole cívky, Země a dalších okolních zdrojů. Po obrácení proudu se proto střelka nemusí otočit přesně o půl otáčky."
+},
 	"fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani": {
   "nazev": "Póly magnetů a kompas jako detektor pole",
   "cil": "Pozorovat přitahování a odpuzování magnetických pólů a pomocí kompasu zkoumat, jak tyčový magnet mění směr magnetky ve svém okolí.",

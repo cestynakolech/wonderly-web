@@ -461,3 +461,8 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 
 ## F9 — infografika vodiče a cívky (2026-09-13)
 Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF kotvy a nezávislé review přesné verze BEZ NÁLEZU; skutečný PNG1200×1940, SHA2568b4fb0c00bce887f59ea4e5c9b164161faa06387797209e2c4ab6111f1877134, vizuálně ověřeno. RED/GREEN oprava kolize kružnice s nadpisem. Existující výklad, kvíz a odkazy nezměněny. Celé F9 stále nedokončeno; kanonický stav v Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
+
+
+### F9 — laboratorní práce Proud v cívce a směr magnetky (2026-09-13T23:22:47.820215+02:00)
+- Nový pracovní list: bezpečný školní zdroj s proudovým omezením, čtyři pozorované situace a prázdná tabulka; nejde o provedený pokus. Nezávislá kontrola Gemma31b BEZ NÁLEZU pro přesný návrh623a4b1c740a3ad5c146b80fdea7862fc9ad22bdf33dd288d15213f749bab368.
+- Node syntax, inventura, zkontroluj a build prošly; přesný import a všechna pole skutečné dist routy ověřena. Živé nasazení se přebírá odděleně. Jediný stav a další krok: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Audio A/B tím není zveřejněno, celé F9 stále nedokončeno.
