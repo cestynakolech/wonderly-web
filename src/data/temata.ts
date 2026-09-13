@@ -5070,7 +5070,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [{"nazev":"Test: Cívka a magnetické pole (Wordwall)","url":"https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
-					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"}],
+					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"infografika","nazev":"Infografika: Elektromagnet a jeho využití","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/elektromagnet/infografika-elektromagnet-prehled.png"}],
 					slug: 'elektromagnet',
 					interakce: 'elektromagnet',
 					nazev: 'Elektromagnet a jeho využití',

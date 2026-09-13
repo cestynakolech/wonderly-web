@@ -471,3 +471,8 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
 ### F9 — zapojení společné písně (2026-09-13T23:27:25.496375+02:00)
 - Původní výrobní evidence hudba-suno/EVIDENCE.md dávka5 určuje Ze severu na jih pro celý celek magneticke-pole. Stejný existující M4A beze změny bajtů doplněn u vodiče/cívky a elektromagnetu. Nejde o novou píseň ani obsahový reaudit hotového média.
 - Blokové set/get potvrzují nezměněná ostatní pole; zkontroluj/build PASS a dvě dist routy obsahují přesnou cestu. Živé převzetí samostatně v kanonické matici Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Audio polemiky tím není publikováno.
+
+
+### F9 — nová infografika Elektromagnet (2026-09-14T00:03:30.065994+02:00)
+- Nový přehled šesti principů a schematická značka souvislé cívky s jádrem. PDF kotvy, Gemma31b review2 BEZ NÁLEZU, opakovaná vizuální kontrola a41 getBBox bez kolizí/ořezů. Původní nejednoznačné vinutí zachováno, RED/GREEN důkazy v Omega/dokumenty/wonderly-audit/9/elektromagnet-infografika/.
+- Blokový get/set, inventura, hlavní brána a build PASS; konkrétní dist obsah ověřen. PNG SHA25608cc3621845cecdc8e00bb1328a7684861ec1afe35a1ebc2f70e24960961342b. Živé nasazení se přebírá samostatně v kanonické matici. Audio dialogy nejsou tímto publikovány.
