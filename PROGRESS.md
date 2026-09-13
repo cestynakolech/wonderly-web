@@ -452,3 +452,8 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 ### F9 Magnety — laboratorní práce
 - Zapojen nový list Póly magnetů a kompas jako detektor pole, převzatý z připraveného v4 s úpravou pouze dvou odkazů na stránkování pro webovou šablonu. Nezávislá Gemma31b kontrola navrh-web.json2da8977…00702a BEZ NÁLEZU. Tabulka zůstává prázdná, pokus netvrzen jako provedený.
 - Důkazy Omega/dokumenty/wonderly-audit/9/magnety-opakovani-laborka/; původní PDF neměněno. Audio nadále čeká na skutečný poslech.
+
+
+### F9 Magnetické pole — zapojení existující hry
+- Doplněn odkaz Fyzikální liga do všech tří podtémat. Nevznikla nová hra ani banka: skutečný JS předvolí ročník9/celek magneticke-pole a identických66 otázek; ověřen i původní režim bez parametrů a neplatná předvolba.
+- Blokové get/set zachovalo všechna ostatní pole a původní odkazy. Důkaz Omega/dokumenty/wonderly-audit/9/magneticke-pole-herni-zapojeni.json; regrese existujícím testem v magnety-opakovani-laborka/hra-predvolba-test.json.

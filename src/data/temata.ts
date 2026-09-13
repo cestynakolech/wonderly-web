@@ -5006,10 +5006,7 @@ export const temata: Record<string, Tema[]> = {
 						],
 					},
 					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"infografika","nazev":"Infografika: Magnety a magnetické pole","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-prehled.png"}],
-					odkazy: [
-						{ nazev: 'Magnetismus — kvíz (Wordwall)', url: 'https://wordwall.net/cs/resource/27704217/magnetismus-2' },
-						{ nazev: 'Simulace: Magnet a kompas (PhET, česky)', url: 'https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs' },
-					],
+					odkazy: [{"nazev":"Magnetismus — kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/27704217/magnetismus-2"},{"nazev":"Simulace: Magnet a kompas (PhET, česky)","url":"https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
 					slug: 'magneticke-pole-vodice-a-civky',
@@ -5069,9 +5066,7 @@ export const temata: Record<string, Tema[]> = {
 							'V tomto tématu nepoužíváme výpočetní vzorec.',
 						],
 					},
-					odkazy: [
-						{ nazev: 'Test: Cívka a magnetické pole (Wordwall)', url: 'https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole' },
-					],
+					odkazy: [{"nazev":"Test: Cívka a magnetické pole (Wordwall)","url":"https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
 					slug: 'elektromagnet',
@@ -5108,9 +5103,7 @@ export const temata: Record<string, Tema[]> = {
 							'Elektromagnet lze zapnout, vypnout i přepólovat; využívá se například v jeřábech, elektromotorech, jističích, zvoncích a relé.',
 						],
 					},
-					odkazy: [
-						{ nazev: 'Elektromagnet, elektromotor — kvíz (Wordwall)', url: 'https://wordwall.net/resource/100782493/fyzika/elektromagnet-elektromotor' },
-					],
+					odkazy: [{"nazev":"Elektromagnet, elektromotor — kvíz (Wordwall)","url":"https://wordwall.net/resource/100782493/fyzika/elektromagnet-elektromotor"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 			],
 		},
