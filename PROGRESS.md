@@ -457,3 +457,7 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 ### F9 Magnetické pole — zapojení existující hry
 - Doplněn odkaz Fyzikální liga do všech tří podtémat. Nevznikla nová hra ani banka: skutečný JS předvolí ročník9/celek magneticke-pole a identických66 otázek; ověřen i původní režim bez parametrů a neplatná předvolba.
 - Blokové get/set zachovalo všechna ostatní pole a původní odkazy. Důkaz Omega/dokumenty/wonderly-audit/9/magneticke-pole-herni-zapojeni.json; regrese existujícím testem v magnety-opakovani-laborka/hra-predvolba-test.json.
+
+
+## F9 — infografika vodiče a cívky (2026-09-13)
+Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF kotvy a nezávislé review přesné verze BEZ NÁLEZU; skutečný PNG1200×1940, SHA2568b4fb0c00bce887f59ea4e5c9b164161faa06387797209e2c4ab6111f1877134, vizuálně ověřeno. RED/GREEN oprava kolize kružnice s nadpisem. Existující výklad, kvíz a odkazy nezměněny. Celé F9 stále nedokončeno; kanonický stav v Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.

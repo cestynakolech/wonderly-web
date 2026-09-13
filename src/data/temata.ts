@@ -5009,6 +5009,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [{"nazev":"Magnetismus — kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/27704217/magnetismus-2"},{"nazev":"Simulace: Magnet a kompas (PhET, česky)","url":"https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
+					materialy: [{"druh":"infografika","nazev":"Infografika: Magnetické pole vodiče a cívky","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/infografika-vodic-civka-prehled.png"}],
 					slug: 'magneticke-pole-vodice-a-civky',
 					nazev: 'Magnetické pole vodiče a cívky s proudem',
 					interakce: 'oersted',
