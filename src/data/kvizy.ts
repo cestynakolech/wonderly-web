@@ -2721,28 +2721,196 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa': [
-		{ text: 'Co je pohyb tělesa?', odpovedi: ['změna polohy tělesa vzhledem k jinému tělesu', 'jakékoli chvění tělesa', 'změna teploty tělesa'], vysvetleni: 'Pohyb = změna polohy vzhledem k jinému tělesu. Bez porovnání s jiným tělesem o pohybu mluvit nejde.' },
-		{ text: 'Kdy je těleso v klidu?', odpovedi: ['když vzhledem k jinému tělesu nemění svou polohu', 'když se nehýbe vzhledem k čemukoli ve vesmíru', 'když na něj nepůsobí žádná síla'], vysvetleni: 'Klid posuzujeme vždy vzhledem ke zvolenému tělesu — proto je klid relativní.' },
-		{ text: 'Cestující sedí v jedoucím vlaku. Vzhledem k sedadlu je…', odpovedi: ['v klidu', 'v pohybu', 'ani jedno'], vysvetleni: 'Vůči sedadlu polohu nemění — je v klidu; vůči nádraží se ale pohybuje.' },
-		{ text: 'Tentýž cestující je vzhledem k lidem na nástupišti…', odpovedi: ['v pohybu', 'v klidu', 'nelze rozhodnout'], vysvetleni: 'Vzhledem k nástupišti cestující svou polohu mění, protože vlak jede — proto o něm mluvíme jako o pohybujícím se tělese. Záleží vždy na tom, s čím pohyb porovnáváme.' },
-		{ text: 'Říkáme, že klid a pohyb jsou…', odpovedi: ['relativní — záleží, k čemu je vztahujeme', 'absolutní — platí vždy stejně', 'náhodné'], vysvetleni: 'Stejné těleso může být zároveň klidné vzhledem k jednomu tělesu a pohybující se vzhledem k jinému — třeba cestující v jedoucím vlaku.' },
-		{ text: 'Co je trajektorie?', odpovedi: ['čára, po které se těleso pohybuje', 'délka uražené cesty', 'čas pohybu tělesa'], vysvetleni: 'Trajektorie je čára pohybu — např. stopa lyžaře ve sněhu.' },
-		{ text: 'Trajektorie může být…', odpovedi: ['viditelná (stopa lyžaře) i myšlená (let letadla)', 'jen viditelná', 'jen myšlená'], vysvetleni: 'Někdy trajektorii vidíme (stopa), jindy si ji jen představujeme (dráha letu).' },
-		{ text: 'Co je dráha?', odpovedi: ['délka trajektorie', 'tvar trajektorie', 'rychlost pohybu'], vysvetleni: 'Dráha s = délka čáry, kterou těleso opsalo; měříme ji v metrech.' },
-		{ text: 'Jakou značku má dráha?', odpovedi: ['s', 'd', 't'], vysvetleni: 'Dráha se značí s, čas t, rychlost v.' },
-		{ text: 'Jaká je základní jednotka dráhy?', odpovedi: ['metr (m)', 'kilometr (km)', 'sekunda (s)'], vysvetleni: 'Základní jednotkou dráhy je metr; kilometry a centimetry jsou odvozené.' },
-		{ text: 'Pohyb, jehož trajektorií je přímka, se nazývá…', odpovedi: ['přímočarý', 'křivočarý', 'otáčivý'], vysvetleni: 'Přímá trajektorie = přímočarý pohyb, např. jedoucí výtah.' },
-		{ text: 'Pohyb, jehož trajektorií je křivka, se nazývá…', odpovedi: ['křivočarý', 'přímočarý', 'rovnoměrný'], vysvetleni: 'Křivá trajektorie = křivočarý pohyb, např. slalom lyžaře nebo hod míčem.' },
-		{ text: 'Jedoucí výtah koná pohyb…', odpovedi: ['přímočarý', 'křivočarý', 'otáčivý'], vysvetleni: 'Výtah jede rovně nahoru/dolů — trajektorie je přímka.' },
-		{ text: 'Lyžař ve slalomu koná pohyb…', odpovedi: ['křivočarý', 'přímočarý', 'žádný'], vysvetleni: 'Kličkuje mezi brankami — trajektorie je křivka.' },
-		{ text: 'Strom u silnice je vzhledem k jedoucímu autu…', odpovedi: ['v pohybu', 'v klidu', 'nelze určit'], vysvetleni: 'Vzhledem k autu strom svou polohu mění — z pohledu řidiče se „pohybuje" dozadu.' },
-		{ text: 'Dráhu měříme…', odpovedi: ['metrem (pásmem) podél trajektorie', 'teploměrem', 'siloměrem'], vysvetleni: 'Dráha je délka — měříme ji délkovými měřidly (metr, pásmo).' },
-		{ text: 'Ujel jsi na kole 2 km. Číslo 2 km je…', odpovedi: ['dráha', 'trajektorie', 'rychlost'], vysvetleni: '2 km je DÉLKA cesty = dráha. Trajektorie je samotná čára cesty.' },
-		{ text: 'Který z těchto údajů popisuje trajektorii?', odpovedi: ['tvar čáry pohybu (přímka, kružnice…)', 'počet kilometrů', 'počet minut'], vysvetleni: 'Trajektorie = tvar čáry; kilometry jsou dráha, minuty čas.' },
-		{ text: 'Spolujezdec v autě je v klidu vzhledem k…', odpovedi: ['řidiči', 'domům u silnice', 'chodcům na chodníku'], vysvetleni: 'Vzhledem k řidiči polohu nemění; vůči domům a chodcům se pohybuje.' },
-		{ text: 'Může být těleso zároveň v klidu i v pohybu?', odpovedi: ['ano — vzhledem k různým tělesům', 'ne, nikdy', 'jen ve vesmíru'], vysvetleni: 'Ano — třeba cestující ve vlaku je klidný vzhledem k sedadlu, ale pohybuje se vzhledem k nádraží. Proto je klid i pohyb vždy relativní, závislý na porovnávaném tělese.' },
-		{ text: 'Dráha 1 km je kolik metrů?', odpovedi: ['1 000 m', '100 m', '10 000 m'], vysvetleni: '1 km = 1 000 m (kilo- znamená tisíc).' },
-	],
+  {
+    "text": "Co je pohyb tělesa?",
+    "odpovedi": [
+      "změna polohy tělesa vzhledem k jinému tělesu",
+      "změna tvaru tělesa bez změny jeho polohy",
+      "změna barvy tělesa bez změny jeho polohy"
+    ],
+    "vysvetleni": "Pohyb = změna polohy vzhledem k jinému tělesu. Bez porovnání s jiným tělesem o pohybu mluvit nejde."
+  },
+  {
+    "text": "Kdy je těleso v klidu?",
+    "odpovedi": [
+      "když vzhledem ke zvolenému tělesu nemění polohu",
+      "když vzhledem ke zvolenému tělesu jede přímo",
+      "když vzhledem ke zvolenému tělesu opisuje kružnici"
+    ],
+    "vysvetleni": "Klid posuzujeme vždy vzhledem ke zvolenému tělesu — proto je klid relativní."
+  },
+  {
+    "text": "Cestující sedí v jedoucím vlaku. Vzhledem k sedadlu je…",
+    "odpovedi": [
+      "v klidu",
+      "v pohybu",
+      "ani jedno"
+    ],
+    "vysvetleni": "Vzhledem ke svému sedadlu zůstává na stejném místě."
+  },
+  {
+    "text": "Sedící cestující v jedoucím vlaku je vzhledem k dítěti stojícímu u přejezdu…",
+    "odpovedi": [
+      "v pohybu",
+      "v klidu",
+      "nelze rozhodnout"
+    ],
+    "vysvetleni": "Během průjezdu vlaku se poloha cestujícího vůči dítěti mění."
+  },
+  {
+    "text": "Říkáme, že klid a pohyb jsou…",
+    "odpovedi": [
+      "relativní — záleží, k čemu je vztahujeme",
+      "absolutní — platí vždy stejně",
+      "náhodné"
+    ],
+    "vysvetleni": "Při posuzování musíme určit, s čím dané těleso porovnáváme."
+  },
+  {
+    "text": "Co je trajektorie?",
+    "odpovedi": [
+      "čára, po které se těleso pohybuje",
+      "délka uražené cesty",
+      "čas pohybu tělesa"
+    ],
+    "vysvetleni": "Trajektorie je čára pohybu — např. stopa lyžaře ve sněhu."
+  },
+  {
+    "text": "Trajektorie může být…",
+    "odpovedi": [
+      "viditelná jako stopa i pouze myšlená čára",
+      "vždy viditelná jako stopa na pevném povrchu",
+      "vždy pouze myšlená, nikdy viditelná jako stopa"
+    ],
+    "vysvetleni": "Někdy trajektorii vidíme (stopa), jindy si ji jen představujeme (dráha letu)."
+  },
+  {
+    "text": "Co je dráha?",
+    "odpovedi": [
+      "délka trajektorie",
+      "tvar trajektorie",
+      "rychlost pohybu"
+    ],
+    "vysvetleni": "Dráha s = délka čáry, kterou těleso opsalo; měříme ji v metrech."
+  },
+  {
+    "text": "Jakou značku má dráha?",
+    "odpovedi": [
+      "s",
+      "d",
+      "t"
+    ],
+    "vysvetleni": "Pro dráhu používáme malé písmeno s."
+  },
+  {
+    "text": "Jaká je základní jednotka dráhy?",
+    "odpovedi": [
+      "metr (m)",
+      "kilometr (km)",
+      "centimetr (cm)"
+    ],
+    "vysvetleni": "Dráhu lze vyjádřit v různých jednotkách délky, základní jednotkou je metr."
+  },
+  {
+    "text": "Pohyb, jehož trajektorií je přímka, se nazývá…",
+    "odpovedi": [
+      "přímočarý",
+      "křivočarý",
+      "podle tvaru jej nelze zařadit"
+    ],
+    "vysvetleni": "Přímá trajektorie = přímočarý pohyb, např. jedoucí výtah."
+  },
+  {
+    "text": "Pohyb, jehož trajektorií je křivka, která není přímkou, se nazývá…",
+    "odpovedi": [
+      "křivočarý",
+      "přímočarý",
+      "podle tvaru jej nelze zařadit"
+    ],
+    "vysvetleni": "Křivá trajektorie = křivočarý pohyb, např. slalom lyžaře nebo hod míčem."
+  },
+  {
+    "text": "Jedoucí výtah koná pohyb…",
+    "odpovedi": [
+      "přímočarý",
+      "křivočarý",
+      "střídavě přímočarý a křivočarý"
+    ],
+    "vysvetleni": "Výtah jede rovně nahoru/dolů — trajektorie je přímka."
+  },
+  {
+    "text": "Lyžař ve slalomu koná pohyb…",
+    "odpovedi": [
+      "křivočarý",
+      "přímočarý",
+      "žádný"
+    ],
+    "vysvetleni": "Kličkuje mezi brankami — trajektorie je křivka."
+  },
+  {
+    "text": "Strom u silnice je vzhledem k jedoucímu autu…",
+    "odpovedi": [
+      "v pohybu",
+      "v klidu",
+      "nelze určit"
+    ],
+    "vysvetleni": "Vzhledem k autu strom svou polohu mění — z pohledu řidiče se „pohybuje\" dozadu."
+  },
+  {
+    "text": "Který pohyb zanechává viditelnou stopu na povrchu?",
+    "odpovedi": [
+      "psaní tužkou po papíře",
+      "let dravce při lovu",
+      "pohyb míče při volejbalu"
+    ],
+    "vysvetleni": "Tužka na papíře zanechává čáru tvořenou místy, kterými prošel její hrot."
+  },
+  {
+    "text": "Věta „závodní dráha má oválný tvar“ označuje slovem dráha fyzikálně…",
+    "odpovedi": [
+      "trajektorii",
+      "délku uražené cesty",
+      "jednotku délky"
+    ],
+    "vysvetleni": "Věta popisuje tvar čáry, ne její uraženou délku."
+  },
+  {
+    "text": "Která dvojice pohybů je tvořena dvěma křivočarými pohyby?",
+    "odpovedi": [
+      "slalom lyžaře a pohyb dítěte na kolotoči",
+      "jízda výtahu a slalom lyžaře",
+      "pohyb zboží po rovném pásu a jízda výtahu"
+    ],
+    "vysvetleni": "U obou pohybů správné dvojice se směr postupně mění; ani jeden neprobíhá po přímce."
+  },
+  {
+    "text": "Strom se spolu se Zemí pohybuje vzhledem k…",
+    "odpovedi": [
+      "Slunci",
+      "povrchu pod svými kořeny",
+      "místu svého kmene na Zemi"
+    ],
+    "vysvetleni": "Při posouzení pohybu stromu zde porovnáváme jeho polohu vůči Slunci."
+  },
+  {
+    "text": "Může být těleso zároveň v klidu i v pohybu?",
+    "odpovedi": [
+      "ano — vzhledem k různým tělesům",
+      "ne, nikdy",
+      "jen ve vesmíru"
+    ],
+    "vysvetleni": "Ano — třeba cestující ve vlaku je klidný vzhledem k sedadlu, ale pohybuje se vzhledem k nádraží. Proto je klid i pohyb vždy relativní, závislý na porovnávaném tělese."
+  },
+  {
+    "text": "Jakým běžným slovem v souvislosti s cestou označujeme trajektorii?",
+    "odpovedi": [
+      "trasa",
+      "délka",
+      "metr"
+    ],
+    "vysvetleni": "Slovo trasa označuje, kudy cesta vede, ne pouze její délku."
+  }
+],
 	'fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb': [
 		{ text: 'Kolik existuje základních jednoduchých pohybů těles?', odpovedi: ['dva — posuvný a otáčivý', 'tři — posuvný, otáčivý a šikmý', 'jeden — posuvný'], vysvetleni: 'Základní pohyby jsou dva: posuvný a otáčivý. Vše složitější je jejich kombinace.' },
 		{ text: 'Jak se pohybují body tělesa při posuvném pohybu?', odpovedi: ['všechny stejným směrem a stejnou rychlostí', 'každý bod se pohybuje jinou rychlostí', 'po kružnicích kolem společné osy otáčení'], vysvetleni: 'Při posuvném pohybu se každý bod pohybuje stejným směrem a stejnou rychlostí.' },

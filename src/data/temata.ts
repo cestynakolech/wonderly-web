@@ -1501,22 +1501,7 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'klid-a-pohyb-telesa',
 					nazev: 'Klid a pohyb tělesa',
 					interakce: 'relativita-pohybu',
-					obsah: `
-						<h2>Klid a pohyb tělesa — základní fyzikální pojmy</h2>
-						<p><strong>Pohyb tělesa</strong> je změna polohy tělesa vzhledem k jinému tělesu — základní fyzikální jev, kterým se zabývá kinematika.</p>
-						<p>Těleso je vzhledem k jinému tělesu <strong>v klidu</strong>, pokud se vzhledem k němu nepohybuje — klid je speciální případ pohybu s nulovou rychlostí.</p>
-						<p>👉 Vždy záleží na pozorovateli: cestující ve vlaku je <strong>v klidu vzhledem k sedadlu</strong>, ale <strong>v pohybu vzhledem k lidem na nástupišti</strong>. Klid a pohyb jsou relativní — závisí na volbě vztažné soustavy.</p>
-						<h3>Trajektorie a dráha — fyzikální veličiny pohybu</h3>
-						<ul>
-							<li><strong>Trajektorie</strong> je čára, po které se těleso pohybuje — může být viditelná (stopa lyžaře) i myšlená (let letadla)</li>
-							<li><strong>Dráha (s)</strong> je délka trajektorie; fyzikální veličina se základní jednotkou <strong>metr (m)</strong> — měřitelná vlastnost pohybu</li>
-						</ul>
-						<h3>Druhy pohybu podle tvaru trajektorie</h3>
-						<ul>
-							<li><strong>přímočarý</strong> — trajektorií je přímka (jedoucí výtah)</li>
-							<li><strong>křivočarý</strong> — trajektorií je křivka (slalom lyžaře, hod míčem)</li>
-						</ul>
-					`,
+					obsah: "<h2>Klid a pohyb tělesa</h2>\n<p>Těleso je <strong>v pohybu</strong>, když mění svou polohu vzhledem k jinému tělesu. Je <strong>v klidu</strong>, když svou polohu vzhledem k tomuto tělesu nemění. Vždy proto řekneme, <strong>vzhledem ke kterému tělesu</strong> klid nebo pohyb posuzujeme.</p>\n<p>Sedící cestující v jedoucím vlaku je v klidu vzhledem ke spolucestujícímu na vedlejším sedadle i ke svému sedadlu. Vzhledem k dítěti stojícímu u přejezdu je ale v pohybu. <strong>Klid a pohyb jsou relativní:</strong> stejné těleso může být zároveň v klidu vzhledem k jednomu tělesu a v pohybu vzhledem k jinému.</p>\n<p>I strom se může pohybovat vzhledem k jinému tělesu: vzhledem k řidiči jedoucího auta mění polohu a spolu se Zemí se pohybuje vzhledem ke Slunci.</p>\n<h3>Trajektorie: kudy těleso prochází</h3>\n<p><strong>Trajektorie</strong> je čára tvořená místy, kterými těleso při pohybu prochází. Může být viditelná, nebo jen myšlená. Viditelnou stopu zanechá tužka na papíře nebo lyžař ve sněhu. Trajektorii letu si můžeme jen představit. V běžné řeči používáme také slovo <strong>trasa</strong>.</p>\n<h3>Přímočarý a křivočarý pohyb</h3>\n<ul><li><strong>Přímočarý pohyb:</strong> trajektorií je přímka nebo její část, například úsečka. Takto jede výtah nebo zboží po rovném pásu u pokladny.</li>\n<li><strong>Křivočarý pohyb:</strong> trajektorií není přímka, ale křivka. Příkladem je slalom lyžaře, kličkování zajíce, pohyb dítěte na kolotoči nebo míče při volejbalu.</li></ul>\n<h3>Dráha: jakou délku těleso urazilo</h3>\n<p><strong>Dráha</strong> je fyzikální veličina udávající délku uražené trajektorie. Značí se <strong>s</strong> a její základní jednotkou je <strong>metr (m)</strong>. Vyjadřovat ji můžeme i v dalších jednotkách délky.</p>\n<p>Trajektorii a dráhu nezaměňujeme: trajektorie je čára, dráha její uražená délka. Když se například řekne „oválná závodní dráha“, popisuje se tvar čáry, tedy fyzikálně <strong>trajektorie</strong>, nikoli její délka.</p>",
 					zapis: {
 						body: [
 							'Pohyb tělesa je změna jeho polohy vzhledem k jinému tělesu.',

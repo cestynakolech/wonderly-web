@@ -436,3 +436,9 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 - Uživatel po poslechu přijal druhý a třetí díl. Přesně připnuté MP4 byly bez nové výroby nahrány do R2 a zapojeny k podtématu Mechanická práce; první díl už neslibuje chybějící pokračování.
 - Výkon zůstává beze změny se čtyřmi zveřejněnými díly. Další podobná videa k Mechanické práci ani Výkonu se nevyrábějí.
 - Publikační důkazy (R2 hashe, build, commit, origin/main a živé přehrávání) jsou v kanonickém BOTS checkpointu na Mini.
+
+
+### F7 — Klid a pohyb tělesa: cílená oprava podle PDF (2026-09-13)
+- Výklad a 21 otázek navázány výhradně na PDF Pohyb tělesa str.1–4. Odstraněny nepodložené pojmy kinematika, vztažná soustava a nulová rychlost i otázka na převod kilometru. Doplněno přirovnání stromu vůči Slunci a rozdíl trajektorie/dráhy z podkladu.
+- Nezávislé obsahové kontroly Gemma31b po opravě přesných vstupů bez nálezu; původně odhalené dva úniky odpovědí opraveny bez změny bran. Zkontroluj rc0, 0 duplicit/úniků, build478 stránek, cílená RED/GREEN regrese s mutantem.
+- Zdrojová mapa, reporty a důkazy: Omega/dokumenty/wonderly-audit/7/klid-a-pohyb-*. Původní materiály, interakce a laborka zachovány; nejsou nově obsahově schvalovány tímto zápisem. Polemika/video a píseň zatím nejsou doplněné, celé podtéma není hotové.
