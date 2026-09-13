@@ -430,3 +430,9 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 - Nezávislá Gemma31b kontrola bez nálezu, přesný JSON hash a095b5fd8757311a40d5e87e284cb788abeca350bf43e97c22628720c3a2dbe0; převzetí rodičem proti zdroji a schématu.
 - Dokončení celého F8 stále NE. Navazující videa čekají doložení zdrojů tří příkladů a výrobu; pilot ani infografika se neopakují. Kanonický checkpoint: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
 - Brána, nový build a skutečné nasazení se ověřují před označením publikace za dokončenou.
+
+
+### F8 — dokončení přijaté série Mechanická práce (2026-09-13)
+- Uživatel po poslechu přijal druhý a třetí díl. Přesně připnuté MP4 byly bez nové výroby nahrány do R2 a zapojeny k podtématu Mechanická práce; první díl už neslibuje chybějící pokračování.
+- Výkon zůstává beze změny se čtyřmi zveřejněnými díly. Další podobná videa k Mechanické práci ani Výkonu se nevyrábějí.
+- Publikační důkazy (R2 hashe, build, commit, origin/main a živé přehrávání) jsou v kanonickém BOTS checkpointu na Mini.
