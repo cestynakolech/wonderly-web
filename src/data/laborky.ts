@@ -18,6 +18,40 @@ export type Laborka = {
 };
 
 export const laborky: Record<string, Laborka> = {
+	"fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani": {
+  "nazev": "Póly magnetů a kompas jako detektor pole",
+  "cil": "Pozorovat přitahování a odpuzování magnetických pólů a pomocí kompasu zkoumat, jak tyčový magnet mění směr magnetky ve svém okolí.",
+  "pomucky": [
+    "dva školní tyčové magnety s označenými póly N a S",
+    "kompas nebo volně otočná magnetka",
+    "dva listy papíru",
+    "tužka",
+    "nekovová podložka"
+  ],
+  "postup": [
+    "Použij tabulku tohoto pracovního listu. Připrav čtyři dvojice přibližovaných pólů: N–N, N–S, S–N a S–S. Výsledek zatím nevyplňuj. Pracuj na vodorovném místě, dál od ocelových částí lavice a jiných magnetických předmětů.",
+    "Polož jeden magnet na papír a přidrž jej. Druhý magnet drž v ruce. Magnety udržuj v jedné ose, severními konci proti sobě, a pomalu je přibližuj. Nedovol druhému magnetu pootočit se. Sleduj, zda cítíš přitahování, nebo odpuzování. Nenech magnety narazit do sebe. Pozorování zapiš do tabulky.",
+    "Podobně vyzkoušej zbývající tři dvojice pólů. Pro každou dvojici začni znovu s magnety od sebe; do tabulky zapiš pouze skutečně pozorovaný účinek.",
+    "Druhý magnet odnes tak daleko, aby jeho další oddalování už neměnilo směr střelky kompasu. Na druhý list papíru polož první magnet a obkresli jeho polohu. Označ na obrysu póly N a S.",
+    "Kompas postupně pokládej na různá místa kolem magnetu. V každém místě počkej, až se střelka ustálí. Označ střed kompasu a od něj nakresli šipku ve směru, kam ukazuje severní konec střelky. Magnet při tom neposouvej.",
+    "Odnes oba magnety dostatečně daleko, aby další zvětšení vzdálenosti už neměnilo směr střelky. Vrať kompas postupně na několik označených míst a porovnej jeho směr s dřívějším náčrtkem. Výsledky popiš písemně vedle svého náčrtku. I bez školních magnetů působí na kompas magnetické pole Země; shodný směr v jednom místě neznamená nepřítomnost pole."
+  ],
+  "tabulka": {
+    "sloupce": [
+      "pól přidržovaného magnetu",
+      "přibližovaný pól",
+      "pozorovaný účinek"
+    ],
+    "radky": 4
+  },
+  "otazky": [
+    "Které dvojice pólů se v tvém pokusu přitahovaly a které odpuzovaly?",
+    "Měnil se směr střelky, když jsi kompas přenášel kolem magnetu? Dolož odpověď svým náčrtkem.",
+    "Co nám změna směru magnetky říká o okolí magnetu?"
+  ],
+  "pozor": "Použij běžné školní magnety, ne silné neodymové. Magnety nerozbíjej a nenech je prudce srazit; chraň prsty. Nedávej je k elektronice ani k zdravotním implantátům. Při implantátu práci s magnety přenech spolužákovi a domluv se s učitelem.",
+  "tip": "Severní konec střelky urči podle označení kompasu; samotná barva nemusí u všech přístrojů znamenat totéž."
+},
 	"fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace": {
   "nazev": "Držení a zvedání: kdy konáme mechanickou práci?",
   "cil": "Rozlišit držení předmětu od jeho zvedání a určit práci z naměřené síly a dráhy ve směru síly.",

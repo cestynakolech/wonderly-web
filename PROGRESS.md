@@ -447,3 +447,8 @@ Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, por
 ### F9 Magnety — nová statická infografika
 - Přidán přehled šesti panelů dle zdroje, bez změny hotového výkladu a kvízu. Gemma31b review2 přesné v3 BEZ NÁLEZU, skutečný PNG vizuálně vyhovuje, layout RED v1/v2 → GREEN v3 (59 textů, žádný překryv ani ořez). Důkazy Omega/dokumenty/wonderly-audit/9/magnety-opakovani-infografika/.
 - Tři hotové audio díly nadále čekají na poslech, nejsou touto změnou zapojeny. Celé F9 není dokončeno, žádná práce F7.
+
+
+### F9 Magnety — laboratorní práce
+- Zapojen nový list Póly magnetů a kompas jako detektor pole, převzatý z připraveného v4 s úpravou pouze dvou odkazů na stránkování pro webovou šablonu. Nezávislá Gemma31b kontrola navrh-web.json2da8977…00702a BEZ NÁLEZU. Tabulka zůstává prázdná, pokus netvrzen jako provedený.
+- Důkazy Omega/dokumenty/wonderly-audit/9/magnety-opakovani-laborka/; původní PDF neměněno. Audio nadále čeká na skutečný poslech.
