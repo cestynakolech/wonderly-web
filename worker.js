@@ -119,10 +119,185 @@ export class LigaMistnost {
 	}
 }
 
+/**
+ * Odemčení zamčené stránky na tabuli z telefonu, bez psaní hesla na tabuli
+ * (viz OdemceniTelefonem.astro + /odemknout/). Tabule založí jednorázový
+ * kód, telefon ho naskenuje jako QR a potvrdí učitelským heslem — worker
+ * heslo ověří (OTISK_TABULE níž) a DO jen pamatuje stav a počet pokusů.
+ * Heslo samo se sem NIKDY neposílá ani neukládá, jen výsledek porovnání.
+ */
+export class TabuleOdemceni {
+	constructor(state) {
+		this.state = state;
+		this.tajne = null;
+		this.odemceno = false;
+		this.pokusy = 0;
+		state.blockConcurrencyWhile?.(async () => {
+			const ulozene = await state.storage?.get('data');
+			if (ulozene) {
+				this.tajne = ulozene.tajne;
+				this.odemceno = ulozene.odemceno;
+				this.pokusy = ulozene.pokusy;
+			}
+		});
+	}
+
+	async ulozit() {
+		await this.state.storage?.put('data', { tajne: this.tajne, odemceno: this.odemceno, pokusy: this.pokusy });
+	}
+
+	async fetch(request) {
+		const url = new URL(request.url);
+		const hlavicky = { 'content-type': 'application/json', 'cache-control': 'no-store' };
+
+		// interní: založení kódu (volá jen samotný worker)
+		if (url.pathname.endsWith('/zaloz')) {
+			this.tajne = url.searchParams.get('tajne') ?? '';
+			this.odemceno = false;
+			this.pokusy = 0;
+			await this.ulozit();
+			// po 10 minutách kód sám zanikne, i kdyby ho nikdo nepoužil
+			await this.state.storage?.setAlarm(Date.now() + 10 * 60 * 1000);
+			return new Response('ok');
+		}
+
+		if (url.pathname.endsWith('/stav')) {
+			const t = url.searchParams.get('tajne') ?? '';
+			if (!this.tajne || t !== this.tajne) {
+				return new Response(JSON.stringify({ stav: 'neplatne' }), { headers: hlavicky });
+			}
+			return new Response(JSON.stringify({ stav: this.odemceno ? 'odemceno' : 'ceka' }), { headers: hlavicky });
+		}
+
+		// zrušení z telefonu (tlačítko „Zrušit") nebo z tabule po vypršení —
+		// odpověď je vždy stejná, ať tajné sedělo nebo ne, ať to nepomáhá hádání
+		if (url.pathname.endsWith('/zrus')) {
+			const t = url.searchParams.get('tajne') ?? '';
+			if (this.tajne && t === this.tajne) {
+				await this.state.storage?.deleteAll();
+				await this.state.storage?.deleteAlarm();
+				this.tajne = null;
+				this.odemceno = false;
+				this.pokusy = 0;
+			}
+			return new Response(JSON.stringify({ ok: true }), { headers: hlavicky });
+		}
+
+		// interní: worker už heslo ověřil (SHA-256 proti OTISK_TABULE), sem posílá
+		// jen výsledek porovnání — DO samo heslo nikdy nevidí
+		if (url.pathname.endsWith('/over')) {
+			if (!this.tajne) {
+				return new Response(JSON.stringify({ chyba: 'Kód vypršel, na tabuli klikněte znovu.' }), { status: 410, headers: hlavicky });
+			}
+			if (this.pokusy >= 5) {
+				return new Response(JSON.stringify({ chyba: 'Příliš mnoho pokusů.' }), { status: 429, headers: hlavicky });
+			}
+			const spravne = url.searchParams.get('spravne') === 'true';
+			if (!spravne) {
+				this.pokusy++;
+				await this.ulozit();
+				return new Response(
+					JSON.stringify({ chyba: 'Špatné heslo.', zbyva: Math.max(0, 5 - this.pokusy) }),
+					{ status: 401, headers: hlavicky },
+				);
+			}
+			this.odemceno = true;
+			await this.ulozit();
+			return new Response(JSON.stringify({ ok: true }), { headers: hlavicky });
+		}
+
+		return new Response('Neznámá cesta', { status: 404 });
+	}
+
+	// po 10 minutách kód smažeme, aby QR na tabuli přestalo platit
+	async alarm() {
+		await this.state.storage?.deleteAll();
+		this.tajne = null;
+		this.odemceno = false;
+		this.pokusy = 0;
+	}
+}
+
 export default {
 	async fetch(request, env) {
 		const url = new URL(request.url);
 		const host = request.headers.get('host') ?? '';
+
+		// Odemčení tabule z telefonu. OTISK_TABULE MUSÍ sedět s hodnotou OTISK
+		// v klientských zámcích (Zamek.astro, [podtema]/test/index.astro) — jinak
+		// by šlo tabuli odemknout jiným heslem, než jaké zná učitel.
+		const OTISK_TABULE = '8c0a8e314ec61cb5d61faea8ffa0dbded53adc2aa21f138cfcf90979f40a81fb';
+		const jsonNoStore = (data, init = {}) =>
+			new Response(JSON.stringify(data), {
+				...init,
+				headers: { 'content-type': 'application/json', 'cache-control': 'no-store', ...(init.headers ?? {}) },
+			});
+
+		if (url.pathname === '/api/tabule/nova') {
+			if (request.method !== 'POST') return new Response('Metoda není povolena', { status: 405 });
+			const bajtyId = new Uint8Array(16);
+			crypto.getRandomValues(bajtyId);
+			const id = [...bajtyId].map((b) => b.toString(16).padStart(2, '0')).join('');
+			const bajtyTajne = new Uint8Array(18);
+			crypto.getRandomValues(bajtyTajne);
+			const tajne = [...bajtyTajne].map((b) => b.toString(16).padStart(2, '0')).join('');
+			await env.TABULE.get(env.TABULE.idFromName(id)).fetch(`https://tabule/zaloz?tajne=${tajne}`);
+			return jsonNoStore({ id, tajne });
+		}
+		if (url.pathname === '/api/tabule/stav') {
+			const p = url.searchParams.get('p') ?? '';
+			const t = url.searchParams.get('t') ?? '';
+			if (!/^[0-9a-f]{32}$/.test(p)) return jsonNoStore({ stav: 'neplatne' });
+			const odpoved = await env.TABULE.get(env.TABULE.idFromName(p)).fetch(`https://tabule/stav?tajne=${encodeURIComponent(t)}`);
+			let vysledek = { stav: 'neplatne' };
+			try {
+				vysledek = await odpoved.json();
+			} catch {}
+			return jsonNoStore(vysledek);
+		}
+		if (url.pathname === '/api/tabule/zrus') {
+			if (request.method !== 'POST') return new Response('Metoda není povolena', { status: 405 });
+			const telo = await request.text();
+			if (telo.length > 1024) return jsonNoStore({ ok: true });
+			let data;
+			try {
+				data = JSON.parse(telo);
+			} catch {
+				return jsonNoStore({ ok: true });
+			}
+			const p = String(data?.p ?? '');
+			const t = String(data?.t ?? '');
+			// stejná odpověď pro platné i neplatné p — ať to nepomáhá hádání
+			if (/^[0-9a-f]{32}$/.test(p)) {
+				try {
+					await env.TABULE.get(env.TABULE.idFromName(p)).fetch(`https://tabule/zrus?tajne=${encodeURIComponent(t)}`);
+				} catch {}
+			}
+			return jsonNoStore({ ok: true });
+		}
+		if (url.pathname === '/api/tabule/potvrd') {
+			if (request.method !== 'POST') return new Response('Metoda není povolena', { status: 405 });
+			const telo = await request.text();
+			if (telo.length > 1024) return new Response('Tělo je příliš velké', { status: 400 });
+			let data;
+			try {
+				data = JSON.parse(telo);
+			} catch {
+				return new Response('Neplatný JSON', { status: 400 });
+			}
+			const p = String(data?.p ?? '');
+			const heslo = String(data?.heslo ?? '');
+			if (!/^[0-9a-f]{32}$/.test(p)) return new Response('Neplatné p', { status: 400 });
+			const otiskBajty = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(heslo));
+			const otisk = [...new Uint8Array(otiskBajty)].map((b) => b.toString(16).padStart(2, '0')).join('');
+			const spravne = otisk === OTISK_TABULE;
+			const odpoved = await env.TABULE.get(env.TABULE.idFromName(p)).fetch(`https://tabule/over?spravne=${spravne}`);
+			let vysledek = {};
+			try {
+				vysledek = await odpoved.json();
+			} catch {}
+			return jsonNoStore(vysledek, { status: odpoved.status });
+		}
 
 		// herní místnosti Fyzikální ligy
 		if (url.pathname === '/api/liga/nova') {

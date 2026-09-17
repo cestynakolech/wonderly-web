@@ -2,6 +2,7 @@
 import { predmety, rocniky } from '../../../../../../../data/predmety';
 import { temata } from '../../../../../../../data/temata';
 import { kvizy } from '../../../../../../../data/kvizy';
+import OdemceniTelefonem from '../../../../../../../components/skola2/OdemceniTelefonem.astro';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -46,6 +47,7 @@ const POCET_V_TESTU = 7;
 				<button type="submit">Odemknout</button>
 			</form>
 			<p class="zamek-chyba" id="zamek-chyba" hidden>Špatné heslo, zkus to znovu.</p>
+			<OdemceniTelefonem klic="ucitelsky-test" />
 		</section>
 		<script is:inline>
 			(() => {

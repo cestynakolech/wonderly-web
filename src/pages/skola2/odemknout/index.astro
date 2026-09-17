@@ -1,0 +1,153 @@
+---
+// Telefonní protějšek k OdemceniTelefonem.astro: otevře se naskenováním QR
+// z tabule (odkaz obsahuje ?p=ID) a po zadání hesla tabuli na dálku odemkne
+// (viz worker.js — /api/tabule/*). Stránka se sama nikdy neindexuje.
+---
+
+<html lang="cs">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>Odemknout tabuli – Wonderly</title>
+	</head>
+	<body>
+		<main>
+			<p class="vysvetleni" id="vysvetleni" hidden>
+				Tahle stránka slouží k odemčení tabule z telefonu. Otevře se naskenováním QR kódu, který
+				ukáže tabule po kliknutí na „📱 Odemknout z telefonu".
+			</p>
+
+			<div id="odemykani" hidden>
+				<h1>🔒 Odemknout tabuli</h1>
+				<p>Zadejte stejné heslo jako na tabuli.</p>
+				<form method="post" action="" id="odemykaci-formular">
+					<!-- skryté jméno: bez něj klíčenka (Safari/iCloud i Chrome) heslo nenabídne ani neuloží -->
+					<input type="text" name="username" autocomplete="username" value="ucitel" readonly tabindex="-1" aria-hidden="true" class="jmeno-skryte" />
+					<input type="password" name="password" autocomplete="current-password" autofocus id="heslo" />
+					<button type="submit" id="odemknout">Odemknout tabuli</button>
+				</form>
+				<p class="chyba" id="chyba" hidden></p>
+				<p class="hotovo" id="hotovo" hidden></p>
+			</div>
+		</main>
+
+		<script is:inline>
+			(() => {
+				const p = new URLSearchParams(location.search).get('p');
+				const vysvetleni = document.getElementById('vysvetleni');
+				const odemykani = document.getElementById('odemykani');
+				const chyba = document.getElementById('chyba');
+				const hotovo = document.getElementById('hotovo');
+				const formular = document.getElementById('odemykaci-formular');
+				const tlacitko = document.getElementById('odemknout');
+
+				if (!p || !/^[0-9a-f]{32}$/.test(p)) {
+					vysvetleni.hidden = false;
+					return;
+				}
+				odemykani.hidden = false;
+
+				const ukazChybu = (text) => {
+					chyba.textContent = text;
+					chyba.hidden = false;
+				};
+
+				formular.addEventListener('submit', async (udalost) => {
+					udalost.preventDefault();
+					chyba.hidden = true;
+					tlacitko.disabled = true;
+					const heslo = document.getElementById('heslo').value;
+					try {
+						const odpoved = await fetch('/api/tabule/potvrd', {
+							method: 'POST',
+							headers: { 'content-type': 'application/json' },
+							body: JSON.stringify({ p, heslo }),
+						});
+						let data = {};
+						try {
+							data = await odpoved.json();
+						} catch {}
+
+						if (odpoved.status === 200 && data.ok) {
+							formular.remove();
+							hotovo.textContent = '✅ Tabule je odemčená, můžete telefon odložit.';
+							hotovo.hidden = false;
+							return;
+						}
+						if (odpoved.status === 401) {
+							ukazChybu(`Špatné heslo.${data.zbyva != null ? ` Zbývá pokusů: ${data.zbyva}.` : ''}`);
+						} else if (odpoved.status === 410 || odpoved.status === 404) {
+							ukazChybu('Kód vypršel, na tabuli klikněte znovu.');
+							formular.remove();
+						} else if (odpoved.status === 429) {
+							ukazChybu('Příliš mnoho pokusů, zkuste to později.');
+						} else {
+							ukazChybu('Něco se nepovedlo, zkuste to znovu.');
+						}
+					} catch {
+						ukazChybu('Nepodařilo se spojit se serverem.');
+					} finally {
+						tlacitko.disabled = false;
+					}
+				});
+			})();
+		</script>
+
+		<style is:global>
+			body {
+				margin: 0;
+				background: #e9e6de;
+				font-family: system-ui, sans-serif;
+				display: flex;
+				min-height: 100vh;
+				align-items: center;
+				justify-content: center;
+			}
+			main {
+				max-width: 26rem;
+				margin: 1.5rem;
+				padding: 2rem;
+				background: #fff;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+				text-align: center;
+			}
+			.vysvetleni {
+				font-size: 1.1rem;
+				line-height: 1.5;
+			}
+			input {
+				font-size: 1.1rem;
+				padding: 0.6rem;
+				width: 80%;
+				margin-bottom: 1rem;
+			}
+			/* skryté pole jména pro klíčenku — ne display:none, to by ho Safari ignoroval */
+			.jmeno-skryte {
+				position: absolute;
+				width: 1px !important;
+				height: 1px;
+				padding: 0 !important;
+				margin: 0;
+				border: 0;
+				opacity: 0;
+				pointer-events: none;
+			}
+			button {
+				display: block;
+				width: 100%;
+				font-size: 1.15rem;
+				padding: 0.7rem 1rem;
+				cursor: pointer;
+			}
+			.chyba {
+				color: #c92a2a;
+			}
+			.hotovo {
+				font-size: 1.2rem;
+			}
+		</style>
+	</body>
+</html>
