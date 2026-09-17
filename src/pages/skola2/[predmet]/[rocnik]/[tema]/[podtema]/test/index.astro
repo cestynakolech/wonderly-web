@@ -39,8 +39,10 @@ const POCET_V_TESTU = 7;
 		<section class="zamek" id="zamek">
 			<h1>🔒 Stránka pro učitele</h1>
 			<p>Tato stránka slouží k tisku testů. Zadej učitelské heslo:</p>
-			<form id="zamek-formular">
-				<input type="password" id="zamek-heslo" autocomplete="off" autofocus />
+			<form id="zamek-formular" method="post" action="">
+				<!-- skryté jméno: bez něj klíčenka (Safari/iCloud i Chrome) heslo nenabídne ani neuloží -->
+				<input type="text" name="username" autocomplete="username" value="ucitel" readonly tabindex="-1" aria-hidden="true" class="zamek-jmeno" />
+				<input type="password" id="zamek-heslo" name="password" autocomplete="current-password" autofocus />
 				<button type="submit">Odemknout</button>
 			</form>
 			<p class="zamek-chyba" id="zamek-chyba" hidden>Špatné heslo, zkus to znovu.</p>
@@ -291,6 +293,16 @@ const POCET_V_TESTU = 7;
 				font-size: 1.1rem;
 				padding: 0.5rem;
 				width: 60%;
+			}
+			/* skryté pole jména pro klíčenku — ne display:none, to by ho Safari ignoroval */
+			.zamek-jmeno {
+				position: absolute;
+				width: 1px !important;
+				height: 1px;
+				padding: 0 !important;
+				border: 0;
+				opacity: 0;
+				pointer-events: none;
 			}
 			.zamek button {
 				font-size: 1.1rem;
