@@ -1,7 +1,12 @@
 ---
 // Telefonní protějšek k OdemceniTelefonem.astro: otevře se naskenováním QR
-// z tabule (odkaz obsahuje ?p=ID) a po zadání hesla tabuli na dálku odemkne
-// (viz worker.js — /api/tabule/*). Stránka se sama nikdy neindexuje.
+// z tabule (odkaz obsahuje ?p=ID) a po zadání hesla (nebo klepnutím na
+// zapamatovaném telefonu) tabuli na dálku odemkne (viz worker.js —
+// /api/tabule/*). Stránka se sama nikdy neindexuje.
+//
+// „Zapamatovaný telefon" = náhodný 32bajtový klíč v localStorage. Ukládá se
+// jen jeho SHA-256 otisk na serveru (worker.js, instance TabuleOdemceni
+// 'zapamatovane-telefony') — samotný klíč se nikam neposílá kromě ověřování.
 ---
 
 <html lang="cs">
@@ -21,13 +26,28 @@
 
 			<div id="odemykani" hidden>
 				<h1>🔒 Odemknout tabuli</h1>
-				<p>Zadejte stejné heslo jako na tabuli.</p>
-				<form method="post" action="" id="odemykaci-formular">
-					<!-- skryté jméno: bez něj klíčenka (Safari/iCloud i Chrome) heslo nenabídne ani neuloží -->
-					<input type="text" name="username" autocomplete="username" value="ucitel" readonly tabindex="-1" aria-hidden="true" class="jmeno-skryte" />
-					<input type="password" name="password" autocomplete="current-password" autofocus id="heslo" />
-					<button type="submit" id="odemknout">Odemknout tabuli</button>
-				</form>
+
+				<div id="rychle-odemceni" hidden>
+					<button type="button" id="odemknout-klepnutim">🔓 Odemknout tabuli</button>
+					<p><a href="#" id="odemknout-heslem-odkaz">Odemknout heslem</a></p>
+				</div>
+
+				<div id="heslo-blok">
+					<p>Zadejte stejné heslo jako na tabuli.</p>
+					<form method="post" action="" id="odemykaci-formular">
+						<!-- skryté jméno: bez něj klíčenka (Safari/iCloud i Chrome) heslo nenabídne ani neuloží -->
+						<input type="text" name="username" autocomplete="username" value="ucitel" readonly tabindex="-1" aria-hidden="true" class="jmeno-skryte" />
+						<input type="password" name="password" autocomplete="current-password" autofocus id="heslo" />
+						<p class="zapamatovat-radek">
+							<label>
+								<input type="checkbox" id="zapamatovat" checked />
+								Zapamatovat tento telefon (příště stačí klepnout)
+							</label>
+						</p>
+						<button type="submit" id="odemknout">Odemknout tabuli</button>
+					</form>
+				</div>
+
 				<p class="chyba" id="chyba" hidden></p>
 				<p class="hotovo" id="hotovo" hidden></p>
 			</div>
@@ -40,8 +60,32 @@
 				const odemykani = document.getElementById('odemykani');
 				const chyba = document.getElementById('chyba');
 				const hotovo = document.getElementById('hotovo');
+				const rychleOdemceni = document.getElementById('rychle-odemceni');
+				const hesloBlok = document.getElementById('heslo-blok');
+				const tlacitkoKlepnutim = document.getElementById('odemknout-klepnutim');
+				const odkazHeslem = document.getElementById('odemknout-heslem-odkaz');
 				const formular = document.getElementById('odemykaci-formular');
 				const tlacitko = document.getElementById('odemknout');
+				const zapamatovatPole = document.getElementById('zapamatovat');
+
+				const KLIC_ULOZISTE = 'wonderly-telefon-klic';
+				const nactiKlic = () => {
+					try {
+						return localStorage.getItem(KLIC_ULOZISTE);
+					} catch {
+						return null;
+					}
+				};
+				const ulozKlic = (klic) => {
+					try {
+						localStorage.setItem(KLIC_ULOZISTE, klic);
+					} catch {}
+				};
+				const smazKlic = () => {
+					try {
+						localStorage.removeItem(KLIC_ULOZISTE);
+					} catch {}
+				};
 
 				if (!p || !/^[0-9a-f]{32}$/.test(p)) {
 					vysvetleni.hidden = false;
@@ -54,16 +98,78 @@
 					chyba.hidden = false;
 				};
 
+				const ukazHesloMisto = (zprava) => {
+					rychleOdemceni.hidden = true;
+					hesloBlok.hidden = false;
+					if (zprava) ukazChybu(zprava);
+				};
+
+				const odemcenoHlaska = () => {
+					rychleOdemceni.remove();
+					hesloBlok.remove();
+					hotovo.textContent = '✅ Tabule je odemčená, můžete telefon odložit.';
+					hotovo.hidden = false;
+				};
+
+				// jedno klepnutí na zapamatovaném telefonu — odemkne bez zadávání hesla
+				const zkusOdemknoutKlicem = async () => {
+					const klic = nactiKlic();
+					if (!klic) return;
+					rychleOdemceni.hidden = false;
+					hesloBlok.hidden = true;
+
+					tlacitkoKlepnutim.addEventListener('click', async () => {
+						chyba.hidden = true;
+						tlacitkoKlepnutim.disabled = true;
+						try {
+							const odpoved = await fetch('/api/tabule/potvrd', {
+								method: 'POST',
+								headers: { 'content-type': 'application/json' },
+								body: JSON.stringify({ p, klic }),
+							});
+							let data = {};
+							try {
+								data = await odpoved.json();
+							} catch {}
+
+							if (odpoved.status === 200 && data.ok) {
+								odemcenoHlaska();
+								return;
+							}
+							if (odpoved.status === 401) {
+								smazKlic();
+								ukazHesloMisto('Tento telefon už není zapamatovaný, zadejte heslo.');
+							} else if (odpoved.status === 410 || odpoved.status === 404) {
+								ukazChybu('Kód vypršel, na tabuli klikněte znovu.');
+								rychleOdemceni.remove();
+							} else if (odpoved.status === 429) {
+								ukazChybu('Příliš mnoho pokusů, zkuste to později.');
+							} else {
+								ukazChybu('Něco se nepovedlo, zkuste to znovu.');
+							}
+						} catch {
+							ukazChybu('Nepodařilo se spojit se serverem.');
+						} finally {
+							tlacitkoKlepnutim.disabled = false;
+						}
+					});
+					odkazHeslem.addEventListener('click', (udalost) => {
+						udalost.preventDefault();
+						ukazHesloMisto();
+					});
+				};
+
 				formular.addEventListener('submit', async (udalost) => {
 					udalost.preventDefault();
 					chyba.hidden = true;
 					tlacitko.disabled = true;
 					const heslo = document.getElementById('heslo').value;
+					const zapamatovat = !!zapamatovatPole?.checked;
 					try {
 						const odpoved = await fetch('/api/tabule/potvrd', {
 							method: 'POST',
 							headers: { 'content-type': 'application/json' },
-							body: JSON.stringify({ p, heslo }),
+							body: JSON.stringify({ p, heslo, zapamatovat }),
 						});
 						let data = {};
 						try {
@@ -71,15 +177,15 @@
 						} catch {}
 
 						if (odpoved.status === 200 && data.ok) {
-							formular.remove();
-							hotovo.textContent = '✅ Tabule je odemčená, můžete telefon odložit.';
-							hotovo.hidden = false;
+							if (data.klic) ulozKlic(data.klic);
+							odemcenoHlaska();
 							return;
 						}
 						if (odpoved.status === 401) {
 							ukazChybu(`Špatné heslo.${data.zbyva != null ? ` Zbývá pokusů: ${data.zbyva}.` : ''}`);
 						} else if (odpoved.status === 410 || odpoved.status === 404) {
 							ukazChybu('Kód vypršel, na tabuli klikněte znovu.');
+							rychleOdemceni.remove();
 							formular.remove();
 						} else if (odpoved.status === 429) {
 							ukazChybu('Příliš mnoho pokusů, zkuste to později.');
@@ -92,6 +198,10 @@
 						tlacitko.disabled = false;
 					}
 				});
+
+				// nic se neodemyká automaticky bez klepnutí — jen se rozhodne, který
+				// blok se ukáže (náhled odkazu tabuli odemknout nesmí)
+				zkusOdemknoutKlicem();
 			})();
 		</script>
 
@@ -141,6 +251,34 @@
 				font-size: 1.15rem;
 				padding: 0.7rem 1rem;
 				cursor: pointer;
+			}
+			#odemknout-klepnutim {
+				font-size: 1.3rem;
+				padding: 1.1rem 1rem;
+				background: #2b7a3f;
+				color: #fff;
+				border: none;
+				border-radius: 10px;
+			}
+			#rychle-odemceni p {
+				margin-top: 0.8rem;
+			}
+			#odemknout-heslem-odkaz {
+				color: #666;
+			}
+			.zapamatovat-radek {
+				text-align: left;
+				font-size: 0.95rem;
+				color: #444;
+			}
+			.zapamatovat-radek label {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+			.zapamatovat-radek input {
+				width: auto;
+				margin: 0;
 			}
 			.chyba {
 				color: #c92a2a;

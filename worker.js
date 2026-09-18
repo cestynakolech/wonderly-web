@@ -125,6 +125,13 @@ export class LigaMistnost {
  * kód, telefon ho naskenuje jako QR a potvrdí učitelským heslem — worker
  * heslo ověří (OTISK_TABULE níž) a DO jen pamatuje stav a počet pokusů.
  * Heslo samo se sem NIKDY neposílá ani neukládá, jen výsledek porovnání.
+ *
+ * Táž třída se používá i jako úložiště „zapamatovaných" telefonů — worker si
+ * pro to vyžádá SAMOSTATNOU instanci přes idFromName('zapamatovane-telefony')
+ * (žádná nová třída, žádná migrace). Ta instance nikdy nedostane /zaloz ani
+ * alarm, jen /telefon-pridej a /telefon-over, a ukládá otisky pod JINÝM
+ * klíčem úložiště ('telefony', ne 'data'), aby si obě role vzájemně nepřepsaly
+ * data, kdyby náhodou sdílely storage.
  */
 export class TabuleOdemceni {
 	constructor(state) {
@@ -181,6 +188,36 @@ export class TabuleOdemceni {
 				this.pokusy = 0;
 			}
 			return new Response(JSON.stringify({ ok: true }), { headers: hlavicky });
+		}
+
+		// interní: přidání otisku zapamatovaného telefonu (volá jen worker, jen na
+		// instanci 'zapamatovane-telefony') — max 10 telefonů, nejstarší vypadne.
+		// Ukládá se i otisk HESLA, se kterým klíč vznikl (heslo_otisk = aktuální
+		// OTISK_TABULE) — klíč tak platí jen dokud platí totéž heslo. Ztracený
+		// telefon: změňte heslo (OTISK_TABULE) — všechny zapamatované telefony
+		// tím přestanou platit.
+		if (url.pathname.endsWith('/telefon-pridej')) {
+			const otisk = url.searchParams.get('otisk') ?? '';
+			const heslo = url.searchParams.get('heslo_otisk') ?? '';
+			if (!/^[0-9a-f]{64}$/.test(otisk) || !/^[0-9a-f]{64}$/.test(heslo)) {
+				return new Response('Neplatný otisk', { status: 400 });
+			}
+			const seznam = (await this.state.storage?.get('telefony')) ?? [];
+			seznam.push({ klic: otisk, heslo });
+			while (seznam.length > 10) seznam.shift();
+			await this.state.storage?.put('telefony', seznam);
+			return new Response('ok');
+		}
+
+		// interní: je tenhle otisk mezi zapamatovanými telefony A vznikl s aktuálně
+		// platným heslem? Starý formát položky (holý řetězec, bez uloženého hesla)
+		// bereme jako neplatný — nemáme se s čím porovnat.
+		if (url.pathname.endsWith('/telefon-over')) {
+			const otisk = url.searchParams.get('otisk') ?? '';
+			const heslo = url.searchParams.get('heslo_otisk') ?? '';
+			const seznam = (await this.state.storage?.get('telefony')) ?? [];
+			const znamy = seznam.some((p) => typeof p === 'object' && p !== null && p.klic === otisk && p.heslo === heslo);
+			return new Response(JSON.stringify({ znamy }), { headers: hlavicky });
 		}
 
 		// interní: worker už heslo ověřil (SHA-256 proti OTISK_TABULE), sem posílá
@@ -286,16 +323,54 @@ export default {
 				return new Response('Neplatný JSON', { status: 400 });
 			}
 			const p = String(data?.p ?? '');
-			const heslo = String(data?.heslo ?? '');
 			if (!/^[0-9a-f]{32}$/.test(p)) return new Response('Neplatné p', { status: 400 });
-			const otiskBajty = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(heslo));
-			const otisk = [...new Uint8Array(otiskBajty)].map((b) => b.toString(16).padStart(2, '0')).join('');
-			const spravne = otisk === OTISK_TABULE;
+
+			// zapamatovaný telefon posílá svůj klíč místo hesla — ověří se proti
+			// otiskům v samostatné instanci TabuleOdemceni, ne proti OTISK_TABULE.
+			// Klíč platí jen s heslem, se kterým vznikl — ztracený telefon: změňte
+			// heslo (OTISK_TABULE) a všechny zapamatované telefony tím přestanou platit.
+			const klic = data?.klic != null ? String(data.klic) : null;
+			let spravne;
+			if (klic !== null) {
+				if (!/^[0-9a-f]{64}$/.test(klic)) {
+					spravne = false;
+				} else {
+					const otiskKliceBajty = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(klic));
+					const otiskKlice = [...new Uint8Array(otiskKliceBajty)].map((b) => b.toString(16).padStart(2, '0')).join('');
+					const telefony = env.TABULE.get(env.TABULE.idFromName('zapamatovane-telefony'));
+					const overeni = await telefony.fetch(`https://tabule/telefon-over?otisk=${otiskKlice}&heslo_otisk=${OTISK_TABULE}`);
+					let vysledekOvereni = { znamy: false };
+					try {
+						vysledekOvereni = await overeni.json();
+					} catch {}
+					spravne = vysledekOvereni.znamy === true;
+				}
+			} else {
+				const heslo = String(data?.heslo ?? '');
+				const otiskBajty = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(heslo));
+				const otisk = [...new Uint8Array(otiskBajty)].map((b) => b.toString(16).padStart(2, '0')).join('');
+				spravne = otisk === OTISK_TABULE;
+			}
+
+			// pořád jde přes DO /over — ať platí i pro klíče limit 5 pokusů
 			const odpoved = await env.TABULE.get(env.TABULE.idFromName(p)).fetch(`https://tabule/over?spravne=${spravne}`);
 			let vysledek = {};
 			try {
 				vysledek = await odpoved.json();
 			} catch {}
+
+			// zapamatování jde jen z ověření HESLEM (ne klíčem — jinak by šel klíč
+			// donekonečna prodlužovat sám sebou) a jen při skutečném úspěchu
+			if (klic === null && spravne && odpoved.status === 200 && data?.zapamatovat === true) {
+				const noveBajty = new Uint8Array(32);
+				crypto.getRandomValues(noveBajty);
+				const novyKlic = [...noveBajty].map((b) => b.toString(16).padStart(2, '0')).join('');
+				const otiskNovehoBajty = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(novyKlic));
+				const otiskNoveho = [...new Uint8Array(otiskNovehoBajty)].map((b) => b.toString(16).padStart(2, '0')).join('');
+				await env.TABULE.get(env.TABULE.idFromName('zapamatovane-telefony')).fetch(`https://tabule/telefon-pridej?otisk=${otiskNoveho}&heslo_otisk=${OTISK_TABULE}`);
+				vysledek = { ...vysledek, klic: novyKlic };
+			}
+
 			return jsonNoStore(vysledek, { status: odpoved.status });
 		}
 

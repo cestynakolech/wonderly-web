@@ -15,7 +15,7 @@ const { klic } = Astro.props;
 	<button type="button" class="odemceni-tlacitko" data-odemceni-otevrit>📱 Odemknout z telefonu</button>
 	<div class="odemceni-panel" data-odemceni-panel hidden>
 		<div class="odemceni-qr" data-odemceni-qr></div>
-		<p class="odemceni-info" data-odemceni-info>Naskenujte telefonem a potvrďte heslem. Platí 10 minut.</p>
+		<p class="odemceni-info" data-odemceni-info>Naskenujte telefonem a potvrďte (heslem, nebo jedním klepnutím na zapamatovaném telefonu). Platí 10 minut.</p>
 		<button type="button" class="odemceni-zrusit" data-odemceni-zrusit>Zrušit</button>
 	</div>
 </div>
@@ -103,7 +103,7 @@ const { klic } = Astro.props;
 				const host = location.host.startsWith('lab.') ? location.origin : 'https://lab.wonderly.cz';
 				const odkaz = `${host}/odemknout/?p=${aktivni.id}`;
 				qr.innerHTML = await QRCode.toString(odkaz, { type: 'svg', margin: 1, errorCorrectionLevel: 'M' });
-				info.textContent = 'Naskenujte telefonem a potvrďte heslem. Platí 10 minut.';
+				info.textContent = 'Naskenujte telefonem a potvrďte (heslem, nebo jedním klepnutím na zapamatovaném telefonu). Platí 10 minut.';
 				tlacitkoOtevrit.hidden = true;
 				panel.hidden = false;
 				zastavPolling();
