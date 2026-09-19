@@ -8107,3 +8107,21 @@ export const temata: Record<string, Tema[]> = {
 		},
 	],
 };
+
+const f9Audio: Array<{ podtema: string } & Material> = [
+	{ podtema: 'magnety-magneticke-pole-opakovani', druh: 'audio', nazev: 'Polemika: dialog 1 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/magnety-opakovani-dialog1-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'magnety-magneticke-pole-opakovani', druh: 'audio', nazev: 'Polemika: dialog 2 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/magnety-opakovani-dialog2-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'magnety-magneticke-pole-opakovani', druh: 'audio', nazev: 'Polemika: dialog 3 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/magnety-opakovani-dialog3-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'magneticke-pole-vodice-a-civky', druh: 'audio', nazev: 'Polemika: dialog 2 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog2-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'magneticke-pole-vodice-a-civky', druh: 'audio', nazev: 'Polemika: dialog 3 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog3-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: dialog 1 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog1-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: dialog 2 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog2-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: dialog 3 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog3-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+];
+
+const magnetickePole = temata['fyzika/9-rocnik'].find((tema) => tema.slug === 'magneticke-pole');
+for (const { podtema: slug, ...audio } of f9Audio) {
+	const podtema = magnetickePole?.podtemata?.find((item) => item.slug === slug);
+	if (!podtema?.materialy) throw new Error(`Chybí podtéma F9: ${slug}`);
+	podtema.materialy.push(audio);
+}
