@@ -8115,7 +8115,7 @@ const f9Audio: Array<{ podtema: string } & Material> = [
 	{ podtema: 'magneticke-pole-vodice-a-civky', druh: 'audio', nazev: 'Polemika: Síla na vodič pohání i reproduktor 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog2-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
 	{ podtema: 'magneticke-pole-vodice-a-civky', druh: 'audio', nazev: 'Polemika: Pravidlo pravé ruky určí póly cívky 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky/vodic-civka-dialog3-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
 	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: Proč jádro zesílí pole elektromagnetu 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog1-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
-	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: Jak elektromagnet zvedá jeřáb i jistí obvod 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog2-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
+	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: Proč elektromagnet zvedne železo a vypne jistič 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog2-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
 	{ podtema: 'elektromagnet', druh: 'audio', nazev: 'Polemika: Jak elektromagnet ovládá zvonek i relé 🎧', cesta: '/media/fyzika/9-rocnik/magneticke-pole/elektromagnet/elektromagnet-dialog3-omnivoice.mp3', ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice).' },
 ];
 
