@@ -121,6 +121,40 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 10. 9. 2026 (deterministická inventura podtématu)
+
+Přidán `inventura-podtematu.mjs`, který bez modelu a sítě vypíše pro jedno
+podtéma stav videa, polemiky, infografiky, kvízu, písničky a laborky včetně
+důkazu. `ANO` vychází jen z `HEAD`; pracovní strom a neověřitelné externí cíle
+jsou `NEJISTÉ`. Regresní test pokrývá ručně ověřené `Klid a pohyb tělesa`,
+MP4 písničku oddělenou od videa, souhrnný kvíz přiřazený za literálem a hlubší
+odsazení podtémat elektřiny F8.
+
+## Historie — 10. 9. 2026 (zápisy do sešitu, dělba práce s automatem)
+
+**Hotovo a živé na webu:** zápisy do sešitu k prvním třem podtématům v pořadí
+7 → 8 → 9 — `rychlost-draha-cas`, `vykon`, `magneticke-pole-vodice-a-civky`.
+Nezávislý kontrolor ve třech kolech (3 → 2 → 0 nálezů), po sloučení s prací
+automatu ještě jednou (2 → 1 → 0). Ověřeno curlem na produkci.
+
+**Souběh s automatem — vyřešeno rozhodnutím učitele.** Automat
+`wonderly-fyzika-doplnovani-1h` plnil tutéž frontu ve stejném pořadí, obě větve
+vyrobily tytéž tři zápisy zvlášť (pracují ve dvou různých kopiích repa —
+`~/Desktop/wonderly-web` a `~/wonderly-web`). Nic se nezahodilo, verze se
+sloučily. Učitel pak rozhodl: **zápisy, laborky, kvízy a animace dělá automat**
+(dopoledne poslal 24 commitů a srazil chybějící zápisy ze 76 na 22),
+**session dělá polemiky a písničky**, které automat výslovně přeskakuje.
+
+**Rozpracováno a odloženo:** polemika F7 „Klid a pohyb tělesa" — tři scénáře
+trojice hotové a zkontrolované, pokrytí kvízu 21/21, scénosledy napsané.
+Výroba zvuku stojí na právech (`/Users/Shared/Škola/podkasty` patří účtu
+`radekmicek`) a most na druhý účet neexistuje. Podrobně i s tím, co má
+rozhodnout učitel, v `SAMOSTATNY-REZIM.md`, sekce „Odloženo — zaseklo se".
+
+**Nález u měřidla:** `pokryti_kvizu.py` volá `~/bin/ask-local`, který neexistuje
+— nikdy se tedy nezeptá modelu a hlásí falešné díry (u této trojice 2 z 21).
+Navíc chce `gemma4:26b`, který na mini není stažený. Oprava čeká.
+
 ## Historie — 23. 8. 2026 večer (mini jako pracoviště)
 Mac mini vybaven jako plnohodnotné pracoviště Claude Code (skilly/agenti/paměť/repa),
 obousměrný sync paměti (`sync-mini-pamet.sh`), hybridní směrování práce
@@ -392,3 +426,71 @@ Nově připravený a vyrenderovaný návrh infografiky Výkonu a laboratorního 
 - Tento publikační commit obsahuje pouze zapojení již obsahově zkontrolovaného pilotu (s přiznáním AI) a existující společné písně u Výkonu; žádný nový výklad, otázky ani herní kód. Kandidát odvozen z HEAD, přesný staged temata.ts je shodný s testovaným kandidátem. zkontroluj.mjs a npm run build exit0; konkrétní HTML ověřeno.
 - Herní předvolba a odkazy zůstávají místně rozpracované: deterministický test existuje, ale nezávislé code review nebylo doloženo a cizí gemma4:26b brání bezpečnému použití povolené modelové dráhy. Infografika a laborka jsou DRAFT_WAITING_CONTENT_REVIEW. Brány neobcházeny, další model nenačten.
 - Stav deploye se ověří po pushi a zapíše do kanonické matice ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Celé téma stále není kompletní.
+
+## Historie — 12. 9. 2026: pilot Mechanické práce a píseň u Výkonu
+- Publikační balík pouze pro F8: první plně animovaný díl Mechanické práce s přiznáním AI a existující společná píseň zapojená také u Výkonu. Nové výklady, kvízy ani herní kód tento commit neobsahuje.
+- Pilot v existujícím R2, SHA256 535bed1edce8c653760df004107575dfe1e045753b0276781c68cbc116dd5df2; zpětný R2 get i browser fetch živé mediální URL potvrdily shodných2146630 B. Předchozí obsahová kontrola prvního scénáře Gemma31b bez nálezu, pokrytí skupiny21/21 a finální technická/vizuální kontrola pilotu doloženy v Omeze.
+- Základ aktuální origin/main8da45ea; starý MacBook main byl zastaralý, jeho odmítnutý push nic nepřepsal. Čistý oddělený worktree zachovává novější zápisy i odstranění starých infografik. Nový get/set pouze materialy obou podtémat, outsideRangeUnchanged=true a read-back; zkontroluj.mjs a npm run build exit0.
+- Herní odkazy/předvolba zatím místně: chybí doložené nezávislé code review. Infografika Výkonu a laborka Mechanické práce zůstávají DRAFT_WAITING_CONTENT_REVIEW. Cizí načtený model nevypnut, jiný velký model nenačten.
+- Celé téma není dokončeno. Kanonický stav a ověření nasazení po pushi: Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md; důkazy Omega/dokumenty/wonderly-audit/8/mechanicka-prace-video-denik.md.
+
+
+### F8 — upozornění na neúplnou sérii (2026-09-12T10:45:18.450924+02:00)
+- U pilotu výslovně uvedeno, že další díly připravujeme a série není úplná. Nemění se učivo, média, odkazy ani kód; jde o pravdivý publikační stav. Dokončení série ani celého tématu tím není splněno. Kanonický stav: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
+
+
+## Historie — 2026-09-12T11:20:42.545186+02:00 — Infografika Výkon (F8)
+Doplněn základní přehled výkonu z podkladů učitele: vztahy, jednotky, porovnání práce a času, kWh. Nezávislá kontrola gemma4:31b BEZ NÁLEZU, vizuální kontrola a výpočty ověřeny; detail Omega/dokumenty/wonderly-audit/8/vykon-infografika/. Zapojeno pouze u Výkonu, společná píseň zachována. Pokračování videosérie stále není hotové.
+
+
+### F8 — laborka Držení a zvedání (2026-09-12T11:49:53.123894+02:00)
+- Doplněn jeden laboratorní list Mechanické práce z PDF kotev str.1/2/4; měření zůstává prázdné, skutečný pokus nebyl proveden.
+- Nezávislá Gemma31b kontrola bez nálezu, přesný JSON hash a095b5fd8757311a40d5e87e284cb788abeca350bf43e97c22628720c3a2dbe0; převzetí rodičem proti zdroji a schématu.
+- Dokončení celého F8 stále NE. Navazující videa čekají doložení zdrojů tří příkladů a výrobu; pilot ani infografika se neopakují. Kanonický checkpoint: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
+- Brána, nový build a skutečné nasazení se ověřují před označením publikace za dokončenou.
+
+
+### F8 — dokončení přijaté série Mechanická práce (2026-09-13)
+- Uživatel po poslechu přijal druhý a třetí díl. Přesně připnuté MP4 byly bez nové výroby nahrány do R2 a zapojeny k podtématu Mechanická práce; první díl už neslibuje chybějící pokračování.
+- Výkon zůstává beze změny se čtyřmi zveřejněnými díly. Další podobná videa k Mechanické práci ani Výkonu se nevyrábějí.
+- Publikační důkazy (R2 hashe, build, commit, origin/main a živé přehrávání) jsou v kanonickém BOTS checkpointu na Mini.
+
+
+### F7 — Klid a pohyb tělesa: cílená oprava podle PDF (2026-09-13)
+- Výklad a 21 otázek navázány výhradně na PDF Pohyb tělesa str.1–4. Odstraněny nepodložené pojmy kinematika, vztažná soustava a nulová rychlost i otázka na převod kilometru. Doplněno přirovnání stromu vůči Slunci a rozdíl trajektorie/dráhy z podkladu.
+- Nezávislé obsahové kontroly Gemma31b po opravě přesných vstupů bez nálezu; původně odhalené dva úniky odpovědí opraveny bez změny bran. Zkontroluj rc0, 0 duplicit/úniků, build478 stránek, cílená RED/GREEN regrese s mutantem.
+- Zdrojová mapa, reporty a důkazy: Omega/dokumenty/wonderly-audit/7/klid-a-pohyb-*. Původní materiály, interakce a laborka zachovány; nejsou nově obsahově schvalovány tímto zápisem. Polemika/video a píseň zatím nejsou doplněné, celé podtéma není hotové.
+
+
+### F9 Magnety — nová statická infografika
+- Přidán přehled šesti panelů dle zdroje, bez změny hotového výkladu a kvízu. Gemma31b review2 přesné v3 BEZ NÁLEZU, skutečný PNG vizuálně vyhovuje, layout RED v1/v2 → GREEN v3 (59 textů, žádný překryv ani ořez). Důkazy Omega/dokumenty/wonderly-audit/9/magnety-opakovani-infografika/.
+- Tři hotové audio díly nadále čekají na poslech, nejsou touto změnou zapojeny. Celé F9 není dokončeno, žádná práce F7.
+
+
+### F9 Magnety — laboratorní práce
+- Zapojen nový list Póly magnetů a kompas jako detektor pole, převzatý z připraveného v4 s úpravou pouze dvou odkazů na stránkování pro webovou šablonu. Nezávislá Gemma31b kontrola navrh-web.json2da8977…00702a BEZ NÁLEZU. Tabulka zůstává prázdná, pokus netvrzen jako provedený.
+- Důkazy Omega/dokumenty/wonderly-audit/9/magnety-opakovani-laborka/; původní PDF neměněno. Audio nadále čeká na skutečný poslech.
+
+
+### F9 Magnetické pole — zapojení existující hry
+- Doplněn odkaz Fyzikální liga do všech tří podtémat. Nevznikla nová hra ani banka: skutečný JS předvolí ročník9/celek magneticke-pole a identických66 otázek; ověřen i původní režim bez parametrů a neplatná předvolba.
+- Blokové get/set zachovalo všechna ostatní pole a původní odkazy. Důkaz Omega/dokumenty/wonderly-audit/9/magneticke-pole-herni-zapojeni.json; regrese existujícím testem v magnety-opakovani-laborka/hra-predvolba-test.json.
+
+
+## F9 — infografika vodiče a cívky (2026-09-13)
+Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF kotvy a nezávislé review přesné verze BEZ NÁLEZU; skutečný PNG1200×1940, SHA2568b4fb0c00bce887f59ea4e5c9b164161faa06387797209e2c4ab6111f1877134, vizuálně ověřeno. RED/GREEN oprava kolize kružnice s nadpisem. Existující výklad, kvíz a odkazy nezměněny. Celé F9 stále nedokončeno; kanonický stav v Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md.
+
+
+### F9 — laboratorní práce Proud v cívce a směr magnetky (2026-09-13T23:22:47.820215+02:00)
+- Nový pracovní list: bezpečný školní zdroj s proudovým omezením, čtyři pozorované situace a prázdná tabulka; nejde o provedený pokus. Nezávislá kontrola Gemma31b BEZ NÁLEZU pro přesný návrh623a4b1c740a3ad5c146b80fdea7862fc9ad22bdf33dd288d15213f749bab368.
+- Node syntax, inventura, zkontroluj a build prošly; přesný import a všechna pole skutečné dist routy ověřena. Živé nasazení se přebírá odděleně. Jediný stav a další krok: ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Audio A/B tím není zveřejněno, celé F9 stále nedokončeno.
+
+
+### F9 — zapojení společné písně (2026-09-13T23:27:25.496375+02:00)
+- Původní výrobní evidence hudba-suno/EVIDENCE.md dávka5 určuje Ze severu na jih pro celý celek magneticke-pole. Stejný existující M4A beze změny bajtů doplněn u vodiče/cívky a elektromagnetu. Nejde o novou píseň ani obsahový reaudit hotového média.
+- Blokové set/get potvrzují nezměněná ostatní pole; zkontroluj/build PASS a dvě dist routy obsahují přesnou cestu. Živé převzetí samostatně v kanonické matici Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Audio polemiky tím není publikováno.
+
+
+### F9 — nová infografika Elektromagnet (2026-09-14T00:03:30.065994+02:00)
+- Nový přehled šesti principů a schematická značka souvislé cívky s jádrem. PDF kotvy, Gemma31b review2 BEZ NÁLEZU, opakovaná vizuální kontrola a41 getBBox bez kolizí/ořezů. Původní nejednoznačné vinutí zachováno, RED/GREEN důkazy v Omega/dokumenty/wonderly-audit/9/elektromagnet-infografika/.
+- Blokový get/set, inventura, hlavní brána a build PASS; konkrétní dist obsah ověřen. PNG SHA25608cc3621845cecdc8e00bb1328a7684861ec1afe35a1ebc2f70e24960961342b. Živé nasazení se přebírá samostatně v kanonické matici. Audio dialogy nejsou tímto publikovány.

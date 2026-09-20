@@ -1,0 +1,160 @@
+---
+// Odemčení zámku z telefonu, aniž by se heslo psalo na tabuli. Tabule vyrobí
+// jednorázový kód (worker.js, Durable Object TabuleOdemceni), zobrazí ho jako
+// QR na /odemknout/ a čeká, až se telefon přihlásí heslem. Může být na stránce
+// víckrát (Zamek.astro se opakuje) — žádná pevná id, vše přes data-atributy.
+interface Props {
+	/** sessionStorage klíč, který se má nastavit na '1' po odemčení */
+	klic: string;
+}
+
+const { klic } = Astro.props;
+---
+
+<div class="odemceni-telefonem" data-odemceni-klic={klic}>
+	<button type="button" class="odemceni-tlacitko" data-odemceni-otevrit>📱 Odemknout z telefonu</button>
+	<div class="odemceni-panel" data-odemceni-panel hidden>
+		<div class="odemceni-qr" data-odemceni-qr></div>
+		<p class="odemceni-info" data-odemceni-info>Naskenujte telefonem a potvrďte (heslem, nebo jedním klepnutím na zapamatovaném telefonu). Platí 10 minut.</p>
+		<button type="button" class="odemceni-zrusit" data-odemceni-zrusit>Zrušit</button>
+	</div>
+</div>
+
+<script>
+	import QRCode from 'qrcode';
+
+	for (const obal of document.querySelectorAll('[data-odemceni-klic]')) {
+		const klicSekce = obal.dataset.odemceniKlic;
+		const tlacitkoOtevrit = obal.querySelector('[data-odemceni-otevrit]');
+		const panel = obal.querySelector('[data-odemceni-panel]');
+		const qr = obal.querySelector('[data-odemceni-qr]');
+		const info = obal.querySelector('[data-odemceni-info]');
+		const tlacitkoZrusit = obal.querySelector('[data-odemceni-zrusit]');
+
+		let intervalId = null;
+		let skryteOd = null;
+		let aktivni = null; // { id, tajne }
+
+		const zastavPolling = () => {
+			if (intervalId) clearInterval(intervalId);
+			intervalId = null;
+		};
+
+		// řekne serveru, ať kód smaže hned, ne až po 10 minutách — kdyby síť
+		// zrovna nebyla, nevadí, alarm na DO ho stejně nakonec zapomene
+		const posliZruseni = () => {
+			if (!aktivni) return;
+			fetch('/api/tabule/zrus', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify({ p: aktivni.id, t: aktivni.tajne }),
+				keepalive: true,
+			}).catch(() => {});
+		};
+
+		const zavri = () => {
+			posliZruseni();
+			zastavPolling();
+			aktivni = null;
+			panel.hidden = true;
+			tlacitkoOtevrit.hidden = false;
+		};
+
+		const zkontrolujStav = async () => {
+			if (!aktivni) return;
+			if (document.hidden) {
+				if (skryteOd && Date.now() - skryteOd > 30000) zastavPolling();
+				return;
+			}
+			try {
+				const odpoved = await fetch(`/api/tabule/stav?p=${aktivni.id}&t=${aktivni.tajne}`);
+				const data = await odpoved.json();
+				if (data.stav === 'odemceno') {
+					zastavPolling();
+					sessionStorage.setItem(klicSekce, '1');
+					location.reload();
+				} else if (data.stav === 'neplatne') {
+					zastavPolling();
+					posliZruseni();
+					aktivni = null;
+					info.textContent = 'Platnost vypršela, zkuste znovu.';
+					qr.innerHTML = '';
+				}
+			} catch {
+				// dočasný výpadek sítě — zkusí se to znovu za 2 s
+			}
+		};
+
+		document.addEventListener('visibilitychange', () => {
+			if (document.hidden) {
+				skryteOd = Date.now();
+			} else {
+				skryteOd = null;
+				if (aktivni && !intervalId) intervalId = setInterval(zkontrolujStav, 2000);
+			}
+		});
+
+		tlacitkoOtevrit.addEventListener('click', async () => {
+			tlacitkoOtevrit.disabled = true;
+			try {
+				const odpoved = await fetch('/api/tabule/nova', { method: 'POST' });
+				if (!odpoved.ok) throw new Error('nepovedlo se založit kód');
+				aktivni = await odpoved.json();
+				const host = location.host.startsWith('lab.') ? location.origin : 'https://lab.wonderly.cz';
+				const odkaz = `${host}/odemknout/?p=${aktivni.id}`;
+				qr.innerHTML = await QRCode.toString(odkaz, { type: 'svg', margin: 1, errorCorrectionLevel: 'M' });
+				info.textContent = 'Naskenujte telefonem a potvrďte (heslem, nebo jedním klepnutím na zapamatovaném telefonu). Platí 10 minut.';
+				tlacitkoOtevrit.hidden = true;
+				panel.hidden = false;
+				zastavPolling();
+				intervalId = setInterval(zkontrolujStav, 2000);
+			} catch {
+				info.textContent = 'Nepodařilo se založit kód, zkuste to znovu.';
+			} finally {
+				tlacitkoOtevrit.disabled = false;
+			}
+		});
+
+		tlacitkoZrusit.addEventListener('click', zavri);
+	}
+</script>
+
+<style>
+	.odemceni-telefonem {
+		margin-top: 1.2rem;
+	}
+	.odemceni-tlacitko {
+		font-size: 1rem;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+	}
+	.odemceni-panel {
+		margin-top: 1rem;
+	}
+	.odemceni-qr {
+		display: inline-block;
+		min-width: 260px;
+		padding: 8px;
+		background: #fff;
+		border: 2.5px solid var(--inkoust, #2b2a26);
+		border-radius: 12px;
+	}
+	.odemceni-qr :global(svg) {
+		display: block;
+		width: 260px;
+		height: 260px;
+	}
+	.odemceni-info {
+		max-width: 22rem;
+		margin: 0.7rem auto 0;
+		color: var(--ztlumena, #666);
+	}
+	.odemceni-zrusit {
+		margin-top: 0.5rem;
+		background: none;
+		border: none;
+		text-decoration: underline;
+		color: #777;
+		cursor: pointer;
+	}
+</style>

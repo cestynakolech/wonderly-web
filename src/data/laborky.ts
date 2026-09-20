@@ -18,6 +18,135 @@ export type Laborka = {
 };
 
 export const laborky: Record<string, Laborka> = {
+	"fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky": {
+  "nazev": "Proud v cívce a směr magnetky",
+  "cil": "Pomocí kompasu pozorovat magnetické účinky cívky s proudem a porovnat je po obrácení směru proudu.",
+  "pomucky": [
+    "školní vzduchová cívka bez železného jádra s označenými vývody",
+    "kompas nebo volně otočná magnetka",
+    "školní stejnosměrný zdroj bezpečného malého napětí s proudovým omezením",
+    "spínač a propojovací vodiče s izolovanými koncovkami",
+    "nekovová podložka, papír a tužka"
+  ],
+  "postup": [
+    "Pracuj pod dohledem učitele. Učitel podle údajů cívky nastaví napětí a proudové omezení zdroje a ověří vhodnost celé soupravy. Zdroj zatím nech vypnutý a spínač rozepnutý. Nepoužívej síťovou zásuvku jako přímý zdroj pokusu.",
+    "Na nekovovou podložku polož papír a kompas dál od magnetů a ocelových předmětů. Počkej, až se střelka ustálí, a na papíru vyznač směr jejího severního konce. Poznáš jej podle označení přístroje, nikoli jen podle barvy.",
+    "Polož cívku vodorovně tak, aby její osa byla přibližně kolmá na vyznačený směr střelky. Kompas umísti na prodloužení osy u jednoho konce cívky. Obkresli polohu cívky i kompasu; po celý pokus je už neposouvej. Do prvního řádku tabulky zapiš „rozepnuto před pokusem“ a směr severního konce střelky zakresli jako šipku vůči původní značce.",
+    "Při vypnutém zdroji zapoj jeden obvod: kladný vývod zdroje → spínač → první vývod cívky → druhý vývod cívky → záporný vývod zdroje. Učitel zapojení zkontroluje. Poznamenej si, který vývod cívky je připojen ke kladnému vývodu zdroje.",
+    "Zapni zdroj a krátce sepni spínač jen na dobu potřebnou k pozorování střelky. Do druhého řádku zapiš „sepnuto, první zapojení“, připojení vývodů a pozorovaný směr střelky. Spínač opět rozepni. Do třetího řádku zapiš „rozepnuto po pokusu“ a směr střelky po ustálení.",
+    "Vypni zdroj. Prohoď mezi sebou pouze připojení obou vývodů cívky, její polohu ani kompas neměň. Po kontrole učitelem znovu zapni zdroj a krátce sepni spínač. Do čtvrtého řádku zapiš „sepnuto, obrácené zapojení“, nové připojení vývodů a pozorovaný směr střelky. Potom rozepni spínač, vypni zdroj a obvod odpoj.",
+    "Porovnej směry střelky ve všech čtyřech situacích. Zapisuj pouze skutečná pozorování. Pokud vychýlení nebylo patrné, uveď to; s učitelem ověř funkčnost obvodu a vhodnou vzájemnou polohu součástí. Nezvyšuj svévolně napětí ani proud a nevymýšlej očekávaný výsledek."
+  ],
+  "tabulka": {
+    "sloupce": [
+      "stav obvodu",
+      "vývod cívky připojený k +",
+      "směr severního konce střelky – náčrtek"
+    ],
+    "radky": 4
+  },
+  "otazky": [
+    "Jak se ve tvém pokusu změnil směr střelky po sepnutí a po rozepnutí obvodu?",
+    "Co jsi pozoroval po prohození vývodů cívky? Jak změna směru proudu souvisí s magnetickými póly cívky?",
+    "Proč jsme při porovnávání obou zapojení zachovali polohu cívky i kompasu?",
+    "Proč se střelka orientuje i při rozepnutém obvodu? Znamená malé nebo nepozorované vychýlení samo o sobě, že magnetické pole neexistuje?"
+  ],
+  "pozor": "Jen školní zdroj bezpečného malého napětí s proudovým omezením nastaveným učitelem pro danou cívku. Vývody přepojuj výhradně při vypnutém zdroji a rozepnutém spínači. Cívku nenechávej zbytečně zapnutou. Při zahřívání, zápachu nebo poškození ihned vypni zdroj a přivolej učitele. Magnetické pomůcky nepřibližuj ke zdravotním implantátům; při implantátu se před pokusem domluv s učitelem.",
+  "tip": "Kompas ukazuje výsledný směr pole cívky, Země a dalších okolních zdrojů. Po obrácení proudu se proto střelka nemusí otočit přesně o půl otáčky."
+},
+	"fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani": {
+  "nazev": "Póly magnetů a kompas jako detektor pole",
+  "cil": "Pozorovat přitahování a odpuzování magnetických pólů a pomocí kompasu zkoumat, jak tyčový magnet mění směr magnetky ve svém okolí.",
+  "pomucky": [
+    "dva školní tyčové magnety s označenými póly N a S",
+    "kompas nebo volně otočná magnetka",
+    "dva listy papíru",
+    "tužka",
+    "nekovová podložka"
+  ],
+  "postup": [
+    "Použij tabulku tohoto pracovního listu. Připrav čtyři dvojice přibližovaných pólů: N–N, N–S, S–N a S–S. Výsledek zatím nevyplňuj. Pracuj na vodorovném místě, dál od ocelových částí lavice a jiných magnetických předmětů.",
+    "Polož jeden magnet na papír a přidrž jej. Druhý magnet drž v ruce. Magnety udržuj v jedné ose, severními konci proti sobě, a pomalu je přibližuj. Nedovol druhému magnetu pootočit se. Sleduj, zda cítíš přitahování, nebo odpuzování. Nenech magnety narazit do sebe. Pozorování zapiš do tabulky.",
+    "Podobně vyzkoušej zbývající tři dvojice pólů. Pro každou dvojici začni znovu s magnety od sebe; do tabulky zapiš pouze skutečně pozorovaný účinek.",
+    "Druhý magnet odnes tak daleko, aby jeho další oddalování už neměnilo směr střelky kompasu. Na druhý list papíru polož první magnet a obkresli jeho polohu. Označ na obrysu póly N a S.",
+    "Kompas postupně pokládej na různá místa kolem magnetu. V každém místě počkej, až se střelka ustálí. Označ střed kompasu a od něj nakresli šipku ve směru, kam ukazuje severní konec střelky. Magnet při tom neposouvej.",
+    "Odnes oba magnety dostatečně daleko, aby další zvětšení vzdálenosti už neměnilo směr střelky. Vrať kompas postupně na několik označených míst a porovnej jeho směr s dřívějším náčrtkem. Výsledky popiš písemně vedle svého náčrtku. I bez školních magnetů působí na kompas magnetické pole Země; shodný směr v jednom místě neznamená nepřítomnost pole."
+  ],
+  "tabulka": {
+    "sloupce": [
+      "pól přidržovaného magnetu",
+      "přibližovaný pól",
+      "pozorovaný účinek"
+    ],
+    "radky": 4
+  },
+  "otazky": [
+    "Které dvojice pólů se v tvém pokusu přitahovaly a které odpuzovaly?",
+    "Měnil se směr střelky, když jsi kompas přenášel kolem magnetu? Dolož odpověď svým náčrtkem.",
+    "Co nám změna směru magnetky říká o okolí magnetu?"
+  ],
+  "pozor": "Použij běžné školní magnety, ne silné neodymové. Magnety nerozbíjej a nenech je prudce srazit; chraň prsty. Nedávej je k elektronice ani k zdravotním implantátům. Při implantátu práci s magnety přenech spolužákovi a domluv se s učitelem.",
+  "tip": "Severní konec střelky urči podle označení kompasu; samotná barva nemusí u všech přístrojů znamenat totéž."
+},
+	"fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace": {
+  "nazev": "Držení a zvedání: kdy konáme mechanickou práci?",
+  "cil": "Rozlišit držení předmětu od jeho zvedání a určit práci z naměřené síly a dráhy ve směru síly.",
+  "pomucky": [
+    "siloměr vhodného rozsahu",
+    "lehké nerozbitné závaží bezpečně zavěšené na siloměru",
+    "pravítko nebo metr",
+    "pracovní list a tužka"
+  ],
+  "postup": [
+    "S učitelem vyber lehké závaží a siloměr, jehož rozsah nebude překročen. Zkontroluj upevnění a nulovou polohu siloměru. Pracuj nízko nad volnou lavicí.",
+    "Zvedni závaží nad podložku a potom je nehybně drž. Odečti sílu F. Do prvního řádku zapiš držení, naměřenou sílu a nulovou dráhu s. Zapiš práci W = F · s.",
+    "Na měřítku označ počáteční a koncovou výšku. Závaží pomalu a rovnoměrně zvedej mezi značkami. Jeden ze dvojice sleduje siloměr, druhý dráhu. Síla má směřovat svisle vzhůru stejně jako posunutí.",
+    "Do druhého řádku zapiš zvedání, sílu F v newtonech a svislou dráhu s v metrech. Použij hodnotu síly při rovnoměrném zvedání, nikoli při rozbíhání nebo zastavování. Pokud ručička výrazně kolísala, měření zopakuj.",
+    "Polož závaží zpět na podložku. Se stejným závažím zopakuj rovnoměrné zvedání po delší dráze a zapiš třetí řádek. Každá dráha musí zůstat bezpečně v dosahu nad lavicí.",
+    "Pro obě zvedání vypočítej W = F · s. Sílu dosazuj v newtonech, dráhu v metrech, výsledek zapiš v joulech. Naměřené údaje nevymýšlej ani nezaokrouhluj jen proto, aby vyšlo celé číslo.",
+    "Porovnej držení a zvedání. Potom porovnej obě zvedání: změnila se výrazně síla? Jak se při přibližně stejné síle změnila práce s dráhou?"
+  ],
+  "tabulka": {
+    "sloupce": [
+      "situace",
+      "F (N)",
+      "s (m)",
+      "W (J)"
+    ],
+    "radky": 3
+  },
+  "otazky": [
+    "Proč je při nehybném držení práce síly působící na závaží nulová, přestože siloměr ukazuje nenulovou sílu?",
+    "Jaké dvě podmínky musí být splněny, abychom v této úloze konali mechanickou práci?",
+    "Při kterém z obou zvedání vyšla větší práce? Zdůvodni odpověď pomocí naměřené síly a dráhy.",
+    "Co musíš převést, jestliže jsi dráhu odečetl v centimetrech, ale práci chceš určit v joulech?"
+  ],
+  "pozor": "Pracuj pod dohledem učitele. Použij jen lehký nerozbitný předmět a nepoškozený siloměr. Nepřekračuj rozsah siloměru, netrhej jím a závaží nepouštěj. Nestrkej ruce pod zavěšené závaží. Nezvedej nic nad hlavu, nestoupej na židli a po měření vše polož na lavici."
+},
+	'fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa': {
+		nazev: 'Autíčko ve vagonu — klid a pohyb závisí na pozorovateli',
+		cil: 'Ověřit, že stejné těleso může být současně v klidu vzhledem k jednomu tělesu a v pohybu vzhledem k jinému.',
+		pomucky: ['malé autíčko', 'pruh pevného kartonu dlouhý alespoň 50 cm', 'pravítko nebo metr', 'lepicí páska', 'tužka'],
+		postup: [
+			'Polož karton na lavici — představuje vagon. Na karton nakresli značku pro cestujícího a vedle ní postav autíčko.',
+			'Autíčko připevni malým kouskem pásky, aby se po kartonu neposouvalo. Tužkou označ na lavici počáteční polohu přední hrany kartonu i autíčka.',
+			'Posuň celý karton po lavici přesně o 40 cm. Autíčko musí zůstat u své značky na kartonu.',
+			'Zapiš, o kolik centimetrů změnilo autíčko polohu vzhledem ke kartonu a o kolik vzhledem k lavici.',
+			'Vrať karton na začátek, pásku odlep a karton drž na místě. Posuň autíčko po kartonu přesně o 30 cm a znovu zapiš obě změny polohy.',
+			'U každého pokusu rozhodni, zda bylo autíčko vzhledem ke kartonu a vzhledem k lavici v klidu, nebo v pohybu.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'změna vůči kartonu (cm)', 'klid/pohyb vůči kartonu', 'změna vůči lavici (cm)', 'klid/pohyb vůči lavici'],
+			radky: 2,
+		},
+		otazky: [
+			'V prvním pokusu bylo autíčko v klidu vzhledem ke kartonu. Proč přesto bylo v pohybu vzhledem k lavici?',
+			'Ke kterému tělesu je cestující sedící v jedoucím vlaku v klidu a ke kterému je v pohybu?',
+			'Lze o tělese říct jen „je v klidu“, aniž uvedeme, vzhledem k čemu? Vysvětli.',
+		],
+		pozor: 'Karton posouvej pomalu po volné lavici, aby autíčko nespadlo na zem.',
+		tip: 'Klid a pohyb jsou relativní: vždy musíme uvést těleso, vzhledem ke kterému polohu sledujeme.',
+	},
 	'fyzika/6-rocnik/cas/cas-a-jeho-mereni': {
 		nazev: 'Kyvadlo — měříme čas stopkami',
 		cil: 'Změřit dobu kyvu kyvadla a zjistit, na čem závisí.',
@@ -198,6 +327,55 @@ export const laborky: Record<string, Laborka> = {
 			'Mělo by být zkrácení ve slané vodě větší, nebo menší než ve sladké? Proč se v moři plave snáz než v rybníce? (Rozdíl je malý — pravítkem ho nezměříš, ale úvahou ano.)',
 		],
 		tip: 'Přesně tohle popisuje Archimédův zákon — vztlaková síla se rovná tíze vytlačené vody.',
+	},
+	'fyzika/7-rocnik/sily-kolem-nas/sila': {
+		nazev: 'Síla a siloměr — visící závaží',
+		cil: 'Ověřit, že síla roste úměrně hmotnosti zavěšeného předmětu a jak se síla znázorňuje šipkou.',
+		pomucky: ['pružinový siloměr', '3 závaží: 100 g, 200 g, 300 g (nebo stejné sáčky s mincemi)', 'provázek', 'tužka'],
+		postup: [
+			'Nejprve zkontroluj nulování siloměru. Zavěs na něj jeden 100 g předmět a nech ho jen volně viset.',
+			'Připevni provázek k lavici a na něj přivaž přes háček siloměru zátěž 100 g.',
+			'Přečti, kolik newtonů (N) ukazuje siloměr, a zapiš do tabulky jako F₁.',
+			'Proveďte tři samostatné pokusy: jen s 100 g, pak jen se 200 g, pak jen se 300 g, a vždy odečti sílu F₁, F₂, F₃.',
+			'Spočítej podle školního vztahu F = m · g s g = 10 N/kg a porovnej, jak se změnila síla.',
+			'Nakresli pro každý pokus vektor síly směřující dolů a zapiš délku šipky podle hodnoty F.',
+		],
+		tabulka: {
+			sloupce: ['hmotnost (g)', 'hmotnost (kg)', 'F (N) změřená', 'F (N) teoretická', 'odchylka (N)'],
+			radky: 3,
+		},
+		otazky: [
+			'Proč je orientace šipky síly vždy ve směru působení? Kde je působiště, když visí předmět?',
+			'Byla změřená síla pro 300 g přibližně třikrát vyšší než pro 100 g? Proč ne vždy přesně?',
+			'Jaká chyba při měření vzniká, když se závaží houpe a siloměrem se kýve?',
+		],
+		pozor: 'Drž siloměr i závaží klidně a nechej ho přestat kmitat; přetížení přístroje zvyšuje nepřesnost.',
+		tip: 'Pro 300 g vyjde školní síla F = 3 N; když je postup konzistentní, měla by být síla téměř trojnásobná proti 100 g.',
+	},
+	'fyzika/7-rocnik/svetlo-a-jeho-sireni/odraz-svetla': {
+		nazev: 'Odraz světla — změříme úhel dopadu a odrazu',
+		cil: 'Změřit úhel dopadu a úhel odrazu světelného paprsku a ověřit zákon odrazu.',
+		pomucky: ['malé rovinné zrcátko s rovnou hranou', 'stojánek na zrcátko nebo plastelína pro jeho svislé upevnění', 'bílý papír A4', 'tužka', 'pravítko', 'úhloměr', 'lepicí páska', 'školní paprskový zdroj nebo svítilna', 'dva kousky neprůsvitného kartonu pro vytvoření úzké štěrbiny'],
+		postup: [
+			'Polož papír na lavici. Uprostřed narýsuj přímku a označ na ní bod O. Zrcátko postav svisle hranou přesně na přímku a připevni je páskou, aby se nepohnulo.',
+			'V bodě O narýsuj kolmici k zrcátku — normálu. Úhly budeme vždy měřit mezi paprskem a normálou, ne mezi paprskem a zrcátkem.',
+			'Pokud nemáš školní paprskový zdroj, zakryj čelo svítilny dvěma kousky kartonu tak, aby mezi nimi zůstala úzká svislá štěrbina. Kartony upevni páskou.',
+			'Úhloměrem narýsuj k bodu O první čáru svírající s normálou úhel dopadu 20°. Po této čáře namiř úzký světelný paprsek přesně do bodu O.',
+			'Na papíře tužkou označ dva body ve středu odraženého paprsku. Zhasni zdroj, spoj oba body s bodem O a úhloměrem změř úhel odrazu mezi odraženým paprskem a normálou.',
+			'Měření zopakuj pro úhly dopadu 40° a 60°. Pro každý pokus zapiš úhel dopadu, úhel odrazu a jejich rozdíl.',
+			'Porovnej oba úhly ve všech třech pokusech a napiš vlastní závěr o odrazu světla.',
+		],
+		tabulka: {
+			sloupce: ['pokus', 'úhel dopadu (°)', 'úhel odrazu (°)', 'rozdíl úhlů (°)'],
+			radky: 3,
+		},
+		otazky: [
+			'Jsou úhel dopadu a úhel odrazu v mezích přesnosti měření stejné?',
+			'Proč měříme oba úhly od normály, a ne od plochy zrcátka?',
+			'Jak se změní směr odraženého paprsku vzhledem k normále, když zvětšíš úhel dopadu?',
+		],
+		pozor: 'Nikdy nesviť spolužákům ani sobě do očí. Použij běžnou svítilnu nebo školní paprskový zdroj, ne laserové ukazovátko.',
+		tip: 'Při úhlu dopadu 40° má podle zákona odrazu vyjít také úhel odrazu 40°. Malý rozdíl způsobí šířka paprsku, posunutí zrcátka nebo nepřesné odečtení úhloměru.',
 	},
 	'fyzika/8-rocnik/energie/tepelna-vymena-a-teplo': {
 		nazev: 'Míchání teplé a studené vody',

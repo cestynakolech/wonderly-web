@@ -153,6 +153,18 @@ const banka = bankaProLigu();
 	$('celek').addEventListener('change', spocitejBanku);
 	spocitejBanku();
 
+	// Odkaz z podtématu předvolí existující banku, nevytváří nový kvíz.
+	const predvolba = new URLSearchParams(location.search);
+	const vybranyCelek = banka.find((b) => b.predmet === 'fyzika'
+		&& b.rocnik === predvolba.get('rocnik') && b.celek === predvolba.get('celek'));
+	if (vybranyCelek) {
+		$('predmet').value = vybranyCelek.predmet;
+		$('rocnik').value = vybranyCelek.rocnik;
+		obnovCelky();
+		$('celek').value = vybranyCelek.celek;
+		spocitejBanku();
+	}
+
 	$('start').addEventListener('click', () => {
 		tymy = [...document.querySelectorAll('.jmeno-tymu')].map((el) => ({ jmeno: el.value || 'Tým', body: 0 }));
 		otazky = vyberOtazky(+$('pocet-otazek').value);

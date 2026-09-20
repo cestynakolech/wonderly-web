@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/liga-tabule.mjs",
+    "test": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs",
     "prijmi-latku": "node zkontroluj.mjs --prijmi-latku",
     "check": "node zkontroluj.mjs"
   },

@@ -4,6 +4,8 @@
 // [podtema]/test/index.astro): SHA-256 otisk hesla se porovná v prohlížeči,
 // odemčení se pamatuje v sessionStorage, aby nešlo o vteřinu bruteforcovat.
 // Heslo je stejné jako u testů — učitel si nemusí pamatovat dvě.
+import OdemceniTelefonem from './OdemceniTelefonem.astro';
+
 interface Props {
 	/** klíč v sessionStorage — stejný napříč celou sekcí, stačí zadat heslo jednou */
 	klic?: string;
@@ -20,13 +22,16 @@ const { klic = 'ucitel-sekce', aktivni = true } = Astro.props;
 			<section class="zamek" data-zamek-formular>
 				<h1>🔒 Připravujeme</h1>
 				<p>Tahle část je zatím rozpracovaná, žáci ji nevidí. Učiteli se odemkne heslem:</p>
-				<form data-zamek-form>
-					<input type="password" data-zamek-heslo autocomplete="off" autofocus />
+				<form data-zamek-form method="post" action="">
+					{/* skryté jméno: bez něj klíčenka (Safari/iCloud i Chrome) heslo nenabídne ani neuloží */}
+					<input type="text" name="username" autocomplete="username" value="ucitel" readonly tabindex="-1" aria-hidden="true" class="zamek-jmeno" />
+					<input type="password" data-zamek-heslo name="password" autocomplete="current-password" autofocus />
 					<button type="submit">Odemknout</button>
 				</form>
 				<p class="zamek-chyba" data-zamek-chyba hidden>
 					Špatné heslo, zkus to znovu.
 				</p>
+				<OdemceniTelefonem klic={klic} />
 			</section>
 			<div data-zamek-obsah hidden>
 				<slot />
@@ -88,6 +93,16 @@ const { klic = 'ucitel-sekce', aktivni = true } = Astro.props;
 		font-size: 1.1rem;
 		padding: 0.5rem;
 		width: 60%;
+	}
+	/* skryté pole jména pro klíčenku — ne display:none, to by ho Safari ignoroval */
+	.zamek-jmeno {
+		position: absolute;
+		width: 1px !important;
+		height: 1px;
+		padding: 0 !important;
+		border: 0;
+		opacity: 0;
+		pointer-events: none;
 	}
 	.zamek button {
 		font-size: 1.1rem;
