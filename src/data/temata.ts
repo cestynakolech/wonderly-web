@@ -3205,32 +3205,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'energie-a-jeji-premeny',
 					nazev: 'Energie a její přeměny',
 					interakce: 'skatepark',
-					obsah: `
-						<h2>Energie a její přeměny</h2>
-						<p>Aby člověk, zvíře nebo stroj mohl konat práci, musí mít v sobě něco, co se v práci promění — <strong>energii</strong>. Energie se může proměnit v práci a vykonaná práce se zase uloží jako energie.</p>
-						<ul>
-							<li>rukou natáhnu tětivu luku → luk získá energii → po uvolnění vykoná práci a vystřelí šíp</li>
-							<li>čím výš zvednu kladivo, tím větší energii získá a tím větší práci vykoná při zatlučení hřebíku</li>
-						</ul>
-						<h3>Druhy energie</h3>
-						<p>mechanická, <strong>chemická</strong> (paliva, trávení), elektrická, magnetická, světelná, <strong>jaderná</strong>, tepelná.</p>
-						<h3>Zákon zachování energie</h3>
-						<p>👉 <strong>Energii nelze vytvořit ani zničit — může se jen přeměňovat</strong> z jednoho druhu na jiný. Např.: jaderná energie Slunce → světlo → chemická energie rostlin → chemická energie uhlí → tepelná energie páry → pohybová energie → elektrická energie → světlo a teplo v žárovce.</p>
-						<h3>Energie jako veličina</h3>
-						<ul>
-							<li>vyjadřuje <strong>schopnost tělesa konat práci</strong> — energie je „uložená práce"</li>
-							<li>značka <strong>E</strong>, jednotka <strong>joule (J)</strong> — stejná jako u práce; u elektrické energie také Wh a kWh</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Energie vyjadřuje schopnost tělesa konat práci a vykonaná práce se může uložit jako energie.',
-							'Energie se může přeměňovat z jednoho druhu na jiný.',
-							'Mezi druhy energie patří mechanická, chemická, elektrická, magnetická, světelná, jaderná a tepelná energie.',
-							'Energie má značku E a její jednotkou je joule (J); elektrická energie se udává také ve Wh a kWh.',
-						],
-						zakon: 'Energii nelze vytvořit ani zničit — může se jen přeměňovat z jednoho druhu na jiný.',
-					},
+					obsah: "<h2>Energie a její přeměny</h2>\n\n<p>Aby člověk, zvíře nebo stroj mohl konat práci, musí mít v sobě něco, co se dá do práce proměnit. Tomu se říká <strong>energie</strong>. Energie se může proměnit v práci a práce se zase může uložit jako energie.</p>\n<p>Když napneš tětivu luku, luk získá energii. Při výstřelu tuto energii vykoná jako práci a vystřelí šíp. Podobně když zvedneš kladivo výš, získá větší energii — a při úderu do hřebíku vykoná větší práci.</p>\n\n<h3>Druhy energie</h3>\n<p>Energie má víc podob:</p>\n<ul>\n<li><strong>mechanická</strong> energie — souvisí s pohybem a polohou těles</li>\n<li><strong>chemická</strong> energie — uložená třeba v palivech nebo v jídle, které trávíme</li>\n<li><strong>elektrická</strong> energie</li>\n<li><strong>magnetická</strong> energie</li>\n<li><strong>světelná</strong> energie</li>\n<li><strong>jaderná</strong> energie</li>\n<li><strong>tepelná</strong> energie</li>\n</ul>\n<p>Každý z těchto druhů se dá přeměnit na jiný druh. Právě o tom mluví další odstavec.</p>\n\n<h3>Zákon zachování energie</h3>\n<p>Pro energii platí jedno důležité pravidlo: energii nejde vyrobit ani zničit. Dá se jen přeměnit z jednoho druhu na jiný.</p>\n<p>Podívej se, jak energie putuje na dlouhé cestě od Slunce až po žárovku u tebe doma. V jádru Slunce vzniká jaderná energie a mění se na světlo. Rostliny světlo zachytí a uloží jako chemickou energii. Za dlouhý čas se rostliny promění v uhlí — chemická energie v nich zůstane uložená.</p>\n<p>Když uhlí spálíme v elektrárně, chemická energie se změní na tepelnou energii páry. Pára roztočí turbínu, a tak vznikne pohybová energie.</p>\n<p>Turbína pohání generátor, který vyrábí elektrickou energii. Ta doputuje dráty až do žárovky, kde se promění na světlo a teplo.</p>\n<p>Energie tedy na své cestě mění podobu, ale nikdy nezmizí a ani nová energie z ničeho nevznikne.</p>\n\n<h3>Energie jako veličina</h3>\n<p>Energie je fyzikální veličina. Vyjadřuje, kolik práce může těleso vykonat — dá se říct, že energie je „uložená práce\".</p>\n<p>Značíme ji E a měříme v joulech (J), stejně jako práci. U elektrické energie se používají i jednotky watthodina (Wh) a kilowatthodina (kWh) — třeba na účtu za elektřinu.</p>",
+					zapis: {"jednotky":["energie — značíme E, jednotka J (joule)","Převody: elektrická energie se udává i ve watthodinách (Wh) a kilowatthodinách (kWh)."],"zakon":"Energii není možné vytvořit ani zničit. Může se pouze přeměňovat z jednoho druhu energie v jiný!","body":["energie = uložená práce","práce → energie, energie → práce","druhy: mechanická, chemická, elektrická, magnetická, světelná, jaderná, tepelná","energie nevzniká ani nezaniká","jen se mění na jiný druh","E, jednotka J (joule)","elektřina: i Wh, kWh"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 						{ druh: 'video', nazev: 'Píseň: Nedá se zničit 🎵', cesta: '/materialy/fyzika/8-rocnik/energie/energie-a-jeji-premeny/pisen-neda-se-znicit.m4a' },
@@ -3244,40 +3220,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'pohybova-a-polohova-energie',
 					interakce: 'skatepark',
 					nazev: 'Pohybová a polohová energie tělesa',
-					obsah: `
-						<h2>Pohybová a polohová energie tělesa</h2>
-						<p><strong>Mechanickou energii</strong> těleso získá při konání mechanické práce. Dělíme ji na <strong>pohybovou</strong> a <strong>polohovou</strong>.</p>
-						<h3>Pohybová (kinetická) energie E<sub>k</sub></h3>
-						<ul>
-							<li>má ji <strong>každé pohybující se těleso</strong>, jednotka joule</li>
-							<li>je <strong>přímo úměrná hmotnosti</strong> — těžší těleso má větší E<sub>k</sub></li>
-							<li>je úměrná <strong>druhé mocnině rychlosti</strong> — při 2× větší rychlosti je E<sub>k</sub> <strong>4×</strong> větší, při 3× větší rychlosti <strong>9×</strong> větší</li>
-						</ul>
-						<p>Souvisí se <strong>setrvačností</strong>: naložený kamion se brzdí hůř než osobní auto, rychlé auto má delší brzdnou dráhu. Využití: bowling, demoliční koule, vrtačka.</p>
-						<h3>Polohová (potenciální) energie E<sub>p</sub></h3>
-						<p>Mohou ji mít i tělesa <strong>v klidu</strong> — mají „ukrytý potenciál" vykonat práci. Má dvě podoby:</p>
-						<p><strong>A) Polohová energie v gravitačním poli</strong> — má ji každé těleso ve výšce nad Zemí. Práce vykonaná při zvednutí (W = m·g·h) se v tělese uloží jako energie:</p>
-						<p style="font-size:1.3rem"><strong>E<sub>p</sub> = m · g · h</strong></p>
-						<p>Dosazujeme v základních jednotkách: hmotnost v kg, výšku v m, g = 10 N/kg. Výšku měříme vzhledem k tomu, co je pro děj důležité (podlaha, hřebík, zem). Odvozené: m = E<sub>p</sub> : (g·h), h = E<sub>p</sub> : (m·g).</p>
-						<p><strong>B) Polohová energie pružnosti</strong> — má ji každé natažené, stlačené či zkroucené pružné těleso (pružina, ohnutý luk, natažená guma). Využití: střelba z luku, natahovací hračky, pinball.</p>
-					`,
-					zapis: {
-						body: [
-							'Mechanickou energii dělíme na pohybovou a polohovou.',
-							'Pohybovou energii má každé pohybující se těleso; roste s jeho hmotností a s druhou mocninou rychlosti.',
-							'Polohovou energii v gravitačním poli má těleso ve výšce nad zvolenou základní úrovní.',
-							'Polohovou energii pružnosti má natažené, stlačené nebo zkroucené pružné těleso.',
-						],
-						vzorec: 'Eₚ = m · g · h      (odvozeně: m = Eₚ : (g · h),  h = Eₚ : (m · g))',
-						jednotky: [
-							'polohová energie Eₚ — joule (J)',
-							'hmotnost m — kilogram (kg)',
-							'gravitační konstanta g — newton na kilogram (N/kg), na Zemi g = 10 N/kg',
-							'výška h — metr (m)',
-							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J',
-							'Do vzorce dosazuj vždy v základních jednotkách: hmotnost v kg, g v N/kg a výšku v m.',
-						],
-					},
+					obsah: "<h2>Pohybová a polohová energie tělesa</h2>\n\n<p>Když s tělesem konáme <strong>práci</strong> — třeba ho zvedneme nebo rozpohybujeme — těleso touto prací získá <strong>mechanickou energii</strong>. Mechanickou energii dělíme na dva druhy: <strong>pohybovou</strong> a <strong>polohovou</strong>.</p>\n\n<h3>Pohybová energie</h3>\n<p>Pohybovou energii (odborně <strong>kinetickou</strong>) má <strong>každé pohybující se těleso</strong>. Značíme ji E<sub>k</sub> a měříme v joulech (J), stejně jako všechny ostatní druhy energie.</p>\n<p>Čím větší je hmotnost tělesa, tím větší má pohybovou energii. Ještě víc záleží na rychlosti: když se rychlost zvětší 2×, pohybová energie vzroste 4× (2 · 2). Když se rychlost zvětší 3×, energie vzroste 9× (3 · 3).</p>\n<p>Pohybová energie souvisí se <strong>setrvačností</strong>. Naložený kamion se brzdí mnohem hůř než osobní auto a rychlé auto má delší brzdnou dráhu než pomalé. Proto jsou srážky při vysoké rychlosti nebezpečnější — těleso musí prudce snížit svou pohybovou energii na nulu.</p>\n<p>Pohybovou energii využíváme třeba u bowlingové koule, demoliční koule nebo vrtačky — vždy něco rozbíjí, drtí nebo posouvá.</p>\n\n<h3>Polohová energie v gravitačním poli</h3>\n<p>Polohovou energii (odborně <strong>potenciální</strong>) může mít i těleso, které <strong>se nehýbe</strong>. Má v sobě „ukrytý\" potenciál vykonat práci — třeba když spadne z výšky.</p>\n<p>Má ji každé těleso, které je ve výšce nad Zemí. Značíme ji E<sub>p</sub> a počítáme podle vzorce:</p>\n<p style=\"font-size:1.3rem\"><strong>E<sub>p</sub> = m · g · h</strong></p>\n<p>Tady m je hmotnost tělesa v kilogramech, h je výška v metrech a g je stále stejné číslo, které na Zemi platí pro každé těleso: g = 10 N/kg.</p>\n<p>Výšku h měříme vždy k tomu, co je pro daný děj důležité. U parašutisty je to výška nad zemí, u kladiva výška nad hřebíkem, u nářadí padajícího ze stolu výška stolu nad podlahou.</p>\n<p>Polohovou energii v gravitačním poli využíváme třeba při skoku na lyžích nebo u kladiva a sekery, kde těžká hlava dopadá z výšky. Pád z velké výšky je naopak nebezpečný — těleso při dopadu odevzdá celou svou polohovou energii najednou.</p>\n\n<h3>Polohová energie pružnosti</h3>\n<p>Druhou podobou polohové energie je <strong>polohová energie pružnosti</strong>. Má ji každé natažené, stlačené nebo zkroucené pružné těleso — třeba stlačená pružina, natažená guma nebo ohnutý luk.</p>\n<p>Využíváme ji třeba při střelbě z luku, u natahovacích hraček nebo v pinballu, kde odražená pružina vystřelí kuličku.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Odkud se vzorec E<sub>p</sub> = m · g · h bere? Když těleso o hmotnosti m zvedáme do výšky h, působíme na něj silou F<sub>G</sub> = m · g (tíhová síla) po dráze s = h. Vykonáme tak práci W = F · s = m · g · h. Tahle práce se v tělese uloží jako polohová energie — proto E<sub>p</sub> = m · g · h.</p>\n<p>Ze vzorce si můžeme vyjádřit i hmotnost nebo výšku: m = E<sub>p</sub> : (g · h),  h = E<sub>p</sub> : (m · g).</p>\n<p>Příklad: cihla o hmotnosti 2 kg leží na lešení ve výšce 5 m, g = 10 N/kg. Její polohová energie je E<sub>p</sub> = m · g · h = 2 · 10 · 5 = 100 J.</p>\n<p>Kolik by musela cihla vážit, aby ve stejné výšce 5 m měla polohovou energii 200 J? m = E<sub>p</sub> : (g · h) = 200 : (10 · 5) = 4 kg.</p>",
+					zapis: {"vzorec":"Eₚ = m · g · h      (odvozeně: m = Eₚ : (g · h),  h = Eₚ : (m · g))","jednotky":["pohybová energie — značíme Eₖ, jednotka J (joule)","polohová energie — značíme Eₚ, jednotka J (joule)","hmotnost — značíme m, jednotka kg (kilogram)","tíhová konstanta — značíme g, jednotka N/kg (newton na kilogram), na Zemi g = 10 N/kg","výška — značíme h, jednotka m (metr)","Převody: 1 kJ = 1 000 J, 1 MJ = 1 000 000 J."],"vzorecSlovy":"polohová energie = hmotnost krát tíhová konstanta krát výška","body":["pohybová Eₖ: má ji každé pohybující se těleso","Eₖ roste s hmotností a s druhou mocninou rychlosti","2× rychlost → 4× Eₖ,  3× rychlost → 9× Eₖ","polohová Eₚ: má ji i těleso v klidu, ve výšce","Eₚ = m · g · h","polohová pružnosti: natažené/stlačené/zkroucené pružné těleso"]},
 					odkazy: [
 						{ nazev: 'Wordwall — kvíz Energie (pohybová, polohová, zachování)', url: 'https://wordwall.net/resource/37856406/energie' },
 					],
@@ -3296,46 +3240,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'energeticka-hodnota-potravin',
 					nazev: 'Energetická hodnota potravin',
 					interakce: 'svacina',
-					obsah: `
-						<h2>Energetická hodnota potravin</h2>
-						<p>Všechny živé organismy potřebují k životu <strong>energii</strong>. Člověk ji získává hlavně z <strong>potravy</strong> (rostliny a živočichové). Tělo spaluje <strong>cukry a tuky</strong> spolu s kyslíkem a využívá tak chemickou energii — pro práci svalů (pohyb) i činnost mozku. Mozek si přitom část energie mění na <strong>elektrickou</strong>: nervy si předávají zprávy elektrickými signály.</p>
-						<h3>Jak se energetická hodnota zjišťuje</h3>
-						<p>Potravina se <strong>spálí v laboratoři</strong> a změří se <strong>teplo</strong>, které přitom uvolní — to udává její energetickou hodnotu.</p>
-						<h3>Jednotky</h3>
-						<ul>
-							<li>základní: <strong>joule (J)</strong>, <strong>kilojoule (kJ)</strong></li>
-							<li>starší, dnes už jen u potravin: <strong>kalorie (cal)</strong>, <strong>kilokalorie (kcal)</strong></li>
-						</ul>
-						<p>👉 Energetická hodnota se udává nejčastěji <strong>na 100 g</strong> potraviny. Kolik energie jsi snědl, spočítáš podle hmotnosti jednotlivých potravin.</p>
-						<h3>Co dodává energii nejvíc</h3>
-						<p>Potravu tvoří tři hlavní <strong>živiny</strong> a každá dodává jinak velký díl energie na 1 gram:</p>
-						<ul>
-							<li><strong>bílkoviny</strong> — asi <strong>17 kJ</strong> na 1 g</li>
-							<li><strong>sacharidy</strong> (cukry, škroby) — asi <strong>17 kJ</strong> na 1 g</li>
-							<li><strong>tuky</strong> — asi <strong>38 kJ</strong> na 1 g, tedy víc než dvojnásobek</li>
-						</ul>
-						<p>Tuky mají víc energie na gram proto, že jejich molekuly obsahují mnohem víc vodíku a uhlíku, které se při hoření (i při „spalování" v těle) slučují s kyslíkem a uvolňují teplo — čím víc takových vazeb, tím víc energie se uvolní. Proto je tučné jídlo výživnější, ale i snáz vede k nadváze.</p>
-						<h3>Čtení obalu potraviny</h3>
-						<p>Na obalu bývá energetická hodnota uvedená <strong>dvakrát</strong>: na <strong>100 g</strong> (aby šly potraviny mezi sebou porovnat) a na <strong>jednu porci</strong> (kolik sníš skutečně najednou). Například tyčinka müsli může mít na obalu „1 700 kJ / 100 g", ale jedna tyčinka váží jen 50 g — sníš tedy 850 kJ (1 700 : 100 · 50 = 850 kJ).</p>
-						<h3>Kolik energie potřebuje tělo za den</h3>
-						<p>Náctiletý člověk s běžným pohybem (škola, chůze, trochu sportu) potřebuje denně přibližně <strong>9 000 až 10 000 kJ</strong>. Kdo sportuje víc (např. denní trénink), potřebuje energie víc — klidně přes <strong>12 000 kJ</strong>. Kdo se naopak moc nehýbe, potřebuje méně, a přebytečná energie z jídla se v těle ukládá jako <strong>tuk</strong>.</p>
-						<h3>Kolik energie spálí běžná činnost</h3>
-						<ul>
-							<li>sezení, škola — asi <strong>250 kJ</strong> za hodinu</li>
-							<li>chůze — asi <strong>800 kJ</strong> za hodinu</li>
-							<li>fotbal, běh — asi <strong>2 000 kJ</strong> za hodinu</li>
-						</ul>
-						<p>👉 Příklad: hodina fotbalu spálí zhruba tolik energie, kolik dodají dvě tyčinky müsli z obalu výše (2 · 850 = 1 700 kJ) — zbytek si tělo vezme z vlastních zásob.</p>
-					`,
-					zapis: {
-						body: [
-							'Člověk získává energii hlavně z potravy a využívá ji pro práci svalů i činnost mozku.',
-							'Energetická hodnota potraviny se zjišťuje jejím spálením v laboratoři a změřením uvolněného tepla.',
-							'Na obalu se energetická hodnota uvádí nejčastěji na 100 g a na jednu porci.',
-							'Bílkoviny a sacharidy dodávají asi 17 kJ na 1 g, tuky asi 38 kJ na 1 g.',
-							'Přebytečná energie z potravy se v těle ukládá jako tuk.',
-						],
-					},
+					obsah: "<h2>Energetická hodnota potravin</h2>\n\n<p>Každý živý organismus potřebuje k životu energii. Člověk ji získává z potravy — z rostlin i z živočichů. Tělo v sobě „spaluje\" <strong>cukry a tuky</strong> spolu s kyslíkem, podobně jako motor spaluje palivo.</p>\n<p>Tuto energii tělo využívá hlavně na práci svalů, tedy na pohyb. Kousek energie si vezme i mozek — ten posílá zprávy mezi nervy pomocí elektrických signálů.</p>\n\n<h3>Jak se energetická hodnota zjišťuje</h3>\n<p>Vědci potravinu spálí v laboratoři a změří, kolik <strong>tepla</strong> se přitom uvolní. Právě toto teplo je energetická hodnota potraviny.</p>\n\n<h3>V jakých jednotkách se energie měří</h3>\n<p>Energie se měří v <strong>joulech (J)</strong>, u jídla nejčastěji v <strong>kilojoulech (kJ)</strong> — to je tisíc joulů. Na obalech potravin se ale pořád objevují i starší jednotky: <strong>kalorie (cal)</strong> a <strong>kilokalorie (kcal)</strong>.</p>\n\n<h3>Které živiny dávají nejvíc energie</h3>\n<p>Jídlo obsahuje tři hlavní <strong>živiny</strong>: bílkoviny, sacharidy (cukry a škroby) a tuky. Bílkoviny i sacharidy dají na 1 gram asi <strong>17 kJ</strong>. Tuky dají na 1 gram asi <strong>38 kJ</strong> — víc než dvojnásobek.</p>\n<p>Tuk má víc energie proto, že jeho molekuly obsahují víc vodíku a uhlíku. Při spalování se tyto látky slučují s kyslíkem a uvolňují teplo. Proto je tučné jídlo víc výživné, ale taky snáz vede k nadváze.</p>\n\n<h3>Energetická hodnota na obalu</h3>\n<p>Na obalu potraviny bývá energetická hodnota napsaná <strong>dvakrát</strong>. Jednou na <strong>100 gramů</strong> — aby šly potraviny mezi sebou porovnat. Podruhé na <strong>jednu porci</strong> — kolik sníš doopravdy najednou.</p>\n\n<h3>Kolik energie tělo potřebuje za den</h3>\n<p>Náctiletý člověk, který se běžně hýbe (škola, chůze, trochu sportu), potřebuje denně asi <strong>9 000 až 10 000 kJ</strong>. Kdo sportuje víc, potřebuje energie víc — klidně přes <strong>12 000 kJ</strong>. Kdo se moc nehýbe, potřebuje energie méně.</p>\n<p>Když člověk sní víc energie, než tělo spotřebuje, přebytek se v těle uloží jako <strong>tuk</strong>.</p>\n\n<h3>Kolik energie spálí běžná činnost</h3>\n<ul>\n<li>sezení, škola — asi <strong>250 kJ</strong> za hodinu</li>\n<li>chůze — asi <strong>800 kJ</strong> za hodinu</li>\n<li>fotbal, běh — asi <strong>2 000 kJ</strong> za hodinu</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Energii porce spočítáme z hodnoty na 100 g: vydělíme hmotnost porce stem a vynásobíme energetickou hodnotou na 100 g. Vzorcem: E = (m : 100) · E<sub>100</sub>.</p>\n<p>Müsli tyčinka má na obalu „1 700 kJ / 100 g\" a jedna tyčinka váží 50 g. Kolik kJ sníš, když ji sníš celou?</p>\n<p>E = (m : 100) · E<sub>100</sub> = (50 : 100) · 1 700 = 850 kJ</p>\n<p>Jogurt má na obalu „400 kJ / 100 g\" a kelímek váží 150 g. Kolik kJ je v celém kelímku?</p>\n<p>E = (m : 100) · E<sub>100</sub> = (150 : 100) · 400 = 600 kJ</p>\n<p>Hodina fotbalu spálí asi 2 000 kJ. Dvě müsli tyčinky dají 2 · 850 = 1 700 kJ — to je zhruba tolik, kolik hodina fotbalu spálí. Zbytek si tělo vezme z vlastních zásob.</p>",
+					zapis: {"vzorec":"E = (m : 100) · E₁₀₀","jednotky":["energetická hodnota potraviny — značíme E, jednotka J (joule), u jídla častěji kJ (kilojoule)","hmotnost potraviny — značíme m, jednotka g (gram)","starší jednotky energie potravin: kalorie (cal), kilokalorie (kcal)","Převody: 1 kJ = 1 000 J."],"vzorecSlovy":"energie porce = (hmotnost porce : 100) krát energetická hodnota na 100 gramů","body":["energie z jídla → pohyb (svaly), mozek","hodnota potraviny = teplo při spálení","jednotky: J, kJ (nové); cal, kcal (staré, u jídla)","bílkoviny, sacharidy: asi 17 kJ/g","tuky: asi 38 kJ/g (nejvíc)","na obalu: hodnota na 100 g i na porci","denní potřeba: asi 9 000–10 000 kJ","přebytek energie z jídla → tuk"]},
 					odkazy: [
 						{ nazev: 'Společnost pro výživu — Energetická hodnota potravin', url: 'https://www.vyzivaspol.cz/energeticka-hodnota-potravin/' },
 						{ nazev: '100+1 zahraniční zajímavost — Jak se zjišťuje energetická hodnota potravin', url: 'https://www.stoplusjednicka.cz/kdyz-se-pali-jidlo-jak-se-zjistuje-energeticka-hodnota-potravin' },
@@ -3345,39 +3251,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'vnitrni-energie-telesa',
 					interakce: 'vnitrni-energie',
 					nazev: 'Vnitřní energie tělesa',
-					obsah: `
-						<h2>Vnitřní energie tělesa</h2>
-						<h3>Připomenutí o částicích (6. třída)</h3>
-						<ul>
-							<li>tělesa jsou z <strong>částic</strong> (atomy, molekuly), které se neustále a neuspořádaně pohybují (důkaz: difuze, Brownův pohyb) — a nikdy se nezastaví</li>
-							<li>rychlost pohybu částic závisí na <strong>teplotě</strong> — čím teplejší těleso, tím rychlejší částice (čaj se v horké vodě obarví rychleji)</li>
-							<li>mezi částicemi působí <strong>přitažlivé i odpudivé síly</strong>, které je drží v rovnovážné poloze</li>
-						</ul>
-						<h3>Částice mají energii</h3>
-						<p>Každá částice má <strong>pohybovou energii</strong> (protože se pohybuje) i <strong>polohovou energii</strong> (podle polohy vůči ostatním).</p>
-						<h3>Vnitřní energie</h3>
-						<ul>
-							<li><strong>vnitřní energie tělesa = součet energií všech jeho částic</strong></li>
-							<li>závisí na <strong>počtu částic</strong> a na <strong>teplotě</strong> tělesa (ta určuje rychlost částic)</li>
-							<li>neovlivňuje ji pohyb, poloha ani rychlost celého tělesa jako celku</li>
-						</ul>
-						<h3>Jak vnitřní energii změníme</h3>
-						<ul>
-							<li><strong>zvýšíme</strong>: zahřátím, přidáním částic (dofouknutí pneumatiky), <strong>konáním práce</strong> (tření, stlačení), přijetím tepla od teplejšího tělesa</li>
-							<li>zvýšení vnitřní energie se projeví <strong>zvýšením teploty</strong>, snížení jejím poklesem</li>
-							<li>příklady: zahřáté brzdy, rozpálený vrták, opakovaně ohýbaný drát se přetrhne, topná spirála vařiče</li>
-						</ul>
-						<p>Využití: rozdělání ohně třením, zahřátí rukou. Naopak přehřátí třením ničí materiál — proto se stroje <strong>chladí</strong> (voda, olej, vzduch).</p>
-					`,
-					zapis: {
-						body: [
-							'Částice tělesa mají pohybovou energii i polohovou energii podle své polohy vůči ostatním částicím.',
-							'Vnitřní energie tělesa je součet energií všech jeho částic.',
-							'Vnitřní energie závisí na počtu částic a na teplotě tělesa, ne na pohybu nebo poloze tělesa jako celku.',
-							'Vnitřní energii zvýšíme zahřátím, přidáním částic, konáním práce nebo přijetím tepla od teplejšího tělesa.',
-							'Zvýšení vnitřní energie se projeví zvýšením teploty, snížení jejím poklesem.',
-						],
-					},
+					obsah: "<h2>Vnitřní energie tělesa</h2>\n\n<h3>Z čeho jsou tělesa (opakování)</h3>\n<p>Všechna tělesa jsou složená z drobounkých <strong>částic</strong> — atomů a molekul. Tyto částice se neustále a nepravidelně pohybují a nikdy se úplně nezastaví.</p>\n<p>Poznáme to třeba na čaji. V horké vodě se barvivo rozpustí samo a rychle — tomu se říká difuze. Ve studené vodě to jde mnohem pomaleji, protože čím vyšší teplota, tím rychlejší pohyb částic. Podobný důkaz je i <strong>Brownův pohyb</strong>: zrnka pylu ve vodě se pod mikroskopem stále chvějí, protože do nich narážejí částice vody.</p>\n<p>Mezi částicemi navíc působí síly, které je drží u sebe, ale nedovolí jim srazit se úplně dohromady.</p>\n\n<h3>Částice v pevné látce, kapalině a plynu</h3>\n<p>V <strong>pevné látce</strong> částice jen kmitají na svém místě — silné síly jim nedovolí ho opustit. V <strong>kapalině</strong> síly drží částice pohromadě, ale ty se mohou pohybovat a klouzat kolem sebe. V <strong>plynu</strong> na sebe částice skoro vůbec nepůsobí a pohybují se volně všemi směry.</p>\n\n<h3>Každá částice má svoji energii</h3>\n<p>Protože se částice pohybují, má každá z nich <strong>pohybovou energii</strong>. A protože pořád mírně mění svou polohu vůči sousedním částicím, má i <strong>polohovou energii</strong>. Platí to pro úplně každou částici v tělese — v kameni, ve vodě i ve vzduchu.</p>\n\n<h3>Co je vnitřní energie tělesa</h3>\n<p>Sečteme-li energie úplně všech částic v tělese, dostaneme jeho <strong>vnitřní energii</strong>. Čím víc částic těleso má a čím jsou rychlejší (tedy čím vyšší má těleso teplotu), tím větší vnitřní energii má.</p>\n<p>Pozor: vnitřní energie tělesa se netýká pohybu ani polohy celého tělesa. Letící míč i stejný míč v klidu na zemi mohou mít úplně stejnou vnitřní energii. Stačí, aby měly stejnou teplotu a stejný počet částic. To, jestli míč letí, popisuje jiná energie — pohybová a polohová energie tělesa jako celku, ne jeho vnitřní energie.</p>\n\n<h3>Jak vnitřní energii tělesa změníme</h3>\n<p>Vnitřní energii tělesa zvýšíme:</p>\n<ul>\n<li><strong>zahřátím</strong> — částice se pohybují rychleji</li>\n<li><strong>konáním práce</strong> — třením, stlačením nebo ohýbáním tělesa</li>\n<li><strong>přijetím tepla</strong> od teplejšího tělesa</li>\n<li><strong>přidáním částic</strong> — třeba dofouknutím pneumatiky</li>\n</ul>\n<p>Když vnitřní energie tělesa roste, těleso se zahřívá — jeho <strong>teplota stoupá</strong>. Když vnitřní energie klesá, teplota tělesa <strong>klesá</strong>.</p>\n\n<h3>Vnitřní energie kolem nás</h3>\n<p>S růstem vnitřní energie třením se setkáváme často. Při brzdění se zahřívají brzdy auta, při vrtání se zahřívá vrták. Ohýbáš-li drát pořád na stejném místě, nakonec se v tom místě roztaví a přetrhne. Podobně se zahřívá i topná spirála ve vařiči, kterou prochází elektrický proud.</p>\n<p>Tohoto zahřívání třením lidé využívají — třeba když rozdělávají oheň třením dřeva o dřevo, nebo si třou ruce, aby je zahřáli. Přehřátí ale může materiál i poškodit, a proto se stroje <strong>chladí</strong> — vodou, olejem nebo vzduchem. Tak se chladí třeba vrtaný zub u zubaře, motor auta, nebo dokonce vesmírné lodě, když prolétají atmosférou.</p>",
+					zapis: {"jednotky":["vnitřní energie tělesa — jednotka J (joule), stejně jako každá jiná energie","vnitřní energie nemá na základní škole zvláštní značku (aby se nepletla s napětím U)"],"body":["vnitřní energie = energie všech částic","závisí na počtu částic a na teplotě","nezávisí na pohybu ani poloze tělesa","zvýšení: zahřátí, práce, teplo, více částic","roste energie → roste teplota","klesá energie → klesá teplota"]},
 					odkazy: [
 						{ nazev: 'Fyzika007 — Vnitřní energie tělesa (výklad + příklady)', url: 'https://www.fyzika007.cz/molekulov%C3%A1-fyzika-atermika/vnit%C5%99n%C3%AD-energie-t%C4%9Blesa' },
 						{ nazev: 'Eductify — procvičení: Změny vnitřní energie (8. ročník)', url: 'https://www.eductify.com/cs/fyzika/c80/8-rocnik-zs/p-zvet/zmeny-vnitrne-energie' },
@@ -3387,45 +3262,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'tepelna-vymena-a-teplo',
 					interakce: 'kalorimetr',
 					nazev: 'Tepelná výměna, teplo, měrná tepelná kapacita',
-					obsah: `
-						<h2>Tepelná výměna, teplo, měrná tepelná kapacita</h2>
-						<h3>Tepelná výměna</h3>
-						<p>Nastává při <strong>dotyku těles s různou teplotou</strong>. Rychlejší částice teplejšího tělesa narážejí do pomalejších částic chladnějšího a předávají jim část své energie — rychlé zpomalí, pomalé zrychlí. Teplejší těleso vnitřní energii <strong>ztrácí</strong>, chladnější ji <strong>získává</strong>. Výměna skončí, když se <strong>teploty vyrovnají</strong>.</p>
-						<h3>Teplo</h3>
-						<ul>
-							<li><strong>teplo Q</strong> = část vnitřní energie, kterou teplejší těleso předá chladnějšímu při tepelné výměně; jednotka <strong>joule (J)</strong></li>
-							<li>teplejší těleso teplo <strong>odevzdává</strong>, chladnější <strong>přijímá</strong>; při izolaci od okolí je odevzdané teplo = přijaté teplo</li>
-							<li>👉 <strong>nepleť teplo a teplotu!</strong> Teplo Q je předávaná energie (J); <strong>teplota t</strong> popisuje stav tělesa, měří se teploměrem (°C, vědci kelvin K)</li>
-						</ul>
-						<h3>Výpočet tepla</h3>
-						<p>Přijaté teplo závisí na <strong>rozdílu teplot</strong>, na <strong>hmotnosti</strong> a na <strong>látce</strong>:</p>
-						<p style="font-size:1.3rem"><strong>Q = m · c · (t<sub>2</sub> − t<sub>1</sub>)</strong></p>
-						<p>t<sub>1</sub> je počáteční, t<sub>2</sub> konečná teplota.</p>
-						<h3>Měrná tepelná kapacita c</h3>
-						<ul>
-							<li>udává, <strong>kolik tepla dodáme 1 kg látky, aby se ohřála o 1 °C</strong>; jednotka <strong>J/(kg·°C)</strong></li>
-							<li>voda má c = <strong>4 200 J/(kg·°C)</strong> — na ohřátí 1 kg vody o 1 °C je třeba 4 200 J</li>
-							<li><strong>vysoké c</strong> (voda): ohřívá se i chladne pomalu, drží hodně energie → zásobník tepla (topení, chladiče)</li>
-							<li><strong>nízké c</strong> (kovy): ohřívají i chladnou rychle → dobré tepelné vodiče (žebra chladičů)</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Při dotyku těles s různou teplotou předává teplejší těleso část své vnitřní energie chladnějšímu. Tepelná výměna končí vyrovnáním teplot.',
-							'Teplo Q je energie předaná při tepelné výměně; teplota popisuje stav tělesa.',
-							'Přijaté teplo závisí na hmotnosti tělesa, rozdílu teplot a látce, ze které je těleso.',
-							'Měrná tepelná kapacita c udává, kolik tepla je třeba k ohřátí 1 kg látky o 1 °C.',
-						],
-						vzorec: 'Q = m · c · (t₂ − t₁)      (odvozeně: m = Q : [c · (t₂ − t₁)],  c = Q : [m · (t₂ − t₁)])',
-						jednotky: [
-							'teplo Q — joule (J)',
-							'hmotnost m — kilogram (kg)',
-							'měrná tepelná kapacita c — joule na kilogram a stupeň Celsia (J/(kg·°C))',
-							'počáteční teplota t₁ a konečná teplota t₂ — stupeň Celsia (°C)',
-							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J,  1 kg = 1 000 g',
-							'Do vzorce dosazuj teplo v J, hmotnost v kg, kapacitu v J/(kg·°C) a teploty v °C.',
-						],
-					},
+					obsah: "<h2>Tepelná výměna, teplo, měrná tepelná kapacita</h2>\n\n<h3>Co je tepelná výměna</h3>\n<p>Když se dotknou dvě tělesa s <strong>různou teplotou</strong>, nastává mezi nimi <strong>tepelná výměna</strong>. Částice teplejšího tělesa se pohybují rychleji a při srážkách předávají část své energie částicím chladnějšího tělesa. Rychlé částice tak zpomalují a pomalé zrychlují.</p>\n<p>Teplejší těleso postupně <strong>ztrácí</strong> vnitřní energii, chladnější těleso ji <strong>získává</strong>. Výměna skončí ve chvíli, kdy se teploty obou těles <strong>vyrovnají</strong>.</p>\n\n<h3>Teplo — energie, která putuje</h3>\n<p>Energii, kterou teplejší těleso předá chladnějšímu při tepelné výměně, nazýváme <strong>teplo</strong>. Značíme ho <strong>Q</strong> a měříme v joulech (J), stejně jako jinou energii. Teplejší těleso teplo <strong>odevzdává</strong>, chladnější ho <strong>přijímá</strong>.</p>\n<p>Pokud jsou obě tělesa při výměně izolována od okolí (teplo nikam neuniká), platí, že odevzdané teplo je přesně stejně velké jako teplo přijaté.</p>\n\n<h3>Teplo není totéž co teplota</h3>\n<p>Tahle dvě slova se snadno pletou. <strong>Teplota</strong> popisuje, jak je těleso právě teď zahřáté — měříme ji teploměrem a značíme <strong>t</strong>, jednotka je stupeň Celsia (°C), vědci používají kelvin (K). <strong>Teplo</strong> je naopak energie, která se při výměně přenáší — nedá se přímo změřit, jen dopočítat.</p>\n\n<h3>Na čem závisí množství tepla</h3>\n<p>Kolik tepla těleso při ohřívání přijme, závisí na třech věcech. Za prvé na <strong>rozdílu teplot</strong> — čím víc chceme těleso ohřát, tím víc tepla potřebujeme. Ohřát hrnec studené vody jen na mytí nádobí stačí méně tepla než uvařit stejnou vodu na čaj.</p>\n<p>Za druhé na <strong>hmotnosti</strong> — čím víc látky ohříváme, tím víc tepla je třeba. Uvařit vodu na čaj pro 2 lidi spotřebuje méně tepla než stejně studenou vodu pro 20 lidí.</p>\n<p>Za třetí na <strong>látce</strong> samotné — každá látka se ohřívá jinak rychle. Olej se rozehřeje na vysokou teplotu mnohem rychleji než stejné množství vody.</p>\n\n<h3>Měrná tepelná kapacita c</h3>\n<p>Aby šlo látky podle rychlosti ohřívání porovnat, zavedli fyzikové veličinu <strong>měrná tepelná kapacita</strong>, značku <strong>c</strong>. Říká nám, <strong>kolik tepla musíme dodat 1 kg látky, aby se ohřála o 1 °C</strong>. Jednotka je joule na kilogram a stupeň Celsia, zapisujeme J/(kg·°C).</p>\n<p>Voda má měrnou tepelnou kapacitu <strong>c = 4 200 J/(kg·°C)</strong>. Znamená to, že na ohřátí 1 kg vody o 1 °C potřebujeme 4 200 J tepla. Hodnoty pro další látky najdeme ve fyzikálních tabulkách.</p>\n<p>Látky s <strong>vysokým c</strong> (třeba voda) se ohřívají i chladnou pomalu a dokážou v sobě udržet hodně energie — používají se jako zásobník tepla, třeba v topení nebo v chladičích. Látky s <strong>nízkým c</strong> (třeba kovy) se naopak ohřívají i chladnou rychle — jsou to dobré tepelné vodiče, používají se třeba na žebra chladičů.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Teplo, které těleso přijme, spočítáme podle vzorce:</p>\n<p style=\"font-size:1.3rem\"><strong>Q = m · c · (t<sub>2</sub> − t<sub>1</sub>)</strong></p>\n<p>kde m je hmotnost tělesa, c měrná tepelná kapacita látky, t<sub>1</sub> počáteční teplota a t<sub>2</sub> konečná teplota.</p>\n<p>Příklad: v konvici ohříváme 2 kg vody z 20 °C na 30 °C. Rozdíl teplot je t<sub>2</sub> − t<sub>1</sub> = 30 − 20 = 10 °C. Teplo, které voda přijme:</p>\n<p>Q = m · c · (t<sub>2</sub> − t<sub>1</sub>) = 2 · 4 200 · 10 = 84 000 J = 84 kJ</p>\n<p>Funguje to i naopak — když známe teplo, dopočítáme třeba hmotnost: m = Q : [c · (t<sub>2</sub> − t<sub>1</sub>)]. Kolik kg vody ohřejeme o 10 °C, když máme k dispozici 42 000 J tepla?</p>\n<p>m = Q : [c · (t<sub>2</sub> − t<sub>1</sub>)] = 42 000 : (4 200 · 10) = 42 000 : 42 000 = 1 kg</p>",
+					zapis: {"vzorec":"Q = m · c · (t₂ − t₁)      (odvozeně: m = Q : [c · (t₂ − t₁)],  c = Q : [m · (t₂ − t₁)])","jednotky":["teplo — značíme Q, jednotka J (joule)","hmotnost — značíme m, jednotka kg (kilogram)","měrná tepelná kapacita — značíme c, jednotka J/(kg·°C)","počáteční teplota — značíme t₁, jednotka °C (stupeň Celsia)","konečná teplota — značíme t₂, jednotka °C (stupeň Celsia)","1 kJ = 1 000 J,  1 MJ = 1 000 000 J,  1 kg = 1 000 g","Do vzorce dosazuj teplo v J, hmotnost v kg, kapacitu v J/(kg·°C) a teploty v °C."],"vzorecSlovy":"teplo = hmotnost × měrná tepelná kapacita × rozdíl teplot (konečná teplota mínus počáteční teplota)","zakon":"Pokud jsou dvě tělesa při tepelné výměně tepelně izolována od okolí, velikost odevzdaného tepla teplejším tělesem je stejně velká jako velikost tepla přijatého chladnějším tělesem.","body":["teplejší → chladnější, dotykem","Q = teplo (J), t = teplota (°C) — není totéž","teplo: záleží na Δt, hmotnosti, látce","c = kolik J ohřeje 1 kg o 1 °C","voda: vysoké c, kovy: nízké c","Q = m · c · (t₂ − t₁)"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Teplo a teplota (ústřední topení)', cesta: 'YLiXzSWoRRg' },
 					],

@@ -345,3 +345,26 @@ Hlavička je fixní — řádek režimu B se zapisuje beze změny sloupců.
 - **Opravné smyčky** — kolikrát šel výsledek zpět na opravu, než byl kontrolorem uznán.
 - **Čas agentů** — součet dob běhu jednotlivých agentů (ne wall-clock, pokud wall-clock neměřen — to napsat výslovně).
 - **Poznámka** — sem vždy explicitně NEMĚŘENÉ položky (nikdy neodhadovat) a cokoliv, co by jinak zkreslilo srovnání A×B (např. část práce zastavená uprostřed kola).
+
+### 21. 9. 2026 — zkouška nových lokálních modelů
+
+T1 = české shrnutí OBSAH-PRAVIDLA.md (0–6) · T2 = ANO/NE „je správná odpověď nejdelší?" na 6 otázkách z kvizy.ts ·
+T3 = kód (python skript na české uvozovky v JS) · T4 = vision (mapa + schéma). Zdroj: lokalni-modely-test.md.
+
+| model | T1 shrnutí (0–6, čas) | T2 ANO/NE (x/6, čas) | T3 kód | T4 vision | verdikt |
+|---|---|---|---|---|---|
+| qwen3.8:27b-mlx (18 GB) | 4, 34 s | 3/6, 1,8 s/ot. (vždy NE) | funguje, 12 s, bez úniku přemýšlení | 2/2, 9–11 s, česky přesně | kód (náhrada qwen3:30b-a3b) + kandidát na vision |
+| test-infografika-qwen38:latest | 4, 35 s (totožné s qwen3.8) | 3/6, 1,9 s/ot. (totožné) | netestováno (stejné váhy) | netestováno | žádná role — jen profil qwen3.8 |
+| gpt-oss:20b (13 GB) | 3, 17,5 s | 0/6 se stropem 20 tok. (prázdno) → 5/6 se stropem 400 | funguje ČÁSTEČNĚ (přehlédl 1 nález), 7 s | neumí obrázky | záloha ANO/NE jiné rodiny, NE na české texty |
+| gemma4:26b (REFERENCE) | 4, 15,6 s | 5/6, 2,1 s/ot. | — | — | průzkumník + ANO/NE (zůstává) |
+| qwen3:30b-a3b (REFERENCE) | — | — | funguje až se stropem 6000, 38 s (1. pokus selhal — přemýšlení proteklo do odpovědi) | — | jen záloha kódu |
+
+Past měřidla: u modelů s vestavěným přemýšlením (gpt-oss, qwen3:30b) malý `num_predict` vrátí prázdno/uříznutý
+text a vypadá to jako propadnutí — strop dávat ≥ 300 tokenů i na jednoslovné odpovědi.
+
+Kandidáti k instalaci podle webové rešerše (lokalni-modely-doporuceni.md), instalace = rozhodnutí učitele:
+granite4.2:3b (2,2 GB) na ANO/NE proti gemma4:26b, qwen3.6:27b-mlx (19 GB) na kód, povýšit Ollamu na 0.34.2+
+(oprava nárůstu paměti u MLX spekulativního dekódování).
+
+Varování z rešerše: Gemma 4 (31b/26b) na M5 Max zamrzala s `OLLAMA_FLASH_ATTENTION=1` a promptem > 500 tokenů
+(issue #15368); qwen3-embedding padal na Apple Silicon po ~9000 embeddinzích (issue #17509, otevřené).

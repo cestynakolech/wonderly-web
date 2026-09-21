@@ -9,9 +9,9 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 9. 2026 — nástroj `podtema.mjs`, vzorová přestavba energie F8**
-> Vzorové podtéma zakon-zachovani-mechanicke-energie přestavěno podle zadání A+B+C+D,
-> zapsáno novým nástrojem `podtema.mjs`, čeká na schválení učitele (viz `SAMOSTATNY-REZIM.md`).
+> ### Poslední stav: **21. 9. 2026 — celek Energie F8 hotov (6/6 podtémat)**
+> Celek energie 8. ročníku přestavěn podle schváleného vzoru A+B+C+D nástrojem
+> `podtema.mjs`, každé podtéma prošlo nezávislým kontrolorem. Další dávka: zbytek fyziky 8.
 >
 > ### Dřívější stav: **22. 8. 2026 večer — kvízy fyziky 7 dorovnány, celá fyzika 6–9 na cíli 21**
 > Fyzika 7 dorovnána na 21 otázek (10 bloků, 44 nových otázek, doplněny 2 věty výkladu

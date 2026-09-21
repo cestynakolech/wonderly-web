@@ -86,15 +86,15 @@ jen se přesune na KONEC podtématu jako bonus pro schopnější žáky.
 schválit učitelem, teprve pak dávkově zbytek. Začít u **energie (8. ročník)** —
 právě na ní učitel skákání ukázal.
 
-**Stav 21. 9. 2026:** Vzorové podtéma `fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie`
-přestavěno podle A+B+C+D — worker → nezávislý kontrolor, 1 opravná smyčka,
-4 nálezy opraveny, výsledek PROŠLO. Zapsáno nástrojem `podtema.mjs`, build prošel.
-Schéma `zapis` rozšířeno o `vzorecSlovy`, vykreslení přeskládáno na pořadí
-vzorec → veličiny → vzorec slovy → zákon → body (`src/pages/.../index.astro`).
-ČEKÁ NA SCHVÁLENÍ UČITELE: dva vlastní číselné příklady (kámen 3 kg/4 m a míček)
-nemají oporu v PDF — rozhodne učitel. Po schválení jde dávkově zbytek celku
-Energie F8, pak ostatní podtémata. Drobnost do stavu: odvozené vztahy uvnitř
-rámečku vzorce se na užší obrazovce zalamují na dva řádky — zvážit přesun do nadstavby.
+**Stav 21. 9. 2026:** Vzor schválen učitelem (vlastní číselné příklady povoleny).
+Celek Energie F8 HOTOV — 6/6 podtémat přestavěno podle A+B+C+D (worker-výklad →
+nezávislý kontrolor opus → `podtema.mjs`), 5 z 6 potřebovalo 1 opravnou smyčku.
+Zapsáno výhradně nástrojem `podtema.mjs`, build i `zkontroluj.mjs` procházejí.
+DALŠÍ DÁVKA: zbytek fyziky 8. ročníku (celek `mechanicka-prace-a-vykon` a ostatní),
+pak 6., 7., 9. ročník — stejný postup (worker-výklad → kontrolor → podtema.mjs).
+Drobnosti do stavu: podtéma potraviny má 7×`<h3>` a 8 bodů zápisu (víc než vzor,
+neškodí); odvozené vztahy uvnitř rámečku vzorce se na užší obrazovce zalamují
+na dva řádky — zvážit přesun do nadstavby.
 
 ### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
 
@@ -114,6 +114,9 @@ rámečku vzorce se na užší obrazovce zalamují na dva řádky — zvážit p
   podle prvního měření (viz položka výše). Výchozí tabulka už je zapsaná
   (15. 8. 2026); tahle položka znamená její posun směrem k lokálním modelům tam,
   kde měření ukáže, že stačí.
+- [příprava] Přímé srovnání vision: ThinkingCap vs qwen3.8:27b-mlx na jedné dávce
+  ~10 map/fotek deníku (stejné obrázky, stejná otázka, `mapa_projde_kontrolou`);
+  vítěz nahradí model v automatech. Zadáno 21. 9. 2026.
 
 > ~~Čtyři videa z 5. 8. (síla, hmotnost, hustota, objem)~~ ✅ HOTOVO a nasazeno 7. 8.
 

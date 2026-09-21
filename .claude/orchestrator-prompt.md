@@ -73,10 +73,11 @@ Kroky standardního rozkladu a model, na kterém mají běžet:
 
 | krok rozkladu | model |
 |---|---|
-| průzkumník (čtení dlouhých věcí) | gemma4:26b `[neověřeno]` — nejbližší doklad je jen shrnutí JEDNÉ krátké věty (ollama-log.md 2026-07-14 23:25), ne dlouhý text |
+| průzkumník (čtení dlouhých věcí) | gemma4:26b `[ověřeno 21. 9. 2026: 4/6, 15,6 s]` |
 | kvízy, příklady, výklad | Claude — kvůli přesnosti |
 | simulace (kód komponenty) | Claude — kód |
 | média a hledání | gemma4:26b pro text / ThinkingCap pro obrázky `[neověřeno]` — v ollama-log.md není žádná zkouška na hledání ani ověřování zdrojů; ThinkingCap má doložené jen ANO/NE kontroly fotek a map (2026-07-21, 2026-07-23), ne vyhledávání |
+| kód/dávkové skripty lokálně | qwen3.8:27b-mlx `[ověřeno 21. 9. 2026]` |
 | zápis do souborů | Claude |
 | kontrolor | Claude — musí chytat faktické chyby |
 
@@ -105,6 +106,8 @@ Pro role „průzkumník" a „média a hledání" v logu chybí zkouška na SKU
 ne měření. Příští kolo (až se obnoví tokeny) proběhne nový průzkum modelů: každý se
 vyzkouší na skutečné úloze z projektu (dlouhé shrnutí, ověření zdroje) a tabulka se
 podle výsledku přeřadí; do té doby platí `[neověřeno]` zařazení jen jako výchozí odhad.
+21. 9. 2026 přibyly qwen3.8:27b-mlx (18 GB), gpt-oss:20b (13 GB) a profil
+test-infografika-qwen38; měření viz METRIKY-KOL.md.
 
 Neinteraktivní volání Hermese: `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"
 --provider ollama --model <model>`; přes OpenRouter `--provider openrouter --model
