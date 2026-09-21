@@ -5135,7 +5135,7 @@ export const temata: Record<string, Tema[]> = {
 							<li><strong>Rotor (kotva)</strong> — otáčející se část s cívkami uvnitř.</li>
 							<li><strong>Stejnosměrný motor</strong> potřebuje <strong>komutátor</strong> — dělený kroužek s kartáčky, který každou půlotočku obrátí směr proudu v cívce, aby se rotor točil stále dál.</li>
 							<li>Využití: vysavač, výtah, elektromobil, elektrické nářadí, tramvaje, hračky.</li>
-						</ul>
+					</ul>
 					`,
 					zapis: {
 						body: [
@@ -5148,6 +5148,7 @@ export const temata: Record<string, Tema[]> = {
 					},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak se točí elektromotory', cesta: 'Hi-Tc84eglY' },
+						{ druh: 'infografika', nazev: 'Infografika: Jak se točí elektromotor', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-elektromotor.png' },
 					],
 				},
 				{
