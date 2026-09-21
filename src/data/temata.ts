@@ -2754,39 +2754,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'zapojeni-spotrebicu-za-sebou',
 						nazev: 'Zapojení spotřebičů za sebou (sériově)',
 						interakce: 'zapojeni',
-						obsah: `
-							<h2>Zapojení spotřebičů za sebou (sériově) — jednoduchý elektrický obvod</h2>
-							<p>Spotřebiče (pro výpočty je nahradíme <strong>rezistory</strong>) jsou v sériovém obvodu zapojeny <strong>jeden za druhým</strong>. Obvod se <strong>nerozvětvuje</strong> — jednoduché sériové zapojení je nejbasičtější typ elektrického obvodu.</p>
-							<h3>Proud — tok bez dělení</h3>
-							<p>Proud se <strong>nedělí</strong> — je ve všech částech obvodu (i ve všech rezistorech) <strong>stejný</strong>. Všechny elektrony procházejí každou částí obvodu — zákon zachování toku.</p>
-							<h3>Napětí — rozdělení mezi rezistory</h3>
-							<ul>
-								<li>napětí zdroje se <strong>rozdělí mezi rezistory</strong> — <strong>U = U₁ + U₂</strong> (zákon o úbytcích napětí)</li>
-								<li>rozdělí se ve <strong>stejném poměru jako odpory</strong>: na větším odporu je větší napětí</li>
-								<li>na jednotlivém rezistoru z Ohmova zákona: U₁ = R₁ · I, U₂ = R₂ · I</li>
-							</ul>
-							<h3>Celkový odpor — součet rezistorů</h3>
-							<p>Rezistory za sebou tvoří <strong>delší odporový drát</strong>, proto se odpory <strong>sčítají</strong>: <strong>R = R₁ + R₂</strong> — celkový odpor je <strong>větší</strong> než jednotlivé (suma odporů v sérii).</p>
-							<h3>Pomůcka</h3>
-							<p>Když se proud <strong>nedělí</strong> → dělí se napětí. Nevýhoda série: přeruší-li se jeden spotřebič (vánoční řetěz), <strong>zhasne celý obvod</strong>.</p>
-						`,
-						zapis: {
-							body: [
-								'V sériovém obvodu jsou spotřebiče zapojeny jeden za druhým a obvod se nerozvětvuje.',
-								'Proud se nedělí, proto je ve všech částech sériového obvodu stejný.',
-								'Napětí zdroje se rozdělí mezi spotřebiče; na větším odporu je větší napětí.',
-								'Celkový odpor je součtem odporů jednotlivých spotřebičů.',
-								'Přeruší-li se jeden spotřebič, přestane fungovat celý obvod.',
-							],
-							vzorec: 'I = I₁ = I₂,  U = U₁ + U₂,  R = R₁ + R₂',
-							jednotky: [
-								'elektrický proud I, I₁, I₂ — ampér (A)',
-								'elektrické napětí U, U₁, U₂ — volt (V)',
-								'elektrický odpor R, R₁, R₂ — ohm (Ω)',
-								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω',
-								'Do vztahů dosazuj proud v A, napětí ve V a odpor v Ω.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Zapojení spotřebičů za sebou (sériově)</h2>\n\t\t\t\t\t\t\t<p>Elektrické spotřebiče (žárovka, konvice, pračka…) můžeme do obvodu zapojit dvěma způsoby: <strong>za sebou (sériově)</strong>, nebo <strong>vedle sebe (paralelně)</strong>. Každý elektrický spotřebič má vlastní odpor. Pro výpočty proto spotřebiče nahradíme <strong>rezistory</strong>.</p>\n\t\t\t\t\t\t\t<p>V sériovém obvodu jdou rezistory <strong>jeden za druhým</strong> a obvod se <strong>nerozvětvuje</strong>. Jednoduché sériové zapojení je nejbasičtější typ elektrického obvodu.</p>\n\t\t\t\t\t\t\t<h3>Proud — teče všude stejně</h3>\n\t\t\t\t\t\t\t<p>Proud se v sériovém obvodu <strong>nedělí</strong>. Je stejný ve všech částech obvodu, tedy i ve všech rezistorech. Všechny elektrony procházejí každou částí obvodu — <strong>zákon zachování toku</strong>. Je to podobné jako proud vody v korytě řeky — kolik jí proteče na začátku, tolik i na konci.</p>\n\t\t\t\t\t\t\t<h3>Napětí — rozdělí se mezi spotřebiče</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>napětí zdroje se <strong>rozdělí mezi rezistory</strong>: U = U<sub>1</sub> + U<sub>2</sub> (zákon o úbytcích napětí)</li>\n\t\t\t\t\t\t\t<li>rozdělí se ve <strong>stejném poměru jako odpory</strong> — např. odpory 2 : 1 rozdělí napětí také 2 : 1</li>\n\t\t\t\t\t\t\t<li>na rezistoru s <strong>větším odporem je větší napětí</strong>, na menším odporu menší napětí</li>\n\t\t\t\t\t\t\t<li>napětí na jednotlivém rezistoru vypočítáme z Ohmova zákona: U<sub>1</sub> = R<sub>1</sub> · I, U<sub>2</sub> = R<sub>2</sub> · I</li>\n\t\t\t\t\t\t\t<li>Ohmův zákon platí nejen pro celý obvod, ale i pro jeho jednotlivé části — pro každý rezistor zvlášť</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Celkový odpor — rezistory se sčítají</h3>\n\t\t\t\t\t\t\t<p>Rezistory za sebou tvoří jeden <strong>delší odporový drát</strong>, proto se jejich odpory <strong>sčítají</strong>: R = R<sub>1</sub> + R<sub>2</sub>. Celkový odpor sériového obvodu je vždy <strong>větší</strong> než odpor kteréhokoli jednotlivého rezistoru. Platí to i pro víc spotřebičů za sebou — celkový odpor je součet odporů všech. Proud v obvodu pak vypočítáme z Ohmova zákona: I = U : R.</p>\n\t\t\t\t\t\t\t<h3>Vánoční žárovky — když jeden spotřebič vypadne</h3>\n\t\t\t\t\t\t\t<p>Sériové zapojení má jednu <strong>nevýhodu</strong>: přeruší-li se jediný spotřebič, obvod se přeruší a <strong>zhasnou úplně všechny žárovky najednou</strong>. Stalo by se to třeba na starém vánočním řetězu, kde praskne jedna žárovka. Pomůcka k zapamatování: když se proud <strong>nedělí</strong>, napětí se <strong>dělí</strong> — a naopak.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Sériově zapojíme dva rezistory R<sub>1</sub> = 4 Ω a R<sub>2</sub> = 6 Ω. Obvodem prochází proud I = 2 A, stejný ve všech částech.</p>\n\t\t\t\t\t\t\t<p>Napětí na prvním rezistoru: U<sub>1</sub> = R<sub>1</sub> · I = 4 · 2 = 8 V. Napětí na druhém: U<sub>2</sub> = R<sub>2</sub> · I = 6 · 2 = 12 V. Celkové napětí zdroje: U = U<sub>1</sub> + U<sub>2</sub> = 8 + 12 = 20 V.</p>\n\t\t\t\t\t\t\t<p>Ověříme to přes celkový odpor: R = R<sub>1</sub> + R<sub>2</sub> = 4 + 6 = 10 Ω. Podle Ohmova zákona U = R · I = 10 · 2 = 20 V — sedí to.</p>\n\t\t\t\t\t\t\t<p>Na vánočním řetězu svítí sériově 3 stejné žárovky, každá s odporem 2 Ω, zapojené na zdroj s napětím 12 V. Celkový odpor: R = 2 + 2 + 2 = 6 Ω. Proud v obvodu: I = U : R = 12 : 6 = 2 A.</p>\n\t\t\t\t\t\t\t<p>Napětí na jedné žárovce: U<sub>1</sub> = R<sub>1</sub> · I = 2 · 2 = 4 V. Stejné napětí je i na ostatních dvou žárovkách, protože mají stejný odpor. Kontrola: 4 + 4 + 4 = 12 V, přesně napětí zdroje.</p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"I = I₁ = I₂,  U = U₁ + U₂,  R = R₁ + R₂","jednotky":["elektrický proud — značíme I (na rezistorech I₁, I₂ — jsou stejné jako I), jednotka A (ampér)","elektrické napětí — značíme U (na rezistorech U₁, U₂), jednotka V (volt)","elektrický odpor — značíme R (na rezistorech R₁, R₂), jednotka Ω (ohm)","Převody: 1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω.","Do vztahů dosazuj proud v A, napětí ve V a odpor v Ω."],"vzorecSlovy":"proud je ve všech rezistorech stejný jako celkový; celkové napětí = součet napětí na rezistorech; celkový odpor = součet odporů rezistorů","zakon":"Ohmův zákon platí pro veličiny v celém obvodu (U, I, R), ale i pro jednotlivé části obvodu: rezistory (R₁, U₁, I₁ a R₂, U₂, I₂).","body":["sériově: spotřebiče za sebou, obvod nerozvětven","proud: stejný všude, nedělí se","napětí: dělí se, U = U₁ + U₂","větší odpor → větší napětí na něm","odpor: R = R₁ + R₂, roste","porucha jednoho spotřebiče → zhasne vše"]},
 						odkazy: [
 							{ nazev: 'Sériové a paralelní zapojení — výklad (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
 							{ nazev: 'Sériové a paralelní zapojení v obvodu — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/seriove-a-paralelni-zapojeni-v-obvodu/' },
@@ -2796,39 +2765,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'zapojeni-spotrebicu-vedle-sebe',
 						nazev: 'Zapojení spotřebičů vedle sebe (paralelně)',
 						interakce: 'zapojeni',
-						obsah: `
-							<h2>Zapojení spotřebičů vedle sebe (paralelně) — elektrické obvody</h2>
-							<p>V paralelním obvodu je <strong>každý spotřebič připojen přímo ke zdroji</strong>. Obvod je <strong>rozvětvený</strong>, vodiče se spojují v <strong>uzlech</strong>. Takto jsou zapojené zásuvky v domácnosti — paralelní zapojení spotřebičů je důležitý typ elektrického obvodu.</p>
-							<h3>Napětí — rozdělení na paralelní rezistory</h3>
-							<p>Všechny rezistory jsou svými konci připojené na póly zdroje → <strong>napětí na všech je stejné</strong> jako napětí zdroje — elektrické napětí se v paralelním zapojení nedělí.</p>
-							<h3>Proud — rozdělení v uzlech</h3>
-							<ul>
-								<li>v uzlu se proud <strong>rozdělí do větví</strong> — <strong>I = I₁ + I₂</strong> (zákon o zachování proudu)</li>
-								<li>rozdělí se v <strong>opačném poměru než odpory</strong>: větším odporem teče menší proud</li>
-								<li>na jednotlivé větvi z Ohmova zákona: I₁ = U / R₁, I₂ = U / R₂</li>
-							</ul>
-							<h3>Celkový odpor — vlastnosti paralelního zapojení</h3>
-							<p>Rezistory vedle sebe tvoří <strong>větší plochu průřezu</strong>, takže <strong>celkový odpor klesá</strong> (je menší než nejmenší z nich). Platí <strong>1/R = 1/R₁ + 1/R₂</strong>.</p>
-							<h3>Pomůcka</h3>
-							<p>Když se proud <strong>dělí</strong> → napětí se nedělí. Výhoda paralelu: když jeden spotřebič vypadne, <strong>ostatní fungují dál</strong>.</p>
-						`,
-						zapis: {
-							body: [
-								'V paralelním obvodu je každý spotřebič připojen přímo ke zdroji a vodiče se spojují v uzlech.',
-								'Napětí na všech větvích je stejné jako napětí zdroje.',
-								'V uzlu se proud rozdělí do větví; větším odporem prochází menší proud.',
-								'Celkový odpor paralelního zapojení je menší než nejmenší z odporů ve větvích.',
-							],
-							zakon: 'Proud, který přitéká do uzlu, se rozdělí do větví: I = I₁ + I₂.',
-							vzorec: 'U = U₁ = U₂,  I = I₁ + I₂,  1 : R = 1 : R₁ + 1 : R₂',
-							jednotky: [
-								'elektrické napětí U, U₁, U₂ — volt (V)',
-								'elektrický proud I, I₁, I₂ — ampér (A)',
-								'elektrický odpor R, R₁, R₂ — ohm (Ω)',
-								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω',
-								'Do vztahů dosazuj proud v A, napětí ve V a odpor v Ω.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Zapojení spotřebičů vedle sebe (paralelně)</h2>\n\t\t\t\t\t\t\t<p>Elektrické spotřebiče můžeme do obvodu zapojit dvěma způsoby: <strong>za sebou (sériově)</strong>, nebo <strong>vedle sebe (paralelně)</strong>. Každý elektrický spotřebič má vlastní odpor, proto ho pro výpočty nahrazujeme <strong>rezistorem</strong>. V paralelním obvodu je každý spotřebič připojen přímo ke zdroji.</p>\n\t\t\t\t\t\t\t<p>Vodiče se spojují v místech, kterým říkáme <strong>uzly</strong>, takže je obvod <strong>rozvětvený</strong>. Přesně takhle jsou zapojené zásuvky v domácnosti. Paralelní zapojení spotřebičů je důležitý typ elektrického obvodu.</p>\n\t\t\t\t\t\t\t<h3>Napětí — na každé větvi stejné</h3>\n\t\t\t\t\t\t\t<p>Oba konce každého rezistoru jsou přímo spojené s póly zdroje. Proto je napětí na každé větvi stejné jako napětí zdroje. V paralelním zapojení se napětí nedělí, jak by se to dělo v sériovém obvodu.</p>\n\t\t\t\t\t\t\t<h3>Proud — dělí se v uzlu</h3>\n\t\t\t\t\t\t\t<p>V uzlu se proud rozdělí do jednotlivých větví. Platí zákon o zachování proudu: <strong>I = I<sub>1</sub> + I<sub>2</sub></strong>. Kolik proudu do uzlu vteče, tolik z něj musí i vytéct.</p>\n\t\t\t\t\t\t\t<p>Tok elektronů si můžeš představit jako řeku, která se rozdělí do dvou koryt. Rezistorem s menším odporem poteče víc proudu, stejně jako víc vody poteče širším korytem. Proud se totiž rozdělí v opačném poměru, než jsou odpory: čím větší odpor, tím menší proud.</p>\n\t\t\t\t\t\t\t<p>Proud na každé větvi spočítáme z Ohmova zákona zvlášť: <strong>I<sub>1</sub> = U : R<sub>1</sub></strong> a <strong>I<sub>2</sub> = U : R<sub>2</sub></strong>. Ohmův zákon totiž platí nejen pro celý obvod, ale i pro každou jeho část.</p>\n\t\t\t\t\t\t\t<h3>Celkový odpor — proč klesá</h3>\n\t\t\t\t\t\t\t<p>Rezistory vedle sebe tvoří dohromady větší plochu průřezu, kterou proud prochází. Proto celkový odpor klesá a je menší než odpor kterékoli jednotlivé větve. Platí vzorec <strong>1 : R = 1 : R<sub>1</sub> + 1 : R<sub>2</sub></strong>.</p>\n\t\t\t\t\t\t\t<p>I kdyby bylo vedle sebe zapojeno víc spotřebičů, funguje to stejně — jen do součtu přibudou další zlomky. Celkový odpor vždycky vyjde menší, než má nejmenší z rezistorů.</p>\n\t\t\t\t\t\t\t<h3>Výhoda paralelního zapojení</h3>\n\t\t\t\t\t\t\t<p>Když se proud dělí, napětí se nedělí — to je dobrá pomůcka k zapamatování. Hlavní výhoda paralelního zapojení je, že spotřebiče fungují nezávisle na sobě. Když jedna žárovka v domácnosti přepálí, obvod se nepřeruší a ostatní spotřebiče svítí a fungují dál.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Ke zdroji s napětím U = 12 V jsou paralelně připojené dva rezistory: R<sub>1</sub> = 6 Ω a R<sub>2</sub> = 3 Ω. Spočítáme proud v obou větvích z Ohmova zákona.</p>\n\t\t\t\t\t\t\t<p>I<sub>1</sub> = U : R<sub>1</sub> = 12 : 6 = 2 A</p>\n\t\t\t\t\t\t\t<p>I<sub>2</sub> = U : R<sub>2</sub> = 12 : 3 = 4 A</p>\n\t\t\t\t\t\t\t<p>Celkový proud je jejich součet: I = I<sub>1</sub> + I<sub>2</sub> = 2 + 4 = 6 A. Odpory jsou v poměru R<sub>1</sub> : R<sub>2</sub> = 6 : 3, tedy 2 : 1. Proudy vyšly přesně obráceně, 2 A : 4 A, tedy 1 : 2.</p>\n\t\t\t\t\t\t\t<p>Celkový odpor spočítáme ze vzorce pro paralelní rezistory: 1 : R = 1 : R<sub>1</sub> + 1 : R<sub>2</sub>. Dosadíme: 1 : R = 1 : 6 + 1 : 3 = 1 : 6 + 2 : 6 = 3 : 6 = 1 : 2. Když je 1 : R = 1 : 2, je R = 2 Ω.</p>\n\t\t\t\t\t\t\t<p>Zkouška: R = U : I = 12 : 6 = 2 Ω — vyšlo to stejně jako přes vzorec pro paralelní rezistory.</p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"U = U₁ = U₂,  I = I₁ + I₂,  1 : R = 1 : R₁ + 1 : R₂","jednotky":["elektrické napětí — značíme U (na větvích U₁, U₂ — jsou stejné jako U), jednotka V (volt)","elektrický proud — značíme I (na větvích I₁, I₂ — jejich součet je I), jednotka A (ampér)","elektrický odpor — značíme R (na větvích R₁, R₂), jednotka Ω (ohm)","Převody: 1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω.","Do vztahů dosazuj proud v A, napětí ve V a odpor v Ω."],"vzorecSlovy":"napětí je na všech větvích stejné jako napětí zdroje; celkový proud je součtem proudů v jednotlivých větvích; převrácená hodnota celkového odporu je součtem převrácených hodnot odporů jednotlivých větví","zakon":"Součet proudů v jednotlivých větvích je roven celkovému proudu v obvodu: I = I₁ + I₂.","body":["paralelně: každý spotřebič ke zdroji","napětí: všude stejné jako zdroj","proud: dělí se, I = I₁ + I₂","odpor: 1 : R = 1 : R₁ + 1 : R₂, klesá","porucha jednoho → ostatní fungují"]},
 						odkazy: [
 							{ nazev: 'Sériové a paralelní zapojení (E-manuel.cz)', url: 'https://e-manuel.cz/kapitoly/elektricke-obvody/vyklad/seriove-a-paralelni-zapojeni/' },
 						],
@@ -2837,53 +2775,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'rezistor-s-promennym-odporem',
 						nazev: 'Rezistor s proměnným odporem',
 						interakce: 'reostat',
-						obsah: `
-							<h2>Rezistor s proměnným odporem — reostat a potenciometr</h2>
-							<p>Je to rezistor, u kterého lze <strong>měnit odpor</strong>. Tvoří ho odporový drát a <strong>posuvný jezdec</strong>, který určuje, jak velká část drátu je zapojena. Podle konstrukce je <strong>posuvný</strong> nebo <strong>otočný</strong>. Podle způsobu zapojení se mu říká reostat, nebo potenciometr.</p>
-							<h3>Reostat — regulace proudu</h3>
-							<ul>
-								<li>zapojí se jednou svorkou konstrukce a svorkou jezdce (využívá <strong>jednu část</strong> drátu)</li>
-								<li>slouží k <strong>regulaci proudu</strong>: čím menší odpor, tím větší proud a výkon</li>
-								<li>dnes se moc nepoužívá (velké ztráty tepla) — nahradily ho polovodiče; dřív ovládal tramvaje</li>
-							</ul>
-							<h3>Potenciometr — dělič napětí</h3>
-							<ul>
-								<li>zapojí se <strong>obě svorky konstrukce i jezdec</strong> (využívá obě části)</li>
-								<li>slouží k <strong>regulaci napětí</strong>: jezdec rozdělí drát na dva sériové rezistory a napětí se mezi ně rozdělí</li>
-								<li>využití: ovládání <strong>hlasitosti, jasu, otáček</strong>; jako <strong>snímač polohy či úhlu</strong> v robotice a průmyslu</li>
-							</ul>
-							<h3>Jak je reostat vyrobený</h3>
-							<ul>
-								<li>na keramickém nebo plastovém válci je navinutý <strong>odporový drát</strong> (např. slitina nichrom nebo konstantan) — má vyšší odpor než měděný vodič a vydrží vysokou teplotu</li>
-								<li>po drátu klouže kovový <strong>jezdec</strong>, který ho spojuje s výstupní svorkou — posunem jezdce se mění, kolik závitů drátu je zapojeno do obvodu</li>
-								<li>čím delší kus drátu je zapojen, tím <strong>větší je odpor</strong> (odpor drátu roste s jeho délkou)</li>
-							</ul>
-							<h3>Proč se reostat zahřívá</h3>
-							<p>Reostat mění elektrickou energii na teplo úmyslně — tím právě omezuje proud. Platí pro něj vzorec pro výkon <strong>P = U · I</strong> (nebo P = I² · R). Každý reostat má výrobcem daný <strong>jmenovitý výkon</strong> (např. 25 W) — kolik tepla dokáže bez poškození vyzářit. Když jím prochází moc velký proud, přehřeje se a odporový drát se může přepálit.</p>
-							<h3>Příklad výpočtu</h3>
-							<p>Zdroj s napětím <strong>12 V</strong> je připojen k reostatu. Jezdec je nastaven na odpor <strong>6 Ω</strong>: proud I = U/R = 12/6 = <strong>2 A</strong>. Posuneme jezdec tak, aby v obvodu zůstal jen odpor <strong>3 Ω</strong> (poloviční): proud vzroste na I = 12/3 = <strong>4 A</strong> — dvakrát menší odpor znamená dvakrát větší proud. Výkon na reostatu při 3 Ω je P = U · I = 12 · 4 = <strong>48 W</strong> — pokud je jeho jmenovitý výkon jen 25 W, reostat by se poškodil.</p>
-							<h3>Co se stane při nulovém odporu</h3>
-							<p>Když jezdec posuneme na doraz tak, že v obvodu nezůstane žádný kus drátu (R = 0 Ω), reostat přestane proud omezovat vůbec. V obvodu pak teče proud omezený jen odporem ostatních součástek — může být nebezpečně velký a spálit spotřebič nebo vodiče. Proto se u reostatu vždy dává pozor, na jakou hodnotu je jezdec nastavený, než se obvod zapne.</p>
-							<h3>Využití dnes</h3>
-							<p>Čisté reostaty se dnes kvůli ztrátám teplem používají málo — nahradily je elektronické součástky (tranzistory, triaky), které teplo neplýtvají. Potenciometry se naopak používají běžně: jako <strong>otočný knoflík hlasitosti</strong> u starších zesilovačů a rádií, jako <strong>snímač polohy plynového pedálu</strong> v autech nebo páky u herních ovladačů. Stmívače světel dnes obvykle pracují na jiném principu (elektronicky spínají proud), ale staré typy stmívačů fungovaly přímo jako reostat.</p>
-						`,
-						zapis: {
-							body: [
-								'Rezistor s proměnným odporem má odporový drát a jezdec, jehož posunem měníme délku zapojeného drátu.',
-								'Čím delší část drátu je zapojena, tím větší je odpor.',
-								'Reostat reguluje proud, zatímco potenciometr rozděluje napětí.',
-								'Reostat se zahřívá, protože mění část elektrické energie na teplo; příliš velký proud ho může poškodit.',
-							],
-							vzorec: 'I = U : R      (odvozeně: U = I · R,  R = U : I);  P = U · I',
-							jednotky: [
-								'elektrický proud I — ampér (A)',
-								'elektrické napětí U — volt (V)',
-								'elektrický odpor R — ohm (Ω)',
-								'výkon P — watt (W)',
-								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω,  1 kW = 1 000 W',
-								'Do vzorců dosazuj proud v A, napětí ve V, odpor v Ω a výkon ve W.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Rezistor s proměnným odporem — reostat a potenciometr</h2>\n\t\t\t\t\t\t\t<p>Rezistor s proměnným odporem je součástka, u které jde <strong>měnit odpor</strong>. Skládá se z <strong>odporového drátu</strong> a <strong>posuvného jezdce</strong>. Jezdec určuje, jak dlouhý kus drátu je právě zapojený do obvodu.</p>\n\t\t\t\t\t\t\t<p>Podle konstrukce bývá <strong>posuvný</strong> (jezdec klouže rovně) nebo <strong>otočný</strong> (jezdec se otáčí jako knoflík). Podle způsobu zapojení do obvodu se mu říká <strong>reostat</strong>, nebo <strong>potenciometr</strong>.</p>\n\t\t\t\t\t\t\t<h3>Reostat — regulace proudu</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>zapojí se jednou svorkou (kovovou spojkou pro vodič) na konstrukci a svorkou jezdce — využívá jen <strong>jednu část</strong> drátu</li>\n\t\t\t\t\t\t\t<li>slouží k <strong>regulaci proudu</strong> v obvodu: čím menší odpor, tím větší proud i výkon</li>\n\t\t\t\t\t\t\t<li>dnes se moc nepoužívá (velké ztráty tepla) — nahradily ho polovodičové (elektronické) součástky; dřív ovládal třeba tramvaje</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Potenciometr — dělič napětí</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>zapojí se <strong>obě svorky konstrukce i jezdec</strong> — využívá <strong>obě části</strong> drátu</li>\n\t\t\t\t\t\t\t<li>slouží k <strong>regulaci napětí</strong>: jezdec rozdělí drát na dva sériové rezistory a napětí ze zdroje se rozdělí mezi ně</li>\n\t\t\t\t\t\t\t<li>platí: čím menší odpor má jedna část, tím větší odpor (a tím i napětí) má druhá část</li>\n\t\t\t\t\t\t\t<li>umí to i naopak: polohu jezdce převede na odpor a ten na napětí — tak vzniká <strong>snímač polohy</strong></li>\n\t\t\t\t\t\t\t<li>snímače polohy, úhlu i napětí se využijí v <strong>průmyslu a robotice</strong>, při kalibraci přístrojů nebo v ovládacích panelech</li>\n\t\t\t\t\t\t\t<li>jako dělič napětí se potenciometr využívá k ovládání <strong>hlasitosti, jasu, otáček motorů</strong></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Jak je reostat vyrobený</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>na keramickém nebo plastovém válci je navinutý <strong>odporový drát</strong> (třeba ze slitiny nichrom nebo konstantan)</li>\n\t\t\t\t\t\t\t<li>tento drát má vyšší odpor než měděný vodič a vydrží vysokou teplotu</li>\n\t\t\t\t\t\t\t<li>po drátu klouže kovový <strong>jezdec</strong>, spojený s výstupní svorkou — posunem jezdce se mění, kolik závitů drátu je zapojeno</li>\n\t\t\t\t\t\t\t<li>čím delší kus drátu je zapojen, tím <strong>větší je odpor</strong></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Proč se reostat zahřívá</h3>\n\t\t\t\t\t\t\t<p>Reostat omezuje proud svým odporem. Přitom se elektrická energie mění na teplo, proto se zahřívá. Platí pro něj vzorec pro výkon <strong>P = U · I</strong> (nebo P = I² · R). Každý reostat má výrobcem daný <strong>jmenovitý výkon</strong> (třeba 25 W) — kolik tepla dokáže bez poškození vyzářit.</p>\n\t\t\t\t\t\t\t<p>Když jím prochází moc velký proud, přehřeje se a odporový drát se může přepálit.</p>\n\t\t\t\t\t\t\t<h3>Co se stane při nulovém odporu</h3>\n\t\t\t\t\t\t\t<p>Když jezdec posuneme na doraz tak, že v obvodu nezůstane žádný kus drátu (R = 0 Ω), reostat přestane proud omezovat vůbec. V obvodu pak teče proud omezený jen odporem ostatních součástek — může být nebezpečně velký a spálit spotřebič nebo vodiče.</p>\n\t\t\t\t\t\t\t<p>Proto se u reostatu vždy dává pozor, na jakou hodnotu je jezdec nastavený, než se obvod zapne.</p>\n\t\t\t\t\t\t\t<h3>Využití dnes</h3>\n\t\t\t\t\t\t\t<p>Čisté reostaty se dnes kvůli ztrátám teplem používají málo — nahradily je polovodičové (elektronické) součástky (tranzistory, triaky), které teplem neplýtvají. Potenciometry se naopak používají běžně.</p>\n\t\t\t\t\t\t\t<p>Najdeme je jako <strong>otočný knoflík hlasitosti</strong> u starších zesilovačů a rádií. Používají se i jako <strong>snímač polohy plynového pedálu</strong> v autech nebo páky u herních ovladačů. Staré typy stmívačů světel fungovaly přímo jako reostat, dnešní obvykle spínají proud jinak.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Zdroj s napětím <strong>12 V</strong> je připojen k reostatu. Jezdec je nastaven na odpor <strong>6 Ω</strong>: proud I = U : R = 12 : 6 = <strong>2 A</strong>.</p>\n\t\t\t\t\t\t\t<p>Posuneme jezdec tak, aby v obvodu zůstal jen odpor <strong>3 Ω</strong> (poloviční). Proud vzroste na I = 12 : 3 = <strong>4 A</strong> — dvakrát menší odpor znamená dvakrát větší proud.</p>\n\t\t\t\t\t\t\t<p>Výkon na reostatu při 3 Ω je P = U · I = 12 · 4 = <strong>48 W</strong>. Pokud je jeho jmenovitý výkon jen 25 W, reostat by se poškodil.</p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"I = U : R      (odvozeně: U = I · R,  R = U : I);  P = U · I  (odvozeně: P = I² · R)","jednotky":["elektrický proud — značíme I, jednotka A (ampér)","elektrické napětí — značíme U, jednotka V (volt)","elektrický odpor — značíme R, jednotka Ω (ohm)","elektrický výkon — značíme P, jednotka W (watt)","Převody: 1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω,  1 kW = 1 000 W.","Do vzorců dosazuj proud v A, napětí ve V, odpor v Ω a výkon ve W."],"vzorecSlovy":"elektrický proud = napětí děleno odporem; elektrický výkon = napětí krát proud (nebo proud na druhou krát odpor)","body":["jezdec: mění délku zapojeného drátu","delší drát → větší odpor","reostat: reguluje proud (jedna část)","potenciometr: dělí napětí (obě části)","potenciometr: umí být i snímač polohy","reostat: mění energii v teplo","R = 0 Ω: proud neomezený, nebezpečí"]},
 						odkazy: [
 							{ nazev: 'Reostat, dělič napětí (potenciometr) — F8 (vyuka.p3k.eu)', url: 'https://vyuka.p3k.eu/f8-reostat-delic-napeti-potenciometr/' },
 							{ nazev: 'Rezistory s proměnnou hodnotou (Wikipedie)', url: 'https://cs.wikipedia.org/wiki/Rezistory_s_prom%C4%9Bnnou_hodnotou' },
