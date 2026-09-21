@@ -2662,29 +2662,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricke-obvody',
 						nazev: 'Elektrické obvody',
 						interakce: 'obvod',
-						obsah: `
-							<h2>Elektrické obvody</h2>
-							<p><strong>Elektrický obvod</strong> vzniká vodivým spojením více prvků. Musí obsahovat <strong>zdroj napětí</strong>, <strong>vodiče</strong> a <strong>spotřebič</strong> (žárovka, zvonek, motor…). Může mít i <strong>spínač, měřidla, pojistku</strong>. <strong>Proud teče jen uzavřeným obvodem</strong> — všechny části musí být vodivě spojené.</p>
-							<h3>Schéma obvodu</h3>
-							<p>Přehledné zakreslení pomocí <strong>schematických značek</strong>; vodiče kreslíme přímými nebo pravoúhlými čarami. Místo, kde je víc vodičů spojeno, je <strong>uzel</strong>. Značky: zdroj (baterie), žárovka (kolečko s křížkem), spínač otevřený/zavřený, pojistka, zvonek.</p>
-							<h3>Jednoduchý a složený obvod</h3>
-							<ul>
-								<li><strong>jednoduchý</strong> — jeden spotřebič (zdroj, vodiče, spínač, žárovka). U tužkové baterie je výčnělek +, rovná plocha −.</li>
-								<li><strong>složený</strong> — víc spotřebičů, zapojených <strong>za sebou (sériově)</strong> nebo <strong>vedle sebe (paralelně)</strong></li>
-							</ul>
-							<h3>Zkrat — pozor!</h3>
-							<p>Když vodivě spojíme svorky zdroje <strong>bez spotřebiče</strong> (nebo proud najde cestu mimo spotřebič), vznikne <strong>zkrat</strong>: teče velký proud, vodiče se přehřejí a <strong>hrozí požár</strong>. Chrání před ním <strong>pojistka</strong> — tenký drátek, který se při velkém proudu přetaví a přeruší obvod.</p>
-							<h3>Bezpečné zapojování</h3>
-							<p>Nejdřív sestav obvod <strong>bez zdroje</strong> a se spínačem <strong>vypnutým</strong>, zkontroluj vodiče i žárovku, teprve pak připoj zdroj a nakonec sepni spínač.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrický obvod tvoří zdroj napětí, vodiče a spotřebič. Může obsahovat také spínač, měřidla nebo pojistku.',
-								'Elektrický proud teče pouze uzavřeným obvodem, ve kterém jsou všechny části vodivě spojené.',
-								'Více spotřebičů lze zapojit za sebou sériově nebo vedle sebe paralelně.',
-								'Zkrat vznikne vodivým spojením svorek zdroje bez spotřebiče. Před velkým proudem a přehřátím chrání pojistka.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Elektrické obvody</h2>\n\t\t\t\t\t\t\t<p><strong>Elektrický obvod</strong> vzniká, když vodivě spojíme víc prvků dohromady. Musí v něm být <strong>zdroj napětí</strong> (třeba baterie), <strong>spotřebič</strong> (žárovka, zvonek, motor…) a <strong>vodiče</strong>, které je spojují. Obvod může mít navíc <strong>spínač, měřidla nebo pojistku</strong>. Příčinou elektrického proudu je <strong>elektrické napětí</strong> — v obvodu ho zajistí právě zdroj elektrického napětí.</p>\n\t\t\t\t\t\t\t<p>Žárovka je skleněná baňka, ze které je vysátý vzduch. Uvnitř je tenoučké <strong>wolframové vlákno</strong> spojené se dvěma částmi patice žárovky, kterou zašroubujeme do objímky.</p>\n\t\t\t\t\t\t\t<p>U zdrojů napětí rozeznáváme dva póly. U <strong>tužkové baterie</strong> je výčnělek na horní ploše kladný pól (+), rovná spodní plocha záporný pól (−). U <strong>ploché baterie</strong> je kladný pól (+) kratší kovový plíšek, záporný pól (−) delší plíšek.</p>\n\t\t\t\t\t\t\t<h3>Schematické značky</h3>\n\t\t\t\t\t\t\t<p>Obvod nekreslíme jako obrázek, ale jako <strong>schéma</strong> — přehledné zakreslení pomocí dohodnutých <strong>schematických značek</strong>. Vodiče kreslíme přímými nebo pravoúhlými čarami. Místo, kde je vodivě spojeno víc vodičů, se nazývá <strong>uzel</strong>.</p>\n\t\t\t\t\t\t\t<p>Mezi základní značky patří:</p>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>vodič</li>\n\t\t\t\t\t\t\t<li>zdroj (baterie)</li>\n\t\t\t\t\t\t\t<li>zdroj – monočlánek</li>\n\t\t\t\t\t\t\t<li>zdroj – plochá baterie</li>\n\t\t\t\t\t\t\t<li>žárovka (kolečko s křížkem)</li>\n\t\t\t\t\t\t\t<li>spínač otevřený a zavřený</li>\n\t\t\t\t\t\t\t<li>tlačítkový spínač</li>\n\t\t\t\t\t\t\t<li>zvonek</li>\n\t\t\t\t\t\t\t<li>pojistka</li>\n\t\t\t\t\t\t\t<li>cívka</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Uzavřený a otevřený obvod</h3>\n\t\t\t\t\t\t\t<p>Elektrický proud prochází obvodem jen tehdy, když je <strong>uzavřený</strong>. Všechny jeho části jsou pak vodivě spojené a tvoří nepřerušenou cestu od jednoho pólu zdroje k druhému — uzavřeme ho třeba sepnutím spínače.</p>\n\t\t\t\t\t\t\t<p>Když je obvod <strong>otevřený</strong> (vypnutým spínačem nebo přerušeným vodičem), proud neprochází a spotřebič nefunguje. Aby žárovka svítila, musí být také dokonale spojené všechny vodivé části, správně zašroubovaná do objímky a nesmí mít prasklé vlákno.</p>\n\t\t\t\t\t\t\t<h3>Jednoduchý a složený obvod</h3>\n\t\t\t\t\t\t\t<p><strong>Jednoduchý obvod</strong> má jen jeden spotřebič — zdroj, vodiče, spínač a jednu žárovku zapojené v jedné smyčce. <strong>Složený obvod</strong> má víc spotřebičů, které lze zapojit dvěma způsoby: <strong>za sebou (sériově)</strong> nebo <strong>vedle sebe (paralelně)</strong>. Elektronické přístroje mívají mnohem složitější obvody — běžný spotřebič může uvnitř obsahovat desítky, stovky až miliony součástek zapojených sériově i paralelně zároveň.</p>\n\t\t\t\t\t\t\t<p>Při <strong>sériovém</strong> zapojení jsou spotřebiče zapojené jeden za druhým, jako žárovičky na starším vánočním stromečku. Má to nevýhodu: když se poškodí jedna žárovka, přeruší se celý obvod a nesvítí ani jedna.</p>\n\t\t\t\t\t\t\t<p>Při <strong>paralelním</strong> zapojení je každý spotřebič připojený ke zdroji vlastními vodiči, jako zásuvky a spotřebiče v domácnosti. Obvod je <strong>rozvětvený</strong> a místa rozvětvení jsou uzly. Výhoda je, že když se jeden spotřebič vypne nebo poškodí, přeruší se jen jeho větev — ostatními spotřebiči proud dál prochází.</p>\n\t\t\t\t\t\t\t<h3>Zkrat — pozor!</h3>\n\t\t\t\t\t\t\t<p>Když vodivě spojíme svorky zdroje <strong>bez spotřebiče</strong> (nebo proud najde cestu mimo spotřebič), vznikne <strong>zkrat</strong>: obvodem teče velký proud, vodiče se přehřívají a <strong>hrozí požár</strong>.</p>\n\t\t\t\t\t\t\t<p>Před zkratem a přetížením chrání <strong>pojistka</strong>. Nejjednodušší je tavná pojistka: tenký drátek ve skleněné baňce se při průchodu velkého proudu zahřeje, roztaví a přeruší obvod. Pojistky se používají v elektronických přístrojích, v autech i v domácnosti.</p>\n\t\t\t\t\t\t\t<h3>Bezpečné zapojování</h3>\n\t\t\t\t\t\t\t<p>Obvod nejdřív sestavíme <strong>bez zdroje</strong> a se spínačem v <strong>otevřené (vypnuté)</strong> poloze. Zkontrolujeme, že vodiče nemají poškozenou izolaci a že žárovka je pevně zašroubovaná do objímky.</p>\n\t\t\t\t\t\t\t<p>Teprve po kontrole dobrého stavu všech částí připojíme zdroj a nakonec obvod uzavřeme sepnutím spínače.</p>\n\t\t\t\t\t\t",
+						zapis: {"body":["obvod: zdroj + vodiče + spotřebič","může mít i spínač, měřidla, pojistku","proud teče jen uzavřeným obvodem","tužková baterie: výčnělek +, plocha −","plochá baterie: kratší plíšek +, delší −","schéma: značky + čáry, uzel = spojení vodičů","jednoduchý obvod = jeden spotřebič","sériově (za sebou): porucha vypne celý obvod","paralelně (vedle sebe, rozvětvený): porucha vypne jen větev","zkrat: spojení bez spotřebiče → velký proud, požár","pojistka chrání před zkratem a přehřátím","zapojuj: bez zdroje → kontrola → zdroj → spínač"]},
 						odkazy: [
 							{ nazev: 'Pokus: Elektrické obvody (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/3427-pokus-elektricke-obvody' },
 							{ nazev: 'Pokus: Elektrický zkrat (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6931-pokus-elektricky-zkrat' },
@@ -2694,48 +2673,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricky-proud-mereni',
 						nazev: 'Elektrický proud a jeho měření',
 						interakce: 'meridla',
-						obsah: `
-							<h2>Elektrický proud a jeho měření</h2>
-							<p><strong>Elektrický proud</strong> udává, kolik náboje projde vodičem za 1 sekundu. Značka <strong>I</strong>, jednotka <strong>ampér (A)</strong>. Platí <strong>I = Q / t</strong>.</p>
-							<ul>
-								<li>1 A = 1 000 mA (miliampér)</li>
-								<li>1 A = 1 000 000 µA (mikroampér)</li>
-							</ul>
-							<h3>Dohodnutý směr proudu</h3>
-							<p>Dohodnutý směr proudu je <strong>od + k −</strong>. Pozor: je <strong>opačný</strong> než skutečný pohyb elektronů (dohodnut byl dřív, než se elektrony objevily).</p>
-							<p>💡 Kapacita baterie se udává v <strong>ampérhodinách (Ah, mAh)</strong> — vychází z Q = I·t. Baterie 1000 mAh dodá proud 1 A po dobu 1 hodiny.</p>
-							<h3>Měření ampérmetrem</h3>
-							<ul>
-								<li>měřidlo je <strong>ampérmetr</strong>, do obvodu se zapojuje <strong>sériově</strong> (obvod rozpojíme a ampérmetr vložíme do cesty proudu)</li>
-								<li>celý měřený proud musí projít ampérmetrem, proto se obvod v tom místě nesmí rozvětvit</li>
-								<li>nastavíme druh proudu (stejnosměrný/střídavý) a <strong>rozsah</strong>, <strong>svorku + přístroje</strong> spojíme se <strong>svorkou + zdroje</strong></li>
-								<li>při špatném zapojení hrozí <strong>poškození ampérmetru</strong></li>
-							</ul>
-							<h3>Vnitřní odpor ampérmetru</h3>
-							<p>Ampérmetr má schválně <strong>velmi malý vnitřní odpor</strong> (skoro nulový). Je to proto, že ho zapojujeme přímo do cesty proudu — kdyby měl velký odpor, sám by proud v obvodu brzdil a naměřená hodnota by neodpovídala skutečnosti.</p>
-							<p>⚠️ Právě malý vnitřní odpor je důvod, proč se ampérmetr <strong>nikdy nezapojuje paralelně</strong> (vedle spotřebiče nebo přímo ke svorkám zdroje). Prakticky bez odporu by mezi + a − zdroje vznikl <strong>zkrat</strong> — obvodem by protekl obrovský proud, který ampérmetr (i zdroj) může zničit.</p>
-							<h3>Volba rozsahu</h3>
-							<p>Když neznáme velikost měřeného proudu, začínáme vždy na <strong>největším rozsahu</strong> a teprve podle výchylky ručičky nebo čísla na displeji přepneme na menší, přesnější rozsah. Kdybychom začali rovnou na malém rozsahu, hrozí <strong>přetížení a poškození</strong> přístroje.</p>
-							<h3>Ampérmetr uvnitř multimetru</h3>
-							<p>Multimetr měří proud jen tehdy, když ho <strong>přepneme do režimu ampérmetru</strong> a měřicí hroty zapojíme do správných zdířek — pro malé proudy (mA) bývá jiná zdířka než pro velké proudy (jednotky A). Zapojuje se přitom pořád <strong>sériově</strong>, stejně jako samostatný ampérmetr.</p>
-							<p>💡 Před zapojováním měřidla do obvodu obvod raději <strong>odpojíme od zdroje</strong> a nedotýkáme se holých vodičů — tak zabráníme zkratu i úrazu elektrickým proudem.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrický proud udává, kolik elektrického náboje projde vodičem za jednu sekundu. Značka proudu je I.',
-								'Dohodnutý směr proudu je od kladné svorky k záporné. Elektrony se v kovovém vodiči pohybují opačně.',
-								'Elektrický proud měříme ampérmetrem, který zapojujeme do obvodu sériově. Celý měřený proud musí projít ampérmetrem.',
-								'Neznámý proud začínáme měřit na největším rozsahu. Ampérmetr nikdy nezapojujeme paralelně, protože by mohl způsobit zkrat.',
-							],
-							vzorec: 'I = Q : t      (odvozeně: Q = I · t,  t = Q : I)',
-							jednotky: [
-								'elektrický proud I — ampér (A)',
-								'elektrický náboj Q — coulomb (C)',
-								'čas t — sekunda (s)',
-								'1 A = 1 000 mA,  1 A = 1 000 000 µA',
-								'Do vzorce dosazuj proud v A, náboj v C a čas v s.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Elektrický proud a jeho měření</h2>\n\t\t\t\t\t\t\t<p>Elektrický proud je fyzikální veličina. Udává, kolik elektrického náboje projde vodičem za jednu sekundu. Značíme ho <strong>I</strong> a měříme v <strong>ampérech (A)</strong>.</p>\n\t\t\t\t\t\t\t<p style=\"font-size:1.3rem\"><strong>I = Q : t</strong></p>\n\t\t\t\t\t\t\t<p>Q je elektrický náboj a t je čas, za který náboj vodičem projde. Dosadíme-li náboj v coulombech a čas v sekundách, vyjde proud v ampérech.</p>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>1 A = 1 000 mA (miliampér), 1 mA = 0,001 A</li>\n\t\t\t\t\t\t\t<li>1 A = 1 000 000 µA (mikroampér), 1 µA = 0,000 001 A</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Dohodnutý směr proudu</h3>\n\t\t\t\t\t\t\t<p>Fyzikové se dohodli, že proud teče <strong>od kladného pólu k zápornému</strong> (od + k −). Je to jen dohoda — je <strong>opačná</strong> než skutečný pohyb elektronů ve vodiči.</p>\n\t\t\t\t\t\t\t<p>Vědci totiž tento směr určili dřív, než objevili elektrony. Na dohodnutém směru je dnes postavená celá teorie elektřiny, a tak zůstal platit dodnes.</p>\n\t\t\t\t\t\t\t<h3>Stejnosměrný a střídavý proud</h3>\n\t\t\t\t\t\t\t<p><strong>Stejnosměrný proud</strong> teče vodičem pořád stejným směrem. Takový proud dávají baterie, monočlánky i akumulátory. Značí se zkratkou <strong>DC</strong>.</p>\n\t\t\t\t\t\t\t<p><strong>Střídavý proud</strong> mění směr pravidelně, mnohokrát za sekundu. Takový proud teče v domácí zásuvce. Značí se zkratkou <strong>AC</strong>.</p>\n\t\t\t\t\t\t\t<p>💡 Kapacita baterie se udává v <strong>ampérhodinách (Ah)</strong> nebo miliampérhodinách (mAh) — vychází ze vzorce Q = I · t. Baterie 1 000 mAh dodá proud 1 A po dobu 1 hodiny. Stejně tak vydrží dodávat 2 A po dobu půl hodiny, nebo 1 mA po dobu 1 000 hodin.</p>\n\t\t\t\t\t\t\t<h3>Měření ampérmetrem</h3>\n\t\t\t\t\t\t\t<p>Proud měříme přístrojem zvaným <strong>ampérmetr</strong>. Velikost proudu měří podle jeho účinků, hlavně podle magnetických.</p>\n\t\t\t\t\t\t\t<p>Ampérmetr zapojujeme do obvodu <strong>sériově</strong> — obvod rozpojíme před spotřebičem nebo za ním a na to místo vložíme ampérmetr. Celý měřený proud tak musí projít ampérmetrem, proto se obvod v tomto místě nesmí rozvětvit.</p>\n\t\t\t\t\t\t\t<p>Svorku + na přístroji vždy spojíme se svorkou + zdroje. Před měřením ještě nastavíme, jestli měříme stejnosměrný nebo střídavý proud. Když tato pravidla nedodržíme, hrozí <strong>poškození ampérmetru</strong>.</p>\n\t\t\t\t\t\t\t<h3>Proč má ampérmetr malý odpor</h3>\n\t\t\t\t\t\t\t<p>Ampérmetr má schválně <strong>velmi malý vnitřní odpor</strong>, skoro nulový. Je zapojený přímo v cestě proudu — kdyby proud brzdil, naměřená hodnota by neodpovídala skutečnosti.</p>\n\t\t\t\t\t\t\t<p>⚠️ Právě proto se ampérmetr <strong>nikdy nezapojuje paralelně</strong>, tedy vedle spotřebiče nebo přímo ke svorkám zdroje. Vznikl by <strong>zkrat</strong> a obvodem by protekl obrovský proud, který ampérmetr i zdroj zničí.</p>\n\t\t\t\t\t\t\t<h3>Rozsah a multimetr</h3>\n\t\t\t\t\t\t\t<p>Když neznáme velikost měřeného proudu, začínáme vždy na <strong>největším rozsahu</strong>. Teprve podle výchylky ručičky nebo čísla na displeji přepneme na menší, přesnější rozsah. Kdybychom začali rovnou na malém rozsahu, hrozí <strong>přetížení a poškození přístroje</strong>.</p>\n\t\t\t\t\t\t\t<p>Proud umí měřit i <strong>multimetr</strong> — přístroj, který dokáže měřit víc veličin — když ho přepneme do režimu ampérmetru. Měřicí hroty pak zapojíme do správných zdířek: pro malé proudy (mA) bývá jiná zdířka než pro velké proudy (A). I tehdy ho zapojujeme sériově, stejně jako samostatný ampérmetr.</p>\n\t\t\t\t\t\t\t<p>💡 Před zapojováním měřidla obvod raději odpojíme od zdroje a nedotýkáme se holých vodičů. Zabráníme tak zkratu i úrazu elektrickým proudem.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Vodičem projde náboj 6 C za 3 sekundy. Jaký proud vodičem teče?</p>\n\t\t\t\t\t\t\t<p>I = Q : t = 6 : 3 = 2 A</p>\n\t\t\t\t\t\t\t<p>Žárovkou teče proud 2 A po dobu 5 sekund. Kolik náboje jí projde? Použijeme odvozený vzorec Q = I · t.</p>\n\t\t\t\t\t\t\t<p>Q = I · t = 2 · 5 = 10 C</p>\n\t\t\t\t\t\t\t<p>Baterie má kapacitu 2 000 mAh. Jak dlouho vydrží dodávat proud 500 mA? Použijeme vzorec t = Q : I, kde mAh : mA = hodiny.</p>\n\t\t\t\t\t\t\t<p>t = Q : I = 2 000 : 500 = 4 hodiny</p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"I = Q : t      (odvozeně: Q = I · t,  t = Q : I)","jednotky":["elektrický proud — značíme I, jednotka A (ampér)","elektrický náboj — značíme Q, jednotka C (coulomb)","čas — značíme t, jednotka s (sekunda)","Převody: 1 A = 1 000 mA (1 mA = 0,001 A),  1 A = 1 000 000 µA (1 µA = 0,000 001 A).","Do vzorce dosazuj náboj v C a čas v s, proud pak vyjde v A."],"vzorecSlovy":"elektrický proud = elektrický náboj děleno časem","body":["I = Q : t","jednotka: ampér (A), mA, µA","dohodnutý směr: od + k −","elektrony se pohybují opačně","DC stejnosměrný, AC střídavý","ampérmetr: sériově, + na +","celý proud jde ampérmetrem","nikdy paralelně = zkrat","rozsah: největší → menší"]},
 						odkazy: [
 							{ nazev: 'Měření elektrického proudu ampérmetrem (RVP.CZ)', url: 'https://dum.rvp.cz/materialy/mereni-elektrickeho-proudu-ampermetrem.html' },
 							{ nazev: 'Elektrický proud a napětí — převody jednotek (Wordwall)', url: 'https://wordwall.net/cs/resource/74196967/elektrick%C3%BD-proud-a-nap%C4%9Bt%C3%AD-p%C5%99evody-jednotek' },
@@ -2745,35 +2684,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricke-napeti-mereni',
 						nazev: 'Elektrické napětí a jeho měření',
 						interakce: 'meridla',
-						obsah: `
-							<h2>Elektrické napětí a jeho měření</h2>
-							<p><strong>Elektrické napětí</strong> je hlavní charakteristika zdrojů i spotřebičů. Značka <strong>U</strong>, jednotka <strong>volt (V)</strong>.</p>
-							<ul>
-								<li>1 kV = 1 000 V, 1 MV = 1 000 000 V, 1 mV = 0,001 V</li>
-							</ul>
-							<h3>Napětí běžných zdrojů</h3>
-							<ul>
-								<li>zásuvka ze sítě <strong>230 V</strong> (nebezpečné!)</li>
-								<li>monočlánek <strong>1,5 V</strong>, plochá baterie <strong>4,5 V</strong>, autobaterie <strong>12 V</strong>, USB-C nabíjení ~5–20 V</li>
-							</ul>
-							<h3>Zapojení více zdrojů za sebou</h3>
-							<p>Když spojíme <strong>+ svorku jedné baterie s − svorkou druhé</strong>, napětí se <strong>sčítá</strong>. Tři články po 1,5 V dají 4,5 V. Zařízení funguje jen při správném počtu a <strong>správné orientaci</strong> baterií.</p>
-							<h3>Měření voltmetrem</h3>
-							<ul>
-								<li>měřidlo je <strong>voltmetr</strong>, zapojuje se <strong>paralelně</strong> — vedle spotřebiče (nebo ke svorkám zdroje)</li>
-								<li>voltmetr <strong>nezapojujeme do hlavního obvodu</strong>, aby jím netekl proud</li>
-								<li>nastavíme druh napětí a rozsah, <strong>+ přístroje</strong> ke <strong>+ zdroje</strong></li>
-							</ul>
-							<p>💡 <strong>Multimetr</strong> umí měřit proud i napětí, ale vždy jen <strong>jednu veličinu</strong> — pro každou se jinak nastaví i zapojí.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrické napětí je vlastnost zdroje nebo spotřebiče, značí se U a jeho jednotkou je volt (V).',
-								'Při spojení zdrojů za sebou se správnou orientací se jejich napětí sčítají.',
-								'Napětí měříme voltmetrem, který zapojujeme paralelně ke spotřebiči nebo ke svorkám zdroje.',
-								'Před měřením nastavíme správný druh napětí a rozsah a spojíme kladné svorky přístroje a zdroje.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Elektrické napětí a jeho měření</h2>\n\t\t\t\t\t\t\t<p><strong>Elektrické napětí</strong> je hlavní vlastnost každého zdroje i spotřebiče. Značíme ho <strong>U</strong> a měříme v jednotce <strong>volt (V)</strong>.</p>\n\t\t\t\t\t\t\t<p>Napětí bývá i hodně malé, nebo hodně velké, proto používáme násobky a díly voltu. Patří mezi ně <strong>kilovolt (kV)</strong>, <strong>megavolt (MV)</strong> a <strong>milivolt (mV)</strong>. Platí: 1 kV = 1 000 V, 1 MV = 1 000 000 V, 1 mV = 0,001 V.</p>\n\t\t\t\t\t\t\t<h3>Kde se s napětím setkáváme</h3>\n\t\t\t\t\t\t\t<p>Elektrárna vyrábí proud, který teče rozvodnou sítí až do zásuvky ve zdi. Napětí v zásuvce je <strong>230 V</strong> — při špatném zacházení může být velmi nebezpečné.</p>\n\t\t\t\t\t\t\t<p>Přenosné zdroje mají menší napětí. <strong>Akumulátor</strong> je dobíjecí baterie — najdeme ji v mobilu, v notebooku i v autě. Autobaterie má napětí kolem <strong>12 V</strong>, nabíjení mobilu a notebooku přes USB-C kabel bývá <strong>20 V</strong>.</p>\n\t\t\t\t\t\t\t<p><strong>Monočlánek</strong> (tužková nebo knoflíková baterie) má napětí <strong>1,5 V</strong>. <strong>Plochá baterie</strong> je uvnitř složená ze tří monočlánků za sebou, proto má napětí <strong>4,5 V</strong>.</p>\n\t\t\t\t\t\t\t<h3>Zapojení více zdrojů za sebou</h3>\n\t\t\t\t\t\t\t<p>Když spojíme <strong>kladnou (+) svorku</strong> jedné baterie se <strong>zápornou (−) svorkou</strong> druhé, napětí zdrojů se <strong>sčítá</strong>. Tak vznikne plochá baterie: tři články po 1,5 V dají dohromady 4,5 V. Zapojením více zdrojů za sebou se v obvodu zvýší nejen <strong>napětí</strong>, ale i <strong>proud</strong>.</p>\n\t\t\t\t\t\t\t<p>Stejně funguje i zařízení na víc tužkových baterií, třeba čtyři baterie po 1,5 V dají 6 V. Zařízení ale funguje jen při <strong>správném počtu</strong> a <strong>správné orientaci</strong> baterií.</p>\n\t\t\t\t\t\t\t<h3>Měření napětí voltmetrem</h3>\n\t\t\t\t\t\t\t<p>Napětí měříme přístrojem, který se jmenuje <strong>voltmetr</strong>. Zapojujeme ho <strong>paralelně</strong> — vedle spotřebiče, na kterém chceme napětí měřit, nebo přímo ke svorkám zdroje.</p>\n\t\t\t\t\t\t\t<p>Voltmetr porovnává napětí před spotřebičem a za ním, a proto se <strong>nezapojuje do hlavního obvodu</strong>. Jím samotným smí protékat jen <strong>nepatrný proud</strong>, jinak by měření zkreslil.</p>\n\t\t\t\t\t\t\t<h3>Postup při měření</h3>\n\t\t\t\t\t\t\t<p>Nejdřív nastavíme, jestli měříme <strong>stejnosměrné, nebo střídavé</strong> napětí, a odhadneme <strong>rozsah</strong>. Pak spojíme <strong>kladnou svorku (+)</strong> přístroje s <strong>kladnou svorkou (+)</strong> zdroje.</p>\n\t\t\t\t\t\t\t<p>Voltmetr, který umí měřit i střídavé napětí, se přepólováním <strong>nepoškodí</strong> — jen u stejnosměrného napětí ukáže zápornou hodnotu.</p>\n\t\t\t\t\t\t\t<h3>Multimetr</h3>\n\t\t\t\t\t\t\t<p>💡 <strong>Multimetr</strong> je přístroj, který umí měřit napětí, proud i další veličiny — ale vždy jen <strong>jednu najednou</strong>. Pro měření napětí ho musíme jinak zapojit i jinak nastavit než pro měření proudu.</p>\n\t\t\t\t\t\t",
+						zapis: {"jednotky":["elektrické napětí — značíme U, jednotka V (volt)","Převody: 1 kV = 1 000 V, 1 MV = 1 000 000 V, 1 mV = 0,001 V."],"body":["napětí: značka U, jednotka V (volt)","zásuvka 230 V","monočlánek 1,5 V","plochá baterie: 3× 1,5 V = 4,5 V","za sebou: napětí se sčítá","za sebou: roste i proud","voltmetr: zapojení paralelně","voltmetr: protéká jím jen nepatrný proud","nastavit druh napětí a rozsah","+ přístroje na + zdroje","multimetr: měří U i I zvlášť"]},
 						odkazy: [
 							{ nazev: 'Elektrický proud a napětí (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Elektrický proud, napětí, odpor, Ohmův zákon — test (testi.cz)', url: 'https://testi.cz/testy/fyzika/elektricky-proud-napeti-odpor-ohmuv-zakon/' },
@@ -2818,38 +2730,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'zavislost-odporu-na-vodici',
 						nazev: 'Závislost odporu na vlastnostech vodiče (nad rámec RVP)',
 						interakce: 'odpor-vodice',
-						obsah: `
-							<h2>Na čem závisí odpor vodiče</h2>
-							<p>Elektrický odpor vodiče (R, jednotka <strong>ohm Ω</strong>) závisí na čtyřech věcech:</p>
-							<ul>
-								<li><strong>délka</strong> — čím <strong>delší</strong> vodič, tím <strong>větší</strong> odpor (elektrony narazí do víc atomů)</li>
-								<li><strong>tloušťka (průřez)</strong> — čím <strong>tenčí</strong> vodič, tím <strong>větší</strong> odpor (méně místa pro pohyb)</li>
-								<li><strong>materiál</strong> — popisuje ho <strong>měrný odpor (rezistivita) ρ</strong>, jednotka Ω·m; nejmenší mají nejlepší vodiče (stříbro, měď, zlato, hliník)</li>
-								<li><strong>teplota</strong> — čím <strong>vyšší</strong> teplota, tím <strong>větší</strong> odpor (atomy víc kmitají)</li>
-							</ul>
-							<h3>Výpočet odporu</h3>
-							<p>Pro vodič délky <strong>l</strong> a průřezu <strong>S</strong> platí <strong>R = ρ · l / S</strong>. Všechny veličiny dosazujeme v základních jednotkách (m, m², Ω·m). U kruhového průřezu je S = π·r².</p>
-							<p>💡 V praxi se ale s metry čtverečními počítá špatně — průřez drátu bývá zlomek milimetru čtverečního. Proto tabulky uvádějí měrný odpor i v <strong>Ω·mm²/m</strong>: pak se <strong>délka dosazuje v metrech a průřez rovnou v mm²</strong> a vyjde totéž. V těchto jednotkách má měď ρ = 0,018, hliník 0,028, konstantan 0,50 a nichrom asi 1,1 Ω·mm²/m — proto se topná spirála z nichromu rozžhaví, kdežto přívodní měděný kabel zůstane studený. (Je to týž údaj jen v jiných jednotkách: 0,018 Ω·mm²/m = 0,000 000 018 Ω·m.)</p>
-							<h3>Rezistor</h3>
-							<p><strong>Rezistor</strong> je součástka s přesnou hodnotou odporu — tenký odporový drát (konstantan) navinutý na keramickém válečku. Hodnotu udávají <strong>barevné proužky</strong>. Slouží k <strong>regulaci proudu</strong> v obvodu.</p>
-						`,
-						zapis: {
-							body: [
-								'Odpor vodiče roste s jeho délkou a u kovů také s teplotou.',
-								'Čím je vodič tenčí, tím větší má odpor.',
-								'Odpor závisí i na materiálu, který popisuje měrný odpor neboli rezistivita.',
-								'Rezistor je součástka s daným odporem a používá se k regulaci proudu v obvodu.',
-							],
-							vzorec: 'R = ρ · l : S      (odvozeně: l = R · S : ρ,  S = ρ · l : R,  ρ = R · S : l)',
-							jednotky: [
-								'elektrický odpor R — ohm (Ω)',
-								'měrný odpor ρ — ohmmetr (Ω·m)',
-								'délka vodiče l — metr (m)',
-								'průřez vodiče S — metr čtvereční (m²)',
-								'1 kΩ = 1 000 Ω,  1 MΩ = 1 000 000 Ω; 1 mm² = 0,000 001 m²',
-								'Do vzorce dosazuj v Ω·m, m a m². Při ρ v Ω·mm²/m dosazuj délku v m a průřez v mm².',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Závislost odporu na vlastnostech vodiče (nad rámec RVP)</h2>\n\t\t\t\t\t\t\t<p>Elektrický odpor vodiče <strong>R</strong> ukazuje, jak moc vodič brání průchodu proudu. Měříme ho v jednotce <strong>ohm</strong> — píšeme řeckým písmenem Ω, čteme „óm\". Násobky jsou kiloohm (kΩ) a megaohm (MΩ).</p>\n\t\t\t\t\t\t\t<p>Čím větší odpor, tím hůř proud vodičem prochází. Odpor závisí na čtyřech věcech: na délce vodiče, na jeho tloušťce, na materiálu a na teplotě.</p>\n\t\t\t\t\t\t\t<h3>Délka a tloušťka vodiče</h3>\n\t\t\t\t\t\t\t<p>Čím je vodič delší, tím větší má odpor. Elektrony totiž na cestě narazí do víc atomů a víc se brzdí. Tloušťka (odborně <strong>průřez</strong>) funguje obráceně: čím je vodič tenčí, tím míň místa mají elektrony k pohybu, a odpor je větší. Tlustý vodič má proto menší odpor než tenký.</p>\n\t\t\t\t\t\t\t<p>Délku vodiče značíme <strong>l</strong> a měříme v metrech (m). Průřez vodiče značíme <strong>S</strong> a měříme v metrech čtverečních (m²). U kulatého drátu ho spočítáme ze vzorce S = π·r², kde r je poloměr drátu.</p>\n\t\t\t\t\t\t\t<h3>Materiál a teplota vodiče</h3>\n\t\t\t\t\t\t\t<p>Odpor závisí i na materiálu, ze kterého je vodič vyrobený. Popisuje ho <strong>měrný odpor</strong> (rezistivita), značka <strong>ρ</strong> (řecké písmeno ró), jednotka Ω·m. Udává, jaký odpor by měl vodič z dané látky dlouhý 1 m s průřezem 1 m². Hodnoty pro různé látky najdeme ve fyzikálních tabulkách.</p>\n\t\t\t\t\t\t\t<p>Hodnoty bývají velmi malé, proto se často udávají v mikroohmmetrech (μΩ·m), což je 0,000 001 Ω·m. Nejmenší měrný odpor mají nejlepší vodiče — měď, zlato, stříbro a hliník.</p>\n\t\t\t\t\t\t\t<p>Odpor kovů roste i s teplotou. Čím je vodič teplejší, tím víc atomy v mřížce kmitají a víc brzdí elektrony, takže odpor je větší.</p>\n\t\t\t\t\t\t\t<h3>Vzorec pro výpočet odporu</h3>\n\t\t\t\t\t\t\t<p>Pro vodič o délce l a průřezu S platí vzorec:</p>\n\t\t\t\t\t\t\t<p style=\"font-size:1.3rem\"><strong>R = ρ · l : S</strong></p>\n\t\t\t\t\t\t\t<p>Všechny veličiny dosazujeme v základních jednotkách — délku v metrech, průřez v metrech čtverečních a měrný odpor v Ω·m.</p>\n\t\t\t\t\t\t\t<p>💡 V praxi je ale průřez drátu jen zlomek milimetru čtverečního a v metrech čtverečních se s ním počítá špatně. Tabulky proto uvádějí měrný odpor i v jednotce Ω·mm²/m. Pak dosazujeme délku v metrech a průřez rovnou v mm² a vyjde stejný výsledek.</p>\n\t\t\t\t\t\t\t<p>V těchto jednotkách má měď ρ = 0,018, hliník 0,028, konstantan 0,50 a nichrom asi 1,1 Ω·mm²/m. Proto se topná spirála z nichromu rozžhaví, kdežto přívodní měděný kabel zůstane studený. (Je to týž údaj jen v jiných jednotkách: 0,018 Ω·mm²/m = 0,000 000 018 Ω·m.)</p>\n\t\t\t\t\t\t\t<h3>Rezistor</h3>\n\t\t\t\t\t\t\t<p>Rezistor je součástka s přesně danou hodnotou odporu. Tvoří ho dlouhý tenký odporový drát z konstantanu, izolovaný a navinutý na keramickém válečku. Velikost jeho odporu určuje materiál i rozměry vodiče.</p>\n\t\t\t\t\t\t\t<p>Hodnotu poznáme podle barevných proužků. Ve schématu ho kreslíme jako obdélník. Rezistor se používá k regulaci proudu v obvodu.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Odporový drát je z konstantanu (ρ = 0,50 Ω·mm²/m), má délku 10 m a průřez 1 mm². Jaký má odpor?</p>\n\t\t\t\t\t\t\t<p>R = ρ · l : S = 0,50 · 10 : 1 = 5 : 1 = 5 Ω</p>\n\t\t\t\t\t\t\t<p>Zkusíme to i obráceně. Topný drát z nichromu (ρ = 1,1 Ω·mm²/m) má průřez 1 mm² a odpor 22 Ω. Jak dlouhý drát potřebujeme?</p>\n\t\t\t\t\t\t\t<p>l = R · S : ρ = 22 · 1 : 1,1 = 22 : 1,1 = 20 m</p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"R = ρ · l : S      (odvozeně: l = R · S : ρ,  S = ρ · l : R,  ρ = R · S : l)","jednotky":["elektrický odpor — značíme R, jednotka Ω (ohm)","měrný odpor (rezistivita) — značíme ρ, jednotka Ω·m","délka vodiče — značíme l, jednotka m (metr)","průřez vodiče — značíme S, jednotka m² (metr čtvereční)","Převody: 1 kΩ = 1 000 Ω, 1 MΩ = 1 000 000 Ω, 1 mm² = 0,000 001 m².","Do vzorce dosazuj v Ω·m, m a m². Při ρ v Ω·mm²/m dosazuj délku v m a průřez v mm²."],"vzorecSlovy":"elektrický odpor = měrný odpor krát délka vodiče děleno průřez vodiče","body":["délka ↑ → odpor ↑","průřez (tloušťka) ↑ → odpor ↓","materiál: měrný odpor ρ","teplota ↑ → odpor ↑ (u kovů)","rezistor: pevný odpor, reguluje proud"]},
 						odkazy: [
 							{ nazev: 'Odpor vodiče (Eduportál Techmania)', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/elektricky-proud/odpor-vodice' },
 						],
@@ -2858,40 +2740,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'ohmuv-zakon',
 						nazev: 'Ohmův zákon',
 						interakce: 'ohm',
-						obsah: `
-							<h2>Ohmův zákon</h2>
-							<p>Připojíš-li žárovku k vybité baterii, svítí slabě; k nabité svítí jasně. Napětí a proud spolu souvisí. Dokázal to roku 1826 německý fyzik <strong>Georg Simon Ohm</strong>.</p>
-							<h3>Znění</h3>
-							<p><strong>Elektrický proud I procházející vodičem je přímo úměrný napětí U mezi konci vodiče.</strong> Kolikrát se zvětší napětí, tolikrát se zvětší proud. Konstantou úměrnosti je <strong>elektrický odpor R</strong>.</p>
-							<h3>Vzorce</h3>
-							<ul>
-								<li><strong>I = U / R</strong></li>
-								<li><strong>U = R · I</strong></li>
-								<li><strong>R = U / I</strong></li>
-							</ul>
-							<p>Odpor tak měříme <strong>nepřímo</strong> — změříme U a I a dopočítáme. (Přímo měří <strong>ohmmetr</strong>.) Při stejném napětí: čím <strong>větší odpor</strong>, tím <strong>menší proud</strong>.</p>
-							<h3>Příklad</h3>
-							<p>Vodičem při napětí 10 V teče proud 0,2 A. Odpor: R = U / I = 10 / 0,2 = <strong>50 Ω</strong>. (Horší vodič se stejným napětím propustí jen 0,1 A → R = 10 / 0,1 = 100 Ω — poloviční proud znamená dvojnásobný odpor.)</p>
-							<h3>Pozor na teplotu</h3>
-							<p>Ohmův zákon platí přesně jen <strong>za stálé teploty</strong>. Odpor kovů s teplotou <strong>roste</strong> (rozžhavené vlákno žárovky), takže tam už proud není přímo úměrný napětí. Výjimkou je slitina <strong>konstantan</strong>, jejíž odpor se s teplotou skoro nemění — proto se z ní dělají rezistory.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrický proud ve vodiči roste přímo úměrně s napětím mezi jeho konci.',
-								'Při stejném napětí prochází vodičem s větším odporem menší proud.',
-								'Odpor lze určit nepřímo tak, že změříme napětí a proud a vypočítáme jejich podíl.',
-								'Ohmův zákon platí přesně jen při stálé teplotě.',
-							],
-							zakon: 'Elektrický proud I procházející vodičem je přímo úměrný napětí U mezi konci vodiče a nepřímo úměrný elektrickému odporu R.',
-							vzorec: 'I = U : R      (odvozeně: U = R · I,  R = U : I)',
-							jednotky: [
-								'elektrický proud I — ampér (A)',
-								'elektrické napětí U — volt (V)',
-								'elektrický odpor R — ohm (Ω)',
-								'1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω',
-								'Do vzorce dosazuj proud v A, napětí ve V a odpor v Ω.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Ohmův zákon</h2>\n\t\t\t\t\t\t\t<p>Připojíš-li žárovku k téměř vybité baterii, svítí jen slabě a motorek se otáčí pomalu. K plně nabité baterii svítí jasně a motorek se otáčí rychle. <strong>Elektrické napětí</strong> a <strong>elektrický proud</strong> ve vodiči spolu úzce souvisí. Závislost proudu na napětí prokázal pokusy v roce 1826 německý fyzik <strong>Georg Simon Ohm</strong>.</p>\n\t\t\t\t\t\t\t<h3>Pokus: měníme napětí, měříme proud</h3>\n\t\t\t\t\t\t\t<p>Do obvodu zapojíme žárovku, <strong>ampérmetr</strong> a <strong>voltmetr</strong>. Ampérmetr měří proud <strong>I</strong> v ampérech (A), voltmetr měří napětí <strong>U</strong> ve voltech (V).</p>\n\t\t\t\t\t\t\t<p>Postupně zvyšujeme napětí na zdroji a pokaždé odečteme proud. Výsledek je jasný: <strong>kolikrát se zvětší napětí, tolikrát se zvětší proud</strong>. V grafu proudu podle napětí je to přímka, která vychází z počátku.</p>\n\t\t\t\t\t\t\t<h3>Znění zákona</h3>\n\t\t\t\t\t\t\t<p><strong>Elektrický proud I procházející vodičem je přímo úměrný napětí U mezi konci vodiče.</strong> Konstantou této úměrnosti (ve vztahu U = R · I) je fyzikální veličina <strong>elektrický odpor R</strong>. Čím větší odpor vodič má, tím menší proud jím při stejném napětí prochází.</p>\n\t\t\t\t\t\t\t<h3>Elektrický odpor</h3>\n\t\t\t\t\t\t\t<p>Elektrický odpor popisuje, jak moc vodič brání průchodu proudu. Značíme ho <strong>R</strong> a jeho jednotka je <strong>ohm</strong>, značka <strong>Ω</strong> (čti „óm\", zapisujeme řeckým písmenem omega). Přímo ho měří přístroj <strong>ohmmetr</strong>. My ho ale většinou určíme nepřímo — změříme napětí a proud a vypočítáme jejich podíl.</p>\n\t\t\t\t\t\t\t<p>Odpor samotného vodiče (drátu) bývá zanedbatelný. Mnohem důležitější je odpor zapojených spotřebičů, třeba žárovky nebo topné spirály vařiče. Jejich odpor rozhoduje, kolik proudu obvodem poteče. Ve výpočtech proto se spotřebiči počítáme jako s rezistory s danou hodnotou odporu.</p>\n\t\t\t\t\t\t\t<h3>Tři podoby vzorce</h3>\n\t\t\t\t\t\t\t<p>Ze znění zákona plynou tři vzorce: <strong>I = U : R</strong>, <strong>U = R · I</strong> a <strong>R = U : I</strong>. Když známe dvě veličiny, třetí dopočítáme. Při stejném napětí platí: čím <strong>větší odpor</strong>, tím <strong>menší proud</strong> vodičem prochází.</p>\n\t\t\t\t\t\t\t<h3>Pozor na teplotu</h3>\n\t\t\t\t\t\t\t<p>Ohmův zákon platí přesně jen <strong>za stálé teploty</strong> vodiče. Odpor kovů s rostoucí teplotou <strong>roste</strong> — proto třeba u rozžhaveného vlákna žárovky už proud není přesně přímo úměrný napětí. Výjimkou je slitina <strong>konstantan</strong>, jejíž odpor se s teplotou skoro nemění. Proto se z ní vyrábějí rezistory, u kterých má Ohmův zákon platit spolehlivě.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Vodičem při napětí 10 V teče proud 0,2 A. Jeho odpor spočítáme z Ohmova zákona:</p>\n\t\t\t\t\t\t\t<p>R = U : I = 10 : 0,2 = <strong>50 Ω</strong></p>\n\t\t\t\t\t\t\t<p>Horší vodič propustí při stejném napětí jen 0,05 A.</p>\n\t\t\t\t\t\t\t<p>R = 10 : 0,05 = <strong>200 Ω</strong> — čtvrtinový proud znamená čtyřnásobný odpor.</p>\n\t\t\t\t\t\t\t<p>Vzorec funguje i naopak. Rezistor s odporem 6 Ω je připojený k napětí 12 V. Kolik jím prochází proudu?</p>\n\t\t\t\t\t\t\t<p>I = U : R = 12 : 6 = <strong>2 A</strong></p>\n\t\t\t\t\t\t\t<p>A ještě jednou jinak: rezistorem s odporem 4 Ω prochází proud 3 A. Jaké je na něm napětí?</p>\n\t\t\t\t\t\t\t<p>U = R · I = 4 · 3 = <strong>12 V</strong></p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"I = U : R      (odvozeně: U = R · I,  R = U : I)","jednotky":["elektrický proud — značíme I, jednotka A (ampér)","elektrické napětí — značíme U, jednotka V (volt)","elektrický odpor — značíme R, jednotka Ω (ohm)","Převody: 1 mΩ = 0,001 Ω,  1 mA = 0,001 A,  1 kV = 1 000 V,  1 kΩ = 1 000 Ω,  1 MΩ = 1 000 000 Ω.","Do vzorce dosazuj proud v A, napětí ve V a odpor v Ω."],"vzorecSlovy":"proud = napětí děleno odporem;  napětí = odpor krát proud;  odpor = napětí děleno proudem","zakon":"Elektrický proud I procházející vodičem je přímo úměrný napětí U mezi konci vodiče a nepřímo úměrný elektrickému odporu R.","body":["napětí ↑ → proud ↑ (přímá úměrnost)","R = odpor, konstanta úměrnosti","větší odpor → menší proud","R měříme nepřímo: R = U : I","platí jen za stálé teploty","konstantan: odpor stálý s teplotou"]},
 						odkazy: [
 							{ nazev: 'Pokus: Elektrický proud a Ohmův zákon (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5420-pokus-elektricky-proud-a-ohmuv-zakon' },
 							{ nazev: 'Ohmův zákon pro část obvodu — 8. ročník (Umíme fakta)', url: 'https://www.umimefakta.cz/cviceni-ohmuv-zakon-pro-cast-obvodu-8-trida' },
