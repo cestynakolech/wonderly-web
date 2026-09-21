@@ -13,9 +13,9 @@ nezávislé kontroly (a = první kolo, b = po opravě).
 | `atmosfericky-tlak` | vyklad-atmosfericky-tlak-f7.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `pretlak-podtlak-vakuum` | vyklad-pretlak-podtlak-vakuum-f7.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `meteorologie-a-mereni-tlaku` | vyklad-meteorologie-a-mereni-tlaku-f7.md | ZAPSÁNO 22. 9. 2026 (build OK) |
-| `kmitani-a-vlneni` | vyklad-kmitani-a-vlneni-f8.md | v kontrole/opravě 22. 9. 2026 |
-| `vnimani-zvuku-a-hlasitost` | vyklad-vnimani-zvuku-a-hlasitost-f8.md | v kontrole/opravě 22. 9. 2026 |
-| `zvuk-vznik-a-sireni` | vyklad-zvuk-vznik-a-sireni-f8.md | v kontrole/opravě 22. 9. 2026 |
+| `kmitani-a-vlneni` | vyklad-kmitani-a-vlneni-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
+| `vnimani-zvuku-a-hlasitost` | vyklad-vnimani-zvuku-a-hlasitost-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
+| `zvuk-vznik-a-sireni` | vyklad-zvuk-vznik-a-sireni-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `obnovitelne-a-neobnovitelne-zdroje` | vyklad-obnovitelne-a-neobnovitelne-zdroje-f9.md | v kontrole/opravě 22. 9. 2026 |
 | `slunecni-soustava` | vyklad-slunecni-soustava-f9.md | v kontrole/opravě 22. 9. 2026 |
 | `vesmir-a-galaxie` | vyklad-vesmir-a-galaxie-f9.md | v kontrole/opravě 22. 9. 2026 |

@@ -61,6 +61,7 @@
   "body": [
     "rovnovážná poloha: klidová poloha tělesa",
     "kmit: tam a zpět jednou",
+    "kyv: pohyb jedním směrem, půl kmitu",
     "amplituda: největší výchylka z rovnováhy",
     "perioda T: doba jednoho kmitu",
     "frekvence f: počet kmitů za sekundu",
@@ -91,6 +92,6 @@
 - Vlnění podélné (kmitání ve směru šíření, nahuštění a zředění částic, existuje ve všech skupenstvích) → PDF str. 7, shoda s dosavadním blokem. Příklad „klasy obilí v poli za větru" → PDF str. 7, doslovně, DOPLNĚNO, v dosavadním bloku chybělo (byl jen příklad zvuk a domino).
 - Výpočet T = 1 : 2 = 0,5 s pro houpačku → dopočet k příkladu z PDF str. 4 (mezivýsledek doplněn podle kontraktu D).
 - Příklady „vlna 2 m/s, T = 3 s → λ = 6 m" a „zvuk 340 m/s, f = 170 Hz → λ = 2 m" → VLASTNÍ PŘÍKLAD, vzorec λ = v·T = v:f doložen PDF str. 6; hodnota 340 m/s je tabulková konstanta rychlosti zvuku ve vzduchu (dovoleno pravidlem D), čísla zvolena tak, aby výsledek vyšel celý.
-- Nová věta „Kyv — pohyb tělesa jen jedním směrem, tedy polovina kmitu." → popis prezentace `From_Particle_to_Wave.md`, snímek 3 („KYV – pohyb pouze jedním směrem"), DOPLNĚNO do OBSAH — prezentace je podle OBSAH-PRAVIDLA.md § 3 rovnocenný zdroj s PDF, pojem patří k definici kmitu.
+- Nová věta „Kyv — pohyb tělesa jen jedním směrem, tedy polovina kmitu." → popis prezentace `From_Particle_to_Wave.md`, snímek 3 doslovně jen „KYV – pohyb pouze jedním směrem" (PDF 33 slovo „kyv" neobsahuje, ověřeno grep). Dovětek „tedy polovina kmitu" je odvozen z definice kmitu (kmit = dva kyvy), DOPLNĚNO do OBSAH jako logický důsledek, ne doslovná citace.
 - Titulek `<h2>` doplněn o „(nad rámec RVP)" podle pole `nazev` v datech — shoda s kontraktem („Název do `<h2>` z `nazev`") i s precedentem v temata.ts (např. „Závislost odporu na vlastnostech vodiče (nad rámec RVP)").
-- Popis prezentace `From_Particle_to_Wave.md` (snímek 12) obsahuje pojem „stojaté vlnění" (superpozice dvou protiběžných vln, uzly, které se nepohybují) — v PDF ani v dosavadním bloku temata.ts není. NAVRŽENO K DOPLNĚNÍ — k rozhodnutí učitele, do OBSAH zatím nezařazeno (jde o novou látku nad rámec definice kmitu a vlnění, ne o chybějící definiční doplněk; důvod „PDF je jediný doložený podklad" neplatí, prezentace je rovnocenný zdroj).
+- Prezentace `From_Particle_to_Wave.md`, snímek 12: stojaté vlnění (superpozice dvou protiběžných vln, uzly). V PDF 33 ani v dosavadním bloku temata.ts není; do OBSAH nezařazeno.
