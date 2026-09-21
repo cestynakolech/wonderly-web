@@ -1,12 +1,3 @@
-## Stav 21. 9. 2026
-
-F7 2. celek `sily-kolem-nas` HOTOV 5/5, F9 2. celek `indukce-a-stridavy-proud`
-HOTOV 5/5 — obojí přes `podtema.mjs`, každé podtéma nezávislý kontrolor opus,
-většinou stačila 1 opravná smyčka (nejčastější nález = vypadlá věta/bod
-z dosavadního bloku). Souhrn: F8 celky 1–4, F7 celky 1–2, F9 celky 1–2 hotové
-= 32 podtémat. DALŠÍ: 3. celky F7 (`jednoduche-stroje`) a F9
-(`elektricky-proud-v-latkach`).
-
 ## ČEKÁ NA ROZHODNUTÍ UČITELE (23. 8. 2026)
 
 U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,
@@ -129,6 +120,21 @@ vznik-stridaveho-proudu-alternator) — vlastnosti-stridaveho-proudu u
 kontrolora, transformator v opravě.
 F7 2. celek `sily-kolem-nas` (5 podtémat) 4/5 zapsáno (sila, skladani-sil,
 teziste, treci-sila) — gravitacni-sila v opravě.
+
+F7 2. celek `sily-kolem-nas` HOTOV 5/5, F9 2. celek `indukce-a-stridavy-proud`
+HOTOV 5/5 — obojí přes `podtema.mjs`, každé podtéma nezávislý kontrolor opus,
+většinou stačila 1 opravná smyčka (nejčastější nález = vypadlá věta/bod
+z dosavadního bloku). Souhrn: F8 celky 1–4, F7 celky 1–2, F9 celky 1–2 hotové
+= 32 podtémat. F7 3. celek `jednoduche-stroje` HOTOV 4/4 (pusobeni-teles-a-deformace,
+kladka, naklonena-rovina, paky zapsány přes `podtema.mjs`; u kladky a nakloněné roviny
+neexistuje podklad učitele — viz KE-SCHVALENI.md bod 10). F9 3. celek
+`elektricky-proud-v-latkach` HOTOV 6/6 (vedeni-proudu-v-kapalinach,
+polovodice-typu-n-a-p-dioda, polovodice-vlastni-vodivost, prenos-elektricke-energie,
+chemicke-zdroje-napeti, vedeni-proudu-v-plynech), vše přes `podtema.mjs`, build
+a `zkontroluj.mjs` procházejí. Souhrn: F8 celky 1–4 (17), F7 celky 1–3 (13),
+F9 celky 1–3 (14) = 44 podtémat. DALŠÍ: 4. celky F7 `tlak-v-kapalinach` (3)
+a F9 `elektricka-energie-a-bezpecnost` (2) — už se píší; pak 5. celky včetně
+F8 `elektrina` (15).
 
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 

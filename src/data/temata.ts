@@ -1642,44 +1642,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'pusobeni-teles-a-deformace',
 					interakce: 'ucinky-sily',
 					nazev: 'Působení těles a deformace',
-					obsah: `
-						<h2>Působení těles a deformace</h2>
-						<p>Každé těleso ve vesmíru na ostatní tělesa nějak působí a zároveň je jimi ovlivňováno. Tomuto vzájemnému ovlivňování říkáme <strong>vzájemné působení (interakce)</strong>. Může probíhat dotykem, nebo na dálku (např. gravitační, magnetické nebo elektrické pole).</p>
-						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/vzajemne-pusobeni.jpg" alt="Vzájemné působení dvou těles" />
-
-						<h3>Statické a dynamické působení</h3>
-						<ul>
-							<li><strong>Statické působení</strong> – těleso zůstává v klidu, síly se navzájem ruší (například kniha leží na stole).</li>
-							<li><strong>Dynamické působení</strong> – vede ke změně pohybu tělesa, ke změně jeho rychlosti nebo směru (například auto se rozjíždí).</li>
-						</ul>
-
-						<h3>Účinky síly na těleso</h3>
-						<p>Když síla působí na těleso, může způsobit jednu ze tří základních změn (nebo jejich kombinaci):</p>
-						<ul>
-							<li><strong>Posuvný účinek</strong> – mění polohu tělesa.</li>
-							<li><strong>Otáčivý účinek</strong> – otáčí tělesem kolem osy.</li>
-							<li><strong>Deformační účinek</strong> – mění tvar tělesa.</li>
-						</ul>
-						<p>Záleží na tom, kde síla na těleso působí. Působení v <strong>těžišti</strong> vede k posunutí, působení mimo těžiště způsobuje otáčení.</p>
-						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/posuv-otaceni.jpg" alt="Posuvný a otáčivý účinek síly" />
-
-						<h3>Deformace tělesa</h3>
-						<p>Síla může těleso nejen posunout nebo otočit, ale také změnit jeho tvar. Tomuto jevu říkáme <strong>deformace</strong>. Rozlišujeme dva základní typy:</p>
-						<ul>
-							<li><strong>Pružná (elastická) deformace</strong> – dočasná. Po skončení působení síly se těleso vrátí do původního tvaru (např. míč, pružina).</li>
-							<li><strong>Trvalá (plastická) deformace</strong> – tvar tělesa zůstává změněný i po skončení působení síly (např. pomačkaný plech, modelína).</li>
-						</ul>
-						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/pruzna-deformace.jpg" alt="Pružná deformace – tenisový míček a raketa" />
-						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/trvala-deformace.jpg" alt="Trvalá deformace – havarované auto" />
-					`,
-					zapis: {
-						body: [
-							'Vzájemné působení těles může probíhat dotykem nebo na dálku.',
-							'Statické působení ponechává těleso v klidu, dynamické působení mění jeho rychlost nebo směr pohybu.',
-							'Síla může mít posuvný, otáčivý nebo deformační účinek.',
-							'Pružná deformace po skončení působení síly zmizí, trvalá deformace zůstává.',
-						],
-					},
+					obsah: "<h2>Působení těles a deformace</h2>\n<p>Každé těleso na něco působí. A zároveň to samo něco působí zpátky na něj — nikdy to nejde jen jedním směrem. Tomuto vzájemnému ovlivňování říkáme <strong>vzájemné působení</strong>, odborně <strong>interakce</strong>. Může probíhat dotykem, nebo na dálku (například gravitací, magnetem nebo elektrickým polem).</p>\n<img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/vzajemne-pusobeni.jpg\" alt=\"Vzájemné působení dvou těles\" />\n\n<h3>Jak síla těleso ovlivní</h3>\n<p>Síla na těleso může působit dvěma způsoby. Buď mu <strong>změní pohyb</strong>, nebo mu <strong>změní tvar</strong>.</p>\n<ul>\n<li><strong>Pohybové účinky</strong> – síla těleso posune (<strong>posuvný účinek</strong>), nebo jím otočí kolem osy (<strong>otáčivý účinek</strong>).</li>\n<li><strong>Deformační účinek</strong> – síla změní tvar tělesa.</li>\n</ul>\n<p>Záleží na tom, kam síla míří. Když míří do <strong>těžiště</strong> tělesa (bod, kolem kterého je těleso v rovnováze), těleso se posune. Když míří mimo těžiště, těleso se místo toho otočí.</p>\n<img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/posuv-otaceni.jpg\" alt=\"Posuvný a otáčivý účinek síly\" />\n\n<h3>Statické a dynamické působení</h3>\n<p>Podle výsledku rozlišujeme dva druhy působení síly na těleso.</p>\n<ul>\n<li><strong>Statické působení</strong> – těleso zůstává v klidu, protože se síly navzájem ruší. Například kniha leží na stole.</li>\n<li><strong>Dynamické působení</strong> – mění rychlost nebo směr pohybu tělesa. Například auto se rozjíždí.</li>\n</ul>\n\n<h3>Pružná a trvalá deformace</h3>\n<p>Síla může těleso nejen posunout nebo otočit, ale i změnit jeho tvar. Této změně tvaru říkáme <strong>deformace</strong>. Rozlišujeme dva druhy.</p>\n<ul>\n<li><strong>Pružná (elastická) deformace</strong> – dočasná. Jakmile síla přestane působit, těleso se vrátí do původního tvaru. Příkladem je míč nebo pružina.</li>\n<li><strong>Trvalá (plastická) deformace</strong> – tvar tělesa zůstane změněný i po skončení působení síly. Příkladem je pomačkaný plech nebo modelína.</li>\n</ul>\n<img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/pruzna-deformace.jpg\" alt=\"Pružná deformace – tenisový míček a raketa\" />\n<img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/trvala-deformace.jpg\" alt=\"Trvalá deformace – havarované auto\" />",
+					zapis: {"body":["vzájemné působení = dotyk nebo na dálku","síla mění pohyb (posun, otočení), nebo mění tvar","posun: síla míří do těžiště; otočení: mimo těžiště","statické působení: klid, síly se ruší","dynamické působení: mění rychlost nebo směr","pružná deformace: tvar se vrátí","trvalá deformace: tvar zůstane"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Porozumění síle a deformaci', cesta: '0vmDKVXisgE' },
 						{ druh: 'youtube', nazev: 'Video: Síla a interakce', cesta: 'RRSRb_6VXt0' },
@@ -1689,51 +1653,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'jednoduche-stroje-paky',
 					interakce: 'paka',
 					nazev: 'Jednoduché stroje a páky',
-					obsah: `
-						<h2>Jednoduché stroje a páky</h2>
-						<p><strong>Jednoduché stroje</strong> jsou zařízení, která nám usnadňují práci – umožňují zvedat nebo přemísťovat těžká tělesa menší silou. Patří mezi ně například páka, kladka, nakloněná rovina nebo kolo na hřídeli.</p>
-
-						<h3>Páka</h3>
-						<p><strong>Páka</strong> je tuhá tyč, která se může otáčet kolem pevného bodu zvaného <strong>osa otáčení (O)</strong>. Vzdálenost mezi osou otáčení a působištěm síly se nazývá <strong>rameno síly (a)</strong>.</p>
-						<p>Čím delší je rameno síly, tím menší síla stačí k vyvážení stejného účinku. Proto se páka hodí k práci s těžkými břemeny.</p>
-						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/paka-priklad1.jpg" alt="Páka v rovnováze – stejně dlouhá ramena" />
-						<img src="/obrazky/fyzika/7-rocnik/jednoduche-stroje/paka-priklad2.jpg" alt="Páka v rovnováze – kratší rameno u břemene" />
-						<p>Na obrázcích je vidět, že stejně velkou silou nadzvedneme větší břemeno, pokud je <strong>rameno u břemene kratší</strong> než rameno, na které působíme silou.</p>
-
-						<h3>Podmínka rovnováhy na páce</h3>
-						<p>Páka je v rovnováze, pokud platí:</p>
-						<p><strong>F<sub>1</sub> &middot; a<sub>1</sub> = F<sub>2</sub> &middot; a<sub>2</sub></strong></p>
-						<p>kde F<sub>1</sub>, F<sub>2</sub> jsou síly působící na páku a a<sub>1</sub>, a<sub>2</sub> jsou jejich ramena (vzdálenosti od osy otáčení).</p>
-
-						<h3>Příklad 1</h3>
-						<p>Na páce jsou zavěšena dvě závaží: m<sub>1</sub> = 200 g = 0,2 kg na rameni a<sub>1</sub> = 9 cm a m<sub>2</sub> = 100 g = 0,1 kg na rameni a<sub>2</sub> = 18 cm. Je páka v rovnováze?</p>
-						<p>F<sub>g1</sub> = m<sub>1</sub> &middot; g = 0,2 &middot; 10 = 2 N</p>
-						<p>F<sub>g2</sub> = m<sub>2</sub> &middot; g = 0,1 &middot; 10 = 1 N</p>
-						<p>F<sub>g1</sub> &middot; a<sub>1</sub> = 2 &middot; 9 = 18</p>
-						<p>F<sub>g2</sub> &middot; a<sub>2</sub> = 1 &middot; 18 = 18</p>
-						<p>Obě strany se rovnají (18 = 18), páka je v rovnováze. Dvojnásobná síla si vystačí s polovičním ramenem.</p>
-
-						<h3>Příklad 2</h3>
-						<p>Na rameni a<sub>1</sub> = 2 m působí síla F<sub>1</sub> = 20 N. Jak velká síla F<sub>2</sub> je potřeba na rameni a<sub>2</sub> = 4 m, aby byla páka v rovnováze?</p>
-						<p>F<sub>1</sub> &middot; a<sub>1</sub> = F<sub>2</sub> &middot; a<sub>2</sub></p>
-						<p>F<sub>2</sub> = (F<sub>1</sub> &middot; a<sub>1</sub>) : a<sub>2</sub> = (20 &middot; 2) : 4 = 10 N</p>
-						<p>Na delší rameno tedy stačí poloviční síla.</p>
-					`,
-					zapis: {
-						body: [
-							'Jednoduché stroje usnadňují práci tím, že umožňují zvedat nebo přemísťovat těžká tělesa menší silou.',
-							'Páka je tuhá tyč, která se otáčí kolem osy otáčení; vzdálenost působiště síly od osy se nazývá rameno síly.',
-							'Čím delší je rameno síly, tím menší síla stačí k vyvážení stejného účinku.',
-							'Páka je v rovnováze, když jsou součiny síly a jejího ramene na obou stranách stejné.',
-						],
-						vzorec: 'F₁ · a₁ = F₂ · a₂      (odvozeně: F₁ = F₂ · a₂ : a₁,  F₂ = F₁ · a₁ : a₂,  a₁ = F₂ · a₂ : F₁,  a₂ = F₁ · a₁ : F₂)',
-						jednotky: [
-							'síly F₁, F₂ — newton (N)',
-							'ramena sil a₁, a₂ — metr (m)',
-							'1 kN = 1 000 N,  1 m = 100 cm',
-							'Do vzorce dosazuj síly v N a obě ramena ve stejné jednotce délky, nejlépe v m.',
-						],
-					},
+					obsah: "<h2>Jednoduché stroje a páky</h2>\n<p><strong>Jednoduché stroje</strong> nám usnadňují práci. Umožňují zvednout nebo přemístit těžké těleso menší silou. Patří mezi ně páka, kladka, nakloněná rovina nebo kolo na hřídeli.</p>\n\n<h3>Páka: osa a ramena</h3>\n<p><strong>Páka</strong> je tuhá tyč, která se může otáčet kolem pevného bodu. Tomuto bodu říkáme <strong>osa otáčení (O)</strong>.</p>\n<p>Vzdálenost mezi osou otáčení a místem, kde na páku působí síla, se nazývá <strong>rameno síly (a)</strong>.</p>\n\n<h3>Rovnováha na páce</h3>\n<p>Čím delší je rameno síly, tím menší síla stačí k vyvážení stejného účinku. Proto se páka hodí na práci s těžkými břemeny.</p>\n<img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/paka-priklad1.jpg\" alt=\"Páka v rovnováze – stejně dlouhá ramena\" />\n<img src=\"/obrazky/fyzika/7-rocnik/jednoduche-stroje/paka-priklad2.jpg\" alt=\"Páka v rovnováze – kratší rameno u břemene\" />\n<p>Na obrázcích je vidět, že stejně velkou silou nadzvedneme větší břemeno, pokud je <strong>rameno u břemene kratší</strong> než rameno, na které působíme silou.</p>\n<p>Páka je v rovnováze, když platí: <strong>F<sub>1</sub> &middot; a<sub>1</sub> = F<sub>2</sub> &middot; a<sub>2</sub></strong>. F₁ a F₂ jsou síly, a₁ a a₂ jejich ramena. Součinu síly a jejího ramene se říká <strong>moment síly</strong>.</p>\n<p>Zjednodušeně: menší síla působí dál od osy, větší síla blíž k ose.</p>\n\n<h3>Dvojzvratná a jednozvratná páka</h3>\n<p>Podle toho, kde je osa otáčení, dělíme páky na dva druhy.</p>\n<p><strong>Dvojzvratná páka</strong> má osu uprostřed tyče. Síly působí na obou stranách od osy a každá ji otáčí na jinou stranu — proto dvojzvratná. Příkladem je houpačka nebo rovnoramenné váhy.</p>\n<p><strong>Jednozvratná páka</strong> má osu na kraji tyče. Obě síly působí na stejné straně od osy a otáčí pákou stejným směrem — proto jednozvratná. Příkladem je otvírák na lahve nebo stavební kolečko.</p>\n<p>Když si na houpačku sednou dvě různě těžké děti, těžší dítě zůstane dole a lehčí nahoře. Houpačka není v rovnováze, dokud si těžší dítě nesedne blíž k ose.</p>\n\n<h3>Páka kolem nás</h3>\n<p>Páku využívá spousta běžných věcí. U každé poznáš osu otáčení i obě ramena sil.</p>\n<ul>\n<li>nůžky a kleště</li>\n<li>lis na česnek a louskáček na ořechy</li>\n<li>otvírák na lahve</li>\n<li>zahradní nebo stavební kolečko</li>\n<li>maticový klíč a páčidlo</li>\n<li>rovnoramenné váhy</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Páka funguje i v našem těle. Sval na paži má velmi krátké rameno síly blízko loketního kloubu. Proto musí táhnout mnohem větší silou, než jakou zvedáme v ruce.</p>\n<p>Na páce jsou zavěšena dvě závaží: m<sub>1</sub> = 200 g = 0,2 kg na rameni a<sub>1</sub> = 9 cm a m<sub>2</sub> = 100 g = 0,1 kg na rameni a<sub>2</sub> = 18 cm. Je páka v rovnováze?</p>\n<p>F<sub>g1</sub> = m<sub>1</sub> &middot; g = 0,2 &middot; 10 = 2 N</p>\n<p>F<sub>g2</sub> = m<sub>2</sub> &middot; g = 0,1 &middot; 10 = 1 N</p>\n<p>F<sub>g1</sub> &middot; a<sub>1</sub> = 2 &middot; 9 = 18</p>\n<p>F<sub>g2</sub> &middot; a<sub>2</sub> = 1 &middot; 18 = 18</p>\n<p>Obě strany se rovnají (18 = 18), páka je v rovnováze. Dvojnásobná síla si vystačí s polovičním ramenem.</p>\n<p>Na rameni a<sub>1</sub> = 2 m působí síla F<sub>1</sub> = 20 N. Jak velká síla F<sub>2</sub> je potřeba na rameni a<sub>2</sub> = 4 m, aby byla páka v rovnováze?</p>\n<p>F<sub>1</sub> &middot; a<sub>1</sub> = F<sub>2</sub> &middot; a<sub>2</sub></p>\n<p>F<sub>2</sub> = (F<sub>1</sub> &middot; a<sub>1</sub>) : a<sub>2</sub> = (20 &middot; 2) : 4 = 10 N</p>\n<p>Na delší rameno tedy stačí poloviční síla.</p>",
+					zapis: {"vzorec":"F₁ · a₁ = F₂ · a₂      (odvozeně: F₁ = F₂ · a₂ : a₁,  F₂ = F₁ · a₁ : a₂,  a₁ = F₂ · a₂ : F₁,  a₂ = F₁ · a₁ : F₂)","jednotky":["síla — značíme F₁ a F₂ (síly na obou stranách páky), jednotka N (newton)","rameno síly — značíme a₁ a a₂ (vzdálenost od osy otáčení), jednotka m (metr)","1 kN = 1 000 N,  1 m = 100 cm","Do vzorce dosazuj síly v N a obě ramena ve stejné jednotce délky, nejlépe v m."],"vzorecSlovy":"síla na jedné straně páky krát její rameno se rovná síle na druhé straně krát jejímu rameni","body":["jednoduchý stroj = menší síla na těžké těleso","páka: osa O, rameno a = vzdálenost síly od osy","čím delší rameno, tím menší síla stačí","dvojzvratná páka: síly na opačných stranách osy (houpačka, váhy)","jednozvratná páka: síly na stejné straně osy (otvírák, kolečko)","rovnováha: F₁ · a₁ = F₂ · a₂"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Páky — nadlidská síla', cesta: 'aXsCK4BXLe4' },
 						{ druh: 'youtube', nazev: 'Video: Páka — opakování', cesta: 'qLAoiYEeaSA' },
@@ -1745,49 +1666,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'kladka',
 					interakce: 'kladka',
 					nazev: 'Kladka — pevná a volná',
-					obsah: `
-						<h2>Kladka</h2>
-						<p><strong>Kladka</strong> je kolo s drážkou, přes které je vedeno lano. Patří mezi <strong>jednoduché stroje</strong> — usnadňuje nám zvedání břemen. Rozlišujeme dva základní druhy: <strong>pevnou</strong> a <strong>volnou</strong> kladku.</p>
-
-						<h3>Pevná kladka</h3>
-						<p><strong>Pevná kladka</strong> je připevněná (např. ke stropu) a neposouvá se. <strong>Nemění velikost síly</strong> — táhneme stejnou silou, jako je tíha břemene — ale <strong>mění její směr</strong>. Místo abychom břemeno zvedali nahoru, můžeme lano táhnout dolů, což je pohodlnější (a můžeme se do lana i opřít vlastní vahou).</p>
-						<ul>
-							<li>síla na lano = tíha břemene (<strong>F = F<sub>G</sub></strong>)</li>
-							<li>dráha lana = výška zdvihu</li>
-							<li>výhoda: pohodlný <strong>směr</strong> tahu (např. vlajka na stožár, studna s okovem)</li>
-						</ul>
-
-						<h3>Volná kladka</h3>
-						<p><strong>Volná kladka</strong> se pohybuje spolu s břemenem — břemeno visí na její ose. Břemeno je neseno <strong>dvěma částmi lana</strong>, takže se jeho tíha <strong>rozdělí na polovinu</strong> mezi obě části.</p>
-						<p>Představ si břemeno o tíze <strong>100 N</strong> (10 kg): jednu část lana <strong>drží strop silou 50 N</strong> a za druhou <strong>táhneš ty silou 50 N</strong>. Obě síly se <strong>skládají</strong> — dohromady <strong>50 N + 50 N = 100 N</strong> udrží celé břemeno. Ty tak zvedneš 100 N pouhými <strong>50 N</strong>, ale lano musíš vytáhnout <strong>dvakrát delší</strong>.</p>
-						<ul>
-							<li>síla na lano = polovina tíhy břemene (<strong>F = F<sub>G</sub> / 2</strong>)</li>
-							<li>dráha lana = <strong>dvojnásobek</strong> výšky zdvihu</li>
-							<li>výhoda: menší <strong>síla</strong> (co ušetříme na síle, doplatíme na dráze — to platí u všech strojů)</li>
-						</ul>
-						<p>🎒 <strong>Jako pytlíky do schodů:</strong> deset kilo vyneseš buď <strong>najednou v jednom balíku</strong> (velká síla, jedna cesta), nebo <strong>desetkrát po jednom kile</strong> (malá síla, ale mnohem delší chození). <strong>Práce je v obou případech stejná</strong> — vždycky je něco za něco.</p>
-
-						<h3>Kladkostroj</h3>
-						<p>Spojením několika pevných a volných kladek vznikne <strong>kladkostroj</strong>. S ním zvedneme velmi těžká břemena malou silou — používá se u jeřábů, na lodích nebo v dílnách. Kolik částí lana břemeno nese, tolikrát menší silou ho zvedneme.</p>
-
-						<h3>Zlaté pravidlo mechaniky</h3>
-						<p>U každého jednoduchého stroje platí: <strong>kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat.</strong> Práci si nikdy neušetříme — jen ji rozložíme pohodlněji.</p>
-					`,
-					zapis: {
-						body: [
-							'Kladka je kolo s drážkou pro lano a patří mezi jednoduché stroje.',
-							'Pevná kladka nemění velikost síly, ale mění směr tahu.',
-							'Volná kladka zmenší potřebnou sílu na polovinu, ale musíme vytáhnout dvakrát delší lano.',
-							'V kladkostroji platí: kolik částí lana nese břemeno, tolikrát menší silou ho zvedáme.',
-						],
-						vzorec: 'pevná kladka: F = F_G; volná kladka: F = F_G : 2      (odvozeně pro volnou: F_G = 2 · F)',
-						jednotky: [
-							'síla tahu F — newton (N)',
-							'tíhová síla F_G — newton (N)',
-							'1 kN = 1 000 N',
-							'Do vztahů dosazuj obě síly v newtonech (N).',
-						],
-					},
+					obsah: "<h2>Kladka — pevná a volná</h2>\n<p><strong>Kladka</strong> je kolo s drážkou, přes které vedeme lano. Patří mezi <strong>jednoduché stroje</strong> — usnadňuje nám zvedání břemen. Rozlišujeme dva druhy: <strong>pevnou</strong> a <strong>volnou</strong> kladku.</p>\n\n<h3>Pevná kladka</h3>\n<p><strong>Pevná kladka</strong> je připevněná, třeba ke stropu, a sama se neposouvá. <strong>Nemění velikost síly</strong> — táhneme stejnou silou, jako je tíha břemene. Zato <strong>mění směr</strong> tahu.</p>\n<p>Místo zvedání nahoru můžeme lano táhnout dolů. To je pohodlnější — do lana se navíc můžeme opřít vlastní vahou.</p>\n<ul>\n<li>síla na lano = tíha břemene (F = F<sub>G</sub>)</li>\n<li>dráha lana = výška zdvihu</li>\n<li>výhoda: pohodlný <strong>směr</strong> tahu (vlajka na stožáru, studna s okovem)</li>\n</ul>\n\n<h3>Volná kladka</h3>\n<p><strong>Volná kladka</strong> se pohybuje spolu s břemenem — břemeno visí přímo na její ose.</p>\n<p>Břemeno drží <strong>dvě části lana</strong> zároveň, takže se jeho tíha rozdělí <strong>na polovinu</strong> mezi obě části.</p>\n<p>Proto zvedneme břemeno poloviční silou. Zato lano musíme vytáhnout <strong>dvakrát delší</strong> — co ušetříme na síle, doplatíme na dráze.</p>\n<ul>\n<li>síla na lano = polovina tíhy břemene (F = F<sub>G</sub> : 2)</li>\n<li>dráha lana = dvojnásobek výšky zdvihu</li>\n<li>výhoda: menší <strong>síla</strong> (co ušetříme na síle, doplatíme na dráze — to platí u všech strojů)</li>\n</ul>\n<p>🎒 <strong>Jako pytlíky do schodů:</strong> deset kilo vyneseš buď najednou v jednom balíku (velká síla, jedna cesta), nebo desetkrát po jednom kile (malá síla, ale mnohem delší chození). Práce je v obou případech stejná — vždycky je něco za něco.</p>\n\n<h3>Kladkostroj</h3>\n<p>Spojením několika pevných a volných kladek vznikne <strong>kladkostroj</strong>. Používá se u jeřábů, na lodích nebo v dílnách.</p>\n<p>S kladkostrojem zvedneme i velmi těžká břemena malou silou. Platí: kolik částí lana nese břemeno, tolikrát menší silou ho zvedneme.</p>\n\n<h3>Zlaté pravidlo mechaniky</h3>\n<p>U každého jednoduchého stroje platí stejné pravidlo: <strong>kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat.</strong> Práci si nikdy neušetříme — jen ji rozložíme pohodlněji.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Břemeno má tíhu 100 N, tedy hmotnost 10 kg. Visí na volné kladce, kterou drží dvě části lana.</p>\n<p>Jednu část lana drží strop silou 50 N. Za druhou taháš ty, také silou 50 N.</p>\n<p>Obě síly se sečtou: 50 N + 50 N = 100 N. Dohromady udrží celé břemeno.</p>\n<p>Zvedneš tak břemeno o tíze 100 N pouhými 50 N — ale lano musíš vytáhnout dvakrát delší, než je výška zdvihu.</p>",
+					zapis: {"vzorec":"pevná kladka: F = F_G      volná kladka: F = F_G : 2      (odvozeně: F_G = 2 · F)","jednotky":["síla tahu — značíme F, jednotka N (newton)","tíhová síla — značíme F_G, jednotka N (newton)","Převody: 1 kN = 1 000 N.","Do vztahů dosazuj obě síly v newtonech (N)."],"vzorecSlovy":"síla tahu u pevné kladky = tíhová síla břemene; síla tahu u volné kladky = tíhová síla břemene děleno dvěma","zakon":"Kolikrát si usnadníme sílu, tolikrát delší dráhu musíme překonat (zlaté pravidlo mechaniky).","body":["kladka = kolo s drážkou pro lano","pevná kladka: mění směr, síla stejná","volná kladka: poloviční síla, dvojnásobná dráha","kladkostroj: víc lan nese břemeno → menší síla","zlaté pravidlo: menší síla = delší dráha"]},
 					materialy: [
 						{
 							druh: 'video',
@@ -1813,53 +1693,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'naklonena-rovina',
 					interakce: 'naklonena-rovina',
 					nazev: 'Nakloněná rovina',
-					obsah: `
-						<h2>Nakloněná rovina</h2>
-						<p>Stejně jako páka nebo kladka patří mezi <strong>jednoduché stroje</strong> i <strong>nakloněná rovina</strong> — šikmá plocha (rampa, prkno, skluz), po které vytahujeme nebo spouštíme těžké břemeno. Místo abychom je zvedali svisle vzhůru, táhneme je šikmo nahoru — a stačí nám na to <strong>menší síla</strong>. Za to ale musíme těleso posunout po <strong>delší dráze</strong>.</p>
-
-						<h3>Jak nakloněná rovina šetří sílu</h3>
-						<p>Bez tření platí pro sílu <strong>F</strong>, kterou musíme vynaložit při tažení břemene po nakloněné rovině, vztah:</p>
-						<p><strong>F = G &middot; h : l</strong></p>
-						<p>kde <strong>G</strong> je tíha břemene, <strong>h</strong> je výška, do které břemeno zvedáme, a <strong>l</strong> je délka nakloněné roviny (šikmé dráhy, po které břemeno táhneme). Čím je nakloněná rovina <strong>delší</strong> při stejné výšce, tím je <strong>mírnější</strong> a tím <strong>menší síla</strong> nám stačí. Ve skutečnosti se do potřebné síly promítá i <strong>tření</strong> mezi břemenem a rovinou, které ji o něco zvětšuje — pro jednoduchost počítáme v ideálním případě bez tření.</p>
-
-						<h3>Cena za menší sílu: delší dráha</h3>
-						<p>Nakloněná rovina nám práci neušetří, jen ji rozloží pohodlněji — přesně podle <strong>zlatého pravidla mechaniky</strong>, které platí u všech jednoduchých strojů: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit. Vytažení břemene po šikmé rampě trvá déle a je to dál, ale zvládne to i slabší síla.</p>
-
-						<h3>Nakloněná rovina kolem nás</h3>
-						<p>S nakloněnou rovinou se setkáváme na každém kroku: <strong>nájezdová rampa</strong> pro vozíčkáře nebo na nakládání beden do auta, <strong>silniční serpentiny</strong> v horách (klikaté zatáčky prodlužují dráhu, aby auto nemuselo do prudkého kopce), nebo dětská <strong>skluzavka</strong>. Zajímavým příkladem je <strong>šroub</strong> — jeho závit je vlastně nakloněná rovina <strong>navinutá kolem válce</strong>. Proto se šroub zašroubuje malou silou na šroubováku (ale musíme jím mnohokrát otočit), zatímco zatlouct hřebík rovnou by vyžadovalo mnohem větší sílu.</p>
-
-						<h3>Příklad 1</h3>
-						<p>Břemeno o tíze G = 600 N táhneme po nakloněné rovině dlouhé l = 3 m na výšku h = 1 m. Jak velká síla F je potřeba (bez tření)?</p>
-						<p>F = G &middot; h : l = 600 &middot; 1 : 3 = 200 N</p>
-						<p>Stačí nám síla 200 N — tedy třikrát menší, než kdybychom břemeno zvedali svisle (600 N), protože dráha je třikrát delší než výška.</p>
-
-						<h3>Příklad 2</h3>
-						<p>Břemeno o tíze G = 800 N chceme vytáhnout do výšky h = 2 m silou F = 200 N. Jak dlouhá musí být nakloněná rovina?</p>
-						<p>F = G &middot; h : l &nbsp;&rArr;&nbsp; l = G &middot; h : F</p>
-						<p>l = 800 &middot; 2 : 200 = 8 m</p>
-						<p>Nakloněná rovina musí být dlouhá 8 metrů — čtyřikrát delší než výška, protože jsme sílu zmenšili čtyřikrát (z 800 N na 200 N).</p>
-
-						<h3>Shrnutí</h3>
-						<p>Nakloněná rovina je jednoduchý stroj, který nahrazuje svislé zvedání břemene tažením po šikmé ploše. Platí vztah F = G &middot; h : l: čím delší a mírnější je rovina, tím menší síla stačí — ale dráha, kterou musíme urazit, se úměrně prodlouží. Práci si nikdy neušetříme, jen ji „rozprostřeme" na delší dráhu s menší silou.</p>
-					`,
-					zapis: {
-						body: [
-							'Nakloněná rovina je jednoduchý stroj, po kterém zvedáme nebo spouštíme břemeno.',
-							'Při stejné výšce potřebujeme na delší a mírnější rovině menší sílu, ale urazíme delší dráhu.',
-							'Nakloněná rovina práci neušetří, pouze ji rozloží na menší sílu a delší dráhu.',
-							'Ve skutečnosti potřebnou sílu zvětšuje tření; ve výpočtech uvažujeme ideální rovinu bez tření.',
-						],
-						zakon: 'Zlaté pravidlo mechaniky: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.',
-						vzorec: 'F = G · h : l      (odvozeně: l = G · h : F,  h = F · l : G,  G = F · l : h)',
-						jednotky: [
-							'síla F — newton (N)',
-							'tíha břemene G — newton (N)',
-							'výška h — metr (m)',
-							'délka nakloněné roviny l — metr (m)',
-							'1 kN = 1 000 N,  1 m = 100 cm',
-							'Do vzorce dosazuj síly v N a délky v m.',
-						],
-					},
+					obsah: "<h2>Nakloněná rovina</h2>\n<p>Nakloněná rovina patří mezi <strong>jednoduché stroje</strong>, stejně jako páka nebo kladka. Je to šikmá plocha — třeba rampa, prkno nebo skluz — po které vytahujeme nebo spouštíme těžké břemeno.</p>\n<p>Místo svislého zvedání táhneme břemeno šikmo nahoru. Stačí nám na to <strong>menší síla</strong>. Musíme ale těleso posunout po <strong>delší dráze</strong>.</p>\n\n<h3>Jak nakloněná rovina šetří sílu</h3>\n<p>Bez tření platí pro potřebnou sílu <strong>F</strong> tento vztah:</p>\n<p><strong>F = G &middot; h : l</strong></p>\n<p><strong>G</strong> je tíha břemene, <strong>h</strong> je výška, do které břemeno zvedáme, a <strong>l</strong> je délka nakloněné roviny. Čím je rovina delší, tím je mírnější a tím menší síla stačí.</p>\n<p>Ve skutečnosti sílu trochu zvětšuje i <strong>tření</strong> mezi břemenem a rovinou. Pro jednoduchost počítáme v ideálním případě bez tření.</p>\n\n<h3>Cena za menší sílu: delší dráha</h3>\n<p>Nakloněná rovina nám práci neušetří, jen ji rozloží pohodlněji. Platí <strong>zlaté pravidlo mechaniky</strong>: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.</p>\n<p>Vytažení břemene po šikmé rampě trvá déle a je to dál. Zvládne to ale i slabší síla.</p>\n\n<h3>Nakloněná rovina kolem nás</h3>\n<p>S nakloněnou rovinou se setkáváme na každém kroku. Patří sem <strong>nájezdová rampa</strong> pro vozíčkáře nebo na nakládání beden do auta a <strong>silniční serpentiny</strong> v horách — klikaté zatáčky prodlužují dráhu, aby auto nemuselo do prudkého kopce.</p>\n<p>Dalším příkladem je dětská <strong>skluzavka</strong>. Zajímavý je i <strong>šroub</strong> — jeho závit je vlastně nakloněná rovina navinutá kolem válce.</p>\n<p>Proto se šroub zašroubuje malou silou na šroubováku, i když jím musíme mnohokrát otočit. Zatlouct hřebík rovnou by vyžadovalo mnohem větší sílu.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Břemeno o tíze G = 600 N táhneme po nakloněné rovině dlouhé l = 3 m na výšku h = 1 m. Jak velká síla F je potřeba, bez tření?</p>\n<p>F = G &middot; h : l = 600 &middot; 1 : 3 = 200 N</p>\n<p>Stačí nám síla 200 N — třikrát menší, než kdybychom břemeno zvedali svisle (600 N). Dráha je totiž třikrát delší než výška.</p>\n<p>Břemeno o tíze G = 800 N chceme vytáhnout do výšky h = 2 m silou F = 200 N. Jak dlouhá musí být nakloněná rovina?</p>\n<p>F = G &middot; h : l &nbsp;&rArr;&nbsp; l = G &middot; h : F</p>\n<p>l = 800 &middot; 2 : 200 = 8 m</p>\n<p>Nakloněná rovina musí být dlouhá 8 metrů — čtyřikrát delší než výška. Sílu jsme totiž zmenšili čtyřikrát, z 800 N na 200 N.</p>",
+					zapis: {"vzorec":"F = G · h : l      (odvozeně: l = G · h : F,  h = F · l : G,  G = F · l : h)","jednotky":["síla — značíme F, jednotka N (newton)","tíha břemene — značíme G, jednotka N (newton)","výška — značíme h, jednotka m (metr)","délka nakloněné roviny — značíme l, jednotka m (metr)","1 kN = 1 000 N,  1 m = 100 cm","Do vzorce dosazuj síly v N a délky v m."],"vzorecSlovy":"síla = tíha krát výška děleno délka","zakon":"Zlaté pravidlo mechaniky: kolikrát si usnadníme sílu, tolikrát delší dráhu musíme urazit.","body":["nakloněná rovina — jednoduchý stroj, zvedá nebo spouští břemeno","delší a mírnější rovina → menší síla, delší dráha","práci neušetří, jen ji rozloží na menší sílu a delší dráhu","tření sílu zvětšuje, počítáme bez tření"]},
 				},
 			],
 		},
@@ -4135,34 +3970,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'prenos-elektricke-energie',
 					nazev: 'Přenos elektrické energie, energetická rozvodná síť',
 					interakce: 'prenos',
-					obsah: `
-						<h2>Přenos elektrické energie</h2>
-						<h3>Výroba a fáze</h3>
-						<ul>
-							<li>Elektřina se vyrábí ve velkých <strong>alternátorech</strong> jako <strong>střídavý proud</strong>.</li>
-							<li>Alternátor má <strong>tři cívky</strong> → vzniká <strong>trojfázový proud</strong> (napětí každé fáze je posunuté o třetinu periody). Proto se při dálkovém přenosu vedou <strong>tři vodiče</strong>.</li>
-							<li>Napětí mezi fázovým vodičem a zemí je <strong>230 V</strong>, mezi dvěma fázemi <strong>400 V</strong>.</li>
-						</ul>
-						<h3>Přenosová a distribuční soustava</h3>
-						<ul>
-							<li><strong>Přenosová soustava</strong> — dopravuje energii na velké vzdálenosti nadzemním vedením za <strong>velmi vysokého napětí 220 kV nebo 400 kV</strong>. Vysoké napětí znamená <strong>malý proud</strong>, a tím <strong>malé ztráty</strong> ve vedení.</li>
-							<li><strong>Distribuční soustava</strong> — rozvádí energii k odběratelům (napětí <strong>22 kV</strong>), nakonec transformované na <strong>230 V</strong> do zásuvky.</li>
-						</ul>
-						<h3>Prvky sítě a spotřebitel</h3>
-						<ul>
-							<li><strong>Vedení</strong> — nadzemní nebo podzemní vodiče, kterými prochází proud. Dálkové venkovní vedení mezi stožáry tvoří <strong>hliníková lana s ocelovým jádrem</strong>: ocel uprostřed lana nese tah, vítr a námrazu, hliník kolem vede proud — hliník vede o něco hůř než měď, ale je mnohem <strong>lehčí a levnější</strong>, takže lano unese větší rozpětí mezi stožáry. Tyto dráty jsou neizolované, zavěšené vysoko a dostatečně daleko od sebe, takže nehrozí zkrat ani úraz. Naproti tomu domovní a bytové rozvody (přívody ke spotřebičům) jsou z <strong>mědi</strong> — měď má ze všech běžných kovů nejmenší odpor a dobře se spojuje, a protože se vede jen krátký kus vodiče ve zdi, na hmotnosti tam nezáleží; fázové vodiče jsou izolované, barevně odlišené a umístěné v jednom kabelu vedle sebe. Síť dále tvoří <strong>transformátory</strong> (mění velikost napětí v síti, každá fáze se transformuje zvlášť), <strong>rozvodny</strong> (rozvádějí proud z jednoho přívodu do více větví sítě a umožňují jednotlivé větve podle potřeby zapínat a vypínat) a ochranná zařízení.</li>
-							<li>Domácnost využívá <strong>jednu fázi (230 V)</strong>; velké stroje všechny tři fáze (3×400 V). V zásuvce je <strong>fázový</strong> vodič, <strong>nulovací</strong> vodič (vede proud zpátky do sítě) a <strong>ochranný kolík PE</strong> — ten je spojený se zemí a připojený na kovovou kostru spotřebiče; dostane-li se na kostru napětí, ochranný vodič ho svede do země a jistič nebo proudový chránič vypne.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Elektrická energie se vyrábí v alternátorech jako trojfázový střídavý proud.',
-							'Na velké vzdálenosti se přenáší velmi vysokým napětím, protože menší proud způsobuje menší ztráty ve vedení.',
-							'Přenosová soustava dopravuje energii na velké vzdálenosti, distribuční soustava ji rozvádí k odběratelům.',
-							'Transformátory postupně mění napětí až na 230 V používaných v domácnostech.',
-							'Ochranný vodič spojuje kovovou kostru spotřebiče se zemí a při poruše pomáhá odpojit přívod proudu.',
-						],
-					},
+					obsah: "<h2>Přenos elektrické energie</h2>\n<p>Elektřina z <strong>zásuvky</strong> u tebe doma urazí dlouhou cestu. Vznikne v elektrárně, projede stovky kilometrů po vysokém napětí a pak se několikrát <strong>transformuje</strong> — to znamená, že se jí mění napětí — než doputuje do tvého bytu. Pojďme si tu cestu projít krok za krokem.</p>\n\n<h3>Elektřina vzniká v elektrárně</h3>\n<p>V elektrárně vyrábí elektřinu velký stroj — <strong>alternátor</strong>. Vyrábí <strong>střídavý proud</strong>, který mnohokrát za sekundu mění směr.</p>\n<p>Alternátor má <strong>tři cívky</strong>. Každá cívka vyrábí vlastní proud, tomu říkáme <strong>fáze</strong>. Proud z jedné cívky je vždy maličko posunutý v čase oproti druhé — o třetinu doby jednoho kmitu. Vzniká tak <strong>trojfázový proud</strong> a k jeho přenosu potřebujeme <strong>tři vodiče</strong>.</p>\n<p>Napětí mezi jedním fázovým vodičem a zemí je <strong>230 V</strong>. Napětí mezi dvěma fázovými vodiči je <strong>400 V</strong>.</p>\n\n<h3>Napětí jde nahoru a proud vyráží na cestu</h3>\n<p>Elektrárna vyrábí proud při napětí asi 10 kV. Hned vedle elektrárny stojí <strong>transformátor</strong>, který napětí zvýší až na <strong>220 kV nebo 400 kV</strong>. Tomu se říká <strong>velmi vysoké napětí</strong>.</p>\n<p>Proč se napětí zvyšuje? Při vysokém napětí stačí vodičem téct <strong>menší proud</strong>, aby přenesl stejné množství energie. Menší proud znamená menší <strong>ztráty</strong> — po cestě se promarní méně energie.</p>\n<p>Této části sítě, která vede proud dálkovým nadzemním vedením mezi vysokými stožáry, se říká <strong>přenosová soustava</strong>.</p>\n\n<h3>Vedení mezi stožáry</h3>\n<p>Vedení může být <strong>nadzemní</strong> nebo <strong>podzemní</strong> — ve městech vedou dráty často pod zemí. Dráty mezi stožáry jsou <strong>hliníková lana s ocelovým jádrem</strong>. Ocel uprostřed lana drží tah, vítr a námrazu, hliník kolem vede proud. Hliník vede o něco hůř než měď, ale je mnohem <strong>lehčí a levnější</strong> — proto lano unese delší rozpětí mezi stožáry.</p>\n<p>Tyto dráty nejsou izolované. Visí ale vysoko nad zemí a dostatečně daleko od sebe, takže se nemůžou dotknout — nehrozí zkrat ani úraz.</p>\n\n<h3>Napětí zase klesá k nám domů</h3>\n<p>Proud nemůže vjet do zásuvky s napětím 400 kV — musí se postupně snížit. V <strong>rozvodnách</strong> se napětí sníží nejdřív na 110 kV, pak na <strong>22 kV</strong>. Rozvodny navíc rozvádějí proud z jednoho přívodu do víc větví sítě a umí jednotlivou větev podle potřeby zapnout nebo vypnout. Této části sítě, která proud rozvádí k jednotlivým odběratelům, se říká <strong>distribuční soustava</strong>.</p>\n<p>Napětí mění <strong>transformátory</strong> — a protože se přenáší tři fáze najednou, transformuje se každá fáze <strong>zvlášť</strong>. Poslední transformátor, třeba na sloupu nebo v malé budce u silnice, sníží napětí až na <strong>230 V</strong>, které pak teče do zásuvek v domácnostech.</p>\n<p>Síť navíc chrání <strong>ochranná zařízení</strong>, třeba přepěťové ochrany. Chrání síť i odběratele před poškozením, třeba při bouřce.</p>\n<p>Kabely, které vedou do domů, jsou z <strong>mědi</strong> — měď má ze všech běžných kovů nejmenší odpor a dobře se spojuje. Na krátkém kusu vodiče ve zdi nezáleží na hmotnosti, tak jako u dálkového vedení. Fázové vodiče jsou tu izolované, barevně odlišené a vedou spolu v jednom kabelu.</p>\n\n<h3>Elektřina u tebe doma</h3>\n<p>Domácnost používá jen <strong>jednu fázi</strong> s napětím 230 V. Velké stroje — třeba míchačka, cirkulárka nebo obráběcí stroj — využívají všechny <strong>tři fáze</strong> najednou, podle zapojení na 3 × 230 V nebo 3 × 400 V.</p>\n<p>V zásuvce jsou tři vodiče. <strong>Fázový vodič</strong> přivádí proud z elektrárny, <strong>nulovací vodič</strong> ho odvádí zpátky do sítě a <strong>ochranný vodič PE</strong> je spojený se zemí. Ochranný vodič je připojený na kovovou kostru spotřebiče — když se na ni omylem dostane napětí, svede ho do země a jistič nebo proudový chránič proud vypne.</p>",
+					zapis: {"jednotky":["elektrické napětí — značíme U, jednotka V (volt)","Převod: 1 kV (kilovolt) = 1 000 V."],"body":["alternátor (3 cívky) → trojfázový střídavý proud","napětí fáze–země 230 V, mezi fázemi 400 V","u elektrárny transformátor napětí ZVÝŠÍ (na 220 kV / 400 kV)","vysoké napětí → malý proud → malé ztráty (přenosová soustava)","vedení: nadzemní i podzemní; mezi stožáry hliník + ocelové jádro, neizolované, vysoko a daleko od sebe","transformátory mění napětí, každá fáze zvlášť; rozvodny rozvádějí proud do větví a umí je zapnout/vypnout","distribuční soustava: napětí klesá 110 kV → 22 kV → 230 V","ochranná zařízení (přepěťové ochrany) chrání síť a odběratele","domácí rozvody: měď (malý odpor), izolované barevné vodiče v kabelu","doma: 1 fáze 230 V; velké stroje: 3 fáze (3×230 V / 3×400 V)","zásuvka: fázový + nulovací + ochranný vodič PE → jistič/chránič vypne při poruše"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Cesta elektřiny', cesta: 'fimbeSGx8iY' },
 						{ druh: 'video', nazev: 'Píseň: Proud si cestu najde 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricky-proud-v-latkach/prenos-elektricke-energie/pisen-proud-si-cestu-najde.m4a' },
@@ -4172,35 +3981,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'vedeni-proudu-v-kapalinach',
 					nazev: 'Vedení elektrického proudu v kapalinách, elektrolýza',
 					interakce: 'elektrolyza',
-					obsah: `
-						<h2>Vedení elektrického proudu v kapalinách</h2>
-						<p><strong>Destilovaná voda proud nevede</strong> — žárovka v obvodu nesvítí. Jakmile do ní přisypeme <strong>kuchyňskou sůl</strong>, žárovka se rozsvítí. (Sůl v pevném stavu ale vodivá není.)</p>
-						<h3>Proč roztok soli vede proud</h3>
-						<ul>
-							<li>Molekuly vody naruší krystalovou mřížku soli a vzniknou <strong>ionty</strong>: kladné kationty Na⁺ a záporné anionty Cl⁻.</li>
-							<li>Po zapojení zdroje se <strong>kationty pohybují k záporné elektrodě</strong> a <strong>anionty ke kladné</strong>. Tento usměrněný pohyb iontů je elektrický proud.</li>
-						</ul>
-						<h3>Elektrody a elektrolyty</h3>
-						<ul>
-							<li><strong>Katoda</strong> přitahuje kladné kationty, <strong>anoda</strong> přitahuje záporné anionty. <strong>Pozor:</strong> elektrody se jmenují podle iontů, které přitahují, ne podle svého náboje.</li>
-							<li><strong>Elektrolyt</strong> = kapalina, která vede proud (roztoky solí, kyselin, zásad). Vodivá je i pitná voda (obsahuje minerály).</li>
-						</ul>
-						<h3>Elektrolýza a její využití</h3>
-						<p><strong>Elektrolýza</strong> je děj, při kterém průchodem proudu elektrolytem nastávají <strong>látkové změny</strong>.</p>
-						<ul>
-							<li>výroba čistých látek (chlor a vodík rozkladem, čisté kovy z rudy),</li>
-							<li><strong>pokovování</strong> — pozlacení, pochromování, pozinkování (kvůli vzhledu, ceně a ochraně proti korozi).</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Destilovaná voda elektrický proud nevede, ale roztoky solí, kyselin a zásad jsou vodivé elektrolyty.',
-							'V roztoku soli vznikají kladné kationty a záporné anionty.',
-							'Elektrický proud v elektrolytu tvoří usměrněný pohyb iontů: kationty míří ke katodě a anionty k anodě.',
-							'Elektrolýza je děj, při kterém průchod proudu elektrolytem způsobuje látkové změny.',
-							'Elektrolýza se využívá k výrobě čistých látek a k pokovování.',
-						],
-					},
+					obsah: "<h2>Vedení elektrického proudu v kapalinách</h2>\n<p><strong>Destilovaná (čistá) voda</strong> elektrický proud nevede. Ponoříš do ní dvě elektrody, zapojíš žárovku — nerozsvítí se. Jakmile ale do vody přisypeš <strong>kuchyňskou sůl</strong>, žárovka se rozsvítí. Sůl v pevném stavu přitom sama o sobě proud nevede.</p>\n\n<h3>Proč roztok soli vede proud</h3>\n<p>Molekuly vody naruší pevnou krystalovou mřížku soli. Ze soli se uvolní nabité částice, kterým se říká <strong>ionty</strong>. Vzniknou kladné <strong>kationty</strong> sodíku Na⁺ a záporné <strong>anionty</strong> chloru Cl⁻.</p>\n<p>Kapalinám, které takhle vedou proud, se říká <strong>elektrolyty</strong>. Patří mezi ně roztoky solí, kyselin i zásad — vede i mořská voda nebo obyčejná pitná voda, protože obsahuje rozpuštěné minerály.</p>\n\n<h3>Kationty a anionty putují k elektrodám</h3>\n<p>Do elektrolytu ponoříme dvě kovové nebo uhlíkové tyčinky — <strong>elektrody</strong> — a zapojíme je ke zdroji napětí. Kladné kationty se pohybují k záporné elektrodě, záporné anionty ke kladné. Tenhle usměrněný pohyb iontů je <strong>elektrický proud</strong> v kapalině.</p>\n<p>Elektroda, ke které míří kladné kationty, se jmenuje <strong>katoda</strong>. Elektroda, ke které míří záporné anionty, se jmenuje <strong>anoda</strong>. <strong>Pozor:</strong> elektrody se nejmenují podle svého náboje, ale podle iontů, které přitahují.</p>\n\n<h3>Elektrolýza — proud mění látky</h3>\n<p><strong>Elektrolýza</strong> je děj, při kterém průchod proudu elektrolytem způsobí <strong>látkové změny</strong>. V kapalině se rozkládají látky nebo se z roztoku uvolňují nové.</p>\n\n<h3>K čemu se elektrolýza využívá</h3>\n<ul>\n<li>výroba čistých látek — elektrolýzou se z rudy získávají čisté kovy, třeba <strong>hliník</strong>; z roztoku soli se dá získat chlor, z vody rozkladem vodík a kyslík</li>\n<li><strong>pokovování</strong> — na předmět se nanese tenká vrstva jiného kovu: pozlacení šperků, pochromování, pozinkování. Chrání to před korozí, nebo to jen hezky vypadá</li>\n</ul>\n<p>Na podobném principu — pohybu iontů v kapalině — fungují i <strong>akumulátory</strong>, tedy dobíjecí baterie v autě nebo v mobilu. Jak přesně v nich vzniká napětí, se dozvíš v příští kapitole.</p>",
+					zapis: {"body":["destilovaná voda nevede, roztoky solí/kyselin/zásad (elektrolyty) vedou","v roztoku soli: kladné kationty Na⁺ + záporné anionty Cl⁻","proud v kapalině = pohyb iontů: kationty → katoda, anionty → anoda","elektrolýza = průchod proudu elektrolytem → látkové změny","využití: výroba čistých kovů (např. hliník), pokovování","podobný princip: akumulátory (dobíjecí baterie)"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Vedení proudu v kapalinách', cesta: 'D_aMAsD-EKM' },
 					],
@@ -4209,85 +3991,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'chemicke-zdroje-napeti',
 					nazev: 'Chemické zdroje elektrického napětí',
 					interakce: 'razeni-clanku',
-					obsah: `
-						<h2>Chemické zdroje elektrického napětí</h2>
-						<p>Chemický zdroj napětí získáme, když do <strong>elektrolytu</strong> (vodivého roztoku) ponoříme <strong>dvě elektrody z různých materiálů</strong> (kovy, případně uhlík). Chemické reakce přesunou náboj — na jedné elektrodě se hromadí elektrony (záporná), na druhé ubývají (kladná).</p>
-						<ul>
-							<li><strong>Anoda</strong> — u článku, který se vybíjí, je to elektroda <strong>záporná</strong> (zinek, lithium).</li>
-							<li><strong>Katoda</strong> — u vybíjejícího se článku elektroda <strong>kladná</strong> (uhlík/grafit, měď).</li>
-						</ul>
-						<p>⚠️ <strong>Nespojuj si anodu natrvalo se znaménkem mínus.</strong> Názvy se totiž řídí
-						tím, <em>co se na elektrodě děje</em>, ne polaritou — a ta se při jiném ději obrátí:
-						při <strong>elektrolýze i při nabíjení</strong> akumulátoru je anoda <strong>kladná</strong>.
-						Pravidlo „anoda = mínus" tedy platí jen pro článek, který zrovna dodává proud.</p>
-						<h3>Nejznámější články</h3>
-						<ul>
-							<li><strong>Suchý článek</strong> — zinková nádoba (−), uhlíková tyčinka (+), salmiaková pasta; napětí <strong>1,5 V</strong>, jednorázový (v hračkách).</li>
-							<li><strong>Plochá baterie</strong> — tři suché články za sebou, napětí <strong>4,5 V</strong>.</li>
-							<li><strong>Alkalické</strong> — vyšší kapacita a životnost (blesk fotoaparátu).</li>
-							<li><strong>Lithiové</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, záložní baterie na základní desce počítače.</li>
-							<li><strong>Olověný akumulátor</strong> — velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie).</li>
-						</ul>
-						<h3>Uvnitř článku neteče proud elektronů</h3>
-						<p>Tohle je nejdůležitější rozdíl oproti drátu — a zapadá do celého tohoto celku o vedení
-						proudu v různých látkách. <strong>V kovu proud tvoří volné elektrony</strong>, ale
-						<strong>v elektrolytu se pohybují ionty</strong>: nabité částice, které vznikly z rozpuštěné
-						látky. A protože jsou mezi nimi kladné i záporné, putují <strong>oběma směry současně</strong>
-						— každé ke své elektrodě.</p>
-						<p>Obvod se tak skládá ze dvou různých dějů: <strong>vně</strong> článku běží drátem elektrony
-						od záporné elektrody ke kladné, <strong>uvnitř</strong> ho uzavírají ionty v roztoku. Bez toho
-						druhého by se náboj na elektrodách okamžitě nashromáždil a proud by se zastavil.</p>
-						<h3>Napětí článku určuje dvojice kovů</h3>
-						<p>Proč zrovna 1,5 V? Každý kov se snaží posílat elektrony jinak ochotně, a
-						<strong>napětí článku je dané právě tím rozdílem</strong> mezi oběma kovy. Proto:</p>
-						<ul>
-							<li>napětí <strong>nezáleží na velikosti</strong> článku — tužková i buřtová dají 1,5 V;
-							větší jen vydrží déle (<strong>kapacita</strong> v mAh)</li>
-							<li>vyššího napětí se dosáhne <strong>sériovým zapojením</strong>: 3 × 1,5 V = 4,5 V
-							(plochá baterie)</li>
-							<li>ze <strong>dvou stejných materiálů</strong> žádný článek nesestavíš — rozdíl by byl nulový</li>
-						</ul>
-						<p>💡 Vyzkoušej doma: zapíchni do citronu <strong>zinkový</strong> plíšek (postačí
-						pozinkovaný hřebík) a vedle něj <strong>měděný</strong> (kousek drátu nebo mince s velkým
-						podílem mědi), pár milimetrů od sebe, ale tak, aby se nedotýkaly. Přiložením
-						<strong>voltmetru</strong> naměříš kolem <strong>1 V</strong> — citronová šťáva slouží jako
-						elektrolyt. A hlavní pointa téhle stránky: se <em>dvěma měděnými</em> plíšky nenaměříš nic,
-						i kdyby byl citron sebekyselejší.</p>
-						<p>⚠️ Dvě věci k tomu pokusu: napětí měř <strong>měřicím přístrojem, nikdy jazykem</strong> —
-						a <strong>citron už potom nejez</strong>. Do šťávy se z plíšků uvolňují ionty zinku a mědi,
-						které do těla nepatří. Použité plíšky vyhoď a ruce si umyj.</p>
-						<h3>Dnešní akumulátory</h3>
-						<ul>
-							<li><strong>Lithium-iontový</strong> (mobil, notebook, elektromobil) — lehký, velká kapacita,
-							snese stovky nabití. Nemá rád úplné vybití ani vysokou teplotu.</li>
-							<li><strong>Palivový článek</strong> — zvláštní případ: nevybíjí se, protože se do něj
-							palivo (vodík) <strong>průběžně dodává</strong>. Odpadem je čistá voda.</li>
-						</ul>
-						<h3>✏️ Příklady z hodiny</h3>
-						<ol>
-						<li>Kolik tužkových článků (1,5 V) musíš zapojit za sebou, aby vznikla devítivoltová baterie (9 V)? <details><summary>řešení</summary>n = U / U₁ = 9 : 1,5 = <strong>6 článků</strong></details></li>
-						<li>V baterii svítilny jsou za sebou čtyři tužkové články po <strong>1,5 V</strong>. Jaké je celkové napětí zdroje? <details><summary>řešení</summary>U = 4 · 1,5 = <strong>6 V</strong></details></li>
-						<li>Kolik tužkových článků (1,5 V) bys musel zapojit za sebou, abys jejich součtem dosáhl napětí olověného akumulátoru (12 V)? <details><summary>řešení</summary>n = 12 : 1,5 = <strong>8 článků</strong></details></li>
-						<li>Kolik plochých baterií (4,5 V) musíš spojit za sebou, aby dohromady daly napětí 18 V? <details><summary>řešení</summary>n = 18 : 4,5 = <strong>4 ploché baterie</strong></details></li>
-						</ol>
-					`,
-					zapis: {
-						body: [
-							'Chemický zdroj napětí tvoří elektrolyt a dvě elektrody z různých materiálů.',
-							'Chemické reakce vytvoří mezi elektrodami elektrické napětí; u vybíjejícího se článku je anoda záporná a katoda kladná.',
-							'Vně článku proud vedou elektrony v drátu, uvnitř článku se v elektrolytu pohybují kladné i záporné ionty.',
-							'Napětí článku určuje dvojice materiálů, ne jeho velikost; větší článek má větší kapacitu a déle vydrží.',
-							'Sériovým zapojením článků se jejich napětí sčítají.',
-						],
-						vzorec: 'U = n · U₁      (odvozeně: n = U : U₁,  U₁ = U : n)',
-						jednotky: [
-							'celkové napětí U — volt (V)',
-							'napětí jednoho článku U₁ — volt (V)',
-							'počet článků n — bez jednotky',
-							'1 kV = 1 000 V,  1 V = 1 000 mV',
-							'Do vzorce dosazuj obě napětí ve voltech; počet článků je celé číslo.',
-						],
-					},
+					obsah: "<h2>Chemické zdroje elektrického napětí</h2>\n<p>Chemický zdroj napětí vznikne, když do <strong>elektrolytu</strong> (vodivého roztoku) ponoříme <strong>dvě elektrody</strong> z různých kovů, případně z uhlíku. Chemické reakce mezi elektrolytem a elektrodami přesunou náboj. Na jedné elektrodě se hromadí elektrony, na druhé jich ubývá.</p>\n<ul>\n<li><strong>Anoda</strong> — u článku, který se vybíjí, je to elektroda <strong>záporná</strong> (zinek, lithium).</li>\n<li><strong>Katoda</strong> — u vybíjejícího se článku elektroda <strong>kladná</strong> (uhlík/grafit, měď).</li>\n</ul>\n<p>⚠️ <strong>Nespojuj si anodu natrvalo se znaménkem mínus.</strong> Název elektrody se řídí tím, co se na ní děje, ne polaritou. Při elektrolýze i při nabíjení akumulátoru je anoda naopak <strong>kladná</strong>. Pravidlo „anoda = mínus\" platí jen pro článek, který zrovna dodává proud.</p>\n<h3>Co se děje uvnitř článku</h3>\n<p>Uvnitř článku neteče proud stejně jako v drátu. <strong>V kovu proud tvoří volné elektrony</strong>, ale <strong>v elektrolytu se pohybují ionty</strong> — nabité částice z rozpuštěné látky. Kladné i záporné ionty putují <strong>oběma směry současně</strong>, každé ke své elektrodě.</p>\n<p>Obvod tak tvoří dva různé děje. <strong>Vně</strong> článku běží drátem elektrony od záporné elektrody ke kladné. <strong>Uvnitř</strong> ho uzavírají ionty v elektrolytu. Bez toho druhého by se náboj na elektrodách hned nashromáždil a proud by se zastavil.</p>\n<h3>Napětí článku určuje dvojice kovů</h3>\n<p>Proč má tužková baterie zrovna 1,5 V? Každý kov posílá elektrony jinak ochotně a napětí článku je dané právě rozdílem mezi oběma kovy.</p>\n<ul>\n<li>Napětí <strong>nezáleží na velikosti</strong> článku — tužková i buřtová baterie dají 1,5 V, větší jen vydrží déle (<strong>kapacita</strong> v mAh).</li>\n<li>Vyššího napětí dosáhneme <strong>zapojením více článků za sebou</strong> — víc článků za sebou = vyšší napětí (viz níže).</li>\n<li>Ze <strong>dvou stejných kovů</strong> žádný článek nesestavíš — rozdíl mezi nimi by byl nulový.</li>\n</ul>\n<p>💡 Vyzkoušej doma: zapíchni do citronu <strong>zinkový</strong> plíšek (stačí pozinkovaný hřebík) a vedle něj <strong>měděný</strong> plíšek nebo minci. Nech mezi nimi pár milimetrů, ale tak, aby se nedotýkaly. Voltmetrem naměříš kolem <strong>1 V</strong> — citronová šťáva slouží jako elektrolyt. Se dvěma <strong>měděnými</strong> plíšky nenaměříš nic, i kdyby byl citron sebekyselejší.</p>\n<p>⚠️ Napětí měř vždy <strong>měřicím přístrojem, nikdy jazykem</strong>, a citron už potom <strong>nejez</strong>. Do šťávy se z plíšků uvolňují ionty zinku a mědi, které do těla nepatří. Použité plíšky vyhoď a ruce si umyj.</p>\n<h3>Suchý článek a baterie</h3>\n<p>Nejznámější jednorázové zdroje napětí jsou tyto:</p>\n<ul>\n<li><strong>Suchý článek</strong> — zinková nádoba (−), uhlíková tyčinka (+), uvnitř salmiaková pasta; napětí <strong>1,5 V</strong>, jednorázový (v hračkách).</li>\n<li><strong>Plochá baterie</strong> — tři suché články za sebou, napětí <strong>4,5 V</strong>.</li>\n<li><strong>Alkalické</strong> — vyšší kapacita a životnost, zvládnou i velký nárazový odběr (blesk fotoaparátu, MP3 přehrávač).</li>\n<li><strong>Lithiové</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, záložní baterie na základní desce počítače.</li>\n</ul>\n<h3>Akumulátory — zdroje, které se dají nabíjet</h3>\n<p><strong>Akumulátor</strong> je zdroj napětí, který po vybití znovu <strong>nabijeme</strong> a používáme ho opakovaně.</p>\n<ul>\n<li><strong>Olověný akumulátor</strong> — velká kapacita, dobíjecí, napětí <strong>12 V</strong> (autobaterie). Záporná elektroda je z olova, kladnou tvoří olověná mřížka s oxidem olovičitým.</li>\n<li><strong>Lithium-iontový</strong> (mobil, notebook, elektromobil) — lehký, velká kapacita, snese stovky nabití. Nemá rád úplné vybití ani vysokou teplotu.</li>\n<li><strong>Palivový článek</strong> — zvláštní případ: nevybíjí se, protože se do něj palivo (vodík) <strong>průběžně dodává</strong>. Odpadem je čistá voda.</li>\n</ul>\n<h3>Řazení článků za sebou: napětí se sčítá</h3>\n<p>Když zapojíme víc článků <strong>za sebou</strong> (sériově), jejich napětí se sečtou. Plochá baterie má proto 4,5 V — jsou v ní tři tužkové články po 1,5 V.</p>\n<p>Platí to i obráceně: když známe celkové napětí a napětí jednoho článku, spočítáme, kolik článků je za sebou zapojených.</p>\n<h3>Bezpečnost: opotřebovaná baterie může vytéct</h3>\n<p>⚠️ Opotřebovaný zinkový (suchý) článek může začít <strong>vytékat</strong>. Uniklá kyselina může zařízení nevratně poškodit, proto vybité baterie včas vyměňuj.</p>\n<h3>Pro zvídavé: počítáme</h3>\n<ol>\n<li>Kolik tužkových článků (1,5 V) musíš zapojit za sebou, aby vznikla devítivoltová baterie (9 V)? <details><summary>řešení</summary>n = U : U₁ = 9 : 1,5 = <strong>6 článků</strong></details></li>\n<li>V baterii svítilny jsou za sebou čtyři tužkové články po <strong>1,5 V</strong>. Jaké je celkové napětí zdroje? <details><summary>řešení</summary>U = 4 · 1,5 = <strong>6 V</strong></details></li>\n<li>Kolik tužkových článků (1,5 V) bys musel zapojit za sebou, abys jejich součtem dosáhl napětí olověného akumulátoru (12 V)? <details><summary>řešení</summary>n = 12 : 1,5 = <strong>8 článků</strong></details></li>\n<li>Kolik plochých baterií (4,5 V) musíš spojit za sebou, aby dohromady daly napětí 18 V? <details><summary>řešení</summary>n = 18 : 4,5 = <strong>4 ploché baterie</strong></details></li>\n</ol>",
+					zapis: {"vzorec":"U = n · U₁      (odvozeně: n = U : U₁,  U₁ = U : n)","jednotky":["celkové napětí — značíme U, jednotka V (volt)","napětí jednoho článku — značíme U₁, jednotka V (volt)","počet článků — značíme n, bez jednotky (číslo)","Převody: 1 kV = 1 000 V,  1 V = 1 000 mV.","Do vzorce dosazuj obě napětí ve voltech; počet článků je celé číslo."],"vzorecSlovy":"celkové napětí = počet článků krát napětí jednoho článku","body":["zdroj napětí: elektrolyt + dvě elektrody z různých kovů","vybíjení: anoda −, katoda +","vně: elektrony v drátu; uvnitř: ionty v elektrolytu","napětí = dvojice kovů, ne velikost článku","suchý článek 1,5 V; plochá baterie 4,5 V (3 články za sebou)","akumulátor = dobíjecí zdroj (olověný 12 V, lithium-iontový)","sériové řazení: napětí se sčítá (U = n · U₁)"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Chemické zdroje elektrického napětí', cesta: 'wC1cAYJitUk' },
 					],
@@ -4304,29 +4009,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'vedeni-proudu-v-plynech',
 					nazev: 'Vedení elektrického proudu v plynech',
 					interakce: 'jiskra',
-					obsah: `
-						<h2>Vedení elektrického proudu v plynech</h2>
-						<p>Vzduch je za běžných podmínek <strong>špatný vodič</strong>, ale ne dokonalý izolant — nabitý elektroskop se časem sám vybíjí, protože ve vzduchu je malé množství nabitých částic. <strong>Horký vzduch vede mnohem lépe</strong> (plamen svíčky elektroskop vybije rychle).</p>
-						<h3>Ionizace plynu</h3>
-						<ul>
-							<li>Při vysoké teplotě se molekuly rychle srážejí, uvolní se elektron a vznikne <strong>kladný iont</strong>; elektron se přidá k jiné molekule a vznikne <strong>záporný iont</strong>.</li>
-							<li>Vlivem kosmického záření je vzduch ve výšce vodivější (ve 50 km už velmi dobrý vodič).</li>
-						</ul>
-						<h3>Výboje v plynech</h3>
-						<ul>
-							<li><strong>Blesk</strong> (jiskrový výboj) — dlouhý 2–3 km, v kanálu až <strong>20 000–30 000 °C</strong>; hrom vzniká rychlým rozpínáním ohřátého vzduchu. Blesk vidíme dřív, než slyšíme hrom (zvuk je pomalejší). Ochrana: <strong>bleskosvod</strong> (B. Franklin a Prokop Diviš).</li>
-							<li><strong>Elektrický oblouk</strong> — mezi uhlíkovými elektrodami; využití při <strong>svařování</strong> (nutná ochrana zraku).</li>
-							<li><strong>Výboj ve zředěných plynech</strong> — barva světla závisí na plynu; využití: <strong>světelné reklamy</strong>.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Vzduch je za běžných podmínek špatný vodič, ale horký vzduch vede elektrický proud lépe.',
-							'Při ionizaci plynu vznikají volné elektrony a kladné i záporné ionty, které umožňují vedení proudu.',
-							'Blesk je jiskrový výboj; hrom vzniká rychlým rozpínáním vzduchu zahřátého bleskem.',
-							'Elektrický oblouk se používá při svařování a výboje ve zředěných plynech ve světelných reklamách.',
-						],
-					},
+					obsah: "<h2>Vedení elektrického proudu v plynech</h2>\n<p>Vzduch kolem nás je za normálních podmínek <strong>špatný vodič</strong>. Elektrický proud jím skoro neprochází, proto musí spotřebiče vést proud po kabelech. Vzduch ale není dokonalý izolant — je v něm pár nabitých částic, a tak se nabitý elektroskop časem sám pomalu vybije.</p>\n<p>Horký vzduch vede elektřinu mnohem lépe než studený. Když k nabitému elektroskopu přiblížíš hořící svíčku, vybije se rychle. Čím je vzduch teplejší, tím lépe proud vede.</p>\n<h3>Co je ionizace</h3>\n<p>Při vysoké teplotě se molekuly vzduchu pohybují rychle a často do sebe narážejí. Tomuto ději se říká <strong>ionizace</strong> — z molekul se uvolňují elektrony.</p>\n<ul>\n<li>Molekula, která elektron ztratí, se stane <strong>kladným iontem</strong>.</li>\n<li>Molekula, která elektron navíc přijme, se stane <strong>záporným iontem</strong>.</li>\n<li>Vzduch pak vede proud, protože v něm létají volné elektrony i ionty.</li>\n</ul>\n<p>Vzduch se dá zionizovat i jinak než teplem — pomáhá třeba kosmické záření z vesmíru. Proto je vzduch vysoko nad zemí mnohem vodivější než u země. Ve výšce 50 kilometrů je vzduch už velmi dobrý vodič.</p>\n<h3>Jiskrový výboj: blesk</h3>\n<p>Když se ve zionizovaném vzduchu náhle spojí kladný a záporný náboj, vznikne <strong>výboj</strong> — krátký, jasně svítící průchod proudu plynem. Nejznámější jiskrový výboj je <strong>blesk</strong>.</p>\n<p>Blesk vzniká mezi mrakem a zemí nebo mezi dvěma mraky. V bouřkovém mraku se třením kapek a ledových krystalků nabije spodek mraku záporně a vršek kladně. Když napětí mezi mrakem a zemí naroste dost vysoko, vzduch se stane vodivým a proud jím rychle proteče.</p>\n<p>Blesk bývá dlouhý 2 až 3 kilometry. Uvnitř dosahuje teplota až <strong>20 000 až 30 000 °C</strong>. Tahle obrovská teplota prudce ohřeje vzduch, ten se rychle rozepne a vznikne hrom. Blesk vidíme dřív, než hrom uslyšíme, protože světlo letí rychleji než zvuk.</p>\n<p>Proti blesku chrání budovy <strong>bleskosvod</strong> — kovová tyč na střeše, spojená drátem se zemí. Vynalezli ho nezávisle na sobě Benjamin Franklin a český vědec Prokop Diviš. Malé jiskrové výboje využívá také zapalovací svíčka v autě.</p>\n<h3>Obloukový výboj: svařování</h3>\n<p>Elektrický oblouk vznikne mezi dvěma <strong>uhlíkovými elektrodami</strong>, které se nejdřív dotknou a pak mírně oddálí. Mezi nimi vznikne jasně zářící proud rozžhaveného plynu.</p>\n<p>Elektrický oblouk se využívá hlavně při <strong>svařování</strong> kovů, ale i při řezání plechů nebo v pecích na tavení kovu. Jeho světlo je tak jasné, že by mohlo poškodit oči — proto musí ten, kdo svařuje, nosit <strong>ochranné brýle nebo štít</strong>.</p>\n<h3>Výboj ve zředěném plynu: zářivky a neonky</h3>\n<p>Ve skleněné trubici s malým množstvím plynu vznikne při ionizaci <strong>výboj ve zředěném plynu</strong>. Barva světla závisí na tom, jaký plyn je v trubici.</p>\n<p>Tento typ výboje se využívá v <strong>zářivkách</strong> a <strong>doutnavkách</strong>, ale i v barevných světelných reklamách — třeba v neonových nápisech.</p>",
+					zapis: {"body":["vzduch: za normálních podmínek špatný vodič","vzduch není dokonalý izolant","horký vzduch vede proud lépe","ionizace: srážky uvolní elektron","vzniká kladný a záporný iont","kosmické záření vzduch ionizuje","ve 50 km vzduch dobře vodí","jiskrový výboj = blesk","blesk dlouhý 2–3 km","teplota v blesku 20 000–30 000 °C","hrom = rozpínání ohřátého vzduchu","blesk vidíme dřív, než slyšíme hrom","ochrana před bleskem: bleskosvod","oblouk vzniká mezi uhlíkovými elektrodami","oblouk: svařování, řezání, tavení kovů","u oblouku nutné ochranné brýle","zředěný plyn: zářivky, doutnavky","barva výboje závisí na plynu"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak funguje blesk', cesta: 'rTo2z2xTOGk' },
 					],
@@ -4335,36 +4019,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'polovodice-vlastni-vodivost',
 					nazev: 'Polovodiče, vlastní vodivost polovodičů',
 					interakce: 'polovodic',
-					obsah: `
-						<h2>Polovodiče a jejich vlastní vodivost</h2>
-						<p>Nejznámější polovodiče jsou <strong>křemík (Si)</strong> a germanium. Nechovají se ani jako vodič, ani jako izolant — jsou „napůl".</p>
-						<h3>Odpor závisí na teplotě opačně než u kovů</h3>
-						<ul>
-							<li>Kovy: s rostoucí teplotou <strong>roste odpor</strong>.</li>
-							<li>Polovodiče: při nízké teplotě mají <strong>velký odpor</strong> (skoro nevedou), s rostoucí teplotou <strong>odpor klesá a vodivost roste</strong>. Čím teplejší polovodič, tím lepší vodič.</li>
-						</ul>
-						<h3>Vlastní vodivost</h3>
-						<ul>
-							<li>Křemík (IV. skupina) má 4 valenční elektrony a v krystalu tvoří pevné vazby.</li>
-							<li>Zahřátím se elektron vytrhne z vazby → vznikne <strong>volný elektron</strong> a na jeho místě <strong>díra</strong>. Vzniká vždy pár elektron–díra.</li>
-							<li><strong>Díra se chová jako kladná částice</strong> a pohybuje se opačným směrem než elektrony.</li>
-							<li>Proud v polovodiči tvoří pohyb <strong>volných elektronů a děr</strong>.</li>
-						</ul>
-						<h3>Využití</h3>
-						<ul>
-							<li><strong>Termistor</strong> — mění odpor s teplotou (elektronické teploměry, měření vysokých teplot).</li>
-							<li><strong>Fotorezistor</strong> — mění odpor podle osvětlení (fotobuňka, optická závora).</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Nejznámější polovodiče jsou křemík a germanium.',
-							'Při nízké teplotě mají polovodiče velký odpor; s rostoucí teplotou jejich odpor klesá a vodivost roste.',
-							'Zahřátím vzniká vždy pár volný elektron–díra.',
-							'Díra se chová jako kladná částice a pohybuje se opačným směrem než elektrony.',
-							'Elektrický proud v polovodiči tvoří pohyb volných elektronů a děr.',
-						],
-					},
+					obsah: "<h2>Polovodiče a jejich vlastní vodivost</h2>\n<p>Látky podle vedení elektrického proudu dělíme na tři skupiny. <strong>Vodiče</strong> (třeba kovy) proud vedou dobře. <strong>Izolanty</strong> proud nevedou vůbec. A jsou tu ještě <strong>polovodiče</strong> — vedou proud jen za určitých podmínek.</p>\n<p>Nejznámější polovodiče jsou <strong>křemík (Si)</strong> a <strong>germanium</strong>. Nechovají se ani jako vodiče, ani jako izolanty — jsou tak trochu „napůl\".</p>\n<h3>Odpor polovodičů se mění opačně než u kovů</h3>\n<p>U kovů platí: čím vyšší teplota, tím větší odpor a horší vedení proudu. U polovodičů je to přesně naopak.</p>\n<ul>\n<li>Studený polovodič má velký odpor a proud vede jen málo.</li>\n<li>Zahřátý polovodič má malý odpor a proud vede lépe.</li>\n</ul>\n<p>Odpor polovodiče mění i světlo — osvětlený polovodič vede proud lépe než neosvětlený.</p>\n<h3>Jak vzniká vlastní vodivost</h3>\n<p>Křemík má 4 valenční elektrony — to jsou ty nejvíc vnější, kterými je atom pevně spojen se sousedními atomy v krystalu.</p>\n<p>Když se krystal zahřeje, elektron se může vytrhnout z vazby a stane se <strong>volným elektronem</strong>. Na jeho místě zůstane prázdné místo, kterému říkáme <strong>díra</strong>. Vzniká tak vždy dvojice — volný elektron a díra.</p>\n<p>Díra se chová jako kladná částice a pohybuje se opačným směrem než elektrony. Elektrický proud v polovodiči tvoří pohyb volných elektronů i děr — tomu se říká <strong>vlastní vodivost</strong>.</p>\n<h3>Využití: termistor a fotorezistor</h3>\n<p><strong>Termistor</strong> je součástka, jejíž odpor se mění s teplotou. Používá se třeba v elektronických teploměrech nebo tam, kde je potřeba změřit velmi vysokou teplotu.</p>\n<p><strong>Fotorezistor</strong> mění odpor podle osvětlení. Najdeme ho třeba ve fotobuňkách nebo v optických závorách, které počítají procházející věci.</p>",
+					zapis: {"body":["vodič vede, izolant nevede, polovodič vede jen za určitých podmínek","nejznámější polovodiče: křemík (Si), germanium","studený polovodič: velký odpor, špatně vede","teplý polovodič: malý odpor, dobře vede (opak kovů)","odpor mění i osvětlení","křemík: 4 valenční elektrony, pevné vazby v krystalu","zahřátím vzniká vždy pár: volný elektron + díra","díra = kladná částice, pohyb opačně než elektrony","proud v polovodiči = pohyb volných elektronů a děr","termistor: odpor mění teplota (elektronické teploměry)","fotorezistor: odpor mění světlo (fotobuňka, optická závora)"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče pohánějí náš svět', cesta: 'W7V0PBb97eY' },
 					],
@@ -4373,34 +4029,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'polovodice-typu-n-a-p-dioda',
 					nazev: 'Polovodiče typu N a P, dioda',
 					interakce: 'dioda',
-					obsah: `
-						<h2>Polovodiče typu N a P, dioda</h2>
-						<p>Vodivost polovodiče zvýšíme přidáním nepatrné <strong>příměsi</strong> — prvku s jiným počtem valenčních elektronů než křemík. Vznikne <strong>nevlastní polovodič</strong>.</p>
-						<ul>
-							<li><strong>Typ N</strong> (negativní) — příměs z V. skupiny (fosfor, arsen, antimon) má o 1 elektron víc → <strong>volné elektrony navíc</strong>, elektronová vodivost.</li>
-							<li><strong>Typ P</strong> (pozitivní) — příměs z III. skupiny (bor, hliník, galium, indium) má o 1 elektron míň → <strong>díry navíc</strong>, děrová vodivost.</li>
-						</ul>
-						<h3>Přechod PN</h3>
-						<ul>
-							<li><strong>Propustný směr</strong> (N k zápornému, P ke kladnému pólu) — proud <strong>prochází</strong>.</li>
-							<li><strong>Závěrný směr</strong> (obráceně) — proud <strong>neprochází</strong>, polovodič se chová jako vypnutý spínač.</li>
-						</ul>
-						<h3>Součástky s přechodem PN</h3>
-						<ul>
-							<li><strong>Dioda</strong> — propouští proud jen jedním směrem; mění střídavý proud na stejnosměrný. Šipka ve značce udává propustný směr.</li>
-							<li><strong>Fotodioda</strong> — mění světlo na elektřinu; základ fotovoltaických článků.</li>
-							<li><strong>LED (svítivá dioda)</strong> — mění elektřinu na světlo, jen v propustném zapojení; nízká spotřeba, dlouhá životnost.</li>
-							<li><strong>Tranzistor</strong> — dva přechody PN, funguje jako rychlý spínač; základ veškeré elektroniky.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Přidáním nepatrné příměsi do křemíku vznikne nevlastní polovodič s větší vodivostí.',
-							'Polovodič typu N má volné elektrony navíc, polovodič typu P má díry navíc.',
-							'Přechod PN propouští proud v propustném směru, ale v závěrném směru proud neprochází.',
-							'Dioda propouští proud jen jedním směrem; LED v propustném zapojení mění elektřinu na světlo.',
-						],
-					},
+					obsah: "<h2>Polovodiče typu N a P, dioda</h2>\n<p>Polovodič vede elektrický proud líp, když do něj přidáme <strong>příměs</strong> — trošku jiného prvku než křemík. Příměsi stačí opravdu málo. Takovému vylepšenému polovodiči se říká <strong>nevlastní polovodič</strong>.</p>\n<p>Podle toho, jaký prvek přidáme, vznikají dva druhy nevlastních polovodičů: <strong>typ N</strong> a <strong>typ P</strong>. Liší se tím, co mají navíc — buď volné elektrony, nebo volná místa po nich.</p>\n\n<h3>Typ N — elektrony navíc</h3>\n<p>Do křemíku přidáme prvek, který má o jeden elektron víc, třeba fosfor, arsen nebo antimon. Tenhle elektron zůstane volný a může se v krystalu pohybovat.</p>\n<p>Volné elektrony nesou záporný náboj, proto se polovodič jmenuje <strong>typ N</strong> — negativní. Proud jím vedou hlavně volné elektrony. Říká se tomu <strong>elektronová vodivost</strong>, protože proud nesou elektrony.</p>\n\n<h3>Typ P — díry navíc</h3>\n<p>Do křemíku přidáme jiný prvek, kterému naopak jeden elektron chybí, třeba bor, hliník, galium nebo indium. Tam, kde elektron chybí, zůstane prázdné místo — říká se mu <strong>díra</strong>.</p>\n<p>Díra se chová jako kladný náboj, proto se polovodič jmenuje <strong>typ P</strong> — pozitivní. Elektrony z okolí do děr přeskakují, a tak se díra jakoby posouvá dál. Říká se tomu <strong>děrová vodivost</strong>, protože proud nesou díry.</p>\n\n<h3>Přechod PN: proud jen jedním směrem</h3>\n<p>Když v jednom krystalu spojíme typ N s typem P, vznikne mezi nimi <strong>přechod PN</strong>. Podle toho, jak polovodič zapojíme do obvodu, se chová úplně jinak.</p>\n<p>V <strong>propustném směru</strong> proud prochází. V <strong>závěrném směru</strong> proud neprochází vůbec — polovodič se chová jako vypnutý spínač.</p>\n\n<h3>Dioda a její příbuzní</h3>\n<p><strong>Dioda</strong> je součástka s přechodem PN, která propouští proud jen jedním směrem. Šipka ve značce diody ukazuje směr, kterým proud smí procházet.</p>\n<p>Diody se používají jako <strong>usměrňovač</strong> — mění střídavý proud na stejnosměrný. Najdeš je v úplně každém elektronickém zařízení.</p>\n<p>Zvláštní diody umí i další věci. <strong>Fotodioda</strong> mění dopadající světlo na elektřinu. <strong>LED</strong> (svítivá dioda) naopak mění elektřinu na světlo — svítí jen v propustném zapojení, spotřebuje málo energie a vydrží dlouho.</p>\n\n<h3>Tranzistor a čip</h3>\n<p><strong>Tranzistor</strong> má dva přechody PN a funguje jako moc rychlý spínač — buď proud propustí, nebo ne. Tímhle způsobem počítač zpracovává nuly a jedničky.</p>\n<p>Na jedné malé destičce křemíku, které se říká <strong>čip</strong>, je spojeno miliony tranzistorů. Čipy řídí mobily, počítače i auta.</p>",
+					zapis: {"body":["příměs do křemíku → nevlastní polovodič, vyšší vodivost","typ N: elektrony navíc (příměs fosfor, arsen, antimon) → elektronová vodivost","typ P: díry navíc (příměs bor, hliník, galium, indium) → děrová vodivost","přechod PN = styk typu N a typu P","propustný směr: proud prochází","závěrný směr: proud neprochází","dioda: proud jen jedním směrem, usměrňovač","LED (propustný směr): elektřina → světlo"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče — srdce elektroniky', cesta: 'uoLW-OHBDls' },
 					],

@@ -49,3 +49,17 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    „Veličina g se správně nazývá gravitační zrychlení... jednotka N/kg je
    odvozená") přejmenováno na „gravitační zrychlení (často se říká
    gravitační konstanta)". Prosím potvrdit.
+10. **Podtémata „Kladka" a „Nakloněná rovina" (celek `jednoduche-stroje`, F7)**
+    — ve zdrojové složce `/Users/Shared/Škola` neexistuje podklad učitele
+    (PDF ani prezentace) k těmto dvěma podtématům. Přestavba proto vycházela
+    jen z dosavadního obsahu webu, beze srovnání s novým zdrojem. Chce učitel
+    podklad dodat dodatečně, nebo ponechat beze změny?
+
+## 21. 9. 2026 — nález z podkladů F9 (elektricky-proud-v-latkach, 3. celek)
+
+11. **Podtéma „Přenos elektrické energie"** — PDF str. 6 uvádí obecně
+    „Vodiče jsou vyrobeny z mědi (malý elektrický odpor)" bez rozlišení
+    dálkového a domácího vedení. Dosavadní web má u dálkového vedení mezi
+    stožáry hliníkové lano s ocelovým jádrem (fyzikálně správně — hliník je
+    lehčí a levnější, unese delší rozpětí), u domácích rozvodů měď — ponecháno
+    beze změny podle pravidla „dosavadní obsah se nevyřazuje". Prosím potvrdit.
