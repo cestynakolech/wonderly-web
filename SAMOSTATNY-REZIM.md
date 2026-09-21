@@ -147,10 +147,21 @@ procházejí). F9 4. celek `elektricka-energie-a-bezpecnost` HOTOV 2/2
 (`elektricka-energie-a-premeny`, `ucinky-proudu-bezpecnost`). Souhrn:
 F8 celky 1–4 (17), F7 celky 1–4 (16), F9 celky 1–4 (16) = 49 podtémat.
 DALŠÍ: 5. celky — F7 `vztlakova-sila-a-plovani-teles` (2), F8 `elektrina`
-(15), F9 `jaderna-fyzika` (4); hotové návrhy čekají ve scratchpadu
-(chemicke-zdroje-napeti-f8, jaderny-reaktor-elektrarna-f9,
-jaderna-energie-a-reakce-f9, bez kontroly). 8 workerů spadlo na limitu
-API 21. 9. ~17:00, znovu spustit.
+(15), F9 `jaderna-fyzika` (4). 8 workerů spadlo na limitu API 21. 9.
+~17:00, znovu spustit.
+
+**Stav 21. 9. 2026:** F9 5. celek `jaderna-fyzika` HOTOV 4/4 (`jaderna-energie-a-reakce`,
+`jaderny-reaktor-elektrarna`, `jadro-atomu`, `radioaktivita` — vše přes
+`podtema.mjs`, build a `zkontroluj.mjs` procházejí). F8 5. celek `elektrina`
+1/15 zapsáno (`chemicke-zdroje-napeti`), 4 u kontrolorů (náboj, pole, vznik
+proudu, obvody), 4 se píší (proud měření, napětí měření, proud v kovech,
+závislost odporu), 6 čeká. F7 5. celek `vztlakova-sila-a-plovani-teles` 0/2
+(oba na opakované kontrole). Souhrn hotových podtémat: 49 + 4 + 1 = 54.
+Do KE-SCHVALENI.md bod 16: F9 Jaderný reaktor — rozpor „tři vs. dva vodní
+okruhy" mezi dosavadním webem a popisem prezentace, ponecháno dosavadní;
+body 17–19: poločas radonu, relativní atomová hmotnost a odpudivá síla
+230 N (mimo rozsah), chemické zdroje — nepřesnost v PDF u lithiových
+článků a návrh vzorce t = Q : I.
 
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 

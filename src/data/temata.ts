@@ -2826,63 +2826,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'chemicke-zdroje-napeti',
 						interakce: 'galvanicky-clanek',
 						nazev: 'Chemické zdroje elektrického napětí',
-						obsah: `
-							<h2>Chemické zdroje napětí — galvanické články</h2>
-							<p><strong>Galvanický článek</strong> vyrábí napětí <strong>chemickou reakcí</strong>. Do vodivého roztoku (<strong>elektrolytu</strong> — sůl nebo kyselina) se ponoří <strong>dvě elektrody z různých materiálů</strong> — obvykle kovů, ale i uhlík se hodí. Reakce způsobí, že se na jedné elektrodě hromadí elektrony (nabíjí se <strong>záporně</strong>), na druhé jich ubývá (nabíjí se <strong>kladně</strong>) — vzniká napětí.</p>
-							<ul>
-								<li>záporná elektroda: např. zinek, lithium, kadmium</li>
-								<li>kladná elektroda: např. uhlík (grafit) nebo měď</li>
-							</ul>
-							<h3>Nejznámější články</h3>
-							<ul>
-								<li><strong>Suchý článek</strong> — zinková nádoba (−) a uhlíková tyčinka (+), elektrolyt = salmiaková pasta. Napětí <strong>1,5 V</strong>, na jedno použití (hračky). Vybitý může vytéct.</li>
-								<li><strong>Plochá baterie</strong> — tři suché články za sebou → <strong>4,5 V</strong></li>
-								<li><strong>Alkalické články</strong> — větší kapacita a životnost (blesk fotoaparátu)</li>
-								<li><strong>Lithiové články</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, baterie na základní desce počítače</li>
-								<li><strong>Olověný akumulátor</strong> — velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie)</li>
-							</ul>
-							<p><strong>Baterie</strong> = jednorázová (nedobíjecí), <strong>akumulátor</strong> = dobíjecí (opakovaně použitelný).</p>
-						<h3>Proč se baterie vybije</h3>
-						<p>Napětí nevyrábí nic kouzelného — <strong>rozpouští se při něm kov elektrody</strong>.
-						Když se chemické látky uvnitř spotřebují, reakce skončí a napětí zmizí. Proto je baterie
-						vlastně <strong>zásobník chemické energie</strong>: v akumulátoru umí nabíjení reakci
-						obrátit a látky obnovit, v jednorázovém článku ne.</p>
-						<p>Tím se vysvětlí i to, proč vybitý zinkový článek často <strong>vyteče</strong>: nádobka
-						z elektrody je prožraná až skrz a agresivní pasta se dostane ven. Proto se vybité články
-						nenechávají ve spotřebiči — dokážou zničit hračku i dálkový ovladač.</p>
-						<h3>Napětí se sčítá — proto plochá baterie</h3>
-						<p>Jeden suchý článek dá <strong>1,5 V</strong> a víc z něj nedostaneš, protože napětí
-						určuje <strong>dvojice použitých kovů</strong>, ne velikost. Chceš-li víc, musíš články
-						<strong>zapojit za sebou</strong> a napětí se sečte:</p>
-						<ul>
-							<li>plochá baterie = 3 články → 3 · 1,5 V = <strong>4,5 V</strong></li>
-							<li>devítivoltová baterie = 6 článků → 6 · 1,5 V = <strong>9 V</strong></li>
-						</ul>
-						<p>👉 Malá tužková AA a velká buřtová D mají <strong>obě 1,5 V</strong>. Větší článek
-						neznamená větší napětí — znamená, že <strong>vydrží déle</strong>. Tomu se říká
-						<strong>kapacita</strong> a udává se v mAh: článek s kapacitou 2 000 mAh dodá proud
-						2 000 mA po jednu hodinu, nebo 200 mA po deset hodin.</p>
-						<h3>⚠️ Bezpečnost a co s vybitými</h3>
-						<ul>
-							<li><strong>Nikdy nezkratuj</strong> baterii drátem — proud se prudce zvedne a článek
-							se rozpálí. U lithiových to může skončit požárem, proto se nesmí ani propichovat
-							a mačkat (nafouklý článek z mobilu patří rovnou do sběru).</li>
-							<li><strong>Nemíchej staré a nové</strong> články ani různé typy v jednom přístroji:
-							silnější „tlačí" do slabšího a ten může vytéct.</li>
-							<li><strong>Baterie nepatří do koše.</strong> Obsahují těžké kovy, které by se dostaly
-							do půdy a vody. Sběrné nádoby jsou ve školách, obchodech i na obecních úřadech —
-							a kovy z nich se dají použít znovu.</li>
-							</ul>
-							`,
-							zapis: {
-							body: [
-							'Galvanický článek vytváří elektrické napětí chemickou reakcí dvou různých elektrod v elektrolytu.',
-							'Na jedné elektrodě se hromadí elektrony a vzniká záporný pól, na druhé elektrony ubývají a vzniká kladný pól.',
-							'Články zapojené za sebou mají napětí rovné součtu napětí jednotlivých článků.',
-							'Jednorázová baterie se nedobíjí, zatímco akumulátor lze opakovaně nabíjet.',
-							'Vybité baterie nepatří do koše a jejich svorky se nikdy nesmějí zkratovat.',
-							],
-							},
+						obsah: "<h2>Chemické zdroje napětí — galvanické články</h2>\n\n<p>Galvanický článek vyrábí elektrické napětí chemickou reakcí. Do vodivého roztoku, kterému říkáme elektrolyt, se ponoří dvě elektrody z různých materiálů — obvykle kovů, ale i uhlík se hodí. Reakce mezi elektrolytem a elektrodami nabije jednu elektrodu záporně a druhou kladně — vznikne napětí.</p>\n<ul>\n<li>záporná elektroda (nazývá se <strong>anoda</strong>) — např. zinek, lithium, kadmium</li>\n<li>kladná elektroda (nazývá se <strong>katoda</strong>) — např. uhlík (grafit) nebo měď</li>\n</ul>\n<p>Jako elektrolyt slouží vodný roztok silné kyseliny nebo soli, případně hustá pasta se solí rozpuštěnou ve zvláštním rozpouštědle.</p>\n\n<h3>Nejznámější články</h3>\n<ul>\n<li><strong>Suchý článek</strong> — zinková nádoba (anoda) a uhlíková tyčinka (katoda), elektrolyt je salmiaková pasta. Napětí <strong>1,5 V</strong>, na jedno použití (hračky). Vybitý může vytéct.</li>\n<li><strong>Plochá baterie</strong> — tři suché články za sebou → <strong>4,5 V</strong></li>\n<li><strong>Alkalické články</strong> — vyšší kapacita a delší životnost, zvládnou i velký nárazový odběr (blesk fotoaparátu, MP3 přehrávač)</li>\n<li><strong>Lithiové články</strong> (jednorázové) — kvalitní i po letech skladování; hodinky, klíč od auta, baterie na základní desce počítače. (Mobil, fotoaparát a notebook mají jiný typ — dobíjecí <strong>lithium-iontový akumulátor</strong>.)</li>\n<li><strong>Olověný akumulátor</strong> — záporná elektroda z olova, kladná z olověné mřížky s oxidem olovičitým. Velká kapacita, <strong>dobíjecí</strong>, napětí <strong>12 V</strong> (autobaterie)</li>\n</ul>\n<p>Baterie je jednorázová a nedobíjí se. Akumulátor je dobíjecí a použiješ ho opakovaně.</p>\n\n<h3>Proč se baterie vybije</h3>\n<p>Napětí nevzniká z ničeho — při reakci se rozpouští kov elektrody. Když se látky uvnitř spotřebují, reakce skončí a napětí zmizí. Baterie je vlastně zásobník chemické energie.</p>\n<p>V akumulátoru dokáže nabíjení reakci obrátit a látky obnovit, v jednorázovém článku ne. Proto vybitý zinkový článek často vyteče: nádobka je prožraná a agresivní pasta unikne ven. Vybité články proto nenech ve spotřebiči.</p>\n\n<h3>Napětí se sčítá — proto plochá baterie</h3>\n<p>Jeden suchý článek dá 1,5 V a víc z něj nedostaneš — napětí určuje dvojice použitých kovů, ne velikost článku. Chceš-li víc, zapoj články za sebou a napětí se sečte.</p>\n<ul>\n<li>plochá baterie = 3 články → 3 · 1,5 V = <strong>4,5 V</strong></li>\n<li>devítivoltová baterie = 6 článků → 6 · 1,5 V = <strong>9 V</strong></li>\n</ul>\n\n<h3>Kapacita — jak dlouho baterie vydrží</h3>\n<p>Malá tužková AA a velká buřtová D mají obě 1,5 V. Větší článek neznamená větší napětí — znamená, že vydrží déle. Tomu se říká <strong>kapacita</strong> a udává se v mAh.</p>\n<p>Článek s kapacitou 2 000 mAh dodá proud 2 000 mA po dobu jedné hodiny, nebo menší proud 200 mA po deset hodin.</p>\n\n<h3>Bezpečnost a co s vybitými</h3>\n<ul>\n<li>Baterii <strong>nikdy nezkratuj</strong> drátem — proud se prudce zvedne a článek se rozpálí. Lithiový článek se nesmí ani propichovat a mačkat, hrozí požár.</li>\n<li><strong>Nemíchej staré a nové</strong> články ani různé typy v jednom přístroji — silnější tlačí do slabšího a ten může vytéct.</li>\n<li><strong>Baterie nepatří do koše.</strong> Obsahují těžké kovy, které by se dostaly do půdy a vody. Sběrné nádoby jsou ve školách, obchodech i na úřadech a kovy z nich se dají znovu použít.</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Celkové napětí baterie ze stejných článků za sebou spočítáme jako počet článků krát napětí jednoho článku. Devítivoltová baterie má 6 článků po 1,5 V:</p>\n<p>U = n · U₁ = 6 · 1,5 = 9 V</p>",
+							zapis: {"vzorec":"U = n · U₁","jednotky":["celkové napětí baterie — značíme U, jednotka V (volt)","počet článků zapojených za sebou — značíme n, bez jednotky (počet)","napětí jednoho článku — značíme U₁, jednotka V (volt)","kapacita článku — bez značky, jednotka mAh (miliampérhodina)","Převody: 1 Ah = 1 000 mAh."],"vzorecSlovy":"celkové napětí = počet článků krát napětí jednoho článku","body":["galvanický článek: reakce → napětí","elektrody: záporná (anoda), kladná (katoda)","elektrolyt: vodivý roztok nebo pasta","suchý článek: 1,5 V, jednorázový","plochá baterie: 3× 1,5 V = 4,5 V","olověný akumulátor: 12 V, dobíjecí","články za sebou: napětí se sčítá","kapacita v mAh: jak dlouho vydrží","baterie = jednorázová, akumulátor = dobíjecí","nezkratovat, nepropichovat, nemíchat typy","vybité baterie do sběru, ne do koše"]},
 							odkazy: [
 							{ nazev: 'Pokusy: Baterky (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5462-pokusy-baterky' },
 							{ nazev: 'Pokus: Elektřina z ovoce a zeleniny (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5524-pokus-elektrina-z-ovoce-a-zeleniny' },
@@ -3962,56 +3907,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'jadro-atomu',
 					nazev: 'Jádro atomu',
 					interakce: 'izotopy',
-					obsah: `
-						<h2>Jádro atomu</h2>
-						<p>Atom je velice malý (velikost řádově <strong>10⁻¹⁰ m</strong>) a skládá se z <strong>jádra</strong> a <strong>obalu</strong>.</p>
-						<ul>
-							<li><strong>Obal</strong> tvoří <strong>elektrony</strong> — záporně nabité částice. V kovech tvoří volné elektrony elektrický proud.</li>
-							<li><strong>Jádro</strong> tvoří <strong>protony</strong> (kladné) a <strong>neutrony</strong> (bez náboje). Společně se nazývají <strong>nukleony</strong>.</li>
-							<li>Jádro je maličké, ale je v něm soustředěna <strong>téměř všechna hmotnost</strong> atomu.</li>
-							<li>Za normálních podmínek je atom <strong>elektricky neutrální</strong> — počet protonů v jádře a elektronů v obalu je stejný.</li>
-						</ul>
-						<h3>🔬 Jak jsme objevovali atom (modely atomu)</h3>
-						<ul>
-							<li><strong>Daltonův model (1803)</strong> — atom jako malá, nedělitelná kulička; každý prvek má své vlastní atomy</li>
-							<li><strong>Thomsonův model (1897)</strong> — „rozinky v pudinku": J. J. Thomson objevil elektron; atom si představoval jako kladnou hmotu (pudink) s rozptýlenými elektrony (rozinkami)</li>
-							<li><strong>Rutherfordův model (1911)</strong> — pokus s ostřelováním zlaté fólie ukázal, že téměř všechna hmota je v malém kladném <strong>jádře</strong> a elektrony obíhají kolem</li>
-							<li><strong>Bohrův model (1913)</strong> — elektrony obíhají jen po určitých drahách (slupkách) s danou energií, „jako planety kolem Slunce"</li>
-							<li><strong>Moderní kvantový model</strong> — elektron nemá přesnou dráhu; známe jen oblasti (<strong>orbitaly</strong>), kde se nejpravděpodobněji nachází</li>
-						</ul>
-						<p>👉 Každý nový pokus model vylepšil — věda se vyvíjí postupným zpřesňováním.</p>
-						<h3>Popis jádra</h3>
-						<ul>
-							<li><strong>Protonové číslo Z</strong> — počet protonů; <strong>určuje, o jaký prvek jde</strong> (najdeme v periodické tabulce).</li>
-							<li><strong>Nukleonové číslo A</strong> — počet nukleonů (protonů + neutronů); určuje hmotnost jádra.</li>
-							<li>Počet neutronů = <strong>A − Z</strong> (např. uran ²³⁸U: 92 protonů, 238 − 92 = 146 neutronů).</li>
-						</ul>
-						<h3>Izotopy</h3>
-						<p><strong>Izotopy</strong> téhož prvku mají stejné protonové číslo, ale <strong>různé nukleonové číslo</strong> (různý počet neutronů). Mají stejné chemické vlastnosti, ale liší se hmotností a chováním při jaderných reakcích. Např. uhlík ¹²C, ¹³C, ¹⁴C nebo vodík (lehký, deuterium, tritium).</p>
-						<h3>Jaderné síly</h3>
-						<p><strong>Jaderné síly</strong> jsou velmi silné přitažlivé síly, které působí jen na krátkou vzdálenost (uvnitř jádra) a drží nukleony pohromadě — překonávají odpudivou elektrickou sílu mezi protony. Čím je jádro větší, tím je <strong>méně stabilní</strong> a snáz se rozpadá.</p>
-						<h3>Hmotnostní úbytek a E = mc²</h3>
-						<p>Když se protony a neutrony spojí do jádra, výsledné jádro je <strong>lehčí</strong> než součet hmotností všech nukleonů zvlášť. Tomuto rozdílu se říká <strong>hmotnostní úbytek</strong>. Kam ta chybějící hmotnost zmizela? Přeměnila se na energii, která nukleony v jádře drží pohromadě — na <strong>vazebnou energii</strong>. Platí pro to Einsteinův slavný vzorec <strong>E = mc²</strong>, kde m je hmotnostní úbytek a c je rychlost světla. Protože c je obrovské číslo (300 000 km/s) a ve vzorci se navíc umocňuje, i malinký hmotnostní úbytek uvolní <strong>obrovské množství energie</strong> — proto je jaderná energie tak silná ve srovnání s chemickými reakcemi (hořením).</p>
-					`,
-					zapis: {
-						body: [
-							'Atom se skládá z jádra a elektronového obalu; v jádře je soustředěna téměř všechna hmotnost atomu.',
-							'Jádro tvoří kladné protony a neutrony bez náboje, kterým společně říkáme nukleony.',
-							'Protonové číslo Z udává počet protonů a určuje prvek, nukleonové číslo A udává počet protonů a neutronů.',
-							'Izotopy téhož prvku mají stejný počet protonů, ale různý počet neutronů.',
-							'Jaderné síly drží nukleony pohromadě a hmotnostnímu úbytku odpovídá vazebná energie.',
-						],
-						vzorec: 'N = A − Z      (odvozeně: A = N + Z,  Z = A − N)      E = m · c²      (odvozeně: m = E : c²)',
-						jednotky: [
-							'počet neutronů N — bez jednotky',
-							'nukleonové číslo A — počet nukleonů (bez jednotky)',
-							'protonové číslo Z — počet protonů (bez jednotky)',
-							'vazebná energie E — joule (J)',
-							'hmotnostní úbytek m — kilogram (kg)',
-							'rychlost světla c — metr za sekundu (m/s)',
-							'300 000 km/s = 300 000 000 m/s. Do vztahu E = m · c² dosazuj m v kg a c v m/s; energie vyjde v J.',
-						],
-					},
+					obsah: "<h2>Jádro atomu</h2>\n\n<p>Atom je základní stavební částice, ze které je tvořeno úplně všechno kolem nás. Je velmi malý — jeho velikost je řádově 10⁻¹⁰ m, do jednoho milimetru by se jich vešlo 10 milionů za sebou. Každý atom se skládá ze dvou částí: <strong>jádra</strong> uprostřed a <strong>obalu</strong> kolem něj.</p>\n\n<h3>Obal a jádro atomu</h3>\n<p><strong>Obal atomu</strong> tvoří <strong>elektrony</strong> — záporně nabité částice, které se pohybují kolem jádra. Elektrony se dají z atomu snadno uvolnit třením. V kovech se volně pohybují a vytvářejí <strong>elektrický proud</strong>.</p>\n<p><strong>Jádro atomu</strong> tvoří <strong>protony</strong> (kladně nabité) a <strong>neutrony</strong> (bez náboje). Společně se nazývají <strong>nukleony</strong>. Jádro je vzhledem k celému atomu velice malé — je asi stotisíckrát menší než atom sám.</p>\n<p>Přestože je jádro tak malé, je v něm soustředěna <strong>téměř všechna hmotnost atomu</strong>. Proton i neutron váží asi 1 800krát víc než elektron, hmotnost elektronů se proto dá zanedbat.</p>\n<p>Proton a elektron mají náboj stejně velký, jen s opačným znaménkem. Za normálních podmínek je atom <strong>elektricky neutrální</strong> — počet protonů v jádře se rovná počtu elektronů v obalu.</p>\n\n<h3>🔬 Jak jsme objevovali atom (modely atomu)</h3>\n<ul>\n<li><strong>Daltonův model (1803)</strong> — atom jako malá, nedělitelná kulička; každý prvek má své vlastní atomy</li>\n<li><strong>Thomsonův model (1897)</strong> — „rozinky v pudinku\": J. J. Thomson objevil elektron; atom si představoval jako kladnou hmotu (pudink) s rozptýlenými elektrony (rozinkami)</li>\n<li><strong>Rutherfordův model (1911)</strong> — pokus s ostřelováním zlaté fólie ukázal, že téměř všechna hmota je v malém kladném <strong>jádře</strong> a elektrony obíhají kolem</li>\n<li><strong>Bohrův model (1913)</strong> — elektrony obíhají jen po určitých drahách (slupkách) s danou energií, „jako planety kolem Slunce\"</li>\n<li><strong>Moderní kvantový model</strong> — elektron nemá přesnou dráhu; známe jen oblasti (<strong>orbitaly</strong>), kde se nejpravděpodobněji nachází</li>\n</ul>\n<p>👉 Každý nový pokus model vylepšil — věda se vyvíjí postupným zpřesňováním.</p>\n\n<h3>Protonové a nukleonové číslo</h3>\n<p><strong>Protonové číslo Z</strong> udává počet protonů v jádře. Jednoznačně určuje, o jaký chemický prvek jde — každý prvek najdeme v periodické tabulce podle jeho protonového čísla.</p>\n<p><strong>Nukleonové číslo A</strong> udává počet všech nukleonů v jádře, tedy protonů a neutronů dohromady. Určuje hmotnost jádra, a tedy skoro celého atomu.</p>\n<p>Počet neutronů spočítáme jako rozdíl obou čísel: <strong>N = A − Z</strong>. Jádro uranu zapisujeme ²³⁸U — má protonové číslo 92 a nukleonové číslo 238. Počet neutronů proto je 238 − 92 = 146. Atom je neutrální, takže má i 92 elektronů.</p>\n\n<h3>Izotopy</h3>\n<p><strong>Izotopy</strong> jsou různé druhy atomů téhož prvku. Mají stejné protonové číslo, ale <strong>různé nukleonové číslo</strong> — liší se počtem neutronů. Chemické vlastnosti mají stejné, liší se jen hmotností a chováním při jaderných reakcích.</p>\n<p>Například uhlík se v přírodě vyskytuje jako tři izotopy: uhlík ¹²C, uhlík ¹³C a uhlík ¹⁴C. Všechny mají 6 protonů, ale liší se počtem neutronů.</p>\n<p>Zajímavý je i vodík, který má tři izotopy s vlastními jmény. <strong>Lehký vodík</strong> (protium) má 1 proton a žádný neutron. <strong>Deuterium</strong> (těžký vodík) má navíc 1 neutron, je proto dvakrát těžší. <strong>Tritium</strong> (supertěžký vodík) má neutrony dva, v přírodě je vzácné a je radioaktivní.</p>\n\n<h3>Nuklid a značení prvků</h3>\n<p><strong>Nuklid</strong> je skupina úplně stejných atomů — mají stejné protonové i stejné nukleonové číslo. Izotopy uhlíku dohromady tvoří prvek uhlík, ale jeden konkrétní izotop, třeba uhlík 12, je už jeden nuklid.</p>\n<p>Prvek zapisujeme jeho značkou, třeba C pro uhlík nebo U pro uran. Nukleonové číslo píšeme vlevo nahoře vedle značky, protonové číslo vlevo dole.</p>\n<p>Uran s 92 protony a 238 nukleony tak zapíšeme ²³⁸₉₂U. Nuklid uhlíku se 6 protony a 12 nukleony zapíšeme ¹²₆C.</p>\n\n<h3>Jaderné síly</h3>\n<p><strong>Jaderné síly</strong> jsou velmi silné přitažlivé síly, které drží nukleony v jádře pohromadě. Působí jen na velmi krátkou vzdálenost — pouze uvnitř jádra.</p>\n<p>Musí překonat odpudivou elektrickou sílu mezi protony, které se navzájem odpuzují. Čím je jádro větší, tím je méně stabilní a má větší sklon se rozpadnout.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Vztah N = A − Z umíme použít pro libovolné jádro. U uranu (Z = 92, A = 238) vyjde N = 238 − 92 = 146 neutronů. U uhlíku ¹²C (Z = 6, A = 12) vyjde N = 12 − 6 = 6 neutronů. U uhlíku ¹⁴C (Z = 6, A = 14) vyjde N = 14 − 6 = 8 neutronů — proto má víc neutronů a je těžší.</p>\n<p>Když se protony a neutrony spojí do jádra, výsledné jádro je <strong>lehčí</strong> než součet hmotností všech nukleonů zvlášť. Tomuto rozdílu říkáme <strong>hmotnostní úbytek</strong>.</p>\n<p>Chybějící hmotnost se přemění na energii, která nukleony v jádře drží pohromadě — na <strong>vazebnou energii</strong>. Platí pro ni Einsteinův vzorec <strong>E = m · c²</strong>, kde m je hmotnostní úbytek a c je rychlost světla.</p>\n<p>Rychlost světla je obrovské číslo — 300 000 km/s, tedy 300 000 000 m/s — a ve vzorci se navíc umocňuje. Proto i malinký hmotnostní úbytek uvolní obrovské množství energie. Proto je jaderná energie mnohem silnější než energie z hoření (chemických reakcí).</p>",
+					zapis: {"vzorec":"N = A − Z      (odvozeně: A = N + Z,  Z = A − N)      E = m · c²      (odvozeně: m = E : c²)","jednotky":["počet neutronů N — bez jednotky","nukleonové číslo A — počet nukleonů (bez jednotky)","protonové číslo Z — počet protonů (bez jednotky)","vazebná energie E — značíme E, jednotka J (joule)","hmotnostní úbytek m — značíme m, jednotka kg (kilogram)","rychlost světla c — značíme c, jednotka m/s (metr za sekundu)","300 000 km/s = 300 000 000 m/s. Do vztahu E = m · c² dosazuj m v kg a c v m/s; energie vyjde v J."],"vzorecSlovy":"počet neutronů = nukleonové číslo minus protonové číslo; vazebná energie = hmotnostní úbytek krát druhá mocnina rychlosti světla","body":["atom = jádro + obal (elektrony)","jádro = protony (+) a neutrony (0) = nukleony","jádro je asi 100 000× menší než atom","v jádře je téměř celá hmotnost atomu","proton, neutron ≈ 1 800× hmotnost elektronu","atom neutrální: počet protonů = počet elektronů","Z = protonové číslo → určuje prvek","A = nukleonové číslo → počet nukleonů","N = A − Z (počet neutronů)","izotopy: stejné Z, různé A (jiný počet neutronů)","nuklid: stejné Z i stejné A","jaderné síly: krátký dosah, drží jádro pohromadě","hmotnostní úbytek → vazebná energie E = m · c²"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jádro atomu a síly v jádře', cesta: 'gbUMqax9SMs' },
 						{ druh: 'youtube', nazev: 'Video: Atom, iont, izotop', cesta: '5WUfEMAbwQM' },
@@ -4023,40 +3920,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'radioaktivita',
 					nazev: 'Radioaktivita, ochrana před zářením',
 					interakce: 'rozpad',
-					obsah: `
-						<h2>Radioaktivita</h2>
-						<p>Roku <strong>1896</strong> objevil <strong>Henri Becquerel</strong>, že z uranové rudy vychází neviditelné záření. Manželé <strong>Curieovi</strong> zjistili, že má tři složky, a <strong>Rutherford</strong> dokázal, že vychází z jádra atomu.</p>
-						<p><strong>Radioaktivita</strong> je <strong>samovolný rozpad nestabilních jader</strong> — jádra těžších prvků se samovolně mění na jiná a uvolňují <strong>ionizující záření</strong>. Nelze ho nijak ovlivnit. Látky, které záření vydávají, se nazývají <strong>radionuklidy</strong> (uran, radium, radon…).</p>
-						<h3>Druhy záření</h3>
-						<ul>
-							<li><strong>Záření α (alfa)</strong> — proud jader helia (2 protony + 2 neutrony), kladné; protonové číslo se sníží o 2. <strong>Zastaví ho list papíru</strong> (dolet ve vzduchu jen ~5 cm).</li>
-							<li><strong>Záření β (beta)</strong> — proud rychlých elektronů z jádra (neutron se změní na proton a elektron); protonové číslo se zvětší o 1. Zastaví ho <strong>hliníkový plech</strong>.</li>
-							<li><strong>Záření γ (gama)</strong> — elektromagnetické záření s velmi vysokou energií, <strong>nejpronikavější a nejnebezpečnější</strong>; zastaví ho jen silná vrstva <strong>olova nebo betonu</strong>.</li>
-						</ul>
-						<h3>Poločas rozpadu</h3>
-						<p><strong>Poločas rozpadu T</strong> je doba, za kterou se rozpadne <strong>přesně polovina</strong> jader. Různé radionuklidy ho mají různý — uran 238 přes 4,5 miliardy let, radon 222 jen 3,5 dne. Po každém poločasu klesne množství na polovinu.</p>
-						<h3>Využití a ochrana</h3>
-						<ul>
-							<li><strong>Využití:</strong> určování stáří (uhlík ¹⁴C), léčba nádorů ozařováním, detektory kouře, defektoskopie, zdroj energie pro vesmírné sondy.</li>
-							<li><strong>Ochrana:</strong> <strong>stínění</strong> (olovo, beton), <strong>bezpečná vzdálenost</strong> a <strong>zkrácení doby</strong> vystavení. Dávku záření měříme v <strong>sievertech (Sv)</strong> dozimetrem.</li>
-						</ul>
-						<h3>🏠 Radon v domě</h3>
-						<p><strong>Radon</strong> je přírodní radioaktivní plyn, který stoupá z podloží a může pronikat prasklinami do domů. Není vidět ani cítit — pozná se <strong>jen měřením</strong>. V Česku je radonu v podloží hodně (žula), proto se s ním počítá při každé stavbě.</p>
-						<ul>
-							<li><strong>Nechat změřit</strong> — měřicí detektory zjistí, kolik radonu doma je (hádání nestačí)</li>
-							<li><strong>Často větrat</strong> — čerstvý vzduch množství radonu v místnosti snižuje</li>
-							<li><strong>Utěsnit a opravit dům</strong> — uzavřít praskliny v podlaze a odvést radon mimo dům</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Radioaktivita je samovolný rozpad nestabilních jader, při kterém vzniká ionizující záření. Tento rozpad nelze ovlivnit.',
-							'Záření alfa zastaví list papíru, záření beta hliníkový plech a pronikavé záření gama silná vrstva olova nebo betonu.',
-							'Poločas rozpadu je doba, za kterou se rozpadne polovina jader radionuklidu.',
-							'Před zářením se chráníme stíněním, bezpečnou vzdáleností a zkrácením doby vystavení.',
-							'Radon je přírodní radioaktivní plyn, který může pronikat do domů. Jeho množství zjistíme jen měřením a snižujeme ho větráním a utěsněním domu.',
-						],
-					},
+					obsah: "<h2>Radioaktivita, ochrana před zářením</h2>\n\n<p>Roku <strong>1896</strong> objevil francouzský fyzik <strong>Henri Becquerel</strong>, že uranová ruda vydává neviditelné záření. Šlo o rudu zvanou <strong>smolinec</strong> z Jáchymova.</p>\n<p>Manželé <strong>Marie a Pierre Curieovi</strong> ho zpracovali celý vagon a získali jen asi <strong>0,1 gramu</strong> nových prvků polonia a radia. Zjistili také, že záření má <strong>tři složky</strong> — dnes jim říkáme alfa, beta a gama. Později <strong>Ernest Rutherford</strong> dokázal, že záření vychází přímo z jádra atomu.</p>\n<p><strong>Radioaktivita</strong> je <strong>samovolný rozpad nestabilních jader</strong>. Jádra těžších prvků se sama mění na jiná a přitom uvolňují <strong>ionizující záření</strong> — záření, které dokáže z atomů vyrážet elektrony. Člověk tento rozpad nijak neovlivní. Látky, které záření vydávají, nazýváme <strong>radionuklidy</strong> — třeba uran, radium nebo radon.</p>\n\n<h3>Druhy záření a co je zastaví</h3>\n<ul>\n<li><strong>Záření α (alfa)</strong> — proud jader helia (2 protony + 2 neutrony), kladné; protonové číslo se sníží o 2. <strong>Zastaví ho list papíru</strong> (dolet ve vzduchu jen ~5 cm).</li>\n<li><strong>Záření β (beta)</strong> — proud rychlých elektronů z jádra (neutron se změní na proton a elektron); protonové číslo se zvětší o 1. Zastaví ho <strong>hliníkový plech</strong>.</li>\n<li><strong>Záření γ (gama)</strong> — elektromagnetické záření s velmi vysokou energií, <strong>nejpronikavější a nejnebezpečnější</strong>; zastaví ho jen silná vrstva <strong>olova nebo betonu</strong>.</li>\n</ul>\n\n<h3>Poločas rozpadu</h3>\n<p><strong>Poločas rozpadu T</strong> je doba, za kterou se rozpadne <strong>přesně polovina</strong> jader. Různé radionuklidy ho mají různý — uran 238 má poločas asi <strong>4,5 miliardy let</strong>, radon 222 jen <strong>3,5 dne</strong>. Po každém dalším poločasu klesne množství zase na polovinu.</p>\n<p>Uhlík 14 má poločas <strong>5 730 let</strong>. Po této době se přemění přesně polovina uhlíku 14 na dusík. Proto se uhlík 14 používá k <strong>určování stáří</strong> starých nálezů, třeba kostí nebo dřeva.</p>\n\n<h3>Ochrana před zářením</h3>\n<p>Před zářením se chráníme třemi způsoby. <strong>Stínění</strong> hustým materiálem záření pohltí — třeba olovo nebo beton. Pomáhá i <strong>bezpečná vzdálenost</strong> od zdroje a co nejkratší <strong>doba</strong>, kterou u něj strávíme. Dávku záření, kterou tělo přijme, měříme v <strong>sievertech (Sv)</strong> pomocí <strong>dozimetru</strong> — přístroje, který záření zaznamenává.</p>\n\n<h3>🏠 Radon v domě</h3>\n<p><strong>Radon</strong> je přírodní radioaktivní plyn, který stoupá z podloží a může pronikat prasklinami do domů. Není vidět ani cítit — pozná se <strong>jen měřením</strong>. V Česku je radonu v podloží hodně (žula), proto se s ním počítá při každé stavbě.</p>\n<ul>\n<li><strong>Nechat změřit</strong> — měřicí detektory zjistí, kolik radonu doma je (hádání nestačí)</li>\n<li><strong>Často větrat</strong> — čerstvý vzduch množství radonu v místnosti snižuje</li>\n<li><strong>Utěsnit a opravit dům</strong> — uzavřít praskliny v podlaze a odvést radon mimo dům</li>\n</ul>\n\n<h3>Využití radioaktivity</h3>\n<p>Radioaktivita má i užitečné stránky. Lékaři ozařováním léčí nádory a radioaktivitu využívají i přístroje kolem nás.</p>\n<ul>\n<li><strong>určování stáří</strong> (uhlík <sup>14</sup>C)</li>\n<li><strong>léčba nádorů</strong> ozařováním</li>\n<li><strong>detektory kouře</strong></li>\n<li><strong>defektoskopie</strong> — hledání skrytých vad uvnitř materiálu</li>\n<li><strong>zdroj energie</strong> pro vesmírné sondy</li>\n</ul>",
+					zapis: {"jednotky":["poločas rozpadu — značíme T, jednotka s nebo rok (podle radionuklidu)","dávka záření — jednotka Sv (sievert)"],"body":["radioaktivita: samovolný rozpad nestabilních jader","vzniká ionizující záření, nelze ho ovlivnit","záření alfa → zastaví list papíru","záření beta → zastaví hliníkový plech","záření gama → zastaví olovo nebo beton","poločas rozpadu: doba na polovinu jader","ochrana: stínění, vzdálenost, kratší čas","dávka záření se měří v sievertech","využití: určování stáří uhlíkem 14","využití: léčba nádorů, detektory kouře","radon: neviditelný plyn, zjistíme měřením","radon snížíme větráním a utěsněním domu"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Radioaktivita — neviditelná síla', cesta: '8QArttMYsHA' },
 					],
@@ -4065,38 +3930,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'jaderna-energie-a-reakce',
 					nazev: 'Jaderná energie, jaderná reakce',
 					interakce: 'retezova-reakce',
-					obsah: `
-						<h2>Jaderná energie a jaderná reakce</h2>
-						<p><strong>Jaderná energie</strong> je energie „uložená" v jádře atomu. Uvolní se při vhodné jaderné reakci jako pohybová energie unikajících částic a projevuje se hlavně jako <strong>teplo</strong>. (Nesprávně se jí říká „atomová".)</p>
-						<h3>Jaderná reakce</h3>
-						<ul>
-							<li>Je to <strong>vyvolaná přeměna jádra</strong> stabilního prvku — spustí ji srážka s jinou částicí (neutron, proton, α, β). Vždy vzniká <strong>nové jádro jiného prvku</strong>.</li>
-							<li>První jadernou reakci pozoroval <strong>E. Rutherford</strong> (dusík ostřelovaný částicemi α → kyslík).</li>
-							<li><strong>Reakce × radioaktivita:</strong> reakce je vyvolaná přeměna stabilních jader, radioaktivita je <strong>samovolná</strong> přeměna nestabilních jader.</li>
-							<li>Při jaderných reakcích platí <strong>zákon zachování nukleonového i protonového čísla</strong> (součty na obou stranách rovnice jsou stejné).</li>
-						</ul>
-						<h3>Slučování a štěpení jader</h3>
-						<ul>
-							<li><strong>Slučování (fúze)</strong> — lehčí jádra se spojí na těžší, uvolní se obrovská energie; potřebuje <strong>miliony °C</strong> (termonukleární reakce). Probíhá ve <strong>hvězdách</strong> (v jádru Slunce ~15 mil. °C, vodík → helium). Využití: <strong>tokamak</strong>, vodíková bomba.</li>
-							<li><strong>Štěpení</strong> — těžké jádro (uran 235) po zásahu neutronem se rozpadne na dvě lehčí jádra a uvolní další neutrony i obrovskou energii.</li>
-						</ul>
-						<h3>Řetězová reakce</h3>
-						<ul>
-							<li>Uvolněné neutrony štěpí další jádra — vzniká <strong>řetězová reakce</strong> (za podmínky <strong>kritického množství</strong>).</li>
-							<li><strong>Neřízená</strong> — všechny neutrony reagují, energie se uvolní naráz → <strong>atomová bomba</strong>.</li>
-							<li><strong>Řízená</strong> — část neutronů se pohltí → stálý výkon → <strong>jaderný reaktor</strong>.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Jaderná energie je energie uložená v jádře atomu. Při jaderné reakci se uvolňuje hlavně jako teplo.',
-							'Jaderná reakce je vyvolaná přeměna jádra po srážce s jinou částicí, při které vzniká jádro jiného prvku.',
-							'Při fúzi se lehčí jádra slučují na těžší, při štěpení se těžké jádro rozpadá na dvě lehčí jádra.',
-							'Při štěpení uranu 235 se uvolňují neutrony, které mohou štěpit další jádra a vytvořit řetězovou reakci.',
-							'Řízená řetězová reakce probíhá v jaderném reaktoru, neřízená uvolní energii naráz.',
-						],
-						zakon: 'Při jaderných reakcích se zachovává celkový počet nukleonů i celkový počet protonů.',
-					},
+					obsah: "<h2>Jaderná energie, jaderná reakce</h2>\n<p><strong>Jaderná energie</strong> je energie „uložená\" přímo v jádře atomu. Uvolní se při vhodné jaderné reakci a projeví se hlavně jako <strong>teplo</strong>. Lidé jí často říkají „atomová energie\", ale to není přesný název.</p>\n\n<h3>Co je jaderná reakce</h3>\n<p>Jaderná reakce je <strong>vyvolaná přeměna jádra</strong> stabilního prvku. Spustí ji srážka s jinou částicí — neutronem, protonem nebo částicí α či β. Při jaderné reakci vždy vznikne <strong>jádro jiného prvku</strong>, než jaké do reakce vstoupilo.</p>\n<p>Jaderná reakce se liší od radioaktivity: reakci někdo <strong>vyvolá</strong> zásahem částice, radioaktivní rozpad probíhá <strong>samovolně</strong>. První jadernou reakci pozoroval fyzik <strong>E. Rutherford</strong>: ostřeloval dusík částicemi α a vznikl kyslík.</p>\n<p>Při každé jaderné reakci platí <strong>zákon zachování nukleonového i protonového čísla</strong>. Kolik nukleonů (protonů a neutronů) vstoupí do reakce, tolik jich z ní i vystoupí. Stejně tak zůstává stejný i počet protonů.</p>\n\n<h3>Štěpení jádra uranu</h3>\n<p>Při <strong>štěpení</strong> zasáhne neutron těžké jádro, například <strong>uran 235</strong>. Jádro se rozpadne na dvě lehčí jádra (třeba baryum a krypton), uvolní se <strong>další neutrony</strong> a obrovská energie.</p>\n\n<h3>Řetězová reakce</h3>\n<p>Uvolněné neutrony mohou zasáhnout další jádra uranu a rozštěpit je taky. Vznikne <strong>řetězová reakce</strong> — reakce, která sama pokračuje dál a dál. Musí být splněná podmínka <strong>kritického množství</strong> uranu.</p>\n<ul>\n<li><strong>Neřízená řetězová reakce</strong> — všechny neutrony reagují naráz, energie se uvolní během okamžiku → <strong>jaderná bomba</strong>.</li>\n<li><strong>Řízená řetězová reakce</strong> — část neutronů se pohltí, výkon zůstává stálý → <strong>jaderný reaktor</strong>.</li>\n</ul>\n\n<h3>Slučování jader (fúze)</h3>\n<p>Při <strong>fúzi</strong> se naopak dvě lehčí jádra spojí v jedno těžší. Uvolní se přitom ještě větší energie než při štěpení. Fúze potřebuje obrovskou teplotu — <strong>miliony stupňů Celsia</strong>, proto se jí říká termonukleární reakce.</p>\n<p>Fúze probíhá přirozeně ve <strong>hvězdách</strong>. V jádru Slunce je teplota asi <strong>15 milionů °C</strong> a vodík se tam slučuje na helium. Lidé fúzi zkoumají v zařízení zvaném <strong>tokamak</strong>; nezvládnutá fúze pohání i vodíkovou bombu.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Zákon zachování nukleonového a protonového čísla si ověříme na Rutherfordově reakci. Dusík (nukleonové číslo 14, protonové 7) zasáhne částice α (nukleonové 4, protonové 2). Vznikne kyslík (nukleonové 17, protonové 8) a jeden proton (nukleonové 1, protonové 1).</p>\n<p>Nukleonová čísla: 14 + 4 = 18 před reakcí, 17 + 1 = 18 po reakci. Sedí to.</p>\n<p>Protonová čísla: 7 + 2 = 9 před reakcí, 8 + 1 = 9 po reakci. I tady to sedí — počet nukleonů i protonů zůstal stejný.</p>",
+					zapis: {"jednotky":[],"zakon":"Při jaderných reakcích se zachovává celkový počet nukleonů i celkový počet protonů.","body":["jaderná energie: uložená v jádře atomu","reakce: vyvolaná zásahem částice","reakce vyvolaná, radioaktivita samovolná","vzniká jádro jiného prvku","štěpení: uran 235 → dvě jádra","štěpení uvolní další neutrony","neutrony štěpí další jádra: řetězová reakce","neřízená → jaderná bomba","řízená → jaderný reaktor","fúze: lehčí jádra → jedno těžší","fúze ve hvězdách: vodík → helium"]},
 					odkazy: [
 						{ nazev: 'e-manuel.cz: Umělé jaderné reakce (štěpení, fúze)', url: 'https://e-manuel.cz/kapitoly/jaderna-fyzika/vyklad/umele-reakce/' },
 						{ nazev: 'Techmania: Štěpení jader', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/atomy-castice/stepeni-jader' },
@@ -4106,41 +3941,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'jaderny-reaktor-elektrarna',
 					nazev: 'Jaderný reaktor, jaderná elektrárna',
 					interakce: 'reaktor',
-					obsah: `
-						<h2>Jaderný reaktor a jaderná elektrárna</h2>
-						<p><strong>Jaderný reaktor</strong> je zařízení, ve kterém probíhá <strong>řízená řetězová reakce</strong>. Nejrozšířenější je <strong>vodní tlakový reaktor</strong>.</p>
-						<h3>Části reaktoru</h3>
-						<ul>
-							<li><strong>Aktivní zóna</strong> — v ocelové tlakové nádobě, ukrytá v ochranném obalu (<strong>kontejnment</strong> z oceli a betonu) proti úniku záření.</li>
-							<li><strong>Palivo</strong> — obohacený <strong>uran 235</strong> (oxid uraničitý) v tyčích. V 1 kg uranu je energie jako v celém vagonu uhlí.</li>
-							<li><strong>Moderátor</strong> — zpomaluje neutrony na rychlost vhodnou pro štěpení (voda, těžká voda, grafit).</li>
-							<li><strong>Chladivo</strong> — odvádí teplo (voda ~300 °C při vysokém tlaku ~16 MPa, aby zůstala kapalná).</li>
-							<li><strong>Regulační tyče</strong> — pohlcují neutrony (bórová ocel) a řídí výkon; <strong>havarijní tyče</strong> (kadmium) reakci rychle zastaví.</li>
-						</ul>
-						<p>Výkon řídíme zasouváním a vysouváním tyčí: zasunutí hlouběji reakci tlumí, vysunutí zvyšuje.</p>
-						<h3>Jaderná elektrárna</h3>
-						<ul>
-							<li>Funguje podobně jako tepelná, jen teplo pochází z <strong>řízeného štěpení</strong>. Teplo vyrábí páru → pára roztáčí <strong>turbínu s generátorem</strong> → vzniká elektřina.</li>
-							<li>Má <strong>tři oddělené vodní okruhy</strong>: primární (radioaktivní, u reaktoru), sekundární (pára pro turbínu), terciární (chlazení).</li>
-							<li>V ČR vyrábějí elektřinu jaderné elektrárny <strong>Temelín</strong> a <strong>Dukovany</strong>.</li>
-							<li>Reaktory pohánějí i ponorky, ledoborce a kosmické sondy a vyrábějí radiofarmaka pro lékařství.</li>
-						</ul>
-						<h3>Výhody a nevýhody jaderné elektrárny</h3>
-						<p>Stejně jako každý jiný typ elektrárny má i jaderná elektrárna své klady a zápory:</p>
-						<ul>
-							<li><strong>Výhody:</strong> nevznikají skleníkové plyny (do ovzduší uniká jen čistá vodní pára), a je vysoce efektivní — na výrobu stejného množství elektřiny stačí mnohem menší množství paliva než u uhlí.</li>
-							<li><strong>Nevýhody:</strong> „vyhořelé" radioaktivní palivo se musí bezpečně skladovat i tisíce let a teprve se řeší, jak ho dál využít; uran je stejně jako uhlí nebo ropa <strong>neobnovitelný</strong> zdroj; výstavba elektrárny a výroba obohaceného uranu jsou velmi nákladné; a případná havárie může mít <strong>katastrofické následky</strong>.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Jaderný reaktor je zařízení, ve kterém probíhá řízená řetězová reakce.',
-							'Palivo obsahuje uran 235, moderátor zpomaluje neutrony, chladivo odvádí teplo a regulační tyče řídí výkon reaktoru.',
-							'V jaderné elektrárně teplo vytvoří páru, která roztáčí turbínu s generátorem a vzniká elektřina.',
-							'Jaderná elektrárna s vodním tlakovým reaktorem má tři oddělené vodní okruhy: primární, sekundární a terciární.',
-							'Jaderná elektrárna spotřebuje málo paliva, ale vyhořelé radioaktivní palivo se musí dlouhodobě bezpečně skladovat.',
-						],
-					},
+					obsah: "<h2>Jaderný reaktor a jaderná elektrárna</h2>\n\n<p><strong>Jaderný reaktor</strong> je zařízení, ve kterém probíhá <strong>řízená řetězová reakce</strong>. Uvnitř se štěpí jádra uranu a uvolňuje se teplo. Nejrozšířenější typ se jmenuje <strong>vodní tlakový reaktor</strong>.</p>\n<p>Místo, kde reakce probíhá, se nazývá <strong>aktivní zóna</strong>. Je uvnitř silné ocelové <strong>tlakové nádoby</strong>. Kolem celého reaktoru je ještě ochranný obal z oceli a betonu — <strong>kontejnment</strong>. Ten brání tomu, aby záření uniklo ven.</p>\n\n<h3>Palivo a moderátor</h3>\n<p><strong>Palivem</strong> reaktoru je obohacený <strong>uran 235</strong> (oxid uraničitý), slisovaný do tyčí. V jednom kilogramu uranu je tolik energie jako v celém vagonu uhlí.</p>\n<p>Neutrony, které se při štěpení uvolní, jsou moc rychlé na to, aby dobře štěpily další jádra. Proto je v reaktoru <strong>moderátor</strong> — látka, která neutrony zpomalí na vhodnou rychlost. Jako moderátor slouží voda, těžká voda nebo grafit.</p>\n\n<h3>Regulační tyče a chladivo</h3>\n<p><strong>Regulační tyče</strong> jsou z bórové oceli a pohlcují neutrony navíc. Zasunutím hlouběji do aktivní zóny reakci zpomalíme, vysunutím ji zrychlíme — takhle obsluha řídí výkon reaktoru.</p>\n<p>Pro nouzové případy jsou tu ještě <strong>havarijní tyče</strong> z kadmia. Ty dokážou řetězovou reakci rychle úplně zastavit.</p>\n<p><strong>Chladivo</strong> odvádí teplo z aktivní zóny — nejčastěji je to voda. Aby zůstala kapalná i při teplotě kolem 300 °C, je pod velkým tlakem asi 16 MPa (megapascalů, jednotka tlaku).</p>\n\n<h3>Jak vzniká elektřina</h3>\n<p>Jaderná elektrárna funguje podobně jako elektrárna tepelná. Liší se jen v tom, odkud se bere teplo — tady z řízeného štěpení jader, ne ze spalování uhlí.</p>\n<p>Teplo vyrobí páru. Pára roztočí <strong>turbínu</strong> spojenou s <strong>generátorem</strong> a generátor vyrobí elektřinu.</p>\n<p>Voda v elektrárně proudí ve <strong>třech oddělených okruzích</strong>. Primární okruh je radioaktivní a vede přímo u reaktoru. Sekundární okruh vede páru k turbíně a terciární okruh vodu chladí.</p>\n\n<h3>Bezpečnost a jaderný odpad</h3>\n<p><strong>Výhody:</strong> jaderná elektrárna nevypouští do ovzduší skleníkové plyny — uniká z ní jen čistá vodní pára. Je také velmi účinná: na stejné množství elektřiny stačí mnohem méně paliva než u uhelné elektrárny.</p>\n<p><strong>Nevýhody:</strong> použité, „vyhořelé\" palivo zůstává radioaktivní a musí se bezpečně skladovat i tisíce let; teprve se hledá způsob, jak ho dál využít. Uran je stejně jako uhlí nebo ropa <strong>neobnovitelný</strong> zdroj.</p>\n<p>Stavba elektrárny i výroba obohaceného uranu jsou velmi nákladné. A případná havárie by mohla mít <strong>katastrofické následky</strong> — proto reaktor chrání havarijní tyče i kontejnment zároveň.</p>\n\n<h3>Temelín a Dukovany</h3>\n<p>V České republice vyrábějí elektřinu dvě jaderné elektrárny: <strong>Temelín</strong> a <strong>Dukovany</strong>.</p>\n<p>Malé jaderné reaktory pohánějí i ponorky, ledoborce a kosmické sondy. Používají se i k výrobě <strong>radiofarmak</strong> — léků s malým množstvím radioaktivní látky, které lékařům pomáhají vyšetřit tělo.</p>",
+					zapis: {"jednotky":["tlak chladiva — značíme p, jednotka MPa (megapascal); v reaktoru přibližně 16 MPa"],"body":["reaktor: řízená řetězová reakce","typ: vodní tlakový reaktor","palivo: obohacený uran 235","moderátor: zpomaluje neutrony","regulační tyče: řídí výkon (bórová ocel)","havarijní tyče: rychlé zastavení (kadmium)","chladivo: odvádí teplo, voda pod tlakem","elektrárna: teplo → pára → turbína → generátor","tři okruhy: primární, sekundární, terciární","výhody: bez skleníkových plynů, úsporné palivo","nevýhody: odpad na tisíce let, riziko havárie","ČR: Temelín, Dukovany","jinde: ponorky, sondy, radiofarmaka"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak funguje jaderná elektrárna', cesta: 'BJbAvgpwCWc' },
 					],

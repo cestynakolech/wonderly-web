@@ -89,3 +89,22 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     jaderné energii a jadernému reaktoru chybí podklad učitele ve zdrojové
     složce; přestavba by vycházela jen z dosavadního obsahu webu. Chce
     učitel podklad dodat, nebo přestavět beze srovnání se zdrojem?
+16. **Podtéma „Jaderný reaktor, jaderná elektrárna" (F9)** — rozpor počtu
+    okruhů chlazení: dosavadní web uvádí „tři oddělené okruhy" (primární,
+    sekundární, terciární), popis prezentace (snímky 50–51) popisuje jen
+    dva okruhy (primární s reaktorem, sekundární s turbínou/generátorem/
+    kondenzátorem). Ponecháno dosavadní znění „tři okruhy" (pravidlo
+    „dosavadní obsah se nevyřazuje"). Prosím potvrdit, který počet platí.
+17. **F9 Radioaktivita — poločas radonu 222** — web uvádí 3,5 dne, podle
+    kontrolora správná hodnota je 3,8 dne; zdrojový podklad (prezentace)
+    číslo neuvádí, nejde ověřit ani opravit ze zdroje. Ponecháno dosavadní
+    „3,5 dne". Opravit na 3,8 dne, nebo dodat zdroj?
+18. **F9 Jádro atomu** — „relativní atomová hmotnost" (PDF str. 10–11,
+    příklad železa 55,85) a příklad odpudivé síly mezi 2 protony 230 N
+    (PDF str. 12) nejsou zařazeny — mimo zadanou linii výkladu. Přidat jako
+    rozšíření, nebo ponechat mimo?
+19. **F8 Chemické zdroje napětí** — PDF řadí mobil/notebook/fotoaparát mezi
+    jednorázové lithiové články, což je věcně nepřesné (mají dobíjecí
+    lithium-iontový akumulátor); na webu ponecháno správné rozlišení podle
+    dosavadního textu. Navíc navržen vzorec t = Q : I k doplnění kapacity —
+    zatím bez zdroje, nezapsán.

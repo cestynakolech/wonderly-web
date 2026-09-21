@@ -321,3 +321,9 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   Syntaxe: `node podtema.mjs ROOT get|set KLIC [FIELD JSON_FILE]`. Od dneška ZÁVAZNÁ
   cesta pro strojový zápis do `temata.ts`; `@babel/parser` a `esbuild` přidány do devDependencies.
 - Schéma `zapis` rozšířeno o pole `vzorecSlovy` (vzorová přestavba energie F8, viz `SAMOSTATNY-REZIM.md`).
+
+### F9 jaderná fyzika HOTOV 4/4, F8 chemické zdroje napětí zapsáno (2026-09-21)
+- `jadro-atomu`, `radioaktivita` (F9) a `chemicke-zdroje-napeti` (F8, 8. ročník)
+  zapsány přes `podtema.mjs`, `zkontroluj.mjs` i build PASS, dist obsahuje
+  klíčová čísla (146, tři složky, klíč od auta). Nálezy do `KE-SCHVALENI.md`
+  body 17–19.
