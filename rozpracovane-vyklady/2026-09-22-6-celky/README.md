@@ -1,3 +1,5 @@
+STAV 22. 9. 2026 00:20: všech 9 podtémat 6. celků (F7 atmosféra, F8 zvuk, F9 energie a vesmír) zapsáno a nasazeno
+
 # Rozpracované návrhy výkladů — 6 celků, 22. 9. 2026
 
 Co to je: pracovní podklady (výklady k podtématům fyziky a jejich kontroly) pro tři
@@ -17,7 +19,7 @@ nezávislé kontroly (a = první kolo, b = po opravě).
 | `vnimani-zvuku-a-hlasitost` | vyklad-vnimani-zvuku-a-hlasitost-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `zvuk-vznik-a-sireni` | vyklad-zvuk-vznik-a-sireni-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `obnovitelne-a-neobnovitelne-zdroje` | vyklad-obnovitelne-a-neobnovitelne-zdroje-f9.md | ZAPSÁNO 22. 9. 2026 (build OK) |
-| `slunecni-soustava` | vyklad-slunecni-soustava-f9.md | v opravě |
+| `slunecni-soustava` | vyklad-slunecni-soustava-f9.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `vesmir-a-galaxie` | vyklad-vesmir-a-galaxie-f9.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 
 F7 atmosféra a tlak vzduchu: u tří klíčů kontrolor v kole „b" (`kontrola-*-b.md`) buď
