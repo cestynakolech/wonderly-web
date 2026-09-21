@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 9. 2026 — F9 magneticke-pole HOTOV 3/3; indukce-a-stridavy-proud 1/5**
+> ### Poslední stav: **21. 9. 2026 — F7 sily-kolem-nas HOTOV 5/5; F9 indukce-a-stridavy-proud HOTOV 5/5**
+> Druhé celky obou ročníků přestavěny přes `podtema.mjs`, každé podtéma prošlo
+> nezávislým kontrolorem opus. F8 celky 1–4, F7 celky 1–2, F9 celky 1–2 hotové = 32 podtémat.
+> Další dávka: 3. celky F7 (`jednoduche-stroje`) a F9 (`elektricky-proud-v-latkach`).
+>
+> ### Dřívější stav: **21. 9. 2026 — F9 magneticke-pole HOTOV 3/3; indukce-a-stridavy-proud 1/5**
 > F9 `magneticke-pole` (3 podtémata) HOTOV přes `podtema.mjs`, každé prošlo nezávislým
 > kontrolorem. F9 2. celek `indukce-a-stridavy-proud` zapsáno `elektromagneticka-indukce`
 > (1/5), zbytek u kontrolorů. F7 2. celek `sily-kolem-nas` u kontrolorů.

@@ -1587,34 +1587,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'sila',
 					nazev: 'Síla',
 					interakce: 'sila-vektor',
-					obsah: `
-						<h2>Síla</h2>
-						<p><strong>Síla</strong> je fyzikální veličina, která popisuje vzájemné působení těles.</p>
-						<p>Značka veličiny: <strong>F</strong> &nbsp; Jednotka: <strong>N (newton)</strong></p>
-						<p>Síla je určená <strong>velikostí</strong>, <strong>směrem</strong> a <strong>působištěm</strong>, proto ji zakreslujeme pomocí šipky. Velikost šipky odpovídá zvolenému měřítku (např. 1 cm = 1 N).</p>
-
-						<h3>Druhy sil</h3>
-						<ul>
-							<li><strong>Elektrická síla</strong> – např. zelektrizované pravítko přitahuje papírky</li>
-							<li><strong>Magnetická síla</strong> – např. magnet přitahuje železné předměty</li>
-							<li><strong>Gravitační (tíhová) síla</strong> – tělesa se navzájem přitahují, čím větší těleso, tím větší síla</li>
-							<li><strong>Třecí síla</strong> – působí na těleso tažené po podložce</li>
-						</ul>
-						<p>Mezi další síly patří <strong>tahová</strong>, <strong>tlaková</strong> a <strong>vztlaková</strong> síla.</p>
-						<img src="/obrazky/fyzika/7-rocnik/sily-kolem-nas/tahova-sila.png" alt="Jeřáb – příklad tahové síly" />
-
-						<h3>Směr síly a působiště</h3>
-						<p>Směr síly udává směr šipky, <strong>působiště</strong> je bod, ve kterém síla na těleso působí.</p>
-						<p>Podle umístění působiště na tělese může mít síla <strong>posuvné</strong> nebo <strong>otáčivé</strong> účinky.</p>
-					`,
-					zapis: {
-						body: [
-							'Síla je fyzikální veličina, která popisuje vzájemné působení těles.',
-							'Sílu značíme F a její jednotkou je newton (N).',
-							'Síla je určená velikostí, směrem a působištěm, proto ji znázorňujeme šipkou.',
-							'Podle umístění působiště může mít síla posuvný nebo otáčivý účinek.',
-						],
-					},
+					obsah: "<h2>Síla</h2>\n\n<p>Kolem sebe pořád vidíme, jak na sebe tělesa nějak působí: ruka napíná tětivu luku, brankář chytá letící míč, magnet přitahuje hřebík. Tomuto vzájemnému působení těles říkáme <strong>síla</strong>. <strong>Síla</strong> je fyzikální veličina, která popisuje, jak na sebe tělesa navzájem působí.</p>\n\n<p>Síla může s tělesem pohnout, nebo jím otočit. Podle toho, kde na tělese síla působí, má <strong>posuvný</strong>, nebo <strong>otáčivý účinek</strong>.</p>\n\n<h3>Síla jako šipka</h3>\n<p>Síla má tři vlastnosti: <strong>velikost</strong>, <strong>směr</strong> a <strong>působiště</strong> (místo, kde síla na těleso působí). Veličině, která má velikost i směr, se říká <strong>vektor</strong>. Proto sílu kreslíme jako šipku.</p>\n\n<h3>Jednotka a měření síly</h3>\n<p>Sílu značíme <strong>F</strong> a měříme ji v <strong>newtonech (N)</strong>. K měření síly slouží <strong>siloměr</strong> — má uvnitř pružinu, a čím větší síla na siloměr působí, tím víc se pružina natáhne.</p>\n\n<h3>Znázornění síly</h3>\n<p>Sílu kreslíme jako šipku. Začátek šipky je v <strong>působišti</strong>, směr šipky ukazuje <strong>směr síly</strong> a délka šipky ukazuje <strong>velikost síly</strong>.</p>\n<p>Aby šipka nebyla ani moc velká, ani moc malá, zvolíme si <strong>měřítko</strong> — třeba že 1 cm šipky odpovídá síle 1 N. Když kreslíme víc sil najednou, musí mít všechny stejné měřítko.</p>\n\n<h3>Druhy sil</h3>\n<ul>\n<li><strong>Elektrická síla</strong> – například zelektrizované pravítko přitahuje papírky</li>\n<li><strong>Magnetická síla</strong> – například magnet přitahuje železné předměty</li>\n<li><strong>Gravitační (tíhová) síla</strong> – tělesa se navzájem přitahují, čím větší těleso, tím větší síla</li>\n<li><strong>Třecí síla</strong> – působí na těleso tažené po podložce</li>\n</ul>\n<p>Mezi další síly patří <strong>tahová</strong>, <strong>tlaková</strong> a <strong>vztlaková</strong> síla.</p>\n<img src=\"/obrazky/fyzika/7-rocnik/sily-kolem-nas/tahova-sila.png\" alt=\"Jeřáb – příklad tahové síly\" />\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Síla F<sub>1</sub> má velikost 1 kN, což je 1 000 N. Na obrázku ji zakreslíme šipkou dlouhou 5 cm.</p>\n<p>Jaké je to měřítko? 1 cm šipky odpovídá 1 000 : 5 = 200 N.</p>\n<p>Síla F<sub>2</sub> je na stejném obrázku zakreslená šipkou dlouhou 4 cm. Podle stejného měřítka platí:</p>\n<p>F<sub>2</sub> = 4 · 200 = 800 N</p>",
+					zapis: {"jednotky":["síla — značíme F, jednotka N (newton)","Převody: 1 kN = 1 000 N.","Siloměr: měří sílu; čím větší síla na něj působí, tím víc se natáhne jeho pružina."],"body":["síla = vzájemné působení těles","značka F, jednotka N (newton)","posuvný nebo otáčivý účinek","velikost + směr + působiště = vektor","měří siloměr (pružina)","kreslí se šipkou podle měřítka","druhy: elektrická, magnetická, gravitační, třecí, tahová, tlaková, vztlaková"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Síly kolem nás 🎵', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/sila/pisen-sily-kolem-nas.m4a' },
 					],
@@ -1623,56 +1597,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'gravitacni-sila',
 					interakce: 'vrh',
 					nazev: 'Gravitační síla',
-					obsah: `
-						<h2>Gravitační síla</h2>
-						<p>Každé těleso o hmotnosti 1 kg je k Zemi přitahováno silou přibližně 10 N. Tomuto poměru mezi gravitační silou a hmotností říkáme <strong>gravitační konstanta</strong> a značíme ji <strong>g</strong>.</p>
-						<p>Na Zemi platí: <strong>g = 10 N/kg</strong></p>
-						<img src="/obrazky/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila-vzorec.jpg" alt="Vzorec Fg = m . g" />
-
-						<h3>Vzorec</h3>
-						<p><strong>Fg = m · g</strong></p>
-						<ul>
-							<li>m ... hmotnost [kg]</li>
-							<li>Fg ... gravitační síla [N]</li>
-							<li>g ... gravitační konstanta = 10 N/kg</li>
-						</ul>
-						<img src="/obrazky/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila-priklad.jpg" alt="Těleso o hmotnosti 100 g je přitahováno k Zemi silou 1 N" />
-
-						<h3>Příklad: Vypočítej sílu, kterou jsou tělesa přitahována k Zemi</h3>
-						<p><strong>Žehlička</strong> (m = 0,6 kg)<br>
-						Fg = m · g = 0,6 · 10 = <strong>6 N</strong></p>
-						<p><strong>Auto</strong> (m = 1 200 kg)<br>
-						Fg = m · g = 1 200 · 10 = 12 000 N = <strong>12 kN</strong></p>
-						<p><strong>Ocelový nosník</strong> (m = 1,4 t = 1 400 kg)<br>
-						Fg = m · g = 1 400 · 10 = 14 000 N = <strong>14 kN</strong></p>
-
-						<h3>Procvič si</h3>
-						<p>1) Těleso o hmotnosti 40 kg<br>
-						Fg = 40 · 10 = <strong>400 N</strong></p>
-						<p>2) Těleso je k Zemi přitahováno silou 12 kN. Jaká je jeho hmotnost?<br>
-						m = Fg : g = 12 000 : 10 = <strong>1 200 kg</strong></p>
-						<p>3) Těleso je k Zemi přitahováno silou 7 kN. Jaká je jeho hmotnost?<br>
-						m = Fg : g = 7 000 : 10 = <strong>700 kg</strong></p>
-						<p>4) Auto o hmotnosti 1 600 kg<br>
-						Fg = 1 600 · 10 = 16 000 N = <strong>16 kN</strong></p>
-						<p>5) Těleso o hmotnosti 12 t (12 000 kg)<br>
-						Fg = 12 000 · 10 = 120 000 N = <strong>120 kN</strong></p>
-					`,
-					zapis: {
-						body: [
-							'Země přitahuje každé těleso gravitační silou.',
-							'Čím větší má těleso hmotnost, tím větší gravitační silou je přitahováno.',
-							'Na Zemi připadá na každý kilogram hmotnosti přibližně 10 N gravitační síly.',
-							'Poměr gravitační síly a hmotnosti značíme g a na Zemi používáme g = 10 N/kg.',
-						],
-						vzorec: 'Fg = m · g      (odvozeně: m = Fg : g,  g = Fg : m)',
-						jednotky: [
-							'gravitační síla Fg — newton (N)',
-							'hmotnost m — kilogram (kg)',
-							'gravitační konstanta g — newton na kilogram (N/kg), na Zemi g = 10 N/kg',
-							'Převody: 1 kN = 1 000 N, 1 t = 1 000 kg. Do vzorce dosazuj sílu v N, hmotnost v kg a g v N/kg.',
-						],
-					},
+					obsah: "<h2>Gravitační síla</h2>\n<p>Všechna tělesa, která mají hmotnost, se navzájem přitahují. Této síle říkáme <strong>gravitační síla</strong>. Zákony gravitace popsal anglický fyzik Isaac Newton.</p>\n<p>Gravitační síla je vždy přitažlivá, nikdy neodpuzuje. Čím větší mají tělesa hmotnost, tím větší je síla mezi nimi. Mezi planetami a hvězdami jsou proto obrovské gravitační síly. Mezi dvěma tužkami na stole je síla tak malá, že ji vůbec nepoznáme.</p>\n<p>Gravitační síla záleží i na vzdálenosti těles. Čím dál jsou tělesa od sebe, tím je síla menší. Kosmonaut daleko ve vesmíru proto cítí přitažlivost Země jen velmi slabě.</p>\n\n<h3>Gravitační pole Země</h3>\n<p>V okolí Země je <strong>gravitační pole</strong> — prostor, kde Země přitahuje všechna tělesa ke svému středu. Nejsilněji působí u povrchu Země. Čím výš se dostaneme, tím víc slábne.</p>\n<p>Blízko povrchu je Země tak veliká, že směr přitažlivosti vypadá pořád stejně. Gravitační síla proto míří <strong>svisle dolů</strong>. Jablko padá ze stromu rovně dolů a padák s nákladem letí svisle k zemi.</p>\n\n<h3>Vzorec pro gravitační sílu</h3>\n<p>Každé těleso o hmotnosti 1 kg je k Zemi přitahováno silou přibližně 10 N. Tomuto poměru mezi gravitační silou a hmotností říkáme <strong>gravitační zrychlení</strong> (často se mu říká i gravitační konstanta) a značíme ho <strong>g</strong>.</p>\n<p>Na Zemi platí: <strong>g = 10 N/kg</strong></p>\n<img src=\"/obrazky/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila-vzorec.jpg\" alt=\"Vzorec Fg = m . g\" />\n<p><strong>Fg = m · g</strong></p>\n<ul>\n<li>m ... hmotnost [kg]</li>\n<li>Fg ... gravitační síla [N]</li>\n<li>g ... gravitační zrychlení (gravitační konstanta) = 10 N/kg</li>\n</ul>\n\n<h3>Tíha a hmotnost — není to stejné</h3>\n<p>Hmotnost tělesa říká, kolik látky v něm je. Hmotnost zůstává stejná všude — na Zemi, na Měsíci i ve vesmíru.</p>\n<p><strong>Tíha</strong> je vlastně gravitační síla, kterou je těleso přitahováno k planetě. Tíha se podle místa mění, protože gravitační pole je jinde silnější a jinde slabší.</p>\n<p>Na Měsíci je gravitační pole přibližně 6× slabší než na Zemi. Kdyby mělo těleso na Zemi tíhu 60 N, na Měsíci by ho gravitace táhla dolů jen silou 10 N. Proto kosmonauti na Měsíci nadskakují jako v pomalém filmu.</p>\n<p>Když se postavíš na váhu, měří vlastně sílu, kterou tě Země přitahuje. Rovnou ti ale ukáže tvoji hmotnost v kilogramech.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<img src=\"/obrazky/fyzika/7-rocnik/sily-kolem-nas/gravitacni-sila-priklad.jpg\" alt=\"Těleso o hmotnosti 100 g je přitahováno k Zemi silou 1 N\" />\n<p>Fyzikové rozlišují gravitační sílu a tíhovou sílu ještě přesněji. Do tíhové síly se totiž počítá i drobný vliv otáčení Země. Pro naše výpočty na základní škole je rozdíl tak malý, že obě síly počítáme stejně, podle vzorce Fg = m · g.</p>\n<p>My na základní škole počítáme s hodnotou g = 10 N/kg. Přesnější hodnota je g = 9,81 N/kg. Tu se naučíš používat až na střední škole.</p>\n\n<p>Vypočítej sílu, kterou jsou tělesa přitahována k Zemi:</p>\n<p><strong>Žehlička</strong> (m = 0,6 kg)<br>\nFg = m · g = 0,6 · 10 = <strong>6 N</strong></p>\n<p><strong>Auto</strong> (m = 1 200 kg)<br>\nFg = m · g = 1 200 · 10 = 12 000 N = <strong>12 kN</strong></p>\n<p><strong>Ocelový nosník</strong> (m = 1,4 t = 1 400 kg)<br>\nFg = m · g = 1 400 · 10 = 14 000 N = <strong>14 kN</strong></p>\n\n<p>Procvič si:</p>\n<p>1) Těleso o hmotnosti 40 kg<br>\nFg = 40 · 10 = <strong>400 N</strong></p>\n<p>2) Těleso je k Zemi přitahováno silou 12 kN. Jaká je jeho hmotnost?<br>\nm = Fg : g = 12 000 : 10 = <strong>1 200 kg</strong></p>\n<p>3) Těleso je k Zemi přitahováno silou 7 kN. Jaká je jeho hmotnost?<br>\nm = Fg : g = 7 000 : 10 = <strong>700 kg</strong></p>\n<p>4) Auto o hmotnosti 1 600 kg<br>\nFg = 1 600 · 10 = 16 000 N = <strong>16 kN</strong></p>\n<p>5) Těleso o hmotnosti 12 t (12 000 kg)<br>\nFg = 12 000 · 10 = 120 000 N = <strong>120 kN</strong></p>",
+					zapis: {"vzorec":"Fg = m · g      (odvozeně: m = Fg : g,  g = Fg : m)","jednotky":["gravitační síla — značíme Fg, jednotka N (newton)","hmotnost — značíme m, jednotka kg (kilogram)","g — gravitační zrychlení (často se říká gravitační konstanta), jednotka N/kg (newton na kilogram), na Zemi g = 10 N/kg","Převody: 1 kN = 1 000 N, 1 t = 1 000 kg. Do vzorce dosazuj sílu v N, hmotnost v kg a g v N/kg."],"vzorecSlovy":"gravitační síla = hmotnost krát gravitační zrychlení","body":["Fg = m · g","g = 10 N/kg (na Zemi)","gravitační síla míří svisle dolů","u povrchu nejsilnější, s výškou slábne","hmotnost je všude stejná, tíha se mění","na Měsíci je tíha asi 6× menší"]},
 					materialy: [
 					],
 				},
@@ -1680,63 +1606,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'treci-sila',
 					interakce: 'treni',
 					nazev: 'Třecí síla',
-					obsah: `
-						<h2>Třecí síla</h2>
-						<img src="/obrazky/fyzika/7-rocnik/sily-kolem-nas/treci-sila-piktogram.png" alt="Třecí síla – lyžař" />
-						<p><strong>Třecí síla</strong> je síla, která působí proti síle působící na těleso.</p>
-						<ul>
-							<li>Pokud je třecí síla <strong>větší</strong>, těleso zůstává v klidu.</li>
-							<li>Pokud je síla působící na těleso <strong>větší</strong> než třecí síla, těleso se pohybuje.</li>
-						</ul>
-
-						<h3>Vzorec</h3>
-						<p><strong>Ft = Fn · f</strong></p>
-						<ul>
-							<li>Ft ... třecí síla [N]</li>
-							<li>Fn ... normálová síla – přítlačná síla působící kolmo na podložku pod tělesem [N]</li>
-							<li>f ... součinitel tření – závisí na povrchu, drsnosti a druhu materiálu (uveden v tabulkách). V klidu je větší, při pohybu klesá.</li>
-						</ul>
-
-						<h3>Příklad</h3>
-						<p>Vypočti třecí sílu, která vzniká při tlačení ocelového tělesa o hmotnosti 50 kg po dřevěné vodorovné podložce (těleso je už v pohybu, f = 0,4).</p>
-						<p>Výpočet Fg:<br>
-						Fg = m · g = 50 · 10 = 500 N</p>
-						<p>Na vodorovné podložce platí Fg = Fn, tedy Fn = 500 N.</p>
-						<p>Třecí síla:<br>
-						Ft = Fn · f = 500 · 0,4 = <strong>200 N</strong></p>
-
-						<h3>Tření zvětšíme</h3>
-						<ul>
-							<li>zdrsněním povrchu</li>
-							<li>užitím jiných materiálů</li>
-						</ul>
-						<h3>Tření zmenšíme</h3>
-						<ul>
-							<li>úpravou povrchu (hladší)</li>
-							<li>mazáním</li>
-							<li>užitím ložisek</li>
-						</ul>
-
-						<h3>Pozitivní a negativní účinky tření</h3>
-						<p><strong>Výhody:</strong> brzdění, posyp silnic (bezpečnost), psaní po tabuli/papíře</p>
-						<p><strong>Nevýhody:</strong> brzdění (ztráty), zahřívání součástí strojů, odírání styčných ploch</p>
-					`,
-					zapis: {
-						body: [
-							'Třecí síla působí proti síle, která se snaží těleso uvést do pohybu.',
-							'Je-li třecí síla větší, těleso zůstává v klidu; převládne-li působící síla, těleso se pohybuje.',
-							'Tření zvětšujeme zdrsněním povrchu a zmenšujeme vyhlazením, mazáním nebo použitím ložisek.',
-							'Tření umožňuje například brzdění, bezpečný posyp silnic a psaní, ale také zahřívá a opotřebovává součásti.',
-						],
-						vzorec: 'Ft = Fn · f      (odvozeně: Fn = Ft : f,  f = Ft : Fn)',
-						jednotky: [
-							'třecí síla Ft — newton (N)',
-							'normálová síla Fn — newton (N)',
-							'součinitel tření f — bez jednotky',
-							'1 kN = 1 000 N',
-							'Do vzorce dosazuj síly v N; součinitel tření je bez jednotky.',
-						],
-					},
+					obsah: "<h2>Třecí síla</h2>\n<img src=\"/obrazky/fyzika/7-rocnik/sily-kolem-nas/treci-sila-piktogram.png\" alt=\"Třecí síla – lyžař\" />\n<p>Když se dva povrchy o sebe třou, vzniká mezi nimi <strong>tření</strong>. Tření vytváří <strong>třecí sílu</strong>, která brání pohybu tělesa. Třecí síla vždycky míří proti směru, kterým se těleso pohybuje nebo kterým se ho snažíme posunout.</p>\n<p>Pokud je třecí síla větší než síla, kterou na těleso tlačíme, těleso zůstává v klidu. Když je naopak působící síla větší než třecí síla, těleso se dá do pohybu. Tření vzniká proto, že žádný povrch není úplně hladký — má drobné nerovnosti.</p>\n\n<h3>Na čem tření závisí</h3>\n<p>Třecí síla závisí hlavně na drsnosti povrchu a na tom, jak moc těleso tlačí na podložku. Čím drsnější povrchy jsou, tím větší tření vzniká — proto hokejový puk klouže po ledu snadno, ale po betonu skoro vůbec.</p>\n<p>Tření také roste s <strong>přítlačnou silou</strong>: naložený kamion vytváří na vozovce větší tření než prázdný, protože tlačí větší silou dolů.</p>\n\n<h3>Smykové, klidové a valivé tření</h3>\n<p><strong>Smykové tření</strong> vzniká, když se jedno těleso posouvá (smýká) po povrchu druhého — třeba když auto brzdí a kola se přestanou otáčet.</p>\n<p><strong>Klidové tření</strong> působí, když se těleso teprve snažíme rozpohybovat, ale ještě stojí. Je o něco větší než smykové tření a je nejsilnější těsně předtím, než se těleso pohne. Proto je nejtěžší rozjet stojící auto nebo posunout těžkou skříň.</p>\n<p><strong>Valivé tření</strong> vzniká, když se těleso valí po podložce, třeba kolo. Je ze všech tří druhů nejmenší, a proto ho všude, kde to jde, používáme místo smykového — pomocí kol nebo ložisek. Platí, že čím větší kolo, tím menší valivé tření.</p>\n\n<h3>Kdy nám tření pomáhá a kdy naopak vadí</h3>\n<p>Tření je často užitečné. Díky němu chodíme, jedeme na kole, píšeme tužkou po papíře a auta dokážou brzdit. Bez tření by hřebík nedržel ve dřevě a boty by klouzaly po chodníku.</p>\n<p>Jindy nám tření naopak škodí — zvyšuje spotřebu paliva u aut, opotřebovává součástky strojů a zahřívá je. Proto se motory musí promazávat olejem, jinak by se mohly zadřít.</p>\n\n<h3>Jak tření zvětšíme a zmenšíme</h3>\n<p>Tření zvětšíme tak, že povrch uděláme drsnějším — třeba smirkovým papírem, nebo použijeme jiné materiály. V zimě se silnice sypou pískem nebo solí a na kola aut se dávají řetězy, aby auta na ledu lépe brzdila.</p>\n<p>Tření naopak zmenšíme vyhlazením a leštěním povrchu, mazáním olejem nebo vazelínou, nebo použitím kuličkových či válečkových ložisek — mají je třeba kola u jízdního kola nebo in-line brusle. Zajímavost: úplně dokonale vyleštěné plochy k sobě přilnou. Tření se pak paradoxně znovu o kousek zvětší, i když se to v běžném životě skoro nestává.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Třecí sílu spočítáme podle vzorce, kde F<sub>n</sub> je přítlačná síla kolmo na podložku a f je součinitel tření — číslo z tabulky, které záleží na materiálu povrchů:</p>\n<p style=\"font-size:1.3rem\"><strong>F<sub>t</sub> = F<sub>n</sub> · f</strong></p>\n<p>Vypočti třecí sílu, která vzniká při tlačení ocelového tělesa o hmotnosti 50 kg po dřevěné vodorovné podložce. Těleso je už v pohybu, součinitel tření f = 0,35.</p>\n<p>Nejdřív spočítáme tíhovou sílu: F<sub>g</sub> = m · g = 50 · 10 = 500 N. Na vodorovné podložce je přítlačná síla stejně velká jako tíhová, takže F<sub>n</sub> = 500 N.</p>\n<p>Třecí síla je F<sub>t</sub> = F<sub>n</sub> · f = 500 · 0,35 = <strong>175 N</strong>.</p>",
+					zapis: {"vzorec":"Fₜ = Fₙ · f      (odvozeně: Fₙ = Fₜ : f,  f = Fₜ : Fₙ)","jednotky":["třecí síla — značíme Fₜ, jednotka N (newton)","přítlačná (normálová) síla — značíme Fₙ, jednotka N (newton)","součinitel tření — značíme f, bez jednotky (číslo z tabulky)","1 kN = 1 000 N","Do vzorce dosazuj síly v N; součinitel tření je bez jednotky."],"vzorecSlovy":"třecí síla = přítlačná síla krát součinitel tření","body":["Fₜ = Fₙ · f","tření míří proti pohybu tělesa","závisí na drsnosti povrchu a přítlačné síle","větší tření = těleso stojí, větší síla = pohyb","tři druhy: smykové, klidové, valivé","klidové tření je největší, valivé nejmenší","pomáhá: chůze, brzdění, psaní, posyp silnic","vadí: opotřebení, zahřívání, ztráty energie","zvětšíme drsností povrchu","zmenšíme leštěním, mazáním, ložisky"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Třecí síla', cesta: '7JG_JbKRw70' },
 					],
@@ -1745,34 +1616,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'skladani-sil',
 					interakce: 'skladani-sil',
 					nazev: 'Skládání sil',
-					obsah: `
-						<h2>Skládání sil</h2>
-						<img src="/obrazky/fyzika/7-rocnik/sily-kolem-nas/skladani-sil.png" alt="Skládání sil – přetahování o krabici" />
-						<p>Pokud na těleso působí více sil, můžeme je nahradit jednou <strong>výslednicí sil</strong>, která má na těleso stejný účinek.</p>
-
-						<h3>Síly stejného směru</h3>
-						<p>Pokud síly F₁ a F₂ působí ve <strong>stejném směru</strong>, jejich výslednice se sčítá:</p>
-						<p><strong>F = F₁ + F₂</strong></p>
-
-						<h3>Síly opačného směru</h3>
-						<p>Pokud síly F₁ a F₂ působí proti sobě (<strong>opačným směrem</strong>), jejich výslednice se odečítá:</p>
-						<p><strong>F = F₁ − F₂</strong></p>
-						<p>Výsledná síla má směr té větší ze sil. Pokud jsou síly stejně velké a míří proti sobě, jsou v <strong>rovnováze</strong> a výslednice je nulová – těleso zůstává v klidu (např. přetahování lanem, kdy ani jedno družstvo nevyhrává).</p>
-					`,
-					zapis: {
-						body: [
-							'Více sil působících na těleso můžeme nahradit jedinou výslednicí se stejným účinkem.',
-							'Síly stejného směru sčítáme.',
-							'Síly opačného směru odčítáme a výslednice má směr větší síly.',
-							'Jsou-li dvě opačné síly stejně velké, jsou v rovnováze a jejich výslednice je nulová.',
-						],
-						vzorec: 'stejný směr: F = F₁ + F₂      opačný směr: F = F₁ − F₂',
-						jednotky: [
-							'výsledná síla F — newton (N)',
-							'síly F₁ a F₂ — newton (N)',
-							'Převod: 1 kN = 1 000 N. Do vztahů dosazuj všechny síly v N.',
-						],
-					},
+					obsah: "<h2>Skládání sil</h2>\n<img src=\"/obrazky/fyzika/7-rocnik/sily-kolem-nas/skladani-sil.png\" alt=\"Skládání sil – přetahování o krabici\" />\n<p>Na těleso může působit víc sil najednou. Všechny tyto síly můžeme nahradit jednou jedinou silou, která má na těleso stejný účinek. Říkáme jí <strong>výslednice sil</strong>. Hledání výslednice se nazývá <strong>skládání sil</strong>.</p>\n<p>Nejdřív se podíváme na síly, které působí ve stejném místě tělesa.</p>\n\n<h3>Síly stejného směru</h3>\n<p>Když síly F<sub>1</sub> a F<sub>2</sub> míří <strong>stejným směrem</strong>, jejich výslednici sčítáme:</p>\n<p><strong>F = F<sub>1</sub> + F<sub>2</sub></strong></p>\n<p>Třeba dva psi táhnou saně stejným směrem. První silou 30 N, druhý silou 50 N. Výsledná síla je 30 + 50 = 80 N.</p>\n\n<h3>Síly opačného směru</h3>\n<p>Když síly F<sub>1</sub> a F<sub>2</sub> míří <strong>proti sobě</strong>, jejich výslednici odečítáme:</p>\n<p><strong>F = F<sub>1</sub> − F<sub>2</sub></strong></p>\n<p>Výsledná síla má vždycky směr té větší síly. Třeba dva psi se tahají o kost. Jeden táhne silou 30 N doleva, druhý silou 50 N doprava. Výsledná síla je 50 − 30 = 20 N a míří doprava.</p>\n\n<h3>Rovnováha sil</h3>\n<p>Když jsou dvě opačné síly stejně velké, jejich výslednice je nulová. Říkáme, že síly jsou v <strong>rovnováze</strong>.</p>\n<p>Tak je to třeba při přetahování lanem: obě družstva táhnou silou 4 500 N, ale opačným směrem. Lano se nikam nehýbe, protože výsledná síla je 0 N.</p>\n<p>Síly v rovnováze těleso nerozpohybují, ale mohou ho přesto <strong>deformovat</strong> – třeba natáhnout pružinu, přetrhnout lano nebo rozbít hrnek.</p>\n\n<h3>Různoběžné síly</h3>\n<p>Síly někdy nemíří ani stejným, ani přesně opačným směrem – říkáme jim <strong>různoběžné</strong>. Takové síly nemůžeme jednoduše sečíst ani odečíst. Jejich výslednici na základní škole určujeme jen graficky, pomocí kreslení.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Různoběžné síly umíme složit nakreslením <strong>rovnoběžníku</strong>. Z konců obou šipek F<sub>1</sub> a F<sub>2</sub> vedeme pomocné čáry rovnoběžné s tou druhou silou. Výslednice F vede ze společného počátku do místa, kde se čáry protnou.</p>\n<p>Dva psi táhnou saně. První táhne pořád rovně silou F<sub>1</sub> = 40 N, druhý uhne stranou a táhne silou F<sub>2</sub> = 30 N. Síly nakreslíme v měřítku 1 cm = 10 N. F<sub>1</sub> jako úsečku 4 cm, F<sub>2</sub> jako úsečku 3 cm.</p>\n<p>Když sestrojíme rovnoběžník a změříme úhlopříčku, vyjde F = 65 N.</p>",
+					zapis: {"vzorec":"stejný směr: F = F₁ + F₂      opačný směr: F = F₁ − F₂","jednotky":["výsledná síla — značíme F, jednotka N (newton)","jednotlivé síly — značíme F₁ a F₂, jednotka N (newton)","Převod: 1 kN = 1 000 N. Do vztahů dosazuj všechny síly v N."],"vzorecSlovy":"stejný směr: výsledná síla je součet obou sil; opačný směr: výsledná síla je rozdíl obou sil","body":["Víc sil nahradíme jednou výslednicí se stejným účinkem.","Stejný směr: síly sčítáme.","Opačný směr: síly odčítáme, výslednice míří jako větší síla.","Stejně velké opačné síly = rovnováha, F = 0.","I v rovnováze se těleso může deformovat.","Různoběžné síly neskládáme sčítáním ani odčítáním, ale kreslením."]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Skládání sil', cesta: 'GWJnn_4_zHc' },
 						{ druh: 'audio', nazev: 'Poslech: jak složit síly do jedné výslednice 🎧', cesta: '/materialy/fyzika/7-rocnik/sily-kolem-nas/skladani-sil/audio-pravidlo-rovnobezniku.mp3' },
@@ -1782,31 +1627,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'teziste',
 					interakce: 'teziste',
 					nazev: 'Těžiště',
-					obsah: `
-						<h2>Těžiště</h2>
-						<img src="/obrazky/fyzika/7-rocnik/sily-kolem-nas/teziste.png" alt="Těžiště nákladního auta" />
-						<p><strong>Těžiště</strong> je bod tělesa, ve kterém si můžeme představit soustředěnou veškerou hmotnost tělesa a ve kterém působí jeho celková tíhová síla.</p>
-						<p>U pravidelných souměrných těles (koule, krychle, kvádr) leží těžiště ve středu souměrnosti. U nepravidelných těles ho zjišťujeme zavěšením tělesa na niti – těžiště leží na svislici procházející bodem závěsu.</p>
-
-						<h3>Poloha těžiště a stabilita</h3>
-						<p>Čím níže a čím blíže ke středu podstavy se těžiště tělesa nachází, tím je těleso <strong>stabilnější</strong> a hůře se převrací.</p>
-						<p>Proto mají např. nákladní auta, jeřáby nebo soutěžní vozy snahu mít těžiště co nejníže – sníží se tím riziko převrácení.</p>
-
-						<h3>Druhy rovnovážné polohy</h3>
-						<ul>
-							<li><strong>Stabilní</strong> – po vychýlení se těleso vrátí zpět do původní polohy (těžiště se při vychýlení zvedá)</li>
-							<li><strong>Labilní</strong> – po vychýlení se těleso nevrátí, převrátí se do jiné polohy (těžiště při vychýlení klesá)</li>
-							<li><strong>Volná (indiferentní)</strong> – těleso zůstává v jakékoli nové poloze (těžiště zůstává ve stejné výšce, např. valící se koule)</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Těžiště je bod tělesa, ve kterém si můžeme představit soustředěnou jeho hmotnost a ve kterém působí celková tíhová síla.',
-							'U pravidelných souměrných těles leží těžiště ve středu souměrnosti. U nepravidelných těles ho můžeme určit zavěšením na niti.',
-							'Čím níže a blíže ke středu podstavy těžiště leží, tím je těleso stabilnější.',
-							'Rovnovážná poloha může být stabilní, labilní nebo volná.',
-						],
-					},
+					obsah: "<h2>Těžiště</h2>\n<img src=\"/obrazky/fyzika/7-rocnik/sily-kolem-nas/teziste.png\" alt=\"Těžiště nákladního auta\" />\n<p><strong>Těžiště</strong> je bod tělesa, ve kterém si můžeme představit soustředěnou celou jeho hmotnost. V těžišti také působí celková tíhová síla tělesa. Značíme ho písmenem T. Každé těleso má vždy jen jedno těžiště.</p>\n\n<h3>Kde leží těžiště u pravidelných těles</h3>\n<p>U pravidelných těles, jako je koule, krychle nebo kvádr, leží těžiště přesně uprostřed — ve středu souměrnosti.</p>\n<p>Podobně je to u těles souměrných podle osy, třeba váza, kuželka nebo hruška. Jejich těžiště leží přímo na této ose.</p>\n<p>Těžiště nemusí ležet uvnitř tělesa. U obruče nebo podkovy leží těžiště v prázdném prostoru uprostřed.</p>\n\n<h3>Jak těžiště najdeme (zavěšení, těžnice)</h3>\n<p>U nepravidelných těles zjistíme těžiště pokusem. Zavěsíme těleso na niť a počkáme, až se ustálí.</p>\n<p>Těžiště leží přesně pod bodem závěsu, na svislé čáře. Tato čára se nazývá <strong>těžnice</strong>.</p>\n<p>Když těleso zavěsíme za jiný bod, dostaneme druhou těžnici. Těžiště leží tam, kde se těžnice protnou.</p>\n<p>Stejné slovo těžnice se používá i u trojúhelníku. Těžnice spojuje vrchol se středem protější strany. Těžiště trojúhelníku leží v průsečíku všech tří těžnic.</p>\n<p>U nepravidelných těles záleží poloha těžiště na tom, kde je nejvíc hmoty. Těžiště je blíž té části, která je těžší.</p>\n\n<h3>Rovnovážné polohy: stálá, vratká, volná</h3>\n<p>Když těleso vychýlíme z klidu, může se chovat třemi různými způsoby. Podle toho rozlišujeme tři druhy rovnovážné polohy.</p>\n<ul>\n<li><strong>Stálá</strong> (také stabilní) – po vychýlení se těžiště zvedne. Těleso se samo vrátí zpátky.</li>\n<li><strong>Vratká</strong> (také labilní) – po vychýlení těžiště klesne. Těleso se převrátí do jiné polohy.</li>\n<li><strong>Volná</strong> (také indiferentní) – těžiště zůstává pořád stejně vysoko. Těleso zůstane v každé nové poloze, třeba valící se koule.</li>\n</ul>\n\n<h3>Stabilita: nízké těžiště, široká podstava</h3>\n<p><strong>Stabilita</strong> znamená, jak dobře těleso odolává převrácení. Čím níž a čím blíž ke středu podstavy těžiště leží, tím je těleso stabilnější.</p>\n<p>Stabilitu zvýší i širší podstava. Proto se vysoké stožáry kotví lany co nejdál od paty.</p>\n<p>Záleží i na tvaru tělesa. Širší základna dole a nízké těžiště dělají těleso stabilnější — třeba komíny jsou dole široké a nahoře úzké.</p>\n<p>Proto mají nákladní auta, jeřáby nebo soutěžní vozy těžiště co nejníže. Sníží se tím riziko převrácení.</p>\n\n<h3>Těžiště kolem nás</h3>\n<p>Stabilita je důležitá ve stavebnictví. Vysoké budovy i věže potřebují mít těžiště nízko a uprostřed podstavy.</p>\n<p>Těžiště lidského těla se mění podle polohy. S rovnováhou musí umět pracovat gymnasté, artisté nebo skokani na lyžích.</p>\n<p>I brankář při chytání míče rozkročí nohy a přikrčí se. Sníží si tím těžiště a lépe udrží rovnováhu.</p>",
+					zapis: {"body":["těžiště T = bod, kde je soustředěná celá hmotnost tělesa","v těžišti působí tíhová síla tělesa","pravidelná tělesa (koule, krychle, kvádr): těžiště ve středu souměrnosti","osově souměrná tělesa: těžiště na ose souměrnosti","nepravidelná tělesa: najdeme zavěšením na niti, těžiště = průsečík těžnic","stabilita: nižší těžiště a širší podstava = stabilnější těleso","stálá poloha: těžiště se zvedá, těleso se vrátí zpět","vratká poloha: těžiště klesá, těleso se převrátí","volná poloha: těžiště zůstává stejně vysoko (např. valící se koule)"]},
 					materialy: [
 					],
 				},
@@ -4257,35 +4079,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'pusobeni-pole-na-vodic-elektromotor',
 					nazev: 'Působení magnetického pole na vodič s proudem, elektromotor',
 					interakce: 'elektromotor',
-					obsah: `
-						<h2>Působení magnetického pole na vodič s proudem</h2>
-						<p>Vodič nebo cívka s proudem se chová jako magnet — proto na něj <strong>magnetické pole působí silou</strong>.</p>
-						<h3>Magnetická síla na vodič</h3>
-						<ul>
-							<li><strong>Směr síly</strong> závisí na orientaci indukčních čar (pólů) a na <strong>směru proudu</strong> ve vodiči (určíme <strong>Flemingovým pravidlem levé ruky</strong>).</li>
-							<li><strong>Velikost síly</strong> je tím větší, čím větší je proud.</li>
-							<li>Největší síla působí na vodič <strong>kolmý</strong> k indukčním čarám; na vodič <strong>rovnoběžný</strong> s nimi nepůsobí síla žádná.</li>
-						</ul>
-						<h3>Cívka v magnetickém poli</h3>
-						<p>Na cívku, která se může otáčet mezi póly magnetu, působí <strong>dvojice sil, které ji roztáčejí</strong>. Čím víc závitů, tím větší síla. Tento jev využívá <strong>reproduktor, ampérmetr</strong> a hlavně <strong>elektromotor</strong>.</p>
-						<h3>Elektromotor</h3>
-						<ul>
-							<li>Mění <strong>elektrickou energii na mechanickou (pohybovou)</strong>.</li>
-							<li><strong>Stator</strong> — vnější pevná část s magnety nebo elektromagnety.</li>
-							<li><strong>Rotor (kotva)</strong> — otáčející se část s cívkami uvnitř.</li>
-							<li><strong>Stejnosměrný motor</strong> potřebuje <strong>komutátor</strong> — dělený kroužek s kartáčky, který každou půlotočku obrátí směr proudu v cívce, aby se rotor točil stále dál.</li>
-							<li>Využití: vysavač, výtah, elektromobil, elektrické nářadí, tramvaje, hračky.</li>
-					</ul>
-					`,
-					zapis: {
-						body: [
-							'Na vodič nebo cívku s proudem působí v magnetickém poli síla.',
-							'Směr síly závisí na směru proudu a orientaci magnetického pole; určíme ho Flemingovým pravidlem levé ruky.',
-							'Na otáčivou cívku působí dvojice sil, které ji roztáčejí.',
-							'Elektromotor mění elektrickou energii na mechanickou a skládá se z pevného statoru a otáčivého rotoru.',
-							'Komutátor ve stejnosměrném motoru každou půlotočku obrací směr proudu v cívce.',
-						],
-					},
+					obsah: "<h2>Působení magnetického pole na vodič s proudem, elektromotor</h2>\n\n<h3>Síla na vodič v magnetickém poli</h3>\n<p>Vodič nebo cívka s proudem se chová jako magnet. Proto na ně magnetické pole působí <strong>silou</strong>. Síla je největší, když vodič leží kolmo na siločáry pole.</p>\n<p>Když je vodič rovnoběžný se siločarami, síla na něj nepůsobí vůbec. Čím větší proud vodičem teče, tím větší je i síla.</p>\n\n<h3>Směr síly — pravidlo levé ruky</h3>\n<p>Směr síly zjistíme <strong>Flemingovým pravidlem levé ruky</strong>. Necháme siločáry vstupovat do levé dlaně a prsty natočíme ve směru proudu ve vodiči. Palec nám pak ukáže směr síly, kterou pole na vodič působí.</p>\n\n<h3>Cívka se roztáčí</h3>\n<p>Cívku upevníme tak, aby se mohla volně otáčet mezi póly magnetu. Na jednu stranu závitu působí síla jedním směrem, na druhou stranu opačným — proud tam totiž teče opačně. Tahle dvojice sil cívku roztočí.</p>\n<p>Čím víc závitů má cívka, tím je otáčivá síla větší. Tento jev využívá třeba <strong>reproduktor</strong> nebo <strong>ampérmetr</strong> — a hlavně z něj vznikl elektromotor.</p>\n\n<h3>Elektromotor</h3>\n<p><strong>Elektromotor</strong> je stroj, který mění elektrickou energii na pohybovou. Skládá se ze dvou hlavních částí.</p>\n<p><strong>Stator</strong> je pevná vnější část s magnety nebo elektromagnety. <strong>Rotor</strong>, kterému se říká také kotva, je vnitřní část, která se otáčí a má jednu nebo víc cívek.</p>\n<p>Aby se rotor točil pořád dokola, potřebuje stejnosměrný motor ještě <strong>komutátor</strong>. Je to kovový prstenec rozdělený na dvě části. Otáčí se spolu s rotorem a dotýkají se ho kartáčky spojené se zdrojem proudu. Po každé půlotočce komutátor obrátí směr proudu v cívce, a proto se rotor netočí jen kousek, ale stále dál.</p>\n\n<h3>Motory a jejich využití</h3>\n<p>Elektromotory napájíme buď stejnosměrným proudem, třeba z baterie, nebo střídavým proudem ze zásuvky. Motory na střídavý proud dělíme na jednofázové — pohánějí třeba pračku nebo ventilátor — a třífázové, které roztáčejí velké stroje v továrnách.</p>\n<p>Elektromotor najdeme skoro všude: ve vysavači, výtahu, elektromobilu, elektrickém nářadí, tramvaji i v hračkách.</p>",
+					zapis: {"body":["vodič/cívka s proudem = magnet → pole na něj působí silou","síla největší kolmo na siločáry, nulová rovnoběžně s nimi","větší proud → větší síla","směr síly: Flemingovo pravidlo levé ruky","otáčivá cívka: dvojice sil ji roztáčí, víc závitů = větší síla","využití otáčení: reproduktor, ampérmetr, elektromotor","elektromotor: elektrická energie → pohybová energie","stator = pevná část s magnety, rotor (kotva) = otáčivá část s cívkou","komutátor: po každé půlotočce obrátí proud v cívce rotoru","motory: stejnosměrné (baterie) i střídavé (síť) — jednofázové, třífázové","využití: vysavač, výtah, elektromobil, nářadí, tramvaj, hračky"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Jak se točí elektromotory', cesta: 'Hi-Tc84eglY' },
 						{ druh: 'infografika', nazev: 'Infografika: Jak se točí elektromotor', cesta: '/materialy/fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor/infografika-elektromotor.png' },
@@ -4307,34 +4102,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'vznik-stridaveho-proudu-alternator',
 					nazev: 'Vznik střídavého proudu, alternátor',
 					interakce: 'alternator',
-					obsah: `
-						<h2>Vznik střídavého proudu a alternátor</h2>
-						<p>Při pohybu magnetu u cívky se indukuje proud a napětí. Protože <strong>směr pohybu určuje směr proudu</strong>, při otáčení se proud pravidelně obrací. Takovému proudu říkáme <strong>střídavý proud</strong> — odebíráme ho ze zásuvky.</p>
-						<p>Graf střídavého proudu ukazuje, jak jeho velikost <strong>kolísá mezi nulou a maximem</strong> a jak se mění směr (opačný směr = záporná hodnota).</p>
-						<h3>Alternátor</h3>
-						<ul>
-							<li>Je to <strong>elektrický generátor</strong> — točivý stroj, který vyrábí <strong>střídavý proud</strong> na principu elektromagnetické indukce.</li>
-							<li>Přeměňuje <strong>pohybovou (rotační) energii na elektrickou</strong>.</li>
-							<li>Největší napětí se indukuje tehdy, když se pole v závitu mění <strong>nejrychleji</strong>. <strong>Kroužky</strong> zajišťují kontakt s otáčející se cívkou.</li>
-						</ul>
-						<h3>Rotor a stator</h3>
-						<ul>
-							<li><strong>Rotor</strong> — otáčející se část, vytváří proměnlivé magnetické pole (magnet nebo elektromagnet).</li>
-							<li><strong>Stator</strong> — pevná část s cívkami, kde se indukuje napětí. Tři cívky = <strong>třífázové napětí</strong> (vyrábí se v elektrárnách).</li>
-							<li>Kdybychom místo kroužků použili <strong>komutátor</strong>, získáme stejnosměrný proud — takový generátor je <strong>dynamo</strong>.</li>
-						</ul>
-						<h3>Kde se využívá</h3>
-						<p>V <strong>automobilu</strong> (za jízdy nabíjí akumulátor), v <strong>elektrocentrále</strong> (záložní zdroj) a ve <strong>všech elektrárnách kromě solárních</strong> — turbína roztáčí rotor alternátoru.</p>
-					`,
-					zapis: {
-						body: [
-							'Při pohybu magnetu u cívky se indukuje proud a napětí; při otáčení se směr proudu pravidelně obrací.',
-							'Střídavý proud mění svou velikost i směr a odebíráme ho ze zásuvky.',
-							'Alternátor je generátor, který elektromagnetickou indukcí mění rotační energii na elektrickou energii.',
-							'Rotor je otáčející se část vytvářející proměnlivé magnetické pole, stator je pevná část s cívkami, v nichž se indukuje napětí.',
-							'Alternátory se používají v automobilech, elektrocentrálách a elektrárnách kromě solárních.',
-						],
-					},
+					obsah: "<h2>Vznik střídavého proudu a alternátor</h2>\n\n<p>V cívce se indukuje proud, když se u ní pohybuje magnet. Směr pohybu magnetu určuje směr indukovaného proudu. Když se magnet u cívky otáčí, proud se pravidelně obrací.</p>\n<p>Proudu, který takhle mění svůj směr, říkáme <strong>střídavý proud</strong>. Právě ten teče z běžné zásuvky.</p>\n\n<h3>Graf střídavého proudu</h3>\n<p>Velikost střídavého proudu <strong>kolísá mezi nulou a maximem</strong>. Když proud teče opačným směrem, zapisujeme ho jako <strong>zápornou hodnotu</strong>. Proto graf střídavého proudu stoupá nahoru i klesá pod nulu.</p>\n\n<h3>Alternátor — stroj, který vyrábí střídavý proud</h3>\n<p><strong>Alternátor</strong> je elektrický generátor. Je to točivý stroj, který vyrábí střídavý proud pomocí elektromagnetické indukce. Mění pohybovou (otáčivou) energii na energii elektrickou.</p>\n<p>Napětí se indukuje nejvíc ve chvíli, kdy se magnetické pole u cívky mění nejrychleji. Otáčející se cívku spojují s obvodem <strong>kroužky</strong>.</p>\n\n<h3>Rotor a stator</h3>\n<ul>\n<li><strong>Rotor</strong> je otáčející se část alternátoru. Vytváří proměnlivé magnetické pole — je to magnet nebo elektromagnet.</li>\n<li><strong>Stator</strong> je pevná (nehybná) část s cívkami. Právě v jeho cívkách se indukuje napětí.</li>\n<li>Má-li stator jednu cívku, vzniká jednofázové napětí. Má-li tři cívky, vzniká <strong>třífázové napětí</strong> — to se vyrábí v elektrárnách.</li>\n</ul>\n\n<h3>Alternátor a dynamo</h3>\n<p>Kroužky zajišťují pohyblivý kontakt obvodu s otáčející se cívkou — směr proudu mění samo otáčení cívky v magnetickém poli. Kdybychom místo kroužků použili <strong>komutátor</strong> (rozdělený kroužek), proud by měnil jen svou velikost, ne směr. Takový generátor se jmenuje <strong>dynamo</strong> a vyrábí stejnosměrný proud.</p>\n\n<h3>Kde se alternátor a dynamo používají</h3>\n<p>Alternátor pracuje v <strong>automobilu</strong> — za jízdy nabíjí akumulátor, ze kterého jede veškerá elektřina v autě. Najdeme ho i v <strong>elektrocentrále</strong>, kde spalovací motor roztáčí rotor a vyrábí náhradní elektřinu tam, kde není zásuvka, nebo když vypadne proud.</p>\n<p>Alternátor vyrábí proud i ve <strong>všech elektrárnách kromě solárních</strong> — turbína poháněná vodou, větrem nebo párou v nich roztáčí rotor alternátoru.</p>\n<p>Menší generátor, dynamo, znáš třeba z <strong>jízdního kola</strong> nebo ze starší svítilny. Otáčením se v něm vyrábí proud pro světlo.</p>",
+					zapis: {"body":["magnet u cívky → indukovaný proud, otáčení mění směr","střídavý proud: mění velikost i směr, ze zásuvky","alternátor: otáčivá energie → elektrická (indukcí)","rotor = otáčí se (magnet), stator = stojí (cívky)","3 cívky statoru → třífázové napětí (elektrárny)","komutátor místo kroužků → dynamo (stejnosměrný proud)","alternátor: auto, elektrocentrála, elektrárny; dynamo: kolo"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Příběh střídavého proudu (generátor)', cesta: '3Y_USuTTVbw' },
 					],
@@ -4343,115 +4112,15 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'vlastnosti-stridaveho-proudu',
 					nazev: 'Vlastnosti střídavého proudu',
 					interakce: 'stridavy-proud',
-					obsah: `
-						<h2>Vlastnosti střídavého proudu</h2>
-						<p>Při rovnoměrném otáčení cívky v magnetickém poli vzniká <strong>pravidelně proměnné napětí</strong> a obvodem teče proud se stejným průběhem. Zdrojem je nejčastěji <strong>zásuvka</strong>. Elektrony ve vodiči přitom <strong>opakovaně mění směr</strong> podle polarity zdroje.</p>
-						<h3>Perioda a frekvence</h3>
-						<ul>
-							<li>Grafem střídavého proudu je <strong>sinusoida</strong>.</li>
-							<li><strong>Perioda T</strong> — nejkratší doba, za kterou se průběh opakuje (= doba jedné otočky cívky); jednotka <strong>sekunda (s)</strong>.</li>
-							<li><strong>Frekvence f</strong> — počet period za sekundu (= počet otoček cívky za sekundu); jednotka <strong>hertz (Hz)</strong>. Platí <strong>f = 1 / T</strong>.</li>
-						</ul>
-						<h3>Maximální a efektivní hodnota</h3>
-						<ul>
-							<li><strong>Maximální hodnota</strong> (I<sub>m</sub>, U<sub>m</sub>) — největší velikost proudu nebo napětí během periody; nastává dvakrát za periodu — jednou v jednom směru a jednou v opačném.</li>
-							<li><strong>Efektivní hodnota</strong> (I, U) — odpovídá stejnosměrnému proudu se <strong>stejnými účinky</strong>; právě tu měří přístroje. Je rovna zhruba <strong>70 % maximální hodnoty</strong>.</li>
-						</ul>
-						<h3>Výkon a síť</h3>
-						<p>Výkon se počítá z efektivních hodnot: <strong>P = U · I</strong>. V rozvodné síti používáme napětí s efektivní hodnotou <strong>230 V</strong> a frekvencí <strong>50 Hz</strong>.</p>
-					
-						<p>Proud v síti se stokrát za sekundu na okamžik vynuluje, a přesto žárovka nebliká: vlákno
-							je tak rozžhavené, že za tu setinu sekundy nestihne vychladnout — a naše oko by tak
-							rychlou změnu stejně nepostřehlo.</p>
-						<h3>🧮 Co ta čísla ze zásuvky znamenají</h3>
-						<p>Obě si můžeš snadno rozebrat:</p>
-						<ul>
-							<li><strong>50 Hz</strong> → perioda <em>T</em> = 1 : <em>f</em> = 1 : 50 = <strong>0,02 s</strong>,
-							tedy <strong>20 milisekund</strong> na jednu otočku cívky v alternátoru. Za tu dobu
-							projde napětí nulou <em>dvakrát</em> — proto těch stokrát za sekundu.</li>
-							<li><strong>230 V</strong> je hodnota <strong>efektivní</strong>, ne největší. Maximum
-							z ní dostaneš vynásobením koeficientem <strong>1,4</strong>: 230 · 1,4 =
-							<strong>322 V</strong>. Přesnější koeficient je √2 ≈ 1,41, a s ním vyjde
-							skutečná špička napětí v zásuvce asi <strong>325 V</strong>.
-							Právě proto se u součástek hlídá, jaké napětí <em>vydrží</em> — a proto je
-							zásuvka ještě nebezpečnější, než se podle čísla 230 zdá.</li>
-						</ul>
-						<h3>Proč vůbec střídavý, když stejnosměrný je jednodušší?</h3>
-						<p>Odpověď je jediná a velmi praktická: <strong>střídavé napětí umí transformátor měnit</strong>
-						nahoru a dolů, stejnosměrné ne. A to je pro rozvod elektřiny všechno.</p>
-						<p>Vedení totiž ztrácí energii zahříváním drátů, a ztráty rostou <strong>s proudem</strong>
-						(ne s napětím). Elektrárna proto napětí <strong>vytransformuje nahoru</strong> na stovky
-						kilovoltů — tím při stejném výkonu <em>klesne proud</em> a vedení skoro netopí — a před
-						domem se zase <strong>sníží na 230 V</strong>. Bez střídavého proudu by dálkový přenos
-						elektřiny nebyl možný a elektrárna by musela stát v každém městě.</p>
-						<h3>✏️ Příklady z hodiny</h3>
-						<ol>
-							<li>Cívka alternátoru se otáčí s frekvencí <strong>25 Hz</strong>. Jak dlouho trvá jedna otočka (perioda)? <details><summary>řešení</summary>T = 1 / f = 1 / 25 = <strong>0,04 s</strong> (40 milisekund)</details></li>
-							<li>Perioda střídavého proudu je <strong>0,01 s</strong>. Jaká je jeho frekvence? <details><summary>řešení</summary>f = 1 / T = 1 / 0,01 = <strong>100 Hz</strong></details></li>
-							<li>Na cívce naměříme <strong>maximální napětí 140 V</strong>. Jaké napětí ukáže voltmetr (efektivní hodnota)? <details><summary>řešení</summary>Voltmetr ukazuje efektivní hodnotu: U = U<sub>m</sub> / 1,4 = 140 / 1,4 = <strong>100 V</strong></details></li>
-							<li>Elektrickým vařičem v zásuvce (230 V) prochází proud <strong>2 A</strong>. Jaký je jeho výkon? <details><summary>řešení</summary>P = U · I = 230 · 2 = <strong>460 W</strong></details></li>
-						</ol>`,
-					zapis: {
-						body: [
-							'Střídavý proud pravidelně mění svou velikost i směr a jeho grafem je sinusoida.',
-							'Perioda T je nejkratší doba, za kterou se průběh opakuje, a frekvence f udává počet period za sekundu.',
-							'Maximální hodnota je největší velikost proudu nebo napětí během periody; efektivní hodnota odpovídá stejnosměrnému proudu se stejnými účinky.',
-							'V rozvodné síti je efektivní napětí 230 V a frekvence 50 Hz.',
-							'Výkon střídavého proudu počítáme z efektivních hodnot napětí a proudu.',
-						],
-						vzorec: 'f = 1 : T      (odvozeně: T = 1 : f)      P = U · I      (odvozeně: U = P : I,  I = P : U)',
-						jednotky: [
-							'frekvence f — hertz (Hz)',
-							'perioda T — sekunda (s)',
-							'výkon P — watt (W)',
-							'napětí U — volt (V)',
-							'proud I — ampér (A)',
-							'Převody: 1 kHz = 1 000 Hz, 1 ms = 0,001 s, 1 kW = 1 000 W. Do vztahů dosazuj periodu v s, frekvenci v Hz, napětí ve V a proud v A.',
-						],
-					},
+					obsah: "<h2>Vlastnosti střídavého proudu</h2>\n\n<p>Z baterky teče proud pořád jedním směrem. Říkáme mu <strong>stejnosměrný</strong>. Ze zásuvky ale teče jiný proud — pravidelně mění velikost i směr. Říkáme mu <strong>střídavý</strong>. Vzniká otáčením cívky v magnetickém poli, jako u alternátoru.</p>\n\n<h3>Perioda a frekvence</h3>\n<p>Když zakreslíme, jak se proud v čase mění, dostaneme pravidelnou vlnovku. Fyzikové jí říkají <strong>sinusoida</strong>. Elektrony ve vodiči přitom opakovaně mění směr podle toho, jak se cívka zrovna otáčí.</p>\n<p>Vlnovka se pořád stejně opakuje. Nejkratší doba, za kterou se jedna vlna zopakuje, se jmenuje <strong>perioda</strong>. Značíme ji <strong>T</strong> a měříme v sekundách. Je to zároveň doba jedné otočky cívky v alternátoru.</p>\n<p>Kolik takových otoček proběhne za jednu sekundu, tomu říkáme <strong>frekvence</strong>. Značíme ji <strong>f</strong> a měříme v hertzích (Hz). Platí vztah <strong>f = 1 : T</strong> — čím kratší perioda, tím vyšší frekvence.</p>\n\n<h3>50 hertzů v síti</h3>\n<p>V naší rozvodné síti má proud frekvenci přesně <strong>50 Hz</strong>. Cívka v alternátoru se otočí padesátkrát za sekundu. Proud se proto stokrát za sekundu na okamžik vynuluje — a přesto žárovka nebliká. Vlákno je tak rozžhavené, že za tak krátkou chvíli nestihne vychladnout, a naše oko by tak rychlou změnu stejně nepostřehlo.</p>\n\n<h3>Maximální a efektivní hodnota</h3>\n<p>Proud i napětí se pořád mění, a tak fyzikové zavedli dvě důležité hodnoty. <strong>Maximální hodnota</strong> (I<sub>m</sub>, U<sub>m</sub>) je největší velikost proudu nebo napětí. Nastane dvakrát za periodu, jednou v každém směru.</p>\n<p><strong>Efektivní hodnota</strong> (I, U) je taková velikost stejnosměrného proudu, který má stejné účinky. Je zhruba <strong>70 %</strong> maximální hodnoty. V naší síti má napětí efektivní hodnotu <strong>230 V</strong>.</p>\n<p>Právě efektivní hodnotu ukazují měřicí přístroje jako voltmetr — okamžitou hodnotu totiž nedokážou sledovat. Výkon spotřebiče počítáme z efektivních hodnot napětí a proudu: <strong>P = U · I</strong>.</p>\n\n<h3>Proč vůbec střídavý proud?</h3>\n<p>Stejnosměrný proud by byl jednodušší. Střídavé napětí ale umí <strong>transformátor</strong> snadno zvýšit i snížit, stejnosměrné ne.</p>\n<p>Vedení ztrácí energii zahříváním drátů a ztráty rostou s proudem. Elektrárna proto napětí zvýší až na stovky kilovoltů. Proud tím klesne a vedení skoro netopí. Před domem se napětí zase sníží na 230 V. Bez střídavého proudu by dálkový přenos elektřiny nebyl možný a elektrárna by musela stát v každém městě.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Ze vzorce f = 1 : T spočítáme, jak dlouho trvá jedna otočka cívky při frekvenci 50 Hz:</p>\n<p>T = 1 : f = 1 : 50 = <strong>0,02 s</strong>, tedy 20 milisekund.</p>\n<p>Maximální napětí spočítáme z efektivní hodnoty vynásobením číslem <strong>1,4</strong>: 230 · 1,4 = <strong>322 V</strong>. Přesnější číslo je odmocnina ze dvou (asi 1,41) a s ní vyjde skutečná špička napětí v zásuvce asi <strong>325 V</strong>. Proto se u součástek hlídá, jaké napětí vydrží — a zásuvka je nebezpečnější, než se podle čísla 230 V zdá.</p>\n\n<h3>Příklady z hodiny</h3>\n<ol>\n<li>Cívka alternátoru se otáčí s frekvencí <strong>25 Hz</strong>. Jak dlouho trvá jedna otočka (perioda)? <details><summary>řešení</summary>T = 1 : f = 1 : 25 = <strong>0,04 s</strong> (40 milisekund)</details></li>\n<li>Perioda střídavého proudu je <strong>0,01 s</strong>. Jaká je jeho frekvence? <details><summary>řešení</summary>f = 1 : T = 1 : 0,01 = <strong>100 Hz</strong></details></li>\n<li>Na cívce naměříme <strong>maximální napětí 140 V</strong>. Jaké napětí ukáže voltmetr (efektivní hodnota)? <details><summary>řešení</summary>Voltmetr ukazuje efektivní hodnotu: U = U<sub>m</sub> : 1,4 = 140 : 1,4 = <strong>100 V</strong></details></li>\n<li>Elektrickým vařičem v zásuvce (230 V) prochází proud <strong>2 A</strong>. Jaký je jeho výkon? <details><summary>řešení</summary>P = U · I = 230 · 2 = <strong>460 W</strong></details></li>\n</ol>",
+					zapis: {"vzorec":"f = 1 : T      (odvozeně: T = 1 : f)      P = U · I      (odvozeně: U = P : I,  I = P : U)","jednotky":["perioda — značíme T, jednotka s (sekunda)","frekvence — značíme f, jednotka Hz (hertz)","napětí — značíme U, jednotka V (volt)","proud — značíme I, jednotka A (ampér)","výkon — značíme P, jednotka W (watt)","Do vzorců dosazuj periodu v sekundách, frekvenci v hertzích, napětí ve voltech a proud v ampérech.","Převody: 1 kHz = 1 000 Hz, 1 ms = 0,001 s, 1 kW = 1 000 W."],"vzorecSlovy":"frekvence se rovná jedné děleno periodou; výkon se rovná napětí krát proud","body":["střídavý proud: graf je sinusoida, mění velikost i směr","T = perioda — doba jedné otočky cívky (s)","f = frekvence — počet otoček za sekundu (Hz), f = 1 : T","Im, Um = maximální hodnota; efektivní hodnota = co ukazují přístroje (~70 % maxima)","síť: napětí 230 V (efektivní), frekvence 50 Hz","výkon: P = U · I"]},
 				},
 				{
 					slug: 'transformator',
 					nazev: 'Transformátor',
 					interakce: 'transformator',
-					obsah: `
-						<h2>Transformátor</h2>
-						<p><strong>Transformátor</strong> slouží k přenosu elektrické energie a zároveň ke <strong>změně (transformaci) velikosti napětí</strong>.</p>
-						<h3>Jak funguje</h3>
-						<ul>
-							<li>Má <strong>dva obvody</strong>, každý se svou cívkou, na <strong>společném ocelovém jádře</strong>.</li>
-							<li><strong>Primární cívka</strong> je na zdroji střídavého napětí; v <strong>sekundární</strong> se <strong>indukuje</strong> střídavé napětí.</li>
-							<li>Pracuje <strong>jen na střídavé napětí</strong> — indukce potřebuje proměnlivé magnetické pole. Účinnost bývá až <strong>98 %</strong>.</li>
-						</ul>
-						<h3>Rovnice transformátoru</h3>
-						<p>Napětí se mění ve stejném poměru jako počty závitů: <strong>U₂ / U₁ = N₂ / N₁</strong>.</p>
-						<ul>
-							<li><strong>Transformace nahoru</strong> (k > 1) — sekundární cívka má víc závitů, napětí <strong>roste</strong> (např. 400 kV pro dálkový přenos, zapalovací svíčka).</li>
-							<li><strong>Transformace dolů</strong> (k < 1) — méně závitů, napětí <strong>klesá</strong> (nabíječky, rozvod 230 V do domácnosti).</li>
-							<li><strong>Proud</strong> se mění v <strong>opačném poměru</strong> než napětí (výkon P = U·I zůstává stejný): kolikrát klesne napětí, tolikrát vzroste proud.</li>
-						</ul>
-						<p>Transformace velkého proudu se využívá v <strong>indukční peci</strong>, při <strong>svařování obloukem</strong> (nízké napětí, velký proud) a v pistolové páječce.</p>
-						<h3>✏️ Příklady z hodiny</h3>
-						<ol>
-							<li>Primární cívka má <strong>500 závitů</strong> a napětí <strong>200 V</strong>; sekundární má <strong>100 závitů</strong>. Jaké je výstupní napětí? <details><summary>řešení</summary>k = N₂/N₁ = 100/500 = 0,2 → U₂ = 0,2 · 200 = <strong>40 V</strong> (transformace dolů)</details></li>
-							<li>Primární cívka má <strong>100 závitů</strong> a napětí <strong>200 V</strong>; sekundární má <strong>500 závitů</strong>. Jaké je výstupní napětí? <details><summary>řešení</summary>k = N₂/N₁ = 500/100 = 5 → U₂ = 5 · 200 = <strong>1 000 V</strong> (transformace nahoru)</details></li>
-						</ol>
-					`,
-					zapis: {
-						body: [
-							'Transformátor mění velikost střídavého napětí a používá se při přenosu elektrické energie.',
-							'Tvoří ho primární a sekundární cívka na společném ocelovém jádře. V sekundární cívce se indukuje střídavé napětí.',
-							'Napětí se mění ve stejném poměru jako počet závitů cívek.',
-							'Při transformaci nahoru napětí roste a proud klesá; při transformaci dolů napětí klesá a proud roste.',
-						],
-						vzorec: 'U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂)',
-						jednotky: [
-							'primární napětí U₁ a sekundární napětí U₂ — volt (V)',
-							'počet závitů primární cívky N₁ a sekundární cívky N₂ — bez jednotky',
-							'1 kV = 1 000 V',
-							'Do vztahu dosazuj obě napětí ve V a počty závitů jako celá čísla.',
-						],
-					},
+					obsah: "<h2>Transformátor</h2>\n\n<p>Transformátor je zařízení, které mění velikost střídavého napětí. Používá se hlavně při přenosu elektrické energie na velké vzdálenosti a v mnoha zařízeních kolem nás.</p>\n\n<h3>Jak je postavený</h3>\n<p>Transformátor má dva obvody, každý se svou cívkou. Cívka, do které přivádíme napětí, se nazývá <strong>primární</strong> (vstupní). Cívka, ze které napětí odebíráme, se nazývá <strong>sekundární</strong> (výstupní). Obě cívky jsou navinuté na společném ocelovém jádře.</p>\n\n<h3>Jak transformátor funguje</h3>\n<p>Primární cívka je připojená ke zdroji střídavého napětí. Protéká jí proud, který kolem sebe vytváří proměnlivé magnetické pole. Ocelové jádro toto pole přenese k sekundární cívce, kde se <strong>indukcí</strong> naindukuje nové střídavé napětí. Skoro nic se přitom neztratí — až 98 ze 100 dílů energie projde dál.</p>\n\n<h3>Transformační poměr</h3>\n<p>Napětí a počet závitů primární cívky značíme U₁ a N₁, napětí a počet závitů sekundární cívky značíme U₂ a N₂. Napětí se na cívkách mění ve stejném poměru, v jakém se liší počet jejich závitů: <strong>U₂ : U₁ = N₂ : N₁</strong>. Kolikrát víc závitů má cívka, tolikrát vyšší napětí na ní vznikne.</p>\n\n<h3>Transformace nahoru a dolů</h3>\n<ul>\n<li><strong>Nahoru</strong> — sekundární cívka má víc závitů, napětí <strong>roste</strong>. Tak se zvyšuje napětí za elektrárnou pro dálkový přenos (400 kV) nebo v zapalovací svíčce auta (45 000 V).</li>\n<li><strong>Dolů</strong> — sekundární cívka má míň závitů, napětí <strong>klesá</strong>. Tak fungují nabíječky telefonů nebo rozvod napětí do domácnosti (230 V).</li>\n</ul>\n<p>Proud se přitom mění opačně než napětí — elektrický výkon P = U · I totiž zůstává skoro stejný. Kolikrát napětí klesne, tolikrát proud vzroste, a naopak.</p>\n\n<p>Transformátor funguje <strong>jen se střídavým napětím</strong>. Indukce potřebuje magnetické pole, které se pořád mění, a to vzniká jen tehdy, když se mění i proud v primární cívce. Se stejnosměrným proudem, jaký dává třeba baterka, transformátor nepracuje.</p>\n\n<p>Právě díky transformátorům funguje rozvodná síť: napětí z elektrárny se nejdřív zvýší pro dálkový přenos, po cestě k domácnostem se postupně sníží. Malé transformátory najdeme i v nabíječkách a v mnoha domácích spotřebičích.</p>\n\n<h3>Velký proud z transformátoru</h3>\n<p>Transformátor umí vyrobit i velký proud při nízkém napětí. Používá se to tam, kde je potřeba roztavit nebo spojit kov teplem.</p>\n<ul>\n<li><strong>Indukční pec</strong> — velký proud v cívce roztaví kov.</li>\n<li><strong>Svařování elektrickým obloukem</strong> — teplota oblouku dosahuje až 6 000 °C.</li>\n<li><strong>Pistolová páječka</strong> — malá cívka s jedním závitem pájí elektrické obvody.</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Transformační poměr k porovnává počty závitů: <strong>k = N₂ : N₁</strong>, a platí i <strong>U₂ = k · U₁</strong>.</p>\n<p><strong>Příklad 1 — transformace dolů:</strong> Primární cívka má 500 závitů a napětí 200 V. Sekundární cívka má 100 závitů. Jaké napětí bude na sekundární cívce?</p>\n<p>k = N₂ : N₁ = 100 : 500 = 0,2<br>U₂ = k · U₁ = 0,2 · 200 = <strong>40 V</strong></p>\n<p>Výstupní napětí je nižší než vstupní — jde o transformaci dolů.</p>\n<p><strong>Příklad 2 — transformace nahoru:</strong> Primární cívka má 100 závitů a napětí 200 V. Sekundární cívka má 500 závitů. Jaké napětí bude na sekundární cívce?</p>\n<p>k = N₂ : N₁ = 500 : 100 = 5<br>U₂ = k · U₁ = 5 · 200 = <strong>1 000 V</strong></p>\n<p>Výstupní napětí je vyšší než vstupní — jde o transformaci nahoru.</p>",
+					zapis: {"vzorec":"U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂)","jednotky":["primární napětí — značíme U₁, jednotka V (volt)","sekundární napětí — značíme U₂, jednotka V (volt)","počet závitů primární cívky — značíme N₁, bez jednotky (jen počet)","počet závitů sekundární cívky — značíme N₂, bez jednotky (jen počet)","Převod: 1 kV = 1 000 V. Do vztahu dosazuj obě napětí ve V a počty závitů jako celá čísla."],"vzorecSlovy":"poměr sekundárního a primárního napětí je stejný jako poměr počtu závitů sekundární a primární cívky","body":["mění velikost střídavého napětí, slouží k přenosu energie","primární a sekundární cívka na společném ocelovém jádře","v sekundární cívce se indukuje napětí","účinnost přenosu až 98 %","napětí ~ počet závitů (stejný poměr)","nahoru: víc závitů, napětí ↑, proud ↓","dolů: míň závitů, napětí ↓, proud ↑","funguje jen na střídavý proud"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Transformátor — skrytý motor našeho světa', cesta: 'Zme6eL0Mzr8' },
 					],

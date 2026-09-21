@@ -1,3 +1,12 @@
+## Stav 21. 9. 2026
+
+F7 2. celek `sily-kolem-nas` HOTOV 5/5, F9 2. celek `indukce-a-stridavy-proud`
+HOTOV 5/5 — obojí přes `podtema.mjs`, každé podtéma nezávislý kontrolor opus,
+většinou stačila 1 opravná smyčka (nejčastější nález = vypadlá věta/bod
+z dosavadního bloku). Souhrn: F8 celky 1–4, F7 celky 1–2, F9 celky 1–2 hotové
+= 32 podtémat. DALŠÍ: 3. celky F7 (`jednoduche-stroje`) a F9
+(`elektricky-proud-v-latkach`).
+
 ## ČEKÁ NA ROZHODNUTÍ UČITELE (23. 8. 2026)
 
 U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,
@@ -114,9 +123,12 @@ na přesná čísla z prezentace Pohyb (snímky 26–27): 231 km/42 km/h a
 F9 1. celek `magneticke-pole` HOTOV 3/3 (magnety-magneticke-pole-opakovani,
 elektromagnet, magneticke-pole-vodice-a-civky), všechna přes nezávislého
 kontrolora, zapsáno `podtema.mjs`, build a `zkontroluj.mjs` procházejí.
-F9 2. celek `indukce-a-stridavy-proud` (5 podtémat) 1/5 zapsáno
-(elektromagneticka-indukce), zbytek u kontrolorů.
-F7 2. celek `sily-kolem-nas` (5 podtémat) u kontrolorů.
+F9 2. celek `indukce-a-stridavy-proud` (5 podtémat) 3/5 zapsáno
+(elektromagneticka-indukce, pusobeni-pole-na-vodic-elektromotor,
+vznik-stridaveho-proudu-alternator) — vlastnosti-stridaveho-proudu u
+kontrolora, transformator v opravě.
+F7 2. celek `sily-kolem-nas` (5 podtémat) 4/5 zapsáno (sila, skladani-sil,
+teziste, treci-sila) — gravitacni-sila v opravě.
 
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 

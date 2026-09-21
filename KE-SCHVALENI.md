@@ -34,3 +34,18 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    8 a 9 čísla 220 km/40 km/h a 650 km/500 km/h bez opory v žádném zdroji.
    Přepsáno přesně podle prezentace Pohyb (snímky 26–27) na 231 km / 42 km/h
    a 585 km / 450 km/h. Prosím potvrdit, že jde nahradit dosavadní čísla.
+
+## 21. 9. 2026 — nálezy z podkladů F7 (sily-kolem-nas)
+
+7. **Podtéma „Třecí síla"** — navrženo doplnit větu, že tření nezávisí na
+   velikosti stykové plochy. Fyzikálně správné, ale ve zdrojovém PDF ani
+   v prezentaci to není — proto zatím na web nedáno. Chce učitel doplnit?
+8. **Podtéma „Třecí síla"** — dosavadní příklad na webu měl f = 0,4 a
+   výsledek 200 N. Podle prezentace (snímky 13–16, tabulka součinitelů
+   ocel/dřevo) přepsáno na f = 0,35 a výsledek 175 N. Prosím potvrdit
+   nahrazení dosavadního čísla.
+9. **Podtéma „Gravitační síla"** — veličina g byla na dosavadním webu
+   pojmenována jen „gravitační konstanta". Podle PDF str. 6 (doslovný citát:
+   „Veličina g se správně nazývá gravitační zrychlení... jednotka N/kg je
+   odvozená") přejmenováno na „gravitační zrychlení (často se říká
+   gravitační konstanta)". Prosím potvrdit.
