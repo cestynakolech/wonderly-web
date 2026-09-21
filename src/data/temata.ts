@@ -2786,66 +2786,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricka-prace-a-vykon',
 						interakce: 'elektricka-prace-a-vykon',
 						nazev: 'Elektrická práce a energie, výkon proudu',
-						obsah: `
-							<h2>Elektrická práce, energie a výkon</h2>
-							<p>Když proud prochází vodičem, konají síly elektrického pole <strong>elektrickou práci</strong> (značka <strong>W</strong>, jednotka <strong>joule J</strong>, v praxi <strong>kilowatthodina kWh</strong>). Proud tak přenáší obvodem <strong>elektrickou energii</strong> ze zdroje ke spotřebiči.</p>
-							<h3>Přeměny elektrické energie</h3>
-							<ul>
-								<li>na <strong>mechanickou práci</strong> (mixér, vrtačka, výtah)</li>
-								<li>na <strong>teplo</strong> (vařič, topení, konvice)</li>
-								<li>na <strong>světlo</strong> (žárovka, televize)</li>
-								<li>na <strong>chemickou energii</strong> (nabíjení akumulátoru, elektrolýza)</li>
-							</ul>
-							<h3>Výkon a příkon</h3>
-							<ul>
-								<li><strong>Výkon P</strong> = energie za sekundu, jednotka <strong>watt (W)</strong>.</li>
-								<li><strong>Příkon P₀</strong> = kolik spotřebič odebírá ze sítě (údaj na štítku). Počítá se <strong>P₀ = U · I</strong> — a právě tenhle výkon platíš.</li>
-								<li><strong>Užitečný výkon</strong> je jen ta část příkonu, kterou spotřebič opravdu použije na to, co po něm chceme. Je vždy <strong>menší než příkon</strong> — zbytek uniká jako <strong>teplo (ztráty)</strong>.</li>
-								<li><strong>Práce: W = P₀ · t = U · I · t</strong></li>
-							</ul>
-							<h3>Jednotky energie</h3>
-							<p>1 Wh = 3 600 J; <strong>1 kWh = 3 600 000 J</strong>. Spotřeba elektřiny doma se počítá v kWh.</p>
-							<h3>🧮 Kolik stojí vaření vody — celý příklad</h3>
-							<p>Rychlovarná konvice má na štítku <strong>2 000 W</strong> a v rodině běží asi
-							<strong>15 minut denně</strong>. Kolik za ni zaplatíte za měsíc?</p>
-							<ol>
-								<li><strong>Převeď na kilowatty a hodiny</strong> — v kWh se totiž elektřina účtuje:
-								2 000 W = <strong>2 kW</strong>, 15 minut = <strong>0,25 h</strong></li>
-								<li><strong>Denní spotřeba:</strong> <em>W</em> = <em>P</em> · <em>t</em> = 2 · 0,25 =
-								<strong>0,5 kWh</strong></li>
-								<li><strong>Za 30 dní:</strong> 0,5 · 30 = <strong>15 kWh</strong></li>
-								<li><strong>Cena</strong> (počítejme 5 Kč za kWh): 15 · 5 = <strong>75 Kč</strong></li>
-							</ol>
-							<p>👉 Všimni si, že se počítá s <strong>příkonem ze štítku</strong>, ne s užitečným výkonem —
-							<strong>platíš všechno, co spotřebič ze sítě odebere</strong>, i tu část, která unikne
-							jako nechtěné teplo.</p>
-							<p>💡 Zkus si sám: kolik by stálo svícení staré 100W žárovky 5 hodin denně po celý měsíc?
-							(Nápověda: 0,1 kW · 5 h = 0,5 kWh za den — tedy přesně tolik jako ta konvice.)</p>
-							<h3>Účinnost</h3>
-							<p>Udává, kolik % energie se přemění na tu, kterou od spotřebiče <strong>opravdu chceme</strong> — u světel tedy na světlo. Klasická žárovka má jen ~5 % (zbytek je teplo), <strong>LED žárovka asi 50 %</strong> — proto se dnes používají LED.</p>
-							<p>Z účinnosti plyne i to, proč se LED vyplatí: aby dala stejné světlo jako
-							<strong>100W žárovka</strong>, stačí jí kolem <strong>10 W</strong>. Za měsíc svícení
-							(5 hodin denně) je to <strong>1,5 kWh</strong> místo 15 kWh — <strong>desetina</strong>.
-							A přebytek u staré žárovky nezmizel: <strong>topil ti do pokoje</strong>.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrický proud přenáší energii ze zdroje ke spotřebiči a síly elektrického pole přitom konají elektrickou práci.',
-								'Ve spotřebiči se elektrická energie mění například na pohyb, teplo, světlo nebo chemickou energii.',
-								'Příkon udává, kolik energie spotřebič odebírá ze sítě za sekundu; užitečný výkon je menší kvůli ztrátám.',
-								'Spotřebu elektřiny v domácnosti počítáme v kilowatthodinách.',
-							],
-							vzorec: 'P₀ = U · I;  W = P₀ · t = U · I · t      (odvozeně: t = W : P₀,  P₀ = W : t)',
-							jednotky: [
-								'elektrická práce a energie W — joule (J) nebo kilowatthodina (kWh)',
-								'příkon P₀ — watt (W)',
-								'elektrické napětí U — volt (V)',
-								'elektrický proud I — ampér (A)',
-								'čas t — sekunda (s), při výpočtu v kWh hodina (h)',
-								'1 Wh = 3 600 J,  1 kWh = 1 000 Wh = 3 600 000 J,  1 kW = 1 000 W',
-								'Pro výsledek v J dosazuj příkon ve W a čas v s; pro výsledek v kWh příkon v kW a čas v h.',
-							],
-						},
+						obsah: "<h2>Elektrická práce a energie, výkon proudu</h2>\n\n<p>Když připojíme kovový vodič ke zdroji elektrického napětí, vznikne ve vodiči <strong>elektrické pole</strong>. Pole působí na nabité částice elektrickou silou. Síla uvede volné elektrony do usměrněného pohybu — vzniká elektrický proud. Při průchodu proudu vodičem tak síly elektrického pole konají <strong>elektrickou práci</strong>.</p>\n<p>Elektrická práce se značí <strong>W</strong>. Jednotka je <strong>joule (J)</strong>, v praxi se často používá <strong>kilowatthodina (kWh)</strong>. Elektrický proud přenáší obvodem elektrickou energii ze zdroje ke spotřebiči. Zdrojem elektrické energie je zdroj elektrického napětí.</p>\n<p>Elektrická energie se dá přenášet na velké vzdálenosti. Snadno se také mění na jiné druhy energie, které potřebujeme. Proto se v domácnostech i v průmyslu používá tak často.</p>\n\n<h3>Přeměny elektrické energie</h3>\n<p>V elektrických spotřebičích a vodičích se elektrická energie mění na jiné druhy energie:</p>\n<ul>\n<li>na <strong>mechanickou práci</strong> (mixér, vrtačka, výtah, elektroautomobil)</li>\n<li>na <strong>teplo</strong> (vařič, topení, konvice)</li>\n<li>na <strong>světlo</strong> (žárovka, televize)</li>\n<li>na <strong>chemickou energii</strong> (nabíjení akumulátoru, elektrolýza)</li>\n</ul>\n\n<h3>Výkon a příkon</h3>\n<ul>\n<li><strong>Výkon P</strong> = energie za sekundu, jednotka <strong>watt (W)</strong>. Počítá se <strong>P = U · I</strong>.</li>\n<li><strong>Příkon P<sub>0</sub></strong> = kolik spotřebič odebírá ze sítě (údaj na štítku). Příkon je vlastně výkon procházejícího proudu, počítá se stejně: <strong>P<sub>0</sub> = U · I</strong> — a právě tenhle výkon platíš.</li>\n<li><strong>Užitečný výkon</strong> je jen ta část příkonu, kterou spotřebič opravdu použije na to, co po něm chceme. Je vždy <strong>menší než příkon</strong> — zbytek uniká jako <strong>teplo (ztráty)</strong>.</li>\n<li><strong>Práce: W = P<sub>0</sub> · t = U · I · t</strong></li>\n</ul>\n\n<h3>Jednotky energie</h3>\n<p>Když spotřebič o výkonu <strong>1 W</strong> běží <strong>1 sekundu</strong>, spotřebuje <strong>1 J</strong>. Proto platí <strong>1 Ws = 1 J</strong>. Dál platí <strong>1 Wh = 3 600 J</strong> a <strong>1 kWh = 3 600 000 J</strong>. Spotřeba elektřiny doma se počítá v kWh.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p><strong>Účinnost</strong> udává, kolik procent spotřebované elektrické energie spotřebič využije na užitečnou práci. Stejně tak udává, jakou část příkonu spotřebič promění ve svůj užitečný výkon. Účinnost je vždy <strong>menší než 100 %</strong> — část energie se vždy ztratí jako teplo.</p>\n<p>Klasická žárovka má účinnost jen asi <strong>5 %</strong> — zbylých 95 % energie se mění na teplo, ne na světlo. <strong>LED žárovka</strong> má účinnost mnohem vyšší, asi <strong>70 %</strong>, proto svítí úsporněji.</p>\n<p>Z účinnosti plyne, proč se LED vyplatí. Klasická žárovka 100 W promění na světlo jen 5 W (100 · 5 %). LED se stejnou svítivostí potřebuje mnohem méně energie. Poměr účinností je 70 % : 5 %, tedy <strong>čtrnáctkrát méně</strong>.</p>\n<p>Za měsíc svícení (5 hodin denně) spotřebuje stará žárovka 15 kWh, LED jen zlomek. A přebytek u staré žárovky nezmizel: <strong>topil ti do pokoje</strong>.</p>\n<p>🧮 <strong>Kolik stojí vaření vody — celý příklad.</strong> Rychlovarná konvice má na štítku <strong>2 000 W</strong> a v rodině běží asi <strong>30 minut denně</strong>. Kolik za ni zaplatíte za měsíc?</p>\n<ol>\n<li><strong>Převeď na kilowatty a hodiny</strong> — v kWh se totiž elektřina účtuje: 2 000 W = <strong>2 kW</strong>, 30 minut = <strong>0,5 h</strong></li>\n<li><strong>Denní spotřeba:</strong> <strong>W</strong> = <strong>P</strong> · <strong>t</strong> = 2 · 0,5 = <strong>1 kWh</strong></li>\n<li><strong>Za 30 dní:</strong> 1 · 30 = <strong>30 kWh</strong></li>\n<li><strong>Cena</strong> (počítejme 5 Kč za kWh): 30 · 5 = <strong>150 Kč</strong></li>\n</ol>\n<p>👉 Všimni si, že se počítá s <strong>příkonem ze štítku</strong>, ne s užitečným výkonem. <strong>Platíš všechno, co spotřebič ze sítě odebere</strong>, i tu část, která unikne jako nechtěné teplo.</p>\n<p>💡 Zkus si sám: kolik by stálo svícení staré 100W žárovky 5 hodin denně po celý měsíc? (Nápověda: 0,1 kW · 5 h = 0,5 kWh za den.)</p>",
+						zapis: {"vzorec":"P = U · I;  P₀ = U · I;  W = P₀ · t = U · I · t      (odvozeně: t = W : P₀,  P₀ = W : t)","jednotky":["elektrická práce a energie W — joule (J) nebo kilowatthodina (kWh)","výkon P — watt (W)","příkon P₀ — watt (W)","elektrické napětí U — volt (V)","elektrický proud I — ampér (A)","čas t — sekunda (s), při výpočtu v kWh hodina (h)","1 Ws = 1 J,  1 Wh = 3 600 J,  1 kWh = 1 000 Wh = 3 600 000 J,  1 kW = 1 000 W","Pro výsledek v J dosazuj příkon ve W a čas v s; pro výsledek v kWh příkon v kW a čas v h."],"vzorecSlovy":"výkon se rovná napětí krát proud; příkon se rovná napětí krát proud; elektrická práce se rovná příkonu krát čas, tedy napětí krát proud krát čas","body":["proud ve vodiči → koná elektrickou práci","elektrická práce: značka W, jednotka J (kWh)","proud přenáší energii ke spotřebiči","zdroj energie = zdroj napětí","energie jde na dálku, snadno se mění","přeměny: pohyb, teplo, světlo, chemická energie","výkon P: energie za sekundu, watt (W)","příkon P₀: odběr ze sítě, na štítku","užitečný výkon < příkon (ztráty teplem)","spotřeba domácnosti: kilowatthodiny (kWh)","1 Ws = 1 J, 1 Wh = 3 600 J","účinnost: kolik % energie se využije","účinnost vždy menší než 100 %","klasická žárovka: účinnost jen 5 %","LED žárovka: účinnost asi 70 %"]},
 						materialy: [
 							{ druh: 'youtube', nazev: 'Video: Elektrická práce, výkon a účinnost spotřebičů', cesta: 'jPZ2a2J8MHc' },
 						],
