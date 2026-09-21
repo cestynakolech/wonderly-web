@@ -202,11 +202,18 @@ celku (zatím neudělán pro F8 celky 1–4 → zařadit).
 z elektřiny; F7 celky 1–5 = 18; F9 celky 1–5 = 20). Rozpracovaná F8
 elektřina viz `rozpracovane-vyklady/2026-09-21/README.md` (zdroj: scratchpad
 staré session `/private/tmp/claude-502/-Users-Shared--kola/c373a426-dfa0-4020-bf85-d07308545470/scratchpad/`).
-DALŠÍ KROK nové session: (a) dokončit F8 elektřina — dokontrolovat a zapsat
-rozpracované klíče, dopsat 2 zbývající (`elektricka-prace-a-vykon`,
-`ucinky-proudu-a-bezpecnost`); (b) pak 6. celky: F7 `atmosfera-a-tlak-vzduchu`,
-F8 `zvuk`, F9 `energie-a-vesmir`; (c) sladění kvízů s novými výklady zatím
-u žádného celku neuděláno; (d) pravidla: úklid U/D/zadání workerů spuštěn
+**Stav 22. 9. 2026: F8 elektřina HOTOVO 15/15** (commit `d491ea0`, nasazeno
+a ověřeno curlem na lab.wonderly.cz — `ucinky-proudu-a-bezpecnost`,
+`elektricky-proud-v-kovech-odpor`, `elektricke-obvody`). Past: curl na
+lab.wonderly.cz bez hlavičky `User-Agent` vrací 403 — ověřovací smyčka musí
+posílat `User-Agent`.
+DALŠÍ KROK nové session: ~~(a) dokončit F8 elektřina~~ HOTOVO 22. 9. (commit
+`d491ea0`); (b) 6. celky: F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`,
+F9 `energie-a-vesmir` — ROZDĚLÁNO 22. 9. — 1. vlna F7+kmitání (4 výklady
+běží, pracovní složka `rozpracovane-vyklady/2026-09-22-6-celky/`; F9
+`vesmir-a-galaxie` bez PDF, zdroj popis prezentace `9 vesmir_a_jeho_vznik.md`);
+(c) sladění kvízů s novými výklady zatím u žádného celku neuděláno — F8
+elektřina čeká na sladění kvízů; (d) pravidla: úklid U/D/zadání workerů spuštěn
 21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
 log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
 N (22 kandidátů na zkrácení) čeká na výběr učitele v

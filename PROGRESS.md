@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 9. 2026 — F7 tlak-v-kapalinach HOTOV 3/3; F9 elektricka-energie-a-bezpecnost HOTOV 2/2**
+> ### Poslední stav: **22. 9. 2026 — F8 elektřina HOTOVO 15/15 a nasazena; 6. celky rozjety**
+> Celý celek `elektrina` (F8, 8. ročník) přestavěn podle PDF učitele a nasazen (commit `d491ea0`,
+> ověřeno curlem na lab.wonderly.cz). Sladění kvízů s novým výkladem zatím neuděláno. Rozjeta
+> 1. vlna 6. celků: F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`, F9 `energie-a-vesmir`.
+>
+> ### Dřívější stav: **21. 9. 2026 — F7 tlak-v-kapalinach HOTOV 3/3; F9 elektricka-energie-a-bezpecnost HOTOV 2/2**
 > Čtvrté celky obou ročníků přestavěny přes `podtema.mjs`, každé podtéma prošlo
 > nezávislým kontrolorem opus. F8 celky 1–4 (17), F7 celky 1–4 (16), F9 celky 1–4 (16) = 49 podtémat.
 > Další dávka: 5. celky F7 (`vztlakova-sila-a-plovani-teles`), F8 (`elektrina`), F9 (`jaderna-fyzika`).
@@ -50,6 +55,7 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > Celá fyzika 6–9 tím splňuje cíl 21 otázek na podtéma. Zbývá informatika + Pč (424 otázek).
 
 ## ⏩ Jak navázat v nové session
+_Aktuální stav přestavby výkladu vede `SAMOSTATNY-REZIM.md`, ne tato sekce._
 1. Přečti `CLAUDE.md`, pak **`SAMOSTATNY-REZIM.md` (horní sekce)** a podle potřeby tenhle soubor.
 2. Rychlá kontrola stavu:
    ```
@@ -333,3 +339,20 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   `elektricke-pole`, `vznik-elektrickeho-proudu` (F8) zapsány přes `podtema.mjs`,
   `zkontroluj.mjs` i build PASS, dist obsahuje klíčová slova (ponořené části,
   plastelín, elektroskop, Faradayov, blesk). Nálezy do `KE-SCHVALENI.md` body 20–21.
+
+### F8 elektřina HOTOVO 15/15, 6. celky rozjety (2026-09-21 až 22)
+- Zbývajících 11 podtémat F8 elektřina dokontrolováno a zapsáno podle PDF
+  učitele (A+B+C+D výklad + ZAPIS), každé prošlo nezávislým kontrolorem
+  (Opus, čerstvý kontext, 2–3 kola kontrola→oprava); zapsáno `podtema.mjs`,
+  `zkontroluj.mjs` i build PASS. Commity `518c599`, `e78b938`, `ff77438`,
+  `d491ea0`; push `d491ea0` ověřen curlem na lab.wonderly.cz
+  (`ucinky-proudu-a-bezpecnost`, `elektricky-proud-v-kovech-odpor`,
+  `elektricke-obvody`) — curl bez hlavičky `User-Agent` vrací 403.
+- Kde se web a PDF lišily, platilo PDF (např. LED úspora 70 %); poznámky
+  „k rozhodnutí učitele" se do textu nepíšou. Pracovní soubory
+  `rozpracovane-vyklady/2026-09-21/` commitnuty. Sladění kvízů F8 elektřina
+  s novými výklady zatím NEUDĚLÁNO.
+- Rozjeto 6. celků: F7 `atmosfera-a-tlak-vzduchu` (3), F8 `zvuk` (3), F9
+  `energie-a-vesmir` (3; `vesmir-a-galaxie` bez PDF, zdroj popis prezentace
+  `9 vesmir_a_jeho_vznik.md`); pracovní složka
+  `rozpracovane-vyklady/2026-09-22-6-celky/`, 1. vlna 4 výkladů běží.
