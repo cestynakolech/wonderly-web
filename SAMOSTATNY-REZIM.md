@@ -207,13 +207,32 @@ a ověřeno curlem na lab.wonderly.cz — `ucinky-proudu-a-bezpecnost`,
 `elektricky-proud-v-kovech-odpor`, `elektricke-obvody`). Past: curl na
 lab.wonderly.cz bez hlavičky `User-Agent` vrací 403 — ověřovací smyčka musí
 posílat `User-Agent`.
+**Stav 22. 9. 2026 večer: 6. celky HOTOVO 9/9** — F7 `atmosfera-a-tlak-vzduchu`
+(atmosfericky-tlak, pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku), F8
+`zvuk` (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost), F9
+`energie-a-vesmir` (obnovitelne-a-neobnovitelne-zdroje, slunecni-soustava,
+vesmir-a-galaxie). Každé podtéma prošlo nezávislým kontrolorem (Opus,
+čerstvý kontext) ve 2–3 kolech; zápis `podtema.mjs`; `zkontroluj.mjs` + build
+OK. Zdroje: PDF učitele 1:1 (Škola/7/3 Mechanické vlastnosti kapalin 16–18,
+Škola/8/6 Zvuk 33–35, Škola/9 str. 21–22); `vesmir-a-galaxie` bez PDF → zdroj
+popis prezentace `Omega/dokumenty/prezentace-popisy/9 vesmir_a_jeho_vznik.md`.
+Rozhodnutí orchestrátora: PDF má přednost před webem (kromě zjevných chyb
+extrakce, např. Torricelli 1643); „stojaté vlnění" z prezentace do kmitání
+nezařazeno; 3. Keplerův zákon ponechán s citací PDF str. 23; ZAPIS sluneční
+soustavy zkrácen z 39 na 19 bodů (strop ~22). Pracovní složka
+`rozpracovane-vyklady/2026-09-22-6-celky/` (výklady + protokoly
+kontrola-*-a/b/c.md + README.md) commitnuta. Commity `40b59cb` (F7),
+`547cd5f` (F8 zvuk), `104047b` + `e91813c` (F9); push `e91813c`; curl ověřen
+(slunecni-soustava, kmitani-a-vlneni, atmosfericky-tlak — ANO). Nález pro
+krok (c): `zkontroluj.mjs` hlásí nesoulad čísla galaxií v kvízu (100 vs. 200
+dle nového výkladu) — první konkrétní důkaz, že kvízy je nutné sladit. Past
+dne: worker někdy vloží cizí značku (`</content>`) nebo poznámku „k rozhodnutí
+učitele" — kontrolor to chytá.
 DALŠÍ KROK nové session: ~~(a) dokončit F8 elektřina~~ HOTOVO 22. 9. (commit
-`d491ea0`); (b) 6. celky: F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`,
-F9 `energie-a-vesmir` — ROZDĚLÁNO 22. 9. — 1. vlna F7+kmitání (4 výklady
-běží, pracovní složka `rozpracovane-vyklady/2026-09-22-6-celky/`; F9
-`vesmir-a-galaxie` bez PDF, zdroj popis prezentace `9 vesmir_a_jeho_vznik.md`);
-(c) sladění kvízů s novými výklady zatím u žádného celku neuděláno — F8
-elektřina čeká na sladění kvízů; (d) pravidla: úklid U/D/zadání workerů spuštěn
+`d491ea0`); ~~(b) 6. celky~~ HOTOVO 9/9 22. 9. (commit `e91813c`, viz výše);
+**(c) sladění kvízů s novými výklady** — rozsah 24 podtémat (F8 elektřina
+15 + 6. celky 9) + dříve přestavěné F8 celky 1–4; průzkum stavu kvízů právě
+běží. (d) pravidla: úklid U/D/zadání workerů spuštěn
 21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
 log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
 N (22 kandidátů na zkrácení) čeká na výběr učitele v

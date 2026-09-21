@@ -9,10 +9,11 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 — F8 elektřina HOTOVO 15/15 a nasazena; 6. celky rozjety**
+> ### Poslední stav: **22. 9. 2026 — F8 elektřina (15/15) i 6. celky (9/9) hotovo a nasazeno; na řadě sladění kvízů**
 > Celý celek `elektrina` (F8, 8. ročník) přestavěn podle PDF učitele a nasazen (commit `d491ea0`,
-> ověřeno curlem na lab.wonderly.cz). Sladění kvízů s novým výkladem zatím neuděláno. Rozjeta
-> 1. vlna 6. celků: F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`, F9 `energie-a-vesmir`.
+> ověřeno curlem na lab.wonderly.cz). 6. celky F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`,
+> F9 `energie-a-vesmir` (9 podtémat) přestavěny a nasazeny (commit `e91813c`). Sladění kvízů
+> s novým výkladem zatím neuděláno — na řadě rozsah 24 podtémat.
 >
 > ### Dřívější stav: **21. 9. 2026 — F7 tlak-v-kapalinach HOTOV 3/3; F9 elektricka-energie-a-bezpecnost HOTOV 2/2**
 > Čtvrté celky obou ročníků přestavěny přes `podtema.mjs`, každé podtéma prošlo
@@ -356,3 +357,30 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   `energie-a-vesmir` (3; `vesmir-a-galaxie` bez PDF, zdroj popis prezentace
   `9 vesmir_a_jeho_vznik.md`); pracovní složka
   `rozpracovane-vyklady/2026-09-22-6-celky/`, 1. vlna 4 výkladů běží.
+
+### 6. celky HOTOVO 9/9 a nasazeny (2026-09-22)
+- F7 `atmosfera-a-tlak-vzduchu` (atmosfericky-tlak, pretlak-podtlak-vakuum,
+  meteorologie-a-mereni-tlaku), F8 `zvuk` (kmitani-a-vlneni,
+  zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost), F9 `energie-a-vesmir`
+  (obnovitelne-a-neobnovitelne-zdroje, slunecni-soustava, vesmir-a-galaxie)
+  dokončeny; každé podtéma prošlo nezávislým kontrolorem (Opus, čerstvý
+  kontext) ve 2–3 kolech; zapsáno `podtema.mjs`, `zkontroluj.mjs` i build PASS.
+- Zdroje: PDF učitele 1:1 (Škola/7/3 Mechanické vlastnosti kapalin 16–18,
+  Škola/8/6 Zvuk 33–35, Škola/9 str. 21–22); `vesmir-a-galaxie` bez PDF →
+  zdroj popis prezentace `Omega/dokumenty/prezentace-popisy/9
+  vesmir_a_jeho_vznik.md`. PDF mělo přednost před webem (kromě zjevných chyb
+  extrakce, např. Torricelli 1643); „stojaté vlnění" z prezentace do kmitání
+  nezařazeno; 3. Keplerův zákon ponechán s citací PDF str. 23; ZAPIS sluneční
+  soustavy zkrácen z 39 na 19 bodů (strop ~22).
+- Commity `40b59cb` (F7), `547cd5f` (F8 zvuk), `104047b` + `e91813c` (F9);
+  push `e91813c`; curl ověřen s User-Agent na slunecni-soustava,
+  kmitani-a-vlneni, atmosfericky-tlak — ANO. Pracovní složka
+  `rozpracovane-vyklady/2026-09-22-6-celky/` (výklady + protokoly
+  kontrola-*-a/b/c.md + README.md) commitnuta.
+- Nález pro sladění kvízů: `zkontroluj.mjs` hlásí nesoulad čísla galaxií
+  v kvízu (100 vs. 200 dle nového výkladu) — první konkrétní důkaz, že
+  kvízy je nutné sladit. Past dne: worker někdy vloží cizí značku
+  (`</content>`) nebo poznámku „k rozhodnutí učitele" — kontrolor to chytá.
+- DALŠÍ KROK: (c) sladění kvízů s novými výklady — rozsah 24 podtémat
+  (F8 elektřina 15 + 6. celky 9) + dříve přestavěné F8 celky 1–4; průzkum
+  stavu kvízů právě běží.
