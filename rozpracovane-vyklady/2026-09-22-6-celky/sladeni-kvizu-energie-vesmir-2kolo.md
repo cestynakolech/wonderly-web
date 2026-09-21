@@ -107,8 +107,14 @@ NOVÉ:
 - [x] 2. otázka č. 6 — text přepsán na „Co způsobuje, že se rozpínání vesmíru zrychluje?"
 - [x] 3. otázka č. 13 — vysvětlení přepsáno na „Slunce leží v jednom ze spirálních ramen
   Mléčné dráhy, daleko od jejího středu."
-- [ ] NEVYŘEŠENÉ (otázky č. 11 a 15, tvary galaxií) — ponecháno beze změny, zásah do výkladu
-  je mimo rozsah tohoto zadání
+- [x] NEVYŘEŠENÉ (otázky č. 11 a 15, tvary galaxií) — dořešeno 22. 9. 2026: výklad tvary
+  eliptické/nepravidelné galaxie nijak nepopisuje, jen je jmenuje v jedné větě („Podle tvaru
+  rozlišujeme galaxie spirální, eliptické, čočkovité a nepravidelné."), takže opravit správnou
+  odpověď podle výkladu nešlo. Obě otázky nahrazeny otázkami na nepokrytou část výkladu:
+  č. 11 „Za jak dlouho po velkém třesku vznikly první hvězdy?" → „asi po 400 milionech let"
+  (číslo doslova ve výkladu, krok „Vznik prvních hvězd"); č. 15 „Jak vidíme Mléčnou dráhu v
+  noci na tmavém místě?" → „jako světlý pás přes oblohu" (věta „V noci na tmavém místě vidíme
+  Mléčnou dráhu jako světlý mléčný pás" ve výkladu).
 
 Ověřeno: `vypis-kviz.mjs` = 21/21/21, `uniky.mjs` 0/0, `zkontroluj.mjs` 0 nálezů k těmto
 klíčům, `npm run build` proběhl bez chyby.
