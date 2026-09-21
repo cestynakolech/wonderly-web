@@ -58,6 +58,44 @@ oříznutý zdroj. Rozhoduje učitel.
 > `[skola2]` = lab.wonderly.cz (2. stupeň, tenhle repo — dosud jediný obsah fronty),
 > `[cesty]` = cestovatelský deník. Bez značky se nezakládá nová položka.
 
+### 🔴 PRIORITA — přestavba obsahu fyziky (zadáno 21. 9. 2026)
+
+`[skola2]` Zadání učitele. **NIC SE NEMAŽE** — texty se jen přestavují a doplňují.
+
+**A) Plynulost výkladu.** Texty k tématům nesmí „přeskakovat" mezi pojmy.
+Doložený příklad učitele: u energie se v jednom podtématu stále skáče mezi
+polohovou a pohybovou energií. Každé téma má jít v jedné linii, ne sem a tam.
+
+**B) Nová část „Zápis do sešitu"** u každého podtématu, v TOMTO pořadí:
+1. **Vzoreček** (má-li ho téma) a pod ním **pod sebou** rozepsané všechny
+   veličiny z něj — tvar: `síla — značíme F, jednotka N (newton)`.
+2. **Vzoreček slovy**, ne jen značkami.
+3. **Přesné znění zákona**, jde-li o zákon.
+4. **Body s nápovědou** — jen pár slov na bod, NE celé vysvětlení.
+   Důvod (slova učitele): *„děti si nemohou psát celé stránky, děti se neučí
+   psát, ale rozumět fyzikálním zákonům; na podrobné čtení mají web, ne sešit."*
+
+**C) Úroveň a řazení textu na webu.** Od nejjednoduššího k nejsložitějšímu.
+Jazyková úroveň mnohem nižší než dosud — učitel říká „spíš pro 9–10 let":
+žák má **tušit, jak fyzika funguje**, ne umět všechno spočítat.
+
+**D) Nadstavba na konec stránky.** Náročné počítání a odvozování se nemaže,
+jen se přesune na KONEC podtématu jako bonus pro schopnější žáky.
+
+**Postup:** nejdřív **JEDNO podtéma KOMPLET** (A+B+C+D) jako vzor, nechat
+schválit učitelem, teprve pak dávkově zbytek. Začít u **energie (8. ročník)** —
+právě na ní učitel skákání ukázal.
+
+**Stav 21. 9. 2026:** Vzorové podtéma `fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie`
+přestavěno podle A+B+C+D — worker → nezávislý kontrolor, 1 opravná smyčka,
+4 nálezy opraveny, výsledek PROŠLO. Zapsáno nástrojem `podtema.mjs`, build prošel.
+Schéma `zapis` rozšířeno o `vzorecSlovy`, vykreslení přeskládáno na pořadí
+vzorec → veličiny → vzorec slovy → zákon → body (`src/pages/.../index.astro`).
+ČEKÁ NA SCHVÁLENÍ UČITELE: dva vlastní číselné příklady (kámen 3 kg/4 m a míček)
+nemají oporu v PDF — rozhodne učitel. Po schválení jde dávkově zbytek celku
+Energie F8, pak ostatní podtémata. Drobnost do stavu: odvozené vztahy uvnitř
+rámečku vzorce se na užší obrazovce zalamují na dva řádky — zvážit přesun do nadstavby.
+
 ### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
 
 - [cesty] Doplnění starších fotek. Rozsah zadá učitel — zatím jen založeno,

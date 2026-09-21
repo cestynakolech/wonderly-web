@@ -33,3 +33,6 @@ Prezentace/
 
 # zbytek po mereni kvizu (655 kB), nepatri do repa
 src/data/kvizy.ts.mjs
+
+# zamek podtema.mjs (flock, prazdny soubor), nepatri do repa
+.podtema.lock

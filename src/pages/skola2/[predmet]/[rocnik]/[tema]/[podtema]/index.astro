@@ -213,27 +213,27 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		podtema.zapis && (
 			<section class="ramecek zapis-sesit">
 				<h2><span class="podtrh">📓 Zápis do sešitu</span></h2>
-				<ul class="zapis-body">
-					{podtema.zapis.body.map((b) => (
-						<li>{b}</li>
-					))}
-				</ul>
+				{podtema.zapis.vzorec && <p class="zapis-vzorec">{podtema.zapis.vzorec}</p>}
+				{podtema.zapis.jednotky && podtema.zapis.jednotky.length > 0 && (
+					<ul class="zapis-jednotky">
+						{podtema.zapis.jednotky.map((j) => (
+							<li>{j}</li>
+						))}
+					</ul>
+				)}
+				{podtema.zapis.vzorecSlovy && (
+					<p class="zapis-vzorec-slovy">{podtema.zapis.vzorecSlovy}</p>
+				)}
 				{podtema.zapis.zakon && (
 					<p class="zapis-zakon">
 						<strong>Zákon:</strong> {podtema.zapis.zakon}
 					</p>
 				)}
-				{podtema.zapis.vzorec && <p class="zapis-vzorec">{podtema.zapis.vzorec}</p>}
-				{podtema.zapis.jednotky && podtema.zapis.jednotky.length > 0 && (
-					<>
-						<h3 class="zapis-nadpis">Značky a jednotky</h3>
-						<ul class="zapis-jednotky">
-							{podtema.zapis.jednotky.map((j) => (
-								<li>{j}</li>
-							))}
-						</ul>
-					</>
-				)}
+				<ul class="zapis-body">
+					{podtema.zapis.body.map((b) => (
+						<li>{b}</li>
+					))}
+				</ul>
 			</section>
 		)
 	}
@@ -561,6 +561,11 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		font-size: 1.35em;
 		font-weight: 700;
 		letter-spacing: 0.02em;
+	}
+	.zapis-vzorec-slovy {
+		margin: 0.6rem 0 1rem;
+		text-align: center;
+		font-style: italic;
 	}
 	@media print {
 		.zapis-sesit {

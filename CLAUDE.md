@@ -43,9 +43,15 @@ Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do j
 
 ## Postup nasazení (společný pro všechny sekce)
 ```
+# obsah: src/data/temata.ts (výklad+materiály), src/data/kvizy.ts (otázky)
+# média: public/materialy/fyzika/<rocnik>/<tema>/<podtema>/
+#        infografiky zmenšit na ~1200px jpg q82 (PIL), písničky WAV→m4a/mp3 (ffmpeg)
 npm run build                 # ověří, že se web sestaví (prebuild = zkontroluj.mjs + testy simulací)
 git add -A src public/materialy
-git commit -m "..."
+git commit -m "..."           # commit = jedno téma, nepřibalovat nesouvisející soubory
 git push origin main          # Cloudflare nasadí sám do ~1 min — VŠECHNY sekce naráz
-# ověření: curl -s -o /dev/null -w '%{http_code}' https://lab.wonderly.cz/...
+# ověření (Cloudflare chvíli vrací starou verzi, proto ve smyčce):
+for i in $(seq 8); do curl -s https://lab.wonderly.cz/<cesta>/ | grep -q "Spustit kvíz" && echo OK && break; sleep 10; done
 ```
+
+Tenhle blok je JEDINÝ domov postupu nasazení — PROGRESS.md i skill `/wonderly` sem odkazují, neopisují.

@@ -1605,3 +1605,216 @@ hluché stránky 36 → **0**, dojetý celý audit kontrol (brána čte data, m�
 „všechna místa", slovník druhů materiálu, mutační test simulací).
 
 
+
+
+---
+
+## ⤵️ Přesunuto nedělním auditem 2026-09-20 — 15 záznamů Historie z 19.–23. 8. 2026
+
+## Historie — 23. 8. 2026 večer (mini jako pracoviště)
+Mac mini vybaven jako plnohodnotné pracoviště Claude Code (skilly/agenti/paměť/repa),
+obousměrný sync paměti (`sync-mini-pamet.sh`), hybridní směrování práce
+(`Omega/SMEROVANI-PRACE.md`), spouštěcí rohatka `wonderly-uloha.sh` se stropem 10/den;
+dokumentační balík pro učitele (8 dokumentů) na Macu i disku T7. Otevřené: allowlist
+Hermese nevynucuje omezení technicky (viz paměť `projekt-mini-jako-pracoviste`).
+
+## Historie — 23. 8. 2026 — nedělní WONDERLY AUDIT
+Kotvy zelené: `zkontroluj.mjs` exit 0 (3145 otázek/166 bloků, 130 komponent),
+`vsechny-simulace.mjs` exit 0 (2567 kontrol), `uniky.mjs` exit 0 (0 duplicit/0 úniků),
+`test_bez_kopii.py` exit 0 (dluh 0), lab.wonderly.cz + cesty.wonderly.cz HTTP 200.
+3 nezávislí kontroloři → 3 nálezy, všechny opravené: (1) `denik_chyb.py` slučoval 46
+pádů 10 různých testů do jedné „opakované třídy" — rozděleno podle názvu testu, ověřeno
+obousměrně; (2) `AUTOMATY.md` měl dva protichůdné řádky o `cz.wonderly.hlidac-ticha` —
+sloučeno; (3) `PROGRESS.md` měl duplicitní bloky „Předchozí stav" — obsah přenesen do
+Historie a bloky odstraněny. Kontrolor oprav s čerstvým kontextem: 0 nálezů. Starší
+poplach „`com.omega.foto-kontrola-kvality` nenahraný v launchd" už neplatí — automat
+běží (ověřeno launchctl). Startovní čtení: 144 677 B (před auditem 145 646 B, −969 B).
+POZNÁMKA: metrika dosud nebyla v bajtech (starší záznam 30. 7. je v tokenech,
+neporovnatelný) — od 23. 8. 2026 definice: součet `wc -c` CLAUDE.md + PROGRESS.md +
+SAMOSTATNY-REZIM.md + skill wonderly (SKILL.md + START.md). Toto je základna pro příští neděle.
+
+## Historie — 22. 8. 2026 (revize starších simulací dokončena)
+Revize kvality starších simulací dokončena 37/37, 6 nálezů opraveno a nasazeno
+(panáčci, Binarni, páka, kladka, Ozobot, přetlak). Kvíz `soubory-slozky-aplikace`
+dorovnán na cíl 21 otázek.
+
+## Historie — 22. 8. 2026 (dokončeny úkoly z rozhodnutí učitele)
+**Dokončeny oba úkoly z „ROZHODNUTÍ UČITELE 22. 8. 2026" (SAMOSTATNY-REZIM.md):**
+1) měď vs. hliník ve vedení rozlišeno ve výkladu i kvízu `prenos-elektricke-energie`
+(F9), commit `8c31c26`; 2) bezpečné vzdálenosti od vedení vráceny obrazně do
+`ucinky-proudu-bezpecnost` (F9), commit `acd1292`. Kvíz po zásahu: F9
+`prenos-elektricke-energie` 22 otázek, `ucinky-proudu-bezpecnost` 24 otázek.
+Nezávislý kontrolor běžel do 0 nálezů (7, resp. 8 kol). **3 body čekají na
+rozhodnutí učitele** (ochranná pásma vedení — rozpor prezentace vs. zákon
+458/2000 Sb.; práh ~50 V na kůži; bezpečné napětí 50 V st/120 V ss v suchu —
+podklad SmartBooks je útržkovitý) — viz blok „ČEKÁ NA ROZHODNUTÍ UČITELE
+(23. 8. 2026)" v SAMOSTATNY-REZIM.md.
+
+## Historie — 22. 8. 2026 noc (uzávěrka bloku, rozhodnutí učitele)
+**Dokončena názornost fyziky:** 92 ze 101 podtémat má simulaci, zbylých 9 jsou
+shrnutí/úvod, kde simulace nedává smysl. **Audit starších simulací F8:** 10
+komponent (teplo/skupenství, elektřina), 5 vad opraveno, commit `8af0dfc`.
+**Kontrola podkladů F9** kompletní (22 PDF, protokol
+`Omega/dokumenty/kontrola-podkladu-fyzika9.md`), **F8 dokončen** (protokol
+doplněn), nasazeno commity `d834875` a `3ed197c`. Nezkontrolováno:
+„Od_výbuchu_k_pohybu_Svět_motorů.pdf" (F8) — obrázkové PDF bez textové vrstvy.
+**Pokrytí materiálů fyziky:** kvíz 116/116, simulace 107/116, video 61/116,
+písnička 22/116, infografika 17/116 (F8 i F9 nula) — infografiky další velký
+úkol. **Lokální modely:** sběr verdiktů rozšířen na filtry map a rozmazávání
+(dřív rozhodovaly bez měření), hlídač rolí vidí i přiřazení přes slovník
+v `graf_local.py`. Zjištění: žádný dostupný lokální model neprošel zároveň
+zkouškou `cestina` i `kontrola` (grounding) — offline kontrola textů je proto
+nespolehlivá. **ROZHODNUTÍ UČITELE 22. 8. 2026** (viz blok nahoře
+SAMOSTATNY-REZIM.md) — 3 věcné opravy (měď/hliník ve vedení, bezpečné
+vzdálenosti obrazně vrátit, energie potravin nechat obecně) + obecné pravidlo
+„obsah pro ZŠ, podrobnosti do budoucí nadstavby". Otevřeno: připravit učiteli
+souhrn o možnostech orchestrace lokálních modelů (dotaz nestihnut zodpovědět).
+**Audit nasazených simulací dokončen pro VŠECHNY ročníky:** F8 (22. 8., 5 vad
+opraveno, commit `8af0dfc`), F9 (23 komponent, 0 nálezů), F6+F7 (48 komponent,
+1 nález = falešný poplach u tíže planet, vysvětlen v kódu commitem `6469422`).
+Kotva `node testy/vsechny-simulace.mjs` exit 0 (37 souborů, 2567 kontrol).
+
+## Historie — 22. 8. 2026 večer (samostatný režim)
+**NASAZENO A OVĚŘENO:** simulace síly jako vektoru (F7, podtéma `sila`) —
+`src/components/skola2/SilaVektorSimulace.astro`, klíč interakce `sila-vektor`, commit
+`fdb6cd7`, curl na produkci potvrdil `sv-f`, `sv-jed`, `sv-smer-90`, značení `Fg`. Kontrolní
+smyčka měla PĚT kol (3→2→1→2→0 nálezů): porovnání desetin na rovnost (hláška se nikdy
+nezobrazila), skládání sil mimo výklad podtématu (obsah zúžen), tíha značená „G" místo
+`Fg`, posuvník nikdy nedosáhl „bedna se zvedá" (mrtvá větev), plaketa useknutá/popisky mimo
+scénu u 10 z 55 kombinací. Poučení: autor si má sám před odevzdáním projet všechny kombinace
+ovládání a ověřit obalové obdélníky, pravdivost hlášek a celá čísla.
+**NASAZENO:** `testy/nahled-simulace.mjs` umí nově `cas=<sekundy>` — snímek až po doběhnutí
+animace (commit `4996115`), bez argumentu beze změny (ověřeno shodným otiskem).
+**ROZDĚLANÉ:** simulace k podtématu `klid-a-pohyb-telesa` (F7).
+**FRONTA NÁZORNOSTI** zkrácena na 10 podtémat (viz SAMOSTATNY-REZIM.md).
+**NASAZENO A OVĚŘENO (dávka 4 revize):** F6 `cas-a-jeho-mereni` — doplněn výklad úlohy s Ozobotem (obvod, obsah, v=s/t) dle prezentace Dráha puzzle, `OzobotSimulace.astro` zeštíhlena na cm/s, commit `a9f671b`; zkontrolováno 20/37 simulací.
+
+## Historie — 22. 8. 2026 (samostatný režim)
+**NASAZENO:** simulace vlastní vodivosti polovodiče (`PolovodicVodivostSimulace.astro`)
+zapojena k `polovodice-vlastni-vodivost` (F9) přes klíč `polovodic`. Kontrolor: 0 nálezů
+(neplete vlastní a příměsovou vodivost, scéna prohlédnuta při −20 °C i 100 °C). Commit `c73087f`,
+curl ověřil `pol-svg`, `pol-slider`, `pol-teplomer-sloupec`, `pol-vzorec`, `pol-castice`, `pol-zarovka`.
+**ROZDĚLANÉ:** simulace vektoru síly F7 (`SilaVektorSimulace.astro`) — hotová, čeká na
+prohlédnutí scény, kontrolora a zapojení do `temata.ts`, necommitnuto.
+**ZJIŠTĚNÍ:** `testy/vsechny-simulace.mjs` měří jen komponenty s ručním testem v
+`testy/simulace/*.mjs` — nové simulace (Dioda, Ozvěna, PolovodicVodivost, RychlostSvetla)
+takový test nemají, počet „37 souborů" o nich mlčí. Do fronty: dopsat chybějící testy nebo
+zviditelnit, které komponenty ruční test nemají.
+
+## Historie — 21. 8. 2026 ráno
+**Fyzika 6 dokončena, celá fyzika 6–9 KOMPLET na 21 otázkách.** 16 bloků F6 zkontrolováno
+2 nezávislými kontrolory + 1 po opravách; nálezy: 3 otázky mimo výklad nahrazeny, 5 oprav
+brány, 1 nesoulad s výkladem opraven. Commit `8fb4e0d`, tag `kvizy-fyzika-21-komplet`.
+Souběžně noční stavba propojení Maců: opraven Tailscale, obousměrné SSH, git fronta
+`wonderly-fronta` se 54 migrovanými úkoly, `tep.py` + hlídač ticha, Ollama na mini
+s modely bge-m3 a qwen3:8b.
+
+## Historie — 19. 8. 2026 večer (uzávěrka)
+**Fyzika 8 KOMPLET: všech 35 podtémat na 21 otázkách.** Dnes přibylo 187 otázek v 8 dávkách
+(kvízové commity 7868c64, e996a51, 530e6d6, 1cb25f0, 1100df4, 55261f1 + dvě dávky v 166835a
+a e6d576d). Každá dávka prošla nezávislým kontrolorem; chyceno: otázka o turbodmychadlu
+mimo probranou látku, duplicity mezi bloky, nepravdivé hlášení o úniku (vyvráceno git stash
++ uniky.mjs). Rozšířeny výklady 3 podtémat (rezistor-s-promennym-odporem,
+energeticka-hodnota-potravin, elektricky-proud-mereni), aby kvíz netestoval neprobranou látku.
+Ollama povýšena 0.32.9 → 0.32.14, stažen qwen3.8:27b-mlx (18 GB), zkouška na TEPLOTA.pptx:
+23/23 snímků, 0 selhání, ~1,6x pomalejší než ThinkingCap (16,2 vs. 10 min). popis_prezentace.py
+rozšířen o POPIS_MODEL/POPIS_OPTIONS/POPIS_VYSTUP (zpětně slučitelné). Zbývá dořešit chybějící
+otázky: F6 88, F7 39, F9 155 (F8 už 0) — čísla z odpoledního měření, přepočet příště.
+
+## Historie — 22. 8. 2026 odpoledne (samostatný režim, pokračování bloku názornosti)
+**NASAZENO 4 simulace/opravy v jednom bloku, vše ověřeno curlem na produkci:**
+- Klid a pohyb (F7, `klid-a-pohyb-telesa`, `RelativitaPohybuSimulace`) — commit `2a31dc9`.
+- Bezpečná vzdálenost od vedení (F9, `ucinky-proudu-bezpecnost`, `BezpecnaVzdalenostVedeniSimulace`) — commit `67af855`.
+- Posuvný a otáčivý pohyb (F7, `posuvny-otacivy-pohyb`) + oprava věcné chyby ve výkladu
+  („po úplně stejné trajektorii" → „dráhy mají stejný tvar i délku a jsou rovnoběžné, ale
+  nejsou totožné", temata.ts + 2× kvizy.ts) — commit `179d699`.
+- Výměna simulace `pusobeni-teles-a-deformace` (F7): stará dělila deformaci podle VELIKOSTI
+  SÍLY, výklad a kvíz ji dělí podle MATERIÁLU (guma vs. plastelína) — commit `573ebc9`,
+  starý soubor `UcinkySilySimulace.astro` zachován nezapojený.
+- Povětrnostní mapa (F7, `meteorologie-a-mereni-tlaku`, `PovetrnostniMapaSimulace`) —
+  commit `36259f7`. 6 kol kontroly odstranilo vymyšlený vzorec „vítr = rozdíl tlaku × 1,5 km/h"
+  a kreslený barograf (nahrazen pevnou mřížkou 3 hodnot). Curl potvrdil `meteo-svg` na 2. pokusu.
+
+**Poučení:** průzkum názornosti nad textem se spletl a označil pokryté podtéma za
+nepokryté — měřit se musí nad naimportovanými daty s křížovou kontrolou proti větvím
+stránky. Přeměřeno: chybí 5 podtémat — F6: `uvod-do-fyziky`, `telesa-a-latky`,
+`vzajemne-pusobeni-teles-sila`; F7: `priklady-na-vypocet-rychlosti`,
+`telesa-stejnoroda-a-nestejnoroda`. Obecná kontrola scény (obalové obdélníky všech
+prvků proti sobě, přes všechny kombinace ovládání) je jediná, co spolehlivě chytá vady —
+kontrola po jedné třídě vad pokaždé jednu nechala projít.
+
+## Historie — 22. 8. 2026 večer (samostatný režim, dokončení fronty názornosti)
+**NASAZENO A OVĚŘENO posledních 5 simulací — FRONTA NÁZORNOSTI FYZIKY JE PRÁZDNÁ:**
+povětrnostní mapa (F7 `meteorologie-a-mereni-tlaku`, commit `36259f7`), stejnorodá a
+nestejnorodá tělesa (F7 `telesa-stejnoroda-a-nestejnoroda`, commit `bb66548` + doplnění
+hustot do výkladu), výpočet rychlosti (F7 `priklady-na-vypocet-rychlosti`) a třídění
+těleso vs. látka (F6 `telesa-a-latky`) společným commitem `65db871`, vzájemné působení
+těles (F6 `vzajemne-pusobeni-teles-sila`, commit `11492a7`). Přeměřeno nad daty: 101
+podtémat fyziky 6.–9., 92 má simulaci, 9 ne — 8 opakovacích shrnutí (logicky bez
+simulace) + `uvod-do-fyziky` (rozhodnuto: simulace nedává smysl, jediný jev pokrývá video).
+**Nástroj:** `testy/nahled-simulace.mjs` opraven podruhé (commit `434958a`) — sandbox
+teď zvládá dynamicky vytvářené prvky (`createElementNS`+`appendChild`); `RozpadSimulace`
+se dosud kreslila prázdná (0 kruhů), teď 400.
+**Poučení:** kontrola scény musí být OBECNÁ (obalové obdélníky všech prvků proti sobě
+i okrajům, přes všechny kombinace ovládání) — kontrola po jedné třídě vad vždy jednu
+nechala projít. Simulace nesmí tvrdit vzorec, který výklad neučí — doplnit výklad, ne
+vymýšlet vztah. Animace potřebuje společné měřítko dráhy, jinak lže pořadí v cíli.
+**Čím pokračovat:** názornost fyziky hotová, další cíl je kontrola kvality STARŠÍCH
+simulací týmiž měřítky (obecná kontrola překryvů, opora čísel ve výkladu) — nové
+kontroly odhalily vady i v už nasazené práci.
+
+## Historie — 22. 8. 2026 pozdě večer (audit už nasazených simulací 8. ročníku)
+Po dokončení fronty názornosti začal AUDIT NASAZENÝCH simulací týmiž novými
+měřítky. Prověřeno 10 komponent 8. ročníku (teplo/skupenství a elektřina),
+nalezeno 5 vad, všechny opraveny a nasazeny commitem `8af0dfc`, nezávislá
+kontrola 0 nálezů: (1) čtyři nepodložená tvrzení (rozpad účinnosti tepelného
+motoru na %, var vody 90 °C v horách, „−5 °C na lžíci soli", 1 V „Voltův
+článek" u zinek+měď mimo výklad) odstraněna nebo převedena na kvalitativní
+popis; (2) hláška o pohybu částic bez napětí ve `VznikElektrickehoProuduSimulace`
+se zobrazovala vždy místo jen při 0 V, opraveno podmínkou; (3) oprava textu u
+`TuhnutiSimulace` zavedla přetečení viewBoxu (128 znaků do 660 px), opraveno
+zalomením a zkrácením, při té příležitosti nalezeno i starší přetečení
+(„led zabírá víc místa", 7 px přes okraj).
+**POUČENÍ:** audit se vyplácí — vady byly ve „vedené jako hotové" práci. Nová
+trvalá třída kontroly: MĚŘENÍ ŠÍŘKY TEXTU proti okrajům viewBoxu a panelu
+(odhad z počtu znaků, velikosti a tučnosti písma).
+
+## Historie — 22. 8. 2026 noc (revize starších simulací, dávka 1)
+Revize 5 nejstarších simulací dokončena, kontrolor 0 nálezů. Opraveno: (1)
+`SkladaniSilSimulace` — panáčci od 3. kusu mimo viewBox, přerovnáno do mřížky
+3×2 (commit `7801897`); (2) doplněn výklad bit/bajt/ASCII k podtématu
+soubory-slozky-aplikace + 6 otázek kvízu (blok 10→16, commit `d09155d`).
+Nasazeno, ověřeno curl přímo na produkci (slovo „bajt" na živé stránce).
+**POZOR NA MĚŘIDLA:** dvakrát si pracovník upravil vlastní měřidlo současně
+s opravou komponenty, celkový počet kontrol klesl (2579 → 2567). Nezávislá
+kontrola pokles rozebrala a mutačními testy doložila, že měřidla nezeslábla
+(proporční ubrání odstraněné položky + sloučení kategorií). Pravidlo: sáhne-li
+pracovník na vlastní měřidlo, musí to nezávislý kontrolor prověřit podvrhem.
+**OMEZENÍ NÁSTROJE (do fronty):** `testy/nahled-simulace.mjs` neumí
+vyrenderovat simulace kreslené do `<canvas>` (padá na
+`platno.getContext is not a function`), např. `ElektrickePoleSimulace` — dá
+se prověřit jen čtením kódu, ne okem. Stojí za doplnění.
+**Čím pokračovat:** audit dalších ročníků (6., 7., 9.) týmiž měřítky.
+
+## Historie — 22. 8. 2026 (dávka 2 revize simulací)
+Nasazena dávka 2 revize simulací: PakaSimulace a KladkaSimulace opravené
+(commit `292ec38`), kvíz `soubory-slozky-aplikace` dorovnán na 21 otázek
+a zbaven křížových úniků (commit `64ed687`), ověřeno curl na produkci.
+
+## Historie — 22. 8. 2026 (brána úniků posílena a nasazena)
+Brána `testy/uniky.mjs` posílena (flexe, slovník tématu, distraktory, pojistka
+temata, jednotky ²/³), 50/50 měřidel obousměrně doloženo. Po opravě 106 textů
+0 úniků, smazána zastaralá `UcinkySilySimulace` (schválil učitel), nasazeno
+a ověřeno HTTP 200 (commit `cbbebb9`). V Omeze: kontroloři llama3.1 vyměněni
+za gemma4:26b/qwen3:30b-a3b, hlídač rolí měří doménovou zkouškou, návody
+lokál+Hermes srovnány, nový skill `/kolega`.
+
+
+
+### Duplicitní zápis ze 12. 9. 2026 (vznikl sloučením dvou větví; obsáhlejší verze zůstala v PROGRESS.md)
+
+### F8 — publikace ověřeného pilotu a společné písně (2026-09-12T09:54:37.430797+02:00)
+- Do R2 nahrán pilot mechanicka-prace-dialog.mp4, SHA256 535bed1edce8c653760df004107575dfe1e045753b0276781c68cbc116dd5df2. Zpětný R2 get i skutečný browser fetch živého /media/ vrací stejné bajty (2146630 B, video/mp4).
+- Tento publikační commit obsahuje pouze zapojení již obsahově zkontrolovaného pilotu (s přiznáním AI) a existující společné písně u Výkonu; žádný nový výklad, otázky ani herní kód. Kandidát odvozen z HEAD, přesný staged temata.ts je shodný s testovaným kandidátem. zkontroluj.mjs a npm run build exit0; konkrétní HTML ověřeno.
+- Herní předvolba a odkazy zůstávají místně rozpracované: deterministický test existuje, ale nezávislé code review nebylo doloženo a cizí gemma4:26b brání bezpečnému použití povolené modelové dráhy. Infografika a laborka jsou DRAFT_WAITING_CONTENT_REVIEW. Brány neobcházeny, další model nenačten.
+- Stav deploye se ověří po pushi a zapíše do kanonické matice ../Omega/dokumenty/WONDERLY-FYZIKA-7-9-MATICE.md. Celé téma stále není kompletní.

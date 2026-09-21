@@ -34,6 +34,8 @@ export type Podtema = {
 		body: string[];
 		zakon?: string;
 		vzorec?: string;
+		/** Vzoreček slovy, např. „mechanická energie = polohová energie + pohybová energie". */
+		vzorecSlovy?: string;
 		jednotky?: string[];
 	};
 };
@@ -3284,37 +3286,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'zakon-zachovani-mechanicke-energie',
 					interakce: 'skatepark',
 					nazev: 'Zákon zachování mechanické energie',
-					obsah: `
-						<h2>Zákon zachování mechanické energie</h2>
-						<p><strong>Celková mechanická energie</strong> tělesa je součet jeho pohybové a polohové energie:</p>
-						<p style="font-size:1.3rem"><strong>E = E<sub>p</sub> + E<sub>k</sub></strong></p>
-						<h3>Zákon zachování</h3>
-						<p>„Pokud se mechanická energie nemění v jiné druhy energie, je <strong>součet polohové a pohybové energie stále stejný</strong>." Během děje se E<sub>p</sub> a E<sub>k</sub> navzájem přeměňují, ale celek zůstává.</p>
-						<ul>
-							<li><strong>Při pádu</strong> se polohová energie mění na pohybovou — nahoře max. E<sub>p</sub> a nulová E<sub>k</sub>, dole nulová E<sub>p</sub> a max. E<sub>k</sub>. Pohybová energie při dopadu = polohová energie na začátku.</li>
-							<li><strong>Při vyhození vzhůru</strong> se pohybová energie mění na polohovou — v nejvyšším bodě se těleso zastaví (E<sub>k</sub> = 0, E<sub>p</sub> max.).</li>
-						</ul>
-						<h3>Přenos energie mezi tělesy</h3>
-						<p>Energie může přejít z jednoho tělesa na druhé: tětiva luku předá energii šípu, jedna kulečníková koule předá pohybovou energii druhé.</p>
-						<h3>V běžném životě</h3>
-						<p>Každá přeměna je spojená se <strong>ztrátami</strong> — část energie se třením mění na <strong>teplo</strong>, které už na pohyb nevyužijeme. Proto skateboardista na U-rampě nevyjede do stejné výšky, ze které vyjel.</p>
-					`,
-					zapis: {
-						body: [
-							'Celková mechanická energie tělesa je součet jeho polohové a pohybové energie.',
-							'Při pádu se polohová energie mění na pohybovou, při pohybu vzhůru se pohybová energie mění na polohovou.',
-							'Energie může přecházet také z jednoho tělesa na druhé.',
-							'Při tření se část mechanické energie mění na teplo, proto například skateboardista nevyjede zpět do stejné výšky.',
-						],
-						zakon: 'Pokud se mechanická energie nemění v jiné druhy energie, je součet polohové a pohybové energie stále stejný.',
-						vzorec: 'E = Ep + Ek      (odvozeně: Ep = E − Ek,  Ek = E − Ep)',
-						jednotky: [
-							'celková mechanická energie E — joule (J)',
-							'polohová energie Ep — joule (J)',
-							'pohybová energie Ek — joule (J)',
-							'Převody: 1 kJ = 1 000 J, 1 MJ = 1 000 000 J. Do vzorce dosazuj všechny energie v J.',
-						],
-					},
+					obsah: "<h2>Zákon zachování mechanické energie</h2>\n\n<p>Když se díváme na pohybující se nebo zvednuté těleso, zajímá nás jeho <strong>mechanická energie</strong>. Je to součet dvou částí: <strong>pohybové energie</strong> (odborně kinetické) a <strong>polohové energie</strong> (odborně potenciální). Značíme ji E a měříme v joulech (J), stejně jako obě její části.</p>\n<p style=\"font-size:1.3rem\"><strong>E = E<sub>p</sub> + E<sub>k</sub></strong></p>\n<p>Například letící letadlo má obojí najednou: je vysoko nad zemí, takže má polohovou energii, a zároveň letí rychle, takže má i pohybovou energii. Jeho celková mechanická energie je součet obou.</p>\n<p>Mechanická energie úzce souvisí s prací. Když něco zvedneš, vykonáš práci a těleso touto prací získá polohovou energii — třeba sekera zvednutá nad hlavou. Při seknutí do dřeva se tahle energie zase promění zpátky v práci. Podobně bowlingová koule získá při hodu pohybovou energii prací tvé ruky a tuto energii pak využije k shození kuželek.</p>\n\n<h3>Příběh míčku: nahoře, dole, zase nahoře</h3>\n<p>Představ si míček, který spadne ze stromu. Nahoře na větvi se nehýbe — má jen <strong>polohovou energii</strong>, pohybová je nulová. Jak padá, klesá a zrychluje: polohová energie ubývá a pohybová přibývá. Těsně nad zemí je jeho rychlost největší — má jen <strong>pohybovou energii</strong>, polohová klesla na nulu.</p>\n<p>Stejně to funguje i obráceně. Když míček vyhodíš svisle vzhůru, na začátku má hodně pohybové energie. Čím výš letí, tím víc zpomaluje — pohybová energie se mění na polohovou. V nejvyšším bodě se na okamžik zastaví: pohybová energie je nulová, polohová je největší.</p>\n\n<h3>Zákon zachování mechanické energie</h3>\n<p>Platí to i obecně pro energii: „Energii nelze vyrobit ani zničit, pouze se přeměňuje z jednoho druhu na jiný.\" Pro mechanickou energii to fyzikové zapsali přesněji. „Pokud se mechanická energie nemění v jiné druhy energie, je součet polohové a pohybové energie stejný.\" Energie tedy nemizí ani nevzniká z ničeho — jen přeskakuje mezi polohovou a pohybovou podobou.</p>\n<p>Proto platí: kolik pohybové energie má míček u země, tolik měl polohové energie nahoře.</p>\n\n<h3>Energie putuje i mezi tělesy</h3>\n<p>Energie nemusí zůstat jen u jednoho tělesa — může přejít na jiné. Když vystřelíš z luku, natažená tětiva má polohovou energii pružnosti. Při výstřelu ji celou předá šípu, který se rozletí — tětiva zpomalí, šíp zrychlí. Podobně na kulečníku: koule, která se pohybuje, narazí do koule v klidu a předá jí část své pohybové energie.</p>\n\n<h3>V běžném životě energie trochu unikne</h3>\n<p>V opravdovém životě žádná přeměna neproběhne úplně beze ztráty. Část energie se vždycky změní třením na <strong>teplo</strong>, které se rozptýlí do okolí a k pohybu ho už nevyužijeme. Proto skateboardista na U-rampě nikdy nevyjede do stejné výšky, ze které vyjel — tření mu kousek energie sebralo.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Kulička se valí po zakřivené dráze (jako U-rampa) a nikde neztrácí energii třením. Na začátku je nahoře v klidu s celkovou mechanickou energií 10 J. Sleduj, jak se E<sub>p</sub> a E<sub>k</sub> mění, ale součet zůstává stále stejný:</p>\n<ul>\n<li>nahoře: E<sub>p</sub> = 10 J, E<sub>k</sub> = 0 J → E = 10 J</li>\n<li>o kousek níž: E<sub>p</sub> = 6 J, E<sub>k</sub> = 4 J → E = 10 J</li>\n<li>ještě níž: E<sub>p</sub> = 2 J, E<sub>k</sub> = 8 J → E = 10 J</li>\n<li>úplně dole: E<sub>p</sub> = 0 J, E<sub>k</sub> = 10 J → E = 10 J</li>\n</ul>\n<p>Na druhé straně rampy se to celé odehraje obráceně — kulička vystoupá zase do stejné výšky, protože jí zbylo přesně 10 J.</p>\n<p>Když známe celkovou energii E a jednu z jejích částí, druhou dopočítáme odečtením: E<sub>p</sub> = E − E<sub>k</sub> nebo E<sub>k</sub> = E − E<sub>p</sub>. Třeba u kuličky ve výšce, kde E<sub>k</sub> = 4 J a E = 10 J, vyjde E<sub>p</sub> = 10 − 4 = 6 J — přesně tolik, kolik ukazuje tabulka výše.</p>\n<p>Vzorec E<sub>p</sub> = m · g · h umíme použít i k výpočtu. Kámen o hmotnosti 3 kg leží na skále ve výšce 4 m, g = 10 N/kg. Jeho polohová energie nahoře je:</p>\n<p>E<sub>p</sub> = m · g · h = 3 · 10 · 4 = 120 J</p>\n<p>Kámen spadne dolů, kde je výška nulová, a tedy i polohová energie nulová. Podle zákona zachování se celá polohová energie proměnila na pohybovou, takže těsně nad zemí má kámen pohybovou energii E<sub>k</sub> = 120 J.</p>\n<p>Funguje to i naopak. Chlapec hodí míček o hmotnosti 1 kg svisle vzhůru a na začátku mu dá pohybovou energii 20 J. V nejvyšším bodě je celá tato energie polohová, E<sub>p</sub> = 20 J. Z toho spočítáme výšku výstupu:</p>\n<p>h = E<sub>p</sub> : (m · g) = 20 : (1 · 10) = 2 m</p>",
+					zapis: {"vzorec":"E = Eₚ + Eₖ      (odvozeně: Eₚ = E − Eₖ,  Eₖ = E − Eₚ)","jednotky":["mechanická energie — značíme E, jednotka J (joule)","polohová energie — značíme Eₚ, jednotka J (joule)","pohybová energie — značíme Eₖ, jednotka J (joule)","Převody: 1 kJ = 1 000 J, 1 MJ = 1 000 000 J."],"vzorecSlovy":"mechanická energie = polohová energie + pohybová energie","zakon":"Pokud se mechanická energie nemění v jiné druhy energie, je součet polohové a pohybové energie stejný.","body":["E = Ep + Ek","pád: polohová → pohybová","hod vzhůru: pohybová → polohová","přenos: luk → šíp, koule → koule","tření → teplo, energie se ztrácí z pohybu"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Zákon zachování energie', cesta: 'vDavukfb5qU' },
 					],

@@ -80,6 +80,15 @@ Kroky standardního rozkladu a model, na kterém mají běžet:
 | zápis do souborů | Claude |
 | kontrolor | Claude — musí chytat faktické chyby |
 
+### Cloudové modely subagentů (od 21. 9. 2026)
+
+| role | model | důvod |
+|---|---|---|
+| kontrolor | opus | nezávislá kontrola musí chytat faktické chyby — nejnáročnější úsudek |
+| worker-simulace | opus | jediný worker vytvářející novou komponentu (kód) — nejnáročnější úsudek |
+| pruzkumnik | haiku | jen čtení a shrnutí dlouhých textů — levná role |
+| worker-vyklad, worker-kviz, worker-media, exekutor | sonnet | běžná obsahová práce a dílčí úpravy podle vzoru — beze změny |
+
 Je to VÝCHOZÍ stav, ne dogma: po každém měření se tabulka posouvá směrem k lokálním
 modelům tam, kde se ukáže, že lokál stačí. Měření se zapisuje do `METRIKY-KOL.md`,
 sekce srovnání režimů.
