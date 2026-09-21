@@ -16,9 +16,9 @@ nezávislé kontroly (a = první kolo, b = po opravě).
 | `kmitani-a-vlneni` | vyklad-kmitani-a-vlneni-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `vnimani-zvuku-a-hlasitost` | vyklad-vnimani-zvuku-a-hlasitost-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 | `zvuk-vznik-a-sireni` | vyklad-zvuk-vznik-a-sireni-f8.md | ZAPSÁNO 22. 9. 2026 (build OK) |
-| `obnovitelne-a-neobnovitelne-zdroje` | vyklad-obnovitelne-a-neobnovitelne-zdroje-f9.md | v kontrole/opravě 22. 9. 2026 |
-| `slunecni-soustava` | vyklad-slunecni-soustava-f9.md | v kontrole/opravě 22. 9. 2026 |
-| `vesmir-a-galaxie` | vyklad-vesmir-a-galaxie-f9.md | v kontrole/opravě 22. 9. 2026 |
+| `obnovitelne-a-neobnovitelne-zdroje` | vyklad-obnovitelne-a-neobnovitelne-zdroje-f9.md | ZAPSÁNO 22. 9. 2026 (build OK) |
+| `slunecni-soustava` | vyklad-slunecni-soustava-f9.md | v opravě |
+| `vesmir-a-galaxie` | vyklad-vesmir-a-galaxie-f9.md | ZAPSÁNO 22. 9. 2026 (build OK) |
 
 F7 atmosféra a tlak vzduchu: u tří klíčů kontrolor v kole „b" (`kontrola-*-b.md`) buď
 potvrdil PROŠLO s jen drobnými nálezy, nebo (u `pretlak-podtlak-vakuum`) nahlásil NEPROŠLO

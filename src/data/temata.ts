@@ -3107,103 +3107,8 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'obnovitelne-a-neobnovitelne-zdroje',
 					nazev: 'Obnovitelné a neobnovitelné zdroje energie',
-					obsah: `
-						<h2>Obnovitelné a neobnovitelné zdroje energie</h2>
-						<p>Přírodní zdroje energie, ze kterých vyrábíme elektřinu nebo poháníme stroje, dělíme do dvou skupin.</p>
-						<h3>Obnovitelné zdroje</h3>
-						<ul>
-							<li>doplňují se <strong>tak rychle, jak je stačíme využívat</strong> — zítra jich bude zas tolik co dnes,</li>
-							<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální teplo, biomasa a bioplyn i vodík</strong>.</li>
-						</ul>
-						<p>👉 „Obnovitelný" ale neznamená „nevyčerpatelný": les vykácený rychleji, než stačí dorůst,
-						nebo přetížený geotermální vrt dojdou stejně jako uhlí. Rozhoduje <strong>rychlost, jakou se
-						zdroj obnovuje</strong>, ne jeho množství.</p>
-						<p>🔍 <strong>Vodík je zvláštní případ.</strong> Řadíme ho mezi obnovitelné zdroje,
-						ale na Zemi se volný skoro nevyskytuje — musíme ho <strong>vyrobit</strong>
-						(nejčastěji elektrolýzou vody), a to spotřebuje energii. Proto se o vodíku
-						často mluví spíš jako o <strong>nosiči energie</strong>: umí energii uchovat
-						a přenést (např. pro auta na vodíkový pohon), podobně jako baterie.</p>
-						<h3>Neobnovitelné zdroje</h3>
-						<ul>
-							<li>jsou jen v <strong>omezeném množství</strong> a za určitou dobu se vyčerpají,</li>
-							<li><strong>fosilní paliva</strong> — uhlí, ropa, zemní plyn (vznikla ze zbytků odumřelých organismů v zemské kůře bez přístupu vzduchu),</li>
-							<li>ropné břidlice a písky, <strong>jaderné palivo</strong>.</li>
-						</ul>
-						<h3>Druhy elektráren</h3>
-						<p>Podle využitého zdroje stavíme elektrárny <strong>jaderné</strong> (uran 235), <strong>tepelné</strong> (spalují fosilní paliva), <strong>sluneční</strong> (fotovoltaické), <strong>větrné</strong>, <strong>vodní</strong> a <strong>geotermální</strong>.</p>
-						<h3>☀️ Skoro všechno je vlastně sluneční energie</h3>
-						<p>Když se u každého zdroje zeptáš „a odkud se ta energie vzala?", dojdeš skoro pokaždé
-						ke stejné odpovědi — ke <strong>Slunci</strong>:</p>
-						<ul>
-							<li><strong>vítr</strong> vzniká tím, že Slunce ohřívá vzduch nerovnoměrně</li>
-							<li><strong>vodní</strong> elektrárna žije z koloběhu vody, a ten pohání sluneční teplo,
-							které vodu vypařuje</li>
-							<li><strong>biomasa</strong> je energie zachycená fotosyntézou</li>
-							<li><strong>uhlí a ropa</strong> jsou totéž — jen sluneční energie, kterou rostliny
-							zachytily před stovkami milionů let a která od té doby ležela pod zemí</li>
-						</ul>
-						<p>Ze Slunce nepocházejí jen tři: <strong>jaderná</strong> energie (z jader atomů),
-						<strong>geotermální</strong> (teplo zemského nitra — z velké části také z rozpadu
-						radioaktivních prvků) a <strong>přílivová</strong>, která si bere energii
-						<strong>z otáčení Země</strong>; Měsíc svou gravitací jen „drží" příliv na místě,
-						zatímco planeta se pod ním otáčí. Země se tím opravdu, i když nepatrně, zpomaluje.</p>
-						<p>👉 Rozdíl mezi obnovitelným a neobnovitelným zdrojem tedy není v tom, <em>odkud</em>
-						energie je — ale <strong>jak rychle se doplňuje</strong>: uhlí vznikalo desítky milionů let,
-						vítr fouká zítra znovu.</p>
-						<h3>Slabina obnovitelných: nedají se poručit</h3>
-						<p>Sluneční panel nevyrábí v noci a větrník za bezvětří — a naopak: v poledne dodá elektrárna
-						víc, než je zrovna potřeba. Elektřina se přitom <strong>ve velkém špatně skladuje</strong>
-						a sítí musí každou vteřinu protékat přesně tolik, kolik se právě spotřebuje.</p>
-						<h3>Přečerpávací elektrárna</h3>
-						<p>Příkladem takové elektrárny v ČR je <strong>Dlouhé stráně</strong> v Jeseníkách.
-						Právě to je odpověď na potíž popsanou výš — je to obrovská <strong>baterie z vody</strong>.
-						Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>; v době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>
-						<p>Přečerpáním se část energie ztratí, takže dolů se jí vrátí míň, než kolik stálo čerpání
-						nahoru. Přesto se to vyplatí — <strong>elektřina, která by se jinak vůbec nevyužila,
-						takhle počká</strong> na chvíli, kdy je jí potřeba.</p>
-						<h3>📐 Spočítej si to: kolik se na přečerpávání "ztratí"</h3>
-						<p>Modelová přečerpávací elektrárna má čerpadla o výkonu <strong>500 MW</strong> a turbíny
-						o výkonu <strong>750 MW</strong>.</p>
-						<ul>
-							<li>V noci čerpadla běží <strong>8 hodin</strong> → spotřebují
-							500 MW × 8 h = <strong>4 000 MWh</strong>.</li>
-							<li>Přes den turbíny vyrábí <strong>4 hodiny</strong> → vyrobí
-							750 MW × 4 h = <strong>3 000 MWh</strong>.</li>
-						</ul>
-						<p>Zpátky se tedy vrátí jen 3 000 MWh ze 4 000 MWh — <strong>1 000 MWh (25 %)</strong>
-						se cestou "ztratí" (tření vody v potrubí, teplo na ložiskách čerpadel a turbín).
-						I tak se to vyplatí: bez přečerpávání by se noční přebytek elektřiny nevyužil vůbec.</p>
-						<h3>✏️ Zamysli se / Z praxe</h3>
-						<ol>
-							<li>Malá vesnice si pořídila jen sluneční elektrárnu jako <strong>jediný</strong> zdroj
-							elektřiny pro celou nemocnici. Proč je to nebezpečný nápad?
-							<details><summary>řešení</summary>Sluneční panely v noci nevyrábí vůbec a přes den
-							závisí na počasí — výkon <strong>nejde poručit</strong>. Nemocnice ale potřebuje
-							elektřinu nepřetržitě (přístroje na oddělení JIP, chlazení léků). Musí mít vždy
-							záložní zdroj (např. dieselový agregát nebo připojení do sítě), který doplní výpadek.</details></li>
-							<li>Přečerpávací elektrárna čerpá v noci a vyrábí ve dne. Proč se jí to i přes
-							ztráty vyplatí, když by se dalo čekat, že je to "zbytečná práce navíc"?
-							<details><summary>řešení</summary>Elektřinu ve velkém nejde uskladnit jinak
-							(baterie na celé město by byly obrovské a drahé). Noční elektřina z jaderných
-							nebo větrných elektráren by jinak <strong>propadla bez užitku</strong>, protože
-							v noci je nízká spotřeba. I se ztrátou 25 % je lepší část energie zachránit
-							a použít ji přes den ve špičce, než ji nevyužít vůbec.</details></li>
-							<li>Je vodík obnovitelný zdroj energie? Zdůvodni.
-							<details><summary>řešení</summary>Ano, řadí se mezi obnovitelné zdroje. Na
-							Zemi se ale v čisté podobě skoro nevyskytuje — musí se <strong>vyrobit</strong>
-							(nejčastěji elektrolýzou vody), a to stojí energii. Proto se mu často říká
-							<strong>nosič energie</strong> (jako baterie): umí energii uchovat a přenést,
-							ne ji sám „zadarmo" dodat jako slunce nebo vítr.</details></li>
-						</ol>
-					`,
-					zapis: {
-						body: [
-							'Obnovitelné zdroje se doplňují tak rychle, jak je stačíme využívat; patří mezi ně sluneční záření, vítr, voda, geotermální teplo a biomasa.',
-							'Neobnovitelné zdroje jsou v omezeném množství a postupně se vyčerpají; patří mezi ně fosilní paliva a jaderné palivo.',
-							'Výkon slunečních a větrných elektráren závisí na počasí a elektřina se ve velkém špatně skladuje.',
-							'Přečerpávací elektrárna ukládá přebytečnou energii čerpáním vody do horní nádrže a podle potřeby ji získává zpět přes turbínu s generátorem.',
-						],
-					},
+					obsah: "\n\t\t\t\t\t\t<h2>Obnovitelné a neobnovitelné zdroje energie</h2>\n\t\t\t\t\t\t<p>Přírodní zdroje energie, ze kterých vyrábíme elektřinu nebo poháníme stroje, dělíme do dvou skupin.</p>\n\n\t\t\t\t\t\t<h3>Obnovitelné zdroje</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>nacházejí se v přírodě v <strong>neomezeném množství</strong> — samy se stále doplňují,</li>\n\t\t\t\t\t\t<li>patří sem <strong>sluneční záření, vítr, tekoucí voda, geotermální proudy, biomasa a bioplyn i vodík</strong>.</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>👉 „Obnovitelný\" ale neznamená „nevyčerpatelný\". Vytěžený les nebo přetížený geotermální vrt potřebují čas, než se vzpamatují, a mohou dojít stejně jako uhlí. Rozhoduje <strong>rychlost, jakou se zdroj obnovuje</strong>, ne jeho množství.</p>\n\t\t\t\t\t\t<p>🔍 <strong>Vodík je zvláštní případ.</strong> Řadíme ho mezi obnovitelné zdroje. Na Zemi se ale volný skoro nevyskytuje — musíme ho <strong>vyrobit</strong> (nejčastěji elektrolýzou vody), a to spotřebuje energii.</p>\n\t\t\t\t\t\t<p>Proto se o vodíku často mluví spíš jako o <strong>nosiči energie</strong>. Umí energii uchovat a přenést, třeba pro auta na vodíkový pohon — podobně jako baterie.</p>\n\n\t\t\t\t\t\t<h3>Neobnovitelné zdroje</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>jsou jen v <strong>omezeném množství</strong> a za určitou dobu se vyčerpají,</li>\n\t\t\t\t\t\t<li><strong>fosilní paliva</strong> — uhlí, ropa, zemní plyn (vznikla ze zbytků odumřelých organismů v zemské kůře bez přístupu vzduchu),</li>\n\t\t\t\t\t\t<li>ropné břidlice a písky, <strong>jaderné palivo</strong>.</li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Druhy elektráren</h3>\n\t\t\t\t\t\t<p>Podle využitého zdroje stavíme elektrárny <strong>jaderné</strong> (zpravidla obohacený uran 235), <strong>tepelné</strong> (spalují fosilní paliva), <strong>sluneční</strong> (fotovoltaické), <strong>větrné</strong>, <strong>vodní</strong> a <strong>geotermální</strong>.</p>\n\n\t\t\t\t\t\t<h3>☀️ Skoro všechno je vlastně sluneční energie</h3>\n\t\t\t\t\t\t<p>Když se u každého zdroje zeptáš „a odkud se ta energie vzala?\", dojdeš skoro pokaždé ke stejné odpovědi — ke <strong>Slunci</strong>:</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>vítr</strong> vzniká tím, že Slunce ohřívá vzduch nerovnoměrně,</li>\n\t\t\t\t\t\t<li><strong>vodní</strong> elektrárna žije z koloběhu vody, a ten pohání sluneční teplo, které vodu vypařuje,</li>\n\t\t\t\t\t\t<li><strong>biomasa</strong> je energie zachycená fotosyntézou,</li>\n\t\t\t\t\t\t<li><strong>uhlí a ropa</strong> jsou vlastně totéž — sluneční energie, kterou zachytily rostliny. Stalo se to před stovkami milionů let a od té doby energie ležela pod zemí.</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Jen tři zdroje ze Slunce nepocházejí: <strong>jaderná</strong>, <strong>geotermální</strong> a <strong>přílivová</strong> energie. Jaderná energie pochází z jader atomů. Geotermální teplo je z velké části z rozpadu radioaktivních prvků v zemském nitru.</p>\n\t\t\t\t\t\t<p><strong>Přílivová</strong> energie si bere energii z otáčení Země. Měsíc svou gravitací jen „drží\" příliv na místě, planeta se pod ním otáčí. Země se tím opravdu, i když nepatrně, zpomaluje.</p>\n\t\t\t\t\t\t<p>👉 Rozdíl mezi obnovitelným a neobnovitelným zdrojem tedy není v tom, <strong>odkud</strong> energie je. Je v tom, <strong>jak rychle se doplňuje</strong>: uhlí vznikalo desítky milionů let, vítr fouká zítra znovu.</p>\n\n\t\t\t\t\t\t<h3>Přečerpávací elektrárna</h3>\n\t\t\t\t\t\t<p>Sluneční panel nevyrábí v noci a větrník za bezvětří. Naopak v poledne dodá elektrárna víc, než je zrovna potřeba. Elektřina se přitom <strong>ve velkém špatně skladuje</strong> a sítí musí každou vteřinu protékat přesně tolik, kolik se právě spotřebuje.</p>\n\t\t\t\t\t\t<p>Příkladem řešení této potíže v ČR je <strong>Dlouhé stráně</strong> v Jeseníkách — obrovská <strong>baterie z vody</strong>. Ukládá energii: když je v síti přebytek elektřiny (v noci), <strong>přečerpá vodu z dolní nádrže do horní</strong>. V době špičky přes den vodu <strong>vypustí zpět dolů</strong> a roztočí turbínu s generátorem.</p>\n\t\t\t\t\t\t<p>Přečerpáním se část energie ztratí, takže dolů se jí vrátí míň, než kolik stálo čerpání nahoru. Přesto se to vyplatí — <strong>elektřina, která by se jinak vůbec nevyužila, takhle počká</strong> na chvíli, kdy je jí potřeba.</p>\n\n\t\t\t\t\t\t<h3>Zamysli se / Z praxe</h3>\n\t\t\t\t\t\t<ol>\n\t\t\t\t\t\t<li>Malá vesnice si pořídila jen sluneční elektrárnu jako <strong>jediný</strong> zdroj elektřiny pro celou nemocnici. Proč je to nebezpečný nápad?\n\t\t\t\t\t\t<details><summary>řešení</summary>Sluneční panely v noci nevyrábí vůbec a přes den závisí na počasí — výkon <strong>nejde poručit</strong>. Nemocnice ale potřebuje elektřinu nepřetržitě (přístroje na oddělení JIP, chlazení léků). Musí mít vždy záložní zdroj (např. dieselový agregát nebo připojení do sítě), který doplní výpadek.</details></li>\n\t\t\t\t\t\t<li>Přečerpávací elektrárna čerpá v noci a vyrábí ve dne. Proč se jí to i přes ztráty vyplatí, když by se dalo čekat, že je to „zbytečná práce navíc\"?\n\t\t\t\t\t\t<details><summary>řešení</summary>Elektřinu ve velkém nejde uskladnit jinak (baterie na celé město by byly obrovské a drahé). Noční elektřina z jaderných nebo větrných elektráren by jinak <strong>propadla bez užitku</strong>, protože v noci je nízká spotřeba. I se ztrátou 25 % je lepší část energie zachránit a použít ji přes den ve špičce, než ji nevyužít vůbec.</details></li>\n\t\t\t\t\t\t<li>Je vodík obnovitelný zdroj energie? Zdůvodni.\n\t\t\t\t\t\t<details><summary>řešení</summary>Ano, řadí se mezi obnovitelné zdroje. Na Zemi se ale v čisté podobě skoro nevyskytuje — musí se <strong>vyrobit</strong> (nejčastěji elektrolýzou vody), a to stojí energii. Proto se mu často říká <strong>nosič energie</strong> (jako baterie). Umí energii uchovat a přenést, ne ji sám „zadarmo\" dodat jako slunce nebo vítr.</details></li>\n\t\t\t\t\t\t</ol>\n\n\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t<p>Modelová přečerpávací elektrárna má čerpadla o výkonu <strong>500 MW</strong> a turbíny o výkonu <strong>750 MW</strong>.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>V noci čerpadla běží <strong>8 hodin</strong> → spotřebují 500 MW × 8 h = <strong>4 000 MWh</strong>.</li>\n\t\t\t\t\t\t<li>Přes den turbíny vyrábí <strong>4 hodiny</strong> → vyrobí 750 MW × 4 h = <strong>3 000 MWh</strong>.</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Zpátky se tedy vrátí jen 3 000 MWh ze 4 000 MWh. Cestou se ztratí 1 000 MWh, tedy 25 % (tření vody v potrubí, teplo na ložiskách čerpadel a turbín). I tak se to vyplatí: bez přečerpávání by se noční přebytek elektřiny nevyužil vůbec.</p>\n\t\t\t\t\t",
+					zapis: {"jednotky":["výkon elektrárny — značíme P, jednotka W (watt); v energetice MW (megawatt)","vyrobená nebo spotřebovaná energie — značíme E, jednotka Wh (watthodina); v energetice MWh (megawatthodina); základní jednotka je joule, 1 Wh = 3 600 J","1 MWh = energie při výkonu 1 MW po dobu 1 hodiny"],"body":["obnovitelné: v přírodě neomezené, samy se doplňují","obnovitelné: sluneční záření, vítr, voda, geotermální proudy","obnovitelné: biomasa, bioplyn, vodík","čerpat jen tak rychle, jak se obnoví","neobnovitelné: omezené množství, časem se vyčerpají","fosilní paliva: uhlí, ropa, zemní plyn","vznik: zbytky organismů bez přístupu vzduchu","neobnovitelné: ropné břidlice a písky, jaderné palivo","elektrárny: jaderné, tepelné, sluneční, větrné","elektrárny: vodní, geotermální","jaderná elektrárna: palivo obohacený uran 235","vodík: obnovitelný zdroj, ale nosič energie","vodík se vyrábí elektrolýzou vody","skoro vše je uložená sluneční energie","výjimky: jaderná, geotermální, přílivová energie","sluneční a větrné: výkon nejde poručit","elektřina se ve velkém špatně skladuje","přečerpávací elektrárna: baterie z vody","v noci čerpá vodu do horní nádrže","přes den vypouští vodu, roztáčí turbínu"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Od uhlí ke hvězdám 🎵', cesta: '/materialy/fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje/pisen-od-uhli-ke-hvezdam.m4a' },
 					],
@@ -3275,51 +3180,8 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'vesmir-a-galaxie',
 					nazev: 'Vesmír a jeho vznik, galaxie',
-					obsah: `
-						<h2>Vesmír a jeho vznik</h2>
-						<p>Vesmír vznikl před přibližně <strong>13,8 miliardami let</strong> z extrémně hustého a horkého stavu. Této události říkáme <strong>velký třesk</strong>.</p>
-						<h3>Jak šel vývoj vesmíru za sebou</h3>
-						<ol>
-							<li><strong>Velký třesk</strong> — vesmír vznikl z velmi malého, hustého a horkého bodu</li>
-							<li><strong>Rychlé rozpínání</strong> — vesmír se okamžitě začal zvětšovat (a rozpíná se dodnes)</li>
-							<li><strong>Vznik částic</strong> — po krátké chvíli se vytvořily protony a neutrony</li>
-							<li><strong>Tvorba lehkých prvků</strong> — z částic vznikala jádra nejlehčích prvků, hlavně vodíku a helia</li>
-							<li><strong>Horké plazma</strong> — vesmír byl dlouho plný směsi nabitých částic a světla</li>
-							<li><strong>Vznik atomů</strong> — asi po 380 000 letech se elektrony spojily s jádry do neutrálních atomů a vesmír se stal průhledným</li>
-						</ol>
-						<h3>Galaxie</h3>
-						<ul>
-							<li><strong>Galaxie</strong> je obrovské seskupení hvězd, plynu a prachu, které drží pohromadě <strong>gravitace</strong>.</li>
-							<li>Ve středu mnoha galaxií se nachází obří <strong>černá díra</strong>.</li>
-							<li>Podle tvaru rozlišujeme galaxie <strong>spirální, eliptické, čočkovité a nepravidelné</strong>.</li>
-						</ul>
-						<h3>Naše galaxie — Mléčná dráha</h3>
-						<ul>
-							<li>je to <strong>spirální galaxie s příčkou</strong></li>
-							<li>průměr má zhruba <strong>100 000 světelných let</strong></li>
-							<li>obsahuje řádově <strong>stovky miliard hvězd</strong> (uvádí se kolem 300 miliard)</li>
-							<li><strong>Slunce</strong> leží v jednom ze spirálních ramen — je to jedna obyčejná hvězda z mnoha</li>
-						</ul>
-						<h3>Vesmír se rozpíná</h3>
-						<p>Vzdálené galaxie se od nás vzdalují — jejich světlo je posunuté k červené barvě (<strong>rudý posuv</strong>). Čím je galaxie dál, tím rychleji se vzdaluje (<strong>Hubbleův zákon</strong>). Právě to je hlavní důkaz, že se vesmír stále <strong>rozpíná</strong>.</p>
-						<h3>✏️ Věděl(a) jsi, že...</h3>
-						<ul>
-							<li>Přesně uprostřed Mléčné dráhy se skrývá obří <strong>černá díra</strong> se jménem <strong>Sagittarius A*</strong>? Je tak hmotná, že svou gravitací drží na oběžné dráze celou naši galaxii.</li>
-							<li>Naše Mléčná dráha se řítí vesmírem vstříc sousední galaxii <strong>Andromeda</strong> — až se za přibližně <strong>4,5 miliardy let</strong> srazí, jednotlivé hvězdy se ale skoro určitě do sebe nenarazí, protože jsou od sebe v galaxii nesmírně daleko.</li>
-							<li>Ve viditelném vesmíru je odhadem přes <strong>100 miliard galaxií</strong> — a v každé z nich mohou být stovky miliard hvězd.</li>
-							<li>Světlo z nejvzdálenějších galaxií k nám letí miliardy let — když se na ně díváme, vidíme vlastně vesmír takový, jaký vypadal dávno v minulosti.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Vesmír vznikl před přibližně 13,8 miliardami let z velmi hustého a horkého stavu při velkém třesku.',
-							'Od svého vzniku se vesmír rozpíná a postupně v něm vznikly částice, atomy, hvězdy a galaxie.',
-							'Galaxie je obrovské seskupení hvězd, plynu a prachu, které drží pohromadě gravitace.',
-							'Naše Mléčná dráha je spirální galaxie s příčkou a Slunce leží v jednom z jejích ramen.',
-							'Rudý posuv světla vzdálených galaxií je hlavním důkazem rozpínání vesmíru.',
-						],
-						zakon: 'Hubbleův zákon: čím je galaxie dál, tím rychleji se vzdaluje.',
-					},
+					obsah: "\n\t\t\t\t\t\t<h2>Vesmír a jeho vznik</h2>\n\t\t\t\t\t\t<p>Vesmír vznikl před přibližně <strong>13,8 miliardami let</strong> z extrémně hustého a horkého stavu. Této události říkáme <strong>velký třesk</strong>.</p>\n\n\t\t\t\t\t\t<h3>Jak šel vývoj vesmíru za sebou</h3>\n\t\t\t\t\t\t<ol>\n\t\t\t\t\t\t\t<li><strong>Velký třesk</strong> — vesmír vznikl z velmi malého, hustého a horkého bodu</li>\n\t\t\t\t\t\t\t<li><strong>Rychlé rozpínání</strong> — vesmír se okamžitě začal zvětšovat (a rozpíná se dodnes)</li>\n\t\t\t\t\t\t\t<li><strong>Vznik částic</strong> — po krátké chvíli se vytvořily protony a neutrony</li>\n\t\t\t\t\t\t\t<li><strong>Tvorba lehkých prvků</strong> — z částic vznikala jádra nejlehčích prvků, hlavně vodíku a helia</li>\n\t\t\t\t\t\t\t<li><strong>Horké plazma</strong> — vesmír byl dlouho plný směsi nabitých částic a světla</li>\n\t\t\t\t\t\t\t<li><strong>Vznik atomů</strong> — asi po 380 000 letech se elektrony spojily s jádry do neutrálních atomů. Vesmír se tím stal průhledným.</li>\n\t\t\t\t\t\t\t<li><strong>Vznik prvních hvězd</strong> — asi po 400 milionech let se z plynu zažehly první hvězdy</li>\n\t\t\t\t\t\t</ol>\n\n\t\t\t\t\t\t<h3>Galaxie</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>Galaxie</strong> je obrovské seskupení hvězd, plynu, prachu a temné hmoty, které drží pohromadě <strong>gravitace</strong>.</li>\n\t\t\t\t\t\t\t<li>Ve středu mnoha galaxií se nachází obří <strong>černá díra</strong>.</li>\n\t\t\t\t\t\t\t<li>Podle tvaru rozlišujeme galaxie <strong>spirální, eliptické, čočkovité a nepravidelné</strong>.</li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Naše galaxie — Mléčná dráha</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>je to <strong>spirální galaxie s příčkou</strong></li>\n\t\t\t\t\t\t\t<li>průměr má zhruba <strong>100 000 světelných let</strong></li>\n\t\t\t\t\t\t\t<li>disk je silný asi <strong>3 000 světelných let</strong></li>\n\t\t\t\t\t\t\t<li>obsahuje řádově <strong>stovky miliard hvězd</strong> (uvádí se kolem 300 miliard)</li>\n\t\t\t\t\t\t\t<li><strong>Slunce</strong> leží v jednom ze spirálních ramen — je to jedna obyčejná hvězda z mnoha</li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Jak vidíme Mléčnou dráhu na obloze</h3>\n\t\t\t\t\t\t<p>V noci na tmavém místě vidíme Mléčnou dráhu jako světlý <strong>mléčný pás</strong>. Díváme se přitom na <strong>hlavní rovinu</strong> naší galaxie.</p>\n\n\t\t\t\t\t\t<h3>Vesmír se rozpíná</h3>\n\t\t\t\t\t\t<p>Vzdálené galaxie se od nás vzdalují — jejich světlo je posunuté k červené barvě (<strong>rudý posuv</strong>). Čím je galaxie dál, tím rychleji se vzdaluje (<strong>Hubbleův zákon</strong>). Právě to je hlavní důkaz, že se vesmír stále <strong>rozpíná</strong>. Rozpínání se navíc zrychluje — za to může záhadná <strong>temná energie</strong>.</p>\n\n\t\t\t\t\t\t<h3>Černé díry</h3>\n\t\t\t\t\t\t<p><strong>Černá díra</strong> je objekt s tak silnou gravitací, že z něj neunikne ani světlo. Uprostřed Mléčné dráhy je obří černá díra jménem <strong>Sagittarius A*</strong>. Je hmotná jako miliony Sluncí dohromady. Černé díry pomáhají formovat a ovlivňovat galaxie, ve kterých se nacházejí.</p>\n\n\t\t\t\t\t\t<h3>✏️ Věděl(a) jsi, že...</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>Galaxie se mohou přitahovat a spojovat. Naše Mléčná dráha se řítí vstříc sousední galaxii <strong>Andromeda</strong> a za přibližně <strong>4,5 miliardy let</strong> se s ní srazí. Jednotlivé hvězdy se ale skoro určitě do sebe nenarazí, protože jsou od sebe nesmírně daleko.</li>\n\t\t\t\t\t\t\t<li>Ve viditelném vesmíru je odhadem <strong>200 miliard galaxií</strong> — a v každé z nich mohou být stovky miliard hvězd.</li>\n\t\t\t\t\t\t\t<li>Světlo z nejvzdálenějších galaxií k nám letí miliardy let. Když se na ně díváme, vidíme vesmír takový, jaký vypadal dávno v minulosti.</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t",
+					zapis: {"zakon":"Hubbleův zákon: čím je galaxie dál, tím rychleji se vzdaluje.","body":["velký třesk: vznik vesmíru","před 13,8 miliardami let","z horkého a hustého stavu","vesmír se od vzniku rozpíná","rozpínání se zrychluje (temná energie)","vznik částic: protony a neutrony","atomy: asi po 380 000 letech","první hvězdy: po 400 milionech let","pak vznikly galaxie","galaxie: hvězdy, plyn, prach","drží je pohromadě gravitace","tvary: spirální, eliptické, čočkovité, nepravidelné","ve vesmíru asi 200 miliard galaxií","černá díra: neunikne ani světlo","Sagittarius A*: černá díra v Galaxii","Mléčná dráha: spirální galaxie s příčkou","průměr asi 100 000 světelných let","disk silný asi 3 000 světelných let","asi 300 miliard hvězd","Slunce leží v jednom rameni","na obloze vidíme jako mléčný pás","rudý posuv: galaxie se vzdalují","Hubbleův zákon: dál → rychleji","budoucí srážka s galaxií Andromeda"]},
 					interakce: 'rozpinani-vesmiru',
 					odkazy: [
 						{ nazev: 'ČT edu: Velký třesk', url: 'https://edu.ceskatelevize.cz/video/2317-velky-tresk' },
