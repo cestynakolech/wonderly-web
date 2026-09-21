@@ -9,10 +9,10 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 9. 2026 — F7 1. celek pohyb-a-rychlost HOTOV 4/4; F9 magneticke-pole 2/3**
-> F7 `pohyb-a-rychlost` (4 podtémata) HOTOV přes `podtema.mjs`, každé prošlo nezávislým
-> kontrolorem. F9 `magneticke-pole` zapsáno magnety-magneticke-pole-opakovani a elektromagnet
-> (2/3), vodič-a-cívka čeká na opakovanou kontrolu. F7 2. celek `sily-kolem-nas` se píše.
+> ### Poslední stav: **21. 9. 2026 — F9 magneticke-pole HOTOV 3/3; indukce-a-stridavy-proud 1/5**
+> F9 `magneticke-pole` (3 podtémata) HOTOV přes `podtema.mjs`, každé prošlo nezávislým
+> kontrolorem. F9 2. celek `indukce-a-stridavy-proud` zapsáno `elektromagneticka-indukce`
+> (1/5), zbytek u kontrolorů. F7 2. celek `sily-kolem-nas` u kontrolorů.
 >
 > ### Dřívější stav: **21. 9. 2026 — 3. dávka hotova, celek teplo-a-zmeny-skupenstvi F8 7/7**
 > Celek `teplo-a-zmeny-skupenstvi` F8 (7 podtémat) přestavěn podle schváleného vzoru A+B+C+D

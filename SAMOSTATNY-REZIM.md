@@ -111,11 +111,12 @@ mělo nezávislého kontrolora, 3 ze 4 potřebovaly 1 opravnou smyčku. U přík
 kontrolor odhalil nedoložená čísla u příkladů 8 a 9 (220 km/650 km) — přepsáno
 na přesná čísla z prezentace Pohyb (snímky 26–27): 231 km/42 km/h a
 585 km/450 km/h, viz KE-SCHVALENI.md bod (6).
-F9 1. celek `magneticke-pole` 2/3 zapsáno (magnety-magneticke-pole-opakovani,
-elektromagnet), oba přes nezávislého kontrolora, zapsáno `podtema.mjs`, build
-a `zkontroluj.mjs` procházejí. `magneticke-pole-vodice-a-civky` čeká na
-opakovanou kontrolu.
-F7 2. celek `sily-kolem-nas` (5 podtémat) se právě píše.
+F9 1. celek `magneticke-pole` HOTOV 3/3 (magnety-magneticke-pole-opakovani,
+elektromagnet, magneticke-pole-vodice-a-civky), všechna přes nezávislého
+kontrolora, zapsáno `podtema.mjs`, build a `zkontroluj.mjs` procházejí.
+F9 2. celek `indukce-a-stridavy-proud` (5 podtémat) 1/5 zapsáno
+(elektromagneticka-indukce), zbytek u kontrolorů.
+F7 2. celek `sily-kolem-nas` (5 podtémat) u kontrolorů.
 
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 

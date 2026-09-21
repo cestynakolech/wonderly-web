@@ -4234,60 +4234,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'magneticke-pole-vodice-a-civky',
 					nazev: 'Magnetické pole vodiče a cívky s proudem',
 					interakce: 'oersted',
-					obsah: `
-						<h2>Magnetické pole vodiče a cívky s proudem</h2>
-						<p>Roku <strong>1820</strong> dánský fyzik <strong>H. Ch. Oersted</strong> zjistil, že se magnetka vychýlí, když blízkým vodičem začne procházet proud. <strong>Kolem vodiče s proudem tedy vzniká magnetické pole.</strong> Jeho účinky dál zkoumal <strong>A. M. Ampère</strong>.</p>
-						<h3>Přímý vodič s proudem</h3>
-						<ul>
-							<li>Příčinou pole je <strong>pohyb elektronů</strong> (proud).</li>
-							<li>Magnetické indukční čáry mají tvar <strong>soustředných kružnic</strong> se středem ve vodiči.</li>
-							<li>Směr čar určíme <strong>pravidlem pravé ruky</strong>.</li>
-							<li>Pole působí na vodič <strong>silou</strong> — tím větší, čím větší je proud a silnější pole. Dva rovnoběžné vodiče se stejným směrem proudu se <strong>přitahují</strong>, s opačným <strong>odpuzují</strong>. Využití: <strong>elektromotory</strong>.</li>
-						</ul>
-						<h3>Cívka s proudem</h3>
-						<ul>
-							<li><strong>Cívka</strong> = dlouhý izolovaný (lakovaný měděný) drát navinutý na válci. Silnější pole získáme navinutím vodiče do mnoha závitů.</li>
-							<li>Vložením <strong>železného jádra</strong> účinky ještě zesílíme.</li>
-							<li>Cívka s proudem se chová jako <strong>tyčový magnet</strong>; <strong>nejsilnější pole je uvnitř</strong>. Její póly závisí na směru proudu (pravidlo pravé ruky). Využití: <strong>elektromagnet</strong>.</li>
-						</ul>
-						<h3>✋ Pravidlo pravé ruky — jak se opravdu používá</h3>
-						<p>Jmenuje se stejně, ale <strong>pro vodič a pro cívku se dělá jinak</strong>. Vezmi si
-						pravou ruku a zkus si obojí nanečisto:</p>
-						<ul>
-							<li><strong>Přímý vodič:</strong> uchop ho do pravé ruky tak, aby <strong>palec mířil
-							po směru proudu</strong> (od + k −). Zahnuté prsty pak ukazují, kudy kolem vodiče
-							<strong>běží indukční čáry</strong>.</li>
-							<li><strong>Cívka:</strong> obejmi ji pravou rukou tak, aby <strong>prsty šly po směru
-							proudu v závitech</strong>. Odtažený palec pak míří k <strong>severnímu pólu</strong>
-							cívky.</li>
-						</ul>
-						<p>👉 Vyzkoušej si hned dvě věci, které z pravidla plynou: <strong>otoč směr proudu</strong>
-						(prohoď dráty na zdroji) — a severní pól cívky se přehodí na druhý konec. A druhá:
-						pravidlo je <strong>na pravou ruku</strong>, protože směr proudu se dohodl od + k −.
-						Levou rukou vyjde všechno obráceně.</p>
-						<h3>K čemu je cívka dobrá</h3>
-						<p>Tenhle magnet má oproti obyčejnému jednu obrovskou výhodu: <strong>dá se vypnout</strong>.
-						Podrobně to (jeřáb, zvonek, relé) najdeš u tématu <strong>Elektromagnet</strong> — tady jen to,
-						co se týká přímo cívky v běžných spotřebičích:</p>
-						<ul>
-							<li><strong>reproduktor a sluchátka</strong> — cívka v poli magnetu rozkmitá membránu</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Kolem vodiče, kterým prochází elektrický proud, vzniká magnetické pole; objevil ho roku 1820 H. Ch. Oersted.',
-							'Indukční čáry kolem přímého vodiče mají tvar soustředných kružnic; směr pole u vodiče i u cívky určíme pravidlem pravé ruky.',
-							'Na vodič s proudem I působí magnetické pole silou, tím větší, čím větší je proud a silnější pole. Proto se dva rovnoběžné vodiče se stejným směrem proudu přitahují a s opačným odpuzují; toho využívají elektromotory.',
-							'Cívka je vodič navinutý do mnoha závitů; chová se jako tyčový magnet, nejsilnější pole má uvnitř a se železným jádrem je pole ještě silnější.',
-							'Když obrátíme směr proudu, póly cívky se prohodí.',
-						],
-						zakon: 'Pravidlo pravé ruky: u přímého vodiče palec míří po směru proudu a zahnuté prsty ukazují směr indukčních čar kolem vodiče; u cívky prsty směřují po směru proudu v závitech a odtažený palec ukazuje k severnímu pólu cívky.',
-						jednotky: [
-							'elektrický proud I — ampér (A)',
-							'počet závitů cívky — jen počet, bez jednotky (značku N tu nepoužíváme, ta patří severnímu pólu)',
-							'V tomto tématu nepoužíváme výpočetní vzorec.',
-						],
-					},
+					obsah: "<h2>Magnetické pole vodiče a cívky s proudem</h2>\n<p>V roce 1820 dělal dánský fyzik <strong>Hans Christian Oersted</strong> zajímavý pokus. Položil kompas vedle drátu a pak drátem pustil elektrický proud. Střelka kompasu se hned pohnula, jako by byla blízko magnetu. Jeho pokusy dál rozvíjel francouzský fyzik <strong>André Marie Ampère</strong>.</p>\n<p>Oersted tak objevil, že <strong>kolem vodiče s proudem vzniká magnetické pole</strong>. Jeho příčinou je pohyb elektronů uvnitř drátu — tedy sám elektrický proud.</p>\n<h3>Tvar pole kolem přímého vodiče a pravidlo pravé ruky</h3>\n<p>Magnetické pole kolem drátu jde i vidět. Když pod drát nasypeme železné piliny a zapneme proud, piliny se samy srovnají do <strong>soustředných kružnic</strong> kolem drátu. Přesně takový tvar má neviditelné magnetické pole kolem celého přímého vodiče.</p>\n<p>Směr, kterým pole kolem drátu míří, poznáme <strong>pravidlem pravé ruky</strong>. Uchop si vodič pravou rukou tak, aby <strong>palec mířil po směru proudu</strong>, tedy od plusu k mínusu. Zahnuté prsty pak ukazují, kudy kolem drátu běží magnetické čáry.</p>\n<p>Proč se používá zrovna pravá ruka? Protože se fyzikové dávno dohodli, že proud teče od plusu k mínusu. Kdybys použil levou ruku, vyšlo by ti všechno obráceně.</p>\n<h3>Pole tlačí na vodič — elektromotory</h3>\n<p>Magnetické pole nejen vzniká, ale i <strong>působí silou</strong> na vodič, kterým prochází proud. Čím větší je proud a čím silnější pole, tím větší je i síla. Dva vodiče vedle sebe se touto silou <strong>přitahují</strong>, když proud teče stejným směrem, a <strong>odpuzují</strong>, když teče směrem opačným. Tohoto jevu využívají <strong>elektromotory</strong>.</p>\n<h3>Cívka a její magnetické pole</h3>\n<p>Silnější magnetické pole získáme, když vodič <strong>navineme do mnoha závitů</strong> — takovému vodiči se říká <strong>cívka</strong>. Je to dlouhý izolovaný měděný drát navinutý na válci. Magnetické pole je kolem celé cívky, ale <strong>nejsilnější je uvnitř ní</strong>. Cívka s proudem se pak chová úplně stejně jako obyčejný tyčový magnet.</p>\n<h3>Na čem závisí síla pole cívky</h3>\n<p>Čím víc závitů cívka má, tím je její magnetické pole silnější. Ještě víc pole zesílíme, když dovnitř cívky vložíme <strong>železné jádro</strong>. Který konec cívky bude severní pól a který jižní, závisí na <strong>směru proudu</strong> v závitech.</p>\n<p>I tady platí pravidlo pravé ruky, jen se dělá trochu jinak než u rovného drátu. <strong>Obejmi cívku pravou rukou</strong> tak, aby prsty mířily po směru proudu v závitech. Odtažený palec pak ukazuje k <strong>severnímu pólu</strong> cívky. Když otočíš směr proudu, třeba prohodíš dráty na zdroji, severní pól cívky se přehodí na druhý konec.</p>\n<h3>K čemu je cívka dobrá</h3>\n<p>Cívka je vlastně magnet, který se dá <strong>vypnout</strong> — stačí vypnout proud, který jí prochází. Tuhle vlastnost využívá <strong>elektromagnet</strong>, o kterém se dozvíš víc v samostatném tématu Elektromagnet. My si tu ukážeme jen to, co cívka dělá v běžných spotřebičích. V <strong>reproduktoru a sluchátkách</strong> rozkmitá membránu, a tak vznikne zvuk.</p>",
+					zapis: {"jednotky":["elektrický proud — značíme I, jednotka A (ampér)","počet závitů cívky — jen počet, bez značky a bez jednotky (značka N patří severnímu pólu)"],"zakon":"Pravidlo pravé ruky pro vodič: palec ukazuje směr proudu (od + k −), zahnuté prsty ukazují směr magnetických indukčních čar kolem vodiče. Ampérovo pravidlo pravé ruky pro cívku: prsty ukazují dohodnutý směr proudu, který prochází závity cívky (od + k −); palec ukazuje severní magnetický pól cívky a zároveň směr magnetických indukčních čar, které vycházejí z cívky.","body":["Oersted 1820: proud budí magnetické pole","kolem vodiče: pole = soustředné kružnice","pravidlo pravé ruky (vodič): palec proud, prsty pole","proud je dohodnutý od + k −, proto pravá ruka","pole tlačí na vodič silou","stejný směr proudu: vodiče se přitahují","opačný směr proudu: vodiče se odpuzují","cívka = vodič navinutý do závitů","cívka s proudem = jako tyčový magnet","víc závitů + železné jádro = silnější pole","obrácení proudu = obrácení pólů cívky"]},
 					odkazy: [{"nazev":"Test: Cívka a magnetické pole (Wordwall)","url":"https://wordwall.net/cs/resource/113962641/test-c%C3%ADvka-a-magnetick%C3%A9-pole"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 				{
@@ -4347,35 +4295,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'elektromagneticka-indukce',
 					interakce: 'indukce',
 					nazev: 'Elektromagnetická indukce',
-					obsah: `
-						<h2>Elektromagnetická indukce</h2>
-						<p>Víme, že kolem vodiče s proudem vzniká magnetické pole. Anglický fyzik <strong>Michael Faraday</strong> hledal opačnou cestu — jak <strong>pomocí magnetického pole vytvořit ve vodiči proud</strong>.</p>
-						<h3>Pokus a princip</h3>
-						<p>Když k cívce připojené k voltmetru <strong>pohybujeme magnetem</strong>, na svorkách cívky se objeví napětí; v uzavřeném obvodu pak teče proud. <strong>Elektromagnetická indukce</strong> je jev, který nastává při <strong>změně magnetického pole</strong> v okolí vodiče nebo cívky — vzniká <strong>indukované napětí</strong> a <strong>indukovaný proud</strong>.</p>
-						<ul>
-							<li>Změnu pole zajistíme <strong>pohybem magnetu</strong> nebo <strong>změnou proudu v elektromagnetu</strong> (zapnutím, vypnutím, změnou směru či velikosti).</li>
-							<li>Pokud se pole <strong>nemění</strong> (magnet stojí), <strong>nic se neindukuje</strong>.</li>
-							<li>Platí <strong>zákon zachování energie</strong>: pohybová energie magnetu se mění na energii elektrickou.</li>
-						</ul>
-						<h3>Na čem závisí velikost a směr indukovaného napětí</h3>
-						<ul>
-							<li><strong>rychlost pohybu</strong> magnetu — rychleji = větší napětí,</li>
-							<li><strong>směr pohybu</strong> — opačný směr = opačná polarita,</li>
-							<li><strong>síla magnetu</strong> a <strong>počet závitů</strong> cívky — víc = větší napětí,</li>
-							<li>rychlost změny pole (největší při zapnutí a vypnutí elektromagnetu).</li>
-						</ul>
-						<h3>Kde se využívá</h3>
-						<p>Alternátor a dynamo v elektrárnách, zapalovací svíčky motorů, „protřepávací" svítilny, <strong>indukční brzdy</strong>, <strong>indukční varná deska</strong>, indukční pec na tavení kovů, <strong>bezdrátové nabíječky</strong>, transformátor i elektrická kytara.</p>
-					`,
-					zapis: {
-						body: [
-							'Elektromagnetická indukce nastává při změně magnetického pole v okolí vodiče nebo cívky.',
-							'Při změně pole vzniká indukované napětí a v uzavřeném obvodu také indukovaný proud.',
-							'Když se magnetické pole nemění, nic se neindukuje.',
-							'Rychlejší pohyb magnetu, silnější magnet nebo více závitů cívky způsobí větší indukované napětí.',
-							'Při opačném směru pohybu magnetu se obrátí polarita indukovaného napětí.',
-						],
-					},
+					obsah: "<h2>Elektromagnetická indukce</h2>\n\n<p>Vodič, kterým prochází proud, vytváří kolem sebe magnetické pole. To už víme z dřívějšího učiva. Anglický fyzik <strong>Michael Faraday</strong> zkoumal, jestli to jde i naopak.</p>\n<p>Zajímalo ho, jestli dokáže pomocí magnetického pole vyrobit ve vodiči elektrický proud. Svůj nápad si ověřil jednoduchým pokusem.</p>\n\n<h3>Faradayův pokus</h3>\n<p>Faraday připojil cívku (svinutý drát) k voltmetru — přístroji, který měří napětí. Pak k cívce <strong>pohyboval magnetem</strong>. Ručička voltmetru se vychýlila: na cívce vzniklo napětí.</p>\n<p>Tomuto jevu říkáme <strong>elektromagnetická indukce</strong>. Vzniká vždy, když se v okolí vodiče nebo cívky <strong>mění magnetické pole</strong>. Vznikne tak <strong>indukované napětí</strong>, a je-li obvod uzavřený, poteče i <strong>indukovaný proud</strong>.</p>\n\n<h3>Na čem závisí velikost napětí</h3>\n<ul>\n<li>Čím <strong>rychleji</strong> se magnet pohybuje, tím větší je indukované napětí.</li>\n<li>Čím <strong>silnější</strong> magnet použijeme, tím větší je indukované napětí.</li>\n<li>Čím víc <strong>závitů</strong> má cívka, tím větší je indukované napětí.</li>\n<li>Když magnet pohybujeme <strong>opačným směrem</strong>, otočí se i polarita napětí.</li>\n<li>Pole se dá měnit i jinak — zapnutím, vypnutím nebo změnou proudu v <strong>elektromagnetu</strong>. Největší změna nastává právě při zapnutí a vypnutí.</li>\n</ul>\n\n<h3>Kdy se nic neindukuje</h3>\n<p>Pokud magnet u cívky <strong>klidně leží</strong> a nehýbe se, magnetické pole se nemění. Napětí ani proud se pak neindukuje.</p>\n<p>Platí tu <strong>zákon zachování energie</strong>: pohybová energie magnetu se mění na energii elektrickou. Když se magnet nepohybuje, žádnou energii nepředává.</p>\n\n<h3>Kde se indukce využívá</h3>\n<p>Na elektromagnetické indukci pracují <strong>dynamo</strong> a <strong>alternátor</strong>, které vyrábějí elektřinu v elektrárnách. Malé dynamo najdeš i na <strong>jízdním kole</strong> — roztáčí ho kolo a svítí přední i zadní světlo.</p>\n<p>Indukce funguje také v zapalovacích svíčkách motoru, v „protřepávacích\" svítilnách, v indukčních brzdách, v indukční varné desce i v peci na tavení kovů. Bez drátů díky ní fungují bezdrátové nabíječky, používá ji i transformátor a elektrická kytara.</p>",
+					zapis: {"jednotky":["indukované napětí — značíme Uᵢ, jednotka V (volt)","indukovaný proud — značíme Iᵢ, jednotka A (ampér)"],"zakon":"Při elektromagnetické indukci platí zákon zachování energie: kinetická energie pohybujícího se magnetu se přemění na energii elektrickou.","body":["indukce = jev při změně magnetického pole u vodiče/cívky","změna pole → indukované napětí (v uzavřeném obvodu i proud)","žádná změna pole → nic se neindukuje","rychlejší pohyb, silnější magnet, víc závitů = větší napětí","opačný směr pohybu magnetu = opačná polarita napětí"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 1', cesta: 'HTQTf58aXBQ' },
 						{ druh: 'youtube', nazev: 'Video: Elektromagnetická indukce 2', cesta: 'gn-CN3StDUs' },
