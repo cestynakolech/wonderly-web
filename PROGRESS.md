@@ -9,11 +9,11 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 — F8 elektřina (15/15) i 6. celky (9/9) hotovo a nasazeno; na řadě sladění kvízů**
-> Celý celek `elektrina` (F8, 8. ročník) přestavěn podle PDF učitele a nasazen (commit `d491ea0`,
-> ověřeno curlem na lab.wonderly.cz). 6. celky F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`,
-> F9 `energie-a-vesmir` (9 podtémat) přestavěny a nasazeny (commit `e91813c`). Sladění kvízů
-> s novým výkladem zatím neuděláno — na řadě rozsah 24 podtémat.
+> ### Poslední stav: **22. 9. 2026 (noc) — sladění kvízů 24 podtémat HOTOVO; F8 celky 1–4 v běhu**
+> Krok (c) sladění kvízů s novými výklady dokončen pro všech 24 podtémat (F8 elektřina 15,
+> F7 `atmosfera-a-tlak-vzduchu` 3, F8 `zvuk` 3, F9 `energie-a-vesmir` 3) — 2 kola nezávislého
+> kontrolora, zapsáno `kvizy.ts`, push `4652cbd`. Rozjeto sladění dříve přestavěných F8
+> celků 1–4 (17 podtémat).
 >
 > ### Dřívější stav: **21. 9. 2026 — F7 tlak-v-kapalinach HOTOV 3/3; F9 elektricka-energie-a-bezpecnost HOTOV 2/2**
 > Čtvrté celky obou ročníků přestavěny přes `podtema.mjs`, každé podtéma prošlo
@@ -384,3 +384,34 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
 - DALŠÍ KROK: (c) sladění kvízů s novými výklady — rozsah 24 podtémat
   (F8 elektřina 15 + 6. celky 9) + dříve přestavěné F8 celky 1–4; průzkum
   stavu kvízů právě běží.
+
+### Krok (c): sladění kvízů 24 podtémat HOTOVO (2026-09-22, noc)
+- HOTOVO pro 24 podtémat: F8 elektřina 15, F7 `atmosfera-a-tlak-vzduchu` 3,
+  F8 `zvuk` 3, F9 `energie-a-vesmir` 3. Všech 24 mělo už 21 otázek — šlo
+  čistě o věcný soulad s novými výklady.
+- Postup: nezávislý kontrolor kvízů (Opus, čerstvý kontext) → nálezy v
+  pevném tvaru s návrhem znění → exekutor zapracoval do `kvizy.ts` (jediný
+  zapisovatel, 21 otázek drženo) → brány `uniky.mjs`+`zkontroluj.mjs`+build
+  → DRUHÉ kolo kontrolora → opravy. 1. kolo 144 nálezů; 2. kolo 46 nových
+  nálezů zanesených opravami (F9 10, elektřina 9–15 10, atmosféra+zvuk 11,
+  elektřina 1–8 15) — pravidlo „kontrolor dvakrát" se potvrdilo.
+- Commity: `4f53733`, `eab8bfc`, `7a51d3b` (F9); `d5cfb32`, `62d5ef2`
+  (elektřina 9–15); `013ab2f`, `1383466` (atmosféra+zvuk); `98e1290`,
+  `4652cbd` (elektřina 1–8). Push `4652cbd`; curl s User-Agent ověřen:
+  `elektricky-proud-v-kovech-odpor`, `atmosfericky-tlak`,
+  `vesmir-a-galaxie` — ANO. Protokoly:
+  `rozpracovane-vyklady/2026-09-22-6-celky/sladeni-kvizu-*.md` (1. kolo +
+  `-2kolo.md`, sekce ZAPRACOVÁNO).
+- Mezery bran: `zkontroluj.mjs` bod 6d přeskakuje čísla ≤12 (`const MALE =
+  12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0, kontrolor ručně
+  našel 10 délkových nápověd (náskok ≥10 znaků) a 5 úniků v 8 blocích.
+  Zelené brány ≠ doklad sladění.
+- Rozjeto: sladění kvízů dříve přestavěných F8 celků 1–4 (17 podtémat:
+  `mechanicka-prace`, `vykon`, `energie-a-jeji-premeny`,
+  `pohybova-a-polohova-energie`, `zakon-zachovani-mechanicke-energie`,
+  `energeticka-hodnota-potravin`, `vnitrni-energie-telesa`,
+  `tepelna-vymena-a-teplo`, `tepelny-motor-parni-stroj`, `spalovaci-motory`,
+  `teplo-a-premeny-skupenstvi`, `tani`, `tuhnuti`, `vyparovani`, `var`,
+  `kondenzace`, `skupenske-zmeny-vody-v-prirode`) — 2 kontroloři běží.
+- DALŠÍ KROK: dokončit F8 celky 1–4, pak podle bodu E projít, co ještě
+  chybí k „hotovému tématu" u přestavěných celků.

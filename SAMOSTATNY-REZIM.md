@@ -230,9 +230,18 @@ dne: worker někdy vloží cizí značku (`</content>`) nebo poznámku „k rozh
 učitele" — kontrolor to chytá.
 DALŠÍ KROK nové session: ~~(a) dokončit F8 elektřina~~ HOTOVO 22. 9. (commit
 `d491ea0`); ~~(b) 6. celky~~ HOTOVO 9/9 22. 9. (commit `e91813c`, viz výše);
-**(c) sladění kvízů s novými výklady** — rozsah 24 podtémat (F8 elektřina
-15 + 6. celky 9) + dříve přestavěné F8 celky 1–4; průzkum stavu kvízů právě
-běží. (d) pravidla: úklid U/D/zadání workerů spuštěn
+~~(c) sladění kvízů s novými výklady~~ **HOTOVO 24/24 (22. 9. 2026, noc,
+commit `4652cbd`)** — F8 elektřina 15, F7 `atmosfera-a-tlak-vzduchu` 3, F8
+`zvuk` 3, F9 `energie-a-vesmir` 3; 2 kola nezávislého kontrolora (1. kolo 144
+nálezů, 2. kolo 46 nových po opravách), zapsáno `kvizy.ts` (21 otázek drženo),
+brány `uniky.mjs`+`zkontroluj.mjs`+build OK, curl ověřen. **F8 celky 1–4
+(17 podtémat) v běhu** — 2 kontroloři sladění kvízů právě pracují.
+DALŠÍ KROK: dokončit sladění kvízů F8 celků 1–4, pak podle bodu E projít, co
+ještě chybí k „hotovému tématu" (názornost, odkazy) u přestavěných celků.
+Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
+≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
+bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a
+5 úniků v 8 blocích — zelené brány ≠ doklad sladění. (d) pravidla: úklid U/D/zadání workerů spuštěn
 21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
 log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
 N (22 kandidátů na zkrácení) čeká na výběr učitele v
@@ -367,6 +376,12 @@ Přání učitele: *„aby se to samostatně přepínalo na zrovna aktuální ve
 ### Přestěhováno z FRONTA-UKOLU.md (6. 8. 2026 — sloučení dvou front, nález auditu)
 
 Škola (web):
+- [skola2] Zpřesnit brány kvízové kontroly: `zkontroluj.mjs` bod 6d má
+  `const MALE = 12` a přeskakuje tak i menší desetinná čísla (past: 1,29 vs.
+  1,23 kg/m³ neodhaleno) — snížit práh nebo přidat kontrolu desetinných čísel;
+  do `zkontroluj.mjs` přidat měření náskoku délky správné odpovědi ≥10 znaků
+  (`uniky.mjs` délkovou nápovědu nehlídá vůbec, hlásil 0 tam, kde bylo 5 úniků
+  v 8 blocích). Zadáno 22. 9. 2026 noc při sladění kvízů 24 podtémat.
 - [skola2] `zkontroluj.mjs`: počítadlo otázek (`^\s*text:\s*'`) nepočítá starší jednořádkový
   zápis kvízů — jen kosmetika výpisu, opravit regex (nález 28. 7. u F8 tepelná výměna).
 - [skola2] Simulace „Rozpálená kolejnice" (dilatační spára, výpočet prodloužení) — F6/F8.
