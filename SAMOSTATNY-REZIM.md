@@ -136,6 +136,22 @@ F9 celky 1–3 (14) = 44 podtémat. DALŠÍ: 4. celky F7 `tlak-v-kapalinach` (3)
 a F9 `elektricka-energie-a-bezpecnost` (2) — už se píší; pak 5. celky včetně
 F8 `elektrina` (15).
 
+**Stav 21. 9. 2026:** F7 4. celek `tlak-v-kapalinach` 2/3 zapsáno (`tlak`,
+`pascaluv-zakon` přes `podtema.mjs`, build a `zkontroluj.mjs` procházejí;
+`hydrostatika` na opakované kontrole). F9 4. celek `elektricka-energie-a-bezpecnost`
+0/2 (oba u kontrolorů).
+
+**Stav 21. 9. 2026:** F7 4. celek `tlak-v-kapalinach` HOTOV 3/3
+(`hydrostaticky-tlak` doplněn přes `podtema.mjs`, build a `zkontroluj.mjs`
+procházejí). F9 4. celek `elektricka-energie-a-bezpecnost` HOTOV 2/2
+(`elektricka-energie-a-premeny`, `ucinky-proudu-bezpecnost`). Souhrn:
+F8 celky 1–4 (17), F7 celky 1–4 (16), F9 celky 1–4 (16) = 49 podtémat.
+DALŠÍ: 5. celky — F7 `vztlakova-sila-a-plovani-teles` (2), F8 `elektrina`
+(15), F9 `jaderna-fyzika` (4); hotové návrhy čekají ve scratchpadu
+(chemicke-zdroje-napeti-f8, jaderny-reaktor-elektrarna-f9,
+jaderna-energie-a-reakce-f9, bez kontroly). 8 workerů spadlo na limitu
+API 21. 9. ~17:00, znovu spustit.
+
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 
 (i) **Pořadí práce** = 1. celek (téma) u ročníků 7, 8, 9, pak 2. celek u všech

@@ -63,3 +63,29 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     stožáry hliníkové lano s ocelovým jádrem (fyzikálně správně — hliník je
     lehčí a levnější, unese delší rozpětí), u domácích rozvodů měď — ponecháno
     beze změny podle pravidla „dosavadní obsah se nevyřazuje". Prosím potvrdit.
+
+## 21. 9. 2026 — nález z podkladů F7 (tlak-v-kapalinach, 4. celek)
+
+12. **Podtéma „Tlak"** — podklad učitele (prezentace Mechanické vlastnosti
+    kapalin, snímky 25 a 27) shodně uvádí „p = 5 000 Pa = 1 kPa" — matematicky
+    nesedí, 5 000 Pa = 5 kPa, ne 1 kPa. Na web tento příklad nepřevzato,
+    nahrazen vlastním ověřeným příkladem se stejným typem převodu jednotek
+    (deska F = 300 N, p = 30 000 Pa → S = 100 cm²). Prosím opravit podklad,
+    nebo potvrdit, že chyba zůstává jen v prezentaci.
+
+## 21. 9. 2026 — nálezy z podkladů F9 (elektricka-energie-a-bezpecnost, 4. celek)
+
+13. **Podtéma „Elektrická energie"** — vzorce W = U·I·t, P = U·I, kWh,
+    elektroměr, cena, účinnost nejsou v podkladu (PDF 15) ani na dosavadním
+    webu tohoto podtématu — jsou už probrané v 8. ročníku (slug
+    `elektricka-prace-a-vykon`). Doplnit je sem znovu, nebo ponechat jen
+    v 8. ročníku?
+14. **Podtéma „Účinky proudu, bezpečnost"** — rozpor prahu proudu:
+    dosavadní web uvádí „2–5 mA", PDF str. 2 uvádí „1–8 mA". Ponecháno
+    dosavadní znění (pravidlo „dosavadní obsah se nevyřazuje"), PDF rozsah
+    by se navíc překrýval se sousedními prahy 0,5–1 a 6–15 mA. Prosím
+    potvrdit, který rozsah platí.
+15. **Podtémata jaderné fyziky (F9, budoucí 5. celek)** — k radioaktivitě,
+    jaderné energii a jadernému reaktoru chybí podklad učitele ve zdrojové
+    složce; přestavba by vycházela jen z dosavadního obsahu webu. Chce
+    učitel podklad dodat, nebo přestavět beze srovnání se zdrojem?

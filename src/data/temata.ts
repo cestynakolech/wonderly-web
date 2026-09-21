@@ -1706,56 +1706,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'tlak',
 					nazev: 'Tlak',
 					interakce: 'tlak',
-					obsah: `
-						<h2>Tlak</h2>
-						<p><strong>Tlaková síla</strong> působí při dotyku dvou těles, vždy <strong>kolmo na plochu</strong> tělesa. Její účinky se mohou projevit deformací (změnou tvaru) tělesa.</p>
-						<p><strong>Tlak</strong> vyjadřuje míru účinku tlakové síly na těleso — říká nám, jak moc je síla „zkoncentrovaná" na jednom místě.</p>
-						<ul>
-							<li>značka: <strong>p</strong></li>
-							<li>základní jednotka: <strong>pascal (Pa)</strong></li>
-							<li>vzorec: <strong>p = F : S</strong> (tlak = síla děleno plocha)</li>
-						</ul>
-						<p>Tlak 1 Pa vyvolá síla 1 N působící kolmo na plochu 1 m². Představ si to jako 100 g nastrouhané čokolády rovnoměrně rozsypané na ploše 1 × 1 metr.</p>
-						<h3>Násobky jednotky</h3>
-						<ul>
-							<li>1 kPa (kilopascal) = 1 000 Pa</li>
-							<li>1 MPa (megapascal) = 1 000 000 Pa</li>
-							<li>1 hPa (hektopascal) = 100 Pa — používá se v meteorologii</li>
-						</ul>
-						<h3>Na čem tlak závisí</h3>
-						<ul>
-							<li><strong>přímo úměrně na síle</strong> — čím větší síla, tím větší tlak</li>
-							<li><strong>nepřímo úměrně na ploše</strong> — čím větší plocha, tím menší tlak (proto jehlový podpatek bolí víc než teniska)</li>
-						</ul>
-						<h3>Zvětšování tlaku (koncentrovat sílu na malou plochu)</h3>
-						<p>nůž, sekera, šicí a injekční jehla, vosí žihadlo — plochu zmenšujeme broušením ostří či bodců</p>
-						<h3>Zmenšování tlaku (rozložit sílu na velkou plochu)</h3>
-						<p>sněžnice a lyže, pásy bagru a tanku, široké pneumatiky traktoru, více kol u nákladních aut, velbloudí ploché nohy, ležení na tenkém ledu při záchraně</p>
-						<h3>Další vzorce a jednotky</h3>
-						<ul>
-							<li>tlaková síla: <strong>F = p · S</strong></li>
-							<li>plocha: <strong>S = F : p</strong></li>
-							<li>plochu S dosazujeme vždy v <strong>metrech čtverečních (m²)</strong></li>
-							<li>převody: 1 m² = 100 dm², 1 dm² = 100 cm², 1 cm² = 100 mm²</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Tlaková síla působí při dotyku těles kolmo na plochu.',
-							'Tlak vyjadřuje, jak velký účinek má tlaková síla na určitou plochu.',
-							'Čím větší síla působí, tím je tlak větší; čím větší je plocha, tím je tlak menší.',
-							'Tlak zvětšíme soustředěním síly na malou plochu a zmenšíme rozložením síly na velkou plochu.',
-						],
-						vzorec: 'p = F : S      (odvozeně: F = p · S,  S = F : p)',
-						jednotky: [
-							'tlak p — pascal (Pa)',
-							'tlaková síla F — newton (N)',
-							'plocha S — metr čtvereční (m²)',
-							'1 hPa = 100 Pa,  1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa',
-							'1 m² = 100 dm²,  1 dm² = 100 cm²,  1 cm² = 100 mm²',
-							'Do vzorce dosazuj v základních jednotkách: sílu v N a plochu v m²; tlak vyjde v Pa.',
-						],
-					},
+					obsah: "<h2>Tlak</h2>\n<p>Když se dvě tělesa dotknou, tlačí na sebe. Síla, která přitom působí kolmo na plochu, se nazývá <strong>tlaková síla</strong>. Značíme ji F, stejně jako každou jinou sílu.</p>\n<p>Tlaková síla umí těleso <strong>deformovat</strong> — tedy změnit jeho tvar. Kvádr položený naplocho udělá v měkké podložce jen mělký důlek. Postavený na užší hranu se zaboří mnohem hlouběji, i když má stejnou váhu.</p>\n<p><strong>Tlak</strong> je fyzikální veličina, která říká, jak moc je tlaková síla soustředěná (zkoncentrovaná) na malém místě. Značíme ho p a počítáme podle vzorce:</p>\n<p style=\"font-size:1.3rem\"><strong>p = F : S</strong></p>\n<p>Tlak spočítáme tak, že tlakovou sílu F vydělíme obsahem plochy S, na kterou síla působí.</p>\n\n<h3>Jednotka tlaku</h3>\n<p>Tlak měříme v <strong>pascalech</strong>, značka Pa. Tlak 1 Pa vyvolá síla 1 N, která působí kolmo na plochu 1 m². Představ si 100 gramů nastrouhané čokolády rozsypané rovnoměrně na ploše 1 × 1 metr — to je tlak právě 1 pascal.</p>\n<p>Pascal je docela malá jednotka, proto se často používají jeho násobky:</p>\n<ul>\n<li>1 kilopascal (kPa) = 1 000 Pa</li>\n<li>1 megapascal (MPa) = 1 000 000 Pa</li>\n<li>1 hektopascal (hPa) = 100 Pa — používá se v meteorologii (nauce o počasí)</li>\n</ul>\n\n<h3>Na čem tlak závisí</h3>\n<p>Tlak je tím větší, čím větší síla na plochu působí. Naopak je tím menší, čím větší je plocha, na kterou síla působí.</p>\n<p>Proto bolí došlápnutí jehlovým podpatkem víc než teniskou. Obě boty mohou nést stejnou váhu, ale podpatek má mnohem menší plochu.</p>\n\n<h3>Jak tlak zvětšit</h3>\n<p>Tlak zvětšíme tak, že soustředíme sílu na co nejmenší plochu. Proto se nože a sekery brousí do ostří a jehly se přiostřují do špičky.</p>\n<p>Stejně fungují šicí a injekční jehla nebo vosí žihadlo — mají velmi malou plochu, aby snadno propíchly to, na co zatlačí.</p>\n\n<h3>Jak tlak zmenšit</h3>\n<p>Tlak zmenšíme opačně — rozložíme sílu na co největší plochu. Proto mají sněžnice a lyže široké plochy, aby se člověk nebořil do sněhu. Ze stejného důvodu se na tenkém ledu radši plazíme, nestojíme na něm.</p>\n<p>Stejně fungují pásy bagrů a tanků, široké pneumatiky traktorů i více kol u nákladních aut — rozkládají váhu stroje na velkou plochu. I základy velkých budov se stavějí co nejširší, aby stavba nezatlačila do země.</p>\n\n<h3>Tlak je všude kolem nás</h3>\n<p>S tlakem se setkáváme v přírodě i v technice. Velbloud má široká chodidla, aby se nebořil do písku pouště. Ptáci mají naopak úzké a ostré zobáky a drápy, kterými snadno uchopí kořist.</p>\n<p>V technice tlak využívají hydraulické brzdy, lisy i ostré nářadí. Tlak provází úplně všechno — od krájení chleba nožem až po stavbu mrakodrapů.</p>\n\n<h3>Další vzorce</h3>\n<p>Ze vzorce pro tlak umíme odvodit i sílu a plochu:</p>\n<ul>\n<li>tlaková síla: <strong>F = p · S</strong></li>\n<li>plocha: <strong>S = F : p</strong></li>\n</ul>\n<p>Plochu S musíme do vzorců vždy dosazovat v základních jednotkách, tedy v metrech čtverečních (m²). Převody: 1 m² = 100 dm², 1 dm² = 100 cm², 1 cm² = 100 mm².</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Píst stroje má obsah S = 100 cm². Převedeme na základní jednotku: S = 100 cm² = 0,01 m². Na pístu má vzniknout tlak p = 200 Pa. Jak velká síla je potřeba?</p>\n<p>F = p · S = 200 · 0,01 = 2 N</p>\n<p>Na desku působí síla F = 300 N a vzniká tlak p = 30 000 Pa. Jak velký je obsah plochy S, na kterou síla působí?</p>\n<p>S = F : p = 300 : 30 000 = 0,01 m²</p>\n<p>Převedeme výsledek na cm²: 0,01 m² = 100 cm².</p>",
+					zapis: {"vzorec":"p = F : S      (odvozeně: F = p · S,  S = F : p)","jednotky":["tlak — značíme p, jednotka Pa (pascal)","tlaková síla — značíme F, jednotka N (newton)","plocha — značíme S, jednotka m² (metr čtvereční)","Převody: 1 hPa = 100 Pa,  1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa.","Převody plochy: 1 m² = 100 dm²,  1 dm² = 100 cm²,  1 cm² = 100 mm².","Do vzorce dosazuj sílu v N a plochu v m² — tlak pak vyjde v Pa."],"vzorecSlovy":"tlak = síla děleno plocha","body":["tlaková síla F — kolmo na plochu, může deformovat těleso","p = F : S, jednotka Pa (pascal)","větší síla → větší tlak; větší plocha → menší tlak","zvětšit tlak: menší plocha (nůž, jehla, žihadlo)","zmenšit tlak: větší plocha (lyže, sněžnice, pásy, pneumatiky)"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Porozumění tlaku', cesta: 'Pzxvvf0fbTg' },
 						{
@@ -1779,44 +1731,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'pascaluv-zakon',
 					nazev: 'Pascalův zákon',
 					interakce: 'hydraulika',
-					obsah: `
-						<h2>Pascalův zákon</h2>
-						<p><strong>Tlak vyvolaný vnější silou působící na kapalinu v uzavřené nádobě se přenáší rovnoměrně do všech směrů.</strong> Tlak se tedy zvětší ve všech místech kapaliny stejně.</p>
-						<p>Když zatlačíme na píst uzavřené baňky s otvory naplněné vodou, voda nestříká jen ve směru síly, ale <strong>všemi směry kolmo ke stěnám nádoby</strong>.</p>
-						<p><strong>Proč to funguje?</strong> Kapaliny jsou téměř dokonale nestlačitelné — jejich částice jsou tak blízko u sebe, že je nelze více stlačit, a tak tlak výborně přenášejí.</p>
-						<h3>Hydraulická zařízení — násobení síly</h3>
-						<p>Základem jsou <strong>dvě propojené nádoby s písty o různých plochách</strong> (S₁ malý, S₂ velký) a uzavřenou kapalinou (obvykle olejem). Tlak je v celém systému stejný:</p>
-						<ul>
-							<li><strong>p = F₁ : S₁ = F₂ : S₂</strong></li>
-							<li>výsledná síla: <strong>F₂ = F₁ · (S₂ : S₁)</strong></li>
-						</ul>
-						<p>👉 <strong>Zlaté pravidlo hydrauliky:</strong> Kolikrát je druhý píst větší než první, přesně tolikrát větší síla na něj působí. Plocha 100× větší = síla 100× větší.</p>
-						<h3>Příklad (z hodiny)</h3>
-						<p>Na malý píst o obsahu 3 m² působí síla 24 N → tlak p = 24 : 3 = <strong>8 Pa</strong>. Velký píst má obsah 12 m² → F₂ = 8 · 12 = <strong>96 N</strong>.</p>
-						<h3>Příklad: zubařské křeslo</h3>
-						<p>Zubař tlačí na malý píst (S₁ = 5 cm²) silou 20 N. Velký píst má S₂ = 400 cm², tedy 80× víc → síla je 80 × 20 = <strong>1 600 N</strong>, což uzvedne 160 kg. Když křeslo váží 30 kg, pacient může vážit až <strong>130 kg</strong>.</p>
-						<h3>Kde všude hydraulika pracuje</h3>
-						<p>hydraulické zvedáky a lisy, brzdy automobilů, bagry a jeřáby, zubařská a lékařská křesla, hydraulické výtahy</p>
-						<h3>Hodí se vědět</h3>
-						<p>Obsah kruhového pístu o poloměru r: <strong>S = π · r²</strong> (π ≈ 3,14).</p>
-					`,
-					zapis: {
-						body: [
-							'Tlak vyvolaný vnější silou v uzavřené kapalině se přenáší rovnoměrně do všech směrů.',
-							'Kapaliny jsou téměř nestlačitelné, a proto tlak dobře přenášejí.',
-							'V hydraulickém zařízení jsou dva propojené písty a tlak je v celém systému stejný.',
-							'Kolikrát je plocha druhého pístu větší, tolikrát větší síla na něj působí.',
-						],
-						zakon: 'Tlak vyvolaný vnější silou působící na kapalinu v uzavřené nádobě se přenáší rovnoměrně do všech směrů.',
-						vzorec: 'p = F₁ : S₁ = F₂ : S₂      (odvozeně: F₂ = F₁ · (S₂ : S₁))',
-						jednotky: [
-							'tlak p — pascal (Pa)',
-							'síla F₁, F₂ — newton (N)',
-							'obsah pístu S₁, S₂ — metr čtvereční (m²)',
-							'1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa',
-							'Do vzorce dosazuj síly v N a obsahy obou pístů ve stejné jednotce plochy.',
-						],
-					},
+					obsah: "<h2>Pascalův zákon</h2>\n\n<p><strong>Když na kapalinu v uzavřené nádobě zatlačíme, tlak se rozšíří do všech směrů stejně.</strong> Ukážeme si to na uzavřené baňce plné vody s malými otvory po celém povrchu. Do baňky vede píst — pohyblivá deska, kterou tlačíme přímo do kapaliny.</p>\n<p>Když píst zatlačíme, voda nevystřikuje jen dopředu, ale ze všech otvorů najednou a stejně silně. Tlak se totiž v kapalině přenesl rovnoměrně na všechna místa.</p>\n<p>Funguje to proto, že kapaliny jsou téměř nestlačitelné. Jejich částice jsou u sebe tak blízko, že se do menšího prostoru už nevejdou.</p>\n\n<h3>Pascalův zákon (přesné znění)</h3>\n<p><strong>Tlak vyvolaný vnější silou působící na kapalinu v uzavřené nádobě se přenáší rovnoměrně do všech směrů.</strong> Tlak se tedy zvětší ve všech místech kapaliny stejně.</p>\n\n<h3>Hydraulické zařízení: dva písty</h3>\n<p>Tento zákon využívají <strong>hydraulická zařízení</strong> — pomocí kapaliny (obvykle oleje) v nich znásobíme sílu. Mají dvě propojené nádoby s písty: malý píst má obsah S<sub>1</sub>, velký píst má obsah S<sub>2</sub>.</p>\n<p>Na malý píst zatlačíme silou F<sub>1</sub>. Tlak p se v kapalině přenese beze změny na velký píst, kde vyvolá mnohem větší sílu F<sub>2</sub>.</p>\n<ul>\n<li><strong>p = F<sub>1</sub> : S<sub>1</sub> = F<sub>2</sub> : S<sub>2</sub></strong></li>\n<li>výsledná síla: <strong>F<sub>2</sub> = F<sub>1</sub> · (S<sub>2</sub> : S<sub>1</sub>)</strong></li>\n</ul>\n<p>👉 <strong>Zlaté pravidlo hydrauliky:</strong> Kolikrát je druhý píst větší než první, přesně tolikrát větší síla na něj působí. Plocha 100× větší = síla 100× větší.</p>\n\n<h3>Kde hydrauliku využijeme</h3>\n<p>Hydraulika pracuje v autodílnách jako <strong>zvedák</strong>, který malou silou nadzvedne celé auto. V autě pomáhá i <strong>brzdám</strong> — přenáší sílu z pedálu na kola.</p>\n<p>V průmyslu se používá jako <strong>lis</strong>, který velkou silou stlačuje materiál, a v <strong>bagrech a jeřábech</strong>, které zvedají těžká břemena.</p>\n<p>Najdeme ji i v zubařském a lékařském křesle, kde nastavuje pohodlnou výšku, nebo ve výtahu, který nevisí na laně.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Vzorec pro hydraulické zařízení je p = F<sub>1</sub> : S<sub>1</sub> = F<sub>2</sub> : S<sub>2</sub>, odvozeně F<sub>2</sub> = F<sub>1</sub> · (S<sub>2</sub> : S<sub>1</sub>). Do vzorce dosazuj obě plochy ve stejné jednotce.</p>\n<p><strong>Příklad z hodiny:</strong> Na malý píst o obsahu S<sub>1</sub> = 3 m² působí síla F<sub>1</sub> = 24 N. Tlak v kapalině je p = F<sub>1</sub> : S<sub>1</sub> = 24 : 3 = 8 Pa.</p>\n<p>Velký píst má obsah S<sub>2</sub> = 12 m². Tlak je v celé kapalině stejný, takže síla na něj je F<sub>2</sub> = p · S<sub>2</sub> = 8 · 12 = 96 N.</p>\n<p><strong>Příklad: zubařské křeslo.</strong> Zubař tlačí na malý píst (S<sub>1</sub> = 5 cm²) silou F<sub>1</sub> = 20 N. Velký píst má S<sub>2</sub> = 400 cm².</p>\n<p>Velký píst je S<sub>2</sub> : S<sub>1</sub> = 400 : 5 = 80krát větší než malý. Síla na něj je proto F<sub>2</sub> = 80 · 20 = 1 600 N.</p>\n<p>Ta síla uzvedne hmotnost m = F<sub>2</sub> : g = 1 600 : 10 = 160 kg. Křeslo váží 30 kg, takže pacient může vážit až 160 − 30 = 130 kg.</p>\n<p><strong>Hodí se vědět:</strong> Obsah kruhového pístu o poloměru r spočítáme jako S = π · r² (π ≈ 3,14).</p>",
+					zapis: {"vzorec":"p = F₁ : S₁ = F₂ : S₂      (odvozeně: F₂ = F₁ · (S₂ : S₁))","jednotky":["tlak — značíme p, jednotka Pa (pascal)","síla na píst — značíme F₁, F₂, jednotka N (newton)","obsah pístu — značíme S₁, S₂, jednotka m² (metr čtvereční)","Převody: 1 kPa = 1 000 Pa, 1 MPa = 1 000 000 Pa.","Do vzorce dosazuj síly v N a obsahy obou pístů ve stejné jednotce plochy."],"vzorecSlovy":"síla na píst dělená obsahem pístu (tlak) je v celém hydraulickém zařízení stejná","zakon":"Tlak vyvolaný vnější silou působící na kapalinu v uzavřené nádobě se přenáší rovnoměrně do všech směrů.","body":["tlak v uzavřené kapalině: všude stejný","kapaliny nestlačitelné → tlak dobře přenášejí","hydraulika: dva písty, stejný tlak","větší plocha pístu → větší síla","využití: zvedák, brzdy, lis, křesla, výtah"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Pascalův zákon — síla kapalin', cesta: 'pTdNlwI_0aY' },
 						{ druh: 'youtube', nazev: 'Video: Pascalův zákon 2', cesta: '1WUlh2HBpwA' },
@@ -1841,50 +1757,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'hydrostaticky-tlak',
 					nazev: 'Hydrostatický tlak',
 					interakce: 'hydrostatika',
-					obsah: `
-						<h2>Hydrostatický tlak</h2>
-						<p><strong>Hydrostatický tlak vzniká působením gravitační síly Země.</strong> Kapalina působí na dno i stěny nádoby a také na tělesa ponořená v kapalině — na potápěče, ryby i ponorky.</p>
-						<p>Čím jsme <strong>hlouběji pod hladinou</strong> a čím je kapalina <strong>hustší</strong>, tím větší tlak na nás působí.</p>
-						<h3>Vzorec</h3>
-						<ul>
-							<li><strong>p<sub>h</sub> = h · ρ · g</strong></li>
-							<li>h … hloubka pod hladinou (v metrech)</li>
-							<li>ρ … hustota kapaliny (v kg/m³); voda má 1000 kg/m³</li>
-							<li>g … gravitační konstanta (10 N/kg)</li>
-						</ul>
-						<p>Například v hloubce 10 m pod vodou: p<sub>h</sub> = 10 · 1000 · 10 = <strong>100 000 Pa</strong>.</p>
-						<h3>Tlaková síla vody</h3>
-						<p>Síla na plochu (třeba dno nebo stěnu tělesa): <strong>F = S · h · ρ · g</strong>. Například na starý most (6 × 8 m) v hloubce 5 m působí voda silou F = 48 · 5 · 1000 · 10 = <strong>2 400 000 N</strong>.</p>
-						<h3>Hydrostatický paradox</h3>
-						<p>Tlak u dna <strong>nezávisí na tvaru nádoby ani množství vody</strong> — jen na hloubce a hustotě. Nádoby se stejným dnem a stejnou výškou hladiny mají u dna stejný tlak i sílu na dno.</p>
-						<h3>Spojené nádoby</h3>
-						<p>Hladina kapaliny je ve všech částech spojených nádob <strong>vodorovná a ve stejné výšce</strong>, bez ohledu na jejich tvar.</p>
-						<h3>Využití v praxi</h3>
-						<ul>
-							<li><strong>hráz přehrady</strong> — u dna je mnohem širší, protože s hloubkou roste tlak</li>
-							<li><strong>vodojem</strong> — staví se výš než okolní budovy; voda teče z kohoutku díky výšce hladiny</li>
-							<li><strong>hadicová vodováha</strong> — spojené nádoby ukazují stejnou výšku</li>
-							<li><strong>sifon u umyvadla a WC</strong> — vodní zátka brání zápachu z odpadu</li>
-							<li><strong>plavební komora (zdymadlo)</strong> — pomáhá lodím překonat výškové rozdíly hladin</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Hydrostatický tlak vzniká působením gravitační síly Země na kapalinu.',
-							'Čím větší je hloubka pod hladinou a hustota kapaliny, tím větší je hydrostatický tlak.',
-							'Tlak u dna nezávisí na tvaru nádoby ani na množství kapaliny, ale na hloubce a hustotě.',
-							'Ve spojených nádobách je hladina kapaliny ve všech částech ve stejné výšce.',
-						],
-						vzorec: 'pₕ = h · ρ · g      (odvozeně: h = pₕ : (ρ · g),  ρ = pₕ : (h · g))',
-						jednotky: [
-							'hydrostatický tlak pₕ — pascal (Pa)',
-							'hloubka h — metr (m)',
-							'hustota kapaliny ρ — kilogram na metr krychlový (kg/m³)',
-							'gravitační konstanta g — newton na kilogram (N/kg)',
-							'1 kPa = 1 000 Pa,  1 MPa = 1 000 000 Pa',
-							'Do vzorce dosazuj hloubku v m, hustotu v kg/m³ a gravitační konstantu v N/kg.',
-						],
-					},
+					obsah: "<h2>Hydrostatický tlak</h2>\n<p>Slovo <strong>hydrostatický</strong> znamená „vztahující se ke kapalině v klidu\". Kapalina má svou hmotnost, a proto na ni působí gravitační síla Země. Tato síla tlačí kapalinu dolů, a kapalina tím tlačí na dno i na stěny nádoby.</p>\n<p>Stejně tlačí i na všechno, co je v ní ponořené — na potápěče, na rybu i na ponorku. Tomuto tlaku kapaliny říkáme <strong>hydrostatický tlak</strong>.</p>\n\n<h3>Čím hlouběji, tím větší tlak</h3>\n<p>Čím hlouběji pod hladinou jsme, tím víc vody je nad námi. Víc vody znamená víc tíhy, a tím i větší tlak. Proto potápěč cítí v hloubce mnohem větší tlak než těsně pod hladinou.</p>\n\n<h3>Záleží i na hustotě kapaliny</h3>\n<p>Hustota říká, kolik hmoty se vejde do stejného objemu — jak moc je látka „namačkaná\". Čím hustší kapalina, tím větší tlak ve stejné hloubce. Proto je ve slané mořské vodě tlak o něco větší než ve sladké vodě.</p>\n\n<h3>Tvar nádoby nehraje roli</h3>\n<p>Hydrostatický tlak u dna nezávisí na tvaru nádoby ani na tom, kolik vody je uvnitř. Rozhoduje jen hloubka a hustota kapaliny. Mají-li dvě nádoby stejně velké dno a stejně vysokou hladinu, tlačí voda na dno stejnou silou. Platí to, i když je jedna nádoba úzká a druhá široká.</p>\n\n<h3>Vzorec</h3>\n<p>Hydrostatický tlak spočítáme podle vzorce:</p>\n<p style=\"font-size:1.3rem\"><strong>p<sub>h</sub> = h · ρ · g</strong></p>\n<p>h je hloubka pod hladinou v metrech, ρ (čti „ró\") je hustota kapaliny v kilogramech na metr krychlový a g je gravitační konstanta s hodnotou 10 N/kg. Voda má hustotu 1 000 kg/m³.</p>\n\n<h3>Spojené nádoby</h3>\n<p>Hladina kapaliny je ve všech částech spojených nádob vodorovná a ve stejné výšce, ať mají jakýkoli tvar.</p>\n\n<h3>Kde se hydrostatický tlak využívá</h3>\n<ul>\n<li><strong>hráz přehrady</strong> — u dna je mnohem širší, protože tam tlak vody roste s hloubkou</li>\n<li><strong>vodojem</strong> — stojí výš než okolní domy, aby tlak vody dohnal vodu až do kohoutku</li>\n<li><strong>hadicová vodováha</strong> — spojené nádoby ukazují stejnou výšku na obou koncích</li>\n<li><strong>sifon u umyvadla a WC</strong> — vodní zátka brání, aby z odpadu unikal zápach</li>\n<li><strong>plavební komora (zdymadlo)</strong> — pomáhá lodím překonat výškový rozdíl mezi dvěma úseky řeky</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>V hloubce 10 m pod vodou je hydrostatický tlak: p<sub>h</sub> = h · ρ · g = 10 · 1 000 · 10 = <strong>100 000 Pa</strong>.</p>\n<p>Sílu, kterou kapalina tlačí na plochu S (obsah plochy v m²), spočítáme jako F = S · h · ρ · g. Starý most o rozměrech 6 × 8 m ležel v hloubce 5 m pod hladinou přehrady. Voda na něj tlačila silou F = 48 · 5 · 1 000 · 10 = <strong>2 400 000 N</strong> (2 400 kN).</p>\n<p>Vzorec jde použít i obráceně. Na hráz přehrady působí u dna tlak 600 kPa = 600 000 Pa. Jak je přehrada hluboká? h = p<sub>h</sub> : (ρ · g) = 600 000 : (1 000 · 10) = <strong>60 m</strong>.</p>",
+					zapis: {"vzorec":"pₕ = h · ρ · g      (odvozeně: h = pₕ : (ρ · g),  ρ = pₕ : (h · g))","jednotky":["hloubka — značíme h, jednotka m (metr)","hustota kapaliny — značíme ρ, jednotka kg/m³ (kilogram na metr krychlový)","gravitační konstanta — značíme g, jednotka N/kg (newton na kilogram)","hydrostatický tlak — značíme pₕ, jednotka Pa (pascal)","Do vzorce dosazuj hloubku v metrech, hustotu v kg/m³ a gravitační konstantu v N/kg. Hustota vody je 1 000 kg/m³.","Převody: 1 kPa = 1 000 Pa, 1 MPa = 1 000 000 Pa."],"vzorecSlovy":"hydrostatický tlak = hloubka krát hustota kapaliny krát gravitační konstanta","body":["pₕ = h · ρ · g","vzniká tíhou kapaliny (gravitace)","hlouběji → větší tlak","hustší kapalina → větší tlak","tvar nádoby na tlak nemá vliv","spojené nádoby: hladina stejně vysoko všude","hráz u dna širší, vodojem výš než domy"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Skrytá síla vody', cesta: 'xJMpwGyOibQ' },
 						{ druh: 'youtube', nazev: 'Video: Hydrostatický tlak', cesta: 'Tx5X_3g1sHE' },
@@ -4044,66 +3918,7 @@ export const temata: Record<string, Tema[]> = {
 				{
 					slug: 'elektricka-energie-a-premeny',
 					nazev: 'Elektrická energie a její přeměny',
-					obsah: `
-						<h2>Elektrická energie a její přeměny</h2>
-						<p>Elektrická energie je výhodná tím, že se snadno mění na jiné druhy energie i naopak.</p>
-						<h3>Elektrická energie se mění na…</h3>
-						<ul>
-							<li><strong>tepelnou</strong> — proud zahřívá vodič (větší odpor a proud = více tepla): vařič, žehlička, topení, pájka;</li>
-							<li><strong>světelnou</strong> — žárovka, výbojka (reklamy, zářivky), <strong>LED</strong>;</li>
-							<li><strong>magnetickou</strong> — kolem vodiče či cívky vzniká pole: elektromagnet;</li>
-							<li><strong>pohybovou</strong> — na vodič v magnetickém poli působí síla: elektromotor, reproduktor;</li>
-							<li><strong>chemickou</strong> — elektrolýza a pokovování.</li>
-						</ul>
-						<h3>…a naopak vzniká z jiné energie</h3>
-						<ul>
-							<li><strong>pohybová → elektrická</strong> — elektromagnetická indukce v <strong>alternátoru</strong> (elektrárny);</li>
-							<li><strong>magnetická → elektrická</strong> — indukce v <strong>transformátoru</strong>;</li>
-							<li><strong>světelná → elektrická</strong> — <strong>solární panely</strong>, fotovoltaika;</li>
-							<li><strong>chemická → elektrická</strong> — galvanické články a akumulátory.</li>
-						</ul>
-						<p>Platí přitom <strong>zákon zachování energie</strong> — energie se jen přeměňuje, nevzniká ani nezaniká.</p>
-						<h3>Tak proč mluvíme o „spotřebě" energie?</h3>
-						<p>Když energie nezaniká, co se s ní vlastně stane, než přijde účet? Nic se neztratilo —
-						jen <strong>skončila jako teplo</strong> rozptýlené do okolí. Mixér ohřeje těsto i motor,
-						žárovka pokoj, nabíječka sebe samu. Teplo rozptýlené po celém pokoji už ale nedokážeš
-						sebrat a použít znovu.</p>
-						<p>👉 Proto je poctivější říkat, že energii <strong>„znehodnocujeme"</strong>, ne
-						spotřebováváme: pořád jí je stejně, jen se z použitelné podoby změnila na nepoužitelnou.
-						A právě tenhle jednosměrný sešup je důvod, proč <strong>žádný stroj nevydá víc, než do něj
-						dáme</strong> — a proč nemůže existovat perpetuum mobile.</p>
-						<p>💡 Zamysli se nad <strong>přímotopem</strong>: veškerá elektřina v něm skončí jako teplo,
-						takže se dá říct, že jeho účinnost je prakticky 100 %. Není to výjimka ze zákona ani
-						protiklad k tomu, co ses učil(a) o ztrátách — je to případ, kdy je „ztrátové" teplo
-						<strong>přesně tím, co po stroji chceme</strong>. Totéž teplo je u počítače nebo motoru
-						ztráta. <strong>Jestli je energie užitečná, nerozhoduje fyzika, ale náš záměr.</strong></p>
-						<h3>✏️ Zamysli se</h3>
-						<p>Vyzkoušej si přeměny energie na zařízeních, o kterých se ve výkladu ještě nemluvilo.</p>
-						<ol>
-							<li>Diktafon nebo telefon zaznamená tvůj hlas pomocí <strong>mikrofonu</strong>. Uvnitř má mikrofon
-							(podobně jako reproduktor) cívku a magnet. Jaká přeměna energie v mikrofonu nastává?
-							<details><summary>řešení</summary>Zvuková vlna rozkmitá membránu s cívkou v magnetickém poli,
-							pohyb cívky vyvolá v ní elektrické napětí — jde tedy o přeměnu <strong>pohybová → elektrická</strong>
-							(elektromagnetická indukce). Mikrofon pracuje přesně opačně než reproduktor.</details></li>
-							<li><strong>Elektrický zvonek</strong> u domovních dveří po zmáčknutí tlačítka klepe kladívkem
-							o zvonek. Přes jaké mezikroky se elektrická energie promění na zvuk, který slyšíš?
-							<details><summary>řešení</summary>Proud protéká cívkou a vytvoří <strong>magnetické</strong> pole,
-							to přitáhne kovové kladívko — vzniká <strong>pohybová</strong> energie. Úder kladívka o zvonek
-							pak rozechvěje vzduch a vznikne zvuk. Řetězec je: elektrická → magnetická → pohybová → zvuková.</details></li>
-							<li><strong>Indukční varná deska</strong> se sama téměř nezahřívá, přesto uvaří vodu v hrnci
-							rychleji než klasická plotýnka. Kde v tomto případě vzniká teplo a jaké přeměny tomu předchází?
-							<details><summary>řešení</summary>Cívka pod deskou vytváří střídavé <strong>magnetické</strong>
-							pole. To v kovovém dně hrnce vyvolá vířivé elektrické proudy, a teprve ty zahřejí dno hrnce
-							odporem materiálu. Přeměna je tedy elektrická → magnetická → (elektrická) → <strong>tepelná</strong>
-							— ale teplo vzniká přímo v hrnci, ne v desce.</details></li>
-							<li><strong>Powerbanka</strong> nejdřív nabiješ ze zásuvky a později z ní nabiješ telefon.
-							Popiš, jaké dvě přeměny energie při tom postupně proběhnou.
-							<details><summary>řešení</summary>Při nabíjení powerbanky probíhá přeměna
-							<strong>elektrická → chemická</strong> (energie se uloží v akumulátoru). Při nabíjení telefonu
-							pak probíhá opačná přeměna <strong>chemická → elektrická</strong> — a v telefonu se znovu uloží
-							jako chemická energie v jeho vlastní baterii.</details></li>
-						</ol>
-					`,
+					obsah: "<h2>Elektrická energie a její přeměny</h2>\n\n<p>Elektrická energie je výhodná tím, že se snadno mění na jiné druhy energie a naopak.</p>\n\n<h3>Elektrická energie se mění na…</h3>\n<ul>\n<li><strong>tepelnou</strong> — proud zahřívá vodič (větší odpor a proud = více tepla): vařič, žehlička, topení, pájka;</li>\n<li><strong>světelnou</strong> — žárovka, výbojka (reklamy, zářivky), <strong>LED</strong>;</li>\n<li><strong>magnetickou</strong> — kolem vodiče či cívky vzniká pole: elektromagnet;</li>\n<li><strong>pohybovou</strong> — na vodič v magnetickém poli působí síla: elektromotor, reproduktor;</li>\n<li><strong>chemickou</strong> — elektrolýza a pokovování.</li>\n</ul>\n\n<h3>…a naopak vzniká z jiné energie</h3>\n<ul>\n<li><strong>pohybová → elektrická</strong> — elektromagnetická indukce v <strong>alternátoru</strong> (elektrárny);</li>\n<li><strong>magnetická → elektrická</strong> — indukce v <strong>transformátoru</strong>;</li>\n<li><strong>světelná → elektrická</strong> — <strong>solární panely</strong>, fotovoltaika;</li>\n<li><strong>chemická → elektrická</strong> — galvanické články a akumulátory.</li>\n</ul>\n<p>Platí přitom <strong>zákon zachování energie</strong> — energie se jen přeměňuje, nevzniká ani nezaniká.</p>\n\n<h3>Tak proč mluvíme o „spotřebě\" energie?</h3>\n<p>Když energie nezaniká, co se s ní vlastně stane, než přijde účet? Nic se neztratilo — jen skončila jako teplo rozptýlené do okolí. Mixér ohřeje těsto i motor, žárovka pokoj, nabíječka sebe samu. Teplo rozptýlené po celém pokoji už ale nedokážeš sebrat a použít znovu.</p>\n<p>👉 Proto je poctivější říkat, že energii <strong>„znehodnocujeme\"</strong>, ne že ji spotřebováváme. Pořád jí je stejně, jen se z použitelné podoby změnila na nepoužitelnou. Proto žádný stroj nevydá víc energie, než do něj dáme. Proto nemůže existovat <strong>věčný stroj, který by běžel sám od sebe</strong> (perpetuum mobile).</p>\n<p>💡 Zamysli se nad <strong>přímotopem</strong>. Veškerá elektřina v něm skončí jako teplo, takže má účinnost skoro <strong>100 %</strong>. Není to výjimka ze zákona ani protiklad k tomu, co ses učil(a) o ztrátách.</p>\n<p>Je to případ, kdy je „ztrátové\" teplo přesně tím, co po stroji chceme. Totéž teplo je u počítače nebo motoru jen ztráta. Jestli je energie užitečná, nerozhoduje fyzika, ale náš záměr.</p>\n\n<h3>✏️ Zamysli se</h3>\n<p>Vyzkoušej si přeměny energie na zařízeních, o kterých se ve výkladu ještě nemluvilo.</p>\n<ol>\n<li>Diktafon nebo telefon zaznamená tvůj hlas pomocí <strong>mikrofonu</strong>. Uvnitř má mikrofon\n(podobně jako reproduktor) cívku a magnet. Jaká přeměna energie v mikrofonu nastává?\n<details><summary>řešení</summary>Zvuková vlna rozkmitá membránu s cívkou v magnetickém poli. Pohyb cívky pak vyvolá elektrické napětí — jde o přeměnu <strong>pohybová → elektrická</strong>\n(elektromagnetická indukce). Mikrofon pracuje přesně opačně než reproduktor.</details></li>\n<li><strong>Elektrický zvonek</strong> u domovních dveří po zmáčknutí tlačítka klepe kladívkem\no zvonek. Přes jaké mezikroky se elektrická energie promění na zvuk, který slyšíš?\n<details><summary>řešení</summary>Proud protéká cívkou a vytvoří <strong>magnetické</strong> pole,\nto přitáhne kovové kladívko — vzniká <strong>pohybová</strong> energie. Úder kladívka o zvonek\npak rozechvěje vzduch a vznikne zvuk. Řetězec je: elektrická → magnetická → pohybová → zvuková.</details></li>\n<li><strong>Indukční varná deska</strong> se sama téměř nezahřívá, přesto uvaří vodu v hrnci\nrychleji než klasická plotýnka. Kde v tomto případě vzniká teplo a jaké přeměny tomu předchází?\n<details><summary>řešení</summary>Cívka pod deskou vytváří střídavé <strong>magnetické</strong>\npole. To v kovovém dně hrnce vyvolá vířivé elektrické proudy, a teprve ty zahřejí dno hrnce\nodporem materiálu. Přeměna je tedy elektrická → magnetická → (elektrická) → <strong>tepelná</strong>\n— ale teplo vzniká přímo v hrnci, ne v desce.</details></li>\n<li><strong>Powerbanka</strong> nejdřív nabiješ ze zásuvky a později z ní nabiješ telefon.\nPopiš, jaké dvě přeměny energie při tom postupně proběhnou.\n<details><summary>řešení</summary>Při nabíjení powerbanky probíhá přeměna\n<strong>elektrická → chemická</strong> (energie se uloží v akumulátoru). Při nabíjení telefonu\npak probíhá opačná přeměna <strong>chemická → elektrická</strong> — a v telefonu se znovu uloží\njako chemická energie v jeho vlastní baterii.</details></li>\n</ol>",
 					zapis: {
 						body: [
 							'Elektrická energie se snadno mění na tepelnou, světelnou, magnetickou, pohybovou nebo chemickou energii.',
@@ -4127,56 +3942,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'ucinky-proudu-bezpecnost',
 					nazev: 'Účinky proudu na organismus, bezpečnost',
 					interakce: 'bezpecna-vzdalenost-vedeni',
-					obsah: `
-						<h2>Účinky proudu na organismus a bezpečnost</h2>
-						<p><strong>Lidské tělo je vodič.</strong> Účinky proudu bývají negativní (poškození zdraví), ale i pozitivní (elektroléčba ve fyzioterapii). Průchod proudu tělem způsobuje <strong>popáleniny, křeče svalů, fibrilaci srdce</strong> (u střídavého proudu) a poškození nervů a mozku.</p>
-						<h3>Míra poškození podle velikosti proudu</h3>
-						<ul>
-							<li>0,5–1 mA — práh vnímání,</li>
-							<li>2–5 mA — podráždění nervů, stoupá krevní tlak,</li>
-							<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong>,</li>
-							<li>25 mA — křeč dýchacích svalů,</li>
-							<li>60 mA — fibrilace (chvění) srdce,</li>
-							<li><strong>nad 80 mA — zpravidla trvalá zástava srdce.</strong></li>
-						</ul>
-						<h3>Co velikost proudu ovlivňuje</h3>
-						<ul>
-							<li><strong>Odpor člověka:</strong> velký odpor má jen <strong>suchá kůže a suchá obuv při malém napětí</strong> (~150 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~2000 Ω</strong>, ať jsi suchý nebo mokrý; vlhký člověk je ohrožen stejným nízkým odporem hned od začátku, ale <strong>ani suchý po proražení kůže není v bezpečí</strong>.</li>
-							<li><strong>Cesta proudu:</strong> nejnebezpečnější je přes <strong>levou ruku do srdce</strong> a dál, nebo přes hlavu (mozek).</li>
-							<li><strong>Bezpečné napětí</strong> dle normy <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvka 230 V je nebezpečná vždy.</li>
-						</ul>
-						<h3>Bezpečná pravidla</h3>
-						<p>Základní pravidla u domácích spotřebičů (mokrá ruka, jistič, poškozené kabely) znáš
-						z 8. ročníku — tady jde navíc o vedení venku:</p>
-						<ul>
-							<li>vysoké stroje a předměty (jeřáb, sklápěč, žebřík, i draka nebo model letadla) nikdy
-							nezvedej ani nepouštěj do blízkosti vedení — ochranné pásmo platí i pro techniku,
-							ne jen pro lidi,</li>
-							<li>na poli pod vedením dávej pozor na výšku zemědělských strojů (kombajn, postřikovač)
-							— dotyk výložníku s drátem je jedna z nejčastějších příčin úrazů elektřinou u dospělých,</li>
-							<li>po vichřici nebo bouřce buď u vedení obzvlášť opatrný — spadlý drát bývá právě tehdy.</li>
-						</ul>
-						<h3>⚡ Vedení vysokého napětí</h3>
-						<p><strong>Nedotýkáme se nosných stožárů elektrického vedení ani drátů spadlých na zem.</strong> U vysokého napětí navíc nerozhoduje jen dotyk — proud umí <strong>přeskočit vzduchem obloukem</strong>, takže ani se stožárem nebo drátem vůbec nemusíš přijít do styku a přesto hrozí nebezpečí. Proto se k vedení nikdy nepřibližuj a nezkoušej se ho dotknout ani nepřímo — <strong>tyčí, prutem, žebříkem ani dronem</strong>. Ze stejného důvodu se nikdy neleze na stožáry vedení ani na vagony a jiné vysoké konstrukce v jejich blízkosti.</p>
-						<p>Proto zákon (energetický zákon č. 458/2000 Sb.) kolem vedení stanovuje <strong>ochranné pásmo</strong> — vzdálenost od krajního drátu, kam se nesmí stavět, sázet stromy ani vjíždět s technikou. Platí, že <strong>čím vyšší napětí vedení má, tím širší ochranné pásmo je</strong>; přesnou šířku pro každou hladinu napětí stanovuje energetický zákon.</p>
-						<p><strong>Spadlý drát na zemi bývá pořád pod napětím</strong>, i když se nehýbe a vůbec nejiskří — na pohled to nepoznáš. K němu se nikdy nepřibližuj, ihned volej <strong>112</strong> (případně <strong>150</strong> hasiče) — <strong>155</strong> navíc jen tehdy, je-li někdo zraněný — a od místa odcházej <strong>drobnými krůčky</strong>, nikdy neutíkej velkými skoky.</p>
-						<h3>První pomoc při úrazu proudem</h3>
-						<ol>
-							<li><strong>vypni proud</strong> (vypínač, jistič, pojistky),</li>
-							<li>pokud to nejde a zraněný se stále dotýká vodiče, odděl ho <strong>izolující tyčí</strong> (suché dřevo, plast) — <strong>nikdy se ho ani jeho oděvu nedotýkej holou rukou</strong>, dokud není mimo dosah proudu; u vysokého napětí se raději vůbec nepřibližuj, viz výše,</li>
-							<li><strong>volej 155 souběžně:</strong> zapni si hlasitý odposlech, nebo pošli volat někoho jiného — s voláním nečekej, až budeš s pomocí hotový,</li>
-							<li><strong>nedýchá normálně?</strong> Začni stlačovat hrudník. Puls nehledej, jen ztrácíš čas a laik ho stejně spolehlivě nenahmatá.</li>
-						</ol>
-					`,
-					zapis: {
-						body: [
-							'Lidské tělo vede elektrický proud, který může způsobit popáleniny, svalové křeče, fibrilaci srdce a poškození nervů.',
-							'Nebezpečí závisí na velikosti proudu, odporu těla a cestě proudu; zásuvka 230 V je nebezpečná vždy.',
-							'K vedení vysokého napětí ani ke spadlému drátu se nepřibližujeme, protože proud může přeskočit vzduchem.',
-							'Při úrazu nejprve vypneme proud, zraněného pod proudem se nedotýkáme holou rukou a souběžně voláme 155.',
-							'Když zraněný nedýchá normálně, začneme stlačovat hrudník.',
-						],
-					},
+					obsah: "<h2>Účinky proudu na organismus, bezpečnost</h2>\n\n<p><strong>Lidské tělo vede elektrický proud.</strong> Proud jím proto snadno prochází. Většinou to škodí: způsobuje popáleniny, křeče svalů a poškození nervů. Lékaři proud přesto někdy využívají léčebně, třeba ve fyzioterapii.</p>\n\n<h3>Jak proud škodí tělu</h3>\n<p>Čím větší proud tělem prochází, tím větší je nebezpečí. Malý proud ucítíš jen jako slabé brnění. Se zvětšujícím se proudem přibývají křeče a bolest, až nakonec hrozí zástava srdce.</p>\n<ul>\n<li>0,5–1 mA — první pocit, že proud vůbec teče,</li>\n<li>2–5 mA — brní to, stoupá krevní tlak,</li>\n<li>6–15 mA — křeč svalů, člověk se <strong>nemůže sám pustit</strong>,</li>\n<li>25 mA — křeč dýchacích svalů, těžko se dýchá,</li>\n<li>60 mA — srdce se roztřese a přestane pravidelně pumpovat, u střídavého proudu tomu říkáme <strong>fibrilace</strong>,</li>\n<li><strong>nad 80 mA — srdce zpravidla trvale zastaví.</strong></li>\n</ul>\n\n<h3>Co rozhoduje o nebezpečí</h3>\n<p>Kolik proudu tělem poteče, závisí hlavně na odporu kůže. Suchá kůže a suchá obuv mají velký odpor, asi 150 000 Ω, proto z baterie většinou nic neucítíš. Od napětí kolem 50 V se ale kůže prorazí a odpor těla klesne na pouhých <strong>2 000 Ω</strong>. Vlhká kůže má tak malý odpor hned od začátku.</p>\n<p>Záleží také na tom, kudy proud tělem prochází. Nejnebezpečnější je cesta přes levou ruku do srdce, nebezpečná je i cesta přes hlavu do mozku. A platí i to, že čím déle proud tělem prochází, tím větší je poškození — proto je tak nebezpečné, že se při silnějším proudu člověk nedokáže sám pustit.</p>\n\n<h3>Bezpečné napětí</h3>\n<p>Ve vlhkých a zvlášť nebezpečných prostorách, jako je koupelna, bazén nebo sklep, platí přísnější mez: stejnosměrné napětí smí být nejvýš 25 V, střídavé jen 12 V. V suchých místnostech jsou meze vyšší — střídavé 50 V, stejnosměrné 120 V. Napětí ze zásuvky, tedy 230 V, je nebezpečné vždycky a všude.</p>\n\n<h3>Zásady bezpečnosti doma i venku</h3>\n<p>Základní pravidla u domácích spotřebičů — mokrá ruka, jistič, poškozené kabely — už znáš z osmé třídy. Tady si řekneme, jak se chovat u vedení venku.</p>\n<ul>\n<li>vysoké stroje a předměty — jeřáb, sklápěč, žebřík, i draka nebo model letadla — nikdy nezvedej ani nepouštěj do blízkosti vedení; ochranné pásmo platí i pro techniku, ne jen pro lidi,</li>\n<li>na poli pod vedením dávej pozor na výšku zemědělských strojů, jako je kombajn nebo postřikovač — dotyk výložníku s drátem je jedna z nejčastějších příčin úrazů elektřinou u dospělých,</li>\n<li>po vichřici nebo bouřce buď u vedení obzvlášť opatrný — spadlý drát bývá právě tehdy.</li>\n</ul>\n\n<h3>⚡ Vedení vysokého napětí</h3>\n<p><strong>Nedotýkáme se nosných stožárů elektrického vedení ani drátů spadlých na zem.</strong> U vysokého napětí navíc nerozhoduje jen dotyk — proud umí <strong>přeskočit vzduchem jako jiskra</strong>, které se říká oblouk. Nebezpečí proto hrozí, i když se stožáru nebo drátu vůbec nedotkneš.</p>\n<p>Proto se k vedení nikdy nepřibližuj a nezkoušej se ho dotknout ani nepřímo — <strong>tyčí, prutem, žebříkem ani dronem</strong>. Ze stejného důvodu se nikdy neleze na stožáry vedení ani na vagony a jiné vysoké konstrukce v jejich blízkosti.</p>\n<p>Proto zákon (energetický zákon č. 458/2000 Sb.) kolem vedení stanovuje <strong>ochranné pásmo</strong> — vzdálenost od krajního drátu, kam se nesmí stavět, sázet stromy ani vjíždět s technikou. Platí, že <strong>čím vyšší napětí vedení má, tím širší ochranné pásmo je</strong>; přesnou šířku pro každou hladinu napětí stanovuje energetický zákon.</p>\n<p><strong>Spadlý drát na zemi bývá pořád pod napětím</strong>, i když se nehýbe a vůbec nejiskří — na pohled to nepoznáš. K němu se nikdy nepřibližuj, ihned volej <strong>112</strong> (případně <strong>150</strong> hasiče) — <strong>155</strong> navíc jen tehdy, je-li někdo zraněný — a od místa odcházej <strong>drobnými krůčky</strong>, nikdy neutíkej velkými skoky.</p>\n\n<h3>První pomoc při úrazu proudem</h3>\n<ol>\n<li><strong>Vypni proud</strong> — vypínačem, jističem nebo pojistkami.</li>\n<li>Pokud to nejde a zraněný se stále dotýká vodiče, odděl ho <strong>izolující tyčí</strong> ze suchého dřeva nebo plastu. <strong>Nikdy se ho ani jeho oděvu nedotýkej holou rukou</strong>, dokud není mimo dosah proudu. U vysokého napětí se raději vůbec nepřibližuj, viz výše.</li>\n<li><strong>Volej 155 souběžně</strong> — zapni si hlasitý odposlech, nebo pošli volat někoho jiného. Nečekej, až budeš s pomocí hotový.</li>\n<li><strong>Nedýchá normálně?</strong> Začni stlačovat hrudník. Puls nehledej, jen ztrácíš čas a laik ho stejně spolehlivě nenahmatá.</li>\n</ol>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Proč zásuvka zabíjí, i když jsi úplně suchý? Spočítáme to Ohmovým zákonem: <strong>I = U : R</strong>. Zásuvka má napětí U = 230 V. Kůže se nad 50 V prorazí, takže odpor klesne na R = 2 000 Ω — stejně jako u mokré kůže.</p>\n<p>I = U : R = 230 : 2 000 = 0,115 A, tedy <strong>115 mA</strong>.</p>\n<p>Podívej se do tabulky výš: 115 mA je hluboko nad 80 mA, tedy v pásmu zástavy srdce. Proto je zásuvka 230 V nebezpečná vždycky — ať jsi suchý, nebo mokrý.</p>",
+					zapis: {"jednotky":["elektrický proud — značíme I, jednotka A (ampér); v příkladech měříme v miliampérech (mA), 1 mA = 0,001 A","elektrický odpor — značíme R, jednotka Ω (ohm)","elektrické napětí — značíme U, jednotka V (volt)"],"body":["tělo vede proud — čím proud, tím horší poškození","0,5–1 mA cítíš, 60 mA fibrilace srdce, nad 80 mA zástava srdce","čím déle proud teče, tím větší poškození — proto je nebezpečné, že se člověk nemůže pustit","sucho: odpor asi 150 000 Ω, po proražení kůže (nad 50 V) i mokro: jen asi 2 000 Ω","nejnebezpečnější cesta: ruka → srdce, hlava → mozek","bezpečné napětí: stejnosměrné 25 V, střídavé 12 V (vlhké prostory)","zásuvka 230 V je nebezpečná vždy","stožáry, dráty vedení, spadlý drát — nikdy se nedotýkat","u vysokého napětí hrozí i oblouk bez dotyku","úraz proudem: vypnout → nedotýkat se holou rukou → volat 155 → stlačovat hrudník"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektrická bezpečnost', cesta: 'VfCqvZDHUWQ' },
 						{ druh: 'youtube', nazev: 'Video: Domovní elektroinstalace', cesta: 'jhqpxSjUCMk' },

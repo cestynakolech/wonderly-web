@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 9. 2026 — F7 jednoduche-stroje HOTOV 4/4; F9 elektricky-proud-v-latkach HOTOV 6/6**
+> ### Poslední stav: **21. 9. 2026 — F7 tlak-v-kapalinach HOTOV 3/3; F9 elektricka-energie-a-bezpecnost HOTOV 2/2**
+> Čtvrté celky obou ročníků přestavěny přes `podtema.mjs`, každé podtéma prošlo
+> nezávislým kontrolorem opus. F8 celky 1–4 (17), F7 celky 1–4 (16), F9 celky 1–4 (16) = 49 podtémat.
+> Další dávka: 5. celky F7 (`vztlakova-sila-a-plovani-teles`), F8 (`elektrina`), F9 (`jaderna-fyzika`).
+>
+> ### Dřívější stav: **21. 9. 2026 — F7 jednoduche-stroje HOTOV 4/4; F9 elektricky-proud-v-latkach HOTOV 6/6**
 > Třetí celky obou ročníků přestavěny přes `podtema.mjs`, každé podtéma prošlo
 > nezávislým kontrolorem opus. F8 celky 1–4 (17), F7 celky 1–3 (13), F9 celky 1–3 (14) = 44 podtémat.
 > Další dávka: 4. celky F7 (`tlak-v-kapalinach`) a F9 (`elektricka-energie-a-bezpecnost`).
