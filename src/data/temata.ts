@@ -1805,32 +1805,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'atmosfericky-tlak',
 					nazev: 'Atmosférický tlak',
 					interakce: 'barometr',
-					obsah: `
-						<h2>Atmosférický tlak</h2>
-						<p><strong>Atmosféra</strong> je plynný obal Země tvořený vzduchem: přibližně <strong>78 % dusíku, 21 % kyslíku</strong> a 1 % dalších plynů.</p>
-						<p>Na částice vzduchu působí gravitační síla Země — horní vrstvy tlačí na spodní, a tak vzniká <strong>atmosférický tlak</strong>.</p>
-						<h3>Vlastnosti</h3>
-						<ul>
-							<li>značka <strong>pa</strong>, jednotka pascal (Pa); v meteorologii <strong>hPa</strong> (1 hPa = 100 Pa)</li>
-							<li>největší je u povrchu Země, <strong>s výškou klesá</strong> (ve velehorách je „řídký vzduch")</li>
-							<li>hustota vzduchu u povrchu je přibližně 1,29 kg/m³ a s výškou také klesá</li>
-						</ul>
-						<h3>Normální tlak</h3>
-						<p>Dohodnutá hodnota <strong>101 325 Pa ≈ 1 013 hPa</strong> — průměrný tlak u hladiny moře; odpovídá 760 mm rtuťového sloupce (mmHg).</p>
-						<h3>Torricelliho pokus (1643)</h3>
-						<p>Evangelista Torricelli naplnil trubici rtutí a obrátil ji do misky — rtuť klesla na výšku asi 760 mm. Sloupec drží právě atmosférický tlak. Na tomto principu funguje <strong>rtuťový barometr</strong>; kovový barometr se jmenuje <strong>aneroid</strong> a zapisovací <strong>barograf</strong>.</p>
-						<h3>Využití v praxi</h3>
-						<p>Přísavky drží na hladkém povrchu díky tlaku atmosféry (pod přísavkou vzduch není). Tlak vzduchu souvisí i s počasím — viz Meteorologie.</p>
-					`,
-					zapis: {
-						body: [
-							'Atmosféra je plynný obal Země tvořený převážně dusíkem a kyslíkem.',
-							'Atmosférický tlak vzniká působením gravitační síly na částice vzduchu.',
-							'Atmosférický tlak je největší u povrchu Země a s nadmořskou výškou klesá.',
-							'Normální atmosférický tlak u hladiny moře je přibližně 1 013 hPa.',
-							'Atmosférický tlak měříme barometrem; aneroid je kovový barometr a barograf zapisuje průběh tlaku.',
-						],
-					},
+					obsah: "\n\t\t\t\t\t\t<h2>Atmosférický tlak</h2>\n\t\t\t\t\t\t<p><strong>Atmosféra</strong> je plynný obal Země tvořený vzduchem: přibližně <strong>78 % dusíku, 21 % kyslíku</strong> a 1 % dalších plynů.</p>\n\t\t\t\t\t\t<p>Na částice vzduchu působí gravitační síla Země — horní vrstvy tlačí na spodní, a tak vzniká <strong>atmosférický tlak</strong>. Na jeho velikost má vliv i teplota vzduchu, množství vodní páry v ovzduší, nadmořská výška a zeměpisná šířka místa.</p>\n\n\t\t\t\t\t\t<h3>Vlastnosti</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>značka <strong>pa</strong>, jednotka pascal (Pa); v meteorologii <strong>hPa</strong> (1 hPa = 100 Pa)</li>\n\t\t\t\t\t\t<li>největší je u povrchu Země, <strong>s výškou klesá</strong> (ve velehorách je „řídký vzduch\")</li>\n\t\t\t\t\t\t<li>hustota vzduchu u povrchu je přibližně 1,23 kg/m³ a s výškou také klesá</li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Normální tlak</h3>\n\t\t\t\t\t\t<p>Dohodnutá hodnota <strong>101 325 Pa ≈ 1 013 hPa</strong> — průměrný tlak u hladiny moře; odpovídá 760 mm rtuťového sloupce (mmHg).</p>\n\n\t\t\t\t\t\t<h3>Torricelliho pokus (1643)</h3>\n\t\t\t\t\t\t<p>Evangelista Torricelli naplnil trubici rtutí a obrátil ji do misky — rtuť klesla na výšku asi 760 mm. Sloupec drží právě atmosférický tlak. Kdyby použil vodu místo rtuti, musela by být trubice vysoká skoro 10 metrů.</p>\n\t\t\t\t\t\t<p>Na tomto principu funguje <strong>rtuťový barometr</strong>; kovový barometr se jmenuje <strong>aneroid</strong> a zapisovací <strong>barograf</strong>.</p>\n\n\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t<p>Velikost tlaku šla z Torricelliho pokusu spočítat vzorcem pro hydrostatický tlak: p<sub>h</sub> = h · ρ · g.</p>\n\t\t\t\t\t\t<p>Rtuť má hustotu ρ = 13 500 kg/m³ a sloupec byl vysoký h = 0,76 m. Gravitační konstanta je g = 10 N/kg.</p>\n\t\t\t\t\t\t<p>p<sub>h</sub> = h · ρ · g = 0,76 · 13 500 · 10 = <strong>102 600 Pa</strong></p>\n\t\t\t\t\t\t<p>To je skoro stejná hodnota jako normální atmosférický tlak 101 325 Pa. Pokus tak potvrdil, jak velký tlak vzduch doopravdy má.</p>\n\n\t\t\t\t\t\t<h3>Využití v praxi</h3>\n\t\t\t\t\t\t<p>Přísavky drží na hladkém povrchu díky tlaku atmosféry (pod přísavkou vzduch není). Tlak vzduchu souvisí i s počasím — viz Meteorologie.</p>\n\t\t\t\t\t",
+					zapis: {"jednotky":["atmosférický tlak — značíme pa, jednotka Pa (pascal); v meteorologii hPa, 1 hPa = 100 Pa"],"body":["atmosféra: plynný obal Země","vzduch: 78 % dusík, 21 % kyslík, 1 % ostatní","tlak vzniká: gravitace tlačí vzduch dolů","tlak: u povrchu největší, s výškou klesá","hustota vzduchu: ~1,23 kg/m³, s výškou klesá","na tlak působí: teplota, vlhkost, výška, šířka","normální tlak = 101 325 Pa ≈ 1 013 hPa","normální tlak = 760 mm rtuti (mmHg)","Torricelliho pokus 1643: rtuť v trubici","barometry: rtuťový, aneroid (kovový), barograf (zapisuje)","výpočet: 0,76 · 13 500 · 10 = 102 600 Pa","přísavky: drží díky tlaku atmosféry"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Kolem Země vzduch se točí 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/atmosfericky-tlak/pisen-atmosfericky-tlak.mp4' },
 					],
@@ -1839,34 +1815,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'pretlak-podtlak-vakuum',
 					nazev: 'Přetlak, podtlak, vakuum',
 					interakce: 'pretlak',
-					obsah: `
-						<h2>Přetlak, podtlak, vakuum — fyzikální jevy atmosférického tlaku</h2>
-						<p>Je-li v uzavřené nádobě jiný tlak než v okolí, vzniká <strong>přetlak</strong>, <strong>podtlak</strong>, nebo dokonce <strong>vakuum</strong>. Tyto stavy patří mezi důležité fyzikální jevy související s atmosférickým tlakem.</p>
-						<h3>Přetlak — uvnitř VÍC než venku (tlak nad Pa)</h3>
-						<ul>
-							<li>nafouknutý míč, pneumatika, sprej, tlakové lahve potápěčů, kabina letadla, plíce při výdechu</li>
-							<li>vytváří ho <strong>hustilka nebo kompresor</strong>, měří ho <strong>manometr</strong> (trubička se při tlaku narovnává jako papírová frkačka)</li>
-							<li>manometry mívají stupnici v barech: <strong>1 bar = 100 000 Pa</strong> ≈ tlak jedné atmosféry; pneumatika se hustí asi na 2,5 baru přetlaku</li>
-						</ul>
-						<h3>Podtlak — uvnitř MÍŇ než venku (tlak pod Pa)</h3>
-						<ul>
-							<li>vzniká odsátím vzduchu nebo zvětšením prostoru; okolí se <strong>nasává dovnitř</strong> (tlak se chce vyrovnat)</li>
-							<li>pití brčkem, vysavač, přísavky, gumový zvon na odpad, pumpa u studny, plíce při nádechu</li>
-						</ul>
-						<h3>Vakuum — téměř NIC (absolutní nedostatek tlaku)</h3>
-						<ul>
-							<li>téměř všechen vzduch odčerpán <strong>vývěvou</strong>, tlak skoro nulový — fyzikální vakuum neexistuje dokonalé</li>
-							<li>baňka žárovky, vakuově balené potraviny, vesmírný prostor</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Přetlak je stav, kdy je v uzavřené nádobě větší tlak než v okolí. Vytváří ho například hustilka nebo kompresor a měří ho manometr.',
-							'Podtlak vzniká, když je tlak uvnitř menší než v okolí. Okolní vzduch pak proudí dovnitř, například při pití brčkem nebo práci vysavače.',
-							'Vakuum je prostor, ze kterého je téměř všechen vzduch odčerpán vývěvou. Dokonalé fyzikální vakuum neexistuje.',
-							'Jeden bar odpovídá 100 000 Pa a přibližně tlaku jedné atmosféry.',
-						],
-					},
+					obsah: "\n\t\t\t\t\t\t<h2>Přetlak, podtlak, vakuum</h2>\n\t\t\t\t\t\t<p>V uzavřené nádobě může být stejný tlak jako venku, v okolní atmosféře. Pak se nic zajímavého neděje — tlaky jsou v rovnováze. Zajímavé jevy nastanou, až když je tlak uvnitř nádoby jiný než venku. Podle toho rozlišujeme tři stavy: <strong>přetlak</strong>, <strong>podtlak</strong> a <strong>vakuum</strong>.</p>\n\n\t\t\t\t\t\t<h3>Přetlak — uvnitř víc než venku</h3>\n\t\t\t\t\t\t<p>Přetlak je stav, kdy je v uzavřené nádobě <strong>větší tlak než v okolí</strong> (větší než atmosférický). Vzniká tak, že do nádoby vtlačíme víc vzduchu, než by tam bylo samo od sebe. Používá se k tomu <strong>hustilka</strong> (lidově „pumpička\") nebo <strong>kompresor</strong>.</p>\n\t\t\t\t\t\t<p>S přetlakem se setkáváme často: nafouknutý míč, pneumatika auta, nafukovací hala, nádobka se sprejem nebo tlaková lahev potápěče. Vzniká i v kabině letadla za letu, ve skafandru astronauta ve vesmíru nebo v plicích, když po nádechu vydechujeme.</p>\n\n\t\t\t\t\t\t<h3>Manometr měří přetlak</h3>\n\t\t\t\t\t\t<p>Velikost přetlaku měříme přístrojem <strong>manometr</strong>. Uvnitř má kovovou trubičku ohnutou do oblouku a částečně naplněnou kapalinou. Jeden konec je připojený k nádobě, druhý uzavřený konec je spojený s ručičkou.</p>\n\t\t\t\t\t\t<p>Když tlak v nádobě vzroste, trubička se mírně narovná a posune ručičku. Je to podobné, jako když se narovná papírová frkačka, do které foukneme.</p>\n\t\t\t\t\t\t<p>Manometry mívají stupnici v jednotce <strong>bar</strong>: <strong>1 bar = 100 000 Pa</strong>, což je přibližně tlak jedné atmosféry. Staré jednotce tlaku se říkalo právě <strong>atmosféra</strong>, značka atm. Manometr ale ukazuje jen <strong>rozdíl</strong> tlaku uvnitř nádoby oproti okolí — tedy samotný přetlak, ne celkový tlak v nádobě.</p>\n\n\t\t\t\t\t\t<h3>Podtlak — uvnitř míň než venku</h3>\n\t\t\t\t\t\t<p>Podtlak je opačný stav: tlak v nádobě je <strong>menší než v okolí</strong>. Vytváří se odsátím vzduchu z prostoru — sací pumpou nebo vývěvou. Nebo vzniká zvětšením objemu prostoru, aniž bychom dovnitř pustili další vzduch.</p>\n\t\t\t\t\t\t<p>Tlak se snaží vyrovnat, a proto se do místa s podtlakem <strong>nasává</strong> okolní vzduch nebo tekutina. Proto funguje pití brčkem, sání mateřského mléka nebo vysavač. Stejně tak fungují přísavky, masážní baňky, gumový zvon na čištění odpadu i pumpa na vodu ze studny. Podtlak vzniká i v plicích, než se nadechneme, nebo když mlaskáme.</p>\n\n\t\t\t\t\t\t<h3>Vakuum — téměř nic</h3>\n\t\t\t\t\t\t<p>Vakuum vznikne, když z prostoru odčerpáme <strong>téměř všechen vzduch</strong> — používá se k tomu <strong>vývěva</strong>. Tlak je pak podstatně nižší než atmosférický, blíží se nule. Úplně dokonalé vakuum bez jediné částice ale ve skutečnosti neexistuje.</p>\n\t\t\t\t\t\t<p>S vakuem se setkáme třeba v baňce klasické žárovky s vláknem nebo ve vakuových vacích na oblečení. Najdeme ho i ve vakuově balených potravinách nebo ve vesmírném prostoru.</p>\n\n\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t<p>Manometr ukazuje jen rozdíl tlaku vůči okolí, tedy přetlak. Skutečný (celkový) tlak v nádobě je součet tlaku atmosféry a přetlaku naměřeného na manometru.</p>\n\t\t\t\t\t\t<p>Manometr ukazuje přetlak 1 bar, tedy asi 1 atmosféru. K tomu připočítáme tlak okolní atmosféry, který je také asi 1 atmosféra.</p>\n\t\t\t\t\t\t<p>p(celkový) = 1 atm + 1 atm = <strong>2 atmosféry</strong> (asi 200 000 Pa)</p>\n\t\t\t\t\t\t<p>Pneumatiku auta huštíme na manometru asi na 2,5 baru přetlaku. Protože 1 bar ≈ 1 atmosféra, dosadíme přímo 2,5 atm.</p>\n\t\t\t\t\t\t<p>p(celkový) = 1 atm + 2,5 atm = <strong>3,5 atmosféry</strong></p>\n\t\t\t\t\t\t<p>Tlak v pneumatice je tak 3,5krát větší než tlak okolního vzduchu.</p>\n\t\t\t\t\t",
+					zapis: {"vzorec":"p(celkový) = p(atmosférický) + p(přetlak)","jednotky":["tlak — značíme p, jednotka Pa (pascal)","jednotka bar — 1 bar = 100 000 Pa (100 kPa)","starší jednotka atmosféra (atm) — přibližně stejná jako běžný atmosférický tlak, asi 100 000 Pa","Do vzorce dosazuj tlak ve stejné jednotce (Pa, nebo bar/atm, které jsou si přibližně rovné)."],"vzorecSlovy":"celkový tlak v nádobě = tlak atmosféry plus přetlak naměřený manometrem","body":["přetlak: tlak uvnitř VĚTŠÍ než venku","přetlak vzniká: hustilka, kompresor","manometr měří jen rozdíl — přetlak","1 bar = 100 000 Pa","celkový tlak = atmosférický + přetlak","podtlak: tlak uvnitř MENŠÍ než venku","podtlak vzniká: odsátí, zvětšení objemu","vakuum: tlak téměř nulový, vývěva"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Neviditelná síla tlaku', cesta: 'vWIJeVNdiyM' },
 						{ druh: 'video', nazev: 'Píseň: Podtlak & mrak 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/pretlak-podtlak-vakuum/pisen-podtlak-a-mrak.mp4' },
@@ -1876,44 +1826,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'meteorologie-a-mereni-tlaku',
 					nazev: 'Meteorologie a měření tlaku',
 					interakce: 'povetrnostni-mapa',
-					obsah: `
-						<h2>Meteorologie a měření tlaku</h2>
-						<p>Hodnoty atmosférického tlaku jsou důležité pro <strong>předpověď počasí</strong>. Porovnáváme je s normálem 1 013 hPa:</p>
-						<ul>
-							<li><strong>tlaková výše</strong> (odborně anticyklóna) — tlak vyšší než normál a než v okolí → obvykle jasné, slunečné počasí</li>
-							<li><strong>tlaková níže</strong> (odborně cyklóna) — tlak nižší než normál a než v okolí → oblačnost a srážky; hluboká níže (pod 980 hPa) přináší bouřky a vichřice</li>
-						</ul>
-						<p>👉 Rozdíly tlaku uvádí vzduch do pohybu: <strong>vítr</strong> proudí z místa s vyšším tlakem do místa s nižším tlakem.</p>
-						<h3>Čím se tlak měří</h3>
-						<ul>
-							<li><strong>rtuťový barometr</strong> — sloupec rtuti jako u Torricelliho</li>
-							<li><strong>aneroid</strong> — kovový tlakoměr s pružnou krabičkou</li>
-							<li><strong>barograf</strong> — barometr se zapisovačem, kreslí průběh tlaku v čase</li>
-						</ul>
-							<p>👉 Pro předpověď je důležitější než samotné číslo to, jak se tlak <strong>mění</strong>: když <strong>klesá</strong>, počasí se obvykle kazí (blíží se níže s deštěm a větrem), když <strong>stoupá</strong>, obloha se vyjasňuje. Rychlý pokles o víc než 10 hPa za pár hodin varuje před vichřicí.</p>
-						<p>Přibližně platí, že v blízkosti hladiny moře klesne tlak o <strong>1 hPa na každých 8 metrů výšky</strong>. Právě proto se naměřené hodnoty <strong>přepočítávají na hladinu moře</strong> — bez toho by horská stanice hlásila nízký tlak pořád a na mapě by v horách vycházela věčná níže. Teprve po přepočtu jde poctivě porovnat stanice v různých nadmořských výškách. Pozor: pravidlo „1 hPa na 8 metrů" platí jen u hladiny moře — vysoko v horách už tlak klesá pomaleji a meteorologové počítají přesněji.</p>
-							<h3>Povětrnostní mapa</h3>
-							<p>Na mapě počasí spojují <strong>izobary</strong> místa se stejným tlakem — podobně jako vrstevnice spojují místa ve stejné nadmořské výšce. Tlaková výše se značí písmenem <strong>V</strong>, tlaková níže písmenem <strong>N</strong>.</p>
-							<p>👉 Čím <strong>hustěji</strong> jsou izobary u sebe, tím prudčeji se tlak na krátkou vzdálenost mění — a tím <strong>silnější vítr</strong> v té oblasti fouká.</p>
-						<h3>Meteorologická pozorování</h3>
-						<p>Meteorologové sledují kromě tlaku i teplotu, vlhkost, srážky, vítr a oblačnost — z pozemních stanic, balonů i družic. <strong>Meteorologická družice</strong> snímkuje oblačnost shora z vesmíru, takže je na ní vidět i bouřkový systém nad celou Evropou. Každá veličina má svůj přístroj:</p>
-							<ul>
-								<li><strong>teploměr</strong> — teplota vzduchu; na stanici visí v bílé budce ve stínu, 2 m nad zemí</li>
-								<li><strong>vlhkoměr</strong> — vlhkost vzduchu</li>
-								<li><strong>anemometr</strong> — rychlost větru; roztáčí ho miskový kříž (obvykle tři misky)</li>
-								<li><strong>srážkoměr</strong> — množství spadlého deště v milimetrech; sníh se v něm nechá roztát a změří se jako voda</li>
-							</ul>
-							<p>Měří se <strong>v pravidelných termínech</strong> (u nás hlavně v 7, 14 a 21 hodin), aby šly hodnoty z různých míst a různých dnů poctivě porovnat. Předpověď počasí pomáhá dopravě, zemědělství i záchranářům — a také energetikům, protože podle ní plánují, kolik proudu vyrobí větrné a solární elektrárny a kolik ho bude potřeba na topení.</p>
-					`,
-					zapis: {
-						body: [
-							'Tlaková výše je oblast s vyšším tlakem než v okolí a obvykle přináší jasné počasí. Tlaková níže má nižší tlak než okolí a často přináší oblačnost a srážky.',
-							'Vítr proudí z místa s vyšším tlakem do místa s nižším tlakem.',
-							'Atmosférický tlak měříme barometrem, jeho průběh v čase zapisuje barograf.',
-							'Izobary na povětrnostní mapě spojují místa se stejným tlakem. Čím jsou blíž u sebe, tím silnější vítr v oblasti fouká.',
-							'Meteorologové sledují také teplotu, vlhkost, srážky, vítr a oblačnost.',
-						],
-					},
+					obsah: "\n\t\t\t\t\t\t<h2>Meteorologie a měření tlaku</h2>\n\t\t\t\t\t\t<p>Hodnoty atmosférického tlaku jsou důležité pro <strong>předpověď počasí</strong>. Porovnáváme je s normálem 1 013 hPa:</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>tlaková výše</strong> (odborně anticyklóna) — tlak vyšší než normál a než v okolí → obvykle jasné, slunečné počasí</li>\n\t\t\t\t\t\t\t<li><strong>tlaková níže</strong> (odborně cyklóna) — tlak nižší než normál a než v okolí, přináší oblačnost a srážky. Hluboká níže (pod 1 000 hPa) přináší bouřky a vichřice.</li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Proč vzniká vítr</h3>\n\t\t\t\t\t\t<p>Na počasí má největší vliv <strong>proudění vzduchu</strong>. Způsobuje ho sluneční záření a otáčení Země kolem osy.</p>\n\t\t\t\t\t\t<p>Slunce ohřívá povrch Země i vzduch nad ním. Teplý vzduch stoupá vzhůru a na jeho místě vzniká <strong>tlaková níže</strong>, tedy podtlak. Na místo s nižším tlakem pak proudí vzduch z okolí — to je <strong>vítr</strong>. Nese s sebou oblačnost i srážky.</p>\n\t\t\t\t\t\t<p>👉 Rozdíly tlaku uvádí vzduch do pohybu: vítr proudí z místa s <strong>vyšším tlakem</strong> do místa s <strong>nižším tlakem</strong>. Otáčení Země navíc stáčí proudící vzduch do vírů — velkých i malých.</p>\n\n\t\t\t\t\t\t<h3>Čím se tlak měří</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>rtuťový barometr</strong> — sloupec rtuti jako u Torricelliho</li>\n\t\t\t\t\t\t\t<li><strong>aneroid</strong> — kovový tlakoměr s pružnou krabičkou; krabička se při změně tlaku prohýbá a posouvá ručičku po stupnici</li>\n\t\t\t\t\t\t\t<li><strong>barograf</strong> — barometr se zapisovačem, kreslí průběh tlaku v čase</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>👉 Pro předpověď je důležitější než samotné číslo to, jak se tlak <strong>mění</strong>. Když <strong>klesá</strong>, počasí se obvykle kazí — blíží se níže s deštěm a větrem. Když <strong>stoupá</strong>, obloha se vyjasňuje. Rychlý pokles o víc než 10 hPa za pár hodin varuje před vichřicí.</p>\n\t\t\t\t\t\t<p>Přibližně platí, že v blízkosti hladiny moře klesne tlak o <strong>1 hPa na každých 8 metrů</strong> výšky. Právě proto se naměřené hodnoty <strong>přepočítávají na hladinu moře</strong>. Bez toho by horská stanice hlásila nízký tlak pořád a na mapě by v horách vycházela věčná níže. Teprve po přepočtu jde poctivě porovnat stanice v různých nadmořských výškách.</p>\n\t\t\t\t\t\t<p>Pozor: pravidlo „1 hPa na 8 metrů\" platí jen u hladiny moře. Vysoko v horách už tlak klesá pomaleji a meteorologové počítají přesněji.</p>\n\n\t\t\t\t\t\t<h3>Povětrnostní mapa</h3>\n\t\t\t\t\t\t<p>Na mapě počasí spojují <strong>izobary</strong> místa se stejným tlakem — podobně jako vrstevnice spojují místa ve stejné nadmořské výšce. Tlaková výše se značí písmenem <strong>V</strong>, tlaková níže písmenem <strong>N</strong>.</p>\n\t\t\t\t\t\t<p>👉 Čím <strong>hustěji</strong> jsou izobary u sebe, tím prudčeji se tlak na krátkou vzdálenost mění. V takové oblasti pak fouká <strong>silnější vítr</strong>.</p>\n\n\t\t\t\t\t\t<h3>Meteorologická pozorování</h3>\n\t\t\t\t\t\t<p>Údaje o počasí shromažďuje <strong>Český hydrometeorologický ústav</strong> (ČHMÚ) v Praze — z meteorologických stanic v Česku i v zahraničí. Stanice jsou na souši, na moři i ve velkých výškách atmosféry, kam přístroje vynášejí meteorologické balony.</p>\n\t\t\t\t\t\t<p>Informace posílají také <strong>meteorologické družice</strong>, které obíhají kolem Země. Snímkují oblačnost shora z vesmíru, takže je na nich vidět i bouřkový systém nad celou Evropou.</p>\n\t\t\t\t\t\t<p>Meteorologové takto sledují atmosférické děje a předpovídají počasí. Měří osm veličin: teplotu vzduchu, atmosférický tlak a směr i rychlost větru. Dál vlhkost vzduchu, oblačnost a srážky, čistotu ovzduší, sluneční záření a vlhkost i teplotu půdy.</p>\n\t\t\t\t\t\t<p>Měří se v <strong>pravidelných termínech</strong> — u nás hlavně v 7, 14 a 21 hodin. Tak jde hodnoty z různých míst a různých dnů poctivě porovnat. Předpověď počasí pomáhá dopravě, zemědělství i záchranářům. Pomáhá i energetikům, kteří podle ní plánují výrobu z větrných a solárních elektráren a spotřebu tepla na topení.</p>\n\n\t\t\t\t\t\t<h3>Meteorologické přístroje</h3>\n\t\t\t\t\t\t<p>Teploměr a vlhkoměr bývají v <strong>meteorologické budce</strong> — bílé skříňce, jejíž stěny propouštějí vzduch. Bílá barva odráží sluneční záření, aby se budka nezahřívala a neovlivnila naměřenou teplotu. Budka stojí na volném prostranství, daleko od budov a stromů, aby ji neovlivňovaly překážky.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>teploměr</strong> — teplota vzduchu; v budce ve stínu, 2 m nad zemí</li>\n\t\t\t\t\t\t\t<li><strong>vlhkoměr</strong> — vlhkost vzduchu</li>\n\t\t\t\t\t\t\t<li><strong>anemometr</strong> — měří rychlost větru. Roztáčí ho miskový kříž (obvykle tři misky), rychlost se určuje podle počtu otáček za časový úsek. Směr větru ukazuje otáčivá korouhev, se zapisovacím zařízením se nazývá anemograf.</li>\n\t\t\t\t\t\t\t<li><strong>srážkoměr</strong> — nádoba zachytává dešťovou vodu a nálevkou ji odvádí do odměrné nádoby se stupnicí (mm vodního sloupce). Sníh se v něm nechá roztát a změří se jako voda.</li>\n\t\t\t\t\t\t\t<li><strong>heliograf</strong> — skleněná koule, která zaznamenává, jak dlouho svítilo slunce během dne</li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t<p>Turistická chata stojí 400 m nad hladinou moře. Dole u moře ukazuje barometr tlak 1 020 hPa. Jaký tlak bude nahoře v chatě?</p>\n\t\t\t\t\t\t<p>Nejdřív spočítáme, o kolik tlak s výškou klesne: 400 : 8 = <strong>50 hPa</strong>.</p>\n\t\t\t\t\t\t<p>Pak ho odečteme od tlaku u moře: 1 020 − 50 = <strong>970 hPa</strong>.</p>\n\t\t\t\t\t\t<p>V chatě bude tlak přibližně 970 hPa.</p>\n\t\t\t\t\t",
+					zapis: {"body":["tlaková výše: vyšší tlak → jasno","tlaková níže: nižší tlak → oblačno, srážky","slunce hřeje vzduch → stoupá → tlaková níže","vítr: proudí z vyššího tlaku do nižšího","rotace Země: proudící vzduch tvoří víry","barometr/aneroid/barograf — měří a zapisují tlak","aneroid: krabička se prohýbá, hýbe ručičkou","tlak klesá → počasí se kazí; stoupá → vyjasní se","pokles přes 10 hPa za pár hodin → vichřice","u moře: pokles 1 hPa na 8 m → přepočet na hladinu moře","izobary: spojují místa se stejným tlakem","izobary blízko sebe → silnější vítr; V = výše, N = níže","ČHMÚ v Praze: data ze stanic, balonů, družic","měří 8 veličin: teplota, tlak, vítr, vlhkost, oblačnost a srážky, ovzduší, záření, půda","měří v termínech 7, 14 a 21 hodin","meteorologická budka: bílá, větraná, volné prostranství","anemometr — rychlost a směr větru, anemograf zapisuje","srážkoměr — srážky v mm; heliograf — doba slunečního svitu"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Meteorologická pozorování', cesta: 'fKLqHBIS1Xk' },
 						{ druh: 'video', nazev: 'Píseň: Šumí satelit 🎵', cesta: '/materialy/fyzika/7-rocnik/atmosfera-a-tlak-vzduchu/meteorologie-a-mereni-tlaku/pisen-sumi-satelit.mp4' },
