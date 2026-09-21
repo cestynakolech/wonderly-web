@@ -197,6 +197,26 @@ energie, tepelné motory, teplo a změny skupenství). Podle bodu E teď běží
 Kvízová kontrola sladění s novým výkladem = samostatný krok po každém
 celku (zatím neudělán pro F8 celky 1–4 → zařadit).
 
+**PŘEDÁNÍ 21. 9. večer (před /clear):** Hotovo a nasazeno 59 podtémat
+(F8 celky 1–4 = 17 + chemické zdroje, náboj, pole, vznik proudu = 4
+z elektřiny; F7 celky 1–5 = 18; F9 celky 1–5 = 20). Rozpracovaná F8
+elektřina viz `rozpracovane-vyklady/2026-09-21/README.md` (zdroj: scratchpad
+staré session `/private/tmp/claude-502/-Users-Shared--kola/c373a426-dfa0-4020-bf85-d07308545470/scratchpad/`).
+DALŠÍ KROK nové session: (a) dokončit F8 elektřina — dokontrolovat a zapsat
+rozpracované klíče, dopsat 2 zbývající (`elektricka-prace-a-vykon`,
+`ucinky-proudu-a-bezpecnost`); (b) pak 6. celky: F7 `atmosfera-a-tlak-vzduchu`,
+F8 `zvuk`, F9 `energie-a-vesmir`; (c) sladění kvízů s novými výklady zatím
+u žádného celku neuděláno; (d) pravidla: úklid U/D/zadání workerů spuštěn
+21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
+log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
+N (22 kandidátů na zkrácení) čeká na výběr učitele v
+`Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md` (pokud chybí, kopie je
+v `rozpracovane-vyklady/2026-09-21/pravidla-audit.md`); (e) denní rutina
+`~/.claude/scheduled-tasks/pravidla-dluh-denne/SKILL.md` založena, ale cron
+`30 7 * * 1-6` je třeba zaregistrovat v aplikaci přes `/schedule` — učitel;
+(f) `KE-SCHVALENI.md` má 21 bodů k rozhodnutí učitele; (g) Hermes/GPT
+delegace zamítnuta učitelem 21. 9.
+
 ### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
 
 - [cesty] Doplnění starších fotek. Rozsah zadá učitel — zatím jen založeno,
