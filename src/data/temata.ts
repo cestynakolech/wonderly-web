@@ -3102,48 +3102,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'mechanicka-prace',
 					nazev: 'Mechanická práce',
 					interakce: 'prace',
-					obsah: `
-						<h2>Mechanická práce</h2>
-						<p>Ve fyzice <strong>těleso koná práci</strong>, právě když působí na jiné těleso silou a tím způsobí, že se toto těleso <strong>posune ve směru síly</strong>. Musí být splněné <strong>obě podmínky</strong> — síla i posunutí.</p>
-						<ul>
-							<li>práci konáme, když tlačíme rozjeté auto, zvedáme činku, jeřáb zvedá náklad</li>
-							<li>práci může vykonat i <strong>silové pole</strong> — gravitační síla koná práci, když jablko spadne ze stromu</li>
-							<li>👉 když paní ve frontě jen <strong>drží</strong> těžký nákup, práci nekoná — působí silou, ale nákup se neposune</li>
-						</ul>
-						<h3>Práce jako fyzikální veličina</h3>
-						<ul>
-							<li>značka <strong>W</strong>, jednotka <strong>joule (J)</strong> (čti „džaul")</li>
-							<li>těleso vykoná práci <strong>W</strong> = 1 J, když silou <strong>F</strong> = 1 N posune těleso po dráze <strong>s</strong> = 1 m</li>
-							<li>násobky: <strong>1 kJ = 1 000 J</strong>, <strong>1 MJ = 1 000 000 J</strong></li>
-						</ul>
-						<h3>Výpočet</h3>
-						<p>Práce = síla (ve směru posunutí) × dráha:</p>
-						<p style="font-size:1.3rem"><strong>W = F · s</strong></p>
-						<p>Odvozené vztahy: <strong>s = W : F</strong> a <strong>F = W : s</strong>. Do vzorce dosazujeme vždy v základních jednotkách — sílu v <strong>newtonech</strong>, dráhu v <strong>metrech</strong>.</p>
-						<h3>Práce při zvedání tělesa</h3>
-						<p>Abychom těleso zvedli, musíme působit silou o velikosti tíhové síly <strong>F<sub>g</sub> = m · g</strong> (g = 10 N/kg).</p>
-						<p><strong>Příklad:</strong> Máma zvedá hračku o hmotnosti 600 g do výšky 150 cm.<br>
-						m = 0,6 kg → F = m · g = 0,6 · 10 = <strong>6 N</strong>; s = 1,5 m<br>
-						W = F · s = 6 · 1,5 = <strong>9 J</strong></p>
-						<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4 km vykoná práci 800 MJ?<br>
-						s = 4 000 m, W = 800 000 000 J → F = W : s = 800 000 000 : 4 000 = <strong>200 000 N = 200 kN</strong></p>
-					`,
-					zapis: {
-						body: [
-							'Těleso koná práci, když na jiné těleso působí silou a to se posune ve směru síly. Musí platit obě podmínky zároveň.',
-							'Když těleso jen držíme a nepohne se, práci nekonáme.',
-							'Práci může konat i silové pole — třeba gravitační síla, když jablko spadne ze stromu.',
-							'Práce je tím větší, čím větší silou působíme a čím delší dráhu ve směru síly těleso urazí.',
-						],
-						vzorec: 'W = F · s      (odvozeně: s = W : F,  F = W : s)',
-						jednotky: [
-							'práce W — joule (J), čti „džaul"',
-							'síla F — newton (N)',
-							'dráha s — metr (m)',
-							'1 kJ = 1 000 J,  1 MJ = 1 000 000 J',
-							'Do vzorce dosazuj vždy v základních jednotkách: sílu v N, dráhu v m.',
-						],
-					},
+					obsah: "<h2>Mechanická práce</h2>\n\n<p>Ve fyzice <strong>těleso koná práci</strong>, právě když působí na jiné těleso silou a tím ho <strong>posune ve směru síly</strong>. Musí platit obě podmínky zároveň — síla i posunutí.</p>\n<ul>\n<li>práci konáš, když tlačíš auto, které nechce nastartovat</li>\n<li>práci koná jeřáb, když zvedá náklad, nebo ty, když hodíš míč</li>\n<li>práci koná i <strong>silové pole</strong> — gravitační síla, když jablko spadne ze stromu, nebo magnetické pole, když přitáhne ocelovou kuličku</li>\n</ul>\n<p>Když paní ve frontě jen <strong>drží</strong> těžký nákup, práci nekoná. Působí na nákup silou, ale nákup se neposouvá.</p>\n\n<h3>Na čem práce závisí</h3>\n<p>Práce je tím větší, čím větší silou působíme a čím delší dráhu těleso ve směru síly urazí. Malou silou po krátké dráze vykonáme málo práce, velkou silou po dlouhé dráze mnoho práce.</p>\n\n<h3>Práce jako fyzikální veličina</h3>\n<p>Práci značíme <strong>W</strong> a měříme v <strong>joulech (J)</strong> (čti „džaul\"). Vypočítáme ji jako součin síly a dráhy, kterou těleso ve směru síly urazí:</p>\n<p style=\"font-size:1.3rem\"><strong>W = F · s</strong></p>\n<p>Těleso vykoná práci 1 J, když ho síla 1 N posune po dráze 1 m. Sílu dosazujeme v newtonech, dráhu v metrech.</p>\n<p>Pro velké hodnoty práce používáme násobky: <strong>1 kJ = 1 000 J</strong> a <strong>1 MJ = 1 000 000 J</strong>.</p>\n\n<h3>Kdy se práce nekoná</h3>\n<p>Práce se nekoná ve třech případech. Za prvé, když se těleso vůbec nepohybuje. Za druhé, když se těleso pohybuje pořád stejnou rychlostí po přímce — pak už na něj žádná síla nemusí působit. Za třetí, když síla míří kolmo na směr pohybu, třeba když neseš tašku vodorovně a tvá síla míří nahoru.</p>\n<p>Jinak řečeno: práce se koná jen tehdy, když nenulová síla působí na nenulové dráze a nesvírá s ní pravý úhel.</p>\n<ul>\n<li>Michal tlačí na tyč, ale tyč se nehne: F = 20 N, s = 0 m → práci nekoná (W = 0 J)</li>\n<li>Michal stejnou silou postrčí vozík a ten se rozjede: F = 20 N, s = 10 m → W = 200 J, práci koná</li>\n<li>Michal stojí na skateboardu, který už jede, ale sám se neodráží: F = 0 N, přesto ujede 250 m → práci nekoná</li>\n</ul>\n\n<h3>Práce při zvedání tělesa</h3>\n<p>Abychom těleso zvedli, musíme na něj působit silou stejně velkou jako jeho <strong>tíhová síla</strong>, jen míří opačným směrem — nahoru. Tíhovou sílu počítáme jako F = m · g, kde g = 10 N/kg.</p>\n<p><strong>Příklad:</strong> Chlapec zvedá závaží o hmotnosti 5 kg do výšky 1 m. Jakou práci vykoná?<br>\nF = m · g = 5 · 10 = <strong>50 N</strong><br>\nW = F · s = 50 · 1 = <strong>50 J</strong></p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Ze vzorce W = F · s odvodíme vztahy pro výpočet síly nebo dráhy, když známe práci:</p>\n<p><strong>s = W : F</strong>   a   <strong>F = W : s</strong></p>\n<p><strong>Příklad:</strong> Jakou silou táhne lokomotiva vlak, když na trati dlouhé 4 km vykoná práci 800 MJ?<br>\ns = 4 000 m, W = 800 000 000 J<br>\nF = W : s = 800 000 000 : 4 000 = <strong>200 000 N = 200 kN</strong></p>\n<p><strong>Příklad:</strong> Máma zvedá hračku o hmotnosti 600 g do výšky 150 cm. Jakou práci vykoná?<br>\nm = 600 g = 0,6 kg; s = 150 cm = 1,5 m<br>\nF = m · g = 0,6 · 10 = <strong>6 N</strong><br>\nW = F · s = 6 · 1,5 = <strong>9 J</strong></p>",
+					zapis: {"vzorec":"W = F · s      (odvozeně: s = W : F,  F = W : s)","jednotky":["práce — značíme W, jednotka J (joule)","síla — značíme F, jednotka N (newton)","dráha — značíme s, jednotka m (metr)","Převody: 1 kJ = 1 000 J, 1 MJ = 1 000 000 J."],"vzorecSlovy":"práce = síla krát dráha","body":["W = F · s","síla + posunutí ve směru síly = práce","větší síla nebo delší dráha → větší práce","bez pohybu → práce nekoná","síla kolmo na dráhu → práce nekoná","i silové pole koná práci (gravitace)","zvedání: F = m · g"]},
 					odkazy: [{"nazev":"Wordwall — Práce, výkon, energie (veličiny a značky)","url":"https://wordwall.net/resource/79662704/fyzika/fyzika-pr%C3%A1ce-v%C3%BDkon-energie-veli%C4%8Diny-a-zna%C4%8Dky"},{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
 					materialy: [{"druh":"video","nazev":"Píseň: Mechanická práce a výkon 🎵","cesta":"/materialy/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/pisen-mechanicka-prace-a-vykon.m4a"},{"druh":"video","nazev":"Mechanická práce — 1. díl: síla a posunutí","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Mechanická práce — 2. díl: násobit, nebo dělit?","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog2.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."},{"druh":"video","nazev":"Mechanická práce — 3. díl: práce při zvedání","cesta":"/media/fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace/mechanicka-prace-dialog3.mp4","ai":"Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program."}],
 				},
@@ -3152,47 +3112,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'vykon',
 					nazev: 'Výkon',
 					interakce: 'vykon',
-					obsah: `
-						<h2>Výkon</h2>
-						<p>Někdy je důležité nejen <em>jak velkou</em> práci vykonáme, ale i <strong>jak rychle</strong>. Bagr i dělník vykopou stejnou jámu (stejná práce), ale bagr to zvládne rychleji — má větší výkon. <strong>Výkon</strong> slouží k porovnávání strojů a lidí při konání práce.</p>
-						<h3>Výkon jako fyzikální veličina</h3>
-						<ul>
-							<li>popisuje <strong>rychlost konání práce</strong> — jak velká práce se vykoná za 1 sekundu</li>
-							<li>značka <strong>P</strong> (velké P — pozor, malé p je tlak!), jednotka <strong>watt (W)</strong></li>
-							<li>násobky: <strong>1 kW = 1 000 W</strong>, <strong>1 MW = 1 000 000 W</strong></li>
-							<li>těleso s výkonem 1 W vykoná za 1 s práci 1 J</li>
-						</ul>
-						<h3>Výpočet</h3>
-						<p style="font-size:1.3rem"><strong>P = W : t</strong></p>
-						<p>Dosazujeme v základních jednotkách — práci v <strong>joulech</strong>, čas v <strong>sekundách</strong>. Odvozené vztahy: <strong>W = P · t</strong>, <strong>t = W : P</strong>. Mezi výkonem a rychlostí platí <strong>P = F · v</strong>.</p>
-						<p><strong>Příklad:</strong> Motor jeřábu vynese betonový panel 6 t do výšky 80 m za 1 minutu.<br>
-						m = 6 000 kg → F<sub>g</sub> = 60 000 N; W = F · s = 60 000 · 80 = 4 800 000 J; t = 60 s<br>
-						P = W : t = 4 800 000 : 60 = <strong>80 000 W = 80 kW</strong></p>
-						<h3>Kilowatthodina (kWh)</h3>
-						<p>Pro elektrické spotřebiče se práce (spotřebovaná energie) udává v <strong>kilowatthodinách</strong>: 1 kWh = práce stroje o výkonu 1 kW za 1 hodinu. Platí <strong>1 kWh = 3 600 000 J</strong>. V kWh se účtuje elektřina.</p>
-						<p><strong>Příklad:</strong> Elektromotor o výkonu 9 kW běží 16 hodin.<br>
-						W = P · t = 9 kW · 16 h = <strong>144 kWh</strong></p>
-						<p>💡 Starší jednotka výkonu motorů je <strong>koňská síla</strong> (hp): 1 hp = 0,735 kW.</p>
-					`,
-					zapis: {
-						body: [
-							'Výkon udává, jak rychle se koná práce, tedy jak velká práce se vykoná za jednu sekundu.',
-							'Dva stroje mohou vykonat stejnou práci, ale ten s větším výkonem ji zvládne za kratší čas.',
-							'Těleso s výkonem 1 W vykoná za 1 s práci 1 J.',
-							'Elektrická práce neboli spotřebovaná energie se často udává v kilowatthodinách.',
-							'Značka výkonu je velké P, jednotkou je watt (W); pozor, malé p je značka tlaku.',
-						],
-						vzorec: 'P = W : t      (odvozeně: W = P · t,  t = W : P)      P = F · v',
-						jednotky: [
-							'výkon P — watt (W)',
-							'práce W — joule (J); pozor, písmeno W je zároveň značka práce i jednotka watt — pozná se podle polohy: jednotka stojí až za číslem (W = 60 J, P = 60 W)',
-							'čas t — sekunda (s)',
-							'síla F — newton (N), rychlost v — metr za sekundu (m/s)',
-							'1 kW = 1 000 W,  1 MW = 1 000 000 W',
-							'1 kWh = 3 600 000 J,  1 hp (koňská síla) = 0,735 kW',
-							'Do vzorce dosazuj v základních jednotkách: práci v J a čas v s; výkon vyjde ve W.',
-						],
-					},
+					obsah: "<h2>Výkon</h2>\n\n<p>Bagr a dělník s krompáčem mohou vykopat úplně stejnou jámu. Odvedou tedy stejně velkou <strong>práci</strong>. Bagr to ale zvládne mnohem rychleji. Právě rychlost konání práce popisuje nová veličina — <strong>výkon</strong>.</p>\n<p>Výkon nám pomáhá porovnávat stroje i lidi. Kdo nebo co zvládne stejnou práci za kratší čas, má větší výkon.</p>\n\n<h3>Výkon jako veličina</h3>\n<p>Výkon značíme velkým písmenem <strong>P</strong>. Pozor, malé <strong>p</strong> znamená ve fyzice něco úplně jiného — tlak.</p>\n<p>Jednotka výkonu se jmenuje <strong>watt</strong> a značí se <strong>W</strong>. Těleso má výkon 1 W, když za 1 sekundu vykoná práci 1 J.</p>\n\n<h3>Výpočet výkonu</h3>\n<p style=\"font-size:1.3rem\"><strong>P = W : t</strong></p>\n<p>Výkon spočítáme, když vykonanou práci <strong>W</strong> vydělíme časem <strong>t</strong>. Práci dosazujeme v joulech, čas v sekundách.</p>\n<p>Ze vzorce jde vyjádřit i práce a čas: <strong>W = P · t</strong> a <strong>t = W : P</strong>.</p>\n\n<h3>Jednotky výkonu</h3>\n<ul>\n<li><strong>1 kW</strong> (kilowatt) = <strong>1 000 W</strong></li>\n<li><strong>1 MW</strong> (megawatt) = <strong>1 000 000 W</strong></li>\n</ul>\n<p>Kilowatty vídáme třeba u vařiče nebo žehličky. Megawatty se používají u velkých strojů, třeba v elektrárnách.</p>\n<p><strong>Příklad:</strong> Elektrický vařič má výkon 1 000 W, tedy 1 kW. Za kolik sekund vykoná práci 5 000 J?<br>\nt = W : P = 5 000 : 1 000 = <strong>5 s</strong></p>\n\n<h3>Kilowatthodina (kWh)</h3>\n<p>Práci elektrických spotřebičů udáváme často v <strong>kilowatthodinách</strong> — pro velká čísla je to přehlednější než jouly.</p>\n<p>1 kWh je práce, kterou vykoná stroj o výkonu 1 kW za 1 hodinu. Platí <strong>1 kWh = 3 600 000 J</strong>.</p>\n<p>V kilowatthodinách se také účtuje elektřina. Kolik zaplatíme, záleží na tom, kolik kWh doma spotřebujeme.</p>\n\n<h3>Výkon a rychlost</h3>\n<p>Výkon souvisí i s rychlostí pohybu. Platí <strong>P = F · v</strong> — čím větší silou a rychlostí se těleso pohybuje, tím větší je jeho výkon.</p>\n<p>Proto auto zrychlí, když sešlápneš plyn: motoru se zvýší výkon, a tím i rychlost.</p>\n<p>💡 Starší jednotka výkonu motorů je <strong>koňská síla</strong> (značka hp). Platí <strong>1 hp = 0,735 kW</strong>. Dnes se stále používá hlavně u aut a motorek.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Motor jeřábu vynese betonový panel o hmotnosti 6 t do výšky 80 m za 1 minutu. Jaký má motor výkon?</p>\n<p>m = 6 000 kg → F<sub>g</sub> = m · g = 6 000 · 10 = 60 000 N; W = F · s = 60 000 · 80 = 4 800 000 J; t = 1 min = 60 s</p>\n<p>P = W : t = 4 800 000 : 60 = <strong>80 000 W = 80 kW</strong></p>\n<p>Auto jede tažnou silou motoru 1 200 N (1,2 kN) rychlostí 90 km/h. Jaký je výkon motoru?</p>\n<p>Nejdřív převedeme rychlost na m/s: 1 m/s = 3,6 km/h, takže 90 : 3,6 = 25 m/s.</p>\n<p>P = F · v = 1 200 · 25 = <strong>30 000 W = 30 kW</strong></p>\n<p>Elektromotor má výkon 9 kW a běží 16 hodin. Jakou práci (spotřebovanou energii) vykoná?</p>\n<p>W = P · t = 9 · 16 = <strong>144 kWh</strong></p>\n<p>Odkud se vzorec P = F · v bere? Práce je W = F · s a rychlost v = s : t. Když do P = W : t dosadíme W = F · s, dostaneme P = F · s : t = F · (s : t) = F · v.</p>",
+					zapis: {"vzorec":"P = W : t      (odvozeně: W = P · t,  t = W : P)      P = F · v","jednotky":["výkon — značíme P, jednotka W (watt)","práce — značíme W, jednotka J (joule); pozor, písmeno W je zároveň značka práce i jednotka watt — pozná se podle polohy (W = 60 J, ale P = 60 W)","čas — značíme t, jednotka s (sekunda)","síla — značíme F, jednotka N (newton)","rychlost — značíme v, jednotka m/s (metr za sekundu)","Převody: 1 kW = 1 000 W, 1 MW = 1 000 000 W.","Převody: 1 kWh = 3 600 000 J.","1 hp (koňská síla) = 0,735 kW.","Do vzorce dosazuj v základních jednotkách: práci v J a čas v s; výkon vyjde ve W."],"vzorecSlovy":"výkon = vykonaná práce děleno časem","body":["výkon = jak rychle se koná práce","stejná práce, větší výkon → kratší čas","značka P (velké), pozor: malé p je tlak","P = W : t; práci v J, čas v s","1 W: za 1 s vykoná práci 1 J","1 kW = 1 000 W, 1 MW = 1 000 000 W","elektřina: kWh, 1 kWh = 3 600 000 J","P = F · v — výkon a rychlost"]},
 					odkazy: [{"nazev":"Umíme fakta — Výkon (cvičení)","url":"https://www.umimefakta.cz/fyzika/cviceni-vykon"},{"nazev":"Wordwall — Výkon","url":"https://wordwall.net/resource/64369600"},{"nazev":"Hra pro třídu: Mechanická práce a výkon (Fyzikální liga)","url":"/hry/liga-karty?rocnik=8&celek=mechanicka-prace-a-vykon"}],
 				},
 			],
@@ -3278,30 +3199,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'tepelny-motor-parni-stroj',
 					nazev: 'Tepelný motor, parní stroj, parní turbína',
 					interakce: 'ucinnost-motoru',
-					obsah: `
-						<h2>Tepelný motor, parní stroj, parní turbína</h2>
-						<p><strong>Tepelný motor</strong> je stroj, který přeměňuje <strong>teplo na pohyb</strong>. Patří sem parní stroje, spalovací motory a reaktivní motory. Liší se <strong>účinností</strong> — kolik vstupní energie promění na pohyb.</p>
-						<h3>Parní stroje — historie</h3>
-						<ul>
-							<li><strong>Hérón z Alexandrie</strong> (1. stol.) — první parní stroj („Hérónova baňka"); pára roztáčela kouli, ale sloužil jen pro zábavu</li>
-							<li><strong>Denis Papin</strong> (17. stol.) — tlaková nádoba (Papinův hrnec); pára zvedala píst</li>
-							<li><strong>Thomas Newcomen</strong> (18. stol.) — čerpal vodu z dolů</li>
-							<li><strong>James Watt</strong> (1784) — zdokonalil parní stroj a <strong>nastartoval průmyslovou revoluci</strong>: klikovým mechanismem změnil přímočarý pohyb pístu na otáčení kola, přidal setrvačník (plynulý chod) a šoupátko (pára tlačí píst oběma směry)</li>
-						</ul>
-						<h3>Využití a nevýhody parního stroje</h3>
-						<p>Použití: průmysl (pohon strojů, čerpání vody), doprava (lokomotivy, parníky), zemědělství. Čech <strong>Josef Božek</strong> postavil první český parní automobil (1815) i parník (1817).</p>
-						<p>Nevýhody: velké a těžké, náročná údržba, riziko výbuchu kotle, <strong>malá účinnost jen ~15 %</strong>, znečišťování prostředí.</p>
-						<h3>Parní turbína</h3>
-						<p>Vodní <strong>pára roztáčí lopatky turbíny</strong> — energie páry se mění na otáčivý pohyb. Používá se v <strong>tepelných elektrárnách</strong> k pohonu generátorů (výkon 200–600 MW). Účinnost <strong>max. ~35 %</strong> — vyšší než u parního stroje.</p>
-					`,
-					zapis: {
-						body: [
-							'Tepelný motor je stroj, který přeměňuje teplo na pohyb.',
-							'Parní stroj využívá páru k pohybu pístu; klikový mechanismus mění přímočarý pohyb pístu na otáčení kola.',
-							'Parní stroj je velký, těžký, náročný na údržbu a má malou účinnost.',
-							'V parní turbíně pára roztáčí lopatky a vzniklý otáčivý pohyb pohání generátor v elektrárně.',
-						],
-					},
+					obsah: "<h2>Tepelný motor, parní stroj, parní turbína</h2>\n\n<p><strong>Tepelný motor</strong> je stroj, který mění <strong>teplo na pohyb</strong>. Patří sem parní stroje, spalovací motory i reaktivní motory. Každý typ má jinou <strong>účinnost</strong> — jinak dobře využije teplo na pohyb.</p>\n\n<h3>Jak pára pohání píst</h3>\n<p>Voda se v nádrži zahřeje až k varu a vznikne pára. Horká pára má velký tlak a tlačí na píst nebo na lopatky. Tím se teplo mění na pohyb — to je základ každého parního stroje.</p>\n\n<h3>Kdo vymyslel parní stroj</h3>\n<ul>\n<li><strong>Hérón z Alexandrie</strong> (1. století) postavil první parní stroj, takzvanou Hérónovu baňku. Pára z ní unikala zahnutými trubicemi a roztáčela kovovou kouli. Sloužilo to ale jen k zábavě.</li>\n<li><strong>Denis Papin</strong> (17. století) vynalezl tlakový hrnec. Pára v něm zvedala píst, a tak dokázala zvedat i těžká břemena.</li>\n<li><strong>Thomas Newcomen</strong> (18. století) Papinův stroj zdokonalil. Používal ho k čerpání vody z dolů.</li>\n<li><strong>James Watt</strong> (1784) parní stroj výrazně vylepšil a <strong>nastartoval průmyslovou revoluci</strong>.</li>\n</ul>\n\n<h3>Jak Watt stroj vylepšil</h3>\n<p>Watt přidal <strong>klikový mechanismus</strong>, který měnil přímočarý pohyb pístu na otáčení kola. <strong>Setrvačník</strong> zajistil, že se kolo točilo plynule. <strong>Šoupátko</strong> pouštělo páru střídavě na obě strany pístu, takže stroj pracoval oběma směry a měl větší výkon.</p>\n\n<h3>Kde se parní stroj používal</h3>\n<p>Parní stroj poháněl stroje v továrnách a čerpal vodu z dolů. Jezdily s ním lokomotivy i parníky, používal se i v zemědělství — třeba u parního pluhu. Čech <strong>Josef Božek</strong> postavil první český parní automobil (1815) a první český parník na Vltavě (1817).</p>\n\n<h3>Nevýhody parního stroje</h3>\n<p>Parní stroj byl velký a těžký. Vyžadoval náročnou údržbu a časté doplňování vody. Hrozilo u něj i riziko výbuchu kotle. Jeho účinnost byla jen asi <strong>15 %</strong> — většina tepla se ztratila. Navíc znečišťoval prostředí.</p>\n\n<h3>Parní turbína</h3>\n<p>V parní turbíně roztáčí pára <strong>lopatky</strong>, a tak se energie páry mění na otáčivý pohyb. Turbíny pohánějí generátory v <strong>tepelných elektrárnách</strong> o výkonu 200 až 600 megawattů. Jejich účinnost je vyšší než u parního stroje — až <strong>35 %</strong>.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Účinnost říká, kolik procent tepla se promění na pohyb. Zbytek se ztratí jako teplo, které unikne do okolí.</p>\n<p><strong>Příklad:</strong> Parní stroj dostane 1 000 J tepla a má účinnost 15 %. Na pohyb promění 1 000 · 0,15 = 150 J. Zbylých 850 J unikne jako teplo.</p>\n<p><strong>Příklad:</strong> Parní turbína dostane také 1 000 J tepla, ale má účinnost 35 %. Na pohyb promění 1 000 · 0,35 = 350 J — víc než dvojnásobek parního stroje.</p>",
+					zapis: {"jednotky":["teplo — značíme Q, jednotka J (joule)","výkon — značíme P, jednotka W (watt)","účinnost — značíme η, jednotka % (procento)"],"body":["tepelný motor: teplo → pohyb","pára tlačí na píst nebo lopatky","Watt: klika, setrvačník, šoupátko","parní stroj: doprava, průmysl, zemědělství","malá účinnost, velké ztráty tepla","turbína: pára roztáčí lopatky, elektrárny"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Parní stroj — Síla moderního světa', cesta: '1mdQ5Th3Vro' },
 						{ druh: 'video', nazev: 'Píseň: Teplo na pohyb 🎵', cesta: '/materialy/fyzika/8-rocnik/tepelne-motory/tepelny-motor-parni-stroj/pisen-teplo-na-pohyb.m4a' },
@@ -3316,36 +3215,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'spalovaci-motory',
 					nazev: 'Spalovací motory',
 					interakce: 'motor',
-					obsah: `
-						<h2>Spalovací motory</h2>
-						<p><strong>Spalovací motor</strong> získává teplo <strong>spalováním paliva uvnitř motoru</strong>. Přeměňuje chemickou energii → tepelnou → pohybovou.</p>
-						<h3>Hlavní části pístového motoru</h3>
-						<p>Pracovní <strong>válec</strong> s pohyblivým <strong>pístem</strong>, který přes <strong>klikový hřídel</strong> pohání kola. Přívod paliva řídí <strong>sací ventil</strong>, odvod spalin <strong>výfukový ventil</strong>.</p>
-						<p>Motory dělíme podle paliva a zapálení na <strong>zážehové</strong> a <strong>vznětové</strong>, podle chodu na <strong>čtyřtaktní</strong> a <strong>dvoutaktní</strong>.</p>
-						<h3>Zážehový čtyřtaktní motor (Otto, 1876)</h3>
-						<p>Palivo <strong>benzín</strong>; směs par a vzduchu zapálí <strong>elektrická jiskra ze svíčky</strong>. Pracuje ve <strong>4 taktech</strong>:</p>
-						<ol>
-							<li><strong>sání</strong> — píst dolů, nasává se palivová směs (sací ventil otevřen)</li>
-							<li><strong>stlačení (komprese)</strong> — oba ventily zavřené, píst stlačuje směs</li>
-							<li><strong>výbuch a rozpínání (expanze)</strong> — jiskra zapálí směs, horké plyny tlačí píst dolů — <strong>jediný pracovní takt</strong> (palivo koná práci)</li>
-							<li><strong>výfuk</strong> — píst nahoru, vytlačí spaliny (výfukový ventil otevřen)</li>
-						</ol>
-						<p>Účinnost <strong>20–33 %</strong>. Použití: osobní auta, malá letadla. Často 4válcový motor (vždy je jeden válec v pracovní době).</p>
-						<h3>Zážehový dvoutaktní motor</h3>
-						<p>Jednodušší, <strong>bez ventilů</strong> (řídí ho píst); cyklus ve 2 fázích (sání+stlačení, výbuch+výfuk). Menší a lehčí — motocykly, sekačky, křovinořezy. Nevýhoda: do benzínu se přidává olej, více emisí, nižší účinnost.</p>
-						<h3>Vznětový motor (Diesel)</h3>
-						<p>Palivo <strong>nafta</strong> (nebo zemní plyn). <strong>Nemá svíčku</strong> — směs se stlačením prudce zahřeje a <strong>sama se vznítí</strong>. Použití: auta, náklaďáky, autobusy, lokomotivy. Účinnost <strong>30–40 %</strong>. Výhody: větší výkon při rozjezdu, nižší spotřeba; nevýhody: těžší, dražší, více emisí (filtr pevných částic), často turbodmychadlo.</p>
-						<p>👉 Každý motor je nutné <strong>nastartovat</strong> (roztočit setrvačník), <strong>chladit</strong> (voda/vzduch) a <strong>mazat</strong> olejem.</p>
-					`,
-					zapis: {
-						body: [
-							'Spalovací motor získává teplo spalováním paliva uvnitř motoru a mění chemickou energii na tepelnou a pohybovou.',
-							'Píst se pohybuje ve válci a přes klikový hřídel pohání kola; přívod směsi a odvod spalin řídí ventily.',
-							'Čtyřtaktní zážehový motor pracuje ve čtyřech taktech: sání, stlačení, výbuch a rozpínání, výfuk.',
-							'Zážehový motor spaluje benzín a směs zapaluje svíčka, vznětový motor spaluje naftu a palivo se vznítí stlačením.',
-							'Motor je nutné nastartovat, chladit a mazat olejem.',
-						],
-					},
+					obsah: "<h2>Spalovací motory</h2>\n\n<p>Spalovací motor je tepelný motor. Palivo v něm hoří přímo uvnitř motoru, ne mimo něj jako u parního stroje. Chemická energie paliva se mění nejdřív na teplo a pak na pohyb.</p>\n\n<h3>Z čeho se motor skládá</h3>\n<p>Uvnitř motoru je <strong>válec</strong> a v něm se pohybuje <strong>píst</strong>. Píst je spojený s <strong>klikovým hřídelem</strong>, který mění jeho pohyb nahoru a dolů na otáčení kol. Do válce vede <strong>sací ventil</strong>, kterým přitéká palivo se vzduchem, a <strong>výfukový ventil</strong>, kterým odchází spaliny.</p>\n\n<h3>Jak motory dělíme</h3>\n<p>Podle paliva a způsobu zapálení dělíme motory na <strong>zážehové</strong> a <strong>vznětové</strong>. Podle počtu pohybů pístu v jednom cyklu je dělíme na <strong>čtyřtaktní</strong> a <strong>dvoutaktní</strong>.</p>\n\n<h3>Čtyři doby zážehového motoru (Otto, 1876)</h3>\n<p>Zážehový motor spaluje <strong>benzín</strong>. Palivo se ve válci smíchá se vzduchem — kdysi to dělal <strong>karburátor</strong> (přístroj na míchání paliva se vzduchem), dnešní motory palivo přímo <strong>vstřikují</strong> tenkou tryskou. Motor pracuje ve čtyřech dobách:</p>\n<ol>\n<li><strong>sání</strong> — sací ventil se otevře, píst jde dolů a nasaje směs vzduchu a benzínu</li>\n<li><strong>stlačení</strong> — oba ventily jsou zavřené, píst jde nahoru a směs stlačí, tím se zahřeje</li>\n<li><strong>výbuch</strong> — těsně před vrcholem přeskočí jiskra ze <strong>zapalovací svíčky</strong>, směs vybuchne a horké plyny tlačí píst dolů — jen tahle doba koná práci</li>\n<li><strong>výfuk</strong> — výfukový ventil se otevře, píst jde nahoru a vytlačí spálené plyny ven</li>\n</ol>\n<p>Pak se všechny čtyři doby znovu opakují. Účinnost zážehového motoru je <strong>20 až 33 %</strong> — zbytek paliva se promění jen v odpadní teplo. Používá se v osobních autech i malých letadlech. V autě bývají čtyři válce. Střídají se, takže vždy jeden zrovna pracuje a motor běží plynule.</p>\n\n<h3>Vznětový motor — motor bez jiskry</h3>\n<p>Vznětový (Dieselův) motor spaluje <strong>naftu</strong>. Nemá zapalovací svíčku. Píst stlačí vzduch ve válci tak silně, že se sám prudce zahřeje, a teprve pak se do horkého vzduchu <strong>vstříkne</strong> nafta — a sama se vznítí.</p>\n<p>Vznětový motor má účinnost <strong>30 až 40 %</strong>, tedy vyšší než zážehový. Používá se v autech, nákladních autech, autobusech i lokomotivách. Je ale těžší a dražší a produkuje víc emisí, proto má výfuk vybavený <strong>filtrem pevných částic</strong>. Často má i <strong>turbodmychadlo</strong> — malý kompresor, který natlačí do válce víc vzduchu a motor tak má víc síly.</p>\n\n<h3>Dvoutaktní motor</h3>\n<p>Dvoutaktní motor je jednodušší. Nemá žádné ventily — sání i výfuk řídí svým pohybem přímo píst. Celý cyklus proběhne jen ve dvou fázích místo čtyř: sání se stlačením a výbuch s výfukem.</p>\n<p>Je menší a lehčí než čtyřtaktní motor, proto se používá v motocyklech, sekačkách nebo křovinořezech. Nevýhodou je, že se do benzínu musí přidávat olej, motor víc znečišťuje vzduch a má nižší účinnost.</p>\n\n<h3>Co motor potřebuje, aby fungoval</h3>\n<p>Při výbuchu ve válci vznikne teplota kolem <strong>2000 °C</strong>, proto se motor musí <strong>chladit</strong> vodou nebo vzduchem — jinak by se roztavil. Píst potřebuje i <strong>mazání</strong> olejem, aby se ve válci nezadřel. A protože se motor sám nerozeběhne, musí se před spuštěním <strong>nastartovat</strong> — dnes to udělá elektrický startér poháněný autobaterií.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Zážehový motor má účinnost aspoň 20 %. Sportovní auto spálí palivo s energií 25 000 kJ. Kolik z této energie motor skutečně promění na pohyb auta?</p>\n<p>20 % z 25 000 kJ = 25 000 : 100 · 20 = 5 000 kJ.</p>\n<p>Zbylých 20 000 kJ (80 %) se ztratí jako odpadní teplo. Vznětový motor je úspornější — má účinnost až 40 %. Nákladní auto spálí naftu s energií 15 000 kJ. Na pohyb z ní motor využije:</p>\n<p>40 % z 15 000 kJ = 15 000 : 100 · 40 = 6 000 kJ.</p>",
+					zapis: {"jednotky":["účinnost motoru — udává se v % (procentech); ukazuje, kolik energie z paliva se promění na pohyb (zbytek je ztracené teplo)"],"body":["spalovací motor: palivo hoří uvnitř motoru","válec, píst, klikový hřídel, ventily","zážehový: benzín + jiskra ze svíčky","vznětový: nafta, zapálí se stlačením (bez svíčky)","4 doby: sání, stlačení, výbuch, výfuk","4 válce → vždy jeden pracuje","dvoutaktní: bez ventilů, jen 2 fáze, lehčí","motor je nutné startovat, chladit a mazat"]},
 					odkazy: [
 						{ nazev: 'Techmania — Čtyřdobý zážehový motor', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/plyny/tepelne-motory/ctyrdoby-zazehovy-motor' },
 						{ nazev: 'Wordwall — kvíz Spalovací motory', url: 'https://wordwall.net/cs/resource/108360943/spalovací-motory-kviz' },

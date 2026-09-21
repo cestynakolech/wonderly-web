@@ -90,8 +90,12 @@ právě na ní učitel skákání ukázal.
 Celek Energie F8 HOTOV — 6/6 podtémat přestavěno podle A+B+C+D (worker-výklad →
 nezávislý kontrolor opus → `podtema.mjs`), 5 z 6 potřebovalo 1 opravnou smyčku.
 Zapsáno výhradně nástrojem `podtema.mjs`, build i `zkontroluj.mjs` procházejí.
-DALŠÍ DÁVKA: zbytek fyziky 8. ročníku (celek `mechanicka-prace-a-vykon` a ostatní),
-pak 6., 7., 9. ročník — stejný postup (worker-výklad → kontrolor → podtema.mjs).
+2. dávka HOTOVA — celky `mechanicka-prace-a-vykon` (2 podtémata) a
+`tepelne-motory` (2 podtémata) přestavěny stejným postupem, každé podtéma
+mělo nezávislého kontrolora (opus), 3 ze 4 podtémat měla 1 opravnou smyčku.
+3. dávka (celek `teplo-a-zmeny-skupenstvi`, 7 podtémat) běží. Zbývá v F8:
+`elektrina` (15), `zvuk` (3), `shrnuti` (2, bez zdrojů) — pak 6., 7., 9. ročník,
+stejný postup (worker-výklad → kontrolor → podtema.mjs).
 Drobnosti do stavu: podtéma potraviny má 7×`<h3>` a 8 bodů zápisu (víc než vzor,
 neškodí); odvozené vztahy uvnitř rámečku vzorce se na užší obrazovce zalamují
 na dva řádky — zvážit přesun do nadstavby.

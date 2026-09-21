@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **21. 9. 2026 — celek Energie F8 hotov (6/6 podtémat)**
+> ### Poslední stav: **21. 9. 2026 — 2. dávka hotova (mechanická práce a výkon + tepelné motory)**
+> Celky `mechanicka-prace-a-vykon` a `tepelne-motory` F8 (4 podtémata) přestavěny podle
+> schváleného vzoru A+B+C+D nástrojem `podtema.mjs`, každé podtéma prošlo nezávislým
+> kontrolorem. 3. dávka (`teplo-a-zmeny-skupenstvi`) běží, zbývá elektřina, zvuk, shrnutí.
+>
+> ### Dřívější stav: **21. 9. 2026 — celek Energie F8 hotov (6/6 podtémat)**
 > Celek energie 8. ročníku přestavěn podle schváleného vzoru A+B+C+D nástrojem
 > `podtema.mjs`, každé podtéma prošlo nezávislým kontrolorem. Další dávka: zbytek fyziky 8.
 >
