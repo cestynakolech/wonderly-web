@@ -2695,33 +2695,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricky-proud-v-kovech-odpor',
 						nazev: 'Elektrický proud v kovech, odpor vodiče',
 						interakce: 'odpor-vodice-zaklad',
-						obsah: `
-							<h2>Elektrický proud v kovech a odpor vodiče</h2>
-							<p>Kovy jsou <strong>krystalické látky</strong> — atomy jsou pravidelně uspořádány v <strong>krystalové mřížce</strong> a mají spoustu <strong>volných elektronů</strong>.</p>
-							<ul>
-								<li><strong>bez proudu:</strong> volné elektrony se pohybují neuspořádaně všemi směry (tepelný pohyb)</li>
-								<li><strong>s proudem:</strong> zdroj napětí vytvoří elektrické pole, které elektrony usměrní — pohybují se od − k + (to je elektrický proud)</li>
-							</ul>
-							<h3>Proč vzniká odpor</h3>
-							<p>Letící elektrony <strong>narážejí do atomů</strong> mřížky, mění směr a zpomalují — vodič tak <strong>klade odpor</strong> průchodu proudu. Při srážkách předají část energie atomům, které začnou víc kmitat → <strong>vodič se zahřívá</strong>.</p>
-							<h3>Elektrický odpor</h3>
-							<ul>
-								<li>značka <strong>R</strong>, jednotka <strong>ohm (Ω)</strong>; 1 kΩ = 1 000 Ω, 1 MΩ = 1 000 000 Ω</li>
-								<li><strong>malý odpor</strong> = dobrý vodič (stříbro, měď, zlato, hliník), málo se zahřívá — proto se z mědi dělá vedení</li>
-								<li><strong>velký odpor</strong> = špatný vodič, silně se zahřívá (<strong>nichrom</strong> = slitina niklu a chromu → topné spirály varné konvice, fénu i topinkovače; <strong>konstantan</strong> = měď a nikl → rezistory)</li>
-								<li><strong>izolanty</strong> (keramika, plast) mají odpor obrovský; žádný kov není izolant</li>
-							</ul>
-							<h3>Tepelné účinky proudu</h3>
-							<p>Zahřívání vodiče proudem <strong>využíváme</strong> (žárovka — wolframové vlákno 2200–3000 °C, vařič, konvice, žehlička, pojistka), ale má i <strong>nebezpečné důsledky</strong> — při přetížení nebo zkratu se dráty roztaví a hrozí <strong>požár</strong>.</p>
-						`,
-						zapis: {
-							body: [
-								'V kovech se volné elektrony bez proudu pohybují neuspořádaně, ale elektrické pole je usměrní od záporného pólu ke kladnému.',
-								'Elektrický odpor vzniká tím, že elektrony narážejí do atomů krystalové mřížky.',
-								'Elektrický odpor se značí R a jeho jednotkou je ohm (Ω); malý odpor mají dobré vodiče a velký odpor špatné vodiče.',
-								'Při srážkách předávají elektrony energii atomům, proto se vodič zahřívá; toho využívají topná zařízení, ale při přetížení může vzniknout požár.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Elektrický proud v kovech, odpor vodiče</h2>\n\t\t\t\t\t\t\t<p>Kovy jsou krystalické látky — jejich atomy jsou pravidelně uspořádané do krystalové mřížky. V kovu je vždycky spousta volných elektronů. Nejsou pevně vázané k žádnému atomu a mohou se volně pohybovat po celém kovu.</p>\n\t\t\t\t\t\t\t<p>Když kovem neprochází proud, volné elektrony létají všemi směry naprosto neuspořádaně. Tomuhle pohybu se říká tepelný pohyb elektronů.</p>\n\t\t\t\t\t\t\t<p>Jakmile ale vodič zapojíme do obvodu se zdrojem napětí, vznikne v něm elektrické pole. Elektrické pole elektrony usměrní — všechny se rozjedou stejným směrem, od záporného pólu ke kladnému. Tenhle usměrněný pohyb elektronů nazýváme elektrický proud.</p>\n\t\t\t\t\t\t\t<h3>Proč vodič klade odpor</h3>\n\t\t\t\t\t\t\t<p>Elektrony při svém pohybu narážejí do atomů krystalové mřížky. Atomy jsou totiž mnohem větší než elektrony — až stotisíckrát — a tak ke srážkám dochází velmi často. Při srážkách elektron většinou změní směr a zpomalí. Proto vodič klade odpor průchodu proudu.</p>\n\t\t\t\t\t\t\t<p>Elektron navíc při srážce předá atomu kousek své energie. Atom pak kmitá rychleji a vodič se zahřívá.</p>\n\t\t\t\t\t\t\t<h3>Elektrický odpor</h3>\n\t\t\t\t\t\t\t<p>Elektrický odpor značíme <strong>R</strong> a jednotkou je <strong>ohm (Ω)</strong>. Menší jednotka je miliohm (mΩ), větší kiloohm (kΩ) a megaohm (MΩ).</p>\n\t\t\t\t\t\t\t<p>Malý odpor mají dobré vodiče, třeba stříbro, měď, zlato nebo hliník. Dobrý vodič se málo zahřívá. Proto se elektrické vedení dělá z mědi a citlivé kontakty se pozlacují nebo postříbřují.</p>\n\t\t\t\t\t\t\t<p>Velký odpor má třeba nichrom (slitina niklu a chromu) — používá se na topné spirály varných konvic, fénů i topinkovačů. Podobně konstantan (slitina mědi a niklu) se používá na rezistory — součástky s přesně daným odporem. Vyrábějí se z něj i topné spirály tepelných spotřebičů.</p>\n\t\t\t\t\t\t\t<p>Izolanty, třeba keramika nebo plast, mají odpor obrovský. Žádný kov ale izolant není.</p>\n\t\t\t\t\t\t\t<p>Odpor vodiče závisí také na jeho délce, tloušťce a na teplotě — víc si o tom povíme v dalším tématu.</p>\n\t\t\t\t\t\t\t<h3>Tepelné účinky proudu</h3>\n\t\t\t\t\t\t\t<p>Čím větší odpor vodič má, tím víc se při průchodu proudu zahřívá. Tohle zahřívání využíváme třeba u žárovky — wolframové vlákno v ní žhne na 2 200 až 3 000 °C. I po vypnutí zůstává vlákno ještě horké. Podobně fungují vařič, elektrická trouba, varná konvice, žehlička nebo elektrické topení.</p>\n\t\t\t\t\t\t\t<p>Studené vlákno žárovky má menší odpor než rozžhavené. Hned po zapnutí jím proto protéká největší proud — a právě tehdy se vlákno nejčastěji přepálí.</p>\n\t\t\t\t\t\t\t<p>Zahřívání vodiče využívá i pojistka — tenký drátek se při přetížení roztaví a obvod přeruší. Tím ochrání zbytek zařízení před poškozením. Zahřívání ale může být i nebezpečné: při přetížení obvodu nebo zkratu se mohou roztavit dráty elektrického vedení a hrozí požár.</p>\n\t\t\t\t\t\t\t<p><strong>Příklad:</strong> Měděný kabel nabíječky zůstává po hodině nabíjení jen vlažný, protože měď má malý odpor. Topná spirála v konvici se ale rozžhaví doruda — nichrom, ze kterého je vyrobená, má odpor mnohem větší.</p>\n\t\t\t\t\t\t",
+						zapis: {"jednotky":["elektrický odpor — značíme R, jednotka Ω (ohm)","1 mΩ = 0,001 Ω,  1 kΩ = 1 000 Ω,  1 MΩ = 1 000 000 Ω"],"body":["elektrony v kovu: volné, pohyblivé","bez proudu: pohyb neuspořádaný (tepelný)","proud = usměrněný pohyb elektronů","odpor: srážky elektronů s atomy","srážky → vodič se zahřívá","malý odpor = dobrý vodič (měď, stříbro)","velký odpor = špatný vodič (nichrom, konstantan)","rezistor: součástka s daným odporem","odpor závisí i na délce, tloušťce, teplotě","využití tepla: žárovka, vařič, pojistka","přetížení, zkrat → roztavení, požár"]},
 						odkazy: [
 							{ nazev: 'Nebezpečná elektřina (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5416-nebezpecna-elektrina' },
 						],
@@ -2801,124 +2776,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'ucinky-proudu-a-bezpecnost',
 						interakce: 'ucinky-proudu-a-bezpecnost',
 						nazev: 'Účinky proudu na člověka, bezpečnost',
-						obsah: `
-							<h2>Účinky proudu na člověka a bezpečnost</h2>
-							<p><strong>Lidské tělo je vodič.</strong> Průchod proudu tělem může způsobit popáleniny, křeče svalů, <strong>fibrilaci (rozhození rytmu) až zástavu srdce</strong>, poškození nervů a mozku.</p>
-							<h3>Míra poškození podle proudu</h3>
-							<ul>
-								<li>~1 mA — práh vnímání</li>
-								<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong></li>
-								<li>~25 mA — křeč dýchacích svalů</li>
-								<li>~60 mA — fibrilace srdce; <strong>nad 80 mA</strong> — trvalá zástava srdce</li>
-							</ul>
-							<h3>Co velikost proudu ovlivňuje</h3>
-							<ul>
-								<li><strong>odpor člověka</strong>: velký odpor má jen <strong>suchá kůže a suchá obuv při malém napětí</strong> (~150 000 Ω) — proto z baterie nic necítíš. Od zhruba 50 V se kůže prorazí a odpor těla klesne na <strong>~2000 Ω</strong>, ať jsi suchý nebo mokrý; vlhký člověk je ohrožen stejným nízkým odporem hned od začátku, ale <strong>ani suchý po proražení kůže není v bezpečí</strong></li>
-								<li><strong>cesta proudu</strong>: nejnebezpečnější přes ruku do srdce nebo přes hlavu</li>
-								<li>bezpečné napětí <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V) — zásuvkových <strong>230 V</strong> se to ale netýká nikde, ta jsou nebezpečná vždy</li>
-							</ul>
-							<h3>🧮 Spočítej si to Ohmovým zákonem</h3>
-							<p>Proč z ploché baterie nic necítíš, a přitom zásuvka zabíjí? Stačí
-							<strong>Ohmův zákon</strong> <em>I</em> = <em>U</em> : <em>R</em>:</p>
-							<ul>
-								<li><strong>Plochá baterie 4,5 V</strong> na suchou kůži (R ≈ 150 000 Ω):
-								<em>I</em> = 4,5 : 150 000 = 0,00003 A = <strong>30 µA</strong> → ani to nepoznáš,
-								jsi hluboko pod prahem vnímání.</li>
-								<li><strong>Zásuvka 230 V</strong>: tady je zrada. Suchá kůže má sice velký odpor,
-								ale <strong>jen do zhruba 50 V</strong> — při vyšším napětí se elektricky
-								<strong>prorazí</strong> a přestane chránit. Odpor těla pak klesne na
-								<strong>asi 2000 Ω</strong> a vyjde <em>I</em> = 230 : 2000 = <strong>115 mA</strong>.</li>
-								<li><strong>Mokrý člověk</strong> (R ≈ 2000 Ω): stejný nízký odpor má vlhká kůže
-								hned od malého napětí, proto vyjde stejně <em>I</em> = 230 : 2000 = <strong>115 mA</strong>
-								— nebezpečné, ať je člověk suchý po proražení kůže, nebo rovnou mokrý.</li>
-							</ul>
-							<p>⚠️ Podívej se do tabulky výš: <strong>obě poslední čísla jsou hluboko nad 80 mA</strong>,
-							tedy v pásmu zástavy srdce. <strong>Zásuvka je životu nebezpečná vždycky, i když jsi
-							úplně suchý</strong> — už nad ~50 V se totiž prorazí kůže i v suchu, takže tě odpor
-							suché kůže vůbec nechrání. Vlhký člověk je ohrožen stejně, jen k tomu nepotřebuje
-							žádné vysoké napětí — nízký odpor má hned od začátku.</p>
-							<p>👉 A právě proto <strong>není bezpečné napětí totéž co malé napětí</strong>: rozhoduje,
-							jestli napětí dokáže prorazit kůži. Do koupelny proto nepatří žádný spotřebič ze zásuvky
-							ani prodlužovačka a na vypínač se nesahá mokrou rukou.</p>
-							<h3>Jistič vás nezachrání — proudový chránič ano</h3>
-							<p>Ty dvě věci se pletou, a je v tom podstatný rozdíl:</p>
-							<ul>
-								<li><strong>Jistič</strong> hlídá, aby obvodem netekl <em>příliš velký</em> proud
-								(typicky nad 16 A) — chrání <strong>vedení a dům před požárem</strong>. Proud
-								115 mA, který podle výpočtu výše zabíjí, je pro jistič naprosto nezajímavý; ani se nehne.</li>
-								<li><strong>Proudový chránič</strong> porovnává, kolik proudu do spotřebiče
-								<em>přiteče</em> a kolik se ho <em>vrátí</em>. Když se část ztrácí — třeba
-								<strong>tělem člověka do země</strong> — okamžitě vypne. Reaguje už na
-								<strong>30 mA</strong>, tedy pod hranicí, za kterou hrozí fibrilace,
-								a stihne to za setiny sekundy.</li>
-							</ul>
-							<p>Proto je proudový chránič dnes povinný u zásuvek v koupelnách a venku.
-							<strong>Pozor — chránič není důvod si dovolit víc:</strong> zásuvka v koupelně je
-							přípustná jen mimo prostor vany a sprchy a spotřebič se v ní nikdy nepoužívá
-							u vody. Chránič je poslední záchrana, když se něco pokazí, ne povolení riskovat.</p>
-							<h3>Rizika mimo domácí zásuvku</h3>
-							<p>Bezpečnost s elektřinou nekončí u zásuvky doma — pár pravidel platí i venku a při mimořádných situacích.</p>
-							<ul>
-								<li>⚠️ <strong>Hoří zapojený spotřebič?</strong> Nejdřív <strong>vypni proud</strong> —
-								vytáhni zástrčku ze zásuvky, nebo vypni jistič. Teprve pak has. <strong>Vodou se zapojený
-								spotřebič nikdy nehasí</strong> — voda vede proud a proud by tekl vodním proudem
-								až k tobě.</li>
-								<li>⚠️ <strong>Trafostanice, sloupy a vedení vysokého napětí:</strong> nikdy
-								nepodlézej ani nepřelézej oplocení a nelez na stožár. U vysokého napětí může
-								proud <strong>přeskočit obloukem i bez dotyku</strong> — stačí se přiblížit,
-								sáhnout na vedení vůbec nemusíš.</li>
-								<li>⚠️ <strong>Spadlý drát na zemi</strong> (i u trolejového vedení vlaků) se
-								chová stejně — může být pod napětím, i když nejiskří a nic neukazuje. Nepřibližuj
-								se k němu, varuj ostatní a volej <strong>112</strong> (případně <strong>150</strong> hasiče); <strong>155</strong> volej navíc jen tehdy, je-li někdo zraněný.</li>
-							</ul>
-							<p>👉 U vysokého napětí neplatí „nic jsem se nedotkl, tak je to bezpečné" — rozhoduje
-							vzdálenost, ne dotyk.</p>
-							<h3>Bezpečná pravidla</h3>
-							<ul>
-								<li>nesahat na vypínač/kabely <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše</li>
-								<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat předměty</li>
-								<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení</li>
-							</ul>
-							<h3>První pomoc při úrazu proudem</h3>
-							<p><strong>Na pořadí opravdu záleží</strong> — dělej to přesně takhle:</p>
-							<ol>
-								<li><strong>Vypni proud</strong> (vypínač, jistič, pojistky). Dokud proud teče,
-								nesahej na zraněného — tekl by i tebou.</li>
-								<li><strong>Mysli na vlastní bezpečnost.</strong> ⚠️ Jde-li o <strong>vysoké napětí</strong>
-								(sloup, trafostanice, spadlý drát, trolejové vedení) — <strong>nepřibližuj se a nic
-								neodsouvej</strong>, proud tam přeskočí obloukem i bez dotyku. Zůstaň v bezpečné
-								vzdálenosti a volej <strong>155 nebo 112</strong>. Jde-li o běžnou domácí elektřinu
-								(zásuvka, spotřebič) a proud vypnout nejde, odsuň zraněného <strong>suchou dřevěnou
-								nebo plastovou tyčí</strong>, nikdy holou rukou.
-								Zraněný, kterému nemá kdo pomoct, protože ležíš vedle něj, je na tom hůř.</li>
-								<li><strong>Zavolej 155</strong> — hned, ještě než začneš pomáhat. Zapni si
-								<strong>hlasitý odposlech</strong>, nebo pošli volat někoho jiného. Operátor tě
-								povede a řekne ti, co dělat.</li>
-								<li><strong>Nedýchá normálně? Začni stlačovat hrudník</strong> — uprostřed hrudi,
-								do hloubky asi 5 cm, rychlostí zhruba 100× za minutu, a nepřestávej, dokud
-								nepřijede pomoc. Puls nehledej, jen ztrácíš čas a laik ho stejně spolehlivě
-								nenahmatá.</li>
-							</ol>
-							<p>👉 Zraněného <strong>vždy předej záchranářům</strong>, i když se probral a tvrdí,
-							že je mu dobře. Proud může poškodit srdce tak, že se to projeví až za několik hodin.</p>
-						`,
-						zapis: {
-							body: [
-								'Lidské tělo je vodič a průchod proudu může způsobit popáleniny, svalové křeče, poškození nervů nebo zástavu srdce.',
-								'Nebezpečí závisí na velikosti proudu, odporu člověka a cestě proudu tělem; mokrá kůže má malý odpor.',
-								'Jistič chrání vedení před příliš velkým proudem, zatímco proudový chránič chrání člověka při úniku proudu.',
-								'Při úrazu nejdříve vypni proud, nedotýkej se zraněného, dokud proud teče, a zavolej 155 nebo 112.',
-							],
-							zakon: 'Elektrický proud je přímo úměrný napětí a nepřímo úměrný elektrickému odporu.',
-							vzorec: 'I = U : R      (odvozeně: U = I · R,  R = U : I)',
-							jednotky: [
-								'elektrický proud I — ampér (A)',
-								'elektrické napětí U — volt (V)',
-								'elektrický odpor R — ohm (Ω)',
-								'1 A = 1 000 mA = 1 000 000 µA',
-								'Do vzorce dosazuj napětí ve V a odpor v Ω; proud vyjde v A.',
-							],
-						},
+						obsah: "\n\t\t\t\t\t\t\t<h2>Účinky proudu na člověka a bezpečnost</h2>\n\t\t\t\t\t\t\t<p><strong>Lidské tělo je vodič.</strong> Průchod proudu tělem může způsobit popáleniny, křeče svalů, <strong>fibrilaci (rozhození rytmu) až zástavu srdce</strong>, poškození nervů, mozku i paměti.</p>\n\t\t\t\t\t\t\t<p>Poškození může být <strong>přímé</strong> — proud prochází přímo tkáněmi — nebo <strong>nepřímé</strong>, třeba popálenina od hořícího oděvu nebo zlomenina po pádu.</p>\n\t\t\t\t\t\t\t<p>Účinky se navíc dělí na <strong>akutní</strong>, které se projeví hned, a <strong>pozdní</strong>, které se ukážou až za měsíce nebo roky.</p>\n\t\t\t\t\t\t\t<p><strong>Stejnosměrný proud</strong> (třeba z baterie) vyvolá silné křeče svalů v místě, kudy do těla vstupuje i vystupuje. Člověk se pak od zdroje nemůže sám odtrhnout.</p>\n\t\t\t\t\t\t\t<p><strong>Střídavý proud</strong>, jaký teče i domácí zásuvkou, navíc může rozhodit srdeční rytmus — způsobit fibrilaci. Proud může v těle rozkládat i krev a buněčné membrány.</p>\n\t\t\t\t\t\t\t<h3>Míra poškození podle proudu</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>0,5–1 mA — práh vnímání</li>\n\t\t\t\t\t\t\t<li>1–8 mA — podráždění nervů, stoupá krevní tlak</li>\n\t\t\t\t\t\t\t<li>6–15 mA — křeč, člověk se <strong>nemůže pustit</strong></li>\n\t\t\t\t\t\t\t<li>~25 mA — křeč dýchacích svalů</li>\n\t\t\t\t\t\t\t<li>~60 mA — fibrilace srdce (přechodná zástava); <strong>nad 80 mA</strong> — trvalá zástava srdce</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Co velikost proudu ovlivňuje</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>odpor suchého člověka</strong>: velký odpor má jen <strong>suchá kůže a suchá obuv při malém napětí</strong> (~150 000 Ω). Proto z baterie nic necítíš. Suchá obuv odpor proti zemi ještě zvyšuje, zvlášť pokud je z gumy. Od zhruba 50 V se ale kůže prorazí a odpor těla klesne na <strong>~2 000 Ω</strong>.</li>\n\t\t\t\t\t\t\t<li><strong>odpor vlhkého člověka</strong>: vlhký člověk má nízký odpor hned od začátku. Ani suchý člověk po proražení kůže není v bezpečí. Vodivější jsi ostatně i po pouhém zpocení.</li>\n\t\t\t\t\t\t\t<li><strong>cesta proudu</strong>: nejnebezpečnější přes ruku do srdce nebo přes hlavu</li>\n\t\t\t\t\t\t\t<li>bezpečné napětí <strong>ve vlhkých a zvlášť nebezpečných prostorách</strong> (koupelna, bazén, sklep): stejnosměrné <strong>25 V</strong>, střídavé <strong>12 V</strong>. V suchých místnostech jsou meze vyšší (střídavé 50 V, stejnosměrné 120 V). Zásuvkových <strong>230 V</strong> se to ale netýká nikde, ta jsou nebezpečná vždy.</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>Jistič vás nezachrání — proudový chránič ano</h3>\n\t\t\t\t\t\t\t<p>Ty dvě věci se pletou, a je v tom podstatný rozdíl:</p>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>Jistič</strong> hlídá, aby obvodem netekl <strong>příliš velký</strong> proud\n\t\t\t\t\t\t\t(typicky nad 16 A) — chrání <strong>vedení a dům před požárem</strong>. Proud\n\t\t\t\t\t\t\t115 mA, který podle výpočtu níže zabíjí, je pro jistič naprosto nezajímavý; ani se nehne.</li>\n\t\t\t\t\t\t\t<li><strong>Proudový chránič</strong> porovnává, kolik proudu do spotřebiče\n\t\t\t\t\t\t\t<strong>přiteče</strong> a kolik se ho <strong>vrátí</strong>. Když se část ztrácí — třeba\n\t\t\t\t\t\t\t<strong>tělem člověka do země</strong> — okamžitě vypne. Reaguje už na\n\t\t\t\t\t\t\t<strong>30 mA</strong>, tedy pod hranicí, za kterou hrozí fibrilace,\n\t\t\t\t\t\t\ta stihne to za setiny sekundy.</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<p>Proto je proudový chránič dnes povinný u zásuvek v koupelnách a venku.\n\t\t\t\t\t\t\t<strong>Pozor — chránič není důvod si dovolit víc.</strong> Zásuvka v koupelně je\n\t\t\t\t\t\t\tpřípustná jen mimo prostor vany a sprchy, a spotřebič se u vody nikdy\n\t\t\t\t\t\t\tnepoužívá. Chránič je poslední záchrana, když se něco pokazí, ne povolení riskovat.</p>\n\t\t\t\t\t\t\t<h3>Rizika mimo domácí zásuvku</h3>\n\t\t\t\t\t\t\t<p>Bezpečnost s elektřinou nekončí u zásuvky doma — pár pravidel platí i venku a při mimořádných situacích.</p>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>⚠️ <strong>Hoří zapojený spotřebič?</strong> Nejdřív <strong>vypni proud</strong> —\n\t\t\t\t\t\t\tvytáhni zástrčku ze zásuvky, nebo vypni jistič. Teprve pak has. <strong>Vodou se zapojený\n\t\t\t\t\t\t\tspotřebič nikdy nehasí</strong> — voda vede proud a proud by tekl vodním proudem\n\t\t\t\t\t\t\taž k tobě.</li>\n\t\t\t\t\t\t\t<li>⚠️ <strong>Trafostanice, sloupy a vedení vysokého napětí:</strong> nikdy\n\t\t\t\t\t\t\tnepodlézej ani nepřelézej oplocení a nelez na stožár. U vysokého napětí může\n\t\t\t\t\t\t\tproud <strong>přeskočit obloukem i bez dotyku</strong> — stačí se přiblížit,\n\t\t\t\t\t\t\tsáhnout na vedení vůbec nemusíš. Stejným způsobem vzniká i blesk při bouřce.</li>\n\t\t\t\t\t\t\t<li>⚠️ <strong>Spadlý drát na zemi</strong> (i u trolejového vedení vlaků) se\n\t\t\t\t\t\t\tchová stejně. Může být pod napětím, i když nejiskří a nic neukazuje. Nepřibližuj\n\t\t\t\t\t\t\tse k němu, varuj ostatní a volej <strong>112</strong> (případně <strong>150</strong> hasiče). <strong>155</strong> volej navíc jen tehdy, je-li někdo zraněný.</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<p>👉 U vysokého napětí neplatí „nic jsem se nedotkl, tak je to bezpečné\" — rozhoduje\n\t\t\t\t\t\t\tvzdálenost, ne dotyk.</p>\n\t\t\t\t\t\t\t<h3>Bezpečná pravidla</h3>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>nesahat na vypínač/kabely <strong>mokrou rukou</strong>, žádné spotřebiče ve vaně a sprše</li>\n\t\t\t\t\t\t\t<li>před výměnou žárovky <strong>vypnout jistič</strong>; do zásuvky nestrkat drobné předměty</li>\n\t\t\t\t\t\t\t<li>nedotýkat se jednou rukou elektrického kabelu a druhou rukou kovového předmětu</li>\n\t\t\t\t\t\t\t<li>spotřebič připojovat do zásuvky, až když je <strong>vypnutý</strong></li>\n\t\t\t\t\t\t\t<li>nedotýkat se poškozených kabelů ani spadlých drátů vedení</li>\n\t\t\t\t\t\t\t<li>neotvírat a neopravovat spotřebič, dokud <strong>není vytažený ze zásuvky</strong></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<h3>První pomoc při úrazu proudem</h3>\n\t\t\t\t\t\t\t<p><strong>Na pořadí opravdu záleží</strong> — dělej to přesně takhle:</p>\n\t\t\t\t\t\t\t<ol>\n\t\t\t\t\t\t\t<li><strong>Vypni proud</strong> (vypínač, jistič, pojistky). Dokud proud teče,\n\t\t\t\t\t\t\tnesahej na zraněného — tekl by i tebou.</li>\n\t\t\t\t\t\t\t<li><strong>Mysli na vlastní bezpečnost.</strong> ⚠️ Jde-li o <strong>vysoké napětí</strong>\n\t\t\t\t\t\t\t(sloup, trafostanice, spadlý drát, trolejové vedení), <strong>nepřibližuj se a nic\n\t\t\t\t\t\t\tneodsouvej</strong>. Proud tam přeskočí obloukem i bez dotyku. Zůstaň v bezpečné\n\t\t\t\t\t\t\tvzdálenosti a volej <strong>155 nebo 112</strong>. Jde-li o běžnou domácí elektřinu\n\t\t\t\t\t\t\t(zásuvka, spotřebič) a proud vypnout nejde, odsuň zraněného <strong>suchou dřevěnou\n\t\t\t\t\t\t\tnebo plastovou tyčí</strong>. Případně použij suchou gumovou obuv a gumové rukavice,\n\t\t\t\t\t\t\tnikdy se ho nedotýkej holou rukou. Zraněný, kterému nemá kdo pomoct, protože ležíš vedle něj, je na tom hůř.</li>\n\t\t\t\t\t\t\t<li><strong>Zavolej 155</strong> — hned, ještě než začneš pomáhat. Zapni si\n\t\t\t\t\t\t\t<strong>hlasitý odposlech</strong>, nebo pošli volat někoho jiného. Operátor tě\n\t\t\t\t\t\t\tpovede a řekne ti, co dělat.</li>\n\t\t\t\t\t\t\t<li><strong>Uvolni oděv a zkontroluj dech i tep.</strong> Nedýchá normálně?\n\t\t\t\t\t\t\t<strong>Stlačuj hrudník</strong> — uprostřed hrudi, do hloubky asi 5 cm,\n\t\t\t\t\t\t\trychlostí zhruba 100× za minutu. Pokud umíš, přidávej i umělé dýchání.\n\t\t\t\t\t\t\tNepřestávej, dokud nepřijede pomoc.</li>\n\t\t\t\t\t\t\t</ol>\n\t\t\t\t\t\t\t<p>👉 Zraněného <strong>vždy předej záchranářům</strong>, i když se probral a tvrdí,\n\t\t\t\t\t\t\tže je mu dobře. Proud může poškodit srdce tak, že se to projeví až za několik hodin.</p>\n\t\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t\t<p>Proč z ploché baterie nic necítíš, a přitom zásuvka zabíjí? Stačí\n\t\t\t\t\t\t\t<strong>Ohmův zákon</strong> <strong>I</strong> = <strong>U</strong> : <strong>R</strong>:</p>\n\t\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li><strong>Plochá baterie 4,5 V</strong> na suchou kůži (R ≈ 150 000 Ω):\n\t\t\t\t\t\t\t<strong>I</strong> = 4,5 : 150 000 = 0,00003 A = <strong>30 µA</strong> → ani to nepoznáš,\n\t\t\t\t\t\t\tjsi hluboko pod prahem vnímání.</li>\n\t\t\t\t\t\t\t<li><strong>Zásuvka 230 V</strong>: tady je zrada. Suchá kůže má sice velký odpor,\n\t\t\t\t\t\t\tale jen do zhruba <strong>50 V</strong>. Při vyšším napětí se elektricky <strong>prorazí</strong>\n\t\t\t\t\t\t\ta přestane chránit. Odpor těla pak klesne na <strong>asi 2 000 Ω</strong> a vyjde\n\t\t\t\t\t\t\t<strong>I</strong> = 230 : 2 000 = <strong>115 mA</strong>.</li>\n\t\t\t\t\t\t\t<li><strong>Mokrý člověk</strong> (R ≈ 2 000 Ω): stejně nízký odpor má vlhká kůže\n\t\t\t\t\t\t\thned od malého napětí. Vyjde proto opět <strong>I</strong> = 230 : 2 000 = <strong>115 mA</strong>.\n\t\t\t\t\t\t\tNebezpečné je to tak jako tak — suchý po proražení kůže i rovnou mokrý.</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<p>⚠️ Podívej se do tabulky výš: <strong>obě poslední čísla jsou hluboko nad 80 mA</strong>,\n\t\t\t\t\t\t\ttedy v pásmu zástavy srdce. <strong>Zásuvka je životu nebezpečná vždycky, i když jsi\n\t\t\t\t\t\t\túplně suchý.</strong> Už nad ~50 V se totiž prorazí kůže i v suchu, takže tě odpor\n\t\t\t\t\t\t\tsuché kůže vůbec nechrání. Vlhký člověk je ohrožen stejně, jen k tomu nepotřebuje\n\t\t\t\t\t\t\tžádné vysoké napětí — nízký odpor má hned od začátku.</p>\n\t\t\t\t\t\t\t<p>👉 A právě proto <strong>není bezpečné napětí totéž co malé napětí</strong>: rozhoduje,\n\t\t\t\t\t\t\tjestli napětí dokáže prorazit kůži. Do koupelny proto nepatří žádný spotřebič ze zásuvky\n\t\t\t\t\t\t\tani prodlužovačka a na vypínač se nesahá mokrou rukou.</p>\n\t\t\t\t\t\t",
+						zapis: {"vzorec":"I = U : R      (odvozeně: U = I · R,  R = U : I)","jednotky":["elektrický proud I — ampér (A)","elektrické napětí U — volt (V)","elektrický odpor R — ohm (Ω)","1 A = 1 000 mA = 1 000 000 µA","Do vzorce dosazuj napětí ve V a odpor v Ω; proud vyjde v A."],"vzorecSlovy":"proud je roven napětí děleno odporem; napětí je rovno proudu krát odpor; odpor je roven napětí děleno proudem","zakon":"Elektrický proud je přímo úměrný napětí a nepřímo úměrný elektrickému odporu.","body":["tělo je vodič, proud škodí","přímé: tkáň; nepřímé: popálenina, zlomenina","akutní ihned, pozdní za měsíce","stejnosměrný: křeč v místě vstupu","střídavý ze zásuvky: riziko fibrilace","proud rozkládá krev a buňky","škoda roste s proudem (mA)","odpor, cesta i napětí mění riziko","jistič chrání dům, chránič člověka","chránič vypíná už při 30 mA","bezpečné napětí: stejnosměrné 25 V, střídavé 12 V","vysoké napětí škodí i bez dotyku","nesahat mokrou rukou na elektriku","první pomoc: vypni proud, volej 155","uvolni oděv, zkontroluj dech a tep; nedýchá? stlačuj hrudník"]},
 						materialy: [
 							{ druh: 'youtube', nazev: 'Video: Účinky elektrického proudu na lidský organismus', cesta: 'VfCqvZDHUWQ' },
 						],

@@ -1,3 +1,5 @@
+STAV 21. 9. 2026 23:33: všech 15 podtémat F8 elektřina zapsáno a nasazeno
+
 # Rozpracované návrhy výkladů — předání 21. 9. 2026 (před /clear)
 
 Co to je: záloha pracovních souborů ze scratchpadu staré session (výklady k podtématům
@@ -22,17 +24,17 @@ Stav ke dni 21. 9. 2026 večer.
 
 | klíč | soubor | stav |
 |---|---|---|
-| `elektricke-obvody` | vyklad-elektricke-obvody-f8.md | PROŠLO (nezapsáno) |
-| `elektricky-proud-mereni` | vyklad-elektricky-proud-mereni-f8.md | PROŠLO (nezapsáno) |
-| `elektricke-napeti-mereni` | vyklad-elektricke-napeti-mereni-f8.md | PROŠLO s 2 drobnostmi (nezapsáno): v OBSAH vypustit nepodloženou větu o ručkovém voltmetru; v ZAPIS bod „plochá baterie: 3× 1,5 V = 4,5 V" |
-| `zavislost-odporu-na-vodici` | vyklad-zavislost-odporu-na-vodici-f8.md | NEPROŠLO: 3 odstavce >4 věty, 2 věty >20 slov, chybí „délku značíme l", metakomentáře v ZDROJE |
-| `ohmuv-zakon` | vyklad-ohmuv-zakon-f8.md | NEPROŠLO: zákon musí nést i „a nepřímo úměrný odporu R"; doplnit mΩ; věta o rezistorech z PDF s. 6; 3 dlouhé věty; vysvětlit U a I i s názvy jednotek |
-| `elektricky-proud-v-kovech-odpor` | vyklad-elektricky-proud-v-kovech-odpor-f8.md | OPRAVENO, čeká na opakovanou kontrolu |
-| `zapojeni-spotrebicu-za-sebou` | vyklad-zapojeni-spotrebicu-za-sebou-f8.md | NEPROŠLO (9 nálezů): vrátit větu „Všechny elektrony procházejí každou částí obvodu — zákon zachování toku"; vrátit „(zákon o úbytcích napětí)"; nezařazenou látku z PDF str. 3/5/6 označit MIMO SCOPE nebo zařadit Ohmův zákon pro části obvodu; odstavec „Vánoční žárovky" začíná cizí pomůckou; 2 odstavce >4 věty; 3 věty >20 slov; „motor" bez opory → pračka/PC/vařič; body zápisu jednoslovné, zavést indexy 1/2; I = U : R uvést v textu |
-| `zapojeni-spotrebicu-vedle-sebe` | vyklad-zapojeni-spotrebicu-vedle-sebe-f8.md | NAPSÁNO, čeká na kontrolu |
-| `rezistor-s-promennym-odporem` | vyklad-rezistor-s-promennym-odporem-f8.md | PÍŠE SE (soubor doplněn dodatečně, může být neúplný) |
-| `elektricka-prace-a-vykon` | — (soubor chybí) | ZBÝVÁ NAPSAT |
-| `ucinky-proudu-a-bezpecnost` | — (soubor chybí, F8 verze; F9 verze `vyklad-ucinky-proudu-bezpecnost-f9.md` je ZAPSÁNA) | ZBÝVÁ NAPSAT |
+| `elektricke-obvody` | vyklad-elektricke-obvody-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `elektricky-proud-mereni` | vyklad-elektricky-proud-mereni-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `elektricke-napeti-mereni` | vyklad-elektricke-napeti-mereni-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `zavislost-odporu-na-vodici` | vyklad-zavislost-odporu-na-vodici-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `ohmuv-zakon` | vyklad-ohmuv-zakon-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `elektricky-proud-v-kovech-odpor` | vyklad-elektricky-proud-v-kovech-odpor-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `zapojeni-spotrebicu-za-sebou` | vyklad-zapojeni-spotrebicu-za-sebou-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `zapojeni-spotrebicu-vedle-sebe` | vyklad-zapojeni-spotrebicu-vedle-sebe-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `rezistor-s-promennym-odporem` | vyklad-rezistor-s-promennym-odporem-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `elektricka-prace-a-vykon` | vyklad-elektricka-prace-a-vykon-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
+| `ucinky-proudu-a-bezpecnost` | vyklad-ucinky-proudu-a-bezpecnost-f8.md | ZAPSÁNO 21. 9. 2026 (build OK) |
 
 Součet F8 elektřina: 1× OPRAVENO/čeká kontrola, 1× NAPSÁNO/čeká kontrolu, 3× PROŠLO/nezapsáno,
 3× NEPROŠLO, 1× píše se, 2× zbývá napsat.
