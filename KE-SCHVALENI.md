@@ -15,3 +15,15 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    proudový a raketový motor a alternativní pohony (LPG/CNG, hybridy, elektromobily,
    vodík) — mimo současný rozsah podtématu `spalovaci-motory` (jen čtyřdobý
    zážehový, vznětový, dvoutaktní). Chce učitel tuto látku jako nové podtéma?
+
+## 21. 9. 2026 — nálezy z podkladů F8 (teplo a změny skupenství, 3. dávka)
+
+4. **PDF „Var" str. 5** uvádí u vody v textu teplotu varu „0 °C" — zjevný
+   překlep, tabulka na téže straně i graf na str. 3 mají správně 100 °C.
+   Na webu použito 100 °C podle tabulky. Opravit podklad?
+5. **Podtéma Tuhnutí** — tři pasáže dosavadního webu nemají oporu v PDF
+   Tuhnutí (viz ZDROJE ve zdrojovém výkladu): „Kdyby led neplaval" (úvaha
+   o rybníku promrzajícím ode dna), „Teplota tuhnutí se dá posunout — solení
+   silnic" (limit −21 °C) a „💡 Podchlazená voda" (pevné jádro, ťuknutí,
+   šestnáctina, podchlazení 80 °C). Fyzikálně v pořádku, ale beze zdrojového
+   dokladu — ponecháno z dosavadního webu, rozhodne učitel, odkud pochází.

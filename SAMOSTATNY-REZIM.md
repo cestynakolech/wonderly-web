@@ -93,12 +93,38 @@ Zapsáno výhradně nástrojem `podtema.mjs`, build i `zkontroluj.mjs` procháze
 2. dávka HOTOVA — celky `mechanicka-prace-a-vykon` (2 podtémata) a
 `tepelne-motory` (2 podtémata) přestavěny stejným postupem, každé podtéma
 mělo nezávislého kontrolora (opus), 3 ze 4 podtémat měla 1 opravnou smyčku.
-3. dávka (celek `teplo-a-zmeny-skupenstvi`, 7 podtémat) běží. Zbývá v F8:
-`elektrina` (15), `zvuk` (3), `shrnuti` (2, bez zdrojů) — pak 6., 7., 9. ročník,
-stejný postup (worker-výklad → kontrolor → podtema.mjs).
+3. dávka HOTOVA — celek `teplo-a-zmeny-skupenstvi` 7/7 podtémat přestavěno
+(tuhnutí, var, kondenzace, skupenské změny vody v přírodě + 3 dřívější),
+každé podtéma mělo nezávislého kontrolora, 6 ze 7 potřebovalo 1 opravnou
+smyčku. Typický nález oprav: vypadlý dosavadní bod/věta při 1. kole —
+pravidlo „dosavadní obsah se nikdy nevyřazuje jako MIMO SCOPE" doplněno
+do zadání workerů. F8 hotové celky 1–4. Podle bodu E teď běží 1. celky
+F7 (`pohyb-a-rychlost`, 4 podtémata) a F9 (`magneticke-pole`, 3 podtémata)
+souběžně. Zbývá v F8: `elektrina` (15), `zvuk` (3), `shrnuti` (2, bez
+zdrojů) — přijde na řadu ve svém pořadí podle bodu E.
 Drobnosti do stavu: podtéma potraviny má 7×`<h3>` a 8 bodů zápisu (víc než vzor,
 neškodí); odvozené vztahy uvnitř rámečku vzorce se na užší obrazovce zalamují
 na dva řádky — zvážit přesun do nadstavby.
+
+**E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
+
+(i) **Pořadí práce** = 1. celek (téma) u ročníků 7, 8, 9, pak 2. celek u všech
+tří, atd. — cíl: to, co učitel učí příště, je hotové ve všech ročnících naráz.
+Ročník 6 učitel nezmínil, zůstává mimo pořadí, dokud neřekne.
+
+(ii) **„Hotové téma"** = ÚPLNĚ VŠE, co učitel kdy chtěl: výklad podle A–D +
+zápis do sešitu + kvíz 21 otázek SLADĚNÝ s novým výkladem (po přestavbě
+výkladu se kvíz musí znovu zkontrolovat proti výkladu — nadstavba na konci
+je stále učivo, ale otázky z ní patří na konec kvízu) + názornost
+(simulace/animace, kde chybí) + české odkazy + vše prošlé nezávislým
+kontrolorem.
+
+(iii) **Stav k 21. 9.:** F8 celky 1–4 hotové (mechanická práce a výkon,
+energie, tepelné motory, teplo a změny skupenství). Podle bodu E teď běží
+1. celky F7 (`pohyb-a-rychlost`, 4 podtémata) a F9 (`magneticke-pole`,
+3 podtémata) souběžně, pak 2. celky, atd.; F8 celek 5+ až ve svém pořadí.
+Kvízová kontrola sladění s novým výkladem = samostatný krok po každém
+celku (zatím neudělán pro F8 celky 1–4 → zařadit).
 
 ### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
 
