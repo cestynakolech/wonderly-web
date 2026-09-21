@@ -5,11 +5,22 @@
 > **Na KONCI každé session `PROGRESS.md` aktualizuj** (přidej datovaný záznam do sekce Historie, uprav HOTOVÉ/ZBÝVÁ) a **commitni + pushni** — tím se stav i historie uloží na GitHub jako vratná verze. Po dokončení celého ročníku přidej git tag jako milník.
 
 ## Co to je
+**wonderly je JEDEN projekt a jedna webová stránka** (tohle je jeho jediný popis, jinde
+se neopisuje), jen se dělí na podprojekty: web v tomhle repu, cestovatelský deník
+cesty.wonderly.cz, propustka z hodiny (Apps Script), YouTube automat, appka `/tour`,
+pracovní prostor a skripty `~/Desktop/Omega` a zdrojové školní podklady
+`/Users/Shared/Škola`. Podprojekt není jiný projekt: fronta úkolů je jedna
+(`SAMOSTATNY-REZIM.md`), stav vede `PROGRESS.md`.
+
 Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na subdoménách:
-- **lab.wonderly.cz** = `/skola2` — 2. stupeň ZŠ. Specifika: `src/pages/skola2/CLAUDE.md`.
-- **cesty.wonderly.cz** = `/cesty` — cestovatelský deník. Specifika: `src/pages/cesty/CLAUDE.md`.
-- **fox.wonderly.cz** = `/fox` — 1. stupeň. Specifika: `src/pages/fox/CLAUDE.md`.
+- **lab.wonderly.cz** = `/skola2` — 2. stupeň ZŠ. Specifika: `src/pages/skola2/_CLAUDE.md`.
+- **cesty.wonderly.cz** = `/cesty` — cestovatelský deník. Specifika: `src/pages/cesty/_CLAUDE.md`.
+- **fox.wonderly.cz** = `/fox` — 1. stupeň. Specifika: `src/pages/fox/_CLAUDE.md`.
 - **wonderly.cz** — rozcestník (`src/pages/index.astro`).
+
+> **Soubory sekcí mají podtržítko** (`_CLAUDE.md`), aby je Astro nepublikovalo jako
+> stránku — a proto se **automaticky NENAČÍTAJÍ**. Kdo v sekci pracuje, přečte si je
+> ručně (Read). Přejmenováno 29. 8. 2026.
 
 **JEDNO repo, JEDEN build, JEDEN Worker.** Subdomény jsou jen přesměrování v `worker.js` podle Host hlavičky (fox.→`/fox`, lab.→`/skola2`, cesty.→`/cesty`) + servírování fotek z R2 přes `/media/`. Žádná sekce se nenasazuje samostatně — **push na `main` nasazuje vždy všechny tři sekce naráz**, takže rozbitá prebuild brána kvůli jedné sekci zablokuje nasazení všech.
 
@@ -29,17 +40,17 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:
 ```
-src/pages/<sekce>/       ← routovací šablony + CLAUDE.md sekce (zdroj pravdy pravidel)
+src/pages/<sekce>/       ← routovací šablony + _CLAUDE.md sekce (zdroj pravdy pravidel)
 src/components/<sekce>/  ← komponenty (CLAUDE.md = ukazatel na pravidla sekce)
 src/data/                ← datové soubory školy; src/data/cesty/ = data deníku
-                           (v obou složkách CLAUDE.md-ukazatel, ať se pravidla načtou i tady)
+                           (v obou složkách CLAUDE.md-ukazatel na _CLAUDE.md sekce)
 public/                  ← statické soubory (materialy/ škola, obrazky/, cesty/)
 ```
 
 **Orchestrátorský režim:** zapíná se příkazem `/orch-on` (vytvoří značku `~/.claude/ORCHESTRATOR_ON`; vrátný pak hlavnímu sezení blokuje Read/Edit/Write/Grep/Glob i neřídicí Bash a práce se deleguje subagentům), vypíná `/orch-off` nebo `rm ~/.claude/ORCHESTRATOR_ON`.
 
 ## Pravidlo řezu dokumentace
-Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové CLAUDE.md (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/CLAUDE.md`. Orchestrátor tato specifika sám nevidí (má zakázané čtení) — musí nechat příslušný `CLAUDE.md` načíst agentovi, který v dané sekci pracuje.
+Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do jejího souboru; **nic nesmí být na dvou místech**. Ukazatelové `CLAUDE.md` (jednořádkový `@import`) nejsou kopie — obsah žije vždy jen v `src/pages/<sekce>/_CLAUDE.md`. Orchestrátor tato specifika sám nevidí (má zakázané čtení) — musí nechat příslušný `_CLAUDE.md` načíst agentovi, který v dané sekci pracuje.
 
 ## Postup nasazení (společný pro všechny sekce)
 ```

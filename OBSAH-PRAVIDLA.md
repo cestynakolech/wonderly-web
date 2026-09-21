@@ -60,18 +60,22 @@ Chyba přímo v podkladech učitele se **neopravuje potichu** — zapíše se do
 
 ## 2. Kde jsou zdroje pravdy (konkrétní cesty)
 
+**PODMÍNKA před další prací na fyzice 6** (rozhodnutí učitele 19. 8. 2026 — bod C):
+chybějící popisy prezentací se **dopíšou automatem**
+(`python3 ~/Desktop/Omega/skripty/popis_prezentace.py "<cesta.pptx>"`, sekvenčně,
+1 těžký proces) **DŘÍV, než se na fyzice 6 udělá další obsahová práce**. Bez popisu by
+šestý ročník vznikal jen z PDF a vypadla by polovina rovnocenného zdroje (bod B).
+Není to „hezké mít", je to vstupní podmínka: než začne výklad/kvíz/simulace k podtématu
+6. ročníku, popis příslušné prezentace musí existovat.
+**Stav k 21. 9. 2026: 39 prezentací, 36 popsáno, 3 chybí** — všechny v 6. ročníku
+(`6/01 Látka/Stavba látek  .pptx`, `6/02 Síla/Síla 6 .pptx`,
+`6/07 Opakování rok/Fyzika opakování  rok 6 r. .pptx`).
+
 | co | kde | poznámka |
 |---|---|---|
 | **PDF učebnic (určující zdroj)** | `/Users/Shared/Škola/<ročník>/<celek>/<podtéma>/*.pdf` | 178 PDF: 6→38, 7→57, 8→39, 9→44 |
 | **Původní prezentace** (leží U PDF, tamtéž) | `/Users/Shared/Škola/**/*.pptx` | 40 souborů: 6→8, 7→23, 8→5, 9→3 |
-| **Popisy prezentací** (ČTOU SE MÍSTO .pptx) | `~/Desktop/Omega/dokumenty/prezentace-popisy/<název>.md` | **30 popsáno**; chybí prakticky celý 6. ročník (TEPLOTA, Síla 6, Fyzika opakování rok 6, Dráha puzzle, Test pololetí 2, „,") — **PODMÍNKA, viz níže** |
-
-**PODMÍNKA před další prací na fyzice 6** (rozhodnutí učitele 19. 8. 2026 — bod C):
-chybějící popisy prezentací se **dopíšou automatem** (`python3 ~/Desktop/Omega/skripty/popis_prezentace.py "<cesta.pptx>"`,
-sekvenčně, 1 těžký proces) **DŘÍV, než se na fyzice 6 udělá další obsahová práce**. Bez popisu by
-šestý ročník vznikal jen z PDF, a tím by vypadla polovina rovnocenného zdroje (bod B).
-Neplatí jako „hezké mít" — je to vstupní podmínka: než začne výklad/kvíz/simulace k podtématu
-6. ročníku, popis příslušné prezentace musí existovat.
+| **Popisy prezentací** (ČTOU SE MÍSTO .pptx) | `~/Desktop/Omega/dokumenty/prezentace-popisy/<název>.md` | **PODMÍNKA, viz odstavec nad tabulkou** |
 | automat na popis prezentace | `python3 ~/Desktop/Omega/skripty/popis_prezentace.py "<cesta.pptx>"` | 1 těžký proces; **prezentaci nikdy nečíst po snímcích v session** |
 | SmartBooks (jen zdroj faktů) | `/Users/Shared/Škola/6/SmartBooks/…` | placený obsah, viz zákazy |
 | **ŠVP + RVP** | `/Users/Shared/Škola/2 stupen/Rozvrh časový plán/staré časové plány/ŠVP-F-Sviny+RVP.docx` | závazný seznam témat |
@@ -94,7 +98,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 
 - Vzniká **z PDF + z popisu prezentace** k témuž podtématu. Jiný zdroj se používá jen na ověření, ne jako předloha.
 - **PREZENTACE JSOU ROVNOCENNÝ ZDROJ S PDF** (rozhodnutí učitele 19. 8. 2026 — bod B), ne podřízený.
-  Dřívější formulace „určující je vždy PDF" **NEPLATÍ** a je z `src/pages/skola2/CLAUDE.md` odstraněna.
+  Dřívější formulace „určující je vždy PDF" **NEPLATÍ** a je z `src/pages/skola2/_CLAUDE.md` odstraněna.
   Výklad musí pokrýt látku z OBOU zdrojů. Když se PDF a prezentace liší, není to důvod dát automaticky
   přednost PDF: rozpor se **ověří** (přepočítat, porovnat se ŠVP) a **zapíše** do
   `~/Desktop/Omega/dokumenty/kontrola-podkladu-*.md` — tiché rozhodnutí ve prospěch jednoho zdroje
@@ -103,7 +107,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Rozsah a jazyk podle ročníku; 3–6 odstavců + shrnutí.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
 - Odkazy uvnitř webu **relativní**; externí odkazy **jen české** — když český zdroj není, napíše se vlastní česká stránka.
-- Zdroj pravidel: `src/pages/skola2/CLAUDE.md`, agent `worker-vyklad`, paměti
+- Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
   `feedback-kontrolovat-spravnost-textu`, `feedback-odkazy-jen-cesky`.
 
 ## 4. KVÍZ (kvizy.ts)
@@ -117,7 +121,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   (`node testy/vypis-kviz.mjs <blok> --otazky`); hlídá `testy/uniky.mjs`.
 - Měřidla před nasazením: `node zkontroluj.mjs` (bod 6b délky, 6c souhrnné kvízy), rohatka `pocetNaskok15`.
 - **Kontrolora kvízů pouštět DVAKRÁT** — opravy podle prvního kola samy zanášely nové úniky.
-- Zdroj: `src/pages/skola2/CLAUDE.md`, skill `/wonderly` (Kvízy — pasti), `feedback-kvizy-delkova-napoveda`.
+- Zdroj: `src/pages/skola2/_CLAUDE.md`, skill `/wonderly` (Kvízy — pasti), `feedback-kvizy-delkova-napoveda`.
 - **POČET OTÁZEK: ZÁVAZNÉ JE 21 na podtéma** (rozhodnutí učitele 19. 8. 2026 — bod A).
   Je to **CÍL na podtéma**, ne strop a ne průměr: blok pod 21 otázkami je nedodělaný.
   - **„5–8 otázek" NENÍ cíl** — je to jen velikost JEDNÉ PRACOVNÍ DÁVKY, kolik otázek napíše
@@ -253,7 +257,8 @@ ne rozpis hodin.
 kvízové otázky tématu". Po rozhodnutí A (cíl 21 otázek na podtéma) se to pere ještě víc
 než dřív. → Smí kvíz tématu pokrýt **SÉRIE dílů dohromady** (a brána `pokryti_kvizu.py`
 by pak měřila sérii, ne jeden díl)? Nebo má díl pokrýt celý kvíz i za cenu délky?
-*Do rozhodnutí platí dosavadní stav: brána měří jednotlivý díl.*
+*Do rozhodnutí platí dosavadní stav: brána `pokryti_kvizu.py` měří JEDNOTLIVÝ DÍL;
+sérii dílů dnes změřit nelze — takové měřidlo zatím neexistuje.*
 
 Nic dalšího otevřené není — body A–E, G a H učitel rozhodl 19. 8. 2026 a jsou zapsané
 výše v těle ústavy (A → kap. 4, B → kap. 3, C → kap. 2, D → kap. 10, E → kap. 5,
