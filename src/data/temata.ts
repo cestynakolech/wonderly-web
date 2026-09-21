@@ -1503,15 +1503,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'klid-a-pohyb-telesa',
 					nazev: 'Klid a pohyb tělesa',
 					interakce: 'relativita-pohybu',
-					obsah: "<h2>Klid a pohyb tělesa</h2>\n<p>Těleso je <strong>v pohybu</strong>, když mění svou polohu vzhledem k jinému tělesu. Je <strong>v klidu</strong>, když svou polohu vzhledem k tomuto tělesu nemění. Vždy proto řekneme, <strong>vzhledem ke kterému tělesu</strong> klid nebo pohyb posuzujeme.</p>\n<p>Sedící cestující v jedoucím vlaku je v klidu vzhledem ke spolucestujícímu na vedlejším sedadle i ke svému sedadlu. Vzhledem k dítěti stojícímu u přejezdu je ale v pohybu. <strong>Klid a pohyb jsou relativní:</strong> stejné těleso může být zároveň v klidu vzhledem k jednomu tělesu a v pohybu vzhledem k jinému.</p>\n<p>I strom se může pohybovat vzhledem k jinému tělesu: vzhledem k řidiči jedoucího auta mění polohu a spolu se Zemí se pohybuje vzhledem ke Slunci.</p>\n<h3>Trajektorie: kudy těleso prochází</h3>\n<p><strong>Trajektorie</strong> je čára tvořená místy, kterými těleso při pohybu prochází. Může být viditelná, nebo jen myšlená. Viditelnou stopu zanechá tužka na papíře nebo lyžař ve sněhu. Trajektorii letu si můžeme jen představit. V běžné řeči používáme také slovo <strong>trasa</strong>.</p>\n<h3>Přímočarý a křivočarý pohyb</h3>\n<ul><li><strong>Přímočarý pohyb:</strong> trajektorií je přímka nebo její část, například úsečka. Takto jede výtah nebo zboží po rovném pásu u pokladny.</li>\n<li><strong>Křivočarý pohyb:</strong> trajektorií není přímka, ale křivka. Příkladem je slalom lyžaře, kličkování zajíce, pohyb dítěte na kolotoči nebo míče při volejbalu.</li></ul>\n<h3>Dráha: jakou délku těleso urazilo</h3>\n<p><strong>Dráha</strong> je fyzikální veličina udávající délku uražené trajektorie. Značí se <strong>s</strong> a její základní jednotkou je <strong>metr (m)</strong>. Vyjadřovat ji můžeme i v dalších jednotkách délky.</p>\n<p>Trajektorii a dráhu nezaměňujeme: trajektorie je čára, dráha její uražená délka. Když se například řekne „oválná závodní dráha“, popisuje se tvar čáry, tedy fyzikálně <strong>trajektorie</strong>, nikoli její délka.</p>",
-					zapis: {
-						body: [
-							'Pohyb tělesa je změna jeho polohy vzhledem k jinému tělesu.',
-							'Klid a pohyb jsou relativní — vždy záleží na tom, vzhledem ke kterému tělesu pohyb posuzujeme.',
-							'Trajektorie je čára, po které se těleso pohybuje, a dráha je délka této trajektorie.',
-							'Podle tvaru trajektorie rozlišujeme pohyb přímočarý a křivočarý.',
-						],
-					},
+					obsah: "<h2>Klid a pohyb tělesa</h2>\n\n<p>Těleso je <strong>v pohybu</strong>, když mění svou polohu vůči jinému tělesu. Je <strong>v klidu</strong>, když svou polohu vůči němu nemění. Vždy proto musíme uvést, vzhledem k jakému tělesu klid nebo pohyb posuzujeme — říkáme také, kdo je pozorovatel.</p>\n<p>Sedící cestující ve vlaku je v klidu vůči svému sedadlu i vůči spolucestujícímu vedle sebe. Vůči dítěti stojícímu u přejezdu je ale v pohybu. Stejné těleso může být v klidu vůči jednomu tělesu a zároveň v pohybu vůči jinému.</p>\n<p>Podobně je to i se stromem. Vůči řidiči jedoucího auta strom mění polohu, a proto se pohybuje. Spolu se Zemí se navíc pohybuje i vůči Slunci. Klid a pohyb tělesa proto vždy závisí na tom, s čím je srovnáváme (odborně: jsou relativní).</p>\n<h3>Trasa pohybu (trajektorie): kudy těleso prochází</h3>\n<p>Čára, kterou těleso opíše při pohybu, se nazývá trasa neboli trajektorie. Může být vidět, třeba stopa lyžaře ve sněhu nebo čára tužky na papíře. Trasu letícího ptáka si musíme jen představit.</p>\n<h3>Přímočarý a křivočarý pohyb</h3>\n<p>Podle tvaru trasy rozlišujeme dva druhy pohybu.</p>\n<ul>\n<li><strong>Přímočarý pohyb:</strong> trasou je přímka nebo úsečka. Takhle jede výtah nebo zboží po rovném pásu u pokladny.</li>\n<li><strong>Křivočarý pohyb:</strong> trasou je křivka. Příkladem je slalom lyžaře, kličkování zajíce, pohyb dítěte na kolotoči nebo míč při volejbalu.</li>\n</ul>\n<h3>Dráha: jakou délku těleso urazilo</h3>\n<p><strong>Dráha</strong> je délka trasy, kterou těleso urazilo. Značíme ji <strong>s</strong> a měříme v metrech (m); použít můžeme i jiné jednotky délky.</p>\n<p>Trasa a dráha nejsou totéž: trasa je čára, dráha je její délka. Když řekneme „oválná závodní dráha\", myslíme tím tvar čáry, tedy trasu (trajektorii) — ne její délku.</p>",
+					zapis: {"jednotky":["dráha — značíme s, jednotka m (metr)"],"body":["Pohyb tělesa je změna jeho polohy vzhledem k jinému tělesu.","klid a pohyb tělesa jsou relativní","vždy uvádíme, vzhledem k jakému tělesu (kdo je pozorovatel)","trasa (trajektorie) — čára, po které se těleso pohybuje","pohyb je přímočarý, nebo křivočarý","dráha — délka trasy, s, m"]},
 					materialy: [
 						{
 							druh: 'infografika',
@@ -1524,38 +1517,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'posuvny-otacivy-pohyb',
 					nazev: 'Posuvný a otáčivý pohyb',
 					interakce: 'posuvny-otacivy',
-					obsah: `
-						<h2>Posuvný a otáčivý pohyb</h2>
-						<p>Existují <strong>dva základní jednoduché pohyby</strong> těles. Všechny složitější pohyby jsou z nich složené.</p>
-						<h3>Posuvný pohyb</h3>
-						<p>Každý bod tělesa se pohybuje <strong>stejným směrem a stejnou rychlostí</strong>. Dráhy jednotlivých bodů mají stejný tvar i délku a jsou rovnoběžné — nejsou to ale tytéž dráhy, každý bod se pohybuje po své vlastní trajektorii.</p>
-						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-pohyb.jpg" alt="Posuvný pohyb trojúhelníkového pravítka" />
-						<p>Příklady: vlak na rovné trati, zboží na pokladním pásu, letadlo při dálkovém letu.</p>
-						<h3>Otáčivý pohyb</h3>
-						<p>Body tělesa se pohybují <strong>po kružnicích</strong> se středy na <strong>ose otáčení</strong>. Osa může být uvnitř tělesa (krasobruslařka při piruetě) i mimo něj (auto na kruhovém objezdu).</p>
-						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/otacivy-pohyb.jpg" alt="Otáčivý pohyb trojúhelníkového pravítka" />
-						<p>👉 <strong>Čím dál je bod od osy otáčení, tím větší kružnici opisuje a pohybuje se rychleji</strong> — konec hodinové ručičky je rychlejší než její střed.</p>
-						<h3>Složený pohyb</h3>
-						<p>Kombinace jednoduchých pohybů:</p>
-						<ul>
-							<li><strong>Země</strong> — otáčí se kolem vlastní osy a zároveň obíhá kolem Slunce</li>
-							<li><strong>šroub</strong> — otáčí se a přitom se posouvá; trajektorie má tvar <strong>šroubovice</strong></li>
-							<li>horská dráha, akrobatický let, gymnasta na hrazdě</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Při posuvném pohybu se každý bod tělesa pohybuje stejným směrem a stejnou rychlostí.',
-							'Dráhy bodů při posuvném pohybu mají stejný tvar a délku a jsou rovnoběžné.',
-							'Při otáčivém pohybu se body tělesa pohybují po kružnicích se středy na ose otáčení.',
-							'Čím dál je bod od osy otáčení, tím větší kružnici opisuje a tím rychleji se pohybuje.',
-							'Složený pohyb vzniká spojením posuvného a otáčivého pohybu.',
-						],
-						jednotky: [
-							'V tomto tématu nezavádíme fyzikální veličinu ani jednotku.',
-							'Nepoužíváme zde výpočetní vzorec, proto se do něj žádné jednotky nedosazují.',
-						],
-					},
+					obsah: "<h2>Posuvný a otáčivý pohyb</h2>\n\n<p>Rozhlédni se kolem sebe — vlak jede po kolejích, houpačka se houpe, šroub se zatáčí do dřeva. Každý takový pohyb patří k jednomu ze dvou <strong>základních druhů pohybu</strong>: posuvnému nebo otáčivému. Všechny složitější pohyby jsou z nich poskládané.</p>\n\n<h3>Posuvný pohyb</h3>\n<p>Při posuvném pohybu se <strong>každý bod tělesa pohybuje stejným směrem a stejnou rychlostí</strong>. Dráhy všech bodů mají stejný tvar a stejnou délku, jen jsou vedle sebe posunuté.</p>\n<img src=\"/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/posuvny-pohyb.jpg\" alt=\"Posuvný pohyb trojúhelníkového pravítka\" />\n<p>Podle tvaru dráhy rozlišujeme dva druhy. Je-li dráha rovná, jde o pohyb <strong>přímočarý</strong>. Je-li dráha zakřivená, jde o pohyb <strong>křivočarý</strong>.</p>\n<p>Příklady: vlak jedoucí po rovné trati, zboží klouzající po pokladním pásu, letadlo při dálkovém letu.</p>\n\n<h3>Otáčivý pohyb</h3>\n<p>Při otáčivém pohybu se <strong>všechny body tělesa pohybují po kružnicích</strong>. Jejich středy leží na jedné přímce, které říkáme <strong>osa otáčení</strong>.</p>\n<img src=\"/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/otacivy-pohyb.jpg\" alt=\"Otáčivý pohyb trojúhelníkového pravítka\" />\n<p>Osa otáčení může být uvnitř tělesa, třeba u krasobruslařky při piruetě. Nebo může být mimo těleso, třeba u auta na kruhovém objezdu.</p>\n<p>👉 <strong>Čím dál je bod od osy otáčení, tím větší kružnici opisuje a tím rychleji se pohybuje.</strong> Proto je konec hodinové ručičky rychlejší než její střed.</p>\n<p>Příklady: houpačka, hodinové ručičky, krasobruslařka při piruetě, auto na kruhovém objezdu.</p>\n\n<h3>Složený pohyb</h3>\n<p>Složený pohyb vznikne, když se posuvný a otáčivý pohyb spojí dohromady.</p>\n<ul>\n<li><strong>Země</strong> — otáčí se kolem vlastní osy a zároveň obíhá kolem Slunce.</li>\n<li><strong>Šroub</strong> — otáčí se a přitom se posouvá do dřeva; jeho dráha má tvar šroubovice.</li>\n<li>Podobně se pohybuje horská dráha, akrobatický let letadla nebo gymnasta na hrazdě.</li>\n</ul>",
+					zapis: {"body":["posuvný pohyb: stejný směr, stejná rychlost","dráhy bodů: stejný tvar a délka, rovnoběžné","posuvný přímočarý: dráha je přímka","posuvný křivočarý: dráha je křivka","otáčivý pohyb: body po kružnicích kolem osy","dál od osy = větší kružnice = větší rychlost","složený pohyb = posuvný + otáčivý"]},
 					materialy: [
 						{
 							druh: 'infografika',
@@ -1582,59 +1545,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'rychlost-draha-cas',
 					nazev: 'Rychlost, dráha, čas',
 					interakce: 'rychlost',
-					obsah: `
-						<h2>Rychlost, dráha, čas</h2>
-						<p>Pro rovnoměrný pohyb platí mezi rychlostí (v), dráhou (s) a časem (t) tyto vztahy:</p>
-						<ul>
-							<li><strong>v = s : t</strong> (rychlost = dráha děleno čas)</li>
-							<li><strong>s = v · t</strong> (dráha = rychlost krát čas)</li>
-							<li><strong>t = s : v</strong> (čas = dráha děleno rychlost)</li>
-						</ul>
-
-						<h3>Převod jednotek rychlosti</h3>
-						<p>Rychlost se nejčastěji udává v kilometrech za hodinu (km/h) nebo metrech za sekundu (m/s).</p>
-						<ul>
-							<li>Z km/h na m/s: děl 3,6</li>
-							<li>Z m/s na km/h: násob 3,6</li>
-						</ul>
-
-						<h3>Grafy pohybu</h3>
-						<p>V grafu závislosti dráhy na čase rozlišujeme:</p>
-						<ul>
-							<li><strong>rovnoměrný pohyb</strong> – graf je přímka (rychlost se nemění)</li>
-							<li><strong>nerovnoměrný pohyb</strong> – graf není přímka (rychlost se mění)</li>
-						</ul>
-						<p>Jestliže těleso urazí za stejné doby vždy stejné dráhy, koná rovnoměrný pohyb:</p>
-						<img src="/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/rovnomerny-pohyb.jpg" alt="Nerovnoměrný a rovnoměrný pohyb automobilu" />
-						<h3>Okamžitá a průměrná rychlost</h3>
-						<ul>
-							<li><strong>okamžitá rychlost</strong> — jak rychle se těleso pohybuje právě teď; ukazuje ji tachometr nebo policejní radar</li>
-							<li><strong>průměrná rychlost</strong> — celková dráha děleno celkový čas celého pohybu</li>
-						</ul>
-						<h3>Druhy pohybu podle rychlosti</h3>
-						<ul>
-							<li><strong>rovnoměrný</strong> — rychlost se nemění (eskalátor, hodinová ručička, auto na dálnici)</li>
-							<li><strong>nerovnoměrný</strong> — rychlost se mění; <strong>zrychlený</strong> (start rakety, rozjíždění autobusu) nebo <strong>zpomalený</strong> (brždění vlaku)</li>
-						</ul>
-						<p>⚠️ Pozor: mezi m/s a km/h se <strong>neposouvá desetinná čárka</strong>! Hodina má 3 600 s a kilometr 1 000 m — proto koeficient 3,6 (10 m/s = 36 km/h).</p>
-					`,
-					zapis: {
-						body: [
-							'Rychlost udává, jakou dráhu těleso urazí za určitý čas.',
-							'Při rovnoměrném pohybu urazí těleso za stejné doby vždy stejné dráhy a jeho rychlost se nemění.',
-							'Okamžitá rychlost popisuje pohyb právě teď, průměrná rychlost je celková dráha dělená celkovým časem.',
-							'Rovnoměrný pohyb má v grafu dráhy na čase přímku, nerovnoměrný pohyb přímku nemá; nerovnoměrný pohyb může být zrychlený nebo zpomalený.',
-							'Rychlost se udává v m/s nebo v km/h; mezi jednotkami se násobí nebo dělí číslem 3,6, desetinná čárka se neposouvá.',
-						],
-						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)',
-						jednotky: [
-							'rychlost v — metr za sekundu (m/s) nebo kilometr za hodinu (km/h)',
-							'dráha s — metr (m) nebo kilometr (km)',
-							'čas t — sekunda (s) nebo hodina (h)',
-							'1 km = 1 000 m,  1 h = 3 600 s; z km/h na m/s děl 3,6, z m/s na km/h násob 3,6',
-							'Do vzorce dosazuj jednotky ve shodné soustavě: m a s pro výsledek v m/s, nebo km a h pro výsledek v km/h.',
-						],
-					},
+					obsah: "<h2>Rychlost, dráha, čas</h2>\n<p>Rychlost říká, jak rychle se něco pohybuje. Ukazuje, jakou dráhu těleso urazí za určitý čas. Čím delší dráhu urazí za stejnou dobu, tím je rychlejší.</p>\n<p>Rychlost značíme <strong>v</strong>, dráhu <strong>s</strong> a čas <strong>t</strong>. Platí mezi nimi vzorec:</p>\n<p style=\"font-size:1.3rem\"><strong>v = s : t</strong></p>\n<p>Rychlost je dráha dělená časem. Když ze vzorce vyjádříme dráhu nebo čas, dostaneme dva další vzorce: <strong>s = v · t</strong> a <strong>t = s : v</strong>.</p>\n\n<h3>Jednotky rychlosti</h3>\n<p>Rychlost se nejčastěji udává ve <strong>metrech za sekundu (m/s)</strong> nebo v <strong>kilometrech za hodinu (km/h)</strong>. Metry za sekundu se hodí třeba u běžce. Kilometry za hodinu známe z rychloměru v autě.</p>\n\n<h3>Převod mezi m/s a km/h</h3>\n<p>Mezi jednotkami se <strong>násobí nebo dělí číslem 3,6</strong> — desetinná čárka se nikam neposouvá. Hodina má 3 600 sekund a kilometr má 1 000 metrů, z toho číslo 3,6 vychází.</p>\n<ul>\n<li>Z m/s na km/h: <strong>násob 3,6</strong> (10 m/s = 36 km/h)</li>\n<li>Z km/h na m/s: <strong>děl 3,6</strong> (36 km/h = 10 m/s)</li>\n</ul>\n\n<h3>Rovnoměrný a nerovnoměrný pohyb</h3>\n<p>Když těleso urazí za stejné doby vždy stejné dráhy, koná <strong>rovnoměrný pohyb</strong> — jeho rychlost se nemění. Tak jede třeba auto na dálnici, jezdí eskalátor nebo se otáčí ručička hodin.</p>\n<p>Když se dráhy za stejné doby liší, jde o <strong>nerovnoměrný pohyb</strong> — rychlost se mění. Může být <strong>zrychlený</strong>, třeba start rakety nebo rozjíždění autobusu, anebo <strong>zpomalený</strong>, třeba brzdění vlaku.</p>\n<img src=\"/obrazky/fyzika/7-rocnik/pohyb-a-rychlost/rovnomerny-pohyb.jpg\" alt=\"Nerovnoměrný a rovnoměrný pohyb automobilu\" />\n\n<h3>Graf dráhy a času</h3>\n<p>Pohyb zakreslíme do grafu, kde je na jedné ose čas a na druhé dráha. U rovnoměrného pohybu je graf <strong>přímka</strong>, protože rychlost se nemění. U nerovnoměrného pohybu přímka není.</p>\n\n<h3>Okamžitá a průměrná rychlost</h3>\n<p><strong>Okamžitá rychlost</strong> ukazuje, jak rychle se těleso pohybuje právě teď. Vidíme ji na tachometru v autě nebo na policejním radaru.</p>\n<p><strong>Průměrná rychlost</strong> je jiná věc — je to celá dráha dělená celým časem cesty, i když se rychlost po cestě měnila. Počítáme ji stejným vzorcem v = s : t.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Rychlost 72 km/h běžně vídáme na značkách v obci. Kolik je to metrů za sekundu?</p>\n<p>v = 72 : 3,6 = <strong>20 m/s</strong></p>\n<p>A naopak: cyklista jede rychlostí 20 m/s. Kolik to je v km/h?</p>\n<p>v = 20 &middot; 3,6 = <strong>72 km/h</strong></p>\n<p>Autobus ujel 60 km za 90 minut. Jaká byla jeho průměrná rychlost v km/h?</p>\n<p>90 min = 1,5 h<br>v = s : t = 60 : 1,5 = <strong>40 km/h</strong></p>\n<p>💡 Zkouška po hlavě: 1,5 &middot; 40 = 60 km — souhlasí.</p>",
+					zapis: {"vzorec":"v = s : t      (odvozeně: s = v · t,  t = s : v)","jednotky":["rychlost — značíme v, jednotka m/s (metr za sekundu) nebo km/h (kilometr za hodinu)","dráha — značíme s, jednotka m (metr) nebo km (kilometr)","čas — značíme t, jednotka s (sekunda) nebo h (hodina)","Převod: z km/h na m/s děl 3,6, z m/s na km/h násob 3,6 (desetinná čárka se neposouvá).","Do vzorce dosazuj jednotky ve stejné soustavě — buď m a s, nebo km a h."],"vzorecSlovy":"rychlost = dráha děleno čas","body":["v = s : t","m/s ↔ km/h: násob/děl 3,6","rovnoměrný pohyb — rychlost se nemění","nerovnoměrný pohyb — rychlost se mění","průměrná rychlost = celá dráha : celý čas"]},
 					materialy: [
 						{
 							druh: 'infografika',
@@ -1656,85 +1568,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'priklady-na-vypocet-rychlosti',
 					nazev: 'Příklady na výpočet rychlosti',
 					interakce: 'vypocet-rychlosti',
-					obsah: `
-						<h2>Příklady na výpočet rychlosti</h2>
-
-						<p><strong>Příklad 1: Cesta autem</strong><br>
-						Auto ujelo vzdálenost 200 km za 4 hodiny. Jaká byla průměrná rychlost auta?</p>
-						<p>v = s : t = 200 : 4 = <strong>50 km/h</strong></p>
-
-						<p><strong>Příklad 2: Běh na lyžích</strong><br>
-						Běžec na lyžích urazil 30 km za 2 hodiny. Jakou průměrnou rychlostí se pohyboval?</p>
-						<p>v = s : t = 30 : 2 = <strong>15 km/h</strong></p>
-
-						<p><strong>Příklad 3: Cyklistický výlet</strong><br>
-						Skupina cyklistů ujela 45 km za 3 hodiny. Jaká byla jejich průměrná rychlost jízdy?</p>
-						<p>v = s : t = 45 : 3 = <strong>15 km/h</strong></p>
-
-						<p><strong>Příklad 4: Vlaková souprava</strong><br>
-						Vlak ujel vzdálenost 360 km mezi dvěma městy za 4 hodiny. Jaká je průměrná rychlost vlaku?</p>
-						<p>v = s : t = 360 : 4 = <strong>90 km/h</strong></p>
-
-						<p><strong>Příklad 5: Pěší túra (převod minut na hodiny)</strong><br>
-						Turista ušel vzdálenost 6 km za 120 minut. Jaká byla jeho průměrná rychlost v km/h?</p>
-						<p>120 min = 2 h<br>v = s : t = 6 : 2 = <strong>3 km/h</strong></p>
-
-						<p><strong>Příklad 6: Krátký běh (výsledek v m/s)</strong><br>
-						Žák uběhl 100 m za 20 sekund. Jaká byla jeho průměrná rychlost v m/s?</p>
-						<p>v = s : t = 100 : 20 = <strong>5 m/s</strong> (= 18 km/h)</p>
-
-						<p><strong>Příklad 7: Cyklistický závod</strong><br>
-						Cyklista urazí v závodu etapu dlouhou 220 km za 5 hodin a 30 minut. Jakou jel rychlostí?</p>
-						<p>5 h 30 min = 5,5 h<br>v = s : t = 220 : 5,5 = <strong>40 km/h</strong></p>
-						<p>💡 Zkouška po hlavě: 5,5 &middot; 40 = 220 km — souhlasí.</p>
-
-						<p><strong>Příklad 8: Turistický výlet</strong><br>
-						Turisté ušli v rovinatém terénu vzdálenost 3 km za 36 minut. Vypočítej jejich rychlost.</p>
-						<p>36 min = 0,6 h<br>v = s : t = 3 : 0,6 = <strong>5 km/h</strong></p>
-
-						<p><strong>Příklad 9: Dopravní letadlo</strong><br>
-						Dopravní letadlo uletělo vzdálenost 650 km za 1 hodinu 18 minut. Vypočti jeho průměrnou rychlost.</p>
-						<p>18 min = 0,3 h, takže celkový čas je 1 h + 0,3 h = 1,3 h<br>v = s : t = 650 : 1,3 = <strong>500 km/h</strong></p>
-						<p>💡 Zkouška po hlavě: 1,3 &middot; 500 = 650 km — souhlasí.</p>
-						<p>⚠️ <strong>Pozor na častou chybu:</strong> kdo u příkladu 9 vydělí dráhu jen 0,3 h (zapomene na celou hodinu), vyjde mu přes 2 000 km/h — tak rychle dopravní letadla nelétají! Minuty vždy převeď (děleno 60) a přičti k celým hodinám.</p>
-						<h3>Pravidla pro kreslení grafů</h3>
-						<ol>
-							<li>dvě kolmé osy se šipkami; <strong>časová osa je vždy vodorovná</strong></li>
-							<li>popiš osy značkami veličin a jednotkami</li>
-							<li>na osy rovnoměrné stupnice podle naměřených hodnot</li>
-							<li>vynes body z tabulky a spoj je</li>
-						</ol>
-						<p>Graf rychlosti rovnoměrného pohybu je <strong>vodorovná přímka</strong>; graf dráhy je <strong>přímka stoupající vzhůru</strong>.</p>
-						<h3>✏️ Procvič si: příklady z hodiny</h3>
-						<p>Nejdřív počítej sám (v = s / t), pak si rozklikni řešení.</p>
-						<ol>
-							<li>Auto ujelo 200 km za 4 hodiny. Jaká byla průměrná rychlost? <details><summary>řešení</summary>v = 200 / 4 = <strong>50 km/h</strong></details></li>
-							<li>Běžec na lyžích urazil 30 km za 2 hodiny. <details><summary>řešení</summary>v = 30 / 2 = <strong>15 km/h</strong></details></li>
-							<li>Cyklisté ujeli 45 km za 3 hodiny. <details><summary>řešení</summary>v = 45 / 3 = <strong>15 km/h</strong></details></li>
-							<li>Vlak ujel 360 km za 4 hodiny. <details><summary>řešení</summary>v = 360 / 4 = <strong>90 km/h</strong></details></li>
-							<li>Turista ušel 6 km za 120 minut. Rychlost v km/h? <details><summary>řešení</summary>120 min = 2 h; v = 6 / 2 = <strong>3 km/h</strong></details></li>
-							<li>Žák uběhl 100 m za 20 s. Rychlost v m/s? <details><summary>řešení</summary>v = 100 / 20 = <strong>5 m/s</strong> (= 18 km/h)</details></li>
-							<li>Cyklista urazil etapu 220 km za 5 h 30 min. <details><summary>řešení</summary>5 h 30 min = 5,5 h; v = 220 / 5,5 = <strong>40 km/h</strong> (zkouška: 5,5 · 40 = 220)</details></li>
-							<li>Turisté ušli 3 km za 36 minut. <details><summary>řešení</summary>36 min = 0,6 h; v = 3 / 0,6 = <strong>5 km/h</strong></details></li>
-							<li>Letadlo uletělo 650 km za 1 h 18 min. <details><summary>řešení</summary>18 min = 0,3 h → celkem 1,3 h; v = 650 / 1,3 = <strong>500 km/h</strong> (zkouška: 1,3 · 500 = 650). ⚠️ Častá chyba: dělit jen 0,3 h — vyšlo by přes 2 000 km/h!</details></li>
-						</ol>
-					`,
-					zapis: {
-						body: [
-							'Průměrnou rychlost vypočítáme tak, že celkovou dráhu vydělíme celkovým časem.',
-							'Před výpočtem převedeme čas na jednu jednotku, například minuty na hodiny nebo sekundy.',
-							'Výsledek zapisujeme v km/h nebo m/s podle jednotek dráhy a času.',
-							'U rovnoměrného pohybu je graf rychlosti vodorovná přímka a graf dráhy stoupající přímka.',
-						],
-						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)',
-						jednotky: [
-							'rychlost v — kilometr za hodinu (km/h) nebo metr za sekundu (m/s)',
-							'dráha s — kilometr (km) nebo metr (m)',
-							'čas t — hodina (h) nebo sekunda (s)',
-							'1 h = 60 min = 3 600 s,  1 km = 1 000 m',
-							'Dosazuj odpovídající jednotky: km a h pro km/h, m a s pro m/s.',
-						],
-					},
+					obsah: "<h2>Příklady na výpočet rychlosti</h2>\n\n<p>Vzorec <strong>v = s : t</strong> teď použijeme na skutečné úlohy. U každého příkladu nejdřív zjistíme, co známe, pak dosadíme do vzorce a spočítáme výsledek i s jednotkou.</p>\n\n<h3>Čtení a kreslení grafů rychlosti</h3>\n<p>Pohyb tělesa můžeme zakreslit do grafu. Na vodorovnou osu píšeme čas, na svislou osu dráhu nebo rychlost.</p>\n<p>Když se těleso pohybuje pořád stejně rychle, jde o rovnoměrný pohyb. Graf dráhy je rostoucí přímka a graf rychlosti je vodorovná přímka.</p>\n<p>Když těleso zrychluje nebo zpomaluje, jde o nerovnoměrný pohyb. Graf dráhy pak přímka není.</p>\n<ol>\n<li>nakresli dvě kolmé osy se šipkami — čas je vždy vodorovně</li>\n<li>ke každé ose napiš značku veličiny a jednotku</li>\n<li>na obě osy vyznač stejně velké dílky</li>\n<li>vynes body z tabulky a spoj je čarou</li>\n</ol>\n\n<h3>Vypočítej rychlost: příklady</h3>\n<p>Podívej se na první příklad krok za krokem.</p>\n<p><strong>Příklad 1: Cesta autem</strong><br>Auto ujelo 200 km za 4 hodiny. Jaká byla jeho průměrná rychlost?</p>\n<ul>\n<li>zapíšeme, co známe: s = 200 km, t = 4 h</li>\n<li>vzorec: v = s : t</li>\n<li>dosadíme: v = 200 : 4</li>\n<li>výsledek: v = <strong>50 km/h</strong></li>\n</ul>\n\n<p><strong>Příklad 2: Běh na lyžích</strong><br>Lyžař urazil 30 km za 2 hodiny. Jakou průměrnou rychlostí se pohyboval?</p>\n<p>v = s : t = 30 : 2 = <strong>15 km/h</strong></p>\n\n<p><strong>Příklad 3: Cyklistický výlet</strong><br>Skupina cyklistů ujela 45 km za 3 hodiny. Jaká byla jejich průměrná rychlost?</p>\n<p>v = s : t = 45 : 3 = <strong>15 km/h</strong></p>\n\n<p><strong>Příklad 4: Vlaková souprava</strong><br>Vlak ujel 360 km mezi dvěma městy za 4 hodiny. Jaká je jeho průměrná rychlost?</p>\n<p>v = s : t = 360 : 4 = <strong>90 km/h</strong></p>\n\n<p><strong>Příklad 5: Krátký běh</strong><br>Žák uběhl 100 m za 20 sekund. Jaká byla jeho průměrná rychlost?</p>\n<p>v = s : t = 100 : 20 = <strong>5 m/s</strong> (to je 18 km/h)</p>\n\n<h3>✏️ Procvič si: základní příklady</h3>\n<p>Nejdřív počítej sám, pak si rozklikni řešení.</p>\n<ol>\n<li>Auto ujelo 200 km za 4 hodiny. Jaká byla jeho rychlost? <details><summary>řešení</summary>v = 200 : 4 = <strong>50 km/h</strong></details></li>\n<li>Lyžař urazil 30 km za 2 hodiny. <details><summary>řešení</summary>v = 30 : 2 = <strong>15 km/h</strong></details></li>\n<li>Cyklisté ujeli 45 km za 3 hodiny. <details><summary>řešení</summary>v = 45 : 3 = <strong>15 km/h</strong></details></li>\n<li>Vlak ujel 360 km za 4 hodiny. <details><summary>řešení</summary>v = 360 : 4 = <strong>90 km/h</strong></details></li>\n<li>Žák uběhl 100 m za 20 s. <details><summary>řešení</summary>v = 100 : 20 = <strong>5 m/s</strong></details></li>\n</ol>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Tady jsou úlohy, kde musíš nejdřív minuty převést na hodiny. Teprve pak dosadíš do vzorce.</p>\n\n<p><strong>Příklad 6: Pěší túra</strong><br>Turista ušel 6 km za 120 minut. Jaká byla jeho průměrná rychlost v km/h?</p>\n<p>Nejdřív převedeme čas: 120 min = 2 h.<br>v = s : t = 6 : 2 = <strong>3 km/h</strong></p>\n\n<p><strong>Příklad 7: Turistický výlet</strong><br>Turisté ušli 3 km za 36 minut. Vypočítej jejich rychlost v km/h.</p>\n<p>36 min = 0,6 h.<br>v = s : t = 3 : 0,6 = <strong>5 km/h</strong></p>\n\n<p><strong>Příklad 8: Cyklistický závod</strong><br>Cyklista jel v závodu etapu dlouhou 231 km za 5 hodin 30 minut. Jakou jel rychlostí?</p>\n<p>5 h 30 min = 5,5 h.<br>v = s : t = 231 : 5,5 = <strong>42 km/h</strong></p>\n<p>💡 Zkouška: 5,5 &middot; 42 = 231 km — souhlasí.</p>\n\n<p><strong>Příklad 9: Dopravní letadlo</strong><br>Letadlo uletělo 585 km za 1 hodinu 18 minut. Vypočítej jeho průměrnou rychlost.</p>\n<p>18 min = 0,3 h, celý čas je 1 h + 0,3 h = 1,3 h.<br>v = s : t = 585 : 1,3 = <strong>450 km/h</strong></p>\n<p>💡 Zkouška: 1,3 &middot; 450 = 585 km — souhlasí.</p>\n<p>⚠️ <strong>Pozor na častou chybu:</strong> kdo zapomene na celou hodinu a dělí jen 0,3 h, vyjde mu 585 : 0,3 = 1 950 km/h. Tak rychle letadla nelétají! Minuty vždy převeď a přičti k celým hodinám.</p>\n\n<p>Zkus si teď spočítat sám:</p>\n<ol>\n<li>Turista ušel 6 km za 120 minut. Rychlost v km/h? <details><summary>řešení</summary>120 min = 2 h; v = 6 : 2 = <strong>3 km/h</strong></details></li>\n<li>Turisté ušli 3 km za 36 minut. <details><summary>řešení</summary>36 min = 0,6 h; v = 3 : 0,6 = <strong>5 km/h</strong></details></li>\n<li>Cyklista jel etapu 231 km za 5 h 30 min. <details><summary>řešení</summary>5 h 30 min = 5,5 h; v = 231 : 5,5 = <strong>42 km/h</strong></details></li>\n<li>Letadlo uletělo 585 km za 1 h 18 min. <details><summary>řešení</summary>18 min = 0,3 h, celkem 1,3 h; v = 585 : 1,3 = <strong>450 km/h</strong>. Pozor: dělit jen 0,3 h je chyba!</details></li>\n</ol>",
+					zapis: {"vzorec":"v = s : t      (odvozeně: s = v · t,  t = s : v)","jednotky":["rychlost — značíme v, jednotka km/h nebo m/s (kilometr za hodinu / metr za sekundu)","dráha — značíme s, jednotka km nebo m (kilometr / metr)","čas — značíme t, jednotka h nebo s (hodina / sekunda)","Převody: 1 km = 1 000 m, 1 h = 60 min = 3 600 s; z km/h na m/s děl 3,6, z m/s na km/h násob 3,6.","Do vzorce dosazuj jednotky ve stejné soustavě: km a h dají km/h, m a s dají m/s."],"vzorecSlovy":"rychlost = dráha děleno čas","body":["v = s : t","zapiš, co znáš — s a t","sjednoť jednotky (min → h: děl 60)","km/h ↔ m/s: krát nebo děl 3,6","graf rychlosti: vodorovná přímka, graf dráhy: rostoucí přímka"]},
 					materialy: [
 						{
 							druh: 'infografika',
@@ -4389,56 +4224,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'magnety-magneticke-pole-opakovani',
 					nazev: 'Magnety a magnetické pole (opakování)',
 					interakce: 'magnety-opakovani',
-					obsah: `
-						<h2>Magnety a magnetické pole</h2>
-						<h3>Jak látky reagují na magnet</h3>
-						<ul>
-							<li><strong>Feromagnetické</strong> — silně se přitahují k magnetu a lze je zmagnetovat (železo a jeho slitiny = ocel, <strong>kobalt, nikl</strong>).</li>
-							<li><strong>Nemagnetické</strong> — na magnet téměř nereagují (dřevo, papír, korek i některé kovy: hliník, měď, zinek, stříbro).</li>
-							<li><strong>Diamagnetické</strong> — magnet je nepatrně odpuzuje (uhlík, měď, zlato).</li>
-						</ul>
-						<h3>Magnety a jejich póly</h3>
-						<ul>
-							<li><strong>Přírodní</strong> magnet — nerost s železem (magnetit), <strong>umělé permanentní</strong> — feritový, neodymový; tvary: tyčový, podkova, magnetka (střelka kompasu).</li>
-							<li>Každý magnet má <strong>severní pól (N)</strong> a <strong>jižní pól (S)</strong>. I když magnet rozlomíme, každá část má zase oba póly.</li>
-							<li>Na pólech je magnetická síla <strong>nejsilnější</strong>, uprostřed je <strong>netečné pásmo</strong>, kde je nejslabší.</li>
-						</ul>
-						<h3>Magnetické pole</h3>
-						<ul>
-							<li>Vzniká v okolí magnetu a projevuje se <strong>silovým působením</strong> na magnety a feromagnetické látky.</li>
-							<li><strong>Stejné póly se odpuzují, opačné přitahují.</strong> Se vzdáleností síla slábne.</li>
-							<li>Jeho přítomnost zjistíme <strong>magnetkou</strong> (kompasem).</li>
-						</ul>
-						<h3>Zviditelnění pole</h3>
-						<p>Na papír nad magnetem nasypeme <strong>železné piliny</strong> — uspořádají se do <strong>pilinového obrazce</strong>. Graficky pole kreslíme jako <strong>magnetické indukční čáry</strong>: jsou to uzavřené křivky, které vychází ze <strong>severního pólu (N)</strong> a míří k <strong>jižnímu (S)</strong>; jejich směr udává severní pól magnetky.</p>
-						<h3>Využití magnetismu</h3>
-						<ul>
-							<li>rychlé <strong>připevnění</strong> — nástěnka, autoanténa, magnet na svítilně, držák dvířek</li>
-							<li><strong>kompas, buzola</strong></li>
-							<li><strong>reproduktory</strong></li>
-							<li>magnetické stavebnice</li>
-							<li><strong>pevný disk počítače</strong> (harddisk)</li>
-							<li>páska videokazety, audiokazety</li>
-							<li>menší <strong>elektromotor</strong> (stěrače, autíčka)</li>
-							<li><strong>sběrač kovových štěpin</strong> v motoru či topení</li>
-						</ul>
-						<h3>Magnetické pole Země</h3>
-						<ul>
-							<li>Země se chová jako <strong>velký tyčový magnet</strong>.</li>
-							<li>Střelka kompasu ukazuje svým severním magnetickým pólem na sever, a proto platí: <strong>na severním zeměpisném pólu Země je jižní magnetický pól</strong> (magnetické póly neleží přesně na zeměpisných pólech, ale jen poblíž).</li>
-							<li><strong>Magnetické pole Země nás chrání</strong> před slunečním větrem a kosmickým zářením — proudem nebezpečných nabitých částic, které pole odkloní, takže Zemi ve velké míře obejdou.</li>
-						</ul>
-						<p>💡 Pro zajímavost: Magnetické pole Země vzniká díky <strong>rotaci tekutého železného jádra Země</strong>, a díky tomu se magnetické póly Země pomalu, ale neustále pohybují a mění svou polohu. Nabité částice, které se v magnetickém poli Země neodkloní, se v jeho okolí pohybují právě po křivkách indukčních čar, a proto se hromadí na pólech, kde díky srážkám se vzduchem vzniká <strong>polární záře</strong>.</p>
-					`,
-					zapis: {
-						body: [
-							'Feromagnetické látky se silně přitahují k magnetu a lze je zmagnetovat.',
-							'Každý magnet má severní pól N a jižní pól S; stejné póly se odpuzují a opačné póly se přitahují.',
-							'Magnetické pole vzniká v okolí magnetu a jeho přítomnost zjistíme magnetkou.',
-							'Magnetické indukční čáry jsou uzavřené křivky; vně magnetu míří od severního pólu k jižnímu.',
-							'Země se chová jako velký tyčový magnet a její magnetické pole odklání část nebezpečných nabitých částic ze slunečního větru.',
-						],
-					},
+					obsah: "<h2>Magnety a magnetické pole (opakování)</h2>\n\n<p>Magnet znáš určitě z domova — třeba magnetku na lednici nebo střelku kompasu. Magnet umí přitahovat některé kovové věci, i když se jich vůbec nedotýká. V tomto opakování si připomeneme, jak magnety fungují a jaké mají vlastnosti.</p>\n\n<h3>Které látky magnet přitahuje</h3>\n<ul>\n<li><strong>Feromagnetické látky</strong> se k magnetu silně přitahují a dají se samy zmagnetovat. Patří sem železo a jeho slitiny, tedy ocel, a dále kobalt a nikl.</li>\n<li><strong>Nemagnetické látky</strong> na magnet skoro nereagují. Jsou to třeba dřevo, papír, korek, ale i některé kovy — hliník, měď, zinek nebo stříbro.</li>\n<li>Pro zajímavost: existují i <strong>diamagnetické látky</strong>, které magnet nepatrně odpuzuje — třeba uhlík, měď nebo zlato.</li>\n</ul>\n\n<h3>Magnet a jeho póly</h3>\n<p>Každý magnet má dva <strong>magnetické póly</strong>: <strong>severní (N)</strong> a <strong>jižní (S)</strong>. Na pólech je magnetická síla nejsilnější. Uprostřed magnetu je naopak <strong>netečné pásmo</strong>, kde je síla nejslabší.</p>\n<p>Když magnet přelomíš na dva kusy, nezíská jeden kus jen severní pól a druhý jen jižní. Každý kousek magnetu má znovu oba póly — severní i jižní.</p>\n\n<h3>Přitahování a odpuzování</h3>\n<p>Stejné póly se odpuzují: severní pól odpuzuje jiný severní pól. Opačné póly se naopak přitahují: severní pól přitahuje jižní pól. Čím dál od sebe magnety jsou, tím je jejich vzájemná síla slabší.</p>\n\n<h3>Magnetické pole a indukční čáry</h3>\n<p>Kolem každého magnetu vzniká <strong>magnetické pole</strong>. Projevuje se tím, že silově působí na jiné magnety a na feromagnetické látky. Přítomnost magnetického pole zjistíme malou <strong>magnetkou</strong>, tedy střelkou kompasu.</p>\n<p>Magnetické pole umíme i zviditelnit. Když na magnet položíme papír a nasypeme na něj železné piliny, uspořádají se do <strong>pilinového obrazce</strong>. Piliny ukazují, jakým směrem magnetická síla kolem magnetu působí.</p>\n<p>Fyzikové kreslí magnetické pole pomocí <strong>magnetických indukčních čar</strong>. Jsou to uzavřené křivky, které vně magnetu vedou od severního pólu k jižnímu. Ukazují, kam by se natočil severní pól magnetky.</p>\n\n<h3>Jak vzniká magnet — magnetizace</h3>\n<p>Přírodní magnet je nerost s obsahem železa, říká se mu <strong>magnetit</strong>. Trvalé umělé magnety vznikají <strong>magnetizací</strong> — silné magnetické pole zmagnetuje feromagnetickou látku a udělá z ní magnet. Takto vznikají třeba feritové nebo neodymové magnety.</p>\n<p>Magnety mají různé tvary: tyčový, podkova nebo malá magnetka, což je střelka kompasu.</p>\n\n<h3>K čemu se magnety využívají</h3>\n<ul>\n<li>rychlé <strong>připevnění</strong> — nástěnka, autoanténa, magnet na svítilně, držák dvířek</li>\n<li><strong>kompas, buzola</strong></li>\n<li><strong>reproduktory</strong></li>\n<li>magnetické stavebnice</li>\n<li><strong>pevný disk počítače</strong> (harddisk)</li>\n<li>páska videokazety, audiokazety</li>\n<li>menší <strong>elektromotor</strong> (stěrače, autíčka)</li>\n<li><strong>sběrač kovových štěpin</strong> v motoru či topení</li>\n</ul>\n\n<h3>Magnetické pole Země</h3>\n<p>I naše planeta se chová jako obrovský <strong>tyčový magnet</strong>. Střelka kompasu ukazuje svým severním pólem k severu. Proto na severním zeměpisném pólu Země leží ve skutečnosti <strong>jižní magnetický pól</strong>. Magnetické póly neleží přesně na zeměpisných pólech, jen poblíž.</p>\n<p>Magnetické pole Země nás chrání před <strong>slunečním větrem</strong> a kosmickým zářením. Jde o proud nebezpečných nabitých částic ze Slunce — magnetické pole je odkloní, takže Zemi ve velké míře obletí.</p>\n<p>Pro zajímavost: magnetické pole Země vzniká otáčením tekutého železného jádra Země. Proto se magnetické póly Země pomalu posouvají. Částice, které se přece jen dostanou blízko k pólům, se srážejí se vzduchem — tak vzniká polární záře.</p>",
+					zapis: {"jednotky":["V tomto tématu se nepracuje s žádnou fyzikální veličinou ani jednotkou — jde o vlastnosti magnetů a jejich pólů."],"zakon":"Magnet má vždy 2 magnetické póly – severní a jižní. Souhlasné póly magnetů se odpuzují, nesouhlasné přitahují.","body":["feromagnetické látky: přitahují se a jdou zmagnetovat (železo, ocel, kobalt, nikl)","nemagnetické látky: na magnet skoro nereagují (dřevo, papír, hliník, měď)","magnet má 2 póly: severní N, jižní S","na pólech síla nejsilnější, uprostřed netečné pásmo","souhlasné póly se odpuzují, nesouhlasné se přitahují","se vzdáleností magnetická síla slábne","magnetické pole zjistíme magnetkou (kompasem)","indukční čáry: uzavřené křivky od N k S","magnetizace: silné pole zmagnetuje feromagnetickou látku a vznikne trvalý magnet","využití: připevnění (nástěnka, autoanténa, svítilna, dvířka), kompas, reproduktor, stavebnice, pevný disk, páska kazety, elektromotor, sběrač štěpin","Země = velký tyčový magnet","na severním zeměpisném pólu Země je jižní magnetický pól","pole Země nás chrání před slunečním větrem"]},
 					materialy: [{"druh":"video","nazev":"Píseň: Ze severu na jih 🎵","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/pisen-ze-severu-na-jih.m4a"},{"druh":"infografika","nazev":"Infografika: Magnety a magnetické pole","cesta":"/materialy/fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani/infografika-magnety-prehled.png"}],
 					odkazy: [{"nazev":"Magnetismus — kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/27704217/magnetismus-2"},{"nazev":"Simulace: Magnet a kompas (PhET, česky)","url":"https://phet.colorado.edu/sims/html/magnet-and-compass/latest/magnet-and-compass_all.html?locale=cs"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
@@ -4508,37 +4295,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'elektromagnet',
 					interakce: 'elektromagnet',
 					nazev: 'Elektromagnet a jeho využití',
-					obsah: `
-						<h2>Elektromagnet — magnetické pole pomocí elektrického proudu</h2>
-						<p><strong>Elektromagnet</strong> je cívka s jádrem z <strong>magneticky měkké oceli</strong>. Ta se při zapnutí elektrického proudu rychle zmagnetuje a po vypnutí proudu její magnetické pole rapidně zaniká. Pole má stejný tvar jako u tyčového magnetu — vzniká interakcí proudu a magnetického materiálu.</p>
-						<h3>Co ovlivňuje sílu elektromagnetu — faktory</h3>
-						<ul>
-							<li>Čím <strong>více závitů</strong> cívka má, tím silnější je magnetické pole.</li>
-							<li>Čím <strong>větší proud</strong> cívkou teče, tím silnější je pole — přímá závislost.</li>
-						</ul>
-						<h3>Výhody oproti permanentnímu magnetu — elektromagnetismus vs. magnetizmus</h3>
-						<ul>
-							<li>lze ho <strong>zapnout a vypnout</strong> (spolu s proudem),</li>
-							<li>lze <strong>prohodit póly</strong> (změnou pólů zdroje),</li>
-							<li>bývá <strong>mnohem silnější</strong>.</li>
-						</ul>
-						<h3>Kde se využívá</h3>
-						<ul>
-							<li><strong>jeřáby</strong> na nakládání železného šrotu,</li>
-							<li><strong>elektromotor</strong>,</li>
-							<li><strong>jistič</strong> — při přetížení silné pole přitáhne kotvu a rozpojí obvod (na rozdíl od pojistky lze znovu zapnout),</li>
-							<li><strong>zvonek</strong> a <strong>relé</strong> (spínač řízený slabým signálem, např. závory u kolejí),</li>
-							<li>oční lékařství — vytahování kovových pilin z oka.</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Elektromagnet je cívka s jádrem z magneticky měkké oceli.',
-							'Po zapnutí proudu se jádro rychle zmagnetuje a po vypnutí proudu jeho magnetické pole rychle zaniká.',
-							'Čím více závitů cívka má a čím větší proud jí prochází, tím silnější je magnetické pole.',
-							'Elektromagnet lze zapnout, vypnout i přepólovat; využívá se například v jeřábech, elektromotorech, jističích, zvoncích a relé.',
-						],
-					},
+					obsah: "<h2>Elektromagnet a jeho využití</h2>\n\n<p>Elektromagnet je cívka s jádrem z <strong>magneticky měkké oceli</strong>. Cívka je vodič stočený do mnoha závitů.</p>\n<p>Když cívkou prochází elektrický proud, jádro se rychle zmagnetuje. Po vypnutí proudu magnetické pole zase rychle zmizí. Pole elektromagnetu vypadá stejně jako pole obyčejného tyčového magnetu.</p>\n\n<h3>Jak elektromagnet zesílit</h3>\n<p>Sílu elektromagnetu ovlivňují dvě věci. Čím <strong>více závitů</strong> má cívka, tím silnější je magnetické pole. Čím <strong>větší proud</strong> cívkou teče, tím je pole také silnější.</p>\n\n<h3>Co umí navíc oproti obyčejnému magnetu</h3>\n<ul>\n<li>Jde ho <strong>zapnout a vypnout</strong> spolu s proudem.</li>\n<li>Jde mu <strong>prohodit póly</strong> — stačí obrátit směr proudu.</li>\n<li>Bývá <strong>mnohem silnější</strong> než obyčejný magnet.</li>\n</ul>\n\n<h3>Kde se elektromagnet využívá</h3>\n<ul>\n<li><strong>Jeřáb</strong> na nakládání železného šrotu — magnet se zapne, přitáhne kov, a po přenesení se zase vypne.</li>\n<li><strong>Zvonek</strong> — cívka přitáhne kovovou kotvu, ta udeří do zvonku.</li>\n<li><strong>Jistič</strong> — při přetížení silné pole přitáhne kotvu a vypne obvod; na rozdíl od pojistky ho lze znovu zapnout.</li>\n<li><strong>Relé</strong> — spínač ovládaný slabým proudem, třeba u závor na železničním přejezdu.</li>\n<li><strong>Elektromotor</strong>.</li>\n<li><strong>Oční lékařství</strong> — vytahování kovových pilin z oka.</li>\n</ul>",
+					zapis: {"body":["elektromagnet = cívka + jádro (magneticky měkká ocel)","zapnutí proudu → jádro se rychle zmagnetuje","vypnutí proudu → pole rychle zmizí","víc závitů → silnější pole","větší proud → silnější pole","jde zapnout, vypnout i přepólovat","využití: jeřáb, zvonek, jistič, relé, elektromotor"]},
 					odkazy: [{"nazev":"Elektromagnet, elektromotor — kvíz (Wordwall)","url":"https://wordwall.net/resource/100782493/fyzika/elektromagnet-elektromotor"},{"nazev":"Fyzikální liga: Magnetické pole","url":"/hry/liga-karty/?rocnik=9&celek=magneticke-pole"}],
 				},
 			],

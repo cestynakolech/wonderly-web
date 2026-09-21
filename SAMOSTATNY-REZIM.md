@@ -105,6 +105,17 @@ zdrojů) — přijde na řadu ve svém pořadí podle bodu E.
 Drobnosti do stavu: podtéma potraviny má 7×`<h3>` a 8 bodů zápisu (víc než vzor,
 neškodí); odvozené vztahy uvnitř rámečku vzorce se na užší obrazovce zalamují
 na dva řádky — zvážit přesun do nadstavby.
+F7 1. celek `pohyb-a-rychlost` HOTOV 4/4 podtémata (klid a pohyb, posuvný a
+otáčivý pohyb, rychlost/dráha/čas, příklady na výpočet rychlosti) — každé
+mělo nezávislého kontrolora, 3 ze 4 potřebovaly 1 opravnou smyčku. U příkladů
+kontrolor odhalil nedoložená čísla u příkladů 8 a 9 (220 km/650 km) — přepsáno
+na přesná čísla z prezentace Pohyb (snímky 26–27): 231 km/42 km/h a
+585 km/450 km/h, viz KE-SCHVALENI.md bod (6).
+F9 1. celek `magneticke-pole` 2/3 zapsáno (magnety-magneticke-pole-opakovani,
+elektromagnet), oba přes nezávislého kontrolora, zapsáno `podtema.mjs`, build
+a `zkontroluj.mjs` procházejí. `magneticke-pole-vodice-a-civky` čeká na
+opakovanou kontrolu.
+F7 2. celek `sily-kolem-nas` (5 podtémat) se právě píše.
 
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 

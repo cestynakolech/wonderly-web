@@ -27,3 +27,10 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    silnic" (limit −21 °C) a „💡 Podchlazená voda" (pevné jádro, ťuknutí,
    šestnáctina, podchlazení 80 °C). Fyzikálně v pořádku, ale beze zdrojového
    dokladu — ponecháno z dosavadního webu, rozhodne učitel, odkud pochází.
+
+## 21. 9. 2026 — nález z podkladů F7 (pohyb a rychlost)
+
+6. **Podtéma „Příklady na výpočet rychlosti"** — dosavadní web měl u příkladů
+   8 a 9 čísla 220 km/40 km/h a 650 km/500 km/h bez opory v žádném zdroji.
+   Přepsáno přesně podle prezentace Pohyb (snímky 26–27) na 231 km / 42 km/h
+   a 585 km / 450 km/h. Prosím potvrdit, že jde nahradit dosavadní čísla.
