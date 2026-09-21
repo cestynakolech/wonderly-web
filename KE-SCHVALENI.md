@@ -108,3 +108,11 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     lithium-iontový akumulátor); na webu ponecháno správné rozlišení podle
     dosavadního textu. Navíc navržen vzorec t = Q : I k doplnění kapacity —
     zatím bez zdroje, nezapsán.
+20. **F7 Tělesa stejnorodá a nestejnorodá** — rozpor hustot: prezentace
+    `Mastering_Buoyancy.pptx` (snímek 7) uvádí ocel ≈ 7 800 kg/m³ a vzduch
+    ≈ 1,2 kg/m³, dosavadní web má ocel 8 000 kg/m³ a vzduch „kolem" 1 kg/m³
+    bez uvedeného zdroje. Ponechána dosavadní zaokrouhlená čísla webu (dávají
+    celé výsledky výpočtů). Potvrdit, která čísla platí?
+21. **F8 Vznik elektrického proudu** — dohodnutý směr proudu (od + k −) není
+    ani v podkladu (SmartBooks PDF), ani na dosavadním webu; navrženo
+    k doplnění, zatím nezapsáno bez zdroje.

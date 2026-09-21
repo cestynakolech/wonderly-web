@@ -163,6 +163,20 @@ body 17–19: poločas radonu, relativní atomová hmotnost a odpudivá síla
 230 N (mimo rozsah), chemické zdroje — nepřesnost v PDF u lithiových
 článků a návrh vzorce t = Q : I.
 
+**Stav 21. 9. 2026:** F7 5. celek `vztlakova-sila-a-plovani-teles` HOTOV 2/2
+(`archimeduv-zakon`, `telesa-stejnoroda-a-nestejnoroda` — přes `podtema.mjs`,
+build a `zkontroluj.mjs` procházejí; F7 celky 1–5 hotové = 18 podtémat).
+F8 5. celek `elektrina` 4/15 zapsáno (chemické zdroje, `elektricky-naboj`,
+`elektricke-pole`, `vznik-elektrickeho-proudu`), u kontrolorů/oprav: obvody,
+proud měření, napětí měření, proud v kovech, závislost odporu, Ohmův zákon;
+čeká 5: zapojení za sebou, vedle sebe, rezistor, elektrická práce a výkon,
+účinky proudu. Souhrn hotových: 54 + 5 = 59. Zkouška delegace na Hermese/
+GPT-5.5 zrušena učitelem („Hermes pracuje nekvalitně"). Do KE-SCHVALENI.md
+bod 20: F7 Tělesa stejnorodá — rozpor hustot: prezentace ocel 7 800, vzduch
+1,2 kg/m³ vs. web 8 000 a „asi 1" (ponecháno kvůli celým číslům); bod 21:
+F8 Vznik proudu — dohodnutý směr proudu od + k − není v podkladu ani na
+webu, navrženo k doplnění.
+
 **E) POŘADÍ A ÚPLNOST (upřesněno 21. 9. 2026)**
 
 (i) **Pořadí práce** = 1. celek (téma) u ročníků 7, 8, 9, pak 2. celek u všech

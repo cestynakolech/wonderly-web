@@ -1779,51 +1779,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'archimeduv-zakon',
 					interakce: 'archimedes',
 					nazev: 'Archimédův zákon',
-					obsah: `
-						<h2>Vztlaková síla a Archimédův zákon</h2>
-						<p>Na těleso ponořené do kapaliny působí svisle vzhůru <strong>vztlaková síla Fvz</strong> — proto nám věci pod vodou připadají lehčí.</p>
-						<h3>Archimédův zákon</h3>
-						<p><strong>Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořeného tělesa.</strong></p>
-						<ul>
-							<li>vzorec: <strong>Fvz = V · ρ · g</strong></li>
-							<li>V … objem ponořené části tělesa (m³)</li>
-							<li>ρ … hustota kapaliny (kg/m³)</li>
-							<li>g … gravitační konstanta (10 N/kg)</li>
-						</ul>
-						<h3>Příklad z hodiny (měřeno pěti způsoby)</h3>
-						<p>Těleso „vážilo" na závěsné váze na vzduchu <strong>500 g</strong>, ve vodě jen <strong>400 g</strong>. Rozdíl m = 100 g = 0,1 kg → vztlaková síla Fvz = 0,1 &middot; 10 = <strong>1 N</strong>. Dalšími metodami vyšlo 1,1 N, 0,9 N, 1,1 N a 0,9 N — jejich průměr je zase <strong>1 N</strong> (součet 5 N děleno 5 měřeními). Měření není nikdy úplně přesné (bublinky, vlnky, zaokrouhlování), ale průměr se pravdě přiblíží.</p>
-						<h3>Potápění, vznášení, plování</h3>
-						<p>Porovnáváme vztlakovou sílu s tíhovou silou tělesa (nebo hustotu tělesa s hustotou kapaliny):</p>
-						<ul>
-							<li><strong>potápí se</strong> — Fg &gt; Fvz (hustota tělesa větší než kapaliny; kámen)</li>
-							<li><strong>vznáší se</strong> — Fg = Fvz (stejné hustoty; ryba v akváriu)</li>
-							<li><strong>plove</strong> — Fg &lt; Fvz (menší hustota; korek, led, loď)</li>
-						</ul>
-						<h3>Kde to potkáš</h3>
-						<ul>
-							<li><strong>ocelová loď</strong> — ocel je hustší než voda, ale trup je dutý; <em>průměrná</em> hustota lodi (ocel + vzduch uvnitř) je menší než hustota vody, a tak plove</li>
-							<li><strong>ponorka</strong> — napouštěním a vypouštěním vody do nádrží mění svou průměrnou hustotu, a proto se potopí nebo vynoří</li>
-							<li><strong>slaná voda</strong> — má větší hustotu než sladká, takže nadlehčuje víc (v Mrtvém moři se člověk neponoří)</li>
-							<li><strong>vzduch nadnáší také</strong> — horkovzdušný balon i balonek s heliem stoupají, protože jsou řidší než okolní vzduch</li>
-						</ul>
-					`,
-					zapis: {
-						body: [
-							'Na těleso ponořené do kapaliny působí svisle vzhůru vztlaková síla.',
-							'Vztlaková síla je tím větší, čím větší je objem ponořené části tělesa a hustota kapaliny.',
-							'Těleso se potápí, vznáší nebo plove podle porovnání vztlakové a tíhové síly.',
-							'Ve slané vodě působí větší vztlaková síla než ve sladké vodě, protože slaná voda má větší hustotu.',
-						],
-						zakon: 'Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořené části tělesa.',
-						vzorec: 'Fvz = V · ρ · g      (odvozeně: V = Fvz : (ρ · g),  ρ = Fvz : (V · g))',
-						jednotky: [
-							'vztlaková síla Fvz — newton (N)',
-							'objem ponořené části V — metr krychlový (m³)',
-							'hustota kapaliny ρ — kilogram na metr krychlový (kg/m³)',
-							'gravitační konstanta g — newton na kilogram (N/kg), pro výpočty g = 10 N/kg',
-							'Do vzorce dosazuj objem v m³, hustotu v kg/m³ a g v N/kg; výsledek vyjde v N.',
-						],
-					},
+					obsah: "<h2>Vztlaková síla a Archimédův zákon</h2>\n<p>Ponoř ruku do umyvadla plného vody. Ucítíš, že ji voda jakoby nadlehčuje. Na každé těleso ponořené v kapalině totiž působí svisle vzhůru <strong>vztlaková síla F<sub>vz</sub></strong>. Proto se nám věci pod vodou zdají lehčí.</p>\n\n<h3>Proč vztlaková síla vzniká</h3>\n<p>Kapalina tlačí na ponořené těleso ze všech stran. Tlaky ze stran, zleva i zprava, jsou v téže hloubce stejně velké, a proto se navzájem vyruší.</p>\n<p>Spodní stěna tělesa je ale hlouběji pod hladinou než horní stěna, a čím hlouběji, tím větší je hydrostatický tlak kapaliny. Kapalina proto tlačí na spodek tělesa víc než na jeho vršek. Rozdíl těchto dvou sil tvoří výslednou sílu mířící nahoru — to je vztlaková síla.</p>\n\n<h3>Archimédův zákon</h3>\n<p>Vztlaková síla je tím větší, čím větší je objem ponořené části tělesa a čím větší je hustota kapaliny. Přesně to popsal už ve starověkém Řecku učenec <strong>Archimédés</strong> (287–212 př. n. l.):</p>\n<p><strong>Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořené části tělesa.</strong></p>\n<ul>\n<li>vzorec: <strong>F<sub>vz</sub> = V · ρ · g</strong></li>\n<li>V … objem ponořené části tělesa (m³)</li>\n<li>ρ … hustota kapaliny (kg/m³)</li>\n<li>g … gravitační konstanta (10 N/kg)</li>\n</ul>\n\n<h3>Příklad z hodiny (měřeno pěti způsoby)</h3>\n<p>Těleso „vážilo\" na závěsné váze na vzduchu <strong>500 g</strong>, ve vodě jen <strong>400 g</strong>. Rozdíl m = 100 g = 0,1 kg → vztlaková síla F<sub>vz</sub> = 0,1 · 10 = <strong>1 N</strong>.</p>\n<p>Dalšími metodami vyšlo 1,1 N, 0,9 N, 1,1 N a 0,9 N. Jejich průměr je zase <strong>1 N</strong> (součet 5 N děleno 5 měřeními). Měření není nikdy úplně přesné (bublinky, vlnky, zaokrouhlování), ale průměr se pravdě přiblíží.</p>\n\n<h3>Potápění, vznášení, plování</h3>\n<p>Porovnáváme vztlakovou sílu s tíhovou silou tělesa (nebo hustotu tělesa s hustotou kapaliny):</p>\n<ul>\n<li><strong>potápí se</strong> — F<sub>g</sub> &gt; F<sub>vz</sub> (hustota tělesa větší než kapaliny; kámen)</li>\n<li><strong>vznáší se</strong> — F<sub>g</sub> = F<sub>vz</sub> (stejné hustoty; ryba v akváriu)</li>\n<li><strong>plove</strong> — F<sub>g</sub> &lt; F<sub>vz</sub> (menší hustota; korek, led, loď)</li>\n</ul>\n<p>U plovoucího tělesa platí zajímavá věc: poměr, jak velká část je pod hladinou, odpovídá poměru hustot. Led má hustotu asi 916 kg/m³, voda 1 000 kg/m³. Proto je pod hladinou asi 9/10 objemu ledovce a nad hladinou vidíme jen necelou 1/10.</p>\n<p>Právě proto byl pro lodě tak nebezpečný ledovec, který potopil Titanic — nad hladinou byla vidět jen malá špička. Korek má hustotu jen asi 200 kg/m³, tedy pětinu hustoty vody. Nad hladinou proto vyčnívá zbylá část korkové zátky, asi 4/5 jejího objemu.</p>\n\n<h3>Kde to potkáš</h3>\n<ul>\n<li><strong>ocelová loď</strong> — ocel je hustší než voda, ale trup je dutý. Průměrná hustota lodi (ocel + vzduch uvnitř) je menší než hustota vody, a tak plove</li>\n<li><strong>ponorka</strong> — napouštěním a vypouštěním vody do nádrží mění svou průměrnou hustotu, a proto se potopí nebo vynoří</li>\n<li><strong>ryba</strong> — mění objem svého těla plynovým měchýřem, který svaly nafukují nebo stahují, a tím mění svou průměrnou hustotu</li>\n<li><strong>potápěč</strong> — používá vestu s vyrovnávacím vzduchem; při stoupání do ní přidá vzduch z lahve, při klesání ho zase vypustí</li>\n<li><strong>slaná voda</strong> — má větší hustotu než sladká, takže nadlehčuje víc (v Mrtvém moři se člověk neponoří)</li>\n<li><strong>vzduch nadnáší také</strong> — horkovzdušný balon i balonek s heliem stoupají, protože jsou řidší než okolní vzduch</li>\n</ul>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Kvádr má pod hladinou vody ponořený objem 2 m³, hustota vody je 1 000 kg/m³. Vztlaková síla na něj je:</p>\n<p>F<sub>vz</sub> = V · ρ · g = 2 · 1 000 · 10 = <strong>20 000 N</strong>.</p>\n<p>Vzorec jde použít i obráceně. Na jiné těleso ponořené ve vodě působí vztlaková síla 30 000 N. Jak velký je objem jeho ponořené části?</p>\n<p>V = F<sub>vz</sub> : (ρ · g) = 30 000 : (1 000 · 10) = <strong>3 m³</strong>.</p>\n<p>Třetí těleso má ponořenou část o objemu 3 m³ a působí na něj vztlaková síla 45 000 N. Jakou hustotu má kapalina, ve které je ponořené?</p>\n<p>ρ = F<sub>vz</sub> : (V · g) = 45 000 : (3 · 10) = <strong>1 500 kg/m³</strong>.</p>",
+					zapis: {"vzorec":"Fvz = V · ρ · g      (odvozeně: V = Fvz : (ρ · g),  ρ = Fvz : (V · g))","jednotky":["vztlaková síla — značíme Fvz, jednotka N (newton)","objem ponořené části tělesa — značíme V, jednotka m³ (metr krychlový)","hustota kapaliny — značíme ρ, jednotka kg/m³ (kilogram na metr krychlový)","gravitační konstanta — značíme g, jednotka N/kg (newton na kilogram), pro výpočty g = 10 N/kg","Do vzorce dosazuj objem v m³, hustotu v kg/m³ a gravitační konstantu v N/kg; výsledek vyjde v N."],"vzorecSlovy":"vztlaková síla = objem ponořené části tělesa krát hustota kapaliny krát gravitační konstanta","zakon":"Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořené části tělesa.","body":["vztlaková síla působí svisle vzhůru","Fvz = V · ρ · g","vzniká: tlak zdola > tlak shora","roste s objemem ponoru a hustotou kapaliny","potápí se: Fg > Fvz","vznáší se: Fg = Fvz","plove: Fg < Fvz","slaná voda hustší → větší vztlak"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Archimédes 🎵', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/pisen-archimedes.mp4' },
 					],
@@ -1832,30 +1789,8 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'telesa-stejnoroda-a-nestejnoroda',
 					nazev: 'Tělesa stejnorodá a nestejnorodá',
 					interakce: 'nestejnoroda-lod',
-					obsah: `
-						<h2>Tělesa stejnorodá a nestejnorodá</h2>
-						<h3>Stejnorodá tělesa</h3>
-						<ul>
-							<li>jsou z <strong>jedné jediné látky</strong></li>
-							<li>v celém objemu mají stejné vlastnosti (hustotu, barvu, tvrdost)</li>
-							<li>příklady: ocelový hřebík, skleněná kulička</li>
-						</ul>
-						<h3>Nestejnorodá tělesa</h3>
-						<ul>
-							<li>skládají se ze <strong>dvou nebo více různých látek</strong></li>
-							<li>v různých částech mají odlišné vlastnosti</li>
-							<li>příklady: tužka (dřevo + tuha), žula (křemen + živec + slída), železobetonový panel</li>
-						</ul>
-						<p>👉 U nestejnorodých těles neurčujeme hustotu látky, ale počítáme jejich <strong>průměrnou hustotu ρp</strong>. Podle ní se řídí i plování — loď z oceli plove, protože její průměrná hustota (ocel + vzduch uvnitř) je menší než hustota vody. Voda má hustotu 1 000 kg/m³, ocel asi 8 000 kg/m³ — kus plné oceli je tedy osmkrát hustší než voda, a proto se ve vodě potopí. Když je ale v ocelovém tělese dutina vyplněná vzduchem, počítá se průměrná hustota z hmotnosti a objemu CELÉHO tělesa (ocel i vzduch dohromady) — a protože vzduch má hustotu jen kolem 1 kg/m³, i malá dutina průměrnou hustotu hodně sníží. Klesne-li tak průměrná hustota lodi pod 1 000 kg/m³, loď na vodě plove, přestože je celá vyrobená z oceli.</p>
-					`,
-					zapis: {
-						body: [
-							'Stejnorodé těleso je z jedné látky a v celém objemu má stejné vlastnosti.',
-							'Nestejnorodé těleso se skládá ze dvou nebo více různých látek a jeho části mají odlišné vlastnosti.',
-							'U nestejnorodého tělesa určujeme průměrnou hustotu z hmotnosti a objemu celého tělesa.',
-							'Ocelová loď plove, protože vzduch v dutině sníží její průměrnou hustotu pod hustotu vody.',
-						],
-					},
+					obsah: "<h2>Tělesa stejnorodá a nestejnorodá</h2>\n<h3>Stejnorodá tělesa</h3>\n<p>Stejnorodé těleso je vyrobené z <strong>jedné jediné látky</strong>. V celém svém objemu má stejné vlastnosti — stejnou hustotu, barvu i tvrdost. Příkladem je ocelový hřebík nebo skleněná kulička.</p>\n<h3>Nestejnorodá tělesa</h3>\n<p>Nestejnorodé těleso se skládá ze <strong>dvou nebo více různých látek</strong>. V různých částech má odlišné vlastnosti. Příkladem je tužka (dřevo a tuha), žula (křemen, živec a slída) nebo železobetonový panel (beton a ocelová výztuž).</p>\n<p>U nestejnorodého tělesa nemá smysl mluvit o jedné hustotě látky. Místo toho počítáme jeho <strong>průměrnou hustotu ρ<sub>p</sub></strong> — z hmotnosti a objemu CELÉHO tělesa, i s dutinami a různými částmi.</p>\n<h3>Pokus s plastelínou</h3>\n<p>Když uděláš z kousku plastelíny kuličku a hodíš ji do vody, klesne ke dnu — plastelína je hustší než voda.</p>\n<p>Ze stejného kousku plastelíny teď vytvaruj malou lodičku s dutinou uvnitř. Hmotnost plastelíny se nezměnila, ale objem lodičky je mnohem větší, protože obsahuje i vzduch. Průměrná hustota lodičky klesla pod hustotu vody, a proto plove.</p>\n<h3>Proč plove ocelová loď</h3>\n<p>Voda má hustotu 1 000 kg/m³, ocel asi 8 000 kg/m³. Kus plné oceli je tedy osmkrát hustší než voda, a proto se ve vodě potopí. Trup lodi je ale dutý a uvnitř je vzduch, jehož hustota je jen asi 1 kg/m³.</p>\n<p>Průměrnou hustotu lodi počítáme z hmotnosti a objemu oceli i vzduchu dohromady. I malá dutina s lehkým vzduchem průměrnou hustotu hodně sníží. Když klesne průměrná hustota lodi pod 1 000 kg/m³, loď na vodě plove — přestože je celá z těžké oceli.</p>\n<h3>Proč se ponorka potápí, vynořuje a vznáší</h3>\n<p>Ponorka má ve svém trupu <strong>vyrovnávací (balastní) nádrže</strong>. Když do nich napustí vodu, její hmotnost se zvětší a průměrná hustota vzroste nad hustotu vody — ponorka klesá ke dnu.</p>\n<p>Když vodu z nádrží vypustí a nahradí ji vzduchem, hmotnost klesne a ponorka zase stoupá k hladině. Objem ponorky se přitom nemění, mění se jen její hmotnost.</p>\n<p>Když nádrže naplní vodou i vzduchem ve správném poměru, hmotnost ponorky se vyrovná hmotnosti vody, kterou vytlačí. Vztlaková síla a tíhová síla jsou pak stejně velké — ponorka se vznáší uprostřed vodního sloupce a neklesá ani nestoupá.</p>\n<h3>Proč potápěče nadnáší vesta</h3>\n<p>Potápěč má na sobě vestu, které se říká <strong>kompenzátor vztlaku</strong>. Když chce stoupat, napustí do vesty vzduch z lahve. Objem vesty se zvětší, ale hmotnost potápěče skoro ne — jeho průměrná hustota klesne pod hustotu vody.</p>\n<p>Když chce klesat, vzduch z vesty zase vypustí. Průměrná hustota lidského těla je přibližně stejná jako hustota vody, proto potápěč navíc potřebuje závaží, aby se mohl potopit do hloubky.</p>\n<h3>Pro zvídavé: počítáme</h3>\n<p>Průměrnou hustotu počítáme stejně jako hustotu jedné látky — z hmotnosti a objemu CELÉHO tělesa:</p>\n<p>ρ<sub>p</sub> = m : V</p>\n<p>Duté ocelové těleso má hmotnost 4 000 kg a objem 5 m³ (ocel i vzduch uvnitř dohromady). Jeho průměrná hustota je ρ<sub>p</sub> = m : V = 4 000 : 5 = 800 kg/m³. Protože 800 kg/m³ je méně než hustota vody 1 000 kg/m³, těleso na vodě plove.</p>\n<p>Jiné duté ocelové těleso má hmotnost 6 000 kg a stejný objem 5 m³. Jeho průměrná hustota je ρ<sub>p</sub> = 6 000 : 5 = 1 200 kg/m³. To je víc než hustota vody, takže toto těleso se potápí.</p>",
+					zapis: {"vzorec":"ρp = m : V      (odvozeně: m = ρp · V,  V = m : ρp)","jednotky":["průměrná hustota — značíme ρp, jednotka kg/m³ (kilogram na metr krychlový)","hmotnost celého tělesa — značíme m, jednotka kg (kilogram)","objem celého tělesa — značíme V, jednotka m³ (metr krychlový)","Do vzorce dosazuj hmotnost a objem CELÉHO tělesa (i s dutinami a všemi látkami dohromady)."],"vzorecSlovy":"průměrná hustota = hmotnost celého tělesa děleno objem celého tělesa","body":["stejnorodé: jedna látka, stejné vlastnosti","příklady: hřebík, skleněná kulička","nestejnorodé: víc látek, různé vlastnosti","příklady: tužka, žula, železobeton","nestejnorodé → počítáme průměrnou hustotu","ρp = m : V (z celého tělesa)","plastelína: kulička klesne, lodička plove","ocelová loď: vzduch v dutině sníží hustotu","ponorka klesá: nádrže naplněné vodou","ponorka stoupá: nádrže naplněné vzduchem","ponorka se vznáší: voda a vzduch v poměru","vesta potápěče: vzduch z lahve mění hustotu"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Ocelový paradox — tajemství vztlaku', cesta: 'XvJnyVH_WMk' },
 					],
@@ -2682,43 +2617,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricky-naboj',
 						nazev: 'Elektrický náboj, elektrování těles, elektrická síla',
 						interakce: 'elektrovani',
-						obsah: `
-							<h2>Elektrický náboj</h2>
-							<p>Když si češeš umyté vlasy plastovým hřebenem, vlasy se zvednou a lepí se k hřebenu. Tělesa se <strong>zelektrizovala</strong> a působí mezi nimi <strong>elektrická síla</strong>. Její příčinou je <strong>elektrický náboj</strong>.</p>
-							<h3>Dva druhy náboje</h3>
-							<ul>
-								<li><strong>kladný</strong> — nese ho <strong>proton</strong> (p⁺) v jádře atomu; při běžném zacházení jádro neopouští</li>
-								<li><strong>záporný</strong> — nese ho <strong>elektron</strong> (e⁻) v obalu atomu; ten se dá snadno uvolnit a přesouvat</li>
-								<li><strong>neutron</strong> (n⁰) v jádře je bez náboje</li>
-							</ul>
-							<p>Náboj protonu a elektronu je <strong>stejně velký, ale opačný</strong>. Náboj nelze vyrobit ani zničit — jen <strong>přesouvat</strong> spolu s elektrony.</p>
-							<h3>Neutrální a nabité těleso</h3>
-							<ul>
-								<li><strong>neutrální</strong>: stejný počet protonů a elektronů → navenek se náboje vyruší</li>
-								<li><strong>nabité (iont)</strong>: převažuje jeden náboj. <strong>Kationt (+)</strong> = atom, který elektron ztratil; <strong>aniont (−)</strong> = atom, který elektron navíc přijal. Pozor: iont nevzniká odtržením protonů, mění se jen počet elektronů.</li>
-							</ul>
-							<h3>Náboj jako veličina</h3>
-							<p>Značka <strong>Q</strong>, jednotka <strong>coulomb (C)</strong>. Nejmenší náboj je <strong>elementární náboj</strong> e = 1,6·10⁻¹⁹ C (náboj jednoho elektronu i protonu). Nabité těleso zjistí <strong>elektroskop</strong>, porovná elektrometr.</p>
-							<h3>Elektrování a přenos náboje</h3>
-							<ul>
-								<li><strong>třením</strong> se přesouvají elektrony: plast se nabíjí vždy <strong>záporně</strong>, sklo <strong>kladně</strong></li>
-								<li><strong>vodiče</strong> (všechny kovy) náboj snadno přenášejí; <strong>izolanty</strong> (suché dřevo, plast, guma) ne</li>
-								<li>nabité těleso lze <strong>vybít uzemněním</strong> — vodivým spojením se Zemí (bleskosvod, ochrana před úrazem)</li>
-							</ul>
-							<p><strong>Zákon zachování náboje:</strong> celkový náboj se v izolované soustavě elektrováním nemění.</p>
-							<h3>Elektrická síla</h3>
-							<p><strong>Souhlasné náboje se odpuzují, nesouhlasné přitahují.</strong> Síla je tím větší, čím <strong>větší jsou náboje</strong> a čím <strong>menší je vzdálenost</strong> mezi nimi. Proto se rozčesané vlasy lepí k hřebenu, ale navzájem se rozestupují.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrický náboj je příčinou elektrické síly mezi zelektrovanými tělesy.',
-								'Proton má kladný náboj, elektron záporný náboj a neutron je bez náboje.',
-								'Neutrální těleso má stejný počet protonů a elektronů; při elektrování se přesouvají elektrony.',
-								'Souhlasné náboje se odpuzují a nesouhlasné náboje se přitahují.',
-								'Vodiče náboj snadno přenášejí, izolanty ho nepřenášejí.',
-							],
-							zakon: 'Zákon zachování náboje: celkový náboj se v izolované soustavě elektrováním nemění.',
-						},
+						obsah: "<h2>Elektrický náboj, elektrování těles, elektrická síla</h2>\n\n<p>Když si češeš umyté a suché vlasy plastovým hřebenem, vlasy se najednou zvednou a lepí se k němu. Hřeben i vlasy se <strong>zelektrizovaly</strong> — začala mezi nimi působit <strong>elektrická síla</strong>. Příčinou téhle síly je <strong>elektrický náboj</strong>.</p>\n\n<h3>Elektrování těles třením</h3>\n<p>Když se o sebe třou dvě různé látky, mohou se z jedné na druhou přesouvat <strong>elektrony</strong>. Tomuto ději se říká <strong>elektrování třením</strong>.</p>\n<p>Třením plastového hřebenu o vlasy se elektrony přesunou z vlasů do hřebenu. Hřeben tak získá elektrony navíc a nabije se <strong>záporně</strong>. Vlasům elektrony naopak chybí, a tak se nabijí <strong>kladně</strong>.</p>\n<p>Plast se třením nabíjí vždy <strong>záporně</strong>, sklo se naopak nabíjí vždy <strong>kladně</strong>.</p>\n\n<h3>Dva druhy náboje a elektrická síla</h3>\n<ul>\n<li><strong>kladný</strong> — nese ho <strong>proton</strong> (p⁺) v jádře atomu; při běžném zacházení jádro neopouští</li>\n<li><strong>záporný</strong> — nese ho <strong>elektron</strong> (e⁻) v obalu atomu; ten se dá snadno uvolnit a přesouvat</li>\n<li><strong>neutron</strong> (n⁰) v jádře je bez náboje</li>\n</ul>\n<p>Náboj protonu a elektronu je <strong>stejně velký, ale opačný</strong>. Elektrický náboj nelze vyrobit ani zničit — dá se jen <strong>přesouvat</strong> spolu s elektrony.</p>\n<p>Nabitá tělesa na sebe navzájem působí elektrickou silou. <strong>Souhlasné (stejné) náboje se odpuzují, nesouhlasné (různé) náboje se přitahují.</strong></p>\n<p>Proto se rozčesané vlasy lepí k hřebenu, mají totiž opačný náboj. Mezi sebou se ale navzájem rozestupují, protože mají stejný náboj.</p>\n<p>Síla je tím větší, čím <strong>větší jsou náboje</strong> obou těles. A tím menší, čím <strong>větší je vzdálenost</strong> mezi nimi.</p>\n\n<h3>Neutrální a nabité těleso</h3>\n<p>Běžná tělesa mívají stejný počet protonů a elektronů. Říkáme jim <strong>neutrální</strong> — jejich náboje se navenek vyruší.</p>\n<ul>\n<li><strong>neutrální</strong>: stejný počet protonů a elektronů → navenek se náboje vyruší</li>\n<li><strong>nabité (iont)</strong>: převažuje jeden náboj. <strong>Kationt (+)</strong> = atom, který elektron ztratil; <strong>aniont (−)</strong> = atom, který elektron navíc přijal.</li>\n</ul>\n<p>Ionty vznikají právě přenosem elektronů mezi dvěma tělesy při tření. Pozor: iont nikdy nevzniká odtržením protonů — ty zůstávají v jádře, mění se jen počet elektronů v obalu.</p>\n\n<h3>Přenos náboje: vodiče a izolanty</h3>\n<p>Elektrony se mohou přesouvat mezi tělesy nejen třením, ale i pouhým dotykem. Různé látky ale tento přenos umožňují různě dobře.</p>\n<ul>\n<li><strong>vodiče</strong> (všechny kovy) náboj snadno přenášejí</li>\n<li><strong>izolanty</strong> (suché dřevo, plast, guma) náboj nepřenášejí</li>\n</ul>\n<p>Nabité těleso lze vybít <strong>uzemněním</strong> — vodivým spojením se Zemí, která přijme všechny volné elektrony navíc. Uzemnění se používá třeba u bleskosvodu jako ochrana před úrazem elektrickým proudem.</p>\n<p>Při přesunu elektronů mezi tělesy může vzniknout jiskra a nepříjemné bodnutí. Stává se to třeba při svlékání svetru přes hlavu. Nebo když se dotkneš karoserie auta po dlouhé jízdě v suchém počasí. Tomuto jevu se říká <strong>statická elektřina</strong>.</p>\n<p>Kvůli jiskrám je třeba dávat pozor hlavně u hořlavin, třeba u benzínu. Cisterny s benzínem se proto před vypuštěním <strong>uzemňují</strong> zvláštním proužkem. Při tankování aut se navíc vypíná motor.</p>\n<p><strong>Zákon zachování náboje:</strong> celkový elektrický náboj se vzájemným elektrováním těles v izolované soustavě nemění. Dotknou se třeba dvě tělesa se stejně velkým, ale opačným nábojem. Jejich celkový náboj je pak nulový a při dotyku se zneutralizují.</p>\n\n<h3>Elektroskop a měření náboje</h3>\n<p>Elektrický náboj je fyzikální veličina. Značíme ho <strong>Q</strong> a měříme v jednotce <strong>coulomb (C)</strong>.</p>\n<p>Nejmenší možný náboj se nazývá <strong>elementární náboj</strong>. Je to náboj jediného elektronu nebo protonu: e = 1,6 · 10⁻¹⁹ C. Náboj každého tělesa je vždy jeho násobkem.</p>\n<p>Jestli je těleso nabité, zjistíme přístrojem <strong>elektroskop</strong>. Elektroskop ale neurčí, jaké je znaménko náboje ani jak velký náboj je. K porovnání velikosti náboje dvou těles slouží <strong>elektrometr</strong> — elektroskop se stupnicí.</p>\n\n<h3>Pro zvídavé: počítáme</h3>\n<p>Jednotka 1 coulomb je ve skutečnosti velmi velká. Těleso nabité na 1 C by muselo obsahovat 6 · 10¹⁸ volných elektronů.</p>\n<p>Baterie a akumulátory takhle velký náboj mívají, například autobaterie může mít náboj 200 C. Tělesa zelektrovaná třením (jako hřeben nebo vlasy) mají ale mnohem menší náboj.</p>\n<p>Proto se pro ně používají menší jednotky: milicoulomb (mC), mikrocoulomb (μC) a nanocoulomb (nC). Platí: 1 mC = 0,001 C, 1 μC = 0,000 001 C a 1 nC = 0,000 000 001 C.</p>\n<p>Kolik je to v základní jednotce? Hřeben nabitý na 5 mC má náboj Q = 5 · 0,001 C = 0,005 C.</p>\n<p>A obráceně: vlasy mají náboj 2 000 μC. Převedeme na milicoulomby: Q = 2 000 · 0,000 001 C = 0,002 C = 2 mC.</p>",
+						zapis: {"jednotky":["elektrický náboj — značíme Q, jednotka C (coulomb)","elementární náboj — značíme e, jednotka C (coulomb); e = 1,6 · 10⁻¹⁹ C (náboj jednoho elektronu nebo protonu)","Převody: 1 mC (milicoulomb) = 0,001 C, 1 μC (mikrocoulomb) = 0,000 001 C, 1 nC (nanocoulomb) = 0,000 000 001 C."],"zakon":"Celkový elektrický náboj se vzájemným elektrováním těles v izolované soustavě nemění.","body":["náboj = příčina elektrické síly mezi zelektrovanými tělesy","proton (+), elektron (−), neutron bez náboje","náboj p+ a e− stejně velký, opačný; nelze vyrobit ani zničit","tření: elektrony přeskočí mezi tělesy","plast se nabíjí záporně, sklo kladně","neutrální těleso: počet p+ = počet e−","iont: kationt (+) ztratil e−, aniont (−) přijal e−, jen změnou elektronů","náboj: značka Q, jednotka C; elementární e = 1,6·10⁻¹⁹ C","elektroskop pozná nabité těleso, elektrometr porovná velikost","vodiče (kovy) přenášejí, izolanty (dřevo, plast, guma) ne","uzemnění vybije těleso spojením se Zemí","statická elektřina: jiskry při doteku nabitých těles","souhlasné náboje se odpuzují, nesouhlasné přitahují","síla: větší náboj i menší vzdálenost → silnější"]},
 						odkazy: [
 							{ nazev: 'Elekrostatika – 8. ročník ZŠ (test, 13 otázek) — testi.cz', url: 'https://testi.cz/testy/fyzika/elekrostatika-8.rocnik-zs/' },
 						],
@@ -2727,55 +2627,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'elektricke-pole',
 						nazev: 'Elektrické pole',
 						interakce: 'elektricke-pole',
-						obsah: `
-							<h2>Elektrické pole</h2>
-							<p><strong>Elektrické pole</strong> vzniká <strong>kolem každého nabitého tělesa</strong>. Projevuje se tím, že působí <strong>elektrickou silou</strong> na jiná tělesa — i <strong>na dálku</strong>, bez dotyku.</p>
-							<ul>
-								<li>nesouhlasně nabitá tělesa (+ a −) se <strong>přitahují</strong> (hřeben a vlasy)</li>
-								<li>souhlasně nabitá tělesa se <strong>odpuzují</strong> (jednotlivé vlasy mezi sebou)</li>
-							</ul>
-							<h3>Vodič v elektrickém poli</h3>
-							<p>V nenabitém kovu se působením pole <strong>přesunou volné elektrony</strong> na jednu stranu — nastane <strong>elektrostatická indukce</strong>. Jedna strana je pak záporná, druhá kladná, i když je těleso jako celek neutrální. Proto se neutrální plechovka rozkutálí k zelektrovanému pravítku.</p>
-							<h3>Izolant v elektrickém poli</h3>
-							<p>V izolantu elektrony atom neopustí, jen se uvnitř atomů nakloní — nastane <strong>polarizace</strong>. Těleso je také přitahováno (kousky papíru, pramínek vody z kohoutku k pravítku), ale náboj z něj <strong>nelze odvést</strong>.</p>
-							<h3>Siločáry</h3>
-							<ul>
-								<li>ukazují <strong>směr síly na kladný náboj</strong>, orientace <strong>od + k −</strong></li>
-								<li>čím <strong>hustší</strong> siločáry, tím <strong>silnější</strong> pole; dál od tělesa síla slábne a siločáry řídnou</li>
-								<li>mezi dvěma rovnoběžnými deskami je pole <strong>stejnorodé (homogenní)</strong> — siločáry jsou rovnoběžné</li>
-							</ul>
-							<h3>⚡ Faradayova klec — proč je v autě při bouřce bezpečno</h3>
-							<p>Vezmi si znovu <strong>elektrostatickou indukci</strong> z odstavce výš: v kovu se
-							volné elektrony přesunou tam, kam je vnější pole tlačí. Jenže tím samy vytvoří
-							<strong>pole opačného směru</strong> — a ta dvě se uvnitř kovu navzájem <strong>vyruší</strong>.</p>
-							<p>Uvnitř uzavřeného kovového obalu proto <strong>vnější elektrické pole nic nezmůže</strong>.
-							Tomu se říká <strong>Faradayova klec</strong> a potkáš ji častěji, než by ses nadál(a):</p>
-							<ul>
-								<li><strong>auto při bouřce</strong> — blesk sjede po plechu karoserie do země a posádky
-								uvnitř se nedotkne. (Pozor: chrání <em>plech</em>, ne gumové pneumatiky — ty jsou
-								v tom nevinně, ačkoli se to často říká. A platí to jen se <strong>zavřenými okny</strong>
-								a bez sahání na kovové části; kabriolet nechrání vůbec.)</li>
-								<li><strong>letadlo</strong>, do kterého blesk udeří poměrně běžně, a nikdo si toho
-								ani nevšimne</li>
-								<li><strong>kovový oplet kabelu</strong> u sluchátek nebo antény — drží rušení venku</li>
-								<li><strong>mikrovlnná trouba</strong> — mřížka ve dvířkách nepustí mikrovlny ven,
-								a přitom se skrz ni dá koukat dovnitř</li>
-							</ul>
-							<p>👉 Klec nemusí být plná deska, stačí <strong>hustá kovová síť</strong>. Její oka ale
-							musí být <strong>mnohem menší než vlnová délka</strong> toho, co má zadržet — a přesně
-							proto vypadá mřížka v troubě jako kouzlo: <strong>mikrovlny</strong> jsou dlouhé asi
-							<strong>12 cm</strong> a dírkami neprojdou, kdežto <strong>světlo</strong> má vlnovou
-							délku statisíckrát menší a proletí bez problémů. Proto dovnitř vidíš, a přesto se
-							u dvířek neohřeješ.</p>
-						`,
-						zapis: {
-							body: [
-								'Elektrické pole vzniká kolem každého nabitého tělesa a působí elektrickou silou na dálku.',
-								'Nesouhlasně nabitá tělesa se přitahují a souhlasně nabitá tělesa se odpuzují.',
-								'Ve vodiči způsobí elektrické pole přesun volných elektronů, tedy elektrostatickou indukci; v izolantu nastává polarizace.',
-								'Siločáry míří od kladného náboje k zápornému a jejich hustota ukazuje sílu pole.',
-							],
-						},
+						obsah: "<h2>Elektrické pole</h2>\n<p>Kolem každého <strong>nabitého tělesa</strong> vzniká neviditelné <strong>elektrické pole</strong>. Projevuje se tak, že působí <strong>elektrickou silou</strong> na jiná tělesa — a to i na dálku, bez dotyku.</p>\n<ul>\n<li>nesouhlasně nabitá tělesa (+ a −) se <strong>přitahují</strong> — třeba hřeben a vlasy, nebo mikrotenový sáček a ruka</li>\n<li>souhlasně nabitá tělesa se <strong>odpuzují</strong> — proto se rozčesané vlasy navzájem rozestupují</li>\n</ul>\n\n<h3>Siločáry — jak si pole nakreslit</h3>\n<p>Elektrické pole je neviditelné, ale fyzikové ho kreslí pomocí <strong>siločar</strong>. Podle dohody ukazují siločáry směr síly, která by působila na <strong>kladný náboj</strong> — proto vždycky míří <strong>od + k −</strong>.</p>\n<p>Čím jsou siločáry k sobě <strong>hustší</strong>, tím je pole na tom místě <strong>silnější</strong>. Dál od nabitého tělesa síla slábne a siločáry <strong>řídnou</strong>. Mezi dvěma rovnoběžnými nabitými deskami jsou siločáry rovnoběžné po celé ploše — takovému poli se říká <strong>stejnorodé (homogenní)</strong>.</p>\n<p>Tvar siločar dokonce uvidíš v pokusu: do oleje ponoříš dva nabité kovové drátky a hladinu posypeš jemnou krupicí. Zrnka se sama srovnají podél neviditelných siločar.</p>\n\n<h3>Vodič v elektrickém poli</h3>\n<p>V nenabitém kovu se působením cizího pole <strong>přesunou volné elektrony</strong> na jednu stranu tělesa. Tomu se říká <strong>elektrostatická indukce</strong>. Jedna strana kovu je pak záporná, druhá kladná, i když je těleso jako celek pořád neutrální. Proto se k zelektrovanému pravítku rozkutálí i neutrální plechovka.</p>\n<p>Indukci umí ukázat i <strong>elektroskop</strong> — přístroj s ručičkou, který ukazuje nabití. Když k němu přiblížíš nabitou tyč, ručička se vychýlí, i když se tyče nedotkneš. A po oddálení tyče se zase vrátí zpátky. Ale dotkneš-li se elektroskopu rukou zrovna ve chvíli, kdy je tyč blízko, odvedeš tím část náboje do země. Po oddálení tyče pak elektroskop zůstane nabitý natrvalo.</p>\n\n<h3>Izolant v elektrickém poli</h3>\n<p>V izolantu elektrony atomy neopustí — jen se uvnitř atomů <strong>natočí</strong> k jedné straně. Tomu se říká <strong>polarizace</strong>. I takové těleso je k nabitému tělesu přitahováno, přestože zůstává elektricky neutrální.</p>\n<p>Proto se k zelektrovanému pravítku přitáhnou drobné kousky papíru nebo tenký proud vody z kohoutku. Na rozdíl od vodiče ale z izolantu <strong>náboj odvést nelze</strong>.</p>\n\n<h3>⚡ Faradayova klec — proč je v autě při bouřce bezpečno</h3>\n<p>Vezmi si znovu <strong>elektrostatickou indukci</strong> z odstavce výš: v kovu se volné elektrony přesunou tam, kam je vnější pole tlačí. Jenže tím samy vytvoří <strong>pole opačného směru</strong> — a ta dvě se uvnitř kovu navzájem <strong>vyruší</strong>.</p>\n<p>Uvnitř uzavřeného kovového obalu proto <strong>vnější elektrické pole nic nezmůže</strong>. Tomu se říká <strong>Faradayova klec</strong> a potkáš ji častěji, než by ses nadál(a):</p>\n<ul>\n<li><strong>auto při bouřce</strong> — blesk sjede po plechu karoserie do země a posádky uvnitř se nedotkne. (Pozor: chrání <strong>plech</strong>, ne gumové pneumatiky — ty jsou v tom nevinně, ačkoli se to často říká. A platí to jen se <strong>zavřenými okny</strong> a bez sahání na kovové části; kabriolet nechrání vůbec.)</li>\n<li><strong>letadlo</strong>, do kterého blesk udeří poměrně běžně, a nikdo si toho ani nevšimne</li>\n<li><strong>kovový oplet kabelu</strong> u sluchátek nebo antény — drží rušení venku</li>\n<li><strong>mikrovlnná trouba</strong> — mřížka ve dvířkách nepustí mikrovlny ven, a přitom se skrz ni dá koukat dovnitř</li>\n</ul>\n<p>👉 Klec nemusí být plná deska, stačí <strong>hustá kovová síť</strong>. Její oka ale musí být <strong>mnohem menší než délka vlny</strong> toho, co má zadržet. Přesně proto vypadá mřížka v troubě jako kouzlo: <strong>mikrovlny</strong> jsou dlouhé asi <strong>12 cm</strong>, a tak dírkami neprojdou.</p>\n<p><strong>Světlo</strong> má ale délku vlny statisíckrát menší, a proto proletí bez problémů. Proto dovnitř vidíš, a přesto se u dvířek neohřeješ.</p>",
+						zapis: {"body":["pole: vzniká kolem nabitého tělesa","pole: působí silou i na dálku","náboje nesouhlasné (+/−): přitahují se","náboje souhlasné: odpuzují se","siločáry: směr od + k −","siločáry husté = pole silné","mezi deskami: pole stejnorodé (homogenní)","vodič: indukce — elektrony se posunou","elektroskop: dotyk při indukci = trvalé nabití","izolant: polarizace — elektrony se natočí","izolant: náboj z něj nejde odvést","Faradayova klec: uvnitř dutiny není pole"]},
 						odkazy: [
 							{ nazev: 'Elektrický náboj a elektrické pole — rozcestník videí (ČT edu)', url: 'https://edu.ceskatelevize.cz/tema/elektricky-naboj-a-elektricke-pole' },
 							{ nazev: 'Pokusy: Umělé blesky — Faradayova klec (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/5393-pokusy-umele-blesky' },
@@ -2785,38 +2638,8 @@ export const temata: Record<string, Tema[]> = {
 						slug: 'vznik-elektrickeho-proudu',
 					interakce: 'vznik-elektrickeho-proudu',
 						nazev: 'Vznik elektrického proudu ve vodiči',
-						obsah: `
-							<h2>Vznik elektrického proudu ve vodiči</h2>
-							<p>Aby přístroj fungoval, musí jím <strong>téct elektrický proud</strong>. K tomu ho zapojíme do <strong>elektrického obvodu se zdrojem napětí</strong>.</p>
-							<h3>Co je elektrický proud</h3>
-							<p><strong>Elektrický proud je uspořádaný pohyb volných nabitých částic.</strong> Nesou ho:</p>
-							<ul>
-								<li><strong>volné elektrony v kovech</strong> (část elektronů se uvolní z atomů)</li>
-								<li><strong>ionty</strong> v roztocích solí a kyselin (proto je vodičem i pot a tělní tekutiny → člověk vede proud)</li>
-								<li>za zvláštních podmínek i částice ve vzduchu (blesk, jiskření)</li>
-							</ul>
-							<h3>Podmínky průchodu proudu</h3>
-							<ul>
-								<li>musí být <strong>elektrické napětí</strong> mezi konci vodiče (mezi svorkami zdroje) — to žene částice</li>
-								<li>proud prochází jen <strong>vodiči</strong> (kovy, roztoky), <strong>neprochází izolanty</strong> (dřevo, plast, guma)</li>
-								<li>záporné částice míří ke <strong>kladné</strong> svorce, kladné ionty k <strong>záporné</strong> svorce</li>
-							</ul>
-							<h3>Napětí jako příčina proudu</h3>
-							<p><strong>Elektrické napětí</strong> vzniká rozdílem nábojů mezi dvěma body: záporná svorka má přebytek elektronů, kladná jejich nedostatek. Napětí je <strong>příčinou</strong> proudu a získáme ho ze <strong>zdroje napětí</strong> (zásuvka z elektrárny, baterie, akumulátor).</p>
-							<h3>Dva druhy proudu</h3>
-							<ul>
-								<li><strong>stejnosměrný (DC)</strong> — teče stále stejným směrem; z baterií a akumulátorů. U některých spotřebičů na směru záleží (LED dioda, elektronika), u jiných ne (žárovka)</li>
-								<li><strong>střídavý (AC)</strong> — pravidelně mění směr; z elektráren, máme ho v zásuvce; pohání velké spotřebiče (pračka, fén)</li>
-								</ul>
-								`,
-								zapis: {
-								body: [
-									'Elektrický proud je uspořádaný pohyb volných nabitých částic.',
-									'V kovech proud přenášejí volné elektrony, v roztocích solí a kyselin ionty a za zvláštních podmínek také částice ve vzduchu.',
-									'Proud prochází vodičem, když je mezi jeho konci elektrické napětí. Napětí vzniká rozdílem nábojů a je příčinou elektrického proudu.',
-									'Stejnosměrný proud teče stále stejným směrem, zatímco střídavý proud svůj směr pravidelně mění.',
-								],
-								},
+						obsah: "<h2>Vznik elektrického proudu ve vodiči</h2>\n\n<p>Aby přístroj fungoval, musí jím <strong>téct elektrický proud</strong>. K tomu ho zapojíme do <strong>elektrického obvodu se zdrojem napětí</strong>.</p>\n\n<h3>Co je elektrický proud</h3>\n<p><strong>Elektrický proud je uspořádaný pohyb volných nabitých částic.</strong> Protéká vodičem a nesou ho:</p>\n<ul>\n<li><strong>volné elektrony v kovech</strong> — část elektronů se uvolní z atomů a pohybuje se volně</li>\n<li><strong>ionty</strong> v roztocích solí a kyselin, třeba v kyselině sírové v autobaterii</li>\n<li>za zvláštních podmínek i <strong>částice ve vzduchu</strong> — při blesku nebo jiskření</li>\n</ul>\n<p><strong>Iont</strong> je částice, která ztrátou nebo ziskem elektronu získala náboj — kladný, nebo záporný. Proto vede proud i pot a tělní tekutiny, a proto je vodičem i lidské tělo.</p>\n\n<h3>Napětí jako příčina proudu</h3>\n<p><strong>Elektrické napětí</strong> vzniká rozdílem nábojů mezi dvěma body. Záporná svorka zdroje má přebytek elektronů, kladná jejich nedostatek. Napětí je <strong>příčinou</strong> proudu a získáme ho ze <strong>zdroje napětí</strong>.</p>\n\n<h3>Podmínky průchodu proudu</h3>\n<p>Aby vodičem protékal proud, musí platit tyto podmínky:</p>\n<ul>\n<li><strong>elektrické pole</strong> mezi dvěma nabitými tělesy (+ a −) žene nabité částice vodičem — třeba mezi kladnou a zápornou svorkou baterie</li>\n<li>stejně je to při <strong>blesku</strong>: pole vzniká mezi kladně nabitou zemí a záporně nabitými mraky</li>\n<li>mezi konci vodiče proto musí být <strong>elektrické napětí</strong></li>\n<li>proud prochází jen <strong>vodiči</strong> (kovy, roztoky); <strong>izolanty</strong> (dřevo, plast, guma) proud nepropustí, protože v nich nejsou žádné volné částice</li>\n</ul>\n<p>Záporné částice — elektrony a záporné ionty — míří ke <strong>kladné svorce</strong> zdroje. Kladné ionty míří k <strong>záporné svorce</strong>.</p>\n\n<h3>Odkud bereme napětí</h3>\n<p>Napětí do zásuvky posílá <strong>elektrárna</strong> přes rozvodnou elektrickou síť. Přenosné zdroje jsou <strong>akumulátory</strong> — dobíjecí baterie v mobilu, notebooku i autě — a <strong>monočlánky</strong>: tužkové, knoflíkové nebo ploché baterie.</p>\n<p>Elektrickou energii vyrábí <strong>otáčivý pohyb</strong>: turbíny větrné, vodní nebo parní, nebo elektromagnet v <strong>generátoru</strong> poháněném motorem. Turbína je kolo, které roztáčí proudící voda, vítr nebo pára. Generátor je stroj, který otáčivým pohybem vyrábí elektrické napětí. V monočláncích a akumulátorech napětí dodává <strong>chemická reakce</strong>, v solárních panelech <strong>sluneční záření</strong>.</p>\n\n<h3>Dva druhy proudu</h3>\n<ul>\n<li><strong>stejnosměrný (DC)</strong> — teče stále stejným směrem; z baterií a akumulátorů. U některých spotřebičů na směru záleží (LED dioda, elektronika), u jiných ne (žárovka)</li>\n<li><strong>střídavý (AC)</strong> — pravidelně mění směr; z elektráren, máme ho v zásuvce; pohání velké spotřebiče (pračka, fén)</li>\n</ul>\n<p>Spotřebiče, u kterých na směru proudu záleží, na střídavý proud přímo nefungují. Pokud je napájíme ze zásuvky, mají uvnitř obvod, který střídavý proud změní na stejnosměrný.</p>",
+								zapis: {"body":["proud = uspořádaný pohyb nabitých částic","kovy: nosič = volný elektron","roztoky: nosič = iont (sůl, kyselina)","vzduch: výjimečně, při blesku","iont = atom, co získal/ztratil elektron","pole (+/−) žene nabité částice","blesk: pole mezi zemí (+) a mraky (−)","podmínka: napětí mezi konci vodiče","vodič proud vede, izolant nevede","záporné částice → kladná svorka","kladné ionty → záporná svorka","napětí = rozdíl nábojů dvou bodů","napětí je příčina proudu","ze zásuvky: elektrárna, rozvodná síť","přenosné zdroje: baterie, akumulátor","energii dává otáčivý pohyb (turbína, generátor)","energii dává i chemická reakce, slunce","stejnosměrný (DC): směr stálý","střídavý (AC): směr se mění"]},
 								odkazy: [
 							{ nazev: 'ČT edu — Elektrický proud a napětí (video, 2 min)', url: 'https://edu.ceskatelevize.cz/video/1921-elektricky-proud-a-napeti' },
 							{ nazev: 'Wordwall — Elektrický proud a napětí, 8. třída (kvíz)', url: 'https://wordwall.net/cs/resource/89308040' },

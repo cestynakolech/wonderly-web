@@ -327,3 +327,9 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   zapsány přes `podtema.mjs`, `zkontroluj.mjs` i build PASS, dist obsahuje
   klíčová čísla (146, tři složky, klíč od auta). Nálezy do `KE-SCHVALENI.md`
   body 17–19.
+
+### F7 vztlaková síla HOTOV 2/2, F8 elektřina 4/15 (2026-09-21)
+- `archimeduv-zakon`, `telesa-stejnoroda-a-nestejnoroda` (F7) a `elektricky-naboj`,
+  `elektricke-pole`, `vznik-elektrickeho-proudu` (F8) zapsány přes `podtema.mjs`,
+  `zkontroluj.mjs` i build PASS, dist obsahuje klíčová slova (ponořené části,
+  plastelín, elektroskop, Faradayov, blesk). Nálezy do `KE-SCHVALENI.md` body 20–21.
