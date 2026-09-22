@@ -250,3 +250,39 @@ nálezu); nálezy 8–12 ODLOŽENY — 21 otázek drženo.**
 Ověřeno: `node testy/vypis-kviz.mjs <klic>` = 21 u všech tří klíčů, `node testy/uniky.mjs` =
 0 duplicit / 0 úniků, `node zkontroluj.mjs` bez jmenovitého nálezu k těmto klíčům (náskok
 ≥10 znaků celkově klesl z 37 na 30), `npm run build` proběhl bez chyby (481 stránek).
+
+## ZAPRACOVÁNO 22. 9. 2026 (2)
+
+**opticka-cocka — dořešeny odložené nálezy 8–12 (5/5), 21 otázek beze změny počtu.**
+Rozhodnutí orchestrátora: neodkládat, ale každý nález typu (c) řešit NAHRAZENÍM nejslabší/
+duplicitní/okrajové stávající otázky v bloku. Provedené náhrady:
+
+- **Nález 8** (ohnisková vzdálenost f jako pojem): NAHRAZENA otázka 10 „Co znamená větší
+  počet dioptrií čočky?" (okrajová, přebývala vedle otázky 9 o dioptriích rozptylky) →
+  „Co je ohnisková vzdálenost f čočky?", odpovědi „vzdálenost ohniska od středu čočky" /
+  „vzdálenost obrazu od předmětu" / „poloměr zakřivení plochy čočky" (náskok +4).
+- **Nález 9** (optická osa = spojnice středů křivosti): NEnahrazuje žádnou otázku — otázka 6
+  „Kolik ohnisek má optická čočka?" ROZŠÍŘENA jen ve vysvětlení („Optická osa spojuje středy
+  křivosti obou ploch čočky; na ní leží obě ohniska F a F´."), odpovědi beze změny (náskok −1
+  nezměněn) — ušetřilo se místo v bloku stejnou technikou jako u `kulova-zrcadla-dute-zrcadlo`
+  nález 3 v 1. kole.
+- **Nález 10** (rozlišení spojka/rozptylka pohledem do dálky): NAHRAZENA otázka 18 „Proč lze
+  spojkou (lupou) rozdělat oheň?" (duplicitní fyzikální podstata s otázkou 4 a 12 — paprsky
+  se soustředí do ohniska) → „Jak poznáme spojku od rozptylky, když se jimi díváme do dálky?",
+  odpovědi „spojka obraz převrací, rozptylka ne" / „obě obraz vždy převrací" / „obě obraz
+  nikdy nepřevrací" (náskok +9).
+- **Nález 11** (značka spojky — dvě šipky ven): NAHRAZENA otázka 21 „Které optické pomůcky
+  mohou obsahovat jak spojku, tak rozptylku?" (okrajová látka, navíc hraničila s mimo-scope
+  tématem vad zraku už v 1. kole) → „Jak se v nákresu značí spojka?", odpovědi „dvěma šipkami
+  směřujícími ven" / „dvěma šipkami směřujícími dovnitř" / „jednou svislou čárou" (náskok −4).
+- **Nález 12** (konstrukce obrazu přes průsečík paprsků; u rozptylky týž princip; jednotka D):
+  NAHRAZENA otázka 1 „Z čeho jsou vyrobené optické čočky?" (nejperiferněji fyzikální fakt
+  bloku) → „Podle čeho poznáme, jestli je obraz vytvořený čočkou skutečný, nebo zdánlivý?",
+  odpovědi „protnou-li se doopravdy paprsky" / „protnou-li se jejich prodloužení" / „podle
+  barvy čočky" (náskok −1); vysvětlení zmiňuje i platnost principu u rozptylky. Jednotka
+  dioptrie D zůstává nepokrytá vlastní otázkou (nejméně závažná část nálezu 12, ostatní
+  4 z 5 částí pokryty).
+
+Ověřeno: `node testy/vypis-kviz.mjs opticka-cocka` = 21, `node testy/uniky.mjs` = 0 duplicit /
+0 úniků (150 bloků), `node zkontroluj.mjs` bez jmenovitého nálezu ke klíči `opticka-cocka`,
+`npm run build` proběhl bez chyby (481 stránek).
