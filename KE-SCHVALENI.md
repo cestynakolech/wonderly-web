@@ -32,6 +32,14 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    silnic" (limit −21 °C) a „💡 Podchlazená voda" (pevné jádro, ťuknutí,
    šestnáctina, podchlazení 80 °C). Fyzikálně v pořádku, ale beze zdrojového
    dokladu — ponecháno z dosavadního webu, rozhodne učitel, odkud pochází.
+   → **VYŘÍZENO 23. 9. 2026** podle rozhodnutí učitele „skupinu C doplnit",
+   po nezávislé kontrole a opravě (viz `doplneni-skupina-c-v2.md`): sekce
+   „solení silnic" přepsána (praktická hranice −5 až −7 °C dle Wikipedie,
+   laboratorní −21 °C jen pro namíchaný roztok, doloženo i PDF Tání), pojem
+   „eutektický bod" vypuštěn. Do sekce „Pro zvídavé: počítáme" doplněna
+   jedna kotvicí věta s odvozením čísel „šestnáctina" a „asi 80 °C" (měrné
+   skupenské teplo tuhnutí l<sub>t</sub> = 332 kJ/kg, c vody = 4 200 J/(kg·°C)) —
+   žádný nový odstavec u „💡 Podchlazená voda" (byla by duplicita). `temata.ts`.
 
 ## 21. 9. 2026 — nález z podkladů F7 (pohyb a rychlost)
 
@@ -47,6 +55,12 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
 7. **Podtéma „Třecí síla"** — navrženo doplnit větu, že tření nezávisí na
    velikosti stykové plochy. Fyzikálně správné, ale ve zdrojovém PDF ani
    v prezentaci to není — proto zatím na web nedáno. Chce učitel doplnit?
+   → **VYŘÍZENO 23. 9. 2026** podle rozhodnutí učitele „skupinu C doplnit",
+   po nezávislé kontrole a opravě (viz `doplneni-skupina-c-v2.md`): doplněna
+   věta s příkladem cihly tažené po stole naplocho a postavené na hranu
+   (nahradila původně navržený, věcně chybný příklad s brzdovým kotoučem,
+   který se na web nedostal), doloženo Techmania Edu (Coulombův pokus).
+   `temata.ts`.
 8. **Podtéma „Třecí síla"** — dosavadní příklad na webu měl f = 0,4 a
    výsledek 200 N. Podle prezentace (snímky 13–16, tabulka součinitelů
    ocel/dřevo) přepsáno na f = 0,35 a výsledek 175 N. Prosím potvrdit
@@ -146,6 +160,13 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     lithium-iontový akumulátor); na webu ponecháno správné rozlišení podle
     dosavadního textu. Navíc navržen vzorec t = Q : I k doplnění kapacity —
     zatím bez zdroje, nezapsán.
+    → **VYŘÍZENO 23. 9. 2026** — NEZAPISOVÁNO, rozhodnutí koordinátora.
+    Důvod: (a) v podkladu „21. Chemické zdroje elektrického napětí.pdf" se
+    „mAh" nevyskytuje, opora ve zdroji tedy chybí; (b) týž vzorec i příklad
+    (2 000 mAh : 500 mA = 4 h) už doslova je v podtématu
+    `elektricky-proud-mereni` — druhý zápis by porušil „jeden tvar, jeden
+    význam"; (c) chemické zdroje stojí v osnově PŘED měřením proudu,
+    doplnění by předbíhalo výklad.
 20. **F7 Tělesa stejnorodá a nestejnorodá** — rozpor hustot: prezentace
     `Mastering_Buoyancy.pptx` (snímek 7) uvádí ocel ≈ 7 800 kg/m³ a vzduch
     ≈ 1,2 kg/m³, dosavadní web má ocel 8 000 kg/m³ a vzduch „kolem" 1 kg/m³
@@ -156,3 +177,9 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
 21. **F8 Vznik elektrického proudu** — dohodnutý směr proudu (od + k −) není
     ani v podkladu (SmartBooks PDF), ani na dosavadním webu; navrženo
     k doplnění, zatím nezapsáno bez zdroje.
+    → **VYŘÍZENO 23. 9. 2026** — z bodu provedena jen jedna věta (že dohodnutý
+    směr proudu od + k − i skutečný pohyb volných elektronů od − k + jsou
+    obojí správně, každé v jiném smyslu, znění dle sesterského podtématu
+    `elektricky-proud-mereni`), vzorec ani zbytek NEZAPISOVÁNO, ze stejných
+    důvodů jako u bodu 19 (chybějící opora ve zdroji, riziko duplicity,
+    předbíhání výkladu). `temata.ts`.
