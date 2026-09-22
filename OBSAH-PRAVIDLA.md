@@ -304,3 +304,24 @@ hotové audio, které tam už je.
 
 Tato definice je jediné platné a úplné znění — nahrazuje a rozšiřuje dřívější
 užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz sem.
+
+**Měřitelný práh animace (doplněno 23. 9. 2026 po nálezu `PREHLED-INSTRUKCI-VIDEA-2026-09-23.md`):**
+bod 6 dosud říkal jen „ne statické obrázky", bez čísla — to umožnilo, že pilot
+`magnety-opakovani-dialog1-PILOT-animace.mp4` (62 unikátních z 2 816 snímků, poměr 0,022)
+prošel jako „animovaný díl", než ho učitel označil za „jednu fotku". Platí proto:
+
+- **Video se počítá jako ANIMACE, jen když poměr unikátních snímků k celkovému počtu
+  (měřeno `ffprobe` + filtrem `mpdecimate`) je ALESPOŇ 0,50.** Pod touto hranicí jde
+  o „video se statickými obrázky" bez ohledu na název souboru nebo tvrzení výroby.
+- **Zdůvodnění hranice:** kalibrace na 62 reálných souborech ukázala jasnou mezeru v datech —
+  nejvyšší naměřený poměr mezi STATICKÝMI videi je 0,39 (`pisen-dneska-jedeme-tlak.mp4`),
+  jediné skutečně animované video (`mechanicka-prace-dialog.mp4`) má poměr 1,00. Hranice 0,50
+  leží uprostřed této prázdné mezery 0,39–1,00, takže žádný dosud měřený soubor neleží
+  blízko hranice a klasifikace je jednoznačná i s rezervou.
+- **Jak se měří (přezkoumatelné kdykoli):** brána `~/Desktop/Omega/skripty/kontrola_animace.py`
+  spustí na souboru (případně jen na vzorku, např. prvních 60 s) `ffprobe`/`ffmpeg` s filtrem
+  `mpdecimate`, spočítá poměr snímků, které filtr NEODSTRANIL (= unikátní) k celkovému počtu
+  snímků, a vrátí ANIMACE (≥ 0,50) / STATICKÉ (< 0,50) / JEN AUDIO (žádná video stopa).
+- Název souboru (např. přípona `-animace`) NENÍ doklad — šest takto pojmenovaných souborů
+  mělo ve skutečnosti jen 3,5–4,5 % unikátních snímků (jednu krátkou vsunutou scénu, ne
+  animaci po celou dobu vysvětlení). Rozhoduje jen naměřené číslo z brány výše.
