@@ -1877,7 +1877,7 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'stin-faze-mesice',
 					nazev: 'Stín a fáze Měsíce',
 					interakce: 'mesic',
-					obsah: "\n\t\t\t\t\t\t<h2>Stín a fáze Měsíce</h2>\n\n\t\t\t\t\t\t<h3>Stín a polostín</h3>\n\t\t\t\t\t\t<p>Za neprůhledným tělesem vzniká <strong>stín</strong> — prostor, kam nesvítí žádné světlo, protože se světlo šíří přímočaře. Na stínítku vidíme <strong>vržený stín</strong>, například stín stromu na silnici. Hranici stínu určují paprsky, které procházejí těsně kolem okraje tělesa.</p>\n\t\t\t\t\t\t<p>U plošných zdrojů vzniká kolem stínu ještě <strong>polostín</strong> — prostor, kam dopadá světlo jen z části zdroje. Polostín není úplně tmavý, na stínítku je jen slabě šedý.</p>\n\n\t\t\t\t\t\t<h3>Fáze Měsíce</h3>\n\t\t\t\t\t\t<p>Měsíc sám nesvítí, vidíme jen tu část, kterou osvětluje Slunce. Měsíc obíhá Zemi a mění polohu, proto vidíme pokaždé jinak velkou osvětlenou část.</p>\n\t\t\t\t\t\t<p>Při <strong>novu</strong> je Měsíc mezi Zemí a Sluncem, a tak vidíme jeho neosvětlenou stranu. Při <strong>úplňku</strong> je naopak Země mezi Sluncem a Měsícem, a tak vidíme celou osvětlenou stranu.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>nov</strong> → <strong>první čtvrť</strong> (dorůstá, tvar D) → <strong>úplněk</strong> → <strong>poslední čtvrť</strong> (couvá, tvar C) → nov</li>\n\t\t\t\t\t\t<li>celý cyklus fází trvá přibližně <strong>29,5 dne</strong></li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Zatmění Měsíce</h3>\n\t\t\t\t\t\t<p>Zatmění Měsíce nastane, když se <strong>Země dostane mezi Slunce a Měsíc</strong>. Země vrhá stín na Měsíc, který ztmavne nebo zčervená — říká se mu pak <strong>krvavý Měsíc</strong>. Sluneční světlo se přitom láme a rozptyluje v zemské atmosféře, a do stínu propustí jen červenou barvu. Zatmění Měsíce lze bezpečně pozorovat pouhým okem.</p>\n\t\t\t\t\t\t<p>Může nastat jen při <strong>úplňku</strong>. Měsíc ale neobíhá Zemi ve stejné rovině jako Země kolem Slunce. Proto stín Země často Měsíc mine, nebo zasáhne jen zčásti.</p>\n\t\t\t\t\t\t<p>Zatmění Měsíce nastává průměrně dvakrát až třikrát do roka, nejvýše pětkrát. Někdy ale žádné nenastane a čeká se i několik let. Podle toho, kolik Měsíce zasáhne stín, rozlišujeme zatmění <strong>úplné</strong> (celý Měsíc ve stínu) a <strong>částečné</strong> (jen část Měsíce ve stínu).</p>\n\n\t\t\t\t\t\t<h3>Zatmění Slunce</h3>\n\t\t\t\t\t\t<p>Zatmění Slunce nastane, když se <strong>Měsíc dostane mezi Zemi a Slunce</strong> a zakryje ho. Měsíc přitom vrhá stín na Zemi. Dívat se smíš jen přes <strong>ochranné brýle</strong> — jedinou výjimkou je těch pár minut, kdy Měsíc zakryje celé Slunce.</p>\n\t\t\t\t\t\t<p>Může nastat jen při <strong>novu</strong>. Slunce je sice 400krát větší než Měsíc, ale je také 400krát dál od Země. Proto na obloze vidíme oba kotouče stejně velké.</p>\n\t\t\t\t\t\t<p>Při <strong>úplném zatmění</strong> je celé Slunce zakryté Měsícem, na několik minut je tma a kolem Měsíce září sluneční korona. Při <strong>částečném zatmění</strong> Měsíc zakryje jen část Slunce a jas zůstává stále silný. Kdo stojí jen v polostínu Měsíce, vidí právě tenhle částečný jev.</p>\n\t\t\t\t\t\t<p>Úplné zatmění Slunce nastává na Zemi zhruba každých 18 měsíců, ale je vidět jen na malém území, proto je vzácné. Částečná zatmění jsou častější a vidí je větší část Země.</p>\n\n\t\t\t\t\t\t<h3>Prstencové zatmění (pro zajímavost)</h3>\n\t\t\t\t\t\t<p>Dráha Měsíce kolem Země není kruh, ale elipsa, takže je Měsíc někdy blíž Zemi a někdy dál. Když je Měsíc dál, jeho kotouč je na obloze menší než sluneční.</p>\n\t\t\t\t\t\t<p>Slunce pak Měsíc nezakryje celé — kolem tmavého Měsíce zůstane zářit tenký prstenec Slunce. Tomuto jevu se říká <strong>prstencové zatmění Slunce</strong>.</p>\n\t\t\t\t\t",
+					obsah: "\n\t\t\t\t\t\t<h2>Stín a fáze Měsíce</h2>\n\n\t\t\t\t\t\t<h3>Stín a polostín</h3>\n\t\t\t\t\t\t<p>Za neprůhledným tělesem vzniká <strong>stín</strong> — prostor, kam nesvítí žádné světlo, protože se světlo šíří přímočaře. Na stínítku vidíme <strong>vržený stín</strong>, například stín stromu na silnici. Hranici stínu určují paprsky, které procházejí těsně kolem okraje tělesa. U bodového zdroje polostín nevzniká a hranice stínu je ostrá.</p>\n\t\t\t\t\t\t<p>U plošných zdrojů vzniká kolem stínu ještě <strong>polostín</strong> — prostor, kam dopadá světlo jen z části zdroje. Polostín není úplně tmavý, na stínítku je jen slabě šedý.</p>\n\n\t\t\t\t\t\t<h3>Fáze Měsíce</h3>\n\t\t\t\t\t\t<p>Měsíc sám nesvítí, vidíme jen tu část, kterou osvětluje Slunce. Měsíc obíhá Zemi a mění polohu, proto vidíme pokaždé jinak velkou osvětlenou část.</p>\n\t\t\t\t\t\t<p>Při <strong>novu</strong> je Měsíc mezi Zemí a Sluncem, a tak vidíme jeho neosvětlenou stranu. Při <strong>úplňku</strong> je naopak Země mezi Sluncem a Měsícem, a tak vidíme celou osvětlenou stranu.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>nov</strong> → <strong>první čtvrť</strong> (dorůstá, tvar D) → <strong>úplněk</strong> → <strong>poslední čtvrť</strong> (couvá, tvar C) → nov</li>\n\t\t\t\t\t\t<li>celý cyklus fází trvá přibližně <strong>29,5 dne</strong></li>\n\t\t\t\t\t\t</ul>\n\n\t\t\t\t\t\t<h3>Zatmění Měsíce</h3>\n\t\t\t\t\t\t<p>Zatmění Měsíce nastane, když se <strong>Země dostane mezi Slunce a Měsíc</strong>. Země vrhá stín na Měsíc, který ztmavne nebo zčervená — říká se mu pak <strong>krvavý Měsíc</strong>. Sluneční světlo se přitom láme a rozptyluje v zemské atmosféře, a do stínu propustí jen červenou barvu. Zatmění Měsíce lze bezpečně pozorovat pouhým okem.</p>\n\t\t\t\t\t\t<p>Může nastat jen při <strong>úplňku</strong>. Měsíc ale neobíhá Zemi ve stejné rovině jako Země kolem Slunce. Proto stín Země často Měsíc mine, nebo zasáhne jen zčásti.</p>\n\t\t\t\t\t\t<p>Zatmění Měsíce nastává průměrně dvakrát až třikrát do roka, nejvýše pětkrát. Někdy ale žádné nenastane a čeká se i několik let. Podle toho, kolik Měsíce zasáhne stín, rozlišujeme zatmění <strong>úplné</strong> (celý Měsíc ve stínu) a <strong>částečné</strong> (jen část Měsíce ve stínu).</p>\n\n\t\t\t\t\t\t<h3>Zatmění Slunce</h3>\n\t\t\t\t\t\t<p>Zatmění Slunce nastane, když se <strong>Měsíc dostane mezi Zemi a Slunce</strong> a zakryje ho. Měsíc přitom vrhá stín na Zemi. Dívat se smíš jen přes <strong>ochranné brýle</strong> — jedinou výjimkou je těch pár minut, kdy Měsíc zakryje celé Slunce.</p>\n\t\t\t\t\t\t<p>Může nastat jen při <strong>novu</strong>. Slunce je sice 400krát větší než Měsíc, ale je také 400krát dál od Země. Proto na obloze vidíme oba kotouče stejně velké.</p>\n\t\t\t\t\t\t<p>Při <strong>úplném zatmění</strong> je celé Slunce zakryté Měsícem, na několik minut je tma a kolem Měsíce září sluneční korona. Při <strong>částečném zatmění</strong> Měsíc zakryje jen část Slunce a jas zůstává stále silný. Kdo stojí jen v polostínu Měsíce, vidí právě tenhle částečný jev.</p>\n\t\t\t\t\t\t<p>Úplné zatmění Slunce nastává na Zemi zhruba každých 18 měsíců, ale je vidět jen na malém území, proto je vzácné. Částečná zatmění jsou častější a vidí je větší část Země.</p>\n\n\t\t\t\t\t\t<h3>Prstencové zatmění (pro zajímavost)</h3>\n\t\t\t\t\t\t<p>Dráha Měsíce kolem Země není kruh, ale elipsa, takže je Měsíc někdy blíž Zemi a někdy dál. Když je Měsíc dál, jeho kotouč je na obloze menší než sluneční.</p>\n\t\t\t\t\t\t<p>Slunce pak Měsíc nezakryje celé — kolem tmavého Měsíce zůstane zářit tenký prstenec Slunce. Tomuto jevu se říká <strong>prstencové zatmění Slunce</strong>.</p>\n\t\t\t\t\t",
 					zapis: {"body":["stín: prostor bez světla za tělesem","vržený stín: např. strom na silnici","hranici stínu určují okrajové paprsky","polostín: u plošných zdrojů, slabě šedý","Měsíc nesvítí, vidíme jeho osvětlenou část","fáze: nov, D, úplněk, C, nov","cyklus fází trvá přibližně 29,5 dne","nov: Měsíc uprostřed; úplněk: Země uprostřed","zatmění Měsíce: při úplňku, dráhy nesouběžné","zatmění Měsíce 2–3× ročně; úplné/částečné: celý/část ve stínu, zrudne","zatmění Slunce: jen při novu","dívat se jen přes ochranné brýle","výjimka: pár minut úplného zákrytu","Slunce 400× větší, 400× dál","proto kotouče na obloze stejně velké","úplné Slunce: tma+korona, vzácné (malé území); částečné: jas silný, častější","prstencové zatmění: Měsíc dál, nezakryje celé"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Stíny, fáze a zatmění', cesta: '2_f7R5E_rrY' },
@@ -1968,12 +1968,13 @@ export const temata: Record<string, Tema[]> = {
 						<h3>3. <a href="../../jednoduche-stroje/">Jednoduché stroje</a></h3>
 						<ul><li>působení těles a deformace; páka a moment síly</li></ul>
 						<h3>4. <a href="../../tlak-v-kapalinach/">Tlak v kapalinách</a></h3>
-						<ul><li>tlak p = F : S (pascal); Pascalův zákon a hydraulika; hydrostatický tlak</li></ul>
+						<ul><li>tlak p = F : S (pascal); tlaková síla a tlak v praxi</li></ul>
 						<h3>📋 Klíčové vztahy</h3>
 						<ul>
 							<li>rychlost v = s : t (m/s, km/h; 1 m/s = 3,6 km/h)</li>
 							<li>tlak p = F : S (Pa)</li>
-							<li>gravitační síla na 1 kg ≈ 10 N</li>
+							<li>rovnováha na páce F₁ · a₁ = F₂ · a₂ (N, m)</li>
+							<li>gravitační síla Fg = m · g (g = 10 N/kg, tedy na 1 kg připadá asi 10 N)</li>
 						</ul>
 						<h3>🎮 Další procvičování (Wordwall)</h3>
 						<ul>
@@ -1985,9 +1986,9 @@ export const temata: Record<string, Tema[]> = {
 							'V prvním pololetí opakujeme pohyb těles, trajektorii, dráhu a rychlost.',
 							'Sílu měříme siloměrem. Probíráme gravitační a třecí sílu, skládání sil a těžiště tělesa.',
 							'Sledujeme působení těles a deformaci, páku a moment síly.',
-							'U kapalin počítáme tlak a poznáváme Pascalův zákon, hydrauliku a hydrostatický tlak.',
+							'U kapalin a pevných těles počítáme tlak a poznáváme tlakovou sílu.',
 						],
-						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)      p = F : S      (odvozeně: F = p · S,  S = F : p)',
+						vzorec: 'v = s : t      (odvozeně: s = v · t,  t = s : v)      Fg = m · g      p = F : S      (odvozeně: F = p · S,  S = F : p)      F₁ · a₁ = F₂ · a₂',
 						jednotky: [
 							'rychlost v — metr za sekundu (m/s)',
 							'dráha s — metr (m), čas t — sekunda (s)',
@@ -1995,6 +1996,8 @@ export const temata: Record<string, Tema[]> = {
 							'síla F — newton (N), obsah plochy S — metr čtvereční (m²)',
 							'1 m/s = 3,6 km/h; gravitační síla na 1 kg je přibližně 10 N.',
 							'Do vzorců dosazuj dráhu v m, čas v s, sílu v N a obsah plochy v m².',
+							'hmotnost m — kilogram (kg), g = 10 N/kg',
+							'rameno síly a — metr (m)',
 						],
 					},
 				},
@@ -2009,7 +2012,7 @@ export const temata: Record<string, Tema[]> = {
 						<h3>2. <a href="../../sily-kolem-nas/">Síly kolem nás</a></h3>
 						<ul><li>síla, gravitační a třecí síla, skládání sil, těžiště</li></ul>
 						<h3>3. <a href="../../jednoduche-stroje/">Jednoduché stroje</a></h3>
-						<ul><li>deformace; páka, moment síly, rovnováha na páce</li></ul>
+						<ul><li>deformace; páka, moment síly, rovnováha na páce; kladka pevná a volná; nakloněná rovina a zlaté pravidlo mechaniky</li></ul>
 						<h3>4. <a href="../../tlak-v-kapalinach/">Tlak v kapalinách</a></h3>
 						<ul><li>tlak, Pascalův zákon, hydraulické zařízení, hydrostatický tlak</li></ul>
 						<h3>5. <a href="../../vztlakova-sila-a-plovani-teles/">Vztlaková síla a plování těles</a></h3>
@@ -2020,6 +2023,15 @@ export const temata: Record<string, Tema[]> = {
 						<ul><li>zdroje světla; odraz a lom světla; stín a fáze Měsíce</li></ul>
 						<h3>8. <a href="../../zrcadla-a-cocky/">Zrcadla a čočky</a></h3>
 						<ul><li>rovinné a kulová zrcadla; čočky (spojka, rozptylka); oko a jeho vady; rozklad světla, duha a vnímání barev</li></ul>
+						<h3>📋 Klíčové vztahy</h3>
+						<ul>
+							<li>rychlost v = s : t (1 m/s = 3,6 km/h)</li>
+							<li>gravitační síla Fg = m · g, g = 10 N/kg</li>
+							<li>rovnováha na páce F₁ · a₁ = F₂ · a₂</li>
+							<li>tlak p = F : S (Pa); hydrostatický tlak pₕ = h · ρ · g</li>
+							<li>vztlaková síla Fvz = V · ρ · g (Archimédův zákon)</li>
+							<li>zákon odrazu α′ = α; ohnisko kulového zrcadla f = r : 2</li>
+						</ul>
 					`,
 					zapis: {
 						body: [
@@ -2501,25 +2513,26 @@ export const temata: Record<string, Tema[]> = {
 						<ul><li>práce W = F · s (joule); výkon P = W : t (watt)</li></ul>
 						<h3>2. <a href="../../energie/">Energie</a></h3>
 						<ul><li>přeměny energie; pohybová a polohová energie; zákon zachování mechanické energie; energetická hodnota potravin; vnitřní energie; tepelná výměna a teplo</li></ul>
-						<h3>3. <a href="../../tepelne-motory/">Tepelné motory</a></h3>
-						<ul><li>parní stroj; spalovací motory</li></ul>
-						<h3>4. <a href="../../teplo-a-zmeny-skupenstvi/">Teplo a změny skupenství</a></h3>
+						<h3>3. <a href="../../teplo-a-zmeny-skupenstvi/">Teplo a změny skupenství</a></h3>
 						<ul><li>tání a tuhnutí; vypařování a var; kondenzace; skupenské změny vody v přírodě</li></ul>
 						<h3>📋 Klíčové vztahy</h3>
 						<ul>
 							<li>práce W = F · s (J), výkon P = W : t (W)</li>
 							<li>1 kWh = 3,6 MJ</li>
+							<li>polohová energie Eₚ = m · g · h (J)</li>
+							<li>teplo Q = m · c · (t₂ − t₁) (J)</li>
+							<li>skupenské teplo tání Lₜ = lₜ · m (J)</li>
 						</ul>
 					`,
 					zapis: {
 						body: [
 							'Mechanická práce vzniká působením síly po určité dráze a výkon udává, jak rychle se práce vykoná.',
-							'Energie se může přeměňovat mezi pohybovou a polohovou, ale celková mechanická energie se zachovává.',
+							'Pokud nepůsobí tření, přeměňuje se polohová energie na pohybovou a jejich součet zůstává stejný.',
 							'Vnitřní energie tělesa se mění tepelnou výměnou a teplo může způsobit změnu skupenství.',
-							'Tepelné motory, například parní stroj a spalovací motor, využívají tepelnou energii.',
+							'Šíření tepla vedením, prouděním a sáláním vysvětluje, jak se teplo předává mezi tělesy.',
 						],
-						zakon: 'Zákon zachování mechanické energie: mechanická energie se může přeměňovat mezi pohybovou a polohovou, ale její celková velikost se zachovává.',
-						vzorec: 'W = F · s      (odvozeně: F = W : s,  s = W : F);  P = W : t      (odvozeně: W = P · t,  t = W : P)',
+						zakon: 'Zákon zachování mechanické energie: pokud se mechanická energie nemění v jiné druhy energie, je součet polohové a pohybové energie stále stejný.',
+						vzorec: 'W = F · s      (odvozeně: F = W : s,  s = W : F);  P = W : t      (odvozeně: W = P · t,  t = W : P);  Eₚ = m · g · h;  Q = m · c · (t₂ − t₁);  Lₜ = lₜ · m',
 						jednotky: [
 							'práce W — joule (J)',
 							'síla F — newton (N)',
@@ -2528,6 +2541,8 @@ export const temata: Record<string, Tema[]> = {
 							'čas t — sekunda (s)',
 							'1 kWh = 3,6 MJ',
 							'Do vzorců dosazuj v základních jednotkách: práci v J, sílu v N, dráhu v m a čas v s.',
+							'měrná tepelná kapacita c — J/(kg·°C)',
+							'měrné skupenské teplo tání lₜ — J/kg',
 						],
 					},
 				},
@@ -2546,13 +2561,15 @@ export const temata: Record<string, Tema[]> = {
 						<h3>4. <a href="../../teplo-a-zmeny-skupenstvi/">Teplo a změny skupenství</a></h3>
 						<ul><li>tání, tuhnutí, vypařování, var, kondenzace; koloběh vody</li></ul>
 						<h3>5. <a href="../../elektrina/">Elektřina</a></h3>
-						<ul><li>elektrický náboj a pole; vznik proudu, zdroje napětí; obvody; měření proudu (A) a napětí (V); odpor a Ohmův zákon; sériové a paralelní zapojení; reostat a potenciometr; práce a výkon proudu; účinky proudu a bezpečnost</li></ul>
+						<ul><li>elektrický náboj a pole; vznik proudu a zdroje napětí; elektrické obvody</li><li>měření proudu (A) a napětí (V); odpor a Ohmův zákon</li><li>sériové a paralelní zapojení; reostat; práce a výkon proudu; bezpečnost</li></ul>
 						<h3>6. <a href="../../zvuk/">Zvuk</a></h3>
 						<ul><li>kmitání a vlnění; vznik a šíření zvuku; vnímání zvuku a hlasitost (decibely)</li></ul>
 						<h3>📋 Klíčové vztahy</h3>
 						<ul>
 							<li>W = F · s, P = W : t, 1 kWh = 3,6 MJ</li>
 							<li>Ohmův zákon: I = U : R</li>
+							<li>teplo Q = m · c · (t₂ − t₁) (J)</li>
+							<li>elektrický výkon P = U · I (W), elektrická práce W = U · I · t</li>
 							<li>rychlost zvuku ve vzduchu ≈ 340 m/s</li>
 						</ul>
 					`,
@@ -2879,77 +2896,47 @@ export const temata: Record<string, Tema[]> = {
 					obsah: `
 						<h2>Co máš umět za 1. pololetí</h2>
 						<p>Přehled učiva prvního pololetí 9. ročníku. Dole na stránce si dej <strong>souhrnný kvíz</strong> složený z otázek všech probraných témat.</p>
-						<h3>1. <a href="../../magneticke-pole/">Magnetické pole</a></h3>
+						<h3>1. <a href="../../jaderna-fyzika/">Jaderná fyzika</a></h3>
+						<ul><li>jádro atomu (protony, neutrony, izotopy); radioaktivita a druhy záření; poločas rozpadu a ochrana; štěpení jader a řetězová reakce; jaderný reaktor a jaderná elektrárna</li></ul>
+						<h3>2. <a href="../../energie-a-vesmir/">Zdroje energie a vesmír</a></h3>
+						<ul><li>obnovitelné a neobnovitelné zdroje energie, přehled elektráren</li></ul>
+						<h3>3. <a href="../../magneticke-pole/">Magnetické pole</a></h3>
 						<ul><li>magnety (opakování); magnetické pole vodiče s proudem a cívky; elektromagnet a jeho využití</li></ul>
-						<h3>2. <a href="../../indukce-a-stridavy-proud/">Elektromagnetická indukce a střídavý proud</a></h3>
-						<ul><li>elektromagnetická indukce; vznik střídavého proudu a alternátor; vlastnosti střídavého proudu; elektromotor; transformátor (U₂ : U₁ = N₂ : N₁)</li></ul>
-						<h3>3. <a href="../../elektricky-proud-v-latkach/">Elektrický proud v látkách</a></h3>
-						<ul><li>vedení proudu v kapalinách (elektrolýza) a plynech; chemické zdroje napětí; polovodiče a dioda; přenos elektrické energie</li></ul>
+						<h3>4. <a href="../../indukce-a-stridavy-proud/">Elektromagnetická indukce a střídavý proud</a></h3>
+						<ul><li>elektromotor; elektromagnetická indukce; vznik střídavého proudu a alternátor; vlastnosti střídavého proudu; transformátor (U₂ : U₁ = N₂ : N₁)</li></ul>
 						<h3>📋 Klíčové vztahy</h3>
 						<ul>
-							<li>transformátor: U₂ : U₁ = N₂ : N₁</li>
-							<li>střídavý proud v síti: 50 Hz, 230 V</li>
+							<li>počet neutronů N = A − Z; vazebná energie E = m · c²</li>
+							<li>záření α (jádra helia), β (rychlé elektrony), γ (elektromagnetické)</li>
+							<li>střídavý proud v síti: 50 Hz, 230 V; frekvence f = 1 : T</li>
 						</ul>
 					`,
 					zapis: {
 						body: [
+							'Jaderná fyzika popisuje jádro atomu, izotopy, radioaktivitu a druhy záření, poločas rozpadu a jaderné reakce v reaktoru.',
+							'Zdroje energie dělíme na obnovitelné a neobnovitelné; probíráme přehled elektráren.',
 							'Magnetické pole vzniká také kolem vodiče s proudem a cívky; elektromagnet toto pole využívá.',
 							'Elektromagnetická indukce umožňuje vznik střídavého proudu v alternátoru a transformátor mění jeho napětí.',
-							'Elektrický proud mohou vést kapaliny, plyny a polovodiče; patří sem také chemické zdroje napětí a dioda.',
 							'Střídavý proud v elektrické síti má frekvenci 50 Hz a napětí 230 V.',
 						],
-						vzorec: 'U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂,  N₂ = N₁ · U₂ : U₁,  N₁ = N₂ · U₁ : U₂)',
+						vzorec: 'N = A − Z      (odvozeně: A = N + Z,  Z = A − N)      E = m · c²      f = 1 : T',
 						jednotky: [
-							'vstupní napětí U₁ — volt (V)',
-							'výstupní napětí U₂ — volt (V)',
-							'počet závitů vstupní cívky N₁ — bez jednotky',
-							'počet závitů výstupní cívky N₂ — bez jednotky',
-							'Napětí dosazuj ve stejných jednotkách, obvykle ve voltech; počty závitů jsou celá čísla.',
+							'počet neutronů N — bez jednotky',
+							'nukleonové číslo A — počet nukleonů (bez jednotky)',
+							'protonové číslo Z — počet protonů (bez jednotky)',
+							'vazebná energie E — značíme E, jednotka J (joule)',
+							'hmotnostní úbytek m — značíme m, jednotka kg (kilogram)',
+							'rychlost světla c — značíme c, jednotka m/s (metr za sekundu)',
+							'perioda — značíme T, jednotka s (sekunda)',
+							'frekvence — značíme f, jednotka Hz (hertz)',
 						],
 					},
 				},
 				{
 					slug: 'rocni-shrnuti',
 					nazev: 'Roční shrnutí',
-					obsah: `
-						<h2>Co máš umět za celý 9. ročník</h2>
-						<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>
-						<h3>1. <a href="../../magneticke-pole/">Magnetické pole</a></h3>
-						<ul><li>magnety, pole vodiče a cívky, elektromagnet</li></ul>
-						<h3>2. <a href="../../indukce-a-stridavy-proud/">Elektromagnetická indukce a střídavý proud</a></h3>
-						<ul><li>indukce, alternátor, vlastnosti střídavého proudu, elektromotor, transformátor</li></ul>
-						<h3>3. <a href="../../elektricky-proud-v-latkach/">Elektrický proud v látkách</a></h3>
-						<ul><li>kapaliny, plyny, polovodiče a dioda, chemické zdroje, přenos elektrické energie</li></ul>
-						<h3>4. <a href="../../elektricka-energie-a-bezpecnost/">Elektrická energie a bezpečnost</a></h3>
-						<ul><li>přeměny elektrické energie; účinky proudu na organismus a bezpečnost</li></ul>
-						<h3>5. <a href="../../jaderna-fyzika/">Jaderná fyzika</a></h3>
-						<ul><li>jádro atomu (protony, neutrony, izotopy); radioaktivita (α, β, γ, poločas rozpadu); jaderná energie a reakce; reaktor a jaderná elektrárna</li></ul>
-						<h3>6. <a href="../../energie-a-vesmir/">Zdroje energie a vesmír</a></h3>
-						<ul><li>obnovitelné a neobnovitelné zdroje energie; sluneční soustava (8 planet, AU, světelný rok, Keplerovy zákony)</li></ul>
-						<h3>📋 Klíčové vztahy a hodnoty</h3>
-						<ul>
-							<li>transformátor: U₂ : U₁ = N₂ : N₁</li>
-							<li>záření α (helium), β (elektrony), γ (elektromagnetické) — ochrana vzdáleností, stíněním a časem</li>
-							<li>1 AU = 150 milionů km; světelný rok = vzdálenost, kterou světlo urazí za rok</li>
-							</ul>
-							`,
-							zapis: {
-							body: [
-								'Magnetické pole vzniká kolem magnetu, vodiče s proudem i cívky; k tématu patří také elektromagnet.',
-								'Elektromagnetická indukce se využívá v alternátoru a transformátor mění elektrické napětí.',
-								'Elektrický proud mohou vést kapaliny, plyny i polovodiče; k učivu patří také dioda, chemické zdroje a přenos elektrické energie.',
-								'Elektrická energie se přeměňuje na jiné druhy energie a při práci s proudem musíme dodržovat bezpečnost.',
-								'Jaderná fyzika popisuje jádro atomu, radioaktivitu a jadernou energii; mezi další témata patří zdroje energie a sluneční soustava.',
-							],
-							vzorec: 'U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂,  N₂ = N₁ · U₂ : U₁,  N₁ = N₂ · U₁ : U₂)',
-							jednotky: [
-								'vstupní napětí U₁ — volt (V)',
-								'výstupní napětí U₂ — volt (V)',
-								'počet závitů vstupní cívky N₁ — bez jednotky',
-								'počet závitů výstupní cívky N₂ — bez jednotky',
-								'Napětí dosazuj ve stejných jednotkách, obvykle ve voltech; počty závitů jsou celá čísla.',
-							],
-							},
+					obsah: "\n\t\t\t\t\t\t<h2>Co máš umět za celý 9. ročník</h2>\n\t\t\t\t\t\t<p>Přehled učiva celého ročníku. Dole na stránce najdeš <strong>souhrnný kvíz</strong> z otázek všech témat roku.</p>\n\t\t\t\t\t\t<h3>1. <a href=\"../../magneticke-pole/\">Magnetické pole</a></h3>\n\t\t\t\t\t\t<ul><li>magnety, pole vodiče a cívky, elektromagnet</li></ul>\n\t\t\t\t\t\t<h3>2. <a href=\"../../indukce-a-stridavy-proud/\">Elektromagnetická indukce a střídavý proud</a></h3>\n\t\t\t\t\t\t<ul><li>indukce, alternátor, vlastnosti střídavého proudu, elektromotor, transformátor</li></ul>\n\t\t\t\t\t\t<h3>3. <a href=\"../../elektricky-proud-v-latkach/\">Elektrický proud v látkách</a></h3>\n\t\t\t\t\t\t<ul><li>kapaliny, plyny, polovodiče a dioda, chemické zdroje, přenos elektrické energie</li></ul>\n\t\t\t\t\t\t<h3>4. <a href=\"../../elektricka-energie-a-bezpecnost/\">Elektrická energie a bezpečnost</a></h3>\n\t\t\t\t\t\t<ul><li>přeměny elektrické energie; účinky proudu na organismus a bezpečnost</li></ul>\n\t\t\t\t\t\t<h3>5. <a href=\"../../jaderna-fyzika/\">Jaderná fyzika</a></h3>\n\t\t\t\t\t\t<ul><li>jádro atomu (protony, neutrony, izotopy); radioaktivita (α, β, γ, poločas rozpadu); jaderná energie a reakce; reaktor a jaderná elektrárna</li></ul>\n\t\t\t\t\t\t<h3>6. <a href=\"../../energie-a-vesmir/\">Zdroje energie a vesmír</a></h3>\n\t\t\t\t\t\t<ul><li>obnovitelné a neobnovitelné zdroje energie; sluneční soustava (8 planet, AU, světelný rok, Keplerovy zákony); vesmír a jeho vznik, galaxie a Hubbleův zákon</li></ul>\n\t\t\t\t\t\t<h3>📋 Klíčové vztahy a hodnoty</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>transformátor: U₂ : U₁ = N₂ : N₁</li>\n\t\t\t\t\t\t\t<li>počet neutronů N = A − Z; vazebná energie E = m · c²</li>\n\t\t\t\t\t\t\t<li>frekvence f = 1 : T; síť 50 Hz a 230 V; výkon P = U · I</li>\n\t\t\t\t\t\t\t<li>záření α (helium), β (elektrony), γ (elektromagnetické) — ochrana vzdáleností, stíněním a časem</li>\n\t\t\t\t\t\t\t<li>1 AU = 150 milionů km; světelný rok = vzdálenost, kterou světlo urazí za rok</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t",
+							zapis: {"body":["Magnetické pole vzniká kolem magnetu, vodiče s proudem i cívky; k tématu patří také elektromagnet.","Elektromagnetická indukce se využívá v alternátoru a transformátor mění elektrické napětí.","Elektrický proud mohou vést kapaliny, plyny i polovodiče; k učivu patří také dioda, chemické zdroje a přenos elektrické energie.","Elektrická energie se přeměňuje na jiné druhy energie a při práci s proudem musíme dodržovat bezpečnost.","Jaderná fyzika popisuje jádro atomu, radioaktivitu a jadernou energii; závěr roku patří zdrojům energie, sluneční soustavě a vesmíru."],"vzorec":"U₂ : U₁ = N₂ : N₁      (odvozeně: U₂ = U₁ · N₂ : N₁,  U₁ = U₂ · N₁ : N₂,  N₂ = N₁ · U₂ : U₁,  N₁ = N₂ · U₁ : U₂)","jednotky":["vstupní napětí U₁ — volt (V)","výstupní napětí U₂ — volt (V)","počet závitů vstupní cívky N₁ — bez jednotky","počet závitů výstupní cívky N₂ — bez jednotky","Napětí dosazuj ve stejných jednotkách, obvykle ve voltech; počty závitů jsou celá čísla."]},
 							},
 			],
 		},
