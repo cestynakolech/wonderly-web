@@ -74,6 +74,8 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     stožáry hliníkové lano s ocelovým jádrem (fyzikálně správně — hliník je
     lehčí a levnější, unese delší rozpětí), u domácích rozvodů měď — ponecháno
     beze změny podle pravidla „dosavadní obsah se nevyřazuje". Prosím potvrdit.
+    → **VYŘÍZENO 23. 9. 2026** rozhodnutím učitele: ponecháno beze změny
+    (hliník/ocelové jádro u dálkového vedení, měď u domácích rozvodů).
 
 ## 21. 9. 2026 — nález z podkladů F7 (tlak-v-kapalinach, 4. celek)
 
@@ -94,6 +96,12 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     webu tohoto podtématu — jsou už probrané v 8. ročníku (slug
     `elektricka-prace-a-vykon`). Doplnit je sem znovu, nebo ponechat jen
     v 8. ročníku?
+    → **VYŘÍZENO 23. 9. 2026** rozhodnutím učitele: doplněno i do 9. ročníku
+    (podtéma `elektricka-energie-a-premeny`), vzorce P = U·I a W = P·t = U·I·t
+    přebrány ve stejném tvaru jako v 8. ročníku (`elektricka-prace-a-vykon`),
+    přidán příklad s celými čísly (trouba 2 kW, 1 h → 2 kWh, 10 Kč).
+    Označeno jako učivo **nad rámec RVP** (nová sekce v `obsah` + doplněné
+    položky v `zapis`), `temata.ts`.
 14. **Podtéma „Účinky proudu, bezpečnost"** — rozpor prahu proudu:
     dosavadní web uvádí „2–5 mA", PDF str. 2 uvádí „1–8 mA". Ponecháno
     dosavadní znění (pravidlo „dosavadní obsah se nevyřazuje"), PDF rozsah
@@ -127,6 +135,12 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     příklad železa 55,85) a příklad odpudivé síly mezi 2 protony 230 N
     (PDF str. 12) nejsou zařazeny — mimo zadanou linii výkladu. Přidat jako
     rozšíření, nebo ponechat mimo?
+    → **VYŘÍZENO 23. 9. 2026** rozhodnutím učitele: přidáno jako rozšíření
+    podtématu `jadro-atomu` (F9) podle PDF str. 10–12 — relativní atomová
+    hmotnost Ar (příklad železo 55,85) a odpudivá síla ~230 N mezi 2 protony
+    (přepočteno na názornou hmotnost ~23 kg), s vysvětlením jaderné síly.
+    Označeno jako učivo **nad rámec RVP** (nová sekce v `obsah` + doplněné
+    položky v `zapis`), `temata.ts`.
 19. **F8 Chemické zdroje napětí** — PDF řadí mobil/notebook/fotoaparát mezi
     jednorázové lithiové články, což je věcně nepřesné (mají dobíjecí
     lithium-iontový akumulátor); na webu ponecháno správné rozlišení podle
