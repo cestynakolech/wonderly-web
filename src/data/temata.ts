@@ -1802,6 +1802,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Atmosféra a tlak vzduchu',
 			podtemata: [
 				{
+					odkazy: [{"nazev":"Wikipedie: Atmosférický tlak","url":"https://cs.wikipedia.org/wiki/Atmosférický_tlak"},{"nazev":"Škola s nadhledem: Atmosférický tlak","url":"https://www.skolasnadhledem.cz/game/3913"},{"nazev":"Umíme to: Atmosférický tlak","url":"https://www.umimefakta.cz/fyzika/cviceni-atmosfericky-tlak"}],
 					slug: 'atmosfericky-tlak',
 					nazev: 'Atmosférický tlak',
 					interakce: 'barometr',
@@ -1812,6 +1813,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Wikipedie: Měření tlaku","url":"https://cs.wikipedia.org/wiki/Měření_tlaku"},{"nazev":"Škola s nadhledem: Přetlak, podtlak, vakuum","url":"https://www.skolasnadhledem.cz/game/3918"},{"nazev":"Eductify: Přetlak, podtlak, vakuum","url":"https://www.eductify.com/cs/fyzika/32/tlak/p-ppv/vakuum"}],
 					slug: 'pretlak-podtlak-vakuum',
 					nazev: 'Přetlak, podtlak, vakuum',
 					interakce: 'pretlak',
@@ -1823,6 +1825,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"ČHMÚ: Meteorologická terminologie","url":"https://www.chmi.cz/predpoved-pocasi/meteorologicka-terminologie"},{"nazev":"Wikipedie: Anemometr","url":"https://cs.wikipedia.org/wiki/Anemometr"},{"nazev":"Škola s nadhledem: Atmosféra a meteorologie","url":"https://www.skolasnadhledem.cz/game/3915"}],
 					slug: 'meteorologie-a-mereni-tlaku',
 					nazev: 'Meteorologie a měření tlaku',
 					interakce: 'povetrnostni-mapa',
@@ -2709,6 +2712,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Zvuk',
 			podtemata: [
 				{
+					odkazy: [{"nazev":"Techmania: Kmitání","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/kmitani"},{"nazev":"Techmania: Vlnění","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/vlneni"},{"nazev":"Wikipedie: Vlnová délka","url":"https://cs.wikipedia.org/wiki/Vlnov%C3%A1_d%C3%A9lka"},{"nazev":"Umíme to: Vlnění, pojmy (8. třída)","url":"https://www.umimefakta.cz/fyzika/cviceni-vlneni-pojmy-8-trida"}],
 					slug: 'kmitani-a-vlneni',
 					nazev: 'Kmitání a vlnění (nad rámec RVP)',
 					interakce: 'vlneni',
@@ -2723,6 +2727,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Techmania: Vznik a druhy zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/vznik-druhy-zvuku"},{"nazev":"Techmania: Šíření zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/sireni-zvuku"},{"nazev":"Techmania: Ozvěna a dozvuk","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/ozvena-dozvuk"},{"nazev":"Techmania: Výška zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/vyska-zvuku"}],
 					slug: 'zvuk-vznik-a-sireni',
 					nazev: 'Zvuk, vznik a šíření zvuku',
 					interakce: 'ozvena',
@@ -2743,6 +2748,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"NZIP: Ucho, sluch a rovnováha","url":"https://www.nzip.cz/clanek/1507-ucho-sluch-rovnovaha"},{"nazev":"Techmania: Intenzita zvuku","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/akustika/intenzita-zvuku"},{"nazev":"NZIP: Ochrana zdraví před hlukem","url":"https://www.nzip.cz/clanek/1046-ochrana-zdravi-pred-hlukem"},{"nazev":"NZIP: Zdravotní účinky hluku","url":"https://www.nzip.cz/clanek/1045-zdravotni-ucinky-hluku"}],
 					slug: 'vnimani-zvuku-a-hlasitost',
 					nazev: 'Vnímání zvuku, hlasitost zvuku',
 					interakce: 'decibely',
@@ -3120,6 +3126,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Planety.astro.cz: Sluneční soustava","url":"https://planety.astro.cz/soustava/1864-slunecni-soustava"},{"nazev":"Wikipedie: Sluneční soustava","url":"https://cs.wikipedia.org/wiki/Slune%C4%8Dn%C3%AD_soustava"}],
 					slug: 'slunecni-soustava',
 					nazev: 'Sluneční soustava',
 					interakce: 'soustava',
