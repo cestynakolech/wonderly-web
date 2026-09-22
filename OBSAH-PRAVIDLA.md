@@ -263,3 +263,44 @@ sérii dílů dnes změřit nelze — takové měřidlo zatím neexistuje.*
 Nic dalšího otevřené není — body A–E, G a H učitel rozhodl 19. 8. 2026 a jsou zapsané
 výše v těle ústavy (A → kap. 4, B → kap. 3, C → kap. 2, D → kap. 10, E → kap. 5,
 G → kap. 9 bod 1, H → preambule).
+
+---
+
+## 12. HOTOVÉ TÉMA — rozšířená definice (rozhodnutí učitele 22. 9. 2026, upraveno 23. 9. 2026)
+
+Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
+
+1. přestavěný výklad (text seřízený podle zadání této ústavy),
+2. zápis do sešitu,
+3. kvíz 21 otázek sladěný s výkladem (prošlý dvěma koly nezávislé kontroly),
+4. **simulace (= interaktivní infografika)** — klikací/odkrývací schéma i simulace
+   s posuvníkem/parametry se počítají jako TOTÉŽ, jedna složka, ne dvě
+   (rozhodnutí učitele 23. 9. 2026, varianta B z `NAVRH-CHYBEJICI-KATEGORIE.md`),
+5. české odkazy,
+6. **video-polemiku s ANIMACÍ toho, o čem se v ní mluví** — ne statické obrázky,
+   ne jen audiostopa,
+7. infografiku (statickou, bez interakce — odlišnou od bodu 4),
+8. laboratorní práci,
+9. **hru pro skupinu** — SAMOSTATNÁ hra vázaná na konkrétní podtéma (plná varianta),
+   NE pouhé rozšíření Fyzikální ligy o výběr podtématu (rozhodnutí učitele 23. 9. 2026).
+
+**Změna 23. 9. 2026 — proč z deseti na devět:** původní znění z 22. 9. 2026 mělo
+deset složek a rozlišovalo body 4 (simulace) a 8 (interaktivní infografika) jako
+dvě různé věci. Učitel na kontrolní otázku přiznal, že jde o totéž — obojí je
+interaktivní ukázka, jen s jiným ovládacím prvkem — a rozhodl je sloučit
+(viz `NAVRH-CHYBEJICI-KATEGORIE.md`, varianta B). Hotových 92 simulací tím
+POKRÝVÁ tuto sloučenou složku. U hry pro skupinu učitel zároveň upřesnil, že
+nestačí rozšířit Fyzikální ligu o výběr podtématu — má jít o plnohodnotnou
+samostatnou hru vázanou na dané podtéma.
+
+**Pořadí práce:** 1. téma se dodělá KOMPLET (všech 9 složek) u 7., 8. i 9. ročníku
+naráz, teprve pak se stejně KOMPLET dodělá 2. téma u všech tří ročníků, atd. —
+nedodělává se jeden ročník do konce, zatímco ostatní čekají.
+
+**Přechodné ustanovení:** kde dnes existuje jen audiostopa bez animace, zůstává
+zveřejněná a animace se k ní doplní postupně; videa se statickými obrázky se
+postupně vymění za animace. Chybějící animace tedy NENÍ důvod stahovat z webu
+hotové audio, které tam už je.
+
+Tato definice je jediné platné a úplné znění — nahrazuje a rozšiřuje dřívější
+užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz sem.
