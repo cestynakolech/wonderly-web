@@ -9,7 +9,16 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 — sladění kvízů F8 celků 1–4 HOTOVO; kvízy 41/41 sladěny**
+> ### Poslední stav: **22. 9. 2026 — odkazy u 7 podtémat HOTOVO, bod E 41/41; sladění kvízů F7/F9 celků 1–5 rozjeto**
+> Doplněno 23 českých odkazů u 7 podtémat (F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
+> meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni, zvuk-vznik-a-sireni,
+> vnimani-zvuku-a-hlasitost; F9 slunecni-soustava) — worker médií → nezávislý kontrolor →
+> zápis, push `989e549`. Bod E („hotové téma") tím kompletní pro 41/41 přestavěných podtémat.
+> Nález: F7 celky 1–5 a F9 celky 1–5 (38 podtémat) mají kvíz nesladěný s novým výkladem —
+> rozjeto sladění (4 kontroloři: F7 1–2, F7 3–5, F9 1–2, F9 3–5), pak F7 svetlo-a-jeho-sireni
+> a zrcadla-a-cocky.
+>
+> ### Dřívější stav: **22. 9. 2026 — sladění kvízů F8 celků 1–4 HOTOVO; kvízy 41/41 sladěny**
 > F8 celky 1–4 (17 podtémat) sladěny: 1. kolo 91 nálezů, 2. kolo 18 nových; push `530c64c`.
 > Spolu s dříve dokončenými 24 podtématy je tak sladěno kvízů celkem 41/41. Rozjeto doplnění
 > odkazů u 7 podtémat bez mediálních odkazů (3 workeři médií).
@@ -439,3 +448,20 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni, zvuk-vznik-a-sireni,
   vnimani-zvuku-a-hlasitost; F9 slunecni-soustava) — rozjeto 3 workeři médií
   (jen české odkazy, videa ne).
+
+### Odkazy u 7 podtémat HOTOVO, bod E 41/41; sladění kvízů F7/F9 celků 1–5 rozjeto (2026-09-22)
+- Doplněno 23 českých odkazů: F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
+  meteorologie-a-mereni-tlaku (3+3+3); F8 kmitani-a-vlneni,
+  zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost (4+4+4); F9
+  slunecni-soustava (2, 2 návrhy zamítnuty kontrolorem). Postup: worker
+  médií (jen odkazy, videa ne) → nezávislý kontrolor (curl 200, čeština,
+  věcnost, Wordwall pokrytí) → exekutor zápis. Commit `989e549`, push,
+  ověřeno živě. Bod E kompletní pro 41/41 přestavěných podtémat.
+- Nález: F7 celky 1–5 (18 podtémat) a F9 celky 1–5 (20 podtémat) mají
+  výklad HOTOVO, ale kvíz NESLADĚN s novým výkladem — dle definice
+  hotového tématu tedy nejsou hotová, přestože vedena jako HOTOVO. Rozjeto
+  sladění (4 kontroloři: F7 1–2, F7 3–5, F9 1–2, F9 3–5); poté F7 7. celek
+  `svetlo-a-jeho-sireni` (PDF Škola/7/4 Světlo 19,20,21,24) a 8. celek
+  `zrcadla-a-cocky` (PDF 22,23,25,26,28,29).
+- Past tvaru dat: pole `odkazy` zná jen `nazev` a `url`; Techmania odkazy
+  psát s `https://`.

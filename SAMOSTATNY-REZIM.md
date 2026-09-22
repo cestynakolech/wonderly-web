@@ -242,12 +242,20 @@ ověřen (tani, vykon, spalovaci-motory — ANO). Celkem sladěno 41/41 podtéma
 Odloženo (kosmetika, k drobnostem): `tepelna-vymena-a-teplo` — sjednocení
 zápisu „4200"→„4 200" spouští bránu `uniky.mjs` (substring), ponecháno;
 zapsáno v `sladeni-kvizu-f8-celky-1-2-2kolo.md`.
-DALŠÍ KROK: (i) doplnit odkazy u 7 podtémat bez pole `odkazy` (v běhu — 3
-workeři médií, jen české odkazy, videa ne): F7 atmosfericky-tlak,
-pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni,
-zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost; F9 slunecni-soustava;
-(ii) pak bod E kompletní pro všech 41 přestavěných podtémat (simulace mají
-všechny); (iii) další celky přestavby podle pořadí ve frontě.
+DALŠÍ KROK: ~~(i) doplnit odkazy u 7 podtémat~~ HOTOVO 22. 9. — 23 odkazů
+(F7 atmosfericky-tlak, pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku 3+3+3;
+F8 kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost 4+4+4;
+F9 slunecni-soustava 2), commit `989e549`, push, curl ověřeno. ~~(ii) bod E
+kompletní pro 41 přestavěných podtémat~~ HOTOVO 41/41. Nález: F7 celky 1–5
+(18 podtémat) a F9 celky 1–5 (20 podtémat) mají výklad HOTOVO, ale kvíz
+NESLADĚN s novým výkladem (v běhu 22. 9. — 4 kontroloři: F7 1–2, F7 3–5,
+F9 1–2, F9 3–5) — dle definice hotového tématu tedy nejsou hotová, přestože
+PROGRESS je vede jako HOTOVO. NYNÍ: (iii) dorovnat sladění kvízů F7 celky
+1–5 + F9 celky 1–5 (38 podtémat, stejný postup jako F8: worker → kontrolor
+→ zápis, 2 kola); (iv) pak F7 7. celek `svetlo-a-jeho-sireni` (4 podtémata,
+PDF Škola/7/4 Světlo 19, 20, 21, 24 — 1:1) a 8. celek `zrcadla-a-cocky`
+(6 podtémat, PDF 22, 23, 25, 26, 28, 29 — 1:1); F8 a F9 7. celek = shrnutí
+(bez zdrojů, auto-skládaný kvíz); (v) další celky přestavby podle fronty.
 Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
 ≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
 bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a
