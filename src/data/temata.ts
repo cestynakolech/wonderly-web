@@ -1500,6 +1500,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Pohyb a rychlost',
 			podtemata: [
 				{
+					odkazy: [{"nazev":"O pohybu (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/pohyb/o-pohybu"},{"nazev":"Pohyb tělesa (Fyzika na Vltavě)","url":"https://www.zsvltava.cz/fyzika/?p=805"}],
 					slug: 'klid-a-pohyb-telesa',
 					nazev: 'Klid a pohyb tělesa',
 					interakce: 'relativita-pohybu',
@@ -1514,6 +1515,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Valení (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/pohyb/valeni"}],
 					slug: 'posuvny-otacivy-pohyb',
 					nazev: 'Posuvný a otáčivý pohyb',
 					interakce: 'posuvny-otacivy',
@@ -1542,6 +1544,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Rychlost, dráha, čas: vzorce – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-rychlost-draha-cas-vzorce-7-trida"},{"nazev":"Rychlost – výpočet rychlosti, času, dráhy (Dopočítej.cz)","url":"https://www.dopocitej.cz/fyzika/rychlost.html"}],
 					slug: 'rychlost-draha-cas',
 					nazev: 'Rychlost, dráha, čas',
 					interakce: 'rychlost',
@@ -1565,6 +1568,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Příklady na výpočet rychlosti (+ řešení) (Fyzika na Vltavě)","url":"https://www.zsvltava.cz/fyzika/?p=6054"},{"nazev":"Rychlost, dráha, čas – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-rychlost-draha-cas-7-trida"}],
 					slug: 'priklady-na-vypocet-rychlosti',
 					nazev: 'Příklady na výpočet rychlosti',
 					interakce: 'vypocet-rychlosti',
@@ -1584,6 +1588,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Síly kolem nás',
 			podtemata: [
 				{
+					odkazy: [{"nazev":"Síla a její účinky (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/sila-jeji-ucinky"},{"nazev":"Fyzika 7. třída SÍLA – kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/66154705/fyzika-7-t%C5%99%C3%ADda-s%C3%ADla"}],
 					slug: 'sila',
 					nazev: 'Síla',
 					interakce: 'sila-vektor',
@@ -1594,6 +1599,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Tíha a tíhová síla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/tiha-tihova-sila"},{"nazev":"Gravitační vs. tíhová síla a tíha – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-tiha-7-trida"}],
 					slug: 'gravitacni-sila',
 					interakce: 'vrh',
 					nazev: 'Gravitační síla',
@@ -1603,6 +1609,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Smykové tření (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/odporove-sily/smykove-treni"},{"nazev":"Třecí síla / tření – kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/29383261/fyzika/t%C5%99ec%C3%AD-s%C3%ADla-t%C5%99en%C3%AD"}],
 					slug: 'treci-sila',
 					interakce: 'treni',
 					nazev: 'Třecí síla',
@@ -1613,6 +1620,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Skládání sil – 7. ročník (Umíme to)","url":"https://www.umimefakta.cz/fyzika/cviceni-skladani-sil-7-trida"}],
 					slug: 'skladani-sil',
 					interakce: 'skladani-sil',
 					nazev: 'Skládání sil',
@@ -1624,6 +1632,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Těžiště (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/teziste"},{"nazev":"Stabilita (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/sila/teziste/stabilita"}],
 					slug: 'teziste',
 					interakce: 'teziste',
 					nazev: 'Těžiště',
@@ -1843,10 +1852,11 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Světlo a jeho šíření',
 			podtemata: [
 				{
+					odkazy: [{"nazev":"Světelný zdroj (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Sv%C4%9Bteln%C3%BD_zdroj"},{"nazev":"Rychlost světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/rychlost-svetla"},{"nazev":"Optické prostředí (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Optick%C3%A9_prost%C5%99ed%C3%AD"},{"nazev":"Infračervené záření (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/elektromagneticke-vlny/infracervene-zareni"}],
 					slug: 'svetlo-jeho-zdroje',
 					nazev: 'Světlo a jeho zdroje',
 					interakce: 'rychlost-svetla',
-					obsah: "\n\t\t\t\t\t\t<h2>Světlo a jeho zdroje</h2>\n\t\t\t\t\t\t<p><strong>Světlo</strong> je druh záření, které vidíme zrakem. Nauka o světle, jeho šíření a vnímání se nazývá <strong>optika</strong>.</p>\n\t\t\t\t\t\t<p>Předměty světlo buď <strong>vyrábějí</strong> (zdroje světla), nebo jen <strong>odrážejí</strong> cizí světlo. Díky odrazu vidíme třeba Měsíc, zrcadlo nebo tento papír — jsou to druhotné zdroje.</p>\n\n\t\t\t\t\t\t<h3>Zdroje světla</h3>\n\t\t\t\t\t\t<p>Zdroj světla je těleso, které vysílá světlo a přitom mění jiný druh energie na světelnou. Zdroje dělíme podle původu na přírodní a umělé.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>přirozené zdroje</strong>: Slunce, oheň, blesk, světluška</li>\n\t\t\t\t\t\t<li><strong>umělé zdroje</strong>: žárovka, zářivka, LED, svíčka, displej</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Podle velikosti rozlišujeme <strong>bodové</strong> a <strong>plošné</strong> zdroje. U bodového zdroje (hvězda, pouliční lampa, svíčka) jsou rozměry zanedbatelné a paprsky se z něj šíří <strong>rozbíhavě</strong>. Plošný zdroj má velkou svítící plochu (řada zářivek na stropě, TV obrazovka) a jeho paprsky jsou <strong>rovnoběžné</strong>. Ve velké vzdálenosti od bodového zdroje se rozbíhavost paprsků zmenšuje — sluneční paprsky dopadající na Zemi jsou už prakticky rovnoběžné.</p>\n\n\t\t\t\t\t\t<h3>Druhy zdrojů podle vzniku</h3>\n\t\t\t\t\t\t<p>Světlo může vznikat několika různými způsoby.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>rozžhavená tělesa</strong> — svítí díky vysoké teplotě (Slunce, plamen, hvězdy, vlákno žárovky)</li>\n\t\t\t\t\t\t<li><strong>chemické zdroje</strong> — světlo vzniká chemickou reakcí (světluška, svítící tyčinka); u živočichů a rostlin se tomu říká <strong>bioluminiscence</strong></li>\n\t\t\t\t\t\t<li><strong>elektrický výboj v plynech</strong> — světlo vzniká průchodem proudu plynem (blesk, jiskry, zářivky)</li>\n\t\t\t\t\t\t<li><strong>fosforeskující látky</strong> — postupně uvolňují dřív uschovanou energii (svítící ručičky hodin)</li>\n\t\t\t\t\t\t<li><strong>elektronické zdroje</strong> — LED žárovky, displeje telefonů, obrazovky televizí</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Nad 525 °C tělesa svítí červeně, při dalším zahřívání přes oranžovou a žlutou až k bílé a modrobílé. Povrch Slunce má teplotu asi 5 500 °C.</p>\n\n\t\t\t\t\t\t<h3>Neviditelné záření: infračervené a ultrafialové</h3>\n\t\t\t\t\t\t<p>Lidské oko vidí jen část záření — barevné spektrum. Těsně vedle něj leží záření, která nevidíme.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>infračervené záření (IR)</strong> — leží za červenou barvou, vnímáme ho jako teplo; vidí ho hadi</li>\n\t\t\t\t\t\t<li><strong>ultrafialové záření (UV)</strong> — leží za fialovou barvou; vidí ho ptáci, hmyz a ryby</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Infračervené záření snímají termokamery a využívá se třeba v dálkových ovladačích. Ultrafialové záření je v malém množství zdravé (opalování), ve větším škodí kůži i očím.</p>\n\n\t\t\t\t\t\t<h3>Šíření světla</h3>\n\t\t\t\t\t\t<p>Světlo se šíří prostorem všemi směry jako vlnění. Vlny si rozkládáme na <strong>paprsky</strong>, které kreslíme jako přímku se šipkou. Ve <strong>stejnorodém (homogenním) prostředí</strong> se paprsky šíří <strong>přímočaře</strong> — po dokonalých přímkách.</p>\n\t\t\t\t\t\t<p>Homogenní prostředí má stejné optické vlastnosti v celém svém objemu, například čirá voda nebo sklo. Atmosféra mění hustotu podle výšky i teploty, a proto jako celek homogenní není.</p>\n\t\t\t\t\t\t<p>Přímočarého šíření světla využívá měření vzdálenosti laserem, optická vodováha i laserové řezání materiálu. Vzniká díky němu také stín.</p>\n\n\t\t\t\t\t\t<h3>Optické prostředí</h3>\n\t\t\t\t\t\t<p>Optické prostředí je prostředí, kterým se může světlo šířit — třeba některé látky nebo vakuum. Různá prostředí ovlivňují průchod světla různě: pohlcují ho, rozptylují, nebo odrážejí.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>průhledné</strong> — světlo prochází bez rozptylu, obraz vidíme beze změny (čirá voda, vzduch, čiré sklo)</li>\n\t\t\t\t\t\t<li><strong>průsvitné</strong> — světlo prochází, ale zčásti se rozptyluje; vidíme jen rozmazané obrysy (mlha, kouř, mléčné sklo, matné sklo)</li>\n\t\t\t\t\t\t<li><strong>neprůhledné</strong> — světlo neprochází, buď se pohltí, nebo se odrazí na povrchu (kov, dřevo, beton, zeď, zrcadlo)</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Odraz světla od zrcadel a lesklých povrchů podrobně vysvětluje podtéma o odrazu světla.</p>\n\n\t\t\t\t\t\t<h3>Rychlost světla</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>ve vakuu: <strong>c = 300 000 km/s = 300 000 000 m/s</strong> — největší rychlost ve vesmíru</li>\n\t\t\t\t\t\t<li>rychlost světla ve vakuu je základní fyzikální konstanta, značí se <strong>c</strong></li>\n\t\t\t\t\t\t<li>ve vzduchu: téměř stejná; ve vodě ~225 000 km/s; ve skle ~200 000 km/s; v diamantu ~125 000 km/s</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>V každém prostředí kromě vakua se světlo šíří pomaleji.</p>\n\n\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t<p>Slunce je od Země vzdálené 150 000 000 km. Této vzdálenosti se říká <strong>astronomická jednotka</strong>, značka AU.</p>\n\t\t\t\t\t\t<p>Čas, za který k nám doletí sluneční světlo, spočítáme podle vzorce t = s : v.</p>\n\t\t\t\t\t\t<p>t = s : v = 150 000 000 : 300 000 = <strong>500 s</strong></p>\n\t\t\t\t\t\t<p>500 sekund je asi <strong>8 minut a 20 sekund</strong> — tak dlouho letí světlo ze Slunce k Zemi.</p>\n\t\t\t\t\t\t<p>Od vzdálenějších hvězd letí světlo roky. Vzdálenosti hvězd proto udáváme ve <strong>světelných letech</strong> (ly) — to je dráha, kterou světlo urazí za 1 rok. Světlo z Polárky k nám letí 433 let.</p>\n\t\t\t\t\t",
+					obsah: "\n\t\t\t\t\t\t<h2>Světlo a jeho zdroje</h2>\n\t\t\t\t\t\t<p><strong>Světlo</strong> je druh záření, které vidíme zrakem. Nauka o světle, jeho šíření a vnímání se nazývá <strong>optika</strong>.</p>\n\t\t\t\t\t\t<p>Předměty světlo buď <strong>vyrábějí</strong> (zdroje světla), nebo jen <strong>odrážejí</strong> cizí světlo. Díky odrazu vidíme třeba Měsíc, zrcadlo nebo tento papír — jsou to druhotné zdroje.</p>\n\n\t\t\t\t\t\t<h3>Zdroje světla</h3>\n\t\t\t\t\t\t<p>Zdroj světla je těleso, které vysílá světlo a přitom mění jiný druh energie na světelnou. Zdroje dělíme podle původu na přírodní a umělé.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>přirozené zdroje</strong>: Slunce, oheň, blesk, světluška</li>\n\t\t\t\t\t\t<li><strong>umělé zdroje</strong>: žárovka, zářivka, LED, svíčka, displej</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Podle velikosti rozlišujeme <strong>bodové</strong> a <strong>plošné</strong> zdroje. U bodového zdroje (hvězda, pouliční lampa, svíčka) jsou rozměry zanedbatelné a paprsky se z něj šíří <strong>rozbíhavě</strong>. Plošný zdroj má velkou svítící plochu (řada zářivek na stropě, TV obrazovka) — chová se jako mnoho bodových zdrojů vedle sebe, proto za překážkou vzniká i polostín. Ve velké vzdálenosti od bodového zdroje se rozbíhavost paprsků zmenšuje — sluneční paprsky dopadající na Zemi jsou už prakticky rovnoběžné.</p>\n\n\t\t\t\t\t\t<h3>Druhy zdrojů podle vzniku</h3>\n\t\t\t\t\t\t<p>Světlo může vznikat několika různými způsoby.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>rozžhavená tělesa</strong> — svítí díky vysoké teplotě (Slunce, plamen, hvězdy, vlákno žárovky)</li>\n\t\t\t\t\t\t<li><strong>chemické zdroje</strong> — světlo vzniká chemickou reakcí (světluška, svítící tyčinka); u živočichů a rostlin se tomu říká <strong>bioluminiscence</strong></li>\n\t\t\t\t\t\t<li><strong>elektrický výboj v plynech</strong> — světlo vzniká průchodem proudu plynem (blesk, jiskry, zářivky)</li>\n\t\t\t\t\t\t<li><strong>fosforeskující látky</strong> — postupně uvolňují dřív uschovanou energii (svítící ručičky hodin)</li>\n\t\t\t\t\t\t<li><strong>elektronické zdroje</strong> — LED žárovky, displeje telefonů, obrazovky televizí</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Nad 525 °C tělesa svítí červeně, při dalším zahřívání přes oranžovou a žlutou až k bílé a modrobílé. Povrch Slunce má teplotu asi 5 500 °C.</p>\n\n\t\t\t\t\t\t<h3>Neviditelné záření: infračervené a ultrafialové</h3>\n\t\t\t\t\t\t<p>Lidské oko vidí jen část záření — barevné spektrum. Těsně vedle něj leží záření, která nevidíme.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>infračervené záření (IR)</strong> — leží za červenou barvou, vnímáme ho jako teplo; vidí ho hadi</li>\n\t\t\t\t\t\t<li><strong>ultrafialové záření (UV)</strong> — leží za fialovou barvou; vidí ho ptáci, hmyz a ryby</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Infračervené záření snímají termokamery a využívá se třeba v dálkových ovladačích. Ultrafialové záření je v malém množství zdravé (opalování), ve větším škodí kůži i očím.</p>\n\n\t\t\t\t\t\t<h3>Šíření světla</h3>\n\t\t\t\t\t\t<p>Světlo se šíří prostorem všemi směry jako vlnění. Vlny si rozkládáme na <strong>paprsky</strong>, které kreslíme jako přímku se šipkou. Ve <strong>stejnorodém (homogenním) prostředí</strong> se paprsky šíří <strong>přímočaře</strong> — po dokonalých přímkách.</p>\n\t\t\t\t\t\t<p>Homogenní prostředí má stejné optické vlastnosti v celém svém objemu, například čirá voda nebo sklo. Atmosféra mění hustotu podle výšky i teploty, a proto jako celek homogenní není.</p>\n\t\t\t\t\t\t<p>Přímočarého šíření světla využívá měření vzdálenosti laserem, optická vodováha i laserové řezání materiálu. Vzniká díky němu také stín.</p>\n\n\t\t\t\t\t\t<h3>Optické prostředí</h3>\n\t\t\t\t\t\t<p>Optické prostředí je prostředí, kterým se může světlo šířit — třeba některé látky nebo vakuum. Různá prostředí ovlivňují průchod světla různě: pohlcují ho, rozptylují, nebo odrážejí.</p>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li><strong>průhledné</strong> — světlo prochází bez rozptylu, obraz vidíme beze změny (čirá voda, vzduch, čiré sklo)</li>\n\t\t\t\t\t\t<li><strong>průsvitné</strong> — světlo prochází, ale zčásti se rozptyluje; vidíme jen rozmazané obrysy (mlha, kouř, mléčné sklo, matné sklo)</li>\n\t\t\t\t\t\t<li><strong>neprůhledné</strong> — světlo neprochází, buď se pohltí, nebo se odrazí na povrchu (kov, dřevo, beton, zeď, zrcadlo)</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>Odraz světla od zrcadel a lesklých povrchů podrobně vysvětluje podtéma o odrazu světla.</p>\n\n\t\t\t\t\t\t<h3>Rychlost světla</h3>\n\t\t\t\t\t\t<ul>\n\t\t\t\t\t\t<li>ve vakuu: <strong>c = 300 000 km/s = 300 000 000 m/s</strong> — největší rychlost ve vesmíru</li>\n\t\t\t\t\t\t<li>rychlost světla ve vakuu je základní fyzikální konstanta, značí se <strong>c</strong></li>\n\t\t\t\t\t\t<li>ve vzduchu: téměř stejná; ve vodě ~225 000 km/s; ve skle ~200 000 km/s; v diamantu ~125 000 km/s</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t<p>V každém prostředí kromě vakua se světlo šíří pomaleji.</p>\n\n\t\t\t\t\t\t<h3>Pro zvídavé: počítáme</h3>\n\t\t\t\t\t\t<p>Slunce je od Země vzdálené 150 000 000 km. Této vzdálenosti se říká <strong>astronomická jednotka</strong>, značka AU.</p>\n\t\t\t\t\t\t<p>Čas, za který k nám doletí sluneční světlo, spočítáme podle vzorce t = s : v.</p>\n\t\t\t\t\t\t<p>t = s : v = 150 000 000 : 300 000 = <strong>500 s</strong></p>\n\t\t\t\t\t\t<p>500 sekund je asi <strong>8 minut a 20 sekund</strong> — tak dlouho letí světlo ze Slunce k Zemi.</p>\n\t\t\t\t\t\t<p>Od vzdálenějších hvězd letí světlo roky. Vzdálenosti hvězd proto udáváme ve <strong>světelných letech</strong> (ly) — to je dráha, kterou světlo urazí za 1 rok. Světlo z Polárky k nám letí 433 let.</p>\n\t\t\t\t\t",
 					zapis: {"body":["zdroje vyrábějí světlo, ostatní jen odrážejí (Měsíc, zrcadlo)","zdroje: přirozené/umělé; bodové (rozbíhavé), plošné (rovnoběžné)","světlo se šíří všemi směry; ve stejnorodém prostředí přímočaře","optické prostředí: průhledné, průsvitné, neprůhledné","ve vakuu 300 000 km/s, jinde pomaleji","optika: nauka o světle a jeho vnímání","rozžhavená tělesa: svítí teplem (Slunce, žárovka)","nad 525 °C: červená → oranžová → žlutá → bílá → modrobílá","chemické zdroje (bioluminiscence): světluška, svítící tyčinka","elektrický výboj v plynu: blesk, zářivka","fosforeskující a elektronické zdroje: hodiny, LED, displej","infračervené (IR): za červenou, cítíme jako teplo","ultrafialové (UV): za fialovou, ve velkém škodí","homogenní prostředí: stejné vlastnosti v celém objemu","atmosféra není homogenní: mění se hustota i teplota","přímočaré šíření: laser, vodováha, vznik stínu","Slunce–Země = 150 000 000 km = 1 AU, světlo 500 s","světelný rok (ly): Polárka je 433 světelných let"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Světlo — od plamene ke hvězdám', cesta: 'v4EdVxeZ9J0' },
@@ -1855,6 +1865,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Odraz a lom světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/odraz-lom-svetla"}],
 					slug: 'odraz-svetla',
 					nazev: 'Odraz světla, zákon odrazu',
 					interakce: 'odraz',
@@ -1864,6 +1875,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Odraz a lom světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/odraz-lom-svetla"},{"nazev":"Úplný odraz světla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/uplny-odraz-svetla"}],
 					slug: 'lom-svetla',
 					nazev: 'Lom světla',
 					interakce: 'lom',
@@ -1874,6 +1886,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Fáze Měsíce (astro.cz)","url":"https://planety.astro.cz/zeme/1959-faze-mesice"},{"nazev":"Zatmění Měsíce (astro.cz)","url":"https://www.astro.cz/na-obloze/mesic/zatmeni-mesice.html"},{"nazev":"Zatmění Slunce (astro.cz)","url":"https://www.astro.cz/na-obloze/slunce/zatmeni-slunce.html"}],
 					slug: 'stin-faze-mesice',
 					nazev: 'Stín a fáze Měsíce',
 					interakce: 'mesic',
@@ -1890,6 +1903,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Zrcadla a čočky',
 			podtemata: [
 				{
+					odkazy: [{"nazev":"Zrcadla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/opticke-zobrazovani/zrcadla"},{"nazev":"Zobrazení rovinným zrcadlem (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-rovinnym-zrcadlem"},{"nazev":"Odraz světla a zrcadla – 7. ročník (Umíme fakta)","url":"https://www.umimefakta.cz/fyzika/cviceni-odraz-svetla-a-zrcadla-7-trida"}],
 					slug: 'optika-rovinneho-zrcadla',
 					interakce: 'rovinne-zrcadlo',
 					nazev: 'Optika rovinného zrcadla',
@@ -1900,6 +1914,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Zrcadla (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/opticke-zobrazovani/zrcadla"},{"nazev":"Zobrazení dutým zrcadlem (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-dutym-zrcadlem"},{"nazev":"Zobrazení vypuklým zrcadlem (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-vypuklym-zrcadlem"}],
 					slug: 'kulova-zrcadla-dute-zrcadlo',
 					nazev: 'Kulová zrcadla a duté zrcadlo',
 					interakce: 'zrcadlo',
@@ -1910,6 +1925,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Zobrazení tenkou spojkou (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-tenkou-spojkou"},{"nazev":"Zobrazení tenkou rozptylkou (ELUC)","url":"https://eluc.ikap.cz/lekce/zobrazeni-tenkou-rozptylkou"},{"nazev":"Čočky (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/opticke-zobrazovani/cocky"},{"nazev":"Čočky – kvíz (Wordwall)","url":"https://wordwall.net/cs/resource/112356120/f/%C4%8Do%C4%8Dky"}],
 					slug: 'opticka-cocka',
 					nazev: 'Optická čočka (spojky a rozptylky)',
 					interakce: 'cocka',
@@ -1921,6 +1937,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Oční vady (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/lidske-oko/ocni-vady"},{"nazev":"Krátkozrakost (myopie) – NZIP","url":"https://www.nzip.cz/clanek/382-kratkozrakost-myopie"},{"nazev":"Dalekozrakost (hypermetropie) – NZIP","url":"https://www.nzip.cz/clanek/385-dalekozrakost-hypermetropie"},{"nazev":"Vady oka (ELUC)","url":"https://eluc.ikap.cz/lekce/vady-oka"}],
 					slug: 'oko-vady-oka',
 					nazev: 'Oko a vady oka',
 					interakce: 'oko',
@@ -1932,6 +1949,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Duha (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/uplny-odraz-svetla/duha"},{"nazev":"Duha (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Duha"},{"nazev":"Edutorium: Rozklad světla hranolem (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/katalog/edutorium/410/rozklad-svetla-hranolem"}],
 					slug: 'rozklad-svetla-duha',
 					nazev: 'Rozklad světla a duha',
 					interakce: 'duha',
@@ -1941,6 +1959,7 @@ export const temata: Record<string, Tema[]> = {
 					],
 				},
 				{
+					odkazy: [{"nazev":"Vnímání barev (Eduportál Techmania)","url":"https://edu.techmania.cz/cs/encyklopedie/fyzika/svetlo/vnimani-barev"},{"nazev":"Mísení barev (ELUC)","url":"https://eluc.ikap.cz/lekce/miseni-barev"},{"nazev":"Barevný model (Wikipedie)","url":"https://cs.wikipedia.org/wiki/Barevn%C3%BD_model"}],
 					slug: 'vnimani-barev',
 					nazev: 'Vnímání barev (RGB a CMYK)',
 					interakce: 'barvy',
