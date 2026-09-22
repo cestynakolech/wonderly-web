@@ -260,14 +260,24 @@ ucinky-proudu-bezpecnost, jaderny-reaktor-elektrarna); commity `2755995`,
 `ec5eb42`, `37f5a32`, `d2ca18f`, `2f62f40`, `0762e8f`, `b4968f2`; push
 `b4968f2`; curl ověřen (radioaktivita, hydrostaticky-tlak, transformator —
 ANO). Bod E tak splněn u všech 79/79 přestavěných podtémat kromě odkazů u
-F7/F9 celků 1–5 (nezjišťováno — viz náměty níže). NYNÍ: (iv) F7 7. celek
-`svetlo-a-jeho-sireni` (4 podtémata, PDF Škola/7/4 Světlo 19, 20, 21, 24 —
-1:1) — **V BĚHU**: výklady napsané (zdroje světla, odraz, lom, stín a fáze
-Měsíce), 1. kolo kontroly: zdroje PROŠLO S DROBNOSTMI 9, odraz NEPROŠLO 5,
-lom PROŠLO S DROBNOSTMI 8, stín NEPROŠLO 7, opraváři běží; pracovní složka
-`rozpracovane-vyklady/2026-09-22-svetlo/`; poté 8. celek `zrcadla-a-cocky`
-(6 podtémat, PDF 22, 23, 25, 26, 28, 29 — 1:1); F8 a F9 7. celek = shrnutí
-(bez zdrojů, auto-skládaný kvíz); (v) další celky přestavby podle fronty.
+F7/F9 celků 1–5 (nezjišťováno — viz náměty níže). ~~(iv) F7 7. celek
+`svetlo-a-jeho-sireni`~~ **HOTOVO 22. 9. (commit `c453d06`)** — 4/4 podtémata
+(svetlo-jeho-zdroje, odraz-svetla, lom-svetla, stin-faze-mesice), zdroje PDF
+Škola/7/4 Světlo 19, 21, 24, 20 + popis prezentace SVĚTELNÉ JEVY 7, 2 kola
+nezávislé kontroly, `podtema.mjs`, build i `zkontroluj.mjs` OK, curl ověřen
+(lom-svetla, stin-faze-mesice — ANO); doloženy a opraveny 2 fyzikální chyby
+PDF podkladu (teplota povrchu Slunce, „krvavý Měsíc" —
+`Omega/dokumenty/kontrola-podkladu-fyzika7.md`); kvíz F7 světlo zatím
+NESLADĚN s novým výkladem — zařadit do kroku sladění spolu se zrcadly. NYNÍ:
+(v) F7 8. celek `zrcadla-a-cocky` — **V BĚHU**: 6 výkladů napsáno
+(optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka,
+oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28,
+29), 1. kolo kontroly: rovinné DROBNOSTI 5, kulová DROBNOSTI 9, čočka
+NEPROŠLO 8, oko DROBNOSTI 4, rozklad DROBNOSTI 2, barvy DROBNOSTI 6,
+opraváři běží; pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`;
+poté sladění kvízů světlo + zrcadla (10 bloků), pak shrnutí F7/F8/F9 (bez
+zdrojů); F8 a F9 7. celek = shrnutí (bez zdrojů, auto-skládaný kvíz);
+(vi) další celky přestavby podle fronty.
 Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
 ≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
 bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a

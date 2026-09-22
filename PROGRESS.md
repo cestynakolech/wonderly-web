@@ -9,12 +9,17 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 — kvízy 79/79 přestavěných podtémat sladěny; F7 svetlo-a-jeho-sireni v běhu**
+> ### Poslední stav: **22. 9. 2026 — F7 svetlo-a-jeho-sireni HOTOVO 4/4 a nasazeno; F7 zrcadla-a-cocky v běhu**
+> F7 7. celek `svetlo-a-jeho-sireni` HOTOVO 4/4 podtémata, 2 kola nezávislé kontroly, commit
+> `c453d06`, push, curl ověřen; kvíz zatím NESLADĚN s novým výkladem (zařadit do sladění
+> spolu se zrcadly). Doloženy a opraveny 2 fyzikální chyby PDF podkladu (teplota Slunce,
+> „krvavý Měsíc"). Rozjeto F7 8. celek `zrcadla-a-cocky` — 6 výkladů napsáno, 1. kolo
+> kontroly proběhlo (1 celek NEPROŠLO, ostatní DROBNOSTI), opraváři běží.
+>
+> ### Dřívější stav: **22. 9. 2026 — kvízy 79/79 přestavěných podtémat sladěny**
 > Sladění kvízů F7 celků 1–5 (18) a F9 celků 1–5 (20) HOTOVO: 1. kolo 243 nálezů, 2. kolo
 > 80 nových; čtyři bloky zkráceny z 22–24 na 21 otázek; push `b4968f2`; curl ověřen. Spolu
-> s dřívějšími 41 podtématy je tak sladěno kvízů celkem 79/79. Rozjeto F7 7. celek
-> `svetlo-a-jeho-sireni` (4 podtémata, PDF Škola/7/4 Světlo 19–24) — výklady napsané,
-> 1. kolo kontroly proběhlo, opraváři běží.
+> s dřívějšími 41 podtématy je tak sladěno kvízů celkem 79/79.
 >
 > ### Dřívější stav: **22. 9. 2026 — odkazy u 7 podtémat HOTOVO, bod E 41/41; sladění kvízů F7/F9 celků 1–5 rozjeto**
 > Doplněno 23 českých odkazů u 7 podtémat (F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
@@ -493,3 +498,21 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   napsané, 1. kolo kontroly zdroje PROŠLO S DROBNOSTMI, odraz a stín
   NEPROŠLO, lom PROŠLO S DROBNOSTMI, opraváři běží; pracovní složka
   `rozpracovane-vyklady/2026-09-22-svetlo/`.
+
+### F7 svetlo-a-jeho-sireni HOTOVO 4/4; F8 zrcadla-a-cocky v běhu (2026-09-22)
+- F7 7. celek `svetlo-a-jeho-sireni` HOTOVO 4/4 (svetlo-jeho-zdroje,
+  odraz-svetla, lom-svetla, stin-faze-mesice): zdroje PDF Škola/7/4 Světlo
+  19, 21, 24, 20 + popis prezentace SVĚTELNÉ JEVY 7; 2 kola nezávislé
+  kontroly (1. kolo 29 nálezů, 2. kolo 1 věcný + 16 drobností); zapsáno
+  `podtema.mjs`, build i `zkontroluj.mjs` OK; commit `c453d06`, push OK;
+  curl ověřen (lom-svetla, stin-faze-mesice — ANO). Doloženy a opraveny
+  2 fyzikální chyby PDF podkladu (teplota povrchu Slunce 4 500 °C → 5 500 °C,
+  „krvavý Měsíc" ohyb → lom a rozptyl) —
+  `Omega/dokumenty/kontrola-podkladu-fyzika7.md`. Kvíz F7 světlo zatím
+  NESLADĚN s novým výkladem — zařadit do kroku sladění spolu se zrcadly.
+- Rozjeto F7 8. celek `zrcadla-a-cocky`: 6 výkladů napsáno
+  (optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka,
+  oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28,
+  29), 1. kolo kontroly: rovinné DROBNOSTI 5, kulová DROBNOSTI 9, čočka
+  NEPROŠLO 8, oko DROBNOSTI 4, rozklad DROBNOSTI 2, barvy DROBNOSTI 6,
+  opraváři běží; pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`.
