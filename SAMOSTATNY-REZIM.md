@@ -269,15 +269,22 @@ nezávislé kontroly, `podtema.mjs`, build i `zkontroluj.mjs` OK, curl ověřen
 PDF podkladu (teplota povrchu Slunce, „krvavý Měsíc" —
 `Omega/dokumenty/kontrola-podkladu-fyzika7.md`); kvíz F7 světlo zatím
 NESLADĚN s novým výkladem — zařadit do kroku sladění spolu se zrcadly. NYNÍ:
-(v) F7 8. celek `zrcadla-a-cocky` — **V BĚHU**: 6 výkladů napsáno
-(optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka,
-oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28,
-29), 1. kolo kontroly: rovinné DROBNOSTI 5, kulová DROBNOSTI 9, čočka
-NEPROŠLO 8, oko DROBNOSTI 4, rozklad DROBNOSTI 2, barvy DROBNOSTI 6,
-opraváři běží; pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`;
-poté sladění kvízů světlo + zrcadla (10 bloků), pak shrnutí F7/F8/F9 (bez
-zdrojů); F8 a F9 7. celek = shrnutí (bez zdrojů, auto-skládaný kvíz);
-(vi) další celky přestavby podle fronty.
+(v) F7 8. celek `zrcadla-a-cocky` — **HOTOVO 22. 9. (commit `2d7e7c9`)** — 6/6
+podtémat (optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka,
+oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28, 29,
++27 jen 1 věta „nad rámec"), 2 kola nezávislé kontroly (1. kolo 34 nálezů,
+2. kolo 1 věcný + 15 drobností), push, curl ověřen (opticka-cocka,
+kulova-zrcadla); pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`.
+Stav celků F7: 8 zrcadla HOTOVO (kvíz v běhu). NYNÍ: (vi) sladění kvízů:
+světlo 2. kolo kontroly + zrcadla 1.+2. kolo kontroly (V BĚHU); poté
+(vii) shrnuti F7/F8/F9 — rozhodnout, co s auto-skládanými kvízy (bez zdrojů);
+pak bod E (odkazy) pro světlo + zrcadla + F7/F9 celky 1–5; (viii) další celky
+přestavby podle fronty.
+Past dne: dva exekutoři na různých souborech (temata.ts × kvizy.ts) se
+potkali na společné bráně `zkontroluj.mjs`/prebuild — rozpracovaný `kvizy.ts`
+s dočasným únikem zablokoval build tomu druhému; exekutor správně necommitoval
+a dokončil se po commitu kvízů. Pravidlo: brány běží nad celým repem,
+souběžné zápisy do různých datových souborů se musí dokončovat po jednom.
 Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
 ≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
 bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a

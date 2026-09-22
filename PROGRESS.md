@@ -9,7 +9,15 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 — F7 svetlo-a-jeho-sireni HOTOVO 4/4 a nasazeno; F7 zrcadla-a-cocky v běhu**
+> ### Poslední stav: **22. 9. 2026 — F7 zrcadla-a-cocky HOTOVO 6/6 a nasazeno; kvízy světla sladěny, zrcadla v kontrole**
+> F7 8. celek `zrcadla-a-cocky` HOTOVO 6/6 podtémat (optika-rovinneho-zrcadla,
+> kulova-zrcadla-dute-zrcadlo, opticka-cocka, oko-vady-oka, rozklad-svetla-duha,
+> vnimani-barev), zdroje PDF Škola/7/4 Světlo 22, 23, 25, 26, 28, 29, 2 kola nezávislé
+> kontroly, commit `2d7e7c9`, push, curl ověřen. Kvízy `svetlo-a-jeho-sireni` sladěny
+> (1. kolo 44 nálezů zapracováno, commit `41c196a`, nasazeno; 2. kolo kontroly běží);
+> kvízy `zrcadla-a-cocky` v 1. kole kontroly (2 kontroloři).
+>
+> ### Dřívější stav: **22. 9. 2026 — F7 svetlo-a-jeho-sireni HOTOVO 4/4 a nasazeno; F7 zrcadla-a-cocky v běhu**
 > F7 7. celek `svetlo-a-jeho-sireni` HOTOVO 4/4 podtémata, 2 kola nezávislé kontroly, commit
 > `c453d06`, push, curl ověřen; kvíz zatím NESLADĚN s novým výkladem (zařadit do sladění
 > spolu se zrcadly). Doloženy a opraveny 2 fyzikální chyby PDF podkladu (teplota Slunce,
@@ -499,7 +507,7 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   NEPROŠLO, lom PROŠLO S DROBNOSTMI, opraváři běží; pracovní složka
   `rozpracovane-vyklady/2026-09-22-svetlo/`.
 
-### F7 svetlo-a-jeho-sireni HOTOVO 4/4; F8 zrcadla-a-cocky v běhu (2026-09-22)
+### F7 svetlo-a-jeho-sireni HOTOVO 4/4; F7 zrcadla-a-cocky v běhu (2026-09-22)
 - F7 7. celek `svetlo-a-jeho-sireni` HOTOVO 4/4 (svetlo-jeho-zdroje,
   odraz-svetla, lom-svetla, stin-faze-mesice): zdroje PDF Škola/7/4 Světlo
   19, 21, 24, 20 + popis prezentace SVĚTELNÉ JEVY 7; 2 kola nezávislé
@@ -516,3 +524,20 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   29), 1. kolo kontroly: rovinné DROBNOSTI 5, kulová DROBNOSTI 9, čočka
   NEPROŠLO 8, oko DROBNOSTI 4, rozklad DROBNOSTI 2, barvy DROBNOSTI 6,
   opraváři běží; pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`.
+
+### F7 zrcadla-a-cocky HOTOVO 6/6 a nasazeno; kvízy světla sladěny, zrcadla v kontrole (2026-09-22)
+- F7 8. celek `zrcadla-a-cocky` HOTOVO 6/6 podtémat (optika-rovinneho-zrcadla,
+  kulova-zrcadla-dute-zrcadlo, opticka-cocka, oko-vady-oka, rozklad-svetla-duha,
+  vnimani-barev): zdroje PDF Škola/7/4 Světlo 22, 23, 25, 26, 28, 29 (+27 jen
+  1 věta „nad rámec"), 2 kola nezávislé kontroly (1. kolo 34 nálezů, 2. kolo
+  1 věcný + 15 drobností); commit `2d7e7c9`, push OK; curl ověřen
+  (opticka-cocka, kulova-zrcadla — ANO).
+- Kvízy F7 `svetlo-a-jeho-sireni` SLADĚNY: 1. kolo 44 nálezů zapracováno,
+  commit `41c196a`, nasazeno; 2. kolo kontroly běží. Kvízy `zrcadla-a-cocky`
+  v 1. kole kontroly (2 kontroloři).
+- Past dne: dva exekutoři na různých souborech (`temata.ts` × `kvizy.ts`) se
+  potkali na společné bráně `zkontroluj.mjs`/prebuild — rozpracovaný `kvizy.ts`
+  s dočasným únikem zablokoval build tomu druhému; exekutor správně
+  necommitoval a dokončil se až po commitu kvízů. Pravidlo: brány běží nad
+  celým repem, souběžné zápisy do různých datových souborů se musí dokončovat
+  po jednom.
