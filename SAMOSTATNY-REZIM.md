@@ -183,12 +183,17 @@ webu, navrženo k doplnění.
 tří, atd. — cíl: to, co učitel učí příště, je hotové ve všech ročnících naráz.
 Ročník 6 učitel nezmínil, zůstává mimo pořadí, dokud neřekne.
 
-(ii) **„Hotové téma"** = ÚPLNĚ VŠE, co učitel kdy chtěl: výklad podle A–D +
-zápis do sešitu + kvíz 21 otázek SLADĚNÝ s novým výkladem (po přestavbě
-výkladu se kvíz musí znovu zkontrolovat proti výkladu — nadstavba na konci
-je stále učivo, ale otázky z ní patří na konec kvízu) + názornost
-(simulace/animace, kde chybí) + české odkazy + vše prošlé nezávislým
-kontrolorem.
+(ii) **„Hotové téma"** — od 22. 9. 2026 platí ROZŠÍŘENÁ definice, upravená
+23. 9. 2026, plné znění JEN v `OBSAH-PRAVIDLA.md`, kap. 12 (nikam se dál
+neopisuje). Zkráceně jde o DEVĚT složek: výklad, zápis do sešitu, kvíz
+21 otázek sladěný s výkladem (2 kola nezávislé kontroly), simulace
+(= interaktivní infografika, od 23. 9. 2026 sloučeny do jedné složky —
+klikací i posuvníková interakce se počítají stejně), české odkazy,
+video-polemiku S ANIMACÍ (ne statické obrázky, ne jen audiostopa),
+infografiku (statickou), laboratorní práci a hru pro skupinu (samostatná
+hra vázaná na podtéma, ne jen výběr podtématu ve Fyzikální lize).
+Přechodné ustanovení: dosavadní audiostopy bez animace zůstávají
+zveřejněné, animace se doplňuje postupně.
 
 (iii) **Stav k 21. 9.:** F8 celky 1–4 hotové (mechanická práce a výkon,
 energie, tepelné motory, teplo a změny skupenství). Podle bodu E teď běží
@@ -275,11 +280,33 @@ oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28, 29,
 +27 jen 1 věta „nad rámec"), 2 kola nezávislé kontroly (1. kolo 34 nálezů,
 2. kolo 1 věcný + 15 drobností), push, curl ověřen (opticka-cocka,
 kulova-zrcadla); pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`.
-Stav celků F7: 8 zrcadla HOTOVO (kvíz v běhu). NYNÍ: (vi) sladění kvízů:
-světlo 2. kolo kontroly + zrcadla 1.+2. kolo kontroly (V BĚHU); poté
-(vii) shrnuti F7/F8/F9 — rozhodnout, co s auto-skládanými kvízy (bez zdrojů);
-pak bod E (odkazy) pro světlo + zrcadla + F7/F9 celky 1–5; (viii) další celky
-přestavby podle fronty.
+Stav celků F7: 8 zrcadla HOTOVO (kvíz sladění: světlo 1. kolo hotovo/nasazeno, 2. kolo
+v běhu; zrcadla 1. kolo proběhlo, oprava se zapracovává — viz
+`rozpracovane-vyklady/2026-09-22-{svetlo,zrcadla}/`, dobíhá souběžně u jiného agenta).
+
+DALŠÍ KROK (22. 9. 2026, po inventuře `INVENTURA-TEMAT.md`, bod 3 zadání učitele): podle
+`OBSAH-PRAVIDLA.md` kap. 12 („Pořadí práce: 1. téma se dodělá KOMPLET — tehdy ještě
+10 složek, od 23. 9. 2026 sloučením simulace+interaktivní infografiky 9 složek —
+u 7., 8. i 9. ročníku naráz, teprve pak se stejně KOMPLET dodělá 2. téma") je novou
+prioritou dodělat chybějící složky u PRVNÍHO tématu napříč všemi třemi ročníky:
+- **F7 `pohyb-a-rychlost`** (4 podtémata): chybí odkazy, video s animací, interaktivní
+  infografika a hra u všech 4; laborka navíc chybí u 2 ze 4 (posuvny-otacivy-pohyb,
+  priklady-na-vypocet-rychlosti).
+- **F8 `mechanicka-prace-a-vykon`** (2 podtémata): chybí video s animací, interaktivní
+  infografika a hra u obou; infografika navíc chybí u `vykon`; laborka chybí u
+  `mechanicka-prace`.
+- **F9 `magneticke-pole`** (3 podtémata): chybí video s animací, interaktivní infografika,
+  laborka a hra u všech 3; infografika navíc chybí u `elektromagnet-a-jeho-vyuziti`.
+
+Pozor: interaktivní infografika a hra vázaná na podtéma jsou SYSTÉMOVÉ MEZERY — v projektu
+zatím vůbec neexistuje datová struktura/komponenta pro ně (netýká se jen těchto tří témat),
+je potřeba je napřed navrhnout a zavést (viz `INVENTURA-TEMAT.md`, sekce „Systémové mezery").
+[skola2] Návrh řešení obou mezer (varianty A/B/C + odhad pracnosti + otázky pro učitele)
+sepsán v `NAVRH-CHYBEJICI-KATEGORIE.md` (22. 9. 2026) — čeká na rozhodnutí učitele, který z
+bodů 1/2 zvolit, než se začne stavět.
+Přesný rozpad všech 95 podtémat 7.–9. ročníku a zdroje viz `INVENTURA-TEMAT.md`. Dřívější
+rozjeté sladění kvízů (světlo 2. kolo, zrcadla oprava) doběhne souběžně u agenta, který na
+něm pracuje — nezastavovat kvůli tomu tenhle krok.
 Past dne: dva exekutoři na různých souborech (temata.ts × kvizy.ts) se
 potkali na společné bráně `zkontroluj.mjs`/prebuild — rozpracovaný `kvizy.ts`
 s dočasným únikem zablokoval build tomu druhému; exekutor správně necommitoval
@@ -390,6 +417,15 @@ třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo 
 > **Živá fronta i otevřené dotazy na učitele jsou VŽDY jen v nejhornější sekci.**
 
 ## Fronta nápadů (seřazeno podle priority)
+
+### [skola2] 📋 Audit automatů video/podkásty — beze změn, jen k evidenci (zadáno 22. 9. 2026)
+
+Zjišťovací audit pipeline fyzikálních podkástů/videí (scénář → zvuk → schémata →
+ilustrace → časování → střih → R2/YouTube): 13 kroků, 11 už lokálních/bez AI modelu,
+1 záměrně cloudový (psaní scénáře — věcná přesnost pro děti má přednost), 1 infra
+(YouTube API). Žádné porušení pravidla „zvuk jen lokálně" — nalezené soubory na
+placené TTS (OpenAI, ElevenLabs) jsou už 18. 8. 2026 vyřazené a automat je nevolá.
+Žádná technická akce se nenavrhuje. Detaily: `Omega/dokumenty/AUDIT-AUTOMATU-VIDEO-2026-09-22.md`.
 
 ### [skola2] ⚡ Nekonzistence bezpečného napětí mezi 8. a 9. ročníkem (zadáno 20. 8. 2026)
 

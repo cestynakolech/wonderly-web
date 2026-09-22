@@ -130,8 +130,8 @@ simulací se renderuje dál.
 | `node testy/nazvy-bloku.mjs` | názvy bloků Scratche proti české lokalizaci |
 | `node testy/vypis-kviz.mjs <blok>` · `node testy/delky.mjs <blok>` | práce s kvízy |
 
-### 🕹️ Interaktivní infografiky — jak přidat další (kladka…)
-Aktuální počet simulací vypisuje brána `node zkontroluj.mjs` (číslo sem neopisovat — opsané zastarává, nález auditu 4. 8.). Jsou to canvas/SVG komponenty čistě v prohlížeči, styl viz existující. **Vzor přidání nové:**
+### 🕹️ Simulace (interaktivní infografiky) — jak přidat další (kladka…)
+Od 23. 9. 2026 je „simulace" a „interaktivní infografika" JEDNA a TATÁŽ složka ústavy (`OBSAH-PRAVIDLA.md` kap. 12) — klikací/odkrývací schéma i posuvník s dopočtem se počítají stejně, žádné rozlišení dvou kategorií. Aktuální počet simulací vypisuje brána `node zkontroluj.mjs` (číslo sem neopisovat — opsané zastarává, nález auditu 4. 8.). Jsou to canvas/SVG komponenty čistě v prohlížeči, styl viz existující. **Vzor přidání nové:**
 1. Vytvoř komponentu `src/components/skola2/<Nazev>Simulace.astro` (podívej se na `TezisteSimulace`, `VrhSimulace`, `SkupenstviSimulace` — stejný rámeček `<section class="ramecek simulace">`, ovládání, `<script>` bez importů).
 2. V `src/data/temata.ts`: rozšiř typ `interakce?: … | 'novy-klic'` a přidej `interakce: 'novy-klic',` k danému podtématu.
 3. V `src/pages/skola2/[predmet]/[rocnik]/[tema]/[podtema]/index.astro`: přidej import + řádek `{podtema.interakce === 'novy-klic' && <NazevSimulace />}`.
