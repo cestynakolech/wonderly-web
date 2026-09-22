@@ -250,19 +250,41 @@ kompletní pro 41 přestavěných podtémat~~ HOTOVO 41/41. Nález: F7 celky 1�
 (18 podtémat) a F9 celky 1–5 (20 podtémat) mají výklad HOTOVO, ale kvíz
 NESLADĚN s novým výkladem (v běhu 22. 9. — 4 kontroloři: F7 1–2, F7 3–5,
 F9 1–2, F9 3–5) — dle definice hotového tématu tedy nejsou hotová, přestože
-PROGRESS je vede jako HOTOVO. NYNÍ: (iii) dorovnat sladění kvízů F7 celky
-1–5 + F9 celky 1–5 (38 podtémat, stejný postup jako F8: worker → kontrolor
-→ zápis, 2 kola); (iv) pak F7 7. celek `svetlo-a-jeho-sireni` (4 podtémata,
-PDF Škola/7/4 Světlo 19, 20, 21, 24 — 1:1) a 8. celek `zrcadla-a-cocky`
+PROGRESS je vede jako HOTOVO. ~~(iii) dorovnat sladění kvízů F7 celky 1–5 +
+F9 celky 1–5 (38 podtémat)~~ HOTOVO 22. 9. — F7 celky 1–5 (18) a F9 celky
+1–5 (20): kvíz SLADĚN 22. 9. — 1. kolo 243 nálezů (F9 1–2: 49, F7 1–2: 51,
+F7 3–5: 73, F9 3–5: 70), 2. kolo 80 nových (21+14+20+25); čtyři bloky
+zkráceny z 22–24 na 21 otázek (magnety-magneticke-pole-opakovani,
+prenos-elektricke-energie, chemicke-zdroje-napeti F9,
+ucinky-proudu-bezpecnost, jaderny-reaktor-elektrarna); commity `2755995`,
+`ec5eb42`, `37f5a32`, `d2ca18f`, `2f62f40`, `0762e8f`, `b4968f2`; push
+`b4968f2`; curl ověřen (radioaktivita, hydrostaticky-tlak, transformator —
+ANO). Bod E tak splněn u všech 79/79 přestavěných podtémat kromě odkazů u
+F7/F9 celků 1–5 (nezjišťováno — viz náměty níže). NYNÍ: (iv) F7 7. celek
+`svetlo-a-jeho-sireni` (4 podtémata, PDF Škola/7/4 Světlo 19, 20, 21, 24 —
+1:1) — **V BĚHU**: výklady napsané (zdroje světla, odraz, lom, stín a fáze
+Měsíce), 1. kolo kontroly: zdroje PROŠLO S DROBNOSTMI 9, odraz NEPROŠLO 5,
+lom PROŠLO S DROBNOSTMI 8, stín NEPROŠLO 7, opraváři běží; pracovní složka
+`rozpracovane-vyklady/2026-09-22-svetlo/`; poté 8. celek `zrcadla-a-cocky`
 (6 podtémat, PDF 22, 23, 25, 26, 28, 29 — 1:1); F8 a F9 7. celek = shrnutí
 (bez zdrojů, auto-skládaný kvíz); (v) další celky přestavby podle fronty.
 Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
 ≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
 bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a
-5 úniků v 8 blocích — zelené brány ≠ doklad sladění. NOVÁ PAST: curl bez
+5 úniků v 8 blocích — zelené brány ≠ doklad sladění. Doplněno 22. 9. (sladění
+F7/F9 1–5): `cisla-ve-vykladu.mjs` přeskakuje otázky s číslem v zadání
+(`if (vZadani.length) continue`) → neviděl 200 N vs 175 N, 220 vs 231 km;
+`uniky.mjs` porovnává podřetězce přes české skloňování a jen uvnitř bloku →
+nevidí obrácené/přeformulované úniky ani duplicity mezi bloky (páky × kladka).
+NOVÁ PAST: curl bez
 cache-busting parametru vrací z Cloudflare cache starý obsah (cf-cache-status:
 HIT); s `?cb=<čas+náhoda>` přijde čerstvý — ověřovací smyčka musí posílat
-User-Agent i cache-busting query. (d) pravidla: úklid U/D/zadání workerů spuštěn
+User-Agent i cache-busting query. Postřeh: `podtema.mjs` má zámek (BUSY) —
+souběžné čtení řešit read-only přes `testy/data.mjs`. NÁMĚTY do fronty
+[skola2]: (1) `cisla-ve-vykladu.mjs` kontrolovat i otázky s číslem v zadání;
+(2) `uniky.mjs` porovnávat i mezi bloky téhož celku a přes tvary slov
+(lemmatizace nebo alespoň kmen); (3) zjistit odkazy u F7/F9 celků 1–5.
+(d) pravidla: úklid U/D/zadání workerů spuštěn
 21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
 log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
 N (22 kandidátů na zkrácení) čeká na výběr učitele v

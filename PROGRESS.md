@@ -9,7 +9,14 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 — odkazy u 7 podtémat HOTOVO, bod E 41/41; sladění kvízů F7/F9 celků 1–5 rozjeto**
+> ### Poslední stav: **22. 9. 2026 — kvízy 79/79 přestavěných podtémat sladěny; F7 svetlo-a-jeho-sireni v běhu**
+> Sladění kvízů F7 celků 1–5 (18) a F9 celků 1–5 (20) HOTOVO: 1. kolo 243 nálezů, 2. kolo
+> 80 nových; čtyři bloky zkráceny z 22–24 na 21 otázek; push `b4968f2`; curl ověřen. Spolu
+> s dřívějšími 41 podtématy je tak sladěno kvízů celkem 79/79. Rozjeto F7 7. celek
+> `svetlo-a-jeho-sireni` (4 podtémata, PDF Škola/7/4 Světlo 19–24) — výklady napsané,
+> 1. kolo kontroly proběhlo, opraváři běží.
+>
+> ### Dřívější stav: **22. 9. 2026 — odkazy u 7 podtémat HOTOVO, bod E 41/41; sladění kvízů F7/F9 celků 1–5 rozjeto**
 > Doplněno 23 českých odkazů u 7 podtémat (F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
 > meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni, zvuk-vznik-a-sireni,
 > vnimani-zvuku-a-hlasitost; F9 slunecni-soustava) — worker médií → nezávislý kontrolor →
@@ -465,3 +472,24 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   `zrcadla-a-cocky` (PDF 22,23,25,26,28,29).
 - Past tvaru dat: pole `odkazy` zná jen `nazev` a `url`; Techmania odkazy
   psát s `https://`.
+
+### Sladění kvízů F7/F9 celků 1–5 HOTOVO — kvízy 79/79 přestavěných podtémat sladěny (2026-09-22)
+- F7 celky 1–5 (18 podtémat) a F9 celky 1–5 (20 podtémat) sladěny: 1. kolo
+  243 nálezů (F9 1–2: 49, F7 1–2: 51, F7 3–5: 73, F9 3–5: 70), 2. kolo 80
+  nových (21+14+20+25). Čtyři bloky zkráceny z 22–24 na 21 otázek
+  (magnety-magneticke-pole-opakovani, prenos-elektricke-energie,
+  chemicke-zdroje-napeti F9, ucinky-proudu-bezpecnost,
+  jaderny-reaktor-elektrarna).
+- Commity `2755995`, `ec5eb42`, `37f5a32`, `d2ca18f`, `2f62f40`, `0762e8f`,
+  `b4968f2`; push `b4968f2`; curl ověřen (radioaktivita, hydrostaticky-tlak,
+  transformator — ANO). Celkem sladěno 79/79 přestavěných podtémat; bod E
+  splněn kromě odkazů u F7/F9 celků 1–5 (nezjišťováno — do fronty).
+- Mezery měřidel: `cisla-ve-vykladu.mjs` přeskakuje otázky s číslem v
+  zadání (`if (vZadani.length) continue`) → neviděl 200 N vs 175 N, 220 vs
+  231 km; `uniky.mjs` porovnává podřetězce jen uvnitř bloku a přes české
+  skloňování → nevidí přeformulované úniky ani duplicity mezi bloky.
+- Rozjeto F7 7. celek `svetlo-a-jeho-sireni` (4 podtémata, PDF Škola/7/4
+  Světlo 19, 20, 21, 24; popis prezentace SVĚTELNÉ JEVY 7): výklady
+  napsané, 1. kolo kontroly zdroje PROŠLO S DROBNOSTMI, odraz a stín
+  NEPROŠLO, lom PROŠLO S DROBNOSTMI, opraváři běží; pracovní složka
+  `rozpracovane-vyklady/2026-09-22-svetlo/`.
