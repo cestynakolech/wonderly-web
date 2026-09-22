@@ -9,7 +9,12 @@ _Technický přehled projektu (základ z 31. 7. 2026). Souběžně čti `CLAUDE.
 > staršího data. Fronta je JEDINÁ pro celý web (sekce `[fox]`, `[skola2]`, `[cesty]`) —
 > každá položka nese na začátku značku, do které sekce patří.
 >
-> ### Poslední stav: **22. 9. 2026 (noc) — sladění kvízů 24 podtémat HOTOVO; F8 celky 1–4 v běhu**
+> ### Poslední stav: **22. 9. 2026 — sladění kvízů F8 celků 1–4 HOTOVO; kvízy 41/41 sladěny**
+> F8 celky 1–4 (17 podtémat) sladěny: 1. kolo 91 nálezů, 2. kolo 18 nových; push `530c64c`.
+> Spolu s dříve dokončenými 24 podtématy je tak sladěno kvízů celkem 41/41. Rozjeto doplnění
+> odkazů u 7 podtémat bez mediálních odkazů (3 workeři médií).
+>
+> ### Dřívější stav: **22. 9. 2026 (noc) — sladění kvízů 24 podtémat HOTOVO; F8 celky 1–4 v běhu**
 > Krok (c) sladění kvízů s novými výklady dokončen pro všech 24 podtémat (F8 elektřina 15,
 > F7 `atmosfera-a-tlak-vzduchu` 3, F8 `zvuk` 3, F9 `energie-a-vesmir` 3) — 2 kola nezávislého
 > kontrolora, zapsáno `kvizy.ts`, push `4652cbd`. Rozjeto sladění dříve přestavěných F8
@@ -415,3 +420,22 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   `kondenzace`, `skupenske-zmeny-vody-v-prirode`) — 2 kontroloři běží.
 - DALŠÍ KROK: dokončit F8 celky 1–4, pak podle bodu E projít, co ještě
   chybí k „hotovému tématu" u přestavěných celků.
+
+### Krok (c): sladění kvízů F8 celků 1–4 HOTOVO (2026-09-22) — kvízy 41/41 sladěny
+- F8 celky 1–4 (17 podtémat) sladěny: 1. kolo 91 nálezů (celky 1–2: 48,
+  celky 3–4: 43), 2. kolo 18 nových (10 + 8). Commity `a14c6cd`, `c72728e`,
+  `40dac2a`, `530c64c`; push `530c64c`; curl ověřen (tani, vykon,
+  spalovaci-motory — ANO). Spolu s dřívějšími 24 podtématy sladěno celkem
+  41/41 podtémat.
+- Odloženo (kosmetika): `tepelna-vymena-a-teplo` — sjednocení zápisu
+  „4200"→„4 200" spouští bránu `uniky.mjs` (substring), ponecháno; zapsáno
+  v `sladeni-kvizu-f8-celky-1-2-2kolo.md`.
+- NOVÁ PAST: curl na `lab.wonderly.cz` bez cache-busting parametru vrací
+  z Cloudflare cache starý obsah (`cf-cache-status: HIT`); s
+  `?cb=<čas+náhoda>` přijde čerstvý — ověřovací smyčka musí posílat
+  User-Agent i cache-busting query.
+- Průzkum bodu E: všech 41 přestavěných podtémat má simulaci; 7 nemá pole
+  `odkazy` (F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
+  meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni, zvuk-vznik-a-sireni,
+  vnimani-zvuku-a-hlasitost; F9 slunecni-soustava) — rozjeto 3 workeři médií
+  (jen české odkazy, videa ne).

@@ -235,13 +235,26 @@ commit `4652cbd`)** — F8 elektřina 15, F7 `atmosfera-a-tlak-vzduchu` 3, F8
 `zvuk` 3, F9 `energie-a-vesmir` 3; 2 kola nezávislého kontrolora (1. kolo 144
 nálezů, 2. kolo 46 nových po opravách), zapsáno `kvizy.ts` (21 otázek drženo),
 brány `uniky.mjs`+`zkontroluj.mjs`+build OK, curl ověřen. **F8 celky 1–4
-(17 podtémat) v běhu** — 2 kontroloři sladění kvízů právě pracují.
-DALŠÍ KROK: dokončit sladění kvízů F8 celků 1–4, pak podle bodu E projít, co
-ještě chybí k „hotovému tématu" (názornost, odkazy) u přestavěných celků.
+(17 podtémat)** ~~HOTOVO 41/41 (22. 9. 2026, commit 530c64c)~~ — 1. kolo
+91 nálezů (celky 1–2: 48, celky 3–4: 43), 2. kolo 18 nových (10 + 8);
+commity `a14c6cd`, `c72728e`, `40dac2a`, `530c64c`; push `530c64c`; curl
+ověřen (tani, vykon, spalovaci-motory — ANO). Celkem sladěno 41/41 podtémat.
+Odloženo (kosmetika, k drobnostem): `tepelna-vymena-a-teplo` — sjednocení
+zápisu „4200"→„4 200" spouští bránu `uniky.mjs` (substring), ponecháno;
+zapsáno v `sladeni-kvizu-f8-celky-1-2-2kolo.md`.
+DALŠÍ KROK: (i) doplnit odkazy u 7 podtémat bez pole `odkazy` (v běhu — 3
+workeři médií, jen české odkazy, videa ne): F7 atmosfericky-tlak,
+pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni,
+zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost; F9 slunecni-soustava;
+(ii) pak bod E kompletní pro všech 41 přestavěných podtémat (simulace mají
+všechny); (iii) další celky přestavby podle pořadí ve frontě.
 Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
 ≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
 bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a
-5 úniků v 8 blocích — zelené brány ≠ doklad sladění. (d) pravidla: úklid U/D/zadání workerů spuštěn
+5 úniků v 8 blocích — zelené brány ≠ doklad sladění. NOVÁ PAST: curl bez
+cache-busting parametru vrací z Cloudflare cache starý obsah (cf-cache-status:
+HIT); s `?cb=<čas+náhoda>` přijde čerstvý — ověřovací smyčka musí posílat
+User-Agent i cache-busting query. (d) pravidla: úklid U/D/zadání workerů spuštěn
 21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
 log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
 N (22 kandidátů na zkrácení) čeká na výběr učitele v
