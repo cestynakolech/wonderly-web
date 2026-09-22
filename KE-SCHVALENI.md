@@ -11,6 +11,8 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
 2. **PDF „Výkon.pdf" str. 5 — nesoulad v zadání příkladu** — zadání uvádí 54 km/h,
    výpočet ale počítá s 90 km/h (výsledek 30 kW sedí jen na 90 km/h). Na webu
    použito 90 km/h (aby výpočet seděl). Opravit podklad, nebo nechat 90 km/h?
+   → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": web přepsán na
+   zadání 54 km/h s konzistentním výsledkem 18 kW (`temata.ts`, podtéma `vykon`).
 3. **PDF „Od_výbuchu_k_pohybu_Svět_motorů"** obsahuje navíc Wankelův motor,
    proudový a raketový motor a alternativní pohony (LPG/CNG, hybridy, elektromobily,
    vodík) — mimo současný rozsah podtématu `spalovaci-motory` (jen čtyřdobý
@@ -21,6 +23,9 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
 4. **PDF „Var" str. 5** uvádí u vody v textu teplotu varu „0 °C" — zjevný
    překlep, tabulka na téže straně i graf na str. 3 mají správně 100 °C.
    Na webu použito 100 °C podle tabulky. Opravit podklad?
+   → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": podklad chybný,
+   neprovedeno dle podkladu — web zůstává na 100 °C. Doloženo v
+   `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
 5. **Podtéma Tuhnutí** — tři pasáže dosavadního webu nemají oporu v PDF
    Tuhnutí (viz ZDROJE ve zdrojovém výkladu): „Kdyby led neplaval" (úvaha
    o rybníku promrzajícím ode dna), „Teplota tuhnutí se dá posunout — solení
@@ -34,6 +39,8 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    8 a 9 čísla 220 km/40 km/h a 650 km/500 km/h bez opory v žádném zdroji.
    Přepsáno přesně podle prezentace Pohyb (snímky 26–27) na 231 km / 42 km/h
    a 585 km / 450 km/h. Prosím potvrdit, že jde nahradit dosavadní čísla.
+   → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": čísla 231/42
+   a 585/450 potvrzena, na webu i v kvízu už byla zapsána.
 
 ## 21. 9. 2026 — nálezy z podkladů F7 (sily-kolem-nas)
 
@@ -44,11 +51,15 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
    výsledek 200 N. Podle prezentace (snímky 13–16, tabulka součinitelů
    ocel/dřevo) přepsáno na f = 0,35 a výsledek 175 N. Prosím potvrdit
    nahrazení dosavadního čísla.
+   → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": f = 0,35
+   a 175 N potvrzeno, na webu i v kvízu už bylo zapsané.
 9. **Podtéma „Gravitační síla"** — veličina g byla na dosavadním webu
    pojmenována jen „gravitační konstanta". Podle PDF str. 6 (doslovný citát:
    „Veličina g se správně nazývá gravitační zrychlení... jednotka N/kg je
    odvozená") přejmenováno na „gravitační zrychlení (často se říká
    gravitační konstanta)". Prosím potvrdit.
+   → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": přejmenování
+   na „gravitační zrychlení" potvrzeno, na webu už bylo zapsané.
 10. **Podtémata „Kladka" a „Nakloněná rovina" (celek `jednoduche-stroje`, F7)**
     — ve zdrojové složce `/Users/Shared/Škola` neexistuje podklad učitele
     (PDF ani prezentace) k těmto dvěma podtématům. Přestavba proto vycházela
@@ -72,6 +83,9 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     nahrazen vlastním ověřeným příkladem se stejným typem převodu jednotek
     (deska F = 300 N, p = 30 000 Pa → S = 100 cm²). Prosím opravit podklad,
     nebo potvrdit, že chyba zůstává jen v prezentaci.
+    → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": podklad
+    chybný, neprovedeno dle podkladu — web zůstává u vlastního příkladu.
+    Doloženo v `Omega/dokumenty/kontrola-podkladu-fyzika7.md`.
 
 ## 21. 9. 2026 — nálezy z podkladů F9 (elektricka-energie-a-bezpecnost, 4. celek)
 
@@ -95,10 +109,20 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     dva okruhy (primární s reaktorem, sekundární s turbínou/generátorem/
     kondenzátorem). Ponecháno dosavadní znění „tři okruhy" (pravidlo
     „dosavadní obsah se nevyřazuje"). Prosím potvrdit, který počet platí.
+    → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": web přepsán
+    na dva okruhy podle prezentace (`temata.ts` i `kvizy.ts`). Upozornění:
+    počet okruhů chlazení jaderné elektrárny lze v realných elektrárnách
+    počítat různě (některé zdroje uvádějí i terciární chladicí okruh
+    s řekou/věží) — jde o zjednodušení pro ZŠ, ne o jednoznačně danou fyzikální
+    skutečnost; exekutor to výslovně hlásí k vědomí učitele.
 17. **F9 Radioaktivita — poločas radonu 222** — web uvádí 3,5 dne, podle
     kontrolora správná hodnota je 3,8 dne; zdrojový podklad (prezentace)
     číslo neuvádí, nejde ověřit ani opravit ze zdroje. Ponecháno dosavadní
     „3,5 dne". Opravit na 3,8 dne, nebo dodat zdroj?
+    → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": podklad
+    číslo neuvádí, jde o zjevnou chybu dosavadního webu — opraveno na 3,8 dne
+    (fyzikální konstanta, viz doložení v
+    `Omega/dokumenty/kontrola-podkladu-fyzika9.md`).
 18. **F9 Jádro atomu** — „relativní atomová hmotnost" (PDF str. 10–11,
     příklad železa 55,85) a příklad odpudivé síly mezi 2 protony 230 N
     (PDF str. 12) nejsou zařazeny — mimo zadanou linii výkladu. Přidat jako
@@ -113,6 +137,8 @@ vyžadují rozhodnutí učitele — vyřešené se z tohoto souboru odstraní._
     ≈ 1,2 kg/m³, dosavadní web má ocel 8 000 kg/m³ a vzduch „kolem" 1 kg/m³
     bez uvedeného zdroje. Ponechána dosavadní zaokrouhlená čísla webu (dávají
     celé výsledky výpočtů). Potvrdit, která čísla platí?
+    → **VYŘÍZENO 22. 9. 2026** rozhodnutím učitele „PDF platí": web přepsán
+    na ocel 7 800 kg/m³ a vzduch 1,2 kg/m³ (`temata.ts` i `kvizy.ts`).
 21. **F8 Vznik elektrického proudu** — dohodnutý směr proudu (od + k −) není
     ani v podkladu (SmartBooks PDF), ani na dosavadním webu; navrženo
     k doplnění, zatím nezapsáno bez zdroje.
