@@ -140,8 +140,8 @@ function ocekavaneB(cestaKlic) {
 // pole se sice bude „shodovat samo se sebou", ale s TOUHLE tabulkou už ne.
 const OCEKAVANA_PASMA = [
 	{ klic: 'nevnimas', limit: 1, nazev: 'pod prahem vnímání', popis: 'Proud je tak malý, že ho vůbec neucítíš.' },
-	{ klic: 'brneni', limit: 6, nazev: 'brnění', popis: 'Ucítíš mravenčení, ale svaly tě poslouchají.' },
-	{ klic: 'krec-sval', limit: 15, nazev: 'křeč svalů – nemůžeš se pustit', popis: 'Svaly se křečovitě stáhnou a sám se nepustíš — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
+	{ klic: 'brneni', limit: 5, nazev: 'brnění', popis: 'Ucítíš mravenčení, ale svaly tě poslouchají.' },
+	{ klic: 'krec-sval', limit: 15, nazev: 'křeč svalů – nemůžeš se pustit', popis: 'Svaly se křečovitě stáhnou a sám se nepustíš (přesná hranice je u různých lidí trochu jiná) — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
 	{ klic: 'krec-silici', limit: 25, nazev: 'křeč sílí – blíží se ohrožení dýchání', popis: 'Křeč dál sílí a blíží se hranici, kdy začnou selhávat i dýchací svaly — pořád platí totéž: proud musí přerušit někdo jiný, ne ty sám.' },
 	{ klic: 'krec-dychani', limit: 60, nazev: 'křeč dýchacích svalů', popis: 'Křeč zasáhne i svaly, kterými dýcháš — hrozí udušení.' },
 	{ klic: 'fibrilace', limit: 80, nazev: 'fibrilace srdce', popis: 'Srdce ztrácí pravidelný rytmus — bez rychlé pomoci hrozí zástava.' },
@@ -150,7 +150,7 @@ const OCEKAVANA_PASMA = [
 // Nález nezávislé kontroly 14. 8. večer: výklad na stránce má PRÁH 15 mA
 // („6–15 mA — křeč, nemůže se pustit"), simulace dřív měla jen 6–25 mA pod
 // jménem „6–15" a test tvrdil „přesně na prazích z výkladu", což bylo o
-// jeden práh nepravda. Tabulka výš má teď VŠECH ŠEST prahů (1/6/15/25/60/80).
+// jeden práh nepravda. Tabulka výš má teď VŠECH ŠEST prahů (1/5/15/25/60/80).
 const OCEKAVANE_CESTY = {
 	// Nález nezávislé kontroly 14. 8. večer: dřívější odpory scény B (1000 Ω
 	// „z výkladu" bez zmínky o vlhkosti, 2000 Ω vlastní odhad) daly pro
@@ -410,19 +410,19 @@ console.log('\n— proudMA: čistý Ohmův zákon I = U ÷ R —');
 	ok(Math.abs(proudMA(4.5, 100000) - 0.045) < 1e-9, `proudMA(4.5,100000) = 0,045 mA (${proudMA(4.5, 100000)})`);
 }
 
-console.log('\n— pásma: hranice PŘESNĚ na prazích z výkladu (1 / 6 / 15 / 25 / 60 / 80 mA) —');
+console.log('\n— pásma: hranice PŘESNĚ na prazích z výkladu (1 / 5 / 15 / 25 / 60 / 80 mA) —');
 {
 	// Nález nezávislé kontroly 14. 8. večer: výklad má DOSLOVA „6–15 mA —
 	// křeč, nemůže se pustit“, ale simulace dřív práh 15 vůbec neměla (jen
 	// 6–25 mA pod tímhle jménem) a test to přesto tvrdil jako „přesně podle
 	// výkladu“ — bylo to o jeden práh nepravda. Teď je prahů šest.
-	const prahy = [1, 6, 15, 25, 60, 80];
+	const prahy = [1, 5, 15, 25, 60, 80];
 	let spatne = null;
 	for (const prah of prahy) {
 		if (pasmo(prah - 0.001).limit !== prah) spatne = `těsně pod ${prah} mA je pásmo s limitem ${pasmo(prah - 0.001).limit}, čekal jsem ${prah}`;
 		if (pasmo(prah).limit === prah) spatne = `přesně na ${prah} mA už je pásmo s limitem ${prah} — hranice má být OSTRÁ (< ne ≤)`;
 	}
-	ok(spatne === null, spatne ?? 'všech 6 prahů (1,6,15,25,60,80 mA) je ostrých a odpovídá výkladu');
+	ok(spatne === null, spatne ?? 'všech 6 prahů (1,5,15,25,60,80 mA) je ostrých a odpovídá výkladu');
 }
 
 console.log('\n— mAtoText: celé µA pod 1 mA, nejvýš 1 desetinné místo nad 1 mA —');

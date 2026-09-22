@@ -2,22 +2,29 @@
 // Účinky proudu na člověka, bezpečnost (F8, elektrina/ucinky-proudu-a-bezpecnost).
 //
 // Jádro učiva: lidské tělo je vodič, takže na něj platí Ohmův zákon I = U ÷ R
-// úplně stejně jako na drát (odpor-vodice). Klíčové číslo z výkladu na téže
-// stránce: kůže se PRORAZÍ přibližně nad 50 V — pod touto hranicí má SUCHÁ
-// kůže odpor cca 100 000 Ω a nic neucítíš, nad ní klesne na cca 1 500 Ω
-// (mokrý člověk cca 1 000 Ω) a proud prudce vzroste. Přesně tenhle práh (50 V)
-// používá i tahle simulace, JEDNOTNĚ pro všechny tři stavy kůže (mění se jen
-// hodnota odporu před/po průrazu, ne samotný práh).
+// úplně stejně jako na drát (odpor-vodiče). Klíčové číslo z výkladu na téže
+// stránce: nad přibližně 50 V se s vysokým odporem suché kůže dál nepočítá —
+// odpor kůže totiž není stálé číslo, s rostoucím napětím klesá (stačí k tomu
+// i pot nebo vlhko), a bezpečnostní výpočty proto berou tu nejnepříznivější
+// hodnotu. Pod 50 V má SUCHÁ kůže odpor cca 100 000 Ω a nic neucítíš, nad ní
+// klesne na cca 1 500 Ω (mokrý člověk cca 1 000 Ω) a proud prudce vzroste.
+// Přesně tenhle práh (50 V) používá i tahle simulace, JEDNOTNĚ pro všechny tři
+// stavy kůže (mění se jen hodnota odporu před/po prahu, ne samotný práh).
+// Práh vychází z výpočtu normy: 1 750 Ω (tělo+obuv+podlaha) × 30 mA (proud,
+// který tělem nemá překročit) ≈ 50 V — NE z toho, že by se kůže fyzicky
+// „prorazila", a NE z parametru proudového chrániče (chránič je jen doplňková
+// ochrana navíc, viz výklad na stránce).
 //
-// Pásma proudu (1 / 6 / 15 / 25 / 60 / 80 mA) — VŠECH ŠEST prahů je přímo
-// z výkladu na téže stránce („~1 mA — práh vnímání", „6–15 mA — křeč, člověk
-// se nemůže pustit", „~25 mA — křeč dýchacích svalů", „~60 mA — fibrilace",
-// „nad 80 mA — trvalá zástava"): pod 1 mA neucítíš nic, 1–6 mA brnění
-// (mezistupeň, ve výkladu nepojmenovaný, ale logicky mezi „prahem vnímání"
-// a „křečí"), 6–15 mA křeč — nemůžeš se pustit (DOSLOVA z výkladu), 15–25 mA
-// křeč dál sílí a blíží se ohrožení dýchání (mezistupeň mezi výkladovými
-// „15" a „25", stejná logika jako mezistupeň 1–6), 25–60 mA křeč dýchacích
-// svalů, 60–80 mA fibrilace, nad 80 mA trvalá zástava srdce.
+// Pásma proudu (1 / 5 / 15 / 25 / 60 / 80 mA) — prahy vycházejí z výkladu na
+// téže stránce („0,5–1 mA — práh vnímání", „přibližně 5–15 mA — křeč, člověk
+// se nemůže pustit", „~25 mA — křeč dýchacích svalů", „od 30 mA roste riziko
+// fibrilace, jistěji kolem 60 mA", „nad 80 mA — trvalá zástava"): pod 1 mA
+// neucítíš nic, 1–5 mA brnění (mezistupeň, ve výkladu nepojmenovaný, ale
+// logicky mezi „prahem vnímání" a „křečí"), 5–15 mA křeč — nemůžeš se pustit
+// (přibližně, viz výklad), 15–25 mA křeč dál sílí a blíží se ohrožení dýchání
+// (mezistupeň mezi výkladovými „15" a „25", stejná logika jako mezistupeň
+// 1–5), 25–60 mA křeč dýchacích svalů (riziko fibrilace už roste od 30 mA),
+// 60–80 mA fibrilace, nad 80 mA trvalá zástava srdce.
 // (Nezávislá kontrola 14. 8. večer našla, že simulace dřív práh 15 mA
 // vůbec neměla a jedno pásmo 6–25 mA si říkalo „6–15" jméno z výkladu i pro
 // proudy 15–25 mA, které výklad tímhle jménem nepopisuje — opraveno tímhle
@@ -29,7 +36,7 @@
 //   suchá: 100 000 Ω (≤50 V, PŘESNÉ) / 1 500 Ω (>50 V, PŘESNÉ) — obě z výkladu
 //   mokrá:   7 500 Ω (≤50 V, ODHAD)  / 1 000 Ω (>50 V, PŘESNÉ) — jen 1000 Ω z výkladu
 //   vlhká:  20 000 Ω (≤50 V, ODHAD)  / 1 250 Ω (>50 V, ODHAD)  — celé je to mezistupeň,
-//     výklad zná jen „sucho"/„vlhko" po průrazu, žádné číslo pro vlhko PŘED průrazem.
+//     výklad zná jen „sucho"/„vlhko" nad a pod prahem 50 V, žádné číslo pro vlhko PŘED prahem.
 // Odhady byly zvoleny tak, aby: (a) při zásuvce (230 V) vyšlo pěkné celé číslo
 // (184 mA) a (b) při nízkém napětí (baterie/autobaterie) zůstal proud v pásmu
 // „nevnímáš"/„brnění", NIKDY v „křeči" — výklad tvrdí, že stejnosměrné napětí
@@ -112,7 +119,8 @@
 	<p>Lidské tělo je vodič, takže na něj platí stejný <strong>Ohmův zákon</strong> <em>I = U ÷ R</em> jako na drát. Zkus různá napětí a různě vlhkou kůži a sleduj, do jakého pásma proud spadne.</p>
 
 	<h3>⚡ Část A: Napětí, vlhkost kůže a velikost proudu</h3>
-	<p>Suchá kůže má velký odpor a chrání tě — ale <strong>jen do napětí zhruba 50 V</strong>. Nad touto hranicí se kůže „prorazí" a odpor prudce klesne. Vlhká a mokrá kůže mají odpor mnohem menší už od začátku.</p>
+	<p>Suchá kůže má velký odpor, ale spolehnout se na něj nejde — u napětí nad bezpečnou hranicí (<strong>zhruba 50 V</strong>) se s ním už nepočítá. Odpor kůže totiž není stálé číslo: čím vyšší napětí na ni působí (a stačí k tomu i pot nebo vlhko), tím víc klesá — proto se pro bezpečnostní výpočty bere mnohem nižší, opatrná hodnota; tahle simulace počítá s odpory, které vidíš v okénku vpravo. Vlhká a mokrá kůže mají odpor mnohem menší už od začátku.</p>
+	<p><em>Barevný pruh pásem vpravo v obrázku je orientační — odborné zdroje se u přesných hranic (hlavně u „nemůžeš se pustit" a u fibrilace) mírně liší, záleží i na tom, jak dlouho proud tělem prochází.</em></p>
 	<svg id="upb-a-svg" viewBox="0 0 660 350" role="img" aria-label="Zdroj napětí připojený drátem k ruce postavičky, zpáteční cesta chodidlem zpět ke zdroji, vpravo ampérmetr s barevnými pásmy nebezpečí">
 		<rect x="0" y="0" width="660" height="350" fill="#f8f9fa" />
 		<line id="upb-a-drat-zdroj" x1="150" y1="95" x2="225" y2="95" stroke="#2b2a26" stroke-width="4" />
@@ -222,7 +230,9 @@
 	const KUZE_NAZEV = { sucha: 'suchá kůže', vlhka: 'vlhká kůže', mokra: 'mokrá kůže' };
 	const KUZE_BARVA = { sucha: '#ffd8a8', vlhka: '#a5d8ff', mokra: '#4dabf7' };
 
-	// Práh průrazu kůže — STEJNÝ pro všechny stavy kůže (mění se jen R před/po).
+	// Bezpečnostní práh napětí (50 V) — STEJNÝ pro všechny stavy kůže (mění se jen R před/po).
+	// Norma ho odvozuje z výpočtu 1 750 Ω × 30 mA (bezpečný proud tělem) ≈ 50 V,
+	// ne z fyzického „proražení" kůže a ne z parametru chrániče.
 	const PRAH_PRURAZU_V = 50;
 	// U KAŽDÉ hodnoty je *Presny natvrdo řečeno, jestli je z výkladu (true),
 	// nebo vlastní odhad simulace (false, ve scéně dostane „≈").
@@ -241,14 +251,14 @@
 	}
 	function proudMA(U, R) { return (U / R) * 1000; }
 
-	// Pásma podle výkladu (prahy 1 / 6 / 25 / 60 / 80 mA), setříděná vzestupně.
+	// Pásma podle výkladu (prahy 1 / 5 / 15 / 25 / 60 / 80 mA), setříděná vzestupně.
 	const PASMA = [
 		{ limit: 1, klic: 'nevnimas', nazev: 'pod prahem vnímání', barva: '#adb5bd',
 			popis: 'Proud je tak malý, že ho vůbec neucítíš.' },
-		{ limit: 6, klic: 'brneni', nazev: 'brnění', barva: '#ffd43b',
+		{ limit: 5, klic: 'brneni', nazev: 'brnění', barva: '#ffd43b',
 			popis: 'Ucítíš mravenčení, ale svaly tě poslouchají.' },
 		{ limit: 15, klic: 'krec-sval', nazev: 'křeč svalů – nemůžeš se pustit', barva: '#ffa94d',
-			popis: 'Svaly se křečovitě stáhnou a sám se nepustíš — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
+			popis: 'Svaly se křečovitě stáhnou a sám se nepustíš (přesná hranice je u různých lidí trochu jiná) — proud musí bezpečně přerušit někdo jiný (vypnutím, ne rukou).' },
 		{ limit: 25, klic: 'krec-silici', nazev: 'křeč sílí – blíží se ohrožení dýchání', barva: '#ff922b',
 			popis: 'Křeč dál sílí a blíží se hranici, kdy začnou selhávat i dýchací svaly — pořád platí totéž: proud musí přerušit někdo jiný, ne ty sám.' },
 		{ limit: 60, klic: 'krec-dychani', nazev: 'křeč dýchacích svalů', barva: '#ff8787',
