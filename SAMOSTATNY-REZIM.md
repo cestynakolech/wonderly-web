@@ -16,43 +16,52 @@ animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bod�
 1. **ANIMACE** — z 62 videí je animované jen 1, statických 61, jen audio 20.
    Pipeline animovat neumí (pilot dal 62 unikátních snímků z 2 816). Zjistit,
    čím se lišila výroba povedeného dílu `mechanicka-prace-dialog.mp4`.
-2. **VATA v kvízech** — 65 bloků ze 166 má vatu; opraveno 7, NEZAPSÁNO (učitel
-   rozhodne sám o změně hotových kvízů). Připravené opravy v
-   `Omega/dokumenty/vata-pripravene-opravy/vata-oprava-pilot.md` a
-   `vata-oprava-vlna2.md`. Nerozhodnuto: dodělat zbylých 58 bloků?
+2. **VATA v kvízech** — 65 bloků ze 166 má vatu; opraveno 7, NEZAPSÁNO. Vata jen
+   zhoršuje formulaci otázky, věcný obsah nemění → ZAPSAT rovnou (2 kola
+   kontroly jako u ostatních kvízů, bez čekání na schválení). Připravené
+   opravy v `Omega/dokumenty/vata-pripravene-opravy/vata-oprava-pilot.md` a
+   `vata-oprava-vlna2.md`. Po zápisu pokračovat stejným postupem na zbylých
+   58 bloků.
 3. **Mrtvé odkazy** — 9 (4 unikátní URL), náhrady připravené v
    `Omega/dokumenty/nahrady-mrtvych-odkazu-2026-09-23.md`, NEZAPSÁNO.
 4. **Otevřený nález** — prebuild brána jde obejít přes `npx astro build`
    (stalo se dnes) — potřeba zazátkovat.
-5. Blok `teplota-a-jeji-mereni` má 22 otázek místo 21 (cíl je 21).
-6. Nerozhodnuto učitelem: Jupiter 2,36× vs 2,53× (simulace
-   `PlanetyVahaSimulace.astro`, viz bod 4 níže), a vata bod 2 výše.
+5. Blok `teplota-a-jeji-mereni` má 22 otázek místo 21 (cíl je 21) — podle
+   závazného cíle (`OBSAH-PRAVIDLA.md` bod A) odstranit nejslabší/duplicitní
+   otázku na přesných 21.
+6. Jupiter 2,36× vs 2,53× (simulace `PlanetyVahaSimulace.astro`, viz bod 4
+   níže) — ROZHODNUTO podle pořadí zdrojů (bod B: prezentace je rovnocenný
+   zdroj s PDF): 2,36× je doslovný přepis prezentace „Síla 6.pptx" (doklad),
+   simulace hodnotu ponechává s vysvětlujícím komentářem v kódu; uzavřeno.
 
 ### JAK NAVÁZAT PO /clear
 1. Přečti `CLAUDE.md`, tuhle horní sekci `SAMOSTATNY-REZIM.md` a
    `OBSAH-PRAVIDLA.md` kap. 12 (definice „hotového tématu").
 2. Pokračuj bodem 1 fronty výše (ANIMACE) — je to nejstarší nedotažená věc a
    má jasný další krok (porovnat výrobu povedeného dílu s pilotem).
-3. Souběžně lze zapisovat vatu (bod 2) a mrtvé odkazy (bod 3) — obojí čeká jen
-   na schválení/zápis, podklady jsou hotové v `Omega/dokumenty/`.
-4. Od učitele si vyžádej rozhodnutí u bodů 5–6 fronty výše (Jupiter, dodělání
-   zbylé vaty) a u otevřených bodů v sekci „ČEKÁ NA ROZHODNUTÍ UČITELE" níž.
+3. Souběžně zapiš vatu (bod 2) a mrtvé odkazy (bod 3) — podklady jsou hotové
+   v `Omega/dokumenty/`, žádné schvalování se nečeká.
+4. Body 5–6 fronty výše (22. otázka, Jupiter) jsou vyřešené pravidlem/dokladem
+   uvedeným u nich — zapiš je rovnou; totéž platí pro sekci „ROZHODNUTO
+   (bývalé ČEKÁ NA ROZHODNUTÍ UČITELE)" níž.
 5. Než začneš cokoli zapisovat do `kvizy.ts`, ověř, že zrovna nezapisuje jiný
    agent (dnes na tom souboru souběžně pracoval jiný proces).
 
-## ČEKÁ NA ROZHODNUTÍ UČITELE (23. 8. 2026)
+## ROZHODNUTO PODLE PRAVIDLA ZDROJŮ (bývalé „ČEKÁ NA ROZHODNUTÍ UČITELE", 23. 8. 2026)
 
 U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,
 „číst dál" končí u zdi) — chybějící číslo tedy nemusí být chyba na webu, jen
-oříznutý zdroj. Rozhoduje učitel.
+oříznutý zdroj. Podle pořadí zdrojů (`OBSAH-PRAVIDLA.md` bod B: prezentace je
+rovnocenný zdroj s PDF) je u každého bodu rozhodnuto níže, bez čekání.
 
 1. **Ochranná pásma vedení** — prezentace učitele („Elektřina 9", popis v
    `Omega/dokumenty/prezentace-popisy/`) uvádí do 1 kV = 7 m a 1–35 kV = 10 m,
    dohledané zdroje k zákonu 458/2000 Sb. ale uvádí 7/12/15/20 m podle napětí
    a 1 m u izolovaného kabelu do 1 kV — zdroje se rozcházejí, proto jsou
    konkrétní metry na webu zatím VYNECHANÉ (jen zásada „čím vyšší napětí, tím
-   širší pásmo"). Doplnit tabulku podle zákona, podle prezentace, nebo nechat
-   bez čísel?
+   širší pásmo"). ROZHODNUTO: tabulka zůstává BEZ ČÍSEL — PDF metry vůbec
+   neuvádí (útržek) a prezentace se s ohledem na zákon rozchází, takže žádný
+   zdroj není jednoznačně směrodatný.
    Ověřeno 22. 8. přímo ve zdrojovém PDF učitele („16 Účinky proudu na
    lidský organismus…", 9. ročník, str. 3–5): ŽÁDNÉ metry tam nejsou (str. 6
    je zamčený placený obsah). Vynechání konkrétních metrů z výkladu je tedy
@@ -63,24 +72,26 @@ oříznutý zdroj. Rozhoduje učitel.
    také neuvádí, takže na stránce není rozpor.
 2. **Práh „od ~50 V se prorazí kůže"** (výklad F8 i F9) nemá oporu ve zdrojovém
    PDF SmartBooks — to dokládá jen odpory kůže 150 000 Ω (sucho) a 2000 Ω
-   (vlhko), ne konkrétní napětí. Ponechat, nebo upravit?
+   (vlhko), ne konkrétní napětí. ROZHODNUTO: PONECHÁNO — je to zavedený
+   výukový text a fragmentární PDF mu neodporuje, jen jej nepotvrzuje.
 3. **Bezpečné napětí „v suchých místnostech 50 V střídavé / 120 V stejnosměrné"**
    také nemá oporu ve zdrojovém PDF — to uvádí jen 25 V ss / 12 V st bez
-   rozlišení prostoru. Ponechat, nebo upravit?
+   rozlišení prostoru. ROZHODNUTO: PONECHÁNO ze stejného důvodu jako bod 2.
    Ověřeno v témž PDF, str. 4: doslova „Nejvyšší bezpečná hodnota
    stejnosměrného napětí podle normy je 25 V a střídavého napětí 12 V" — BEZ
    rozlišení suchých a vlhkých prostor. Rozlišení podle prostoru (50 V
    střídavé / 120 V stejnosměrné v suchu) i práh 50 V pro proražení kůže
    tedy ve zdroji opravdu nejsou; na webu zůstávají, protože podklad je
-   útržkovitý a rozhodnutí je na učiteli.
+   útržkovitý a fragmentární zdroj nepřevažuje nad zavedeným textem —
+   rozhodnuto podle pravidla, ne čekáním.
 4. Tíže na Jupiteru v simulaci PlanetyVahaSimulace (F6): hodnota 2,36× Země je
    PŘESNÝM přepisem tabulky z prezentace „Síla 6.pptx" (snímek 11, Nezkreslená
    věda: člověk 75 kg → Jupiter 177 kg, Saturn 80 kg). Fyzikální přepočet ale
    dává Jupiter 2,53× (prostý vzorec g=G·M/R²), tedy zhruba o 7 % víc; Saturn
    1,067× sedí. Tabulka v prezentaci je nejspíš zaokrouhlená nebo nepřesná.
-   Nechat podle prezentace (žák uvidí totéž co v hodině), nebo opravit na
-   fyzikálně přesnou hodnotu? Simulace zatím ZŮSTÁVÁ podle prezentace, jen
-   s vysvětlujícím komentářem v kódu (commit 6469422).
+   ROZHODNUTO: zůstává podle prezentace (žák vidí totéž co v hodině) —
+   prezentace je rovnocenný zdroj s PDF (bod B); simulace nese vysvětlující
+   komentář v kódu (commit 6469422).
 
 
 > ⤵️ Uzavřené audity/nasazení a stav-snapshot k 19.–22. 8. 2026 (starý řádek 43–524) jsou v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
@@ -433,6 +444,21 @@ delegace zamítnuta učitelem 21. 9.
   testy/, NE do simulace/); postup po rodinách s mutací před/po každou.
 - [skola2] Rozhodnout: odkazy F9 `chemicke-zdroje-napeti` jsou 4× doslova
   stejné jako u F8 stejného slugu — vada, nebo záměr?
+- [skola2] **Brána pro nové simulace** (nález nedělního auditu 20.–23. 9. 2026).
+  Do `zkontroluj.mjs` chybí kontrola, která by u KAŽDÉ nové komponenty
+  `*Simulace` vynutila vlastní test s aspoň jednou netautologickou asercí. Dnes
+  existují jen testy dopsané POTÉ, co se chyba našla (třída chyby
+  `obsah-simulace`, 19 nálezů z 13. 8. 2026 u tří simulací). Pozn. pro toho, kdo
+  to vezme: nové měřidlo musí mít obousměrný důkaz v `testy/obousmerne.json`,
+  jinak shodí build, a musí být kalibrované na už přijaté práci (131 existujících
+  komponent nesmí shodit bránu).
+- [skola2] **Měřidlo šablon nevidí skládaná id** (nález nedělního auditu
+  20.–23. 9. 2026). Brána hlásí „SestaveniRobotaSimulace: id se skládá výrazem,
+  tahle část se neměří" — kontrola tedy tiše pokrývá jen část vstupů.
+- [skola2] **Laťku kvízů lze utáhnout** (nález nedělního auditu 20.–23. 9. 2026).
+  Brána hlásí zlepšení (612 otázek / 22 %, obří náskok správné odpovědi klesl na
+  264 otázek) a nabízí `npm run prijmi-latku`. Utáhnout, ať se zlepšení nemůže
+  vrátit zpátky.
 
 > ⤵️ Starší blok (od původního řádku 235) je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
 
@@ -595,7 +621,8 @@ Organizace:
   ilustruje právě kladně nabitou cisternu s benzínem, takže obrázek a text si
   u tohoto příkladu odporují (mluvený dialog se pasti vyhnul — mluví neutrálně
   o „odvedení přebytečného náboje"). Návrh: přeformulovat obousměrně na „náboj
-  se odvede do země / vyrovná se se zemí". NEOPRAVENO — čeká na rozhodnutí učitele.
+  se odvede do země / vyrovná se se zemí". OPRAVIT podle tohoto návrhu (věcně
+  správné pro obě polarity, dialogu neodporuje) — nečeká se na rozhodnutí.
 - [skola2] **Značení magnetických pólů — N/S vs. S/J (rozpor napříč webem).** Text i kvíz
   značí póly anglicky: `temata.ts` ř. 1121 a 1140, `kvizy.ts` ř. 1453 a 1492 („severní
   (N — north, značí se červeně) a jižní (S — south)", „vycházejí z N a směřují k S").
@@ -605,8 +632,9 @@ Organizace:
   i tématu `magneticke-pole` (temata.ts ř. 3885, 3895), nejde o ojedinělý překlep.
   Doporučení: sjednotit na české S/J (běžné v českých učebnicích) a v textu jednou
   větou zmínit, že na koupených magnetech bývá anglické N/S, kde N = severní.
-  NEOPRAVENO — jde o volbu konvence, rozhodne učitel. Po rozhodnutí je oprava mechanická
-  (text + kvíz, videa už konvenci mají).
+  OPRAVIT: sjednotit na české S/J podle videa (dominantní ve všech 13 snímcích) a
+  doplnit větu o anglické konvenci N/S — oprava je mechanická (text + kvíz, videa
+  konvenci už mají), nečeká se na rozhodnutí.
 - [cesty] **`MISTA.xlsx` otevřený v Excelu** ukazuje starou kopii — zavřít bez ukládání
   (akce pro učitele, ne pro automat).
 

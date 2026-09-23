@@ -189,6 +189,40 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 20.–23. 9. 2026: nedělní WONDERLY AUDIT
+
+- Tři nezávislí kontroloři: opakované třídy chyb · kód vs. pravidla · bobtnání dokumentace.
+- Sloučeny rozejité větve MacBooku a Mac mini (~100 commitů pozadu, konflikty v
+  PROGRESS.md a temata.ts vyřešeny bez ztráty médií; lokální verze vedla na
+  neexistující obrázek, který mini záměrně odstranil).
+- PROGRESS.md zkrácen: 15 záznamů historie do archivu (−16 455 znaků), smazán
+  duplicitní popis téže práce ze 12. 9. vzniklý sloučením větví.
+- Postup nasazení měl JEDINÝ domov v CLAUDE.md; PROGRESS.md i skill `/wonderly`
+  teď jen odkazují.
+- Do `package.json` doplněny chybějící závislosti `@babel/parser` 7.29.7 a
+  `esbuild` 0.27.7 (dosud jen cizí podzávislost, mohly zmizet).
+- Deník chyb: `revize_automatu.py` sjednocuje tvar nálezu (`bez_dekorace()`),
+  takže se pozná recidiva — 3 skutečné pády byly dosud vedené jako 12 záznamů;
+  doloženo obousměrnou zkouškou.
+- Hook `kontrola_syntaxe_hook.py` rozšířen na Bash: chytá Python v
+  `python3 -c` i heredocu (třída `syntaxe-py` se vracela 19×); doloženo obousměrně.
+- `ZASTAVENE-AUTOMATY-2026-09-12.md` lhal u tří automatů (`ohlas-se`, `tep`,
+  `hlidac-ticha` běží) — opraveno podle `launchctl` a logů; 17 dalších záznamů
+  ověřeno jako správné.
+- Odstraněna příčina zbytečných dotazů na učitele: projektový vrátný
+  `/Users/Shared/povoleni_hook.py` a orchestrátorský hook se rozcházely
+  (allow × deny), proto se Claude Code ptal člověka; vrátný teď v
+  orchestrátorském režimu vrací rovnou „deleguj subagentovi". Test vrátného:
+  126 případů, obousměrně v pořádku.
+- Kotvy: `zkontroluj.mjs` exit 0 · `testy/vsechny-simulace.mjs` 37 souborů /
+  2 567 kontrol / 0 spadlo · `test_bez_kopii.py` 0 nových kopií · lab i
+  cesty.wonderly.cz HTTP 200.
+- Měření startovního čtení (`wc -c`, 23. 9. 2026): CLAUDE.md 5 348 ·
+  PROGRESS.md 47 642 · SAMOSTATNY-REZIM.md 53 030 · skill SKILL.md 29 132 —
+  součet 135 152 znaků, proti výchozí míře auditu 101 074 je to +34 078. Součet
+  ale NENÍ čistý ukazatel škrtů: do PROGRESS.md a do fronty (SAMOSTATNY-REZIM.md)
+  dnes přibyly zápisy z běžné práce jiných session souběžně s auditem.
+
 ## Historie — 10. 9. 2026 (deterministická inventura podtématu)
 
 Přidán `inventura-podtematu.mjs`, který bez modelu a sítě vypíše pro jedno
