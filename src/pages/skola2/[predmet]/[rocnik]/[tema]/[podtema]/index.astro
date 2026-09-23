@@ -84,6 +84,7 @@ import StupniceSimulace from '../../../../../../components/skola2/StupniceSimula
 import PrevodySimulace from '../../../../../../components/skola2/PrevodySimulace.astro';
 import OzobotSimulace from '../../../../../../components/skola2/OzobotSimulace.astro';
 import KolejniceSimulace from '../../../../../../components/skola2/KolejniceSimulace.astro';
+import PolovodicSimulace from '../../../../../../components/skola2/PolovodicSimulace.astro';
 import KadinkySimulace from '../../../../../../components/skola2/KadinkySimulace.astro';
 import PrumerSimulace from '../../../../../../components/skola2/PrumerSimulace.astro';
 import TreniSimulace from '../../../../../../components/skola2/TreniSimulace.astro';
@@ -455,6 +456,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'vodic' && <Vodic />}
 	{podtema.interakce === 'zakon' && <Zakon />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
+	{podtema.interakce2 === 'polovodic-dopovani' && <PolovodicSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (
 		<section class="ramecek laborka-pozvanka">
