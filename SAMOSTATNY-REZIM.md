@@ -1,3 +1,45 @@
+## STAV 23. 9. 2026 — konec session, čeká fronta (viz níže)
+
+Dnes nasazeno 11 commitů (všechny ověřené curlem na produkci): `1e5a9ba` úklid po
+pádu (kvízy zrcadel 4–6, roční shrnutí F9) · `bf2fbe8` 9 bodů „PDF platí" + 3 chyby
+podkladu doloženy · `fbbcaed` 49 nálezů z 2. kol kvízů (světlo 29, zrcadla 20) ·
+`627738f` 46 prověřených odkazů u 19 podtémat · `696b335` body 11, 13, 18 (nad
+rámec RVP) · `87aafa0` body 5, 7, ochranná pásma, směr proudu · `c788c2d` nové
+podtéma klín a kvarky · `6bb6c7e` nové podtéma účinnost a alternativní motory ·
+`48252bf` bezpečnostní text o účincích proudu (26 míst, 3 kola kontroly) ·
+`13667e8` odblokování brány · `23f5378`/`158eacd` pravidla o animacích + práh 0,50.
+Web má 485 stránek (ráno 481), přibyla 4 nová podtémata. Pravidla: „hotové téma"
+má nově 9 složek (OBSAH-PRAVIDLA.md kap. 12), hra je samostatná na podtéma, práh
+animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bodů vyřízeno.
+
+### FRONTA na příští session
+1. **ANIMACE** — z 62 videí je animované jen 1, statických 61, jen audio 20.
+   Pipeline animovat neumí (pilot dal 62 unikátních snímků z 2 816). Zjistit,
+   čím se lišila výroba povedeného dílu `mechanicka-prace-dialog.mp4`.
+2. **VATA v kvízech** — 65 bloků ze 166 má vatu; opraveno 7, NEZAPSÁNO (učitel
+   rozhodne sám o změně hotových kvízů). Připravené opravy v
+   `Omega/dokumenty/vata-pripravene-opravy/vata-oprava-pilot.md` a
+   `vata-oprava-vlna2.md`. Nerozhodnuto: dodělat zbylých 58 bloků?
+3. **Mrtvé odkazy** — 9 (4 unikátní URL), náhrady připravené v
+   `Omega/dokumenty/nahrady-mrtvych-odkazu-2026-09-23.md`, NEZAPSÁNO.
+4. **Otevřený nález** — prebuild brána jde obejít přes `npx astro build`
+   (stalo se dnes) — potřeba zazátkovat.
+5. Blok `teplota-a-jeji-mereni` má 22 otázek místo 21 (cíl je 21).
+6. Nerozhodnuto učitelem: Jupiter 2,36× vs 2,53× (simulace
+   `PlanetyVahaSimulace.astro`, viz bod 4 níže), a vata bod 2 výše.
+
+### JAK NAVÁZAT PO /clear
+1. Přečti `CLAUDE.md`, tuhle horní sekci `SAMOSTATNY-REZIM.md` a
+   `OBSAH-PRAVIDLA.md` kap. 12 (definice „hotového tématu").
+2. Pokračuj bodem 1 fronty výše (ANIMACE) — je to nejstarší nedotažená věc a
+   má jasný další krok (porovnat výrobu povedeného dílu s pilotem).
+3. Souběžně lze zapisovat vatu (bod 2) a mrtvé odkazy (bod 3) — obojí čeká jen
+   na schválení/zápis, podklady jsou hotové v `Omega/dokumenty/`.
+4. Od učitele si vyžádej rozhodnutí u bodů 5–6 fronty výše (Jupiter, dodělání
+   zbylé vaty) a u otevřených bodů v sekci „ČEKÁ NA ROZHODNUTÍ UČITELE" níž.
+5. Než začneš cokoli zapisovat do `kvizy.ts`, ověř, že zrovna nezapisuje jiný
+   agent (dnes na tom souboru souběžně pracoval jiný proces).
+
 ## ČEKÁ NA ROZHODNUTÍ UČITELE (23. 8. 2026)
 
 U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,

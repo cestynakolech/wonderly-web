@@ -166,6 +166,9 @@ Od 23. 9. 2026 je „simulace" a „interaktivní infografika" JEDNA a TATÁŽ s
 simulace nedává smysl). Informatika a Pracovní činnosti zůstávají ve frontě —
 podrobnosti viz `SAMOSTATNY-REZIM.md`.
 Zbývá dál: média k Fyzice 6 (infografiky/písně/videa); Pracovní činnosti — zatím jen celek 3D modelování (Tinkercad+SketchUp, 20. 7.), ostatní témata Pč dle podkladů učitele. Informatika 7–9 KOMPLET (výklad+kvízy+testy+odkazy s QR).
+**Stav 23. 9. 2026:** přestavba fyziky (viz `SAMOSTATNY-REZIM.md`) v běhu; otevřená
+fronta: animace videí, vata v kvízech (65/166 bloků), 9 mrtvých odkazů — vše
+podrobně v horní sekci `SAMOSTATNY-REZIM.md`.
 
 > ⤵️ Historická část (od původního řádku 131) je v [PROGRESS-ARCHIV.md](PROGRESS-ARCHIV.md) — beze změny, jen se nečte automaticky.
 
@@ -541,3 +544,30 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   necommitoval a dokončil se až po commitu kvízů. Pravidlo: brány běží nad
   celým repem, souběžné zápisy do různých datových souborů se musí dokončovat
   po jednom.
+
+### Úklid, dokumentace a kontrola kvality — 11 nasazení, 485 stránek (2026-09-23)
+- 11 commitů nasazeno a ověřeno curlem: `1e5a9ba` úklid po pádu (kvízy zrcadel
+  4–6, roční shrnutí F9) · `bf2fbe8` 9 bodů „PDF platí" + 3 chyby podkladu
+  doloženy · `fbbcaed` 49 nálezů z 2. kol kvízů (světlo 29, zrcadla 20) ·
+  `627738f` 46 prověřených odkazů u 19 podtémat · `696b335` body 11, 13, 18
+  (nad rámec RVP) · `87aafa0` body 5, 7, ochranná pásma, směr proudu ·
+  `c788c2d` nové podtéma klín a kvarky · `6bb6c7e` nové podtéma účinnost a
+  alternativní motory · `48252bf` bezpečnostní text o účincích proudu
+  (26 míst, 3 kola kontroly) · `13667e8` odblokování brány ·
+  `23f5378`/`158eacd` pravidla o animacích + práh 0,50.
+- Web vzrostl z 481 na 485 stránek (4 nová podtémata). Pravidlo: „hotové
+  téma" má nově 9 složek (OBSAH-PRAVIDLA.md kap. 12, simulace a interaktivní
+  infografika sloučeny), hra je samostatná na podtéma, práh animace = podíl
+  unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bodů vyřízeno.
+- Nové nástroje: `Omega/skripty/kontrola_odkazu.py` (curl + gemma4:26b,
+  zkalibrováno), `Omega/skripty/kontrola_animace.py` (práh 0,50),
+  `wonderly-web/testy/nastroje/vata-v-distraktorech.mjs` (mimo bránu, zapnout
+  až po opravě bloků), opravený AST parser inventury.
+- Otevřeno pro příští session: animace (z 62 videí animované jen 1),
+  vata v kvízech (65/166 bloků, 7 oprav připraveno NEZAPSÁNO — čeká na
+  učitele, podklady v `Omega/dokumenty/vata-pripravene-opravy/`), 9 mrtvých
+  odkazů s náhradami připravenými v
+  `Omega/dokumenty/nahrady-mrtvych-odkazu-2026-09-23.md` (NEZAPSÁNO), nález
+  že prebuild brána jde obejít přes `npx astro build`, blok
+  `teplota-a-jeji-mereni` má 22 otázek místo 21. Podrobná fronta a odkaz „jak
+  navázat" jsou v horní sekci `SAMOSTATNY-REZIM.md`.
