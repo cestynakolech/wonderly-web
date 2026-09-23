@@ -1123,6 +1123,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-dialog.mp4',
 							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA 2: Čas a jeho měření — 2. díl',
+							cesta: '/media/fyzika/6-rocnik/cas/cas-a-jeho-mereni/cas-a-jeho-mereni-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
