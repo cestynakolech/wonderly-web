@@ -24,7 +24,7 @@ export type Podtema = {
 	/** Interaktivní prvek na stránce (komponenta se vybírá podle názvu) */
 	interakce?: 'alternator' | 'archimedes' | 'atom-molekuly' | 'barometr' | 'barva' | 'barvy' | 'bezpecna-vzdalenost-vedeni' | 'bezpecnost-pocitace' | 'binarni' | 'bludiste' | 'cara' | 'cas' | 'cocka' | 'decibely' | 'diagram' | 'difuze' | 'dioda' | 'draha' | 'duha' | 'el-polje' | 'elektricka-prace-a-vykon' | 'elektricke-pole' | 'elektrolyza' | 'elektromagnet' | 'elektromotor' | 'elektron' | 'elektrovani' | 'energia' | 'fotovoltaika' | 'funkce-tabulky' | 'galvanicky-clanek' | 'graf-cesta' | 'gravitacni-sila' | 'honicka' | 'hustota' | 'hydraulika' | 'hydrostatika' | 'indukce' | 'izotopy' | 'jaderna-energia' | 'jastina' | 'jiskra' | 'kadinky' | 'kalorimetr' | 'kladka' | 'klonovani' | 'kolobeh-vody' | 'kondenzace' | 'led-displej' | 'lom' | 'magnet' | 'magneticke-pole' | 'magnety-opakovani' | 'material' | 'mechanicka' | 'meridla' | 'mereni' | 'mesic' | 'microbit-radio' | 'microbit-vstupy' | 'motor' | 'motory-displej-zvuk' | 'naboj' | 'naklonena-rovina' | 'napeti' | 'nestejnoroda-lod' | 'obnovitelne-zdroje' | 'obvod' | 'odpor' | 'odpor-vodice' | 'odpor-vodice-zaklad' | 'odraz' | 'oersted' | 'ohm' | 'ohrev' | 'oko' | 'opakovani' | 'opakovani-velicin' | 'odskok' | 'ozobot' | 'ozvena' | 'paka' | 'pakety' | 'palivo' | 'ping-pong' | 'planety-vaha' | 'pohyb' | 'pokusy' | 'polares' | 'polovodic' | 'posuvny-otacivy' | 'povetrnostni-mapa' | 'prace' | 'premeny-energie' | 'prenos' | 'pretlak' | 'prevody' | 'projekt-robot' | 'promenne' | 'proton' | 'proud' | 'razeni-clanku' | 'razeni-filtrovani' | 'reaktor' | 'refleks' | 'relativita-pohybu' | 'rezonance' | 'reostat' | 'retezova-reakce' | 'rovinne-zrcadlo' | 'rozpad' | 'rozpinani-vesmiru' | 'rychlost' | 'rychlost-svetla' | 'senzory-robota' | 'sestaveni-robota' | 'seznamy' | 'sila-mag' | 'sila-vektor' | 'skakacka' | 'skatepark' | 'skladani-sil' | 'skupenstvi' | 'souradnice' | 'soustava' | 'spektrum' | 'stridavy-proud' | 'strilecka' | 'stupnice' | 'sublimace' | 'svacina' | 'tabulka-vzorce' | 'tani' | 'teleso-latka' | 'teplomer' | 'teziste' | 'tlak' | 'tlak-plocha' | 'tlmeni' | 'transformator' | 'treni' | 'tuhnuti' | 'ucinky-proudu-a-bezpecnost' | 'ucinky-sily' | 'ucinnost-motoru' | 'udalosti' | 'uzitky' | 'valec' | 'var' | 'vedeni' | 'vetveni' | 'vesmiruni' | 'vex-gyroskop' | 'vexcode' | 'vlastni-bloky' | 'vlneni' | 'vnitrni-energie' | 'vodic' | 'vrh' | 'vykon' | 'vyparovani' | 'vypocet-rychlosti' | 'vzajemne-pusobeni' | 'vznik-elektrickeho-proudu' | 'viny' | 'zachovani' | 'zakon' | 'zapojeni' | 'zrcadlo' | 'zrychleni' | 'zvuk';
 	/** Druhá interaktivní simulace na téže stránce (zobrazí se pod první) */
-	interakce2?: 'kolejnice' | 'prumer';
+	interakce2?: 'kolejnice' | 'polovodic-dopovani' | 'prumer';
 	/**
 	 * Zápis do sešitu — to nejdůležitější ze stránky k opsání. Jen body, které
 	 * si žák opravdu má odnést; u veličin vždy značka i jednotka, ať je pozná
@@ -119,6 +119,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/polemika-uvod-do-fyziky-animace.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Úvod do fyziky — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/uvod-do-fyziky/uvod-do-fyziky-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
@@ -180,6 +186,12 @@ export const temata: Record<string, Tema[]> = {
 							druh: 'video',
 							nazev: 'Píseň: Z čeho je svět 🎵',
 							cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/pisen-z-ceho-je-svet.m4a',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Tělesa a látky — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/telesa-a-latky/telesa-a-latky-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
 				},
@@ -251,6 +263,24 @@ export const temata: Record<string, Tema[]> = {
 							// nová položka v mezipaměti, opravu tedy dostane každý.
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/polemika-casticove-slozeni-latek-difuze-v2.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Částicové složení látek (1/3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/casticove-slozeni-latek-atomy-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Částicové složení látek (3/3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/casticove-slozeni-latek-difuze-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Částicové složení látek (2/3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek/casticove-slozeni-latek-pohyb-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
 				},
@@ -335,6 +365,24 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Molekuly vody H₂O: 1 kyslík + 2 vodíky',
 							cesta: '/materialy/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/molekuly-vody.jpg',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Atomy a molekuly (1/3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-atom-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Atomy a molekuly (2/3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-molekuly-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Atomy a molekuly (3/3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/atomy-a-molekuly/atomy-a-molekuly-smesi-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
@@ -405,6 +453,12 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Led, voda, pára — kolik látek? 🎬',
 							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/polemika-skupenstvi-latek.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animaci částic kreslí program podle fyzikálních pravidel.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Skupenství látek a jejich vlastnosti — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek/skupenstvi-latek-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
 				},
@@ -480,6 +534,12 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
 						{ druh: 'video', nazev: 'Píseň: Síla má směr 🎵', cesta: '/materialy/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/pisen-sila-ma-smer.m4a' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Vzájemné působení těles, síla — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/sila/vzajemne-pusobeni-teles-sila/vzajemne-pusobeni-teles-sila-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
@@ -570,6 +630,18 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/polemika-gravitace-1-animace.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Gravitační síla a gravitační pole — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA 2: Gravitační síla — 2. díl',
+							cesta: '/media/fyzika/6-rocnik/sila/gravitacni-sila/gravitacni-sila-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 			],
@@ -648,6 +720,24 @@ export const temata: Record<string, Tema[]> = {
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
 						},
 						{ druh: 'video', nazev: 'Píseň: Fyzikální veličiny 🎵', cesta: '/materialy/fyzika/6-rocnik/fyzikalni-veliciny/delka/pisen-fyzikalni-veliciny.m4a' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Délka – jak měřit správně (díl 3 ze 3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-mereni-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Délka — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-meridla-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Délka – metr a převody (díl 1 ze 3) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/delka/delka-metr-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
@@ -774,6 +864,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/polemika-objem-animace.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkast: Objem — dialog',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/objem/objem-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
@@ -835,6 +931,12 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Co je těžší — kilo peří, nebo kilo železa? 🎬 (s animacemi)',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/polemika-hustota-animace.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Hustota — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hustota/hustota-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
 				},
@@ -908,6 +1010,18 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika 2: Teplota, čas a síla 🎬',
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/polemika-souhrn-velicin-2.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata kreslí program podle zadaných hodnot.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Souhrnné opakování fyzikálních veličin (díl 1 ze 2) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Souhrnné opakování fyzikálních veličin (díl 2 ze 2) — 2. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin/souhrnne-opakovani-velicin-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
 					odkazy: [
@@ -1395,6 +1509,32 @@ export const temata: Record<string, Tema[]> = {
 							<li><a href="https://wordwall.net/cs/resource/60690669" target="_blank" rel="noopener">Atom — práskni krtka</a></li>
 						</ul>
 					`,
+					materialy: [
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Pololetní shrnutí (díl 1 ze 4) — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/shrnuti/pololetni-shrnuti/pololetni-shrnuti-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Pololetní shrnutí (díl 2 ze 4) — 2. díl',
+							cesta: '/media/fyzika/6-rocnik/shrnuti/pololetni-shrnuti/pololetni-shrnuti-dialog2.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Pololetní shrnutí (díl 3 ze 4) — 3. díl',
+							cesta: '/media/fyzika/6-rocnik/shrnuti/pololetni-shrnuti/pololetni-shrnuti-dialog3.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Pololetní shrnutí (díl 4 ze 4) — 4. díl',
+							cesta: '/media/fyzika/6-rocnik/shrnuti/pololetni-shrnuti/pololetni-shrnuti-dialog4.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+					],
 				},
 				{
 					slug: 'rocni-shrnuti',
@@ -1695,6 +1835,24 @@ export const temata: Record<string, Tema[]> = {
 							nazev: 'Polemika: Kladkostroj a zlaté pravidlo (3/3)',
 							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/polemika-kladka-kladkostroj.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence. Všechna schémata kreslí program podle fyzikálních vzorců.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Kladka (3/3) — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/jednoduche-stroje-kladka-kladkostroj-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Kladka (1/3) — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/jednoduche-stroje-kladka-pevna-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Kladka (2/3) — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/jednoduche-stroje/kladka/jednoduche-stroje-kladka-volna-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
 						},
 					],
 				},
@@ -2782,8 +2940,9 @@ export const temata: Record<string, Tema[]> = {
 					slug: 'polovodice-typu-n-a-p-dioda',
 					nazev: 'Polovodiče typu N a P, dioda',
 					interakce: 'dioda',
-					obsah: "<h2>Polovodiče typu N a P, dioda</h2>\n<p>Polovodič vede elektrický proud líp, když do něj přidáme <strong>příměs</strong> — trošku jiného prvku než křemík. Příměsi stačí opravdu málo. Takovému vylepšenému polovodiči se říká <strong>nevlastní polovodič</strong>.</p>\n<p>Podle toho, jaký prvek přidáme, vznikají dva druhy nevlastních polovodičů: <strong>typ N</strong> a <strong>typ P</strong>. Liší se tím, co mají navíc — buď volné elektrony, nebo volná místa po nich.</p>\n\n<h3>Typ N — elektrony navíc</h3>\n<p>Do křemíku přidáme prvek, který má o jeden elektron víc, třeba fosfor, arsen nebo antimon. Tenhle elektron zůstane volný a může se v krystalu pohybovat.</p>\n<p>Volné elektrony nesou záporný náboj, proto se polovodič jmenuje <strong>typ N</strong> — negativní. Proud jím vedou hlavně volné elektrony. Říká se tomu <strong>elektronová vodivost</strong>, protože proud nesou elektrony.</p>\n\n<h3>Typ P — díry navíc</h3>\n<p>Do křemíku přidáme jiný prvek, kterému naopak jeden elektron chybí, třeba bor, hliník, galium nebo indium. Tam, kde elektron chybí, zůstane prázdné místo — říká se mu <strong>díra</strong>.</p>\n<p>Díra se chová jako kladný náboj, proto se polovodič jmenuje <strong>typ P</strong> — pozitivní. Elektrony z okolí do děr přeskakují, a tak se díra jakoby posouvá dál. Říká se tomu <strong>děrová vodivost</strong>, protože proud nesou díry.</p>\n\n<h3>Přechod PN: proud jen jedním směrem</h3>\n<p>Když v jednom krystalu spojíme typ N s typem P, vznikne mezi nimi <strong>přechod PN</strong>. Podle toho, jak polovodič zapojíme do obvodu, se chová úplně jinak.</p>\n<p>V <strong>propustném směru</strong> proud prochází. V <strong>závěrném směru</strong> proud neprochází vůbec — polovodič se chová jako vypnutý spínač.</p>\n\n<h3>Dioda a její příbuzní</h3>\n<p><strong>Dioda</strong> je součástka s přechodem PN, která propouští proud jen jedním směrem. Šipka ve značce diody ukazuje směr, kterým proud smí procházet.</p>\n<p>Diody se používají jako <strong>usměrňovač</strong> — mění střídavý proud na stejnosměrný. Najdeš je v úplně každém elektronickém zařízení.</p>\n<p>Zvláštní diody umí i další věci. <strong>Fotodioda</strong> mění dopadající světlo na elektřinu. <strong>LED</strong> (svítivá dioda) naopak mění elektřinu na světlo — svítí jen v propustném zapojení, spotřebuje málo energie a vydrží dlouho.</p>\n\n<h3>Tranzistor a čip</h3>\n<p><strong>Tranzistor</strong> má dva přechody PN a funguje jako moc rychlý spínač — buď proud propustí, nebo ne. Tímhle způsobem počítač zpracovává nuly a jedničky.</p>\n<p>Na jedné malé destičce křemíku, které se říká <strong>čip</strong>, je spojeno miliony tranzistorů. Čipy řídí mobily, počítače i auta.</p>",
-					zapis: {"body":["příměs do křemíku → nevlastní polovodič, vyšší vodivost","typ N: elektrony navíc (příměs fosfor, arsen, antimon) → elektronová vodivost","typ P: díry navíc (příměs bor, hliník, galium, indium) → děrová vodivost","přechod PN = styk typu N a typu P","propustný směr: proud prochází","závěrný směr: proud neprochází","dioda: proud jen jedním směrem, usměrňovač","LED (propustný směr): elektřina → světlo"]},
+					interakce2: 'polovodic-dopovani',
+					obsah: "<h2>Polovodiče typu N a P, dioda</h2>\n<p>Polovodič vede elektrický proud líp, když do něj přidáme <strong>příměs</strong> — trošku jiného prvku než křemík. Příměsi stačí opravdu málo. Takovému vylepšenému polovodiči se říká <strong>nevlastní polovodič</strong>.</p>\n<p>Podle toho, jaký prvek přidáme, vznikají dva druhy nevlastních polovodičů: <strong>typ N</strong> a <strong>typ P</strong>. Liší se tím, co mají navíc — buď volné elektrony, nebo volná místa po nich.</p>\n\n<h3>Typ N — elektrony navíc</h3>\n<p>Do křemíku přidáme prvek, který má o jeden elektron víc, třeba fosfor, arsen nebo antimon. Tenhle elektron zůstane volný a může se v krystalu pohybovat.</p>\n<p>Volné elektrony nesou záporný náboj, proto se polovodič jmenuje <strong>typ N</strong> — negativní. Proud jím vedou hlavně volné elektrony. Říká se tomu <strong>elektronová vodivost</strong>, protože proud nesou elektrony.</p>\n\n<h3>Typ P — díry navíc</h3>\n<p>Do křemíku přidáme jiný prvek, kterému naopak jeden elektron chybí, třeba bor, hliník, galium nebo indium. Tam, kde elektron chybí, zůstane prázdné místo — říká se mu <strong>díra</strong>.</p>\n<p>Díra se chová jako kladný náboj, proto se polovodič jmenuje <strong>typ P</strong> — pozitivní. Elektrony z okolí do děr přeskakují, a tak se díra jakoby posouvá dál. Říká se tomu <strong>děrová vodivost</strong>, protože proud nesou díry.</p>\n\n<h3>Přechod PN: proud jen jedním směrem</h3>\n<p>Když v jednom krystalu spojíme typ N s typem P, vznikne mezi nimi <strong>přechod PN</strong>. Podle toho, jak polovodič zapojíme do obvodu, se chová úplně jinak.</p>\n<p>V <strong>propustném směru</strong> proud prochází. V <strong>závěrném směru</strong> proud neprochází vůbec — polovodič se chová jako vypnutý spínač.</p>\n<p>V propustném zapojení je typ N připojen k zápornému pólu zdroje a typ P ke kladnému pólu. Volné elektrony se pak pohybují k pólu +, díry k pólu −.</p>\n\n<h3>Dioda a její příbuzní</h3>\n<p><strong>Dioda</strong> je součástka s přechodem PN, která propouští proud jen jedním směrem. Šipka ve značce diody ukazuje směr, kterým proud smí procházet.</p>\n<p>Diody se používají jako <strong>usměrňovač</strong> — mění střídavý proud na stejnosměrný. Najdeš je v úplně každém elektronickém zařízení.</p>\n<p>Zvláštní diody umí i další věci. <strong>Fotodioda</strong> mění dopadající světlo na elektřinu. <strong>LED</strong> (svítivá dioda) naopak mění elektřinu na světlo — svítí jen v propustném zapojení, spotřebuje málo energie a vydrží dlouho.</p>\n\n<h3>Tranzistor a čip</h3>\n<p><strong>Tranzistor</strong> má dva přechody PN a funguje jako moc rychlý spínač — buď proud propustí, nebo ne. Tímhle způsobem počítač zpracovává nuly a jedničky.</p>\n<p>Na jedné malé destičce křemíku, které se říká <strong>čip</strong>, je spojeno miliony tranzistorů. Čipy řídí mobily, počítače i auta.</p>",
+					zapis: {"body":["příměs do křemíku → nevlastní polovodič, vyšší vodivost","typ N: elektrony navíc (příměs fosfor, arsen, antimon) → elektronová vodivost","typ P: díry navíc (příměs bor, hliník, galium, indium) → děrová vodivost","přechod PN = styk typu N a typu P","propustný směr: proud prochází","závěrný směr: proud neprochází","propustné zapojení: typ N na záporném pólu zdroje, typ P na kladném; elektrony míří k +, díry k −","dioda: proud jen jedním směrem, usměrňovač","LED (propustný směr): elektřina → světlo"]},
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Polovodiče — srdce elektroniky', cesta: 'uoLW-OHBDls' },
 					],
