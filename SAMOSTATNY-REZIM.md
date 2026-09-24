@@ -1,3 +1,22 @@
+## STAV 24. 9. 2026 ráno — výroba pozastavena kvůli zavřenému MacBooku (bez větrání)
+
+Učitel v cca 7:50 zavíral MacBook do krytu bez proudění vzduchu — vypnuty všechny
+těžké běhy, ať se v uzavřeném prostoru nepřehřeje. Ukončeno signálem (SIGINT,
+po ~10 s bez reakce eskalováno na SIGTERM): `dodelej_animace.py` (PID 22697),
+`automat_podkastu.py` běh 9. ročníku i obalující bash smyčka (PID 67326/67330,
+právě na díle `elektromagnet-dialog1`, ve frontě zbylo 6 dalších dílů:
+elektromagnet-dialog2/3, magnety-opakovani-dialog2/3, vodic-civka-dialog2/3),
+`animace_podkastu.py jednoduche-stroje-kladka-volna-dialog --rocnik 7 --scena 2`
+(PID 69837). Osiřelé Chrome-headless/ffmpeg podprocesy po nich také ukončeny,
+osiřelý `dodelej-animace.pid` smazán (flock zámky uvolnil kernel automaticky).
+Denní automat `cz.wonderly.dodelej-animace` vypnut (`launchctl bootout`), ať se
+ráno v 6:00 sám nerozjede — `cz.wonderly.hlaseni-animace` (jen posílá zprávu)
+běží dál. Pokračovat až Mac půjde znovu větrat: `python3
+~/Desktop/Omega/skripty/dodelej_animace.py` a `launchctl load
+~/Library/LaunchAgents/cz.wonderly.dodelej-animace.plist`; dílo 9. ročníku
+doběhne samo od `elektromagnet-dialog2`, jen je potřeba znovu spustit smyčku
+(`automat_podkastu.py`) nebo počkat na příští automatické spuštění.
+
 ## STAV 23. 9. 2026 — konec session, čeká fronta (viz níže)
 
 Dnes nasazeno 11 commitů (všechny ověřené curlem na produkci): `1e5a9ba` úklid po
@@ -16,6 +35,13 @@ animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bod�
 1. **ANIMACE** — z 62 videí je animované jen 1, statických 61, jen audio 20.
    Pipeline animovat neumí (pilot dal 62 unikátních snímků z 2 816). Zjistit,
    čím se lišila výroba povedeného dílu `mechanicka-prace-dialog.mp4`.
+   Od 23. 9. 2026 dodělávání běží samo: LaunchAgent
+   `cz.wonderly.dodelej-animace` spouští denně v 6:00
+   `Omega/skripty/dodelej_animace.py` (najde frontu přes `stav_animaci.py`,
+   dodělá chybějící animace/video/nasazení, PID zámek proti dvojímu běhu),
+   log `Omega/skripty/data/dodelej-animace-beh.log`. Telegram hlášení v 8:10
+   posílá `cz.wonderly.hlaseni-animace` — viz paměť
+   [[projekt-video-k-podkastum]].
 2. **VATA v kvízech** — 65 bloků ze 166 má vatu; opraveno 7, NEZAPSÁNO. Vata jen
    zhoršuje formulaci otázky, věcný obsah nemění → ZAPSAT rovnou (2 kola
    kontroly jako u ostatních kvízů, bez čekání na schválení). Připravené
@@ -25,7 +51,16 @@ animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bod�
 3. **Mrtvé odkazy** — 9 (4 unikátní URL), náhrady připravené v
    `Omega/dokumenty/nahrady-mrtvych-odkazu-2026-09-23.md`, NEZAPSÁNO.
 4. **Otevřený nález** — prebuild brána jde obejít přes `npx astro build`
-   (stalo se dnes) — potřeba zazátkovat.
+   (stalo se dnes) — potřeba zazátkovat. ✅ VYŘEŠENO 24. 9. 2026: `npx astro build`
+   míjel bránu, protože `zkontroluj.mjs`/`vsechny-simulace.mjs` spouštěl jen npm
+   lifecycle skript `prebuild`, který se volá jen přes `npm run build` — přímé
+   volání `astro build` (i cizím příkazem) ho vůbec nezavolá. Oprava: hook
+   `astro:build:start` v `astro.config.mjs` spouští oba skripty jako podprocesy
+   (logika zůstává jen v nich, JEDNO místo pravdy) a při chybě buildu shodí —
+   spustí se vždy, ať Astro nastartuje jakkoli. Ověřeno obousměrně: vložená vada
+   (upravený strop v `testy/rohatka.json`) shodila `npx astro build` i
+   `npm run build` (exit 1, hláška „Kontrolní brána… build zastaven“); po vrácení
+   vady oba příkazy prošly a vygenerovaly 489 stránek.
 5. Blok `teplota-a-jeji-mereni` má 22 otázek místo 21 (cíl je 21) — podle
    závazného cíle (`OBSAH-PRAVIDLA.md` bod A) odstranit nejslabší/duplicitní
    otázku na přesných 21.

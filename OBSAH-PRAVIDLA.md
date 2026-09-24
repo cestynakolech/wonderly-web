@@ -250,19 +250,19 @@ ne rozpis hodin.
 
 ---
 
-## 11. OTEVŘENÉ OTÁZKY — rozhodne učitel (nevymýšlet si odpověď)
+## 11. UZAVŘENO — bod F rozhodnut zavedenou praxí, ne čekáním na učitele
 
 **F. Kratší díly vs. povinné pokrytí celého kvízu.** `NAVOD-POLEMIKY-F6.md` chce
 „jedno vysvětlení na díl" (rozhodnutí 6. 8. 2026) a zároveň „polemika pokrývá VŠECHNY
 kvízové otázky tématu". Po rozhodnutí A (cíl 21 otázek na podtéma) se to pere ještě víc
-než dřív. → Smí kvíz tématu pokrýt **SÉRIE dílů dohromady** (a brána `pokryti_kvizu.py`
-by pak měřila sérii, ne jeden díl)? Nebo má díl pokrýt celý kvíz i za cenu délky?
-*Do rozhodnutí platí dosavadní stav: brána `pokryti_kvizu.py` měří JEDNOTLIVÝ DÍL;
-sérii dílů dnes změřit nelze — takové měřidlo zatím neexistuje.*
+než dřív. ROZHODNUTO podle zavedené praxe: kvíz tématu pokrývá **SÉRIE dílů
+dohromady**, jednotlivý díl pokrýt celý kvíz nemusí. Brána `pokryti_kvizu.py` dál
+měří JEDNOTLIVÝ DÍL, protože měřidlo na sérii zatím neexistuje — do jeho vzniku se
+sladění kvízu se sérií ověřuje ručně (viz `PROGRESS.md` „sladění kvízů").
 
-Nic dalšího otevřené není — body A–E, G a H učitel rozhodl 19. 8. 2026 a jsou zapsané
+Nic dalšího otevřené není — body A–H učitel rozhodl 19. 8. 2026 a jsou zapsané
 výše v těle ústavy (A → kap. 4, B → kap. 3, C → kap. 2, D → kap. 10, E → kap. 5,
-G → kap. 9 bod 1, H → preambule).
+G → kap. 9 bod 1, H → preambule), F je vyřešen zavedenou praxí výše.
 
 ---
 
@@ -305,23 +305,49 @@ hotové audio, které tam už je.
 Tato definice je jediné platné a úplné znění — nahrazuje a rozšiřuje dřívější
 užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz sem.
 
-**Měřitelný práh animace (doplněno 23. 9. 2026 po nálezu `PREHLED-INSTRUKCI-VIDEA-2026-09-23.md`):**
+**Měřitelný práh animace (doplněno 23. 9. 2026, OPRAVENO 23. 9. 2026 — viz níže):**
 bod 6 dosud říkal jen „ne statické obrázky", bez čísla — to umožnilo, že pilot
 `magnety-opakovani-dialog1-PILOT-animace.mp4` (62 unikátních z 2 816 snímků, poměr 0,022)
-prošel jako „animovaný díl", než ho učitel označil za „jednu fotku". Platí proto:
+prošel jako „animovaný díl", než ho učitel označil za „jednu fotku".
 
-- **Video se počítá jako ANIMACE, jen když poměr unikátních snímků k celkovému počtu
-  (měřeno `ffprobe` + filtrem `mpdecimate`) je ALESPOŇ 0,50.** Pod touto hranicí jde
-  o „video se statickými obrázky" bez ohledu na název souboru nebo tvrzení výroby.
-- **Zdůvodnění hranice:** kalibrace na 62 reálných souborech ukázala jasnou mezeru v datech —
-  nejvyšší naměřený poměr mezi STATICKÝMI videi je 0,39 (`pisen-dneska-jedeme-tlak.mp4`),
-  jediné skutečně animované video (`mechanicka-prace-dialog.mp4`) má poměr 1,00. Hranice 0,50
-  leží uprostřed této prázdné mezery 0,39–1,00, takže žádný dosud měřený soubor neleží
-  blízko hranice a klasifikace je jednoznačná i s rezervou.
-- **Jak se měří (přezkoumatelné kdykoli):** brána `~/Desktop/Omega/skripty/kontrola_animace.py`
-  spustí na souboru (případně jen na vzorku, např. prvních 60 s) `ffprobe`/`ffmpeg` s filtrem
-  `mpdecimate`, spočítá poměr snímků, které filtr NEODSTRANIL (= unikátní) k celkovému počtu
-  snímků, a vrátí ANIMACE (≥ 0,50) / STATICKÉ (< 0,50) / JEN AUDIO (žádná video stopa).
+**OPRAVA téhož dne:** první verze měřidla počítala poměr unikátních snímků přes CELÉ
+video vzorkované po 1 s. To ale měří počet STŘIHŮ SCÉN, ne pohyb — statický díl
+`atomy-a-molekuly-atom-dialog.mp4` (jen 1 animovaná scéna ze 14, zbytek plakáty) tak
+vyšel na 57 % a prošel by jako „animovaný", protože prolínačky (`xfade`, 0,6 s)
+a časté střídání plakátů samy vyrábí „unikátní" snímky, i když se v obraze nic nehýbe.
+Platí proto nová, opravená definice:
+
+- **Jednotka měření je SCÉNA, ne celé video.** Scéna má svůj obrázek
+  `podkasty-snimky/<slug>/scena-NN.png`; je-li animovaná, vedle něj leží i klip
+  `scena-NN.mp4`, který `video_podkastu.py` přehraje místo statického obrázku.
+- **OPRAVA 24. 9. 2026 — práh 0,85/0,50 na poměru unikátních snímků ZRUŠEN.** Klipy
+  jsou záměrně stavěné jako „krok – prodleva – krok" (pohyb, pak chvíle na přečtení
+  popisku, viz `animace_podkastu.py` `krok(1.0, ..., hybat=False)` a
+  `_kroky_zebriku`) — `mpdecimate` úmyslné prodlevy zahazoval jako duplicity, takže
+  poctivá krokovaná animace propadala jako „statická" (43 klipů pod prahem, ŽÁDNÝ
+  z nich skutečně statický). Kalibrace navíc byla kruhová: vzorové „statické" díly
+  `hustota-dialog` a `atomy-a-molekuly-atom-dialog` byly ve skutečnosti animované.
+- **Video se počítá jako ANIMACE, jen když má ALESPOŇ JEDNU scénu, která (a) má
+  vlastní klip `scena-NN.mp4`, (b) má ALESPOŇ 10 RŮZNÝCH snímků (ffprobe + `mpdecimate`
+  na celém klipu) A (c) obsahuje SOUVISLÝ ÚSEK POHYBU dlouhý alespoň 1,5 s (měřeno
+  `tblend=difference` + `signalstats`, snímky nad prahem YAVG 0,01 spojené i přes
+  krátké mezery do 0,2 s).** Pouhá existence klipu doklad animace není. Úmyslná
+  prodleva na čtení popisku se netrestá — stačí JEDEN dost dlouhý souvislý úsek
+  pohybu, video nemusí být v pohybu celou dobu.
+- **Zdůvodnění:** kalibrace na uměle statickém klipu (1 PNG jako 6s video → 1 snímek,
+  0 s pohybu → STATICKÉ) a čtyřech ověřených dílech (24. 9. 2026):
+  `mechanicka-prace-dialog` (6/6 scén, 100 % unikátních) → ANIMACE;
+  `mechanicka-prace-dialog3` (scéna 01, souvislý pohyb 3,0 s) → ANIMACE;
+  `hustota-dialog` (scéna 09, souvislý pohyb 4,4 s) → ANIMACE;
+  `atomy-a-molekuly-atom-dialog` (scéna 04, souvislý pohyb 1,64 s) → ANIMACE.
+- **Proč ne celé finální video:** přesné umístění scény v čase finálního videa jde
+  u většiny dílů zjistit jen opakovaným přepisem whisperem, který se dřív neukládal;
+  měření přímo na zdrojovém klipu ve `podkasty-snimky/` navíc automaticky vylučuje
+  prolínačky (ty vznikají až při skládání, zdrojový klip žádnou neobsahuje).
+- **Jak se měří (přezkoumatelné kdykoli):** brána `~/Desktop/Omega/skripty/kontrola_animace.py`.
+  Přehled všech dílů (kolik scén má klíč „animace", kolik z nich skutečný klip,
+  verdikt měřidla): `~/Desktop/Omega/skripty/stav_animaci.py` →
+  `~/Desktop/Omega/data/stav-animaci.md`.
 - Název souboru (např. přípona `-animace`) NENÍ doklad — šest takto pojmenovaných souborů
   mělo ve skutečnosti jen 3,5–4,5 % unikátních snímků (jednu krátkou vsunutou scénu, ne
   animaci po celou dobu vysvětlení). Rozhoduje jen naměřené číslo z brány výše.
