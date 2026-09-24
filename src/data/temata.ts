@@ -2493,7 +2493,7 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"Lₜ = lₜ · m      (odvozeně: lₜ = Lₜ : m,  m = Lₜ : lₜ)","jednotky":["skupenské teplo tuhnutí — značíme Lₜ, jednotka J (joule)","měrné skupenské teplo tuhnutí — značíme lₜ, jednotka J/kg (joule na kilogram)","hmotnost — značíme m, jednotka kg (kilogram)","Převody: 1 kJ = 1 000 J.","Do vzorce dosazuj teplo a měrné skupenské teplo ve stejné jednotce (J nebo kJ) a hmotnost v kg."],"vzorecSlovy":"uvolněné skupenské teplo = měrné skupenské teplo tuhnutí krát hmotnost","zakon":"Měrné skupenské teplo tání a tuhnutí dané látky mají stejnou hodnotu.","body":["tuhnutí: kapalina → pevná látka (ochlazování)","u vody: mrznutí","teplota tuhnutí = teplota tání","teplota se během tuhnutí nemění, teplo se uvolňuje","voda: objem se zvětšuje, led plave","sůl snižuje teplotu tuhnutí","Lₜ = lₜ · m"]},
 					odkazy: [
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
-						{ nazev: 'Proč se v zimě solí silnice? (RVP)', url: 'https://clanky.rvp.cz/clanek/r/GCACA/11637/PROC-SE-V-ZIME-SOLI-SILNICE.html' },
+						{ nazev: 'Jak vlastně funguje solení silnic v zimě? (Zeptej se vědce)', url: 'https://zeptejsevedce.cz/dotazy-a-odpovedi/jak-vlastne-funguje-soleni-silnic-v-zime/' },
 					],
 				},
 				{
@@ -3295,7 +3295,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
 						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Code.org — kurzy zdarma (i česky)', url: 'https://studio.code.org/courses' },
+						{ nazev: 'Programování — podmínky, postavy a události (Nová informatika, ZŠ Holice)', url: 'https://vyuka.zsholice.cz/programovani-podminky-postavy-a-udalosti/' },
 					],
 				},
 				{
@@ -3562,10 +3562,10 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'Scratch — programuj online', url: 'https://scratch.mit.edu' },
 						{ nazev: 'učebnice Scratch (zdarma)', url: 'https://archiv-imysleni.npi.cz/ucebnice/programovani-ve-scratchi-pro-2-stupen-zakladni-skoly.html' },
-						{ nazev: 'Code.org — kurzy zdarma (i česky)', url: 'https://studio.code.org/courses' },
+						{ nazev: 'Lekce 4 — Proměnné ve Scratchi (ITnetwork)', url: 'https://www.itnetwork.cz/pro-deti/scratch/promenne-ve-scratchi' },
 					],
 				},
-			],
+],
 		},
 		{
 			slug: 'pocitace',
@@ -4014,7 +4014,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
 						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
-						{ nazev: 'microbit.org — nápady na projekty', url: 'https://microbit.org/cs/projects/' },
+						{ nazev: 'Micro:bit ve výuce — nápady na projekty (microbiti.cz)', url: 'https://www.microbiti.cz/search/label/projekty' },
 					],
 				},
 				{
@@ -4047,7 +4047,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
 						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
-						{ nazev: 'microbit.org — nápady na projekty', url: 'https://microbit.org/cs/projects/' },
+						{ nazev: 'Micro:bit ve výuce — nápady na projekty (microbiti.cz)', url: 'https://www.microbiti.cz/search/label/projekty' },
 					],
 				},
 				{
@@ -4077,7 +4077,7 @@ export const temata: Record<string, Tema[]> = {
 					odkazy: [
 						{ nazev: 'MakeCode — simulátor micro:bitu', url: 'https://makecode.microbit.org' },
 						{ nazev: 'učebnice micro:bit', url: 'https://archiv-imysleni.npi.cz/ucebnice/18-robotika-pro-zakladni-skoly-programujeme-micro-bit-pomoci-makecode.html' },
-						{ nazev: 'microbit.org — nápady na projekty', url: 'https://microbit.org/cs/projects/' },
+						{ nazev: 'Micro:bit ve výuce — nápady na projekty (microbiti.cz)', url: 'https://www.microbiti.cz/search/label/projekty' },
 					],
 				},
 			],
@@ -4104,7 +4104,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Typická úloha: sloupec cen × jeden kurz eura v buňce <code>$B$1</code>. Kurz se ukotví, ceny se posouvají.</p>
 					`,
 					odkazy: [
-						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
 						{ nazev: 'Jak na internet (CZ.NIC)', url: 'https://www.jaknainternet.cz' },
 					],
 				},
@@ -4135,7 +4134,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>👉 Vyzkoušej na tabulce známek celé třídy: průměr, nejlepší a nejhorší známka, kolik žáků bylo hodnoceno a kdo je v žebříčku kolikátý. Pět funkcí a máš hotový přehled. <strong>Pozor:</strong> u známek je nejlepší ta <em>nejmenší</em> — nejlepší známku proto najde MIN a nejhorší MAX.</p>
 					`,
 					odkazy: [
-						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
 					],
 				},
 				{
@@ -4160,7 +4158,6 @@ export const temata: Record<string, Tema[]> = {
 						<p>🗂️ Cvičná data: <a href="http://dbs.pf.jcu.cz/simandl/" target="_blank" rel="noopener">Online přípravna úloh pro ICT</a> (v nabídce je i geografie států světa).</p>
 					`,
 					odkazy: [
-						{ nazev: 'cvičná data — státy světa', url: 'http://simandl.asp2.cz/Online.aspx' },
 						{ nazev: 'iBobr — archiv testů', url: 'https://www.ibobr.cz/test/archiv' },
 					],
 				},
