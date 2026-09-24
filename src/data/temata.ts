@@ -803,6 +803,12 @@ export const temata: Record<string, Tema[]> = {
 							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/polemika-hmotnost-animace.mp4',
 							ai: 'Hlasy Evy a Marka namluvila umělá inteligence a úvodní obrázek je také vygenerovaný. Schémata a animace kreslí program podle fyzikálních vzorců.',
 						},
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Hmotnost — 1. díl',
+							cesta: '/media/fyzika/6-rocnik/fyzikalni-veliciny/hmotnost/hmotnost-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
