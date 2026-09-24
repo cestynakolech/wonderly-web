@@ -1,3 +1,68 @@
+## STAV 25. 9. 2026 ráno (~01:10) — učitel odchází, session se chystá na /clear
+
+**Co běží dál SAMO (ověřeno `ps`, nezávisí na téhle session):**
+- `dodelej_animace.py` PID 27841 žije (dávková výroba animací), log
+  `Omega/skripty/data/dodelej-animace-beh.log`, zámek
+  `Omega/skripty/data/dodelej-animace.pid` = 27841 (živý, není osiřelý).
+- Smyčka na vatu PID 60019 (`/tmp/vata_smycka.sh`, 20 kol, uvnitř volá
+  `vata_navrhy.py`, aktuálně PID 60023 běží) — zapisuje do
+  `Omega/skripty/data/vata-navrhy-stav.json`, cíl 228 položek. Dvě hlídací
+  zsh smyčky (PID 58229, 60147) čekají na 30, resp. 50 zpracovaných a pak
+  jen vypíšou hlášku — bez akce, neškodí.
+- `launchctl list | grep cz.wonderly`: `cz.wonderly.dodelej-animace` (6:00)
+  i `cz.wonderly.hlaseni-animace` (8:10) jsou OBA načtené (druhý dnes
+  chyběl, znovu načten příkazem `launchctl load`).
+- Zámky v `Omega/skripty/data/*.zamek` zkontrolovány — všechny prázdné,
+  žádný osiřelý PID k mazání (nic se nemazalo).
+
+**Co se PO /clear ZASTAVÍ a nová session to musí převzít:**
+1. **Slabé animace** — `Omega/data/plan-animaci.md`. Čerstvý stav
+   (`stav_animaci.py`): dílů=57, ANIMACE=33, STATICKÉ=17, JEN_AUDIO=2,
+   BEZ_MEDII=5, fronta_prace=1.
+2. **Vata v distraktorech** — `node testy/nastroje/vata-v-distraktorech.mjs`
+   nyní hlásí **20 bloků** se shodou distraktorů (4×: elektricky-naboj,
+   vznik-elektrickeho-proudu, zapojeni-spotrebicu-za-sebou,
+   zvuk-vznik-a-sireni, pololetni-shrnuti F6, rocni-shrnuti F6,
+   pololetni-shrnuti F8; 3×: dalších 13 bloků) — číslo se mění za běhu
+   automatu na pozadí, needit ručně, dokud automat neskončí (228 cíl,
+   viz výše).
+3. **Kvízy informatiky/prac. činností pod 21 otázek** — přepočítáno přímo
+   v `kvizy.ts` (155 bloků celkem): **43 bloků pod 21**, z toho **40
+   informatika**, zbylé 3: `fyzika/9-rocnik/jaderna-fyzika/kvarky` (14),
+   `pracovni-cinnosti/6-rocnik/3d-modelovani/tinkercad` (18) a `sketchup`
+   (15). Chybí dohromady **345 otázek**. Detailní seznam bloků a počtů viz
+   výstup skriptu (nebyl uložen do souboru — spustit znovu podle vzorce v
+   `STAV-PRO-POKRACOVANI.md`).
+4. **Pokus s mírou jistoty u vaty** — PID 66294 (skript
+   `vata_jistota_pokus.py`) běží ve scratchpadu staré session
+   (`/private/tmp/claude-502/-Users-Shared--kola/b5969f21-…/scratchpad/`),
+   sdílí GPU zámek s `vata_navrhy.py`, proto extrémně pomalý (za ~6 minut
+   jen 3/42 položek). Výstup má padnout do
+   `pokus-jistota-vzorek.json` VE STEJNÉ scratchpad složce — **riziko**:
+   ta složka je vázaná na starou session a po úklidu může zmizet i s
+   výsledkem, i když proces poběží dál. Pojistka: skript je zazálohován na
+   `Omega/skripty/vata_jistota_pokus_zaloha.py`. Nová session ať nejdřív
+   zkontroluje, jestli PID 66294 ještě žije a jestli scratchpad soubor
+   existuje; pokud proces zemřel bez výstupu, spustit zálohu znovu z
+   trvalého umístění. Cílový soubor `Omega/dokumenty/mira-jistoty-vata-
+   vysledek.md` ZATÍM NEEXISTUJE.
+5. **Cloudová větev `simulace-informatika`** — existuje v repu
+   (`git branch -a`), rozpracované simulace informatiky se tam sbírají,
+   odevzdá se jako PR/merge až bude hotová dávka; nekontrolovat teď, jen
+   vědět že běží samostatně.
+
+**Build/publikace 25. 9. (~01:10):** `npm run build` PADL na prebuild
+bráně `zkontroluj.mjs` → `testy/uniky.mjs`: nově vzniklé úniky odpovědí v
+`informatika/8-rocnik/microbit/tlacitka-naklon-zvuk` (počet mezi dvěma
+běhy klesl ze 3 na 1 — `kvizy.ts` je živý cíl, právě do něj zapisují dvě
+běžící větve). **NEPUSHOVÁNO** podle pravidla „build spadne → nepushovat,
+zapsat proč" — commit `kvizy.ts`/`temata.ts` počká, až automat na vatu i
+druhá větev dopíšou a únik zmizí sám, nebo až je někdo věcně opraví.
+`git status` v okamžiku zápisu: `M kvizy.ts`, `M temata.ts`, `M
+.claude/hooks/orchestrator-guard.sh` (cizí, nesouvisí), 4 netracked
+soubory v `rozpracovane-vyklady/` a `testy/nastroje/` (rozpracované
+výklady a pomocné skripty vaty, netýkají se publikace).
+
 ## STAV 24. 9. 2026 ráno — výroba pozastavena kvůli zavřenému MacBooku (bez větrání)
 
 Učitel v cca 7:50 zavíral MacBook do krytu bez proudění vzduchu — vypnuty všechny
@@ -31,56 +96,93 @@ Web má 485 stránek (ráno 481), přibyla 4 nová podtémata. Pravidla: „hoto
 má nově 9 složek (OBSAH-PRAVIDLA.md kap. 12), hra je samostatná na podtéma, práh
 animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bodů vyřízeno.
 
-### FRONTA na příští session
-1. **ANIMACE** — z 62 videí je animované jen 1, statických 61, jen audio 20.
-   Pipeline animovat neumí (pilot dal 62 unikátních snímků z 2 816). Zjistit,
-   čím se lišila výroba povedeného dílu `mechanicka-prace-dialog.mp4`.
-   Od 23. 9. 2026 dodělávání běží samo: LaunchAgent
-   `cz.wonderly.dodelej-animace` spouští denně v 6:00
-   `Omega/skripty/dodelej_animace.py` (najde frontu přes `stav_animaci.py`,
-   dodělá chybějící animace/video/nasazení, PID zámek proti dvojímu běhu),
-   log `Omega/skripty/data/dodelej-animace-beh.log`. Telegram hlášení v 8:10
-   posílá `cz.wonderly.hlaseni-animace` — viz paměť
-   [[projekt-video-k-podkastum]].
-2. **VATA v kvízech** — 65 bloků ze 166 má vatu; opraveno 7, NEZAPSÁNO. Vata jen
-   zhoršuje formulaci otázky, věcný obsah nemění → ZAPSAT rovnou (2 kola
-   kontroly jako u ostatních kvízů, bez čekání na schválení). Připravené
-   opravy v `Omega/dokumenty/vata-pripravene-opravy/vata-oprava-pilot.md` a
-   `vata-oprava-vlna2.md`. Po zápisu pokračovat stejným postupem na zbylých
-   58 bloků.
-3. **Mrtvé odkazy** — 9 (4 unikátní URL), náhrady připravené v
-   `Omega/dokumenty/nahrady-mrtvych-odkazu-2026-09-23.md`, NEZAPSÁNO.
-4. **Otevřený nález** — prebuild brána jde obejít přes `npx astro build`
-   (stalo se dnes) — potřeba zazátkovat. ✅ VYŘEŠENO 24. 9. 2026: `npx astro build`
-   míjel bránu, protože `zkontroluj.mjs`/`vsechny-simulace.mjs` spouštěl jen npm
-   lifecycle skript `prebuild`, který se volá jen přes `npm run build` — přímé
-   volání `astro build` (i cizím příkazem) ho vůbec nezavolá. Oprava: hook
-   `astro:build:start` v `astro.config.mjs` spouští oba skripty jako podprocesy
-   (logika zůstává jen v nich, JEDNO místo pravdy) a při chybě buildu shodí —
-   spustí se vždy, ať Astro nastartuje jakkoli. Ověřeno obousměrně: vložená vada
-   (upravený strop v `testy/rohatka.json`) shodila `npx astro build` i
-   `npm run build` (exit 1, hláška „Kontrolní brána… build zastaven“); po vrácení
-   vady oba příkazy prošly a vygenerovaly 489 stránek.
-5. Blok `teplota-a-jeji-mereni` má 22 otázek místo 21 (cíl je 21) — podle
-   závazného cíle (`OBSAH-PRAVIDLA.md` bod A) odstranit nejslabší/duplicitní
-   otázku na přesných 21.
-6. Jupiter 2,36× vs 2,53× (simulace `PlanetyVahaSimulace.astro`, viz bod 4
-   níže) — ROZHODNUTO podle pořadí zdrojů (bod B: prezentace je rovnocenný
-   zdroj s PDF): 2,36× je doslovný přepis prezentace „Síla 6.pptx" (doklad),
-   simulace hodnotu ponechává s vysvětlujícím komentářem v kódu; uzavřeno.
+### FRONTA na příští session — UVEDENO DO SOULADU 25. 9. 2026 (ověřeno exekutorem, ne jen tvrzeno)
 
-### JAK NAVÁZAT PO /clear
+1. **ANIMACE** — beze změny běží samo, LaunchAgent `cz.wonderly.dodelej-animace`
+   spouští denně v 6:00 `Omega/skripty/dodelej_animace.py` (najde frontu přes
+   `stav_animaci.py`, dodělá chybějící animace/video/nasazení, PID zámek proti
+   dvojímu běhu), log `Omega/skripty/data/dodelej-animace-beh.log`. Telegram
+   hlášení v 8:10 posílá `cz.wonderly.hlaseni-animace` — viz paměť
+   [[projekt-video-k-podkastum]]. **Starý odhad „62 videí, animované 1,
+   statických 61, jen audio 20" NAHRAZEN přesným stavem** — naměřeno
+   25. 9. 2026 ze `Omega/data/stav-animaci.md` (vygenerováno 24. 9. 15:09,
+   měřidlo `kontrola_animace.py` v3): dílů celkem 57 — ANIMACE 30, STATICKÉ 15,
+   JEN AUDIO 5, BEZ MÉDIÍ 7. OTEVŘENO: 23 klipů existuje, ale neprošlo prahem
+   10 unik. snímků / 1,5 s pohybu (12 z nich má identifikovanou vadu — slabý
+   pohyb konkrétní funkce v `animace_podkastu.py`, ne špatně přiřazený klíč);
+   3 scény mají klíč `animace`, ale klip zatím nevznikl (čeká na dávku).
+   Rozpad viz `Omega/data/plan-animaci.md`.
+2. **VATA v kvízech** — ✅ ČÁSTEČNĚ HOTOVO 24. 9. 2026: 7 bloků / 30 výskytů
+   zapsáno a nasazeno (commit `95350e9`, ověřeno na živém webu). **ZBÝVÁ,
+   číslo od minula NEKLESLO** — naměřeno 25. 9. 2026 00:26 spuštěním
+   `node testy/nastroje/vata-v-distraktorech.mjs`: VZOR 1 (absolutní slova jen
+   v distraktorech) hlásí 58 podezřelých bloků (ze 170 měřených, 3217 otázek) —
+   stejný počet jako minule, automat na pozadí do vaty zatím nezasáhl (v čase
+   měření byly `kvizy.ts`/`temata.ts` rozepsané — `git status` M, souběžně na
+   nich pracuje jiný proces kvůli přestavbě fyziky). Nástroj navíc hlásí VZOR 2
+   („správná odpověď je ta odlišná") — 31 podezřelých bloků, dosud nikde
+   nezapsáno jako úkol, PŘIDÁNO NOVĚ. Postup: zapsat přímo (2 kola kontroly),
+   bez čekání na schválení, s ohledem na souběh zápisu do `kvizy.ts`.
+3. **Mrtvé odkazy** — ✅ HOTOVO 24. 9. 2026: 3 náhrady českými zdroji + 3
+   odkazy na micro:bit nahrazeny rozcestníkem microbiti.cz + 3 odkazy
+   simandl.asp2.cz odstraněny (commit `95350e9`, ověřeno na živém webu).
+   **NOVÝ NÁLEZ nahrazuje starých „9 nezapsaných"**: kontrola 24. 9. 2026
+   (AST extrakce + `curl` + gemma4:26b, výstup `Omega/dokumenty/kontrola-
+   odkazu-2026-09-24.md`, ověřeno počtem řádků a souhrnem v souboru) našla
+   z 262 odkazů **27 mrtvých** (většina `archiv-imysleni.npi.cz`, HTTP kód 0 —
+   učebnice Scratch/robotika/micro:bit NPI, zbytek `www.microbiti.cz/search/…`),
+   4 podezřelé, 7 neověřitelných automatem (403/přihlašovací stěna — posoudit
+   ručně). ZAPSAT jako novou dávku stejným postupem jako dávka z 24. 9.
+4. **Prebuild brána šla obejít** — ✅ HOTOVO 24. 9. 2026, commit `e79e056`
+   (ověřeno v `git log`), popis řešení a obousměrné ověření (vložená/vrácená
+   vada v `testy/rohatka.json`, 489 stránek) beze změny platí, archiv viz
+   níže v tomto souboru.
+5. **Měřidlo animace falešně statické** — ✅ HOTOVO 24. 9. 2026, commit
+   `6c9f686` (ověřeno `git show --stat`: „Přepsat pravidlo měření animace a
+   zapsat stav", mění `OBSAH-PRAVIDLA.md` kap. 12 bod 6 + tento soubor).
+6. Blok `teplota-a-jeji-mereni` má **stále 22 otázek místo 21** — ověřeno
+   25. 9. 2026 přímým výpisem bloku v `kvizy.ts` (22× `text:` mezi řádky
+   1515–1654). Podle cíle (`OBSAH-PRAVIDLA.md` bod A) odstranit
+   nejslabší/duplicitní otázku na přesných 21 — beze změny čeká na exekutora.
+7. Jupiter 2,36× vs 2,53× — beze změny, ROZHODNUTO (viz sekce níže), nic
+   k dodělání.
+
+### 🆕 Nové položky fronty (doplněno 25. 9. 2026, čerstvý průzkum, čísla ověřena skriptem)
+
+8. **[skola2] Kvízy informatiky a pracovních činností pod cílem 21 otázek** —
+   největší díra pro žáky. Ověřeno 25. 9. 2026 skriptem nad `kvizy.ts`:
+   **43 bloků** informatiky (7.–9. ročník) a pracovních činností (6. ročník)
+   má MÍŇ než 21 otázek, typicky 8–15 (jen `soubory-slozky-aplikace` má už
+   21). Rozsahy: informatika 7. ročník 8–21, 8. ročník 9–15, 9. ročník 10–13,
+   pracovní činnosti 6. ročník 15–18.
+9. **[skola2] 15 podtémat informatiky + 3 podtémata pracovních činností bez
+   simulace/názornosti** — ověřeno `node testy/nazornost.mjs informatika` a
+   `pracovni-cinnosti`: informatika 7. r. 6 z 18, 8. r. 3 z 18, 9. r. 6 z 11
+   (dohromady 15 z 47); pracovní činnosti 6. r. 3 z 3 (všechna).
+10. **[skola2] 23 klipů animací pod prahem pohybu + 3 scény s klíčem bez
+    klipu** — viz bod 1 výše (ANIMACE), zdroj `Omega/data/plan-animaci.md`
+    a `Omega/data/stav-animaci.md`.
+11. **[skola2] 12 dílů podkástů bez videa nebo jen se zvukem** — viz bod 1
+    výše (5 JEN AUDIO + 7 BEZ MÉDIÍ, ročníky 8–9: elektromagnet-dialog1–3,
+    magnety-opakovani-dialog2–3, vodic-civka-dialog1–3, vykon-dialog1–4).
+12. **[skola2] 27 nových mrtvých odkazů** — viz bod 3 výše.
+
+### JAK NAVÁZAT PO /clear (povel WONDERLY)
+
 1. Přečti `CLAUDE.md`, tuhle horní sekci `SAMOSTATNY-REZIM.md` a
    `OBSAH-PRAVIDLA.md` kap. 12 (definice „hotového tématu").
-2. Pokračuj bodem 1 fronty výše (ANIMACE) — je to nejstarší nedotažená věc a
-   má jasný další krok (porovnat výrobu povedeného dílu s pilotem).
-3. Souběžně zapiš vatu (bod 2) a mrtvé odkazy (bod 3) — podklady jsou hotové
-   v `Omega/dokumenty/`, žádné schvalování se nečeká.
-4. Body 5–6 fronty výše (22. otázka, Jupiter) jsou vyřešené pravidlem/dokladem
-   uvedeným u nich — zapiš je rovnou; totéž platí pro sekci „ROZHODNUTO
-   (bývalé ČEKÁ NA ROZHODNUTÍ UČITELE)" níž.
-5. Než začneš cokoli zapisovat do `kvizy.ts`, ověř, že zrovna nezapisuje jiný
-   agent (dnes na tom souboru souběžně pracoval jiný proces).
+2. **PRIORITA zůstává přestavba obsahu fyziky** (sekce 🔴 níže) — na
+   `kvizy.ts`/`temata.ts` právě běží souběžná práce (přestavba F8 elektřina
+   a další celky), nezasahovat do nich, dokud neskončí.
+3. Až se souběh na `kvizy.ts`/`temata.ts` uvolní (ověřit `git status`),
+   pokračuj frontou výše v pořadí: (2) zapsat vatu — zbylých 58 bloků VZOR 1
+   + nově 31 bloků VZOR 2, (3)+(12) zapsat 27 nových mrtvých odkazů,
+   (6) zkrátit `teplota-a-jeji-mereni` na 21 otázek.
+4. Pak nové položky (8)–(11): kvízy informatiky/prac. činností na 21 otázek
+   (43 bloků), simulace/názornost pro 15+3 podtémat, doladit 23 klipů pod
+   prahem animace, dodělat video u 12 dílů.
+5. Než začneš cokoli zapisovat do `kvizy.ts` nebo `temata.ts`, ověř `git
+   status`, že zrovna nezapisuje jiný agent.
 
 ## ROZHODNUTO PODLE PRAVIDLA ZDROJŮ (bývalé „ČEKÁ NA ROZHODNUTÍ UČITELE", 23. 8. 2026)
 
