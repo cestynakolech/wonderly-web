@@ -128,7 +128,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co je těleso?',
 			odpovedi: ['živý či neživý předmět', 'jen neživý předmět kolem nás', 'jiný název pro látku'],
-			vysvetleni: 'Těleso je jakýkoliv živý i neživý předmět kolem nás — na rozdíl od látky je to vždy jedna konkrétní věc.',
+			vysvetleni: 'Těleso je jakýkoliv živý i neživý předmět kolem nás — hřebík, strom, pes, kámen. Vždy jde o jednu konkrétní, ohraničenou věc vyrobenou z nějaké látky, ne o obecný materiál.',
 		},
 		{
 			text: 'Které z následujících je látka?',
@@ -143,7 +143,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Z kolika látek může být těleso tvořeno?',
 			odpovedi: ['z jedné i více látek', 'nejméně ze tří druhů látek', 'nejvýše ze dvou látek'],
-			vysvetleni: 'Těleso může vzniknout z jedné látky, třeba sklenice ze skla, ale i spojením několika látek — třeba tužka s gumou spojuje dřevo, tuhu, kovový kroužek a pryž.',
+			vysvetleni: 'Těleso může vzniknout z jedné jediné látky, třeba kamínek je celý z kamene, ale stejně tak i spojením několika různých látek dohromady.',
 		},
 		{
 			text: 'Okno se skleněnou výplní, dřevěným rámem a železnou klikou je…',
@@ -153,7 +153,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Čím se od sebe odlišují různé látky?',
 			odpovedi: ['svými vlastnostmi', 'pouze svojí cenou', 'pouze barvou'],
-			vysvetleni: 'Látky se liší vlastnostmi — barvou, pružností, rozpustností, hustotou, vůní a dalšími.',
+			vysvetleni: 'Látky se liší vlastnostmi — barvou, pružností, rozpustností, křehkostí, vůní a dalšími.',
 		},
 		{
 			text: 'Která z těchto vlastností je vlastností látky?',
@@ -163,7 +163,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Které vlastnosti mají tělesa navíc oproti látkám?',
 			odpovedi: ['tvar a velikost', 'chuť, vůni', 'rozpustnost, sypkost'],
-			vysvetleni: 'Těleso má kromě vlastností své látky navíc tvar, velikost, hmotnost či polohu.',
+			vysvetleni: 'Chuť, vůně, rozpustnost i sypkost patří k samotné látce, ať je z ní vyrobeno cokoliv. Konkrétní kus má navíc svůj vlastní tvar a velikost — tyhle dvě vlastnosti k látce přidává až těleso.',
 		},
 		{
 			text: 'Jak se nazývají vlastnosti těles, které můžeme změřit?',
@@ -173,7 +173,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Která z následujících je fyzikální veličina?',
 			odpovedi: ['objem', 'vůně', 'křehkost'],
-			vysvetleni: 'Objem můžeme změřit — je to fyzikální veličina. Vůně a křehkost se číslem přesně změřit nedají.',
+			vysvetleni: 'Objem vyjadřuje, kolik místa těleso zabírá, a dá se přesně odměřit třeba v litrech odměrkou. Vůni ani křehkost takhle číslem nezachytíme.',
 		},
 		{
 			text: 'Mléko v lahvi — co je zde látka a co těleso?',
@@ -187,12 +187,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak poznáš, že jde o těleso, a ne o látku?',
 			odpovedi: ['dá se to spočítat na kusy', 'má to výraznou barvu', 'dá se to rozpustit ve vodě'],
-			vysvetleni: 'Tělesa se dají počítat na kusy (dvě sklenice, tři hřebíky) — u látky to nedává smysl. Barva ani rozpustnost s počítáním nesouvisí.',
+			vysvetleni: 'Tělesa se dají spočítat na kusy — dvě sklenice, tři hřebíky. U látky (obecného materiálu) to nedává smysl, protože nejde o žádný konkrétní ohraničený kus.',
 		},
 		{
 			text: 'Proč věta „Přines mi tři dřeva" zní divně?',
 			odpovedi: ['dřevo je látka, nepočítá se', 'dřevo se nedá nosit v rukou', 'dřevo je moc těžké na počítání'],
-			vysvetleni: 'Dřevo je látka (materiál) — počítat na kusy lze tělesa (tři prkna), ne látky samotné.',
+			vysvetleni: 'Podstatná jména pro látky (dřevo, voda, písek) v češtině nemají v tomto významu množné číslo — proto „tři dřeva" zní divně. Řekneme třeba „tři prkna" nebo „tři kusy dřeva".',
 		},
 		{
 			text: 'Voda nalitá do sklenice je…',
@@ -202,7 +202,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Voda, o které mluvíme obecně (bez nádoby), je…',
 			odpovedi: ['látka — obecný materiál', 'těleso, protože má hmotnost', 'fyzikální veličina jako délka'],
-			vysvetleni: 'Bez konkrétního tvaru a hranic jde jen o materiál, tedy látku — teprve v nádobě se z ní stává těleso.',
+			vysvetleni: 'Bez konkrétního tvaru a ohraničeného množství jde jen o obecný materiál, ne o žádnou konkrétní věc — proto je to látka.',
 		},
 		{
 			text: 'Je oblak na obloze těleso?',
@@ -211,18 +211,18 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Je vzduch v pneumatice těleso?',
-			odpovedi: ['ano, i když ho nevidíme', 'ne, protože je neviditelný', 'ano, vzduch je látka, jako guma'],
-			vysvetleni: 'Těleso nemusí být vidět — vzduch v pneumatice nebo balonku je těleso stejně jako viditelná cihla.',
+			odpovedi: ['ano, i když ho nevidíme', 'ne, protože je neviditelný', 'ano, vzduch je pořád těleso'],
+			vysvetleni: 'Těleso nemusí být vidět — vzduch v pneumatice nebo balonku je těleso stejně jako viditelná cihla. Vzduch sám o sobě ale tělesem není pořád — teprve v pneumatice, jako ohraničené množství, se z něj těleso stává.',
 		},
 		{
 			text: 'Která otázka nepomůže rozeznat těleso od látky?',
-			odpovedi: ['Jakou to má barvu?', 'Kolik to váží na vahách?', 'Má nějaké pevné hranice?'],
-			vysvetleni: 'Barvu má stejně látka i konkrétní kus z ní — nerozliší je to. Váha na vahách i pevné hranice jdou zjistit jen u konkrétní věci.',
+			odpovedi: ['Jakou to má barvu?', 'Kolik to váží na vahách?', 'Je to jedna konkrétní věc?'],
+			vysvetleni: 'Barvu má stejně látka i konkrétní kus z ní — to je nerozliší. Váhu na vahách i to, že je to jedna ohraničená věc, zjistíme jen u tělesa.',
 		},
 		{
 			text: 'Hřebík je vyroben z…',
 			odpovedi: ['kovu', 'dřeva', 'skla'],
-			vysvetleni: 'Hřebík je těleso typicky vyrobené z kovu (železa nebo oceli), ne ze dřeva ani skla.',
+			vysvetleni: 'Hřebík je vyrobený z tvrdého a pevného kovu, proto se dá zatlouct do zdi nebo dřeva. Vyrobit ho ze dřeva ani ze skla by takhle nešlo.',
 		},
 		{
 			text: 'Zeptáme se: „Sklenice, z čeho je to?" Dává smysl zeptat se stejně na sklo?',
@@ -382,12 +382,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Je atom skutečně nedělitelný?',
 			odpovedi: ['ne, má menší částice', 'ano — nic menšího neexistuje', 'ne, atom je vlastně molekula'],
-			vysvetleni: 'Dlouho se to myslelo, ale dnes víme, že atom se skládá z ještě menších částic. Atom navíc není totéž co molekula — je to jiný, větší celek z více atomů.',
+			vysvetleni: 'Dlouho se to myslelo, ale dnes víme, že atom se skládá z ještě menších částic. Atom navíc není totéž co molekula — molekula je jiný celek složený z více atomů.',
 		},
 		{
 			text: 'Lze atomy vidět lupou nebo běžným mikroskopem?',
 			odpovedi: ['ne, jsou příliš malé', 'ano, lupou snadno', 'ne, lupou uvidíme jen molekuly'],
-			vysvetleni: 'Atomy jsou tak malé, že je uvidíme jen speciálním elektronovým mikroskopem. Molekuly jsou z atomů složené, takže jsou stejně malé a lupou je taky neuvidíme. Do řady 1 mm by se vešlo 10 milionů atomů.',
+			vysvetleni: 'Atomy jsou tak malé, že je uvidíme jen speciálním elektronovým mikroskopem. Ani molekuly, další druh drobných částic, lupou ani běžným mikroskopem neuvidíme — jsou pořád tak malinkaté. Do řady 1 mm by se vešlo 10 milionů atomů.',
 		},
 		{
 			text: 'Co je chemický prvek?',
@@ -1385,8 +1385,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Zná fyzika pojem „vteřina"?',
-			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, je základní jednotka fyziky', 'ne, čas se ve fyzice vůbec nijak neznačí'],
-			vysvetleni: 'Vteřina je jen běžná mluva; fyzika používá sekundu.',
+			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, je základní jednotka fyziky', 'ne, vteřina je jiná veličina než čas'],
+			vysvetleni: 'Vteřina je jen běžná mluva; fyzika používá sekundu. Není to jiná veličina ani jednotka — jen jiné slovo pro totéž.',
 		},
 		{
 			text: 'Co je milisekunda (ms)?',

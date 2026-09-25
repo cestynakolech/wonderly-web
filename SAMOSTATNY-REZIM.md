@@ -1,3 +1,40 @@
+## STAV 25. 9. 2026 večer — konec session (před /clear)
+
+**NASAZENO A OVĚŘENO**
+- Poslední commit `d95e295` „Revize kvízů šestky, vata podle polarity a rozhodnutí o prioritě", nasazeno ručně (`npx wrangler deploy`, Version ID 53c37542-7693-4f29-b65b-39e142758d42, 20 změněných assetů), nasazení 21:41:27Z je novější než commit 21:40:58Z. Ověřeno curlem na živém webu.
+- Dřívější dnešní commity: `0349ac1` a `6a34203` (6 nových simulací), taktéž nasazené ručně.
+- ⚠️ **Cloudflare git integrace NEFUNGUJE** — na pushe nereaguje, nasazuje se proto RUČNĚ `npx wrangler deploy` (učitel to schválil). ČEKÁ NA UČITELE: zkontrolovat v Cloudflare dashboardu u projektu wonderly-web poslední deployment a stav propojení s Gitem. Ruční deploy příčinu neopravil.
+
+**ROZHODNUTÍ UČITELE 25. 9. 2026 (závazná, zapsaná i v OBSAH-PRAVIDLA.md)**
+- Fyzika má přednost; informatika a pracovní činnosti se ODKLÁDAJÍ (platí preambule ústavy). Položka „42 bloků pod 21 otázek" je ve frontě označená jako odložená.
+- U obsahem chudého podtématu NEPLATÍ cíl 21 otázek — blok zůstane menší, nedoplňuje se umělými obměnami.
+- ⛔ Čísla odporu lidské kůže na webu NESAHAT (temata.ts F8 ~2713, F9 ~3062–3063; kvizy.ts ~4346–4361, ~4717). Učitel rozhodne sám. Ověřeno, že dnešní commit se jich nedotkl.
+
+**HOTOVO DNES (druhá část session)**
+- Blok `fyzika/6-rocnik/latka-a-teleso/telesa-a-latky`: systematická revize všech 21 otázek, opraveno 10 dvojic, kde vysvětlení jedné otázky prozrazovalo odpověď na jinou. POZOR: brána `testy/uniky.mjs` pole `vysvetleni` nekontroluje — tenhle druh úniku se musí hledat ručně nebo doplnit do brány.
+- Vata podle polarity ano/ne: 8 otázek, VZOR 4a z 31 na 21. Opraveno i 7 obhajitelných nebo nevěrohodných distraktorů (tři kola kontroly).
+- Měřidlo `testy/nastroje/vata-v-distraktorech.mjs` rozšířeno a pak podle nezávislé kalibrace ZÚŽENO. Kalibrace zjistila: heuristika koncovek měla 8% přesnost (zrušena), blokový práh u kategorických slov dával z 78 bloků jen 5 platných, poměr „jen" 427:33 je zkreslený (distraktorů je 2× víc slov). Zůstalo: polarita ano/ne (21 otázek), kvantifikátor (54), tázací slovo (19), kategorické slovo na úrovni otázky (87). DŮLEŽITÉ: neopravovat „ať nabídky nezačínají stejně a mají jinou koncovku" — to je optimalizace na měřidlo a zhorší češtinu.
+- Podkásty: díl `vodic-civka-dialog3` doplněn o repliku o počtu závitů → brána `pokryti_kvizu.py` hlásí 21/21. Díl `archimeduv-zakon-dialog` odblokován — NEchyběly obrázky, ale v scénosledu chybělo pole „kresba" u obou scén (typ schema); „seznam 20 chybějících klíčů" byl jen uřízlý konec výpisu dostupných kreseb. Vyrobeny 2 PNG + 2 MP4.
+- Lokální modely a výroba animací znovu zapnuté (baterie 80 % na AC, 11 modelů, LaunchAgent `cz.wonderly.dodelej-animace` zaveden).
+
+**BĚŽÍ NEBO ČEKÁ**
+- Nezávislá kontrola revidovaného bloku `telesa-a-latky` DOBĚHLA a NAŠLA **17 nálezů, z toho 9 závažných** — nasazené na živém webu commitem `d95e295`, protože se nasazovalo bez jejího verdiktu. Nejzávažnější: otázka „Je vzduch v pneumatice těleso?" (`kvizy.ts` ~ř. 214) má DVĚ SPRÁVNÉ ODPOVĚDI — distraktor „ano, vzduch je látka, jako guma" neobsahuje nepravdu, protože výklad sám říká, že vzduch je látka. Dále: nabídka „Má nějaké pevné hranice?" (~ř. 219) odporuje vysvětlení jiné otázky bloku; a dvě sousední otázky si odporují v tom, jestli je molekula stejně malá jako atom, nebo větší celek (~ř. 385 a 389). Revize navíc některé úniky nevyřešila, jen přesunula (výčet „tvar, velikost, hmotnost, poloha" zmizel z jedné otázky, ale zůstal ve vysvětlení jiné, kde prozrazuje odpovědi), u skla dokonce přidala nový („sklenice ze skla"), a vysvětlení u otázky „Co je těleso?" ztratilo definiční jádro. Plný seznam nálezů je v `/tmp/wonderly-workery/kontrola-kvizy-telesa-a-latky-2026-09-25.md` — pozor, `/tmp` se může vyprázdnit, takže kdyby soubor nebyl, nálezy se musí najít novou kontrolou.
+- **PRÁVĚ BĚŽÍ OPRAVA** těch 9 závažných nálezů v `src/data/kvizy.ts` (učitel ji zadal slovy „oprav to a nasaď znovu"). ⚠️ Pokud tuhle větu čteš a `git status` hlásí necommitnuté změny v `kvizy.ts`, oprava NEDOBĚHLA nebo nebyla nasazena — zkontroluj těch 9 míst (ř. ~130, 156, 214, 219, 385, 389, 1388 a úniky v bloku telesa-a-latky), dokonči ji, nech zkontrolovat a nasaď ručně (`npm run build`, commit, `npx wrangler deploy`, ověřit curlem).
+- Automat na animace běží; noční fronta měla 6 odložených dílů, dva z nich (`vykon-dialog2`, `magnety-opakovani-dialog1`) selhaly na zarovnání replik 51 % a 54 % proti prahu 70 % — nechat automat zkusit znovu, a když selžou i příště, poslechnout zvuk ručně.
+
+**FRONTA NA PŘÍŠTĚ (fyzika, v tomto pořadí)**
+1. Kontrola bloku `telesa-a-latky` (viz výše) a oprava nálezů.
+2. Vata: kvantifikátor 54 otázek, kategorické slovo 87 otázek, tázací slovo 19 otázek — opravovat změnou konstrukce otázky, ne škrtáním slov.
+3. Brána `testy/uniky.mjs` nekontroluje `vysvetleni` — doplnit, ale s prahem, jinak zaplaví falešnými poplachy (vysvětlení látku běžně opakuje).
+4. Podtémata fyziky bez názornosti: zbývá 7 a všechna jsou pololetní/roční shrnutí → ČEKÁ ROZHODNUTÍ UČITELE: dělat přehledovou infografiku, nebo je z měřidla vyjmout?
+5. `MEMORY.md` má 166 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez pokynu.
+6. Rozpor v PDF podkladu učitele o odporu kůže (SmartBooks si protiřečí) → ČEKÁ NA UČITELE, viz zámek výše.
+
+**POZNÁMKY K PRÁCI**
+- Tmavý režim se školní části webu NETÝKÁ (`prefers-color-scheme` je jen v deníku cest) — nezadávat ho workerům.
+- Necommitnuté zůstávají: `.claude/hooks/orchestrator-guard.sh` (cizí), `rozpracovane-vyklady/`, tři pomocné skripty `testy/nastroje/vata-*.mjs`. Záměrně.
+- POUČENÍ 25. 9.: kvízovou opravu nikdy nenasazovat bez druhého čtení někým, kdo ji nepsal. Zelené brány to nezachytí — žádný skript nepozná, že distraktor je vlastně pravdivý. Dnes takhle prošly dvě verze („sklo je tekutá látka", „vzduch je látka jako guma") a skončily na živém webu.
+
 ## STAV 25. 9. 2026 ráno — Mac se zavírá do krytu, výroba pozastavena
 
 **NASAZENO A OVĚŘENO — dnešní práce JE na živém webu.**
