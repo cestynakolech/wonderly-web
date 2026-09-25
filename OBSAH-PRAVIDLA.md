@@ -4,6 +4,10 @@
 > **Čte se PŘED každou obsahovou prací** (výklad, kvíz, hra, video, simulace) —
 > workeři, kontrolor i hlavní model. Plné znění je JEN tady; jinde smí být pouze odkaz.
 >
+> **Znovu potvrzeno učitelem 25. 9. 2026:** informatika i pracovní činnosti se ODKLÁDAJÍ, dokud
+> nebude fyzika hotová — i kdyby fronta v `SAMOSTATNY-REZIM.md` vedla dodělání kvízů informatiky
+> jako aktivní úkol, tato preambule má přednost a NEBRAT to jako úkol.
+>
 > **Vymezení (rozhodnutí učitele 19. 8. 2026 — bod H):** **ostatní předměty se teď NEDĚLAJÍ.**
 > Priorita je **fyzika**; informatika a pracovní činnosti se ODKLÁDAJÍ, dokud nebude fyzika hotová,
 > a teprve pak k nim učitel zadá obsahové ohraničení a doplní se sem jako vlastní kapitola.
@@ -131,6 +135,18 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   - **„medián ~13" byl POPIS STAVU**, ne pravidlo — naměřená hodnota k 18. 8. 2026. Jako cíl neplatí.
   - Doplňování na 21 nesmí ohnout ostatní pravidla: otázky navíc musí být pořád jen z výkladu
     (řetěz, bod 1), bez duplicit (`testy/uniky.mjs`) a bez délkové nápovědy.
+  - **VÝJIMKA (rozhodnutí učitele 25. 9. 2026):** Cíl 21 otázek platí jen tam, kde na to stačí
+    obsah výkladu. U obsahem chudého podtématu se blok NEDOPLŇUJE umělými obměnami téže otázky —
+    zůstane menší a do stavu se zapíše, kolik otázek unese a proč. Lepší méně otázek než osmkrát
+    totéž jinými slovy.
+    - **Jak poznat chudé podtéma:** nové otázky nejde napsat bez duplicity s existujícími
+      (`testy/uniky.mjs` by je odmítl) ANEBO bez úniku — odpověď na novou otázku už je
+      prozrazená ve `vysvetleni` jiné otázky téhož bloku.
+    - Doloženo na `informatika/7-rocnik/pocitace/site-internet-email`: výklad má jen 9 faktů,
+      existujících 10 otázek je vyčerpává, poctivě šly navrhnout jen 3 další. Návrhy leží
+      NEZAPSANÉ v `~/Desktop/Omega/dokumenty/kviz-informatika-7-site-internet-email-2026-09-25.md`
+      (informatika je odložená, viz preambule).
+    - Zdroj: [[feedback-kviz-cil-21-otazek]].
 
 ## 5. HRY
 
@@ -224,6 +240,10 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 8. **Číst .pptx po snímcích v session** — používá se hotový popis, jinak se vyrobí automatem.
 9. **Mazat nebo přesouvat cokoli v `/Users/Shared/Škola`** — jediné zdrojové podklady učitele.
 10. Tisknutelný test `…/test/` je jen pro učitele (heslo `ucitel-wonderly`) — neodkazovat na něj z žákovských stránek.
+11. **⛔ NESAHAT — odpor lidské kůže** (F8/F9 „Účinky proudu a bezpečnost", `temata.ts` i
+    `kvizy.ts`): PDF podklad si protiřečí ve dvou verzích čísel, učitel řekl 25. 9. 2026
+    „nedávej, počkej na mě" — čísla na webu se nechávají přesně tak, jak jsou, dokud
+    nerozhodne sám. Detail: `SAMOSTATNY-REZIM.md`, fronta „⛔ NESAHAT".
 
 ---
 

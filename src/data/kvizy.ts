@@ -128,22 +128,22 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co je těleso?',
 			odpovedi: ['živý či neživý předmět', 'jen neživý předmět kolem nás', 'jiný název pro látku'],
-			vysvetleni: 'Těleso je předmět (živý i neživý) — má tvar, velikost, hmotnost a polohu.',
+			vysvetleni: 'Těleso je jakýkoliv živý i neživý předmět kolem nás — na rozdíl od látky je to vždy jedna konkrétní věc.',
 		},
 		{
 			text: 'Které z následujících je látka?',
 			odpovedi: ['sklo', 'okno', 'kniha'],
-			vysvetleni: 'Sklo je materiál (látka). Okno a kniha jsou tělesa z látek vyrobená.',
+			vysvetleni: 'Sklo je materiál (látka) samo o sobě. Okno i kniha jsou naopak vyrobené z nějaké látky.',
 		},
 		{
 			text: 'Které z následujících je těleso?',
 			odpovedi: ['hřebík', 'železo', 'ocel'],
-			vysvetleni: 'Hřebík je předmět (těleso) vyrobený z látky — železa či oceli.',
+			vysvetleni: 'Hřebík je konkrétní věc (těleso) vyrobená z nějaké látky. Železo a ocel jsou naopak jen látky, ne hotové výrobky.',
 		},
 		{
 			text: 'Z kolika látek může být těleso tvořeno?',
 			odpovedi: ['z jedné i více látek', 'nejméně ze tří druhů látek', 'nejvýše ze dvou látek'],
-			vysvetleni: 'Těleso může vzniknout z jedné látky, třeba hřebík ze železa, ale i spojením několika látek — třeba tužka s gumou spojuje dřevo, tuhu, kovový kroužek a pryž.',
+			vysvetleni: 'Těleso může vzniknout z jedné látky, třeba sklenice ze skla, ale i spojením několika látek — třeba tužka s gumou spojuje dřevo, tuhu, kovový kroužek a pryž.',
 		},
 		{
 			text: 'Okno se skleněnou výplní, dřevěným rámem a železnou klikou je…',
@@ -153,12 +153,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Čím se od sebe odlišují různé látky?',
 			odpovedi: ['svými vlastnostmi', 'pouze svojí cenou', 'pouze barvou'],
-			vysvetleni: 'Látky se liší vlastnostmi — barvou, tvrdostí, pružností, rozpustností, tekutostí a dalšími.',
+			vysvetleni: 'Látky se liší vlastnostmi — barvou, pružností, rozpustností, hustotou, vůní a dalšími.',
 		},
 		{
 			text: 'Která z těchto vlastností je vlastností látky?',
 			odpovedi: ['tvrdost', 'poloha', 'tvar tělesa'],
-			vysvetleni: 'Tvrdost je vlastnost látky. Poloha a tvar jsou vlastnosti tělesa.',
+			vysvetleni: 'Tvrdost popisuje samotný materiál (jestli se dá poškrábat, nebo ne) — proto je to vlastnost látky, ne konkrétního kusu, který z ní vznikne.',
 		},
 		{
 			text: 'Které vlastnosti mají tělesa navíc oproti látkám?',
@@ -168,7 +168,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se nazývají vlastnosti těles, které můžeme změřit?',
 			odpovedi: ['fyzikální veličiny', 'fyzikální zákony přírody', 'hypotézy'],
-			vysvetleni: 'Měřitelné vlastnosti těles jsou fyzikální veličiny — délka, hmotnost, objem, hustota…',
+			vysvetleni: 'Měřitelné vlastnosti těles jsou fyzikální veličiny — délka, hmotnost, teplota, hustota…',
 		},
 		{
 			text: 'Která z následujících je fyzikální veličina?',
@@ -187,7 +187,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak poznáš, že jde o těleso, a ne o látku?',
 			odpovedi: ['dá se to spočítat na kusy', 'má to výraznou barvu', 'dá se to rozpustit ve vodě'],
-			vysvetleni: 'Tělesa se dají počítat (dvě sklenice, tři hřebíky) — u látky to nedává smysl, barva a rozpustnost jsou jen vlastnosti látky.',
+			vysvetleni: 'Tělesa se dají počítat na kusy (dvě sklenice, tři hřebíky) — u látky to nedává smysl. Barva ani rozpustnost s počítáním nesouvisí.',
 		},
 		{
 			text: 'Proč věta „Přines mi tři dřeva" zní divně?',
@@ -206,18 +206,18 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Je oblak na obloze těleso?',
-			odpovedi: ['ano, i když nemá pevný tvar', 'ne, protože není tvrdý', 'ne, protože ho nejde spočítat'],
+			odpovedi: ['ano, i když nemá pevný tvar', 'ne, protože není tvrdý', 'ano, protože ho tvoří vzduch'],
 			vysvetleni: 'Těleso nemusí být tvrdé ani mít pevné hranice — oblak i kapka deště jsou tělesa stejně jako cihla.',
 		},
 		{
 			text: 'Je vzduch v pneumatice těleso?',
-			odpovedi: ['ano, i když ho nevidíme', 'ne, protože je neviditelný', 'ne, protože vzduch je jen látka'],
+			odpovedi: ['ano, i když ho nevidíme', 'ne, protože je neviditelný', 'ano, vzduch je látka, jako guma'],
 			vysvetleni: 'Těleso nemusí být vidět — vzduch v pneumatice nebo balonku je těleso stejně jako viditelná cihla.',
 		},
 		{
 			text: 'Která otázka nepomůže rozeznat těleso od látky?',
-			odpovedi: ['Jakou to má barvu?', 'Dá se to spočítat na kusy?', 'Zeptáš se „z čeho je to?"'],
-			vysvetleni: 'Barva je jen vlastnost látky a mají ji obě věci — nerozliší, jestli jde o materiál, nebo o konkrétní kus.',
+			odpovedi: ['Jakou to má barvu?', 'Kolik to váží na vahách?', 'Má nějaké pevné hranice?'],
+			vysvetleni: 'Barvu má stejně látka i konkrétní kus z ní — nerozliší je to. Váha na vahách i pevné hranice jdou zjistit jen u konkrétní věci.',
 		},
 		{
 			text: 'Hřebík je vyroben z…',
@@ -226,8 +226,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Zeptáme se: „Sklenice, z čeho je to?" Dává smysl zeptat se stejně na sklo?',
-			odpovedi: ['ne, sklo je látka a je prostě sklo', 'ano, sklo je vyrobené z křemičitého písku', 'ano, protože sklo je těleso'],
-			vysvetleni: 'U látky se „z čeho je to" ptát nedá — sklo je prostě sklo, zatímco sklenice je z něčeho vyrobená (je to těleso).',
+			odpovedi: ['ne, sklo je látka a je prostě sklo', 'ano, protože sklo je těleso', 'ne, sklo je jen tvar sklenice'],
+			vysvetleni: 'U látky se „z čeho je to" ptát nedá — sklo je prostě sklo, zatímco sklenice je z něčeho vyrobená (je to těleso). Sklo přitom není „tvar" — je to materiál, ze kterého sklenice vznikla.',
 		},
 	],
 	'fyzika/6-rocnik/latka-a-teleso/casticove-slozeni-latek': [
@@ -345,7 +345,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Probíhá difuze i v pevných látkách?',
-			odpovedi: ['ano, ale velmi pomalu', 'ne, jen v kapalinách', 'ne, jen v plynech a kapalinách'],
+			odpovedi: ['ano, ale velmi pomalu', 'ne, jen v kapalinách', 'ano, ale jen v kovech'],
 			vysvetleni: 'V pevné látce difuze probíhá také, ale tak pomalu, že si jí nevšimneme.',
 		},
 		{
@@ -381,13 +381,13 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Je atom skutečně nedělitelný?',
-			odpovedi: ['ne, má menší částice', 'ano — nic menšího neexistuje', 'ano, ale jen u kovů'],
-			vysvetleni: 'Dlouho se to myslelo, ale dnes víme, že atom se skládá z ještě menších částic.',
+			odpovedi: ['ne, má menší částice', 'ano — nic menšího neexistuje', 'ne, atom je vlastně molekula'],
+			vysvetleni: 'Dlouho se to myslelo, ale dnes víme, že atom se skládá z ještě menších částic. Atom navíc není totéž co molekula — je to jiný, větší celek z více atomů.',
 		},
 		{
 			text: 'Lze atomy vidět lupou nebo běžným mikroskopem?',
-			odpovedi: ['ne, jsou příliš malé', 'ano, lupou snadno', 'ano, každým mikroskopem'],
-			vysvetleni: 'Atomy jsou tak malé, že je uvidíme jen speciálním elektronovým mikroskopem. Do řady 1 mm by se jich vešlo 10 milionů.',
+			odpovedi: ['ne, jsou příliš malé', 'ano, lupou snadno', 'ne, lupou uvidíme jen molekuly'],
+			vysvetleni: 'Atomy jsou tak malé, že je uvidíme jen speciálním elektronovým mikroskopem. Molekuly jsou z atomů složené, takže jsou stejně malé a lupou je taky neuvidíme. Do řady 1 mm by se vešlo 10 milionů atomů.',
 		},
 		{
 			text: 'Co je chemický prvek?',
@@ -1385,7 +1385,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Zná fyzika pojem „vteřina"?',
-			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, vteřina je základní jednotka fyziky', 'ano, vteřina je tisícina jedné minuty'],
+			odpovedi: ['ne — používá mezinárodní název sekunda', 'ano, je základní jednotka fyziky', 'ne, čas se ve fyzice vůbec nijak neznačí'],
 			vysvetleni: 'Vteřina je jen běžná mluva; fyzika používá sekundu.',
 		},
 		{
@@ -3561,7 +3561,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co znamená zkratka RGB?', odpovedi: ['červená, zelená, modrá', 'červená, zlatá, černá', 'barvy inkoustů v tiskárně'], vysvetleni: 'Zkratka je z anglického red, green, blue — základní barvy světla.' },
 		{ text: 'Kde se používá systém RGB?', odpovedi: ['obrazovky, displeje, reflektory', 'v tiskárně při tisku fotek na papír', 'při míchání vodových barev'], vysvetleni: 'Skládání světel — displeje mobilů, televize, reflektory.' },
 		{ text: 'Jak vznikne bílé světlo v systému RGB?', odpovedi: ['složením všech tří stejně silně', 'smícháním černé a bílé dohromady', 'zesílením samotné modré barvy'], vysvetleni: 'Všechny tři základní barvy světla stejně silně dají dohromady bílou.' },
-		{ text: 'Existuje černé světlo?', odpovedi: ['ne, černá je chybějící světlo', 'ano, je to čtvrtá základní barva', 'ano, vzniká zesílením modré'], vysvetleni: 'Černá není světlo — je to tma, chybějící světlo.' },
+		{ text: 'Existuje černé světlo?', odpovedi: ['ne, černá je chybějící světlo', 'ne, černé těleso světlo odráží', 'ano, vzniká zesílením modré'], vysvetleni: 'Černá není světlo — je to tma, chybějící světlo.' },
 		{ text: 'Jak vznikne doplňková barva světla?', odpovedi: ['složením dvou základních barev', 'pohlcením všech barev světla', 'zeslabením jedné základní barvy'], vysvetleni: 'Dvě základní barvy světla dohromady dají doplňkovou — žlutou, purpurovou nebo azurovou.' },
 		{ text: 'Podle čeho oko vnímá barvu tělesa?', odpovedi: ['které barvy těleso odráží', 'které barvy těleso pohltí', 'podle hmotnosti tělesa'], vysvetleni: 'Vidíme barvy, které se od tělesa odrážejí do oka.' },
 		{ text: 'Jaké barvy odráží bílé těleso?', odpovedi: ['všechny dopadající barvy', 'jen bílou složku světla', 'žádné, všechny je pohltí'], vysvetleni: 'Bílé těleso odrazí celé spektrum.' },
