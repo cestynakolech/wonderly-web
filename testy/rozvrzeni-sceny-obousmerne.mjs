@@ -36,6 +36,12 @@ const koren = join(zde, '..');
 const meridlo = join(zde, 'rozvrzeni-sceny.mjs');
 const KOMPONENTY = join(koren, 'src', 'components', 'skola2');
 const COMMIT_MAGNETY = 'f30767b'; // nasazená verze magnetů PŘED opravou vzhledu
+// Fixture místo `git show` na Cloudflare Workers Builds: mělký klon (depth 1)
+// historický commit vůbec nemá, `git show f30767b:…` skončí „fatal: invalid
+// object name“ a build spadne. Obsah je uložen jako statická fixture s
+// příponou .astro.txt (ne .astro), aby ji nesbíralo žádné měřidlo/brána nad
+// src/components/skola2 (ty filtrují jen *Simulace.astro v té složce).
+const FIXTURE_MAGNETY = join(zde, 'podvrhy', 'magnety-opakovani-f30767b.astro.txt');
 
 let chyb = 0;
 let kontrol = 0;
@@ -113,17 +119,21 @@ tvrdi('s přepínačem --varovani-jsou-chyby končí kódem 1', vB.kod === 1, `k
 
 // ──────────────────── 4. ZPĚTNÁ KOTVA: skutečná vada nasazených magnetů ──────
 console.log(`\nZPĚTNÁ KOTVA — nasazená verze magnetů z commitu ${COMMIT_MAGNETY} (skutečná vada, kterou našel člověk)`);
-const cesta = 'src/components/skola2/MagnetyOpakovaniSimulace.astro';
-const g = spawnSync('git', ['show', `${COMMIT_MAGNETY}:${cesta}`], { cwd: koren, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
-if (g.status !== 0 || !g.stdout) {
+let obsahFixtury = '';
+let fixturaChyba = '';
+try {
+	obsahFixtury = readFileSync(FIXTURE_MAGNETY, 'utf8');
+} catch (e) {
+	fixturaChyba = String(e.message ?? e);
+}
+if (!obsahFixtury) {
 	// Srozumitelný pád místo tichého přeskočení — bez téhle kotvy doklad ztrácí
 	// svou nejsilnější část a nikdo si toho jinak nevšimne.
-	tvrdi(`historická verze jde vytáhnout z gitu (git show ${COMMIT_MAGNETY}:${cesta})`, false,
-		`git skončil kódem ${g.status}: ${(g.stderr ?? String(g.error ?? '')).trim().split('\n')[0] || 'bez hlášky'}`);
+	tvrdi(`historická verze magnetů jde načíst z fixtury (${FIXTURE_MAGNETY})`, false, fixturaChyba || 'fixtura je prázdná');
 } else {
-	tvrdi(`historická verze jde vytáhnout z gitu (git show ${COMMIT_MAGNETY})`, true);
+	tvrdi(`historická verze magnetů jde načíst z fixtury (commit ${COMMIT_MAGNETY})`, true);
 	const magnety = join(docasna, 'MagnetyHistorickeSimulace.astro');
-	writeFileSync(magnety, g.stdout);
+	writeFileSync(magnety, obsahFixtury);
 	const vM = zmer(magnety);
 	tvrdi('obě scény se změřily', vM.scen === 2, `změřeno ${vM.scen}`);
 	tvrdi('vada 1: rámeček popisku přetéká vlevo (useknutý obrys)', vM.tvrde >= 1 && /přetéká plátno vlevo/.test(vM.vypis), `tvrdých chyb ${vM.tvrde}`);

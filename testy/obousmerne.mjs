@@ -145,7 +145,13 @@ export function spustTesty(testy) {
 			execFileSync(process.execPath, [cesta, ...argumentPodleNazvu(cestaRel)], { cwd: koren, stdio: 'pipe' });
 			vysledky.push({ ...t, stav: 'OK' });
 		} catch (e) {
-			vysledky.push({ ...t, stav: 'SELHAL', vypis: String(e.stdout ?? e.message).trim().split('\n').slice(-3).join('\n') });
+			// Skutečná chybová hláška (stderr), ne jen stdout — jinak se ztratí
+			// důvod pádu (viz mělký klon na Cloudflare: chyba byla v stderr git
+			// příkazu, poslední řádky stdout o ní nic neříkaly).
+			const stdout = String(e.stdout ?? '').trim();
+			const stderr = String(e.stderr ?? '').trim();
+			const spojeno = [stdout, stderr].filter(Boolean).join('\n--- stderr ---\n') || String(e.message ?? e);
+			vysledky.push({ ...t, stav: 'SELHAL', vypis: spojeno.split('\n').slice(-8).join('\n') });
 		}
 	}
 	return vysledky;
