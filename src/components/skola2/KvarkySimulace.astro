@@ -1,0 +1,298 @@
+---
+// Simulace k podtématu fyzika/9-rocnik/jaderna-fyzika/kvarky.
+//
+// DRŽÍ SE VÝKLADU (temata.ts, slug 'kvarky') a NEPŘIDÁVÁ nic navíc: výklad učí
+// jen to, že (1) jádro drží pohromadě jaderné síly mezi protony a neutrony,
+// (2) proton a neutron nejsou nejmenší kousky hmoty, (3) skládají se ze TŘÍ
+// kvarků, (4) kvarky drží pohromadě velmi silná jaderná síla, (5) kvark se
+// zatím nikomu nepodařilo rozdělit na nic menšího.
+// Proto tu SCHVÁLNĚ NENÍ: typy kvarků (u, d), elektrický náboj kvarků ani
+// zlomky (+2/3, −1/3) — o tom ve výkladu není ani slovo a byly by to pojmy
+// navíc (OBSAH-PRAVIDLA.md, řetěz bod 1). Všechna čísla v simulaci jsou celá:
+// počty částic a součin 3 × počet částic.
+//
+// Scéna A — „Zvětšuj až ke kvarkům": tři kroky zvětšení (jádro → jeden nukleon
+// → tři kvarky v něm) + přepínač proton/neutron (oba mají 3 kvarky) + pokus
+// o rozdělení kvarku, který VŽDY skončí neúspěchem (počítadlo: pokusů N,
+// rozdělených kvarků 0).
+// Scéna B — „Kolik kvarků je v jádře": posuvníky pro počet protonů (1–4) a
+// neutronů (0–4); kvarků = 3 × (protony + neutrony), tedy 3 až 24 — vždy celé.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Zvětšuj až ke kvarkům 🕹️</span></h2>
+	<p>Posuvníkem se postupně <strong>přibližuj</strong> do jádra atomu. Nejdřív uvidíš celé jádro, potom jednu částici (proton nebo neutron) a nakonec to, z čeho se skládá.</p>
+	<p>
+		<button id="kv-a-proton" type="button" class="kv-tl kv-tl-aktivni">🔴 zvětšovat proton</button>
+		<button id="kv-a-neutron" type="button" class="kv-tl">⚪ zvětšovat neutron</button>
+	</p>
+	<label class="sim-posuvnik">
+		Krok zvětšení: <output id="kv-a-zoom-out"></output>
+		<input type="range" id="kv-a-zoom" min="0" max="2" step="1" value="0" />
+	</label>
+	<svg id="kv-a-svg" viewBox="0 0 640 400" role="img" aria-label="Zvětšování jádra atomu až ke třem kvarkům uvnitř protonu nebo neutronu">
+		<rect x="0" y="0" width="640" height="400" fill="#f8f9fa" />
+		<rect x="60" y="10" width="520" height="34" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<text id="kv-a-titul" x="320" y="34" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26">1. JÁDRO ATOMU</text>
+
+		<!-- KROK 1: celé jádro s protony a neutrony -->
+		<g id="kv-a-st0">
+			<circle id="kv-a-jadro-obrys" cx="320" cy="200" r="140" fill="#fff4e6" stroke="#e8590c" stroke-width="3" stroke-dasharray="10 8" />
+			<circle id="kv-a-p1" cx="250" cy="150" r="44" fill="#ffa8a8" stroke="#2b2a26" stroke-width="3" />
+			<text x="250" y="155" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">proton</text>
+			<circle id="kv-a-p2" cx="390" cy="150" r="44" fill="#ffa8a8" stroke="#2b2a26" stroke-width="3" />
+			<text x="390" y="155" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">proton</text>
+			<circle id="kv-a-n1" cx="250" cy="250" r="44" fill="#dee2e6" stroke="#2b2a26" stroke-width="3" />
+			<text x="250" y="255" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">neutron</text>
+			<circle id="kv-a-n2" cx="390" cy="250" r="44" fill="#dee2e6" stroke="#2b2a26" stroke-width="3" />
+			<text x="390" y="255" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">neutron</text>
+			<circle id="kv-a-vyber" cx="250" cy="150" r="52" fill="none" stroke="#1971c2" stroke-width="5" stroke-dasharray="8 6" />
+			<text x="40" y="330" font-size="13" font-weight="bold" fill="#e8590c">jaderné síly</text>
+			<text x="40" y="348" font-size="13" font-weight="bold" fill="#e8590c">drží jádro pohromadě</text>
+		</g>
+
+		<!-- KROK 2: jedna částice zvětšená -->
+		<g id="kv-a-st1" display="none">
+			<circle id="kv-a-nukleon-velky" cx="320" cy="200" r="135" fill="#ffa8a8" stroke="#2b2a26" stroke-width="4" />
+			<text id="kv-a-nukleon-nazev" x="320" y="210" text-anchor="middle" font-size="30" font-weight="bold" fill="#2b2a26">PROTON</text>
+		</g>
+
+		<!-- KROK 3: tři kvarky uvnitř -->
+		<g id="kv-a-st2" display="none">
+			<circle id="kv-a-obal" cx="320" cy="200" r="135" fill="#ffe3e3" stroke="#2b2a26" stroke-width="4" stroke-dasharray="12 8" />
+			<circle id="kv-a-kvark1" cx="320" cy="135" r="38" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<text x="320" y="140" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">kvark</text>
+			<circle id="kv-a-kvark2" cx="248" cy="258" r="38" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<text x="248" y="263" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">kvark</text>
+			<circle id="kv-a-kvark3" cx="392" cy="258" r="38" fill="#ffd43b" stroke="#2b2a26" stroke-width="3" />
+			<text x="392" y="263" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">kvark</text>
+			<rect id="kv-a-sila-pozadi" x="200" y="186" width="240" height="28" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+			<text id="kv-a-sila" x="320" y="206" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">velmi silná jaderná síla</text>
+			<g id="kv-a-pokus" display="none">
+				<rect x="170" y="50" width="300" height="28" rx="6" fill="#fff5f5" stroke="#e03131" stroke-width="3" />
+				<text x="320" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#c92a2a">kvark zůstal CELÝ</text>
+				<!-- šipky TÁHNOU OD SEBE: hrot vlevo na x=240, násada u kvarku na x=276 (a zrcadlově vpravo) -->
+				<polygon id="kv-a-sipka-vlevo" points="276,118 240,128 276,138" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+				<polygon id="kv-a-sipka-vpravo" points="364,118 400,128 364,138" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
+			</g>
+		</g>
+
+		<rect x="170" y="352" width="300" height="34" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<text id="kv-a-pocet" x="320" y="376" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+	</svg>
+	<button id="kv-a-rozdelit" type="button" class="kv-btn">✂️ Zkus kvark rozdělit</button>
+	<p class="kv-popis" id="kv-a-popis"></p>
+	<p class="kv-popis" id="kv-a-vysledek"></p>
+</section>
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kolik kvarků je v celém jádře? 🕹️</span></h2>
+	<p>Každý proton i každý neutron se skládá ze <strong>3 kvarků</strong>. Nastav posuvníky a spočítej, kolik kvarků je v celém jádře.</p>
+	<svg id="kv-b-svg" viewBox="0 0 640 340" role="img" aria-label="Protony a neutrony v jádře, každý se třemi kvarky uvnitř">
+		<rect x="0" y="0" width="640" height="340" fill="#f8f9fa" />
+		<rect x="70" y="8" width="500" height="30" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<text x="320" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Každá částice v jádře = 3 kvarky</text>
+		<rect x="140" y="46" width="360" height="34" rx="8" fill="#fff9db" stroke="#2b2a26" stroke-width="3" />
+		<text id="kv-b-soucet" x="320" y="70" text-anchor="middle" font-size="17" font-weight="bold" fill="#2b2a26"></text>
+		<text id="kv-b-popisek-p" x="16" y="160" font-size="13" font-weight="bold" fill="#c92a2a"></text>
+		<text id="kv-b-popisek-n" x="16" y="268" font-size="13" font-weight="bold" fill="#495057"></text>
+		<g id="kv-b-nukleony"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Protonů: <output id="kv-b-protony-out"></output>
+		<input type="range" id="kv-b-protony" min="1" max="4" step="1" value="2" />
+	</label>
+	<label class="sim-posuvnik">
+		Neutronů: <output id="kv-b-neutrony-out"></output>
+		<input type="range" id="kv-b-neutrony" min="0" max="4" step="1" value="2" />
+	</label>
+	<p class="kv-popis" id="kv-b-popis"></p>
+</section>
+
+<script>
+	// ── společné ──────────────────────────────────────────────────────
+	const KVARKU_V_CASTICI = 3; // výklad: proton i neutron se skládají ze TŘÍ kvarků
+
+	function nastav(id, atributy) {
+		const el = document.getElementById(id);
+		for (const [k, v] of Object.entries(atributy)) el.setAttribute(k, v);
+	}
+	// české tvary: 1 kvark · 2–4 kvarky · 0 a 5+ kvarků (nula má tvar jako pět)
+	const tvarKvarku = (n) => (n === 1 ? '1 kvark' : n >= 2 && n <= 4 ? n + ' kvarky' : n + ' kvarků');
+	const tvarCastic = (n) => (n === 1 ? '1 částice' : n >= 2 && n <= 4 ? n + ' částice' : n + ' částic');
+	const tvarProtonu = (n) => (n === 1 ? '1 proton' : n >= 2 && n <= 4 ? n + ' protony' : n + ' protonů');
+	const tvarNeutronu = (n) => (n === 1 ? '1 neutron' : n >= 2 && n <= 4 ? n + ' neutrony' : n + ' neutronů');
+	// přísudek se řídí TVAREM podmětu, ne zvlášť počítaným číslem:
+	// „2 protony" → jsou · „1 proton" i „5 protonů" (a „0 neutronů") → je
+	const prisudek = (tvar) => (tvar.endsWith('y') ? 'jsou' : 'je');
+
+	// ── scéna A: zvětšuj až ke kvarkům ────────────────────────────────
+	const CASTICE = {
+		proton: { nazev: 'PROTON', druhy: 'proton', barva: '#ffa8a8', barvaSvetle: '#ffe3e3', vyberX: 250, vyberY: 150 },
+		neutron: { nazev: 'NEUTRON', druhy: 'neutron', barva: '#dee2e6', barvaSvetle: '#f1f3f5', vyberX: 250, vyberY: 250 },
+	};
+	const KROKY = ['jádro atomu', 'jedna částice', 'kvarky uvnitř'];
+
+	const zoomSlider = document.getElementById('kv-a-zoom');
+	const zoomOut = document.getElementById('kv-a-zoom-out');
+	const popisA = document.getElementById('kv-a-popis');
+	const vysledekA = document.getElementById('kv-a-vysledek');
+	const pocetA = document.getElementById('kv-a-pocet');
+	const titulA = document.getElementById('kv-a-titul');
+	const nazevNukleonu = document.getElementById('kv-a-nukleon-nazev');
+	const tlProton = document.getElementById('kv-a-proton');
+	const tlNeutron = document.getElementById('kv-a-neutron');
+
+	let vybrana = 'proton';
+	let pokusu = 0;
+	let pokusProbehl = false;
+	let hlaska = '';
+
+	function prekresliA() {
+		const zoom = +zoomSlider.value;
+		const c = CASTICE[vybrana];
+		// jen JEDEN krok je vidět
+		for (let i = 0; i < KROKY.length; i++) {
+			nastav('kv-a-st' + i, { display: i === zoom ? '' : 'none' });
+		}
+		// krok 1: zakroužkovaná je ta částice, kterou budeme zvětšovat
+		nastav('kv-a-vyber', { cx: c.vyberX, cy: c.vyberY });
+		// krok 2 a 3: barva podle vybrané částice
+		nastav('kv-a-nukleon-velky', { fill: c.barva });
+		nastav('kv-a-obal', { fill: c.barvaSvetle });
+		nazevNukleonu.textContent = c.nazev;
+
+		// pokus o rozdělení je vidět jen u kvarků a jen po kliknutí
+		const ukazPokus = zoom === 2 && pokusProbehl;
+		nastav('kv-a-pokus', { display: ukazPokus ? '' : 'none' });
+		nastav('kv-a-kvark1', { stroke: ukazPokus ? '#e03131' : '#2b2a26', 'stroke-width': ukazPokus ? 6 : 3 });
+
+		// počet kvarků NA OBRÁZKU — musí sedět s tím, co je nakreslené
+		const viditelnychKvarku = zoom === 2 ? KVARKU_V_CASTICI : 0;
+		pocetA.textContent = 'kvarků na obrázku: ' + viditelnychKvarku;
+
+		const cisloKroku = zoom + 1; // krok se lidem čísluje od jedničky
+		zoomOut.textContent = cisloKroku + '. ' + KROKY[zoom];
+		if (zoom === 0) {
+			titulA.textContent = cisloKroku + '. JÁDRO ATOMU — protony a neutrony';
+			popisA.innerHTML = `Jádro atomu drží pohromadě <strong>jaderné síly</strong> mezi protony a neutrony. Modře je zakroužkovaný <strong>${c.druhy}</strong>, který budeme zvětšovat — posuň posuvník na 2.`;
+		} else if (zoom === 1) {
+			titulA.textContent = cisloKroku + '. ' + c.nazev + ' zvětšený';
+			popisA.innerHTML = `Ani <strong>${c.druhy}</strong> není nejmenší kousek hmoty. Posuň posuvník na 3 a uvidíš, z čeho se skládá.`;
+		} else {
+			titulA.textContent = cisloKroku + '. UVNITŘ ' + c.nazev + 'U — ' + tvarKvarku(KVARKU_V_CASTICI);
+			popisA.innerHTML = `Uvnitř ${prisudek(tvarKvarku(KVARKU_V_CASTICI))} <strong>${tvarKvarku(KVARKU_V_CASTICI)}</strong>. Drží je pohromadě <strong>velmi silná jaderná síla</strong>. Kvark je zatím nejmenší známá částice, ze které se ${c.druhy} skládá.`;
+		}
+
+		// ukazuje se VŽDY JEN JEDNA zpráva — pokyn „dojdi na krok 3" a shrnutí
+		// marných pokusů si jinak protiřečily (pokyn + „nepodařilo ani jednou")
+		let zprava = hlaska;
+		if (ukazPokus) zprava = ' — kvark zůstal CELÝ. Rozdělit kvark na nic menšího se zatím nikomu nepodařilo.';
+		else if (hlaska === '' && pokusu > 0) zprava = ' · Rozdělit kvark se nepodařilo ani jednou.';
+		vysledekA.innerHTML = `Pokusů o rozdělení kvarku: <strong>${pokusu}</strong> · rozdělených kvarků: <strong>0</strong>${zprava}`;
+	}
+
+	function vyberCastici(druh) {
+		vybrana = druh;
+		pokusProbehl = false;
+		hlaska = '';
+		tlProton.classList.toggle('kv-tl-aktivni', druh === 'proton');
+		tlNeutron.classList.toggle('kv-tl-aktivni', druh === 'neutron');
+		prekresliA();
+	}
+
+	tlProton.addEventListener('click', () => vyberCastici('proton'));
+	tlNeutron.addEventListener('click', () => vyberCastici('neutron'));
+	zoomSlider.addEventListener('input', () => {
+		// výsledek pokusu se PAMATUJE (u kvarků se po návratu ukáže znovu),
+		// jen se nesmí kreslit u jádra ani u celé částice — to řeší podmínka
+		// zoom === 2 ve prekresliA(). Zastaralá nápověda se maže.
+		hlaska = '';
+		prekresliA();
+	});
+	document.getElementById('kv-a-rozdelit').addEventListener('click', () => {
+		if (+zoomSlider.value === 2) {
+			pokusu = pokusu + 1;
+			pokusProbehl = true;
+			hlaska = '';
+		} else {
+			pokusProbehl = false;
+			hlaska = ' — nejdřív se posuvníkem přibliž až ke kvarkům (krok 3).';
+		}
+		prekresliA();
+	});
+	prekresliA();
+
+	// ── scéna B: kolik kvarků je v jádře ──────────────────────────────
+	const B_STRED = 360; // vodorovný střed řady (vlevo je místo na popisek)
+	const B_ROZESTUP = 112; // rozestup středů částic — větší než 2× poloměr, nepřekrývají se
+	const B_R = 42; // poloměr částice
+	const B_Y_PROTONY = 155;
+	const B_ROZESTUP_RAD = 108; // svislý rozestup řad — větší než 2× poloměr
+	const B_Y_NEUTRONY = B_Y_PROTONY + B_ROZESTUP_RAD;
+	const B_TECKA = 9; // poloměr kvarku uvnitř částice
+	const TECKY = [[0, -16], [-15, 10], [15, 10]]; // tři kvarky v každé částici
+
+	const sliderP = document.getElementById('kv-b-protony');
+	const sliderN = document.getElementById('kv-b-neutrony');
+	const outP = document.getElementById('kv-b-protony-out');
+	const outN = document.getElementById('kv-b-neutrony-out');
+	const soucetB = document.getElementById('kv-b-soucet');
+	const popisekP = document.getElementById('kv-b-popisek-p');
+	const popisekN = document.getElementById('kv-b-popisek-n');
+	const nukleonyG = document.getElementById('kv-b-nukleony');
+	const popisB = document.getElementById('kv-b-popis');
+
+	function castice(cx, cy, barva) {
+		let kod = `<circle class="kv-b-castice" cx="${cx}" cy="${cy}" r="${B_R}" fill="${barva}" stroke="#2b2a26" stroke-width="3" />`;
+		for (const [dx, dy] of TECKY) {
+			kod += `<circle class="kv-b-kvark" cx="${cx + dx}" cy="${cy + dy}" r="${B_TECKA}" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />`;
+		}
+		return kod;
+	}
+
+	function rada(pocet, y, barva) {
+		let kod = '';
+		const mezer = pocet - 1; // mezer je o jednu méně než částic
+		const sirkaRady = mezer * B_ROZESTUP;
+		const zacatek = B_STRED - sirkaRady / 2; // řada je vystředěná
+		for (let i = 0; i < pocet; i++) {
+			kod += castice(zacatek + i * B_ROZESTUP, y, barva);
+		}
+		return kod;
+	}
+
+	function prekresliB() {
+		const p = +sliderP.value;
+		const n = +sliderN.value;
+		const castic = p + n;
+		const kvarku = KVARKU_V_CASTICI * castic;
+
+		nukleonyG.innerHTML = rada(p, B_Y_PROTONY, '#ffa8a8') + rada(n, B_Y_NEUTRONY, '#dee2e6');
+		popisekP.textContent = 'protonů: ' + p;
+		popisekN.textContent = 'neutronů: ' + n;
+		nastav('kv-b-popisek-n', { opacity: n > 0 ? 1 : 0.55 }); // prázdná řada má tlumený popisek
+		outP.textContent = String(p);
+		outN.textContent = String(n);
+		// jednotky musí vycházet: POČET ČÁSTIC × 3 KVARKY NA ČÁSTICI = CELKEM KVARKŮ
+		// („3 × 8 částic = 24 kvarků" by znamenalo 24 částic, ne 24 kvarků)
+		soucetB.textContent = `${tvarCastic(castic)} × ${tvarKvarku(KVARKU_V_CASTICI)} = ${tvarKvarku(kvarku)}`;
+		popisB.innerHTML = `V jádře ${prisudek(tvarProtonu(p))} ${tvarProtonu(p)} a ${tvarNeutronu(n)}, dohromady ${tvarCastic(castic)}. Každá se skládá ze ${KVARKU_V_CASTICI} kvarků, takže kvarků je celkem <strong>${KVARKU_V_CASTICI} × ${castic} = ${kvarku}</strong>.`;
+	}
+	sliderP.addEventListener('input', prekresliB);
+	sliderN.addEventListener('input', prekresliB);
+	prekresliB();
+</script>
+
+<style>
+	#kv-a-svg, #kv-b-svg { width: 100%; max-width: 640px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.kv-popis { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; margin-top: 0.5rem; }
+	.kv-btn { font-size: 1rem; font-weight: 800; padding: 0.45rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe066; cursor: pointer; margin-top: 0.6rem; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 640px; display: block; margin-top: 0.3rem; }
+</style>
+<style is:global>
+	.kv-tl { font: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.3rem 0.7rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.35rem 0.35rem 0; }
+	.kv-tl.kv-tl-aktivni { background: #ffe8cc; }
+	.kv-tl:active { transform: translateY(1px); }
+</style>

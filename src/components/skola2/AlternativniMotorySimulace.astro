@@ -1,0 +1,342 @@
+---
+// Alternativní motory a pohony (F8, tepelne-motory/alternativni-motory):
+// zkušebna reaktivních motorů — proudový, raketový a náporový.
+//
+// Proč právě tohle hledisko: výklad staví všechny tři motory na akci a reakci
+// (plyny dozadu → motor dopředu) a liší je JEDINOU věcí — odkud se bere kyslík,
+// se kterým palivo shoří. Proudový ho nasává z okolí a stlačí kompresorem,
+// náporový ho nemá čím stlačit, takže mu vzduch dovnitř nacpe teprve velmi
+// vysoká rychlost letu, a raketový si okysličovadlo veze v nádrži — proto
+// jediný funguje i ve vakuu. Scéna tedy ukazuje CESTU ENERGIE (palivo →
+// spalovací komora = teplo → horké plyny tryskou dozadu → tah dopředu)
+// a to, kde se ta cesta přeruší, když kyslík chybí.
+//
+// ŽÁDNÁ ČÍSLA Z HLAVY: výklad podtématu neuvádí u těchto motorů jediný údaj
+// (žádnou účinnost, spotřebu ani rychlost), proto simulace žádné takové číslo
+// netvrdí. Jediné číslo ve scéně je POČET motorů, kterým se do spalovací komory
+// dostane kyslík (0–3) — a ten si žák přepočítá přímo z tabulky pod scénou.
+//
+// PROČ SE NEMLUVÍ O „RYCHLOSTNÍM STROPU" PROUDOVÉHO MOTORU: výklad o žádné
+// hranici rychlosti u proudového ani raketového motoru nic neříká, a simulace
+// proto o ní taky nic netvrdí. Přepínač rychlosti je tu jen kvůli NÁPORU
+// vzduchu, který rozhoduje výhradně u náporového motoru — u zbylých dvou se
+// scéna rychlostí letu vůbec nemění a je to u přepínače napsané.
+//
+// Ovládání má 3 × 2 × 2 = 12 poloh, scéna se kreslí staticky (bez animací).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Zkušebna motorů bez pístu 🕹️</span></h2>
+	<p>Pístový motor není jediný způsob, jak z paliva udělat pohyb. Vyber motor a prostředí a sleduj, <strong>kudy jde energie</strong> — a jestli motor vůbec poběží. Jeden z té trojice si kyslík veze s sebou, a zvládne proto i vakuum — poznáš, který?</p>
+	<p class="am-rada"><strong>Motor:</strong>
+		<button type="button" id="am-typ-proudovy" class="am-tl am-aktivni">✈️ proudový</button>
+		<button type="button" id="am-typ-raketovy" class="am-tl">🚀 raketový</button>
+		<button type="button" id="am-typ-naporovy" class="am-tl">🌀 náporový</button>
+	</p>
+	<p class="am-rada"><strong>Kde motor letí:</strong>
+		<button type="button" id="am-prostredi-vzduch" class="am-tl am-aktivni">🌍 v atmosféře</button>
+		<button type="button" id="am-prostredi-vakuum" class="am-tl">🌌 ve vakuu</button>
+	</p>
+	<p class="am-rada"><strong>Nápor vzduchu (rychlost letu):</strong>
+		<button type="button" id="am-rychlost-bezna" class="am-tl am-aktivni">🐢 běžná</button>
+		<button type="button" id="am-rychlost-vysoka" class="am-tl">🏎️ velmi vysoká</button>
+		<span class="am-pozn">nápor rozhoduje jen u náporového motoru — proudový má kompresor a raketový vlastní nádrž</span>
+	</p>
+	<svg id="am-svg" viewBox="0 0 660 510" role="img" aria-label="Zkušebna alternativních motorů: proudový, raketový a náporový">
+		<rect id="am-obloha" x="0" y="0" width="660" height="306" fill="#d0ebff" />
+		<g id="am-castice"></g>
+		<rect x="12" y="6" width="636" height="30" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="am-nazev" x="330" y="27" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26"></text>
+		<g id="am-prostredi-popis"></g>
+		<g id="am-motor"></g>
+		<g id="am-tok"></g>
+		<g id="am-verdikt"></g>
+		<rect x="0" y="362" width="660" height="142" fill="#f8f9fa" />
+		<text id="am-pocet" x="24" y="380" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<g id="am-tabulka"></g>
+	</svg>
+	<p class="am-vzorec" id="am-tok-popis"></p>
+	<p class="am-stav" id="am-stav"></p>
+</section>
+
+<script>
+	// Vlastnosti motorů — všechny jsou doslova z výkladu podtématu:
+	//  • proudový: nasává vzduch, kompresor ho stlačí, turbína pohání kompresor,
+	//  • raketový: nemůže nasávat vzduch, veze si okysličovadlo → jede i ve vakuu,
+	//  • náporový: bez pohyblivých částí, vzduch „nacpe" samotná rychlost letu,
+	//    a proto funguje jen při velmi vysokých rychlostech.
+	const TYPY = {
+		proudovy: { nazev: 'Proudový (reaktivní) motor', kratky: 'proudový', sani: true, kyslikZOkoli: true, potrebujeRychlost: false, poznamka: 'turbína pohání kompresor' },
+		raketovy: { nazev: 'Raketový motor', kratky: 'raketový', sani: false, kyslikZOkoli: false, potrebujeRychlost: false, poznamka: 'okysličovadlo z vlastní nádrže' },
+		naporovy: { nazev: 'Náporový motor (ramjet)', kratky: 'náporový', sani: true, kyslikZOkoli: true, potrebujeRychlost: true, poznamka: 'žádné pohyblivé části' },
+	};
+	const PORADI = ['proudovy', 'raketovy', 'naporovy'];
+	const PROSTREDI = ['vzduch', 'vakuum'];
+	const RYCHLOSTI = ['bezna', 'vysoka'];
+
+	// ── rozměry scény: jediné místo, kde se geometrie mění ──────────────────
+	const KOMORA_SIRKA = 90;                     // šířka spalovací komory
+	const CHIP_SIRKA = 50;                       // štítek „teplo/nehoří" v komoře
+	const POLICKO_X = 250;                       // sloupec „jede/nejede" v tabulce
+	const POLICKO_SIRKA = 104;
+	const Y0 = 408;                              // y středu prvního řádku tabulky
+	const KROK = 38;                             // rozestup řádků tabulky
+	const ROZESTUP = 14;                         // rozestup lopatek uvnitř dílu
+	const RADKY = [Y0, Y0 + KROK, Y0 + 2 * KROK];
+
+	let typ = 'proudovy';
+	let prostredi = 'vzduch';
+	let rychlost = 'bezna';
+
+	// ČISTÁ FUNKCE: jede motor v tomhle prostředí? Rozhoduje jediná věc —
+	// jestli se do spalovací komory dostane kyslík.
+	function jede(t, kde, jakRychle) {
+		const s = TYPY[t];
+		if (s.kyslikZOkoli === false) return true; // okysličovadlo veze s sebou
+		if (kde === 'vakuum') return false; // ve vakuu žádný vzduch není
+		if (s.potrebujeRychlost === true && jakRychle === 'bezna') return false; // nemá kompresor
+		return true;
+	}
+
+	// Kolika ze tří motorů se do komory dostane kyslík. Totéž číslo si žák
+	// spočítá z tabulky pod scénou — proto smí být napsané slovy.
+	function pocetJedoucich(kde, jakRychle) {
+		let n = 0;
+		for (const t of PORADI) { if (jede(t, kde, jakRychle)) n++; }
+		return n;
+	}
+
+	// Krátký důvod do tabulky (jeden řádek).
+	function kratkyDuvod(t, kde, jakRychle) {
+		const s = TYPY[t];
+		if (s.kyslikZOkoli === false) return 'okysličovadlo veze ve vlastní nádrži';
+		if (kde === 'vakuum') return 've vakuu žádný vzduch není';
+		if (s.potrebujeRychlost === false) return 'vzduch nasaje a kompresor ho stlačí';
+		if (jakRychle === 'bezna') return 'při běžné rychlosti se vzduch nenacpe';
+		return 'vzduch nacpe vysoká rychlost letu';
+	}
+
+	// Celá věta do plakety pod scénu. Mluví VŽDY o právě vybraném prostředí —
+	// ne o tom druhém (dřív raketa i v atmosféře hlásila „jede i ve vakuu",
+	// takže verdikt popisoval jiný stav, než jaký byl na obrázku).
+	function veta(t, kde, jakRychle) {
+		const s = TYPY[t];
+		if (s.kyslikZOkoli === false) {
+			return kde === 'vakuum'
+				? 'Kyslík si veze ve vlastní nádrži, a tak mu palivo hoří i tady ve vakuu, kde vzduch není.'
+				: 'Kyslík si veze ve vlastní nádrži — palivo mu hoří i tady v atmosféře, vzduch nenasává.';
+		}
+		if (kde === 'vakuum') return 'Ve vakuu žádný vzduch není — do motoru se nedostane kyslík a palivo nemá s čím shořet.';
+		if (s.potrebujeRychlost === false) return 'Nasaje okolní vzduch, kompresor ho stlačí, palivo shoří a plyny vyletí tryskou dozadu.';
+		if (jakRychle === 'bezna') return 'Kompresor nemá a při běžné rychlosti se mu vzduch dovnitř nenacpe — nic tedy nehoří.';
+		return 'Kompresor nemá — vzduch mu dovnitř nacpe teprve velmi vysoká rychlost letu.';
+	}
+
+	const svg = document.getElementById('am-svg');
+	svg.__jede = jede;
+	svg.__pocet = pocetJedoucich;
+	svg.__duvod = kratkyDuvod;
+	svg.__veta = veta;
+	svg.__typy = TYPY;
+
+	// ── pomocníci kresby ────────────────────────────────────────────────────
+	// Každý popisek nad kresbou dostane vlastní bílý podklad, jinak by text
+	// splýval s trupem motoru (a ve vakuu s černým pozadím).
+	function stitek(x, y, w, text, barva) {
+		return `<rect x="${x}" y="${y}" width="${w}" height="24" rx="6" fill="#ffffff" stroke="${barva}" stroke-width="2" />`
+			+ `<text x="${x+10}" y="${y+17}" font-size="11" fill="${barva}">${text}</text>`;
+	}
+	// díl motoru uvnitř trupu, pod ním jeho jméno (vystředěné pod dílem)
+	function dil(x, w, barva, popis) {
+		const sx = x + 0.5 * w;
+		return `<rect x="${x}" y="156" width="${w}" height="62" rx="4" fill="${barva}" stroke="#2b2a26" stroke-width="2" />`
+			+ `<text x="${sx}" y="238" text-anchor="middle" font-size="10" fill="#2b2a26">${popis}</text>`;
+	}
+	function lopatky(x, w) {
+		let l = '';
+		for (let i = 1; i <= 3; i++) {
+			const dx = i * ROZESTUP;
+			const lx = x + dx;
+			if (dx < w) l += `<line x1="${lx}" y1="160" x2="${lx}" y2="214" stroke="#868e96" stroke-width="2" />`;
+		}
+		return l;
+	}
+	// díl, který motor NEMÁ (náporový): čárkovaný obrys s červeným křížkem.
+	// Slovo „nemá" má stejně velké písmo jako ostatní popisky v dílu — dřív
+	// bylo 9 px, což je na šířce telefonu asi 5 px, tedy nečitelné.
+	function chybi(x, w, popis) {
+		const sx = x + 0.5 * w;
+		return `<rect x="${x}" y="156" width="${w}" height="62" rx="4" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 4" />`
+			+ `<text x="${sx}" y="171" text-anchor="middle" font-size="11" font-weight="bold" fill="#c92a2a">nemá</text>`
+			+ `<line x1="${x+8}" y1="180" x2="${x+w-8}" y2="212" stroke="#c92a2a" stroke-width="3" />`
+			+ `<line x1="${x+w-8}" y1="180" x2="${x+8}" y2="212" stroke="#c92a2a" stroke-width="3" />`
+			+ `<text x="${sx}" y="238" text-anchor="middle" font-size="10" fill="#868e96">${popis}</text>`;
+	}
+
+	function kresli() {
+		const s = TYPY[typ];
+		const bezi = jede(typ, prostredi, rychlost);
+		const jeVzduch = prostredi === 'vzduch';
+		// vzduch se do motoru dostane jen u motoru se sáním, který zrovna jede
+		const vzduchDovnitr = s.sani === true && bezi;
+
+		document.getElementById('am-obloha').setAttribute('fill', jeVzduch ? '#d0ebff' : '#212529');
+		document.getElementById('am-nazev').textContent = s.nazev;
+
+		// ── prostředí: částice vzduchu, nebo hvězdy ve vakuu ────────────────
+		const mista = [[30, 96], [66, 120], [26, 146], [72, 170], [580, 52], [618, 66], [646, 44]];
+		let c = '';
+		for (const m of mista) {
+			if (jeVzduch) c += `<circle cx="${m[0]}" cy="${m[1]}" r="5" fill="#1c7ed6" />`;
+			else c += `<line x1="${m[0]-5}" y1="${m[1]}" x2="${m[0]+5}" y2="${m[1]}" stroke="#ffffff" stroke-width="2" />`
+				+ `<line x1="${m[0]}" y1="${m[1]-5}" x2="${m[0]}" y2="${m[1]+5}" stroke="#ffffff" stroke-width="2" />`;
+		}
+		document.getElementById('am-castice').innerHTML = c;
+
+		// popisek prostředí pojmenuje přesně to, co je nakreslené: modré tečky,
+		// nebo bílé křížky (hvězdy) — ne „hvězdy" u kresby, která je jiná
+		document.getElementById('am-prostredi-popis').innerHTML =
+			'<rect x="12" y="44" width="214" height="40" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />'
+			+ `<text x="22" y="61" font-size="12" font-weight="bold" fill="#2b2a26">${jeVzduch ? 'prostředí: hustý vzduch' : 'prostředí: vakuum (vesmír)'}</text>`
+			+ `<text x="22" y="77" font-size="10" fill="#495057">${jeVzduch ? 'modré tečky = částice vzduchu' : 'bílé křížky = hvězdy, ne vzduch'}</text>`;
+
+		// ── motor v řezu ────────────────────────────────────────────────────
+		let mo = '';
+		if (s.sani === true) {
+			mo += '<polygon points="108,160 148,148 148,248 108,236" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />'
+				+ '<text x="128" y="200" text-anchor="middle" font-size="10" fill="#495057">sání</text>';
+		}
+		mo += '<rect x="148" y="148" width="310" height="100" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />';
+		mo += '<polygon points="458,170 512,150 512,246 458,226" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />';
+
+		const komoraX = typ === 'raketovy' ? 266 : 214;
+		const komoraBarva = bezi ? '#ff922b' : '#dee2e6';
+		if (typ === 'proudovy') {
+			mo += dil(158, 46, '#dee2e6', 'kompresor') + lopatky(158, 46);
+			mo += dil(komoraX, KOMORA_SIRKA, komoraBarva, 'spalovací komora');
+			mo += dil(314, 44, '#dee2e6', 'turbína') + lopatky(314, 44);
+		} else if (typ === 'naporovy') {
+			mo += chybi(158, 46, 'kompresor');
+			mo += dil(komoraX, KOMORA_SIRKA, komoraBarva, 'spalovací komora');
+			mo += chybi(314, 44, 'turbína');
+		} else {
+			mo += '<rect x="158" y="156" width="72" height="28" rx="4" fill="#ffe8cc" stroke="#2b2a26" stroke-width="2" />'
+				+ '<text x="194" y="175" text-anchor="middle" font-size="11" fill="#2b2a26">palivo</text>'
+				+ '<rect x="158" y="190" width="72" height="28" rx="4" fill="#d0ebff" stroke="#2b2a26" stroke-width="2" />'
+				+ '<text x="194" y="209" text-anchor="middle" font-size="11" fill="#2b2a26">kyslík</text>'
+				+ '<text x="194" y="238" text-anchor="middle" font-size="10" fill="#2b2a26">vlastní nádrže</text>';
+			mo += dil(komoraX, KOMORA_SIRKA, komoraBarva, 'spalovací komora');
+			// CESTA PALIVA A OKYSLIČOVADLA: raketa si obojí veze s sebou, proto
+			// vede z každé nádrže vlastní šipka do spalovací komory (dřív tady
+			// byla jen dvoucentimetrová šipka a cesta paliva vůbec nebyla vidět)
+			mo += '<line x1="232" y1="170" x2="252" y2="170" stroke="#e8590c" stroke-width="4" />'
+				+ '<polygon points="266,170 252,163 252,177" fill="#e8590c" />'
+				+ '<line x1="232" y1="204" x2="252" y2="204" stroke="#1971c2" stroke-width="4" />'
+				+ '<polygon points="266,204 252,197 252,211" fill="#1971c2" />';
+		}
+		// v komoře: hoří / nehoří. Štítek se kreslí AŽ PO komoře, jinak by ho
+		// oranžová výplň překryla a dítě by se o teple nedozvědělo.
+		const chipX = komoraX + 20;
+		const chipStred = chipX + 0.5 * CHIP_SIRKA;
+		mo += `<rect x="${chipX}" y="177" width="${CHIP_SIRKA}" height="20" rx="4" fill="#ffffff" stroke="${bezi ? '#d9480f' : '#adb5bd'}" stroke-width="2" />`
+			+ `<text x="${chipStred}" y="191" text-anchor="middle" font-size="11" font-weight="bold" fill="${bezi ? '#d9480f' : '#868e96'}">${bezi ? 'teplo' : 'nehoří'}</text>`;
+		if (bezi) {
+			mo += '<line x1="366" y1="187" x2="440" y2="187" stroke="#d9480f" stroke-width="5" />'
+				+ '<polygon points="452,187 438,179 438,195" fill="#d9480f" />'
+				+ '<text x="404" y="238" text-anchor="middle" font-size="10" fill="#d9480f">horké plyny</text>';
+		}
+		document.getElementById('am-motor').innerHTML = mo;
+
+		// ── co do motoru vchází a co z něj vychází ──────────────────────────
+		let tk = '';
+		if (s.sani === true) {
+			if (vzduchDovnitr) {
+				tk += '<line x1="36" y1="192" x2="94" y2="192" stroke="#1971c2" stroke-width="5" />'
+					+ '<polygon points="106,192 92,184 92,200" fill="#1971c2" />';
+			} else {
+				tk += '<line x1="36" y1="192" x2="74" y2="192" stroke="#adb5bd" stroke-width="5" />'
+					+ '<line x1="82" y1="184" x2="98" y2="200" stroke="#c92a2a" stroke-width="4" />'
+					+ '<line x1="98" y1="184" x2="82" y2="200" stroke="#c92a2a" stroke-width="4" />';
+			}
+			tk += stitek(216, 106, 84, 'palivo', '#2b2a26')
+				+ `<line x1="258" y1="132" x2="258" y2="142" stroke="${bezi ? '#e8590c' : '#adb5bd'}" stroke-width="4" />`
+				+ `<polygon points="258,154 250,140 266,140" fill="${bezi ? '#e8590c' : '#adb5bd'}" />`;
+		}
+		const popisVzduchu = s.sani === false ? 'nepotřebuje okolní vzduch'
+			: vzduchDovnitr ? (s.potrebujeRychlost === true ? 'vzduch nacpe rychlost letu' : 'vzduch nasaje a stlačí')
+			: (jeVzduch ? 'vzduch se dovnitř nenacpe' : 'vakuum — není co nasát');
+		tk += stitek(16, 258, 182, popisVzduchu, '#2b2a26');
+		tk += stitek(452, 118, 64, 'tryska', '#2b2a26');
+		tk += stitek(206, 258, 240, s.poznamka, '#2b2a26');
+		if (bezi) {
+			// výtrysk se zužuje do hrotu až u okraje scény — aby nevypadal jako
+			// omylem svisle odstřižená kresba (dřív končil kolmo 20 px před krajem)
+			tk += '<line x1="330" y1="100" x2="192" y2="100" stroke="#2f9e44" stroke-width="6" />'
+				+ '<polygon points="176,100 194,91 194,109" fill="#2f9e44" />'
+				+ stitek(340, 88, 224, 'reakce — tah dopředu', '#2f9e44')
+				+ '<polygon points="512,166 600,150 652,198 600,246 512,230" fill="#ffa94d" />'
+				+ '<line x1="530" y1="198" x2="612" y2="198" stroke="#d9480f" stroke-width="5" />'
+				+ '<polygon points="630,198 610,189 610,207" fill="#d9480f" />'
+				+ stitek(468, 256, 184, 'akce — plyny dozadu', '#d9480f');
+		}
+		document.getElementById('am-tok').innerHTML = tk;
+
+		// ── plaketa s verdiktem ─────────────────────────────────────────────
+		const barva = bezi ? '#2f9e44' : '#c92a2a';
+		document.getElementById('am-verdikt').innerHTML =
+			`<rect x="12" y="312" width="636" height="44" rx="8" fill="#ffffff" stroke="${barva}" stroke-width="3" />`
+			+ `<text x="28" y="332" font-size="13" font-weight="bold" fill="${barva}">${bezi ? 'MOTOR JEDE' : 'MOTOR NEJEDE'}</text>`
+			+ `<text x="28" y="350" font-size="11" fill="#2b2a26">${veta(typ, prostredi, rychlost)}</text>`;
+
+		// ── tabulka: komu se dostane kyslík do komory ────────────────────────
+		// Nadpis mluví o KYSLÍKU, ne o rychlosti letu: o rychlostní hranici
+		// proudového motoru výklad nic neříká, tak si ji simulace nevymýšlí.
+		const n = pocetJedoucich(prostredi, rychlost);
+		document.getElementById('am-pocet').textContent = `Kyslík se do spalovací komory dostane u ${n} ze 3 motorů:`;
+		let tb = '';
+		for (let i = 0; i < PORADI.length; i++) {
+			const t = PORADI[i];
+			const y = RADKY[i];
+			const b = jede(t, prostredi, rychlost) === true;
+			const polickoStred = POLICKO_X + 0.5 * POLICKO_SIRKA;
+			if (t === typ) tb += `<rect x="12" y="${y-19}" width="636" height="38" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="2" />`;
+			tb += `<text x="28" y="${y+5}" font-size="13" font-weight="bold" fill="#2b2a26">${TYPY[t].kratky}</text>`
+				+ `<rect x="${POLICKO_X}" y="${y-16}" width="${POLICKO_SIRKA}" height="30" rx="8" fill="${b ? '#d3f9d8' : '#ffe3e3'}" stroke="${b ? '#2f9e44' : '#c92a2a'}" stroke-width="2" />`
+				+ `<text x="${polickoStred}" y="${y+5}" text-anchor="middle" font-size="12" font-weight="bold" fill="${b ? '#2f9e44' : '#c92a2a'}">${b ? 'jede' : 'nejede'}</text>`
+				+ `<text x="372" y="${y+5}" font-size="11" fill="#495057">${kratkyDuvod(t, prostredi, rychlost)}</text>`;
+		}
+		document.getElementById('am-tabulka').innerHTML = tb;
+
+		// ── text pod scénou ─────────────────────────────────────────────────
+		document.getElementById('am-tok-popis').innerHTML = bezi
+			? 'Kudy jde energie: <strong>palivo</strong> → ve spalovací komoře shoří a vznikne <strong>teplo</strong> → horké plyny vyletí <strong>tryskou dozadu</strong> (akce) → motor je stejně velkou silou tlačen <strong>dopředu</strong> (reakce).'
+			: 'Cesta energie se hned na začátku přeruší: do spalovací komory se nedostane vzduch, palivo <strong>nehoří</strong>, tryskou nic nevyletí — a bez akce nevznikne ani reakce, tedy žádný tah.';
+		document.getElementById('am-stav').textContent =
+			`${s.nazev}: ${bezi ? 'JEDE' : 'NEJEDE'}. ${veta(typ, prostredi, rychlost)} `
+			+ `Kyslík se do spalovací komory dostane u ${n} ze 3 motorů.`;
+
+		// zvýraznění stisknutých tlačítek
+		for (const t of PORADI) document.getElementById('am-typ-' + t).classList.toggle('am-aktivni', t === typ);
+		for (const p of PROSTREDI) document.getElementById('am-prostredi-' + p).classList.toggle('am-aktivni', p === prostredi);
+		for (const r of RYCHLOSTI) document.getElementById('am-rychlost-' + r).classList.toggle('am-aktivni', r === rychlost);
+	}
+
+	for (const t of PORADI) document.getElementById('am-typ-' + t).addEventListener('click', () => { typ = t; kresli(); });
+	for (const p of PROSTREDI) document.getElementById('am-prostredi-' + p).addEventListener('click', () => { prostredi = p; kresli(); });
+	for (const r of RYCHLOSTI) document.getElementById('am-rychlost-' + r).addEventListener('click', () => { rychlost = r; kresli(); });
+	kresli();
+</script>
+
+<style>
+	#am-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #ffffff; }
+	.am-rada { margin: 0.4rem 0; }
+	.am-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.am-tl.am-aktivni { background: #ffe8cc; }
+	.am-tl:active { transform: translateY(1px); }
+	.am-pozn { font-size: 0.9rem; }
+	.am-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.am-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	@media (max-width: 520px) {
+		.am-tl { padding: 0.3rem 0.6rem; font-size: 0.9rem; }
+	}
+</style>

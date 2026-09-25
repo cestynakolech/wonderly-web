@@ -19,6 +19,7 @@ import PaketySimulace from '../../../../../../components/skola2/PaketySimulace.a
 import PakaSimulace from '../../../../../../components/skola2/PakaSimulace.astro';
 import MagnetSimulace from '../../../../../../components/skola2/MagnetSimulace.astro';
 import KladkaSimulace from '../../../../../../components/skola2/KladkaSimulace.astro';
+import KvarkySimulace from '../../../../../../components/skola2/KvarkySimulace.astro';
 import NaklonenaRovinaSimulace from '../../../../../../components/skola2/NaklonenaRovinaSimulace.astro';
 import KlinSimulace from '../../../../../../components/skola2/KlinSimulace.astro';
 import UcinkySilyADeformaceSimulace from '../../../../../../components/skola2/UcinkySilyADeformaceSimulace.astro';
@@ -151,6 +152,7 @@ import Vedeni from '../../../../../../components/skola2/F9Elektrina/Vedeni.astro
 import Vodic from '../../../../../../components/skola2/F9Elektrina/Vodic.astro';
 import Zakon from '../../../../../../components/skola2/F9Elektrina/Zakon.astro';
 import UcinnostSimulace from '../../../../../../components/skola2/UcinnostSimulace.astro';
+import AlternativniMotorySimulace from '../../../../../../components/skola2/AlternativniMotorySimulace.astro';
 import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
@@ -394,6 +396,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'planety-vaha' && <PlanetyVahaSimulace />}
 	{podtema.interakce === 'atom-molekuly' && <AtomMolekulySimulace />}
 	{podtema.interakce === 'izotopy' && <IzotopySimulace />}
+	{podtema.interakce === 'kvarky' && <KvarkySimulace />}
 	{podtema.interakce === 'prace' && <PraceSimulace />}
 	{podtema.interakce === 'tlak' && <TlakSimulace />}
 	{podtema.interakce === 'tlak-plocha' && <TlakSimulace />}
@@ -463,6 +466,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce === 'tinkercad' && <TinkercadSimulace />}
 	{podtema.interakce === 'sketchup' && <SketchupSimulace />}
 	{podtema.interakce === 'ucinnost' && <UcinnostSimulace />}
+	{podtema.interakce === 'alternativni-motory' && <AlternativniMotorySimulace />}
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'polovodic-dopovani' && <PolovodicSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
