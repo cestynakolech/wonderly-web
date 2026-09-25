@@ -1,0 +1,328 @@
+---
+// Interaktivní klín (7. ročník, jednoduché stroje — nad rámec RVP).
+//
+// Co scéna ukazuje: klín zaražený do špalku. Žák mění DÉLKU klínu l (12 / 24 / 36 cm,
+// měřeno od ostří ke hřbetu) a TLOUŠŤKU hřbetu b (2 / 4 / 6 cm). Simulace z nich počítá
+// jen to, co stojí ve výkladu:
+//   • poměr l : b  (výklad: sekera A 12 : 4 = 3, sekera B 12 : 2 = 6, dlouhý klín 24 : 2 = 12)
+//   • rozrážecí sílu F = úder · (l : b) — výklad: „poměr dvakrát větší → stačí poloviční síla úderu"
+//   • zlaté pravidlo mechaniky: úder projde dráhu l, dřevo se rozevře jen o b,
+//     takže úder · l = rozrážecí síla · b (u všech poloh posuvníků vyjde 100 · l)
+//
+// Všechny kombinace posuvníků dávají CELÁ čísla: l ∈ {12, 24, 36}, b ∈ {2, 4, 6}
+// → poměr ∈ {2, 3, 4, 6, 8, 9, 12, 18}, rozrážecí síla = 100× poměr.
+//
+// Síla úderu je napevno 100 N — je to ZVOLENÝ kulatý vstup (aby šlo sílu ukázat
+// v newtonech), ne tvrzení z výkladu; výklad mluví jen o poměru a „zhruba poloviční
+// síle". Scéna ji proto všude jmenuje jako „zvolený úder 100 N" a vedle newtonů
+// vždy píše i „×kolikrát".
+//
+// Kresba nelže: délka i tloušťka klínu se kreslí ve stejném měřítku (4 px = 1 cm),
+// šipky rozrážecích sil jsou dlouhé přesně úměrně vypočtené síle (0,13 px na 1 N —
+// měřítko je zvolené tak, aby i nejdelší šipka 1800 N zůstala uvnitř špalku)
+// a rozevření špalku se rovná šířce klínu v rovině povrchu — při zaražení na celou
+// délku je to právě b.
+//
+// A hlavně: DOKUD KLADIVO NEUDEŘÍ, žádná rozrážecí síla nepůsobí. Ve výchozím stavu
+// (t = 0) jsou proto šipky jen PŘEDPOVĚĎ — čárkované, poloprůhledné, s prázdným
+// hrotem — a všechny texty mluví budoucím časem („po úderu …"). Teprve úderem se
+// změní na plné a texty přejdou do přítomného času. Stav kresby a text scény se tak
+// shodují v každém okamžiku.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: klín 🕹️</span></h2>
+	<p>
+		<strong>Klín</strong> jsou dvě nakloněné roviny zády k sobě. Když do hřbetu udeříš,
+		šikmé plochy změní úder na síly, které tlačí <strong>do stran</strong> a dřevo rozevřou.
+		Rozhoduje <strong>poměr délky klínu k jeho tloušťce</strong>: čím je klín delší a tenčí,
+		tím větší silou rozráží — zato musí zajet hlouběji, než dřevo rozevře stejně široko.
+		Nastav klín posuvníky a udeř kladivem. Čárkované šipky jsou zatím jen předpověď.
+	</p>
+
+	<svg id="kl-svg" viewBox="0 0 620 400" role="img" aria-label="Klín zaražený do dřevěného špalku">
+		<rect x="0" y="0" width="620" height="400" fill="#eef6ff" />
+
+		<!-- špalek: dvě půlky, které se klínem rozevřou -->
+		<rect id="kl-spalek-l" x="60" y="200" width="250" height="180" fill="#c9885a" stroke="#2b2a26" stroke-width="3" />
+		<rect id="kl-spalek-p" x="310" y="200" width="250" height="180" fill="#c9885a" stroke="#2b2a26" stroke-width="3" />
+		<line id="kl-vlakno-l1" x1="80" y1="240" x2="290" y2="240" stroke="#a06a42" stroke-width="4" />
+		<line id="kl-vlakno-l2" x1="80" y1="320" x2="290" y2="320" stroke="#a06a42" stroke-width="4" />
+		<line id="kl-vlakno-p1" x1="330" y1="240" x2="540" y2="240" stroke="#a06a42" stroke-width="4" />
+		<line id="kl-vlakno-p2" x1="330" y1="320" x2="540" y2="320" stroke="#a06a42" stroke-width="4" />
+
+		<!-- klín -->
+		<polygon id="kl-klin" points="302,152 318,152 310,200" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
+
+		<!-- úder kladivem (popisek vpravo od šipky, aby nikde nenarazil na jiný rámeček) -->
+		<line id="kl-uder-cara" x1="310" y1="106" x2="310" y2="136" stroke="#1971c2" stroke-width="5" />
+		<polygon id="kl-uder-hrot" points="303,136 317,136 310,146" fill="#1971c2" />
+		<rect id="kl-uder-podklad" x="320" y="105" width="150.8" height="22" rx="5" fill="#ffffff" stroke="#1971c2" stroke-width="2" />
+		<text id="kl-uder-text" x="326" y="122" font-size="15" font-weight="bold" fill="#1971c2">zvolený úder 100 N</text>
+
+		<!-- rozrážecí síly do stran; před úderem čárkovaně = teprve předpověď -->
+		<line id="kl-sila-l-cara" x1="302" y1="176" x2="272" y2="176" stroke="#e03131" stroke-width="5" stroke-dasharray="9 7" opacity="0.5" />
+		<polygon id="kl-sila-l-hrot" points="272,169 272,183 260,176" fill="none" stroke="#e03131" stroke-width="3" opacity="0.5" />
+		<line id="kl-sila-p-cara" x1="318" y1="176" x2="348" y2="176" stroke="#e03131" stroke-width="5" stroke-dasharray="9 7" opacity="0.5" />
+		<polygon id="kl-sila-p-hrot" points="348,169 348,183 360,176" fill="none" stroke="#e03131" stroke-width="3" opacity="0.5" />
+		<rect id="kl-sila-podklad" x="314" y="143" width="242" height="22" rx="5" fill="#ffffff" stroke="#e03131" stroke-width="2" stroke-dasharray="9 7" />
+		<text id="kl-sila-text" x="320" y="160" font-size="15" font-weight="bold" fill="#e03131">po úderu 300 N do každé strany</text>
+
+		<!-- poměr -->
+		<rect id="kl-pomer-podklad" x="16" y="14" width="150.8" height="22" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="kl-pomer-text" x="22" y="31" font-size="16" font-weight="bold" fill="#2b2a26">l : b = 12 : 4 = 3</text>
+
+		<!-- hloubka a rozevření -->
+		<rect id="kl-rozev-podklad" x="16" y="344" width="219.2" height="22" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="kl-rozev-text" x="22" y="361" font-size="16" font-weight="bold" fill="#2b2a26">klín zatím nezajel do dřeva</text>
+	</svg>
+
+	<div class="kl-ovladani">
+		<label>délka klínu l <input id="kl-l" type="range" min="12" max="36" step="12" value="12" /> <span id="kl-l-t">12</span> cm</label>
+		<label>tloušťka hřbetu b <input id="kl-b" type="range" min="2" max="6" step="2" value="4" /> <span id="kl-b-t">4</span> cm</label>
+	</div>
+
+	<div class="kl-tlacitka">
+		<button id="kl-uder" type="button">🔨 Udeř kladivem</button>
+		<button id="kl-reset" type="button">↺ Vytáhni klín</button>
+	</div>
+
+	<p id="kl-vysledek" class="kl-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+
+	const STRED = 310; // vodorovný střed scény = místo, kde se špalek štípe
+	const POVRCH = 200; // výška povrchu špalku
+	const PULKA = 250; // šířka jedné půlky špalku
+	const PXNACM = 4; // měřítko kresby: jeden centimetr klínu kreslíme jako 4 px (délku i tloušťku stejně)
+	// Měřítko šipek: 0,13 px na 1 N. Nejdelší možná šipka (klín 36 cm dlouhý, hřbet
+	// 2 cm, tedy 1800 N) je 234 px dlouhá a její hrot leží na 550 px — o 10 px UVNITŘ
+	// špalku, který i v klidu (bez rozevření) sahá jen na 60–560 px. Úměrnost délky
+	// šipky k síle tím zůstává nedotčená, mění se jen měřítko.
+	const PXNAN = 0.13;
+	const UDER = 100; // ZVOLENÁ síla úderu v newtonech (ve výkladu žádná daná hodnota není)
+	const TRVANI = 600; // jak dlouho trvá zaražení klínu (ms)
+	const CARKY = '9 7'; // čárkování předpovědi (šipky sil, dokud kladivo neudeří)
+	const PRUHLEDNOST = 0.5; // průhlednost předpovědi
+	const CERVENA = '#e03131'; // barva rozrážecích sil
+
+	let t = 0; // 0 = klín nad špalkem, 1 = zaražený na celou délku
+	let bezi = false;
+
+	function nastav(id, atributy) {
+		const el = $(id);
+		for (const k of Object.keys(atributy)) el.setAttribute(k, atributy[k]);
+	}
+
+	/** Zaokrouhlení souřadnic na dvě desetiny — jinak by v SVG stály dlouhé chvosty devítek. */
+	const px = (v) => Math.round(v * 100) / 100;
+
+	/** Vše, co scéna tvrdí, spočítané z posuvníků na jednom místě. */
+	function stav() {
+		const l = +$('kl-l').value;
+		const b = +$('kl-b').value;
+		const pomer = l / b;
+		return {
+			l,
+			b,
+			pomer,
+			rozrazeci: UDER * pomer,
+			hloubka: t * l,
+			rozevreni: t * b,
+		};
+	}
+
+	/** Podklad pod text, ať je popisek čitelný i přes kresbu. */
+	function podklad(idRect, idText, text, x, y, doprava) {
+		$(idText).textContent = text;
+		const sirka = px(text.length * 7.6 + 14);
+		nastav(idText, { x: px(x), y: px(y) });
+		nastav(idRect, {
+			x: px(doprava ? x - 6 : x - sirka + 6),
+			y: px(y - 17),
+			width: sirka,
+			height: 22,
+		});
+	}
+
+	function prekresli() {
+		const s = stav();
+		$('kl-l-t').textContent = String(s.l);
+		$('kl-b-t').textContent = String(s.b);
+
+		// Dokud je t = 0, kladivo ještě neudeřilo a ŽÁDNÁ rozrážecí síla nepůsobí.
+		const predUderem = t === 0;
+
+		const L = s.l * PXNACM;
+		const B = s.b * PXNACM;
+		const hrbetY = px(POVRCH - L + t * L);
+		const ostriY = px(POVRCH + t * L);
+		const posun = px((t * B) / 2); // o tolik se odsune každá půlka špalku
+
+		nastav('kl-klin', {
+			points: `${STRED - B / 2},${hrbetY} ${STRED + B / 2},${hrbetY} ${STRED},${ostriY}`,
+		});
+		nastav('kl-spalek-l', { x: STRED - PULKA - posun });
+		nastav('kl-spalek-p', { x: STRED + posun });
+		nastav('kl-vlakno-l1', { x1: STRED - PULKA + 20 - posun, x2: STRED - 20 - posun });
+		nastav('kl-vlakno-l2', { x1: STRED - PULKA + 20 - posun, x2: STRED - 20 - posun });
+		nastav('kl-vlakno-p1', { x1: STRED + 20 + posun, x2: STRED + PULKA - 20 + posun });
+		nastav('kl-vlakno-p2', { x1: STRED + 20 + posun, x2: STRED + PULKA - 20 + posun });
+
+		// šipka úderu — stejná pro všechna nastavení, protože síla úderu se nemění
+		nastav('kl-uder-cara', { x1: STRED, x2: STRED, y1: hrbetY - 46, y2: hrbetY - 16 });
+		nastav('kl-uder-hrot', {
+			points: `${STRED - 7},${hrbetY - 16} ${STRED + 7},${hrbetY - 16} ${STRED},${hrbetY - 6}`,
+		});
+		// popisek úderu stojí VPRAVO od šipky: nalevo by při dlouhém klínu (l = 36 cm)
+		// vystoupal k rámečku poměru a dotýkal se ho
+		podklad('kl-uder-podklad', 'kl-uder-text', `zvolený úder ${UDER} N`, STRED + 16, hrbetY - 30, true);
+
+		// rozrážecí síly: šipky v polovině výšky klínu, délka úměrná vypočtené síle.
+		// Před úderem je to jen předpověď → čárkovaně, poloprůhledně, s prázdným hrotem.
+		const sipkaY = px(hrbetY + L / 2);
+		const okraj = B / 4 + 4; // polovina šířky klínu v té výšce + malá mezera
+		const delka = px(s.rozrazeci * PXNAN);
+		const carkovane = predUderem ? CARKY : 'none';
+		const pruhlednost = predUderem ? PRUHLEDNOST : 1;
+		const vypln = predUderem ? 'none' : CERVENA;
+		const obrys = predUderem ? 3 : 0;
+		nastav('kl-sila-p-cara', {
+			x1: STRED + okraj, x2: STRED + okraj + delka - 12, y1: sipkaY, y2: sipkaY,
+			'stroke-dasharray': carkovane, opacity: pruhlednost,
+		});
+		nastav('kl-sila-p-hrot', {
+			points: `${STRED + okraj + delka - 12},${sipkaY - 7} ${STRED + okraj + delka - 12},${sipkaY + 7} ${STRED + okraj + delka},${sipkaY}`,
+			fill: vypln, stroke: CERVENA, 'stroke-width': obrys, opacity: pruhlednost,
+		});
+		nastav('kl-sila-l-cara', {
+			x1: STRED - okraj, x2: STRED - okraj - delka + 12, y1: sipkaY, y2: sipkaY,
+			'stroke-dasharray': carkovane, opacity: pruhlednost,
+		});
+		nastav('kl-sila-l-hrot', {
+			points: `${STRED - okraj - delka + 12},${sipkaY - 7} ${STRED - okraj - delka + 12},${sipkaY + 7} ${STRED - okraj - delka},${sipkaY}`,
+			fill: vypln, stroke: CERVENA, 'stroke-width': obrys, opacity: pruhlednost,
+		});
+		// Popisek sil stojí tak daleko vpravo, aby jeho bílý rámeček NIKDY nezakryl bok
+		// klínu: rámeček začíná na 334 px, zatímco nejtlustší klín (hřbet 6 cm, tedy
+		// 24 px) zabírá nejvýš 298–322 px. Ve všech kombinacích posuvníků i ve všech
+		// fázích úderu tak zbývá 12 px mezery; svisle se rámeček s klínem u některých
+		// nastavení míjí, proto se spoléhá na vodorovný odstup.
+		podklad(
+			'kl-sila-podklad',
+			'kl-sila-text',
+			`${predUderem ? 'po úderu ' : ''}${s.rozrazeci} N do každé strany`,
+			STRED + 30,
+			sipkaY - 16,
+			true,
+		);
+		nastav('kl-sila-podklad', { 'stroke-dasharray': carkovane });
+
+		podklad('kl-pomer-podklad', 'kl-pomer-text', `l : b = ${s.l} : ${s.b} = ${s.pomer}`, 22, 31, true);
+
+		const dole = predUderem
+			? `klín zatím nezajel do dřeva`
+			: t < 1
+				? `klín zajíždí do dřeva`
+				: `zajel ${s.l} cm hluboko → rozevřel ${s.b} cm`;
+		podklad('kl-rozev-podklad', 'kl-rozev-text', dole, 22, 361, true);
+
+		const el = $('kl-vysledek');
+		if (predUderem) {
+			el.innerHTML = `Poměr <strong>l : b = ${s.l} : ${s.b} = ${s.pomer}</strong>. Zvolený úder ${UDER} N se na šikmých plochách změní na sílu <strong>${s.pomer}× větší</strong> — po úderu klín rozrazí dřevo do stran silou <strong>${s.rozrazeci} N</strong>. Čárkované šipky jsou zatím jen předpověď. Klikni „Udeř kladivem".`;
+		} else if (t < 1) {
+			el.innerHTML = `Kladivo udeřilo: klín zajíždí do dřeva a rozráží ho do stran silou <strong>${s.rozrazeci} N</strong>, tedy <strong>${s.pomer}×</strong> větší než zvolený úder ${UDER} N.`;
+		} else {
+			el.innerHTML = `Klín zajel do dřeva <strong>${s.l} cm</strong> hluboko a rozevřel ho o <strong>${s.b} cm</strong>. Rozrážecí síla byla <strong>${s.rozrazeci} N</strong>, tedy <strong>${s.pomer}×</strong> větší než zvolený úder ${UDER} N. Zlaté pravidlo mechaniky sedí: ${UDER} N · ${s.l} cm = ${s.rozrazeci} N · ${s.b} cm.`;
+		}
+	}
+
+	$('kl-uder').addEventListener('click', () => {
+		if (bezi || t >= 1) return;
+		bezi = true;
+		const zacatek = performance.now();
+		const krok = (ted) => {
+			t = Math.min(1, (ted - zacatek) / TRVANI);
+			prekresli();
+			if (t < 1) requestAnimationFrame(krok);
+			else bezi = false;
+		};
+		requestAnimationFrame(krok);
+	});
+	$('kl-reset').addEventListener('click', () => {
+		if (bezi) return;
+		t = 0;
+		prekresli();
+	});
+	const zmena = () => {
+		if (bezi) return;
+		t = 0;
+		prekresli();
+	};
+	$('kl-l').addEventListener('input', zmena);
+	$('kl-b').addEventListener('input', zmena);
+
+	// kotvy pro test simulace (testy/simulace/klin.mjs)
+	$('kl-svg').__stav = stav;
+	$('kl-svg').__cas = () => t;
+
+	prekresli();
+</script>
+
+<style>
+	#kl-svg {
+		width: 100%;
+		max-width: 620px;
+		display: block;
+		margin: 0 auto;
+		background: #eef6ff;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.kl-ovladani {
+		display: flex;
+		gap: 1.4rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.kl-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 600;
+	}
+	.kl-ovladani input[type='range'] {
+		min-width: 8rem;
+		height: 2rem;
+	}
+	.kl-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 0.6rem 0;
+	}
+	.kl-tlacitka button {
+		font-weight: 700;
+		font-size: 1rem;
+		padding: 0.5rem 1.1rem;
+		min-height: 2.75rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffd43b;
+		color: #2b2a26;
+		cursor: pointer;
+		touch-action: manipulation;
+	}
+	.kl-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		color: #2b2a26;
+		text-align: center;
+	}
+</style>

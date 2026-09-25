@@ -6,7 +6,7 @@
 // Každá mutace je skutečný nález kontrolora: 8 z 2. 8. 2026 (texty vzorců),
 // 5 z 3. 8. (přístupnost a chybové kódy) a 11 z druhého kola (naučné texty).
 // Spuštění:  node testy/podvrhy/funkce-tabulky-podvrhy.mjs
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,7 +15,9 @@ import { tmpdir } from 'node:os';
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const ZDROJ = join(REPO, 'src/components/skola2/SenzoryRobotaSimulace.astro');
 const TEST = join(REPO, 'testy/simulace/senzory-robota.mjs');
-const KOPIE = join(tmpdir(), 'senzory-robota-podvrh.astro');
+const WORKDIR = mkdtempSync(join(tmpdir(), 'senzory-robota-podvrh-'));
+const KOPIE = join(WORKDIR, 'senzory-robota-podvrh.astro');
+process.on('exit', () => { try { rmSync(WORKDIR, { recursive: true, force: true }); } catch {} });
 
 const puvodni = readFileSync(ZDROJ, 'utf8');
 

@@ -260,6 +260,32 @@ if (volbaScény !== null) {
 }
 if (sceny.length > 1) console.log(`ℹ️  scén v komponentě: ${sceny.length} — kreslí se ${index + 1}. (id: ${idScény(sceny[index])})`);
 let svg = sceny[index];
+
+// JSX SMYČKY jako dítě scény (`{Array.from({ length: 25 }, (_, i) => (<rect …/>))}`,
+// viz LedDisplejSimulace/MicrobitVstupySimulace): tenhle nástroj JSX nevyhodnocuje,
+// takže blok zůstává ve zdroji jako syrový JS text — a jako text uprostřed <svg>
+// je to NEPLATNÉ XML (pojistka níže by odmítla uložit cokoli, viz 6a14151).
+// Bezpečnější než hádat hodnoty je takový blok z náhledu ÚPLNĚ VYNECHAT: prvky,
+// které vytváří, se v obrázku nezobrazí (degradovaný, ale poctivý náhled —
+// ne useknutá scéna s chybou uprostřed) a zbytek scény zůstane měřitelný.
+function odstranJsxSmycky(text) {
+	let vysledek = '';
+	let i = 0;
+	while (i < text.length) {
+		const zacatek = text.indexOf('{Array.from(', i);
+		if (zacatek === -1) { vysledek += text.slice(i); break; }
+		vysledek += text.slice(i, zacatek);
+		let hloubka = 0, j = zacatek;
+		for (; j < text.length; j++) {
+			if (text[j] === '{') hloubka++;
+			else if (text[j] === '}') { hloubka--; if (hloubka === 0) { j++; break; } }
+		}
+		i = j; // celý blok se přeskočí (nevloží se nic)
+	}
+	return vysledek;
+}
+svg = odstranJsxSmycky(svg);
+
 // serializace prvků vyrobených za běhu (createElement/createElementNS + appendChild),
 // zavěšených pod prvek se ZNÁMÝM id ze zdroje — viz komentář u `prazdnyPrvek` výše.
 const escXml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -287,6 +313,13 @@ for (const [id, p] of prvky) {
 			const samouzaviraci = new RegExp(`<(\\w+)([^>]*)\\bid="${id}"([^>]*)\\/\\s*>`);
 			if (samouzaviraci.test(svg)) {
 				svg = svg.replace(samouzaviraci, (cely, tag, pred, za) => `<${tag}${pred}id="${id}"${za}>${p.potomci.map(serializujPrvek).join('')}</${tag}>`);
+			} else if (new RegExp(`\\bid="${id}"`).test(zdroj)) {
+				// Prvek existuje ve zdroji, ale MIMO vykreslovanou <svg> scénu — typicky
+				// HTML seznam/stav vedle plátna (viz LedDisplejSimulace: <ol id="led-prikazy">
+				// se seznamem programových kroků). Náhled kreslí jen SVG scénu, takže
+				// obsah mimo ni prostě nejde do výstupu — to NENÍ chyba komponenty ani
+				// důvod k pádu, jen mimo dosah tohohle nástroje.
+				console.log(`ℹ️  V komponentě ${komponenta} je id="${id}" mimo vykreslovanou <svg> scénu — vygenerovaní potomci se do náhledu nevloží (nejsou součástí obrázku).`);
 			} else {
 				console.error(`❌ V komponentě ${komponenta} nebyl nalezen prvek s id="${id}" (ani párový, ani samouzavírací tag) — vygenerovaní potomci se nevloží.`);
 				process.exit(1);

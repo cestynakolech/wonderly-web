@@ -1,4 +1,37 @@
+## STAV 25. 9. 2026 — session orchestrátora (kvízy, 4 nové simulace, oprava měřidel)
+
+**HOTOVO A OVĚŘENO (build kód 0, 489 stránek, obousměrné ověření 33/33):**
+- Kvízy: blok `fyzika/6-rocnik/teplota/teplota-a-jeji-mereni` zkrácen z 22 na 21 otázek; 8 bloků zbaveno „vaty" v distraktorech (VZOR 1: 58 → 45 bloků); proběhla TŘI kola nezávislé kontroly, celkem 10 nalezených a opravených vad. Typická vada: vyškrtnutím slova „pouze/jen" se ze špatné odpovědi stala pravda → dvě správné odpovědi.
+- Výklad `fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje` (temata.ts): „nacházejí se v přírodě v neomezeném množství" přepsáno na „stále se obnovují a doplňují — slunce svítí dál, vítr fouká dál, pokácený les zase doroste". Důvod: kvíz označoval „zásoba je nevyčerpatelná" za špatnou odpověď, a výklad přitom učil opak. Ověřeno, že na webu už nikde nezůstalo tvrzení o neomezeném množství.
+- Kvíz informatiky: blok `informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni` doplněn z 10 na **21 otázek** (11 nových, po nezávislé kontrole a opravách). ZBÝVÁ 42 bloků informatiky a pracovních činností pod 21 otázek.
+- ČTYŘI NOVÉ SIMULACE, všechny zapojené a s obousměrnými důkazy: `pracovni-cinnosti/6-rocnik/3d-modelovani/tinkercad` a `sketchup`, `fyzika/7-rocnik/jednoduche-stroje/klin`, `fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost`. Kotva: podtémat bez názornosti u fyziky 11 → 9, u pracovních činností 3 → 1.
+- Odkazy: nález „27 mrtvých odkazů" z 24. 9. byl nezávislou kontrolou VYVRÁCEN (odkazy žijí, doloženo `curl` i `urllib`); místo toho opraveno měřidlo `Omega/skripty/kontrola_odkazu.py` — chyba spojení už nekončí verdiktem MRTVÝ, ale kategorií „NESPOJENO (neověřitelné)", plošný výpadek běh přeruší a report označí za neplatný; `extrakce_odkazu.mjs` nově čte i odkazy vložené v HTML výkladu (+12). Odkaz `osveta.nukib.cz` sjednocen na `osveta.nukib.gov.cz` na všech 3 místech.
+
+**OPRAVENÁ MĚŘIDLA — důležité pro důvěru v brány:**
+- `testy/obousmerne.mjs` vypisovala „3 z 33 selhalo" a PŘESTO vracela kód 0 (chyběl `process.exit`). Navíc pole `test` v rejstříku neslo poznámky v závorce, které se posílaly do skládání cesty → hlásilo se „CHYBÍ SOUBOR". Po opravě kleslo CHYBÍ SOUBOR **z 24 na 0** — dvacet čtyři měřidel se nikdy nespouštělo. `package.json` (prebuild i test) nově bránu volá.
+- Pod tím schovaná 3 selhání opravena: `testy/nahled-simulace.mjs` (neumělo prvek, který je záměrně HTML místo SVG, a JSX smyčky), zastaralé kotvy v `testy/uniky-krizove-obousmerne.mjs` (citovaly znění otázek přeslovené přestavbou od 14. 8.) a podvrh `obnovitelne-zdroje-podvrhy.mjs` (mířil na starou podobu kódu). POZOR: tohle NEVYŘEŠILO nekonzistenci bezpečného napětí mezi 8. a 9. ročníkem — ta ve frontě zůstává.
+
+**NOVÁ PRAVIDLA (zapsána do Omega/PRAVIDLA.md + paměti):** oprava se testuje na tom, co selhalo · měřidlo nad živým souborem není kotva · brána musí umět spadnout, jinak neměří · kontrola atributu nedokazuje, že je to vidět.
+
+**ČEKÁ NA POKRAČOVÁNÍ:**
+1. Podvrhové testy (`testy/podvrhy/*.mjs`) používají dočasnou kopii s PEVNÝM jménem v tmpdir → dva souběžné běhy si přepíšou soubor a test ohlásí vadu, která neexistuje. Doloženo 4 souběžnými běhy. OPRAVIT: jedinečné jméno dočasné kopie ve všech podvrhových skriptech.
+2. Vata v kvízech: zbývá VZOR 1 = 45 bloků, VZOR 2 = 32 bloků.
+3. 42 bloků informatiky/pracovních činností pod 21 otázek.
+4. Podtémata bez názornosti: fyzika 9 (z toho 7 jsou pololetní/roční shrnutí — u těch simulace nemá smysl, ČEKÁ ROZHODNUTÍ UČITELE, zda dělat přehledovou infografiku, nebo je z měřidla vyjmout), informatika 15 (sbírá je cloudová větev `simulace-informatika`), pracovní činnosti 1 (roční shrnutí).
+5. `MEMORY.md` má 164 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez jeho pokynu.
+6. Tmavý režim se školní části webu NETÝKÁ (`prefers-color-scheme` je jen v deníku cest) — nezadávat ho workerům jako požadavek.
+
+---
+
 ## STAV 25. 9. 2026 ráno (~01:10) — učitel odchází, session se chystá na /clear
+
+**FRONTA — nález nezávislé kontroly 25. 9. 2026:** Brána `testy/uniky.mjs`
+nekontroluje pole `vysvetleni` — porovnává jen text otázek a nabídek. Nalezeno
+25. 9. 2026: nová otázka měla správnou odpověď, kterou doslova prozrazovalo
+vysvětlení u jiné otázky téhož bloku, a brána to nehlásila. K DOPLNĚNÍ: zahrnout
+`vysvetleni` do kontroly úniků (pozor, hrozí hodně falešných poplachů —
+vysvětlení látku běžně opakuje, takže bude potřeba práh nebo porovnání jen proti
+správným odpovědím jiných otázek).
 
 **Co běží dál SAMO (ověřeno `ps`, nezávisí na téhle session):**
 - `dodelej_animace.py` PID 27841 žije (dávková výroba animací), log
@@ -133,6 +166,19 @@ animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bod�
    učebnice Scratch/robotika/micro:bit NPI, zbytek `www.microbiti.cz/search/…`),
    4 podezřelé, 7 neověřitelných automatem (403/přihlašovací stěna — posoudit
    ručně). ZAPSAT jako novou dávku stejným postupem jako dávka z 24. 9.
+   **⚠️ VYVRÁCENO nezávislou kontrolou 25. 9. 2026:** vlastní běhy `curl -L`
+   i `python3 urllib` prokázaly, že všech 27 odkazů ve skutečnosti ŽIJE —
+   HTTP kód 0 byl přechodný výpadek spojení při běhu 24. 9., ne mrtvý web.
+   Vada byla v MĚŘIDLE (`Omega/skripty/kontrola_odkazu.py`), ne v datech.
+   **Úkol „nahradit 27 odkazů" PADÁ** — nic se nenahrazuje. Místo toho
+   opraveno měřidlo: (a) opakování HTTP 0/-1 zesíleno na 4 pokusy s rostoucí
+   prodlevou (3/6/9 s) + do reportu se zapisuje curl exit kód a chybová
+   hláška, (b) extrakce nově čte i odkazy vložené přímo v HTML výkladu
+   (`<a href=…>`, dřív se 12 takových URL nekontrolovalo vůbec), (c) verdikt
+   modelu o tematické shodě už nepadá do „MRTVÝ", ale do nové kategorie
+   „OVĚŘIT RELEVANCI". Ověřeno oběma směry: živý odkaz na
+   archiv-imysleni.npi.cz → OK, vymyšlená neexistující URL na téže doméně
+   → MRTVÝ (404).
 4. **Prebuild brána šla obejít** — ✅ HOTOVO 24. 9. 2026, commit `e79e056`
    (ověřeno v `git log`), popis řešení a obousměrné ověření (vložená/vrácená
    vada v `testy/rohatka.json`, 489 stránek) beze změny platí, archiv viz
@@ -165,7 +211,8 @@ animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bod�
 11. **[skola2] 12 dílů podkástů bez videa nebo jen se zvukem** — viz bod 1
     výše (5 JEN AUDIO + 7 BEZ MÉDIÍ, ročníky 8–9: elektromagnet-dialog1–3,
     magnety-opakovani-dialog2–3, vodic-civka-dialog1–3, vykon-dialog1–4).
-12. **[skola2] 27 nových mrtvých odkazů** — viz bod 3 výše.
+12. **[skola2] 27 nových mrtvých odkazů** — ⚠️ VYVRÁCENO 25. 9. 2026, viz
+    bod 3 výše. Nález padá, nahrazeno opravou měřidla.
 
 ### JAK NAVÁZAT PO /clear (povel WONDERLY)
 
@@ -176,7 +223,8 @@ animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bod�
    a další celky), nezasahovat do nich, dokud neskončí.
 3. Až se souběh na `kvizy.ts`/`temata.ts` uvolní (ověřit `git status`),
    pokračuj frontou výše v pořadí: (2) zapsat vatu — zbylých 58 bloků VZOR 1
-   + nově 31 bloků VZOR 2, (3)+(12) zapsat 27 nových mrtvých odkazů,
+   + nově 31 bloků VZOR 2 — (3)+(12) „27 mrtvých odkazů" VYVRÁCENO 25. 9.,
+   NEZAPISOVAT, měřidlo opraveno,
    (6) zkrátit `teplota-a-jeji-mereni` na 21 otázek.
 4. Pak nové položky (8)–(11): kvízy informatiky/prac. činností na 21 otázek
    (43 bloků), simulace/názornost pro 15+3 podtémat, doladit 23 klipů pod

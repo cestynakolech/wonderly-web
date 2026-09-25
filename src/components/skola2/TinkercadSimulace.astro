@@ -1,0 +1,593 @@
+---
+// Tinkercad — „kouzlo DÍRY" (pracovní činnosti 6, podtéma Tinkercad).
+//
+// Výklad učí tři věci, které tahle simulace ukazuje na jedné scéně:
+//   1. rozměry se zadávají přesně v MILIMETRECH (bílé úchyty / políčko s číslem),
+//   2. každé těleso může být PLNÉ, nebo DÍRA (šrafovaná),
+//   3. teprve SESKUPIT (Ctrl+G) díru z tělesa „vykousne"; černá šipka nahoře
+//      těleso ZVEDNE nad plochu — a zvednutá díra se pak vykousne jen mělce.
+//
+// Scéna má DVA pohledy na tutéž placku klíčenky (kvádr 40 × 20 × 4 mm) a válec
+// nad ní (dírka na kroužek):
+//   • vlevo kavalírní pohled shora — v něm je vidět ÚSTÍ dírky,
+//   • vpravo ŘEZ ZBOKU ve stejném měřítku — v něm je vidět, KAM AŽ díra dosáhne.
+// Druhý pohled tu není pro parádu: z pohledu shora se do 4 mm hluboké dírky
+// na dno nevidí (kamera míří nízko), takže „projde skrz" by z něj nebylo poznat.
+// Všechny tři posuvníky mají celočíselný krok a všechny jejich polohy dávají
+// celé výsledky:
+//   • zbytek materiálu u kraje  = x − d/2        (d je vždy sudé → celé mm)
+//   • hloubka výkusu            = min(4; h + 6) − max(0; h) = 4 − h   (h = 0…4 mm)
+// Žádné jiné číslo scéna netvrdí — rozměry si v Tinkercadu volí žák sám,
+// simulace jen počítá s tím, co je na posuvnících.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: jak v Tinkercadu vznikne DÍRA 🕹️</span></h2>
+	<p>
+		Na ploše leží <strong>placka klíčenky</strong> 40 × 20 × 4 mm a nad ní válec.
+		Přepni válec na <strong>díru</strong> (šrafovaný), nastav rozměry v mm
+		a dej <strong>Seskupit (Ctrl+G)</strong> — díra se z placky vykousne.
+		Vpravo je tatáž placka v <strong>řezu zboku</strong>: tam uvidíš, kam až díra dosáhne.
+	</p>
+
+	<svg id="tc-svg" viewBox="0 0 560 360" role="img"
+		aria-label="Placka klíčenky na pracovní ploše Tinkercadu a nad ní válec, který se dá přepnout na díru a seskupit">
+		<defs>
+			<pattern id="tc-srafa" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+				<rect width="8" height="8" fill="#f8f9fa" />
+				<line x1="0" y1="0" x2="0" y2="8" stroke="#868e96" stroke-width="3" />
+			</pattern>
+			<clipPath id="tc-clip-horni">
+				<!-- horní plocha placky: co je mimo ni, se do tělesa nevykousne -->
+				<polygon points="100,226 360,226 424,184 164,184" />
+			</clipPath>
+		</defs>
+
+		<!-- bílý podklad: scéna zůstane čitelná i v tmavém režimu -->
+		<rect x="0" y="0" width="560" height="360" fill="#ffffff" stroke="#2b2a26" stroke-width="2" rx="10" />
+
+		<!-- panel s tím, co je právě spočítané -->
+		<rect x="12" y="10" width="536" height="64" fill="#f8f9fa" stroke="#2b2a26" stroke-width="2" rx="8" />
+		<text id="tc-t-rezim" x="26" y="31" font-size="15" font-weight="bold" fill="#2b2a26">—</text>
+		<text id="tc-t-vypocet" x="26" y="50" font-size="15" fill="#1864ab">—</text>
+		<text id="tc-t-vysledek" x="26" y="68" font-size="15" font-weight="bold" fill="#2b2a26">—</text>
+
+		<!-- pracovní plocha Tinkercadu -->
+		<polygon points="19,262.5 409,262.5 505,199.5 115,199.5" fill="#cfe3ee" stroke="#5a8aa6" stroke-width="2" />
+		<line x1="51" y1="241.5" x2="441" y2="241.5" stroke="#9dc0d4" stroke-width="1" />
+		<line x1="83" y1="220.5" x2="473" y2="220.5" stroke="#9dc0d4" stroke-width="1" />
+		<line x1="84" y1="262.5" x2="180" y2="199.5" stroke="#9dc0d4" stroke-width="1" />
+		<line x1="214" y1="262.5" x2="310" y2="199.5" stroke="#9dc0d4" stroke-width="1" />
+		<line x1="344" y1="262.5" x2="440" y2="199.5" stroke="#9dc0d4" stroke-width="1" />
+
+		<!-- placka klíčenky: pravý bok, přední stěna, horní plocha -->
+		<polygon id="tc-placka-bok" points="360,226 424,184 424,210 360,252" fill="#e8863a" stroke="#2b2a26" stroke-width="2" />
+		<polygon id="tc-placka-predni" points="100,226 360,226 360,252 100,252" fill="#ffa94d" stroke="#2b2a26" stroke-width="2" />
+		<polygon id="tc-placka-horni" points="100,226 360,226 424,184 164,184" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />
+
+		<!-- vykousnutý otvor (vidět až po seskupení; ořezaný horní plochou placky).
+		     Kreslí se VÝHRADNĚ uvnitř ústí: vnitřek ústí má barvu toho, co je na dně
+		     (pracovní plocha u průchozího otvoru, materiál u důlku) a přes něj leží
+		     kus stěny hned pod zadním okrajem. Nic z toho nesmí přetéct přes ústí —
+		     jinak by z dírky byla trubka trčící z placky. -->
+		<g clip-path="url(#tc-clip-horni)">
+			<ellipse id="tc-otvor-vnitrek" cx="0" cy="0" rx="0" ry="0" fill="#cfe3ee" opacity="0" />
+			<path id="tc-otvor-stena" d="M 0,0" fill="#c97b2e" opacity="0" />
+			<ellipse id="tc-otvor-okraj" cx="0" cy="0" rx="0" ry="0" fill="none" stroke="#2b2a26" stroke-width="2" opacity="0" />
+		</g>
+
+		<!-- druhé těleso: válec (plný nebo díra) -->
+		<path id="tc-valec-plast" d="M 0,0" fill="#ff8787" stroke="#2b2a26" stroke-width="2" opacity="1" />
+		<ellipse id="tc-valec-vrch" cx="0" cy="0" rx="0" ry="0" fill="#ffc9c9" stroke="#2b2a26" stroke-width="2" opacity="1" />
+
+		<!-- DRUHÝ POHLED: řez plackou zboku, stejné měřítko 6,5 px na mm v obou osách.
+		     Kreslí se ze samých obdélníků, takže je bez zkreslení vidět, kde se válec
+		     s plackou překrývá — a po seskupení, kam až díra dosáhla. -->
+		<text x="284" y="86" font-size="12" font-weight="bold" fill="#2b2a26">Řez plackou zboku — kam až díra sahá</text>
+		<rect id="tc-rez-plocha" x="278" y="158" width="272" height="8" fill="#cfe3ee" stroke="#5a8aa6" stroke-width="2" />
+		<rect id="tc-rez-otvor" x="284" y="132" width="0" height="0" fill="#cfe3ee" opacity="0" />
+		<path id="tc-rez-placka" d="M 0,0" fill="#ffa94d" stroke="#2b2a26" stroke-width="2" />
+		<rect id="tc-rez-valec" x="284" y="132" width="0" height="0" fill="#ff8787" stroke="#2b2a26" stroke-width="2" />
+		<text x="284" y="178" font-size="11" fill="#5a8aa6">pracovní plocha</text>
+
+		<!-- kóta: vzdálenost středu dírky od levého kraje placky -->
+		<line x1="132" y1="252" x2="132" y2="290" stroke="#495057" stroke-width="1" stroke-dasharray="4 3" />
+		<line id="tc-kota-svisla" x1="171" y1="252" x2="171" y2="290" stroke="#495057" stroke-width="1" stroke-dasharray="4 3" />
+		<line id="tc-kota-x" x1="132" y1="284" x2="171" y2="284" stroke="#1864ab" stroke-width="3" />
+		<rect id="tc-kota-x-podklad" x="96.5" y="292" width="110" height="20" fill="#ffffff" stroke="#1864ab" stroke-width="1" rx="4" />
+		<text id="tc-kota-x-text" x="151.5" y="307" text-anchor="middle" font-size="14" font-weight="bold" fill="#1864ab">—</text>
+
+		<!-- kóta: délka placky -->
+		<line x1="100" y1="330" x2="360" y2="330" stroke="#495057" stroke-width="3" />
+		<rect x="196" y="316" width="68" height="20" fill="#ffffff" stroke="#495057" stroke-width="1" rx="4" />
+		<text x="230" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">40 mm</text>
+		<rect x="420" y="250" width="130" height="20" fill="#ffffff" stroke="#495057" stroke-width="1" rx="4" />
+		<text x="485" y="265" text-anchor="middle" font-size="13" fill="#495057">placka je 4 mm silná</text>
+	</svg>
+
+	<div class="tc-ovladani">
+		<label class="tc-posuvnik">
+			Průměr dírky: <output id="tc-d-out">6 mm</output>
+			<input type="range" id="tc-d" min="4" max="12" step="2" value="6" />
+		</label>
+		<label class="tc-posuvnik">
+			Střed dírky od levého kraje: <output id="tc-x-out">6 mm</output>
+			<input type="range" id="tc-x" min="2" max="14" step="2" value="6" />
+		</label>
+		<label class="tc-posuvnik">
+			Zvednutí válce nad plochu (černá šipka): <output id="tc-h-out">0 mm</output>
+			<input type="range" id="tc-h" min="0" max="4" step="1" value="0" />
+		</label>
+	</div>
+
+	<p class="tc-radek">
+		<strong>Druhé těleso je:</strong>
+		<button type="button" class="tc-tl" id="tc-plne" aria-pressed="false">plné</button>
+		<button type="button" class="tc-tl tc-aktivni" id="tc-dira" aria-pressed="true">díra (šrafovaná)</button>
+	</p>
+	<p class="tc-radek">
+		<button type="button" class="tc-tl tc-hlavni" id="tc-seskup">🔗 Seskupit (Ctrl+G)</button>
+		<button type="button" class="tc-tl" id="tc-reset">↺ vrátit na začátek</button>
+	</p>
+
+	<p class="tc-stav" id="tc-stav" aria-live="polite"></p>
+</section>
+
+<script>
+	// ——— rozměry scény v milimetrech (to, co by žák napsal do políček) ———
+	const DELKA = 40;        // placka
+	const SIRKA = 20;
+	const TLOUSTKA = 4;
+	const VYSKA_VALCE = 6;   // válec je vyšší než placka, aby dírka prošla skrz
+
+	// ——— kreslení: kavalírní pohled, osa x doprava, y do hloubky, z nahoru ———
+	const S = 6.5;           // px na 1 mm ve směru x i z
+	const X0 = 100;          // obraz bodu (0 mm, 0 mm, 0 mm)
+	const Y0 = 252;
+	const KY_X = 3.2;        // posun na 1 mm hloubky
+	const KY_Y = 2.1;
+	// Kružnice se v tomto pohledu jeví jako zploštělá elipsa — a zploštění se NEVOLÍ od oka:
+	// 1 mm hloubky je na obrazovce KY_Y px, kdežto 1 mm do šířky S px. Jen při tomhle poměru
+	// zabere nakreslená dírka ⌀ D mm právě tolik px hloubky, kolik jich má D mm placky;
+	// při větším poměru by dírka vylezla přes zadní i přední hranu placky.
+	const ZPLOSTENI = KY_Y / S;   // ≈ 0,32 (2,1 px hloubky ku 6,5 px šířky)
+
+	// ——— druhý pohled: ŘEZ ZBOKU (stejné měřítko S px na mm v obou osách) ———
+	// Proč vůbec je: kamera prvního pohledu míří nízko (1 mm hloubky je KY_Y px,
+	// kdežto 1 mm výšky S px), takže do 4 mm hluboké dírky ⌀ 6 mm není z něj na dno
+	// vidět — „projde skrz" by nebylo poznat. Řez zboku to ukáže bez podvádění:
+	// samé obdélníky, žádné zkreslení, mezera až na pracovní plochu.
+	const REZ_X0 = 284;          // obraz levého kraje placky (0 mm) v řezu
+	const REZ_Y0 = 158;          // obraz pracovní plochy (0 mm výšky) v řezu
+	// Kus stěny vidět v ústí dírky: obě křivky vedou mezi TÝMIŽ krajními body ústí,
+	// takže srpek stěny leží vždycky celý uvnitř ústí. Je to stínování, žádný rozměr
+	// netvrdí — proto ten podíl jako jediné číslo scény nepochází z posuvníku.
+	const STENA_PODIL = 0.45;
+	// na kolik úseček se rozkreslí oblouk výkusu v siluetě horní plochy
+	const VYKUS_BODU = 24;
+
+	const px = (x, y) => X0 + S * x + KY_X * y;
+	const py = (y, z) => Y0 - S * z - KY_Y * y;
+	const zaokr = (n) => Math.round(n * 10) / 10;
+	const rezX = (mm) => REZ_X0 + S * mm;
+	const rezY = (z) => REZ_Y0 - S * z;
+	const REZ_L = rezX(0);
+	const REZ_R = rezX(DELKA);
+	const REZ_T = rezY(TLOUSTKA);
+	const REZ_B = rezY(0);
+
+	// ——— barvy (stav scény je vždy SVG atribut, ne třída) ———
+	const PLACKA_VRCH = '#ffd8a8';
+	const PLACKA_PLAST = '#ffa94d';
+	const VALEC_VRCH = '#ffc9c9';
+	const VALEC_PLAST = '#ff8787';
+	const SRAFA = 'url(#tc-srafa)';
+	const OBRYS_DIRY = '#495057';
+	const OBRYS_TELESA = '#2b2a26';
+	const PLOCHA = '#cfe3ee';     // skrz průchozí otvor je vidět pracovní plocha
+	const DNO_DULKU = '#e8a15c';  // mělký výkus má dno z materiálu placky
+
+	// ——— čisté výpočty (na ně se dívá test) ———
+	const polomer = (prumer) => prumer / 2;
+	/** Kolik mm materiálu zbyde mezi dírkou a levým krajem placky. Záporné = dírka přetekla. */
+	const okrajMaterialu = (x, prumer) => x - polomer(prumer);
+	/** O kolik mm dírka přesahuje kraj. Píše se jen tam, kde přesahuje — v 6. ročníku
+	 * se ještě neučí záporná čísla, takže scéna nikdy nenapíše výsledek se znaménkem −. */
+	const presahKraje = (x, prumer) => polomer(prumer) - x;
+	/** Jak hluboko se díra do placky vykousne: překryv válce (h … h+6) s plackou (0 … 4). */
+	const hloubkaVykusu = (h) => Math.min(TLOUSTKA, h + VYSKA_VALCE) - Math.max(0, h);
+	const projdeSkrz = (h) => hloubkaVykusu(h) === TLOUSTKA;
+
+	let d = 6;
+	let xStred = 6;
+	let zvednuti = 0;
+	let rezim = 'dira';        // 'dira' | 'plne'
+	let seskupeno = false;
+
+	const el = (id) => document.getElementById(id);
+	const dSlider = el('tc-d');
+	const xSlider = el('tc-x');
+	const hSlider = el('tc-h');
+	const dOut = el('tc-d-out');
+	const xOut = el('tc-x-out');
+	const hOut = el('tc-h-out');
+	const plackaHorni = el('tc-placka-horni');
+	const valecPlast = el('tc-valec-plast');
+	const valecVrch = el('tc-valec-vrch');
+	const otvorStena = el('tc-otvor-stena');
+	const otvorVnitrek = el('tc-otvor-vnitrek');
+	const otvorOkraj = el('tc-otvor-okraj');
+	const rezPlacka = el('tc-rez-placka');
+	const rezOtvor = el('tc-rez-otvor');
+	const rezValec = el('tc-rez-valec');
+	const kotaX = el('tc-kota-x');
+	const kotaSvisla = el('tc-kota-svisla');
+	const kotaPodklad = el('tc-kota-x-podklad');
+	const kotaText = el('tc-kota-x-text');
+	const tRezim = el('tc-t-rezim');
+	const tVypocet = el('tc-t-vypocet');
+	const tVysledek = el('tc-t-vysledek');
+	const stavEl = el('tc-stav');
+	const svg = el('tc-svg');
+	const btnPlne = el('tc-plne');
+	const btnDira = el('tc-dira');
+	const btnSeskup = el('tc-seskup');
+	const btnReset = el('tc-reset');
+
+	/** Plášť válce/otvoru: svislé stěny a dole zaoblené dno. */
+	function plast(cx, cyHorni, cyDolni, rx, ry) {
+		return `M ${zaokr(cx - rx)},${zaokr(cyHorni)} L ${zaokr(cx - rx)},${zaokr(cyDolni)}`
+			+ ` A ${zaokr(rx)},${zaokr(ry)} 0 0 0 ${zaokr(cx + rx)},${zaokr(cyDolni)}`
+			+ ` L ${zaokr(cx + rx)},${zaokr(cyHorni)} Z`;
+	}
+
+	/** Kus stěny vidět v ústí dírky: srpek mezi zadním okrajem ústí a stejně širokým,
+	 *  ale plošším obloukem. Oba oblouky začínají i končí v krajních bodech ústí,
+	 *  takže srpek NIKDY nevyleze z ústí na neporušenou horní plochu placky. */
+	function stenaOtvoru(cx, cy, rx, ry) {
+		return `M ${zaokr(cx - rx)},${zaokr(cy)}`
+			+ ` A ${zaokr(rx)},${zaokr(ry)} 0 0 1 ${zaokr(cx + rx)},${zaokr(cy)}`
+			+ ` A ${zaokr(rx)},${zaokr(ry * STENA_PODIL)} 0 0 0 ${zaokr(cx - rx)},${zaokr(cy)} Z`;
+	}
+
+	/** Obrys placky v řezu zboku: plná placka, nebo placka s vykousnutým otvorem.
+	 *  Průchozí otvor placku v řezu ROZDĚLÍ na dva kusy (dvě podcesty) — mezi nimi
+	 *  je vidět modrá pracovní plocha. Mělký důlek nechá pod sebou materiál,
+	 *  takže obrys zůstane jeden kus. */
+	function rezObrys(od, doKam, dno, vykousnuto, skrz) {
+		const pravyKraj = `L ${zaokr(REZ_R)},${zaokr(REZ_T)} L ${zaokr(REZ_R)},${zaokr(REZ_B)}`;
+		if (!vykousnuto) {
+			return `M ${zaokr(REZ_L)},${zaokr(REZ_T)} ${pravyKraj} L ${zaokr(REZ_L)},${zaokr(REZ_B)} Z`;
+		}
+		if (!skrz) {
+			// mělký důlek: pod ním materiál ZŮSTÁVÁ, takže obrys placky je jeden kus
+			// s vroubkem shora (a když dírka přeteče přes levý kraj, vroubek začíná
+			// rovnou u kraje — proto ta větev s `od <= REZ_L`)
+			const zacatek = od <= REZ_L
+				? `M ${zaokr(REZ_L)},${zaokr(dno)}`
+				: `M ${zaokr(REZ_L)},${zaokr(REZ_T)} L ${zaokr(od)},${zaokr(REZ_T)} L ${zaokr(od)},${zaokr(dno)}`;
+			return `${zacatek} L ${zaokr(doKam)},${zaokr(dno)} L ${zaokr(doKam)},${zaokr(REZ_T)}`
+				+ ` ${pravyKraj} L ${zaokr(REZ_L)},${zaokr(REZ_B)} Z`;
+		}
+		const pravyKus = `M ${zaokr(doKam)},${zaokr(REZ_T)} ${pravyKraj} L ${zaokr(doKam)},${zaokr(REZ_B)} Z`;
+		if (od <= REZ_L) return pravyKus;
+		return `M ${zaokr(REZ_L)},${zaokr(REZ_T)} L ${zaokr(od)},${zaokr(REZ_T)}`
+			+ ` L ${zaokr(od)},${zaokr(REZ_B)} L ${zaokr(REZ_L)},${zaokr(REZ_B)} Z ${pravyKus}`;
+	}
+
+	/** Silueta HORNÍ PLOCHY placky: čtyřúhelník 40 × 20 mm — a u průchozího zářezu
+	 *  přes kraj s VÝKUSEM. Bez toho by si pohledy odporovaly: shora by zářez vypadal
+	 *  jako uzavřená kapsa uvnitř celé 40mm placky (obrys levého kraje by se kreslil
+	 *  i tam, kde materiál není), kdežto řez zboku ukazuje placku o ten kus kratší.
+	 *  Obrys se proto u levého kraje přeruší a obejde ústí dírky po jeho okraji.
+	 *  Výkus se počítá z NAKRESLENÉHO ústí (elipsa cx/cy/rx/ry), ne z ideální kružnice —
+	 *  jen tak obrys přesně splyne s obrysem ústí a nevznikne mezi nimi proužek.
+	 *  U MĚLKÉHO důlku se silueta nepřerušuje: pod důlkem materiál zůstává až ke kraji
+	 *  (přesně tak ho kreslí i řez zboku), jen je horní plocha zapadlá. */
+	function siluetaHorni(vykrojit, cx, cy, rx, ry) {
+		const roh = (x, y) => `${zaokr(px(x, y))},${zaokr(py(y, TLOUSTKA))}`;
+		const rohy = [roh(0, 0), roh(DELKA, 0), roh(DELKA, SIRKA), roh(0, SIRKA)];
+		const uhly = vykrojit ? prusecikyKraje(cx, cy, rx, ry) : null;
+		if (!uhly) return rohy.join(' ');
+		const vykus = [];
+		for (let i = 0; i <= VYKUS_BODU; i++) {
+			// od hlubšího průsečíku obloukem ústí dovnitř placky k tomu přednějšímu
+			const fi = uhly.hlubsi + ((uhly.prednejsi - uhly.hlubsi) * i) / VYKUS_BODU;
+			vykus.push(`${zaokr(cx + rx * Math.cos(fi))},${zaokr(cy + ry * Math.sin(fi))}`);
+		}
+		return rohy.concat(vykus).join(' ');
+	}
+
+	/** Kde ústí dírky protne LEVÝ KRAJ horní plochy. Kraj je v tomto pohledu úsečka
+	 *  bodů (px(0, t), py(t, 4)) pro hloubku t = 0…20 mm, ústí je elipsa — dosazením
+	 *  vznikne kvadratická rovnice pro t. Vrací úhly na elipse (hlubší průsečík je
+	 *  na obrazovce výš), nebo null, když se kraj a ústí nepotkají. */
+	function prusecikyKraje(cx, cy, rx, ry) {
+		const a1 = px(0, 0) - cx;
+		const b1 = px(0, 1) - px(0, 0);      // px na 1 mm hloubky ve vodorovném směru
+		const a2 = py(0, TLOUSTKA) - cy;
+		const b2 = py(1, TLOUSTKA) - py(0, TLOUSTKA);
+		const A = (b1 / rx) ** 2 + (b2 / ry) ** 2;
+		const B = 2 * ((a1 * b1) / rx ** 2 + (a2 * b2) / ry ** 2);
+		const C = (a1 / rx) ** 2 + (a2 / ry) ** 2 - 1;
+		const D = B * B - 4 * A * C;
+		if (D <= 0) return null;             // ústí kraj vůbec nepřesahuje
+		const uhel = (t) => Math.atan2((a2 + b2 * t) / ry, (a1 + b1 * t) / rx);
+		const t1 = (-B - Math.sqrt(D)) / (2 * A);
+		const t2 = (-B + Math.sqrt(D)) / (2 * A);
+		const hlubsi = Math.max(t1, t2);     // větší hloubka = výš na obrazovce
+		const prednejsi = Math.min(t1, t2);
+		return { hlubsi: uhel(hlubsi), prednejsi: uhel(prednejsi) };
+	}
+
+	function elipsa(prvek, cx, cy, rx, ry) {
+		prvek.setAttribute('cx', zaokr(cx));
+		prvek.setAttribute('cy', zaokr(cy));
+		prvek.setAttribute('rx', zaokr(rx));
+		prvek.setAttribute('ry', zaokr(ry));
+	}
+
+	function prekresli() {
+		const r = polomer(d);
+		const rx = S * r;
+		const ry = rx * ZPLOSTENI;
+		const cx = px(xStred, SIRKA / 2);
+		const hloubka = hloubkaVykusu(zvednuti);
+		const okraj = okrajMaterialu(xStred, d);
+		const diraSeVykousla = seskupeno && rezim === 'dira' && hloubka > 0;
+
+		// ——— válec ———
+		const cyVrch = py(SIRKA / 2, zvednuti + VYSKA_VALCE);
+		const cyDno = py(SIRKA / 2, zvednuti);
+		valecPlast.setAttribute('d', plast(cx, cyVrch, cyDno, rx, ry));
+		elipsa(valecVrch, cx, cyVrch, rx, ry);
+		// po seskupení je vidět buď jedno těleso (plné), nebo už jen placka s otvorem
+		const valecVidet = !seskupeno || rezim === 'plne';
+		valecPlast.setAttribute('opacity', valecVidet ? '1' : '0');
+		valecVrch.setAttribute('opacity', valecVidet ? '1' : '0');
+		if (rezim === 'dira') {
+			valecPlast.setAttribute('fill', SRAFA);
+			valecVrch.setAttribute('fill', SRAFA);
+			valecPlast.setAttribute('stroke', OBRYS_DIRY);
+			valecVrch.setAttribute('stroke', OBRYS_DIRY);
+			valecPlast.setAttribute('fill-opacity', '0.7');
+			valecVrch.setAttribute('fill-opacity', '0.7');
+		} else {
+			// po seskupení splynou dvě plná tělesa v jedno — proto i jedna barva
+			valecPlast.setAttribute('fill', seskupeno ? PLACKA_PLAST : VALEC_PLAST);
+			valecVrch.setAttribute('fill', seskupeno ? PLACKA_VRCH : VALEC_VRCH);
+			valecPlast.setAttribute('stroke', OBRYS_TELESA);
+			valecVrch.setAttribute('stroke', OBRYS_TELESA);
+			valecPlast.setAttribute('fill-opacity', '1');
+			valecVrch.setAttribute('fill-opacity', '1');
+		}
+
+		// ——— vykousnutý otvor v prvním pohledu: ÚSTÍ a kus stěny v něm ———
+		const cyUsti = py(SIRKA / 2, TLOUSTKA);
+		const skrz = projdeSkrz(zvednuti);
+		otvorStena.setAttribute('d', stenaOtvoru(cx, cyUsti, rx, ry));
+		elipsa(otvorVnitrek, cx, cyUsti, rx, ry);
+		elipsa(otvorOkraj, cx, cyUsti, rx, ry);
+		// vnitřek ústí nese barvu toho, co je na dně dírky: modrá pracovní plocha
+		// u průchozího otvoru, materiál placky u mělkého důlku
+		otvorVnitrek.setAttribute('fill', skrz ? PLOCHA : DNO_DULKU);
+		const viditelnost = diraSeVykousla ? '1' : '0';
+		otvorStena.setAttribute('opacity', viditelnost);
+		otvorVnitrek.setAttribute('opacity', viditelnost);
+		otvorOkraj.setAttribute('opacity', viditelnost);
+
+		// ——— silueta horní plochy: průchozí zářez přes kraj z ní ukusuje ———
+		plackaHorni.setAttribute('points', siluetaHorni(diraSeVykousla && okraj < 0 && skrz, cx, cyUsti, rx, ry));
+
+		// ——— řez zboku: válec nad plackou a po seskupení mezera po díře ———
+		const dirkaOd = rezX(xStred - r);     // válec smí přesahovat kraj placky —
+		const dirkaDo = rezX(xStred + r);     // právě tím vzniká zářez místo otvoru
+		const vykusOd = Math.max(REZ_L, dirkaOd);   // materiál ubude jen tam, kde placka je
+		rezValec.setAttribute('x', zaokr(dirkaOd));
+		rezValec.setAttribute('width', zaokr(dirkaDo - dirkaOd));
+		rezValec.setAttribute('y', zaokr(rezY(zvednuti + VYSKA_VALCE)));
+		rezValec.setAttribute('height', zaokr(S * VYSKA_VALCE));
+		rezValec.setAttribute('opacity', valecVidet ? '1' : '0');
+		// válec má v obou pohledech tentýž vzhled — barvy se přebírají, ne opisují
+		for (const a of ['fill', 'stroke', 'fill-opacity']) rezValec.setAttribute(a, valecPlast.getAttribute(a));
+		rezOtvor.setAttribute('x', zaokr(vykusOd));
+		rezOtvor.setAttribute('y', zaokr(REZ_T));
+		rezOtvor.setAttribute('width', zaokr(dirkaDo - vykusOd));
+		rezOtvor.setAttribute('height', zaokr(S * hloubka));
+		rezOtvor.setAttribute('opacity', viditelnost);
+		rezPlacka.setAttribute('d', rezObrys(vykusOd, dirkaDo, rezY(TLOUSTKA - hloubka), diraSeVykousla, skrz));
+
+		// ——— kóta vzdálenosti od kraje ———
+		// kóta se vede rovinou, ve které leží střed dírky — čárkovaná čára tak míří
+		// přesně pod ni (po přední hraně placky by kvůli hloubce ukazovala vedle)
+		const kotaZacatek = px(0, SIRKA / 2);
+		kotaX.setAttribute('x2', zaokr(cx));
+		kotaSvisla.setAttribute('x1', zaokr(cx));
+		kotaSvisla.setAttribute('x2', zaokr(cx));
+		const stred = (kotaZacatek + cx) / 2;
+		kotaPodklad.setAttribute('x', zaokr(stred - 55));
+		kotaText.setAttribute('x', zaokr(stred));
+		kotaText.textContent = `${xStred} mm od kraje`;
+
+		// ——— panel v obrázku ———
+		dOut.textContent = `${d} mm`;
+		xOut.textContent = `${xStred} mm`;
+		hOut.textContent = `${zvednuti} mm`;
+		tRezim.textContent = (rezim === 'dira' ? 'Těleso: DÍRA (šrafovaná)' : 'Těleso: PLNÉ')
+			+ ` · zvednuté ${zvednuti} mm · ${seskupeno ? 'seskupeno' : 'neseskupeno'}`;
+		tVypocet.textContent = vypocet(okraj, hloubka);
+		tVysledek.textContent = vysledek(okraj, hloubka);
+		btnSeskup.textContent = seskupeno ? '✂️ Zrušit seskupení (Ctrl+Shift+G)' : '🔗 Seskupit (Ctrl+G)';
+		stavEl.innerHTML = popisStavu(okraj, hloubka);
+	}
+
+	/** Prostřední řádek panelu: co se právě počítá. U PLNÉHO tělesa a u díry zvednuté
+	 *  tak, že se placky jen dotýká, se žádná dírka nepočítá — ve scéně tam totiž
+	 *  ŽÁDNÁ dírka není, a tak řádek popíše těleso místo zbytku materiálu u kraje. */
+	function vypocet(okraj, hloubka) {
+		const r = polomer(d);
+		if (rezim === 'plne') return `válec ⌀ ${d} mm vysoký ${VYSKA_VALCE} mm je PLNÝ — nic nevykousne`;
+		if (hloubka === 0) return `díra zvednutá ${zvednuti} mm = tloušťka placky → překryv ${hloubka} mm`;
+		return okraj < 0
+			? `dírka ⌀ ${d} mm → poloměr ${r} mm přesahuje kraj o ${r} − ${xStred} = ${presahKraje(xStred, d)} mm`
+			: `dírka ⌀ ${d} mm → u kraje zbyde ${xStred} − ${r} = ${okraj} mm materiálu`;
+	}
+
+	/** Jedna věta do obrázku — vždy o tom, co je právě vidět. */
+	function vysledek(okraj, hloubka) {
+		if (!seskupeno) return 'Klikni na Seskupit (Ctrl+G) a uvidíš, co se stane.';
+		if (rezim === 'plne') return 'Dvě PLNÁ tělesa splynula v jedno — válec zůstal navrch.';
+		// MEZ: zvednutí o celou tloušťku placky NENÍ „mimo placku" — spodek díry leží
+		// přesně na horní ploše (před seskupením se v řezu zboku obě hrany kryly), jen je překryv 0 mm.
+		if (hloubka === 0) return `Díra začínala přesně na povrchu placky: překryv 0 mm, nevykousla nic.`;
+		if (okraj < 0) return `Dírka přetekla přes kraj o ${presahKraje(xStred, d)} mm → `
+			+ (hloubka === TLOUSTKA
+				? `zářez přes celou tloušťku ${TLOUSTKA} mm.`
+				: `mělký zářez hluboký ${hloubka} mm ze ${TLOUSTKA} mm.`);
+		if (hloubka === TLOUSTKA) return `Otvor hluboký ${hloubka} mm ze ${TLOUSTKA} mm → projde skrz.`;
+		return `Výkus hluboký ${hloubka} mm ze ${TLOUSTKA} mm — jen důlek, neprojde.`;
+	}
+
+	/** Delší vysvětlení pod obrázkem (v náhledu se nekreslí, na stránce ano). */
+	function popisStavu(okraj, hloubka) {
+		if (!seskupeno) {
+			return rezim === 'dira'
+				? 'Válec je zatím <strong>díra</strong> — šrafovaná a průhledná. Sama o sobě nic neudělá: '
+					+ 'z placky se vykousne, teprve až obě tělesa <strong>seskupíš (Ctrl+G)</strong>.'
+				: 'Válec je teď <strong>plné</strong> těleso. Po seskupení se s plackou spojí v jedno '
+					+ 'těleso a zůstane na ní jako výstupek — žádný otvor nevznikne.';
+		}
+		if (rezim === 'plne') {
+			return 'Seskupila se <strong>dvě plná tělesa</strong>, takže z nich vzniklo jedno — poznáš to '
+				+ 'podle jediné barvy. Otvor uděláš jen tělesem přepnutým na <strong>díru</strong>.';
+		}
+		if (hloubka === 0) {
+			return `Díra byla černou šipkou zvednutá o <strong>${zvednuti} mm</strong>, což je přesně tloušťka `
+				+ `placky — jejím spodkem se placky <strong>přesně dotýkala</strong>, ale ani o milimetr do ní `
+				+ 'nezasahovala — před seskupením ležely v řezu zboku obě hrany na sobě. Překryv byl '
+				+ '<strong>0 mm</strong>, '
+				+ 'a tak se po seskupení díra jen ztratila a placka zůstala celá.';
+		}
+		if (okraj < 0) {
+			return `Střed dírky je <strong>${xStred} mm</strong> od kraje, ale její poloměr je `
+				+ `<strong>${polomer(d)} mm</strong> — o ${polomer(d)} − ${xStred} = <strong>${presahKraje(xStred, d)} mm</strong> víc. `
+				+ 'Dírka proto přesahuje přes okraj placky a místo otvoru vznikne <strong>zářez</strong> — '
+				+ (hloubka === TLOUSTKA
+					? `ten jde přes celou tloušťku ${TLOUSTKA} mm, takže kroužek klíčenky by v něm nedržel.`
+					: `ale protože je díra zvednutá o ${zvednuti} mm, je zářez hluboký jen <strong>${hloubka} mm</strong> `
+						+ `ze ${TLOUSTKA} mm — mělký schod v hraně, jak je vidět v řezu zboku.`);
+		}
+		if (hloubka === TLOUSTKA) {
+			return `Díra placku protnula celou: výkus je hluboký <strong>${hloubka} mm</strong> a placka je `
+				+ `${TLOUSTKA} mm silná, takže otvor <strong>prochází skrz</strong>. U kraje přitom zbylo `
+				+ `${xStred} − ${polomer(d)} = <strong>${okraj} mm</strong> materiálu`
+				+ (okraj === 0 ? ' — dírka se kraje přesně dotýká, blíž už nesmí.' : '.');
+		}
+		return `Díra byla zvednutá o <strong>${zvednuti} mm</strong>, takže se s plackou překrývala jen `
+			+ `zčásti: vykousl se důlek hluboký <strong>${hloubka} mm</strong> z ${TLOUSTKA} mm. `
+			+ 'Aby otvor prošel skrz, musí díra začínat na ploše (zvednutí 0 mm).';
+	}
+
+	function nastavRezim(novy) {
+		rezim = novy;
+		btnDira.classList[novy === 'dira' ? 'add' : 'remove']('tc-aktivni');
+		btnPlne.classList[novy === 'plne' ? 'add' : 'remove']('tc-aktivni');
+		btnDira.setAttribute('aria-pressed', novy === 'dira' ? 'true' : 'false');
+		btnPlne.setAttribute('aria-pressed', novy === 'plne' ? 'true' : 'false');
+		prekresli();
+	}
+
+	dSlider.addEventListener('input', () => { d = Number(dSlider.value); prekresli(); });
+	xSlider.addEventListener('input', () => { xStred = Number(xSlider.value); prekresli(); });
+	hSlider.addEventListener('input', () => { zvednuti = Number(hSlider.value); prekresli(); });
+	btnPlne.addEventListener('click', () => nastavRezim('plne'));
+	btnDira.addEventListener('click', () => nastavRezim('dira'));
+	btnSeskup.addEventListener('click', () => { seskupeno = !seskupeno; prekresli(); });
+	btnReset.addEventListener('click', () => {
+		d = 6; xStred = 6; zvednuti = 0; seskupeno = false;
+		dSlider.value = '6'; xSlider.value = '6'; hSlider.value = '0';
+		nastavRezim('dira');
+	});
+
+	prekresli();
+
+	// ——— háčky pro test bez prohlížeče (týž kód, který kreslí scénu) ———
+	svg.__okrajMaterialu = okrajMaterialu;
+	svg.__hloubkaVykusu = hloubkaVykusu;
+	svg.__projdeSkrz = projdeSkrz;
+	svg.__polomer = polomer;
+	svg.__presahKraje = presahKraje;
+	svg.__px = px;
+	svg.__py = py;
+	svg.__vysledek = () => vysledek(okrajMaterialu(xStred, d), hloubkaVykusu(zvednuti));
+	svg.__stav = () => ({ d, xStred, zvednuti, rezim, seskupeno });
+	svg.__siluetaHorni = siluetaHorni;
+	svg.__prusecikyKraje = prusecikyKraje;
+	svg.__rezX = rezX;
+	svg.__rezY = rezY;
+	svg.__meze = { DELKA, SIRKA, TLOUSTKA, VYSKA_VALCE, S, KY_Y, ZPLOSTENI, PLACKA_VRCH, PLACKA_PLAST, VALEC_VRCH, VALEC_PLAST, SRAFA, PLOCHA, DNO_DULKU, REZ_X0, REZ_Y0, STENA_PODIL, VYKUS_BODU };
+</script>
+
+<style>
+	.tc-ovladani {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+		margin: 0.8rem 0 0.4rem;
+	}
+	.tc-posuvnik {
+		display: block;
+		font-weight: 700;
+		max-width: 26rem;
+	}
+	.tc-posuvnik output {
+		color: #1864ab;
+	}
+	.tc-posuvnik input[type='range'] {
+		display: block;
+		width: 100%;
+		max-width: 22rem;
+	}
+	.tc-radek {
+		margin: 0.5rem 0;
+	}
+	.tc-tl {
+		font: inherit;
+		font-weight: 700;
+		padding: 0.3rem 0.9rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #fff;
+		cursor: pointer;
+		margin: 0 0.4rem 0.4rem 0;
+	}
+	.tc-tl.tc-aktivni {
+		background: #ffe8cc;
+		box-shadow: inset 0 0 0 2px #2b2a26;
+	}
+	.tc-tl.tc-aktivni::before {
+		content: '✓ ';
+	}
+	.tc-tl.tc-hlavni {
+		background: #ffd43b;
+	}
+	.tc-stav {
+		font-size: 1.05rem;
+		min-height: 4.2rem;
+		background: rgba(255, 255, 255, 0.85);
+		border-radius: 8px;
+		padding: 0.5rem 0.7rem;
+	}
+	/* mobil: obrázek i ovládání se vejdou na úzkou obrazovku */
+	#tc-svg {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	@media (max-width: 40rem) {
+		.tc-tl {
+			padding: 0.3rem 0.6rem;
+			font-size: 0.95rem;
+		}
+	}
+</style>

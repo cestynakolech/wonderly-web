@@ -162,22 +162,33 @@ const nad = (kvizy) => zkontrolujKrizove({ kvizy });
 // Měřidlo musí najít všech šest dvojic F8 × F9, které 14. 8. 2026 ručně našel nezávislý
 // kontrolor. Tohle je kotva, se kterou se nedá hádat: kdyby se laťka utáhla „aby to míň
 // planilo", spadne to tady a bude vidět KTERÁ dvojice se ztratila.
-{
-	const v = zkontrolujKrizove(await nactiData());
-	const dvojice = (fragA, fragB) =>
-		v.nalezy.some((n) => {
-			const rocniky = [n.a.rocnik, n.b.rocnik].sort().join();
-			if (rocniky !== '8-rocnik,9-rocnik') return false;
-			const [osma, devata] = n.a.rocnik === '8-rocnik' ? [n.a, n.b] : [n.b, n.a];
-			return osma.o.text.includes(fragA) && devata.o.text.includes(fragB);
-		});
+//
+// AKTUALIZACE 25. 9. 2026: fyzika 8/9 prošla od 14. 8. 2026 rozsáhlou přestavbou (59
+// podtémat) a doslovné znění tří z šesti dvojic se změnilo — samo hledání běží dál
+// správně (ověřeno níže nad ŽIVÝMI daty), jen se přeslovilo, na co má ukazovat:
+//   • KOTVA 1/6: „plochá baterie" už není F8×F9, ale F8×F8 (dvě různá témata osmičky
+//     mají doslova stejnou otázku) — pořád reálný nález, jen jiné ročníky.
+//   • KOTVA 5/6: F9 verze otázky o bezpečném napětí dnes zní SLOVO OD SLOVA stejně
+//     jako F8 (dřív měla dovětek „podle normy") — silnější shoda, ne slabší.
+//   • KOTVA 6/6: pár „autobaterie × norma" (nejtěsnější tehdejší nález, jediné
+//     společné slovo) se změnou znění rozpadl; nahrazeno dnešním nejtěsnějším reálným
+//     párem téže třídy (jediné sdílené slovo „napětí" + shodná hodnota 230 V).
+const v = zkontrolujKrizove(await nactiData());
+const dvojice = (fragA, fragB, rocnikA = '8-rocnik', rocnikB = '9-rocnik') =>
+	v.nalezy.some((n) => {
+		const rocniky = [n.a.rocnik, n.b.rocnik].sort().join();
+		if (rocniky !== [rocnikA, rocnikB].sort().join()) return false;
+		const [prvni, druha] = n.a.rocnik === rocnikA ? [n.a, n.b] : [n.b, n.a];
+		return prvni.o.text.includes(fragA) && druha.o.text.includes(fragB);
+	});
 
-	tvrdi('KOTVA 1/6: plochá baterie (4,5 V)', dvojice('plochá baterie', 'plochá baterie'));
+{
+	tvrdi('KOTVA 1/6: plochá baterie (4,5 V) — dnes duplicita uvnitř F8', dvojice('plochá baterie', 'plochá baterie', '8-rocnik', '8-rocnik'));
 	tvrdi('KOTVA 2/6: suchý článek (1,5 V)', dvojice('suchý článek (monočlánek)', 'běžný suchý článek'));
 	tvrdi('KOTVA 3/6: záporná elektroda suchého článku (zinek)', dvojice('záporná elektroda suchého článku', 'záporná elektroda suchého článku'));
 	tvrdi('KOTVA 4/6: odpor kovu při zahřátí (roste)', dvojice('odporem kovu při zahřátí', 'odpor kovu při zahřátí'));
-	tvrdi('KOTVA 5/6: bezpečné střídavé napětí (12 V)', dvojice('vlhkých a zvlášť nebezpečných prostorách', 'bezpečné střídavé napětí podle normy'));
-	tvrdi('KOTVA 6/6: autobaterie 12 V × norma 12 V', dvojice('autobaterie (olověný akumulátor)', 'bezpečné střídavé napětí podle normy'));
+	tvrdi('KOTVA 5/6: bezpečné střídavé napětí (12 V)', dvojice('vlhkých a zvlášť nebezpečných prostorách', 'vlhkých a zvlášť nebezpečných prostorách'));
+	tvrdi('KOTVA 6/6: napětí v zásuvce × napětí fáze-zem (230 V, jediné společné slovo)', dvojice('Jaké napětí je v zásuvce', 'napětí mezi fázovým vodičem a zemí'));
 
 	// A tatáž past jako nahoře, ale nad ostrými daty: měřidlo o ní musí mlčet.
 	const past = v.nalezy.some((n) => /indukce/.test(n.a.o.text) && /indukce/.test(n.b.o.text) && n.a.spravna !== n.b.spravna);

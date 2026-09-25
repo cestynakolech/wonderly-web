@@ -104,17 +104,45 @@ export function zkontrolujRejstrik() {
 	return { chybi, meridel: meridla.length, dolozeno: meridla.length - chybi.length, testy };
 }
 
+/** Testy simulací (testy/simulace/*.mjs) očekávají jako DRUHÝ argument cestu ke
+ * komponentě — přesně stejná odvozovací logika jako `komponentaK()` v
+ * testy/vsechny-simulace.mjs (odpor-vodice.mjs → OdporVodiceSimulace.astro).
+ * Zdvojeno záměrně, ne importem: vsechny-simulace.mjs při IMPORTU rovnou
+ * SPOUŠTÍ celou sadu testů (kód mimo funkci na nejvyšší úrovni modulu), takže
+ * by se odtud nedalo bezpečně vytáhnout jen pojmenování komponenty.
+ * Bez druhého argumentu test spadne na ERR_INVALID_ARG_TYPE (sketchup.mjs)
+ * nebo použije zabudovaný default (tinkercad.mjs) — proto to test doloží sám. */
+function argumentPodleNazvu(cestaRelativni) {
+	// Cesta v rejstříku je zapsaná od kořene repa (`testy/simulace/x.mjs`), ne
+	// od testy/ jako v seznamMeridel() — na tenhle rozdíl padl první pokus.
+	const shoda = cestaRelativni.match(/(?:^|\/)simulace\/([\w-]+)\.mjs$/);
+	if (!shoda) return [];
+	const soubor = shoda[1];
+	const jmeno = soubor
+		.split('-')
+		.map((c) => c[0].toUpperCase() + c.slice(1))
+		.join('');
+	const komponenta = join(koren, 'src', 'components', 'skola2', `${jmeno}Simulace.astro`);
+	return existsSync(komponenta) ? [komponenta] : [];
+}
+
 /** Spustí registrované obousměrné testy (jen na vyžádání — v bráně by zdržovaly). */
 export function spustTesty(testy) {
 	const vysledky = [];
 	for (const t of testy) {
-		const cesta = join(koren, t.test);
+		// Pole `test` smí nést vysvětlující poznámku v závorce (např.
+		// „testy/simulace/oersted.mjs (spouští testy/vsechny-simulace.mjs)“) —
+		// dřív se do join() posílal CELÝ řetězec i s poznámkou, cesta nikdy
+		// neexistovala a test se ohlásil jako „CHYBÍ SOUBOR“, ačkoli soubor
+		// existoval a nikdy se doopravdy nespustil (nález 25. 9. 2026).
+		const cestaRel = t.test.split(/\s*\(/)[0].trim();
+		const cesta = join(koren, cestaRel);
 		if (!existsSync(cesta)) {
 			vysledky.push({ ...t, stav: 'CHYBÍ SOUBOR' });
 			continue;
 		}
 		try {
-			execFileSync(process.execPath, [cesta], { cwd: koren, stdio: 'pipe' });
+			execFileSync(process.execPath, [cesta, ...argumentPodleNazvu(cestaRel)], { cwd: koren, stdio: 'pipe' });
 			vysledky.push({ ...t, stav: 'OK' });
 		} catch (e) {
 			vysledky.push({ ...t, stav: 'SELHAL', vypis: String(e.stdout ?? e.message).trim().split('\n').slice(-3).join('\n') });
@@ -127,11 +155,22 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 	const v = zkontrolujRejstrik();
 	console.log(`Měřidel v testy/: ${v.meridel} — doloženo obousměrně: ${v.dolozeno}, bez dokladu: ${v.chybi.length}`);
 	for (const m of v.chybi) console.log(`  ⚠️  ${m} — chybí záznam v testy/obousmerne.json (podvrh + zdravý stav)`);
+	let maSelhani = v.chybi.length > 0;
 	if (v.testy.length) {
 		console.log(`\nSpouštím ${v.testy.length} registrovaných obousměrných testů:`);
 		for (const r of spustTesty(v.testy)) {
 			console.log(`  ${r.stav === 'OK' ? '✅' : '❌'} ${r.meridlo} → ${r.test} (${r.stav})`);
 			if (r.vypis) console.log(`     ${r.vypis}`);
+			if (r.stav !== 'OK') maSelhani = true;
 		}
 	}
+	// KOTVA (nález nezávislé kontroly 25. 9. 2026): skript dřív vypsal třeba
+	// „3 z 33 kontrol selhalo“ a přesto skončil kódem 0, protože chyběl
+	// process.exit — kdokoli (i prebuild brána) tak dostal falešné „v pořádku“.
+	if (maSelhani) {
+		console.log('\n❌ Obousměrné ověření NENÍ v pořádku — viz nálezy výše.');
+		process.exit(1);
+	}
+	console.log('\n✅ Obousměrné ověření v pořádku.');
+	process.exit(0);
 }

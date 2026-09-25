@@ -7,11 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs",
+    "prebuild": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs",
+    "test": "node zkontroluj.mjs && node testy/vsechny-simulace.mjs && node testy/obousmerne.mjs && node testy/liga-tabule.mjs && node testy/tabule-telefon.mjs",
     "prijmi-latku": "node zkontroluj.mjs --prijmi-latku",
     "check": "node zkontroluj.mjs"
   },

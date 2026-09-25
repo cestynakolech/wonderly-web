@@ -1,0 +1,272 @@
+---
+// Účinnost (F8, mechanicka-prace-a-vykon/ucinnost): kolik z dodané energie
+// stroj opravdu využije — a kam se ztrácí zbytek.
+//
+// Scéna: stavební naviják zvedá přes kladku pytel malty (10 kg). Motor bere ze
+// zásuvky příkon P₀, tření v kladce a laně část výkonu sežere jako teplo,
+// zbytek zvedá pytel malty (0,61 m vysoký, jak odpovídá měřítku 18 px na metr,
+// kreslený s hrdlem a zaobleným dnem, aby byl poznat jako pytel). Čím
+// větší tření, tím NÍŽ pytel za stejných 10 s vyjede —
+// obrázek tedy ukazuje totéž, co říká výpočet (nižší poloha pytle, kratší
+// zelený díl pruhu, delší červený, víc vln tepla u kladky).
+//
+// Opora ve výkladu podtématu: η = P : P₀ (v procentech, vždy menší než 100 %),
+// ztráta nejčastěji teplo z tření, příkon i výkon ve wattech, W = F · s,
+// P = W : t, g = 10 N/kg. Poměr 100 W : 120 W je týž jako u kladkostroje
+// z výkladu (0,4 kW : 0,48 kW ≐ 83 %), proto je to výchozí nastavení.
+//
+// Čísla: všechny polohy posuvníku dávají celé jouly i celé metry. U navijáku
+// 100 W vycházejí procenta přesně (=), u silnějšího 120 W se zaokrouhlují na
+// celá procenta — scéna to hlásí znakem ≐ i slovem. Účinnost se VŽDY počítá
+// z ukázaných hodnot (P : P₀), nikde není napsaná natvrdo, a nikdy nevyjde
+// větší než 100 %: výkon je příkon mínus ztráta. Poloha „bez tření" (0 W) dá
+// 100 % — ta je ošetřená zvlášť: číslo zčervená a scéna napíše, že takový
+// stroj je jen ideální a ve skutečnosti neexistuje.
+//
+// Kreslí se staticky, bez animací.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Kolik práce naviják opravdu využije? 🕹️</span></h2>
+	<p>Stavební <strong>naviják</strong> zvedá pytel malty. Motor bere ze zásuvky <strong>příkon P₀</strong>, ale část výkonu sežere <strong>tření</strong> v kladce a laně — změní se na teplo. Posuvníkem měň tření a sleduj, jak vysoko pytel za <strong>10 s</strong> vyjede a jaká je <strong>účinnost</strong>.</p>
+	<p id="uci-motory">
+		<button type="button" id="uci-motor-100" class="uci-tl">🔌 naviják 100 W</button>
+		<button type="button" id="uci-motor-120" class="uci-tl uci-aktivni">🔌 silnější naviják 120 W</button>
+	</p>
+	<svg id="uci-svg" viewBox="0 0 660 420" role="img" aria-label="Naviják zvedá pytel malty, energetický pruh a účinnost">
+		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
+		<!-- svislá čára odděluje scénu od tabulky energie -->
+		<line x1="348" y1="14" x2="348" y2="406" stroke="#ced4da" stroke-width="2" />
+		<!-- naviják, kladka, pytel, výška (kreslí skript) -->
+		<g id="uci-scena"></g>
+		<!-- energetický pruh: užitečná práce + ztráta (kreslí skript) -->
+		<g id="uci-pruh"></g>
+		<!-- plaketa s účinností (kreslí skript) -->
+		<g id="uci-plaketa"></g>
+	</svg>
+	<label class="sim-posuvnik">
+		Tření v kladce a laně (ztrátový výkon): <output id="uci-out"></output>
+		<input type="range" id="uci-treni" min="0" max="50" step="10" value="20" />
+	</label>
+	<p class="uci-vzorec" id="uci-vypocet"></p>
+	<p class="uci-stav" id="uci-stav"></p>
+</section>
+
+<script>
+	// ── čísla z výkladu ──────────────────────────────────────────────────────
+	const G = 10;               // N/kg — tíhová konstanta z výkladu
+	const HMOTNOST = 10;        // kg — pytel malty
+	const TIHA = HMOTNOST * G;  // N — tíhová síla pytle (100 N)
+	const DOBA = 10;            // s — jak dlouho naviják běží
+	// ── měřítka scény ────────────────────────────────────────────────────────
+	const Y0 = 360;             // px — úroveň země
+	const PX_M = 18;            // px na 1 metr výšky
+	const MAX_M = 12;           // m — nejvyšší poloha, kam se pytel dostane
+	const PX_J = 0.2;           // px na 1 joule v energetickém pruhu
+	const PRUH_X = 356;         // px — levý okraj pruhu
+	const PRUH_Y = 78;          // px — horní okraj pruhu
+
+	const POPIS_TRENI = {
+		0: 'bez tření (jen teoreticky)',
+		10: 'malé tření (nová, naolejovaná kladka)',
+		20: 'běžné tření',
+		30: 'větší tření',
+		40: 'velké tření',
+		50: 'obrovské tření (zanedbaná, rezavá kladka)',
+	};
+
+	let motor = 120;
+
+	const svg = document.getElementById('uci-svg');
+	const posuvnik = document.getElementById('uci-treni');
+
+	// ČISTÁ FUNKCE: z příkonu a ztrátového výkonu spočítá celou energetickou
+	// bilanci navijáku. Účinnost se počítá z výkonu a příkonu (η = P : P₀),
+	// nikde není zapsaná natvrdo. Výkon je vždy MENŠÍ než příkon (jen při
+	// nulovém tření se mu rovná), takže účinnost nikdy nepřekročí 100 %.
+	function spocitej(prikon, treni) {
+		const vykon = prikon - treni;          // W — užitečný výkon P
+		const dodana = prikon * DOBA;          // J — dodaná (celková) práce W₀
+		const ztracena = treni * DOBA;         // J — ztracená práce (teplo)
+		const uzitecna = vykon * DOBA;         // J — užitečná práce W
+		const vyska = uzitecna / TIHA;         // m — h = W : Fg (tíhová síla)
+		const presne = (vykon * 100) / prikon; // % bez zaokrouhlení
+		const ucinnost = Math.round(presne);
+		return {
+			vykon, dodana, ztracena, uzitecna, vyska, ucinnost,
+			zaokrouhleno: ucinnost !== presne,
+			idealni: vykon === prikon,
+		};
+	}
+	svg.__spocitej = spocitej;
+	svg.__konstanty = { G, HMOTNOST, TIHA, DOBA, Y0, PX_M, MAX_M, PX_J, PRUH_X, PRUH_Y };
+
+	function prekresli() {
+		const treni = +posuvnik.value;
+		const v = spocitej(motor, treni);
+		// PYTEL MALTY má v měřítku scény (18 px na metr) 11 × 10 px, tedy 0,61 m
+		// na 0,56 m — plný pytel se vyboulí, takže je skoro tak široký jako vysoký.
+		// Dřív měl 44 × 60 px, což by byl pytel 2,4 m vysoký a 3,3 m široký —
+		// proti měřítku výšky nesmysl; víc než 0,65 m mu proto dát nelze.
+		// Kreslí se jako PYTEL, ne jako obdélníček: zavázané hrdlo (6 px, užší než
+		// tělo) přejde v přehyb a pod ním se tělo rozšíří a dole zaoblí. Obdélník
+		// 9 × 8 px, který tu byl dřív, vypadal na konci lana jako uzlík nebo
+		// karabina a že jde o náklad, prozradil až štítek s hmotností.
+		const pytelV = 11;                             // px — výška pytle (0,61 m)
+		const pytelS = 10;                             // px — šířka těla pytle (0,56 m)
+		const pytelHrdlo = 6;                          // px — šířka zavázaného hrdla (0,33 m)
+		const pytelY = Y0 - v.vyska * PX_M - pytelV;   // px — horní okraj pytle (hrdlo)
+
+		document.getElementById('uci-out').textContent = `${treni} W — ${POPIS_TRENI[treni]}`;
+
+		// ── SCÉNA ────────────────────────────────────────────────────────────
+		let s = '';
+		// zem a konzola s kladkou
+		s += `<rect x="40" y="${Y0}" width="300" height="18" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />`;
+		s += '<rect x="112" y="14" width="190" height="12" fill="#a5763f" stroke="#2b2a26" stroke-width="2" />';
+		s += '<line x1="180" y1="26" x2="180" y2="38" stroke="#2b2a26" stroke-width="3" />';
+		// teplo z tření: čím větší tření, tím větší žár u kladky a tím víc vln
+		let zarHtml = '';
+		if (treni > 0) {
+			const zar = 14 + treni / 5;
+			zarHtml = `<circle cx="180" cy="52" r="${zar}" fill="#ff922b" opacity="0.55" />`;
+			// RÁMEČEK POPISKU A VLNY SE NESMÍ PŘEKRÝT. Bílý rámeček „teplo z tření"
+			// leží na y 90–112 (s obrysem 89–113); vlna kreslená na y má oblouky
+			// ±4,5 px a obrys 3 px, zabírá tedy pás y−6 až y+6. Dřív první vlna
+			// začínala na y 110 (pás 104–116) a rámeček ji zpola zakryl — při
+			// tření 10 W je to přitom JEDINÁ vlna a dítě vidělo jen její půlku.
+			// Proto vlny začínají až na y 124 (pás 118–130), pět pixelů pod
+			// rámečkem, a pátá vlna (y 188) končí nad štítkem pytle.
+			s += '<rect x="200" y="90" width="126" height="22" rx="5" fill="#ffffff" stroke="#e8590c" stroke-width="2" />';
+			s += '<text x="206" y="106" font-size="13" font-weight="bold" fill="#c2410c">teplo z tření</text>';
+			const vln = treni / 10;
+			for (let i = 0; i < vln; i++) {
+				const wy = 124 + i * 16;
+				s += `<path d="M 204 ${wy} q 11 -9 23 0 q 11 9 23 0 q 11 -9 23 0 q 11 9 23 0" fill="none" stroke="#e8590c" stroke-width="3" />`;
+			}
+		}
+		// KLADKA A JEJÍ ŽÁR — na POŘADÍ záleží. Kladka má r 14 px a obrys 3 px, její
+		// vnější okraj je tedy 15,5 px. Žár nakreslený PŘED kladkou by byl v každé
+		// poloze posuvníku celý překrytý bílou výplní kladky a dítě by teplo z tření
+		// na obrázku nikdy nevidělo. Proto se žár kreslí AŽ PO kladce a jeho poloměr
+		// (16–24 px) kladku vždy přesahuje: kolem kladky svítí oranžový prstenec,
+		// který s třením roste, a kladka pod průhledným žárem zůstane vidět.
+		const kladka = '<circle cx="180" cy="52" r="14" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />'
+			+ '<circle cx="180" cy="52" r="4" fill="#2b2a26" />';
+		s += kladka + zarHtml;
+		// lano: od motoru přes kladku dolů k pytli
+		s += '<line x1="180" y1="38" x2="246" y2="52" stroke="#2b2a26" stroke-width="3" />';
+		s += `<line x1="166" y1="52" x2="166" y2="${pytelY}" stroke="#2b2a26" stroke-width="3" />`;
+		// naviják s motorem
+		s += '<rect x="246" y="34" width="90" height="52" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />';
+		s += '<text x="291" y="54" text-anchor="middle" font-size="13" fill="#2b2a26">naviják</text>';
+		s += `<text x="291" y="74" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26">P₀ = ${motor} W</text>`;
+		// pytel malty visí na laně (hrdlo má přesně pod lanem, x 166); do 11px
+		// pytle se žádný popis nevejde, proto stojí vedle něj štítek na bílém
+		// podkladu a ten pytel i POJMENUJE — z kresby samotné by dítě nepoznalo,
+		// že naviják zvedá pytel malty
+		const pyL = 166 - pytelS / 2;                  // px — levý okraj těla
+		const pyP = 166 + pytelS / 2;                  // px — pravý okraj těla
+		const pyHL = 166 - pytelHrdlo / 2;             // px — levý okraj hrdla
+		const pyHP = 166 + pytelHrdlo / 2;             // px — pravý okraj hrdla
+		const pyPrehyb = pytelY + 4;                   // px — kde hrdlo přechází v tělo
+		const pyDno = pytelY + pytelV;                 // px — dno pytle
+		s += `<path d="M ${pyHL} ${pytelY} L ${pyHP} ${pytelY} L ${pyP} ${pyPrehyb} L ${pyP} ${pyDno - 2} Q ${pyP} ${pyDno} ${pyP - 2} ${pyDno} L ${pyL + 2} ${pyDno} Q ${pyL} ${pyDno} ${pyL} ${pyDno - 2} L ${pyL} ${pyPrehyb} Z" fill="#b08968" stroke="#2b2a26" stroke-width="1.5" />`;
+		s += `<line x1="${pyL}" y1="${pyPrehyb}" x2="${pyP}" y2="${pyPrehyb}" stroke="#7f5539" stroke-width="2" />`;
+		s += `<rect x="176" y="${pytelY - 9}" width="86" height="34" rx="5" fill="#ffffff" stroke="#b08968" stroke-width="2" />`;
+		s += `<text x="219" y="${pytelY + 3}" text-anchor="middle" font-size="12" fill="#495057">pytel malty</text>`;
+		s += `<text x="219" y="${pytelY + 19}" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">${HMOTNOST} kg</text>`;
+		// svislé měřítko výšky se značkami po 2 metrech
+		s += `<line x1="110" y1="${Y0}" x2="110" y2="${Y0 - MAX_M * PX_M}" stroke="#868e96" stroke-width="2" />`;
+		for (let m = 0; m <= MAX_M; m += 2) {
+			const my = Y0 - m * PX_M;
+			s += `<line x1="104" y1="${my}" x2="116" y2="${my}" stroke="#868e96" stroke-width="2" />`;
+			// Popisek sedí na střed své značky (základna my + 5, glyf my − 4 až
+			// my + 6) — jen NULA ne: ta má značku přímo na zemi (y 360) a obrys
+			// země je 2 px silný, takže pás 359–361 vedl přes glyf a nula vypadala
+			// na obrázku PŘEŠKRTNUTÁ. Proto se nula posadí nad zem (základna 355,
+			// glyf 346–356), tři pixely nad hranou, a čára jí nesahá ani na okraj.
+			const ty = m === 0 ? my - 5 : my + 5;
+			s += `<text x="100" y="${ty}" text-anchor="end" font-size="12" fill="#495057">${m}</text>`;
+		}
+		s += `<text x="100" y="${Y0 - MAX_M * PX_M - 10}" text-anchor="end" font-size="12" fill="#495057">m</text>`;
+		// dosažená výška: modrý pruh po měřítku + čárkovaná spojnice k pytli
+		s += `<line x1="110" y1="${Y0}" x2="110" y2="${pytelY + pytelV}" stroke="#1971c2" stroke-width="6" />`;
+		s += `<line x1="110" y1="${pytelY + pytelV}" x2="162" y2="${pytelY + pytelV}" stroke="#1971c2" stroke-width="2" stroke-dasharray="6 4" />`;
+		// štítek s výškou má vlastní bílý podklad, ať je čitelný přes kresbu
+		s += '<rect x="126" y="300" width="146" height="30" rx="6" fill="#ffffff" stroke="#1971c2" stroke-width="2" />';
+		s += `<text x="134" y="321" font-size="15" font-weight="bold" fill="#1971c2">h = ${v.vyska} m</text>`;
+		document.getElementById('uci-scena').innerHTML = s;
+
+		// ── ENERGETICKÝ PRUH ─────────────────────────────────────────────────
+		// Délka celého pruhu odpovídá dodané práci, zelený díl užitečné,
+		// červený ztrátě. Silnější naviják dodá víc energie → delší pruh.
+		let p = '';
+		p += `<text x="${PRUH_X}" y="40" font-size="14" font-weight="bold" fill="#2b2a26">za ${DOBA} s naviják dostane a rozdělí:</text>`;
+		p += `<text x="${PRUH_X}" y="62" font-size="13" fill="#2b2a26">W₀ = P₀ · t = ${motor} · ${DOBA} = ${v.dodana} J</text>`;
+		const sirkaU = v.uzitecna * PX_J;
+		const sirkaZ = v.ztracena * PX_J;
+		p += `<rect x="${PRUH_X}" y="${PRUH_Y}" width="${sirkaU}" height="40" fill="#2f9e44" stroke="#2b2a26" stroke-width="3" />`;
+		p += `<rect x="${PRUH_X + sirkaU}" y="${PRUH_Y}" width="${sirkaZ}" height="40" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`;
+		p += `<rect x="${PRUH_X}" y="136" width="14" height="14" fill="#2f9e44" stroke="#2b2a26" stroke-width="2" />`;
+		p += `<text x="${PRUH_X + 22}" y="148" font-size="13" fill="#2b2a26">užitečná práce W = ${v.uzitecna} J</text>`;
+		p += `<rect x="${PRUH_X}" y="158" width="14" height="14" fill="#e03131" stroke="#2b2a26" stroke-width="2" />`;
+		p += `<text x="${PRUH_X + 22}" y="170" font-size="13" fill="#2b2a26">ztráta ${v.ztracena} J → teplo z tření</text>`;
+		p += `<text x="${PRUH_X}" y="194" font-size="13" fill="#2b2a26">W = Fg · h = ${TIHA} · ${v.vyska} = ${v.uzitecna} J</text>`;
+		document.getElementById('uci-pruh').innerHTML = p;
+
+		// ── PLAKETA S ÚČINNOSTÍ ──────────────────────────────────────────────
+		const barva = v.idealni ? '#c92a2a' : '#1971c2';
+		let k = '';
+		k += `<rect x="${PRUH_X}" y="206" width="272" height="104" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />`;
+		k += `<text x="${PRUH_X + 136}" y="232" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">účinnost η = P : P₀</text>`;
+		k += `<text x="${PRUH_X + 136}" y="256" text-anchor="middle" font-size="15" fill="#2b2a26">= ${v.vykon} W : ${motor} W</text>`;
+		k += `<text x="${PRUH_X + 136}" y="296" text-anchor="middle" font-size="30" font-weight="bold" fill="${barva}">${v.zaokrouhleno ? '≐' : '='} ${v.ucinnost} %</text>`;
+		k += `<text x="${PRUH_X}" y="328" font-size="12" fill="#495057">${v.zaokrouhleno ? 'zaokrouhleno na celá procenta (znak ≐)' : 'procenta vycházejí přesně, bez zaokrouhlení'}</text>`;
+		if (v.idealni) {
+			k += `<rect x="${PRUH_X - 4}" y="336" width="286" height="52" rx="8" fill="#fff3bf" stroke="#c92a2a" stroke-width="2" />`;
+			k += `<text x="${PRUH_X + 4}" y="356" font-size="13" font-weight="bold" fill="#c92a2a">100 % umí jen IDEÁLNÍ stroj —</text>`;
+			k += `<text x="${PRUH_X + 4}" y="376" font-size="13" font-weight="bold" fill="#c92a2a">ten neexistuje, tření je vždycky.</text>`;
+		}
+		document.getElementById('uci-plaketa').innerHTML = k;
+
+		// ── VÝPOČET SLOVY ────────────────────────────────────────────────────
+		const znak = v.zaokrouhleno ? '≐' : '=';
+		document.getElementById('uci-vypocet').innerHTML =
+			`Naviják běží <strong>${DOBA} s</strong> s příkonem P₀ = ${motor} W, dodaná práce je tedy W₀ = P₀ · t = ${motor} · ${DOBA} = <strong>${v.dodana} J</strong>. `
+			+ `Tření sežere ${treni} W, na zvedání zbude užitečný výkon P = ${motor} − ${treni} = <strong>${v.vykon} W</strong>, tedy užitečná práce W = P · t = <strong>${v.uzitecna} J</strong> `
+			+ `(zbylých ${v.ztracena} J odejde jako teplo). Pytel má tíhu F<sub>g</sub> = m · g = ${HMOTNOST} · ${G} = ${TIHA} N, vyjede proto do výšky h = W : F<sub>g</sub> = ${v.uzitecna} : ${TIHA} = <strong>${v.vyska} m</strong>. `
+			+ `Účinnost: η = P : P₀ = ${v.vykon} : ${motor} ${znak} <strong>${v.ucinnost} %</strong>`
+			+ (v.zaokrouhleno ? ' (zaokrouhleno na celá procenta)' : '')
+			+ `. Z prací vyjde totéž: W : W₀ = ${v.uzitecna} : ${v.dodana}.`;
+
+		document.getElementById('uci-stav').textContent = v.idealni
+			? `${POPIS_TRENI[treni]}: bez ztráty by naviják vyjel s pytlem až do ${v.vyska} m a měl 100 % účinnost. Takový stroj ale neexistuje — aspoň malé tření je všude, a proto je účinnost vždycky menší než 100 %.`
+			: `${POPIS_TRENI[treni]}: z ${v.dodana} J se ${v.uzitecna} J promění na užitečnou práci a ${v.ztracena} J uteče jako teplo — účinnost ${v.ucinnost} %.`
+				+ (v.ucinnost === 83 ? ' Stejný poměr jako kladkostroj z výkladu (0,4 kW : 0,48 kW ≐ 83 %).' : '');
+	}
+
+	// Posluchač má každé tlačítko vlastní (ne jeden na celém odstavci): kliknutí
+	// se tak dá vyzkoušet i v náhledu simulace, který umí kliknout jen na prvek s id.
+	const MOTORY = [100, 120];
+	for (const p0 of MOTORY) {
+		document.getElementById('uci-motor-' + p0).addEventListener('click', () => {
+			motor = p0;
+			for (const q of MOTORY) document.getElementById('uci-motor-' + q).classList.toggle('uci-aktivni', q === motor);
+			prekresli();
+		});
+	}
+	posuvnik.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#uci-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.uci-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.uci-tl.uci-aktivni { background: #d0ebff; }
+	.uci-tl:active { transform: translateY(1px); }
+	.uci-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.uci-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+</style>

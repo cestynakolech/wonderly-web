@@ -2,7 +2,7 @@
 // Obousměrné ověření kontrol v testy/simulace/opakovani-velicin.mjs.
 // Pracuje VÝHRADNĚ nad kopií komponenty v dočasné složce — do repa nesahá.
 // Spuštění:  node testy/podvrhy/opakovani-velicin-podvrhy.mjs
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,7 +11,9 @@ import { tmpdir } from 'node:os';
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const ZDROJ = join(REPO, 'src/components/skola2/OpakovaniVelicinSimulace.astro');
 const TEST = join(REPO, 'testy/simulace/opakovani-velicin.mjs');
-const KOPIE = join(tmpdir(), 'opakovani-velicin-podvrh.astro');
+const WORKDIR = mkdtempSync(join(tmpdir(), 'opakovani-velicin-podvrh-'));
+const KOPIE = join(WORKDIR, 'opakovani-velicin-podvrh.astro');
+process.on('exit', () => { try { rmSync(WORKDIR, { recursive: true, force: true }); } catch {} });
 
 const puvodni = readFileSync(ZDROJ, 'utf8');
 

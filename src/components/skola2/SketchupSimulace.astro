@@ -1,0 +1,388 @@
+---
+// SketchUp — z plochy těleso (Pracovní činnosti 6, 3D modelování, podtéma „sketchup").
+// Výklad říká: „Nekreslíš skládáním hotových těles, ale OD ČÁRY: nakreslíš půdorys
+// a vytáhneš ho do výšky", nástroj „Tlač/Táhni — Push/Pull (P) — chytneš plochu
+// a vytáhneš ji do 3D", „Orbit (O) — otáčení pohledu", „barevné osy (červená/zelená/
+// modrá)" a úkol „Obdélník 6 × 4 m → Push/Pull do výšky 3 m".
+// Scéna dělá přesně tohle a nic navíc: obdélník (2D plocha, výchozí stav 6 × 4 m),
+// posuvník „Táhni do výšky" ho zvedne do kvádru, orbit otáčí pohledem, barevné osy
+// v rohu se otáčejí s ním. Rozměry jsou celé metry, takže obsah i objem vyjdou celé.
+// Obsah čte žák z mřížky 1 × 1 m na horní ploše, objem jako počet vrstev po tolika
+// krychlích — víc scéna netvrdí (žádný povrch, žádné úhly, žádné jednotky navíc).
+// Čisté funkce (__promitni, __otoc, __vypocty, __viditelneSteny, __popisky, __osy, __nejblizsiRoh,
+// __plaketa, __vrstvy) visí na značce scény, aby šly proměřit výpočtem bez prohlížeče
+// (testy/simulace/sketchup.mjs).
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">SketchUp: z plochy udělej těleso 🧊</span></h2>
+	<p>
+		V SketchUpu začínáš <strong>obdélníkem</strong> — to je zatím jen <strong>plocha (2D)</strong>,
+		nemá žádnou výšku. Nástroj <strong>Táhni (Push/Pull, klávesa P)</strong> plochu chytne
+		a vytáhne do prostoru — vznikne <strong>těleso (3D)</strong>. Nástrojem
+		<strong>Orbit (O)</strong> si ho prohlédneš ze všech stran.
+	</p>
+
+	<p>
+		<button id="sku-tl-tahni" type="button" class="sku-tl">⬆️ Táhni do výšky 3 m (Push/Pull)</button>
+		<button id="sku-tl-zpet" type="button" class="sku-tl">▭ Zatlač zpátky na plochu</button>
+		<button id="sku-tl-orbit" type="button" class="sku-tl">🔄 Orbit o 45°</button>
+	</p>
+
+	<svg id="sku-svg" viewBox="0 0 680 500" role="img" aria-label="Obdélník nakreslený na zemi, který se dá nástrojem Táhni vytáhnout do kvádru; pohled se dá otáčet">
+		<g id="sku-teleso"></g>
+		<g id="sku-popisky"></g>
+		<g id="sku-osy"></g>
+		<rect x="150" y="12" width="380" height="56" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="sku-plaketa-1" x="340" y="36" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26"></text>
+		<text id="sku-plaketa-2" x="340" y="58" text-anchor="middle" font-size="14" fill="#2b2a26"></text>
+	</svg>
+
+	<label class="sim-posuvnik">
+		Šířka obdélníku: <output id="sku-out-a"></output>
+		<input type="range" id="sku-a" min="2" max="8" step="1" value="6" />
+	</label>
+	<label class="sim-posuvnik">
+		Hloubka obdélníku: <output id="sku-out-b"></output>
+		<input type="range" id="sku-b" min="2" max="6" step="1" value="4" />
+	</label>
+	<label class="sim-posuvnik">
+		Táhni do výšky (Push/Pull): <output id="sku-out-c"></output>
+		<input type="range" id="sku-c" min="0" max="5" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Orbit — otočení pohledu: <output id="sku-out-o"></output>
+		<input type="range" id="sku-o" min="0" max="345" step="15" value="30" />
+	</label>
+
+	<p class="sku-vysledek" id="sku-vysledek"></p>
+	<p class="sku-rada" id="sku-rada"></p>
+	<p class="sku-legenda">
+		Barevné osy v rohu scény se otáčejí s pohledem a stejnou barvu má i štítek rozměru:
+		<span class="sku-tecka" style="background:#e03131"></span> červená = šířka &nbsp;
+		<span class="sku-tecka" style="background:#2f9e44"></span> zelená = hloubka &nbsp;
+		<span class="sku-tecka" style="background:#1971c2"></span> modrá = výška
+	</p>
+</section>
+
+<script>
+	const svg = document.getElementById('sku-svg');
+	const gTeleso = document.getElementById('sku-teleso');
+	const gPopisky = document.getElementById('sku-popisky');
+	const gOsy = document.getElementById('sku-osy');
+	const plaketa1 = document.getElementById('sku-plaketa-1');
+	const plaketa2 = document.getElementById('sku-plaketa-2');
+	const vysledekEl = document.getElementById('sku-vysledek');
+	const radaEl = document.getElementById('sku-rada');
+	const sa = document.getElementById('sku-a');
+	const sb = document.getElementById('sku-b');
+	const sc = document.getElementById('sku-c');
+	const so = document.getElementById('sku-o');
+	const outA = document.getElementById('sku-out-a');
+	const outB = document.getElementById('sku-out-b');
+	const outC = document.getElementById('sku-out-c');
+	const outO = document.getElementById('sku-out-o');
+	const tlTahni = document.getElementById('sku-tl-tahni');
+	const tlZpet = document.getElementById('sku-tl-zpet');
+	const tlOrbit = document.getElementById('sku-tl-orbit');
+
+	// scéna: střed podstavy, měřítko (jeden metr odpovídá 30 px) a sklon pohledu
+	const STRED_X = 340, STRED_Y = 330, MERITKO = 30, ELEVACE = 30;
+	const ODSAZENI = 20, VYSKA_STITKU = 24, MEZERA = 4, KROK_ROZESTUPU = 6;                 // jak daleko od hrany leží štítek s rozměrem
+	const OSY_X = 72, OSY_Y = 110, OSY_M = 2;   // kompas os v rohu: počátek a délka 2 m
+	const TAH_TLACITKO = 3;              // výška, do které vytáhne tlačítko (úkol z výkladu)
+	const ORBIT_KROK = 45;
+
+	const rad = (stupne) => stupne * Math.PI / 180;
+
+	// Rovnoběžné promítání: model se otočí kolem svislé osy o „uhel", pak se sklopí
+	// o ELEVACE. Vrací celé pixely (v SVG žádné nekonečné desetinné rozvoje)
+	// a hloubku od kamery — větší hloubka = dál, kreslí se dřív.
+	function otoc(x, y, uhel) {
+		const f = rad(uhel);
+		return { X: x * Math.cos(f) - y * Math.sin(f), Y: x * Math.sin(f) + y * Math.cos(f) };
+	}
+
+	function promitni(x, y, z, uhel) {
+		const e = rad(ELEVACE);
+		const otoceny = otoc(x, y, uhel);
+		const X = otoceny.X, Y = otoceny.Y;
+		return {
+			x: Math.round(STRED_X + X * MERITKO),
+			y: Math.round(STRED_Y - (z * Math.cos(e) + Y * Math.sin(e)) * MERITKO),
+			hloubka: Y * Math.cos(e) - z * Math.sin(e),
+		};
+	}
+
+	// 8 vrcholů kvádru: 0–3 podstava (vlevo vpředu, vpravo vpředu, vpravo vzadu,
+	// vlevo vzadu), 4–7 stejné rohy nahoře. Při výšce 0 splývají — je to plocha.
+	function vrcholy(a, b, c) {
+		const px = a / 2, py = b / 2;
+		return [
+			[-px, -py, 0], [px, -py, 0], [px, py, 0], [-px, py, 0],
+			[-px, -py, c], [px, -py, c], [px, py, c], [-px, py, c],
+		];
+	}
+
+	const STENY = [
+		{ jmeno: 'podstava', body: [0, 1, 2, 3], barva: '#868e96' },
+		{ jmeno: 'předek', body: [0, 1, 5, 4], barva: '#dee2e6' },
+		{ jmeno: 'pravá', body: [1, 2, 6, 5], barva: '#ced4da' },
+		{ jmeno: 'zadek', body: [2, 3, 7, 6], barva: '#dee2e6' },
+		{ jmeno: 'levá', body: [3, 0, 4, 7], barva: '#ced4da' },
+		{ jmeno: 'horní', body: [4, 5, 6, 7], barva: '#f1f3f5' },
+	];
+
+	// Které stěny kvádru kamera vidí. Kvádr je konvexní, takže stačí spočítat
+	// VNĚJŠÍ normálu stěny a porovnat ji se směrem ke kameře — přivrácené stěny
+	// se nikdy nepřekrývají a nemusí se nic řadit. (Malířovo řazení podle průměrné
+	// hloubky tu selhávalo: velká podstava se kreslila přes zadní stěny a v tělese
+	// zůstávala tmavá klínovitá díra.)
+	function viditelneSteny(a, b, c, uhel) {
+		const e = rad(ELEVACE);
+		const kamera = [0, -Math.cos(e), Math.sin(e)];      // směr od tělesa ke kameře
+		const body3d = vrcholy(a, b, c).map((p) => {
+			const o = otoc(p[0], p[1], uhel);
+			return [o.X, o.Y, p[2]];
+		});
+		const body2d = vrcholy(a, b, c).map((p) => promitni(p[0], p[1], p[2], uhel));
+		const stredZ = c / 2;                               // střed kvádru leží na ose otáčení
+		const vidno = [];
+		for (const stena of STENY) {
+			const p0 = body3d[stena.body[0]], p1 = body3d[stena.body[1]], p2 = body3d[stena.body[2]];
+			const u = [p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2]];
+			const w = [p2[0] - p0[0], p2[1] - p0[1], p2[2] - p0[2]];
+			let n = [
+				u[1] * w[2] - u[2] * w[1],
+				u[2] * w[0] - u[0] * w[2],
+				u[0] * w[1] - u[1] * w[0],
+			];
+			// střed stěny; leží-li normála proti němu, otočí se — tak vznikne VNĚJŠÍ normála
+			const sx = stena.body.reduce((t, i) => t + body3d[i][0], 0) / 4;
+			const sy = stena.body.reduce((t, i) => t + body3d[i][1], 0) / 4;
+			const sz = stena.body.reduce((t, i) => t + body3d[i][2], 0) / 4;
+			if (n[0] * sx + n[1] * sy + n[2] * (sz - stredZ) < 0) n = [-n[0], -n[1], -n[2]];
+			// Zaokrouhlení na tisíciny: u pohledů zpředu/z boku vyjde skalární součin
+			// jako 1e-16 místo nuly a stěna „na hranu" by se kreslila jako čára.
+			const kKamere = Math.round((n[0] * kamera[0] + n[1] * kamera[1] + n[2] * kamera[2]) * 1000) / 1000;
+			if (kKamere > 0) vidno.push({ jmeno: stena.jmeno, barva: stena.barva, body: stena.body.map((i) => body2d[i]) });
+		}
+		return vidno;
+	}
+
+	// výpočty, které scéna žákovi ukazuje — nic víc se netvrdí
+	function vypocty(a, b, c) {
+		const teleso = c > 0;
+		return {
+			teleso,
+			obsah: a * b,
+			objem: a * b * c,
+			vrcholu: teleso ? 8 : 4,
+			hran: teleso ? 12 : 4,
+			sten: teleso ? 6 : 1,
+		};
+	}
+
+	function vrstvy(n) {
+		if (n === 1) return '1 vrstva';
+		if (n < 5) return n + ' vrstvy';
+		return n + ' vrstev';
+	}
+
+	// text na plaketě uvnitř scény (dva řádky)
+	function plaketa(a, b, c) {
+		const v = vypocty(a, b, c);
+		if (!v.teleso) {
+			return [
+				'PLOCHA (2D) — obdélník ' + a + ' × ' + b + ' m',
+				'obsah S = ' + a + ' · ' + b + ' = ' + v.obsah + ' m², objem žádný',
+			];
+		}
+		return [
+			'TĚLESO (3D) — kvádr ' + a + ' × ' + b + ' × ' + c + ' m',
+			'objem V = ' + a + ' · ' + b + ' · ' + c + ' = ' + v.objem + ' m³',
+		];
+	}
+
+	// štítek s rozměrem: text sedí na vlastním bílém podkladu, ať je nad kresbou čitelný
+	const sirkaStitku = (text) => text.length * 9 + 14;
+
+	function stitek(text, x, y, barva) {
+		const sirka = sirkaStitku(text);
+		return '<rect x="' + (x - Math.round(sirka / 2)) + '" y="' + (y - 14) + '" width="' + sirka
+			+ '" height="' + VYSKA_STITKU + '" rx="6" fill="#ffffff" stroke="' + barva + '" stroke-width="2" />'
+			+ '<text x="' + x + '" y="' + (y + 3) + '" text-anchor="middle" font-size="14" font-weight="bold" fill="' + barva + '">'
+			+ text + '</text>';
+	}
+
+	// Střed štítku odsunutý od hrany ven ze středu tělesa. Odsazení roste s rozměrem
+	// štítku (vodorovně o půl šířky, svisle o půl výšky), takže mezi OKRAJEM štítku
+	// a hranou zůstane vždy ODSAZENI pixelů — i u malého tělesa 2 × 2 m, kde by
+	// pevné odsazení nechalo štítky ležet přes sebe.
+	function venku(bx, by, sx, sy, sirka) {
+		const dx = bx - sx, dy = by - sy;
+		const d = Math.sqrt(dx * dx + dy * dy) || 1;
+		const ux = dx / d, uy = dy / d;
+		const kolik = ODSAZENI + Math.abs(ux) * sirka / 2 + Math.abs(uy) * VYSKA_STITKU / 2;
+		return { x: Math.round(bx + ux * kolik), y: Math.round(by + uy * kolik), ux: ux, uy: uy };
+	}
+
+	function popisky(a, b, c, uhel) {
+		const v = vrcholy(a, b, c).map((p) => promitni(p[0], p[1], p[2], uhel));
+		const stred = promitni(0, 0, c / 2, uhel);
+		const ven = [];
+		const hrana = (i, j, rozmer, barva, osa) => {
+			const mx = Math.round((v[i].x + v[j].x) / 2);
+			const my = Math.round((v[i].y + v[j].y) / 2);
+			const k = venku(mx, my, stred.x, stred.y, sirkaStitku(rozmer + ' m'));
+			ven.push({ text: rozmer + ' m', x: k.x, y: k.y, ux: k.ux, uy: k.uy, barva: barva, osa: osa });
+		};
+		hrana(0, 1, a, '#e03131', 'šířka');
+		hrana(1, 2, b, '#2f9e44', 'hloubka');
+		if (c > 0) hrana(1, 5, c, '#1971c2', 'výška');
+		return rozestup(ven);
+	}
+
+	// dva štítky se překrývají, když jsou jejich obdélníky blíž než MEZERA
+	function prekryvaji(p, q) {
+		const polosoucet = sirkaStitku(p.text) / 2 + sirkaStitku(q.text) / 2;
+		return Math.abs(p.x - q.x) < polosoucet + MEZERA && Math.abs(p.y - q.y) < VYSKA_STITKU + MEZERA;
+	}
+
+	// U malého tělesa (2 × 2 m) leží středy hran blízko sebe a štítky by se kryly.
+	// Ten pozdější se proto odsune ještě kousek dál ve svém směru — a tak dokola,
+	// dokud se nerozejdou. Strop kol je pojistka proti nekonečné smyčce.
+	function rozestup(stitky) {
+		for (let kolo = 0; kolo < 14; kolo++) {
+			let kolize = false;
+			for (let i = 0; i < stitky.length; i++) {
+				for (let j = i + 1; j < stitky.length; j++) {
+					if (!prekryvaji(stitky[i], stitky[j])) continue;
+					kolize = true;
+					const posun = KROK_ROZESTUPU * (kolo + 1);   // každé další kolo odsune dál
+					stitky[j].x = Math.round(stitky[j].x + stitky[j].ux * posun);
+					stitky[j].y = Math.round(stitky[j].y + stitky[j].uy * posun);
+				}
+			}
+			if (!kolize) return stitky;
+		}
+		return stitky;
+	}
+
+	// kompas barevných os v rohu — otáčí se spolu s pohledem
+	function osy(uhel) {
+		const nula = promitni(0, 0, 0, uhel);
+		const konec = (x, y, z) => {
+			const p = promitni(x, y, z, uhel);
+			return { x: OSY_X + p.x - nula.x, y: OSY_Y + p.y - nula.y };
+		};
+		return { cervena: konec(OSY_M, 0, 0), zelena: konec(0, OSY_M, 0), modra: konec(0, 0, OSY_M) };
+	}
+
+	// roh, u kterého stojí nejblíž ke kameře svislá hrana (tam se kreslí rysky po metru)
+	function nejblizsiRoh(a, b, uhel) {
+		const v = vrcholy(a, b, 0).map((p) => promitni(p[0], p[1], p[2], uhel));
+		let nej = 0;
+		for (let i = 1; i < 4; i++) if (v[i].hloubka < v[nej].hloubka) nej = i;
+		return nej;
+	}
+
+	function kresli() {
+		const a = +sa.value, b = +sb.value, c = +sc.value, uhel = +so.value;
+		const v = vypocty(a, b, c);
+		outA.textContent = a + ' m';
+		outB.textContent = b + ' m';
+		outC.textContent = c + ' m';
+		outO.textContent = uhel + '°';
+
+		// viditelné stěny tělesa; plocha (výška 0) má jedinou stěnu a je modře vybraná
+		const vrch = vrcholy(a, b, c).map((p) => promitni(p[0], p[1], p[2], uhel));
+		let kresba = '';
+		if (v.teleso) {
+			viditelneSteny(a, b, c, uhel).forEach((s) => {
+				const body = s.body.map((p) => p.x + ',' + p.y).join(' ');
+				kresba += '<polygon points="' + body + '" fill="' + s.barva + '" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" />';
+			});
+		} else {
+			const body = [0, 1, 2, 3].map((i) => vrch[i].x + ',' + vrch[i].y).join(' ');
+			kresba += '<polygon points="' + body + '" fill="#74c0fc" stroke="#1971c2" stroke-width="4" stroke-linejoin="round" />';
+		}
+
+		// mřížka 1 × 1 m na horní ploše: z ní se dá obsah spočítat očima
+		for (let i = 1; i < a; i++) {
+			const p = promitni(-a / 2 + i, -b / 2, c, uhel), q = promitni(-a / 2 + i, b / 2, c, uhel);
+			kresba += '<line x1="' + p.x + '" y1="' + p.y + '" x2="' + q.x + '" y2="' + q.y + '" stroke="#495057" stroke-width="1" />';
+		}
+		for (let j = 1; j < b; j++) {
+			const p = promitni(-a / 2, -b / 2 + j, c, uhel), q = promitni(a / 2, -b / 2 + j, c, uhel);
+			kresba += '<line x1="' + p.x + '" y1="' + p.y + '" x2="' + q.x + '" y2="' + q.y + '" stroke="#495057" stroke-width="1" />';
+		}
+		// rysky po metru na nejbližší svislé hraně — kolik vrstev má těleso
+		const roh = nejblizsiRoh(a, b, uhel);
+		const rohXY = vrcholy(a, b, c)[roh];
+		for (let k = 1; k < c; k++) {
+			const p = promitni(rohXY[0], rohXY[1], k, uhel);
+			kresba += '<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="#f59f00" stroke="#2b2a26" stroke-width="1.5" />';
+		}
+		gTeleso.innerHTML = kresba;
+
+		// štítky s rozměry
+		gPopisky.innerHTML = popisky(a, b, c, uhel).map((p) => stitek(p.text, p.x, p.y, p.barva)).join('');
+
+		// barevné osy
+		const o = osy(uhel);
+		gOsy.innerHTML =
+			'<line x1="' + OSY_X + '" y1="' + OSY_Y + '" x2="' + o.cervena.x + '" y2="' + o.cervena.y + '" stroke="#e03131" stroke-width="4" stroke-linecap="round" />'
+			+ '<line x1="' + OSY_X + '" y1="' + OSY_Y + '" x2="' + o.zelena.x + '" y2="' + o.zelena.y + '" stroke="#2f9e44" stroke-width="4" stroke-linecap="round" />'
+			+ '<line x1="' + OSY_X + '" y1="' + OSY_Y + '" x2="' + o.modra.x + '" y2="' + o.modra.y + '" stroke="#1971c2" stroke-width="4" stroke-linecap="round" />'
+			+ '<circle cx="' + OSY_X + '" cy="' + OSY_Y + '" r="5" fill="#2b2a26" />';
+
+		const radky = plaketa(a, b, c);
+		plaketa1.textContent = radky[0];
+		plaketa2.textContent = radky[1];
+
+		if (v.teleso) {
+			vysledekEl.innerHTML = '<strong>Teď je to TĚLESO (3D):</strong> kvádr ' + a + ' × ' + b + ' × ' + c + ' m<br>'
+				+ 'objem V = ' + a + ' · ' + b + ' · ' + c + ' = <strong>' + v.objem + ' m³</strong> — '
+				+ vrstvy(c) + ' po ' + v.obsah + ' krychlích 1 × 1 × 1 m<br>'
+				+ v.vrcholu + ' vrcholů · ' + v.hran + ' hran · ' + v.sten + ' stěn';
+			radaEl.textContent = 'Z jedné plochy je těleso — má šest stěn a dá se otáčet. Posuvníkem výšky táhni dál nebo zatlač zpátky na nulu.';
+		} else {
+			vysledekEl.innerHTML = '<strong>Teď je to PLOCHA (2D):</strong> obdélník ' + a + ' × ' + b + ' m<br>'
+				+ 'obsah S = ' + a + ' · ' + b + ' = <strong>' + v.obsah + ' m²</strong> — na ploše napočítáš '
+				+ v.obsah + ' čtverečků 1 × 1 m<br>'
+				+ v.vrcholu + ' vrcholy · ' + v.hran + ' hrany · ' + v.sten + ' plocha · výška 0 → žádný objem';
+			radaEl.textContent = 'Modrá plocha nemá žádnou výšku — je to jen obdélník na zemi. Chytni ji nástrojem Táhni (Push/Pull) a vytáhni ji do prostoru.';
+		}
+	}
+
+	svg.__promitni = promitni;
+	svg.__vypocty = vypocty;
+	svg.__viditelneSteny = viditelneSteny;
+	svg.__otoc = otoc;
+	svg.__prekryvaji = prekryvaji;
+	svg.__popisky = popisky;
+	svg.__osy = osy;
+	svg.__nejblizsiRoh = nejblizsiRoh;
+	svg.__plaketa = plaketa;
+	svg.__vrstvy = vrstvy;
+	svg.__stitek = stitek;
+
+	[sa, sb, sc, so].forEach((s) => s.addEventListener('input', kresli));
+	tlTahni.addEventListener('click', () => { sc.value = String(TAH_TLACITKO); kresli(); });
+	tlZpet.addEventListener('click', () => { sc.value = '0'; kresli(); });
+	tlOrbit.addEventListener('click', () => { so.value = String((+so.value + ORBIT_KROK) % 360); kresli(); });
+	kresli();
+</script>
+
+<style>
+	#sku-svg { width: 100%; max-width: 680px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.sku-tl { font: inherit; font-weight: 700; margin: 0.2rem 0.3rem 0.2rem 0; padding: 0.45rem 0.7rem; border: 2px solid #2b2a26; border-radius: 10px; background: #ffec99; cursor: pointer; }
+	.sku-tl:hover { background: #ffd43b; }
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 680px; display: block; margin-top: 0.3rem; }
+	.sku-vysledek { font-size: 1.02rem; background: #f1f3f5; color: #2b2a26; border-radius: 8px; padding: 0.6rem 0.7rem; line-height: 1.9; }
+	.sku-rada { font-weight: 700; }
+	.sku-legenda { font-size: 0.9rem; font-weight: 700; }
+	.sku-tecka { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid #2b2a26; vertical-align: middle; }
+</style>
