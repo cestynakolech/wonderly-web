@@ -2041,6 +2041,12 @@ export const temata: Record<string, Tema[]> = {
 					zapis: {"vzorec":"Fvz = V · ρ · g      (odvozeně: V = Fvz : (ρ · g),  ρ = Fvz : (V · g))","jednotky":["vztlaková síla — značíme Fvz, jednotka N (newton)","objem ponořené části tělesa — značíme V, jednotka m³ (metr krychlový)","hustota kapaliny — značíme ρ, jednotka kg/m³ (kilogram na metr krychlový)","gravitační konstanta — značíme g, jednotka N/kg (newton na kilogram), pro výpočty g = 10 N/kg","Do vzorce dosazuj objem v m³, hustotu v kg/m³ a gravitační konstantu v N/kg; výsledek vyjde v N."],"vzorecSlovy":"vztlaková síla = objem ponořené části tělesa krát hustota kapaliny krát gravitační konstanta","zakon":"Těleso ponořené do kapaliny je nadlehčováno vztlakovou silou, jejíž velikost se rovná tíze kapaliny stejného objemu, jako je objem ponořené části tělesa.","body":["vztlaková síla působí svisle vzhůru","Fvz = V · ρ · g","vzniká: tlak zdola > tlak shora","roste s objemem ponoru a hustotou kapaliny","potápí se: Fg > Fvz","vznáší se: Fg = Fvz","plove: Fg < Fvz","slaná voda hustší → větší vztlak"]},
 					materialy: [
 						{ druh: 'video', nazev: 'Píseň: Archimédes 🎵', cesta: '/materialy/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/pisen-archimedes.mp4' },
+						{
+							druh: 'video',
+							nazev: 'Podkást POLEMIKA: Archimédův zákon — 1. díl',
+							cesta: '/media/fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/archimeduv-zakon/archimeduv-zakon-dialog.mp4',
+							ai: 'Hlasy Evy a Marka vytvořila umělá inteligence (OmniVoice). Fyzikální schémata a animace kreslí program.',
+						},
 					],
 				},
 				{
