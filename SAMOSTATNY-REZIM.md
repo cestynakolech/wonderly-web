@@ -1,3 +1,13 @@
+## 27. 9. 2026 v noci — podkásty a noční fronta
+
+- NOČNÍ FRONTA lokálních modelů (`cz.wonderly.nocni-fronta`, `Omega/skripty/nocni_fronta.py`, 22:00–6:00, pořadí animace → podkasty --vse r6–9 → animace → vata; kontrolor 4 kola do 0 nálezů). Ráno přehled `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`. Denní `cz.wonderly.dodelej-animace` vypnut (Disabled) — duplicita.
+- INVENTURA: 70 ze 120 podtémat fyziky bez podkástu/videa (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Rozhodnutí učitele 26. 9.: scénáře píší WORKEŘI + nezávislý kontrolor (Sonnet, max 2 kola), 1 krátký díl na podtéma (vyjde ~4 min, protože pokrývá celý kvíz, strop 4 600 znaků s prefixy).
+- HOTOVÉ SCÉNÁŘE (prošly kontrolou, brána 21/21): F8 elektřina — elektricky-naboj, elektricke-pole, vznik-elektrickeho-proudu, chemicke-zdroje-napeti, elektricke-obvody, elektricky-proud-mereni, elektricke-napeti-mereni, elektricky-proud-v-kovech-odpor, zavislost-odporu-na-vodici, zapojeni-spotrebicu-za-sebou, zapojeni-spotrebicu-vedle-sebe, rezistor-s-promennym-odporem (12). Namluví je noční fronta od 27. 9. 22:00. Běží vlna: F8 elektricka-prace-a-vykon, ucinky-proudu-a-bezpecnost; F9 vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech.
+- JAK POKRAČOVAT: Workflow se scriptPath `Omega/skripty/workflows/podkasty-scenare.js` a args `{"polozky":[{"rocnik":"9","celek":"…","podtema":"…"}, …]}` (max 4). Po vlně drobné vady opraví exekutor (Sonnet) + ostrá brána `pokriti_kvizu.py --rocnik N`. Cena ~450 tis. tokenů/scénář.
+- ČEKÁ: nové kresby a animace jevů, které scénosledy uvádějí v `pozn_kresby`/`pozn_animace` (bez animací je video „statické" a nepočítá do hotového tématu dle OBSAH-PRAVIDLA kap. 12); srovnávací zkouška gemma4:26b vs qwen3:30b-a3b jako soudce vaty (10 položek, GPU bylo obsazené); sémantická kontrola úniků přes vysvětlení lokálním modelem (slovní zpřísnění uniky.mjs zamítnuto — 0/3 skutečných); kvíz Kvarky má 14 otázek bez zapsané výjimky (zapsat výjimku dle „kvíz — výjimka u chudého podtématu" nebo doplnit).
+- VYŘÍZENO z fronty: teplota-a-jeji-mereni už má 21 otázek (zápis byl zastaralý); uniky přes vysvětlení (viz výše).
+- OPRAVY VÝKLADU nasazené: elektroskop — pořadí ruka/tyč (`b8e3b5c`); pořadí kovů podle měrného odporu (`e33164a`) — obojí chyby podkladu, zapsáno v `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
+
 ## 26. 9. 2026 v noci
 
 **HOTOVO**
