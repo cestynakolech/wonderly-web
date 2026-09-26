@@ -1,3 +1,35 @@
+## 26. 9. 2026 v noci
+
+**HOTOVO**
+- Vata „kvantifikátor" (VZOR 4b) — 22 ze 39 otázek fyziky přestavěno a nasazeno (commit `72ed250`), měřidlo 54 → 26 nálezů vč. souhrnů.
+- Build na Cloudflare opraven (`b7082e3`): test `rozvrzeni-sceny-obousmerne` četl `git show f30767b`, Workers Builds dělá mělký klon → brána shodila build, `2ee4c6e` se nenasadil ~1 h 15 min; fixture teď v `testy/podvrhy/`.
+- Automat dodelej-animace: chybný celek ve scénosledu `archimeduv-zakon-dialog` opraven, odkaz na video je na webu (`d951bd7`).
+
+**ODLOŽENO — zaseklo se (3 vlny, 3 kola kontroly)**
+17 otázek zůstává v původním znění (s „jen" nápovědou); vady jsou v CELÉM BLOKU (sousední otázky a jejich vysvětlení prozrazují odpovědi, výčtové otázky „A a B" mají distraktory = poloviny správné) — nepředělávat po jednotlivých otázkách, ale po celém bloku (otázka + sousedi + vysvětlení naráz). Zbývá i VZOR 3 (kategorické slovo) a VZOR 5 (tázací slovo). Seznam (klíč bloku, začátek zadání):
+1. `fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb` (qIndex 15) — „Jaký pohyb koná šroub při šroubování do dřeva?"
+2. `fyzika/6-rocnik/latka-a-teleso/telesa-a-latky` (qIndex 6) — „Čím se od sebe odlišují různé látky?"
+3. `fyzika/6-rocnik/sila/gravitacni-sila` (qIndex 0) — „Mezi kterými tělesy působí gravitační síla?"
+4. `fyzika/7-rocnik/tlak-v-kapalinach/hydrostaticky-tlak` (qIndex 1) — „Jakými směry působí hydrostatický tlak v kapalině?"
+5. `fyzika/9-rocnik/elektricky-proud-v-latkach/chemicke-zdroje-napeti` (qIndex 8) — „Kde se využívají alkalické články?"
+6. `fyzika/7-rocnik/vztlakova-sila-a-plovani-teles/telesa-stejnoroda-a-nestejnoroda` (qIndex 3) — „Z čeho se skládá nestejnorodé těleso?"
+7. tamtéž (qIndex 7) — „Co počítáme u nestejnorodých těles místo hustoty látky?"
+8. tamtéž (qIndex 13) — „Jakou hmotnost a jaký objem dosazujeme do ρp = m : V?"
+9. `fyzika/6-rocnik/latka-a-teleso/skupenstvi-latek` (qIndex 1) — „Co si zachovává těleso v pevném skupenství?"
+10. `fyzika/6-rocnik/teplota/teplotni-roztaznost` (qIndex 1) — „Kterých skupenství se teplotní roztažnost týká?"
+11. `fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa` (qIndex 6) — „Trajektorie může být…"
+12. `fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/vyparovani` (qIndex 1) — „Za jaké teploty probíhá vypařování?"
+13. `fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost` (qIndex 14) — „Kdy se počítá s odporem lidského těla jen asi 2 000 Ω?"
+14. `fyzika/8-rocnik/energie/zakon-zachovani-mechanicke-energie` (qIndex 19) — „Letadlo letí rychle vysoko nad zemí. Jakou energii má?"
+15. `fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor` (qIndex 13) — „Jakým proudem napájíme elektromotory?"
+16. `fyzika/7-rocnik/jednoduche-stroje/pusobeni-teles-a-deformace` (qIndex 1) — „Jak může působení mezi tělesy probíhat?"
+17. `fyzika/8-rocnik/energie/energeticka-hodnota-potravin` (qIndex 12) — „Z jakých dvou zdrojů člověk získává potraviny bohaté na energii?"
+
+**POUČENÍ**
+1. Oprava vaty 1. vlnou jen přesunula nápovědu — místo „jen" prozrazoval odpověď dovětek „protože…" jen u distraktorů a délka (správná vždy nejkratší); `vata-over-delku.mjs` hlídá jen „nejdelší", ne „nejkratší" → doplnit měřidlo.
+2. Kontroloři mezi vlnami kolísali (co jeden pustil, druhý zamítl) — rozhodnutí až po smyčce do 0 nálezů.
+3. Mělký klon na CI: testy nesmí sahat do historie gitu.
+
 ## STAV 25. 9. 2026 večer — konec session (před /clear)
 
 **NASAZENO A OVĚŘENO**
@@ -18,22 +50,21 @@
 - Lokální modely a výroba animací znovu zapnuté (baterie 80 % na AC, 11 modelů, LaunchAgent `cz.wonderly.dodelej-animace` zaveden).
 
 **BĚŽÍ NEBO ČEKÁ**
-- Nezávislá kontrola revidovaného bloku `telesa-a-latky` DOBĚHLA a NAŠLA **17 nálezů, z toho 9 závažných** — nasazené na živém webu commitem `d95e295`, protože se nasazovalo bez jejího verdiktu. Nejzávažnější: otázka „Je vzduch v pneumatice těleso?" (`kvizy.ts` ~ř. 214) má DVĚ SPRÁVNÉ ODPOVĚDI — distraktor „ano, vzduch je látka, jako guma" neobsahuje nepravdu, protože výklad sám říká, že vzduch je látka. Dále: nabídka „Má nějaké pevné hranice?" (~ř. 219) odporuje vysvětlení jiné otázky bloku; a dvě sousední otázky si odporují v tom, jestli je molekula stejně malá jako atom, nebo větší celek (~ř. 385 a 389). Revize navíc některé úniky nevyřešila, jen přesunula (výčet „tvar, velikost, hmotnost, poloha" zmizel z jedné otázky, ale zůstal ve vysvětlení jiné, kde prozrazuje odpovědi), u skla dokonce přidala nový („sklenice ze skla"), a vysvětlení u otázky „Co je těleso?" ztratilo definiční jádro. Plný seznam nálezů je v `/tmp/wonderly-workery/kontrola-kvizy-telesa-a-latky-2026-09-25.md` — pozor, `/tmp` se může vyprázdnit, takže kdyby soubor nebyl, nálezy se musí najít novou kontrolou.
-- **PRÁVĚ BĚŽÍ OPRAVA** těch 9 závažných nálezů v `src/data/kvizy.ts` (učitel ji zadal slovy „oprav to a nasaď znovu"). ⚠️ Pokud tuhle větu čteš a `git status` hlásí necommitnuté změny v `kvizy.ts`, oprava NEDOBĚHLA nebo nebyla nasazena — zkontroluj těch 9 míst (ř. ~130, 156, 214, 219, 385, 389, 1388 a úniky v bloku telesa-a-latky), dokonči ji, nech zkontrolovat a nasaď ručně (`npm run build`, commit, `npx wrangler deploy`, ověřit curlem).
+- Nezávislá kontrola revidovaného bloku `telesa-a-latky` našla **17 nálezů, z toho 9 závažných** — OPRAVENY a NASAZENÉ commitem `2ee4c6e` (ruční `npx wrangler deploy`, Version ID `136cc553-267b-4a6f-a52d-2759f26540b8`, nasazení 22:02:19Z, tedy 27 s po commitu). Ověřeno curlem na `lab.wonderly.cz/data/kvizy.json`: vadný distraktor „vzduch je látka, jako guma" už v datech NENÍ, je tam nový „vzduch je pořád těleso". Konkrétně opraveno: dvě otázky se dvěma správnými odpověďmi (vzduch v pneumatice, „Má nějaké pevné hranice?"), rozpor dvou sousedních otázek o molekulách, a celkem 8 párů, kde vysvětlení jedné otázky prozrazovalo odpověď na jinou. Vysvětlení „Co je těleso?" má zpět výkladovou hodnotu, ale už nevyjmenovává vlastnosti, na které se ptají jiné otázky.
+- Práce na kvízech bloku `telesa-a-latky` je UZAVŘENÁ a nasazená.
 - Automat na animace běží; noční fronta měla 6 odložených dílů, dva z nich (`vykon-dialog2`, `magnety-opakovani-dialog1`) selhaly na zarovnání replik 51 % a 54 % proti prahu 70 % — nechat automat zkusit znovu, a když selžou i příště, poslechnout zvuk ručně.
 
 **FRONTA NA PŘÍŠTĚ (fyzika, v tomto pořadí)**
-1. Kontrola bloku `telesa-a-latky` (viz výše) a oprava nálezů.
-2. Vata: kvantifikátor 54 otázek, kategorické slovo 87 otázek, tázací slovo 19 otázek — opravovat změnou konstrukce otázky, ne škrtáním slov.
-3. Brána `testy/uniky.mjs` nekontroluje `vysvetleni` — doplnit, ale s prahem, jinak zaplaví falešnými poplachy (vysvětlení látku běžně opakuje).
-4. Podtémata fyziky bez názornosti: zbývá 7 a všechna jsou pololetní/roční shrnutí → ČEKÁ ROZHODNUTÍ UČITELE: dělat přehledovou infografiku, nebo je z měřidla vyjmout?
-5. `MEMORY.md` má 166 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez pokynu.
-6. Rozpor v PDF podkladu učitele o odporu kůže (SmartBooks si protiřečí) → ČEKÁ NA UČITELE, viz zámek výše.
+1. Vata: kvantifikátor 54 otázek, kategorické slovo 87 otázek, tázací slovo 19 otázek — opravovat změnou konstrukce otázky, ne škrtáním slov.
+2. Brána `testy/uniky.mjs` nekontroluje `vysvetleni` — doplnit, ale s prahem, jinak zaplaví falešnými poplachy (vysvětlení látku běžně opakuje).
+3. Podtémata fyziky bez názornosti: zbývá 7 a všechna jsou pololetní/roční shrnutí → ČEKÁ ROZHODNUTÍ UČITELE: dělat přehledovou infografiku, nebo je z měřidla vyjmout?
+4. `MEMORY.md` má 166 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez pokynu.
+5. Rozpor v PDF podkladu učitele o odporu kůže (SmartBooks si protiřečí) → ČEKÁ NA UČITELE, viz zámek výše.
 
 **POZNÁMKY K PRÁCI**
 - Tmavý režim se školní části webu NETÝKÁ (`prefers-color-scheme` je jen v deníku cest) — nezadávat ho workerům.
-- Necommitnuté zůstávají: `.claude/hooks/orchestrator-guard.sh` (cizí), `rozpracovane-vyklady/`, tři pomocné skripty `testy/nastroje/vata-*.mjs`. Záměrně.
-- POUČENÍ 25. 9.: kvízovou opravu nikdy nenasazovat bez druhého čtení někým, kdo ji nepsal. Zelené brány to nezachytí — žádný skript nepozná, že distraktor je vlastně pravdivý. Dnes takhle prošly dvě verze („sklo je tekutá látka", „vzduch je látka jako guma") a skončily na živém webu.
+- Necommitnuté zůstávají (ověřeno `git status --short` 25. 9. večer): `.claude/hooks/orchestrator-guard.sh` (cizí, změněný), `rozpracovane-vyklady/` (dvě nové položky), tři pomocné skripty `testy/nastroje/vata-nalezy-json.mjs`, `vata-over-delku.mjs`, `vata-zapis-navrhy.mjs`, a tato úprava `SAMOSTATNY-REZIM.md`. Záměrně.
+- POUČENÍ 25. 9.: kvízovou opravu nikdy nenasazovat bez druhého čtení někým, kdo ji nepsal. Zelené brány to nezachytí — žádný skript nepozná, že distraktor je vlastně pravdivý. Dnes takhle prošly dvě verze („sklo je tekutá látka", „vzduch je látka jako guma") a skončily na živém webu. Potvrzeno dvakrát: první oprava vyrobila obhajitelný distraktor, druhá přestěhovala únik do jiné otázky. Obě kola prošla zelenými branami.
 
 ## STAV 25. 9. 2026 ráno — Mac se zavírá do krytu, výroba pozastavena
 
