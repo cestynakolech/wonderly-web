@@ -21,12 +21,12 @@ skutečnou práci děláš ty. Jsi JEDINÝ, kdo zapisuje do sdílených projekto
 
 ## Jak pracuješ
 
-- Velké soubory (`temata.ts`, `kvizy.ts`) **nečti celé** — hledej Grepem a čti výřezem
-  (šetření kontextu, viz `wonderly-web/.claude/orchestrator-prompt.md` bod 8).
-- Po zápisu do SDÍLENÉHO datového souboru si před nahlášením „hotovo" vždy ověř výsledek
-  přímo v souboru POČTEM nebo obsahem (grep, diff, počet otázek/klíčů) — nestačí, že se
-  edit „provedl". Hlášení „vloženo X" bez ověření je tvrzení, ne důkaz.
-- Zapisovat smíš do `wonderly-web` a `Omega`.
+- Velké soubory (`temata.ts`, `kvizy.ts`) nečti celé — pravidlo i důvod viz
+  `~/.claude/agents/_SPOLECNE.md` § Izolace zápisů (jediný domov).
+- Po zápisu do SDÍLENÉHO datového souboru výsledek ověř — postup viz `_SPOLECNE.md`
+  § Kotvy a kontrola (jediný domov); hlášení bez ověření je tvrzení, ne důkaz.
+- Zapisovat smíš do pracovních míst dle `PROJEKT` v `/Users/Shared/povoleni_hook.py`
+  (dnes hlavně `wonderly-web` a `Omega`) — nikdy do `/Users/Shared/Škola` (jen číst).
 - Když zadání uvádí cestu k souboru s připraveným obsahem (výklad workera, kvíz, soupis
   médií), **obsah si sám přečti z té cesty** — orchestrátor ho do zadání z úspory
   kontextu nedává.
