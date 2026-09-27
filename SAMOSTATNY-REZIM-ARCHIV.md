@@ -17,6 +17,19 @@ placené TTS (OpenAI, ElevenLabs) jsou už 18. 8. 2026 vyřazené a automat je n
 - Kvíz podtématu `cas-a-jeho-mereni` (F6) rozšířen o úlohu s Ozobotem (obvod, obsah,
   rychlost) na 26 otázek (22. 8. 2026).
 
+### Cloudflare Workers Build 16. 8. 2026 jednou spadl bez viditelné příčiny (plné znění, V6-6)
+- **Cloudflare Workers Build dnes jednou spadl bez viditelné příčiny.** 16. 8. 2026
+  commit `edb1137` se po pushi na `main` normálně nenasadil (jiné komity ten den se
+  propsaly do ~1 minuty, tenhle vůbec). Přes GitHub API zjištěno: check run
+  „Workers Builds: wonderly-web" má `conclusion: failure`, ale text chyby nejde
+  stáhnout (`Cloudflare Builds API` vrací „Authentication error 10000" — aktuální
+  `wrangler` token nemá scope pro Builds API). Lokální `npm run build` přitom prošel
+  čistě (469 stránek), takže nešlo o chybu v datech. Obejito ručním
+  `npx wrangler deploy` — funguje jako záložní cesta, ale nenahrazuje trvalou opravu.
+  Doporučení: podívat se do Cloudflare dashboardu na konkrétní chybu buildu (odkaz
+  na build byl v logu agenta) a/nebo doplnit `wrangler` token o Builds scope, ať se
+  dá příčina zjistit automaticky příště, místo ručního obcházení.
+
 ### [skola2] ⚡ Nekonzistence bezpečného napětí mezi 8. a 9. ročníkem (zadáno 20. 8. 2026) — VYŘEŠENO
 Nález nezávislého kontrolora při revizi dávek 7+8 kvízů fyziky 8: `temata.ts:3749`
 (8. ročník) uvádí bezpečné napětí ve vlhkých prostorách stejnosměrné **30 V**

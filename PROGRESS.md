@@ -57,15 +57,12 @@ Od 23. 9. 2026 je „simulace" a „interaktivní infografika" JEDNA a TATÁŽ s
 - Interaktivní simulace hydrauliky (`HydraulikaSimulace.astro`) na stránce Pascalova zákona
 - Materiály: infografiky (jpg), písničky (mp3/m4a/mp4)
 
-### Fyzika 7 — 30 podtémat KOMPLET (výklad + kvíz s vysvětleními + materiály)
-- **Pohyb a rychlost** (4/4): klid-a-pohyb-telesa, posuvny-otacivy-pohyb, rychlost-draha-cas, priklady-na-vypocet-rychlosti
-- **Síly kolem nás** (5/5): sila, gravitacni-sila, treci-sila, skladani-sil, teziste
-- **Jednoduché stroje** (2/2): jednoduche-stroje-paky (páka+moment), pusobeni-teles-a-deformace (+kvíz)
-- **Tlak v kapalinách** (3/3): tlak, pascaluv-zakon (+simulace), hydrostaticky-tlak
-- **Vztlak** (2/2): archimeduv-zakon, telesa-stejnoroda-a-nestejnoroda (+kvíz)
-- **Atmosféra a tlak** (3/3): atmosfericky-tlak, pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku
-- **Světlo a jeho šíření** (4/4): svetlo-jeho-zdroje, odraz-svetla, lom-svetla, stin-faze-mesice
-- **Zrcadla a čočky** (6/6): optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka (+píseň), oko-vady-oka, rozklad-svetla-duha, vnimani-barev (oko/rozklad/barvy = infografiky). Pozn.: oko-historie-brýlí, rozklad, barvy jsou „nad rámec RVP".
+### Hotová podtémata — zdroj pravdy je kód, ne ruční výčet (oprava V6-11, 27. 9. 2026)
+Ruční seznam „Fyzika 7 — 30 podtémat KOMPLET" byl smazán, protože se stejně jako
+opsaná čísla jinde v tomto souboru rozchází se skutečností a nikdo ho neaktualizuje.
+Skutečný seznam a stav: `grep -A2 "podtema:" src/data/temata.ts` (celky/podtémata),
+`node zkontroluj.mjs` (počty a zapojení), `node testy/nazornost.mjs` (kdo má/nemá
+simulaci), aktuální fronta a co chybí je v nejhornější sekci `SAMOSTATNY-REZIM.md`.
 
 ## 🔜 ZBÝVÁ dodělat
 **Fyzika 6–9: výklad+kvíz napsán pro všechna podtémata**, ale podle rozšířené

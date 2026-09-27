@@ -1,14 +1,22 @@
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026 v noci — podkásty a noční fronta
 
-**PRVNÍ ÚKOL:** pokračovat v psaní scénářů podkastů podle POSTUPU níže — vzít další
-podtéma ze ZBÝVÁ (pořadí: F8 účinnost/energie/tepelné motory → F9 sluneční
-soustava/vesmír a galaxie → F7 zbylých 17), worker napíše scénář → `kontrola_scenare.py`
-→ nezávislý kontrolor (Sonnet, max 2 kola) → zapsat. Detailní seznam
-`Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`.
+**PRVNÍ ÚKOL:** nejdřív DOKONČIT kontrolu 4 rozpracovaných scénářů (BĚŽÍ níže),
+pak pokračovat dalším podtématem ze ZBÝVÁ — worker napíše scénář →
+`kontrola_scenare.py` → nezávislý kontrolor (Sonnet, max 2 kola) → zapsat.
+**Pořadí NEURČENO jednoznačně** (oprava V6-1, 27. 9. 2026): dřívější znění „F8 →
+F9 → F7" nemá doložené rozhodnutí učitele (`git log -S` nic nenašel) a odporuje
+pravidlu „1 celek KOMPLET napříč 7./8./9. ročníkem naráz" (`OBSAH-PRAVIDLA.md`
+kap. 12, paměť [[feedback-poradi-rocniku-a-uplnost-tematu]]) — vybírat podle
+NEJSTARŠÍHO nedokončeného celku napříč všemi třemi ročníky (skupiny podtémat
+v `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`), ne podle ročníku od shora dolů.
+**Osud 7 shrnutí (pololetní/roční) z 70 chybějících — NEROZHODNUTO:** stejná
+otevřená otázka jako u simulací (viz „ČEKÁ ROZHODNUTÍ UČITELE" v aktuální frontě
+níže) — dělat i pro ně krátký podkast/video, nebo je z povinnosti vyjmout jako
+u simulací? Nepředjímat, dokud učitel nerozhodne.
 
 - NOČNÍ FRONTA lokálních modelů (`cz.wonderly.nocni-fronta`, `Omega/skripty/nocni_fronta.py`, 22:00–6:00, pořadí animace → podkasty --vse r6–9 → animace → vata; kontrolor 4 kola do 0 nálezů). Ráno přehled `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`. Denní `cz.wonderly.dodelej-animace` vypnut (Disabled) — duplicita.
 - INVENTURA: 70 ze 120 podtémat fyziky bez podkástu/videa (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Rozhodnutí učitele 26. 9.: scénáře píší WORKEŘI + nezávislý kontrolor (Sonnet, max 2 kola), 1 krátký díl na podtéma (vyjde ~4 min, protože pokrývá celý kvíz, strop 4 600 znaků s prefixy).
-- HOTOVÉ SCÉNÁŘE (prošly skriptem `kontrola_scenare.py` + ostrou bránou + nezávislým kontrolorem) = 32: F8 elektřina 14 (celá kapitola), F8 teplo: tani, tuhnuti, vyparovani, var; F9: vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech, chemicke-zdroje-napeti, polovodice-vlastni-vodivost, polovodice-typu-n-a-p-dioda, ucinky-proudu-bezpecnost, pusobeni-pole-na-vodic-elektromotor, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator, kvarky, radioaktivita, jaderna-energie-a-reakce, jaderny-reaktor-elektrarna. BĚŽÍ (nezávislý kontrolor ještě neskončil, ještě nejsou v žádném ze dvou seznamů): kondenzace, skupenske-zmeny-vody-v-prirode, kmitani-a-vlneni, vnimani-zvuku-a-hlasitost. ZBÝVÁ (nezačato): F8 ucinnost, energie ×5, tepelné motory ×2; F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
+- HOTOVÉ SCÉNÁŘE (prošly skriptem `kontrola_scenare.py` + ostrou bránou + nezávislým kontrolorem) = 32: F8 elektřina 14 (celá kapitola), F8 teplo: tani, tuhnuti, vyparovani, var; F9: vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech, chemicke-zdroje-napeti, polovodice-vlastni-vodivost, polovodice-typu-n-a-p-dioda, ucinky-proudu-bezpecnost, pusobeni-pole-na-vodic-elektromotor, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator, kvarky, radioaktivita, jaderna-energie-a-reakce, jaderny-reaktor-elektrarna. ROZPRACOVÁNO — nejdřív dokončit kontrolu těchto 4 scénářů (nezávislý kontrolor ještě neskončil): kondenzace, skupenske-zmeny-vody-v-prirode, kmitani-a-vlneni, vnimani-zvuku-a-hlasitost. ZBÝVÁ (nezačato): F8 ucinnost, energie ×5, tepelné motory ×2; F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
 - POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
 - ČEKÁ NA UČITELE: výklad F9 chemicke-zdroje-napeti obsahuje citronovou baterii, palivový článek, polaritu anody při nabíjení a „dva stejné kovy" — nejsou v PDF (možná v prezentaci) → ponechat, nebo vyřadit z výkladu i kvízu? Kvíz Kvarky má 14 otázek (výjimka nezapsaná).
 - OPRAVY VÝKLADU nasazené 27. 9.: ionizace ve vedení proudu v plynech (`34ffc6a`); elektroskop
@@ -169,6 +177,62 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   VZOR 5 tázací slovo, viz sekce „26. 9. v noci" výše) se vede pod NOVÝMI názvy,
   staré počty bloků (37/32 aj.) už neplatí a neopisují se.
 
+### 🆕 Znovu zařazeno do fronty (audit 27. 9. 2026, 3. kolo — kontrolor V6)
+
+- [skola2] **DALŠÍ KROK 22. 9. — chybějící složky prvního tématu napříč ročníky**
+  (nález z `INVENTURA-TEMAT.md`, `OBSAH-PRAVIDLA.md` kap. 12): F7 `pohyb-a-rychlost`
+  (4 podtémata) — chybí odkazy, video s animací, interaktivní infografika a hra u
+  všech 4, laborka navíc u 2 (posuvny-otacivy-pohyb, priklady-na-vypocet-rychlosti);
+  F8 `mechanicka-prace-a-vykon` (2 podtémata) — chybí video s animací, infografika
+  a hra u obou, laborka u `mechanicka-prace`; F9 `magneticke-pole` (3 podtémata) —
+  chybí video s animací, infografika, laborka a hra u všech 3. **STAV NEOVĚŘEN
+  ZNOVU** (zápis je z 22. 9., od té doby proběhla přestavba dalších celků i
+  podkasty) — než se bere jako úkol, přeměřit `node testy/nazornost.mjs` a
+  obsah `odkazy`/`materialy` u těchto 9 podtémat.
+- [Omega] K1-3: nedatovaný pád automatu v logu vypadá navěky čerstvý — `revize_automatu.py`
+  má posuzovat stáří podle mtime souboru logu (`CHYBA_HORIZONT_DNU`), ne jen podle
+  pozice v posledních 15 řádcích.
+- [Omega] K1-6 (velký rozsah): 54× neatomický zápis stavového JSON (např.
+  `nahraj_na_youtube.py:145`, `pipeline_sdilene.py:80`) — zavést sdílenou
+  `zapis_atomicky()` a postupně nahradit.
+- [Omega] K1-7: `npx astro build` obchází prebuild bránu `testy/obousmerne.mjs` —
+  doplnit `spawnSync('node',['testy/obousmerne.mjs'])` do integrace
+  brana-pred-buildem v `astro.config.mjs`.
+- [Omega] K1-8: `test_f7_klid_zdroj.py` a `test_f8_pilot_mp4.py` padají v každé
+  revizi automatů (chybí `sys.argv`/modul) — opravit na samostatně spustitelné
+  nebo přesunout mimo `testy/`.
+- [Omega] K1-9 (velký rozsah): nasazení kvízů bez otisku verdiktu kontrolora —
+  zavést soubor s hashem posledního schváleného bloku `kvizy.ts`, `zkontroluj.mjs`
+  odmítne build, když se otisk změněného bloku neshoduje s posledním „NÁLEZY: 0".
+- [Omega] K1-11: staré `ZDRAVI-POHYBU.md`/`ZDRAVI-SESSION.md` tvrdí „vše OK", ačkoli
+  jejich hlídače jsou vypnuté od 12. 9. — revize má hlásit zprávu starší než limit
+  hlídače jako neplatnou.
+- [Omega] K1-12: scénosledy podkástů mívají vadný JSON/špatný klíč celku/schema bez
+  kresby — volat `kontrola_scenare.py` na začátku `automat_podkastu.py`/`nocni_fronta.py`
+  a ověřit `cesta_na_webu` proti `temata.ts`.
+- [Omega] K2-10-ts: `wonderly-web/src/data/cesty/preklady.ts` (seznam jazyků deníku)
+  zůstává mimo sjednocení K2-10 (Python strana hotová) — doplnit test shody
+  `JAZYKY == ('cs',) + JAZYKY_PREKLADU`.
+- [skola2] Suno MP3 Wave 1 — **ověřeno 27. 9. 2026: stále jen 22/116 m4a nasazeno**
+  (`find public/materialy/fyzika -iname '*.m4a' | wc -l`), stejně jako 6. 9. — žádný
+  postup od Wave 1. Plné znění zadání v `PROGRESS-ARCHIV.md`.
+- [skola2] `KE-SCHVALENI.md` má **5 otevřených bodů** (přesně: 1, 3, 10, 14, 15 —
+  ne 17–21, jak uvedla 1. verze tohoto nálezu; 17–21 jsou VYŘÍZENÉ): (1) účinnost
+  jako nové podtéma/nadstavba?, (3) alternativní motory jako nové podtéma?,
+  (10) kladka/nakloněná rovina bez PDF podkladu — potvrdit zdroj prezentace?,
+  (14) rozpor prahu proudu u bezpečnosti, (15) jaderná fyzika F9 (budoucí
+  5. celek) — podrobnosti přímo v souboru.
+- [skola2] Polemika F7 „Klid a pohyb tělesa" — **překážka (práva zápisu) už
+  NEPLATÍ**: `ls -la "/Users/Shared/Škola/podkasty"` 27. 9. ukazuje vlastníka
+  `radek_soukromy` (dřív `radekmicek`) — scénáře i pokrytí kvízu 21/21 už hotové
+  (viz archiv „Odloženo — zaseklo se" níže), lze rovnou vyrobit zvuk.
+- [skola2] Podkast F8 „Výkon" dialog3 — 6 replik zůstalo odložených po timeoutu
+  (420 s) při výrobě 12. 9., 1 bez TXT — dodělat na pozadí (`Omega/ODLOZENE.md`,
+  `Omega/dokumenty/DENIK-CHYB.md:689`).
+- [skola2] `pokryti_kvizu.py` — `MODEL` je už `gemma4:31b` (ověřeno 27. 9., dřív
+  neexistující `gemma4:26b`/rozbitý `~/bin/ask-local`) — spustit bránu na
+  dřívější trojici podtémat a potvrdit 21/21 pokrytí.
+
 ### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
 
 - [cesty] Doplnění starších fotek. Rozsah zadá učitel — zatím jen založeno,
@@ -243,6 +307,12 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
   (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
 - [skola2] **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
   se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
+- [skola2] `wonderly-web/KE-SCHVALENI.md` má **5 otevřených bodů** (1, 3, 10, 14, 15 —
+  viz plný seznam ve „🆕 Znovu zařazeno do fronty, 3. kolo" výše) — čeká na rozhodnutí
+  učitele přímo v souboru.
+- [Omega] Čtyři položky vyžadující zásah/souhlas učitele (SSH klíč pro Omega repo,
+  `povoleni_hook.py` mimo globální settings, 17 vypnutých automatů, neplatný plist
+  `zaloha-skola`) — plný popis v sekci **„## Čeká na odkliknutí"** níže v tomto souboru.
 
 ## 🧰 POSTUP PRÁCE S KVÍZY (referenční zápis, ne úkol)
 
@@ -353,9 +423,15 @@ Organizace:
   `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na
   chybném klíči nikdo nečte — smazat? (mazání se neprovádí bez souhlasu)
 - ~~**Cloudflare Workers Build 16. 8. 2026 jednou spadl bez viditelné příčiny.**~~
-  VYŘEŠENO 26. 9. 2026: příčina byla mělký klon na CI (test četl git historii,
-  Workers Builds ji nemá) — opraveno commitem `b7082e3`, viz sekci „26. 9. 2026
-  v noci" výše (K3-Z15, oprava reference V4-5, 27. 9. 2026).
+  PRAVDĚPODOBNĚ VYŘEŠENO 26. 9. 2026 (V6-6, 27. 9.: „pravděpodobně", protože 16. 8.
+  se konkrétní příčina buildu tehdy vůbec nezjistila — jde o usuzování, ne doložený
+  týž kořen): mělký klon na CI (test četl git historii, Workers Builds ji nemá) —
+  opraveno commitem `b7082e3`, viz sekci „26. 9. 2026 v noci" výše. Plné znění
+  původního nálezu 16. 8. (edb1137, chybějící scope `wrangler` tokenu pro Builds API)
+  v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md).
+- [skola2] Doporučení z 16. 8. 2026 zůstává neprovedené: doplnit `wrangler` tokenu
+  scope pro Cloudflare Builds API, ať jde příště zjistit příčinu selhání buildu
+  automaticky z chybové zprávy, ne jen obcházet ručním deployem.
 - [cesty] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
   se přestane rozmazávat, potvrzuje vždy učitel).
 - [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará
@@ -448,6 +524,19 @@ a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobr
   md soubory pro Clauda číst UMÍ). Rozhodnutí ráno.
 - [skola2] **Automatický restart samostatného režimu po obnově tokenů:** šlo by naplánovanou úlohou
   (cron v danou hodinu spustí novou session). Nová trvalá konfigurace → jen se souhlasem.
+- [Omega] **Omega repo nepushuje** — `git@github.com: Permission denied (publickey)`,
+  151 commitů napřed proti `origin/main` (ověřeno 27. 9. 2026). Chybí SSH klíč/alias
+  pro `github.com` na tomto stroji — zásah do systémové konfigurace, jen se souhlasem.
+- [Omega] **`povoleni_hook.py` není zapsaný v `~/.claude/settings.json`** — platí jen
+  ve `Škola/.claude/settings.json` (`PreToolUse '*'`); session spuštěná přímo z Omegy
+  nebo z wonderly-web běží bez vrátného a bez černé listiny (nález K2-1). Návrh zápisu
+  (jednořádkový příkaz) je v `opravy-c.json`/`Omega/PRAVIDLA.md:703` — mění se jen
+  na pokyn učitele (oprávnění).
+- [Omega] **17 záměrně vypnutých automatů (K1-4)** hlásí `revize_automatu.py` jako
+  vadu — návrh je doplnit `Disabled=true` do plistů nebo je vést v evidenci
+  pozastavených, ať šum nepřehluší skutečné pády. Zásah do LaunchAgentů → na pokyn.
+- [Omega] **Neplatné XML v `com.omega.zaloha-skola.plist` (K1-10)** — komentář s „--"
+  uvnitř dělá `plistlib` slepým k automatu; oprava je editace plistu → na pokyn.
 
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
 

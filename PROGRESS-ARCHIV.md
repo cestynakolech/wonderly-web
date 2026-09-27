@@ -21,22 +21,55 @@ ZASEKL místo pádu — render běžel 5 minut), vkládání `textContent` zpát
 a nové `klik=<id>` pro simulace ovládané tlačítky. Regresní zkouška: 5 dřívějších
 simulací se renderuje dál.
 
-### 🎵 Suno MP3 Wave 1 — 25. 8. 2026 (Subagent)
+### 22. 8. 2026 večer — kvízy fyziky 7 dorovnány, celá fyzika 6–9 na cíli 21
+Fyzika 7 dorovnána na 21 otázek (10 bloků, 44 nových otázek, doplněny 2 věty výkladu
+duhy/barev). Kontrolor 0 nálezů, nasazeno commit `acceba4`, ověřeno obsahem na produkci.
+Celá fyzika 6–9 tím splňuje cíl 21 otázek na podtéma (tehdejší, užší definice „hotové"
+= jen výklad+kvíz — dnešní definice `OBSAH-PRAVIDLA.md` kap. 12 má 9 složek). Zbývá
+informatika + Pč (424 otázek).
+*(Oprava V6-5, 27. 9. 2026: tenhle záznam byl při zkrácení 27. 9. smazán beze stopy —
+jediný z patnácti bloků, který nebyl duplicitní s Historií, protože předchází její
+nejstarší dochovaný záznam z 10. 9. Vráceno v plném znění.)*
 
-**Co bylo uděláno:**
-1. **Python skript** `suno-organize.py` v repo — organizuje MP3 z `~/Downloads/` do
-   fyziky struktury podle klíčových slov v názvech; otestován na 5 MP3, 100 % přesnost.
-2. Kontrolní seznamy a návody: `SUNO-CHECKLIST.md` (116 skladeb), `SUNO-NAVOD.md`,
-   `SUNO-STATUS.md`.
-3. Připravena adresářová struktura fyziky pro Suno skladby na všech ročnících.
+## 🎵 Suno MP3 Wave 1 — 25. 8. 2026 (Subagent)
 
-**Cíl:** Wave 1 = 50+ MP3 (31 % pokrytí), finále = 116 MP3 (100 % fyziky).
+### Co jsem udělal:
+1. ✅ **Vytvořil Python skript** — `suno-organize.py` v repo
+   - Automaticky organizuje MP3 z `~/Downloads/` do fyziky struktury
+   - Zařazuje podle klíčových slov v názvech (energia→6.ročník, sila→7.ročník atd.)
+   - Otestvován na 5 MP3 — **100% přesnost**
+   
+2. ✅ **Vytvořil kontrolní seznamy a návody:**
+   - `SUNO-CHECKLIST.md` — seznam všech 116 potřebných skladeb
+   - `SUNO-NAVOD.md` — detailní návod na stahování
+   - `SUNO-STATUS.md` — status report
 
-**Aktuální stav (opraveno auditem 6. 9. 2026):** Wave 1 navazuje na fázi 1 (26 hlavních
-témat, jedna píseň na téma, „26/26 HOTOVO" 21. 8. 2026); nový cíl je píseň na každé
-z 116 podtémat. Skutečný stav na disku: 22 m4a nasazeno, odpovídá fázi 1; od 25. 8. do
-6. 9. nepřibyla žádná další. Hotovo: infrastruktura. Zbývá: stažení a nasazení ~94
-skladeb ze Suno.
+3. ✅ **Přiravil fyziku strukturu** — všechny adresáře připraveny:
+   - `6-rocnik/uvod-do-fyziky/`
+   - `7-rocnik/sily-kolem-nas/`, `7-rocnik/pohyb-a-sily/`, `7-rocnik/tekutiny-a-tlak/`
+   - `8-rocnik/prace-a-energie/`, `8-rocnik/elektricita-magnetizmus/`
+   - `9-rocnik/elektrina-detaily/`, `9-rocnik/magnetizmus-detaily/`, `9-rocnik/optika/`
+
+### 🎯 Cíl:
+- **Wave 1:** 50+ MP3 dnes (31% pokrytí)
+- **Finále:** 116 MP3 (100% fyziky)
+
+### 📊 Aktuální stav (opraveno auditem 6. 9. 2026, „6 v repo" bylo špatně spočítané):
+- **Navazuje na fázi 1** (26 hlavních témat, jedna píseň na téma — ta byla
+  ohlášena „26/26 HOTOVO" 21. 8. 2026, viz `SAMOSTATNY-REZIM.md`). Tato Wave 1
+  je VĚTŠÍ, NOVÝ cíl: píseň na **každé z 116 podtémat** fyziky, ne jen na
+  hlavní téma.
+- Skutečný stav na disku: **22 m4a nasazeno** (`dist/materialy/fyzika/**/*.m4a`),
+  shoduje se s číslem „písnička 22/116" v Historii PROGRESS.md k 22. 8. —
+  odpovídá fázi 1. Od 25. 8. do dneška (6. 9.) nepřibyla žádná další.
+- Hotovo: ✅ Infrastruktura (skript, checklisty)
+- Zbývá: 🔄 Stahování a nasazení dalších ~94 skladeb ze Suno na zbylá podtémata
+
+### 🚀 Další kroky:
+1. Otevř https://suno.ai/me (tvůj Suno profil)
+2. Stáhni 50+ skladeb (Download button na každou)
+3. Spusť: `python3 ~/Desktop/wonderly-web/suno-organize.py --auto`
+4. ✅ Hotovo — skladby se zorganizují samy
 
 ### 2026-09-12T02:38:57.602817+02:00
 ## Lokální doplňování F8 — první téma Mechanická práce a výkon
