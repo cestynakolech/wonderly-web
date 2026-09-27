@@ -121,8 +121,8 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [skola2] Podtémata bez názornosti u shrnutí (7, ověřeno `node testy/nazornost.mjs`
   27. 9.) — dělat přehledovou infografiku, nebo je z měřidla vyjmout? Stejná otázka
   platí i pro podkasty/video u týchž shrnutí (viz „⚡ ČÍM ZAČÍT" výše).
-- [skola2] `MEMORY.md` (Škola) má 169 řádků, hook doporučuje pod 140 — sloučit
-  dvojníky / archivovat splněné / zvednout limit? Nic nemazat bez pokynu.
+- [skola2] `MEMORY.md` (Škola) — po zhuštění D5 27. 9. má 131 řádků/19 577 B,
+  pod hookovým limitem 140 řádků; U16 tímto ODPADÁ (viz níže), jen hlídat růst.
 - [skola2] Odpor lidské kůže (F8 `temata.ts` ~2713, F9 ~3062–3063, `kvizy.ts`
   ~4344–4361, ~4713–4723) — PDF podklad si sám sobě odporuje (sucho/vlhko
   prohozené i jiný řád čísel); která verze je správná? Do té doby platí
@@ -156,14 +156,16 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [Omega] **Rozhodnutí U1–U16 čekají na učitele** (doporučeno vše A) — plná
   tabulka je v `Omega/dokumenty/PREDAVKA-2026-09-27.md` (sekce „ČEKÁ NA UČITELE
   — tabulka U1–U16"); V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
-  `wonderly/SKILL.md:347`/`_SPOLECNE.md:40` a `~/.claude/CLAUDE.md:61` pravidlo 6) čeká na
-  vlastní bod **U15** (netýká se U1/U4 — ty řeší jinou dělbu práce).
-  U16: MEMORY.md (Škola) ≈22,5 kB/199 řádků > cíl 20 000 B — zkracování 3×
-  zkreslilo pravidla, proto vrácen plný text; varianty A nechat / B rozdělit
-  rejstřík / C slučovat příbuzné paměti.
+  `wonderly/SKILL.md:353-355`/`_SPOLECNE.md:36-42` a `~/.claude/CLAUDE.md:71-73`
+  pravidlo 6) je **U15 — VYŘEŠENO** (`Omega/PRAVIDLA.md:591` (c): platí znění
+  `~/.claude/CLAUDE.md` bod 6, skilly mají znít shodně — opraveno kolo 3).
+  U16: MEMORY.md (Škola) po zhuštění D5 27. 9. má 131 řádků / 19 577 B, pod
+  cílem 140 řádků / 20 000 B — U16 tímto ODPADÁ, hlídat, ať zase nenaroste.
 - **V18 ODLOŽENO 27. 9. — strop 3 kol vyčerpán, 14 nálezů popisu viz
   `Omega/dokumenty/V18-NALEZY-KOLO4.md`; rozpor Škola rm/mv = dotaz × skutečnost
-  allow patří k U14.**
+  allow je od 27. 9. VYŘEŠENÝ kódem (`Omega/PRAVIDLA.md:591` (a)/(c) —
+  `rm`/`mv` ve Škole dnes skutečně vrací `ask`), U14 zůstává otevřené jen pro
+  DALŠÍ zpřísnění (rm mimo projekt, push --force, session mimo Škola/).**
 - [skola2] Denní rutina `pravidla-dluh-denne` založena, ale cron `30 7 * * 1-6`
   čeká na zaregistrování přes `/schedule` učitelem.
 - [cesty] **Smazat zbloudilé kopie v R2** na chybném klíči (2 soubory,
@@ -340,8 +342,8 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
 - [skola2] Podtémata bez názornosti (ověřeno `node testy/nazornost.mjs` 27. 9.: fyzika
   7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3) —
   otevřená otázka o osudu shrnutí je v sekci „❓ Otevřené dotazy na učitele" nahoře.
-- [skola2] `MEMORY.md` (Škola) má 169 řádků, hook doporučuje pod 140 — otevřená otázka
-  je v sekci „❓ Otevřené dotazy na učitele" nahoře. Nic nemazat bez pokynu.
+- [skola2] `MEMORY.md` (Škola) — po zhuštění D5 27. 9. má 131 řádků/19 577 B,
+  pod hookovým limitem 140 (viz „❓ Otevřené dotazy na učitele" nahoře, U16).
 - [skola2] 22 kandidátů na zkrácení pravidel a registrace cronu `pravidla-dluh-denne` —
   přesunuto do sekce „❓ Otevřené dotazy na učitele" nahoře (V9-2, 27. 9. 2026).
 - [skola2] Kosmetika: blok `tepelna-vymena-a-teplo` má zápis „4200", sjednocení na
