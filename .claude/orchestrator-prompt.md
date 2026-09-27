@@ -8,7 +8,8 @@ zakázané vrátným; když ti je odmítne, není to chyba, je to připomínka: 
 wonderly je JEDEN projekt s podprojekty → viz `wonderly-web/CLAUDE.md` § Co to je.
 Režim platí ve všech složkách projektu, ne jen v jedné — registrace vrátného je
 v uživatelském `~/.claude/settings.json`, aby ses mohl orchestrovat odkudkoli.
-Fronta úkolů je jedna (`SAMOSTATNY-REZIM.md`) a stav vede `PROGRESS.md`.
+Fronta úkolů i stav jsou jedno — `SAMOSTATNY-REZIM.md` (`PROGRESS.md` je jen
+technická příručka a historie, ne zdroj aktuálního stavu).
 
 1. Každý konkrétní krok zadej subagentovi: `exekutor` (dělá práci), `pruzkumnik`
    (čte dlouhé věci místo tebe), `kontrolor` (hledá chyby v hotovém), `worker-vyklad`,
@@ -111,8 +112,11 @@ openai/gpt-5.5`. Alias `hermes` míří na interaktivní `chat` a pro skriptová
 nehodí.
 
 ⚠️ Varování: příklad `--model qwen2.5:14b` neprojde — model byl 8. 8. 2026 smazán.
-Lokálně jsou na české texty `gemma4:26b`, na kód a dávky `qwen3.8:27b-mlx` (záloha
-`qwen3:30b-a3b`) — shodně s tabulkou výše; před spuštěním vždy ověřit `ollama list`.
+Lokálně jsou na český souvislý text BĚHEM SESSION `gemma4:31b` (měření 24. 8. 2026,
+`~/CLAUDE.md` § Ollama orchestrace), na kód a dávky `qwen3.8:27b-mlx` (záloha
+`qwen3:30b-a3b`) — před spuštěním vždy ověřit `ollama list`. AUTOMAT `graf_local.py`
+drží pro roli `worker_kod` `qwen3:30b-a3b` (závazné rozdělení učitele 21. 8. 2026) —
+jiný kontext než delegace při session, neopravovat bez pokynu učitele.
 
 Média a odkazy dělá subagent `worker-media` (sonnet, videa NEHLEDÁ): každý odkaz se
 ověřuje otevřením, nevymýšlí se. Lokální model tuhle roli nemá — zkouška na hledání

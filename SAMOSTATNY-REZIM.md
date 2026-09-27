@@ -20,6 +20,12 @@ Omega/dokumenty/POZASTAVENE-AUTOMATY-2026-09-27.md
 27. 9. večer: noční fronta VYPNUTA na žádost učitele (GPU pro jeho práci s lokálními
 modely). Znovu zapnout: `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.nocni-fronta.plist`.
 
+🔹 drobnost do stavu (27. 9. 2026, kontrolor V19/N15): výstup podkástů
+(`vyrob_omnivoice.py` → `/Users/Shared/Škola/podkasty/...`) skutečně zapisuje
+do `Škola/`, ačkoli `_SPOLECNE.md` ji popisuje jako „jen číst" — jde o zavedenou
+výjimku (výstup automatu, ne zdrojový podklad), zatím jen zapsáno jako fakt,
+rozhodnutí o formálním zápisu výjimky nechat na učiteli.
+
 **STÁLE OTEVŘENO (nepokryto níže, ČTI PŘESNĚ):** `OBSAH-PRAVIDLA.md` ř. 316–317 —
 1. téma (F7 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole`)
 se má dodělat KOMPLET (všech 9 složek vč. podkastu) u 7./8./9. ročníku naráz, teprve
@@ -816,4 +822,5 @@ která se pro navázání práce nepotřebuje, tak se nečte automaticky.
 > migrace do git fronty `wonderly-fronta/prijate/` ověřena hotová (soubory
 > `cesty-9-fotek-saint-sauveur-uklid.md`, `cesty-poloha-zastavky-po-uklidu-zhrubne.md`,
 > `cesty-kontaktni-list-anonymizace.md` tam existují) — znění přesunuto do archivu,
-> nové položky zakládat jen ve `wonderly-fronta`.
+> nové úkoly PRO LOKÁLNÍ GRAF/HERMESE zakládat ve `wonderly-fronta`; fronta práce
+> Claude session zůstává tady, viz `~/.claude/skills/wonderly/START.md` (V19, 27. 9. 2026).
