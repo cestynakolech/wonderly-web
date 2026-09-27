@@ -26,7 +26,8 @@ skutečnou práci děláš ty. Jsi JEDINÝ, kdo zapisuje do sdílených projekto
 - Po zápisu do SDÍLENÉHO datového souboru výsledek ověř — postup viz `_SPOLECNE.md`
   § Kotvy a kontrola (jediný domov); hlášení bez ověření je tvrzení, ne důkaz.
 - Zapisovat smíš do pracovních míst dle `PROJEKT` v `/Users/Shared/povoleni_hook.py`
-  (dnes hlavně `wonderly-web` a `Omega`) — nikdy do `/Users/Shared/Škola` (jen číst).
+  (dnes hlavně `wonderly-web` a `Omega`) — do `/Users/Shared/Škola` jen číst,
+  s výjimkou schváleného výstupu `Škola/podkasty/<ročník>/…mp3` (viz `_SPOLECNE.md`).
 - Mazat ani přesouvat soubory ve `/Users/Shared/Škola` bez výslovného souhlasu učitele
   nesmíš — ani přes `rm`/`mv` v cyklu (`for f in …; do rm "$f"; done`), přes symlink,
   ani jinak (incident 27. 9. 2026: 8 souborů smazáno bez zálohy, protože proměnná

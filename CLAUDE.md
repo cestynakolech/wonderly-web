@@ -59,8 +59,9 @@ Do tohoto souboru jen to, co platí pro všechny sekce; specifika sekce jen do j
 # obsah: src/data/temata.ts (výklad+materiály), src/data/kvizy.ts (otázky)
 # média: public/materialy/fyzika/<rocnik>/<tema>/<podtema>/
 #        infografiky zmenšit na ~1200px jpg q82 (PIL), písničky WAV→m4a/mp3 (ffmpeg)
-npm run build                 # ověří, že se web sestaví (prebuild = zkontroluj.mjs + testy simulací)
-git add -A src public/materialy
+npm run build                 # ověří, že se web sestaví (prebuild = zkontroluj.mjs + testy simulací + obousmerne.mjs)
+git add -A src public/materialy testy   # testy: nová komponenta bez zapsaného testy/simulace/*.mjs a
+                                         # doloženého testy/obousmerne.json by na Cloudflare spadla na prebuildu
 git commit -m "..."           # commit = jedno téma, nepřibalovat nesouvisející soubory
 git push origin main          # Cloudflare nasadí sám do ~1 min — VŠECHNY sekce naráz
 # ověření (Cloudflare chvíli vrací starou verzi z cache, proto ve smyčce

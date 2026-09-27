@@ -51,10 +51,9 @@ technická příručka a historie, ne zdroj aktuálního stavu).
     `worker-media`/`worker-simulace`/`kontrolor` v `~/.claude/agents/*.md`) —
     dva workeři nikdy nesmí psát do téhož souboru. Jinak by tentýž text prošel
     kontextem dvakrát — od workera a znovu v zadání pro exekutora (nález
-    15. 8. 2026). POZOR na rozpor: `~/.claude/agents/_SPOLECNE.md` § Izolace
-    zápisů mluví obecně o „scratchpadu" bez konkrétní cesty — kde definice
-    jednotlivých agentů řeknou přesnou cestu, platí ONA (agenty se neupravují,
-    aby se nerozešly s tím, co skutečně používají).
+    15. 8. 2026). Přesná cesta i výjimka `worker-simulace` jsou teď shodně
+    v `~/.claude/agents/_SPOLECNE.md` § Izolace zápisů (oprava rozporu N23,
+    kontrolor kolo 2, 27. 9. 2026).
 13. Po zápisu do SDÍLENÉHO souboru nech ověřit výsledek POČTEM přímo v souboru
     → plné znění `~/.claude/agents/_SPOLECNE.md` § Kotvy a kontrola (jediný
     domov; exekutor se řídí toutéž sekcí). Hlášení „vloženo X" bez čísla

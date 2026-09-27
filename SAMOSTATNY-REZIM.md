@@ -69,16 +69,13 @@ chybné zdůvodnění, které Eva neopraví; kontrola (g) v `kontrola_scenare.py
 VAROVÁNÍ a g2 („3 opravy v řadě") je taky mimo návod — přepsat po rozhodnutí učitele.
 
 **ROZHODNUTÍ UČITELE (otevřené):** 1) co je „část" dílu / kolik Markových chyb na
-díl (~4 min) — visí na tom 5 neschválených scénářů a kontrola (g); 2) U14
-(`PRAVIDLA.md:591`) — mazání/přesun ve Škole: vrátný (`/Users/Shared/povoleni_hook.py`)
-byl 27. 9. změněn na „ask" pro Školu bez rozhodnutí U14 (proti poznámce „NEMĚNIT
-do rozhodnutí"); příčina incidentu: `rm` přes proměnnou v cyklu → záloha tiše
-přeskočena (8 TTS souborů pololetni-shrnuti-dialog3 smazáno bez zálohy, bezcenný
-šum, zapsáno v `zurnal-mazani.jsonl`); 3) přegenerovat 6/pololetni-shrnuti-dialog3
-replika 14-EVA (výška 387 Hz vs ~250 Hz); 4) `claude login` pro opraváře (OAuth
-vypršel, `OPRAVAR_AUTOMATICKY=False`); 5) kvízová vysvětlení na webu:
-7/telesa-stejnoroda „přibližně tisíckrát" (přesně ~833), 7/gravitacni-sila
-délková nápověda u 6/21 otázek.
+díl (~4 min) — visí na tom 5 neschválených scénářů a kontrola (g); 2) U14 —
+viz § ❓ Otevřené dotazy na učitele (jediná sekce) níže, bod „U14 — Vrátný:
+zpřísnit?" (přesunuto odtud, oprava rozporu N4, kontrolor kolo 2); 3) přegenerovat
+6/pololetni-shrnuti-dialog3 replika 14-EVA (výška 387 Hz vs ~250 Hz); 4) `claude
+login` pro opraváře (OAuth vypršel, `OPRAVAR_AUTOMATICKY=False`); 5) kvízová
+vysvětlení na webu: 7/telesa-stejnoroda „přibližně tisíckrát" (přesně ~833),
+7/gravitacni-sila délková nápověda u 6/21 otázek.
 
 **OTEVŘENÉ DROBNOSTI:** mezipaměť brány (7 drobných nálezů + závažný, viz
 scratchpad kontrola-cache — přepsat do `Omega/dokumenty`, pokud chceš zachovat);
@@ -137,6 +134,11 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   ve `Škola/.claude/settings.json` (`PreToolUse '*'`); session spuštěná přímo z Omegy
   nebo z wonderly-web běží bez vrátného a bez černé listiny (nález K2-1). Návrh zápisu
   (jednořádkový příkaz) je v `Omega/dokumenty/audit-2026-09-27.md` (sekce K2-1, V9-4).
+- [Omega] **U14 — Vrátný: zpřísnit?** (`rm` mimo projekt, `git push --force`, session
+  mimo `Škola/`) — kód dnes tyhle případy vrací `allow[+žurnál]`, návody to popisují
+  správně (`Omega/PRAVIDLA.md:591` bod (a)/(c)); OTEVŘENÉ je jen to, zda učitel chce
+  přidat `ask`. Doklad: `scratchpad/rozpory-kolo2.md` N1–N4 (kontrolor, 27. 9. 2026,
+  kolo 2).
 - [Omega] **17 záměrně vypnutých automatů (K1-4)** hlásí `revize_automatu.py` jako
   vadu — doplnit `Disabled=true` do plistů, nebo je vést v evidenci pozastavených?
   Zásah do LaunchAgentů.
