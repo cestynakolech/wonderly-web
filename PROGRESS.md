@@ -95,6 +95,17 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 27. 9. 2026: audit + sjednocení dokumentace (kolo 2, uzávěrka)
+
+Commity Omega `12603d7` (detektor tajemství, V16 — poslední pokus), `3338a63`
+(sjednocení návodů D3); wonderly-web `464ad69` (sjednocení návodů D3), `3da75a3`
+(exekutor.md odkazuje na `_SPOLECNE.md`, rozsah zápisů dle `povoleni_hook.py`).
+Úspora startovní dokumentace 171 948 → 111 084 B (ověřeno `Omega/METRIKY-KOL.md`).
+Opravy V18 (rozpor „kdo zapisuje do sdílených souborů" — vloženo jako V18-4 do
+❓ sekce, čeká na U1/U4) a pamětí kolo 2 (paměť sjednocena na `-Users-Shared--kola`
+jako jediný živý domov, opuštěná složka `-Users-radek-soukromy-Desktop-Omega`
+ověřena a označena mrtvá).
+
 ## Historie — 27. 9. 2026: nedělní WONDERLY AUDIT (závěr, 3.–6. kolo)
 
 Souhrn celého dne v `Omega/dokumenty/audit-2026-09-27.md` (K1–K3 + opravy A/B/C).

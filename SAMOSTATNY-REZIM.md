@@ -26,7 +26,7 @@ níže). Nepředjímat, dokud učitel nerozhodne.
 - ⚠️ elektricky-naboj-dialog při výrobě padal na bráně pokrytí (3 otázky, např. 5 mC). Při /clear BĚŽELA kontrola brány pokrytí na všech nových scénářích (ostře s modelem, oprava neprošlých) — výsledek ověř: pro každý scénář z 26.–27. 9. `/Users/radek_soukromy/Desktop/Omega/skripty/venv/bin/python3 /Users/radek_soukromy/Desktop/Omega/skripty/pokryti_kvizu.py <slug> --rocnik N --tema <klíč> --bez-modelu` (rychlá triáž) a u neprošlých ostře; zápis o případném kolísání brány hledej v `Omega/dokumenty/DENIK-CHYB.md`.
 - ZBÝVÁ scénářů: F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Postup: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (vložit jako script — tool nepřijme scriptPath mimo session) a args `{"polozky":[{"rocnik","celek","podtema"}…max 4]}`; drobné vady opraví exekutor (Sonnet).
 - POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
-- NOVÝ PRINCIP „KANÁREK + JISTIČ + HLÁŠENÍ" (zadání učitele 27. 9.): `cz.wonderly.kanarek` v 18:00 vyrobí z každé úlohy 1 kus naostro bez nasazení a ověří produkt; noc 22:00 nespustí úlohu se spadlým kanárkem; jistič: stejný podpis chyby 2× → úloha stop (známé přechodné chyby se nepočítají); první nová chyba → Telegram + `Omega/dokumenty/POPLACH.md`; známé chyby `data/zname-chyby.json`. Kontroly: 1. kolo 9 vad, 2. kolo 6 vad — opraveno. 3. kolo kontroly: 3 ZÁVAŽNÉ vady, NEOPRAVENO — kanárek proto VYPNUT (launchctl bootout 27. 9.): (1) nocni_fronta.py:160 _je_proces_kanarek hledá „kanarek.py", launchd ho ale spouští jako „nocni_fronta.py --kanarek" → noc zámek kanárka nepozná a propadne; (2) nocni_fronta.py:197-201 + kanarek.py:76 killpg zabije jen kanárka, jeho podprocesy (start_new_session) běží dál jako sirotci; (3) automat_podkastu.py:725 a dodelej_animace.py:267 — úspěch s --bez-nasazeni vynuluje počitadlo neúspěchů (odlozeno.pop) → díl, který noc nedokáže nasadit, se nikdy trvale neodloží a kanárek ho ověřuje dokola. Ověřeno (27. 9.): chybějící/neplatný dnešní verdikt kanárka NEBLOKUJE noc — `kanarek.precti_dnesni_verdikt()` bez souboru/se starým datem vrátí `{}`, `_kanarek_blokuje()` pak úlohu nezastaví. PRVNÍ ÚKOL po /clear: opravit 1–3, 4. kolo kontroly do 0 nálezů, pak `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.kanarek.plist`. Zítra ráno číst `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`, `POPLACH.md` a `data/kanarek-verdikt.json`.
+- NOVÝ PRINCIP „KANÁREK + JISTIČ + HLÁŠENÍ" (zadání učitele 27. 9.): `cz.wonderly.kanarek` v 18:00 vyrobí z každé úlohy 1 kus naostro bez nasazení a ověří produkt; noc 22:00 nespustí úlohu se spadlým kanárkem; jistič: stejný podpis chyby 2× → úloha stop (známé přechodné chyby se nepočítají); první nová chyba → Telegram + `Omega/dokumenty/POPLACH.md`; známé chyby `data/zname-chyby.json`. Kontroly: 1. kolo 9 vad, 2. kolo 6 vad — opraveno. 3. kolo kontroly: 3 ZÁVAŽNÉ vady, NEOPRAVENO — kanárek proto VYPNUT (launchctl bootout 27. 9.): (1) nocni_fronta.py:160 _je_proces_kanarek hledá „kanarek.py", launchd ho ale spouští jako „nocni_fronta.py --kanarek" → noc zámek kanárka nepozná a propadne; (2) nocni_fronta.py:197-201 + kanarek.py:76 killpg zabije jen kanárka, jeho podprocesy (start_new_session) běží dál jako sirotci; (3) automat_podkastu.py:725 a dodelej_animace.py:267 — úspěch s --bez-nasazeni vynuluje počitadlo neúspěchů (odlozeno.pop) → díl, který noc nedokáže nasadit, se nikdy trvale neodloží a kanárek ho ověřuje dokola. Ověřeno (27. 9.): chybějící/neplatný dnešní verdikt kanárka NEBLOKUJE noc — `kanarek.precti_dnesni_verdikt()` bez souboru/se starým datem vrátí `{}`, `_kanarek_blokuje()` pak úlohu nezastaví. PRVNÍ ÚKOL po /clear: opravit 1–3, 4. kolo kontroly do 0 nálezů, pak `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.kanarek.plist`. Zítra ráno číst `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`, `POPLACH.md` a `data/kanarek-verdikt.json`. 27. 9. opraveno (commity 50f7db9, b5930af, b94603f, bf13dc0, d2592a2), 3 vady ověřeny nezávislou kontrolou kol 4–8, kanárek znovu zapnut 27. 9. 2026 v 15:13.
 - OPRAVÁŘ (automatický Claude) VYPNUT: `OPRAVAR_AUTOMATICKY=False` v `oprava_hlaseni.py` — nastavení Claude Code má `defaultMode bypassPermissions`, zákazy (push, mazání) nejdou vynutit; navíc OAuth headless vypršel. Opravář jen připraví `OPRAVAR-PROMPT.md` + hlášení. Zapnout jen rozhodnutím učitele (přihlásit `claude` → `/login` a spouštět s `--permission-mode default`).
 - ČEKÁ NA UČITELE: přihlásit Claude v terminálu (`claude` → `/login`); výklad F9 chemicke-zdroje-napeti (citronová baterie aj. nejsou v PDF — ponechat/vyřadit?); kvíz Kvarky 14 otázek bez zapsané výjimky.
 - NASAZENO dnes a včera: build fix `b7082e3`, kvízy vata `72ed250`, výklad `b8e3b5c` / `e33164a` / `34ffc6a`, odkaz na video Archimédes `d951bd7`.
@@ -97,6 +97,14 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   konfigurace → jen se souhlasem.
 - [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
   `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md`.
+- [Omega] **Rozhodnutí U1–U15 čekají na učitele** (doporučeno vše A) — plná
+  tabulka je v `Omega/dokumenty/PREDAVKA-2026-09-27.md` (sekce „ČEKÁ NA UČITELE
+  — tabulka U1–U15"); V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
+  `wonderly/SKILL.md:347`/`_SPOLECNE.md:40` a `~/.claude/CLAUDE.md:61` pravidlo 6) čeká na
+  vlastní bod **U15** (netýká se U1/U4 — ty řeší jinou dělbu práce).
+- **V18 ODLOŽENO 27. 9. — strop 3 kol vyčerpán, 14 nálezů popisu viz
+  `Omega/dokumenty/V18-NALEZY-KOLO4.md`; rozpor Škola rm/mv = dotaz × skutečnost
+  allow patří k U14.**
 - [skola2] Denní rutina `pravidla-dluh-denne` založena, ale cron `30 7 * * 1-6`
   čeká na zaregistrování přes `/schedule` učitelem.
 - [cesty] **Smazat zbloudilé kopie v R2** na chybném klíči (2 soubory,
@@ -458,6 +466,15 @@ třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo 
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### [drobnost] KE-SCHVALENI.md v deníku má 280 MB (zjištěno 27. 9. 2026, V18 kolo 2)
+
+`/Users/Shared/Cestovatelský deník/KE-SCHVALENI.md` je append-only provozní log, do
+kterého zapisuje ~13 automatů deníku (`Omega/skripty/*.py`, grep `KE_SCHVALENI`) —
+27. 9. 2026 měl **280 954 572 bajtů**. Podezření: nějaký automat čte/zapisuje soubor
+přes `read_text()`/append opakovaně a hromadí duplicity, nebo omylem zapisuje binární
+obsah. Nejde o chybu blokující práci, jen prošetřit a případně soubor rozdělit/otočit
+(log rotation), ať nezpomaluje čtení a needitovatelný soubor v editorech.
+
 ### [skola2] ⛔ NESAHAT — UČITEL ROZHODNE SÁM — odpor lidské kůže (zjištěno 25. 9. 2026)
 
 → ❓ (otázka „která verze PDF platí" je i v sekci „❓ Otevřené dotazy na učitele" výše,
@@ -643,6 +660,35 @@ a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobr
 - [skola2] Projít prezentace /Users/Shared/Škola/9/ — dtto
 
 ## Odloženo — zaseklo se (max 3 pokusy na problém, pak sem a dál)
+
+### ODLOŽENO: detektor tajemství propustí hodnotu bez uvozovek s „(" hned za ní (audit 27. 9. 2026)
+`Omega/skripty/zaloha_git.py` (`_tajemstvi_mimo_python`, ř. 205–210) — pro
+nekótovanou hodnotu (shell/.env tvar) se celý nález zahodí, pokud hodnota
+OBSAHUJE „(" kdekoli (`if "." in hodnota or "$" in hodnota or "(" in hodnota:
+continue`), ne jen bezprostředně za koncem tokenu — skutečný token zakončený
+nebo doprovázený „(" (např. odřezek shellové substituce) tak unikne detekci.
+Řešeno už 3× (V7→V10→V13→V16, viz komentář v kódu u `_VZOR_E69BBA1`), princip
+regexu se dál neupravuje; oprava vyžaduje stejný „dočti zbytek a zeptej se na
+POZICI" postup jako `_tajemstvi_obecnym_vzorem`, jen pro tuto (`.env`) větev.
+
+### 2 drobnosti dokumentace (audit 27. 9. 2026, `Omega/dokumenty/audit-2026-09-27.md`)
+- K1-11: `ZDRAVI-POHYBU.md` z 12. 9. tvrdí „Práce se hýbe, nic nestojí", ale
+  jeho hlídač byl vypnut týž den — starý soubor lže o stavu, doplnit datum/
+  poznámku o vypnutí nebo smazat zastaralý zápis.
+- K3-Z17 (`SKILL.md` „POSTUP PRÁCE S KVÍZY"): zkrácení NEPROVEDENO — malá
+  úspora, riziko ztráty provozní znalosti; ověřit znovu proti aktuálnímu
+  `OBSAH-PRAVIDLA.md` a případně zkrátit na pointer.
+
+### velke_do_fronty z opravy-b/c (kontrolorem označeno „velikost: velká", audit 27. 9. 2026)
+Z `opravy-b.json`/`opravy-c.json` (nezávislý kontrolor, K1/K2 nálezy nad rámec
+hlavních 3 zadaných): K1-6 neatomický zápis stavového JSON na 54 místech
+(sdílená `zapis_atomicky()` + postupná náhrada); K1-9 otisk (hash) verdiktu
+kontrolora vázaný na build `kvizy.ts` (zásah do `wonderly-web/zkontroluj.mjs`);
+K1-7 doplnit `testy/obousmerne.mjs` do `astro.config.mjs` brány před buildem;
+K1-8 opravit/přesunout padající `test_f7_klid_zdroj.py` a `test_f8_pilot_mp4.py`;
+K1-12 zapojit `kontrola_scenare.py` do `automat_podkastu`/`nocni_fronta`;
+K2-10-ts sjednotit `preklady.ts` (wonderly-web) se seznamem jazyků v Pythonu
+(mimo write-scope tehdejšího exekutora C).
 
 ### Polemika F7 „Klid a pohyb tělesa" — zvuk nejde vyrobit z účtu radek_soukromy (10. 9. 2026)
 
