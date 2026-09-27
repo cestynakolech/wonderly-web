@@ -97,11 +97,14 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   konfigurace → jen se souhlasem.
 - [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
   `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md`.
-- [Omega] **Rozhodnutí U1–U15 čekají na učitele** (doporučeno vše A) — plná
+- [Omega] **Rozhodnutí U1–U16 čekají na učitele** (doporučeno vše A) — plná
   tabulka je v `Omega/dokumenty/PREDAVKA-2026-09-27.md` (sekce „ČEKÁ NA UČITELE
-  — tabulka U1–U15"); V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
+  — tabulka U1–U16"); V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
   `wonderly/SKILL.md:347`/`_SPOLECNE.md:40` a `~/.claude/CLAUDE.md:61` pravidlo 6) čeká na
   vlastní bod **U15** (netýká se U1/U4 — ty řeší jinou dělbu práce).
+  U16: MEMORY.md (Škola) ≈22,5 kB/199 řádků > cíl 20 000 B — zkracování 3×
+  zkreslilo pravidla, proto vrácen plný text; varianty A nechat / B rozdělit
+  rejstřík / C slučovat příbuzné paměti.
 - **V18 ODLOŽENO 27. 9. — strop 3 kol vyčerpán, 14 nálezů popisu viz
   `Omega/dokumenty/V18-NALEZY-KOLO4.md`; rozpor Škola rm/mv = dotaz × skutečnost
   allow patří k U14.**
