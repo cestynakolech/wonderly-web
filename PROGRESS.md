@@ -95,6 +95,14 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 27. 9. 2026: nedělní WONDERLY AUDIT (závěr, 3.–6. kolo)
+
+Souhrn celého dne v `Omega/dokumenty/audit-2026-09-27.md` (K1–K3 + opravy A/B/C).
+Oprava falešného poplachu zálohy Omegy (nový detektor tajemství, 0 nálezů nad
+HEAD, 104 testů). Startovní čtení 171 948 → 111 084 B (`Omega/METRIKY-KOL.md`,
+nový soubor). `zkontroluj.mjs`/build/push/curl ověřeny zelené. Fronta a otevřené
+dotazy na učitele sloučeny do `SAMOSTATNY-REZIM.md`, sekce „❓".
+
 ## Historie — 27. 9. 2026: nedělní WONDERLY AUDIT (zkrácení dokumentace, 2 kola)
 
 - **1. kolo:** Exekutor A zkrátil startovní dokumentaci podle nálezů nezávislého
