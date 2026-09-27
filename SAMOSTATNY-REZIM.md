@@ -1,14 +1,23 @@
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026 v noci — podkásty a noční fronta
 
+**PRVNÍ ÚKOL:** pokračovat v psaní scénářů podkastů podle POSTUPU níže — vzít další
+podtéma ze ZBÝVÁ (pořadí: F8 účinnost/energie/tepelné motory → F9 sluneční
+soustava/vesmír a galaxie → F7 zbylých 17), worker napíše scénář → `kontrola_scenare.py`
+→ nezávislý kontrolor (Sonnet, max 2 kola) → zapsat. Detailní seznam
+`Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`.
+
 - NOČNÍ FRONTA lokálních modelů (`cz.wonderly.nocni-fronta`, `Omega/skripty/nocni_fronta.py`, 22:00–6:00, pořadí animace → podkasty --vse r6–9 → animace → vata; kontrolor 4 kola do 0 nálezů). Ráno přehled `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`. Denní `cz.wonderly.dodelej-animace` vypnut (Disabled) — duplicita.
 - INVENTURA: 70 ze 120 podtémat fyziky bez podkástu/videa (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Rozhodnutí učitele 26. 9.: scénáře píší WORKEŘI + nezávislý kontrolor (Sonnet, max 2 kola), 1 krátký díl na podtéma (vyjde ~4 min, protože pokrývá celý kvíz, strop 4 600 znaků s prefixy).
-- HOTOVÉ SCÉNÁŘE (prošly skriptem `kontrola_scenare.py` + ostrou bránou + nezávislým kontrolorem) = 32: F8 elektřina 14 (celá kapitola), F8 teplo: tani, tuhnuti, vyparovani, var; F9: vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech, chemicke-zdroje-napeti, polovodice-vlastni-vodivost, polovodice-typu-n-a-p-dioda, ucinky-proudu-bezpecnost, pusobeni-pole-na-vodic-elektromotor, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator, kvarky, radioaktivita, jaderna-energie-a-reakce, jaderny-reaktor-elektrarna. Běží: kondenzace, skupenske-zmeny-vody-v-prirode, kmitani-a-vlneni, vnimani-zvuku-a-hlasitost. ZBÝVÁ: F8 ucinnost, energie ×5, tepelné motory ×2; F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
+- HOTOVÉ SCÉNÁŘE (prošly skriptem `kontrola_scenare.py` + ostrou bránou + nezávislým kontrolorem) = 32: F8 elektřina 14 (celá kapitola), F8 teplo: tani, tuhnuti, vyparovani, var; F9: vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech, chemicke-zdroje-napeti, polovodice-vlastni-vodivost, polovodice-typu-n-a-p-dioda, ucinky-proudu-bezpecnost, pusobeni-pole-na-vodic-elektromotor, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator, kvarky, radioaktivita, jaderna-energie-a-reakce, jaderny-reaktor-elektrarna. BĚŽÍ (nezávislý kontrolor ještě neskončil, ještě nejsou v žádném ze dvou seznamů): kondenzace, skupenske-zmeny-vody-v-prirode, kmitani-a-vlneni, vnimani-zvuku-a-hlasitost. ZBÝVÁ (nezačato): F8 ucinnost, energie ×5, tepelné motory ×2; F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
 - POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
 - ČEKÁ NA UČITELE: výklad F9 chemicke-zdroje-napeti obsahuje citronovou baterii, palivový článek, polaritu anody při nabíjení a „dva stejné kovy" — nejsou v PDF (možná v prezentaci) → ponechat, nebo vyřadit z výkladu i kvízu? Kvíz Kvarky má 14 otázek (výjimka nezapsaná).
-- OPRAVY VÝKLADU nasazené 27. 9.: ionizace ve vedení proudu v plynech (`34ffc6a`).
+- OPRAVY VÝKLADU nasazené 27. 9.: ionizace ve vedení proudu v plynech (`34ffc6a`); elektroskop
+  — pořadí ruka/tyč (`b8e3b5c`); pořadí kovů podle měrného odporu (`e33164a`) — poslední dvě
+  jsou chyby podkladu, zapsáno v `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
 - POUČENÍ: deterministický skript `kontrola_scenare.py` našel na 24 scénářích 27 vad, které LLM kontroloři za ~8 mil. tokenů propustili (Markovo „…, ne?", délka, schémata bez kresby — generátor by v noci spadl) → opakované formální kontroly patří do skriptu. Stejnojmenná podtémata v různých ročnících (chemicke-zdroje-napeti v F8 i F9) matou agenty — v zadání vždy ročník + plný klíč.
-- VYŘÍZENO z fronty: teplota-a-jeji-mereni už má 21 otázek (zápis byl zastaralý); uniky přes vysvětlení (viz výše).
-- OPRAVY VÝKLADU nasazené: elektroskop — pořadí ruka/tyč (`b8e3b5c`); pořadí kovů podle měrného odporu (`e33164a`) — obojí chyby podkladu, zapsáno v `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
+- VYŘÍZENO z fronty: teplota-a-jeji-mereni už má 21 otázek (zápis byl zastaralý); brána
+  `testy/uniky.mjs` teď kontroluje i únik odpovědi přes pole `vysvětlení` (dřív ho vůbec
+  neporovnávala — nález nedělního auditu 25. 9., viz `SAMOSTATNY-REZIM-ARCHIV.md`).
 
 ## 26. 9. 2026 v noci
 
@@ -126,6 +135,40 @@ zveřejněné, animace se doplňuje postupně.
 > otázky s číslem v zadání; `uniky.mjs` porovnává jen uvnitř bloku, ne mezi blocky ani
 > přes skloňování; curl ověřovat s User-Agent i cache-busterem (`?cb=`).
 
+### 🆕 Znovu zařazeno do fronty (audit 27. 9. 2026, 2. kolo — kontrolor V4-2)
+
+Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i nehotové úkoly:
+
+- [skola2] `⏸ ODLOŽENO (rozhodnutí učitele 25. 9. 2026)` — informatika a pracovní
+  činnosti se nedělají, dokud není hotová fyzika (`OBSAH-PRAVIDLA.md`, preambule);
+  podrobný stav před odložením (43 bloků kvízů pod 21 otázek, 15+3 podtémat bez
+  simulace) v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md).
+- [skola2] `cisla-ve-vykladu.mjs` nekontroluje otázky, které mají číslo přímo
+  v zadání (`if (vZadani.length) continue`) — doplnit.
+- [skola2] `uniky.mjs` porovnává jen uvnitř bloku a přes české skloňování — nevidí
+  úniky/duplicity MEZI bloky (např. páky × kladka) — doplnit.
+- [skola2] Ověřit odkazy u F7/F9 celků 1–5 (38 podtémat) — při sladění kvízů 22. 9.
+  bylo „nezjišťováno".
+- [skola2] Podtémata bez názornosti (ověřeno `node testy/nazornost.mjs` 27. 9.: fyzika
+  7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3)
+  → ČEKÁ ROZHODNUTÍ UČITELE: dělat přehledovou infografiku ke shrnutím, nebo je
+  z měřidla vyjmout?
+- [skola2] `MEMORY.md` (Škola) má 169 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ
+  UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez pokynu.
+- [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
+  `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md` (kopie
+  `rozpracovane-vyklady/2026-09-21/pravidla-audit.md`, pokud hlavní chybí).
+- [skola2] Denní rutina `~/.claude/scheduled-tasks/pravidla-dluh-denne/SKILL.md`
+  založena, ale cron `30 7 * * 1-6` čeká na zaregistrování přes `/schedule` — učitel.
+- [skola2] Kosmetika: blok `tepelna-vymena-a-teplo` má zápis „4200", sjednocení na
+  „4 200" spouští bránu `uniky.mjs` (substring) — ponecháno, čeká na opravu měřidla
+  nebo formátu.
+- [skola2] Terminologie vaty: staré názvy „VZOR 1"/„VZOR 2" (22.–24. 9., desítky
+  bloků) byly kalibrací 25. 9. přejmenovány/sloučeny na kvantifikátor / kategorické
+  slovo / tázací slovo / polarita — zbývající práce (VZOR 3 kategorické slovo,
+  VZOR 5 tázací slovo, viz sekce „26. 9. v noci" výše) se vede pod NOVÝMI názvy,
+  staré počty bloků (37/32 aj.) už neplatí a neopisují se.
+
 ### 🆕 Nové položky fronty (15. 8. 2026) — cestovatelský deník a příprava
 
 - [cesty] Doplnění starších fotek. Rozsah zadá učitel — zatím jen založeno,
@@ -136,9 +179,11 @@ zveřejněné, animace se doplňuje postupně.
   učitel 21. 9. 2026 delegaci na Hermese/GPT-5.5 zamítl („pracuje nekvalitně"),
   viz K3-R6 (rozpor opraven auditem 27. 9. 2026).
 - [příprava] Revidovat tabulku směrování modelů v `.claude/orchestrator-prompt.md`
-  podle prvního měření (viz položka výše). Výchozí tabulka už je zapsaná
-  (15. 8. 2026); tahle položka znamená její posun směrem k lokálním modelům tam,
-  kde měření ukáže, že stačí.
+  směrem k lokálním modelům tam, kde to obstojí — PŘEFORMULOVÁNO 27. 9. 2026
+  (V4-8): „podle prvního měření" mířilo na zrušený úkol s Hermesem výše, dnes se
+  žádné takové měření nechystá; místo toho se řídit přímým srovnáním vision
+  (položka níže) a běžnou zkušeností z `ollama-log.md`. Výchozí tabulka je
+  zapsaná (15. 8. 2026).
 - [příprava] Přímé srovnání vision: ThinkingCap vs qwen3.8:27b-mlx na jedné dávce
   ~10 map/fotek deníku (stejné obrázky, stejná otázka, `mapa_projde_kontrolou`);
   vítěz nahradí model v automatech. Zadáno 21. 9. 2026.
@@ -309,8 +354,8 @@ Organizace:
   chybném klíči nikdo nečte — smazat? (mazání se neprovádí bez souhlasu)
 - ~~**Cloudflare Workers Build 16. 8. 2026 jednou spadl bez viditelné příčiny.**~~
   VYŘEŠENO 26. 9. 2026: příčina byla mělký klon na CI (test četl git historii,
-  Workers Builds ji nemá) — opraveno commitem `b7082e3`, viz „⚡ ČÍM ZAČÍT" výše
-  (K3-Z15, 27. 9. 2026).
+  Workers Builds ji nemá) — opraveno commitem `b7082e3`, viz sekci „26. 9. 2026
+  v noci" výše (K3-Z15, oprava reference V4-5, 27. 9. 2026).
 - [cesty] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
   se přestane rozmazávat, potvrzuje vždy učitel).
 - [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará

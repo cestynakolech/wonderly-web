@@ -26,7 +26,7 @@ _Aktuální stav přestavby výkladu vede `SAMOSTATNY-REZIM.md`, ne tato sekce._
    tématu" (`OBSAH-PRAVIDLA.md` kap. 12, 9 složek vč. podkastu/videa) hotová NENÍ —
    aktuální díru vede nejhornější sekce `SAMOSTATNY-REZIM.md` (rozpor K3-R14 opraven
    27. 9. 2026).
-4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu), předměty Informatika a Pracovní činnosti, nebo revize hotových stránek. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
+4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu) nebo revize hotových stránek. Informatika a Pracovní činnosti jsou ODLOŽENY rozhodnutím učitele 25. 9. 2026 (V4-9, oprava 27. 9.) — NEBRAT jako úkol, dokud fyzika není hotová. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
 
 ### 🔎 Měřidla a kontroly (co je po ruce)
 | Příkaz | K čemu |
@@ -95,16 +95,29 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
-## Historie — 27. 9. 2026: nedělní WONDERLY AUDIT (zkrácení dokumentace)
+## Historie — 27. 9. 2026: nedělní WONDERLY AUDIT (zkrácení dokumentace, 2 kola)
 
-- Exekutor A zkrátil startovní dokumentaci podle nálezů nezávislého kontrolora (K3):
-  PROGRESS.md 47 911 → 15 420 B (−32 491 B) smazáním/přesunem 15 duplicitních
-  „Poslední/Dřívější stav" bloků (K3-Z1), 26 historických záznamů z 12.–14. a 21.–22. 9.
-  do `PROGRESS-ARCHIV.md` (K3-Z2), Suno-Wave1 bloku (K3-Z3), Kola 14. 8. (K3-Z4) a
-  oprav stálých rozporů (K3-R14: „fyzika 100 % hotová" bylo zastaralé vůči
-  `OBSAH-PRAVIDLA.md` kap. 12).
-- SAMOSTATNY-REZIM.md a skill `/wonderly` zkráceny/opraveny souběžně — podrobnosti
-  viz jejich vlastní historie/archiv a `PLAN-PORADEK.md`.
+- **1. kolo:** Exekutor A zkrátil startovní dokumentaci podle nálezů nezávislého
+  kontrolora (K3): smazáním/přesunem 15 duplicitních „Poslední/Dřívější stav" bloků
+  (K3-Z1), 26 historických záznamů z 12.–14. a 21.–22. 9. do `PROGRESS-ARCHIV.md`
+  (K3-Z2), Suno-Wave1 bloku (K3-Z3), Kola 14. 8. (K3-Z4) a oprav stálých rozporů
+  (K3-R14: „fyzika 100 % hotová" bylo zastaralé vůči `OBSAH-PRAVIDLA.md` kap. 12).
+  SAMOSTATNY-REZIM.md a skill `/wonderly` zkráceny/opraveny souběžně (stav automatů
+  dle `launchctl list`, ne dle datovaného textu v `PLAN-PORADEK.md`/`SKILL.md`, viz
+  dodatek 27. 9. 2026 v `Omega/PLAN-PORADEK.md`).
+- **2. kolo (V4-1…V4-12):** nezávislý kontrolor našel, že zkrácení 1. kola omylem
+  ztratilo obsah — vráceno PLNÉ znění 11 archivovaných záznamů 21.–22. 9. (bylo
+  zkrácené) a 10 nehotových úkolů z archivu zpět do živé fronty `SAMOSTATNY-REZIM.md`
+  (cisla-ve-vykladu.mjs, uniky.mjs mezi bloky, odkazy F7/F9 1–5, shrnutí bez
+  názornosti, MEMORY.md nad limitem, 22 kandidátů pravidel, cron pravidla-dluh-denne,
+  kosmetika 4200→4 200, terminologie vaty, odložená informatika/Pč); opraveny
+  2 dangling odkazy a nekonzistentní cesta k paměti projektu (sjednoceno na
+  `-Users-Shared--kola`, ověřeno `ls`/`wc -l`). Přehled nálezů K1/K2/K3 a všech
+  oprav uložen trvale do `Omega/dokumenty/audit-2026-09-27.md` (scratchpad zmizí).
+  Součet `wc -c` čtyř startovních souborů (CLAUDE.md, PROGRESS.md,
+  SAMOSTATNY-REZIM.md, skill SKILL.md) po 2. kole ≈ 93 000 B (proti výchozím
+  171 948 B před auditem) — orientační, přesné číslo dá `wc -c` znovu, sem se
+  neopisuje natrvalo (zastarává).
 
 ## Historie — 20.–23. 9. 2026: nedělní WONDERLY AUDIT
 

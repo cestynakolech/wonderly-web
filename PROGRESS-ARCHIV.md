@@ -105,62 +105,192 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
 - Nový přehled šesti principů a schematická značka souvislé cívky s jádrem. PDF kotvy, Gemma31b review2 BEZ NÁLEZU, opakovaná vizuální kontrola a41 getBBox bez kolizí/ořezů. Původní nejednoznačné vinutí zachováno, RED/GREEN důkazy v Omega/dokumenty/wonderly-audit/9/elektromagnet-infografika/.
 - Blokový get/set, inventura, hlavní brána a build PASS; konkrétní dist obsah ověřen. PNG SHA25608cc3621845cecdc8e00bb1328a7684861ec1afe35a1ebc2f70e24960961342b. Živé nasazení se přebírá samostatně v kanonické matici. Audio dialogy nejsou tímto publikovány.
 
+## Přesunuto auditem 27. 9. 2026 (K3-Z2, 21.–22. 9. 2026) — PLNÉ znění (oprava V4-1, 2. kolo)
+
 ### Nástroj `podtema.mjs` — závazná cesta pro strojový zápis do temata.ts (2026-09-21)
 - Nový `podtema.mjs` + `podtema-lock.py`: bezpečný get/set polí podtématu přes klíč
   predmet/rocnik/tema/podtema, AST parsing (`@babel/parser`), flock, atomický zápis.
   Syntaxe: `node podtema.mjs ROOT get|set KLIC [FIELD JSON_FILE]`. Od dneška ZÁVAZNÁ
   cesta pro strojový zápis do `temata.ts`; `@babel/parser` a `esbuild` přidány do devDependencies.
-- Schéma `zapis` rozšířeno o pole `vzorecSlovy` (vzorová přestavba energie F8).
+- Schéma `zapis` rozšířeno o pole `vzorecSlovy` (vzorová přestavba energie F8, viz `SAMOSTATNY-REZIM.md`).
 
 ### F9 jaderná fyzika HOTOV 4/4, F8 chemické zdroje napětí zapsáno (2026-09-21)
 - `jadro-atomu`, `radioaktivita` (F9) a `chemicke-zdroje-napeti` (F8, 8. ročník)
-  zapsány přes `podtema.mjs`, `zkontroluj.mjs` i build PASS. Nálezy do `KE-SCHVALENI.md`
+  zapsány přes `podtema.mjs`, `zkontroluj.mjs` i build PASS, dist obsahuje
+  klíčová čísla (146, tři složky, klíč od auta). Nálezy do `KE-SCHVALENI.md`
   body 17–19.
 
 ### F7 vztlaková síla HOTOV 2/2, F8 elektřina 4/15 (2026-09-21)
 - `archimeduv-zakon`, `telesa-stejnoroda-a-nestejnoroda` (F7) a `elektricky-naboj`,
-  `elektricke-pole`, `vznik-elektrickeho-proudu` (F8) zapsány přes `podtema.mjs`.
-  Nálezy do `KE-SCHVALENI.md` body 20–21.
+  `elektricke-pole`, `vznik-elektrickeho-proudu` (F8) zapsány přes `podtema.mjs`,
+  `zkontroluj.mjs` i build PASS, dist obsahuje klíčová slova (ponořené části,
+  plastelín, elektroskop, Faradayov, blesk). Nálezy do `KE-SCHVALENI.md` body 20–21.
 
 ### F8 elektřina HOTOVO 15/15, 6. celky rozjety (2026-09-21 až 22)
-- Zbývajících 11 podtémat F8 elektřina zapsáno podle PDF učitele; nezávislý kontrolor
-  (Opus, čerstvý kontext, 2–3 kola). Commity `518c599`, `e78b938`, `ff77438`, `d491ea0`;
-  push `d491ea0` ověřen curlem (curl bez `User-Agent` vrací 403).
-- Rozjeto 6 celků: F7 `atmosfera-a-tlak-vzduchu` (3), F8 `zvuk` (3), F9
-  `energie-a-vesmir` (3).
+- Zbývajících 11 podtémat F8 elektřina dokontrolováno a zapsáno podle PDF
+  učitele (A+B+C+D výklad + ZAPIS), každé prošlo nezávislým kontrolorem
+  (Opus, čerstvý kontext, 2–3 kola kontrola→oprava); zapsáno `podtema.mjs`,
+  `zkontroluj.mjs` i build PASS. Commity `518c599`, `e78b938`, `ff77438`,
+  `d491ea0`; push `d491ea0` ověřen curlem na lab.wonderly.cz
+  (`ucinky-proudu-a-bezpecnost`, `elektricky-proud-v-kovech-odpor`,
+  `elektricke-obvody`) — curl bez hlavičky `User-Agent` vrací 403.
+- Kde se web a PDF lišily, platilo PDF (např. LED úspora 70 %); poznámky
+  „k rozhodnutí učitele" se do textu nepíšou. Pracovní soubory
+  `rozpracovane-vyklady/2026-09-21/` commitnuty. Sladění kvízů F8 elektřina
+  s novými výklady zatím NEUDĚLÁNO.
+- Rozjeto 6. celků: F7 `atmosfera-a-tlak-vzduchu` (3), F8 `zvuk` (3), F9
+  `energie-a-vesmir` (3; `vesmir-a-galaxie` bez PDF, zdroj popis prezentace
+  `9 vesmir_a_jeho_vznik.md`); pracovní složka
+  `rozpracovane-vyklady/2026-09-22-6-celky/`, 1. vlna 4 výkladů běží.
 
 ### 6. celky HOTOVO 9/9 a nasazeny (2026-09-22)
-- F7 `atmosfera-a-tlak-vzduchu`, F8 `zvuk`, F9 `energie-a-vesmir` (9 podtémat)
-  dokončeny, každé prošlo nezávislým kontrolorem ve 2–3 kolech. Zdroje: PDF učitele
-  1:1; `vesmir-a-galaxie` bez PDF → popis prezentace. Commity `40b59cb`, `547cd5f`,
-  `104047b`+`e91813c`; push `e91813c`; curl ověřen.
-- Nález: `zkontroluj.mjs` odhalil nesoulad čísla galaxií v kvízu (100 vs. 200) — první
-  důkaz, že kvízy je nutné sladit s výkladem.
+- F7 `atmosfera-a-tlak-vzduchu` (atmosfericky-tlak, pretlak-podtlak-vakuum,
+  meteorologie-a-mereni-tlaku), F8 `zvuk` (kmitani-a-vlneni,
+  zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost), F9 `energie-a-vesmir`
+  (obnovitelne-a-neobnovitelne-zdroje, slunecni-soustava, vesmir-a-galaxie)
+  dokončeny; každé podtéma prošlo nezávislým kontrolorem (Opus, čerstvý
+  kontext) ve 2–3 kolech; zapsáno `podtema.mjs`, `zkontroluj.mjs` i build PASS.
+- Zdroje: PDF učitele 1:1 (Škola/7/3 Mechanické vlastnosti kapalin 16–18,
+  Škola/8/6 Zvuk 33–35, Škola/9 str. 21–22); `vesmir-a-galaxie` bez PDF →
+  zdroj popis prezentace `Omega/dokumenty/prezentace-popisy/9
+  vesmir_a_jeho_vznik.md`. PDF mělo přednost před webem (kromě zjevných chyb
+  extrakce, např. Torricelli 1643); „stojaté vlnění" z prezentace do kmitání
+  nezařazeno; 3. Keplerův zákon ponechán s citací PDF str. 23; ZAPIS sluneční
+  soustavy zkrácen z 39 na 19 bodů (strop ~22).
+- Commity `40b59cb` (F7), `547cd5f` (F8 zvuk), `104047b` + `e91813c` (F9);
+  push `e91813c`; curl ověřen s User-Agent na slunecni-soustava,
+  kmitani-a-vlneni, atmosfericky-tlak — ANO. Pracovní složka
+  `rozpracovane-vyklady/2026-09-22-6-celky/` (výklady + protokoly
+  kontrola-*-a/b/c.md + README.md) commitnuta.
+- Nález pro sladění kvízů: `zkontroluj.mjs` hlásí nesoulad čísla galaxií
+  v kvízu (100 vs. 200 dle nového výkladu) — první konkrétní důkaz, že
+  kvízy je nutné sladit. Past dne: worker někdy vloží cizí značku
+  (`</content>`) nebo poznámku „k rozhodnutí učitele" — kontrolor to chytá.
+- DALŠÍ KROK: (c) sladění kvízů s novými výklady — rozsah 24 podtémat
+  (F8 elektřina 15 + 6. celky 9) + dříve přestavěné F8 celky 1–4; průzkum
+  stavu kvízů právě běží.
 
 ### Krok (c): sladění kvízů 24 podtémat HOTOVO (2026-09-22, noc)
-- F8 elektřina 15, F7 `atmosfera-a-tlak-vzduchu` 3, F8 `zvuk` 3, F9 `energie-a-vesmir` 3.
-  1. kolo 144 nálezů, 2. kolo 46 nových. Commity `4f53733`…`4652cbd`; push `4652cbd`.
+- HOTOVO pro 24 podtémat: F8 elektřina 15, F7 `atmosfera-a-tlak-vzduchu` 3,
+  F8 `zvuk` 3, F9 `energie-a-vesmir` 3. Všech 24 mělo už 21 otázek — šlo
+  čistě o věcný soulad s novými výklady.
+- Postup: nezávislý kontrolor kvízů (Opus, čerstvý kontext) → nálezy v
+  pevném tvaru s návrhem znění → exekutor zapracoval do `kvizy.ts` (jediný
+  zapisovatel, 21 otázek drženo) → brány `uniky.mjs`+`zkontroluj.mjs`+build
+  → DRUHÉ kolo kontrolora → opravy. 1. kolo 144 nálezů; 2. kolo 46 nových
+  nálezů zanesených opravami (F9 10, elektřina 9–15 10, atmosféra+zvuk 11,
+  elektřina 1–8 15) — pravidlo „kontrolor dvakrát" se potvrdilo.
+- Commity: `4f53733`, `eab8bfc`, `7a51d3b` (F9); `d5cfb32`, `62d5ef2`
+  (elektřina 9–15); `013ab2f`, `1383466` (atmosféra+zvuk); `98e1290`,
+  `4652cbd` (elektřina 1–8). Push `4652cbd`; curl s User-Agent ověřen:
+  `elektricky-proud-v-kovech-odpor`, `atmosfericky-tlak`,
+  `vesmir-a-galaxie` — ANO. Protokoly:
+  `rozpracovane-vyklady/2026-09-22-6-celky/sladeni-kvizu-*.md` (1. kolo +
+  `-2kolo.md`, sekce ZAPRACOVÁNO).
+- Mezery bran: `zkontroluj.mjs` bod 6d přeskakuje čísla ≤12 (`const MALE =
+  12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0, kontrolor ručně
+  našel 10 délkových nápověd (náskok ≥10 znaků) a 5 úniků v 8 blocích.
+  Zelené brány ≠ doklad sladění.
+- Rozjeto: sladění kvízů dříve přestavěných F8 celků 1–4 (17 podtémat:
+  `mechanicka-prace`, `vykon`, `energie-a-jeji-premeny`,
+  `pohybova-a-polohova-energie`, `zakon-zachovani-mechanicke-energie`,
+  `energeticka-hodnota-potravin`, `vnitrni-energie-telesa`,
+  `tepelna-vymena-a-teplo`, `tepelny-motor-parni-stroj`, `spalovaci-motory`,
+  `teplo-a-premeny-skupenstvi`, `tani`, `tuhnuti`, `vyparovani`, `var`,
+  `kondenzace`, `skupenske-zmeny-vody-v-prirode`) — 2 kontroloři běží.
+- DALŠÍ KROK: dokončit F8 celky 1–4, pak podle bodu E projít, co ještě
+  chybí k „hotovému tématu" u přestavěných celků.
 
 ### Krok (c): sladění kvízů F8 celků 1–4 HOTOVO (2026-09-22) — kvízy 41/41 sladěny
-- 17 podtémat, 1. kolo 91 nálezů, 2. kolo 18 nových. Push `530c64c`. Nová past: curl
-  bez cache-busting parametru vrací z Cloudflare starý obsah — nutné `?cb=`.
+- F8 celky 1–4 (17 podtémat) sladěny: 1. kolo 91 nálezů (celky 1–2: 48,
+  celky 3–4: 43), 2. kolo 18 nových (10 + 8). Commity `a14c6cd`, `c72728e`,
+  `40dac2a`, `530c64c`; push `530c64c`; curl ověřen (tani, vykon,
+  spalovaci-motory — ANO). Spolu s dřívějšími 24 podtématy sladěno celkem
+  41/41 podtémat.
+- Odloženo (kosmetika): `tepelna-vymena-a-teplo` — sjednocení zápisu
+  „4200"→„4 200" spouští bránu `uniky.mjs` (substring), ponecháno; zapsáno
+  v `sladeni-kvizu-f8-celky-1-2-2kolo.md`.
+- NOVÁ PAST: curl na `lab.wonderly.cz` bez cache-busting parametru vrací
+  z Cloudflare cache starý obsah (`cf-cache-status: HIT`); s
+  `?cb=<čas+náhoda>` přijde čerstvý — ověřovací smyčka musí posílat
+  User-Agent i cache-busting query.
+- Průzkum bodu E: všech 41 přestavěných podtémat má simulaci; 7 nemá pole
+  `odkazy` (F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
+  meteorologie-a-mereni-tlaku; F8 kmitani-a-vlneni, zvuk-vznik-a-sireni,
+  vnimani-zvuku-a-hlasitost; F9 slunecni-soustava) — rozjeto 3 workeři médií
+  (jen české odkazy, videa ne).
 
 ### Odkazy u 7 podtémat HOTOVO, bod E 41/41; sladění kvízů F7/F9 celků 1–5 rozjeto (2026-09-22)
-- 23 českých odkazů doplněno u 7 podtémat, commit `989e549`. Nález: F7/F9 celky 1–5
-  (38 podtémat) mají kvíz nesladěný s novým výkladem.
+- Doplněno 23 českých odkazů: F7 atmosfericky-tlak, pretlak-podtlak-vakuum,
+  meteorologie-a-mereni-tlaku (3+3+3); F8 kmitani-a-vlneni,
+  zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost (4+4+4); F9
+  slunecni-soustava (2, 2 návrhy zamítnuty kontrolorem). Postup: worker
+  médií (jen odkazy, videa ne) → nezávislý kontrolor (curl 200, čeština,
+  věcnost, Wordwall pokrytí) → exekutor zápis. Commit `989e549`, push,
+  ověřeno živě. Bod E kompletní pro 41/41 přestavěných podtémat.
+- Nález: F7 celky 1–5 (18 podtémat) a F9 celky 1–5 (20 podtémat) mají
+  výklad HOTOVO, ale kvíz NESLADĚN s novým výkladem — dle definice
+  hotového tématu tedy nejsou hotová, přestože vedena jako HOTOVO. Rozjeto
+  sladění (4 kontroloři: F7 1–2, F7 3–5, F9 1–2, F9 3–5); poté F7 7. celek
+  `svetlo-a-jeho-sireni` (PDF Škola/7/4 Světlo 19,20,21,24) a 8. celek
+  `zrcadla-a-cocky` (PDF 22,23,25,26,28,29).
+- Past tvaru dat: pole `odkazy` zná jen `nazev` a `url`; Techmania odkazy
+  psát s `https://`.
 
 ### Sladění kvízů F7/F9 celků 1–5 HOTOVO — kvízy 79/79 přestavěných podtémat sladěny (2026-09-22)
-- 1. kolo 243 nálezů, 2. kolo 80 nových; 4 bloky zkráceny na 21 otázek. Push `b4968f2`.
-  Bod E splněn kromě odkazů u F7/F9 1–5.
+- F7 celky 1–5 (18 podtémat) a F9 celky 1–5 (20 podtémat) sladěny: 1. kolo
+  243 nálezů (F9 1–2: 49, F7 1–2: 51, F7 3–5: 73, F9 3–5: 70), 2. kolo 80
+  nových (21+14+20+25). Čtyři bloky zkráceny z 22–24 na 21 otázek
+  (magnety-magneticke-pole-opakovani, prenos-elektricke-energie,
+  chemicke-zdroje-napeti F9, ucinky-proudu-bezpecnost,
+  jaderny-reaktor-elektrarna).
+- Commity `2755995`, `ec5eb42`, `37f5a32`, `d2ca18f`, `2f62f40`, `0762e8f`,
+  `b4968f2`; push `b4968f2`; curl ověřen (radioaktivita, hydrostaticky-tlak,
+  transformator — ANO). Celkem sladěno 79/79 přestavěných podtémat; bod E
+  splněn kromě odkazů u F7/F9 celků 1–5 (nezjišťováno — do fronty).
+- Mezery měřidel: `cisla-ve-vykladu.mjs` přeskakuje otázky s číslem v
+  zadání (`if (vZadani.length) continue`) → neviděl 200 N vs 175 N, 220 vs
+  231 km; `uniky.mjs` porovnává podřetězce jen uvnitř bloku a přes české
+  skloňování → nevidí přeformulované úniky ani duplicity mezi bloky.
+- Rozjeto F7 7. celek `svetlo-a-jeho-sireni` (4 podtémata, PDF Škola/7/4
+  Světlo 19, 20, 21, 24; popis prezentace SVĚTELNÉ JEVY 7): výklady
+  napsané, 1. kolo kontroly zdroje PROŠLO S DROBNOSTMI, odraz a stín
+  NEPROŠLO, lom PROŠLO S DROBNOSTMI, opraváři běží; pracovní složka
+  `rozpracovane-vyklady/2026-09-22-svetlo/`.
 
 ### F7 svetlo-a-jeho-sireni HOTOVO 4/4; F7 zrcadla-a-cocky v běhu (2026-09-22)
-- 4/4 podtémata, 2 kola kontroly, commit `c453d06`, push, curl ověřen. 2 fyzikální
-  chyby PDF podkladu opraveny (teplota Slunce, „krvavý Měsíc").
+- F7 7. celek `svetlo-a-jeho-sireni` HOTOVO 4/4 (svetlo-jeho-zdroje,
+  odraz-svetla, lom-svetla, stin-faze-mesice): zdroje PDF Škola/7/4 Světlo
+  19, 21, 24, 20 + popis prezentace SVĚTELNÉ JEVY 7; 2 kola nezávislé
+  kontroly (1. kolo 29 nálezů, 2. kolo 1 věcný + 16 drobností); zapsáno
+  `podtema.mjs`, build i `zkontroluj.mjs` OK; commit `c453d06`, push OK;
+  curl ověřen (lom-svetla, stin-faze-mesice — ANO). Doloženy a opraveny
+  2 fyzikální chyby PDF podkladu (teplota povrchu Slunce 4 500 °C → 5 500 °C,
+  „krvavý Měsíc" ohyb → lom a rozptyl) —
+  `Omega/dokumenty/kontrola-podkladu-fyzika7.md`. Kvíz F7 světlo zatím
+  NESLADĚN s novým výkladem — zařadit do kroku sladění spolu se zrcadly.
+- Rozjeto F7 8. celek `zrcadla-a-cocky`: 6 výkladů napsáno
+  (optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka,
+  oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28,
+  29), 1. kolo kontroly: rovinné DROBNOSTI 5, kulová DROBNOSTI 9, čočka
+  NEPROŠLO 8, oko DROBNOSTI 4, rozklad DROBNOSTI 2, barvy DROBNOSTI 6,
+  opraváři běží; pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`.
 
 ### F7 zrcadla-a-cocky HOTOVO 6/6 a nasazeno; kvízy světla sladěny, zrcadla v kontrole (2026-09-22)
-- 6/6 podtémat, 2 kola kontroly, commit `2d7e7c9`, push, curl ověřen. Kvíz světla
-  sladěn (commit `41c196a`). Past: dva exekutoři na `temata.ts`/`kvizy.ts` narazili na
-  sdílenou bránu — souběžné zápisy do různých datových souborů se musí dokončovat
+- F7 8. celek `zrcadla-a-cocky` HOTOVO 6/6 podtémat (optika-rovinneho-zrcadla,
+  kulova-zrcadla-dute-zrcadlo, opticka-cocka, oko-vady-oka, rozklad-svetla-duha,
+  vnimani-barev): zdroje PDF Škola/7/4 Světlo 22, 23, 25, 26, 28, 29 (+27 jen
+  1 věta „nad rámec"), 2 kola nezávislé kontroly (1. kolo 34 nálezů, 2. kolo
+  1 věcný + 15 drobností); commit `2d7e7c9`, push OK; curl ověřen
+  (opticka-cocka, kulova-zrcadla — ANO).
+- Kvízy F7 `svetlo-a-jeho-sireni` SLADĚNY: 1. kolo 44 nálezů zapracováno,
+  commit `41c196a`, nasazeno; 2. kolo kontroly běží. Kvízy `zrcadla-a-cocky`
+  v 1. kole kontroly (2 kontroloři).
+- Past dne: dva exekutoři na různých souborech (`temata.ts` × `kvizy.ts`) se
+  potkali na společné bráně `zkontroluj.mjs`/prebuild — rozpracovaný `kvizy.ts`
+  s dočasným únikem zablokoval build tomu druhému; exekutor správně
+  necommitoval a dokončil se až po commitu kvízů. Pravidlo: brány běží nad
+  celým repem, souběžné zápisy do různých datových souborů se musí dokončovat
   po jednom.
 
 - **2026-08-04 (appka /tour přepnuta z mužské na ŽENSKOU Tour + poznávačka + oprava živé tabulky)** —
