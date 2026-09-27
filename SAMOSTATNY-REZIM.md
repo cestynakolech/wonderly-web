@@ -65,7 +65,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [Omega] **`povoleni_hook.py` není zapsaný v `~/.claude/settings.json`** — platí jen
   ve `Škola/.claude/settings.json` (`PreToolUse '*'`); session spuštěná přímo z Omegy
   nebo z wonderly-web běží bez vrátného a bez černé listiny (nález K2-1). Návrh zápisu
-  (jednořádkový příkaz) je v `opravy-c.json`/`Omega/PRAVIDLA.md:703`.
+  (jednořádkový příkaz) je v `Omega/dokumenty/audit-2026-09-27.md` (sekce K2-1, V9-4).
 - [Omega] **17 záměrně vypnutých automatů (K1-4)** hlásí `revize_automatu.py` jako
   vadu — doplnit `Disabled=true` do plistů, nebo je vést v evidenci pozastavených?
   Zásah do LaunchAgentů.
@@ -78,6 +78,18 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [skola2] **Automatický restart samostatného režimu po obnově tokenů:** šlo by
   naplánovanou úlohou (cron v danou hodinu spustí novou session). Nová trvalá
   konfigurace → jen se souhlasem.
+- [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
+  `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md`.
+- [skola2] Denní rutina `pravidla-dluh-denne` založena, ale cron `30 7 * * 1-6`
+  čeká na zaregistrování přes `/schedule` učitelem.
+- [cesty] **Smazat zbloudilé kopie v R2** na chybném klíči (2 soubory,
+  `polemika-roztaznost-1/-2.mp4`, nahrané omylem 16. 8. s prefixem navíc) —
+  správné kopie fungují, chybné nikdo nečte, smazat?
+- [cesty] **9 videí „k rozhodnutí"** — `Cestovatelský deník/KE-SCHVALENI.md`.
+- [cesty] **Rozmazávání SPZ** — návrh učitele 6. 8. posouzen (referenční fotky
+  neřeší detekci), navržené řešení čeká na pokyn: nejdřív změřit dnešní stav na
+  zkušební sadě značek, pak přidat kontext auta. Plná analýza v sekci
+  „🚗 Nápad učitele 6. 8." níže.
 
 ## 26. 9. 2026 v noci
 
@@ -211,16 +223,12 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
 - [skola2] Ověřit odkazy u F7/F9 celků 1–5 (38 podtémat) — při sladění kvízů 22. 9.
   bylo „nezjišťováno".
 - [skola2] Podtémata bez názornosti (ověřeno `node testy/nazornost.mjs` 27. 9.: fyzika
-  7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3)
-  → ČEKÁ ROZHODNUTÍ UČITELE: dělat přehledovou infografiku ke shrnutím, nebo je
-  z měřidla vyjmout?
-- [skola2] `MEMORY.md` (Škola) má 169 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ
-  UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez pokynu.
-- [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
-  `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md` (kopie
-  `rozpracovane-vyklady/2026-09-21/pravidla-audit.md`, pokud hlavní chybí).
-- [skola2] Denní rutina `~/.claude/scheduled-tasks/pravidla-dluh-denne/SKILL.md`
-  založena, ale cron `30 7 * * 1-6` čeká na zaregistrování přes `/schedule` — učitel.
+  7 z 120 — vše pololetní/roční shrnutí; informatika 15 z 47; prac. činnosti 1 z 3) —
+  otevřená otázka o osudu shrnutí je v sekci „❓ Otevřené dotazy na učitele" nahoře.
+- [skola2] `MEMORY.md` (Škola) má 169 řádků, hook doporučuje pod 140 — otevřená otázka
+  je v sekci „❓ Otevřené dotazy na učitele" nahoře. Nic nemazat bez pokynu.
+- [skola2] 22 kandidátů na zkrácení pravidel a registrace cronu `pravidla-dluh-denne` —
+  přesunuto do sekce „❓ Otevřené dotazy na učitele" nahoře (V9-2, 27. 9. 2026).
 - [skola2] Kosmetika: blok `tepelna-vymena-a-teplo` má zápis „4200", sjednocení na
   „4 200" spouští bránu `uniky.mjs` (substring) — ponecháno, čeká na opravu měřidla
   nebo formátu.
@@ -484,10 +492,8 @@ Organizace:
 - [skola2] Po sjednocení úložiště modelů znovu ostrý test `graf_local.py` (dva modely).
 
 Čeká na rozhodnutí učitele (přestěhováno tamtéž):
-- **Smazat zbloudilé kopie v R2.** V bucketu `wonderly-media` zůstaly dvě kopie na chybném
-  klíči `media/fyzika/6-rocnik/teplota/teplotni-roztaznost/polemika-roztaznost-1.mp4` a
-  `-2.mp4` (nahrány omylem 16. 8. s prefixem navíc). Správné kopie fungují. Kopie na
-  chybném klíči nikdo nečte — smazat? (mazání se neprovádí bez souhlasu)
+- Smazat zbloudilé kopie v R2 — přesunuto do sekce „❓ Otevřené dotazy na učitele"
+  nahoře (V9-2, 27. 9. 2026).
 - ~~**Cloudflare Workers Build 16. 8. 2026 jednou spadl bez viditelné příčiny.**~~
   PRAVDĚPODOBNĚ VYŘEŠENO 26. 9. 2026 (V6-6, 27. 9.: „pravděpodobně", protože 16. 8.
   se konkrétní příčina buildu tehdy vůbec nezjistila — jde o usuzování, ne doložený
@@ -505,7 +511,8 @@ Organizace:
 - [skola2] Rozhodovací tabulky z 29. 7.: laboratorní práce (12), nové simulace (10),
   UX školy (8).
 - [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14).
-- [cesty] 9 videí „k rozhodnutí" — `Cestovatelský deník/KE-SCHVALENI.md`.
+- [cesty] 9 videí „k rozhodnutí" — přesunuto do sekce „❓ Otevřené dotazy na učitele"
+  nahoře (V9-2, 27. 9. 2026).
 - [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není).
 - [cesty] Návrh: shlukování popisků na úvodní mapě do čtverců („7 míst"), zásah
   do `trasa_uvod.py`, ~1 kolo práce.
@@ -556,6 +563,9 @@ Organizace:
   (akce pro učitele, ne pro automat).
 
 ### [cesty] 🚗 Nápad učitele 6. 8. — zlepšit rozmazávání SPZ (posouzeno, čeká na pokyn)
+
+> Stručná otázka je i v sekci „❓ Otevřené dotazy na učitele" nahoře — plná
+> analýza a navržené pořadí kroků je tady.
 
 Učitel navrhl dát značkám „něco jako referenční fotky obličejů", ze všech států
 a v mnoha velikostech. **Posouzeno odborně: tudy ne, ale jádro nápadu je dobré.**

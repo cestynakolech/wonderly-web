@@ -26,7 +26,10 @@ _Aktuální stav přestavby výkladu vede `SAMOSTATNY-REZIM.md`, ne tato sekce._
    tématu" (`OBSAH-PRAVIDLA.md` kap. 12, 9 složek vč. podkastu/videa) hotová NENÍ —
    aktuální díru vede nejhornější sekce `SAMOSTATNY-REZIM.md` (rozpor K3-R14 opraven
    27. 9. 2026).
-4. Další možné kroky: doplnit média k Fyzice 6 (infografiky/písně/videa z YouTube automatu) nebo revize hotových stránek. Informatika a Pracovní činnosti jsou ODLOŽENY rozhodnutím učitele 25. 9. 2026 (V4-9, oprava 27. 9.) — NEBRAT jako úkol, dokud fyzika není hotová. Podklady 6. roč.: `/Users/Shared/Škola/6/` (složky 01–08 + záloha `SmartBooks`).
+4. Co je právě na řadě (living fronta, ne ruční výčet zde): nejhornější sekce
+   `SAMOSTATNY-REZIM.md`, blok „⚡ ČÍM ZAČÍT" (oprava V9-3, 27. 9. 2026). Informatika
+   a Pracovní činnosti jsou ODLOŽENY rozhodnutím učitele 25. 9. 2026 — NEBRAT jako
+   úkol, dokud fyzika není hotová. Podklady 6. roč. (pokud přece jen): `/Users/Shared/Škola/6/`.
 
 ### 🔎 Měřidla a kontroly (co je po ruce)
 | Příkaz | K čemu |
