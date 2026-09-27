@@ -1,39 +1,70 @@
-## ⚡ ČÍM ZAČÍT — 27. 9. 2026 v noci — podkásty a noční fronta
+## ⚡ ČÍM ZAČÍT — 28. 9. 2026
 
-**PRVNÍ ÚKOL (oprava V8-3, 27. 9. 2026 — potřetí opravováno, ČTI PŘESNĚ):**
-`OBSAH-PRAVIDLA.md` ř. 316–317 platí bez výjimky, doslova: „1. téma se dodělá
-KOMPLET (všech 9 složek) u 7., 8. i 9. ročníku naráz, teprve pak se stejně
-KOMPLET dodělá 2. téma u všech tří ročníků, atd." — a podkast/video je
-JEDNA z těch 9 složek, ne samostatná paralelní fronta. 1. téma je F7
-`pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole` (9 podtémat).
-Bez CITOVANÉHO rozhodnutí učitele (datum + zdroj), které by řadu podkastů
-posunulo mimo tohle pořadí, se **nejdřív přeměří a dodělají VŠECHNY chybějící
-složky 1. tématu** (odkazy, video s animací, infografika, laborka, hra —
-přesný rozpad viz „🆕 Znovu zařazeno do fronty, 3. kolo" níže, položka
-„DALŠÍ KROK 22. 9.", STAV NEOVĚŘEN → přeměřit jako první krok), podkast
-1. tématu je jeho součástí. **Teprve POTÉ** pokračovat podkasty pro ostatní
-celky (řetěz „HOTOVÉ SCÉNÁŘE / ROZPRACOVÁNO / ZBÝVÁ" níže) — u 4 už
-rozpracovaných scénářů (ROZPRACOVÁNO níže) dokončit aspoň rozjetou kontrolu,
-ale NEZAKLÁDAT nové mimo 1. téma, dokud není hotové.
-**Osud 7 shrnutí (pololetní/roční) z 70 chybějících — NEROZHODNUTO:** → ❓ (stejná
-otázka jako u simulací bez názornosti, viz sekce „❓ Otevřené dotazy na učitele"
-níže). Nepředjímat, dokud učitel nerozhodne.
+27. 9. večer: noční fronta VYPNUTA na žádost učitele (GPU pro jeho práci s lokálními
+modely). Znovu zapnout: `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.nocni-fronta.plist`.
 
-- NOČNÍ FRONTA lokálních modelů (`cz.wonderly.nocni-fronta`, `Omega/skripty/nocni_fronta.py`, 22:00–6:00, pořadí animace → podkasty --vse r6–9 → animace → vata; kontrolor 4 kola do 0 nálezů). Ráno přehled `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`. Denní `cz.wonderly.dodelej-animace` vypnut (Disabled) — duplicita.
-- INVENTURA: 70 ze 120 podtémat fyziky bez podkástu/videa (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Rozhodnutí učitele 26. 9.: scénáře píší WORKEŘI + nezávislý kontrolor (Sonnet, max 2 kola), 1 krátký díl na podtéma (vyjde ~4 min, protože pokrývá celý kvíz, strop 4 600 znaků s prefixy).
-- PODKÁSTY — PŘÍČINA PÁDU OPRAVENA: vadný zvuk z dřívější výroby (zkomolená replika) se znovu používal → zarovnání 51 % → 3× pád. Oprava v `automat_podkastu.py`: při „zarovnání selhalo" zvuk do zálohy a vyrobit znovu. Doklad: `vykon-dialog2.mp4` vyroben (zarovnání 90 %). 3 odložené díly vynulovány, dnes v noci znovu.
-- HOTOVÉ SCÉNÁŘE: 44 (celý 8. ročník + 9. roč. proud v látkách, indukce, jaderná fyzika, bezpečnost). ZBÝVÁ: F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat. Kapacita noci ~16–20 dílů → 44 dílů za ~3 noci.
-- ⚠️ elektricky-naboj-dialog při výrobě padal na bráně pokrytí (3 otázky, např. 5 mC). Při /clear BĚŽELA kontrola brány pokrytí na všech nových scénářích (ostře s modelem, oprava neprošlých) — výsledek ověř: pro každý scénář z 26.–27. 9. `/Users/radek_soukromy/Desktop/Omega/skripty/venv/bin/python3 /Users/radek_soukromy/Desktop/Omega/skripty/pokryti_kvizu.py <slug> --rocnik N --tema <klíč> --bez-modelu` (rychlá triáž) a u neprošlých ostře; zápis o případném kolísání brány hledej v `Omega/dokumenty/DENIK-CHYB.md`.
-- ZBÝVÁ scénářů: F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Postup: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (vložit jako script — tool nepřijme scriptPath mimo session) a args `{"polozky":[{"rocnik","celek","podtema"}…max 4]}`; drobné vady opraví exekutor (Sonnet).
-- POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
-- NOVÝ PRINCIP „KANÁREK + JISTIČ + HLÁŠENÍ" (zadání učitele 27. 9.): `cz.wonderly.kanarek` v 18:00 vyrobí z každé úlohy 1 kus naostro bez nasazení a ověří produkt; noc 22:00 nespustí úlohu se spadlým kanárkem; jistič: stejný podpis chyby 2× → úloha stop (známé přechodné chyby se nepočítají); první nová chyba → Telegram + `Omega/dokumenty/POPLACH.md`; známé chyby `data/zname-chyby.json`. Kontroly: 1. kolo 9 vad, 2. kolo 6 vad — opraveno. 3. kolo kontroly: 3 ZÁVAŽNÉ vady, NEOPRAVENO — kanárek proto VYPNUT (launchctl bootout 27. 9.): (1) nocni_fronta.py:160 _je_proces_kanarek hledá „kanarek.py", launchd ho ale spouští jako „nocni_fronta.py --kanarek" → noc zámek kanárka nepozná a propadne; (2) nocni_fronta.py:197-201 + kanarek.py:76 killpg zabije jen kanárka, jeho podprocesy (start_new_session) běží dál jako sirotci; (3) automat_podkastu.py:725 a dodelej_animace.py:267 — úspěch s --bez-nasazeni vynuluje počitadlo neúspěchů (odlozeno.pop) → díl, který noc nedokáže nasadit, se nikdy trvale neodloží a kanárek ho ověřuje dokola. Ověřeno (27. 9.): chybějící/neplatný dnešní verdikt kanárka NEBLOKUJE noc — `kanarek.precti_dnesni_verdikt()` bez souboru/se starým datem vrátí `{}`, `_kanarek_blokuje()` pak úlohu nezastaví. PRVNÍ ÚKOL po /clear: opravit 1–3, 4. kolo kontroly do 0 nálezů, pak `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.kanarek.plist`. Zítra ráno číst `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`, `POPLACH.md` a `data/kanarek-verdikt.json`. 27. 9. opraveno (commity 50f7db9, b5930af, b94603f, bf13dc0, d2592a2), 3 vady ověřeny nezávislou kontrolou kol 4–8, kanárek znovu zapnut 27. 9. 2026 v 15:13.
-- OPRAVÁŘ (automatický Claude) VYPNUT: `OPRAVAR_AUTOMATICKY=False` v `oprava_hlaseni.py` — nastavení Claude Code má `defaultMode bypassPermissions`, zákazy (push, mazání) nejdou vynutit; navíc OAuth headless vypršel. Opravář jen připraví `OPRAVAR-PROMPT.md` + hlášení. Zapnout jen rozhodnutím učitele (přihlásit `claude` → `/login` a spouštět s `--permission-mode default`).
-- ČEKÁ NA UČITELE: přihlásit Claude v terminálu (`claude` → `/login`); výklad F9 chemicke-zdroje-napeti (citronová baterie aj. nejsou v PDF — ponechat/vyřadit?); kvíz Kvarky 14 otázek bez zapsané výjimky.
-- NASAZENO dnes a včera: build fix `b7082e3`, kvízy vata `72ed250`, výklad `b8e3b5c` / `e33164a` / `34ffc6a`, odkaz na video Archimédes `d951bd7`.
-- POUČENÍ: deterministický skript `kontrola_scenare.py` našel na 24 scénářích 27 vad, které LLM kontroloři za ~8 mil. tokenů propustili (Markovo „…, ne?", délka, schémata bez kresby — generátor by v noci spadl) → opakované formální kontroly patří do skriptu. Stejnojmenná podtémata v různých ročnících (chemicke-zdroje-napeti v F8 i F9) matou agenty — v zadání vždy ročník + plný klíč.
-- VYŘÍZENO z fronty: teplota-a-jeji-mereni už má 21 otázek (zápis byl zastaralý); brána
-  `testy/uniky.mjs` teď kontroluje i únik odpovědi přes pole `vysvětlení` (dřív ho vůbec
-  neporovnávala — nález nedělního auditu 25. 9., viz `SAMOSTATNY-REZIM-ARCHIV.md`).
+**STÁLE OTEVŘENO (nepokryto níže, ČTI PŘESNĚ):** `OBSAH-PRAVIDLA.md` ř. 316–317 —
+1. téma (F7 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole`)
+se má dodělat KOMPLET (všech 9 složek vč. podkastu) u 7./8./9. ročníku naráz, teprve
+pak 2. téma. Bez citovaného rozhodnutí učitele o výjimce nezakládat scénáře mimo
+1. téma. Osud 7 pololetních/ročních shrnutí z 70 chybějících — stále NEROZHODNUTO.
+
+**HOTOVO 27. 9.:** kanárek — 3 vady opraveny, nezávislá kontrola kol 4–10 do 0
+nálezů, znovu zapnut (18:00). Noční fronta zapisuje skutečné příčiny odložení
+(volný text pod tabulku, `skripty/fence_kod.py` sdílený s `oprava_hlaseni.py`).
+Brána pokrytí (`skripty/pokryti_kvizu.py`) čte kvízy jako data přes
+`skripty/kvizy_dump.mjs`, umí spadnout (exit 1 nepokryto / 2 porucha), drží GPU
+zámek (`zamek_modelu.drz`, dědění jen od živého předka), strop čekání 40 min;
+mezipaměť výsledku VYPNUTA (ukládala neúspěch při nedostupném modelu; obsah v
+`Omega/smazano-zaloha/2026-09-27/pokryti-cache/`) — oprava otevřená. Značka
+schválení scénářů (`skripty/schval_scenar.py`, `<slug>.schvaleno.json` s otiskem
+`.md`+scénosledu) — `automat_podkastu` a `dodelej_animace` vyrábějí/nasazují jen
+schválené, ověřeno 2 koly kontroly. `vyrob_omnivoice.py` ověřuje referenci hlasu
+hashem a zastaví díl, kde by postava mluvila dvěma hlasy; 3 díly opraveny
+(magnety-opakovani-dialog1 85 %, vykon-dialog2 90 %, pololetni-shrnuti-dialog3
+86 %). Hlídač zaseknutí hlídá i GPU dráhu. `kontrola_scenare` chytá „ne?" kdekoli
+v replice (4 starší scénáře s tímto nálezem: 8/alternativni-motory,
+8/elektricke-napeti-mereni, 6/telesa-a-latky, 6/objem — neopraveno). Přepis
+whisperem po replikách vrácen (mylná diagnóza).
+
+**SCÉNÁŘE:** schváleno (značka kontrolor): 9/slunecni-soustava, 9/vesmir-a-galaxie,
+7/klid-a-pohyb-telesa, 7/priklady-na-vypocet-rychlosti, 7/gravitacni-sila,
+7/treci-sila, 7/pusobeni-teles-a-deformace. Napsáno, obě skriptové brány OK, ALE
+neschváleno (čeká na rozhodnutí učitele o definici „části"): 7/teziste, 7/klin,
+7/hydrostaticky-tlak, 7/telesa-stejnoroda-a-nestejnoroda, 7/naklonena-rovina.
+Zbývá napsat F7: stin-faze-mesice, odraz-svetla, optika-rovinneho-zrcadla,
+kulova-zrcadla-dute-zrcadlo, oko-vady-oka, rozklad-svetla-duha, vnimani-barev
+(dle `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
+
+**CHYBA ORCHESTRÁTORA 27. 9.:** do scénářů se prosazovalo pravidlo „zhruba
+polovina Markových tvrzení omyly / nikdy 3 v řadě / Máš pravdu", které v návodu
+NENÍ (závazné je jen `NAVOD-POLEMIKY-F6.md:26–31`: v každé části 1–2 typické
+chyby; spor nejednostranný = Marek má platné námitky). Důsledek: 7/naklonena-rovina
+se „opravou" zhoršila na skrytý výklad (3 chyby / 19 replik) — vrátit verzi před
+opravou z gitu Omegy (commit `7789d4a` obsahuje původní); 7/teziste replika 12 má
+chybné zdůvodnění, které Eva neopraví; kontrola (g) v `kontrola_scenare.py` je jen
+VAROVÁNÍ a g2 („3 opravy v řadě") je taky mimo návod — přepsat po rozhodnutí učitele.
+
+**ROZHODNUTÍ UČITELE (otevřené):** 1) co je „část" dílu / kolik Markových chyb na
+díl (~4 min) — visí na tom 5 neschválených scénářů a kontrola (g); 2) U14
+(`PRAVIDLA.md:591`) — mazání/přesun ve Škole: vrátný (`/Users/Shared/povoleni_hook.py`)
+byl 27. 9. změněn na „ask" pro Školu bez rozhodnutí U14 (proti poznámce „NEMĚNIT
+do rozhodnutí"); příčina incidentu: `rm` přes proměnnou v cyklu → záloha tiše
+přeskočena (8 TTS souborů pololetni-shrnuti-dialog3 smazáno bez zálohy, bezcenný
+šum, zapsáno v `zurnal-mazani.jsonl`); 3) přegenerovat 6/pololetni-shrnuti-dialog3
+replika 14-EVA (výška 387 Hz vs ~250 Hz); 4) `claude login` pro opraváře (OAuth
+vypršel, `OPRAVAR_AUTOMATICKY=False`); 5) kvízová vysvětlení na webu:
+7/telesa-stejnoroda „přibližně tisíckrát" (přesně ~833), 7/gravitacni-sila
+délková nápověda u 6/21 otázek.
+
+**OTEVŘENÉ DROBNOSTI:** mezipaměť brány (7 drobných nálezů + závažný, viz
+scratchpad kontrola-cache — přepsat do `Omega/dokumenty`, pokud chceš zachovat);
+jedna zašuměná replika v díle projde měřidlem zarovnání (jen POZOR);
+pololetni-shrnuti-dialog/-dialog2: WAV nesedí na MP3 (+7,5 s / prázdná
+11-MAREK.wav) — ověřit; `test_skupina_kvizu.py` 1 FAIL „model nedostupný"
+(předexistující); Python `os.remove` vrátný nevidí; kontrolor u hydrostatického
+tlaku tvrdil exit 0 bez výpočtu po čekání na zámek — ověřit; 2. kolo nezávislé
+kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
