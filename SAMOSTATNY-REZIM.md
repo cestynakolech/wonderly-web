@@ -1,8 +1,9 @@
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026 v noci — podkásty a noční fronta
 
 **PRVNÍ ÚKOL (oprava V8-3, 27. 9. 2026 — potřetí opravováno, ČTI PŘESNĚ):**
-`OBSAH-PRAVIDLA.md` ř. 316 platí bez výjimky: „1. téma se dodělá KOMPLET (všech
-9 složek) u 7., 8. i 9. ročníku naráz, teprve pak 2. téma" — a podkast/video je
+`OBSAH-PRAVIDLA.md` ř. 316–317 platí bez výjimky, doslova: „1. téma se dodělá
+KOMPLET (všech 9 složek) u 7., 8. i 9. ročníku naráz, teprve pak se stejně
+KOMPLET dodělá 2. téma u všech tří ročníků, atd." — a podkast/video je
 JEDNA z těch 9 složek, ne samostatná paralelní fronta. 1. téma je F7
 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole` (9 podtémat).
 Bez CITOVANÉHO rozhodnutí učitele (datum + zdroj), které by řadu podkastů
@@ -14,16 +15,15 @@ přesný rozpad viz „🆕 Znovu zařazeno do fronty, 3. kolo" níže, položka
 celky (řetěz „HOTOVÉ SCÉNÁŘE / ROZPRACOVÁNO / ZBÝVÁ" níže) — u 4 už
 rozpracovaných scénářů (ROZPRACOVÁNO níže) dokončit aspoň rozjetou kontrolu,
 ale NEZAKLÁDAT nové mimo 1. téma, dokud není hotové.
-**Osud 7 shrnutí (pololetní/roční) z 70 chybějících — NEROZHODNUTO:** stejná
-otevřená otázka jako u simulací (viz „ČEKÁ ROZHODNUTÍ UČITELE" v aktuální frontě
-níže) — dělat i pro ně krátký podkast/video, nebo je z povinnosti vyjmout jako
-u simulací? Nepředjímat, dokud učitel nerozhodne.
+**Osud 7 shrnutí (pololetní/roční) z 70 chybějících — NEROZHODNUTO:** → ❓ (stejná
+otázka jako u simulací bez názornosti, viz sekce „❓ Otevřené dotazy na učitele"
+výše). Nepředjímat, dokud učitel nerozhodne.
 
 - NOČNÍ FRONTA lokálních modelů (`cz.wonderly.nocni-fronta`, `Omega/skripty/nocni_fronta.py`, 22:00–6:00, pořadí animace → podkasty --vse r6–9 → animace → vata; kontrolor 4 kola do 0 nálezů). Ráno přehled `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`. Denní `cz.wonderly.dodelej-animace` vypnut (Disabled) — duplicita.
 - INVENTURA: 70 ze 120 podtémat fyziky bez podkástu/videa (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Rozhodnutí učitele 26. 9.: scénáře píší WORKEŘI + nezávislý kontrolor (Sonnet, max 2 kola), 1 krátký díl na podtéma (vyjde ~4 min, protože pokrývá celý kvíz, strop 4 600 znaků s prefixy).
 - HOTOVÉ SCÉNÁŘE (prošly skriptem `kontrola_scenare.py` + ostrou bránou + nezávislým kontrolorem) = 32: F8 elektřina 14 (celá kapitola), F8 teplo: tani, tuhnuti, vyparovani, var; F9: vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech, chemicke-zdroje-napeti, polovodice-vlastni-vodivost, polovodice-typu-n-a-p-dioda, ucinky-proudu-bezpecnost, pusobeni-pole-na-vodic-elektromotor, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator, kvarky, radioaktivita, jaderna-energie-a-reakce, jaderny-reaktor-elektrarna. ROZPRACOVÁNO — nejdřív dokončit kontrolu těchto 4 scénářů (nezávislý kontrolor ještě neskončil): kondenzace, skupenske-zmeny-vody-v-prirode, kmitani-a-vlneni, vnimani-zvuku-a-hlasitost. ZBÝVÁ (nezačato): F8 ucinnost, energie ×5, tepelné motory ×2; F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
 - POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
-- ČEKÁ NA UČITELE: výklad F9 chemicke-zdroje-napeti obsahuje citronovou baterii, palivový článek, polaritu anody při nabíjení a „dva stejné kovy" — nejsou v PDF (možná v prezentaci) → ponechat, nebo vyřadit z výkladu i kvízu? Kvíz Kvarky má 14 otázek (výjimka nezapsaná).
+- ČEKÁ NA UČITELE: F9 chemicke-zdroje-napeti (citronová baterie aj.) a Kvarky (14 otázek) → ❓ (viz sekce „❓ Otevřené dotazy na učitele" výše).
 - OPRAVY VÝKLADU nasazené 27. 9.: ionizace ve vedení proudu v plynech (`34ffc6a`); elektroskop
   — pořadí ruka/tyč (`b8e3b5c`); pořadí kovů podle měrného odporu (`e33164a`) — poslední dvě
   jsou chyby podkladu, zapsáno v `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
@@ -90,6 +90,28 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   neřeší detekci), navržené řešení čeká na pokyn: nejdřív změřit dnešní stav na
   zkušební sadě značek, pak přidat kontext auta. Plná analýza v sekci
   „🚗 Nápad učitele 6. 8." níže.
+- [skola2] Odkazy F9 `chemicke-zdroje-napeti` 4× doslova stejné jako u F8 stejného
+  slugu (v „📥 Nálezy z historie" níže) — vada, nebo záměr?
+- [cesty] **Referenční tváře 2021** — z kandidátů vybrat a POTVRDIT (přidání tváře
+  = ta osoba se přestane rozmazávat, potvrzuje vždy učitel).
+- [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a
+  stará skrýt? (YouTube neumí vyměnit soubor.)
+- [skola2] Rozhodovací tabulky z 29. 7. (v „Přestěhováno z FRONTA-UKOLU.md" níže):
+  laboratorní práce (12 bodů), nové simulace (10), UX školy (8).
+- [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14 bodů).
+- [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" chybí v soupisu kanálu —
+  doplnit, nebo ověřit, že video vůbec existuje?
+- [cesty] **Hudba pod videa podkástů ze Suno** (návrh učitele 16. 8., předplatné Pro) —
+  potvrdit rozsah: znělka, nebo podkres celého dílu? Jednotná znělka pro celou sérii,
+  nebo jiná ke každému dílu? Realizace čeká na učitele u počítače (přihlášení do Suno
+  účtu). Plné znění v „Přestěhováno z FRONTA-UKOLU.md" níže.
+- [skola2] **Fahrenheit — formulace** (díl 8 `teplota-a-jeji-mereni`): „v anglicky
+  mluvících zemích" místo přesnějšího „hlavně v USA" — přeformulovat?
+- [skola2] **Klementinum — rok rekordu** (díl 8): zmíněn jen rok 1775 (začátek
+  měření), sporný rekord 1785/1929 vynechán — potvrdit, nebo doplnit?
+- [skola2] **Přeskoky v pořadí úvodních map videí** — `kontrola_poradi.py`
+  dlouhodobě hlásí 8 přeskoků (např. chybí zastávka ballon-d-alsace) — mají se
+  mapy předělat?
 
 ## 26. 9. 2026 v noci
 
@@ -365,8 +387,8 @@ viz „⚡ ČÍM ZAČÍT" výše — možný překryv, ne nutně součet):
 - [skola2] Sloučit sandbox testů simulací — 23 kopií prologu (19 rozešlých
   variant, 767 řádků) do sdíleného `testy/sandbox-simulace.mjs` (do kořene
   testy/, NE do simulace/); postup po rodinách s mutací před/po každou.
-- [skola2] Rozhodnout: odkazy F9 `chemicke-zdroje-napeti` jsou 4× doslova
-  stejné jako u F8 stejného slugu — vada, nebo záměr?
+- [skola2] Odkazy F9 `chemicke-zdroje-napeti` 4× doslova stejné jako u F8 →
+  ❓ (viz sekce „❓ Otevřené dotazy na učitele" nahoře, V9-5).
 - [skola2] **Brána pro nové simulace** (nález nedělního auditu 20.–23. 9. 2026).
   Do `zkontroluj.mjs` chybí kontrola, která by u KAŽDÉ nové komponenty
   `*Simulace` vynutila vlastní test s aspoň jednou netautologickou asercí. Dnes
@@ -504,22 +526,19 @@ Organizace:
 - [skola2] Doporučení z 16. 8. 2026 zůstává neprovedené: doplnit `wrangler` tokenu
   scope pro Cloudflare Builds API, ať jde příště zjistit příčinu selhání buildu
   automaticky z chybové zprávy, ne jen obcházet ručním deployem.
-- [cesty] Referenční tváře 2021 — z kandidátů vybrat a POTVRDIT (přidání tváře = ta osoba
-  se přestane rozmazávat, potvrzuje vždy učitel).
-- [cesty] Videa, která dostala hudbu až po nahrání na YouTube — nahrát znovu a stará
-  skrýt? (YouTube neumí vyměnit soubor.)
-- [skola2] Rozhodovací tabulky z 29. 7.: laboratorní práce (12), nové simulace (10),
-  UX školy (8).
-- [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14).
+- [cesty] Referenční tváře 2021 → ❓ (viz sekce „❓ Otevřené dotazy na učitele" nahoře).
+- [cesty] Videa s hudbou dodatečně po nahrání na YouTube → ❓.
+- [skola2] Rozhodovací tabulky z 29. 7. (laboratorní práce 12, nové simulace 10,
+  UX školy 8) → ❓.
+- [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14) → ❓.
 - [cesty] 9 videí „k rozhodnutí" — přesunuto do sekce „❓ Otevřené dotazy na učitele"
   nahoře (V9-2, 27. 9. 2026).
-- [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není).
+- [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není) → ❓.
 - [cesty] Návrh: shlukování popisků na úvodní mapě do čtverců („7 míst"), zásah
   do `trasa_uvod.py`, ~1 kolo práce.
 - [cesty] **Hudba pod videa podkástů ze Suno** (návrh učitele 16. 8., má předplatné).
-  Nerealizováno — vyžaduje přihlášení do jeho účtu Suno a stažení souborů, chce se
-  potvrdit rozsah: jen znělka na začátek/konec, nebo podkres celého dílu? Jednotná
-  znělka pro celou sérii, nebo jiná ke každému dílu?
+  Nerealizováno — vyžaduje přihlášení do jeho účtu Suno a stažení souborů; otázka
+  rozsahu (znělka/podkres, jednotná/po dílu) → ❓.
   Upřesnění (16. 8.): předplatné Suno Pro, ~2000 skladeb zbývá z 2500/měsíc, komerční
   použití na kanálu povoleno. Cíl A: hudba/podkres pod videa podkastů — čeká se lepší
   kvalita než z lokálního modelu (dosavadní řešení: kreslené animace + ticho/jednoduchý
@@ -530,14 +549,9 @@ Organizace:
   zadávat další písničky přímo a přidávat je na web do míst, kde zatím hudba/píseň
   chybí. Realizace čeká, až bude učitel u počítače — přihlášení do Suno účtu a
   stažení výstupů vyžaduje jeho potvrzení v tu chvíli, nejde předschválit dopředu.
-- [skola2] **Fahrenheit — formulace.** V dialogu dílu 8 (`teplota-a-jeji-mereni`) zaznělo
-  „v anglicky mluvících zemích", reálně se Fahrenheit používá hlavně v USA. Přeformulovat?
-- [skola2] **Klementinum — rok.** Sporné číslo (1775 začátek měření vs. 1785/1929 rekord,
-  viz otázky výše). V dialogu dílu 8 je zmíněn jen rok 1775 jako začátek měření, sporný
-  rekord vynechán. Potvrdit, nebo doplnit správný rok rekordu?
-- [skola2] **Přeskoky v pořadí úvodních map videí.** Automat `kontrola_poradi.py`
-  dlouhodobě hlásí 8 přeskoků (např. chybí zastávka ballon-d-alsace). Čeká na
-  rozhodnutí, jestli se mapy mají předělat.
+- [skola2] Fahrenheit — formulace (díl 8) → ❓.
+- [skola2] Klementinum — rok rekordu (díl 8) → ❓.
+- [skola2] Přeskoky v pořadí úvodních map videí (8×, `kontrola_poradi.py`) → ❓.
 - [skola2] **Uzemnění — jednosměrná formulace** (viz nález #16). V `temata.ts`
   (~ř. 1196) i v kvízu `kvizy.ts` (~ř. 1574) stojí „Země přijme volné elektrony
   a těleso se vybije" — platí jen pro záporně nabité těleso, u kladně nabitého
@@ -635,9 +649,9 @@ po jeho uvolnění selhala na právech) · předání přes most (most není).
 názvy kreseb jsou už zapsané ve scénosledech) · videa · nahrání do R2 · zápis
 do `temata.ts`.
 
-**Rozhodnout musí učitel:** má se výroba zvuku dělat z účtu `radekmicek`, nebo
-se má složce `/Users/Shared/Škola/podkasty` nastavit zápis i pro `radek_soukromy`?
-(Změna práv je zásah do systému, proto se neudělala sama.)
+**Rozhodnout musí učitel:** → ❓ ODPADÁ (sjednoceno V9-5, 27. 9. 2026): `Škola/podkasty`
+už patří `radek_soukromy` (viz sekce „❓ Otevřené dotazy na učitele" nahoře) — otázka
+„radekmicek, nebo práva pro radek_soukromy" je bezpředmětná, zbývá jen ověřit zápis.
 
 ### Nález u brány `pokryti_kvizu.py` — nikdy se nezeptá modelu (10. 9. 2026, mini)
 **AKTUALIZACE 27. 9. 2026 (K3-R16):** na MacBooku `~/bin/ask-local` DNES EXISTUJE
