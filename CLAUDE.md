@@ -30,12 +30,10 @@ Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na su
 - **Cloudflare R2** — úložiště `wonderly-media` pro plnokvalitní fotky deníku (binding MEDIA).
 - Fonty: `@fontsource/patrick-hand` + `caveat` (kreslený „whiteboard" styl, latin-ext = česká diakritika).
 - `worker.js`, `wrangler.jsonc` — routing subdomén + R2. **NEMĚNIT bez důvodu.**
-- **Hermes Agent** (lokální modely, Ollama) — ZAPOJEN jako záložní pracant na
-  mechanickou práci (paměť `feedback-hermes-zalozni-pracant`), spouští se
-  neinteraktivně přes plnou cestu: `~/.hermes/hermes-agent/venv/bin/hermes -z "zadání"`
-  (vrací jen holý text odpovědi). Alias `hermes` ukazuje na podpříkaz `chat`
-  (interaktivní) a pro skriptovaná volání se nehodí. **Hermes nikdy nepushuje,
-  nemaže ani nenahrává ven** — výsledky jen odevzdává k převzetí (viz `SAMOSTATNY-REZIM.md`).
+- **Hermes Agent** — jen záložní pracant na mechanickou práci při docházejících
+  tokenech, plné znění a volací syntaxe v paměti `feedback-hermes-zalozni-pracant`.
+  Delegace kvalitní/obsahové práce (průzkumník, subagent) na Hermese je ZAMÍTNUTÁ
+  učitelem 21. 9. 2026 („pracuje nekvalitně") — netýká se mechanického fallbacku výše.
 
 ## Kde co je (společná kostra)
 Každá sekce má soubory ve TŘECH podstromech — stránky, komponenty, data:
@@ -61,8 +59,9 @@ npm run build                 # ověří, že se web sestaví (prebuild = zkontr
 git add -A src public/materialy
 git commit -m "..."           # commit = jedno téma, nepřibalovat nesouvisející soubory
 git push origin main          # Cloudflare nasadí sám do ~1 min — VŠECHNY sekce naráz
-# ověření (Cloudflare chvíli vrací starou verzi, proto ve smyčce):
-for i in $(seq 8); do curl -s https://lab.wonderly.cz/<cesta>/ | grep -q "Spustit kvíz" && echo OK && break; sleep 10; done
+# ověření (Cloudflare chvíli vrací starou verzi z cache, proto ve smyčce
+# S CACHE-BUSTEREM i User-Agent — bez ?cb= může vrátit "cf-cache-status: HIT" a stará data):
+for i in $(seq 8); do curl -s -A wonderly-check "https://lab.wonderly.cz/<cesta>/?cb=$(date +%s)$RANDOM" | grep -q "Spustit kvíz" && echo OK && break; sleep 10; done
 ```
 
 Tenhle blok je JEDINÝ domov postupu nasazení — PROGRESS.md i skill `/wonderly` sem odkazují, neopisují.

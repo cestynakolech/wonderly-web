@@ -1,5 +1,643 @@
 # Samostatný režim — archiv starších stavů
 
+## Přesunuto auditem 27. 9. 2026 (K3-Z13, K3-Z14) — vyřešené/evidenční položky fronty
+
+### [skola2] 📋 Audit automatů video/podkásty — beze změn, jen k evidenci (zadáno 22. 9. 2026)
+Zjišťovací audit pipeline fyzikálních podkástů/videí (scénář → zvuk → schémata →
+ilustrace → časování → střih → R2/YouTube): 13 kroků, 11 už lokálních/bez AI modelu,
+1 záměrně cloudový (psaní scénáře — věcná přesnost pro děti má přednost), 1 infra
+(YouTube API). Žádné porušení pravidla „zvuk jen lokálně" — nalezené soubory na
+placené TTS (OpenAI, ElevenLabs) jsou už 18. 8. 2026 vyřazené a automat je nevolá.
+Žádná technická akce se nenavrhuje. Detaily: `Omega/dokumenty/AUDIT-AUTOMATU-VIDEO-2026-09-22.md`.
+
+### Zkontrolováno / Hotová vylepšení (nepotřebné pro navázání)
+- Audit infografik v temata.ts (23. 7. 2026): 213 podtémat, 15 interakcí hotových →
+  kandidáti sepsáni výše (v tehdejší frontě). Shrnutí, opakovací a čistě výkladová
+  témata bez jevu k animaci přeskočena záměrně.
+- Kvíz podtématu `cas-a-jeho-mereni` (F6) rozšířen o úlohu s Ozobotem (obvod, obsah,
+  rychlost) na 26 otázek (22. 8. 2026).
+
+### [skola2] ⚡ Nekonzistence bezpečného napětí mezi 8. a 9. ročníkem (zadáno 20. 8. 2026) — VYŘEŠENO
+Nález nezávislého kontrolora při revizi dávek 7+8 kvízů fyziky 8: `temata.ts:3749`
+(8. ročník) uvádí bezpečné napětí ve vlhkých prostorách stejnosměrné **30 V**
+(sucho **120 V**), ale `temata.ts:4656` (9. ročník) uvádí obecně stejnosměrné
+**25 V**. Sjednotit podle platné normy — teď se to neopravovalo, jen zapsáno.
+
+**VYŘEŠENO — ověřeno 25. 9. 2026:** rozpor v datech není, obě místa shodně **25 V DC /
+12 V AC** (vlhko) a **120 V DC / 50 V AC** (sucho); číslo 30 V se v `temata.ts` ani
+`kvizy.ts` u bezpečného napětí nevyskytuje (jediný nesouvisející výskyt „30 V" je
+distraktor ve kvízové otázce o sériovém sčítání napětí, `kvizy.ts:4268`, s bezpečným
+napětím nemá nic společného). Odstraněno commitem `9f44b1f` (22. 8. 2026, „Zapojení
+simulace rychlosti světla + oprava bezpečného napětí na 25 V"). Čísla 25 V DC a 12 V AC
+doslova odpovídají PDF učitele (SmartBooks, 8. i 9. ročník). Rozlišení sucho/vlhko zdroj
+nepokrývá, ale 23. 8. 2026 bylo ROZHODNUTO ponechat jako zavedený výukový text.
+
+## Přesunuto auditem 27. 9. 2026 (K3-Z9 + K3-Z10) — postupný průběh přestavby fyziky 21.–22. 9. 2026
+
+**Stav 21. 9. 2026:** Vzor schválen učitelem (vlastní číselné příklady povoleny).
+Celek Energie F8 HOTOV — 6/6 podtémat přestavěno podle A+B+C+D (worker-výklad →
+nezávislý kontrolor opus → `podtema.mjs`), 5 z 6 potřebovalo 1 opravnou smyčku.
+Zapsáno výhradně nástrojem `podtema.mjs`, build i `zkontroluj.mjs` procházejí.
+2. dávka HOTOVA — celky `mechanicka-prace-a-vykon` (2 podtémata) a
+`tepelne-motory` (2 podtémata) přestavěny stejným postupem, každé podtéma
+mělo nezávislého kontrolora (opus), 3 ze 4 podtémat měla 1 opravnou smyčku.
+3. dávka HOTOVA — celek `teplo-a-zmeny-skupenstvi` 7/7 podtémat přestavěno
+(tuhnutí, var, kondenzace, skupenské změny vody v přírodě + 3 dřívější),
+každé podtéma mělo nezávislého kontrolora, 6 ze 7 potřebovalo 1 opravnou
+smyčku. Typický nález oprav: vypadlý dosavadní bod/věta při 1. kole —
+pravidlo „dosavadní obsah se nikdy nevyřazuje jako MIMO SCOPE" doplněno
+do zadání workerů. F8 hotové celky 1–4. Podle bodu E teď běží 1. celky
+F7 (`pohyb-a-rychlost`, 4 podtémata) a F9 (`magneticke-pole`, 3 podtémata)
+souběžně. Zbývá v F8: `elektrina` (15), `zvuk` (3), `shrnuti` (2, bez
+zdrojů) — přijde na řadu ve svém pořadí podle bodu E.
+Drobnosti do stavu: podtéma potraviny má 7×`<h3>` a 8 bodů zápisu (víc než vzor,
+neškodí); odvozené vztahy uvnitř rámečku vzorce se na užší obrazovce zalamují
+na dva řádky — zvážit přesun do nadstavby.
+F7 1. celek `pohyb-a-rychlost` HOTOV 4/4 podtémata (klid a pohyb, posuvný a
+otáčivý pohyb, rychlost/dráha/čas, příklady na výpočet rychlosti) — každé
+mělo nezávislého kontrolora, 3 ze 4 potřebovaly 1 opravnou smyčku. U příkladů
+kontrolor odhalil nedoložená čísla u příkladů 8 a 9 (220 km/650 km) — přepsáno
+na přesná čísla z prezentace Pohyb (snímky 26–27): 231 km/42 km/h a
+585 km/450 km/h, viz KE-SCHVALENI.md bod (6).
+F9 1. celek `magneticke-pole` HOTOV 3/3 (magnety-magneticke-pole-opakovani,
+elektromagnet, magneticke-pole-vodice-a-civky), všechna přes nezávislého
+kontrolora, zapsáno `podtema.mjs`, build a `zkontroluj.mjs` procházejí.
+F9 2. celek `indukce-a-stridavy-proud` (5 podtémat) 3/5 zapsáno
+(elektromagneticka-indukce, pusobeni-pole-na-vodic-elektromotor,
+vznik-stridaveho-proudu-alternator) — vlastnosti-stridaveho-proudu u
+kontrolora, transformator v opravě.
+F7 2. celek `sily-kolem-nas` (5 podtémat) 4/5 zapsáno (sila, skladani-sil,
+teziste, treci-sila) — gravitacni-sila v opravě.
+
+F7 2. celek `sily-kolem-nas` HOTOV 5/5, F9 2. celek `indukce-a-stridavy-proud`
+HOTOV 5/5 — obojí přes `podtema.mjs`, každé podtéma nezávislý kontrolor opus,
+většinou stačila 1 opravná smyčka (nejčastější nález = vypadlá věta/bod
+z dosavadního bloku). Souhrn: F8 celky 1–4, F7 celky 1–2, F9 celky 1–2 hotové
+= 32 podtémat. F7 3. celek `jednoduche-stroje` HOTOV 4/4 (pusobeni-teles-a-deformace,
+kladka, naklonena-rovina, paky zapsány přes `podtema.mjs`; u kladky a nakloněné roviny
+neexistuje podklad učitele — viz KE-SCHVALENI.md bod 10). F9 3. celek
+`elektricky-proud-v-latkach` HOTOV 6/6 (vedeni-proudu-v-kapalinach,
+polovodice-typu-n-a-p-dioda, polovodice-vlastni-vodivost, prenos-elektricke-energie,
+chemicke-zdroje-napeti, vedeni-proudu-v-plynech), vše přes `podtema.mjs`, build
+a `zkontroluj.mjs` procházejí. Souhrn: F8 celky 1–4 (17), F7 celky 1–3 (13),
+F9 celky 1–3 (14) = 44 podtémat. DALŠÍ: 4. celky F7 `tlak-v-kapalinach` (3)
+a F9 `elektricka-energie-a-bezpecnost` (2) — už se píší; pak 5. celky včetně
+F8 `elektrina` (15).
+
+**Stav 21. 9. 2026:** F7 4. celek `tlak-v-kapalinach` 2/3 zapsáno (`tlak`,
+`pascaluv-zakon` přes `podtema.mjs`, build a `zkontroluj.mjs` procházejí;
+`hydrostatika` na opakované kontrole). F9 4. celek `elektricka-energie-a-bezpecnost`
+0/2 (oba u kontrolorů).
+
+**Stav 21. 9. 2026:** F7 4. celek `tlak-v-kapalinach` HOTOV 3/3
+(`hydrostaticky-tlak` doplněn přes `podtema.mjs`, build a `zkontroluj.mjs`
+procházejí). F9 4. celek `elektricka-energie-a-bezpecnost` HOTOV 2/2
+(`elektricka-energie-a-premeny`, `ucinky-proudu-bezpecnost`). Souhrn:
+F8 celky 1–4 (17), F7 celky 1–4 (16), F9 celky 1–4 (16) = 49 podtémat.
+DALŠÍ: 5. celky — F7 `vztlakova-sila-a-plovani-teles` (2), F8 `elektrina`
+(15), F9 `jaderna-fyzika` (4). 8 workerů spadlo na limitu API 21. 9.
+~17:00, znovu spustit.
+
+**Stav 21. 9. 2026:** F9 5. celek `jaderna-fyzika` HOTOV 4/4 (`jaderna-energie-a-reakce`,
+`jaderny-reaktor-elektrarna`, `jadro-atomu`, `radioaktivita` — vše přes
+`podtema.mjs`, build a `zkontroluj.mjs` procházejí). F8 5. celek `elektrina`
+1/15 zapsáno (`chemicke-zdroje-napeti`), 4 u kontrolorů (náboj, pole, vznik
+proudu, obvody), 4 se píší (proud měření, napětí měření, proud v kovech,
+závislost odporu), 6 čeká. F7 5. celek `vztlakova-sila-a-plovani-teles` 0/2
+(oba na opakované kontrole). Souhrn hotových podtémat: 49 + 4 + 1 = 54.
+Do KE-SCHVALENI.md bod 16: F9 Jaderný reaktor — rozpor „tři vs. dva vodní
+okruhy" mezi dosavadním webem a popisem prezentace, ponecháno dosavadní;
+body 17–19: poločas radonu, relativní atomová hmotnost a odpudivá síla
+230 N (mimo rozsah), chemické zdroje — nepřesnost v PDF u lithiových
+článků a návrh vzorce t = Q : I.
+
+**Stav 21. 9. 2026:** F7 5. celek `vztlakova-sila-a-plovani-teles` HOTOV 2/2
+(`archimeduv-zakon`, `telesa-stejnoroda-a-nestejnoroda` — přes `podtema.mjs`,
+build a `zkontroluj.mjs` procházejí; F7 celky 1–5 hotové = 18 podtémat).
+F8 5. celek `elektrina` 4/15 zapsáno (chemické zdroje, `elektricky-naboj`,
+`elektricke-pole`, `vznik-elektrickeho-proudu`), u kontrolorů/oprav: obvody,
+proud měření, napětí měření, proud v kovech, závislost odporu, Ohmův zákon;
+čeká 5: zapojení za sebou, vedle sebe, rezistor, elektrická práce a výkon,
+účinky proudu. Souhrn hotových: 54 + 5 = 59. Zkouška delegace na Hermese/
+GPT-5.5 zrušena učitelem („Hermes pracuje nekvalitně"). Do KE-SCHVALENI.md
+bod 20: F7 Tělesa stejnorodá — rozpor hustot: prezentace ocel 7 800, vzduch
+1,2 kg/m³ vs. web 8 000 a „asi 1" (ponecháno kvůli celým číslům); bod 21:
+F8 Vznik proudu — dohodnutý směr proudu od + k − není v podkladu ani na
+webu, navrženo k doplnění.
+
+(iii) **Stav k 21. 9.:** F8 celky 1–4 hotové (mechanická práce a výkon,
+energie, tepelné motory, teplo a změny skupenství). Podle bodu E teď běží
+1. celky F7 (`pohyb-a-rychlost`, 4 podtémata) a F9 (`magneticke-pole`,
+3 podtémata) souběžně, pak 2. celky, atd.; F8 celek 5+ až ve svém pořadí.
+Kvízová kontrola sladění s novým výkladem = samostatný krok po každém
+celku (zatím neudělán pro F8 celky 1–4 → zařadit).
+
+**PŘEDÁNÍ 21. 9. večer (před /clear):** Hotovo a nasazeno 59 podtémat
+(F8 celky 1–4 = 17 + chemické zdroje, náboj, pole, vznik proudu = 4
+z elektřiny; F7 celky 1–5 = 18; F9 celky 1–5 = 20). Rozpracovaná F8
+elektřina viz `rozpracovane-vyklady/2026-09-21/README.md` (zdroj: scratchpad
+staré session `/private/tmp/claude-502/-Users-Shared--kola/c373a426-dfa0-4020-bf85-d07308545470/scratchpad/`).
+**Stav 22. 9. 2026: F8 elektřina HOTOVO 15/15** (commit `d491ea0`, nasazeno
+a ověřeno curlem na lab.wonderly.cz — `ucinky-proudu-a-bezpecnost`,
+`elektricky-proud-v-kovech-odpor`, `elektricke-obvody`). Past: curl na
+lab.wonderly.cz bez hlavičky `User-Agent` vrací 403 — ověřovací smyčka musí
+posílat `User-Agent`.
+**Stav 22. 9. 2026 večer: 6. celky HOTOVO 9/9** — F7 `atmosfera-a-tlak-vzduchu`
+(atmosfericky-tlak, pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku), F8
+`zvuk` (kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost), F9
+`energie-a-vesmir` (obnovitelne-a-neobnovitelne-zdroje, slunecni-soustava,
+vesmir-a-galaxie). Každé podtéma prošlo nezávislým kontrolorem (Opus,
+čerstvý kontext) ve 2–3 kolech; zápis `podtema.mjs`; `zkontroluj.mjs` + build
+OK. Zdroje: PDF učitele 1:1 (Škola/7/3 Mechanické vlastnosti kapalin 16–18,
+Škola/8/6 Zvuk 33–35, Škola/9 str. 21–22); `vesmir-a-galaxie` bez PDF → zdroj
+popis prezentace `Omega/dokumenty/prezentace-popisy/9 vesmir_a_jeho_vznik.md`.
+Rozhodnutí orchestrátora: PDF má přednost před webem (kromě zjevných chyb
+extrakce, např. Torricelli 1643); „stojaté vlnění" z prezentace do kmitání
+nezařazeno; 3. Keplerův zákon ponechán s citací PDF str. 23; ZAPIS sluneční
+soustavy zkrácen z 39 na 19 bodů (strop ~22). Pracovní složka
+`rozpracovane-vyklady/2026-09-22-6-celky/` (výklady + protokoly
+kontrola-*-a/b/c.md + README.md) commitnuta. Commity `40b59cb` (F7),
+`547cd5f` (F8 zvuk), `104047b` + `e91813c` (F9); push `e91813c`; curl ověřen
+(slunecni-soustava, kmitani-a-vlneni, atmosfericky-tlak — ANO). Nález pro
+krok (c): `zkontroluj.mjs` hlásí nesoulad čísla galaxií v kvízu (100 vs. 200
+dle nového výkladu) — první konkrétní důkaz, že kvízy je nutné sladit. Past
+dne: worker někdy vloží cizí značku (`</content>`) nebo poznámku „k rozhodnutí
+učitele" — kontrolor to chytá.
+DALŠÍ KROK nové session: ~~(a) dokončit F8 elektřina~~ HOTOVO 22. 9. (commit
+`d491ea0`); ~~(b) 6. celky~~ HOTOVO 9/9 22. 9. (commit `e91813c`, viz výše);
+~~(c) sladění kvízů s novými výklady~~ **HOTOVO 24/24 (22. 9. 2026, noc,
+commit `4652cbd`)** — F8 elektřina 15, F7 `atmosfera-a-tlak-vzduchu` 3, F8
+`zvuk` 3, F9 `energie-a-vesmir` 3; 2 kola nezávislého kontrolora (1. kolo 144
+nálezů, 2. kolo 46 nových po opravách), zapsáno `kvizy.ts` (21 otázek drženo),
+brány `uniky.mjs`+`zkontroluj.mjs`+build OK, curl ověřen. **F8 celky 1–4
+(17 podtémat)** ~~HOTOVO 41/41 (22. 9. 2026, commit 530c64c)~~ — 1. kolo
+91 nálezů (celky 1–2: 48, celky 3–4: 43), 2. kolo 18 nových (10 + 8);
+commity `a14c6cd`, `c72728e`, `40dac2a`, `530c64c`; push `530c64c`; curl
+ověřen (tani, vykon, spalovaci-motory — ANO). Celkem sladěno 41/41 podtémat.
+Odloženo (kosmetika, k drobnostem): `tepelna-vymena-a-teplo` — sjednocení
+zápisu „4200"→„4 200" spouští bránu `uniky.mjs` (substring), ponecháno;
+zapsáno v `sladeni-kvizu-f8-celky-1-2-2kolo.md`.
+DALŠÍ KROK: ~~(i) doplnit odkazy u 7 podtémat~~ HOTOVO 22. 9. — 23 odkazů
+(F7 atmosfericky-tlak, pretlak-podtlak-vakuum, meteorologie-a-mereni-tlaku 3+3+3;
+F8 kmitani-a-vlneni, zvuk-vznik-a-sireni, vnimani-zvuku-a-hlasitost 4+4+4;
+F9 slunecni-soustava 2), commit `989e549`, push, curl ověřeno. ~~(ii) bod E
+kompletní pro 41 přestavěných podtémat~~ HOTOVO 41/41. Nález: F7 celky 1–5
+(18 podtémat) a F9 celky 1–5 (20 podtémat) mají výklad HOTOVO, ale kvíz
+NESLADĚN s novým výkladem (v běhu 22. 9. — 4 kontroloři: F7 1–2, F7 3–5,
+F9 1–2, F9 3–5) — dle definice hotového tématu tedy nejsou hotová, přestože
+PROGRESS je vede jako HOTOVO. ~~(iii) dorovnat sladění kvízů F7 celky 1–5 +
+F9 celky 1–5 (38 podtémat)~~ HOTOVO 22. 9. — F7 celky 1–5 (18) a F9 celky
+1–5 (20): kvíz SLADĚN 22. 9. — 1. kolo 243 nálezů (F9 1–2: 49, F7 1–2: 51,
+F7 3–5: 73, F9 3–5: 70), 2. kolo 80 nových (21+14+20+25); čtyři bloky
+zkráceny z 22–24 na 21 otázek (magnety-magneticke-pole-opakovani,
+prenos-elektricke-energie, chemicke-zdroje-napeti F9,
+ucinky-proudu-bezpecnost, jaderny-reaktor-elektrarna); commity `2755995`,
+`ec5eb42`, `37f5a32`, `d2ca18f`, `2f62f40`, `0762e8f`, `b4968f2`; push
+`b4968f2`; curl ověřen (radioaktivita, hydrostaticky-tlak, transformator —
+ANO). Bod E tak splněn u všech 79/79 přestavěných podtémat kromě odkazů u
+F7/F9 celků 1–5 (nezjišťováno — viz náměty níže). ~~(iv) F7 7. celek
+`svetlo-a-jeho-sireni`~~ **HOTOVO 22. 9. (commit `c453d06`)** — 4/4 podtémata
+(svetlo-jeho-zdroje, odraz-svetla, lom-svetla, stin-faze-mesice), zdroje PDF
+Škola/7/4 Světlo 19, 21, 24, 20 + popis prezentace SVĚTELNÉ JEVY 7, 2 kola
+nezávislé kontroly, `podtema.mjs`, build i `zkontroluj.mjs` OK, curl ověřen
+(lom-svetla, stin-faze-mesice — ANO); doloženy a opraveny 2 fyzikální chyby
+PDF podkladu (teplota povrchu Slunce, „krvavý Měsíc" —
+`Omega/dokumenty/kontrola-podkladu-fyzika7.md`); kvíz F7 světlo zatím
+NESLADĚN s novým výkladem — zařadit do kroku sladění spolu se zrcadly. NYNÍ:
+(v) F7 8. celek `zrcadla-a-cocky` — **HOTOVO 22. 9. (commit `2d7e7c9`)** — 6/6
+podtémat (optika-rovinneho-zrcadla, kulova-zrcadla-dute-zrcadlo, opticka-cocka,
+oko-vady-oka, rozklad-svetla-duha, vnimani-barev; PDF 22, 23, 25, 26, 28, 29,
++27 jen 1 věta „nad rámec"), 2 kola nezávislé kontroly (1. kolo 34 nálezů,
+2. kolo 1 věcný + 15 drobností), push, curl ověřen (opticka-cocka,
+kulova-zrcadla); pracovní složka `rozpracovane-vyklady/2026-09-22-zrcadla/`.
+Stav celků F7: 8 zrcadla HOTOVO (kvíz sladění: světlo 1. kolo hotovo/nasazeno, 2. kolo
+v běhu; zrcadla 1. kolo proběhlo, oprava se zapracovává — viz
+`rozpracovane-vyklady/2026-09-22-{svetlo,zrcadla}/`, dobíhá souběžně u jiného agenta).
+
+DALŠÍ KROK (22. 9. 2026, po inventuře `INVENTURA-TEMAT.md`, bod 3 zadání učitele): podle
+`OBSAH-PRAVIDLA.md` kap. 12 („Pořadí práce: 1. téma se dodělá KOMPLET — tehdy ještě
+10 složek, od 23. 9. 2026 sloučením simulace+interaktivní infografiky 9 složek —
+u 7., 8. i 9. ročníku naráz, teprve pak se stejně KOMPLET dodělá 2. téma") je novou
+prioritou dodělat chybějící složky u PRVNÍHO tématu napříč všemi třemi ročníky:
+- **F7 `pohyb-a-rychlost`** (4 podtémata): chybí odkazy, video s animací, interaktivní
+  infografika a hra u všech 4; laborka navíc chybí u 2 ze 4 (posuvny-otacivy-pohyb,
+  priklady-na-vypocet-rychlosti).
+- **F8 `mechanicka-prace-a-vykon`** (2 podtémata): chybí video s animací, interaktivní
+  infografika a hra u obou; infografika navíc chybí u `vykon`; laborka chybí u
+  `mechanicka-prace`.
+- **F9 `magneticke-pole`** (3 podtémata): chybí video s animací, interaktivní infografika,
+  laborka a hra u všech 3; infografika navíc chybí u `elektromagnet-a-jeho-vyuziti`.
+
+Pozor: interaktivní infografika a hra vázaná na podtéma jsou SYSTÉMOVÉ MEZERY — v projektu
+zatím vůbec neexistuje datová struktura/komponenta pro ně (netýká se jen těchto tří témat),
+je potřeba je napřed navrhnout a zavést (viz `INVENTURA-TEMAT.md`, sekce „Systémové mezery").
+[skola2] Návrh řešení obou mezer (varianty A/B/C + odhad pracnosti + otázky pro učitele)
+sepsán v `NAVRH-CHYBEJICI-KATEGORIE.md` (22. 9. 2026) — čeká na rozhodnutí učitele, který z
+bodů 1/2 zvolit, než se začne stavět.
+Přesný rozpad všech 95 podtémat 7.–9. ročníku a zdroje viz `INVENTURA-TEMAT.md`. Dřívější
+rozjeté sladění kvízů (světlo 2. kolo, zrcadla oprava) doběhne souběžně u agenta, který na
+něm pracuje — nezastavovat kvůli tomu tenhle krok.
+Past dne: dva exekutoři na různých souborech (temata.ts × kvizy.ts) se
+potkali na společné bráně `zkontroluj.mjs`/prebuild — rozpracovaný `kvizy.ts`
+s dočasným únikem zablokoval build tomu druhému; exekutor správně necommitoval
+a dokončil se po commitu kvízů. Pravidlo: brány běží nad celým repem,
+souběžné zápisy do různých datových souborů se musí dokončovat po jednom.
+Mezery bran zjištěné při sladění: `zkontroluj.mjs` bod 6d přeskakuje čísla
+≤12 (`const MALE = 12`) → neviděl 1,29 vs 1,23 kg/m³; `uniky.mjs` hlásil 0 na
+bloky, kde kontrolor ručně našel 10 délkových nápověd (náskok ≥10 znaků) a
+5 úniků v 8 blocích — zelené brány ≠ doklad sladění. Doplněno 22. 9. (sladění
+F7/F9 1–5): `cisla-ve-vykladu.mjs` přeskakuje otázky s číslem v zadání
+(`if (vZadani.length) continue`) → neviděl 200 N vs 175 N, 220 vs 231 km;
+`uniky.mjs` porovnává podřetězce přes české skloňování a jen uvnitř bloku →
+nevidí obrácené/přeformulované úniky ani duplicity mezi bloky (páky × kladka).
+NOVÁ PAST: curl bez
+cache-busting parametru vrací z Cloudflare cache starý obsah (cf-cache-status:
+HIT); s `?cb=<čas+náhoda>` přijde čerstvý — ověřovací smyčka musí posílat
+User-Agent i cache-busting query. Postřeh: `podtema.mjs` má zámek (BUSY) —
+souběžné čtení řešit read-only přes `testy/data.mjs`. NÁMĚTY do fronty
+[skola2]: (1) `cisla-ve-vykladu.mjs` kontrolovat i otázky s číslem v zadání;
+(2) `uniky.mjs` porovnávat i mezi bloky téhož celku a přes tvary slov
+(lemmatizace nebo alespoň kmen); (3) zjistit odkazy u F7/F9 celků 1–5.
+(d) pravidla: úklid U/D/zadání workerů spuštěn
+21. 9. večer (agent mohl doběhnout nebo ne — ověřit `git -C ~/Desktop/Omega
+log -3`, `ls ~/.claude/agents/_SPOLECNE.md`, `ls ~/.claude/agents.zaloha-2026-09-21`),
+N (22 kandidátů na zkrácení) čeká na výběr učitele v
+`Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md` (pokud chybí, kopie je
+v `rozpracovane-vyklady/2026-09-21/pravidla-audit.md`); (e) denní rutina
+`~/.claude/scheduled-tasks/pravidla-dluh-denne/SKILL.md` založena, ale cron
+`30 7 * * 1-6` je třeba zaregistrovat v aplikaci přes `/schedule` — učitel;
+(f) `KE-SCHVALENI.md` má 21 bodů k rozhodnutí učitele; (g) Hermes/GPT
+delegace zamítnuta učitelem 21. 9.
+
+
+
+## Přesunuto auditem 27. 9. 2026 (K3-Z8 + K3-Z12) — beze změny znění
+
+## STAV 25. 9. 2026 večer — konec session (před /clear)
+
+**NASAZENO A OVĚŘENO**
+- Poslední commit `d95e295` „Revize kvízů šestky, vata podle polarity a rozhodnutí o prioritě", nasazeno ručně (`npx wrangler deploy`, Version ID 53c37542-7693-4f29-b65b-39e142758d42, 20 změněných assetů), nasazení 21:41:27Z je novější než commit 21:40:58Z. Ověřeno curlem na živém webu.
+- Dřívější dnešní commity: `0349ac1` a `6a34203` (6 nových simulací), taktéž nasazené ručně.
+- ⚠️ **Cloudflare git integrace NEFUNGUJE** — na pushe nereaguje, nasazuje se proto RUČNĚ `npx wrangler deploy` (učitel to schválil). ČEKÁ NA UČITELE: zkontrolovat v Cloudflare dashboardu u projektu wonderly-web poslední deployment a stav propojení s Gitem. Ruční deploy příčinu neopravil.
+
+**ROZHODNUTÍ UČITELE 25. 9. 2026 (závazná, zapsaná i v OBSAH-PRAVIDLA.md)**
+- Fyzika má přednost; informatika a pracovní činnosti se ODKLÁDAJÍ (platí preambule ústavy). Položka „42 bloků pod 21 otázek" je ve frontě označená jako odložená.
+- U obsahem chudého podtématu NEPLATÍ cíl 21 otázek — blok zůstane menší, nedoplňuje se umělými obměnami.
+- ⛔ Čísla odporu lidské kůže na webu NESAHAT (temata.ts F8 ~2713, F9 ~3062–3063; kvizy.ts ~4346–4361, ~4717). Učitel rozhodne sám. Ověřeno, že dnešní commit se jich nedotkl.
+
+**HOTOVO DNES (druhá část session)**
+- Blok `fyzika/6-rocnik/latka-a-teleso/telesa-a-latky`: systematická revize všech 21 otázek, opraveno 10 dvojic, kde vysvětlení jedné otázky prozrazovalo odpověď na jinou. POZOR: brána `testy/uniky.mjs` pole `vysvetleni` nekontroluje — tenhle druh úniku se musí hledat ručně nebo doplnit do brány.
+- Vata podle polarity ano/ne: 8 otázek, VZOR 4a z 31 na 21. Opraveno i 7 obhajitelných nebo nevěrohodných distraktorů (tři kola kontroly).
+- Měřidlo `testy/nastroje/vata-v-distraktorech.mjs` rozšířeno a pak podle nezávislé kalibrace ZÚŽENO. Kalibrace zjistila: heuristika koncovek měla 8% přesnost (zrušena), blokový práh u kategorických slov dával z 78 bloků jen 5 platných, poměr „jen" 427:33 je zkreslený (distraktorů je 2× víc slov). Zůstalo: polarita ano/ne (21 otázek), kvantifikátor (54), tázací slovo (19), kategorické slovo na úrovni otázky (87). DŮLEŽITÉ: neopravovat „ať nabídky nezačínají stejně a mají jinou koncovku" — to je optimalizace na měřidlo a zhorší češtinu.
+- Podkásty: díl `vodic-civka-dialog3` doplněn o repliku o počtu závitů → brána `pokryti_kvizu.py` hlásí 21/21. Díl `archimeduv-zakon-dialog` odblokován — NEchyběly obrázky, ale v scénosledu chybělo pole „kresba" u obou scén (typ schema); „seznam 20 chybějících klíčů" byl jen uřízlý konec výpisu dostupných kreseb. Vyrobeny 2 PNG + 2 MP4.
+- Lokální modely a výroba animací znovu zapnuté (baterie 80 % na AC, 11 modelů, LaunchAgent `cz.wonderly.dodelej-animace` zaveden).
+
+**BĚŽÍ NEBO ČEKÁ**
+- Nezávislá kontrola revidovaného bloku `telesa-a-latky` našla **17 nálezů, z toho 9 závažných** — OPRAVENY a NASAZENÉ commitem `2ee4c6e` (ruční `npx wrangler deploy`, Version ID `136cc553-267b-4a6f-a52d-2759f26540b8`, nasazení 22:02:19Z, tedy 27 s po commitu). Ověřeno curlem na `lab.wonderly.cz/data/kvizy.json`: vadný distraktor „vzduch je látka, jako guma" už v datech NENÍ, je tam nový „vzduch je pořád těleso". Konkrétně opraveno: dvě otázky se dvěma správnými odpověďmi (vzduch v pneumatice, „Má nějaké pevné hranice?"), rozpor dvou sousedních otázek o molekulách, a celkem 8 párů, kde vysvětlení jedné otázky prozrazovalo odpověď na jinou. Vysvětlení „Co je těleso?" má zpět výkladovou hodnotu, ale už nevyjmenovává vlastnosti, na které se ptají jiné otázky.
+- Práce na kvízech bloku `telesa-a-latky` je UZAVŘENÁ a nasazená.
+- Automat na animace běží; noční fronta měla 6 odložených dílů, dva z nich (`vykon-dialog2`, `magnety-opakovani-dialog1`) selhaly na zarovnání replik 51 % a 54 % proti prahu 70 % — nechat automat zkusit znovu, a když selžou i příště, poslechnout zvuk ručně.
+
+**FRONTA NA PŘÍŠTĚ (fyzika, v tomto pořadí)**
+1. Vata: kvantifikátor 54 otázek, kategorické slovo 87 otázek, tázací slovo 19 otázek — opravovat změnou konstrukce otázky, ne škrtáním slov.
+2. Brána `testy/uniky.mjs` nekontroluje `vysvetleni` — doplnit, ale s prahem, jinak zaplaví falešnými poplachy (vysvětlení látku běžně opakuje).
+3. Podtémata fyziky bez názornosti: zbývá 7 a všechna jsou pololetní/roční shrnutí → ČEKÁ ROZHODNUTÍ UČITELE: dělat přehledovou infografiku, nebo je z měřidla vyjmout?
+4. `MEMORY.md` má 166 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez pokynu.
+5. Rozpor v PDF podkladu učitele o odporu kůže (SmartBooks si protiřečí) → ČEKÁ NA UČITELE, viz zámek výše.
+
+**POZNÁMKY K PRÁCI**
+- Tmavý režim se školní části webu NETÝKÁ (`prefers-color-scheme` je jen v deníku cest) — nezadávat ho workerům.
+- Necommitnuté zůstávají (ověřeno `git status --short` 25. 9. večer): `.claude/hooks/orchestrator-guard.sh` (cizí, změněný), `rozpracovane-vyklady/` (dvě nové položky), tři pomocné skripty `testy/nastroje/vata-nalezy-json.mjs`, `vata-over-delku.mjs`, `vata-zapis-navrhy.mjs`, a tato úprava `SAMOSTATNY-REZIM.md`. Záměrně.
+- POUČENÍ 25. 9.: kvízovou opravu nikdy nenasazovat bez druhého čtení někým, kdo ji nepsal. Zelené brány to nezachytí — žádný skript nepozná, že distraktor je vlastně pravdivý. Dnes takhle prošly dvě verze („sklo je tekutá látka", „vzduch je látka jako guma") a skončily na živém webu. Potvrzeno dvakrát: první oprava vyrobila obhajitelný distraktor, druhá přestěhovala únik do jiné otázky. Obě kola prošla zelenými branami.
+
+## STAV 25. 9. 2026 ráno — Mac se zavírá do krytu, výroba pozastavena
+
+**NASAZENO A OVĚŘENO — dnešní práce JE na živém webu.**
+- Commity `0349ac1` (první vlna) a `6a34203` (druhá vlna), oba na `origin main`.
+- Cloudflare git integrace NEFUNGUJE: na oba pushe nezareagovala (poslední automatický deployment byl z 24. 9. 23:08 UTC). Nasazeno proto RUČNĚ příkazem `npx wrangler deploy` — učitel to výslovně schválil, ačkoli `CLAUDE.md` ruční deploy jinak nepoužívá. Verze `ccd8944c-a9d8-417b-b5fd-1483dd571232`, 233/233 assetů, nasazení 25. 9. 05:06:27Z (28 s po commitu).
+- Nezávislé ověření: živé HTML všech 6 stránek je BAJTOVĚ TOTOŽNÉ s lokálním `dist/` (shodné sha256), i s cache-busterem. Šest simulací je dětem vidět: tinkercad, sketchup, klin, ucinnost, alternativni-motory, kvarky.
+- **ČEKÁ NA UČITELE: zkontrolovat v Cloudflare dashboardu, proč git integrace nenasazuje** (build log, propojení s repem). Ruční deploy to NEOPRAVIL — příští push se zas sám nenasadí.
+
+**Hotovo dnes (nad rámec dřívějšího zápisu):**
+- 6 nových simulací celkem; podtémat bez názornosti: fyzika 11 → 7, pracovní činnosti 3 → 1. Zbylých 7 u fyziky jsou z většiny pololetní/roční shrnutí.
+- Kvarky záměrně BEZ nábojů kvarků a typů u/d — výklad ani žádné ze 180 PDF učitele o nich nemluví; test to hlídá a shodí build, kdyby se tam dostaly.
+- Kvízy: blok `informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni` z 10 na 21 otázek; dvě dávky vaty (VZOR 1 z 58 na 37 bloků).
+- Měřidlo `vata-v-distraktorech.mjs` rozšířeno a pak podle nezávislé kalibrace ZÚŽENO: heuristika koncovek měla 8% přesnost a byla zrušena; nově polarita ano/ne (31 otázek), kvantifikátor (54), neshoda s tázacím slovem (19), kategorické slovo na úrovni otázky (87).
+- Opravena `testy/obousmerne.mjs`, která hlásila selhání a přesto vracela kód 0 — skrývala, že se 24 měřidel nikdy nespouštělo. Opraveno i 9 podvrhových testů, které si při souběžném běhu přepisovaly dočasnou kopii.
+
+**JAK ZNOVU ZAPNOUT, až půjde Mac větrat:**
+- `python3 ~/Desktop/Omega/skripty/dodelej_animace.py` (výroba animací)
+- `launchctl load ~/Library/LaunchAgents/cz.wonderly.dodelej-animace.plist` (ranní automat v 6:00, dnes vypnutý kvůli zavřenému krytu)
+- automat na vatu se spouští znovu podle potřeby; jeho fronta je v `Omega/skripty/data/vata-navrhy-stav.json`
+
+**FRONTA na příště:**
+1. Zjistit příčinu nefunkční Cloudflare git integrace (viz výše).
+2. Vata: VZOR 1 = 37 bloků, VZOR 2 = 32; nově polarita 31 otázek, kvantifikátor 54, tázací slovo 19. POZOR: neopravovat „ať nezačíná stejně a má jinou koncovku" — to je optimalizace na měřidlo a zhorší češtinu; opravovat změnou konstrukce otázky.
+3. ⏸ ODLOŽENO ROZHODNUTÍM UČITELE 25. 9. 2026 — platí preambule OBSAH-PRAVIDLA.md: informatika
+   a pracovní činnosti se nedělají, dokud nebude hotová fyzika. NEBRAT jako úkol.
+   42 bloků informatiky a pracovních činností pod 21 otázek. Dnes hotové a zůstává: blok
+   `informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni` doplněn na 21 otázek;
+   návrhy 3 otázek pro `informatika/7-rocnik/pocitace/site-internet-email` leží NEZAPSANÉ
+   v `~/Desktop/Omega/dokumenty/kviz-informatika-7-site-internet-email-2026-09-25.md`
+   a čekají — nic se s nimi teď nedělá (viz i výjimka z cíle 21 otázek u chudých podtémat).
+4. Brána `testy/uniky.mjs` nekontroluje pole `vysvetleni` (nalezeno dnes) — doplnit s prahem, jinak zaplaví falešnými poplachy.
+5. ~~Nekonzistence bezpečného napětí mezi 8. a 9. ročníkem stále NEVYŘEŠENA~~ — OPRAVA: ověřeno 25. 9. 2026, rozpor v datech NENÍ (viz uzavřená položka ve frontě níže), toto tvrzení bylo zastaralé.
+6. ČEKÁ ROZHODNUTÍ UČITELE: (a) 7 podtémat fyziky bez názornosti jsou shrnutí — dělat přehledovou infografiku, nebo je z měřidla vyjmout? (b) `MEMORY.md` má 164 řádků, hook chce pod 140 — sloučit dvojníky / archivovat splněné / zvednout limit?
+
+---
+
+## STAV 25. 9. 2026 — session orchestrátora (kvízy, 4 nové simulace, oprava měřidel)
+
+**NASAZENÍ NEPROBĚHLO (stav k 25. 9. 2026).** Commit `0349ac1` je na `origin main`, build lokálně 0 / 489 stránek, `dist/` obsahuje všechny 4 nové simulace. Na živém webu lab.wonderly.cz ale nejsou: 4 URL vracejí HTTP 200 se STAROU verzí HTML (chybí `tc-svg`, `sku-tl-tahni`, `kl-svg`, `uci-motor-120`), Cloudflare hlásí `cf-cache-status: HIT` i pro adresy s náhodným parametrem `?cb=`, což neodpovídá běžné edge cache s TTL — spíš se nenasadila nová verze Workeru. Ověřováno 25 pokusů za 13 min + 10 kol za dalších 15 min, dvěma metodami obcházení cache. ČEKÁ NA UČITELE: zkontrolovat v Cloudflare dashboardu build log posledního deploymentu projektu (jestli neselhal) a případně spustit Purge Cache. Do té doby NEPOVAŽOVAT dnešní práci za nasazenou, i když je commitnutá. Pozn.: pravidlo [[feedback-nasazeni-muze-tise-spadnout]] platí i tady.
+
+**HOTOVO A OVĚŘENO (build kód 0, 489 stránek, obousměrné ověření 33/33):**
+- Kvízy: blok `fyzika/6-rocnik/teplota/teplota-a-jeji-mereni` zkrácen z 22 na 21 otázek; 8 bloků zbaveno „vaty" v distraktorech (VZOR 1: 58 → 45 bloků); proběhla TŘI kola nezávislé kontroly, celkem 10 nalezených a opravených vad. Typická vada: vyškrtnutím slova „pouze/jen" se ze špatné odpovědi stala pravda → dvě správné odpovědi.
+- Výklad `fyzika/9-rocnik/energie-a-vesmir/obnovitelne-a-neobnovitelne-zdroje` (temata.ts): „nacházejí se v přírodě v neomezeném množství" přepsáno na „stále se obnovují a doplňují — slunce svítí dál, vítr fouká dál, pokácený les zase doroste". Důvod: kvíz označoval „zásoba je nevyčerpatelná" za špatnou odpověď, a výklad přitom učil opak. Ověřeno, že na webu už nikde nezůstalo tvrzení o neomezeném množství.
+- Kvíz informatiky: blok `informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni` doplněn z 10 na **21 otázek** (11 nových, po nezávislé kontrole a opravách). ZBÝVÁ 42 bloků informatiky a pracovních činností pod 21 otázek.
+- ČTYŘI NOVÉ SIMULACE, všechny zapojené a s obousměrnými důkazy: `pracovni-cinnosti/6-rocnik/3d-modelovani/tinkercad` a `sketchup`, `fyzika/7-rocnik/jednoduche-stroje/klin`, `fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost`. Kotva: podtémat bez názornosti u fyziky 11 → 9, u pracovních činností 3 → 1.
+- Odkazy: nález „27 mrtvých odkazů" z 24. 9. byl nezávislou kontrolou VYVRÁCEN (odkazy žijí, doloženo `curl` i `urllib`); místo toho opraveno měřidlo `Omega/skripty/kontrola_odkazu.py` — chyba spojení už nekončí verdiktem MRTVÝ, ale kategorií „NESPOJENO (neověřitelné)", plošný výpadek běh přeruší a report označí za neplatný; `extrakce_odkazu.mjs` nově čte i odkazy vložené v HTML výkladu (+12). Odkaz `osveta.nukib.cz` sjednocen na `osveta.nukib.gov.cz` na všech 3 místech.
+
+**OPRAVENÁ MĚŘIDLA — důležité pro důvěru v brány:**
+- `testy/obousmerne.mjs` vypisovala „3 z 33 selhalo" a PŘESTO vracela kód 0 (chyběl `process.exit`). Navíc pole `test` v rejstříku neslo poznámky v závorce, které se posílaly do skládání cesty → hlásilo se „CHYBÍ SOUBOR". Po opravě kleslo CHYBÍ SOUBOR **z 24 na 0** — dvacet čtyři měřidel se nikdy nespouštělo. `package.json` (prebuild i test) nově bránu volá.
+- Pod tím schovaná 3 selhání opravena: `testy/nahled-simulace.mjs` (neumělo prvek, který je záměrně HTML místo SVG, a JSX smyčky), zastaralé kotvy v `testy/uniky-krizove-obousmerne.mjs` (citovaly znění otázek přeslovené přestavbou od 14. 8.) a podvrh `obnovitelne-zdroje-podvrhy.mjs` (mířil na starou podobu kódu). POZOR (zastaralé, opraveno 25. 9. 2026): tehdy se soudilo, že tohle nevyřešilo nekonzistenci bezpečného napětí mezi 8. a 9. ročníkem — ověřením se ale zjistilo, že rozpor v datech už dávno není (odstraněn dřív, commitem 9f44b1f z 22. 8. 2026), viz uzavřená položka ve frontě níže.
+
+**NOVÁ PRAVIDLA (zapsána do Omega/PRAVIDLA.md + paměti):** oprava se testuje na tom, co selhalo · měřidlo nad živým souborem není kotva · brána musí umět spadnout, jinak neměří · kontrola atributu nedokazuje, že je to vidět.
+
+**ČEKÁ NA POKRAČOVÁNÍ:**
+1. Podvrhové testy (`testy/podvrhy/*.mjs`) používají dočasnou kopii s PEVNÝM jménem v tmpdir → dva souběžné běhy si přepíšou soubor a test ohlásí vadu, která neexistuje. Doloženo 4 souběžnými běhy. OPRAVIT: jedinečné jméno dočasné kopie ve všech podvrhových skriptech.
+2. Vata v kvízech: zbývá VZOR 1 = 45 bloků, VZOR 2 = 32 bloků.
+3. ⏸ ODLOŽENO ROZHODNUTÍM UČITELE 25. 9. 2026 — platí preambule OBSAH-PRAVIDLA.md: informatika
+   a pracovní činnosti se nedělají, dokud nebude hotová fyzika. NEBRAT jako úkol.
+   42 bloků informatiky/pracovních činností pod 21 otázek. Dnes hotové a zůstává: blok
+   `informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni` doplněn na 21 otázek;
+   návrhy 3 otázek pro `informatika/7-rocnik/pocitace/site-internet-email` leží NEZAPSANÉ
+   v `~/Desktop/Omega/dokumenty/kviz-informatika-7-site-internet-email-2026-09-25.md`
+   a čekají — nic se s nimi teď nedělá (viz i výjimka z cíle 21 otázek u chudých podtémat).
+4. Podtémata bez názornosti: fyzika 9 (z toho 7 jsou pololetní/roční shrnutí — u těch simulace nemá smysl, ČEKÁ ROZHODNUTÍ UČITELE, zda dělat přehledovou infografiku, nebo je z měřidla vyjmout), informatika 15 (sbírá je cloudová větev `simulace-informatika`), pracovní činnosti 1 (roční shrnutí).
+5. `MEMORY.md` má 164 řádků, hook doporučuje pod 140 → ČEKÁ ROZHODNUTÍ UČITELE (sloučit dvojníky / archivovat splněné / zvednout limit). Nic nemazat bez jeho pokynu.
+6. Tmavý režim se školní části webu NETÝKÁ (`prefers-color-scheme` je jen v deníku cest) — nezadávat ho workerům jako požadavek.
+
+---
+
+## STAV 25. 9. 2026 ráno (~01:10) — učitel odchází, session se chystá na /clear
+
+**FRONTA — nález nezávislé kontroly 25. 9. 2026:** Brána `testy/uniky.mjs`
+nekontroluje pole `vysvetleni` — porovnává jen text otázek a nabídek. Nalezeno
+25. 9. 2026: nová otázka měla správnou odpověď, kterou doslova prozrazovalo
+vysvětlení u jiné otázky téhož bloku, a brána to nehlásila. K DOPLNĚNÍ: zahrnout
+`vysvetleni` do kontroly úniků (pozor, hrozí hodně falešných poplachů —
+vysvětlení látku běžně opakuje, takže bude potřeba práh nebo porovnání jen proti
+správným odpovědím jiných otázek).
+
+**Co běží dál SAMO (ověřeno `ps`, nezávisí na téhle session):**
+- `dodelej_animace.py` PID 27841 žije (dávková výroba animací), log
+  `Omega/skripty/data/dodelej-animace-beh.log`, zámek
+  `Omega/skripty/data/dodelej-animace.pid` = 27841 (živý, není osiřelý).
+- Smyčka na vatu PID 60019 (`/tmp/vata_smycka.sh`, 20 kol, uvnitř volá
+  `vata_navrhy.py`, aktuálně PID 60023 běží) — zapisuje do
+  `Omega/skripty/data/vata-navrhy-stav.json`, cíl 228 položek. Dvě hlídací
+  zsh smyčky (PID 58229, 60147) čekají na 30, resp. 50 zpracovaných a pak
+  jen vypíšou hlášku — bez akce, neškodí.
+- `launchctl list | grep cz.wonderly`: `cz.wonderly.dodelej-animace` (6:00)
+  i `cz.wonderly.hlaseni-animace` (8:10) jsou OBA načtené (druhý dnes
+  chyběl, znovu načten příkazem `launchctl load`).
+- Zámky v `Omega/skripty/data/*.zamek` zkontrolovány — všechny prázdné,
+  žádný osiřelý PID k mazání (nic se nemazalo).
+
+**Co se PO /clear ZASTAVÍ a nová session to musí převzít:**
+1. **Slabé animace** — `Omega/data/plan-animaci.md`. Čerstvý stav
+   (`stav_animaci.py`): dílů=57, ANIMACE=33, STATICKÉ=17, JEN_AUDIO=2,
+   BEZ_MEDII=5, fronta_prace=1.
+2. **Vata v distraktorech** — `node testy/nastroje/vata-v-distraktorech.mjs`
+   nyní hlásí **20 bloků** se shodou distraktorů (4×: elektricky-naboj,
+   vznik-elektrickeho-proudu, zapojeni-spotrebicu-za-sebou,
+   zvuk-vznik-a-sireni, pololetni-shrnuti F6, rocni-shrnuti F6,
+   pololetni-shrnuti F8; 3×: dalších 13 bloků) — číslo se mění za běhu
+   automatu na pozadí, needit ručně, dokud automat neskončí (228 cíl,
+   viz výše).
+3. **Kvízy informatiky/prac. činností pod 21 otázek** — přepočítáno přímo
+   v `kvizy.ts` (155 bloků celkem): **43 bloků pod 21**, z toho **40
+   informatika**, zbylé 3: `fyzika/9-rocnik/jaderna-fyzika/kvarky` (14),
+   `pracovni-cinnosti/6-rocnik/3d-modelovani/tinkercad` (18) a `sketchup`
+   (15). Chybí dohromady **345 otázek**. Detailní seznam bloků a počtů viz
+   výstup skriptu (nebyl uložen do souboru — spustit znovu podle vzorce v
+   `STAV-PRO-POKRACOVANI.md`).
+4. **Pokus s mírou jistoty u vaty** — PID 66294 (skript
+   `vata_jistota_pokus.py`) běží ve scratchpadu staré session
+   (`/private/tmp/claude-502/-Users-Shared--kola/b5969f21-…/scratchpad/`),
+   sdílí GPU zámek s `vata_navrhy.py`, proto extrémně pomalý (za ~6 minut
+   jen 3/42 položek). Výstup má padnout do
+   `pokus-jistota-vzorek.json` VE STEJNÉ scratchpad složce — **riziko**:
+   ta složka je vázaná na starou session a po úklidu může zmizet i s
+   výsledkem, i když proces poběží dál. Pojistka: skript je zazálohován na
+   `Omega/skripty/vata_jistota_pokus_zaloha.py`. Nová session ať nejdřív
+   zkontroluje, jestli PID 66294 ještě žije a jestli scratchpad soubor
+   existuje; pokud proces zemřel bez výstupu, spustit zálohu znovu z
+   trvalého umístění. Cílový soubor `Omega/dokumenty/mira-jistoty-vata-
+   vysledek.md` ZATÍM NEEXISTUJE.
+5. **Cloudová větev `simulace-informatika`** — existuje v repu
+   (`git branch -a`), rozpracované simulace informatiky se tam sbírají,
+   odevzdá se jako PR/merge až bude hotová dávka; nekontrolovat teď, jen
+   vědět že běží samostatně.
+
+**Build/publikace 25. 9. (~01:10):** `npm run build` PADL na prebuild
+bráně `zkontroluj.mjs` → `testy/uniky.mjs`: nově vzniklé úniky odpovědí v
+`informatika/8-rocnik/microbit/tlacitka-naklon-zvuk` (počet mezi dvěma
+běhy klesl ze 3 na 1 — `kvizy.ts` je živý cíl, právě do něj zapisují dvě
+běžící větve). **NEPUSHOVÁNO** podle pravidla „build spadne → nepushovat,
+zapsat proč" — commit `kvizy.ts`/`temata.ts` počká, až automat na vatu i
+druhá větev dopíšou a únik zmizí sám, nebo až je někdo věcně opraví.
+`git status` v okamžiku zápisu: `M kvizy.ts`, `M temata.ts`, `M
+.claude/hooks/orchestrator-guard.sh` (cizí, nesouvisí), 4 netracked
+soubory v `rozpracovane-vyklady/` a `testy/nastroje/` (rozpracované
+výklady a pomocné skripty vaty, netýkají se publikace).
+
+## STAV 24. 9. 2026 ráno — výroba pozastavena kvůli zavřenému MacBooku (bez větrání)
+
+Učitel v cca 7:50 zavíral MacBook do krytu bez proudění vzduchu — vypnuty všechny
+těžké běhy, ať se v uzavřeném prostoru nepřehřeje. Ukončeno signálem (SIGINT,
+po ~10 s bez reakce eskalováno na SIGTERM): `dodelej_animace.py` (PID 22697),
+`automat_podkastu.py` běh 9. ročníku i obalující bash smyčka (PID 67326/67330,
+právě na díle `elektromagnet-dialog1`, ve frontě zbylo 6 dalších dílů:
+elektromagnet-dialog2/3, magnety-opakovani-dialog2/3, vodic-civka-dialog2/3),
+`animace_podkastu.py jednoduche-stroje-kladka-volna-dialog --rocnik 7 --scena 2`
+(PID 69837). Osiřelé Chrome-headless/ffmpeg podprocesy po nich také ukončeny,
+osiřelý `dodelej-animace.pid` smazán (flock zámky uvolnil kernel automaticky).
+Denní automat `cz.wonderly.dodelej-animace` vypnut (`launchctl bootout`), ať se
+ráno v 6:00 sám nerozjede — `cz.wonderly.hlaseni-animace` (jen posílá zprávu)
+běží dál. Pokračovat až Mac půjde znovu větrat: `python3
+~/Desktop/Omega/skripty/dodelej_animace.py` a `launchctl load
+~/Library/LaunchAgents/cz.wonderly.dodelej-animace.plist`; dílo 9. ročníku
+doběhne samo od `elektromagnet-dialog2`, jen je potřeba znovu spustit smyčku
+(`automat_podkastu.py`) nebo počkat na příští automatické spuštění.
+
+## STAV 23. 9. 2026 — konec session, čeká fronta (viz níže)
+
+Dnes nasazeno 11 commitů (všechny ověřené curlem na produkci): `1e5a9ba` úklid po
+pádu (kvízy zrcadel 4–6, roční shrnutí F9) · `bf2fbe8` 9 bodů „PDF platí" + 3 chyby
+podkladu doloženy · `fbbcaed` 49 nálezů z 2. kol kvízů (světlo 29, zrcadla 20) ·
+`627738f` 46 prověřených odkazů u 19 podtémat · `696b335` body 11, 13, 18 (nad
+rámec RVP) · `87aafa0` body 5, 7, ochranná pásma, směr proudu · `c788c2d` nové
+podtéma klín a kvarky · `6bb6c7e` nové podtéma účinnost a alternativní motory ·
+`48252bf` bezpečnostní text o účincích proudu (26 míst, 3 kola kontroly) ·
+`13667e8` odblokování brány · `23f5378`/`158eacd` pravidla o animacích + práh 0,50.
+Web má 485 stránek (ráno 481), přibyla 4 nová podtémata. Pravidla: „hotové téma"
+má nově 9 složek (OBSAH-PRAVIDLA.md kap. 12), hra je samostatná na podtéma, práh
+animace = podíl unikátních snímků ≥ 0,50. `KE-SCHVALENI.md`: 16 z 21 bodů vyřízeno.
+
+### FRONTA na příští session — UVEDENO DO SOULADU 25. 9. 2026 (ověřeno exekutorem, ne jen tvrzeno)
+
+1. **ANIMACE** — beze změny běží samo, LaunchAgent `cz.wonderly.dodelej-animace`
+   spouští denně v 6:00 `Omega/skripty/dodelej_animace.py` (najde frontu přes
+   `stav_animaci.py`, dodělá chybějící animace/video/nasazení, PID zámek proti
+   dvojímu běhu), log `Omega/skripty/data/dodelej-animace-beh.log`. Telegram
+   hlášení v 8:10 posílá `cz.wonderly.hlaseni-animace` — viz paměť
+   [[projekt-video-k-podkastum]]. **Starý odhad „62 videí, animované 1,
+   statických 61, jen audio 20" NAHRAZEN přesným stavem** — naměřeno
+   25. 9. 2026 ze `Omega/data/stav-animaci.md` (vygenerováno 24. 9. 15:09,
+   měřidlo `kontrola_animace.py` v3): dílů celkem 57 — ANIMACE 30, STATICKÉ 15,
+   JEN AUDIO 5, BEZ MÉDIÍ 7. OTEVŘENO: 23 klipů existuje, ale neprošlo prahem
+   10 unik. snímků / 1,5 s pohybu (12 z nich má identifikovanou vadu — slabý
+   pohyb konkrétní funkce v `animace_podkastu.py`, ne špatně přiřazený klíč);
+   3 scény mají klíč `animace`, ale klip zatím nevznikl (čeká na dávku).
+   Rozpad viz `Omega/data/plan-animaci.md`.
+2. **VATA v kvízech** — ✅ ČÁSTEČNĚ HOTOVO 24. 9. 2026: 7 bloků / 30 výskytů
+   zapsáno a nasazeno (commit `95350e9`, ověřeno na živém webu). **ZBÝVÁ,
+   číslo od minula NEKLESLO** — naměřeno 25. 9. 2026 00:26 spuštěním
+   `node testy/nastroje/vata-v-distraktorech.mjs`: VZOR 1 (absolutní slova jen
+   v distraktorech) hlásí 58 podezřelých bloků (ze 170 měřených, 3217 otázek) —
+   stejný počet jako minule, automat na pozadí do vaty zatím nezasáhl (v čase
+   měření byly `kvizy.ts`/`temata.ts` rozepsané — `git status` M, souběžně na
+   nich pracuje jiný proces kvůli přestavbě fyziky). Nástroj navíc hlásí VZOR 2
+   („správná odpověď je ta odlišná") — 31 podezřelých bloků, dosud nikde
+   nezapsáno jako úkol, PŘIDÁNO NOVĚ. Postup: zapsat přímo (2 kola kontroly),
+   bez čekání na schválení, s ohledem na souběh zápisu do `kvizy.ts`.
+3. **Mrtvé odkazy** — ✅ HOTOVO 24. 9. 2026: 3 náhrady českými zdroji + 3
+   odkazy na micro:bit nahrazeny rozcestníkem microbiti.cz + 3 odkazy
+   simandl.asp2.cz odstraněny (commit `95350e9`, ověřeno na živém webu).
+   **NOVÝ NÁLEZ nahrazuje starých „9 nezapsaných"**: kontrola 24. 9. 2026
+   (AST extrakce + `curl` + gemma4:26b, výstup `Omega/dokumenty/kontrola-
+   odkazu-2026-09-24.md`, ověřeno počtem řádků a souhrnem v souboru) našla
+   z 262 odkazů **27 mrtvých** (většina `archiv-imysleni.npi.cz`, HTTP kód 0 —
+   učebnice Scratch/robotika/micro:bit NPI, zbytek `www.microbiti.cz/search/…`),
+   4 podezřelé, 7 neověřitelných automatem (403/přihlašovací stěna — posoudit
+   ručně). ZAPSAT jako novou dávku stejným postupem jako dávka z 24. 9.
+   **⚠️ VYVRÁCENO nezávislou kontrolou 25. 9. 2026:** vlastní běhy `curl -L`
+   i `python3 urllib` prokázaly, že všech 27 odkazů ve skutečnosti ŽIJE —
+   HTTP kód 0 byl přechodný výpadek spojení při běhu 24. 9., ne mrtvý web.
+   Vada byla v MĚŘIDLE (`Omega/skripty/kontrola_odkazu.py`), ne v datech.
+   **Úkol „nahradit 27 odkazů" PADÁ** — nic se nenahrazuje. Místo toho
+   opraveno měřidlo: (a) opakování HTTP 0/-1 zesíleno na 4 pokusy s rostoucí
+   prodlevou (3/6/9 s) + do reportu se zapisuje curl exit kód a chybová
+   hláška, (b) extrakce nově čte i odkazy vložené přímo v HTML výkladu
+   (`<a href=…>`, dřív se 12 takových URL nekontrolovalo vůbec), (c) verdikt
+   modelu o tematické shodě už nepadá do „MRTVÝ", ale do nové kategorie
+   „OVĚŘIT RELEVANCI". Ověřeno oběma směry: živý odkaz na
+   archiv-imysleni.npi.cz → OK, vymyšlená neexistující URL na téže doméně
+   → MRTVÝ (404).
+4. **Prebuild brána šla obejít** — ✅ HOTOVO 24. 9. 2026, commit `e79e056`
+   (ověřeno v `git log`), popis řešení a obousměrné ověření (vložená/vrácená
+   vada v `testy/rohatka.json`, 489 stránek) beze změny platí, archiv viz
+   níže v tomto souboru.
+5. **Měřidlo animace falešně statické** — ✅ HOTOVO 24. 9. 2026, commit
+   `6c9f686` (ověřeno `git show --stat`: „Přepsat pravidlo měření animace a
+   zapsat stav", mění `OBSAH-PRAVIDLA.md` kap. 12 bod 6 + tento soubor).
+6. Blok `teplota-a-jeji-mereni` má **stále 22 otázek místo 21** — ověřeno
+   25. 9. 2026 přímým výpisem bloku v `kvizy.ts` (22× `text:` mezi řádky
+   1515–1654). Podle cíle (`OBSAH-PRAVIDLA.md` bod A) odstranit
+   nejslabší/duplicitní otázku na přesných 21 — beze změny čeká na exekutora.
+7. Jupiter 2,36× vs 2,53× — beze změny, ROZHODNUTO (viz sekce níže), nic
+   k dodělání.
+
+### 🆕 Nové položky fronty (doplněno 25. 9. 2026, čerstvý průzkum, čísla ověřena skriptem)
+
+8. **[skola2] Kvízy informatiky a pracovních činností pod cílem 21 otázek** —
+   největší díra pro žáky. Ověřeno 25. 9. 2026 skriptem nad `kvizy.ts`:
+   **43 bloků** informatiky (7.–9. ročník) a pracovních činností (6. ročník)
+   má MÍŇ než 21 otázek, typicky 8–15 (jen `soubory-slozky-aplikace` má už
+   21). Rozsahy: informatika 7. ročník 8–21, 8. ročník 9–15, 9. ročník 10–13,
+   pracovní činnosti 6. ročník 15–18.
+9. **[skola2] 15 podtémat informatiky + 3 podtémata pracovních činností bez
+   simulace/názornosti** — ověřeno `node testy/nazornost.mjs informatika` a
+   `pracovni-cinnosti`: informatika 7. r. 6 z 18, 8. r. 3 z 18, 9. r. 6 z 11
+   (dohromady 15 z 47); pracovní činnosti 6. r. 3 z 3 (všechna).
+10. **[skola2] 23 klipů animací pod prahem pohybu + 3 scény s klíčem bez
+    klipu** — viz bod 1 výše (ANIMACE), zdroj `Omega/data/plan-animaci.md`
+    a `Omega/data/stav-animaci.md`.
+11. **[skola2] 12 dílů podkástů bez videa nebo jen se zvukem** — viz bod 1
+    výše (5 JEN AUDIO + 7 BEZ MÉDIÍ, ročníky 8–9: elektromagnet-dialog1–3,
+    magnety-opakovani-dialog2–3, vodic-civka-dialog1–3, vykon-dialog1–4).
+12. **[skola2] 27 nových mrtvých odkazů** — ⚠️ VYVRÁCENO 25. 9. 2026, viz
+    bod 3 výše. Nález padá, nahrazeno opravou měřidla.
+
+### JAK NAVÁZAT PO /clear (povel WONDERLY)
+
+1. Přečti `CLAUDE.md`, tuhle horní sekci `SAMOSTATNY-REZIM.md` a
+   `OBSAH-PRAVIDLA.md` kap. 12 (definice „hotového tématu").
+2. **PRIORITA zůstává přestavba obsahu fyziky** (sekce 🔴 níže) — na
+   `kvizy.ts`/`temata.ts` právě běží souběžná práce (přestavba F8 elektřina
+   a další celky), nezasahovat do nich, dokud neskončí.
+3. Až se souběh na `kvizy.ts`/`temata.ts` uvolní (ověřit `git status`),
+   pokračuj frontou výše v pořadí: (2) zapsat vatu — zbylých 58 bloků VZOR 1
+   + nově 31 bloků VZOR 2 — (3)+(12) „27 mrtvých odkazů" VYVRÁCENO 25. 9.,
+   NEZAPISOVAT, měřidlo opraveno,
+   (6) zkrátit `teplota-a-jeji-mereni` na 21 otázek.
+4. Pak nové položky (8)–(11): kvízy informatiky/prac. činností na 21 otázek
+   (43 bloků), simulace/názornost pro 15+3 podtémat, doladit 23 klipů pod
+   prahem animace, dodělat video u 12 dílů.
+5. Než začneš cokoli zapisovat do `kvizy.ts` nebo `temata.ts`, ověř `git
+   status`, že zrovna nezapisuje jiný agent.
+
+## ROZHODNUTO PODLE PRAVIDLA ZDROJŮ (bývalé „ČEKÁ NA ROZHODNUTÍ UČITELE", 23. 8. 2026)
+
+U všech tří bodů platí: zdrojové PDF SmartBooks je ÚTRŽKOVITÉ (placený obsah,
+„číst dál" končí u zdi) — chybějící číslo tedy nemusí být chyba na webu, jen
+oříznutý zdroj. Podle pořadí zdrojů (`OBSAH-PRAVIDLA.md` bod B: prezentace je
+rovnocenný zdroj s PDF) je u každého bodu rozhodnuto níže, bez čekání.
+
+1. **Ochranná pásma vedení** — prezentace učitele („Elektřina 9", popis v
+   `Omega/dokumenty/prezentace-popisy/`) uvádí do 1 kV = 7 m a 1–35 kV = 10 m,
+   dohledané zdroje k zákonu 458/2000 Sb. ale uvádí 7/12/15/20 m podle napětí
+   a 1 m u izolovaného kabelu do 1 kV — zdroje se rozcházejí, proto jsou
+   konkrétní metry na webu zatím VYNECHANÉ (jen zásada „čím vyšší napětí, tím
+   širší pásmo"). ROZHODNUTO: tabulka zůstává BEZ ČÍSEL — PDF metry vůbec
+   neuvádí (útržek) a prezentace se s ohledem na zákon rozchází, takže žádný
+   zdroj není jednoznačně směrodatný.
+   Ověřeno 22. 8. přímo ve zdrojovém PDF učitele („16 Účinky proudu na
+   lidský organismus…", 9. ročník, str. 3–5): ŽÁDNÉ metry tam nejsou (str. 6
+   je zamčený placený obsah). Vynechání konkrétních metrů z výkladu je tedy
+   doložené, ne odhad. Rozpor zůstává jen mezi prezentací „Elektřina 9" (7 m
+   do 1 kV, 10 m pro 1–35 kV) a energetickým zákonem 458/2000 Sb. (7 m do
+   35 kV, 12/15/20/30 m výš, 1 m izolovaný kabel do 1 kV) — kategorie i
+   hodnoty se liší. Simulace BezpecnaVzdalenostVedeniSimulace.astro už metry
+   také neuvádí, takže na stránce není rozpor.
+2. **Práh „od ~50 V se prorazí kůže"** (výklad F8 i F9) nemá oporu ve zdrojovém
+   PDF SmartBooks — to dokládá jen odpory kůže 150 000 Ω (sucho) a 2000 Ω
+   (vlhko), ne konkrétní napětí. ROZHODNUTO: PONECHÁNO — je to zavedený
+   výukový text a fragmentární PDF mu neodporuje, jen jej nepotvrzuje.
+3. **Bezpečné napětí „v suchých místnostech 50 V střídavé / 120 V stejnosměrné"**
+   také nemá oporu ve zdrojovém PDF — to uvádí jen 25 V ss / 12 V st bez
+   rozlišení prostoru. ROZHODNUTO: PONECHÁNO ze stejného důvodu jako bod 2.
+   Ověřeno v témž PDF, str. 4: doslova „Nejvyšší bezpečná hodnota
+   stejnosměrného napětí podle normy je 25 V a střídavého napětí 12 V" — BEZ
+   rozlišení suchých a vlhkých prostor. Rozlišení podle prostoru (50 V
+   střídavé / 120 V stejnosměrné v suchu) i práh 50 V pro proražení kůže
+   tedy ve zdroji opravdu nejsou; na webu zůstávají, protože podklad je
+   útržkovitý a fragmentární zdroj nepřevažuje nad zavedeným textem —
+   rozhodnuto podle pravidla, ne čekáním.
+4. Tíže na Jupiteru v simulaci PlanetyVahaSimulace (F6): hodnota 2,36× Země je
+   PŘESNÝM přepisem tabulky z prezentace „Síla 6.pptx" (snímek 11, Nezkreslená
+   věda: člověk 75 kg → Jupiter 177 kg, Saturn 80 kg). Fyzikální přepočet ale
+   dává Jupiter 2,53× (prostý vzorec g=G·M/R²), tedy zhruba o 7 % víc; Saturn
+   1,067× sedí. Tabulka v prezentaci je nejspíš zaokrouhlená nebo nepřesná.
+   ROZHODNUTO: zůstává podle prezentace (žák vidí totéž co v hodině) —
+   prezentace je rovnocenný zdroj s PDF (bod B); simulace nese vysvětlující
+   komentář v kódu (commit 6469422).
+
+
+> ⤵️ Uzavřené audity/nasazení a stav-snapshot k 19.–22. 8. 2026 (starý řádek 43–524) jsou v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
+
+
+
 _Odděleno 30. 7. 2026: tenhle soubor se čte na začátku každé session a starší
 sekce „KDE POKRAČOVAT“ už jen zabíraly místo. Nic se nemaže — jen se sem přesunulo.
 NEČTE se automaticky._
