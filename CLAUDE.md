@@ -1,16 +1,20 @@
 # CLAUDE.md — trvalý kontext projektu wonderly-web
 
 > **Komunikuj vždy česky** (uživatel je učitel-laik; před spouštěním příkazů krátce vysvětli, co dělají).
-> **Na začátku každé session si přečti i `PROGRESS.md`** — je v něm aktuální stav a čím navázat.
-> **Na KONCI každé session `PROGRESS.md` aktualizuj** (přidej datovaný záznam do sekce Historie, uprav HOTOVÉ/ZBÝVÁ) a **commitni + pushni** — tím se stav i historie uloží na GitHub jako vratná verze. Po dokončení celého ročníku přidej git tag jako milník.
+> **Na začátku každé session si přečti `SAMOSTATNY-REZIM.md`** — aktuální stav, živá fronta úkolů
+> i jediný seznam otevřených dotazů jsou tam, v jeho nejhornější sekci. `PROGRESS.md` je jen
+> technická příručka (jak co přidat, kde co leží) a historie — nečti ji jako zdroj aktuálního stavu.
+> **Na KONCI každé session `PROGRESS.md` aktualizuj** (přidej datovaný záznam do sekce Historie) a
+> **commitni + pushni** — tím se historie uloží na GitHub jako vratná verze. Po dokončení celého
+> ročníku přidej git tag jako milník.
 
 ## Co to je
 **wonderly je JEDEN projekt a jedna webová stránka** (tohle je jeho jediný popis, jinde
 se neopisuje), jen se dělí na podprojekty: web v tomhle repu, cestovatelský deník
 cesty.wonderly.cz, propustka z hodiny (Apps Script), YouTube automat, appka `/tour`,
 pracovní prostor a skripty `~/Desktop/Omega` a zdrojové školní podklady
-`/Users/Shared/Škola`. Podprojekt není jiný projekt: fronta úkolů je jedna
-(`SAMOSTATNY-REZIM.md`), stav vede `PROGRESS.md`.
+`/Users/Shared/Škola`. Podprojekt není jiný projekt: fronta úkolů i aktuální stav
+jsou jedno — `SAMOSTATNY-REZIM.md`.
 
 Statický web na doméně **wonderly.cz** (Cloudflare, zdarma). Tři sekce na subdoménách:
 - **lab.wonderly.cz** = `/skola2` — 2. stupeň ZŠ. Specifika: `src/pages/skola2/_CLAUDE.md`.

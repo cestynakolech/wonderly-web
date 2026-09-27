@@ -127,3 +127,28 @@ Vrátný, který tohle vynucuje: `/Users/Shared/povoleni_hook.py`, jeho test
 Přesný aktuální stav a co dělat jako první: `SAMOSTATNY-REZIM.md`, blok
 „⚡ ČÍM ZAČÍT" úplně nahoře. Neopisuj si ho sem ani nikam jinam — opsaný stav
 zastarává a klame (zavedený nález projektu).
+
+## 11. Mapa uložení mimo tento repo (Omega, sjednoceno 27. 9. 2026)
+
+Sloučeno sem z dřívějšího duplicitního `Omega/dokumenty/NAVOD-PRO-KOLEGU.md`
+(archivováno, `Omega/dokumenty/archiv/`), aby existoval jediný návod pro kolegu.
+
+- **Pravidla a automaty:** `Omega/PRAVIDLA.md` (rejstřík + vykonavatelé),
+  `Omega/AUTOMATY.md` (LaunchAgenty, co čtou/píšou, kdy běží).
+- **Práce bez internetu/tokenů:** `Omega/dokumenty/OFFLINE-REZIM.md` (jediný
+  domov), skript `Omega/skripty/graf_local.py`, git fronta
+  `~/Desktop/wonderly-fronta` (repo `cestynakolech/wonderly-fronta`).
+- **Cestovatelský deník (data):** `/Users/Shared/Cestovatelský deník/`; stav
+  míst JEN z `Omega/MISTA.xlsx`; pořadí drží `Omega/skripty/fronta_mist.py`.
+- **Hudba Suno:** `Omega/hudba-suno/EVIDENCE.md` (limit 20 stažení/měsíc).
+- **Deník chyb a zdraví automatů:** `Omega/dokumenty/DENIK-CHYB.md`,
+  `Omega/dokumenty/ZDRAVI-AUTOMATU.md`, `Omega/dokumenty/ZDRAVI-SESSION.md`.
+- **Zjistit, jestli něco běží:** `python3 Omega/skripty/hlidac_zaseknuti.py --tise`,
+  `w automaty`, `w stav` (povel `w` funguje i přes SSH/Termius z iPhonu).
+
+**Pasti navíc oproti bodu 6 výše:**
+- `/tmp` nepřežije restart Macu — dočasné soubory zálohovat i do
+  `Omega/rozdelane/` nebo scratchpadu.
+- Klíčenka je tabu — žádné `security find`/`dump`.
+- TCC (macOS) blokuje agentům/launchd přístup na Plochu — LaunchAgenty proto
+  volají binárky plnou cestou, ne systémový interpret.

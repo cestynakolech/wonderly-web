@@ -71,14 +71,19 @@ chybějící popisy prezentací se **dopíšou automatem**
 šestý ročník vznikal jen z PDF a vypadla by polovina rovnocenného zdroje (bod B).
 Není to „hezké mít", je to vstupní podmínka: než začne výklad/kvíz/simulace k podtématu
 6. ročníku, popis příslušné prezentace musí existovat.
-**Stav k 21. 9. 2026: 39 prezentací, 36 popsáno, 3 chybí** — všechny v 6. ročníku
+**Počet prezentací se needituje ručně** (rozpor 39 vs. 40 mezi touto větou a tabulkou
+níže, ani jedno číslo nebylo ověřitelné) — zjisti živě:
+`find "/Users/Shared/Škola" -iname "*.pptx" | wc -l` (celkem) a
+`find "/Users/Shared/Škola" -iname "*.pptx" | while read f; do [ -f "~/Desktop/Omega/dokumenty/prezentace-popisy/$(basename "$f" .pptx).md" ] || echo "$f"; done`
+(chybí popis). Stav k 21. 9. 2026 měl 3 chybějící popisy v 6. ročníku
 (`6/01 Látka/Stavba látek  .pptx`, `6/02 Síla/Síla 6 .pptx`,
-`6/07 Opakování rok/Fyzika opakování  rok 6 r. .pptx`).
+`6/07 Opakování rok/Fyzika opakování  rok 6 r. .pptx`) — ověř znovu příkazem výše,
+než na to spoléháš.
 
 | co | kde | poznámka |
 |---|---|---|
 | **PDF učebnic (určující zdroj)** | `/Users/Shared/Škola/<ročník>/<celek>/<podtéma>/*.pdf` | 178 PDF: 6→38, 7→57, 8→39, 9→44 |
-| **Původní prezentace** (leží U PDF, tamtéž) | `/Users/Shared/Škola/**/*.pptx` | 40 souborů: 6→8, 7→23, 8→5, 9→3 |
+| **Původní prezentace** (leží U PDF, tamtéž) | `/Users/Shared/Škola/**/*.pptx` | počet se needituje ručně, viz poznámka nad tabulkou — zjisti `find` |
 | **Popisy prezentací** (ČTOU SE MÍSTO .pptx) | `~/Desktop/Omega/dokumenty/prezentace-popisy/<název>.md` | **PODMÍNKA, viz odstavec nad tabulkou** |
 | automat na popis prezentace | `python3 ~/Desktop/Omega/skripty/popis_prezentace.py "<cesta.pptx>"` | 1 těžký proces; **prezentaci nikdy nečíst po snímcích v session** |
 | SmartBooks (jen zdroj faktů) | `/Users/Shared/Škola/6/SmartBooks/…` | placený obsah, viz zákazy |

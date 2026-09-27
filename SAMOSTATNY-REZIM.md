@@ -41,12 +41,26 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 - [cesty] **KOLODĚJE** — pečlivá anonymizace hotová, kontrolor 0 nálezů, čeká od 21:24.
   `pecliva_videa.py --schvaleno` (nebo `--zamitnuto "důvod"`).
-- [cesty] **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou v `KE-SCHVALENI.md`
-  (na YouTube je verze 4:58, kapitoly jsou z verze 6:06).
+- [cesty] **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou (na YouTube je verze
+  4:58, kapitoly jsou z verze 6:06). Pozn. 27. 9. 2026: dřívější odkaz „v KE-SCHVALENI.md"
+  byl zastaralý, ten soubor (založen až 21. 9. 2026, teď archivován) tuhle položku
+  neobsahoval — rozhodovací tabulka s cenami chybí, potřeba dohledat nebo znovu sestavit.
 - [skola2] **Chrome neotevře wonderly.cz na jiném Macu** — server ověřen ze všech stran, čeká
-  se, co učiteli vypíše `https://wonderly.cz` (rozhodovací tabulka v `KE-SCHVALENI.md`).
-- [skola2] `wonderly-web/KE-SCHVALENI.md` má **5 otevřených bodů** (1, 3, 10, 14, 15 —
-  viz „🆕 Znovu zařazeno do fronty, 3. kolo" níže) — čeká na rozhodnutí přímo v souboru.
+  se, co učiteli vypíše `https://wonderly.cz`. Pozn. 27. 9. 2026: rozhodovací tabulka,
+  na kterou odkazoval starý `KE-SCHVALENI.md`, v něm už nebyla (soubor archivován) —
+  potřeba znovu sestavit, pokud otázka stále trvá.
+- [skola2] **5 otevřených bodů z fyzikálních podkladů** (přeneseno z archivovaného
+  `KE-SCHVALENI.md`, 27. 9. 2026 — plné znění `wonderly-web/docs/archiv/KE-SCHVALENI.md`):
+  1) Účinnost (η = P : P₀) — na webu chybí, přidat jako nové podtéma/nadstavbu k `vykon`,
+     nebo nechat mimo? 3) PDF „Od_výbuchu_k_pohybu_Svět_motorů" navíc obsahuje Wankelův
+     motor, proudový/raketový motor a alternativní pohony (LPG/CNG, hybridy, elektromobily,
+     vodík) mimo rozsah `spalovaci-motory` — nové podtéma? 10) Podtémata „Kladka" a
+     „Nakloněná rovina" (F7, `jednoduche-stroje`) nemají zdrojový podklad ve Škole —
+     dodat podklad, nebo ponechat beze změny? 14) Práh proudu u „Účinky proudu, bezpečnost":
+     web „2–5 mA" vs. PDF „1–8 mA" (PDF rozsah by se překrýval se sousedními prahy
+     0,5–1 a 6–15 mA) — který platí? 15) Podtémata jaderné fyziky (F9, budoucí 5. celek:
+     radioaktivita, jaderná energie, jaderný reaktor) nemají zdrojový podklad — dodat,
+     nebo přestavět beze srovnání?
 - [skola2] F9 `chemicke-zdroje-napeti` — citronová baterie, palivový článek, polarita
   anody při nabíjení, „dva stejné kovy" nejsou v PDF (možná v prezentaci) — ponechat
   ve výkladu/kvízu, nebo vyřadit? Kvíz `kvarky` má 14 otázek (výjimka z cíle 21
@@ -300,12 +314,10 @@ Systematický průchod archivu po nálezu, že se smazáním duplicit ztratily i
 - [skola2] Suno MP3 Wave 1 — **ověřeno 27. 9. 2026: stále jen 22/116 m4a nasazeno**
   (`find public/materialy/fyzika -iname '*.m4a' | wc -l`), stejně jako 6. 9. — žádný
   postup od Wave 1. Plné znění zadání v `PROGRESS-ARCHIV.md`.
-- [skola2] `KE-SCHVALENI.md` má **5 otevřených bodů** (přesně: 1, 3, 10, 14, 15 —
-  ne 17–21, jak uvedla 1. verze tohoto nálezu; 17–21 jsou VYŘÍZENÉ): (1) účinnost
-  jako nové podtéma/nadstavba?, (3) alternativní motory jako nové podtéma?,
-  (10) kladka/nakloněná rovina bez PDF podkladu — potvrdit zdroj prezentace?,
-  (14) rozpor prahu proudu u bezpečnosti, (15) jaderná fyzika F9 (budoucí
-  5. celek) — podrobnosti přímo v souboru.
+- [skola2] 5 otevřených bodů z fyzikálních podkladů (1, 3, 10, 14, 15) — od
+  27. 9. 2026 přímo v sekci „❓ Otevřené dotazy na učitele" nahoře (soubor
+  `KE-SCHVALENI.md` archivován, plné znění je nyní tam a v
+  `wonderly-web/docs/archiv/KE-SCHVALENI.md`).
 - [skola2] Polemika F7 „Klid a pohyb tělesa" — **překážka s právy zápisu už
   NEPLATÍ** (`ls -la "/Users/Shared/Škola/podkasty"` 27. 9. ukazuje vlastníka
   `radek_soukromy`, dřív `radekmicek`). Oprava V8-2 (27. 9. 2026): scénáře
@@ -376,6 +388,15 @@ viz „⚡ ČÍM ZAČÍT" výše — možný překryv, ne nutně součet):
   architektonické vylepšení deníku, samostatné kolo.
 - [cesty] Atomická publikace galerií (`nahraj_fotky.py`) — nahrávat do nové
   verze a zveřejnit jedním manifestem, ať výpadek nenechá venku neúplnou galerii.
+- [cesty] **Úplnost médií ve videích (manifesty)** — přeneseno z archivovaného
+  `Omega/PLAN-PORADEK.md` kroku D2 (27. 9. 2026): u videí bez manifestu doplnit
+  MANIFEST (seznam médií skutečně ve videu) a porovnat s albem/galerií — rozdíl
+  znamená přestavět video; k tomu dvě konkrétní dvojice k ověření, jestli
+  nejsou duplicitně pokryté: Saint-Sauveur ↔ Luxeuil a Neumagen ↔ Trittenheim.
+- [cesty] **Denní kontrola „album+galerie+vklad ↔ manifest videa"** — přeneseno
+  z archivovaného `Omega/PLAN-PORADEK.md`, sekce G bod 2 (27. 9. 2026): dosud
+  jen jednorázový běh `poradek_medii.py` (26 médií do Le Lavandou, 10. 8. 2026),
+  chybí pravidelné/denní měřidlo — navazuje na bod výše (manifest je vstup).
 - [skola2] Typová kontrola (`astro check`) hlásí 5219 chyb — než se zavede
   jako brána, napřed hlášky probrat (samostatný úkol, ne desetiminutovka).
 - [skola2] Telemetrii (zdravotní reporty automatů) přesunout do zvláštní
