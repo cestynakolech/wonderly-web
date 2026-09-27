@@ -26,7 +26,7 @@ níže). Nepředjímat, dokud učitel nerozhodne.
 - ⚠️ elektricky-naboj-dialog při výrobě padal na bráně pokrytí (3 otázky, např. 5 mC). Při /clear BĚŽELA kontrola brány pokrytí na všech nových scénářích (ostře s modelem, oprava neprošlých) — výsledek ověř: pro každý scénář z 26.–27. 9. `/Users/radek_soukromy/Desktop/Omega/skripty/venv/bin/python3 /Users/radek_soukromy/Desktop/Omega/skripty/pokryti_kvizu.py <slug> --rocnik N --tema <klíč> --bez-modelu` (rychlá triáž) a u neprošlých ostře; zápis o případném kolísání brány hledej v `Omega/dokumenty/DENIK-CHYB.md`.
 - ZBÝVÁ scénářů: F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Postup: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (vložit jako script — tool nepřijme scriptPath mimo session) a args `{"polozky":[{"rocnik","celek","podtema"}…max 4]}`; drobné vady opraví exekutor (Sonnet).
 - POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
-- NOVÝ PRINCIP „KANÁREK + JISTIČ + HLÁŠENÍ" (zadání učitele 27. 9.): `cz.wonderly.kanarek` v 18:00 vyrobí z každé úlohy 1 kus naostro bez nasazení a ověří produkt; noc 22:00 nespustí úlohu se spadlým kanárkem; jistič: stejný podpis chyby 2× → úloha stop (známé přechodné chyby se nepočítají); první nová chyba → Telegram + `Omega/dokumenty/POPLACH.md`; známé chyby `data/zname-chyby.json`. Kontroly: 1. kolo 9 vad, 2. kolo 6 vad — opraveno. Při /clear BĚŽELO 3. kolo nezávislé kontroly — NEMÁ doložený výsledek → nejdřív spustit znovu 3. kolo kontroly (soubory `kanarek.py`, `nocni_fronta.py`, `automat_podkastu.py`, `dodelej_animace.py`, `oprava_hlaseni.py`, `navratove_kody.py`, `podpis_chyby.py`), do 0 nálezů. Zítra ráno číst `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`, `POPLACH.md` a `data/kanarek-verdikt.json`.
+- NOVÝ PRINCIP „KANÁREK + JISTIČ + HLÁŠENÍ" (zadání učitele 27. 9.): `cz.wonderly.kanarek` v 18:00 vyrobí z každé úlohy 1 kus naostro bez nasazení a ověří produkt; noc 22:00 nespustí úlohu se spadlým kanárkem; jistič: stejný podpis chyby 2× → úloha stop (známé přechodné chyby se nepočítají); první nová chyba → Telegram + `Omega/dokumenty/POPLACH.md`; známé chyby `data/zname-chyby.json`. Kontroly: 1. kolo 9 vad, 2. kolo 6 vad — opraveno. 3. kolo kontroly: 3 ZÁVAŽNÉ vady, NEOPRAVENO — kanárek proto VYPNUT (launchctl bootout 27. 9.): (1) nocni_fronta.py:160 _je_proces_kanarek hledá „kanarek.py", launchd ho ale spouští jako „nocni_fronta.py --kanarek" → noc zámek kanárka nepozná a propadne; (2) nocni_fronta.py:197-201 + kanarek.py:76 killpg zabije jen kanárka, jeho podprocesy (start_new_session) běží dál jako sirotci; (3) automat_podkastu.py:725 a dodelej_animace.py:267 — úspěch s --bez-nasazeni vynuluje počitadlo neúspěchů (odlozeno.pop) → díl, který noc nedokáže nasadit, se nikdy trvale neodloží a kanárek ho ověřuje dokola. Ověřeno (27. 9.): chybějící/neplatný dnešní verdikt kanárka NEBLOKUJE noc — `kanarek.precti_dnesni_verdikt()` bez souboru/se starým datem vrátí `{}`, `_kanarek_blokuje()` pak úlohu nezastaví. PRVNÍ ÚKOL po /clear: opravit 1–3, 4. kolo kontroly do 0 nálezů, pak `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.kanarek.plist`. Zítra ráno číst `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`, `POPLACH.md` a `data/kanarek-verdikt.json`.
 - OPRAVÁŘ (automatický Claude) VYPNUT: `OPRAVAR_AUTOMATICKY=False` v `oprava_hlaseni.py` — nastavení Claude Code má `defaultMode bypassPermissions`, zákazy (push, mazání) nejdou vynutit; navíc OAuth headless vypršel. Opravář jen připraví `OPRAVAR-PROMPT.md` + hlášení. Zapnout jen rozhodnutím učitele (přihlásit `claude` → `/login` a spouštět s `--permission-mode default`).
 - ČEKÁ NA UČITELE: přihlásit Claude v terminálu (`claude` → `/login`); výklad F9 chemicke-zdroje-napeti (citronová baterie aj. nejsou v PDF — ponechat/vyřadit?); kvíz Kvarky 14 otázek bez zapsané výjimky.
 - NASAZENO dnes a včera: build fix `b7082e3`, kvízy vata `72ed250`, výklad `b8e3b5c` / `e33164a` / `34ffc6a`, odkaz na video Archimédes `d951bd7`.
@@ -118,6 +118,15 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [cesty] Rozhodovací tabulka z 29. 7.: mapa+poutavost deníku (14 bodů).
 - [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" chybí v soupisu kanálu —
   doplnit, nebo ověřit, že video vůbec existuje?
+- [skola2] `wrangler` token scope pro Cloudflare Builds API (doporučení z 16. 8. 2026,
+  dosud neprovedené) — doplnit, ať jde příště zjistit příčinu selhání buildu
+  automaticky?
+- [cesty] Shlukování popisků na úvodní mapě do čtverců („7 míst") — realizovat
+  (zásah do `trasa_uvod.py`, ~1 kolo práce), nebo nechat beze změny?
+- [skola2] **Návrh do fronty (audit 27. 9. 2026):** skriptová kontrola „otevřený
+  dotaz mimo sekci ❓" — ruční přesouvání do jediné sekce selhalo 4×, hledat
+  deterministicky (regex „?" na konci řádku / klíčová slova „čeká na rozhodnutí",
+  „ROZHODNOUT MUSÍ UČITEL" mimo tuto sekci) a hlásit, ne přesouvat samo.
 - [cesty] **Hudba pod videa podkástů ze Suno** (návrh učitele 16. 8., předplatné Pro) —
   potvrdit rozsah: znělka, nebo podkres celého dílu? Jednotná znělka pro celou sérii,
   nebo jiná ke každému dílu? Realizace čeká na učitele u počítače (přihlášení do Suno
@@ -550,9 +559,8 @@ Organizace:
   opraveno commitem `b7082e3`, viz sekci „26. 9. 2026 v noci" výše. Plné znění
   původního nálezu 16. 8. (edb1137, chybějící scope `wrangler` tokenu pro Builds API)
   v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md).
-- [skola2] Doporučení z 16. 8. 2026 zůstává neprovedené: doplnit `wrangler` tokenu
-  scope pro Cloudflare Builds API, ať jde příště zjistit příčinu selhání buildu
-  automaticky z chybové zprávy, ne jen obcházet ručním deployem.
+- [skola2] `wrangler` token scope pro Cloudflare Builds API → ❓ (viz sekce
+  „❓ Otevřené dotazy na učitele" nahoře, doplněno auditem 27. 9. 2026).
 - [cesty] Referenční tváře 2021 → ❓ (viz sekce „❓ Otevřené dotazy na učitele" nahoře).
 - [cesty] Videa s hudbou dodatečně po nahrání na YouTube → ❓.
 - [skola2] Rozhodovací tabulky z 29. 7. (laboratorní práce 12, nové simulace 10,
@@ -561,8 +569,8 @@ Organizace:
 - [cesty] 9 videí „k rozhodnutí" — přesunuto do sekce „❓ Otevřené dotazy na učitele"
   nahoře (V9-2, 27. 9. 2026).
 - [skola2] Odkaz na video „Teplota a její měření – Fyzika 6" (v soupisu kanálu není) → ❓.
-- [cesty] Návrh: shlukování popisků na úvodní mapě do čtverců („7 míst"), zásah
-  do `trasa_uvod.py`, ~1 kolo práce.
+- [cesty] Shlukování popisků na úvodní mapě do čtverců → ❓ (viz sekce
+  „❓ Otevřené dotazy na učitele" nahoře, doplněno auditem 27. 9. 2026).
 - [cesty] **Hudba pod videa podkástů ze Suno** (návrh učitele 16. 8., má předplatné).
   Nerealizováno — vyžaduje přihlášení do jeho účtu Suno a stažení souborů; otázka
   rozsahu (znělka/podkres, jednotná/po dílu) → ❓.
@@ -664,8 +672,11 @@ ztratily. „Nic z toho se neztratilo" (výše) neplatí bez dalšího ověřen�
    předat, **neexistuje** — takže ani obchvat není otevřený.
    **AKTUALIZACE 27. 9. 2026 (K3-R16):** na MacBooku `/Users/Shared/Claude-most/`
    i `~/bin/ask-local` DNES EXISTUJÍ (`ls` ověřeno) — zápis z 10. 9. se týkal
-   patrně jiného stroje (mini) nebo mezitím vznikly; než se blokace znovu
-   uzavře, ověřit aktuální práva zápisu na `Škola/podkasty` znovu.
+   patrně jiného stroje (mini) nebo mezitím vznikly.
+   **OPRAVENO (V8-2, 27. 9. 2026):** práva zápisu na `Škola/podkasty` už BYLA
+   ověřena znovu — `ls -la` ukazuje vlastníka `radek_soukromy` (dřív
+   `radekmicek`), překážka č. 1 NEPLATÍ. Krok „ověřit práva znovu" tedy odpadá,
+   viz sekce „🆕 Znovu zařazeno do fronty, 3. kolo" výše.
 
 **Vyzkoušeno (2 různé přístupy, dál se netočím):** přímá výroba pod tímto účtem
 (napoprvé zastavena pojistkou paměti — správně, model `qwen3:8b` držel 11 GB;
