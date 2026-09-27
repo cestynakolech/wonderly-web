@@ -1,12 +1,13 @@
 ## ⚡ ČÍM ZAČÍT — 28. 9. 2026
 
-🔴 VATA-ZÁPIS (27. 9. 2026, nález kontrolora): testy/nastroje/vata-zapis-navrhy.mjs
-NEspouštět a necommitovat. (1) ř.1 „SCHVÁLENÉ“ = jen soud lokálního modelu
-(vata_navrhy.py:326 faze=hotovo), 168 položek bez nezávislé kontroly a bez
-vata-over-delku → zapsal by je do kvizy.ts. (2) ř.73–81 nahrazuje řetězec kdekoli
-v bloku podtématu, ignoruje qIndex/distraktorIndex → může přepsat správnou
-odpověď. Oprava: cílit přes qIndex+distraktorIndex, volat vata-over-delku,
-zapisovat jen s nezávislým schválením, cesta ne natvrdo.
+✅ VATA-ZÁPIS (27. 9. 2026, opraveno): testy/nastroje/vata-zapis-navrhy.mjs
+přepsán — cílí přes qIndex+distraktorIndex (ne řetězcem kdekoli v bloku),
+zapisuje jen s nezávislým schválením (vata-schvaleni.json), kontroluje délkovou
+nápovědu/remízu po dosazení a po zápisu ověří text otázky i odpovedi[0] celého
+dotčeného bloku proti stavu před zápisem — při porušení soubor vrátí a skončí
+process.exit(1). Ověřeno na kopii repa (suchý běh, --zapis bez schválení,
+schválená položka v dřív přeskakovaném bloku, změněný qText, umělé porušení
+kontroly). Commit 75f1733 (obsah), viz git log pro navazující commit se stavem.
 
 🟡 VRÁTNÝ orchestrator-guard.sh: ř.65 bere basename+lowercase → projde /tmp/x/GIT;
 ř.79 rm s ORCHESTRATOR_ON propustí i další cíle (rm -rf X ~/.claude/ORCHESTRATOR_ON
