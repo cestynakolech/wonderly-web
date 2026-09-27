@@ -1,4 +1,4 @@
-## ⚡ ČÍM ZAČÍT — 28. 9. 2026
+## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
 ✅ VATA-ZÁPIS (27. 9. 2026, opraveno): testy/nastroje/vata-zapis-navrhy.mjs
 přepsán — cílí přes qIndex+distraktorIndex (ne řetězcem kdekoli v bloku),
@@ -139,6 +139,10 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   správně (`Omega/PRAVIDLA.md:591` bod (a)/(c)); OTEVŘENÉ je jen to, zda učitel chce
   přidat `ask`. Doklad: `scratchpad/rozpory-kolo2.md` N1–N4 (kontrolor, 27. 9. 2026,
   kolo 2).
+  ODLOŽENO (kolo 4, K4-8): komentáře a hlášky přímo v kódu `povoleni_hook.py`
+  (ř. 12, 66, 1068–1069, 1500–1501) dál slibují dotaz/zákaz tam, kde kód reálně
+  vrací allow+záloha — kód se NEMĚNÍ (ani komentáře) bez rozhodnutí učitele,
+  srovnat texty s chováním až při rozhodnutí U14.
 - [Omega] **17 záměrně vypnutých automatů (K1-4)** hlásí `revize_automatu.py` jako
   vadu — doplnit `Disabled=true` do plistů, nebo je vést v evidenci pozastavených?
   Zásah do LaunchAgentů.

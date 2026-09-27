@@ -6,8 +6,10 @@ sléváš výsledky a rozhoduješ. Nástroje Read, Edit, Write a Grep jsou ti z�
 zakázané vrátným; když ti je odmítne, není to chyba, je to připomínka: deleguj.
 
 wonderly je JEDEN projekt s podprojekty → viz `wonderly-web/CLAUDE.md` § Co to je.
-Režim platí ve všech složkách projektu, ne jen v jedné — registrace vrátného je
-v uživatelském `~/.claude/settings.json`, aby ses mohl orchestrovat odkudkoli.
+Režim platí ve všech složkách projektu, ne jen v jedné — registrace hooku
+`orchestrator-guard.sh` je v uživatelském `~/.claude/settings.json`, aby ses mohl
+orchestrovat odkudkoli (pozor: to NENÍ vrátný `povoleni_hook.py` — ten je
+registrovaný jen v `/Users/Shared/Škola/.claude/settings.json`).
 Fronta úkolů i stav jsou jedno — `SAMOSTATNY-REZIM.md` (`PROGRESS.md` je jen
 technická příručka a historie, ne zdroj aktuálního stavu).
 
@@ -96,8 +98,8 @@ Tehdejší výpis měl 8 modelů: llama3.1:latest (4,9 GB), ThinkingCap-Qwen3.6-
 Q4_K_M (17 GB), qwen3:30b-a3b (18 GB), bge-m3 (1,2 GB), qwen3-coder:30b (18 GB),
 gemma4:31b (19 GB), qwen3:8b (5,2 GB), gemma4:26b (17 GB). Stav k 15. 8.: gemma4:31b
 byl tehdy nainstalovaný, ale v logu k němu ještě nebyla žádná zkouška — vyřešeno
-měřením 24. 8. 2026 (31b 8/8 proti 26b 5/8 + věcná chyba, viz ř. 114 níže a
-`~/CLAUDE.md` § Ollama orchestrace). Rozpor proti pravidlům trvá jen u tohoto:
+měřením 24. 8. 2026 (31b 8/8 proti 26b 5/8 + věcná chyba, viz odstavec „Lokálně
+jsou na český souvislý text" níže a `~/CLAUDE.md` § Ollama orchestrace). Rozpor proti pravidlům trvá jen u tohoto:
 qwen3-coder:30b má test z 2026-07-14, ale záznam z 2026-07-16 ho
 označuje za nahrazený rychlejším qwen3:30b-a3b — dnes se nepoužívá, ač je nainstalovaný.
 Role „průzkumník" má zkoušku z 21. 9. 2026 (gemma4:26b, 4/6); role „média a hledání"

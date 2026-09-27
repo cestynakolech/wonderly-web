@@ -1,8 +1,9 @@
 # CLAUDE.md — trvalý kontext projektu wonderly-web
 
 > **Komunikuj vždy česky** (uživatel je učitel-laik; před spouštěním příkazů krátce vysvětli, co dělají).
-> **Na začátku každé session si přečti `SAMOSTATNY-REZIM.md`** — aktuální stav, živá fronta úkolů
-> i jediný seznam otevřených dotazů jsou tam, v jeho nejhornější sekci. `PROGRESS.md` je jen
+> **Na začátku každé session si přečti `SAMOSTATNY-REZIM.md`** — aktuální stav je v nejhornější
+> sekci ⚡ ČÍM ZAČÍT, živá fronta úkolů v sekci 📌 a jediný seznam otevřených dotazů v sekci ❓.
+> `PROGRESS.md` je jen
 > technická příručka (jak co přidat, kde co leží) a historie — nečti ji jako zdroj aktuálního stavu.
 > **Na KONCI každé session `PROGRESS.md` aktualizuj** (přidej datovaný záznam do sekce Historie) a
 > **commitni + pushni** — tím se historie uloží na GitHub jako vratná verze. Po dokončení celého
