@@ -17,13 +17,13 @@ rozpracovaných scénářů (ROZPRACOVÁNO níže) dokončit aspoň rozjetou kon
 ale NEZAKLÁDAT nové mimo 1. téma, dokud není hotové.
 **Osud 7 shrnutí (pololetní/roční) z 70 chybějících — NEROZHODNUTO:** → ❓ (stejná
 otázka jako u simulací bez názornosti, viz sekce „❓ Otevřené dotazy na učitele"
-výše). Nepředjímat, dokud učitel nerozhodne.
+níže). Nepředjímat, dokud učitel nerozhodne.
 
 - NOČNÍ FRONTA lokálních modelů (`cz.wonderly.nocni-fronta`, `Omega/skripty/nocni_fronta.py`, 22:00–6:00, pořadí animace → podkasty --vse r6–9 → animace → vata; kontrolor 4 kola do 0 nálezů). Ráno přehled `Omega/dokumenty/NOCNI-FRONTA-VYSLEDEK.md`. Denní `cz.wonderly.dodelej-animace` vypnut (Disabled) — duplicita.
 - INVENTURA: 70 ze 120 podtémat fyziky bez podkástu/videa (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`). Rozhodnutí učitele 26. 9.: scénáře píší WORKEŘI + nezávislý kontrolor (Sonnet, max 2 kola), 1 krátký díl na podtéma (vyjde ~4 min, protože pokrývá celý kvíz, strop 4 600 znaků s prefixy).
 - HOTOVÉ SCÉNÁŘE (prošly skriptem `kontrola_scenare.py` + ostrou bránou + nezávislým kontrolorem) = 32: F8 elektřina 14 (celá kapitola), F8 teplo: tani, tuhnuti, vyparovani, var; F9: vedeni-proudu-v-kapalinach, vedeni-proudu-v-plynech, chemicke-zdroje-napeti, polovodice-vlastni-vodivost, polovodice-typu-n-a-p-dioda, ucinky-proudu-bezpecnost, pusobeni-pole-na-vodic-elektromotor, vznik-stridaveho-proudu-alternator, vlastnosti-stridaveho-proudu, transformator, kvarky, radioaktivita, jaderna-energie-a-reakce, jaderny-reaktor-elektrarna. ROZPRACOVÁNO — nejdřív dokončit kontrolu těchto 4 scénářů (nezávislý kontrolor ještě neskončil): kondenzace, skupenske-zmeny-vody-v-prirode, kmitani-a-vlneni, vnimani-zvuku-a-hlasitost. ZBÝVÁ (nezačato): F8 ucinnost, energie ×5, tepelné motory ×2; F9 slunecni-soustava, vesmir-a-galaxie; F7 17 podtémat (seznam `Omega/dokumenty/PODKASTY-CHYBI-2026-09-27.md`).
 - POSTUP: Workflow scriptPath `Omega/skripty/workflows/podkasty-scenare.js` (verze v2: worker musí projít `kontrola_scenare.py` + `pokryti_kvizu.py`, pak kontrolor); nový deterministický `Omega/skripty/kontrola_scenare.py` (délka s prefixy < 4 600, číslice, Markovo „…, ne?", kresby v KRESBY, indexy scén). Scény bez hotové kresby jsou dočasně typ „ilustrace" (pozn_kresby = přání kresby kódem).
-- ČEKÁ NA UČITELE: F9 chemicke-zdroje-napeti (citronová baterie aj.) a Kvarky (14 otázek) → ❓ (viz sekce „❓ Otevřené dotazy na učitele" výše).
+- ČEKÁ NA UČITELE: F9 chemicke-zdroje-napeti (citronová baterie aj.) a Kvarky (14 otázek) → ❓ (viz sekce „❓ Otevřené dotazy na učitele" níže).
 - OPRAVY VÝKLADU nasazené 27. 9.: ionizace ve vedení proudu v plynech (`34ffc6a`); elektroskop
   — pořadí ruka/tyč (`b8e3b5c`); pořadí kovů podle měrného odporu (`e33164a`) — poslední dvě
   jsou chyby podkladu, zapsáno v `Omega/dokumenty/kontrola-podkladu-fyzika8.md`.
@@ -55,10 +55,10 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   platí i pro podkasty/video u týchž shrnutí (viz „⚡ ČÍM ZAČÍT" výše).
 - [skola2] `MEMORY.md` (Škola) má 169 řádků, hook doporučuje pod 140 — sloučit
   dvojníky / archivovat splněné / zvednout limit? Nic nemazat bez pokynu.
-- [skola2] Polemika F7 „Klid a pohyb tělesa" — PRAVDĚPODOBNĚ ODPADÁ: `Škola/podkasty`
-  už patří `radek_soukromy` (dřív blokující otázka „radekmicek, nebo práva pro
-  radek_soukromy?"), zbývá ověřit, že zápis skutečně funguje (zkusit `mkdir`/zápis),
-  ne se ptát znovu.
+- [skola2] Odpor lidské kůže (F8 `temata.ts` ~2713, F9 ~3062–3063, `kvizy.ts`
+  ~4344–4361, ~4713–4723) — PDF podklad si sám sobě odporuje (sucho/vlhko
+  prohozené i jiný řád čísel); která verze je správná? Do té doby platí
+  ⛔ NESAHAT (viz sekce „[skola2] ⛔ NESAHAT" níže, V12-1, 27. 9. 2026) — NEMĚNIT.
 - [Omega] **Omega repo nepushuje** — `git@github.com: Permission denied (publickey)`,
   151 commitů napřed proti `origin/main` (ověřeno 27. 9. 2026). Chybí SSH klíč/alias
   pro `github.com` na tomto stroji — zásah do systémové konfigurace.
@@ -427,6 +427,9 @@ třikrát zachytila, že se týž řetězec v souboru vyskytuje vícekrát nebo 
 
 ### [skola2] ⛔ NESAHAT — UČITEL ROZHODNE SÁM — odpor lidské kůže (zjištěno 25. 9. 2026)
 
+→ ❓ (otázka „která verze PDF platí" je i v sekci „❓ Otevřené dotazy na učitele" výše,
+V12-1, 27. 9. 2026) — **zákaz NESAHAT platí dál, beze změny, viz níže.**
+
 **⛔ NESAHAT — UČITEL ROZHODNE SÁM** (řekl 25. 9. 2026: „ta čísla odporu kůže na webu
 nedávej, počkej na mě"). Čísla na webu NECHAT PŘESNĚ TAK, JAK JSOU, nic nepřepisovat,
 nedoplňovat ani nemazat — ani podle PDF, ani podle jiného zdroje. Platí pro `temata.ts`
@@ -649,9 +652,11 @@ po jeho uvolnění selhala na právech) · předání přes most (most není).
 názvy kreseb jsou už zapsané ve scénosledech) · videa · nahrání do R2 · zápis
 do `temata.ts`.
 
-**Rozhodnout musí učitel:** → ❓ ODPADÁ (sjednoceno V9-5, 27. 9. 2026): `Škola/podkasty`
-už patří `radek_soukromy` (viz sekce „❓ Otevřené dotazy na učitele" nahoře) — otázka
-„radekmicek, nebo práva pro radek_soukromy" je bezpředmětná, zbývá jen ověřit zápis.
+**Rozhodnout musí učitel:** OTÁZKA ODPADÁ (sjednoceno V9-5+V12-3, 27. 9. 2026):
+`Škola/podkasty` už patří `radek_soukromy`, „radekmicek, nebo práva pro
+radek_soukromy" je bezpředmětné. Zbývající úkol (ověřit/najít scénáře, případně
+napsat znovu) je ve fronta sekci „🆕 Znovu zařazeno do fronty, 3. kolo" výše
+(položka „Polemika F7 Klid a pohyb tělesa"), NENÍ to dotaz na učitele.
 
 ### Nález u brány `pokryti_kvizu.py` — nikdy se nezeptá modelu (10. 9. 2026, mini)
 **AKTUALIZACE 27. 9. 2026 (K3-R16):** na MacBooku `~/bin/ask-local` DNES EXISTUJE
