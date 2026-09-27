@@ -56,7 +56,14 @@ zamitni() {
 }
 
 if [ "$TOOL_NAME" = "Bash" ]; then
-  PRVNI="${PRIKAZ%% *}"
+  # Nález 10 (24. 9. 2026): povoleni_hook.py bere z prvního slova jen POSLEDNÍ
+  # SLOŽKU CESTY (`/usr/bin/git status` -> `git`) a porovnává malými písmeny —
+  # tenhle guard dřív porovnával celé "$PRVNI" (i s cestou, i s velkými
+  # písmeny) přímo, takže `/usr/bin/git status` tady dostalo deny, zatímco
+  # druhá vrstva allow. Sjednoceno: stejná cesta-pryč i lowercase i tady.
+  PRVNI_SUROVY="${PRIKAZ%% *}"
+  PRVNI="${PRVNI_SUROVY##*/}"
+  PRVNI="$(printf '%s' "$PRVNI" | tr '[:upper:]' '[:lower:]')"
   ROZHODNUTI=deny
   # NEJDŘÍV složenost: &&, ;, |, $(, zpětný apostrof, > — přes povolené první
   # slovo se nesmí dát provézt nic dalšího. Prostý `rm` značky žádný z těchto

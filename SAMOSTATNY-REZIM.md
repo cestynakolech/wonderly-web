@@ -1,5 +1,21 @@
 ## ⚡ ČÍM ZAČÍT — 28. 9. 2026
 
+🔴 VATA-ZÁPIS (27. 9. 2026, nález kontrolora): testy/nastroje/vata-zapis-navrhy.mjs
+NEspouštět a necommitovat. (1) ř.1 „SCHVÁLENÉ“ = jen soud lokálního modelu
+(vata_navrhy.py:326 faze=hotovo), 168 položek bez nezávislé kontroly a bez
+vata-over-delku → zapsal by je do kvizy.ts. (2) ř.73–81 nahrazuje řetězec kdekoli
+v bloku podtématu, ignoruje qIndex/distraktorIndex → může přepsat správnou
+odpověď. Oprava: cílit přes qIndex+distraktorIndex, volat vata-over-delku,
+zapisovat jen s nezávislým schválením, cesta ne natvrdo.
+
+🟡 VRÁTNÝ orchestrator-guard.sh: ř.65 bere basename+lowercase → projde /tmp/x/GIT;
+ř.79 rm s ORCHESTRATOR_ON propustí i další cíle (rm -rf X ~/.claude/ORCHESTRATOR_ON
+→ ALLOW). orchestrator-prompt.md:48–56 rozpor s _SPOLECNE.md § Izolace jen
+popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
+
+27. 9. večer: VŠECHNY automaty pozastaveny na žádost učitele — soupis a zapnutí:
+Omega/dokumenty/POZASTAVENE-AUTOMATY-2026-09-27.md
+
 27. 9. večer: noční fronta VYPNUTA na žádost učitele (GPU pro jeho práci s lokálními
 modely). Znovu zapnout: `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.nocni-fronta.plist`.
 

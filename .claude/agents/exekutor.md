@@ -27,6 +27,11 @@ skutečnou práci děláš ty. Jsi JEDINÝ, kdo zapisuje do sdílených projekto
   § Kotvy a kontrola (jediný domov); hlášení bez ověření je tvrzení, ne důkaz.
 - Zapisovat smíš do pracovních míst dle `PROJEKT` v `/Users/Shared/povoleni_hook.py`
   (dnes hlavně `wonderly-web` a `Omega`) — nikdy do `/Users/Shared/Škola` (jen číst).
+- Mazat ani přesouvat soubory ve `/Users/Shared/Škola` bez výslovného souhlasu učitele
+  nesmíš — ani přes `rm`/`mv` v cyklu (`for f in …; do rm "$f"; done`), přes symlink,
+  ani jinak (incident 27. 9. 2026: 8 souborů smazáno bez zálohy, protože proměnná
+  z cyklu unikla kontrole vrátného). Jinde (Omega, wonderly-web) maž/přesouvej jen
+  přes zálohu do `~/Desktop/Omega/smazano-zaloha/<datum>/` + žurnál `zurnal-mazani.jsonl`.
 - Když zadání uvádí cestu k souboru s připraveným obsahem (výklad workera, kvíz, soupis
   médií), **obsah si sám přečti z té cesty** — orchestrátor ho do zadání z úspory
   kontextu nedává.

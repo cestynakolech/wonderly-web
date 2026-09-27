@@ -300,7 +300,7 @@ Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
 3. kvíz 21 otázek sladěný s výkladem (prošlý dvěma koly nezávislé kontroly),
 4. **simulace (= interaktivní infografika)** — klikací/odkrývací schéma i simulace
    s posuvníkem/parametry se počítají jako TOTÉŽ, jedna složka, ne dvě
-   (rozhodnutí učitele 23. 9. 2026, varianta B z `NAVRH-CHYBEJICI-KATEGORIE.md`),
+   (rozhodnutí učitele 23. 9. 2026, varianta B z `docs/archiv/NAVRH-CHYBEJICI-KATEGORIE.md`),
 5. české odkazy,
 6. **video-polemiku s ANIMACÍ toho, o čem se v ní mluví** — ne statické obrázky,
    ne jen audiostopa,
@@ -313,7 +313,7 @@ Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
 deset složek a rozlišovalo body 4 (simulace) a 8 (interaktivní infografika) jako
 dvě různé věci. Učitel na kontrolní otázku přiznal, že jde o totéž — obojí je
 interaktivní ukázka, jen s jiným ovládacím prvkem — a rozhodl je sloučit
-(viz `NAVRH-CHYBEJICI-KATEGORIE.md`, varianta B). Hotových 92 simulací tím
+(viz `docs/archiv/NAVRH-CHYBEJICI-KATEGORIE.md`, varianta B). Hotových 92 simulací tím
 POKRÝVÁ tuto sloučenou složku. U hry pro skupinu učitel zároveň upřesnil, že
 nestačí rozšířit Fyzikální ligu o výběr podtématu — má jít o plnohodnotnou
 samostatnou hru vázanou na dané podtéma.

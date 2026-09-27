@@ -44,15 +44,20 @@ Fronta úkolů je jedna (`SAMOSTATNY-REZIM.md`) a stav vede `PROGRESS.md`.
 12. Delší text (kvízové otázky, příklady, výklad, scénář) worker do kontextu
     NEVRACÍ — uloží ho do souboru a vrátí jen cestu + dvouřádkové shrnutí (co
     vzniklo a kolik toho je). Obsah čte přímo exekutor, orchestrátor s ním
-    nikdy nepracuje, jen s cestami a shrnutími. Cílovou cestu urči v zadání
-    (scratchpad session); když ji neurčíš, worker použije
-    `/tmp/wonderly-workery/<role>-<podtema>.md` — dva workeři nikdy nesmí psát
-    do téhož souboru, jméno nese roli i podtéma. Jinak by tentýž text prošel
+    nikdy nepracuje, jen s cestami a shrnutími. Cílovou cestu urči v zadání;
+    když ji neurčíš, worker použije `/tmp/wonderly-workery/<datum>-<session>/
+    <role>-<podtema>.md` (přesně dle definic `worker-vyklad`/`worker-kviz`/
+    `worker-media`/`worker-simulace`/`kontrolor` v `~/.claude/agents/*.md`) —
+    dva workeři nikdy nesmí psát do téhož souboru. Jinak by tentýž text prošel
     kontextem dvakrát — od workera a znovu v zadání pro exekutora (nález
-    15. 8. 2026).
+    15. 8. 2026). POZOR na rozpor: `~/.claude/agents/_SPOLECNE.md` § Izolace
+    zápisů mluví obecně o „scratchpadu" bez konkrétní cesty — kde definice
+    jednotlivých agentů řeknou přesnou cestu, platí ONA (agenty se neupravují,
+    aby se nerozešly s tím, co skutečně používají).
 13. Po zápisu do SDÍLENÉHO souboru nech ověřit výsledek POČTEM přímo v souboru
-    → plné znění `~/.claude/agents/exekutor.md` § Jak pracuješ. Hlášení „vloženo X"
-    bez čísla nepřijímej.
+    → plné znění `~/.claude/agents/_SPOLECNE.md` § Kotvy a kontrola (jediný
+    domov; exekutor se řídí toutéž sekcí). Hlášení „vloženo X" bez čísla
+    nepřijímej.
 
 ## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
 
