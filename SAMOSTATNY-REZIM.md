@@ -14,8 +14,11 @@ kontroly). Commit 75f1733 (obsah), viz git log pro navazující commit se stavem
 → ALLOW). orchestrator-prompt.md:48–56 rozpor s _SPOLECNE.md § Izolace jen
 popsán, ne odstraněn (jeden platný návod) + zalomená cesta.
 
-27. 9. večer: VŠECHNY automaty pozastaveny na žádost učitele — soupis a zapnutí:
-Omega/dokumenty/POZASTAVENE-AUTOMATY-2026-09-27.md
+27. 9. večer: automaty pozastaveny na žádost učitele KROMĚ 3 výjimek (ollama-env,
+zaloha-skola, hlidac-baterie běží dál) — soupis a zapnutí:
+Omega/dokumenty/POZASTAVENE-AUTOMATY-2026-09-27.md (živě ověřeno `launchctl list`
+28. 9. 2026: kanárek zůstává NEZAPNUTÝ i po zápisu „znovu zapnut (18:00)" níže —
+byl 27. 9. 17:32 znovu pozastaven, viz řádek kanárek v soupisu).
 
 27. 9. večer: noční fronta VYPNUTA na žádost učitele (GPU pro jeho práci s lokálními
 modely). Znovu zapnout: `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.nocni-fronta.plist`.
@@ -26,14 +29,19 @@ do `Škola/`, ačkoli `_SPOLECNE.md` ji popisuje jako „jen číst" — jde o z
 výjimku (výstup automatu, ne zdrojový podklad), zatím jen zapsáno jako fakt,
 rozhodnutí o formálním zápisu výjimky nechat na učiteli.
 
-**STÁLE OTEVŘENO (nepokryto níže, ČTI PŘESNĚ):** `OBSAH-PRAVIDLA.md` ř. 316–317 —
+**STÁLE OTEVŘENO (nepokryto níže, ČTI PŘESNĚ):** `OBSAH-PRAVIDLA.md` § „Pořadí práce" (ř. 321–322) —
 1. téma (F7 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole`)
 se má dodělat KOMPLET (všech 9 složek vč. podkastu) u 7./8./9. ročníku naráz, teprve
 pak 2. téma. Bez citovaného rozhodnutí učitele o výjimce nezakládat scénáře mimo
 1. téma. Osud 7 pololetních/ročních shrnutí z 70 chybějících — stále NEROZHODNUTO.
 
 **HOTOVO 27. 9.:** kanárek — 3 vady opraveny, nezávislá kontrola kol 4–10 do 0
-nálezů, znovu zapnut (18:00). Noční fronta zapisuje skutečné příčiny odložení
+nálezů, znovu zapnut (18:00), poté 17:32 [pozn.: dřívější čas, viz soupis
+pozastavených automatů] znovu pozastaven na žádost učitele (ověřeno
+`launchctl list` 28. 9. 2026 — nezaložen). Lokální graf `graf_local.py --fronta`
+byl 27.–28. 9. opraven (cesta k frontě, podklady, selhání = neúspěch, kontrolor
+qwen3.8:27b-mlx dle měření; commity Omega 8c12193…ad526da), spouští se ručně.
+Noční fronta zapisuje skutečné příčiny odložení
 (volný text pod tabulku, `skripty/fence_kod.py` sdílený s `oprava_hlaseni.py`).
 Brána pokrytí (`skripty/pokryti_kvizu.py`) čte kvízy jako data přes
 `skripty/kvizy_dump.mjs`, umí spadnout (exit 1 nepokryto / 2 porucha), drží GPU
@@ -143,6 +151,11 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   (ř. 12, 66, 1068–1069, 1500–1501) dál slibují dotaz/zákaz tam, kde kód reálně
   vrací allow+záloha — kód se NEMĚNÍ (ani komentáře) bez rozhodnutí učitele,
   srovnat texty s chováním až při rozhodnutí U14.
+  RIZIKO (kolo 5, K5-1): `mv` mimo projekt a `find -delete` (kamkoli) projdou
+  jako allow BEZ zálohy a BEZ žurnálu — `cile_mazani()` parsuje jen `rm`/`rmdir`
+  (viz `Omega/PRAVIDLA.md:591`). Doplnit do vrátného až při rozhodnutí U14;
+  do té doby platí vlastní opatrnost modelu (ruční záloha do
+  `~/Desktop/Omega/smazano-zaloha/<datum>/` + žurnál před takovým `mv`/`find -delete`).
 - [Omega] **17 záměrně vypnutých automatů (K1-4)** hlásí `revize_automatu.py` jako
   vadu — doplnit `Disabled=true` do plistů, nebo je vést v evidenci pozastavených?
   Zásah do LaunchAgentů.
@@ -165,7 +178,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   `~/.claude/CLAUDE.md` bod 6, skilly mají znít shodně — opraveno kolo 3).
   U16: MEMORY.md (Škola) po zhuštění D5 27. 9. má 131 řádků / 19 577 B, pod
   cílem 140 řádků / 20 000 B — U16 tímto ODPADÁ, hlídat, ať zase nenaroste.
-- **V18 ODLOŽENO 27. 9. — strop 3 kol vyčerpán, 14 nálezů popisu viz
+- **V18 ODLOŽENO 27. 9. — strop 3 kol vyčerpán, 13 nálezů popisu viz
   `Omega/dokumenty/V18-NALEZY-KOLO4.md`; rozpor Škola rm/mv = dotaz × skutečnost
   allow je od 27. 9. VYŘEŠENÝ kódem (`Omega/PRAVIDLA.md:591` (a)/(c) —
   `rm`/`mv` ve Škole dnes skutečně vrací `ask`), U14 zůstává otevřené jen pro
