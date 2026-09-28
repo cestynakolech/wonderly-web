@@ -251,3 +251,7 @@ commit+push, tag po velkém celku). Sem se neopisuje (K3-Z7, 27. 9. 2026).
   že prebuild brána jde obejít přes `npx astro build`, blok
   `teplota-a-jeji-mereni` má 22 otázek místo 21. Podrobná fronta a odkaz „jak
   navázat" jsou v horní sekci `SAMOSTATNY-REZIM.md`.
+
+## Historie — 28. 9. 2026: kontrola plných animací a test lokálního modelu
+
+Omega `9076e15`: skládání vyžaduje plné MP4 všech scén, ověřuje jejich délku a původ přes otisky textu, nahrávky, scénosledu i videa. Technická kontrola nenahrazuje prohlídku děje. Opraven NAVOD-ANIMACE-PODKASTU.md, návazný NAVOD-POLEMIKY-F6.md a skill podkast-video, který ještě vedl přes statické PNG. Tři výrobní služby pozastaveny; pět dokončených videí a šestý rozpracovaný díl ještě nejsou předělané. ThinkingCap Qwen3.8 Q4_K_M lokálně nainstalován a otestován na 90 případech; výchozí MLX ponechán (nestabilní jediný bod navíc, 2–2,9× pomalejší). Výsledky nezávisle přepočítané, viz Omega/dokumenty/thinkingcap-38-test-2026-09-28/STAV.md. Odeslání sedmi commitů Omegy do GitHub main odmítla automatická kontrola oprávnění; samostatný dotaz na tento přesný rozsah čeká na uživatele.

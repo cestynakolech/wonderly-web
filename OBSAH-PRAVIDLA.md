@@ -330,49 +330,11 @@ hotové audio, které tam už je.
 Tato definice je jediné platné a úplné znění — nahrazuje a rozšiřuje dřívější
 užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz sem.
 
-**Měřitelný práh animace (doplněno 23. 9. 2026, OPRAVENO 23. 9. 2026 — viz níže):**
-bod 6 dosud říkal jen „ne statické obrázky", bez čísla — to umožnilo, že pilot
-`magnety-opakovani-dialog1-PILOT-animace.mp4` (62 unikátních z 2 816 snímků, poměr 0,022)
-prošel jako „animovaný díl", než ho učitel označil za „jednu fotku".
+**Animace celé polemiky — závazné upřesnění učitele 28. 9. 2026:**
 
-**OPRAVA téhož dne:** první verze měřidla počítala poměr unikátních snímků přes CELÉ
-video vzorkované po 1 s. To ale měří počet STŘIHŮ SCÉN, ne pohyb — statický díl
-`atomy-a-molekuly-atom-dialog.mp4` (jen 1 animovaná scéna ze 14, zbytek plakáty) tak
-vyšel na 57 % a prošel by jako „animovaný", protože prolínačky (`xfade`, 0,6 s)
-a časté střídání plakátů samy vyrábí „unikátní" snímky, i když se v obraze nic nehýbe.
-Platí proto nová, opravená definice:
-
-- **Jednotka měření je SCÉNA, ne celé video.** Scéna má svůj obrázek
-  `podkasty-snimky/<slug>/scena-NN.png`; je-li animovaná, vedle něj leží i klip
-  `scena-NN.mp4`, který `video_podkastu.py` přehraje místo statického obrázku.
-- **OPRAVA 24. 9. 2026 — práh 0,85/0,50 na poměru unikátních snímků ZRUŠEN.** Klipy
-  jsou záměrně stavěné jako „krok – prodleva – krok" (pohyb, pak chvíle na přečtení
-  popisku, viz `animace_podkastu.py` `krok(1.0, ..., hybat=False)` a
-  `_kroky_zebriku`) — `mpdecimate` úmyslné prodlevy zahazoval jako duplicity, takže
-  poctivá krokovaná animace propadala jako „statická" (43 klipů pod prahem, ŽÁDNÝ
-  z nich skutečně statický). Kalibrace navíc byla kruhová: vzorové „statické" díly
-  `hustota-dialog` a `atomy-a-molekuly-atom-dialog` byly ve skutečnosti animované.
-- **Video se počítá jako ANIMACE, jen když má ALESPOŇ JEDNU scénu, která (a) má
-  vlastní klip `scena-NN.mp4`, (b) má ALESPOŇ 10 RŮZNÝCH snímků (ffprobe + `mpdecimate`
-  na celém klipu) A (c) obsahuje SOUVISLÝ ÚSEK POHYBU dlouhý alespoň 1,5 s (měřeno
-  `tblend=difference` + `signalstats`, snímky nad prahem YAVG 0,01 spojené i přes
-  krátké mezery do 0,2 s).** Pouhá existence klipu doklad animace není. Úmyslná
-  prodleva na čtení popisku se netrestá — stačí JEDEN dost dlouhý souvislý úsek
-  pohybu, video nemusí být v pohybu celou dobu.
-- **Zdůvodnění:** kalibrace na uměle statickém klipu (1 PNG jako 6s video → 1 snímek,
-  0 s pohybu → STATICKÉ) a čtyřech ověřených dílech (24. 9. 2026):
-  `mechanicka-prace-dialog` (6/6 scén, 100 % unikátních) → ANIMACE;
-  `mechanicka-prace-dialog3` (scéna 01, souvislý pohyb 3,0 s) → ANIMACE;
-  `hustota-dialog` (scéna 09, souvislý pohyb 4,4 s) → ANIMACE;
-  `atomy-a-molekuly-atom-dialog` (scéna 04, souvislý pohyb 1,64 s) → ANIMACE.
-- **Proč ne celé finální video:** přesné umístění scény v čase finálního videa jde
-  u většiny dílů zjistit jen opakovaným přepisem whisperem, který se dřív neukládal;
-  měření přímo na zdrojovém klipu ve `podkasty-snimky/` navíc automaticky vylučuje
-  prolínačky (ty vznikají až při skládání, zdrojový klip žádnou neobsahuje).
-- **Jak se měří (přezkoumatelné kdykoli):** brána `~/Desktop/Omega/skripty/kontrola_animace.py`.
-  Přehled všech dílů (kolik scén má klíč „animace", kolik z nich skutečný klip,
-  verdikt měřidla): `~/Desktop/Omega/skripty/stav_animaci.py` →
-  `~/Desktop/Omega/data/stav-animaci.md`.
-- Název souboru (např. přípona `-animace`) NENÍ doklad — šest takto pojmenovaných souborů
-  mělo ve skutečnosti jen 3,5–4,5 % unikátních snímků (jednu krátkou vsunutou scénu, ne
-  animaci po celou dobu vysvětlení). Rozhoduje jen naměřené číslo z brány výše.
+- Každá scéna musí názorně vysvětlovat příslušnou řeč sekvencí pohyblivých obrazů vytvářejících děj. Jedna krátká animace mezi statickými obrázky nestačí.
+- Zrušeno je dřívější pravidlo „alespoň jedna scéna“. Zoom fotografie, prolínačka, postupné odhalení seznamu ani dekorativní pohyb samy o sobě nejsou vysvětlením děje.
+- Každý klip pokrývá celou skutečnou délku příslušné scény. Časování se odvozuje od hotové řeči (WAV nebo ověřený přepis), nikoli od délky textu. Automat nesmí chybějící děj nahradit držením posledního snímku.
+- Smysluplná krátká prodleva mezi dějovými kroky je přípustná. Samotný počet unikátních snímků ani délka pohybu neprokazují fyzikální správnost a soulad s polemikou.
+- Kontroluje se každá scéna ve FINÁLNÍM videu: návaznost na řeč, názornost, fyzikální správnost, skutečný děj a absence nechtěného zamrznutí. Kontrola zdrojových klipů je jen dílčí technická kontrola.
+- Výrobní postup a mechanismus plných klipů: `~/Desktop/Omega/dokumenty/NAVOD-ANIMACE-PODKASTU.md`. Historické znění tohoto oddílu je uložené v záloze Omegy, nikoli jako platný postup.

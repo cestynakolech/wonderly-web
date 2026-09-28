@@ -1,3 +1,7 @@
+> **28. 9. 2026 — aktuální stav po zásahu učitele:** výrobní služby `nocni-fronta`, `dodelej-animace` a `kanarek` jsou od 22:39 pozastavené, protože vznikaly díly s jediným pohyblivým klipem a zbytkem statickým. Obnovit až po předělání a ověření plných animovaných scén. Staré pravidlo „alespoň jedna animace“ bylo odstraněno; platí OBSAH-PRAVIDLA.md a Omega/dokumenty/NAVOD-ANIMACE-PODKASTU.md. Pět dnešních videí ještě čeká na předělání. ThinkingCap 3.8 je nainstalovaný a otestovaný (90 kontrol); výchozí MLX ponechán, protože jediný bod navíc není stabilní a nový model je 2–2,9× pomalejší. Podrobnosti: Omega/dokumenty/thinkingcap-38-test-2026-09-28/STAV.md. Učitel schválil samostatné pokračování. Opraven také starý obrazový postup v NAVOD-POLEMIKY-F6.md a ve skillu podkast-video. Následující zápis o obnovení všech osmi automatů je již historický.
+
+> **28. 9. 2026, 22:14 — automaty obnoveny:** učitel výslovně schválil všech osm dříve pozastavených služeb. Všechny jsou načtené; noční fronta zahájila animace. Kanárek byl kvůli pozdnímu startu přeskočen (neověřeno). Důkazy a rozsah: `Omega/dokumenty/OBNOVENI-AUTOMATU-2026-09-28.md`. Níže uvedené pozastavení z27. 9. je historické.
+
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
 ✅ VATA-ZÁPIS (27. 9. 2026, opraveno): testy/nastroje/vata-zapis-navrhy.mjs
