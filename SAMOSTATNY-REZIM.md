@@ -23,11 +23,9 @@ byl 27. 9. 17:32 znovu pozastaven, viz řádek kanárek v soupisu).
 27. 9. večer: noční fronta VYPNUTA na žádost učitele (GPU pro jeho práci s lokálními
 modely). Znovu zapnout: `launchctl bootstrap gui/502 ~/Library/LaunchAgents/cz.wonderly.nocni-fronta.plist`.
 
-🔹 drobnost do stavu (27. 9. 2026, kontrolor V19/N15): výstup podkástů
-(`vyrob_omnivoice.py` → `/Users/Shared/Škola/podkasty/...`) skutečně zapisuje
-do `Škola/`, ačkoli `_SPOLECNE.md` ji popisuje jako „jen číst" — jde o zavedenou
-výjimku (výstup automatu, ne zdrojový podklad), zatím jen zapsáno jako fakt,
-rozhodnutí o formálním zápisu výjimky nechat na učiteli.
+🔹 výstup podkastů do `Škola/podkasty/<ročník>/…mp3` — stav a formální schválení
+viz sekce „❓ Otevřené dotazy na učitele" níže, položka „Škola/podkasty —
+formální schválení výjimky".
 
 **STÁLE OTEVŘENO (nepokryto níže, ČTI PŘESNĚ):** `OBSAH-PRAVIDLA.md` § „Pořadí práce" (ř. 321–322) —
 1. téma (F7 `pohyb-a-rychlost`, F8 `mechanicka-prace-a-vykon`, F9 `magneticke-pole`)
@@ -100,6 +98,13 @@ Dřív rozeseté po pěti místech (2x hlavičkovaná sekce Čeká na odkliknut�
 samostatné věty) — sloučeno sem, na originálních místech zůstal jen pointer.
 Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
+- [Omega] **Škola/podkasty — formální schválení výjimky** — složka
+  `/Users/Shared/Škola/podkasty` patří `radek_soukromy`, existuje, obsahuje
+  produkční mp3/přepisy (7/8/9, ověřeno `ls` 28. 9. 2026) a `vyrob_omnivoice.py`
+  do ní aktivně zapisuje — jde o zavedenou, živě používanou výjimku ze
+  „Škola = jen číst" (`_SPOLECNE.md` § Izolace ji tak popisuje). Git historie
+  Omegy neobsahuje žádný commit s výslovným schválením učitele — jde o zavedenou
+  praxi, ne o formálně odklikanou výjimku; učitel má rozhodnout, zda ji potvrdit.
 - [cesty] **KOLODĚJE** — pečlivá anonymizace hotová, kontrolor 0 nálezů, čeká od 21:24.
   `pecliva_videa.py --schvaleno` (nebo `--zamitnuto "důvod"`).
 - [cesty] **Le Bourg-d'Oisans + kapitoly** — tři varianty s cenou (na YouTube je verze
@@ -171,8 +176,9 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [skola2] 22 kandidátů na zkrácení pravidel čeká na výběr učitele v
   `Omega/dokumenty/PRAVIDLA-AUDIT-2026-09-21.md`.
 - [Omega] **Rozhodnutí U1–U16 čekají na učitele** (doporučeno vše A) — plná
-  tabulka je v `Omega/dokumenty/PREDAVKA-2026-09-27.md` (sekce „ČEKÁ NA UČITELE
-  — tabulka U1–U16"); V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
+  tabulka je HISTORICKÝ SNÍMEK k 27. 9. 2026 v `Omega/dokumenty/PREDAVKA-2026-09-27.md`
+  (sekce „ČEKÁ NA UČITELE — tabulka U1–U16"); aktuální stav a znění U14/U15/U16
+  vede tahle sekce ❓ (jediné živé místo). V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
   `wonderly/SKILL.md:353-355`/`_SPOLECNE.md:36-42` a `~/.claude/CLAUDE.md`
   § Jak pracovat, bod 6 „Izolace") je **U15 — VYŘEŠENO** (`Omega/PRAVIDLA.md:591` (c): platí znění
   `~/.claude/CLAUDE.md` bod 6, skilly mají znít shodně — opraveno kolo 3).
@@ -788,10 +794,10 @@ v gitu Omegy žádná historie) — buď zůstaly na Mac mini (ověřit tam), ne
 ztratily. „Nic z toho se neztratilo" (výše) neplatí bez dalšího ověření.
 
 **Na čem to stojí — dvě nezávislé překážky, obě mimo dosah této session:**
-1. `vyrob_omnivoice.py` ukládá zvuk do `/Users/Shared/Škola/podkasty/<rocnik>/`.
-   Ta složka patří účtu **radekmicek** (`drwxr-xr-x radekmicek wheel`) a z účtu
-   `radek_soukromy` do ní zapsat nejde — `PermissionError` už při `mkdir`.
-   Složka `podkasty` navíc zatím vůbec neexistuje.
+1. **PŘEKONÁNO** (viz ř. 419 výše a bod „OPRAVENO V8-2" níže) — tvrzení, že
+   `vyrob_omnivoice.py` neumí zapisovat do `/Users/Shared/Škola/podkasty/<rocnik>/`,
+   protože složka patří `radekmicek`/neexistuje, byl stav z 10. 9. 2026. Od 27. 9.
+   patří složka `radek_soukromy` a v ní jsou produkční mp3/přepisy — zápis funguje.
 2. Most na druhý účet (`/Users/Shared/Claude-most/`), kterým by se práce dala
    předat, **neexistuje** — takže ani obchvat není otevřený.
    **AKTUALIZACE 27. 9. 2026 (K3-R16):** na MacBooku `/Users/Shared/Claude-most/`
