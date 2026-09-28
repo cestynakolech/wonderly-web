@@ -1,5 +1,5 @@
 ---
-description: Zahájení práce — načte stav projektu, zapne orchestrátorský režim, shrne kde jsme a navrhne další krok ke schválení
+description: Zahájení práce — načte stav projektu, zapne orchestrátorský režim, shrne kde jsme a rozhodne a rovnou spustí další krok (bez čekání na schválení)
 ---
 Zahajuješ pracovní blok na projektu wonderly. Drž PŘESNĚ toto pořadí — všechno čtení je PŘED zapnutím režimu, protože potom už ti ho vrátný zamítne:
 

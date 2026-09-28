@@ -173,8 +173,8 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 - [Omega] **Rozhodnutí U1–U16 čekají na učitele** (doporučeno vše A) — plná
   tabulka je v `Omega/dokumenty/PREDAVKA-2026-09-27.md` (sekce „ČEKÁ NA UČITELE
   — tabulka U1–U16"); V18-4 (rozpor „kdo zapisuje do sdílených souborů" mezi
-  `wonderly/SKILL.md:353-355`/`_SPOLECNE.md:36-42` a `~/.claude/CLAUDE.md:71-73`
-  pravidlo 6) je **U15 — VYŘEŠENO** (`Omega/PRAVIDLA.md:591` (c): platí znění
+  `wonderly/SKILL.md:353-355`/`_SPOLECNE.md:36-42` a `~/.claude/CLAUDE.md`
+  § Jak pracovat, bod 6 „Izolace") je **U15 — VYŘEŠENO** (`Omega/PRAVIDLA.md:591` (c): platí znění
   `~/.claude/CLAUDE.md` bod 6, skilly mají znít shodně — opraveno kolo 3).
   U16: MEMORY.md (Škola) po zhuštění D5 27. 9. má 131 řádků / 19 577 B, pod
   cílem 140 řádků / 20 000 B — U16 tímto ODPADÁ, hlídat, ať zase nenaroste.
