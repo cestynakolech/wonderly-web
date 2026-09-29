@@ -4,7 +4,7 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
-📌 Pořadí (učitel 29. 9. 2026): nejdřív 7., 8., 9. ročník; 6. ročník až po nich (letos ho neučí).
+📌 Pořadí (učitel 29. 9. 2026): téma po tématu napříč 7./8./9. ročníkem — 1. téma všech tří kompletně (úvod, výklad, zápis, obrázky, kvíz, písnička, video), pak 2. téma…; 6. ročník až po nich.
 
 ✅ VATA-ZÁPIS (27. 9. 2026, opraveno): testy/nastroje/vata-zapis-navrhy.mjs
 přepsán — cílí přes qIndex+distraktorIndex (ne řetězcem kdekoli v bloku),

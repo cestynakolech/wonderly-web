@@ -136,7 +136,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   vznikne soupis obrázků zdroje (id, strana, typ, obsah, způsob překreslení); počet obrázků ve zdroji
   = počet protějšků, výjimka jen s písemným důvodem (např. čistě dekorativní foto). Každý protějšek
   ověří **nezávislý kontrolor** (obsahová shoda s předlohou + není kopie). Zavádí se v pilotu
-  a po ročnících dle kap. 13 (7 → 8 → 9).
+  a téma po tématu napříč 7/8/9 dle kap. 13.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
 - Odkazy uvnitř webu **relativní**; externí odkazy **jen české** — když český zdroj není, napíše se vlastní česká stránka.
 - Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
@@ -369,8 +369,11 @@ užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz s
 Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis ≤ 8 řádků) se zavádějí takto:
 
 1. **Pilot na 2 podtématech** — výsledek ukáže učiteli; **bez jeho schválení se dál nejde**.
-2. Po schválení **po ročnících v pořadí 7 → 8 → 9, 6. ročník až potom**.
-3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení ročníky 7 → 8 → 9.
+2. Po schválení **téma po tématu napříč ročníky 7/8/9** (pokyn učitele 29. 9. 2026, večer): nejdřív
+   1. téma F7 + 1. téma F8 + 1. téma F9 KOMPLETNĚ (úvod, výklad v rozsahu PDF, zápis, všechny obrázky
+   z PDF překreslené, kvíz, písnička, video), teprve pak 2. téma všech tří ročníků atd. — v pořadí
+   témat, jak se učí. **6. ročník až po 7–9.** Přehled: `Omega/dokumenty/PORADI-TEMAT-7-9.md`.
+3. Obrázky (kap. 3, „OBRÁZKY ZE ZDROJE“) se zavádějí stejně: pilot → po schválení téma po tématu napříč 7/8/9.
 4. Každé upravené podtéma projde **nezávislým kontrolorem** (čerstvý kontext): věcná správnost
    zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek přesunut do „Pro zvídavé“,
    ne smazán) a kvíz dál pokrývá výklad.
