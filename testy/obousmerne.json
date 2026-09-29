@@ -485,6 +485,12 @@
 			"regrese": "Test hlídá i to, co v komponentě před zapojením nefungovalo: proměnná periody byla psaná dvakrát jinak (OBDOBI × OBDOBÍ), takže skript při prvním překreslení padal na ReferenceError a simulace se v prohlížeči nikdy nespustila. Kontrola 'v čase 0 vzniká nosič uprostřed vzorku' takovou vadu odhalí, protože skutečně volá funkci komponenty.",
 			"overeno": "2026-09-23"
 		},
+		"simulace/indukce-dve-civky.mjs": {
+			"test": "testy/simulace/indukce-dve-civky.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Mutační test `node testy/mutace.mjs indukce-dve-civky`: 21 mutací komponenty (např. špatný násobek závitů, ignorované natočení magnetu, obrácený směr výchylky, ručička při stání mimo nulu, rychlost mimo poměr 1 : 2 : 3), všech 21 odhaleno, 0 přeživších; test skončí kódem 1 a pojmenuje vadu.",
+			"zdravy": "Nad nezměněnou komponentou test projde kódem 0 ('✅ 24 kombinací: úhly sedí, žádná desetinná čísla, vždy vysvětlení', '✅ vše v pořádku').",
+			"overeno": "2026-09-29"
+		},
 		"simulace/tinkercad.mjs": {
 			"test": "testy/podvrhy/tinkercad-podvrhy.mjs",
 			"podvrh": "node testy/podvrhy/tinkercad-podvrhy.mjs — 27 podvržených KOPIÍ komponenty (originál nedotčen, kopie v dočasné složce): díra se vykousne i bez Ctrl+G · otvor udělá i plné těleso · zvednutá díra prý projde skrz · hloubka výkusu nezávislá na zvednutí · zbytek materiálu počítaný z průměru místo poloměru · přesah kraje počítaný z průměru · panel hlásí tloušťku placky místo hloubky výkusu · prohozené dno průchozího otvoru a důlku · seskupená plná tělesa zůstanou dvoubarevná · panel zase vypíše záporný výsledek (2 − 6 = −4) · neprůhledná díra · válec nižší než placka · posuvník průměru po 1 mm (poloměr v půlkách mm) · ořez otvoru větší než placka · popisek tvrdí 5 mm silnou placku · natažená přední stěna proti kótě 40 mm · dotyk kraje (0 mm materiálu) vydávaný za přetečení ve větě i ve vysvětlení · zamlčený dotyk kraje · tlačítko bez zkratky Ctrl+G · ↺ nevrací zvednutí · nadpis slibuje otáčení pohledu · kóta míří vedle dírky · zploštění volené od oka (0,55) · zploštění obráceně (S/KY_Y) · zploštění závislé na velikosti dírky · měřítko 8 px/mm místo 6,5. Všech 27 test shodí. Navíc mutační test `node testy/mutace.mjs tinkercad`: 26 z 26 mutací odhaleno.",

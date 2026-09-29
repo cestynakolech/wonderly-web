@@ -368,3 +368,8 @@ granite4.2:3b (2,2 GB) na ANO/NE proti gemma4:26b, qwen3.6:27b-mlx (19 GB) na k�
 
 Varování z rešerše: Gemma 4 (31b/26b) na M5 Max zamrzala s `OLLAMA_FLASH_ATTENTION=1` a promptem > 500 tokenů
 (issue #15368); qwen3-embedding padal na Apple Silicon po ~9000 embeddinzích (issue #17509, otevřené).
+
+## 29. 9. 2026 — F9 indukce (elektromagneticka-indukce), kontrola 3 kola
+
+Rozhodnutí: F9 indukce — kontrola 3 kola (5+5+2 drobné nálezy). Nález K3-1 (4 závity = přesně 2× výchylka) ponechán rozhodnutím orchestrátora: indukované napětí je úměrné počtu závitů (Faradayův zákon), infografika je zjednodušený model, text násobek netvrdí; učitel srovnání 2 vs 4 závity výslovně žádal.
+Nálezy kol 1–3 (všechny drobné): /tmp/wonderly-workery/2026-09-29-indukce/kontrola.md (kolo 1, 5), kontrola-k2.md (kolo 2, 5), kontrola-k3.md (kolo 3, 2). K3-2 (věta o měnění závitů u ampérmetru) opraven přepisem věty v temata.ts.

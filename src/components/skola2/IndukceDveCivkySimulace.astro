@@ -1,0 +1,384 @@
+---
+// Elektromagnetická indukce (F9, indukce-a-stridavy-proud / elektromagneticka-indukce):
+// DVĚ cívky vedle sebe — se 2 a se 4 závity — každá na vlastním ampérmetru
+// (nula uprostřed, výchylka doleva/doprava = směr proudu). Nad každou cívkou
+// visí STEJNÝ magnet a oba se pohybují naráz a stejně, takže se dá přímo
+// porovnat 2 × 4 závity při jinak stejných podmínkách (zadání učitele).
+//
+// Výchylka v dílcích = směr pohybu (±1) · rychlost (1/2/3) · síla magnetu (1/2)
+// · (závity : 2) · natočení magnetu (±1) → vždy celé číslo, nejvýš 12
+// (stupnice ±12 dílků = ±60°, 5° na dílek). Když magnet stojí, obě ručičky
+// ukazují 0. Rychlost je skutečná rychlost animace: dráha 110 px za 3 s /
+// 1,5 s / 1 s → rychlosti v poměru 1 : 2 : 3. Poloha se počítá z času
+// (performance.now), ne z počtu snímků, takže zpomalený requestAnimationFrame
+// nezmění rychlost pohybu, jen plynulost.
+//
+// Klik mění SVG SYNCHRONNĚ (ručičky, šipky, texty) — animace jen posouvá
+// magnet. Viditelný stav je výhradně v SVG atributech a textech.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Indukce ve dvou cívkách — 2 a 4 závity 🕹️</span></h2>
+	<p>Dva <strong>stejné magnety</strong> se pohybují <strong>naráz a stejně</strong> — jeden v cívce se <strong>2 závity</strong>, druhý v cívce se <strong>4 závity</strong>. Každá cívka má svůj <strong>ampérmetr</strong>. Zasuň nebo vysuň magnety, změň rychlost, sílu magnetu nebo magnety otoč a porovnej obě ručičky.</p>
+	<p class="idc-radek">
+		<strong>Pohyb:</strong>
+		<button type="button" class="idc-tl" id="idc-zasun">⬇ zasunout</button>
+		<button type="button" class="idc-tl" id="idc-vysun" disabled>⬆ vysunout</button>
+		<button type="button" class="idc-tl" id="idc-stop">⏸ zastavit</button>
+	</p>
+	<p class="idc-radek">
+		<strong>Rychlost:</strong>
+		<button type="button" class="idc-tl" id="idc-rychlost1">pomalu</button>
+		<button type="button" class="idc-tl idc-aktivni" id="idc-rychlost2">středně</button>
+		<button type="button" class="idc-tl" id="idc-rychlost3">rychle</button>
+		<strong>Magnet:</strong>
+		<button type="button" class="idc-tl idc-aktivni" id="idc-sila1">slabý</button>
+		<button type="button" class="idc-tl" id="idc-sila2">silný</button>
+		<button type="button" class="idc-tl" id="idc-otoc">🔄 otočit magnet</button>
+	</p>
+	<svg id="idc-svg" viewBox="0 0 660 440" role="img" aria-label="Dva stejné magnety, cívka se 2 závity a cívka se 4 závity, každá s ampérmetrem">
+		<rect x="0" y="0" width="660" height="440" fill="#f8f9fa" />
+		<text id="idc-nastaveni" x="330" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<!-- legenda pólů: barvy shodné s IndukceSimulace (N červená, S modrá) -->
+		<rect x="178" y="35" width="14" height="14" fill="#e03131" stroke="#2b2a26" stroke-width="1.5" />
+		<text x="197" y="47" font-size="13" fill="#2b2a26"><tspan font-weight="bold">N</tspan> = severní pól</text>
+		<rect x="338" y="35" width="14" height="14" fill="#1971c2" stroke="#2b2a26" stroke-width="1.5" />
+		<text x="357" y="47" font-size="13" fill="#2b2a26"><tspan font-weight="bold">S</tspan> = jižní pól</text>
+		<text x="185" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">cívka se 2 závity</text>
+		<text x="505" y="70" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">cívka se 4 závity</text>
+		<line x1="320" y1="58" x2="320" y2="360" stroke="#dee2e6" stroke-width="2" stroke-dasharray="6 6" />
+
+		<!-- vodiče cívka → ampérmetr (levý sloupec, cívka cx 110, ampérmetr 260) -->
+		<path d="M64 225 L48 225 L48 350 L280 350 L280 304" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<path d="M156 275 L172 275 L172 335 L240 335 L240 304" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<!-- vodiče pravý sloupec (cívka cx 430, ampérmetr 580) -->
+		<path d="M384 215 L368 215 L368 350 L600 350 L600 304" fill="none" stroke="#2b2a26" stroke-width="3" />
+		<path d="M476 290 L492 290 L492 335 L560 335 L560 304" fill="none" stroke="#2b2a26" stroke-width="3" />
+
+		<!-- trubky cívek a ZADNÍ poloviny závitů (za magnetem) -->
+		<rect x="70" y="205" width="80" height="100" rx="6" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" />
+		<rect x="390" y="205" width="80" height="100" rx="6" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" />
+		<g id="idc-zadni2" fill="none" stroke="#8d6e4f" stroke-width="4">
+			<path d="M64 225 A46 9 0 0 1 156 225" />
+			<path d="M64 275 A46 9 0 0 1 156 275" />
+		</g>
+		<g id="idc-zadni4" fill="none" stroke="#8d6e4f" stroke-width="4">
+			<path d="M384 215 A46 9 0 0 1 476 215" />
+			<path d="M384 240 A46 9 0 0 1 476 240" />
+			<path d="M384 265 A46 9 0 0 1 476 265" />
+			<path d="M384 290 A46 9 0 0 1 476 290" />
+		</g>
+
+		<!-- magnety: horní a dolní půlka, dolní pól míří do cívky -->
+		<rect id="idc-m2-h" x="95" y="80" width="30" height="55" stroke="#2b2a26" stroke-width="3" fill="#1971c2" />
+		<rect id="idc-m2-d" x="95" y="135" width="30" height="55" stroke="#2b2a26" stroke-width="3" fill="#e03131" />
+		<text id="idc-m2-ht" x="110" y="114" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">S</text>
+		<text id="idc-m2-dt" x="110" y="169" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">N</text>
+		<rect id="idc-m4-h" x="415" y="80" width="30" height="55" stroke="#2b2a26" stroke-width="3" fill="#1971c2" />
+		<rect id="idc-m4-d" x="415" y="135" width="30" height="55" stroke="#2b2a26" stroke-width="3" fill="#e03131" />
+		<text id="idc-m4-ht" x="430" y="114" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">S</text>
+		<text id="idc-m4-dt" x="430" y="169" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">N</text>
+
+		<!-- PŘEDNÍ poloviny závitů (před magnetem) -->
+		<g id="idc-predni2" fill="none" stroke="#b08968" stroke-width="4">
+			<path d="M64 225 A46 9 0 0 0 156 225" />
+			<path d="M64 275 A46 9 0 0 0 156 275" />
+		</g>
+		<g id="idc-predni4" fill="none" stroke="#b08968" stroke-width="4">
+			<path d="M384 215 A46 9 0 0 0 476 215" />
+			<path d="M384 240 A46 9 0 0 0 476 240" />
+			<path d="M384 265 A46 9 0 0 0 476 265" />
+			<path d="M384 290 A46 9 0 0 0 476 290" />
+		</g>
+
+		<!-- šipky pohybu -->
+		<text id="idc-s2" x="40" y="150" text-anchor="middle" font-size="30" font-weight="bold" fill="#2f9e44"></text>
+		<text id="idc-s4" x="360" y="150" text-anchor="middle" font-size="30" font-weight="bold" fill="#2f9e44"></text>
+
+		<!-- ampérmetr 2 závity -->
+		<circle cx="260" cy="235" r="52" fill="#fff" stroke="#2b2a26" stroke-width="4" />
+		<!-- rysky stupnice: jedna ryska = 1 dílek (5°) -->
+		<g stroke="#868e96" stroke-width="1.5">
+			<line x1="260" y1="187" x2="260" y2="198" transform="rotate(-60 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-55 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-50 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="195" transform="rotate(-45 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-40 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-35 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="198" transform="rotate(-30 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-25 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-20 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="195" transform="rotate(-15 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-10 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(-5 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="198" stroke="#2b2a26" stroke-width="3" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(5 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(10 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="195" transform="rotate(15 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(20 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(25 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="198" transform="rotate(30 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(35 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(40 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="195" transform="rotate(45 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(50 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="192" transform="rotate(55 260 235)" />
+			<line x1="260" y1="187" x2="260" y2="198" transform="rotate(60 260 235)" />
+		</g>
+		<text x="260" y="178" text-anchor="middle" font-size="11" fill="#495057">0</text>
+		<text x="203" y="207" text-anchor="end" font-size="11" fill="#495057">12</text>
+		<text x="317" y="207" text-anchor="start" font-size="11" fill="#495057">12</text>
+		<text x="260" y="272" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">A</text>
+		<line id="idc-r2" x1="260" y1="235" x2="260" y2="191" stroke="#e03131" stroke-width="4" stroke-linecap="round" transform="rotate(0 260 235)" />
+		<circle cx="260" cy="235" r="6" fill="#2b2a26" />
+		<circle cx="240" cy="300" r="5" fill="#2b2a26" />
+		<circle cx="280" cy="300" r="5" fill="#2b2a26" />
+
+		<!-- ampérmetr 4 závity -->
+		<circle cx="580" cy="235" r="52" fill="#fff" stroke="#2b2a26" stroke-width="4" />
+		<!-- rysky stupnice: jedna ryska = 1 dílek (5°) -->
+		<g stroke="#868e96" stroke-width="1.5">
+			<line x1="580" y1="187" x2="580" y2="198" transform="rotate(-60 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-55 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-50 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="195" transform="rotate(-45 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-40 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-35 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="198" transform="rotate(-30 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-25 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-20 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="195" transform="rotate(-15 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-10 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(-5 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="198" stroke="#2b2a26" stroke-width="3" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(5 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(10 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="195" transform="rotate(15 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(20 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(25 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="198" transform="rotate(30 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(35 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(40 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="195" transform="rotate(45 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(50 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="192" transform="rotate(55 580 235)" />
+			<line x1="580" y1="187" x2="580" y2="198" transform="rotate(60 580 235)" />
+		</g>
+		<text x="580" y="178" text-anchor="middle" font-size="11" fill="#495057">0</text>
+		<text x="523" y="207" text-anchor="end" font-size="11" fill="#495057">12</text>
+		<text x="637" y="207" text-anchor="start" font-size="11" fill="#495057">12</text>
+		<text x="580" y="272" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">A</text>
+		<line id="idc-r4" x1="580" y1="235" x2="580" y2="191" stroke="#e03131" stroke-width="4" stroke-linecap="round" transform="rotate(0 580 235)" />
+		<circle cx="580" cy="235" r="6" fill="#2b2a26" />
+		<circle cx="560" cy="300" r="5" fill="#2b2a26" />
+		<circle cx="600" cy="300" r="5" fill="#2b2a26" />
+
+		<!-- odečty ampérmetrů -->
+		<text id="idc-o2" x="185" y="376" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<text id="idc-o4" x="505" y="376" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+
+		<!-- závěr: co se právě změnilo (na plaketě) -->
+		<rect x="10" y="388" width="640" height="46" rx="8" fill="#fff4e6" stroke="#f08c00" stroke-width="2" />
+		<text id="idc-zaver1" x="330" y="406" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
+		<text id="idc-zaver2" x="330" y="425" text-anchor="middle" font-size="13" fill="#2b2a26"></text>
+	</svg>
+</section>
+
+<script>
+	const svg = document.getElementById('idc-svg');
+	const CIVKY = [
+		{ zavity: 2, cx: 110, ampermetr: 260 },
+		{ zavity: 4, cx: 430, ampermetr: 580 },
+	];
+	// doba přejezdu celé dráhy v ms — rychlosti v poměru 1 : 2 : 3
+	const RYCHLOSTI = {
+		1: { nazev: 'pomalu', doba: 3000 },
+		2: { nazev: 'středně', doba: 1500 },
+		3: { nazev: 'rychle', doba: 1000 },
+	};
+	const SILY = {
+		1: { nazev: 'slabý', sirka: 30 },
+		2: { nazev: 'silný', sirka: 44 },
+	};
+	const CERVENA = '#e03131';
+	const MODRA = '#1971c2';
+	const HORNI = 80; // horní okraj magnetu, když je venku
+	const DRAHA = 110; // px mezi polohou venku a uvnitř cívky
+	const PULKA = 55; // výška jedné půlky magnetu
+	const STUPNE_NA_DILEK = 5; // 12 dílků = 60°
+
+	let rychlost = 2;
+	let sila = 1;
+	let dole = 'N';
+	let smer = 0; // 0 stojí, 1 zasouvá, −1 vysouvá
+	let poloha = 0; // 0 venku, 1 uvnitř cívky
+	let p0, t0, idAnim;
+	let posledni = null;
+	let zmena = '';
+
+	const vychylka = (smerPohybu, rychl, sil, zavity, pol) =>
+		smerPohybu * rychl * sil * (zavity / 2) * (pol === 'N' ? 1 : -1);
+	const yMagnetu = (p) => HORNI + DRAHA * p;
+	const uhel = (d) => d * STUPNE_NA_DILEK;
+	const barva = (pol) => (pol === 'N' ? CERVENA : MODRA);
+	const jmenoPolu = (pol) => (pol === 'N' ? 'severní pól (N)' : 'jižní pól (S)');
+	function dilky(n) {
+		const a = Math.abs(n);
+		const slovo = a === 1 ? 'dílek' : a >= 2 && a < 5 ? 'dílky' : 'dílků';
+		return `${a} ${slovo}`;
+	}
+	const strana = (n) => (n < 0 ? 'doleva' : 'doprava');
+	const odecet = (n) => (n === 0 ? '0 — ručička na nule' : `${dilky(n)} ${strana(n)}`);
+	const nastav = (id, attrs) => {
+		const el = document.getElementById(id);
+		for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+	};
+
+	function aktualniPoloha(ted) {
+		if (smer === 0) return poloha;
+		const posun = (ted - t0) / RYCHLOSTI[rychlost].doba;
+		return Math.min(1, Math.max(0, p0 + smer * posun));
+	}
+
+	function prekresli() {
+		const horni = yMagnetu(poloha);
+		const sirka = SILY[sila].sirka;
+		const horniPol = dole === 'N' ? 'S' : 'N';
+		const hodnoty = {};
+		for (const c of CIVKY) {
+			const z = c.zavity;
+			const d = vychylka(smer, rychlost, sila, z, dole);
+			hodnoty[z] = d;
+			nastav(`idc-m${z}-h`, { x: c.cx - sirka / 2, y: horni, width: sirka, fill: barva(horniPol) });
+			nastav(`idc-m${z}-d`, { x: c.cx - sirka / 2, y: horni + PULKA, width: sirka, fill: barva(dole) });
+			nastav(`idc-m${z}-ht`, { y: horni + 34 });
+			nastav(`idc-m${z}-dt`, { y: horni + 89 });
+			document.getElementById(`idc-m${z}-ht`).textContent = horniPol;
+			document.getElementById(`idc-m${z}-dt`).textContent = dole;
+			nastav(`idc-r${z}`, { transform: `rotate(${uhel(d)} ${c.ampermetr} 235)` });
+			document.getElementById(`idc-s${z}`).textContent = smer === 0 ? '' : smer < 0 ? '↑' : '↓';
+			document.getElementById(`idc-o${z}`).textContent = `ampérmetr: ${odecet(d)}`;
+		}
+		const kde = poloha === 0 ? ' venku' : poloha === 1 ? ' uvnitř' : '';
+		const stav = smer === 0 ? `magnety stojí${kde}` : smer < 0 ? 'vysouvají se' : 'zasouvají se';
+		document.getElementById('idc-nastaveni').textContent =
+			`rychlost: ${RYCHLOSTI[rychlost].nazev} · magnet: ${SILY[sila].nazev} · dolů: ${jmenoPolu(dole)} · ${stav}`;
+
+		let r1;
+		let r2;
+		if (smer !== 0) {
+			r1 = zmena || `${smer < 0 ? 'Vysouváš' : 'Zasouváš'} magnety — pole v cívkách se mění, cívkami teče indukovaný proud.`;
+			r2 = `2 závity: ${odecet(hodnoty[2])} · 4 závity: ${odecet(hodnoty[4])}`;
+		} else if (posledni) {
+			r1 = zmena || 'Magnety se zastavily — pole se nemění, obě ručičky jsou na 0.';
+			r2 = `Při pohybu bylo: 2 závity ${odecet(posledni[2])} · 4 závity ${odecet(posledni[4])}`;
+		} else {
+			r1 = zmena || 'Magnety stojí — pole v cívkách se nemění, obě ručičky ukazují 0.';
+			r2 = 'Zasuň magnety do cívek a porovnej oba ampérmetry.';
+		}
+		document.getElementById('idc-zaver1').textContent = r1;
+		document.getElementById('idc-zasun').disabled = smer === 0 && poloha === 1;
+		document.getElementById('idc-vysun').disabled = smer === 0 && poloha === 0;
+		document.getElementById('idc-zaver2').textContent = r2;
+	}
+
+	function zastav() {
+		if (smer !== 0) {
+			posledni = {
+				2: vychylka(smer, rychlost, sila, 2, dole),
+				4: vychylka(smer, rychlost, sila, 4, dole),
+			};
+		}
+		smer = 0;
+		zmena = '';
+		if (idAnim) cancelAnimationFrame(idAnim);
+		idAnim = null;
+	}
+
+	function krok(ted) {
+		poloha = aktualniPoloha(ted);
+		const cil = smer < 0 ? 0 : 1;
+		if (poloha === cil) zastav();
+		prekresli();
+		if (smer !== 0) idAnim = requestAnimationFrame(krok);
+	}
+
+	function pohni(novySmer) {
+		const ted = performance.now();
+		poloha = aktualniPoloha(ted);
+		// magnet už je na konci dráhy v tomhle směru → žádný skok; jel-li, zastaví se
+		const cil = novySmer < 0 ? 0 : 1;
+		if (poloha === cil) {
+			if (smer !== 0) {
+				zastav();
+				prekresli();
+			}
+			return;
+		}
+		if (idAnim) cancelAnimationFrame(idAnim);
+		smer = novySmer;
+		p0 = poloha;
+		t0 = ted;
+		zmena = '';
+		prekresli();
+		idAnim = requestAnimationFrame(krok);
+	}
+
+	function dusledek(pred, po) {
+		if (smer === 0) return ' — magnety stojí, ručičky zůstávají na 0.';
+		if (Math.sign(pred) !== Math.sign(po)) return ' — ručičky ukazují na opačnou stranu.';
+		if (Math.abs(po) > Math.abs(pred)) return ` — výchylka u 4 závitů vzrostla z ${Math.abs(pred)} na ${Math.abs(po)}.`;
+		if (Math.abs(po) < Math.abs(pred)) return ` — výchylka u 4 závitů klesla z ${Math.abs(pred)} na ${Math.abs(po)}.`;
+		return ' — výchylka se nezměnila.';
+	}
+
+	function zmenNastaveni(uprav, popis) {
+		const ted = performance.now();
+		const pred = vychylka(smer, rychlost, sila, 4, dole);
+		poloha = aktualniPoloha(ted);
+		p0 = poloha;
+		t0 = ted;
+		uprav();
+		const po = vychylka(smer, rychlost, sila, 4, dole);
+		zmena = `Změna: ${popis()}${dusledek(pred, po)}`;
+		prekresli();
+	}
+
+	const klik = (id, fn) => document.getElementById(id).addEventListener('click', fn);
+	klik('idc-zasun', () => pohni(1));
+	klik('idc-vysun', () => pohni(-1));
+	klik('idc-stop', () => {
+		poloha = aktualniPoloha(performance.now());
+		zastav();
+		prekresli();
+	});
+	for (const r of [1, 2, 3]) {
+		klik(`idc-rychlost${r}`, () => {
+			for (const q of [1, 2, 3]) document.getElementById(`idc-rychlost${q}`).classList.toggle('idc-aktivni', q === r);
+			zmenNastaveni(() => { rychlost = r; }, () => `rychlost ${RYCHLOSTI[r].nazev}`);
+		});
+	}
+	for (const s of [1, 2]) {
+		klik(`idc-sila${s}`, () => {
+			for (const q of [1, 2]) document.getElementById(`idc-sila${q}`).classList.toggle('idc-aktivni', q === s);
+			zmenNastaveni(() => { sila = s; }, () => `${SILY[s].nazev} magnet`);
+		});
+	}
+	klik('idc-otoc', () => zmenNastaveni(() => { dole = dole === 'N' ? 'S' : 'N'; }, () => `magnet otočen, dolů je ${jmenoPolu(dole)}`));
+
+	svg.__vychylka = vychylka;
+	svg.__yMagnetu = yMagnetu;
+	svg.__dilky = dilky;
+	svg.__RYCHLOSTI = RYCHLOSTI;
+	svg.__stav = () => ({ smer, poloha, rychlost, sila, dole });
+	prekresli();
+</script>
+
+<style>
+	#idc-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.idc-radek { margin: 0.3rem 0; }
+	.idc-tl { font: inherit; font-weight: 700; padding: 0.3rem 0.8rem; border: 3px solid #2b2a26; border-radius: 10px; background: #fff; cursor: pointer; margin: 0 0.4rem 0.4rem 0; }
+	.idc-tl.idc-aktivni { background: #ffe8cc; }
+	.idc-tl:active { transform: translateY(1px); }
+	.idc-tl:disabled { opacity: 0.4; cursor: not-allowed; }
+</style>
