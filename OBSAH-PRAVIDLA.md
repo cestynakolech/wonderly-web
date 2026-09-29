@@ -113,7 +113,19 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   `~/Desktop/Omega/dokumenty/kontrola-podkladu-*.md` — tiché rozhodnutí ve prospěch jednoho zdroje
   je zakázané stejně jako tichá oprava podkladu (zákaz 7).
 - Pokrývá celé podtéma z podkladů — a nepřidává látku navíc (řetěz, bod 1 a 2).
-- Rozsah a jazyk podle ročníku; 3–6 odstavců + shrnutí.
+- **Rozsah výkladu = učitelovo PDF + prezentace** (pokyn učitele 29. 9. 2026: texty jsou
+  „příliš odborné, obsahují více, než je v PDF“). Co ve výkladu je a v PDF ani v prezentaci
+  není, se **přesune do sbalené části „Pro zvídavé“** (nadstavba k rozkliknutí, viz
+  `feedback-obsah-pro-zakladni-skolu`) — **NEMAŽE se**. Kvíz dál zkouší jen hlavní výklad;
+  „Pro zvídavé“ se nezkouší. Tím řetěz (kap. 1, bod 1 a 2) platí beze změny.
+- **Jazyk pro žáka ZŠ daného ročníku:** krátké věty, cizí slovo vždy vysvětlit, jeden pojem =
+  jedna myšlenka. Rozsah 3–6 odstavců + shrnutí.
+- **ÚVOD „Jednoduše řečeno“ na začátku každého PODTÉMATU** (pokyn učitele 29. 9. 2026;
+  děti otevírají stránku podtématu): 2–4 krátké věty na úrovni 5letého dítěte — žádný odborný
+  pojem bez vysvětlení, jeden příklad z běžného života dítěte, žádná čísla ani vzorce,
+  věcně správně (zjednodušení nesmí být nepravda). Je to vstup do problematiky, ne náhrada výkladu.
+- **ZÁPIS DO SEŠITU = jen to podstatné k zapamatování:** nejvýš **8 řádků a ~70 slov na
+  podtéma** (definice, jednotka, vzorec, 1 příklad). Co je navíc, patří do výkladu, ne do zápisu.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
 - Odkazy uvnitř webu **relativní**; externí odkazy **jen české** — když český zdroj není, napíše se vlastní česká stránka.
 - Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
@@ -296,7 +308,7 @@ G → kap. 9 bod 1, H → preambule), F je vyřešen zavedenou praxí výše.
 Téma je HOTOVÉ, teprve když má VŠECH těchto devět složek:
 
 1. přestavěný výklad (text seřízený podle zadání této ústavy),
-2. zápis do sešitu,
+2. zápis do sešitu (limit viz kap. 3),
 3. kvíz 21 otázek sladěný s výkladem (prošlý dvěma koly nezávislé kontroly),
 4. **simulace (= interaktivní infografika)** — klikací/odkrývací schéma i simulace
    s posuvníkem/parametry se počítají jako TOTÉŽ, jedna složka, ne dvě
@@ -338,3 +350,15 @@ užší definici v `SAMOSTATNY-REZIM.md`, bod E (ii); tam zůstává jen odkaz s
 - Smysluplná krátká prodleva mezi dějovými kroky je přípustná. Samotný počet unikátních snímků ani délka pohybu neprokazují fyzikální správnost a soulad s polemikou.
 - Kontroluje se každá scéna ve FINÁLNÍM videu: návaznost na řeč, názornost, fyzikální správnost, skutečný děj a absence nechtěného zamrznutí. Kontrola zdrojových klipů je jen dílčí technická kontrola.
 - Výrobní postup a mechanismus plných klipů: `~/Desktop/Omega/dokumenty/NAVOD-ANIMACE-PODKASTU.md`. Historické znění tohoto oddílu je uložené v záloze Omegy, nikoli jako platný postup.
+
+---
+
+## 13. ZAVÁDĚNÍ úvodu, rozsahu a zápisu (pokyn učitele 29. 9. 2026)
+
+Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis ≤ 8 řádků) se zavádějí takto:
+
+1. **Pilot na 2 podtématech** — výsledek ukáže učiteli; **bez jeho schválení se dál nejde**.
+2. Po schválení **po ročnících v pořadí 7 → 8 → 9, 6. ročník až potom**.
+3. Každé upravené podtéma projde **nezávislým kontrolorem** (čerstvý kontext): věcná správnost
+   zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek přesunut do „Pro zvídavé“,
+   ne smazán) a kvíz dál pokrývá výklad.
