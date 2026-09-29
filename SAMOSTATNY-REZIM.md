@@ -4,6 +4,8 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+📌 Pořadí (učitel 29. 9. 2026): nejdřív 7., 8., 9. ročník; 6. ročník až po nich (letos ho neučí).
+
 ✅ VATA-ZÁPIS (27. 9. 2026, opraveno): testy/nastroje/vata-zapis-navrhy.mjs
 přepsán — cílí přes qIndex+distraktorIndex (ne řetězcem kdekoli v bloku),
 zapisuje jen s nezávislým schválením (vata-schvaleni.json), kontroluje délkovou
