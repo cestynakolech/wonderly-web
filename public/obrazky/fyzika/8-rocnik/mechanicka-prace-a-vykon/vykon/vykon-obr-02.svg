@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 630" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešený příklad: výkon motoru automobilu P = F · v">
+  <defs>
+    <marker id="sipka-cervena" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 z" fill="#e03131"/>
+    </marker>
+    <marker id="sipka-modra" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 z" fill="#1971c2"/>
+    </marker>
+  </defs>
+  <rect x="3" y="3" width="894" height="624" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+
+  <text x="24" y="42" font-size="24" font-weight="bold" fill="#e03131">Příklad: výkon motoru automobilu</text>
+  <text x="24" y="74" font-size="19" fill="#2b2a26">Automobil jede rychlostí 54 km/h a tažná síla jeho motoru je 1,2 kN.</text>
+  <text x="24" y="100" font-size="19" fill="#2b2a26">Jak velký je výkon motoru?</text>
+
+  <!-- kresba auta -->
+  <g id="auto">
+    <line x1="20" y1="292" x2="420" y2="292" stroke="#868e96" stroke-width="3"/>
+    <line x1="40" y1="302" x2="80" y2="302" stroke="#adb5bd" stroke-width="3"/>
+    <line x1="140" y1="302" x2="180" y2="302" stroke="#adb5bd" stroke-width="3"/>
+    <line x1="240" y1="302" x2="280" y2="302" stroke="#adb5bd" stroke-width="3"/>
+    <line x1="340" y1="302" x2="380" y2="302" stroke="#adb5bd" stroke-width="3"/>
+    <path d="M70,268 L70,238 Q72,228 90,226 L130,224 L160,194 Q168,188 180,188 L250,188 Q262,188 270,196 L298,224 L330,228 Q346,232 348,246 L348,268 z" fill="#4dabf7" stroke="#1971c2" stroke-width="3"/>
+    <path d="M170,220 L184,200 L214,200 L214,220 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/>
+    <path d="M224,220 L224,200 L256,200 L276,220 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/>
+    <circle cx="118" cy="270" r="20" fill="#343a40"/><circle cx="118" cy="270" r="8" fill="#ced4da"/>
+    <circle cx="300" cy="270" r="20" fill="#343a40"/><circle cx="300" cy="270" r="8" fill="#ced4da"/>
+    <!-- tažná síla -->
+    <line x1="200" y1="240" x2="420" y2="240" stroke="#e03131" stroke-width="5" marker-end="url(#sipka-cervena)"/>
+    <rect x="360" y="192" width="44" height="34" rx="6" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+    <text x="382" y="216" text-anchor="middle" font-size="20" font-weight="bold" fill="#e03131">F</text>
+    <!-- rychlost -->
+    <line x1="160" y1="162" x2="340" y2="162" stroke="#1971c2" stroke-width="4" marker-end="url(#sipka-modra)"/>
+    <rect x="180" y="124" width="130" height="32" rx="6" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+    <text x="245" y="147" text-anchor="middle" font-size="19" font-weight="bold" fill="#1971c2">v = 54 km/h</text>
+    <text x="30" y="340" font-size="18" fill="#495057">F … tažná síla motoru</text>
+    <text x="30" y="366" font-size="18" fill="#495057">v … rychlost automobilu</text>
+  </g>
+
+  <!-- zápis -->
+  <g font-size="20" fill="#2b2a26">
+    <text x="456" y="160">F = 1,2 kN = <tspan font-weight="bold">1 200 N</tspan></text>
+    <text x="456" y="196">v = 54 km/h = <tspan font-weight="bold">15 m/s</tspan></text>
+    <text x="456" y="232">P = ? W</text>
+  </g>
+  <path d="M668,154 L686,142 L686,158 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <rect x="686" y="132" width="194" height="36" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="783" y="157" text-anchor="middle" font-size="18" fill="#2b2a26">jednotka: newton</text>
+
+  <!-- převod rychlosti -->
+  <rect x="446" y="252" width="434" height="126" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/>
+  <text x="462" y="280" font-size="18" font-weight="bold" fill="#1864ab">Rychlost převedeme na metry za sekundu:</text>
+  <rect x="462" y="298" width="176" height="44" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+  <text x="550" y="327" text-anchor="middle" font-size="18" fill="#2b2a26">1 m/s = 3,6 km/h</text>
+  <rect x="648" y="298" width="222" height="44" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+  <text x="759" y="327" text-anchor="middle" font-size="18" fill="#2b2a26">54 km/h : 3,6 = <tspan font-weight="bold">15 m/s</tspan></text>
+  <text x="462" y="366" font-size="18" fill="#1864ab">(základní jednotka rychlosti: m/s)</text>
+
+  <!-- výpočet -->
+  <line x1="24" y1="396" x2="876" y2="396" stroke="#868e96" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="24" y="412" width="852" height="148" rx="12" fill="#ffffff" stroke="#dee2e6" stroke-width="2"/>
+  <text x="44" y="452" font-size="22" font-weight="bold" fill="#e03131">P = F · v</text>
+  <text x="44" y="492" font-size="22" fill="#2b2a26">P = 1 200 N · 15 m/s</text>
+  <text x="44" y="532" font-size="22" font-weight="bold" fill="#2b2a26">P = 18 000 W = 18 kW</text>
+  <rect x="400" y="440" width="460" height="72" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="630" y="470" text-anchor="middle" font-size="18" fill="#2b2a26">síla v newtonech · rychlost v m/s</text>
+  <text x="630" y="498" text-anchor="middle" font-size="18" fill="#2b2a26">= výkon ve wattech</text>
+
+  <text x="24" y="600" font-size="20" font-weight="bold" fill="#2b2a26">Odpověď: Výkon motoru automobilu je 18 kW.</text>
+</svg>

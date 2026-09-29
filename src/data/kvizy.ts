@@ -2736,8 +2736,8 @@ export const kvizy: Record<string, Otazka[]> = {
     "text": "Co je pohyb tělesa?",
     "odpovedi": [
       "změna polohy tělesa vzhledem k jinému tělesu",
-      "změna tvaru tělesa bez změny jeho polohy",
-      "změna barvy tělesa bez změny jeho polohy"
+      "změna tvaru tělesa bez změny jeho polohy v prostoru",
+      "změna barvy tělesa bez změny jeho polohy v prostoru"
     ],
     "vysvetleni": "Pohyb = změna polohy vzhledem k jinému tělesu. Bez porovnání s jiným tělesem o pohybu mluvit nejde."
   },
@@ -2751,13 +2751,13 @@ export const kvizy: Record<string, Otazka[]> = {
     "vysvetleni": "Klid posuzujeme vždy vzhledem ke zvolenému tělesu."
   },
   {
-    "text": "Cestující sedí v jedoucím vlaku. Vzhledem k sedadlu je…",
+    "text": "Cestující sedí v jedoucím vlaku a vedle něj sedí spolucestující. Vzhledem ke spolucestujícímu je cestující…",
     "odpovedi": [
       "v klidu",
       "v pohybu",
       "ani jedno"
     ],
-    "vysvetleni": "Vzhledem ke svému sedadlu zůstává na stejném místě."
+    "vysvetleni": "Oba jedou spolu, jejich poloha vůči sobě se nemění."
   },
   {
     "text": "Sedící cestující v jedoucím vlaku je vzhledem k dítěti stojícímu u přejezdu…",
@@ -2772,8 +2772,8 @@ export const kvizy: Record<string, Otazka[]> = {
     "text": "Říkáme, že klid a pohyb jsou…",
     "odpovedi": [
       "relativní — záleží na porovnání",
-      "absolutní — platí vždy stejně",
-      "náhodné a nedají se určit"
+      "absolutní — platí vždy stejně pro všechny pozorovatele",
+      "náhodné a nedají se vůbec určit ani změřit"
     ],
     "vysvetleni": "Vždy musíme říct, k čemu polohu vztahujeme."
   },
@@ -2793,14 +2793,14 @@ export const kvizy: Record<string, Otazka[]> = {
       "vždy viditelná jako stopa na pevném povrchu",
       "vždy pouze myšlená, nikdy viditelná jako stopa"
     ],
-    "vysvetleni": "Někdy trajektorii vidíme (stopa), jindy si ji jen představujeme (dráha letu)."
+    "vysvetleni": "Někdy trajektorii vidíme (stopa), jindy si ji jen představujeme (trasa hozeného kamene vzduchem)."
   },
   {
     "text": "Co je dráha?",
     "odpovedi": [
       "délka trajektorie",
-      "tvar trajektorie",
-      "rychlost pohybu"
+      "tvar čáry, kterou těleso opíše",
+      "rychlost, jakou se těleso pohybuje"
     ],
     "vysvetleni": "Dráha s = délka čáry, kterou těleso opsalo; měříme ji v metrech."
   },
@@ -2856,7 +2856,7 @@ export const kvizy: Record<string, Otazka[]> = {
       "přímočarý",
       "žádný"
     ],
-    "vysvetleni": "Kličkuje mezi brankami — trajektorie je křivka."
+    "vysvetleni": "Mezi brankami lyžař neustále mění směr, jeho trajektorie není přímka."
   },
   {
     "text": "Strom u silnice je vzhledem k jedoucímu autu…",
@@ -2913,13 +2913,13 @@ export const kvizy: Record<string, Otazka[]> = {
     "vysvetleni": "Záleží, ke kterému tělesu polohu vztahujeme."
   },
   {
-    "text": "Jakým běžným slovem v souvislosti s cestou označujeme trajektorii?",
+    "text": "Který z těchto pohybů je křivočarý?",
     "odpovedi": [
-      "trasa",
-      "délka",
-      "metr"
+      "kličkování zajíce",
+      "padání šišky ze stromu",
+      "let letadla při dálkovém letu"
     ],
-    "vysvetleni": "Slovo trasa označuje, kudy cesta vede, ne pouze její délku."
+    "vysvetleni": "Zajíc kličkuje, jeho trasa je křivka. Šiška padá po přímce a letadlo při dálkovém letu letí přímo."
   }
 ],
 	'fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb': [
@@ -3590,26 +3590,26 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Dělník vykoná práci 300 J silou 50 N. Jak dlouhou dráhu urazil?', odpovedi: ['6 m', '15 000 m', '350 m'], vysvetleni: 's = W : F = 300 : 50 = 6 m. Vynásobení místo dělení dá 15 000 m, sečtení hodnot dá 350 m.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/vykon': [
-		{ text: 'Co popisuje fyzikální veličina výkon?', odpovedi: ['jak rychle se koná práce', 'jak velká je síla', 'jak těžké je těleso'], vysvetleni: 'Výkon = rychlost konání práce (kolik práce za 1 sekundu).' },
+		{ text: 'Co popisuje fyzikální veličina výkon?', odpovedi: ['jak rychle se koná práce', 'jak velkou silou těleso působí', 'jak velkou hmotnost má těleso'], vysvetleni: 'Výkon = rychlost konání práce (kolik práce za 1 sekundu).' },
 		{ text: 'Bagr a dělník vykopou stejnou jámu, bagr rychleji. Kdo má větší výkon?', odpovedi: ['bagr', 'dělník', 'mají stejný'], vysvetleni: 'Stejná práce za kratší čas = větší výkon.' },
-		{ text: 'Jaká je značka výkonu?', odpovedi: ['P', 'p', 'W'], vysvetleni: 'Výkon značíme velkým písmenem P.' },
+		{ text: 'Co znamená písmeno W v zápisu W = 60 J?', odpovedi: ['veličinu práce', 'sílu, kterou těleso působí', 'dráhu, kterou těleso urazí'], vysvetleni: 'Písmeno W stojí před rovnítkem, je to tedy značka veličiny práce. Za číslem by W byla jednotka, ne značka veličiny.' },
 		{ text: 'Jaká je jednotka výkonu?', odpovedi: ['watt (W)', 'joule (J)', 'newton (N)'], vysvetleni: 'Základní jednotka výkonu je watt (W).' },
 		{ text: 'Podle jakého vzorce počítáme výkon?', odpovedi: ['P = W : t', 'P = W · t', 'P = t : W'], vysvetleni: 'Výkon = práce děleno čas.' },
-		{ text: 'Co znamená výkon 1 W?', odpovedi: ['za 1 sekundu se vykoná práce 1 J', 'za 1 hodinu se vykoná práce 1 J', 'za 1 sekundu působí síla 1 N'], vysvetleni: '1 W = 1 J za 1 s.' },
-		{ text: 'V jakých jednotkách dosazujeme práci a čas do vzorce pro výkon?', odpovedi: ['práci v joulech, čas v sekundách', 'práci v kWh, čas v hodinách', 'je to jedno'], vysvetleni: 'Základní jednotky — joule a sekunda.' },
+		{ text: 'Co znamená výkon 1 W?', odpovedi: ['za 1 sekundu se vykoná práce 1 J', 'za 1 hodinu se vykoná práce o velikosti 1 J', 'za 1 sekundu působí na těleso síla 1 N'], vysvetleni: '1 W = 1 J za 1 s.' },
+		{ text: 'V jakých jednotkách dosazujeme práci a čas do vzorce pro výkon?', odpovedi: ['v joulech a sekundách', 'v kilojoulech a minutách', 'v joulech a hodinách'], vysvetleni: 'Základní jednotky — joule a sekunda.' },
 		{ text: 'Kolik wattů je 1 kilowatt (kW)?', odpovedi: ['1 000 W', '100 W', '1 000 000 W'], vysvetleni: '1 kW = 1 000 W.' },
-		{ text: 'Jak vypočítáme práci, známe-li výkon a čas?', odpovedi: ['W = P · t', 'W = P : t', 'W = t : P'], vysvetleni: 'Práci dostaneme, když výkon vynásobíme časem.' },
-		{ text: 'Jaký vztah platí mezi výkonem, silou a rychlostí?', odpovedi: ['P = F · v', 'P = F : v', 'P = v : F'], vysvetleni: 'Výkon lze počítat i jako součin síly a rychlosti.' },
+		{ text: 'Mixér o výkonu 500 W běží 2 hodiny. Kolik watthodin (Wh) práce vykoná?', odpovedi: ['1 000 Wh', '250 Wh', '60 000 Wh'], vysvetleni: 'Práce = výkon · čas: 500 · 2 = 1 000 Wh (výkon ve wattech, čas v hodinách).' },
+		{ text: 'Jak vypočítáme rychlost, známe-li výkon a sílu?', odpovedi: ['v = P : F', 'v = P · F', 'v = F : P'], vysvetleni: 'Rychlost dostaneme, když výkon vydělíme silou (výkon ve wattech, síla v newtonech, rychlost v metrech za sekundu).' },
 		{ text: 'Proč rozlišujeme velké P a malé p?', odpovedi: ['velké P je výkon, malé p tlak', 'velké P i malé p je výkon', 'malé p je výkon, velké P tlak'], vysvetleni: 'Záměna značek by spletla výkon s tlakem.' },
-		{ text: 'Co udává kilowatthodina (kWh)?', odpovedi: ['práci stroje o výkonu 1 kW za 1 hodinu', 'výkon stroje, který běží celou hodinu', 'sílu, kterou stroj vyvine za hodinu'], vysvetleni: 'kWh je odvozená jednotka práce (energie).' },
-		{ text: 'Kolik joulů je 1 kWh?', odpovedi: ['3 600 000 J', '1 000 J', '3 600 J'], vysvetleni: '1 kWh = 1 000 W · 3 600 s = 3 600 000 J.' },
-		{ text: 'Kolik wattů je 1 megawatt (MW)?', odpovedi: ['1 000 000 W', '1 000 W', '100 000 W'], vysvetleni: 'Předpona mega- znamená milion; megawatty vídáme u elektráren.' },
-		{ text: 'Jak se jmenuje starší jednotka výkonu motorů?', odpovedi: ['koňská síla (hp)', 'watthodina', 'kalorie'], vysvetleni: '„Koně" motoru — 1 hp = 0,735 kW.' },
-		{ text: 'Sešlápneš plyn v autě víc. Co se stane s výkonem motoru?', odpovedi: ['zvětší se, roste i rychlost', 'zmenší se, auto zpomalí', 'nezmění se, zůstane stejný'], vysvetleni: 'Větší výkon motoru znamená i větší rychlost auta.' },
+		{ text: 'Co udává kilowatthodina (kWh)?', odpovedi: ['práci stroje o výkonu 1 kW za 1 hodinu', 'výkon stroje, který nepřetržitě běží celou hodinu', 'sílu, kterou stroj vyvine během jedné hodiny'], vysvetleni: 'kWh je odvozená jednotka práce (energie).' },
+		{ text: 'Kolik joulů je 1 kWh?', odpovedi: ['3 600 000 J', '1 000 J', '36 000 000 J'], vysvetleni: '1 kWh = 1 000 W · 3 600 s = 3 600 000 J.' },
+		{ text: 'Kolik wattů je 1 megawatt (MW)?', odpovedi: ['1 000 000 W', '1 000 W', '1 000 000 000 W'], vysvetleni: 'Předpona mega- znamená milion.' },
+		{ text: 'Jak se jmenuje starší jednotka výkonu motorů?', odpovedi: ['koňská síla (hp)', 'kilokalorie (kcal)', 'stará kalorie (cal)'], vysvetleni: '„Koně" motoru — 1 hp = 0,735 kW.' },
+		{ text: 'Sešlápneš plyn v autě víc. Co se stane s výkonem motoru?', odpovedi: ['zvětší se, roste i rychlost', 'zmenší se, takže auto výrazně zpomalí', 'nezmění se, zůstane stále stejný'], vysvetleni: 'Větší výkon motoru znamená i větší rychlost auta.' },
 		{ text: 'Motor vykoná práci 15 000 J za 5 s. Jaký je jeho výkon?', odpovedi: ['3 000 W (3 kW)', '15 000 W', '75 000 W (75 kW)'], vysvetleni: 'P = W : t = 15 000 : 5 = 3 000 W. Napsat rovnou hodnotu práce znamená splést práci s výkonem, násobení místo dělení dá 75 000 W.' },
 		{ text: 'Motor s výkonem 500 W vykoná práci 5 000 J. Za jak dlouho?', odpovedi: ['10 s', '2 500 000 s', '0,1 s'], vysvetleni: 't = W : P = 5 000 : 500 = 10 s. Násobení místo dělení dá obrovské číslo, prohození čitatele a jmenovatele (P : W) dá 0,1 s.' },
 		{ text: 'Vrtačka s výkonem 600 W pracuje 20 s. Jakou práci vykoná?', odpovedi: ['12 000 J', '30 J', '720 000 J'], vysvetleni: 'W = P · t = 600 · 20 = 12 000 J. Dělení místo násobení (P : t) dá 30 J, chybná záměna sekund za minuty (600 · 20 · 60) dá 720 000 J.' },
-		{ text: 'Jeřáb vynese panel a vykoná práci 4 800 000 J za 60 s. Jaký má výkon?', odpovedi: ['80 000 W (80 kW)', '8 000 W', '800 000 W'], vysvetleni: 'P = W : t = 4 800 000 : 60 = 80 000 W.' },
+		{ text: 'Jeřáb vynese panel a vykoná práci 4 800 000 J za 60 s. Jaký má výkon?', odpovedi: ['80 000 W (80 kW)', '8 000 W (8 kW)', '800 000 W (800 kW)'], vysvetleni: 'P = W : t = 4 800 000 : 60 = 80 000 W.' },
 		{ text: 'Elektromotor o výkonu 9 kW běží 16 hodin. Jakou práci vykoná (v kWh)?', odpovedi: ['144 kWh', '25 kWh', '1,44 kWh'], vysvetleni: 'W = P · t = 9 · 16 = 144 kWh.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost': [

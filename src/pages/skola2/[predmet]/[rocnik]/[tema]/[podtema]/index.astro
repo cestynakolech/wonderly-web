@@ -211,10 +211,26 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		<QrKod url={absolutniUrl} velikost={150} popis={podtema.nazev} />
 	</details>
 	{
+		podtema.uvod && (
+			<aside class="ramecek uvod-box">
+				<p class="uvod-stitek">💡 Jednoduše řečeno</p>
+				<p class="uvod-text">{podtema.uvod}</p>
+			</aside>
+		)
+	}
+	{
 		podtema.obsah ? (
 			<article class="ramecek vyklad" set:html={podtema.obsah} />
 		) : (
 			<p class="uvodni-text">Obsah připravujeme.</p>
+		)
+	}
+	{
+		podtema.zvidave && (
+			<details class="ramecek zvidave">
+				<summary>🔍 Pro zvídavé</summary>
+				<div class="zvidave-obsah" set:html={podtema.zvidave} />
+			</details>
 		)
 	}
 	{
@@ -538,6 +554,70 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	}
 	.vyklad h2 {
 		margin-top: 0;
+	}
+	/* Obrázky výkladu (překreslené protějšky z PDF) — figure s popiskem. */
+	.vyklad figure {
+		margin: 1.2rem 0;
+		text-align: center;
+	}
+	.vyklad figure a {
+		display: block;
+	}
+	.vyklad figure img {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 34rem;
+		height: auto;
+		margin: 0 auto;
+		border: 2.5px solid var(--inkoust);
+		border-radius: 12px;
+		background: #fff;
+	}
+	.vyklad figcaption {
+		margin-top: 0.4rem;
+		font-size: 0.95rem;
+		color: #5f5b52;
+	}
+	/* Úzký displej: jen obrázek se posouvá vodorovně (text SVG zůstane čitelný), popisek se zalamuje. */
+	@media (max-width: 600px) {
+		.vyklad figure a {
+			overflow-x: auto;
+		}
+		.vyklad figure img[src$='.svg'] {
+			width: 640px;
+			max-width: none;
+		}
+	}
+	/* Úvod „Jednoduše řečeno" — zvýrazněný box nad výkladem. */
+	.uvod-box {
+		border-left: 6px solid var(--oranzova);
+		background: rgba(249, 197, 155, 0.28);
+	}
+	.uvod-stitek {
+		margin: 0 0 0.4rem;
+		font-weight: 700;
+		color: #a63d00;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		font-size: 0.9rem;
+	}
+	.uvod-text {
+		margin: 0;
+		font-size: 1.1rem;
+		line-height: 1.6;
+	}
+	/* Nadstavba „Pro zvídavé" — sbalená pod výkladem. */
+	.zvidave summary {
+		cursor: pointer;
+		font-weight: 700;
+	}
+	.zvidave-obsah {
+		margin-top: 0.8rem;
+	}
+	@media print {
+		.zvidave:not([open]) .zvidave-obsah {
+			display: none;
+		}
 	}
 	/* Zápis do sešitu — to nejdůležitější ze stránky k opsání. */
 	.zapis-sesit {

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kilowatthodina: 1 kWh = 1 kW · 1 h = 1 000 W · 3 600 s = 3 600 000 J">
+  <defs>
+    <marker id="sipka" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0,0 L16,8 L0,16 z" fill="#e8590c"/>
+    </marker>
+  </defs>
+  <rect x="3" y="3" width="894" height="554" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+
+  <text x="24" y="42" font-size="24" font-weight="bold" fill="#e03131">Odvození jednotky práce: kilowatthodina</text>
+  <text x="24" y="78" font-size="19" fill="#2b2a26">Práci spočítáme ze vztahu</text>
+  <text x="262" y="78" font-size="24" font-weight="bold" fill="#e03131">W = P · t</text>
+
+  <rect x="24" y="96" width="852" height="40" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="450" y="122" text-anchor="middle" font-size="18" fill="#2b2a26">1 kWh je práce, kterou vykoná stroj o výkonu 1 kW za 1 hodinu.</text>
+
+  <!-- krok 1: v kW a h -->
+  <rect x="24" y="156" width="852" height="70" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="2.5"/>
+  <text x="44" y="200" font-size="24" font-weight="bold" fill="#1971c2">1 kWh = 1 kW · 1 h</text>
+  <text x="330" y="200" font-size="18" fill="#495057">(kilowatthodina)</text>
+
+  <!-- převody -->
+  <path d="M200,228 C200,256 230,268 250,272" fill="none" stroke="#e8590c" stroke-width="4" marker-end="url(#sipka)"/>
+  <rect x="270" y="244" width="200" height="44" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+  <text x="370" y="273" text-anchor="middle" font-size="20" fill="#2b2a26">1 kW = 1 000 W</text>
+  <rect x="490" y="244" width="190" height="44" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+  <text x="585" y="273" text-anchor="middle" font-size="20" fill="#2b2a26">1 h = 3 600 s</text>
+  <path d="M585,290 C585,316 560,326 540,330" fill="none" stroke="#e8590c" stroke-width="4" marker-end="url(#sipka)"/>
+
+  <!-- krok 2: v základních jednotkách -->
+  <rect x="24" y="336" width="852" height="70" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="2.5"/>
+  <text x="44" y="380" font-size="24" font-weight="bold" fill="#1971c2">1 kWh = 1 000 W · 3 600 s = 3 600 000 J</text>
+
+  <!-- výsledek -->
+  <rect x="24" y="426" width="852" height="80" rx="14" fill="#1971c2"/>
+  <text x="450" y="479" text-anchor="middle" font-size="36" font-weight="bold" fill="#ffffff">1 kWh = 3 600 000 J</text>
+  <text x="24" y="538" font-size="18" fill="#495057">Menší jednotka je watthodina (Wh). V kWh se účtuje spotřeba elektřiny.</text>
+</svg>

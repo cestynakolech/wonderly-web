@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 780" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešený příklad: výkon motoru jeřábu">
+  <defs>
+    <marker id="sipka" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#e8590c"/>
+    </marker>
+    <marker id="sipka-modra" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse">
+      <path d="M0,0 L14,7 L0,14 z" fill="#1971c2"/>
+    </marker>
+  </defs>
+  <rect x="3" y="3" width="894" height="774" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+
+  <!-- zadání -->
+  <text x="24" y="42" font-size="24" font-weight="bold" fill="#e03131">Příklad: výkon motoru jeřábu</text>
+  <text x="24" y="74" font-size="19" fill="#2b2a26">Motor jeřábu vynese za 1 minutu betonový panel o hmotnosti 6 t</text>
+  <text x="24" y="100" font-size="19" fill="#2b2a26">do výšky 80 m. S jakým výkonem motor pracuje?</text>
+
+  <!-- kresba jeřábu -->
+  <g id="jerab">
+    <rect x="24" y="700" width="200" height="14" fill="#adb5bd"/>
+    <rect x="50" y="170" width="30" height="530" fill="none" stroke="#f08c00" stroke-width="4"/>
+    <path d="M50,700 L80,660 L50,620 L80,580 L50,540 L80,500 L50,460 L80,420 L50,380 L80,340 L50,300 L80,260 L50,220 L80,180" fill="none" stroke="#f08c00" stroke-width="2.5"/>
+    <rect x="30" y="156" width="200" height="16" fill="#ffd43b" stroke="#f08c00" stroke-width="3"/>
+    <rect x="32" y="172" width="22" height="22" fill="#495057"/>
+    <rect x="80" y="172" width="26" height="22" fill="#a5d8ff" stroke="#1971c2" stroke-width="2"/>
+    <line x1="195" y1="172" x2="195" y2="242" stroke="#495057" stroke-width="2"/>
+    <path d="M189,242 L195,250 L201,242" fill="none" stroke="#495057" stroke-width="3"/>
+    <line x1="195" y1="250" x2="165" y2="266" stroke="#495057" stroke-width="1.5"/>
+    <line x1="195" y1="250" x2="225" y2="266" stroke="#495057" stroke-width="1.5"/>
+    <rect x="145" y="266" width="100" height="32" rx="3" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+    <text x="195" y="289" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26">6 t</text>
+    <line x1="245" y1="304" x2="245" y2="694" stroke="#1971c2" stroke-width="3" marker-start="url(#sipka-modra)" marker-end="url(#sipka-modra)"/>
+    <line x1="150" y1="700" x2="240" y2="700" stroke="#1971c2" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <rect x="200" y="484" width="72" height="34" rx="6" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+    <text x="236" y="508" text-anchor="middle" font-size="19" font-weight="bold" fill="#1971c2">80 m</text>
+  </g>
+
+  <!-- zápis -->
+  <g font-size="20" fill="#2b2a26">
+    <text x="300" y="160">m = 6 t = <tspan font-weight="bold">6 000 kg</tspan></text>
+    <text x="300" y="194">t = 1 min = <tspan font-weight="bold">60 s</tspan></text>
+    <text x="300" y="228">s = 80 m</text>
+    <text x="300" y="262">g = 10 N/kg</text>
+    <text x="300" y="296">P = ? W</text>
+    <line x1="300" y1="312" x2="520" y2="312" stroke="#868e96" stroke-width="2" stroke-dasharray="6 4"/>
+  </g>
+  <path d="M500,153 L560,142 L560,158 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <rect x="560" y="132" width="316" height="36" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="718" y="157" text-anchor="middle" font-size="18" fill="#2b2a26">základní jednotka: kilogram</text>
+  <path d="M460,188 L560,186 L560,202 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <rect x="560" y="176" width="316" height="36" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="718" y="201" text-anchor="middle" font-size="18" fill="#2b2a26">základní jednotka: sekunda</text>
+
+  <!-- postup -->
+  <text x="300" y="352" font-size="22" font-weight="bold" fill="#e03131">P = W : t</text>
+  <rect x="420" y="328" width="456" height="36" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="648" y="353" text-anchor="middle" font-size="18" fill="#2b2a26">práci W nemáme → nejdřív ji spočítáme</text>
+
+  <circle cx="312" cy="398" r="14" fill="#1971c2"/>
+  <text x="312" y="405" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">1</text>
+  <text x="336" y="405" font-size="20" fill="#2b2a26"><tspan font-weight="bold" fill="#1971c2">síla</tspan>  F<tspan font-size="18" dy="5">g</tspan><tspan dy="-5"> = m · g = 6 000 kg · 10 N/kg = </tspan><tspan font-weight="bold">60 000 N</tspan></text>
+  <rect x="336" y="420" width="540" height="62" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+  <text x="606" y="446" text-anchor="middle" font-size="18" fill="#2b2a26">panel zvedáme silou stejně velkou,</text>
+  <text x="606" y="470" text-anchor="middle" font-size="18" fill="#2b2a26">jako je jeho gravitační (tíhová) síla</text>
+
+  <path d="M312,414 L312,508" stroke="#e8590c" stroke-width="3" fill="none" marker-end="url(#sipka)"/>
+  <circle cx="312" cy="524" r="14" fill="#1971c2"/>
+  <text x="312" y="531" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">2</text>
+  <text x="336" y="531" font-size="20" fill="#2b2a26"><tspan font-weight="bold" fill="#1971c2">práce</tspan>  W = F<tspan font-size="18" dy="5">g</tspan><tspan dy="-5"> · s = 60 000 N · 80 m = </tspan><tspan font-weight="bold">4 800 000 J</tspan></text>
+
+  <path d="M312,540 L312,564" stroke="#e8590c" stroke-width="3" fill="none" marker-end="url(#sipka)"/>
+  <circle cx="312" cy="580" r="14" fill="#1971c2"/>
+  <text x="312" y="587" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffffff">3</text>
+  <text x="336" y="587" font-size="20" fill="#2b2a26"><tspan font-weight="bold" fill="#1971c2">výkon</tspan>  P = W : t = 4 800 000 J : 60 s</text>
+  <text x="408" y="619" font-size="20" font-weight="bold" fill="#e03131">P = 80 000 W = 80 kW</text>
+
+  <!-- 2. způsob -->
+  <rect x="290" y="640" width="590" height="84" rx="14" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2.5"/>
+  <text x="306" y="668" font-size="18" font-weight="bold" fill="#2b8a3e">Jinak — jedním vzorcem: P = m · g · s : t</text>
+  <text x="306" y="704" font-size="18" fill="#2b2a26">P = 6 000 kg · 10 N/kg · 80 m : 60 s = <tspan font-weight="bold">80 000 W = 80 kW</tspan></text>
+
+  <text x="24" y="760" font-size="20" font-weight="bold" fill="#2b2a26">Odpověď: Motor jeřábu pracuje s výkonem 80 kW.</text>
+</svg>

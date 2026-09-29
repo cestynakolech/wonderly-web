@@ -377,3 +377,5 @@ Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis ≤ 8 ř�
 4. Každé upravené podtéma projde **nezávislým kontrolorem** (čerstvý kontext): věcná správnost
    zjednodušení, pokrytí PDF a prezentace, nic nevypadlo (přebytek přesunut do „Pro zvídavé“,
    ne smazán) a kvíz dál pokrývá výklad.
+
+**Pilot schválen učitelem 29. 9. 2026 (Klid a pohyb 7, Výkon 8).**

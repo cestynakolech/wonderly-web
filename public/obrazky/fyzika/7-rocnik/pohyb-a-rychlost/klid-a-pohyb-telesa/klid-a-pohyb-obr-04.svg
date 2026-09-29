@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 664" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Cestující ve vlaku je v klidu vůči spolucestujícímu a v pohybu vůči dítěti u přejezdu">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto-start-reverse"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e8590c"/></marker>
+<marker id="s-fia" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#7048e8"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#2f9e44"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="658" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">Klid a pohyb: záleží na pozorovateli</text>
+<text x="24" y="78" font-size="20" fill="#2b2a26" text-anchor="start">Těleso je v pohybu, když mění svou polohu vůči jinému tělesu.</text>
+<rect x="3" y="466" width="894" height="120" fill="#d3f9d8"/>
+<rect x="3" y="456" width="894" height="10" fill="#868e96"/>
+<rect x="660" y="452" width="170" height="18" fill="#495057"/>
+<path d="M40,440 L40,250 Q40,214 80,212 L600,212 L600,440 z" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<rect x="40" y="380" width="560" height="14" fill="#e8590c"/>
+<circle cx="110" cy="442" r="16" fill="#343a40"/><circle cx="520" cy="442" r="16" fill="#343a40"/><rect x="150" y="238" width="300" height="138" rx="10" fill="#d0ebff" stroke="#495057" stroke-width="3"/>
+<g transform="translate(-90,0)"><path d="M260,372 L260,300 Q262,288 276,288 L292,288 L292,340 L340,340 L340,372 z" fill="#f08c00" stroke="#d9480f" stroke-width="2"/><circle cx="306" cy="286" r="12" fill="#ffd8a8" stroke="#495057" stroke-width="2"/><rect x="296" y="298" width="22" height="40" rx="6" fill="#2f9e44"/><path d="M304,338 L350,338 L350,372" fill="none" stroke="#495057" stroke-width="8" stroke-linecap="round"/></g>
+<g transform="translate(40,0)"><path d="M260,372 L260,300 Q262,288 276,288 L292,288 L292,340 L340,340 L340,372 z" fill="#f08c00" stroke="#d9480f" stroke-width="2"/><circle cx="306" cy="286" r="12" fill="#ffd8a8" stroke="#495057" stroke-width="2"/><rect x="296" y="298" width="22" height="40" rx="6" fill="#1971c2"/><path d="M304,338 L350,338 L350,372" fill="none" stroke="#495057" stroke-width="8" stroke-linecap="round"/></g>
+<rect x="228" y="304" width="24" height="18" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<rect x="480" y="238" width="96" height="80" rx="8" fill="#d0ebff" stroke="#495057" stroke-width="3"/>
+<line x1="560" y1="196" x2="120" y2="196" stroke="#1971c2" stroke-width="5" marker-end="url(#s-mod)"/>
+<text x="480" y="188" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="middle">vlak jede</text>
+<line x1="680" y1="456" x2="680" y2="330" stroke="#495057" stroke-width="5"/>
+<g transform="translate(680,318)"><rect x="-40" y="-7" width="80" height="14" fill="#ffffff" stroke="#e03131" stroke-width="4" transform="rotate(30)"/><rect x="-40" y="-7" width="80" height="14" fill="#ffffff" stroke="#e03131" stroke-width="4" transform="rotate(-30)"/></g>
+<g transform="translate(790,506) scale(0.8)"><path d="M-14,-100 Q0,-122 14,-100 L16,-80 L-16,-80 z" fill="#862e9c"/><circle cx="0" cy="-92" r="12" fill="#ffd8a8" stroke="#495057" stroke-width="2"/><path d="M-12,-76 L12,-76 L22,-30 L-22,-30 z" fill="#2f9e44"/><line x1="-14" y1="-70" x2="-22" y2="-42" stroke="#2f9e44" stroke-width="7" stroke-linecap="round"/><line x1="14" y1="-70" x2="30" y2="-104" stroke="#2f9e44" stroke-width="7" stroke-linecap="round"/><line x1="-7" y1="-30" x2="-7" y2="-2" stroke="#495057" stroke-width="7" stroke-linecap="round"/><line x1="7" y1="-30" x2="7" y2="-2" stroke="#495057" stroke-width="7" stroke-linecap="round"/></g>
+<text x="790" y="540" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">dítě u přejezdu</text>
+<path d="M288,156 L300,268 L314,156 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="24" y="96" width="380" height="60" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="290" y="153" width="22" height="6" fill="#fff3bf"/>
+<text x="214.0" y="124" font-size="18" fill="#2b2a26" text-anchor="middle">cestující je <tspan font-weight="bold">V KLIDU</tspan> vůči spolucestujícímu</text>
+<path d="M778,186 L790,400 L804,186 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="600" y="100" width="276" height="86" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="780" y="183" width="22" height="6" fill="#fff3bf"/>
+<text x="738.0" y="128" font-size="18" fill="#2b2a26" text-anchor="middle">pro dítě u přejezdu je</text>
+<text x="738.0" y="154" font-size="18" fill="#2b2a26" text-anchor="middle">cestující <tspan font-weight="bold">V POHYBU</tspan></text>
+<text x="24" y="612" font-size="20" fill="#2b2a26" text-anchor="start">Stejné těleso může být vůči jednomu tělesu v klidu</text>
+<text x="24" y="640" font-size="20" fill="#2b2a26" text-anchor="start">a zároveň vůči jinému v pohybu.</text>
+</svg>
