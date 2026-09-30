@@ -239,6 +239,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - **Vysvětlení vidí jen ten, kdo odpoví ŠPATNĚ** → podstata učiva patří do samotné ODPOVĚDI,
   vysvětlení jen dodává proč.
 - **Zákaz úniku odpovědi:** vysvětlení ani zadání jedné otázky nesmí prozradit jinou.
+  - Rozhodnutí učitele 30. 9. 2026 (varianta B): vzorec nebo postup ve vysvětlení výpočtu (např. 18 000 : 6 = 3 000 W) se NEpočítá jako únik vůči otázce na vzorec. Únikem zůstává, když ZADÁNÍ nebo nabízená ODPOVĚĎ jiné otázky obsahuje odpověď, a když vysvětlení prozrazuje odpověď jiné NEvýpočetní otázky (fakt, příklad, definici).
 - **Cizí videa se nevyhledávají** (viz zákazy).
 - **Placený obsah (SmartBooks) se nezveřejňuje** (viz zákazy).
 - **Autor nekontroluje sám sebe** — nové učivo, simulaci i dávku kvízů posuzuje nezávislý
