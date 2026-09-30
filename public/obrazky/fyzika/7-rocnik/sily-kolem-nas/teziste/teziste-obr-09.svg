@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Akrobatická skupina na cválajícím koni. Kůň nese na hřbetě jednoho akrobata v zeleném dresu, který stojí s pokrčenýma nohama. Na jeho ramenou sedí druhý akrobat v oranžovém tričku s rozpaženýma rukama.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="3" y="520" width="954" height="77" rx="0" fill="#e9d8a6"/>
+<line x1="3.0" y1="520.0" x2="957.0" y2="520.0" stroke="#c9b26b" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="430.0" cy="528.0" rx="260" ry="12" fill="#c9b26b" stroke="#c9b26b" stroke-width="1"/>
+<path d="M285,395 Q215,395 190,465 Q210,435 265,425" fill="#4a2a14" stroke="#4a2a14" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M340.0,455.0 L285.0,495.0 L215.0,515.0" fill="none" stroke="#7b4a2a" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M285.0,495.0 L215.0,515.0" fill="none" stroke="#7b4a2a" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="215.0" cy="518.0" rx="14" ry="8" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M365.0,460.0 L405.0,505.0 L365.0,540.0" fill="none" stroke="#7b4a2a" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M405.0,505.0 L365.0,540.0" fill="none" stroke="#7b4a2a" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="365.0" cy="543.0" rx="14" ry="8" fill="#212529" stroke="#212529" stroke-width="1"/>
+<ellipse cx="430.0" cy="420.0" rx="150" ry="58" fill="#7b4a2a" stroke="#4a2a14" stroke-width="4"/>
+<path d="M510.0,460.0 L590.0,480.0 L655.0,505.0" fill="none" stroke="#7b4a2a" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M590.0,480.0 L655.0,505.0" fill="none" stroke="#7b4a2a" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="655.0" cy="508.0" rx="14" ry="8" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M535.0,455.0 L560.0,505.0 L520.0,535.0" fill="none" stroke="#7b4a2a" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M560.0,505.0 L520.0,535.0" fill="none" stroke="#7b4a2a" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="520.0" cy="538.0" rx="14" ry="8" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M596.0,285.0 L606.0,253.0 L630.0,287.0 z" fill="#7b4a2a" stroke="#4a2a14" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M525,370 Q570,405 590,427 Q625,370 640,325 L600,281 Q560,325 525,370 z" fill="#7b4a2a" stroke="#4a2a14" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="662" cy="327" rx="62" ry="23" fill="#7b4a2a" stroke="#4a2a14" stroke-width="4" transform="rotate(35 662 327)"/>
+<circle cx="650.0" cy="311.0" r="4.5" fill="#f8f9fa" stroke="#212529" stroke-width="2"/>
+<circle cx="651.0" cy="311.0" r="2" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="708.0" cy="359.0" r="4" fill="#4a2a14" stroke="#4a2a14" stroke-width="1"/>
+<path d="M600,281 Q565,320 526,367" fill="none" stroke="#4a2a14" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M375,367 Q430,355 485,367 L478,399 Q430,387 382,399 z" fill="#2f9e44" stroke="#1b5e20" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M446.0,133.0 L494.0,151.0 L500.0,201.0" fill="none" stroke="#343a40" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="506.0" cy="205.0" rx="12" ry="6" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M446.0,133.0 L398.0,151.0 L394.0,201.0" fill="none" stroke="#343a40" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="400.0" cy="205.0" rx="12" ry="6" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M448.0,73.0 L500.0,55.0 L525.0,33.0" fill="none" stroke="#f1c9a5" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M448.0,73.0 L396.0,55.0 L372.0,33.0" fill="none" stroke="#f1c9a5" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M446.0,133.0 L448.0,73.0" fill="none" stroke="#e8590c" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M448.0,73.0 L450.0,59.0" fill="none" stroke="#f1c9a5" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="452.0" cy="45.0" r="19" fill="#f1c9a5" stroke="#b07a4a" stroke-width="3"/>
+<path d="M433,41 Q452,13 471,41 Q452,33 433,41 z" fill="#8a3a12" stroke="#8a3a12" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="459.0" cy="45.0" r="3" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M440.0,250.0 L422.0,305.0 L412.0,361.0" fill="none" stroke="#343a40" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="420.0" cy="361.0" rx="16" ry="7" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M440.0,250.0 L462.0,303.0 L462.0,361.0" fill="none" stroke="#343a40" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="470.0" cy="361.0" rx="16" ry="7" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M444.0,190.0 L474.0,207.0 L494.0,193.0" fill="none" stroke="#f1c9a5" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M444.0,190.0 L414.0,205.0 L398.0,193.0" fill="none" stroke="#f1c9a5" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M440.0,250.0 L444.0,190.0" fill="none" stroke="#2f9e44" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M444.0,190.0 L446.0,175.0" fill="none" stroke="#f1c9a5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="448.0" cy="161.0" r="21" fill="#f1c9a5" stroke="#b07a4a" stroke-width="3"/>
+<path d="M427,157 Q448,127 469,157 Q448,147 427,157 z" fill="#4a3222" stroke="#4a3222" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="456.0" cy="161.0" r="3" fill="#212529" stroke="#212529" stroke-width="1"/>
+</svg>

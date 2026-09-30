@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva obrázky vedle sebe. Vlevo cvičenkyně stojí vzpřímeně na kladině, uvnitř těla je bod T a z něj vede svisle dolů červená šipka tíhové síly. Svislice z bodu T prochází plochou podepření, tedy chodidly na kladině. Vpravo je stolek s květinou v květináči, bod T je v květináči nad deskou a z něj vede svisle dolů šipka tíhové síly. Svislice z T prochází plochou podepření mezi nohami stolku. Obrázky jsou označené a a b.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="30.0" y1="506.0" x2="930.0" y2="506.0" stroke="#adb5bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="227.0" y="422.0" width="26.0" height="68.0" rx="3" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="170.0" y="488.0" width="140.0" height="18.0" rx="4" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="204.0" y="400.0" width="72.0" height="22.0" rx="4" fill="#deb887" stroke="#8a5a2b" stroke-width="3"/>
+<path d="M216.0,160.0 L158.0,182.0" fill="none" stroke="#f1c9a5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M264.0,160.0 L322.0,182.0" fill="none" stroke="#f1c9a5" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M228.0,275.0 L230.0,394.0" fill="none" stroke="#f1c9a5" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M252.0,275.0 L250.0,394.0" fill="none" stroke="#f1c9a5" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="229.0" cy="395.0" rx="12" ry="6" fill="#f8f9fa" stroke="#495057" stroke-width="2"/>
+<ellipse cx="251.0" cy="395.0" rx="12" ry="6" fill="#f8f9fa" stroke="#495057" stroke-width="2"/>
+<path d="M213.0,155.0 L267.0,155.0 L257.0,225.0 L267.0,268.0 L213.0,268.0 L223.0,225.0 z" fill="#ae3ec9" stroke="#6f1d86" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M240.0,138.0 L240.0,155.0" fill="none" stroke="#f1c9a5" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="240.0" cy="122.0" r="20" fill="#f1c9a5" stroke="#b07a4a" stroke-width="3"/>
+<circle cx="240.0" cy="98.0" r="11" fill="#3b2a1a" stroke="#3b2a1a" stroke-width="1"/>
+<path d="M220,118 Q240,88 260,118" fill="#3b2a1a" stroke="#3b2a1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="218.0" y1="398.0" x2="262.0" y2="398.0" stroke="#1971c2" stroke-width="8" stroke-linecap="round"/>
+<line x1="240.0" y1="240.7" x2="240.0" y2="240.7" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="240.0" y1="240.7" x2="240.0" y2="240.7" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="240.0" cy="240.7" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="256.0" y="230.7" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<line x1="240.0" y1="240.7" x2="240.0" y2="398.0" stroke="#2b2a26" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="240.0" y1="240.7" x2="240.0" y2="336.7" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="224.0" y="310.7" font-size="28" font-weight="bold" fill="#e03131" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g</tspan></text>
+<circle cx="240.0" cy="240.7" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M350,362 L264,396 L376,362 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="330.0" y="300.0" width="180.0" height="62.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="352" y="359" width="22" height="6" fill="#fff3bf"/>
+<text x="420.0" y="338.0" font-size="20" fill="#2b2a26" text-anchor="middle">plocha podepření</text>
+<text x="60.0" y="60.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a</text>
+<line x1="632.0" y1="324.0" x2="626.0" y2="502.0" stroke="#8a5a2b" stroke-width="15" stroke-linecap="round"/>
+<line x1="768.0" y1="324.0" x2="774.0" y2="502.0" stroke="#8a5a2b" stroke-width="15" stroke-linecap="round"/>
+<line x1="629.0" y1="440.0" x2="771.0" y2="440.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<rect x="610.0" y="310.0" width="180.0" height="16.0" rx="4" fill="#deb887" stroke="#8a5a2b" stroke-width="3"/>
+<path d="M664.0,246.0 L736.0,246.0 L727.0,310.0 L673.0,310.0 z" fill="#d9622b" stroke="#8a3a12" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="658.0" y="232.0" width="84.0" height="18.0" rx="4" fill="#e8783f" stroke="#8a3a12" stroke-width="3"/>
+<path d="M700,232 Q685,200 670,168" fill="none" stroke="#2b8a3e" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M700,232 Q700,200 700,120" fill="none" stroke="#2b8a3e" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M700,232 Q715,200 730,168" fill="none" stroke="#2b8a3e" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="654.0" cy="166.0" rx="24" ry="10" fill="#51cf66" stroke="#2b8a3e" stroke-width="2" transform="rotate(-30 654 166)"/>
+<ellipse cx="746.0" cy="166.0" rx="24" ry="10" fill="#51cf66" stroke="#2b8a3e" stroke-width="2" transform="rotate(30 746 166)"/>
+<ellipse cx="678.0" cy="190.0" rx="24" ry="10" fill="#51cf66" stroke="#2b8a3e" stroke-width="2" transform="rotate(20 678 190)"/>
+<ellipse cx="722.0" cy="190.0" rx="24" ry="10" fill="#51cf66" stroke="#2b8a3e" stroke-width="2" transform="rotate(-20 722 190)"/>
+<circle cx="718.0" cy="112.0" r="11" fill="#f783ac" stroke="#c2255c" stroke-width="2"/>
+<circle cx="709.0" cy="127.6" r="11" fill="#f783ac" stroke="#c2255c" stroke-width="2"/>
+<circle cx="691.0" cy="127.6" r="11" fill="#f783ac" stroke="#c2255c" stroke-width="2"/>
+<circle cx="682.0" cy="112.0" r="11" fill="#f783ac" stroke="#c2255c" stroke-width="2"/>
+<circle cx="691.0" cy="96.4" r="11" fill="#f783ac" stroke="#c2255c" stroke-width="2"/>
+<circle cx="709.0" cy="96.4" r="11" fill="#f783ac" stroke="#c2255c" stroke-width="2"/>
+<circle cx="700.0" cy="112.0" r="9" fill="#ffd43b" stroke="#e67700" stroke-width="2"/>
+<line x1="624.0" y1="508.0" x2="776.0" y2="508.0" stroke="#1971c2" stroke-width="8" stroke-linecap="round"/>
+<line x1="700.0" y1="307.1" x2="700.0" y2="307.1" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="700.0" y1="307.1" x2="700.0" y2="307.1" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="700.0" cy="307.1" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="716.0" y="297.1" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<line x1="700.0" y1="307.1" x2="700.0" y2="506.0" stroke="#2b2a26" stroke-width="2.5" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="700.0" y1="307.1" x2="700.0" y2="403.1" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="684.0" y="377.1" font-size="28" font-weight="bold" fill="#e03131" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g</tspan></text>
+<circle cx="700.0" cy="307.1" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M835,470 L770,506 L861,470 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="815.0" y="400.0" width="125.0" height="70.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="837" y="467" width="22" height="6" fill="#fff3bf"/>
+<text x="877.5" y="428.5" font-size="20" fill="#2b2a26" text-anchor="middle">plocha</text>
+<text x="877.5" y="455.5" font-size="20" fill="#2b2a26" text-anchor="middle">podepření</text>
+<text x="500.0" y="60.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">b</text>
+</svg>

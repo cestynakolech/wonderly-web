@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 575" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma tepelné výměny. Vlevo světle červený obdélník s nápisem horké těleso a červenými kuličkami s dlouhými šipkami rychlosti, vpravo světle modrý obdélník s nápisem studené těleso a modrými kuličkami s krátkými šipkami. Nad tělesy vede oranžová ohnutá šipka od horkého tělesa ke studenému s nápisy teplo a přenos energie. Dvě bubliny: rychlejší částice narazí do pomalejších, předají jim část energie a zpomalí; pomalejší částice při srážkách získají energii a zrychlí.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="velka" markerUnits="userSpaceOnUse" markerWidth="70" markerHeight="70" refX="52" refY="35" orient="auto"><path d="M0,0 L70,35 L0,70 z" fill="#e8590c"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="569" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="60.0" y="200.0" width="420.0" height="210.0" rx="6" fill="#ffc9c9" stroke="#e03131" stroke-width="3"/>
+<rect x="480.0" y="200.0" width="420.0" height="210.0" rx="6" fill="#d0ebff" stroke="#1971c2" stroke-width="3"/>
+<text x="80.0" y="236.0" font-size="24" font-weight="bold" fill="#7d1a1a" text-anchor="start">HORKÉ TĚLESO</text>
+<text x="500.0" y="236.0" font-size="24" font-weight="bold" fill="#0b3d75" text-anchor="start">STUDENÉ TĚLESO</text>
+<path d="M220,200 C230,90 730,90 740,150" fill="none" stroke="#e8590c" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M706.0,148.0 L774.0,148.0 L740.0,198.0 z" fill="#e8590c" stroke="#e8590c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="480.0" y="66.0" font-size="38" font-weight="bold" fill="#7d1a1a" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">TEPLO</text>
+<text x="480.0" y="122.0" font-size="24" font-weight="bold" fill="#b34700" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">PŘENOS ENERGIE</text>
+<line x1="141.3" y1="291.8" x2="185.0" y2="260.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>
+<circle cx="130.0" cy="300.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
+<line x1="268.7" y1="287.0" x2="310.0" y2="278.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>
+<circle cx="255.0" cy="290.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
+<line x1="331.4" y1="348.1" x2="365.0" y2="372.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>
+<circle cx="320.0" cy="340.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
+<line x1="342.8" y1="277.0" x2="320.0" y2="315.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>
+<circle cx="350.0" cy="265.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
+<line x1="183.9" y1="368.5" x2="225.0" y2="364.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>
+<circle cx="170.0" cy="370.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
+<line x1="602.1" y1="267.9" x2="626.0" y2="254.0" stroke="#1c7ed6" stroke-width="4" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<circle cx="590.0" cy="275.0" r="14" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="2"/>
+<line x1="667.0" y1="350.1" x2="642.0" y2="360.0" stroke="#1c7ed6" stroke-width="4" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<circle cx="680.0" cy="345.0" r="14" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="2"/>
+<line x1="752.3" y1="263.3" x2="739.0" y2="243.0" stroke="#1c7ed6" stroke-width="4" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<circle cx="760.0" cy="275.0" r="14" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="2"/>
+<line x1="853.2" y1="349.7" x2="874.0" y2="357.0" stroke="#1c7ed6" stroke-width="4" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<circle cx="840.0" cy="345.0" r="14" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="2"/>
+<line x1="597.1" y1="369.7" x2="576.0" y2="361.0" stroke="#1c7ed6" stroke-width="4" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<circle cx="610.0" cy="375.0" r="14" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="2"/>
+<circle cx="465.0" cy="330.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
+<circle cx="495.0" cy="330.0" r="14" fill="#1c7ed6" stroke="#1c7ed6" stroke-width="2"/>
+<path d="M354,430 L460,346 L380,430 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="60.0" y="430.0" width="340.0" height="124.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="356" y="427" width="22" height="6" fill="#fff3bf"/>
+<text x="230.0" y="458.5" font-size="20" fill="#2b2a26" text-anchor="middle">Rychlejší částice narazí</text>
+<text x="230.0" y="485.5" font-size="20" fill="#2b2a26" text-anchor="middle">do pomalejších a</text>
+<text x="230.0" y="512.5" font-size="20" fill="#2b2a26" text-anchor="middle">předávají jim část své</text>
+<text x="230.0" y="539.5" font-size="20" fill="#2b2a26" text-anchor="middle">energie a zpomalují.</text>
+<path d="M580,430 L502,346 L606,430 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="560.0" y="430.0" width="340.0" height="96.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="582" y="427" width="22" height="6" fill="#fff3bf"/>
+<text x="730.0" y="458.0" font-size="20" fill="#2b2a26" text-anchor="middle">Pomalejší částice získají</text>
+<text x="730.0" y="485.0" font-size="20" fill="#2b2a26" text-anchor="middle">při srážkách energii</text>
+<text x="730.0" y="512.0" font-size="20" fill="#2b2a26" text-anchor="middle">a zrychlí.</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Trojúhelník se třemi červenými těžnicemi. Každá vede z jednoho vrcholu do středu protější strany a všechny tři se protínají v jednom bodě, který je označený písmenem T.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="474" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<path d="M90.0,440.0 L870.0,440.0 L330.0,100.0 z" fill="#fde0cc" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="90.0" y1="440.0" x2="600.0" y2="270.0" stroke="#e03131" stroke-width="6" stroke-linecap="round"/>
+<line x1="870.0" y1="440.0" x2="210.0" y2="270.0" stroke="#e03131" stroke-width="6" stroke-linecap="round"/>
+<line x1="330.0" y1="100.0" x2="480.0" y2="440.0" stroke="#e03131" stroke-width="6" stroke-linecap="round"/>
+<circle cx="600.0" cy="270.0" r="6" fill="#ffffff" stroke="#e03131" stroke-width="3"/>
+<circle cx="210.0" cy="270.0" r="6" fill="#ffffff" stroke="#e03131" stroke-width="3"/>
+<circle cx="480.0" cy="440.0" r="6" fill="#ffffff" stroke="#e03131" stroke-width="3"/>
+<line x1="430.0" y1="326.7" x2="430.0" y2="326.7" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="430.0" y1="326.7" x2="430.0" y2="326.7" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="430.0" cy="326.7" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="448.0" y="356.7" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<path d="M580,192 L560,267 L606,192 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="560.0" y="130.0" width="300.0" height="62.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="582" y="189" width="22" height="6" fill="#fff3bf"/>
+<text x="710.0" y="168.7" font-size="22" fill="#2b2a26" text-anchor="middle">těžnice (červeně)</text>
+</svg>

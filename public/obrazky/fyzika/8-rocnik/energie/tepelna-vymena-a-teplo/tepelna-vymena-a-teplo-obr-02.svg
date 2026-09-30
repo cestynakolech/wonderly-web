@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kovový chladič zepředu: obdélníková mřížka s devíti vodorovnými kovovými trubkami a mezi nimi s hustými tenkými žebry, po stranách dvě tmavé nádržky, na pravé nádržce nahoře plnicí hrdlo a dole přípojná trubka.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<pattern id="zebra" x="0" y="0" width="7" height="10" patternUnits="userSpaceOnUse"><rect width="7" height="10" fill="#dee2e6"/><rect x="0" width="2.4" height="10" fill="#343a40"/></pattern>
+<linearGradient id="tr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f9fa"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="514" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="95.0" y="80.0" width="70.0" height="370.0" rx="8" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="795.0" y="80.0" width="70.0" height="370.0" rx="8" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="115.0" y="130.0" width="20.0" height="40.0" rx="3" fill="#868e96" stroke="#212529" stroke-width="2"/>
+<rect x="115.0" y="360.0" width="20.0" height="40.0" rx="3" fill="#868e96" stroke="#212529" stroke-width="2"/>
+<rect x="815.0" y="44.0" width="30.0" height="40.0" rx="4" fill="#868e96" stroke="#212529" stroke-width="3"/>
+<rect x="808.0" y="34.0" width="44.0" height="14.0" rx="4" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<path d="M865,388 L895,388 L895,352" fill="none" stroke="#212529" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M865,388 L895,388 L895,352" fill="none" stroke="#868e96" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="884.0" y="336.0" width="24.0" height="16.0" rx="3" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<rect x="160" y="92" width="640" height="346" fill="url(#zebra)" stroke="#212529" stroke-width="3"/>
+<rect x="160" y="108.3" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="145.0" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="181.7" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="218.3" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="255.0" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="291.7" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="328.3" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="365.0" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="160" y="401.7" width="640" height="20" fill="url(#tr)" stroke="#495057" stroke-width="2"/>
+<rect x="200.0" y="452.0" width="250.0" height="46.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="325.0" y="482.0" font-size="20" fill="#2b2a26" text-anchor="middle">kovové trubky</text>
+<line x1="325.0" y1="452.0" x2="380.0" y2="338.3" stroke="#f8f9fa" stroke-width="7" stroke-linecap="round"/>
+<line x1="325.0" y1="452.0" x2="380.0" y2="338.3" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="500.0" y="452.0" width="290.0" height="46.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="645.0" y="482.0" font-size="20" fill="#2b2a26" text-anchor="middle">hustá tenká žebra</text>
+<line x1="640.0" y1="452.0" x2="600.0" y2="286.3" stroke="#f8f9fa" stroke-width="7" stroke-linecap="round"/>
+<line x1="640.0" y1="452.0" x2="600.0" y2="286.3" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

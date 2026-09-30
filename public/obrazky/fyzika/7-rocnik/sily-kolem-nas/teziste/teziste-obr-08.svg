@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři nákresy téže šikmo vychýlené tyče vedle sebe, u každého je označený bod T a z něj vede svisle dolů šipka tíhové síly. Vlevo a) stálá poloha: tyč visí na závěsu nahoře, bod T je pod závěsem. Uprostřed b) volná poloha: tyč se otáčí kolem bodu, který leží v bodě T. Vpravo c) vratká poloha: tyč stojí na podpěrném bodu dole, bod T je nad ním.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="494" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="70.0" y1="80.0" x2="190.0" y2="80.0" stroke="#495057" stroke-width="10" stroke-linecap="round"/>
+<line x1="120.0" y1="80.0" x2="120.0" y2="100.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<path d="M120.0,100.0 L204.5,281.3" fill="none" stroke="#8a5a2b" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120.0,100.0 L204.5,281.3" fill="none" stroke="#d9a066" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="120.0" cy="100.0" r="9" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<rect x="471.0" y="250.0" width="18.0" height="150.0" rx="3" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="420.0" y="394.0" width="120.0" height="18.0" rx="4" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<path d="M437.7,340.6 L522.3,159.4" fill="none" stroke="#8a5a2b" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M437.7,340.6 L522.3,159.4" fill="none" stroke="#d9a066" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="480.0" cy="250.0" r="9" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<path d="M720.0,400.0 L780.0,400.0 L750.0,366.0 z" fill="#868e96" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="670.0" y1="400.0" x2="830.0" y2="400.0" stroke="#adb5bd" stroke-width="5" stroke-linecap="round"/>
+<path d="M750.0,360.0 L834.5,178.7" fill="none" stroke="#8a5a2b" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M750.0,360.0 L834.5,178.7" fill="none" stroke="#d9a066" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="750.0" cy="360.0" r="9" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<line x1="162.3" y1="190.6" x2="162.3" y2="280.6" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="162.3" y1="190.6" x2="162.3" y2="190.6" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="162.3" y1="190.6" x2="162.3" y2="190.6" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="162.3" cy="190.6" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="146.3" y="182.6" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<text x="150.3" y="264.6" font-size="26" font-weight="bold" fill="#e03131" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g</tspan></text>
+<line x1="480.0" y1="250.0" x2="480.0" y2="340.0" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="480.0" y1="250.0" x2="480.0" y2="250.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="480.0" y1="250.0" x2="480.0" y2="250.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="480.0" cy="250.0" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="464.0" y="242.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<text x="492.0" y="324.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g</tspan></text>
+<circle cx="480.0" cy="250.0" r="15" fill="none" stroke="#2b2a26" stroke-width="4"/>
+<line x1="792.3" y1="269.4" x2="792.3" y2="359.4" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="792.3" y1="269.4" x2="792.3" y2="269.4" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="792.3" y1="269.4" x2="792.3" y2="269.4" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="792.3" cy="269.4" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="776.3" y="261.4" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<text x="804.3" y="343.4" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g</tspan></text>
+<text x="160.0" y="470.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a) stálá poloha</text>
+<text x="480.0" y="470.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">b) volná poloha</text>
+<text x="800.0" y="470.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">c) vratká poloha</text>
+</svg>
