@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Rovnováha na dvojzvratné páce: dvě stejně těžké děti sedí na houpačce stejně daleko od osy O, červené šipky sil F1 a F2 míří dolů a ramena a1 a a2 jsou stejně dlouhá.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="4" y="372" width="952" height="20" fill="#b2f2bb"/>
+<line x1="4.0" y1="372.0" x2="956.0" y2="372.0" stroke="#2f9e44" stroke-width="3" stroke-linecap="round"/>
+<path d="M418,372 L418,300 Q418,254 480,254 Q542,254 542,300 L542,372 z" fill="#4dabf7" stroke="#1864ab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="60.0" y="240.0" width="840.0" height="14.0" rx="4" fill="#c58b4f" stroke="#7a4a12" stroke-width="3"/>
+<line x1="200.0" y1="232.0" x2="230.0" y2="232.0" stroke="#495057" stroke-width="12.0" stroke-linecap="round"/>
+<line x1="230.0" y1="232.0" x2="234.0" y2="266.0" stroke="#495057" stroke-width="11.0" stroke-linecap="round"/>
+<rect x="232.0" y="262.0" width="18.0" height="8.0" rx="3" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<rect x="188.0" y="174.0" width="24.0" height="60.0" rx="8.0" fill="#f08c00" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="202.0" cy="160.0" r="13.0" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2"/>
+<line x1="232.0" y1="240.0" x2="232.0" y2="198.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="226.0" y1="198.0" x2="238.0" y2="198.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<line x1="206.0" y1="186.0" x2="232.0" y2="198.0" stroke="#f1c9a5" stroke-width="7.0" stroke-linecap="round"/>
+<line x1="760.0" y1="232.0" x2="730.0" y2="232.0" stroke="#495057" stroke-width="12.0" stroke-linecap="round"/>
+<line x1="730.0" y1="232.0" x2="726.0" y2="266.0" stroke="#495057" stroke-width="11.0" stroke-linecap="round"/>
+<rect x="710.0" y="262.0" width="18.0" height="8.0" rx="3" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<rect x="748.0" y="174.0" width="24.0" height="60.0" rx="8.0" fill="#e64980" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="758.0" cy="160.0" r="13.0" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2"/>
+<line x1="728.0" y1="240.0" x2="728.0" y2="198.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="722.0" y1="198.0" x2="734.0" y2="198.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<line x1="754.0" y1="186.0" x2="728.0" y2="198.0" stroke="#f1c9a5" stroke-width="7.0" stroke-linecap="round"/>
+<line x1="200.0" y1="254.0" x2="200.0" y2="364.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="760.0" y1="254.0" x2="760.0" y2="364.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="216.0" y="320.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">1</tspan></text>
+<text x="776.0" y="320.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">2</tspan></text>
+<circle cx="480.0" cy="247.0" r="13" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="467.0" y1="247.0" x2="493.0" y2="247.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="480.0" y1="234.0" x2="480.0" y2="260.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<text x="480.0" y="220.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">O</text>
+<line x1="200.0" y1="370.0" x2="200.0" y2="430.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="480.0" y1="254.0" x2="480.0" y2="430.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="760.0" y1="370.0" x2="760.0" y2="430.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="200.0" y1="430.0" x2="480.0" y2="430.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="200.0" y1="420.0" x2="200.0" y2="440.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="480.0" y1="420.0" x2="480.0" y2="440.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="340.0" y="460.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">1</tspan></text>
+<line x1="480.0" y1="430.0" x2="760.0" y2="430.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="480.0" y1="420.0" x2="480.0" y2="440.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="760.0" y1="420.0" x2="760.0" y2="440.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="620.0" y="460.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">2</tspan></text>
+<rect x="120.0" y="490.0" width="720.0" height="76.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="480.0" y="521.2" font-size="21" fill="#2b2a26" text-anchor="middle">Stejně těžké děti: stejně velké síly.</text>
+<text x="480.0" y="549.5" font-size="21" fill="#2b2a26" text-anchor="middle">Stejná vzdálenost dětí od osy: stejně velká ramena sil.</text>
+<text x="480.0" y="596.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Šipky jsou stejně dlouhé, protože síly jsou stejně velké.</text>
+</svg>

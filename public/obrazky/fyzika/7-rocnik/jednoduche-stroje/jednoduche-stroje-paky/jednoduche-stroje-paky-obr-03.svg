@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Ruka otáčí maticovým klíčem na šroubu: červená šipka síly F působí na konci rukojeti, žlutá úsečka od osy k rukojeti je rameno síly, osa otáčení leží ve šroubu a klíč se šroubem se otáčí po směru hodinových ručiček.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="494" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<g transform="rotate(-15 560 250)">
+<rect x="240.0" y="233.0" width="320.0" height="34.0" rx="14" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<circle cx="560.0" cy="250.0" r="52" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+</g>
+<path d="M592.8,258.8 L568.8,282.8 L536.0,274.0 L527.2,241.2 L551.2,217.2 L584.0,226.0 z" fill="#d9a441" stroke="#8a5a00" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="560.0" y1="250.0" x2="270.2" y2="327.6" stroke="#e8a100" stroke-width="7" stroke-linecap="round"/>
+<g transform="rotate(-15 270.2222521132795 327.6457135307562)"><rect x="240.2" y="310.6" width="60.0" height="34.0" rx="10" fill="#f1c9a5" stroke="#a9744f" stroke-width="2.5"/>
+<line x1="249.2" y1="314.6" x2="249.2" y2="340.6" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="270.2" y1="314.6" x2="270.2" y2="340.6" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="291.2" y1="314.6" x2="291.2" y2="340.6" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+<line x1="288.3" y1="395.3" x2="270.2" y2="327.6" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="270.2" y1="327.6" x2="236.6" y2="202.1" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="222.6" y="206.1" font-size="32" font-weight="bold" fill="#e03131" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F</text>
+<circle cx="560.0" cy="250.0" r="12" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="548.0" y1="250.0" x2="572.0" y2="250.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="560.0" y1="238.0" x2="560.0" y2="262.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M486.7,223.5 A78,78 0 0 1 633.3,223.5" fill="none" stroke="#1971c2" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-mod)"/>
+<path d="M420,400 L401,305 L446,400 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="400.0" y="400.0" width="210.0" height="44.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="422" y="397" width="22" height="6" fill="#fff3bf"/>
+<text x="505.0" y="429.7" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Rameno síly a</text>
+<path d="M670,335 L580,266 L696,335 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="650.0" y="335.0" width="200.0" height="44.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="672" y="332" width="22" height="6" fill="#fff3bf"/>
+<text x="750.0" y="364.7" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Osa otáčení</text>
+<path d="M620,130 L622,184 L646,130 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="600.0" y="60.0" width="330.0" height="70.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="622" y="127" width="22" height="6" fill="#d3f9d8"/>
+<text x="765.0" y="88.5" font-size="20" fill="#2b2a26" text-anchor="middle">Klíč i šroub se otáčejí</text>
+<text x="765.0" y="115.5" font-size="20" fill="#2b2a26" text-anchor="middle">po směru hodinových ručiček</text>
+</svg>

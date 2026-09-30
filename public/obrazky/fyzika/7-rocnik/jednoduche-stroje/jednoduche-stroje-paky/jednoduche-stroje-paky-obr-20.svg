@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma mechanické váhy: nahoře ramena B, na jednom konci závaží G, od ramen dolů vedou tyče E a F k příčce A, dole je podstavec H.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="514" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="4" y="490" width="952" height="18" fill="#dee2e6"/>
+<line x1="4.0" y1="490.0" x2="956.0" y2="490.0" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+<rect x="300.0" y="430.0" width="560.0" height="60.0" rx="4" fill="#c58b4f" stroke="#7a4a12" stroke-width="4"/>
+<circle cx="330.0" cy="460.0" r="20" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="330.0" y="468.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">H</text>
+<rect x="280.0" y="130.0" width="30.0" height="300.0" rx="3" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="150.0" y="118.0" width="470.0" height="20.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="590.0" y="118.0" width="10.0" height="50.0" rx="2" fill="#495057" stroke="#212529" stroke-width="2"/>
+<circle cx="295.0" cy="128.0" r="12" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="283.0" y1="128.0" x2="307.0" y2="128.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="295.0" y1="116.0" x2="295.0" y2="140.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="430.0" y1="138.0" x2="430.0" y2="372.0" stroke="#6c757d" stroke-width="8" stroke-linecap="round"/>
+<line x1="540.0" y1="138.0" x2="540.0" y2="372.0" stroke="#6c757d" stroke-width="8" stroke-linecap="round"/>
+<rect x="330.0" y="372.0" width="500.0" height="16.0" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="320.0" y1="430.0" x2="640.0" y2="388.0" stroke="#868e96" stroke-width="6" stroke-linecap="round"/>
+<line x1="190.0" y1="138.0" x2="133.0" y2="300.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="190.0" y1="138.0" x2="247.0" y2="300.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M125.0,300 Q190,356 255.0,300 z" fill="#ced4da" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="125.0" y1="300.0" x2="255.0" y2="300.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<rect x="170.0" y="254.0" width="40.0" height="44.0" rx="4" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<circle cx="190.0" cy="350.0" r="20" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="190.0" y="358.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">G</text>
+<circle cx="700.0" cy="100.0" r="20" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="700.0" y="108.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">B</text>
+<line x1="682.0" y1="108.0" x2="620.0" y2="124.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="682.0" y1="108.0" x2="620.0" y2="124.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="430.0" cy="250.0" r="20" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="430.0" y="258.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">E</text>
+<circle cx="540.0" cy="250.0" r="20" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="540.0" y="258.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">F</text>
+<circle cx="760.0" cy="350.0" r="20" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="760.0" y="358.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">A</text>
+<line x1="745.0" y1="362.0" x2="700.0" y2="376.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="745.0" y1="362.0" x2="700.0" y2="376.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="295.0" cy="128.0" r="12" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="283.0" y1="128.0" x2="307.0" y2="128.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="295.0" y1="116.0" x2="295.0" y2="140.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<text x="480.0" y="44.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">A příčka · B ramena · E, F tyče · G závaží · H podstavec</text>
+</svg>

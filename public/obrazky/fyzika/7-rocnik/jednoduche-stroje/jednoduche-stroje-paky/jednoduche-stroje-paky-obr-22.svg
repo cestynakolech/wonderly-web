@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 550" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Ohnutá paže s vyznačeným svalem: v lokti je osa otáčení O, velká šipka F1 svalu míří nahoru blízko lokte, v ruce je šedá koule a u ní malá šipka F2 tíhy míří dolů.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="544" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="200.0" y="90.0" width="64.0" height="250.0" rx="24" fill="#f1c9a5" stroke="#a9744f" stroke-width="4"/>
+<rect x="206.0" y="300.0" width="440.0" height="62.0" rx="24" fill="#f1c9a5" stroke="#a9744f" stroke-width="4"/>
+<path d="M236,130 C282,170 296,240 286,300 L268,300 C262,240 250,190 224,150 z" fill="#d6336c" stroke="#8f1d45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="276.0" y1="300.0" x2="290.0" y2="306.0" stroke="#8f1d45" stroke-width="6" stroke-linecap="round"/>
+<circle cx="632.0" cy="262.0" r="38" fill="#868e96" stroke="#343a40" stroke-width="4"/>
+<rect x="600.0" y="292.0" width="96.0" height="60.0" rx="22" fill="#f1c9a5" stroke="#a9744f" stroke-width="4"/>
+<path d="M610,294 Q616,270 622,294" fill="none" stroke="#a9744f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M630,294 Q636,270 642,294" fill="none" stroke="#a9744f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M650,294 Q656,270 662,294" fill="none" stroke="#a9744f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="290.0" y1="300.0" x2="290.0" y2="60.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="632.0" y1="300.0" x2="632.0" y2="336.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="306.0" y="120.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> (sval)</tspan></text>
+<text x="652.0" y="380.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> (tíha koule)</tspan></text>
+<circle cx="230.0" cy="335.0" r="12" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="218.0" y1="335.0" x2="242.0" y2="335.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="230.0" y1="323.0" x2="230.0" y2="347.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<text x="208.0" y="379.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">O</text>
+<line x1="230.0" y1="350.0" x2="230.0" y2="450.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="290.0" y1="306.0" x2="290.0" y2="450.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="632.0" y1="342.0" x2="632.0" y2="450.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="230.0" y1="450.0" x2="290.0" y2="450.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="230.0" y1="440.0" x2="230.0" y2="460.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="290.0" y1="440.0" x2="290.0" y2="460.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="260.0" y="480.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">1</tspan></text>
+<line x1="230.0" y1="406.0" x2="632.0" y2="406.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="230.0" y1="396.0" x2="230.0" y2="416.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="632.0" y1="396.0" x2="632.0" y2="416.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="431.0" y="394.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">2</tspan></text>
+<rect x="500.0" y="30.0" width="440.0" height="96.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="720.0" y="58.0" font-size="20" fill="#2b2a26" text-anchor="middle">Sval má velmi krátké rameno síly,</text>
+<text x="720.0" y="85.0" font-size="20" fill="#2b2a26" text-anchor="middle">a musí proto vyvinout mnohem větší sílu,</text>
+<text x="720.0" y="112.0" font-size="20" fill="#2b2a26" text-anchor="middle">než jakou zvedáme v ruce.</text>
+<rect x="20.0" y="200.0" width="170.0" height="70.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="105.0" y="228.5" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">V lokti je</text>
+<text x="105.0" y="255.5" font-size="20" fill="#2b2a26" text-anchor="middle">osa otáčení</text>
+<line x1="150.0" y1="270.0" x2="218.0" y2="326.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="150.0" y1="270.0" x2="218.0" y2="326.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="480.0" y="528.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Délka šipky odpovídá velikosti síly: šipka svalu je mnohem delší než šipka tíhy koule.</text>
+</svg>

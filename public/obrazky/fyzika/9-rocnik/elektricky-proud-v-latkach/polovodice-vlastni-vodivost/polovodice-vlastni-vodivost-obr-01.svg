@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kresba kusu křemíku: nepravidelný kus leží na dřevěném podkladu.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="494" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Kus křemíku</text>
+<rect x="120.0" y="380.0" width="720.0" height="90.0" rx="10" fill="#c58b4f" stroke="#7a4a12" stroke-width="3"/>
+<line x1="140.0" y1="400.0" x2="820.0" y2="400.0" stroke="#a8702f" stroke-width="2" stroke-linecap="round"/>
+<line x1="140.0" y1="414.0" x2="820.0" y2="410.0" stroke="#a8702f" stroke-width="2" stroke-linecap="round"/>
+<line x1="140.0" y1="428.0" x2="820.0" y2="428.0" stroke="#a8702f" stroke-width="2" stroke-linecap="round"/>
+<line x1="140.0" y1="442.0" x2="820.0" y2="438.0" stroke="#a8702f" stroke-width="2" stroke-linecap="round"/>
+<line x1="140.0" y1="456.0" x2="820.0" y2="456.0" stroke="#a8702f" stroke-width="2" stroke-linecap="round"/>
+<line x1="140.0" y1="470.0" x2="820.0" y2="466.0" stroke="#a8702f" stroke-width="2" stroke-linecap="round"/>
+<path d="M250.0,380.0 L230.0,300.0 L290.0,210.0 L390.0,150.0 L500.0,130.0 L610.0,170.0 L700.0,250.0 L730.0,330.0 L700.0,380.0 z" fill="#adb5bd" stroke="#495057" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M230.0,300.0 L290.0,210.0 L360.0,250.0 L330.0,320.0 z" fill="#ced4da" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M290.0,210.0 L390.0,150.0 L450.0,200.0 L360.0,250.0 z" fill="#e9ecef" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M390.0,150.0 L500.0,130.0 L540.0,190.0 L450.0,200.0 z" fill="#dee2e6" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M500.0,130.0 L610.0,170.0 L600.0,240.0 L540.0,190.0 z" fill="#f1f3f5" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M610.0,170.0 L700.0,250.0 L640.0,300.0 L600.0,240.0 z" fill="#ced4da" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M700.0,250.0 L730.0,330.0 L700.0,380.0 L640.0,300.0 z" fill="#868e96" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M330.0,320.0 L450.0,260.0 L540.0,250.0 L600.0,300.0 L700.0,380.0 L250.0,380.0 z" fill="#909aa3" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M450.0,260.0 L540.0,250.0 L600.0,300.0 L520.0,330.0 z" fill="#c4cbd1" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M360.0,250.0 L450.0,200.0 L540.0,190.0 L450.0,260.0 L330.0,320.0 z" fill="#dfe3e7" stroke="#6c757d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="600.0" y1="210.0" x2="790.0" y2="120.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="600.0" y1="210.0" x2="790.0" y2="120.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="744.4" y="85.0" width="171.2" height="40.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="830.0" y="113.4" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">křemík (Si)</text>
+</svg>

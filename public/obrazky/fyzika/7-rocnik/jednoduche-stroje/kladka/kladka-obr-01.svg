@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 615" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pevná kladka zavěšená u stropu: přes kladku vede lano, na levém konci visí závaží 2 kg s tíhou F = 20 N dolů, na pravém konci táhne ruka dolů silou F = 20 N; závaží se zvedne o 1 m, když se lano vytáhne o 1 m.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="609" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="380.0" y="20.0" width="200.0" height="28.0" rx="3" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<line x1="396.0" y1="48.0" x2="382.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="420.0" y1="48.0" x2="406.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="444.0" y1="48.0" x2="430.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="468.0" y1="48.0" x2="454.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="492.0" y1="48.0" x2="478.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="516.0" y1="48.0" x2="502.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="540.0" y1="48.0" x2="526.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="564.0" y1="48.0" x2="550.0" y2="62.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="480.0" y1="48.0" x2="480.0" y2="170.0" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+<path d="M420,338 L420,170 A60,60 0 0 1 540,170 L540,300" fill="none" stroke="#8d4b1f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="540.0" y1="300.0" x2="540.0" y2="400.0" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+<circle cx="480.0" cy="170.0" r="60" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<circle cx="480.0" cy="170.0" r="48" fill="#f1f3f5" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="480.0" cy="170.0" r="8" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="472.0" y1="170.0" x2="488.0" y2="170.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="480.0" y1="162.0" x2="480.0" y2="178.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="375" y="260" width="90" height="70" rx="5" fill="none" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6"/>
+<line x1="420.0" y1="338.0" x2="420.0" y2="360.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<rect x="375.0" y="360.0" width="90.0" height="70.0" rx="5" fill="#495057" stroke="#343a40" stroke-width="3"/>
+<text x="420.0" y="404.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">2 kg</text>
+<line x1="420.0" y1="434.0" x2="420.0" y2="514.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="444.0" y="484.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F = 20 N</text>
+<rect x="522" y="388" width="36" height="24" rx="5" fill="none" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6"/>
+<g transform="rotate(0 540 300)"><rect x="522.0" y="288.0" width="36.0" height="24.0" rx="10" fill="#f1c9a5" stroke="#a9744f" stroke-width="2.5"/>
+<line x1="531.0" y1="292.0" x2="531.0" y2="308.0" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="540.0" y1="292.0" x2="540.0" y2="308.0" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+<line x1="549.0" y1="292.0" x2="549.0" y2="308.0" stroke="#a9744f" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+<line x1="540.0" y1="208.0" x2="540.0" y2="288.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="562.0" y="252.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F = 20 N</text>
+<line x1="300.0" y1="260.0" x2="372.0" y2="260.0" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="300.0" y1="360.0" x2="372.0" y2="360.0" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="300.0" y1="260.0" x2="300.0" y2="360.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="290.0" y1="260.0" x2="310.0" y2="260.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="290.0" y1="360.0" x2="310.0" y2="360.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="285.0" y="319.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">1 m</text>
+<line x1="640.0" y1="300.0" x2="760.0" y2="300.0" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="570.0" y1="400.0" x2="760.0" y2="400.0" stroke="#adb5bd" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+<line x1="760.0" y1="300.0" x2="760.0" y2="400.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="750.0" y1="300.0" x2="770.0" y2="300.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="750.0" y1="400.0" x2="770.0" y2="400.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="778.0" y="359.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">1 m</text>
+<text x="480.0" y="560.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Pevná kladka sílu nešetří: táhneme silou 20 N, stejně velkou jako je tíha závaží.</text>
+<text x="480.0" y="590.0" font-size="22" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Lano vytáhneme o 1 m, závaží se zvedne o 1 m. Čárkovaně: poloha po vytažení.</text>
+</svg>

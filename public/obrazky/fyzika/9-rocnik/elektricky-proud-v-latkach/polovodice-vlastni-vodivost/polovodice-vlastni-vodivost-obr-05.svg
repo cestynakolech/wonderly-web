@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kresba skupiny termistorů: drobné součástky s dvěma dlouhými vývody a barevnými kapkovitými hlavicemi rozložené do kruhu.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="634" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Termistory</text>
+<g transform="rotate(0.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(45.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#1971c2" stroke="#0b4f8a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(90.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#f2c200" stroke="#a37b00" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(135.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#2f9e44" stroke="#1b6b2d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(180.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(225.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#1971c2" stroke="#0b4f8a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(270.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#f2c200" stroke="#a37b00" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="rotate(315.0 480 350)"><line x1="471.0" y1="255.0" x2="471.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="489.0" y1="255.0" x2="489.0" y2="165.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M480,82 C488,100 512,118 512,140 A32,32 0 0 1 448,140 C448,118 472,100 480,82 z" fill="#2f9e44" stroke="#1b6b2d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<rect x="406.5" y="331.0" width="147.0" height="38.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="357.7" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">termistory</text>
+</svg>

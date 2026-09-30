@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 545" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Páka v rovnováze s osou uprostřed: na kratším rameni 9 cm visí těžší závaží, na dvakrát delším rameni 18 cm visí dvakrát lehčí závaží; napsány jsou vztahy pro tíhu a pro rovnováhu momentů.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="539" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="110.0" y="193.0" width="720.0" height="14.0" rx="3" fill="#4c6ef5" stroke="#364fc7" stroke-width="3"/>
+<path d="M380.0,207.0 L345.0,302.0 L415.0,302.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="320.0" y="302.0" width="120.0" height="10.0" rx="3" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<line x1="200.0" y1="208.0" x2="200.0" y2="230.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<rect x="168.0" y="230.0" width="64.0" height="64.0" rx="5" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<line x1="740.0" y1="208.0" x2="740.0" y2="230.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<rect x="718.0" y="230.0" width="44.0" height="44.0" rx="5" fill="#adb5bd" stroke="#343a40" stroke-width="3"/>
+<line x1="200.0" y1="262.0" x2="200.0" y2="362.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="740.0" y1="252.0" x2="740.0" y2="302.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="180.0" y="330.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g1</tspan><tspan dy="-6"> = 1 N</tspan></text>
+<text x="770.0" y="310.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">F<tspan font-size="18" dy="6">g2</tspan></text>
+<text x="770.0" y="338.0" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">poloviční tíha</text>
+<circle cx="380.0" cy="200.0" r="13" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="367.0" y1="200.0" x2="393.0" y2="200.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="380.0" y1="187.0" x2="380.0" y2="213.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<text x="356.0" y="184.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">O</text>
+<line x1="200.0" y1="368.0" x2="200.0" y2="440.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="380.0" y1="310.0" x2="380.0" y2="440.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="740.0" y1="306.0" x2="740.0" y2="440.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="200.0" y1="440.0" x2="380.0" y2="440.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="200.0" y1="430.0" x2="200.0" y2="450.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="380.0" y1="430.0" x2="380.0" y2="450.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="290.0" y="470.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> = 9 cm</tspan></text>
+<line x1="380.0" y1="440.0" x2="740.0" y2="440.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="380.0" y1="430.0" x2="380.0" y2="450.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="740.0" y1="430.0" x2="740.0" y2="450.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="560.0" y="470.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> = 18 cm</tspan></text>
+<rect x="420.0" y="30.0" width="520.0" height="118.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="680.0" y="68.0" font-size="21" fill="#2b2a26" text-anchor="middle">F<tspan font-size="18" dy="6">g</tspan><tspan dy="-6"> = m · g</tspan></text>
+<text x="680.0" y="96.3" font-size="21" fill="#2b2a26" text-anchor="middle">F<tspan font-size="18" dy="6">g1</tspan><tspan dy="-6"> · </tspan>a<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> = </tspan>F<tspan font-size="18" dy="6">g2</tspan><tspan dy="-6"> · </tspan>a<tspan font-size="18" dy="6">2</tspan></text>
+<text x="680.0" y="124.7" font-size="21" fill="#2b2a26" text-anchor="middle">1 · 9 = 9 a poloviční síla · 18 = 9</text>
+<text x="480.0" y="520.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Délka šipky odpovídá velikosti tíhy: šipka 1 N je dvakrát delší než šipka poloviční tíhy.</text>
+</svg>

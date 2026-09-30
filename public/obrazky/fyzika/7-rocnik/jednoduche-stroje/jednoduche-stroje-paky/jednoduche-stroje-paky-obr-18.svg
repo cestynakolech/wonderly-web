@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Nerovnoramenná páka podobná váze decimálce: na krátkém rameni u osy stojí těžký předmět o hmotnosti 10 kg, na desetkrát delším rameni visí miska se závažím 1 kg.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="494" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="4" y="470" width="952" height="20" fill="#dee2e6"/>
+<line x1="4.0" y1="470.0" x2="956.0" y2="470.0" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+<path d="M210.0,207.0 L188.0,357.0 L232.0,357.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="150.0" y="357.0" width="120.0" height="12.0" rx="3" fill="#6c757d" stroke="#343a40" stroke-width="3"/>
+<rect x="90.0" y="193.0" width="770.0" height="14.0" rx="3" fill="#4c6ef5" stroke="#364fc7" stroke-width="3"/>
+<line x1="114.0" y1="207.0" x2="114.0" y2="296.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="186.0" y1="207.0" x2="186.0" y2="296.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<rect x="110.0" y="296.0" width="80.0" height="10.0" rx="3" fill="#6c757d" stroke="#343a40" stroke-width="3"/>
+<rect x="118.0" y="230.0" width="64.0" height="66.0" rx="5" fill="#e8a45a" stroke="#7a4a12" stroke-width="3"/>
+<text x="150.0" y="270.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">10 kg</text>
+<line x1="810.0" y1="207.0" x2="758.0" y2="320.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="810.0" y1="207.0" x2="862.0" y2="320.0" stroke="#343a40" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M750.0,320 Q810,376 870.0,320 z" fill="#ced4da" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="750.0" y1="320.0" x2="870.0" y2="320.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<rect x="778.0" y="268.0" width="64.0" height="50.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<text x="810.0" y="300.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">1 kg</text>
+<circle cx="210.0" cy="200.0" r="13" fill="#ffe066" stroke="#2b2a26" stroke-width="3"/>
+<line x1="197.0" y1="200.0" x2="223.0" y2="200.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="210.0" y1="187.0" x2="210.0" y2="213.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<text x="230.0" y="180.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">O</text>
+<line x1="150.0" y1="312.0" x2="150.0" y2="400.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="210.0" y1="300.0" x2="210.0" y2="400.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="810.0" y1="336.0" x2="810.0" y2="400.0" stroke="#6c757d" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="150.0" y1="400.0" x2="210.0" y2="400.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="150.0" y1="390.0" x2="150.0" y2="410.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="210.0" y1="390.0" x2="210.0" y2="410.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="180.0" y="430.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">1</tspan></text>
+<line x1="210.0" y1="400.0" x2="810.0" y2="400.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="210.0" y1="390.0" x2="210.0" y2="410.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<line x1="810.0" y1="390.0" x2="810.0" y2="410.0" stroke="#e8a100" stroke-width="5" stroke-linecap="round"/>
+<text x="510.0" y="430.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">a<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> = 10 · </tspan>a<tspan font-size="18" dy="6">1</tspan></text>
+<rect x="330.0" y="26.0" width="600.0" height="92.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="630.0" y="52.0" font-size="20" fill="#2b2a26" text-anchor="middle">Rameno pro závaží je desetkrát delší</text>
+<text x="630.0" y="79.0" font-size="20" fill="#2b2a26" text-anchor="middle">než rameno pro vážený předmět.</text>
+<text x="630.0" y="106.0" font-size="20" fill="#2b2a26" text-anchor="middle">Stačí proto závaží s desetkrát menší hmotností.</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řez dvoutaktním motorem: nahoře svíčka, nad pístem fialová směs a vpravo otevřený výfukový otvor s hnědou šipkou, vlevo bokem vedený kanál, dole modře vyplněný prostor kolem klikového hřídele a vpravo sací otvor se zelenou šipkou.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="a-hn" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#8d6e63"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="270.0" y="118.0" width="260.0" height="190.0" rx="4" fill="#dee2e6" stroke="#495057" stroke-width="4"/>
+<line x1="270.0" y1="132.0" x2="338.0" y2="132.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="132.0" x2="530.0" y2="132.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="148.0" x2="338.0" y2="148.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="148.0" x2="530.0" y2="148.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="164.0" x2="338.0" y2="164.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="164.0" x2="530.0" y2="164.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="180.0" x2="338.0" y2="180.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="180.0" x2="530.0" y2="180.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="196.0" x2="338.0" y2="196.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="196.0" x2="530.0" y2="196.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="212.0" x2="338.0" y2="212.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="212.0" x2="530.0" y2="212.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="228.0" x2="338.0" y2="228.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="228.0" x2="530.0" y2="228.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="244.0" x2="338.0" y2="244.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="244.0" x2="530.0" y2="244.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="260.0" x2="338.0" y2="260.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="260.0" x2="530.0" y2="260.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="276.0" x2="338.0" y2="276.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="276.0" x2="530.0" y2="276.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="292.0" x2="338.0" y2="292.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<line x1="462.0" y1="292.0" x2="530.0" y2="292.0" stroke="#868e96" stroke-width="4" stroke-linecap="round"/>
+<path d="M250,300 L250,440 Q250,520 400,520 Q550,520 550,440 L550,300 z" fill="#74c0fc" stroke="#1864ab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="340.0" y="118.0" width="120.0" height="190.0" rx="0" fill="#f8f9fa" stroke="none" stroke-width="0"/>
+<rect x="340.0" y="126.0" width="120.0" height="132.1" rx="0" fill="#b197fc" stroke="none" stroke-width="0"/>
+<line x1="340.0" y1="118.0" x2="340.0" y2="320.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="118.0" x2="460.0" y2="320.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<rect x="334.0" y="104.0" width="132.0" height="22.0" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="4"/>
+<path d="M340,250 L302,250 L302,430 L270,430 L270,220 L340,220 z" fill="#74c0fc" stroke="#1864ab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M550,392 L615,392 L615,432 L550,432 z" fill="#f8f9fa" stroke="#1864ab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="605.0" y1="412.0" x2="558.0" y2="412.0" stroke="#2f9e44" stroke-width="8" marker-end="url(#b-zel)" stroke-linecap="round"/>
+<path d="M460,220 L572,220 L572,250 L460,250" fill="#d7ccc8" stroke="#5d4037" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="460.0" y1="223.0" x2="460.0" y2="247.0" stroke="#d7ccc8" stroke-width="7" stroke-linecap="round"/>
+<line x1="444.0" y1="235.0" x2="562.0" y2="235.0" stroke="#8d6e63" stroke-width="8" marker-end="url(#a-hn)" stroke-linecap="round"/>
+<rect x="392.0" y="44.0" width="16.0" height="62.0" rx="3" fill="#f8f9fa" stroke="#495057" stroke-width="3"/>
+<rect x="388.0" y="84.0" width="24.0" height="12.0" rx="2" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<line x1="400.0" y1="293.1" x2="386.3" y2="462.6" stroke="#6c757d" stroke-width="14" stroke-linecap="round"/>
+<circle cx="400.0" cy="425.0" r="50" fill="#1971c2" stroke="#0b3d75" stroke-width="4"/>
+<circle cx="386.3" cy="462.6" r="11" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<circle cx="400.0" cy="425.0" r="12" fill="#212529" stroke="#212529" stroke-width="2"/>
+<rect x="342.0" y="258.1" width="116.0" height="70.0" rx="4" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<line x1="342.0" y1="268.1" x2="458.0" y2="268.1" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<line x1="342.0" y1="276.1" x2="458.0" y2="276.1" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<circle cx="400.0" cy="293.1" r="7" fill="#495057" stroke="#212529" stroke-width="2"/>
+<line x1="316.0" y1="318.1" x2="316.0" y2="262.1" stroke="#2b2a26" stroke-width="6" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<path d="M340.2,397.1 A66,66 0 0 1 459.8,397.1" fill="none" stroke="#f08c00" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ora)"/>
+<text x="620.0" y="74.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">zapalovací svíčka</text>
+<line x1="612.0" y1="66.0" x2="410.0" y2="68.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="612.0" y1="66.0" x2="410.0" y2="68.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="660.0" y="316.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">píst</text>
+<line x1="652.0" y1="308.0" x2="458.0" y2="300.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="652.0" y1="308.0" x2="458.0" y2="300.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="660.0" y="500.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">klikový hřídel</text>
+<line x1="652.0" y1="492.0" x2="440.0" y2="455.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="652.0" y1="492.0" x2="440.0" y2="455.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="680.0" y="350.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">sací otvor</text>
+<line x1="672.0" y1="356.0" x2="600.0" y2="396.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="672.0" y1="356.0" x2="600.0" y2="396.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="30.0" y="250.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kanál</text>
+<line x1="112.0" y1="250.0" x2="282.0" y2="280.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="112.0" y1="250.0" x2="282.0" y2="280.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="600.0" y="196.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">výfukový otvor</text>
+<line x1="592.0" y1="190.0" x2="568.0" y2="226.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="592.0" y1="190.0" x2="568.0" y2="226.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="640.0" y="120.0" width="300.0" height="50.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="790.0" y="152.0" font-size="20" fill="#2b2a26" text-anchor="middle">Dvoutaktní motor bez ventilů</text>
+<text x="480.0" y="552.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Směs nad pístem je fialová, směs kolem klikového hřídele modrá. Šipka u pístu ukazuje jeho pohyb.</text>
+<text x="480.0" y="578.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Hnědá šipka ukazuje, kudy odchází výfukové plyny ze spalovacího prostoru nad pístem.</text>
+</svg>

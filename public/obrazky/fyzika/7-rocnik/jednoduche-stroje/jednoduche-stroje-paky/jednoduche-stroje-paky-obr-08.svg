@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvě situace s pákou: dlouhá modrá tyč je podepřena červenou podpěrou na pravém konci, člověk zvedá levý konec. Nahoře visí závaží daleko od podpěry, dole blízko podpěry.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="574" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="6.0" y="10.0" width="948.0" height="250.0" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="10" y="235" width="940" height="20" fill="#b2f2bb"/>
+<line x1="10.0" y1="235.0" x2="950.0" y2="235.0" stroke="#2f9e44" stroke-width="3" stroke-linecap="round"/>
+<path d="M860.0,167.0 L828.0,235.0 L892.0,235.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="162.0" y1="191.0" x2="161.0" y2="231.0" stroke="#495057" stroke-width="9.0" stroke-linecap="round"/>
+<line x1="178.0" y1="191.0" x2="179.0" y2="231.0" stroke="#495057" stroke-width="9.0" stroke-linecap="round"/>
+<rect x="153.0" y="227.0" width="15.0" height="8.0" rx="3" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<rect x="172.0" y="227.0" width="15.0" height="8.0" rx="3" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<line x1="153.0" y1="145.0" x2="148.0" y2="183.0" stroke="#f1c9a5" stroke-width="7.0" stroke-linecap="round"/>
+<line x1="187.0" y1="145.0" x2="192.0" y2="183.0" stroke="#f1c9a5" stroke-width="7.0" stroke-linecap="round"/>
+<rect x="153.0" y="139.0" width="34.0" height="56.0" rx="8.0" fill="#1971c2" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="170.0" cy="130.0" r="11.0" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2"/>
+<line x1="187.0" y1="145.0" x2="262.0" y2="167.0" stroke="#f1c9a5" stroke-width="8" stroke-linecap="round"/>
+<rect x="250.0" y="153.0" width="620.0" height="14.0" rx="3" fill="#4c6ef5" stroke="#364fc7" stroke-width="3"/>
+<line x1="380.0" y1="169.0" x2="380.0" y2="191.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<rect x="353.0" y="191.0" width="54.0" height="44.0" rx="5" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<line x1="262.0" y1="167.0" x2="262.0" y2="95.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="282.0" y="120.0" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">stejná síla</text>
+<text x="24.0" y="46.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">A</text>
+<rect x="6.0" y="270.0" width="948.0" height="250.0" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="10" y="495" width="940" height="20" fill="#b2f2bb"/>
+<line x1="10.0" y1="495.0" x2="950.0" y2="495.0" stroke="#2f9e44" stroke-width="3" stroke-linecap="round"/>
+<path d="M860.0,427.0 L828.0,495.0 L892.0,495.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="162.0" y1="451.0" x2="161.0" y2="491.0" stroke="#495057" stroke-width="9.0" stroke-linecap="round"/>
+<line x1="178.0" y1="451.0" x2="179.0" y2="491.0" stroke="#495057" stroke-width="9.0" stroke-linecap="round"/>
+<rect x="153.0" y="487.0" width="15.0" height="8.0" rx="3" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<rect x="172.0" y="487.0" width="15.0" height="8.0" rx="3" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<line x1="153.0" y1="405.0" x2="148.0" y2="443.0" stroke="#f1c9a5" stroke-width="7.0" stroke-linecap="round"/>
+<line x1="187.0" y1="405.0" x2="192.0" y2="443.0" stroke="#f1c9a5" stroke-width="7.0" stroke-linecap="round"/>
+<rect x="153.0" y="399.0" width="34.0" height="56.0" rx="8.0" fill="#1971c2" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="170.0" cy="390.0" r="11.0" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2"/>
+<line x1="187.0" y1="405.0" x2="262.0" y2="427.0" stroke="#f1c9a5" stroke-width="8" stroke-linecap="round"/>
+<rect x="250.0" y="413.0" width="620.0" height="14.0" rx="3" fill="#4c6ef5" stroke="#364fc7" stroke-width="3"/>
+<line x1="720.0" y1="429.0" x2="720.0" y2="451.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<rect x="693.0" y="451.0" width="54.0" height="44.0" rx="5" fill="#868e96" stroke="#343a40" stroke-width="3"/>
+<line x1="262.0" y1="427.0" x2="262.0" y2="355.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="282.0" y="380.0" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">stejná síla</text>
+<text x="24.0" y="306.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">B</text>
+<text x="480.0" y="556.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">U kterého obrázku zvedne stejná síla větší závaží?</text>
+</svg>
