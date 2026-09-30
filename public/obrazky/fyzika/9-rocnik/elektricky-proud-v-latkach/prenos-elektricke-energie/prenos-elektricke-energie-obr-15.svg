@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stropní svítidlo: tmavá lišta se čtyřmi otočnými reflektory, které svítí teplým světlem dolů.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="464" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Stropní svítidlo</text>
+<rect x="140.0" y="70.0" width="680.0" height="26.0" rx="6" fill="#212529" stroke="#212529" stroke-width="3"/>
+<g transform="rotate(-14 230 96)"><path d="M206.0,178.0 L254.0,178.0 L276.0,380.0 L184.0,380.0 z" fill="#ffe066" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.35"/>
+<rect x="224.0" y="92.0" width="12.0" height="22.0" rx="2" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="204.0" y="112.0" width="52.0" height="62.0" rx="8" fill="#212529" stroke="#212529" stroke-width="3"/>
+<ellipse cx="230.0" cy="176.0" rx="26" ry="8" fill="#fff3bf" stroke="#212529" stroke-width="3"/>
+</g>
+<g transform="rotate(8 410 96)"><path d="M386.0,178.0 L434.0,178.0 L456.0,380.0 L364.0,380.0 z" fill="#ffe066" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.35"/>
+<rect x="404.0" y="92.0" width="12.0" height="22.0" rx="2" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="384.0" y="112.0" width="52.0" height="62.0" rx="8" fill="#212529" stroke="#212529" stroke-width="3"/>
+<ellipse cx="410.0" cy="176.0" rx="26" ry="8" fill="#fff3bf" stroke="#212529" stroke-width="3"/>
+</g>
+<g transform="rotate(-6 590 96)"><path d="M566.0,178.0 L614.0,178.0 L636.0,380.0 L544.0,380.0 z" fill="#ffe066" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.35"/>
+<rect x="584.0" y="92.0" width="12.0" height="22.0" rx="2" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="564.0" y="112.0" width="52.0" height="62.0" rx="8" fill="#212529" stroke="#212529" stroke-width="3"/>
+<ellipse cx="590.0" cy="176.0" rx="26" ry="8" fill="#fff3bf" stroke="#212529" stroke-width="3"/>
+</g>
+<g transform="rotate(14 740 96)"><path d="M716.0,178.0 L764.0,178.0 L786.0,380.0 L694.0,380.0 z" fill="#ffe066" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.35"/>
+<rect x="734.0" y="92.0" width="12.0" height="22.0" rx="2" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="714.0" y="112.0" width="52.0" height="62.0" rx="8" fill="#212529" stroke="#212529" stroke-width="3"/>
+<ellipse cx="740.0" cy="176.0" rx="26" ry="8" fill="#fff3bf" stroke="#212529" stroke-width="3"/>
+</g>
+<line x1="170.0" y1="84.0" x2="110.0" y2="130.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="170.0" y1="84.0" x2="110.0" y2="130.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="100.0" y="140.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">lišta</text>
+<text x="480.0" y="440.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">otočné reflektory svítí dolů</text>
+</svg>

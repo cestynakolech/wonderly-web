@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 570" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Třífázová zásuvka a vidlice zepředu, každá s pěti kolíky, vidlice je zrcadlová k zásuvce: tři fázové vodiče hnědý, černý a šedý přivádějí proud, modrý nulovací vodič je uzemněný a zelenožlutý ochranný kolík uzemňuje konstrukci spotřebiče pro případ poškození.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="564" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Třífázová zásuvka a vidlice</text>
+<rect x="125.0" y="125.0" width="250.0" height="250.0" rx="26" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<circle cx="250.0" cy="250.0" r="100" fill="#f8f9fa" stroke="#868e96" stroke-width="4"/>
+<circle cx="284.1" cy="203.1" r="15" fill="#343a40" stroke="#7b4a2b" stroke-width="4"/>
+<circle cx="305.2" cy="267.9" r="15" fill="#343a40" stroke="#212529" stroke-width="4"/>
+<circle cx="250.0" cy="308.0" r="15" fill="#343a40" stroke="#adb5bd" stroke-width="4"/>
+<circle cx="194.8" cy="267.9" r="15" fill="#343a40" stroke="#1971c2" stroke-width="4"/>
+<circle cx="215.9" cy="203.1" r="19" fill="#343a40" stroke="#2f9e44" stroke-width="4"/>
+<circle cx="215.9" cy="203.1" r="15" fill="none" stroke="#ffd43b" stroke-width="2"/>
+<text x="250.0" y="415.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">zásuvka</text>
+<circle cx="710.0" cy="250.0" r="108" fill="#e03131" stroke="#8c1d1d" stroke-width="5"/>
+<circle cx="710.0" cy="250.0" r="84" fill="#c92a2a" stroke="#8c1d1d" stroke-width="3"/>
+<circle cx="675.9" cy="203.1" r="15" fill="#7b4a2b" stroke="#212529" stroke-width="3"/>
+<circle cx="654.8" cy="267.9" r="15" fill="#212529" stroke="#212529" stroke-width="3"/>
+<circle cx="710.0" cy="308.0" r="15" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<circle cx="765.2" cy="267.9" r="15" fill="#1971c2" stroke="#212529" stroke-width="3"/>
+<clipPath id="pe1"><circle cx="744.1" cy="203.1" r="19"/></clipPath>
+<circle cx="744.1" cy="203.1" r="19" fill="#2f9e44" stroke="#2f9e44" stroke-width="1"/>
+<g clip-path="url(#pe1)"><line x1="695.1" y1="180.1" x2="733.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/><line x1="705.1" y1="180.1" x2="743.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/><line x1="715.1" y1="180.1" x2="753.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/><line x1="725.1" y1="180.1" x2="763.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/><line x1="735.1" y1="180.1" x2="773.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/><line x1="745.1" y1="180.1" x2="783.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/><line x1="755.1" y1="180.1" x2="793.1" y2="226.1" stroke="#ffd43b" stroke-width="5"/></g>
+<circle cx="744.1" cy="203.1" r="19" fill="none" stroke="#212529" stroke-width="3"/>
+<text x="710.0" y="415.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">vidlice</text>
+<text x="480.0" y="258.0" font-size="19" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kolíky vidlice</text>
+<text x="480.0" y="282.0" font-size="19" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">zapadají do otvorů</text>
+<rect x="20.0" y="450.0" width="300.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<circle cx="42.0" cy="500.0" r="9" fill="#7b4a2b" stroke="#212529" stroke-width="2.5"/>
+<circle cx="68.0" cy="500.0" r="9" fill="#212529" stroke="#212529" stroke-width="2.5"/>
+<circle cx="94.0" cy="500.0" r="9" fill="#adb5bd" stroke="#212529" stroke-width="2.5"/>
+<text x="108.0" y="494.0" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="start">Tři fázové vodiče</text>
+<text x="108.0" y="520.0" font-size="19" fill="#2b2a26" text-anchor="start">přivádějí proud</text>
+<rect x="330.0" y="450.0" width="240.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<circle cx="356.0" cy="500.0" r="13" fill="#1971c2" stroke="#212529" stroke-width="3"/>
+<text x="384.0" y="494.0" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="start">Nulovací vodič</text>
+<text x="384.0" y="520.0" font-size="19" fill="#2b2a26" text-anchor="start">je uzemněný</text>
+<rect x="590.0" y="450.0" width="350.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<clipPath id="pe2"><circle cx="616.0" cy="500.0" r="17"/></clipPath>
+<circle cx="616.0" cy="500.0" r="17" fill="#2f9e44" stroke="#2f9e44" stroke-width="1"/>
+<g clip-path="url(#pe2)"><line x1="569.0" y1="479.0" x2="603.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/><line x1="579.0" y1="479.0" x2="613.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/><line x1="589.0" y1="479.0" x2="623.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/><line x1="599.0" y1="479.0" x2="633.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/><line x1="609.0" y1="479.0" x2="643.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/><line x1="619.0" y1="479.0" x2="653.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/><line x1="629.0" y1="479.0" x2="663.0" y2="521.0" stroke="#ffd43b" stroke-width="5"/></g>
+<circle cx="616.0" cy="500.0" r="17" fill="none" stroke="#212529" stroke-width="3"/>
+<text x="644.0" y="481.0" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="start">Ochranný kolík</text>
+<text x="644.0" y="507.0" font-size="19" fill="#2b2a26" text-anchor="start">uzemňuje konstrukci spotřebiče</text>
+<text x="644.0" y="533.0" font-size="19" fill="#2b2a26" text-anchor="start">pro případ poškození</text>
+</svg>

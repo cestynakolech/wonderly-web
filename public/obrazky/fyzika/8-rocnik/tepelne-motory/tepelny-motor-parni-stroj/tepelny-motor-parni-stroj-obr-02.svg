@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma pohonu parní lokomotivy z boku: vlevo tři velká kola spojená tyčemi, vpravo válec s pístem a šoupátkem, do válce přivádíme páru shora a pára tlačí na píst.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="514" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Pohon parní lokomotivy</text>
+<rect x="80.0" y="345.0" width="760.0" height="16.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="4.0" y1="425.0" x2="956.0" y2="425.0" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<rect x="580.0" y="290.0" width="230.0" height="80.0" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="4"/>
+<rect x="699.0" y="294.0" width="107.0" height="72.0" rx="2" fill="#fcc2d7" stroke="none" stroke-width="0"/>
+<rect x="600.0" y="225.0" width="180.0" height="45.0" rx="4" fill="#fcc2d7" stroke="#495057" stroke-width="4"/>
+<rect x="766.0" y="270.0" width="22.0" height="24.0" rx="2" fill="#fcc2d7" stroke="#495057" stroke-width="3"/>
+<rect x="608.0" y="270.0" width="22.0" height="22.0" rx="2" fill="#f8f9fa" stroke="#495057" stroke-width="3"/>
+<rect x="626.0" y="230.0" width="86.0" height="26.0" rx="3" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<rect x="680.0" y="180.0" width="22.0" height="45.0" rx="2" fill="#fcc2d7" stroke="#495057" stroke-width="3"/>
+<rect x="580.0" y="290.0" width="230.0" height="80.0" rx="8" fill="none" stroke="#495057" stroke-width="4"/>
+<rect x="692.0" y="296.0" width="14.0" height="68.0" rx="3" fill="#868e96" stroke="#212529" stroke-width="3"/>
+<line x1="692.0" y1="330.0" x2="545.0" y2="330.0" stroke="#343a40" stroke-width="10" stroke-linecap="round"/>
+<rect x="528.0" y="316.0" width="30.0" height="28.0" rx="3" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<line x1="140.0" y1="330.0" x2="216.0" y2="330.0" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="201.5" y2="374.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="163.5" y2="402.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="116.5" y2="402.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="78.5" y2="374.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="64.0" y2="330.0" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="78.5" y2="285.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="116.5" y2="257.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="163.5" y2="257.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="140.0" y1="330.0" x2="201.5" y2="285.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<circle cx="140.0" cy="330.0" r="80" fill="none" stroke="#495057" stroke-width="8"/>
+<circle cx="140.0" cy="330.0" r="84.0" fill="none" stroke="#4e342e" stroke-width="2"/>
+<circle cx="140.0" cy="330.0" r="76.0" fill="none" stroke="#4e342e" stroke-width="2"/>
+<circle cx="140.0" cy="330.0" r="14" fill="#495057" stroke="#212529" stroke-width="3"/>
+<line x1="300.0" y1="330.0" x2="376.0" y2="330.0" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="361.5" y2="374.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="323.5" y2="402.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="276.5" y2="402.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="238.5" y2="374.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="224.0" y2="330.0" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="238.5" y2="285.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="276.5" y2="257.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="323.5" y2="257.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="330.0" x2="361.5" y2="285.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<circle cx="300.0" cy="330.0" r="80" fill="none" stroke="#495057" stroke-width="8"/>
+<circle cx="300.0" cy="330.0" r="84.0" fill="none" stroke="#4e342e" stroke-width="2"/>
+<circle cx="300.0" cy="330.0" r="76.0" fill="none" stroke="#4e342e" stroke-width="2"/>
+<circle cx="300.0" cy="330.0" r="14" fill="#495057" stroke="#212529" stroke-width="3"/>
+<line x1="460.0" y1="330.0" x2="536.0" y2="330.0" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="521.5" y2="374.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="483.5" y2="402.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="436.5" y2="402.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="398.5" y2="374.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="384.0" y2="330.0" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="398.5" y2="285.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="436.5" y2="257.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="483.5" y2="257.7" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<line x1="460.0" y1="330.0" x2="521.5" y2="285.3" stroke="#868e96" stroke-width="5" stroke-linecap="round"/>
+<circle cx="460.0" cy="330.0" r="80" fill="none" stroke="#495057" stroke-width="8"/>
+<circle cx="460.0" cy="330.0" r="84.0" fill="none" stroke="#4e342e" stroke-width="2"/>
+<circle cx="460.0" cy="330.0" r="76.0" fill="none" stroke="#4e342e" stroke-width="2"/>
+<circle cx="460.0" cy="330.0" r="14" fill="#495057" stroke="#212529" stroke-width="3"/>
+<line x1="182.0" y1="294.0" x2="502.0" y2="294.0" stroke="#495057" stroke-width="12" stroke-linecap="round"/>
+<line x1="502.0" y1="294.0" x2="543.0" y2="330.0" stroke="#343a40" stroke-width="12" stroke-linecap="round"/>
+<circle cx="182.0" cy="294.0" r="9" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="342.0" cy="294.0" r="9" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="502.0" cy="294.0" r="9" fill="#212529" stroke="#212529" stroke-width="1"/>
+<line x1="795.0" y1="330.0" x2="722.0" y2="330.0" stroke="#c2255c" stroke-width="10" stroke-linecap="round"/>
+<path d="M714.0,330.0 L738.0,314.0 L738.0,346.0 z" fill="#c2255c" stroke="#c2255c" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="691.0" y1="180.0" x2="691.0" y2="218.0" stroke="#c2255c" stroke-width="8" stroke-linecap="round"/>
+<path d="M691.0,230.0 L677.0,208.0 L705.0,208.0 z" fill="#c2255c" stroke="#c2255c" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="200.0" y="150.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kola</text>
+<line x1="190.0" y1="165.0" x2="170.0" y2="248.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="190.0" y1="165.0" x2="170.0" y2="248.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="330.0" y="190.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">tyče</text>
+<line x1="330.0" y1="203.0" x2="310.0" y2="290.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="330.0" y1="203.0" x2="310.0" y2="290.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="560.0" y="150.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">válec</text>
+<line x1="575.0" y1="163.0" x2="600.0" y2="290.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="575.0" y1="163.0" x2="600.0" y2="290.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="820.0" y="192.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">šoupátko</text>
+<line x1="775.0" y1="200.0" x2="700.0" y2="240.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="775.0" y1="200.0" x2="700.0" y2="240.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="560.0" y="412.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">píst</text>
+<line x1="600.0" y1="392.0" x2="700.0" y2="362.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="600.0" y1="392.0" x2="700.0" y2="362.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="850.0" y="100.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">přívod páry</text>
+<line x1="730.0" y1="108.0" x2="706.0" y2="190.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="730.0" y1="108.0" x2="706.0" y2="190.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="770.0" y="398.0" font-size="22" font-weight="bold" fill="#c2255c" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">pára tlačí na píst</text>
+<text x="480.0" y="472.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Růžově je vyznačen prostor s párou.</text>
+<text x="480.0" y="500.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Šoupátko páru střídavě pouští na jednu a na druhou stranu pístu.</text>
+</svg>

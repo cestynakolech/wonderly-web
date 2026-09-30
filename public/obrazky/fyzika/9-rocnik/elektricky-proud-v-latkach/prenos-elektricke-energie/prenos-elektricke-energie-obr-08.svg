@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 440" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Domácí zásuvka zepředu s popisky: fázový vodič přivádí proud, nulovací vodič je uzemněný a vrací proud zpět k transformátoru místní sítě, ochranný kolík uzemňuje konstrukci spotřebiče pro případ poškození.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="434" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Domácí zásuvka</text>
+<rect x="375.0" y="185.0" width="210.0" height="210.0" rx="22" fill="#ffffff" stroke="#495057" stroke-width="4"/>
+<circle cx="480.0" cy="290.0" r="75.6" fill="#e9ecef" stroke="#adb5bd" stroke-width="3"/>
+<circle cx="450.6" cy="296.3" r="11.55" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<circle cx="509.4" cy="296.3" r="11.55" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<rect x="473.7" y="212.4" width="12.6" height="27.3" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<path d="M467,160 L480,227 L493,160 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="270.0" y="60.0" width="420.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="469" y="157" width="22" height="6" fill="#fff3bf"/>
+<text x="480.0" y="91.0" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">Ochranný kolík</text>
+<text x="480.0" y="116.7" font-size="19" fill="#2b2a26" text-anchor="middle">uzemňuje konstrukci spotřebiče</text>
+<text x="480.0" y="142.3" font-size="19" fill="#2b2a26" text-anchor="middle">pro případ poškození</text>
+<path d="M280,287 L439,296 L280,313 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="20.0" y="250.0" width="260.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="277" y="289" width="6" height="22" fill="#fff3bf"/>
+<text x="150.0" y="293.8" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">Fázový vodič</text>
+<text x="150.0" y="319.5" font-size="19" fill="#2b2a26" text-anchor="middle">přivádí proud</text>
+<path d="M700,282 L521,296 L700,308 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="700.0" y="200.0" width="240.0" height="190.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="697" y="284" width="6" height="22" fill="#fff3bf"/>
+<text x="820.0" y="250.3" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">Nulovací vodič</text>
+<text x="820.0" y="276.0" font-size="19" fill="#2b2a26" text-anchor="middle">je uzemněný</text>
+<text x="820.0" y="301.6" font-size="19" fill="#2b2a26" text-anchor="middle">a vrací proud zpět</text>
+<text x="820.0" y="327.3" font-size="19" fill="#2b2a26" text-anchor="middle">k transformátoru</text>
+<text x="820.0" y="352.9" font-size="19" fill="#2b2a26" text-anchor="middle">místní sítě</text>
+</svg>

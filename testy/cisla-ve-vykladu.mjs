@@ -10,9 +10,9 @@
 // Spuštění: node testy/cisla-ve-vykladu.mjs [část klíče]
 import { nactiData, vsechnaPodtemata } from './data.mjs';
 
-/** Čísla z textu; „4 200" a „4200" je totéž, desetinná čárka i tečka se sjednotí. */
+/** Čísla z textu; „4 200" (mezera, NBSP U+00A0 i úzká NBSP U+202F) a „4200" je totéž, desetinná čárka i tečka se sjednotí. */
 function cisla(text) {
-	const bezMezer = String(text).replace(/(\d)[  ](?=\d)/g, '$1');
+	const bezMezer = String(text).replace(/(\d)[ \u00a0\u202f](?=\d)/g, '$1');
 	return [...bezMezer.matchAll(/\d+(?:[.,]\d+)?/g)].map((m) => m[0].replace(',', '.'));
 }
 

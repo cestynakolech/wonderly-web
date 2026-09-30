@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Autobaterie: hranatá nádoba s víkem, na víku šest zátek a dvě přípojky, kladná a záporná; na nádobě 12 V.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="40.0" y="45.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">Autobaterie (olověný akumulátor)</text>
+<path d="M610.0,282.0 L670.0,232.0 L670.0,432.0 L610.0,482.0 z" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="190.0" y="282.0" width="420.0" height="200.0" rx="4" fill="#e9ecef" stroke="#2b2a26" stroke-width="3"/>
+<path d="M190.0,252.0 L250.0,202.0 L670.0,202.0 L610.0,252.0 z" fill="#495057" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M610.0,252.0 L670.0,202.0 L670.0,232.0 L610.0,282.0 z" fill="#343a40" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="190.0" y="252.0" width="420.0" height="30.0" rx="2" fill="#343a40" stroke="#2b2a26" stroke-width="3"/>
+<rect x="342.0" y="216" width="26" height="8" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="355" cy="224" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/><ellipse cx="355" cy="216" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="384.0" y="216" width="26" height="8" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="397" cy="224" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/><ellipse cx="397" cy="216" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="426.0" y="216" width="26" height="8" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="439" cy="224" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/><ellipse cx="439" cy="216" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="468.0" y="216" width="26" height="8" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="481" cy="224" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/><ellipse cx="481" cy="216" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="510.0" y="216" width="26" height="8" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="523" cy="224" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/><ellipse cx="523" cy="216" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="552.0" y="216" width="26" height="8" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="565" cy="224" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/><ellipse cx="565" cy="216" rx="13.0" ry="5.2" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2"/>
+<rect x="268.0" y="232" width="34" height="14" fill="#1971c2" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="285" cy="246" rx="17.0" ry="6.8" fill="#1971c2" stroke="#2b2a26" stroke-width="2"/><ellipse cx="285" cy="232" rx="17.0" ry="6.8" fill="#1971c2" stroke="#2b2a26" stroke-width="2"/>
+<rect x="605.0" y="214" width="30" height="12" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<ellipse cx="620" cy="226" rx="15.0" ry="6.0" fill="#e03131" stroke="#2b2a26" stroke-width="2"/><ellipse cx="620" cy="214" rx="15.0" ry="6.0" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<text x="400.0" y="395.0" font-size="64" font-weight="bold" fill="#2b2a26" text-anchor="middle">12 V</text>
+<line x1="145.0" y1="118.0" x2="275.0" y2="224.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="145.0" y1="118.0" x2="275.0" y2="224.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="275.0" cy="224.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="30.0" y="112.0" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">záporná přípojka</text>
+<line x1="760.0" y1="118.0" x2="630.0" y2="208.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="760.0" y1="118.0" x2="630.0" y2="208.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="630.0" cy="208.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="690.0" y="100.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kladná přípojka</text>
+<line x1="480.0" y1="128.0" x2="480.0" y2="204.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="480.0" y1="128.0" x2="480.0" y2="204.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="480.0" cy="204.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="480.0" y="116.0" font-size="20" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">šest zátek</text>
+<line x1="760.0" y1="245.0" x2="660.0" y2="235.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="760.0" y1="245.0" x2="660.0" y2="235.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="660.0" cy="235.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="766.0" y="250.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">víko</text>
+<line x1="760.0" y1="380.0" x2="640.0" y2="380.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="760.0" y1="380.0" x2="640.0" y2="380.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="640.0" cy="380.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="766.0" y="386.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">nádoba</text>
+</svg>

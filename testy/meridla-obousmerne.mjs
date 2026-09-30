@@ -69,6 +69,29 @@ function data({ obsah = '', materialy = [], interakce, otazky = [] }) {
 		otazky: [{ text: 'Kolik druhů čípků má oko?', odpovedi: ['3', '7', '9'], vysvetleni: '' }],
 	});
 	tvrdi('čísla: malá čísla se nehlásí', (await zkontrolujCislaVeVykladu(male)).length === 0);
+
+	// REGRESE (30. 9. 2026): tisíce oddělené NBSP (U+00A0) / úzkou NBSP (U+202F) jsou totéž číslo
+	// jako zápis s mezerou i bez. Dřív regex znal jen obyčejnou mezeru → falešné nálezy 6300 a 10000.
+	for (const [sep, jmeno] of [[' ', 'mezera'], ['\u00a0', 'NBSP'], ['\u202f', 'úzká NBSP'], ['', 'bez oddělovače']]) {
+		const zapis = `6${sep}300 V`;
+		const zdravyNbsp = data({
+			obsah: '<p>Vedení může mít napětí 6300 V.</p>',
+			otazky: [{ text: 'Jaké napětí má vedení?', odpovedi: [zapis, 'málo', 'hodně'], vysvetleni: '' }],
+		});
+		tvrdi(`čísla: „6${jmeno === 'bez oddělovače' ? '' : ' (' + jmeno + ')'}300" v kvízu = 6300 ve výkladu`, (await zkontrolujCislaVeVykladu(zdravyNbsp)).length === 0);
+		const zdravyVyklad = data({
+			obsah: `<p>Vedení může mít napětí ${zapis}.</p>`,
+			otazky: [{ text: 'Jaké napětí má vedení?', odpovedi: ['6300 V', 'málo', 'hodně'], vysvetleni: '' }],
+		});
+		tvrdi(`čísla: „${jmeno}" ve výkladu = 6300 v kvízu`, (await zkontrolujCislaVeVykladu(zdravyVyklad)).length === 0);
+	}
+	// PODVRH: číslo s NBSP v kvízu, které ve výkladu opravdu není → nález zůstane (jako 6300, ne 6 ani 300).
+	const podvrhNbsp = data({
+		obsah: '<p>Vedení má vysoké napětí.</p>',
+		otazky: [{ text: 'Jaké napětí má vedení?', odpovedi: ['6\u00a0300 V', 'málo', 'hodně'], vysvetleni: '' }],
+	});
+	const nn = await zkontrolujCislaVeVykladu(podvrhNbsp);
+	tvrdi('čísla: chybějící „6 300" (NBSP) se pořád najde jako 6300', nn.length === 1 && nn[0].cislo === '6300');
 }
 
 // ==================================================== 2) nazvy-bloku.mjs

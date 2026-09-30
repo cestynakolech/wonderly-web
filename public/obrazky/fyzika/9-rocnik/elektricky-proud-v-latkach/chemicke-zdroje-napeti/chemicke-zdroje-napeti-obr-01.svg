@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řez suchým článkem: uhlíková tyčinka s kovovou čepičkou uprostřed, kolem oxid manganičitý a pasta chloridu amonného, vně zinková nádoba.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="40.0" y="45.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">Suchý článek v řezu</text>
+<rect x="202.0" y="200.0" width="8.0" height="314.0" rx="2" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2"/>
+<rect x="410.0" y="200.0" width="8.0" height="314.0" rx="2" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2"/>
+<rect x="210.0" y="200.0" width="14.0" height="300.0" rx="2" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+<rect x="396.0" y="200.0" width="14.0" height="300.0" rx="2" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+<rect x="210.0" y="486.0" width="200.0" height="14.0" rx="2" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+<rect x="224.0" y="230.0" width="172.0" height="256.0" rx="0" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
+<rect x="275.0" y="250.0" width="70.0" height="216.0" rx="0" fill="#868e96" stroke="#2b2a26" stroke-width="2"/>
+<rect x="299.0" y="176.0" width="22.0" height="274.0" rx="3" fill="#212529" stroke="#2b2a26" stroke-width="2"/>
+<rect x="224.0" y="200.0" width="172.0" height="30.0" rx="0" fill="#a5d8ff" stroke="#2b2a26" stroke-width="2"/>
+<rect x="299.0" y="200.0" width="22.0" height="30.0" rx="0" fill="#212529" stroke="#2b2a26" stroke-width="2"/>
+<rect x="284.0" y="150.0" width="52.0" height="30.0" rx="5" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5"/>
+<rect x="210.0" y="500.0" width="200.0" height="14.0" rx="0" fill="#ffd43b" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="310.0" y="128.0" font-size="40" font-weight="bold" fill="#e03131" text-anchor="middle">+</text>
+<text x="310.0" y="578.0" font-size="44" font-weight="bold" fill="#1971c2" text-anchor="middle">−</text>
+<line x1="492.0" y1="164.0" x2="328.0" y2="165.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="164.0" x2="328.0" y2="165.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="328.0" cy="165.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="492.0" y1="226.0" x2="360.0" y2="215.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="226.0" x2="360.0" y2="215.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="360.0" cy="215.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="492.0" y1="286.0" x2="321.0" y2="300.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="286.0" x2="321.0" y2="300.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="321.0" cy="300.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="492.0" y1="346.0" x2="403.0" y2="350.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="346.0" x2="403.0" y2="350.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="403.0" cy="350.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="492.0" y1="434.0" x2="340.0" y2="440.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="434.0" x2="340.0" y2="440.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="340.0" cy="440.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="492.0" y1="488.0" x2="380.0" y2="470.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="488.0" x2="380.0" y2="470.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="380.0" cy="470.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="492.0" y1="546.0" x2="360.0" y2="520.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="492.0" y1="546.0" x2="360.0" y2="520.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="360.0" cy="520.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="500.0" y="170.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Kovová čepička = vývod kladné elektrody</text>
+<text x="500.0" y="232.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Izolační vrstva</text>
+<text x="500.0" y="292.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Uhlíková elektroda</text>
+<text x="500.0" y="352.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Zinková nádoba = záporná elektroda</text>
+<text x="500.0" y="440.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Oxid manganičitý</text>
+<text x="500.0" y="494.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Pasta chloridu amonného (salmiak)</text>
+<text x="500.0" y="552.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Kovová plocha = záporná elektroda</text>
+<text x="500.0" y="378.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">(po obvodu pokrytá izolační vrstvou)</text>
+</svg>

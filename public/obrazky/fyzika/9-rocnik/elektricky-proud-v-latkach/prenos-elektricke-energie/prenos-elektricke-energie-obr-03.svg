@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 670" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma cesty energie: elektrárna, blokový transformátor, přenosová soustava 220 a 400 kV, transformátor 400 na 110 kV, přenosová soustava 110 kV, transformátorová stanice 110 na 22 kV, distribuční soustava 22 kV, distribuční transformátor 22 kV na 230 V a místní soustava 230 V se spotřebiteli.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="664" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Cesta elektrické energie od elektrárny ke spotřebitelům</text>
+<rect x="20.0" y="62.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<rect x="90.0" y="96.0" width="46.0" height="28.0" rx="2" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<rect x="138.0" y="76.0" width="14.0" height="48.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="90.0" y="82.0" width="12.0" height="22.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<circle cx="150.0" cy="66.0" r="7" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="160.0" cy="60.0" r="5" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/>
+<path d="M117.0,100.0 L110.0,114.0 L115.0,114.0 L111.0,124.0 L126.0,108.0 L120.0,108.0 z" fill="#fab005" stroke="#e67700" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="120.0" y="154.0" font-size="19" fill="#2b2a26" text-anchor="middle">elektrárna</text>
+<text x="120.0" y="183.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">6 300 nebo</text>
+<text x="120.0" y="207.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">10 000 V</text>
+<rect x="260.0" y="62.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<circle cx="348.0" cy="100.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="372.0" cy="100.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<text x="360.0" y="154.0" font-size="19" fill="#2b2a26" text-anchor="middle">blokový</text>
+<text x="360.0" y="177.0" font-size="19" fill="#2b2a26" text-anchor="middle">transformátor</text>
+<text x="360.0" y="206.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">zvýšení na</text>
+<text x="360.0" y="230.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">220 nebo 400 kV</text>
+<rect x="500.0" y="62.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<line x1="574.0" y1="122.0" x2="596.0" y2="74.0" stroke="#343a40" stroke-width="4" stroke-linecap="round"/>
+<line x1="626.0" y1="122.0" x2="604.0" y2="74.0" stroke="#343a40" stroke-width="4" stroke-linecap="round"/>
+<line x1="578.0" y1="108.0" x2="622.0" y2="108.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="580.0" y1="88.0" x2="620.0" y2="88.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="582.0" y1="96.0" x2="618.0" y2="116.0" stroke="#343a40" stroke-width="2" stroke-linecap="round"/>
+<line x1="618.0" y1="96.0" x2="582.0" y2="116.0" stroke="#343a40" stroke-width="2" stroke-linecap="round"/>
+<line x1="560.0" y1="88.0" x2="640.0" y2="88.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<text x="600.0" y="154.0" font-size="19" fill="#2b2a26" text-anchor="middle">přenosová</text>
+<text x="600.0" y="177.0" font-size="19" fill="#2b2a26" text-anchor="middle">soustava</text>
+<text x="600.0" y="206.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">220 kV, 400 kV</text>
+<rect x="740.0" y="62.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<circle cx="828.0" cy="100.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="852.0" cy="100.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<text x="840.0" y="154.0" font-size="19" fill="#2b2a26" text-anchor="middle">transformátor a</text>
+<text x="840.0" y="177.0" font-size="19" fill="#2b2a26" text-anchor="middle">rozvodný uzel</text>
+<text x="840.0" y="206.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">400 kV / 110 kV</text>
+<rect x="740.0" y="278.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<line x1="814.0" y1="338.0" x2="836.0" y2="290.0" stroke="#343a40" stroke-width="4" stroke-linecap="round"/>
+<line x1="866.0" y1="338.0" x2="844.0" y2="290.0" stroke="#343a40" stroke-width="4" stroke-linecap="round"/>
+<line x1="818.0" y1="324.0" x2="862.0" y2="324.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="820.0" y1="304.0" x2="860.0" y2="304.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="822.0" y1="312.0" x2="858.0" y2="332.0" stroke="#343a40" stroke-width="2" stroke-linecap="round"/>
+<line x1="858.0" y1="312.0" x2="822.0" y2="332.0" stroke="#343a40" stroke-width="2" stroke-linecap="round"/>
+<line x1="800.0" y1="304.0" x2="880.0" y2="304.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<text x="840.0" y="370.0" font-size="19" fill="#2b2a26" text-anchor="middle">přenosová</text>
+<text x="840.0" y="393.0" font-size="19" fill="#2b2a26" text-anchor="middle">soustava</text>
+<text x="840.0" y="422.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">110 kV</text>
+<rect x="500.0" y="278.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<circle cx="588.0" cy="316.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="612.0" cy="316.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<text x="600.0" y="370.0" font-size="19" fill="#2b2a26" text-anchor="middle">transformátorová</text>
+<text x="600.0" y="393.0" font-size="19" fill="#2b2a26" text-anchor="middle">stanice</text>
+<text x="600.0" y="422.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">110 kV / 22 kV</text>
+<rect x="260.0" y="278.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<line x1="334.0" y1="338.0" x2="356.0" y2="290.0" stroke="#343a40" stroke-width="4" stroke-linecap="round"/>
+<line x1="386.0" y1="338.0" x2="364.0" y2="290.0" stroke="#343a40" stroke-width="4" stroke-linecap="round"/>
+<line x1="338.0" y1="324.0" x2="382.0" y2="324.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="340.0" y1="304.0" x2="380.0" y2="304.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<line x1="342.0" y1="312.0" x2="378.0" y2="332.0" stroke="#343a40" stroke-width="2" stroke-linecap="round"/>
+<line x1="378.0" y1="312.0" x2="342.0" y2="332.0" stroke="#343a40" stroke-width="2" stroke-linecap="round"/>
+<line x1="320.0" y1="304.0" x2="400.0" y2="304.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<text x="360.0" y="370.0" font-size="19" fill="#2b2a26" text-anchor="middle">distribuční</text>
+<text x="360.0" y="393.0" font-size="19" fill="#2b2a26" text-anchor="middle">soustava</text>
+<text x="360.0" y="422.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">22 kV</text>
+<rect x="20.0" y="278.0" width="200.0" height="176.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<circle cx="108.0" cy="316.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="132.0" cy="316.0" r="20" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<text x="120.0" y="370.0" font-size="19" fill="#2b2a26" text-anchor="middle">distribuční</text>
+<text x="120.0" y="393.0" font-size="19" fill="#2b2a26" text-anchor="middle">transformátor</text>
+<text x="120.0" y="422.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">22 kV / 230 V</text>
+<rect x="20.0" y="494.0" width="440.0" height="150.0" rx="14" fill="#ffffff" stroke="#495057" stroke-width="3"/>
+<path d="M54.0,526.0 L54.0,546.0 L86.0,546.0 L86.0,526.0 L70.0,510.0 z" fill="#ffe8cc" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="66.0" y="532.0" width="8.0" height="14.0" rx="1" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/>
+<path d="M109.0,526.0 L109.0,546.0 L141.0,546.0 L141.0,526.0 L125.0,510.0 z" fill="#d0ebff" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="121.0" y="532.0" width="8.0" height="14.0" rx="1" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/>
+<path d="M164.0,526.0 L164.0,546.0 L196.0,546.0 L196.0,526.0 L180.0,510.0 z" fill="#ffe8cc" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="176.0" y="532.0" width="8.0" height="14.0" rx="1" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/>
+<path d="M219.0,526.0 L219.0,546.0 L251.0,546.0 L251.0,526.0 L235.0,510.0 z" fill="#d3f9d8" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="231.0" y="532.0" width="8.0" height="14.0" rx="1" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/>
+<path d="M274.0,526.0 L274.0,546.0 L306.0,546.0 L306.0,526.0 L290.0,510.0 z" fill="#ffe8cc" stroke="#495057" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="286.0" y="532.0" width="8.0" height="14.0" rx="1" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/>
+<line x1="40.0" y1="556.0" x2="320.0" y2="556.0" stroke="#343a40" stroke-width="3" stroke-linecap="round"/>
+<text x="240.0" y="592.0" font-size="19" fill="#2b2a26" text-anchor="middle">místní soustava, spotřebitelé</text>
+<text x="240.0" y="622.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">230 V</text>
+<line x1="223.0" y1="150.0" x2="256.0" y2="150.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="463.0" y1="150.0" x2="496.0" y2="150.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="703.0" y1="150.0" x2="736.0" y2="150.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="840.0" y1="240.0" x2="840.0" y2="274.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="737.0" y1="366.0" x2="704.0" y2="366.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="497.0" y1="366.0" x2="464.0" y2="366.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="257.0" y1="366.0" x2="224.0" y2="366.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="120.0" y1="456.0" x2="120.0" y2="490.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+</svg>

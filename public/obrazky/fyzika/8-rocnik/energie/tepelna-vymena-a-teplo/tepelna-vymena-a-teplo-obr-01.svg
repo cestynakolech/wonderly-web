@@ -23,7 +23,8 @@
 <path d="M220,200 C230,90 730,90 740,150" fill="none" stroke="#e8590c" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M706.0,148.0 L774.0,148.0 L740.0,198.0 z" fill="#e8590c" stroke="#e8590c" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="480.0" y="66.0" font-size="38" font-weight="bold" fill="#7d1a1a" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">TEPLO</text>
-<text x="480.0" y="122.0" font-size="24" font-weight="bold" fill="#b34700" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">PŘENOS ENERGIE</text>
+<rect x="340.0" y="148.0" width="280.0" height="40.0" rx="10" fill="#fff4e6" stroke="#e8590c" stroke-width="3"/>
+<text x="480.0" y="176.0" font-size="24" font-weight="bold" fill="#7d3a00" text-anchor="middle">PŘENOS ENERGIE</text>
 <line x1="141.3" y1="291.8" x2="185.0" y2="260.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>
 <circle cx="130.0" cy="300.0" r="14" fill="#e03131" stroke="#e03131" stroke-width="2"/>
 <line x1="268.7" y1="287.0" x2="310.0" y2="278.0" stroke="#e03131" stroke-width="4" marker-end="url(#a-cer)" stroke-linecap="round"/>

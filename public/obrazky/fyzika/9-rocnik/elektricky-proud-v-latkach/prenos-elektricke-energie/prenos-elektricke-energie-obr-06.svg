@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 490" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři druhy rozvoden vedle sebe: sloup s vodiči a transformátorem, věžová budka se sedlovou střechou a dveřmi, nízká budka s dvojími dveřmi a výstražnými značkami.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="484" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Tři druhy rozvoden</text>
+<rect x="4" y="400" width="952" height="90" fill="#dee2e6"/>
+<line x1="4.0" y1="400.0" x2="956.0" y2="400.0" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+<rect x="161.0" y="110.0" width="18.0" height="290.0" rx="3" fill="#8d6e63" stroke="#4e342e" stroke-width="3"/>
+<line x1="100.0" y1="140.0" x2="240.0" y2="140.0" stroke="#4e342e" stroke-width="6" stroke-linecap="round"/>
+<line x1="110.0" y1="140.0" x2="110.0" y2="124.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<circle cx="110.0" cy="122.0" r="5" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<line x1="170.0" y1="140.0" x2="170.0" y2="124.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<circle cx="170.0" cy="122.0" r="5" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<line x1="230.0" y1="140.0" x2="230.0" y2="124.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<circle cx="230.0" cy="122.0" r="5" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<line x1="30.0" y1="118.0" x2="110.0" y2="122.0" stroke="#212529" stroke-width="3" stroke-linecap="round"/>
+<line x1="230.0" y1="122.0" x2="310.0" y2="118.0" stroke="#212529" stroke-width="3" stroke-linecap="round"/>
+<rect x="138.0" y="180.0" width="64.0" height="90.0" rx="12" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="138.0" y1="210.0" x2="202.0" y2="210.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="138.0" y1="240.0" x2="202.0" y2="240.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="170.0" y="448.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">na sloupu</text>
+<rect x="425.0" y="190.0" width="110.0" height="210.0" rx="3" fill="#f1e4b8" stroke="#495057" stroke-width="3"/>
+<path d="M408.0,192.0 L552.0,192.0 L480.0,110.0 z" fill="#5c4b45" stroke="#3b2f2a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="460.0" y="320.0" width="40.0" height="80.0" rx="3" fill="#8d6e63" stroke="#4e342e" stroke-width="3"/>
+<circle cx="492.0" cy="362.0" r="3" fill="#f1f3f5" stroke="#f1f3f5" stroke-width="1"/>
+<rect x="468.0" y="230.0" width="24.0" height="40.0" rx="2" fill="#a5d8ff" stroke="#495057" stroke-width="2"/>
+<text x="480.0" y="448.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">ve věžové budce</text>
+<rect x="685.0" y="300.0" width="210.0" height="100.0" rx="3" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<rect x="682.0" y="292.0" width="216.0" height="14.0" rx="3" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="704.0" y="316.0" width="68.0" height="78.0" rx="2" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+<path d="M738.0,328.0 L724.0,354.0 L752.0,354.0 z" fill="#ffd43b" stroke="#e03131" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="808.0" y="316.0" width="68.0" height="78.0" rx="2" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+<path d="M842.0,328.0 L828.0,354.0 L856.0,354.0 z" fill="#ffd43b" stroke="#e03131" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="790.0" y="448.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">v nízké budce</text>
+</svg>
