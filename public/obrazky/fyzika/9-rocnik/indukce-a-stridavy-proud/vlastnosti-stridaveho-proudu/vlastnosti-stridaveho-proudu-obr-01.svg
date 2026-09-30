@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 526" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Model zdroje střídavého napětí: obdélníková cívka se otáčí klikou mezi dvěma magnety, konce cívky vedou přes dva kroužky do obvodu se svítící žárovkou.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="520" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Model zdroje střídavého napětí</text>
+<rect x="250.0" y="70.0" width="380.0" height="80.0" rx="6" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<text x="440.0" y="121.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">magnet</text>
+<rect x="250.0" y="330.0" width="380.0" height="80.0" rx="6" fill="#1971c2" stroke="#1864ab" stroke-width="3"/>
+<text x="440.0" y="381.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">magnet</text>
+<line x1="170.0" y1="230.0" x2="690.0" y2="230.0" stroke="#495057" stroke-width="8" stroke-linecap="round"/>
+<path d="M300.0,270.0 L540.0,270.0 L580.0,190.0 L340.0,190.0 z" fill="#a5d8ff" stroke="#2b2a26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.65"/>
+<line x1="320.0" y1="230.0" x2="560.0" y2="230.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="170.0" y1="230.0" x2="170.0" y2="325.0" stroke="#495057" stroke-width="9" stroke-linecap="round"/>
+<rect x="140.0" y="322.0" width="60.0" height="22.0" rx="8" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<text x="170.0" y="384.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">klika</text>
+<ellipse cx="630" cy="230" rx="12" ry="32" fill="#f1f3f5" stroke="#495057" stroke-width="5"/>
+<ellipse cx="680" cy="230" rx="12" ry="32" fill="#f1f3f5" stroke="#495057" stroke-width="5"/>
+<path d="M630,262 C630,400 760,400 770,462" fill="none" stroke="#2b2a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M680,262 C680,340 822,370 812,462" fill="none" stroke="#2b2a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="747.8" y1="394.3" x2="729.0" y2="387.4" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="754.8" y1="381.7" x2="739.0" y2="369.4" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="765.3" y1="371.9" x2="754.1" y2="355.3" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="778.3" y1="365.8" x2="772.8" y2="346.6" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="792.6" y1="364.0" x2="793.3" y2="344.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="806.7" y1="366.8" x2="813.6" y2="348.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="819.3" y1="373.8" x2="831.6" y2="358.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="829.1" y1="384.3" x2="845.7" y2="373.1" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="835.2" y1="397.3" x2="854.4" y2="391.8" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<circle cx="791.0" cy="410.0" r="36" fill="#ffe066" stroke="#f08c00" stroke-width="4"/>
+<rect x="769.0" y="444.0" width="44.0" height="30.0" rx="4" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<text x="791.0" y="505.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">žárovka svítí</text>
+<line x1="700.0" y1="190.0" x2="588.0" y2="205.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="706.0" y="186.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">cívka</text>
+<line x1="750.0" y1="262.0" x2="700.0" y2="240.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="756.0" y="275.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">kroužky</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 610" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Model alternátoru. Obdélníkový závit cívky se otáčí kolem vodorovné osy mezi severním pólem N nahoře a jižním pólem S dole. Červené šipky siločar magnetického pole míří shora dolů a procházejí závitem. Modře je vyznačena plocha závitu vystavená poli. Na konci osy jsou kroužky s přívody a na druhém konci klika.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="604" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Model alternátoru: závit se otáčí v magnetickém poli</text>
+<rect x="230.0" y="96.0" width="500.0" height="74.0" rx="8" fill="#e03131" stroke="#a61e1e" stroke-width="4"/>
+<text x="480.0" y="146.0" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<rect x="230.0" y="510.0" width="500.0" height="74.0" rx="8" fill="#1971c2" stroke="#0b4f8f" stroke-width="4"/>
+<text x="480.0" y="562.0" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="290.0" y1="178.0" x2="290.0" y2="502.0" stroke="#e03131" stroke-width="5" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="370.0" y1="178.0" x2="370.0" y2="502.0" stroke="#e03131" stroke-width="5" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="450.0" y1="178.0" x2="450.0" y2="502.0" stroke="#e03131" stroke-width="5" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="530.0" y1="178.0" x2="530.0" y2="502.0" stroke="#e03131" stroke-width="5" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="610.0" y1="178.0" x2="610.0" y2="502.0" stroke="#e03131" stroke-width="5" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="170.0" y1="340.0" x2="770.0" y2="340.0" stroke="#495057" stroke-width="9" stroke-linecap="round"/>
+<line x1="170.0" y1="340.0" x2="170.0" y2="270.0" stroke="#868e96" stroke-width="10" stroke-linecap="round"/>
+<circle cx="170.0" cy="262.0" r="15" fill="#fab005" stroke="#e67700" stroke-width="3"/>
+<line x1="630.0" y1="347.0" x2="738.0" y2="347.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<rect x="690.0" y="314.0" width="20.0" height="52.0" rx="6" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<rect x="730.0" y="314.0" width="20.0" height="52.0" rx="6" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<line x1="630.0" y1="333.0" x2="700.0" y2="333.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<path d="M282.4,313.6 L582.4,313.6 L677.6,366.4 L377.6,366.4 z" fill="#4dabf7" stroke="#8a5a2b" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.5"/>
+<path d="M282.4,313.6 L582.4,313.6 L677.6,366.4 L377.6,366.4 z" fill="none" stroke="#f4c48a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="692.0" y="282.0" width="16.0" height="32.0" rx="3" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="732.0" y="282.0" width="16.0" height="32.0" rx="3" fill="#495057" stroke="#212529" stroke-width="2"/>
+<path d="M700.0,282.0 L700.0,232.0 L860.0,232.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M740.0,282.0 L740.0,255.0 L860.0,255.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="860.0" cy="232.0" r="7" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="860.0" cy="255.0" r="7" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="30.0" y="128.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="start">siločáry</text>
+<text x="30.0" y="154.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="start">magnetického</text>
+<text x="30.0" y="180.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="start">pole (od N k S)</text>
+<line x1="120.0" y1="190.0" x2="284.0" y2="236.0" stroke="#e03131" stroke-width="2" stroke-linecap="round"/>
+<text x="40.0" y="452.0" font-size="22" font-weight="bold" fill="#8a5a2b" text-anchor="start">závit cívky</text>
+<line x1="135.0" y1="440.0" x2="377.6" y2="368.4" stroke="#8a5a2b" stroke-width="2" stroke-linecap="round"/>
+<text x="40.0" y="500.0" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="start">modrá plocha závitu</text>
+<text x="40.0" y="526.0" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="start">je vystavená poli</text>
+<line x1="215.0" y1="505.0" x2="470.0" y2="360.0" stroke="#1971c2" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>
+<text x="170.0" y="228.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">klika</text>
+<text x="720.0" y="400.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">kroužky</text>
+<line x1="722.0" y1="382.0" x2="722.0" y2="366.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="800.0" y="218.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">přívody</text>
+</svg>

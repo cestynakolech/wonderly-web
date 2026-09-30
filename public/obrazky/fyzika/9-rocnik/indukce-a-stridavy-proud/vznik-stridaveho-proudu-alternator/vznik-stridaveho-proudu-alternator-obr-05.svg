@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Motorový prostor auta. Alternátor s hliníkovým tělem má vpředu řemenici, přes kterou je vedený žebrový řemen od motoru. Popisky: alternátor, řemenice (odkaz končí na kotouči řemenice) a žebrový řemen od motoru.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<clipPath id="kl"><rect x="3" y="3" width="954" height="554" rx="14"/></clipPath>
+<linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f9fa"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="oce" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.45" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="med" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#e8590c"/><stop offset="1" stop-color="#9c360a"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Alternátor v automobilu</text>
+<g clip-path="url(#kl)">
+<rect x="20.0" y="70.0" width="920.0" height="470.0" rx="14" fill="#343a40" stroke="#212529" stroke-width="4"/>
+<rect x="50.0" y="90.0" width="380.0" height="190.0" rx="12" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="70.0" y="108.0" width="340.0" height="26.0" rx="6" fill="#6c757d" stroke="#343a40" stroke-width="2"/>
+<path d="M480,90 C560,120 500,150 560,180" fill="none" stroke="#212529" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M900,110 C820,130 850,80 780,86" fill="none" stroke="#212529" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="596.0" y="186.0" width="270.0" height="200.0" rx="34" fill="url(#alu)" stroke="#495057" stroke-width="4"/>
+<rect x="630.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="630.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="656.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="656.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="682.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="682.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="708.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="708.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="734.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="734.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="760.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="760.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="786.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="786.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="812.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="812.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="838.0" y="206.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<rect x="838.0" y="326.0" width="12.0" height="40.0" rx="5" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<path d="M640.0,386.0 L700.0,386.0 L690.0,420.0 L650.0,420.0 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="670.0" cy="402.0" r="7" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="830.0" y="240.0" width="60.0" height="92.0" rx="12" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<circle cx="250.0" cy="430.0" r="92" fill="#6c757d" stroke="#212529" stroke-width="4"/>
+<circle cx="250.0" cy="430.0" r="60" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<circle cx="250.0" cy="430.0" r="14" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="560.0" cy="280.0" r="42" fill="#ced4da" stroke="#212529" stroke-width="4"/>
+<circle cx="560.0" cy="280.0" r="24" fill="#868e96" stroke="#212529" stroke-width="3"/>
+<circle cx="560.0" cy="280.0" r="9" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M590.3,324.7 L308.4,516.0 A104,104 0 1 1 218.8,330.8 L543.8,228.5 A54,54 0 0 1 590.3,324.7 z" fill="none" stroke="#0b0d0f" stroke-width="20" stroke-linejoin="round"/>
+<path d="M590.3,324.7 L308.4,516.0 A104,104 0 1 1 218.8,330.8 L543.8,228.5 A54,54 0 0 1 590.3,324.7 z" fill="none" stroke="#3b4148" stroke-width="15" stroke-linejoin="round"/>
+<path d="M590.3,324.7 L308.4,516.0 A104,104 0 1 1 218.8,330.8 L543.8,228.5 A54,54 0 0 1 590.3,324.7 z" fill="none" stroke="#0b0d0f" stroke-width="10" stroke-linejoin="round"/>
+<path d="M590.3,324.7 L308.4,516.0 A104,104 0 1 1 218.8,330.8 L543.8,228.5 A54,54 0 0 1 590.3,324.7 z" fill="none" stroke="#4a5158" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="560.0" cy="280.0" r="42" fill="none" stroke="#f1f3f5" stroke-width="2"/>
+<line x1="780.0" y1="136.0" x2="740.0" y2="210.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="740.0" cy="210.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="700.0" y="96.0" width="160.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="780.0" y="126.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">alternátor</text>
+<line x1="485.0" y1="136.0" x2="540.0" y2="256.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="540.0" cy="256.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="410.0" y="96.0" width="150.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="485.0" y="126.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">řemenice</text>
+<line x1="720.0" y1="470.0" x2="449.4" y2="420.4" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="449.4" cy="420.4" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="560.0" y="470.0" width="320.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="720.0" y="500.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">žebrový řemen od motoru</text>
+</g>
+</svg>

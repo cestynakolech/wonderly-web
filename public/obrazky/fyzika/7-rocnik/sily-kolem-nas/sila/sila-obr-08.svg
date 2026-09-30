@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 700" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Nahoře statické působení: kniha na stole a míč na lavičce, dvě stejné síly se ruší a těleso zůstává v klidu. Dole dynamické působení: člověk roztlačuje auto a jeho pohyb se mění.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="694" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="245.0" y="44.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Statické působení</text>
+<rect x="60.0" y="250.0" width="370.0" height="22.0" rx="3" fill="#c9a37a" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="90.0" y1="272.0" x2="90.0" y2="330.0" stroke="#8a5a2b" stroke-width="10" stroke-linecap="round"/>
+<line x1="400.0" y1="272.0" x2="400.0" y2="330.0" stroke="#8a5a2b" stroke-width="10" stroke-linecap="round"/>
+<rect x="180.0" y="205.0" width="130.0" height="45.0" rx="4" fill="#4dabf7" stroke="#1971c2" stroke-width="3"/>
+<rect x="186.0" y="211.0" width="118.0" height="33.0" rx="3" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<line x1="215.0" y1="228.0" x2="215.0" y2="308.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="275.0" y1="250.0" x2="275.0" y2="170.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="232.0" y="328.0" font-size="20" fill="#2b2a26" text-anchor="start">síla Země</text>
+<text x="232.0" y="352.0" font-size="20" fill="#2b2a26" text-anchor="start">(dolů)</text>
+<text x="295.0" y="148.0" font-size="20" fill="#2b2a26" text-anchor="start">síla stolu</text>
+<text x="295.0" y="172.0" font-size="20" fill="#2b2a26" text-anchor="start">(nahoru)</text>
+<text x="245.0" y="385.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">kniha je v klidu, síly se ruší</text>
+<text x="720.0" y="44.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Statické působení</text>
+<rect x="540.0" y="250.0" width="360.0" height="20.0" rx="3" fill="#c9a37a" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="570.0" y1="270.0" x2="570.0" y2="330.0" stroke="#8a5a2b" stroke-width="10" stroke-linecap="round"/>
+<line x1="870.0" y1="270.0" x2="870.0" y2="330.0" stroke="#8a5a2b" stroke-width="10" stroke-linecap="round"/>
+<circle cx="690.0" cy="226.0" r="24" fill="#4dabf7" stroke="#1971c2" stroke-width="3"/>
+<path d="M668,215 Q690,230 712,215" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="670.0" y1="226.0" x2="670.0" y2="306.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="722.0" y1="250.0" x2="722.0" y2="170.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="690.0" y="328.0" font-size="20" fill="#2b2a26" text-anchor="start">síla Země</text>
+<text x="690.0" y="352.0" font-size="20" fill="#2b2a26" text-anchor="start">(dolů)</text>
+<text x="742.0" y="148.0" font-size="20" fill="#2b2a26" text-anchor="start">síla lavičky</text>
+<text x="742.0" y="172.0" font-size="20" fill="#2b2a26" text-anchor="start">(nahoru)</text>
+<text x="720.0" y="385.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">míč je v klidu, síly se ruší</text>
+<line x1="30.0" y1="420.0" x2="930.0" y2="420.0" stroke="#adb5bd" stroke-width="2" stroke-linecap="round"/>
+<text x="640.0" y="458.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Dynamické působení: pohyb se mění</text>
+<line x1="20.0" y1="660.0" x2="940.0" y2="660.0" stroke="#adb5bd" stroke-width="4" stroke-linecap="round"/>
+<path d="M360,610 L360,540 Q360,524 380,522 L470,520 L510,480 L640,480 L690,520 L780,526 Q800,528 800,545 L800,610 z" fill="#a5d8ff" stroke="#1971c2" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M485.0,518.0 L516.0,490.0 L578.0,490.0 L578.0,518.0 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M590.0,518.0 L590.0,490.0 L636.0,490.0 L670.0,518.0 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="430.0" cy="628.0" r="32" fill="#495057" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="430.0" cy="628.0" r="12" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="720.0" cy="628.0" r="32" fill="#495057" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="720.0" cy="628.0" r="12" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+<line x1="232.0" y1="570.0" x2="170.0" y2="656.0" stroke="#3b5bdb" stroke-width="24" stroke-linecap="round"/>
+<line x1="240.0" y1="570.0" x2="296.0" y2="654.0" stroke="#3b5bdb" stroke-width="24" stroke-linecap="round"/>
+<line x1="232.0" y1="570.0" x2="272.0" y2="500.0" stroke="#ced4da" stroke-width="46" stroke-linecap="round"/>
+<circle cx="292.0" cy="468.0" r="25" fill="#f1c9a5" stroke="#2b2a26" stroke-width="3"/>
+<line x1="272.0" y1="508.0" x2="358.0" y2="552.0" stroke="#e9b48a" stroke-width="16" stroke-linecap="round"/>
+<line x1="360.0" y1="552.0" x2="490.0" y2="552.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="360.0" cy="552.0" r="8" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<text x="425.0" y="534.0" font-size="32" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<line x1="860.0" y1="575.0" x2="930.0" y2="575.0" stroke="#495057" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="895.0" y="555.0" font-size="20" fill="#495057" text-anchor="middle">rozjíždí se</text>
+</svg>

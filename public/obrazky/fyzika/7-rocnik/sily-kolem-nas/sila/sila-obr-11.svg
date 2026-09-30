@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 575" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Červené auto po nárazu do zdi má pomačkanou kapotu, rozbitý světlomet a ohnutý nárazník. Změna tvaru je trvalá.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="569" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Trvalá deformace: auto po nárazu do zdi</text>
+<rect x="790.0" y="90.0" width="130.0" height="344.0" rx="0" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="790.0" y1="130.0" x2="920.0" y2="130.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="170.0" x2="920.0" y2="170.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="210.0" x2="920.0" y2="210.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="250.0" x2="920.0" y2="250.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="290.0" x2="920.0" y2="290.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="330.0" x2="920.0" y2="330.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="370.0" x2="920.0" y2="370.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="790.0" y1="410.0" x2="920.0" y2="410.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="865.0" y1="90.0" x2="865.0" y2="130.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="830.0" y1="130.0" x2="830.0" y2="170.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="865.0" y1="170.0" x2="865.0" y2="210.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="830.0" y1="210.0" x2="830.0" y2="250.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="865.0" y1="250.0" x2="865.0" y2="290.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="830.0" y1="290.0" x2="830.0" y2="330.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="865.0" y1="330.0" x2="865.0" y2="370.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="830.0" y1="370.0" x2="830.0" y2="410.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="865.0" y1="410.0" x2="865.0" y2="434.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="20.0" y1="434.0" x2="940.0" y2="434.0" stroke="#adb5bd" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(86,0)">
+<path d="M100,388 L100,300 Q100,282 130,278 L270,268 L330,206 L490,206 L550,268 L580,250 L602,268 L626,246 L646,266 L660,252 L678,290 L654,312 L684,340 L662,372 L672,388 z" fill="#e03131" stroke="#a61e1e" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M345.0,264.0 L352.0,220.0 L420.0,220.0 L420.0,264.0 z" fill="#e7f5ff" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M432.0,264.0 L432.0,220.0 L482.0,220.0 L522.0,264.0 z" fill="#e7f5ff" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M646.0,300.0 L668.0,296.0 L664.0,318.0 L650.0,326.0 L640.0,316.0 z" fill="#ffe066" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="648.0" y1="302.0" x2="662.0" y2="318.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<line x1="660.0" y1="300.0" x2="650.0" y2="322.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<path d="M170,392 L610,392 Q650,392 665,372 L684,342" fill="none" stroke="#495057" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="200.0" cy="392.0" r="42" fill="#343a40" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="200.0" cy="392.0" r="16" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="530.0" cy="392.0" r="42" fill="#343a40" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="530.0" cy="392.0" r="16" fill="#adb5bd" stroke="#2b2a26" stroke-width="2"/>
+</g>
+<path d="M674,110 L696,250 L700,110 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="470.0" y="64.0" width="250.0" height="46.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="676" y="107" width="22" height="6" fill="#fff3bf"/>
+<text x="595.0" y="94.0" font-size="20" fill="#2b2a26" text-anchor="middle">Pomačkaná kapota</text>
+<path d="M634,470 L738,322 L660,470 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="430.0" y="470.0" width="250.0" height="46.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="636" y="467" width="22" height="6" fill="#fff3bf"/>
+<text x="555.0" y="500.0" font-size="20" fill="#2b2a26" text-anchor="middle">Rozbitý světlomet</text>
+<path d="M749,470 L762,360 L775,470 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="700.0" y="470.0" width="240.0" height="46.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="751" y="467" width="22" height="6" fill="#fff3bf"/>
+<text x="820.0" y="500.0" font-size="20" fill="#2b2a26" text-anchor="middle">Ohnutý nárazník</text>
+<text x="480.0" y="552.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Auto zůstane pomačkané i po skončení síly.</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 556" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zubař v modrém oděvu a fialových rukavicích vrtá zub pacientce v křesle. Z hadičky u vrtáku stříká voda, která zub chladí. Zubní asistentka vedle drží odsávačku.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<clipPath id="kl"><rect x="3" y="3" width="954" height="550" rx="14"/></clipPath>
+</defs>
+<rect x="3" y="3" width="954" height="550" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<g clip-path="url(#kl)">
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Při vrtání zubu se zub chladí vodou</text>
+<rect x="380.0" y="96.0" width="200.0" height="440.0" rx="40" fill="#adb5bd" stroke="#495057" stroke-width="4"/>
+<path d="M410.0,316.0 L550.0,316.0 L580.0,540.0 L380.0,540.0 z" fill="#a5d8ff" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="480.0" y="440.0" font-size="22" font-weight="bold" fill="#0b4f8f" text-anchor="middle">pacientka</text>
+<rect x="450.0" y="290.0" width="60.0" height="34.0" rx="6" fill="#f4c7a1" stroke="#c98b5e" stroke-width="3"/>
+<circle cx="480.0" cy="226.0" r="74" fill="#f4c7a1" stroke="#c98b5e" stroke-width="3"/>
+<circle cx="408.0" cy="232.0" r="12" fill="#f4c7a1" stroke="#c98b5e" stroke-width="3"/>
+<circle cx="552.0" cy="232.0" r="12" fill="#f4c7a1" stroke="#c98b5e" stroke-width="3"/>
+<path d="M406,222 A74,74 0 0 1 554,222 Q480,180 406,222 z" fill="#2b2a26"/>
+<line x1="446.0" y1="224.0" x2="466.0" y2="224.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="494.0" y1="224.0" x2="514.0" y2="224.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="480" cy="276" rx="30" ry="15" fill="#a61e1e" stroke="#5c1a1a" stroke-width="3"/>
+<rect x="462.0" y="265.0" width="36.0" height="9.0" rx="3" fill="#ffffff" stroke="#868e96" stroke-width="1.5"/>
+<path d="M30.0,290.0 L250.0,290.0 L285.0,540.0 L15.0,540.0 z" fill="#1971c2" stroke="#0b4f8f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="150.0" y="500.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">zubař</text>
+<circle cx="150.0" cy="250.0" r="46" fill="#f4c7a1" stroke="#c98b5e" stroke-width="3"/>
+<path d="M104,248 A46,46 0 0 1 196,248 Q150,227.0 104,248 z" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="133.9" cy="252.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="166.1" cy="252.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M110.9,263.8 Q150,259.2 189.1,263.8 L177.6,291.4 Q150,298.3 122.4,291.4 z" fill="#dbe4ff" stroke="#748ffc" stroke-width="2"/>
+<line x1="235.0" y1="322.0" x2="385.0" y2="274.0" stroke="#1971c2" stroke-width="40" stroke-linecap="round"/>
+<circle cx="400.0" cy="270.0" r="21" fill="#b197fc" stroke="#7048e8" stroke-width="3"/>
+<path d="M395,258 C340,240 318,140 318,72" fill="none" stroke="#adb5bd" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M395,258 C340,240 318,140 318,72" fill="none" stroke="#f1f3f5" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="410.0" y1="272.0" x2="452.0" y2="274.0" stroke="#6c757d" stroke-width="9" stroke-linecap="round"/>
+<circle cx="455.0" cy="274.0" r="5" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="440.0" cy="254.0" r="5.5" fill="#4dabf7" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="452.0" cy="248.0" r="5.5" fill="#4dabf7" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="462.0" cy="256.0" r="5.5" fill="#4dabf7" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="447.0" cy="292.0" r="5.5" fill="#4dabf7" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="457.0" cy="298.0" r="5.5" fill="#4dabf7" stroke="#1971c2" stroke-width="1.5"/>
+<path d="M710.0,290.0 L930.0,290.0 L945.0,540.0 L675.0,540.0 z" fill="#1c7ed6" stroke="#0b4f8f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="810.0" y="500.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">zubní asistentka</text>
+<circle cx="810.0" cy="250.0" r="46" fill="#f4c7a1" stroke="#c98b5e" stroke-width="3"/>
+<path d="M764,248 A46,46 0 0 1 856,248 Q810,227.0 764,248 z" fill="#8a5a2b" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="793.9" cy="252.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="826.1" cy="252.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M770.9,263.8 Q810,259.2 849.1,263.8 L837.6,291.4 Q810,298.3 782.4,291.4 z" fill="#dbe4ff" stroke="#748ffc" stroke-width="2"/>
+<line x1="725.0" y1="322.0" x2="570.0" y2="282.0" stroke="#1c7ed6" stroke-width="40" stroke-linecap="round"/>
+<circle cx="556.0" cy="280.0" r="21" fill="#f8f9fa" stroke="#868e96" stroke-width="3"/>
+<line x1="548.0" y1="282.0" x2="508.0" y2="284.0" stroke="#74c0fc" stroke-width="8" stroke-linecap="round"/>
+<path d="M560,296 C620,340 650,380 660,470" fill="none" stroke="#74c0fc" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M274,146 L430,254 L300,146 z" fill="#d0ebff" stroke="#1971c2" stroke-width="2" stroke-linejoin="round"/>
+<rect x="40.0" y="90.0" width="280.0" height="56.0" rx="12" fill="#d0ebff" stroke="#1971c2" stroke-width="2"/>
+<rect x="276" y="143" width="22" height="6" fill="#d0ebff"/>
+<text x="180.0" y="125.7" font-size="22" fill="#2b2a26" text-anchor="middle">voda z hadičky chladí zub</text>
+</g>
+</svg>

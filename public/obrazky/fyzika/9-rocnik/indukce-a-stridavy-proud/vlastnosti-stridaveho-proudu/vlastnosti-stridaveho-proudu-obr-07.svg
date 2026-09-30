@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Graf časového průběhu střídavého proudu: proud v mikroampérech od −30 do 30 na svislé ose, čas od 0 do 0,5 s na vodorovné ose, šipkou vyznačená perioda T = 0,2 s mezi dvěma po sobě jdoucími vrcholy. Pod grafem věta, že se stejný průběh opakuje pětkrát za sekundu, tedy f = 5 Hz.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="494" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="96.0" y1="260.0" x2="910.0" y2="260.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="110.0" y1="420.0" x2="110.0" y2="90.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="906.0" y="294.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end">t (s)</text>
+<text x="124.0" y="96.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">I (µA)</text>
+<line x1="102.0" y1="410.0" x2="118.0" y2="410.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="96.0" y="417.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">−30</text>
+<line x1="102.0" y1="360.0" x2="118.0" y2="360.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="96.0" y="367.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">−20</text>
+<line x1="102.0" y1="310.0" x2="118.0" y2="310.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="96.0" y="317.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">−10</text>
+<line x1="102.0" y1="210.0" x2="118.0" y2="210.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="96.0" y="217.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">10</text>
+<line x1="102.0" y1="160.0" x2="118.0" y2="160.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="96.0" y="167.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">20</text>
+<line x1="102.0" y1="110.0" x2="118.0" y2="110.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="96.0" y="117.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">30</text>
+<text x="96.0" y="286.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">0</text>
+<path d="M110.0,260.0 L114.0,251.0 L118.0,242.1 L122.0,233.4 L126.0,224.9 L130.0,216.6 L134.0,208.7 L138.0,201.2 L142.0,194.2 L146.0,187.7 L150.0,181.8 L154.0,176.5 L158.0,171.9 L162.0,168.0 L166.0,164.9 L170.0,162.5 L174.0,160.9 L178.0,160.1 L182.0,160.1 L186.0,160.9 L190.0,162.5 L194.0,164.9 L198.0,168.0 L202.0,171.9 L206.0,176.5 L210.0,181.8 L214.0,187.7 L218.0,194.2 L222.0,201.2 L226.0,208.7 L230.0,216.6 L234.0,224.9 L238.0,233.4 L242.0,242.1 L246.0,251.0 L250.0,260.0 L254.0,269.0 L258.0,277.9 L262.0,286.6 L266.0,295.1 L270.0,303.4 L274.0,311.3 L278.0,318.8 L282.0,325.8 L286.0,332.3 L290.0,338.2 L294.0,343.5 L298.0,348.1 L302.0,352.0 L306.0,355.1 L310.0,357.5 L314.0,359.1 L318.0,359.9 L322.0,359.9 L326.0,359.1 L330.0,357.5 L334.0,355.1 L338.0,352.0 L342.0,348.1 L346.0,343.5 L350.0,338.2 L354.0,332.3 L358.0,325.8 L362.0,318.8 L366.0,311.3 L370.0,303.4 L374.0,295.1 L378.0,286.6 L382.0,277.9 L386.0,269.0 L390.0,260.0 L394.0,251.0 L398.0,242.1 L402.0,233.4 L406.0,224.9 L410.0,216.6 L414.0,208.7 L418.0,201.2 L422.0,194.2 L426.0,187.7 L430.0,181.8 L434.0,176.5 L438.0,171.9 L442.0,168.0 L446.0,164.9 L450.0,162.5 L454.0,160.9 L458.0,160.1 L462.0,160.1 L466.0,160.9 L470.0,162.5 L474.0,164.9 L478.0,168.0 L482.0,171.9 L486.0,176.5 L490.0,181.8 L494.0,187.7 L498.0,194.2 L502.0,201.2 L506.0,208.7 L510.0,216.6 L514.0,224.9 L518.0,233.4 L522.0,242.1 L526.0,251.0 L530.0,260.0 L534.0,269.0 L538.0,277.9 L542.0,286.6 L546.0,295.1 L550.0,303.4 L554.0,311.3 L558.0,318.8 L562.0,325.8 L566.0,332.3 L570.0,338.2 L574.0,343.5 L578.0,348.1 L582.0,352.0 L586.0,355.1 L590.0,357.5 L594.0,359.1 L598.0,359.9 L602.0,359.9 L606.0,359.1 L610.0,357.5 L614.0,355.1 L618.0,352.0 L622.0,348.1 L626.0,343.5 L630.0,338.2 L634.0,332.3 L638.0,325.8 L642.0,318.8 L646.0,311.3 L650.0,303.4 L654.0,295.1 L658.0,286.6 L662.0,277.9 L666.0,269.0 L670.0,260.0 L674.0,251.0 L678.0,242.1 L682.0,233.4 L686.0,224.9 L690.0,216.6 L694.0,208.7 L698.0,201.2 L702.0,194.2 L706.0,187.7 L710.0,181.8 L714.0,176.5 L718.0,171.9 L722.0,168.0 L726.0,164.9 L730.0,162.5 L734.0,160.9 L738.0,160.1 L742.0,160.1 L746.0,160.9 L750.0,162.5 L754.0,164.9 L758.0,168.0 L762.0,171.9 L766.0,176.5 L770.0,181.8 L774.0,187.7 L778.0,194.2 L782.0,201.2 L786.0,208.7 L790.0,216.6 L794.0,224.9 L798.0,233.4 L802.0,242.1 L806.0,251.0 L810.0,260.0" fill="none" stroke="#1971c2" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="250.0" y1="252.0" x2="250.0" y2="268.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="242.0" y="294.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">0,1</text>
+<line x1="390.0" y1="252.0" x2="390.0" y2="268.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="398.0" y="294.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">0,2</text>
+<line x1="530.0" y1="252.0" x2="530.0" y2="268.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="522.0" y="294.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">0,3</text>
+<line x1="670.0" y1="252.0" x2="670.0" y2="268.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="678.0" y="294.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">0,4</text>
+<line x1="810.0" y1="252.0" x2="810.0" y2="268.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="802.0" y="294.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">0,5</text>
+<line x1="180.0" y1="156.0" x2="180.0" y2="108.0" stroke="#868e96" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
+<line x1="460.0" y1="156.0" x2="460.0" y2="108.0" stroke="#868e96" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
+<line x1="320.0" y1="116.0" x2="184.0" y2="116.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="320.0" y1="116.0" x2="456.0" y2="116.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="320.0" y="106.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T = 0,2 s</text>
+<text x="480.0" y="470.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Stejný průběh se opakuje pětkrát za sekundu, tedy f = 5 Hz.</text>
+</svg>

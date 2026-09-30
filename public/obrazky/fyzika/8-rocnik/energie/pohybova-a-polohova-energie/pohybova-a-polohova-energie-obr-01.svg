@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 510" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Černá bowlingová koule s číslem 8 se kutálí doprava, před ní stojí jedna kuželka a druhá leží. Pohybující se koule má pohybovou energii a koná práci: shazuje kuželky.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="504" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Pohybová energie: kutálející se koule srazí kuželky</text>
+<line x1="20.0" y1="380.0" x2="940.0" y2="380.0" stroke="#adb5bd" stroke-width="5" stroke-linecap="round"/>
+<line x1="40.0" y1="290.0" x2="150.0" y2="290.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="58.0" y1="320.0" x2="150.0" y2="320.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="76.0" y1="350.0" x2="150.0" y2="350.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<circle cx="260.0" cy="300.0" r="80" fill="#212529" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="232.0" cy="268.0" r="12" fill="#495057" stroke="#495057" stroke-width="1"/>
+<circle cx="260.0" cy="290.0" r="30" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="260.0" y="302.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="middle">8</text>
+<line x1="360.0" y1="300.0" x2="470.0" y2="300.0" stroke="#2b2a26" stroke-width="6" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<text x="415.0" y="268.0" font-size="20" fill="#2b2a26" text-anchor="middle">rychlost</text>
+<g transform="translate(820,380) rotate(0)">
+<path d="M-20,0 Q-34,-40 -18,-84 Q-9,-104 -13,-120 A15,15 0 1 1 13,-120 Q9,-104 18,-84 Q34,-40 20,0 z" fill="#ffffff" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-12,-104 Q0,-98 12,-104" fill="none" stroke="#e03131" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-10,-90 Q0,-84 10,-90" fill="none" stroke="#e03131" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<g transform="translate(650,361) rotate(90)">
+<path d="M-20,0 Q-34,-40 -18,-84 Q-9,-104 -13,-120 A15,15 0 1 1 13,-120 Q9,-104 18,-84 Q34,-40 20,0 z" fill="#ffffff" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-12,-104 Q0,-98 12,-104" fill="none" stroke="#e03131" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-10,-90 Q0,-84 10,-90" fill="none" stroke="#e03131" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="650.0" y="430.0" font-size="20" fill="#2b2a26" text-anchor="middle">leží: koule ji srazila</text>
+<text x="820.0" y="430.0" font-size="20" fill="#2b2a26" text-anchor="middle">stojí</text>
+<text x="480.0" y="480.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Těleso, které se pohybuje, má pohybovou energii. Tou koule koná práci: shazuje kuželky.</text>
+</svg>

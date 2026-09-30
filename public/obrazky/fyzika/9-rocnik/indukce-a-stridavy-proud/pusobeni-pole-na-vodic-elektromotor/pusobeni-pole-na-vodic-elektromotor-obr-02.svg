@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vlevo podkovový magnet s vodičem, proud k divákovi, indukční čáry dolů, síla doprava. Vpravo levá ruka dlaní nahoru: indukční čáry vstupují do dlaně, prsty míří ve směru proudu a palec ukazuje směr síly.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="514" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="240.0" y="44.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Situace</text>
+<rect x="50.0" y="70.0" width="60.0" height="330.0" rx="4" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="50.0" y="70.0" width="340.0" height="80.0" rx="8" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<text x="280.0" y="124.0" font-size="34" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<rect x="50.0" y="320.0" width="340.0" height="80.0" rx="8" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<text x="280.0" y="374.0" font-size="34" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="170.0" y1="160.0" x2="170.0" y2="310.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="230.0" y1="160.0" x2="230.0" y2="310.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="290.0" y1="160.0" x2="290.0" y2="310.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="350.0" y1="160.0" x2="350.0" y2="310.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<circle cx="240.0" cy="235.0" r="20" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<circle cx="240.0" cy="235.0" r="6" fill="#e8590c" stroke="#e8590c" stroke-width="1"/>
+<line x1="262.0" y1="235.0" x2="372.0" y2="235.0" stroke="#2f9e44" stroke-width="7" marker-end="url(#b-zel)" stroke-linecap="round"/>
+<text x="330.0" y="218.0" font-size="34" font-weight="bold" fill="#2f9e44" text-anchor="middle">F</text>
+<text x="200.0" y="243.0" font-size="32" font-weight="bold" fill="#e8590c" text-anchor="middle">I</text>
+<text x="312.0" y="300.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">B</text>
+<text x="240.0" y="435.0" font-size="20" fill="#2b2a26" text-anchor="middle">Vodič je kolmo k papíru, proud teče k nám.</text>
+<text x="240.0" y="462.0" font-size="20" fill="#2b2a26" text-anchor="middle">Síla míří doprava.</text>
+<text x="720.0" y="44.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Pravidlo levé ruky</text>
+<path d="M647.0,302.7 L764.0,302.7 L718.5,330.0 L601.5,330.0 z" fill="#f1c9a5" stroke="#b98a63" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="747.8" y1="312.4" x2="803.6" y2="312.4" stroke="#b98a63" stroke-width="36" stroke-linecap="round"/>
+<line x1="747.8" y1="312.4" x2="803.6" y2="312.4" stroke="#f1c9a5" stroke-width="30" stroke-linecap="round"/>
+<line x1="615.8" y1="330.0" x2="575.5" y2="354.2" stroke="#b98a63" stroke-width="26" stroke-linecap="round"/>
+<line x1="615.8" y1="330.0" x2="575.5" y2="354.2" stroke="#f1c9a5" stroke-width="20" stroke-linecap="round"/>
+<line x1="645.7" y1="330.0" x2="592.4" y2="362.0" stroke="#b98a63" stroke-width="26" stroke-linecap="round"/>
+<line x1="645.7" y1="330.0" x2="592.4" y2="362.0" stroke="#f1c9a5" stroke-width="20" stroke-linecap="round"/>
+<line x1="674.3" y1="330.0" x2="617.1" y2="364.3" stroke="#b98a63" stroke-width="26" stroke-linecap="round"/>
+<line x1="674.3" y1="330.0" x2="617.1" y2="364.3" stroke="#f1c9a5" stroke-width="20" stroke-linecap="round"/>
+<line x1="704.2" y1="330.0" x2="653.5" y2="360.4" stroke="#b98a63" stroke-width="26" stroke-linecap="round"/>
+<line x1="704.2" y1="330.0" x2="653.5" y2="360.4" stroke="#f1c9a5" stroke-width="20" stroke-linecap="round"/>
+<line x1="660.6" y1="175.9" x2="660.6" y2="307.2" stroke="#2b2a26" stroke-width="5" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="717.9" y1="175.9" x2="717.9" y2="307.2" stroke="#2b2a26" stroke-width="5" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<text x="739.9" y="189.9" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="start">B</text>
+<line x1="656.1" y1="298.5" x2="556.0" y2="358.6" stroke="#e8590c" stroke-width="7" marker-end="url(#b-ora)" stroke-linecap="round"/>
+<text x="526.0" y="364.6" font-size="34" font-weight="bold" fill="#e8590c" text-anchor="start">I</text>
+<line x1="814.0" y1="312.4" x2="916.8" y2="312.4" stroke="#2f9e44" stroke-width="8" marker-end="url(#b-zel)" stroke-linecap="round"/>
+<text x="922.8" y="290.4" font-size="36" font-weight="bold" fill="#2f9e44" text-anchor="middle">F</text>
+<text x="500.0" y="470.0" font-size="20" fill="#2b2a26" text-anchor="start">Indukční čáry (B) vstupují do dlaně, prsty</text>
+<text x="500.0" y="496.0" font-size="20" fill="#2b2a26" text-anchor="start">míří ve směru proudu (I), palec ukáže sílu (F).</text>
+</svg>

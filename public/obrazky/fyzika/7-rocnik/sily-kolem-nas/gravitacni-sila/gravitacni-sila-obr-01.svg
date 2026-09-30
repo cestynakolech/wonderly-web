@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Slunce vlevo a Země vpravo. Z každého tělesa vede červená šipka směrem k druhému tělesu. Slunce a Země se přitahují navzájem.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="464" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="46.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Slunce a Země se přitahují navzájem</text>
+<line x1="278.0" y1="220.0" x2="298.0" y2="220.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="269.8" y1="261.3" x2="288.3" y2="269.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="246.4" y1="296.4" x2="260.5" y2="310.5" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="211.3" y1="319.8" x2="219.0" y2="338.3" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="170.0" y1="328.0" x2="170.0" y2="348.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="128.7" y1="319.8" x2="121.0" y2="338.3" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="93.6" y1="296.4" x2="79.5" y2="310.5" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="70.2" y1="261.3" x2="51.7" y2="269.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="62.0" y1="220.0" x2="42.0" y2="220.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="70.2" y1="178.7" x2="51.7" y2="171.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="93.6" y1="143.6" x2="79.5" y2="129.5" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="128.7" y1="120.2" x2="121.0" y2="101.7" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="170.0" y1="112.0" x2="170.0" y2="92.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="211.3" y1="120.2" x2="219.0" y2="101.7" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="246.4" y1="143.6" x2="260.5" y2="129.5" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<line x1="269.8" y1="178.7" x2="288.3" y2="171.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<circle cx="170.0" cy="220.0" r="100" fill="#ffd43b" stroke="#f08c00" stroke-width="4"/>
+<text x="170.0" y="228.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Slunce</text>
+<circle cx="790.0" cy="220.0" r="50" fill="#4dabf7" stroke="#1971c2" stroke-width="4"/>
+<path d="M758,209 Q774,185 793,201 Q788,220 772,226 Q759,223 758,209 z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M805,231 Q827,222 825,244 Q814,262 801,249 z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="790.0" y="310.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Země</text>
+<line x1="300.0" y1="220.0" x2="460.0" y2="220.0" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="728.0" y1="220.0" x2="568.0" y2="220.0" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="310.0" y="196.0" font-size="20" fill="#e03131" text-anchor="start">síla Země</text>
+<text x="310.0" y="218.0" font-size="20" fill="#2b2a26" text-anchor="start"></text>
+<text x="560.0" y="196.0" font-size="20" fill="#e03131" text-anchor="start">síla Slunce</text>
+<text x="480.0" y="400.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Každé těleso přitahuje to druhé.</text>
+<text x="480.0" y="436.0" font-size="20" fill="#495057" text-anchor="middle">Velikosti těles a jejich vzdálenost nejsou v měřítku.</text>
+</svg>

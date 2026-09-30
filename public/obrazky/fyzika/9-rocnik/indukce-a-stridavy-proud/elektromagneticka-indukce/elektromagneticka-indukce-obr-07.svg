@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Elektromagnetická indukce: cívka s více závity spojená s voltmetrem a žárovkou, vedle ní pohyblivý magnet N–S. Vlevo je výčet, co ovlivňuje velikost proudu (rychlost změny magnetického pole, počet závitů cívky, síla magnetu) a co mění jeho směr (polarita magnetu).">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Elektromagnetická indukce: cívka, magnet a žárovka</text>
+<rect x="30.0" y="80.0" width="385.0" height="250.0" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="3"/>
+<text x="50.0" y="116.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">Velikost proudu ovlivňuje:</text>
+<text x="60.0" y="152.0" font-size="20" fill="#2b2a26" text-anchor="start">• rychlost změny magnetického pole</text>
+<text x="60.0" y="186.0" font-size="20" fill="#2b2a26" text-anchor="start">• počet závitů cívky</text>
+<text x="60.0" y="220.0" font-size="20" fill="#2b2a26" text-anchor="start">• síla magnetu</text>
+<text x="50.0" y="262.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">Směr proudu mění:</text>
+<text x="60.0" y="298.0" font-size="20" fill="#2b2a26" text-anchor="start">• polarita magnetu (otočení N–S)</text>
+<line x1="487.0" y1="225.0" x2="504.0" y2="115.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="521.0" y1="225.0" x2="538.0" y2="115.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="555.0" y1="225.0" x2="572.0" y2="115.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="589.0" y1="225.0" x2="606.0" y2="115.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="623.0" y1="225.0" x2="640.0" y2="115.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<path d="M470.0,115.0 L436.0,115.0 L436.0,340.0 L503.5,340.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M623.5,340.0 L691.0,340.0 L691.0,225.0 L657.0,225.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M436.0,340.0 L436.0,579.0 L505.8,579.0 L505.8,545.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M691.0,340.0 L691.0,579.0 L621.2,579.0 L621.2,545.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="436.0" cy="340.0" r="6" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="691.0" cy="340.0" r="6" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="470.0" y1="115.0" x2="487.0" y2="225.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="470.0" y1="115.0" x2="487.0" y2="225.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="504.0" y1="115.0" x2="521.0" y2="225.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="504.0" y1="115.0" x2="521.0" y2="225.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="538.0" y1="115.0" x2="555.0" y2="225.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="538.0" y1="115.0" x2="555.0" y2="225.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="572.0" y1="115.0" x2="589.0" y2="225.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="572.0" y1="115.0" x2="589.0" y2="225.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="606.0" y1="115.0" x2="623.0" y2="225.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="606.0" y1="115.0" x2="623.0" y2="225.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="640.0" y1="115.0" x2="657.0" y2="225.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="640.0" y1="115.0" x2="657.0" y2="225.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<rect x="460.5" y="415.0" width="206.0" height="130.0" rx="12" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<rect x="468.5" y="423.0" width="190.0" height="114.0" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<line x1="516.5" y1="479.5" x2="505.7" y2="470.5" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="526.5" y1="462.7" x2="522.1" y2="456.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="545.9" y1="460.2" x2="541.9" y2="446.8" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="563.5" y1="451.6" x2="563.5" y2="443.6" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="581.1" y1="460.2" x2="585.1" y2="446.8" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="600.5" y1="462.7" x2="604.9" y2="456.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="610.5" y1="479.5" x2="621.3" y2="470.5" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="601.2" y="510.0" font-size="20" font-weight="bold" fill="#495057" text-anchor="middle">V</text>
+<line x1="563.5" y1="519.0" x2="563.5" y2="447.6" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="563.5" cy="519.0" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="505.8" y="537.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">−</text>
+<text x="621.2" y="537.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<circle cx="505.8" cy="545.0" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="621.2" cy="545.0" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<line x1="597.5" y1="340.0" x2="613.5" y2="340.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="591.0" y1="360.0" x2="604.0" y2="369.4" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="574.0" y1="372.3" x2="579.0" y2="387.6" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="553.0" y1="372.3" x2="548.0" y2="387.6" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="536.0" y1="360.0" x2="523.0" y2="369.4" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="529.5" y1="340.0" x2="513.5" y2="340.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="536.0" y1="320.0" x2="523.0" y2="310.6" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="553.0" y1="307.7" x2="548.0" y2="292.4" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="574.0" y1="307.7" x2="579.0" y2="292.4" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="591.0" y1="320.0" x2="604.0" y2="310.6" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<circle cx="563.5" cy="340.0" r="28" fill="#ffe066" stroke="#f08c00" stroke-width="3"/>
+<path d="M551.5,350 L557.5,332 L563.5,346 L569.5,332 L575.5,350" fill="none" stroke="#e8590c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="563.5" y="282.0" font-size="20" fill="#2b2a26" text-anchor="middle">žárovka</text>
+<rect x="730.0" y="142.0" width="95.0" height="56.0" rx="3" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<rect x="825.0" y="142.0" width="95.0" height="56.0" rx="3" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<text x="777.5" y="179.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="872.5" y="179.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="800.0" y1="124.0" x2="740.0" y2="124.0" stroke="#2b2a26" stroke-width="5" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<text x="825.0" y="230.0" font-size="20" fill="#2b2a26" text-anchor="middle">magnet N–S</text>
+<text x="570.0" y="95.0" font-size="20" fill="#2b2a26" text-anchor="middle">cívka s více závity</text>
+<text x="222.0" y="372.0" font-size="20" fill="#2b2a26" text-anchor="middle">Čím rychleji se magnet hýbe,</text>
+<text x="200.0" y="400.0" font-size="20" fill="#2b2a26" text-anchor="middle">tím jasněji svítí žárovka.</text>
+</svg>

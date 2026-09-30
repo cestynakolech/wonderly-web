@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 590" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Země s červeným křížkem ve středu a kolem ní jablko, astronaut, družice, letadlo, kámen a míč. U každého tělesa míří červená šipka do středu Země.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="584" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Gravitační pole Země: síla míří do středu Země</text>
+<circle cx="285.1" cy="209.1" r="18" fill="#ff6b6b" stroke="#a61e1e" stroke-width="3"/>
+<line x1="285.1" y1="191.1" x2="289.1" y2="179.1" stroke="#5c940d" stroke-width="4" stroke-linecap="round"/>
+<line x1="303.3" y1="217.6" x2="366.7" y2="247.2" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="579.5" y1="143.8" x2="575.5" y2="165.8" stroke="#495057" stroke-width="15" stroke-linecap="round"/>
+<line x1="579.5" y1="143.8" x2="575.5" y2="165.8" stroke="#e9ecef" stroke-width="10" stroke-linecap="round"/>
+<line x1="595.5" y1="143.8" x2="599.5" y2="165.8" stroke="#495057" stroke-width="15" stroke-linecap="round"/>
+<line x1="595.5" y1="143.8" x2="599.5" y2="165.8" stroke="#e9ecef" stroke-width="10" stroke-linecap="round"/>
+<line x1="571.5" y1="113.8" x2="553.5" y2="127.8" stroke="#495057" stroke-width="14" stroke-linecap="round"/>
+<line x1="571.5" y1="113.8" x2="553.5" y2="127.8" stroke="#e9ecef" stroke-width="9" stroke-linecap="round"/>
+<line x1="603.5" y1="113.8" x2="621.5" y2="127.8" stroke="#495057" stroke-width="14" stroke-linecap="round"/>
+<line x1="603.5" y1="113.8" x2="621.5" y2="127.8" stroke="#e9ecef" stroke-width="9" stroke-linecap="round"/>
+<rect x="571.5" y="105.8" width="32.0" height="40.0" rx="8" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<circle cx="587.5" cy="91.8" r="17" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<rect x="577.5" y="83.8" width="20.0" height="14.0" rx="5" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+<line x1="577.5" y1="131.1" x2="542.5" y2="191.7" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<rect x="679.7" y="250.7" width="24.0" height="24.0" rx="3" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<rect x="647.7" y="254.7" width="28.0" height="16.0" rx="2" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+<rect x="707.7" y="254.7" width="28.0" height="16.0" rx="2" fill="#4dabf7" stroke="#1971c2" stroke-width="2"/>
+<line x1="672.0" y1="266.1" x2="603.1" y2="278.3" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<ellipse cx="644.6995552705803" cy="438.19933608260595" rx="42" ry="11" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<path d="M636.7,438.2 L618.7,468.2 L632.7,468.2 L658.7,438.2 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M636.7,438.2 L618.7,408.2 L632.7,408.2 L658.7,438.2 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M610.7,435.2 L598.7,416.2 L608.7,416.2 L618.7,435.2 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="629.4" y1="425.3" x2="575.8" y2="380.3" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<path d="M439.3,526.2 L447.3,500.2 L471.3,496.2 L485.3,518.2 L475.3,530.2 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="463.0" y1="494.3" x2="469.1" y2="424.5" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="293.8" cy="407.5" r="18" fill="#ffa94d" stroke="#d9480f" stroke-width="3"/>
+<path d="M282,404 Q294,416 306,404" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="311.1" y1="397.5" x2="371.7" y2="362.5" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="480.0" cy="300.0" r="110" fill="#4dabf7" stroke="#1971c2" stroke-width="4"/>
+<path d="M409,275 Q445,222 487,257 Q476,300 441,314 Q413,307 409,275 z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M512,325 Q562,304 558,353 Q533,392 505,364 z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="466.0" y1="286.0" x2="494.0" y2="314.0" stroke="#e03131" stroke-width="6" stroke-linecap="round"/>
+<line x1="466.0" y1="314.0" x2="494.0" y2="286.0" stroke="#e03131" stroke-width="6" stroke-linecap="round"/>
+<rect x="414.0" y="326.0" width="132.0" height="30.0" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+<text x="480.0" y="348.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="middle">střed Země</text>
+<text x="480.0" y="562.0" font-size="20" fill="#495057" text-anchor="middle">Šipky ukazují jen směr (do středu), velikosti sil nejsou v měřítku.</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Ruka drží siloměr, na němž visí těleso o hmotnosti 100 g nad zemí. Ručička ukazuje 1 N a červená šipka dolů má popisek Fg = 1 N. Délka šipky odpovídá jednomu dílku stupnice.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="634" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Těleso o hmotnosti 100 g na siloměru</text>
+<rect x="226.0" y="70.0" width="68.0" height="44.0" rx="14" fill="#f1c9a5" stroke="#b98a63" stroke-width="3"/>
+<line x1="260.0" y1="114.0" x2="260.0" y2="130.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<circle cx="260.0" cy="128.0" r="8" fill="none" stroke="#495057" stroke-width="4"/>
+<rect x="226.0" y="140.0" width="68.0" height="210.0" rx="10" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<line x1="264.0" y1="160.0" x2="290.0" y2="160.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="256.0" y="167.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">0</text>
+<line x1="264.0" y1="220.0" x2="290.0" y2="220.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="256.0" y="227.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">1</text>
+<line x1="264.0" y1="280.0" x2="290.0" y2="280.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="256.0" y="287.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">2</text>
+<line x1="264.0" y1="340.0" x2="290.0" y2="340.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="256.0" y="347.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">3</text>
+<text x="302.0" y="370.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">N</text>
+<path d="M226.0,220.0 L208.0,210.0 L208.0,230.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="260.0" y1="350.0" x2="260.0" y2="376.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<line x1="260.0" y1="376.0" x2="260.0" y2="400.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<circle cx="260.0" cy="406.0" r="8" fill="none" stroke="#495057" stroke-width="4"/>
+<rect x="200.0" y="418.0" width="120.0" height="62.0" rx="8" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<text x="260.0" y="441.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">100 g</text>
+<line x1="260.0" y1="449.0" x2="260.0" y2="509.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="278.0" y="523.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">F<tspan font-size="18" dy="5">g</tspan> = 1 N</text>
+<rect x="60.0" y="560.0" width="460.0" height="22.0" rx="0" fill="#8ce99a" stroke="#2b8a3e" stroke-width="3"/>
+<text x="290.0" y="610.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Země</text>
+<text x="560.0" y="190.0" font-size="22" fill="#2b2a26" text-anchor="start">Země přitahuje těleso</text>
+<text x="560.0" y="222.0" font-size="22" fill="#2b2a26" text-anchor="start">silou Fg = 1 N.</text>
+<text x="560.0" y="254.0" font-size="22" fill="#2b2a26" text-anchor="start"></text>
+<text x="560.0" y="286.0" font-size="22" fill="#2b2a26" text-anchor="start">Siloměr ukazuje 1 N.</text>
+<text x="560.0" y="318.0" font-size="22" fill="#2b2a26" text-anchor="start"></text>
+<text x="560.0" y="350.0" font-size="22" fill="#2b2a26" text-anchor="start">Měřítko: 1 N odpovídá</text>
+<text x="560.0" y="382.0" font-size="22" fill="#2b2a26" text-anchor="start">1 dílku stupnice</text>
+<text x="560.0" y="414.0" font-size="22" fill="#2b2a26" text-anchor="start">a délce červené šipky.</text>
+</svg>

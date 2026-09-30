@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vlevo otáčející se magnet uprostřed a kolem něj tři cívky, červená, modrá a zelená, každá s displejem napětí. Vpravo graf s třemi vzájemně posunutými vlnovkami napětí u1, u2 a u3 v čase a rovnice u1 plus u2 plus u3 se rovná nule.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Třífázové napětí: tři cívky kolem magnetu</text>
+<g transform="rotate(-25 215 290)">
+<rect x="160.0" y="272.0" width="55.0" height="36.0" rx="3" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<rect x="215.0" y="272.0" width="55.0" height="36.0" rx="3" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<text x="187.5" y="299.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="242.5" y="299.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+</g>
+<circle cx="215.0" cy="290.0" r="5" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M141.7,263.3 A78,78 0 0 1 282.5,251.0" fill="none" stroke="#7c3d00" stroke-width="5" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<path d="M243.0,87.5 L268.0,87.5 L268.0,116.0 L295.0,116.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M187.0,168.5 L187.0,190.0 L282.0,190.0 L282.0,140.0 L295.0,140.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="187.0" y1="96.5" x2="243.0" y2="105.5" stroke="#a61e1e" stroke-width="4" stroke-linecap="round"/>
+<line x1="187.0" y1="114.5" x2="243.0" y2="123.5" stroke="#a61e1e" stroke-width="4" stroke-linecap="round"/>
+<line x1="187.0" y1="132.5" x2="243.0" y2="141.5" stroke="#a61e1e" stroke-width="4" stroke-linecap="round"/>
+<line x1="187.0" y1="150.5" x2="243.0" y2="159.5" stroke="#a61e1e" stroke-width="4" stroke-linecap="round"/>
+<line x1="243.0" y1="87.5" x2="187.0" y2="96.5" stroke="#a61e1e" stroke-width="9" stroke-linecap="round"/>
+<line x1="243.0" y1="87.5" x2="187.0" y2="96.5" stroke="#ff8787" stroke-width="5" stroke-linecap="round"/>
+<line x1="243.0" y1="105.5" x2="187.0" y2="114.5" stroke="#a61e1e" stroke-width="9" stroke-linecap="round"/>
+<line x1="243.0" y1="105.5" x2="187.0" y2="114.5" stroke="#ff8787" stroke-width="5" stroke-linecap="round"/>
+<line x1="243.0" y1="123.5" x2="187.0" y2="132.5" stroke="#a61e1e" stroke-width="9" stroke-linecap="round"/>
+<line x1="243.0" y1="123.5" x2="187.0" y2="132.5" stroke="#ff8787" stroke-width="5" stroke-linecap="round"/>
+<line x1="243.0" y1="141.5" x2="187.0" y2="150.5" stroke="#a61e1e" stroke-width="9" stroke-linecap="round"/>
+<line x1="243.0" y1="141.5" x2="187.0" y2="150.5" stroke="#ff8787" stroke-width="5" stroke-linecap="round"/>
+<line x1="243.0" y1="159.5" x2="187.0" y2="168.5" stroke="#a61e1e" stroke-width="9" stroke-linecap="round"/>
+<line x1="243.0" y1="159.5" x2="187.0" y2="168.5" stroke="#ff8787" stroke-width="5" stroke-linecap="round"/>
+<rect x="295.0" y="106.0" width="170.0" height="44.0" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="4"/>
+<text x="380.0" y="137.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">u₁ = −58</text>
+<path d="M45.8,371.7 L45.8,426.0 L65.0,426.0 L65.0,448.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M144.2,372.3 L144.2,436.0 L125.0,436.0 L125.0,448.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="84.8" y1="412.9" x2="60.6" y2="361.6" stroke="#0b4f8f" stroke-width="4" stroke-linecap="round"/>
+<line x1="99.7" y1="402.7" x2="75.5" y2="351.4" stroke="#0b4f8f" stroke-width="4" stroke-linecap="round"/>
+<line x1="114.5" y1="392.6" x2="90.3" y2="341.3" stroke="#0b4f8f" stroke-width="4" stroke-linecap="round"/>
+<line x1="129.4" y1="382.4" x2="105.2" y2="331.1" stroke="#0b4f8f" stroke-width="4" stroke-linecap="round"/>
+<line x1="45.8" y1="371.7" x2="84.8" y2="412.9" stroke="#0b4f8f" stroke-width="9" stroke-linecap="round"/>
+<line x1="45.8" y1="371.7" x2="84.8" y2="412.9" stroke="#74c0fc" stroke-width="5" stroke-linecap="round"/>
+<line x1="60.6" y1="361.6" x2="99.7" y2="402.7" stroke="#0b4f8f" stroke-width="9" stroke-linecap="round"/>
+<line x1="60.6" y1="361.6" x2="99.7" y2="402.7" stroke="#74c0fc" stroke-width="5" stroke-linecap="round"/>
+<line x1="75.5" y1="351.4" x2="114.5" y2="392.6" stroke="#0b4f8f" stroke-width="9" stroke-linecap="round"/>
+<line x1="75.5" y1="351.4" x2="114.5" y2="392.6" stroke="#74c0fc" stroke-width="5" stroke-linecap="round"/>
+<line x1="90.3" y1="341.3" x2="129.4" y2="382.4" stroke="#0b4f8f" stroke-width="9" stroke-linecap="round"/>
+<line x1="90.3" y1="341.3" x2="129.4" y2="382.4" stroke="#74c0fc" stroke-width="5" stroke-linecap="round"/>
+<line x1="105.2" y1="331.1" x2="144.2" y2="372.3" stroke="#0b4f8f" stroke-width="9" stroke-linecap="round"/>
+<line x1="105.2" y1="331.1" x2="144.2" y2="372.3" stroke="#74c0fc" stroke-width="5" stroke-linecap="round"/>
+<rect x="10.0" y="448.0" width="170.0" height="44.0" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="4"/>
+<text x="95.0" y="479.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">u₂ = −153</text>
+<path d="M317.4,326.0 L317.4,426.0 L305.0,426.0 L305.0,448.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M352.6,418.0 L352.6,436.0 L365.0,436.0 L365.0,448.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="376.8" y1="366.7" x2="337.8" y2="407.8" stroke="#2b8a3e" stroke-width="4" stroke-linecap="round"/>
+<line x1="361.9" y1="356.5" x2="322.9" y2="397.7" stroke="#2b8a3e" stroke-width="4" stroke-linecap="round"/>
+<line x1="347.1" y1="346.3" x2="308.1" y2="387.5" stroke="#2b8a3e" stroke-width="4" stroke-linecap="round"/>
+<line x1="332.2" y1="336.2" x2="293.2" y2="377.3" stroke="#2b8a3e" stroke-width="4" stroke-linecap="round"/>
+<line x1="352.6" y1="418.0" x2="376.8" y2="366.7" stroke="#2b8a3e" stroke-width="9" stroke-linecap="round"/>
+<line x1="352.6" y1="418.0" x2="376.8" y2="366.7" stroke="#8ce99a" stroke-width="5" stroke-linecap="round"/>
+<line x1="337.8" y1="407.8" x2="361.9" y2="356.5" stroke="#2b8a3e" stroke-width="9" stroke-linecap="round"/>
+<line x1="337.8" y1="407.8" x2="361.9" y2="356.5" stroke="#8ce99a" stroke-width="5" stroke-linecap="round"/>
+<line x1="322.9" y1="397.7" x2="347.1" y2="346.3" stroke="#2b8a3e" stroke-width="9" stroke-linecap="round"/>
+<line x1="322.9" y1="397.7" x2="347.1" y2="346.3" stroke="#8ce99a" stroke-width="5" stroke-linecap="round"/>
+<line x1="308.1" y1="387.5" x2="332.2" y2="336.2" stroke="#2b8a3e" stroke-width="9" stroke-linecap="round"/>
+<line x1="308.1" y1="387.5" x2="332.2" y2="336.2" stroke="#8ce99a" stroke-width="5" stroke-linecap="round"/>
+<line x1="293.2" y1="377.3" x2="317.4" y2="326.0" stroke="#2b8a3e" stroke-width="9" stroke-linecap="round"/>
+<line x1="293.2" y1="377.3" x2="317.4" y2="326.0" stroke="#8ce99a" stroke-width="5" stroke-linecap="round"/>
+<rect x="250.0" y="448.0" width="170.0" height="44.0" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="4"/>
+<text x="335.0" y="479.0" font-size="26" font-weight="bold" fill="#2f9e44" text-anchor="middle">u₃ = 211</text>
+<line x1="500.0" y1="470.0" x2="500.0" y2="100.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="490.0" y1="300.0" x2="935.0" y2="300.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="514.0" y="118.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">u</text>
+<text x="915.0" y="334.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">t</text>
+<text x="486.0" y="308.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end">0</text>
+<path d="M500.0,187.4 L504.0,196.5 L508.0,207.1 L512.0,219.3 L516.0,232.7 L520.0,247.1 L524.0,262.4 L528.0,278.3 L532.0,294.6 L536.0,310.9 L540.0,327.0 L544.0,342.8 L548.0,357.8 L552.0,371.9 L556.0,384.9 L560.0,396.6 L564.0,406.7 L568.0,415.2 L572.0,421.8 L576.0,426.6 L580.0,429.3 L584.0,430.0 L588.0,428.6 L592.0,425.2 L596.0,419.8 L600.0,412.6 L604.0,403.5 L608.0,392.9 L612.0,380.7 L616.0,367.3 L620.0,352.9 L624.0,337.6 L628.0,321.7 L632.0,305.4 L636.0,289.1 L640.0,273.0 L644.0,257.2 L648.0,242.2 L652.0,228.1 L656.0,215.1 L660.0,203.4 L664.0,193.3 L668.0,184.8 L672.0,178.2 L676.0,173.4 L680.0,170.7 L684.0,170.0 L688.0,171.4 L692.0,174.8 L696.0,180.2 L700.0,187.4 L704.0,196.5 L708.0,207.1 L712.0,219.3 L716.0,232.7 L720.0,247.1 L724.0,262.4 L728.0,278.3 L732.0,294.6 L736.0,310.9 L740.0,327.0 L744.0,342.8 L748.0,357.8 L752.0,371.9 L756.0,384.9 L760.0,396.6 L764.0,406.7 L768.0,415.2 L772.0,421.8 L776.0,426.6 L780.0,429.3 L784.0,430.0 L788.0,428.6 L792.0,425.2 L796.0,419.8 L800.0,412.6 L804.0,403.5 L808.0,392.9 L812.0,380.7 L816.0,367.3 L820.0,352.9 L824.0,337.6 L828.0,321.7 L832.0,305.4 L836.0,289.1 L840.0,273.0 L844.0,257.2 L848.0,242.2 L852.0,228.1 L856.0,215.1 L860.0,203.4 L864.0,193.3 L868.0,184.8 L872.0,178.2 L876.0,173.4 L880.0,170.7 L884.0,170.0 L888.0,171.4 L892.0,174.8 L896.0,180.2 L900.0,187.4 L904.0,196.5 L908.0,207.1 L912.0,219.3 L916.0,232.7 L920.0,247.1 L924.0,262.4 L928.0,278.3" fill="none" stroke="#e03131" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M500.0,412.6 L504.0,419.8 L508.0,425.2 L512.0,428.6 L516.0,430.0 L520.0,429.3 L524.0,426.6 L528.0,421.8 L532.0,415.2 L536.0,406.7 L540.0,396.6 L544.0,384.9 L548.0,371.9 L552.0,357.8 L556.0,342.8 L560.0,327.0 L564.0,310.9 L568.0,294.6 L572.0,278.3 L576.0,262.4 L580.0,247.1 L584.0,232.7 L588.0,219.3 L592.0,207.1 L596.0,196.5 L600.0,187.4 L604.0,180.2 L608.0,174.8 L612.0,171.4 L616.0,170.0 L620.0,170.7 L624.0,173.4 L628.0,178.2 L632.0,184.8 L636.0,193.3 L640.0,203.4 L644.0,215.1 L648.0,228.1 L652.0,242.2 L656.0,257.2 L660.0,273.0 L664.0,289.1 L668.0,305.4 L672.0,321.7 L676.0,337.6 L680.0,352.9 L684.0,367.3 L688.0,380.7 L692.0,392.9 L696.0,403.5 L700.0,412.6 L704.0,419.8 L708.0,425.2 L712.0,428.6 L716.0,430.0 L720.0,429.3 L724.0,426.6 L728.0,421.8 L732.0,415.2 L736.0,406.7 L740.0,396.6 L744.0,384.9 L748.0,371.9 L752.0,357.8 L756.0,342.8 L760.0,327.0 L764.0,310.9 L768.0,294.6 L772.0,278.3 L776.0,262.4 L780.0,247.1 L784.0,232.7 L788.0,219.3 L792.0,207.1 L796.0,196.5 L800.0,187.4 L804.0,180.2 L808.0,174.8 L812.0,171.4 L816.0,170.0 L820.0,170.7 L824.0,173.4 L828.0,178.2 L832.0,184.8 L836.0,193.3 L840.0,203.4 L844.0,215.1 L848.0,228.1 L852.0,242.2 L856.0,257.2 L860.0,273.0 L864.0,289.1 L868.0,305.4 L872.0,321.7 L876.0,337.6 L880.0,352.9 L884.0,367.3 L888.0,380.7 L892.0,392.9 L896.0,403.5 L900.0,412.6 L904.0,419.8 L908.0,425.2 L912.0,428.6 L916.0,430.0 L920.0,429.3 L924.0,426.6 L928.0,421.8" fill="none" stroke="#1971c2" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M500.0,300.0 L504.0,283.7 L508.0,267.7 L512.0,252.1 L516.0,237.4 L520.0,223.6 L524.0,211.0 L528.0,199.8 L532.0,190.2 L536.0,182.4 L540.0,176.4 L544.0,172.3 L548.0,170.3 L552.0,170.3 L556.0,172.3 L560.0,176.4 L564.0,182.4 L568.0,190.2 L572.0,199.8 L576.0,211.0 L580.0,223.6 L584.0,237.4 L588.0,252.1 L592.0,267.7 L596.0,283.7 L600.0,300.0 L604.0,316.3 L608.0,332.3 L612.0,347.9 L616.0,362.6 L620.0,376.4 L624.0,389.0 L628.0,400.2 L632.0,409.8 L636.0,417.6 L640.0,423.6 L644.0,427.7 L648.0,429.7 L652.0,429.7 L656.0,427.7 L660.0,423.6 L664.0,417.6 L668.0,409.8 L672.0,400.2 L676.0,389.0 L680.0,376.4 L684.0,362.6 L688.0,347.9 L692.0,332.3 L696.0,316.3 L700.0,300.0 L704.0,283.7 L708.0,267.7 L712.0,252.1 L716.0,237.4 L720.0,223.6 L724.0,211.0 L728.0,199.8 L732.0,190.2 L736.0,182.4 L740.0,176.4 L744.0,172.3 L748.0,170.3 L752.0,170.3 L756.0,172.3 L760.0,176.4 L764.0,182.4 L768.0,190.2 L772.0,199.8 L776.0,211.0 L780.0,223.6 L784.0,237.4 L788.0,252.1 L792.0,267.7 L796.0,283.7 L800.0,300.0 L804.0,316.3 L808.0,332.3 L812.0,347.9 L816.0,362.6 L820.0,376.4 L824.0,389.0 L828.0,400.2 L832.0,409.8 L836.0,417.6 L840.0,423.6 L844.0,427.7 L848.0,429.7 L852.0,429.7 L856.0,427.7 L860.0,423.6 L864.0,417.6 L868.0,409.8 L872.0,400.2 L876.0,389.0 L880.0,376.4 L884.0,362.6 L888.0,347.9 L892.0,332.3 L896.0,316.3 L900.0,300.0 L904.0,283.7 L908.0,267.7 L912.0,252.1 L916.0,237.4 L920.0,223.6 L924.0,211.0 L928.0,199.8" fill="none" stroke="#2f9e44" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="541.9" y1="110.0" x2="541.9" y2="440.0" stroke="#495057" stroke-width="2" stroke-dasharray="7 6" stroke-linecap="round"/>
+<circle cx="541.9" cy="334.7" r="6" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="541.9" cy="391.1" r="6" fill="#1971c2" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="541.9" cy="174.1" r="6" fill="#2f9e44" stroke="#2b2a26" stroke-width="2"/>
+<text x="572.0" y="158.0" font-size="24" font-weight="bold" fill="#2f9e44" text-anchor="middle">u₃</text>
+<text x="616.7" y="158.0" font-size="24" font-weight="bold" fill="#1971c2" text-anchor="middle">u₂</text>
+<text x="683.3" y="158.0" font-size="24" font-weight="bold" fill="#e03131" text-anchor="middle">u₁</text>
+<text x="700.0" y="520.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">u₁ + u₂ + u₃ = 0</text>
+</svg>

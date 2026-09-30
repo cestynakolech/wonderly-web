@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 590" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Lukostřelec v červené tunice natahuje luk se založeným šípem, tětiva je napnutá a luk ohnutý.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="584" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Lukostřelec natahuje luk: napjatý luk má polohovou energii pružnosti</text>
+<line x1="20.0" y1="500.0" x2="940.0" y2="500.0" stroke="#adb5bd" stroke-width="5" stroke-linecap="round"/>
+<line x1="280.0" y1="330.0" x2="260.0" y2="494.0" stroke="#5c3a1a" stroke-width="26" stroke-linecap="round"/>
+<line x1="320.0" y1="330.0" x2="350.0" y2="494.0" stroke="#5c3a1a" stroke-width="26" stroke-linecap="round"/>
+<rect x="238.0" y="486.0" width="44.0" height="14.0" rx="5" fill="#343a40" stroke="#343a40" stroke-width="2"/>
+<rect x="330.0" y="486.0" width="44.0" height="14.0" rx="5" fill="#343a40" stroke="#343a40" stroke-width="2"/>
+<path d="M258.0,210.0 L350.0,210.0 L362.0,350.0 L250.0,350.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="250.0" y1="350.0" x2="362.0" y2="350.0" stroke="#5c3a1a" stroke-width="8" stroke-linecap="round"/>
+<circle cx="310.0" cy="165.0" r="30" fill="#f1c9a5" stroke="#2b2a26" stroke-width="3"/>
+<path d="M280,158 Q290,120 330,128 Q345,150 340,160 Q320,140 280,158 z" fill="#6d4c2f" stroke="#6d4c2f" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M540,110 Q640,232 540,354" fill="none" stroke="#8a5a2b" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="346.0" y1="218.0" x2="584.0" y2="232.0" stroke="#2b2a26" stroke-width="22" stroke-linecap="round"/>
+<line x1="346.0" y1="218.0" x2="584.0" y2="232.0" stroke="#f1c9a5" stroke-width="16" stroke-linecap="round"/>
+<circle cx="590.0" cy="232.0" r="15" fill="#f1c9a5" stroke="#2b2a26" stroke-width="3"/>
+<line x1="590.0" y1="219.0" x2="590.0" y2="245.0" stroke="#8a5a2b" stroke-width="10" stroke-linecap="round"/>
+<circle cx="590.0" cy="232.0" r="9" fill="#f1c9a5" stroke="#f1c9a5" stroke-width="1"/>
+<line x1="540.0" y1="110.0" x2="368.0" y2="232.0" stroke="#212529" stroke-width="3" stroke-linecap="round"/>
+<line x1="368.0" y1="232.0" x2="540.0" y2="354.0" stroke="#212529" stroke-width="3" stroke-linecap="round"/>
+<line x1="368.0" y1="232.0" x2="720.0" y2="232.0" stroke="#8a5a2b" stroke-width="6" stroke-linecap="round"/>
+<path d="M720.0,232.0 L698.0,222.0 L698.0,242.0 z" fill="#495057" stroke="#495057" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M370.0,232.0 L386.0,220.0 L382.0,232.0 L386.0,244.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="322.0" y1="240.0" x2="368.0" y2="232.0" stroke="#f1c9a5" stroke-width="12" stroke-linecap="round"/>
+<circle cx="368.0" cy="232.0" r="9" fill="#f1c9a5" stroke="#2b2a26" stroke-width="2"/>
+<path d="M580,400 L585,340 L606,400 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="560.0" y="400.0" width="320.0" height="56.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="582" y="397" width="22" height="6" fill="#fff3bf"/>
+<text x="720.0" y="435.0" font-size="20" fill="#2b2a26" text-anchor="middle">napnutá tětiva a ohnutý luk</text>
+<text x="480.0" y="560.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Šíp vystřelí energie uložená v ohnutém luku.</text>
+</svg>

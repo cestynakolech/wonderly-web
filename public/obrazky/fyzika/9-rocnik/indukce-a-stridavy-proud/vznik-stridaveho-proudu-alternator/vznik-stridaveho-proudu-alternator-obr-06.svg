@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 566" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Žlutá elektrocentrála v ochranném rámu. Vlevo je motor, uprostřed ovládací panel se dvěma modrými zásuvkami a vpravo alternátor. Nahoře je palivová nádrž.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f9fa"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="oce" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.45" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="med" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#e8590c"/><stop offset="1" stop-color="#9c360a"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="560" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Elektrocentrála</text>
+<rect x="150.0" y="470.0" width="90.0" height="22.0" rx="6" fill="#212529" stroke="#000000" stroke-width="2"/>
+<rect x="720.0" y="470.0" width="90.0" height="22.0" rx="6" fill="#212529" stroke="#000000" stroke-width="2"/>
+<path d="M170,470 L170,150 Q170,112 208,112 L752,112 Q790,112 790,150 L790,470" fill="none" stroke="#212529" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="170.0" y1="430.0" x2="790.0" y2="430.0" stroke="#212529" stroke-width="14" stroke-linecap="round"/>
+<rect x="290.0" y="84.0" width="320.0" height="70.0" rx="20" fill="#fcc419" stroke="#e67700" stroke-width="4"/>
+<circle cx="340.0" cy="84.0" r="14" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="200.0" y="150.0" width="560.0" height="280.0" rx="26" fill="#fcc419" stroke="#e67700" stroke-width="4"/>
+<rect x="216.0" y="176.0" width="190.0" height="224.0" rx="16" fill="#f59f00" stroke="#e67700" stroke-width="3"/>
+<line x1="232.0" y1="196.0" x2="232.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="256.0" y1="196.0" x2="256.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="280.0" y1="196.0" x2="280.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="304.0" y1="196.0" x2="304.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="328.0" y1="196.0" x2="328.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="352.0" y1="196.0" x2="352.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="376.0" y1="196.0" x2="376.0" y2="380.0" stroke="#b35c00" stroke-width="5" stroke-linecap="round"/>
+<circle cx="310.0" cy="156.0" r="22" fill="#212529" stroke="#000000" stroke-width="3"/>
+<line x1="310.0" y1="156.0" x2="310.0" y2="176.0" stroke="#212529" stroke-width="8" stroke-linecap="round"/>
+<rect x="180.0" y="332.0" width="44.0" height="34.0" rx="8" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="420.0" y="176.0" width="176.0" height="224.0" rx="12" fill="#2b2a26" stroke="#000000" stroke-width="3"/>
+<circle cx="466.0" cy="246.0" r="26" fill="#1c7ed6" stroke="#0b4f8f" stroke-width="4"/>
+<circle cx="466.0" cy="246.0" r="10" fill="#0b4f8f" stroke="#0b4f8f" stroke-width="1"/>
+<circle cx="550.0" cy="246.0" r="26" fill="#1c7ed6" stroke="#0b4f8f" stroke-width="4"/>
+<circle cx="550.0" cy="246.0" r="10" fill="#0b4f8f" stroke="#0b4f8f" stroke-width="1"/>
+<rect x="440.0" y="300.0" width="60.0" height="34.0" rx="4" fill="#f1f3f5" stroke="#868e96" stroke-width="2"/>
+<circle cx="540.0" cy="318.0" r="16" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<rect x="440.0" y="350.0" width="140.0" height="24.0" rx="4" fill="#495057" stroke="#212529" stroke-width="2"/>
+<rect x="610.0" y="176.0" width="138.0" height="224.0" rx="22" fill="url(#med)" stroke="#7c3d00" stroke-width="3"/>
+<rect x="630.0" y="196.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="630.0" y="340.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="648.0" y="196.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="648.0" y="340.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="666.0" y="196.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="666.0" y="340.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="684.0" y="196.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="684.0" y="340.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="702.0" y="196.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="702.0" y="340.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="720.0" y="196.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<rect x="720.0" y="340.0" width="9.0" height="44.0" rx="3" fill="#5c2a08" stroke="#3d1a05" stroke-width="1"/>
+<line x1="175.0" y1="506.0" x2="300.0" y2="400.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="300.0" cy="400.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="120.0" y="506.0" width="110.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="175.0" y="536.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">motor</text>
+<line x1="315.0" y1="506.0" x2="448.0" y2="262.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="448.0" cy="262.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="250.0" y="506.0" width="130.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="315.0" y="536.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">zásuvky</text>
+<line x1="550.0" y1="506.0" x2="530.0" y2="376.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="530.0" cy="376.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="450.0" y="506.0" width="200.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="550.0" y="536.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">ovládací panel</text>
+<line x1="755.0" y1="506.0" x2="690.0" y2="400.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="690.0" cy="400.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="680.0" y="506.0" width="150.0" height="40.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="755.0" y="536.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">alternátor</text>
+</svg>

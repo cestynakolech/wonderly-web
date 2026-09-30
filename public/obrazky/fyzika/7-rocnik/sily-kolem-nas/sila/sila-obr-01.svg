@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 530" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Člověk táhne paletový vozík za držadlo. Červená šipka síly F začíná v místě dotyku ruky a držadla (působiště) a míří ve směru tažení držadla.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="524" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="20.0" y1="496.0" x2="940.0" y2="496.0" stroke="#adb5bd" stroke-width="4" stroke-linecap="round"/>
+<rect x="560.0" y="438.0" width="350.0" height="24.0" rx="4" fill="#adb5bd" stroke="#495057" stroke-width="2.5"/>
+<circle cx="600.0" cy="478.0" r="17" fill="#495057" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="880.0" cy="478.0" r="17" fill="#495057" stroke="#2b2a26" stroke-width="3"/>
+<rect x="640.0" y="338.0" width="150.0" height="100.0" rx="4" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="715.0" y1="338.0" x2="715.0" y2="364.0" stroke="#8a5a2b" stroke-width="3" stroke-linecap="round"/>
+<rect x="790.0" y="338.0" width="110.0" height="100.0" rx="4" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="845.0" y1="338.0" x2="845.0" y2="364.0" stroke="#8a5a2b" stroke-width="3" stroke-linecap="round"/>
+<rect x="655.0" y="238.0" width="135.0" height="100.0" rx="4" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="722.5" y1="238.0" x2="722.5" y2="264.0" stroke="#8a5a2b" stroke-width="3" stroke-linecap="round"/>
+<rect x="790.0" y="258.0" width="90.0" height="80.0" rx="4" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="835.0" y1="258.0" x2="835.0" y2="284.0" stroke="#8a5a2b" stroke-width="3" stroke-linecap="round"/>
+<text x="715.0" y="395.0" font-size="18" font-weight="bold" fill="#8a5a2b" text-anchor="middle">EXPRESS</text>
+<line x1="330.0" y1="300.0" x2="590.0" y2="446.0" stroke="#343a40" stroke-width="9" stroke-linecap="round"/>
+<line x1="238.0" y1="330.0" x2="182.0" y2="488.0" stroke="#3b5bdb" stroke-width="26" stroke-linecap="round"/>
+<line x1="252.0" y1="330.0" x2="300.0" y2="488.0" stroke="#3b5bdb" stroke-width="26" stroke-linecap="round"/>
+<rect x="165.0" y="484.0" width="40.0" height="14.0" rx="6" fill="#343a40" stroke="#343a40" stroke-width="2"/>
+<rect x="288.0" y="484.0" width="40.0" height="14.0" rx="6" fill="#343a40" stroke="#343a40" stroke-width="2"/>
+<rect x="204.0" y="168.0" width="76.0" height="170.0" rx="26" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<line x1="244.0" y1="205.0" x2="330.0" y2="300.0" stroke="#e9b48a" stroke-width="16" stroke-linecap="round"/>
+<circle cx="240.0" cy="132.0" r="27" fill="#f1c9a5" stroke="#2b2a26" stroke-width="3"/>
+<path d="M214,126 Q222,96 246,100 Q268,104 266,128 Q250,112 214,126 z" fill="#8a5a2b" stroke="#8a5a2b" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="330.0" y1="300.0" x2="172.9" y2="212.3" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="330.0" cy="300.0" r="8" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<text x="128.0" y="232.0" font-size="34" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<path d="M163,110 L176,214 L189,110 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="20.0" y="30.0" width="250.0" height="80.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="165" y="107" width="22" height="6" fill="#fff3bf"/>
+<text x="145.0" y="63.5" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Směr:</text>
+<text x="145.0" y="90.5" font-size="20" fill="#2b2a26" text-anchor="middle">směr tažení držadla</text>
+<path d="M410,150 L338,292 L436,150 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="390.0" y="70.0" width="290.0" height="80.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="412" y="147" width="22" height="6" fill="#fff3bf"/>
+<text x="535.0" y="103.5" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Působiště:</text>
+<text x="535.0" y="130.5" font-size="20" fill="#2b2a26" text-anchor="middle">místo dotyku ruky a vozíku</text>
+</svg>

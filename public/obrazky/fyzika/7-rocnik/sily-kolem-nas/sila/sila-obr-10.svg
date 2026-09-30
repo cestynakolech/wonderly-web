@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 495" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Čtyři fáze tenisového míčku při nárazu do rakety: letí na raketu, stlačí se, vrací se do původního tvaru a odletí.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="489" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Dočasná deformace: tenisový míček</text>
+<text x="100.0" y="96.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">1.</text>
+<text x="56.0" y="330.0" font-size="20" fill="#2b2a26" text-anchor="start">raketa</text>
+<path d="M40,110 Q40,190 40,270" fill="none" stroke="#e8590c" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="40.0" y1="270.0" x2="40.0" y2="350.0" stroke="#495057" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="160" cy="190" rx="30" ry="30" fill="#c0eb75" stroke="#5c940d" stroke-width="3"/>
+<path d="M136,178 Q160,190 136,202" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="240.0" y1="130.0" x2="180.0" y2="130.0" stroke="#495057" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="130.0" y="395.0" font-size="20" fill="#2b2a26" text-anchor="middle">míček letí na raketu</text>
+<text x="332.0" y="96.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">2.</text>
+<path d="M272,110 Q246,190 272,270" fill="none" stroke="#e8590c" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="272.0" y1="270.0" x2="272.0" y2="350.0" stroke="#495057" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="279" cy="190" rx="20" ry="40" fill="#c0eb75" stroke="#5c940d" stroke-width="3"/>
+<path d="M263,174 Q279,190 263,206" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="262.0" y1="210.0" x2="352.0" y2="210.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="312.0" y="242.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="362.0" y="395.0" font-size="20" fill="#2b2a26" text-anchor="middle">míček se stlačí</text>
+<text x="564.0" y="96.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">3.</text>
+<path d="M504,110 Q496,190 504,270" fill="none" stroke="#e8590c" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="504.0" y1="270.0" x2="504.0" y2="350.0" stroke="#495057" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="530" cy="190" rx="26" ry="34" fill="#c0eb75" stroke="#5c940d" stroke-width="3"/>
+<path d="M509,176 Q530,190 509,204" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="510.0" y1="210.0" x2="550.0" y2="210.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="530.0" y="250.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="594.0" y="395.0" font-size="20" fill="#2b2a26" text-anchor="middle">míček se vrací do tvaru</text>
+<text x="796.0" y="96.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">4.</text>
+<path d="M736,110 Q736,190 736,270" fill="none" stroke="#e8590c" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="736.0" y1="270.0" x2="736.0" y2="350.0" stroke="#495057" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="836" cy="190" rx="30" ry="30" fill="#c0eb75" stroke="#5c940d" stroke-width="3"/>
+<path d="M812,178 Q836,190 812,202" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="876.0" y1="130.0" x2="931.0" y2="130.0" stroke="#495057" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="826.0" y="395.0" font-size="20" fill="#2b2a26" text-anchor="middle">míček odletí</text>
+<text x="480.0" y="460.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Po skončení působení síly se míček sám vrátí do původního tvaru.</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 545" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Štítek elektromotoru s údaji výrobce: typ, výkon 5,5 kW, napětí 380 V, proud 11,4 A, otáčky 1 450 za minutu, frekvence 50 Hz, krytí IP 54 a hmotnost 68 kg.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="539" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="40.0" y="30.0" width="880.0" height="460.0" rx="28" fill="#dee2e6" stroke="#495057" stroke-width="5"/>
+<circle cx="70.0" cy="60.0" r="12" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="63.0" y1="53.0" x2="77.0" y2="67.0" stroke="#495057" stroke-width="3" stroke-linecap="round"/>
+<circle cx="890.0" cy="60.0" r="12" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="883.0" y1="53.0" x2="897.0" y2="67.0" stroke="#495057" stroke-width="3" stroke-linecap="round"/>
+<circle cx="70.0" cy="460.0" r="12" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="63.0" y1="453.0" x2="77.0" y2="467.0" stroke="#495057" stroke-width="3" stroke-linecap="round"/>
+<circle cx="890.0" cy="460.0" r="12" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="883.0" y1="453.0" x2="897.0" y2="467.0" stroke="#495057" stroke-width="3" stroke-linecap="round"/>
+<text x="480.0" y="92.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="middle">ELEKTROMOTOR</text>
+<text x="480.0" y="128.0" font-size="20" fill="#495057" text-anchor="middle">výrobce: MEZ Mohelnice</text>
+<line x1="90.0" y1="150.0" x2="870.0" y2="150.0" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+<text x="100.0" y="205.0" font-size="24" fill="#495057" text-anchor="start">typ</text>
+<text x="460.0" y="205.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">4AP 132S-4</text>
+<rect x="86.0" y="237.0" width="390.0" height="52.0" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="100.0" y="271.0" font-size="24" fill="#495057" text-anchor="start">výkon</text>
+<text x="460.0" y="271.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">5,5 kW</text>
+<rect x="86.0" y="303.0" width="390.0" height="52.0" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="100.0" y="337.0" font-size="24" fill="#495057" text-anchor="start">napětí</text>
+<text x="460.0" y="337.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">Δ 380 V</text>
+<rect x="86.0" y="369.0" width="390.0" height="52.0" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="100.0" y="403.0" font-size="24" fill="#495057" text-anchor="start">proud</text>
+<text x="460.0" y="403.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">11,4 A</text>
+<rect x="506.0" y="171.0" width="390.0" height="52.0" rx="8" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="520.0" y="205.0" font-size="24" fill="#495057" text-anchor="start">otáčky</text>
+<text x="880.0" y="205.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">1 450 za minutu</text>
+<text x="520.0" y="271.0" font-size="24" fill="#495057" text-anchor="start">frekvence</text>
+<text x="880.0" y="271.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">50 Hz</text>
+<text x="520.0" y="337.0" font-size="24" fill="#495057" text-anchor="start">krytí</text>
+<text x="880.0" y="337.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">IP 54</text>
+<text x="520.0" y="403.0" font-size="24" fill="#495057" text-anchor="start">hmotnost</text>
+<text x="880.0" y="403.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="end">68 kg</text>
+<text x="480.0" y="520.0" font-size="20" fill="#2b2a26" text-anchor="middle">Na štítku výrobce uvádí výkon, napětí, proud a otáčky (žlutě).</text>
+</svg>

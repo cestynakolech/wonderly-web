@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vodič s proudem I mezi póly magnetu. Indukční čáry míří od pólu N nahoře k pólu S dole, proud teče od plus k minus, magnetická síla F míří vodorovně doprava.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<path d="M150.0,40.0 L210.0,14.0 L810.0,14.0 L750.0,40.0 z" fill="#ff8787" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="150.0" y="40.0" width="600.0" height="90.0" rx="0" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<path d="M750.0,40.0 L810.0,14.0 L810.0,104.0 L750.0,130.0 z" fill="#c92a2a" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="450.0" y="96.0" font-size="36" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<path d="M150.0,430.0 L210.0,404.0 L810.0,404.0 L750.0,430.0 z" fill="#74c0fc" stroke="#0b4f8f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="150.0" y="430.0" width="600.0" height="90.0" rx="0" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<path d="M750.0,430.0 L810.0,404.0 L810.0,494.0 L750.0,520.0 z" fill="#1864ab" stroke="#0b4f8f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="450.0" y="486.0" font-size="36" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="200.0" y1="140.0" x2="200.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="266.0" y1="140.0" x2="266.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="332.0" y1="140.0" x2="332.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="398.0" y1="140.0" x2="398.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="464.0" y1="140.0" x2="464.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="530.0" y1="140.0" x2="530.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="596.0" y1="140.0" x2="596.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="662.0" y1="140.0" x2="662.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="728.0" y1="140.0" x2="728.0" y2="418.0" stroke="#adb5bd" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="545.0" y1="241.0" x2="415.0" y2="319.0" stroke="#495057" stroke-width="24" stroke-linecap="round"/>
+<line x1="545.0" y1="241.0" x2="415.0" y2="319.0" stroke="#ced4da" stroke-width="12" stroke-linecap="round"/>
+<text x="559.0" y="233.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="start">+</text>
+<text x="381.0" y="351.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="start">−</text>
+<line x1="515.0" y1="225.0" x2="445.0" y2="267.0" stroke="#e8590c" stroke-width="6" marker-end="url(#b-ora)" stroke-linecap="round"/>
+<text x="506.0" y="238.0" font-size="34" font-weight="bold" fill="#e8590c" text-anchor="start">I</text>
+<line x1="480.0" y1="280.0" x2="630.0" y2="280.0" stroke="#2f9e44" stroke-width="7" marker-end="url(#b-zel)" stroke-linecap="round"/>
+<text x="620.0" y="258.0" font-size="36" font-weight="bold" fill="#2f9e44" text-anchor="middle">F</text>
+<line x1="545.0" y1="301.0" x2="415.0" y2="379.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="415.0" y1="379.0" x2="545.0" y2="301.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="500.0" y="366.0" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="start">ℓ</text>
+<line x1="545.0" y1="255.0" x2="545.0" y2="295.0" stroke="#495057" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
+<line x1="415.0" y1="333.0" x2="415.0" y2="373.0" stroke="#495057" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round"/>
+<path d="M183,230 L196,250 L209,230 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="20.0" y="150.0" width="230.0" height="80.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="185" y="227" width="22" height="6" fill="#fff3bf"/>
+<text x="135.0" y="183.5" font-size="20" fill="#2b2a26" text-anchor="middle">Směr indukčních čar</text>
+<text x="135.0" y="210.5" font-size="20" fill="#2b2a26" text-anchor="middle">od pólu N k pólu S</text>
+<path d="M690,287 L642,286 L690,313 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="690.0" y="250.0" width="250.0" height="100.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="687" y="289" width="6" height="22" fill="#d3f9d8"/>
+<text x="815.0" y="280.0" font-size="20" fill="#2b2a26" text-anchor="middle">Směr magnetické síly F,</text>
+<text x="815.0" y="307.0" font-size="20" fill="#2b2a26" text-anchor="middle">kterou pole působí</text>
+<text x="815.0" y="334.0" font-size="20" fill="#2b2a26" text-anchor="middle">na vodič</text>
+<path d="M214,320 L387,313 L240,320 z" fill="#d0ebff" stroke="#1971c2" stroke-width="2" stroke-linejoin="round"/>
+<rect x="20.0" y="320.0" width="240.0" height="80.0" rx="12" fill="#d0ebff" stroke="#1971c2" stroke-width="2"/>
+<rect x="216" y="317" width="22" height="6" fill="#d0ebff"/>
+<text x="140.0" y="353.5" font-size="20" fill="#2b2a26" text-anchor="middle">Směr proudu I ve</text>
+<text x="140.0" y="380.5" font-size="20" fill="#2b2a26" text-anchor="middle">vodiči: od + k −</text>
+</svg>

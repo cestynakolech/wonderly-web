@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři účinky jedné síly: posuvný, kdy se čtverec posune, otáčivý, kdy se otočí, a deformační, kdy se stlačí dvěma šipkami z obou stran.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="464" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Jedna síla, tři účinky na těleso</text>
+<text x="160.0" y="100.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">posuvný účinek</text>
+<text x="160.0" y="400.0" font-size="20" fill="#2b2a26" text-anchor="middle">těleso se posune</text>
+<text x="480.0" y="100.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">otáčivý účinek</text>
+<text x="480.0" y="400.0" font-size="20" fill="#2b2a26" text-anchor="middle">těleso se otočí</text>
+<text x="800.0" y="100.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">deformační účinek</text>
+<text x="800.0" y="400.0" font-size="20" fill="#2b2a26" text-anchor="middle">těleso změní tvar</text>
+<rect x="70.0" y="200.0" width="100.0" height="100.0" rx="4" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6"/>
+<rect x="130.0" y="200.0" width="100.0" height="100.0" rx="4" fill="#4dabf7" stroke="#1971c2" stroke-width="3"/>
+<line x1="90.0" y1="250.0" x2="250.0" y2="250.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="90.0" cy="250.0" r="8" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<text x="190.0" y="190.0" font-size="30" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<line x1="105.0" y1="330.0" x2="160.0" y2="330.0" stroke="#495057" stroke-width="3" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<rect x="430.0" y="200.0" width="100.0" height="100.0" rx="4" fill="#4dabf7" stroke="#1971c2" stroke-width="3"/>
+<circle cx="480.0" cy="250.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M562,250 A82,82 0 0 0 398,250" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-sed)"/>
+<line x1="530.0" y1="310.0" x2="530.0" y2="238.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="530.0" cy="310.0" r="8" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<text x="558.0" y="312.0" font-size="30" font-weight="bold" fill="#e03131" text-anchor="start">F</text>
+<rect x="750.0" y="200.0" width="100.0" height="100.0" rx="4" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M766,194 Q800,180 834,194 Q842,250 834,306 Q800,320 766,306 Q758,250 766,194 z" fill="#4dabf7" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="670.0" y1="250.0" x2="756.0" y2="250.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="930.0" y1="250.0" x2="844.0" y2="250.0" stroke="#e03131" stroke-width="7" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="710.0" y="228.0" font-size="30" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="890.0" y="228.0" font-size="30" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="480.0" y="440.0" font-size="20" fill="#495057" text-anchor="middle">Někdy nastane i několik účinků najednou.</text>
+</svg>

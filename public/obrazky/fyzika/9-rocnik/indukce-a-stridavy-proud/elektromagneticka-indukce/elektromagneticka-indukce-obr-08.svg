@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 490" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Průhledná kapesní svítilna: uvnitř trubice je cívka z měděného drátu a pohyblivý magnet, na jednom konci je žárovka a na druhém tlačítko. Při protřepání se magnet pohybuje v cívce a žárovka svítí.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="484" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Svítilna, která se rozsvítí protřepáním</text>
+<rect x="130.0" y="210.0" width="700.0" height="90.0" rx="26" fill="#e7f5ff" stroke="#74c0fc" stroke-width="4"/>
+<line x1="350.0" y1="216.0" x2="358.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="350.0" y1="216.0" x2="358.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="368.0" y1="216.0" x2="376.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="368.0" y1="216.0" x2="376.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="386.0" y1="216.0" x2="394.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="386.0" y1="216.0" x2="394.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="404.0" y1="216.0" x2="412.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="404.0" y1="216.0" x2="412.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="422.0" y1="216.0" x2="430.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="422.0" y1="216.0" x2="430.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="440.0" y1="216.0" x2="448.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="440.0" y1="216.0" x2="448.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="458.0" y1="216.0" x2="466.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="458.0" y1="216.0" x2="466.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="476.0" y1="216.0" x2="484.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="476.0" y1="216.0" x2="484.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="494.0" y1="216.0" x2="502.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="494.0" y1="216.0" x2="502.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="512.0" y1="216.0" x2="520.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="512.0" y1="216.0" x2="520.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="530.0" y1="216.0" x2="538.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="530.0" y1="216.0" x2="538.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="548.0" y1="216.0" x2="556.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="548.0" y1="216.0" x2="556.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<line x1="566.0" y1="216.0" x2="574.0" y2="294.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<line x1="566.0" y1="216.0" x2="574.0" y2="294.0" stroke="#f4c48a" stroke-width="4" stroke-linecap="round"/>
+<rect x="415.0" y="233.0" width="75.0" height="44.0" rx="3" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<rect x="490.0" y="233.0" width="75.0" height="44.0" rx="3" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<text x="452.5" y="264.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="527.5" y="264.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<path d="M130.0,236.0 L130.0,274.0 L84.0,312.0 L84.0,198.0 z" fill="#ced4da" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="138.0" y1="255.0" x2="154.0" y2="255.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="133.0" y1="270.3" x2="146.0" y2="279.7" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="279.7" x2="125.0" y2="294.9" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="104.0" y1="279.7" x2="99.0" y2="294.9" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="91.0" y1="270.3" x2="78.0" y2="279.7" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="86.0" y1="255.0" x2="70.0" y2="255.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="91.0" y1="239.7" x2="78.0" y2="230.3" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="104.0" y1="230.3" x2="99.0" y2="215.1" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="120.0" y1="230.3" x2="125.0" y2="215.1" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="133.0" y1="239.7" x2="146.0" y2="230.3" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<circle cx="112.0" cy="255.0" r="20" fill="#ffe066" stroke="#f08c00" stroke-width="3"/>
+<path d="M100,265 L106,247 L112,261 L118,247 L124,265" fill="none" stroke="#e8590c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="830.0" y="232.0" width="26.0" height="46.0" rx="4" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<rect x="856.0" y="244.0" width="20.0" height="22.0" rx="4" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<line x1="300.0" y1="150.0" x2="660.0" y2="150.0" stroke="#495057" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<line x1="660.0" y1="150.0" x2="300.0" y2="150.0" stroke="#495057" stroke-width="4" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="480.0" y="134.0" font-size="20" fill="#2b2a26" text-anchor="middle">protřepáváme</text>
+<line x1="300.0" y1="330.0" x2="380.0" y2="300.0" stroke="#495057" stroke-width="2" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="230.0" y="352.0" font-size="20" fill="#2b2a26" text-anchor="start">cívka z měděného drátu</text>
+<line x1="560.0" y1="380.0" x2="505.0" y2="322.0" stroke="#495057" stroke-width="2" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="475.0" y="404.0" font-size="20" fill="#2b2a26" text-anchor="start">pohyblivý magnet</text>
+<line x1="866.0" y1="344.0" x2="866.0" y2="282.0" stroke="#495057" stroke-width="2" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="866.0" y="372.0" font-size="20" fill="#2b2a26" text-anchor="middle">tlačítko</text>
+<text x="112.0" y="350.0" font-size="20" fill="#2b2a26" text-anchor="middle">žárovka</text>
+<text x="480.0" y="460.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Magnet se pohybuje uvnitř cívky, v cívce se indukuje proud a žárovka svítí.</text>
+</svg>

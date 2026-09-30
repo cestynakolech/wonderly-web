@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři silová pole: gravitační pole kolem Země se šipkami k Zemi, magnetické pole kolem tyčového magnetu s póly N a S a elektrické pole kolem kladného náboje se šipkami od náboje.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="474" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Tři silová pole: síla působí i na dálku</text>
+<line x1="300.0" y1="260.0" x2="236.0" y2="260.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="273.3" y1="342.3" x2="221.5" y2="304.7" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="203.3" y1="393.1" x2="183.5" y2="332.3" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="116.7" y1="393.1" x2="136.5" y2="332.3" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="46.7" y1="342.3" x2="98.5" y2="304.7" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="20.0" y1="260.0" x2="84.0" y2="260.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="46.7" y1="177.7" x2="98.5" y2="215.3" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="116.7" y1="126.9" x2="136.5" y2="187.7" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="203.3" y1="126.9" x2="183.5" y2="187.7" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="273.3" y1="177.7" x2="221.5" y2="215.3" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<circle cx="160.0" cy="260.0" r="62" fill="#4dabf7" stroke="#1971c2" stroke-width="4"/>
+<path d="M120,246 Q140,216 164,236 Q158,260 138,268 Q122,264 120,246 z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M178,274 Q206,262 204,290 Q190,312 174,296 z" fill="#69db7c" stroke="#2b8a3e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="160.0" y="100.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">gravitační pole</text>
+<text x="160.0" y="450.0" font-size="20" fill="#2b2a26" text-anchor="middle">kolem Země</text>
+<path d="M557.8,236.4 L557.2,233.4 L556.6,230.5 L556.0,227.6 L555.3,224.6 L554.6,221.7 L553.9,218.8 L553.1,215.9 L552.3,213.0 L551.4,210.1 L550.5,207.3 L549.6,204.4 L548.5,201.6 L547.5,198.8 L546.3,196.0 L545.2,193.3 L543.9,190.6 L542.6,187.9 L541.2,185.2 L539.8,182.6 L538.2,180.0 L536.6,177.4 L535.0,174.9 L533.2,172.5 L531.4,170.1 L529.5,167.8 L527.6,165.5 L525.5,163.3 L523.4,161.2 L521.2,159.2 L518.9,157.2 L516.6,155.4 L514.1,153.6 L511.6,151.9 L509.1,150.4 L506.4,148.9 L503.7,147.6 L501.0,146.4 L498.2,145.4 L495.3,144.5 L492.4,143.7 L489.5,143.0 L486.5,142.6 L483.6,142.2 L480.6,142.0 L477.6,142.0 L474.6,142.1 L471.6,142.4 L468.6,142.9 L465.7,143.4 L462.8,144.2 L459.9,145.0 L457.1,146.0 L454.3,147.2 L451.6,148.5 L448.9,149.9 L446.3,151.4 L443.8,153.0 L441.4,154.8 L439.0,156.6 L436.7,158.5 L434.5,160.6 L432.4,162.7 L430.3,164.9 L428.3,167.1 L426.4,169.4 L424.6,171.8 L422.9,174.3 L421.2,176.8 L419.7,179.3 L418.1,181.9 L416.7,184.6 L415.4,187.2 L414.1,189.9 L412.8,192.7 L411.7,195.5 L410.6,198.2 L409.6,201.1 L408.6,203.9 L407.7,206.8 L406.8,209.6 L406.0,212.5 L405.3,215.4 L404.6,218.3 L403.9,221.3 L403.3,224.2 L402.7,227.1 L402.1,230.1 L401.6,233.1 L401.1,236.0" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M462.6,141.9 L484.8,136.7 L484.7,147.5 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M548.2,240.3 L546.5,237.9 L544.7,235.5 L542.8,233.1 L541.0,230.8 L539.1,228.4 L537.2,226.1 L535.2,223.8 L533.3,221.6 L531.2,219.4 L529.1,217.2 L527.0,215.1 L524.8,213.1 L522.6,211.1 L520.3,209.2 L517.9,207.3 L515.5,205.5 L513.0,203.8 L510.5,202.2 L507.9,200.7 L505.2,199.4 L502.5,198.1 L499.7,196.9 L496.9,195.9 L494.0,195.0 L491.1,194.3 L488.2,193.7 L485.2,193.3 L482.2,193.0 L479.2,192.9 L476.2,192.9 L473.2,193.1 L470.3,193.5 L467.3,194.0 L464.4,194.7 L461.5,195.5 L458.7,196.4 L455.9,197.5 L453.1,198.8 L450.5,200.1 L447.8,201.6 L445.3,203.2 L442.8,204.8 L440.4,206.6 L438.0,208.5 L435.7,210.4 L433.5,212.4 L431.3,214.5 L429.2,216.6 L427.1,218.8 L425.1,221.0 L423.2,223.3 L421.3,225.6 L419.4,228.0 L417.6,230.3 L415.8,232.8 L414.1,235.2 L412.3,237.6 L410.7,240.1" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M464.3,192.3 L486.7,187.8 L486.2,198.5 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M541.2,248.0 L538.6,246.5 L536.0,245.1 L533.3,243.7 L530.7,242.3 L528.0,240.9 L525.3,239.6 L522.6,238.3 L519.9,237.0 L517.1,235.8 L514.4,234.7 L511.6,233.6 L508.8,232.5 L505.9,231.6 L503.1,230.7 L500.2,229.9 L497.2,229.2 L494.3,228.5 L491.4,228.0 L488.4,227.6 L485.4,227.3 L482.4,227.1 L479.4,227.0 L476.4,227.0 L473.4,227.1 L470.4,227.4 L467.5,227.7 L464.5,228.2 L461.5,228.8 L458.6,229.5 L455.7,230.2 L452.8,231.1 L450.0,232.0 L447.2,233.0 L444.4,234.1 L441.6,235.3 L438.9,236.5 L436.2,237.8 L433.5,239.1 L430.8,240.5 L428.1,241.9 L425.5,243.3 L422.9,244.8 L420.3,246.3 L417.7,247.8" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M464.4,226.5 L486.8,221.8 L486.5,232.6 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M557.8,283.6 L557.2,286.6 L556.6,289.5 L556.0,292.4 L555.3,295.4 L554.6,298.3 L553.9,301.2 L553.1,304.1 L552.3,307.0 L551.4,309.9 L550.5,312.7 L549.6,315.6 L548.5,318.4 L547.5,321.2 L546.3,324.0 L545.2,326.7 L543.9,329.4 L542.6,332.1 L541.2,334.8 L539.8,337.4 L538.2,340.0 L536.6,342.6 L535.0,345.1 L533.2,347.5 L531.4,349.9 L529.5,352.2 L527.6,354.5 L525.5,356.7 L523.4,358.8 L521.2,360.8 L518.9,362.8 L516.6,364.6 L514.1,366.4 L511.6,368.1 L509.1,369.6 L506.4,371.1 L503.7,372.4 L501.0,373.6 L498.2,374.6 L495.3,375.5 L492.4,376.3 L489.5,377.0 L486.5,377.4 L483.6,377.8 L480.6,378.0 L477.6,378.0 L474.6,377.9 L471.6,377.6 L468.6,377.1 L465.7,376.6 L462.8,375.8 L459.9,375.0 L457.1,374.0 L454.3,372.8 L451.6,371.5 L448.9,370.1 L446.3,368.6 L443.8,367.0 L441.4,365.2 L439.0,363.4 L436.7,361.5 L434.5,359.4 L432.4,357.3 L430.3,355.1 L428.3,352.9 L426.4,350.6 L424.6,348.2 L422.9,345.7 L421.2,343.2 L419.7,340.7 L418.1,338.1 L416.7,335.4 L415.4,332.8 L414.1,330.1 L412.8,327.3 L411.7,324.5 L410.6,321.8 L409.6,318.9 L408.6,316.1 L407.7,313.2 L406.8,310.4 L406.0,307.5 L405.3,304.6 L404.6,301.7 L403.9,298.7 L403.3,295.8 L402.7,292.9 L402.1,289.9 L401.6,286.9 L401.1,284.0" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M462.6,378.1 L484.7,372.5 L484.8,383.3 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M548.2,279.7 L546.5,282.1 L544.7,284.5 L542.8,286.9 L541.0,289.2 L539.1,291.6 L537.2,293.9 L535.2,296.2 L533.3,298.4 L531.2,300.6 L529.1,302.8 L527.0,304.9 L524.8,306.9 L522.6,308.9 L520.3,310.8 L517.9,312.7 L515.5,314.5 L513.0,316.2 L510.5,317.8 L507.9,319.3 L505.2,320.6 L502.5,321.9 L499.7,323.1 L496.9,324.1 L494.0,325.0 L491.1,325.7 L488.2,326.3 L485.2,326.7 L482.2,327.0 L479.2,327.1 L476.2,327.1 L473.2,326.9 L470.3,326.5 L467.3,326.0 L464.4,325.3 L461.5,324.5 L458.7,323.6 L455.9,322.5 L453.1,321.2 L450.5,319.9 L447.8,318.4 L445.3,316.8 L442.8,315.2 L440.4,313.4 L438.0,311.5 L435.7,309.6 L433.5,307.6 L431.3,305.5 L429.2,303.4 L427.1,301.2 L425.1,299.0 L423.2,296.7 L421.3,294.4 L419.4,292.0 L417.6,289.7 L415.8,287.2 L414.1,284.8 L412.3,282.4 L410.7,279.9" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M464.3,327.7 L486.2,321.5 L486.7,332.2 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M541.2,272.0 L538.6,273.5 L536.0,274.9 L533.3,276.3 L530.7,277.7 L528.0,279.1 L525.3,280.4 L522.6,281.7 L519.9,283.0 L517.1,284.2 L514.4,285.3 L511.6,286.4 L508.8,287.5 L505.9,288.4 L503.1,289.3 L500.2,290.1 L497.2,290.8 L494.3,291.5 L491.4,292.0 L488.4,292.4 L485.4,292.7 L482.4,292.9 L479.4,293.0 L476.4,293.0 L473.4,292.9 L470.4,292.6 L467.5,292.3 L464.5,291.8 L461.5,291.2 L458.6,290.5 L455.7,289.8 L452.8,288.9 L450.0,288.0 L447.2,287.0 L444.4,285.9 L441.6,284.7 L438.9,283.5 L436.2,282.2 L433.5,280.9 L430.8,279.5 L428.1,278.1 L425.5,276.7 L422.9,275.2 L420.3,273.7 L417.7,272.2" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M464.4,293.5 L486.5,287.4 L486.8,298.2 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M552.0,260.0 L620.0,260.0" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M635.0,260.0 L612.8,265.4 L612.8,254.6 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M340.0,260.0 L408.0,260.0" fill="none" stroke="#495057" stroke-width="3" stroke-linejoin="round"/>
+<path d="M423.0,260.0 L400.8,265.4 L400.8,254.6 z" fill="#495057" stroke="#495057" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="410.0" y="236.0" width="70.0" height="48.0" rx="4" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<rect x="480.0" y="236.0" width="70.0" height="48.0" rx="4" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<text x="445.0" y="269.0" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="515.0" y="269.0" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="480.0" y="100.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">magnetické pole</text>
+<text x="480.0" y="450.0" font-size="20" fill="#2b2a26" text-anchor="middle">kolem tyčového magnetu</text>
+<line x1="844.0" y1="260.0" x2="932.0" y2="260.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="838.1" y1="282.0" x2="914.3" y2="326.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="822.0" y1="298.1" x2="866.0" y2="374.3" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="800.0" y1="304.0" x2="800.0" y2="392.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="778.0" y1="298.1" x2="734.0" y2="374.3" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="761.9" y1="282.0" x2="685.7" y2="326.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="756.0" y1="260.0" x2="668.0" y2="260.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="761.9" y1="238.0" x2="685.7" y2="194.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="778.0" y1="221.9" x2="734.0" y2="145.7" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="800.0" y1="216.0" x2="800.0" y2="128.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="822.0" y1="221.9" x2="866.0" y2="145.7" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="838.1" y1="238.0" x2="914.3" y2="194.0" stroke="#2b2a26" stroke-width="4" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<circle cx="800.0" cy="260.0" r="30" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<text x="800.0" y="271.0" font-size="34" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<text x="800.0" y="100.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektrické pole</text>
+<text x="800.0" y="450.0" font-size="20" fill="#2b2a26" text-anchor="middle">kolem kladného náboje</text>
+</svg>

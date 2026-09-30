@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 440" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Přetahování na laně. Ze společného působiště uprostřed lana míří doleva modrá šipka F1 a doprava fialová šipka F2, obě stejně dlouhé, 4 500 N. Pod nimi velký červený nápis F = 0 a věta: Výslednice F = 0, lano se nebude pohybovat ani doleva, ani doprava.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="434" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Přetahování na laně: síly se vyrovnají</text>
+<line x1="30.0" y1="250.0" x2="930.0" y2="250.0" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/>
+<line x1="190.0" y1="200.0" x2="770.0" y2="200.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="190.0" y1="200.0" x2="770.0" y2="200.0" stroke="#d9a066" stroke-width="4" stroke-linecap="round"/>
+<circle cx="124.0" cy="118.0" r="16" fill="#ffe0bd" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="130.0" y1="136.0" x2="160.0" y2="186.0" stroke="#2b2a26" stroke-width="8" stroke-linecap="round"/>
+<line x1="132.0" y1="138.0" x2="190.0" y2="200.0" stroke="#2b2a26" stroke-width="6" stroke-linecap="round"/>
+<line x1="160.0" y1="186.0" x2="138.0" y2="244.0" stroke="#2b2a26" stroke-width="7" stroke-linecap="round"/>
+<line x1="160.0" y1="186.0" x2="182.0" y2="244.0" stroke="#2b2a26" stroke-width="7" stroke-linecap="round"/>
+<circle cx="836.0" cy="118.0" r="16" fill="#ffe0bd" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="830.0" y1="136.0" x2="800.0" y2="186.0" stroke="#2b2a26" stroke-width="8" stroke-linecap="round"/>
+<line x1="828.0" y1="138.0" x2="770.0" y2="200.0" stroke="#2b2a26" stroke-width="6" stroke-linecap="round"/>
+<line x1="800.0" y1="186.0" x2="822.0" y2="244.0" stroke="#2b2a26" stroke-width="7" stroke-linecap="round"/>
+<line x1="800.0" y1="186.0" x2="778.0" y2="244.0" stroke="#2b2a26" stroke-width="7" stroke-linecap="round"/>
+<line x1="480.0" y1="200.0" x2="280.0" y2="200.0" stroke="#1971c2" stroke-width="8" marker-end="url(#b-mod)" stroke-linecap="round"/>
+<line x1="480.0" y1="200.0" x2="680.0" y2="200.0" stroke="#7048e8" stroke-width="8" marker-end="url(#b-fia)" stroke-linecap="round"/>
+<line x1="466.0" y1="186.0" x2="494.0" y2="214.0" stroke="#6c757d" stroke-width="5" stroke-linecap="round"/>
+<line x1="466.0" y1="214.0" x2="494.0" y2="186.0" stroke="#6c757d" stroke-width="5" stroke-linecap="round"/>
+<text x="290.0" y="170.0" font-size="24" font-weight="bold" fill="#1971c2" text-anchor="middle">F<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> = 4 500 N</tspan></text>
+<text x="670.0" y="170.0" font-size="24" font-weight="bold" fill="#7048e8" text-anchor="middle">F<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> = 4 500 N</tspan></text>
+<text x="480.0" y="335.0" font-size="64" font-weight="bold" fill="#e03131" text-anchor="middle">F = 0</text>
+<text x="480.0" y="385.0" font-size="24" fill="#2b2a26" text-anchor="middle">Výslednice F = 0, lano se nebude pohybovat</text>
+<text x="480.0" y="415.0" font-size="24" fill="#2b2a26" text-anchor="middle">ani doleva, ani doprava.</text>
+</svg>

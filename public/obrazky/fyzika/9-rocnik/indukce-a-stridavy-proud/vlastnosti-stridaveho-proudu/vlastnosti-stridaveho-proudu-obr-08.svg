@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 510" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Rámeček s definicemi: perioda T je čas, za který se děj opakuje; frekvence f je počet opakování za 1 sekundu, jednotka hertz (Hz). Vzorce: T rovná se jedna lomeno f a f rovná se jedna lomeno T.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="504" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="40.0" y="40.0" width="420.0" height="250.0" rx="16" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/>
+<text x="250.0" y="88.0" font-size="30" font-weight="bold" fill="#1971c2" text-anchor="middle">Perioda T</text>
+<text x="250.0" y="140.0" font-size="24" fill="#2b2a26" text-anchor="middle">je čas, za který se děj</text>
+<text x="250.0" y="172.0" font-size="24" fill="#2b2a26" text-anchor="middle">opakuje.</text>
+<rect x="500.0" y="40.0" width="420.0" height="250.0" rx="16" fill="#f3f0ff" stroke="#7048e8" stroke-width="3"/>
+<text x="710.0" y="88.0" font-size="30" font-weight="bold" fill="#7048e8" text-anchor="middle">Frekvence f</text>
+<text x="710.0" y="140.0" font-size="24" fill="#2b2a26" text-anchor="middle">je počet opakování</text>
+<text x="710.0" y="172.0" font-size="24" fill="#2b2a26" text-anchor="middle">za 1 sekundu.</text>
+<text x="710.0" y="232.0" font-size="24" font-weight="bold" fill="#7048e8" text-anchor="middle">jednotka: hertz (Hz)</text>
+<rect x="40.0" y="320.0" width="880.0" height="160.0" rx="16" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="190.0" y="415.0" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">T  =</text>
+<text x="290.0" y="393.0" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">1</text>
+<line x1="273.0" y1="405.0" x2="307.0" y2="405.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<text x="290.0" y="439.0" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">f</text>
+<text x="640.0" y="415.0" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">f  =</text>
+<text x="730.0" y="393.0" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">1</text>
+<line x1="713.0" y1="405.0" x2="747.0" y2="405.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<text x="730.0" y="439.0" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">T</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 450" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva psi táhnou saně stejným směrem doprava. Ze společného působiště, šedého křížku na saních, vedou tři šipky v měřítku 1 cm = 10 N: modrá F1 = 30 N dlouhá 3 cm, fialová F2 = 50 N dlouhá 5 cm a červená výslednice F = 80 N dlouhá 8 cm. Pod obrázkem je zápis F = F1 + F2 = 30 N + 50 N = 80 N.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="444" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Síly stejného směru: výslednice je součet</text>
+<line x1="30.0" y1="250.0" x2="930.0" y2="250.0" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/>
+<rect x="60.0" y="196.0" width="150.0" height="16.0" rx="3" fill="#c8a97e" stroke="#8a5a2b" stroke-width="3"/>
+<path d="M46,234 Q46,226 60,226 L210,226" fill="none" stroke="#495057" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="82.0" y1="212.0" x2="82.0" y2="226.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="188.0" y1="212.0" x2="188.0" y2="226.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="210.0" y1="204.0" x2="500.0" y2="196.0" stroke="#8a5a2b" stroke-width="6" stroke-linecap="round"/>
+<line x1="210.0" y1="204.0" x2="500.0" y2="196.0" stroke="#d9a066" stroke-width="2" stroke-linecap="round"/>
+<line x1="650.0" y1="178.0" x2="680.0" y2="196.0" stroke="#8a5a2b" stroke-width="6" stroke-linecap="round"/>
+<line x1="650.0" y1="178.0" x2="680.0" y2="196.0" stroke="#d9a066" stroke-width="2" stroke-linecap="round"/>
+<line x1="500.0" y1="196.0" x2="590.0" y2="190.0" stroke="#8a5a2b" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="562" cy="196" rx="62" ry="28" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="610.0" y1="214.0" x2="610.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="590.0" y1="214.0" x2="590.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="540.0" y1="214.0" x2="540.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="518.0" y1="214.0" x2="518.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="502.0" y1="182.0" x2="472.0" y2="160.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<ellipse cx="624" cy="176" rx="26" ry="19" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<circle cx="648.0" cy="172.0" r="6" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M626.0,160.0 L610.0,140.0 L602.0,166.0 z" fill="#8a5a2b" stroke="#5c3a17" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="634.0" cy="168.0" r="4" fill="#212529" stroke="#212529" stroke-width="1"/>
+<ellipse cx="742" cy="196" rx="62" ry="28" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="790.0" y1="214.0" x2="790.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="770.0" y1="214.0" x2="770.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="720.0" y1="214.0" x2="720.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="698.0" y1="214.0" x2="698.0" y2="250.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="682.0" y1="182.0" x2="652.0" y2="160.0" stroke="#8a5a2b" stroke-width="8" stroke-linecap="round"/>
+<ellipse cx="804" cy="176" rx="26" ry="19" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<circle cx="828.0" cy="172.0" r="6" fill="#212529" stroke="#212529" stroke-width="1"/>
+<path d="M806.0,160.0 L790.0,140.0 L782.0,166.0 z" fill="#8a5a2b" stroke="#5c3a17" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="814.0" cy="168.0" r="4" fill="#212529" stroke="#212529" stroke-width="1"/>
+<line x1="130.0" y1="190.0" x2="450.0" y2="190.0" stroke="#e03131" stroke-width="14" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<line x1="130.0" y1="190.0" x2="330.0" y2="190.0" stroke="#7048e8" stroke-width="9" marker-end="url(#b-fia)" stroke-linecap="round"/>
+<line x1="130.0" y1="190.0" x2="250.0" y2="190.0" stroke="#1971c2" stroke-width="5" marker-end="url(#b-mod)" stroke-linecap="round"/>
+<line x1="116.0" y1="176.0" x2="144.0" y2="204.0" stroke="#6c757d" stroke-width="5" stroke-linecap="round"/>
+<line x1="116.0" y1="204.0" x2="144.0" y2="176.0" stroke="#6c757d" stroke-width="5" stroke-linecap="round"/>
+<text x="130.0" y="164.0" font-size="20" fill="#495057" text-anchor="middle">působiště</text>
+<line x1="130.0" y1="290.0" x2="250.0" y2="290.0" stroke="#1971c2" stroke-width="3" stroke-linecap="round"/>
+<line x1="130.0" y1="281.0" x2="130.0" y2="299.0" stroke="#1971c2" stroke-width="3" stroke-linecap="round"/>
+<line x1="250.0" y1="281.0" x2="250.0" y2="299.0" stroke="#1971c2" stroke-width="3" stroke-linecap="round"/>
+<text x="264.0" y="298.0" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">F<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> = 30 N (3 cm)</tspan></text>
+<line x1="130.0" y1="325.0" x2="330.0" y2="325.0" stroke="#7048e8" stroke-width="3" stroke-linecap="round"/>
+<line x1="130.0" y1="316.0" x2="130.0" y2="334.0" stroke="#7048e8" stroke-width="3" stroke-linecap="round"/>
+<line x1="330.0" y1="316.0" x2="330.0" y2="334.0" stroke="#7048e8" stroke-width="3" stroke-linecap="round"/>
+<text x="344.0" y="333.0" font-size="22" font-weight="bold" fill="#7048e8" text-anchor="start">F<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> = 50 N (5 cm)</tspan></text>
+<line x1="130.0" y1="360.0" x2="450.0" y2="360.0" stroke="#e03131" stroke-width="3" stroke-linecap="round"/>
+<line x1="130.0" y1="351.0" x2="130.0" y2="369.0" stroke="#e03131" stroke-width="3" stroke-linecap="round"/>
+<line x1="450.0" y1="351.0" x2="450.0" y2="369.0" stroke="#e03131" stroke-width="3" stroke-linecap="round"/>
+<text x="464.0" y="368.0" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">F = 80 N (8 cm)</text>
+<text x="480.0" y="425.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">F = F<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> + </tspan>F<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> = 30 N + 50 N = 80 N</tspan></text>
+<line x1="650.0" y1="330.0" x2="690.0" y2="330.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="650.0" y1="322.0" x2="650.0" y2="338.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="690.0" y1="322.0" x2="690.0" y2="338.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="702.0" y="337.0" font-size="20" fill="#2b2a26" text-anchor="start">měřítko: 1 cm = 10 N</text>
+</svg>

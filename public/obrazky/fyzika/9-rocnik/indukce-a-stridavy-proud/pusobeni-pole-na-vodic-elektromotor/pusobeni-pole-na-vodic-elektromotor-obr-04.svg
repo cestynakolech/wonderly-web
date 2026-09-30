@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 570" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řez stejnosměrným motorem: vlevo magnet statoru N, vpravo S, uprostřed rotor s cívkou, komutátor se dvěma polovinami a dva kartáčky plus a minus. Zelené šipky ukazují síly, rotor se otáčí proti směru hodin.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="564" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<path d="M203.6,185.1 A150.0,150.0 0 0 0 203.6,414.9 L224.2,390.4 A118.0,118.0 0 0 1 224.2,209.6 z" fill="#e03131" stroke="#a61e1e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M396.4,414.9 A150.0,150.0 0 0 0 396.4,185.1 L375.8,209.6 A118.0,118.0 0 0 1 375.8,390.4 z" fill="#1971c2" stroke="#0b4f8f" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="166.0" y="309.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="434.0" y="309.0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<circle cx="300.0" cy="300.0" r="100.0" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<path d="M314.1,319.4 A24.0,24.0 0 0 0 290.2,278.1 L294.3,287.2 A14.0,14.0 0 0 1 308.2,311.3 z" fill="#ffd43b" stroke="#a85a12" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M285.9,280.6 A24.0,24.0 0 0 0 309.8,321.9 L305.7,312.8 A14.0,14.0 0 0 1 291.8,288.7 z" fill="#f08c00" stroke="#a85a12" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="324.0" y="293.0" width="22.0" height="14.0" rx="2" fill="#343a40" stroke="#2b2a26" stroke-width="2"/>
+<rect x="254.0" y="293.0" width="22.0" height="14.0" rx="2" fill="#343a40" stroke="#2b2a26" stroke-width="2"/>
+<line x1="355.4" y1="268.0" x2="320.8" y2="288.0" stroke="#a85a12" stroke-width="3" stroke-linecap="round"/>
+<circle cx="355.4" cy="268.0" r="12" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<circle cx="355.4" cy="268.0" r="4.5" fill="#e8590c" stroke="#e8590c" stroke-width="1"/>
+<line x1="355.4" y1="252.0" x2="355.4" y2="202.0" stroke="#2f9e44" stroke-width="5" marker-end="url(#b-zel)" stroke-linecap="round"/>
+<text x="337.4" y="235.0" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="end">F</text>
+<line x1="244.6" y1="332.0" x2="279.2" y2="312.0" stroke="#a85a12" stroke-width="3" stroke-linecap="round"/>
+<circle cx="244.6" cy="332.0" r="12" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<line x1="237.4" y1="324.8" x2="251.8" y2="339.2" stroke="#e8590c" stroke-width="3" stroke-linecap="round"/>
+<line x1="237.4" y1="339.2" x2="251.8" y2="324.8" stroke="#e8590c" stroke-width="3" stroke-linecap="round"/>
+<line x1="244.6" y1="348.0" x2="244.6" y2="398.0" stroke="#2f9e44" stroke-width="5" marker-end="url(#b-zel)" stroke-linecap="round"/>
+<text x="266.6" y="381.0" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="start">F</text>
+<text x="362.0" y="310.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<text x="238.0" y="310.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">−</text>
+<path d="M361.6,130.9 A180,180 0 0 0 238.4,130.9" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-ink)"/>
+<text x="300.0" y="110.0" font-size="20" fill="#2b2a26" text-anchor="middle">otáčení rotoru</text>
+<text x="640.0" y="80.0" font-size="20" fill="#2b2a26" text-anchor="start">vodiče cívky rotoru</text>
+<line x1="632.0" y1="74.0" x2="355.4" y2="268.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<circle cx="355.4" cy="268.0" r="5" fill="#495057" stroke="#495057" stroke-width="1"/>
+<text x="640.0" y="170.0" font-size="20" fill="#2b2a26" text-anchor="start">kartáčky (+ a −)</text>
+<text x="640.0" y="196.0" font-size="20" fill="#2b2a26" text-anchor="start">přivádějí proud</text>
+<line x1="632.0" y1="164.0" x2="336.0" y2="300.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<circle cx="336.0" cy="300.0" r="5" fill="#495057" stroke="#495057" stroke-width="1"/>
+<text x="640.0" y="270.0" font-size="20" fill="#2b2a26" text-anchor="start">komutátor</text>
+<line x1="632.0" y1="264.0" x2="304.0" y2="319.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<circle cx="304.0" cy="319.0" r="5" fill="#495057" stroke="#495057" stroke-width="1"/>
+<text x="640.0" y="350.0" font-size="20" fill="#2b2a26" text-anchor="start">rotor = otáčivá část</text>
+<line x1="632.0" y1="344.0" x2="352.0" y2="366.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<circle cx="352.0" cy="366.0" r="5" fill="#495057" stroke="#495057" stroke-width="1"/>
+<text x="640.0" y="440.0" font-size="20" fill="#2b2a26" text-anchor="start">stator = pevná část,</text>
+<text x="640.0" y="466.0" font-size="20" fill="#2b2a26" text-anchor="start">magnety N a S</text>
+<line x1="632.0" y1="434.0" x2="416.0" y2="367.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<circle cx="416.0" cy="367.0" r="5" fill="#495057" stroke="#495057" stroke-width="1"/>
+<text x="300.0" y="530.0" font-size="20" fill="#2b2a26" text-anchor="middle">Síla F (zeleně) otáčí rotor proti směru hodin.</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 380" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Graf závislosti proudu I v ampérech na čase t v sekundách: modrá sinusoida s maximem 2 A a minimem −2 A, nulové body 0; 0,25; 0,5; 0,75; 1, pod osou dvě šipky T označující dvě po sobě jdoucí periody.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="374" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="86.0" y1="210.0" x2="890.0" y2="210.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="100.0" y1="360.0" x2="100.0" y2="70.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="886.0" y="244.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end">t (s)</text>
+<text x="114.0" y="76.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">I (A)</text>
+<line x1="100.0" y1="100.0" x2="817.5" y2="100.0" stroke="#868e96" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<line x1="100.0" y1="320.0" x2="817.5" y2="320.0" stroke="#868e96" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<text x="88.0" y="107.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">2</text>
+<text x="88.0" y="327.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">−2</text>
+<path d="M100.0,210.0 L104.0,202.1 L108.0,194.3 L112.0,186.5 L116.0,178.8 L120.0,171.3 L124.0,164.1 L128.0,157.0 L132.0,150.2 L136.0,143.8 L140.0,137.6 L144.0,131.9 L148.0,126.5 L152.0,121.6 L156.0,117.1 L160.0,113.1 L164.0,109.6 L168.0,106.7 L172.0,104.2 L176.0,102.3 L180.0,101.0 L184.0,100.2 L188.0,100.0 L192.0,100.4 L196.0,101.3 L200.0,102.8 L204.0,104.8 L208.0,107.4 L212.0,110.5 L216.0,114.1 L220.0,118.2 L224.0,122.8 L228.0,127.8 L232.0,133.3 L236.0,139.1 L240.0,145.3 L244.0,151.9 L248.0,158.7 L252.0,165.9 L256.0,173.2 L260.0,180.7 L264.0,188.4 L268.0,196.2 L272.0,204.1 L276.0,212.0 L280.0,219.9 L284.0,227.7 L288.0,235.4 L292.0,243.1 L296.0,250.5 L300.0,257.7 L304.0,264.7 L308.0,271.4 L312.0,277.8 L316.0,283.8 L320.0,289.5 L324.0,294.8 L328.0,299.6 L332.0,303.9 L336.0,307.8 L340.0,311.1 L344.0,314.0 L348.0,316.3 L352.0,318.1 L356.0,319.3 L360.0,319.9 L364.0,320.0 L368.0,319.5 L372.0,318.4 L376.0,316.8 L380.0,314.6 L384.0,311.9 L388.0,308.7 L392.0,304.9 L396.0,300.7 L400.0,296.0 L404.0,290.9 L408.0,285.3 L412.0,279.4 L416.0,273.0 L420.0,266.4 L424.0,259.5 L428.0,252.3 L432.0,244.9 L436.0,237.4 L440.0,229.6 L444.0,221.8 L448.0,213.9 L452.0,206.1 L456.0,198.2 L460.0,190.4 L464.0,182.6 L468.0,175.1 L472.0,167.7 L476.0,160.5 L480.0,153.6 L484.0,147.0 L488.0,140.6 L492.0,134.7 L496.0,129.1 L500.0,124.0 L504.0,119.3 L508.0,115.1 L512.0,111.3 L516.0,108.1 L520.0,105.4 L524.0,103.2 L528.0,101.6 L532.0,100.5 L536.0,100.0 L540.0,100.1 L544.0,100.7 L548.0,101.9 L552.0,103.7 L556.0,106.0 L560.0,108.9 L564.0,112.2 L568.0,116.1 L572.0,120.4 L576.0,125.2 L580.0,130.5 L584.0,136.2 L588.0,142.2 L592.0,148.6 L596.0,155.3 L600.0,162.3 L604.0,169.5 L608.0,176.9 L612.0,184.6 L616.0,192.3 L620.0,200.1 L624.0,208.0 L628.0,215.9 L632.0,223.8 L636.0,231.6 L640.0,239.3 L644.0,246.8 L648.0,254.1 L652.0,261.3 L656.0,268.1 L660.0,274.7 L664.0,280.9 L668.0,286.7 L672.0,292.2 L676.0,297.2 L680.0,301.8 L684.0,305.9 L688.0,309.5 L692.0,312.6 L696.0,315.2 L700.0,317.2 L704.0,318.7 L708.0,319.6 L712.0,320.0 L716.0,319.8 L720.0,319.0 L724.0,317.7 L728.0,315.8 L732.0,313.3 L736.0,310.4 L740.0,306.9 L744.0,302.9 L748.0,298.4 L752.0,293.5 L756.0,288.1 L760.0,282.4 L764.0,276.2 L768.0,269.8 L772.0,263.0 L776.0,255.9 L780.0,248.7 L784.0,241.2 L788.0,233.5 L792.0,225.7 L796.0,217.9 L800.0,210.0 L804.0,202.1 L808.0,194.3 L812.0,186.5 L816.0,178.8" fill="none" stroke="#1971c2" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="88.0" y="236.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">0</text>
+<text x="267.0" y="240.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end">0,25</text>
+<text x="458.0" y="240.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">0,5</text>
+<text x="617.0" y="240.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="end">0,75</text>
+<text x="808.0" y="240.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">1</text>
+<line x1="100.0" y1="328.0" x2="100.0" y2="350.0" stroke="#868e96" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<line x1="450.0" y1="328.0" x2="450.0" y2="350.0" stroke="#868e96" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<line x1="800.0" y1="328.0" x2="800.0" y2="350.0" stroke="#868e96" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<line x1="275.0" y1="338.0" x2="104.0" y2="338.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="275.0" y1="338.0" x2="446.0" y2="338.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="275.0" y="368.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+<line x1="625.0" y1="338.0" x2="454.0" y2="338.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="625.0" y1="338.0" x2="796.0" y2="338.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="625.0" y="368.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">T</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 575" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Krajina s letadlem, padákem s bednou, stromem, domem a potápěčem. U každého tělesa je červená svislá šipka dolů s popiskem Fg.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="569" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">U Země míří gravitační síla svisle dolů</text>
+<rect x="20" y="70" width="920" height="440" fill="#e7f5ff"/>
+<rect x="20.0" y="380.0" width="750.0" height="130.0" rx="0" fill="#8ce99a" stroke="#2b8a3e" stroke-width="3"/>
+<rect x="770.0" y="380.0" width="170.0" height="130.0" rx="0" fill="#4dabf7" stroke="#1971c2" stroke-width="3"/>
+<rect x="20" y="70" width="920" height="440" rx="0" fill="none" stroke="#495057" stroke-width="2"/>
+<ellipse cx="150" cy="150" rx="42" ry="11" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<path d="M142.0,150.0 L124.0,180.0 L138.0,180.0 L164.0,150.0 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M142.0,150.0 L124.0,120.0 L138.0,120.0 L164.0,150.0 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116.0,147.0 L104.0,128.0 L114.0,128.0 L124.0,147.0 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="150.0" y1="150.0" x2="150.0" y2="210.0" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="172.0" y="195.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">F<tspan font-size="18" dy="5">g</tspan></text>
+<path d="M395,140 Q450,70 505,140 z" fill="#ffa94d" stroke="#d9480f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="400.0" y1="140.0" x2="450.0" y2="235.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="500.0" y1="140.0" x2="450.0" y2="235.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="450.0" y1="140.0" x2="450.0" y2="235.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<rect x="420.0" y="235.0" width="60.0" height="50.0" rx="4" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/>
+<line x1="450.0" y1="260.0" x2="450.0" y2="320.0" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="470.0" y="320.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">F<tspan font-size="18" dy="5">g</tspan></text>
+<rect x="215.0" y="320.0" width="30.0" height="60.0" rx="3" fill="#8a5a2b" stroke="#5c3a1a" stroke-width="3"/>
+<circle cx="230.0" cy="285.0" r="55" fill="#51cf66" stroke="#2b8a3e" stroke-width="3"/>
+<line x1="230.0" y1="285.0" x2="230.0" y2="345.0" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="250.0" y="350.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">F<tspan font-size="18" dy="5">g</tspan></text>
+<rect x="600.0" y="300.0" width="140.0" height="80.0" rx="2" fill="#ffe8cc" stroke="#8a5a2b" stroke-width="3"/>
+<path d="M590.0,300.0 L670.0,240.0 L750.0,300.0 z" fill="#e03131" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="650.0" y="335.0" width="30.0" height="45.0" rx="2" fill="#8a5a2b" stroke="#5c3a1a" stroke-width="2"/>
+<line x1="670.0" y1="320.0" x2="670.0" y2="380.0" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="692.0" y="372.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">F<tspan font-size="18" dy="5">g</tspan></text>
+<line x1="825.0" y1="429.0" x2="877.0" y2="429.0" stroke="#212529" stroke-width="22" stroke-linecap="round"/>
+<circle cx="895.0" cy="425.0" r="14" fill="#f1c9a5" stroke="#2b2a26" stroke-width="3"/>
+<line x1="825.0" y1="429.0" x2="799.0" y2="439.0" stroke="#343a40" stroke-width="8" stroke-linecap="round"/>
+<rect x="843.0" y="405.0" width="30.0" height="18.0" rx="4" fill="#ffd43b" stroke="#f08c00" stroke-width="2"/>
+<line x1="851.0" y1="429.0" x2="851.0" y2="489.0" stroke="#e03131" stroke-width="6" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<text x="871.0" y="477.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">F<tspan font-size="18" dy="5">g</tspan></text>
+<text x="480.0" y="548.0" font-size="20" fill="#495057" text-anchor="middle">Všechny šipky míří svisle dolů. Šipky ukazují jen směr, velikosti nejsou v měřítku.</text>
+</svg>

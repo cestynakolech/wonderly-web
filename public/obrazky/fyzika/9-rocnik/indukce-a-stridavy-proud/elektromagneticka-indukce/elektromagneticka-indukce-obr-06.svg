@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 530" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Portrét Michaela Faradaye vedle dvou kreseb: magnet se pohybuje k cívce a od cívky s ampérmetrem, ručička se vychýlí doprava a doleva podle směru indukovaného proudu. Popisek: při změně magnetického pole v okolí uzavřeného obvodu s cívkou vzniká indukovaný proud.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="524" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Michael Faraday a jeho objev</text>
+<rect x="30.0" y="80.0" width="200.0" height="250.0" rx="6" fill="#e8d9c0" stroke="#8a5a2b" stroke-width="4"/>
+<path d="M50.0,330.0 L60.0,270.0 L200.0,270.0 L210.0,330.0 z" fill="#343a40" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M110.0,270.0 L130.0,302.0 L150.0,270.0 z" fill="#ffffff" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="118.0" y="240.0" width="24.0" height="34.0" rx="4" fill="#f1c9a5" stroke="#b98a63" stroke-width="2"/>
+<ellipse cx="130" cy="190" rx="44" ry="56" fill="#f1c9a5" stroke="#b98a63" stroke-width="3"/>
+<path d="M82,188 Q70,120 130,118 Q190,120 178,188 Q170,150 130,144 Q90,150 82,188 z" fill="#adb5bd" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="112.0" cy="188.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="148.0" cy="188.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M130,192 L126,214 L134,214" fill="none" stroke="#b98a63" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M116,226 Q130,232 144,226" fill="none" stroke="#a61e1e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="130.0" y="362.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Michael Faraday</text>
+<text x="130.0" y="392.0" font-size="20" fill="#2b2a26" text-anchor="middle">objev v roce 1831</text>
+<g transform="translate(260,90) scale(0.76)">
+<line x1="76.0" y1="150.0" x2="92.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="108.0" y1="150.0" x2="124.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="140.0" y1="150.0" x2="156.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="172.0" y1="150.0" x2="188.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<path d="M60.0,70.0 L26.0,70.0 L26.0,343.0 L84.4,343.0 L84.4,309.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M204.0,150.0 L238.0,150.0 L238.0,343.0 L179.6,343.0 L179.6,309.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="60.0" y1="70.0" x2="76.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="60.0" y1="70.0" x2="76.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="64.8" y1="94.0" x2="71.5" y2="127.6" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="92.0" y1="70.0" x2="108.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="92.0" y1="70.0" x2="108.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="96.8" y1="94.0" x2="103.5" y2="127.6" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="124.0" y1="70.0" x2="140.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="124.0" y1="70.0" x2="140.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="128.8" y1="94.0" x2="135.5" y2="127.6" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="156.0" y1="70.0" x2="172.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="156.0" y1="70.0" x2="172.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="160.8" y1="94.0" x2="167.5" y2="127.6" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="188.0" y1="70.0" x2="204.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="188.0" y1="70.0" x2="204.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="192.8" y1="94.0" x2="199.5" y2="127.6" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<rect x="47.0" y="191.0" width="170.0" height="118.0" rx="12" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<rect x="55.0" y="199.0" width="154.0" height="102.0" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<line x1="90.3" y1="250.4" x2="79.6" y2="241.4" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="99.3" y1="235.7" x2="94.4" y2="228.2" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="115.0" y1="228.5" x2="112.4" y2="219.8" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="132.0" y1="231.0" x2="132.0" y2="217.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="149.0" y1="228.5" x2="151.6" y2="219.8" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="164.7" y1="235.7" x2="169.6" y2="228.2" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="173.7" y1="250.4" x2="184.4" y2="241.4" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="132.0" y1="285.4" x2="164.2" y2="229.6" stroke="#e03131" stroke-width="5" stroke-linecap="round"/>
+<circle cx="132.0" cy="285.4" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="84.4" cy="309.0" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="179.6" cy="309.0" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<rect x="270.0" y="88.0" width="55.0" height="44.0" rx="3" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<rect x="325.0" y="88.0" width="55.0" height="44.0" rx="3" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<text x="297.5" y="119.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="352.5" y="119.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="330.0" y1="66.0" x2="250.0" y2="66.0" stroke="#2b2a26" stroke-width="5" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="238.0" y1="228.5" x2="238.0" y2="264.5" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="26.0" y1="224.5" x2="26.0" y2="188.5" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round"/>
+</g>
+<text x="410.0" y="400.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">magnet k cívce: ručička doprava</text>
+<g transform="translate(610,90) scale(0.76)">
+<line x1="76.0" y1="150.0" x2="92.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="108.0" y1="150.0" x2="124.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="140.0" y1="150.0" x2="156.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<line x1="172.0" y1="150.0" x2="188.0" y2="70.0" stroke="#8a5a2b" stroke-width="4" stroke-linecap="round"/>
+<path d="M60.0,70.0 L26.0,70.0 L26.0,343.0 L84.4,343.0 L84.4,309.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M204.0,150.0 L238.0,150.0 L238.0,343.0 L179.6,343.0 L179.6,309.0" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="60.0" y1="70.0" x2="76.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="60.0" y1="70.0" x2="76.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="71.5" y1="127.6" x2="64.8" y2="94.0" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="92.0" y1="70.0" x2="108.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="92.0" y1="70.0" x2="108.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="103.5" y1="127.6" x2="96.8" y2="94.0" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="124.0" y1="70.0" x2="140.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="124.0" y1="70.0" x2="140.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="135.5" y1="127.6" x2="128.8" y2="94.0" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="156.0" y1="70.0" x2="172.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="156.0" y1="70.0" x2="172.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="167.5" y1="127.6" x2="160.8" y2="94.0" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="188.0" y1="70.0" x2="204.0" y2="150.0" stroke="#8a5a2b" stroke-width="9" stroke-linecap="round"/>
+<line x1="188.0" y1="70.0" x2="204.0" y2="150.0" stroke="#f4c48a" stroke-width="5" stroke-linecap="round"/>
+<line x1="199.5" y1="127.6" x2="192.8" y2="94.0" stroke="#e8590c" stroke-width="4" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<rect x="47.0" y="191.0" width="170.0" height="118.0" rx="12" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
+<rect x="55.0" y="199.0" width="154.0" height="102.0" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<line x1="90.3" y1="250.4" x2="79.6" y2="241.4" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="99.3" y1="235.7" x2="94.4" y2="228.2" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="115.0" y1="228.5" x2="112.4" y2="219.8" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="132.0" y1="231.0" x2="132.0" y2="217.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="149.0" y1="228.5" x2="151.6" y2="219.8" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="164.7" y1="235.7" x2="169.6" y2="228.2" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="173.7" y1="250.4" x2="184.4" y2="241.4" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="132.0" y1="285.4" x2="99.8" y2="229.6" stroke="#e03131" stroke-width="5" stroke-linecap="round"/>
+<circle cx="132.0" cy="285.4" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="84.4" cy="309.0" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="179.6" cy="309.0" r="6" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<rect x="320.0" y="88.0" width="55.0" height="44.0" rx="3" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<rect x="375.0" y="88.0" width="55.0" height="44.0" rx="3" fill="#1971c2" stroke="#0b4f8f" stroke-width="3"/>
+<text x="347.5" y="119.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="402.5" y="119.0" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="340.0" y1="66.0" x2="410.0" y2="66.0" stroke="#2b2a26" stroke-width="5" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<line x1="238.0" y1="264.5" x2="238.0" y2="228.5" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<line x1="26.0" y1="188.5" x2="26.0" y2="224.5" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round"/>
+</g>
+<text x="760.0" y="400.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">magnet od cívky: ručička doleva</text>
+<text x="480.0" y="470.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Při změně magnetického pole v okolí uzavřeného obvodu s cívkou</text>
+<text x="480.0" y="500.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">vzniká indukovaný proud.</text>
+</svg>

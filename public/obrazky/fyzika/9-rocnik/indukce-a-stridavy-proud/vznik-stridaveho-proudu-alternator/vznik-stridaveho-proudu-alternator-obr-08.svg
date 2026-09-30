@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 526" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Rotor alternátoru v elektrárně: velké válcové ocelové těleso na hřídeli, na kterém jsou pevně navinuté měděné cívky elektromagnetu, na koncích vidět svazky cívek. Popisky: rotor alternátoru, cívky elektromagnetu, hřídel.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f9fa"/><stop offset="0.5" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="oce" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.45" stop-color="#adb5bd"/><stop offset="1" stop-color="#495057"/></linearGradient>
+<linearGradient id="med" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#e8590c"/><stop offset="1" stop-color="#9c360a"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="520" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Rotor alternátoru v elektrárně</text>
+<rect x="50.0" y="240.0" width="220.0" height="90.0" rx="8" fill="url(#oce)" stroke="#495057" stroke-width="4"/>
+<rect x="232.0" y="212.0" width="30.0" height="146.0" rx="6" fill="url(#oce)" stroke="#495057" stroke-width="4"/>
+<rect x="690.0" y="240.0" width="220.0" height="90.0" rx="8" fill="url(#oce)" stroke="#495057" stroke-width="4"/>
+<rect x="678.0" y="212.0" width="30.0" height="146.0" rx="6" fill="url(#oce)" stroke="#495057" stroke-width="4"/>
+<rect x="262.0" y="172.0" width="416.0" height="226.0" rx="20" fill="url(#oce)" stroke="#495057" stroke-width="4"/>
+<rect x="316.0" y="196.0" width="308.0" height="14.0" rx="5" fill="#5c2a08" stroke="#3d1a05" stroke-width="2"/>
+<rect x="322.0" y="198.0" width="296.0" height="8.0" rx="3" fill="url(#med)" stroke="none" stroke-width="0"/>
+<rect x="316.0" y="230.0" width="308.0" height="14.0" rx="5" fill="#5c2a08" stroke="#3d1a05" stroke-width="2"/>
+<rect x="322.0" y="232.0" width="296.0" height="8.0" rx="3" fill="url(#med)" stroke="none" stroke-width="0"/>
+<rect x="316.0" y="264.0" width="308.0" height="14.0" rx="5" fill="#5c2a08" stroke="#3d1a05" stroke-width="2"/>
+<rect x="322.0" y="266.0" width="296.0" height="8.0" rx="3" fill="url(#med)" stroke="none" stroke-width="0"/>
+<rect x="316.0" y="298.0" width="308.0" height="14.0" rx="5" fill="#5c2a08" stroke="#3d1a05" stroke-width="2"/>
+<rect x="322.0" y="300.0" width="296.0" height="8.0" rx="3" fill="url(#med)" stroke="none" stroke-width="0"/>
+<rect x="316.0" y="332.0" width="308.0" height="14.0" rx="5" fill="#5c2a08" stroke="#3d1a05" stroke-width="2"/>
+<rect x="322.0" y="334.0" width="296.0" height="8.0" rx="3" fill="url(#med)" stroke="none" stroke-width="0"/>
+<rect x="316.0" y="366.0" width="308.0" height="14.0" rx="5" fill="#5c2a08" stroke="#3d1a05" stroke-width="2"/>
+<rect x="322.0" y="368.0" width="296.0" height="8.0" rx="3" fill="url(#med)" stroke="none" stroke-width="0"/>
+<rect x="262.0" y="182.0" width="54.0" height="206.0" rx="16" fill="url(#med)" stroke="#7c3d00" stroke-width="4"/>
+<line x1="268.0" y1="216.0" x2="310.0" y2="216.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="268.0" y1="250.0" x2="310.0" y2="250.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="268.0" y1="284.0" x2="310.0" y2="284.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="268.0" y1="318.0" x2="310.0" y2="318.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="268.0" y1="352.0" x2="310.0" y2="352.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<rect x="624.0" y="182.0" width="54.0" height="206.0" rx="16" fill="url(#med)" stroke="#7c3d00" stroke-width="4"/>
+<line x1="630.0" y1="216.0" x2="672.0" y2="216.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="630.0" y1="250.0" x2="672.0" y2="250.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="630.0" y1="284.0" x2="672.0" y2="284.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="630.0" y1="318.0" x2="672.0" y2="318.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="630.0" y1="352.0" x2="672.0" y2="352.0" stroke="#7c3d00" stroke-width="3" stroke-linecap="round"/>
+<line x1="480.0" y1="141.2" x2="470.0" y2="176.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="470.0" cy="176.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="330.0" y="96.0" width="300.0" height="45.2" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="480.0" y="130.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">rotor alternátoru</text>
+<line x1="205.0" y1="402.0" x2="289.0" y2="340.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="289.0" cy="340.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="40.0" y="402.0" width="330.0" height="42.6" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="205.0" y="434.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">cívky elektromagnetu</text>
+<line x1="785.0" y1="402.0" x2="800.0" y2="328.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<circle cx="800.0" cy="328.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="720.0" y="402.0" width="130.0" height="42.6" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="785.0" y="434.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">hřídel</text>
+<text x="480.0" y="500.0" font-size="22" fill="#495057" text-anchor="middle">Rotor je tvořený pevně navinutými cívkami elektromagnetu.</text>
+</svg>

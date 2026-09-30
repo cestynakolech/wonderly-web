@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 530" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Těleso a červená šipka síly F. Směr určuje špička šipky, velikost její délka a působiště je začátek šipky na tělese.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="524" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<path d="M200.0,260.0 L250.0,220.0 L390.0,220.0 L340.0,260.0 z" fill="#dee2e6" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M340.0,260.0 L390.0,220.0 L390.0,360.0 L340.0,400.0 z" fill="#868e96" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="200.0" y="260.0" width="140.0" height="140.0" rx="0" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<text x="245.0" y="294.0" font-size="20" fill="#2b2a26" text-anchor="middle">těleso</text>
+<line x1="270.0" y1="320.0" x2="620.0" y2="320.0" stroke="#e03131" stroke-width="8" marker-end="url(#b-cer)" stroke-linecap="round"/>
+<circle cx="270.0" cy="320.0" r="9" fill="#e03131" stroke="#2b2a26" stroke-width="2"/>
+<text x="450.0" y="292.0" font-size="36" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<line x1="270.0" y1="335.0" x2="270.0" y2="470.0" stroke="#495057" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<line x1="620.0" y1="335.0" x2="620.0" y2="470.0" stroke="#495057" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+<line x1="270.0" y1="455.0" x2="620.0" y2="455.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="620.0" y1="455.0" x2="270.0" y2="455.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="445.0" y="500.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Velikost: délka šipky</text>
+<path d="M180,327 L258,324 L180,353 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="20.0" y="300.0" width="160.0" height="80.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="177" y="329" width="6" height="22" fill="#fff3bf"/>
+<text x="100.0" y="333.5" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Působiště:</text>
+<text x="100.0" y="360.5" font-size="20" fill="#2b2a26" text-anchor="middle">začátek šipky</text>
+<path d="M607,210 L620,312 L633,210 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="500.0" y="150.0" width="250.0" height="60.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="609" y="207" width="22" height="6" fill="#fff3bf"/>
+<text x="625.0" y="187.0" font-size="20" fill="#2b2a26" text-anchor="middle">Směr: špička šipky</text>
+<text x="480.0" y="46.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Tři vlastnosti síly na šipce</text>
+</svg>

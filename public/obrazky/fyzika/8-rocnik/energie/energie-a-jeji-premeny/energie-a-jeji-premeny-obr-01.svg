@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 555" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řetěz přeměn energie o devíti rámečcích: jaderná energie v jádru Slunce, světelná energie, chemická energie rostlin, chemická energie uhlí, tepelná energie zahřáté páry, pohybová energie zahřáté páry, elektrická energie, a v žárovce teplo a světlo.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="549" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="125.5" y1="96.0" x2="141.5" y2="96.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="120.7" y1="114.0" x2="134.5" y2="122.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="107.5" y1="127.2" x2="115.5" y2="141.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="89.5" y1="132.0" x2="89.5" y2="148.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="71.5" y1="127.2" x2="63.5" y2="141.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="58.3" y1="114.0" x2="44.5" y2="122.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="53.5" y1="96.0" x2="37.5" y2="96.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="58.3" y1="78.0" x2="44.5" y2="70.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="71.5" y1="64.8" x2="63.5" y2="51.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="89.5" y1="60.0" x2="89.5" y2="44.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="107.5" y1="64.8" x2="115.5" y2="51.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<line x1="120.7" y1="78.0" x2="134.5" y2="70.0" stroke="#f08c00" stroke-width="5" stroke-linecap="round"/>
+<circle cx="89.5" cy="96.0" r="30" fill="#ffd43b" stroke="#f08c00" stroke-width="4"/>
+<rect x="7.0" y="168.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="89.5" y="195.6" font-size="18" fill="#2b2a26" text-anchor="middle">Jaderná energie</text>
+<text x="89.5" y="219.0" font-size="18" fill="#2b2a26" text-anchor="middle">v jádru Slunce</text>
+<line x1="175.0" y1="201.0" x2="199.0" y2="201.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="236.5" y1="52.0" x2="266.5" y2="126.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<path d="M272.5,140.8 L258.3,121.0 L268.9,116.7 z" fill="#f08c00" stroke="#f08c00" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="266.5" y1="52.0" x2="296.5" y2="126.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<path d="M302.5,140.8 L288.3,121.0 L298.9,116.7 z" fill="#f08c00" stroke="#f08c00" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="296.5" y1="52.0" x2="326.5" y2="126.0" stroke="#f08c00" stroke-width="6" stroke-linecap="round"/>
+<path d="M332.5,140.8 L318.3,121.0 L328.9,116.7 z" fill="#f08c00" stroke="#f08c00" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="202.0" y="168.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="284.5" y="195.6" font-size="18" fill="#2b2a26" text-anchor="middle">Světelná</text>
+<text x="284.5" y="219.0" font-size="18" fill="#2b2a26" text-anchor="middle">energie</text>
+<line x1="370.0" y1="201.0" x2="394.0" y2="201.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<rect x="472.5" y="100.0" width="14.0" height="44.0" rx="3" fill="#8a5a2b" stroke="#5f3b17" stroke-width="2"/>
+<circle cx="479.5" cy="68.0" r="26" fill="#51cf66" stroke="#2b8a3e" stroke-width="3"/>
+<circle cx="457.5" cy="88.0" r="22" fill="#51cf66" stroke="#2b8a3e" stroke-width="3"/>
+<circle cx="501.5" cy="88.0" r="22" fill="#51cf66" stroke="#2b8a3e" stroke-width="3"/>
+<rect x="397.0" y="168.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="479.5" y="195.6" font-size="18" fill="#2b2a26" text-anchor="middle">Chemická energie</text>
+<text x="479.5" y="219.0" font-size="18" fill="#2b2a26" text-anchor="middle">rostlin</text>
+<line x1="565.0" y1="201.0" x2="589.0" y2="201.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<path d="M628.5,136.0 L638.5,100.0 L664.5,90.0 L680.5,136.0 z" fill="#343a40" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M666.5,136.0 L672.5,84.0 L694.5,62.0 L714.5,86.0 L722.5,136.0 z" fill="#495057" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M654.5,102.0 L662.5,66.0 L682.5,56.0 L690.5,84.0 L676.5,100.0 z" fill="#212529" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="592.0" y="168.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="674.5" y="195.6" font-size="18" fill="#2b2a26" text-anchor="middle">Chemická energie</text>
+<text x="674.5" y="219.0" font-size="18" fill="#2b2a26" text-anchor="middle">uhlí</text>
+<line x1="760.0" y1="201.0" x2="784.0" y2="201.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<rect x="819.5" y="116.0" width="100.0" height="26.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<rect x="827.5" y="56.0" width="16.0" height="60.0" rx="2" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<rect x="849.5" y="64.0" width="16.0" height="52.0" rx="2" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<path d="M881.5,116.0 L889.5,78.0 L911.5,78.0 L919.5,116.0 z" fill="#dee2e6" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="837.5" cy="44.0" r="14" fill="#f1f3f5" stroke="#adb5bd" stroke-width="3"/>
+<circle cx="855.5" cy="40.0" r="18" fill="#f1f3f5" stroke="#adb5bd" stroke-width="3"/>
+<circle cx="877.5" cy="46.0" r="14" fill="#f1f3f5" stroke="#adb5bd" stroke-width="3"/>
+<line x1="827.5" y1="88.0" x2="843.5" y2="88.0" stroke="#e03131" stroke-width="5" stroke-linecap="round"/>
+<line x1="849.5" y1="88.0" x2="865.5" y2="88.0" stroke="#e03131" stroke-width="5" stroke-linecap="round"/>
+<rect x="787.0" y="168.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="869.5" y="195.6" font-size="18" fill="#2b2a26" text-anchor="middle">Tepelná energie</text>
+<text x="869.5" y="219.0" font-size="18" fill="#2b2a26" text-anchor="middle">zahřáté páry</text>
+<line x1="869.5" y1="238.0" x2="869.5" y2="272.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<circle cx="869.5" cy="344.0" r="44" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<ellipse cx="869.5" cy="324" rx="9" ry="21" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" transform="rotate(0 869.5 344)"/>
+<ellipse cx="869.5" cy="324" rx="9" ry="21" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" transform="rotate(60 869.5 344)"/>
+<ellipse cx="869.5" cy="324" rx="9" ry="21" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" transform="rotate(120 869.5 344)"/>
+<ellipse cx="869.5" cy="324" rx="9" ry="21" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" transform="rotate(180 869.5 344)"/>
+<ellipse cx="869.5" cy="324" rx="9" ry="21" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" transform="rotate(240 869.5 344)"/>
+<ellipse cx="869.5" cy="324" rx="9" ry="21" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" transform="rotate(300 869.5 344)"/>
+<circle cx="869.5" cy="344.0" r="8" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+<path d="M811.5,352 A58,58 0 0 1 861.5,287" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#a-sed)"/>
+<rect x="787.0" y="412.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="869.5" y="439.6" font-size="18" fill="#2b2a26" text-anchor="middle">Pohybová energie</text>
+<text x="869.5" y="463.0" font-size="18" fill="#2b2a26" text-anchor="middle">zahřáté páry</text>
+<line x1="784.0" y1="445.0" x2="760.0" y2="445.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="640.5" y1="390.0" x2="662.5" y2="300.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="708.5" y1="390.0" x2="686.5" y2="300.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="659.5" y1="314.0" x2="689.5" y2="314.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="648.5" y1="340.0" x2="700.5" y2="340.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="650.5" y1="366.0" x2="698.5" y2="340.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="698.5" y1="366.0" x2="650.5" y2="340.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<path d="M704.5,298.0 L676.5,350.0 L694.5,350.0 L680.5,390.0 L720.5,334.0 L700.5,334.0 z" fill="#ffd43b" stroke="#f08c00" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="592.0" y="412.0" width="165.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="674.5" y="439.6" font-size="18" fill="#2b2a26" text-anchor="middle">Elektrická</text>
+<text x="674.5" y="463.0" font-size="18" fill="#2b2a26" text-anchor="middle">energie</text>
+<line x1="634.5" y1="352.0" x2="543.5" y2="352.0" stroke="#1971c2" stroke-width="5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="439.7" y1="340.2" x2="423.8" y2="341.9" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="443.5" y1="318.5" x2="429.2" y2="311.5" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="458.3" y1="302.1" x2="449.8" y2="288.5" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="479.5" y1="296.0" x2="479.5" y2="280.0" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="500.7" y1="302.1" x2="509.2" y2="288.5" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="515.5" y1="318.5" x2="529.8" y2="311.5" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<line x1="519.3" y1="340.2" x2="535.2" y2="341.9" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/>
+<circle cx="479.5" cy="336.0" r="32" fill="#fff3bf" stroke="#f08c00" stroke-width="4"/>
+<path d="M465.5,352 L471.5,334 L479.5,348 L487.5,334 L493.5,352" fill="none" stroke="#e8590c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="465.5" y="366.0" width="28.0" height="12.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="469.5" y="378.0" width="20.0" height="10.0" rx="2" fill="#868e96" stroke="#495057" stroke-width="2"/>
+<rect x="397.0" y="412.0" width="78.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="436.0" y="451.3" font-size="18" fill="#2b2a26" text-anchor="middle">Teplo</text>
+<rect x="484.0" y="412.0" width="78.0" height="66.0" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="523.0" y="451.3" font-size="18" fill="#2b2a26" text-anchor="middle">Světlo</text>
+<line x1="436.0" y1="392.0" x2="436.0" y2="408.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="523.0" y1="392.0" x2="523.0" y2="408.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="480.0" y="524.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Energie na své cestě mění podobu, ale nezmizí a z ničeho nevznikne.</text>
+</svg>

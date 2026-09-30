@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 610" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Mapa pojmů: vzájemné působení je statické nebo dynamické, vede k síle. Síla má posuvný, otáčivý a deformační účinek, deformace je dočasná nebo trvalá. Vedle toho stojí působení na dálku, silové pole.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="604" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="190.0" y="30.0" width="340.0" height="64.0" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/>
+<text x="360.0" y="56.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Vzájemné působení</text>
+<text x="360.0" y="82.0" font-size="20" fill="#2b2a26" text-anchor="middle">(interakce)</text>
+<rect x="110.0" y="150.0" width="220.0" height="64.0" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/>
+<text x="220.0" y="176.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">statické</text>
+<text x="220.0" y="202.0" font-size="20" fill="#2b2a26" text-anchor="middle">(klid, síly se ruší)</text>
+<rect x="400.0" y="150.0" width="240.0" height="64.0" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/>
+<text x="520.0" y="176.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">dynamické</text>
+<text x="520.0" y="202.0" font-size="20" fill="#2b2a26" text-anchor="middle">(mění se pohyb)</text>
+<line x1="300.0" y1="94.0" x2="220.0" y2="148.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="420.0" y1="94.0" x2="500.0" y2="148.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<rect x="190.0" y="268.0" width="340.0" height="70.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+<text x="360.0" y="297.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">SÍLA</text>
+<text x="360.0" y="323.0" font-size="20" fill="#2b2a26" text-anchor="middle">fyzikální veličina, F, N</text>
+<line x1="220.0" y1="214.0" x2="300.0" y2="266.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="500.0" y1="214.0" x2="420.0" y2="266.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<rect x="30.0" y="400.0" width="200.0" height="60.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="130.0" y="424.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">posuvný</text>
+<text x="130.0" y="450.0" font-size="20" fill="#2b2a26" text-anchor="middle">účinek</text>
+<rect x="260.0" y="400.0" width="200.0" height="60.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="360.0" y="424.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">otáčivý</text>
+<text x="360.0" y="450.0" font-size="20" fill="#2b2a26" text-anchor="middle">účinek</text>
+<rect x="490.0" y="400.0" width="220.0" height="60.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="600.0" y="424.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">deformační</text>
+<text x="600.0" y="450.0" font-size="20" fill="#2b2a26" text-anchor="middle">účinek</text>
+<line x1="300.0" y1="338.0" x2="130.0" y2="398.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="360.0" y1="338.0" x2="360.0" y2="398.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="420.0" y1="338.0" x2="590.0" y2="398.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<rect x="430.0" y="520.0" width="200.0" height="56.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="530.0" y="542.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">dočasná</text>
+<text x="530.0" y="568.0" font-size="20" fill="#2b2a26" text-anchor="middle">(pružná)</text>
+<rect x="660.0" y="520.0" width="200.0" height="56.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="3"/>
+<text x="760.0" y="542.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">trvalá</text>
+<text x="760.0" y="568.0" font-size="20" fill="#2b2a26" text-anchor="middle">(plastická)</text>
+<line x1="560.0" y1="460.0" x2="530.0" y2="518.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="640.0" y1="460.0" x2="720.0" y2="518.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="530.0" y1="62.0" x2="800.0" y2="62.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="800.0" y1="62.0" x2="800.0" y2="148.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<rect x="700.0" y="150.0" width="230.0" height="76.0" rx="12" fill="#f3d9fa" stroke="#7048e8" stroke-width="3"/>
+<text x="815.0" y="182.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Působení na dálku</text>
+<text x="815.0" y="208.0" font-size="20" fill="#2b2a26" text-anchor="middle">(silové pole)</text>
+<rect x="700.0" y="280.0" width="230.0" height="118.0" rx="12" fill="#f8f9fa" stroke="#7048e8" stroke-width="3"/>
+<text x="815.0" y="320.0" font-size="20" fill="#2b2a26" text-anchor="middle">gravitační</text>
+<text x="815.0" y="346.0" font-size="20" fill="#2b2a26" text-anchor="middle">magnetické</text>
+<text x="815.0" y="372.0" font-size="20" fill="#2b2a26" text-anchor="middle">elektrické</text>
+<line x1="815.0" y1="226.0" x2="815.0" y2="278.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+</svg>

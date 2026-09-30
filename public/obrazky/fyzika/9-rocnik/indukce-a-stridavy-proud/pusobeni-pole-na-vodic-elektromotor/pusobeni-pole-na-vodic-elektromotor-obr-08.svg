@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Střídavý motor rozebraný: vpravo stator s měděným vinutím ve skříni se svorkovnicí, vlevo válcový rotor na hřídeli.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<line x1="30.0" y1="400.0" x2="520.0" y2="400.0" stroke="#868e96" stroke-width="24" stroke-linecap="round"/>
+<rect x="120.0" y="300.0" width="250.0" height="200.0" rx="10" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="135.0" y1="304.0" x2="135.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="151.0" y1="304.0" x2="151.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="167.0" y1="304.0" x2="167.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="183.0" y1="304.0" x2="183.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="199.0" y1="304.0" x2="199.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="215.0" y1="304.0" x2="215.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="231.0" y1="304.0" x2="231.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="247.0" y1="304.0" x2="247.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="263.0" y1="304.0" x2="263.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="279.0" y1="304.0" x2="279.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="295.0" y1="304.0" x2="295.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="311.0" y1="304.0" x2="311.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="327.0" y1="304.0" x2="327.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="343.0" y1="304.0" x2="343.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<line x1="359.0" y1="304.0" x2="359.0" y2="496.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<text x="245.0" y="420.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">rotor</text>
+<rect x="550.0" y="80.0" width="380.0" height="380.0" rx="14" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<line x1="575.0" y1="84.0" x2="575.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="599.0" y1="84.0" x2="599.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="623.0" y1="84.0" x2="623.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="647.0" y1="84.0" x2="647.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="671.0" y1="84.0" x2="671.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="695.0" y1="84.0" x2="695.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="719.0" y1="84.0" x2="719.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="743.0" y1="84.0" x2="743.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="767.0" y1="84.0" x2="767.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="791.0" y1="84.0" x2="791.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="815.0" y1="84.0" x2="815.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="839.0" y1="84.0" x2="839.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="863.0" y1="84.0" x2="863.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="887.0" y1="84.0" x2="887.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<line x1="911.0" y1="84.0" x2="911.0" y2="100.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<rect x="680.0" y="30.0" width="120.0" height="52.0" rx="6" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<text x="740.0" y="62.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">svorky</text>
+<circle cx="740.0" cy="270.0" r="150" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<circle cx="740.0" cy="270.0" r="90" fill="#f8f9fa" stroke="#495057" stroke-width="3"/>
+<line x1="834.0" y1="270.0" x2="880.0" y2="270.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="834.0" y1="270.0" x2="880.0" y2="270.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="830.8" y1="245.7" x2="875.2" y2="233.8" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="830.8" y1="245.7" x2="875.2" y2="233.8" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="821.4" y1="223.0" x2="861.2" y2="200.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="821.4" y1="223.0" x2="861.2" y2="200.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="806.5" y1="203.5" x2="839.0" y2="171.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="806.5" y1="203.5" x2="839.0" y2="171.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="787.0" y1="188.6" x2="810.0" y2="148.8" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="787.0" y1="188.6" x2="810.0" y2="148.8" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="764.3" y1="179.2" x2="776.2" y2="134.8" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="764.3" y1="179.2" x2="776.2" y2="134.8" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="740.0" y1="176.0" x2="740.0" y2="130.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="740.0" y1="176.0" x2="740.0" y2="130.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="715.7" y1="179.2" x2="703.8" y2="134.8" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="715.7" y1="179.2" x2="703.8" y2="134.8" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="693.0" y1="188.6" x2="670.0" y2="148.8" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="693.0" y1="188.6" x2="670.0" y2="148.8" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="673.5" y1="203.5" x2="641.0" y2="171.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="673.5" y1="203.5" x2="641.0" y2="171.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="658.6" y1="223.0" x2="618.8" y2="200.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="658.6" y1="223.0" x2="618.8" y2="200.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="649.2" y1="245.7" x2="604.8" y2="233.8" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="649.2" y1="245.7" x2="604.8" y2="233.8" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="646.0" y1="270.0" x2="600.0" y2="270.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="646.0" y1="270.0" x2="600.0" y2="270.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="649.2" y1="294.3" x2="604.8" y2="306.2" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="649.2" y1="294.3" x2="604.8" y2="306.2" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="658.6" y1="317.0" x2="618.8" y2="340.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="658.6" y1="317.0" x2="618.8" y2="340.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="673.5" y1="336.5" x2="641.0" y2="369.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="673.5" y1="336.5" x2="641.0" y2="369.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="693.0" y1="351.4" x2="670.0" y2="391.2" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="693.0" y1="351.4" x2="670.0" y2="391.2" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="715.7" y1="360.8" x2="703.8" y2="405.2" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="715.7" y1="360.8" x2="703.8" y2="405.2" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="740.0" y1="364.0" x2="740.0" y2="410.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="740.0" y1="364.0" x2="740.0" y2="410.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="764.3" y1="360.8" x2="776.2" y2="405.2" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="764.3" y1="360.8" x2="776.2" y2="405.2" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="787.0" y1="351.4" x2="810.0" y2="391.2" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="787.0" y1="351.4" x2="810.0" y2="391.2" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="806.5" y1="336.5" x2="839.0" y2="369.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="806.5" y1="336.5" x2="839.0" y2="369.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="821.4" y1="317.0" x2="861.2" y2="340.0" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="821.4" y1="317.0" x2="861.2" y2="340.0" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<line x1="830.8" y1="294.3" x2="875.2" y2="306.2" stroke="#e8a25a" stroke-width="9" stroke-linecap="round"/>
+<line x1="830.8" y1="294.3" x2="875.2" y2="306.2" stroke="#a85a12" stroke-width="2" stroke-linecap="round"/>
+<circle cx="740.0" cy="270.0" r="94" fill="none" stroke="#a85a12" stroke-width="3"/>
+<text x="740.0" y="278.0" font-size="20" fill="#2b2a26" text-anchor="middle">dutina pro rotor</text>
+<path d="M727,470 L740,400 L753,470 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="560.0" y="470.0" width="360.0" height="44.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="729" y="467" width="22" height="6" fill="#fff3bf"/>
+<text x="740.0" y="499.0" font-size="20" fill="#2b2a26" text-anchor="middle">stator s vinutím ve skříni</text>
+<path d="M227,130 L240,300 L253,130 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="120.0" y="70.0" width="300.0" height="60.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="229" y="127" width="22" height="6" fill="#fff3bf"/>
+<text x="270.0" y="93.5" font-size="20" fill="#2b2a26" text-anchor="middle">válcový rotor</text>
+<text x="270.0" y="120.5" font-size="20" fill="#2b2a26" text-anchor="middle">na hřídeli</text>
+<path d="M570,200 L630,230 L570,226 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="380.0" y="190.0" width="190.0" height="46.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="567" y="202" width="6" height="22" fill="#fff3bf"/>
+<text x="475.0" y="220.0" font-size="20" fill="#2b2a26" text-anchor="middle">vinutí (měď)</text>
+</svg>
