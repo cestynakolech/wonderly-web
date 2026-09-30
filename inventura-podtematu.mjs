@@ -23,7 +23,7 @@ const zjednodus = (s) =>
 
 const zHEAD = (soubor) => {
 	try {
-		return execFileSync('git', ['show', `HEAD:${soubor}`], { cwd: KOREN, encoding: 'utf8' })
+		return execFileSync('git', ['show', `HEAD:${soubor}`], { cwd: KOREN, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
 	} catch {
 		return null
 	}
