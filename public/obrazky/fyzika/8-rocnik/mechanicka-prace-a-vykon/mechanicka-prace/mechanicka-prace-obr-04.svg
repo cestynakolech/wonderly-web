@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 590" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Mechanická práce: veličiny, jednotky, vzorec W = F · s a vzorcový trojúhelník">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#e8590c"/></marker>
+<marker id="s-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="584" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="46" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">Mechanická práce</text>
+<text x="24" y="84" font-size="21" fill="#2b2a26" text-anchor="start">Jestliže působí síla <tspan font-weight="bold" fill="#e03131">F</tspan> po dráze <tspan font-weight="bold" fill="#1971c2">s</tspan>, koná se mechanická práce <tspan font-weight="bold">W</tspan>.</text>
+<rect x="24" y="110" width="500" height="42" rx="8" fill="#1971c2"/>
+<text x="40" y="138" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="start">veličina</text>
+<text x="250" y="138" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="start">značka</text>
+<text x="350" y="138" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="start">jednotka</text>
+<rect x="24" y="158" width="500" height="48" rx="8" fill="#fff3bf" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="40" y="190" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">mechanická práce</text>
+<text x="268" y="190" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">W</text>
+<text x="350" y="190" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">J <tspan font-size="19" font-weight="normal" fill="#495057">(joule)</tspan></text>
+<rect x="24" y="212" width="500" height="48" rx="8" fill="#e7f5ff" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="40" y="244" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">síla</text>
+<text x="268" y="244" font-size="22" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="350" y="244" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">N <tspan font-size="19" font-weight="normal" fill="#495057">(newton)</tspan></text>
+<rect x="24" y="266" width="500" height="48" rx="8" fill="#e7f5ff" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="40" y="298" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">dráha</text>
+<text x="268" y="298" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="middle">s</text>
+<text x="350" y="298" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">m <tspan font-size="19" font-weight="normal" fill="#495057">(metr)</tspan></text>
+<line x1="560" y1="330" x2="880" y2="330" stroke="#495057" stroke-width="3"/>
+<rect x="660" y="260" width="70" height="70" rx="4" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="8 6"/>
+<rect x="660" y="110" width="70" height="70" rx="4" fill="#ffd8a8" stroke="#e8590c" stroke-width="3"/>
+<text x="695" y="154" font-size="18" font-weight="bold" fill="#e8590c" text-anchor="middle">těleso</text>
+<line x1="695" y1="108" x2="695" y2="38" stroke="#e03131" stroke-width="6" marker-end="url(#s-cer)"/>
+<text x="710" y="68" font-size="24" font-weight="bold" fill="#e03131" text-anchor="start">F</text>
+<line x1="636" y1="328" x2="636" y2="182" stroke="#1971c2" stroke-width="5" marker-end="url(#s-mod)"/>
+<text x="614" y="264" font-size="24" font-weight="bold" fill="#1971c2" text-anchor="middle">s</text>
+<text x="750" y="300" font-size="18" fill="#868e96" text-anchor="start">na začátku</text>
+<text x="750" y="150" font-size="18" fill="#e8590c" text-anchor="start">na konci</text>
+<rect x="24" y="360" width="400" height="200" rx="14" fill="#ffffff" stroke="#e03131" stroke-width="3"/>
+<text x="224" y="412" font-size="34" font-weight="bold" fill="#e03131" text-anchor="middle">W = F · s</text>
+<text x="224" y="452" font-size="19" fill="#495057" text-anchor="middle">práce = síla · dráha</text>
+<line x1="44" y1="474" x2="404" y2="474" stroke="#dee2e6" stroke-width="2"/>
+<text x="224" y="506" font-size="19" fill="#2b2a26" text-anchor="middle">při zvedání tělesa (F = m · g):</text>
+<text x="224" y="542" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">W = m · g · s</text>
+<path d="M520,548 L620,370 L720,548 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="3" stroke-linejoin="round"/>
+<line x1="564" y1="470" x2="676" y2="470" stroke="#1971c2" stroke-width="3"/><line x1="620" y1="470" x2="620" y2="548" stroke="#1971c2" stroke-width="3"/>
+<text x="620" y="452" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">W</text>
+<text x="586" y="528" font-size="28" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="654" y="528" font-size="28" font-weight="bold" fill="#1971c2" text-anchor="middle">s</text>
+<text x="750" y="404" font-size="18" fill="#495057" text-anchor="start">z trojúhelníku:</text>
+<text x="750" y="446" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">W = F · s</text>
+<text x="750" y="486" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">F = W : s</text>
+<text x="750" y="526" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">s = W : F</text>
+</svg>

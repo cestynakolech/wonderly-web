@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešený příklad: síla lokomotivy F = W : s">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#e8590c"/></marker>
+<marker id="s-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="674" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="24" font-weight="bold" fill="#e03131" text-anchor="start">Příklad: jak velkou silou táhne lokomotiva vlak</text>
+<text x="24" y="80" font-size="20" fill="#2b2a26" text-anchor="start">Jak velkou silou táhne lokomotiva vlak, jestliže při jízdě po vodorovné</text>
+<text x="24" y="106" font-size="20" fill="#2b2a26" text-anchor="start">trati délky 4,5 km vykonala práci 900 MJ?</text>
+<text x="24" y="160" font-size="21" fill="#2b2a26" text-anchor="start">s = 4,5 km = <tspan font-weight="bold">4 500 m</tspan></text>
+<text x="24" y="198" font-size="21" fill="#2b2a26" text-anchor="start">W = 900 MJ = <tspan font-weight="bold">900 000 000 J</tspan></text>
+<text x="24" y="236" font-size="21" fill="#2b2a26" text-anchor="start">F = ? N</text>
+<path d="M402,143.0 L250,153 L402,161.0 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="400" y="134" width="330" height="36" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="399" y="144.0" width="5" height="16" fill="#fff3bf"/>
+<text x="565.0" y="158.65" font-size="19" fill="#2b2a26" text-anchor="middle">základní jednotka délky: metr</text>
+<path d="M402,183.0 L356,191 L402,201.0 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="400" y="174" width="330" height="36" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="399" y="184.0" width="5" height="16" fill="#fff3bf"/>
+<text x="565.0" y="198.65" font-size="19" fill="#2b2a26" text-anchor="middle">základní jednotka práce: joule</text>
+<line x1="24" y1="256" x2="360" y2="256" stroke="#868e96" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="24" y="294" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">F = W : s</text>
+<text x="24" y="332" font-size="21" fill="#2b2a26" text-anchor="start">F = 900 000 000 J : 4 500 m</text>
+<text x="24" y="372" font-size="23" font-weight="bold" fill="#2b2a26" text-anchor="start">F = 200 000 N = 200 kN</text>
+<path d="M402,319.0 L330,326 L402,337.0 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="400" y="310" width="330" height="36" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="399" y="320.0" width="5" height="16" fill="#fff3bf"/>
+<text x="565.0" y="334.65" font-size="19" fill="#2b2a26" text-anchor="middle">síla vyjde v newtonech (N)</text>
+<line x1="30" y1="530" x2="870" y2="530" stroke="#495057" stroke-width="4"/>
+<line x1="40" y1="532" x2="56" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="74" y1="532" x2="90" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="108" y1="532" x2="124" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="142" y1="532" x2="158" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="176" y1="532" x2="192" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="210" y1="532" x2="226" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="244" y1="532" x2="260" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="278" y1="532" x2="294" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="312" y1="532" x2="328" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="346" y1="532" x2="362" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="380" y1="532" x2="396" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="414" y1="532" x2="430" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="448" y1="532" x2="464" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="482" y1="532" x2="498" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="516" y1="532" x2="532" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="550" y1="532" x2="566" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="584" y1="532" x2="600" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="618" y1="532" x2="634" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="652" y1="532" x2="668" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="686" y1="532" x2="702" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="720" y1="532" x2="736" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="754" y1="532" x2="770" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="788" y1="532" x2="804" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="822" y1="532" x2="838" y2="532" stroke="#adb5bd" stroke-width="6"/><line x1="856" y1="532" x2="872" y2="532" stroke="#adb5bd" stroke-width="6"/>
+<rect x="170" y="452" width="140" height="58" rx="6" fill="#a5d8ff" stroke="#1971c2" stroke-width="3"/><rect x="188" y="462" width="26" height="20" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/><rect x="228" y="462" width="26" height="20" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/><rect x="268" y="462" width="26" height="20" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/><circle cx="200" cy="518" r="11" fill="#343a40"/><circle cx="280" cy="518" r="11" fill="#343a40"/><line x1="310" y1="500" x2="330" y2="500" stroke="#495057" stroke-width="4"/>
+<rect x="330" y="452" width="140" height="58" rx="6" fill="#a5d8ff" stroke="#1971c2" stroke-width="3"/><rect x="348" y="462" width="26" height="20" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/><rect x="388" y="462" width="26" height="20" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/><rect x="428" y="462" width="26" height="20" rx="3" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/><circle cx="360" cy="518" r="11" fill="#343a40"/><circle cx="440" cy="518" r="11" fill="#343a40"/><line x1="470" y1="500" x2="490" y2="500" stroke="#495057" stroke-width="4"/>
+<path d="M490,510 L490,434 L560,434 L560,460 L640,460 Q662,464 662,486 L662,510 z" fill="#ffc9c9" stroke="#e03131" stroke-width="3"/>
+<rect x="502" y="444" width="46" height="26" rx="3" fill="#fff5f5" stroke="#e03131" stroke-width="2"/>
+<circle cx="520" cy="518" r="12" fill="#343a40"/><circle cx="580" cy="518" r="12" fill="#343a40"/><circle cx="635" cy="518" r="12" fill="#343a40"/>
+<text x="600" y="494" font-size="18" font-weight="bold" fill="#e03131" text-anchor="middle">lokomotiva</text>
+<line x1="668" y1="485" x2="820" y2="485" stroke="#e03131" stroke-width="6" marker-end="url(#s-cer)"/>
+<rect x="738" y="436" width="28" height="36" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+<text x="752.0" y="463" font-size="22" font-weight="bold" fill="#e03131" text-anchor="middle">F</text>
+<text x="752" y="514" font-size="18" fill="#e03131" text-anchor="middle">tažná síla</text>
+<line x1="40" y1="570" x2="860" y2="570" stroke="#1971c2" stroke-width="4" marker-start="url(#s-mod)" marker-end="url(#s-mod)"/>
+<rect x="377" y="554" width="145" height="35" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<text x="450.0" y="580" font-size="21" font-weight="bold" fill="#1971c2" text-anchor="middle">s = 4 500 m</text>
+<text x="24" y="650" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">Odpověď: Lokomotiva táhne vlak silou 200 kN.</text>
+</svg>

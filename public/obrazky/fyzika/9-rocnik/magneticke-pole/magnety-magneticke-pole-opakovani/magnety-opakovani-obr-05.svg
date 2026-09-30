@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvojice tyčových magnetů: opačné póly se přitahují, stejné se odpuzují">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#e8590c"/></marker>
+<marker id="s-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="24" font-weight="bold" fill="#e03131" text-anchor="start">Stejné póly se odpuzují, opačné přitahují</text>
+<rect x="560" y="66" width="26" height="24" rx="4" fill="#e03131"/><text x="573" y="85" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="594" y="84" font-size="19" fill="#2b2a26" text-anchor="start">severní pól</text>
+<rect x="720" y="66" width="26" height="24" rx="4" fill="#1971c2"/><text x="733" y="85" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="754" y="84" font-size="19" fill="#2b2a26" text-anchor="start">jižní pól</text>
+
+<rect x="70" y="150" width="150.0" height="60" fill="#e03131"/><rect x="220.0" y="150" width="150.0" height="60" fill="#1971c2"/><rect x="70" y="150" width="300" height="60" fill="none" stroke="#2b2a26" stroke-width="3" rx="3"/>
+<text x="145.0" y="190.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="295.0" y="190.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<rect x="530" y="150" width="150.0" height="60" fill="#e03131"/><rect x="680.0" y="150" width="150.0" height="60" fill="#1971c2"/><rect x="530" y="150" width="300" height="60" fill="none" stroke="#2b2a26" stroke-width="3" rx="3"/>
+<text x="605.0" y="190.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="755.0" y="190.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="250" y1="250" x2="360" y2="250" stroke="#2f9e44" stroke-width="7" marker-end="url(#s-zel)"/><line x1="650" y1="250" x2="540" y2="250" stroke="#2f9e44" stroke-width="7" marker-end="url(#s-zel)"/>
+<text x="450" y="294" font-size="21" font-weight="bold" fill="#2f9e44" text-anchor="middle">opačné póly k sobě (S a N): přitahují se</text>
+<rect x="70" y="340" width="150.0" height="60" fill="#1971c2"/><rect x="220.0" y="340" width="150.0" height="60" fill="#e03131"/><rect x="70" y="340" width="300" height="60" fill="none" stroke="#2b2a26" stroke-width="3" rx="3"/>
+<text x="145.0" y="380.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="295.0" y="380.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<rect x="530" y="340" width="150.0" height="60" fill="#e03131"/><rect x="680.0" y="340" width="150.0" height="60" fill="#1971c2"/><rect x="530" y="340" width="300" height="60" fill="none" stroke="#2b2a26" stroke-width="3" rx="3"/>
+<text x="605.0" y="380.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="755.0" y="380.8" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<line x1="360" y1="440" x2="250" y2="440" stroke="#e8590c" stroke-width="7" marker-end="url(#s-ora)"/><line x1="540" y1="440" x2="650" y2="440" stroke="#e8590c" stroke-width="7" marker-end="url(#s-ora)"/>
+<text x="450" y="484" font-size="21" font-weight="bold" fill="#e8590c" text-anchor="middle">stejné póly k sobě (N a N): odpuzují se</text>
+</svg>

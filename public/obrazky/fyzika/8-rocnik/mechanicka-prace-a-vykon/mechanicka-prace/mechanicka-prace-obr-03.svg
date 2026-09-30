@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešený příklad: práce při zvedání hračky na polici">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#e8590c"/></marker>
+<marker id="s-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="634" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="24" font-weight="bold" fill="#e03131" text-anchor="start">Tíhová síla: F<tspan dy="6" font-size="18">g</tspan><tspan dy="-6"> </tspan>= m · g</text>
+<text x="24" y="88" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">Příklad:</text>
+<text x="24" y="118" font-size="20" fill="#2b2a26" text-anchor="start">Máma zvedá ze země hračku o hmotnosti 600 g na polici ve výšce 150 cm.</text>
+<text x="24" y="144" font-size="20" fill="#2b2a26" text-anchor="start">Jak velkou práci vykoná?</text>
+<text x="24" y="196" font-size="21" fill="#2b2a26" text-anchor="start">m = 600 g = <tspan font-weight="bold">0,6 kg</tspan></text>
+<text x="24" y="232" font-size="21" fill="#2b2a26" text-anchor="start">s = 150 cm = <tspan font-weight="bold">1,5 m</tspan></text>
+<text x="24" y="268" font-size="21" fill="#2b2a26" text-anchor="start">g = 10 N/kg</text>
+<text x="24" y="304" font-size="21" fill="#2b2a26" text-anchor="start">W = ? J</text>
+<line x1="24" y1="322" x2="300" y2="322" stroke="#868e96" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="24" y="348" font-size="21" font-weight="bold" fill="#e03131" text-anchor="start">F = m · g</text>
+<text x="24" y="384" font-size="21" fill="#2b2a26" text-anchor="start">F = 0,6 kg · 10 N/kg = <tspan font-weight="bold">6 N</tspan></text>
+<text x="24" y="420" font-size="21" font-weight="bold" fill="#e03131" text-anchor="start">W = F · s</text>
+<text x="24" y="456" font-size="21" fill="#2b2a26" text-anchor="start">W = 6 N · 1,5 m</text>
+<text x="24" y="492" font-size="23" font-weight="bold" fill="#2b2a26" text-anchor="start">W = 9 J</text>
+<path d="M272,174.0 L216,189 L272,192.0 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="270" y="166" width="230" height="34" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="269" y="175.0" width="5" height="16" fill="#fff3bf"/>
+<text x="385.0" y="189.65" font-size="19" fill="#2b2a26" text-anchor="middle">jednotka: kilogram</text>
+<path d="M272,216.0 L216,225 L272,234.0 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="270" y="208" width="230" height="34" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="269" y="217.0" width="5" height="16" fill="#fff3bf"/>
+<text x="385.0" y="231.65" font-size="19" fill="#2b2a26" text-anchor="middle">jednotka: metr</text>
+<text x="24" y="610" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">Odpověď: Máma vykoná práci 9 J.</text>
+<rect x="520" y="560" width="360" height="14" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<text x="530" y="600" font-size="18" fill="#495057" text-anchor="start">podlaha</text>
+<rect x="660" y="250" width="220" height="14" fill="#74c0fc" stroke="#1971c2" stroke-width="2"/>
+<text x="870" y="238" font-size="18" fill="#1971c2" text-anchor="end">police</text>
+<rect x="560" y="504" width="56" height="56" rx="6" fill="#ffd8a8" stroke="#e8590c" stroke-width="3"/><text x="588" y="542" font-size="26" font-weight="bold" fill="#e8590c" text-anchor="middle">A</text>
+<rect x="700" y="194" width="56" height="56" rx="6" fill="none" stroke="#e8590c" stroke-width="3" stroke-dasharray="7 5"/><text x="728" y="232" font-size="26" font-weight="bold" fill="#ffc078" text-anchor="middle">A</text>
+<line x1="588" y1="500" x2="588" y2="400" stroke="#e03131" stroke-width="7" marker-end="url(#s-cer)"/>
+<text x="602" y="442" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">F = 6 N</text>
+<text x="588" y="600" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="start" dx="30">m = 0,6 kg</text>
+<line x1="840" y1="558" x2="840" y2="268" stroke="#1971c2" stroke-width="5" marker-start="url(#s-mod)" marker-end="url(#s-mod)"/>
+<rect x="718" y="397" width="122" height="35" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<text x="779.0799999999999" y="423" font-size="21" font-weight="bold" fill="#1971c2" text-anchor="middle">s = 1,5 m</text>
+</svg>

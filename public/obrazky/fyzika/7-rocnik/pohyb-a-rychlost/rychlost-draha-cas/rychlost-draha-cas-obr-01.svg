@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 588" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Převod: z m/s na km/h násobíme 3,6, z km/h na m/s dělíme 3,6">
+<defs>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e03131"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e8590c"/></marker>
+<marker id="s-sed" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#495057"/></marker>
+<marker id="s-fia2" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="582" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">Převod jednotek rychlosti</text>
+<text x="450" y="96" font-size="30" font-weight="bold" fill="#1971c2" text-anchor="middle">Platí: 1 m/s = 3,6 km/h</text>
+<rect x="120" y="196" width="180" height="76" rx="16" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/>
+<text x="210" y="246" font-size="34" font-weight="bold" fill="#1971c2" text-anchor="middle">m/s</text>
+<rect x="600" y="196" width="180" height="76" rx="16" fill="#fff4e6" stroke="#e8590c" stroke-width="3"/>
+<text x="690" y="246" font-size="34" font-weight="bold" fill="#e8590c" text-anchor="middle">km/h</text>
+<path d="M270,280 C340,380 560,380 640,284" fill="none" stroke="#2f9e44" stroke-width="4" marker-end="url(#s-zel)"/>
+<rect x="360" y="330" width="180" height="44" rx="10" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="450" y="361" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="middle">násob · 3,6</text>
+<path d="M640,188 C560,96 340,96 262,184" fill="none" stroke="#7048e8" stroke-width="4" marker-end="url(#s-fia2)"/>
+<rect x="360" y="130" width="180" height="44" rx="10" fill="#f3f0ff" stroke="#7048e8" stroke-width="2"/>
+<text x="450" y="161" font-size="22" font-weight="bold" fill="#7048e8" text-anchor="middle">děl : 3,6</text>
+<rect x="24" y="402" width="420" height="96" rx="12" fill="#ffffff" stroke="#2f9e44" stroke-width="2.5"/>
+<text x="40" y="436" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="start">Z m/s na km/h:</text>
+<text x="40" y="474" font-size="20" fill="#2b2a26" text-anchor="start">10 m/s = 10 · 3,6 km/h = 36 km/h</text>
+<rect x="456" y="402" width="420" height="96" rx="12" fill="#ffffff" stroke="#7048e8" stroke-width="2.5"/>
+<text x="472" y="436" font-size="20" font-weight="bold" fill="#7048e8" text-anchor="start">Z km/h na m/s:</text>
+<text x="472" y="474" font-size="20" fill="#2b2a26" text-anchor="start">36 km/h = 36 : 3,6 m/s = 10 m/s</text>
+<rect x="24" y="516" width="852" height="48" rx="12" fill="#fff5f5" stroke="#e03131" stroke-width="2.5"/>
+<text x="450" y="548" font-size="20" font-weight="bold" fill="#e03131" text-anchor="middle">Pozor! Desetinná čárka se neposouvá — násobíme nebo dělíme 3,6.</text>
+</svg>

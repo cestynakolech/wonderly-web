@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 572" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Měřidla rychlosti: tachometr, policejní radar, anemometr s kalíšky a větrný rukáv">
+<defs>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e03131"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e8590c"/></marker>
+<marker id="s-sed" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="566" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">Čím měříme rychlost</text>
+<text x="24" y="80" font-size="19" fill="#2b2a26" text-anchor="start">Okamžitou rychlost ukazuje tachometr a policejní radar, rychlost větru anemometr.</text>
+<rect x="24" y="100" width="414" height="216" rx="14" fill="#ffffff" stroke="#1971c2" stroke-width="2.5"/>
+<text x="238" y="160" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">tachometr</text>
+<text x="238" y="190" font-size="18" fill="#2b2a26" text-anchor="start">v autě nebo na kole</text>
+<text x="238" y="220" font-size="18" fill="#2b2a26" text-anchor="start">ukazuje okamžitou</text>
+<text x="238" y="250" font-size="18" fill="#2b2a26" text-anchor="start">rychlost</text>
+<path d="M40,250 A80,80 0 0 1 200,250" fill="#ffffff" stroke="#495057" stroke-width="5"/><line x1="44.0" y1="250.0" x2="54.0" y2="250.0" stroke="#495057" stroke-width="2.5"/><line x1="49.8" y1="220.9" x2="59.0" y2="224.7" stroke="#495057" stroke-width="2.5"/><line x1="66.3" y1="196.3" x2="73.3" y2="203.3" stroke="#495057" stroke-width="2.5"/><line x1="90.9" y1="179.8" x2="94.7" y2="189.0" stroke="#495057" stroke-width="2.5"/><line x1="120.0" y1="174.0" x2="120.0" y2="184.0" stroke="#495057" stroke-width="2.5"/><line x1="149.1" y1="179.8" x2="145.3" y2="189.0" stroke="#495057" stroke-width="2.5"/><line x1="173.7" y1="196.3" x2="166.7" y2="203.3" stroke="#495057" stroke-width="2.5"/><line x1="190.2" y1="220.9" x2="181.0" y2="224.7" stroke="#495057" stroke-width="2.5"/><line x1="196.0" y1="250.0" x2="186.0" y2="250.0" stroke="#495057" stroke-width="2.5"/><line x1="120" y1="250" x2="100.8" y2="191.0" stroke="#e03131" stroke-width="5" stroke-linecap="round"/><circle cx="120" cy="250" r="7" fill="#2b2a26"/>
+<text x="120" y="290" font-size="20" font-weight="bold" fill="#495057" text-anchor="middle">km/h</text>
+<rect x="462" y="100" width="414" height="216" rx="14" fill="#ffffff" stroke="#e8590c" stroke-width="2.5"/>
+<text x="676" y="160" font-size="22" font-weight="bold" fill="#e8590c" text-anchor="start">policejní radar</text>
+<text x="676" y="190" font-size="18" fill="#2b2a26" text-anchor="start">policie jím měří</text>
+<text x="676" y="220" font-size="18" fill="#2b2a26" text-anchor="start">rychlost aut</text>
+<path d="M562,200 L658,200 L658,244 L562,244 z" fill="#343a40"/><path d="M562,196 L542,188 L542,256 L562,248 z" fill="#495057"/><path d="M616,244 L638,244 L628,296 L608,296 z" fill="#343a40"/><rect x="568" y="160" width="92" height="40" rx="6" fill="#212529"/><rect x="574" y="165" width="80" height="30" rx="3" fill="#d3f9d8"/><text x="614" y="187" font-size="18" font-weight="bold" fill="#2b8a3e" text-anchor="middle">km/h</text>
+<path d="M534,210.8 A16,16 0 0 0 534,233.2" fill="none" stroke="#e8590c" stroke-width="3"/><path d="M522,202.4 A28,28 0 0 0 522,241.6" fill="none" stroke="#e8590c" stroke-width="3"/><path d="M510,194.0 A40,40 0 0 0 510,250.0" fill="none" stroke="#e8590c" stroke-width="3"/>
+<rect x="24" y="332" width="414" height="216" rx="14" fill="#ffffff" stroke="#2f9e44" stroke-width="2.5"/>
+<text x="238" y="392" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="start">anemometr</text>
+<text x="238" y="422" font-size="18" fill="#2b2a26" text-anchor="start">vrtulka s kalíšky</text>
+<text x="238" y="452" font-size="18" fill="#2b2a26" text-anchor="start">měří rychlost větru</text>
+<line x1="134" y1="424" x2="134" y2="536" stroke="#495057" stroke-width="7"/><ellipse cx="134" cy="424" rx="72" ry="24" fill="none" stroke="#ced4da" stroke-width="2" stroke-dasharray="5 5"/><line x1="134" y1="424" x2="98.0" y2="403.2" stroke="#2b2a26" stroke-width="4"/><line x1="134" y1="424" x2="206.0" y2="424.0" stroke="#2b2a26" stroke-width="4"/><line x1="134" y1="424" x2="98.0" y2="444.8" stroke="#2b2a26" stroke-width="4"/><path d="M98.0,386.2 A17,17 0 0 1 98.0,420.2 z" fill="#2f9e44" stroke="#2b2a26" stroke-width="2"/><ellipse cx="98.0" cy="403.2" rx="5" ry="17" fill="#b2f2bb" stroke="#2b2a26" stroke-width="2"/><circle cx="206.0" cy="424.0" r="17" fill="#2f9e44" stroke="#2b2a26" stroke-width="2"/><path d="M98.0,427.8 A17,17 0 0 0 98.0,461.8 z" fill="#2f9e44" stroke="#2b2a26" stroke-width="2"/><ellipse cx="98.0" cy="444.8" rx="5" ry="17" fill="#b2f2bb" stroke="#2b2a26" stroke-width="2"/><circle cx="134" cy="424" r="7" fill="#2b2a26"/><path d="M184,466 Q134,482 84,466" fill="none" stroke="#e03131" stroke-width="3" marker-end="url(#s-cer)"/><line x1="238" y1="502" x2="354" y2="502" stroke="#1971c2" stroke-width="3" marker-end="url(#s-mod)"/>
+<text x="368" y="508" font-size="18" font-weight="bold" fill="#1971c2" text-anchor="start">vítr</text>
+
+<rect x="462" y="332" width="414" height="216" rx="14" fill="#ffffff" stroke="#e03131" stroke-width="2.5"/>
+<text x="676" y="392" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">větrný rukáv</text>
+<text x="676" y="422" font-size="18" fill="#2b2a26" text-anchor="start">na letišti</text>
+<text x="676" y="452" font-size="18" fill="#2b2a26" text-anchor="start">přibližně ukáže</text>
+<text x="676" y="482" font-size="18" fill="#2b2a26" text-anchor="start">rychlost větru</text>
+<line x1="498" y1="384" x2="498" y2="536" stroke="#495057" stroke-width="6"/><path d="M498.0,370.0 L528.0,376.4 L528.0,415.6 L498.0,414.0 z" fill="#f03e3e" stroke="#2b2a26" stroke-width="1.5"/><path d="M528.0,376.4 L558.0,382.8 L558.0,417.2 L528.0,415.6 z" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5"/><path d="M558.0,382.8 L588.0,389.2 L588.0,418.8 L558.0,417.2 z" fill="#f03e3e" stroke="#2b2a26" stroke-width="1.5"/><path d="M588.0,389.2 L618.0,395.6 L618.0,420.4 L588.0,418.8 z" fill="#ffffff" stroke="#2b2a26" stroke-width="1.5"/><path d="M618.0,395.6 L648.0,402.0 L648.0,422.0 L618.0,420.4 z" fill="#f03e3e" stroke="#2b2a26" stroke-width="1.5"/><line x1="502" y1="502" x2="632" y2="502" stroke="#1971c2" stroke-width="3" marker-end="url(#s-mod)"/>
+<text x="522" y="532" font-size="18" font-weight="bold" fill="#1971c2" text-anchor="start">vítr</text>
+
+</svg>

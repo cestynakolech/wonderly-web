@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tvary magnetů: podkova, tyčový magnet, magnetka, feritový nebo neodymový magnet">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#e8590c"/></marker>
+<marker id="s-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="654" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="24" font-weight="bold" fill="#e03131" text-anchor="start">Magnety mají různé tvary</text>
+<path d="M70,250 L110,250 L110,150 A40,40 0 0 1 150,110 L150,70 A80,80 0 0 0 70,150 z" fill="#e03131"/><path d="M230,250 L190,250 L190,150 A40,40 0 0 0 150,110 L150,70 A80,80 0 0 1 230,150 z" fill="#1971c2"/><path d="M70,250 L110,250 L110,150 A40,40 0 0 1 190,150 L190,250 L230,250 L230,150 A80,80 0 0 0 70,150 z" fill="none" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><text x="90.0" y="238" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="210.0" y="238" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+
+<path d="M292,250 L326,250 L340,150 A30,30 0 0 1 370,120 L370,86 A64,64 0 0 0 306,150 z" fill="#e03131"/><path d="M448,250 L414,250 L400,150 A30,30 0 0 0 370,120 L370,86 A64,64 0 0 1 434,150 z" fill="#1971c2"/><path d="M292,250 L326,250 L340,150 A30,30 0 0 1 400,150 L414,250 L448,250 L434,150 A64,64 0 0 0 306,150 z" fill="none" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><text x="309.0" y="238" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="431.0" y="238" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+
+<text x="260" y="290" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">podkova</text>
+<rect x="40" y="330" width="140.0" height="56" fill="#e03131"/><rect x="180.0" y="330" width="140.0" height="56" fill="#1971c2"/><rect x="40" y="330" width="280" height="56" fill="none" stroke="#2b2a26" stroke-width="3" rx="3"/>
+<text x="110.0" y="368.08" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="250.0" y="368.08" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<ellipse cx="640" cy="358" rx="14" ry="28" fill="#1971c2"/><rect x="390" y="330" width="125" height="56" fill="#e03131"/><rect x="515" y="330" width="125" height="56" fill="#1971c2"/><rect x="410" y="340" width="220" height="7" rx="3" fill="#ffffff" opacity="0.35"/><ellipse cx="390" cy="358" rx="14" ry="28" fill="#c92a2a" stroke="#2b2a26" stroke-width="3"/><path d="M390,330 L640,330 A14,28 0 0 1 640,386 L390,386" fill="none" stroke="#2b2a26" stroke-width="3"/><text x="460" y="367" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="580" y="367" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+
+<text x="340" y="426" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">tyčový magnet</text>
+<path d="M40,490 L190,464 L190,516 z" fill="#e03131" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M340,490 L190,464 L190,516 z" fill="#1971c2" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><circle cx="190" cy="490" r="7" fill="#ffffff" stroke="#2b2a26" stroke-width="2.5"/><text x="120" y="498" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="260" y="498" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+
+<text x="190" y="552" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">magnetka (střelka kompasu)</text>
+<path d="M700,150 L700,180 A60,20 0 0 0 820,180 L820,150 z" fill="#868e96" stroke="#2b2a26" stroke-width="2.5"/><ellipse cx="760" cy="150" rx="60" ry="20" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/>
+<path d="M700,250 L700,280 A60,20 0 0 0 820,280 L820,250 z" fill="#868e96" stroke="#2b2a26" stroke-width="2.5"/><ellipse cx="760" cy="250" rx="60" ry="20" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/><ellipse cx="760" cy="250" rx="26" ry="8.7" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+<path d="M715,350 L715,440 A45,16 0 0 0 805,440 L805,350 z" fill="#868e96" stroke="#2b2a26" stroke-width="2.5"/><ellipse cx="760" cy="350" rx="45" ry="16" fill="#adb5bd" stroke="#2b2a26" stroke-width="2.5"/>
+<text x="760" y="490" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">feritový nebo</text>
+<text x="760" y="516" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">neodymový magnet</text>
+<line x1="672" y1="100" x2="672" y2="530" stroke="#ced4da" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="760" y="96" font-size="19" fill="#495057" text-anchor="middle">umělé permanentní</text>
+<text x="760" y="120" font-size="19" fill="#495057" text-anchor="middle">magnety</text>
+<rect x="24" y="582" width="26" height="24" rx="4" fill="#e03131"/><text x="37" y="601" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">N</text>
+<text x="58" y="600" font-size="19" fill="#2b2a26" text-anchor="start">severní pól</text>
+<rect x="184" y="582" width="26" height="24" rx="4" fill="#1971c2"/><text x="197" y="601" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">S</text>
+<text x="218" y="600" font-size="19" fill="#2b2a26" text-anchor="start">jižní pól</text>
+
+<text x="24" y="636" font-size="20" fill="#2b2a26" text-anchor="start">Každý magnet má dva póly; severní se nejčastěji značí červeně.</text>
+</svg>

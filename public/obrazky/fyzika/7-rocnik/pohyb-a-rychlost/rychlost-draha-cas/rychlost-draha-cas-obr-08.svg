@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 492" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tabulka: rychlost v, dráha s, čas t a jejich jednotky; trojúhelník s nad v a t">
+<defs>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e03131"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e8590c"/></marker>
+<marker id="s-sed" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="486" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">Rychlost, dráha, čas: značky a jednotky</text>
+<rect x="24" y="66" width="560" height="42" rx="8" fill="#1971c2" stroke="#1971c2" stroke-width="0"/>
+<text x="38" y="94" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="start">veličina</text>
+<text x="178" y="94" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="start">značka</text>
+<text x="274" y="94" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="start">jednotky</text>
+<rect x="24" y="116" width="560" height="88" rx="8" fill="#e7f5ff" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="38" y="168" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">rychlost</text>
+<text x="198" y="170" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">v</text>
+<text x="274" y="152" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">m/s <tspan font-size="18" font-weight="normal" fill="#495057">(metr za sekundu)</tspan></text>
+<text x="274" y="188" font-size="22" font-weight="bold" fill="#e8590c" text-anchor="start">km/h <tspan font-size="18" font-weight="normal" fill="#495057">(kilometr za hodinu)</tspan></text>
+<rect x="24" y="212" width="560" height="88" rx="8" fill="#ffffff" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="38" y="264" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">dráha</text>
+<text x="198" y="266" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">s</text>
+<text x="274" y="248" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">m <tspan font-size="18" font-weight="normal" fill="#495057">(metr)</tspan></text>
+<text x="274" y="284" font-size="22" font-weight="bold" fill="#e8590c" text-anchor="start">km <tspan font-size="18" font-weight="normal" fill="#495057">(kilometr)</tspan></text>
+<rect x="24" y="308" width="560" height="88" rx="8" fill="#e7f5ff" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="38" y="360" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">čas</text>
+<text x="198" y="362" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">t</text>
+<text x="274" y="344" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="start">s <tspan font-size="18" font-weight="normal" fill="#495057">(sekunda)</tspan></text>
+<text x="274" y="380" font-size="22" font-weight="bold" fill="#e8590c" text-anchor="start">h <tspan font-size="18" font-weight="normal" fill="#495057">(hodina)</tspan></text>
+<path d="M740,80 L870,300 L610,300 z" fill="#fff3bf" stroke="#f08c00" stroke-width="3" stroke-linejoin="round"/>
+<line x1="660" y1="215" x2="820" y2="215" stroke="#2b2a26" stroke-width="3"/><line x1="740" y1="222" x2="740" y2="292" stroke="#2b2a26" stroke-width="3"/>
+<text x="740" y="196" font-size="40" font-weight="bold" fill="#2b2a26" text-anchor="middle">s</text>
+<text x="694" y="276" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="middle">v</text>
+<text x="786" y="276" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="middle">t</text>
+<text x="740" y="340" font-size="24" font-weight="bold" fill="#e03131" text-anchor="middle">v = s : t</text>
+<text x="740" y="374" font-size="24" font-weight="bold" fill="#1971c2" text-anchor="middle">s = v · t</text>
+<text x="740" y="408" font-size="24" font-weight="bold" fill="#1971c2" text-anchor="middle">t = s : v</text>
+<rect x="24" y="420" width="852" height="48" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<text x="450" y="452" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Metry patří k sekundám (m/s), kilometry k hodinám (km/h).</text>
+</svg>

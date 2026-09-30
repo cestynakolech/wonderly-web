@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 646" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Michal: tyč se nehne (nekoná práci), vozík (koná), skateboard bez odrážení (nekoná)">
+<defs>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" refX="18" refY="11" orient="auto"><path d="M0,0 L22,11 L0,22 z" fill="#e8590c"/></marker>
+<marker id="s-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto-start-reverse"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="640" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="24" font-weight="bold" fill="#e03131" text-anchor="start">Kdy Michal koná práci a kdy ne</text>
+<rect x="15" y="70" width="280" height="380" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<line x1="25" y1="390" x2="285" y2="390" stroke="#868e96" stroke-width="3"/>
+<g transform="translate(155.0,390)"><line x1="-8" y1="-50" x2="-12" y2="-2" stroke="#495057" stroke-width="10" stroke-linecap="round"/><line x1="8" y1="-50" x2="12" y2="-2" stroke="#495057" stroke-width="10" stroke-linecap="round"/><rect x="-17" y="-104" width="34" height="58" rx="10" fill="#2f9e44"/><line x1="-14" y1="-98" x2="-30" y2="-168" stroke="#2f9e44" stroke-width="8" stroke-linecap="round"/><circle cx="-30" cy="-168" r="5" fill="#ffd8a8"/><line x1="14" y1="-98" x2="30" y2="-168" stroke="#2f9e44" stroke-width="8" stroke-linecap="round"/><circle cx="30" cy="-168" r="5" fill="#ffd8a8"/><circle cx="0" cy="-122" r="16" fill="#ffd8a8" stroke="#495057" stroke-width="2"/></g>
+<rect x="75.0" y="212" width="160" height="12" rx="4" fill="#868e96" stroke="#2b2a26" stroke-width="2"/>
+<line x1="215.0" y1="210" x2="215.0" y2="154" stroke="#e03131" stroke-width="6" marker-end="url(#s-cer)"/>
+<text x="227.0" y="184" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">F</text>
+<rect x="40" y="157" width="90" height="33" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<text x="85.0" y="181" font-size="19" font-weight="bold" fill="#1971c2" text-anchor="middle">s = 0 m</text>
+<text x="155.0" y="100" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">tlačí na tyč,</text>
+<text x="155.0" y="124" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">tyč se nehne</text>
+<text x="155.0" y="484" font-size="20" fill="#2b2a26" text-anchor="middle">F = 20 N, s = 0 m</text>
+<text x="155.0" y="514" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">W = 0 J</text>
+<text x="155.0" y="550" font-size="21" font-weight="bold" fill="#e03131" text-anchor="middle">práci nekoná</text>
+<rect x="310" y="70" width="280" height="380" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<line x1="320" y1="390" x2="580" y2="390" stroke="#868e96" stroke-width="3"/>
+<g transform="translate(380.0,390)"><line x1="-8" y1="-50" x2="-12" y2="-2" stroke="#495057" stroke-width="10" stroke-linecap="round"/><line x1="8" y1="-50" x2="12" y2="-2" stroke="#495057" stroke-width="10" stroke-linecap="round"/><rect x="-17" y="-104" width="34" height="58" rx="10" fill="#2f9e44"/><line x1="14" y1="-98" x2="34" y2="-80" stroke="#2f9e44" stroke-width="8" stroke-linecap="round"/><circle cx="34" cy="-80" r="5" fill="#ffd8a8"/><line x1="14" y1="-98" x2="38" y2="-76" stroke="#2f9e44" stroke-width="8" stroke-linecap="round"/><circle cx="38" cy="-76" r="5" fill="#ffd8a8"/><circle cx="0" cy="-122" r="16" fill="#ffd8a8" stroke="#495057" stroke-width="2"/></g>
+<path d="M424.0,298 L520.0,298 L508.0,348 L436.0,348 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="3" stroke-linejoin="round"/><line x1="424.0" y1="298" x2="420.0" y2="286" stroke="#1971c2" stroke-width="3"/><line x1="436.0" y1="348" x2="436.0" y2="366" stroke="#1971c2" stroke-width="3"/><line x1="508.0" y1="348" x2="508.0" y2="366" stroke="#1971c2" stroke-width="3"/><circle cx="440.0" cy="378" r="10" fill="#343a40"/><circle cx="504.0" cy="378" r="10" fill="#343a40"/>
+<line x1="444.0" y1="260" x2="524.0" y2="260" stroke="#e03131" stroke-width="6" marker-end="url(#s-cer)"/>
+<text x="464.0" y="248" font-size="22" font-weight="bold" fill="#e03131" text-anchor="start">F</text>
+<line x1="334" y1="416" x2="566" y2="416" stroke="#1971c2" stroke-width="4" marker-end="url(#s-mod)"/>
+<rect x="399" y="402" width="101" height="33" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<text x="450.0" y="426" font-size="19" font-weight="bold" fill="#1971c2" text-anchor="middle">s = 10 m</text>
+<text x="450.0" y="100" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">postrčí vozík,</text>
+<text x="450.0" y="124" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">vozík se posune</text>
+<text x="450.0" y="484" font-size="20" fill="#2b2a26" text-anchor="middle">F = 20 N, s = 10 m</text>
+<text x="450.0" y="514" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">W = 200 J</text>
+<text x="450.0" y="550" font-size="21" font-weight="bold" fill="#2f9e44" text-anchor="middle">práci koná</text>
+<rect x="605" y="70" width="280" height="380" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<line x1="615" y1="390" x2="875" y2="390" stroke="#868e96" stroke-width="3"/>
+<g transform="translate(745.0,368)"><line x1="-8" y1="-50" x2="-12" y2="-2" stroke="#495057" stroke-width="10" stroke-linecap="round"/><line x1="8" y1="-50" x2="12" y2="-2" stroke="#495057" stroke-width="10" stroke-linecap="round"/><rect x="-17" y="-104" width="34" height="58" rx="10" fill="#2f9e44"/><line x1="-14" y1="-98" x2="-34" y2="-70" stroke="#2f9e44" stroke-width="8" stroke-linecap="round"/><circle cx="-34" cy="-70" r="5" fill="#ffd8a8"/><line x1="14" y1="-98" x2="34" y2="-70" stroke="#2f9e44" stroke-width="8" stroke-linecap="round"/><circle cx="34" cy="-70" r="5" fill="#ffd8a8"/><circle cx="0" cy="-122" r="16" fill="#ffd8a8" stroke="#495057" stroke-width="2"/></g>
+<rect x="695.0" y="366" width="100" height="8" rx="4" fill="#e8590c"/><circle cx="711.0" cy="382" r="8" fill="#343a40"/><circle cx="779.0" cy="382" r="8" fill="#343a40"/>
+<line x1="635.0" y1="280" x2="685.0" y2="280" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/><line x1="641.0" y1="310" x2="685.0" y2="310" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/><line x1="647.0" y1="340" x2="685.0" y2="340" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/>
+<rect x="770" y="157" width="90" height="33" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+<text x="815.0" y="181" font-size="19" font-weight="bold" fill="#e03131" text-anchor="middle">F = 0 N</text>
+<line x1="629" y1="416" x2="861" y2="416" stroke="#1971c2" stroke-width="4" marker-end="url(#s-mod)"/>
+<rect x="689" y="402" width="112" height="33" rx="8" fill="#ffffff" stroke="#1971c2" stroke-width="2"/>
+<text x="745.0" y="426" font-size="19" font-weight="bold" fill="#1971c2" text-anchor="middle">s = 250 m</text>
+<text x="745.0" y="100" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">jede na skateboardu,</text>
+<text x="745.0" y="124" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">neodráží se</text>
+<text x="745.0" y="484" font-size="20" fill="#2b2a26" text-anchor="middle">F = 0 N, s = 250 m</text>
+<text x="745.0" y="514" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">W = 0 J</text>
+<text x="745.0" y="550" font-size="21" font-weight="bold" fill="#e03131" text-anchor="middle">práci nekoná</text>
+<text x="24" y="596" font-size="19" fill="#2b2a26" text-anchor="start">Práce se koná jen tehdy, když síla působí a těleso se ve směru síly posune: W = F · s.</text>
+<text x="24" y="622" font-size="19" fill="#2b2a26" text-anchor="start">Na skateboardu konal Michal práci jen při rozjezdu.</text>
+</svg>

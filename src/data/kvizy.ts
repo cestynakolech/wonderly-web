@@ -2732,196 +2732,28 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/klid-a-pohyb-telesa': [
-  {
-    "text": "Co je pohyb tělesa?",
-    "odpovedi": [
-      "změna polohy tělesa vzhledem k jinému tělesu",
-      "změna tvaru tělesa bez změny jeho polohy v prostoru",
-      "změna barvy tělesa bez změny jeho polohy v prostoru"
-    ],
-    "vysvetleni": "Pohyb = změna polohy vzhledem k jinému tělesu. Bez porovnání s jiným tělesem o pohybu mluvit nejde."
-  },
-  {
-    "text": "Kdy je těleso v klidu?",
-    "odpovedi": [
-      "když vzhledem ke zvolenému tělesu nemění polohu",
-      "když vzhledem ke zvolenému tělesu jede přímo",
-      "když vzhledem ke zvolenému tělesu opisuje kružnici"
-    ],
-    "vysvetleni": "Klid posuzujeme vždy vzhledem ke zvolenému tělesu."
-  },
-  {
-    "text": "Cestující sedí v jedoucím vlaku a vedle něj sedí spolucestující. Vzhledem ke spolucestujícímu je cestující…",
-    "odpovedi": [
-      "v klidu",
-      "v pohybu",
-      "ani jedno"
-    ],
-    "vysvetleni": "Oba jedou spolu, jejich poloha vůči sobě se nemění."
-  },
-  {
-    "text": "Sedící cestující v jedoucím vlaku je vzhledem k dítěti stojícímu u přejezdu…",
-    "odpovedi": [
-      "v pohybu",
-      "v klidu",
-      "nelze rozhodnout"
-    ],
-    "vysvetleni": "Během průjezdu vlaku se poloha cestujícího vůči dítěti mění."
-  },
-  {
-    "text": "Říkáme, že klid a pohyb jsou…",
-    "odpovedi": [
-      "relativní — záleží na porovnání",
-      "absolutní — platí vždy stejně pro všechny pozorovatele",
-      "náhodné a nedají se vůbec určit ani změřit"
-    ],
-    "vysvetleni": "Vždy musíme říct, k čemu polohu vztahujeme."
-  },
-  {
-    "text": "Co je trajektorie?",
-    "odpovedi": [
-      "čára, po které se těleso pohybuje",
-      "délka cesty, kterou těleso urazilo",
-      "doba, po kterou pohyb tělesa trvá"
-    ],
-    "vysvetleni": "Trajektorie je čára pohybu — stopa lyžaře ve sněhu."
-  },
-  {
-    "text": "Trajektorie může být…",
-    "odpovedi": [
-      "viditelná jako stopa i pouze myšlená čára",
-      "vždy viditelná jako stopa na pevném povrchu",
-      "vždy pouze myšlená, nikdy viditelná jako stopa"
-    ],
-    "vysvetleni": "Někdy trajektorii vidíme (stopa), jindy si ji jen představujeme (trasa hozeného kamene vzduchem)."
-  },
-  {
-    "text": "Co je dráha?",
-    "odpovedi": [
-      "délka trajektorie",
-      "tvar čáry, kterou těleso opíše",
-      "rychlost, jakou se těleso pohybuje"
-    ],
-    "vysvetleni": "Dráha s = délka čáry, kterou těleso opsalo; měříme ji v metrech."
-  },
-  {
-    "text": "Jakou značku má dráha?",
-    "odpovedi": [
-      "s",
-      "d",
-      "t"
-    ],
-    "vysvetleni": "Pro dráhu používáme malé písmeno s."
-  },
-  {
-    "text": "Jaká je základní jednotka dráhy?",
-    "odpovedi": [
-      "metr (m)",
-      "kilometr (km)",
-      "centimetr (cm)"
-    ],
-    "vysvetleni": "Dráhu lze vyjádřit v různých jednotkách délky, základní jednotkou je metr."
-  },
-  {
-    "text": "Pohyb, jehož trajektorií je přímka, se nazývá…",
-    "odpovedi": [
-      "přímočarý",
-      "křivočarý",
-      "podle tvaru jej nelze zařadit"
-    ],
-    "vysvetleni": "Přímá trajektorie = přímočarý pohyb, např. jedoucí výtah."
-  },
-  {
-    "text": "Pohyb, jehož trajektorií je křivka, která není přímkou, se nazývá…",
-    "odpovedi": [
-      "křivočarý",
-      "přímočarý",
-      "podle tvaru jej nelze zařadit"
-    ],
-    "vysvetleni": "Křivá trajektorie = křivočarý pohyb, např. slalom lyžaře nebo hod míčem."
-  },
-  {
-    "text": "Jedoucí výtah koná pohyb…",
-    "odpovedi": [
-      "přímočarý",
-      "křivočarý",
-      "střídavě přímočarý a křivočarý"
-    ],
-    "vysvetleni": "Výtah jede rovně nahoru/dolů — trajektorie je přímka."
-  },
-  {
-    "text": "Lyžař ve slalomu koná pohyb…",
-    "odpovedi": [
-      "křivočarý",
-      "přímočarý",
-      "žádný"
-    ],
-    "vysvetleni": "Mezi brankami lyžař neustále mění směr, jeho trajektorie není přímka."
-  },
-  {
-    "text": "Strom u silnice je vzhledem k jedoucímu autu…",
-    "odpovedi": [
-      "v pohybu",
-      "v klidu",
-      "nelze určit"
-    ],
-    "vysvetleni": "Vzhledem k autu strom svou polohu mění — z pohledu řidiče se „pohybuje\" dozadu."
-  },
-  {
-    "text": "Který pohyb zanechává viditelnou stopu na povrchu?",
-    "odpovedi": [
-      "psaní tužkou po papíře",
-      "let dravce při lovu",
-      "pohyb míče při volejbalu"
-    ],
-    "vysvetleni": "Tužka na papíře zanechává čáru tvořenou místy, kterými prošel její hrot."
-  },
-  {
-    "text": "Věta „závodní dráha má oválný tvar“ označuje slovem dráha fyzikálně…",
-    "odpovedi": [
-      "trajektorii",
-      "délku uražené cesty",
-      "jednotku délky"
-    ],
-    "vysvetleni": "Věta popisuje tvar čáry, ne její uraženou délku."
-  },
-  {
-    "text": "Která dvojice pohybů je tvořena dvěma křivočarými pohyby?",
-    "odpovedi": [
-      "slalom lyžaře a pohyb dítěte na kolotoči",
-      "jízda výtahu a slalom lyžaře",
-      "pohyb zboží po rovném pásu a jízda výtahu"
-    ],
-    "vysvetleni": "U obou pohybů správné dvojice se směr postupně mění; ani jeden neprobíhá po přímce."
-  },
-  {
-    "text": "Strom se spolu se Zemí pohybuje vzhledem k…",
-    "odpovedi": [
-      "Slunci",
-      "povrchu pod svými kořeny",
-      "místu svého kmene na Zemi"
-    ],
-    "vysvetleni": "Při posouzení pohybu stromu zde porovnáváme jeho polohu vůči Slunci."
-  },
-  {
-    "text": "Může být těleso zároveň v klidu i v pohybu?",
-    "odpovedi": [
-      "ano — podle zvoleného tělesa",
-      "ne, to nejde v žádném případě",
-      "jen ve vesmíru mimo planety"
-    ],
-    "vysvetleni": "Záleží, ke kterému tělesu polohu vztahujeme."
-  },
-  {
-    "text": "Který z těchto pohybů je křivočarý?",
-    "odpovedi": [
-      "kličkování zajíce",
-      "padání šišky ze stromu",
-      "let letadla při dálkovém letu"
-    ],
-    "vysvetleni": "Zajíc kličkuje, jeho trasa je křivka. Šiška padá po přímce a letadlo při dálkovém letu letí přímo."
-  }
-],
+		{ text: 'Co je pohyb tělesa?', odpovedi: ['změna polohy tělesa vzhledem k jinému tělesu', 'změna tvaru tělesa při jeho stlačení nebo ohnutí', 'změna hmotnosti tělesa v čase'], vysvetleni: 'Těleso se pohybuje, když mění svou polohu; tvar ani hmotnost o pohybu nerozhodují.' },
+		{ text: 'Kdy je těleso v klidu?', odpovedi: ['když vzhledem ke zvolenému tělesu nemění polohu', 'když se vůči zvolenému tělesu pohybuje velmi pomalu', 'když je od zvoleného tělesa hodně daleko'], vysvetleni: 'Klid znamená, že se poloha vůči zvolenému tělesu nemění; pomalost ani vzdálenost na tom nic nemění.' },
+		{ text: 'Cestující sedí v jedoucím vlaku a vedle něj sedí spolucestující. Vzhledem ke spolucestujícímu je cestující…', odpovedi: ['v klidu', 'v pohybu', 'ani v klidu, ani v pohybu'], vysvetleni: 'Vlak veze oba cestující stejně, jejich vzájemná vzdálenost se nemění.' },
+		{ text: 'Sedící cestující v jedoucím vlaku je vzhledem k dítěti stojícímu u přejezdu…', odpovedi: ['v pohybu', 'v klidu', 'nelze rozhodnout'], vysvetleni: 'Vlak projíždí kolem dítěte, takže se jejich vzdálenost postupně mění.' },
+		{ text: 'Říkáme, že klid a pohyb jsou…', odpovedi: ['relativní', 'absolutní', 'nezměřitelné'], vysvetleni: 'Odborně se pro závislost na zvoleném pozorovateli používá slovo relativní.' },
+		{ text: 'Co je trajektorie?', odpovedi: ['čára, kterou těleso při pohybu opíše', 'místo, ve kterém těleso právě stojí', 'doba, po kterou pohyb tělesa trvá'], vysvetleni: 'Trajektorie je čára pohybu, v běžném životě jí říkáme trasa.' },
+		{ text: 'Trajektorie může být…', odpovedi: ['někdy viditelná jako stopa, jindy jen myšlená', 'vždy viditelná jako stopa na pevném povrchu', 'vždy jen myšlená, nikdy vidět nejde'], vysvetleni: 'Stopa lyžaře ve sněhu je vidět, trasa hozeného kamene vzduchem existuje jen v naší mysli.' },
+		{ text: 'Co je dráha?', odpovedi: ['délka trasy, kterou těleso urazilo', 'rychlost, jakou se těleso pohybuje', 'počet otáček, které těleso vykoná'], vysvetleni: 'Dráha vyjadřuje, jak dlouhou trasu těleso urazilo.' },
+		{ text: 'Žena stojí ve výtahu, který jede nahoru. Vůči čemu je žena v klidu?', odpovedi: ['vůči výtahu, ve kterém stojí', 'vůči muži stojícímu v přízemí', 'vůči šachtě, kterou výtah projíždí'], vysvetleni: 'Výtah ženu veze, jejich vzájemná poloha se nemění.' },
+		{ text: 'Ve které z těchto jednotek NELZE vyjádřit dráhu?', odpovedi: ['v kilogramech', 'v kilometrech', 'v centimetrech'], vysvetleni: 'Kilogram je jednotka hmotnosti, dráhu v něm vyjádřit nejde.' },
+		{ text: 'Pohyb, jehož trajektorií je přímka, se nazývá…', odpovedi: ['přímočarý', 'křivočarý', 'podle tvaru jej nelze zařadit'], vysvetleni: 'Pohyb se pojmenovává podle tvaru trajektorie; název pro přímku je odvozený od slova přímka.' },
+		{ text: 'Pohyb, jehož trajektorií je křivka, se nazývá…', odpovedi: ['křivočarý', 'rovnoměrný', 'kruhový'], vysvetleni: 'Pohyb se pojmenovává podle tvaru trajektorie; název pro křivku je odvozený od slova křivka.' },
+		{ text: 'Jedoucí výtah koná pohyb…', odpovedi: ['přímočarý', 'křivočarý', 'střídavě přímočarý a křivočarý'], vysvetleni: 'Výtah jede stále rovně nahoru nebo dolů.' },
+		{ text: 'Lyžař ve slalomu koná pohyb…', odpovedi: ['křivočarý', 'přímočarý', 'kruhový'], vysvetleni: 'Mezi brankami lyžař stále mění směr, jeho trasa je klikatá.' },
+		{ text: 'Strom u silnice je vzhledem k jedoucímu autu…', odpovedi: ['v pohybu', 'v klidu', 'nelze určit'], vysvetleni: 'Z auta se poloha stromu vůči řidiči neustále mění.' },
+		{ text: 'Jaká je dráha auta jedoucího z Prahy do Ostravy podle příkladu ve výkladu?', odpovedi: ['asi 371 km', 'asi 271 km', 'asi 471 km'], vysvetleni: 'Ve výkladu vychází asi 371 km.' },
+		{ text: 'Věta „závodní dráha má oválný tvar“ označuje slovem dráha fyzikálně…', odpovedi: ['trajektorii, tedy tvar trasy pohybu', 'dobu, za kterou závodník ovál projede', 'rychlost, jakou závodník ovál projíždí'], vysvetleni: 'Slovo dráha zde označuje trasu závodníka, tedy trajektorii.' },
+		{ text: 'Který z těchto pohybů probíhá po přímce?', odpovedi: ['padání šišky ze stromu', 'pohyb dítěte na kolotoči', 'let dravce při lovu'], vysvetleni: 'Šiška padá přímo dolů, kolotoč i dravec při lovu neustále mění směr.' },
+		{ text: 'Strom se spolu se Zemí pohybuje vzhledem k…', odpovedi: ['Slunci a dalším tělesům mimo Zemi', 'půdě, ve které je zakořeněný', 'vlastnímu kmeni, který nese větve'], vysvetleni: 'Strom se pohybuje spolu se Zemí, takže vůči Slunci mění polohu; vůči půdě ani kmeni ne.' },
+		{ text: 'Může být těleso zároveň v klidu i v pohybu?', odpovedi: ['ano, vůči jednomu tělesu v klidu a vůči jinému v pohybu', 'ne, těleso buď stojí, nebo se pohybuje, nikdy obojí', 'ano, ale jen když se otáčí kolem své osy'], vysvetleni: 'Stejné těleso může vůči jednomu tělesu polohu měnit a vůči jinému ne.' },
+		{ text: 'Který z těchto pohybů probíhá po křivce?', odpovedi: ['kličkování zajíce při útěku po poli', 'pohyb zboží po rovném pásu u pokladny', 'let letadla při dálkovém letu'], vysvetleni: 'Zajíc kličkuje, jeho trasa je křivá; zboží na pásu i letadlo při dálkovém letu jedou po přímce.' },
+	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/posuvny-otacivy-pohyb': [
 		{ text: 'Kolik existuje základních jednoduchých pohybů těles?', odpovedi: ['dva — posuvný a otáčivý', 'tři — posuvný, otáčivý a šikmý', 'jeden — posuvný'], vysvetleni: 'Základní pohyby jsou dva: posuvný a otáčivý. Vše složitější je jejich kombinace.' },
 		{ text: 'Jak se pohybují body tělesa při posuvném pohybu?', odpovedi: ['všechny stejným směrem a stejnou rychlostí', 'každý bod se pohybuje jinou rychlostí', 'po kružnicích kolem společné osy otáčení'], vysvetleni: 'Při posuvném pohybu se každý bod pohybuje stejným směrem a stejnou rychlostí.' },
@@ -2946,27 +2778,27 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Body na obvodu kola jedoucího bagru se vzhledem k ose kola pohybují…', odpovedi: ['po kružnicích', 'po přímkách', 'vůbec'], vysvetleni: 'Vzhledem k ose opisují body obvodu kola kružnice — otáčivá složka pohybu.' },
 	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/rychlost-draha-cas': [
-		{ text: 'Co vyjadřuje rychlost?', odpovedi: ['dráhu uraženou za jednotku času', 'délku celé cesty tam i zpět', 'hmotnost tělesa při pohybu'], vysvetleni: 'Rychlost říká, kolik metrů (km) těleso urazí za sekundu (hodinu).' },
-		{ text: 'Jaká je značka rychlosti?', odpovedi: ['v', 's', 'r'], vysvetleni: 'Rychlost značíme v — z latinského velocitas.' },
-		{ text: 'V jakých jednotkách se rychlost udává nejčastěji?', odpovedi: ['m/s nebo km/h', 'jen metry (m)', 'newtony (N)'], vysvetleni: 'Metry za sekundu u běžce, km/h na rychloměru.' },
-		{ text: 'Podle jakého vzorce vypočítáme rychlost?', odpovedi: ['v = s : t', 'v = s · t', 'v = t : s'], vysvetleni: 'Rychlost = dráha děleno čas. Nahoře kilometry/metry, dole hodiny/sekundy.' },
-		{ text: 'Auto jede stálou rychlostí 20 m/s. Co to znamená?', odpovedi: ['každou sekundu urazí 20 metrů', 'každou minutu urazí 20 metrů', 'ujede nejvýše 20 km'], vysvetleni: '20 m/s = dvacet metrů každou sekundu.' },
-		{ text: 'Kolik km/h je 1 m/s?', odpovedi: ['3,6 km/h', '36 km/h', '0,36 km/h'], vysvetleni: '1 m/s = 3,6 km/h.' },
-		{ text: 'Kolik km/h je 10 m/s?', odpovedi: ['36 km/h', '3,6 km/h', '360 km/h'], vysvetleni: '10 · 3,6 = 36 km/h.' },
-		{ text: 'Proč se při převodu m/s ↔ km/h neposouvá jen čárka?', odpovedi: ['hodina nemá 1 000 sekund', 'desetinná čárka to neumí', 'kilometr má jen 100 metrů'], vysvetleni: 'Kilometr má 1000 m, ale hodina 3600 s — proto násobíme/dělíme číslem 3,6.' },
-		{ text: 'Kolik m/s je 72 km/h?', odpovedi: ['20 m/s', '200 m/s', '26 m/s'], vysvetleni: '72 : 3,6 = 20 m/s — přesně tenhle příklad je ve výkladu.' },
-		{ text: 'Autobus ujel 60 km za 90 minut. Jaká byla jeho průměrná rychlost?', odpovedi: ['40 km/h', '90 km/h', '30 km/h'], vysvetleni: '90 min = 1,5 h; v = 60 : 1,5 = 40 km/h.' },
-		{ text: 'Co je okamžitá rychlost?', odpovedi: ['rychlost tělesa v daném okamžiku', 'průměr za celou cestu', 'nejvyšší povolená rychlost'], vysvetleni: 'Okamžitá rychlost = jak rychle jedeš právě teď.' },
-		{ text: 'Čím se měří okamžitá rychlost auta?', odpovedi: ['tachometrem', 'teploměrem', 'siloměrem'], vysvetleni: 'Tachometr ukazuje, jak rychle jedeš teď.' },
-		{ text: 'Jaké značky mají dráha a čas ve vzorci v = s : t?', odpovedi: ['dráha s, čas t', 'dráha d, čas c', 'dráha t, čas s'], vysvetleni: 'Dráha je s, čas t, rychlost v.' },
-		{ text: 'Jaký pohyb koná těleso, jehož rychlost se nemění?', odpovedi: ['rovnoměrný', 'nerovnoměrný', 'zrychlený'], vysvetleni: 'Stálá rychlost = rovnoměrný pohyb.' },
-		{ text: 'Který pohyb je rovnoměrný?', odpovedi: ['eskalátor (jezdící schody)', 'rozjíždějící se autobus', 'brzdící vlak'], vysvetleni: 'Rychlost se nemění.' },
-		{ text: 'Start rakety je pohyb…', odpovedi: ['zrychlený', 'zpomalený', 'rovnoměrný'], vysvetleni: 'Rychlost rakety se zvětšuje — zrychlený (nerovnoměrný) pohyb.' },
-		{ text: 'Brzdící vlak koná pohyb…', odpovedi: ['zpomalený', 'zrychlený', 'rovnoměrný'], vysvetleni: 'Rychlost se zmenšuje — zpomalený pohyb.' },
-		{ text: 'Jak vypadá graf rovnoměrného pohybu (dráha na čase)?', odpovedi: ['je to přímka', 'je to křivka', 'je to kružnice'], vysvetleni: 'Rychlost se nemění, proto přímka.' },
-		{ text: 'Z čeho se počítá průměrná rychlost?', odpovedi: ['z celkové dráhy a celkového času', 'z nejvyšší naměřené rychlosti', 'jen z času'], vysvetleni: 'Průměrná rychlost = celková dráha : celkový čas celého pohybu.' },
-		{ text: 'Těleso urazí 30 m za 3 s. Jaká je jeho rychlost?', odpovedi: ['10 m/s', '90 m/s', '3 m/s'], vysvetleni: 'v = s : t = 30 : 3 = 10 m/s (to je 36 km/h).' },
-		{ text: 'Kolik m/s je 36 km/h?', odpovedi: ['10 m/s', '36 m/s', '3,6 m/s'], vysvetleni: '36 : 3,6 = 10 m/s.' },
+		{ text: 'Co vyjadřuje rychlost?', odpovedi: ['dráhu, kterou těleso urazí za jednotku času', 'celou vzdálenost, kterou těleso ujde tam i zpět', 'hmotnost tělesa, které se právě pohybuje'], vysvetleni: 'Rychlost srovnává, jak velký kus cesty těleso stihne za danou dobu.' },
+		{ text: 'Kde se běžně používá jednotka rychlosti míle za hodinu (mph)?', odpovedi: ['v USA a ve Velké Británii', 'hlavně v letectví a na moři', 've všech evropských zemích místo km/h'], vysvetleni: 'Míle za hodinu se používá v USA a ve Velké Británii; v letectví a na moři se používá uzel.' },
+		{ text: 'Čím se měří rychlost větru?', odpovedi: ['anemometrem, tedy vrtulkou s kalíšky na stožáru', 'barometrem, tedy přístrojem na tlak vzduchu', 'vlhkoměrem, tedy přístrojem na vlhkost vzduchu'], vysvetleni: 'Rychlost větru ukazuje anemometr; barometr a vlhkoměr měří jiné veličiny.' },
+		{ text: 'Podle jakého vzorce vypočítáme rychlost?', odpovedi: ['v = s : t', 'v = s · t', 'v = t : s'], vysvetleni: 'Správný zápis je v = s : t; ostatní zápisy mají jinou operaci nebo obrácené pořadí veličin.' },
+		{ text: 'Auto jede stálou rychlostí 20 m/s. Co to znamená?', odpovedi: ['každou sekundu urazí 20 metrů', 'každou minutu urazí 20 metrů', 'za hodinu ujede nejvýše 20 kilometrů'], vysvetleni: 'Údaj 20 m/s se čte dvacet metrů za sekundu.' },
+		{ text: 'Kolik km/h je 1 m/s?', odpovedi: ['3,6 km/h', '36 km/h', '0,36 km/h'], vysvetleni: 'Platí 1 m/s = 3,6 km/h.' },
+		{ text: 'Kolik m/min je 2 m/s?', odpovedi: ['120 m/min', '60 m/min', '7 200 m/min'], vysvetleni: 'Za sekundu urazí 2 m, minuta má 60 sekund, tedy 2 · 60 = 120 m za minutu.' },
+		{ text: 'Proč se při převodu m/s ↔ km/h neposouvá jen čárka?', odpovedi: ['hodina nemá 1 000 sekund, kdežto kilometr má 1 000 metrů', 'kilometr má jen 100 metrů, kdežto hodina 60 sekund', 'sekundy se do kilometrů za hodinu vůbec nedají převést'], vysvetleni: 'Počet sekund v hodině se liší od počtu metrů v kilometru, proto se používá převodní číslo z výkladu místo posunu čárky.' },
+		{ text: 'Kolik m/s je 8 km/s?', odpovedi: ['8 000 m/s', '800 m/s', '80 m/s'], vysvetleni: 'Kilometr za sekundu se převádí na metr za sekundu, čárka se posune o tři místa.' },
+		{ text: 'Pepa jel část cesty na motorce a zbytek šel pěšky. Franta jel celou cestu na kole stálou rychlostí. Vyrazili spolu a domů dorazili spolu. Kdo měl větší průměrnou rychlost?', odpovedi: ['oba stejnou, protože dorazili společně', 'Pepa, protože jel motorkou nejrychleji', 'Franta, protože jel celou cestu stejně'], vysvetleni: 'Dorazili ve stejný okamžik, takže mají oba stejnou průměrnou rychlost.' },
+		{ text: 'Co je okamžitá rychlost?', odpovedi: ['rychlost tělesa v jednom daném okamžiku pohybu', 'největší rychlost, jakou těleso dosáhlo', 'rychlost, se kterou těleso vyrazilo'], vysvetleni: 'Okamžitá rychlost platí vždy jen pro jeden okamžik pohybu.' },
+		{ text: 'Čím se měří okamžitá rychlost auta?', odpovedi: ['tachometrem na palubní desce', 'ukazatelem paliva v nádrži', 'počítadlem ujetých kilometrů'], vysvetleni: 'Aktuální rychlost jízdy ukazuje tachometr; ostatní přístroje měří jiné údaje.' },
+		{ text: 'K čemu slouží tachograf u profesionálních řidičů?', odpovedi: ['zapisuje průběh rychlosti a přestávky řidiče', 'počítá spotřebu paliva na každých sto kilometrů jízdy', 'měří hmotnost nákladu naloženého na návěsu'], vysvetleni: 'Tachograf uchovává záznam o jízdě, aby se dala později zkontrolovat.' },
+		{ text: 'Jaký pohyb koná těleso, jehož rychlost se nemění?', odpovedi: ['rovnoměrný', 'nerovnoměrný', 'zrychlený'], vysvetleni: 'Pohyb se stálou rychlostí se nazývá rovnoměrný.' },
+		{ text: 'Který z těchto pohybů probíhá po celou dobu stejnou rychlostí?', odpovedi: ['eskalátor (jezdící schody)', 'kolo jedoucí do kopce a z kopce', 'auto projíždějící městem přes křižovatky'], vysvetleni: 'Eskalátor jede stále stejně rychle; kolo v kopcích a auto na křižovatkách rychlost mění.' },
+		{ text: 'Start rakety je pohyb…', odpovedi: ['zrychlený', 'zpomalený', 'rovnoměrný'], vysvetleni: 'Po startu raketa jede stále rychleji.' },
+		{ text: 'Brzdící vlak koná pohyb…', odpovedi: ['zpomalený', 'zrychlený', 'rovnoměrný'], vysvetleni: 'Při brzdění vlak jede stále pomaleji.' },
+		{ text: 'Co znamená v grafu rychlosti na čase vodorovná přímka ležící na nule?', odpovedi: ['těleso stojí, jeho rychlost je nulová', 'těleso se rozjíždí velmi pomalu', 'těleso jede nejvyšší možnou rychlostí'], vysvetleni: 'Přímka leží na nule, protože rychlost je nulová a těleso se nehýbe.' },
+		{ text: 'Z čeho se počítá průměrná rychlost?', odpovedi: ['z celé uražené dráhy a celého času pohybu', 'z nejvyšší rychlosti naměřené cestou', 'jen z času, za který se pohyb uskutečnil'], vysvetleni: 'Bere se celá cesta a celá doba pohybu, i když se rychlost měnila.' },
+		{ text: 'Těleso urazí 30 m za 3 s. Jaká je jeho rychlost?', odpovedi: ['10 m/s', '90 m/s', '3 m/s'], vysvetleni: 'Dosazením 30 m a 3 s do vzorce z výkladu vyjde 10 m/s.' },
+		{ text: 'Kolik m/s je 144 km/h?', odpovedi: ['40 m/s', '14,4 m/s', '144 m/s'], vysvetleni: 'Z km/h na m/s se dělí převodním číslem z výkladu, takže 144 km/h je 40 m/s.' },
 	],
 	'fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti': [
 		{ text: 'Jak vypočítáme dráhu rovnoměrného pohybu?', odpovedi: ['s = v · t', 's = v : t', 's = t : v'], vysvetleni: 'Dráha = rychlost krát čas.' },
@@ -3567,50 +3399,50 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Které tři barvy míchají malíři při malování temperami?', odpovedi: ['žlutou, červenou a modrou', 'azurovou, purpurovou a zelenou', 'bílou, černou a stříbrnou barvu'], vysvetleni: 'Malíři míchají barviva, proto používají jinou trojici než displeje se systémem RGB.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/mechanicka-prace': [
-		{ text: 'Kdy těleso ve fyzice koná práci?', odpovedi: ['působí silou a těleso se posune', 'jen drží těžké těleso v rukou', 'zahřeje se, ale nehne se'], vysvetleni: 'Musí být splněné obě podmínky — síla i posunutí ve směru síly.' },
-		{ text: 'Paní stojí ve frontě a drží těžký nákup. Koná práci?', odpovedi: ['ne — nákup se neposune', 'ano — působí silou', 'ano — nákup je těžký'], vysvetleni: 'Působí silou, ale bez posunutí není konána mechanická práce.' },
-		{ text: 'Může vykonat práci i silové pole?', odpovedi: ['ano — třeba gravitační síla', 'ne, jen člověk nebo stroj', 'ne, jen stroje a motory'], vysvetleni: 'Gravitační i magnetické pole mohou konat práci (pád jablka, přitažení kuličky).' },
-		{ text: 'Jaká je značka mechanické práce?', odpovedi: ['W', 'P', 'F'], vysvetleni: 'Práce má značku W; P je výkon a F síla.' },
-		{ text: 'Jaká je jednotka práce?', odpovedi: ['joule (J)', 'watt (W)', 'newton (N)'], vysvetleni: 'Jednotkou práce je joule (J), čti „džaul".' },
-		{ text: 'Kdy těleso vykoná práci 1 J?', odpovedi: ['když silou 1 N posune těleso po dráze 1 m', 'když působí silou 1 N po dobu 1 s', 'když zvedne 1 kg'], vysvetleni: '1 J = 1 N · 1 m.' },
-		{ text: 'Podle jakého vzorce počítáme práci?', odpovedi: ['W = F · s', 'W = F : s', 'W = s : F'], vysvetleni: 'Práce = síla krát dráha (ve směru posunutí).' },
-		{ text: 'Kolik joulů je 1 kilojoule (kJ)?', odpovedi: ['1 000 J', '100 J', '1 000 000 J'], vysvetleni: 'Předpona kilo- znamená tisíc: 1 kJ = 1 000 J.' },
-		{ text: 'Kolik joulů je 1 megajoule (MJ)?', odpovedi: ['1 000 000 J', '1 000 J', '100 000 J'], vysvetleni: 'Předpona mega- znamená milion: 1 MJ = 1 000 000 J.' },
-		{ text: 'V jakých jednotkách musíme dosazovat sílu a dráhu do vzorce?', odpovedi: ['v newtonech a v metrech', 'v kilogramech a v kilometrech', 'na jednotkách nezáleží'], vysvetleni: 'Vždy základní jednotky — newton a metr.' },
-		{ text: 'Jak vypočítáme dráhu, známe-li práci a sílu?', odpovedi: ['s = W : F', 's = W · F', 's = F : W'], vysvetleni: 'Ze vzorce W = F · s plyne s = W : F.' },
-		{ text: 'Michal jede na skateboardu a neodráží se: F = 0 N, ujede 250 m. Koná práci?', odpovedi: ['ne — nepůsobí silou', 'ano — ujel celých 250 m', 'ano — vždyť se pohybuje'], vysvetleni: 'Když je síla nulová, je nulová i práce.' },
-		{ text: 'Jak velkou silou musíme působit, abychom těleso zvedli?', odpovedi: ['silou rovnou tíhové síle F = m · g', 'silou rovnou hmotnosti v kilogramech', 'jakoukoli malou silou stačí'], vysvetleni: 'Zvedáme silou stejně velkou jako tíhová síla, jen opačným směrem.' },
-		{ text: 'Máma zvedá hračku 0,6 kg do výšky 1,5 m. Jak velkou silou ji zvedá? (g = 10 N/kg)', odpovedi: ['6 N', '0,6 N', '60 N'], vysvetleni: 'F = m · g = 0,6 · 10 = 6 N.' },
-		{ text: 'Jakou práci vykoná máma při zvednutí hračky (F = 6 N, s = 1,5 m)?', odpovedi: ['9 J', '4 J', '90 J'], vysvetleni: 'W = F · s = 6 · 1,5 = 9 J.' },
-		{ text: 'Lokomotiva na dráze 4 500 m vykoná práci 900 000 000 J. Jak velkou silou táhne?', odpovedi: ['200 000 N (200 kN)', '20 000 N', '2 000 000 N'], vysvetleni: 'F = W : s = 900 000 000 : 4 500 = 200 000 N.' },
-		{ text: 'Zvedneš dvakrát těžší tašku do stejné výšky. Jak se změní vykonaná práce?', odpovedi: ['bude dvakrát větší', 'zůstane stejná', 'bude dvakrát menší'], vysvetleni: 'W = F · s; dvojnásobná síla → dvojnásobná práce.' },
-		{ text: 'Neseš tašku vodorovně a tvá síla míří nahoru. Konáš práci?', odpovedi: ['ne — síla míří kolmo', 'ano — taška je hodně těžká', 'ano — ujdeš dlouhou cestu'], vysvetleni: 'Když síla svírá s dráhou pravý úhel, práce se nekoná.' },
-		{ text: 'Jeřáb zvedá bednu o hmotnosti 300 kg do výšky 5 m (g = 10 N/kg). Jakou práci vykoná?', odpovedi: ['15 000 J', '150 000 J', '1 500 J'], vysvetleni: 'F = m · g = 300 · 10 = 3 000 N; W = F · s = 3 000 · 5 = 15 000 J. Chybné dvojí použití g dá 150 000 J, zapomenutí vynásobit g dá jen 1 500 J.' },
-		{ text: 'Chlapec táhne saně silou 40 N po dráze 10 m. Jakou práci vykoná?', odpovedi: ['400 J', '4 J', '4 000 J'], vysvetleni: 'W = F · s = 40 · 10 = 400 J. Dělení místo násobení dá 4 J, chybné dvojí vynásobení dráhy omylem dá 4 000 J.' },
-		{ text: 'Dělník vykoná práci 300 J silou 50 N. Jak dlouhou dráhu urazil?', odpovedi: ['6 m', '15 000 m', '350 m'], vysvetleni: 's = W : F = 300 : 50 = 6 m. Vynásobení místo dělení dá 15 000 m, sečtení hodnot dá 350 m.' },
+		{ text: 'Kdy těleso ve fyzice koná práci?', odpovedi: ['působí silou a tím těleso posune', 'má velkou hmotnost a je z pevného materiálu', 'zahřeje se a přitom se vůbec nehne z místa'], vysvetleni: 'Ke konání práce musí nastat obojí zároveň: působení silou a posunutí tělesa.' },
+		{ text: 'Paní stojí ve frontě a drží těžký nákup. Koná práci?', odpovedi: ['ne — nákup zůstává na místě', 'ano — působí na nákup silou', 'ano — nákup je těžký a drží ho dlouho'], vysvetleni: 'Těžký nákup paní unaví, ale fyzikální práci nekoná.' },
+		{ text: 'Může práci vykonat i silové pole?', odpovedi: ['ano — třeba gravitační pole při pádu jablka ze stromu', 'ne — práci koná jen člověk, zvíře nebo stroj', 'ne — pole na těleso silou působí, ale práci nekoná'], vysvetleni: 'Práci koná i pole, které těleso uvede do pohybu, třeba gravitační při pádu jablka nebo magnetické při přitažení kuličky.' },
+		{ text: 'Co vyjadřuje práce jako fyzikální veličina?', odpovedi: ['množství energie vydané na posunutí jiného tělesa', 'velikost síly, kterou těleso působí na podložku', 'dobu, po kterou těleso nepřetržitě působí silou'], vysvetleni: 'Práce udává, kolik energie se vydalo na pohyb jiného tělesa.' },
+		{ text: 'Michal postrčí vozík silou 20 N po dráze 10 m. Jakou práci vykoná?', odpovedi: ['200 J', '2 J', '2 000 J'], vysvetleni: '20 · 10 = 200 J.' },
+		{ text: 'Kolik joulů je 1 kilojoule (kJ)?', odpovedi: ['1 000 J', '100 J', '10 000 J'], vysvetleni: 'Předpona kilo- znamená tisíc.' },
+		{ text: 'Kolik joulů je 1 megajoule (MJ)?', odpovedi: ['1 000 000 J', '100 000 J', '10 000 000 J'], vysvetleni: 'Předpona mega- znamená milion.' },
+		{ text: 'Podle jakého vzorce počítáme práci?', odpovedi: ['W = F · s', 'W = F : s', 'W = s : F'], vysvetleni: 'Práci určuje součin dvou veličin, ne jejich podíl.' },
+		{ text: 'V jakých jednotkách musíme dosazovat sílu a dráhu do vzorce pro práci?', odpovedi: ['v newtonech a v metrech', 'v kilogramech a v kilometrech', 'na jednotkách nezáleží'], vysvetleni: 'Jednotky je nutné sjednotit, jinak výsledek nevyjde v joulech.' },
+		{ text: 'Jak vypočítáme dráhu, známe-li práci a sílu?', odpovedi: ['s = W : F', 's = W · F', 's = F : W'], vysvetleni: 'Dráha vyjde, když práci vydělíme silou.' },
+		{ text: 'Michal jede na skateboardu a neodráží se: F = 0 N, ujede 250 m. Koná práci?', odpovedi: ['ne — jeho síla je nulová', 'ano — ujel přece celých 250 m', 'ano — skateboard se přece pohybuje'], vysvetleni: 'Pohyb sám o sobě práci neznamená, na skateboard žádná síla nepůsobí.' },
+		{ text: 'Jak velkou silou musíme působit, abychom těleso zvedli?', odpovedi: ['silou rovnou tíhové síle, F = m · g', 'silou rovnou hmotnosti tělesa', 'jakoukoli malou silou stačí'], vysvetleni: 'Zvedáme silou stejně velkou jako tíhová síla, jen opačným směrem.' },
+		{ text: 'Máma zvedá hračku 0,6 kg do výšky 1,5 m. Jak velkou silou ji zvedá? (g = 10 N/kg)', odpovedi: ['6 N', '0,6 N', '60 N'], vysvetleni: '0,6 · 10 vyjde 6 N.' },
+		{ text: 'Máma zvedá hračku 0,6 kg do výšky 1,5 m. Jakou práci vykoná? (g = 10 N/kg)', odpovedi: ['9 J', '4 J', '90 J'], vysvetleni: 'Nejdřív určíme sílu, kterou hračku zvedáme, a tu pak dosadíme spolu s výškou.' },
+		{ text: 'Lokomotiva na dráze 4 500 m vykoná práci 900 000 000 J. Jak velkou silou táhne?', odpovedi: ['200 000 N', '20 000 N', '2 000 000 N'], vysvetleni: '900 000 000 : 4 500 = 200 000 N.' },
+		{ text: 'Zvedneš dvakrát těžší tašku do stejné výšky. Jak se změní vykonaná práce?', odpovedi: ['bude dvojnásobná', 'zůstane stejná', 'bude poloviční'], vysvetleni: 'Zdvojnásobením jednoho činitele se zdvojnásobí i výsledek.' },
+		{ text: 'Síla působí kolmo na směr pohybu tělesa. Koná se práce?', odpovedi: ['ne — síla míří kolmo', 'ano — síla je nenulová', 'ano — dráha je dlouhá'], vysvetleni: 'Když síla svírá s pohybem pravý úhel, práce se nekoná.' },
+		{ text: 'Jeřáb zvedá bednu o hmotnosti 300 kg do výšky 5 m (g = 10 N/kg). Jakou práci vykoná?', odpovedi: ['15 000 J', '150 000 J', '1 500 J'], vysvetleni: 'Tíhová síla bedny je 300 · 10 = 3 000 N, práce je pak 3 000 · 5 = 15 000 J.' },
+		{ text: 'Chlapec táhne saně silou 40 N po dráze 10 m. Jakou práci vykoná?', odpovedi: ['400 J', '4 J', '4 000 J'], vysvetleni: '40 · 10 = 400 J.' },
+		{ text: 'Dělník vykoná práci 300 J silou 50 N. Jak dlouhou dráhu urazil?', odpovedi: ['6 m', '15 000 m', '350 m'], vysvetleni: '300 : 50 = 6 m.' },
+		{ text: 'Auto táhne silou 1 200 N a ujede 5 000 m. Jakou práci vykoná motor?', odpovedi: ['6 000 000 J', '600 000 J', '60 000 000 J'], vysvetleni: '1 200 · 5 000 = 6 000 000 J.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/vykon': [
-		{ text: 'Co popisuje fyzikální veličina výkon?', odpovedi: ['jak rychle se koná práce', 'jak velkou silou těleso působí', 'jak velkou hmotnost má těleso'], vysvetleni: 'Výkon = rychlost konání práce (kolik práce za 1 sekundu).' },
-		{ text: 'Bagr a dělník vykopou stejnou jámu, bagr rychleji. Kdo má větší výkon?', odpovedi: ['bagr', 'dělník', 'mají stejný'], vysvetleni: 'Stejná práce za kratší čas = větší výkon.' },
-		{ text: 'Co znamená písmeno W v zápisu W = 60 J?', odpovedi: ['veličinu práce', 'sílu, kterou těleso působí', 'dráhu, kterou těleso urazí'], vysvetleni: 'Písmeno W stojí před rovnítkem, je to tedy značka veličiny práce. Za číslem by W byla jednotka, ne značka veličiny.' },
-		{ text: 'Jaká je jednotka výkonu?', odpovedi: ['watt (W)', 'joule (J)', 'newton (N)'], vysvetleni: 'Základní jednotka výkonu je watt (W).' },
-		{ text: 'Podle jakého vzorce počítáme výkon?', odpovedi: ['P = W : t', 'P = W · t', 'P = t : W'], vysvetleni: 'Výkon = práce děleno čas.' },
-		{ text: 'Co znamená výkon 1 W?', odpovedi: ['za 1 sekundu se vykoná práce 1 J', 'za 1 hodinu se vykoná práce o velikosti 1 J', 'za 1 sekundu působí na těleso síla 1 N'], vysvetleni: '1 W = 1 J za 1 s.' },
-		{ text: 'V jakých jednotkách dosazujeme práci a čas do vzorce pro výkon?', odpovedi: ['v joulech a sekundách', 'v kilojoulech a minutách', 'v joulech a hodinách'], vysvetleni: 'Základní jednotky — joule a sekunda.' },
-		{ text: 'Kolik wattů je 1 kilowatt (kW)?', odpovedi: ['1 000 W', '100 W', '1 000 000 W'], vysvetleni: '1 kW = 1 000 W.' },
-		{ text: 'Mixér o výkonu 500 W běží 2 hodiny. Kolik watthodin (Wh) práce vykoná?', odpovedi: ['1 000 Wh', '250 Wh', '60 000 Wh'], vysvetleni: 'Práce = výkon · čas: 500 · 2 = 1 000 Wh (výkon ve wattech, čas v hodinách).' },
-		{ text: 'Jak vypočítáme rychlost, známe-li výkon a sílu?', odpovedi: ['v = P : F', 'v = P · F', 'v = F : P'], vysvetleni: 'Rychlost dostaneme, když výkon vydělíme silou (výkon ve wattech, síla v newtonech, rychlost v metrech za sekundu).' },
-		{ text: 'Proč rozlišujeme velké P a malé p?', odpovedi: ['velké P je výkon, malé p tlak', 'velké P i malé p je výkon', 'malé p je výkon, velké P tlak'], vysvetleni: 'Záměna značek by spletla výkon s tlakem.' },
-		{ text: 'Co udává kilowatthodina (kWh)?', odpovedi: ['práci stroje o výkonu 1 kW za 1 hodinu', 'výkon stroje, který nepřetržitě běží celou hodinu', 'sílu, kterou stroj vyvine během jedné hodiny'], vysvetleni: 'kWh je odvozená jednotka práce (energie).' },
-		{ text: 'Kolik joulů je 1 kWh?', odpovedi: ['3 600 000 J', '1 000 J', '36 000 000 J'], vysvetleni: '1 kWh = 1 000 W · 3 600 s = 3 600 000 J.' },
-		{ text: 'Kolik wattů je 1 megawatt (MW)?', odpovedi: ['1 000 000 W', '1 000 W', '1 000 000 000 W'], vysvetleni: 'Předpona mega- znamená milion.' },
-		{ text: 'Jak se jmenuje starší jednotka výkonu motorů?', odpovedi: ['koňská síla (hp)', 'kilokalorie (kcal)', 'stará kalorie (cal)'], vysvetleni: '„Koně" motoru — 1 hp = 0,735 kW.' },
-		{ text: 'Sešlápneš plyn v autě víc. Co se stane s výkonem motoru?', odpovedi: ['zvětší se, roste i rychlost', 'zmenší se, takže auto výrazně zpomalí', 'nezmění se, zůstane stále stejný'], vysvetleni: 'Větší výkon motoru znamená i větší rychlost auta.' },
-		{ text: 'Motor vykoná práci 15 000 J za 5 s. Jaký je jeho výkon?', odpovedi: ['3 000 W (3 kW)', '15 000 W', '75 000 W (75 kW)'], vysvetleni: 'P = W : t = 15 000 : 5 = 3 000 W. Napsat rovnou hodnotu práce znamená splést práci s výkonem, násobení místo dělení dá 75 000 W.' },
-		{ text: 'Motor s výkonem 500 W vykoná práci 5 000 J. Za jak dlouho?', odpovedi: ['10 s', '2 500 000 s', '0,1 s'], vysvetleni: 't = W : P = 5 000 : 500 = 10 s. Násobení místo dělení dá obrovské číslo, prohození čitatele a jmenovatele (P : W) dá 0,1 s.' },
-		{ text: 'Vrtačka s výkonem 600 W pracuje 20 s. Jakou práci vykoná?', odpovedi: ['12 000 J', '30 J', '720 000 J'], vysvetleni: 'W = P · t = 600 · 20 = 12 000 J. Dělení místo násobení (P : t) dá 30 J, chybná záměna sekund za minuty (600 · 20 · 60) dá 720 000 J.' },
-		{ text: 'Jeřáb vynese panel a vykoná práci 4 800 000 J za 60 s. Jaký má výkon?', odpovedi: ['80 000 W (80 kW)', '8 000 W (8 kW)', '800 000 W (800 kW)'], vysvetleni: 'P = W : t = 4 800 000 : 60 = 80 000 W.' },
-		{ text: 'Elektromotor o výkonu 9 kW běží 16 hodin. Jakou práci vykoná (v kWh)?', odpovedi: ['144 kWh', '25 kWh', '1,44 kWh'], vysvetleni: 'W = P · t = 9 · 16 = 144 kWh.' },
+		{ text: 'Co popisuje fyzikální veličina výkon?', odpovedi: ['jak rychle člověk či stroj koná práci', 'jak velkou silou těleso působí', 'jak velkou hmotnost má těleso'], vysvetleni: 'Výkon porovnává stroje i lidi podle toho, jak rychle pracují.' },
+		{ text: 'Bagr a dělník vykopou stejnou jámu, bagr rychleji. Kdo má větší výkon?', odpovedi: ['bagr, protože jámu vykope za kratší čas', 'dělník, protože kope opatrněji a přesněji', 'mají stejný výkon, protože vykopou stejnou jámu'], vysvetleni: 'Bagr zvládne totéž za kratší čas.' },
+		{ text: 'Písmeno W se ve fyzice objevuje ve dvou významech. Jak poznáme, který platí?', odpovedi: ['podle polohy: před rovnítkem veličina, za číslem jednotka', 'podle toho, zda je psané velkým, nebo malým písmem', 'podle toho, zda je číslo před ním celé, nebo desetinné'], vysvetleni: 'Před rovnítkem stojí značka veličiny, za číslem jednotka.' },
+		{ text: 'Jak se liší značky velké P a malé p?', odpovedi: ['velké P je výkon a malé p je tlak', 'velké P i malé p jsou výkon', 'malé p je výkon a velké P je tlak'], vysvetleni: 'Záměna značek by spletla dvě různé veličiny.' },
+		{ text: 'Podle jakého vzorce počítáme výkon?', odpovedi: ['P = W : t', 'P = W · t', 'P = t : W'], vysvetleni: 'Výkon je podíl dvou veličin, ne jejich součin.' },
+		{ text: 'Který z těchto strojů má nejspíš největší výkon?', odpovedi: ['velká elektrárna', 'elektrický vařič', 'žehlička na prádlo'], vysvetleni: 'Elektrárna vykoná za tutéž dobu mnohem víc práce než vařič nebo žehlička, a proto má největší výkon.' },
+		{ text: 'V jakých jednotkách dosazujeme práci a čas do vzorce pro výkon, aby výsledek vyšel ve wattech?', odpovedi: ['v joulech a sekundách', 'v kilojoulech a minutách', 'v joulech a hodinách'], vysvetleni: 'Jednotky je nutné sjednotit, jinak výsledek nevyjde ve wattech.' },
+		{ text: 'Kolik wattů jsou 2 kilowatty (2 kW)?', odpovedi: ['2 000 W', '200 W', '20 000 W'], vysvetleni: 'Předpona kilo- znamená tisíc.' },
+		{ text: 'Kolik wattů je 1 megawatt (MW)?', odpovedi: ['1 000 000 W', '100 000 W', '1 000 000 000 W'], vysvetleni: 'Předpona mega- znamená milion.' },
+		{ text: 'Proč se při stavbě domu vyplatí zaměstnavateli zajímat nejen o množství práce, ale i o výkon dělníků?', odpovedi: ['zjistí, jak brzy bude dílo dokončeno', 'zjistí, kolik kilogramů dělníci sami váží', 'zjistí, jak silné svaly mají dělníci v rukou'], vysvetleni: 'Při stejném množství práce dokončí dílo dřív ten, kdo je výkonnější.' },
+		{ text: 'Kolik joulů je 1 kWh?', odpovedi: ['3 600 000 J', '3 600 J', '36 000 000 J'], vysvetleni: 'Stroj o výkonu 1 kW vykoná za každou sekundu práci 1 kJ; za 3 600 s je to 3 600 kJ, tedy 3 600 000 J.' },
+		{ text: 'Jak vypočítáme výkon, který podává stálá síla F při pohybu rychlostí v?', odpovedi: ['P = F · v', 'P = F : v', 'P = v : F'], vysvetleni: 'Při pohybu se výkon spočítá vynásobením dvou hodnot.' },
+		{ text: 'Sešlápneš plyn v autě víc. Co se stane s výkonem motoru?', odpovedi: ['zvětší se, a tím roste i rychlost auta', 'zmenší se, takže auto výrazně zpomalí', 'nezmění se, zůstane stále stejný'], vysvetleni: 'Motor dostane víc paliva, jeho výkon i rychlost auta vzrostou.' },
+		{ text: 'Jak se jmenuje starší jednotka výkonu motorů?', odpovedi: ['koňská síla (hp)', 'megawatt na hodinu (MW/h)', 'kilowatthodina (kWh)'], vysvetleni: 'Označení hp pochází z anglického horsepower, tedy koňská síla.' },
+		{ text: 'Motor vykoná práci 18 000 J za 6 s. Jaký je jeho výkon?', odpovedi: ['3 000 W', '18 000 W', '300 W'], vysvetleni: '18 000 : 6 = 3 000 W. Zbylé možnosti vznikly opsáním práce nebo dělením číslem 60 místo 6.' },
+		{ text: 'Motor s výkonem 500 W vykoná práci 5 000 J. Za jak dlouho?', odpovedi: ['10 s', '100 s', '1 s'], vysvetleni: '5 000 : 500 = 10 s.' },
+		{ text: 'Vrtačka s výkonem 600 W pracuje 20 s. Jakou práci vykoná?', odpovedi: ['12 000 J', '30 J', '720 000 J'], vysvetleni: '600 · 20 = 12 000 J.' },
+		{ text: 'Jeřáb vynese panel a vykoná práci 4 800 000 J za 60 s. Jaký má výkon?', odpovedi: ['80 000 W', '8 000 W', '800 000 W'], vysvetleni: '4 800 000 : 60 = 80 000 W.' },
+		{ text: 'Elektromotor o výkonu 9 kW běží 16 hodin. Jakou práci vykoná (v kWh)?', odpovedi: ['144 kWh', '25 kWh', '1,44 kWh'], vysvetleni: '9 · 16 = 144 kWh.' },
+		{ text: 'Mixér o výkonu 400 W běží 3 hodiny. Kolik watthodin (Wh) práce vykoná?', odpovedi: ['1 200 Wh', '400 Wh', '72 000 Wh'], vysvetleni: '400 · 3 = 1 200 Wh.' },
+		{ text: 'Stroj A vykoná za minutu práci 3 000 J, stroj B za stejnou dobu práci 5 000 J. Který má větší výkon?', odpovedi: ['stroj B', 'stroj A', 'oba mají stejný výkon'], vysvetleni: 'Za stejnou dobu se u stroje B vykoná větší práce.' },
 	],
 	'fyzika/8-rocnik/mechanicka-prace-a-vykon/ucinnost': [
 		{ text: 'Co vyjadřuje fyzikální veličina účinnost stroje?', odpovedi: ['poměr mezi využitým výkonem a příkonem stroje', 'jak rychle stroj vykoná zadanou práci', 'kolik wattů stroj spotřebuje za hodinu'], vysvetleni: 'Účinnost porovnává užitečný výkon s příkonem, který do stroje vstupuje.' },
@@ -4418,27 +4250,27 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jaká je vhodná zásada při poslechu hudby ve sluchátkách?', odpovedi: ['nastavit rozumnou hlasitost', 'poslouchat co nejhlasitěji celý den', 'sluchátkům se úplně vyhýbat navždy'], vysvetleni: 'Rozumná hlasitost ve sluchátkách patří mezi doporučenou ochranu sluchu.' },
 	],
 	'fyzika/9-rocnik/magneticke-pole/magnety-magneticke-pole-opakovani': [
-		{ text: 'Jak se odborně říká látkám, které se k magnetu silně přitahují?', odpovedi: ['feromagnetické', 'nemagnetické', 'diamagnetické'], vysvetleni: 'Feromagnetické látky jdou i samy zmagnetovat.' },
-		{ text: 'Patří hliník mezi feromagnetické látky?', odpovedi: ['ne, je nemagnetický', 'ano, silně se přitahuje', 'jen za tepla'], vysvetleni: 'Hliník je kov, ale magnet ho nepřitahuje — magnetické jsou jen některé kovy.' },
-		{ text: 'Kamarád tvrdí, že sehnal magnet, který má jen jeden pól. Může to být pravda?', odpovedi: ['ne, každý magnet má vždy dva póly', 'ano, takové magnety se běžně vyrábějí', 'ano, pokud je ze speciální slitiny'], vysvetleni: 'Magnet s jediným pólem neexistuje — severní (N) i jižní (S) pól jsou na něm vždy oba.' },
-		{ text: 'Přiložíš kancelářskou sponku doprostřed magnetu a pak na jeho konec. Kde se přichytí silněji?', odpovedi: ['na konci magnetu (na pólu)', 'uprostřed magnetu', 'na obou místech stejně'], vysvetleni: 'Póly na koncích přitahují nejsilněji, střed magnetu přitahuje jen velmi slabě.' },
-		{ text: 'Jak na sebe působí dva stejné (souhlasné) póly?', odpovedi: ['odpuzují se', 'přitahují se', 'nepůsobí na sebe'], vysvetleni: 'Stejné póly se odpuzují, opačné přitahují.' },
-		{ text: 'Co se děje s magnetickou silou se vzrůstající vzdáleností?', odpovedi: ['slábne', 'sílí', 'nemění se'], vysvetleni: 'Čím dál od magnetu, tím slabší síla.' },
-		{ text: 'Čím zjistíme přítomnost magnetického pole?', odpovedi: ['magnetkou (kompasem)', 'teploměrem (měří teplotu)', 'ampérmetrem (měří proud)'], vysvetleni: 'Magnetka se v poli natočí.' },
-		{ text: 'Odkud kam směřují magnetické indukční čáry?', odpovedi: ['od severního pólu (N) k jižnímu (S)', 'od jižního pólu (S) k severnímu (N)', 'náhodně'], vysvetleni: 'Jsou to uzavřené křivky ven z N a do S.' },
-		{ text: 'Jak se chová diamagnetická látka v magnetickém poli?', odpovedi: ['magnet ji nepatrně odpuzuje', 'magnet ji k sobě silně přitáhne', 'natrvalo se sama zmagnetuje'], vysvetleni: 'Odpuzování je velmi slabé, běžně ho okem nepoznáš.' },
-		{ text: 'Z čeho se vyrábí umělé permanentní magnety?', odpovedi: ['feritová nebo neodymová slitina', 'směs písku, vápence a sody na sklo', 'čistá destilovaná voda'], vysvetleni: 'Nejběžnější umělé permanentní magnety jsou feritové a neodymové.' },
-		{ text: 'Která trojice látek patří mezi nemagnetické?', odpovedi: ['papír, korek, zinek', 'železo, kobalt, nikl', 'ocel, železo, litina'], vysvetleni: 'Nemagnetické látky na magnet téměř nereagují; železo, ocel a nikl naopak ano.' },
-		{ text: 'Do které skupiny látek patří uhlík a zlato?', odpovedi: ['diamagnetické', 'feromagnetické', 'nemagnetické'], vysvetleni: 'Magnet je nepatrně odpuzuje, proto diamagnetické.' },
-		{ text: 'Na co se projevuje silové působení magnetického pole?', odpovedi: ['na magnety a feromagnetické látky', 'na plasty, sklo a keramické nádobí', 'na naprosto všechny látky bez rozdílu'], vysvetleni: 'Magnetické pole se projevuje silovým působením na magnety a feromagnetické látky.' },
-		{ text: 'Kde vzniká magnetické pole?', odpovedi: ['v okolí (kolem) magnetu', 'pouze v jiném vzdáleném městě', 'teprve po zahřátí magnetu'], vysvetleni: 'Magnetické pole vzniká v okolí magnetu a projevuje se silovým působením.' },
-		{ text: 'Které dva kovy patří spolu se železem mezi silně feromagnetické látky?', odpovedi: ['kobalt a nikl', 'hliník a měď', 'zinek a stříbro'], vysvetleni: 'Železo, kobalt a nikl jsou tři silně magnetické kovy.' },
-		{ text: 'Co je magnetka, kterou používáme k detekci magnetického pole?', odpovedi: ['malý volně otočný magnet, např. střelka kompasu', 'kus železa silně přitažený k magnetu', 'přístroj, který elektronicky měří elektrický proud'], vysvetleni: 'Magnetka se natočí podle indukčních čar okolního pole — proto se používá v kompasu.' },
-		{ text: 'Musí se magnet předmětu dotknout, aby na něj působil?', odpovedi: ['ne, působí i na dálku', 'ano, jinak nepůsobí', 'ano, musí se dotknout dvakrát'], vysvetleni: 'Síla slábne se vzdáleností, ale nezmizí.' },
-		{ text: 'Proč vzniká polární záře?', odpovedi: ['u pólů narazí nabité částice do vzduchu', 'sluneční světlo se odráží od ledovců', 'magnetické pole Země samo svítí'], vysvetleni: 'Částice, které projdou k pólům, narazí do vzduchu a rozsvítí ho.' },
-		{ text: 'Magnetické pole Země vzniká rotací tekutého železného jádra, a proto se magnetické póly pomalu posouvají. Co to znamená pro kompas?', odpovedi: ['Směr, kam ukazuje severní pól magnetky, se za desítky let mírně mění.', 'Kompas přestane fungovat úplně, protože magnetické pole Země časem zanikne.', 'Kompas začne ukazovat na jižní zeměpisný pól místo na severní.'], vysvetleni: 'Protože se magnetické póly Země díky proudění tekutého jádra pomalu stěhují, mění se v čase i přesný směr, kterým na ně magnetka ukazuje — na rozdíl od chybných tvrzení kompas nadále funguje i neukazuje na jižní pól.' },
-		{ text: 'Jaký magnetický pól Země leží u severního zeměpisného pólu?', odpovedi: ['jižní magnetický pól', 'severní magnetický pól', 'Země tam žádný pól nemá'], vysvetleni: 'Severní pól magnetky míří k severu, a ten přitahuje pól opačný — jižní.' },
-		{ text: 'Před čím nás chrání magnetické pole Země?', odpovedi: ['před slunečním větrem', 'před deštěm a kroupami', 'před zvukem letadel'], vysvetleni: 'Pole odkloní nabité částice ze Slunce, takže Zemi z velké části obletí.' },
+		{ text: 'Jak se odborně říká látkám, které se k magnetu silně přitahují?', odpovedi: ['feromagnetické', 'nemagnetické látky', 'diamagnetické'], vysvetleni: 'Tyto látky na magnetické pole silně reagují a dají se i samy zmagnetovat.' },
+		{ text: 'Přitáhne magnet hliníkovou fólii?', odpovedi: ['ne, hliník je nemagnetický kov', 'ano, přitáhne ho jako každý kov', 'ano, ale jen pokud je fólie tenká a suchá'], vysvetleni: 'Magnetické jsou jen některé kovy a hliník mezi ně nepatří.' },
+		{ text: 'Kamarád tvrdí, že sehnal magnet, který má jen jeden pól. Může to být pravda?', odpovedi: ['ne, každý magnet má vždy oba póly', 'ano, takové magnety se vyrábějí', 'ano, pokud je ze speciální slitiny'], vysvetleni: 'Magnet s jediným pólem neexistuje. Když magnet rozdělíš, každá část má znovu oba póly.' },
+		{ text: 'Přiložíš kancelářskou sponku doprostřed magnetu a pak na jeho konec. Kde se přichytí silněji?', odpovedi: ['na konci magnetu, u pólu', 'uprostřed magnetu, v netečném pásmu', 'na obou místech stejně silně'], vysvetleni: 'Na koncích je magnetická síla největší, uprostřed nejmenší.' },
+		{ text: 'Jak na sebe působí dva stejné (souhlasné) póly?', odpovedi: ['odpuzují se od sebe', 'přitahují se', 'nepůsobí na sebe vůbec'], vysvetleni: 'Severní pól magnetu působí na severní pól druhého magnetu odpudivou silou, stejně tak jižní na jižní.' },
+		{ text: 'Co se děje s magnetickou silou se vzrůstající vzdáleností od magnetu?', odpovedi: ['slábne', 'sílí', 'zůstává stejná'], vysvetleni: 'Čím dál od magnetu, tím menší síla.' },
+		{ text: 'Čím můžeme zjistit, že v daném místě působí magnetické pole?', odpovedi: ['malou volně otočnou střelkou', 'elektroskopem, který měří náboj', 'ampérmetrem, který měří proud'], vysvetleni: 'Volně otočná střelka se v magnetickém poli natočí, a tak pole prozradí.' },
+		{ text: 'Odkud kam směřují magnetické indukční čáry vně magnetu?', odpovedi: ['od severního pólu (N) k jižnímu (S)', 'od jižního pólu (S) k severnímu pólu (N)', 'od středu magnetu k oběma pólům'], vysvetleni: 'Jsou to uzavřené křivky, které vně magnetu vedou ven ze severního pólu a do jižního.' },
+		{ text: 'Jak se chová diamagnetická látka v magnetickém poli?', odpovedi: ['magnet ji nepatrně odtlačuje', 'magnet ji k sobě silně přitáhne', 'natrvalo se sama zmagnetuje'], vysvetleni: 'Účinek je tak slabý, že ho běžně okem nepoznáš.' },
+		{ text: 'Z čeho se vyrábí umělé permanentní magnety?', odpovedi: ['z feritu nebo z neodymové slitiny', 'z plastu a skla slisovaných za tepla', 'z gumy s textilními vlákny'], vysvetleni: 'Umělý permanentní magnet vzniká silnou magnetizací vhodného tělesa, třeba feritového nebo neodymového.' },
+		{ text: 'Která trojice látek patří mezi nemagnetické?', odpovedi: ['dřevo, papír, plastelína', 'železo, ocel a také korek', 'papír, dřevo a také ocel'], vysvetleni: 'Nemagnetické látky na magnet téměř nereagují, kdežto ocel a železo ano.' },
+		{ text: 'Co se může stát s tuhou z tužky nad velmi silným magnetem?', odpovedi: ['může se nad ním vznášet', 'rozžhaví se do žáru', 'přilepí se k němu jako hřebík'], vysvetleni: 'Tuha je z uhlíku, který magnet jen nepatrně ovlivňuje, ale nad velmi silným magnetem to stačí.' },
+		{ text: 'Na co se projevuje silové působení magnetického pole?', odpovedi: ['na jiné magnety a na látky, které magnet přitahuje', 'na plasty, sklo a keramické nádobí', 'jen na jiné magnety, na žádné jiné předměty'], vysvetleni: 'Nemagnetické látky na magnet téměř nereagují, a tak se na nich silové působení běžně neprojeví.' },
+		{ text: 'Kde vzniká magnetické pole magnetu?', odpovedi: ['v prostoru kolem magnetu', 'jen uvnitř magnetu', 'jen na obou pólech, nikde jinde'], vysvetleni: 'Pole je neviditelné místo kolem magnetu, kde jeho síla působí.' },
+		{ text: 'Které dva kovy patří spolu se železem mezi silně magnetické?', odpovedi: ['kobalt a nikl', 'měď a zinek', 'stříbro a nerezová ocel'], vysvetleni: 'Železo, kobalt a nikl jsou tři silně magnetické kovy.' },
+		{ text: 'Jak lze magnetické pole zviditelnit?', odpovedi: ['nasypeme piliny na karton nad magnetem', 'posvítíme na magnet silnou lampou', 'magnet zahřejeme nad plamenem plynového vařiče'], vysvetleni: 'Piliny se zmagnetují a uspořádají do obrazce, který ukazuje směr magnetické síly.' },
+		{ text: 'Musí se magnet předmětu dotknout, aby na něj působil?', odpovedi: ['ne, magnet působí i na dálku', 'ano, jinak síla nevzniká', 'ne, ale jen těsně nad povrchem'], vysvetleni: 'Magnet působí silou i přes vzduch, dotyk není potřeba.' },
+		{ text: 'Proč vzniká polární záře?', odpovedi: ['u pólů se částice srazí se vzduchem', 'sluneční světlo se odráží od ledu pólů', 'záření hvězd se láme v mracích nad oceánem'], vysvetleni: 'Částice, které se neodklonily, míří k pólům a srážkami se vzduchem rozsvítí oblohu.' },
+		{ text: 'Jak se v průběhu času mění poloha magnetických pólů Země?', odpovedi: ['pomalu, ale neustále se pohybují', 'jsou pořád přesně na zeměpisných pólech', 'denně se prohodí sever a jih'], vysvetleni: 'Pole Země vzniká díky rotaci tekutého železného jádra, a proto se póly pomalu posouvají.' },
+		{ text: 'Jaký magnetický pól Země leží u severního zeměpisného pólu?', odpovedi: ['jižní magnetický pól Země', 'severní magnetický pól Země', 'póly leží až u rovníku'], vysvetleni: 'Země se chová jako obrovský tyčový magnet a u severního zeměpisného pólu je jeho jižní pól.' },
+		{ text: 'Před čím nás chrání magnetické pole Země?', odpovedi: ['hlavně před slunečním větrem', 'před nárazy meteoritů', 'před přílišným teplem ze Slunce'], vysvetleni: 'Pole odkloní proud, který ze Slunce míří k Zemi, takže ji z velké části obletí.' },
 	],
 	'fyzika/9-rocnik/magneticke-pole/magneticke-pole-vodice-a-civky': [
 		{ text: 'Jak se změní pole cívky, když na ni navineme víc závitů?', odpovedi: ['zesílí', 'zeslábne', 'nezmění se'], vysvetleni: 'Každý další závit přidá k poli cívky.' },

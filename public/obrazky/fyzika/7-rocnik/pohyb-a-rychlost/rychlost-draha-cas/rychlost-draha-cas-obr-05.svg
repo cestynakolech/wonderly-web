@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Graf rychlosti na čase: klid, zrychlený, zpomalený a rovnoměrný pohyb">
+<defs>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1971c2"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e03131"/></marker>
+<marker id="s-zel" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#2f9e44"/></marker>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#e8590c"/></marker>
+<marker id="s-sed" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="574" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131" text-anchor="start">Graf rychlosti a času: jaký je to pohyb?</text>
+<line x1="110" y1="470" x2="814.0" y2="470" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="476" font-size="18" fill="#495057" text-anchor="end">0</text>
+<line x1="110" y1="432" x2="814.0" y2="432" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="438" font-size="18" fill="#495057" text-anchor="end">1</text>
+<line x1="110" y1="394" x2="814.0" y2="394" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="400" font-size="18" fill="#495057" text-anchor="end">2</text>
+<line x1="110" y1="356" x2="814.0" y2="356" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="362" font-size="18" fill="#495057" text-anchor="end">3</text>
+<line x1="110" y1="318" x2="814.0" y2="318" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="324" font-size="18" fill="#495057" text-anchor="end">4</text>
+<line x1="110" y1="280" x2="814.0" y2="280" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="286" font-size="18" fill="#495057" text-anchor="end">5</text>
+<line x1="110" y1="242" x2="814.0" y2="242" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="248" font-size="18" fill="#495057" text-anchor="end">6</text>
+<line x1="110" y1="204" x2="814.0" y2="204" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="210" font-size="18" fill="#495057" text-anchor="end">7</text>
+<line x1="110" y1="166" x2="814.0" y2="166" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="172" font-size="18" fill="#495057" text-anchor="end">8</text>
+<line x1="110" y1="128" x2="814.0" y2="128" stroke="#dee2e6" stroke-width="1.5"/><text x="96" y="134" font-size="18" fill="#495057" text-anchor="end">9</text>
+<line x1="110" y1="470" x2="110" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="110" y="498" font-size="18" fill="#495057" text-anchor="middle">0</text>
+<line x1="220" y1="470" x2="220" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="220" y="498" font-size="18" fill="#495057" text-anchor="middle">1</text>
+<line x1="330" y1="470" x2="330" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="330" y="498" font-size="18" fill="#495057" text-anchor="middle">2</text>
+<line x1="440" y1="470" x2="440" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="440" y="498" font-size="18" fill="#495057" text-anchor="middle">3</text>
+<line x1="550" y1="470" x2="550" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="550" y="498" font-size="18" fill="#495057" text-anchor="middle">4</text>
+<line x1="660" y1="470" x2="660" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="660" y="498" font-size="18" fill="#495057" text-anchor="middle">5</text>
+<line x1="770" y1="470" x2="770" y2="116.59999999999997" stroke="#dee2e6" stroke-width="1.5"/><text x="770" y="498" font-size="18" fill="#495057" text-anchor="middle">6</text>
+<line x1="110" y1="470" x2="110" y2="93.80000000000001" stroke="#495057" stroke-width="2.5" marker-end="url(#s-sed)"/>
+<line x1="110" y1="470" x2="847.0" y2="470" stroke="#495057" stroke-width="2.5" marker-end="url(#s-sed)"/>
+<text x="98" y="80" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">v (m/s)</text>
+<text x="837.0" y="500" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">t (s)</text>
+<line x1="110" y1="470" x2="220" y2="470" stroke="#f59f00" stroke-width="7" stroke-linecap="round"/>
+<line x1="220" y1="470" x2="330" y2="356" stroke="#2f9e44" stroke-width="7" stroke-linecap="round"/>
+<line x1="330" y1="356" x2="440" y2="166" stroke="#2f9e44" stroke-width="7" stroke-linecap="round"/>
+<line x1="440" y1="166" x2="550" y2="432" stroke="#1971c2" stroke-width="7" stroke-linecap="round"/>
+<line x1="550" y1="432" x2="660" y2="280" stroke="#2f9e44" stroke-width="7" stroke-linecap="round"/>
+<line x1="660" y1="280" x2="770" y2="280" stroke="#e8590c" stroke-width="7" stroke-linecap="round"/>
+<rect x="214" y="464" width="12" height="12" fill="#2b2a26" transform="rotate(45 220 470)"/><rect x="324" y="350" width="12" height="12" fill="#2b2a26" transform="rotate(45 330 356)"/><rect x="434" y="160" width="12" height="12" fill="#2b2a26" transform="rotate(45 440 166)"/><rect x="544" y="426" width="12" height="12" fill="#2b2a26" transform="rotate(45 550 432)"/><rect x="654" y="274" width="12" height="12" fill="#2b2a26" transform="rotate(45 660 280)"/>
+<path d="M152,380 L165,462 L178,380 z" fill="#fff9db" stroke="#f59f00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="128" y="318" width="180" height="62" rx="12" fill="#fff9db" stroke="#f59f00" stroke-width="2"/>
+<rect x="154" y="377" width="22" height="6" fill="#fff9db"/>
+<text x="218.0" y="346" font-size="20" font-weight="bold" fill="#e67700" text-anchor="middle">Klid</text>
+<text x="218.0" y="372" font-size="18" fill="#2b2a26" text-anchor="middle">v = 0</text>
+<path d="M322,170 L382,255 L348,170 z" fill="#ebfbee" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="128" y="108" width="240" height="62" rx="12" fill="#ebfbee" stroke="#2f9e44" stroke-width="2"/>
+<rect x="324" y="167" width="22" height="6" fill="#ebfbee"/>
+<text x="248.0" y="136" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="middle">Zrychlený pohyb</text>
+<text x="248.0" y="162" font-size="18" fill="#2b2a26" text-anchor="middle">rychlost stoupá</text>
+<path d="M586,166 L497,293 L612,166 z" fill="#e7f5ff" stroke="#1971c2" stroke-width="2" stroke-linejoin="round"/>
+<rect x="566" y="104" width="250" height="62" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="2"/>
+<rect x="588" y="163" width="22" height="6" fill="#e7f5ff"/>
+<text x="691.0" y="132" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="middle">Zpomalený pohyb</text>
+<text x="691.0" y="158" font-size="18" fill="#2b2a26" text-anchor="middle">rychlost klesá</text>
+<path d="M713,326 L726,288 L739,326 z" fill="#fff4e6" stroke="#e8590c" stroke-width="2" stroke-linejoin="round"/>
+<rect x="650" y="326" width="226" height="62" rx="12" fill="#fff4e6" stroke="#e8590c" stroke-width="2"/>
+<rect x="715" y="323" width="22" height="6" fill="#fff4e6"/>
+<text x="763.0" y="354" font-size="20" font-weight="bold" fill="#e8590c" text-anchor="middle">Rovnoměrný pohyb</text>
+<text x="763.0" y="380" font-size="18" fill="#2b2a26" text-anchor="middle">rychlost se nemění</text>
+<text x="612" y="420" font-size="18" font-weight="bold" fill="#2f9e44" text-anchor="start">zrychlený</text>
+<text x="450" y="530" font-size="19" fill="#2b2a26" text-anchor="middle">Vodorovná čára = rovnoměrný pohyb, na nule = klid.</text>
+<text x="450" y="558" font-size="19" fill="#2b2a26" text-anchor="middle">Stoupající čára = zrychlený pohyb, klesající čára = zpomalený pohyb.</text>
+</svg>
