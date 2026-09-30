@@ -13,7 +13,7 @@
 // Opora ve výkladu podtématu: η = P : P₀ (v procentech, vždy menší než 100 %),
 // ztráta nejčastěji teplo z tření, příkon i výkon ve wattech, W = F · s,
 // P = W : t, g = 10 N/kg. Poměr 100 W : 120 W je týž jako u kladkostroje
-// z výkladu (0,4 kW : 0,48 kW ≐ 83 %), proto je to výchozí nastavení.
+// z výkladu (0,4 W : 0,48 W ≐ 83 %), proto je to výchozí nastavení.
 //
 // Čísla: všechny polohy posuvníku dávají celé jouly i celé metry. U navijáku
 // 100 W vycházejí procenta přesně (=), u silnějšího 120 W se zaokrouhlují na
@@ -30,8 +30,8 @@
 	<h2><span class="podtrh">Kolik práce naviják opravdu využije? 🕹️</span></h2>
 	<p>Stavební <strong>naviják</strong> zvedá pytel malty. Motor bere ze zásuvky <strong>příkon P₀</strong>, ale část výkonu sežere <strong>tření</strong> v kladce a laně — změní se na teplo. Posuvníkem měň tření a sleduj, jak vysoko pytel za <strong>10 s</strong> vyjede a jaká je <strong>účinnost</strong>.</p>
 	<p id="uci-motory">
-		<button type="button" id="uci-motor-100" class="uci-tl">🔌 naviják 100 W</button>
-		<button type="button" id="uci-motor-120" class="uci-tl uci-aktivni">🔌 silnější naviják 120 W</button>
+		<button type="button" id="uci-motor-100" class="uci-tl">🔌 naviják 100 W</button>
+		<button type="button" id="uci-motor-120" class="uci-tl uci-aktivni">🔌 silnější naviják 120 W</button>
 	</p>
 	<svg id="uci-svg" viewBox="0 0 660 420" role="img" aria-label="Naviják zvedá pytel malty, energetický pruh a účinnost">
 		<rect x="0" y="0" width="660" height="420" fill="#f8f9fa" />
@@ -202,30 +202,30 @@
 		// Délka celého pruhu odpovídá dodané práci, zelený díl užitečné,
 		// červený ztrátě. Silnější naviják dodá víc energie → delší pruh.
 		let p = '';
-		p += `<text x="${PRUH_X}" y="40" font-size="14" font-weight="bold" fill="#2b2a26">za ${DOBA} s naviják dostane a rozdělí:</text>`;
-		p += `<text x="${PRUH_X}" y="62" font-size="13" fill="#2b2a26">W₀ = P₀ · t = ${motor} · ${DOBA} = ${v.dodana} J</text>`;
+		p += `<text x="${PRUH_X}" y="40" font-size="14" font-weight="bold" fill="#2b2a26">za ${DOBA} s naviják dostane a rozdělí:</text>`;
+		p += `<text x="${PRUH_X}" y="62" font-size="13" fill="#2b2a26">W₀ = P₀ · t = ${motor} · ${DOBA} = ${v.dodana} J</text>`;
 		const sirkaU = v.uzitecna * PX_J;
 		const sirkaZ = v.ztracena * PX_J;
 		p += `<rect x="${PRUH_X}" y="${PRUH_Y}" width="${sirkaU}" height="40" fill="#2f9e44" stroke="#2b2a26" stroke-width="3" />`;
 		p += `<rect x="${PRUH_X + sirkaU}" y="${PRUH_Y}" width="${sirkaZ}" height="40" fill="#e03131" stroke="#2b2a26" stroke-width="3" />`;
 		p += `<rect x="${PRUH_X}" y="136" width="14" height="14" fill="#2f9e44" stroke="#2b2a26" stroke-width="2" />`;
-		p += `<text x="${PRUH_X + 22}" y="148" font-size="13" fill="#2b2a26">užitečná práce W = ${v.uzitecna} J</text>`;
+		p += `<text x="${PRUH_X + 22}" y="148" font-size="13" fill="#2b2a26">užitečná práce W = ${v.uzitecna} J</text>`;
 		p += `<rect x="${PRUH_X}" y="158" width="14" height="14" fill="#e03131" stroke="#2b2a26" stroke-width="2" />`;
-		p += `<text x="${PRUH_X + 22}" y="170" font-size="13" fill="#2b2a26">ztráta ${v.ztracena} J → teplo z tření</text>`;
-		p += `<text x="${PRUH_X}" y="194" font-size="13" fill="#2b2a26">W = Fg · h = ${TIHA} · ${v.vyska} = ${v.uzitecna} J</text>`;
+		p += `<text x="${PRUH_X + 22}" y="170" font-size="13" fill="#2b2a26">ztráta ${v.ztracena} J → teplo z tření</text>`;
+		p += `<text x="${PRUH_X}" y="194" font-size="13" fill="#2b2a26">W = Fg · h = ${TIHA} · ${v.vyska} = ${v.uzitecna} J</text>`;
 		document.getElementById('uci-pruh').innerHTML = p;
 
 		// ── PLAKETA S ÚČINNOSTÍ ──────────────────────────────────────────────
 		const barva = v.idealni ? '#c92a2a' : '#1971c2';
 		let k = '';
 		k += `<rect x="${PRUH_X}" y="206" width="272" height="104" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />`;
-		k += `<text x="${PRUH_X + 136}" y="232" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">účinnost η = P : P₀</text>`;
-		k += `<text x="${PRUH_X + 136}" y="256" text-anchor="middle" font-size="15" fill="#2b2a26">= ${v.vykon} W : ${motor} W</text>`;
-		k += `<text x="${PRUH_X + 136}" y="296" text-anchor="middle" font-size="30" font-weight="bold" fill="${barva}">${v.zaokrouhleno ? '≐' : '='} ${v.ucinnost} %</text>`;
+		k += `<text x="${PRUH_X + 136}" y="232" text-anchor="middle" font-size="15" font-weight="bold" fill="#2b2a26">účinnost η = P : P₀</text>`;
+		k += `<text x="${PRUH_X + 136}" y="256" text-anchor="middle" font-size="15" fill="#2b2a26">= ${v.vykon} W : ${motor} W</text>`;
+		k += `<text x="${PRUH_X + 136}" y="296" text-anchor="middle" font-size="30" font-weight="bold" fill="${barva}">${v.zaokrouhleno ? '≐' : '='} ${v.ucinnost} %</text>`;
 		k += `<text x="${PRUH_X}" y="328" font-size="12" fill="#495057">${v.zaokrouhleno ? 'zaokrouhleno na celá procenta (znak ≐)' : 'procenta vycházejí přesně, bez zaokrouhlení'}</text>`;
 		if (v.idealni) {
 			k += `<rect x="${PRUH_X - 4}" y="336" width="286" height="52" rx="8" fill="#fff3bf" stroke="#c92a2a" stroke-width="2" />`;
-			k += `<text x="${PRUH_X + 4}" y="356" font-size="13" font-weight="bold" fill="#c92a2a">100 % umí jen IDEÁLNÍ stroj —</text>`;
+			k += `<text x="${PRUH_X + 4}" y="356" font-size="13" font-weight="bold" fill="#c92a2a">100 % umí jen IDEÁLNÍ stroj —</text>`;
 			k += `<text x="${PRUH_X + 4}" y="376" font-size="13" font-weight="bold" fill="#c92a2a">ten neexistuje, tření je vždycky.</text>`;
 		}
 		document.getElementById('uci-plaketa').innerHTML = k;
@@ -233,17 +233,17 @@
 		// ── VÝPOČET SLOVY ────────────────────────────────────────────────────
 		const znak = v.zaokrouhleno ? '≐' : '=';
 		document.getElementById('uci-vypocet').innerHTML =
-			`Naviják běží <strong>${DOBA} s</strong> s příkonem P₀ = ${motor} W, dodaná práce je tedy W₀ = P₀ · t = ${motor} · ${DOBA} = <strong>${v.dodana} J</strong>. `
-			+ `Tření sežere ${treni} W, na zvedání zbude užitečný výkon P = ${motor} − ${treni} = <strong>${v.vykon} W</strong>, tedy užitečná práce W = P · t = <strong>${v.uzitecna} J</strong> `
-			+ `(zbylých ${v.ztracena} J odejde jako teplo). Pytel má tíhu F<sub>g</sub> = m · g = ${HMOTNOST} · ${G} = ${TIHA} N, vyjede proto do výšky h = W : F<sub>g</sub> = ${v.uzitecna} : ${TIHA} = <strong>${v.vyska} m</strong>. `
-			+ `Účinnost: η = P : P₀ = ${v.vykon} : ${motor} ${znak} <strong>${v.ucinnost} %</strong>`
-			+ (v.zaokrouhleno ? ' (zaokrouhleno na celá procenta)' : '')
-			+ `. Z prací vyjde totéž: W : W₀ = ${v.uzitecna} : ${v.dodana}.`;
+			`Naviják běží <strong>${DOBA} s</strong> s příkonem P₀ = ${motor} W, dodaná práce je tedy W₀ = P₀ · t = ${motor} · ${DOBA} = <strong>${v.dodana} J</strong>. `
+			+ `Tření sežere ${treni} W, na zvedání zbude užitečný výkon P = ${motor} − ${treni} = <strong>${v.vykon} W</strong>, tedy užitečná práce W = P · t = <strong>${v.uzitecna} J</strong> `
+			+ `(zbylých ${v.ztracena} J odejde jako teplo). Pytel má tíhu F<sub>g</sub> = m · g = ${HMOTNOST} · ${G} = ${TIHA} N, vyjede proto do výšky h = W : F<sub>g</sub> = ${v.uzitecna} : ${TIHA} = <strong>${v.vyska} m</strong>. `
+			+ `Účinnost: η = P : P₀ = ${v.vykon} : ${motor} ${znak} <strong>${v.ucinnost} %</strong>`
+			+ (v.zaokrouhleno ? ' (zaokrouhleno na celá procenta)' : '')
+			+ `. Z prací vyjde totéž: W : W₀ = ${v.uzitecna} : ${v.dodana}.`;
 
 		document.getElementById('uci-stav').textContent = v.idealni
-			? `${POPIS_TRENI[treni]}: bez ztráty by naviják vyjel s pytlem až do ${v.vyska} m a měl 100 % účinnost. Takový stroj ale neexistuje — aspoň malé tření je všude, a proto je účinnost vždycky menší než 100 %.`
-			: `${POPIS_TRENI[treni]}: z ${v.dodana} J se ${v.uzitecna} J promění na užitečnou práci a ${v.ztracena} J uteče jako teplo — účinnost ${v.ucinnost} %.`
-				+ (v.ucinnost === 83 ? ' Stejný poměr jako kladkostroj z výkladu (0,4 kW : 0,48 kW ≐ 83 %).' : '');
+			? `${POPIS_TRENI[treni]}: bez ztráty by naviják vyjel s pytlem až do ${v.vyska} m a měl 100 % účinnost. Takový stroj ale neexistuje — aspoň malé tření je všude, a proto je účinnost vždycky menší než 100 %.`
+			: `${POPIS_TRENI[treni]}: z ${v.dodana} J se ${v.uzitecna} J promění na užitečnou práci a ${v.ztracena} J uteče jako teplo — účinnost ${v.ucinnost} %.`
+				+ (v.ucinnost === 83 ? ' Stejný poměr jako kladkostroj z výkladu (0,4 W : 0,48 W ≐ 83 %).' : '');
 	}
 
 	// Posluchač má každé tlačítko vlastní (ne jeden na celém odstavci): kliknutí

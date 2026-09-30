@@ -617,6 +617,15 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			width: 640px;
 			max-width: none;
 		}
+		/* Nápověda: posuvný obrázek je širší než rámeček; na počítači se nezobrazí. */
+		.vyklad figure:has(img[src$='.svg'])::before {
+			content: '↔ posuň obrázek do strany';
+			display: block;
+			margin-bottom: 0.3rem;
+			font-size: 0.95rem;
+			font-weight: 600;
+			color: #3d3a33;
+		}
 	}
 	/* Úvod „Jednoduše řečeno" — zvýrazněný box nad výkladem. */
 	.uvod-box {

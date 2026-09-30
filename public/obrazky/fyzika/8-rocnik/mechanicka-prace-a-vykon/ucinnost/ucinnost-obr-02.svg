@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1220 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kladkostroj s pevnou a volnou kladkou: P = 0,4 W, P0 = 0,48 W, účinnost 83 %, ztráty 17 %">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="1214" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="40.0" y="50.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">Kladkostroj: pevná a volná kladka</text>
+<rect x="170" y="80" width="240" height="14" fill="#2b2a26"/>
+<line x1="330.0" y1="94.0" x2="330.0" y2="130.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="330.0" cy="170.0" r="40" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="330.0" cy="170.0" r="6" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M210,94 L210,320 A40,40 0 0 0 290,320 L290,170 A40,40 0 0 1 370,170 L370,390" fill="none" stroke="#e8590c" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="250.0" cy="320.0" r="40" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="250.0" cy="320.0" r="6" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="250.0" y1="326.0" x2="250.0" y2="400.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<rect x="210" y="400" width="80" height="70" rx="6" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3"/>
+<text x="250.0" y="443.0" font-size="18" fill="#2b2a26" text-anchor="middle">závaží</text>
+<line x1="370.0" y1="400.0" x2="370.0" y2="470.0" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round"/>
+<text x="388.0" y="440.0" font-size="20" font-weight="bold" fill="#e8590c" text-anchor="start">tah</text>
+<line x1="320.0" y1="470.0" x2="320.0" y2="410.0" stroke="#2f9e44" stroke-width="5" marker-end="url(#a-zel)" stroke-linecap="round"/>
+<text x="190.0" y="500.0" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="start">závaží se zvedá</text>
+<text x="388.0" y="140.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">pevná kladka</text>
+<text x="194.0" y="380.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="end">volná kladka</text>
+<rect x="590.0" y="90.0" width="570.0" height="220.0" rx="12" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="620.0" y="135.0" font-size="24" font-weight="bold" fill="#2f9e44" text-anchor="start">výkon P = 0,4 W</text>
+<text x="620.0" y="175.0" font-size="24" font-weight="bold" fill="#e8590c" text-anchor="start">příkon P<tspan font-size="72%" dy="0.26em">0</tspan><tspan dy="-0.26em"> = 0,48 W</tspan></text>
+<text x="620.0" y="208.0" font-size="18" fill="#495057" text-anchor="start">(obojí ve stejné jednotce)</text>
+<text x="620.0" y="265.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">η = P : P<tspan font-size="72%" dy="0.26em">0</tspan><tspan dy="-0.26em"> = 0,4 : 0,48 ≐ 0,83 = 83 %</tspan></text>
+<text x="590.0" y="360.0" font-size="20" fill="#2b2a26" text-anchor="start">z příkonu 100 % se využije:</text>
+<rect x="590" y="380" width="465" height="60" fill="#8ce99a" stroke="#2b2a26" stroke-width="3"/>
+<rect x="1055" y="380" width="95" height="60" fill="#ffc9c9" stroke="#2b2a26" stroke-width="3"/>
+<text x="822.4" y="420.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">užitečně 83 %</text>
+<text x="1102.4" y="420.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">17 %</text>
+<text x="1102.4" y="470.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="middle">ztráty</text>
+<text x="1102.4" y="495.0" font-size="20" fill="#e03131" text-anchor="middle">(tření)</text>
+<text x="590.0" y="470.0" font-size="20" fill="#2b2a26" text-anchor="start">Účinnost je vždy menší než 100 %.</text>
+</svg>

@@ -85,9 +85,9 @@ const prvkyZ = (html, tag) => [...html.matchAll(new RegExp(`<${tag}\\b([^>]*)>`,
 const textyZ = (html) => [...html.matchAll(/<text\b([^>]*)>([^<]*)<\/text>/g)].map((m) => ({
 	x: +(/x="([^"]*)"/.exec(m[1]) || [])[1],
 	y: +(/y="([^"]*)"/.exec(m[1]) || [])[1],
-	text: m[2],
+	text: m[2].replace(/\u00a0/g, ' '),
 }));
-const cistyText = (html) => html.replace(/<[^>]+>/g, '');
+const cistyText = (html) => html.replace(/<[^>]+>/g, '').replace(/\u00a0/g, ' ');
 
 /** Pytel se kreslí jako <path> (hrdlo + tělo + zaoblené dno) — tohle z něj
  * vytáhne skutečné rozměry: všechna čísla v `d` jsou souřadnice bodů. */
@@ -528,15 +528,15 @@ console.log('\n— značka tíhy je psaná jako ve výkladu: F<sub>g</sub> —')
 console.log('\n— hláška u výsledku 83 % odkazuje na kladkostroj z výkladu —');
 {
 	nastav(120, 20);
-	ok(prvky.get('uci-stav').textContent.includes('0,4 kW : 0,48 kW'),
+	ok(prvky.get('uci-stav').textContent.replace(/\u00a0/g, ' ').includes('0,4 W : 0,48 W'),
 		'při 83 % se připomene příklad kladkostroje z výkladu');
 	nastav(120, 30);
-	ok(!prvky.get('uci-stav').textContent.includes('0,4 kW'),
+	ok(!prvky.get('uci-stav').textContent.replace(/\u00a0/g, ' ').includes('0,4 W'),
 		'u jiné účinnosti (75 %) se ten příklad neplete do hry');
-	ok(prvky.get('uci-stav').textContent.includes('900 J') && prvky.get('uci-stav').textContent.includes('300 J'),
-		`hláška jmenuje užitek i ztrátu: „${prvky.get('uci-stav').textContent.slice(0, 92)}…"`);
+	ok(prvky.get('uci-stav').textContent.replace(/\u00a0/g, ' ').includes('900 J') && prvky.get('uci-stav').textContent.replace(/\u00a0/g, ' ').includes('300 J'),
+		`hláška jmenuje užitek i ztrátu: „${prvky.get('uci-stav').textContent.replace(/\u00a0/g, ' ').slice(0, 92)}…"`);
 	nastav(100, 0);
-	ok(prvky.get('uci-stav').textContent.includes('neexistuje'),
+	ok(prvky.get('uci-stav').textContent.replace(/\u00a0/g, ' ').includes('neexistuje'),
 		'a při nulovém tření varuje, že takový stroj neexistuje');
 }
 
