@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" font-family="Helvetica, Arial, sans-serif">
+<title>Změny skupenství látky</title>
+<defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
+<rect width="960" height="560" fill="#ffffff"/>
+<text x="480" y="38" font-size="20" text-anchor="middle" font-weight="bold" fill="#e03131">zvyšování teploty, dodávání tepla</text>
+<line x1="120" y1="58" x2="840" y2="58" stroke="#e03131" stroke-width="6" marker-end="url(#ahr)"/>
+<rect x="105" y="248.0" width="77.0" height="77.0" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
+<polygon points="105.0,248.0 138.0,215.0 215.0,215.0 182.0,248.0" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<polygon points="182.0,248.0 215.0,215.0 215.0,292.0 182.0,325.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<text x="160" y="372" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Pevná látka</text>
+<path d="M480,210 C495.0,245.0 530.0,270.0 530.0,295.0 A50.0,50.0 0 1 1 430.0,295.0 C430.0,270.0 465.0,245.0 480,210 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+<text x="480" y="372" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Kapalina</text>
+<circle cx="739.5" cy="276.0" r="38.5" fill="#ced4da" stroke="#868e96" stroke-width="6"/>
+<circle cx="789.0" cy="248.5" r="49.5" fill="#ced4da" stroke="#868e96" stroke-width="6"/>
+<circle cx="844.0" cy="265" r="41.8" fill="#ced4da" stroke="#868e96" stroke-width="6"/>
+<circle cx="805.5" cy="287.0" r="41.8" fill="#ced4da" stroke="#868e96" stroke-width="6"/>
+<circle cx="739.5" cy="276.0" r="38.5" fill="#ced4da" stroke="none" stroke-width="2"/>
+<circle cx="789.0" cy="248.5" r="49.5" fill="#ced4da" stroke="none" stroke-width="2"/>
+<circle cx="844.0" cy="265" r="41.8" fill="#ced4da" stroke="none" stroke-width="2"/>
+<circle cx="805.5" cy="287.0" r="41.8" fill="#ced4da" stroke="none" stroke-width="2"/>
+<text x="800" y="372" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Plyn</text>
+<path d="M235,200 Q320.0,100 410,200" fill="none" stroke="#f59f00" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahy)" />
+<path d="M550,200 Q640.0,100 720,200" fill="none" stroke="#f59f00" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahy)" />
+<rect x="255.0" y="108" width="130" height="42" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="320" y="137" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">TÁNÍ</text>
+<rect x="515.0" y="108" width="250" height="42" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="640" y="137" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">VAR, VYPAŘOVÁNÍ</text>
+<path d="M410,335 Q320.0,490 235,330" fill="none" stroke="#f59f00" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahy)" />
+<path d="M720,335 Q640.0,490 550,330" fill="none" stroke="#f59f00" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahy)" />
+<rect x="245.0" y="391" width="150" height="42" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="320" y="420" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">TUHNUTÍ</text>
+<rect x="495.0" y="391" width="290" height="42" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="640" y="420" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">KAPALNĚNÍ (kondenzace)</text>
+<line x1="840" y1="500" x2="120" y2="500" stroke="#1971c2" stroke-width="6" marker-end="url(#ahb)"/>
+<text x="480" y="542" font-size="20" text-anchor="middle" font-weight="bold" fill="#1971c2">snižování teploty, uvolňování tepla</text>
+</svg>

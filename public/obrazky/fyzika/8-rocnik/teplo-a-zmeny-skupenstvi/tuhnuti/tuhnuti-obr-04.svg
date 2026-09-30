@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" font-family="Helvetica, Arial, sans-serif">
+<title>Graf teploty vody na čase ochlazování</title>
+<defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
+<rect width="960" height="470" fill="#ffffff"/>
+<text x="480" y="38" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Graf závislosti teploty vody na čase ochlazování</text>
+<line x1="120" y1="455" x2="120" y2="80" stroke="#212529" stroke-width="3" marker-end="url(#ahk)"/>
+<line x1="120" y1="290" x2="930" y2="290" stroke="#212529" stroke-width="3" marker-end="url(#ahk)"/>
+<text x="130" y="76" font-size="20" text-anchor="start" font-weight="bold" fill="#212529">teplota (°C)</text>
+<text x="928" y="324" font-size="20" text-anchor="end" font-weight="bold" fill="#212529">čas (s)</text>
+<line x1="112" y1="290" x2="128" y2="290" stroke="#212529" stroke-width="3"/>
+<text x="102" y="296" font-size="18" text-anchor="end" font-weight="normal" fill="#212529">0</text>
+<line x1="112" y1="130" x2="128" y2="130" stroke="#212529" stroke-width="3"/>
+<text x="102" y="136" font-size="18" text-anchor="end" font-weight="normal" fill="#212529">20</text>
+<path d="M120,130 L380,290 L600,290 L700,420" fill="none" stroke="#e03131" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M262,100 C268.0,114.0 282.0,124.0 282.0,134.0 A20.0,20.0 0 1 1 242.0,134.0 C242.0,124.0 256.0,114.0 262,100 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="310" y="98" width="220" height="62" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="324" y="123" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Ochlazování kapaliny</text>
+<text x="324" y="147" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">na teplotu tuhnutí</text>
+<rect x="790" y="195.8" width="25.2" height="25.2" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
+<polygon points="790.0,195.8 800.8,185.0 826.0,185.0 815.2,195.8" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<polygon points="815.2,195.8 826.0,185.0 826.0,210.2 815.2,221.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<path d="M845,182 C849.8,193.2 861.0,201.2 861.0,209.2 A16.0,16.0 0 1 1 829.0,209.2 C829.0,201.2 840.2,193.2 845,182 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="390" y="185" width="380" height="86" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="404" y="210" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Tuhnutí krystalické látky: směs kapaliny</text>
+<text x="404" y="234" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">a pevných částí (krystalků) látky</text>
+<text x="404" y="258" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">o teplotě tuhnutí</text>
+<rect x="730" y="404.0" width="28.0" height="28.0" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
+<polygon points="730.0,404.0 742.0,392.0 770.0,392.0 758.0,404.0" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<polygon points="758.0,404.0 770.0,392.0 770.0,420.0 758.0,432.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<rect x="695" y="345" width="248" height="38" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="709" y="370" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Ochlazování pevné látky</text>
+</svg>

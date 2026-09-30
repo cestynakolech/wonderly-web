@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 180" width="960" height="180" font-family="Helvetica, Arial, sans-serif">
+<title>Tabulka teplot tání</title>
+<defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
+<rect width="960" height="180" fill="#ffffff"/>
+<rect x="20" y="30" width="920" height="60" rx="0" fill="#f1f3f5" stroke="#495057" stroke-width="2.5" />
+<rect x="20" y="90" width="920" height="60" rx="0" fill="#ffffff" stroke="#495057" stroke-width="2.5" />
+<line x1="205" y1="30" x2="205" y2="150" stroke="#495057" stroke-width="2.5"/>
+<text x="112.5" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">látka</text>
+<text x="112.5" y="128" font-size="18" text-anchor="middle" font-weight="bold" fill="#212529">teplota tání [°C]</text>
+<text x="245.83333333333334" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">líh</text>
+<text x="245.83333333333334" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">−116</text>
+<line x1="286.6666666666667" y1="30" x2="286.6666666666667" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="327.5" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">voda</text>
+<text x="327.5" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">0</text>
+<line x1="368.33333333333337" y1="30" x2="368.33333333333337" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="409.1666666666667" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">cín</text>
+<text x="409.1666666666667" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">232</text>
+<line x1="450.0" y1="30" x2="450.0" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="490.8333333333333" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">olovo</text>
+<text x="490.8333333333333" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">327</text>
+<line x1="531.6666666666667" y1="30" x2="531.6666666666667" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="572.5000000000001" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">hliník</text>
+<text x="572.5000000000001" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">658</text>
+<line x1="613.3333333333334" y1="30" x2="613.3333333333334" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="654.1666666666667" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">zlato</text>
+<text x="654.1666666666667" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">1063</text>
+<line x1="695.0" y1="30" x2="695.0" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="735.8333333333334" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">měď</text>
+<text x="735.8333333333334" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">1084</text>
+<line x1="776.6666666666667" y1="30" x2="776.6666666666667" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="817.5000000000001" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">ocel</text>
+<text x="817.5000000000001" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">1400</text>
+<line x1="858.3333333333334" y1="30" x2="858.3333333333334" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
+<text x="899.1666666666667" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">železo</text>
+<text x="899.1666666666667" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">1535</text>
+</svg>

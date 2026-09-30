@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="Helvetica, Arial, sans-serif">
+<title>Tři skupenství vody: led, voda a pára</title>
+<defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
+<rect width="960" height="540" fill="#ffffff"/>
+<rect x="0" y="0" width="960" height="290" rx="0" fill="#f1f3f5" stroke="none" stroke-width="2" />
+<rect x="0" y="290" width="960" height="250" rx="0" fill="#1c5d99" stroke="none" stroke-width="2" />
+<polygon points="99.9,290.0 410.1,290.0 403.5,430.0 370.5,490.0 139.5,480.0 106.5,410.0" fill="#a5d8ff" stroke="#4dabf7" stroke-width="2" stroke-linejoin="round" fill-opacity="0.6"/>
+<line x1="0" y1="290" x2="960" y2="290" stroke="#4dabf7" stroke-width="3"/>
+<polygon points="90.0,290.0 116.4,274.2 189.0,261.2 294.6,265.6 387.0,278.5 420.0,290.0" fill="#c5e6ff" stroke="#339af0" stroke-width="3" stroke-linejoin="round" />
+<path d="M610,280 C635,240 585,200 610,160 C630,130 600,115 615,100" fill="none" stroke="#868e96" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahg)" />
+<path d="M700,280 C725,240 675,200 700,160 C720,130 690,115 705,100" fill="none" stroke="#868e96" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahg)" />
+<path d="M790,280 C815,240 765,200 790,160 C810,130 780,115 795,100" fill="none" stroke="#868e96" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#ahg)" />
+<rect x="177.0" y="40" width="146" height="42" rx="10" fill="#ffffff" stroke="#f59f00" stroke-width="4" />
+<text x="250" y="69" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">Led – pevný</text>
+<rect x="545.5" y="400" width="189" height="42" rx="10" fill="#ffffff" stroke="#1971c2" stroke-width="4" />
+<text x="640" y="429" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">Voda – kapalina</text>
+<rect x="627.0" y="40" width="146" height="42" rx="10" fill="#ffffff" stroke="#868e96" stroke-width="4" />
+<text x="700" y="69" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">Pára – plyn</text>
+<line x1="250" y1="84" x2="250" y2="250" stroke="#212529" stroke-width="2.5" marker-end="url(#ahk)"/>
+</svg>

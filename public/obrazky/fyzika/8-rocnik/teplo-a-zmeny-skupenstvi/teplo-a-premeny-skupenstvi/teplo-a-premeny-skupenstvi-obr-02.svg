@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 370" width="960" height="370" font-family="Helvetica, Arial, sans-serif">
+<title>Částice v pevné, kapalné a plynné látce</title>
+<defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
+<rect width="960" height="370" fill="#ffffff"/>
+<rect x="20" y="70" width="290" height="270" rx="12" fill="#ffffff" stroke="#f59f00" stroke-width="4" />
+<text x="165.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Pevná látka</text>
+<rect x="335" y="70" width="290" height="270" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="4" />
+<text x="480.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Kapalná látka</text>
+<rect x="650" y="70" width="290" height="270" rx="12" fill="#ffffff" stroke="#868e96" stroke-width="4" />
+<text x="795.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Plynná látka</text>
+<circle cx="65" cy="115" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="65" cy="165" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="65" cy="215" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="65" cy="265" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="65" cy="315" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="115" cy="115" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="115" cy="165" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="115" cy="215" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="115" cy="265" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="115" cy="315" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="165" cy="115" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="165" cy="165" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="165" cy="215" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="165" cy="265" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="165" cy="315" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="215" cy="115" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="215" cy="165" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="215" cy="215" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="215" cy="265" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="215" cy="315" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="265" cy="115" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="265" cy="165" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="265" cy="215" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="265" cy="265" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="265" cy="315" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="439.48153591162736" cy="178.38162195829779" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="514.7149287991664" cy="166.22762443346912" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="488.2528609905385" cy="211.68178212145077" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="378.33975269818256" cy="233.65253864436013" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="381.06674742216234" cy="169.06051706829908" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="462.6394135027782" cy="283.1620793241659" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="509.3096411532855" cy="301.8948860808359" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="589.5386742863716" cy="162.22031549575223" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="562.4477455811963" cy="199.88943938140983" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="437.253849186662" cy="245.762088843684" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="547.7072807501729" cy="263.3441372280835" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="370.86520393321354" cy="290.52151849294205" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="560.2554930914614" cy="308.93092186423064" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="415.5052010844415" cy="302.6381399824429" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="588.7032895276666" cy="239.7963729884308" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="500.959940423555" cy="256.6979641151299" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="710" cy="140" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="865" cy="220" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<circle cx="745" cy="295" r="20" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+</svg>

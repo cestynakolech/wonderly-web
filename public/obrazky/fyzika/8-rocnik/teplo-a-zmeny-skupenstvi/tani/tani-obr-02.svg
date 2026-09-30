@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" font-family="Helvetica, Arial, sans-serif">
+<title>Graf teploty cínu na čase zahřívání</title>
+<defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
+<rect width="960" height="520" fill="#ffffff"/>
+<text x="130" y="60" font-size="20" text-anchor="start" font-weight="bold" fill="#212529">Teplota</text>
+<line x1="120" y1="460" x2="120" y2="75" stroke="#212529" stroke-width="3" marker-end="url(#ahk)"/>
+<line x1="120" y1="460" x2="930" y2="460" stroke="#212529" stroke-width="3" marker-end="url(#ahk)"/>
+<line x1="112" y1="400" x2="128" y2="400" stroke="#212529" stroke-width="3"/>
+<text x="104" y="406" font-size="18" text-anchor="end" font-weight="normal" fill="#212529">20 °C</text>
+<line x1="112" y1="240" x2="128" y2="240" stroke="#212529" stroke-width="3"/>
+<text x="104" y="246" font-size="18" text-anchor="end" font-weight="normal" fill="#212529">232 °C</text>
+<line x1="120" y1="240" x2="590" y2="240" stroke="#868e96" stroke-width="2" stroke-dasharray="8 6"/>
+<path d="M120,400 L330,240 L590,240 L800,110" fill="none" stroke="#e03131" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+<text x="525" y="500" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">Čas zahřívání, množství dodaného tepla</text>
+<rect x="195" y="267.6" width="29.4" height="29.4" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
+<polygon points="195.0,267.6 207.6,255.0 237.0,255.0 224.4,267.6" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<polygon points="224.4,267.6 237.0,255.0 237.0,284.4 224.4,297.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<rect x="430" y="182.6" width="29.4" height="29.4" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
+<polygon points="430.0,182.6 442.6,170.0 472.0,170.0 459.4,182.6" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<polygon points="459.4,182.6 472.0,170.0 472.0,199.4 459.4,212.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<path d="M495,168 C500.1,179.9 512.0,188.4 512.0,196.9 A17.0,17.0 0 1 1 478.0,196.9 C478.0,188.4 489.9,179.9 495,168 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+<path d="M680,98 C686.0,112.0 700.0,122.0 700.0,132.0 A20.0,20.0 0 1 1 660.0,132.0 C660.0,122.0 674.0,112.0 680,98 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+<rect x="255" y="335" width="220" height="62" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="269" y="360" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Ohřívání pevné látky</text>
+<text x="269" y="384" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">na teplotu tání</text>
+<rect x="530" y="290" width="292" height="86" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="544" y="315" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Tání látky: směs kapaliny</text>
+<text x="544" y="339" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">a pevných částí látky</text>
+<text x="544" y="363" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">o teplotě tání</text>
+<rect x="720" y="205" width="191" height="38" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
+<text x="734" y="230" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Ohřívání kapaliny</text>
+</svg>
