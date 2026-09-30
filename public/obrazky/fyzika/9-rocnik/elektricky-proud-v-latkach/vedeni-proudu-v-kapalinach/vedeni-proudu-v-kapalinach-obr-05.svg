@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 650" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pomědění železného předmětu: nádoba s modrým roztokem skalice modré, vlevo měděná anoda se znaménkem plus s vykousnutými okraji, vpravo železný předmět jako katoda se znaménkem mínus; červené ionty Cu²⁺ míří doprava k předmětu, fialové ionty SO₄²⁻ doleva k mědi.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="644" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Pomědění železného předmětu</text>
+<path d="M90,310 L90,542 Q90,570 118,570 L842,570 Q870,570 870,542 L870,310 z" fill="#74c0fc" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.62"/>
+<line x1="90.0" y1="310.0" x2="870.0" y2="310.0" stroke="#4dabf7" stroke-width="3" stroke-linecap="round"/>
+<path d="M90,270 L90,542 Q90,570 118,570 L842,570 Q870,570 870,542 L870,270" fill="none" stroke="#6c757d" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M150,130 L210,130 L210,335 A17,17 0 0 0 210,369 L210,385 A17,17 0 0 0 210,419 L210,435 A17,17 0 0 0 210,469 L210,510 L150,510 z" fill="#d9822b" stroke="#a4531b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="730.0" y="130.0" width="60.0" height="380.0" rx="4" fill="#adb5bd" stroke="#212529" stroke-width="3"/>
+<rect x="735.0" y="136.0" width="6.0" height="368.0" rx="2" fill="#dee2e6" stroke="#dee2e6" stroke-width="1"/>
+<rect x="724.0" y="313.0" width="6.0" height="197.0" rx="1" fill="#d9822b" stroke="#a4531b" stroke-width="1"/>
+<line x1="180.0" y1="95.0" x2="180.0" y2="130.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="760.0" y1="95.0" x2="760.0" y2="130.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="180.0" y1="95.0" x2="318.0" y2="95.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="342.0" y1="95.0" x2="486.0" y2="95.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="554.0" y1="95.0" x2="760.0" y2="95.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="342.0" y1="80.0" x2="342.0" y2="110.0" stroke="#2b2a26" stroke-width="8" stroke-linecap="round"/>
+<line x1="318.0" y1="67.0" x2="318.0" y2="123.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<text x="296.0" y="71.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<circle cx="520.0" cy="95.0" r="34" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<path d="M501.6,87.6 A24,24 0 0 1 538.4,87.6" fill="none" stroke="#868e96" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="520.0" y1="103.0" x2="509.7" y2="83.6" stroke="#e03131" stroke-width="3" stroke-linecap="round"/>
+<circle cx="520.0" cy="103.0" r="3.5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="520.0" y="121.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">A</text>
+<circle cx="180.0" cy="175.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="180.0" y="184.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<circle cx="760.0" cy="175.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="760.0" y="184.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">−</text>
+<text x="180.0" y="250.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">Cu</text>
+<text x="760.0" y="250.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">Fe</text>
+<rect x="43.1" y="216.5" width="83.8" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="85.0" y="242.3" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">anoda</text>
+<rect x="827.4" y="216.5" width="95.3" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="875.0" y="242.3" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">katoda</text>
+<line x1="320.0" y1="365.0" x2="378.0" y2="365.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="290.0" cy="365.0" r="27" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="290.0" y="371.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cu<tspan font-size="14.8" dy="-7.2">2+</tspan></text>
+<line x1="510.0" y1="365.0" x2="568.0" y2="365.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="480.0" cy="365.0" r="27" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="480.0" y="371.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cu<tspan font-size="14.8" dy="-7.2">2+</tspan></text>
+<line x1="670.0" y1="365.0" x2="702.0" y2="365.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="640.0" cy="365.0" r="27" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="640.0" y="371.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cu<tspan font-size="14.8" dy="-7.2">2+</tspan></text>
+<line x1="320.0" y1="525.0" x2="378.0" y2="525.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="290.0" cy="525.0" r="27" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="290.0" y="531.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cu<tspan font-size="14.8" dy="-7.2">2+</tspan></text>
+<line x1="500.0" y1="525.0" x2="558.0" y2="525.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="470.0" cy="525.0" r="27" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="470.0" y="531.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cu<tspan font-size="14.8" dy="-7.2">2+</tspan></text>
+<line x1="680.0" y1="525.0" x2="712.0" y2="525.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="650.0" cy="525.0" r="27" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="650.0" y="531.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cu<tspan font-size="14.8" dy="-7.2">2+</tspan></text>
+<line x1="295.0" y1="450.0" x2="225.0" y2="450.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="330.0" cy="450.0" r="33" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="330.0" y="455.8" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">SO<tspan font-size="14.0" dy="4.0">4</tspan><tspan font-size="14.0" dy="-10.8" dx="-7.9">2−</tspan></text>
+<line x1="565.0" y1="450.0" x2="495.0" y2="450.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="600.0" cy="450.0" r="33" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="600.0" y="455.8" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">SO<tspan font-size="14.0" dy="4.0">4</tspan><tspan font-size="14.0" dy="-10.8" dx="-7.9">2−</tspan></text>
+<path d="M467,249 L480,318 L493,249 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="280.0" y="165.0" width="400.0" height="84.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="469" y="246" width="22" height="6" fill="#d3f9d8"/>
+<text x="480.0" y="200.0" font-size="21" fill="#2b2a26" text-anchor="middle">Vodný roztok skalice modré</text>
+<text x="480.0" y="232.0" font-size="21" fill="#2b2a26" text-anchor="middle">CuSO<tspan font-size="16.4" dy="4.6">4</tspan><tspan dy="-4.6"> → Cu</tspan><tspan font-size="16.4" dy="-8.0">2+</tspan><tspan dy="8.0"> + SO</tspan><tspan font-size="16.4" dy="4.6">4</tspan><tspan font-size="16.4" dy="-12.6" dx="-9.2">2−</tspan></text>
+<rect x="563.5" y="593.5" width="153.1" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="640.0" y="619.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">vrstva mědi</text>
+<line x1="700.0" y1="595.0" x2="727.0" y2="505.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="700.0" y1="595.0" x2="727.0" y2="505.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

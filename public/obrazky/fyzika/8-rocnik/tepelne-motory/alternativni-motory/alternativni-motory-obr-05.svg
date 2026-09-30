@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 596" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Čtyři řádky pod sebou: plynová láhev s popisky LPG, CNG a bioplyn; hybrid, kde spalovací motor i elektromotor s baterií pohánějí kola; elektromobil zapojený do zásuvky s baterií v autě; nádrž s vodíkem H2, palivový článek a elektromotor u vodíkového pohonu.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-hn" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#8d6e63"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="590" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="20.0" y="14.0" width="920.0" height="136.0" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="20.0" y="158.0" width="920.0" height="136.0" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="20.0" y="302.0" width="920.0" height="136.0" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="20.0" y="446.0" width="920.0" height="136.0" rx="10" fill="#ffffff" stroke="#ced4da" stroke-width="2"/>
+<rect x="70.0" y="46.0" width="70.0" height="92.0" rx="22" fill="#adb5bd" stroke="#495057" stroke-width="4"/>
+<rect x="90.0" y="30.0" width="30.0" height="20.0" rx="4" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="96.0" y="20.0" width="18.0" height="12.0" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+<text x="170.0" y="66.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">LPG</text>
+<text x="170.0" y="98.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">CNG</text>
+<text x="170.0" y="130.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">bioplyn</text>
+<text x="600.0" y="60.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Alternativní paliva</text>
+<text x="600.0" y="92.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">LPG: zkapalněný plyn</text>
+<text x="600.0" y="116.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">CNG: stlačený zemní plyn</text>
+<text x="600.0" y="140.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">bioplyn: plyn z organického odpadu</text>
+<rect x="40.0" y="170.0" width="90.0" height="44.0" rx="6" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<rect x="50.0" y="160.0" width="18.0" height="14.0" rx="2" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="76.0" y="160.0" width="18.0" height="14.0" rx="2" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="102.0" y="160.0" width="18.0" height="14.0" rx="2" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<text x="142.0" y="198.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">spalovací motor</text>
+<line x1="310.0" y1="192.0" x2="486.0" y2="214.0" stroke="#2b2a26" stroke-width="6" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<rect x="40.0" y="236.0" width="100.0" height="34.0" rx="8" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<rect x="140.0" y="245.0" width="10.0" height="16.0" rx="2" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<rect x="50.0" y="244.0" width="18.0" height="18.0" rx="3" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<rect x="74.0" y="244.0" width="18.0" height="18.0" rx="3" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<rect x="98.0" y="244.0" width="18.0" height="18.0" rx="3" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<rect x="122.0" y="244.0" width="18.0" height="18.0" rx="3" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<line x1="162.0" y1="253.0" x2="204.0" y2="253.0" stroke="#2b2a26" stroke-width="6" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<circle cx="236.0" cy="253.0" r="26" fill="#ffe066" stroke="#2b2a26" stroke-width="4"/>
+<text x="236.0" y="264.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">M</text>
+<line x1="266.0" y1="253.0" x2="486.0" y2="242.0" stroke="#2b2a26" stroke-width="6" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<circle cx="522.0" cy="228.0" r="30" fill="#343a40" stroke="#212529" stroke-width="4"/>
+<circle cx="522.0" cy="228.0" r="12" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<text x="90.0" y="286.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">baterie</text>
+<text x="236.0" y="286.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">elektromotor</text>
+<text x="522.0" y="286.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kola</text>
+<text x="600.0" y="220.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Hybridní pohon</text>
+<text x="600.0" y="252.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">spalovací motor + elektromotor</text>
+<rect x="190.0" y="360.0" width="280.0" height="36.0" rx="12" fill="#4dabf7" stroke="#495057" stroke-width="4"/>
+<path d="M240,360 L270,328 L400,328 L432,360 Z" fill="#a5d8ff" stroke="#495057" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="250.0" cy="398.0" r="17" fill="#343a40" stroke="#212529" stroke-width="3"/>
+<circle cx="410.0" cy="398.0" r="17" fill="#343a40" stroke="#212529" stroke-width="3"/>
+<rect x="290.0" y="366.0" width="100.0" height="24.0" rx="5" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="296.0" y="370.0" width="17.0" height="16.0" rx="2" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<rect x="319.0" y="370.0" width="17.0" height="16.0" rx="2" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<rect x="342.0" y="370.0" width="17.0" height="16.0" rx="2" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<rect x="365.0" y="370.0" width="17.0" height="16.0" rx="2" fill="#69db7c" stroke="#2f9e44" stroke-width="2"/>
+<path d="M190,378 Q120,378 110,352 L90,352" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="52.0" y="332.0" width="40.0" height="40.0" rx="8" fill="#f8f9fa" stroke="#495057" stroke-width="4"/>
+<circle cx="64.0" cy="352.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="80.0" cy="352.0" r="4" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="72.0" y="430.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">zásuvka</text>
+<text x="340.0" y="430.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">baterie v autě</text>
+<text x="600.0" y="364.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Elektromobil</text>
+<text x="600.0" y="396.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">elektromotor a baterie</text>
+<rect x="50.0" y="472.0" width="70.0" height="92.0" rx="22" fill="#a5d8ff" stroke="#1971c2" stroke-width="4"/>
+<rect x="70.0" y="456.0" width="30.0" height="20.0" rx="4" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="76.0" y="446.0" width="18.0" height="12.0" rx="2" fill="#495057" stroke="#2b2a26" stroke-width="2"/>
+<text x="85.0" y="528.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">H<tspan font-size="18" dy="6">2</tspan></text>
+<line x1="140.0" y1="516.0" x2="215.0" y2="516.0" stroke="#2b2a26" stroke-width="6" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<rect x="220.0" y="474.0" width="130.0" height="76.0" rx="8" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<line x1="240.0" y1="484.0" x2="240.0" y2="540.0" stroke="#868e96" stroke-width="6" stroke-linecap="round"/>
+<line x1="262.0" y1="484.0" x2="262.0" y2="540.0" stroke="#868e96" stroke-width="6" stroke-linecap="round"/>
+<line x1="284.0" y1="484.0" x2="284.0" y2="540.0" stroke="#868e96" stroke-width="6" stroke-linecap="round"/>
+<line x1="306.0" y1="484.0" x2="306.0" y2="540.0" stroke="#868e96" stroke-width="6" stroke-linecap="round"/>
+<line x1="328.0" y1="484.0" x2="328.0" y2="540.0" stroke="#868e96" stroke-width="6" stroke-linecap="round"/>
+<line x1="355.0" y1="516.0" x2="400.0" y2="516.0" stroke="#2b2a26" stroke-width="6" marker-end="url(#b-ink)" stroke-linecap="round"/>
+<circle cx="445.0" cy="516.0" r="34" fill="#ffe066" stroke="#2b2a26" stroke-width="4"/>
+<text x="445.0" y="527.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">M</text>
+<text x="85.0" y="574.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">vodík (plyn)</text>
+<text x="285.0" y="574.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">palivový článek</text>
+<text x="445.0" y="574.0" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">elektromotor</text>
+<text x="600.0" y="508.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Vodíkový pohon</text>
+<text x="600.0" y="540.0" font-size="20" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">palivový článek dává elektřinu</text>
+</svg>

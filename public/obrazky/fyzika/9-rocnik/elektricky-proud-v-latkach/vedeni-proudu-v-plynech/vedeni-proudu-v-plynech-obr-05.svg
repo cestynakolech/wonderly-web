@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dvě šikmé šedé uhlíkové elektrody, jejich hroty jsou od sebe v mezeře několika milimetrů, mezi hroty jasná bílá zář ve tvaru oblouku s oranžovým okrajem na hnědošedém pozadí.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<radialGradient id="zare"><stop offset="0" stop-color="#fff3bf" stop-opacity="0.9"/><stop offset="0.5" stop-color="#ff922b" stop-opacity="0.45"/><stop offset="1" stop-color="#ff922b" stop-opacity="0"/></radialGradient></defs>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="18.0" y="18.0" width="924.0" height="564.0" rx="12" fill="#6b5b4e" stroke="#2b2a26" stroke-width="2"/>
+<text x="480.0" y="62.0" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">Elektrický oblouk</text>
+<path d="M62.6,454.9 L465.6,424.9 L460.4,355.1 L57.4,385.1 z" fill="#adb5bd" stroke="#343a40" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="61.0" y1="434.0" x2="464.0" y2="404.0" stroke="#dee2e6" stroke-width="4" stroke-linecap="round"/>
+<path d="M902.6,385.1 L499.6,355.1 L494.4,424.9 L897.4,454.9 z" fill="#adb5bd" stroke="#343a40" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="901.0" y1="406.0" x2="498.0" y2="376.0" stroke="#dee2e6" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="480" cy="370" rx="120" ry="85" fill="url(#zare)"/>
+<path d="M468,385 Q480,300 492,385" fill="none" stroke="#ff922b" stroke-width="20" stroke-linejoin="round" stroke-linecap="round" opacity="0.65"/>
+<path d="M468,385 Q480,300 492,385" fill="none" stroke="#ffd8a8" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M468,385 Q480,300 492,385" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="463.0" y1="452.0" x2="497.0" y2="452.0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+<line x1="463.0" y1="440.0" x2="463.0" y2="464.0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+<line x1="497.0" y1="440.0" x2="497.0" y2="464.0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+<rect x="370.2" y="481.0" width="219.6" height="38.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="507.7" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">mezera 1 až 3 mm</text>
+<rect x="354.8" y="110.0" width="250.4" height="40.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="138.4" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektrický oblouk</text>
+<line x1="480.0" y1="152.0" x2="480.0" y2="335.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="480.0" y1="152.0" x2="480.0" y2="335.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="93.0" y="261.5" width="233.9" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="210.0" y="287.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">uhlíková elektroda</text>
+<line x1="235.0" y1="302.0" x2="250.0" y2="385.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="235.0" y1="302.0" x2="250.0" y2="385.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="633.0" y="261.5" width="233.9" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="750.0" y="287.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">uhlíková elektroda</text>
+<line x1="725.0" y1="302.0" x2="710.0" y2="385.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="725.0" y1="302.0" x2="710.0" y2="385.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

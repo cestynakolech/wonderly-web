@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Klečící svářeč s ochranným štítem na hlavě a v rukavicích drží elektrodu u ocelového nosníku, kde svítí jasný bod a odlétají jiskry.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<radialGradient id="zare"><stop offset="0" stop-color="#ffffff" stop-opacity="1"/><stop offset="0.35" stop-color="#ffe066" stop-opacity="0.85"/><stop offset="1" stop-color="#ff922b" stop-opacity="0"/></radialGradient></defs>
+<rect x="3" y="3" width="954" height="574" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="50.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Obloukové svařování</text>
+<rect x="20.0" y="500.0" width="920.0" height="60.0" rx="6" fill="#dee2e6" stroke="#adb5bd" stroke-width="2"/>
+<rect x="330.0" y="440.0" width="560.0" height="44.0" rx="4" fill="#868e96" stroke="#495057" stroke-width="4"/>
+<rect x="330.0" y="440.0" width="560.0" height="10.0" rx="4" fill="#ced4da" stroke="#ced4da" stroke-width="1"/>
+<line x1="110.0" y1="490.0" x2="205.0" y2="490.0" stroke="#495057" stroke-width="22" stroke-linecap="round"/>
+<line x1="205.0" y1="490.0" x2="232.0" y2="412.0" stroke="#495057" stroke-width="28" stroke-linecap="round"/>
+<line x1="232.0" y1="412.0" x2="305.0" y2="440.0" stroke="#495057" stroke-width="28" stroke-linecap="round"/>
+<line x1="305.0" y1="440.0" x2="312.0" y2="490.0" stroke="#495057" stroke-width="24" stroke-linecap="round"/>
+<rect x="292.0" y="486.0" width="46.0" height="14.0" rx="6" fill="#212529" stroke="#212529" stroke-width="1"/>
+<line x1="232.0" y1="412.0" x2="258.0" y2="305.0" stroke="#1971c2" stroke-width="56" stroke-linecap="round"/>
+<line x1="232.0" y1="412.0" x2="258.0" y2="305.0" stroke="#0b4f8a" stroke-width="3" stroke-linecap="round"/>
+<line x1="262.0" y1="335.0" x2="400.0" y2="372.0" stroke="#1971c2" stroke-width="22" stroke-linecap="round"/>
+<circle cx="408.0" cy="374.0" r="15" fill="#7d5a2a" stroke="#4a3416" stroke-width="3"/>
+<line x1="258.0" y1="345.0" x2="335.0" y2="398.0" stroke="#1971c2" stroke-width="20" stroke-linecap="round"/>
+<circle cx="343.0" cy="402.0" r="14" fill="#7d5a2a" stroke="#4a3416" stroke-width="3"/>
+<circle cx="292.0" cy="268.0" r="34" fill="#343a40" stroke="#000000" stroke-width="4"/>
+<rect x="296.0" y="250.0" width="32.0" height="28.0" rx="8" fill="#0b0b0b" stroke="#868e96" stroke-width="3"/>
+<line x1="302.0" y1="256.0" x2="316.0" y2="254.0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+<line x1="408.0" y1="374.0" x2="566.0" y2="440.0" stroke="#dee2e6" stroke-width="7" stroke-linecap="round"/>
+<line x1="408.0" y1="374.0" x2="566.0" y2="440.0" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<circle cx="570" cy="438" r="46" fill="url(#zare)"/>
+<circle cx="570.0" cy="438.0" r="8" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<line x1="578.0" y1="432.0" x2="640.0" y2="380.0" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<line x1="578.0" y1="432.0" x2="660.0" y2="420.0" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<line x1="578.0" y1="432.0" x2="620.0" y2="350.0" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<line x1="578.0" y1="432.0" x2="690.0" y2="400.0" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<line x1="578.0" y1="432.0" x2="600.0" y2="330.0" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<line x1="578.0" y1="432.0" x2="700.0" y2="440.0" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" stroke-linecap="round"/>
+<circle cx="648.0" cy="392.0" r="4" fill="#fff3bf" stroke="#f08c00" stroke-width="1.5"/>
+<circle cx="668.0" cy="428.0" r="4" fill="#fff3bf" stroke="#f08c00" stroke-width="1.5"/>
+<circle cx="628.0" cy="362.0" r="4" fill="#fff3bf" stroke="#f08c00" stroke-width="1.5"/>
+<circle cx="700.0" cy="412.0" r="4" fill="#fff3bf" stroke="#f08c00" stroke-width="1.5"/>
+<circle cx="610.0" cy="340.0" r="4" fill="#fff3bf" stroke="#f08c00" stroke-width="1.5"/>
+<rect x="161.9" y="161.5" width="176.2" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="250.0" y="187.3" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">ochranný štít</text>
+<line x1="275.0" y1="200.0" x2="288.0" y2="240.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="275.0" y1="200.0" x2="288.0" y2="240.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="50.7" y="281.0" width="98.6" height="38.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="100.0" y="307.7" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">svářeč</text>
+<line x1="140.0" y1="315.0" x2="225.0" y2="350.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="140.0" y1="315.0" x2="225.0" y2="350.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="405.0" y="281.5" width="129.9" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="470.0" y="307.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektroda</text>
+<line x1="470.0" y1="322.0" x2="470.0" y2="402.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="470.0" y1="322.0" x2="470.0" y2="402.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="668.8" y="301.5" width="222.4" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="780.0" y="327.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektrický oblouk</text>
+<line x1="740.0" y1="335.0" x2="590.0" y2="425.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="740.0" y1="335.0" x2="590.0" y2="425.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="602.3" y="521.0" width="195.4" height="38.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="700.0" y="547.7" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">ocelový nosník</text>
+<line x1="700.0" y1="520.0" x2="700.0" y2="486.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="700.0" y1="520.0" x2="700.0" y2="486.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

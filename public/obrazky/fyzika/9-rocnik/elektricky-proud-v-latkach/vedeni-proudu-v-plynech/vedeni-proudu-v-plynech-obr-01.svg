@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 585" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma: nahoře šipka proudu od plusu k mínusu. Vlevo rámeček kov, v něm volné elektrony s šipkami jedním směrem. Uprostřed rámeček kapalina jen s ionty: kationty plus se šipkami doleva a anionty mínus se šipkami doprava, bez elektronů. Vpravo rámeček plyn: kationty, anionty i elektrony. Dole vzorec I = Q : t s popisky elektrický proud, elektrický náboj, čas.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="579" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Elektrický proud v kovu, v kapalině a v plynu</text>
+<circle cx="660.0" cy="105.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="660.0" y="114.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<circle cx="300.0" cy="105.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="300.0" y="114.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">−</text>
+<line x1="628.0" y1="105.0" x2="340.0" y2="105.0" stroke="#e8590c" stroke-width="7" marker-end="url(#b-ora)" stroke-linecap="round"/>
+<rect x="403.5" y="139.5" width="153.1" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="165.3" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">směr proudu</text>
+<rect x="25.0" y="215.0" width="280.0" height="170.0" rx="40" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<rect x="340.0" y="215.0" width="280.0" height="170.0" rx="40" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<rect x="655.0" y="215.0" width="280.0" height="170.0" rx="40" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<rect x="132.2" y="180.0" width="65.6" height="40.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="165.0" y="208.4" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">kov</text>
+<rect x="414.2" y="180.0" width="131.6" height="40.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="208.4" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">kapalina</text>
+<rect x="755.6" y="180.0" width="78.8" height="40.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="795.0" y="208.4" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">plyn</text>
+<line x1="102.0" y1="255.0" x2="152.0" y2="255.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="80.0" cy="255.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="80.0" y="263.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="102.0" y1="305.0" x2="152.0" y2="305.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="80.0" cy="305.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="80.0" y="313.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="102.0" y1="355.0" x2="152.0" y2="355.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="80.0" cy="355.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="80.0" y="363.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="222.0" y1="255.0" x2="272.0" y2="255.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="200.0" cy="255.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="200.0" y="263.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="222.0" y1="305.0" x2="272.0" y2="305.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="200.0" cy="305.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="200.0" y="313.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="222.0" y1="355.0" x2="272.0" y2="355.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="200.0" cy="355.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="200.0" y="363.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="518.0" y1="255.0" x2="468.0" y2="255.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="540.0" cy="255.0" r="20" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="540.0" y="263.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<line x1="457.0" y1="310.0" x2="507.0" y2="310.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="435.0" cy="310.0" r="20" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="435.0" y="318.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="518.0" y1="360.0" x2="468.0" y2="360.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="540.0" cy="360.0" r="20" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="540.0" y="368.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<line x1="783.0" y1="255.0" x2="733.0" y2="255.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="805.0" cy="255.0" r="20" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="805.0" y="263.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<line x1="757.0" y1="310.0" x2="807.0" y2="310.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="735.0" cy="310.0" r="20" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="735.0" y="318.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<line x1="757.0" y1="362.0" x2="807.0" y2="362.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="735.0" cy="362.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="735.0" y="370.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<circle cx="100.0" cy="425.0" r="20" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="100.0" y="433.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<text x="128.0" y="432.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">kation</text>
+<circle cx="300.0" cy="425.0" r="20" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="300.0" y="433.3" font-size="26" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<text x="328.0" y="432.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">anion</text>
+<circle cx="500.0" cy="425.0" r="12" fill="#1971c2" stroke="#0b4f8a" stroke-width="2.5"/>
+<text x="500.0" y="433.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<text x="528.0" y="432.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">elektron</text>
+<line x1="680.0" y1="425.0" x2="740.0" y2="425.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<text x="756.0" y="432.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">pohyb částic</text>
+<rect x="377.9" y="454.0" width="204.2" height="52.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="492.6" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="middle">I = Q : t</text>
+<rect x="41.5" y="526.5" width="257.0" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="170.0" y="552.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">I – elektrický proud</text>
+<rect x="351.5" y="526.5" width="257.0" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="552.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">Q – elektrický náboj</text>
+<rect x="721.6" y="526.5" width="106.9" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="775.0" y="552.4" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">t – čas</text>
+</svg>

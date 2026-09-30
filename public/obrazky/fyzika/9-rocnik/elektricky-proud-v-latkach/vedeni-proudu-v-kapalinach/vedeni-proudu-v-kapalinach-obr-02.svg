@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Čistá voda H₂O s dvěma ponořenými tyčinkami v obvodu s baterií, sepnutým vypínačem, ampérmetrem a žárovkou; ručka ampérmetru ukazuje malou výchylku, žárovka nesvítí; bublina vysvětluje, že teče velmi malý proud.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Čistá voda v obvodu</text>
+<rect x="117.0" y="210.0" width="26.0" height="260.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="122.0" y="216.0" width="6.0" height="248.0" rx="2" fill="#868e96" stroke="#868e96" stroke-width="1"/>
+<rect x="547.0" y="210.0" width="26.0" height="260.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="552.0" y="216.0" width="6.0" height="248.0" rx="2" fill="#868e96" stroke="#868e96" stroke-width="1"/>
+<path d="M60,315 L60,497 Q60,525 88,525 L612,525 Q640,525 640,497 L640,315 z" fill="#a5d8ff" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.62"/>
+<line x1="60.0" y1="315.0" x2="640.0" y2="315.0" stroke="#4dabf7" stroke-width="3" stroke-linecap="round"/>
+<path d="M60,275 L60,497 Q60,525 88,525 L612,525 Q640,525 640,497 L640,275" fill="none" stroke="#6c757d" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="130.0" y1="115.0" x2="130.0" y2="210.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="560.0" y1="115.0" x2="560.0" y2="210.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="130.0" y1="115.0" x2="178.0" y2="115.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="202.0" y1="115.0" x2="250.0" y2="115.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="310.0" y1="115.0" x2="362.0" y2="115.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="438.0" y1="115.0" x2="470.0" y2="115.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="530.0" y1="115.0" x2="560.0" y2="115.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="178.0" y1="100.0" x2="178.0" y2="130.0" stroke="#2b2a26" stroke-width="8" stroke-linecap="round"/>
+<line x1="202.0" y1="87.0" x2="202.0" y2="143.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<text x="224.0" y="91.0" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<circle cx="250.0" cy="115.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<circle cx="310.0" cy="115.0" r="5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<line x1="250.0" y1="115.0" x2="310.0" y2="115.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="400.0" cy="115.0" r="38" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<path d="M381.6,107.6 A24,24 0 0 1 418.4,107.6" fill="none" stroke="#868e96" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="400.0" y1="123.0" x2="389.7" y2="103.6" stroke="#e03131" stroke-width="3" stroke-linecap="round"/>
+<circle cx="400.0" cy="123.0" r="3.5" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="400.0" y="145.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">A</text>
+<circle cx="500.0" cy="115.0" r="30" fill="#ffffff" stroke="#2b2a26" stroke-width="4"/>
+<line x1="479.0" y1="94.0" x2="521.0" y2="136.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="479.0" y1="136.0" x2="521.0" y2="94.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<rect x="152.3" y="155.0" width="95.3" height="34.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="200.0" y="178.3" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">baterie</text>
+<rect x="237.3" y="49.0" width="95.3" height="34.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="285.0" y="72.3" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">vypínač</text>
+<rect x="342.4" y="155.0" width="115.1" height="34.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="400.0" y="178.3" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">ampérmetr</text>
+<rect x="464.4" y="155.0" width="95.3" height="34.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="512.0" y="178.3" font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle">žárovka</text>
+<circle cx="92.0" cy="250.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="92.0" y="259.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">−</text>
+<circle cx="598.0" cy="250.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="598.0" y="259.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<rect x="307.2" y="397.0" width="75.5" height="46.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="345.0" y="430.5" font-size="30" font-weight="bold" fill="#2b2a26" text-anchor="middle">H<tspan font-size="23.4" dy="6.6">2</tspan><tspan dy="-6.6">O</tspan></text>
+<path d="M655,354 L640,400 L655,380 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="655.0" y="250.0" width="290.0" height="235.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="652" y="356" width="6" height="22" fill="#d3f9d8"/>
+<text x="800.0" y="285.0" font-size="19" fill="#2b2a26" text-anchor="middle">Obvodem teče velmi malý</text>
+<text x="800.0" y="315.0" font-size="19" fill="#2b2a26" text-anchor="middle">proud (voda obsahuje malé</text>
+<text x="800.0" y="345.0" font-size="19" fill="#2b2a26" text-anchor="middle">množství iontů, např. H<tspan font-size="14.8" dy="-7.2">+</tspan><tspan dy="7.2">,</tspan></text>
+<text x="800.0" y="375.0" font-size="19" fill="#2b2a26" text-anchor="middle">OH<tspan font-size="14.8" dy="-7.2">−</tspan><tspan dy="7.2">), žárovka se nerozsvítí.</tspan></text>
+<text x="800.0" y="405.0" font-size="19" fill="#2b2a26" text-anchor="middle">Na měřicím přístroji</text>
+<text x="800.0" y="435.0" font-size="19" fill="#2b2a26" text-anchor="middle">(ampérmetr) se malý proud</text>
+<text x="800.0" y="465.0" font-size="19" fill="#2b2a26" text-anchor="middle">zobrazí.</text>
+</svg>

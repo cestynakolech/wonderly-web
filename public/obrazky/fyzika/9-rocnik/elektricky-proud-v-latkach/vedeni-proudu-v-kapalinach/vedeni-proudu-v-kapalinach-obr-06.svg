@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 730" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Využití vedení proudu v kapalinách: tři skupiny piktogramů se zelenými bublinami. Akumulátor: aku vrtačka, fotoaparát s tužkovými akumulátory, autobaterie. Galvanické pokovování: motocykl, chromovaný nárazník auta, zrcátko. Elektrometalurgie: hliníková plechovka.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<linearGradient id="chrom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="0.45" stop-color="#ced4da"/><stop offset="0.55" stop-color="#868e96"/><stop offset="1" stop-color="#e9ecef"/></linearGradient><linearGradient id="alu" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.35" stop-color="#f8f9fa"/><stop offset="0.7" stop-color="#ced4da"/><stop offset="1" stop-color="#868e96"/></linearGradient></defs>
+<rect x="3" y="3" width="954" height="724" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Využití vedení proudu v kapalinách</text>
+<rect x="20.0" y="65.0" width="920.0" height="205.0" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="2.5"/>
+<rect x="90.0" y="90.0" width="95.0" height="42.0" rx="10" fill="#c2255c" stroke="#7d1338" stroke-width="3"/>
+<rect x="52.0" y="100.0" width="40.0" height="22.0" rx="4" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="36.0" y1="111.0" x2="52.0" y2="111.0" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<path d="M138.0,130.0 L170.0,130.0 L154.0,180.0 L124.0,180.0 z" fill="#343a40" stroke="#212529" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="110.0" y="180.0" width="62.0" height="24.0" rx="6" fill="#c2255c" stroke="#7d1338" stroke-width="3"/>
+<rect x="142.0" y="138.0" width="12.0" height="16.0" rx="3" fill="#ffd43b" stroke="#a37b00" stroke-width="2"/>
+<text x="130.0" y="233.0" font-size="19" fill="#2b2a26" text-anchor="middle">aku vrtačka</text>
+<rect x="252.0" y="110.0" width="108.0" height="72.0" rx="10" fill="#343a40" stroke="#212529" stroke-width="3"/>
+<rect x="264.0" y="98.0" width="34.0" height="14.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<circle cx="306.0" cy="146.0" r="28" fill="#212529" stroke="#adb5bd" stroke-width="4"/>
+<circle cx="306.0" cy="146.0" r="15" fill="#495057" stroke="#868e96" stroke-width="3"/>
+<circle cx="300.0" cy="140.0" r="4" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<rect x="371.0" y="120.0" width="14.0" height="62.0" rx="5" fill="#51cf66" stroke="#2b8a3e" stroke-width="2.5"/>
+<rect x="374.0" y="115.0" width="8.0" height="6.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="391.0" y="120.0" width="14.0" height="62.0" rx="5" fill="#51cf66" stroke="#2b8a3e" stroke-width="2.5"/>
+<rect x="394.0" y="115.0" width="8.0" height="6.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<rect x="411.0" y="120.0" width="14.0" height="62.0" rx="5" fill="#51cf66" stroke="#2b8a3e" stroke-width="2.5"/>
+<rect x="414.0" y="115.0" width="8.0" height="6.0" rx="2" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<text x="340.0" y="233.0" font-size="19" fill="#2b2a26" text-anchor="middle">fotoaparát s tužkovými</text>
+<text x="340.0" y="257.0" font-size="19" fill="#2b2a26" text-anchor="middle">akumulátory</text>
+<rect x="478.0" y="120.0" width="144.0" height="78.0" rx="8" fill="#1971c2" stroke="#0b4f8a" stroke-width="3"/>
+<rect x="478.0" y="120.0" width="144.0" height="18.0" rx="6" fill="#0b4f8a" stroke="#0b4f8a" stroke-width="2"/>
+<rect x="500.0" y="106.0" width="22.0" height="14.0" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<rect x="578.0" y="106.0" width="22.0" height="14.0" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<path d="M530,120 Q550,94 570,120" fill="none" stroke="#495057" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="550.0" y="233.0" font-size="19" fill="#2b2a26" text-anchor="middle">autobaterie</text>
+<path d="M690,154 L655,167 L690,180 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="690.0" y="93.0" width="235.0" height="148.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="687" y="156" width="6" height="22" fill="#d3f9d8"/>
+<text x="807.0" y="127.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">akumulátor</text>
+<text x="807.0" y="157.0" font-size="20" fill="#2b2a26" text-anchor="middle">(aku nářadí, mobily,</text>
+<text x="807.0" y="183.0" font-size="20" fill="#2b2a26" text-anchor="middle">autobaterie,</text>
+<text x="807.0" y="209.0" font-size="20" fill="#2b2a26" text-anchor="middle">fotoaparáty)</text>
+<rect x="20.0" y="285.0" width="920.0" height="205.0" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="2.5"/>
+<circle cx="72.0" cy="392.0" r="28" fill="#ffffff" stroke="#343a40" stroke-width="7"/>
+<circle cx="72.0" cy="392.0" r="8" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<circle cx="192.0" cy="392.0" r="28" fill="#ffffff" stroke="#343a40" stroke-width="7"/>
+<circle cx="192.0" cy="392.0" r="8" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="192.0" y1="392.0" x2="176.0" y2="340.0" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<line x1="176.0" y1="340.0" x2="158.0" y2="332.0" stroke="#212529" stroke-width="6" stroke-linecap="round"/>
+<line x1="72.0" y1="392.0" x2="118.0" y2="370.0" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<line x1="118.0" y1="370.0" x2="180.0" y2="370.0" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<path d="M114.0,348.0 L158.0,344.0 L164.0,362.0 L122.0,364.0 z" fill="#c92a2a" stroke="#7d1a1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="66.0" y="350.0" width="56.0" height="12.0" rx="6" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<rect x="122.0" y="368.0" width="40.0" height="22.0" rx="5" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<line x1="120.0" y1="396.0" x2="82.0" y2="404.0" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+<text x="130.0" y="453.0" font-size="19" fill="#2b2a26" text-anchor="middle">motocykl</text>
+<rect x="270.0" y="404.0" width="26.0" height="20.0" rx="5" fill="#212529" stroke="#212529" stroke-width="2"/>
+<rect x="384.0" y="404.0" width="26.0" height="20.0" rx="5" fill="#212529" stroke="#212529" stroke-width="2"/>
+<path d="M292.0,306.0 L388.0,306.0 L412.0,342.0 L268.0,342.0 z" fill="#a5d8ff" stroke="#7d1a1a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="340.0" y1="308.0" x2="340.0" y2="342.0" stroke="#7d1a1a" stroke-width="3" stroke-linecap="round"/>
+<rect x="250.0" y="338.0" width="180.0" height="52.0" rx="14" fill="#c92a2a" stroke="#7d1a1a" stroke-width="4"/>
+<circle cx="282.0" cy="362.0" r="14" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<circle cx="398.0" cy="362.0" r="14" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<rect x="316.0" y="354.0" width="48.0" height="22.0" rx="4" fill="#495057" stroke="#212529" stroke-width="2"/>
+<line x1="322.0" y1="365.0" x2="358.0" y2="365.0" stroke="#adb5bd" stroke-width="2" stroke-linecap="round"/>
+<rect x="242" y="384" width="196" height="24" rx="12" fill="url(#chrom)" stroke="#495057" stroke-width="3"/>
+<text x="340.0" y="453.0" font-size="19" fill="#2b2a26" text-anchor="middle">chromovaný</text>
+<text x="340.0" y="477.0" font-size="19" fill="#2b2a26" text-anchor="middle">nárazník auta</text>
+<path d="M538.0,388.0 L558.0,388.0 L562.0,426.0 L534.0,426.0 z" fill="#868e96" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="544.0" y="392.0" width="8.0" height="30.0" rx="3" fill="#dee2e6" stroke="#dee2e6" stroke-width="1"/>
+<ellipse cx="548.0" cy="346.0" rx="54" ry="54" fill="#495057" stroke="#212529" stroke-width="4"/>
+<ellipse cx="548.0" cy="346.0" rx="45" ry="45" fill="url(#chrom)" stroke="#adb5bd" stroke-width="2"/>
+<line x1="522.0" y1="366.0" x2="554.0" y2="320.0" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+<line x1="540.0" y1="378.0" x2="564.0" y2="344.0" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+<text x="550.0" y="453.0" font-size="19" fill="#2b2a26" text-anchor="middle">zrcátko</text>
+<path d="M690,374 L655,387 L690,400 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="690.0" y="298.0" width="235.0" height="178.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="687" y="376" width="6" height="22" fill="#d3f9d8"/>
+<text x="807.0" y="332.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">galvanické</text>
+<text x="807.0" y="362.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">pokovování</text>
+<text x="807.0" y="392.0" font-size="20" fill="#2b2a26" text-anchor="middle">(chromování,</text>
+<text x="807.0" y="418.0" font-size="20" fill="#2b2a26" text-anchor="middle">niklování,</text>
+<text x="807.0" y="444.0" font-size="20" fill="#2b2a26" text-anchor="middle">zlacení)</text>
+<rect x="20.0" y="505.0" width="920.0" height="205.0" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="2.5"/>
+<path d="M92,542 L92,632 A38,10 0 0 0 168,632 L168,542 z" fill="url(#alu)" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="130.0" cy="542.0" rx="38" ry="10" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+<ellipse cx="130.0" cy="542.0" rx="28" ry="6" fill="#adb5bd" stroke="#6c757d" stroke-width="2"/>
+<rect x="120.0" y="536.0" width="20.0" height="10.0" rx="4" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
+<circle cx="130.0" cy="541.0" r="2.5" fill="#495057" stroke="#495057" stroke-width="1"/>
+<text x="130.0" y="673.0" font-size="19" fill="#2b2a26" text-anchor="middle">hliníková plechovka</text>
+<path d="M690,594 L655,607 L690,620 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
+<rect x="690.0" y="546.0" width="235.0" height="122.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
+<rect x="687" y="596" width="6" height="22" fill="#d3f9d8"/>
+<text x="807.0" y="580.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektrometalurgie</text>
+<text x="807.0" y="610.0" font-size="20" fill="#2b2a26" text-anchor="middle">(výroba čistých</text>
+<text x="807.0" y="636.0" font-size="20" fill="#2b2a26" text-anchor="middle">kovů – hliník)</text>
+</svg>

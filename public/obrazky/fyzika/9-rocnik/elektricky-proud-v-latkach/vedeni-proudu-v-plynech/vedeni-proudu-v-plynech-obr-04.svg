@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 675" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Jiskrový výboj a jeho užití. Nahoře na černém pozadí šedý mrak, pod ním země a mezi nimi bílý klikatý blesk, popisek blesk. Dole vlevo zapalovací svíčka s jasnou modrobílou jiskrou mezi elektrodami, vpravo paralyzér s černým tělem a dvěma hroty, mezi nimi klikatá modrá jiskra.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="669" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Jiskrový výboj a jeho užití</text>
+<g transform="translate(0,60)">
+<rect x="30.0" y="30.0" width="900.0" height="200.0" rx="14" fill="#111111" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="330.0" cy="62.0" r="34" fill="#6c757d" stroke="#6c757d" stroke-width="1"/>
+<circle cx="395.0" cy="55.0" r="42" fill="#6c757d" stroke="#6c757d" stroke-width="1"/>
+<circle cx="470.0" cy="50.0" r="46" fill="#6c757d" stroke="#6c757d" stroke-width="1"/>
+<circle cx="545.0" cy="55.0" r="42" fill="#6c757d" stroke="#6c757d" stroke-width="1"/>
+<circle cx="610.0" cy="62.0" r="34" fill="#6c757d" stroke="#6c757d" stroke-width="1"/>
+<rect x="330.0" y="62.0" width="280.0" height="34.0" rx="14" fill="#6c757d" stroke="#6c757d" stroke-width="1"/>
+<rect x="30.0" y="205.0" width="900.0" height="25.0" rx="10" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<path d="M470,98 L445,125 L482,135 L440,168 L472,176 L430,205" fill="none" stroke="#a5d8ff" stroke-width="14" stroke-linejoin="round" stroke-linecap="round" opacity="0.55"/>
+<path d="M470,98 L445,125 L482,135 L440,168 L472,176 L430,205" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="115.0" y="52.0" width="70.0" height="36.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="150.0" y="77.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">mrak</text>
+<line x1="185.0" y1="70.0" x2="290.0" y2="70.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="185.0" y1="70.0" x2="290.0" y2="70.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="115.0" y="167.0" width="70.0" height="36.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="150.0" y="192.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">země</text>
+<line x1="185.0" y1="195.0" x2="300.0" y2="215.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="185.0" y1="195.0" x2="300.0" y2="215.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M640,132 L495,150 L640,158 z" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" stroke-linejoin="round"/>
+<rect x="640.0" y="120.0" width="190.0" height="50.0" rx="12" fill="#ffe8cc" stroke="#e8590c" stroke-width="2"/>
+<rect x="637" y="134" width="6" height="22" fill="#ffe8cc"/>
+<text x="735.0" y="153.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">blesk</text>
+<rect x="30.0" y="255.0" width="430.0" height="330.0" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="2.5"/>
+<rect x="500.0" y="255.0" width="430.0" height="330.0" rx="14" fill="#ffffff" stroke="#ced4da" stroke-width="2.5"/>
+<rect x="125.0" y="280.0" width="30.0" height="34.0" rx="4" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<rect x="114.0" y="314.0" width="52.0" height="96.0" rx="8" fill="#f1f3f5" stroke="#495057" stroke-width="3"/>
+<line x1="114.0" y1="330.0" x2="166.0" y2="330.0" stroke="#adb5bd" stroke-width="2" stroke-linecap="round"/>
+<line x1="114.0" y1="350.0" x2="166.0" y2="350.0" stroke="#adb5bd" stroke-width="2" stroke-linecap="round"/>
+<line x1="114.0" y1="370.0" x2="166.0" y2="370.0" stroke="#adb5bd" stroke-width="2" stroke-linecap="round"/>
+<path d="M98.0,410.0 L182.0,410.0 L182.0,440.0 L98.0,440.0 z" fill="#868e96" stroke="#495057" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="120.0" y="440.0" width="40.0" height="46.0" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<line x1="120.0" y1="452.0" x2="160.0" y2="452.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="120.0" y1="464.0" x2="160.0" y2="464.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<line x1="120.0" y1="476.0" x2="160.0" y2="476.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<rect x="135.0" y="486.0" width="10.0" height="26.0" rx="2" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<path d="M160,486 L174,486 L174,552 L124,552" fill="none" stroke="#495057" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="140.0" cy="531.0" r="26" fill="#a5d8ff" stroke="#a5d8ff" stroke-width="1" opacity="0.45"/>
+<path d="M140,512 L152,522 L130,530 L148,540 L138,552" fill="none" stroke="#4dabf7" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity="0.6"/>
+<path d="M140,512 L152,522 L130,530 L148,540 L138,552" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="216.0" y="513.0" width="92.0" height="36.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="262.0" y="538.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">jiskra</text>
+<line x1="222.0" y1="531.0" x2="168.0" y2="531.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="222.0" y1="531.0" x2="168.0" y2="531.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M230,412 L170,400 L230,438 z" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" stroke-linejoin="round"/>
+<rect x="230.0" y="400.0" width="210.0" height="50.0" rx="12" fill="#ffe8cc" stroke="#e8590c" stroke-width="2"/>
+<rect x="227" y="414" width="6" height="22" fill="#ffe8cc"/>
+<text x="335.0" y="433.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">zapalovací svíčka</text>
+<rect x="540.0" y="400.0" width="250.0" height="90.0" rx="16" fill="#212529" stroke="#000000" stroke-width="3"/>
+<rect x="560.0" y="415.0" width="60.0" height="60.0" rx="8" fill="#343a40" stroke="#343a40" stroke-width="1"/>
+<circle cx="690.0" cy="445.0" r="14" fill="#e03131" stroke="#a61e1e" stroke-width="3"/>
+<line x1="790.0" y1="420.0" x2="850.0" y2="420.0" stroke="#868e96" stroke-width="8" stroke-linecap="round"/>
+<line x1="790.0" y1="470.0" x2="850.0" y2="470.0" stroke="#868e96" stroke-width="8" stroke-linecap="round"/>
+<circle cx="850.0" cy="420.0" r="6" fill="#dee2e6" stroke="#868e96" stroke-width="2"/>
+<circle cx="850.0" cy="470.0" r="6" fill="#dee2e6" stroke="#868e96" stroke-width="2"/>
+<path d="M850,420 L862,432 L844,438 L862,450 L844,456 L850,470" fill="none" stroke="#4dabf7" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M850,420 L862,432 L844,438 L862,450 L844,456 L850,470" fill="none" stroke="#a5d8ff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" opacity="0.4"/>
+<path d="M647,340 L660,400 L673,340 z" fill="#ffe8cc" stroke="#e8590c" stroke-width="2" stroke-linejoin="round"/>
+<rect x="600.0" y="290.0" width="210.0" height="50.0" rx="12" fill="#ffe8cc" stroke="#e8590c" stroke-width="2"/>
+<rect x="649" y="337" width="22" height="6" fill="#ffe8cc"/>
+<text x="705.0" y="323.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">paralyzér</text>
+</g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 540" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Roztok soli mezi dvěma elektrodami: vlevo elektroda se znaménkem mínus, vpravo se znaménkem plus; červené kationty Na plus se pohybují doleva k mínusu, fialové anionty Cl mínus doprava k plusu.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="534" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="42.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">Pohyb iontů v roztoku soli</text>
+<rect x="137.0" y="110.0" width="26.0" height="340.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="142.0" y="116.0" width="6.0" height="328.0" rx="2" fill="#868e96" stroke="#868e96" stroke-width="1"/>
+<rect x="797.0" y="110.0" width="26.0" height="340.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<rect x="802.0" y="116.0" width="6.0" height="328.0" rx="2" fill="#868e96" stroke="#868e96" stroke-width="1"/>
+<path d="M90,190 L90,442 Q90,470 118,470 L842,470 Q870,470 870,442 L870,190 z" fill="#a5d8ff" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round" fill-opacity="0.62"/>
+<line x1="90.0" y1="190.0" x2="870.0" y2="190.0" stroke="#4dabf7" stroke-width="3" stroke-linecap="round"/>
+<path d="M90,150 L90,442 Q90,470 118,470 L842,470 Q870,470 870,442 L870,150" fill="none" stroke="#6c757d" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="150.0" cy="90.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="150.0" y="99.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">−</text>
+<circle cx="810.0" cy="90.0" r="17" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
+<text x="810.0" y="99.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">+</text>
+<line x1="312.0" y1="268.0" x2="242.0" y2="268.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="340.0" cy="268.0" r="24" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="340.0" y="274.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Na<tspan font-size="14.8" dy="-7.2">+</tspan></text>
+<line x1="592.0" y1="348.0" x2="522.0" y2="348.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="620.0" cy="348.0" r="24" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="620.0" y="354.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Na<tspan font-size="14.8" dy="-7.2">+</tspan></text>
+<line x1="372.0" y1="428.0" x2="302.0" y2="428.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="400.0" cy="428.0" r="24" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="400.0" y="434.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Na<tspan font-size="14.8" dy="-7.2">+</tspan></text>
+<line x1="548.0" y1="268.0" x2="618.0" y2="268.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="520.0" cy="268.0" r="24" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="520.0" y="274.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cl<tspan font-size="14.8" dy="-7.2">−</tspan></text>
+<line x1="328.0" y1="348.0" x2="398.0" y2="348.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="300.0" cy="348.0" r="24" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="300.0" y="354.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cl<tspan font-size="14.8" dy="-7.2">−</tspan></text>
+<line x1="588.0" y1="428.0" x2="658.0" y2="428.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<circle cx="560.0" cy="428.0" r="24" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="560.0" y="434.1" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Cl<tspan font-size="14.8" dy="-7.2">−</tspan></text>
+<rect x="403.5" y="191.5" width="153.1" height="37.0" rx="9" fill="#ffffff" stroke="#495057" stroke-width="2.5"/>
+<text x="480.0" y="217.3" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">roztok soli</text>
+<circle cx="210.0" cy="505.0" r="18" fill="#e03131" stroke="#a61e1e" stroke-width="2.5"/>
+<text x="210.0" y="512.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<text x="238.0" y="512.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">kation</text>
+<circle cx="390.0" cy="505.0" r="18" fill="#7048e8" stroke="#4c2bb0" stroke-width="2.5"/>
+<text x="390.0" y="512.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
+<text x="418.0" y="512.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">anion</text>
+<line x1="560.0" y1="505.0" x2="620.0" y2="505.0" stroke="#f08c00" stroke-width="5" marker-end="url(#a-zlu)" stroke-linecap="round"/>
+<text x="636.0" y="512.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="start">pohyb iontů</text>
+</svg>

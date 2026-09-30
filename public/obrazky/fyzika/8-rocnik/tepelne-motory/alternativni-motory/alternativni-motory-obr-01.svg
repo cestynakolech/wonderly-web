@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řez Wankelovým motorem: oválná komora, uvnitř trojúhelníkový rotor, jehož tři vrcholy se dotýkají stěny a vytvářejí tři komory (světle modrá sání, tmavě modrá stlačení, červená výbuch a rozpínání); vpravo dole u komory se stlačenou směsí a výbuchem dvě zapalovací svíčky, vlevo modrý sací kanál, vpravo nahoře hnědý výfukový kanál; dvě popisky vysvětlují otáčivý rotor a čtyři doby: sání, stlačení, výbuch a výfuk.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-hn" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#8d6e63"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<ellipse cx="480.0" cy="250.0" rx="200" ry="150" fill="#ced4da" stroke="#495057" stroke-width="4"/>
+<ellipse cx="480.0" cy="250.0" rx="172" ry="124" fill="#ffffff" stroke="#495057" stroke-width="4"/>
+<path d="M480.0,126.0 A172,124 0 0 1 629.0,312.0 Q606.2,197.5 480.0,126.0 Z" fill="#e03131" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M629.0,312.0 A172,124 0 0 1 331.0,312.0 Q480.0,382.0 629.0,312.0 Z" fill="#1c4a9e" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M331.0,312.0 A172,124 0 0 1 480.0,126.0 Q353.8,197.5 331.0,312.0 Z" fill="#74c0fc" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="480.0" cy="250.0" rx="172" ry="124" fill="none" stroke="#495057" stroke-width="4"/>
+<rect x="130.0" y="196.0" width="190.0" height="44.0" rx="4" fill="#d0ebff" stroke="#1971c2" stroke-width="4"/>
+<line x1="160.0" y1="218.0" x2="260.0" y2="218.0" stroke="#1971c2" stroke-width="8" marker-end="url(#b-mod)" stroke-linecap="round"/>
+<rect x="640.0" y="196.0" width="190.0" height="44.0" rx="4" fill="#d7ccc8" stroke="#8d6e63" stroke-width="4"/>
+<line x1="690.0" y1="218.0" x2="790.0" y2="218.0" stroke="#8d6e63" stroke-width="8" marker-end="url(#b-hn)" stroke-linecap="round"/>
+<line x1="308.0" y1="198.0" x2="308.0" y2="238.0" stroke="#d0ebff" stroke-width="8" stroke-linecap="round"/>
+<line x1="652.0" y1="198.0" x2="652.0" y2="238.0" stroke="#d7ccc8" stroke-width="8" stroke-linecap="round"/>
+<g transform="translate(673.2 288.8) rotate(109.7)"><rect x="-7.0" y="-56.0" width="14.0" height="60.0" rx="3" fill="#f8f9fa" stroke="#495057" stroke-width="3"/>
+<rect x="-11.0" y="-26.0" width="22.0" height="14.0" rx="2" fill="#343a40" stroke="#212529" stroke-width="2"/>
+</g>
+<g transform="translate(633.2 346.4) rotate(138.2)"><rect x="-7.0" y="-56.0" width="14.0" height="60.0" rx="3" fill="#f8f9fa" stroke="#495057" stroke-width="3"/>
+<rect x="-11.0" y="-26.0" width="22.0" height="14.0" rx="2" fill="#343a40" stroke="#212529" stroke-width="2"/>
+</g>
+<path d="M480.0,126.0 Q606.2,197.5 629.0,312.0 Q480.0,382.0 331.0,312.0 Q353.8,197.5 480.0,126.0 Z" fill="#f1f3f5" stroke="#212529" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="480.0" cy="126.0" r="5" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="629.0" cy="312.0" r="5" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="331.0" cy="312.0" r="5" fill="#212529" stroke="#212529" stroke-width="1"/>
+<circle cx="480.0" cy="250.0" r="36" fill="#adb5bd" stroke="#495057" stroke-width="4"/>
+<circle cx="480.0" cy="250.0" r="10" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<text x="225.0" y="182.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">sací kanál</text>
+<text x="735.0" y="182.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">výfukový kanál</text>
+<text x="800.0" y="418.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">zapalovací svíčky</text>
+<line x1="830.0" y1="396.0" x2="735.0" y2="308.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="830.0" y1="396.0" x2="735.0" y2="308.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="722.0" y1="404.0" x2="672.0" y2="388.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="722.0" y1="404.0" x2="672.0" y2="388.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="30.0" y="440.0" width="440.0" height="110.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="250.0" y="475.0" font-size="20" fill="#2b2a26" text-anchor="middle">Místo pístů ve válcích se zde otáčí</text>
+<text x="250.0" y="502.0" font-size="20" fill="#2b2a26" text-anchor="middle">trojúhelníkový rotor uvnitř</text>
+<text x="250.0" y="529.0" font-size="20" fill="#2b2a26" text-anchor="middle">oválné komory</text>
+<rect x="490.0" y="440.0" width="440.0" height="110.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="710.0" y="475.0" font-size="20" fill="#2b2a26" text-anchor="middle">Kolem rotoru běží čtyři doby: sání,</text>
+<text x="710.0" y="502.0" font-size="20" fill="#2b2a26" text-anchor="middle">stlačení, výbuch a rozpínání, výfuk.</text>
+<text x="710.0" y="529.0" font-size="20" fill="#2b2a26" text-anchor="middle">Spaliny odcházejí výfukovým kanálem.</text>
+<line x1="250.0" y1="440.0" x2="440.0" y2="290.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="250.0" y1="440.0" x2="440.0" y2="290.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="440.0" cy="290.0" r="6" fill="#2b2a26" stroke="#f8f9fa" stroke-width="2"/>
+<line x1="605.0" y1="440.0" x2="588.0" y2="300.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="605.0" y1="440.0" x2="588.0" y2="300.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="588.0" cy="300.0" r="6" fill="#2b2a26" stroke="#f8f9fa" stroke-width="2"/>
+<line x1="540.0" y1="440.0" x2="500.0" y2="352.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="540.0" y1="440.0" x2="500.0" y2="352.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="500.0" cy="352.0" r="6" fill="#2b2a26" stroke="#f8f9fa" stroke-width="2"/>
+<text x="480.0" y="584.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Světle modře sání, tmavě modře stlačení, červeně výbuch; hnědý kanál = výfuk.</text>
+</svg>

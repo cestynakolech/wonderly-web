@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma raketového motoru: nahoře nádrž paliva a nádrž okysličovadla s ovládacími ventily, trubky vedou dolů do spalovací komory, pod ní zúžené hrdlo a dole rozšířená expanzní tryska, ze které vycházejí hnědé šipky výfukových plynů.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-hn" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#8d6e63"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="674" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="360.0" cy="100.0" r="52" fill="#ffd43b" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="600.0" cy="100.0" r="52" fill="#74c0fc" stroke="#2b2a26" stroke-width="4"/>
+<text x="150.0" y="90.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">nádrž</text>
+<text x="150.0" y="118.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">paliva</text>
+<line x1="195.0" y1="100.0" x2="300.0" y2="100.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="195.0" y1="100.0" x2="300.0" y2="100.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="830.0" y="90.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">nádrž</text>
+<text x="830.0" y="118.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">okysličovadla</text>
+<line x1="738.0" y1="104.0" x2="660.0" y2="100.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="738.0" y1="104.0" x2="660.0" y2="100.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M360,152 L360,290 L440,290 L440,330" fill="none" stroke="#495057" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M360,152 L360,290 L440,290 L440,330" fill="none" stroke="#ffd43b" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="360.0" cy="212.0" r="16" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<line x1="351.0" y1="203.0" x2="369.0" y2="221.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="351.0" y1="221.0" x2="369.0" y2="203.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<path d="M600,152 L600,290 L520,290 L520,330" fill="none" stroke="#495057" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M600,152 L600,290 L520,290 L520,330" fill="none" stroke="#74c0fc" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="600.0" cy="212.0" r="16" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<line x1="591.0" y1="203.0" x2="609.0" y2="221.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="591.0" y1="221.0" x2="609.0" y2="203.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="215.0" y="250.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">ovládací ventily</text>
+<line x1="310.0" y1="240.0" x2="350.0" y2="218.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="310.0" y1="240.0" x2="350.0" y2="218.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="310.0" y1="250.0" x2="590.0" y2="218.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="310.0" y1="250.0" x2="590.0" y2="218.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M430,330 L530,330 L530,410 Q530,440 500,462 L500,470 Q560,520 590,640 L370,640 Q400,520 460,470 L460,462 Q430,440 430,410 Z" fill="#dee2e6" stroke="#2b2a26" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M442,344 L518,344 L518,410 Q518,432 492,452 L488,470 Q545,520 570,632 L390,632 Q415,520 472,470 L468,452 Q442,432 442,410 Z" fill="#ffe8cc" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M488,470 Q545,520 570,632 L390,632 Q415,520 472,470 Z" fill="#d7ccc8" stroke="none" stroke-width="0" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M452.0,408.0 L466.0,372.0 L480.0,398.0 L494.0,366.0 L508.0,408.0 z" fill="#ffd43b" stroke="#e8590c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="420.0" y1="570.0" x2="420.0" y2="650.0" stroke="#8d6e63" stroke-width="7" marker-end="url(#b-hn)" stroke-linecap="round"/>
+<line x1="480.0" y1="570.0" x2="480.0" y2="650.0" stroke="#8d6e63" stroke-width="7" marker-end="url(#b-hn)" stroke-linecap="round"/>
+<line x1="540.0" y1="570.0" x2="540.0" y2="650.0" stroke="#8d6e63" stroke-width="7" marker-end="url(#b-hn)" stroke-linecap="round"/>
+<text x="760.0" y="388.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">spalovací komora</text>
+<line x1="640.0" y1="388.0" x2="532.0" y2="388.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="640.0" y1="388.0" x2="532.0" y2="388.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="760.0" y="560.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">expanzní tryska</text>
+<line x1="660.0" y1="556.0" x2="540.0" y2="556.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="660.0" y1="556.0" x2="540.0" y2="556.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="30.0" y="420.0" width="330.0" height="110.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="195.0" y="455.0" font-size="20" fill="#2b2a26" text-anchor="middle">Palivo a okysličovadlo</text>
+<text x="195.0" y="482.0" font-size="20" fill="#2b2a26" text-anchor="middle">se smísí a spálí v komoře,</text>
+<text x="195.0" y="509.0" font-size="20" fill="#2b2a26" text-anchor="middle">plyny unikají tryskou ven.</text>
+</svg>

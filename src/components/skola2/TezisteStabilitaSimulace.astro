@@ -1,0 +1,338 @@
+---
+// Stabilita vozidla na naklápěcí podložce (pohled zepředu): nákladní auto a formule.
+// Jeden posuvník naklápí obě podložky stejně. Olovnice visí z těžiště T vždy svisle
+// dolů. Vozidlo stojí, dokud svislice z T míří mezi kola (na podstavu); jakmile míří
+// za vnější (spodní) kolo, vozidlo se převrátí kolem hrany = dotyku spodního kola
+// s podložkou, přepadne přes nižší konec desky a zůstane ležet na boku na zemi.
+// Mezní úhel: tg θ = (vzdálenost kol / 2) / výška těžiště.
+// Náklaďák: kola od sebe 180 cm, T ve 150 cm → 30,96° (převrátí se při 31°).
+// Formule: kola od sebe 200 cm, T ve 30 cm → 73,30° (převrátí se při 74°).
+// Měřítko kresby: půl pixelu na centimetr.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: kdy se vozidlo převrátí? 🕹️</span></h2>
+	<p>
+		Těleso stojí stabilně, když <strong>svislá přímka vedená těžištěm</strong> prochází plochou,
+		na které stojí. Z těžiště <strong>T</strong> visí <strong>olovnice</strong> a ukazuje svislý směr.
+		Nakláněj podložku a sleduj, kdy olovnice ukáže <strong>za vnější kolo</strong>.
+	</p>
+	<div class="tzs-sceny">
+		<figure class="tzs-scena">
+			<figcaption><strong>🚚 Nákladní auto</strong><br /><span>kola od sebe 180 cm · těžiště 150 cm nad podložkou</span></figcaption>
+			<svg id="tzs-a-svg" viewBox="0 40 430 336" role="img" aria-label="Nákladní auto zepředu na naklápěcí podložce, z těžiště visí olovnice">
+				<line x1="0" y1="340" x2="430" y2="340" stroke="#2b2a26" stroke-width="3" />
+				<polygon points="230,294 218,340 242,340" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+				<g id="tzs-a-deska">
+					<rect x="90" y="290" width="140" height="8" fill="#c9a227" stroke="#2b2a26" stroke-width="2" />
+				</g>
+				<circle cx="230" cy="292" r="4" fill="#2b2a26" />
+				<g id="tzs-a-vuz">
+					<rect x="-45" y="-160" width="90" height="112" fill="#ced4da" stroke="#2b2a26" stroke-width="2" />
+					<rect x="-42" y="-128" width="84" height="88" rx="6" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
+					<rect x="-36" y="-121" width="72" height="34" rx="3" fill="#d0ebff" stroke="#2b2a26" stroke-width="2" />
+					<rect x="-24" y="-78" width="48" height="18" fill="#495057" />
+					<circle cx="-33" cy="-68" r="5" fill="#fff3bf" stroke="#2b2a26" stroke-width="1.5" />
+					<circle cx="33" cy="-68" r="5" fill="#fff3bf" stroke="#2b2a26" stroke-width="1.5" />
+					<rect x="-45" y="-50" width="90" height="10" fill="#495057" stroke="#2b2a26" stroke-width="1.5" />
+					<rect x="-29" y="-28" width="58" height="6" fill="#495057" />
+					<rect x="-45" y="-50" width="16" height="50" rx="4" fill="#2b2a26" />
+					<rect x="29" y="-50" width="16" height="50" rx="4" fill="#2b2a26" />
+					<line id="tzs-a-podstava" x1="-45" y1="0" x2="45" y2="0" stroke="#2f9e44" stroke-width="5" />
+					<g id="tzs-a-koty" stroke="#1971c2" stroke-width="2">
+						<line x1="-57" y1="0" x2="-57" y2="-75" />
+						<line x1="-62" y1="0" x2="-52" y2="0" />
+						<line x1="-62" y1="-75" x2="-52" y2="-75" />
+						<line x1="-45" y1="-172" x2="45" y2="-172" />
+						<line x1="-45" y1="-178" x2="-45" y2="-166" />
+						<line x1="45" y1="-178" x2="45" y2="-166" />
+						<text x="0" y="-180" font-size="20" font-weight="bold" text-anchor="middle" fill="#1864ab" stroke="none">180 cm</text>
+					</g>
+				</g>
+				<line id="tzs-a-olovnice" stroke="#495057" stroke-width="2" stroke-dasharray="4 3" />
+				<polygon id="tzs-a-zavazi" fill="#495057" stroke="#2b2a26" stroke-width="1" />
+				<circle id="tzs-a-hrana" r="5" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+				<circle id="tzs-a-t" r="5" fill="#2b2a26" stroke="#ffffff" stroke-width="1.5" />
+				<text id="tzs-a-t-text" font-size="22" font-weight="bold" text-anchor="end" fill="#2b2a26" stroke="#f8f9fa" stroke-width="5" paint-order="stroke">T</text>
+				<text id="tzs-a-vyska" font-size="20" font-weight="bold" text-anchor="end" dominant-baseline="middle" fill="#1864ab" stroke="#f8f9fa" stroke-width="4" paint-order="stroke">150 cm</text>
+				<text id="tzs-a-stav" x="12" y="366" font-size="20" font-weight="bold" fill="#2b2a26"></text>
+			</svg>
+		</figure>
+		<figure class="tzs-scena">
+			<figcaption><strong>🏎️ Formule</strong><br /><span>kola od sebe 200 cm · těžiště 30 cm nad podložkou</span></figcaption>
+			<svg id="tzs-f-svg" viewBox="0 40 430 336" role="img" aria-label="Formule zepředu na naklápěcí podložce, z těžiště visí olovnice">
+				<line x1="0" y1="340" x2="430" y2="340" stroke="#2b2a26" stroke-width="3" />
+				<polygon points="230,294 218,340 242,340" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+				<g id="tzs-f-deska">
+					<rect x="90" y="290" width="140" height="8" fill="#c9a227" stroke="#2b2a26" stroke-width="2" />
+				</g>
+				<circle cx="230" cy="292" r="4" fill="#2b2a26" />
+				<g id="tzs-f-vuz">
+					<line x1="-30" y1="-24" x2="-12" y2="-18" stroke="#2b2a26" stroke-width="2" />
+					<line x1="-30" y1="-10" x2="-12" y2="-9" stroke="#2b2a26" stroke-width="2" />
+					<line x1="30" y1="-24" x2="12" y2="-18" stroke="#2b2a26" stroke-width="2" />
+					<line x1="30" y1="-10" x2="12" y2="-9" stroke="#2b2a26" stroke-width="2" />
+					<polygon points="-7,-34 7,-34 0,-47" fill="#c92a2a" stroke="#2b2a26" stroke-width="1.5" />
+					<circle cx="0" cy="-31" r="7" fill="#ffd43b" stroke="#2b2a26" stroke-width="1.5" />
+					<rect x="-12" y="-26" width="24" height="20" rx="4" fill="#c92a2a" stroke="#2b2a26" stroke-width="1.5" />
+					<rect x="-42" y="-8" width="84" height="5" fill="#c92a2a" stroke="#2b2a26" stroke-width="1.5" />
+					<rect x="-50" y="-33" width="20" height="33" rx="5" fill="#2b2a26" />
+					<rect x="30" y="-33" width="20" height="33" rx="5" fill="#2b2a26" />
+					<line id="tzs-f-podstava" x1="-50" y1="0" x2="50" y2="0" stroke="#2f9e44" stroke-width="5" />
+					<g id="tzs-f-koty" stroke="#1971c2" stroke-width="2">
+						<line x1="-62" y1="0" x2="-62" y2="-15" />
+						<line x1="-67" y1="0" x2="-57" y2="0" />
+						<line x1="-67" y1="-15" x2="-57" y2="-15" />
+						<line x1="-50" y1="-36" x2="-50" y2="-64" stroke-width="1" stroke-dasharray="3 2" />
+						<line x1="50" y1="-36" x2="50" y2="-64" stroke-width="1" stroke-dasharray="3 2" />
+						<line x1="-50" y1="-58" x2="50" y2="-58" />
+						<line x1="-50" y1="-64" x2="-50" y2="-52" />
+						<line x1="50" y1="-64" x2="50" y2="-52" />
+						<text x="0" y="-66" font-size="20" font-weight="bold" text-anchor="middle" fill="#1864ab" stroke="none">200 cm</text>
+					</g>
+				</g>
+				<line id="tzs-f-olovnice" stroke="#495057" stroke-width="2" stroke-dasharray="4 3" />
+				<polygon id="tzs-f-zavazi" fill="#495057" stroke="#2b2a26" stroke-width="1" />
+				<circle id="tzs-f-hrana" r="5" fill="#e8590c" stroke="#2b2a26" stroke-width="1.5" />
+				<circle id="tzs-f-t" r="5" fill="#2b2a26" stroke="#ffffff" stroke-width="1.5" />
+				<text id="tzs-f-t-text" font-size="22" font-weight="bold" text-anchor="end" fill="#2b2a26" stroke="#f8f9fa" stroke-width="5" paint-order="stroke">T</text>
+				<text id="tzs-f-vyska" font-size="20" font-weight="bold" text-anchor="end" dominant-baseline="middle" fill="#1864ab" stroke="#f8f9fa" stroke-width="4" paint-order="stroke">30 cm</text>
+				<text id="tzs-f-stav" x="12" y="366" font-size="20" font-weight="bold" fill="#2b2a26"></text>
+			</svg>
+		</figure>
+	</div>
+	<div class="tzs-ovladani">
+		<label for="tzs-uhel">Náklon podložky: <strong><span id="tzs-uhel-t">0</span>°</strong></label>
+		<input id="tzs-uhel" type="range" min="0" max="90" step="1" value="0" aria-valuetext="0 stupňů" />
+		<button id="tzs-znovu" type="button" class="tzs-btn">Znovu 🔄</button>
+	</div>
+	<p id="tzs-vysledek" class="tzs-vysledek" aria-live="polite"></p>
+	<p class="tzs-legenda">
+		<span class="tzs-z tzs-z-t">●</span> těžiště T ·
+		<span class="tzs-z tzs-z-o">┆</span> olovnice (svisle dolů) ·
+		<span class="tzs-z tzs-z-p">▬</span> podstava mezi koly ·
+		<span class="tzs-z tzs-z-h">●</span> hrana, přes kterou se vozidlo převrací
+	</p>
+	<p class="tzs-pozn">Předpokládáme, že stojící vozidlo po podložce nesklouzne.</p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const S = 0.5; // měřítko: půl pixelu na centimetr
+	const OSA_X = 230; // kloub podložky (pravý, spodní konec desky)
+	const OSA_Y = 290;
+	const ZEM = 338; // horní okraj země
+	const DOPAD_X = 260; // kde na zemi skončí kola ležícího vozidla (vpravo za stojanem)
+	const STRED = 160; // střed vozidla leží 160 cm od kloubu
+	const PAD = 700; // ms: pád z desky na zem (otáčí se a zároveň padá)
+	const ZAVAZI = 10; // výška závaží olovnice v px
+	const VOZY = {
+		a: { kola: 180, teziste: 150 },
+		f: { kola: 200, teziste: 30 },
+	};
+	const KLICE = ['a', 'f'];
+	const RAD = Math.PI / 180;
+	const r2 = (v) => Math.round(v * 100) / 100;
+	const stupne = (n) => (n === 1 ? 'stupeň' : 2 <= n && n <= 4 ? 'stupně' : 'stupňů');
+
+	let uhel = 0;
+	let snimek = 0;
+	const stav = {};
+	const vychozi = () => {
+		for (const k of KLICE) stav[k] = { prevraceno: false, bezi: false, start: 0, pad: 0, uhel0: 0 };
+	};
+	vychozi();
+
+	/** O kolik cm přesahuje svislice z T za hranu vnějšího kola (kladné = za kolem). */
+	function presah(k, u) {
+		const v = VOZY[k];
+		return v.teziste * Math.sin(u * RAD) - (v.kola / 2) * Math.cos(u * RAD);
+	}
+	/** Nejmenší celý náklon, při kterém už olovnice ukazuje za vnější kolo
+	 *  (mezní úhel θ: tg θ = (kola / 2) / výška těžiště; θ zde nikdy není celé číslo). */
+	function mezniCely(k) {
+		const v = VOZY[k];
+		return Math.floor(Math.atan2(v.kola / 2, v.teziste) / RAD) + 1;
+	}
+	/** Hrana převrácení (vnější okraj spodního kola) na nakloněné desce, v px. */
+	function hranaNaDesce(k, u) {
+		const d = (STRED - VOZY[k].kola / 2) * S;
+		return [OSA_X - d * Math.cos(u * RAD), OSA_Y - d * Math.sin(u * RAD)];
+	}
+	/** Úhel, o který je deska právě nakreslená: během pádu zůstává v úhlu převrácení
+	 *  (jinak by deska při pohybu posuvníkem projela padajícím vozidlem), jinak sleduje posuvník. */
+	const uhelDesky = (k) => (stav[k].bezi ? stav[k].uhel0 : uhel);
+	/** Poloha vozidla: bod P, kam padne hrana vozidla, a natočení fi (ve stupních, po směru hodin). */
+	function poloha(k) {
+		const s = stav[k];
+		// stojící vozidlo sleduje desku; převrácené padá z místa a úhlu, kde se převrátilo
+		const u = s.prevraceno ? s.uhel0 : uhel;
+		const [ex, ey] = hranaNaDesce(k, u);
+		// pád: vodorovně rovnoměrně, svisle rovnoměrně zrychleně (tíhové zrychlení)
+		// a současně se vozidlo otáčí z náklonu desky až na bok
+		const t = s.pad;
+		return {
+			px: ex + t * (DOPAD_X - ex),
+			py: ey + t * t * (ZEM - ey),
+			fi: u + t * (90 - u),
+		};
+	}
+	/** Největší celý náklon, který vozidlo ještě vydrží. */
+	const vydrzi = (k) => mezniCely(k) - 1;
+	/** Bod vozidla (cm, x doprava od středu mezi koly, y nahoru od kol) → obrazovka. */
+	function bod(k, x, y, p) {
+		const lx = (x - VOZY[k].kola / 2) * S;
+		const ly = -y * S;
+		const c = Math.cos(p.fi * RAD);
+		const n = Math.sin(p.fi * RAD);
+		return [r2(p.px + lx * c - ly * n), r2(p.py + lx * n + ly * c)];
+	}
+
+	function kresliVuz(k) {
+		const v = VOZY[k];
+		const s = stav[k];
+		const p = poloha(k);
+		const hrana = v.kola / 2;
+		$(`tzs-${k}-deska`).setAttribute('transform', `rotate(${uhelDesky(k)} ${OSA_X} ${OSA_Y})`);
+		$(`tzs-${k}-vuz`).setAttribute(
+			'transform',
+			`translate(${r2(p.px)} ${r2(p.py)}) rotate(${r2(p.fi)}) translate(${-hrana * S} 0)`,
+		);
+		const [tx, ty] = bod(k, 0, v.teziste, p);
+		const [ex, ey] = hranaNaDesce(k, uhelDesky(k));
+		$(`tzs-${k}-t`).setAttribute('cx', tx);
+		$(`tzs-${k}-t`).setAttribute('cy', ty);
+		$(`tzs-${k}-t-text`).setAttribute('x', tx - 9);
+		$(`tzs-${k}-t-text`).setAttribute('y', ty - 7);
+		$(`tzs-${k}-hrana`).setAttribute('cx', r2(ex));
+		$(`tzs-${k}-hrana`).setAttribute('cy', r2(ey));
+
+		// olovnice: svisle z T až na zem, přes desku je vidět, kam svislice míří
+		const o = $(`tzs-${k}-olovnice`);
+		o.setAttribute('x1', tx);
+		o.setAttribute('y1', ty);
+		o.setAttribute('x2', tx);
+		o.setAttribute('y2', ZEM - ZAVAZI);
+		$(`tzs-${k}-zavazi`).setAttribute(
+			'points',
+			`${r2(tx - 5)},${ZEM - ZAVAZI} ${r2(tx + 5)},${ZEM - ZAVAZI} ${tx},${ZEM}`,
+		);
+
+		// kóty a podstava platí jen pro stojící vozidlo
+		const viditelne = s.prevraceno ? '0' : '1';
+		$(`tzs-${k}-koty`).setAttribute('opacity', viditelne);
+		$(`tzs-${k}-podstava`).setAttribute('opacity', viditelne);
+		const [vx, vy] = bod(k, -hrana - 50, v.teziste / 2, p);
+		const vyska = $(`tzs-${k}-vyska`);
+		vyska.setAttribute('x', vx);
+		vyska.setAttribute('y', vy);
+		vyska.setAttribute('opacity', viditelne);
+
+		const text = $(`tzs-${k}-stav`);
+		if (s.prevraceno) {
+			text.textContent = `převrátilo se · vydrží nejvýš ${vydrzi(k)}°`;
+			text.setAttribute('fill', '#c92a2a');
+		} else {
+			text.textContent = `náklon ${uhel}° – stojí`;
+			text.setAttribute('fill', '#2b2a26');
+		}
+	}
+
+	function textVysledku() {
+		const a = stav.a.prevraceno;
+		const f = stav.f.prevraceno;
+		const ma = mezniCely('a');
+		const mf = mezniCely('f');
+		if (a && f) {
+			return `Nákladní auto vydrží náklon nejvýš <strong>${vydrzi('a')}°</strong> (při ${ma}° se převrátí), `
+				+ `formule až <strong>${vydrzi('f')}°</strong> (převrátí se při ${mf}°). `
+				+ 'Formule má <strong>těžiště nízko</strong> a <strong>kola daleko od sebe</strong>, proto vydrží větší náklon.';
+		}
+		if (a) {
+			return `Nákladní auto se převrátilo: vydrží náklon nejvýš <strong>${vydrzi('a')}°</strong>, při ${ma}° už olovnice z jeho vysoko položeného těžiště ukáže za vnější kolo. `
+				+ 'Formule stojí dál — olovnice z jejího těžiště pořád míří mezi kola.';
+		}
+		return 'Obě vozidla stojí: olovnice z těžiště míří mezi kola, na podstavu. Zvětšuj náklon.';
+	}
+
+	function prekresli() {
+		$('tzs-uhel-t').textContent = uhel;
+		$('tzs-uhel').setAttribute('aria-valuetext', `${uhel} ${stupne(uhel)}`);
+		for (const k of KLICE) kresliVuz(k);
+		$('tzs-vysledek').innerHTML = textVysledku();
+	}
+
+	function tik() {
+		const ted = performance.now();
+		let dal = false;
+		for (const k of KLICE) {
+			const s = stav[k];
+			if (!s.bezi) continue;
+			s.pad = Math.min(1, (ted - s.start) / PAD);
+			if (s.pad < 1) dal = true;
+			else s.bezi = false;
+		}
+		prekresli();
+		snimek = dal ? requestAnimationFrame(tik) : 0;
+	}
+
+	function zmenaUhlu() {
+		uhel = Math.round(Number($('tzs-uhel').value));
+		let novy = false;
+		for (const k of KLICE) {
+			const s = stav[k];
+			if (!s.prevraceno && 0 < presah(k, uhel)) {
+				s.prevraceno = true;
+				s.uhel0 = uhel;
+				s.bezi = true;
+				s.start = performance.now();
+				novy = true;
+			}
+		}
+		prekresli();
+		if (novy && !snimek) snimek = requestAnimationFrame(tik);
+	}
+
+	$('tzs-uhel').addEventListener('input', zmenaUhlu);
+	$('tzs-znovu').addEventListener('click', () => {
+		if (snimek) cancelAnimationFrame(snimek);
+		snimek = 0;
+		vychozi();
+		$('tzs-uhel').value = '0';
+		uhel = 0;
+		prekresli();
+	});
+
+	// pro testy: skutečný stav scény
+	$('tzs-a-svg').__stav = () => ({
+		uhel,
+		a: { ...stav.a, mezni: mezniCely('a'), presah: presah('a', uhel), poloha: poloha('a') },
+		f: { ...stav.f, mezni: mezniCely('f'), presah: presah('f', uhel), poloha: poloha('f') },
+	});
+	prekresli();
+</script>
+
+<style>
+	.tzs-sceny { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 0.8rem; }
+	/* na telefonu scény pod sebou a roztažené do okraje rámečku, ať je písmo čitelné */
+	@media (max-width: 640px) {
+		.tzs-sceny { margin-inline: -1rem; }
+	}
+	.tzs-scena { margin: 0; }
+	.tzs-scena figcaption { font-size: 1.05rem; margin-bottom: 0.3rem; }
+	.tzs-scena figcaption span { font-size: 0.95rem; }
+	.tzs-scena svg { width: 100%; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.tzs-ovladani { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; margin-top: 0.8rem; }
+	.tzs-ovladani label { font-size: 1.05rem; font-weight: 700; }
+	.tzs-ovladani input[type='range'] { flex: 1; min-width: 180px; }
+	.tzs-btn { font-size: 1rem; font-weight: 800; padding: 0.45rem 1rem; border: 3px solid #2b2a26;
+		border-radius: 10px; background: #ffe066; color: #2b2a26; cursor: pointer; }
+	.tzs-vysledek { font-size: 1.05rem; font-weight: 600; margin-top: 0.7rem; }
+	.tzs-legenda { font-size: 0.95rem; }
+	.tzs-z { font-weight: 900; }
+	.tzs-z-t { color: #2b2a26; }
+	.tzs-z-o { color: #495057; }
+	.tzs-z-p { color: #2f9e44; }
+	.tzs-z-h { color: #e8590c; }
+	.tzs-pozn { font-size: 0.85rem; color: #495057; }
+</style>

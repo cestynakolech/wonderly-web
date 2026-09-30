@@ -479,11 +479,12 @@
 			"zdravy": "Nad zdravými daty mlčí: řádně deklarovaný balíček (v package.json i v zámku) nehlásí nic; vestavěné moduly Node ('node:fs', 'fs', 'path'), virtuální moduly Astra ('astro:content') ani relativní importy ('../data/temata') se nehlásí. REGRESE, která se opravdu stala: první běh měřidla 29. 8. nahlásil neexistující balíček 'y' z ukázky `import x from 'y'` v komentáři vlastní hlavičky — test proto obsahuje případ, kdy jsou importy JEN v komentářích (řádkovém i blokovém) a měřidlo musí mlčet. Falešný poplach je stejná vada jako přehlédnutý nález. Nad celým skutečným webem: 0 chyb, 1 varování (esbuild). Celkem 13 kontrol, všechny prošly."
 		},
 		"simulace/polovodic.mjs": {
-			"test": "testy/simulace/polovodic.mjs (spouští testy/vsechny-simulace.mjs)",
+			"test": "testy/podvrhy/polovodic-podvrhy.mjs (30. 9. 2026 legenda/mobil/kontrast; první krok skriptu spouští testy/simulace/polovodic.mjs, ten spouští i testy/vsechny-simulace.mjs)",
 			"podvrh": "Tři podvržené KOPIE komponenty (originál nedotčen, kopie v dočasné složce session): (1) typ P dostal místo děr elektrony — test skončil kódem 1 a pojmenoval to ('typ P: 0 elektronů, 3 díry', 'v typu P se kreslí jen díry'); (2) posuvník příměsi se ignoroval (počet nosičů natvrdo 3) — kód 1, nález 'jeden atom příměsi = jeden volný elektron (5 atomů → 5 elektronů)' i 'víc volných nosičů → žárovka svítí jasněji'; (3) elektron se rozjel k pólu − místo k + — kód 1, nález 'elektron se posouvá doprava, k pólu +'. Navíc mutační test `node testy/mutace.mjs polovodic`: první podoba testu odhalila 12 z 23 mutací, po doplnění asseretů na přesné polohy nosičů, jas žárovky a doslovné popisky 23 z 23.",
 			"zdravy": "Nad nezměněnou komponentou projde všech 47 kontrol ('✅ vše sedí') kódem 0 a brána `node zkontroluj.mjs` končí '✅ Vše zapojené správně.' kódem 0.",
 			"regrese": "Test hlídá i to, co v komponentě před zapojením nefungovalo: proměnná periody byla psaná dvakrát jinak (OBDOBI × OBDOBÍ), takže skript při prvním překreslení padal na ReferenceError a simulace se v prohlížeči nikdy nespustila. Kontrola 'v čase 0 vzniká nosič uprostřed vzorku' takovou vadu odhalí, protože skutečně volá funkci komponenty.",
-			"overeno": "2026-09-23"
+			"overeno": "2026-09-30",
+			"doplneni_2026_09_30": "Podvrhy 30. 9. 2026 (legenda dle obrázků stránky, mobil, kontrast, aria): 15 podvrhů nad kopií — díra červené „d“, elektron „e⁻“, typ N modrý, typ P růžový, obrys se nemění, chybí legenda díry, tlačítko s 🔴, přepólovaná baterie (P5), šířka 660, drobné písmo 13, „+“ #e03131, „Volné nosiče náboje“, popis bez aria-live, tlačítka bez aria-pressed, legenda zpátky v obvodu — 15/15 odhaleno (testy/podvrhy/polovodic-podvrhy.mjs, ověřeno spuštěním, kód 0); mutace polovodic 17/17. Zdravá: scéna 360×430, 106 kontrol, kód 0."
 		},
 		"simulace/indukce-dve-civky.mjs": {
 			"test": "testy/simulace/indukce-dve-civky.mjs (spouští testy/vsechny-simulace.mjs)",
@@ -532,6 +533,54 @@
 			"zdravy": "Nad nezměněnou komponentou projde všech 74 kontrol testy/simulace/kvarky.mjs (návratový kód 0) a podvrhový skript hlásí „ZDRAVÁ KOPIE ✅ prošla\" jako první krok — pozná se tedy i to, že by se měřil jiný soubor. Mutační test node testy/mutace.mjs kvarky: 21/21 mutací odhaleno, 0 přeživších. node testy/rozvrzeni-sceny.mjs na komponentu: 0 tvrdých chyb, 0 varování (měřeno i ve stavu krok 3 + pokus a ve scéně B pro 1+0 a 4+4 částic).",
 			"regrese": "Podvrh „hlášení kvark zůstal CELÝ se ukazuje i u celého jádra\" první verzí testu PROŠEL — posuvník tehdy stav pokusu mazal, takže pojistka zoom === 2 nebyla ničím kryta. Opraveno v komponentě (výsledek pokusu se pamatuje a u kroků 1 a 2 se jen nekreslí) a v testu přibyly kontroly „po návratu ke kvarkům je výsledek vidět znovu\" a „u zvětšené částice se hlášení nekreslí\". Druhá trvalá regrese: kvarky v částici se porovnávají na PŘESNÁ místa v pořadí (1 nahoře, 2 dole) — bez toho přežila mutace cx + dx → cx − dx, protože zrcadlení dá stejnou množinu bodů.",
 			"overeno": "2026-09-25"
+		},
+		"simulace/kladka.mjs": {
+			"test": "testy/podvrhy/kladka-podvrhy.mjs",
+			"podvrh": "10 podvrhů nad KOPIÍ komponenty KladkaSimulace v dočasné složce (do repa se nesahá), každý vrací jednu opravenou vadu a test musí spadnout: ruka u volné kladky táhne dolů; ruka se posune jen o h místo 2h; tažný konec lana vede ke stropu (nález 16); chybí kóta 2 m lana; vrácená stará čísla 10 kg / 100 N / 50 N; animace se po Zpět/přepnutí nezastaví (K1); obrys ruky pod kladkou ve staré poloze (K2); šipka ruky vlevo pod vodicí linkou (K3); bez aria-live a bez aria-pressed (K4). Všech 10 odhaleno (2–24 ❌ na podvrh). Navíc mutační test node testy/mutace.mjs kladka: 19/19 mutací odhaleno, 0 prošlo.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 119 kontrol testy/simulace/kladka.mjs (kód 0, 0 ❌) a podvrhový skript hlásí „ZDRAVÁ KOPIE prošla“ jako první krok — pozná se i to, že by se měřil jiný soubor. Fyzika v testu natvrdo: 2 kg, g = 10 N/kg, tíha 20 N, pevná F = 20 N, volná F = 10 N, dráha lana 1 m / 2 m; čísla ve scéně jen z {1, 2, 10, 20}.",
+			"overeno": "2026-09-30"
+		},
+		"simulace/polovodic-vodivost.mjs": {
+			"test": "testy/podvrhy/polovodic-vodivost-podvrhy.mjs",
+			"podvrh": "12 podvrhů nad KOPIÍ komponenty PolovodicVodivostSimulace v dočasné složce (do repa se nesahá): žárovka svítí už při 0 °C (lineární vzorec párů); lineární růst párů bez zrychlení (K6); text tvrdí, že páry nevznikají vůbec (K5); žárovka mimo obvod (K7); −20 se spojovníkem (K8); drobné písmo a popisek „čistý křemík“ naléhající na plaketu (K9); bez aria-live (K10); vrácený údaj µA na plaketě; díra zase červené „d“ místo zeleného „+“; díra zakryje elektron (ODSTUP 0); páry ve 4 řádcích (překryv). Všech 12 odhaleno (2–37 ❌ na podvrh). Navíc mutační test node testy/mutace.mjs polovodic-vodivost: 17/17 mutací odhaleno, 0 prošlo.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 123 kontrol testy/simulace/polovodic-vodivost.mjs (kód 0, 0 ❌) a podvrhový skript hlásí „ZDRAVÁ KOPIE prošla“ jako první krok. Páry [0, 0, 1, 2, 3, 5, 7] pro −20…100 °C, nejmenší vzdálenost středů elektronu a díry ≥ 20 px přes všechny časy, díra zelený čárkovaný kroužek „+“ shodně s obr-03/04.",
+			"overeno": "2026-09-30"
+		},
+		"simulace/teziste-stabilita.mjs": {
+			"test": "testy/podvrhy/teziste-stabilita-podvrhy.mjs",
+			"podvrh": "33 podvrhů na kopii komponenty v dočasné složce (do repa se nesahá): pád počítaný z aktuálního úhlu desky (nález recheck 3), deska během pádu sleduje posuvník (projede vozidlem), úhel převrácení se neuloží, šikmá olovnice, prohozený sin/cos ve vzorci převrácení, převrácení až za celou šířkou kol, mezní úhel s celou šířkou, hláška s aktuálním náklonem (nepravda při skoku posuvníku), „vydrží“ s úhlem převrácení místo posledního stojícího, formule s koly 160 cm proti kótě 200 cm, náklaďák s T 140 cm proti kótě 150 cm, hrana posunutá dovnitř, převrácení bez animace, rovnoměrný místo zrychleného pádu, napřed otočit a pak padat (visení ve vzduchu), vozidlo přilepené na desce, ležící vozidlo se naklání s deskou, dopad pod stojan, dopad ke kraji scény, kóty zůstanou po převrácení, olovnice končí nad zemí, popisek výšky na kótě, aria-valuetext se neaktualizuje, špatný tvar „stupňů“ pro 2–4, písmo 17 (pod 12 px na telefonu 360 px), mřížka s pevným minimem 260 px, scény neroztažené na telefonu, závěr s vysokým těžištěm, Znovu nevrátí posuvník, vozidlo se samo postaví, podložka o polovinu úhlu, posuvník jen do 80°, chybí věta o nesklouznutí. Každý shodí 2–24 kontrol. Spuštěno při zápisu 30. 9. 2026: 33/33 odhaleno, kód 0.",
+			"zdravy": "Nad nezměněnou komponentou test projde (87 kontrol); ověření zdravou kopií je první krok skriptu. node testy/mutace.mjs teziste-stabilita: 17/17 odhaleno; úplný běh přes všechny výskyty (VZORKU=1000): 39/39 odhaleno, 0 přeživších (30. 9. 2026).",
+			"regrese": "Mezní úhly 30,96° (vydrží 30°, převrátí se při 31°) a 73,30° (vydrží 73°, převrátí se při 74°); převrácení právě když svislice z T míří za hranu vnějšího kola ve všech 91 polohách posuvníku; olovnice svislá z T až na zem; spojitý pád 700 ms bez průniku deskou/stojanem/zemí v 5467 okamžicích a v 1400 snímcích s posuvníkem hýbaným během pádu; písmo ≥ 12 px na telefonu 360 px podle CSS webu.",
+			"overeno": "2026-09-30"
+		},
+		"simulace/elektrolyza.mjs": {
+			"test": "testy/podvrhy/elektrolyza-podvrhy.mjs",
+			"podvrh": "21 podvrhů nad KOPIÍ komponenty ElektrolyzaSimulace v dočasné složce: „nejsou v ní ionty“ (T3d-1); čistá voda „proud neprochází“; velmi malý proud k nerozeznání od nuly (E1); chybí H⁺; žárovka v čisté vodě svítí; ampérmetr mimo obvod; anion světle modrý / kation růžový (T3d-2); vrácený odpor I = U / R a zlato Au⁺ (bez opory); anoda se nerozpouští; páčka vypínače; překryv iontů; obrácené šipky; pomědění zrcadlově proti obr-05 (E2); rukojeť bez mědi a šipka Cu²⁺ do vrstvy (E3); drobné písmo a slabý kontrast H₂O, ANODA #e03131 (J6); bez aria-live. Všech 21 odhaleno (spuštěno při zápisu 30. 9. 2026, kód 0). Mutační test node testy/mutace.mjs elektrolyza: 12/12 odhaleno, 0 prošlo.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 72 kontrol testy/simulace/elektrolyza.mjs (kód 0), podvrhový skript hlásí „ZDRAVÁ KOPIE prošla“. Jediné číslo 4,5 V, ionty jen Na⁺ Cl⁻ H⁺ OH⁻ Cu²⁺ SO₄²⁻; ručička −60/−30/+30; pomědění anoda Cu vlevo, lžička vpravo; písmo 19 ve scéně 360 → 12,4 px na telefonu; kontrast ≥ 4,5.",
+			"overeno": "2026-09-30"
+		},
+		"simulace/jiskra.mjs": {
+			"test": "testy/podvrhy/jiskra-podvrhy.mjs",
+			"podvrh": "16 podvrhů nad KOPIÍ komponenty JiskraSimulace: „3 kV na 1 mm“, „sekundy ÷ 3“, napětí v kV (T3d-5); jiskra už při „velkém“; svíčka neionizuje; bouřka se neodsouvá; obrácené pravidlo pauza↔vzdálenost; blesk přes zem; bleskosvod bez vodiče do země (J1); hrom = vzduch (J2); žárovka proud neukazuje (J3); kladný náboj mraku dole (J4); teplota daleko od blesku (J5); drobné písmo a nízký kontrast (J6); bez aria-live. Všech 16 odhaleno (spuštěno při zápisu 30. 9. 2026, kód 0). Mutační test node testy/mutace.mjs jiskra: 10/10 odhaleno, 0 prošlo.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 124 kontrol testy/simulace/jiskra.mjs (kód 0), podvrhový skript hlásí „ZDRAVÁ KOPIE prošla“. Čísla jen {2, 3, 18, 20000, 30000}; žárovka svítí jen při jiskře (velmi velké napětí) nebo se svíčkou; bleskosvod s vodičem pod povrch; písmo 12,4 px na telefonu; kontrast ≥ 4,5.",
+			"overeno": "2026-09-30"
+		},
+		"simulace/dioda.mjs": {
+			"test": "testy/podvrhy/dioda-podvrhy.mjs",
+			"podvrh": "20 podvrhů nad KOPIÍ DiodaSimulace v dočasné složce (repo nedotčeno): šipka proudu přechodem N→P; šipka na horním vodiči proti smyčce; elektrony v přechodu k N; díry proti proudu; elektron na levém vodiči nahoru; práh „2 V“ v úvodu; „hradlová vrstva zmizela“; údaj mA; díra červené „+“; typ N modrý; popisek LED přes vodič; závěrný směr vrstvu zúží; zdroj se nepřepóluje; LED svítí i v závěrném; stará šířka scény 660 (mobil); drobné písmo 13 v legendě; světle oranžový popisek #e8590c (kontrast 3,58); „pohyb nosiče“; tlačítka bez aria-pressed; statický aria-label. Všech 20 odhaleno (spuštěno při zápisu 30. 9. 2026, kód 0). Test nad původní verzí z HEAD padá. Mutace node testy/mutace.mjs dioda: 16/16, 0 prošlo.",
+			"zdravy": "Nad nezměněnou komponentou projde všech 88 kontrol testy/simulace/dioda.mjs (kód 0, 0 ❌) a podvrhový skript hlásí „ZDRAVÁ KOPIE prošla“. Propustný: vrstva 16, 8 elektronů / 6 děr, šipky + → P → N → −; závěrný: vrstva 140, 6+6 nositelů na okrajích; nejmenší písmo 19 v šířce 360 → 12,4 px na telefonu; kontrast všech textů ≥ 4,5.",
+			"overeno": "2026-09-30"
+		},
+		"simulace/tlak.mjs": {
+			"test": "testy/podvrhy/tlak-podvrhy.mjs",
+			"podvrh": "12 podvrhů na kopii komponenty: vrácená chyba z 26. 8. 2026 (s2Tyc bez deklarace → ReferenceError při načtení), getElementById na neexistující id, tyč pístu stojí, posuvník hloubky nepřipojen, tlačítka scén bez posluchače, scény se po načtení neskryjí, scéna 4 bez molekul, tlak 150 kPa při 50 % objemu (p·V ≠ konst.), popis scény 2 nesouhlasí s SVG, píst nezajede, molekuly scény 2 mimo válec, molekuly scény 1 mimo nádobu. Každý shodí 1–4 kontroly (spuštěno při zápisu 30. 9. 2026: 12/12, kód 0).",
+			"zdravy": "Nad nezměněnou komponentou projde všech 46 kontrol testy/simulace/tlak.mjs; podvrhový skript nejdřív ověří, že zdravá kopie projde (vad měřidla: 0).",
+			"overeno": "2026-09-30"
+		},
+		"mobil-citelnost.mjs": {
+			"podvrh": "Kopie Jiskra s podvrženou vadou (/tmp/wonderly-workery/2026-09-30-mobil/JiskraMutant.astro, drobné písmo + nízký kontrast): node testy/mobil-citelnost.mjs --soubor=… skončí kódem 1, písmo 5,4 px, kontrast 1,2:1, stav NEVYHOVUJE (spuštěno 30. 9. 2026).",
+			"zdravy": "Nad zdravými komponentami Jiskra (12,8 px, kontrast 4,8), Elektrolyza (12,8 px; 4,5), TezisteStabilita (13,0 px; 5,8) mlčí, kód 0 (spuštěno 30. 9. 2026). POZOR: HLÁŠENÍ, NE BRÁNA — na celém repu není zelené (137 komponent se SVG, 127 nevyhovuje). Proto záznam záměrně nemá pole „test“: rejstřík ho nespouští, prebuild ho nevolá. Do brány až po opravě starých simulací.",
+			"overeno": "2026-09-30"
 		}
 	}
 }

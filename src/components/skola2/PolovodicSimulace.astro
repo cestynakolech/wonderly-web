@@ -1,22 +1,29 @@
 ---
 // Dopování polovodiče (F9, podtéma „Polovodiče typu N a P, dioda"):
-// tři stavy přepínané tlačítky — čistý křemík BEZ PŘÍMĚSI (žádný volný nosič,
-// žárovka nesvítí), typ N (příměs arsen → volné ELEKTRONY) a typ P (příměs bor
-// → DÍRY). Podklad učitele (PDF „14. Polovodiče typu N a P, dioda", str. 1)
-// říká jen tolik: „Lepší vodivost polovodičů získáme přidáním příměsi… Stačí
-// velmi malé množství." ODSTUPŇOVANOU závislost vodivosti na množství příměsi
-// zdroj NETVRDÍ — proto tu není posuvník počtu atomů příměsi ani rostoucí jas
-// žárovky (do 23. 9. 2026 tu obojí bylo a učilo to, co ve výkladu nestojí).
-// Scéna neříká ani nic o POČTU nosičů (ten závisí na dávce příměsi a výklad
-// ani PDF o něm nemluví): ukazuje jen DRUH nosiče — typ N volné elektrony,
-// typ P díry — a že obojí vede proud, tedy stejně rozsvícenou žárovku.
-// Nosiče jsou ve scéně jen pár kusů, aby šly spočítat očima.
+// tři stavy přepínané tlačítky — čistý křemík BEZ PŘÍMĚSI (žádný volný nositel
+// náboje, žárovka nesvítí), typ N (příměs arsen → volné ELEKTRONY) a typ P
+// (příměs bor → DÍRY). Podklad učitele (PDF „14. Polovodiče typu N a P, dioda",
+// str. 1) říká jen tolik: „Lepší vodivost polovodičů získáme přidáním příměsi…
+// Stačí velmi malé množství." ODSTUPŇOVANOU závislost vodivosti na množství
+// příměsi zdroj NETVRDÍ — proto tu není posuvník počtu atomů příměsi ani
+// rostoucí jas žárovky (do 23. 9. 2026 tu obojí bylo a učilo to, co ve výkladu
+// nestojí). Scéna neříká ani nic o POČTU nositelů (ten závisí na dávce příměsi
+// a výklad ani PDF o něm nemluví): ukazuje jen DRUH nositele — typ N volné
+// elektrony, typ P díry — a že obojí vede proud, tedy stejně rozsvícenou žárovku.
+// Nositelé jsou ve scéně jen tři, aby šli spočítat očima.
 // O vlastní vodivosti (pár elektron + díra z tepla) tahle scéna nemluví —
 // patří k jinému podtématu (PolovodicVodivostSimulace.astro). Žádné číslo
 // proudu ani koncentrace se netvrdí, výklad žádné nemá; že polovodič vede,
 // ukazuje rozsvícená žárovka.
-// Elektrony (modrý kroužek „e⁻") putují k pólu +, díry (červený kroužek „d")
-// zdánlivě k pólu − — stejný tvar i barva jako v ostatních simulacích série.
+// Elektrony (modrý kroužek „−") putují k pólu +, díry (zelený čárkovaný
+// kroužek „+") k pólu − — stejná legenda i barvy jako obrázky téže stránky
+// (obr-02/04/05/06): typ N růžový (#ffe3e3), typ P béžový (#f3e6c8).
+// Do 30. 9. 2026 tu byla díra červené „d", elektron „e⁻", typ N modrý a typ P
+// růžový — jiná legenda než obrázky hned nad simulací (nález kontrolora).
+// Mobil (kontrola 30. 9. 2026): scéna je úzká (viewBox šířky 360) a všechna
+// písma mají aspoň 19 jednotek — na telefonu 360 px je scéna ~235 px široká,
+// 19 · 235 / 360 = 12,4 px ≥ 12 px. Legenda stojí v rámečku POD obvodem, aby
+// nevypadala jako nositelé v obvodu.
 // Čisté funkce (__stavDopovani, __pozicePartice, __svitZarovky, __plaketaNosicu)
 // visí na značce scény, takže je lze proměřit výpočtem bez prohlížeče
 // (testy/simulace/polovodic.mjs).
@@ -35,64 +42,72 @@
 	</p>
 
 	<p>
-		<button id="pold-tl-cisty" type="button" class="pold-tl pold-aktivni">⬜ čistý křemík (bez příměsi)</button>
-		<button id="pold-tl-n" type="button" class="pold-tl">🔵 typ N (příměs arsen)</button>
-		<button id="pold-tl-p" type="button" class="pold-tl">🔴 typ P (příměs bor)</button>
+		<button id="pold-tl-cisty" type="button" class="pold-tl pold-aktivni" aria-pressed="true">⬜ čistý křemík (bez příměsi)</button>
+		<button id="pold-tl-n" type="button" class="pold-tl" aria-pressed="false">typ N (příměs arsen)</button>
+		<button id="pold-tl-p" type="button" class="pold-tl" aria-pressed="false">typ P (příměs bor)</button>
 	</p>
 
-	<svg id="pold-svg" viewBox="0 0 660 300" role="img" aria-label="Kousek polovodiče mezi dvěma elektrodami; volné elektrony putují k pólu plus, díry k pólu minus">
+	<svg id="pold-svg" viewBox="0 0 360 430" role="img" aria-label="Kousek polovodiče mezi dvěma elektrodami v obvodu se žárovkou a zdrojem; volné elektrony putují k pólu plus, díry k pólu minus">
+		<!-- Plaketa se stavem, tři řádky. Nejdelší řádek „Nositelé náboje: volné
+		     elektrony" (32 znaků) měří v Comic Sans MS Bold 19 px asi 302 px
+		     (0,496 em na znak, změřeno dřív na téže plaketě) — vnitřek 340. -->
+		<rect x="8" y="8" width="344" height="96" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="pold-stav-text" x="180" y="34" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
+		<text id="pold-nosice-text" x="180" y="63" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
+		<text id="pold-vodivost-text" x="180" y="92" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
+
+		<!-- elektrody se znaménky pólů -->
+		<rect x="8" y="150" width="16" height="120" fill="#495057" />
+		<text x="16" y="142" text-anchor="middle" font-size="22" font-weight="bold" fill="#1971c2">−</text>
+		<rect x="336" y="150" width="16" height="120" fill="#495057" />
+		<text x="344" y="142" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">+</text>
 		<!-- vodiče ke vzorku -->
-		<path d="M60 150 L150 150" stroke="#2b2a26" stroke-width="4" fill="none" />
-		<path d="M450 150 L560 150" stroke="#2b2a26" stroke-width="4" fill="none" />
-		<!-- uzavřený obvod se žárovkou a zdrojem (spodní větev) -->
-		<path d="M50 210 L50 265 L234 265" stroke="#2b2a26" stroke-width="4" fill="none" />
-		<path d="M266 265 L400 265" stroke="#2b2a26" stroke-width="4" fill="none" />
-		<path d="M414 265 L570 265 L570 210" stroke="#2b2a26" stroke-width="4" fill="none" />
-		<!-- zdroj napětí: krátká čárka = pól −, dlouhá = pól + -->
-		<line x1="400" y1="253" x2="400" y2="277" stroke="#2b2a26" stroke-width="4" />
-		<line x1="414" y1="243" x2="414" y2="287" stroke="#2b2a26" stroke-width="4" />
-		<!-- elektrody -->
-		<rect x="40" y="90" width="20" height="120" fill="#495057" />
-		<text x="50" y="84" text-anchor="middle" font-size="22" font-weight="bold" fill="#1971c2">−</text>
-		<rect x="560" y="90" width="20" height="120" fill="#495057" />
-		<text x="570" y="84" text-anchor="middle" font-size="22" font-weight="bold" fill="#e03131">+</text>
+		<path d="M24 210 L44 210" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<path d="M316 210 L336 210" stroke="#2b2a26" stroke-width="4" fill="none" />
 
 		<!-- vzorek polovodiče -->
-		<rect id="pold-vzorek" x="150" y="90" width="300" height="120" fill="#e9ecef" stroke="#2b2a26" stroke-width="4" />
-		<text id="pold-vzorek-text" x="300" y="82" text-anchor="middle" font-size="13" fill="#495057">čistý křemík</text>
+		<text id="pold-vzorek-text" x="180" y="136" text-anchor="middle" font-size="19" fill="#495057">čistý křemík</text>
+		<rect id="pold-vzorek" x="44" y="150" width="272" height="120" fill="#e9ecef" stroke="#2b2a26" stroke-width="4" />
+
+		<!-- uzavřený obvod se žárovkou a zdrojem (spodní větev): levá elektroda (−)
+		     vede přes žárovku ke krátké čárce zdroje (−), pravá (+) k dlouhé (+) -->
+		<path d="M16 270 L16 330 L90 330" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<path d="M130 330 L226 330" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<path d="M240 330 L344 330 L344 270" stroke="#2b2a26" stroke-width="4" fill="none" />
+		<line id="pold-bat-kratka" x1="226" y1="318" x2="226" y2="342" stroke="#2b2a26" stroke-width="6" />
+		<line id="pold-bat-dlouha" x1="240" y1="308" x2="240" y2="352" stroke="#2b2a26" stroke-width="4" />
 
 		<!-- žárovka: buď svítí (polovodič s příměsí vede proud), nebo je zhasnutá
 		     (čistý křemík skoro nevede). Žádné stupně jasu — o tom, že by vedení
 		     rostlo s množstvím příměsi, výklad nic neříká. -->
-		<circle id="pold-zare" cx="250" cy="265" r="30" fill="#ffd43b" opacity="0" />
-		<circle id="pold-zarovka" cx="250" cy="265" r="16" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
-		<text x="250" y="270" text-anchor="middle" font-size="14">💡</text>
-		<g id="pold-paprsky" stroke="#fab005" stroke-width="2" stroke-linecap="round" opacity="0.2">
-			<line x1="228" y1="255" x2="218" y2="245" />
-			<line x1="250" y1="245" x2="250" y2="233" />
-			<line x1="272" y1="255" x2="282" y2="245" />
+		<circle id="pold-zare" cx="110" cy="330" r="34" fill="#ffd43b" opacity="0" />
+		<circle id="pold-zarovka" cx="110" cy="330" r="20" fill="#ffe066" stroke="#2b2a26" stroke-width="2" />
+		<text x="110" y="337" text-anchor="middle" font-size="19">💡</text>
+		<g id="pold-paprsky" stroke="#fab005" stroke-width="3" stroke-linecap="round" opacity="0.2">
+			<line x1="84" y1="314" x2="72" y2="302" />
+			<line x1="110" y1="304" x2="110" y2="288" />
+			<line x1="136" y1="314" x2="148" y2="302" />
 		</g>
 
-		<!-- volné nosiče náboje -->
+		<!-- volní nositelé náboje -->
 		<g id="pold-castice"></g>
 
-		<!-- Plaketa se stavem. Šířka 480 (vnitřek 476) je spočítaná, ne odhadnutá:
-		     nejdelší text „Volné nosiče náboje: volné elektrony → elektronová vodivost"
-		     měří v písmu, na které prohlížeč u SVG spadne (Comic Sans MS Bold 14 px),
-		     403 px — a 410 px i s nejširší náhradní šipkou. V Patrick Hand (písmo
-		     stránky) je to jen 322 px. Rezerva tedy nejmíň 66 px; při dřívější
-		     šířce 380 text z bílého rámečku vytékal ven. -->
-		<rect x="90" y="18" width="480" height="52" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
-		<text id="pold-stav-text" x="330" y="39" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
-		<text id="pold-nosice-text" x="330" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26"></text>
+		<!-- legenda jako na obrázcích stránky: v rámečku POD obvodem -->
+		<rect x="8" y="370" width="344" height="52" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
+		<circle cx="40" cy="396" r="13" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" />
+		<text x="40" y="403" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">−</text>
+		<text x="60" y="403" font-size="19" font-weight="bold" fill="#2b2a26">elektron</text>
+		<circle cx="200" cy="396" r="13" fill="#ffffff" stroke="#1b6b2d" stroke-width="2" stroke-dasharray="4 2" />
+		<text x="200" y="403" text-anchor="middle" font-size="19" font-weight="bold" fill="#1b6b2d">+</text>
+		<text x="220" y="403" font-size="19" font-weight="bold" fill="#2b2a26">díra</text>
 	</svg>
 
-	<p class="pold-popis" id="pold-popis"></p>
+	<p class="pold-popis" id="pold-popis" aria-live="polite"></p>
 </section>
 
 <script>
 	// === ČISTÁ ČÁST (bez DOM — kontrolovatelná výpočtem) ===
-	// Příměs uvolní volné nosiče náboje: u typu N (arsen má o elektron víc)
+	// Příměs uvolní volné nositele náboje: u typu N (arsen má o elektron víc)
 	// volné ELEKTRONY, u typu P (boru jeden elektron chybí) DÍRY. Kolik jich je,
 	// scéna netvrdí — kreslí se pár kusů, aby byly vidět. Výklad říká jen to, že
 	// příměs vodivost zlepší a že jí stačí velmi malé množství; nic o tom, že by
@@ -104,51 +119,55 @@
 				nazev: 'Čistý křemík — bez příměsi',
 				vzorek: 'čistý křemík (bez příměsi)',
 				barva: '#e9ecef',
+				obrys: '#2b2a26',
 				elektrony: 0,
 				diry: 0,
-				nosice: 'téměř žádné',
+				nosice: 'téměř žádní',
 				vodivost: 'skoro nevede proud',
-				popis: 'Srovnání na začátek: v čistém křemíku bez příměsi je volných nosičů náboje zanedbatelně málo, proud skoro neprochází a žárovka nesvítí. Přepni na typ N nebo typ P a porovnej.',
+				popis: 'Srovnání na začátek: v čistém křemíku bez příměsi je volných nositelů náboje zanedbatelně málo, proud skoro neprochází a žárovka nesvítí. Přepni na typ N nebo typ P a porovnej.',
 			};
 		}
 		if (scena === 2) {
 			return {
 				nazev: 'Typ N — příměs arsen',
 				vzorek: 'křemík + arsen (typ N)',
-				barva: '#d0ebff',
+				barva: '#ffe3e3',
+				obrys: '#c2255c',
 				elektrony: POCET_NOSICU,
 				diry: 0,
 				nosice: 'volné elektrony',
 				vodivost: 'elektronová vodivost',
-				popis: 'Arsen má o jeden elektron víc než křemík. Ten elektron zůstane volný a putuje k pólu +. Stačí opravdu malé množství příměsi a polovodič už vede proud — žárovka se rozsvítí. Proud nesou elektrony, proto typ N (negativní).',
+				popis: 'Arsen má o jeden elektron víc než křemík. Ten elektron zůstane volný a putuje k pólu +. Stačí opravdu malé množství příměsi a polovodič už vede proud — žárovka se rozsvítí. Proud nesou hlavně volné elektrony, proto typ N (negativní).',
 			};
 		}
 		return {
 			nazev: 'Typ P — příměs bor',
 			vzorek: 'křemík + bor (typ P)',
-			barva: '#ffe3e3',
+			barva: '#f3e6c8',
+			obrys: '#8a6d3b',
 			elektrony: 0,
 			diry: POCET_NOSICU,
 			nosice: 'díry',
 			vodivost: 'děrová vodivost',
-			popis: 'Boru jeden elektron chybí, zůstane po něm prázdné místo — díra. Elektrony do děr přeskakují, a tak se díra posouvá k pólu −. Stačí opravdu malé množství příměsi a polovodič už vede proud — žárovka se rozsvítí. Proud nesou díry, proto typ P (pozitivní).',
+			popis: 'Boru jeden elektron chybí, zůstane po něm prázdné místo — díra. Elektrony do děr přeskakují, a tak se díra posouvá k pólu −. Stačí opravdu malé množství příměsi a polovodič už vede proud — žárovka se rozsvítí. Proud nesou hlavně díry, proto typ P (pozitivní).',
 		};
 	}
-	const OBDOBI = 3000; // „divadelní" doba průchodu nosiče vzorkem (ms)
-	// nosiče se pohybují po CELÉ šířce vzorku (rect 150…450) — kolečko o poloměru 10
+	const OBDOBI = 3000; // „divadelní" doba průchodu nositele vzorkem (ms)
+	// nositelé se pohybují po CELÉ šířce vzorku (rect 44…316) — kroužek o poloměru 13
 	// se i na kraji dráhy vejde dovnitř s rezervou, takže nikdy neleze na obrys
-	const X_LEVY = 170, X_PRAVY = 430;
-	// svislé rozložení: vzorek se rozdělí na tolik vodorovných pásů, kolik je nosičů,
-	// a každý nosič jede středem svého pásu. Pásmo 110…190 drží kolečka uvnitř
-	// obrysu vzorku (rect 90…210).
-	const Y_HORNI = 110, VYSKA_PASMA = 80;
+	const X_LEVY = 64, X_PRAVY = 296;
+	const R = 13;
+	// svislé rozložení: vzorek se rozdělí na tolik vodorovných pásů, kolik je nositelů,
+	// a každý jede středem svého pásu. Pásmo 162…258 drží kroužky uvnitř
+	// obrysu vzorku (rect 150…270).
+	const Y_HORNI = 162, VYSKA_PASMA = 96;
 	function rozlozeniY(i) {
 		return Math.round(Y_HORNI + (i + 0.5) * VYSKA_PASMA / POCET_NOSICU);
 	}
-	// vodorovná poloha i-tého nosiče (0-indexovaný) v čase t (ms);
+	// vodorovná poloha i-tého nositele (0-indexovaný) v čase t (ms);
 	// elektron jede zleva doprava k pólu +, díra zprava doleva k pólu −
 	function pozicePartice(t, i) {
-		const posun = OBDOBI / POCET_NOSICU; // nosiče se rozjíždějí rovnoměrně za sebou
+		const posun = OBDOBI / POCET_NOSICU; // nositelé se rozjíždějí rovnoměrně za sebou
 		const faze = ((t - i * posun) % OBDOBI + OBDOBI) % OBDOBI;
 		const zlomek = faze / OBDOBI; // 0 = na startu, 1 = na druhém konci vzorku
 		const draha = (X_PRAVY - X_LEVY) * zlomek;
@@ -160,7 +179,7 @@
 			y: rozlozeniY(i),
 		};
 	}
-	// Žárovka zná jen dva stavy: bez volných nosičů zhasnutá, s volnými nosiči
+	// Žárovka zná jen dva stavy: bez volných nositelů zhasnutá, s volnými nositeli
 	// svítí. Stupně jasu tu schválně NEJSOU — odstupňovaná závislost vedení na
 	// množství příměsi ve výkladu není. Vrací jen to, co je vidět v náhledu.
 	const BANKA_ZHASLA = '#ced4da', BANKA_SVITI = '#fcc419';
@@ -168,11 +187,11 @@
 		if (nosice > 0) return { paprsky: 1, banka: BANKA_SVITI, zare: 0.5 };
 		return { paprsky: 0, banka: BANKA_ZHASLA, zare: 0 };
 	}
-	// Text plakety s nosiči náboje. Žádná čísla: kolik nosičů přesně je, výklad
+	// Text plakety s nositeli náboje. Žádná čísla: kolik jich přesně je, výklad
 	// neříká. V čistém křemíku se tvrdá nula nepíše — plaketa by si odporovala
 	// s vedlejší větou „skoro nevede proud" (skoro = ne úplně).
 	function plaketaNosicu(s) {
-		return `Volné nosiče náboje: ${s.nosice} → ${s.vodivost}`;
+		return `Nositelé náboje: ${s.nosice}`;
 	}
 	// === KONEC ČISTÉ ČÁSTI ===
 
@@ -186,20 +205,26 @@
 	let scena = 1;
 	let stav = stavDopovani(scena);
 
-	function kolecko(x, y, barva, popisek) {
-		return `<circle cx="${x}" cy="${y}" r="10" fill="${barva}" stroke="#2b2a26" stroke-width="1.5" />`
-			+ `<text x="${x}" y="${y + 4}" text-anchor="middle" font-size="10" font-weight="bold" fill="#ffffff">${popisek}</text>`;
+	// značky nositelů jako na obrázcích stránky: elektron modrý kroužek „−",
+	// díra bílý kroužek se zeleným čárkovaným obrysem a zeleným „+"
+	function elektron(x, y) {
+		return `<circle cx="${x}" cy="${y}" r="${R}" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" />`
+			+ `<text x="${x}" y="${y + 7}" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">−</text>`;
+	}
+	function dira(x, y) {
+		return `<circle cx="${x}" cy="${y}" r="${R}" fill="#ffffff" stroke="#1b6b2d" stroke-width="2" stroke-dasharray="4 2" />`
+			+ `<text x="${x}" y="${y + 7}" text-anchor="middle" font-size="19" font-weight="bold" fill="#1b6b2d">+</text>`;
 	}
 
 	function vykresliCastice(t, s) {
 		let html = '';
 		for (let i = 0; i < s.elektrony; i++) {
 			const p = pozicePartice(t, i);
-			html += kolecko(p.xElektron, p.y, '#1971c2', 'e⁻');
+			html += elektron(p.xElektron, p.y);
 		}
 		for (let i = 0; i < s.diry; i++) {
 			const p = pozicePartice(t, i);
-			html += kolecko(p.xDira, p.y, '#e03131', 'd');
+			html += dira(p.xDira, p.y);
 		}
 		g('pold-castice').innerHTML = html;
 	}
@@ -207,14 +232,16 @@
 	function vykresli(t) {
 		const nosice = stav.elektrony + stav.diry;
 		g('pold-vzorek').setAttribute('fill', stav.barva);
+		g('pold-vzorek').setAttribute('stroke', stav.obrys);
 		g('pold-vzorek-text').textContent = stav.vzorek;
-		// žárovka: bez volných nosičů zhasnutá, s volnými nosiči svítí
+		// žárovka: bez volných nositelů zhasnutá, s volnými nositeli svítí
 		const svit = svitZarovky(nosice);
 		g('pold-paprsky').setAttribute('opacity', String(svit.paprsky));
 		g('pold-zarovka').setAttribute('fill', svit.banka);
 		g('pold-zare').setAttribute('opacity', String(svit.zare));
 		g('pold-stav-text').textContent = stav.nazev;
 		g('pold-nosice-text').textContent = plaketaNosicu(stav);
+		g('pold-vodivost-text').textContent = stav.vodivost;
 		g('pold-popis').textContent = stav.popis;
 		vykresliCastice(t, stav);
 	}
@@ -230,8 +257,10 @@
 		scena = cislo;
 		stav = stavDopovani(scena);
 		for (const t of TLACITKA) {
-			if (t.scena === cislo) g(t.id).classList.add('pold-aktivni');
+			const zvoleno = t.scena === cislo;
+			if (zvoleno) g(t.id).classList.add('pold-aktivni');
 			else g(t.id).classList.remove('pold-aktivni');
+			g(t.id).setAttribute('aria-pressed', zvoleno ? 'true' : 'false');
 		}
 		vykresli(0);
 	}
@@ -248,7 +277,8 @@
 <style>
 	#pold-svg {
 		width: 100%;
-		max-width: 660px;
+		max-width: 460px;
+		display: block;
 		border: 3px solid #2b2a26;
 		border-radius: 12px;
 		background: #f8f9fa;
