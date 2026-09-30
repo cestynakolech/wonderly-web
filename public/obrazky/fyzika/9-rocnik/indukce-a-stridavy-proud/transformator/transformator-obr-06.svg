@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Model s transformátorem: cívka na jedné straně železného jádra, na druhé straně jádra kovový prstenec s vodou, ze které stoupá pára.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+<linearGradient id="kov" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="464" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Model: kovový prstenec s vodou na jádře</text>
+<rect x="250.0" y="130.0" width="460.0" height="300.0" rx="10" fill="#6c757d" stroke="#343a40" stroke-width="3"/>
+<rect x="350.0" y="210.0" width="260.0" height="140.0" rx="4" fill="#f8f9fa" stroke="#343a40" stroke-width="3"/>
+<rect x="215.0" y="175.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="197.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="219.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="241.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="263.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="285.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="307.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="329.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="215.0" y="351.0" width="170.0" height="16.0" rx="7" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<path d="M215,300 C170,300 150,340 100,340" fill="none" stroke="#e03131" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M215,320 C180,320 150,370 100,372" fill="none" stroke="#1971c2" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="586.0" y="268.0" width="148.0" height="84.0" rx="14" fill="url(#kov)" stroke="#495057" stroke-width="4"/>
+<ellipse cx="660" cy="268" rx="62" ry="10" fill="#74c0fc" stroke="#1971c2" stroke-width="3"/>
+<circle cx="630.0" cy="266.0" r="4" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="655.0" cy="270.0" r="4" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="685.0" cy="265.0" r="4" fill="#ffffff" stroke="#1971c2" stroke-width="1.5"/>
+<circle cx="760.0" cy="232.0" r="16.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="747.2" cy="240.0" r="12.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="772.8" cy="239.2" r="12.8" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="761.6" cy="220.8" r="11.200000000000001" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="800.0" cy="186.0" r="20.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="784.0" cy="196.0" r="15.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="816.0" cy="195.0" r="16.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="802.0" cy="172.0" r="14.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="770.0" cy="128.0" r="23.0" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="751.6" cy="139.5" r="17.25" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="788.4" cy="138.3" r="18.4" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="772.3" cy="111.9" r="16.099999999999998" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+<line x1="700.0" y1="262.0" x2="748.0" y2="240.0" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/>
+<text x="115.0" y="262.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">cívka</text>
+<line x1="150.0" y1="262.0" x2="212.0" y2="262.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="150.0" y1="262.0" x2="212.0" y2="262.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+<text x="480.0" y="118.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">jádro</text>
+<text x="752.0" y="330.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kovový prstenec</text>
+<text x="752.0" y="356.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">s vodou</text>
+<text x="870.0" y="150.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">pára</text>
+<line x1="846.0" y1="146.0" x2="826.0" y2="136.0" stroke="#f8f9fa" stroke-width="6" stroke-linecap="round"/>
+<line x1="846.0" y1="146.0" x2="826.0" y2="136.0" stroke="#212529" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

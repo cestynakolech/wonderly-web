@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 510" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pistolová páječka: žlutá páječka tvaru pistole s větracími otvory, hrotem ze smyčky drátu a černým přívodním kabelem.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="504" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Pistolová páječka</text>
+<path d="M340,372 C330,420 250,400 200,430 C150,455 110,430 70,445" fill="none" stroke="#212529" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M320.0,200.0 L450.0,200.0 L400.0,375.0 L285.0,375.0 z" fill="#fab005" stroke="#e67700" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="430.0" y="215.0" width="24.0" height="60.0" rx="8" fill="#212529" stroke="#212529" stroke-width="2"/>
+<rect x="230.0" y="110.0" width="320.0" height="100.0" rx="34" fill="#fab005" stroke="#e67700" stroke-width="4"/>
+<rect x="262.0" y="126.0" width="12.0" height="42.0" rx="6" fill="#7c5200" stroke="#7c5200" stroke-width="1"/>
+<rect x="286.0" y="126.0" width="12.0" height="42.0" rx="6" fill="#7c5200" stroke="#7c5200" stroke-width="1"/>
+<rect x="310.0" y="126.0" width="12.0" height="42.0" rx="6" fill="#7c5200" stroke="#7c5200" stroke-width="1"/>
+<rect x="334.0" y="126.0" width="12.0" height="42.0" rx="6" fill="#7c5200" stroke="#7c5200" stroke-width="1"/>
+<rect x="358.0" y="126.0" width="12.0" height="42.0" rx="6" fill="#7c5200" stroke="#7c5200" stroke-width="1"/>
+<rect x="382.0" y="126.0" width="12.0" height="42.0" rx="6" fill="#7c5200" stroke="#7c5200" stroke-width="1"/>
+<rect x="546.0" y="140.0" width="70.0" height="40.0" rx="6" fill="#868e96" stroke="#495057" stroke-width="3"/>
+<rect x="610.0" y="146.0" width="26.0" height="28.0" rx="4" fill="#495057" stroke="#212529" stroke-width="3"/>
+<path d="M634,150 L730,150 Q775,150 775,166 Q775,182 730,182 L634,170" fill="none" stroke="#ced4da" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M634,150 L730,150 Q775,150 775,166 Q775,182 730,182 L634,170" fill="none" stroke="#6c757d" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="330.0" y="92.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">větrací otvory</text>
+<line x1="330.0" y1="100.0" x2="330.0" y2="122.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="770.0" y="235.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">hrot ze smyčky drátu</text>
+<line x1="760.0" y1="210.0" x2="760.0" y2="190.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="190.0" y="480.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">přívodní kabel</text>
+<line x1="190.0" y1="460.0" x2="190.0" y2="438.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+</svg>

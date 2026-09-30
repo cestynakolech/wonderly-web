@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 510" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Transformátor na jádře tvaru E: dvě žluté cívky, primární a sekundární, obepínají střední část společného jádra, každá má dva vývody.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="504" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Transformátor na jádře tvaru E</text>
+<rect x="200.0" y="100.0" width="560.0" height="300.0" rx="6" fill="#6c757d" stroke="#343a40" stroke-width="3"/>
+<rect x="290.0" y="160.0" width="410.0" height="60.0" rx="3" fill="#f8f9fa" stroke="#343a40" stroke-width="3"/>
+<rect x="290.0" y="280.0" width="410.0" height="60.0" rx="3" fill="#f8f9fa" stroke="#343a40" stroke-width="3"/>
+<rect x="320.0" y="190.0" width="150.0" height="120.0" rx="10" fill="#ffd43b" stroke="#f08c00" stroke-width="3"/>
+<line x1="345.0" y1="194.0" x2="345.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="370.0" y1="194.0" x2="370.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="395.0" y1="194.0" x2="395.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="420.0" y1="194.0" x2="420.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="445.0" y1="194.0" x2="445.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<rect x="500.0" y="190.0" width="150.0" height="120.0" rx="10" fill="#ffd43b" stroke="#f08c00" stroke-width="3"/>
+<line x1="525.0" y1="194.0" x2="525.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="550.0" y1="194.0" x2="550.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="575.0" y1="194.0" x2="575.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="600.0" y1="194.0" x2="600.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<line x1="625.0" y1="194.0" x2="625.0" y2="306.0" stroke="#f08c00" stroke-width="3" stroke-linecap="round"/>
+<path d="M350,310 C350,350 360,380 360,432" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="360.0" cy="438.0" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M440,310 C440,350 450,380 450,432" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="450.0" cy="438.0" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M530,310 C530,350 540,380 540,432" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="540.0" cy="438.0" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<path d="M620,310 C620,350 630,380 630,432" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="630.0" cy="438.0" r="7" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
+<text x="395.0" y="84.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">primární cívka</text>
+<text x="575.0" y="84.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">sekundární cívka</text>
+<text x="245.0" y="455.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">jádro</text>
+<line x1="245.0" y1="425.0" x2="245.0" y2="380.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="535.0" y="482.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">dva vývody každé cívky</text>
+</svg>

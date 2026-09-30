@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 430" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Indukční ohřev kovu: ruka drží kovovou tyč, jejíž konec je u měděné cívky rozžhavený do oranžova.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+<radialGradient id="zar" cx="50%" cy="50%" r="70%"><stop offset="0" stop-color="#ff922b" stop-opacity="0.6"/><stop offset="1" stop-color="#f8f9fa" stop-opacity="0"/></radialGradient>
+<linearGradient id="ty" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dee2e6"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="zh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd43b"/><stop offset="1" stop-color="#f76707"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="954" height="424" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Indukční ohřev kovové tyče</text>
+<ellipse cx="770" cy="266" rx="120" ry="60" fill="url(#zar)"/>
+<rect x="300.0" y="250.0" width="500.0" height="32.0" rx="6" fill="url(#ty)" stroke="#495057" stroke-width="3"/>
+<rect x="560.0" y="250.0" width="240.0" height="32.0" rx="6" fill="url(#zh)" stroke="#e8590c" stroke-width="3"/>
+<ellipse cx="575" cy="266" rx="13" ry="56" fill="none" stroke="#d9822b" stroke-width="11"/>
+<ellipse cx="575" cy="266" rx="13" ry="56" fill="none" stroke="#a85a12" stroke-width="2"/>
+<ellipse cx="609" cy="266" rx="13" ry="56" fill="none" stroke="#d9822b" stroke-width="11"/>
+<ellipse cx="609" cy="266" rx="13" ry="56" fill="none" stroke="#a85a12" stroke-width="2"/>
+<ellipse cx="643" cy="266" rx="13" ry="56" fill="none" stroke="#d9822b" stroke-width="11"/>
+<ellipse cx="643" cy="266" rx="13" ry="56" fill="none" stroke="#a85a12" stroke-width="2"/>
+<ellipse cx="677" cy="266" rx="13" ry="56" fill="none" stroke="#d9822b" stroke-width="11"/>
+<ellipse cx="677" cy="266" rx="13" ry="56" fill="none" stroke="#a85a12" stroke-width="2"/>
+<ellipse cx="711" cy="266" rx="13" ry="56" fill="none" stroke="#d9822b" stroke-width="11"/>
+<ellipse cx="711" cy="266" rx="13" ry="56" fill="none" stroke="#a85a12" stroke-width="2"/>
+<path d="M20.0,215.0 L200.0,220.0 L200.0,320.0 L20.0,325.0 z" fill="#4c6ef5" stroke="#364fc7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="190.0" y="218.0" width="120.0" height="106.0" rx="34" fill="#f1c9a5" stroke="#d9a679" stroke-width="3"/>
+<rect x="300.0" y="236.0" width="27.0" height="72.0" rx="13" fill="#f1c9a5" stroke="#d9a679" stroke-width="3"/>
+<rect x="325.0" y="236.0" width="27.0" height="68.0" rx="13" fill="#f1c9a5" stroke="#d9a679" stroke-width="3"/>
+<rect x="350.0" y="236.0" width="27.0" height="64.0" rx="13" fill="#f1c9a5" stroke="#d9a679" stroke-width="3"/>
+<rect x="375.0" y="236.0" width="27.0" height="60.0" rx="13" fill="#f1c9a5" stroke="#d9a679" stroke-width="3"/>
+<rect x="232.0" y="196.0" width="100.0" height="34.0" rx="16" fill="#f1c9a5" stroke="#d9a679" stroke-width="3"/>
+<text x="420.0" y="350.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">kovová tyč</text>
+<line x1="420.0" y1="328.0" x2="420.0" y2="288.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="640.0" y="150.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">měděná cívka</text>
+<line x1="640.0" y1="160.0" x2="640.0" y2="200.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="800.0" y="380.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">rozžhavený konec</text>
+<line x1="780.0" y1="358.0" x2="770.0" y2="292.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+</svg>

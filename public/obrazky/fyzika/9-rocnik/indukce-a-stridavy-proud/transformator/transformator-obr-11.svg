@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 670" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Transformátor a jeho značka: nahoře primární a sekundární vinutí na společném jádře, u vstupu i výstupu je vlnovka střídavého napětí; dole schematická značka dvou cívek oddělených dvěma čarami jádra.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="664" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Transformátor a jeho značka</text>
+<text x="480.0" y="80.0" font-size="22" font-weight="bold" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Jak vypadá v nákresu</text>
+<rect x="290.0" y="100.0" width="380.0" height="190.0" rx="8" fill="#6c757d" stroke="#343a40" stroke-width="3"/>
+<rect x="360.0" y="160.0" width="240.0" height="70.0" rx="4" fill="#f8f9fa" stroke="#343a40" stroke-width="3"/>
+<text x="480.0" y="268.0" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">jádro</text>
+<rect x="270.0" y="162.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="270.0" y="179.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="270.0" y="196.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="270.0" y="213.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="580.0" y="162.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="580.0" y="179.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="580.0" y="196.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="580.0" y="213.0" width="110.0" height="13.0" rx="6" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<circle cx="110.0" cy="194.0" r="36" fill="#f8f9fa" stroke="#2b2a26" stroke-width="5"/>
+<path d="M88.0,194.0 L90.0,190.6 L92.0,187.5 L94.0,184.9 L96.0,183.1 L98.0,182.1 L100.0,182.1 L102.0,183.1 L104.0,184.9 L106.0,187.5 L108.0,190.6 L110.0,194.0 L112.0,197.4 L114.0,200.5 L116.0,203.1 L118.0,204.9 L120.0,205.9 L122.0,205.9 L124.0,204.9 L126.0,203.1 L128.0,200.5 L130.0,197.4 L132.0,194.0" fill="none" stroke="#2b2a26" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="110.0" y1="158.0" x2="110.0" y2="138.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="110.0" y1="138.0" x2="270.0" y2="138.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="138.0" x2="270.0" y2="168.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="110.0" y1="230.0" x2="110.0" y2="250.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="110.0" y1="250.0" x2="270.0" y2="250.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="270.0" y1="250.0" x2="270.0" y2="220.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="690.0" y1="138.0" x2="850.0" y2="138.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="690.0" y1="138.0" x2="690.0" y2="168.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="690.0" y1="250.0" x2="850.0" y2="250.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<line x1="690.0" y1="250.0" x2="690.0" y2="220.0" stroke="#2b2a26" stroke-width="4" stroke-linecap="round"/>
+<circle cx="850.0" cy="138.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="850.0" cy="250.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<path d="M828.0,194.0 L830.0,190.6 L832.0,187.5 L834.0,184.9 L836.0,183.1 L838.0,182.1 L840.0,182.1 L842.0,183.1 L844.0,184.9 L846.0,187.5 L848.0,190.6 L850.0,194.0 L852.0,197.4 L854.0,200.5 L856.0,203.1 L858.0,204.9 L860.0,205.9 L862.0,205.9 L864.0,204.9 L866.0,203.1 L868.0,200.5 L870.0,197.4 L872.0,194.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="110.0" y="300.0" font-size="20" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">střídavé</text>
+<text x="110.0" y="324.0" font-size="20" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">napětí</text>
+<text x="850.0" y="300.0" font-size="20" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">střídavé</text>
+<text x="850.0" y="324.0" font-size="20" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">napětí</text>
+<text x="325.0" y="315.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">primární</text>
+<text x="325.0" y="341.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">vinutí</text>
+<text x="635.0" y="315.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">sekundární</text>
+<text x="635.0" y="341.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">vinutí</text>
+<line x1="60.0" y1="375.0" x2="900.0" y2="375.0" stroke="#ced4da" stroke-width="2" stroke-linecap="round"/>
+<text x="480.0" y="415.0" font-size="22" font-weight="bold" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">Schematická značka</text>
+<line x1="300.0" y1="450.0" x2="400.0" y2="450.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="300.0" y1="590.0" x2="400.0" y2="590.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<path d="M400.0,450.0 A17.5,17.5 0 0 0 400.0,485.0 A17.5,17.5 0 0 0 400.0,520.0 A17.5,17.5 0 0 0 400.0,555.0 A17.5,17.5 0 0 0 400.0,590.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="470.0" y1="440.0" x2="470.0" y2="600.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="490.0" y1="440.0" x2="490.0" y2="600.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<path d="M560.0,450.0 A17.5,17.5 0 0 1 560.0,485.0 A17.5,17.5 0 0 1 560.0,520.0 A17.5,17.5 0 0 1 560.0,555.0 A17.5,17.5 0 0 1 560.0,590.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="560.0" y1="450.0" x2="660.0" y2="450.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="560.0" y1="590.0" x2="660.0" y2="590.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="300.0" cy="450.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="300.0" cy="590.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="660.0" cy="450.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="660.0" cy="590.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<path d="M213.0,520.0 L215.0,516.6 L217.0,513.5 L219.0,510.9 L221.0,509.1 L223.0,508.1 L225.0,508.1 L227.0,509.1 L229.0,510.9 L231.0,513.5 L233.0,516.6 L235.0,520.0 L237.0,523.4 L239.0,526.5 L241.0,529.1 L243.0,530.9 L245.0,531.9 L247.0,531.9 L249.0,530.9 L251.0,529.1 L253.0,526.5 L255.0,523.4 L257.0,520.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M703.0,520.0 L705.0,516.6 L707.0,513.5 L709.0,510.9 L711.0,509.1 L713.0,508.1 L715.0,508.1 L717.0,509.1 L719.0,510.9 L721.0,513.5 L723.0,516.6 L725.0,520.0 L727.0,523.4 L729.0,526.5 L731.0,529.1 L733.0,530.9 L735.0,531.9 L737.0,531.9 L739.0,530.9 L741.0,529.1 L743.0,526.5 L745.0,523.4 L747.0,520.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="480.0" y="635.0" font-size="20" fill="#495057" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">primární cívka  |  jádro  |  sekundární cívka</text>
+</svg>

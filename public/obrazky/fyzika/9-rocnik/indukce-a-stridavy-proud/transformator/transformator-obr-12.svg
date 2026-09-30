@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma transformátoru: vlevo primární cívka s N1 závity a napětím U1, vpravo sekundární cívka s N2 závity a napětím U2, vzorec U2 ku U1 se rovná N2 ku N1 a transformační poměr k se rovná N2 ku N1. Když je k větší než jedna, napětí roste, když je menší než jedna, napětí klesá.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="554" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Rovnice transformátoru</text>
+<line x1="110.0" y1="120.0" x2="250.0" y2="120.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="110.0" y1="280.0" x2="250.0" y2="280.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<path d="M250.0,120.0 A20.0,20.0 0 0 0 250.0,160.0 A20.0,20.0 0 0 0 250.0,200.0 A20.0,20.0 0 0 0 250.0,240.0 A20.0,20.0 0 0 0 250.0,280.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="110.0" cy="120.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="110.0" cy="280.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<line x1="70.0" y1="200.0" x2="70.0" y2="125.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="70.0" y1="200.0" x2="70.0" y2="275.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="14.0" y="208.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">U<tspan font-size="18" dy="6">1</tspan></text>
+<line x1="320.0" y1="105.0" x2="320.0" y2="295.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="340.0" y1="105.0" x2="340.0" y2="295.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<path d="M410.0,120.0 A20.0,20.0 0 0 1 410.0,160.0 A20.0,20.0 0 0 1 410.0,200.0 A20.0,20.0 0 0 1 410.0,240.0 A20.0,20.0 0 0 1 410.0,280.0" fill="none" stroke="#2b2a26" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="410.0" y1="120.0" x2="520.0" y2="120.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="410.0" y1="280.0" x2="520.0" y2="280.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<circle cx="520.0" cy="120.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<circle cx="520.0" cy="280.0" r="9" fill="#f8f9fa" stroke="#2b2a26" stroke-width="4"/>
+<line x1="575.0" y1="200.0" x2="575.0" y2="125.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="575.0" y1="200.0" x2="575.0" y2="275.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="588.0" y="208.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">U<tspan font-size="18" dy="6">2</tspan></text>
+<text x="232.0" y="322.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">primární cívka</text>
+<text x="232.0" y="348.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">N<tspan font-size="18" dy="6">1</tspan><tspan dy="-6"> závitů</tspan></text>
+<text x="432.0" y="322.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">sekundární cívka</text>
+<text x="432.0" y="348.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">N<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> závitů</tspan></text>
+<text x="727.0" y="168.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">U<tspan font-size="18" dy="6">2</tspan></text>
+<line x1="693.0" y1="182.0" x2="761.0" y2="182.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="727.0" y="216.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">U<tspan font-size="18" dy="6">1</tspan></text>
+<text x="815.0" y="190.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="middle">=</text>
+<text x="903.0" y="168.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">N<tspan font-size="18" dy="6">2</tspan></text>
+<line x1="869.0" y1="182.0" x2="937.0" y2="182.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="903.0" y="216.0" font-size="32" font-weight="bold" fill="#2b2a26" text-anchor="middle">N<tspan font-size="18" dy="6">1</tspan></text>
+<text x="815.0" y="275.0" font-size="28" font-weight="bold" fill="#2b2a26" text-anchor="middle">k = N<tspan font-size="18" dy="6">2</tspan><tspan dy="-6"> : </tspan>N<tspan font-size="18" dy="6">1</tspan></text>
+<text x="815.0" y="306.0" font-size="20" fill="#495057" text-anchor="middle">transformační poměr</text>
+<rect x="30.0" y="375.0" width="435.0" height="80.0" rx="12" fill="#fff5f5" stroke="#e03131" stroke-width="3"/>
+<rect x="495.0" y="375.0" width="435.0" height="80.0" rx="12" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/>
+<text x="247.0" y="408.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">k &gt; 1: napětí roste</text>
+<text x="247.0" y="438.0" font-size="22" fill="#2b2a26" text-anchor="middle">transformace nahoru</text>
+<text x="712.0" y="408.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">k &lt; 1: napětí klesá</text>
+<text x="712.0" y="438.0" font-size="22" fill="#2b2a26" text-anchor="middle">transformace dolů</text>
+<rect x="30.0" y="475.0" width="900.0" height="56.0" rx="12" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
+<text x="480.0" y="511.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Kolikrát víc závitů má sekundární cívka, tolikrát je na ní větší napětí.</text>
+</svg>

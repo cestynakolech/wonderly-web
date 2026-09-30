@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Magnetické pole v jádře transformátoru: obdélníkové jádro se dvěma cívkami na svislých stranách a uzavřené magnetické indukční čáry se šipkami vedou kolem dokola uvnitř jádra.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="464" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="480.0" y="40.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Magnetické pole v jádře transformátoru</text>
+<rect x="240.0" y="80.0" width="480.0" height="350.0" rx="10" fill="#dee2e6" stroke="#6c757d" stroke-width="4"/>
+<rect x="360.0" y="190.0" width="240.0" height="130.0" rx="4" fill="#f8f9fa" stroke="#6c757d" stroke-width="4"/>
+<rect x="224.0" y="195.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="224.0" y="221.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="224.0" y="247.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="224.0" y="273.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="224.0" y="299.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="584.0" y="195.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="584.0" y="221.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="584.0" y="247.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="584.0" y="273.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="584.0" y="299.0" width="152.0" height="20.0" rx="8" fill="#d9822b" stroke="#a85a12" stroke-width="2"/>
+<rect x="260.0" y="100.0" width="440.0" height="310.0" rx="30" fill="none" stroke="#1971c2" stroke-width="3"/>
+<line x1="465.0" y1="100.0" x2="495.0" y2="100.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="495.0" y1="410.0" x2="465.0" y2="410.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="260.0" y1="290.0" x2="260.0" y2="250.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="700.0" y1="220.0" x2="700.0" y2="260.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<rect x="285.0" y="125.0" width="390.0" height="260.0" rx="30" fill="none" stroke="#1971c2" stroke-width="3"/>
+<line x1="465.0" y1="125.0" x2="495.0" y2="125.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="495.0" y1="385.0" x2="465.0" y2="385.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="285.0" y1="290.0" x2="285.0" y2="250.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="675.0" y1="220.0" x2="675.0" y2="260.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<rect x="310.0" y="150.0" width="340.0" height="210.0" rx="30" fill="none" stroke="#1971c2" stroke-width="3"/>
+<line x1="465.0" y1="150.0" x2="495.0" y2="150.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="495.0" y1="360.0" x2="465.0" y2="360.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="310.0" y1="290.0" x2="310.0" y2="250.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="650.0" y1="220.0" x2="650.0" y2="260.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<rect x="335.0" y="175.0" width="290.0" height="160.0" rx="30" fill="none" stroke="#1971c2" stroke-width="3"/>
+<line x1="465.0" y1="175.0" x2="495.0" y2="175.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="495.0" y1="335.0" x2="465.0" y2="335.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="335.0" y1="290.0" x2="335.0" y2="250.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="625.0" y1="220.0" x2="625.0" y2="260.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="120.0" y="262.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">cívka</text>
+<line x1="160.0" y1="262.0" x2="222.0" y2="262.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="840.0" y="118.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">jádro</text>
+<line x1="800.0" y1="106.0" x2="722.0" y2="106.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+<text x="840.0" y="230.0" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">magnetické</text>
+<text x="840.0" y="258.0" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="middle" stroke="#f8f9fa" stroke-width="6" paint-order="stroke">indukční čáry</text>
+<line x1="800.0" y1="270.0" x2="700.0" y2="350.0" stroke="#495057" stroke-width="2" stroke-linecap="round"/>
+</svg>

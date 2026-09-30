@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 548" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kulička se valí po oranžové půlkruhové dráze. U šesti poloh kuličky jsou bubliny s pohybovou a polohovou energií: nahoře vlevo 0 J a 10 J, níže 4 J a 6 J, ještě níže 8 J a 2 J, dole 10 J a 0 J, vpravo 5 J a 5 J, nahoře vpravo 0 J a 10 J. Zelený rámeček: velikost celkové mechanické energie kuličky se nemění, E = 10 J.">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-zlu" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#f08c00"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="b-cer" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e03131"/></marker>
+<marker id="b-zel" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2f9e44"/></marker>
+<marker id="b-mod" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#1971c2"/></marker>
+<marker id="b-ora" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#e8590c"/></marker>
+<marker id="b-ink" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#2b2a26"/></marker>
+<marker id="b-zlu" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#f08c00"/></marker>
+<marker id="b-fia" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="23" refY="13" orient="auto"><path d="M0,0 L26,13 L0,26 z" fill="#7048e8"/></marker>
+<radialGradient id="kul" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#adb5bd"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="954" height="542" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<rect x="230.0" y="20.0" width="500.0" height="44.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2"/>
+<text x="480.0" y="50.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">Zákon zachování mechanické energie</text>
+<path d="M220,120 A260,260 0 0 0 740,120" fill="none" stroke="#a85a12" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M220,120 A260,260 0 0 0 740,120" fill="none" stroke="#f76707" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="255.0" cy="120.0" r="20" fill="url(#kul)" stroke="#6c757d" stroke-width="3"/>
+<circle cx="273.8" cy="210.0" r="20" fill="url(#kul)" stroke="#6c757d" stroke-width="3"/>
+<circle cx="345.0" cy="300.0" r="20" fill="url(#kul)" stroke="#6c757d" stroke-width="3"/>
+<circle cx="480.0" cy="345.0" r="20" fill="url(#kul)" stroke="#6c757d" stroke-width="3"/>
+<circle cx="674.9" cy="232.5" r="20" fill="url(#kul)" stroke="#6c757d" stroke-width="3"/>
+<circle cx="705.0" cy="120.0" r="20" fill="url(#kul)" stroke="#6c757d" stroke-width="3"/>
+<path d="M190,93 L233,120 L190,119 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="14.0" y="60.0" width="176.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="187" y="95" width="6" height="22" fill="#fff3bf"/>
+<text x="102.0" y="112.7" font-size="19" fill="#2b2a26" text-anchor="middle"></text>
+<text x="102.0" y="98.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">E<tspan font-size="18" dy="6">k</tspan><tspan dy="-6"> = 0 J</tspan></text>
+<text x="102.0" y="132.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">E<tspan font-size="18" dy="6">p</tspan><tspan dy="-6"> = 10 J</tspan></text>
+<path d="M190,198 L252,210 L190,224 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="14.0" y="165.0" width="176.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="187" y="200" width="6" height="22" fill="#fff3bf"/>
+<text x="102.0" y="217.7" font-size="19" fill="#2b2a26" text-anchor="middle"></text>
+<text x="102.0" y="203.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">E<tspan font-size="18" dy="6">k</tspan><tspan dy="-6"> = 4 J</tspan></text>
+<text x="102.0" y="237.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">E<tspan font-size="18" dy="6">p</tspan><tspan dy="-6"> = 6 J</tspan></text>
+<path d="M190,303 L345,278 L190,329 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="14.0" y="270.0" width="176.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="187" y="305" width="6" height="22" fill="#fff3bf"/>
+<text x="102.0" y="322.6" font-size="19" fill="#2b2a26" text-anchor="middle"></text>
+<text x="102.0" y="308.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">E<tspan font-size="18" dy="6">k</tspan><tspan dy="-6"> = 8 J</tspan></text>
+<text x="102.0" y="342.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">E<tspan font-size="18" dy="6">p</tspan><tspan dy="-6"> = 2 J</tspan></text>
+<path d="M467,292 L480,323 L493,292 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="388.0" y="200.0" width="176.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="469" y="289" width="22" height="6" fill="#fff3bf"/>
+<text x="476.0" y="252.7" font-size="19" fill="#2b2a26" text-anchor="middle"></text>
+<text x="476.0" y="238.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">E<tspan font-size="18" dy="6">k</tspan><tspan dy="-6"> = 10 J</tspan></text>
+<text x="476.0" y="272.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">E<tspan font-size="18" dy="6">p</tspan><tspan dy="-6"> = 0 J</tspan></text>
+<path d="M770,219 L697,233 L770,245 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="770.0" y="186.0" width="176.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="767" y="221" width="6" height="22" fill="#fff3bf"/>
+<text x="858.0" y="238.7" font-size="19" fill="#2b2a26" text-anchor="middle"></text>
+<text x="858.0" y="224.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">E<tspan font-size="18" dy="6">k</tspan><tspan dy="-6"> = 5 J</tspan></text>
+<text x="858.0" y="258.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">E<tspan font-size="18" dy="6">p</tspan><tspan dy="-6"> = 5 J</tspan></text>
+<path d="M770,93 L727,120 L770,119 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="770.0" y="60.0" width="176.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="767" y="95" width="6" height="22" fill="#fff3bf"/>
+<text x="858.0" y="112.7" font-size="19" fill="#2b2a26" text-anchor="middle"></text>
+<text x="858.0" y="98.0" font-size="26" font-weight="bold" fill="#e03131" text-anchor="middle">E<tspan font-size="18" dy="6">k</tspan><tspan dy="-6"> = 0 J</tspan></text>
+<text x="858.0" y="132.0" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">E<tspan font-size="18" dy="6">p</tspan><tspan dy="-6"> = 10 J</tspan></text>
+<rect x="230.0" y="452.0" width="500.0" height="76.0" rx="10" fill="#b2f2bb" stroke="#2f9e44" stroke-width="3"/>
+<text x="480.0" y="484.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Velikost celkové mechanické energie</text>
+<text x="480.0" y="514.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">kuličky se nemění: E = 10 J</text>
+</svg>
