@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 640" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři pohyby automobilu po 5 sekundách: zrychlující, rovnoměrný a zpomalující">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="634" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="44.0" font-size="24" font-weight="bold" fill="#2b2a26" text-anchor="middle">Nerovnoměrný (a, c) a rovnoměrný (b) pohyb automobilu</text>
+<text x="20.0" y="90.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">a)</text>
+<text x="880.0" y="80.0" font-size="20" font-weight="bold" fill="#e8590c" text-anchor="end">zrychluje: dráhy za 5 s rostou</text>
+<line x1="50.0" y1="130.0" x2="870.0" y2="130.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(94.0,129.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="100.0" y1="118.0" x2="100.0" y2="190.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(182.0,129.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="188.0" y1="118.0" x2="188.0" y2="190.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(358.0,129.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="364.0" y1="118.0" x2="364.0" y2="190.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(578.0,129.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="584.0" y1="118.0" x2="584.0" y2="190.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="103.0" y1="164.0" x2="185.0" y2="164.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="185.0" y1="164.0" x2="103.0" y2="164.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="144.0" y="156.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">40 m</text>
+<text x="144.0" y="188.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<line x1="191.0" y1="164.0" x2="361.0" y2="164.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="361.0" y1="164.0" x2="191.0" y2="164.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="276.0" y="156.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">80 m</text>
+<text x="276.0" y="188.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<line x1="367.0" y1="164.0" x2="581.0" y2="164.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="581.0" y1="164.0" x2="367.0" y2="164.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="474.0" y="156.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">100 m</text>
+<text x="474.0" y="188.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<text x="20.0" y="260.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">b)</text>
+<text x="880.0" y="250.0" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="end">rovnoměrný: dráhy za 5 s stejné</text>
+<line x1="50.0" y1="300.0" x2="870.0" y2="300.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(94.0,299.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="100.0" y1="288.0" x2="100.0" y2="360.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(314.0,299.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="320.0" y1="288.0" x2="320.0" y2="360.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(534.0,299.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="540.0" y1="288.0" x2="540.0" y2="360.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(754.0,299.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="760.0" y1="288.0" x2="760.0" y2="360.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="103.0" y1="334.0" x2="317.0" y2="334.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="317.0" y1="334.0" x2="103.0" y2="334.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="210.0" y="326.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">100 m</text>
+<text x="210.0" y="358.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<line x1="323.0" y1="334.0" x2="537.0" y2="334.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="537.0" y1="334.0" x2="323.0" y2="334.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="430.0" y="326.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">100 m</text>
+<text x="430.0" y="358.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<line x1="543.0" y1="334.0" x2="757.0" y2="334.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="757.0" y1="334.0" x2="543.0" y2="334.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="650.0" y="326.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">100 m</text>
+<text x="650.0" y="358.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<text x="20.0" y="430.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">c)</text>
+<text x="880.0" y="420.0" font-size="20" font-weight="bold" fill="#e8590c" text-anchor="end">zpomaluje: dráhy za 5 s klesají</text>
+<line x1="50.0" y1="470.0" x2="870.0" y2="470.0" stroke="#495057" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(94.0,469.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="100.0" y1="458.0" x2="100.0" y2="530.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(314.0,469.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="320.0" y1="458.0" x2="320.0" y2="530.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(490.0,469.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="496.0" y1="458.0" x2="496.0" y2="530.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<g transform="translate(578.0,469.0) scale(0.75,0.75)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#e8590c" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="584.0" y1="458.0" x2="584.0" y2="530.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="103.0" y1="504.0" x2="317.0" y2="504.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="317.0" y1="504.0" x2="103.0" y2="504.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="210.0" y="496.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">100 m</text>
+<text x="210.0" y="528.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<line x1="323.0" y1="504.0" x2="493.0" y2="504.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="493.0" y1="504.0" x2="323.0" y2="504.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="408.0" y="496.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">80 m</text>
+<text x="408.0" y="528.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<line x1="499.0" y1="504.0" x2="581.0" y2="504.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<line x1="581.0" y1="504.0" x2="499.0" y2="504.0" stroke="#1971c2" stroke-width="2.5" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="540.0" y="496.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">40 m</text>
+<text x="540.0" y="528.0" font-size="20" fill="#1971c2" text-anchor="middle">5 s</text>
+<rect x="120.0" y="555.0" width="660.0" height="60.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="450.0" y="592.4" font-size="21" fill="#2b2a26" text-anchor="middle">Za stejné doby stejné dráhy = rovnoměrný pohyb.</text>
+</svg>

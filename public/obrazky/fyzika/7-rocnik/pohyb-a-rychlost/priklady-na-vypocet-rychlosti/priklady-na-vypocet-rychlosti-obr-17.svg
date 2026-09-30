@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 590" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Schéma trasy ze startu do cíle: modrá trasa 15 km za 15 minut, objížďka 18 km za 24 minut">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="584" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Vymyšlená trasa: z Louky do Skály</text>
+<rect x="30" y="70" width="560" height="470" rx="14" fill="#e9f5db" stroke="#2b2a26" stroke-width="2"/>
+<path d="M400,120 Q470,110 520,160 Q560,230 500,270 Q440,300 400,240 Q360,180 400,120 z" fill="#a5d8ff" stroke="#74c0fc" stroke-width="2"/>
+<text x="455.0" y="210.0" font-size="20" fill="#1971c2" text-anchor="middle">rybník</text>
+<circle cx="100" cy="150" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="140" cy="140" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="120" cy="180" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="350" cy="300" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="382" cy="322" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="352" cy="344" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="520" cy="430" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<circle cx="490" cy="460" r="20" fill="#8ce99a" stroke="#40c057" stroke-width="2"/>
+<path d="M120,100 C200,150 260,230 250,300 C240,360 300,420 470,480" fill="none" stroke="#ced4da" stroke-width="12" stroke-linecap="round"/>
+<path d="M120,100 C200,150 260,230 250,300 C240,360 300,420 470,480" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+<path d="M120,100 C60,200 120,260 120,340 C120,450 300,500 470,480" fill="none" stroke="#adb5bd" stroke-width="7" stroke-linecap="round" stroke-dasharray="14 10"/>
+<path d="M120,100 C200,150 260,230 250,300 C240,360 300,420 470,480" fill="none" stroke="#1971c2" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 0" opacity="0"/>
+<path d="M120,100 C200,150 260,230 250,300 C240,360 300,420 470,480" fill="none" stroke="#1971c2" stroke-width="7" stroke-linecap="round" transform="translate(0,0)"/>
+<circle cx="120" cy="100" r="15" fill="#e03131" stroke="#2b2a26" stroke-width="3"/>
+<rect x="147" y="84" width="50" height="34" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+<text x="172.0" y="109.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="middle">CÍL</text>
+<circle cx="470" cy="480" r="15" fill="#2f9e44" stroke="#2b2a26" stroke-width="3"/>
+<rect x="384" y="464" width="72" height="34" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2"/>
+<text x="420.0" y="489.0" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="middle">START</text>
+<text x="250.0" y="114.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">Skála</text>
+<text x="470.0" y="524.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">Louka</text>
+<rect x="620.0" y="90.0" width="250.0" height="150.0" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="3"/>
+<text x="745.0" y="126.0" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="middle">Modrá trasa</text>
+<text x="745.0" y="160.0" font-size="24" fill="#2b2a26" text-anchor="middle">15 km</text>
+<text x="745.0" y="194.0" font-size="24" fill="#2b2a26" text-anchor="middle">15 min</text>
+<rect x="620.0" y="260.0" width="250.0" height="150.0" rx="12" fill="#ffffff" stroke="#868e96" stroke-width="3"/>
+<text x="745.0" y="296.0" font-size="22" font-weight="bold" fill="#495057" text-anchor="middle">Šedá objížďka</text>
+<text x="745.0" y="330.0" font-size="24" fill="#2b2a26" text-anchor="middle">18 km</text>
+<text x="745.0" y="364.0" font-size="24" fill="#2b2a26" text-anchor="middle">24 min</text>
+<rect x="620.0" y="430.0" width="250.0" height="110.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="745.0" y="467.0" font-size="18" fill="#2b2a26" text-anchor="middle">modrá: 15 km : 15 min</text>
+<text x="745.0" y="491.3" font-size="18" fill="#2b2a26" text-anchor="middle">= 1 km/min = 60 km/h</text>
+<text x="745.0" y="515.6" font-size="18" fill="#2b2a26" text-anchor="middle">šedá: 45 km/h</text>
+<text x="450.0" y="562.0" font-size="18" fill="#495057" text-anchor="middle">Schematická mapa s vymyšlenými místy, čísla jsou zaokrouhlená pro výpočet.</text>
+</svg>

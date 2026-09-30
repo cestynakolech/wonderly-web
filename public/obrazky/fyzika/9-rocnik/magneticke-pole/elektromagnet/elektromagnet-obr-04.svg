@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Relé: proud v cívce s jádrem přitáhne kotvu a ta sepne kontakt silného obvodu se žárovkou">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Relé: slabý proud spíná silný proud</text>
+<path d="M250,150 L250,90 L720,90 L720,130" fill="none" stroke="#e8590c" stroke-width="4"/>
+<path d="M720,200 L720,300" fill="none" stroke="#e8590c" stroke-width="4"/>
+<path d="M720,340 L720,440 L553,440 L553,303" fill="none" stroke="#e8590c" stroke-width="4"/>
+<circle cx="720" cy="165" r="34" fill="#fff3bf" stroke="#2b2a26" stroke-width="3"/><path d="M696,141 L744,189 M744,141 L696,189" fill="none" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="765.0" y="170.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">žárovka</text>
+<rect x="696" y="300" width="48" height="8" fill="#2b2a26"/><rect x="706" y="332" width="28" height="8" fill="#2b2a26"/>
+<text x="765.0" y="335.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">silný zdroj</text>
+<rect x="380" y="222" width="40" height="153" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<rect x="362" y="240" width="76" height="110" rx="8" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<line x1="366.0" y1="243" x2="372.0" y2="347" stroke="#a85a12" stroke-width="3"/>
+<line x1="378.5" y1="243" x2="384.5" y2="347" stroke="#a85a12" stroke-width="3"/>
+<line x1="391.0" y1="243" x2="397.0" y2="347" stroke="#a85a12" stroke-width="3"/>
+<line x1="403.5" y1="243" x2="409.5" y2="347" stroke="#a85a12" stroke-width="3"/>
+<line x1="416.0" y1="243" x2="422.0" y2="347" stroke="#a85a12" stroke-width="3"/>
+<line x1="428.5" y1="243" x2="434.5" y2="347" stroke="#a85a12" stroke-width="3"/>
+<line x1="250" y1="150" x2="590" y2="150" stroke="#adb5bd" stroke-width="10" stroke-dasharray="14 8" stroke-linecap="round"/>
+<g transform="rotate(23.4 250 150)"><rect x="250" y="143" width="330" height="14" rx="4" fill="#495057" stroke="#2b2a26" stroke-width="3"/><rect x="380" y="132" width="90" height="12" fill="#ced4da" stroke="#2b2a26" stroke-width="2"/></g>
+<circle cx="250.0" cy="150.0" r="9" fill="#fff" stroke="#2b2a26" stroke-width="3"/>
+<rect x="536" y="289" width="34" height="14" rx="2" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<path d="M362,320 L150,320 L150,350" fill="none" stroke="#1971c2" stroke-width="4"/>
+<path d="M150,410 L150,470 L280,470" fill="none" stroke="#1971c2" stroke-width="4"/>
+<path d="M340,470 L438,470 L438,350" fill="none" stroke="#1971c2" stroke-width="4"/>
+<circle cx="150" cy="350" r="6" fill="#1971c2"/><circle cx="150" cy="410" r="6" fill="#1971c2"/><line x1="150" y1="410" x2="150" y2="350" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<rect x="280" y="450" width="10" height="40" fill="#2b2a26"/><rect x="304" y="460" width="10" height="20" fill="#2b2a26"/>
+<line x1="280" y1="470" x2="280" y2="470" stroke="#1971c2"/><line x1="314" y1="470" x2="340" y2="470" stroke="#1971c2" stroke-width="4"/>
+<text x="297.0" y="520.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">slabý zdroj</text>
+<text x="84.0" y="386.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">S</text>
+<text x="84.0" y="412.0" font-size="18" fill="#495057" text-anchor="middle">sepnutý</text>
+<text x="300.0" y="210.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="middle">kotva</text>
+<text x="336.0" y="276.0" font-size="21" font-weight="bold" fill="#2b2a26" text-anchor="end">jádro s cívkou</text>
+<line x1="342.0" y1="272.0" x2="364.0" y2="284.0" stroke="#495057" stroke-width="2.5" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="600.0" y="332.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">pevný</text>
+<text x="600.0" y="356.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">kontakt</text>
+<line x1="604.0" y1="318.0" x2="576.0" y2="304.0" stroke="#495057" stroke-width="2.5" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="275.0" y="126.0" font-size="18" fill="#495057" text-anchor="start">klidová poloha (čárkovaně)</text>
+<rect x="30.0" y="90.0" width="190.0" height="100.0" rx="12" fill="#d0ebff" stroke="#1971c2" stroke-width="2"/>
+<text x="125.0" y="121.0" font-size="19" fill="#2b2a26" text-anchor="middle">ŘÍDICÍ OBVOD</text>
+<text x="125.0" y="146.7" font-size="19" fill="#2b2a26" text-anchor="middle">slabý proud</text>
+<text x="125.0" y="172.3" font-size="19" fill="#2b2a26" text-anchor="middle">(modře)</text>
+<rect x="450.0" y="480.0" width="420.0" height="100.0" rx="12" fill="#ffe8cc" stroke="#e8590c" stroke-width="2"/>
+<text x="660.0" y="523.8" font-size="19" fill="#2b2a26" text-anchor="middle">VÝKONOVÝ OBVOD</text>
+<text x="660.0" y="549.5" font-size="19" fill="#2b2a26" text-anchor="middle">silný proud (oranžově), kotva ho spíná</text>
+</svg>

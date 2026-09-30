@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Jistič: při normálním proudu je kontakt sepnutý, při přetížení elektromagnet přitáhne kotvu a obvod se přeruší">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="44.0" font-size="25" font-weight="bold" fill="#2b2a26" text-anchor="middle">Jistič: elektromagnet přeruší obvod při přetížení</text>
+<rect x="15.0" y="80.0" width="425.0" height="385.0" rx="12" fill="#ebfbee" stroke="#2f9e44" stroke-width="3"/>
+<text x="227.0" y="116.0" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="middle">NORMÁLNÍ PROUD: zapnuto</text>
+<rect x="252" y="176" width="46" height="26" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<rect x="240" y="200" width="70" height="46" rx="6" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<line x1="248.0" y1="203" x2="254.0" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="258.5" y1="203" x2="264.5" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="269.0" y1="203" x2="275.0" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="279.5" y1="203" x2="285.5" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="290.0" y1="203" x2="296.0" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="300.5" y1="203" x2="306.5" y2="243" stroke="#a85a12" stroke-width="3"/>
+<rect x="256" y="246" width="38" height="10" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<text x="306.0" y="166.0" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektromagnet</text>
+<g transform="rotate(0 70 300)"><rect x="70" y="293" width="220" height="14" rx="4" fill="#495057" stroke="#2b2a26" stroke-width="3"/><rect x="248" y="275" width="54" height="18" rx="3" fill="#ced4da" stroke="#2b2a26" stroke-width="3"/><rect x="175" y="305" width="24" height="8" rx="2" fill="#d9822b" stroke="#2b2a26" stroke-width="2"/></g>
+<circle cx="70.0" cy="300.0" r="9" fill="#fff" stroke="#2b2a26" stroke-width="3"/>
+<rect x="171" y="313" width="32" height="18" rx="2" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<path d="M240.0,307.0 L240.0,315.0 L248.0,324.2 L232.0,333.3 L248.0,342.5 L232.0,351.7 L248.0,360.8 L232.0,370.0 L240.0,370.0 L240.0,378.0" fill="none" stroke="#868e96" stroke-width="3" stroke-linejoin="round"/>
+<rect x="225" y="378" width="30" height="10" fill="#868e96"/>
+<text x="270.0" y="360.0" font-size="18" fill="#495057" text-anchor="start">pružina</text>
+<path d="M33,300 L61,300" stroke="#c92a2a" stroke-width="4" fill="none"/>
+<path d="M187,331 L187,410 L410,410 L410,223 L310,223" stroke="#c92a2a" stroke-width="4" fill="none"/>
+<path d="M240,223 L220,223 L220,150" stroke="#c92a2a" stroke-width="4" fill="none"/>
+<path d="M220.0,130.0 L225.3,153.1 L214.7,153.1 z" fill="#c92a2a"/>
+<text x="208.0" y="190.0" font-size="18" font-weight="bold" fill="#495057" text-anchor="end">proud ven</text>
+<text x="33.0" y="334.0" font-size="18" font-weight="bold" fill="#495057" text-anchor="start">proud dovnitř</text>
+<path d="M70,291 L72,238" stroke="#2f9e44" stroke-width="12" stroke-linecap="round"/>
+<text x="72.0" y="226.0" font-size="20" font-weight="bold" fill="#2f9e44" text-anchor="middle">ZAP</text>
+<rect x="80" y="341" width="90" height="33" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2"/>
+<text x="125.0" y="365.0" font-size="19" font-weight="bold" fill="#2f9e44" text-anchor="middle">sepnuto</text>
+<rect x="455.0" y="80.0" width="425.0" height="385.0" rx="12" fill="#ffe3e3" stroke="#e03131" stroke-width="3"/>
+<text x="667.0" y="116.0" font-size="22" font-weight="bold" fill="#e03131" text-anchor="middle">PŘETÍŽENÍ: jistič vypnul</text>
+<rect x="692" y="176" width="46" height="26" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<rect x="680" y="200" width="70" height="46" rx="6" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<line x1="688.0" y1="203" x2="694.0" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="698.5" y1="203" x2="704.5" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="709.0" y1="203" x2="715.0" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="719.5" y1="203" x2="725.5" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="730.0" y1="203" x2="736.0" y2="243" stroke="#a85a12" stroke-width="3"/>
+<line x1="740.5" y1="203" x2="746.5" y2="243" stroke="#a85a12" stroke-width="3"/>
+<rect x="696" y="246" width="38" height="10" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<text x="746.0" y="166.0" font-size="19" font-weight="bold" fill="#2b2a26" text-anchor="middle">elektromagnet</text>
+<g transform="rotate(-8.5 510 300)"><rect x="510" y="293" width="220" height="14" rx="4" fill="#495057" stroke="#2b2a26" stroke-width="3"/><rect x="688" y="275" width="54" height="18" rx="3" fill="#ced4da" stroke="#2b2a26" stroke-width="3"/><rect x="615" y="305" width="24" height="8" rx="2" fill="#d9822b" stroke="#2b2a26" stroke-width="2"/></g>
+<circle cx="510.0" cy="300.0" r="9" fill="#fff" stroke="#2b2a26" stroke-width="3"/>
+<rect x="611" y="313" width="32" height="18" rx="2" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<path d="M680.0,281.6 L680.0,289.6 L688.0,303.0 L672.0,316.4 L688.0,329.8 L672.0,343.2 L688.0,356.6 L672.0,370.0 L680.0,370.0 L680.0,378.0" fill="none" stroke="#868e96" stroke-width="3" stroke-linejoin="round"/>
+<rect x="665" y="378" width="30" height="10" fill="#868e96"/>
+<text x="710.0" y="360.0" font-size="18" fill="#495057" text-anchor="start">pružina</text>
+<path d="M473,300 L501,300" stroke="#c92a2a" stroke-width="4" fill="none"/>
+<path d="M627,331 L627,410 L850,410 L850,223 L750,223" stroke="#c92a2a" stroke-width="4" fill="none"/>
+<path d="M680,223 L660,223 L660,150" stroke="#c92a2a" stroke-width="4" fill="none"/>
+<path d="M660.0,130.0 L665.3,153.1 L654.7,153.1 z" fill="#c92a2a"/>
+<text x="648.0" y="190.0" font-size="18" font-weight="bold" fill="#495057" text-anchor="end">proud ven</text>
+<text x="473.0" y="334.0" font-size="18" font-weight="bold" fill="#495057" text-anchor="start">proud dovnitř</text>
+<path d="M510,291 L480,244" stroke="#e03131" stroke-width="12" stroke-linecap="round"/>
+<text x="502.0" y="228.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="middle">VYP</text>
+<rect x="509" y="341" width="112" height="33" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+<text x="565.0" y="365.0" font-size="19" font-weight="bold" fill="#e03131" text-anchor="middle">rozpojeno</text>
+<rect x="25.0" y="485.0" width="405.0" height="92.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="227.5" y="524.5" font-size="20" fill="#2b2a26" text-anchor="middle">Slabé magnetické pole cívky</text>
+<text x="227.5" y="551.5" font-size="20" fill="#2b2a26" text-anchor="middle">kotvu nepřitáhne, kontakt drží.</text>
+<rect x="465.0" y="485.0" width="405.0" height="112.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="667.5" y="522.0" font-size="19" fill="#2b2a26" text-anchor="middle">Velký proud = silné pole. Cívka přitáhne</text>
+<text x="667.5" y="547.6" font-size="19" fill="#2b2a26" text-anchor="middle">kotvu, kontakt se rozpojí. Západka kotvu</text>
+<text x="667.5" y="573.3" font-size="19" fill="#2b2a26" text-anchor="middle">drží, dokud páčku ručně nezapneme.</text>
+</svg>

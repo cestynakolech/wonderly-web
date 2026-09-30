@@ -15,6 +15,8 @@ export type Laborka = {
 	pozor?: string;
 	/** zajímavost na závěr */
 	tip?: string;
+	/** soubory ke stažení (např. PDF s podklady k vytištění) */
+	ke_stazeni?: { nazev: string; href: string }[];
 };
 
 export const laborky: Record<string, Laborka> = {
@@ -468,5 +470,31 @@ export const laborky: Record<string, Laborka> = {
 		],
 		pozor: 'Běhej jen po suchých schodech, drž se dál od hrany a nikoho nepředbíhej.',
 		tip: 'Jeden kůň dá trvale asi 750 W — proto se výkonu motorů dodnes říká „koně".',
+	},
+	'fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti': {
+		nazev: 'Průměrná rychlost Ozobota',
+		cil: 'Změřit délku dráhy a čas jízdy robota Ozobota, vypočítat jeho průměrnou rychlost a porovnat sedm drah.',
+		pomucky: ['robot Ozobot (kalibrovaný na černé ploše)', 'arch s natištěnou dráhou (7 drah, každá zvlášť)', 'stopky (mobil)', 'provázek nebo měřicí kolečko a pásmo', 'kalkulačka'],
+		postup: [
+			'Všech sedm drah je přibližně 289 cm dlouhých. Liší se jen tím, kde robot jede rychle (modré kódy) a kde pomalu (červené kódy). Délku dráhy 1 změř provázkem a pásmem a zapiš ji do tabulky v cm.',
+			'Postav Ozobota na START dráhy 1. Kamarád spustí stopky ve chvíli, kdy se robot rozjede, a zastaví je v cíli. Čas zapiš na celé sekundy do sloupců t₁, t₂, t₃ (tři jízdy).',
+			'Každou dráhu jeď 3× a z časů spočítej průměr do sloupce t (součet tří časů děl třemi, zaokrouhli na desetiny sekundy).',
+			'Rychlost spočítej: v = s : t (cm/s). Vyjde-li desetinné číslo, zaokrouhli na desetiny cm/s (například 2,3 cm/s), jinak by dráhy vyšly stejně a nešly by seřadit.',
+			'Stejně postupuj na drahách 2 až 7 a v posledním sloupci seřaď dráhy podle rychlosti (1 = nejrychlejší).',
+		],
+		tabulka: {
+			sloupce: ['dráha', 's (cm)', 't₁', 't₂', 't₃', 't (s)', 'v (cm/s)', 'poř.'],
+			radky: 7,
+		},
+		otazky: [
+			'Na které dráze byla průměrná rychlost největší? Proč?',
+			'Najdi dvě dráhy, které mají stejný počet rychlých úseků. Vyšla ti u nich stejná průměrná rychlost? Zkus vysvětlit proč.',
+			'Záleží na tom, v jakém pořadí jsou rychlé a pomalé úseky za sebou?',
+			'Robot jel polovinu dráhy rychlostí 6 cm/s a druhou polovinu rychlostí 3 cm/s. Je průměrná rychlost (6 + 3) : 2 = 4,5 cm/s? Zkus dráhu 60 cm + 60 cm: spočítej čas první poloviny, čas druhé poloviny, oba časy sečti a celou dráhu vyděl celkovým časem.',
+			'Z drah 1 (celá pomalu) a 5 (celá rychle) urči rychlost robota pomalu a rychle. Předpověz čas jízdy na dráze 3 a pak ho změř. Jak moc se předpověď liší od měření?',
+		],
+		pozor: 'Ozobota před měřením zkalibruj na černé ploše a dráhu měř provázkem nebo kolečkem, ne pravítkem po kouscích. První barevný kód je až kousek za startem, proto tam robot jede chvíli výchozí rychlostí — drobné odchylky jsou v pořádku. Délka 289 cm je přibližná, tvoje změřená hodnota může být o pár cm jiná.',
+		tip: 'Nápověda k otázce 4: spočítej, jak dlouho robot jede každou polovinu dráhy, a pamatuj, že průměrnou rychlost vždy počítáme z celé dráhy a celého času. Na pomalém úseku robot stráví víc času, proto pomalá rychlost „váží“ víc.',
+	ke_stazeni: [{ nazev: 'Dráhy pro Ozobota (PDF k vytištění)', href: '/materialy/fyzika/7-rocnik/pohyb-a-rychlost/priklady-na-vypocet-rychlosti/ozobot-drahy.pdf' }],
 	},
 };

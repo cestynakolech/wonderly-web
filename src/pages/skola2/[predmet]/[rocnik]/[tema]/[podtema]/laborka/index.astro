@@ -58,6 +58,17 @@ const zamknuto = predmet.slug !== 'fyzika';
 					<li>{p}</li>
 				))}
 			</ul>
+			{laborka.ke_stazeni && laborka.ke_stazeni.length > 0 && (
+				<p class="laborka-stazeni">
+					📄 Ke stažení:{' '}
+					{laborka.ke_stazeni.map((f, i) => (
+						<>
+							{i > 0 && ', '}
+							<a href={f.href} target="_blank" rel="noopener">{f.nazev}</a>
+						</>
+					))}
+				</p>
+			)}
 		</section>
 
 		<section class="ramecek">
@@ -72,6 +83,7 @@ const zamknuto = predmet.slug !== 'fyzika';
 
 		<section class="ramecek">
 			<h2>📏 Tabulka měření</h2>
+			<div class="laborka-tabulka-obal">
 			<table class="laborka-tabulka">
 				<thead>
 					<tr>
@@ -90,6 +102,7 @@ const zamknuto = predmet.slug !== 'fyzika';
 					))}
 				</tbody>
 			</table>
+			</div>
 		</section>
 
 		<section class="ramecek">
@@ -136,6 +149,17 @@ const zamknuto = predmet.slug !== 'fyzika';
 	.tisk-tlacitko {
 		display: block;
 		margin: 0.6rem auto 0;
+	}
+	.laborka-tabulka-obal {
+		overflow-x: auto;
+	}
+	@media (max-width: 600px) {
+		.laborka .laborka-tabulka th,
+		.laborka .laborka-tabulka td {
+			padding: 0.3rem 0.1rem;
+			font-size: 0.78rem;
+			border-width: 1.5px;
+		}
 	}
 	.laborka-tabulka {
 		width: 100%;

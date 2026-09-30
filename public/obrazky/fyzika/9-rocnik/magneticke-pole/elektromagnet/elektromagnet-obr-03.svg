@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 710" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Elektrický zvonek: tlačítko, zdroj, elektromagnet, kotva s kladívkem, zvonek a přerušovač">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="704" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Elektrický zvonek</text>
+<path d="M700,345 L700,90 L660,90" fill="none" stroke="#c92a2a" stroke-width="4"/>
+<path d="M600,90 L250,90 L250,200 L340,200" fill="none" stroke="#c92a2a" stroke-width="4"/>
+<path d="M480,200 L580,200 L580,284 L530,284" fill="none" stroke="#c92a2a" stroke-width="4"/>
+<path d="M480,384 L480,470 L700,470 L700,374" fill="none" stroke="#c92a2a" stroke-width="4"/>
+<rect x="600" y="80" width="60" height="20" rx="4" fill="#2b2a26"/><rect x="618" y="66" width="24" height="14" rx="3" fill="#e8590c" stroke="#2b2a26" stroke-width="2"/>
+<rect x="676" y="345" width="48" height="8" fill="#2b2a26"/><rect x="686" y="366" width="28" height="8" fill="#2b2a26"/>
+<text x="740.0" y="366.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">U</text>
+<rect x="340" y="140" width="140" height="26" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<rect x="340" y="166" width="30" height="80" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<rect x="332" y="176" width="46" height="52" rx="6" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<line x1="334.0" y1="178" x2="338.0" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="343.5" y1="178" x2="347.5" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="353.0" y1="178" x2="357.0" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="362.5" y1="178" x2="366.5" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="372.0" y1="178" x2="376.0" y2="226" stroke="#a85a12" stroke-width="3"/>
+<rect x="450" y="166" width="30" height="80" fill="#868e96" stroke="#2b2a26" stroke-width="3"/>
+<rect x="442" y="176" width="46" height="52" rx="6" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/>
+<line x1="444.0" y1="178" x2="448.0" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="453.5" y1="178" x2="457.5" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="463.0" y1="178" x2="467.0" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="472.5" y1="178" x2="476.5" y2="226" stroke="#a85a12" stroke-width="3"/>
+<line x1="482.0" y1="178" x2="486.0" y2="226" stroke="#a85a12" stroke-width="3"/>
+<rect x="170" y="278" width="360" height="12" rx="4" fill="#495057" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="152" cy="284" r="17" fill="#ced4da" stroke="#2b2a26" stroke-width="3"/>
+<rect x="330" y="268" width="150" height="10" fill="#ced4da" stroke="#2b2a26" stroke-width="2"/>
+<circle cx="530.0" cy="284.0" r="9" fill="#fff" stroke="#2b2a26" stroke-width="3"/>
+<path d="M70,238 A62,62 0 0 1 194,238 z" fill="#ffd43b" stroke="#2b2a26" stroke-width="3"/>
+<circle cx="132" cy="176" r="7" fill="#2b2a26"/><rect x="128" y="238" width="8" height="8" fill="#2b2a26"/>
+<rect x="470" y="296" width="24" height="14" fill="#d9822b" stroke="#2b2a26" stroke-width="3"/><rect x="474" y="310" width="16" height="70" fill="#adb5bd" stroke="#2b2a26" stroke-width="3"/><rect x="462" y="380" width="40" height="12" rx="3" fill="#e8590c" stroke="#2b2a26" stroke-width="3"/>
+<text x="132.0" y="130.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">B  zvonek</text>
+<line x1="132.0" y1="138.0" x2="132.0" y2="165.0" stroke="#495057" stroke-width="2.5" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="410.0" y="110.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">E  elektromagnet</text>
+<text x="330.0" y="340.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">A  kotva s kladívkem</text>
+<line x1="330.0" y1="316.0" x2="330.0" y2="292.0" stroke="#495057" stroke-width="2.5" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="508.0" y="424.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">T  přerušovač</text>
+<line x1="516.0" y1="405.0" x2="496.0" y2="388.0" stroke="#495057" stroke-width="2.5" marker-end="url(#a-sed)" stroke-linecap="round"/>
+<text x="630.0" y="56.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">K  tlačítko</text>
+<text x="740.0" y="398.0" font-size="20" fill="#495057" text-anchor="start">zdroj</text>
+<rect x="30.0" y="500.0" width="840.0" height="180.0" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="2.5"/>
+<text x="50.0" y="534.0" font-size="21" fill="#2b2a26" text-anchor="start">1  Stiskneme K: proud jde přes přerušovač T, kotvu A a cívku E.</text>
+<text x="50.0" y="570.0" font-size="21" fill="#2b2a26" text-anchor="start">2  Elektromagnet E přitáhne kotvu, kladívko udeří na zvonek B.</text>
+<text x="50.0" y="606.0" font-size="21" fill="#2b2a26" text-anchor="start">3  Kotva se odtrhne od T, obvod se přeruší, magnet zeslábne.</text>
+<text x="50.0" y="642.0" font-size="21" fill="#2b2a26" text-anchor="start">4  Kotva se vrátí, T sepne a všechno se opakuje, dokud držíme K.</text>
+</svg>

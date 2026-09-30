@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 460" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Osobní auto ujede za 1 sekundu 20 metrů, za 3 sekundy 60 metrů">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="454" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="44.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Osobní auto: 20 m/s</text>
+<rect x="20" y="130" width="860" height="106" rx="10" fill="#e9f5db"/>
+<line x1="40.0" y1="200.0" x2="860.0" y2="200.0" stroke="#2b2a26" stroke-width="6" stroke-linecap="round"/>
+<g transform="translate(85.0,196.0) scale(0.95,0.95)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#868e96" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<g transform="translate(820.0,196.0) scale(0.95,0.95)"><path d="M-40,-14 L-40,-26 Q-38,-30 -28,-31 L-18,-31 L-10,-44 Q-8,-46 -4,-46 L16,-46 Q20,-46 22,-43 L30,-31 L38,-29 Q42,-28 42,-22 L42,-14 z" fill="#868e96" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/><path d="M-6,-42 L-13,-31 L8,-31 L8,-42 z M13,-42 L13,-31 L27,-31 L20,-42 z" fill="#d0ebff" stroke="#2b2a26" stroke-width="2"/><circle cx="-22" cy="-13" r="11" fill="#2b2a26"/><circle cx="-22" cy="-13" r="4" fill="#ced4da"/><circle cx="24" cy="-13" r="11" fill="#2b2a26"/><circle cx="24" cy="-13" r="4" fill="#ced4da"/></g>
+<line x1="90.0" y1="186.0" x2="90.0" y2="232.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="90.0" y="262.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">0 m</text>
+<line x1="330.0" y1="186.0" x2="330.0" y2="232.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="330.0" y="262.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">20 m</text>
+<line x1="570.0" y1="186.0" x2="570.0" y2="232.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="570.0" y="262.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">40 m</text>
+<line x1="810.0" y1="186.0" x2="810.0" y2="232.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<text x="810.0" y="262.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">60 m</text>
+<line x1="90.0" y1="216.0" x2="330.0" y2="216.0" stroke="#e03131" stroke-width="7" stroke-linecap="round"/>
+<rect x="168" y="118" width="83" height="34" rx="8" fill="#ffffff" stroke="#e03131" stroke-width="2"/>
+<text x="210.0" y="143.0" font-size="20" font-weight="bold" fill="#e03131" text-anchor="middle">za 1 s</text>
+<line x1="90.0" y1="300.0" x2="810.0" y2="300.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="450.0" y="292.0" font-size="22" font-weight="bold" fill="#1971c2" text-anchor="middle">60 m za 3 s</text>
+<rect x="200.0" y="330.0" width="500.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<text x="450.0" y="373.2" font-size="21" fill="#2b2a26" text-anchor="middle">Za 1 s ujede 20 m.</text>
+<text x="450.0" y="401.5" font-size="21" fill="#2b2a26" text-anchor="middle">Rychlost osobního auta je 20 m/s.</text>
+</svg>

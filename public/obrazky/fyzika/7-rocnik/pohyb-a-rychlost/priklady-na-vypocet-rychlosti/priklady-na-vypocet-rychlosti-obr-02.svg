@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Graf dráhy Tomáše při stálé rychlosti 5 m/s: přímka, za každou minutu 300 metrů">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="50.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Tomáš: stálá rychlost 5 m/s</text>
+<line x1="120.0" y1="510.0" x2="120.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="120.0" y1="510.0" x2="120.0" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="120.0" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">0</text>
+<line x1="179.1" y1="510.0" x2="179.1" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="179.1" y1="510.0" x2="179.1" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="179.1" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">1</text>
+<line x1="238.2" y1="510.0" x2="238.2" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="238.2" y1="510.0" x2="238.2" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="238.2" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">2</text>
+<line x1="297.3" y1="510.0" x2="297.3" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="297.3" y1="510.0" x2="297.3" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="297.3" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">3</text>
+<line x1="356.4" y1="510.0" x2="356.4" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="356.4" y1="510.0" x2="356.4" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="356.4" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">4</text>
+<line x1="415.5" y1="510.0" x2="415.5" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="415.5" y1="510.0" x2="415.5" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="415.5" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">5</text>
+<line x1="474.5" y1="510.0" x2="474.5" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="474.5" y1="510.0" x2="474.5" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="474.5" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">6</text>
+<line x1="533.6" y1="510.0" x2="533.6" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="533.6" y1="510.0" x2="533.6" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="533.6" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">7</text>
+<line x1="592.7" y1="510.0" x2="592.7" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="592.7" y1="510.0" x2="592.7" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="592.7" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">8</text>
+<line x1="651.8" y1="510.0" x2="651.8" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="651.8" y1="510.0" x2="651.8" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="651.8" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">9</text>
+<line x1="710.9" y1="510.0" x2="710.9" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="710.9" y1="510.0" x2="710.9" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="710.9" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">10</text>
+<line x1="770.0" y1="510.0" x2="770.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="770.0" y1="510.0" x2="770.0" y2="517.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="770.0" y="540.0" font-size="18" fill="#2b2a26" text-anchor="middle">11</text>
+<line x1="120.0" y1="510.0" x2="770.0" y2="510.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="510.0" x2="120.0" y2="510.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="516.0" font-size="18" fill="#2b2a26" text-anchor="end">0</text>
+<line x1="120.0" y1="452.9" x2="770.0" y2="452.9" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="452.9" x2="120.0" y2="452.9" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="458.9" font-size="18" fill="#2b2a26" text-anchor="end">500</text>
+<line x1="120.0" y1="395.7" x2="770.0" y2="395.7" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="395.7" x2="120.0" y2="395.7" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="401.7" font-size="18" fill="#2b2a26" text-anchor="end">1 000</text>
+<line x1="120.0" y1="338.6" x2="770.0" y2="338.6" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="338.6" x2="120.0" y2="338.6" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="344.6" font-size="18" fill="#2b2a26" text-anchor="end">1 500</text>
+<line x1="120.0" y1="281.4" x2="770.0" y2="281.4" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="281.4" x2="120.0" y2="281.4" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="287.4" font-size="18" fill="#2b2a26" text-anchor="end">2 000</text>
+<line x1="120.0" y1="224.3" x2="770.0" y2="224.3" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="224.3" x2="120.0" y2="224.3" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="230.3" font-size="18" fill="#2b2a26" text-anchor="end">2 500</text>
+<line x1="120.0" y1="167.1" x2="770.0" y2="167.1" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="167.1" x2="120.0" y2="167.1" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="173.1" font-size="18" fill="#2b2a26" text-anchor="end">3 000</text>
+<line x1="120.0" y1="110.0" x2="770.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="110.0" x2="120.0" y2="110.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="116.0" font-size="18" fill="#2b2a26" text-anchor="end">3 500</text>
+<line x1="120.0" y1="510.0" x2="792.0" y2="510.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="120.0" y1="510.0" x2="120.0" y2="88.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="798.0" y="516.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">t (min)</text>
+<text x="132.0" y="84.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">s (m)</text>
+<polyline points="120.0,510.0 179.1,475.7 238.2,441.4 297.3,407.1 356.4,372.9 415.5,338.6 474.5,304.3 533.6,270.0 592.7,235.7 651.8,201.4 710.9,167.1" fill="none" stroke="#1971c2" stroke-width="5"/>
+<circle cx="120.0" cy="510.0" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="179.1" cy="475.7" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="238.2" cy="441.4" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="297.3" cy="407.1" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="356.4" cy="372.9" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="415.5" cy="338.6" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="474.5" cy="304.3" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="533.6" cy="270.0" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="592.7" cy="235.7" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="651.8" cy="201.4" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<circle cx="710.9" cy="167.1" r="7" fill="#1971c2" stroke="#ffffff" stroke-width="2"/>
+<line x1="356.4" y1="372.9" x2="356.4" y2="510.0" stroke="#e03131" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<line x1="356.4" y1="372.9" x2="120.0" y2="372.9" stroke="#e03131" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+<path d="M339,300 L352,367 L365,300 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="140.0" y="180.0" width="330.0" height="120.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="341" y="297" width="22" height="6" fill="#fff3bf"/>
+<text x="305.0" y="206.5" font-size="20" fill="#2b2a26" text-anchor="middle">Za každou minutu</text>
+<text x="305.0" y="233.5" font-size="20" fill="#2b2a26" text-anchor="middle">urazí 300 m (5 m/s).</text>
+<text x="305.0" y="260.5" font-size="20" fill="#2b2a26" text-anchor="middle">Za 4 min: 1 200 m.</text>
+<text x="305.0" y="287.5" font-size="20" fill="#2b2a26" text-anchor="middle">Dráha roste s časem.</text>
+<text x="120.0" y="590.0" font-size="20" fill="#495057" text-anchor="start">Body leží na jedné přímce: dráha je přímo úměrná času.</text>
+</svg>

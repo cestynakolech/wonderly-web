@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Graf rychlosti auta na dálnici: vodorovná přímka na 130 km/h">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="614" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="450.0" y="50.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Průběh rychlosti auta na dálnici</text>
+<line x1="120.0" y1="490.0" x2="120.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="120.0" y1="490.0" x2="120.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="120.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">0</text>
+<line x1="164.0" y1="490.0" x2="164.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="164.0" y1="490.0" x2="164.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="164.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">1</text>
+<line x1="208.0" y1="490.0" x2="208.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="208.0" y1="490.0" x2="208.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="208.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">2</text>
+<line x1="252.0" y1="490.0" x2="252.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="252.0" y1="490.0" x2="252.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="252.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">3</text>
+<line x1="296.0" y1="490.0" x2="296.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="296.0" y1="490.0" x2="296.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="296.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">4</text>
+<line x1="340.0" y1="490.0" x2="340.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="340.0" y1="490.0" x2="340.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="340.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">5</text>
+<line x1="384.0" y1="490.0" x2="384.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="384.0" y1="490.0" x2="384.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="384.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">6</text>
+<line x1="428.0" y1="490.0" x2="428.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="428.0" y1="490.0" x2="428.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="428.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">7</text>
+<line x1="472.0" y1="490.0" x2="472.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="472.0" y1="490.0" x2="472.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="472.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">8</text>
+<line x1="516.0" y1="490.0" x2="516.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="516.0" y1="490.0" x2="516.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="516.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">9</text>
+<line x1="560.0" y1="490.0" x2="560.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="560.0" y1="490.0" x2="560.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="560.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">10</text>
+<line x1="604.0" y1="490.0" x2="604.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="604.0" y1="490.0" x2="604.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="604.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">11</text>
+<line x1="648.0" y1="490.0" x2="648.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="648.0" y1="490.0" x2="648.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="648.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">12</text>
+<line x1="692.0" y1="490.0" x2="692.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="692.0" y1="490.0" x2="692.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="692.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">13</text>
+<line x1="736.0" y1="490.0" x2="736.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="736.0" y1="490.0" x2="736.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="736.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">14</text>
+<line x1="780.0" y1="490.0" x2="780.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="780.0" y1="490.0" x2="780.0" y2="497.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="780.0" y="520.0" font-size="18" fill="#2b2a26" text-anchor="middle">15</text>
+<line x1="120.0" y1="490.0" x2="780.0" y2="490.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="490.0" x2="120.0" y2="490.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="496.0" font-size="18" fill="#2b2a26" text-anchor="end">0</text>
+<line x1="120.0" y1="435.7" x2="780.0" y2="435.7" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="435.7" x2="120.0" y2="435.7" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="441.7" font-size="18" fill="#2b2a26" text-anchor="end">20</text>
+<line x1="120.0" y1="381.4" x2="780.0" y2="381.4" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="381.4" x2="120.0" y2="381.4" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="387.4" font-size="18" fill="#2b2a26" text-anchor="end">40</text>
+<line x1="120.0" y1="327.1" x2="780.0" y2="327.1" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="327.1" x2="120.0" y2="327.1" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="333.1" font-size="18" fill="#2b2a26" text-anchor="end">60</text>
+<line x1="120.0" y1="272.9" x2="780.0" y2="272.9" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="272.9" x2="120.0" y2="272.9" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="278.9" font-size="18" fill="#2b2a26" text-anchor="end">80</text>
+<line x1="120.0" y1="218.6" x2="780.0" y2="218.6" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="218.6" x2="120.0" y2="218.6" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="224.6" font-size="18" fill="#2b2a26" text-anchor="end">100</text>
+<line x1="120.0" y1="164.3" x2="780.0" y2="164.3" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="164.3" x2="120.0" y2="164.3" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="170.3" font-size="18" fill="#2b2a26" text-anchor="end">120</text>
+<line x1="120.0" y1="110.0" x2="780.0" y2="110.0" stroke="#dee2e6" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="113.0" y1="110.0" x2="120.0" y2="110.0" stroke="#2b2a26" stroke-width="2" stroke-linecap="round"/>
+<text x="108.0" y="116.0" font-size="18" fill="#2b2a26" text-anchor="end">140</text>
+<line x1="120.0" y1="490.0" x2="802.0" y2="490.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<line x1="120.0" y1="490.0" x2="120.0" y2="88.0" stroke="#2b2a26" stroke-width="3" marker-end="url(#a-ink)" stroke-linecap="round"/>
+<text x="808.0" y="496.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">t (min)</text>
+<text x="132.0" y="84.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="start">v (km/h)</text>
+<line x1="120.0" y1="137.1" x2="780.0" y2="137.1" stroke="#1971c2" stroke-width="7" stroke-linecap="round"/>
+<circle cx="120.0" cy="137.1" r="6" fill="#1971c2" stroke="#1971c2" stroke-width="1"/>
+<path d="M407,190 L420,143 L433,190 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="300.0" y="190.0" width="380.0" height="96.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="409" y="187" width="22" height="6" fill="#fff3bf"/>
+<text x="490.0" y="218.0" font-size="20" fill="#2b2a26" text-anchor="middle">Auto jede stále 130 km/h.</text>
+<text x="490.0" y="245.0" font-size="20" fill="#2b2a26" text-anchor="middle">Rychlost se nemění: v = konst.</text>
+<text x="490.0" y="272.0" font-size="20" fill="#2b2a26" text-anchor="middle">Graf je vodorovná přímka.</text>
+<text x="120.0" y="590.0" font-size="20" fill="#495057" text-anchor="start">Za každou minutu jede stejně rychle, proto se čára nezvedá ani neklesá.</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešený příklad: za jak dlouho Tomáš urazí 3 km rychlostí 5 m/s, čas 600 s = 10 min">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="674" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="30.0" y="50.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="start">Příklad</text>
+<text x="30.0" y="92.0" font-size="22" fill="#2b2a26" text-anchor="start">Tomáš se pohybuje stálou rychlostí 5 m/s.</text>
+<text x="30.0" y="122.0" font-size="22" fill="#2b2a26" text-anchor="start">Za jak dlouho urazí 3 km?</text>
+<text x="30.0" y="176.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start" text-decoration="underline">Zápis veličin:</text>
+<text x="30.0" y="210.0" font-size="22" fill="#2b2a26" text-anchor="start">v = 5 m/s</text>
+<text x="30.0" y="242.0" font-size="22" fill="#2b2a26" text-anchor="start">s = 3 km = 3 000 m</text>
+<text x="30.0" y="274.0" font-size="22" fill="#2b2a26" text-anchor="start">t = ?</text>
+<line x1="30.0" y1="286.0" x2="370.0" y2="286.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M470,219 L380,242 L470,245 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="470.0" y="182.0" width="400.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="467" y="221" width="6" height="22" fill="#fff3bf"/>
+<text x="670.0" y="225.5" font-size="20" fill="#2b2a26" text-anchor="middle">Rychlost je v m/s,</text>
+<text x="670.0" y="252.5" font-size="20" fill="#2b2a26" text-anchor="middle">proto dráhu převedeme na metry.</text>
+<text x="30.0" y="338.0" font-size="22" fill="#2b2a26" text-anchor="start">t = s : v</text>
+<text x="30.0" y="370.0" font-size="22" fill="#2b2a26" text-anchor="start">t = 3 000 m : 5 m/s</text>
+<path d="M470,350 L300,362 L470,376 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="470.0" y="330.0" width="400.0" height="66.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="467" y="352" width="6" height="22" fill="#fff3bf"/>
+<text x="670.0" y="356.5" font-size="20" fill="#2b2a26" text-anchor="middle">Rychlost v m/s,</text>
+<text x="670.0" y="383.5" font-size="20" fill="#2b2a26" text-anchor="middle">čas vyjde v sekundách.</text>
+<path d="M470,424 L165,436 L470,450 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="470.0" y="404.0" width="400.0" height="66.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="467" y="426" width="6" height="22" fill="#fff3bf"/>
+<text x="670.0" y="430.5" font-size="20" fill="#2b2a26" text-anchor="middle">Čas můžeme pro lepší přehled</text>
+<text x="670.0" y="457.5" font-size="20" fill="#2b2a26" text-anchor="middle">vyjádřit v minutách: 600 s : 60.</text>
+<text x="30.0" y="410.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">t = 600 s</text>
+<text x="30.0" y="442.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">t = 10 min</text>
+<text x="30.0" y="486.0" font-size="22" fill="#2b2a26" text-anchor="start">Tomáš urazí 3 km za 10 minut.</text>
+<line x1="60.0" y1="590.0" x2="840.0" y2="590.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="60.0" y1="580.0" x2="60.0" y2="600.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="840.0" y1="580.0" x2="840.0" y2="600.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="60.0" y1="556.0" x2="840.0" y2="556.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="450.0" y="544.0" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="middle">dráha 3 km = 3 000 m, rychlost 5 m/s</text>
+<text x="60.0" y="624.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">0 m</text>
+<text x="840.0" y="624.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">3 000 m</text>
+</svg>

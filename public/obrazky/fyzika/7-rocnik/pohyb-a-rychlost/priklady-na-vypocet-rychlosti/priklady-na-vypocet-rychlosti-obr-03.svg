@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 648" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Řešený příklad: Tomáš se pohybuje rychlostí 5 m/s po dobu 6 minut, dráha 1 800 m">
+<defs>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+</defs>
+<rect x="3" y="3" width="894" height="642" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="30.0" y="50.0" font-size="28" font-weight="bold" fill="#e03131" text-anchor="start">Příklad</text>
+<text x="30.0" y="92.0" font-size="22" fill="#2b2a26" text-anchor="start">Tomáš se pohybuje stálou rychlostí 5 m/s.</text>
+<text x="30.0" y="122.0" font-size="22" fill="#2b2a26" text-anchor="start">Jak velkou dráhu urazí za 6 minut?</text>
+<text x="30.0" y="176.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start" text-decoration="underline">Zápis veličin:</text>
+<text x="30.0" y="210.0" font-size="22" fill="#2b2a26" text-anchor="start">v = 5 m/s</text>
+<text x="30.0" y="242.0" font-size="22" fill="#2b2a26" text-anchor="start">t = 6 min = 6 · 60 s = 360 s</text>
+<text x="30.0" y="274.0" font-size="22" fill="#2b2a26" text-anchor="start">s = ?</text>
+<line x1="30.0" y1="286.0" x2="370.0" y2="286.0" stroke="#2b2a26" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M470,219 L380,242 L470,245 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="470.0" y="182.0" width="400.0" height="100.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="467" y="221" width="6" height="22" fill="#fff3bf"/>
+<text x="670.0" y="225.5" font-size="20" fill="#2b2a26" text-anchor="middle">Rychlost je v m/s,</text>
+<text x="670.0" y="252.5" font-size="20" fill="#2b2a26" text-anchor="middle">proto čas převedeme na sekundy.</text>
+<text x="30.0" y="338.0" font-size="22" fill="#2b2a26" text-anchor="start">s = v · t</text>
+<text x="30.0" y="370.0" font-size="22" fill="#2b2a26" text-anchor="start">s = 5 m/s · 360 s</text>
+<path d="M470,377 L300,362 L470,403 z" fill="#fff3bf" stroke="#f08c00" stroke-width="2" stroke-linejoin="round"/>
+<rect x="470.0" y="348.0" width="400.0" height="84.0" rx="12" fill="#fff3bf" stroke="#f08c00" stroke-width="2"/>
+<rect x="467" y="379" width="6" height="22" fill="#fff3bf"/>
+<text x="670.0" y="383.5" font-size="20" fill="#2b2a26" text-anchor="middle">Rychlost v m/s,</text>
+<text x="670.0" y="410.5" font-size="20" fill="#2b2a26" text-anchor="middle">dráha vyjde v metrech.</text>
+<text x="30.0" y="410.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="start">s = 1 800 m</text>
+<text x="30.0" y="454.0" font-size="22" fill="#2b2a26" text-anchor="start">Tomáš urazí za 6 minut 1 800 metrů.</text>
+<line x1="60.0" y1="558.0" x2="840.0" y2="558.0" stroke="#2b2a26" stroke-width="5" stroke-linecap="round"/>
+<line x1="60.0" y1="548.0" x2="60.0" y2="568.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="840.0" y1="548.0" x2="840.0" y2="568.0" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+<line x1="60.0" y1="524.0" x2="840.0" y2="524.0" stroke="#1971c2" stroke-width="3" marker-end="url(#a-mod)" stroke-linecap="round"/>
+<text x="450.0" y="512.0" font-size="20" font-weight="bold" fill="#1971c2" text-anchor="middle">Tomáš se pohybuje 6 min = 360 s rychlostí 5 m/s</text>
+<text x="60.0" y="592.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">0 m</text>
+<text x="840.0" y="592.0" font-size="20" font-weight="bold" fill="#2b2a26" text-anchor="middle">1 800 m</text>
+</svg>
