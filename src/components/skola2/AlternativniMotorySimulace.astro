@@ -55,6 +55,7 @@
 		<text id="am-pocet" x="24" y="380" font-size="13" font-weight="bold" fill="#2b2a26"></text>
 		<g id="am-tabulka"></g>
 	</svg>
+	<p class="am-mobil" id="am-mobil"></p>
 	<p class="am-vzorec" id="am-tok-popis"></p>
 	<p class="am-stav" id="am-stav"></p>
 </section>
@@ -306,6 +307,10 @@
 				+ `<text x="372" y="${y+5}" font-size="11" fill="#495057">${kratkyDuvod(t, prostredi, rychlost)}</text>`;
 		}
 		document.getElementById('am-tabulka').innerHTML = tb;
+		// telefon: scéna je celá, ale drobná → verdikt a tabulka ze scény ještě jednou čitelně pod ní
+		// (každý motor na vlastním řádku i s DŮVODEM z tabulky — ve scéně je ten sloupec na telefonu ~5 px)
+		document.getElementById('am-mobil').textContent = `${s.nazev}: ${bezi ? 'MOTOR JEDE' : 'MOTOR NEJEDE'}\nKyslík se do spalovací komory dostane u ${n} ze 3 motorů:\n`
+			+ PORADI.map((t) => `• ${TYPY[t].kratky}: ${jede(t, prostredi, rychlost) === true ? 'jede' : 'nejede'} — ${kratkyDuvod(t, prostredi, rychlost)}`).join('\n');
 
 		// ── text pod scénou ─────────────────────────────────────────────────
 		document.getElementById('am-tok-popis').innerHTML = bezi
@@ -327,6 +332,15 @@
 	kresli();
 </script>
 
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#am-svg text[fill="#d9480f"] { fill: #c2410c; }
+	#am-svg text[fill="#2f9e44"] { fill: #237a35; }
+	/* šedé popisky chybějících dílů („kompresor“, „turbína“ u náporového, „nehoří“) — 3,3:1;
+	   na telefonu tmavší (desktop beze změny) */
+	@media (max-width: 640px) { #am-svg text[fill="#868e96"] { fill: #5f6870; } }
+</style>
+
 <style>
 	#am-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #ffffff; }
 	.am-rada { margin: 0.4rem 0; }
@@ -338,5 +352,11 @@
 	.am-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 	@media (max-width: 520px) {
 		.am-tl { padding: 0.3rem 0.6rem; font-size: 0.9rem; }
+	}
+	/* telefon (≤ 640 px): celá scéna přes šířku displeje, bez posouvání do stran; verdikt a tabulka čitelně pod ní */
+	.am-mobil { display: none; }
+	@media (max-width: 640px) {
+		#am-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.am-mobil { display: block; white-space: pre-line; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
 	}
 </style>

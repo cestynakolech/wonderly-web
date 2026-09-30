@@ -73,6 +73,7 @@
 			<text id="mr-skupina3-text" x="0" y="114" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff"></text>
 		</g>
 	</svg>
+	<p class="mr-mobil" id="mr-mobil"></p>
 
 	<div class="mr-ovladani">
 		<div class="mr-panel mr-panel-vysilac">
@@ -157,11 +158,12 @@
 		<line id="mr-linka-cidlo" x1="460" y1="60" x2="460" y2="130" stroke="#2b2a26" stroke-width="3" stroke-dasharray="4 4" opacity="0.15" />
 
 		<circle cx="140" cy="70" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
-		<text x="140" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">P0</text>
+		<!-- popisky P0/P1/P2 vpravo od kroužku, ne na něm: svisle pod kroužkem vede drátek (mr-linka-*) a popisek by přeškrtl -->
+		<text x="158" y="94" text-anchor="start" font-size="12" font-weight="bold" fill="#2b2a26">P0</text>
 		<circle cx="300" cy="70" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
-		<text x="300" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">P1</text>
+		<text x="318" y="94" text-anchor="start" font-size="12" font-weight="bold" fill="#2b2a26">P1</text>
 		<circle cx="460" cy="70" r="14" fill="#ffd43b" stroke="#2b2a26" stroke-width="2" />
-		<text x="460" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">P2</text>
+		<text x="478" y="94" text-anchor="start" font-size="12" font-weight="bold" fill="#2b2a26">P2</text>
 		<circle cx="580" cy="70" r="14" fill="#fa5252" stroke="#2b2a26" stroke-width="2" />
 		<text x="580" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">3V</text>
 		<circle cx="660" cy="70" r="14" fill="#495057" stroke="#2b2a26" stroke-width="2" />
@@ -184,6 +186,7 @@
 			<text id="mr-cidlo-hodnota" x="460" y="167" text-anchor="middle" font-size="11" font-weight="bold" fill="#1971c2"></text>
 		</g>
 	</svg>
+	<p class="mr-mobil" id="mr-piny-mobil"></p>
 
 	<p class="mr-radek">
 		<button type="button" class="mr-tl mr-zar-tl mr-aktivni" data-zarizeni="led">💡 LED pásek → P0</button>
@@ -371,6 +374,15 @@
 		obraz3El.textContent = poslednizprava3;
 		obraz2El.setAttribute('fill', vysledek2 === 'ok' ? '#69db7c' : vysledek2 === null ? '#ffd43b' : '#ff8787');
 		obraz3El.setAttribute('fill', vysledek3 === 'ok' ? '#69db7c' : vysledek3 === null ? '#ffd43b' : '#ff8787');
+		// telefon: scéna je celá, ale drobná → co ukazují displeje desek, ještě jednou čitelně pod ní
+		// (obsah displeje je samostatný prvek s data-popisek — i krátký údaj „?“ je tak pokrytý přesně)
+		const displej = (z) => {
+			const el = document.createElement('span');
+			el.textContent = z ? `„${z}“` : '—';
+			if (z) el.dataset.popisek = z;
+			return el;
+		};
+		document.getElementById('mr-mobil').replaceChildren('Displeje: vysílač ', displej(zprava), ` (sk. ${skupina1}) · přijímač 1 `, displej(poslednizprava2), ` (sk. ${skupina2}, ${vzdalenost2} m) · přijímač 2 `, displej(poslednizprava3), ` (sk. ${skupina3}, ${vzdalenost3} m)`);
 		renderSila();
 	}
 
@@ -534,6 +546,7 @@
 				cidloHodnotaEl.textContent = '🙁 sucho — zalévej!';
 				pinyDisplej.textContent = '🙁';
 			}
+			document.getElementById('mr-piny-mobil').textContent = `Čidlo: ${cidloHodnotaEl.textContent}${pinyDisplej.textContent ? ' · displej: ' + pinyDisplej.textContent : ''}`;
 		}
 		if (t >= 1200) {
 			testBezi = false;
@@ -558,6 +571,14 @@
 	renderZapojeni();
 	pinySvg.__stavPinu = () => ({ pripojeno });
 </script>
+
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#mr-svg text[fill="#868e96"] { fill: #5f6870; }
+	#mr-svg rect[fill="#2b8a3e"], #mr-piny-svg rect[fill="#2b8a3e"] { fill: #237a35; } /* bílý text na zelené ≥ 4,5:1 */
+	#mr-skupina2-text, #mr-skupina3-text { fill: #212529; } /* tmavý text na světle modré a růžové ramce přijímačů */
+	#mr-piny-svg text[fill="#1971c2"] { fill: #1864ab; }
+</style>
 
 <style>
 	#mr-svg, #mr-piny-svg {
@@ -624,4 +645,12 @@
 	.mr-stav { font-size: 1.02rem; font-weight: 700; min-height: 2.6rem; white-space: pre-line; color: #2b2a26; }
 	.mr-oddil { border: none; border-top: 3px dashed #ced4da; margin: 1.4rem 0; }
 	.mr-radek { margin: 0.5rem 0; }
+	/* telefon (≤ 640 px): celé scény přes šířku displeje, bez posouvání do stran; displeje desek čitelně pod nimi */
+	.mr-mobil { display: none; }
+	@media (max-width: 640px) {
+		#mr-svg, #mr-piny-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.mr-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+		.mr-mobil:empty { display: none; }
+		.mr-program ol { white-space: pre-wrap; overflow-wrap: anywhere; } /* výpis programu jinak přetékal stránku o 16 px */
+	}
 </style>

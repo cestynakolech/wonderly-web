@@ -67,6 +67,7 @@
 		<text x="572" y="258" text-anchor="middle" font-size="10" fill="#868e96">Flemingovo pravidlo</text>
 		<text x="572" y="271" text-anchor="middle" font-size="10" fill="#868e96">levé ruky</text>
 	</svg>
+	<p class="emo-mobil" id="emo-mobil"></p>
 	<p id="emo-ovladani-sila">
 		<button type="button" class="emo-tl" id="emo-smer">⇄ směr proudu (⊙/⊗)</button>
 		<button type="button" class="emo-tl" id="emo-poly">⇄ prohoď póly N–S</button>
@@ -124,14 +125,30 @@
 		return I;
 	}
 
+	// telefon: scéna je celá, ale drobná → text infopanelu ze scény ještě jednou čitelně pod ní
+	// (značky ⊙, ⊗ a F jsou samostatné prvky s data-popisek — krátké popisky scény se pokrývají přesně)
+	function mobil() {
+		const prepnuti = rezim === 'motor' ? g('emo-prepnuti').textContent : '';
+		const konce = rezim === 'motor' ? ' · konce tyče: ⊙ vlevo, ⊗ vpravo' : '';
+		const text = `${g('emo-info1').textContent} · ${g('emo-info2').textContent}${konce}${prepnuti ? ' · ' + prepnuti : ''}`;
+		g('emo-mobil').replaceChildren(...text.split(/([⊙⊗]|(?<!\p{L})F(?!\p{L}))/u).filter(Boolean).map((kus) => {
+			if (!/^([⊙⊗]|F)$/.test(kus)) return kus;
+			const el = document.createElement('span');
+			el.textContent = kus; el.dataset.popisek = kus;
+			return el;
+		}));
+	}
+
 	function kresliSilu() {
 		const I = kresliSpolecne();
 		const s = stavSily(proudVen, prohozenePoly, kolmy, I);
-		g('emo-vodic-kolmy').setAttribute('visibility', kolmy ? 'visible' : 'hidden');
-		g('emo-vodic-rovno').setAttribute('visibility', kolmy ? 'hidden' : 'visible');
+		// 'inherit', ne 'visible': v SVG by 'visible' na potomkovi přebilo skrytou scénu síly
+		// a šipka F by se kreslila i přes režim motor (nalezeno měřidlem mobil-citelnost, 1. 10. 2026)
+		g('emo-vodic-kolmy').setAttribute('visibility', kolmy ? 'inherit' : 'hidden');
+		g('emo-vodic-rovno').setAttribute('visibility', kolmy ? 'hidden' : 'inherit');
 		g('emo-symbol').textContent = proudVen ? '⊙' : '⊗';
 		const delka = s.F * 18;
-		g('emo-sila-sipka').setAttribute('visibility', s.F > 0 ? 'visible' : 'hidden');
+		g('emo-sila-sipka').setAttribute('visibility', s.F > 0 ? 'inherit' : 'hidden');
 		if (s.F > 0) {
 			const y2 = s.nahoru ? 155 - delka : 205 + delka;
 			nastav('emo-f-cara', { y1: s.nahoru ? 155 : 205, y2 });
@@ -140,6 +157,7 @@
 		}
 		g('emo-info1').textContent = kolmy ? `vodič ⟂ čarám, proud ${proudVen ? '⊙ k nám' : '⊗ od nás'}` : 'vodič ∥ s indukčními čarami';
 		g('emo-info2').textContent = s.F > 0 ? `síla F = ${s.F} dílky ${s.nahoru ? '⬆ nahoru' : '⬇ dolů'}` : 'síla F = 0';
+		mobil();
 		g('emo-vzorec').innerHTML = kolmy
 			? `Síla roste s proudem: F = <strong>${s.F} dílky</strong> při ${I} A. Směr určuje Flemingovo pravidlo levé ruky (čáry do dlaně, prsty po proudu → palec ukáže sílu).`
 			: `Na vodič <strong>rovnoběžný</strong> s indukčními čarami magnetická síla <strong>nepůsobí</strong> (F = 0) — největší je na vodič kolmý.`;
@@ -161,7 +179,7 @@
 		const delka = Math.max(I, 0) * 14;
 		for (const [gid, k, nahoru] of [['emo-f-a', kA, aVlevo], ['emo-f-b', kB, !aVlevo]]) {
 			const el = g(gid), cara = el.children[0], hrot = el.children[1];
-			el.setAttribute('visibility', I > 0 ? 'visible' : 'hidden');
+			el.setAttribute('visibility', I > 0 ? 'inherit' : 'hidden');
 			const y1 = nahoru ? k.y - 20 : k.y + 20, y2 = nahoru ? y1 - delka : y1 + delka;
 			cara.setAttribute('x1', k.x); cara.setAttribute('x2', k.x); cara.setAttribute('y1', y1); cara.setAttribute('y2', y2);
 			hrot.setAttribute('points', nahoru ? `${k.x - 10},${y2} ${k.x + 10},${y2} ${k.x},${y2 - 16}` : `${k.x - 10},${y2} ${k.x + 10},${y2} ${k.x},${y2 + 16}`);
@@ -171,6 +189,7 @@
 		g('emo-prepnuti').textContent = s.prepina && I > 0 ? '⚡ komutátor právě obrací směr proudu!' : '';
 		g('emo-info1').textContent = I === 0 ? 'bez proudu' : `proud ${I} A`;
 		g('emo-info2').textContent = I === 0 ? 'motor stojí' : `dvojice sil otáčí rotorem`;
+		mobil();
 		g('emo-vzorec').innerHTML = `⊙ strana je tlačena <strong>nahoru</strong>, ⊗ strana <strong>dolů</strong> — dvojice sil. Komutátor každou <strong>půlotáčku</strong> obrátí proud, takže se rotor točí pořád stejným směrem. Větší proud = větší síla i rychlost.`;
 		g('emo-stav').textContent = I === 0
 			? '🔌 Motor mění elektrickou energii na pohybovou — bez proudu se netočí. Přidej proud posuvníkem!'
@@ -227,6 +246,13 @@
 	prekresli();
 </script>
 
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#emo-svg text[fill="#868e96"], #emo-svg g[font-size][fill="#868e96"] { fill: #5f6870; }
+	#emo-svg text[fill="#e03131"] { fill: #c92a2a; }
+	#emo-svg text[fill="#e8590c"] { fill: #c2410c; }
+</style>
+
 <style>
 	#emo-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
 	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
@@ -237,4 +263,10 @@
 	#emo-play { background: #d3f9d8; }
 	.emo-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 	.emo-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	/* telefon (≤ 640 px): celá scéna přes šířku displeje, bez posouvání do stran; infopanel čitelně pod ní */
+	.emo-mobil { display: none; }
+	@media (max-width: 640px) {
+		#emo-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.emo-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 </style>

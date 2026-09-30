@@ -215,6 +215,12 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
 - Text jde do syntézy doslova: žádný markdown, žádné číslice, žádné značky jednotek („pět set osmdesát newtonů").
 - **Schémata kreslí KÓD**, obrázkový model jen ilustrace bez měřitelného obsahu.
   Hotové snímky se VŽDY prohlédnou očima.
+- **Doplňky ke každému podtématu (pokyn učitele 30. 9. 2026 — JEDINÝ DOMOV tohoto pravidla, jinde jen odkaz):**
+  1. **Písnička ze Suno** — stávající samoobslužný řetěz (paměť `feedback-pisnicky-samoobsluzne`, `projekt-hudba-suno`).
+  2. **Bonusový video-rozbor z NotebookLM** — JEN doplněk, NIKDY náhrada polemiky; zdroj = výklad podtématu.
+     Licence NotebookLM k publikaci NENÍ ověřena (viz `NOTEBOOKLM-CO-UDELAT.md`) — před nasazením na web ověřit.
+  3. **Vlastní video-polemika s POHYBLIVÝMI animacemi**, ne statickými obrázky (kap. 12 bod 6).
+  Co jde, dělají lokální modely; Codex pracuje přes soubory v `Omega/koordinace/zpravy/`.
 - Zdroj: `~/Desktop/Omega/dokumenty/NAVOD-POLEMIKY-F6.md`, skill `/podkast-video`.
 
 ## 7. SIMULACE
@@ -224,6 +230,8 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   těžší klesá. Když jev vyžaduje neobvyklou orientaci, radši překreslit scénu, ne prohodit prostředí.
 - Výchozí hodnoty i **všechny polohy posuvníků** musí dávat celé výsledky.
 - Stav viditelný v náhledu musí být SVG atribut, ne CSS třída; vizuální prohlídku dělá **nezávislý kontrolor**.
+- **Čitelnost na telefonu (varianta A, učitel 30. 9. 2026; měřidlo `testy/mobil-citelnost.mjs`, okno 375 px):** scéna se SVG s drobnými texty (< 12 px) musí mít pod sebou HTML obraz (prvek s třídou `…-mobil`/`…-legenda` nebo `data-mobil-obraz`; písmo ≥ 14 px, kontrast ≥ 4,5:1, neprázdný). NUTNÝ popisek = `<text id=…>` (dynamický výstup) nebo atribut `data-nutne`; musí být ≥ 12 px, nebo jeho text doslova stát v HTML obrazu. Ostatní drobné doplňkové popisky ve scéně se tolerují (kontrast ≥ 4,5:1 platí pro všechny).
+- Měřidlo je zatím jen hlášení (není v prebuildu), exit ≠ 0 při selhání; kontrola starého stavu: `MOBIL_KOMP=<složka komponent z git archive HEAD> node testy/mobil-citelnost.mjs <názvy>`. Postup předělání: `Omega/predavka/2026-10-01/prace/mobil/davka1-v3.md` (§ Vzor postupu) (vzor pro Codex).
 - Zdroj: `feedback-simulace-realisticke`, agent `worker-simulace`, skill `/simulace`.
 
 ---
@@ -341,6 +349,11 @@ interaktivní ukázka, jen s jiným ovládacím prvkem — a rozhodl je sloučit
 POKRÝVÁ tuto sloučenou složku. U hry pro skupinu učitel zároveň upřesnil, že
 nestačí rozšířit Fyzikální ligu o výběr podtématu — má jít o plnohodnotnou
 samostatnou hru vázanou na dané podtéma.
+
+**Doplňkové složky ke každému podtématu (pokyn učitele 30. 9. 2026; do devíti se NEPOČÍTAJÍ,
+pravidlo a podmínky viz kap. 6 „Doplňky ke každému podtématu"):** písnička ze Suno a bonusový
+video-rozbor z NotebookLM (licence k publikaci neověřena, zdroj = výklad; nikdy náhrada polemiky).
+Video-polemika (bod 6) je vždy s pohyblivými animacemi.
 
 **Pořadí práce:** 1. téma se dodělá KOMPLET (všech 9 složek) u 7., 8. i 9. ročníku
 naráz, teprve pak se stejně KOMPLET dodělá 2. téma u všech tří ročníků, atd. —

@@ -13,10 +13,10 @@
 		<!-- hora na pozadí -->
 		<polygon points="120,330 250,70 380,330" fill="#e9ecef" stroke="#adb5bd" stroke-width="2" />
 		<polygon points="222,126 250,70 278,126 262,116 250,130 238,116" fill="#fff" stroke="#adb5bd" stroke-width="1.5" />
-		<text x="250" y="345" text-anchor="middle" font-size="11" fill="#868e96">Everest 8 849 m</text>
+		<text x="250" y="345" text-anchor="middle" font-size="11" fill="#5f6870">Everest 8 849 m</text>
 		<!-- výšková osa se značkami po 2000 m -->
 		<line x1="55" y1="40" x2="55" y2="330" stroke="#2b2a26" stroke-width="3" />
-		<g font-size="10" fill="#868e96" text-anchor="end">
+		<g font-size="10" fill="#5f6870" text-anchor="end">
 			<text x="50" y="334">0 m</text><text x="50" y="262">2000</text><text x="50" y="189">4000</text>
 			<text x="50" y="117">6000</text><text x="50" y="44">8000 m</text>
 		</g>
@@ -37,16 +37,17 @@
 		<rect x="431" y="35" width="18" height="285" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" />
 		<rect id="baro-rtut" x="434" y="54" width="12" height="266" fill="#c0c5cc" />
 		<text id="baro-mm" x="440" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
-		<text x="440" y="352" text-anchor="middle" font-size="11" fill="#868e96">rtuťový barometr</text>
+		<text x="440" y="352" text-anchor="middle" font-size="11" fill="#5f6870">rtuťový barometr</text>
 		<!-- pravý panel: tlak a % normálu -->
-		<text id="baro-hpa" x="575" y="110" text-anchor="middle" font-size="34" font-weight="bold" fill="#e8590c"></text>
-		<text x="575" y="132" text-anchor="middle" font-size="12" fill="#868e96">atmosférický tlak</text>
+		<text id="baro-hpa" x="575" y="110" text-anchor="middle" font-size="34" font-weight="bold" fill="#c2410c"></text>
+		<text x="575" y="132" text-anchor="middle" font-size="12" fill="#5f6870">atmosférický tlak</text>
 		<text x="575" y="170" text-anchor="middle" font-size="12" fill="#2b2a26">normální tlak u moře: 1013 hPa</text>
 		<rect x="505" y="190" width="140" height="26" fill="#f1f3f5" stroke="#2b2a26" stroke-width="2" rx="6" />
 		<rect id="baro-procenta-bar" x="507" y="192" width="136" height="22" fill="#74c0fc" rx="4" />
 		<text id="baro-procenta" x="575" y="238" text-anchor="middle" font-size="13" font-weight="bold" fill="#1971c2"></text>
 		<text id="baro-vzduch" x="575" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
 	</svg>
+	<p class="baro-mobil" id="baro-mobil"></p>
 	<label class="sim-posuvnik">
 		Výška letu: <output id="baro-out-h"></output>
 		<input type="range" id="baro-slider" min="0" max="8000" step="1000" value="0" />
@@ -99,8 +100,13 @@
 		g('baro-hpa').textContent = `${s.hPa} hPa`;
 		nastav('baro-procenta-bar', { width: Math.max(s.procenta * 1.36, 2) });
 		g('baro-procenta').textContent = `zbývá ${s.procenta} % normálního tlaku`;
-		g('baro-vzduch').textContent = i === 0 ? '' : `vzduch je tu ${i <= 2 ? 'znatelně řidší' : i <= 5 ? 'řídký — dýchá se hůř' : 'velmi řídký!'}`;
-		g('baro-vzorec').innerHTML = `Ve výšce <strong>${s.h.toLocaleString('cs-CZ')} m</strong> je tlak <strong>${s.hPa} hPa</strong> — sloupec rtuti drží ve výšce <strong>${s.mm} mm</strong> (u moře 760 mm = 1013 hPa).`;
+		const vzduch = i === 0 ? '' : `vzduch je tu ${i <= 2 ? 'znatelně řidší' : i <= 5 ? 'řídký — dýchá se hůř' : 'velmi řídký!'}`;
+		g('baro-vzduch').textContent = vzduch;
+		// telefon: scéna je celá, ale drobná → všechny popisky scény (místo, tlak, rtuť, procenta, vzduch)
+		// ještě jednou čitelně pod ní, doslova stejným zněním jako ve scéně
+		g('baro-mobil').innerHTML = `<strong>${MISTA[i]}</strong>: tlak <strong>${s.hPa} hPa</strong> · <strong>${s.mm} mm rtuti</strong> · zbývá <strong>${s.procenta} %</strong> normálního tlaku`
+			+ (vzduch ? ` · ${vzduch}<br>(u hladiny moře: 1013 hPa = 760 mm rtuti)` : '');
+		g('baro-vzorec').innerHTML =`Ve výšce <strong>${s.h.toLocaleString('cs-CZ')} m</strong> je tlak <strong>${s.hPa} hPa</strong> — sloupec rtuti drží ve výšce <strong>${s.mm} mm</strong> (u moře 760 mm = 1013 hPa).`;
 		const stavy = [
 			'🌊 U hladiny moře: normální tlak 1013 hPa = 760 mm rtuti — přesně jak naměřil Torricelli roku 1643.',
 			'⛰️ 1000 m: tlak klesl na 899 hPa. Horní vrstvy vzduchu ubývají, proto tlak s výškou klesá.',
@@ -125,4 +131,10 @@
 	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
 	.baro-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 	.baro-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	/* telefon (≤ 640 px): celá scéna přes šířku displeje, bez posouvání do stran; hlavní hodnoty čitelně pod ní */
+	.baro-mobil { display: none; }
+	@media (max-width: 640px) {
+		#baro-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.baro-mobil { display: block; font-size: 1rem; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 </style>

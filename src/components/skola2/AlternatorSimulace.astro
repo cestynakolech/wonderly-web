@@ -44,15 +44,18 @@
 			<line x1="440" y1="250" x2="648" y2="250" />
 			<line x1="440" y1="160" x2="440" y2="340" />
 		</g>
-		<text x="648" y="300" text-anchor="end" font-size="11" fill="#2b2a26" font-weight="bold">otáčka</text>
+		<!-- „otáčka“ NAD osou vpravo (dřív y 300 pod osou): v poslední čtvrtině je křivka vždy pod osou, při rychlosti 3 by popisek přeškrtla -->
+		<text x="648" y="242" text-anchor="end" font-size="11" fill="#2b2a26" font-weight="bold">otáčka</text>
 		<text x="452" y="170" font-size="11" fill="#2b2a26" font-weight="bold">U</text>
 		<g font-size="10" fill="#868e96" text-anchor="middle">
 			<text x="490" y="264">¼</text><text x="540" y="264">½</text><text x="590" y="264">¾</text><text x="640" y="264">1</text>
 		</g>
 		<polyline id="alt-sinus" fill="none" stroke="#1971c2" stroke-width="3" stroke-linejoin="round" />
 		<circle id="alt-bod" r="7" fill="#e03131" stroke="#2b2a26" stroke-width="2" />
-		<text id="alt-smer" x="544" y="336" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2"></text>
+		<!-- y 352 (dřív 336): dno sinusovky při rychlosti 3 je na y 322 a bod (r 7) sahal do textu -->
+		<text id="alt-smer" x="544" y="352" text-anchor="middle" font-size="12" font-weight="bold" fill="#1971c2"></text>
 	</svg>
+	<p class="alt-mobil" id="alt-mobil"></p>
 	<p id="alt-ovladani">
 		<button type="button" class="alt-tl" id="alt-play">▶ roztoč rotor</button>
 		<button type="button" class="alt-tl" id="alt-krok">↻ pootoč o ¼ otáčky</button>
@@ -100,7 +103,9 @@
 		nastav('alt-sinus', { points: body.join(' ') });
 		nastav('alt-bod', { cx: 440 + (s.theta / (2 * Math.PI)) * 200, cy: 250 - s.U * 12 });
 		g('alt-smer').textContent = s.U > 0.2 ? '→ proud teče jedním směrem' : s.U < -0.2 ? '← proud teče OPAČNÝM směrem' : 'proud právě mění směr (U ≈ 0)';
-		g('alt-out-r').textContent = `${rychlost}× (max ±${2 * rychlost} dílky)`;
+		// telefon: scéna je celá, ale drobná → údaj voltmetru a směr proudu ještě jednou čitelně pod ní
+		g('alt-mobil').textContent = `Voltmetr: ${g('alt-u').textContent} (dílky) · ${g('alt-smer').textContent}`;
+		g('alt-out-r').textContent =`${rychlost}× (max ±${2 * rychlost} dílky)`;
 		g('alt-vzorec').innerHTML = `Amplituda napětí = 2 dílky × rychlost ${rychlost} = <strong>±${2 * rychlost} dílky</strong> — čím rychleji se pole mění, tím větší napětí se indukuje. Za 1 otáčku proud <strong>2×</strong> změní směr.`;
 	}
 
@@ -148,6 +153,12 @@
 	kresli(stavAlternatoru(0, rychlost)); // statická poloha 0° i bez animace
 </script>
 
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#alt-svg text[fill="#868e96"], #alt-svg g[font-size][fill="#868e96"] { fill: #5f6870; }
+	#alt-svg text[fill="#e03131"] { fill: #c92a2a; }
+</style>
+
 <style>
 	#alt-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
 	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
@@ -157,4 +168,10 @@
 	.alt-tl:active { transform: translateY(1px); }
 	.alt-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 	.alt-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	/* telefon (≤ 640 px): celá scéna přes šířku displeje, bez posouvání do stran; hlavní údaj čitelně pod ní */
+	.alt-mobil { display: none; }
+	@media (max-width: 640px) {
+		#alt-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.alt-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 </style>

@@ -107,6 +107,7 @@
 		</g>
 		<text id="sp-a-t-popisek" x="210" y="343" text-anchor="middle" font-size="15" font-weight="bold" fill="#e8590c">T</text>
 	</svg>
+	<p class="sp-mobil" id="sp-a-mobil"></p>
 	<p class="sp-radek">
 		<strong>Frekvence:</strong>
 		<button type="button" class="sp-tl sp-a-f-tl sp-aktivni" id="sp-a-f50" data-f="50">50 Hz (síť)</button>
@@ -166,7 +167,8 @@
 		</g>
 		<!-- popisek POD prvním úsekem křivky (0–5 ms), kde jde vždy jen nahoru
 			od nuly — jinde by ho klesající/stoupající větev křivky překrývala -->
-		<text x="68" y="255" text-anchor="start" font-size="11" fill="#495057">u = 0 V — nastává 2× za periodu</text>
+		<!-- dva řádky: v jednom řádku (~170 j.) sahal text za x 220, kde už klesající větev křivky prochází y ≈ 250 a konec textu přeškrtla -->
+		<text x="68" y="252" text-anchor="start" font-size="11" fill="#495057"><tspan x="68">u = 0 V —</tspan><tspan x="68" dy="13">nastává 2× za periodu</tspan></text>
 		<!-- pohyblivý bod podle posuvníku -->
 		<circle id="sp-b-bod" r="8" fill="#f08c00" stroke="#2b2a26" stroke-width="2" />
 		<text id="sp-b-u-okamzite" font-size="13" font-weight="bold" fill="#f08c00"></text>
@@ -197,6 +199,15 @@
 		<text x="630" y="368" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">obě hřejí a svítí</text>
 		<text x="630" y="384" text-anchor="middle" font-size="12" font-weight="bold" fill="#2b2a26">STEJNĚ SILNĚ</text>
 	</svg>
+	<!-- telefon: popisky čar a žárovek jsou ve scéně ~5 px → legenda čitelně pod ní (jen opis popisků scény, žádné nové číslo) -->
+	<ul class="sp-legenda" id="sp-b-legenda">
+		<li><span class="sp-car sp-car-max"></span> červená čárkovaná čára = <strong>U<sub>m</sub> = 325 V (maximum)</strong></li>
+		<li><span class="sp-car sp-car-ef"></span> zelená čárkovaná čára = <strong>U = 230 V (efektivní)</strong></li>
+		<li><span class="sp-car sp-car-u"></span> modrá křivka = okamžité napětí, oranžový bod = okamžik z posuvníku</li>
+		<li>horní žárovka: <strong>~ 230 V (efektivní)</strong> — střídavé</li>
+		<li>dolní žárovka: <strong>＝ 230 V (stejnosměrné)</strong></li>
+	</ul>
+	<p class="sp-mobil" id="sp-b-mobil"></p>
 	<label class="sim-posuvnik">
 		Okamžik na křivce: <output id="sp-b-out-t"></output>
 		<input type="range" id="sp-b-cas" min="0" max="20" step="5" value="5" />
@@ -268,6 +279,11 @@
 		const n = pocetPeriodA(frekvence);
 		const jsou = n === 1 ? 'je' : 'jsou';
 		const perioda = n === 1 ? 'perioda' : 'periody';
+		// telefon: scéna je celá, ale drobná → hlavní údaje osciloskopu ještě jednou čitelně pod ní
+		// (značka „T“ u oranžové svorky je samostatný prvek s data-popisek — krátký popisek se pokrývá přesně)
+		const tMobil = document.createElement('span');
+		tMobil.textContent = 'T'; tMobil.dataset.popisek = 'T';
+		g('sp-a-mobil').replaceChildren(`f = ${frekvence} Hz · `, tMobil, ` = ${T} ms (oranžová svorka) · v okně 40 ms: ${n} ${perioda}${ukazatDc ? ' · rovná čára = U (stejnosměrné — v čase se nemění)' : ''}`);
 		g('sp-a-stav').textContent = `👉 Při ${frekvence} Hz ${jsou} v tomhle 40ms okně vidět ${n} ${perioda} — každá trvá T = ${T} ms (oranžová svorka). ${ukazatDc ? 'Stejnosměrná čára se v čase vůbec nemění — proto nemá periodu ani frekvenci, i když se s vlnící se křivkou kříží.' : 'Čím vyšší frekvence, tím kratší perioda — vlnek je do stejného okna „namačkáno" víc.'}`;
 	}
 
@@ -338,6 +354,7 @@
 		const nad = p.y > 40;
 		nastav('sp-b-u-okamzite', { x: Math.min(p.x + 10, 330), y: nad ? p.y - 14 : p.y + 24 });
 		g('sp-b-u-okamzite').textContent = `u = ${p.u} V`;
+		g('sp-b-mobil').textContent = `t = ${t} ms: okamžité u = ${p.u} V (maximum ${UM} V) · obě žárovky svítí stejně: ~ ${UEF} V efektivní = ${UEF} V stejnosměrné`;
 
 		let vysvetleni;
 		if (p.u === 0) {
@@ -353,6 +370,14 @@
 	prekresliB();
 </script>
 
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#sp-a-svg text[fill="#e8590c"] { fill: #c2410c; }
+	#sp-a-svg text[fill="#f08c00"], #sp-b-svg text[fill="#f08c00"] { fill: #9a5b00; }
+	#sp-b-svg text[fill="#e03131"] { fill: #c92a2a; }
+	#sp-b-svg text[fill="#2f9e44"] { fill: #237a35; }
+</style>
+
 <style>
 	#sp-a-svg { width: 100%; max-width: 660px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
 	#sp-b-svg { width: 100%; max-width: 760px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
@@ -364,4 +389,15 @@
 	.sp-tl:active { transform: translateY(1px); }
 	.sp-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
 	.sp-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	/* telefon (≤ 640 px): celé scény přes šířku displeje, bez posouvání do stran; hlavní údaje čitelně pod nimi */
+	.sp-mobil, .sp-legenda { display: none; }
+	.sp-car { display: inline-block; width: 2.2rem; vertical-align: middle; border-top: 4px dashed #2b2a26; }
+	.sp-car-max { border-top-color: #c92a2a; }
+	.sp-car-ef { border-top-color: #237a35; }
+	.sp-car-u { border-top: 4px solid #1971c2; }
+	@media (max-width: 640px) {
+		.sp-legenda { display: block; list-style: none; font-size: 1rem; line-height: 1.5; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+		#sp-a-svg, #sp-b-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.sp-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 </style>

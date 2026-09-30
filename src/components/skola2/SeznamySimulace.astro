@@ -30,10 +30,12 @@
 
 	<svg id="sez-a-svg" viewBox="0 0 960 220" role="img" aria-label="Seznam nákup zobrazený jako řada očíslovaných políček">
 		<rect x="0" y="0" width="960" height="220" fill="#f8f9fa" />
-		<text x="20" y="30" font-size="14" font-weight="bold" fill="#868e96">délka [nákup] =</text>
-		<text id="sez-a-delka-hodnota" x="185" y="30" font-size="16" font-weight="bold" fill="#1971c2">4</text>
+		<!-- y = 20 (dřív 30): na y 30 se nadpis překrýval s popisky „index 1/2“ nad políčky (y 42) -->
+		<text x="20" y="20" font-size="14" font-weight="bold" fill="#868e96">délka [nákup] =</text>
+		<text id="sez-a-delka-hodnota" x="185" y="20" font-size="16" font-weight="bold" fill="#1971c2">4</text>
 		<g id="sez-a-krabicky"></g>
 	</svg>
+	<p class="sez-mobil" id="sez-a-mobil"></p>
 	<p class="sez-stav" id="sez-a-stav" aria-live="polite"></p>
 
 	<hr class="sez-oddil" />
@@ -51,6 +53,7 @@
 		<g id="sez-b-promenne"></g>
 		<g id="sez-b-seznam"></g>
 	</svg>
+	<p class="sez-mobil" id="sez-b-mobil"></p>
 	<p class="sez-stav" id="sez-b-stav" aria-live="polite"></p>
 </section>
 
@@ -120,6 +123,11 @@
 		delkaAEl.textContent = String(seznamA.length);
 		const sirka = Math.max(960, startX * 2 + seznamA.length * (boxW + gap));
 		svgA.setAttribute('viewBox', `0 0 ${sirka} 220`);
+		// telefon: scéna je celá, ale drobná → obsah seznamu s indexy ještě jednou čitelně pod ní
+		// (délka je samostatný prvek s data-popisek — krátké číslo se pokrývá přesně, ne číslováním položek)
+		const delkaMobil = document.createElement('span');
+		delkaMobil.textContent = String(seznamA.length); delkaMobil.dataset.popisek = delkaMobil.textContent;
+		document.getElementById('sez-a-mobil').replaceChildren('délka [nákup] = ', delkaMobil, ': ' + seznamA.map((h, i) => `${i + 1}. ${h}`).join(' · '));
 		if (posledniAkce) stavAEl.textContent = posledniAkce;
 	}
 
@@ -205,6 +213,9 @@
 			popisek(gList, 392, y + 29, `index ${i + 1} = ${hodnota}`, '#1971c2');
 		});
 
+		document.getElementById('sez-b-mobil').textContent = `Vlevo 5 proměnných: ${seznamB.slice(0, 5).map((h, i) => `skore${i + 1} = ${h}`).join(', ')}`
+			+ (pokusyNavic ? ` · ${pokusyNavic}× proměnná neexistuje` : '')
+			+ ` · vpravo 1 seznam s ${seznamB.length} prvky`;
 		stavBEl.textContent = pokusyNavic === 0
 			? 'Zatím 5 hráčů na obou stranách.'
 			: `Vpravo přibylo ${pokusyNavic}× „přidej do [seznam]“ — hotovo. Vlevo by bylo potřeba ${pokusyNavic}× ručně založit novou proměnnou (skore${5 + pokusyNavic}) a upravit s ní CELÝ program.`;
@@ -232,6 +243,14 @@
 	svgB.__pokusyNavic = () => pokusyNavic;
 </script>
 
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#sez-a-svg text[fill="#868e96"] { fill: #5f6870; }
+	#sez-a-svg text[fill="#e8590c"] { fill: #c2410c; }
+	#sez-b-svg text[fill="#1971c2"] { fill: #1864ab; }
+	#sez-b-svg text[fill="#e03131"] { fill: #c92a2a; }
+</style>
+
 <style>
 	#sez-a-svg, #sez-b-svg { width: 100%; border: 3px solid #2b2a26; border-radius: 12px; margin-top: 0.4rem; }
 	#sez-a-svg { max-width: 960px; }
@@ -242,4 +261,10 @@
 	.sez-tl:active { transform: translateY(1px); }
 	.sez-stav { font-size: 1.02rem; font-weight: 700; min-height: 1.6rem; }
 	.sez-oddil { border: none; border-top: 3px solid #2b2a26; margin: 1.2rem 0; }
+	/* telefon (≤ 640 px): celé scény přes šířku displeje, bez posouvání do stran; obsah čitelně pod nimi */
+	.sez-mobil { display: none; }
+	@media (max-width: 640px) {
+		#sez-a-svg, #sez-b-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.sez-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 </style>

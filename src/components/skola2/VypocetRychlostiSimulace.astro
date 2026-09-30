@@ -63,6 +63,7 @@
 			<text id="vr-plaketa-stav-text" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b2a26"></text>
 		</g>
 	</svg>
+	<p class="vr-mobil" id="vr-mobil"></p>
 	<label class="sim-posuvnik">
 		Příklad: <output id="vr-priklad-out"></output>
 		<input type="range" id="vr-priklad" min="1" max="4" step="1" value="1" />
@@ -189,6 +190,12 @@
 			plaketa('vr-plaketa-v', 500, '?');
 			plaketa('vr-plaketa-stav', 320, '👉 Nejdřív zkus v = s : t spočítat sám, pak stiskni Start.');
 		}
+		// telefon: scéna je celá, ale drobná → příběh, s, t, v a hláška ze scény ještě jednou čitelně pod ní
+		// (hodnota v je samostatný prvek s data-popisek — krátký údaj „?“ musí být pokrytý přesně, ne náhodným otazníkem)
+		const vMobil = document.createElement('span');
+		vMobil.textContent = g('vr-plaketa-v-text').textContent;
+		vMobil.dataset.popisek = vMobil.textContent;
+		g('vr-mobil').replaceChildren(`${s.priblih} Silnice: 0 km → ${g('vr-plaketa-cil-text').textContent} · s = ${s.s} km · t = ${s.t} h · v = `, vMobil, ` — ${g('vr-plaketa-stav-text').textContent}`);
 	}
 
 	function krok(ted) {
@@ -226,10 +233,22 @@
 	requestAnimationFrame(krok);
 </script>
 
+<style is:global>
+	/* kontrast popisků ≥ 4,5:1 (platí všude) */
+	#vr-svg text[fill="#868e96"], #vr-svg text[fill="#adb5bd"], #vr-svg g[font-size][fill="#adb5bd"] { fill: #5f6870; }
+	#vr-svg #vr-vozidlo { fill: #ffffff; } /* emoji se barvou nemění; bílá = čitelný podklad vozovky pro měřidlo */
+</style>
+
 <style>
 	#vr-svg { width: 100%; max-width: 640px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
 	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
 	.sim-posuvnik input { width: 100%; max-width: 640px; display: block; margin-top: 0.3rem; }
 	.vr-tl { font: inherit; font-weight: 700; padding: 0.35rem 1rem; border: 3px solid #2b2a26; border-radius: 10px; background: #ffe8cc; cursor: pointer; margin-right: 0.5rem; }
 	.vr-tl:active { transform: translateY(1px); }
+	/* telefon (≤ 640 px): celá scéna přes šířku displeje, bez posouvání do stran; výpočet čitelně pod ní */
+	.vr-mobil { display: none; }
+	@media (max-width: 640px) {
+		#vr-svg { display: block; width: calc(100vw - 16px); max-width: none; margin-left: calc(50% - 50vw + 8px); }
+		.vr-mobil { display: block; font-size: 1rem; font-weight: 700; line-height: 1.45; margin: 0.5rem 0; padding: 0.4rem 0.6rem; background: #fff; border: 2px solid #2b2a26; border-radius: 8px; }
+	}
 </style>

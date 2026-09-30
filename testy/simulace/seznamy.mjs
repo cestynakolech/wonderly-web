@@ -18,6 +18,10 @@ function novy(id) {
 		appendChild(d) { this.deti.push(d); d.rodic = this; return d; },
 		removeChild(d) { this.deti = this.deti.filter((x) => x !== d); return d; },
 		get firstChild() { return this.deti[0] ?? null; },
+		replaceChildren(...uzly) { // jako v prohlížeči: řetězce = textové uzly, textContent = spojený text
+			this.deti = uzly.filter((u) => typeof u !== 'string');
+			this.textContent = uzly.map((u) => (typeof u === 'string' ? u : u.textContent)).join('');
+		},
 		addEventListener(e, f) { (this.posluchaci[e] ||= []).push(f); },
 	};
 	prvky.set(id, p);
@@ -77,6 +81,11 @@ console.log('\n— klik „přidej do konce“ mění SVG SYNCHRONNĚ —');
 	ok(delkaAEl.textContent === '5', `SVG délka se hned přepsala na „${delkaAEl.textContent}"`);
 	ok(JSON.stringify(pred) !== JSON.stringify(po), 'obsah <svg> se po kliku opravdu liší (ne jen JS proměnná)');
 	ok(/index 5/.test(po.map((x) => x.t).join(' ')), 'nové políčko má index 5 zapsaný v <svg>');
+	// telefon: HTML obraz pod scénou nese délku jako samostatný prvek data-popisek (pokrytí krátkého popisku „5“)
+	const mobilA = prvky.get('sez-a-mobil');
+	const delkaMobil = mobilA.deti.find((d) => d.dataset.popisek !== undefined);
+	ok(delkaMobil && delkaMobil.dataset.popisek === delkaAEl.textContent && delkaMobil.textContent === delkaAEl.textContent, `obraz pro telefon: délka data-popisek „${delkaMobil?.dataset.popisek}" = délka ve scéně „${delkaAEl.textContent}"`);
+	ok(mobilA.textContent.startsWith('délka [nákup] = 5: 1. jablka') && mobilA.textContent.endsWith('5. jahody'), `obraz pro telefon: „${mobilA.textContent}"`);
 }
 
 console.log('\n— klik „smaž z pozice 2“ přečísluje indexy (POINTA výkladu) —');
