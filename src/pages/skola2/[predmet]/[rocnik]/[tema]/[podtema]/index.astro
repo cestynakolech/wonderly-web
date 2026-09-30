@@ -158,6 +158,7 @@ import { predmety, rocniky } from '../../../../../../data/predmety';
 import { temata } from '../../../../../../data/temata';
 import { kvizy } from '../../../../../../data/kvizy';
 import { laborky } from '../../../../../../data/laborky';
+import { animace as vsechnyAnimace } from '../../../../../../data/animace';
 
 export function getStaticPaths() {
 	const paths = [];
@@ -191,6 +192,24 @@ const mojePoradi = sourozenci.findIndex((p) => p.slug === podtema.slug);
 const predchozi = mojePoradi > 0 ? sourozenci[mojePoradi - 1] : null;
 const dalsi = mojePoradi >= 0 && mojePoradi < sourozenci.length - 1 ? sourozenci[mojePoradi + 1] : null;
 
+// rozcestník „Na stránce:" — jen sekce, které stránka skutečně má
+const mat = podtema.materialy ?? [];
+const maAnimace = vsechnyAnimace.some((a) => a.podtema === podtema.slug && a.rocnik === parseInt(rocnik.slug, 10));
+const maInfografiky = mat.some((m) => m.druh === 'infografika');
+const maVidea = mat.some((m) => m.druh === 'video' || m.druh === 'youtube');
+const maAudio = mat.some((m) => m.druh === 'audio');
+const maSimulaci = Boolean(podtema.interakce || podtema.interakce2);
+const rozcestnik = [
+	podtema.zapis && { id: 'zapis', text: '📓 Zápis' },
+	maAnimace && { id: 'animace', text: '🎬 Animace' },
+	maVidea && { id: 'videa', text: '🎬 Videa' },
+	maInfografiky && { id: 'infografiky', text: '🖼️ Infografiky' },
+	maAudio && { id: 'audio', text: '🎧 Písnička / podkast' },
+	maSimulaci && { id: 'simulace', text: '🧩 Simulace' },
+	laborka && { id: 'laborka', text: '🧪 Laborka' },
+	otazky && { id: 'kviz', text: '✏️ Kvíz' },
+].filter(Boolean);
+
 const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 ---
 
@@ -219,6 +238,16 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		)
 	}
 	{
+		rozcestnik.length > 0 && (
+			<nav class="na-strance" aria-label="Na stránce">
+				<span class="na-strance-stitek">Na stránce:</span>
+				{rozcestnik.map((r) => (
+					<a href={`#${r.id}`}>{r.text}</a>
+				))}
+			</nav>
+		)
+	}
+	{
 		podtema.obsah ? (
 			<article class="ramecek vyklad" set:html={podtema.obsah} />
 		) : (
@@ -235,7 +264,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	}
 	{
 		podtema.zapis && (
-			<section class="ramecek zapis-sesit">
+			<section class="ramecek zapis-sesit" id="zapis">
 				<h2><span class="podtrh">📓 Zápis do sešitu</span></h2>
 				{podtema.zapis.vzorec && <p class="zapis-vzorec">{podtema.zapis.vzorec}</p>}
 				{podtema.zapis.jednotky && podtema.zapis.jednotky.length > 0 && (
@@ -284,16 +313,16 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 				<h2><span class="podtrh">Materiály k tématu 📚</span></h2>
 				{podtema.materialy
 					.filter((m) => m.druh === 'infografika')
-					.map((m) => (
-						<figure class="infografika">
+					.map((m, i) => (
+						<figure class="infografika" id={i === 0 ? 'infografiky' : undefined}>
 							<img src={m.cesta} alt={m.nazev} loading="lazy" />
 							<figcaption>{m.nazev}</figcaption>
 						</figure>
 					))}
 				{podtema.materialy
 					.filter((m) => m.druh === 'video')
-					.map((m) => (
-						<figure class="video">
+					.map((m, i) => (
+						<figure class="video" id={i === 0 ? 'videa' : undefined}>
 							<video src={m.cesta} controls preload="metadata" />
 							<figcaption>{m.nazev}</figcaption>
 							{m.ai && <p class="ai-priznani">🤖 {m.ai}</p>}
@@ -301,8 +330,8 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 					))}
 				{podtema.materialy
 					.filter((m) => m.druh === 'youtube')
-					.map((m) => (
-						<figure class="video">
+					.map((m, i) => (
+						<figure class="video" id={i === 0 && !mat.some((x) => x.druh === 'video') ? 'videa' : undefined}>
 							<div class="youtube-obal">
 								<iframe
 									src={`https://www.youtube-nocookie.com/embed/${m.cesta}`}
@@ -317,8 +346,8 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 					))}
 				{podtema.materialy
 					.filter((m) => m.druh === 'audio')
-					.map((m) => (
-						<figure class="audio">
+					.map((m, i) => (
+						<figure class="audio" id={i === 0 ? 'audio' : undefined}>
 							<audio src={m.cesta} controls preload="metadata" />
 							<figcaption>{m.nazev}</figcaption>
 						</figure>
@@ -339,6 +368,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 			</section>
 		)
 	}
+	{maSimulaci && <span id="simulace" class="kotva" />}
 	{podtema.interakce === 'hydraulika' && <HydraulikaSimulace />}
 	{podtema.interakce === 'skupenstvi' && <SkupenstviSimulace />}
 	{podtema.interakce === 'difuze' && <DifuzeSimulace />}
@@ -489,7 +519,7 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce2 === 'polovodic-dopovani' && <PolovodicSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
 	{laborka && (
-		<section class="ramecek laborka-pozvanka">
+		<section class="ramecek laborka-pozvanka" id="laborka">
 			<h2><span class="podtrh">🧪 Laboratorní práce</span></h2>
 			<p>{laborka.nazev} — vyzkoušej si to naživo! Pracovní list si můžeš vytisknout.</p>
 			<a class="kviz-tlacitko laborka-odkaz" href="laborka/">Otevřít pracovní list 🧪</a>
@@ -601,10 +631,40 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 		letter-spacing: 0.04em;
 		font-size: 0.9rem;
 	}
+	/* Rozcestník „Na stránce:" — odkazy na sekce níže. */
+	html {
+		scroll-behavior: smooth;
+	}
+	.na-strance {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem 0.8rem;
+		margin: 0.8rem 0;
+		font-size: 0.95rem;
+	}
+	.na-strance-stitek {
+		font-weight: 700;
+		color: #5f5b52;
+	}
+	.na-strance a {
+		color: #a63d00;
+		text-decoration: underline dotted;
+		text-underline-offset: 3px;
+	}
+	.na-strance a:hover {
+		text-decoration-style: solid;
+	}
+	.kotva {
+		display: block;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
 	.uvod-text {
 		margin: 0;
-		font-size: 1.1rem;
-		line-height: 1.6;
 	}
 	/* Nadstavba „Pro zvídavé" — sbalená pod výkladem. */
 	.zvidave summary {
