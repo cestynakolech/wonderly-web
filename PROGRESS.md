@@ -95,6 +95,10 @@ git push origin main                  # nasadí návrat
 Pro rychlý návrat na pojmenovaný milník: `git tag` ukáže značky (např. `fyzika-7-hotova`), návrat `git revert` nebo `git checkout <tag> -- .`.
 **Milníky značíme tagem** po dokončení většího celku: `git tag -a <nazev> -m "popis" && git push origin <nazev>`.
 
+## Historie — 1. 10. 2026: téma 4 vlna 1–2 nasazena
+
+Commit 1cb56ef, živě 7/7: F9 Elektrická energie, F7 Pascalův zákon, Hydrostatický tlak, Tlak, F8 Teplo a přeměny skupenství, Tání, Tuhnutí (48 obrázků, 7 kvízů po 21, 2 kola kontroly Claude + Codex). CI build spadl, nasazeno `wrangler deploy` (viz Omega `prace/ci-selhani.md`). Mobil dávka 1 (8 simulací) 8537ea4, měřidlo `testy/mobil-citelnost.mjs`. Zbytek fronty: `SAMOSTATNY-REZIM.md`.
+
 ## Historie — 27. 9. 2026: audit + sjednocení dokumentace (kolo 2, uzávěrka)
 
 Commity Omega `12603d7` (detektor tajemství, V16 — poslední pokus), `3338a63`

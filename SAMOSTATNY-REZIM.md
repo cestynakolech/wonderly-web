@@ -6,6 +6,10 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **1. 10. 2026 — STAV TÉMATU 4 (vlna 1–2 nasazena):** commit 1cb56ef, živě 7/7: F9 Elektrická energie, F7 Pascalův zákon, Hydrostatický tlak, Tlak (text f7-tlak-b), F8 Teplo a přeměny skupenství, Tání, Tuhnutí (výklad, 48 obrázků, 7 kvízů po 21; 2 kola kontroly Claude + Codex). CI build spadl, nasazeno `wrangler deploy` zálohou (řeší se: `Omega/predavka/2026-10-01/prace/ci-selhani.md`). **Zbývá k tématu 4:** simulace Tlaku (návrh klíč simulace v `Omega/predavka/2026-10-01/prace/tema4/f7-tlak-b.json`); F9 Účinky proudu a bezpečnost (čeká na učitele, práh 2–5 vs 1–8 mA); vlna 3 texty F8 Vypařování, Var, Kondenzace, Skupenské změny vody v přírodě (píše Codex); média (písnička Suno, bonus NotebookLM, polemika s animacemi) dle OBSAH-PRAVIDLA §6.
+- **Mobil:** dávka 1 (8 simulací) nasazena 8537ea4, měřidlo varianta A (`testy/mobil-citelnost.mjs`, ve všech stavech); zbylých ~121 simulací dělá Codex (větev `codex/mobil`), Claude kontroluje vzorkem a nasazuje.
+- **Codex:** rozdělení `Omega/koordinace/ROZDELENI.md`, kontext `CODEX-KONTEXT-WEBU.md`; Jev — souhlas učitele 30. 9. s podmínkou; mini GPU funkční. **Noční fronta:** animace + podkasty zapnuty 30. 9.
+
 - **30. 9. 2026 noc — stav tématu 3:** NASAZENO commit 243c34e (wrangler da90146a): F7 Páky, F7 Kladka, F8 Spalovací motory, F9 Polovodiče (vlastní vodivost). Předtím 25e6b93 vlna 1 + 6f4834c video Elektromagnet 1. `publikuj_odkazy.py` regex opraven s testem (Omega b340aab).
 - **ROZPRACOVÁNO (podklady v `Omega/predavka/2026-09-30/prace/2026-09-30-tema3/`):** F9 Kapaliny, F8 Alternativní motory, F9 Plyny — text zkontrolován+opraven, kvíz zkontrolován+opraven (bloky/*.ts), obrázky obrazky5/6/7 v opravách; čeká vložení (vloz-t3d), kontrola webu, nasazení. Opravené simulace KladkaSimulace a PolovodicVodivostSimulace (+ testy `testy/simulace/kladka.mjs`, `polovodic-vodivost.mjs`) čekají na commit + záznamy v `testy/obousmerne.json`. Nová simulace TezisteStabilitaSimulace.astro (přání učitele: náklaďák vs. formule s olovnicí) v opravách po kontrole; čeká napojení (interakce2) + věta do výkladu Těžiště + obousmerne.json. F9 Dioda (N/P) — text se píše.
 - **Jednotná legenda obrázků tématu elektrický proud v látkách:** elektron malý modrý „−“, díra zelený čárkovaný „+“, kation velký červený „+“, anion velký fialový „−“.
@@ -118,6 +122,7 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+- **[téma 4] Rozpory PDF (1. 10. 2026):** protokoly tématu 4 nesou v sekci „rozpory“ místa, kde PDF neladí s fyzikou nebo samo se sebou (plavební komora, brusle −8 °C, 1 m² = 100 cm², 5 000 Pa = 1 kPa, mořský led, měrné teplo, značka Lt aj.). Učitel rozhodne, co se ponechá podle PDF a co opraví. Soubory: `Omega/predavka/2026-10-01/prace/tema4/*.md` (sekce rozpory). Dále: F9 Účinky proudu — práh 2–5 vs 1–8 mA.
 - **[téma 3] a)** Nakloněná rovina a Klín: ve Škole k nim není PDF ani prezentace (prohledáno i v ZIPech). Návrh textu nakloněné roviny z dosavadního webu je v `f7-naklonena-rovina.json` (vzorec a čísla jen v Pro zvídavé); stránka na webu zůstala beze změny. Dodá učitel podklad, nebo potvrdí učení z dosavadního webu?
 - **[téma 3] b)** Odchylky od PDF opravené na fyzikálně správné znění (přehled v `odchylky-od-pdf.md`): mazání pístu v olejové vaně, šipky akce/reakce, sůl „vznikají ionty“, rychlost rakety 28 000 km/h, SO⁴⁻ — ke schválení.
 - **[téma 3] c)** Termistor „v hutích“ (PDF Polovodiče s. 9) — ponecháno, ověřit.
@@ -307,6 +312,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
+- **Fronta téma 4 (1. 10. 2026):** simulace Tlaku; F9 Účinky proudu a bezpečnost (čeká na učitele); vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
 - **Fronta téma 3 (30. 9. 2026 noc):** zbývá Klín (bez podkladu) a Nakloněná rovina (bez podkladu, viz ❓ a); pak další téma.
 - **DROBNÉ k7 (F7 Těžiště + F8 Tepelná výměna, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k7.md`, NASADIT).** Body 1–6 jdou do dalšího kola.
 - **DROBNÉ k6 (F8 Energetická hodnota potravin, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k6.md`, NASADIT).** Body 1–4 (kvizy.ts 3559, 3560, 3543, 4644×4662) jdou do dalšího kola. ODLOŽENO: 5, 6, 8 (SvacinaSimulace.astro: „vždy na 100 g", nečitelné popisky v 400 px, dietní hlášky) a 7 (`testy/cisla-ve-vykladu.mjs:15` nezná NBSP, falešný poplach 6300).
