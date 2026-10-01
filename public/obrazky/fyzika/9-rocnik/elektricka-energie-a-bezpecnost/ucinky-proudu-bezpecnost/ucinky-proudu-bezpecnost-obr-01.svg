@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 1160" width="375" height="1160" role="img" aria-labelledby="tit desc">
+<title id="tit">Elektřina: chraň se před úrazem</title>
+<desc id="desc">Čtyři scénky: nedotýkat se poškozených kabelů, nic nestrkat do zásuvky, držet se dál od rozvaděče a při úrazu vypnout přívod jen tehdy, je-li to bezpečné.</desc>
+<rect width="375" height="1160" fill="#fffdf6"/>
+<g font-family="Arial, sans-serif" fill="#172b3a" font-size="18">
+<text x="187" y="34" text-anchor="middle" font-size="23" font-weight="bold">Elektřina: chraň se</text>
+<text x="187" y="60" text-anchor="middle">před úrazem</text>
+<rect x="12" y="80" width="351" height="246" rx="16" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/><text x="187" y="112" text-anchor="middle" font-size="21" font-weight="bold">Nesahej na poškozený kabel</text>
+<rect x="12" y="340" width="351" height="246" rx="16" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/><text x="187" y="372" text-anchor="middle" font-size="21" font-weight="bold">Nic nestrkej do zásuvky</text>
+<rect x="12" y="600" width="351" height="246" rx="16" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/><text x="187" y="632" text-anchor="middle" font-size="21" font-weight="bold">Drž se dál od rozvaděče</text>
+<rect x="12" y="860" width="351" height="286" rx="16" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/><text x="187" y="892" text-anchor="middle" font-size="21" font-weight="bold">Při úrazu vypni přívod</text>
+<path d="M110 190 H140 L147 177 L153 198 L160 183 L166 190 H256" fill="none" stroke="#172b3a" stroke-width="9"/>
+<path d="M138 190 L147 177 L153 198 L162 185" fill="none" stroke="#b45309" stroke-width="4"/>
+<path d="M144 239 V222 Q144 216 150 217 L160 220 V207 Q160 200 166 205 L176 222 L176 241 Z" fill="#f6d4b5" stroke="#172b3a" stroke-width="3"/>
+<circle cx="187" cy="191" r="61" fill="none" stroke="#c92a2a" stroke-width="7"/><path d="M144 148 L230 234" stroke="#c92a2a" stroke-width="7"/><text x="187" y="287" text-anchor="middle" font-size="18">Poškozený kabel nepoužívej.</text>
+<rect x="202" y="410" width="90" height="104" rx="12" fill="#edf2f7" stroke="#172b3a" stroke-width="3"/>
+<circle cx="247" cy="463" r="33" fill="white" stroke="#172b3a" stroke-width="3"/>
+<circle cx="233" cy="465" r="5" fill="#172b3a"/><circle cx="261" cy="465" r="5" fill="#172b3a"/>
+<path d="M110 466 H175" stroke="#172b3a" stroke-width="7"/>
+<rect x="91" y="455" width="39" height="22" rx="5" fill="#b45309"/>
+<circle cx="156" cy="464" r="61" fill="none" stroke="#c92a2a" stroke-width="7"/><path d="M113 421 L199 507" stroke="#c92a2a" stroke-width="7"/><text x="187" y="547" text-anchor="middle" font-size="18">Předměty do zásuvky nepatří.</text>
+<rect x="131" y="659" width="112" height="133" rx="6" fill="#edf2f7" stroke="#172b3a" stroke-width="3"/>
+<path d="M187 682 L216 733 H158 Z" fill="#ffd43b" stroke="#172b3a" stroke-width="3"/>
+<path d="M192 694 L180 711 H191 L184 724" fill="none" stroke="#172b3a" stroke-width="4"/>
+<rect x="220" y="748" width="8" height="21" rx="3" fill="#172b3a"/>
+<text x="187" y="818" text-anchor="middle" font-size="18">Kryt nerozebírej ani neotvírej.</text>
+<rect x="108" y="915" width="159" height="125" rx="10" fill="#edf2f7" stroke="#172b3a" stroke-width="3"/>
+<text x="187" y="943" text-anchor="middle" font-size="18" font-weight="bold">Hlavní vypínač</text>
+
+<rect x="160" y="957" width="54" height="48" rx="6" fill="#fff" stroke="#172b3a" stroke-width="3"/>
+<rect x="166" y="981" width="42" height="18" rx="3" fill="#172b3a"/>
+<text x="187" y="1027" text-anchor="middle" font-size="18" font-weight="bold">VYPNUTO</text>
+<text x="187" y="1072" text-anchor="middle" font-size="18">Jen je-li to bezpečné.</text>
+<text x="187" y="1101" text-anchor="middle" font-size="18">Jinak se nepřibližuj</text>
+<text x="187" y="1127" text-anchor="middle" font-size="18">a přivolej pomoc.</text>
+</g></svg>

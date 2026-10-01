@@ -194,7 +194,10 @@ const dvojice = (fragA, fragB, rocnikA = '8-rocnik', rocnikB = '9-rocnik') =>
 	tvrdi('KOTVA 2/6: plochá baterie (4,5 V) — F8 × F9 dvě RŮZNÁ znění', dvojice('Jaké napětí má plochá baterie', 'Kolik voltů má plochá baterie'));
 	tvrdi('KOTVA 3/6: směr proudu (slovní odpověď) — F6 × F8 dvě RŮZNÁ znění', dvojice('U kterého zařízení záleží na směru proudu', 'U kterého spotřebiče záleží na směru proudu', '6-rocnik', '8-rocnik'));
 	tvrdi('KOTVA 4/6: odpor kovu při zahřátí (roste)', dvojice('odporem kovu při zahřátí', 'odpor kovu při zahřátí'));
-	tvrdi('KOTVA 5/6: bezpečné střídavé napětí (12 V)', dvojice('vlhkých a zvlášť nebezpečných prostorách', 'vlhkých a zvlášť nebezpečných prostorách'));
+	// 1. 10. 2026: F8 otázka o „bezpečném“ napětí 12 V zanikla s novým výkladem F8 bezpečnosti (text říká, že číslo
+	// bezpečnost nezaručuje). Kotva míří na dnešní skutečný pár téže třídy F8 × F9 (shodná hodnota 12 V, krytí 42 %):
+	// F8 „autobaterie“ × F9 „vlhkých a zvlášť nebezpečných prostorách“.
+	tvrdi('KOTVA 5/6: shodná hodnota 12 V — F8 autobaterie × F9 bezpečné střídavé napětí', dvojice('Jaké napětí má autobaterie', 'vlhkých a zvlášť nebezpečných prostorách'));
 	tvrdi('KOTVA 6/6: napětí v zásuvce × napětí fáze-zem (230 V, jediné společné slovo)', dvojice('Jaké napětí je v zásuvce?', 'mezi fázovým vodičem a zemí'));
 
 	// A tatáž past jako nahoře, ale nad ostrými daty: měřidlo o ní musí mlčet.
