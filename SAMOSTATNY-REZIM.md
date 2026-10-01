@@ -316,6 +316,8 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
+- **DROBNÉ (kontrola commitu 6bca11f, 1. 10. 2026, `Omega/predavka/2026-10-01-den/kontrola-oprava-fronty.md`, neopraveno):** (N1) `test-fronta-chyba-obsahu.py` netestuje samoúklid záznamu po opravě scénosledu (`dodelej_animace.py:215–216`) ani zápis stavu (`:260`); mutant bez `pop` projde 4/4. (N2) `dodelej_animace.py:212` `zaloguj` píše do ap.LOG i při `--nasucho` — každý suchý náhled přidá do logu automatu 4 řádky „chyba obsahu“ (šum).
+
 - **PRIORITA VYSOKÁ (1. 10. 2026): kolize slugu mezi ročníky ve výrobě videa.** `video_podkastu.py:34-35` ukládá snímky/video jen podle slugu bez ročníku → výroba podkastu 7 gravitacni-sila-dialog by přepsala video 6. ročníku. Krok 1 (hned po doběhu automatu dodelej-animace 1. 10.): pojistka — výroba se zastaví s chybou, když slug existuje v jiném ročníku. Krok 2: cesty s ročníkem (dotkne se R2 klíčů a odkazů v temata.ts — plán + kontrolor). Doklad: `Omega/predavka/2026-10-01-den/kontrola-stav-animaci.md`. Drobný nález tamtéž: `stav_animaci.py` skryje existující video, když zvuk chybí v obou ročnících.
 - **Fronta téma 4 (1. 10. 2026):** simulace Tlaku; F9 Účinky proudu a bezpečnost (ODBLOKOVÁNO 1. 10. 2026, rozhodl učitel: práh ~1/~10/~30 mA, kůže 2 000 Ω vlhko / 150 000 Ω sucho, viz rozhodnutí v ❓); vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
 - **Fronta téma 3 (30. 9. 2026 noc):** zbývá Klín (bez podkladu) a Nakloněná rovina (bez podkladu, viz ❓ a); pak další téma.
