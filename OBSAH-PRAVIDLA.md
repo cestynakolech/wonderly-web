@@ -149,6 +149,10 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   stínováním a reálnými proporcemi); (5) kontrolor porovná výsledek s renderem téže strany
   (shoda děje/předmětů/uspořádání/popisků, není kopie) a zvlášť posoudí úroveň detailu —
   holá skladba kruhů a obdélníků = nález. Reálný předmět navíc dle `feedback-realny-predmet-podle-predlohy`.
+  **Doplnění učitele 1. 10. 2026:** „Můžeš kreslit i něco navíc, ale obrázky z PDF by tam měly
+  zůstat – jeden dobře nakreslený obrázek dá víc než celá stránka textu.“ → každý obrázek z PDF
+  tématu má na webu překreslený protějšek (pokrytí 100 %, kontroluje se soupisem obrázek PDF →
+  náš obrázek); vlastní obrázky navíc jsou povoleny.
   **Why:** zadání se od předlohy vzdalovalo, obrázky vycházely moc jednoduché, kdežto animace
   pohybu (konkrétní předměty) učitel hodnotil jako lepší. Paměť `feedback-obrazek-prekreslit-z-pdf`.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
