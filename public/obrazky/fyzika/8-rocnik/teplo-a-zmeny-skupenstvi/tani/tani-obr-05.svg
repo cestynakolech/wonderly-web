@@ -8,7 +8,7 @@
 <text x="112.5" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">látka</text>
 <text x="112.5" y="128" font-size="18" text-anchor="middle" font-weight="bold" fill="#212529">teplota tání [°C]</text>
 <text x="245.83333333333334" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">líh</text>
-<text x="245.83333333333334" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">−116</text>
+<text x="245.83333333333334" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">−114</text>
 <line x1="286.6666666666667" y1="30" x2="286.6666666666667" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
 <text x="327.5" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">voda</text>
 <text x="327.5" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">0</text>
@@ -20,7 +20,7 @@
 <text x="490.8333333333333" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">327</text>
 <line x1="531.6666666666667" y1="30" x2="531.6666666666667" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
 <text x="572.5000000000001" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">hliník</text>
-<text x="572.5000000000001" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">658</text>
+<text x="572.5000000000001" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">660</text>
 <line x1="613.3333333333334" y1="30" x2="613.3333333333334" y2="150" stroke="#adb5bd" stroke-width="1.5"/>
 <text x="654.1666666666667" y="68" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">zlato</text>
 <text x="654.1666666666667" y="128" font-size="20" text-anchor="middle" font-weight="normal" fill="#212529">1063</text>

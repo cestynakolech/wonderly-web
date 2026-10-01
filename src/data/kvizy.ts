@@ -3755,7 +3755,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jaká je teplota tání hliníku?',
-			odpovedi: ['658 °C', '232 °C', '1 535 °C'],
+			odpovedi: ['660 °C', '232 °C', '1 535 °C'],
 			vysvetleni: 'Hodnotu najdeme ve fyzikálních tabulkách.',
 		},
 		{
@@ -4973,7 +4973,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Čím zastavíme záření beta?', odpovedi: ['hliníkovým plechem silným 5 mm', 'listem papíru nebo alobalem', 'vrstvou vzduchu silnou 5 cm'], vysvetleni: 'Záření beta zastaví i plast silný 1 cm.' },
 		{ text: 'Čím se v praxi stíní nejpronikavější záření?', odpovedi: ['silnou olověnou či betonovou clonou', 'obyčejným listem kancelářského papíru', 'tenkým hliníkovým plechem z kuchyně'], vysvetleni: 'Takové záření projde většinou materiálů, které zastaví jiné druhy záření.' },
 		{ text: 'Ve vzorku je 80 g radioaktivní látky s poločasem rozpadu 1 den. Kolik gramů této látky zbude nepřeměněné po 3 dnech?', odpovedi: ['10 g', '20 g', '40 g'], vysvetleni: '80 g → 40 g → 20 g → 10 g, každý den zbude jen polovina nepřeměněné látky. Přeměněná jádra nezmizela, vznikly z nich jiné nuklidy.' },
-		{ text: 'Poločas rozpadu uranu 238 je 4 500 milionů let. Poločas rozpadu radonu 222 je jen:', odpovedi: ['3,5 dne', '3,5 roku', '3,5 milionu let'], vysvetleni: 'Radon se rozpadá během dnů, zatímco uran miliardy let.' },
+		{ text: 'Poločas rozpadu uranu 238 je 4 500 milionů let. Poločas rozpadu radonu 222 je jen:', odpovedi: ['asi 3,8 dne', 'asi 3,8 roku', 'asi 3,8 milionu let'], vysvetleni: 'Radon se rozpadá během dnů, zatímco uran miliardy let.' },
 		{ text: 'K čemu se využívá radioaktivní záření v lékařství?', odpovedi: ['k léčbě nádorů ozařováním', 'k měření tělesné teploty', 'k ohřevu vody v domácím bojleru'], vysvetleni: 'Záření se zaměří přímo na nádor; měření teploty a ohřev vody s radioaktivitou nesouvisí.' },
 		{ text: 'Na čem je založen detektor kouře s americiem 241?', odpovedi: ['kouř změní průchod slabého záření', 'kouř zakryje světlo malé žárovky v čidle', 'kouř zvýší teplotu vzduchu v místnosti'], vysvetleni: 'Změna průchodu záření spustí alarm.' },
 	],

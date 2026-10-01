@@ -123,6 +123,10 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+- **K1 — [téma 5] Po209 v PDF Radioaktivita s. 9** má poločas 0,000 000 3 s (zřejmě záměna izotopu; v žákovském textu vypuštěno) — co s tím? (podrobnosti: `Omega/predavka/2026-10-01-noc/kontrola-codex-b12.md` § K1: a) opravit na Po212, b) ponechat Po209 a uvést asi 125 let, c) polonium vynechat = současný stav)
+
+- **UZAVŘENO 2. 10. 2026 (rozhodl učitel) — tři dotazy z noci 1. 10.** (provedeno, protokol `Omega/predavka/2026-10-01-noc/vysledek-rozhodnuti-AAA.md`): (1) D11 teploty na dnešní hodnoty, celá čísla: var železa 2 860 °C, tání lihu −114 °C, tání hliníku 660 °C (F8 tání: temata.ts, kvíz, SVG tani-obr-05, pracovní soubory tema4); (2) postřikovač pascal-obr-11 jen s neutrálním popiskem „zahradní postřikovač“, vysvětlující věta se NEVKLÁDÁ; (3) radon 222 = „asi 3,8 dne“ (F9 výklad i kvíz, pracovní f9-radioaktivita).
+
 - **ROZHODNUTO 1. 10. 2026 (rozhodl učitel) — [téma 4] rozpory PDF + F9 Účinky proudu** (původně otevřený dotaz; soubory `Omega/predavka/2026-10-01/prace/tema4/*.md`, sekce rozpory):
   - (a) Práh proudu = stupnice ~1 mA ucítí / ~10 mA nepustí / od ~30 mA zástava srdce (fibrilace); chránič 30 mA; cesta přes levou ruku do srdce. (Tím je vyřešen i bod 14 „2–5 vs 1–8 mA“ níže.)
   - (b) Odpor kůže = vlhko 2 000 Ω / sucho 150 000 Ω (příklad 230 V ÷ 2 000 Ω ≈ 115 mA).
