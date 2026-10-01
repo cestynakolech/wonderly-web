@@ -5,6 +5,8 @@ import Kviz from '../../../../../../components/skola2/Kviz.astro';
 import QrKod from '../../../../../../components/skola2/QrKod.astro';
 import AnimaceVyklad from '../../../../../../components/skola2/AnimaceVyklad.astro';
 import HydraulikaSimulace from '../../../../../../components/skola2/HydraulikaSimulace.astro';
+import StlacitelnostSimulace from '../../../../../../components/skola2/StlacitelnostSimulace.astro';
+import HydraulikaStrikackySimulace from '../../../../../../components/skola2/HydraulikaStrikackySimulace.astro';
 import SkupenstviSimulace from '../../../../../../components/skola2/SkupenstviSimulace.astro';
 import DifuzeSimulace from '../../../../../../components/skola2/DifuzeSimulace.astro';
 import ObvodSimulace from '../../../../../../components/skola2/ObvodSimulace.astro';
@@ -199,7 +201,7 @@ const maAnimace = vsechnyAnimace.some((a) => a.podtema === podtema.slug && a.roc
 const maInfografiky = mat.some((m) => m.druh === 'infografika');
 const maVidea = mat.some((m) => m.druh === 'video' || m.druh === 'youtube');
 const maAudio = mat.some((m) => m.druh === 'audio');
-const maSimulaci = Boolean(podtema.interakce || podtema.interakce2);
+const maSimulaci = Boolean(podtema.interakce || podtema.interakce2 || podtema.interakce3);
 const rozcestnik = [
 	podtema.zapis && { id: 'zapis', text: '📓 Zápis' },
 	maAnimace && { id: 'animace', text: '🎬 Animace' },
@@ -519,7 +521,9 @@ const ikonyDruhu = { infografika: '🖼️', pdf: '📄', video: '🎬' };
 	{podtema.interakce2 === 'kolejnice' && <KolejniceSimulace />}
 	{podtema.interakce2 === 'polovodic-dopovani' && <PolovodicSimulace />}
 	{podtema.interakce2 === 'prumer' && <PrumerSimulace />}
+	{podtema.interakce2 === 'stlacitelnost' && <StlacitelnostSimulace />}
 	{podtema.interakce2 === 'teziste-stabilita' && <TezisteStabilitaSimulace />}
+	{podtema.interakce3 === 'hydraulika-strikacky' && <HydraulikaStrikackySimulace />}
 	{laborka && (
 		<section class="ramecek laborka-pozvanka" id="laborka">
 			<h2><span class="podtrh">🧪 Laboratorní práce</span></h2>

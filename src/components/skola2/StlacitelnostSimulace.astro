@@ -1,0 +1,287 @@
+---
+// Stříkačka: stlačitelnost plynu a kapaliny (7. ročník, celek Tlak v kapalinách,
+// podtéma Pascalův zákon — odstavec „Proč zákon platí").
+//
+// Opora ve výkladu (temata.ts, pascaluv-zakon): „Kapaliny jsou tekuté a téměř dokonale
+// nestlačitelné. Jejich částice jsou blízko u sebe. Když kapalinu stlačíme, částice na sebe
+// působí velkými odpudivými silami. Kapalina se proto do menšího prostoru nevejde … Plyny se
+// naopak stlačit dají." PDF 14. Tlak v kapalinách vyvolaný vnější silou, s. 3.
+// Částice vzduchu (nahuštění při stlačení): PDF „7/3 Mechanické vlastnosti kapalin/
+// 16 Atmosférický tlak/Atmosférický tlak.pdf" ř. 17–19 (plyny jsou lehce stlačitelné,
+// částice jsou velice daleko od sebe ⇨ stlačitelnost plynů).
+//
+// Scéna: svislá injekční stříkačka, dole ucpaný konec, nahoře píst. Posuvník volí sílu na píst
+// jen SLOVY (žádná – největší), přepínač vybírá vzduch nebo vodu. Žádné číslo se nezobrazuje —
+// výklad neuvádí žádný číselný vztah mezi silou a objemem plynu, proto simulace žádný netvrdí.
+//   vzduch: píst se posune dolů, 12 částic (kuliček) se nahustí blíž k sobě, počet zůstává;
+//           výška vzduchového sloupce 200 · 4 : (4 + stupeň) px → 200, 160, 133, 114, 100
+//           (jen kresba „čím větší síla, tím menší prostor"; nic se nevypisuje)
+//   voda:   píst zůstane na místě, 171 částic leží těsně u sebe v celém prostoru.
+// Stav je výhradně v SVG atributech (y, height, opacity, fill, cx, cy, points) a v <text>.
+// Nic se nehýbe samo, žádná animace, nic náhodného.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: stříkačka se vzduchem a s vodou 🕹️</span></h2>
+	<p>
+		Stříkačka má <strong>ucpaný konec</strong>, nic z ní neuteče. Zatlač na píst a porovnej:
+		<strong>vzduch</strong> se stlačit dá, <strong>voda</strong> je téměř dokonale nestlačitelná.
+	</p>
+
+	<svg id="st-svg" viewBox="0 0 440 450" role="img" aria-label="Svislá injekční stříkačka s ucpaným koncem, píst tlačený shora, uvnitř vzduch nebo voda nakreslené jako částice">
+		<rect x="0" y="0" width="440" height="450" fill="#eef6ff" />
+
+		<!-- vnitřek válce nad pístem (prázdný) -->
+		<rect x="60" y="190" width="120" height="214" fill="#ffffff" />
+		<!-- obsah stříkačky pod pístem: vzduch nebo voda (y, height, fill) -->
+		<rect id="st-obsah" x="60" y="204" width="120" height="200" fill="#fff4e6" />
+		<rect id="st-hrdlo" x="114" y="404" width="12" height="20" fill="#fff4e6" />
+
+		<!-- částice vody: 171 kuliček těsně u sebe (kulatý konec čáry = kulička o průměru 12) -->
+		<path id="st-voda" opacity="0" stroke="#1864ab" stroke-width="12" stroke-linecap="round" d="M66 210h0M78 210h0M90 210h0M102 210h0M114 210h0M126 210h0M138 210h0M150 210h0M162 210h0M174 210h0M72 221h0M84 221h0M96 221h0M108 221h0M120 221h0M132 221h0M144 221h0M156 221h0M168 221h0M66 232h0M78 232h0M90 232h0M102 232h0M114 232h0M126 232h0M138 232h0M150 232h0M162 232h0M174 232h0M72 243h0M84 243h0M96 243h0M108 243h0M120 243h0M132 243h0M144 243h0M156 243h0M168 243h0M66 254h0M78 254h0M90 254h0M102 254h0M114 254h0M126 254h0M138 254h0M150 254h0M162 254h0M174 254h0M72 265h0M84 265h0M96 265h0M108 265h0M120 265h0M132 265h0M144 265h0M156 265h0M168 265h0M66 276h0M78 276h0M90 276h0M102 276h0M114 276h0M126 276h0M138 276h0M150 276h0M162 276h0M174 276h0M72 287h0M84 287h0M96 287h0M108 287h0M120 287h0M132 287h0M144 287h0M156 287h0M168 287h0M66 298h0M78 298h0M90 298h0M102 298h0M114 298h0M126 298h0M138 298h0M150 298h0M162 298h0M174 298h0M72 309h0M84 309h0M96 309h0M108 309h0M120 309h0M132 309h0M144 309h0M156 309h0M168 309h0M66 320h0M78 320h0M90 320h0M102 320h0M114 320h0M126 320h0M138 320h0M150 320h0M162 320h0M174 320h0M72 331h0M84 331h0M96 331h0M108 331h0M120 331h0M132 331h0M144 331h0M156 331h0M168 331h0M66 342h0M78 342h0M90 342h0M102 342h0M114 342h0M126 342h0M138 342h0M150 342h0M162 342h0M174 342h0M72 353h0M84 353h0M96 353h0M108 353h0M120 353h0M132 353h0M144 353h0M156 353h0M168 353h0M66 364h0M78 364h0M90 364h0M102 364h0M114 364h0M126 364h0M138 364h0M150 364h0M162 364h0M174 364h0M72 375h0M84 375h0M96 375h0M108 375h0M120 375h0M132 375h0M144 375h0M156 375h0M168 375h0M66 386h0M78 386h0M90 386h0M102 386h0M114 386h0M126 386h0M138 386h0M150 386h0M162 386h0M174 386h0M72 397h0M84 397h0M96 397h0M108 397h0M120 397h0M132 397h0M144 397h0M156 397h0M168 397h0" />
+
+		<!-- částice vzduchu: 12 kuliček, poloha (cx, cy) a viditelnost (opacity) z modelu -->
+		<g id="st-vzduch-castice" fill="#495057">
+			<circle id="st-c0" cx="70" cy="210" r="6" />
+			<circle id="st-c1" cx="116" cy="210" r="6" />
+			<circle id="st-c2" cx="164" cy="210" r="6" />
+			<circle id="st-c3" cx="90" cy="270" r="6" />
+			<circle id="st-c4" cx="138" cy="270" r="6" />
+			<circle id="st-c5" cx="170" cy="270" r="6" />
+			<circle id="st-c6" cx="76" cy="330" r="6" />
+			<circle id="st-c7" cx="124" cy="330" r="6" />
+			<circle id="st-c8" cx="162" cy="330" r="6" />
+			<circle id="st-c9" cx="96" cy="390" r="6" />
+			<circle id="st-c10" cx="144" cy="390" r="6" />
+			<circle id="st-c11" cx="172" cy="390" r="6" />
+		</g>
+
+		<!-- válec stříkačky, hrdlo a stupnice (bez čísel) -->
+		<path d="M58 190 V406 H112 V424 M128 424 V406 H182 V190" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<path d="M46 224h8M46 244h8M46 264h8M46 284h8M46 304h8M46 324h8M46 344h8M46 364h8M46 384h8" stroke="#2b2a26" stroke-width="2" />
+		<rect x="48" y="184" width="144" height="6" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<!-- zátka na ucpaném konci -->
+		<rect x="104" y="424" width="32" height="14" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="2" />
+
+		<!-- píst: rukojeť, táhlo a gumové těsnění (y z modelu); táhlo je tak dlouhé, že rukojeť
+		     zůstane nad okrajem válce i při největší síle -->
+		<rect id="st-rukojet" x="70" y="72" width="100" height="8" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<rect id="st-tahlo" x="114" y="80" width="12" height="112" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+		<rect id="st-pist" x="60" y="192" width="120" height="12" fill="#343a40" />
+
+		<!-- síla na píst: červená šipka, délka roste se silou (bez čísla) -->
+		<line id="st-sipka" x1="120" y1="56" x2="120" y2="56" stroke="#c92a2a" stroke-width="6" opacity="0" />
+		<polygon id="st-hrot" points="110,56 130,56 120,68" fill="#c92a2a" opacity="0" />
+
+		<!-- plakety s popisky -->
+		<rect x="200" y="16" width="228" height="68" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="212" y="42" font-size="18" fill="#2b2a26">ve stříkačce je:</text>
+		<text id="st-latka" x="212" y="72" font-size="22" font-weight="bold" fill="#2b2a26">vzduch</text>
+
+		<rect x="200" y="98" width="228" height="216" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="212" y="124" font-size="18" fill="#2b2a26">síla na píst:</text>
+		<text id="st-sila-svg" x="212" y="148" font-size="20" font-weight="bold" fill="#c92a2a">žádná</text>
+		<text x="212" y="176" font-size="18" fill="#2b2a26">píst:</text>
+		<text id="st-pist-t" x="212" y="200" font-size="20" font-weight="bold" fill="#2b2a26">v klidu</text>
+		<text x="212" y="228" font-size="18" fill="#2b2a26">částice:</text>
+		<text id="st-castice-t" x="212" y="252" font-size="20" font-weight="bold" fill="#1864ab">po celé stříkačce</text>
+		<text x="212" y="280" font-size="18" fill="#2b2a26">počet částic:</text>
+		<text id="st-pocet-t" x="212" y="304" font-size="20" font-weight="bold" fill="#2b2a26">pořád stejný</text>
+
+		<rect x="200" y="376" width="228" height="58" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="212" y="400" font-size="18" fill="#2b2a26">ucpaný konec,</text>
+		<text x="212" y="424" font-size="18" fill="#2b2a26">nic neuteče</text>
+		<line x1="200" y1="420" x2="138" y2="431" stroke="#2b2a26" stroke-width="2" />
+	</svg>
+	<p class="st-mobil" id="st-mobil"></p>
+
+	<div class="st-tlacitka">
+		<button id="st-vzduch" type="button" aria-pressed="true">vzduch</button>
+		<button id="st-vodu" type="button" aria-pressed="false">voda</button>
+	</div>
+	<div class="st-ovladani">
+		<label>síla na píst <input id="st-sila" type="range" min="0" max="4" step="1" value="0" /> <span id="st-sila-t">žádná</span></label>
+	</div>
+	<p id="st-vysl" class="st-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const nastav = (id, atributy) => {
+		const el = $(id);
+		for (const k of Object.keys(atributy)) el.setAttribute(k, atributy[k]);
+	};
+
+	// ---------- geometrie scény (px) ----------
+	const DNO = 404; // dno válce
+	const VYSKA_KLID = 200; // výška obsahu pod pístem, když na píst nikdo netlačí
+	const PIST = 12; // tloušťka gumového těsnění
+	const TAHLO = 112; // délka táhla mezi rukojetí a těsněním
+	const RUKOJET = 8; // tloušťka rukojeti
+	const KROK_SIPKY = 12; // o kolik px se šipka prodlouží s každým stupněm síly
+	const LEVY_OKRAJ = 66; // střed kuličky u levé stěny (stěna na 60, k tomu poloměr 6)
+	const R = 6; // poloměr kuličky
+	const SILY = ['žádná', 'malá', 'střední', 'velká', 'největší'];
+	const BARVA = { vzduch: '#fff4e6', voda: '#a5d8ff' };
+
+	// 12 částic vzduchu: posun od levé stěny (px) a výška v procentech volného prostoru
+	const CASTICE = [
+		[4, 2], [50, 4], [98, 0],
+		[24, 33], [72, 29], [104, 36],
+		[10, 64], [58, 68], [96, 62],
+		[30, 97], [78, 100], [106, 95],
+	];
+
+	/** Výška vzduchového sloupce: čím větší síla, tím menší prostor (jen kresba, žádné číslo). */
+	const vyskaVzduchu = (stupen) => Math.round((VYSKA_KLID * 4) / (4 + stupen));
+
+	/** Čistý model scény — z něj se kreslí a test ho porovnává s kresbou. */
+	function model(rezim, stupen) {
+		const vyska = rezim === 'vzduch' ? vyskaVzduchu(stupen) : VYSKA_KLID;
+		const spodekPistu = DNO - vyska;
+		const pistY = spodekPistu - PIST;
+		const tahloY = pistY - TAHLO;
+		const rukojetY = tahloY - RUKOJET;
+		const sipka = stupen * KROK_SIPKY;
+		const volno = vyska - 2 * R;
+		const castice = CASTICE.map(([dx, v]) => [LEVY_OKRAJ + dx, spodekPistu + R + Math.round((volno * v) / 100)]);
+		return { vyska, spodekPistu, pistY, tahloY, rukojetY, sipka, castice };
+	}
+	$('st-svg').__model = model;
+
+	let rezim = 'vzduch';
+
+	function kresli() {
+		const stupen = +$('st-sila').value;
+		const m = model(rezim, stupen);
+		const voda = rezim === 'voda';
+
+		nastav('st-obsah', { y: m.spodekPistu, height: m.vyska, fill: BARVA[rezim] });
+		nastav('st-hrdlo', { fill: BARVA[rezim] });
+		nastav('st-voda', { opacity: voda ? 1 : 0 });
+		m.castice.forEach(([x, y], i) => nastav(`st-c${i}`, { cx: x, cy: y, opacity: voda ? 0 : 1 }));
+
+		nastav('st-pist', { y: m.pistY });
+		nastav('st-tahlo', { y: m.tahloY });
+		nastav('st-rukojet', { y: m.rukojetY });
+
+		// šipka končí hrotem 4 px nad rukojetí; bez síly není vidět
+		const spicka = m.rukojetY - 4;
+		const viditelna = stupen > 0 ? 1 : 0;
+		nastav('st-sipka', { y1: spicka - 12 - m.sipka, y2: spicka - 12, opacity: viditelna });
+		nastav('st-hrot', { points: `110,${spicka - 12} 130,${spicka - 12} 120,${spicka}`, opacity: viditelna });
+
+		const sila = SILY[stupen];
+		$('st-sila-t').textContent = sila;
+		$('st-sila-svg').textContent = sila;
+		$('st-latka').textContent = voda ? 'voda' : 'vzduch';
+		$('st-vzduch').setAttribute('aria-pressed', String(!voda));
+		$('st-vodu').setAttribute('aria-pressed', String(voda));
+
+		let pist, castice, vysl;
+		if (stupen === 0) {
+			pist = 'v klidu';
+			castice = voda ? 'blízko u sebe' : 'po celé stříkačce';
+			vysl = voda
+				? 'Ve stříkačce je voda. Její částice jsou blízko u sebe. Zatlač na píst a sleduj, co se stane.'
+				: 'Ve stříkačce je vzduch a jeho částice jsou rozmístěné po celé stříkačce. Zatlač na píst a sleduj, co se stane.';
+		} else if (voda) {
+			pist = 'téměř se nehne';
+			castice = 'zůstanou u sebe';
+			vysl = 'Voda je téměř dokonale nestlačitelná. Její částice jsou blízko u sebe a při stlačení na sebe působí velkými odpudivými silami. Voda se do menšího prostoru nevejde, a proto se píst téměř nehne.';
+		} else {
+			pist = 'posune se dolů';
+			castice = 'nahustí se k sobě';
+			vysl = 'Vzduch se stlačit dá. Píst se posune dolů a částice vzduchu se nahustí blíž k sobě. Žádná neuteče, je jich pořád stejně — jen mají méně místa.';
+		}
+		$('st-pist-t').textContent = pist;
+		$('st-castice-t').textContent = castice;
+		$('st-vysl').textContent = vysl;
+		// HTML obraz plaket pro telefon (písmo ve scéně je tam menší než 12 px)
+		$('st-mobil').textContent = `ve stříkačce je: ${$('st-latka').textContent} · síla na píst: ${sila} · píst: ${pist} · částice: ${castice} · počet částic: pořád stejný`;
+	}
+
+	$('st-sila').addEventListener('input', kresli);
+	$('st-vzduch').addEventListener('click', () => { rezim = 'vzduch'; kresli(); });
+	$('st-vodu').addEventListener('click', () => { rezim = 'voda'; kresli(); });
+
+	kresli();
+</script>
+
+<style>
+	.simulace svg {
+		width: 100%;
+		max-width: 440px;
+		display: block;
+		margin: 0 auto;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.st-ovladani {
+		display: flex;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.st-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 600;
+	}
+	.st-ovladani input[type='range'] {
+		min-width: 8rem;
+		height: 2.75rem;
+	}
+	.st-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 0.6rem 0;
+	}
+	.st-tlacitka button {
+		font-weight: 700;
+		font-size: 1rem;
+		padding: 0.5rem 1.1rem;
+		min-height: 2.75rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffffff;
+		color: #2b2a26;
+		cursor: pointer;
+		touch-action: manipulation;
+	}
+	.st-tlacitka button[aria-pressed='true'] {
+		background: #ffd43b;
+	}
+	/* telefon (≤ 640 px): scéna přes celou šířku displeje, stav plaket čitelně pod ní */
+	.st-mobil {
+		display: none;
+	}
+	@media (max-width: 640px) {
+		#st-svg {
+			width: calc(100vw - 16px);
+			max-width: none;
+			margin-left: calc(50% - 50vw + 8px);
+		}
+		.st-mobil {
+			display: block;
+			font-size: 1rem;
+			line-height: 1.45;
+			margin: 0.5rem 0;
+			padding: 0.4rem 0.6rem;
+			background: #ffffff;
+			color: #2b2a26;
+			border: 2px solid #2b2a26;
+			border-radius: 8px;
+		}
+	}
+	.st-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		color: #2b2a26;
+		text-align: center;
+	}
+</style>

@@ -1,0 +1,306 @@
+---
+// Hydraulika se dvěma stříkačkami (7. ročník, celek Tlak v kapalinách, podtéma Pascalův zákon).
+//
+// Opora (doklad: Omega/dokumenty/zdroje-ucitele/2026-10-01-pokus-dve-strikacky.md): pokus učitele ve škole (zadání učitele 1. 10. 2026) — dvě propojené stříkačky
+// různého objemu, žák zmáčkne menší, píst větší se vysune jen o malý kousek. Ve výkladu
+// (temata.ts, pascaluv-zakon): F₂ = F₁ · (S₂ : S₁) a nestlačitelnost kapalin.
+// Čísla scény (S₁ = 1 cm², S₂ = 2 nebo 4 cm², posun 0 / 4 / 8 cm) jsou modelový příklad
+// a jsou už ve výkladu i zápisu (temata.ts, pascaluv-zakon); opora = doklad výše.
+//
+// Vztahy:  s₂ = s₁ · S₁ : S₂   (voda je téměř nestlačitelná → kolik odteče, tolik přiteče)
+//          V  = S · s          (1 · 8 = 8 cm³ = 4 · 2)
+//          F₂ = F₁ · (S₂ : S₁) (velký píst tlačí 2krát / 4krát větší silou)
+// Všechny polohy posuvníku (0, 4, 8 cm) a obě plochy (2, 4 cm²) dávají celé výsledky.
+//
+// Kresba: svislé stříkačky ústím dolů, voda dole, spojené hadičkou. ŠÍŘKA válce je úměrná
+// PLOŠE pístu (24 px na 1 cm²), výška 15 px na 1 cm — oranžový čárkovaný obrys
+// „odteklo" v malé (prázdno nad pístem) a „přiteklo" ve velké (voda) má proto v obrázku
+// stejnou plochu, jako mají oba objemy stejnou velikost. Šipka síly F₂ je S₂ : S₁ krát delší než F₁. Stav je výhradně v SVG atributech
+// (x, y, width, height, opacity, points, y1, y2) a v <text>; nic se nehýbe samo.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Vyzkoušej: hydraulika ze dvou stříkaček 🕹️</span></h2>
+	<p>
+		Dvě stříkačky plné vody spojuje hadička. Zatlač na píst <strong>malé</strong> stříkačky
+		a sleduj píst <strong>velké</strong>: kolik vody z malé odteče, tolik jí do velké přiteče.
+	</p>
+
+	<svg id="hs-svg" viewBox="0 0 440 500" role="img" aria-label="Malá a velká injekční stříkačka ústím dolů spojené hadičkou s vodou; zatlačený malý píst vysune velký píst o kratší kus">
+		<rect x="0" y="0" width="440" height="500" fill="#eef6ff" />
+
+		<!-- plaketa malé stříkačky -->
+		<rect x="6" y="6" width="210" height="136" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="16" y="30" font-size="18" font-weight="bold" fill="#2b2a26">malá stříkačka</text>
+		<text x="16" y="56" font-size="17" fill="#2b2a26">S₁ = 1 cm²</text>
+		<text id="hs-s1-t" x="16" y="82" font-size="17" fill="#2b2a26">posun s₁ = 0 cm</text>
+		<text id="hs-v1-t" x="16" y="108" font-size="17" fill="#c2410c">odteče 1 · 0 = 0 cm³</text>
+		<text id="hs-f1-t" x="16" y="134" font-size="17" font-weight="bold" fill="#c92a2a">F₁ zatím nepůsobí</text>
+
+		<!-- plaketa velké stříkačky -->
+		<rect x="224" y="6" width="210" height="136" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="234" y="30" font-size="18" font-weight="bold" fill="#2b2a26">velká stříkačka</text>
+		<text id="hs-S2-t" x="234" y="56" font-size="17" fill="#2b2a26">S₂ = 4 cm²</text>
+		<text id="hs-s2-t" x="234" y="82" font-size="17" fill="#2b2a26">s₂ = 0 · 1 : 4 = 0 cm</text>
+		<text id="hs-v2-t" x="234" y="108" font-size="17" fill="#c2410c">přiteče 4 · 0 = 0 cm³</text>
+		<text id="hs-f2-t" x="234" y="134" font-size="17" font-weight="bold" fill="#c92a2a">F₂ bude 4 · F₁</text>
+
+		<!-- voda ve válcích (y, height; u velké i x, width) -->
+		<rect id="hs-voda1" x="98" y="331" width="24" height="135" fill="#a5d8ff" />
+		<rect id="hs-voda2" x="272" y="421" width="96" height="45" fill="#a5d8ff" />
+
+		<!-- hadička s vodou mezi ústími -->
+		<path d="M110 466 V486 H320 V466" fill="none" stroke="#2b2a26" stroke-width="12" />
+		<path d="M110 466 V486 H320 V466" fill="none" stroke="#a5d8ff" stroke-width="6" />
+
+		<!-- válce stříkaček (velký mění šířku podle S₂) -->
+		<path d="M96 306 V468 H108 M112 468 H124 V306" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect x="84" y="300" width="52" height="6" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<rect id="hs-stena2" x="270" y="306" width="100" height="162" fill="none" stroke="#2b2a26" stroke-width="4" />
+		<rect id="hs-okraj2" x="258" y="300" width="124" height="6" rx="2" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<!-- ústí velké stříkačky do hadičky -->
+		<rect x="317" y="464" width="6" height="6" fill="#a5d8ff" />
+
+		<!-- písty: těsnění, táhlo, rukojeť (y z modelu) -->
+		<rect id="hs-pist1" x="98" y="321" width="24" height="10" fill="#343a40" />
+		<rect id="hs-tahlo1" x="106" y="177" width="8" height="144" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+		<rect id="hs-rukojet1" x="84" y="169" width="52" height="8" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+		<rect id="hs-pist2" x="272" y="411" width="96" height="10" fill="#343a40" />
+		<rect id="hs-tahlo2" x="316" y="297" width="8" height="114" fill="#adb5bd" stroke="#2b2a26" stroke-width="2" />
+		<rect id="hs-rukojet2" x="262" y="289" width="116" height="8" rx="3" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
+
+		<!-- oranžový čárkovaný obrys: objem, který z malé odtekl (teď je tam prázdno nad pístem)
+		     a který do velké přitekl (je v něm voda) — v obrázku mají oba stejnou plochu -->
+		<rect id="hs-odteklo" x="98" y="331" width="24" height="0" fill="none" stroke="#c2410c" stroke-width="3" stroke-dasharray="6 4" opacity="0" />
+		<rect id="hs-priteklo" x="272" y="421" width="96" height="0" fill="none" stroke="#c2410c" stroke-width="3" stroke-dasharray="6 4" opacity="0" />
+
+		<!-- síly: F₁ tlačí dolů na malý píst, F₂ tlačí velký píst nahoru (délka F₂ = S₂ : S₁ · F₁) -->
+		<line id="hs-sipka1" x1="110" y1="129" x2="110" y2="153" stroke="#c92a2a" stroke-width="6" opacity="0" />
+		<polygon id="hs-hrot1" points="100,153 120,153 110,165" fill="#c92a2a" opacity="0" />
+		<line id="hs-sipka2" x1="320" y1="339" x2="320" y2="243" stroke="#c92a2a" stroke-width="6" opacity="0" />
+		<polygon id="hs-hrot2" points="310,243 330,243 320,231" fill="#c92a2a" opacity="0" />
+		<rect id="hs-f1-pl" x="54" y="129" width="40" height="28" rx="6" fill="#ffffff" stroke="#c92a2a" stroke-width="2" opacity="0" />
+		<text id="hs-f1-l" x="74" y="150" font-size="18" font-weight="bold" text-anchor="middle" fill="#c92a2a" opacity="0"></text>
+		<rect id="hs-f2-pl" x="334" y="277" width="40" height="28" rx="6" fill="#ffffff" stroke="#c92a2a" stroke-width="2" opacity="0" />
+		<text id="hs-f2-l" x="354" y="298" font-size="18" font-weight="bold" text-anchor="middle" fill="#c92a2a" opacity="0"></text>
+
+		<!-- popisky posunů na plaketách vedle oranžových pruhů -->
+		<rect id="hs-s1-pl" x="44" y="317" width="44" height="28" rx="6" fill="#ffffff" stroke="#c2410c" stroke-width="2" opacity="0" />
+		<text id="hs-s1-l" x="66" y="338" font-size="18" font-weight="bold" text-anchor="middle" fill="#c2410c" opacity="0"></text>
+		<rect id="hs-s2-pl" x="384" y="407" width="44" height="28" rx="6" fill="#ffffff" stroke="#c2410c" stroke-width="2" opacity="0" />
+		<text id="hs-s2-l" x="406" y="428" font-size="18" font-weight="bold" text-anchor="middle" fill="#c2410c" opacity="0"></text>
+	</svg>
+	<p class="hs-mobil" id="hs-mobil"></p>
+
+	<div class="hs-ovladani">
+		<label>zatlač malý píst o <input id="hs-posun" type="range" min="0" max="8" step="4" value="0" /> <span id="hs-posun-t">0 cm</span></label>
+	</div>
+	<div class="hs-tlacitka">
+		<button id="hs-velka2" type="button" aria-pressed="false">velká stříkačka 2 cm²</button>
+		<button id="hs-velka4" type="button" aria-pressed="true">velká stříkačka 4 cm²</button>
+	</div>
+	<p id="hs-vysl" class="hs-vysledek"></p>
+</section>
+
+<script>
+	const $ = (id) => document.getElementById(id);
+	const nastav = (id, atributy) => {
+		const el = $(id);
+		for (const k of Object.keys(atributy)) el.setAttribute(k, atributy[k]);
+	};
+
+	// ---------- čísla scény (cm, cm²) ----------
+	const S1 = 1; // plocha malého pístu
+	const KLID1 = 9; // cm vody pod malým pístem v klidu
+	const KLID2 = 3; // cm vody pod velkým pístem v klidu
+
+	// ---------- geometrie kresby (px) ----------
+	const SKALA = 15; // px na 1 cm výšky
+	const NA_CM2 = 24; // px šířky válce na 1 cm² plochy (šířka úměrná ploše)
+	const DNO = 466; // dno obou válců
+	const STRED1 = 110; // osa malé stříkačky
+	const STRED2 = 320; // osa velké stříkačky
+	const PIST = 10; // tloušťka těsnění
+	const TAHLO1 = 144; // táhlo malé: rukojeť zůstane nad válcem i po zatlačení o 8 cm
+	const TAHLO2 = 114; // táhlo velké: rukojeť (širší než válec) je vždy nad okrajem válce
+	const RUKOJET = 8;
+	const PRESAH = 10; // o kolik rukojeť přesahuje válec na každou stranu
+	const SIPKA1 = 24; // délka šipky F₁ (bez hrotu)
+	const HROT = 12;
+
+	/** Čistý model: s₁ v cm, S₂ v cm². */
+	function model(s1, S2) {
+		const pomer = S2 / S1;
+		const s2 = s1 / pomer; // kolik vody odteče, tolik přiteče: S₁ · s₁ = S₂ · s₂
+		const sirka1 = S1 * NA_CM2;
+		const sirka2 = S2 * NA_CM2;
+		const spodek1 = DNO - SKALA * (KLID1 - s1);
+		const spodek2 = DNO - SKALA * (KLID2 + s2);
+		return {
+			s2, pomer,
+			V1: S1 * s1, V2: S2 * s2,
+			x1: STRED1 - sirka1 / 2, sirka1, x2: STRED2 - sirka2 / 2, sirka2,
+			spodek1, spodek2,
+			klid1: DNO - SKALA * KLID1, klid2: DNO - SKALA * KLID2,
+			sipka1: SIPKA1, sipka2: SIPKA1 * pomer,
+		};
+	}
+	$('hs-svg').__model = model;
+
+	let S2 = 4;
+
+	function kresli() {
+		const s1 = +$('hs-posun').value;
+		const m = model(s1, S2);
+		const tlaci = s1 > 0 ? 1 : 0;
+
+		// voda a oranžové pruhy
+		nastav('hs-voda1', { x: m.x1, width: m.sirka1, y: m.spodek1, height: DNO - m.spodek1 });
+		nastav('hs-voda2', { x: m.x2, width: m.sirka2, y: m.spodek2, height: DNO - m.spodek2 });
+		nastav('hs-odteklo', { x: m.x1, width: m.sirka1, y: m.klid1, height: m.spodek1 - m.klid1, opacity: tlaci });
+		nastav('hs-priteklo', { x: m.x2, width: m.sirka2, y: m.spodek2, height: m.klid2 - m.spodek2, opacity: tlaci });
+
+		// válec velké stříkačky podle plochy
+		nastav('hs-stena2', { x: m.x2 - 2, width: m.sirka2 + 4 });
+		nastav('hs-okraj2', { x: m.x2 - PRESAH - 4, width: m.sirka2 + 2 * PRESAH + 8 });
+
+		// písty
+		const pist1 = m.spodek1 - PIST;
+		const pist2 = m.spodek2 - PIST;
+		const ruk1 = pist1 - TAHLO1 - RUKOJET;
+		const ruk2 = pist2 - TAHLO2 - RUKOJET;
+		nastav('hs-pist1', { x: m.x1, width: m.sirka1, y: pist1 });
+		nastav('hs-tahlo1', { y: pist1 - TAHLO1 });
+		nastav('hs-rukojet1', { y: ruk1 });
+		nastav('hs-pist2', { x: m.x2, width: m.sirka2, y: pist2 });
+		nastav('hs-tahlo2', { y: pist2 - TAHLO2 });
+		nastav('hs-rukojet2', { x: m.x2 - PRESAH, width: m.sirka2 + 2 * PRESAH, y: ruk2 });
+
+		// šipka F₁ míří dolů na rukojeť malé, šipka F₂ míří nahoru od rukojeti velké
+		const spicka1 = ruk1 - 4;
+		nastav('hs-sipka1', { y1: spicka1 - HROT - m.sipka1, y2: spicka1 - HROT, opacity: tlaci });
+		nastav('hs-hrot1', { points: `100,${spicka1 - HROT} 120,${spicka1 - HROT} 110,${spicka1}`, opacity: tlaci });
+		const pata2 = ruk2 - 4;
+		nastav('hs-sipka2', { y1: pata2, y2: pata2 - m.sipka2, opacity: tlaci });
+		nastav('hs-hrot2', { points: `310,${pata2 - m.sipka2} 330,${pata2 - m.sipka2} 320,${pata2 - m.sipka2 - HROT}`, opacity: tlaci });
+		const stredF1 = spicka1 - HROT - m.sipka1 / 2;
+		nastav('hs-f1-pl', { y: stredF1 - 14, opacity: tlaci });
+		nastav('hs-f1-l', { y: stredF1 + 7, opacity: tlaci });
+		const stredF2 = pata2 - m.sipka2 / 2;
+		nastav('hs-f2-pl', { x: STRED2 + 14, y: stredF2 - 14, opacity: tlaci });
+		nastav('hs-f2-l', { x: STRED2 + 34, y: stredF2 + 7, opacity: tlaci });
+
+		// popisky s₁ a s₂ vedle oranžových pruhů
+		const stredS1 = (m.klid1 + m.spodek1) / 2;
+		const stredS2 = Math.round((m.spodek2 + m.klid2) / 2); // při posunu o jeden centimetr má obrys lichou výšku
+		nastav('hs-s1-pl', { y: stredS1 - 14, opacity: tlaci });
+		nastav('hs-s1-l', { y: stredS1 + 7, opacity: tlaci });
+		nastav('hs-s2-pl', { x: m.x2 + m.sirka2 + 10, y: stredS2 - 14, opacity: tlaci });
+		nastav('hs-s2-l', { x: m.x2 + m.sirka2 + 32, y: stredS2 + 7, opacity: tlaci });
+		// skrytý popisek je i prázdný — jinak by se měřil jako neviditelný text
+		for (const [id, t] of [['hs-f1-l', 'F₁'], ['hs-f2-l', 'F₂'], ['hs-s1-l', 's₁'], ['hs-s2-l', 's₂']]) $(id).textContent = tlaci ? t : '';
+
+		// texty plaket
+		$('hs-posun-t').textContent = `${s1} cm`;
+		$('hs-s1-t').textContent = `posun s₁ = ${s1} cm`;
+		$('hs-v1-t').textContent = `odteče ${S1} · ${s1} = ${m.V1} cm³`;
+		$('hs-S2-t').textContent = `S₂ = ${S2} cm²`;
+		$('hs-s2-t').textContent = `s₂ = ${s1} · ${S1} : ${S2} = ${m.s2} cm`;
+		$('hs-v2-t').textContent = `přiteče ${S2} · ${m.s2} = ${m.V2} cm³`;
+		$('hs-f1-t').textContent = tlaci ? 'síla F₁' : 'F₁ zatím nepůsobí';
+		$('hs-f2-t').textContent = tlaci ? `síla F₂ = ${m.pomer} · F₁` : `F₂ bude ${m.pomer} · F₁`;
+		$('hs-velka2').setAttribute('aria-pressed', String(S2 === 2));
+		$('hs-velka4').setAttribute('aria-pressed', String(S2 === 4));
+
+		$('hs-vysl').textContent = s1 === 0
+			? `Velká stříkačka má ${m.pomer}krát větší plochu pístu než malá. Zatlač posuvníkem na malý píst a sleduj, o kolik se vysune velký.`
+			: `Z malé stříkačky odteklo ${S1} · ${s1} = ${m.V1} cm³ vody a do velké přiteklo ${S2} · ${m.s2} = ${m.V2} cm³ — stejně, protože voda je téměř nestlačitelná. ` +
+				`Velký píst má ${m.pomer}krát větší plochu, a proto se vysune jen o ${m.s2} cm místo ${s1} cm, zato tlačí ${m.pomer}krát větší silou. Co se získá na síle, ztratí se na dráze.`;
+		// HTML obraz plaket pro telefon
+		$('hs-mobil').textContent = `malá: S₁ = ${S1} cm², ${$('hs-s1-t').textContent}, ${$('hs-v1-t').textContent} · velká: ${$('hs-S2-t').textContent}, ${$('hs-s2-t').textContent}, ${$('hs-v2-t').textContent}, ${$('hs-f2-t').textContent}`;
+	}
+
+	$('hs-posun').addEventListener('input', kresli);
+	$('hs-velka2').addEventListener('click', () => { S2 = 2; kresli(); });
+	$('hs-velka4').addEventListener('click', () => { S2 = 4; kresli(); });
+
+	kresli();
+</script>
+
+<style>
+	.simulace svg {
+		width: 100%;
+		max-width: 440px;
+		display: block;
+		margin: 0 auto;
+		border: 3px solid #2b2a26;
+		border-radius: 12px;
+	}
+	.hs-ovladani {
+		display: flex;
+		justify-content: center;
+		margin: 0.8rem 0;
+	}
+	.hs-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 600;
+	}
+	.hs-ovladani input[type='range'] {
+		min-width: 8rem;
+		height: 2.75rem;
+	}
+	.hs-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 0.6rem 0;
+	}
+	.hs-tlacitka button {
+		font-weight: 700;
+		font-size: 1rem;
+		padding: 0.5rem 1.1rem;
+		min-height: 2.75rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffffff;
+		color: #2b2a26;
+		cursor: pointer;
+		touch-action: manipulation;
+	}
+	.hs-tlacitka button[aria-pressed='true'] {
+		background: #ffd43b;
+	}
+	/* telefon (≤ 640 px): scéna přes celou šířku displeje, stav plaket čitelně pod ní */
+	.hs-mobil {
+		display: none;
+	}
+	@media (max-width: 640px) {
+		#hs-svg {
+			width: calc(100vw - 16px);
+			max-width: none;
+			margin-left: calc(50% - 50vw + 8px);
+		}
+		.hs-mobil {
+			display: block;
+			font-size: 1rem;
+			line-height: 1.45;
+			margin: 0.5rem 0;
+			padding: 0.4rem 0.6rem;
+			background: #ffffff;
+			color: #2b2a26;
+			border: 2px solid #2b2a26;
+			border-radius: 8px;
+		}
+	}
+	.hs-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		color: #2b2a26;
+		text-align: center;
+	}
+</style>
