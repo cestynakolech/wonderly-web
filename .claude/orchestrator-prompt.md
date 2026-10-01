@@ -69,9 +69,12 @@ odkazem na `Omega/predavka/<datum>/SABLONY-ZADANI.md`; plné znění `~/.claude/
 
 ## ŠABLONA PŘEDÁVKY: KROK 0 (učitel 1. 10. 2026)
 
-Každý `PRIKAZ-NOVA-SESSION.md` začíná sekcí „KROK 0" (týká se JEN modelu hlavní session/orchestrátora; modely subagentů se na startu nevybírají ani nehlásí, orchestrátor je volí průběžně podle úkolu parametrem `model` u Agent, výchozí dle § SMĚROVÁNÍ NA MODELY): nová session zjistí svůj model (Environment),
-porovná s aktuálním seznamem modelů a s § SMĚROVÁNÍ NA MODELY níže, a liší-li se, řekne učiteli jednou
-větou doporučení (model nepřepíná, přepíná učitel v aplikaci), pak pokračuje. Součástí jsou tichá okna
+Každý `PRIKAZ-NOVA-SESSION.md` začíná na 1. řádku větou „Doporučený model orchestrátora: X — důvod“ a sekcí „KROK 0".
+Model pro příští session doporučuje KONČÍCÍ orchestrátor při psaní předávky podle práce v ní a uvede ho
+i v závěrečné zprávě učiteli spolu s větou ke spuštění — učitel tak spustí novou session rovnou se správným
+modelem (přepnutí až v nové session by znamenalo čtení všeho dvakrát). Nová session kvůli volbě modelu NIC nečte,
+jen jednou větou potvrdí, běží-li na jiném modelu, než stojí v 1. řádku, a pokračuje. Modely subagentů
+volí orchestrátor průběžně podle úkolu (parametr `model` u Agent, výchozí dle § SMĚROVÁNÍ NA MODELY níže). Součástí KROKU 0 jsou tichá okna
 v tichých oknech bez těžkých úloh (dny a časy jen v `Omega/skripty/ticha_okna.py`, konstanta `TICHA_OKNA`; popis `Omega/predavka/2026-10-01-den/ticha-okna.md`).
 
 ## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
