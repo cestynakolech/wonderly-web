@@ -168,8 +168,8 @@ const nad = (kvizy) => zkontrolujKrizove({ kvizy });
 // správně (ověřeno níže nad ŽIVÝMI daty), jen se přeslovilo, na co má ukazovat:
 //   • KOTVA 1/6: „plochá baterie" už není F8×F9, ale F8×F8 (dvě různá témata osmičky
 //     mají doslova stejnou otázku) — pořád reálný nález, jen jiné ročníky.
-//   • KOTVA 5/6: F9 verze otázky o bezpečném napětí dnes zní SLOVO OD SLOVA stejně
-//     jako F8 (dřív měla dovětek „podle normy") — silnější shoda, ne slabší.
+//   • KOTVA 5/6: nyní pár „autobaterie 12 V“ (F8) × F9 otázka o bezpečném napětí — shodná hodnota, ale
+//     RŮZNÁ fakta; kotva hlídá, že měřidlo takový blízký pár hlásí (lidský úsudek rozhodne, že nejde o duplicitu).
 //
 // AKTUALIZACE 30. 9. 2026: nový obsah (chemicke-zdroje-napeti 9. r., prenos-elektricke-energie)
 // nahradil otázky tří kotev; nové ukazují na SKUTEČNÉ páry v dnešních datech téže třídy:
