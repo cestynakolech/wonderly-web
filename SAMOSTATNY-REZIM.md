@@ -122,7 +122,11 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
-- **[téma 4] Rozpory PDF (1. 10. 2026):** protokoly tématu 4 nesou v sekci „rozpory“ místa, kde PDF neladí s fyzikou nebo samo se sebou (plavební komora, brusle −8 °C, 1 m² = 100 cm², 5 000 Pa = 1 kPa, mořský led, měrné teplo, značka Lt aj.). Učitel rozhodne, co se ponechá podle PDF a co opraví. Soubory: `Omega/predavka/2026-10-01/prace/tema4/*.md` (sekce rozpory). Dále: F9 Účinky proudu — práh 2–5 vs 1–8 mA.
+- **ROZHODNUTO 1. 10. 2026 (rozhodl učitel) — [téma 4] rozpory PDF + F9 Účinky proudu** (původně otevřený dotaz; soubory `Omega/predavka/2026-10-01/prace/tema4/*.md`, sekce rozpory):
+  - (a) Práh proudu = stupnice ~1 mA ucítí / ~10 mA nepustí / od ~30 mA zástava srdce (fibrilace); chránič 30 mA; cesta přes levou ruku do srdce. (Tím je vyřešen i bod 14 „2–5 vs 1–8 mA“ níže.)
+  - (b) Odpor kůže = vlhko 2 000 Ω / sucho 150 000 Ω (příklad 230 V ÷ 2 000 Ω ≈ 115 mA).
+  - (c) 18 chyb PDF (téma 4 + F9): hromadně web podle správné fyziky, chyby PDF se nepřebírají.
+  - (d) Plavební komora: samospád potvrzen; „měrné teplo“ u tuhnutí nepřebírat.
 - **[téma 3] a)** Nakloněná rovina a Klín: ve Škole k nim není PDF ani prezentace (prohledáno i v ZIPech). Návrh textu nakloněné roviny z dosavadního webu je v `f7-naklonena-rovina.json` (vzorec a čísla jen v Pro zvídavé); stránka na webu zůstala beze změny. Dodá učitel podklad, nebo potvrdí učení z dosavadního webu?
 - **[téma 3] b)** Odchylky od PDF opravené na fyzikálně správné znění (přehled v `odchylky-od-pdf.md`): mazání pístu v olejové vaně, šipky akce/reakce, sůl „vznikají ionty“, rychlost rakety 28 000 km/h, SO⁴⁻ — ke schválení.
 - **[téma 3] c)** Termistor „v hutích“ (PDF Polovodiče s. 9) — ponecháno, ověřit.
@@ -312,7 +316,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
-- **Fronta téma 4 (1. 10. 2026):** simulace Tlaku; F9 Účinky proudu a bezpečnost (čeká na učitele); vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
+- **Fronta téma 4 (1. 10. 2026):** simulace Tlaku; F9 Účinky proudu a bezpečnost (ODBLOKOVÁNO 1. 10. 2026, rozhodl učitel: práh ~1/~10/~30 mA, kůže 2 000 Ω vlhko / 150 000 Ω sucho, viz rozhodnutí v ❓); vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
 - **Fronta téma 3 (30. 9. 2026 noc):** zbývá Klín (bez podkladu) a Nakloněná rovina (bez podkladu, viz ❓ a); pak další téma.
 - **DROBNÉ k7 (F7 Těžiště + F8 Tepelná výměna, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k7.md`, NASADIT).** Body 1–6 jdou do dalšího kola.
 - **DROBNÉ k6 (F8 Energetická hodnota potravin, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k6.md`, NASADIT).** Body 1–4 (kvizy.ts 3559, 3560, 3543, 4644×4662) jdou do dalšího kola. ODLOŽENO: 5, 6, 8 (SvacinaSimulace.astro: „vždy na 100 g", nečitelné popisky v 400 px, dietní hlášky) a 7 (`testy/cisla-ve-vykladu.mjs:15` nezná NBSP, falešný poplach 6300).
