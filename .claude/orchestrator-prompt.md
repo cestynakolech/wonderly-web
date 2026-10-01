@@ -67,6 +67,13 @@ Agenti vracejí MAX 3 ŘÁDKY (verdikt, počet, cesta), zadání max ~10 řádk�
 odkazem na `Omega/predavka/<datum>/SABLONY-ZADANI.md`; plné znění `~/.claude/CLAUDE.md`
 § Úspora kontextu orchestrátora.
 
+## ŠABLONA PŘEDÁVKY: KROK 0 (učitel 1. 10. 2026)
+
+Každý `PRIKAZ-NOVA-SESSION.md` začíná sekcí „KROK 0" (týká se JEN modelu hlavní session/orchestrátora; modely subagentů se na startu nevybírají ani nehlásí, orchestrátor je volí průběžně podle úkolu parametrem `model` u Agent, výchozí dle § SMĚROVÁNÍ NA MODELY): nová session zjistí svůj model (Environment),
+porovná s aktuálním seznamem modelů a s § SMĚROVÁNÍ NA MODELY níže, a liší-li se, řekne učiteli jednou
+větou doporučení (model nepřepíná, přepíná učitel v aplikaci), pak pokračuje. Součástí jsou tichá okna
+v tichých oknech bez těžkých úloh (dny a časy jen v `Omega/skripty/ticha_okna.py`, konstanta `TICHA_OKNA`; popis `Omega/predavka/2026-10-01-den/ticha-okna.md`).
+
 ## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
 
 Kroky standardního rozkladu a model, na kterém mají běžet:
