@@ -1,36 +1,33 @@
 ---
 // Bezpečnost u elektrického vedení (F9, elektricka-energie-a-bezpecnost/
-// ucinky-proudu-bezpecnost). PŘEPRACOVÁNO 22. 8. 2026 — původní verze měla
-// šest tříd napětí s "bezpečnou vzdáleností" 7/10/12/15/20/25 m. Tato čísla
-// se programovým prohledáním všech PDF 9. ročníku i elektřiny 8. ročníku
-// NENAŠLA v ŽÁDNÉM podkladu učitele — byla vymyšlená a smazána (feedback
-// "kontrolovat-spravnost-textu"). Zdroj pravdy je PDF "16 Účinky proudu na
-// lidský organismus. Bezpečnost při práci s elektrickými zařízeními" (9. roč.,
-// /Users/Shared/Škola/9/1 Elektřina/16 …/16. …pdf).
+// ucinky-proudu-bezpecnost).
 //
-// Co PDF SKUTEČNĚ říká (str. 4, doslovně):
-//   "Nedotýkáme se nosných elektrických stožárů elektrického vedení ani
-//    drátů spadlých na zem."
-//   "Nejvyšší bezpečná hodnota stejnosměrného napětí podle normy je 25 V
-//    a střídavého napětí 12 V."
-// A (str. 3, doslovně):
-//   "Vysoká napětí způsobují tepelná poškození, v tomto případě nemusí
-//    dojít ani k fyzickému kontaktu vodiče a organismu, protože může
-//    vzniknout na větší vzdálenost elektrický oblouk, např. při blesku."
-// A (str. 5, první pomoc, doslovně):
-//   "zraněného oddělíme od vodičů izolujícím předmětem… Nikdy se zraněného
-//    ani jeho oděvu nedotýkáme holou rukou, dokud není zraněný mimo dosah
-//    elektrického proudu."
+// MĚŘÍTKO PRAVDY = živý výklad F9 v src/data/temata.ts (slug
+// ucinky-proudu-bezpecnost) + PDF učitele "16 Účinky proudu na lidský
+// organismus…" (9. roč.). Simulace netvrdí nic, co ve výkladu není.
 //
-// Nová simulace má DVA nezávislé posuvníky, oba jen s ÚDAJI Z PDF:
-//   1) situace u vedení (4 stavy) — žádné metry, jen kvalitativní odstup
-//      (daleko / blízko bez dotyku / dotyk stožáru / dotyk spadlého drátu).
-//      Stav "blízko bez dotyku" je STÁLE nebezpečný (oblouk může přeskočit
-//      vzduchem i bez dotyku, str. 3) — nevzniká dojem, že stačí "kousek dál".
-//   2) napětí zdroje, kterého se osoba dotýká holou rukou (12 V / 25 V /
-//      230 V) — přímo testuje hranici bezpečného napětí z normy (str. 4).
-// Statická scéna beze smyčky requestAnimationFrame — vykresluje se znovu při
-// každé změně posuvníku (čistá funkce stavu).
+// Opora ve výkladu (oddíly):
+//   "Bezpečné napětí": ve vlhkých prostorách (koupelna, bazén, sklep) platí
+//     přísnější mez — stejnosměrné nejvýš 25 V, střídavé jen 12 V; 230 V ze
+//     zásuvky je nebezpečné vždycky a všude.
+//   "Vedení vysokého napětí": nedotýkáme se nosných stožárů ani drátů spadlých
+//     na zem; u vysokého napětí proud přeskočí vzduchem (oblouk), nebezpečí
+//     hrozí i bez dotyku → k vedení se nikdy nepřibližuj; spadlý drát bývá pod
+//     napětím, volej 112, odcházej drobnými krůčky.
+//   "První pomoc": vypni proud; pokud to nejde, odděl izolující tyčí ze suchého
+//     dřeva/plastu; nikdy holou rukou; u vysokého napětí se vůbec nepřibližuj;
+//     volej 155.
+//   "Pro zvídavé": I = 230 : 2 000 = 0,115 A = 115 mA, nad 80 mA = zástava srdce.
+//
+// OPRAVA 1. 10. 2026 (kontroly kontrola-stash-f9.md B1–B4 a
+// kontrola-codex-navrhy.md Z1, Z2, S3, S4, D8): pryč slib napětí "bez rizika",
+// termín bez opory v PDF, věta o vlhku v rozporu s výkladem, rada oddělit
+// zraněného tyčí u vysokého napětí, zmínky o PDF v žákovském textu; plakety
+// nezakrývají stožár, postava "bez dotyku" nestojí na drátu, jiskra u dotyku
+// je v místě dotyku (ne z horního vedení).
+//
+// Dva nezávislé posuvníky (celočíselné indexy): situace u vedení (0–3) a
+// napětí zdroje (0–2). Statická scéna beze smyčky requestAnimationFrame.
 ---
 
 <section class="ramecek simulace">
@@ -38,11 +35,12 @@
 	<p>
 		U elektrického vedení nerozhoduje jen <strong>dotyk</strong> — u vysokého
 		napětí umí proud <strong>přeskočit vzduchem obloukem</strong>, i když se
-		vedení vůbec nedotkneš. Vyzkoušej, které chování je bezpečné, a pak zkus,
-		jaké napětí smíš bez rizika chytit holou rukou.
+		vedení vůbec nedotkneš. Vlevo vyzkoušej, které chování u vedení je správné.
+		Vpravo porovnej, které napětí nepřekračuje mez bezpečného napětí a které
+		je nebezpečné vždycky.
 	</p>
 
-	<svg id="bvv-svg" viewBox="0 0 640 320" role="img" aria-label="Vlevo stožár elektrického vedení se spadlým drátem a postava v různých situacích, vpravo zdroj napětí a ruka, která se ho dotýká">
+	<svg id="bvv-svg" viewBox="0 0 640 320" role="img" aria-label="Vlevo stožár vedení vysokého napětí, spadlý drát na zemi a postava v různých situacích, vpravo zdroj napětí a ruce, které se ho dotýkají">
 		<rect x="0" y="0" width="640" height="320" fill="#eef6ff" />
 		<rect x="0" y="255" width="640" height="65" fill="#d8f5a2" />
 		<line x1="0" y1="255" x2="640" y2="255" stroke="#2b2a26" stroke-width="3" />
@@ -67,10 +65,13 @@
 	<p class="bvv-stav" id="bvv-stav-napeti"></p>
 
 	<p class="bvv-poznamka">
-		Když se někdo sám nemůže od vodiče odtrhnout: nejdřív vypni proud
-		(vypínač, jistič), a pokud to nejde, odděl ho <strong>izolující tyčí</strong>
-		(dřevo, plast) — nikdy se ho ani jeho oděvu <strong>nedotýkej holou rukou</strong>,
-		dokud není mimo dosah proudu. Pak volej 155.
+		Úraz proudem: u <strong>vedení vysokého napětí</strong> nebo spadlého drátu
+		se ke zraněnému <strong>vůbec nepřibližuj</strong> — volej 112 a kvůli
+		zraněnému i 155. Jinak nejdřív vypni proud (vypínač, jistič, pojistky);
+		pokud to nejde a zraněný se stále dotýká vodiče, odděl ho izolující tyčí
+		ze suchého dřeva nebo plastu. Nikdy se ho ani jeho oděvu
+		<strong>nedotýkej holou rukou</strong>, dokud není mimo dosah proudu.
+		Volej 155.
 	</p>
 </section>
 
@@ -80,34 +81,51 @@
 		return Number.isInteger(n) && n >= 0 && n <= max ? n : vychozi;
 	}
 
-	const VIEW_W = 640, VIEW_H = 320, OKRAJ = 6;
+	const OKRAJ = 6;
+	// levý panel (vedení) končí dělicí čarou x = 382, pravý (zdroj) začíná za ní
+	const LEVY = [OKRAJ, 382 - OKRAJ];
+	const PRAVY = [382 + OKRAJ, 640 - OKRAJ];
 
-	// 4 situace u vedení — POPIS je opsaný z PDF (str. 3 a 4), žádné metry.
+	const STOZAR_X = 200;
+	const RAMENO_L = STOZAR_X - 40, RAMENO_P = STOZAR_X + 40, RAMENO_Y = 90;
+	// spadlý drát leží na zemi VPRAVO od stožáru (od x = 232 do x = 318)
+	const DRAT_OD = STOZAR_X + 32, DRAT_DO = STOZAR_X + 118;
+	// prohýbá se do trávy, aby nesplýval s čarou země
+	const DRAT_D = `M${DRAT_OD},257 Q${(DRAT_OD + DRAT_DO) / 2},278 ${DRAT_DO},256`;
+	// vzpěra stožáru vede z (STOZAR_X − 26, 255) do (STOZAR_X, RAMENO_Y);
+	// ve výšce ruky (y = 234) je na x ≈ STOZAR_X − 23 → postava o 8 vlevo od ní
+	const VZPERA_X_RUKA = Math.round(STOZAR_X - 26 + 26 * (255 - 234) / (255 - 90));
+	const PLAKETA_POSTAVY_Y = 292; // pod čarou země — nic nezakrývá
+
+	// 4 situace u vedení — texty mají oporu ve výkladu F9 (oddíl
+	// „Vedení vysokého napětí“), žádné metry.
 	const SITUACE = [
-		{ nazev: 'daleko od vedení', bezpecno: true, x: 60, dotykStozar: false, dotykDrat: false,
-			text: 'Postava stojí daleko od vedení — bezpečno.' },
-		{ nazev: 'blízko vedení, bez dotyku', bezpecno: false, x: 200, dotykStozar: false, dotykDrat: false,
-			text: 'Pozor: i bez dotyku hrozí riziko — u vysokého napětí může proud přeskočit vzduchem obloukem („nemusí dojít ani k fyzickému kontaktu vodiče a organismu, protože může vzniknout na větší vzdálenost elektrický oblouk“). Drž se daleko.' },
-		{ nazev: 'dotýká se stožáru', bezpecno: false, x: 322, dotykStozar: true, dotykDrat: false,
-			text: 'Nebezpečno — PDF přímo zakazuje: „Nedotýkáme se nosných elektrických stožárů elektrického vedení ani drátů spadlých na zem.“' },
-		{ nazev: 'dotýká se spadlého drátu na zemi', bezpecno: false, x: 150, dotykStozar: false, dotykDrat: true,
-			text: 'Nebezpečno — PDF přímo zakazuje: „Nedotýkáme se nosných elektrických stožárů elektrického vedení ani drátů spadlých na zem.“' },
+		{ nazev: 'daleko od vedení', bezpecno: true, x: 40, dotyk: null,
+			text: 'Postava stojí daleko od vedení, mimo ochranné pásmo — tak je to správně.' },
+		{ nazev: 'blízko vedení, bez dotyku', bezpecno: false, x: 140, dotyk: null,
+			text: 'Nebezpečno — u vysokého napětí umí proud přeskočit vzduchem jako jiskra, které se říká oblouk. Nebezpečí hrozí, i když se stožáru ani drátu vůbec nedotkneš. K vedení se nikdy nepřibližuj.' },
+		{ nazev: 'dotýká se stožáru', bezpecno: false, x: VZPERA_X_RUKA - 8, dotyk: 'stozar',
+			text: 'Nebezpečno — nosných stožárů elektrického vedení se nedotýkáme a nikdy na ně nelezeme.' },
+		{ nazev: 'stojí na spadlém drátu', bezpecno: false, x: DRAT_DO - 6, dotyk: 'drat',
+			text: 'Nebezpečno — spadlý drát na zemi bývá pořád pod napětím, i když se nehýbe a nejiskří. Nikdy se k němu nepřibližuj, volej 112 a od místa odcházej drobnými krůčky.' },
 	];
 
-	// Bezpečné napětí PODLE NORMY (PDF str. 4): stejnosměrné do 25 V,
-	// střídavé do 12 V. 230 V ze zásuvky je mnohonásobně nad hranicí.
+	// Výklad F9, oddíl „Bezpečné napětí“: přísnější mez pro vlhké prostory
+	// je stejnosměrné nejvýš 25 V, střídavé jen 12 V; 230 V nebezpečné vždy.
 	const NAPETI = [
-		{ popis: '12 V (malé střídavé napětí podle normy)', bezpecne: true },
-		{ popis: '25 V (malé stejnosměrné napětí podle normy)', bezpecne: true },
-		{ popis: '230 V ze zásuvky (vysoko nad bezpečnou hranicí)', bezpecne: false },
+		{ popis: '12 V střídavé', bezpecne: true,
+			text: '12 V střídavé — nepřekračuje mez bezpečného napětí, a to ani tu přísnější pro vlhké prostory, jako je koupelna (střídavé nejvýš 12 V).' },
+		{ popis: '25 V stejnosměrné', bezpecne: true,
+			text: '25 V stejnosměrné — nepřekračuje mez bezpečného napětí, a to ani tu přísnější pro vlhké prostory, jako je koupelna (stejnosměrné nejvýš 25 V).' },
+		{ popis: '230 V ze zásuvky', bezpecne: false,
+			text: '230 V ze zásuvky je nebezpečné vždycky a všude: I = U : R = 230 : 2 000 = 0,115 A, tedy 115 mA — hluboko nad 80 mA, v pásmu zástavy srdce. Holou rukou se ho nikdy nedotýkej.' },
 	];
 
-	const STOZAR_X = 330;
-
-	function plaketa(textX, textY, text, barva) {
+	// plaketa sevřená do zadaného panelu [min, max] — nepřeteče přes dělicí čáru
+	function plaketa(textX, textY, text, barva, panel) {
 		const sirka = String(text).length * 7 + 8;
-		const rectX = Math.max(OKRAJ, Math.min(VIEW_W - OKRAJ - sirka, textX - sirka / 2));
-		const rectY = Math.max(OKRAJ, Math.min(VIEW_H - OKRAJ - 18, textY - 14));
+		const rectX = Math.max(panel[0], Math.min(panel[1] - sirka, textX - sirka / 2));
+		const rectY = Math.max(OKRAJ, Math.min(320 - OKRAJ - 18, textY - 14));
 		return `<rect x="${rectX.toFixed(1)}" y="${rectY.toFixed(1)}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />`
 			+ `<text x="${(rectX + sirka / 2).toFixed(1)}" y="${(rectY + 14).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="bold" fill="${barva}">${text}</text>`;
 	}
@@ -116,18 +134,17 @@
 		const x = STOZAR_X;
 		let s = '';
 		s += `<line x1="${x}" y1="255" x2="${x}" y2="60" stroke="#495057" stroke-width="6" />`;
-		s += `<line x1="${x - 40}" y1="90" x2="${x + 40}" y2="90" stroke="#495057" stroke-width="5" />`;
-		s += `<line x1="${x - 26}" y1="255" x2="${x}" y2="90" stroke="#868e96" stroke-width="3" />`;
-		s += `<line x1="${x + 26}" y1="255" x2="${x}" y2="90" stroke="#868e96" stroke-width="3" />`;
-		// dráty visící ze stožáru, vedou k levému okraji panelu
-		s += `<path d="M10,${100} Q${x - 150},70 ${x - 40},90" fill="none" stroke="#2b2a26" stroke-width="2" />`;
-		s += `<path d="M10,${120} Q${x - 150},95 ${x + 40},90" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		s += `<line x1="${RAMENO_L}" y1="${RAMENO_Y}" x2="${RAMENO_P}" y2="${RAMENO_Y}" stroke="#495057" stroke-width="5" />`;
+		s += `<line x1="${x - 26}" y1="255" x2="${x}" y2="${RAMENO_Y}" stroke="#868e96" stroke-width="3" />`;
+		s += `<line x1="${x + 26}" y1="255" x2="${x}" y2="${RAMENO_Y}" stroke="#868e96" stroke-width="3" />`;
+		// dráty vedení visí z ramen a vedou k pravému okraji levého panelu
+		s += `<path d="M${RAMENO_L},${RAMENO_Y} Q${x + 70},118 378,104" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		s += `<path d="M${RAMENO_P},${RAMENO_Y} Q${x + 110},112 378,122" fill="none" stroke="#2b2a26" stroke-width="2" />`;
 		return s;
 	}
 
-	// spadlý drát ležící na zemi od paty stožáru směrem doleva
 	function spadlyDratHtml() {
-		return `<path d="M${STOZAR_X - 26},255 Q${STOZAR_X - 90},262 ${STOZAR_X - 165},254" fill="none" stroke="#2b2a26" stroke-width="3" />`;
+		return `<path id="bvv-drat" d="${DRAT_D}" fill="none" stroke="#2b2a26" stroke-width="4" />`;
 	}
 
 	function postavaHtml(x, barva) {
@@ -141,36 +158,64 @@
 		return s;
 	}
 
+	// klikatá čára (jiskra/oblouk) z bodu 1 do bodu 2, výchylky kolmo ke směru
 	function obloukPath(x1, y1, x2, y2) {
-		const dy = y2 - y1;
+		const dx = x2 - x1, dy = y2 - y1;
+		const delka = Math.hypot(dx, dy) || 1;
+		const nx = -dy / delka, ny = dx / delka;
 		const kroky = 6;
 		let d = `M${x1.toFixed(1)},${y1.toFixed(1)}`;
 		for (let i = 1; i < kroky; i++) {
 			const t = i / kroky;
-			const vychylka = i % 2 === 0 ? 9 : -9;
-			const px = x1 + vychylka;
-			const py = y1 + dy * t;
-			d += ` L${px.toFixed(1)},${py.toFixed(1)}`;
+			const v = i % 2 === 0 ? 9 : -9;
+			d += ` L${(x1 + dx * t + nx * v).toFixed(1)},${(y1 + dy * t + ny * v).toFixed(1)}`;
 		}
 		d += ` L${x2.toFixed(1)},${y2.toFixed(1)}`;
 		return d;
 	}
 
-	// pravý panel: zdroj napětí + ruka, která se ho dotýká
+	function jiskra(x1, y1, x2, y2) {
+		return `<path d="${obloukPath(x1, y1, x2, y2)}" fill="none" stroke="#f59f00" stroke-width="3" stroke-linecap="round" />`;
+	}
+
+	// záblesk (paprsky) přímo v bodě dotyku
+	function zablesk(x, y) {
+		let s = '';
+		for (let i = 0; i < 8; i++) {
+			const u = (i * Math.PI) / 4;
+			s += `<line x1="${(x + 4 * Math.cos(u)).toFixed(1)}" y1="${(y + 4 * Math.sin(u)).toFixed(1)}" x2="${(x + 12 * Math.cos(u)).toFixed(1)}" y2="${(y + 12 * Math.sin(u)).toFixed(1)}" stroke="#f59f00" stroke-width="3" stroke-linecap="round" />`;
+		}
+		return s;
+	}
+
+	// co se kreslí oranžově podle situace: oblouk vzduchem z vedení (bez
+	// dotyku), záblesk v místě dotyku stožáru, zvýrazněný drát pod nohama
+	function nebezpeciHtml(situace) {
+		if (situace.bezpecno) return '';
+		if (situace.dotyk === 'stozar') {
+			return zablesk(VZPERA_X_RUKA, 234);
+		}
+		if (situace.dotyk === 'drat') {
+			return `<path d="${DRAT_D}" fill="none" stroke="#f59f00" stroke-width="6" opacity="0.85" />`
+				+ zablesk(situace.x + 9, 256);
+		}
+		// blízko bez dotyku: oblouk z konce ramene vzduchem k hlavě
+		return jiskra(RAMENO_L, RAMENO_Y + 2, situace.x, 219);
+	}
+
+	// pravý panel: zdroj napětí + ruce, které se dotýkají obou vývodů
 	function zdrojHtml(napeti) {
-		const cx = 500;
+		const cx = 511;
+		const barva = napeti.bezpecne ? '#2f9e44' : '#e03131';
 		let s = '';
 		s += `<rect x="${cx - 40}" y="150" width="80" height="45" rx="6" fill="#495057" />`;
 		s += `<line x1="${cx - 40}" y1="172" x2="${cx - 60}" y2="172" stroke="#2b2a26" stroke-width="4" />`;
 		s += `<line x1="${cx + 40}" y1="172" x2="${cx + 60}" y2="172" stroke="#2b2a26" stroke-width="4" />`;
-		// ruka drží oba konce zdroje
 		s += `<circle cx="${cx - 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
 		s += `<circle cx="${cx + 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
-		s += plaketa(cx, 130, napeti.popis, napeti.bezpecne ? '#2f9e44' : '#e03131');
-		s += plaketa(cx, 210, napeti.bezpecne ? 'malé napětí' : 'NEBEZPEČNÉ', napeti.bezpecne ? '#2f9e44' : '#e03131');
-		if (!napeti.bezpecne) {
-			s += `<path d="${obloukPath(cx - 68, 172, cx - 68, 200)}" fill="none" stroke="#f59f00" stroke-width="3" stroke-linecap="round" />`;
-		}
+		s += plaketa(cx, 130, napeti.popis, barva, PRAVY);
+		s += plaketa(cx, 225, napeti.bezpecne ? 'bezpečné napětí' : 'NEBEZPEČNÉ', barva, PRAVY);
+		if (!napeti.bezpecne) s += jiskra(cx - 68, 182, cx - 68, 206);
 		return s;
 	}
 
@@ -180,6 +225,7 @@
 	const outNapeti = document.getElementById('bvv-out-napeti');
 
 	document.getElementById('bvv-stozar').innerHTML = stozarHtml() + spadlyDratHtml();
+	document.getElementById('bvv-popisky').innerHTML = plaketa(STOZAR_X, 40, 'vedení vysokého napětí', '#2b2a26', LEVY);
 
 	function prekresli() {
 		const iS = platnyIndex(sliderSituace.value, SITUACE.length - 1, 0);
@@ -192,20 +238,12 @@
 
 		const barva = situace.bezpecno ? '#4dabf7' : '#ff8787';
 		document.getElementById('bvv-postava').innerHTML = postavaHtml(situace.x, barva)
-			+ plaketa(situace.x, 205, situace.bezpecno ? 'bezpečno' : 'nebezpečno', situace.bezpecno ? '#2f9e44' : '#e03131');
-
-		document.getElementById('bvv-oblouk').innerHTML = situace.bezpecno
-			? ''
-			: `<path d="${obloukPath(situace.x, 100, situace.x, 218)}" fill="none" stroke="#f59f00" stroke-width="3" stroke-linecap="round" />`;
-
-		document.getElementById('bvv-popisky').innerHTML = plaketa(STOZAR_X, 40, 'vedení vysokého napětí', '#2b2a26');
-
+			+ plaketa(situace.x, PLAKETA_POSTAVY_Y, situace.bezpecno ? 'správně' : 'nebezpečno', situace.bezpecno ? '#2f9e44' : '#e03131', LEVY);
+		document.getElementById('bvv-oblouk').innerHTML = nebezpeciHtml(situace);
 		document.getElementById('bvv-zdroj').innerHTML = zdrojHtml(napeti);
 
 		document.getElementById('bvv-stav').textContent = situace.text;
-		document.getElementById('bvv-stav-napeti').textContent = napeti.bezpecne
-			? `${napeti.popis} — proud může touto cestou téct, ale je pod hranicí malého napětí podle normy. Samotné číslo ale bezpečnost nezaručuje: záleží na prostředí (ve vlhku jsou podmínky přísnější) a na ochranném provedení zařízení.`
-			: `${napeti.popis} — takové napětí je vysoko nad bezpečnou hranicí normy (25 V ss / 12 V st), holou rukou se ho NIKDY nedotýkej.`;
+		document.getElementById('bvv-stav-napeti').textContent = napeti.text;
 	}
 
 	sliderSituace.addEventListener('input', prekresli);
