@@ -97,8 +97,8 @@
 	// Bezpečné napětí PODLE NORMY (PDF str. 4): stejnosměrné do 25 V,
 	// střídavé do 12 V. 230 V ze zásuvky je mnohonásobně nad hranicí.
 	const NAPETI = [
-		{ popis: '12 V (bezpečné střídavé napětí podle normy)', bezpecne: true },
-		{ popis: '25 V (bezpečné stejnosměrné napětí podle normy)', bezpecne: true },
+		{ popis: '12 V (malé střídavé napětí podle normy)', bezpecne: true },
+		{ popis: '25 V (malé stejnosměrné napětí podle normy)', bezpecne: true },
 		{ popis: '230 V ze zásuvky (vysoko nad bezpečnou hranicí)', bezpecne: false },
 	];
 
@@ -167,7 +167,7 @@
 		s += `<circle cx="${cx - 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
 		s += `<circle cx="${cx + 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
 		s += plaketa(cx, 130, napeti.popis, napeti.bezpecne ? '#2f9e44' : '#e03131');
-		s += plaketa(cx, 210, napeti.bezpecne ? 'bezpečné dotknout se' : 'NEBEZPEČNÉ', napeti.bezpecne ? '#2f9e44' : '#e03131');
+		s += plaketa(cx, 210, napeti.bezpecne ? 'malé napětí' : 'NEBEZPEČNÉ', napeti.bezpecne ? '#2f9e44' : '#e03131');
 		if (!napeti.bezpecne) {
 			s += `<path d="${obloukPath(cx - 68, 172, cx - 68, 200)}" fill="none" stroke="#f59f00" stroke-width="3" stroke-linecap="round" />`;
 		}
@@ -204,7 +204,7 @@
 
 		document.getElementById('bvv-stav').textContent = situace.text;
 		document.getElementById('bvv-stav-napeti').textContent = napeti.bezpecne
-			? `${napeti.popis} — proud může touto cestou téct, ale je pod bezpečnou hranicí normy, dotyk holou rukou nehrozí.`
+			? `${napeti.popis} — proud může touto cestou téct, ale je pod hranicí malého napětí podle normy. Samotné číslo ale bezpečnost nezaručuje: záleží na prostředí (ve vlhku jsou podmínky přísnější) a na ochranném provedení zařízení.`
 			: `${napeti.popis} — takové napětí je vysoko nad bezpečnou hranicí normy (25 V ss / 12 V st), holou rukou se ho NIKDY nedotýkej.`;
 	}
 
