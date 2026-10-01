@@ -4956,7 +4956,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/9-rocnik/jaderna-fyzika/radioaktivita': [
 		{ text: 'Co je radioaktivita?', odpovedi: ['rozpad nestabilních jader', 'ohřívání látky zevnitř teplem', 'zvláštní druh elektrického proudu'], vysvetleni: 'Jádra se samovolně přeměňují na jádra jiných prvků a uvolňuje se záření.' },
-		{ text: 'Kdo objevil radioaktivitu?', odpovedi: ['Henri Becquerel', 'Albert Einstein', 'Alexander Graham Bell'], vysvetleni: 'Roku 1896 u uranové rudy.' },
+		{ text: 'Kdo objevil radioaktivitu?', odpovedi: ['Henri Becquerel', 'Albert Einstein', 'Alexander Graham Bell'], vysvetleni: 'Roku 1896 u uranových sloučenin.' },
 		{ text: 'Který fyzik významně přispěl k poznání záření a objevil atomové jádro?', odpovedi: ['Ernest Rutherford', 'Alexander Fleming', 'Thomas Alva Edison'], vysvetleni: 'Jeho pokus se zlatou fólií ukázal, že téměř všechna hmota atomu je v malém jádře.' },
 		{ text: 'Z čeho se skládá záření alfa?', odpovedi: ['z rychlých jader helia', 'z rychlých elektronů a neutronů', 'z fotonů o velmi vysoké energii'], vysvetleni: 'Je kladně nabité.' },
 		{ text: 'Čím zastavíme záření alfa?', odpovedi: ['listem papíru', 'silnou vrstvou olova', 'nezastaví ho nic na světě'], vysvetleni: 'Ve vzduchu doletí nejvýš 5 cm.' },
@@ -4965,8 +4965,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co je poločas rozpadu?', odpovedi: ['doba rozpadu poloviny jader', 'doba, za kterou se rozpadnou všechna jádra', 'čas, za který záření doletí na vzdálenost jednoho metru'], vysvetleni: 'Různé nuklidy ho mají různý a nelze ho ničím ovlivnit.' },
 		{ text: 'Čím měří pracovníci dávku pohlceného záření?', odpovedi: ['dozimetrem', 'teploměrem', 'tlakoměrem'], vysvetleni: 'Dozimetry nosí třeba pracovníci jaderných elektráren.' },
 		{ text: 'K čemu se využívá izotop uhlíku C 14?', odpovedi: ['k určování stáří vzorků v archeologii', 'k výrobě elektřiny v elektrárnách', 'k osvětlení místností a ulic ve městě'], vysvetleni: 'Po smrti organismu jeho množství jen klesá rozpadem.' },
-		{ text: 'Jak se chráníme před radioaktivním zářením?', odpovedi: ['stíněním, vzdáleností a krátkou dobou', 'delším pobytem v těsné blízkosti zdroje', 'mokrým hadrem přes ústa a nos při práci'], vysvetleni: 'Ideální je kombinace více možností.' },
-		{ text: 'V jaké jednotce se hodnotí účinky záření na člověka?', odpovedi: ['sievert (Sv)', 'watt (W) – jednotka výkonu', 'hertz (Hz) – jednotka frekvence'], vysvetleni: 'Sievert hodnotí, jak záření působí na člověka. Samotná pohlcená energie se měří v grayích (Gy).' },
+		{ text: 'Jak se chráníme před radioaktivním zářením?', odpovedi: ['stíněním, vzdáleností a krátkou dobou', 'delším pobytem v těsné blízkosti zdroje', 'opalovacím krémem a slunečními brýlemi'], vysvetleni: 'Ideální je kombinace více možností.' },
+		{ text: 'V jaké jednotce se hodnotí účinky záření na člověka?', odpovedi: ['sievert (Sv)', 'watt (W) – jednotka výkonu', 'hertz (Hz) – jednotka frekvence'], vysvetleni: 'Sievert hodnotí, jak záření působí na člověka. Pohlcená dávka (energie na 1 kg látky) se měří v grayích (Gy).' },
 		{ text: 'Co dělá ionizující záření s živou tkání při větších dávkách?', odpovedi: ['poškozuje buňky a DNA', 'zlepšuje imunitu těla', 'zvyšuje pevnost kostí'], vysvetleni: 'Záření ionizuje atomy a rozbíjí chemické vazby.' },
 		{ text: 'Jak se nazývají látky tvořené atomy s rozpadajícími se jádry?', odpovedi: ['radionuklidy', 'elektrolyty', 'polovodiče'], vysvetleni: 'Najdeme je v přírodě a vyrábějí se i uměle.' },
 		{ text: 'Jak se změní protonové číslo jádra, když vyzáří částici beta?', odpovedi: ['zvětší se o 1', 'zůstane úplně stejné jako předtím', 'sníží se o 2'], vysvetleni: 'Jádro se přeměnilo na jádro jiného prvku.' },
@@ -4974,7 +4974,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Čím se v praxi stíní nejpronikavější záření?', odpovedi: ['silnou olověnou či betonovou clonou', 'obyčejným listem kancelářského papíru', 'tenkým hliníkovým plechem z kuchyně'], vysvetleni: 'Takové záření projde většinou materiálů, které zastaví jiné druhy záření.' },
 		{ text: 'Ve vzorku je 80 g radioaktivní látky s poločasem rozpadu 1 den. Kolik gramů této látky zbude nepřeměněné po 3 dnech?', odpovedi: ['10 g', '20 g', '40 g'], vysvetleni: '80 g → 40 g → 20 g → 10 g, každý den zbude jen polovina nepřeměněné látky. Přeměněná jádra nezmizela, vznikly z nich jiné nuklidy.' },
 		{ text: 'Poločas rozpadu uranu 238 je 4 500 milionů let. Poločas rozpadu radonu 222 je jen:', odpovedi: ['3,5 dne', '3,5 roku', '3,5 milionu let'], vysvetleni: 'Radon se rozpadá během dnů, zatímco uran miliardy let.' },
-		{ text: 'K čemu se využívá radioaktivní záření v lékařství?', odpovedi: ['k léčbě nádorů ozařováním', 'k měření tělesné teploty', 'k odstranění bakterií v pitné vodě chlorováním'], vysvetleni: 'Záření se zaměří přímo na nádor; měření teploty a chlorování vody s radioaktivitou nesouvisí.' },
+		{ text: 'K čemu se využívá radioaktivní záření v lékařství?', odpovedi: ['k léčbě nádorů ozařováním', 'k měření tělesné teploty', 'k ohřevu vody v domácím bojleru'], vysvetleni: 'Záření se zaměří přímo na nádor; měření teploty a ohřev vody s radioaktivitou nesouvisí.' },
 		{ text: 'Na čem je založen detektor kouře s americiem 241?', odpovedi: ['kouř změní průchod slabého záření', 'kouř zakryje světlo malé žárovky v čidle', 'kouř zvýší teplotu vzduchu v místnosti'], vysvetleni: 'Změna průchodu záření spustí alarm.' },
 	],
 	'fyzika/9-rocnik/jaderna-fyzika/kvarky': [
