@@ -137,6 +137,20 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   = počet protějšků, výjimka jen s písemným důvodem (např. čistě dekorativní foto). Každý protějšek
   ověří **nezávislý kontrolor** (obsahová shoda s předlohou + není kopie). Zavádí se v pilotu
   a téma po tématu napříč 7/8/9 dle kap. 13.
+- **PŘEKRESLIT PODLE PŘEDLOHY, NE SKLÁDAT TVARY** (závazné pravidlo učitele 1. 10. 2026:
+  „Obrázky výkladu se NEkopírují z PDF, ale PŘEKRESLUJÍ podle předlohy z PDF (stejný děj, předměty,
+  uspořádání, popisky). Úroveň detailu jako u animací pohybu (konkrétní předměty s detaily,
+  stínování, realistické proporce), ne skladba holých geometrických tvarů. Zadání se nesmí od
+  předlohy vzdalovat — každý obrázek má v zadání stranu PDF a kontroluje se proti jejímu renderu.“)
+  Postup: (1) zadání každého obrázku nese **soubor PDF + číslo strany**; (2) worker tu stranu
+  vyrenderuje (`pdftoppm -r 110 -f N -l N`) a prohlédne; (3) překreslí stejný děj, předměty,
+  uspořádání a popisky; (4) úroveň detailu = vzor `Omega/skripty/animace_podkastu.py`
+  (`astronaut`, `kladivo`, `pero`, `_ponorka`, `_scena_pruziny`: konkrétní předměty s detaily,
+  stínováním a reálnými proporcemi); (5) kontrolor porovná výsledek s renderem téže strany
+  (shoda děje/předmětů/uspořádání/popisků, není kopie) a zvlášť posoudí úroveň detailu —
+  holá skladba kruhů a obdélníků = nález. Reálný předmět navíc dle `feedback-realny-predmet-podle-predlohy`.
+  **Why:** zadání se od předlohy vzdalovalo, obrázky vycházely moc jednoduché, kdežto animace
+  pohybu (konkrétní předměty) učitel hodnotil jako lepší. Paměť `feedback-obrazek-prekreslit-z-pdf`.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
 - Odkazy uvnitř webu **relativní**; externí odkazy **jen české** — když český zdroj není, napíše se vlastní česká stránka.
 - Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
