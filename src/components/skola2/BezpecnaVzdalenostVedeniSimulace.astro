@@ -26,6 +26,13 @@
 // nezakrývají stožár, postava "bez dotyku" nestojí na drátu, jiskra u dotyku
 // je v místě dotyku (ne z horního vedení).
 //
+// OPRAVA 2 1. 10. 2026 (kontrola2-simulace-f9.md N1–N3): spadlý drát je
+// zjevně PŘETRŽENÝ levý vodič vedení — u ramene stožáru z něj zbyl jen
+// visící pahýl s roztřepeným koncem, druhá část visí od okraje scény (od
+// dalšího stožáru) dolů na zem. Celý zůstal jen pravý vodič a ten vede NAD
+// přetrženým, takže se vodiče nekříží. U 230 V je záblesk v obou místech
+// dotyku ruka–vývod zdroje (ne klikatice do vzduchu).
+//
 // Dva nezávislé posuvníky (celočíselné indexy): situace u vedení (0–3) a
 // napětí zdroje (0–2). Statická scéna beze smyčky requestAnimationFrame.
 ---
@@ -88,10 +95,15 @@
 
 	const STOZAR_X = 200;
 	const RAMENO_L = STOZAR_X - 40, RAMENO_P = STOZAR_X + 40, RAMENO_Y = 90;
-	// spadlý drát leží na zemi VPRAVO od stožáru (od x = 232 do x = 318)
-	const DRAT_OD = STOZAR_X + 32, DRAT_DO = STOZAR_X + 118;
+	// levý vodič je přetržený: u ramene zbyl pahýl visící šikmo dolů
+	// (roztřepený konec PAHYL_KONEC), zbytek visí od pravého okraje panelu
+	// (od dalšího stožáru, bod DRAT_OKRAJ) dolů a na zemi leží VPRAVO od
+	// stožáru od x = 246 do x = 318 (roztřepený konec u x = 246, mimo patu vzpěry x = 226)
+	const PAHYL_KONEC = [250, 146];
+	const DRAT_OKRAJ = [378, 122];
+	const DRAT_OD = STOZAR_X + 46, DRAT_DO = STOZAR_X + 118;
 	// prohýbá se do trávy, aby nesplýval s čarou země
-	const DRAT_D = `M${DRAT_OD},257 Q${(DRAT_OD + DRAT_DO) / 2},278 ${DRAT_DO},256`;
+	const DRAT_D = `M${DRAT_OKRAJ[0]},${DRAT_OKRAJ[1]} Q${DRAT_DO + 14},150 ${DRAT_DO},256 Q${(DRAT_OD + DRAT_DO) / 2},278 ${DRAT_OD},257`;
 	// vzpěra stožáru vede z (STOZAR_X − 26, 255) do (STOZAR_X, RAMENO_Y);
 	// ve výšce ruky (y = 234) je na x ≈ STOZAR_X − 23 → postava o 8 vlevo od ní
 	const VZPERA_X_RUKA = Math.round(STOZAR_X - 26 + 26 * (255 - 234) / (255 - 90));
@@ -106,7 +118,7 @@
 			text: 'Nebezpečno — u vysokého napětí umí proud přeskočit vzduchem jako jiskra, které se říká oblouk. Nebezpečí hrozí, i když se stožáru ani drátu vůbec nedotkneš. K vedení se nikdy nepřibližuj.' },
 		{ nazev: 'dotýká se stožáru', bezpecno: false, x: VZPERA_X_RUKA - 8, dotyk: 'stozar',
 			text: 'Nebezpečno — nosných stožárů elektrického vedení se nedotýkáme a nikdy na ně nelezeme.' },
-		{ nazev: 'stojí na spadlém drátu', bezpecno: false, x: DRAT_DO - 6, dotyk: 'drat',
+		{ nazev: 'stojí na spadlém drátu', bezpecno: false, x: Math.round((DRAT_OD + DRAT_DO) / 2), dotyk: 'drat',
 			text: 'Nebezpečno — spadlý drát na zemi bývá pořád pod napětím, i když se nehýbe a nejiskří. Nikdy se k němu nepřibližuj, volej 112 a od místa odcházej drobnými krůčky.' },
 	];
 
@@ -137,14 +149,27 @@
 		s += `<line x1="${RAMENO_L}" y1="${RAMENO_Y}" x2="${RAMENO_P}" y2="${RAMENO_Y}" stroke="#495057" stroke-width="5" />`;
 		s += `<line x1="${x - 26}" y1="255" x2="${x}" y2="${RAMENO_Y}" stroke="#868e96" stroke-width="3" />`;
 		s += `<line x1="${x + 26}" y1="255" x2="${x}" y2="${RAMENO_Y}" stroke="#868e96" stroke-width="3" />`;
-		// dráty vedení visí z ramen a vedou k pravému okraji levého panelu
-		s += `<path d="M${RAMENO_L},${RAMENO_Y} Q${x + 70},118 378,104" fill="none" stroke="#2b2a26" stroke-width="2" />`;
-		s += `<path d="M${RAMENO_P},${RAMENO_Y} Q${x + 110},112 378,122" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		// celý pravý vodič: z pravého ramene k okraji panelu, celou délkou NAD
+		// přetrženým levým vodičem (nekříží se s ním)
+		s += `<path id="bvv-vodic" d="M${RAMENO_P},${RAMENO_Y} Q${x + 110},110 378,100" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		// pahýl přetrženého levého vodiče visí z levého ramene
+		s += `<path id="bvv-pahyl" d="M${RAMENO_L},${RAMENO_Y} Q${x + 20},116 ${PAHYL_KONEC[0]},${PAHYL_KONEC[1]}" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		s += strapek(PAHYL_KONEC[0], PAHYL_KONEC[1], 0.9);
+		return s;
+	}
+
+	// roztřepený konec přetrženého drátu: 3 krátká vlákna rozevřená kolem směru u
+	function strapek(x, y, u) {
+		let s = '';
+		for (const du of [-0.6, 0, 0.6]) {
+			s += `<line x1="${x}" y1="${y}" x2="${(x + 7 * Math.cos(u + du)).toFixed(1)}" y2="${(y + 7 * Math.sin(u + du)).toFixed(1)}" stroke="#2b2a26" stroke-width="1.5" stroke-linecap="round" />`;
+		}
 		return s;
 	}
 
 	function spadlyDratHtml() {
-		return `<path id="bvv-drat" d="${DRAT_D}" fill="none" stroke="#2b2a26" stroke-width="4" />`;
+		return `<path id="bvv-drat" d="${DRAT_D}" fill="none" stroke="#2b2a26" stroke-width="3" />`
+			+ strapek(DRAT_OD, 257, Math.PI);
 	}
 
 	function postavaHtml(x, barva) {
@@ -215,7 +240,8 @@
 		s += `<circle cx="${cx + 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
 		s += plaketa(cx, 130, napeti.popis, barva, PRAVY);
 		s += plaketa(cx, 225, napeti.bezpecne ? 'bezpečné napětí' : 'NEBEZPEČNÉ', barva, PRAVY);
-		if (!napeti.bezpecne) s += jiskra(cx - 68, 182, cx - 68, 206);
+		// 230 V: záblesk přímo v obou místech dotyku ruka–vývod zdroje
+		if (!napeti.bezpecne) s += zablesk(cx - 60, 172) + zablesk(cx + 60, 172);
 		return s;
 	}
 
