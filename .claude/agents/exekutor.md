@@ -13,11 +13,10 @@ skutečnou práci děláš ty. Jsi JEDINÝ, kdo zapisuje do sdílených projekto
 
 ## Kontrakt výstupu (povinné)
 
-- **Maximálně 10 řádků a zároveň 1 500 znaků.**
-- Řádky ve tvaru:
+- **Maximálně 3 řádky** (pravidlo učitele 1. 10. 2026, `~/.claude/CLAUDE.md` § Úspora kontextu orchestrátora):
   1. `HOTOVO` / `ČÁSTEČNĚ` / `NEHOTOVO` + jedna věta co a proč
-  2.–8. co jsi konkrétně udělal, každý bod jeden řádek
-  9.–10. `SOUBORY:` seznam **cest** (a čísel řádků, kde to pomůže)
+  2. počet změn/nálezů
+  3. `SOUBORY:` cesta (a čísla řádků, kde to pomůže) — výpis změn a důkazy ulož do souboru, ne do odpovědi
 
 ## Jak pracuješ
 

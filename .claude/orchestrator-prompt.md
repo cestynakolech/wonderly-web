@@ -61,6 +61,12 @@ technická příručka a historie, ne zdroj aktuálního stavu).
     domov; exekutor se řídí toutéž sekcí). Hlášení „vloženo X" bez čísla
     nepřijímej.
 
+## ÚSPORA KONTEXTU (učitel 1. 10. 2026)
+
+Agenti vracejí MAX 3 ŘÁDKY (verdikt, počet, cesta), zadání max ~10 řádků se společnými částmi
+odkazem na `Omega/predavka/<datum>/SABLONY-ZADANI.md`; plné znění `~/.claude/CLAUDE.md`
+§ Úspora kontextu orchestrátora.
+
 ## SMĚROVÁNÍ NA MODELY (zadání učitele 15. 8. 2026)
 
 Kroky standardního rozkladu a model, na kterém mají běžet:

@@ -1,406 +1,289 @@
 ---
-// Tlak (F7): interaktivní simulace se čtyřmi scénami
-// 1. Co je tlak — částice vzduchu se pohybují a narážejí do stěn
-// 2. Tlak = síla/plocha — stlačení zvyšuje tlak (Boyle-Mariotteův zákon)
-// 3. Hloubka v kapalinách — větší hloubka = větší tlak
-// 4. Atmosferický tlak — vzduch kolem nás vyvíjí sílu
+// Interaktivní tlak (7. ročník, celek Tlak v kapalinách, podtéma Tlak).
+//
+// Přepsáno 1. 10. 2026 podle návrhu Omega/predavka/2026-10-01/prace/tema4/f7-tlak-b.json
+// (klíč „simulace"). Stará verze měla čtyři scény (plyn a teplota, píst, hloubka,
+// atmosféra), které do podtématu Tlak nepatří a jejich čísla neměla oporu ve výkladu.
+//
+// Tři scény, každá jen s tím, co stojí v hlavním výkladu podtématu:
+//   A) čokoláda na čtverci 1 m × 1 m: 1–3 dávky po 100 g (≈ 1 N) → p = 1, 2, 3 Pa
+//   B) stejná síla, jiná plocha: závaží 5 kg (F = 5 · 10 = 50 N) přímo na písku
+//      (100 cm² = 0,01 m² → 5 000 Pa = 5 kPa) nebo na desce 1 m² (na písek 50 Pa,
+//      na desku pořád 5 000 Pa) — výklad, Příklad 1
+//   C) jedna trojice čísel, tři vzorce: p = F : S, F = p · S, S = F : p
+//      (50 N, 0,01 m², 5 000 Pa) — výklad, Příklady 1–3
+//
+// Všechny výsledky jsou celá čísla; jediné desetinné číslo je 0,01 m² (převod 100 cm²,
+// to je samo učivo). Nic se nehýbe samo, nic není náhodné. Stav scén je v SVG atributech
+// (opacity, height, y, fill) a v <text>. Hloubka důlku v písku je jen „hlubší × mělčí",
+// NEúměrná poměru tlaků 100 : 1. Šířky závaží (10 cm) a desky (1 m) jsou v měřítku 1 : 10.
+// Opravy po kontrole 1. 10. 2026: čokoláda ve scéně A je rozsypaná rovnoměrně po celém
+// čtverci (ne hromádky — ty by sílu soustředily), mělký důlek pod deskou je vidět,
+// třetí řádek rámečku ve scéně C není nikdy prázdný.
 ---
 
 <section class="ramecek simulace">
-	<h2><span class="podtrh">Tlak — skrytá síla 🕹️</span></h2>
-	<p>Tlak vzniká, když částice plynu či kapaliny narážejí do stěn a vyvíjejí na ně sílu. Změníš-li objem, zvýšíš tlak. V hloubce se tlak zvyšuje — a kolem nás všech je atmosferický tlak!</p>
+	<h2><span class="podtrh">Vyzkoušej: tlak 🕹️</span></h2>
+	<p>
+		<strong>Tlak</strong> říká, jak moc je síla soustředěná na plochu: <strong>p = F : S</strong>.
+		Vyzkoušej, co se s tlakem stane, když přidáš sílu, a co, když stejnou sílu rozložíš na větší plochu.
+	</p>
 
-	<!-- SCÉNA 1: Co je tlak — částice narážejí -->
-	<div class="scena" id="scena1">
-		<h3>Scéna 1: Co je to tlak?</h3>
-		<svg viewBox="0 0 400 300" role="img" aria-label="Nádoba s molekulami vzduchu" class="tlak-svg">
-			<!-- Nádoba -->
-			<rect x="50" y="50" width="300" height="150" fill="#e7f5ff" stroke="#2b2a26" stroke-width="3" />
-			<!-- Molekuly vzduchu -->
-			<g id="s1-molekuly" fill="#0099ff" opacity="0.7"></g>
-			<!-- Teplotní meter -->
-			<g>
-				<text x="20" y="80" font-size="14" font-weight="bold">T:</text>
-				<rect x="20" y="90" width="20" height="60" fill="#fff" stroke="#2b2a26" stroke-width="2" />
-				<rect id="s1-teplota-rucka" x="22" y="130" width="16" height="20" fill="#e03131" />
-				<text id="s1-temp-val" x="20" y="160" font-size="12">20°C</text>
-			</g>
-			<!-- Tlak -->
-			<text x="200" y="250" text-anchor="middle" font-size="18" font-weight="bold" fill="#2b2a26">Tlak = nárazy částic do stěn</text>
-			<text id="s1-tlak-val" x="200" y="275" text-anchor="middle" font-size="16" fill="#0099ff">100 kPa (normální)</text>
-		</svg>
-		<label class="sim-posuvnik">
-			Zvyš teplotu (molekuly se zrychlují):
-			<input type="range" id="s1-teplot" min="0" max="2" step="1" value="1" />
-		</label>
-		<p class="popis" id="s1-text">Když zvýšíš teplotu, molekuly se pohybují rychleji a narážejí do stěn silněji — tlak roste. Toto je Gay-Lussacův zákon: p/T = konst.</p>
-	</div>
+	<h3>A) Čokoláda na čtverci 1 m × 1 m</h3>
+	<svg id="tl-a-svg" viewBox="0 0 440 300" role="img" aria-label="Nastrouhaná čokoláda rovnoměrně rozsypaná po čtverci o ploše 1 metr čtvereční">
+		<rect x="0" y="0" width="440" height="300" fill="#eef6ff" />
+		<rect x="14" y="10" width="270" height="32" rx="6" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="24" y="34" font-size="22" font-weight="bold" fill="#2b2a26">100 g čokolády ≈ 1 N</text>
 
-	<!-- SCÉNA 2: Tlak vs. objem (Boyle-Mariotte) -->
-	<div class="scena" id="scena2">
-		<h3>Scéna 2: Stlačení zvyšuje tlak</h3>
-		<svg viewBox="0 0 500 300" role="img" aria-label="Píst stlačující plyn" class="tlak-svg">
-			<!-- Válec s pístem -->
-			<g stroke="#2b2a26" stroke-width="3">
-				<rect x="50" y="60" width="300" height="180" fill="#f0f0f0" stroke="#2b2a26" />
-			</g>
-			<!-- Píst -->
-			<rect id="s2-pist" x="340" y="60" width="20" height="180" fill="#adb5bd" stroke="#2b2a26" stroke-width="3" />
-			<rect id="s2-tyc" x="360" y="140" width="80" height="20" fill="#868e96" stroke="#2b2a26" stroke-width="2" />
-			<!-- Molekuly -->
-			<g id="s2-molekuly" fill="#0099ff" opacity="0.6"></g>
-			<!-- Zobrazení tlaku -->
-			<g text-anchor="middle">
-				<text x="200" y="270" font-size="14" font-weight="bold" fill="#2b2a26">Objem:</text>
-				<text id="s2-objem" x="200" y="290" font-size="18" fill="#0099ff" font-weight="bold">100 %</text>
-			</g>
-			<g text-anchor="middle">
-				<text x="420" y="30" font-size="14" font-weight="bold" fill="#2b2a26">Tlak:</text>
-				<text id="s2-tlak" x="420" y="50" font-size="18" fill="#e03131" font-weight="bold">100 kPa</text>
-			</g>
-		</svg>
-		<label class="sim-posuvnik">
-			Stlač píst (posuvník doleva):
-			<input type="range" id="s2-pist-slider" min="0" max="3" step="1" value="0" />
-		</label>
-		<p class="popis" id="s2-text">Při **stejné teplotě** — když zmenšíš objem na polovinu, tlak se *zdvojnásobí*. Když zmenšíš na čtvrtinu, tlak se zvětší čtyřikrát. Toto je **Boyle-Mariotteův zákon**: p·V = konst.</p>
-	</div>
+		<!-- čtverec 1 m × 1 m -->
+		<rect x="30" y="56" width="150" height="150" fill="#fff9db" stroke="#2b2a26" stroke-width="3" />
+		<text x="105" y="232" font-size="22" text-anchor="middle" fill="#2b2a26">1 m</text>
+		<text x="186" y="139" font-size="22" fill="#2b2a26">1 m</text>
 
-	<!-- SCÉNA 3: Tlak v kapalinách — hloubka -->
-	<div class="scena" id="scena3">
-		<h3>Scéna 3: Tlak roste s hloubkou</h3>
-		<svg viewBox="0 0 400 400" role="img" aria-label="Voda s měřením tlaku v různých hloubkách" class="tlak-svg">
-			<!-- Voda -->
-			<rect x="50" y="50" width="300" height="300" fill="#5dade2" opacity="0.6" stroke="#2b2a26" stroke-width="3" />
-			<text x="50" y="35" font-size="12" fill="#2b2a26">VODA</text>
-			<!-- Manometry v různých hloubkách -->
-			<g id="s3-mano1">
-				<circle cx="350" cy="80" r="20" fill="#fff" stroke="#2b2a26" stroke-width="2" />
-				<text x="350" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">1</text>
-				<line x1="330" y1="80" x2="330" y2="60" stroke="#2b2a26" stroke-width="2" />
-				<text id="s3-p1" x="330" y="50" font-size="12" fill="#2b2a26">101 kPa</text>
-			</g>
-			<g id="s3-mano2">
-				<circle cx="350" cy="175" r="20" fill="#fff" stroke="#2b2a26" stroke-width="2" />
-				<text x="350" y="180" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">2</text>
-				<line x1="330" y1="175" x2="330" y2="155" stroke="#2b2a26" stroke-width="2" />
-				<text id="s3-p2" x="330" y="145" font-size="12" fill="#2b2a26">111 kPa</text>
-			</g>
-			<g id="s3-mano3">
-				<circle cx="350" cy="270" r="20" fill="#fff" stroke="#2b2a26" stroke-width="2" />
-				<text x="350" y="275" text-anchor="middle" font-size="14" font-weight="bold" fill="#2b2a26">3</text>
-				<line x1="330" y1="270" x2="330" y2="250" stroke="#2b2a26" stroke-width="2" />
-				<text id="s3-p3" x="330" y="240" font-size="12" fill="#2b2a26">121 kPa</text>
-			</g>
-			<!-- Hloubka -->
-			<g text-anchor="middle">
-				<text x="30" y="100" font-size="11" fill="#2b2a26">0 m</text>
-				<text x="30" y="195" font-size="11" fill="#2b2a26">5 m</text>
-				<text x="30" y="290" font-size="11" fill="#2b2a26">10 m</text>
-			</g>
-		</svg>
-		<label class="sim-posuvnik">
-			Zvyš hloubku ponoru:
-			<input type="range" id="s3-hlubka" min="0" max="2" step="1" value="0" />
-		</label>
-		<p class="popis" id="s3-text">V kapalinách platí: čím větší hloubka, tím vyšší tlak. Každých 10 metrů hloubky v moři zvýší tlak o ~100 kPa. Proto se potápěči postupně zvykují na tlak — v hloubce 40 m je tlak 5× větší!</p>
-	</div>
+		<!-- nastrouhaná čokoláda ROZSYPANÁ po celém čtverci (síla rozložená na celý 1 m²):
+		     každá dávka = 75 drobků v mřížce po 10 j. přes celou plochu, další dávka
+		     vyplní mezery mezi předchozími (posyp houstne, nikde nevzniká hromádka).
+		     Viditelnost dávky = atribut opacity. -->
+		<g id="tl-a-h1" opacity="1">
+			<path stroke="#6b3e1f" stroke-width="5" stroke-linecap="round" d="M35 61h0M65 61h0M95 61h0M125 61h0M155 61h0M45 71h0M75 71h0M105 71h0M135 71h0M165 71h0M55 81h0M85 81h0M115 81h0M145 81h0M175 81h0M35 91h0M65 91h0M95 91h0M125 91h0M155 91h0M45 101h0M75 101h0M105 101h0M135 101h0M165 101h0M55 111h0M85 111h0M115 111h0M145 111h0M175 111h0M35 121h0M65 121h0M95 121h0M125 121h0M155 121h0M45 131h0M75 131h0M105 131h0M135 131h0M165 131h0M55 141h0M85 141h0M115 141h0M145 141h0M175 141h0M35 151h0M65 151h0M95 151h0M125 151h0M155 151h0M45 161h0M75 161h0M105 161h0M135 161h0M165 161h0M55 171h0M85 171h0M115 171h0M145 171h0M175 171h0M35 181h0M65 181h0M95 181h0M125 181h0M155 181h0M45 191h0M75 191h0M105 191h0M135 191h0M165 191h0M55 201h0M85 201h0M115 201h0M145 201h0M175 201h0" />
+		</g>
+		<g id="tl-a-h2" opacity="0">
+			<path stroke="#6b3e1f" stroke-width="5" stroke-linecap="round" d="M45 61h0M75 61h0M105 61h0M135 61h0M165 61h0M55 71h0M85 71h0M115 71h0M145 71h0M175 71h0M35 81h0M65 81h0M95 81h0M125 81h0M155 81h0M45 91h0M75 91h0M105 91h0M135 91h0M165 91h0M55 101h0M85 101h0M115 101h0M145 101h0M175 101h0M35 111h0M65 111h0M95 111h0M125 111h0M155 111h0M45 121h0M75 121h0M105 121h0M135 121h0M165 121h0M55 131h0M85 131h0M115 131h0M145 131h0M175 131h0M35 141h0M65 141h0M95 141h0M125 141h0M155 141h0M45 151h0M75 151h0M105 151h0M135 151h0M165 151h0M55 161h0M85 161h0M115 161h0M145 161h0M175 161h0M35 171h0M65 171h0M95 171h0M125 171h0M155 171h0M45 181h0M75 181h0M105 181h0M135 181h0M165 181h0M55 191h0M85 191h0M115 191h0M145 191h0M175 191h0M35 201h0M65 201h0M95 201h0M125 201h0M155 201h0" />
+		</g>
+		<g id="tl-a-h3" opacity="0">
+			<path stroke="#6b3e1f" stroke-width="5" stroke-linecap="round" d="M55 61h0M85 61h0M115 61h0M145 61h0M175 61h0M35 71h0M65 71h0M95 71h0M125 71h0M155 71h0M45 81h0M75 81h0M105 81h0M135 81h0M165 81h0M55 91h0M85 91h0M115 91h0M145 91h0M175 91h0M35 101h0M65 101h0M95 101h0M125 101h0M155 101h0M45 111h0M75 111h0M105 111h0M135 111h0M165 111h0M55 121h0M85 121h0M115 121h0M145 121h0M175 121h0M35 131h0M65 131h0M95 131h0M125 131h0M155 131h0M45 141h0M75 141h0M105 141h0M135 141h0M165 141h0M55 151h0M85 151h0M115 151h0M145 151h0M175 151h0M35 161h0M65 161h0M95 161h0M125 161h0M155 161h0M45 171h0M75 171h0M105 171h0M135 171h0M165 171h0M55 181h0M85 181h0M115 181h0M145 181h0M175 181h0M35 191h0M65 191h0M95 191h0M125 191h0M155 191h0M45 201h0M75 201h0M105 201h0M135 201h0M165 201h0" />
+		</g>
 
-	<!-- SCÉNA 4: Atmosferický tlak -->
-	<div class="scena" id="scena4">
-		<h3>Scéna 4: Atmosferický tlak — vzduch kolem nás</h3>
-		<svg viewBox="0 0 500 350" role="img" aria-label="Atmosferický tlak" class="tlak-svg">
-			<!-- Zemský povrch -->
-			<rect x="0" y="200" width="500" height="150" fill="#8b7355" />
-			<!-- Vzduch (molekuly) -->
-			<g id="s4-molekuly" fill="#87ceeb" opacity="0.5"></g>
-			<!-- Člověk (zjednodušené) -->
-			<g>
-				<circle cx="250" cy="130" r="20" fill="#f4a460" stroke="#2b2a26" stroke-width="2" /> <!-- hlava -->
-				<rect x="235" y="150" width="30" height="50" fill="#1e90ff" stroke="#2b2a26" stroke-width="2" /> <!-- tělo -->
-				<line x1="235" y1="170" x2="220" y2="200" stroke="#2b2a26" stroke-width="2" /> <!-- levá noha -->
-				<line x1="265" y1="170" x2="280" y2="200" stroke="#2b2a26" stroke-width="2" /> <!-- pravá noha -->
-			</g>
-			<!-- Tlakové šipky -->
-			<g id="s4-sipky" stroke="#e03131" stroke-width="3" marker-end="url(#arrowhead)">
-				<!-- Šipky ze všech stran -->
-				<line x1="100" y1="130" x2="220" y2="130" />
-				<line x1="400" y1="130" x2="280" y2="130" />
-				<line x1="250" y1="50" x2="250" y2="100" />
-				<line x1="250" y2="200" x2="250" y2="150" />
-			</g>
-			<!-- Text s hodnotou tlaku -->
-			<text x="250" y="300" text-anchor="middle" font-size="16" font-weight="bold" fill="#2b2a26">Atmosferický tlak: ~101 kPa (1 bar)</text>
-			<text id="s4-sila" x="250" y="330" text-anchor="middle" font-size="14" fill="#e03131">Na tvé tváři: ~2 tun síly!</text>
-		</svg>
-		<p class="popis" id="s4-text">
-			Vzduch má váhu — a kolem nás všech je obaluje. Celá hmota atmosféry tlačí na každého z nás silou cca 2 tuny!
-			🤔 Necítíš to, protože tlak je **vyrovnaný** — uvnitř tvého těla je stejný tlak jako venku, takže se vzájemně ruší.
-			Kdyby to nebyla pravda, zvětřela by ses jak balónek.
-		</p>
-	</div>
+		<!-- hodnoty -->
+		<text id="tl-a-davky-svg" x="236" y="92" font-size="22" fill="#2b2a26">dávky: 1 × 100 g</text>
+		<text id="tl-a-f" x="236" y="134" font-size="22" font-weight="bold" fill="#c92a2a">F = 1 N</text>
+		<text id="tl-a-s" x="236" y="176" font-size="22" font-weight="bold" fill="#1864ab">S = 1 m²</text>
 
-	<!-- Výběr scén -->
-	<div class="sceny-ovladani">
-		<button class="scene-btn" data-scene="1" type="button">Scéna 1: Co je to?</button>
-		<button class="scene-btn" data-scene="2" type="button">Scéna 2: Stlačení</button>
-		<button class="scene-btn" data-scene="3" type="button">Scéna 3: Hloubka</button>
-		<button class="scene-btn active" data-scene="4" type="button">Scéna 4: Atmosféra</button>
+		<rect x="20" y="248" width="400" height="44" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="tl-a-p" x="220" y="278" font-size="24" font-weight="bold" text-anchor="middle" fill="#2b2a26">p = F : S = 1 : 1 = 1 Pa</text>
+	</svg>
+	<div class="tl-ovladani">
+		<label>počet dávek po 100 g <input id="tl-a-davky" type="range" min="1" max="3" step="1" value="1" /> <span id="tl-a-davky-t">1</span></label>
 	</div>
+	<p id="tl-a-vysl" class="tl-vysledek"></p>
+
+	<h3>B) Stejná síla, jiná plocha</h3>
+	<svg id="tl-b-svg" viewBox="0 0 440 320" role="img" aria-label="Závaží na písku přímo nebo na široké desce">
+		<rect x="0" y="0" width="440" height="320" fill="#eef6ff" />
+		<rect x="8" y="8" width="424" height="134" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text x="18" y="36" font-size="22" font-weight="bold" fill="#2b2a26">stejná síla F = 5 · 10 = 50 N</text>
+		<text id="tl-b-r1" x="18" y="68" font-size="22" fill="#2b2a26">tlak na písek:</text>
+		<text id="tl-b-r2" x="18" y="98" font-size="22" font-weight="bold" fill="#c92a2a">p = 50 : 0,01 = 5 000 Pa</text>
+		<text id="tl-b-r3" x="18" y="128" font-size="22" fill="#1864ab">tedy 5 000 Pa = 5 kPa</text>
+
+		<!-- písek a důlek (hloubka důlku = atribut height) -->
+		<rect x="0" y="240" width="440" height="80" fill="#e9c46a" />
+		<rect id="tl-b-dulek" x="192" y="240" width="56" height="36" fill="#a0782c" />
+
+		<!-- deska 1 m² (viditelnost = opacity); šířky v měřítku: závaží 10 cm = 40 j.,
+		     deska 1 m = 100 cm = 400 j. (poměr 1 : 10) -->
+		<rect id="tl-b-deska" x="20" y="244" width="400" height="6" fill="#8d6e63" stroke="#2b2a26" stroke-width="2" opacity="0" />
+		<text id="tl-b-deska-t" x="220" y="278" font-size="22" text-anchor="middle" fill="#2b2a26" opacity="0"></text>
+
+		<!-- závaží 5 kg, podstava 10 cm × 10 cm = 100 cm²; popisek nad ním -->
+		<rect id="tl-b-zavazi" x="200" y="236" width="40" height="40" rx="3" fill="#495057" stroke="#2b2a26" stroke-width="3" />
+		<text id="tl-b-zavazi-t" x="220" y="226" font-size="21" font-weight="bold" text-anchor="middle" fill="#2b2a26">5 kg</text>
+
+		<text x="220" y="310" font-size="22" text-anchor="middle" fill="#2b2a26">plocha dotyku závaží 100 cm²</text>
+	</svg>
+	<div class="tl-tlacitka">
+		<button id="tl-b-primo" type="button" aria-pressed="true">závaží přímo na písku</button>
+		<button id="tl-b-na-desce" type="button" aria-pressed="false">závaží na desce 1 m²</button>
+	</div>
+	<p id="tl-b-vysl" class="tl-vysledek"></p>
+
+	<h3>C) Jedna trojice čísel, tři vzorce</h3>
+	<svg id="tl-c-svg" viewBox="0 0 440 345" role="img" aria-label="Karty síla, plocha a tlak a vzorec pro hledanou veličinu">
+		<rect x="0" y="0" width="440" height="345" fill="#eef6ff" />
+		<rect id="tl-c-k-F" x="20" y="16" width="120" height="100" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<text x="80" y="52" font-size="24" font-weight="bold" text-anchor="middle" fill="#2b2a26">F</text>
+		<text id="tl-c-v-F" x="80" y="96" font-size="22" font-weight="bold" text-anchor="middle" fill="#2b2a26">50 N</text>
+		<rect id="tl-c-k-S" x="160" y="16" width="120" height="100" rx="10" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+		<text x="220" y="52" font-size="24" font-weight="bold" text-anchor="middle" fill="#2b2a26">S</text>
+		<text id="tl-c-v-S" x="220" y="96" font-size="22" font-weight="bold" text-anchor="middle" fill="#2b2a26">0,01 m²</text>
+		<rect id="tl-c-k-p" x="300" y="16" width="120" height="100" rx="10" fill="#ffd43b" stroke="#c92a2a" stroke-width="4" />
+		<text x="360" y="52" font-size="24" font-weight="bold" text-anchor="middle" fill="#2b2a26">p</text>
+		<text id="tl-c-v-p" x="360" y="96" font-size="22" font-weight="bold" text-anchor="middle" fill="#2b2a26">?</text>
+
+		<rect x="8" y="132" width="424" height="134" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="2" />
+		<text id="tl-c-vzorec" x="220" y="166" font-size="26" font-weight="bold" text-anchor="middle" fill="#2b2a26">p = F : S</text>
+		<text id="tl-c-vypocet" x="220" y="206" font-size="23" font-weight="bold" text-anchor="middle" fill="#c92a2a">p = 50 : 0,01 = 5 000 Pa</text>
+		<text id="tl-c-r3" x="220" y="246" font-size="22" text-anchor="middle" fill="#1864ab">tedy 5 000 Pa = 5 kPa</text>
+
+		<text x="220" y="298" font-size="22" text-anchor="middle" fill="#2b2a26">S dosazuj v m²:</text>
+		<text x="220" y="328" font-size="22" text-anchor="middle" fill="#2b2a26">100 cm² = 1 dm² = 0,01 m²</text>
+	</svg>
+	<div class="tl-ovladani">
+		<label>hledám <input id="tl-c-hledana" type="range" min="0" max="2" step="1" value="0" /> <span id="tl-c-hledana-t">tlak</span></label>
+	</div>
+	<p id="tl-c-vysl" class="tl-vysledek"></p>
 </section>
 
 <script>
-	// SCÉNA 1: Teplota a tlak
-	const s1Slider = document.getElementById('s1-teplot');
-	const s1MolWrapper = document.getElementById('s1-molekuly');
-	const s1TempVal = document.getElementById('s1-temp-val');
-	const s1TlakVal = document.getElementById('s1-tlak-val');
-	const s1Text = document.getElementById('s1-text');
-	const s1TepotaRucka = document.getElementById('s1-teplota-rucka');
+	const $ = (id) => document.getElementById(id);
+	const nastav = (id, atributy) => {
+		const el = $(id);
+		for (const k of Object.keys(atributy)) el.setAttribute(k, atributy[k]);
+	};
+	/** Česky zapsané číslo: tisíce oddělené nezlomitelnou mezerou, desetinná čárka. */
+	const cislo = (n) => {
+		const [cela, des] = String(n).split('.');
+		const skupiny = cela.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+		return des ? `${skupiny},${des}` : skupiny;
+	};
 
-	function renderS1() {
-		const idx = +s1Slider.value;
-		const temps = [0, 20, 40];
-		const tlaks = [80, 100, 120]; // kPa (zjednodušeno)
-		const t = temps[idx];
-		const p = tlaks[idx];
+	// ---------- konstanty z výkladu ----------
+	const S_CTVERCE = 1; // m² — čtverec 1 m × 1 m (scéna A); jedna dávka 100 g má tíhu asi 1 N
+	const M = 5; // kg — závaží (Příklad 1)
+	const G = 10; // N/kg
+	const S_ZAVAZI_CM2 = 100; // cm² — plocha dotyku závaží
+	const CM2_V_M2 = 10000; // cm² v jednom m² (100 dm², každý po 100 cm²)
+	const S_DESKY = 1; // m²
+	const PA_V_KPA = 1000; // Pa v jednom kPa
 
-		s1TempVal.textContent = `${t}°C`;
-		s1TlakVal.textContent = `${p} kPa`;
+	const F = M * G; // 50 N
+	const S = S_ZAVAZI_CM2 / CM2_V_M2; // 0,01 m² — převod, bez něj by tlak vyšel 100× menší
+	const P_ZAVAZI = F / S; // 5 000 Pa
+	const P_DESKY = F / S_DESKY; // 50 Pa (tíhu desky nepočítáme)
 
-		// Animace teploty v teploměru
-		const ruckaY = [130, 110, 90][idx];
-		s1TepotaRucka.setAttribute('y', ruckaY);
+	// ---------- A) čokoláda ----------
+	function kresliA() {
+		const davky = +$('tl-a-davky').value;
+		const sila = davky; // každá dávka 100 g ≈ 1 N
+		const tlak = sila / S_CTVERCE;
+		for (const i of [1, 2, 3]) nastav(`tl-a-h${i}`, { opacity: i <= davky ? 1 : 0 });
+		$('tl-a-davky-t').textContent = String(davky);
+		$('tl-a-davky-svg').textContent = `dávky: ${davky} × 100 g`;
+		$('tl-a-f').textContent = `F = ${sila} N`;
+		$('tl-a-s').textContent = `S = ${S_CTVERCE} m²`;
+		$('tl-a-p').textContent = `p = F : S = ${sila} : ${S_CTVERCE} = ${tlak} Pa`;
+		$('tl-a-vysl').textContent = `${davky} × 100 g čokolády na ploše 1 m² tlačí silou ${sila} N, tlak je ${tlak} Pa. Větší síla na stejné ploše, větší tlak.`;
+	}
 
-		// Molekuly — více energičnější pohyb
-		let html = '';
-		for (let i = 0; i < 20; i++) {
-			const x = 70 + Math.random() * 260;
-			const y = 70 + Math.random() * 110;
-			const r = [4, 5, 6][idx]; // větší při vyšší teplotě
-			html += `<circle cx="${x}" cy="${y}" r="${r}" />`;
+	// ---------- B) stejná síla, jiná plocha ----------
+	// Kresba obou poloh: důlek je u závaží přímo na písku hlubší, pod deskou mělčí
+	// (jen hlubší × mělčí, NE v poměru tlaků 100 : 1).
+	// Důlek je vždy o 8 j. na každou stranu širší než to, co v něm leží; deska (výška 6)
+	// leží na dně mělkého důlku (hloubka 10), takže nad ní i po stranách je důlek vidět.
+	const KRESBA = {
+		primo: { dulekX: 192, dulekSirka: 56, dulekHloubka: 36, deska: 0, zavaziY: 236 },
+		deska: { dulekX: 12, dulekSirka: 416, dulekHloubka: 10, deska: 1, zavaziY: 204 },
+	};
+	let rezim = 'primo';
+	function kresliB() {
+		const naDesce = rezim === 'deska';
+		const k = naDesce ? KRESBA.deska : KRESBA.primo;
+		nastav('tl-b-dulek', { x: k.dulekX, width: k.dulekSirka, height: k.dulekHloubka });
+		nastav('tl-b-deska', { opacity: k.deska });
+		nastav('tl-b-deska-t', { opacity: k.deska });
+		// skrytý popisek je i prázdný — jinak by se měřil jako neviditelný text
+		nastav('tl-b-zavazi', { y: k.zavaziY });
+		nastav('tl-b-zavazi-t', { y: k.zavaziY - 10 });
+		$('tl-b-primo').setAttribute('aria-pressed', String(!naDesce));
+		$('tl-b-na-desce').setAttribute('aria-pressed', String(naDesce));
+		$('tl-b-deska-t').textContent = naDesce ? `plocha desky ${S_DESKY} m²` : '';
+		if (naDesce) {
+			$('tl-b-r2').textContent = `p = ${F} : ${S_DESKY} = ${P_DESKY} Pa`;
+			$('tl-b-r3').textContent = `tlak na desku: pořád ${cislo(P_ZAVAZI)} Pa`;
+			$('tl-b-vysl').textContent = `Deska rozloží sílu na větší plochu, a proto je tlak na písek menší. Přímo na písku je tlak ${cislo(P_ZAVAZI)} Pa, přes desku o ploše 1 m² jen ${P_DESKY} Pa. Tlak závaží na desku se nezměnil.`;
+		} else {
+			$('tl-b-r2').textContent = `p = ${F} : ${cislo(S)} = ${cislo(P_ZAVAZI)} Pa`;
+			$('tl-b-r3').textContent = `tedy ${cislo(P_ZAVAZI)} Pa = ${P_ZAVAZI / PA_V_KPA} kPa`;
+			$('tl-b-vysl').textContent = `Závaží tlačí silou ${F} N na plochu 100 cm² = 0,01 m², tlak na písek je ${cislo(P_ZAVAZI)} Pa = ${P_ZAVAZI / PA_V_KPA} kPa. Polož ho na desku a porovnej.`;
 		}
-		s1MolWrapper.innerHTML = html;
-
-		const msgs = [
-			'Při 0°C je tlak ~80 kPa. Molekuly se pohybují pomalu.',
-			'Při 20°C je tlak ~100 kPa. Normální pokojová teplota.',
-			'Při 40°C je tlak ~120 kPa. Molekuly se pohybují rychleji — nárazy jsou silnější.',
-		];
-		s1Text.textContent = msgs[idx];
 	}
-	s1Slider.addEventListener('input', renderS1);
-	renderS1();
 
-	// SCÉNA 2: Objem a tlak (Boyle-Mariotte)
-	const s2Slider = document.getElementById('s2-pist-slider');
-	const s2Pist = document.getElementById('s2-pist');
-	const s2Tyc = document.getElementById('s2-tyc');
-	const s2MolWrapper = document.getElementById('s2-molekuly');
-	const s2ObjeVal = document.getElementById('s2-objem');
-	const s2TlakVal = document.getElementById('s2-tlak');
-	const s2Text = document.getElementById('s2-text');
-
-	function renderS2() {
-		const idx = +s2Slider.value;
-		const volumes = [100, 50, 33, 25]; // %
-		const tlaks = [100, 200, 300, 400]; // kPa
-		const v = volumes[idx];
-		const p = tlaks[idx];
-
-		s2ObjeVal.textContent = `${v} %`;
-		s2TlakVal.textContent = `${p} kPa`;
-
-		// Pohyb pístu: 340 je úplně venku, 50 je úplně stlačené
-		const pistX = 340 - (idx * 72.5);
-		s2Pist.setAttribute('x', pistX);
-		s2Tyc.setAttribute('x', pistX + 20);
-
-		// Molekuly se "zahušťují"
-		let html = '';
-		const cols = 4;
-		const rows = [3, 5, 7, 9][idx];
-		for (let i = 0; i < cols * rows; i++) {
-			const colIdx = i % cols;
-			const rowIdx = Math.floor(i / cols);
-			const xSpacing = (300 - 100) / (cols + 1);
-			const ySpacing = (180 - 0) / (rows + 1);
-			const x = 50 + 30 + (colIdx + 1) * (xSpacing * v / 100);
-			const y = 60 + 30 + (rowIdx + 1) * (ySpacing * v / 100);
-			if (x < pistX - 20) html += `<circle cx="${x}" cy="${y}" r="4" />`;
+	// ---------- C) tři vzorce ----------
+	const HLEDANE = [
+		// r3 = třetí řádek rámečku, v každém stavu neprázdný (dřív zůstával u tlaku a síly prázdný pruh)
+		{ co: 'p', nazev: 'tlak', vzorec: 'p = F : S', vypocet: () => `p = ${F} : ${cislo(S)} = ${cislo(F / S)} Pa`, r3: () => `tedy ${cislo(F / S)} Pa = ${F / S / PA_V_KPA} kPa` },
+		{ co: 'F', nazev: 'síla', vzorec: 'F = p · S', vypocet: () => `F = ${cislo(P_ZAVAZI)} · ${cislo(S)} = ${P_ZAVAZI * S} N`, r3: () => `zkouška: ${P_ZAVAZI * S} : ${cislo(S)} = ${cislo(P_ZAVAZI * S / S)} Pa` },
+		{ co: 'S', nazev: 'plocha', vzorec: 'S = F : p', vypocet: () => `S = ${F} : ${cislo(P_ZAVAZI)} = ${cislo(F / P_ZAVAZI)} m²`, r3: () => `tedy ${cislo(F / P_ZAVAZI)} m² = ${(F / P_ZAVAZI) * CM2_V_M2} cm²` },
+	];
+	const HODNOTY = { F: `${F} N`, S: `${cislo(S)} m²`, p: `${cislo(P_ZAVAZI)} Pa` };
+	function kresliC() {
+		const h = HLEDANE[+$('tl-c-hledana').value];
+		for (const co of ['F', 'S', 'p']) {
+			const hledam = co === h.co;
+			$(`tl-c-v-${co}`).textContent = hledam ? '?' : HODNOTY[co];
+			nastav(`tl-c-k-${co}`, hledam
+				? { fill: '#ffd43b', stroke: '#c92a2a', 'stroke-width': 4 }
+				: { fill: '#ffffff', stroke: '#2b2a26', 'stroke-width': 3 });
 		}
-		s2MolWrapper.innerHTML = html;
-
-		const msgs = [
-			'Objem = 100 %, tlak = 100 kPa. Normální stav.',
-			'Objem = 50 %, tlak = 200 kPa. Píst je stlačený na polovinu — tlak se zdvojnásobil!',
-			'Objem = 33 %, tlak = 300 kPa. Stlačení pokračuje — tlak roste.',
-			'Objem = 25 %, tlak = 400 kPa. Maximální stlačení — tlak čtyřikrát větší!',
-		];
-		s2Text.textContent = msgs[idx];
+		$('tl-c-hledana-t').textContent = h.nazev;
+		$('tl-c-vzorec').textContent = h.vzorec;
+		$('tl-c-vypocet').textContent = h.vypocet();
+		$('tl-c-r3').textContent = h.r3();
+		$('tl-c-vysl').textContent = `Hledám ${h.nazev}: ${h.vzorec}. Vzorec p = F : S umíme obrátit na F = p · S a S = F : p.`;
 	}
-	s2Slider.addEventListener('input', renderS2);
-	renderS2();
 
-	// SCÉNA 3: Hloubka a tlak
-	const s3Slider = document.getElementById('s3-hlubka');
-	const s3P1 = document.getElementById('s3-p1');
-	const s3P2 = document.getElementById('s3-p2');
-	const s3P3 = document.getElementById('s3-p3');
-	const s3Text = document.getElementById('s3-text');
+	$('tl-a-davky').addEventListener('input', kresliA);
+	$('tl-b-primo').addEventListener('click', () => { rezim = 'primo'; kresliB(); });
+	$('tl-b-na-desce').addEventListener('click', () => { rezim = 'deska'; kresliB(); });
+	$('tl-c-hledana').addEventListener('input', kresliC);
 
-	function renderS3() {
-		const idx = +s3Slider.value;
-		const depths = [0, 5, 10]; // metry
-		const pressures = [101, 111, 121]; // kPa (zjednodušeno: 101 + hloubka*2)
-		const d = depths[idx];
-		const p = pressures[idx];
-
-		s3P1.textContent = `101 kPa (povrch)`;
-		s3P2.textContent = `${pressures[Math.min(1, idx)]} kPa`;
-		s3P3.textContent = `${pressures[Math.min(2, idx)]} kPa`;
-
-		const msgs = [
-			'Na povrchu: 101 kPa (1 bar). Atmosferický tlak.',
-			'V hloubce 5 m: 111 kPa (tlak vody se přidá). Potápěči se zvykují postupně.',
-			'V hloubce 10 m: 121 kPa. Tlak se zvyšuje rychle — každých 10 m ~10 kPa.',
-		];
-		s3Text.textContent = msgs[idx];
-	}
-	s3Slider.addEventListener('input', renderS3);
-	renderS3();
-
-	// SCÉNA 4: Atmosferický tlak — animace molekul
-	function animateAtmosphere() {
-		const molWrapper = document.getElementById('s4-molekuly');
-		let html = '';
-		for (let i = 0; i < 80; i++) {
-			const x = Math.random() * 500;
-			const y = Math.random() * 200; // jen horní část (atmosféra)
-			const r = 2 + Math.random() * 2;
-			html += `<circle cx="${x}" cy="${y}" r="${r}" />`;
-		}
-		molWrapper.innerHTML = html;
-	}
-	animateAtmosphere();
-	setInterval(animateAtmosphere, 2000);
-
-	// SCÉNY — přepínání
-	const sceneBtns = document.querySelectorAll('.scene-btn');
-	const scena1 = document.getElementById('scena1');
-	const scena2 = document.getElementById('scena2');
-	const scena3 = document.getElementById('scena3');
-	const scena4 = document.getElementById('scena4');
-	const sceny = [scena1, scena2, scena3, scena4];
-
-	sceneBtns.forEach((btn) => {
-		btn.addEventListener('click', () => {
-			const sceneNum = parseInt(btn.getAttribute('data-scene'), 10);
-			sceny.forEach((s) => (s.style.display = 'none'));
-			sceneBtns.forEach((b) => b.classList.remove('active'));
-			sceny[sceneNum - 1].style.display = 'block';
-			btn.classList.add('active');
-		});
-	});
-
-	// Inicializace: zobraz první scénu
-	window.addEventListener('load', () => {
-		sceny.forEach((s) => (s.style.display = 'none'));
-		scena1.style.display = 'block';
-	});
+	kresliA();
+	kresliB();
+	kresliC();
 </script>
 
 <style>
-	.simulace {
-		background: #f8f9fa;
+	.simulace svg {
+		width: 100%;
+		max-width: 440px;
+		display: block;
+		margin: 0 auto;
 		border: 3px solid #2b2a26;
 		border-radius: 12px;
-		padding: 1.5rem;
-		margin: 1.5rem 0;
 	}
-
-	.simulace h2 {
-		margin: 0 0 0.5rem 0;
-	}
-
-	.simulace > p {
-		margin-top: 0;
-		margin-bottom: 1rem;
-		font-size: 1.05rem;
-	}
-
-	.scena {
-		display: none;
-		margin: 1.5rem 0;
-	}
-
-	.scena h3 {
-		margin-top: 0;
-		font-size: 1.2rem;
-		color: #0099ff;
-	}
-
-	.tlak-svg {
-		width: 100%;
-		max-width: 500px;
-		border: 2px solid #ddd;
-		border-radius: 8px;
-		background: #fafafa;
-		margin: 0.5rem 0;
-	}
-
-	.sim-posuvnik {
-		display: block;
-		font-weight: 700;
-		margin: 0.7rem 0;
-	}
-
-	.sim-posuvnik input {
-		width: 100%;
-		max-width: 500px;
-		display: block;
-		margin-top: 0.3rem;
-	}
-
-	.popis {
-		font-size: 1rem;
-		background: #fffacd;
-		border-radius: 8px;
-		padding: 0.7rem;
-		margin: 0.7rem 0;
-		border-left: 4px solid #0099ff;
-	}
-
-	.sceny-ovladani {
+	.tl-ovladani {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 1.5rem;
 		justify-content: center;
+		margin: 0.8rem 0;
 	}
-
-	.scene-btn {
-		padding: 0.5rem 1rem;
-		border: 2px solid #2b2a26;
-		border-radius: 8px;
-		background: #fff;
+	.tl-ovladani label {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 600;
+	}
+	.tl-ovladani input[type='range'] {
+		min-width: 8rem;
+		height: 2.75rem;
+	}
+	.tl-tlacitka {
+		display: flex;
+		gap: 0.8rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 0.6rem 0;
+	}
+	.tl-tlacitka button {
 		font-weight: 700;
+		font-size: 1rem;
+		padding: 0.5rem 1.1rem;
+		min-height: 2.75rem;
+		border: 3px solid #2b2a26;
+		border-radius: 10px;
+		background: #ffffff;
+		color: #2b2a26;
 		cursor: pointer;
-		font-size: 0.95rem;
-		transition: all 0.2s ease;
+		touch-action: manipulation;
 	}
-
-	.scene-btn:hover {
-		background: #e7f5ff;
+	.tl-tlacitka button[aria-pressed='true'] {
+		background: #ffd43b;
 	}
-
-	.scene-btn.active {
-		background: #0099ff;
-		color: #fff;
-		border-color: #0099ff;
-	}
-
-	.scene-btn:active {
-		transform: translateY(1px);
+	.tl-vysledek {
+		font-weight: 600;
+		padding: 0.6rem;
+		border-radius: 10px;
+		background: #fff3bf;
+		color: #2b2a26;
+		text-align: center;
 	}
 </style>
