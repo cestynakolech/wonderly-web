@@ -40,6 +40,7 @@ export const NENI_MERIDLO = {
 	'vsechny-simulace.mjs': 'spouštěč testů simulací',
 	'obousmerne.mjs': 'tenhle rejstřík',
 	'uniky-obousmerne.mjs': 'je to samo obousměrné ověření',
+	'uniky-v-bloku-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy úniku do zadání, vysvětlení a čísla + zdravé bloky F8)',
 	// POZOR: `uniky-krizove.mjs` sem NEPATŘÍ a nesmí se sem vracet (vyndáno 14. 8. 2026).
 	// Worker ho sem zapsal s poctivým odůvodněním „zatím jen hlášení, ne brána" — jenže
 	// tenhle seznam neznamená „co ještě neshazuje build", ale VÝJIMKU Z POVINNÉHO DOKLADU.
