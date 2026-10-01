@@ -622,6 +622,10 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
+
+`Omega/skripty/snimky_podkastu.py:~7395` (`_spust`, `tempfile.mkdtemp`) maže profil přes `atexit`; při SIGTERM/SIGKILL (např. timeout v `automat_podkastu.spust`) atexit neproběhne a `$TMPDIR/omega-chrome-*` (~2,8 MB) zůstane. Chrome sám nevisí (končí se zavřením roury). Důkaz: po TERM i KILL „profil ZUSTAL“, po INT smazán. Podrobnosti: `Omega/predavka/2026-10-01-den/kontrola-stash-f9.md` (A1). Oprava: signal handler pro TERM, nebo úklid starých `omega-chrome-*` při startu.
+
 ### [drobnost] Pojistka slugu jde obejít přímým spuštěním snimky_/animace_podkastu.py (1. 10. 2026, kontrola 3)
 
 `skripty/snimky_podkastu.py:7256-7268` a `animace_podkastu.py:4996-5025` zapisují do `podkasty-snimky/<slug>` bez `over_kolizi_slugu` / kontroly značky ročníku; přímé volání dokumentuje `skills/podkast-video/SKILL.md:90`. Náprava (návrh): volat pojistku + `zapis_vlastnika` i v `main()` obou skriptů. Protokol: `Omega/predavka/2026-10-01-den/kontrola3-video-automatu.md` (nález 1).
