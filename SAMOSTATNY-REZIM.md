@@ -645,6 +645,9 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 ### [čeká na učitele] Příroda Q20 + Q21 — ODLOŽENO 2. 10. 2026 (Q20 3 pokusy, Q21 6 pokusů; nehotové)
 Kvíz Skupenské změny vody v přírodě má 20 otázek (cíl 21). Q20: 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor, mírný únik). Q21: otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20. Rozhodnout učitel: jiná otázka, výjimka 20/21 s důvodem, nebo návrh opravy v `Omega/predavka/2026-10-02/kontrola-81bb544.md` (a `prace/kontrola-doplneni-priroda-tani.md` Kolo 3). Pozn. k ověření: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci.
 
+### [čeká na učitele] Blok Teplo F8 — chce přestavbu (2. 10. 2026)
+Blok Teplo F8 — otázky si přirozeně napovídají směr tepla (Q1/Q2/Q3/Q4/Q6, vzorec→Q5, jednotka→Q11); 5 pokusů o drobnou opravu selhalo, chce přestavbu bloku; nálezy Omega/predavka/2026-10-02/prace/kontrola-b6810b3.md. Blok vrácen na verzi 7282e02 (energie ř. 3484 ponechána).
+
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
 `Omega/skripty/snimky_podkastu.py:~7395` (`_spust`, `tempfile.mkdtemp`) maže profil přes `atexit`; při SIGTERM/SIGKILL (např. timeout v `automat_podkastu.spust`) atexit neproběhne a `$TMPDIR/omega-chrome-*` (~2,8 MB) zůstane. Chrome sám nevisí (končí se zavřením roury). Důkaz: po TERM i KILL „profil ZUSTAL“, po INT smazán. Podrobnosti: `Omega/predavka/2026-10-01-den/kontrola-stash-f9.md` (A1). Oprava: signal handler pro TERM, nebo úklid starých `omega-chrome-*` při startu.
