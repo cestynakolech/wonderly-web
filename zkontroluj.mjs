@@ -147,6 +147,18 @@ if (podilNejdelsi > 45) {
 // neblokují, ale zhoršit se to už nesmí. Zlepšení laťku rovnou utáhne.
 const cestaRohatka = join(koren, 'testy/rohatka.json');
 const strop = existsSync(cestaRohatka) ? JSON.parse(readFileSync(cestaRohatka, 'utf8')) : null;
+// Chybějící klíč rohatky je TVRDÁ CHYBA (2. 10. 2026). Dřív `?? Infinity` tiše pustilo
+// cokoli: smazaný klíč = neomezený strop = brána nehlídá nic a nikdo to nepozná.
+// Vrací Infinity jen proto, aby se z jedné chyby nespustil kaskádový poplach.
+const klicRohatky = (objekt, klic, soubor) => {
+	const hodnota = objekt?.[klic];
+	if (typeof hodnota === 'number' && Number.isFinite(hodnota)) return hodnota;
+	chyby.push(
+		`rohatka ${soubor}: chybí klíč „${klic}" (nebo není číslo) — bez něj se nic nehlídá. ` +
+			`Doplň ho VĚDOMĚ naměřenou hodnotou (ne odhadem); soubor ${objekt ? 'existuje' : 'chybí úplně'}.`,
+	);
+	return Infinity;
+};
 
 // Brána je ČTECÍ. Utažení laťky je samostatné rozhodnutí, ne vedlejší účinek buildu:
 // dřív se rohatka přepisovala rovnou při kontrole, takže `npm run build` tiše měnil
@@ -159,15 +171,16 @@ const strop = existsSync(cestaRohatka) ? JSON.parse(readFileSync(cestaRohatka, '
 const chceUtahnout = process.argv.includes('--prijmi-latku');
 let navrzenaLatka = null;
 const navrhniLatku = (zmena) => { navrzenaLatka = { ...(navrzenaLatka ?? strop), ...zmena }; };
-const stropPocet = strop?.pocetNejdelsi ?? Infinity;
-if (strop && (podilNejdelsi > strop.podilNejdelsi || pocetNejdelsi > stropPocet)) {
+const stropPodil = klicRohatky(strop, 'podilNejdelsi', 'testy/rohatka.json');
+const stropPocet = klicRohatky(strop, 'pocetNejdelsi', 'testy/rohatka.json');
+if (strop && (podilNejdelsi > stropPodil || pocetNejdelsi > stropPocet)) {
 	chyby.push(
 		`kvízy se zhoršily: správná odpověď je nejdelší u ${pocetNejdelsi} otázek (${podilNejdelsi} %), ` +
-			`naposledy ${stropPocet === Infinity ? '—' : stropPocet} otázek (${strop.podilNejdelsi} %). ` +
+			`naposledy ${stropPocet} otázek (${stropPodil} %). ` +
 			`Dorovnej délky odpovědí v NOVÝCH otázkách (rozdíl pod 10 znaků). ` +
 			`Laťku v testy/rohatka.json povoluj jen vědomě.`,
 	);
-} else if (strop && (podilNejdelsi < strop.podilNejdelsi || pocetNejdelsi < stropPocet)) {
+} else if (strop && (podilNejdelsi < stropPodil || pocetNejdelsi < stropPocet)) {
 	navrhniLatku({ podilNejdelsi, pocetNejdelsi });
 	varovani.push(`kvízy se zlepšily na ${pocetNejdelsi} otázek (${podilNejdelsi} %) — laťku lze utáhnout: npm run prijmi-latku`);
 }
@@ -202,7 +215,7 @@ for (const [klic, otazky] of Object.entries(dataKvizy)) {
 	}
 }
 const pocetNaskok = problemoveNaskok.length;
-const stropNaskok = strop?.pocetNaskok10 ?? Infinity;
+const stropNaskok = klicRohatky(strop, 'pocetNaskok10', 'testy/rohatka.json');
 if (strop && pocetNaskok > stropNaskok) {
 	const priklad = [...problemoveNaskok]
 		.sort((a, b) => b.naskok - a.naskok)
@@ -366,7 +379,7 @@ for (const d of vazby.duplicity) {
 for (const n of zkontrolujPoradi(dataKvizy).nalezy) {
 	chyby.push(`${n.klic} #${n.cislo}: vysvětlení odkazuje na pořadí/písmeno možnosti („${n.uryvek}"), ale možnosti se míchají — pojmenuj ji obsahem`);
 }
-const stropUniku = strop?.uniky ?? Infinity;
+const stropUniku = klicRohatky(strop, 'uniky', 'testy/rohatka.json');
 if (vazby.uniky.length > stropUniku) {
 	const nove = vazby.uniky.slice(0, 3).map((u) => `„${u.prozrazuje}" prozrazuje „${u.odpoved}"`).join('; ');
 	chyby.push(
@@ -391,7 +404,7 @@ const rejstrik = zkontrolujRejstrik();
 const rejstrikJson = existsSync(join(koren, 'testy/obousmerne.json'))
 	? JSON.parse(readFileSync(join(koren, 'testy/obousmerne.json'), 'utf8'))
 	: null;
-const stropBezDokladu = rejstrikJson?.bezDokladu ?? Infinity;
+const stropBezDokladu = klicRohatky(rejstrikJson, 'bezDokladu', 'testy/obousmerne.json');
 if (rejstrik.chybi.length > stropBezDokladu) {
 	chyby.push(
 		`měřidlo bez obousměrného důkazu: ${rejstrik.chybi.join(', ')} (bez dokladu ${rejstrik.chybi.length}, naposledy ${stropBezDokladu}). ` +
