@@ -325,17 +325,15 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 ## 📌 Živé zadání, fronta a reference
 
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
-- **Příroda 20/21 – Q20 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor), jiný postup (2. 10. 2026):** kvíz Skupenské změny vody v přírodě má 20 otázek; 21. nová z hlavní látky Přírody bez protějšku v Tání/Tuhnutí/Kondenzaci (např. kyselé deště – zdroj znečištění) nebo výjimka s důvodem. Pozn.: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci — k ověření.
-- **ODLOŽENO 2. 10. 2026 večer (drobnosti z kontrol, nic nenasazeno kvůli nim):** (1) kolize slugů – drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-ef35e01.md`; (2) brána poradi-moznosti – 4 drobnosti z `prace/kontrola-2bae789.md`; (3) Příroda Q20 – mírný únik; (4) F9 poznámky `Omega/predavka/2026-10-02/f9-prahy.md`; (5) Teplo Q1 stylistika + směr tepla v Q1/Q2/Q6/Q18; (6) Codexovy požadavky k ročníkovým cestám (viz PRIKAZ-NOVA-SESSION 2. 10.).
+- **ODLOŽENO 2. 10. 2026 večer (drobnosti z kontrol, nic nenasazeno kvůli nim):** (1) kolize slugů – drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-ef35e01.md`; (2) brána poradi-moznosti – 4 drobnosti z `prace/kontrola-2bae789.md`; (3) Příroda Q20 – viz bod „čeká na učitele“ (Příroda Q20 + Q21); (4) F9 poznámky `Omega/predavka/2026-10-02/f9-prahy.md`; (5) Teplo Q1 + směr tepla v Q1/Q2/Q6/Q18 — HOTOVO (e262c68, b6810b3); (6) Codexovy požadavky k ročníkovým cestám (viz PRIKAZ-NOVA-SESSION 2. 10.).
 - **KVÍZY F8 tema4 (2. 10. 2026, commit 4edf442):** kvíz Skupenské změny vody v přírodě 19/21 a Tání 18/21 — doplnit na cíl 21 (nebo zapsat výjimku s důvodem).
 - **HOTOVO 2. 10. 2026: Tání 21/21 (vložena otázka o 327 °C, zadání „Která z těchto látek…“; uniky.mjs 0, build OK).** — původně: **Tání 20/21 – 21. otázka 3× neprošla (úniky v bloku), jiný postup** (2. 10. 2026; Příroda doplněna na 21; `Omega/predavka/2026-10-02/prace/kontrola-doplneni-priroda-tani.md` Kolo 3).
 - **DROBNÉ (2. 10. 2026, kontrola b16):** `testy/uniky-krizove.mjs` hlásí 77 podezřelých dvojic (stav před b16, po b16 beze změny) – projít (`Omega/predavka/2026-10-01-noc/kontrola-vlozeni-b16.md`).
 - **HOTOVO 2. 10. 2026 (protokol `Omega/predavka/2026-10-02/vysledek-drobnosti-f9-b16.md`): b16 N4, N5, N6 a F9 Radioaktivita M5 opraveny (po kontrole f20570e: „kovových pilin“ vráceno, nejkratší správná Elektromagnet 5/21, Alternátor Q13 nahrazena otázkou s oporou v PDF s. 1, komutátor ponechán); nic nečeká na učitele.** — původní záznam: **DROBNÉ b16 (kontrola Codexova odevzdání, 2. 10. 2026, `Omega/predavka/2026-10-01-noc/kontrola-codex-b16.md`, neopraveno, „mimo návrhy“):** (N4) Výkon: vysvětlení Q1 (kvizy.ts ~3337) „Výkon porovnává stroje i lidi podle toho, jak rychle pracují.“ prozrazuje Q2 (~3338); nové vysvětlení Q10 jen opakuje správnou odpověď. (N5) Alternátor: Q14/Q20 zkoušejí komutátor/dynamo, které PDF s. 6 má jen jako „Pro zajímavost“; Q13 (součet napětí tří cívek = 0) a vysvětlení Q12 v PDF nenalezeno; délky bloku: nejkratší správná 10/21, Q17 náskok +8. (N6) Elektromagnet po Q1+Q9: nejkratší správná 4/21 (<5), Q15 (~4476) náskok +5 (>4), kalibrace délek čeká. Čísla řádků ověřit grepem, mohla se posunout.
-- **DROBNÉ (2. 10. 2026):** Teplo Q1 (kvizy.ts ~3498, „Co je teplo?“) — vysvětlení „vždy od teplejšího k chladnějšímu“ prozrazuje odpověď Q2 (ř. ~3499); ověřit a případně přeformulovat.
 - **DROBNÉ (kontrola commitu 6bca11f, 1. 10. 2026, `Omega/predavka/2026-10-01-den/kontrola-oprava-fronty.md`, neopraveno):** (N1) `test-fronta-chyba-obsahu.py` netestuje samoúklid záznamu po opravě scénosledu (`dodelej_animace.py:215–216`) ani zápis stavu (`:260`); mutant bez `pop` projde 4/4. (N2) `dodelej_animace.py:212` `zaloguj` píše do ap.LOG i při `--nasucho` — každý suchý náhled přidá do logu automatu 4 řádky „chyba obsahu“ (šum).
 
-- **KROK 1 HOTOVO 2. 10. 2026 (pojistka, commit Omega 922fc29, kontrola ZELENÁ: `Omega/predavka/2026-10-02/kontrola-922fc29.md`); zbývá KROK 2 (cesty s ročníkem). PRIORITA VYSOKÁ (1. 10. 2026): kolize slugu mezi ročníky ve výrobě videa.** `video_podkastu.py:34-35` ukládá snímky/video jen podle slugu bez ročníku → výroba podkastu 7 gravitacni-sila-dialog by přepsala video 6. ročníku. Krok 1 (hned po doběhu automatu dodelej-animace 1. 10.): pojistka — výroba se zastaví s chybou, když slug existuje v jiném ročníku. Krok 2: cesty s ročníkem (dotkne se R2 klíčů a odkazů v temata.ts — plán + kontrolor). Doklad: `Omega/predavka/2026-10-01-den/kontrola-stav-animaci.md`. Drobný nález tamtéž: `stav_animaci.py` skryje existující video, když zvuk chybí v obou ročnících.
-- **Fronta téma 4 (1. 10. 2026):** simulace Tlaku; F9 Účinky proudu a bezpečnost (ODBLOKOVÁNO 1. 10. 2026, rozhodl učitel: práh ~1/~10/~30 mA, kůže 2 000 Ω vlhko / 150 000 Ω sucho, viz rozhodnutí v ❓); vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
+- **HOTOVO 2. 10. 2026: kolize slugu mezi ročníky ve výrobě videa** — krok 1 pojistka (Omega 922fc29, kontrola `Omega/predavka/2026-10-02/kontrola-922fc29.md`), pojistka ve všech skriptech (Omega d7f45fd) a krok 2 ročníkové cesty (Omega ef35e01 + d7f45fd). Cesta na webu ani klíč v R2 ročník neobsahují, nedotkne se jich nic (`Omega/predavka/2026-10-02/cesty-kanarek-web.md`). Drobný nález (1. 10.): `stav_animaci.py` skryje existující video, když zvuk chybí v obou ročnících.
+- **Fronta téma 4 (1. 10. 2026; simulace Tlaku HOTOVO 0cb9c5c, F9 Účinky proudu HOTOVO — výklad, kvíz 21, simulace UcinkyProuduABezpecnostSimulace):** vlna 3 F8 Vypařování/Var/Kondenzace/Skupenské změny vody v přírodě (Codex); média (Suno, NotebookLM, polemika s animacemi); vyřešit selhání CI buildu (`prace/ci-selhani.md`); mobil ~121 simulací (Codex, větev `codex/mobil`).
 - **Fronta téma 3 (30. 9. 2026 noc):** zbývá Klín (bez podkladu) a Nakloněná rovina (bez podkladu, viz ❓ a); pak další téma.
 - **DROBNÉ k7 (F7 Těžiště + F8 Tepelná výměna, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k7.md`, NASADIT).** Body 1–6 jdou do dalšího kola.
 - **DROBNÉ k6 (F8 Energetická hodnota potravin, 30. 9. 2026, `/tmp/wonderly-workery/2026-09-30-tema2/kontrola-web-k6.md`, NASADIT).** Body 1–4 (kvizy.ts 3559, 3560, 3543, 4644×4662) jdou do dalšího kola. ODLOŽENO: 5, 6, 8 (SvacinaSimulace.astro: „vždy na 100 g", nečitelné popisky v 400 px, dietní hlášky) a 7 (`testy/cisla-ve-vykladu.mjs:15` nezná NBSP, falešný poplach 6300).
@@ -640,19 +638,12 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 
 ## Fronta nápadů (seřazeno podle priority)
 
-### HOTOVO 2. 10. 2026 (večer): 4 úniky v kvízech opraveny + pojistka kolizí
-- 4 úniky opraveny (commity 022543c..4be6d1a, reaktor, tuhnutí, lom); kontroly `Omega/predavka/2026-10-02/prace/kontrola-{022543c,d05aedc,44486ad,4be6d1a}.md`, podklady `reaktor-2-v3.md`, `reaktor-2-v4.md`, `uniky-4-oprava-v2.md`.
-- Pojistka kolizí slugů ve všech 7 skriptech (Omega d7f45fd; kontrola `prace/kontrola-rada-pojistka.md`).
-- Kontroly zkopírovány z /tmp/wonderly-workery/2026-10-02/ do `Omega/predavka/2026-10-02/prace/`.
-
 ### [odloženo] Zbytek po opravě 4 úniků (2. 10. 2026)
 - Automat `Omega/skripty/trideni_uniku_krizove.py` zůstává jen PŘEDFILTR s ruční kontrolou (přesnost 7/10 na held-out, nezapojovat do bran): `Omega/predavka/2026-10-02/trideni-uniku-v3.md`, `prace/kalibrace-trideni.md`.
 - Drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-rada-pojistka.md`: mutace v `automat_podkastu.py:627` bez testu; hláška ve `video_podkastu.py:134` (výroba snímků s ročníkovou cestou není zapojena).
-- Energie Q (`src/data/kvizy.ts:3484`): správná odpověď = název kvízu („vnitřní energii tělesa“) a je nejdelší — upravit.
-- Výklad reaktoru (`jaderny-reaktor-elektrarna`) zmiňuje jen ponorky, ne ledoborce, ačkoli kvíz (kvizy.ts:5152) říká „ponorky a ledoborce“ — doplnit výklad.
 
-### [odloženo] Příroda Q21 — ODLOŽENO 2. 10. (6 pokusů)
-Otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20; rozhodnout učitel: jiná otázka, výjimka 20/21, nebo návrh opravy v Omega/predavka/2026-10-02/kontrola-81bb544.md (zkopírováno z /tmp/wonderly-workery/2026-10-02/).
+### [čeká na učitele] Příroda Q20 + Q21 — ODLOŽENO 2. 10. 2026 (Q20 3 pokusy, Q21 6 pokusů; nehotové)
+Kvíz Skupenské změny vody v přírodě má 20 otázek (cíl 21). Q20: 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor, mírný únik). Q21: otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20. Rozhodnout učitel: jiná otázka, výjimka 20/21 s důvodem, nebo návrh opravy v `Omega/predavka/2026-10-02/kontrola-81bb544.md` (a `prace/kontrola-doplneni-priroda-tani.md` Kolo 3). Pozn. k ověření: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci.
 
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
@@ -757,7 +748,6 @@ Přání učitele: *„aby se to samostatně přepínalo na zrovna aktuální ve
   v 8 blocích). Zadáno 22. 9. 2026 noc při sladění kvízů 24 podtémat.
 - [skola2] `zkontroluj.mjs`: počítadlo otázek (`^\s*text:\s*'`) nepočítá starší jednořádkový
   zápis kvízů — jen kosmetika výpisu, opravit regex (nález 28. 7. u F8 tepelná výměna).
-- [skola2] Simulace „Rozpálená kolejnice" (dilatační spára, výpočet prodloužení) — F6/F8.
 - [skola2] Simulace „Změř to rukou, nebo teploměrem?" (tři kádinky) — F6 teplota.
 - [skola2] Generátor příkladů na průměrnou teplotu s grafem (celá čísla) — F6.
 - [skola2] Doplnit kompenzátor (expanzní smyčku) do výkladu teplotní roztažnosti.
