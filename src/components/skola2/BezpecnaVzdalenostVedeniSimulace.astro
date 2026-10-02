@@ -116,7 +116,7 @@
 	// vzpěra stožáru vede z (STOZAR_X − 26, 255) do (STOZAR_X, RAMENO_Y);
 	// ve výšce ruky (y = 234) je na x ≈ STOZAR_X − 23 → postava o 8 vlevo od ní
 	const VZPERA_X_RUKA = Math.round(STOZAR_X - 26 + 26 * (255 - 234) / (255 - 90));
-	const PLAKETA_POSTAVY_Y = 292; // pod čarou země — nic nezakrývá
+	const PLAKETA_POSTAVY_Y = 294; // svislý střed plakety, pod čarou země
 
 	// 4 situace u vedení — texty mají oporu ve výkladu F9 (oddíl
 	// „Vedení vysokého napětí“), žádné metry.
@@ -142,13 +142,29 @@
 			text: '230 V ze zásuvky je nebezpečné vždycky a všude: I = U : R = 230 : 2 000 = 0,115 A, tedy 115 mA — hluboko nad 80 mA, v pásmu zástavy srdce. Holou rukou se ho nikdy nedotýkej.' },
 	];
 
-	// plaketa sevřená do zadaného panelu [min, max] — nepřeteče přes dělicí čáru
+	// plaketa sevřená do zadaného panelu [min, max] — nepřeteče přes dělicí čáru.
+	// Písmo 31 ve viewBoxu (na telefonu ≥ 12 px); delší text se zalomí na dva řádky
+	// (mezera zůstává v prvním řádku, text se nemění). textY = svislý střed plakety.
+	const PISMO = 31, RADEK = 35, ZNAK = 17.4;
 	function plaketa(textX, textY, text, barva, panel) {
-		const sirka = String(text).length * 7 + 8;
+		const t = String(text);
+		let radky = [t];
+		if (t.length > 12) {
+			let nejlepsi = -1;
+			for (let i = 0; i < t.length; i++) {
+				if (t[i] === ' ' && (nejlepsi < 0 || Math.abs(i - t.length / 2) < Math.abs(nejlepsi - t.length / 2))) nejlepsi = i;
+			}
+			if (nejlepsi > 0) radky = [t.slice(0, nejlepsi + 1), t.slice(nejlepsi + 1)];
+		}
+		const nejdelsi = Math.max(...radky.map((r) => r.trim().length));
+		const sirka = Math.round(nejdelsi * ZNAK + 16);
+		const vyska = radky.length * RADEK + 6;
 		const rectX = Math.max(panel[0], Math.min(panel[1] - sirka, textX - sirka / 2));
-		const rectY = Math.max(OKRAJ, Math.min(320 - OKRAJ - 18, textY - 14));
-		return `<rect x="${rectX.toFixed(1)}" y="${rectY.toFixed(1)}" width="${sirka}" height="18" rx="4" fill="#ffffff" stroke="${barva}" stroke-width="1.5" />`
-			+ `<text x="${(rectX + sirka / 2).toFixed(1)}" y="${(rectY + 14).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="bold" fill="${barva}">${text}</text>`;
+		const rectY = Math.max(OKRAJ, Math.min(320 - OKRAJ - vyska, textY - vyska / 2));
+		const stred = (rectX + sirka / 2).toFixed(1);
+		const tspany = radky.map((r, i) => `<tspan x="${stred}" y="${(rectY + 3 + RADEK * (i + 1) - 9).toFixed(1)}">${r}</tspan>`).join('');
+		return `<rect x="${rectX.toFixed(1)}" y="${rectY.toFixed(1)}" width="${sirka}" height="${vyska}" rx="6" fill="#ffffff" stroke="${barva}" stroke-width="2" />`
+			+ `<text text-anchor="middle" font-size="${PISMO}" font-weight="bold" fill="${barva}">${tspany}</text>`;
 	}
 
 	function stozarHtml() {
@@ -256,15 +272,15 @@
 	// pravý panel: zdroj napětí + ruce, které se dotýkají obou vývodů
 	function zdrojHtml(napeti) {
 		const cx = 511;
-		const barva = napeti.bezpecne ? '#2f9e44' : '#e03131';
+		const barva = napeti.bezpecne ? '#27813a' : '#e03131';
 		let s = '';
 		s += `<rect x="${cx - 40}" y="150" width="80" height="45" rx="6" fill="#495057" />`;
 		s += `<line x1="${cx - 40}" y1="172" x2="${cx - 60}" y2="172" stroke="#2b2a26" stroke-width="4" />`;
 		s += `<line x1="${cx + 40}" y1="172" x2="${cx + 60}" y2="172" stroke="#2b2a26" stroke-width="4" />`;
 		s += `<circle cx="${cx - 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
 		s += `<circle cx="${cx + 68}" cy="172" r="10" fill="#ffd8a8" stroke="#2b2a26" stroke-width="2" />`;
-		s += plaketa(cx, 130, napeti.popis, barva, PRAVY);
-		s += plaketa(cx, 225, napeti.bezpecne ? 'bezpečné napětí' : 'NEBEZPEČNÉ', barva, PRAVY);
+		s += plaketa(cx, 75, napeti.popis, barva, PRAVY);
+		s += plaketa(cx, 255,napeti.bezpecne ? 'bezpečné napětí' : 'NEBEZPEČNÉ', barva, PRAVY);
 		// 230 V: záblesk přímo v obou místech dotyku ruka–vývod zdroje
 		if (!napeti.bezpecne) s += zablesk(cx - 60, 172) + zablesk(cx + 60, 172);
 		return s;
@@ -276,7 +292,7 @@
 	const outNapeti = document.getElementById('bvv-out-napeti');
 
 	document.getElementById('bvv-stozar').innerHTML = stozarHtml() + spadlyDratHtml();
-	document.getElementById('bvv-popisky').innerHTML = plaketa(STOZAR_X, 40, 'vedení vysokého napětí', '#2b2a26', LEVY);
+	document.getElementById('bvv-popisky').innerHTML = plaketa(STOZAR_X, 44,'vedení vysokého napětí', '#2b2a26', LEVY);
 
 	function prekresli() {
 		const iS = platnyIndex(sliderSituace.value, SITUACE.length - 1, 0);
@@ -289,7 +305,7 @@
 
 		const barva = situace.bezpecno ? '#4dabf7' : '#ff8787';
 		document.getElementById('bvv-postava').innerHTML = postavaHtml(situace.x, barva)
-			+ plaketa(situace.x, PLAKETA_POSTAVY_Y, situace.bezpecno ? 'správně' : 'nebezpečno', situace.bezpecno ? '#2f9e44' : '#e03131', LEVY);
+			+ plaketa(situace.x, PLAKETA_POSTAVY_Y, situace.bezpecno ? 'správně' : 'nebezpečno', situace.bezpecno ? '#27813a' : '#e03131', LEVY);
 		document.getElementById('bvv-oblouk').innerHTML = nebezpeciHtml(situace);
 		document.getElementById('bvv-zdroj').innerHTML = zdrojHtml(napeti);
 
