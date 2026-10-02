@@ -5149,7 +5149,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna': [
 		{ text: 'Co probíhá v jaderném reaktoru?', odpovedi: ['řízená řetězová reakce', 'neřízená řetězová reakce', 'jaderná fúze jako na Slunci'], vysvetleni: 'Probíhá řízené štěpení jader paliva, které uvolňuje teplo.' },
-		{ text: 'K čemu se kromě elektráren používají malé jaderné reaktory?', odpovedi: ['k pohonu ponorek a ledoborců', 'k ohřevu vody v rodinných domech', 'k roztáčení větrných elektráren'], vysvetleni: 'Malé jaderné reaktory pohánějí ponorky, ledoborce i kosmické sondy. Domácnosti ani větrné elektrárny je nepoužívají.' },
+		{ text: 'K čemu se kromě elektráren používají malé jaderné reaktory?', odpovedi: ['k pohonu ponorek a ledoborců', 'k pohonu osobních automobilů', 'k roztáčení větrných elektráren'], vysvetleni: 'Malé jaderné reaktory pohánějí ponorky a ledoborce. Domácnosti ani větrné elektrárny je nepoužívají.' },
 		{ text: 'K čemu slouží moderátor?', odpovedi: ['zpomaluje neutrony', 'zrychluje neutrony na dvojnásobek', 'chladí turbínu'], vysvetleni: 'Zpomaluje neutrony na rychlost vhodnou pro štěpení.' },
 		{ text: 'K čemu slouží regulační tyče?', odpovedi: ['pohlcují neutrony', 'vyrábějí nové palivo', 'chladí celou budovu'], vysvetleni: 'Bývají z bórové oceli.' },
 		{ text: 'Jak se jmenuje místo uvnitř reaktoru, kde probíhá štěpení?', odpovedi: ['aktivní zóna', 'kontejnment', 'chladicí věž'], vysvetleni: 'Aktivní zóna je uvnitř silné ocelové tlakové nádoby.' },
