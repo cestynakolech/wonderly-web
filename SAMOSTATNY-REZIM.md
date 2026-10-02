@@ -639,6 +639,9 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### [odloženo] Příroda Q21 — ODLOŽENO 2. 10. (6 pokusů)
+Otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20; rozhodnout učitel: jiná otázka, výjimka 20/21, nebo návrh opravy v Omega/predavka/2026-10-02/kontrola-81bb544.md (zkopírováno z /tmp/wonderly-workery/2026-10-02/).
+
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
 `Omega/skripty/snimky_podkastu.py:~7395` (`_spust`, `tempfile.mkdtemp`) maže profil přes `atexit`; při SIGTERM/SIGKILL (např. timeout v `automat_podkastu.spust`) atexit neproběhne a `$TMPDIR/omega-chrome-*` (~2,8 MB) zůstane. Chrome sám nevisí (končí se zavřením roury). Důkaz: po TERM i KILL „profil ZUSTAL“, po INT smazán. Podrobnosti: `Omega/predavka/2026-10-01-den/kontrola-stash-f9.md` (A1). Oprava: signal handler pro TERM, nebo úklid starých `omega-chrome-*` při startu.
