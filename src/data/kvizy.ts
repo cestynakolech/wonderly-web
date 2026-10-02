@@ -4331,7 +4331,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Voda z jezera se vypaří. Který děj v koloběhu vody následuje hned po vypařování?',
 			odpovedi: ['Kondenzace vodní páry na kapičky.', 'Srážky padající na zem jako déšť.', 'Vsakování vody postupně pod zemi.'],
-			vysvetleni: 'Po vypaření je voda neviditelný plyn. Další krok je její přeměna zpět na kapalné kapičky, ze kterých se skládá oblak. Srážky a vsakování jsou pozdější kroky: týkají se vody, která už je kapalná nebo dopadla na zem.',
+			vysvetleni: 'Po vypaření je voda neviditelný plyn. Další krok je její přeměna na drobné kapičky (kondenzace), případně ve velkém mrazu rovnou na ledové krystalky, ze kterých se skládá oblak. Srážky a vsakování jsou pozdější kroky: týkají se vody, která už z oblaku vypadává nebo dopadla na zem.',
 		},
 	],
 	'fyzika/8-rocnik/elektrina/elektricky-naboj': [
