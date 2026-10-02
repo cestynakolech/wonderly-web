@@ -5726,8 +5726,7 @@ pixely; ~18 s/fotku), (3) přeměřit. Čeká, až Mac uvolní GPU po dávce hla
 **Co se dnes stalo:** učitel zkoušel s Claudem NotebookLM (přes rozšíření Claude
 v Chromu — trvalo dlouho kvůli povolením domén, viz paměť
 `projekt-notebooklm-pres-chrome`) a lokální modely TTS jako bezplatnou alternativu
-k OpenAI/ElevenLabs. **Výsledek NotebookLM: nepoužitelné pro polemiky** (komentuje
-text, nehraje ho — verdikt v `NAVOD-NOTEBOOKLM-VIDEO.md`). **OmniVoice ale funguje
+k OpenAI/ElevenLabs. **OmniVoice funguje
 dobře** — otestováno na všech 8 dosavadních dialogových dílů (314 replik), 90 % v
 pořádku napoprvé, zbytek automat sám opraví nebo označí k poslechu. Podrobnosti a
 nástrahy (MPS+float16 zamrzá, hlas se musí "zamykat" referencí) v

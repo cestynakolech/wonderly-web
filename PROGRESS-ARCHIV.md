@@ -1100,10 +1100,8 @@ Nová statická přehledová infografika pro magneticke-pole-vodice-a-civky. PDF
   jen 2 díly měsíčně. Čeká: videa k dalším tématům přes OpenAI, jeden pokus s NotebookLM,
   Chatterbox TTS odložen (nula stažení).
 
-- **2026-08-06 — NotebookLM zamítnuto, OmniVoice (lokální, zdarma) otestováno na 8 dílech.**
-  NotebookLM (přejmenováno na `notebook.google.com`) komentuje text jako moderátor, nehraje
-  scénář doslova — 47 replik (~5 min) vyšlo jako 13:25 dlouhý rozbor. Nepoužitelné pro
-  polemiky, verdikt v `NAVOD-NOTEBOOKLM-VIDEO.md`. Napsán nový skript
+- **2026-08-06 — OmniVoice (lokální, zdarma) otestováno na 8 dílech.**
+  Napsán nový skript
   `vyrob_omnivoice.py` (`k2-fsa/OmniVoice`, lokální, zdarma): rozpozná dva mluvčí obecně,
   "zamkne" hlas referenční replikou (jinak je hlas při každém volání jiný — past č. 1
   z `NAVOD-OMNIVOICE.md`), každou repliku ověří whisperem a při neshodě přegeneruje až 3×.
