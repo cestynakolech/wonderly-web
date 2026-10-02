@@ -123,7 +123,7 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
-- **K2 — [téma 4, F8] Rozpor PDF (2. 10. 2026):** Tuhnutí řadí sněhové vločky k tuhnutí, Příroda k desublimaci – výklad Tuhnutí má „ledové kroupy a sněhové vločky“. Doporučení: vločky = desublimace (fyzikálně správně), ve Tuhnutí jen kroupy.
+- **K2 — ROZHODNUTO 2. 10. 2026, varianta A (vločky = desublimace, tuhnutím jen kroupy; opraveno ve výkladu Tuhnutí) — [téma 4, F8] Rozpor PDF (2. 10. 2026):** Tuhnutí řadí sněhové vločky k tuhnutí, Příroda k desublimaci – výklad Tuhnutí má „ledové kroupy a sněhové vločky“. Doporučení: vločky = desublimace (fyzikálně správně), ve Tuhnutí jen kroupy.
 
 - **K1 — [téma 5] Po209 v PDF Radioaktivita s. 9** má poločas 0,000 000 3 s (zřejmě záměna izotopu; v žákovském textu vypuštěno) — co s tím? (podrobnosti: `Omega/predavka/2026-10-01-noc/kontrola-codex-b12.md` § K1: a) opravit na Po212, b) ponechat Po209 a uvést asi 125 let, c) polonium vynechat = současný stav)
 
