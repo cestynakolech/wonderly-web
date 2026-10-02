@@ -640,6 +640,17 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 
 ## Fronta nápadů (seřazeno podle priority)
 
+### HOTOVO 2. 10. 2026 (večer): 4 úniky v kvízech opraveny + pojistka kolizí
+- 4 úniky opraveny (commity 022543c..4be6d1a, reaktor, tuhnutí, lom); kontroly `Omega/predavka/2026-10-02/prace/kontrola-{022543c,d05aedc,44486ad,4be6d1a}.md`, podklady `reaktor-2-v3.md`, `reaktor-2-v4.md`, `uniky-4-oprava-v2.md`.
+- Pojistka kolizí slugů ve všech 7 skriptech (Omega d7f45fd; kontrola `prace/kontrola-rada-pojistka.md`).
+- Kontroly zkopírovány z /tmp/wonderly-workery/2026-10-02/ do `Omega/predavka/2026-10-02/prace/`.
+
+### [odloženo] Zbytek po opravě 4 úniků (2. 10. 2026)
+- Automat `Omega/skripty/trideni_uniku_krizove.py` zůstává jen PŘEDFILTR s ruční kontrolou (přesnost 7/10 na held-out, nezapojovat do bran): `Omega/predavka/2026-10-02/trideni-uniku-v3.md`, `prace/kalibrace-trideni.md`.
+- Drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-rada-pojistka.md`: mutace v `automat_podkastu.py:627` bez testu; hláška ve `video_podkastu.py:134` (výroba snímků s ročníkovou cestou není zapojena).
+- Energie Q (`src/data/kvizy.ts:3484`): správná odpověď = název kvízu („vnitřní energii tělesa“) a je nejdelší — upravit.
+- Výklad reaktoru (`jaderny-reaktor-elektrarna`) zmiňuje jen ponorky, ne ledoborce, ačkoli kvíz (kvizy.ts:5152) říká „ponorky a ledoborce“ — doplnit výklad.
+
 ### [odloženo] Příroda Q21 — ODLOŽENO 2. 10. (6 pokusů)
 Otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20; rozhodnout učitel: jiná otázka, výjimka 20/21, nebo návrh opravy v Omega/predavka/2026-10-02/kontrola-81bb544.md (zkopírováno z /tmp/wonderly-workery/2026-10-02/).
 
