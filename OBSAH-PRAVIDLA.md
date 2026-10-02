@@ -137,6 +137,7 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   = počet protějšků, výjimka jen s písemným důvodem (např. čistě dekorativní foto). Každý protějšek
   ověří **nezávislý kontrolor** (obsahová shoda s předlohou + není kopie). Zavádí se v pilotu
   a téma po tématu napříč 7/8/9 dle kap. 13.
+- Vhodné animace z učitelových prezentací (pptx) se využijí jako předloha pro vlastní animaci/simulaci (překreslit, nekopírovat) — pokyn učitele 2. 10. 2026.
 - **PŘEKRESLIT PODLE PŘEDLOHY, NE SKLÁDAT TVARY** (závazné pravidlo učitele 1. 10. 2026:
   „Obrázky výkladu se NEkopírují z PDF, ale PŘEKRESLUJÍ podle předlohy z PDF (stejný děj, předměty,
   uspořádání, popisky). Úroveň detailu jako u animací pohybu (konkrétní předměty s detaily,
