@@ -3998,7 +3998,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Vlhko bývá po dešti nebo v deštných lesích.',
 		},
 		{
-			text: 'Z čeho se skládá bílá mlha nad horkým hrncem?',
+			text: 'Z čeho se skládá bílý obláček nad rybníkem po dešti?',
 			odpovedi: ['Z drobných kapiček vody.', 'Z čisté vodní páry v plynu.', 'Z krystalků ledu a sněhu.'],
 			vysvetleni: 'To, co vidíme jako mlhu, jsou drobné kapičky vody.',
 		},
@@ -4280,8 +4280,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co vzniká, když se nasycený vlhký vzduch ochladí na rosný bod a pára kondenzuje na chladných površích?',
-			odpovedi: ['Rosa na chladném povrchu.', 'Kroupy z bouřkového oblaku.', 'Jinovatka na mrazivém povrchu.'],
-			vysvetleni: 'Při ochlazení na rosný bod pára kondenzuje a vzniká rosa; jinovatka vzniká až při mrazu.',
+			odpovedi: ['Rosa na chladném povrchu.', 'Kroupy z bouřkového oblaku.', 'Neviditelná pára v ovzduší.'],
+			vysvetleni: 'Při ochlazení na rosný bod pára kondenzuje na chladných površích a vzniká rosa.',
 		},
 		{
 			text: 'Kde se například vyskytují zářivě bílá oblaka z ledových krystalků?',
@@ -4324,9 +4324,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Voda se v přírodě neustále přemisťuje a mění skupenství.',
 		},
 		{
-			text: 'Co je sublimace sněhu a ledu?',
-			odpovedi: ['Přeměna rovnou na páru bez tání.', 'Přeměna na kapky vody při oteplení.', 'Přeměna páry na kapičky v mraku.'],
-			vysvetleni: 'Při sublimaci se led nebo sníh mění přímo na vodní páru, a to i pomalu v mrazu.',
+			text: 'Jak se nazývá změna, při které zmrzne kapalná voda na kaluži?',
+			odpovedi: ['Tuhnutí.', 'Desublimace.', 'Vypařování.'],
+			vysvetleni: 'Když zmrzne kapalná voda, jde o tuhnutí; desublimace je přechod páry přímo na led.',
 		},
 		{
 			text: 'Co se děje s vodní párou ve velmi chladném vysokém oblaku?',
