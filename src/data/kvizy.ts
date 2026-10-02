@@ -1337,7 +1337,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Značka t je pro obě veličiny stejná, rozlišuje je až jednotka za číslem: t = 20 s je čas, t = 20 °C je teplota.',
 		},
 		{
-			text: 'Značka m může znamenat hmotnost i jednotku metr. Jak fyzici tyto dva významy rozlišují?',
+			text: 'Stejné písmeno m se v zápisech objevuje u veličiny i u jednotky. Jak fyzici tyto dva významy rozlišují?',
 			odpovedi: ['podle toho, jestli m stojí před číslem, nebo za ním', 'podle toho, jestli je psané velkým, nebo malým písmenem', 'nijak, obě mají úplně stejný význam'],
 			vysvetleni: 'm = 5 kg je zápis veličiny hmotnost, ale 5 m je délka pět metrů — jednotka stojí za číslem.',
 		},
@@ -3587,7 +3587,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi': [
 		{
-			text: 'Kolik základních skupenství látek vídáme běžně kolem sebe (led, voda, pára)?',
+			text: 'Kolik základních skupenství látek vídáme běžně kolem sebe?',
 			odpovedi: ['tři', 'dvě', 'jedno'],
 			vysvetleni: 'Základní skupenství jsou pevné, kapalné a plynné; čtvrté, plazma, vídáme jen při velmi vysokých teplotách.',
 		},
