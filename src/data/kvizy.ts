@@ -2416,7 +2416,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Sílu zvětšíme dvakrát a plochu zvětšíme čtyřikrát. Co se stane s tlakem?',
 			odpovedi: ['tlak se zmenší na polovinu', 'tlak se zvětší na dvojnásobek', 'tlak zůstane stejný jako dřív'],
-			vysvetleni: 'Plocha vzrostla víc než síla (4× proti 2×), proto tlak klesne na polovinu.',
+			vysvetleni: 'Plocha vzrostla víc než síla (4× proti 2×): tlak se změní v poměru 2 : 4, tedy na polovinu.',
 		},
 		{
 			text: 'Při kterém působení jde o tlakovou sílu?',
@@ -2468,7 +2468,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Zubař tlačí silou 20 N na píst o obsahu 5 cm². Druhý píst má 400 cm² a zvedá křeslo o hmotnosti 30 kg. Jakou největší hmotnost může mít pacient (g = 10 N/kg)?',
 			odpovedi: ['130 kg', '160 kg', '1 300 kg'],
-			vysvetleni: 'Poměr obsahů je 400 : 5 = 80. Síla na velkém pístu je 20 · 80 = 1 600 N. Křeslo s pacientem může mít 1 600 : 10 = 160 kg; samotný pacient 160 − 30 = 130 kg.',
+			vysvetleni: 'Síla na velkém pístu je 20 · (400 : 5) = 1 600 N. Křeslo s pacientem může mít 1 600 : 10 = 160 kg; samotný pacient 160 − 30 = 130 kg.',
 		},
 		{
 			text: 'Co se stane po sešlápnutí brzdového pedálu v autě?',
@@ -2498,12 +2498,12 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Na píst o obsahu 3 m² působí síla 24 N. Jakou silou působí kapalina na druhý píst o obsahu 12 m²?',
 			odpovedi: ['96 N', '24 N', '192 N'],
-			vysvetleni: 'Poměr obsahů je 12 : 3 = 4. Výstupní síla je 24 · 4 = 96 N.',
+			vysvetleni: 'Výstupní síla je 24 · (12 : 3) = 96 N.',
 		},
 		{
 			text: 'Na menší píst o obsahu 4 m² působí síla 16 N. Jaký obsah má větší píst, působí-li na něj kapalina silou 80 N?',
 			odpovedi: ['20 m²', '4 m²', '400 m²'],
-			vysvetleni: 'Poměr sil je 80 : 16 = 5. Hledaný obsah je 4 · 5 = 20 m².',
+			vysvetleni: 'Hledaný obsah je 4 · (80 : 16) = 20 m².',
 		},
 		{
 			text: 'Co je píst v pokusu s uzavřenou baňkou?',
@@ -3726,7 +3726,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se změní teplo potřebné k tání ledu, když ho máme dvakrát víc?',
 			odpovedi: ['zvětší se na dvojnásobek', 'zůstane stejné jako dříve', 'zmenší se na polovinu původního'],
-			vysvetleni: 'Dvakrát víc ledu potřebuje dvakrát víc tepla.',
+			vysvetleni: 'Dvakrát víc ledu potřebuje dvakrát víc tepla, tedy 2 kg ledu dvojnásobek tepla pro 1 kg.',
 		},
 		{
 			text: 'Podle jakého vzorce počítáme skupenské teplo tání?',
@@ -3791,7 +3791,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Z čeho musí být nádoba, ve které se roztápí kov?',
 			odpovedi: ['z materiálu s mnohem vyšší teplotou tání', 'z materiálu se stejnou teplotou tání', 'z materiálu s mnohem nižší teplotou tání'],
-			vysvetleni: 'Jinak by se roztavila sama nádoba.',
+			vysvetleni: 'Jinak by se nádoba změnila v kapalinu dřív než kov.',
 		},
 		{
 			text: 'Která z těchto látek taje při teplotě 327 °C?',
@@ -4219,7 +4219,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kdy se na ochlazovaném tělese začnou objevovat kapičky vody?',
 			odpovedi: ['Když se vzduch u něj nasytí párou.', 'Když se těleso zahřeje nad okolí.', 'Jen když se vzduch u něj úplně vysuší.'],
-			vysvetleni: 'Na studeném povrchu se vzduch ochladí až k rosnému bodu.',
+			vysvetleni: 'Kapičky se objeví, jakmile vzduch u tělesa dosáhne nasycení.',
 		},
 		{
 			text: 'Kdy se povrchy nejčastěji ochladí natolik, aby se objevila rosa?',
