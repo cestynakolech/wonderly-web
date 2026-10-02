@@ -60,6 +60,7 @@ export const NENI_MERIDLO = {
 	'cesty-poloha-obousmerne.mjs': 'je to samo obousměrné ověření (polohy a pořadí míst deníku)',
 	'cizi-videa-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy cizích videí + kotva ubráním ID ze seznamu)',
 	'rozvrzeni-sceny-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy scén + zpětná kotva na nasazené vadě magnetů)',
+	'poradi-moznosti-obousmerne.mjs': 'je to samo obousměrné ověření (podvrhy pořadí/písmena možnosti + zdravé vzorky vč. „Odpověď 2 A")',
 	'zavislosti-obousmerne.mjs': 'je to samo obousměrné ověření (podvrh = rekonstrukce havárie pdfkit z 24. 8., zdravá data = vestavěné moduly, virtuální moduly Astra a importy v komentářích)',
 };
 

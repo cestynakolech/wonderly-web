@@ -5733,7 +5733,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co znamená oblast B2:B31?', odpovedi: ['buňky B2 až B31', 'dvě buňky B2 a B31', 'sloupec C'], vysvetleni: 'Dvojtečka = rozsah od–do.' },
 		{ text: 'Která funkce najde největší hodnotu?', odpovedi: ['MAX', 'MIN', 'DÉLKA'], vysvetleni: 'MIN je nejmenší, DÉLKA počítá znaky textu.' },
 		{ text: 'Co spočítá =PRŮMĚR(B2:B31)?', odpovedi: ['průměr hodnot v oblasti', 'počet buněk', 'největší hodnotu v oblasti'], vysvetleni: 'Typicky průměr známek či teplot.' },
-		{ text: '=KDYŽ(B2>=50;"prospěl";"neprospěl") — co vrátí pro B2=40?', odpovedi: ['neprospěl', 'prospěl', 'chybové hlášení'], vysvetleni: '40 není ≥ 50 → druhá možnost.' },
+		{ text: '=KDYŽ(B2>=50;"prospěl";"neprospěl") — co vrátí pro B2=40?', odpovedi: ['neprospěl', 'prospěl', 'chybové hlášení'], vysvetleni: '40 není ≥ 50 → vrátí se text "neprospěl".' },
 		{ text: 'Funkce KDYŽ je v tabulce totéž co v programování…', odpovedi: ['větvení (když–tak–jinak)', 'opakování (cyklus přes buňky)', 'proměnná s uloženou hodnotou'], vysvetleni: 'Tabulka je vlastně program v buňkách.' },
 		{ text: 'Co vrátí =ZLEVA("INFORMATIKA";3)?', odpovedi: ['INF', 'IKA', '3'], vysvetleni: 'První tři znaky zleva.' },
 		{ text: 'Co spočítá =SUMA(B2:B31)?', odpovedi: ['součet hodnot v oblasti', 'průměrnou hodnotu z oblasti', 'kolik buněk oblast obsahuje'], vysvetleni: 'SUMA sečte čísla ve všech buňkách zadaného rozsahu.' },

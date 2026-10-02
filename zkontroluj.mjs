@@ -10,6 +10,7 @@ import { zkontrolujPolohyMist } from './testy/cesty-poloha.mjs';
 import { zkontrolujCislaVeVykladu } from './testy/cisla-ve-vykladu.mjs';
 import { zkontrolujNazvyBloku } from './testy/nazvy-bloku.mjs';
 import { zkontrolujUniky } from './testy/uniky.mjs';
+import { zkontrolujPoradi } from './testy/poradi-moznosti.mjs';
 import { zkontrolujSablony } from './testy/sablony.mjs';
 import { zkontrolujRejstrik } from './testy/obousmerne.mjs';
 import { zkontrolujCiziVidea } from './testy/cizi-videa.mjs';
@@ -359,6 +360,11 @@ for (const n of neznameDruhy(dataTemata)) {
 const vazby = await zkontrolujUniky({ kvizy: dataKvizy, temata: dataTemata });
 for (const d of vazby.duplicity) {
 	chyby.push(`${d.klic}: dvě otázky se ptají na totéž — „${d.a}" × „${d.b}" (${d.duvod})`);
+}
+// 6h) POŘADÍ/PÍSMENO MOŽNOSTI ve vysvětlení (2. 10. 2026): Kviz.astro možnosti míchá,
+// „→ druhá možnost" je proto lež. TVRDÁ CHYBA (dnes 0 nálezů). Seznam: node testy/poradi-moznosti.mjs
+for (const n of zkontrolujPoradi(dataKvizy).nalezy) {
+	chyby.push(`${n.klic} #${n.cislo}: vysvětlení odkazuje na pořadí/písmeno možnosti („${n.uryvek}"), ale možnosti se míchají — pojmenuj ji obsahem`);
 }
 const stropUniku = strop?.uniky ?? Infinity;
 if (vazby.uniky.length > stropUniku) {
