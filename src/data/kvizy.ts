@@ -3783,6 +3783,16 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['směs vody a zmenšující se kostky', 'jen voda, kostka ledu už zmizela', 'jen kostka ledu, voda ještě není'],
 			vysvetleni: 'V hrnci je zároveň pevná i kapalná část.',
 		},
+		{
+			text: 'V jakých jednotkách se měří skupenské teplo tání Lt?',
+			odpovedi: ['v joulech (J)', 'v joulech na kilogram (J/kg)', 've stupních Celsia (°C)'],
+			vysvetleni: 'Skupenské teplo tání je teplo, a to se měří v joulech.',
+		},
+		{
+			text: 'Z čeho musí být nádoba, ve které se taví kov?',
+			odpovedi: ['z materiálu s mnohem vyšší teplotou tání', 'z materiálu se stejnou teplotou tání', 'z materiálu s mnohem nižší teplotou tání'],
+			vysvetleni: 'Jinak by se roztavila sama nádoba.',
+		},
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti': [
 		{
@@ -4307,6 +4317,16 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co nazýváme koloběhem vody v přírodě?',
 			odpovedi: ['Opakující se pohyb vody a její proměny.', 'Jednorázový přesun vody z moře do řek.', 'Pohyb vody uvnitř oblaku.'],
 			vysvetleni: 'Voda se v přírodě neustále přemisťuje a mění skupenství.',
+		},
+		{
+			text: 'Co je sublimace sněhu a ledu?',
+			odpovedi: ['Přeměna rovnou na páru bez tání.', 'Přeměna na kapky vody při oteplení.', 'Přeměna páry na kapičky v mraku.'],
+			vysvetleni: 'Při sublimaci se led nebo sníh mění přímo na vodní páru, a to i pomalu v mrazu.',
+		},
+		{
+			text: 'Co se děje s vodní párou ve velmi chladném vysokém oblaku?',
+			odpovedi: ['Mění se rovnou na pevný led.', 'Mění se na kapky, které padají jako déšť.', 'Mění se v neviditelný plyn bez kapek.'],
+			vysvetleni: 'Nad bodem mrazu by pára kondenzovala, ale ve velkém mrazu se z páry tvoří led přímo. Říká se tomu desublimace.',
 		},
 	],
 	'fyzika/8-rocnik/elektrina/elektricky-naboj': [
