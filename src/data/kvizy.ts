@@ -4328,6 +4328,11 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['Mění se rovnou na pevný led.', 'Mění se na kapky, které padají jako déšť.', 'Mění se v neviditelný plyn bez kapek.'],
 			vysvetleni: 'Nad bodem mrazu by pára kondenzovala, ale ve velkém mrazu se z páry tvoří led přímo. Říká se tomu desublimace.',
 		},
+		{
+			text: 'Jak se nazývá změna, při které kapalná voda na kaluži zmrzne na led?',
+			odpovedi: ['Tuhnutí.', 'Desublimace vodní páry.', 'Vypařování kapaliny.'],
+			vysvetleni: 'Při zmrznutí kapalné vody vzniká led tuhnutím.',
+		},
 	],
 	'fyzika/8-rocnik/elektrina/elektricky-naboj': [
 		{ text: 'Co je příčinou silového působení mezi zelektrovanými tělesy?', odpovedi: ['elektrický náboj', 'teplota', 'hmotnost'], vysvetleni: 'Elektrický náboj způsobuje elektrickou sílu.' },
