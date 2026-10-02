@@ -30,15 +30,18 @@ const CIL = '(?:možnost\\p{L}*|odpověď|odpovědi|odpovědí|odpovědím|odpov
 // Věcná věta („Druhá možnost je, že se těleso zahřeje.", „První možnost, jak teplo předat,
 // je vedení.", „Třetí možností je záření.", „Na první odpověď přišel Newton.") se nehlásí.
 const PO_FRAZI =
-	'(?=\\s*(?:[.!?;:)→]|$)|\\s+(?:je|jsou|není|nejsou)\\s+(?:špatn|správn|nesprávn|chybn|nepravdiv|pravdiv|chyba|vyloučen)|\\s+(?:platí|neplatí|odpovídá|vyhovuje|nevyhovuje)(?![\\p{L}\\d]))';
+	'(?=\\s*(?:[.!?;)→]|$)|\\s*,\\s*(?:protože|neboť|jelikož)|\\s*[—–-]\\s*(?:správn|špatn|nesprávn|chybn)|\\s+(?:je|jsou|není|nejsou)\\s+(?:špatn|správn|nesprávn|chybn|nepravdiv|pravdiv|pravda|nepravda|chyba|vyloučen)|\\s+(?:platí|neplatí|odpovídá|vyhovuje|nevyhovuje)(?![\\p{L}\\d]))';
+// Slovo hodnotící + řadová číslovka je odkaz jen tehdy, když fráze končí (tečka, čárka, závorka…);
+// „Platí první možnost Newtonova zákona." je věcná věta. Šipka „→" stačí sama.
 const PRED_FRAZI =
-	'(?:→|' + P + '(?:správn|špatn|nesprávn|chybn|vyber|vyberte|zvol|označ|volím|platí)\\p{L}*(?:\\s+(?:je|jsou))?)\\s*';
-// Jednotky (rozlišují se velikosti písmen; „s" a „a" jsou české předložky/spojky, proto mimo seznam).
-const JEDN = '(?:[AVWJNFHTSKCΩ]|g|kg|mA|kV|kW|kJ|MW|Hz|Pa|mol|cd|cm|mm|km|dm|ml|dl|mg|ms|min|h|l|m|rad|°|%)';
-const KLIC = '(?:[Mm]ožnost\\p{L}*|[Vv]ariant\\p{L}*|[Vv]olb\\p{L}*)';
+	'(?:→\\s*|' + P + '(?:správn|špatn|nesprávn|chybn|vyber|vyberte|zvol|označ|volím|platí)\\p{L}*(?:\\s+(?:je|jsou))?\\s+)';
+const KONEC2 = '(?=\\s*(?:[.!?;:,)→]|$)|\\s*[—–-]\\s)';
+// Jednotky (rozlišují se velikosti písmen; „a" je česká spojka, proto mimo seznam).
+const JEDN = '(?:[AVWJNFHTSKCΩ]|g|kg|mA|kV|kW|kJ|MW|Hz|Pa|mol|cd|cm|mm|km|dm|ml|dl|mg|ms|min|h|l|m|s|rad|°|%)';
+const KLIC = '(?:[Mm]ožnost\\p{L}*|[Vv]ariant\\p{L}*|[Vv]olb\\p{L}*|MOŽNOST\\p{L}*|VARIANT\\p{L}*|VOLB\\p{L}*)';
 const VZORY = [
 	{ nazev: 'řadová číslovka + možnost/odpověď (odkaz na volbu)', re: new RegExp(`${P}${ORD}\\s+${CIL}${PO_FRAZI}`, 'iu') },
-	{ nazev: 'odkaz na volbu + řadová číslovka', re: new RegExp(`${PRED_FRAZI}${ORD}\\s+${CIL}(?![\\p{L}\\d])`, 'iu') },
+	{ nazev: 'odkaz na volbu + řadová číslovka', re: new RegExp(`(?:→\\s*${ORD}\\s+${CIL}(?![\\p{L}\\d])|${PRED_FRAZI}${ORD}\\s+${CIL}${KONEC2})`, 'iu') },
 	{
 		nazev: 'možnost/varianta + písmeno',
 		re: new RegExp(`${P}${KLIC}\\s+[A-D](?![\\p{L}\\d])`, 'u'),
@@ -46,7 +49,7 @@ const VZORY = [
 	{
 		nazev: 'možnost/varianta + číslo',
 		re: new RegExp(
-			`${P}${KLIC}\\s+(?:č\\.\\s*)?[1-4](?![\\d,.]\\d)(?!\\s*${JEDN}(?![\\p{L}\\d]))`,
+			`${P}${KLIC}\\s+(?:č\\.\\s*)?[1-4](?![\\d,.]\\d)(?!\\s*${JEDN}(?![\\p{L}\\d]))(?!\\s+a\\s+(?:více|méně))`,
 			'u',
 		),
 	},

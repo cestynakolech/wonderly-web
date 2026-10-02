@@ -24,7 +24,10 @@ const spust = (kvizy) => {
 };
 
 try {
-	// PODVRHY — každý musí shodit CLI (exit 1)
+	// Každý případ volá SDÍLENÝ export brány zkontrolujPoradi (žádná kopie regexů);
+	// vybrané případy navíc přes skutečné CLI (exit kód).
+	const hlasi = (v) => zkontrolujPoradi(blok(v)).nalezy.length > 0;
+	// PODVRHY — brána musí hlásit (a CLI skončit exit 1)
 	for (const v of [
 		'40 není ≥ 50 → druhá možnost.',
 		'Správná je první možnost.',
@@ -33,10 +36,21 @@ try {
 		'Platí třetí odpověď.',
 		'V poslední možnosti je chyba.',
 		'Správná je možnost 2.',
+		'Možnost B je správně.',
+		'Správná je možnost 2 a ne 3.',
+		'MOŽNOST B je správně.',
+		'Správná odpověď je druhá možnost, protože 40 < 50.',
+		'Druhá možnost, protože 40 < 50.',
+		'Druhá možnost — správně.',
+		'Druhá odpověď je pravda.',
+		'Druhá možnost je správná jen tehdy, když R roste.',
 	]) {
-		tvrdi(`PODVRH „${v}" → exit 1`, spust(blok(v)) === 1);
+		tvrdi(`PODVRH „${v}" → nález`, hlasi(v));
 	}
-	// ZDRAVÉ — musí projít (exit 0)
+	for (const v of ['Správná je možnost 2.', 'Možnost B je správně.', 'Správná je možnost 2 a ne 3.']) {
+		tvrdi(`PODVRH CLI „${v}" → exit 1`, spust(blok(v)) === 1);
+	}
+	// ZDRAVÉ — brána nesmí hlásit (a CLI exit 0)
 	for (const v of [
 		'40 není ≥ 50 → neprospěl.',
 		'I = U/R = 12/3 = 4 A. Odpověď 2 A odpovídá dvojnásobnému odporu, odpověď 6 A vznikne špatným dělením.',
@@ -46,13 +60,23 @@ try {
 		'Druhá možnost je, že se těleso zahřeje.',
 		'První možnost, jak teplo předat, je vedení.',
 		'Třetí možností je záření.',
+		'Třetí možnost: teplo se šíří zářením.',
+		'Druhá možnost: teplo se šíří prouděním.',
 		'Poslední možnost přenosu tepla je proudění.',
 		'Druhou variantou zapojení je paralelní obvod.',
 		'Na první odpověď přišel už Newton.',
 		'Druhé možnosti se vzdal.',
 		'Možnost a také další řešení existují.',
+		'Platí první možnost Newtonova zákona.',
+		'Správná první odpověď dětí bývá intuitivní.',
+		'Zvol druhou možnost měření, je přesnější.',
+		'Volba 3 a více žárovek zvyšuje odpor.',
+		'Možnost 1 s, 2 s nebo 3 s.',
 	]) {
-		tvrdi(`ZDRAVÉ „${v}" → exit 0`, spust(blok(v)) === 0);
+		tvrdi(`ZDRAVÉ „${v}" → bez nálezu`, !hlasi(v));
+	}
+	for (const v of ['Třetí možnost: teplo se šíří zářením.', 'Druhá možnost je, že se těleso zahřeje.']) {
+		tvrdi(`ZDRAVÉ CLI „${v}" → exit 0`, spust(blok(v)) === 0);
 	}
 	// Počítadlo: prázdný vstup je selhání měřidla, ne zdravý stav
 	tvrdi('prázdná data → exit 1 (měřidlo nic neprošlo)', spust({}) === 1);
