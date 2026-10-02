@@ -44,6 +44,10 @@ try {
 		'Druhá možnost — správně.',
 		'Druhá odpověď je pravda.',
 		'Druhá možnost je správná jen tehdy, když R roste.',
+			'Druhá možnost je ta správná.',
+			'Druhá odpověď je ta jediná správná.',
+			'Vyber druhou možnost, ta první ne.',
+			'Správná je druhá odpověď, ta první ne.',
 	]) {
 		tvrdi(`PODVRH „${v}" → nález`, hlasi(v));
 	}
@@ -72,6 +76,11 @@ try {
 		'Zvol druhou možnost měření, je přesnější.',
 		'Volba 3 a více žárovek zvyšuje odpor.',
 		'Možnost 1 s, 2 s nebo 3 s.',
+			'Zvol druhou možnost, jak měřit: stopkami.',
+			'Vyber druhou možnost, která je přesnější.',
+			'Možnost 2 a 3 kg závaží.',
+			'Volba 1 nebo 2 metrů.',
+			'Možnost 2 až 4 minuty.',
 	]) {
 		tvrdi(`ZDRAVÉ „${v}" → bez nálezu`, !hlasi(v));
 	}

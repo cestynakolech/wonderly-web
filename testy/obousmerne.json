@@ -605,8 +605,8 @@
 		},
 		"poradi-moznosti.mjs": {
 			"test": "testy/poradi-moznosti-obousmerne.mjs",
-			"podvrh": "7 podvrhů vysvětlení v dočasných JSON souborech (druhá možnost, první možnost, možnost B, varianta C, třetí odpověď, poslední možnost, možnost 2) → skutečné CLI končí exit 1; ostře nad daty našla brána přesně 1 známý nález (informatika/8-rocnik/hromadne-zpracovani-dat/funkce-v-tabulkach, '→ druhá možnost').",
-			"zdravy": "5 zdravých vzorků mlčí (exit 0), mj. falešný poplach 'Odpověď 2 A' (jednotka ampér, kvizy.ts u reostatu), 'první větev', 'druhý krok', 'Možnost 2 A'. Nad celými daty po opravě nálezu 0 (170 bloků / 3329 vysvětlení). Prázdný vstup = exit 1 (měřidlo nic neprošlo).",
+			"podvrh": "19 podvrhů vysvětlení (druhá možnost, možnost B, možnost 2 a ne 3, „druhá možnost je ta správná“, „vyber druhou možnost, ta první ne“ …) volá sdílený export zkontrolujPoradi, 3 z nich navíc skutečné CLI na dočasných JSON souborech (exit 1); ostře nad daty našla brána přesně 1 známý nález (informatika/8-rocnik/hromadne-zpracovani-dat/funkce-v-tabulkach, '→ druhá možnost').",
+			"zdravy": "25 zdravých vět mlčí (export; 2 navíc přes CLI exit 0), mj. 'Zvol druhou možnost, jak měřit: stopkami.', 'Možnost 2 a 3 kg závaží.', 'Volba 1 nebo 2 metrů.', falešný poplach 'Odpověď 2 A' (jednotka ampér, kvizy.ts u reostatu), 'první větev', 'druhý krok', 'Možnost 2 A'. Nad celými daty po opravě nálezu 0 (170 bloků / 3329 vysvětlení). Prázdný vstup = exit 1 (měřidlo nic neprošlo).",
 			"overeno": "2026-10-02"
 		}
 	}
