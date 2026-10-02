@@ -3094,7 +3094,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Co všechno využívá úplný odraz?', odpovedi: ['optická vlákna a hranoly', 'žárovky a zářivky', 'stínidla a clony'], vysvetleni: 'Optická vlákna, odrazky na kole i hranoly ve fotoaparátech a dalekohledech.' },
 		{ text: 'Proč vidíme ponořenou část brčka posunutou do strany?', odpovedi: ['paprsky se lámou na hladině', 'brčko se ohne horkem vody', 'voda brčko doopravdy zkřiví'], vysvetleni: 'Lom na hladině posune obraz ponořené části — brčko se „zlomí".' },
 		{ text: 'Jakou jednotku má index lomu?', odpovedi: ['žádnou', 'stupeň', 'kilometr'], vysvetleni: 'Při dělení se jednotky vykrátí, a tak n žádnou jednotku nemá.' },
-		{ text: 'Průhledná látka má index lomu 2. Jak rychle v ní letí světlo?', odpovedi: ['150 000 km/s', '600 000 km/s', '100 000 km/s'], vysvetleni: 'v = c / n = 300 000 : 2 = 150 000 km/s.' },
+		{ text: 'Představ si látku s indexem lomu 2. Jak rychle v ní letí světlo?', odpovedi: ['150 000 km/s', '600 000 km/s', '100 000 km/s'], vysvetleni: 'v = c / n = 300 000 : 2 = 150 000 km/s.' },
 		{ text: 'Opticky hustší prostředí znamená…', odpovedi: ['světlo je v něm pomalejší', 'prostředí je těžší na váhu', 'prostředí je tmavší'], vysvetleni: 'Optická hustota = jak moc prostředí světlo zpomalí.' },
 		{ text: 'Paprsek dopadá kolmo na hladinu (0° od kolmice). Co se stane?', odpovedi: ['projde bez lomu', 'zlomí se o 45°', 'odrazí se zpět'], vysvetleni: 'Kolmý paprsek jen zpomalí, směr nemění.' },
 		{ text: 'Jak se jmenuje zdánlivé zrcadlení oblohy nad rozpáleným pískem?', odpovedi: ['fata morgana', 'polární záře', 'duha nad pouští'], vysvetleni: 'Lom světla nad rozpáleným pískem nebo silnicí nám ukáže obraz oblohy.' },
@@ -3892,7 +3892,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Která z uvedených látek nemá při tuhnutí jedinou pevně danou teplotu?',
-			odpovedi: ['sklo', 'cín', 'led'],
+			odpovedi: ['sklo', 'cín', 'voda'],
 			vysvetleni: 'Sklo je amorfní, a proto při chladnutí tuhne postupně, kdežto cín tuhne při své pevné teplotě.',
 		},
 		{
@@ -5149,7 +5149,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/9-rocnik/jaderna-fyzika/jaderny-reaktor-elektrarna': [
 		{ text: 'Co probíhá v jaderném reaktoru?', odpovedi: ['řízená řetězová reakce', 'neřízená řetězová reakce', 'jaderná fúze jako na Slunci'], vysvetleni: 'Probíhá řízené štěpení jader paliva, které uvolňuje teplo.' },
-		{ text: 'Jak často se v elektrárně vyměňuje část paliva v reaktoru?', odpovedi: ['zhruba po roce až dvou', 'každý den', 'každou hodinu'], vysvetleni: 'Malé množství paliva uvolní obrovské množství energie, proto vydrží dlouho.' },
+		{ text: 'Kolik jaderného paliva je potřeba na stejné množství elektřiny ve srovnání s uhlím?', odpovedi: ['výrazně menší množství', 'zhruba stejné množství', 'výrazně větší množství'], vysvetleni: 'Jaderné palivo obsahuje obrovské množství energie, proto jaderná elektrárna vystačí s výrazně menším množstvím paliva než uhelná.' },
 		{ text: 'K čemu slouží moderátor?', odpovedi: ['zpomaluje neutrony', 'zrychluje neutrony na dvojnásobek', 'chladí turbínu'], vysvetleni: 'Zpomaluje neutrony na rychlost vhodnou pro štěpení.' },
 		{ text: 'K čemu slouží regulační tyče?', odpovedi: ['pohlcují neutrony', 'vyrábějí nové palivo', 'chladí celou budovu'], vysvetleni: 'Bývají z bórové oceli.' },
 		{ text: 'Jak se jmenuje místo uvnitř reaktoru, kde probíhá štěpení?', odpovedi: ['aktivní zóna', 'kontejnment', 'chladicí věž'], vysvetleni: 'Aktivní zóna je uvnitř silné ocelové tlakové nádoby.' },
