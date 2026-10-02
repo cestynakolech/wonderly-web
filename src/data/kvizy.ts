@@ -1267,13 +1267,13 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/6-rocnik/fyzikalni-veliciny/souhrnne-opakovani-velicin': [
 		{
-			text: 'Jaká je značka a základní jednotka délky?',
-			odpovedi: ['l, metr', 'm, kilogram', 'V, litr'],
+			text: 'Kterým písmenem značíme délku?',
+			odpovedi: ['l', 'm', 'V'],
 			vysvetleni: 'Délka: značky d, l, h, s, o, r; základní jednotka metr (m).',
 		},
 		{
-			text: 'Jaká je značka a základní jednotka hmotnosti?',
-			odpovedi: ['m, kilogram', 'h, gram (g)', 'F, newton (N)'],
+			text: 'Kterým písmenem značíme hmotnost?',
+			odpovedi: ['m', 'h', 'F'],
 			vysvetleni: 'Hmotnost: značka m, jednotka kilogram, měřidlo váhy.',
 		},
 		{
