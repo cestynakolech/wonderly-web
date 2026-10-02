@@ -123,6 +123,8 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+- **K2 — [téma 4, F8] Rozpor PDF (2. 10. 2026):** Tuhnutí řadí sněhové vločky k tuhnutí, Příroda k desublimaci – výklad Tuhnutí má „ledové kroupy a sněhové vločky“. Doporučení: vločky = desublimace (fyzikálně správně), ve Tuhnutí jen kroupy.
+
 - **K1 — [téma 5] Po209 v PDF Radioaktivita s. 9** má poločas 0,000 000 3 s (zřejmě záměna izotopu; v žákovském textu vypuštěno) — co s tím? (podrobnosti: `Omega/predavka/2026-10-01-noc/kontrola-codex-b12.md` § K1: a) opravit na Po212, b) ponechat Po209 a uvést asi 125 let, c) polonium vynechat = současný stav)
 
 - **UZAVŘENO 2. 10. 2026 (rozhodl učitel) — tři dotazy z noci 1. 10.** (provedeno, protokol `Omega/predavka/2026-10-01-noc/vysledek-rozhodnuti-AAA.md`): (1) D11 teploty na dnešní hodnoty, celá čísla: var železa 2 860 °C, tání lihu −114 °C, tání hliníku 660 °C (F8 tání: temata.ts, kvíz, SVG tani-obr-05, pracovní soubory tema4); (2) postřikovač pascal-obr-11 jen s neutrálním popiskem „zahradní postřikovač“, vysvětlující věta se NEVKLÁDÁ; (3) radon 222 = „asi 3,8 dne“ (F9 výklad i kvíz, pracovní f9-radioaktivita).
