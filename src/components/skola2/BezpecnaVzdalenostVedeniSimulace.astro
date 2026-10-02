@@ -33,6 +33,11 @@
 // přetrženým, takže se vodiče nekříží. U 230 V je záblesk v obou místech
 // dotyku ruka–vývod zdroje (ne klikatice do vzduchu).
 //
+// OPRAVA 3 2. 10. 2026 (kontrola3-simulace-f9.md N4, N5): vodiče visí na
+// izolátorech pod konci ramen, pahýl visí z levého izolátoru VLEVO dolů a
+// konstrukcí stožáru neprochází; roztřepené konce jsou téměř rovnoběžná
+// vlákna bez společného hrotu (nepřipomínají šipku).
+//
 // Dva nezávislé posuvníky (celočíselné indexy): situace u vedení (0–3) a
 // napětí zdroje (0–2). Statická scéna beze smyčky requestAnimationFrame.
 ---
@@ -99,7 +104,11 @@
 	// (roztřepený konec PAHYL_KONEC), zbytek visí od pravého okraje panelu
 	// (od dalšího stožáru, bod DRAT_OKRAJ) dolů a na zemi leží VPRAVO od
 	// stožáru od x = 246 do x = 318 (roztřepený konec u x = 246, mimo patu vzpěry x = 226)
-	const PAHYL_KONEC = [250, 146];
+	// vodiče visí na izolátorech pod konci ramen (spodní konec izolátoru IZOLATOR_Y);
+	// pahýl visí z levého izolátoru dolů a VLEVO od stožáru — konstrukcí neprochází
+	const IZOLATOR_Y = RAMENO_Y + 10;
+	const PAHYL_KONEC = [124, 138];
+	const PAHYL_RIDICI = [RAMENO_L - 6, 122]; // řídicí bod křivky pahýlu
 	const DRAT_OKRAJ = [378, 122];
 	const DRAT_OD = STOZAR_X + 46, DRAT_DO = STOZAR_X + 118;
 	// prohýbá se do trávy, aby nesplýval s čarou země
@@ -151,19 +160,35 @@
 		s += `<line x1="${x + 26}" y1="255" x2="${x}" y2="${RAMENO_Y}" stroke="#868e96" stroke-width="3" />`;
 		// celý pravý vodič: z pravého ramene k okraji panelu, celou délkou NAD
 		// přetrženým levým vodičem (nekříží se s ním)
-		s += `<path id="bvv-vodic" d="M${RAMENO_P},${RAMENO_Y} Q${x + 110},110 378,100" fill="none" stroke="#2b2a26" stroke-width="2" />`;
-		// pahýl přetrženého levého vodiče visí z levého ramene
-		s += `<path id="bvv-pahyl" d="M${RAMENO_L},${RAMENO_Y} Q${x + 20},116 ${PAHYL_KONEC[0]},${PAHYL_KONEC[1]}" fill="none" stroke="#2b2a26" stroke-width="2" />`;
-		s += strapek(PAHYL_KONEC[0], PAHYL_KONEC[1], 0.9);
+		// izolátory pod konci obou ramen
+		for (const ix of [RAMENO_L, RAMENO_P]) {
+			s += `<line x1="${ix}" y1="${RAMENO_Y}" x2="${ix}" y2="${IZOLATOR_Y}" stroke="#868e96" stroke-width="2" />`;
+			s += `<ellipse cx="${ix}" cy="${RAMENO_Y + 4}" rx="4" ry="1.6" fill="#f1f3f5" stroke="#495057" stroke-width="1" />`;
+			s += `<ellipse cx="${ix}" cy="${RAMENO_Y + 8}" rx="4" ry="1.6" fill="#f1f3f5" stroke="#495057" stroke-width="1" />`;
+		}
+		s += `<path id="bvv-vodic" d="M${RAMENO_P},${IZOLATOR_Y} Q${x + 110},116 378,100" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		// pahýl přetrženého levého vodiče visí z levého izolátoru dolů a ven
+		// od stožáru (nejbližší bod konstrukce, levá vzpěra, je o desítky px vpravo)
+		s += `<path id="bvv-pahyl" d="M${RAMENO_L},${IZOLATOR_Y} Q${PAHYL_RIDICI[0]},${PAHYL_RIDICI[1]} ${PAHYL_KONEC[0]},${PAHYL_KONEC[1]}" fill="none" stroke="#2b2a26" stroke-width="2" />`;
+		s += strapek(PAHYL_KONEC[0], PAHYL_KONEC[1], Math.atan2(PAHYL_KONEC[1] - PAHYL_RIDICI[1], PAHYL_KONEC[0] - PAHYL_RIDICI[0]));
 		return s;
 	}
 
-	// roztřepený konec přetrženého drátu: 3 krátká vlákna rozevřená kolem směru u
+	// roztřepený konec přetrženého drátu: 4 téměř rovnoběžná vlákna různé délky,
+	// každé začíná jinde napříč drátem a je mírně prohnuté — žádný společný hrot,
+	// takže konec nepřipomíná šipku (jeden tvar = jeden význam)
 	function strapek(x, y, u) {
+		const nx = -Math.sin(u), ny = Math.cos(u);
+		const ux = Math.cos(u), uy = Math.sin(u);
 		let s = '';
-		for (const du of [-0.6, 0, 0.6]) {
-			s += `<line x1="${x}" y1="${y}" x2="${(x + 7 * Math.cos(u + du)).toFixed(1)}" y2="${(y + 7 * Math.sin(u + du)).toFixed(1)}" stroke="#2b2a26" stroke-width="1.5" stroke-linecap="round" />`;
-		}
+		const VLAKNA = [[-2.4, 5], [-0.8, 9], [0.8, 7], [2.4, 4]];
+		VLAKNA.forEach(([o, delka]) => {
+			const x1 = x + nx * o, y1 = y + ny * o;
+			const ohyb = o * 0.5; // vlákna se mírně rozbíhají ven, nekříží se
+			const cx = x1 + ux * delka / 2 + nx * ohyb, cy = y1 + uy * delka / 2 + ny * ohyb;
+			const x2 = x1 + ux * delka, y2 = y1 + uy * delka;
+			s += `<path d="M${x1.toFixed(1)},${y1.toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}" fill="none" stroke="#2b2a26" stroke-width="1.2" stroke-linecap="round" />`;
+		});
 		return s;
 	}
 
@@ -225,7 +250,7 @@
 				+ zablesk(situace.x + 9, 256);
 		}
 		// blízko bez dotyku: oblouk z konce ramene vzduchem k hlavě
-		return jiskra(RAMENO_L, RAMENO_Y + 2, situace.x, 219);
+		return jiskra(RAMENO_L, IZOLATOR_Y + 2, situace.x, 219);
 	}
 
 	// pravý panel: zdroj napětí + ruce, které se dotýkají obou vývodů
