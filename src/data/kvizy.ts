@@ -3793,6 +3793,11 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['z materiálu s mnohem vyšší teplotou tání', 'z materiálu se stejnou teplotou tání', 'z materiálu s mnohem nižší teplotou tání'],
 			vysvetleni: 'Jinak by se roztavila sama nádoba.',
 		},
+		{
+			text: 'Která z těchto látek taje při teplotě 327 °C?',
+			odpovedi: ['olovo', 'zlato', 'ocel'],
+			vysvetleni: 'Olovo taje už při 327 °C, kdežto zlato a ocel tají až při více než tisíci stupních.',
+		},
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti': [
 		{
