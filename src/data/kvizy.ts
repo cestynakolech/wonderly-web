@@ -4328,11 +4328,6 @@ export const kvizy: Record<string, Otazka[]> = {
 			odpovedi: ['Mění se rovnou na pevný led.', 'Mění se na kapky, které padají jako déšť.', 'Mění se v neviditelný plyn bez kapek.'],
 			vysvetleni: 'Nad bodem mrazu by pára kondenzovala, ale ve velkém mrazu se z páry tvoří led přímo. Říká se tomu desublimace.',
 		},
-		{
-			text: 'Voda z jezera se vypaří. Který děj v koloběhu vody následuje hned po vypařování?',
-			odpovedi: ['Kondenzace vodní páry na kapičky.', 'Srážky padající na zem jako déšť.', 'Vsakování vody postupně pod zemi.'],
-			vysvetleni: 'Vodní pára stoupá do výšky, kde se ochladí a změní se na drobné kapičky, které tvoří oblak. Teprve z těžkých kapek oblaku padají srážky a vsakování se týká až vody, která už na zem dopadla.',
-		},
 	],
 	'fyzika/8-rocnik/elektrina/elektricky-naboj': [
 		{ text: 'Co je příčinou silového působení mezi zelektrovanými tělesy?', odpovedi: ['elektrický náboj', 'teplota', 'hmotnost'], vysvetleni: 'Elektrický náboj způsobuje elektrickou sílu.' },
