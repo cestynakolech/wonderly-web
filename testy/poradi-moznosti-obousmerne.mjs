@@ -43,6 +43,14 @@ try {
 		'Splněno → první větev, nesplněno → druhá.',
 		'Druhý krok je důležitější než první.',
 		'Možnost 2 A by byla příliš malá.',
+		'Druhá možnost je, že se těleso zahřeje.',
+		'První možnost, jak teplo předat, je vedení.',
+		'Třetí možností je záření.',
+		'Poslední možnost přenosu tepla je proudění.',
+		'Druhou variantou zapojení je paralelní obvod.',
+		'Na první odpověď přišel už Newton.',
+		'Druhé možnosti se vzdal.',
+		'Možnost a také další řešení existují.',
 	]) {
 		tvrdi(`ZDRAVÉ „${v}" → exit 0`, spust(blok(v)) === 0);
 	}

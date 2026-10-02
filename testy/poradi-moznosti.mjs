@@ -13,6 +13,7 @@
 //   • „Odpověď 2 A" — číslo s jednotkou (ampér) uprostřed výpočtu; „odpověď" samotná
 //     s číslem nebo s písmenem se nehlásí vůbec, jen „možnost/varianta/volba".
 //   • „první větev", „druhý krok" apod. — řadová číslovka jen před slovem možnost/odpověď.
+//   • věcné věty „Druhá možnost je, že…", „První možnost, jak…, je vedení." (viz PO_FRAZI).
 //
 // Spuštění: node testy/poradi-moznosti.mjs [--json soubor.json]
 //   --json = kvizy jako objekt klíč → pole otázek (pro podvrhy mimo repo, např. v /tmp).
@@ -24,17 +25,29 @@ import { nactiData } from './data.mjs';
 const P = '(?<![\\p{L}\\d])'; // české „\b" (JS \b zná jen ASCII)
 const ORD = '(?:prvn[íiěe]\\p{L}*|druh[áaéeouý]\\p{L}*|třet[íi]\\p{L}*|čtvrt\\p{L}*|poslední\\p{L}*)';
 const CIL = '(?:možnost\\p{L}*|odpověď|odpovědi|odpovědí|odpovědím|odpověd\\p{L}*|variant\\p{L}*|volb\\p{L}*)';
+// Odkaz na NABÍDNUTOU odpověď poznáme podle okolí: věta končí / následuje hodnocení
+// („je správná", „platí", „odpovídá"…) NEBO před frází stojí „→", „správná je", „vyber"…
+// Věcná věta („Druhá možnost je, že se těleso zahřeje.", „První možnost, jak teplo předat,
+// je vedení.", „Třetí možností je záření.", „Na první odpověď přišel Newton.") se nehlásí.
+const PO_FRAZI =
+	'(?=\\s*(?:[.!?;:)→]|$)|\\s+(?:je|jsou|není|nejsou)\\s+(?:špatn|správn|nesprávn|chybn|nepravdiv|pravdiv|chyba|vyloučen)|\\s+(?:platí|neplatí|odpovídá|vyhovuje|nevyhovuje)(?![\\p{L}\\d]))';
+const PRED_FRAZI =
+	'(?:→|' + P + '(?:správn|špatn|nesprávn|chybn|vyber|vyberte|zvol|označ|volím|platí)\\p{L}*(?:\\s+(?:je|jsou))?)\\s*';
+// Jednotky (rozlišují se velikosti písmen; „s" a „a" jsou české předložky/spojky, proto mimo seznam).
+const JEDN = '(?:[AVWJNFHTSKCΩ]|g|kg|mA|kV|kW|kJ|MW|Hz|Pa|mol|cd|cm|mm|km|dm|ml|dl|mg|ms|min|h|l|m|rad|°|%)';
+const KLIC = '(?:[Mm]ožnost\\p{L}*|[Vv]ariant\\p{L}*|[Vv]olb\\p{L}*)';
 const VZORY = [
-	{ nazev: 'řadová číslovka + možnost/odpověď', re: new RegExp(`${P}${ORD}\\s+${CIL}(?![\\p{L}\\d])`, 'iu') },
+	{ nazev: 'řadová číslovka + možnost/odpověď (odkaz na volbu)', re: new RegExp(`${P}${ORD}\\s+${CIL}${PO_FRAZI}`, 'iu') },
+	{ nazev: 'odkaz na volbu + řadová číslovka', re: new RegExp(`${PRED_FRAZI}${ORD}\\s+${CIL}(?![\\p{L}\\d])`, 'iu') },
 	{
 		nazev: 'možnost/varianta + písmeno',
-		re: new RegExp(`${P}(?:možnost\\p{L}*|variant\\p{L}*|volb\\p{L}*)\\s+[A-D](?![\\p{L}\\d])`, 'u'),
+		re: new RegExp(`${P}${KLIC}\\s+[A-D](?![\\p{L}\\d])`, 'u'),
 	},
 	{
 		nazev: 'možnost/varianta + číslo',
 		re: new RegExp(
-			`${P}(?:možnost\\p{L}*|variant\\p{L}*|volb\\p{L}*)\\s+(?:č\\.\\s*)?[1-4](?![\\d,.]\\d)(?!\\s*[\\p{L}Ω°%])`,
-			'iu',
+			`${P}${KLIC}\\s+(?:č\\.\\s*)?[1-4](?![\\d,.]\\d)(?!\\s*${JEDN}(?![\\p{L}\\d]))`,
+			'u',
 		),
 	},
 ];
