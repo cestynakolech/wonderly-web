@@ -6,36 +6,10 @@
 <text x="235.0" y="46" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">struktura slídy</text>
 <rect x="510" y="60" width="430" height="330" rx="12" fill="#ffffff" stroke="#868e96" stroke-width="4" />
 <text x="725.0" y="46" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">struktura grafenu</text>
-<circle cx="75" cy="110" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="75" cy="168" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="75" cy="226" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="75" cy="284" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="75" cy="342" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="139" cy="110" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="139" cy="168" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="139" cy="226" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="139" cy="284" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="139" cy="342" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="203" cy="110" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="203" cy="168" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="203" cy="226" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="203" cy="284" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="203" cy="342" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="267" cy="110" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="267" cy="168" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="267" cy="226" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="267" cy="284" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="267" cy="342" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="331" cy="110" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="331" cy="168" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="331" cy="226" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="331" cy="284" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="331" cy="342" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="395" cy="110" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="395" cy="168" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="395" cy="226" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="395" cy="284" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
-<circle cx="395" cy="342" r="14" fill="#ff922b" stroke="#d9480f" stroke-width="2"/>
+<!-- Dávka C kolo 3: slída podle PDF s.4 = šestiúhelníková síť dotýkajících se částic s otvory (kagome), ne čtvercová mřížka. -->
+<!-- D4 kolo 3: slída = šestiúhelníkové prstence dotýkajících se částic kolem otvorů (voštinové uspořádání bez spojnic), jako PDF Teplo s.4; ořez s okrajem uvnitř rámu. -->
+<defs><circle id="k" cx="0" cy="0" r="12.5" fill="#ff922b" stroke="#d9480f" stroke-width="2"/></defs>
+<use href="#k" x="66.5" y="125.0"/><use href="#k" x="66.5" y="151.0"/><use href="#k" x="89.0" y="86"/><use href="#k" x="89.0" y="112"/><use href="#k" x="111.5" y="125.0"/><use href="#k" x="111.5" y="151.0"/><use href="#k" x="134.1" y="86"/><use href="#k" x="134.1" y="112"/><use href="#k" x="156.6" y="125.0"/><use href="#k" x="156.6" y="151.0"/><use href="#k" x="179.1" y="86"/><use href="#k" x="179.1" y="112"/><use href="#k" x="201.6" y="125.0"/><use href="#k" x="201.6" y="151.0"/><use href="#k" x="224.1" y="86"/><use href="#k" x="224.1" y="112"/><use href="#k" x="246.6" y="125.0"/><use href="#k" x="246.6" y="151.0"/><use href="#k" x="269.2" y="86"/><use href="#k" x="269.2" y="112"/><use href="#k" x="291.7" y="125.0"/><use href="#k" x="291.7" y="151.0"/><use href="#k" x="314.2" y="86"/><use href="#k" x="314.2" y="112"/><use href="#k" x="336.7" y="125.0"/><use href="#k" x="336.7" y="151.0"/><use href="#k" x="359.2" y="86"/><use href="#k" x="359.2" y="112"/><use href="#k" x="381.7" y="125.0"/><use href="#k" x="381.7" y="151.0"/><use href="#k" x="404.3" y="86"/><use href="#k" x="404.3" y="112"/><use href="#k" x="66.5" y="203.0"/><use href="#k" x="66.5" y="229.0"/><use href="#k" x="89.0" y="164"/><use href="#k" x="89.0" y="190"/><use href="#k" x="111.5" y="203.0"/><use href="#k" x="111.5" y="229.0"/><use href="#k" x="134.1" y="164"/><use href="#k" x="134.1" y="190"/><use href="#k" x="156.6" y="203.0"/><use href="#k" x="156.6" y="229.0"/><use href="#k" x="179.1" y="164"/><use href="#k" x="179.1" y="190"/><use href="#k" x="201.6" y="203.0"/><use href="#k" x="201.6" y="229.0"/><use href="#k" x="224.1" y="164"/><use href="#k" x="224.1" y="190"/><use href="#k" x="246.6" y="203.0"/><use href="#k" x="246.6" y="229.0"/><use href="#k" x="269.2" y="164"/><use href="#k" x="269.2" y="190"/><use href="#k" x="291.7" y="203.0"/><use href="#k" x="291.7" y="229.0"/><use href="#k" x="314.2" y="164"/><use href="#k" x="314.2" y="190"/><use href="#k" x="336.7" y="203.0"/><use href="#k" x="336.7" y="229.0"/><use href="#k" x="359.2" y="164"/><use href="#k" x="359.2" y="190"/><use href="#k" x="381.7" y="203.0"/><use href="#k" x="381.7" y="229.0"/><use href="#k" x="404.3" y="164"/><use href="#k" x="404.3" y="190"/><use href="#k" x="66.5" y="281.0"/><use href="#k" x="66.5" y="307.0"/><use href="#k" x="89.0" y="242"/><use href="#k" x="89.0" y="268"/><use href="#k" x="111.5" y="281.0"/><use href="#k" x="111.5" y="307.0"/><use href="#k" x="134.1" y="242"/><use href="#k" x="134.1" y="268"/><use href="#k" x="156.6" y="281.0"/><use href="#k" x="156.6" y="307.0"/><use href="#k" x="179.1" y="242"/><use href="#k" x="179.1" y="268"/><use href="#k" x="201.6" y="281.0"/><use href="#k" x="201.6" y="307.0"/><use href="#k" x="224.1" y="242"/><use href="#k" x="224.1" y="268"/><use href="#k" x="246.6" y="281.0"/><use href="#k" x="246.6" y="307.0"/><use href="#k" x="269.2" y="242"/><use href="#k" x="269.2" y="268"/><use href="#k" x="291.7" y="281.0"/><use href="#k" x="291.7" y="307.0"/><use href="#k" x="314.2" y="242"/><use href="#k" x="314.2" y="268"/><use href="#k" x="336.7" y="281.0"/><use href="#k" x="336.7" y="307.0"/><use href="#k" x="359.2" y="242"/><use href="#k" x="359.2" y="268"/><use href="#k" x="381.7" y="281.0"/><use href="#k" x="381.7" y="307.0"/><use href="#k" x="404.3" y="242"/><use href="#k" x="404.3" y="268"/><use href="#k" x="66.5" y="359.0"/><use href="#k" x="89.0" y="320"/><use href="#k" x="89.0" y="346"/><use href="#k" x="111.5" y="359.0"/><use href="#k" x="134.1" y="320"/><use href="#k" x="134.1" y="346"/><use href="#k" x="156.6" y="359.0"/><use href="#k" x="179.1" y="320"/><use href="#k" x="179.1" y="346"/><use href="#k" x="201.6" y="359.0"/><use href="#k" x="224.1" y="320"/><use href="#k" x="224.1" y="346"/><use href="#k" x="246.6" y="359.0"/><use href="#k" x="269.2" y="320"/><use href="#k" x="269.2" y="346"/><use href="#k" x="291.7" y="359.0"/><use href="#k" x="314.2" y="320"/><use href="#k" x="314.2" y="346"/><use href="#k" x="336.7" y="359.0"/><use href="#k" x="359.2" y="320"/><use href="#k" x="359.2" y="346"/><use href="#k" x="381.7" y="359.0"/><use href="#k" x="404.3" y="320"/><use href="#k" x="404.3" y="346"/>
 <line x1="706.8" y1="109.5" x2="743.2" y2="88.5" stroke="#495057" stroke-width="3"/>
 <line x1="815.9" y1="172.5" x2="779.6" y2="151.5" stroke="#495057" stroke-width="3"/>
 <line x1="561.3" y1="277.5" x2="597.7" y2="298.5" stroke="#495057" stroke-width="3"/>

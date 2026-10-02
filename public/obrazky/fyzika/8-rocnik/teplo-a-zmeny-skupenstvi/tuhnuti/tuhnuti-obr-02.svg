@@ -4,7 +4,7 @@
 <rect width="960" height="445" fill="#ffffff"/>
 <rect x="20" y="70" width="430" height="350" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="4" />
 <text x="235.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">kapalina</text>
-<rect x="510" y="70" width="430" height="350" rx="12" fill="#ffffff" stroke="#f59f00" stroke-width="4" />
+<rect x="510" y="70" width="430" height="350" rx="12" fill="#ffffff" stroke="#495057" stroke-width="4" />
 <text x="725.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">pevná látka</text>
 <circle cx="210.76259081949405" cy="279.54865071403844" r="7" fill="#ffffff" stroke="#495057" stroke-width="2"/>
 <circle cx="202.37809300668917" cy="250.80203691258296" r="7" fill="#ffffff" stroke="#495057" stroke-width="2"/>

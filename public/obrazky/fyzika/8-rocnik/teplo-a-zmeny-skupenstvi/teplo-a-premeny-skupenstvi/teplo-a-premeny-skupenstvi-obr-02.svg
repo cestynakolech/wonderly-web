@@ -2,7 +2,7 @@
 <title>Částice v pevné, kapalné a plynné látce</title>
 <defs><marker id="ahk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#212529"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e03131"/></marker><marker id="ahb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1971c2"/></marker><marker id="ahy" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e67700"/></marker><marker id="ahg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#868e96"/></marker></defs>
 <rect width="960" height="370" fill="#ffffff"/>
-<rect x="20" y="70" width="290" height="270" rx="12" fill="#ffffff" stroke="#f59f00" stroke-width="4" />
+<rect x="20" y="70" width="290" height="270" rx="12" fill="#ffffff" stroke="#495057" stroke-width="4" />
 <text x="165.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Pevná látka</text>
 <rect x="335" y="70" width="290" height="270" rx="12" fill="#ffffff" stroke="#1971c2" stroke-width="4" />
 <text x="480.0" y="56" font-size="22" text-anchor="middle" font-weight="bold" fill="#212529">Kapalná látka</text>

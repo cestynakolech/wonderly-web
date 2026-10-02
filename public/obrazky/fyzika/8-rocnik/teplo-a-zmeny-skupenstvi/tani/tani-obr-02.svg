@@ -12,12 +12,12 @@
 <line x1="120" y1="240" x2="590" y2="240" stroke="#868e96" stroke-width="2" stroke-dasharray="8 6"/>
 <path d="M120,400 L330,240 L590,240 L800,110" fill="none" stroke="#e03131" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
 <text x="525" y="500" font-size="20" text-anchor="middle" font-weight="bold" fill="#212529">Čas zahřívání, množství dodaného tepla</text>
-<rect x="195" y="267.6" width="29.4" height="29.4" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
-<polygon points="195.0,267.6 207.6,255.0 237.0,255.0 224.4,267.6" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
-<polygon points="224.4,267.6 237.0,255.0 237.0,284.4 224.4,297.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
-<rect x="430" y="182.6" width="29.4" height="29.4" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
-<polygon points="430.0,182.6 442.6,170.0 472.0,170.0 459.4,182.6" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
-<polygon points="459.4,182.6 472.0,170.0 472.0,199.4 459.4,212.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<rect x="195" y="267.6" width="29.4" height="29.4" rx="0" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+<polygon points="195.0,267.6 207.6,255.0 237.0,255.0 224.4,267.6" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+<polygon points="224.4,267.6 237.0,255.0 237.0,284.4 224.4,297.0" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+<rect x="430" y="182.6" width="29.4" height="29.4" rx="0" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+<polygon points="430.0,182.6 442.6,170.0 472.0,170.0 459.4,182.6" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+<polygon points="459.4,182.6 472.0,170.0 472.0,199.4 459.4,212.0" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
 <path d="M495,168 C500.1,179.9 512.0,188.4 512.0,196.9 A17.0,17.0 0 1 1 478.0,196.9 C478.0,188.4 489.9,179.9 495,168 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
 <path d="M680,98 C686.0,112.0 700.0,122.0 700.0,132.0 A20.0,20.0 0 1 1 660.0,132.0 C660.0,122.0 674.0,112.0 680,98 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
 <rect x="255" y="335" width="220" height="62" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />

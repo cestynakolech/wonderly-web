@@ -16,17 +16,22 @@
 <rect x="310" y="98" width="220" height="62" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
 <text x="324" y="123" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Ochlazování kapaliny</text>
 <text x="324" y="147" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">na teplotu tuhnutí</text>
-<rect x="790" y="195.8" width="25.2" height="25.2" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
-<polygon points="790.0,195.8 800.8,185.0 826.0,185.0 815.2,195.8" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
-<polygon points="815.2,195.8 826.0,185.0 826.0,210.2 815.2,221.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+<!-- Dávka C kolo 3: značka směsi (krychle + kapka) přesunuta NAD plošinu tuhnutí (x 380–600), dřív stála v úseku ochlazování pevné látky; bublina posunuta doprava. -->
+<g transform="translate(-395 63)">
+<rect x="790" y="195.8" width="25.2" height="25.2" rx="0" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+<polygon points="790.0,195.8 800.8,185.0 826.0,185.0 815.2,195.8" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+<polygon points="815.2,195.8 826.0,185.0 826.0,210.2 815.2,221.0" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
 <path d="M845,182 C849.8,193.2 861.0,201.2 861.0,209.2 A16.0,16.0 0 1 1 829.0,209.2 C829.0,201.2 840.2,193.2 845,182 Z" fill="#74c0fc" stroke="#1971c2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+</g>
+<g transform="translate(85 0)">
 <rect x="390" y="185" width="380" height="86" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
 <text x="404" y="210" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Tuhnutí krystalické látky: směs kapaliny</text>
 <text x="404" y="234" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">a pevných částí (krystalků) látky</text>
 <text x="404" y="258" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">o teplotě tuhnutí</text>
-<rect x="730" y="404.0" width="28.0" height="28.0" rx="0" fill="#ff922b" stroke="#d9480f" stroke-width="2" />
-<polygon points="730.0,404.0 742.0,392.0 770.0,392.0 758.0,404.0" fill="#ffc078" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
-<polygon points="758.0,404.0 770.0,392.0 770.0,420.0 758.0,432.0" fill="#e8590c" stroke="#d9480f" stroke-width="2" stroke-linejoin="round" />
+</g>
+<rect x="730" y="404.0" width="28.0" height="28.0" rx="0" fill="#adb5bd" stroke="#495057" stroke-width="2" />
+<polygon points="730.0,404.0 742.0,392.0 770.0,392.0 758.0,404.0" fill="#dee2e6" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
+<polygon points="758.0,404.0 770.0,392.0 770.0,420.0 758.0,432.0" fill="#868e96" stroke="#495057" stroke-width="2" stroke-linejoin="round" />
 <rect x="695" y="345" width="248" height="38" rx="10" fill="#fff3bf" stroke="#f59f00" stroke-width="2.5" />
 <text x="709" y="370" font-size="18" text-anchor="start" font-weight="normal" fill="#212529">Ochlazování pevné látky</text>
 </svg>
