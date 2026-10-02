@@ -321,6 +321,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
+- **DROBNÉ (2. 10. 2026, kontrola b16):** `testy/uniky-krizove.mjs` hlásí 77 podezřelých dvojic (stav před b16, po b16 beze změny) – projít (`Omega/predavka/2026-10-01-noc/kontrola-vlozeni-b16.md`).
 - **DROBNÉ b16 (kontrola Codexova odevzdání, 2. 10. 2026, `Omega/predavka/2026-10-01-noc/kontrola-codex-b16.md`, neopraveno, „mimo návrhy“):** (N4) Výkon: vysvětlení Q1 (kvizy.ts ~3337) „Výkon porovnává stroje i lidi podle toho, jak rychle pracují.“ prozrazuje Q2 (~3338); nové vysvětlení Q10 jen opakuje správnou odpověď. (N5) Alternátor: Q14/Q20 zkoušejí komutátor/dynamo, které PDF s. 6 má jen jako „Pro zajímavost“; Q13 (součet napětí tří cívek = 0) a vysvětlení Q12 v PDF nenalezeno; délky bloku: nejkratší správná 10/21, Q17 náskok +8. (N6) Elektromagnet po Q1+Q9: nejkratší správná 4/21 (<5), Q15 (~4476) náskok +5 (>4), kalibrace délek čeká. Čísla řádků ověřit grepem, mohla se posunout.
 - **DROBNÉ (kontrola commitu 6bca11f, 1. 10. 2026, `Omega/predavka/2026-10-01-den/kontrola-oprava-fronty.md`, neopraveno):** (N1) `test-fronta-chyba-obsahu.py` netestuje samoúklid záznamu po opravě scénosledu (`dodelej_animace.py:215–216`) ani zápis stavu (`:260`); mutant bez `pop` projde 4/4. (N2) `dodelej_animace.py:212` `zaloguj` píše do ap.LOG i při `--nasucho` — každý suchý náhled přidá do logu automatu 4 řádky „chyba obsahu“ (šum).
 
