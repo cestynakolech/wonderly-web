@@ -322,6 +322,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 ## 📌 Živé zadání, fronta a reference
 
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
+- **Příroda 20/21 – Q20 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor), jiný postup (2. 10. 2026):** kvíz Skupenské změny vody v přírodě má 20 otázek; 21. nová z hlavní látky Přírody bez protějšku v Tání/Tuhnutí/Kondenzaci (např. kyselé deště – zdroj znečištění) nebo výjimka s důvodem. Pozn.: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci — k ověření.
 - **KVÍZY F8 tema4 (2. 10. 2026, commit 4edf442):** kvíz Skupenské změny vody v přírodě 19/21 a Tání 18/21 — doplnit na cíl 21 (nebo zapsat výjimku s důvodem).
 - **HOTOVO 2. 10. 2026: Tání 21/21 (vložena otázka o 327 °C, zadání „Která z těchto látek…“; uniky.mjs 0, build OK).** — původně: **Tání 20/21 – 21. otázka 3× neprošla (úniky v bloku), jiný postup** (2. 10. 2026; Příroda doplněna na 21; `Omega/predavka/2026-10-02/prace/kontrola-doplneni-priroda-tani.md` Kolo 3).
 - **DROBNÉ (2. 10. 2026, kontrola b16):** `testy/uniky-krizove.mjs` hlásí 77 podezřelých dvojic (stav před b16, po b16 beze změny) – projít (`Omega/predavka/2026-10-01-noc/kontrola-vlozeni-b16.md`).

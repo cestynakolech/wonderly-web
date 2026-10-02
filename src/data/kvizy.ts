@@ -3812,8 +3812,8 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Co vzniká tuhnutím vodních kapek v atmosféře?',
-			odpovedi: ['ledové kroupy a sněhové vločky', 'dešťové kapky a ranní rosa', 'mlha a drobné vodní kapénky'],
-			vysvetleni: 'Kroupy a sněhové vločky jsou zmrzlá voda z ovzduší.',
+			odpovedi: ['ledové kroupy', 'dešťové kapky', 'drobné kapénky mlhy'],
+			vysvetleni: 'Kroupy jsou zmrzlé vodní kapky z ovzduší.',
 		},
 		{
 			text: 'Co platí o teplotě tuhnutí a tání u téže krystalické látky?',
@@ -4322,11 +4322,6 @@ export const kvizy: Record<string, Otazka[]> = {
 			text: 'Co nazýváme koloběhem vody v přírodě?',
 			odpovedi: ['Opakující se pohyb vody a její proměny.', 'Jednorázový přesun vody z moře do řek.', 'Pohyb vody uvnitř oblaku.'],
 			vysvetleni: 'Voda se v přírodě neustále přemisťuje a mění skupenství.',
-		},
-		{
-			text: 'Co mohou vytvořit ledové krystalky, když v oblaku rostou?',
-			odpovedi: ['Sněhové vločky.', 'Dešťové kapky.', 'Kapičky rosy.'],
-			vysvetleni: 'Ledové krystalky v oblaku mohou růst do sněhových vloček.',
 		},
 		{
 			text: 'Co se děje s vodní párou ve velmi chladném vysokém oblaku?',
