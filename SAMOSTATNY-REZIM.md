@@ -325,7 +325,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 ## 📌 Živé zadání, fronta a reference
 
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
-- **ODLOŽENO 2. 10. 2026 večer (drobnosti z kontrol, nic nenasazeno kvůli nim):** (1) kolize slugů – drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-ef35e01.md`; (2) brána poradi-moznosti – 4 drobnosti z `prace/kontrola-2bae789.md`; (3) Příroda Q20 – viz bod „čeká na učitele“ (Příroda Q20 + Q21); (4) F9 poznámky `Omega/predavka/2026-10-02/f9-prahy.md`; (5) Teplo Q1 + směr tepla v Q1/Q2/Q6/Q18 — HOTOVO (e262c68, b6810b3); (6) Codexovy požadavky k ročníkovým cestám (viz PRIKAZ-NOVA-SESSION 2. 10.).
+- **ODLOŽENO 2. 10. 2026 večer (drobnosti z kontrol, nic nenasazeno kvůli nim):** (1) kolize slugů – drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-ef35e01.md`; (2) brána poradi-moznosti – 4 drobnosti (N1–N4) z `prace/kontrola-2bae789.md` — HOTOVO (3. 10. 2026): opraveno už commitem b39b22e, ověřeno obousměrně (živá data exit 0, podvrh exit 1), doklad `Omega/predavka/2026-10-03/brana-poradi-oprava.md`; (3) Příroda Q20 – viz bod „čeká na učitele“ (Příroda Q20 + Q21); (4) F9 poznámky `Omega/predavka/2026-10-02/f9-prahy.md`; (5) Teplo Q1 + směr tepla v Q1/Q2/Q6/Q18 — HOTOVO (e262c68, b6810b3); (6) Codexovy požadavky k ročníkovým cestám (viz PRIKAZ-NOVA-SESSION 2. 10.).
 - **KVÍZY F8 tema4 (2. 10. 2026, commit 4edf442):** kvíz Skupenské změny vody v přírodě 19/21 a Tání 18/21 — doplnit na cíl 21 (nebo zapsat výjimku s důvodem).
 - **HOTOVO 2. 10. 2026: Tání 21/21 (vložena otázka o 327 °C, zadání „Která z těchto látek…“; uniky.mjs 0, build OK).** — původně: **Tání 20/21 – 21. otázka 3× neprošla (úniky v bloku), jiný postup** (2. 10. 2026; Příroda doplněna na 21; `Omega/predavka/2026-10-02/prace/kontrola-doplneni-priroda-tani.md` Kolo 3).
 - **DROBNÉ (2. 10. 2026, kontrola b16):** `testy/uniky-krizove.mjs` hlásí 77 podezřelých dvojic (stav před b16, po b16 beze změny) – projít (`Omega/predavka/2026-10-01-noc/kontrola-vlozeni-b16.md`).
@@ -610,6 +610,14 @@ viz „⚡ ČÍM ZAČÍT" výše — možný překryv, ne nutně součet):
   Brána hlásí zlepšení (612 otázek / 22 %, obří náskok správné odpovědi klesl na
   264 otázek) a nabízí `npm run prijmi-latku`. Utáhnout, ať se zlepšení nemůže
   vrátit zpátky.
+- [omega] **Drobnosti z úklidu profilů Chromu** (kontrola zelená, Omega commit
+  `00c7be0`, zdroj `Omega/predavka/2026-10-02/prace/kontrola-00c7be0.md`):
+  (D1) test `test_nevyhodnotitelny_zamek_se_nemaze`
+  (`Omega/testy/test_pojistka_jedno_misto.py:291-293`) zakládá zámek až po
+  `os.utime(-2 h)`, takže se profil přeskočí kvůli stáří, ne kvůli zámku;
+  (D2) větev `PermissionError` z `os.kill` (`snimky_podkastu.py:7295`) nemá test
+  (návrh `os.kill(1, 0)`); (D3) počítadlo `smazano` (`snimky_podkastu.py:7323-7324`)
+  roste i po neúspěšném `rmtree(ignore_errors=True)`.
 
 > ⤵️ Starší blok (od původního řádku 235) je v [SAMOSTATNY-REZIM-ARCHIV.md](SAMOSTATNY-REZIM-ARCHIV.md) — beze změny, jen se nečte automaticky.
 
