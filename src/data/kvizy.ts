@@ -2394,9 +2394,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Při úpravě základního vztahu pro tlak vyjádříme hledanou plochu jako podíl.',
 		},
 		{
-			text: 'V jaké jednotce dosazujeme plochu, když sílu zadáme v newtonech a tlak chceme v pascalech?',
-			odpovedi: ['v metrech čtverečních', 'v centimetrech čtverečních', 'v metrech krychlových (m³)'],
-			vysvetleni: 'Při dosazování je nutné držet se základních jednotek; samotné číslo bez správné jednotky nestačí.',
+			text: 'Na stůl o ploše 3 m² působí tlaková síla 90 N. Jaký tlak vyvolá?',
+			odpovedi: ['30 Pa', '270 Pa', '300 Pa'],
+			vysvetleni: 'Dosadíme 90 : 3 = 30 Pa.',
 		},
 		{
 			text: 'Stejný kvádr položíme na jinou stěnu. Co se stane s velikostí jeho tíhové síly?',
@@ -2416,7 +2416,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Sílu zvětšíme dvakrát a plochu zvětšíme čtyřikrát. Co se stane s tlakem?',
 			odpovedi: ['tlak se zmenší na polovinu', 'tlak se zvětší na dvojnásobek', 'tlak zůstane stejný jako dřív'],
-			vysvetleni: 'Tlak je podíl síly a plochy: dvojnásobná síla dělená čtyřnásobnou plochou dá poloviční tlak.',
+			vysvetleni: 'Plocha vzrostla víc než síla (4× proti 2×), proto tlak klesne na polovinu.',
 		},
 		{
 			text: 'Při kterém působení jde o tlakovou sílu?',
@@ -2441,14 +2441,14 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Částice kapaliny jsou blízko u sebe a při stlačení na sebe působí velkými odpudivými silami.',
 		},
 		{
-			text: 'Co je základem hydraulického zařízení?',
-			odpovedi: ['kapalina uzavřená mezi dvěma písty', 'vzduch mezi oběma písty', 'pevná pružina mezi dvěma písty'],
-			vysvetleni: 'Propojení obou nádob umožňuje přenos účinku mezi jejich pohyblivými částmi.',
+			text: 'V jaké jednotce se udává tlak v hydraulickém zařízení?',
+			odpovedi: ['v pascalech (Pa)', 'v newtonech (N)', 'v metrech čtverečních (m²)'],
+			vysvetleni: 'Tlak se měří v pascalech; newton je jednotka síly a metr čtvereční jednotka obsahu.',
 		},
 		{
 			text: 'Čím se obvykle plní hydraulická zařízení?',
 			odpovedi: ['olejem', 'benzínem', 'slanou vodou'],
-			vysvetleni: 'Základem hydrauliky je obvykle olej.',
+			vysvetleni: 'Obvyklou náplní hydraulických zařízení je olej.',
 		},
 		{
 			text: 'Který vztah platí v hydraulickém zařízení?',
@@ -2491,9 +2491,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Velikost pístu ovlivňuje výslednou sílu; nezpůsobuje zde rozdíl tlaků.',
 		},
 		{
-			text: 'Jak souvisí poměr sil na pístech s poměrem obsahů jejich ploch?',
-			odpovedi: ['poměr sil se rovná poměru obsahů', 'poměr sil je vždy opačný', 'poměr sil na plochách nezávisí'],
-			vysvetleni: 'Kolikrát větší je obsah druhého pístu, tolikrát větší síla na něj působí.',
+			text: 'Který stavební stroj používá hydrauliku k pohybu svého ramene?',
+			odpovedi: ['bagr', 'ruční kolečko na písek', 'dřevěný žebřík'],
+			vysvetleni: 'Hydraulika pracuje také v bagrech a jeřábech, které zvedají těžká břemena.',
 		},
 		{
 			text: 'Na píst o obsahu 3 m² působí síla 24 N. Jakou silou působí kapalina na druhý píst o obsahu 12 m²?',
@@ -2600,7 +2600,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se mění hydrostatický tlak při potápění stále hlouběji v téže kapalině?',
 			odpovedi: ['postupně se zvětšuje', 'postupně se výrazně zmenšuje', 'zůstává po celou dobu stejný'],
-			vysvetleni: 'Nad potápěčem přibývá kapaliny, která na něj působí.',
+			vysvetleni: 'S každým metrem hloubky tlak přibývá.',
 		},
 		{
 			text: 'Porovnáme dvě kapaliny v téže hloubce. Ve které je hydrostatický tlak větší?',
@@ -2638,7 +2638,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Loď se zvedá společně s vodou uvnitř uzavřené komory.',
 		},
 		{
-			text: 'O kolik vzroste hydrostatický tlak při sestupu z hloubky 2 m do 10 m ve vodě (ρ = 1 000 kg/m³, g = 10 N/kg)?',
+			text: 'Jaký je rozdíl hydrostatických tlaků v hloubce 2 m a 10 m ve vodě (ρ = 1 000 kg/m³, g = 10 N/kg)?',
 			odpovedi: ['80 000 Pa', '8 000 Pa', '800 000 Pa'],
 			vysvetleni: 'Rozdíl hloubek je 10 − 2 = 8 m. Rozdíl tlaků vychází 8 · 1 000 · 10 = 80 000 Pa.',
 		},
@@ -3652,9 +3652,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'V přehledovém schématu postupujeme ve směru šipky pro dodávání tepla.',
 		},
 		{
-			text: 'Začínáme s plynem a postupně odebíráme teplo. Které pořadí skupenství odpovídá jeho přeměnám?',
-			odpovedi: ['plynné → kapalné → pevné', 'plynné → pevné → pak kapalné', 'plynné → kapalné → opět plynné'],
-			vysvetleni: 'Sledujeme směr šipky pro uvolňování tepla z látky do okolí.',
+			text: 'Jak se nazývá změna kapalné látky na plynnou?',
+			odpovedi: ['vypařování', 'kondenzace', 'tuhnutí'],
+			vysvetleni: 'Při vypařování částice kapaliny přecházejí do plynného skupenství.',
 		},
 		{
 			text: 'Jak se nazývá přeměna plynu přímo na pevnou látku?',
@@ -3669,7 +3669,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Která skupina obsahuje jen příklady krystalických látek?',
 			odpovedi: ['sůl, křemen, diamant', 'sklo, křemen, diamant', 'sůl, sklo, křemen'],
-			vysvetleni: 'Krystalické látky mají částice uspořádané pravidelně.',
+			vysvetleni: 'Sklo je amorfní; sůl, křemen i diamant tvoří krystaly.',
 		},
 		{
 			text: 'Která skupina obsahuje jen příklady amorfních látek?',
@@ -3711,7 +3711,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Co se děje s teplotou krystalické látky během tání?',
 			odpovedi: ['zůstává stejná, dokud se vše neroztaví', 'stále roste, dokud se vše neroztaví', 'stále klesá, dokud se vše neroztaví'],
-			vysvetleni: 'Krystalická látka taje při jedné konkrétní teplotě. Po roztátí všech pevných částí se kapalina může dále zahřívat.',
+			vysvetleni: 'Krystalická látka taje při jedné konkrétní teplotě. Po roztátí se látka může dále zahřívat.',
 		},
 		{
 			text: 'Jak tají amorfní látky?',
@@ -3724,9 +3724,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Díky chemické přísadě zůstane voda kapalná i při −20 °C.',
 		},
 		{
-			text: 'Co je skupenské teplo tání?',
-			odpovedi: ['teplo potřebné k roztátí látky', 'teplo, které se při tání uvolní', 'teplota, při které látka taje'],
-			vysvetleni: 'Dodaná energie se spotřebuje na uvolnění částic z vazeb.',
+			text: 'Jak se změní teplo potřebné k tání ledu, když ho máme dvakrát víc?',
+			odpovedi: ['zvětší se na dvojnásobek', 'zůstane stejné jako dříve', 'zmenší se na polovinu původního'],
+			vysvetleni: 'Dvakrát víc ledu potřebuje dvakrát víc tepla.',
 		},
 		{
 			text: 'Podle jakého vzorce počítáme skupenské teplo tání?',
@@ -3789,7 +3789,7 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Skupenské teplo tání je teplo, a to se měří v joulech.',
 		},
 		{
-			text: 'Z čeho musí být nádoba, ve které se taví kov?',
+			text: 'Z čeho musí být nádoba, ve které se roztápí kov?',
 			odpovedi: ['z materiálu s mnohem vyšší teplotou tání', 'z materiálu se stejnou teplotou tání', 'z materiálu s mnohem nižší teplotou tání'],
 			vysvetleni: 'Jinak by se roztavila sama nádoba.',
 		},
@@ -3861,9 +3861,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'V hrnci je voda spolu s krystalky ledu.',
 		},
 		{
-			text: 'Co se děje s částicemi látky, když kapalina tuhne?',
-			odpovedi: ['zpomalí a vytvoří pevné vazby', 'zrychlí a začnou se navzájem odpuzovat', 'rozptýlí se a opustí celý objem látky'],
-			vysvetleni: 'Přitažlivé síly je při ochlazování zachytí do pevných vazeb.',
+			text: 'Co se děje s částicemi látky při tuhnutí?',
+			odpovedi: ['zpomalí a přitažlivé síly je udrží na místě', 'zrychlí a začnou se navzájem silně odpuzovat', 'rozptýlí se a postupně opustí celý objem látky'],
+			vysvetleni: 'Při ochlazování částice zpomalují a přitažlivé síly je zachytí.',
 		},
 		{
 			text: 'Jak pomalé jarní tání ledu ovlivňuje přítok vody do řek?',
@@ -4219,7 +4219,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Kdy se na ochlazovaném tělese začnou objevovat kapičky vody?',
 			odpovedi: ['Když se vzduch u něj nasytí párou.', 'Když se těleso zahřeje nad okolí.', 'Jen když se vzduch u něj úplně vysuší.'],
-			vysvetleni: 'Kapičky se objeví, až vzduch u tělesa pojme víc páry, než při své teplotě udrží.',
+			vysvetleni: 'Na studeném povrchu se vzduch ochladí až k rosnému bodu.',
 		},
 		{
 			text: 'Kdy se povrchy nejčastěji ochladí natolik, aby se objevila rosa?',
