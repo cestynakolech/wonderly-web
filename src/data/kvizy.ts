@@ -3587,9 +3587,9 @@ export const kvizy: Record<string, Otazka[]> = {
 	],
 	'fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/teplo-a-premeny-skupenstvi': [
 		{
-			text: 'V kolika základních skupenstvích se běžně vyskytují látky?',
-			odpovedi: ['ve třech', 've dvou', 've čtyřech'],
-			vysvetleni: 'Základní skupenství odpovídají například ledu, vodě a páře.',
+			text: 'Kolik základních skupenství látek vídáme běžně kolem sebe (led, voda, pára)?',
+			odpovedi: ['tři', 'dvě', 'jedno'],
+			vysvetleni: 'Základní skupenství jsou pevné, kapalné a plynné; čtvrté, plazma, vídáme jen při velmi vysokých teplotách.',
 		},
 		{
 			text: 'Čím se liší látka v různých skupenstvích?',
