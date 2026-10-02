@@ -4324,9 +4324,9 @@ export const kvizy: Record<string, Otazka[]> = {
 			vysvetleni: 'Voda se v přírodě neustále přemisťuje a mění skupenství.',
 		},
 		{
-			text: 'Jak se nazývá změna, při které zmrzne kapalná voda na kaluži?',
-			odpovedi: ['Tuhnutí.', 'Desublimace.', 'Vypařování.'],
-			vysvetleni: 'Když zmrzne kapalná voda, jde o tuhnutí; desublimace je přechod páry přímo na led.',
+			text: 'Co mohou vytvořit ledové krystalky, když v oblaku rostou?',
+			odpovedi: ['Sněhové vločky.', 'Dešťové kapky.', 'Kapičky rosy.'],
+			vysvetleni: 'Ledové krystalky v oblaku mohou růst do sněhových vloček.',
 		},
 		{
 			text: 'Co se děje s vodní párou ve velmi chladném vysokém oblaku?',
