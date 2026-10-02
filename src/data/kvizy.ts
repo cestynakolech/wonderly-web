@@ -3726,7 +3726,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Jak se změní teplo potřebné k tání ledu, když ho máme dvakrát víc?',
 			odpovedi: ['zvětší se na dvojnásobek', 'zůstane stejné jako dříve', 'zmenší se na polovinu původního'],
-			vysvetleni: 'Dvakrát víc ledu potřebuje dvakrát víc tepla, tedy 2 kg ledu dvojnásobek tepla pro 1 kg.',
+			vysvetleni: 'Dvakrát víc ledu potřebuje dvakrát víc tepla, tedy 2 kg ledu potřebují dvojnásobek tepla pro 1 kg.',
 		},
 		{
 			text: 'Podle jakého vzorce počítáme skupenské teplo tání?',
@@ -3791,7 +3791,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{
 			text: 'Z čeho musí být nádoba, ve které se roztápí kov?',
 			odpovedi: ['z materiálu s mnohem vyšší teplotou tání', 'z materiálu se stejnou teplotou tání', 'z materiálu s mnohem nižší teplotou tání'],
-			vysvetleni: 'Jinak by se nádoba změnila v kapalinu dřív než kov.',
+			vysvetleni: 'Nádoba musí vydržet vyšší teplotu než kov, který se v ní zahřívá.',
 		},
 		{
 			text: 'Která z těchto látek taje při teplotě 327 °C?',
