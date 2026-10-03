@@ -6,7 +6,7 @@
    12 s: 4–54 % se obě přímky kreslí od 0 V do 10 V (bod pro U = k se objeví v čase 4 + 5k %); 58–60 % objeví se odečet při 10 V a bubliny s výpočtem;
    92–94 % vše zmizí, smyčka. Bez animace (reduced-motion) = celý graf včetně výpočtů. */
 .ln { animation: ln 12s linear infinite; }
-@keyframes ln { 0%, 4% { stroke-dashoffset: 100; opacity: 1; } 54%, 92% { stroke-dashoffset: 0; opacity: 1; } 94% { stroke-dashoffset: 0; opacity: 0; } 95%, 100% { stroke-dashoffset: 100; opacity: 0; } }
+@keyframes ln { 0%, 4% { stroke-dashoffset: 100; opacity: 0; } 4.01% { stroke-dashoffset: 100; opacity: 1; } 54%, 92% { stroke-dashoffset: 0; opacity: 1; } 94% { stroke-dashoffset: 0; opacity: 0; } 95%, 100% { stroke-dashoffset: 100; opacity: 0; } }
 .vy { animation: vy 12s linear infinite; }
 @keyframes vy { 0%, 58% { opacity: 0; } 60%, 92% { opacity: 1; } 94%, 100% { opacity: 0; } }
 .b0 { animation: b0 12s linear infinite; }
