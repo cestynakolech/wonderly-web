@@ -7,6 +7,7 @@
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
 - **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
+- **NASAZENO eb772b06 3. 10. večer: simulace tření/síla kola 4–5 (3b4830c, a2f8361)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila s legendou „Malé síly mají krátkou šipku“, sila), doklad `Omega/predavka/2026-10-03/nasazeni-a2f8361.md`.
 - **NASAZENO bd7babae 3. 10. večer: úniky paralel/rovina (c3f4aa1), SVG N7 (fbf0165, 62db738)** — záložně `npx wrangler deploy`, živě 3/3 SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-c3f4aa1.md`.
 
 - **3. 10. 2026 pozdní večer (nejnovější; commity zatím BEZ pushe a nasazení, doklady `Omega/predavka/2026-10-03/`):** HOTOVO: úniky v kvízech 51 → 18 nálezů (54a1233, cdd0e0d, e2793f9; `kontrola-54a1233.md`, `kontrola-cdd0e0d.md`, `kontrola-e2793f9.md`), vady D1–D6 (ffbee08, `kontrola-vady-d1-d6.md`), vše zkontrolováno. HOTOVO: SVG tématu 2 (5a9952f, de827ed, kontrola 6/6). HOTOVO: test uniky-v-bloku bez živých dat (45bdc6d, f261481, kontrola PROŠLO). HOTOVO: brána uniky.mjs exit 1 (f7118a3, pushnuto). HOTOVO: kvíz rychlost (7082310, pushnuto). Simulace téma 2 (2145321, 92196be) — kolo 3 kontroly běží. ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné). Fronta viz „Fronta po 3. 10. pozdě večer“ níže. ❓ U14 vrátný: `CEKA-NA-UCITELE.md`.
@@ -739,6 +740,8 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Úniky paralel (vysvětlení č. 13, 18, 19) a nakloněná rovina (vysvětlení č. 2, 12, 19) — `kontrola-vady-d1-d6.md`.
 - SVG N7 mřížka uhlíku `vnitrni-energie-obr-01` (věcná chyba); N6 bublina `pohybova-03` (`kontrola-5a9952f.md`, `kontrola-de827ed.md`).
 - SilaVektor: bílý text „bedna“, kontrast 3,6.
+- `TreniSimulace.astro:41`: šipka tření vychází z půlky zadní stěny, ne od podlahy, klame o působišti (`kontrola-a2f8361.md`) — STŘEDNÍ.
+- Test `sila-vektor.mjs:121` počítá šířku i s rámečkem, pustí 11,8 px.
 - Reostat `kvizy.ts:4618`: distraktor = odpověď potenciometru.
 - `uniky.mjs:906` mlčí při cestě se symlinkem nebo diakritikou.
 - Test uniky-v-bloku nechytí 3 mutace (`kontrola-f261481.md`).
