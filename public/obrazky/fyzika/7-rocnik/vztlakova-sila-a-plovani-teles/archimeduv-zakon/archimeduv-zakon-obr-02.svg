@@ -1,4 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 690" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Měření vztlaku siloměrem: závaží 7 kg na vzduchu napíná siloměr na 70 N, ponořené ve vodě jen na 40 N; vztlaková síla je 30 N a do misky přeteče 3 kg vody">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 690" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Měření vztlaku siloměrem: závaží 7 kg na vzduchu napíná siloměr na 70 N. Animace: závaží se pomalu ponořuje do přepadové nádoby, siloměr ukazuje stále méně, až 40 N, a do misky přeteče 3 kg vody. Vztlaková síla je 30 N.">
+<style>
+/* Animace pravé strany (8 s, smyčka). Bez animace (prefers-reduced-motion) zůstává koncový stav = atributy níže. */
+.drzak { animation: drzak 8s linear infinite; }
+.tah { animation: tah 8s linear infinite; }
+.pruzina { transform-box: view-box; transform-origin: 400px 208px; animation: pruzina 8s linear infinite; }
+.miska-voda { transform-box: view-box; transform-origin: 548px 578px; animation: miska 8s linear infinite; }
+.proud { animation: proud 8s linear infinite; }
+.vysledek { animation: vysledek 8s linear infinite; }
+/* posun držáku S: 130 px nahoře, 115 px dotyk hladiny, 18 px celé pod vodou, 0 px konec */
+@keyframes drzak { 0%, 12% { transform: translateY(-130px); } 20% { transform: translateY(-115px); } 50% { transform: translateY(-18px); } 56%, 100% { transform: translateY(0); } }
+/* protažení pružiny o: 45 px = 70 N, 0 px = 40 N (1,5 px na 1 N); mění se jen během ponořování */
+@keyframes tah { 0%, 20% { transform: translateY(45px); } 50%, 100% { transform: translateY(0); } }
+@keyframes pruzina { 0%, 20% { transform: scaleY(1.625); } 50%, 100% { transform: scaleY(1); } }
+@keyframes miska { 0%, 20% { transform: scaleY(0); } 50%, 92% { transform: scaleY(1); } 96%, 100% { transform: scaleY(0); } }
+@keyframes proud { 0%, 19% { opacity: 0; } 21%, 49% { opacity: 1; } 51%, 100% { opacity: 0; } }
+@keyframes vysledek { 0%, 56% { opacity: 0; } 62%, 92% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .drzak, .tah, .pruzina, .miska-voda, .proud, .vysledek { animation: none; }
+}
+</style>
 <defs>
 <linearGradient id="voda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99e9f2"/><stop offset="1" stop-color="#3bc9db"/></linearGradient>
 <linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.5" stop-color="#ffffff"/><stop offset="1" stop-color="#dee2e6"/></linearGradient>
@@ -10,12 +30,11 @@
 <!-- stůl -->
 <rect x="4" y="580" width="592" height="14" fill="url(#drevo)"/>
 
-<!-- ===== LEVÁ STRANA: na vzduchu ===== -->
-<!-- stojan -->
+<!-- LEVÁ STRANA: na vzduchu (statická) -->
 <rect x="10" y="572" width="52" height="8" rx="2" fill="#495057"/>
 <rect x="20" y="40" width="8" height="534" fill="#868e96"/>
 <rect x="20" y="46" width="104" height="8" rx="3" fill="#868e96"/>
-<!-- siloměr: 0 N na y=76, 1,5 px na 1 N -->
+<!-- siloměr: 0 N na y=76, 1,5 px na 1 N, 70 N na y=181 -->
 <line x1="110" y1="54" x2="110" y2="62" stroke="#495057" stroke-width="3"/>
 <rect x="92" y="60" width="36" height="148" rx="6" fill="url(#trubka)" stroke="#1864ab" stroke-width="2"/>
 <polyline points="110,64 100,71 120,78 100,85 120,92 100,99 120,106 100,113 120,120 100,127 120,134 100,141 120,148 100,155 120,162 100,169 110,176 110,181" fill="none" stroke="#495057" stroke-width="2"/>
@@ -23,57 +42,67 @@
 <line x1="92" y1="76" x2="102" y2="76"/><line x1="92" y1="91" x2="98" y2="91"/><line x1="92" y1="106" x2="98" y2="106"/><line x1="92" y1="121" x2="98" y2="121"/><line x1="92" y1="136" x2="102" y2="136"/><line x1="92" y1="151" x2="98" y2="151"/><line x1="92" y1="166" x2="98" y2="166"/><line x1="92" y1="181" x2="98" y2="181"/><line x1="92" y1="196" x2="102" y2="196"/>
 </g>
 <g font-size="22" fill="#1864ab" text-anchor="end"><text x="86" y="84">0</text><text x="86" y="144">40</text><text x="86" y="204">80</text></g>
-<rect x="94" y="179" width="32" height="5" fill="#e03131"/>
+<rect x="94" y="179" width="32" height="5" fill="#212529"/>
 <line x1="110" y1="184" x2="110" y2="322" stroke="#495057" stroke-width="3"/>
 <path d="M110,322 a5,5 0 1 0 0,9" fill="none" stroke="#495057" stroke-width="3"/>
-<!-- závaží -->
-<polygon points="88,331 132,331 142,375 78,375" fill="url(#kov)" stroke="#343a40" stroke-width="2"/>
-<text x="110" y="362" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">7 kg</text>
+<polygon points="82,331 138,331 150,383 70,383" fill="url(#kov)" stroke="#343a40" stroke-width="2"/>
+<text x="110" y="366" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">7 kg</text>
 <text x="142" y="112" font-size="22" fill="#495057">na vzduchu</text>
-<text x="142" y="146" font-size="30" font-weight="bold" fill="#e03131">70 N</text>
-<!-- přepadová nádoba -->
-<path d="M40,400 H48 V572 H172 V400 H180 V580 H40 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
-<rect x="48" y="412" width="124" height="160" fill="url(#voda)"/>
-<line x1="48" y1="412" x2="172" y2="412" stroke="#1098ad" stroke-width="3"/>
-<path d="M180,404 L208,416 L206,422 L180,412 Z" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<text x="142" y="146" font-size="30" font-weight="bold" fill="#212529">70 N</text>
+<!-- přepadová nádoba (vnitřní šířka 144 px, stejná jako vpravo) -->
+<path d="M34,400 H42 V572 H186 V400 H194 V580 H34 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
+<rect x="42" y="412" width="144" height="160" fill="url(#voda)"/>
+<line x1="42" y1="412" x2="186" y2="412" stroke="#1098ad" stroke-width="3"/>
+<path d="M194,404 L222,416 L220,422 L194,412 Z" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
 <!-- prázdná miska -->
-<path d="M196,552 H286 Q282,580 241,580 Q200,580 196,552 Z" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
-<ellipse cx="241" cy="552" rx="45" ry="5" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+<path d="M212,552 H294 Q290,580 253,580 Q216,580 212,552 Z" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
+<ellipse cx="253" cy="552" rx="41" ry="5" fill="#ffffff" stroke="#495057" stroke-width="2"/>
 
-<!-- ===== PRAVÁ STRANA: ve vodě ===== -->
-<rect x="296" y="572" width="52" height="8" rx="2" fill="#495057"/>
-<rect x="306" y="184" width="8" height="390" fill="#868e96"/>
+<!-- PRAVÁ STRANA: ponořování (animace) -->
+<rect x="300" y="572" width="52" height="8" rx="2" fill="#495057"/>
+<rect x="306" y="40" width="8" height="534" fill="#868e96"/>
+<!-- přepadová nádoba s vodou až po přepad -->
+<path d="M322,400 H330 V572 H474 V400 H482 V580 H322 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
+<rect x="330" y="412" width="144" height="160" fill="url(#voda)"/>
+<path d="M482,404 L510,416 L508,422 L482,412 Z" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<!-- přetékající voda (jen během ponořování) -->
+<path class="proud" d="M508,420 Q522,430 530,470 L536,556 L530,556 L524,472 Q518,436 506,424 Z" fill="#3bc9db" opacity="0"/>
+<!-- držák se siloměrem: koncová poloha -->
+<g class="drzak">
 <rect x="306" y="190" width="108" height="8" rx="3" fill="#868e96"/>
 <line x1="400" y1="198" x2="400" y2="206" stroke="#495057" stroke-width="3"/>
 <rect x="382" y="204" width="36" height="148" rx="6" fill="url(#trubka)" stroke="#1864ab" stroke-width="2"/>
-<polyline points="400,208 390,212 410,217 390,221 410,225 390,230 410,234 390,238 410,242 390,247 410,251 390,255 410,259 390,264 410,268 390,272 400,276 400,280" fill="none" stroke="#495057" stroke-width="2"/>
+<g class="pruzina"><polyline points="400,208 390,212 410,217 390,221 410,225 390,230 410,234 390,238 410,242 390,247 410,251 390,255 410,259 390,264 410,268 390,272 400,276 400,280" fill="none" stroke="#495057" stroke-width="2" vector-effect="non-scaling-stroke"/></g>
 <g stroke="#1864ab" stroke-width="2">
 <line x1="382" y1="220" x2="392" y2="220"/><line x1="382" y1="235" x2="388" y2="235"/><line x1="382" y1="250" x2="388" y2="250"/><line x1="382" y1="265" x2="388" y2="265"/><line x1="382" y1="280" x2="392" y2="280"/><line x1="382" y1="295" x2="388" y2="295"/><line x1="382" y1="310" x2="388" y2="310"/><line x1="382" y1="325" x2="388" y2="325"/><line x1="382" y1="340" x2="392" y2="340"/>
 </g>
 <g font-size="22" fill="#1864ab" text-anchor="end"><text x="376" y="228">0</text><text x="376" y="288">40</text><text x="376" y="348">80</text></g>
-<rect x="384" y="278" width="32" height="5" fill="#e03131"/>
-<!-- přepadová nádoba s vodou -->
-<path d="M322,400 H330 V572 H474 V400 H482 V580 H322 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
-<rect x="330" y="412" width="144" height="160" fill="url(#voda)"/>
+<!-- ručička (40 N na y=280) + táhlo + závaží -->
+<g class="tah">
+<rect x="384" y="278" width="32" height="5" fill="#212529"/>
 <line x1="400" y1="283" x2="400" y2="421" stroke="#495057" stroke-width="3"/>
 <path d="M400,421 a5,5 0 1 0 0,9" fill="none" stroke="#495057" stroke-width="3"/>
-<polygon points="378,430 422,430 432,474 368,474" fill="url(#kov)" stroke="#343a40" stroke-width="2" opacity="0.9"/>
-<text x="400" y="461" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">7 kg</text>
+<polygon points="372,430 428,430 440,482 360,482" fill="url(#kov)" stroke="#343a40" stroke-width="2"/>
+<text x="400" y="477" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">7 kg</text>
+</g>
+</g>
+<!-- voda před závažím: ponořená část je vidět „pod vodou“ -->
 <rect x="330" y="412" width="144" height="160" fill="#3bc9db" opacity="0.18"/>
 <line x1="330" y1="412" x2="474" y2="412" stroke="#1098ad" stroke-width="3"/>
-<!-- vztlaková síla -->
-<line x1="400" y1="542" x2="400" y2="500" stroke="#1864ab" stroke-width="8"/>
-<polygon points="388,502 412,502 400,478" fill="#1864ab"/>
-<text x="410" y="528" font-size="26" font-weight="bold" fill="#1864ab">F<tspan font-size="22" dy="5">vz</tspan></text>
-<text x="410" y="562" font-size="22" font-weight="bold" fill="#1864ab">30 N</text>
-<path d="M482,404 L510,416 L508,422 L482,412 Z" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
-<!-- miska s vytlačenou vodou -->
-<path d="M498,552 H590 Q586,580 544,580 Q502,580 498,552 Z" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
-<path d="M501,562 H587 Q582,578 544,578 Q506,578 501,562 Z" fill="url(#voda)"/>
-<ellipse cx="544" cy="552" rx="46" ry="5" fill="#ffffff" stroke="#495057" stroke-width="2"/>
-<text x="544" y="538" font-size="22" font-weight="bold" fill="#0b7285" text-anchor="middle">3 kg</text>
+<!-- miska s vytlačenou vodou (plní se během ponořování) -->
+<path d="M502,552 H594 Q590,580 548,580 Q506,580 502,552 Z" fill="#f1f3f5" stroke="#495057" stroke-width="2"/>
+<path class="miska-voda" d="M505,562 H591 Q586,578 548,578 Q510,578 505,562 Z" fill="url(#voda)"/>
+<ellipse cx="548" cy="552" rx="46" ry="5" fill="#ffffff" stroke="#495057" stroke-width="2"/>
+<!-- výsledek (objeví se po ponoření) -->
+<g class="vysledek">
+<line x1="400" y1="452" x2="400" y2="398" stroke="#1864ab" stroke-width="8"/>
+<polygon points="388,400 412,400 400,376" fill="#1864ab"/>
+<circle cx="400" cy="452" r="5" fill="#ffffff" stroke="#212529" stroke-width="1.5"/>
+<text x="416" y="392" font-size="24" font-weight="bold" fill="#1864ab" stroke="#ffffff" stroke-width="5" paint-order="stroke">F<tspan font-size="22" dy="5">vz</tspan><tspan dy="-5"> = 30 N</tspan></text>
+<text x="548" y="538" font-size="22" font-weight="bold" fill="#0b7285" text-anchor="middle">3 kg</text>
 <text x="432" y="248" font-size="22" fill="#495057">ve vodě</text>
-<text x="432" y="282" font-size="30" font-weight="bold" fill="#e03131">40 N</text>
+<text x="432" y="282" font-size="30" font-weight="bold" fill="#212529">40 N</text>
+</g>
 
 <!-- výpočet -->
 <text x="300" y="630" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">F<tspan font-size="22" dy="5">vz</tspan><tspan dy="-5"> = 70 N − 40 N = 30 N</tspan></text>

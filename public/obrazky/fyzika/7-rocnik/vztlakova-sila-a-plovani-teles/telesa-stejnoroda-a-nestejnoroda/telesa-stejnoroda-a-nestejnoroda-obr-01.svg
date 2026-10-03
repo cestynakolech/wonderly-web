@@ -2,21 +2,21 @@
 <rect x="3" y="3" width="594" height="434" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
 <line x1="300" y1="20" x2="300" y2="420" stroke="#adb5bd" stroke-width="2" stroke-dasharray="8 6"/>
 <text x="150" y="44" font-size="26" font-weight="bold" fill="#1971c2" text-anchor="middle">stejnorodé</text>
-<text x="150" y="74" font-size="20" fill="#495057" text-anchor="middle">jedna látka</text>
+<text x="150" y="74" font-size="22" fill="#495057" text-anchor="middle">jedna látka</text>
 <text x="450" y="44" font-size="26" font-weight="bold" fill="#e8590c" text-anchor="middle">nestejnorodé</text>
-<text x="450" y="74" font-size="20" fill="#495057" text-anchor="middle">více látek</text>
+<text x="450" y="74" font-size="22" fill="#495057" text-anchor="middle">více látek</text>
 <!-- skleněná kulička -->
 <circle cx="80" cy="210" r="48" fill="#d0ebff" stroke="#1c7ed6" stroke-width="3"/>
 <path d="M58,232 C70,200 92,218 100,186 C104,206 88,226 72,240 Z" fill="#339af0" opacity="0.8"/>
 <ellipse cx="62" cy="190" rx="12" ry="8" fill="#ffffff" opacity="0.9"/>
-<text x="80" y="315" font-size="20" fill="#212529" text-anchor="middle">skleněná</text>
-<text x="80" y="340" font-size="20" fill="#212529" text-anchor="middle">kulička</text>
+<text x="80" y="315" font-size="22" fill="#212529" text-anchor="middle">skleněná</text>
+<text x="80" y="340" font-size="22" fill="#212529" text-anchor="middle">kulička</text>
 <!-- ocelový hřebík -->
 <rect x="190" y="140" width="56" height="12" rx="3" fill="#868e96" stroke="#495057" stroke-width="2"/>
 <rect x="211" y="152" width="14" height="110" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
 <path d="M211,262 L225,262 L218,290 Z" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
-<text x="218" y="315" font-size="20" fill="#212529" text-anchor="middle">ocelový</text>
-<text x="218" y="340" font-size="20" fill="#212529" text-anchor="middle">hřebík</text>
+<text x="218" y="315" font-size="22" fill="#212529" text-anchor="middle">ocelový</text>
+<text x="218" y="340" font-size="22" fill="#212529" text-anchor="middle">hřebík</text>
 <!-- tužka -->
 <rect x="330" y="150" width="190" height="44" fill="#fab005" stroke="#2b2a26" stroke-width="2"/>
 <line x1="330" y1="165" x2="520" y2="165" stroke="#e67700" stroke-width="2"/>
@@ -29,9 +29,9 @@
 <circle cx="450" cy="300" r="44" fill="#e9c08a"/>
 <circle cx="450" cy="300" r="14" fill="#343a40"/>
 <line x1="450" y1="194" x2="450" y2="244" stroke="#868e96" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="450" y="232" font-size="20" fill="#495057" text-anchor="middle" dx="56">průřez</text>
+<text x="450" y="232" font-size="22" fill="#495057" text-anchor="middle" dx="56">průřez</text>
 <line x1="420" y1="330" x2="356" y2="384" stroke="#2b2a26" stroke-width="2"/>
-<text x="350" y="408" font-size="20" fill="#212529" text-anchor="middle">dřevo</text>
+<text x="350" y="408" font-size="22" fill="#212529" text-anchor="middle">dřevo</text>
 <line x1="456" y1="310" x2="530" y2="384" stroke="#2b2a26" stroke-width="2"/>
-<text x="540" y="408" font-size="20" fill="#212529" text-anchor="middle">tuha</text>
+<text x="540" y="408" font-size="22" fill="#212529" text-anchor="middle">tuha</text>
 </svg>
