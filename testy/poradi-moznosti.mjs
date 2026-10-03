@@ -21,6 +21,7 @@
 // (0 vysvětlení = selhání měřidla, taky exit 1).
 import { readFileSync } from 'node:fs';
 import { nactiData } from './data.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 const P = '(?<![\\p{L}\\d])'; // české „\b" (JS \b zná jen ASCII)
 const ORD = '(?:prvn[íiěe]\\p{L}*|druh[áaéeouý]\\p{L}*|třet[íi]\\p{L}*|čtvrt\\p{L}*|poslední\\p{L}*)';
@@ -84,7 +85,7 @@ export function zkontrolujPoradi(kvizy) {
 	return { nalezy, bloku, otazek, vysvetleni };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (spustenoPrimo(import.meta.url)) {
 	const j = process.argv.indexOf('--json');
 	const kvizy = j > 0 ? JSON.parse(readFileSync(process.argv[j + 1], 'utf8')) : (await nactiData()).kvizy;
 	const v = zkontrolujPoradi(kvizy);

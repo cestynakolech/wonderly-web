@@ -15,6 +15,7 @@ import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 const koren = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -233,7 +234,7 @@ export async function zkontrolujPopiskyMap() {
 }
 
 // spuštění napřímo: `node testy/mapa-popisky.mjs`
-if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+if (spustenoPrimo(import.meta.url)) {
 	const { nalezy, pohledu } = await zkontrolujPopiskyMap();
 	for (const n of nalezy) console.log(`❌ ${n}`);
 	console.log(`\nPohledů mapy: ${pohledu} · nálezů: ${nalezy.length}`);

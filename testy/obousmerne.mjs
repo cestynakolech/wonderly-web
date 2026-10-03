@@ -23,6 +23,7 @@ import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 const zde = dirname(fileURLToPath(import.meta.url));
 const koren = join(zde, '..');
@@ -33,6 +34,7 @@ const cestaRejstrik = join(zde, 'obousmerne.json');
 // jako smetiště pro neověřená měřidla.
 export const NENI_MERIDLO = {
 	'data.mjs': 'načítá data (esbuild import), sám nic neměří',
+	'spusteno-primo.mjs': 'pomocník bran („spuštěno přímo?“); jeho chování dokládá spusteno-primo-obousmerne.mjs',
 	'vypis-kviz.mjs': 'nástroj pro člověka — jen vypíše otázky',
 	'delky.mjs': 'nástroj pro člověka — vypíše délky odpovědí bloku',
 	'nahled-simulace.mjs': 'nástroj pro člověka — složí z komponenty obrázek k prohlédnutí okem, nic netvrdí ani nehodnotí',
@@ -159,7 +161,7 @@ export function spustTesty(testy) {
 	return vysledky;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (spustenoPrimo(import.meta.url)) {
 	const v = zkontrolujRejstrik();
 	console.log(`Měřidel v testy/: ${v.meridel} — doloženo obousměrně: ${v.dolozeno}, bez dokladu: ${v.chybi.length}`);
 	for (const m of v.chybi) console.log(`  ⚠️  ${m} — chybí záznam v testy/obousmerne.json (podvrh + zdravý stav)`);

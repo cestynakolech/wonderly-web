@@ -72,6 +72,7 @@
 //      model — přesně nezávislý kontrolor, který ho 22. 8. 2026 našel.
 // ════════════════════════════════════════════════════════════════════════════════
 import { nactiData } from './data.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 /** malá písmena, bez diakritiky, jen slova
  *
@@ -908,7 +909,7 @@ export async function zkontrolujUniky(data) {
 }
 
 // Spuštění z příkazové řádky: `node testy/uniky.mjs [část-klíče]`
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (spustenoPrimo(import.meta.url)) {
 	const filtr = process.argv[2];
 	const v = await zkontrolujUniky();
 	const vyber = (pole) => (filtr ? pole.filter((x) => x.klic.includes(filtr)) : pole);

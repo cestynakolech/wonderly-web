@@ -35,6 +35,7 @@
 //   node testy/uniky-krizove.mjs --overeni    — obousměrný důkaz (podvrh najde, zdravé pustí)
 import { nactiData } from './data.mjs';
 import { normalizuj, STOP } from './uniky.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 // Tázací slova navíc: v křížovém porovnání se potkávají otázky z různých celků, takže
 // „jaké napětí" × „jaká hodnota" by jinak sdílely „hodnot“-ne, ale tázací kostru ano.
@@ -392,7 +393,7 @@ async function overeni() {
 //     (`node testy/uniky-krizove.mjs --overeni` je připravený jako ten test) — zapisuje
 //     koordinátor, ne tenhle skript.
 //  4. Teprve pak `zkontroluj.mjs` může počet nálezů hlídat rohatkou „nesmí přibýt".
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (spustenoPrimo(import.meta.url)) {
 	const arg = process.argv[2];
 	if (arg === '--overeni') await overeni();
 	else vypis(zkontrolujKrizove(await nactiData()), arg);

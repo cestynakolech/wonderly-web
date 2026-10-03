@@ -37,6 +37,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 const slozka = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'components', 'skola2');
 
@@ -377,7 +378,7 @@ export function zkontrolujSablony(filtr = '') {
 	return { nalezy, souboru: soubory.length, dotazu, bezDotazu, omezene };
 }
 
-if (import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1] ?? '').href) {
+if (spustenoPrimo(import.meta.url)) {
 	const { nalezy, souboru, dotazu, bezDotazu, omezene } = zkontrolujSablony(process.argv[2] ?? '');
 	for (const n of nalezy) console.log(`❌ ${n.jmeno}: ${n.druh} „${n.co}“ — ${n.proc}`);
 	console.log(`\nProšlo ${souboru} komponent, změřeno ${dotazu} vyhledání prvku.`);

@@ -11,6 +11,7 @@
 // Použití: node testy/uniky-v-bloku.mjs [--blok=část-klíče] [--kalibrace]
 import { nactiData } from './data.mjs';
 import { readFileSync } from 'node:fs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 const STOP = new Set(('jako který která které kteří kterou kterého když kolik proč jaký jaká jaké jaká jakou jakého čemu '
 	+ 'jsou není byla bylo byly bude budou může mohou musí musíme nebo také ještě pouze jenom jsme jste ' + 'tedy takže protože aby kde kam tady tento tato toto tyto této tohoto toho tomu ' + 'každý každá každé stejně stejný stejná stejné vždy nikdy často také dále mezi podle'
@@ -111,7 +112,7 @@ function radky() { // klíč bloku + text otázky → číslo řádku v kvizy.ts
 	return m;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (spustenoPrimo(import.meta.url)) {
 	const arg = process.argv.slice(2);
 	const filtr = (arg.find((a) => a.startsWith('--blok=')) || '').slice(7);
 	const { kvizy } = await nactiData();

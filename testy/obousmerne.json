@@ -646,6 +646,11 @@
 			"podvrh": "Původní komponenta (kopie mimo repo): kód 1, 11 × ❌ — popisek „Q“ a texty „teplo Q“ místo „vnitřní energie“ z výkladu. Mutační test `node testy/mutace.mjs skatepark`: 25/25 odhaleno (po odstranění mrtvé podmínky `p === 0` a rovnocenné `> 0`).",
 			"zdravy": "Nad opravenou komponentou projde všech 35 kontrol kódem 0 (60 poloh ideální rampy, 15 kombinací se třením, jízda snímek po snímku, čistá funkce stavJizdy přepočtená nezávisle).",
 			"overeno": "2026-10-03"
+		},
+		"spusteno-primo-obousmerne.mjs": {
+			"test": "testy/spusteno-primo-obousmerne.mjs",
+			"podvrh": "Starý vzor file://${process.argv[1]} spuštěný přes cestu s mezerou a diakritikou skončil tiše exit 0 bez výpisu (kontrola 4: stará.mjs). Nový pomocník spusteno-primo.mjs ve stejné cestě i přes symlink brány spustí (exit 1, výpis).",
+			"zdravy": "Při importu modulu (ne přímém spuštění) se brána nespustí a import proběhne (exit 0). Test skončil kódem 0, 4 kontroly."
 		}
 	}
 }

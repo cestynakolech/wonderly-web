@@ -33,6 +33,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { vsechnaPodtemata } from './data.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 const zde = dirname(fileURLToPath(import.meta.url));
 export const CESTA_SEZNAM = join(zde, 'youtube-vlastni.json');
@@ -141,7 +142,7 @@ export function zkontrolujCiziVidea(temata, seznam = nactiSeznam()) {
 	};
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (spustenoPrimo(import.meta.url)) {
 	const { nactiData } = await import('./data.mjs');
 	const { temata } = await nactiData();
 	const v = zkontrolujCiziVidea(temata);

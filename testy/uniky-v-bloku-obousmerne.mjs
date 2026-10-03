@@ -84,7 +84,7 @@ const zdroj = dirname(fileURLToPath(import.meta.url));
 const pisk = realpathSync(mkdtempSync(join(tmpdir(), 'uniky-v-bloku-koren-'))); // realpath: /var → /private/var, jinak CLI nepozná přímé spuštění
 mkdirSync(join(pisk, 'testy'), { recursive: true });
 mkdirSync(join(pisk, 'src/data'), { recursive: true });
-for (const f of ['uniky-v-bloku.mjs', 'data.mjs']) copyFileSync(join(zdroj, f), join(pisk, 'testy', f));
+for (const f of ['uniky-v-bloku.mjs', 'data.mjs', 'spusteno-primo.mjs']) copyFileSync(join(zdroj, f), join(pisk, 'testy', f));
 symlinkSync(join(zdroj, '../node_modules'), join(pisk, 'node_modules'));
 const uvoz = (t) => `'${t.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 const radekTs = (o) => `\t\t{ text: ${uvoz(o.text)}, odpovedi: [${o.odpovedi.map(uvoz).join(', ')}], vysvetleni: ${uvoz(o.vysvetleni)} },`;

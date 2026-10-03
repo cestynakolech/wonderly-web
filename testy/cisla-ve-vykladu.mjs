@@ -9,6 +9,7 @@
 //
 // Spuštění: node testy/cisla-ve-vykladu.mjs [část klíče]
 import { nactiData, vsechnaPodtemata } from './data.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 /** Čísla z textu; „4 200" (mezera, NBSP U+00A0 i úzká NBSP U+202F) a „4200" je totéž, desetinná čárka i tečka se sjednotí. */
 function cisla(text) {
@@ -57,7 +58,7 @@ export async function zkontrolujCislaVeVykladu(data) {
 	return nalezy;
 }
 
-if (import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1] ?? '').href) {
+if (spustenoPrimo(import.meta.url)) {
 	const filtr = process.argv[2] ?? '';
 	const nalezy = (await zkontrolujCislaVeVykladu()).filter((n) => n.klic.includes(filtr));
 	for (const n of nalezy) {

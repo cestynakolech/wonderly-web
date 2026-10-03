@@ -8,6 +8,7 @@
 // Měří se čistý TEXT bez HTML značek (jinak by `<strong>` nafukoval délku).
 // Spuštění: node testy/kratke-vyklady.mjs [mez] [část klíče]
 import { nactiData, vsechnaPodtemata, nazornost } from './data.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 /** Čistý text výkladu bez HTML značek. Bez tohoto kroku by `<strong>` nafukoval délku
  *  a krátká stránka by vypadala jako dlouhá. */
@@ -29,7 +30,7 @@ export function jeHlucha(pod, mez) {
 // Skript se spustí, jen když ho někdo zavolá z příkazové řádky. Do 2. 8. 2026 běžel
 // i při IMPORTU, takže obousměrný test měřidla by při každém běhu vypsal celý přehled
 // stránek — a nikdo by v tom nález nenašel.
-if (import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1] ?? '').href) {
+if (spustenoPrimo(import.meta.url)) {
 	const MEZ = Number(process.argv[2]) || 700;
 	const filtr = process.argv[3] ?? '';
 

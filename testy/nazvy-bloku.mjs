@@ -13,6 +13,7 @@
 //
 // Spuštění: node testy/nazvy-bloku.mjs [část klíče]
 import { nactiData, vsechnaPodtemata } from './data.mjs';
+import { spustenoPrimo } from './spusteno-primo.mjs';
 
 /**
  * Kontrolují se JEN celky, kde se opravdu programuje ve Scratchi.
@@ -235,7 +236,7 @@ export async function zkontrolujNazvyBloku(data) {
 	return nalezy;
 }
 
-if (import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1] ?? '').href) {
+if (spustenoPrimo(import.meta.url)) {
 	const filtr = process.argv[2] ?? '';
 	const nalezy = (await zkontrolujNazvyBloku()).filter((n) => n.klic.includes(filtr));
 	for (const n of nalezy) {
