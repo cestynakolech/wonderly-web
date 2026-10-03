@@ -3214,6 +3214,7 @@ export const temata: Record<string, Tema[]> = {
 					materialy: [
 						{ druh: 'youtube', nazev: 'Video: Elektrická bezpečnost', cesta: 'VfCqvZDHUWQ' },
 						{ druh: 'youtube', nazev: 'Video: Domovní elektroinstalace', cesta: 'jhqpxSjUCMk' },
+						{ druh: 'video', nazev: 'Píseň: Účinky proudu a bezpečnost 🎵', cesta: '/materialy/fyzika/9-rocnik/elektricka-energie-a-bezpecnost/ucinky-proudu-bezpecnost/pisen-ucinky-proudu.m4a' },
 					],
 					odkazy: [
 						{ nazev: 'Bezpečně s elektřinou (ČEZ Distribuce)', url: 'https://www.cezdistribuce.cz/cs/bezpecnost/bezpecnost-a-ochrana-zdravi/bezpecne-s-elektrinou' },
