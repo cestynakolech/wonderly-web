@@ -523,6 +523,26 @@ if (chceUtahnout) {
 	console.log('ℹ️  laťku lze utáhnout příkazem: npm run prijmi-latku (brána sama nic nepřepisuje)');
 }
 
+// X) Obrázky výkladu (/obrazky/fyzika/…) nesmí být holé <img> mimo <figure> (mobilní styl).
+// Vzor: <figure><a href=…><img …></a><figcaption>…</figcaption></figure> (jako klid-a-pohyb-telesa).
+// TEMATA_CESTA = jen pro důkaz obousměrnosti na kopii souboru (jinak skutečný temata.ts).
+{
+	const zdroj = process.env.TEMATA_CESTA ? readFileSync(process.env.TEMATA_CESTA, 'utf8') : temata;
+	const slugy = [...zdroj.matchAll(/\bslug:\s*["']([^"']+)["']/g)].map((m) => ({ i: m.index, s: m[1] }));
+	const slugPred = (i) => { let r = '?'; for (const x of slugy) { if (x.i < i) r = x.s; else break; } return r; };
+	let holych = 0;
+	for (const m of zdroj.matchAll(/<img\b[^>]*?src=\\?["'](\/obrazky\/fyzika\/[^"'\\]+)/g)) {
+		const pred = zdroj.slice(0, m.index);
+		const otev = Math.max(pred.lastIndexOf('<figure'), -1);
+		const zav = pred.lastIndexOf('</figure>');
+		const konecObsahu = Math.max(pred.lastIndexOf('obsah:'), pred.lastIndexOf('zvidave:'));
+		if (otev > zav && otev > konecObsahu) continue; // uvnitř <figure>
+		holych++;
+		chyby.push(`holý <img> mimo <figure> (mobilní styl): podtéma ${slugPred(m.index)} → ${m[1]}`);
+	}
+	if (process.env.TEMATA_CESTA) console.log(`ℹ️  obrázky/figure: kontrolováno ${process.env.TEMATA_CESTA}, holých ${holych}`);
+}
+
 if (chyby.length === 0) {
 	console.log('✅ Vše zapojené správně.');
 	process.exit(0);
