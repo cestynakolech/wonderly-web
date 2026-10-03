@@ -4616,7 +4616,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu slouží reostat?', odpovedi: ['k regulaci proudu', 'k regulaci napětí děličem', 'k měření teploty'], vysvetleni: 'Mění odpor → mění proud.' },
 		{ text: 'K čemu slouží potenciometr?', odpovedi: ['k regulaci napětí', 'k výrobě proudu', 'k chlazení obvodu'], vysvetleni: 'Rozdělí napětí mezi dvě části.' },
 		{ text: 'Jak se zapojuje reostat?', odpovedi: ['jednou svorkou a jezdcem', 'oběma svorkami i jezdcem', 'úplně mimo obvod'], vysvetleni: 'Využívá jednu část drátu.' },
-		{ text: 'Jak se zapojuje potenciometr?', odpovedi: ['oběma svorkami i jezdcem', 'dvěma jezdci na obou koncích drátu', 'jen jednou svorkou'], vysvetleni: 'Využívá obě části drátu.' },
+		{ text: 'Jak se zapojuje potenciometr?', odpovedi: ['oběma svorkami i jezdcem', 'dvěma jezdci na obou koncích drátu', 'oběma svorkami, jezdec zůstane volný'], vysvetleni: 'Využívá obě části drátu.' },
 		{ text: 'Podle konstrukce dělíme proměnné rezistory na…', odpovedi: ['posuvné a otočné', 'malé a velké', 'teplé a studené'], vysvetleni: 'Dvě základní provedení.' },
 		{ text: 'K čemu se potenciometr běžně používá?', odpovedi: ['k ovládání hlasitosti', 'k výrobě nových baterií', 'k chlazení procesoru'], vysvetleni: 'V audio a video technice.' },
 		{ text: 'Reostatem prochází při napětí 12 V proud 4 A. Jaký je na něm výkon?', odpovedi: ['48 W', '16 W', '3 W'], vysvetleni: 'P = U · I = 12 · 4 = 48 W. Reostat se jmenovitým výkonem 25 W by se takovým zatížením poškodil.' },
@@ -4954,7 +4954,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kde je za bouřky bezpečněji?', odpovedi: ['uvnitř budovy', 'pod osamělým stromem', 'v otevřené krajině s deštníkem'], vysvetleni: 'Vysoké předměty s hroty a hranami, například stromy, k sobě blesk přitahují.' },
 	],
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-vlastni-vodivost': [
-		{ text: 'Jak vedou elektrický proud polovodiče?', odpovedi: ['jen za určitých podmínek', 'stejně dobře jako kovy', 'za žádných podmínek nevedou'], vysvetleni: 'Nejsou ani vodiče, ani izolanty, jsou tak trochu „napůl“.' },
+		{ text: 'Jak vedou elektrický proud polovodiče?', odpovedi: ['jen za určitých podmínek', 'stejně dobře jako kovy', 'za horkých podmínek vedou stále hůř'], vysvetleni: 'Nejsou ani vodiče, ani izolanty, jsou tak trochu „napůl“.' },
 		{ text: 'Který z uvedených prvků patří mezi polovodiče?', odpovedi: ['germanium', 'měď', 'železo'], vysvetleni: 'Nejznámější polovodiče jsou křemík, germanium a selen.' },
 		{ text: 'Kolik valenčních elektronů má atom křemíku?', odpovedi: ['4', '2', '8'], vysvetleni: 'Křemík je ze IV. skupiny a ve valenční vrstvě má 4 elektrony.' },
 		{ text: 'Čím je tvořena jedna vazba mezi dvěma atomy v krystalu křemíku?', odpovedi: ['dvojicí elektronů, z nichž každý patří jednomu atomu', 'jedním elektronem, který patří oběma atomům společně', 'jedním volným elektronem, který putuje celým krystalem'], vysvetleni: 'Vazba z dvojice elektronů je velmi pevná, podobně jako u diamantu.' },
