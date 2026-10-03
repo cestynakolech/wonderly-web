@@ -654,9 +654,16 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 UZAVŘENO 3. 10. 2026 (učitel, varianta 1A): blok skupenske-zmeny-vody-v-prirode má 21/21; nová Q21 „kaluž → tuhnutí“ prošla kontrolou (`Omega/predavka/2026-10-03/kontrola-kviz-voda-A.md`), commit 8d5fee5 nasazen. Q20 ponechána (drobný nález K2-3 nasazení nebrání). Původní záznam:
 Kvíz Skupenské změny vody v přírodě má 20 otázek (cíl 21). Q20: 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor, mírný únik). Q21: otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20. Rozhodnout učitel: jiná otázka, výjimka 20/21 s důvodem, nebo návrh opravy v `Omega/predavka/2026-10-02/kontrola-81bb544.md` (a `prace/kontrola-doplneni-priroda-tani.md` Kolo 3). Pozn. k ověření: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci.
 
-### [ROZHODNUTO 3. 10. 2026, varianta 2A — běží] Blok Teplo F8 — přestavba (2. 10. 2026)
-Schváleno učitelem 3. 10. 2026 (2A): přestavba celého bloku jedním workerem + nezávislý kontrolor, běží; návrh do `Omega/predavka/2026-10-03/teplo-f8-prestavba.md`. Původní záznam:
-Blok Teplo F8 — otázky si přirozeně napovídají směr tepla (Q1/Q2/Q3/Q4/Q6, vzorec→Q5, jednotka→Q11); 5 pokusů o drobnou opravu selhalo, chce přestavbu bloku; nálezy Omega/predavka/2026-10-02/prace/kontrola-b6810b3.md. Blok vrácen na verzi 7282e02 (energie ř. 3484 ponechána).
+### [HOTOVO 3. 10. 2026] Blok Teplo F8 — přestavba (c706eef + 783cee9, 3 kola oprav vyčerpána)
+Hotovo 3. 10. 2026: přestavba bloku (c706eef) + 3. kolo oprav vazeb Q1, Q5, Q10–Q12 (783cee9); kontrola PŘIJMOUT (`Omega/predavka/2026-10-03/kontrola-teplo-f8-kolo3.md`). Limit 3 kol vyčerpán, zbytek jen jako drobnosti níže. Původní záznam: otázky si napovídaly směr tepla, nálezy `Omega/predavka/2026-10-02/prace/kontrola-b6810b3.md`.
+
+### [drobnost] Teplo F8: 3 zbylé nálezy kola 3 (3. 10. 2026, `Omega/predavka/2026-10-03/kontrola-teplo-f8-kolo3.md`)
+- Z1: správná odpověď Q5 (vzorec Q = m · c · (t₂ − t₁)) napovídá nevýpočetní Q7/Q8 (víc m / větší rozdíl → víc Q); vazba je jádrem učiva, jen evidovat.
+- Z2: správná odpověď Q10 (ohřátí 1 kg o 1 °C) napovídá jednotku v Q11 (jmenovatel kg · °C); vlastní vazba učiva, jen evidovat.
+- Z3: vysvětlení Q11 jen popisuje zápis jednotky a neříká „proč“ (OBSAH-PRAVIDLA.md:265); možná oprava bez úniku přes c = Q : (m · Δt) → J : (kg · °C).
+
+### [ověřit] Ochranné pásmo 30 m ve výkladu „Účinky proudu a bezpečnost“ (3. 10. 2026)
+Ověřit proti zákonu 458/2000 Sb. ochranné pásmo 30 m ve výkladu Účinky proudu a bezpečnost (`temata.ts` ~3212) — kontrolor Suno 3. 10. tvrdí 20 m pro 400 kV (zpaměti, neověřeno).
 
 ### [oprava nástroje] kontrola_uniku_mini.py čte jen jednořádkové otázky (zjištěno 3. 10. 2026)
 `Omega/skripty/kontrola_uniku_mini.py` načte jen otázky zapsané na jednom řádku; víceřádkový blok vrátí 0 otázek (tichý falešný „nic nenalezeno“). Opravit NÁSTROJ, data (kvizy.ts) nepřevádět.
