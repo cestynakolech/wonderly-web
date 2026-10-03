@@ -13,10 +13,11 @@
 		},
 		"uniky-v-bloku.mjs": {
 			"test": "testy/uniky-v-bloku-obousmerne.mjs",
-			"podvrh": "Tři podvrhy v syntetických blocích: zadání jiné otázky obsahuje správnou odpověď (joule), vysvětlení prozrazuje odpověď (ampérmetr), číselná odpověď (100 W) ve vysvětlení jiné otázky — brána každý najde a hlásí správný směr zdroj → cíl.",
-			"zdravy": "Čtyři nezávislé otázky mlčí (0 nálezů, dvojice porovnány); oba skutečné bloky F8 (výkon, bezpečnost; po kole 3) mají 21 otázek, 0 nálezů, 340 / 420 dvojic. Celkem 11 kontrol, exit 0.",
-			"overeno": "2026-10-01",
-			"meze": "Brána je citlivější a hlučnější než uniky.mjs a není zapojena do buildu; hlásí kandidáty, o falešném poplachu rozhoduje člověk."
+			"podvrh": "Tři podvrhy v syntetických blocích: zadání jiné otázky obsahuje správnou odpověď (joule neboli newtonmetr), vysvětlení prozrazuje odpověď (ampérmetr zapojený sériově), číselná odpověď (100 W) ve vysvětlení jiné otázky — brána každý najde a hlásí správný směr zdroj → cíl. | 3. 10. 2026 KALIBRACE: podvrh na KOPII skutečného bloku F8 (elektricka-prace-a-vykon, 21 otázek, v paměti, kvizy.ts nezměněn): únik A = vysvětlení otázky 3 prozradí odpověď otázky 9, únik B = zadání otázky 16 prozradí odpověď otázky 19 — oba najde (kopie před podvrhem 0 nálezů). CLI exit kód: čistý blok F8 → 0, blok s nálezem (6-rocnik/sila/vzajemne-pusobeni) → 1.",
+			"zdravy": "Čtyři nezávislé otázky mlčí (0 nálezů, dvojice porovnány); oba skutečné bloky F8 (výkon, bezpečnost) mají 21 otázek, 0 nálezů, 340 / 420 dvojic. | 3. 10. 2026 po kalibraci: nad celými daty (170 bloků / 3329 otázek / 58678 dvojic) 51 nálezů místo 1621 (-97 %); ručně posouzeno, kolik je skutečných — viz Omega/predavka/2026-10-03/kalibrace-uniky-v-bloku.md. Celkem 19 kontrol, exit 0.",
+			"regrese": "Falešné poplachy staré verze jsou trvalé regrese: (1) konstanta g = 10 a převodní vztah 1 000 g ve VÝPOČTU a značka Ω nejsou únik (mutace: vypnout filtr operátorů nebo práh pokrytí 70 % → kontrola padne); (2) odborné slovo sdílené celým blokem (přírodní) není únik (mutace: vypnout filtr tématu → padne). Všechny tři mutace změřeny 3. 10. 2026, každá shodí právě jmenovanou kontrolu.",
+			"overeno": "2026-10-03",
+			"meze": "Brána je citlivější a hlučnější než uniky.mjs, hlásí kandidáty a o skutečném úniku rozhoduje člověk; NENÍ zapojena do buildu (exit 1 na dnešních datech, protože zbylé nálezy jsou ve většině skutečné drobné úniky v kvizy.ts). Nechytí únik jedním jediným slovem (zkoušeno: povolení slov ≥ 5 znaků dalo 242 nálezů, z nich asi třetina skutečných) ani únik bez sdílených slov (jiná formulace téhož významu)."
 		},
 		"uniky.mjs": {
 			"test": "testy/uniky-obousmerne.mjs",
