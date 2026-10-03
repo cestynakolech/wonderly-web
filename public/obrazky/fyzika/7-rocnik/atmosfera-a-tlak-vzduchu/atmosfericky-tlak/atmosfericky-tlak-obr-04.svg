@@ -3,6 +3,7 @@
 /* Animace 10 s, smyčka. Předloha: PDF lekce 16, str. 11 (přísavka se celou plochou přitiskne k hladkému povrchu, nesmí pod ní
    být vzduch, drží ji tlak atmosféry; háčky v koupelně), str. 12 (foto sklenářských přísavek).
    přiblížení 5–25 %, zploštění + únik vzduchu 25–35 %, šipky tlaku 40–50 %, ručník 55–65 %, zmizí 92–98 %.
+   Částice vzduchu kolem přísavky jsou stále (vzduch je všude kolem); animovaně mizí jen vzduch zpod přísavky.
    Bez animace = koncový stav: přisátá plochá přísavka, šipky a ručník vidět, vzduch pod ní ne. */
 .pri { animation: pri 10s ease-in-out infinite; }
 .kup { animation: kup 10s linear infinite; }
@@ -31,6 +32,7 @@
 <line x1="400" y1="90" x2="580" y2="90" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="168" x2="580" y2="168" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="246" x2="580" y2="246" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="324" x2="580" y2="324" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="402" x2="580" y2="402" stroke="#99e9f2" stroke-width="2"/><line x1="490" y1="90" x2="490" y2="480" stroke="#99e9f2" stroke-width="2"/>
 <line x1="400" y1="90" x2="400" y2="480" stroke="#495057" stroke-width="3"/>
 <text x="490" y="460" font-size="22" fill="#212529" text-anchor="middle">kachlíky</text>
+<g fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"><circle cx="40" cy="112" r="4.5"/><circle cx="120" cy="100" r="4.5"/><circle cx="40" cy="190" r="4.5"/><circle cx="105" cy="165" r="4.5"/><circle cx="60" cy="260" r="4.5"/><circle cx="125" cy="232" r="4.5"/><circle cx="35" cy="330" r="4.5"/><circle cx="100" cy="305" r="4.5"/><circle cx="60" cy="395" r="4.5"/><circle cx="130" cy="372" r="4.5"/><circle cx="190" cy="430" r="4.5"/><circle cx="40" cy="455" r="4.5"/><circle cx="120" cy="470" r="4.5"/><circle cx="215" cy="470" r="4.5"/><circle cx="365" cy="465" r="4.5"/><circle cx="375" cy="380" r="4.5"/><circle cx="365" cy="120" r="4.5"/><circle cx="270" cy="108" r="4.5"/></g>
 <g class="celek">
 <g transform="translate(400 0)"><g class="pri">
 <g class="vn" opacity="0"><circle cx="-14" cy="236" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/><circle cx="-26" cy="252" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/><circle cx="-10" cy="216" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/></g>

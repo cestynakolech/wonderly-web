@@ -3,6 +3,8 @@
 /* Animace 8s, smyčka, všechny části se stejným lineárním průběhem tlaku: 0 % normální, 25 % vyšší, 50 % normální, 75 % nižší.
    Předloha: PDF lekce 16, str. 8 (rtuťový barometr — rtuť v trubici stoupá a klesá podle tlaku), str. 9–10 (aneroid s ručičkou),
    str. 10–11 (barograf: válec s papírem, krabičky, pero). Normální tlak 760 mm rtuti ≈ 1 013 hPa (výklad).
+   Otevřený dolní konec trubice je ponořený pod hladinou rtuti v misce (hladina y=535, konec trubice y=545), trubice se kreslí přes rtuť.
+   Barvy: červená jen ručička aneroidu, modrá jen inkoust barografu (stopa i hrot pera), texty tmavé.
    Bez animace = koncový stav = normální tlak (rtuť na 760 mm, ručička na 1 013 hPa, stopa barografu celá). */
 .sl { transform-box: fill-box; transform-origin: 50% 100%; animation: sl 8s linear infinite; }
 .ru { transform-box: view-box; transform-origin: 0 0; animation: ru 8s linear infinite; }
@@ -28,9 +30,10 @@
 <text x="150" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rtuťový barometr</text>
 <rect x="95" y="104" width="110" height="456" rx="8" fill="#e9c46a" stroke="#8d6e1c" stroke-width="2.5"/>
 <line x1="168" y1="170" x2="184" y2="170" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="190" x2="184" y2="190" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="210" x2="184" y2="210" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="230" x2="184" y2="230" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="250" x2="200" y2="250" stroke="#5d4037" stroke-width="3"/><line x1="168" y1="270" x2="184" y2="270" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="290" x2="184" y2="290" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="310" x2="184" y2="310" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="330" x2="184" y2="330" stroke="#5d4037" stroke-width="2"/>
+<path d="M112,515 L117,552 L183,552 L188,515" fill="#e7f5ff" fill-opacity="0.6" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/>
 <rect class="sl" x="144" y="250" width="12" height="285" fill="url(#a3rt)"/>
-<path d="M138,525 L138,132 A12,12 0 0 1 162,132 L162,525" fill="none" stroke="#495057" stroke-width="2.5"/>
-<path d="M116,521 L120,550 L180,550 L184,521" fill="#e7f5ff" fill-opacity="0.6" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/><rect x="121" y="535" width="58" height="13" fill="url(#a3rt)"/>
+<path d="M114.8,535 L185.2,535 L183,551.5 L117,551.5 Z" fill="url(#a3rt)"/>
+<path d="M138,545 L138,132 A12,12 0 0 1 162,132 L162,545" fill="none" stroke="#212529" stroke-width="3"/>
 <text x="212" y="258" font-size="22" font-weight="bold" fill="#212529">760 mm</text>
 <text x="440" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">aneroid (kovový)</text>
 <circle cx="440" cy="300" r="128" fill="#b08d2e" stroke="#7a5c12" stroke-width="3"/>
@@ -44,8 +47,8 @@
 <circle cx="440" cy="300" r="10" fill="#7a5c12"/>
 <g font-size="22" text-anchor="middle">
 <text class="tn" x="300" y="602" fill="#212529">normální tlak: 760 mm rtuti ≈ 1 013 hPa</text>
-<text class="tv" x="300" y="602" fill="#c92a2a" opacity="0">vyšší tlak: rtuť stoupá, ručička doprava</text>
-<text class="tz" x="300" y="602" fill="#1864ab" opacity="0">nižší tlak: rtuť klesá, ručička doleva</text>
+<text class="tv" x="300" y="602" fill="#212529" opacity="0">vyšší tlak: rtuť stoupá, ručička doprava</text>
+<text class="tz" x="300" y="602" fill="#212529" opacity="0">nižší tlak: rtuť klesá, ručička doleva</text>
 </g>
 <line x1="20" y1="624" x2="580" y2="624" stroke="#ced4da" stroke-width="2"/>
 <text x="40" y="660" font-size="22" fill="#212529"><tspan font-weight="bold">barograf</tspan> zapisuje tlak na papír</text>
@@ -55,5 +58,5 @@
 <path d="M60,735 L155,707 L250,735 L345,763 L440,735 L535,707 L630,735 L725,763 L820,735" fill="none" stroke="#1864ab" stroke-width="3.5" stroke-linejoin="round"/></g></g>
 <rect x="470" y="690" width="100" height="100" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
 <ellipse cx="520" cy="712" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/><ellipse cx="520" cy="730" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/><ellipse cx="520" cy="748" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/><ellipse cx="520" cy="766" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/>
-<g class="pero"><line x1="440" y1="735" x2="520" y2="705" stroke="#495057" stroke-width="3"/><circle cx="440" cy="735" r="6" fill="#c92a2a"/></g>
+<g class="pero"><line x1="440" y1="735" x2="520" y2="705" stroke="#495057" stroke-width="3"/><circle cx="440" cy="735" r="6" fill="#1864ab"/></g>
 </svg>
