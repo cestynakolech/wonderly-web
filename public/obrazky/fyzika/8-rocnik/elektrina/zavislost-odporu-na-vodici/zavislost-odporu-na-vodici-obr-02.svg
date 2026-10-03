@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 690" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva měděné dráty stejné délky s průhledem dovnitř: tenký a tlustý. Uvnitř jsou šedé atomy mřížky a modré volné elektrony. V tenkém drátu mají elektrony jen jednu úzkou cestičku mezi atomy – mají málo místa, drát má větší odpor. V tlustém drátu vedou vedle sebe tři cestičky – elektrony mají víc místa, drát má menší odpor. Na konci každého drátu je vidět jeho příčný řez: malý a velký. Animace: elektrony se pohybují od záporné svorky ke kladné.">
+<style>
+/* Předloha: PDF lekce 26, s. 1 (tloušťka vodiče: čím je vodič tenčí, tím méně prostoru elektrony k pohybu mají;
+   čím tenčí vodič, tím větší odpor). Obrázek v PDF chybí, děj nakreslen podle textu.
+   Elektrony letí stejnou rychlostí 6 s celou délkou drátu; tenký drát má 1 cestičku, tlustý 3.
+   Bez animace (reduced-motion) = elektrony stojí rozmístěné v cestičkách. */
+@keyframes t0 { 0% { transform: translate(74px, 190px); } 100% { transform: translate(456px, 190px); } }
+.t0 { animation: t0 6s linear infinite; }
+@keyframes s0 { 0% { transform: translate(74px, 398px); } 100% { transform: translate(456px, 398px); } }
+.s0 { animation: s0 6s linear infinite; }
+@keyframes s1 { 0% { transform: translate(74px, 450px); } 100% { transform: translate(456px, 450px); } }
+.s1 { animation: s1 6s linear infinite; }
+@keyframes s2 { 0% { transform: translate(74px, 502px); } 100% { transform: translate(456px, 502px); } }
+.s2 { animation: s2 6s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .t0, .s0, .s1, .s2 { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="684" rx="14" fill="#f8f9fa"/>
+
+<defs><radialGradient id="castice" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ced4da"/></radialGradient><linearGradient id="med" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9894f"/><stop offset="0.28" stop-color="#f0b98a"/><stop offset="0.55" stop-color="#b8642a"/><stop offset="1" stop-color="#6b3410"/></linearGradient><radialGradient id="rez" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#f3c79d"/><stop offset="1" stop-color="#c77a3f"/></radialGradient></defs>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Tenčí drát – větší odpor</text>
+<g transform="translate(46 82)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<text x="64" y="90" font-size="22" fill="#212529" text-anchor="start">volný elektron</text>
+<circle cx="260" cy="82" r="14" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<text x="282" y="90" font-size="22" fill="#212529" text-anchor="start">atom mřížky</text>
+<text x="30" y="126" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">Tenký drát</text>
+<ellipse cx="474" cy="196" rx="10.1" ry="46" fill="#000" opacity="0.08"/><rect x="60" y="144" width="410" height="92" fill="url(#med)"/><ellipse cx="60" cy="190" rx="9.2" ry="46" fill="#9c4a17"/><clipPath id="vnt"><rect x="66" y="152" width="398" height="76" rx="10"/></clipPath><rect x="66" y="152" width="398" height="76" rx="10" fill="#fff4e6" stroke="#6b3410" stroke-width="2"/><ellipse cx="470" cy="190" rx="9.2" ry="46" fill="url(#rez)" stroke="#6b3410" stroke-width="2"/>
+<circle cx="100" cy="164" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="100" cy="216" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="168" cy="164" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="168" cy="216" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="236" cy="164" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="236" cy="216" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="304" cy="164" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="304" cy="216" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="372" cy="164" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="372" cy="216" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="440" cy="164" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="440" cy="216" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<g clip-path="url(#vnt)"><g class="t0" style="animation-delay:-0.00s" transform="translate(74 190)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="t0" style="animation-delay:-2.00s" transform="translate(201.3 190)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="t0" style="animation-delay:-4.00s" transform="translate(328.7 190)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g></g>
+<circle cx="36" cy="190" r="16" fill="#1864ab"/><path d="M28 190H44" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="504" cy="190" r="16" fill="#c92a2a"/><path d="M496 190H512M504 182V198" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<text x="30" y="320" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">Tlustý drát (stejný kov, stejná délka)</text>
+<ellipse cx="474" cy="456" rx="24.6" ry="112" fill="#000" opacity="0.08"/><rect x="60" y="338" width="410" height="224" fill="url(#med)"/><ellipse cx="60" cy="450" rx="22.4" ry="112" fill="#9c4a17"/><clipPath id="vns"><rect x="66" y="346" width="398" height="208" rx="10"/></clipPath><rect x="66" y="346" width="398" height="208" rx="10" fill="#fff4e6" stroke="#6b3410" stroke-width="2"/><ellipse cx="470" cy="450" rx="22.4" ry="112" fill="url(#rez)" stroke="#6b3410" stroke-width="2"/>
+<circle cx="100" cy="372" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="100" cy="424" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="100" cy="476" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="100" cy="528" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="168" cy="372" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="168" cy="424" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="168" cy="476" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="168" cy="528" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="236" cy="372" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="236" cy="424" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="236" cy="476" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="236" cy="528" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="304" cy="372" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="304" cy="424" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="304" cy="476" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="304" cy="528" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="372" cy="372" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="372" cy="424" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="372" cy="476" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="372" cy="528" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="440" cy="372" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="440" cy="424" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="440" cy="476" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<circle cx="440" cy="528" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<g clip-path="url(#vns)"><g class="s0" style="animation-delay:-0.00s" transform="translate(74 398)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s0" style="animation-delay:-2.00s" transform="translate(201.3 398)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s0" style="animation-delay:-4.00s" transform="translate(328.7 398)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s1" style="animation-delay:-0.67s" transform="translate(116.4 450)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s1" style="animation-delay:-2.67s" transform="translate(243.8 450)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s1" style="animation-delay:-4.67s" transform="translate(371.1 450)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s2" style="animation-delay:-1.33s" transform="translate(158.9 502)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s2" style="animation-delay:-3.33s" transform="translate(286.2 502)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g class="s2" style="animation-delay:-5.33s" transform="translate(413.6 502)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g></g>
+<circle cx="36" cy="450" r="16" fill="#1864ab"/><path d="M28 450H44" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="504" cy="450" r="16" fill="#c92a2a"/><path d="M496 450H512M504 442V458" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<path d="M478 150L520 128" stroke="#212529" stroke-width="2"/>
+<text x="524" y="128" font-size="20" fill="#212529" text-anchor="start">malý</text>
+<text x="524" y="150" font-size="20" fill="#212529" text-anchor="start">průřez</text>
+<path d="M486 360L522 332" stroke="#212529" stroke-width="2"/>
+<text x="524" y="320" font-size="20" fill="#212529" text-anchor="start">velký</text>
+<text x="524" y="342" font-size="20" fill="#212529" text-anchor="start">průřez</text>
+<text x="30" y="268" font-size="22" fill="#212529" text-anchor="start">Elektrony mají málo místa. → větší odpor</text>
+<text x="30" y="606" font-size="22" fill="#212529" text-anchor="start">Elektrony mají víc místa. → menší odpor</text>
+<text x="30" y="650" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">Čím tlustší drát, tím menší odpor.</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Šedý válec – kus vodiče – ležící na boku. Jeho konec je rovně přestřižený a je na něm vidět tmavší ovál. Žlutá bublina k němu říká: průřez vodiče neboli plocha příčného řezu vodičem. Na průřezu je vyznačen poloměr r, pod válcem šipka délky vodiče l. Dole vzorec pro kulatý drát: S = π · r².">
+<rect x="3" y="3" width="594" height="494" rx="14" fill="#f8f9fa"/>
+
+<defs><linearGradient id="valec" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#8c8c8c"/><stop offset="0.45" stop-color="#d0d0d0"/><stop offset="1" stop-color="#7a7a7a"/></linearGradient><radialGradient id="celo" cx="45%" cy="40%" r="70%"><stop offset="0" stop-color="#a6a6a6"/><stop offset="1" stop-color="#6e6e6e"/></radialGradient></defs>
+<!-- Předloha: PDF lekce 26, s. 2 (šedý válec s viditelným čelem a žlutá bublina „Průřez vodiče aneb Plocha příčného řezu vodiče“; nad obrázkem S = π·r²). -->
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Průřez vodiče</text>
+<path d="M78 323H340" stroke="#000" stroke-width="10" opacity="0.10" stroke-linecap="round"/>
+<path d="M70 105H330V315H70A42 105 0 0 1 70 105Z" fill="url(#valec)" stroke="#5c5c5c" stroke-width="3"/>
+<ellipse cx="330" cy="210" rx="42" ry="105" fill="url(#celo)" stroke="#5c5c5c" stroke-width="3"/>
+<path d="M330 210V108" stroke="#e03131" stroke-width="4"/><circle cx="330" cy="210" r="4" fill="#e03131"/>
+<text x="310" y="170" font-size="24" font-weight="bold" fill="#e03131" text-anchor="middle" font-style="italic">r</text>
+<text x="334" y="268" font-size="28" font-weight="bold" fill="#fff" text-anchor="middle" font-style="italic">S</text>
+<path d="M408 92H568Q584 92 584 108V238Q584 254 568 254H408Q392 254 392 238V210L348 230L392 176V108Q392 92 408 92Z" fill="#ffec99" stroke="#212529" stroke-width="3" stroke-linejoin="round"/>
+<text x="488" y="128" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Průřez vodiče</text>
+<text x="488" y="162" font-size="22" fill="#212529" text-anchor="middle">aneb plocha</text>
+<text x="488" y="196" font-size="22" fill="#212529" text-anchor="middle">příčného řezu</text>
+<text x="488" y="230" font-size="22" fill="#212529" text-anchor="middle">vodičem</text>
+<path d="M28 355H330" stroke="#212529" stroke-width="3"/><path d="M40 347L28 355L40 363M318 347L330 355L318 363" fill="none" stroke="#212529" stroke-width="3"/>
+<text x="179" y="387" font-size="22" fill="#212529" text-anchor="middle">délka vodiče <tspan font-style="italic" font-weight="bold">l</tspan></text>
+<rect x="60" y="420" width="480" height="52" rx="10" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<text x="300" y="454" font-size="22" fill="#212529" text-anchor="middle">Kulatý drát: <tspan font-weight="bold" fill="#c92a2a">S = π · r²</tspan></text>
+</svg>

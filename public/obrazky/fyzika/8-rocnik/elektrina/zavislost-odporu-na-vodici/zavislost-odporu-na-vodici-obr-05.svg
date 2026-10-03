@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 860" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Rezistor podle předlohy: modré tělísko se čtyřmi barevnými proužky – hnědým, červeným, oranžovým a zlatým – a dvěma ohnutými drátovými vývody. Pod ním čtení proužků: hnědá 1, červená 2, oranžová 000, tedy 12 000 Ω = 12 kΩ. Uprostřed rezistor zevnitř: dlouhý tenký izolovaný odporový drát z konstantanu navinutý na keramickém válečku, na koncích kovové čepičky s vývody. Dole značka rezistoru ve schématu: obdélník se dvěma vývody.">
+<rect x="3" y="3" width="594" height="854" rx="14" fill="#f8f9fa"/>
+
+<defs><linearGradient id="telo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#74c0fc"/><stop offset="0.35" stop-color="#4dabf7"/><stop offset="1" stop-color="#1864ab"/></linearGradient><linearGradient id="vyv" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#adb5bd"/><stop offset="0.5" stop-color="#f1f3f5"/><stop offset="1" stop-color="#868e96"/></linearGradient><linearGradient id="kera" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="0.4" stop-color="#f8f0e3"/><stop offset="1" stop-color="#cdbfa8"/></linearGradient><linearGradient id="cep" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dee2e6"/><stop offset="0.4" stop-color="#f8f9fa"/><stop offset="1" stop-color="#868e96"/></linearGradient><linearGradient id="lesk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.5"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+<!-- Předloha: PDF lekce 26, s. 4 (rezistor s modrým tělem, proužky hnědá-červená-oranžová-zlatá, ohnuté vývody; čtení 1 2 000 = 12 kΩ) a s. 3 (odporový drát z konstantanu, izolovaný, navinutý na keramickém válečku); s. 4 schematická značka obdélník. -->
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Rezistor</text>
+<path d="M130 120H96Q80 120 80 136V270" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round"/><path d="M130 120H96Q80 120 80 136V270" fill="none" stroke="#f1f3f5" stroke-width="3" stroke-linecap="round"/><path d="M470 120H504Q520 120 520 136V270" fill="none" stroke="#868e96" stroke-width="9" stroke-linecap="round"/><path d="M470 120H504Q520 120 520 136V270" fill="none" stroke="#f1f3f5" stroke-width="3" stroke-linecap="round"/>
+<clipPath id="tel"><path d="M140 120C140 90 160 82 190 82C222 82 230 94 250 94H350C370 94 378 82 410 82C440 82 460 90 460 120C460 150 440 158 410 158C378 158 370 146 350 146H250C230 146 222 158 190 158C160 158 140 150 140 120Z"/></clipPath>
+<path d="M140 120C140 90 160 82 190 82C222 82 230 94 250 94H350C370 94 378 82 410 82C440 82 460 90 460 120C460 150 440 158 410 158C378 158 370 146 350 146H250C230 146 222 158 190 158C160 158 140 150 140 120Z" fill="url(#telo)" stroke="#1864ab" stroke-width="2"/>
+<g clip-path="url(#tel)"><rect x="184" y="70" width="22" height="100" fill="#7a3e12"/><rect x="262" y="70" width="22" height="100" fill="#e03131"/><rect x="318" y="70" width="22" height="100" fill="#f76707"/><rect x="404" y="70" width="22" height="100" fill="#c9a227"/><path d="M140 120C140 90 160 82 190 82C222 82 230 94 250 94H350C370 94 378 82 410 82C440 82 460 90 460 120C460 150 440 158 410 158C378 158 370 146 350 146H250C230 146 222 158 190 158C160 158 140 150 140 120Z" fill="url(#lesk)"/></g>
+<text x="195" y="72" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">1.</text>
+<text x="273" y="72" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">2.</text>
+<text x="329" y="72" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">3.</text>
+<text x="300" y="220" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">barevné proužky</text>
+<text x="300" y="248" font-size="22" fill="#212529" text-anchor="middle">udávají odpor</text>
+<circle cx="150" cy="298" r="13" fill="#7a3e12" stroke="#212529" stroke-width="1.5"/>
+<text x="150" y="336" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1</text>
+<circle cx="206" cy="298" r="13" fill="#e03131" stroke="#212529" stroke-width="1.5"/>
+<text x="206" y="336" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">2</text>
+<circle cx="262" cy="298" r="13" fill="#f76707" stroke="#212529" stroke-width="1.5"/>
+<text x="262" y="336" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">000</text>
+<text x="300" y="336" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">→ 12 000 Ω = 12 kΩ</text>
+<path d="M20 370H580" stroke="#ced4da" stroke-width="2"/>
+<text x="300" y="408" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Uvnitř drátového rezistoru</text>
+<path d="M40 500H100M500 500H560" stroke="#868e96" stroke-width="7" stroke-linecap="round"/>
+<rect x="120" y="456" width="360" height="88" rx="14" fill="url(#kera)" stroke="#8a7a62" stroke-width="2.5"/>
+<path d="M146.0 456L153.0 544M158.6 456L165.6 544M171.2 456L178.2 544M183.8 456L190.8 544M196.4 456L203.4 544M209.0 456L216.0 544M221.6 456L228.6 544M234.2 456L241.2 544M246.8 456L253.8 544M259.4 456L266.4 544M272.0 456L279.0 544M284.6 456L291.6 544M297.2 456L304.2 544M309.8 456L316.8 544M322.4 456L329.4 544M335.0 456L342.0 544M347.6 456L354.6 544M360.2 456L367.2 544M372.8 456L379.8 544M385.4 456L392.4 544M398.0 456L405.0 544M410.6 456L417.6 544M423.2 456L430.2 544M435.8 456L442.8 544M448.4 456L455.4 544M461.0 456L468.0 544" stroke="#7a5c3a" stroke-width="5" stroke-linecap="round"/>
+<path d="M146.0 456L153.0 544M158.6 456L165.6 544M171.2 456L178.2 544M183.8 456L190.8 544M196.4 456L203.4 544M209.0 456L216.0 544M221.6 456L228.6 544M234.2 456L241.2 544M246.8 456L253.8 544M259.4 456L266.4 544M272.0 456L279.0 544M284.6 456L291.6 544M297.2 456L304.2 544M309.8 456L316.8 544M322.4 456L329.4 544M335.0 456L342.0 544M347.6 456L354.6 544M360.2 456L367.2 544M372.8 456L379.8 544M385.4 456L392.4 544M398.0 456L405.0 544M410.6 456L417.6 544M423.2 456L430.2 544M435.8 456L442.8 544M448.4 456L455.4 544M461.0 456L468.0 544" stroke="#d8b98c" stroke-width="1.6" stroke-linecap="round" transform="translate(-1 -1)"/>
+<rect x="96" y="450" width="34" height="100" rx="8" fill="url(#cep)" stroke="#495057" stroke-width="2"/><rect x="470" y="450" width="34" height="100" rx="8" fill="url(#cep)" stroke="#495057" stroke-width="2"/>
+<path d="M226 454L190 438" stroke="#212529" stroke-width="2"/>
+<path d="M487 550L455 576" stroke="#212529" stroke-width="2"/>
+<text x="30" y="438" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">odporový drát</text>
+<path d="M300 540L250 576" stroke="#212529" stroke-width="2"/>
+<text x="150" y="600" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">keramický váleček</text>
+<text x="440" y="600" font-size="22" fill="#212529" text-anchor="middle">kovová čepička</text>
+<text x="300" y="648" font-size="22" fill="#212529" text-anchor="middle">Dlouhý tenký izolovaný drát z konstantanu</text>
+<text x="300" y="676" font-size="22" fill="#212529" text-anchor="middle">je navinutý na keramickém válečku.</text>
+<path d="M20 700H580" stroke="#ced4da" stroke-width="2"/>
+<text x="300" y="738" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Značka ve schématu</text>
+<path d="M150 790H240M360 790H450" stroke="#212529" stroke-width="4"/><rect x="240" y="772" width="120" height="36" fill="#fff" stroke="#212529" stroke-width="4"/>
+<text x="300" y="838" font-size="22" fill="#212529" text-anchor="middle">obdélník se dvěma vývody</text>
+</svg>

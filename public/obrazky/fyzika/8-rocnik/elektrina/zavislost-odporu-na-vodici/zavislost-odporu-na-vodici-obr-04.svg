@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Nahoře obvod: zdroj, spínač, měděné přívodní kabely a topná spirála z nichromu. Po zavření spínače se spirála rozžhaví do oranžova, měděný kabel zůstane studený – nichrom má mnohem větší měrný odpor než měď. Dole sloupce měrného odporu v Ω·mm²/m: měď 0,018, hliník 0,028, konstantan 0,50, nichrom 1,1. Měď a hliník mají nejmenší měrný odpor – jsou to nejlepší vodiče. Animace: spínač se zavře, spirála se rozžhaví, pak se spínač otevře a spirála vychladne.">
+<style>
+/* Předloha: PDF lekce 26, s. 2–3 (látka, z níž je vodič vyroben; měrný odpor ρ; nejlepší vodiče měď, …) + výklad
+   (měď 0,018, hliník 0,028, konstantan 0,50, nichrom 1,1 Ω·mm²/m; nichromová spirála se rozžhaví, měděný kabel zůstane studený).
+   8 s: 0–25 % spínač otevřený; 25–31 % se zavře; 31–70 % spirála se rozžhavuje; 70–85 % žhne; 85–91 % spínač se otevře a spirála chladne.
+   Bez animace (reduced-motion) = koncový stav: spínač zavřený, spirála žhne, kabel studený. */
+.ps { animation: ps 8s ease-in-out infinite; }
+@keyframes ps { 0%, 25% { transform: rotate(-26deg); } 31%, 85% { transform: rotate(0deg); } 91%, 100% { transform: rotate(-26deg); } }
+.zh { animation: zh 8s linear infinite; }
+@keyframes zh { 0%, 31% { opacity: 0; } 70%, 85% { opacity: 1; } 97%, 100% { opacity: 0; } }
+.sz { animation: sv 8s step-end infinite; } .so { opacity: 0; animation: tm 8s step-end infinite; }
+@keyframes sv { 0% { opacity: 0; } 31% { opacity: 1; } 86% { opacity: 0; } }
+@keyframes tm { 0% { opacity: 1; } 31% { opacity: 0; } 86% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ps, .zh, .sz, .so { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="714" rx="14" fill="#f8f9fa"/>
+
+<defs><filter id="zar" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Materiál vodiče: měď a nichrom</text>
+<path d="M90 182V100H190" fill="none" stroke="#7a3e12" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 182V100H190" fill="none" stroke="#c87533" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M90 182V100H190" fill="none" stroke="#f0b98a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" transform="translate(0 -2)"/>
+<path d="M250 100H470V150" fill="none" stroke="#7a3e12" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><path d="M250 100H470V150" fill="none" stroke="#c87533" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M250 100H470V150" fill="none" stroke="#f0b98a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" transform="translate(0 -2)"/>
+<path d="M470 270V320H90V218" fill="none" stroke="#7a3e12" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/><path d="M470 270V320H90V218" fill="none" stroke="#c87533" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><path d="M470 270V320H90V218" fill="none" stroke="#f0b98a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" transform="translate(0 -2)"/>
+<path d="M56 182H124" stroke="#212529" stroke-width="4"/><path d="M73 218H107" stroke="#212529" stroke-width="9"/><rect x="54" y="172" width="72" height="56" fill="none"/>
+<path d="M32 170H48M40 162V178" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M32 230H48" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<path d="M90 182V190M90 210V218" stroke="#7a3e12" stroke-width="0"/>
+<text x="140" y="206" font-size="22" fill="#212529" text-anchor="start">zdroj</text>
+<circle cx="196" cy="100" r="6" fill="#fff" stroke="#212529" stroke-width="3"/><circle cx="244" cy="100" r="6" fill="#fff" stroke="#212529" stroke-width="3"/>
+<path class="ps" style="transform-origin:196px 100px" d="M202 98L246 94" stroke="#212529" stroke-width="4" stroke-linecap="round"/>
+<text x="220" y="78" font-size="22" fill="#212529" text-anchor="middle">spínač</text>
+<path d="M470 150V156M470 270V264" stroke="#7a3e12" stroke-width="5"/>
+<path d="M454 156C454 146 486 146 486 156C486 166 454 172 454 169M454 169C454 159 486 159 486 169C486 179 454 185 454 182M454 182C454 172 486 172 486 182C486 192 454 198 454 195M454 195C454 185 486 185 486 195C486 205 454 211 454 208M454 208C454 198 486 198 486 208C486 218 454 224 454 221M454 221C454 211 486 211 486 221C486 231 454 237 454 234M454 234C454 224 486 224 486 234C486 244 454 250 454 247M454 247C454 237 486 237 486 247C486 257 454 263 454 260M454 260C454 250 486 250 486 260C486 270 454 276 454 273" fill="none" stroke="#495057" stroke-width="5" stroke-linecap="round"/>
+<path d="M454 156C454 146 486 146 486 156C486 166 454 172 454 169M454 169C454 159 486 159 486 169C486 179 454 185 454 182M454 182C454 172 486 172 486 182C486 192 454 198 454 195M454 195C454 185 486 185 486 195C486 205 454 211 454 208M454 208C454 198 486 198 486 208C486 218 454 224 454 221M454 221C454 211 486 211 486 221C486 231 454 237 454 234M454 234C454 224 486 224 486 234C486 244 454 250 454 247M454 247C454 237 486 237 486 247C486 257 454 263 454 260M454 260C454 250 486 250 486 260C486 270 454 276 454 273" fill="none" stroke="#adb5bd" stroke-width="2" stroke-linecap="round" transform="translate(-1 -1)"/>
+<g class="zh"><path d="M454 156C454 146 486 146 486 156C486 166 454 172 454 169M454 169C454 159 486 159 486 169C486 179 454 185 454 182M454 182C454 172 486 172 486 182C486 192 454 198 454 195M454 195C454 185 486 185 486 195C486 205 454 211 454 208M454 208C454 198 486 198 486 208C486 218 454 224 454 221M454 221C454 211 486 211 486 221C486 231 454 237 454 234M454 234C454 224 486 224 486 234C486 244 454 250 454 247M454 247C454 237 486 237 486 247C486 257 454 263 454 260M454 260C454 250 486 250 486 260C486 270 454 276 454 273" fill="none" stroke="#ff922b" stroke-width="12" stroke-linecap="round" filter="url(#zar)" opacity="0.9"/><path d="M454 156C454 146 486 146 486 156C486 166 454 172 454 169M454 169C454 159 486 159 486 169C486 179 454 185 454 182M454 182C454 172 486 172 486 182C486 192 454 198 454 195M454 195C454 185 486 185 486 195C486 205 454 211 454 208M454 208C454 198 486 198 486 208C486 218 454 224 454 221M454 221C454 211 486 211 486 221C486 231 454 237 454 234M454 234C454 224 486 224 486 234C486 244 454 250 454 247M454 247C454 237 486 237 486 247C486 257 454 263 454 260M454 260C454 250 486 250 486 260C486 270 454 276 454 273" fill="none" stroke="#fd7e14" stroke-width="5" stroke-linecap="round"/><path d="M454 156C454 146 486 146 486 156C486 166 454 172 454 169M454 169C454 159 486 159 486 169C486 179 454 185 454 182M454 182C454 172 486 172 486 182C486 192 454 198 454 195M454 195C454 185 486 185 486 195C486 205 454 211 454 208M454 208C454 198 486 198 486 208C486 218 454 224 454 221M454 221C454 211 486 211 486 221C486 231 454 237 454 234M454 234C454 224 486 224 486 234C486 244 454 250 454 247M454 247C454 237 486 237 486 247C486 257 454 263 454 260M454 260C454 250 486 250 486 260C486 270 454 276 454 273" fill="none" stroke="#ffe066" stroke-width="2" stroke-linecap="round" transform="translate(-1 -1)"/></g>
+<text x="440" y="190" font-size="22" font-weight="bold" fill="#212529" text-anchor="end">spirála</text>
+<text x="440" y="216" font-size="22" font-weight="bold" fill="#212529" text-anchor="end">z nichromu</text>
+<text x="280" y="300" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">měděný kabel</text>
+<text x="300" y="360" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" class="sz">Spirála se rozžhaví, kabel zůstane studený.</text>
+<text x="300" y="360" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle" class="so">Spínač je otevřený – proud neprochází.</text>
+<path d="M20 384H580" stroke="#ced4da" stroke-width="2"/>
+<text x="300" y="420" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Měrný odpor ρ (v Ω·mm²/m)</text>
+<text x="160" y="466" font-size="22" fill="#212529" text-anchor="end">měď</text>
+<rect x="172" y="444" width="4.9" height="28" rx="4" fill="#b8642a" stroke="#212529" stroke-width="1.5"/>
+<text x="186.9" y="466" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">0,018</text>
+<text x="160" y="516" font-size="22" fill="#212529" text-anchor="end">hliník</text>
+<rect x="172" y="494" width="7.6" height="28" rx="4" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/>
+<text x="189.6" y="516" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">0,028</text>
+<text x="160" y="566" font-size="22" fill="#212529" text-anchor="end">konstantan</text>
+<rect x="172" y="544" width="136.4" height="28" rx="4" fill="#a07e5a" stroke="#212529" stroke-width="1.5"/>
+<text x="318.4" y="566" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">0,50</text>
+<text x="160" y="616" font-size="22" fill="#212529" text-anchor="end">nichrom</text>
+<rect x="172" y="594" width="300.0" height="28" rx="4" fill="#495057" stroke="#212529" stroke-width="1.5"/>
+<text x="482" y="616" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">1,1</text>
+<text x="30" y="668" font-size="22" fill="#212529" text-anchor="start">Měď a hliník mají malý měrný odpor: dobré vodiče.</text>
+<text x="30" y="700" font-size="22" fill="#212529" text-anchor="start">Nichrom má velký měrný odpor: topné spirály.</text>
+</svg>
