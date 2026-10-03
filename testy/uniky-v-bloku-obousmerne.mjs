@@ -3,6 +3,9 @@
 import { najdiUniky } from './uniky-v-bloku.mjs';
 import { nactiData } from './data.mjs';
 import { spawnSync } from 'node:child_process';
+import { mkdirSync, writeFileSync, copyFileSync, existsSync, symlinkSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'node:path';
 
 let chyb = 0;
 let kontrol = 0;
@@ -67,7 +70,22 @@ tvrdi('podvrh kopie B (zadání 16 → odpověď 19) nalezen', vk.nalezy.some((n
 // ---- exit kód CLI: čistý blok → 0, skutečný blok s nálezy → 1 (brána musí umět spadnout)
 const cli = (arg) => spawnSync(process.execPath, [new URL('./uniky-v-bloku.mjs', import.meta.url).pathname, arg], { encoding: 'utf8' });
 tvrdi('CLI nad čistým blokem F8: exit 0', cli('--blok=elektricka-prace-a-vykon').status === 0);
-tvrdi('CLI nad blokem s nálezem (sila/vzajemne-pusobeni): exit 1', cli('--blok=6-rocnik/sila/vzajemne-pusobeni').status === 1);
+// Pozitivní CLI případ NEZÁVISÍ na živých datech: syntetický kořen projektu v /private/tmp
+// (kopie skriptů + vlastní kvizy.ts se čistým blokem a blokem s vloženým únikem).
+const zdroj = dirname(fileURLToPath(import.meta.url));
+const pisk = '/private/tmp/uniky-v-bloku-synteticky-koren';
+mkdirSync(join(pisk, 'testy'), { recursive: true });
+mkdirSync(join(pisk, 'src/data'), { recursive: true });
+for (const f of ['uniky-v-bloku.mjs', 'data.mjs']) copyFileSync(join(zdroj, f), join(pisk, 'testy', f));
+if (!existsSync(join(pisk, 'node_modules'))) symlinkSync(join(zdroj, '../node_modules'), join(pisk, 'node_modules'));
+const radekTs = (o) => `\t{ text: ${JSON.stringify(o.text)}, odpovedi: ${JSON.stringify(o.odpovedi)}, vysvetleni: ${JSON.stringify(o.vysvetleni)} },`;
+const blokTs = (klic, b) => `\t'${klic}': [\n${b.map(radekTs).join('\n')}\n\t],`;
+writeFileSync(join(pisk, 'src/data/kvizy.ts'), `export const kvizy: Record<string, any[]> = {\n${blokTs('synteticky/s-unikem', p1)}\n${blokTs('synteticky/cisty', zaklad)}\n};\n`);
+writeFileSync(join(pisk, 'src/data/temata.ts'), 'export const temata = {};\n');
+writeFileSync(join(pisk, 'src/data/predmety.ts'), 'export const predmety = null;\n');
+const cliS = (arg) => spawnSync(process.execPath, [join(pisk, 'testy/uniky-v-bloku.mjs'), arg], { encoding: 'utf8' });
+tvrdi('CLI nad syntetickým blokem s vloženým únikem: exit 1', cliS('--blok=synteticky/s-unikem').status === 1);
+tvrdi('CLI nad syntetickým čistým blokem: exit 0', cliS('--blok=synteticky/cisty').status === 0);
 // ---- regrese falešných poplachů: konstanty a převody ve výpočtech nejsou únik
 const fp = [
 	ot('Jaká síla působí na těleso o hmotnosti 5 kg?', ['50 N', '5 N', '500 N'], '5 · 10 = 50 N (g = 10 N/kg).'),
@@ -88,7 +106,7 @@ const tema = [
 ];
 tvrdi('regrese: slovo „přírodní" v celém bloku není únik', najdiUniky(tema).nalezy.length === 0);
 // ---- čísla řádků: výpis nesmí mít „:?" u bloku s jednořádkovým zápisem otázek
-const vyp = cli('--blok=6-rocnik/sila/vzajemne-pusobeni').stdout;
+const vyp = cliS('--blok=synteticky/s-unikem').stdout;
 tvrdi('výpis nálezu nese číslo řádku kvizy.ts (ne „:?")', /:\d+ → :\d+/.test(vyp) && !/:\? →/.test(vyp));
 
 if (chyb) { console.log(`❌ uniky-v-bloku: ${chyb} z ${kontrol} kontrol selhalo.`); process.exit(1); }
