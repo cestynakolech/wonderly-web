@@ -698,6 +698,13 @@ HOTOVO 3. 10. 2026: simulace Var (803bbe9, nasazena živě, `curl` 200 + `id="va
 ### Cloudflare incident a záložní nasazení wrangler (3. 10. 2026)
 Cloudflare Workers Builds mělo incident („Issues with Workers Build failing to start“, od 3. 10. 05:54Z); 803bbe9 se po ~3 min čekání sám nenasadil. Záložní cesta: `git clone --depth 1` origin/main (803bbe9) do `/tmp/wonderly-workery/2026-10-03/ci-klon-3`, `npm ci`, `npm run build` (rc 0, 490 stránek), `npx wrangler deploy` (rc 0, verze 61868597-3531-40da-8c67-474a260460c7). Doklad: `Omega/predavka/2026-10-03/diagnoza-nasazeni.md`.
 
+### [HOTOVO 3. 10. 2026] Oprava zápisu shrnutí vaty (55fe83d + commit testu „vata-zapis: test shrnutí“)
+`vata-zapis-navrhy.mjs` překládá klíče „shrnuti“ na zdrojový literální blok; test `testy/vata-zapis-shrnuti.mjs` ověřuje správný cíl (text otázky i distraktoru) a oba podvrhy z kontroly ho shodí. Hláška kolize uvádí zdrojový klíč a přeskočený návrh se nepočítá jako zápis. Doklad: `Omega/predavka/2026-10-03/kontrola-55fe83d.md`.
+
+### [fronta] Vata: shrnutí — zastaralé a kolizní návrhy (3. 10. 2026, kontrola-55fe83d, N3)
+- 6 návrhů pro shrnutí míří na už přepsaný distraktor (zastaralé, puvodniText neplatí).
+- 13 kolizních skupin (více návrhů shrnutí → tentýž zdrojový distraktor) — při dalším schvalování vybrat 1 návrh na zdrojovou otázku.
+
 ### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
 - Šipka páry u tlakového hrnce: `src/components/skola2/VarSimulace.astro:224–228` (kontrola3).
 - Vata `teziste#17#1`: potřebuje nový návrh.
