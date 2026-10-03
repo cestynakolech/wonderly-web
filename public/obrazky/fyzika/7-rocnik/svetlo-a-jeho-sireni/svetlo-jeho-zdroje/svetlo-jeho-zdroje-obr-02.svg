@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Laserová show v sále: z laserového zdroje nahoře vycházejí zelené paprsky nad hlavy diváků a každý letí po dokonalé přímce. Dole: světelný paprsek ukazuje směr šíření světla, kreslíme ho jako přímku se šipkou. Animace: paprsky postupně vyletí ze zdroje rovně dolů do sálu, pak se nakreslí značka paprsku.">
+<style>
+/* Animace (8 s, smyčka): paprsky vyletí ze zdroje jeden po druhém (5–25 %, každý další o 4 % později),
+   šipka paprsku se objeví v okamžiku doletu; značka paprsku dole se nakreslí 55–67 %; vše zmizí 92–98 %.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.p1, .p2, .p3, .p4, .p5, .pz { stroke-dasharray: 100; }
+.p1 { animation: p1 8s linear infinite; } .s1 { animation: s1 8s linear infinite; }
+.p2 { animation: p2 8s linear infinite; } .s2 { animation: s2 8s linear infinite; }
+.p3 { animation: p3 8s linear infinite; } .s3 { animation: s3 8s linear infinite; }
+.p4 { animation: p4 8s linear infinite; } .s4 { animation: s4 8s linear infinite; }
+.p5 { animation: p5 8s linear infinite; } .s5 { animation: s5 8s linear infinite; }
+.pz { animation: pz 8s linear infinite; } .sz { animation: sz 8s linear infinite; }
+.celek { animation: celek 8s linear infinite; }
+@keyframes p1 { 0%, 5% { stroke-dashoffset: 100; } 25%, 100% { stroke-dashoffset: 0; } }
+@keyframes s1 { 0%, 24% { opacity: 0; } 25%, 100% { opacity: 1; } }
+@keyframes p2 { 0%, 9% { stroke-dashoffset: 100; } 29%, 100% { stroke-dashoffset: 0; } }
+@keyframes s2 { 0%, 28% { opacity: 0; } 29%, 100% { opacity: 1; } }
+@keyframes p3 { 0%, 13% { stroke-dashoffset: 100; } 33%, 100% { stroke-dashoffset: 0; } }
+@keyframes s3 { 0%, 32% { opacity: 0; } 33%, 100% { opacity: 1; } }
+@keyframes p4 { 0%, 17% { stroke-dashoffset: 100; } 37%, 100% { stroke-dashoffset: 0; } }
+@keyframes s4 { 0%, 36% { opacity: 0; } 37%, 100% { opacity: 1; } }
+@keyframes p5 { 0%, 21% { stroke-dashoffset: 100; } 41%, 100% { stroke-dashoffset: 0; } }
+@keyframes s5 { 0%, 40% { opacity: 0; } 41%, 100% { opacity: 1; } }
+@keyframes pz { 0%, 55% { stroke-dashoffset: 100; } 67%, 100% { stroke-dashoffset: 0; } }
+@keyframes sz { 0%, 66% { opacity: 0; } 67%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .p1, .p2, .p3, .p4, .p5, .pz, .s1, .s2, .s3, .s4, .s5, .sz, .celek { animation: none; } }
+</style>
+<defs>
+<clipPath id="sal"><rect x="20" y="58" width="560" height="286" rx="10"/></clipPath>
+</defs>
+<rect x="3" y="3" width="594" height="454" rx="14" fill="#fff9db" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Světlo se šíří přímočaře</text>
+
+<!-- sál s laserovou show (předloha str. 11, foto) -->
+<rect x="20" y="58" width="560" height="286" rx="10" fill="#2b3160"/>
+<!-- laserový zdroj -->
+<rect x="278" y="64" width="44" height="22" rx="4" fill="#adb5bd" stroke="#212529" stroke-width="2"/>
+<circle cx="300" cy="88" r="5" fill="#8ce99a" stroke="#212529" stroke-width="1.5"/>
+<text x="334" y="83" font-size="22" fill="#ffffff">laserový zdroj</text>
+
+<g class="celek">
+<!-- paprsky: ze zdroje S = (300; 92) po přímkách do sálu -->
+<g stroke="#8ce99a" stroke-width="4" stroke-linecap="round">
+<line class="p1" pathLength="100" x1="300" y1="92" x2="60.8" y2="287.1"/>
+<line class="p2" pathLength="100" x1="300" y1="92" x2="177.5" y2="284.2"/>
+<line class="p3" pathLength="100" x1="300" y1="92" x2="300" y2="282"/>
+<line class="p4" pathLength="100" x1="300" y1="92" x2="422.5" y2="284.2"/>
+<line class="p5" pathLength="100" x1="300" y1="92" x2="539.2" y2="287.1"/>
+</g>
+<g fill="#8ce99a">
+<polygon class="s1" points="50,296 58.9,278.4 69,290.8"/>
+<polygon class="s2" points="170,296 172.9,276.5 186.4,285.1"/>
+<polygon class="s3" points="300,296 292,278 308,278"/>
+<polygon class="s4" points="430,296 413.6,285.1 427.1,276.5"/>
+<polygon class="s5" points="550,296 531,290.8 541.1,278.4"/>
+</g>
+</g>
+
+<!-- diváci (siluety v popředí) -->
+<g clip-path="url(#sal)" fill="#11142b">
+<circle cx="40" cy="316" r="12"/><ellipse cx="40" cy="344" rx="20" ry="16"/>
+<circle cx="88" cy="320" r="12"/><ellipse cx="88" cy="348" rx="20" ry="16"/>
+<circle cx="136" cy="314" r="12"/><ellipse cx="136" cy="342" rx="20" ry="16"/>
+<circle cx="184" cy="320" r="12"/><ellipse cx="184" cy="348" rx="20" ry="16"/>
+<circle cx="232" cy="316" r="12"/><ellipse cx="232" cy="344" rx="20" ry="16"/>
+<circle cx="280" cy="320" r="12"/><ellipse cx="280" cy="348" rx="20" ry="16"/>
+<circle cx="328" cy="314" r="12"/><ellipse cx="328" cy="342" rx="20" ry="16"/>
+<circle cx="376" cy="320" r="12"/><ellipse cx="376" cy="348" rx="20" ry="16"/>
+<circle cx="424" cy="316" r="12"/><ellipse cx="424" cy="344" rx="20" ry="16"/>
+<circle cx="472" cy="320" r="12"/><ellipse cx="472" cy="348" rx="20" ry="16"/>
+<circle cx="520" cy="314" r="12"/><ellipse cx="520" cy="342" rx="20" ry="16"/>
+<circle cx="566" cy="320" r="12"/><ellipse cx="566" cy="348" rx="20" ry="16"/>
+</g>
+
+<!-- světelný paprsek (předloha str. 11–12: „znázorňuje směr šíření světla“, „přímka s šipkou“) -->
+<text x="300" y="384" font-size="22" fill="#212529" text-anchor="middle">Světelný <tspan font-weight="bold">paprsek</tspan> ukazuje směr šíření světla.</text>
+<g class="celek">
+<line class="pz" pathLength="100" x1="60" y1="424" x2="160" y2="424" stroke="#e8590c" stroke-width="5" stroke-linecap="round"/>
+<polygon class="sz" points="176,424 158,415 158,433" fill="#e8590c"/>
+</g>
+<text x="196" y="432" font-size="22" fill="#212529">kreslíme jako přímku se šipkou</text>
+</svg>
