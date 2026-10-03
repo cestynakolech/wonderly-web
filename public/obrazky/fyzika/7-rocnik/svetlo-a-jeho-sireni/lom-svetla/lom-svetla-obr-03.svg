@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="Arial, Helvetica, sans-serif" role="img" aria-labelledby="t03">
+  <title id="t03">Ze skla do vzduchu s rostoucím úhlem dopadu: kolmý paprsek se neláme, šikmý se láme od kolmice, při mezním úhlu dopadu je úhel lomu 90° a paprsek běží podél rozhraní, při ještě větším úhlu nastane úplný odraz</title>
+  <style>
+    .p0{animation:p0 12s linear infinite}
+    .p1{animation:p1 12s linear infinite}
+    .p2{animation:p2 12s linear infinite}
+    .p3{animation:p3 12s linear infinite}
+    .o0{animation:o0 12s linear infinite}
+    .o1{animation:o1 12s linear infinite}
+    .o2{animation:o2 12s linear infinite}
+    .o3{animation:o3 12s linear infinite}
+    .h0{animation:h0 12s linear infinite}
+    .h1{animation:h1 12s linear infinite}
+    .h2{animation:h2 12s linear infinite}
+    .h3{animation:h3 12s linear infinite}
+    @keyframes p0{0%,23%{opacity:1}25%,100%{opacity:0}}
+    @keyframes p1{0%,23%{opacity:0}25%,48%{opacity:1}50%,100%{opacity:0}}
+    @keyframes p2{0%,48%{opacity:0}50%,73%{opacity:1}75%,100%{opacity:0}}
+    @keyframes p3{0%,73%{opacity:0}75%,98%{opacity:1}100%{opacity:0}}
+    @keyframes o0{0%,3%{stroke-dashoffset:100}12%,100%{stroke-dashoffset:0}}
+    @keyframes o1{0%,28%{stroke-dashoffset:100}37%,100%{stroke-dashoffset:0}}
+    @keyframes o2{0%,53%{stroke-dashoffset:100}62%,100%{stroke-dashoffset:0}}
+    @keyframes o3{0%,78%{stroke-dashoffset:100}87%,100%{stroke-dashoffset:0}}
+    @keyframes h0{0%,11%{opacity:0}12%,100%{opacity:1}}
+    @keyframes h1{0%,36%{opacity:0}37%,100%{opacity:1}}
+    @keyframes h2{0%,61%{opacity:0}62%,100%{opacity:1}}
+    @keyframes h3{0%,86%{opacity:0}87%,100%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.p0,.p1,.p2,.p3,.o0,.o1,.o2,.o3,.h0,.h1,.h2,.h3{animation:none}}
+  </style>
+  <!-- prostředí -->
+  <text x="300" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#212529">sklo → vzduch: úhel dopadu roste</text>
+  <rect x="0" y="44" width="600" height="196" fill="#c5f6fa"/>
+  <rect x="0" y="240" width="600" height="220" fill="#ffffff"/>
+  <line x1="0" y1="240" x2="600" y2="240" stroke="#0c8599" stroke-width="2"/>
+  <text x="30" y="226" font-size="22" font-weight="bold" fill="#0b4f5c">sklo</text>
+  <text x="30" y="272" font-size="22" fill="#212529">vzduch</text>
+  <!-- kolmice dopadu -->
+  <line x1="300" y1="54" x2="300" y2="400" stroke="#212529" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="310" y="76" font-size="22" font-style="italic" fill="#212529">k</text>
+
+  <!-- fáze 0: kolmý dopad -->
+  <g class="p0" opacity="0">
+    <line x1="300" y1="64" x2="300" y2="240" stroke="#e8590c" stroke-width="4"/>
+    <polygon points="300.0,160.0 291.0,140.0 309.0,140.0" fill="#e8590c"/>
+    <line class="o0" x1="300" y1="240" x2="300" y2="366" pathLength="100" stroke-dasharray="100" stroke="#e8590c" stroke-width="4"/>
+    <polygon class="h0" points="300.0,385.0 291.0,365.0 309.0,365.0" fill="#e8590c"/>
+    <rect x="20" y="404" width="560" height="48" rx="10" fill="#fff3bf" stroke="#e67700" stroke-width="2"/>
+    <text x="300" y="436" text-anchor="middle" font-size="22" fill="#212529"><tspan font-weight="bold">Dopadá kolmo:</tspan> světlo se neláme</text>
+  </g>
+
+  <!-- fáze 1: lom od kolmice -->
+  <g class="p1" opacity="0">
+    <path d="M300,240 L300,185 A55,55 0 0,0 276.8,190.2 Z" fill="#d0bfff" stroke="#7048e8" stroke-width="2"/>
+    <text x="283" y="160" text-anchor="middle" font-size="24" font-weight="bold" fill="#5f3dc4">α</text>
+    <line x1="219.7" y1="67.8" x2="300" y2="240" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="259.9,153.9 243.2,139.6 259.6,132.0" fill="#e8590c"/>
+    <g class="h1">
+      <path d="M300,240 L300,295 A55,55 0 0,0 334.9,282.5 Z" fill="#ffe066" stroke="#e67700" stroke-width="2"/>
+      <text x="327" y="322" text-anchor="middle" font-size="24" font-weight="bold" fill="#5c3c00">β</text>
+    </g>
+    <line class="o1" x1="300" y1="240" x2="409.0" y2="372.9" pathLength="100" stroke-dasharray="100" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+    <polygon class="h1" points="420.4,386.9 400.8,377.2 414.7,365.8" fill="#e8590c"/>
+    <rect x="20" y="404" width="560" height="48" rx="10" fill="#fff3bf" stroke="#e67700" stroke-width="2"/>
+    <text x="300" y="436" text-anchor="middle" font-size="22" fill="#212529"><tspan font-weight="bold">Lom OD kolmice:</tspan> β je větší než α</text>
+  </g>
+
+  <!-- fáze 2: mezní úhel dopadu -->
+  <g class="p2" opacity="0">
+    <path d="M300,240 L300,185 A55,55 0 0,0 263.3,199.0 Z" fill="#d0bfff" stroke="#7048e8" stroke-width="2"/>
+    <text x="272" y="164" text-anchor="middle" font-size="24" font-weight="bold" fill="#5f3dc4">α</text>
+    <line x1="173.3" y1="98.4" x2="300" y2="240" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="236.7,169.2 216.6,160.3 230.0,148.3" fill="#e8590c"/>
+    <g class="h2">
+      <path d="M300,240 L300,295 A55,55 0 0,0 355,240 Z" fill="#ffe066" stroke="#e67700" stroke-width="2"/>
+      <text x="324" y="276" text-anchor="middle" font-size="24" font-weight="bold" fill="#5c3c00">β</text>
+      <text x="368" y="300" font-size="22" font-weight="bold" fill="#5c3c00">β = 90°</text>
+    </g>
+    <line class="o2" x1="300" y1="240" x2="542" y2="240" pathLength="100" stroke-dasharray="100" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+    <polygon class="h2" points="560.0,240.0 540.0,249.0 540.0,231.0" fill="#e8590c"/>
+    <rect x="20" y="404" width="560" height="48" rx="10" fill="#fff3bf" stroke="#e67700" stroke-width="2"/>
+    <text x="300" y="436" text-anchor="middle" font-size="22" fill="#212529"><tspan font-weight="bold">Mezní úhel dopadu:</tspan> paprsek běží podél rozhraní</text>
+  </g>
+
+  <!-- fáze 3: úplný odraz (koncový stav) -->
+  <g class="p3">
+    <path d="M300,240 L300,185 A55,55 0 0,0 254.9,208.5 Z" fill="#d0bfff" stroke="#7048e8" stroke-width="2"/>
+    <text x="264" y="168" text-anchor="middle" font-size="24" font-weight="bold" fill="#5f3dc4">α</text>
+    <line x1="144.4" y1="131.0" x2="300" y2="240" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="222.2,185.5 200.6,181.4 211.0,166.7" fill="#e8590c"/>
+    <line class="o3" x1="300" y1="240" x2="439.3" y2="142.5" pathLength="100" stroke-dasharray="100" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+    <polygon class="h3" points="455.6,131.0 444.4,149.9 434.1,135.1" fill="#e8590c"/>
+    <rect x="20" y="404" width="560" height="48" rx="10" fill="#fff3bf" stroke="#e67700" stroke-width="2"/>
+    <text x="300" y="436" text-anchor="middle" font-size="22" fill="#212529"><tspan font-weight="bold">Úplný odraz:</tspan> paprsek se nezlomí ven</text>
+  </g>
+</svg>

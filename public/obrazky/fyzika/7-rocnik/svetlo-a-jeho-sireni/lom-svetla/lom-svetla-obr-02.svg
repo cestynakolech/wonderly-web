@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" font-family="Arial, Helvetica, sans-serif" role="img" aria-labelledby="t02">
+  <title id="t02">Lom světla od kolmice: paprsek přechází z vody do vzduchu a láme se od kolmice dopadu, úhel lomu β je větší než úhel dopadu α</title>
+  <style>
+    .d1{animation:d1 8s linear infinite}
+    .d2{animation:d2 8s linear infinite}
+    .a1{animation:a1 8s linear infinite}
+    .a2{animation:a2 8s linear infinite}
+    .f{animation:f 8s linear infinite}
+    @keyframes d1{0%{stroke-dashoffset:100;opacity:1}25%{stroke-dashoffset:0;opacity:1}92%{stroke-dashoffset:0;opacity:1}98%,100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes d2{0%,30%{stroke-dashoffset:100;opacity:1}55%{stroke-dashoffset:0;opacity:1}92%{stroke-dashoffset:0;opacity:1}98%,100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes a1{0%,24%{opacity:0}26%,92%{opacity:1}98%,100%{opacity:0}}
+    @keyframes a2{0%,54%{opacity:0}56%,92%{opacity:1}98%,100%{opacity:0}}
+    @keyframes f{0%,58%{opacity:0}68%,92%{opacity:1}98%,100%{opacity:0}}
+    @media (prefers-reduced-motion: reduce){.d1,.d2,.a1,.a2,.f{animation:none}}
+  </style>
+  <!-- prostředí -->
+  <rect x="0" y="0" width="600" height="230" fill="#f1f8ff"/>
+  <rect x="0" y="230" width="600" height="210" fill="#a5d8ff"/>
+  <line x1="0" y1="230" x2="600" y2="230" stroke="#1971c2" stroke-width="2"/>
+  <text x="300" y="32" text-anchor="middle" font-size="24" font-weight="bold" fill="#212529">voda → vzduch: lom OD kolmice</text>
+  <text x="470" y="205" font-size="22" fill="#212529">vzduch</text>
+  <text x="470" y="266" font-size="22" font-weight="bold" fill="#0b3d6b">voda</text>
+  <!-- kolmice dopadu -->
+  <line x1="300" y1="50" x2="300" y2="430" stroke="#212529" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="310" y="72" font-size="22" font-style="italic" fill="#212529">k</text>
+  <!-- úhly a směr bez lomu (objeví se po lomu) -->
+  <g class="f">
+    <line x1="300" y1="230" x2="397.5" y2="90.7" stroke="#495057" stroke-width="2.5" stroke-dasharray="4 6"/>
+    <path d="M300,230 L300,290 A60,60 0 0,1 265.6,279.1 Z" fill="#d0bfff" stroke="#7048e8" stroke-width="2"/>
+    <path d="M300,230 L300,170 A60,60 0 0,1 345.8,191.2 Z" fill="#ffe066" stroke="#e67700" stroke-width="2"/>
+    <text x="272" y="320" text-anchor="middle" font-size="24" font-weight="bold" fill="#5f3dc4">α</text>
+    <text x="337" y="161" text-anchor="middle" font-size="24" font-weight="bold" fill="#5c3c00">β</text>
+  </g>
+  <!-- paprsky -->
+  <line class="d1" x1="185.3" y1="393.8" x2="300" y2="230" pathLength="100" stroke-dasharray="100" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+  <polygon class="a1" points="242.6,311.9 238.5,333.5 223.8,323.1" fill="#e8590c"/>
+  <line class="d2" x1="300" y1="230" x2="439.3" y2="115.5" pathLength="100" stroke-dasharray="100" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>
+  <polygon class="a2" points="452.6,100.7 443.1,120.5 431.5,106.8" fill="#e8590c"/>
+  <!-- legenda -->
+  <g class="f" font-size="22" fill="#0b3d6b">
+    <text x="350" y="306"><tspan font-weight="bold" fill="#5f3dc4">α</tspan> úhel dopadu</text>
+    <text x="350" y="334"><tspan font-weight="bold" fill="#5c3c00">β</tspan> úhel lomu</text>
+    <text x="350" y="362"><tspan font-style="italic">k</tspan> kolmice dopadu</text>
+    <line x1="350" y1="383" x2="386" y2="383" stroke="#495057" stroke-width="2.5" stroke-dasharray="4 6"/>
+    <text x="394" y="390">směr bez lomu</text>
+    <text x="350" y="424" font-weight="bold">β je větší než α</text>
+  </g>
+</svg>
