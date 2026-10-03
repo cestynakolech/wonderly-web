@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Mezi kladně nabitou deskou vlevo a záporně nabitou deskou vpravo vede šest rovných, rovnoběžných a stejně hustých siločar se šipkami od + k −. Tři malé kladné náboje v různých místech pole jsou přitahovány k záporné desce, fialová šipka elektrické síly je u všech stejná. Takové pole je stejnorodé (homogenní). Animace: náboje se rozjíždějí k záporné desce.">
+<style>
+/* Předloha: PDF lekce 19, s. 8 (6 rovnoběžných siločar mezi deskou + a deskou −).
+   5 s: 0–10 % náboje stojí u kladné desky (x = 155), 10–80 % jedou zrychleně (ease-in) o 290 px k záporné desce, 80–88 % zmizí, pak znovu.
+   Bez animace = náboje uprostřed pole (posun 150 px) se šipkou síly, za nimi čárkovaná stopa. */
+.nb { transform: translateX(150px); animation: nb 5s ease-in infinite; }
+@keyframes nb { 0%, 10% { transform: translateX(0px); opacity: 1; } 80% { transform: translateX(290px); opacity: 1; } 88% { transform: translateX(290px); opacity: 0; } 92% { transform: translateX(0px); opacity: 0; } 100% { transform: translateX(0px); opacity: 1; } }
+.so { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .nb { animation: none; } .so { opacity: 0.8; } }
+</style>
+<rect x="3" y="3" width="594" height="474" rx="14" fill="#f8f9fa"/>
+<text x="300" y="38" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">Pole mezi dvěma deskami</text>
+<text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">rovné, rovnoběžné, stejně husté siločáry</text>
+<path d="M120 102H480" stroke="#212529" stroke-width="2.5"/><polygon points="312,102 291,93.8 295.5,102 291,110.3" fill="#212529"/>
+<path d="M120 146H480" stroke="#212529" stroke-width="2.5"/><polygon points="312,146 291,137.8 295.5,146 291,154.3" fill="#212529"/>
+<path d="M120 190H480" stroke="#212529" stroke-width="2.5"/><polygon points="312,190 291,181.8 295.5,190 291,198.3" fill="#212529"/>
+<path d="M120 234H480" stroke="#212529" stroke-width="2.5"/><polygon points="312,234 291,225.8 295.5,234 291,242.3" fill="#212529"/>
+<path d="M120 278H480" stroke="#212529" stroke-width="2.5"/><polygon points="312,278 291,269.8 295.5,278 291,286.3" fill="#212529"/>
+<path d="M120 322H480" stroke="#212529" stroke-width="2.5"/><polygon points="312,322 291,313.8 295.5,322 291,330.3" fill="#212529"/>
+<path class="so" d="M155 124H305" stroke="#c92a2a" stroke-width="2" stroke-dasharray="4 6"/>
+<path class="so" d="M155 212H305" stroke="#c92a2a" stroke-width="2" stroke-dasharray="4 6"/>
+<path class="so" d="M155 300H305" stroke="#c92a2a" stroke-width="2" stroke-dasharray="4 6"/>
+<rect x="88" y="80" width="32" height="264" rx="8" fill="#ffe3e3" stroke="#c92a2a" stroke-width="3"/>
+<rect x="480" y="80" width="32" height="264" rx="8" fill="#d0ebff" stroke="#1864ab" stroke-width="3"/>
+<path d="M95 102H113M104 93V111" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M487 102H505" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<path d="M95 146H113M104 137V155" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M487 146H505" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<path d="M95 190H113M104 181V199" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M487 190H505" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<path d="M95 234H113M104 225V243" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M487 234H505" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<path d="M95 278H113M104 269V287" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M487 278H505" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<path d="M95 322H113M104 313V331" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M487 322H505" stroke="#1864ab" stroke-width="4" stroke-linecap="round"/>
+<text x="104" y="372" font-size="22" fill="#c92a2a" font-weight="bold" text-anchor="middle">deska +</text><text x="496" y="372" font-size="22" fill="#1864ab" font-weight="bold" text-anchor="middle">deska −</text>
+<g class="nb"><g><circle cx="155" cy="124" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M148.4 124H161.6M155 117.4V130.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><path d="M171 124H201" stroke="#5f3dc4" stroke-width="5" stroke-linecap="round"/><polygon points="214.2,124 194.6,116.3 198.8,124 194.6,131.7" fill="#5f3dc4"/></g>
+<g class="nb"><g><circle cx="155" cy="212" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M148.4 212H161.6M155 205.4V218.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><path d="M171 212H201" stroke="#5f3dc4" stroke-width="5" stroke-linecap="round"/><polygon points="214.2,212 194.6,204.3 198.8,212 194.6,219.7" fill="#5f3dc4"/></g>
+<g class="nb"><g><circle cx="155" cy="300" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M148.4 300H161.6M155 293.4V306.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><path d="M171 300H201" stroke="#5f3dc4" stroke-width="5" stroke-linecap="round"/><polygon points="214.2,300 194.6,292.3 198.8,300 194.6,307.7" fill="#5f3dc4"/></g>
+<path d="M150 409H186" stroke="#5f3dc4" stroke-width="5" stroke-linecap="round"/><polygon points="201.2,409 181.6,401.3 185.8,409 181.6,416.7" fill="#5f3dc4"/><text x="206" y="417" font-size="22" fill="#5f3dc4">elektrická síla na malý kladný náboj</text>
+<text x="300" y="456" font-size="22" fill="#212529" text-anchor="middle">Náboj je všude přitahován k záporné desce.</text>
+<rect x="3" y="3" width="594" height="474" rx="14" fill="none" stroke="#adb5bd" stroke-width="3"/>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kladně nabitá tyč se přiblíží ke kovu a k izolantu. V kovu se volné elektrony přesunou k bližší straně u tyče: tam elektrony přebývají a na vzdálené straně chybějí – to je elektrostatická indukce. V izolantu se elektrony posunou jen uvnitř atomů – to je polarizace. Obě tělesa zůstávají jako celek neutrální, ale k nabité tyči jsou přitahována. Animace: tyč se přiblíží, náboj se přerozdělí, po oddálení tyče se vrátí.">
+<style>
+/* Předloha: PDF lekce 19, s. 3 (kov: volné elektrony se nahromadí u kladné tyče) a s. 4 (izolant: elektrony se posunou jen uvnitř atomů).
+   8 s: 0–8 % tyč daleko, 8–30 % se přiblíží; 15–35 % elektrony v kovu přejdou k tyči a obaly atomů izolantu se posunou o 12 px;
+   drží do 80 %; 80–95 % tyč odjede a vše se vrátí (po oddálení tyče se náboj zase rozdělí rovnoměrně).
+   Popisky „chybějí / přebývají“ a „posunou jen uvnitř atomů“ svítí 42–80 %.
+   Bez animace = koncový stav: tyč u tělesa, elektrony u tyče, obaly posunuté, popisky viditelné. */
+.ty { animation: ty 8s ease-in-out infinite; }
+@keyframes ty { 0%, 8% { transform: translateX(240px); } 30%, 80% { transform: translateX(0px); } 95%, 100% { transform: translateX(240px); } }
+.ob { animation: ob 8s ease-in-out infinite; }
+@keyframes ob { 0%, 15% { transform: translateX(-12px); } 35%, 80% { transform: translateX(0px); } 92%, 100% { transform: translateX(-12px); } }
+.st { animation: st 8s linear infinite; }
+@keyframes st { 0%, 36% { opacity: 0; } 42%, 80% { opacity: 1; } 86%, 100% { opacity: 0; } }
+.e1 { animation: e1 8s ease-in-out infinite; }
+@keyframes e1 { 0%, 15% { transform: translate(-190px, 8px); } 35%, 80% { transform: translate(0px, 0px); } 92%, 100% { transform: translate(-190px, 8px); } }
+.e2 { animation: e2 8s ease-in-out infinite; }
+@keyframes e2 { 0%, 15% { transform: translate(-134px, -7px); } 35%, 80% { transform: translate(0px, 0px); } 92%, 100% { transform: translate(-134px, -7px); } }
+.e3 { animation: e3 8s ease-in-out infinite; }
+@keyframes e3 { 0%, 15% { transform: translate(-30px, -22px); } 35%, 80% { transform: translate(0px, 0px); } 92%, 100% { transform: translate(-30px, -22px); } }
+.e4 { animation: e4 8s ease-in-out infinite; }
+@keyframes e4 { 0%, 15% { transform: translate(-190px, -22px); } 35%, 80% { transform: translate(0px, 0px); } 92%, 100% { transform: translate(-190px, -22px); } }
+.e5 { animation: e5 8s ease-in-out infinite; }
+@keyframes e5 { 0%, 15% { transform: translate(-134px, -7px); } 35%, 80% { transform: translate(0px, 0px); } 92%, 100% { transform: translate(-134px, -7px); } }
+.e6 { animation: e6 8s ease-in-out infinite; }
+@keyframes e6 { 0%, 15% { transform: translate(-30px, 8px); } 35%, 80% { transform: translate(0px, 0px); } 92%, 100% { transform: translate(-30px, 8px); } }
+@media (prefers-reduced-motion: reduce) { .ty, .ob, .st, .e1, .e2, .e3, .e4, .e5, .e6 { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa"/>
+<text x="300" y="38" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">Nabitá tyč u kovu a u izolantu</text>
+<text x="30" y="80" font-size="22" fill="#212529" font-weight="bold">Kov: elektrostatická indukce</text>
+<rect x="30" y="95" width="310" height="130" rx="24" fill="#dee2e6" stroke="#495057" stroke-width="2.5"/>
+<g><circle cx="70" cy="125" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M63.4 125H76.6M70 118.4V131.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g><circle cx="150" cy="125" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M143.4 125H156.6M150 118.4V131.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g><circle cx="230" cy="125" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M223.4 125H236.6M230 118.4V131.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g><circle cx="70" cy="195" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M63.4 195H76.6M70 188.4V201.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g><circle cx="150" cy="195" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M143.4 195H156.6M150 188.4V201.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g><circle cx="230" cy="195" r="12" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M223.4 195H236.6M230 188.4V201.6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g class="e1"><circle cx="300" cy="117" r="10" fill="#1864ab" stroke="#0b3d6e" stroke-width="1.5"/><path d="M294.5 117H305.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="e2"><circle cx="324" cy="132" r="10" fill="#1864ab" stroke="#0b3d6e" stroke-width="1.5"/><path d="M318.5 132H329.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="e3"><circle cx="300" cy="147" r="10" fill="#1864ab" stroke="#0b3d6e" stroke-width="1.5"/><path d="M294.5 147H305.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="e4"><circle cx="300" cy="207" r="10" fill="#1864ab" stroke="#0b3d6e" stroke-width="1.5"/><path d="M294.5 207H305.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="e5"><circle cx="324" cy="192" r="10" fill="#1864ab" stroke="#0b3d6e" stroke-width="1.5"/><path d="M318.5 192H329.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="e6"><circle cx="300" cy="177" r="10" fill="#1864ab" stroke="#0b3d6e" stroke-width="1.5"/><path d="M294.5 177H305.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="st"><text x="30" y="252" font-size="22" fill="#c92a2a">elektrony chybějí</text><text x="340" y="278" font-size="22" fill="#1864ab" text-anchor="end">elektrony přebývají</text></g>
+<g class="ty"><rect x="370" y="140" width="300" height="40" rx="20" fill="#e7f5ff" stroke="#339af0" stroke-width="2.5"/><path d="M389 160H407M398 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M429 160H447M438 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M469 160H487M478 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M509 160H527M518 151V169" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><text x="372" y="128" font-size="22" fill="#212529" font-weight="bold">kladně nabitá tyč</text></g>
+<text x="30" y="322" font-size="22" fill="#212529" font-weight="bold">Izolant: polarizace</text>
+<rect x="30" y="337" width="310" height="130" rx="24" fill="#fff3bf" stroke="#495057" stroke-width="2.5"/>
+<g class="ob"><ellipse cx="97" cy="370" rx="36" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M65 370H73M117 370H127" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g><circle cx="85" cy="370" r="10" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M79.5 370H90.5M85 364.5V375.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="197" cy="370" rx="36" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M165 370H173M217 370H227" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g><circle cx="185" cy="370" r="10" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M179.5 370H190.5M185 364.5V375.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="297" cy="370" rx="36" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M265 370H273M317 370H327" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g><circle cx="285" cy="370" r="10" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M279.5 370H290.5M285 364.5V375.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="97" cy="434" rx="36" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M65 434H73M117 434H127" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g><circle cx="85" cy="434" r="10" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M79.5 434H90.5M85 428.5V439.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="197" cy="434" rx="36" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M165 434H173M217 434H227" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g><circle cx="185" cy="434" r="10" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M179.5 434H190.5M185 428.5V439.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="ob"><ellipse cx="297" cy="434" rx="36" ry="24" fill="#d0ebff" stroke="#1864ab" stroke-width="2" stroke-dasharray="5 4"/><path d="M265 434H273M317 434H327" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/></g>
+<g><circle cx="285" cy="434" r="10" fill="#c92a2a" stroke="#7a1c1c" stroke-width="1.5"/><path d="M279.5 434H290.5M285 428.5V439.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>
+<g class="st"><text x="30" y="496" font-size="22" fill="#1864ab">elektrony se posunou jen uvnitř atomů</text></g>
+<g class="ty"><rect x="370" y="382" width="300" height="40" rx="20" fill="#e7f5ff" stroke="#339af0" stroke-width="2.5"/><path d="M389 402H407M398 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M429 402H447M438 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M469 402H487M478 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><path d="M509 402H527M518 393V411" stroke="#c92a2a" stroke-width="4" stroke-linecap="round"/><text x="372" y="370" font-size="22" fill="#212529" font-weight="bold">kladně nabitá tyč</text></g>
+<text x="300" y="546" font-size="22" fill="#212529" text-anchor="middle">Obě tělesa zůstávají jako celek neutrální,</text>
+<text x="300" y="576" font-size="22" fill="#212529" text-anchor="middle">ale k nabité tyči jsou přitahována.</text>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="none" stroke="#adb5bd" stroke-width="3"/>
+</svg>
