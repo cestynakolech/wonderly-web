@@ -1,85 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 565" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kovový drát s atomy kovu, které zůstávají na místě, a s volnými elektrony. Nahoře bez baterie: každý volný elektron se pohybuje jiným směrem. Dole je drát připojený ke svorkám baterie: volné elektrony se pohybují společně ke kladné svorce +.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Obvod: baterie, vodiče, spínač a žárovka. Když je spínač vypnutý, obvod je přerušený a žárovka nesvítí. Po zapnutí spínače je obvod uzavřený, volné elektrony ve vodičích se pohybují od záporné svorky − ke kladné svorce + a žárovka svítí. Oranžové šipky ukazují dohodnutý směr proudu od + k −, modré šipky pohyb elektronů opačně, od − k +.">
 <style>
-/* Předloha: PDF lekce 20 Vznik elektrického proudu ve vodiči, str. 3 (kovový drát jako válec, atomy kovu stojí,
-   volné elektrony − s šipkami míří od − ke +). Nahoře bez baterie: každý elektron se kmitavě pohybuje jinam
-   (4 různé dráhy 2,3–3,5 s). Dole s baterií: elektrony s šipkami plynou společně ke + (100 px za 2,5 s, pás bez švu).
-   Bez animace = koncový stav: nahoře elektrony s krátkými šipkami do různých stran, dole elektrony s šipkami ke +. */
-.j1 { animation: j1 2.6s ease-in-out infinite; }
-.j2 { animation: j2 3.1s ease-in-out infinite; }
-.j3 { animation: j3 2.3s ease-in-out infinite; }
-.j4 { animation: j4 3.5s ease-in-out infinite; }
-.dr { animation: dr 2.5s linear infinite; }
-.rm { opacity: 0; }
-@keyframes j1 { 0%, 100% { transform: translate(0px, 0px); } 25% { transform: translate(16px, -10px); } 50% { transform: translate(-6px, 14px); } 75% { transform: translate(-16px, -6px); } }
-@keyframes j2 { 0%, 100% { transform: translate(0px, 0px); } 25% { transform: translate(-14px, 12px); } 50% { transform: translate(12px, 8px); } 75% { transform: translate(6px, -14px); } }
-@keyframes j3 { 0%, 100% { transform: translate(0px, 0px); } 25% { transform: translate(10px, 14px); } 50% { transform: translate(-15px, -4px); } 75% { transform: translate(8px, -12px); } }
-@keyframes j4 { 0%, 100% { transform: translate(0px, 0px); } 25% { transform: translate(-12px, -12px); } 50% { transform: translate(14px, -2px); } 75% { transform: translate(-4px, 14px); } }
-@keyframes dr { from { transform: translateX(0px); } to { transform: translateX(100px); } }
-@media (prefers-reduced-motion: reduce) { .j1, .j2, .j3, .j4, .dr { animation: none; } .rm { opacity: 1; } }
+/* Předloha: PDF lekce 20, str. 1 a 3 (přístroj potřebuje obvod se zdrojem napětí; volné elektrony míří od − ke +);
+   výklad: baterie, vodiče, spínač a žárovka; přerušený obvod = žárovka nesvítí; dohodnutý směr proudu od + k −
+   (věta v § 1, opora 8. roč. elektricky-proud-mereni § 3). Cyklus 10 s: 0–45 % spínač vypnutý,
+   elektrony stojí, žárovka nesvítí; 45–50 % spínač se zavře; 50–95 % elektrony obíhají od − ke +, žárovka svítí,
+   ukáže se oranžová šipka dohodnutého směru proudu (od + k −) a modrá šipka elektronů (od − k +); 95–100 % spínač se otevře.
+   Elektrony: jedna trasa po celém obvodu (od − svorky doleva, nahoru, doprava, dolů, zpět přes baterii), délka 1260 px,
+   15 elektronů po 84 px, posun 252 px = 3 rozestupy (konec smyčky = začátek, bez švu); v rozích klíčový snímek,
+   takže elektron zatáčí celý (žádné ořezy). Bez animace = koncový stav: spínač zapnutý, žárovka svítí, obě šipky vidět,
+   elektrony ve výchozích polohách (atribut transform). */
+.pak { transform-origin: 150px 420px; transform: rotate(-35deg); animation: pak 10s linear infinite; }
+.on { opacity: 0; animation: on 10s linear infinite; }
+.off { opacity: 1; animation: off 10s linear infinite; }
+@keyframes pak { 0%, 45% { transform: rotate(-35deg); } 50%, 95% { transform: rotate(0deg); } 100% { transform: rotate(-35deg); } }
+@keyframes on { 0%, 48% { opacity: 0; } 52%, 93% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes off { 0%, 46% { opacity: 1; } 49%, 96% { opacity: 0; } 99%, 100% { opacity: 1; } }
+.e0 { animation: e0 10s linear infinite; } .e1 { animation: e1 10s linear infinite; } .e2 { animation: e2 10s linear infinite; }
+.e3 { animation: e3 10s linear infinite; } .e4 { animation: e4 10s linear infinite; } .e5 { animation: e5 10s linear infinite; }
+.e6 { animation: e6 10s linear infinite; } .e7 { animation: e7 10s linear infinite; } .e8 { animation: e8 10s linear infinite; }
+.e9 { animation: e9 10s linear infinite; } .e10 { animation: e10 10s linear infinite; } .e11 { animation: e11 10s linear infinite; }
+.e12 { animation: e12 10s linear infinite; } .e13 { animation: e13 10s linear infinite; } .e14 { animation: e14 10s linear infinite; }
+@keyframes e0 { 0%, 50% { transform: translate(218px, 420px); } 69.3% { transform: translate(110px, 420px); } 95%, 100% { transform: translate(110px, 276px); } }
+@keyframes e1 { 0%, 50% { transform: translate(134px, 420px); } 54.3% { transform: translate(110px, 420px); } 95%, 100% { transform: translate(110px, 192px); } }
+@keyframes e2 { 0%, 50% { transform: translate(110px, 360px); } 83.9% { transform: translate(110px, 170px); } 95%, 100% { transform: translate(172px, 170px); } }
+@keyframes e3 { 0%, 50% { transform: translate(110px, 276px); } 68.9% { transform: translate(110px, 170px); } 95%, 100% { transform: translate(256px, 170px); } }
+@keyframes e4 { 0%, 50% { transform: translate(110px, 192px); } 53.9% { transform: translate(110px, 170px); } 95%, 100% { transform: translate(340px, 170px); } }
+@keyframes e5 { 0%, 50% { transform: translate(172px, 170px); } 95%, 100% { transform: translate(424px, 170px); } }
+@keyframes e6 { 0%, 50% { transform: translate(256px, 170px); } 91.8% { transform: translate(490px, 170px); } 95%, 100% { transform: translate(490px, 188px); } }
+@keyframes e7 { 0%, 50% { transform: translate(340px, 170px); } 76.8% { transform: translate(490px, 170px); } 95%, 100% { transform: translate(490px, 272px); } }
+@keyframes e8 { 0%, 50% { transform: translate(424px, 170px); } 61.8% { transform: translate(490px, 170px); } 95%, 100% { transform: translate(490px, 356px); } }
+@keyframes e9 { 0%, 50% { transform: translate(490px, 188px); } 91.4% { transform: translate(490px, 420px); } 95%, 100% { transform: translate(470px, 420px); } }
+@keyframes e10 { 0%, 50% { transform: translate(490px, 272px); } 76.4% { transform: translate(490px, 420px); } 95%, 100% { transform: translate(386px, 420px); } }
+@keyframes e11 { 0%, 50% { transform: translate(490px, 356px); } 61.4% { transform: translate(490px, 420px); } 95%, 100% { transform: translate(302px, 420px); } }
+@keyframes e12 { 0%, 50% { transform: translate(470px, 420px); } 95%, 100% { transform: translate(218px, 420px); } }
+@keyframes e13 { 0%, 50% { transform: translate(386px, 420px); } 95%, 100% { transform: translate(134px, 420px); } }
+@keyframes e14 { 0%, 50% { transform: translate(302px, 420px); } 84.3% { transform: translate(110px, 420px); } 95%, 100% { transform: translate(110px, 360px); } }
+@media (prefers-reduced-motion: reduce) { .pak { animation: none; transform: none; } .on { animation: none; opacity: 1; } .off { animation: none; opacity: 0; } .el { animation: none; } }
 </style>
 <defs>
-<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1864ab"/></marker>
-<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c92a2a"/></marker>
 <marker id="v-ora" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#e8590c"/></marker>
-<marker id="v-mod2" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto-start-reverse"><path d="M0,0 L24,12 L0,24 z" fill="#1864ab"/></marker>
 <marker id="v-mod" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#1864ab"/></marker>
 </defs>
-<rect x="3" y="3" width="594" height="559" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
-<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Volné elektrony v kovovém drátu</text>
-<text x="300" y="82" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1. Bez baterie: každý elektron jinam</text>
-<rect x="46" y="95" width="494" height="170" rx="18" fill="#f1f3f5" stroke="#868e96" stroke-width="3"/>
-<ellipse cx="60" cy="180" rx="14" ry="85" fill="#ced4da" stroke="#868e96" stroke-width="3"/>
-<circle cx="110" cy="147" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="210" cy="147" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="310" cy="147" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="410" cy="147" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="510" cy="147" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="160" cy="213" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="260" cy="213" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="360" cy="213" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="460" cy="213" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/>
-<g class="j1"><circle cx="160" cy="145" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="160" y="153" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="174" y1="137" x2="195" y2="125" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j2"><circle cx="360" cy="147" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="360" y="155" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="345" y1="152" x2="322" y2="161" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j3"><circle cx="462" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="462" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="454" y1="126" x2="442" y2="105" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j4"><circle cx="110" cy="215" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="223" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="118" y1="229" x2="130" y2="250" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j1"><circle cx="310" cy="213" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="310" y="221" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="305" y1="228" x2="296" y2="251" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j2"><circle cx="510" cy="215" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="510" y="223" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="515" y1="200" x2="524" y2="177" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j3"><circle cx="215" cy="180" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="215" y="188" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="200" y1="175" x2="177" y2="166" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j4"><circle cx="412" cy="182" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="412" y="190" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="427" y1="187" x2="450" y2="196" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<g class="j1"><circle cx="100" cy="120" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="100" y="128" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
-<line class="rm" x1="116" y1="117" x2="139" y2="113" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/>
-<text x="300" y="302" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">2. S baterií: elektrony společně ke +</text>
-<rect x="46" y="315" width="494" height="170" rx="18" fill="#f1f3f5" stroke="#868e96" stroke-width="3"/>
-<ellipse cx="60" cy="400" rx="14" ry="85" fill="#ced4da" stroke="#868e96" stroke-width="3"/>
-<circle cx="110" cy="367" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="210" cy="367" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="310" cy="367" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="410" cy="367" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="510" cy="367" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="160" cy="433" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="260" cy="433" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="360" cy="433" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/><circle cx="460" cy="433" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/>
-<clipPath id="k1"><rect x="76" y="317" width="462" height="166" rx="16"/></clipPath>
-<g clip-path="url(#k1)">
-<g class="dr"><circle cx="-90" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-90" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="-74" y1="333" x2="-50" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="10" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="10" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="26" y1="333" x2="50" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="110" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="126" y1="333" x2="150" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="210" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="210" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="226" y1="333" x2="250" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="310" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="310" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="326" y1="333" x2="350" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="410" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="410" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="426" y1="333" x2="450" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="510" cy="333" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="510" y="341" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="526" y1="333" x2="550" y2="333" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="-40" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-40" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="-24" y1="400" x2="0" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="60" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="60" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="76" y1="400" x2="100" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="160" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="160" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="176" y1="400" x2="200" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="260" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="260" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="276" y1="400" x2="300" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="360" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="360" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="376" y1="400" x2="400" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="460" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="460" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="476" y1="400" x2="500" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="560" cy="400" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="560" y="408" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="576" y1="400" x2="600" y2="400" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="-115" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-115" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="-99" y1="467" x2="-75" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="-15" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-15" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="1" y1="467" x2="25" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="85" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="85" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="101" y1="467" x2="125" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="185" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="185" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="201" y1="467" x2="225" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="285" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="285" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="301" y1="467" x2="325" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="385" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="385" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="401" y1="467" x2="425" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-<g class="dr"><circle cx="485" cy="467" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="485" y="475" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="501" y1="467" x2="525" y2="467" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
-</g>
-<circle cx="26" cy="400" r="17" fill="#1864ab" stroke="#212529" stroke-width="2"/><text x="26" y="410" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
-<circle cx="574" cy="400" r="17" fill="#c92a2a" stroke="#212529" stroke-width="2"/><text x="574" y="410" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
-<circle cx="55" cy="522" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="55" y="530" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text>
-<text x="78" y="530" font-size="22" fill="#212529" text-anchor="start">volný elektron</text>
-<circle cx="300" cy="522" r="17" fill="#dee2e6" stroke="#868e96" stroke-width="2.5"/>
-<text x="326" y="530" font-size="22" fill="#212529" text-anchor="start">atom kovu – na místě</text>
+<rect x="3" y="3" width="594" height="574" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="36" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Obvod se spínačem</text>
+<text x="300" y="66" font-size="22" fill="#212529" text-anchor="middle" class="off">spínač vypnutý: obvod je přerušený, žárovka nesvítí</text>
+<text x="300" y="66" font-size="22" fill="#212529" text-anchor="middle" class="on">spínač zapnutý: obvod je uzavřený, žárovka svítí</text>
+<g stroke="#495057" stroke-width="6" stroke-linecap="round" fill="none"><polyline points="150,420 110,420 110,170 490,170 490,420 375,420"/><line x1="205" y1="420" x2="235" y2="420"/></g>
+<line class="pak" x1="150" y1="420" x2="207" y2="420" stroke="#212529" stroke-width="6" stroke-linecap="round"/>
+<circle cx="150" cy="420" r="7" fill="#ffffff" stroke="#212529" stroke-width="3"/><circle cx="205" cy="420" r="7" fill="#ffffff" stroke="#212529" stroke-width="3"/>
+<text x="178" y="466" font-size="22" fill="#212529" text-anchor="middle">spínač</text>
+<g class="el e0" transform="translate(218 420)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e1" transform="translate(134 420)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e2" transform="translate(110 360)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e3" transform="translate(110 276)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e4" transform="translate(110 192)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e5" transform="translate(172 170)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e6" transform="translate(256 170)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e7" transform="translate(340 170)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e8" transform="translate(424 170)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e9" transform="translate(490 188)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e10" transform="translate(490 272)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e11" transform="translate(490 356)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e12" transform="translate(470 420)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e13" transform="translate(386 420)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="el e14" transform="translate(302 420)"><circle r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text y="8" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<circle class="on" cx="300" cy="122" r="44" fill="#ffd43b" opacity="0.85"/>
+<circle cx="300" cy="122" r="34" fill="#ffffff" fill-opacity="0.55" stroke="#495057" stroke-width="3"/>
+<path d="M290,150 L290,124 L296,114 L300,124 L304,114 L310,124 L310,150" fill="none" stroke="#495057" stroke-width="2.5"/>
+<path class="on" d="M290,124 L296,114 L300,124 L304,114 L310,124" fill="none" stroke="#e8590c" stroke-width="4"/>
+<rect x="284" y="150" width="32" height="28" rx="3" fill="#868e96" stroke="#212529" stroke-width="2"/>
+<text x="364" y="116" font-size="22" fill="#212529" text-anchor="start">žárovka</text>
+<rect x="235" y="395" width="130" height="50" rx="8" fill="#343a40" stroke="#212529" stroke-width="2"/><rect x="365" y="410" width="10" height="20" rx="2" fill="#868e96" stroke="#212529" stroke-width="2"/><text x="300" y="428" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">baterie</text>
+<text x="250" y="386" font-size="32" font-weight="bold" fill="#1864ab" text-anchor="middle">−</text>
+<text x="352" y="386" font-size="32" font-weight="bold" fill="#c92a2a" text-anchor="middle">+</text>
+<g class="on"><line x1="532" y1="385" x2="532" y2="205" stroke="#e8590c" stroke-width="7" stroke-linecap="round" marker-end="url(#v-ora)"/><line x1="68" y1="205" x2="68" y2="385" stroke="#e8590c" stroke-width="7" stroke-linecap="round" marker-end="url(#v-ora)"/><line x1="455" y1="210" x2="455" y2="380" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/><line x1="145" y1="380" x2="145" y2="210" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/></g>
+<line x1="36" y1="506" x2="96" y2="506" stroke="#e8590c" stroke-width="7" stroke-linecap="round" marker-end="url(#v-ora)"/>
+<text x="112" y="514" font-size="22" fill="#212529" text-anchor="start">dohodnutý směr proudu: od + k −</text>
+<line x1="36" y1="546" x2="96" y2="546" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/>
+<text x="112" y="554" font-size="22" fill="#212529" text-anchor="start">elektrony se pohybují opačně: od − k +</text>
 </svg>
