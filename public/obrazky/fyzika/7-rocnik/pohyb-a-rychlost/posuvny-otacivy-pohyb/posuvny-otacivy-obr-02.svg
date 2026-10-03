@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 900 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Krasobruslařka při piruetě: osa otáčení prochází jejím tělem; při pohledu shora opisuje okraj sukně větší kružnici než rameno">
+<!-- Překresleno podle PDF „Posuvný otáčivý pohyb“, str. 3 (krasobruslařka s osou otáčení a bublinou „Osa otáčení“)
+     + věta téže strany „Čím je bod tělesa dál od osy otáčení, tím větší kružnici opisuje a pohybuje se větší rychlostí“.
+     Barvy: zelená = osa otáčení, oranžová = otáčivý pohyb (směr otáčení, kružnice bodů). -->
+<style>
+@media (prefers-reduced-motion: no-preference) {
+  .toci { transform-origin: 0px 0px; animation: toci 6s linear infinite; }
+}
+@keyframes toci { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+</style>
+<defs>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<radialGradient id="sukne" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fcc2d7"/><stop offset="1" stop-color="#f783ac"/></radialGradient>
+<linearGradient id="led" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7f5ff"/><stop offset="1" stop-color="#d0ebff"/></linearGradient>
+<linearGradient id="dres" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f783ac"/><stop offset="0.5" stop-color="#fcc2d7"/><stop offset="1" stop-color="#f06595"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="894" height="654" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131">Otáčivý pohyb: krasobruslařka při piruetě</text>
+
+<!-- LEVÝ PANEL: pohled zepředu -->
+<rect x="24" y="66" width="400" height="476" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<rect x="26" y="68" width="396" height="300" rx="8" fill="#f1f3f5"/>
+<path d="M26,368 H422 V540 H26 Z" fill="url(#led)"/>
+<line x1="26" y1="368" x2="422" y2="368" stroke="#a5d8ff" stroke-width="3"/>
+<text x="224" y="96" font-size="20" font-weight="bold" fill="#495057" text-anchor="middle">pohled zepředu</text>
+<!-- zadní polovina oranžové šipky otáčení (za tělem) -->
+<path d="M162,352 A60,22 0 0 1 282,352" fill="none" stroke="#e8590c" stroke-width="4" stroke-dasharray="10 8"/>
+<!-- nohy -->
+<path d="M214,378 L218,486" stroke="#f4c7a1" stroke-width="15" stroke-linecap="round"/>
+<path d="M232,378 L212,478" stroke="#eab48a" stroke-width="14" stroke-linecap="round"/>
+<!-- brusle -->
+<path d="M206,474 q-4,22 4,26 h22 q8,0 6,-12 l-4,-16 z" fill="#ffffff" stroke="#868e96" stroke-width="2"/>
+<path d="M200,466 q-6,20 0,26 h20 q8,0 4,-12 l-4,-14 z" fill="#f8f9fa" stroke="#868e96" stroke-width="2"/>
+<path d="M196,507 H244 q6,0 6,-6" fill="none" stroke="#868e96" stroke-width="3" stroke-linecap="round"/>
+<path d="M188,497 H226" stroke="#adb5bd" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="222" cy="510" rx="40" ry="6" fill="#a5d8ff" opacity="0.7"/>
+<!-- sukně a dres -->
+<path d="M190,336 Q158,370 164,386 Q178,378 190,388 Q204,378 218,390 Q232,378 246,390 Q260,378 272,388 Q284,378 282,384 Q286,368 254,336 Z" fill="url(#sukne)" stroke="#d6336c" stroke-width="2"/>
+<path d="M200,252 Q222,262 244,252 L250,300 Q246,330 254,340 L190,340 Q198,328 194,300 Z" fill="url(#dres)" stroke="#d6336c" stroke-width="2"/>
+<!-- krk, hlava, vlasy -->
+<rect x="215" y="230" width="14" height="22" fill="#f4c7a1"/>
+<circle cx="222" cy="214" r="21" fill="#ffd8a8" stroke="#c58b5a" stroke-width="2"/>
+<path d="M201,212 Q202,188 224,190 Q244,192 243,212 Q236,198 222,200 Q208,200 201,212 Z" fill="#f2c94c" stroke="#c99a1e" stroke-width="1.5"/>
+<circle cx="222" cy="186" r="9" fill="#f2c94c" stroke="#c99a1e" stroke-width="1.5"/>
+<circle cx="215" cy="216" r="2" fill="#495057"/><circle cx="229" cy="216" r="2" fill="#495057"/>
+<path d="M216,225 q6,4 12,0" fill="none" stroke="#c2255c" stroke-width="2" stroke-linecap="round"/>
+<!-- ruce nad hlavou -->
+<path d="M204,258 Q176,206 210,160" fill="none" stroke="#f4c7a1" stroke-width="12" stroke-linecap="round"/>
+<path d="M240,258 Q268,206 234,160" fill="none" stroke="#eab48a" stroke-width="12" stroke-linecap="round"/>
+<circle cx="222" cy="158" r="9" fill="#ffd8a8" stroke="#c58b5a" stroke-width="1.5"/>
+<!-- přední polovina oranžové šipky otáčení (před tělem), míří doprava -->
+<path d="M162,352 A60,22 0 0 0 278,360" fill="none" stroke="#e8590c" stroke-width="5" marker-end="url(#s-ora)"/>
+<!-- osa otáčení -->
+<line x1="222" y1="118" x2="222" y2="530" stroke="#2f9e44" stroke-width="5"/>
+<!-- body: okraj sukně a rameno -->
+<circle cx="278" cy="384" r="7" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/>
+<circle cx="246" cy="256" r="7" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/>
+<!-- bublina Osa otáčení -->
+<path d="M270,432 H410 Q416,432 416,438 V474 Q416,480 410,480 H276 Q270,480 270,474 V462 L230,448 L270,444 Z" fill="#ffffff" stroke="#2f9e44" stroke-width="3"/>
+<text x="343" y="463" font-size="21" font-weight="bold" fill="#2b8a3e" text-anchor="middle">osa otáčení</text>
+
+<!-- PRAVÝ PANEL: pohled shora (animace: celá postava se otáčí kolem osy) -->
+<rect x="444" y="66" width="432" height="476" rx="10" fill="url(#led)" stroke="#adb5bd" stroke-width="2"/>
+<text x="660" y="96" font-size="20" font-weight="bold" fill="#495057" text-anchor="middle">pohled shora</text>
+<!-- směr otáčení -->
+<path d="M552,402 A150,150 0 0 0 768,402" fill="none" stroke="#e8590c" stroke-width="5" marker-end="url(#s-ora)" transform="rotate(0)"/>
+<g transform="translate(660,300)"><g class="toci">
+<path d="M0,-90 Q14,-100 24,-87 Q38,-92 46,-78 Q60,-78 63,-63 Q77,-58 76,-44 Q89,-36 85,-22 Q96,-12 90,0 Q96,12 85,22 Q89,36 76,44 Q77,58 63,63 Q60,78 46,78 Q38,92 24,87 Q14,100 0,90 Q-14,100 -24,87 Q-38,92 -46,78 Q-60,78 -63,63 Q-77,58 -76,44 Q-89,36 -85,22 Q-96,12 -90,0 Q-96,-12 -85,-22 Q-89,-36 -76,-44 Q-77,-58 -63,-63 Q-60,-78 -46,-78 Q-38,-92 -24,-87 Q-14,-100 0,-90 Z" fill="url(#sukne)" stroke="#d6336c" stroke-width="2"/>
+<ellipse cx="0" cy="0" rx="40" ry="22" fill="url(#dres)" stroke="#d6336c" stroke-width="2"/>
+<path d="M-34,-6 Q-30,-30 -6,-30" fill="none" stroke="#f4c7a1" stroke-width="11" stroke-linecap="round"/>
+<path d="M34,-6 Q30,-30 6,-30" fill="none" stroke="#eab48a" stroke-width="11" stroke-linecap="round"/>
+<circle cx="0" cy="-4" r="17" fill="#f2c94c" stroke="#c99a1e" stroke-width="2"/>
+<circle cx="0" cy="-4" r="7" fill="#e0b13a" stroke="#c99a1e" stroke-width="1.5"/>
+<circle cx="0" cy="-30" r="7" fill="#ffd8a8" stroke="#c58b5a" stroke-width="1.5"/>
+<!-- tytéž dva body jako v pohledu zepředu: okraj sukně (r = 96) a rameno (r = 38); pohled shora je zvětšený
+     (zepředu 56 a 24 od osy, poměr ~2,3 vs 2,5) -->
+
+<circle cx="96" cy="0" r="8" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/>
+<circle cx="38" cy="0" r="8" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/>
+</g></g>
+<!-- kružnice bodů (nad postavou, aby byla vidět i malá) -->
+<circle cx="660" cy="300" r="96" fill="none" stroke="#e8590c" stroke-width="4" stroke-dasharray="12 8"/>
+<circle cx="660" cy="300" r="38" fill="none" stroke="#e8590c" stroke-width="4" stroke-dasharray="8 6"/>
+<!-- osa shora = bod (míří k nám) -->
+<circle cx="660" cy="300" r="9" fill="#2f9e44" stroke="#ffffff" stroke-width="3"/>
+<text x="660" y="142" font-size="19" fill="#2b2a26" text-anchor="middle">osa míří k nám = <tspan font-weight="bold" fill="#2b8a3e">zelený bod</tspan></text>
+<text x="660" y="470" font-size="19" fill="#2b2a26" text-anchor="middle"><tspan font-weight="bold" fill="#d9480f">velká kružnice</tspan> — bod na okraji sukně</text>
+<text x="660" y="500" font-size="19" fill="#2b2a26" text-anchor="middle"><tspan font-weight="bold" fill="#d9480f">malá kružnice</tspan> — bod na rameni</text>
+
+<!-- shrnutí podle PDF str. 3 -->
+<rect x="24" y="558" width="852" height="84" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="44" y="590" font-size="21" fill="#2b2a26">Čím je bod <tspan font-weight="bold">dál od osy otáčení</tspan>, tím <tspan font-weight="bold">větší kružnici</tspan> opisuje</text>
+<text x="44" y="622" font-size="21" fill="#2b2a26">a tím <tspan font-weight="bold">větší rychlostí</tspan> se pohybuje. Okraj sukně je rychlejší než rameno.</text>
+</svg>

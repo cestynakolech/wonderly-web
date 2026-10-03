@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 900 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Šroub zavrtávaný do dřeva: otáčí se šroubovákem a zároveň se posouvá do dřeva; body šroubu se pohybují po šroubovici, která má tvar závitu">
+<!-- Překresleno podle PDF „Posuvný otáčivý pohyb“, str. 5 (šroub ve dřevě: kružnice = otáčivý pohyb šroubovákem,
+     šipka dolů = posuvný pohyb při zavrtání, bublina „Trajektorie bodů šroubu při složeném pohybu: šroubovice (tvar závitu)“).
+     Barvy: oranžová = otáčivý pohyb, červená = posuvný pohyb, fialová = trajektorie při složeném pohybu (šroubovice).
+     Závit je PRAVOTOČIVÝ (běžný šroub, PDF str. 5): závit i fialová šroubovice jsou z téhož vzorce
+     x = 300 + 32·cos θ, y = y0 + 28·θ/2π (stoupání 28); přední půlotáčka (θ 0..π) jde zprava doleva dolů,
+     tj. vpředu stoupá doprava. Hlava se točí po směru hodin (shora) → pravotočivý šroub jde DOVNITŘ dřeva.
+     Animace: za dvě otáčky hlavy se šroub posune o dvě stoupání (2 × 28 = 56).
+     Při šroubovém pohybu se šroubovice převádí sama na sebe → vzor závitu i fialová trajektorie STOJÍ vůči dřevu;
+     dolů jede jen hlava, jádro a začátek závitu (maska v .sroub + protiposun .proti). Černý bod = jeden bod
+     na okraji závitu: za 2 otáčky sjede po fialové šroubovici o 56 (vzadu za šroubem průhlednější). -->
+<style>
+@media (prefers-reduced-motion: no-preference) {
+  .sroub { animation: zavrtani 7s linear infinite; }
+  .proti { animation: protiposun 7s linear infinite; }
+  .kriz { transform-origin: 0px 0px; animation: otaceni 7s linear infinite; }
+  .bod { animation: pobodu 7s linear infinite; }
+}
+@keyframes zavrtani { 0%, 10% { transform: translateY(0px); } 85%, 100% { transform: translateY(56px); } }
+@keyframes protiposun { 0%, 10% { transform: translateY(0px); } 85%, 100% { transform: translateY(-56px); } }
+@keyframes otaceni { 0%, 10% { transform: rotate(0deg); } 85%, 100% { transform: rotate(720deg); } }
+@keyframes pobodu {
+  0%, 10% { transform: translate(0px, 0px); opacity: 1; }
+  12.3% { transform: translate(-2.4px, 1.8px); opacity: 1; }
+  14.7% { transform: translate(-9.4px, 3.5px); opacity: 1; }
+  17% { transform: translate(-19.8px, 5.3px); opacity: 1; }
+  19.4% { transform: translate(-32px, 7px); opacity: 1; }
+  21.7% { transform: translate(-44.2px, 8.8px); opacity: 1; }
+  24.1% { transform: translate(-54.6px, 10.5px); opacity: 1; }
+  26.4% { transform: translate(-61.6px, 12.3px); opacity: 1; }
+  28.8% { transform: translate(-64px, 14px); opacity: 0.35; }
+  31.1% { transform: translate(-61.6px, 15.8px); opacity: 0.35; }
+  33.4% { transform: translate(-54.6px, 17.5px); opacity: 0.35; }
+  35.8% { transform: translate(-44.2px, 19.2px); opacity: 0.35; }
+  38.1% { transform: translate(-32px, 21px); opacity: 0.35; }
+  40.5% { transform: translate(-19.8px, 22.8px); opacity: 0.35; }
+  42.8% { transform: translate(-9.4px, 24.5px); opacity: 0.35; }
+  45.2% { transform: translate(-2.4px, 26.2px); opacity: 0.35; }
+  47.5% { transform: translate(0px, 28px); opacity: 1; }
+  49.8% { transform: translate(-2.4px, 29.8px); opacity: 1; }
+  52.2% { transform: translate(-9.4px, 31.5px); opacity: 1; }
+  54.5% { transform: translate(-19.8px, 33.2px); opacity: 1; }
+  56.9% { transform: translate(-32px, 35px); opacity: 1; }
+  59.2% { transform: translate(-44.2px, 36.8px); opacity: 1; }
+  61.6% { transform: translate(-54.6px, 38.5px); opacity: 1; }
+  63.9% { transform: translate(-61.6px, 40.3px); opacity: 1; }
+  66.3% { transform: translate(-64px, 42px); opacity: 0.35; }
+  68.6% { transform: translate(-61.6px, 43.8px); opacity: 0.35; }
+  70.9% { transform: translate(-54.6px, 45.5px); opacity: 0.35; }
+  73.3% { transform: translate(-44.2px, 47.2px); opacity: 0.35; }
+  75.6% { transform: translate(-32px, 49px); opacity: 0.35; }
+  78% { transform: translate(-19.8px, 50.8px); opacity: 0.35; }
+  80.3% { transform: translate(-9.4px, 52.5px); opacity: 0.35; }
+  82.7% { transform: translate(-2.4px, 54.3px); opacity: 0.35; }
+  85%, 100% { transform: translate(0px, 56px); opacity: 1; }
+}
+</style>
+<defs>
+<marker id="s-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="20" refX="17" refY="10" orient="auto"><path d="M0,0 L20,10 L0,20 z" fill="#e03131"/></marker>
+<linearGradient id="kov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="hlava" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.35" stop-color="#f8f9fa"/><stop offset="1" stop-color="#5c636a"/></linearGradient>
+<radialGradient id="hlavaShora" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#adb5bd"/></radialGradient>
+<linearGradient id="drevoVrch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d9b1"/><stop offset="1" stop-color="#e8c38f"/></linearGradient>
+<linearGradient id="drevoBok" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a066"/><stop offset="1" stop-color="#b9783f"/></linearGradient>
+<!-- jedna přední půlotáčka závitu (y od 0 do 14) a zadní půlotáčka (y od 14 do 28) -->
+<path id="hreben" d="M332,0 L331.4,0.9 L329.6,1.8 L326.6,2.6 L322.6,3.5 L317.8,4.4 L312.2,5.3 L306.2,6.1 L300,7 L293.8,7.9 L287.8,8.8 L282.2,9.6 L277.4,10.5 L273.4,11.4 L270.4,12.3 L268.6,13.1 L268,14"/>
+<path id="zada" d="M268,14 L268.6,14.9 L270.4,15.8 L273.4,16.6 L277.4,17.5 L282.2,18.4 L287.8,19.2 L293.8,20.1 L300,21 L306.2,21.9 L312.2,22.8 L317.8,23.6 L322.6,24.5 L326.6,25.4 L329.6,26.2 L331.4,27.1 L332,28"/>
+<clipPath id="nadDrevem"><rect x="0" y="0" width="900" height="420"/><ellipse cx="300" cy="420" rx="36" ry="10"/></clipPath>
+<!-- maska závitu v soustavě šroubu: plynulý náběh závitu pod hlavou (y 226→254), jede dolů se šroubem -->
+<linearGradient id="nabeh" gradientUnits="userSpaceOnUse" x1="0" y1="226" x2="0" y2="254"><stop offset="0" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<mask id="zavitOrez" maskUnits="userSpaceOnUse" x="250" y="150" width="100" height="400"><rect x="250" y="150" width="100" height="400" fill="url(#nabeh)"/></mask>
+</defs>
+<rect x="3" y="3" width="894" height="654" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131">Složený pohyb: šroub</text>
+
+<!-- PRKNO -->
+<path d="M40,446 L100,396 L590,396 L530,446 Z" fill="url(#drevoVrch)" stroke="#8a5a2b" stroke-width="2"/>
+<path d="M40,446 H530 V560 H40 Z" fill="url(#drevoBok)" stroke="#8a5a2b" stroke-width="2"/>
+<path d="M530,446 L590,396 V510 L530,560 Z" fill="#b9783f" stroke="#8a5a2b" stroke-width="2"/>
+<g fill="none" stroke="#c08552" stroke-width="2"><path d="M130,410 Q220,404 290,412 T470,408"/><path d="M90,432 Q200,426 260,434 M350,432 Q440,424 520,430"/><path d="M60,480 Q200,470 330,484 T520,476"/><path d="M60,520 Q180,512 300,524 T520,516"/></g>
+<ellipse cx="300" cy="420" rx="36" ry="10" fill="#5c3b1e"/>
+<g fill="#f3d9b1" stroke="#c08552" stroke-width="1"><path d="M232,424 l8,-4 l6,5 l-7,4z"/><path d="M352,428 l9,-3 l4,6 l-8,3z"/><path d="M372,414 l7,-2 l3,5 l-6,2z"/><path d="M220,410 l6,-3 l5,4 l-6,3z"/><path d="M262,436 l7,-2 l4,5 l-7,2z"/><path d="M330,438 l6,-3 l5,4 l-6,3z"/></g>
+
+<!-- ŠROUB (při animaci se otáčí a posouvá dolů; pod povrchem dřeva je skrytý) -->
+<g clip-path="url(#nadDrevem)"><g class="sroub">
+<!-- zadní polovina kružnice otáčení (za hlavou) -->
+<path d="M208,150 A92,30 0 0 1 392,150" fill="none" stroke="#e8590c" stroke-width="4" stroke-dasharray="10 8"/>
+<!-- jádro šroubu -->
+<rect x="278" y="190" width="44" height="300" fill="url(#kov)" stroke="#495057" stroke-width="1.5"/>
+<!-- závit: maska jede se šroubem, vzor uvnitř má protiposun → vůči dřevu stojí -->
+<g mask="url(#zavitOrez)"><g class="proti">
+<g fill="none" stroke-linecap="round">
+<g stroke="#495057" stroke-width="9"><use href="#hreben" xlink:href="#hreben" y="236"/><use href="#hreben" xlink:href="#hreben" y="264"/><use href="#hreben" xlink:href="#hreben" y="292"/><use href="#hreben" xlink:href="#hreben" y="320"/><use href="#hreben" xlink:href="#hreben" y="348"/><use href="#hreben" xlink:href="#hreben" y="376"/><use href="#hreben" xlink:href="#hreben" y="404"/><use href="#hreben" xlink:href="#hreben" y="432"/></g>
+<g stroke="#dee2e6" stroke-width="5"><use href="#hreben" xlink:href="#hreben" y="236"/><use href="#hreben" xlink:href="#hreben" y="264"/><use href="#hreben" xlink:href="#hreben" y="292"/><use href="#hreben" xlink:href="#hreben" y="320"/><use href="#hreben" xlink:href="#hreben" y="348"/><use href="#hreben" xlink:href="#hreben" y="376"/><use href="#hreben" xlink:href="#hreben" y="404"/><use href="#hreben" xlink:href="#hreben" y="432"/></g>
+</g>
+</g></g>
+</g>
+<!-- fialová šroubovice: dvě otáčky trajektorie bodu na okraji závitu (zadní část čárkovaně); STOJÍ vůči dřevu -->
+<g fill="none" stroke-linecap="round">
+<g stroke="#7048e8" stroke-width="3" stroke-dasharray="5 5"><use href="#zada" xlink:href="#zada" y="264"/><use href="#zada" xlink:href="#zada" y="292"/></g>
+<g stroke="#7048e8" stroke-width="6"><use href="#hreben" xlink:href="#hreben" y="264"/><use href="#hreben" xlink:href="#hreben" y="292"/></g>
+</g>
+<!-- sledovaný bod na okraji závitu: jede po fialové šroubovici (výchozí poloha θ = 0, vpravo) -->
+<circle class="bod" cx="332" cy="264" r="8" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/>
+<g class="sroub">
+<!-- zápustná hlava -->
+<path d="M234,150 L278,196 L322,196 L366,150 Z" fill="url(#hlava)" stroke="#495057" stroke-width="2"/>
+<ellipse cx="300" cy="150" rx="66" ry="20" fill="url(#hlavaShora)" stroke="#495057" stroke-width="2"/>
+<g transform="translate(300,150) scale(1,0.3)"><g class="kriz">
+<rect x="-30" y="-6" width="60" height="12" rx="3" fill="#343a40"/>
+<rect x="-6" y="-30" width="12" height="60" rx="3" fill="#343a40"/>
+<g stroke="#495057" stroke-width="3"><line x1="9" y1="9" x2="18" y2="18"/><line x1="-9" y1="9" x2="-18" y2="18"/><line x1="9" y1="-9" x2="18" y2="-18"/><line x1="-9" y1="-9" x2="-18" y2="-18"/></g>
+</g></g>
+<!-- přední polovina kružnice otáčení; při pohledu shora se šroub točí po směru hodinových ručiček, vpředu tedy doleva -->
+<path d="M392,150 A92,30 0 0 1 214,160" fill="none" stroke="#e8590c" stroke-width="5" marker-end="url(#s-ora)"/>
+</g></g>
+
+<!-- posuvný pohyb: červená šipka dolů -->
+<line x1="440" y1="214" x2="440" y2="384" stroke="#e03131" stroke-width="6" marker-end="url(#s-cer)"/>
+
+<!-- BUBLINY -->
+<path d="M626,136 L396,172 L640,108" fill="#ffffff" stroke="#e8590c" stroke-width="3" stroke-linejoin="round"/>
+<rect x="610" y="70" width="266" height="82" rx="16" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="612" y="106" width="10" height="32" fill="#ffffff"/>
+<text x="626" y="102" font-size="21" font-weight="bold" fill="#d9480f">Otáčivý pohyb</text>
+<text x="626" y="130" font-size="21" fill="#2b2a26">šroubovákem</text>
+
+<path d="M592,236 L338,318 L592,276" fill="#ffffff" stroke="#7048e8" stroke-width="3" stroke-linejoin="round"/>
+<rect x="590" y="176" width="286" height="168" rx="16" fill="#ffffff" stroke="#7048e8" stroke-width="3"/>
+<rect x="586" y="238" width="10" height="36" fill="#ffffff"/>
+<g font-size="20" fill="#2b2a26">
+<text x="606" y="206" font-weight="bold" fill="#5f3dc4">Trajektorie bodů šroubu</text>
+<text x="606" y="232">při složeném pohybu:</text>
+<text x="606" y="262">– <tspan font-weight="bold" fill="#5f3dc4">šroubovice</tspan></text>
+<text x="606" y="288">  (tvar závitu)</text>
+<text x="606" y="322" font-size="18" fill="#495057">čárkovaně = za šroubem</text>
+</g>
+
+<path d="M604,392 L450,330 L612,370" fill="#ffffff" stroke="#e03131" stroke-width="3" stroke-linejoin="round"/>
+<rect x="602" y="362" width="274" height="82" rx="16" fill="#ffffff" stroke="#e03131" stroke-width="3"/>
+<rect x="598" y="368" width="10" height="26" fill="#ffffff"/>
+<text x="618" y="394" font-size="21" font-weight="bold" fill="#c92a2a">Posuvný pohyb</text>
+<text x="618" y="422" font-size="21" fill="#2b2a26">při zavrtání do dřeva</text>
+
+<!-- shrnutí -->
+<rect x="24" y="578" width="852" height="66" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="450" y="618" font-size="21" fill="#2b2a26" text-anchor="middle">Šroub se <tspan font-weight="bold" fill="#d9480f">otáčí</tspan> a zároveň se <tspan font-weight="bold" fill="#c92a2a">posouvá</tspan> do dřeva — pohyb je <tspan font-weight="bold">složený</tspan>.</text>
+</svg>

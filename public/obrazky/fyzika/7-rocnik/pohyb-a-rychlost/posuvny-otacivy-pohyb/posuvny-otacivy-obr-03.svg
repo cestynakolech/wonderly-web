@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 900 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Velké nástěnné hodiny a malý budík: konec minutové ručičky velkých hodin opisuje větší kružnici a urazí za stejný čas větší dráhu než konec ručičky budíku; osa otáčení je v klidu">
+<!-- Překresleno podle PDF „Posuvný otáčivý pohyb“, str. 4 (velké hodiny + budík na poličce, kružnice konců
+     minutových ručiček, bubliny „Osa otáčení – bod na ose je v klidu“).
+     Barvy: zelená = osa otáčení, oranžová = otáčivý pohyb (kružnice konce ručičky), černý bod = sledovaný bod. -->
+<style>
+@media (prefers-reduced-motion: no-preference) {
+  .minuta { transform-origin: 0px 0px; animation: tociSe 8s linear infinite; }
+  .hodina { transform-origin: 0px 0px; animation: tociSe 96s linear infinite; }
+}
+@keyframes tociSe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+<defs>
+<radialGradient id="ramecek" cx="0.45" cy="0.4" r="0.6"><stop offset="0" stop-color="#fff3bf"/><stop offset="1" stop-color="#fcc419"/></radialGradient>
+<radialGradient id="cifernik" cx="0.4" cy="0.35" r="0.7"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecef"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="894" height="674" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="44" font-size="26" font-weight="bold" fill="#e03131">Otáčivý pohyb: hodiny a budík</text>
+<!-- zeď s cihlami (jemně) -->
+<g stroke="#dee2e6" stroke-width="2" fill="none"><path d="M40,300 h120 M200,560 h80 M420,250 h110 M470,290 h60 M560,560 h40 M800,520 h60"/></g>
+
+<!-- POLICE, KNIHY, KAKTUS -->
+<rect x="40" y="600" width="820" height="14" rx="3" fill="#495057"/>
+<rect x="40" y="612" width="820" height="4" fill="#868e96"/>
+<g stroke="#2b2a26" stroke-width="1.5">
+<rect x="88" y="552" width="22" height="48" fill="#fab005"/>
+<rect x="110" y="560" width="18" height="40" fill="#495057"/>
+<rect x="128" y="548" width="16" height="52" fill="#f8f9fa"/>
+<rect x="150" y="580" width="62" height="20" fill="#868e96"/>
+<rect x="154" y="566" width="56" height="14" fill="#343a40"/>
+</g>
+<g transform="translate(470,600)">
+<path d="M-18,0 L-22,-34 H22 L18,0 Z" fill="#fab005" stroke="#2b2a26" stroke-width="1.5"/>
+<path d="M-6,-34 V-74 Q-6,-84 0,-84 Q6,-84 6,-74 V-34 Z M6,-58 H14 V-70 Q14,-76 18,-76 Q22,-76 22,-70 V-52 H6 Z M-6,-50 H-14 V-62 Q-14,-68 -18,-68 Q-22,-68 -22,-62 V-44 H-6 Z" fill="#2b8a3e" stroke="#1b5e2b" stroke-width="1.5"/>
+</g>
+
+<!-- VELKÉ NÁSTĚNNÉ HODINY, osa (250,400) -->
+<line x1="250" y1="236" x2="250" y2="254" stroke="#495057" stroke-width="4"/>
+<circle cx="250" cy="234" r="5" fill="#495057"/>
+<circle cx="250" cy="400" r="146" fill="url(#ramecek)" stroke="#868e96" stroke-width="2"/>
+<circle cx="250" cy="400" r="130" fill="url(#cifernik)" stroke="#868e96" stroke-width="3"/>
+<circle cx="250" cy="400" r="124" fill="none" stroke="#495057" stroke-width="7" pathLength="60" stroke-dasharray="0.1 0.9" stroke-dashoffset="0.05"/>
+<circle cx="250" cy="400" r="122" fill="none" stroke="#2b2a26" stroke-width="11" pathLength="12" stroke-dasharray="0.04 0.96" stroke-dashoffset="0.02"/>
+<g font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle"><text x="296" y="330">1</text><text x="330" y="363">2</text><text x="342" y="409">3</text><text x="330" y="455">4</text><text x="296" y="489">5</text><text x="250" y="501">6</text><text x="204" y="489">7</text><text x="170" y="455">8</text><text x="158" y="409">9</text><text x="170" y="363">10</text><text x="204" y="330">11</text><text x="250" y="317">12</text></g>
+<!-- kružnice konce minutové ručičky: r = 112 -->
+<circle cx="250" cy="400" r="112" fill="none" stroke="#e8590c" stroke-width="6"/>
+<g transform="translate(250,400)">
+<g transform="rotate(-90)"><g class="hodina"><path d="M-7,12 L-5,-62 L0,-72 L5,-62 L7,12 Z" fill="#343a40"/></g></g>
+<g class="minuta"><path d="M-5,14 L-3,-100 L0,-112 L3,-100 L5,14 Z" fill="#495057"/><circle cx="0" cy="-112" r="8" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/></g>
+<circle cx="0" cy="0" r="9" fill="#2f9e44" stroke="#ffffff" stroke-width="3"/>
+</g>
+
+<!-- BUDÍK, osa (690,470) -->
+<path d="M650,536 L630,598" stroke="#868e96" stroke-width="9" stroke-linecap="round"/>
+<path d="M730,536 L750,598" stroke="#868e96" stroke-width="9" stroke-linecap="round"/>
+<path d="M650,398 Q690,352 730,398" fill="none" stroke="#868e96" stroke-width="6"/>
+<path d="M618,402 A26,26 0 0 1 656,374 Z" fill="url(#ramecek)" stroke="#868e96" stroke-width="2"/>
+<path d="M724,374 A26,26 0 0 1 762,402 Z" fill="url(#ramecek)" stroke="#868e96" stroke-width="2"/>
+<rect x="684" y="380" width="12" height="12" rx="3" fill="#868e96"/>
+<circle cx="690" cy="470" r="84" fill="url(#ramecek)" stroke="#868e96" stroke-width="2"/>
+<circle cx="690" cy="470" r="72" fill="url(#cifernik)" stroke="#868e96" stroke-width="3"/>
+<circle cx="690" cy="470" r="68" fill="none" stroke="#495057" stroke-width="5" pathLength="60" stroke-dasharray="0.1 0.9" stroke-dashoffset="0.05"/>
+<g font-size="18" font-weight="bold" fill="#2b2a26" text-anchor="middle"><text x="715" y="433">1</text><text x="733" y="451">2</text><text x="740" y="476">3</text><text x="733" y="501">4</text><text x="715" y="520">5</text><text x="690" y="526">6</text><text x="665" y="520">7</text><text x="647" y="501">8</text><text x="640" y="476">9</text><text x="647" y="451">10</text><text x="665" y="433">11</text><text x="690" y="426">12</text></g>
+<!-- kružnice konce minutové ručičky budíku: r = 62 -->
+<circle cx="690" cy="470" r="62" fill="none" stroke="#e8590c" stroke-width="5"/>
+<g transform="translate(690,470)">
+<g transform="rotate(-90)"><g class="hodina"><path d="M-5,9 L-4,-36 L0,-42 L4,-36 L5,9 Z" fill="#343a40"/></g></g>
+<g class="minuta"><path d="M-3.5,10 L-2,-54 L0,-62 L2,-54 L3.5,10 Z" fill="#495057"/><circle cx="0" cy="-62" r="7" fill="#2b2a26" stroke="#ffffff" stroke-width="2.5"/></g>
+<circle cx="0" cy="0" r="7" fill="#2f9e44" stroke="#ffffff" stroke-width="2.5"/>
+</g>
+
+<!-- BUBLINA: velké hodiny -->
+<path d="M196,236 L240,282 L232,236" fill="#ffffff" stroke="#e8590c" stroke-width="3" stroke-linejoin="round"/>
+<rect x="24" y="60" width="330" height="178" rx="16" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="194" y="232" width="40" height="8" fill="#ffffff"/>
+<g font-size="20" fill="#2b2a26">
+<text x="40" y="88" font-weight="bold" fill="#d9480f">Konec minutové ručičky</text>
+<text x="40" y="112" font-weight="bold" fill="#d9480f">velkých hodin:</text>
+<text x="40" y="142">– nejdál od osy otáčení</text>
+<text x="40" y="166">– největší kružnice</text>
+<text x="40" y="190">– největší dráha za stejný čas</text>
+<text x="40" y="214">– největší rychlost</text>
+</g>
+
+<!-- BUBLINA: budík -->
+<path d="M700,326 L696,400 L738,326" fill="#ffffff" stroke="#e8590c" stroke-width="3" stroke-linejoin="round"/>
+<rect x="566" y="150" width="310" height="178" rx="16" fill="#ffffff" stroke="#e8590c" stroke-width="3"/>
+<rect x="702" y="322" width="34" height="8" fill="#ffffff"/>
+<g font-size="20" fill="#2b2a26">
+<text x="582" y="178" font-weight="bold" fill="#d9480f">Konec minutové ručičky</text>
+<text x="582" y="202" font-weight="bold" fill="#d9480f">budíku:</text>
+<text x="582" y="232">– blíž k ose otáčení</text>
+<text x="582" y="256">– menší kružnice</text>
+<text x="582" y="280">– kratší dráha za stejný čas</text>
+<text x="582" y="304">– menší rychlost</text>
+</g>
+
+<!-- BUBLINA: osa otáčení (ukazuje na obě osy) -->
+<line x1="420" y1="440" x2="258" y2="402" stroke="#2f9e44" stroke-width="3"/>
+<line x1="584" y1="500" x2="683" y2="473" stroke="#2f9e44" stroke-width="3"/>
+<rect x="412" y="418" width="176" height="88" rx="16" fill="#ffffff" stroke="#2f9e44" stroke-width="3"/>
+<g font-size="20" fill="#2b2a26" text-anchor="middle">
+<text x="500" y="444" font-weight="bold" fill="#2b8a3e">Osa otáčení</text>
+<text x="500" y="468">bod na ose</text>
+<text x="500" y="492">je v klidu</text>
+</g>
+
+<!-- shrnutí -->
+<rect x="24" y="626" width="852" height="42" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<text x="450" y="654" font-size="21" fill="#2b2a26" text-anchor="middle">Obě minutové ručičky oběhnou kružnici <tspan font-weight="bold">za stejný čas</tspan>.</text>
+</svg>
