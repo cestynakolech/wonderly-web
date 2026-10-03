@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vrtačka mezi dvěma šipkami. Šipka VSTUP vlevo: elektrický proud přináší do spotřebiče energii a koná elektrickou práci s výkonem P0; P0 = U · I; výkon proudu = příkon spotřebiče. Šipka VÝSTUP vpravo: spotřebič koná mechanickou práci s mechanickým výkonem P. Bublina: kvůli ztrátám energie platí P0 > P. Animace: kabelem proudí energie do vrtačky, vrták se točí a nad motorem se tetelí teplo – ztráty.">
+<style>
+/* Předloha: PDF lekce 31, s. 5 – vrtačka, šipka VSTUP (proud přináší energii, el. výkon Po, Po = U · I,
+   výkon proudu = příkon spotřebiče), šipka VÝSTUP (mechanická práce, mech. výkon P), bublina
+   „Kvůli ztrátám energie platí: Po > P“. Fotka vrtačky překreslena bez značky výrobce.
+   Zahřívání nad motorem = ztráty (s. 4: vodiče spotřebiče se zahřívají). Bez animace = vrták stojí, teplo vidět. */
+@keyframes tok { from { stroke-dashoffset: 20; } to { stroke-dashoffset: 0; } }
+.tok { animation: tok 0.8s linear infinite; }
+@keyframes vrt { from { transform: translateX(0); } to { transform: translateX(12px); } }
+.vrt { animation: vrt 0.25s linear infinite; }
+@keyframes teplo { 0% { transform: translateY(0); opacity: 0.9; } 100% { transform: translateY(-24px); opacity: 0; } }
+.teplo { animation: teplo 1.8s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .tok, .vrt, .teplo { animation: none; } }
+</style>
+<defs>
+<linearGradient id="teleso" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4dabf7"/><stop offset="0.35" stop-color="#1c7ed6"/><stop offset="1" stop-color="#0b4f8a"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#868e96"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="guma" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#212529"/><stop offset="0.4" stop-color="#495057"/><stop offset="1" stop-color="#212529"/></linearGradient>
+<clipPath id="vrtak"><rect x="702" y="148" width="100" height="12"/></clipPath>
+</defs>
+<rect x="3" y="3" width="954" height="654" rx="14" fill="#f8f9fa"/>
+<text x="480" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Vrtačka: příkon a výkon</text>
+
+<!-- šipka VSTUP -->
+<path d="M16 190H300V140L370 345L300 550V500H16Z" fill="#fde8d8" stroke="#868e96" stroke-width="2"/>
+<text x="32" y="236" font-size="24" font-weight="bold" fill="#c92a2a">VSTUP</text>
+<text x="32" y="272" font-size="19" fill="#212529">Elektrický proud přináší</text>
+<text x="32" y="296" font-size="19" fill="#212529">do spotřebiče energii.</text>
+<text x="32" y="330" font-size="19" fill="#212529">Koná elektrickou práci</text>
+<text x="32" y="354" font-size="19" fill="#212529">s výkonem P<tspan font-size="14" dy="4">0</tspan><tspan dy="-4">.</tspan></text>
+<text x="32" y="400" font-size="28" font-weight="bold" fill="#c92a2a">P<tspan font-size="18" dy="6">0</tspan><tspan dy="-6" dx="6">= U · I</tspan></text>
+<text x="32" y="442" font-size="20" font-weight="bold" fill="#c92a2a">výkon proudu =</text>
+<text x="32" y="468" font-size="20" font-weight="bold" fill="#c92a2a">příkon spotřebiče</text>
+
+<!-- šipka VÝSTUP -->
+<path d="M680 250H880V210L944 345L880 480V440H680Z" fill="#fff9db" stroke="#868e96" stroke-width="2"/>
+<text x="696" y="292" font-size="24" font-weight="bold" fill="#2b8a3e">VÝSTUP</text>
+<text x="696" y="328" font-size="19" fill="#212529">Spotřebič koná</text>
+<text x="696" y="354" font-size="19" fill="#212529">mechanickou práci</text>
+<text x="696" y="380" font-size="19" fill="#212529">s mechanickým</text>
+<text x="696" y="406" font-size="19" fill="#212529">výkonem <tspan font-weight="bold" fill="#2b8a3e">P</tspan>.</text>
+
+<!-- kabel: přenos elektrické energie do vrtačky -->
+<path d="M326 352C380 392 432 384 444 346" fill="none" stroke="#212529" stroke-width="8" stroke-linecap="round"/>
+<path class="tok" d="M326 352C380 392 432 384 444 346" fill="none" stroke="#fab005" stroke-width="4" stroke-dasharray="8 12" stroke-linecap="round"/>
+
+<!-- vrtačka -->
+<ellipse cx="530" cy="356" rx="150" ry="8" fill="#000" opacity="0.08"/>
+<path d="M430 196H488L480 238Q472 290 478 330H428Q424 290 432 240Z" fill="url(#guma)" stroke="#212529" stroke-width="2"/>
+<path d="M440 250H470M438 266H468M437 282H468M437 298H469" stroke="#868e96" stroke-width="2" stroke-linecap="round"/>
+<rect x="418" y="326" width="72" height="22" rx="8" fill="url(#teleso)" stroke="#0b4f8a" stroke-width="2"/>
+<path d="M488 202L508 206L502 234L484 230Z" fill="#e03131" stroke="#a51111" stroke-width="1.5"/>
+<path d="M410 112H600Q614 112 614 126V184Q614 196 600 196H420Q400 196 396 176L392 132Q394 112 410 112Z" fill="url(#teleso)" stroke="#0b4f8a" stroke-width="2"/>
+<path d="M412 132V176M422 130V178M432 130V178" stroke="#0b4f8a" stroke-width="4" stroke-linecap="round"/>
+<path d="M452 124H590" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+<rect x="612" y="122" width="40" height="64" rx="6" fill="url(#kov)" stroke="#495057" stroke-width="2"/>
+<path d="M650 126L700 136L704 172L650 182Z" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<path d="M662 130V178M674 132V176M686 134V174" stroke="#868e96" stroke-width="2"/>
+<rect x="702" y="148" width="100" height="12" fill="#ced4da" stroke="#495057" stroke-width="1"/>
+<g clip-path="url(#vrtak)"><g class="vrt" stroke="#495057" stroke-width="3">
+<path d="M678 160L686 148M690 160L698 148M702 160L710 148M714 160L722 148M726 160L734 148M738 160L746 148M750 160L758 148M762 160L770 148M774 160L782 148M786 160L794 148M798 160L806 148"/>
+</g></g>
+<path d="M802 148L816 154L802 160Z" fill="#adb5bd" stroke="#495057" stroke-width="1"/>
+<path d="M640 186H660L668 320Q668 332 656 332H646Q634 332 634 320Z" fill="url(#guma)" stroke="#212529" stroke-width="2"/>
+<path d="M640 230H662M640 252H664M640 274H665M640 296H666" stroke="#868e96" stroke-width="2"/>
+<path d="M826 136A8 22 0 0 1 826 172" fill="none" stroke="#2b8a3e" stroke-width="3"/>
+<path d="M826 172l-8 -2l5 -7z" fill="#2b8a3e"/>
+
+<!-- teplo = ztráty -->
+<g fill="none" stroke="#e8590c" stroke-width="4" stroke-linecap="round">
+<path class="teplo" style="animation-delay:0s" d="M480 104q-6 -8 0 -16q6 -8 0 -16"/>
+<path class="teplo" style="animation-delay:-0.6s" d="M520 104q-6 -8 0 -16q6 -8 0 -16"/>
+<path class="teplo" style="animation-delay:-1.2s" d="M560 104q-6 -8 0 -16q6 -8 0 -16"/>
+</g>
+<text x="590" y="94" font-size="18" fill="#c92a2a">zahřívání = ztráty</text>
+
+<!-- bublina -->
+<path d="M430 500H486L520 410L540 500H670Q700 500 700 530V594Q700 624 670 624H430Q400 624 400 594V530Q400 500 430 500Z" fill="#d3f9d8" stroke="#868e96" stroke-width="2"/>
+<text x="550" y="546" font-size="20" fill="#212529" text-anchor="middle">Kvůli ztrátám energie platí:</text>
+<text x="550" y="600" font-size="32" font-weight="bold" fill="#c92a2a" text-anchor="middle">P<tspan font-size="20" dy="7">0</tspan><tspan dy="-7" dx="8">&gt; P</tspan></text>
+</svg>

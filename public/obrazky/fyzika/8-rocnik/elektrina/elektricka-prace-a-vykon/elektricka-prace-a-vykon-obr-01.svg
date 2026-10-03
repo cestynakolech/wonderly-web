@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kovový drát připojený vodiči k baterii. Průhledem do drátu jsou vidět šedé atomy mřížky a modré volné elektrony. Nad drátem velká šipka elektrická síla míří od záporného pólu ke kladnému. Animace: elektrony se drátem pohybují usměrněně od záporného pólu ke kladnému – vodičem prochází elektrický proud a elektrická síla koná práci.">
+<style>
+/* Předloha: PDF lekce 31 (Elektrická práce a energie, výkon el. proudu), s. 1 – text
+   „Po připojení kovového vodiče ke zdroji napětí vznikne ve vodiči elektrické pole → elektrická
+   síla → usměrněný pohyb volných elektronů → elektrická síla koná práci“. Obrázek v PDF chybí,
+   děj nakreslen podle textu. Elektrony letí 9 s celou délkou drátu.
+   Bez animace (reduced-motion) = elektrony stojí rozmístěné v drátu. */
+@keyframes e { 0% { transform: translate(140px, 180px); } 100% { transform: translate(760px, 180px); } }
+.e { animation: e 9s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .e { animation: none; } }
+</style>
+<defs>
+<radialGradient id="castice" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ced4da"/></radialGradient>
+<linearGradient id="med" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9894f"/><stop offset="0.28" stop-color="#f0b98a"/><stop offset="0.55" stop-color="#b8642a"/><stop offset="1" stop-color="#6b3410"/></linearGradient>
+<radialGradient id="rez" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#f3c79d"/><stop offset="1" stop-color="#c77a3f"/></radialGradient>
+<linearGradient id="plast" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#495057"/><stop offset="0.3" stop-color="#868e96"/><stop offset="0.6" stop-color="#343a40"/><stop offset="1" stop-color="#212529"/></linearGradient>
+<linearGradient id="mosaz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9822b"/><stop offset="0.3" stop-color="#f4c47a"/><stop offset="0.6" stop-color="#b8701f"/><stop offset="1" stop-color="#7a4510"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#adb5bd"/><stop offset="0.4" stop-color="#f1f3f5"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<clipPath id="vnitrek"><rect x="128" y="138" width="644" height="84" rx="10"/></clipPath>
+</defs>
+<rect x="3" y="3" width="894" height="594" rx="14" fill="#f8f9fa"/>
+<text x="450" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Elektrická síla koná práci</text>
+
+<!-- šipka elektrické síly působící na elektron -->
+<text x="120" y="112" font-size="22" font-weight="bold" fill="#212529">kovový vodič</text>
+<text x="545" y="88" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">elektrická síla</text>
+<g transform="translate(360 104)"><circle cx="0" cy="0" r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<path d="M374 104H692" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<path d="M688 92L714 104L688 116Z" fill="#495057"/>
+
+<!-- přívodní vodiče -->
+<path d="M344 362H70V180H112" fill="none" stroke="#495057" stroke-width="6" stroke-linejoin="round"/>
+<path d="M564 362H830V180H788" fill="none" stroke="#495057" stroke-width="6" stroke-linejoin="round"/>
+
+<!-- drát s průhledem dovnitř -->
+<ellipse cx="784" cy="186" rx="12" ry="54" fill="#000" opacity="0.08"/>
+<rect x="120" y="126" width="660" height="108" fill="url(#med)"/>
+<ellipse cx="120" cy="180" rx="10" ry="54" fill="#9c4a17"/>
+<rect x="128" y="138" width="644" height="84" rx="10" fill="#fff4e6" stroke="#6b3410" stroke-width="2"/>
+<ellipse cx="780" cy="180" rx="10" ry="54" fill="url(#rez)" stroke="#6b3410" stroke-width="2"/>
+<g stroke="#868e96" stroke-width="2.5" fill="url(#castice)">
+<circle cx="170" cy="156" r="12"/><circle cx="170" cy="204" r="12"/>
+<circle cx="240" cy="156" r="12"/><circle cx="240" cy="204" r="12"/>
+<circle cx="310" cy="156" r="12"/><circle cx="310" cy="204" r="12"/>
+<circle cx="380" cy="156" r="12"/><circle cx="380" cy="204" r="12"/>
+<circle cx="450" cy="156" r="12"/><circle cx="450" cy="204" r="12"/>
+<circle cx="520" cy="156" r="12"/><circle cx="520" cy="204" r="12"/>
+<circle cx="590" cy="156" r="12"/><circle cx="590" cy="204" r="12"/>
+<circle cx="660" cy="156" r="12"/><circle cx="660" cy="204" r="12"/>
+<circle cx="730" cy="156" r="12"/><circle cx="730" cy="204" r="12"/>
+</g>
+<g clip-path="url(#vnitrek)">
+<g class="e" style="animation-delay:0s" transform="translate(140 180)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g class="e" style="animation-delay:-1.5s" transform="translate(243.3 180)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g class="e" style="animation-delay:-3s" transform="translate(346.7 180)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g class="e" style="animation-delay:-4.5s" transform="translate(450 180)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g class="e" style="animation-delay:-6s" transform="translate(553.3 180)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<g class="e" style="animation-delay:-7.5s" transform="translate(656.7 180)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+</g>
+<text x="450" y="272" font-size="20" fill="#212529" text-anchor="middle">Ve vodiči vznikne elektrické pole. Působí silou na volné elektrony.</text>
+
+<!-- zdroj napětí: válcová baterie -->
+<ellipse cx="456" cy="398" rx="112" ry="8" fill="#000" opacity="0.1"/>
+<rect x="344" y="334" width="10" height="56" rx="3" fill="url(#kov)" stroke="#495057" stroke-width="1.5"/>
+<rect x="352" y="330" width="130" height="64" fill="url(#plast)"/>
+<rect x="480" y="330" width="70" height="64" rx="0" fill="url(#mosaz)"/>
+<rect x="352" y="330" width="198" height="64" rx="4" fill="none" stroke="#212529" stroke-width="2"/>
+<rect x="550" y="348" width="14" height="28" rx="3" fill="url(#kov)" stroke="#495057" stroke-width="1.5"/>
+<circle cx="384" cy="362" r="16" fill="#1864ab"/><path d="M376 362H392" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="515" cy="362" r="16" fill="#c92a2a"/><path d="M507 362H523M515 354V370" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<text x="450" y="430" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">zdroj napětí</text>
+
+<text x="450" y="482" font-size="20" fill="#212529" text-anchor="middle">Elektrony se pohybují usměrněně → vodičem prochází elektrický proud.</text>
+<text x="450" y="520" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Elektrická síla koná elektrickou práci W (jednotka joule, J).</text>
+
+<!-- legenda -->
+<g transform="translate(250 562)"><circle r="9" fill="#1971c2"/><path d="M-4.5 0H4.5" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+<text x="268" y="569" font-size="20" fill="#212529">volný elektron</text>
+<circle cx="520" cy="562" r="12" fill="url(#castice)" stroke="#868e96" stroke-width="2.5"/>
+<text x="542" y="569" font-size="20" fill="#212529">atom mřížky</text>
+</svg>

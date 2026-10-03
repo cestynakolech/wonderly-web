@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Klasická žárovka s účinností 5 procent. Zleva do ní vstupuje široký žlutý pás příkon 100 W. Za žárovkou se rozdělí: tenký pruh nahoru – světlo 5 W, tedy 5 procent, které využijeme; široký oranžový pás – teplo 95 W, tedy 95 procent, ztráty. Šířky pásů odpovídají wattům. Animace: energie pásy proudí a žárovka svítí.">
+<style>
+/* Předloha: PDF lekce 31, s. 6 (Pro zvídavé, Účinnost spotřebiče) – klasická žárovka: 5 % světlo, 95 % teplo.
+   Čísla: výklad, Pro zvídavé – modelová žárovka 100 W, účinnost 5 % → 5 W světlo, 95 W hlavně teplo.
+   Šířka pásu = výkon: 1 W = 1,2 px (100 W → 120 px, 95 W → 114 px, 5 W → 6 px).
+   LED 70 % z PDF záměrně vynecháno (výklad toto číslo neuvádí). Bez animace = žárovka svítí, pásy stojí. */
+@keyframes tok { from { stroke-dashoffset: 30; } to { stroke-dashoffset: 0; } }
+.tok { animation: tok 1s linear infinite; }
+@keyframes zar { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.95; } }
+.zar { animation: zar 1.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .tok, .zar { animation: none; } }
+</style>
+<defs>
+<radialGradient id="sklo" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ffe066"/></radialGradient>
+<radialGradient id="zare" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#ffe066" stop-opacity="0"/></radialGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.45" stop-color="#f1f3f5"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="894" height="514" rx="14" fill="#f8f9fa"/>
+<text x="450" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Klasická žárovka: účinnost 5 %</text>
+
+<!-- pásy energie (šířka = výkon) -->
+<rect x="30" y="200" width="310" height="120" fill="#fab005"/>
+<path d="M470 206C590 206 600 280 700 280V394C600 394 590 320 470 320Z" fill="#fd7e14"/>
+<path d="M470 200C590 200 600 110 700 110V116C600 116 590 206 470 206Z" fill="#ffe066" stroke="#f59f00" stroke-width="1.5"/>
+<g fill="none" stroke-linecap="round" class="tok" stroke-dasharray="14 16">
+<path d="M40 260H330" stroke="#fff" stroke-width="4" opacity="0.6"/>
+<path d="M470 263C590 263 600 337 690 337" stroke="#fff" stroke-width="4" opacity="0.6"/>
+<path d="M470 203C590 203 600 113 690 113" stroke="#e67700" stroke-width="2"/>
+</g>
+<text x="56" y="252" font-size="24" font-weight="bold" fill="#212529">příkon</text>
+<text x="56" y="284" font-size="24" font-weight="bold" fill="#212529">100 W</text>
+
+<!-- žárovka (patice vlevo) -->
+<circle class="zar" cx="420" cy="260" r="96" fill="url(#zare)"/>
+<g transform="translate(400 260) rotate(90)">
+<rect x="-22" y="20" width="44" height="40" fill="url(#sklo)"/>
+<circle cx="0" cy="-20" r="62" fill="url(#sklo)" stroke="#f59f00" stroke-width="3"/>
+<path d="M-22 22V44M22 22V44" stroke="#f59f00" stroke-width="3"/>
+<path d="M-10 40L-16 -16M10 40L16 -16" stroke="#868e96" stroke-width="2.5"/>
+<path d="M-18 -16l6 -10l6 10l6 -10l6 10l6 -10l6 10" fill="none" stroke="#e8590c" stroke-width="4" stroke-linejoin="round"/>
+<path d="M-40 -38Q-48 -10 -34 14" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<rect x="-28" y="56" width="56" height="42" rx="5" fill="url(#kov)" stroke="#495057" stroke-width="2"/>
+<path d="M-28 68H28M-28 80H28" stroke="#868e96" stroke-width="2.5"/>
+<path d="M-12 98H12L6 110H-6Z" fill="#495057"/>
+</g>
+
+<text x="716" y="112" font-size="22" font-weight="bold" fill="#212529">světlo 5 W</text>
+<text x="716" y="140" font-size="20" fill="#212529">5 % – využijeme</text>
+<text x="716" y="330" font-size="22" font-weight="bold" fill="#212529">teplo 95 W</text>
+<text x="716" y="358" font-size="20" fill="#212529">95 % – ztráty</text>
+
+<text x="450" y="446" font-size="20" fill="#212529" text-anchor="middle">Ze 100 W příkonu jde do světla jen 5 W, zbylých 95 W se mění hlavně na teplo.</text>
+<text x="450" y="486" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Početní model: 5 W + 95 W = 100 W</text>
+</svg>

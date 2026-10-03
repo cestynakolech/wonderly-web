@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 700" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Uprostřed zásuvka, z ní vedou kabely ke čtyřem spotřebičům. Mixér: elektrická energie se mění na mechanickou práci, nůž se točí. Varná konvice: ohřev, z hubičky stoupá pára. Žárovka: světlo, žárovka svítí. Akumulátor: nabíjení, energie se ukládá jako chemická energie, dílky ukazatele přibývají. Žluté čárky na kabelech ukazují přenos elektrické energie ze zásuvky ke spotřebičům.">
+<style>
+/* Předloha: PDF lekce 31, s. 2 – „Přeměny elektrické energie“: mechanická práce (mixér, vrtačka,
+   výtah, elektroautomobil), teplo (vařič, topení, varná konvice), světlo (televize, žárovka),
+   chemická energie (elektrolýza vody, nabíjení akumulátorů). PDF má jen výčet bez obrázku,
+   předměty nakresleny podle něj. Bez animace = koncový stav (svítí, plně nabito). */
+@keyframes tok { from { stroke-dashoffset: 20; } to { stroke-dashoffset: 0; } }
+.tok { animation: tok 0.8s linear infinite; }
+@keyframes nuz { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(-1); } }
+.nuz { animation: nuz 0.4s linear infinite; }
+@keyframes para { 0% { transform: translateY(0); opacity: 0.9; } 100% { transform: translateY(-26px); opacity: 0; } }
+.para { animation: para 2s ease-out infinite; }
+@keyframes zar { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.9; } }
+.zar { animation: zar 1.6s ease-in-out infinite; }
+@keyframes d1 { 0%, 100% { opacity: 1; } }
+@keyframes d2 { 0%, 24% { opacity: 0.12; } 25%, 100% { opacity: 1; } }
+@keyframes d3 { 0%, 49% { opacity: 0.12; } 50%, 100% { opacity: 1; } }
+@keyframes d4 { 0%, 74% { opacity: 0.12; } 75%, 100% { opacity: 1; } }
+.d2 { animation: d2 4s step-end infinite; } .d3 { animation: d3 4s step-end infinite; } .d4 { animation: d4 4s step-end infinite; }
+@media (prefers-reduced-motion: reduce) { .tok, .nuz, .para, .zar, .d2, .d3, .d4 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="podstavec" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#212529"/><stop offset="0.4" stop-color="#6c757d"/><stop offset="1" stop-color="#212529"/></linearGradient>
+<linearGradient id="nerez" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.3" stop-color="#f8f9fa"/><stop offset="0.65" stop-color="#ced4da"/><stop offset="1" stop-color="#6c757d"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#868e96"/><stop offset="0.45" stop-color="#f1f3f5"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+<linearGradient id="zasuvka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dee2e6"/></linearGradient>
+<linearGradient id="aku" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#343a40"/><stop offset="0.35" stop-color="#6c757d"/><stop offset="1" stop-color="#212529"/></linearGradient>
+<radialGradient id="sklo" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ffe066"/></radialGradient>
+<radialGradient id="zare" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffe066"/><stop offset="1" stop-color="#ffe066" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="914" height="694" rx="14" fill="#f8f9fa"/>
+<text x="460" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Přeměny elektrické energie</text>
+
+<!-- karty -->
+<rect x="20" y="76" width="380" height="214" rx="12" fill="#fff" stroke="#dee2e6" stroke-width="2"/>
+<rect x="520" y="76" width="380" height="214" rx="12" fill="#fff" stroke="#dee2e6" stroke-width="2"/>
+<rect x="20" y="420" width="380" height="214" rx="12" fill="#fff" stroke="#dee2e6" stroke-width="2"/>
+<rect x="520" y="420" width="380" height="214" rx="12" fill="#fff" stroke="#dee2e6" stroke-width="2"/>
+
+<text x="40" y="114" font-size="22" font-weight="bold" fill="#212529">mechanická práce</text>
+<text x="40" y="150" font-size="20" fill="#212529">mixér, vrtačka,</text>
+<text x="40" y="178" font-size="20" fill="#212529">výtah, elektromobil</text>
+<text x="880" y="114" font-size="22" font-weight="bold" fill="#212529" text-anchor="end">ohřev</text>
+<text x="880" y="144" font-size="20" fill="#212529" text-anchor="end">(vnitřní energie)</text>
+<text x="880" y="180" font-size="20" fill="#212529" text-anchor="end">vařič, topení,</text>
+<text x="880" y="208" font-size="20" fill="#212529" text-anchor="end">varná konvice</text>
+<text x="40" y="458" font-size="22" font-weight="bold" fill="#212529">světlo</text>
+<text x="40" y="494" font-size="20" fill="#212529">žárovka,</text>
+<text x="40" y="522" font-size="20" fill="#212529">televize</text>
+<text x="880" y="458" font-size="22" font-weight="bold" fill="#212529" text-anchor="end">chemická energie</text>
+<text x="880" y="494" font-size="20" fill="#212529" text-anchor="end">nabíjení akumulátoru,</text>
+<text x="880" y="522" font-size="20" fill="#212529" text-anchor="end">elektrolýza vody</text>
+
+<!-- kabely se žlutými čárkami = přenos elektrické energie -->
+<g fill="none" stroke-linecap="round">
+<path d="M424 322C400 310 380 286 356 272" stroke="#495057" stroke-width="7"/>
+<path d="M496 322C520 306 536 292 556 280" stroke="#495057" stroke-width="7"/>
+<path d="M424 364C380 380 320 400 320 452" stroke="#495057" stroke-width="7"/>
+<path d="M496 364C540 380 600 400 600 452" stroke="#495057" stroke-width="7"/>
+<g class="tok" stroke="#fab005" stroke-width="4" stroke-dasharray="8 12">
+<path d="M424 322C400 310 380 286 356 272"/>
+<path d="M496 322C520 306 536 292 556 280"/>
+<path d="M424 364C380 380 320 400 320 452"/>
+<path d="M496 364C540 380 600 400 600 452"/>
+</g>
+</g>
+
+<!-- zásuvka -->
+<rect x="420" y="304" width="84" height="84" rx="14" fill="#000" opacity="0.08"/>
+<rect x="418" y="300" width="84" height="84" rx="14" fill="url(#zasuvka)" stroke="#adb5bd" stroke-width="2"/>
+<circle cx="460" cy="342" r="30" fill="#f1f3f5" stroke="#ced4da" stroke-width="2"/>
+<rect x="457" y="314" width="6" height="12" rx="2" fill="url(#kov)" stroke="#868e96"/>
+<circle cx="447" cy="346" r="5" fill="#343a40"/><circle cx="473" cy="346" r="5" fill="#343a40"/>
+<text x="460" y="410" font-size="18" fill="#212529" text-anchor="middle">zásuvka</text>
+
+<!-- mixér -->
+<ellipse cx="320" cy="284" rx="46" ry="5" fill="#000" opacity="0.12"/>
+<path d="M282 282L290 238H350L358 282Z" fill="url(#podstavec)"/>
+<circle cx="320" cy="262" r="7" fill="#e03131" stroke="#fff" stroke-width="2"/>
+<path d="M288 236L352 236L366 128L274 128Z" fill="#d0ebff" fill-opacity="0.75" stroke="#4dabf7" stroke-width="2.5"/>
+<path d="M283 136L292 228" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<rect x="268" y="116" width="104" height="14" rx="4" fill="#343a40"/>
+<rect x="312" y="108" width="16" height="10" rx="3" fill="#495057"/>
+<rect x="316" y="214" width="8" height="18" fill="#495057"/>
+<g transform="translate(320 214)"><g class="nuz"><path d="M-30 0Q-15 -7 0 0Q15 7 30 0Q15 -7 0 0Q-15 7 -30 0Z" fill="#ced4da" stroke="#495057" stroke-width="2"/></g></g>
+<path d="M290 196A32 10 0 0 0 350 196" fill="none" stroke="#1971c2" stroke-width="2.5"/>
+<path d="M350 196l-9 -2l3 7z" fill="#1971c2"/>
+
+<!-- varná konvice -->
+<ellipse cx="604" cy="286" rx="54" ry="5" fill="#000" opacity="0.12"/>
+<rect x="556" y="270" width="96" height="14" rx="5" fill="#343a40"/>
+<path d="M640 160Q680 166 670 232L644 240" fill="none" stroke="#343a40" stroke-width="11" stroke-linecap="round"/>
+<path d="M568 176L544 158L550 154L572 166Z" fill="#adb5bd" stroke="#495057" stroke-width="2"/>
+<path d="M566 268L574 152Q604 136 634 152L642 268Z" fill="url(#nerez)" stroke="#495057" stroke-width="2"/>
+<rect x="584" y="188" width="10" height="64" rx="4" fill="#a5d8ff" stroke="#495057" stroke-width="1.5"/>
+<ellipse cx="604" cy="146" rx="15" ry="6" fill="#343a40"/>
+<circle cx="624" cy="258" r="4" fill="#e03131"/>
+<g fill="none" stroke="#adb5bd" stroke-width="4" stroke-linecap="round">
+<path class="para" style="animation-delay:0s" d="M542 148q-6 -10 0 -20q6 -10 0 -20"/>
+<path class="para" style="animation-delay:-0.7s" d="M528 152q-6 -10 0 -20q6 -10 0 -20"/>
+<path class="para" style="animation-delay:-1.4s" d="M556 140q-6 -10 0 -20q6 -10 0 -20"/>
+</g>
+
+<!-- žárovka -->
+<circle class="zar" cx="320" cy="528" r="68" fill="url(#zare)" opacity="0.9"/>
+<rect x="306" y="478" width="28" height="34" fill="url(#sklo)"/>
+<circle cx="320" cy="530" r="40" fill="url(#sklo)" stroke="#f59f00" stroke-width="2.5"/>
+<path d="M306 480L306 506M334 480L334 506" stroke="#f59f00" stroke-width="2.5"/>
+<path d="M314 492L310 524M326 492L330 524" stroke="#868e96" stroke-width="2"/>
+<path d="M308 524l4 -8l4 8l4 -8l4 8l4 -8l4 8" fill="none" stroke="#e8590c" stroke-width="3" stroke-linejoin="round"/>
+<path d="M300 516Q296 536 306 552" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+<rect x="302" y="450" width="36" height="30" rx="4" fill="url(#kov)" stroke="#495057" stroke-width="2"/>
+<path d="M302 460H338M302 470H338" stroke="#868e96" stroke-width="2"/>
+<g class="zar" stroke="#f59f00" stroke-width="4" stroke-linecap="round">
+<path d="M262 530H250M378 530H390M279 489L270 480M361 489L370 480M279 571L270 580M361 571L370 580M320 584V598"/>
+</g>
+
+<!-- akumulátor při nabíjení -->
+<ellipse cx="600" cy="614" rx="44" ry="5" fill="#000" opacity="0.12"/>
+<rect x="590" y="450" width="20" height="12" rx="3" fill="url(#kov)" stroke="#495057" stroke-width="1.5"/>
+<rect x="560" y="460" width="80" height="150" rx="10" fill="url(#aku)" stroke="#212529" stroke-width="2"/>
+<rect x="572" y="474" width="56" height="124" rx="4" fill="#212529"/>
+<rect class="d1" x="576" y="568" width="48" height="26" rx="3" fill="#40c057"/>
+<rect class="d2" x="576" y="538" width="48" height="26" rx="3" fill="#40c057"/>
+<rect class="d3" x="576" y="508" width="48" height="26" rx="3" fill="#40c057"/>
+<rect class="d4" x="576" y="478" width="48" height="26" rx="3" fill="#40c057"/>
+
+<!-- legenda -->
+<path d="M250 666H312" stroke="#495057" stroke-width="7" stroke-linecap="round"/>
+<path class="tok" d="M250 666H312" stroke="#fab005" stroke-width="4" stroke-dasharray="8 12"/>
+<text x="326" y="673" font-size="20" fill="#212529">přenos elektrické energie kabelem</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva výrobní štítky spotřebičů. Kovový štítek: 220–240 V, 50–60 Hz a zakroužkovaný příkon 800 W. Bílý štítek: 220–240 V, 50–60 Hz a zakroužkovaný příkon 2 000–2 400 W. Animace: červený kroužek se kolem údaje o příkonu postupně dokreslí.">
+<style>
+/* Předloha: PDF lekce 31, s. 4 – dvě fotografie výrobních štítků se zakroužkovaným příkonem
+   (800 W; 2 000–2 400 W) a údaji 220–240 V, 50–60 Hz. Fotky překresleny, bez značek a typových čísel výrobců.
+   Kroužek se dokreslí za 1,6 s, pak 2,4 s stojí. Bez animace = celý kroužek. */
+/* Obvod elips (Ramanujan): 74×36 → 356, 140×38 → 606; čárka 360 / 610 pokryje celý obvod. */
+@keyframes kruh1 { 0% { stroke-dashoffset: 360; } 40%, 100% { stroke-dashoffset: 0; } }
+@keyframes kruh2 { 0% { stroke-dashoffset: 610; } 40%, 100% { stroke-dashoffset: 0; } }
+.kruh1 { stroke-dasharray: 360 400; animation: kruh1 4s ease-out infinite; }
+.kruh2 { stroke-dasharray: 610 650; animation: kruh2 4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .kruh1, .kruh2 { animation: none; stroke-dashoffset: 0; } }
+</style>
+<defs>
+<linearGradient id="hlinik" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.35" stop-color="#ced4da"/><stop offset="0.6" stop-color="#e9ecef"/><stop offset="1" stop-color="#adb5bd"/></linearGradient>
+<radialGradient id="nyt" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#868e96"/></radialGradient>
+<pattern id="kartac" width="400" height="6" patternUnits="userSpaceOnUse"><path d="M0 3H400" stroke="#fff" stroke-width="1" opacity="0.35"/></pattern>
+</defs>
+<rect x="3" y="3" width="914" height="494" rx="14" fill="#f8f9fa"/>
+<text x="460" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Příkon najdeš na výrobním štítku</text>
+
+<!-- kovový štítek -->
+<rect x="34" y="86" width="400" height="270" rx="12" fill="#000" opacity="0.1"/>
+<rect x="30" y="80" width="400" height="270" rx="12" fill="url(#hlinik)" stroke="#868e96" stroke-width="2"/>
+<rect x="30" y="80" width="400" height="270" rx="12" fill="url(#kartac)"/>
+<circle cx="52" cy="102" r="7" fill="url(#nyt)" stroke="#495057"/><circle cx="408" cy="102" r="7" fill="url(#nyt)" stroke="#495057"/>
+<circle cx="52" cy="328" r="7" fill="url(#nyt)" stroke="#495057"/><circle cx="408" cy="328" r="7" fill="url(#nyt)" stroke="#495057"/>
+<text x="60" y="172" font-size="30" fill="#212529">220–240 V ~</text>
+<text x="340" y="172" font-size="30" fill="#212529" text-anchor="middle">800 W</text>
+<text x="60" y="230" font-size="30" fill="#212529">50–60 Hz</text>
+<rect x="60" y="270" width="150" height="12" rx="4" fill="#868e96" opacity="0.45"/>
+<rect x="60" y="292" width="100" height="12" rx="4" fill="#868e96" opacity="0.45"/>
+<ellipse class="kruh1" cx="340" cy="162" rx="74" ry="36" fill="none" stroke="#e03131" stroke-width="6"/>
+
+<!-- bílý štítek -->
+<rect x="494" y="86" width="400" height="270" rx="8" fill="#000" opacity="0.1"/>
+<rect x="490" y="80" width="400" height="270" rx="8" fill="#fff" stroke="#ced4da" stroke-width="2"/>
+<text x="690" y="160" font-size="30" fill="#212529" text-anchor="middle">220–240 V ~ 50–60 Hz</text>
+<text x="690" y="230" font-size="32" fill="#212529" text-anchor="middle">2 000–2 400 W</text>
+<rect x="540" y="276" width="170" height="12" rx="4" fill="#868e96" opacity="0.45"/>
+<rect x="540" y="298" width="110" height="12" rx="4" fill="#868e96" opacity="0.45"/>
+<ellipse class="kruh2" cx="690" cy="219" rx="140" ry="38" fill="none" stroke="#e03131" stroke-width="6"/>
+
+<text x="230" y="400" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">příkon P<tspan font-size="16" dy="5">0</tspan><tspan dy="-5" dx="6">= 800 W</tspan></text>
+<text x="690" y="400" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">příkon P<tspan font-size="16" dy="5">0</tspan><tspan dy="-5" dx="6">= 2 000 až 2 400 W</tspan></text>
+<text x="460" y="456" font-size="20" fill="#212529" text-anchor="middle">Příkon říká, kolik elektrické energie spotřebič přijímá za 1 s.</text>
+</svg>
