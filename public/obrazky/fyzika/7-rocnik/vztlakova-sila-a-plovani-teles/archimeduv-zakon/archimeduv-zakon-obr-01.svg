@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kvádr ponořený ve vodě: kapalina na něj tlačí ze všech stran, zdola silněji než shora, boční síly se vyruší a vzniká vztlaková síla směřující vzhůru">
+<defs>
+<linearGradient id="voda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99e9f2"/><stop offset="1" stop-color="#3bc9db"/></linearGradient>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f1f3f5"/><stop offset="0.5" stop-color="#ffffff"/><stop offset="1" stop-color="#dee2e6"/></linearGradient>
+<linearGradient id="kov" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ced4da"/><stop offset="0.55" stop-color="#adb5bd"/><stop offset="1" stop-color="#868e96"/></linearGradient>
+</defs>
+<rect x="2" y="2" width="596" height="556" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="42" font-size="28" font-weight="bold" fill="#1864ab" text-anchor="middle">Proč vzniká vztlaková síla</text>
+<!-- nádoba -->
+<path d="M58,66 H72 V428 H528 V66 H542 V442 H58 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
+<rect x="72" y="110" width="456" height="318" fill="url(#voda)"/>
+<line x1="72" y1="110" x2="528" y2="110" stroke="#1098ad" stroke-width="3"/>
+<path d="M90,124 q20,-6 40,0 M440,124 q20,-6 40,0" fill="none" stroke="#e3fafc" stroke-width="3" stroke-linecap="round"/>
+<!-- kvádr -->
+<rect x="230" y="230" width="140" height="120" fill="url(#kov)" stroke="#343a40" stroke-width="3"/>
+<line x1="236" y1="236" x2="364" y2="236" stroke="#f1f3f5" stroke-width="2" opacity="0.8"/>
+<!-- síly kapaliny: délka úměrná hloubce (hloubka 120, 160, 200, 240 → 36, 48, 60, 72) -->
+<g stroke="#c92a2a" stroke-width="6" fill="#c92a2a" stroke-linecap="butt">
+<!-- shora (hloubka 120) dolů -->
+<line x1="255" y1="194" x2="255" y2="216"/><polygon stroke="none" points="246,214 264,214 255,230"/>
+<line x1="345" y1="194" x2="345" y2="216"/><polygon stroke="none" points="336,214 354,214 345,230"/>
+<!-- zdola (hloubka 240) nahoru -->
+<line x1="255" y1="422" x2="255" y2="364"/><polygon stroke="none" points="246,366 264,366 255,350"/>
+<line x1="345" y1="422" x2="345" y2="364"/><polygon stroke="none" points="336,366 354,366 345,350"/>
+<!-- zleva -->
+<line x1="182" y1="270" x2="216" y2="270"/><polygon stroke="none" points="214,261 214,279 230,270"/>
+<line x1="170" y1="310" x2="216" y2="310"/><polygon stroke="none" points="214,301 214,319 230,310"/>
+<!-- zprava -->
+<line x1="418" y1="270" x2="384" y2="270"/><polygon stroke="none" points="386,261 386,279 370,270"/>
+<line x1="430" y1="310" x2="384" y2="310"/><polygon stroke="none" points="386,301 386,319 370,310"/>
+</g>
+<!-- vztlaková síla -->
+<line x1="300" y1="290" x2="300" y2="172" stroke="#1864ab" stroke-width="9"/>
+<polygon points="288,174 312,174 300,148" fill="#1864ab"/>
+<circle cx="300" cy="290" r="6" fill="#1864ab"/>
+<text x="314" y="174" font-size="30" font-weight="bold" fill="#1864ab">F<tspan font-size="22" dy="6">vz</tspan></text>
+<!-- vysvětlivky -->
+<text x="24" y="482" font-size="22" fill="#212529">Kapalina tlačí na kvádr ze všech stran.</text>
+<text x="24" y="512" font-size="22" fill="#212529">Boční síly jsou stejné a navzájem se vyruší.</text>
+<text x="24" y="542" font-size="22" fill="#212529">Zdola tlačí víc než shora → vzniká <tspan fill="#1864ab" font-weight="bold">F<tspan font-size="22" dy="5">vz</tspan></tspan><tspan dy="-5">.</tspan></text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři stejně velké krychle ponořené ve vodě mají stejnou vztlakovou sílu: tmavá krychle s větší tíhovou silou klesá, světlá s rovnými silami se vznáší, dřevěná s menší tíhovou silou stoupá">
+<defs>
+<linearGradient id="voda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99e9f2"/><stop offset="1" stop-color="#3bc9db"/></linearGradient>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.5" stop-color="#ffffff"/><stop offset="1" stop-color="#dee2e6"/></linearGradient>
+<pattern id="leta" width="70" height="12" patternUnits="userSpaceOnUse"><rect width="70" height="12" fill="#c98a4b"/><path d="M0,6 q18,-4 35,0 t35,0" fill="none" stroke="#9c6331" stroke-width="2"/></pattern>
+</defs>
+<rect x="2" y="2" width="596" height="526" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">Klesá, vznáší se, nebo stoupá?</text>
+<!-- nádoba -->
+<path d="M20,56 H30 V430 H570 V56 H580 V440 H20 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
+<rect x="30" y="80" width="540" height="350" fill="url(#voda)"/>
+<line x1="30" y1="80" x2="570" y2="80" stroke="#1098ad" stroke-width="3"/>
+
+<!-- krychle 1: tmavá (klesá) -->
+<polygon points="75,205 89,191 159,191 145,205" fill="#868e96" stroke="#212529" stroke-width="2"/>
+<polygon points="145,205 159,191 159,261 145,275" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<rect x="75" y="205" width="70" height="70" fill="#495057" stroke="#212529" stroke-width="2"/>
+<!-- krychle 2: světlá (vznáší se) -->
+<polygon points="265,205 279,191 349,191 335,205" fill="#edf2ff" stroke="#364fc7" stroke-width="2"/>
+<polygon points="335,205 349,191 349,261 335,275" fill="#91a7ff" stroke="#364fc7" stroke-width="2"/>
+<rect x="265" y="205" width="70" height="70" fill="#bac8ff" stroke="#364fc7" stroke-width="2"/>
+<!-- krychle 3: dřevo (stoupá) -->
+<polygon points="455,205 469,191 539,191 525,205" fill="#e0a96d" stroke="#7a4a1e" stroke-width="2"/>
+<polygon points="525,205 539,191 539,261 525,275" fill="#a86f37" stroke="#7a4a1e" stroke-width="2"/>
+<rect x="455" y="205" width="70" height="70" fill="url(#leta)" stroke="#7a4a1e" stroke-width="2"/>
+
+<!-- síly: vztlak stejný (80 px) u všech, tíhová síla 160 / 80 / 40 px -->
+<g fill="#1864ab">
+<line x1="110" y1="240" x2="110" y2="182" stroke="#1864ab" stroke-width="8"/><polygon points="98,184 122,184 110,160"/>
+<line x1="300" y1="240" x2="300" y2="182" stroke="#1864ab" stroke-width="8"/><polygon points="288,184 312,184 300,160"/>
+<line x1="490" y1="240" x2="490" y2="182" stroke="#1864ab" stroke-width="8"/><polygon points="478,184 502,184 490,160"/>
+</g>
+<g fill="#e03131">
+<line x1="110" y1="240" x2="110" y2="378" stroke="#e03131" stroke-width="8"/><polygon points="98,376 122,376 110,400"/>
+<line x1="300" y1="240" x2="300" y2="298" stroke="#e03131" stroke-width="8"/><polygon points="288,296 312,296 300,320"/>
+<line x1="490" y1="240" x2="490" y2="258" stroke="#e03131" stroke-width="8"/><polygon points="478,256 502,256 490,280"/>
+</g>
+<g fill="#ffffff" stroke="#212529" stroke-width="1.5"><circle cx="110" cy="240" r="5"/><circle cx="300" cy="240" r="5"/><circle cx="490" cy="240" r="5"/></g>
+<g font-size="28" font-weight="bold" text-anchor="middle" stroke="#ffffff" stroke-width="5" paint-order="stroke">
+<text x="110" y="150" fill="#1864ab">F<tspan font-size="22" dy="5">vz</tspan></text>
+<text x="300" y="150" fill="#1864ab">F<tspan font-size="22" dy="5">vz</tspan></text>
+<text x="490" y="150" fill="#1864ab">F<tspan font-size="22" dy="5">vz</tspan></text>
+<text x="110" y="424" fill="#e03131">F<tspan font-size="22" dy="5">g</tspan></text>
+<text x="300" y="346" fill="#e03131">F<tspan font-size="22" dy="5">g</tspan></text>
+<text x="490" y="306" fill="#e03131">F<tspan font-size="22" dy="5">g</tspan></text>
+</g>
+<!-- směr pohybu -->
+<g fill="#ffd43b" stroke="#5c4300" stroke-width="2">
+<polygon points="176,222 186,222 186,252 194,252 181,270 168,252 176,252"/>
+<polygon points="548,270 558,270 558,240 566,240 553,222 540,240 548,240"/>
+</g>
+
+<!-- popisky -->
+<g font-size="24" font-weight="bold" text-anchor="middle">
+<text x="110" y="474" fill="#e03131">klesá</text>
+<text x="300" y="474" fill="#364fc7">vznáší se</text>
+<text x="490" y="474" fill="#9c6331">stoupá</text>
+</g>
+<g font-size="24" fill="#212529" text-anchor="middle">
+<text x="110" y="508">F<tspan font-size="22" dy="5">g</tspan><tspan dy="-5"> &gt; F</tspan><tspan font-size="22" dy="5">vz</tspan></text>
+<text x="300" y="508">F<tspan font-size="22" dy="5">g</tspan><tspan dy="-5"> = F</tspan><tspan font-size="22" dy="5">vz</tspan></text>
+<text x="490" y="508">F<tspan font-size="22" dy="5">g</tspan><tspan dy="-5"> &lt; F</tspan><tspan font-size="22" dy="5">vz</tspan></text>
+</g>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva stejné nafukovací míče zatlačované rukou do vody: první je pod hladinou z poloviny, druhý celý; na celý ponořený míč působí dvakrát větší vztlaková síla">
+<defs>
+<linearGradient id="voda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99e9f2"/><stop offset="1" stop-color="#3bc9db"/></linearGradient>
+<linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.5" stop-color="#ffffff"/><stop offset="1" stop-color="#dee2e6"/></linearGradient>
+<radialGradient id="lesk" cx="0.35" cy="0.3" r="0.7"><stop offset="0" stop-color="#ffffff" stop-opacity="0.7"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.25"/></radialGradient>
+<clipPath id="mic1"><circle cx="170" cy="210" r="70"/></clipPath>
+<clipPath id="mic2"><circle cx="420" cy="310" r="70"/></clipPath>
+<g id="micek">
+<circle r="70" fill="#4dabf7"/>
+<ellipse rx="50" ry="70" fill="#ffd43b"/>
+<ellipse rx="24" ry="70" fill="#fa5252"/>
+<ellipse rx="8" ry="70" fill="#ffffff"/>
+<circle r="70" fill="url(#lesk)"/>
+<circle r="70" fill="none" stroke="#1c7ed6" stroke-width="2"/>
+<ellipse cx="0" cy="-66" rx="9" ry="4" fill="#ffffff" stroke="#adb5bd"/>
+</g>
+</defs>
+<rect x="2" y="2" width="596" height="556" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">Čím víc je pod vodou, tím větší vztlak</text>
+<!-- nádoba -->
+<path d="M30,60 H40 V470 H560 V60 H570 V480 H30 Z" fill="url(#sklo)" stroke="#495057" stroke-width="2"/>
+<rect x="40" y="210" width="520" height="260" fill="url(#voda)"/>
+<!-- míče -->
+<use href="#micek" x="170" y="210"/>
+<use href="#micek" x="420" y="310"/>
+<!-- voda přes ponořené části, ponořený objem tmavší -->
+<rect x="40" y="210" width="520" height="260" fill="#3bc9db" opacity="0.25"/>
+<rect x="40" y="210" width="520" height="260" fill="#1864ab" opacity="0.4" clip-path="url(#mic1)"/>
+<rect x="40" y="210" width="520" height="260" fill="#1864ab" opacity="0.4" clip-path="url(#mic2)"/>
+<line x1="40" y1="210" x2="560" y2="210" stroke="#1098ad" stroke-width="3"/>
+<!-- ruce zatlačují míče -->
+<g stroke="#b07a4f" stroke-width="2" fill="#f4c7a1">
+<path d="M8,60 L22,46 L118,128 L104,142 Z"/>
+<ellipse cx="116" cy="146" rx="26" ry="18" transform="rotate(45 116 146)"/>
+<path d="M590,170 L578,156 L466,244 L478,258 Z"/>
+<ellipse cx="474" cy="256" rx="26" ry="18" transform="rotate(-45 474 256)"/>
+</g>
+<g stroke="#b07a4f" stroke-width="11" stroke-linecap="round"><line x1="123" y1="129" x2="143" y2="124"/><line x1="126" y1="138" x2="149" y2="131"/><line x1="128" y1="147" x2="151" y2="140"/><line x1="131" y1="155" x2="150" y2="150"/><line x1="457" y1="264" x2="439" y2="257"/><line x1="461" y1="255" x2="438" y2="247"/><line x1="464" y1="247" x2="441" y2="239"/><line x1="467" y1="239" x2="448" y2="232"/></g>
+<g stroke="#f4c7a1" stroke-width="8" stroke-linecap="round"><line x1="123" y1="129" x2="143" y2="124"/><line x1="126" y1="138" x2="149" y2="131"/><line x1="128" y1="147" x2="151" y2="140"/><line x1="131" y1="155" x2="150" y2="150"/><line x1="457" y1="264" x2="439" y2="257"/><line x1="461" y1="255" x2="438" y2="247"/><line x1="464" y1="247" x2="441" y2="239"/><line x1="467" y1="239" x2="448" y2="232"/></g>
+<!-- vztlakové síly: 80 px pro polovinu objemu, 160 px pro celý objem -->
+<g stroke="#ffffff" stroke-width="14" stroke-linecap="round" opacity="0.8">
+<line x1="170" y1="210" x2="170" y2="136"/>
+<line x1="420" y1="310" x2="420" y2="166"/>
+</g>
+<line x1="170" y1="210" x2="170" y2="150" stroke="#1864ab" stroke-width="8"/>
+<polygon points="158,152 182,152 170,130" fill="#1864ab"/>
+<line x1="420" y1="310" x2="420" y2="172" stroke="#1864ab" stroke-width="8"/>
+<polygon points="408,174 432,174 420,150" fill="#1864ab"/>
+<g font-size="28" font-weight="bold" fill="#1864ab" stroke="#ffffff" stroke-width="5" paint-order="stroke">
+<text x="182" y="128">F<tspan font-size="22" dy="5">vz</tspan></text>
+<text x="432" y="160">F<tspan font-size="22" dy="5">vz</tspan></text>
+</g>
+<!-- popisky -->
+<g font-size="24" font-weight="bold" fill="#0b4f71" text-anchor="middle">
+<text x="170" y="320">V<tspan font-size="22" dy="5">pod</tspan><tspan dy="-5"> &lt; V</tspan></text>
+<text x="420" y="420">V<tspan font-size="22" dy="5">pod</tspan><tspan dy="-5"> = V</tspan></text>
+</g>
+<g font-size="22" fill="#0b4f71" text-anchor="middle">
+<text x="170" y="350">pod vodou polovina</text>
+<text x="420" y="450">pod vodou celý míč</text>
+</g>
+<text x="300" y="512" font-size="22" fill="#212529" text-anchor="middle">Celý míč vytlačí dvakrát víc vody než polovina,</text>
+<text x="300" y="542" font-size="22" fill="#212529" text-anchor="middle">proto je vztlaková síla dvakrát větší.</text>
+</svg>
