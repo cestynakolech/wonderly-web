@@ -14,7 +14,7 @@
 - **NASAZENO eb772b06 3. 10. večer: simulace tření/síla kola 4–5 (3b4830c, a2f8361)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila s legendou „Malé síly mají krátkou šipku“, sila), doklad `Omega/predavka/2026-10-03/nasazeni-a2f8361.md`.
 - **NASAZENO bd7babae 3. 10. večer: úniky paralel/rovina (c3f4aa1), SVG N7 (fbf0165, 62db738)** — záložně `npx wrangler deploy`, živě 3/3 SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-c3f4aa1.md`.
 
-- **3. 10. 2026 pozdní večer (nejnovější; commity zatím BEZ pushe a nasazení, doklady `Omega/predavka/2026-10-03/`):** HOTOVO: úniky v kvízech 51 → 18 nálezů (54a1233, cdd0e0d, e2793f9; `kontrola-54a1233.md`, `kontrola-cdd0e0d.md`, `kontrola-e2793f9.md`), vady D1–D6 (ffbee08, `kontrola-vady-d1-d6.md`), vše zkontrolováno. HOTOVO: SVG tématu 2 (5a9952f, de827ed, kontrola 6/6). HOTOVO: test uniky-v-bloku bez živých dat (45bdc6d, f261481, kontrola PROŠLO). HOTOVO: brána uniky.mjs exit 1 (f7118a3, pushnuto). HOTOVO: kvíz rychlost (7082310, pushnuto). Simulace téma 2 (2145321, 92196be) — kolo 3 kontroly běží. ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné). Fronta viz „Fronta po 3. 10. pozdě večer“ níže. ❓ U14 vrátný: `CEKA-NA-UCITELE.md`.
+- **3. 10. 2026 pozdní večer (nejnovější; commity zatím BEZ pushe a nasazení, doklady `Omega/predavka/2026-10-03/`):** HOTOVO: úniky v kvízech 51 → 18 nálezů (54a1233, cdd0e0d, e2793f9; `kontrola-54a1233.md`, `kontrola-cdd0e0d.md`, `kontrola-e2793f9.md`), vady D1–D6 (ffbee08, `kontrola-vady-d1-d6.md`), vše zkontrolováno. HOTOVO: SVG tématu 2 (5a9952f, de827ed, kontrola 6/6). HOTOVO: test uniky-v-bloku bez živých dat (45bdc6d, f261481, kontrola PROŠLO). HOTOVO: brána uniky.mjs exit 1 (f7118a3, pushnuto). HOTOVO: kvíz rychlost (7082310, pushnuto). Simulace téma 2 (2145321, 92196be) — kolo 3 kontroly běží. ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné). Fronta viz „Fronta po 3. 10. pozdě večer“ níže. U14 vrátný VYŘEŠEN 3. 10. ACL zámkem (`CEKA-NA-UCITELE.md`).
 
 - **3. 10. 2026 odpoledne (pozdější stav):** HOTOVO: píseň Tání (20605ad, nasazeno 885aee74). HOTOVO: záznam `obousmerne.json` pro vata-zapis-shrnuti (a36508e). HOTOVO: VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98). FRONTA: viz „Fronta po 3. 10. odpoledne“ níže (VATA dávka 7, seřízení uniky-v-bloku.mjs, poslech závěru Tání). Doklady v `Omega/predavka/2026-10-03/`. **Večer:** HOTOVO: VATA dávka 7, 6/9 zapsáno (4dc9e37, kontrola PROŠLO, nasazeno 68e575f7), teziste#17#1 opraveno. HOTOVO: Tání ověřeno whisper medium, zpěv je správně (`kontrola-20605ad.md`). HOTOVO: 3 zamítnuté z dávky 7 (#4, #20, #43) vyřešeny dávkou 8. **Později:** HOTOVO: VATA dávka 8 (3/3) a shrnutí (4/5, 11 zastaralých vyřazeno, kolize vyřešeny), commit a48d7ac, kontrola PROŠLO, nasazeno 0468ea6b (curl po 20 s: nový distraktor, SHA1 živé == dist, `nasazeni-a48d7ac.md`). **Ještě později:** HOTOVO: VATA dávka 9 (2/2, 3be43bf, nasazeno 2b9aaf4b, `nasazeni-3be43bf.md`); obě dřívější položky (polovodičový d2, „jen jednou svorkou“) HOTOVO. HOTOVO: kalibrace uniky-v-bloku.mjs (56c1b08, 1621 → 51 nálezů, kontrola PROŠLO s výhradami, `kontrola-56c1b08.md`). FRONTA: opravit ~34 skutečných drobných úniků z uniky-v-bloku (`kalibrace-uniky-v-bloku.md`), pak měřidlo zapojit do prebuild; doladit práh měřidla u tříslovných odpovědí a únik do distraktoru; drobnost: reostat (kvizy.ts:4618) má jako distraktor správnou odpověď potenciometru, posoudit záměr. FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, `brew upgrade` (`oprava-whisper.md`).
 
@@ -218,7 +218,8 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
   ve `Škola/.claude/settings.json` (`PreToolUse '*'`); session spuštěná přímo z Omegy
   nebo z wonderly-web běží bez vrátného a bez černé listiny (nález K2-1). Návrh zápisu
   (jednořádkový příkaz) je v `Omega/dokumenty/audit-2026-09-27.md` (sekce K2-1, V9-4).
-- [Omega] **U14 — Vrátný: zpřísnit?** (`rm` mimo projekt, `git push --force`, session
+- [Omega] **U14 — VYŘEŠENO 3. 10. 2026:** učitel zamkl složky Škola ("2 stupen", 6–9, "Video učitel") ACL `deny delete,write,…` pro účet radek_soukromy (`chmod -R +a`, odemčení `-a`); doklad `mkdir …/Škola/7/zkouska-zamku` → Permission denied, čtení funguje. ACL zámek je druhá vrstva nad vrátným (`Omega/PRAVIDLA.md:591`). Níže historický text.
+- [Omega] (historie U14) **Vrátný: zpřísnit?** (`rm` mimo projekt, `git push --force`, session
   mimo `Škola/`) — kód dnes tyhle případy vrací `allow[+žurnál]`, návody to popisují
   správně (`Omega/PRAVIDLA.md:591` bod (a)/(c)); OTEVŘENÉ je jen to, zda učitel chce
   přidat `ask`. Doklad: `scratchpad/rozpory-kolo2.md` N1–N4 (kontrolor, 27. 9. 2026,
@@ -754,7 +755,7 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Hlídač session nepozná agenta čekajícího na dotaz (6 h stání 3. 10.).
 - Homebrew whisper rozbitý (`oprava-whisper.md`).
 - ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné).
-- ❓ U14 vrátný — `CEKA-NA-UCITELE.md`.
+- U14 vrátný — VYŘEŠENO 3. 10. ACL zámkem (`CEKA-NA-UCITELE.md`).
 
 ### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
 - Šipka páry u tlakového hrnce: `src/components/skola2/VarSimulace.astro:224–228` (kontrola3).
