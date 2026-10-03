@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 820" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři přístroje na měření tlaku vzduchu. Rtuťový barometr: při normálním tlaku sahá rtuť v trubici do výšky 760 milimetrů. Aneroid, kovový barometr s ručičkou, ukazuje 1 013 hektopascalů. Barograf zapisuje tlak perem na papír na otáčejícím se válci. Animace: když tlak stoupne, rtuť vystoupí, ručička se pootočí doprava a pero zapíše čáru výš; když tlak klesne, je to naopak.">
+<style>
+/* Animace 8s, smyčka, všechny části se stejným lineárním průběhem tlaku: 0 % normální, 25 % vyšší, 50 % normální, 75 % nižší.
+   Předloha: PDF lekce 16, str. 8 (rtuťový barometr — rtuť v trubici stoupá a klesá podle tlaku), str. 9–10 (aneroid s ručičkou),
+   str. 10–11 (barograf: válec s papírem, krabičky, pero). Normální tlak 760 mm rtuti ≈ 1 013 hPa (výklad).
+   Bez animace = koncový stav = normální tlak (rtuť na 760 mm, ručička na 1 013 hPa, stopa barografu celá). */
+.sl { transform-box: fill-box; transform-origin: 50% 100%; animation: sl 8s linear infinite; }
+.ru { transform-box: view-box; transform-origin: 0 0; animation: ru 8s linear infinite; }
+.pero { animation: pero 8s linear infinite; }
+.pap { animation: pap 8s linear infinite; }
+.tn { animation: tn 8s linear infinite; }
+.tv { animation: tv 8s linear infinite; }
+.tz { animation: tz 8s linear infinite; }
+@keyframes sl { 0%, 100% { transform: scaleY(1); } 25% { transform: scaleY(1.1053); } 50% { transform: scaleY(1); } 75% { transform: scaleY(0.8947); } }
+@keyframes ru { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(40deg); } 50% { transform: rotate(0deg); } 75% { transform: rotate(-40deg); } }
+@keyframes pero { 0%, 100% { transform: translateY(0px); } 25% { transform: translateY(-28px); } 50% { transform: translateY(0px); } 75% { transform: translateY(28px); } }
+@keyframes pap { 0% { transform: translateX(0px); } 100% { transform: translateX(-380px); } }
+@keyframes tn { 0%, 10% { opacity: 1; } 12%, 38% { opacity: 0; } 40%, 60% { opacity: 1; } 62%, 88% { opacity: 0; } 90%, 100% { opacity: 1; } }
+@keyframes tv { 0%, 10% { opacity: 0; } 12%, 38% { opacity: 1; } 40%, 100% { opacity: 0; } }
+@keyframes tz { 0%, 60% { opacity: 0; } 62%, 88% { opacity: 1; } 90%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sl, .ru, .pero, .pap, .tn, .tv, .tz { animation: none; } }
+</style>
+<defs><linearGradient id="a3rt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#495057"/><stop offset="0.35" stop-color="#ced4da"/><stop offset="1" stop-color="#343a40"/></linearGradient>
+<clipPath id="a3papir"><rect x="60" y="680" width="380" height="110"/></clipPath></defs>
+<rect x="3" y="3" width="594" height="814" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Čím měříme tlak vzduchu</text>
+<line x1="300" y1="60" x2="300" y2="560" stroke="#ced4da" stroke-width="2"/>
+<text x="150" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rtuťový barometr</text>
+<rect x="95" y="104" width="110" height="456" rx="8" fill="#e9c46a" stroke="#8d6e1c" stroke-width="2.5"/>
+<line x1="168" y1="170" x2="184" y2="170" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="190" x2="184" y2="190" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="210" x2="184" y2="210" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="230" x2="184" y2="230" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="250" x2="200" y2="250" stroke="#5d4037" stroke-width="3"/><line x1="168" y1="270" x2="184" y2="270" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="290" x2="184" y2="290" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="310" x2="184" y2="310" stroke="#5d4037" stroke-width="2"/><line x1="168" y1="330" x2="184" y2="330" stroke="#5d4037" stroke-width="2"/>
+<rect class="sl" x="144" y="250" width="12" height="285" fill="url(#a3rt)"/>
+<path d="M138,525 L138,132 A12,12 0 0 1 162,132 L162,525" fill="none" stroke="#495057" stroke-width="2.5"/>
+<path d="M116,521 L120,550 L180,550 L184,521" fill="#e7f5ff" fill-opacity="0.6" stroke="#495057" stroke-width="2.5" stroke-linejoin="round"/><rect x="121" y="535" width="58" height="13" fill="url(#a3rt)"/>
+<text x="212" y="258" font-size="22" font-weight="bold" fill="#212529">760 mm</text>
+<text x="440" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">aneroid (kovový)</text>
+<circle cx="440" cy="300" r="128" fill="#b08d2e" stroke="#7a5c12" stroke-width="3"/>
+<circle cx="440" cy="300" r="114" fill="#fff9db" stroke="#7a5c12" stroke-width="2"/>
+<line x1="348.2" y1="353" x2="365.5" y2="343" stroke="#212529" stroke-width="2"/><line x1="335.6" y1="318.4" x2="347.4" y2="316.3" stroke="#212529" stroke-width="2"/><line x1="335.6" y1="281.6" x2="347.4" y2="283.7" stroke="#212529" stroke-width="2"/><line x1="348.2" y1="247" x2="365.5" y2="257" stroke="#212529" stroke-width="2"/><line x1="371.9" y1="218.8" x2="379.6" y2="228" stroke="#212529" stroke-width="2"/><line x1="403.7" y1="200.4" x2="407.9" y2="211.7" stroke="#212529" stroke-width="2"/><line x1="476.3" y1="200.4" x2="472.1" y2="211.7" stroke="#212529" stroke-width="2"/><line x1="508.1" y1="218.8" x2="500.4" y2="228" stroke="#212529" stroke-width="2"/><line x1="531.8" y1="247" x2="514.5" y2="257" stroke="#212529" stroke-width="2"/><line x1="544.4" y1="281.6" x2="532.6" y2="283.7" stroke="#212529" stroke-width="2"/><line x1="544.4" y1="318.4" x2="532.6" y2="316.3" stroke="#212529" stroke-width="2"/><line x1="531.8" y1="353" x2="514.5" y2="343" stroke="#212529" stroke-width="2"/>
+<text x="440" y="214" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">1 013</text>
+<text x="440" y="360" font-size="22" fill="#212529" text-anchor="middle">hPa</text>
+<text x="382" y="330" font-size="22" fill="#212529" text-anchor="middle">nižší</text>
+<text x="498" y="330" font-size="22" fill="#212529" text-anchor="middle">vyšší</text>
+<g transform="translate(440 300)"><path class="ru" d="M-5,14 L0,-74 L5,14 Z" fill="#c92a2a" stroke="#7d1a1a" stroke-width="1.5" stroke-linejoin="round"/></g>
+<circle cx="440" cy="300" r="10" fill="#7a5c12"/>
+<g font-size="22" text-anchor="middle">
+<text class="tn" x="300" y="602" fill="#212529">normální tlak: 760 mm rtuti ≈ 1 013 hPa</text>
+<text class="tv" x="300" y="602" fill="#c92a2a" opacity="0">vyšší tlak: rtuť stoupá, ručička doprava</text>
+<text class="tz" x="300" y="602" fill="#1864ab" opacity="0">nižší tlak: rtuť klesá, ručička doleva</text>
+</g>
+<line x1="20" y1="624" x2="580" y2="624" stroke="#ced4da" stroke-width="2"/>
+<text x="40" y="660" font-size="22" fill="#212529"><tspan font-weight="bold">barograf</tspan> zapisuje tlak na papír</text>
+<rect x="60" y="680" width="380" height="110" fill="#ffffff" stroke="#868e96" stroke-width="2"/>
+<line x1="60" y1="695" x2="440" y2="695" stroke="#dee2e6" stroke-width="1.5"/><line x1="60" y1="722" x2="440" y2="722" stroke="#dee2e6" stroke-width="1.5"/><line x1="60" y1="749" x2="440" y2="749" stroke="#dee2e6" stroke-width="1.5"/><line x1="60" y1="776" x2="440" y2="776" stroke="#dee2e6" stroke-width="1.5"/>
+<g clip-path="url(#a3papir)"><g class="pap"><line x1="60" y1="680" x2="60" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="155" y1="680" x2="155" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="250" y1="680" x2="250" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="345" y1="680" x2="345" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="440" y1="680" x2="440" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="535" y1="680" x2="535" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="630" y1="680" x2="630" y2="790" stroke="#dee2e6" stroke-width="1.5"/><line x1="725" y1="680" x2="725" y2="790" stroke="#dee2e6" stroke-width="1.5"/>
+<path d="M60,735 L155,707 L250,735 L345,763 L440,735 L535,707 L630,735 L725,763 L820,735" fill="none" stroke="#1864ab" stroke-width="3.5" stroke-linejoin="round"/></g></g>
+<rect x="470" y="690" width="100" height="100" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+<ellipse cx="520" cy="712" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/><ellipse cx="520" cy="730" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/><ellipse cx="520" cy="748" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/><ellipse cx="520" cy="766" rx="40" ry="7" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<g class="pero"><line x1="440" y1="735" x2="520" y2="705" stroke="#495057" stroke-width="3"/><circle cx="440" cy="735" r="6" fill="#c92a2a"/></g>
+</svg>

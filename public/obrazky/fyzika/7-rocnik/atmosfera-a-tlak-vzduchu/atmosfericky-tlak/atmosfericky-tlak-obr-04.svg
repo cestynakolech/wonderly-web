@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Přísavka s háčkem se přitiskne k hladkým kachlíkům a vytlačí zpod sebe vzduch. Pod přísavkou vzduch není, a tak ji ke stěně přitlačuje tlak okolního vzduchu. Na háčku pak unese ručník. Animace: přísavka se přiblíží ke stěně, zploští se, vzduch unikne, objeví se šipky tlaku vzduchu a ručník.">
+<style>
+/* Animace 10 s, smyčka. Předloha: PDF lekce 16, str. 11 (přísavka se celou plochou přitiskne k hladkému povrchu, nesmí pod ní
+   být vzduch, drží ji tlak atmosféry; háčky v koupelně), str. 12 (foto sklenářských přísavek).
+   přiblížení 5–25 %, zploštění + únik vzduchu 25–35 %, šipky tlaku 40–50 %, ručník 55–65 %, zmizí 92–98 %.
+   Bez animace = koncový stav: přisátá plochá přísavka, šipky a ručník vidět, vzduch pod ní ne. */
+.pri { animation: pri 10s ease-in-out infinite; }
+.kup { animation: kup 10s linear infinite; }
+.pl { animation: pl 10s linear infinite; }
+.dr { animation: dr 10s linear infinite; }
+.vn { animation: vn 10s linear infinite; }
+.vd { animation: vd 10s linear infinite; }
+.si { animation: si 10s linear infinite; }
+.ru { animation: ru 10s linear infinite; }
+.celek { animation: celek 10s linear infinite; }
+@keyframes pri { 0%, 5% { transform: translateX(-110px); } 25%, 100% { transform: translateX(0px); } }
+@keyframes kup { 0%, 25% { opacity: 1; } 30%, 100% { opacity: 0; } }
+@keyframes pl { 0%, 25% { opacity: 0; } 30%, 100% { opacity: 1; } }
+@keyframes dr { 0%, 25% { transform: translateX(-34px); } 30%, 100% { transform: translateX(0px); } }
+@keyframes vn { 0%, 25% { opacity: 1; transform: translateY(0px); } 35%, 100% { opacity: 0; transform: translateY(-70px); } }
+@keyframes vd { 0%, 25% { opacity: 1; transform: translateY(0px); } 35%, 100% { opacity: 0; transform: translateY(70px); } }
+@keyframes si { 0%, 40% { opacity: 0; } 50%, 100% { opacity: 1; } }
+@keyframes ru { 0%, 55% { opacity: 0; } 65%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pri, .kup, .pl, .dr, .vn, .vd, .si, .ru, .celek { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Přísavku drží tlak vzduchu</text>
+<text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">pod přísavkou není vzduch</text>
+<rect x="400" y="90" width="180" height="390" fill="#e3fafc"/>
+<line x1="400" y1="90" x2="580" y2="90" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="168" x2="580" y2="168" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="246" x2="580" y2="246" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="324" x2="580" y2="324" stroke="#99e9f2" stroke-width="2"/><line x1="400" y1="402" x2="580" y2="402" stroke="#99e9f2" stroke-width="2"/><line x1="490" y1="90" x2="490" y2="480" stroke="#99e9f2" stroke-width="2"/>
+<line x1="400" y1="90" x2="400" y2="480" stroke="#495057" stroke-width="3"/>
+<text x="490" y="460" font-size="22" fill="#212529" text-anchor="middle">kachlíky</text>
+<g class="celek">
+<g transform="translate(400 0)"><g class="pri">
+<g class="vn" opacity="0"><circle cx="-14" cy="236" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/><circle cx="-26" cy="252" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/><circle cx="-10" cy="216" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/></g>
+<g class="vd" opacity="0"><circle cx="-14" cy="284" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/><circle cx="-26" cy="268" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/><circle cx="-10" cy="304" r="4.5" fill="#74c0fc" stroke="#1864ab" stroke-width="1.5"/></g>
+<path class="kup" opacity="0" d="M0,195 C-25,198 -50,228 -52,260 C-50,292 -25,322 0,325 L0,317 C-20,314 -42,290 -44,260 C-42,230 -20,206 0,203 Z" fill="#1c7ed6" stroke="#0b4f8a" stroke-width="2" stroke-linejoin="round"/>
+<path class="pl" d="M0,180 C-8,182 -18,220 -18,260 C-18,300 -8,338 0,340 Z" fill="#1c7ed6" stroke="#0b4f8a" stroke-width="2" stroke-linejoin="round"/>
+<g class="dr"><rect x="-96" y="248" width="80" height="24" rx="6" fill="#1971c2" stroke="#0b4f8a" stroke-width="2"/>
+<path d="M-90,272 C-90,300 -100,312 -112,312 C-126,312 -132,300 -128,290" fill="none" stroke="#495057" stroke-width="6" stroke-linecap="round"/>
+<g class="ru"><path d="M-150,308 L-74,308 L-70,440 L-154,440 Z" fill="#e64980" stroke="#a61e4d" stroke-width="2" stroke-linejoin="round"/><path d="M-152,420 L-72,420 M-152,428 L-72,428" stroke="#ffffff" stroke-width="3"/></g></g>
+</g></g>
+<g class="si"><path d="M326,191 L372,191 L372,184 L388,196 L372,208 L372,201 L326,201 Z" fill="#e03131" stroke="#a51d1d" stroke-width="1.5" stroke-linejoin="round"/><path d="M340,321 L375,321 L375,314 L391,326 L375,338 L375,331 L340,331 Z" fill="#e03131" stroke="#a51d1d" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="300" y="164" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">tlak vzduchu</text></g>
+</g>
+</svg>

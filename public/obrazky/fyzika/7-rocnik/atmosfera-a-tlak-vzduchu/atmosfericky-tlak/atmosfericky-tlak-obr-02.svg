@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Torricelliho pokus ve třech krocích: 1. trubici zavřenou na jednom konci naplní rtutí, 2. otvor zakryje prstem a trubici obrátí do misky se rtutí, 3. prst odtáhne a rtuť v trubici klesne na výšku 760 milimetrů nad hladinou v misce. Sloupec drží atmosférický tlak, který tlačí na hladinu rtuti v misce. Animace: rtuť v trubici klesá, pak se objeví šipky tlaku vzduchu a výška 760 mm.">
+<style>
+/* Animace 10 s, smyčka. Předloha: PDF lekce 16, str. 6 (rytina: trubice nad miskou, pak obrácená v misce; schéma s červenými šipkami
+   tlaku na volnou hladinu a kótou výšky sloupce). Měřítko panelu 3: 1 000 mm trubice = 436 px, 760 mm = 331 px.
+   prst zmizí 8–12 %, rtuť klesá 15–45 % (scaleY 1.283 → 1), šipky tlaku 45–55 %, kóta 55–65 %, zmizí 92–98 %.
+   Bez animace = koncový stav: sloupec 760 mm, šipky i kóta vidět, prst ne. */
+.prst { animation: prst 10s linear infinite; }
+.sl { transform-box: fill-box; transform-origin: 50% 100%; animation: sl 10s ease-out infinite; }
+.si { animation: si 10s linear infinite; }
+.ko { animation: ko 10s linear infinite; }
+.celek { animation: celek 10s linear infinite; }
+@keyframes prst { 0%, 8% { opacity: 1; } 12%, 100% { opacity: 0; } }
+@keyframes sl { 0%, 15% { transform: scaleY(1.283); } 45%, 100% { transform: scaleY(1); } }
+@keyframes si { 0%, 45% { opacity: 0; } 55%, 100% { opacity: 1; } }
+@keyframes ko { 0%, 55% { opacity: 0; } 65%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .prst, .sl, .si, .ko, .celek { animation: none; } }
+</style>
+<defs><linearGradient id="a2rt" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#495057"/><stop offset="0.35" stop-color="#ced4da"/><stop offset="1" stop-color="#343a40"/></linearGradient></defs>
+<rect x="3" y="3" width="594" height="714" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Torricelliho pokus (1643)</text>
+<line x1="160" y1="60" x2="160" y2="700" stroke="#ced4da" stroke-width="2"/><line x1="300" y1="60" x2="300" y2="700" stroke="#ced4da" stroke-width="2"/>
+<text x="90" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1. naplní</text>
+<text x="90" y="112" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">rtutí</text>
+<rect x="82" y="152" width="16" height="434" fill="url(#a2rt)"/>
+<path d="M78,150 L78,578 A12,12 0 0 0 102,578 L102,150" fill="none" stroke="#495057" stroke-width="3"/>
+<text x="230" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">2. obrátí</text>
+<text x="230" y="112" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">do misky</text>
+<rect x="222" y="144" width="16" height="436" fill="url(#a2rt)"/>
+<path d="M218,580 L218,152 A12,12 0 0 1 242,152 L242,580" fill="none" stroke="#495057" stroke-width="3"/>
+<path d="M214,582 C214,602 246,602 246,582 L246,620 L214,620 Z" fill="#f1c27d" stroke="#a0703c" stroke-width="2" stroke-linejoin="round"/><path d="M221,588 C224,593 236,593 239,588" fill="none" stroke="#a0703c" stroke-width="1.5"/>
+<path d="M176,616 L184,680 L276,680 L284,616" fill="#e7f5ff" fill-opacity="0.6" stroke="#495057" stroke-width="3" stroke-linejoin="round"/><path d="M180,640 L280,640 L275,677 L185,677 Z" fill="url(#a2rt)"/>
+<text x="440" y="86" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">3. rtuť klesne</text>
+<g class="celek">
+<path d="M318,546 L326,640 L554,640 L562,546" fill="#e7f5ff" fill-opacity="0.6" stroke="#495057" stroke-width="3" stroke-linejoin="round"/><path d="M322,570 L558,570 L553,637 L327,637 Z" fill="url(#a2rt)"/>
+<rect class="sl" x="392" y="239" width="16" height="371" fill="url(#a2rt)"/>
+<path d="M388,610 L388,134 A12,12 0 0 1 412,134 L412,610" fill="none" stroke="#495057" stroke-width="3"/>
+<g class="prst" opacity="0"><path d="M384,612 C384,632 416,632 416,612 L416,650 L384,650 Z" fill="#f1c27d" stroke="#a0703c" stroke-width="2" stroke-linejoin="round"/><path d="M391,618 C394,623 406,623 409,618" fill="none" stroke="#a0703c" stroke-width="1.5"/></g>
+<g class="si"><path d="M335,500 L345,500 L345,550 L352,550 L340,566 L328,550 L335,550 Z" fill="#e03131" stroke="#a51d1d" stroke-width="1.5" stroke-linejoin="round"/><path d="M361,500 L371,500 L371,550 L378,550 L366,566 L354,550 L361,550 Z" fill="#e03131" stroke="#a51d1d" stroke-width="1.5" stroke-linejoin="round"/><path d="M487,500 L497,500 L497,550 L504,550 L492,566 L480,550 L487,550 Z" fill="#e03131" stroke="#a51d1d" stroke-width="1.5" stroke-linejoin="round"/><path d="M515,500 L525,500 L525,550 L532,550 L520,566 L508,550 L515,550 Z" fill="#e03131" stroke="#a51d1d" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="440" y="672" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">vzduch tlačí na hladinu</text>
+<text x="440" y="698" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">a drží sloupec rtuti</text></g>
+<g class="ko"><line x1="414" y1="239" x2="470" y2="239" stroke="#212529" stroke-width="2"/>
+<line x1="456" y1="243" x2="456" y2="566" stroke="#212529" stroke-width="2.5"/>
+<path d="M449,255 L456,241 L463,255 M449,554 L456,568 L463,554" fill="none" stroke="#212529" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="464" y="383" width="92" height="34" rx="5" fill="#f8f9fa"/>
+<text x="468" y="408" font-size="24" font-weight="bold" fill="#212529">760 mm</text></g>
+</g>
+</svg>
