@@ -412,3 +412,14 @@ Pravidla kap. 3 (úvod „Jednoduše řečeno“, rozsah = PDF, zápis ≤ 8 ř�
    ne smazán) a kvíz dál pokrývá výklad.
 
 **Pilot schválen učitelem 29. 9. 2026 (Klid a pohyb 7, Výkon 8).**
+
+## 14. PŘEDLOHOVÁ STRÁNKA — méně textu, více obrázků, děje animací (pokyn učitele 3. 10. 2026)
+
+Učitel doslova: „Klid a pohyb tělesa je dobře udělaná stránka a mohla by být předlohou pro ostatní stránky — tím nemyslím vše začít znovu předělávat, co je předělané, nechat a pokračovat dál, ale pro další stránky dodržovat méně textu, více obrázků, stejně jako je to na předlohovém PDF, a některé děje vyjádřit i animací.“
+
+- **Předloha:** podtéma `klid-a-pohyb-telesa` (`fyzika/7-rocnik/pohyb-a-rychlost`, `src/data/temata.ts`, řádek ~1743; interakce `relativita-pohybu` = `RelativitaPohybuSimulace.astro`).
+- **Měřítko (naměřeno 3. 10. 2026):** výklad 413 slov · 7 obrázků ve výkladu (5 SVG kreseb + 2 jpg; plus 1 infografika v materiálech) · 1 interaktivní simulace · 1 video → zhruba **60 slov na obrázek**, každý oddíl s vlastním obrázkem. Měřítko, ne přesný limit: nový výklad nemá být textovější (ani se stejným rozsahem jen ozdobený) než předloha.
+- **Platí jen pro NOVÉ a dosud nepředělané stránky.** Hotové (předělané) stránky se kvůli tomuto pravidlu NEpředělávají.
+- **Obrázky podle předlohového PDF:** počet a téma obrázků vychází ze stran PDF; obrázek se z PDF PŘEKRESLUJE (ne kopie), viz kap. 3 a `feedback-obrazek-prekreslit-z-pdf`.
+- **Děje** (pohyb, ohřev, změny skupenství apod.) vyjádřit animací/simulací (kap. 7), je-li co ukázat; statický jev stačí obrázkem.
+- Šablona zadání workerů `Omega/predavka/2026-10-01/SABLONY-ZADANI.md` odkazuje na tuto kapitolu; při rozporu v rozsahu (~650 slov) vede tahle kapitola.
