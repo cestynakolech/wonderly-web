@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Míchání barviv CMYK. Nahoře čtyři inkousty: C azurová, M purpurová, Y žlutá a K černá. Tři kruhy barviv na bílém papíře se překrývají: purpurová a žlutá dají červenou, azurová a purpurová modrou, azurová a žlutá zelenou a všechny tři dohromady černou, která pohltí všechno světlo. Čím víc barviv, tím tmavší výsledek. Animace: barviva přibývají postupně.">
+<style>
+/* Animace 10 s, smyčka. Předloha: PDF lekce 29, str. 11 (tečky C M Y K, tři překrývající se kruhy barviv), text str. 9–10, infografika (karta 3). purpurová 3–10 %, žlutá + červená 18–25 %, azurová + modrá/zelená/černá 35–42 %, řádky po nich, zmizí 92–98 %.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy ukazují vše. */
+.sM { animation: sM 10s linear infinite; }
+@keyframes sM { 0%, 3% { opacity: 0; } 10%, 100% { opacity: 1; } }
+.sY { animation: sY 10s linear infinite; }
+@keyframes sY { 0%, 18% { opacity: 0; } 25%, 100% { opacity: 1; } }
+.sC { animation: sC 10s linear infinite; }
+@keyframes sC { 0%, 35% { opacity: 0; } 42%, 100% { opacity: 1; } }
+.l1 { animation: l1 10s linear infinite; }
+@keyframes l1 { 0%, 25% { opacity: 0; } 30%, 100% { opacity: 1; } }
+.l2 { animation: l2 10s linear infinite; }
+@keyframes l2 { 0%, 42% { opacity: 0; } 47%, 100% { opacity: 1; } }
+.l3 { animation: l3 10s linear infinite; }
+@keyframes l3 { 0%, 47% { opacity: 0; } 52%, 100% { opacity: 1; } }
+.l4 { animation: l4 10s linear infinite; }
+@keyframes l4 { 0%, 52% { opacity: 0; } 57%, 100% { opacity: 1; } }
+.celek { animation: celek 10s linear infinite; }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sM, .sY, .sC, .l1, .l2, .l3, .l4, .celek { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="714" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Míchání barviv — CMYK</text><text x="300" y="66" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">barviva světlo pohlcují</text>
+<defs><clipPath id="vbM"><circle cx="300" cy="245" r="88"/></clipPath><clipPath id="vbY"><circle cx="250" cy="332" r="88"/></clipPath></defs>
+<rect x="120" y="140" width="360" height="300" rx="8" fill="#ffffff" stroke="#ced4da" stroke-width="2"/><text x="196" y="116" font-size="24" font-weight="bold" fill="#212529" text-anchor="end">C</text><circle cx="214" cy="108" r="13" fill="#00aeef" stroke="#495057" stroke-width="1.5"/><text x="256" y="116" font-size="24" font-weight="bold" fill="#212529" text-anchor="end">M</text><circle cx="274" cy="108" r="13" fill="#ec008c" stroke="#495057" stroke-width="1.5"/><text x="316" y="116" font-size="24" font-weight="bold" fill="#212529" text-anchor="end">Y</text><circle cx="334" cy="108" r="13" fill="#fff200" stroke="#495057" stroke-width="1.5"/><text x="376" y="116" font-size="24" font-weight="bold" fill="#212529" text-anchor="end">K</text><circle cx="394" cy="108" r="13" fill="#231f20" stroke="#495057" stroke-width="1.5"/>
+<g class="celek">
+<g class="sM"><circle cx="300" cy="245" r="88" fill="#ec008c"/><text x="300" y="205" font-size="26" font-weight="bold" fill="#000000" text-anchor="middle">M</text></g>
+<g class="sY"><circle cx="250" cy="332" r="88" fill="#fff200"/><circle cx="250" cy="332" r="88" fill="#ed1c24" clip-path="url(#vbM)"/><text x="208" y="362" font-size="26" font-weight="bold" fill="#000000" text-anchor="middle">Y</text></g>
+<g class="sC"><circle cx="350" cy="332" r="88" fill="#00aeef"/><circle cx="350" cy="332" r="88" fill="#2e3192" clip-path="url(#vbM)"/><circle cx="350" cy="332" r="88" fill="#00a651" clip-path="url(#vbY)"/><g clip-path="url(#vbM)"><circle cx="350" cy="332" r="88" fill="#231f20" clip-path="url(#vbY)"/></g><text x="392" y="362" font-size="26" font-weight="bold" fill="#000000" text-anchor="middle">C</text></g>
+<g class="l1"><circle cx="62" cy="477" r="15" fill="#ed1c24" stroke="#495057" stroke-width="2"/><text x="90" y="485" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">purpurová + žlutá = <tspan font-weight="bold">červená</tspan></text></g>
+<g class="l2"><circle cx="62" cy="523" r="15" fill="#2e3192" stroke="#495057" stroke-width="2"/><text x="90" y="531" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">azurová + purpurová = <tspan font-weight="bold">modrá</tspan></text></g>
+<g class="l3"><circle cx="62" cy="569" r="15" fill="#00a651" stroke="#495057" stroke-width="2"/><text x="90" y="577" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">azurová + žlutá = <tspan font-weight="bold">zelená</tspan></text></g>
+<g class="l4"><circle cx="62" cy="615" r="15" fill="#231f20" stroke="#495057" stroke-width="2"/><text x="90" y="623" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">všechny tři = <tspan font-weight="bold">černá</tspan> (pohltí vše)</text></g>
+</g>
+<text x="300" y="680" font-size="22" font-weight="normal" fill="#495057" text-anchor="middle">víc barviv → tmavší výsledek</text><text x="300" y="706" font-size="22" font-weight="normal" fill="#495057" text-anchor="middle">K = černý inkoust navíc</text>
+</svg>
