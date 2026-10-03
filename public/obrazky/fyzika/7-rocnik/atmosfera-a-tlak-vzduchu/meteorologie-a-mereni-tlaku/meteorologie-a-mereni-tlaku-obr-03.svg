@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 490" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Aneroid zevnitř: pružná plechová krabička je přes táhlo spojená s ručičkou. Když tlak vzduchu klesá, krabička se roztáhne a ručička se posune k nápisu déšť – počasí se kazí. Když tlak stoupá, krabička se stlačí a ručička se posune k nápisu jasno. Rychlý pokles o víc než 10 hPa za pár hodin varuje před vichřicí. Animace: krabička se střídavě roztahuje a stlačuje a ručička se otáčí.">
+<style>
+/* Předloha: PDF lekce 18, str. 5–6 (barometr obsahuje aneroid – plechovou krabičku, která se při změně tlaku prohýbá
+   a posunuje ručičkou na stupnici; změny tlaku přinášejí změny počasí). Pozn.: vnější pohled na aneroid a barograf
+   je v obrázku podtématu atmosfericky-tlak (obr-03) – tady je NOVĚ vnitřek a souvislost s počasím.
+   10 s: 0–8 % normální tlak, 8–30 % tlak klesá (krabička 1 → 1,5, táhlo −15 px, ručička 0° → −40°), drží do 48 %,
+   48–70 % tlak stoupá (krabička → 0,7, táhlo +9 px, ručička → +40°), drží do 88 %, 88–100 % zpět.
+   Zvýraznění karty: „klesá“ 18–48 %, „stoupá“ 62–88 %.
+   Bez animace = koncový stav „tlak klesá“: krabička roztažená, ručička u „déšť“, zvýrazněná horní karta. */
+.ru { transform-origin: 170px 250px; transform: rotate(-40deg); animation: ru 10s ease-in-out infinite; }
+.kr { transform-origin: 170px 337px; transform: scaleY(1.5); animation: kr 10s ease-in-out infinite; }
+.ta { transform: translateY(-15px); animation: ta 10s ease-in-out infinite; }
+.zk { animation: zk 10s linear infinite; }
+.zs { animation: zs 10s linear infinite; }
+@keyframes ru { 0%, 8% { transform: rotate(0deg); } 30%, 48% { transform: rotate(-40deg); } 70%, 88% { transform: rotate(40deg); } 100% { transform: rotate(0deg); } }
+@keyframes kr { 0%, 8% { transform: scaleY(1); } 30%, 48% { transform: scaleY(1.5); } 70%, 88% { transform: scaleY(0.7); } 100% { transform: scaleY(1); } }
+@keyframes ta { 0%, 8% { transform: translateY(0px); } 30%, 48% { transform: translateY(-15px); } 70%, 88% { transform: translateY(9px); } 100% { transform: translateY(0px); } }
+@keyframes zk { 0%, 12% { opacity: 0; } 18%, 48% { opacity: 1; } 54%, 100% { opacity: 0; } }
+@keyframes zs { 0%, 56% { opacity: 0; } 62%, 88% { opacity: 1; } 94%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ru, .kr, .ta, .zk, .zs { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="484" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Aneroid: krabička hýbe ručičkou</text>
+<text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">při změně tlaku se krabička prohne</text>
+<!-- ciferník -->
+<text x="170" y="106" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">1 013 hPa</text>
+<circle cx="170" cy="250" r="134" fill="#e9ecef" stroke="#495057" stroke-width="4"/>
+<circle cx="170" cy="250" r="126" fill="#fff9db" stroke="#adb5bd" stroke-width="2"/>
+<g stroke="#212529" stroke-width="3">
+<line x1="170" y1="138" x2="170" y2="126" transform="rotate(-60 170 250)"/><line x1="170" y1="138" x2="170" y2="126" transform="rotate(-50 170 250)"/>
+<line x1="170" y1="138" x2="170" y2="126" transform="rotate(-40 170 250)"/><line x1="170" y1="138" x2="170" y2="126" transform="rotate(-30 170 250)"/>
+<line x1="170" y1="138" x2="170" y2="126" transform="rotate(-20 170 250)"/><line x1="170" y1="138" x2="170" y2="126" transform="rotate(-10 170 250)"/>
+<line x1="170" y1="138" x2="170" y2="122" stroke-width="5"/>
+<line x1="170" y1="138" x2="170" y2="126" transform="rotate(10 170 250)"/><line x1="170" y1="138" x2="170" y2="126" transform="rotate(20 170 250)"/>
+<line x1="170" y1="138" x2="170" y2="126" transform="rotate(30 170 250)"/><line x1="170" y1="138" x2="170" y2="126" transform="rotate(40 170 250)"/>
+<line x1="170" y1="138" x2="170" y2="126" transform="rotate(50 170 250)"/><line x1="170" y1="138" x2="170" y2="126" transform="rotate(60 170 250)"/>
+</g>
+<text x="83" y="228" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">déšť</text>
+<text x="257" y="228" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">jasno</text>
+<!-- podstavec a pružná krabička -->
+<rect x="108" y="342" width="124" height="10" rx="2" fill="#868e96"/>
+<g class="kr">
+<path d="M117.5 316 q7.5 -8 15 0 q7.5 -8 15 0 q7.5 -8 15 0 q7.5 -8 15 0 q7.5 -8 15 0 q7.5 -8 15 0 q7.5 -8 15 0 L222.5 334 q-7.5 8 -15 0 q-7.5 8 -15 0 q-7.5 8 -15 0 q-7.5 8 -15 0 q-7.5 8 -15 0 q-7.5 8 -15 0 q-7.5 8 -15 0 Z" fill="#ced4da" stroke="#495057" stroke-width="3"/>
+</g>
+<!-- táhlo -->
+<g class="ta">
+<line x1="170" y1="312" x2="170" y2="262" stroke="#495057" stroke-width="5"/>
+</g>
+<circle cx="170" cy="250" r="14" fill="#adb5bd" stroke="#495057" stroke-width="3"/>
+<!-- ručička -->
+<g class="ru">
+<polygon points="170,146 163,250 177,250" fill="#c92a2a"/>
+</g>
+<circle cx="170" cy="250" r="6" fill="#212529"/>
+<line x1="170" y1="356" x2="170" y2="392" stroke="#495057" stroke-width="2"/>
+<text x="170" y="412" font-size="22" fill="#212529" text-anchor="middle">pružná krabička</text>
+<!-- karta: tlak klesá -->
+<rect x="330" y="100" width="255" height="130" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<rect class="zk" x="330" y="100" width="255" height="130" rx="10" fill="none" stroke="#c92a2a" stroke-width="5"/>
+<text x="345" y="137" font-size="22" font-weight="bold" fill="#c92a2a">tlak klesá ↓</text>
+<text x="345" y="172" font-size="22" fill="#212529">krabička se roztáhne,</text>
+<text x="345" y="206" font-size="22" fill="#212529">ručička ukáže déšť</text>
+<g stroke="#1971c2" stroke-width="3" stroke-linecap="round"><line x1="534" y1="140" x2="530" y2="150"/><line x1="548" y1="140" x2="544" y2="150"/><line x1="562" y1="140" x2="558" y2="150"/></g>
+<g fill="#dee2e6" stroke="#495057" stroke-width="2.5"><ellipse cx="537" cy="124" rx="17" ry="11"/><ellipse cx="561" cy="124" rx="17" ry="11"/><ellipse cx="549" cy="114" rx="17" ry="13"/></g>
+<ellipse cx="549" cy="126" rx="26" ry="8" fill="#dee2e6"/>
+<!-- karta: tlak stoupá -->
+<rect x="330" y="245" width="255" height="130" rx="10" fill="#ffffff" stroke="#adb5bd" stroke-width="2"/>
+<rect class="zs" x="330" y="245" width="255" height="130" rx="10" fill="none" stroke="#1864ab" stroke-width="5" opacity="0"/>
+<text x="345" y="282" font-size="22" font-weight="bold" fill="#1864ab">tlak stoupá ↑</text>
+<text x="345" y="317" font-size="22" fill="#212529">krabička se stlačí,</text>
+<text x="345" y="351" font-size="22" fill="#212529">ručička ukáže jasno</text>
+<g stroke="#f08c00" stroke-width="3" stroke-linecap="round">
+<line x1="550" y1="257" x2="550" y2="262"/><line x1="550" y1="290" x2="550" y2="295"/><line x1="531" y1="276" x2="536" y2="276"/><line x1="564" y1="276" x2="569" y2="276"/>
+<line x1="537" y1="263" x2="540" y2="266"/><line x1="560" y1="286" x2="563" y2="289"/><line x1="537" y1="289" x2="540" y2="286"/><line x1="560" y1="266" x2="563" y2="263"/>
+</g>
+<circle cx="550" cy="276" r="11" fill="#ffd43b" stroke="#f08c00" stroke-width="2.5"/>
+<!-- varování -->
+<text x="300" y="446" font-size="22" fill="#212529" text-anchor="middle">Rychlý pokles o víc než <tspan font-weight="bold">10 hPa</tspan> za pár hodin</text>
+<text x="300" y="474" font-size="22" fill="#212529" text-anchor="middle">varuje před vichřicí.</text>
+</svg>

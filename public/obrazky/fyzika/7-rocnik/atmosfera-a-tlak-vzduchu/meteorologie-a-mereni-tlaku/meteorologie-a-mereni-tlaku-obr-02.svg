@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Povětrnostní mapa: kolem tlakové výše V jsou izobary daleko od sebe, je tam slunečno a slabý vítr. Kolem tlakové níže N jsou izobary hustě u sebe, je tam oblačno se srážkami a silný vítr. Vítr proudí od výše k níži a otáčení Země ho stáčí do víru kolem níže. Animace: proužky větru běží po šipkách, u níže rychleji; z mraku padá déšť.">
+<style>
+/* Předloha: PDF lekce 18, str. 2 (družicový snímek víru tlakové níže) + str. 1 (rotace Země → proudící vzduch vytváří víry).
+   Mapa je schéma, ne snímek: izobary, V a N podle výkladu (Povětrnostní mapa). Vír kolem N proti směru hodinových ručiček,
+   od V po směru (severní polokoule). Proužky větru: u N posun 24 px za 0,6 s, u V za 1,6 s. Déšť 1 s.
+   Bez animace = koncový stav: přerušované šipky větru stojí, kapky deště stojí pod mrakem. */
+.rych { animation: rych 0.6s linear infinite; }
+.pom { animation: pom 1.6s linear infinite; }
+.ka { animation: ka 1s linear infinite; }
+@keyframes rych { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -24; } }
+@keyframes pom { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -24; } }
+@keyframes ka { 0% { transform: translateY(-12px); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(18px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .rych, .pom, .ka { animation: none; } }
+</style>
+<defs>
+<marker id="hr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#1864ab"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Povětrnostní mapa</text>
+<text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">izobary spojují místa se stejným tlakem</text>
+<rect x="15" y="85" width="570" height="300" fill="#ebfbee"/>
+<!-- izobary kolem V: daleko od sebe -->
+<g fill="none" stroke="#495057" stroke-width="2.5">
+<ellipse cx="150" cy="240" rx="40" ry="30"/><ellipse cx="150" cy="240" rx="80" ry="60"/><ellipse cx="150" cy="240" rx="120" ry="90"/>
+</g>
+<!-- izobary kolem N: hustě u sebe -->
+<g fill="none" stroke="#495057" stroke-width="2.5">
+<ellipse cx="450" cy="240" rx="24" ry="18"/><ellipse cx="450" cy="240" rx="49" ry="37"/><ellipse cx="450" cy="240" rx="74" ry="55"/><ellipse cx="450" cy="240" rx="99" ry="74"/><ellipse cx="450" cy="240" rx="124" ry="93"/>
+</g>
+<!-- vítr -->
+<g fill="none" stroke="#1864ab" stroke-width="5" stroke-dasharray="14 10" marker-end="url(#hr)">
+<path class="pom" d="M 120 282 C 92 272 84 240 98 214"/>
+<path class="pom" d="M 185 205 C 230 196 270 200 300 220" marker-end="none"/>
+<path class="rych" d="M 300 220 C 330 245 350 300 395 318 C 440 336 490 320 500 285 C 508 262 492 246 470 242"/>
+<path class="rych" d="M 565 345 C 585 280 545 200 475 196 C 432 194 400 220 410 258"/>
+</g>
+<text x="150" y="250" font-size="34" font-weight="bold" fill="#1864ab" text-anchor="middle">V</text>
+<text x="450" y="252" font-size="34" font-weight="bold" fill="#c92a2a" text-anchor="middle">N</text>
+<!-- slunce u V -->
+<g stroke="#f08c00" stroke-width="3" stroke-linecap="round">
+<line x1="55" y1="90" x2="55" y2="96"/><line x1="55" y1="134" x2="55" y2="140"/><line x1="30" y1="115" x2="36" y2="115"/><line x1="74" y1="115" x2="80" y2="115"/>
+<line x1="37" y1="97" x2="41" y2="101"/><line x1="69" y1="129" x2="73" y2="133"/><line x1="37" y1="133" x2="41" y2="129"/><line x1="69" y1="101" x2="73" y2="97"/>
+</g>
+<circle cx="55" cy="115" r="15" fill="#ffd43b" stroke="#f08c00" stroke-width="3"/>
+<!-- mrak a déšť u N -->
+<g stroke="#1971c2" stroke-width="3" stroke-linecap="round">
+<line class="ka" x1="522" y1="132" x2="518" y2="142" style="animation-delay:0s"/>
+<line class="ka" x1="542" y1="132" x2="538" y2="142" style="animation-delay:-0.35s"/>
+<line class="ka" x1="562" y1="132" x2="558" y2="142" style="animation-delay:-0.7s"/>
+</g>
+<g fill="#dee2e6" stroke="#495057" stroke-width="2.5">
+<ellipse cx="525" cy="112" rx="22" ry="15"/><ellipse cx="557" cy="112" rx="22" ry="15"/><ellipse cx="541" cy="100" rx="22" ry="17"/>
+</g>
+<ellipse cx="541" cy="114" rx="34" ry="11" fill="#dee2e6"/>
+<!-- legenda -->
+<text x="150" y="418" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">V = tlaková výše</text>
+<text x="150" y="446" font-size="22" fill="#212529" text-anchor="middle">slunečno, slabý vítr</text>
+<text x="450" y="418" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="middle">N = tlaková níže</text>
+<text x="450" y="446" font-size="22" fill="#212529" text-anchor="middle">oblačno, silný vítr</text>
+<text x="300" y="480" font-size="22" fill="#212529" text-anchor="middle">hustší izobary → silnější vítr</text>
+</svg>

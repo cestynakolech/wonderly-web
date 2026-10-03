@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Slunce ohřívá povrch Země. Teplý vzduch nad ohřátým místem stoupá vzhůru a vzniká tam tlaková níže N s nižším tlakem a oblačností. Z okolí, kde je vyšší tlak V, proudí vzduch k níži – to je vítr. Animace: částice teplého vzduchu stoupají, částice vzduchu z okolí proudí při zemi k níži, nad níží se objeví mrak.">
+<style>
+/* Předloha: PDF lekce 18 Meteorologická pozorování, str. 1 (Proudění vzduchu: slunce ohřívá povrch i vzduch → teplý vzduch
+   stoupá → tlaková níže (podtlak) → na místo proudí vzduch z okolí = vítr, přenáší oblačnost a srážky).
+   Částice teplého vzduchu stoupají (4 s, 4 kusy posunuté o 1 s), částice větru proudí k níži (3 s, 3 + 3 kusy),
+   mrak se objeví 25–45 % z 8 s a drží. Bez animace = koncový stav: šipky stoupání a větru, mrak vidět, částice skryté. */
+.st { animation: st 4s linear infinite; }
+.vl { animation: vl 3s linear infinite; }
+.vp { animation: vp 3s linear infinite; }
+.mr { animation: mr 8s linear infinite; }
+@keyframes st { 0% { transform: translateY(0px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(-150px); opacity: 0; } }
+@keyframes vl { 0% { transform: translateX(0px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateX(95px); opacity: 0; } }
+@keyframes vp { 0% { transform: translateX(0px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateX(-95px); opacity: 0; } }
+@keyframes mr { 0%, 25% { opacity: 0; } 45%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .st, .vl, .vp { animation: none; opacity: 0; } .mr { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="474" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Proč vzniká vítr</text>
+<text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">vítr proudí z vyššího tlaku do nižšího</text>
+<!-- obloha a zem -->
+<rect x="15" y="85" width="570" height="290" fill="#e7f5ff"/>
+<rect x="15" y="375" width="570" height="90" fill="#d3f9d8"/>
+<rect x="215" y="375" width="170" height="90" fill="#ffe8cc"/>
+<line x1="15" y1="375" x2="585" y2="375" stroke="#495057" stroke-width="3"/>
+<!-- Slunce a paprsky na ohřáté místo -->
+<g stroke="#e67700" stroke-width="3" stroke-dasharray="10 8">
+<line x1="98" y1="160" x2="230" y2="370"/><line x1="108" y1="152" x2="262" y2="370"/><line x1="118" y1="144" x2="294" y2="370"/>
+</g>
+<g stroke="#f08c00" stroke-width="4" stroke-linecap="round">
+<line x1="80" y1="88" x2="80" y2="98"/><line x1="80" y1="182" x2="80" y2="192"/><line x1="28" y1="140" x2="38" y2="140"/><line x1="122" y1="140" x2="132" y2="140"/>
+<line x1="43" y1="103" x2="50" y2="110"/><line x1="110" y1="170" x2="117" y2="177"/><line x1="43" y1="177" x2="50" y2="170"/><line x1="110" y1="110" x2="117" y2="103"/>
+</g>
+<circle cx="80" cy="140" r="30" fill="#ffd43b" stroke="#f08c00" stroke-width="3"/>
+<!-- mrak nad níží -->
+<g class="mr">
+<g fill="#ffffff" stroke="#868e96" stroke-width="3">
+<ellipse cx="270" cy="150" rx="38" ry="26"/><ellipse cx="330" cy="150" rx="38" ry="26"/><ellipse cx="300" cy="130" rx="40" ry="30"/>
+</g>
+<ellipse cx="300" cy="152" rx="62" ry="20" fill="#ffffff"/>
+<text x="380" y="150" font-size="22" fill="#212529">oblačnost</text>
+</g>
+<!-- teplý vzduch stoupá -->
+<line x1="300" y1="345" x2="300" y2="212" stroke="#c92a2a" stroke-width="6"/>
+<polygon points="300,192 288,216 312,216" fill="#c92a2a"/>
+<text x="318" y="262" font-size="22" fill="#212529">teplý vzduch</text>
+<text x="318" y="290" font-size="22" fill="#212529">stoupá</text>
+<g fill="#e03131" stroke="#a51111" stroke-width="1.5">
+<circle class="st" cx="284" cy="360" r="6" style="animation-delay:0s"/>
+<circle class="st" cx="316" cy="360" r="6" style="animation-delay:-1s"/>
+<circle class="st" cx="284" cy="360" r="6" style="animation-delay:-2s"/>
+<circle class="st" cx="316" cy="360" r="6" style="animation-delay:-3s"/>
+</g>
+<!-- vítr z okolí k níži -->
+<g stroke="#1864ab" stroke-width="6">
+<line x1="105" y1="345" x2="186" y2="345"/><line x1="495" y1="345" x2="414" y2="345"/>
+</g>
+<polygon points="206,345 184,333 184,357" fill="#1864ab"/>
+<polygon points="394,345 416,333 416,357" fill="#1864ab"/>
+<text x="150" y="328" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">vítr</text>
+<text x="450" y="328" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">vítr</text>
+<g fill="#4dabf7" stroke="#1864ab" stroke-width="1.5">
+<circle class="vl" cx="100" cy="364" r="5" style="animation-delay:0s"/><circle class="vl" cx="100" cy="364" r="5" style="animation-delay:-1s"/><circle class="vl" cx="100" cy="364" r="5" style="animation-delay:-2s"/>
+<circle class="vp" cx="500" cy="364" r="5" style="animation-delay:-0.5s"/><circle class="vp" cx="500" cy="364" r="5" style="animation-delay:-1.5s"/><circle class="vp" cx="500" cy="364" r="5" style="animation-delay:-2.5s"/>
+</g>
+<!-- tlak u země -->
+<text x="110" y="412" font-size="30" font-weight="bold" fill="#1864ab" text-anchor="middle">V</text>
+<text x="110" y="448" font-size="22" fill="#212529" text-anchor="middle">vyšší tlak</text>
+<text x="300" y="412" font-size="30" font-weight="bold" fill="#c92a2a" text-anchor="middle">N</text>
+<text x="300" y="448" font-size="22" fill="#212529" text-anchor="middle">nižší tlak</text>
+<text x="490" y="412" font-size="30" font-weight="bold" fill="#1864ab" text-anchor="middle">V</text>
+<text x="490" y="448" font-size="22" fill="#212529" text-anchor="middle">vyšší tlak</text>
+</svg>
