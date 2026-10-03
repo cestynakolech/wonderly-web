@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vznik obrazu v oku. Oko v řezu: rohovka, komorová voda, duhovka se zornicí, čočka, sklivec, sítnice a zrakový nerv. Paprsky z hlavy a z nohou postavy projdou zornicí a čočkou a sejdou se na sítnici. Obraz na sítnici je skutečný, zmenšený a převrácený. Animace: paprsky postupně doběhnou na sítnici a objeví se převrácený obraz.">
+<style>
+/* Překresleno podle předlohy: PDF lekce 26 Oko, vady oka, str. 2 (stavba oka v řezu, popisky částí) a str. 5
+   (předmět vlevo před okem, paprsky přes čočku, převrácený obraz na sítnici). Popisky jen částí, které zná výklad.
+   Model: celé oko = tenká spojka v místě čočky (f = 96 px), sítnice 160 px za čočkou; postava 240 px před čočkou,
+   výška 60 → obraz 40 (1/f = 1/a + 1/b: 1/96 = 1/240 + 1/160), převrácený. Lom kreslen jen na čočce (zjednodušení).
+   Paprsky z hlavy oranžové, z nohou modré (stejně ve všech obrázcích tématu).
+   Animace 8 s, smyčka: paprsky 5–40 %, šipky 40–45 %, obraz a popisek 45–55 %, vše zmizí 92–98 %.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy ukazují vše. */
+.pr { stroke-dasharray: 100 100; animation: pr 8s linear infinite; }
+.si { animation: si 8s linear infinite; }
+.ob { animation: ob 8s linear infinite; }
+.celek { animation: celek 8s linear infinite; }
+@keyframes pr { 0%, 5% { stroke-dashoffset: 100; } 40%, 100% { stroke-dashoffset: 0; } }
+@keyframes si { 0%, 40% { opacity: 0; } 45%, 100% { opacity: 1; } }
+@keyframes ob { 0%, 45% { opacity: 0; } 55%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pr, .si, .ob, .celek { animation: none; } }
+</style>
+<defs><radialGradient id="cocka" cx="0.4" cy="0.4" r="0.7"><stop offset="0" stop-color="#e7f5ff"/><stop offset="1" stop-color="#4dabf7"/></radialGradient><linearGradient id="sklo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#66d9e8" stop-opacity="0.75"/><stop offset="0.45" stop-color="#e3fafc" stop-opacity="0.8"/><stop offset="1" stop-color="#3bc9db" stop-opacity="0.7"/></linearGradient></defs>
+<rect x="3" y="3" width="594" height="554" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="30" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="start">Vznik obrazu v oku</text>
+<text x="30" y="70" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">obraz na sítnici: skutečný, zmenšený, převrácený</text>
+<line x1="30" y1="300" x2="585" y2="300" stroke="#868e96" stroke-width="1.5" stroke-dasharray="12 5 3 5"/>
+<circle cx="390" cy="300" r="100" fill="#ffffff"/>
+<path d="M487.03,324.19 L557.03,358.19 L532.9,385.92 L472.9,355.92 Z" fill="#f08c00" stroke="#d9480f" stroke-width="2" stroke-linejoin="round"/>
+<path d="M303.4,250 A107,107 0 1 1 303.4,350" fill="none" stroke="#ced4da" stroke-width="12"/>
+<path d="M343.05,211.71 A100,100 0 1 1 343.05,388.29" fill="none" stroke="#d9480f" stroke-width="4"/>
+<path d="M303.4,250 Q250,300 303.4,350 Z" fill="#e7f5ff" stroke="#74c0fc" stroke-width="3" stroke-linejoin="round"/>
+<rect x="314" y="234" width="7" height="16" rx="2" fill="#8b5a2b"/><rect x="314" y="350" width="7" height="16" rx="2" fill="#8b5a2b"/>
+<ellipse cx="330" cy="300" rx="13" ry="52" fill="url(#cocka)" stroke="#1864ab" stroke-width="2.5"/>
+<g transform="translate(90 300) scale(0.6 0.6) translate(0 -50)"><circle cx="0" cy="10" r="10" fill="#343a40" stroke="#212529" stroke-width="2.5"/><path d="M-15,24 Q0,19 15,24 L17,60 L10,60 L9,100 L2,100 L0,64 L-2,100 L-9,100 L-10,60 L-17,60 Z" fill="#343a40" stroke="#212529" stroke-width="2.5" stroke-linejoin="round"/></g>
+<line x1="272" y1="262" x2="230" y2="150" stroke="#495057" stroke-width="1.5"/><text x="222" y="140" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">rohovka</text>
+<line x1="298" y1="282" x2="330" y2="118" stroke="#495057" stroke-width="1.5"/><text x="345" y="110" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">komorová voda</text>
+<line x1="315" y1="238" x2="420" y2="150" stroke="#495057" stroke-width="1.5"/><text x="470" y="140" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">duhovka</text>
+<line x1="318" y1="352" x2="250" y2="440" stroke="#495057" stroke-width="1.5"/><text x="236" y="462" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">zornice</text>
+<line x1="334" y1="340" x2="340" y2="470" stroke="#495057" stroke-width="1.5"/><text x="350" y="494" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">čočka</text>
+<line x1="410" y1="330" x2="440" y2="440" stroke="#495057" stroke-width="1.5"/><text x="450" y="462" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">sklivec</text>
+<line x1="470" y1="240" x2="540" y2="178" stroke="#495057" stroke-width="1.5"/><text x="546" y="170" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">sítnice</text>
+<line x1="530" y1="360" x2="520" y2="500" stroke="#495057" stroke-width="1.5"/><text x="490" y="524" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">zrakový nerv</text>
+<text x="90" y="360" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">předmět</text>
+<g class="celek">
+<path class="pr" d="M90,270 L330,270 L490,320" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M90,270 L330,300 L490,320" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M90,330 L330,330 L490,280" pathLength="100" fill="none" stroke="#1c7ed6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M90,330 L330,300 L490,280" pathLength="100" fill="none" stroke="#1c7ed6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M222,270 L210,276 L210,264 Z" fill="#e8590c"/><path d="M198,283.5 L185.35,287.97 L186.84,276.06 Z" fill="#e8590c"/><path d="M222,330 L210,336 L210,324 Z" fill="#1c7ed6"/><path d="M198,316.5 L186.84,323.94 L185.35,312.03 Z" fill="#1c7ed6"/></g>
+<g class="ob"><g transform="translate(484 300) scale(0.4 -0.4) translate(0 -50)"><circle cx="0" cy="10" r="10" fill="#ffd8a8" stroke="#e8590c" stroke-width="3.75"/><path d="M-15,24 Q0,19 15,24 L17,60 L10,60 L9,100 L2,100 L0,64 L-2,100 L-9,100 L-10,60 L-17,60 Z" fill="#ffd8a8" stroke="#e8590c" stroke-width="3.75" stroke-linejoin="round"/></g></g>
+</g>
+<g class="ob"><text x="560" y="260" font-size="22" font-weight="bold" fill="#a33a00" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">obraz</text><line x1="500" y1="266" x2="540" y2="250" stroke="#a33a00" stroke-width="1.5"/></g>
+</svg>
