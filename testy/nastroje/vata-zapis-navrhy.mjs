@@ -189,6 +189,25 @@ for (const v of hotovo) {
 }
 
 let text = readFileSync(KVIZY_TS, 'utf8');
+const { kvizy: kvizyData } = await nactiData();
+
+// Souhrnné bloky (…/shrnuti/…) nejsou v kvizy.ts zapsané jako literál `'klíč': [`,
+// ale skládá je slozSouhrnnyKviz() z OBJEKTŮ otázek zdrojových podtémat (tytéž
+// objekty, ne kopie). Zápis do shrnutí proto = zápis do zdrojového literálního bloku.
+// Překlad (klíč, qIndex) -> (zdrojový klíč, qIndex) jde přes identitu objektu v
+// skutečných datech (stejná pravda jako testy/vypis-kviz.mjs); neexistující klíč
+// se nepřeloží a dál hlásí „blok nenalezen".
+function prelozCil(klic, qIndex) {
+	if (text.includes(`'${klic}': [`)) return { klic, qIndex };
+	const otazka = kvizyData[klic]?.[qIndex];
+	if (!otazka || typeof otazka !== 'object') return null;
+	for (const [k, seznam] of Object.entries(kvizyData)) {
+		if (k === klic || !Array.isArray(seznam) || !text.includes(`'${k}': [`)) continue;
+		const i = seznam.indexOf(otazka);
+		if (i !== -1) return { klic: k, qIndex: i };
+	}
+	return null;
+}
 let zapsano = 0;
 let preskoceno = 0;
 let bezSchvaleni = 0;
@@ -197,7 +216,8 @@ const zapsaneKontrolniZaznamy = []; // { klic, qIndex } pro post-write ověřen�
 
 for (const [klic, polozky] of byKlic) {
 	for (const v of polozky) {
-		const znacka = `'${klic}': [`;
+		const cil = prelozCil(klic, v.qIndex);
+		const znacka = `'${cil ? cil.klic : klic}': [`;
 		const zacatek = text.indexOf(znacka);
 		if (zacatek === -1) {
 			preskoceno++;
@@ -214,6 +234,7 @@ for (const [klic, polozky] of byKlic) {
 			continue;
 		}
 
+		const cilQIndex = cil.qIndex;
 		const pozicePole = zacatek + znacka.length - 1; // pozice '['
 		const konec = najdiKonecPole(text, pozicePole);
 		if (konec === -1) {
@@ -223,7 +244,7 @@ for (const [klic, polozky] of byKlic) {
 		}
 		const sliceOriginal = text.slice(pozicePole + 1, konec);
 		const objekty = topLevelZavorky(sliceOriginal, '{', '}');
-		const obj = objekty[v.qIndex];
+		const obj = objekty[cilQIndex];
 		if (!obj) {
 			preskoceno++;
 			hlaseni.push(`PŘESKOČENO ${klic} Q${v.qIndex + 1}: qIndex mimo rozsah (otázek v bloku: ${objekty.length})`);
@@ -292,7 +313,7 @@ for (const [klic, polozky] of byKlic) {
 			const newObjText = objText.slice(0, absStart) + novyRaw + objText.slice(absEnd + 1);
 			const newSliceOriginal = sliceOriginal.slice(0, obj[0]) + newObjText + sliceOriginal.slice(obj[1] + 1);
 			text = text.slice(0, pozicePole + 1) + newSliceOriginal + text.slice(konec);
-			zapsaneKontrolniZaznamy.push({ klic: v.klic, qIndex: v.qIndex, spravnaOdpoved: puvodniOdpovedZero });
+			zapsaneKontrolniZaznamy.push({ klic: cil.klic, qIndex: cilQIndex, spravnaOdpoved: puvodniOdpovedZero });
 		}
 		zapsano++;
 		hlaseni.push(`${ZAPIS ? 'ZAPSÁNO' : 'ZAPSALO BY SE'} ${klic} Q${v.qIndex + 1} distraktor#${v.distraktorIndex}: „${elem.hodnota}" → „${v.navrh}"`);
