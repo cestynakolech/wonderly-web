@@ -65,44 +65,49 @@
 <text x="545" y="152" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">déšť</text>
 
 <g class="celek">
-<!-- duhy: schematicky (jako předloha) oblouky se středem pod obzorem; spodek zakryje zem -->
+<!-- duhy: schematicky (jako předloha) oblouky se středem C(366,408) pod obzorem; spodek zakryje zem.
+     Geometrie (přepočet 3. 10. 2026): C leží na antisolární přímce (prodloužení slunečních paprsků
+     okem 122,291; sklon 0,48). Úhel u oka mezi antisolárním směrem a paprskem z kapky:
+     červená 42,0° (kapka 396.7,210.4 na červeném oblouku r 200), fialová 40,0° (kapka 351,232.4 na
+     fialovém oblouku r 176). Šířka pásu barev je zvětšená, aby byla vidět; poměr poloměrů středů pásů
+     vedlejší/hlavní 224/188 = 1,19 ≈ sin 51° / sin 41° = 1,18 (vedlejší duha ~51°, hlavní ~41°). -->
 <g clip-path="url(#r4nad)" fill="none" stroke-width="5.5">
 <!-- vedlejší duha: slabší, výš, opačné pořadí (fialová venku, červená uvnitř) -->
-<g class="vd"><g opacity="0.45">
-<path d="M227,430 A243,243 0 0 1 713,430" stroke="#cc5de8"/>
-<path d="M232,430 A238,238 0 0 1 708,430" stroke="#5c5ce6"/>
-<path d="M237,430 A233,233 0 0 1 703,430" stroke="#339af0"/>
-<path d="M242,430 A228,228 0 0 1 698,430" stroke="#40c057"/>
-<path d="M247,430 A223,223 0 0 1 693,430" stroke="#fcc419"/>
-<path d="M252,430 A218,218 0 0 1 688,430" stroke="#fd7e14"/>
-<path d="M257,430 A213,213 0 0 1 683,430" stroke="#f03e3e"/>
+<g class="vd"><g opacity="0.45" stroke-width="4.5">
+<path d="M130,408 A236,236 0 0 1 602,408" stroke="#cc5de8"/>
+<path d="M134,408 A232,232 0 0 1 598,408" stroke="#5c5ce6"/>
+<path d="M138,408 A228,228 0 0 1 594,408" stroke="#339af0"/>
+<path d="M142,408 A224,224 0 0 1 590,408" stroke="#40c057"/>
+<path d="M146,408 A220,220 0 0 1 586,408" stroke="#fcc419"/>
+<path d="M150,408 A216,216 0 0 1 582,408" stroke="#fd7e14"/>
+<path d="M154,408 A212,212 0 0 1 578,408" stroke="#f03e3e"/>
 </g></g>
 <!-- hlavní duha: červená nahoře (venku), fialová dole (uvnitř) -->
 <g class="hd">
-<path d="M273,430 A197,197 0 0 1 667,430" stroke="#f03e3e"/>
-<path d="M278,430 A192,192 0 0 1 662,430" stroke="#fd7e14"/>
-<path d="M283,430 A187,187 0 0 1 657,430" stroke="#fcc419"/>
-<path d="M288,430 A182,182 0 0 1 652,430" stroke="#40c057"/>
-<path d="M293,430 A177,177 0 0 1 647,430" stroke="#339af0"/>
-<path d="M298,430 A172,172 0 0 1 642,430" stroke="#5c5ce6"/>
-<path d="M303,430 A167,167 0 0 1 637,430" stroke="#cc5de8"/>
+<path d="M166,408 A200,200 0 0 1 566,408" stroke="#f03e3e"/>
+<path d="M170,408 A196,196 0 0 1 562,408" stroke="#fd7e14"/>
+<path d="M174,408 A192,192 0 0 1 558,408" stroke="#fcc419"/>
+<path d="M178,408 A188,188 0 0 1 554,408" stroke="#40c057"/>
+<path d="M182,408 A184,184 0 0 1 550,408" stroke="#339af0"/>
+<path d="M186,408 A180,180 0 0 1 546,408" stroke="#5c5ce6"/>
+<path d="M190,408 A176,176 0 0 1 542,408" stroke="#cc5de8"/>
 </g>
 </g>
 
-<!-- sluneční paprsky (rovnoběžné) míří přes hlavu pozorovatele do deště -->
+<!-- sluneční paprsky (rovnoběžné, sklon 0,48, vycházejí ze slunečního kotouče) míří přes hlavu pozorovatele do deště -->
 <g stroke="#fff9db" stroke-width="3" stroke-linecap="round">
-<line x1="75" y1="50" x2="440" y2="225.2" pathLength="100" class="sl" opacity="0.7"/>
-<line x1="55" y1="65" x2="419" y2="239.7" pathLength="100" class="sl"/>
-<line x1="60" y1="92.7" x2="426.8" y2="268.7" pathLength="100" class="sl"/>
+<line x1="62" y1="49.7" x2="396.7" y2="210.4" pathLength="100" class="sl"/>
+<line x1="55" y1="65" x2="430" y2="245" pathLength="100" class="sl" opacity="0.7"/>
+<line x1="60" y1="92.7" x2="351" y2="232.4" pathLength="100" class="sl"/>
 </g>
 <!-- dvě kapky: horní posílá k oku červenou, dolní fialovou -->
 <g class="kp" stroke="#1864ab" stroke-width="1.5">
-<path d="M419,232 Q424,239 424,242 A5,5 0 0 1 414,242 Q414,239 419,232 Z" fill="#d0ebff"/>
-<path d="M426.8,261 Q431.8,268 431.8,271 A5,5 0 0 1 421.8,271 Q421.8,268 426.8,261 Z" fill="#d0ebff"/>
+<path d="M396.7,202.7 Q401.7,209.7 401.7,212.7 A5,5 0 0 1 391.7,212.7 Q391.7,209.7 396.7,202.7 Z" fill="#d0ebff"/>
+<path d="M351,224.7 Q356,231.7 356,234.7 A5,5 0 0 1 346,234.7 Q346,231.7 351,224.7 Z" fill="#d0ebff"/>
 </g>
 <g stroke-width="3.5" stroke-linecap="round">
-<line x1="419" y1="239.7" x2="122" y2="291" stroke="#f03e3e" pathLength="100" class="cl"/>
-<line x1="426.8" y1="268.7" x2="122" y2="291" stroke="#ae3ec9" pathLength="100" class="cl"/>
+<line x1="396.7" y1="210.4" x2="122" y2="291" stroke="#f03e3e" pathLength="100" class="cl"/>
+<line x1="351" y1="232.4" x2="122" y2="291" stroke="#cc5de8" pathLength="100" class="cl"/>
 </g>
 </g>
 
@@ -125,9 +130,9 @@
 <path d="M123,289 l3,3 l-3,1" fill="none" stroke="#c08552" stroke-width="1.5"/>
 
 <!-- popisky dole na trávě -->
-<g class="hd"><line x1="300" y1="382" x2="289" y2="363" stroke="#ffffff" stroke-width="2"/>
-<text x="296" y="402" font-size="22" font-weight="bold" fill="#ffffff">hlavní duha</text></g>
-<g class="vd"><line x1="232" y1="406" x2="239" y2="363" stroke="#ffffff" stroke-width="2"/>
+<g class="hd"><line x1="232" y1="383" x2="186" y2="363" stroke="#ffffff" stroke-width="2"/>
+<text x="236" y="400" font-size="22" font-weight="bold" fill="#ffffff">hlavní duha</text></g>
+<g class="vd"><line x1="166" y1="408" x2="146" y2="363" stroke="#ffffff" stroke-width="2"/>
 <text x="150" y="428" font-size="22" font-weight="bold" fill="#ffffff">vedlejší duha</text></g>
 <rect x="3" y="3" width="594" height="434" rx="14" fill="none" stroke="#2b2a26" stroke-width="3"/>
 </svg>

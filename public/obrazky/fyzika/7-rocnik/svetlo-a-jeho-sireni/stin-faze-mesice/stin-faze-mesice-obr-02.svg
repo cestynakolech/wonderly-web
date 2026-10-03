@@ -103,7 +103,7 @@
 <text x="266" y="479" font-size="22" font-weight="bold" fill="#ffffff">poslední čtvrť</text>
 
 <!-- jak Měsíc vidíme ze Země -->
-<line x1="20" y1="484" x2="580" y2="484" stroke="#495057" stroke-width="2"/>
+<line x1="20" y1="489" x2="580" y2="489" stroke="#495057" stroke-width="2"/>
 <text x="24" y="516" font-size="22" font-weight="bold" fill="#ffffff">Jak Měsíc vidíme ze Země</text>
 <g fill="#495057" stroke="none">
 <circle cx="55" cy="562" r="24"/><circle cx="125" cy="562" r="24"/><circle cx="195" cy="562" r="24"/><circle cx="265" cy="562" r="24"/>
