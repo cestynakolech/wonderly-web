@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Fáze Měsíce: sluneční paprsky přicházejí zprava, Měsíc obíhá Zemi a Slunce vždy osvětluje jeho polovinu obrácenou ke Slunci. Při novu je Měsíc mezi Zemí a Sluncem, při úplňku je Země mezi Sluncem a Měsícem. Dole je, jak Měsíc vidíme ze Země: nov, dorůstající srpek, první čtvrť (tvar D), úplněk, poslední čtvrť (tvar C), couvající srpek. Celý cyklus trvá přibližně 29,5 dne. Animace: Měsíc obíhá a ukazatel dole ukazuje fázi, kterou právě vidíme.">
+<style>
+/* Animace (16 s, smyčka): Měsíc se zastaví v 8 polohách (vždy 1,2 s stojí, 0,8 s se posouvá). Osvětlená polovina zůstává obrácená ke Slunci (protirotace). Ukazatel dole skáče na fázi, kterou vidíme. Bez animace = poloha nov. */
+.obeh { animation: obeh 16s linear infinite; }
+.protirot { animation: protirot 16s linear infinite; }
+.ukazatel { animation: ukazatel 16s linear infinite; }
+@keyframes obeh {
+  0%, 7.5% { transform: rotate(0deg); }
+  12.5%, 20% { transform: rotate(-45deg); }
+  25%, 32.5% { transform: rotate(-90deg); }
+  37.5%, 45% { transform: rotate(-135deg); }
+  50%, 57.5% { transform: rotate(-180deg); }
+  62.5%, 70% { transform: rotate(-225deg); }
+  75%, 82.5% { transform: rotate(-270deg); }
+  87.5%, 95% { transform: rotate(-315deg); }
+  100% { transform: rotate(-360deg); }
+}
+@keyframes protirot {
+  0%, 7.5% { transform: rotate(0deg); }
+  12.5%, 20% { transform: rotate(45deg); }
+  25%, 32.5% { transform: rotate(90deg); }
+  37.5%, 45% { transform: rotate(135deg); }
+  50%, 57.5% { transform: rotate(180deg); }
+  62.5%, 70% { transform: rotate(225deg); }
+  75%, 82.5% { transform: rotate(270deg); }
+  87.5%, 95% { transform: rotate(315deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes ukazatel {
+  0%, 9% { transform: translateX(0); }
+  10%, 21.5% { transform: translateX(70px); }
+  22.5%, 34% { transform: translateX(140px); }
+  35%, 46.5% { transform: translateX(210px); }
+  47.5%, 59% { transform: translateX(280px); }
+  60%, 71.5% { transform: translateX(350px); }
+  72.5%, 84% { transform: translateX(420px); }
+  85%, 96.5% { transform: translateX(490px); }
+  97.5%, 100% { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) { .obeh, .protirot, .ukazatel { animation: none; } }
+</style>
+<defs>
+<g id="o2-mesic">
+<circle r="22" fill="#495057"/>
+<path d="M0,-22 A22,22 0 0 1 0,22 Z" fill="#f1f3f5"/>
+<circle r="22" fill="none" stroke="#adb5bd" stroke-width="1.5"/>
+</g>
+<marker id="o2-hrot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ffd43b"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="694" rx="14" fill="#1b2433" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#ffffff">Fáze Měsíce</text>
+
+<!-- sluneční paprsky zprava (rovnoběžný svazek) -->
+<text x="545" y="96" font-size="22" fill="#ffffff" text-anchor="middle">světlo</text>
+<text x="545" y="122" font-size="22" fill="#ffffff" text-anchor="middle">ze Slunce</text>
+<g stroke="#ffd43b" stroke-width="5" marker-end="url(#o2-hrot)">
+<line x1="585" y1="150" x2="502" y2="150"/>
+<line x1="585" y1="200" x2="502" y2="200"/>
+<line x1="585" y1="250" x2="502" y2="250"/>
+<line x1="585" y1="300" x2="502" y2="300"/>
+<line x1="585" y1="350" x2="502" y2="350"/>
+<line x1="585" y1="400" x2="502" y2="400"/>
+<line x1="585" y1="450" x2="502" y2="450"/>
+</g>
+
+<!-- dráha Měsíce a šipka směru oběhu -->
+<circle cx="240" cy="290" r="150" fill="none" stroke="#868e96" stroke-width="3"/>
+<path d="M415.3,259.1 A178,178 0 0 0 385.8,187.9" fill="none" stroke="#ffffff" stroke-width="3"/>
+<polygon points="380.6,180.5 381.8,194.4 393.3,186.3" fill="#ffffff"/>
+
+<!-- Země: den vpravo (ke Slunci), noc vlevo -->
+<circle cx="240" cy="290" r="34" fill="#339af0"/>
+<path d="M226,268 q10,-8 20,0 q6,10 -4,16 q-12,4 -16,-6 Z M244,296 q12,-4 16,6 q-2,12 -14,10 q-8,-6 -2,-16 Z" fill="#51cf66"/>
+<path d="M240,256 A34,34 0 0 0 240,324 Z" fill="#0b1320" opacity="0.6"/>
+<circle cx="240" cy="290" r="34" fill="none" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="240" y="352" font-size="22" fill="#ffffff" text-anchor="middle">Země</text>
+
+<!-- 8 poloh Měsíce (slabě), osvětlená vždy polovina ke Slunci -->
+<g opacity="0.35">
+<use href="#o2-mesic" x="390" y="290"/>
+<use href="#o2-mesic" x="346.1" y="183.9"/>
+<use href="#o2-mesic" x="240" y="140"/>
+<use href="#o2-mesic" x="133.9" y="183.9"/>
+<use href="#o2-mesic" x="90" y="290"/>
+<use href="#o2-mesic" x="133.9" y="396.1"/>
+<use href="#o2-mesic" x="240" y="440"/>
+<use href="#o2-mesic" x="346.1" y="396.1"/>
+</g>
+
+<!-- obíhající Měsíc -->
+<g transform="translate(240,290)">
+<g class="obeh">
+<g transform="translate(150,0)">
+<g class="protirot"><use href="#o2-mesic"/></g>
+</g>
+</g>
+</g>
+
+<!-- názvy hlavních poloh -->
+<text x="420" y="298" font-size="22" font-weight="bold" fill="#ffffff">nov</text>
+<text x="272" y="148" font-size="22" font-weight="bold" fill="#ffffff">první čtvrť</text>
+<text x="90" y="340" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">úplněk</text>
+<text x="272" y="452" font-size="22" font-weight="bold" fill="#ffffff">poslední čtvrť</text>
+
+<!-- jak Měsíc vidíme ze Země -->
+<line x1="20" y1="484" x2="580" y2="484" stroke="#495057" stroke-width="2"/>
+<text x="24" y="516" font-size="22" font-weight="bold" fill="#ffffff">Jak Měsíc vidíme ze Země</text>
+<g fill="#495057" stroke="none">
+<circle cx="55" cy="562" r="24"/><circle cx="125" cy="562" r="24"/><circle cx="195" cy="562" r="24"/><circle cx="265" cy="562" r="24"/>
+<circle cx="335" cy="562" r="24"/><circle cx="405" cy="562" r="24"/><circle cx="475" cy="562" r="24"/><circle cx="545" cy="562" r="24"/>
+</g>
+<g fill="#f1f3f5">
+<path transform="translate(125,562)" d="M0,-24 A24,24 0 0 1 0,24 A17,24 0 0 0 0,-24 Z"/>
+<path transform="translate(195,562)" d="M0,-24 A24,24 0 0 1 0,24 Z"/>
+<path transform="translate(265,562)" d="M0,-24 A24,24 0 0 1 0,24 A17,24 0 0 1 0,-24 Z"/>
+<circle cx="335" cy="562" r="24"/>
+<path transform="translate(405,562) scale(-1,1)" d="M0,-24 A24,24 0 0 1 0,24 A17,24 0 0 1 0,-24 Z"/>
+<path transform="translate(475,562) scale(-1,1)" d="M0,-24 A24,24 0 0 1 0,24 Z"/>
+<path transform="translate(545,562) scale(-1,1)" d="M0,-24 A24,24 0 0 1 0,24 A17,24 0 0 0 0,-24 Z"/>
+</g>
+<g fill="none" stroke="#adb5bd" stroke-width="1.5">
+<circle cx="55" cy="562" r="24"/><circle cx="125" cy="562" r="24"/><circle cx="195" cy="562" r="24"/><circle cx="265" cy="562" r="24"/>
+<circle cx="335" cy="562" r="24"/><circle cx="405" cy="562" r="24"/><circle cx="475" cy="562" r="24"/><circle cx="545" cy="562" r="24"/>
+</g>
+<circle class="ukazatel" cx="55" cy="562" r="31" fill="none" stroke="#ffa94d" stroke-width="4"/>
+<g font-size="22" fill="#ffffff" text-anchor="middle">
+<text x="55" y="614">nov</text>
+<text x="195" y="614">první čtvrť</text>
+<text x="335" y="614">úplněk</text>
+<text x="475" y="614">poslední čtvrť</text>
+</g>
+<g font-size="22" fill="#ced4da">
+<text x="40" y="650">Měsíc dorůstá</text>
+<line x1="190" y1="643" x2="300" y2="643" stroke="#ced4da" stroke-width="2"/>
+<text x="330" y="650">Měsíc couvá</text>
+<line x1="465" y1="643" x2="575" y2="643" stroke="#ced4da" stroke-width="2"/>
+<polygon points="300,637 312,643 300,649"/>
+<polygon points="575,637 587,643 575,649"/>
+</g>
+<text x="300" y="684" font-size="22" fill="#ffffff" text-anchor="middle">celý cyklus trvá přibližně 29,5 dne</text>
+</svg>

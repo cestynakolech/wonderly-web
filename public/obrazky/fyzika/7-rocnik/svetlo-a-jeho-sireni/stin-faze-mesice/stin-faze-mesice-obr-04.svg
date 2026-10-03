@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 670" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zatmění Slunce: Měsíc v novu je mezi Sluncem a Zemí a vrhá na Zemi malý stín a větší polostín. Okrajové paprsky Slunce jdou kolem okrajů Měsíce. Dole pohled ze Země: kotouče Slunce a Měsíce jsou na obloze stejně velké. Animace: Měsíc se sune přes Slunce, nejdřív je částečné zatmění, pak Měsíc zakryje celé Slunce, nastane tma a kolem Měsíce září sluneční korona.">
+<style>
+/* Animace (10 s, smyčka) jen v dolním pohledu ze Země: Měsíc přejede přes Slunce. Částečné zatmění, úplné (tma + korona), zase částečné.
+   Bez animace = úplné zatmění. */
+.mesic { animation: mesic 10s linear infinite; }
+.obloha { animation: obloha 10s linear infinite; }
+.korona { animation: korona 10s linear infinite; }
+.castecne { animation: castecne 10s linear infinite; }
+.uplne { animation: uplne 10s linear infinite; }
+@keyframes mesic {
+  0% { transform: translateX(-150px); opacity: 0; }
+  5% { transform: translateX(-150px); opacity: 1; }
+  35%, 60% { transform: translateX(0); opacity: 1; }
+  90% { transform: translateX(150px); opacity: 1; }
+  95%, 100% { transform: translateX(150px); opacity: 0; }
+}
+@keyframes obloha { 0%, 26% { fill: #74c0fc; } 34%, 61% { fill: #0b1a2e; } 69%, 100% { fill: #74c0fc; } }
+@keyframes korona { 0%, 34% { opacity: 0; } 36%, 59% { opacity: 1; } 61%, 100% { opacity: 0; } }
+@keyframes castecne { 0%, 16% { opacity: 0; } 18%, 33% { opacity: 1; } 34.5%, 61.5% { opacity: 0; } 63%, 77% { opacity: 1; } 79%, 100% { opacity: 0; } }
+@keyframes uplne { 0%, 35% { opacity: 0; } 37%, 59% { opacity: 1; } 61%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mesic, .obloha, .korona, .castecne, .uplne { animation: none; } }
+</style>
+<defs>
+<clipPath id="o4-zeme"><circle cx="375" cy="0" r="72"/></clipPath>
+<clipPath id="o4-obloha"><rect x="30" y="486" width="540" height="134" rx="10"/></clipPath>
+<radialGradient id="o4-zar"><stop offset="0.75" stop-color="#ffd43b" stop-opacity="0.55"/><stop offset="1" stop-color="#ffd43b" stop-opacity="0"/></radialGradient>
+<radialGradient id="o4-korona"><stop offset="0.55" stop-color="#ffffff" stop-opacity="1"/><stop offset="0.75" stop-color="#e7f5ff" stop-opacity="0.6"/><stop offset="1" stop-color="#e7f5ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="594" height="664" rx="14" fill="#11161d" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#ffffff">Zatmění Slunce</text>
+
+<!-- Scéna jako na předloze: Slunce vlevo nahoře, Měsíc, Země vpravo dole. Osa otočená o 30°.
+     Místní souřadnice: Slunce (0,0) r 80, Měsíc (250,0) r 14, Země (375,0) r 72. Stín Měsíce se sbíhá do x = 303 (povrch Země). -->
+<g transform="translate(0,8)">
+<g transform="translate(95,135) rotate(30)">
+<circle cx="0" cy="0" r="96" fill="url(#o4-zar)"/>
+<circle cx="0" cy="0" r="80" fill="#ffd43b" stroke="#fab005" stroke-width="3"/>
+<!-- polostín a stín za Měsícem -->
+<polygon points="250,-14 311,-37 311,37 250,14" fill="#5c6b7a" opacity="0.5"/>
+<polygon points="250,-14 303,0 250,14" fill="#05080c"/>
+<!-- Země: den vlevo (ke Slunci), noc vpravo -->
+<circle cx="375" cy="0" r="72" fill="#339af0"/>
+<path d="M340,-40 q22,-16 40,0 q10,20 -10,30 q-24,6 -30,-14 Z M372,14 q24,-6 30,14 q-4,24 -26,20 q-16,-12 -4,-34 Z" fill="#51cf66"/>
+<path d="M375,-72 A72,72 0 0 1 375,72 Z" fill="#05080c" opacity="0.6"/>
+<g clip-path="url(#o4-zeme)">
+<circle cx="303" cy="0" r="34" fill="#05080c" opacity="0.45"/>
+</g>
+<circle cx="375" cy="0" r="72" fill="none" stroke="#a5d8ff" stroke-width="1.5"/>
+<circle cx="304" cy="0" r="6" fill="#05080c" stroke="#ffffff" stroke-width="1"/>
+<!-- okrajové paprsky Slunce kolem okrajů Měsíce -->
+<g stroke="#ffe066" stroke-width="2">
+<line x1="0" y1="-80" x2="303" y2="0"/>
+<line x1="0" y1="80" x2="303" y2="0"/>
+<line x1="0" y1="-80" x2="311" y2="37"/>
+<line x1="0" y1="80" x2="311" y2="-37"/>
+</g>
+<!-- Měsíc v novu: ke Slunci osvětlený, k Zemi tmavý -->
+<circle cx="250" cy="0" r="14" fill="#495057"/>
+<path d="M250,-14 A14,14 0 0 0 250,14 Z" fill="#e9ecef"/>
+</g>
+
+<!-- popisky scény -->
+<text x="60" y="268" font-size="22" fill="#ffffff" text-anchor="middle">Slunce</text>
+<line x1="350" y1="226" x2="318" y2="250" stroke="#ced4da" stroke-width="1.5"/>
+<text x="352" y="222" font-size="22" fill="#ffffff">Měsíc</text>
+<text x="420" y="426" font-size="22" fill="#ffffff" text-anchor="middle">Země</text>
+<line x1="478" y1="236" x2="374" y2="258" stroke="#ced4da" stroke-width="1.5"/>
+<text x="590" y="230" font-size="22" fill="#ffffff" text-anchor="end">polostín</text>
+<line x1="302" y1="378" x2="354" y2="291" stroke="#ced4da" stroke-width="1.5"/>
+<text x="300" y="396" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="end">stín Měsíce</text>
+<text x="590" y="120" font-size="22" fill="#ffffff" text-anchor="end">Měsíc je mezi</text>
+<text x="590" y="146" font-size="22" fill="#ffffff" text-anchor="end">Sluncem a Zemí</text>
+<text x="590" y="172" font-size="22" fill="#ffffff" text-anchor="end">(nov).</text>
+</g>
+
+<!-- pohled ze Země -->
+<line x1="20" y1="444" x2="580" y2="444" stroke="#495057" stroke-width="2"/>
+<text x="300" y="474" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Pohled ze Země: oba kotouče jsou stejně velké</text>
+<rect class="obloha" x="30" y="486" width="540" height="134" rx="10" fill="#0b1a2e"/>
+<g clip-path="url(#o4-obloha)">
+<circle class="korona" cx="300" cy="553" r="78" fill="url(#o4-korona)"/>
+<circle cx="300" cy="553" r="45" fill="#ffd43b"/>
+<circle class="mesic" cx="300" cy="553" r="45" fill="#25313d"/>
+</g>
+<rect x="30" y="486" width="540" height="134" rx="10" fill="none" stroke="#868e96" stroke-width="2"/>
+<text class="castecne" x="300" y="652" font-size="22" fill="#ffffff" text-anchor="middle" opacity="0">částečné zatmění: jas zůstává silný</text>
+<text class="uplne" x="300" y="652" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">úplné zatmění: tma a sluneční korona</text>
+</svg>

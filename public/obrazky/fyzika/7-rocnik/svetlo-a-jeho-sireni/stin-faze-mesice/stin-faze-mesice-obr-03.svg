@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zatmění Měsíce: Slunce vlevo, Země uprostřed a za Zemí její stín a polostín. Měsíc v úplňku je za Zemí. Animace: Měsíc obíhá po své dráze, vstoupí do polostínu a pak do stínu Země, kde ztmavne a zčervená (krvavý Měsíc), a zase ze stínu vystoupí.">
+<style>
+/* Animace (10 s, smyčka): Měsíc obíhá kolem Země (proti směru hodinových ručiček) a projde stínem Země.
+   Zčervenání je přesné: červená kopie Měsíce je oříznutá tvarem stínu, takže červená je jen ta část, která je ve stínu. Bez animace = Měsíc uprostřed stínu. */
+.obeh { animation: obeh 10s ease-in-out infinite; }
+@keyframes obeh {
+  0% { transform: rotate(50deg); opacity: 0; }
+  5% { transform: rotate(50deg); opacity: 1; }
+  40%, 65% { transform: rotate(0deg); opacity: 1; }
+  92% { transform: rotate(-40deg); opacity: 1; }
+  97%, 100% { transform: rotate(-40deg); opacity: 0; }
+}
+.protirot { animation: protirot 10s ease-in-out infinite; }
+@keyframes protirot {
+  0%, 5% { transform: rotate(-50deg); }
+  40%, 65% { transform: rotate(0deg); }
+  92%, 100% { transform: rotate(40deg); }
+}
+@media (prefers-reduced-motion: reduce) { .obeh, .protirot { animation: none; } }
+</style>
+<defs>
+<!-- Slunce (70,200) r 56, Země (330,200) r 40: stín se sbíhá do bodu x = 650, polostín se rozbíhá od x = 221,7 -->
+<clipPath id="o3-stin"><polygon points="330,160 595,176.3 595,223.7 330,240"/></clipPath>
+<clipPath id="o3-polostin"><polygon points="330,160 595,62 595,338 330,240"/></clipPath>
+<radialGradient id="o3-zar"><stop offset="0.6" stop-color="#ffd43b" stop-opacity="0.6"/><stop offset="1" stop-color="#ffd43b" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="594" height="454" rx="14" fill="#11161d" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#ffffff">Zatmění Měsíce</text>
+
+<!-- světlo Slunce dopadající na Zemi -->
+<polygon points="70,144 330,160 330,240 70,256" fill="#ffe066" opacity="0.2"/>
+<!-- polostín a stín za Zemí -->
+<polygon points="330,160 595,62 595,338 330,240" fill="#5c6b7a" opacity="0.45"/>
+<polygon points="330,160 595,176.3 595,223.7 330,240" fill="#05080c" opacity="0.9"/>
+
+<!-- Slunce -->
+<circle cx="70" cy="200" r="72" fill="url(#o3-zar)"/>
+<circle cx="70" cy="200" r="56" fill="#ffd43b" stroke="#fab005" stroke-width="3"/>
+<text x="70" y="292" font-size="22" fill="#ffffff" text-anchor="middle">Slunce</text>
+
+<!-- dráha Měsíce -->
+<circle cx="330" cy="200" r="130" fill="none" stroke="#868e96" stroke-width="2" stroke-dasharray="8 7"/>
+<line x1="262" y1="312" x2="246" y2="350" stroke="#ced4da" stroke-width="1.5"/>
+<text x="262" y="374" font-size="22" fill="#ced4da" text-anchor="end">dráha Měsíce</text>
+
+<!-- Země: den vlevo (ke Slunci), noc vpravo -->
+<circle cx="330" cy="200" r="40" fill="#339af0"/>
+<path d="M312,176 q12,-10 24,0 q6,12 -6,18 q-14,4 -18,-8 Z M332,208 q14,-4 18,8 q-2,14 -16,12 q-10,-8 -2,-20 Z" fill="#51cf66"/>
+<path d="M330,160 A40,40 0 0 1 330,240 Z" fill="#05080c" opacity="0.65"/>
+<circle cx="330" cy="200" r="40" fill="none" stroke="#a5d8ff" stroke-width="1.5"/>
+<text x="330" y="270" font-size="22" fill="#ffffff" text-anchor="middle">Země</text>
+
+<!-- Měsíc: osvětlený, v polostínu ztlumený, ve stínu červený -->
+<g transform="translate(330,200)"><g class="obeh"><circle cx="130" cy="0" r="12" fill="#e9ecef"/></g></g>
+<g clip-path="url(#o3-polostin)"><g transform="translate(330,200)"><g class="obeh"><circle cx="130" cy="0" r="12" fill="#11161d" opacity="0.4"/></g></g></g>
+<g clip-path="url(#o3-stin)"><g transform="translate(330,200)"><g class="obeh"><circle cx="130" cy="0" r="12" fill="#b4441f"/></g></g></g>
+
+<!-- popisky -->
+<text x="590" y="120" font-size="22" fill="#ffffff" text-anchor="end">polostín</text>
+<text x="592" y="208" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="end">stín Země</text>
+<g transform="translate(330,200)"><g class="obeh"><g transform="translate(130,0)"><g class="protirot"><text x="-6" y="40" text-anchor="end" font-size="22" fill="#ffffff">Měsíc</text></g></g></g></g>
+<text x="24" y="412" font-size="22" fill="#ffffff">Země je mezi Sluncem a Měsícem (úplněk).</text>
+<text x="24" y="442" font-size="22" fill="#ffffff">Ve stínu Země Měsíc zčervená — krvavý Měsíc.</text>
+</svg>

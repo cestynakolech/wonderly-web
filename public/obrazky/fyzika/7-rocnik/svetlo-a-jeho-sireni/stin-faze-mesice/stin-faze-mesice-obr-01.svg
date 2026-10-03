@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vznik stínu: baterka (bodový zdroj) svítí na míč. Paprsky jdou přímočaře, paprsky těsně kolem okraje míče určují hranici stínu. Za míčem vzniká stín, kam nedopadá žádné světlo, a na osvětleném stínítku tmavý vržený stín s ostrou hranicí. Animace: baterka se rozsvítí, paprsky se šíří a objeví se stín.">
+<style>
+/* Animace (8 s, smyčka): rozsvícení, šíření paprsků, osvětlení stínítka, stín, popisky. Bez animace = koncový stav. */
+.svit { animation: svit 8s linear infinite; }
+.paprsek { stroke-dasharray: 100; animation: paprsek 8s linear infinite; }
+.hrot { animation: hrot 8s linear infinite; }
+.osvetleni { animation: osvetleni 8s linear infinite; }
+.stin { animation: stin 8s linear infinite; }
+.popisek { animation: popisek 8s linear infinite; }
+@keyframes svit { 0%, 4% { opacity: 0; } 6%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes paprsek { 0%, 6% { stroke-dashoffset: 100; opacity: 1; } 26%, 92% { stroke-dashoffset: 0; opacity: 1; } 98% { stroke-dashoffset: 0; opacity: 0; } 100% { stroke-dashoffset: 100; opacity: 0; } }
+@keyframes hrot { 0%, 25% { opacity: 0; } 28%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes osvetleni { 0%, 22% { opacity: 0; } 30%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes stin { 0%, 28% { opacity: 0; } 38%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes popisek { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .svit, .paprsek, .hrot, .osvetleni, .stin, .popisek { animation: none; } }
+</style>
+<defs>
+<clipPath id="o1-mic"><circle cx="250" cy="220" r="40"/></clipPath>
+</defs>
+<rect x="3" y="3" width="594" height="474" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="24" y="40" font-size="26" font-weight="bold" fill="#212529">Jak vzniká stín</text>
+<text x="590" y="50" font-size="22" fill="#212529" text-anchor="end" class="popisek">osvětlené stínítko</text>
+
+<!-- stínítko (šikmo, jako na předloze): nesvícené šedé, osvětlené žluté -->
+<polygon points="430,58 510,88 510,382 430,412" fill="#dee2e6" stroke="#495057" stroke-width="2"/>
+<polygon points="430,58 510,88 510,382 430,412" fill="#ffe066" stroke="#495057" stroke-width="2" class="osvetleni"/>
+
+<!-- stín za míčem (kužel) a vržený stín na stínítku -->
+<g class="stin">
+<polygon points="239.4,181.4 470,118.5 470,321.5 239.4,258.6" fill="#868e96" opacity="0.6"/>
+<ellipse cx="470" cy="220" rx="30" ry="101.5" fill="#495057" stroke="#212529" stroke-width="2"/>
+</g>
+
+<!-- paprsky z bodového zdroje (S = 98,220): 2 vnější na stínítko, 2 těsně kolem okraje míče, 2 na míč -->
+<g stroke="#e8590c" stroke-width="2.5" stroke-linecap="round">
+<line class="paprsek" pathLength="100" x1="98" y1="220" x2="470" y2="84.6"/>
+<line class="paprsek" pathLength="100" x1="98" y1="220" x2="470" y2="355.4"/>
+<line class="paprsek" pathLength="100" x1="98" y1="220" x2="470" y2="118.5"/>
+<line class="paprsek" pathLength="100" x1="98" y1="220" x2="470" y2="321.5"/>
+<line class="paprsek" pathLength="100" x1="98" y1="220" x2="212.5" y2="205.9"/>
+<line class="paprsek" pathLength="100" x1="98" y1="220" x2="212.5" y2="234.1"/>
+</g>
+<g fill="#e8590c" class="hrot">
+<polygon points="470,84.6 460.4,93.4 457.0,84.0"/>
+<polygon points="470,355.4 457.0,356.0 460.4,346.6"/>
+<polygon points="470,118.5 459.7,126.5 457.1,116.8"/>
+<polygon points="470,321.5 457.1,323.2 459.7,313.5"/>
+<polygon points="212.5,205.9 201.2,212.3 200.0,202.4"/>
+<polygon points="212.5,234.1 200.0,237.6 201.2,227.7"/>
+</g>
+
+<!-- míč -->
+<g clip-path="url(#o1-mic)">
+<circle cx="250" cy="220" r="40" fill="#4dabf7"/>
+<ellipse cx="250" cy="220" rx="15" ry="42" fill="#ffd43b"/>
+<ellipse cx="226" cy="220" rx="8" ry="42" fill="#e64980"/>
+<ellipse cx="274" cy="220" rx="8" ry="42" fill="#e64980"/>
+<ellipse cx="236" cy="200" rx="9" ry="5" fill="#ffffff" opacity="0.7"/>
+</g>
+<circle cx="250" cy="220" r="40" fill="none" stroke="#212529" stroke-width="2"/>
+
+<!-- baterka -->
+<rect x="22" y="207" width="58" height="26" rx="5" fill="#343a40" stroke="#212529" stroke-width="2"/>
+<rect x="40" y="215" width="16" height="9" rx="2" fill="#f8f9fa"/>
+<polygon points="80,204 94,198 94,242 80,236" fill="#f4a261" stroke="#212529" stroke-width="2"/>
+<rect x="94" y="198" width="5" height="44" fill="#ffe8cc" stroke="#212529" stroke-width="1.5"/>
+<circle cx="99" cy="220" r="11" fill="#ffd43b" opacity="0.8" class="svit"/>
+
+<!-- popisky -->
+<text x="80" y="275" font-size="22" fill="#212529" text-anchor="middle">baterka</text>
+<text x="80" y="301" font-size="22" fill="#212529" text-anchor="middle">bodový zdroj</text>
+<text x="250" y="303" font-size="22" fill="#212529" text-anchor="middle">míč</text>
+<g class="popisek">
+<line x1="200" y1="420" x2="330" y2="236" stroke="#212529" stroke-width="1.5"/>
+<circle cx="330" cy="236" r="4" fill="#212529"/>
+<text x="20" y="444" font-size="22" fill="#212529">stín: sem nedopadá žádné světlo</text>
+<line x1="525" y1="420" x2="478" y2="300" stroke="#212529" stroke-width="1.5"/>
+<circle cx="478" cy="300" r="4" fill="#212529"/>
+<text x="590" y="444" font-size="22" font-weight="bold" fill="#212529" text-anchor="end">vržený stín</text>
+</g>
+</svg>
