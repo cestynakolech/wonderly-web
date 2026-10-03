@@ -6,6 +6,8 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
+
 - **3. 10. 2026 pozdní večer (nejnovější; commity zatím BEZ pushe a nasazení, doklady `Omega/predavka/2026-10-03/`):** HOTOVO: úniky v kvízech 51 → 18 nálezů (54a1233, cdd0e0d, e2793f9; `kontrola-54a1233.md`, `kontrola-cdd0e0d.md`, `kontrola-e2793f9.md`), vady D1–D6 (ffbee08, `kontrola-vady-d1-d6.md`), vše zkontrolováno. HOTOVO: SVG tématu 2 (5a9952f, de827ed, kontrola 6/6). HOTOVO: test uniky-v-bloku bez živých dat (45bdc6d, f261481, kontrola PROŠLO). HOTOVO: brána uniky.mjs exit 1 (f7118a3, pushnuto). HOTOVO: kvíz rychlost (7082310, pushnuto). Simulace téma 2 (2145321, 92196be) — kolo 3 kontroly běží. ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné). Fronta viz „Fronta po 3. 10. pozdě večer“ níže. ❓ U14 vrátný: `CEKA-NA-UCITELE.md`.
 
 - **3. 10. 2026 odpoledne (pozdější stav):** HOTOVO: píseň Tání (20605ad, nasazeno 885aee74). HOTOVO: záznam `obousmerne.json` pro vata-zapis-shrnuti (a36508e). HOTOVO: VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98). FRONTA: viz „Fronta po 3. 10. odpoledne“ níže (VATA dávka 7, seřízení uniky-v-bloku.mjs, poslech závěru Tání). Doklady v `Omega/predavka/2026-10-03/`. **Večer:** HOTOVO: VATA dávka 7, 6/9 zapsáno (4dc9e37, kontrola PROŠLO, nasazeno 68e575f7), teziste#17#1 opraveno. HOTOVO: Tání ověřeno whisper medium, zpěv je správně (`kontrola-20605ad.md`). HOTOVO: 3 zamítnuté z dávky 7 (#4, #20, #43) vyřešeny dávkou 8. **Později:** HOTOVO: VATA dávka 8 (3/3) a shrnutí (4/5, 11 zastaralých vyřazeno, kolize vyřešeny), commit a48d7ac, kontrola PROŠLO, nasazeno 0468ea6b (curl po 20 s: nový distraktor, SHA1 živé == dist, `nasazeni-a48d7ac.md`). **Ještě později:** HOTOVO: VATA dávka 9 (2/2, 3be43bf, nasazeno 2b9aaf4b, `nasazeni-3be43bf.md`); obě dřívější položky (polovodičový d2, „jen jednou svorkou“) HOTOVO. HOTOVO: kalibrace uniky-v-bloku.mjs (56c1b08, 1621 → 51 nálezů, kontrola PROŠLO s výhradami, `kontrola-56c1b08.md`). FRONTA: opravit ~34 skutečných drobných úniků z uniky-v-bloku (`kalibrace-uniky-v-bloku.md`), pak měřidlo zapojit do prebuild; doladit práh měřidla u tříslovných odpovědí a únik do distraktoru; drobnost: reostat (kvizy.ts:4618) má jako distraktor správnou odpověď potenciometru, posoudit záměr. FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, `brew upgrade` (`oprava-whisper.md`).
@@ -339,6 +341,7 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
+- **DROBNOST (kontrola-6e46c77.md):** šipka 5 N v TreniSimulace na telefonu neviditelná, legenda ji slibuje.
 - **FRONTA:** brána `testy/uniky.mjs` při nalezeném úniku vrací exit 0, musí spadnout (`Omega/predavka/2026-10-03/kontrola-kviz-rychlost.md`).
 - **FRONTA:** do zadání agentů přidat zákaz `git stash` ve sdíleném repu (`Omega/predavka/2026-10-03/zapis-kviz-rychlost.md`).
 - **HOTOVO 3. 10. 2026:** kvíz rychlost sladěn (7082310).
