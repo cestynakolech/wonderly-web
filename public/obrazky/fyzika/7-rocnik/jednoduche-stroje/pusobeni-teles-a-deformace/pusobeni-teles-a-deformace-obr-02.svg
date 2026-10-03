@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 470" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Pružná deformace pružiny. Pružina je jedním koncem připevněná ke zdi. Síla, znázorněná oranžovou šipkou, táhne za druhý konec a pružina se natáhne. Když síla přestane působit, pružina se zhoupne a vrátí se do původní délky. Pružná deformace je dočasná, po skončení působení síly se tvar vrátí.">
+<style>
+/* Předloha: PDF „Působení těles, deformace“ str. 8 (dočasná deformace, příklady míč, pružina) + infografika (pružina).
+   Animace 8 s, smyčka: 0–10 % klid, 10–35 % síla pružinu natahuje (1,5× délka), 35–50 % držení, 50–52 % síla zmizí,
+   52–76 % pružina se zhoupne zpět (0,9 → 1,06 → 0,98 → 1), 76–100 % klid v původní délce.
+   Bez animace (prefers-reduced-motion) = koncový stav: pružina v původní délce, nápis „pružina se vrátí“, značky obou délek. */
+.pr, .uc { transform-box: view-box; }
+.pr { transform-origin: 60px 230px; animation: pr 8s ease-in-out infinite; }
+.uc { animation: uc 8s ease-in-out infinite; }
+.si { animation: si 8s linear infinite; }
+.n1 { animation: n1 8s linear infinite; }
+.n2 { animation: n2 8s linear infinite; }
+@keyframes pr { 0%, 10% { transform: scaleX(1); } 35%, 50% { transform: scaleX(1.5); } 58% { transform: scaleX(0.9); } 64% { transform: scaleX(1.06); } 70% { transform: scaleX(0.98); } 76%, 100% { transform: scaleX(1); } }
+@keyframes uc { 0%, 10% { transform: translateX(0); } 35%, 50% { transform: translateX(120px); } 58% { transform: translateX(-24px); } 64% { transform: translateX(14.4px); } 70% { transform: translateX(-4.8px); } 76%, 100% { transform: translateX(0); } }
+@keyframes si { 0%, 10% { opacity: 0; } 13%, 50% { opacity: 1; } 52%, 100% { opacity: 0; } }
+@keyframes n1 { 0%, 10% { opacity: 0; } 13%, 50% { opacity: 1; } 52%, 100% { opacity: 0; } }
+@keyframes n2 { 0%, 52% { opacity: 0; } 56%, 96% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pr, .uc, .si, .n1, .n2 { animation: none; } }
+</style>
+<defs>
+<pattern id="ptd2z" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#ced4da"/><line x1="0" y1="0" x2="0" y2="12" stroke="#868e96" stroke-width="3"/></pattern>
+<marker id="ptd2h" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#e8590c"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="464" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Pružná deformace</text>
+<text x="300" y="66" font-size="22" fill="#212529" text-anchor="middle">pružina se po puštění vrátí</text>
+<rect x="28" y="140" width="32" height="180" fill="url(#ptd2z)" stroke="#495057" stroke-width="2"/>
+<line x1="300" y1="160" x2="300" y2="290" stroke="#495057" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="300" y="148" font-size="22" fill="#495057" text-anchor="middle">původní délka</text>
+<line x1="420" y1="180" x2="420" y2="290" stroke="#495057" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="420" y="314" font-size="22" fill="#495057" text-anchor="middle">natažená</text>
+<g class="pr"><path d="M60,230 L80,230 L90,205 L110,255 L130,205 L150,255 L170,205 L190,255 L210,205 L230,255 L250,205 L270,255 L280,230 L300,230" fill="none" stroke="#1c4f8a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/></g>
+<g class="uc">
+<circle cx="312" cy="230" r="12" fill="none" stroke="#212529" stroke-width="5"/>
+<g class="si" opacity="0"><line x1="326" y1="230" x2="404" y2="230" stroke="#e8590c" stroke-width="6" marker-end="url(#ptd2h)"/><text x="364" y="214" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle">F</text></g>
+</g>
+<text class="n1" opacity="0" x="300" y="370" font-size="22" fill="#212529" text-anchor="middle">síla táhne → pružina se natáhne</text>
+<text class="n2" x="300" y="370" font-size="22" fill="#212529" text-anchor="middle">síla přestala působit → pružina se vrátí</text>
+<text x="300" y="420" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Pružná deformace je dočasná:</text>
+<text x="300" y="448" font-size="22" fill="#495057" text-anchor="middle">po skončení působení síly se tvar vrátí.</text>
+</svg>
