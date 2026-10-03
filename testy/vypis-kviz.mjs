@@ -1,5 +1,7 @@
 // Vypíše VŠECHNY otázky bloku (i s odpověďmi a vysvětlením):
 //   node testy/vypis-kviz.mjs <část klíče bloku>
+//   node testy/vypis-kviz.mjs <přesný klíč nebo slug bloku> --json   (přesná shoda, 1 blok, jinak exit 3)
+//   node testy/vypis-kviz.mjs --soubor <výřez.ts> [--json]   (výřez = jen objekty otázek, BEZ řádku klíče)
 //
 // Proč: `testy/delky.mjs` ukazuje jen otázky s délkovou nápovědou, takže se v něm
 // neprojeví DUPLICITNÍ PÁRY — a ty jsou horší vada. 1. 8. 2026 se takhle našly
@@ -34,12 +36,25 @@ if (!hledane || hledane.startsWith('--')) {
 }
 
 const { kvizy } = await nactiData();
+if (jsonVystup) {
+	// --json = strojový výstup: JEDEN blok podle PŘESNÉHO klíče (nebo celého posledního segmentu = slug).
+	// Podřetězec ani více shod se nikdy neslučuje (tiché míchání bloků) — kandidáti na stderr, exit 3.
+	const klice = Object.keys(kvizy).filter((k) => Array.isArray(kvizy[k]));
+	let shody = klice.filter((k) => k === hledane);
+	if (!shody.length) shody = klice.filter((k) => k.split('/').pop() === hledane);
+	if (shody.length !== 1) {
+		const kand = shody.length ? shody : klice.filter((k) => k.includes(hledane));
+		console.error(`${shody.length ? 'Nejednoznačný' : 'Nenalezený'} klíč „${hledane}". Kandidáti (${kand.length}):`);
+		for (const k of kand.slice(0, 30)) console.error('  ' + k);
+		process.exit(3);
+	}
+	console.log(JSON.stringify({ [shody[0]]: kvizy[shody[0]] }));
+	process.exit(0);
+}
 let nalezeno = 0;
-const jsonVse = {};
 for (const [klic, otazky] of Object.entries(kvizy)) {
 	if (!klic.includes(hledane) || !Array.isArray(otazky)) continue;
 	nalezeno++;
-	if (jsonVystup) { jsonVse[klic] = otazky; continue; }
 	console.log(`\n=== ${klic} — ${otazky.length} otázek ===`);
 	// --otazky = jen znění otázek; na hledání duplicit stačí a je to kratší
 	const strucne = process.argv.includes('--otazky');
@@ -49,9 +64,5 @@ for (const [klic, otazky] of Object.entries(kvizy)) {
 		console.log(`   → ${(o.odpovedi ?? []).join(' | ')}`);
 		if (o.vysvetleni) console.log(`   ? ${o.vysvetleni}`);
 	});
-}
-if (jsonVystup) {
-	console.log(JSON.stringify(jsonVse));
-	process.exit(nalezeno ? 0 : 2);
 }
 if (!nalezeno) console.log(`Žádný blok neobsahuje „${hledane}".`);
