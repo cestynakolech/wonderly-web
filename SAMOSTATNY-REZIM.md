@@ -650,11 +650,16 @@ nedoplňují na 21. Důvod: hlavní výklad nedává další látku bez úniků/
 - Automat `Omega/skripty/trideni_uniku_krizove.py` zůstává jen PŘEDFILTR s ruční kontrolou (přesnost 7/10 na held-out, nezapojovat do bran): `Omega/predavka/2026-10-02/trideni-uniku-v3.md`, `prace/kalibrace-trideni.md`.
 - Drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-rada-pojistka.md`: mutace v `automat_podkastu.py:627` bez testu; hláška ve `video_podkastu.py:134` (výroba snímků s ročníkovou cestou není zapojena).
 
-### [čeká na učitele] Příroda Q20 + Q21 — ODLOŽENO 2. 10. 2026 (Q20 3 pokusy, Q21 6 pokusů; nehotové)
+### [UZAVŘENO 3. 10. 2026, rozhodnutí 1A] Příroda Q20 + Q21 — dříve odloženo 2. 10. 2026 (Q20 3 pokusy, Q21 6 pokusů)
+UZAVŘENO 3. 10. 2026 (učitel, varianta 1A): blok skupenske-zmeny-vody-v-prirode má 21/21; nová Q21 „kaluž → tuhnutí“ prošla kontrolou (`Omega/predavka/2026-10-03/kontrola-kviz-voda-A.md`), commit 8d5fee5 nasazen. Q20 ponechána (drobný nález K2-3 nasazení nebrání). Původní záznam:
 Kvíz Skupenské změny vody v přírodě má 20 otázek (cíl 21). Q20: 3× neprošla (duplicity s Tuhnutí/Tání, částečně pravdivý distraktor, mírný únik). Q21: otázka „co následuje po vypaření“ nutí vysvětlení vyvracet pořadím nebo prozrazovat Q5/Q8/Q20. Rozhodnout učitel: jiná otázka, výjimka 20/21 s důvodem, nebo návrh opravy v `Omega/predavka/2026-10-02/kontrola-81bb544.md` (a `prace/kontrola-doplneni-priroda-tani.md` Kolo 3). Pozn. k ověření: výklad Tuhnutí (odst. o jádru tuhnutí) tvrdí, že ze smítka prachu vznikají „kroupy a sněhové vločky“, kdežto PDF Přírody řadí vločky k desublimaci.
 
-### [čeká na učitele] Blok Teplo F8 — chce přestavbu (2. 10. 2026)
+### [ROZHODNUTO 3. 10. 2026, varianta 2A — běží] Blok Teplo F8 — přestavba (2. 10. 2026)
+Schváleno učitelem 3. 10. 2026 (2A): přestavba celého bloku jedním workerem + nezávislý kontrolor, běží; návrh do `Omega/predavka/2026-10-03/teplo-f8-prestavba.md`. Původní záznam:
 Blok Teplo F8 — otázky si přirozeně napovídají směr tepla (Q1/Q2/Q3/Q4/Q6, vzorec→Q5, jednotka→Q11); 5 pokusů o drobnou opravu selhalo, chce přestavbu bloku; nálezy Omega/predavka/2026-10-02/prace/kontrola-b6810b3.md. Blok vrácen na verzi 7282e02 (energie ř. 3484 ponechána).
+
+### [oprava nástroje] kontrola_uniku_mini.py čte jen jednořádkové otázky (zjištěno 3. 10. 2026)
+`Omega/skripty/kontrola_uniku_mini.py` načte jen otázky zapsané na jednom řádku; víceřádkový blok vrátí 0 otázek (tichý falešný „nic nenalezeno“). Opravit NÁSTROJ, data (kvizy.ts) nepřevádět.
 
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
