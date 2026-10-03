@@ -29,20 +29,25 @@
 			<text id="treni-bedna-text" x="330" y="192" text-anchor="middle" font-size="19" font-weight="bold" fill="#2b2a26"></text>
 		</g>
 		<!-- pohybové čárky -->
-		<!-- čárky leží POD šipkou třecí síly (y 190–214), ne přes ni (oprava 3. 10. 2026, kolo 2) -->
+		<!-- čárky leží NAD popiskem i šipkou třecí síly (y 128–152), ne přes ně (kolo 6: šipka Ft se přesunula k podlaze) -->
 		<g id="treni-pohyb" stroke="#868e96" stroke-width="3" opacity="0" stroke-linecap="round">
-			<line x1="230" y1="190" x2="255" y2="190" /><line x1="220" y1="202" x2="252" y2="202" /><line x1="232" y1="214" x2="256" y2="214" />
+			<line x1="230" y1="128" x2="255" y2="128" /><line x1="220" y1="140" x2="252" y2="140" /><line x1="232" y1="152" x2="256" y2="152" />
 		</g>
 		<!-- síly: šipka vychází z hrany bedny; popisek stojí NAD šipkou, celý MIMO obrys bedny
 			(F od x 398 doprava, Ft končí na x 262) — dřív ležel v půlce krátké šipky přes obrys -->
+		<!-- PŮSOBIŠTĚ (oprava 3. 10. 2026, kolo 6, kontrola-a2f8361 N2): třecí síla působí na STYČNÉ PLOŠE bedny
+			s podlahou (výklad: „proti vzájemnému pohybu stykových ploch“) → šipka Ft vychází ze spodku levé stěny
+			a leží na podlaze (osa y 209,5, spodní okraj hrotu 218,5 = horní okraj čáry podlahy), ne v půlce stěny.
+			Celá leží nad podlahou: červená na hnědé podlaze by měla kontrast jen 2,9 : 1. Tažná síla F zůstává
+			v půlce pravé stěny (tah za bednu, tam dává smysl). -->
 		<!-- šipka = jeden tvar (dřík + hrot), její špička leží PŘESNĚ F·k od hrany bedny (oprava 3. 10. 2026, kolo 3) -->
 		<!-- šipka začíná VNĚ obrysu bedny (hrana + polovina tloušťky čáry), aby neležela přes černý obrys (oprava 3. 10. 2026, kolo 4) -->
 		<path id="treni-sipka-f" d="M391.75,170 Z" fill="#1971c2" visibility="hidden" />
-		<path id="treni-sipka-t" d="M268.25,170 Z" fill="#c92a2a" visibility="hidden" />
-		<!-- velikost síly stojí číslem přímo u šipky; písmo 32 = na telefonu 375 px (scéna ~263 px, 0,40×) asi 12,7 px,
+		<path id="treni-sipka-t" d="M268.25,209.5 Z" fill="#c92a2a" visibility="hidden" />
+		<!-- velikost síly stojí číslem přímo u šipky; písmo 32 = na telefonu 375 px (kresba 256,9 px bez rámečku, 0,39×) asi 12,5 px,
 			takže i u vlásečnicově krátké šipky (5 N) je hodnota čitelná (oprava 3. 10. 2026, kolo 5: kroužek zrušen) -->
 		<text id="treni-pop-f" x="398" y="150" font-size="32" font-weight="bold" fill="#1971c2" text-anchor="start"></text>
-		<text id="treni-pop-t" x="262" y="150" font-size="32" font-weight="bold" fill="#c92a2a" text-anchor="end"></text>
+		<text id="treni-pop-t" x="262" y="190" font-size="32" font-weight="bold" fill="#c92a2a" text-anchor="end"></text>
 		<text x="14" y="26" font-size="14" font-weight="bold" fill="#1971c2">→ tažná síla F</text>
 		<text x="14" y="46" font-size="14" font-weight="bold" fill="#c92a2a">← třecí síla Ft</text>
 	</svg>
@@ -118,18 +123,19 @@
 		document.getElementById('treni-pohyb').setAttribute('opacity', pohyb ? '0.9' : '0');
 
 		const r2 = (x) => Math.round(x * 100) / 100;
-		const tvarSipky = (x0, smer, delka) => {
+		// osa y: F v půlce pravé stěny (170), Ft na podlaze u styčné plochy (209,5 — viz komentář u šipek)
+		const tvarSipky = (x0, y, smer, delka) => {
 			const h = Math.min(HROT, delka), spicka = r2(x0 + smer * delka), patka = r2(x0 + smer * (delka - h));
 			return delka > h
-				? `M${x0},166.5 L${patka},166.5 L${patka},161 L${spicka},170 L${patka},179 L${patka},173.5 L${x0},173.5 Z`
-				: `M${x0},161 L${spicka},170 L${x0},179 Z`;
+				? `M${x0},${y - 3.5} L${patka},${y - 3.5} L${patka},${y - 9} L${spicka},${y} L${patka},${y + 9} L${patka},${y + 3.5} L${x0},${y + 3.5} Z`
+				: `M${x0},${y - 9} L${spicka},${y} L${x0},${y + 9} Z`;
 		};
 		const sipkaF = document.getElementById('treni-sipka-f');
-		sipkaF.setAttribute('d', tvarSipky(391.75, 1, F * k));
+		sipkaF.setAttribute('d', tvarSipky(391.75, 170, 1, F * k));
 		sipkaF.setAttribute('visibility', F > 0 ? 'visible' : 'hidden');
 		document.getElementById('treni-pop-f').textContent = F > 0 ? 'F = ' + F + ' N' : '';
 		const sipkaT = document.getElementById('treni-sipka-t');
-		sipkaT.setAttribute('d', tvarSipky(268.25, -1, Ft * k));
+		sipkaT.setAttribute('d', tvarSipky(268.25, 209.5, -1, Ft * k));
 		sipkaT.setAttribute('visibility', Ft > 0 ? 'visible' : 'hidden');
 		document.getElementById('treni-pop-t').textContent = Ft > 0 ? 'Ft = ' + Ft + ' N' : '';
 

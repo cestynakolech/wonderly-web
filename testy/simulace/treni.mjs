@@ -20,6 +20,8 @@
 //     (šipku neobkroužil, kontrola-3b4830c N1); legenda říká „Malé síly mají krátkou šipku – velikost
 //     síly je napsaná u šipky.“ a test ověřuje, že to platí: číslo síly stojí u začátku šipky, je vidět
 //     a na telefonu 375 px má písmo ≥ 12 px. Legenda nesmí slibovat kroužek ani jiný neexistující tvar.
+//  9) (kolo 6) působiště: šipka Ft leží na podlaze u styčné plochy (ne v půlce zadní stěny) ve všech
+//     polohách posuvníků; šířka kresby na 375 px se počítá BEZ rámečku (256,9 px, ne 262,9).
 //
 // Spuštění: node testy/simulace/treni.mjs [cesta] (bez argumentu: src/components/skola2/TreniSimulace.astro)
 import { readFileSync } from 'node:fs';
@@ -131,10 +133,10 @@ const zmerSipku = (id, smer) => {
 		const body = [...d.matchAll(/[ML](-?[\d.]+),(-?[\d.]+)/g)].map((m) => [+m[1], +m[2]]);
 		if (!body.length) return { x0: NaN, delka: NaN, vyska: 0 };
 		const ys = body.map((b) => b[1]);
-		return { x0: body[0][0], delka: Math.max(...body.map((b) => (b[0] - body[0][0]) * smer)), vyska: Math.max(...ys) - Math.min(...ys) };
+		return { x0: body[0][0], delka: Math.max(...body.map((b) => (b[0] - body[0][0]) * smer)), vyska: Math.max(...ys) - Math.min(...ys), ymin: Math.min(...ys), ymax: Math.max(...ys) };
 	}
-	const x1 = +at(id, 'x1'), x2 = +at(id, 'x2');
-	return { x0: x1, delka: (x2 - x1) * smer + markerPresah, vyska: 18 };
+	const x1 = +at(id, 'x1'), x2 = +at(id, 'x2'), y1 = +at(id, 'y1');
+	return { x0: x1, delka: (x2 - x1) * smer + markerPresah, vyska: 18, ymin: y1 - 9, ymax: y1 + 9 };
 };
 
 // ---------- rozvržení scény: šipky a popisky mimo obrys bedny, nepřekrývají se ----------
@@ -146,19 +148,30 @@ const bedna = atrHtml('treni-bedna-rect');
 const bL = +bedna.x, bP = +bedna.x + +bedna.width, bH = +bedna.y, bD = +bedna.y + +bedna.height;
 const sF = atrHtml('treni-sipka-f'), sT = atrHtml('treni-sipka-t'), pF = atrHtml('treni-pop-f'), pT = atrHtml('treni-pop-t');
 const vbT = html.match(/id="treni-svg" viewBox="0 0 (\d+) (\d+)"/);
-// osa šipek: y 170 (střed tvaru), uvnitř výšky bedny
-const OSA = 170;
-sF.y1 = sT.y1 = OSA;
-ok(OSA > bH && OSA < bD && [sF.fill, sT.fill].join() === '#1971c2,#c92a2a', `šipky leží ve výšce bedny (y ${OSA}) a mají barvy F modrá, Ft červená (${sF.fill}, ${sT.fill})`);
+// PŮSOBIŠTĚ (kolo 6, kontrola-a2f8361 N2): třecí síla působí na STYČNÉ PLOŠE bedny s podlahou (výklad
+// temata.ts: „proti vzájemnému pohybu stykových ploch“). Kolo 5 kreslilo Ft v půlce zadní stěny (y 170,
+// 50 px nad podlahou) — dítě z toho vyčte, že tření tlačí na zadní stěnu. Šipka Ft proto musí ležet NA podlaze:
+// spodní okraj hrotu (osa + 9) = horní okraj čáry podlahy (y podlahy − ½ tloušťky čáry), celá NAD podlahou
+// (červená na hnědé podlaze má kontrast jen 2,9 : 1). Bedna stojí na podlaze (spodek bedny = y podlahy).
+// Tažná síla F: osa v půlce výšky bedny pod příčkou (tah za bednu), 170.
+const podlaha = atrHtml('treni-podlaha');
+const hornaPodlahy = +podlaha.y - +podlaha['stroke-width'] / 2;
+const OSA_T = hornaPodlahy - 9;
+const OSA_F = 170;
+sF.y1 = OSA_F; sT.y1 = OSA_T;
+ok(bD === +podlaha.y, `bedna stojí na podlaze (spodek bedny y ${bD}, podlaha y ${podlaha.y})`);
+ok(OSA_F > bH && OSA_F < bD && [sF.fill, sT.fill].join() === '#1971c2,#c92a2a', `šipka F leží ve výšce bedny (y ${OSA_F}); barvy F modrá, Ft červená (${sF.fill}, ${sT.fill})`);
+// samotnou polohu šipek měří smyčka přes všechny polohy posuvníků (zmerSipku → ymin/ymax ze skutečného <path d>)
 // popisek F začíná vpravo od bedny, popisek Ft končí vlevo od ní; oba nad šipkou (hrot ±9 px, písmo 15)
 const PISMO = +pF['font-size'];
 const sirkaPop = (t) => t.length * 0.6 * PISMO;
 ok(pF['text-anchor'] === 'start' && +pF.x >= bP + 4 && pT['text-anchor'] === 'end' && +pT.x <= bL - 4, `popisky sil leží vodorovně mimo obrys bedny (F od x ${pF.x}, Ft do x ${pT.x})`);
-ok(+pF.y + 4 < +sF.y1 - 9 && +pT.y + 4 < +sT.y1 - 9 && +pF.y - PISMO > 50 && pF['font-size'] === pT['font-size'], `popisky stojí nad šipkami a pod legendou (y ${pF.y}, šipky y ${sF.y1})`);
+ok(+pF.y + 4 < +sF.y1 - 9 && +pT.y + 4 < +sT.y1 - 9 && +pF.y - PISMO > 50 && +pT.y - PISMO > 50 && pF['font-size'] === pT['font-size'], `popisky stojí nad šipkami a pod legendou (F y ${pF.y} nad šipkou y ${sF.y1}, Ft y ${pT.y} nad šipkou y ${sT.y1})`);
 ok(+pF.x + sirkaPop('F = 400 N') <= +vbT[1] && +pT.x - sirkaPop('Ft = 325 N') >= 0, 'nejdelší popisky („F = 400 N“, „Ft = 325 N“) se vejdou do scény');
 // pohybové čárky nesmí ležet přes šipku třecí síly (pás y1 ± 9 px)
 const carky = [...(html.match(/<g id="treni-pohyb"[\s\S]*?<\/g>/) || [''])[0].matchAll(/y1="(\d+)"/g)].map((m) => +m[1]);
-ok(carky.length === 3 && carky.every((y) => Math.abs(y - +sT.y1) > 9 + 1.5 && y < bD), `pohybové čárky neleží přes šipku Ft (y ${carky.join(', ')})`);
+// ani přes popisek Ft (pás od účaří − písmo po účaří + 4; čárky jsou vodorovně v jeho rozsahu x 220–256)
+ok(carky.length === 3 && carky.every((y) => Math.abs(y - +sT.y1) > 9 + 1.5 && y < bD && (y + 1.5 < +pT.y - PISMO || y - 1.5 > +pT.y + 4)), `pohybové čárky neleží přes šipku Ft ani přes její popisek (y ${carky.join(', ')})`);
 // barvy textu sil mají kontrast ≥ 4,5 : 1 proti pozadí scény #f8f9fa
 const lum = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
 const kontrast = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05);
@@ -174,20 +187,28 @@ ok(obrys > 0 && atrHtml('treni-sipka-f').d.startsWith(`M${x0F},`) && atrHtml('tr
 // Kroužek kolem krátké šipky zrušen (šipku neobkroužil, legenda „šipka v kroužku“ lhala — kontrola-3b4830c N1).
 // Legenda teď říká „velikost síly je napsaná u šipky“ → test ověřuje, že to v kresbě platí:
 // Šířka scény na telefonu 375 px je 262,9 CSS px při viewBoxu 660 (změřeno v Chrome, /private/tmp/opravy-kolo5/mer.mjs;
-// stejná šířka i u SilaVektorSimulace) → písmo popisku × 262,9 / 660 musí být ≥ 12 px.
+// stejná šířka i u SilaVektorSimulace) — ALE to je getBoundingClientRect VČETNĚ rámečku (border 3 px z <style>).
+// Kresba (viewBox) se škáluje jen do obsahu = 262,9 − 2 × rámeček = 256,9 px (kolo 6, kontrola-a2f8361 N1).
+// Písmo popisku × 256,9 / 660 musí být ≥ 12 px.
 const HROT = 16;
-const SIRKA_375 = 262.9;
+const ramecek = +((zdroj.match(/#treni-svg\s*\{[^}]*border:\s*([\d.]+)px/) || [])[1] ?? NaN);
+const SIRKA_375 = 262.9 - 2 * ramecek;
 const VYSVETLENI = 'Malé síly mají krátkou šipku – velikost síly je napsaná u šipky.';
 const naTelefonu = (PISMO * SIRKA_375) / +vbT[1];
-ok(naTelefonu >= 12, `popisky sil mají na telefonu 375 px písmo ≥ 12 px (${naTelefonu.toFixed(1)} px při font-size ${PISMO})`);
-// „u šipky“: popisek začíná nejvýš 8 px od začátku šipky (vodorovně) a jeho účaří je nejvýš 16 px nad šipkou (hrot od y 161)
-ok(+pF.x - x0F >= 0 && +pF.x - x0F <= 8 && x0T - +pT.x >= 0 && x0T - +pT.x <= 8 && 161 - +pF.y > 0 && 161 - +pF.y <= 16 && +pF.y === +pT.y, `popisky stojí přímo u začátku šipek (F x ${pF.x} vs. ${x0F}, Ft x ${pT.x} vs. ${x0T}, účaří y ${pF.y})`);
+ok(ramecek > 0 && naTelefonu >= 12, `popisky sil mají na telefonu 375 px písmo ≥ 12 px (${naTelefonu.toFixed(2)} px při font-size ${PISMO}, kresba ${SIRKA_375} px bez rámečku ${ramecek} px)`);
+// „u šipky“: popisek začíná nejvýš 8 px od začátku šipky (vodorovně) a jeho účaří je nejvýš 16 px nad horním okrajem
+// hrotu své šipky (osa − 9: F 161, Ft na podlaze 200,5)
+const uSipky = (p, osa) => (osa - 9) - +p.y > 0 && (osa - 9) - +p.y <= 16;
+ok(+pF.x - x0F >= 0 && +pF.x - x0F <= 8 && x0T - +pT.x >= 0 && x0T - +pT.x <= 8 && uSipky(pF, OSA_F) && uSipky(pT, OSA_T), `popisky stojí přímo u začátku šipek (F x ${pF.x} vs. ${x0F}, účaří y ${pF.y}; Ft x ${pT.x} vs. ${x0T}, účaří y ${pT.y})`);
 // popisek nic neskrývá: žádné visibility/opacity/display na popiscích
 ok(![pF, pT].some((a) => a.visibility || a.opacity || a.display), 'popisky sil nejsou skryté atributem');
 // kroužky jsou pryč a nic je neslibuje
 ok(!/<circle/.test(html.replace(/<!--[\s\S]*?-->/g, '')) && !/kroužk/.test(skript.replace(/\/\/.*$/gm, '')), 'scéna nemá kroužky a texty skriptu (mimo komentáře) o kroužku nemluví');
 let pravdiva = true;
 let meritko = null; // px/N změřené na první nenulové šipce; všechny další (F i Ft) musí mít totéž
+// osa = střed svislého rozsahu tvaru; F v půlce stěny, Ft na podlaze (spodek hrotu = okraj podlahy, nic pod ním)
+let polohaOsy = true;
+const osaSedi = (s, osa) => Math.abs((s.ymin + s.ymax) / 2 - osa) < 1e-9 && s.ymax <= hornaPodlahy;
 const delkaSedi = (s, x0, sila) => {
 	if (!(s.x0 === x0 && s.vyska >= 18)) return false;
 	if (meritko === null) meritko = s.delka / sila;
@@ -223,6 +244,7 @@ for (const [klic, p] of Object.entries(POVRCHY)) {
 				|| at('treni-pop-t', 'x') !== pT.x || at('treni-pop-f', 'x') !== pF.x
 				|| at('treni-sipka-f', 'visibility') !== (F > 0 ? 'visible' : 'hidden') || at('treni-sipka-t', 'visibility') !== (Ft > 0 ? 'visible' : 'hidden')
 				|| el('treni-pop-f').textContent !== (F > 0 ? `F = ${F} N` : '')) sipky = false;
+			if ((Ft > 0 && !osaSedi(zmerSipku('treni-sipka-t', -1), OSA_T)) || (F > 0 && !osaSedi(zmerSipku('treni-sipka-f', 1), OSA_F))) { polohaOsy = false; doslo.osa ||= `${klic} ${m} kg F=${F}: Ft ${at('treni-sipka-t', 'd')} | F ${at('treni-sipka-f', 'd')}`; }
 			if (at('treni-pohyb', 'opacity') !== (jede ? '0.9' : '0')) obrazek = false;
 			// legenda pro telefon opakuje popisky scény (síly, hmotnost, povrch) čitelným písmem
 			const c2 = (x) => x.toFixed(2).replace('.', ',');
@@ -245,13 +267,14 @@ for (const [klic, p] of Object.entries(POVRCHY)) {
 }
 ok(celaCisla, 'všechny meze tření (3 povrchy × 5 hmotností) vychází v celých newtonech');
 ok(hystereze, `třecí síla sedí s hysterezí ve všech ${3 * 5 * 161} polohách${doslo.chyba ? ' — ' + doslo.chyba : ''}`);
+ok(polohaOsy, `působiště ve všech polohách: Ft leží na podlaze u styčné plochy (osa y ${OSA_T}), F v půlce pravé stěny (osa y ${OSA_F})${doslo.osa ? ' — ' + doslo.osa : ''}`);
 ok(sipky, `šipky F a Ft: délka PŘÍMO úměrná síle (${k} px/N, stejné měřítko), poloha popisku i viditelnost ve všech polohách (změřeno ${meritko} px/N)`);
 // kotva z výkladu: dvojnásobná síla = dvojnásobná šipka; ocel na oceli 50 kg, F = 80 N → jede, Ft = 50 N
 zvolPovrch('ocel'); posun('treni-slider-f', 0); posun('treni-slider-m', 50); posun('treni-slider-f', 80);
 const s80 = zmerSipku('treni-sipka-f', 1), s50 = zmerSipku('treni-sipka-t', -1);
 ok(el('treni-pop-t').textContent === 'Ft = 50 N' && Math.abs(s80.delka / s50.delka - 1.6) < 1e-6, `šipka 80 N : šipka 50 N = ${(s80.delka / s50.delka).toFixed(3)} (má být 1,6 jako 80 : 50)`);
 // přesný tvar: dlouhá šipka = dřík 7 px + hrot 16 × 18 px; krátká (pod 16 px) = jen klínek 18 px vysoký
-ok(at('treni-sipka-f', 'd') === 'M391.75,166.5 L427.75,166.5 L427.75,161 L443.75,170 L427.75,179 L427.75,173.5 L391.75,173.5 Z' && at('treni-sipka-t', 'd') === 'M268.25,166.5 L251.75,166.5 L251.75,161 L235.75,170 L251.75,179 L251.75,173.5 L268.25,173.5 Z', `tvar šipek 80 N a 50 N (${at('treni-sipka-f', 'd')} | ${at('treni-sipka-t', 'd')})`);
+ok(at('treni-sipka-f', 'd') === 'M391.75,166.5 L427.75,166.5 L427.75,161 L443.75,170 L427.75,179 L427.75,173.5 L391.75,173.5 Z' && at('treni-sipka-t', 'd') === 'M268.25,206 L251.75,206 L251.75,200.5 L235.75,209.5 L251.75,218.5 L251.75,213 L268.25,213 Z', `tvar šipek 80 N a 50 N (${at('treni-sipka-f', 'd')} | ${at('treni-sipka-t', 'd')})`);
 ok(!el('treni-mobil').textContent.includes(VYSVETLENI), 'u šipek 80 N a 50 N (obě delší než hrot) legenda větu o krátkých šipkách nemá');
 posun('treni-slider-f', 5);
 const nbT = (t) => t.replaceAll(' ', String.fromCharCode(160));

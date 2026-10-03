@@ -114,11 +114,16 @@ ok(scenaSedi(10, 0, 0, 0), 'výchozí scéna: bedna na místě, šipka 10 N dopr
 	const rect = s.match(/<rect x="170" y="240" width="60" height="60"[^>]*fill="(#[0-9a-fA-F]{6})"/);
 	const txt = s.match(/<text x="200" y="\d+"[^>]*fill="(#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?)">bedna<\/text>/);
 	// velikost nápisu na telefonu (kolo 5): scéna 500 jednotek má na 375 px šířku 262,9 CSS px (změřeno v Chrome,
-	// /private/tmp/opravy-kolo5/mer.mjs) → písmo × 0,526 musí být ≥ 12 px; „bedna“ tučně je široká ~2,0 × písmo
+	// /private/tmp/opravy-kolo5/mer.mjs) — to je ale getBoundingClientRect VČETNĚ rámečku #sv-svg (border 3 px).
+	// Kresba se škáluje jen do obsahu: 262,9 − 2 × rámeček = 256,9 px (kolo 6, kontrola-a2f8361 N1: s 262,9 test
+	// pustil písmo 23 = skutečně 11,82 px). Rámeček se čte ze <style> komponenty → písmo × 256,9 / 500 ≥ 12 px;
+	// „bedna“ tučně je široká ~2,0 × písmo
 	// (změřeno 12,6 px při 6,31 px) a musí se vejít do bedny (60 − obrys 3) mezi kříž působiště (y ≤ 247) a dno (y 300)
+	const ramecek = +((zdroj.match(/#sv-svg\s*\{[^}]*border:\s*([\d.]+)px/) || [])[1] ?? NaN);
+	const kresba375 = 262.9 - 2 * ramecek;
 	const pismo = +(s.match(/<text x="200" y="\d+"[^>]*font-size="(\d+)"[^>]*>bedna<\/text>/)?.[1] || 0);
 	const yB = +(s.match(/<text x="200" y="(\d+)"[^>]*>bedna<\/text>/)?.[1] || 0);
-	ok(pismo * 262.9 / 500 >= 12 && 2.0 * pismo <= 57 && yB - 0.75 * pismo > 240 + 7 + 1.5 && yB < 300 - 1.5, `nápis „bedna“ má na 375 px ≥ 12 px (${(pismo * 262.9 / 500).toFixed(1)} px) a vejde se do bedny pod kříž (y ${yB}, písmo ${pismo})`);
+	ok(ramecek > 0 && pismo * kresba375 / 500 >= 12 && 2.0 * pismo <= 57 && yB - 0.75 * pismo > 240 + 7 + 1.5 && yB < 300 - 1.5, `nápis „bedna“ má na 375 px ≥ 12 px (${(pismo * kresba375 / 500).toFixed(2)} px, kresba ${kresba375} px bez rámečku ${ramecek} px) a vejde se do bedny pod kříž (y ${yB}, písmo ${pismo})`);
 	const hex6 = (h) => (h.length === 4 ? '#' + [...h.slice(1)].map((c) => c + c).join('') : h);
 	const lum = (h) => [1, 3, 5].map((i) => parseInt(hex6(h).slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
 	const kon = rect && txt ? (Math.max(lum(rect[1]), lum(txt[1])) + 0.05) / (Math.min(lum(rect[1]), lum(txt[1])) + 0.05) : 0;
