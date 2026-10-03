@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 550" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Suchý článek v řezu, napětí 1,5 V: vně zinková nádoba (anoda, záporná), uvnitř salmiaková pasta jako elektrolyt, uprostřed uhlíková tyčinka (katoda, kladná) obalená oxidem manganičitým, nahoře kovová čepička. Článek je drátem spojen se žárovkou. Animace: elektrony tečou drátem od zinkové nádoby přes žárovku k uhlíkové tyčince.">
+<style>
+/* Předloha: PDF lekce 21, s. 2 (řez suchým článkem: kovová čepička +, uhlíková elektroda, oxid manganičitý, pasta chloridu amonného, zinková nádoba −, kovová plocha dole).
+   Překresleno jako rovinný řez; navíc vnější obvod se žárovkou (děj). Elektrony: tečky po 32 px, posun 32 px za 1 s od zinku (dole) k uhlíku (nahoře).
+   Bez animace: tečky stojí, směr ukazují šipky, žárovka svítí. */
+.el { stroke-dasharray: 0 32; animation: el 1s linear infinite; }
+@keyframes el { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -32; } }
+.sv { opacity: 0.45; animation: sv 1.2s ease-in-out infinite alternate; }
+@keyframes sv { from { opacity: 0.3; } to { opacity: 0.65; } }
+@media (prefers-reduced-motion: reduce) { .el, .sv { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="544" rx="14" fill="#f8f9fa"/>
+<text x="300" y="38" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">Suchý článek v řezu · 1,5 V</text>
+<!-- vnější obvod -->
+<path d="M230 454V478H90V82H230V104" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round"/>
+<path class="el" d="M230 454V478H90V82H230V104" fill="none" stroke="#1864ab" stroke-width="12" stroke-linecap="round"/>
+<circle class="sv" cx="90" cy="280" r="38" fill="#ffd43b"/>
+<circle cx="90" cy="280" r="22" fill="#fff9db" stroke="#495057" stroke-width="2.5"/>
+<path d="M80 286L85 274L90 286L95 274L100 286" fill="none" stroke="#e67700" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="160" y="70" font-size="22" fill="#1864ab" font-weight="bold" text-anchor="middle">elektrony</text>
+<path d="M112 104H170" stroke="#1864ab" stroke-width="3"/><polygon points="184,104 170,97 170,111" fill="#1864ab"/>
+<polygon points="72,192 65,206 79,206" fill="#1864ab"/>
+<polygon points="72,372 65,386 79,386" fill="#1864ab"/>
+<polygon points="146,496 160,489 160,503" fill="#1864ab"/>
+<!-- zinková nádoba -->
+<path d="M160 130V430Q160 446 176 446H284Q300 446 300 430V130Z" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<!-- salmiaková pasta -->
+<path d="M170 130V426Q170 436 180 436H280Q290 436 290 426V130Z" fill="#fff3bf"/>
+<!-- izolační vrstva nahoře -->
+<rect x="170" y="130" width="120" height="18" fill="#e9ecef" stroke="#868e96" stroke-width="1.5"/>
+<!-- oxid manganičitý a uhlíková tyčinka -->
+<rect x="206" y="160" width="48" height="246" rx="6" fill="#495057"/>
+<rect x="222" y="118" width="16" height="280" rx="4" fill="#212529"/>
+<!-- kovová čepička a kovová plocha dole -->
+<rect x="212" y="104" width="36" height="16" rx="4" fill="#fcc419" stroke="#e67700" stroke-width="2"/>
+<rect x="172" y="446" width="116" height="8" rx="3" fill="#adb5bd" stroke="#495057" stroke-width="1.5"/>
+<!-- odznaky pólů -->
+<circle cx="276" cy="100" r="13" fill="#c92a2a"/><path d="M268.5 100H283.5M276 92.5V107.5" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="318" cy="466" r="13" fill="#1864ab"/><path d="M310.5 466H325.5" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<!-- popisky -->
+<g stroke="#495057" stroke-width="1.5" fill="#495057">
+<path d="M334 144H238"/><circle cx="238" cy="144" r="3.5"/>
+<path d="M334 240H254"/><circle cx="254" cy="240" r="3.5"/>
+<path d="M334 310H274"/><circle cx="274" cy="310" r="3.5"/>
+<path d="M334 404H300"/><circle cx="300" cy="404" r="3.5"/>
+</g>
+<text x="340" y="150" font-size="22" fill="#212529">uhlíková tyčinka</text>
+<text x="340" y="176" font-size="22" fill="#c92a2a" font-weight="bold">katoda (+)</text>
+<text x="340" y="246" font-size="22" fill="#212529">oxid manganičitý</text>
+<text x="340" y="316" font-size="22" fill="#212529">salmiaková pasta</text>
+<text x="340" y="342" font-size="22" fill="#0b7285" font-weight="bold">= elektrolyt</text>
+<text x="340" y="410" font-size="22" fill="#212529">zinková nádoba</text>
+<text x="340" y="436" font-size="22" fill="#1864ab" font-weight="bold">anoda (−)</text>
+<text x="300" y="530" font-size="22" fill="#212529" text-anchor="middle">Elektrony tečou drátem od zinku k uhlíku.</text>
+<rect x="3" y="3" width="594" height="544" rx="14" fill="none" stroke="#adb5bd" stroke-width="3"/>
+</svg>

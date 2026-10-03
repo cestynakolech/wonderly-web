@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tři suché články po 1,5 V jsou zapojené za sebou, kladný pól jednoho se dotýká záporného pólu dalšího. Napětí se sečte: 1,5 V + 1,5 V + 1,5 V = 4,5 V. Tak je složená plochá baterie s napětím 4,5 V. Animace: články přibývají jeden po druhém a nakonec se objeví součet a plochá baterie.">
+<style>
+/* Předloha: PDF lekce 21, s. 3 (plochá baterie: tři suché 1,5 V články zapojené za sebou, napětí 4,5 V). Kresba v PDF chybí.
+   10 s cyklus: 1. článek 0–5 %, 2. článek 12–17 %, 3. článek 24–29 %, závorka a součet 38–44 %, plochá baterie 52–58 %, drží do 90 %, zmizí 90–96 %.
+   Bez animace: vše vidět (koncový stav). */
+.k1, .k2, .k3, .k4, .k5 { animation-duration: 10s; animation-timing-function: ease-out; animation-iteration-count: infinite; }
+.k1 { animation-name: k1; } .k2 { animation-name: k2; } .k3 { animation-name: k3; } .k4 { animation-name: k4; } .k5 { animation-name: k5; }
+@keyframes k1 { 0% { opacity: 0; transform: translateY(-20px); } 5%, 90% { opacity: 1; transform: translateY(0px); } 96%, 100% { opacity: 0; transform: translateY(0px); } }
+@keyframes k2 { 0%, 12% { opacity: 0; transform: translateY(-20px); } 17%, 90% { opacity: 1; transform: translateY(0px); } 96%, 100% { opacity: 0; transform: translateY(0px); } }
+@keyframes k3 { 0%, 24% { opacity: 0; transform: translateY(-20px); } 29%, 90% { opacity: 1; transform: translateY(0px); } 96%, 100% { opacity: 0; transform: translateY(0px); } }
+@keyframes k4 { 0%, 38% { opacity: 0; } 44%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@keyframes k5 { 0%, 52% { opacity: 0; } 58%, 90% { opacity: 1; } 96%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .k1, .k2, .k3, .k4, .k5 { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="#f8f9fa"/>
+<text x="300" y="38" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">Články za sebou: napětí se sečte</text>
+<!-- tři články -->
+<g class="k1">
+<rect x="72" y="100" width="140" height="60" rx="6" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<rect x="212" y="118" width="12" height="24" rx="3" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
+<text x="142" y="138" font-size="22" fill="#212529" font-weight="bold" text-anchor="middle">1,5 V</text>
+<path d="M78 84H94" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/><path d="M194 84H210M202 76V92" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round"/>
+</g>
+<g class="k2">
+<rect x="224" y="100" width="140" height="60" rx="6" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<rect x="364" y="118" width="12" height="24" rx="3" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
+<text x="294" y="138" font-size="22" fill="#212529" font-weight="bold" text-anchor="middle">1,5 V</text>
+<path d="M230 84H246" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/><path d="M346 84H362M354 76V92" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round"/>
+</g>
+<g class="k3">
+<rect x="376" y="100" width="140" height="60" rx="6" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<rect x="516" y="118" width="12" height="24" rx="3" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
+<text x="446" y="138" font-size="22" fill="#212529" font-weight="bold" text-anchor="middle">1,5 V</text>
+<path d="M382 84H398" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/><path d="M498 84H514M506 76V92" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round"/>
+</g>
+<!-- závorka a součet -->
+<g class="k4">
+<path d="M72 176Q72 190 86 190H286Q300 190 300 204Q300 190 314 190H514Q528 190 528 176" fill="none" stroke="#212529" stroke-width="2.5"/>
+<text x="300" y="234" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">4,5 V</text>
+</g>
+<!-- rovnice -->
+<text class="k1" x="154" y="282" font-size="24" fill="#212529" text-anchor="middle">1,5 V</text>
+<text class="k2" x="238" y="282" font-size="24" fill="#212529" text-anchor="middle">+ 1,5 V</text>
+<text class="k3" x="334" y="282" font-size="24" fill="#212529" text-anchor="middle">+ 1,5 V</text>
+<text class="k4" x="432" y="282" font-size="24" fill="#212529" font-weight="bold" text-anchor="middle">= 4,5 V</text>
+<!-- plochá baterie -->
+<g class="k5">
+<rect x="255" y="310" width="15" height="34" rx="2" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
+<rect x="330" y="300" width="15" height="44" rx="2" fill="#fcc419" stroke="#e67700" stroke-width="1.5"/>
+<path d="M232 326H248M240 318V334" stroke="#c92a2a" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M352 318H368" stroke="#1864ab" stroke-width="3.5" stroke-linecap="round"/>
+<rect x="220" y="342" width="160" height="96" rx="6" fill="#fff3bf" stroke="#495057" stroke-width="2"/>
+<text x="300" y="400" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">4,5 V</text>
+<text x="205" y="384" font-size="22" fill="#212529" text-anchor="end">plochá</text>
+<text x="205" y="410" font-size="22" fill="#212529" text-anchor="end">baterie</text>
+<text x="395" y="384" font-size="22" fill="#212529">uvnitř tři</text>
+<text x="395" y="410" font-size="22" fill="#212529">suché články</text>
+</g>
+<text x="300" y="474" font-size="22" fill="#212529" text-anchor="middle">Plochá baterie = tři suché články za sebou.</text>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="none" stroke="#adb5bd" stroke-width="3"/>
+</svg>

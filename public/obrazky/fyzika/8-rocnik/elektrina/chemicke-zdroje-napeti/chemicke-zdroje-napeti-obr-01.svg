@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Galvanický článek: v nádobě s elektrolytem jsou dvě elektrody, vlevo zinek (anoda, záporná), vpravo měď (katoda, kladná). Elektrody jsou nahoře spojené drátem se žárovkou. Animace: elektrony tečou drátem od záporného zinku přes žárovku ke kladné mědi, žárovka svítí a zinek se v elektrolytu pomalu rozpouští.">
+<style>
+/* Předloha: PDF lekce 21, s. 1 (text: dvě elektrody z různých kovů v elektrolytu, na jedné se hromadí elektrony = anoda −, na druhé ubývají = katoda +). Kresba v PDF chybí.
+   Elektrony: tečky po 32 px na drátu, posun 32 px za 1 s ve směru − → +. Zinek se rozpouští: 3 šedé částice odplouvají 3 s.
+   Bez animace (reduced-motion): tečky stojí na drátu, směr ukazují šipky, žárovka svítí, částice zinku stojí kousek od elektrody. */
+.el { stroke-dasharray: 0 32; animation: el 1s linear infinite; }
+@keyframes el { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -32; } }
+.sv { opacity: 0.45; animation: sv 1.2s ease-in-out infinite alternate; }
+@keyframes sv { from { opacity: 0.3; } to { opacity: 0.65; } }
+.io { transform: translate(18px, -4px); opacity: 0.9; animation: io 3s linear infinite; }
+@keyframes io { 0% { transform: translate(0px, 0px); opacity: 0; } 15% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translate(36px, -8px); opacity: 0; } }
+.i2 { animation-delay: -1s; } .i3 { animation-delay: -2s; }
+@media (prefers-reduced-motion: reduce) { .el, .sv, .io { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="#f8f9fa"/>
+<text x="300" y="38" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">Galvanický článek</text>
+<!-- elektrolyt v nádobě -->
+<rect x="143" y="250" width="314" height="179" fill="#e3fafc"/>
+<path d="M143 250H457" stroke="#0c8599" stroke-width="2"/>
+<!-- drát -->
+<path d="M200 172V96H400V172" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round"/>
+<path class="el" d="M200 172V96H400V172" fill="none" stroke="#1864ab" stroke-width="12" stroke-linecap="round"/>
+<!-- žárovka -->
+<circle class="sv" cx="300" cy="96" r="38" fill="#ffd43b"/>
+<circle cx="300" cy="96" r="22" fill="#fff9db" stroke="#495057" stroke-width="2.5"/>
+<path d="M290 102L295 90L300 102L305 90L310 102" fill="none" stroke="#e67700" stroke-width="2.5" stroke-linejoin="round"/>
+<!-- popisek elektronů -->
+<text x="300" y="148" font-size="22" fill="#1864ab" font-weight="bold" text-anchor="middle">elektrony</text>
+<path d="M262 162H332" stroke="#1864ab" stroke-width="3"/><polygon points="346,162 332,155 332,169" fill="#1864ab"/>
+<polygon points="200,124 193,138 207,138" fill="#1864ab" transform="translate(-18 0)"/>
+<polygon points="400,138 393,124 407,124" fill="#1864ab" transform="translate(18 0)"/>
+<!-- elektrody -->
+<rect x="186" y="172" width="28" height="218" rx="3" fill="#ced4da" stroke="#495057" stroke-width="2"/>
+<rect x="386" y="172" width="28" height="218" rx="3" fill="#f0a46c" stroke="#8a4a1c" stroke-width="2"/>
+<!-- náboj na elektrodách: na zinku přebývají elektrony (−), na mědi ubývají (+) -->
+<g stroke-width="3" stroke-linecap="round">
+<circle cx="200" cy="290" r="9" fill="#fff" stroke="#1864ab" stroke-width="1.5"/><path d="M195 290H205" stroke="#1864ab"/>
+<circle cx="200" cy="330" r="9" fill="#fff" stroke="#1864ab" stroke-width="1.5"/><path d="M195 330H205" stroke="#1864ab"/>
+<circle cx="200" cy="370" r="9" fill="#fff" stroke="#1864ab" stroke-width="1.5"/><path d="M195 370H205" stroke="#1864ab"/>
+<circle cx="400" cy="290" r="9" fill="#fff" stroke="#c92a2a" stroke-width="1.5"/><path d="M395 290H405M400 285V295" stroke="#c92a2a"/>
+<circle cx="400" cy="330" r="9" fill="#fff" stroke="#c92a2a" stroke-width="1.5"/><path d="M395 330H405M400 325V335" stroke="#c92a2a"/>
+<circle cx="400" cy="370" r="9" fill="#fff" stroke="#c92a2a" stroke-width="1.5"/><path d="M395 370H405M400 365V375" stroke="#c92a2a"/>
+</g>
+<!-- zinek se rozpouští -->
+<circle class="io" cx="222" cy="305" r="5" fill="#868e96"/>
+<circle class="io i2" cx="222" cy="340" r="5" fill="#868e96"/>
+<circle class="io i3" cx="222" cy="372" r="5" fill="#868e96"/>
+<text x="318" y="318" font-size="22" fill="#212529" text-anchor="middle">zinek se</text>
+<text x="318" y="344" font-size="22" fill="#212529" text-anchor="middle">rozpouští</text>
+<text x="300" y="412" font-size="22" fill="#0b7285" text-anchor="middle">elektrolyt</text>
+<!-- nádoba -->
+<path d="M140 216V420Q140 432 152 432H448Q460 432 460 420V216" fill="none" stroke="#495057" stroke-width="3"/>
+<!-- odznaky pólů -->
+<circle cx="160" cy="192" r="14" fill="#1864ab"/><path d="M152 192H168" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="440" cy="192" r="14" fill="#c92a2a"/><path d="M432 192H448M440 184V200" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<!-- popisky elektrod -->
+<path d="M104 302H186" stroke="#495057" stroke-width="1.5"/>
+<text x="70" y="298" font-size="22" fill="#212529" text-anchor="middle">zinek</text>
+<text x="70" y="326" font-size="22" fill="#1864ab" font-weight="bold" text-anchor="middle">anoda</text>
+<path d="M414 302H496" stroke="#495057" stroke-width="1.5"/>
+<text x="530" y="298" font-size="22" fill="#212529" text-anchor="middle">měď</text>
+<text x="530" y="326" font-size="22" fill="#c92a2a" font-weight="bold" text-anchor="middle">katoda</text>
+<text x="300" y="470" font-size="22" fill="#212529" text-anchor="middle">Elektrony tečou drátem od <tspan fill="#1864ab" font-weight="bold">−</tspan> k <tspan fill="#c92a2a" font-weight="bold">+</tspan>.</text>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="none" stroke="#adb5bd" stroke-width="3"/>
+</svg>

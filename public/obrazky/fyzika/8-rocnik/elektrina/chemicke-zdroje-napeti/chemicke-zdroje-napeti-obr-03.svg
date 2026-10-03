@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Olověný akumulátor 12 V. Nahoře vybíjení: akumulátor svítí žárovkou, elektrony tečou drátem od záporného pólu ke kladnému a zásoba chemické energie ubývá. Dole nabíjení: akumulátor je připojen k nabíječce, elektrony tečou opačným směrem, látky uvnitř se obnovují a zásoba chemické energie přibývá.">
+<style>
+/* Předloha: PDF lekce 21, s. 3 (olověné akumulátory: dobíjecí, opakovaně použitelné, 12 V, automobil). Kresba v PDF chybí.
+   8 s cyklus: zásoba při vybíjení klesá z plné na 15 %, při nabíjení stoupá z 15 % na plnou (0–85 %), pak drží a začne znovu.
+   Elektrony: tečky po 32 px, posun 32 px za 1 s; při vybíjení od − ke +, při nabíjení opačně.
+   Bez animace: vybíjení = zásoba skoro prázdná (15 %), nabíjení = zásoba plná; tečky stojí, směr ukazují šipky. */
+.el { stroke-dasharray: 0 32; animation: el 1s linear infinite; }
+@keyframes el { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -32; } }
+.sv { opacity: 0.45; animation: sv 1.2s ease-in-out infinite alternate; }
+@keyframes sv { from { opacity: 0.3; } to { opacity: 0.65; } }
+.za { transform-box: fill-box; transform-origin: left center; }
+.gA { transform: scaleX(0.15); animation: gA 8s linear infinite; }
+.gB { transform: scaleX(1); animation: gB 8s linear infinite; }
+@keyframes gA { 0% { transform: scaleX(1); } 85%, 100% { transform: scaleX(0.15); } }
+@keyframes gB { 0% { transform: scaleX(0.15); } 85%, 100% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .el, .sv, .gA, .gB { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="#f8f9fa"/>
+<text x="300" y="38" font-size="26" fill="#212529" font-weight="bold" text-anchor="middle">Olověný akumulátor 12 V</text>
+<!-- ===== VYBÍJENÍ ===== -->
+<path d="M60 160V100H220V160" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round"/>
+<path class="el" d="M60 160V100H220V160" fill="none" stroke="#1864ab" stroke-width="12" stroke-linecap="round"/>
+<circle class="sv" cx="140" cy="100" r="38" fill="#ffd43b"/>
+<circle cx="140" cy="100" r="22" fill="#fff9db" stroke="#495057" stroke-width="2.5"/>
+<path d="M130 106L135 94L140 106L145 94L150 106" fill="none" stroke="#e67700" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="40,122 33,136 47,136" fill="#1864ab"/>
+<polygon points="240,136 233,122 247,122" fill="#1864ab"/>
+<rect x="50" y="160" width="20" height="14" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/>
+<rect x="210" y="160" width="20" height="14" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/>
+<rect x="30" y="174" width="220" height="90" rx="8" fill="#495057" stroke="#212529" stroke-width="2"/>
+<circle cx="60" cy="200" r="13" fill="#1864ab" stroke="#fff" stroke-width="2"/><path d="M52.5 200H67.5" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="220" cy="200" r="13" fill="#c92a2a" stroke="#fff" stroke-width="2"/><path d="M212.5 200H227.5M220 192.5V207.5" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<text x="140" y="240" font-size="26" fill="#fff" font-weight="bold" text-anchor="middle">12 V</text>
+<text x="290" y="124" font-size="26" fill="#212529" font-weight="bold">Vybíjení</text>
+<text x="290" y="156" font-size="22" fill="#212529">žárovka svítí</text>
+<text x="290" y="200" font-size="22" fill="#212529">zásoba chemické energie</text>
+<rect x="290" y="212" width="280" height="28" rx="6" fill="#fff" stroke="#495057" stroke-width="2"/>
+<rect class="za gA" x="292" y="214" width="276" height="24" rx="5" fill="#2f9e44"/>
+<path d="M20 290H580" stroke="#dee2e6" stroke-width="2"/>
+<!-- ===== NABÍJENÍ ===== -->
+<path d="M60 400V340H220V400" fill="none" stroke="#495057" stroke-width="4" stroke-linejoin="round"/>
+<path class="el" d="M220 400V340H60V400" fill="none" stroke="#1864ab" stroke-width="12" stroke-linecap="round"/>
+<rect x="78" y="316" width="124" height="48" rx="8" fill="#e9ecef" stroke="#495057" stroke-width="2"/>
+<text x="140" y="348" font-size="22" fill="#212529" text-anchor="middle">nabíječka</text>
+<polygon points="40,376 33,362 47,362" fill="#1864ab"/>
+<polygon points="240,362 233,376 247,376" fill="#1864ab"/>
+<rect x="50" y="400" width="20" height="14" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/>
+<rect x="210" y="400" width="20" height="14" fill="#adb5bd" stroke="#212529" stroke-width="1.5"/>
+<rect x="30" y="414" width="220" height="90" rx="8" fill="#495057" stroke="#212529" stroke-width="2"/>
+<circle cx="60" cy="440" r="13" fill="#1864ab" stroke="#fff" stroke-width="2"/><path d="M52.5 440H67.5" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="220" cy="440" r="13" fill="#c92a2a" stroke="#fff" stroke-width="2"/><path d="M212.5 440H227.5M220 432.5V447.5" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+<text x="140" y="480" font-size="26" fill="#fff" font-weight="bold" text-anchor="middle">12 V</text>
+<text x="290" y="364" font-size="26" fill="#212529" font-weight="bold">Nabíjení</text>
+<text x="290" y="396" font-size="22" fill="#212529">látky uvnitř se obnovují</text>
+<text x="290" y="440" font-size="22" fill="#212529">zásoba chemické energie</text>
+<rect x="290" y="452" width="280" height="28" rx="6" fill="#fff" stroke="#495057" stroke-width="2"/>
+<rect class="za gB" x="292" y="454" width="276" height="24" rx="5" fill="#2f9e44"/>
+<!-- legenda a závěr -->
+<circle cx="46" cy="532" r="6" fill="#1864ab"/>
+<text x="60" y="539" font-size="22" fill="#1864ab">elektron</text>
+<text x="300" y="575" font-size="22" fill="#212529" text-anchor="middle">Při nabíjení tečou elektrony opačným směrem.</text>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="none" stroke="#adb5bd" stroke-width="3"/>
+</svg>
