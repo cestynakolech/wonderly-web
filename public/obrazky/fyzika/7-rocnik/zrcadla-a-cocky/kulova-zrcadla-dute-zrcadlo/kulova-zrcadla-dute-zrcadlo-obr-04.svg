@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vypuklé zrcadlo. Nahoře: paprsky rovnoběžné s osou se po odrazu rozbíhají, jako by vycházely ze zdánlivého ohniska F za zrcadlem (čárkovaná prodloužení). Dole: od stromu před zrcadlem vede rovnoběžný paprsek, který se odrazí jako by vycházel z F, a paprsek mířící do F, který se odrazí rovnoběžně s osou. Prodloužení odražených paprsků se protnou za zrcadlem: obraz je zdánlivý, vzpřímený a zmenšený. Animace: paprsky se odrazí, dokreslí se prodloužení a objeví se ohnisko a obraz.">
+<style>
+/* Animace 9 s, smyčka. Předloha: PDF lekce 23, str. 12 (rovnoběžné paprsky, zdánlivé ohnisko za zrcadlem) a str. 14 (obraz stromu).
+   Nahoře oblouk se středem v S (r = 220, f = 110). Dole f = −100 px, a = 150 → b = −60, zvětšení 0,4 (zrcadlo kreslené plošší, oblouk r = 500).
+   paprsky 5–40 %, šipky 40–45 %, čárkovaná prodloužení 40–55 %, ohnisko / obraz 55–65 %, vše zmizí 92–98 %.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.pr { stroke-dasharray: 100 100; animation: pr 9s linear infinite; }
+.si { animation: si 9s linear infinite; }
+.pe { animation: pe 9s linear infinite; }
+.ob { animation: ob 9s linear infinite; }
+.celek { animation: celek 9s linear infinite; }
+@keyframes pr { 0%, 5% { stroke-dashoffset: 100; } 40%, 100% { stroke-dashoffset: 0; } }
+@keyframes si { 0%, 40% { opacity: 0; } 45%, 100% { opacity: 1; } }
+@keyframes pe { 0%, 40% { opacity: 0; } 55%, 100% { opacity: 1; } }
+@keyframes ob { 0%, 55% { opacity: 0; } 65%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pr, .si, .pe, .ob, .celek { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="794" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<defs><radialGradient id="kzzar"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.4" stop-color="#ffd43b" stop-opacity="0.9"/><stop offset="1" stop-color="#ff922b" stop-opacity="0"/></radialGradient></defs>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Vypuklé zrcadlo</text><text x="300" y="66" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">paprsky se rozptýlí, jako by vycházely z F</text>
+<line x1="18" y1="232" x2="290" y2="232" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/><line x1="290" y1="232" x2="582" y2="232" stroke="#adb5bd" stroke-width="2" stroke-dasharray="16 5 3 5"/><path d="M334.2,110 A214,214 0 0 0 334.2,354" fill="none" stroke="#adb5bd" stroke-width="9"/><path d="M326.9,110 A220,220 0 0 0 326.9,354" fill="none" stroke="#212529" stroke-width="3.5"/>
+<g class="celek">
+<path class="pr" d="M26,147 L307.1,147 L247,92" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,192 L293.7,192 L153.3,139.2" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,272 L293.7,272 L153.3,324.8" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,317 L307.1,317 L247,372" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M173.5,147 L160.5,153 L160.5,141 Z" fill="#e8590c"/><path d="M268.9,112 L282.5,116.4 L274.4,125.2 Z" fill="#e8590c"/><path d="M166.8,192 L153.8,198 L153.8,186 Z" fill="#e8590c"/><path d="M209.9,160.5 L224.2,159.4 L220,170.7 Z" fill="#e8590c"/><path d="M166.8,272 L153.8,278 L153.8,266 Z" fill="#e8590c"/><path d="M209.9,303.5 L220,293.3 L224.2,304.6 Z" fill="#e8590c"/><path d="M173.5,317 L160.5,323 L160.5,311 Z" fill="#e8590c"/><path d="M268.9,352 L274.4,338.8 L282.5,347.6 Z" fill="#e8590c"/></g>
+<g class="pe"><line x1="307.1" y1="147" x2="400" y2="232" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/><line x1="293.7" y1="192" x2="400" y2="232" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/><line x1="293.7" y1="272" x2="400" y2="232" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/><line x1="307.1" y1="317" x2="400" y2="232" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/></g>
+<g class="ob"><circle cx="400" cy="232" r="9" fill="none" stroke="#e8590c" stroke-width="3"/></g>
+</g>
+<line x1="400" y1="222" x2="400" y2="242" stroke="#212529" stroke-width="3"/><text x="400" y="266" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><line x1="510" y1="222" x2="510" y2="242" stroke="#212529" stroke-width="3"/><text x="510" y="266" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text><text x="272" y="266" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">V</text>
+<text class="ob" x="470" y="198" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">zdánlivé ohnisko</text>
+<line x1="20" y1="392" x2="580" y2="392" stroke="#ced4da" stroke-width="2"/>
+<text x="300" y="430" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Obraz ve vypuklém zrcadle</text><text x="300" y="458" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">vždy zdánlivý, vzpřímený, zmenšený</text>
+<line x1="18" y1="630" x2="330" y2="630" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/><line x1="330" y1="630" x2="582" y2="630" stroke="#adb5bd" stroke-width="2" stroke-dasharray="16 5 3 5"/><path d="M348.4,520 A494,494 0 0 0 348.4,740" fill="none" stroke="#adb5bd" stroke-width="9"/><path d="M342.3,520 A500,500 0 0 0 342.3,740" fill="none" stroke="#212529" stroke-width="3.5"/>
+<g><line x1="180" y1="630" x2="180" y2="602.2" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="180" cy="583.8" rx="14" ry="23.8" fill="#2f9e44" stroke="#2b8a3e" stroke-width="2"/></g>
+<g class="celek">
+<path class="pr" d="M180,560 L334.9,560 L237.1,488" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M180,560 L330.8,602.2 L40,602.2" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M264.5,560 L251.5,566 L251.5,554 Z" fill="#e8590c"/><path d="M275.5,516.2 L289.5,519.1 L282.4,528.8 Z" fill="#e8590c"/><path d="M262.1,583 L248,585.3 L251.2,573.7 Z" fill="#e8590c"/><path d="M207.5,602.2 L220.5,596.2 L220.5,608.2 Z" fill="#e8590c"/></g>
+<g class="pe"><line x1="334.9" y1="560" x2="430" y2="630" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/><line x1="330.8" y1="602.2" x2="392.3" y2="602.2" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/></g>
+<g class="ob" opacity="0.5"><line x1="392.3" y1="630" x2="392.3" y2="616.5" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="392.3" cy="611.7" rx="9" ry="9.5" fill="#8ce99a" stroke="#2f9e44" stroke-width="2"/></g>
+<text class="ob" x="392.3" y="692" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">obraz</text>
+</g>
+<line x1="430" y1="620" x2="430" y2="640" stroke="#212529" stroke-width="3"/><text x="430" y="664" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><line x1="530" y1="620" x2="530" y2="640" stroke="#212529" stroke-width="3"/><text x="530" y="664" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text><text x="312" y="664" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">V</text>
+<text x="162" y="564" font-size="22" font-weight="normal" fill="#212529" text-anchor="end" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">předmět</text>
+<text x="300" y="782" font-size="22" font-weight="normal" fill="#495057" text-anchor="middle">využití: dopravní a zpětná zrcadla</text>
+</svg>

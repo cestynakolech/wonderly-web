@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 990" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Obraz v dutém zrcadle ve třech případech. Z vrcholu stromu vedou dva význačné paprsky: rovnoběžný s osou se odrazí přes ohnisko F, ohniskový se odrazí rovnoběžně s osou. 1) Předmět dál než r: paprsky se protnou před zrcadlem, obraz je skutečný, převrácený a zmenšený. 2) Předmět mezi r a f: obraz je skutečný, převrácený a zvětšený. 3) Předmět blíž než f: odražené paprsky se rozbíhají, jejich čárkovaná prodloužení se protnou za zrcadlem, obraz je zdánlivý, vzpřímený a zvětšený. Animace: paprsky se nakreslí a v místě průsečíku se objeví obraz.">
+<style>
+/* Animace 9 s, smyčka. Předloha: PDF lekce 23, str. 9 (dál než r), str. 10 (mezi r a f), str. 11 (blíž než f).
+   f = 90 px, r = 180 px; a = 270 / 135 / 45 → b = 135 / 270 / −90 (1/a + 1/b = 1/f), zvětšení 1/2, 2, 2.
+   Zrcadlo kreslené plošší (oblouk r = 800) jako v učebnicích – paprsky blízko osy; obraz leží v průsečíku nakreslených paprsků.
+   paprsky 5–40 %, šipky 40–45 %, čárkovaná prodloužení 40–55 %, obraz 45–58 %, vše zmizí 92–98 %.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.pr { stroke-dasharray: 100 100; animation: pr 9s linear infinite; }
+.si { animation: si 9s linear infinite; }
+.pe { animation: pe 9s linear infinite; }
+.ob { animation: ob 9s linear infinite; }
+.celek { animation: celek 9s linear infinite; }
+@keyframes pr { 0%, 5% { stroke-dashoffset: 100; } 40%, 100% { stroke-dashoffset: 0; } }
+@keyframes si { 0%, 40% { opacity: 0; } 45%, 100% { opacity: 1; } }
+@keyframes pe { 0%, 40% { opacity: 0; } 55%, 100% { opacity: 1; } }
+@keyframes ob { 0%, 45% { opacity: 0; } 58%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pr, .si, .pe, .ob, .celek { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="984" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Obraz v dutém zrcadle</text><text x="300" y="66" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">rovnoběžný → přes F, ohniskový → rovnoběžně s osou</text>
+<text x="20" y="112" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">1) předmět dál než r</text><text x="20" y="140" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">obraz skutečný, převrácený, zmenšený</text>
+<line x1="18" y1="255" x2="582" y2="255" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/><path d="M568.2,143 A806,806 0 0 1 568.2,367" fill="none" stroke="#adb5bd" stroke-width="9"/><path d="M562.1,143 A800,800 0 0 1 562.1,367" fill="none" stroke="#212529" stroke-width="3.5"/>
+<g><line x1="300" y1="255" x2="300" y2="227.2" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="300" cy="208.8" rx="14" ry="23.8" fill="#2f9e44" stroke="#2b8a3e" stroke-width="2"/></g>
+<g class="celek">
+<path class="pr" d="M300,185 L566.9,185 L360,351.6" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M300,185 L569.2,289.7 L360,289.7" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M453.8,185 L440.8,191 L440.8,179 Z" fill="#e8590c"/><path d="M518,224.4 L524.4,211.6 L531.9,220.9 Z" fill="#e8590c"/><path d="M427.7,234.7 L413.4,235.5 L417.7,224.4 Z" fill="#e8590c"/><path d="M499.5,289.7 L512.5,283.7 L512.5,295.7 Z" fill="#e8590c"/></g>
+<g class="ob" opacity="0.5"><line x1="436.9" y1="255" x2="436.9" y2="270.8" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="436.9" cy="277.9" rx="9" ry="11.8" fill="#8ce99a" stroke="#2f9e44" stroke-width="2"/></g>
+<text class="ob" x="480.9" y="327" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">obraz</text>
+</g>
+<line x1="390" y1="245" x2="390" y2="265" stroke="#212529" stroke-width="3"/><text x="390" y="289" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text><line x1="480" y1="245" x2="480" y2="265" stroke="#212529" stroke-width="3"/><text x="480" y="289" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><text x="586" y="289" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">V</text>
+<text x="284" y="189" font-size="22" font-weight="normal" fill="#212529" text-anchor="end" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">předmět</text>
+<line x1="20" y1="376" x2="580" y2="376" stroke="#ced4da" stroke-width="2"/>
+<text x="20" y="412" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">2) předmět mezi r a f</text><text x="20" y="440" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">obraz skutečný, převrácený, zvětšený</text>
+<line x1="18" y1="555" x2="582" y2="555" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/><path d="M568.2,443 A806,806 0 0 1 568.2,667" fill="none" stroke="#adb5bd" stroke-width="9"/><path d="M562.1,443 A800,800 0 0 1 562.1,667" fill="none" stroke="#212529" stroke-width="3.5"/>
+<g><line x1="435" y1="555" x2="435" y2="537.4" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="435" cy="528.6" rx="9" ry="13.6" fill="#2f9e44" stroke="#2b8a3e" stroke-width="2"/></g>
+<g class="celek">
+<path class="pr" d="M435,515 L569,515 L240,662.9" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M435,515 L566.3,631.7 L240,631.7" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M515.7,515 L502.7,521 L502.7,509 Z" fill="#e8590c"/><path d="M518.1,537.9 L527.5,527.1 L532.4,538 Z" fill="#e8590c"/><path d="M499.3,572.2 L485.6,568 L493.6,559.1 Z" fill="#e8590c"/><path d="M461.4,631.7 L474.4,625.7 L474.4,637.7 Z" fill="#e8590c"/></g>
+<g class="ob" opacity="0.5"><line x1="309.3" y1="555" x2="309.3" y2="585.1" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="309.3" cy="605.6" rx="15.3" ry="26.1" fill="#8ce99a" stroke="#2f9e44" stroke-width="2"/></g>
+<text class="ob" x="285.3" y="601.4" font-size="22" font-weight="normal" fill="#212529" text-anchor="end" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">obraz</text>
+</g>
+<line x1="390" y1="545" x2="390" y2="565" stroke="#212529" stroke-width="3"/><text x="390" y="589" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text><line x1="480" y1="545" x2="480" y2="565" stroke="#212529" stroke-width="3"/><text x="480" y="589" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><text x="586" y="589" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">V</text>
+<text x="419" y="519" font-size="22" font-weight="normal" fill="#212529" text-anchor="end" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">předmět</text>
+<line x1="20" y1="676" x2="580" y2="676" stroke="#ced4da" stroke-width="2"/>
+<text x="20" y="712" font-size="22" font-weight="bold" fill="#212529" text-anchor="start">3) předmět blíž než f</text><text x="20" y="740" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">obraz zdánlivý, vzpřímený, zvětšený</text>
+<line x1="18" y1="855" x2="450" y2="855" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/><line x1="450" y1="855" x2="582" y2="855" stroke="#adb5bd" stroke-width="2" stroke-dasharray="16 5 3 5"/><path d="M448.2,743 A806,806 0 0 1 448.2,967" fill="none" stroke="#adb5bd" stroke-width="9"/><path d="M442.1,743 A800,800 0 0 1 442.1,967" fill="none" stroke="#212529" stroke-width="3.5"/>
+<g><line x1="405" y1="855" x2="405" y2="837.4" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="405" cy="828.6" rx="9" ry="13.6" fill="#2f9e44" stroke="#2b8a3e" stroke-width="2"/></g>
+<g class="celek">
+<line x1="360" y1="855" x2="405" y2="815" stroke="#868e96" stroke-width="2.5" stroke-dasharray="9 7" opacity="1"/>
+<path class="pr" d="M405,815 L449,815 L230,913.4" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M405,815 L446.3,778.3 L230,778.3" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M436.2,815 L423.2,821 L423.2,809 Z" fill="#e8590c"/><path d="M398.1,837.9 L407.5,827.1 L412.4,838 Z" fill="#e8590c"/><path d="M430.9,792 L425.2,805.1 L417.2,796.1 Z" fill="#e8590c"/><path d="M374.4,778.3 L387.4,772.3 L387.4,784.3 Z" fill="#e8590c"/></g>
+<g class="pe"><line x1="449" y1="815" x2="530.7" y2="778.3" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/><line x1="446.3" y1="778.3" x2="530.7" y2="778.3" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.8"/></g>
+<g class="ob" opacity="0.5"><line x1="530.7" y1="855" x2="530.7" y2="824.9" stroke="#7f4f24" stroke-width="6" stroke-linecap="butt"/><ellipse cx="530.7" cy="804.4" rx="15.3" ry="26.1" fill="#8ce99a" stroke="#2f9e44" stroke-width="2"/></g>
+<text class="ob" x="530.7" y="913" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">obraz</text>
+</g>
+<line x1="270" y1="845" x2="270" y2="865" stroke="#212529" stroke-width="3"/><text x="270" y="889" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text><line x1="360" y1="845" x2="360" y2="865" stroke="#212529" stroke-width="3"/><text x="360" y="889" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><text x="466" y="889" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">V</text>
+<text x="389" y="819" font-size="22" font-weight="normal" fill="#212529" text-anchor="end" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">předmět</text>
+</svg>
