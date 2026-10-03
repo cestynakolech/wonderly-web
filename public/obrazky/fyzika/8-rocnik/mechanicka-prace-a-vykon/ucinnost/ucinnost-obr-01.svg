@@ -1,48 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1300 780" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vysavač: příkon P₀ u zásuvky, výkon P u hubice, účinnost η = P : P₀">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 960 1000" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vysavač: příkon P₀ u zásuvky, výkon P u hubice, účinnost η = P : P₀">
 <defs>
-<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131"/></marker>
-<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2"/></marker>
-<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44"/></marker>
-<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c"/></marker>
-<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26"/></marker>
-<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057"/></marker>
-<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8"/></marker>
+<marker id="a-cer" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e03131" /></marker>
+<marker id="a-mod" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#1971c2" /></marker>
+<marker id="a-zel" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2f9e44" /></marker>
+<marker id="a-ora" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#e8590c" /></marker>
+<marker id="a-ink" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#2b2a26" /></marker>
+<marker id="a-sed" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#495057" /></marker>
+<marker id="a-fia" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="15" refY="9" orient="auto"><path d="M0,0 L18,9 L0,18 z" fill="#7048e8" /></marker>
 </defs>
-<rect x="3" y="3" width="1294" height="774" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
-<text x="40.0" y="50.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="start">Vysavač: příkon a výkon</text>
-<rect x="40.0" y="300.0" width="90.0" height="110.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
-<circle cx="70.0" cy="340.0" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
-<circle cx="100.0" cy="340.0" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1"/>
-<rect x="60" y="370" width="50" height="8" fill="#2b2a26"/>
-<text x="85.0" y="435.0" font-size="20" fill="#2b2a26" text-anchor="middle">zásuvka</text>
-<path d="M130,350 C200,350 220,440 300,440 L360,440" fill="none" stroke="#2b2a26" stroke-width="7" stroke-linecap="round"/>
-<rect x="360" y="330" width="230" height="140" rx="40" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3"/>
-<circle cx="400.0" cy="490.0" r="18" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
-<circle cx="550.0" cy="490.0" r="18" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
-<text x="475.0" y="408.0" font-size="22" font-weight="bold" fill="#2b2a26" text-anchor="middle">motor</text>
-<path d="M590,380 C660,380 690,330 690,250 L690,150" fill="none" stroke="#495057" stroke-width="12" stroke-linecap="round"/>
-<line x1="690.0" y1="150.0" x2="760.0" y2="480.0" stroke="#2b2a26" stroke-width="10" stroke-linecap="round"/>
-<rect x="700" y="480" width="190" height="24" rx="10" fill="#2b2a26"/>
-<line x1="699.0" y1="590.0" x2="720.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round"/>
-<line x1="758.0" y1="590.0" x2="765.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round"/>
-<line x1="817.0" y1="590.0" x2="810.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round"/>
-<line x1="876.0" y1="590.0" x2="855.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round"/>
-<rect x="737" y="621" width="102" height="36" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2"/>
-<text x="788.0" y="648.0" font-size="22" font-weight="bold" fill="#2f9e44" text-anchor="middle">výkon P</text>
-<line x1="150.0" y1="300.0" x2="372.0" y2="345.0" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round"/>
-<rect x="177" y="244" width="127" height="36" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="2"/>
-<text x="240.0" y="271.0" font-size="22" font-weight="bold" fill="#e8590c" text-anchor="middle">příkon P<tspan font-size="72%" dy="0.26em">0</tspan><tspan dy="-0.26em"></tspan></text>
-<rect x="930.0" y="90.0" width="330.0" height="230.0" rx="12" fill="#ffffff" stroke="#2b2a26" stroke-width="3"/>
-<text x="1095.0" y="140.0" font-size="26" font-weight="bold" fill="#2b2a26" text-anchor="middle">Účinnost</text>
-<text x="1095.0" y="205.0" font-size="34" font-weight="bold" fill="#2b2a26" text-anchor="middle">η = P : P<tspan font-size="72%" dy="0.26em">0</tspan><tspan dy="-0.26em"></tspan></text>
-<text x="1095.0" y="255.0" font-size="20" fill="#2b2a26" text-anchor="middle">výkon děleno příkonem</text>
-<text x="1095.0" y="300.0" font-size="20" fill="#495057" text-anchor="middle">oba ve wattech (W)</text>
-<path d="M930,442 L895,496 L930,468 z" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2" stroke-linejoin="round"/>
-<rect x="930.0" y="400.0" width="330.0" height="110.0" rx="12" fill="#d3f9d8" stroke="#2f9e44" stroke-width="2"/>
-<rect x="927" y="444" width="6" height="22" fill="#d3f9d8"/>
-<text x="1095.0" y="448.5" font-size="20" fill="#2b2a26" text-anchor="middle">P = výkon, který stroj využije</text>
-<text x="1095.0" y="475.5" font-size="20" fill="#2b2a26" text-anchor="middle">(sání u hubice)</text>
-<rect x="930.0" y="560.0" width="330.0" height="100.0" rx="12" fill="#ffe8cc" stroke="#e8590c" stroke-width="2"/>
-<text x="1095.0" y="605.0" font-size="20" fill="#2b2a26" text-anchor="middle">P<tspan font-size="72%" dy="0.26em">0</tspan><tspan dy="-0.26em"> = příkon, který stroj</tspan></text>
-<text x="1095.0" y="633.0" font-size="20" fill="#2b2a26" text-anchor="middle">dostává ze zásuvky</text>
-</svg>
+<rect x="3" y="3" width="954" height="994" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3" />
+<text x="40.0" y="60" font-size="38" font-weight="bold" fill="#2b2a26" text-anchor="start">Vysavač: příkon a výkon</text>
+<rect x="40.0" y="300.0" width="90.0" height="110.0" rx="8" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+<circle cx="70.0" cy="340.0" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1" />
+<circle cx="100.0" cy="340.0" r="8" fill="#2b2a26" stroke="#2b2a26" stroke-width="1" />
+<rect x="60" y="370" width="50" height="8" fill="#2b2a26" />
+<text x="100" y="455" font-size="36" fill="#2b2a26" text-anchor="middle">zásuvka</text>
+<path d="M130,350 C200,350 220,440 300,440 L360,440" fill="none" stroke="#2b2a26" stroke-width="7" stroke-linecap="round" />
+<rect x="360" y="330" width="230" height="140" rx="40" fill="#a5d8ff" stroke="#2b2a26" stroke-width="3" />
+<circle cx="400.0" cy="490.0" r="18" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+<circle cx="550.0" cy="490.0" r="18" fill="#ffffff" stroke="#2b2a26" stroke-width="3" />
+<text x="475.0" y="412" font-size="36" font-weight="bold" fill="#2b2a26" text-anchor="middle">motor</text>
+<path d="M590,380 C660,380 690,330 690,250 L690,150" fill="none" stroke="#495057" stroke-width="12" stroke-linecap="round" />
+<line x1="690.0" y1="150.0" x2="760.0" y2="480.0" stroke="#2b2a26" stroke-width="10" stroke-linecap="round" />
+<rect x="700" y="480" width="190" height="24" rx="10" fill="#2b2a26" />
+<line x1="699.0" y1="590.0" x2="720.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round" />
+<line x1="758.0" y1="590.0" x2="765.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round" />
+<line x1="817.0" y1="590.0" x2="810.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round" />
+<line x1="876.0" y1="590.0" x2="855.0" y2="516.0" stroke="#2f9e44" stroke-width="3" marker-end="url(#a-zel)" stroke-linecap="round" />
+<rect x="688" y="620" width="200" height="52" rx="8" fill="#ffffff" stroke="#2f9e44" stroke-width="2" />
+<text x="788.0" y="657" font-size="36" font-weight="bold" fill="#216e30" text-anchor="middle">výkon P</text>
+<line x1="150.0" y1="300.0" x2="372.0" y2="345.0" stroke="#e8590c" stroke-width="5" marker-end="url(#a-ora)" stroke-linecap="round" />
+<rect x="128" y="234" width="224" height="55" rx="8" fill="#ffffff" stroke="#e8590c" stroke-width="2" />
+<text x="240.0" y="272" font-size="36" font-weight="bold" fill="#a33c08" text-anchor="middle">příkon P<tspan font-size="72%" dy="0.26em">0</tspan><tspan dy="-0.26em" /></text>
+<rect x="30" y="710" width="900" height="255" rx="14" fill="#fff" stroke="#2b2a26" stroke-width="3" /><text x="480" y="765" font-size="40" text-anchor="middle" fill="#2b2a26" font-weight="bold">Účinnost  η = P : P₀</text><text x="480" y="815" font-size="36" text-anchor="middle" fill="#2b2a26">Výkon děleno příkonem, oba ve wattech (W).</text><text x="480" y="872" font-size="36" text-anchor="middle" fill="#2b2a26">P = výkon, který stroj využije (sání u hubice).</text><text x="480" y="925" font-size="36" text-anchor="middle" fill="#2b2a26">P₀ = příkon, který stroj dostává ze zásuvky.</text></svg>
