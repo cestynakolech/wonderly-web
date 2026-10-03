@@ -2589,6 +2589,9 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
 						{ nazev: 'Jak vlastně funguje solení silnic v zimě? (Zeptej se vědce)', url: 'https://zeptejsevedce.cz/dotazy-a-odpovedi/jak-vlastne-funguje-soleni-silnic-v-zime/' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Tuhnutí 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tuhnuti/pisen-tuhnuti.m4a' },
+					],
 				},
 				{
 					slug: 'vyparovani',
