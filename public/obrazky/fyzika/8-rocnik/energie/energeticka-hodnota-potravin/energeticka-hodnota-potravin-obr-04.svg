@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Oranžový obal müsli tyčinky s nápisem Müsli tyčinka 50 g. Pod ním tabulka výživových údajů z obalu: energetická hodnota ve 100 g je 1 700 kJ, v jedné tyčince (50 g) je 850 kJ. Dole dvě cedulky: J a kJ jsou jednotky energie; cal a kcal jsou starší jednotky, dnes jen u potravin.">
+<!-- Předloha: PDF „Energetická hodnota potravin“ (8/2 Energie/6), s. 1 oddíl „Jednotky energetické hodnoty“ (J, kJ; starší cal, kcal jen u potravin)
+     a s. 2 („nejčastěji se udává na 100 g potraviny“). PDF na stranách nemá obrázek, kresba ilustruje text.
+     Čísla 1 700 kJ / 100 g a tyčinka 50 g → 850 kJ jsou z příkladu ve výkladu (Pro zvídavé, „Počítáme energii porce“).
+     Řádek v kcal záměrně chybí: výklad převod kJ → kcal nepočítá. -->
+<defs>
+<linearGradient id="obal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc078"/><stop offset="0.5" stop-color="#ffa94d"/><stop offset="1" stop-color="#e8590c"/></linearGradient>
+<linearGradient id="les" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.7"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="714" height="554" rx="14" fill="#f8f9fa" stroke="#2b2a26" stroke-width="3"/>
+<text x="360" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Energetická hodnota na obalu</text>
+
+<!-- obal tyčinky -->
+<g>
+<ellipse cx="360" cy="176" rx="290" ry="10" fill="#000" opacity="0.1"/>
+<path d="M90,78 L630,78 L630,168 L90,168 Z" fill="url(#obal)" stroke="#a63d00" stroke-width="3"/>
+<path d="M90,78 l-26,0 l10,9 l-10,9 l10,9 l-10,9 l10,9 l-10,9 l10,9 l-10,9 l10,9 l-10,9 l26,0 Z" fill="#ffa94d" stroke="#a63d00" stroke-width="3" stroke-linejoin="round"/>
+<path d="M630,78 l26,0 l-10,9 l10,9 l-10,9 l10,9 l-10,9 l10,9 l-10,9 l10,9 l-10,9 l10,9 l-26,0 Z" fill="#ffa94d" stroke="#a63d00" stroke-width="3" stroke-linejoin="round"/>
+<rect x="92" y="82" width="536" height="22" fill="url(#les)"/>
+<!-- obrázek ovesných vloček na obalu -->
+<g fill="#fff3e0" stroke="#a63d00" stroke-width="2">
+<ellipse cx="140" cy="122" rx="16" ry="10" transform="rotate(-20 140 122)"/>
+<ellipse cx="166" cy="138" rx="14" ry="9" transform="rotate(25 166 138)"/>
+<ellipse cx="136" cy="148" rx="13" ry="8" transform="rotate(10 136 148)"/>
+</g>
+<rect x="196" y="98" width="320" height="52" rx="10" fill="#fff9f0" stroke="#a63d00" stroke-width="2"/>
+<text x="356" y="134" font-size="28" font-weight="bold" fill="#7a2e0e" text-anchor="middle">MÜSLI TYČINKA</text>
+<circle cx="574" cy="123" r="34" fill="#fff9f0" stroke="#a63d00" stroke-width="2"/>
+<text x="574" y="132" font-size="24" font-weight="bold" fill="#7a2e0e" text-anchor="middle">50 g</text>
+</g>
+
+<!-- tabulka výživových údajů -->
+<rect x="60" y="206" width="600" height="160" rx="6" fill="#ffffff" stroke="#212529" stroke-width="3"/>
+<path d="M60,276 H660" stroke="#212529" stroke-width="3"/>
+<rect x="62" y="278" width="596" height="86" fill="#fff3bf"/>
+<path d="M330,206 V366 M500,206 V366" stroke="#212529" stroke-width="2"/>
+<text x="76" y="250" font-size="22" font-weight="bold" fill="#212529">Výživové údaje</text>
+<text x="415" y="250" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">ve 100 g</text>
+<text x="580" y="236" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">v 1 tyčince</text>
+<text x="580" y="264" font-size="20" fill="#212529" text-anchor="middle">(50 g)</text>
+<text x="76" y="316" font-size="22" font-weight="bold" fill="#212529">Energetická</text>
+<text x="76" y="344" font-size="22" font-weight="bold" fill="#212529">hodnota</text>
+<text x="415" y="331" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="middle">1&#160;700 kJ</text>
+<text x="580" y="331" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="middle">850 kJ</text>
+
+<!-- jednotky -->
+<rect x="40" y="398" width="300" height="138" rx="16" fill="#ffffff" stroke="#1864ab" stroke-width="3"/>
+<text x="190" y="446" font-size="34" font-weight="bold" fill="#1864ab" text-anchor="middle">J, kJ</text>
+<text x="190" y="480" font-size="22" fill="#212529" text-anchor="middle">joule, kilojoule</text>
+<text x="190" y="510" font-size="22" fill="#212529" text-anchor="middle">jednotky energie</text>
+<rect x="380" y="398" width="300" height="138" rx="16" fill="#ffffff" stroke="#868e96" stroke-width="3" stroke-dasharray="10 6"/>
+<text x="530" y="446" font-size="34" font-weight="bold" fill="#495057" text-anchor="middle">cal, kcal</text>
+<text x="530" y="480" font-size="22" fill="#212529" text-anchor="middle">kalorie, kilokalorie</text>
+<text x="530" y="510" font-size="22" fill="#212529" text-anchor="middle">starší, jen u potravin</text>
+</svg>
