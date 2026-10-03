@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Hustilka je hadičkou připojená k míči. Při každém zdvihu nasaje dávku vzduchu a při stlačení ji vtlačí do míče. V míči přibývají částice vzduchu ze 4 na 8 a ručička manometru stoupá z 0 na 1 bar. Manometr ukazuje přetlak 1 bar, celkový tlak v míči je asi 1 atm plus 1 atm, tedy 2 atmosféry.">
+<style>
+/* Předloha: PDF lekce 17 str. 1 (hustilka, přetlak), str. 2 (manometr na pneumatice), str. 3 (1 bar, 1 atm + 1 atm = 2 atm), str. 4 (ciferník v barech).
+   Animace 10 s: 4 zdvihy po 2 s (rukojeť nahoru 0–8 %, dolů 8–16 % každého 20% úseku), dávka vzduchu válcem a hadičkou do míče,
+   v míči přibude částice (4 → 8 = dvojnásobek vzduchu při stejném objemu ⇒ dvojnásobný celkový tlak 2 atm = přetlak 1 bar),
+   ručička po 15° (¼ baru) až na 60° = 1 bar; 94–99 % návrat do výchozího stavu.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy prvků ukazují výsledek děje. */
+.rucicka{transform-origin:480px 200px;animation:rucicka 10s linear infinite}
+@keyframes rucicka{0%{transform:rotate(-60deg)}16%{transform:rotate(-60deg)}18%{transform:rotate(-45deg)}36%{transform:rotate(-45deg)}38%{transform:rotate(-30deg)}56%{transform:rotate(-30deg)}58%{transform:rotate(-15deg)}76%{transform:rotate(-15deg)}78%{transform:rotate(0deg)}94%{transform:rotate(0deg)}99%{transform:rotate(-60deg)}100%{transform:rotate(-60deg)}}
+@keyframes b0x{0%{transform:translateX(0)}43%{transform:translateX(108.3px)}93%{transform:translateX(-17.7px)}100%{transform:translateX(0)}}
+.b0x{animation:b0x 3.15s linear infinite}
+@keyframes b0y{0%{transform:translateY(0)}2.6%{transform:translateY(6.5px)}52.6%{transform:translateY(-119.5px)}100%{transform:translateY(0)}}
+.b0y{animation:b0y 3.91s linear infinite}
+@keyframes b1x{0%{transform:translateX(0)}38.6%{transform:translateX(97.3px)}88.6%{transform:translateX(-28.7px)}100%{transform:translateX(0)}}
+.b1x{animation:b1x 3.94s linear infinite}
+@keyframes b1y{0%{transform:translateY(0)}25.2%{transform:translateY(63.6px)}75.2%{transform:translateY(-62.4px)}100%{transform:translateY(0)}}
+.b1y{animation:b1y 3.99s linear infinite}
+@keyframes b2x{0%{transform:translateX(0)}31.6%{transform:translateX(79.6px)}81.6%{transform:translateX(-46.4px)}100%{transform:translateX(0)}}
+.b2x{animation:b2x 3.62s linear infinite}
+@keyframes b2y{0%{transform:translateY(0)}34.9%{transform:translateY(87.9px)}84.9%{transform:translateY(-38.1px)}100%{transform:translateY(0)}}
+.b2y{animation:b2y 2.77s linear infinite}
+@keyframes b3x{0%{transform:translateX(0)}19.3%{transform:translateX(48.6px)}69.3%{transform:translateX(-77.4px)}100%{transform:translateX(0)}}
+.b3x{animation:b3x 3.46s linear infinite}
+@keyframes b3y{0%{transform:translateY(0)}15.8%{transform:translateY(39.8px)}65.8%{transform:translateY(-86.2px)}100%{transform:translateY(0)}}
+.b3y{animation:b3y 3.08s linear infinite}
+.nova0{animation:nova0 10s linear infinite}
+@keyframes nova0{0%{opacity:0}16%{opacity:0}17%{opacity:1}94%{opacity:1}99%{opacity:0}100%{opacity:0}}
+@keyframes b4x{0%{transform:translateX(0)}11.9%{transform:translateX(30px)}61.9%{transform:translateX(-96px)}100%{transform:translateX(0)}}
+.b4x{animation:b4x 2.97s linear infinite}
+@keyframes b4y{0%{transform:translateY(0)}44.4%{transform:translateY(111.8px)}94.4%{transform:translateY(-14.2px)}100%{transform:translateY(0)}}
+.b4y{animation:b4y 4.53s linear infinite}
+.nova1{animation:nova1 10s linear infinite}
+@keyframes nova1{0%{opacity:0}36%{opacity:0}37%{opacity:1}94%{opacity:1}99%{opacity:0}100%{opacity:0}}
+@keyframes b5x{0%{transform:translateX(0)}6.4%{transform:translateX(16.1px)}56.4%{transform:translateX(-109.9px)}100%{transform:translateX(0)}}
+.b5x{animation:b5x 4.25s linear infinite}
+@keyframes b5y{0%{transform:translateY(0)}9.6%{transform:translateY(24.1px)}59.6%{transform:translateY(-101.9px)}100%{transform:translateY(0)}}
+.b5y{animation:b5y 4.17s linear infinite}
+.nova2{animation:nova2 10s linear infinite}
+@keyframes nova2{0%{opacity:0}56%{opacity:0}57%{opacity:1}94%{opacity:1}99%{opacity:0}100%{opacity:0}}
+@keyframes b6x{0%{transform:translateX(0)}11%{transform:translateX(27.7px)}61%{transform:translateX(-98.3px)}100%{transform:translateX(0)}}
+.b6x{animation:b6x 4.04s linear infinite}
+@keyframes b6y{0%{transform:translateY(0)}24.9%{transform:translateY(62.7px)}74.9%{transform:translateY(-63.3px)}100%{transform:translateY(0)}}
+.b6y{animation:b6y 3.36s linear infinite}
+.nova3{animation:nova3 10s linear infinite}
+@keyframes nova3{0%{opacity:0}76%{opacity:0}77%{opacity:1}94%{opacity:1}99%{opacity:0}100%{opacity:0}}
+@keyframes b7x{0%{transform:translateX(0)}37.4%{transform:translateX(94.3px)}87.4%{transform:translateX(-31.7px)}100%{transform:translateX(0)}}
+.b7x{animation:b7x 4.12s linear infinite}
+@keyframes b7y{0%{transform:translateY(0)}46%{transform:translateY(116px)}96%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+.b7y{animation:b7y 3.27s linear infinite}
+.davka0{animation:davka0 10s linear infinite}
+@keyframes davka0{0%{opacity:0;transform:translate(0,0)}3%{opacity:0;transform:translate(0,0)}5%{opacity:1;transform:translate(0,0)}8%{opacity:1;transform:translate(0,0)}10%{opacity:1;transform:translate(0px,95px)}14.9%{opacity:1;transform:translate(235px,95px)}16%{opacity:1;transform:translate(235px,42px)}17%{opacity:0;transform:translate(235px,42px)}100%{opacity:0;transform:translate(235px,42px)}}
+.davka1{animation:davka1 10s linear infinite}
+@keyframes davka1{0%{opacity:0;transform:translate(0,0)}23%{opacity:0;transform:translate(0,0)}25%{opacity:1;transform:translate(0,0)}28%{opacity:1;transform:translate(0,0)}30%{opacity:1;transform:translate(0px,95px)}34.9%{opacity:1;transform:translate(235px,95px)}36%{opacity:1;transform:translate(235px,42px)}37%{opacity:0;transform:translate(235px,42px)}100%{opacity:0;transform:translate(235px,42px)}}
+.davka2{animation:davka2 10s linear infinite}
+@keyframes davka2{0%{opacity:0;transform:translate(0,0)}43%{opacity:0;transform:translate(0,0)}45%{opacity:1;transform:translate(0,0)}48%{opacity:1;transform:translate(0,0)}50%{opacity:1;transform:translate(0px,95px)}54.9%{opacity:1;transform:translate(235px,95px)}56%{opacity:1;transform:translate(235px,42px)}57%{opacity:0;transform:translate(235px,42px)}100%{opacity:0;transform:translate(235px,42px)}}
+.davka3{animation:davka3 10s linear infinite}
+@keyframes davka3{0%{opacity:0;transform:translate(0,0)}63%{opacity:0;transform:translate(0,0)}65%{opacity:1;transform:translate(0,0)}68%{opacity:1;transform:translate(0,0)}70%{opacity:1;transform:translate(0px,95px)}74.9%{opacity:1;transform:translate(235px,95px)}76%{opacity:1;transform:translate(235px,42px)}77%{opacity:0;transform:translate(235px,42px)}100%{opacity:0;transform:translate(235px,42px)}}
+.rukojet{animation:rukojet 10s ease-in-out infinite}
+@keyframes rukojet{0%{transform:translateY(0)}0%{transform:translateY(0)}8%{transform:translateY(-130px)}16%{transform:translateY(0)}20%{transform:translateY(0)}28%{transform:translateY(-130px)}36%{transform:translateY(0)}40%{transform:translateY(0)}48%{transform:translateY(-130px)}56%{transform:translateY(0)}60%{transform:translateY(0)}68%{transform:translateY(-130px)}76%{transform:translateY(0)}100%{transform:translateY(0)}}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="654" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Přetlak</text><text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">hustilkou vtlačíme do míče víc vzduchu</text><path d="M95,480 V505 Q95,515 105,515 H320 Q330,515 330,505 V468" fill="none" stroke="#495057" stroke-width="12" stroke-linejoin="round"/><path d="M95,480 V505 Q95,515 105,515 H320 Q330,515 330,505 V468" fill="none" stroke="#dee2e6" stroke-width="6" stroke-linejoin="round"/><rect x="70" y="230" width="50" height="252" rx="6" fill="#e9ecef" stroke="#495057" stroke-width="4"/><circle cx="330" cy="360" r="110" fill="#fff4e6" stroke="#d9480f" stroke-width="6"/><path d="M232,320 Q330,345 428,320 M232,400 Q330,375 428,400" fill="none" stroke="#ffc078" stroke-width="3"/><rect x="322" y="462" width="16" height="12" fill="#495057"/><line x1="404" y1="285" x2="436" y2="266" stroke="#495057" stroke-width="10" stroke-linecap="round"/><circle cx="480" cy="200" r="80" fill="#ffffff" stroke="#495057" stroke-width="6"/><line x1="422" y1="200" x2="408" y2="200" stroke="#212529" stroke-width="4"/><text x="382" y="208" font-size="22" fill="#212529" text-anchor="middle">0</text><line x1="451" y1="149.8" x2="444" y2="137.6" stroke="#212529" stroke-width="4"/><text x="431" y="123.1" font-size="22" fill="#212529" text-anchor="middle">1</text><line x1="509" y1="149.8" x2="516" y2="137.6" stroke="#212529" stroke-width="4"/><text x="529" y="123.1" font-size="22" fill="#212529" text-anchor="middle">2</text><line x1="538" y1="200" x2="552" y2="200" stroke="#212529" stroke-width="4"/><text x="578" y="208" font-size="22" fill="#212529" text-anchor="middle">3</text><line x1="418.2" y1="183.4" x2="410.5" y2="181.4" stroke="#495057" stroke-width="2"/><line x1="424.6" y1="168" x2="417.6" y2="164" stroke="#495057" stroke-width="2"/><line x1="434.7" y1="154.7" x2="429.1" y2="149.1" stroke="#495057" stroke-width="2"/><line x1="463.4" y1="138.2" x2="461.4" y2="130.5" stroke="#495057" stroke-width="2"/><line x1="480" y1="136" x2="480" y2="128" stroke="#495057" stroke-width="2"/><line x1="496.6" y1="138.2" x2="498.6" y2="130.5" stroke="#495057" stroke-width="2"/><line x1="525.3" y1="154.7" x2="530.9" y2="149.1" stroke="#495057" stroke-width="2"/><line x1="535.4" y1="168" x2="542.4" y2="164" stroke="#495057" stroke-width="2"/><line x1="541.8" y1="183.4" x2="549.5" y2="181.4" stroke="#495057" stroke-width="2"/><text x="480" y="245" font-size="22" fill="#212529" text-anchor="middle">bar</text><g class="rucicka"><line x1="480" y1="200" x2="449" y2="146.3" stroke="#e03131" stroke-width="5" stroke-linecap="round"/></g><circle cx="480" cy="200" r="7" fill="#212529"/><g><g class="b0x"><g class="b0y"><circle cx="284.7" cy="416.5" r="7" fill="#1c7ed6"/></g></g></g><g><g class="b1x"><g class="b1y"><circle cx="295.7" cy="359.4" r="7" fill="#1c7ed6"/></g></g></g><g><g class="b2x"><g class="b2y"><circle cx="313.4" cy="335.1" r="7" fill="#1c7ed6"/></g></g></g><g><g class="b3x"><g class="b3y"><circle cx="344.4" cy="383.2" r="7" fill="#1c7ed6"/></g></g></g><g class="nova0" opacity="1"><g class="b4x"><g class="b4y"><circle cx="363" cy="311.2" r="7" fill="#1c7ed6"/></g></g></g><g class="nova1" opacity="1"><g class="b5x"><g class="b5y"><circle cx="376.9" cy="398.9" r="7" fill="#1c7ed6"/></g></g></g><g class="nova2" opacity="1"><g class="b6x"><g class="b6y"><circle cx="365.3" cy="360.3" r="7" fill="#1c7ed6"/></g></g></g><g class="nova3" opacity="1"><g class="b7x"><g class="b7y"><circle cx="298.7" cy="307" r="7" fill="#1c7ed6"/></g></g></g><circle class="davka0" cx="95" cy="420" r="7" fill="#1c7ed6" opacity="0"/><circle class="davka1" cx="95" cy="420" r="7" fill="#1c7ed6" opacity="0"/><circle class="davka2" cx="95" cy="420" r="7" fill="#1c7ed6" opacity="0"/><circle class="davka3" cx="95" cy="420" r="7" fill="#1c7ed6" opacity="0"/><g class="rukojet"><line x1="95" y1="214" x2="95" y2="458" stroke="#495057" stroke-width="6"/><rect x="74" y="455" width="42" height="12" rx="3" fill="#495057"/><rect x="45" y="204" width="100" height="18" rx="9" fill="#343a40"/></g><rect x="66" y="226" width="58" height="8" rx="3" fill="#495057"/><text x="95" y="552" font-size="22" fill="#212529" text-anchor="middle">hustilka</text><text x="420" y="458" font-size="22" fill="#212529" text-anchor="start">míč</text><text x="480" y="312" font-size="22" fill="#212529" text-anchor="middle">manometr</text><text x="300" y="600" font-size="22" fill="#212529" text-anchor="middle">manometr ukazuje přetlak 1 bar</text><text x="300" y="632" font-size="22" fill="#212529" text-anchor="middle">celkový tlak ≈ 1 atm + 1 atm = 2 atm</text>
+</svg>

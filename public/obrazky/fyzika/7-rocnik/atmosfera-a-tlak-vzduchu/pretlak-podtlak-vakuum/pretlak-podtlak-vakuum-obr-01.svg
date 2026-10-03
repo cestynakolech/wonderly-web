@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Čtyři uzavřené nádoby s částicemi vzduchu, které se pohybují a narážejí na stěny. Stejný tlak: uvnitř stejně částic jako venku. Přetlak: uvnitř víc částic, tlak uvnitř je větší než venku. Podtlak: uvnitř méně částic, tlak uvnitř je menší. Vakuum: uvnitř téměř žádná částice, tlak téměř nulový.">
+<style>
+/* Předloha: PDF lekce 17 „Tlak plynu v uzavřené nádobě“ str. 1, 4, 6 (definice přetlaku, podtlaku, vakua) + infografika.
+   Částice se pohybují stále (odraz od stěn = trojúhelníková vlna v ose x a y). Počty uvnitř 6 / 12 / 3 / 1, venku vždy 6.
+   Šipka na pravé stěně: 5 px na částici (rovnováha 30/30, přetlak 60/30, podtlak 15/30, vakuum 0/30).
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy prvků ukazují výsledek děje. */
+@keyframes a0x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a0x{animation:a0x 2.12s linear infinite}
+@keyframes a0y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a0y{animation:a0y 1.31s linear infinite}
+@keyframes a1x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a1x{animation:a1x 1.99s linear infinite}
+@keyframes a1y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a1y{animation:a1y 1.26s linear infinite}
+@keyframes a2x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a2x{animation:a2x 1.73s linear infinite}
+@keyframes a2y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a2y{animation:a2y 1.30s linear infinite}
+@keyframes a3x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a3x{animation:a3x 2.96s linear infinite}
+@keyframes a3y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a3y{animation:a3y 1.31s linear infinite}
+@keyframes a4x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a4x{animation:a4x 1.99s linear infinite}
+@keyframes a4y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a4y{animation:a4y 1.38s linear infinite}
+@keyframes a5x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a5x{animation:a5x 2.16s linear infinite}
+@keyframes a5y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a5y{animation:a5y 1.08s linear infinite}
+@keyframes a6x{0%{transform:translateX(0)}42.8%{transform:translateX(136.8px)}92.8%{transform:translateX(-23.2px)}100%{transform:translateX(0)}}
+.a6x{animation:a6x 4.46s linear infinite}
+@keyframes a6y{0%{transform:translateY(0)}12.2%{transform:translateY(29.3px)}62.2%{transform:translateY(-90.7px)}100%{transform:translateY(0)}}
+.a6y{animation:a6y 2.93s linear infinite}
+@keyframes a7x{0%{transform:translateX(0)}23%{transform:translateX(73.7px)}73%{transform:translateX(-86.3px)}100%{transform:translateX(0)}}
+.a7x{animation:a7x 3.89s linear infinite}
+@keyframes a7y{0%{transform:translateY(0)}18.1%{transform:translateY(43.4px)}68.1%{transform:translateY(-76.6px)}100%{transform:translateY(0)}}
+.a7y{animation:a7y 3.91s linear infinite}
+@keyframes a8x{0%{transform:translateX(0)}20.7%{transform:translateX(66.3px)}70.7%{transform:translateX(-93.7px)}100%{transform:translateX(0)}}
+.a8x{animation:a8x 5.15s linear infinite}
+@keyframes a8y{0%{transform:translateY(0)}2.6%{transform:translateY(6.3px)}52.6%{transform:translateY(-113.7px)}100%{transform:translateY(0)}}
+.a8y{animation:a8y 3.63s linear infinite}
+@keyframes a9x{0%{transform:translateX(0)}38.2%{transform:translateX(122.3px)}88.2%{transform:translateX(-37.7px)}100%{transform:translateX(0)}}
+.a9x{animation:a9x 4.52s linear infinite}
+@keyframes a9y{0%{transform:translateY(0)}45.4%{transform:translateY(109px)}95.4%{transform:translateY(-11px)}100%{transform:translateY(0)}}
+.a9y{animation:a9y 3.42s linear infinite}
+@keyframes a10x{0%{transform:translateX(0)}30.6%{transform:translateX(97.8px)}80.6%{transform:translateX(-62.2px)}100%{transform:translateX(0)}}
+.a10x{animation:a10x 4.09s linear infinite}
+@keyframes a10y{0%{transform:translateY(0)}10.8%{transform:translateY(25.9px)}60.8%{transform:translateY(-94.1px)}100%{transform:translateY(0)}}
+.a10y{animation:a10y 3.99s linear infinite}
+@keyframes a11x{0%{transform:translateX(0)}26.2%{transform:translateX(83.8px)}76.2%{transform:translateX(-76.2px)}100%{transform:translateX(0)}}
+.a11x{animation:a11x 4.06s linear infinite}
+@keyframes a11y{0%{transform:translateY(0)}43.9%{transform:translateY(105.2px)}93.9%{transform:translateY(-14.8px)}100%{transform:translateY(0)}}
+.a11y{animation:a11y 3.07s linear infinite}
+@keyframes a12x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a12x{animation:a12x 2.26s linear infinite}
+@keyframes a12y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a12y{animation:a12y 1.08s linear infinite}
+@keyframes a13x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a13x{animation:a13x 1.77s linear infinite}
+@keyframes a13y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a13y{animation:a13y 1.13s linear infinite}
+@keyframes a14x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a14x{animation:a14x 2.43s linear infinite}
+@keyframes a14y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a14y{animation:a14y 1.23s linear infinite}
+@keyframes a15x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a15x{animation:a15x 2.56s linear infinite}
+@keyframes a15y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a15y{animation:a15y 1.89s linear infinite}
+@keyframes a16x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a16x{animation:a16x 1.84s linear infinite}
+@keyframes a16y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a16y{animation:a16y 1.01s linear infinite}
+@keyframes a17x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a17x{animation:a17x 2.47s linear infinite}
+@keyframes a17y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a17y{animation:a17y 1.74s linear infinite}
+@keyframes a18x{0%{transform:translateX(0)}46.4%{transform:translateX(148.5px)}96.4%{transform:translateX(-11.5px)}100%{transform:translateX(0)}}
+.a18x{animation:a18x 3.78s linear infinite}
+@keyframes a18y{0%{transform:translateY(0)}29%{transform:translateY(69.5px)}79%{transform:translateY(-50.5px)}100%{transform:translateY(0)}}
+.a18y{animation:a18y 3.48s linear infinite}
+@keyframes a19x{0%{transform:translateX(0)}47.9%{transform:translateX(153.4px)}97.9%{transform:translateX(-6.6px)}100%{transform:translateX(0)}}
+.a19x{animation:a19x 4.15s linear infinite}
+@keyframes a19y{0%{transform:translateY(0)}39.7%{transform:translateY(95.3px)}89.7%{transform:translateY(-24.7px)}100%{transform:translateY(0)}}
+.a19y{animation:a19y 3.07s linear infinite}
+@keyframes a20x{0%{transform:translateX(0)}12.3%{transform:translateX(39.4px)}62.3%{transform:translateX(-120.6px)}100%{transform:translateX(0)}}
+.a20x{animation:a20x 3.60s linear infinite}
+@keyframes a20y{0%{transform:translateY(0)}36.1%{transform:translateY(86.5px)}86.1%{transform:translateY(-33.5px)}100%{transform:translateY(0)}}
+.a20y{animation:a20y 3.95s linear infinite}
+@keyframes a21x{0%{transform:translateX(0)}46.6%{transform:translateX(149.2px)}96.6%{transform:translateX(-10.8px)}100%{transform:translateX(0)}}
+.a21x{animation:a21x 3.60s linear infinite}
+@keyframes a21y{0%{transform:translateY(0)}17.9%{transform:translateY(42.9px)}67.9%{transform:translateY(-77.1px)}100%{transform:translateY(0)}}
+.a21y{animation:a21y 2.73s linear infinite}
+@keyframes a22x{0%{transform:translateX(0)}13%{transform:translateX(41.6px)}63%{transform:translateX(-118.4px)}100%{transform:translateX(0)}}
+.a22x{animation:a22x 4.55s linear infinite}
+@keyframes a22y{0%{transform:translateY(0)}4.7%{transform:translateY(11.2px)}54.7%{transform:translateY(-108.8px)}100%{transform:translateY(0)}}
+.a22y{animation:a22y 4.28s linear infinite}
+@keyframes a23x{0%{transform:translateX(0)}18.8%{transform:translateX(60.1px)}68.8%{transform:translateX(-99.9px)}100%{transform:translateX(0)}}
+.a23x{animation:a23x 5.51s linear infinite}
+@keyframes a23y{0%{transform:translateY(0)}45.9%{transform:translateY(110.1px)}95.9%{transform:translateY(-9.9px)}100%{transform:translateY(0)}}
+.a23y{animation:a23y 2.71s linear infinite}
+@keyframes a24x{0%{transform:translateX(0)}40.9%{transform:translateX(130.9px)}90.9%{transform:translateX(-29.1px)}100%{transform:translateX(0)}}
+.a24x{animation:a24x 4.27s linear infinite}
+@keyframes a24y{0%{transform:translateY(0)}47.2%{transform:translateY(113.2px)}97.2%{transform:translateY(-6.8px)}100%{transform:translateY(0)}}
+.a24y{animation:a24y 3.16s linear infinite}
+@keyframes a25x{0%{transform:translateX(0)}2.7%{transform:translateX(8.6px)}52.7%{transform:translateX(-151.4px)}100%{transform:translateX(0)}}
+.a25x{animation:a25x 4.86s linear infinite}
+@keyframes a25y{0%{transform:translateY(0)}28.3%{transform:translateY(67.9px)}78.3%{transform:translateY(-52.1px)}100%{transform:translateY(0)}}
+.a25y{animation:a25y 3.20s linear infinite}
+@keyframes a26x{0%{transform:translateX(0)}33%{transform:translateX(105.5px)}83%{transform:translateX(-54.5px)}100%{transform:translateX(0)}}
+.a26x{animation:a26x 3.79s linear infinite}
+@keyframes a26y{0%{transform:translateY(0)}12.8%{transform:translateY(30.7px)}62.8%{transform:translateY(-89.3px)}100%{transform:translateY(0)}}
+.a26y{animation:a26y 4.10s linear infinite}
+@keyframes a27x{0%{transform:translateX(0)}4.1%{transform:translateX(13px)}54.1%{transform:translateX(-147px)}100%{transform:translateX(0)}}
+.a27x{animation:a27x 3.96s linear infinite}
+@keyframes a27y{0%{transform:translateY(0)}42.2%{transform:translateY(101.3px)}92.2%{transform:translateY(-18.7px)}100%{transform:translateY(0)}}
+.a27y{animation:a27y 4.23s linear infinite}
+@keyframes a28x{0%{transform:translateX(0)}18.8%{transform:translateX(60.2px)}68.8%{transform:translateX(-99.8px)}100%{transform:translateX(0)}}
+.a28x{animation:a28x 4.40s linear infinite}
+@keyframes a28y{0%{transform:translateY(0)}21.4%{transform:translateY(51.4px)}71.4%{transform:translateY(-68.6px)}100%{transform:translateY(0)}}
+.a28y{animation:a28y 2.99s linear infinite}
+@keyframes a29x{0%{transform:translateX(0)}31.5%{transform:translateX(100.8px)}81.5%{transform:translateX(-59.2px)}100%{transform:translateX(0)}}
+.a29x{animation:a29x 3.39s linear infinite}
+@keyframes a29y{0%{transform:translateY(0)}38.6%{transform:translateY(92.5px)}88.6%{transform:translateY(-27.5px)}100%{transform:translateY(0)}}
+.a29y{animation:a29y 3.33s linear infinite}
+@keyframes a30x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a30x{animation:a30x 2.18s linear infinite}
+@keyframes a30y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a30y{animation:a30y 1.48s linear infinite}
+@keyframes a31x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a31x{animation:a31x 3.05s linear infinite}
+@keyframes a31y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a31y{animation:a31y 1.15s linear infinite}
+@keyframes a32x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a32x{animation:a32x 2.25s linear infinite}
+@keyframes a32y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a32y{animation:a32y 1.14s linear infinite}
+@keyframes a33x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a33x{animation:a33x 2.46s linear infinite}
+@keyframes a33y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a33y{animation:a33y 1.29s linear infinite}
+@keyframes a34x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a34x{animation:a34x 2.37s linear infinite}
+@keyframes a34y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a34y{animation:a34y 1.09s linear infinite}
+@keyframes a35x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a35x{animation:a35x 2.76s linear infinite}
+@keyframes a35y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a35y{animation:a35y 1.79s linear infinite}
+@keyframes a36x{0%{transform:translateX(0)}41.6%{transform:translateX(133.1px)}91.6%{transform:translateX(-26.9px)}100%{transform:translateX(0)}}
+.a36x{animation:a36x 3.99s linear infinite}
+@keyframes a36y{0%{transform:translateY(0)}32.9%{transform:translateY(79px)}82.9%{transform:translateY(-41px)}100%{transform:translateY(0)}}
+.a36y{animation:a36y 3.00s linear infinite}
+@keyframes a37x{0%{transform:translateX(0)}17.9%{transform:translateX(57.2px)}67.9%{transform:translateX(-102.8px)}100%{transform:translateX(0)}}
+.a37x{animation:a37x 5.33s linear infinite}
+@keyframes a37y{0%{transform:translateY(0)}18.1%{transform:translateY(43.4px)}68.1%{transform:translateY(-76.6px)}100%{transform:translateY(0)}}
+.a37y{animation:a37y 3.44s linear infinite}
+@keyframes a38x{0%{transform:translateX(0)}44.9%{transform:translateX(143.6px)}94.9%{transform:translateX(-16.4px)}100%{transform:translateX(0)}}
+.a38x{animation:a38x 4.56s linear infinite}
+@keyframes a38y{0%{transform:translateY(0)}43.9%{transform:translateY(105.3px)}93.9%{transform:translateY(-14.7px)}100%{transform:translateY(0)}}
+.a38y{animation:a38y 2.59s linear infinite}
+@keyframes a39x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a39x{animation:a39x 1.73s linear infinite}
+@keyframes a39y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a39y{animation:a39y 1.23s linear infinite}
+@keyframes a40x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a40x{animation:a40x 2.27s linear infinite}
+@keyframes a40y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a40y{animation:a40y 1.04s linear infinite}
+@keyframes a41x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a41x{animation:a41x 2.02s linear infinite}
+@keyframes a41y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a41y{animation:a41y 1.39s linear infinite}
+@keyframes a42x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a42x{animation:a42x 2.45s linear infinite}
+@keyframes a42y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a42y{animation:a42y 1.32s linear infinite}
+@keyframes a43x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a43x{animation:a43x 3.17s linear infinite}
+@keyframes a43y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a43y{animation:a43y 1.06s linear infinite}
+@keyframes a44x{0%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}100%{transform:translateX(0)}}
+.a44x{animation:a44x 2.46s linear infinite}
+@keyframes a44y{0%{transform:translateY(0)}25%{transform:translateY(5px)}75%{transform:translateY(-5px)}100%{transform:translateY(0)}}
+.a44y{animation:a44y 1.42s linear infinite}
+@keyframes a45x{0%{transform:translateX(0)}11.6%{transform:translateX(37px)}61.6%{transform:translateX(-123px)}100%{transform:translateX(0)}}
+.a45x{animation:a45x 5.34s linear infinite}
+@keyframes a45y{0%{transform:translateY(0)}43.1%{transform:translateY(103.6px)}93.1%{transform:translateY(-16.4px)}100%{transform:translateY(0)}}
+.a45y{animation:a45y 4.12s linear infinite}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect x="3" y="3" width="594" height="714" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Tlak plynu v uzavřené nádobě</text><text x="300" y="70" font-size="22" fill="#212529" text-anchor="middle">částice vzduchu narážejí na stěny nádoby</text><rect x="15" y="92" width="280" height="262" rx="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/><text x="155" y="124" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">stejný tlak</text><text x="155" y="152" font-size="22" fill="#212529" text-anchor="middle">jako venku</text><rect x="65" y="177" width="180" height="140" rx="6" fill="#ffffff" stroke="#495057" stroke-width="6"/><g><g class="a0x"><g class="a0y"><circle cx="40" cy="202" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a1x"><g class="a1y"><circle cx="40" cy="287" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a2x"><g class="a2y"><circle cx="270" cy="192" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a3x"><g class="a3y"><circle cx="270" cy="304" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a4x"><g class="a4y"><circle cx="110" cy="335" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a5x"><g class="a5y"><circle cx="200" cy="335" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a6x"><g class="a6y"><circle cx="98.2" cy="277.7" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a7x"><g class="a7y"><circle cx="161.3" cy="263.6" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a8x"><g class="a8y"><circle cx="168.7" cy="300.7" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a9x"><g class="a9y"><circle cx="112.7" cy="198" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a10x"><g class="a10y"><circle cx="137.2" cy="281.1" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a11x"><g class="a11y"><circle cx="151.2" cy="201.8" r="7" fill="#1c7ed6"/></g></g></g><line x1="208" y1="247" x2="228" y2="247" stroke="#e03131" stroke-width="5" stroke-linecap="round"/><path d="M240,247 L228,240.4 L228,253.6 Z" fill="#e03131"/><line x1="280" y1="247" x2="262" y2="247" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M250,247 L262,253.6 L262,240.4 Z" fill="#1864ab"/><rect x="305" y="92" width="280" height="262" rx="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/><text x="445" y="124" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">přetlak</text><text x="445" y="152" font-size="22" fill="#212529" text-anchor="middle">uvnitř víc</text><rect x="355" y="177" width="180" height="140" rx="6" fill="#ffffff" stroke="#495057" stroke-width="6"/><g><g class="a12x"><g class="a12y"><circle cx="330" cy="202" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a13x"><g class="a13y"><circle cx="330" cy="287" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a14x"><g class="a14y"><circle cx="560" cy="192" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a15x"><g class="a15y"><circle cx="560" cy="304" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a16x"><g class="a16y"><circle cx="400" cy="335" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a17x"><g class="a17y"><circle cx="490" cy="335" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a18x"><g class="a18y"><circle cx="376.5" cy="237.5" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a19x"><g class="a19y"><circle cx="371.6" cy="211.7" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a20x"><g class="a20y"><circle cx="485.6" cy="220.5" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a21x"><g class="a21y"><circle cx="375.8" cy="264.1" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a22x"><g class="a22y"><circle cx="483.4" cy="295.8" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a23x"><g class="a23y"><circle cx="464.9" cy="196.9" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a24x"><g class="a24y"><circle cx="394.1" cy="193.8" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a25x"><g class="a25y"><circle cx="516.4" cy="239.1" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a26x"><g class="a26y"><circle cx="419.5" cy="276.3" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a27x"><g class="a27y"><circle cx="512" cy="205.7" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a28x"><g class="a28y"><circle cx="464.8" cy="255.6" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a29x"><g class="a29y"><circle cx="424.2" cy="214.5" r="7" fill="#1c7ed6"/></g></g></g><line x1="468" y1="247" x2="518" y2="247" stroke="#e03131" stroke-width="5" stroke-linecap="round"/><path d="M530,247 L518,240.4 L518,253.6 Z" fill="#e03131"/><line x1="570" y1="247" x2="552" y2="247" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M540,247 L552,253.6 L552,240.4 Z" fill="#1864ab"/><rect x="15" y="372" width="280" height="262" rx="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/><text x="155" y="404" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">podtlak</text><text x="155" y="432" font-size="22" fill="#212529" text-anchor="middle">uvnitř míň</text><rect x="65" y="457" width="180" height="140" rx="6" fill="#ffffff" stroke="#495057" stroke-width="6"/><g><g class="a30x"><g class="a30y"><circle cx="40" cy="482" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a31x"><g class="a31y"><circle cx="40" cy="567" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a32x"><g class="a32y"><circle cx="270" cy="472" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a33x"><g class="a33y"><circle cx="270" cy="584" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a34x"><g class="a34y"><circle cx="110" cy="615" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a35x"><g class="a35y"><circle cx="200" cy="615" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a36x"><g class="a36y"><circle cx="101.9" cy="508" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a37x"><g class="a37y"><circle cx="177.8" cy="543.6" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a38x"><g class="a38y"><circle cx="91.4" cy="481.7" r="7" fill="#1c7ed6"/></g></g></g><line x1="223" y1="527" x2="228" y2="527" stroke="#e03131" stroke-width="5" stroke-linecap="round"/><path d="M240,527 L228,520.4 L228,533.6 Z" fill="#e03131"/><line x1="280" y1="527" x2="262" y2="527" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M250,527 L262,533.6 L262,520.4 Z" fill="#1864ab"/><rect x="305" y="372" width="280" height="262" rx="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/><text x="445" y="404" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">vakuum</text><text x="445" y="432" font-size="22" fill="#212529" text-anchor="middle">téměř nic</text><rect x="355" y="457" width="180" height="140" rx="6" fill="#ffffff" stroke="#495057" stroke-width="6"/><g><g class="a39x"><g class="a39y"><circle cx="330" cy="482" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a40x"><g class="a40y"><circle cx="330" cy="567" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a41x"><g class="a41y"><circle cx="560" cy="472" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a42x"><g class="a42y"><circle cx="560" cy="584" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a43x"><g class="a43y"><circle cx="400" cy="615" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a44x"><g class="a44y"><circle cx="490" cy="615" r="7" fill="#1c7ed6"/></g></g></g><g><g class="a45x"><g class="a45y"><circle cx="488" cy="483.4" r="7" fill="#1c7ed6"/></g></g></g><line x1="570" y1="527" x2="552" y2="527" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M540,527 L552,533.6 L552,520.4 Z" fill="#1864ab"/><line x1="70" y1="680" x2="108" y2="680" stroke="#e03131" stroke-width="5" stroke-linecap="round"/><path d="M120,680 L108,673.4 L108,686.6 Z" fill="#e03131"/><text x="130" y="688" font-size="22" fill="#212529" text-anchor="start">tlak uvnitř</text><line x1="370" y1="680" x2="332" y2="680" stroke="#1864ab" stroke-width="5" stroke-linecap="round"/><path d="M320,680 L332,686.6 L332,673.4 Z" fill="#1864ab"/><text x="380" y="688" font-size="22" fill="#212529" text-anchor="start">tlak venku</text>
+</svg>
