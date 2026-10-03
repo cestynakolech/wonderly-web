@@ -271,7 +271,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		},
 		{
 			text: 'Jakými silami na sebe částice působí?',
-			odpovedi: ['přitažlivými a odpudivými', 'pouze přitažlivými silami', 'žádnými silami'],
+			odpovedi: ['přitažlivými a odpudivými', 'přitažlivými silami Země, které je táhnou dolů', 'žádnými silami'],
 			vysvetleni: 'Přitažlivé síly částice přitáhnou, když se vzdálí; odpudivé je oddálí, když se moc přiblíží.',
 		},
 		{
@@ -4616,7 +4616,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'K čemu slouží reostat?', odpovedi: ['k regulaci proudu', 'k regulaci napětí děličem', 'k měření teploty'], vysvetleni: 'Mění odpor → mění proud.' },
 		{ text: 'K čemu slouží potenciometr?', odpovedi: ['k regulaci napětí', 'k výrobě proudu', 'k chlazení obvodu'], vysvetleni: 'Rozdělí napětí mezi dvě části.' },
 		{ text: 'Jak se zapojuje reostat?', odpovedi: ['jednou svorkou a jezdcem', 'oběma svorkami i jezdcem', 'úplně mimo obvod'], vysvetleni: 'Využívá jednu část drátu.' },
-		{ text: 'Jak se zapojuje potenciometr?', odpovedi: ['oběma svorkami i jezdcem', 'pouze samotným jezdcem', 'jen jednou svorkou'], vysvetleni: 'Využívá obě části drátu.' },
+		{ text: 'Jak se zapojuje potenciometr?', odpovedi: ['oběma svorkami i jezdcem', 'dvěma jezdci na obou koncích drátu', 'jen jednou svorkou'], vysvetleni: 'Využívá obě části drátu.' },
 		{ text: 'Podle konstrukce dělíme proměnné rezistory na…', odpovedi: ['posuvné a otočné', 'malé a velké', 'teplé a studené'], vysvetleni: 'Dvě základní provedení.' },
 		{ text: 'K čemu se potenciometr běžně používá?', odpovedi: ['k ovládání hlasitosti', 'k výrobě nových baterií', 'k chlazení procesoru'], vysvetleni: 'V audio a video technice.' },
 		{ text: 'Reostatem prochází při napětí 12 V proud 4 A. Jaký je na něm výkon?', odpovedi: ['48 W', '16 W', '3 W'], vysvetleni: 'P = U · I = 12 · 4 = 48 W. Reostat se jmenovitým výkonem 25 W by se takovým zatížením poškodil.' },
@@ -4841,7 +4841,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Jak souvisí zapalovací cívka v motoru s elektromagnetickou indukcí?', odpovedi: ['Rychlou změnou proudu v ní se indukuje vysoké napětí pro jiskru.', 'Cívka jen vede proud z baterie přímo na svíčku úplně beze změny.', 'Cívka svíčku chladí, aby motor nepřehříval.'], vysvetleni: 'Proud v primárním vinutí se prudce přeruší, pole se rychle změní a ve druhém vinutí se indukuje vysoké napětí pro jiskru na svíčce.' },
 	],
 	'fyzika/9-rocnik/indukce-a-stridavy-proud/vznik-stridaveho-proudu-alternator': [
-		{ text: 'Co se stane v cívce, když se u ní otáčí magnet?', odpovedi: ['indukuje se proud, který pravidelně mění směr', 'vznikne proud, který teče pořád jen jedním směrem', 'cívka se pouze zahřeje a žádný proud nevznikne'], vysvetleni: 'Otáčející se magnet u cívky neustále mění pole, a proto se v ní indukuje proud, který střídá směr.' },
+		{ text: 'Co se stane v cívce, když se u ní otáčí magnet?', odpovedi: ['indukuje se proud, který pravidelně mění směr', 'vznikne proud, který teče pořád jen jedním směrem', 'magnet v cívce způsobuje zahřátí namísto proudu'], vysvetleni: 'Otáčející se magnet u cívky neustále mění pole, a proto se v ní indukuje proud, který střídá směr.' },
 		{ text: 'Jaký proud teče z běžné zásuvky?', odpovedi: ['střídavý, jehož směr se pravidelně obrací', 'stejnosměrný, který teče stále jedním směrem', 'stejnosměrný, jehož velikost je konstantní'], vysvetleni: 'Ze zásuvky odebíráme střídavý proud.' },
 		{ text: 'Který stroj má podobnou konstrukci jako alternátor, ale pracuje na opačném principu?', odpovedi: ['elektromotor', 'transformátor', 'akumulátor'], vysvetleni: 'Konstrukce je podobná, jen elektromotor pracuje na opačném principu než alternátor.' },
 		{ text: 'Jak zapisujeme v grafu střídavého proudu proud, který teče opačným směrem?', odpovedi: ['jako zápornou hodnotu', 'jako hodnotu větší než maximum', 'do grafu ho nezakreslujeme'], vysvetleni: 'Opačný směr proudu má znaménko minus, takže křivka klesá pod nulu.' },
@@ -4954,7 +4954,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Kde je za bouřky bezpečněji?', odpovedi: ['uvnitř budovy', 'pod osamělým stromem', 'v otevřené krajině s deštníkem'], vysvetleni: 'Vysoké předměty s hroty a hranami, například stromy, k sobě blesk přitahují.' },
 	],
 	'fyzika/9-rocnik/elektricky-proud-v-latkach/polovodice-vlastni-vodivost': [
-		{ text: 'Jak vedou elektrický proud polovodiče?', odpovedi: ['jen za určitých podmínek', 'vždy stejně dobře jako kovy', 'za žádných podmínek nevedou'], vysvetleni: 'Nejsou ani vodiče, ani izolanty, jsou tak trochu „napůl“.' },
+		{ text: 'Jak vedou elektrický proud polovodiče?', odpovedi: ['jen za určitých podmínek', 'stejně dobře jako kovy', 'za žádných podmínek nevedou'], vysvetleni: 'Nejsou ani vodiče, ani izolanty, jsou tak trochu „napůl“.' },
 		{ text: 'Který z uvedených prvků patří mezi polovodiče?', odpovedi: ['germanium', 'měď', 'železo'], vysvetleni: 'Nejznámější polovodiče jsou křemík, germanium a selen.' },
 		{ text: 'Kolik valenčních elektronů má atom křemíku?', odpovedi: ['4', '2', '8'], vysvetleni: 'Křemík je ze IV. skupiny a ve valenční vrstvě má 4 elektrony.' },
 		{ text: 'Čím je tvořena jedna vazba mezi dvěma atomy v krystalu křemíku?', odpovedi: ['dvojicí elektronů, z nichž každý patří jednomu atomu', 'jedním elektronem, který patří oběma atomům společně', 'jedním volným elektronem, který putuje celým krystalem'], vysvetleni: 'Vazba z dvojice elektronů je velmi pevná, podobně jako u diamantu.' },
@@ -5199,7 +5199,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Modelový příklad: přečerpávací elektrárna čerpá v noci 8 hodin výkonem 500 MW. Kolik energie čerpání spotřebuje?', odpovedi: ['4000 MWh', '500 MWh', '3000 MWh'], vysvetleni: 'Spotřeba = výkon krát čas: 500 MW × 8 h = 4000 MWh. Čísla jsou modelová, ne skutečné údaje elektrárny Dlouhé stráně.' },
 	],
 	'fyzika/9-rocnik/indukce-a-stridavy-proud/pusobeni-pole-na-vodic-elektromotor': [
-		{ text: 'Proč působí magnetické pole silou na vodič s proudem?', odpovedi: ['vodič s proudem se chová jako magnet', 'proud ve vodiči vždy ohřívá okolní vzduch', 'vodič je vždy z magneticky měkkého železa'], vysvetleni: 'Vodič nebo cívka s proudem má vlastní magnetické pole a to se s polem magnetu vzájemně silově ovlivňuje.' },
+		{ text: 'Proč působí magnetické pole silou na vodič s proudem?', odpovedi: ['vodič s proudem se chová jako magnet', 'proud ve vodiči ochlazuje okolní vzduch', 'vodič je vždy z magneticky měkkého železa'], vysvetleni: 'Vodič nebo cívka s proudem má vlastní magnetické pole a to se s polem magnetu vzájemně silově ovlivňuje.' },
 		{ text: 'Co se stane se směrem magnetické síly, když ve vodiči obrátíme směr proudu?', odpovedi: ['směr síly se obrátí', 'směr síly zůstane stejný', 'síla zamíří kolmo na původní směr'], vysvetleni: 'Směr síly závisí na směru proudu ve vodiči, takže po obrácení proudu síla zamíří opačně.' },
 		{ text: 'Co musíme kromě směru proudu znát, abychom určili směr síly na vodič?', odpovedi: ['polohu severního a jižního pólu magnetu', 'teplotu vodiče a okolního vzduchu', 'průřez vodiče a barvu jeho izolace'], vysvetleni: 'Směr síly závisí na tom, jak míří indukční čáry pole, tedy kde je severní a kde jižní pól.' },
 		{ text: 'Kam necháme při pravidle levé ruky vstupovat indukční čáry magnetického pole?', odpovedi: ['do levé dlaně', 'na hřbet levé ruky', 'do špičky palce levé ruky'], vysvetleni: 'Flemingovo pravidlo levé ruky: čáry vstupují do dlaně, zbývající dva směry ukazují prsty a palec.' },
@@ -5772,7 +5772,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	'informatika/9-rocnik/programovaci-projekty/plan-projektu-a-ladeni': [
 		{ text: 'Čím začíná programovací projekt?', odpovedi: ['popsáním problému', 'psaním prvních bloků', 'vybarvením pozadí'], vysvetleni: 'Bez zadání nevíme, co tvoříme.' },
 		{ text: 'Jak se řeší velký problém?', odpovedi: ['rozdělí se na části', 'vyřeší se najednou', 'rozhodne se losem'], vysvetleni: 'Každá část se tvoří a testuje zvlášť.' },
-		{ text: 'Kdy program testujeme?', odpovedi: ['průběžně po částech', 'až úplně na konci', 'nikdy, škoda času'], vysvetleni: 'Chyba v malém kousku se hledá snadno.' },
+		{ text: 'Kdy program testujeme?', odpovedi: ['průběžně po částech', 'až úplně na konci', 'když se to hodí, bez plánu'], vysvetleni: 'Chyba v malém kousku se hledá snadno.' },
 		{ text: 'Co je ladění (debugging)?', odpovedi: ['hledání a opravy chyb', 'zdobení programu', 'mazání programu'], vysvetleni: 'Normální součást práce každého programátora.' },
 		{ text: 'Co znamená myslet na uživatele?', odpovedi: ['srozumitelné ovládání', 'psát dlouhé návody', 'skrýt důležitá tlačítka'], vysvetleni: 'Program má být přístupný i začátečníkovi.' },
 		{ text: 'Chyba v programu je…', odpovedi: ['běžná věc k opravě', 'ostuda programátora', 'konec celého projektu'], vysvetleni: 'I profesionálové ladí denně.' },
@@ -5814,7 +5814,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Skóre a životy ve hře uchováme…', odpovedi: ['v proměnných', 'v kostýmech postavy', 'v obrázku pozadí'], vysvetleni: 'Program je mění a kontroluje v podmínkách.' },
 		{ text: 'Co patří do návrhu hry kromě pravidel?', odpovedi: ['ovládání a překážky', 'seznam hráčů ve třídě', 'rychlost internetu ve škole'], vysvetleni: 'Promyslet dopředu, čím hráč hru ovládá a co ho čeká.' },
 		{ text: 'K čemu slouží úvodní a závěrečná obrazovka hry?', odpovedi: ['přivítají a oznámí výsledek', 'jen zbytečně zpomalují hru', 'ukládají navždy nejvyšší skóre'], vysvetleni: 'Patří k dobrému dojmu z celé hry.' },
-		{ text: 'Proč každý klon postavy „běží podle svého"?', odpovedi: ['má vlastní pozici a hodnoty', 'je to pokaždé úplně jiná postava', 'klon má jiné scénáře'], vysvetleni: 'Scénář je pro všechny klony stejný, ale každý si nese svůj vlastní stav.' },
+		{ text: 'Proč každý klon postavy „běží podle svého"?', odpovedi: ['má vlastní pozici a hodnoty', 'každý klon má svého vlastního hráče', 'klon má jiné scénáře'], vysvetleni: 'Scénář je pro všechny klony stejný, ale každý si nese svůj vlastní stav.' },
 		{ text: 'Proč do hry přidáváme zvuky?', odpovedi: ['dávají hráči zpětnou vazbu', 'zrychlují běh celého programu', 'nahrazují grafiku postav'], vysvetleni: 'Zvuk skoku, nárazu či fanfára při výhře hru oživí.' },
 	],
 	'informatika/9-rocnik/digitalni-technologie/hardware-a-software': [
