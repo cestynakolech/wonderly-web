@@ -29,7 +29,7 @@
 <circle cx="450" cy="300" r="44" fill="#e9c08a"/>
 <circle cx="450" cy="300" r="14" fill="#343a40"/>
 <line x1="450" y1="194" x2="450" y2="244" stroke="#868e96" stroke-width="2" stroke-dasharray="5 4"/>
-<text x="450" y="232" font-size="18" fill="#868e96" text-anchor="middle" dx="52">průřez</text>
+<text x="450" y="232" font-size="20" fill="#495057" text-anchor="middle" dx="56">průřez</text>
 <line x1="420" y1="330" x2="356" y2="384" stroke="#2b2a26" stroke-width="2"/>
 <text x="350" y="408" font-size="20" fill="#212529" text-anchor="middle">dřevo</text>
 <line x1="456" y1="310" x2="530" y2="384" stroke="#2b2a26" stroke-width="2"/>
