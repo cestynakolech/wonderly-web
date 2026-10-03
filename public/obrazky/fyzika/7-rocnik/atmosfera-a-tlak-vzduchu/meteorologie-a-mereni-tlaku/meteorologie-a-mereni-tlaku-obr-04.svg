@@ -4,6 +4,8 @@
    str. 4–5 (srážkoměr: nálevka → odměrná nádoba se stupnicí, mm vodního sloupce), str. 5 (foto stožáru: anemometr s miskami
    vlevo, korouhev vpravo na příčce), str. 6 (heliograf: skleněná koule zaznamenává dobu slunečního svitu).
    Misky: otáčka 1,2 s (pohled z boku, 3 misky po 120°), proužky větru 0,8 s, déšť 1 s, voda a stopa heliografu 8 s.
+   Korouhev podle fota str. 5: tyčka se závažím vpředu a ploutví vzadu, bez šipky (ploutev se natočí po větru).
+   Barvy jako na celé stránce: vítr šedě, déšť a voda tyrkysově, propálená stopa tmavě hnědě (spálený papír).
    Bez animace = koncový stav: misky rozestavené po 120°, voda v nádobě do poloviny, stopa na papíru zčásti propálená. */
 .mi { animation: mi 1.2s linear infinite; }
 .m1 { transform: translate(0px, 6px); }
@@ -56,10 +58,10 @@
 <polygon points="182,279 176,291 188,291" fill="#495057"/><polygon points="182,439 176,427 188,427" fill="#495057"/>
 <text x="192" y="368" font-size="22" font-weight="bold" fill="#212529">2 m</text>
 <!-- vítr -->
-<g stroke="#1864ab" stroke-width="3" stroke-dasharray="12 8">
+<g stroke="#495057" stroke-width="3" stroke-dasharray="12 8">
 <line class="vi" x1="160" y1="128" x2="208" y2="128"/><line class="vi" x1="150" y1="143" x2="208" y2="143"/><line class="vi" x1="160" y1="158" x2="208" y2="158"/>
 </g>
-<text x="182" y="186" font-size="22" font-weight="bold" fill="#1864ab" text-anchor="middle">vítr</text>
+<text x="182" y="186" font-size="22" font-weight="bold" fill="#495057" text-anchor="middle">vítr</text>
 <!-- stožár s anemometrem a korouhví -->
 <g stroke="#495057" stroke-width="5" stroke-linecap="round">
 <line x1="300" y1="440" x2="300" y2="165"/><line x1="240" y1="175" x2="360" y2="175"/>
@@ -73,9 +75,9 @@
 </g>
 <circle cx="240" cy="135" r="4" fill="#212529"/>
 <text x="240" y="104" font-size="22" fill="#212529" text-anchor="middle">anemometr</text>
-<line x1="330" y1="148" x2="398" y2="148" stroke="#495057" stroke-width="4"/>
-<polygon points="318,148 334,139 334,157" fill="#c92a2a"/>
-<polygon points="390,148 408,134 408,162" fill="#495057"/>
+<line x1="326" y1="148" x2="398" y2="148" stroke="#495057" stroke-width="4"/>
+<circle cx="324" cy="148" r="7" fill="#212529"/>
+<rect x="394" y="135" width="20" height="26" fill="#495057"/>
 <circle cx="360" cy="148" r="4" fill="#212529"/>
 <text x="375" y="122" font-size="22" fill="#212529" text-anchor="middle">korouhev</text>
 <!-- heliograf -->
@@ -83,11 +85,11 @@
 <rect x="376" y="434" width="48" height="6" fill="#495057"/>
 <path d="M 370 378 A 30 30 0 0 0 430 378" fill="none" stroke="#e9ecef" stroke-width="9"/>
 <path d="M 370 378 A 30 30 0 0 0 430 378" fill="none" stroke="#adb5bd" stroke-width="2"/>
-<path class="he" d="M 430 378 A 30 30 0 0 1 370 378" fill="none" stroke="#5f3dc4" stroke-width="5" stroke-dasharray="95 95" stroke-dashoffset="40"/>
-<circle cx="400" cy="378" r="22" fill="#d0ebff" fill-opacity="0.8" stroke="#1971c2" stroke-width="2.5"/>
+<path class="he" d="M 430 378 A 30 30 0 0 1 370 378" fill="none" stroke="#5c3b1e" stroke-width="5" stroke-dasharray="95 95" stroke-dashoffset="40"/>
+<circle cx="400" cy="378" r="22" fill="#e7f5ff" fill-opacity="0.8" stroke="#495057" stroke-width="2.5"/>
 <ellipse cx="392" cy="370" rx="6" ry="4" fill="#ffffff"/>
 <!-- mrak a déšť -->
-<g stroke="#1971c2" stroke-width="3" stroke-linecap="round">
+<g stroke="#0c8599" stroke-width="3" stroke-linecap="round">
 <line class="ka" x1="516" y1="190" x2="514" y2="200" style="animation-delay:0s"/>
 <line class="ka" x1="530" y1="190" x2="528" y2="200" style="animation-delay:-0.33s"/>
 <line class="ka" x1="544" y1="190" x2="542" y2="200" style="animation-delay:-0.66s"/>
@@ -98,7 +100,7 @@
 <rect x="505" y="320" width="50" height="120" fill="#e9ecef" stroke="#495057" stroke-width="3"/>
 <polygon points="498,300 562,300 537,326 523,326" fill="#ced4da" stroke="#495057" stroke-width="3"/>
 <rect x="515" y="336" width="30" height="98" fill="#ffffff" stroke="#495057" stroke-width="2"/>
-<rect class="vo" x="518" y="390" width="24" height="40" fill="#74c0fc"/>
+<rect class="vo" x="518" y="390" width="24" height="40" fill="#66d9e8"/>
 <g stroke="#212529" stroke-width="2">
 <line x1="538" y1="420" x2="545" y2="420"/><line x1="538" y1="400" x2="545" y2="400"/><line x1="538" y1="380" x2="545" y2="380"/><line x1="538" y1="360" x2="545" y2="360"/>
 <line x1="541" y1="410" x2="545" y2="410"/><line x1="541" y1="390" x2="545" y2="390"/><line x1="541" y1="370" x2="545" y2="370"/><line x1="541" y1="350" x2="545" y2="350"/>
