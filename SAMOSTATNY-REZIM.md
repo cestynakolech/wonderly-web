@@ -6,7 +6,7 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
-- **3. 10. 2026 odpoledne (pozdější stav):** HOTOVO: píseň Tání (20605ad, nasazeno 885aee74). HOTOVO: záznam `obousmerne.json` pro vata-zapis-shrnuti (a36508e). HOTOVO: VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98). FRONTA: viz „Fronta po 3. 10. odpoledne“ níže (VATA dávka 7, seřízení uniky-v-bloku.mjs, poslech závěru Tání). Doklady v `Omega/predavka/2026-10-03/`.
+- **3. 10. 2026 odpoledne (pozdější stav):** HOTOVO: píseň Tání (20605ad, nasazeno 885aee74). HOTOVO: záznam `obousmerne.json` pro vata-zapis-shrnuti (a36508e). HOTOVO: VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98). FRONTA: viz „Fronta po 3. 10. odpoledne“ níže (VATA dávka 7, seřízení uniky-v-bloku.mjs, poslech závěru Tání). Doklady v `Omega/predavka/2026-10-03/`. **Večer:** HOTOVO: VATA dávka 7, 6/9 zapsáno (4dc9e37, kontrola PROŠLO, nasazeno 68e575f7), teziste#17#1 opraveno. HOTOVO: Tání ověřeno whisper medium, zpěv je správně (`kontrola-20605ad.md`). FRONTA: 3 zamítnuté z dávky 7 (#4, #20, #43), viz `vata-schvaleni-davka7.md`. FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, `brew upgrade` (`oprava-whisper.md`).
 
 - **3. 10. 2026 — VATA dávky 1–5 HOTOVO (48 oprav distraktorů, schváleno 48/99, ~48 %; poslední commit b623883, doklady `Omega/predavka/2026-10-03/vata-schvaleni-davka1–5.md`).** ZBÝVÁ: (1) 51 zamítnutých návrhů → nový návrh (hlavní vada: „obhajitelně pravdivé“ distraktory); (2) 30 bloků „shrnuti“ (pololetní/roční shrnutí) — zápisový skript `vata-zapis-navrhy.mjs` je nenajde („blok nenalezen“), je to OPRAVA NÁSTROJE; (3) 76 položek v jiné fázi než „hotovo“.
 
@@ -709,9 +709,11 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 
 ### [fronta] Fronta po 3. 10. odpoledne (doklady v `Omega/predavka/2026-10-03/`)
 - HOTOVO: píseň Tání (20605ad, nasazeno 885aee74); záznam obousmerne.json pro vata-zapis-shrnuti (a36508e); VATA dávka 6, zapsáno 40/49 (6a9bbea, kontrola PROŠLO, nasazeno 08988b98).
-- FRONTA: VATA dávka 7 (9 nezapsaných + #10, rozpracovaná, `vata-davka7-ke-schvaleni.md`).
+- HOTOVO: VATA dávka 7, 6/9 zapsáno (4dc9e37, kontrola PROŠLO, nasazeno 68e575f7), teziste#17#1 opraveno.
+- FRONTA: 3 zamítnuté z dávky 7 (#4, #20, #43), viz `Omega/predavka/2026-10-03/vata-schvaleni-davka7.md`.
+- FRONTA: homebrew whisper rozbitý (numba × NumPy 2.5); automaty používají venv a fungují; až vyjde nová numba, brew upgrade (`oprava-whisper.md`).
 - FRONTA: seřídit měřidlo `testy/uniky-v-bloku.mjs` (`diagnoza-uniky-v-bloku.md`: 1621 falešných nálezů; do prebuild až po kalibraci a obousměrném důkazu).
-- FRONTA: ověřit poslechem závěr Tání (`kontrola-20605ad.md`).
+- HOTOVO: ověřit poslechem závěr Tání — ověřeno whisper medium, zpěv je správně (`kontrola-20605ad.md`).
 - Drobnost: zápisový protokol davka6 uvádí #39 místo #38.
 
 ### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
