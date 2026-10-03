@@ -1738,7 +1738,7 @@ export const temata: Record<string, Tema[]> = {
 			nazev: 'Pohyb a rychlost',
 			podtemata: [
 				{
-					odkazy: [{"nazev":"Pohyb tělesa (Fyzika na Vltavě)","url":"https://www.zsvltava.cz/fyzika/?p=805"}],
+					odkazy: [{"nazev":"Pohyb tělesa (Fyzika na Vltavě)","url":"https://www.zsvltava.cz/fyzika/?p=805"},{"nazev":"Pohyb a klid těles (Učíme se rozumět světu kolem nás)","url":"https://ucim-se.webnode.cz/a9-tridy/a7-trida/pohyb-a-klid-teles/"},{"nazev":"Klid a pohyb těles — test (ZŠ Adolfovice)","url":"https://testy.zsadolfovice.cz/spustit-3"}],
 					slug: 'klid-a-pohyb-telesa',
 					nazev: 'Klid a pohyb tělesa',
 					interakce: 'relativita-pohybu',
