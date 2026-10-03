@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Dva vodiče s volnými elektrony. Nahoře stejnosměrný proud (DC), například z článku nebo akumulátoru: svorky mají stále stejné znaménko a elektrony se pohybují stále stejným směrem. Dole střídavý proud (AC), například ze zásuvky: znaménka svorek + a − se pravidelně střídají a elektrony se pohybují tam a zpět.">
+<style>
+/* Výklad kap. 6 (PDF lekce 20, str. 8): stejnosměrný proud teče stále stejným směrem (články, akumulátory);
+   střídavý proud pravidelně mění směr, mění se polarita zdroje (zásuvka). DC: elektrony plynou ke + (80 px za 2 s, bez švu).
+   AC: cyklus 6 s — 0–50 % vlevo −, vpravo +, elektrony jedou doprava; 50–100 % znaménka se vymění, elektrony jedou doleva
+   (ease-in-out, v okamžiku výměny stojí). Bez animace = koncový stav: první polovina (vlevo −, vpravo +) a dvojitá šipka. */
+.dc { animation: dc 2s linear infinite; }
+.ac { animation: ac 6s ease-in-out infinite; }
+.pa { animation: pa 6s linear infinite; }
+.pb { opacity: 0; animation: pb 6s linear infinite; }
+.rm { opacity: 0; }
+@keyframes dc { from { transform: translateX(0px); } to { transform: translateX(80px); } }
+@keyframes ac { 0%, 100% { transform: translateX(0px); } 50% { transform: translateX(45px); } }
+@keyframes pa { 0%, 46% { opacity: 1; } 50%, 96% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes pb { 0%, 46% { opacity: 0; } 50%, 96% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .dc, .ac { animation: none; } .pa { animation: none; opacity: 0; } .pb { animation: none; opacity: 0; } .pa.zn { opacity: 1; } .rm { opacity: 1; } }
+</style>
+<defs>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1864ab"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c92a2a"/></marker>
+<marker id="v-ora" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#e8590c"/></marker>
+<marker id="v-mod2" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto-start-reverse"><path d="M0,0 L24,12 L0,24 z" fill="#1864ab"/></marker>
+<marker id="v-mod" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#1864ab"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="494" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Stejnosměrný a střídavý proud</text>
+<text x="300" y="85" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">stejnosměrný proud (DC): stále stejným směrem</text>
+<rect x="150" y="115" width="390" height="50" rx="12" fill="#f1f3f5" stroke="#868e96" stroke-width="3"/>
+<clipPath id="k4a"><rect x="152" y="117" width="386" height="46" rx="10"/></clipPath>
+<g clip-path="url(#k4a)">
+<g class="dc"><circle cx="90" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="90" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="106" y1="140" x2="130" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+<g class="dc"><circle cx="170" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="170" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="186" y1="140" x2="210" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+<g class="dc"><circle cx="250" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="250" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="266" y1="140" x2="290" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+<g class="dc"><circle cx="330" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="330" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="346" y1="140" x2="370" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+<g class="dc"><circle cx="410" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="410" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="426" y1="140" x2="450" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+<g class="dc"><circle cx="490" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="506" y1="140" x2="530" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+<g class="dc"><circle cx="570" cy="140" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="570" y="148" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><line x1="586" y1="140" x2="610" y2="140" stroke="#1864ab" stroke-width="3" marker-end="url(#s-mod)"/></g>
+</g>
+<line x1="148" y1="140" x2="122" y2="140" stroke="#495057" stroke-width="5"/><line x1="542" y1="140" x2="560" y2="140" stroke="#495057" stroke-width="5"/>
+<circle cx="105" cy="140" r="17" fill="#1864ab" stroke="#212529" stroke-width="2"/><text x="105" y="150" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><circle cx="575" cy="140" r="15" fill="#c92a2a" stroke="#212529" stroke-width="2"/><text x="575" y="150" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+<line x1="280" y1="192" x2="420" y2="192" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/>
+<text x="300" y="232" font-size="22" fill="#212529" text-anchor="middle">např. z článku nebo akumulátoru</text>
+<text x="300" y="290" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">střídavý proud (AC): pravidelně mění směr</text>
+<rect x="150" y="320" width="390" height="50" rx="12" fill="#f1f3f5" stroke="#868e96" stroke-width="3"/>
+<clipPath id="k4b"><rect x="152" y="322" width="386" height="46" rx="10"/></clipPath>
+<g clip-path="url(#k4b)">
+<g class="ac"><circle cx="175" cy="345" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="175" y="353" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="ac"><circle cx="250" cy="345" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="250" y="353" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="ac"><circle cx="325" cy="345" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="325" y="353" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="ac"><circle cx="400" cy="345" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="400" y="353" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="ac"><circle cx="475" cy="345" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="475" y="353" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+</g>
+<line x1="148" y1="345" x2="122" y2="345" stroke="#495057" stroke-width="5"/><line x1="542" y1="345" x2="560" y2="345" stroke="#495057" stroke-width="5"/>
+<g class="pa zn"><circle cx="105" cy="345" r="17" fill="#1864ab" stroke="#212529" stroke-width="2"/><text x="105" y="355" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text><circle cx="575" cy="345" r="15" fill="#c92a2a" stroke="#212529" stroke-width="2"/><text x="575" y="355" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text></g>
+<g class="pb"><circle cx="105" cy="345" r="17" fill="#c92a2a" stroke="#212529" stroke-width="2"/><text x="105" y="355" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text><circle cx="575" cy="345" r="15" fill="#1864ab" stroke="#212529" stroke-width="2"/><text x="575" y="355" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<line class="pa" x1="280" y1="397" x2="420" y2="397" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/>
+<line class="pb" x1="420" y1="397" x2="280" y2="397" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/>
+<line class="rm" x1="280" y1="397" x2="420" y2="397" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-start="url(#v-mod2)" marker-end="url(#v-mod2)"/>
+<text x="300" y="437" font-size="22" fill="#212529" text-anchor="middle">např. ze zásuvky</text>
+<text x="300" y="472" font-size="22" fill="#212529" text-anchor="middle">polarita zdroje se mění: + a − se střídají</text>
+</svg>

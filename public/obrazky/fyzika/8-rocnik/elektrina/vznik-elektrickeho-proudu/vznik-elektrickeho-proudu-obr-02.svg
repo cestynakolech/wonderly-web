@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Obvod: baterie, vodiče, spínač a žárovka. Když je spínač vypnutý, obvod je přerušený a žárovka nesvítí. Po zapnutí spínače je obvod uzavřený, volné elektrony ve vodičích se pohybují od záporné svorky − ke kladné svorce + a žárovka svítí. Oranžové šipky ukazují dohodnutý směr proudu od + k −, modré šipky pohyb elektronů opačně, od − k +.">
+<style>
+/* Předloha: PDF lekce 20, str. 1 a 3 (přístroj potřebuje obvod se zdrojem napětí; volné elektrony míří od − ke +);
+   výklad: baterie, vodiče, spínač a žárovka; přerušený obvod = žárovka nesvítí. Cyklus 10 s: 0–45 % spínač vypnutý,
+   elektrony stojí, žárovka nesvítí; 45–50 % spínač se zavře; 50–95 % elektrony obíhají od − ke + (240 px, rozestup 80 px,
+   pás bez švu), žárovka svítí, ukáže se oranžová šipka dohodnutého směru proudu (od + k −) a modrá šipka elektronů (od − k +);
+   95–100 % spínač se otevře. Bez animace = koncový stav: spínač zapnutý, žárovka svítí, obě šipky vidět. */
+.pak { transform-origin: 150px 420px; transform: rotate(-35deg); animation: pak 10s linear infinite; }
+.on { opacity: 0; animation: on 10s linear infinite; }
+.off { opacity: 1; animation: off 10s linear infinite; }
+.cl { animation: cl 10s linear infinite; }
+.cr { animation: cr 10s linear infinite; }
+.cu { animation: cu 10s linear infinite; }
+.cd { animation: cd 10s linear infinite; }
+@keyframes pak { 0%, 45% { transform: rotate(-35deg); } 50%, 95% { transform: rotate(0deg); } 100% { transform: rotate(-35deg); } }
+@keyframes on { 0%, 48% { opacity: 0; } 52%, 93% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes off { 0%, 46% { opacity: 1; } 49%, 96% { opacity: 0; } 99%, 100% { opacity: 1; } }
+@keyframes cl { 0%, 50% { transform: translate(0px, 0px); } 95%, 100% { transform: translate(-240px, 0px); } }
+@keyframes cr { 0%, 50% { transform: translate(0px, 0px); } 95%, 100% { transform: translate(240px, 0px); } }
+@keyframes cu { 0%, 50% { transform: translate(0px, 0px); } 95%, 100% { transform: translate(0px, -240px); } }
+@keyframes cd { 0%, 50% { transform: translate(0px, 0px); } 95%, 100% { transform: translate(0px, 240px); } }
+@media (prefers-reduced-motion: reduce) { .pak { animation: none; transform: none; } .on { animation: none; opacity: 1; } .off { animation: none; opacity: 0; } .cl, .cr, .cu, .cd { animation: none; } }
+</style>
+<defs>
+<marker id="s-mod" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#1864ab"/></marker>
+<marker id="s-cer" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M0,0 L16,8 L0,16 z" fill="#c92a2a"/></marker>
+<marker id="v-ora" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#e8590c"/></marker>
+<marker id="v-mod2" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto-start-reverse"><path d="M0,0 L24,12 L0,24 z" fill="#1864ab"/></marker>
+<marker id="v-mod" markerUnits="userSpaceOnUse" markerWidth="24" markerHeight="24" refX="20" refY="12" orient="auto"><path d="M0,0 L24,12 L0,24 z" fill="#1864ab"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="574" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="36" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Obvod se spínačem</text>
+<text x="300" y="66" font-size="22" fill="#212529" text-anchor="middle" class="off">spínač vypnutý: obvod je přerušený, žárovka nesvítí</text>
+<text x="300" y="66" font-size="22" fill="#212529" text-anchor="middle" class="on">spínač zapnutý: obvod je uzavřený, žárovka svítí</text>
+<g stroke="#495057" stroke-width="6" stroke-linecap="round" fill="none"><polyline points="150,420 110,420 110,170 490,170 490,420 375,420"/><line x1="205" y1="420" x2="235" y2="420"/></g>
+<line class="pak" x1="150" y1="420" x2="207" y2="420" stroke="#212529" stroke-width="6" stroke-linecap="round"/>
+<circle cx="150" cy="420" r="7" fill="#ffffff" stroke="#212529" stroke-width="3"/><circle cx="205" cy="420" r="7" fill="#ffffff" stroke="#212529" stroke-width="3"/>
+<text x="178" y="466" font-size="22" fill="#212529" text-anchor="middle">spínač</text>
+<clipPath id="u0"><rect x="110" y="404" width="135" height="32"/></clipPath>
+<g clip-path="url(#u0)">
+<g class="cl"><circle cx="538" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="538" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="458" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="458" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="378" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="378" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="298" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="298" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="218" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="218" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="138" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="138" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="58" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="58" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+</g>
+<clipPath id="u1"><rect x="94" y="170" width="32" height="250"/></clipPath>
+<g clip-path="url(#u1)">
+<g class="cu"><circle cx="110" cy="688" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="696" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="608" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="616" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="528" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="536" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="448" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="456" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="368" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="376" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="288" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="296" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="208" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="216" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cu"><circle cx="110" cy="128" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="110" y="136" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+</g>
+<clipPath id="u2"><rect x="110" y="154" width="380" height="32"/></clipPath>
+<g clip-path="url(#u2)">
+<g class="cr"><circle cx="-168" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-168" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="-88" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-88" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="-8" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="-8" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="72" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="72" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="152" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="152" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="232" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="232" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="312" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="312" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="392" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="392" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="472" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="472" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cr"><circle cx="552" cy="170" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="552" y="178" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+</g>
+<clipPath id="u3"><rect x="474" y="170" width="32" height="250"/></clipPath>
+<g clip-path="url(#u3)">
+<g class="cd"><circle cx="490" cy="-88" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="-80" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="-8" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="0" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="72" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="80" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="152" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="160" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="232" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="240" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="312" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="320" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="392" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="400" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cd"><circle cx="490" cy="472" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="490" y="480" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+</g>
+<clipPath id="u4"><rect x="365" y="404" width="125" height="32"/></clipPath>
+<g clip-path="url(#u4)">
+<g class="cl"><circle cx="758" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="758" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="678" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="678" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="598" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="598" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="518" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="518" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="438" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="438" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+<g class="cl"><circle cx="358" cy="420" r="13" fill="#1864ab" stroke="#0b3d6e" stroke-width="2"/><text x="358" y="428" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">−</text></g>
+</g>
+<circle class="on" cx="300" cy="122" r="44" fill="#ffd43b" opacity="0.85"/>
+<circle cx="300" cy="122" r="34" fill="#ffffff" fill-opacity="0.55" stroke="#495057" stroke-width="3"/>
+<path d="M290,150 L290,124 L296,114 L300,124 L304,114 L310,124 L310,150" fill="none" stroke="#495057" stroke-width="2.5"/>
+<path class="on" d="M290,124 L296,114 L300,124 L304,114 L310,124" fill="none" stroke="#e8590c" stroke-width="4"/>
+<rect x="284" y="150" width="32" height="28" rx="3" fill="#868e96" stroke="#212529" stroke-width="2"/>
+<text x="364" y="116" font-size="22" fill="#212529" text-anchor="start">žárovka</text>
+<rect x="235" y="395" width="130" height="50" rx="8" fill="#343a40" stroke="#212529" stroke-width="2"/><rect x="365" y="410" width="10" height="20" rx="2" fill="#868e96" stroke="#212529" stroke-width="2"/><text x="300" y="428" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">baterie</text>
+<text x="250" y="386" font-size="32" font-weight="bold" fill="#1864ab" text-anchor="middle">−</text>
+<text x="352" y="386" font-size="32" font-weight="bold" fill="#c92a2a" text-anchor="middle">+</text>
+<g class="on"><line x1="532" y1="385" x2="532" y2="205" stroke="#e8590c" stroke-width="7" stroke-linecap="round" marker-end="url(#v-ora)"/><line x1="68" y1="205" x2="68" y2="385" stroke="#e8590c" stroke-width="7" stroke-linecap="round" marker-end="url(#v-ora)"/><line x1="455" y1="210" x2="455" y2="380" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/><line x1="145" y1="380" x2="145" y2="210" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/></g>
+<line x1="36" y1="506" x2="96" y2="506" stroke="#e8590c" stroke-width="7" stroke-linecap="round" marker-end="url(#v-ora)"/>
+<text x="112" y="514" font-size="22" fill="#212529" text-anchor="start">dohodnutý směr proudu: od + k −</text>
+<line x1="36" y1="546" x2="96" y2="546" stroke="#1864ab" stroke-width="5" stroke-linecap="round" marker-end="url(#v-mod)"/>
+<text x="112" y="554" font-size="22" fill="#212529" text-anchor="start">elektrony se pohybují opačně: od − k +</text>
+</svg>
