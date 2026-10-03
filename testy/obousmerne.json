@@ -267,6 +267,13 @@
 			"regrese": "Zbylé 2 mutace jsou kosmetika: poloha popisku ledu o pár px a průhlednost zvýrazněného pruhu. Zvlášť doloženo, že se test neumí ZASEKNOUT: podvrh s −Infinity (`-5 * sul` → `-5 / sul`), na kterém dřív visel bez konce, teď spadne hned první kotvou o hranicích úseků.",
 			"overeno": "2026-08-13"
 		},
+		"simulace/var.mjs": {
+			"test": "testy/simulace/var.mjs (spouští testy/vsechny-simulace.mjs)",
+			"podvrh": "Ruční podvrh na KOPII mimo repo (originál shodný před i po): posuvník času pod hrnec + zelená teplota varu v počitadle + šedá poklice (barva páry) → test spadl (exit 1, 4 ❌). Dřívější podvrh: při varu teplota nenápadně roste → exit 1 ('voda vře při 108 °C (výklad 100 °C)'). Mutační test `node testy/mutace.mjs var`: 23 z 23, 0 přeživších.",
+			"zdravy": "Nad hotovou komponentou prochází všech 199 kontrol ('✅ Var: vše sedí.', exit 0).",
+			"regrese": "0 přeživších mutací; doměřeny dříve přeživší (start páry z poklice, první sloupec bublin, zvýraznění při >=, poloměr bubliny, průhlednost odrazu). Tři kola nezávislé kontroly, 3. PŘIJMOUT.",
+			"overeno": "2026-10-03"
+		},
 		"simulace/kondenzace.mjs": {
 			"test": "testy/simulace/kondenzace.mjs (spouští testy/vsechny-simulace.mjs)",
 			"podvrh": "Ruční podvrh na KOPII mimo repo (otisk originálu a2172f51 před i po shodný): voda by při dopadu taky 'kondenzovala' (voda.kondenzace 0 → KONDENZACE*m) — přesný opak učiva, obě strany by predaly stejně. Test spadl (exit 1). K tomu mutační test `node testy/mutace.mjs kondenzace`: 19 z 20 — chytá mj. rozdílné měřítko sloupců (měří se na skutečně vykreslených obdélnících proti literálům 2260 a 273, ne proti komponentě), 0 J kreslené jako proužek, rozpor slov s čísly a špatný pád ve výpočtu pro žáka. Nezávislý kontrolor prošel fyziku, soulad s výkladem, 10 stavů scény i test — jeho 4 nálezy (pád, mrtvá proměnná, 418 vs 420 kJ, komentář o poměru) opraveny a doměřeny.",

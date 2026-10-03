@@ -1,0 +1,286 @@
+---
+// Var (F8, var): graf teploty vody při ohřevu s vodorovným úsekem při varu.
+//
+// Jádro je to, co výklad zdůrazňuje: při varu čisté látky za stálého tlaku
+// teplota STOJÍ, i když plotýnka hřeje dál — dodané teplo se spotřebovává na
+// přeměnu vody v páru. Bubliny páry přitom vznikají v CELÉM OBJEMU vody
+// (ne jen na hladině jako při vypařování) a stoupají k hladině.
+//
+// Druhá věc: tlak mění teplotu varu. Simulace zná jen tři stavy, které má
+// výklad: vysoko v horách „kolem 80 °C", běžný atmosférický tlak „přibližně
+// 100 °C" a tlakový (Papinův) hrnec „při 300 kPa přes 130 °C" — v grafu
+// zaokrouhleno na 130 °C a hláška to říká nahlas.
+//
+// ČAS JE BEZ ČÍSEL (oprava dle kontroly 3. 10. 2026): výklad ani PDF s. 3
+// nemají rychlost ohřevu ani časovou stupnici („Čas zahřívání" bez čísel),
+// proto ji nemá ani simulace. Uvnitř je model se stálým příkonem plotýnky:
+// za jeden krok posuvníku se voda ohřeje o 10 °C (ŽÁKOVI SE NEUKAZUJE).
+// Pokles hladiny při varu je s tímtéž modelem v souladu: teplo jednoho kroku
+// m·c·10 °C vyvaří c·10/l_v = 4180·10/2 260 000 ≈ 1,85 % vody → 2 px ze 108 px.
+//
+// Rozvržení (oprava dle kontroly 2, 3. 10. 2026): dvě scény — graf (400 × 356)
+// a hrnec s počitadlem (viewBox y 350–840, souřadnice navazují). Posuvníky leží
+// HNED POD GRAFEM, aby dítě při posouvání času graf vidělo: na telefonu je
+// pořadí graf → posuvníky → hrnec, od šířky 760 px stojí graf s posuvníky
+// a hrnec vedle sebe. Písmo je všude ≥ 20 jednotek; změřeno na 375 px
+// (testy/mobil-citelnost.mjs) nejmenší 12,8 px, tj. měřítko ~0,64.
+// Hrnec je překreslený podle PDF s. 4: lesklý nerezový hrnec (přechod světla
+// v <defs> var-kov) s oblými uchy a lemem na lesklé sklokeramické desce,
+// přední stěna v řezu ukazuje vodu.
+---
+
+<section class="ramecek simulace">
+	<h2><span class="podtrh">Var: kdy přestane stoupat teplota vody? 🕹️</span></h2>
+	<p>Plotýnka hřeje hrnec s vodou <strong>pořád stejně</strong>. Posouvej <strong>čas</strong>, sleduj graf teploty a bubliny ve vodě. Pak zkus vařit <strong>vysoko v horách</strong> nebo v <strong>tlakovém hrnci</strong>.</p>
+	<div class="var-rozlozeni">
+	<div class="var-levy">
+	<svg id="var-svg" viewBox="0 0 400 356" role="img" aria-label="Graf teploty vody při zahřívání">
+		<rect x="0" y="0" width="400" height="356" fill="#f8f9fa" />
+		<!-- osy grafu (teplota 0–140 °C na 280 px; čas bez číselné stupnice jako ve výkladu) -->
+		<line x1="62" y1="30" x2="62" y2="316" stroke="#2b2a26" stroke-width="3" />
+		<line x1="62" y1="316" x2="388" y2="316" stroke="#2b2a26" stroke-width="3" />
+		<polygon points="388,309 388,323 396,316" fill="#2b2a26" />
+		<text x="8" y="20" font-size="20" font-weight="bold" fill="#2b2a26">teplota (°C)</text>
+		<g id="var-osa-teplota" font-size="20" fill="#2b2a26" text-anchor="end">
+			<text x="54" y="283">20</text>
+			<text x="54" y="243">40</text>
+			<text x="54" y="203">60</text>
+			<text x="54" y="163">80</text>
+			<text x="54" y="123">100</text>
+			<text x="54" y="83">120</text>
+			<text x="54" y="43">140</text>
+		</g>
+		<text id="var-osa-cas" x="226" y="344" text-anchor="middle" font-size="20" fill="#2b2a26">čas zahřívání →</text>
+		<!-- křivka teploty -->
+		<g id="var-krivka"></g>
+	</svg>
+	<!-- posuvníky hned pod grafem: při posouvání času je graf pořád vidět -->
+	<label class="sim-posuvnik">
+		Čas zahřívání: <output id="var-out-cas"></output>
+		<input type="range" id="var-cas" min="0" max="16" step="1" value="0" />
+	</label>
+	<label class="sim-posuvnik">
+		Kde vaříme: <output id="var-out-tlak"></output>
+		<input type="range" id="var-tlak" min="0" max="2" step="1" value="1" />
+	</label>
+	</div>
+	<!-- druhá scéna: hrnec na plotýnce a počitadlo; souřadnice navazují na graf (y 350–840) -->
+	<svg id="var-hrnec-svg" viewBox="0 350 400 490" role="img" aria-label="Hrnec s vodou na plotýnce a počitadlo teploty">
+		<defs>
+			<!-- nerez: světlo zleva, stín vpravo (předloha PDF s. 4 — lesklý hrnec) -->
+			<linearGradient id="var-kov" x1="0" y1="0" x2="1" y2="0">
+				<stop offset="0" stop-color="#868e96" />
+				<stop offset="0.25" stop-color="#f1f3f5" />
+				<stop offset="0.55" stop-color="#ced4da" />
+				<stop offset="1" stop-color="#495057" />
+			</linearGradient>
+		</defs>
+		<rect x="0" y="350" width="400" height="490" fill="#f8f9fa" />
+		<!-- hrnec na plotýnce -->
+		<g id="var-hrnec"></g>
+		<!-- počitadlo -->
+		<g id="var-pocty" fill="#2b2a26"></g>
+	</svg>
+	</div>
+	<p class="var-mobil" id="var-mobil" data-mobil-obraz></p>
+	<p class="var-vzorec" id="var-vypocet"></p>
+	<p class="var-stav" id="var-stav"></p>
+</section>
+
+<script>
+	const START = 20;   // °C na začátku — graf ve výkladu začíná při 20 °C
+	const KROK = 10;    // MODEL (žákovi se neukazuje): o kolik °C se voda ohřeje za jeden krok posuvníku
+	const VODA = 108;   // výška vody v hrnci na začátku (px)
+	const UBYTEK = 2;   // o kolik px klesne hladina za krok varu: 108 · 4180 · 10 / 2 260 000 ≈ 2,0
+	const DNO = 658;    // vnitřní dno hrnce (y)
+	const MAX_CAS = 16; // délka pokusu v krocích; musí sedět s max="16" posuvníku času (hlídá test)
+
+	// Jen hodnoty z výkladu: hory „kolem 80 °C", běžný tlak „přibližně 100 °C",
+	// tlakový hrnec „při 300 kPa přes 130 °C" (v grafu zaokrouhleno na 130).
+	const TLAKY = [
+		{ tv: 80, misto: 'vysoko v horách', tlak: 'nižší tlak', slovy: 'kolem 80 °C' },
+		{ tv: 100, misto: 'doma', tlak: 'běžný atmosférický tlak', slovy: 'přibližně 100 °C' },
+		{ tv: 130, misto: 'tlakový (Papinův) hrnec', tlak: 'vyšší tlak 300 kPa', slovy: 'přes 130 °C' },
+	];
+
+	const casSlider = document.getElementById('var-cas');
+	const tlakSlider = document.getElementById('var-tlak');
+	const svg = document.getElementById('var-svg');
+
+	// ČISTÁ FUNKCE: co se děje s vodou v daném kroku času při daném tlaku.
+	// Dva úseky: ohřívání kapaliny → VAR (teplota stojí, voda ubývá).
+	function stav(cas, tlak) {
+		const tv = TLAKY[tlak].tv;
+		const zacatekVaru = (tv - START) / KROK;
+		if (cas < zacatekVaru) {
+			return { teplota: START + KROK * cas, faze: 'ohriva', tv, zacatekVaru, kroku: 0, vyska: VODA };
+		}
+		const kroku = cas - zacatekVaru;
+		return { teplota: tv, faze: 'vre', tv, zacatekVaru, kroku, vyska: VODA - UBYTEK * kroku };
+	}
+
+	// ČISTÁ FUNKCE: bubliny páry ve vroucí vodě o výšce h v kroku varu m.
+	// Rozeseté po CELÉ výšce vody (var probíhá v celém objemu), u dna malé,
+	// výš větší; s každým krokem se posunou výš (stoupají k hladině).
+	function bubliny(h, m) {
+		const sloupce = [138, 165, 192, 219, 246, 267];
+		const vysledek = [];
+		const rozsah = h - 24;                       // kde smí bublina ležet celá pod hladinou
+		const rozestup = Math.floor(rozsah / 3);     // tři bubliny v sloupci od sebe, nepřekrývají se
+		const posun = [0, 5, 2, 7, 4, 1];            // sloupce v různé výšce, ať netvoří řady
+		for (let i = 0; i < sloupce.length; i++) {
+			const start = Math.floor((rozestup * posun[i]) / 8);
+			for (let k = 0; k < 3; k++) {
+				const nad = (start + k * rozestup + m * 11) % rozsah;   // výška nad dnem
+				const y = DNO - 6 - nad;
+				const r = 3 + Math.round((5 * nad) / h);
+				vysledek.push({ x: sloupce[i], y, r });
+			}
+		}
+		return vysledek;
+	}
+
+	// Graf: 16 kroků na 320 px, 140 °C na 280 px — obojí v celých pixelech.
+	const xCasu = (cas) => 64 + cas * 20;
+	const yTeploty = (t) => 316 - t * 2;
+
+	svg.__stav = stav;
+	svg.__bubliny = bubliny;
+	svg.__TLAKY = TLAKY;
+	svg.__xCasu = xCasu;
+	svg.__yTeploty = yTeploty;
+	svg.__DNO = DNO;
+
+	function prekresli() {
+		const cas = +casSlider.value;
+		const tlak = +tlakSlider.value;
+		const s = stav(cas, tlak);
+		const t = TLAKY[tlak];
+		const nazev = s.faze === 'ohriva' ? 'voda se ohřívá' : s.kroku === 0 ? 'voda právě začíná vřít' : 'voda vře';
+
+		document.getElementById('var-out-cas').textContent = cas === 0 ? 'začátek pokusu' : nazev;
+		document.getElementById('var-out-tlak').textContent = `${t.misto} (${t.tlak})`;
+
+		// ── graf: přerušovaná čára teploty varu, body po krocích až do teď
+		const yv = yTeploty(s.tv);
+		let g = `<line x1="62" y1="${yv}" x2="392" y2="${yv}" stroke="#c2410c" stroke-width="2" stroke-dasharray="3 6" />`;
+		if (cas > s.zacatekVaru) {
+			// zvýraznění úseku varu: světlý oranžový pás POD modrou čarou (barvy se nemíchají)
+			g += `<line x1="${xCasu(s.zacatekVaru)}" y1="${yv}" x2="${xCasu(cas)}" y2="${yv}" stroke="#ffc078" stroke-width="14" stroke-linecap="round" />`;
+		}
+		const body = [];
+		for (let c = 0; c <= cas; c++) body.push(`${xCasu(c)},${yTeploty(stav(c, tlak).teplota)}`);
+		g += `<polyline points="${body.join(' ')}" fill="none" stroke="#1971c2" stroke-width="4" stroke-linejoin="round" />`
+			+ `<circle cx="${xCasu(cas)}" cy="${yTeploty(s.teplota)}" r="7" fill="#1971c2" stroke="#2b2a26" stroke-width="2" />`;
+		if (cas >= 2) {
+			g += `<text x="108" y="${yTeploty(START + KROK) + 8}" font-size="20" fill="#1864ab">ohřívání vody</text>`;
+		}
+		if (cas > s.zacatekVaru) {
+			g += `<text x="388" y="${yv - 12}" text-anchor="end" font-size="20" font-weight="bold" fill="#c2410c">var — teplota stojí</text>`;
+		}
+		document.getElementById('var-krivka').innerHTML = g;
+
+		// ── hrnec (podle PDF s. 4): nadpis místa, deska, hrnec v řezu, voda, bubliny
+		let h = `<text x="200" y="380" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b2a26">${t.misto}</text>`
+			+ `<text x="200" y="404" text-anchor="middle" font-size="20" fill="#2b2a26">${t.tlak}</text>`;
+		if (tlak === 0) {
+			// značka hor vedle nadpisu (hrnec stojí na plotýnce i v horské chatě)
+			h += `<polygon points="322,396 342,358 352,374 360,364 378,396" fill="#adb5bd" stroke="#495057" stroke-width="2" />`
+				+ `<polygon points="336,370 342,358 348,370" fill="#ffffff" />`;
+		}
+		// sklokeramická deska s rozpálenou plotýnkou
+		h += `<rect x="60" y="664" width="280" height="16" rx="3" fill="#212529" />`
+			+ `<rect x="116" y="664" width="168" height="5" fill="#e03131" />`
+			+ `<text x="200" y="706" text-anchor="middle" font-size="20" fill="#2b2a26">plotýnka hřeje pořád stejně</text>`;
+		// nerezové tělo hrnce (lesklý kov s přechodem světla, viz <defs> var-kov),
+		// pod ním odlesk na lesklé sklokeramické desce
+		h += `<ellipse cx="200" cy="674" rx="84" ry="4" fill="#adb5bd" opacity="0.45" />`
+			+ `<path d="M108 496 V646 Q108 664 126 664 H274 Q292 664 292 646 V496 Z" fill="url(#var-kov)" stroke="#343a40" stroke-width="2" />`;
+		// vnitřek hrnce, voda
+		const vrsek = DNO - s.vyska;
+		h += `<rect x="121" y="496" width="158" height="162" fill="#f1f3f5" />`
+			+ `<rect x="121" y="${vrsek}" width="158" height="${s.vyska}" fill="#74c0fc" />`;
+		if (s.faze === 'vre') {
+			for (const b of bubliny(s.vyska, s.kroku)) {
+				h += `<circle cx="${b.x}" cy="${b.y}" r="${b.r}" fill="#e7f5ff" stroke="#1971c2" stroke-width="2" />`;
+			}
+		}
+		// vnitřní hrana stěn v řezu, lem s odleskem a oblá uška s odleskem
+		h += `<path d="M121 496 V658 H279 V496" fill="none" stroke="#495057" stroke-width="2" />`
+			+ `<line x1="104" y1="496" x2="296" y2="496" stroke="#495057" stroke-width="7" stroke-linecap="round" />`
+			+ `<line x1="110" y1="495" x2="290" y2="495" stroke="#f8f9fa" stroke-width="2" />`
+			+ `<line x1="121" y1="503" x2="279" y2="503" stroke="#adb5bd" stroke-width="2" />`
+			+ `<path d="M108 516 C 82 516, 82 546, 108 546" fill="none" stroke="#495057" stroke-width="6" stroke-linecap="round" />`
+			+ `<path d="M292 516 C 318 516, 318 546, 292 546" fill="none" stroke="#495057" stroke-width="6" stroke-linecap="round" />`
+			+ `<path d="M106 517 C 85 517, 85 545, 106 545" fill="none" stroke="#e9ecef" stroke-width="2" />`
+			+ `<path d="M294 517 C 315 517, 315 545, 294 545" fill="none" stroke="#adb5bd" stroke-width="2" />`;
+		if (tlak === 2) {
+			// tlakový hrnec: pevně zavřená kovová poklice (jiná barva než šedá pára)
+			h += `<rect x="102" y="478" width="196" height="14" rx="4" fill="url(#var-kov)" stroke="#343a40" stroke-width="2" />`
+				+ `<rect x="193" y="462" width="14" height="16" fill="#343a40" />`;
+		}
+		if (s.faze === 'vre') {
+			// pára je neviditelná — ukazuje se jen šipkami s popiskem
+			const odkud = tlak === 2 ? [200] : [160, 200, 240];
+			const zdola = tlak === 2 ? 458 : vrsek - 8;
+			for (const x of odkud) {
+				h += `<path d="M${x} ${zdola} C ${x - 8} ${zdola - 8}, ${x + 8} ${Math.round((zdola + 440) / 2)}, ${x} 440" fill="none" stroke="#868e96" stroke-width="3" stroke-dasharray="5 4" />`
+					+ `<polygon points="${x - 6},444 ${x + 6},444 ${x},434" fill="#868e96" />`;
+			}
+			h += `<text x="200" y="429" text-anchor="middle" font-size="20" fill="#2b2a26">pára uniká (není vidět)</text>`;
+		}
+		document.getElementById('var-hrnec').innerHTML = h;
+
+		// ── počitadlo (bez času — výklad nemá časovou stupnici)
+		const radek2 = s.faze === 'ohriva' ? 'voda se ohřívá'
+			: s.kroku === 0 ? 'voda právě začíná vřít' : 'voda vře — teplota stojí';
+		document.getElementById('var-pocty').innerHTML =
+			`<rect x="10" y="718" width="380" height="${tlak === 2 ? 112 : 88}" rx="8" fill="#fff" stroke="#2b2a26" stroke-width="3" />`
+			+ `<text x="22" y="744" font-size="21" font-weight="bold">teplota: ${s.teplota} °C</text>`
+			+ `<text x="22" y="769" font-size="20">stav: ${radek2}</text>`
+			+ `<text x="22" y="794" font-size="20" fill="#c2410c">teplota varu: ${t.slovy}</text>`
+			+ (tlak === 2 ? `<text x="22" y="818" font-size="20" fill="#c2410c">(graf ji zaokrouhluje na 130 °C)</text>` : '');
+
+		document.getElementById('var-mobil').textContent =
+			`Teplota: ${s.teplota} °C · ${nazev} · teplota varu (${t.tlak}): ${t.slovy}`;
+
+		document.getElementById('var-vypocet').innerHTML =
+			`Plotýnka hřeje pořád stejně. Dokud voda nevře, její teplota <strong>roste</strong>. `
+			+ `Jakmile dosáhne teploty varu (${t.slovy}), teplota <strong>stojí</strong> — dodané teplo se spotřebovává na přeměnu vody v páru, a proto vody v hrnci ubývá. `
+			+ 'Časová osa nemá čísla, stejně jako graf ve výkladu.';
+
+		const doplnek = [
+			'Vysoko v horách je nižší tlak, voda tam vře už kolem 80 °C. Jídlo se v ní připravuje pomaleji.',
+			'Za běžného atmosférického tlaku vře voda přibližně při 100 °C.',
+			'V tlakovém hrnci je vyšší tlak: při 300 kPa vře voda až při teplotě přes 130 °C (v grafu zaokrouhleno na 130 °C), a tak je jídlo hotové rychleji.',
+		][tlak];
+		const stavP = document.getElementById('var-stav');
+		if (s.faze === 'ohriva') {
+			stavP.textContent = `🔥 Voda se ohřívá a ještě nevře. Teplota roste. ${doplnek}`;
+		} else if (s.kroku === 0) {
+			stavP.textContent = `♨️ Voda právě dosáhla teploty varu a začíná vřít — uvnitř vody vznikají bubliny páry. ${doplnek}`;
+		} else {
+			stavP.textContent = `♨️ Voda vře: bubliny páry vznikají v celém objemu vody a stoupají k hladině, kde pára uniká. Teplota se nemění (${s.teplota} °C), i když plotýnka hřeje dál — teplo se spotřebovává na přeměnu vody v páru. ${doplnek}`;
+		}
+	}
+
+	for (const p of [casSlider, tlakSlider]) p.addEventListener('input', prekresli);
+	prekresli();
+</script>
+
+<style>
+	#var-svg, #var-hrnec-svg { display: block; margin: 0 auto; width: 100%; max-width: 440px; border: 3px solid #2b2a26; border-radius: 12px; background: #f8f9fa; }
+	.var-levy { max-width: 440px; margin: 0 auto; width: 100%; }
+	.var-levy .sim-posuvnik { margin: 0.5rem 0; }
+	/* od 760 px graf s posuvníky vlevo a hrnec vpravo — celé najednou v okně */
+	@media (min-width: 760px) {
+		.var-rozlozeni { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: start; }
+		#var-hrnec-svg { max-width: 380px; }
+	}
+	.sim-posuvnik { display: block; font-weight: 700; margin: 0.7rem 0; }
+	.sim-posuvnik input { width: 100%; max-width: 660px; display: block; margin-top: 0.3rem; }
+	.var-stav { font-size: 1.05rem; font-weight: 700; min-height: 1.6rem; }
+	.var-vzorec { font-size: 0.95rem; background: #f1f3f5; border-radius: 8px; padding: 0.5rem 0.7rem; }
+	.var-mobil { display: none; font-size: 1rem; font-weight: 700; color: #2b2a26; margin: 0.4rem 0; }
+	@media (max-width: 600px) { .var-mobil { display: block; } }
+</style>
