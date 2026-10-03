@@ -6,6 +6,7 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **NASAZENO e43dde5e 3. 10. večer: píseň Tuhnutí (2fb05c3)** — záložně `npx wrangler deploy`, živě SHA1 == dist, m4a 200 5 622 678 B, doklad `Omega/predavka/2026-10-03/nasazeni-2fb05c3.md`.
 - **NASAZENO a75128ae 3. 10. večer: odkazy Pohyb tělesa (aa11dd5)** — záložně `npx wrangler deploy`, živě SHA1 == dist (klid-a-pohyb-telesa e91300f52022, oba odkazy ano), doklad `Omega/predavka/2026-10-03/nasazeni-aa11dd5.md`.
 - **NASAZENO 39d4c934 3. 10. večer: odkazy F7/F9 (87b71c7, odstraněno video se zkratem), paralel B+C2 (c9815d5)** — záložně `npx wrangler deploy`, živě SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-87b71c7.md`.
 - **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
