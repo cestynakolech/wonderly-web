@@ -4,7 +4,7 @@
    sanitka se ve zpětném zrcátku přibližuje (zvětšuje) 0–60 % z 8 s, pak stojí; majáky blikají (1 s).
    Sanitka je kreslená souměrně, takže stranové převrácení v zrcátku je vidět jen na nápisu.
    Bez animace (prefers-reduced-motion) = koncový stav: sanitka v zrcátku velká, majáky svítí. */
-.blize { transform-origin: 300px 470px; animation: blize 8s ease-out infinite; }
+.blize { transform-origin: 300px 440px; animation: blize 8s ease-out infinite; }
 .majak { animation: majak 1s steps(1) infinite; }
 .majak2 { animation: majak 1s steps(1) -0.5s infinite; }
 @keyframes blize { 0% { transform: scale(0.5); } 60%, 100% { transform: scale(1); } }
@@ -50,7 +50,7 @@
 <rect x="122" y="337" width="356" height="166" rx="30" fill="url(#z3sklo)"/>
 <g clip-path="url(#z3vyrez)">
 <g class="blize">
-<g transform="translate(300 446) scale(0.72) translate(-300 -185)">
+<g transform="translate(300 420) scale(0.66) translate(-300 -159)">
 <use href="#z3sanitka"/>
 <rect class="majak" x="208" y="50" width="52" height="16" rx="6" fill="#228be6" stroke="#1864ab" stroke-width="2"/>
 <rect class="majak2" x="340" y="50" width="52" height="16" rx="6" fill="#228be6" stroke="#1864ab" stroke-width="2"/>
