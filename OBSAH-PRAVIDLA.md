@@ -156,6 +156,9 @@ Podklady stahuje učitel z Google Disku — **Disk se přes asistenta nečte**, 
   náš obrázek); vlastní obrázky navíc jsou povoleny.
   **Why:** zadání se od předlohy vzdalovalo, obrázky vycházely moc jednoduché, kdežto animace
   pohybu (konkrétní předměty) učitel hodnotil jako lepší. Paměť `feedback-obrazek-prekreslit-z-pdf`.
+- **Animace místo obrázku (pokyn učitele 3. 10. 2026):** „tam kde by se to nabízelo můžeš dělat místo
+  obrázků animace“. U děje/pohybu animované SVG (CSS keyframes, smyčka, bez JS, `prefers-reduced-motion`
+  = koncový stav); statický obrázek jen pro stav/popis. Paměť `feedback-animace-misto-obrazku`.
 - Každý výpočet a údaj z podkladů **PŘEPOČÍTAT** (v podkladech už chyby byly).
 - Odkazy uvnitř webu **relativní**; externí odkazy **jen české** — když český zdroj není, napíše se vlastní česká stránka.
 - Zdroj pravidel: `src/pages/skola2/_CLAUDE.md`, agent `worker-vyklad`, paměti
