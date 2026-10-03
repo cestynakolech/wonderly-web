@@ -2876,7 +2876,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/7-rocnik/jednoduche-stroje/naklonena-rovina': [
 		{ text: 'Co je nakloněná rovina?', odpovedi: ['šikmá plocha pro zvedání břemen', 'kolo s drážkou pro lano', 'tuhá tyč otáčivá kolem osy'], vysvetleni: 'Nakloněná rovina je jednoduchý stroj — šikmá plocha usnadňující zvedání břemen.' },
 		{ text: 'Náklad o tíze 360 N vytáhneme silou 60 N po rampě dlouhé 30 m (bez tření). Do jaké výšky ho dostaneme?', odpovedi: ['5 m', '30 m', '180 m'], vysvetleni: 'h = F · l : G = 60 · 30 : 360 = 5 m.' },
-		{ text: 'Podle jakého vzorce vypočítáme sílu F na nakloněné rovině (G = tíha tělesa, h = výška, l = délka roviny)?', odpovedi: ['F = G · h / l', 'F = G · l / h', 'F = G + h − l'], vysvetleni: 'Síla je tíha zmenšená v poměru výšky ku délce nakloněné roviny.' },
+		{ text: 'Tíha břemene je 2 kN. Rampa je dlouhá 10 m a vysoká 2 m. Jaká síla stačí k vytlačení břemene nahoru (bez tření)?', odpovedi: ['400 N', '10 000 N', '2 000 N'], vysvetleni: 'Tíhu převedeme na newtony: 2 kN = 2 000 N. Pak dosadíme do vztahu pro sílu: 2 000 · 2 : 10 = 400 N.' },
 		{ text: 'Bedna o tíze 300 N stojí u nájezdu vysokého 1 m a dlouhého 3 m. Jakou silou ji vytlačíme nahoru (bez tření)?', odpovedi: ['100 N', '300 N', '900 N'], vysvetleni: 'F = G · h / l = 300 · 1 / 3 = 100 N.' },
 		{ text: 'Vozík s tíhou 600 N tlačíme po nakloněné rovině vysoké 2 m a dlouhé 6 m. Jaká síla stačí?', odpovedi: ['200 N', '600 N', '1200 N'], vysvetleni: 'F = G · h / l = 600 · 2 / 6 = 200 N.' },
 		{ text: 'Proč vedou horské silnice do kopce v serpentinách (klikatě), a ne přímo nahoru?', odpovedi: ['delší dráha, mírnější stoupání', 'aby auta jela rychleji do kopce', 'aby se ušetřil asfalt na stavbu'], vysvetleni: 'Klikatá silnice je delší, ale stoupá mírněji — stejně jako u nakloněné roviny.' },
@@ -4590,7 +4590,7 @@ export const kvizy: Record<string, Otazka[]> = {
 	'fyzika/8-rocnik/elektrina/zapojeni-spotrebicu-vedle-sebe': [
 		{ text: 'Jak jsou spotřebiče zapojené paralelně?', odpovedi: ['vedle sebe, každý ke zdroji', 'za sebou v jedné jediné řadě', 'do kruhu kolem zdroje napětí'], vysvetleni: 'Paralelně = vedle sebe.' },
 		{ text: 'Jak se chová napětí v paralelním obvodu?', odpovedi: ['na všech je stejné jako u zdroje', 'dělí se mezi jednotlivé větve obvodu', 'na každé větvi klesne na nulu'], vysvetleni: 'Všechny jsou přímo na pólech zdroje.' },
-		{ text: 'Jak se chová proud v paralelním obvodu?', odpovedi: ['rozdělí se do větví', 'je všude stejný', 'je nulový'], vysvetleni: 'Celkový proud teče do více větví obvodu najednou.' },
+		{ text: 'Zdroj dodává do paralelního obvodu celkový proud 14 A. Jednou větví teče 6 000 mA. Jaký proud teče druhou větví?', odpovedi: ['8 A', '20 A', '6 A'], vysvetleni: 'Nejdřív převedeme jednotky: 6 000 mA = 6 A. Druhou větví teče zbytek: 14 − 6 = 8 A.' },
 		{ text: 'Který vzorec platí pro proud v paralelu?', odpovedi: ['I = I₁ + I₂', 'I = I₁ · I₂', 'U = U₁ + U₂'], vysvetleni: 'Proudy větví se sčítají.' },
 		{ text: 'Kterou větví teče větší proud?', odpovedi: ['tou s menším odporem', 'tou s větším odporem', 'oběma stejný'], vysvetleni: 'Menší odpor → větší proud.' },
 		{ text: 'Jaký je celkový odpor paralelního obvodu oproti jednotlivým?', odpovedi: ['menší', 'větší', 'stejný'], vysvetleni: 'Proud má k dispozici víc cest, proto je celkový odpor menší.' },
@@ -4605,7 +4605,7 @@ export const kvizy: Record<string, Otazka[]> = {
 		{ text: 'Baterie dává napětí 9 V. Jaké napětí naměříme na žárovce zapojené paralelně k ní?', odpovedi: ['9 V', '4,5 V', '18 V'], vysvetleni: 'Žárovka je zapojená paralelně ke zdroji, proto na ní naměříme 9 V.' },
 		{ text: 'V paralelní větvi je napětí 12 V a odpor rezistoru 3 Ω. Jaký proud touto větví teče?', odpovedi: ['4 A', '3 A', '36 A'], vysvetleni: 'Větví teče proud 12 V : 3 Ω = 4 A.' },
 		{ text: 'Jednou větví teče proud 2 A, druhou 5 A. Jaký proud dodává zdroj do celého obvodu?', odpovedi: ['7 A', '3 A', '10 A'], vysvetleni: 'Proudy větví se sečtou: 2 A + 5 A = 7 A.' },
-		{ text: 'Dva rezistory po 4 Ω jsou zapojené paralelně. Jaký je jejich celkový odpor?', odpovedi: ['2 Ω', '8,5 Ω', '4 Ω'], vysvetleni: '1/R = 1/4 + 1/4 = 1/2, tedy R = 2 Ω — méně než každý z rezistorů zvlášť.' },
+		{ text: 'Dva rezistory po 4 Ω jsou zapojené paralelně. Jaký je jejich celkový odpor?', odpovedi: ['2 Ω', '8,5 Ω', '4 Ω'], vysvetleni: 'Dva stejné rezistory nabízejí proudu dvě stejné cesty, takže vyjde poloviční odpor: 4 Ω : 2 = 2 Ω.' },
 		{ text: 'Čím se paralelní (rozvětvený) obvod liší od obvodu s jedinou smyčkou?', odpovedi: ['má víc větví spojených v uzlech', 'má jen jeden vodič bez rozdělení proudu', 'nemá vůbec žádný zdroj napětí'], vysvetleni: 'V jednoduché smyčce teče proud jednou cestou, v paralelu se dělí do více větví.' },
 		{ text: 'Na zdroj 30 V jsou paralelně připojené dva rezistory po 6 Ω. Jaký celkový proud dodává zdroj?', odpovedi: ['10 A', '5 A', '180 A'], vysvetleni: 'Každou větví teče 30 : 6 = 5 A a proudy obou větví se sečtou: 5 + 5 = 10 A.' },
 		{ text: 'Paralelně jsou rezistory 6 Ω a 3 Ω. V jakém poměru se mezi ně rozdělí proud (ve stejném pořadí)?', odpovedi: ['1 : 2', '2 : 1', '1 : 1'], vysvetleni: 'Odpory jsou v poměru 6 : 3, tedy 2 : 1 — proudy vyjdou přesně obráceně, 1 : 2.' },
