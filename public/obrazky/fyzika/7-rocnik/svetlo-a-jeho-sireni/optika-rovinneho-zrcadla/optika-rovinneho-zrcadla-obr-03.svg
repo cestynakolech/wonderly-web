@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zrcadlový nápis na sanitce. Nahoře sanitka zepředu: nápis AMBULANCE je na ní napsaný zrcadlově, pozpátku. Dole zpětné zrcátko auta, které jede před sanitkou: zrcadlo obraz stranově převrátí, a tak v něm řidič přečte nápis AMBULANCE správně. Animace: sanitka se v zrcátku přibližuje a bliká modrými majáky.">
+<style>
+/* Animace podle předlohy (PDF lekce 22 Rovinné zrcadlo, str. 9 — foto sanitky se zrcadlovým nápisem AMBULANCE):
+   sanitka se ve zpětném zrcátku přibližuje (zvětšuje) 0–60 % z 8 s, pak stojí; majáky blikají (1 s).
+   Sanitka je kreslená souměrně, takže stranové převrácení v zrcátku je vidět jen na nápisu.
+   Bez animace (prefers-reduced-motion) = koncový stav: sanitka v zrcátku velká, majáky svítí. */
+.blize { transform-origin: 300px 470px; animation: blize 8s ease-out infinite; }
+.majak { animation: majak 1s steps(1) infinite; }
+.majak2 { animation: majak 1s steps(1) -0.5s infinite; }
+@keyframes blize { 0% { transform: scale(0.5); } 60%, 100% { transform: scale(1); } }
+@keyframes majak { 0% { opacity: 1; } 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .blize, .majak, .majak2 { animation: none; } }
+</style>
+<defs>
+<linearGradient id="z3sklo" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#d0ebff"/><stop offset="0.62" stop-color="#e7f5ff"/><stop offset="0.62" stop-color="#adb5bd"/><stop offset="1" stop-color="#868e96"/>
+</linearGradient>
+<clipPath id="z3vyrez"><rect x="122" y="337" width="356" height="166" rx="30"/></clipPath>
+<!-- sanitka zepředu (bez nápisu), souměrná podle x = 300 -->
+<g id="z3sanitka">
+<rect x="170" y="66" width="260" height="172" rx="18" fill="#ffe03d" stroke="#343a40" stroke-width="3"/>
+<path d="M195,82 H405 L416,142 H184 Z" fill="#a5d8ff" stroke="#343a40" stroke-width="3" stroke-linejoin="round"/>
+<path d="M205,90 L230,90 L214,134 L194,134 Z" fill="#ffffff" opacity="0.5"/>
+<path d="M370,90 L395,90 L406,134 L386,134 Z" fill="#ffffff" opacity="0.5"/>
+<rect x="172" y="196" width="256" height="12" fill="#fa5252"/>
+<rect x="246" y="212" width="108" height="18" rx="4" fill="#343a40"/>
+<ellipse cx="203" cy="221" rx="22" ry="10" fill="#ffffff" stroke="#343a40" stroke-width="2.5"/>
+<ellipse cx="397" cy="221" rx="22" ry="10" fill="#ffffff" stroke="#343a40" stroke-width="2.5"/>
+<rect x="164" y="234" width="272" height="14" rx="6" fill="#495057"/>
+<rect x="182" y="246" width="40" height="22" rx="6" fill="#212529"/>
+<rect x="378" y="246" width="40" height="22" rx="6" fill="#212529"/>
+</g>
+</defs>
+<rect x="3" y="3" width="594" height="594" rx="14" fill="#fff9db" stroke="#2b2a26" stroke-width="3"/>
+
+<!-- nahoře: sanitka, nápis zrcadlově -->
+<text x="300" y="36" font-size="22" text-anchor="middle" fill="#2b2a26" font-weight="bold">Nápis na sanitce je napsaný zrcadlově:</text>
+<line x1="60" y1="268" x2="540" y2="268" stroke="#868e96" stroke-width="3"/>
+<use href="#z3sanitka"/>
+<rect class="majak" x="208" y="50" width="52" height="16" rx="6" fill="#228be6" stroke="#1864ab" stroke-width="2"/>
+<rect class="majak2" x="340" y="50" width="52" height="16" rx="6" fill="#228be6" stroke="#1864ab" stroke-width="2"/>
+<text x="300" y="185" font-size="32" font-weight="bold" text-anchor="middle" fill="#1864ab" transform="translate(600 0) scale(-1 1)">AMBULANCE</text>
+
+<line x1="40" y1="286" x2="560" y2="286" stroke="#ced4da" stroke-width="2" stroke-dasharray="6 6"/>
+
+<!-- dole: zpětné zrcátko auta, které jede před sanitkou -->
+<text x="300" y="315" font-size="22" text-anchor="middle" fill="#2b2a26" font-weight="bold">Řidič vpředu ho vidí ve zpětném zrcátku:</text>
+<rect x="286" y="321" width="28" height="8" rx="3" fill="#495057"/>
+<rect x="110" y="325" width="380" height="190" rx="40" fill="#212529"/>
+<rect x="122" y="337" width="356" height="166" rx="30" fill="url(#z3sklo)"/>
+<g clip-path="url(#z3vyrez)">
+<g class="blize">
+<g transform="translate(300 446) scale(0.72) translate(-300 -185)">
+<use href="#z3sanitka"/>
+<rect class="majak" x="208" y="50" width="52" height="16" rx="6" fill="#228be6" stroke="#1864ab" stroke-width="2"/>
+<rect class="majak2" x="340" y="50" width="52" height="16" rx="6" fill="#228be6" stroke="#1864ab" stroke-width="2"/>
+<text x="300" y="185" font-size="32" font-weight="bold" text-anchor="middle" fill="#1864ab">AMBULANCE</text>
+</g>
+</g>
+</g>
+<path d="M150,350 Q200,342 250,346" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+
+<g font-size="22" text-anchor="middle" fill="#2b2a26">
+<text x="300" y="550">Zrcadlo nápis stranově převrátí,</text>
+<text x="300" y="578">a tak ho řidič přečte správně.</text>
+</g>
+</svg>

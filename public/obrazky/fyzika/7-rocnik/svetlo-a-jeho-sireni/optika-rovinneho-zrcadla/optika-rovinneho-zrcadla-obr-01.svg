@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vznik obrazu v rovinném zrcadle. Před zrcadlem je předmět ve tvaru písmene K s body A, B, C, D, pod ním oko. Paprsky z bodů předmětu dopadnou na zrcadlo, odrazí se podle zákona odrazu a přijdou do oka. Oko je prodlouží rovně dozadu za zrcadlo, kde se protnou v bodech A′, B′, C′, D′. Tam vidíme obraz předmětu — zdánlivý, protože za zrcadlo žádné paprsky nejdou. Animace: paprsky dopadnou na zrcadlo, odrazí se do oka, objeví se jejich prodloužení za zrcadlem a nakonec obraz.">
+<style>
+/* Animace (12 s, smyčka) podle předlohy (PDF lekce 22 Rovinné zrcadlo, str. 3 a 5 — písmeno K, zrcadlo, oko):
+   paprsky z předmětu k zrcadlu (5–22 %), odražené paprsky do oka (24–40 %), prodloužení za zrcadlo (46–60 %),
+   obraz K′ (60–68 %), popisky obrazu (66–70 %), věta dole (72–76 %), zmizí (92–98 %).
+   Geometrie: zrcadlo x = 300, oko (150; 470), obraz = osová souměrnost (x′ = 600 − x);
+   body odrazu leží na spojnici obraz–oko, úhel dopadu = úhel odrazu (ověřeno výpočtem, viz protokol).
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.pin, .pout { stroke-dasharray: 100; }
+.pin { animation: pin 12s linear infinite; }
+.sin { animation: sin 12s linear infinite; }
+.pout { animation: pout 12s linear infinite; }
+.sout { animation: sout 12s linear infinite; }
+.pvirt { animation: pvirt 12s linear infinite; }
+.obraz { animation: obraz 12s linear infinite; }
+.popob { animation: popob 12s linear infinite; }
+.veta { animation: veta 12s linear infinite; }
+.celek { animation: celek 12s linear infinite; }
+@keyframes pin { 0%, 5% { stroke-dashoffset: 100; } 22%, 100% { stroke-dashoffset: 0; } }
+@keyframes sin { 0%, 13% { opacity: 0; } 14%, 100% { opacity: 1; } }
+@keyframes pout { 0%, 24% { stroke-dashoffset: 100; } 40%, 100% { stroke-dashoffset: 0; } }
+@keyframes sout { 0%, 32% { opacity: 0; } 33%, 100% { opacity: 1; } }
+@keyframes pvirt { 0%, 46% { opacity: 0; } 56%, 100% { opacity: 1; } }
+@keyframes obraz { 0%, 60% { opacity: 0; } 68%, 100% { opacity: 1; } }
+@keyframes popob { 0%, 66% { opacity: 0; } 70%, 100% { opacity: 1; } }
+@keyframes veta { 0%, 72% { opacity: 0; } 76%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pin, .sin, .pout, .sout, .pvirt, .obraz, .popob, .veta, .celek { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="554" rx="14" fill="#fff9db" stroke="#2b2a26" stroke-width="3"/>
+
+<!-- zrcadlo: odrazná plocha vlevo, šrafy za ní (vpravo) -->
+<g>
+<line x1="300" y1="70" x2="300" y2="405" stroke="#5f3dc4" stroke-width="5"/>
+<g stroke="#9775fa" stroke-width="2">
+<line x1="302" y1="84" x2="314" y2="72"/><line x1="302" y1="104" x2="314" y2="92"/><line x1="302" y1="124" x2="314" y2="112"/>
+<line x1="302" y1="144" x2="314" y2="132"/><line x1="302" y1="164" x2="314" y2="152"/><line x1="302" y1="184" x2="314" y2="172"/>
+<line x1="302" y1="204" x2="314" y2="192"/><line x1="302" y1="224" x2="314" y2="212"/><line x1="302" y1="244" x2="314" y2="232"/>
+<line x1="302" y1="264" x2="314" y2="252"/><line x1="302" y1="284" x2="314" y2="272"/><line x1="302" y1="304" x2="314" y2="292"/>
+<line x1="302" y1="324" x2="314" y2="312"/><line x1="302" y1="344" x2="314" y2="332"/><line x1="302" y1="364" x2="314" y2="352"/>
+<line x1="302" y1="384" x2="314" y2="372"/><line x1="302" y1="404" x2="314" y2="392"/>
+</g>
+<text x="300" y="434" font-size="22" text-anchor="middle" fill="#5f3dc4" font-weight="bold">zrcadlo</text>
+</g>
+
+<!-- předmět: písmeno K -->
+<text x="152" y="42" font-size="24" text-anchor="middle" font-weight="bold" fill="#2b2a26">předmět</text>
+<polygon points="100,110 125,110 125,172 172,110 205,110 150,192 205,250 172,250 132,198 125,208 125,250 100,250" fill="#66d9e8" stroke="#343a40" stroke-width="2.5" stroke-linejoin="round"/>
+<g font-size="22" fill="#343a40" text-anchor="middle">
+<text x="125" y="96">A</text><text x="205" y="96">B</text>
+<text x="112" y="278">C</text><text x="205" y="280">D</text>
+</g>
+
+<g class="celek">
+<!-- obraz za zrcadlem: zdánlivý (čárkovaný obrys, světlejší) -->
+<g class="obraz">
+<polygon points="500,110 475,110 475,172 428,110 395,110 450,192 395,250 428,250 468,198 475,208 475,250 500,250" fill="#66d9e8" fill-opacity="0.45" stroke="#343a40" stroke-width="2.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+</g>
+<g class="popob">
+<text x="448" y="42" font-size="24" text-anchor="middle" font-weight="bold" fill="#2b2a26">obraz (zdánlivý)</text>
+<g font-size="22" fill="#343a40" text-anchor="middle">
+<text x="475" y="96">A′</text><text x="395" y="96">B′</text>
+<text x="490" y="278">C′</text><text x="395" y="280">D′</text>
+</g>
+</g>
+
+<!-- prodloužení odražených paprsků za zrcadlo (čárkovaně — skutečné paprsky tam nejdou) -->
+<g class="pvirt" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="8 6">
+<path d="M300,303.8 L475,110"/>
+<path d="M300,249.6 L395,110"/>
+<path d="M300,368.5 L475,250"/>
+<path d="M300,335.3 L395,250"/>
+</g>
+
+<!-- paprsky od předmětu k zrcadlu -->
+<g fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round">
+<path class="pin" pathLength="100" d="M125,110 L300,303.8"/>
+<path class="pin" pathLength="100" d="M205,110 L300,249.6"/>
+<path class="pin" pathLength="100" d="M125,250 L300,368.5"/>
+<path class="pin" pathLength="100" d="M205,250 L300,335.3"/>
+</g>
+<g class="sin" fill="#e8590c">
+<polygon points="225.9,221.8 212.1,215.4 221,207.4"/>
+<polygon points="261.2,192.6 248.4,184.4 258.3,177.6"/>
+<polygon points="227,319.1 212.1,316.2 218.8,306.3"/>
+<polygon points="262.5,301.6 248,296.7 256.1,287.8"/>
+</g>
+
+<!-- odražené paprsky do oka -->
+<g fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round">
+<path class="pout" pathLength="100" d="M300,303.8 L166.1,452.2"/>
+<path class="pout" pathLength="100" d="M300,249.6 L163.5,450.2"/>
+<path class="pout" pathLength="100" d="M300,368.5 L169.9,456.5"/>
+<path class="pout" pathLength="100" d="M300,335.3 L167.9,454"/>
+</g>
+<g class="sout" fill="#e8590c">
+<polygon points="221.7,390.6 226.6,376.2 235.5,384.3"/>
+<polygon points="221,365.7 223.9,350.7 233.8,357.5"/>
+<polygon points="222.6,420.8 230.9,408 237.6,418"/>
+<polygon points="222.1,405.2 228.5,391.4 236.5,400.4"/>
+</g>
+
+<g class="veta" font-size="22" text-anchor="middle" fill="#2b2a26">
+<text x="340" y="518">Oko vidí obraz ve směru paprsků,</text>
+<text x="340" y="546">které do něj přicházejí.</text>
+</g>
+</g>
+
+<!-- body předmětu -->
+<g fill="#ff8a65" stroke="#c92a2a" stroke-width="1">
+<circle cx="125" cy="110" r="5"/><circle cx="205" cy="110" r="5"/><circle cx="125" cy="250" r="5"/><circle cx="205" cy="250" r="5"/>
+</g>
+
+<!-- oko (dívá se šikmo nahoru k zrcadlu) -->
+<g transform="translate(150 470) rotate(-50)">
+<path d="M-24,0 Q0,-17 24,0 Q0,17 -24,0 Z" fill="#ffffff" stroke="#212529" stroke-width="2.5"/>
+<circle cx="5" cy="0" r="8" fill="#1c7ed6"/>
+<circle cx="5" cy="0" r="4" fill="#212529"/>
+</g>
+<text x="98" y="478" font-size="22" text-anchor="middle" fill="#2b2a26">oko</text>
+</svg>

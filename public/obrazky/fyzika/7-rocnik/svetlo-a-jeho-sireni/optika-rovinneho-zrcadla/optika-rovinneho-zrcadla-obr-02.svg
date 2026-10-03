@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Sestrojení obrazu v rovinném zrcadle osovou souměrností. Z bodů A, B, E, C, D předmětu ve tvaru písmene K vedeme kolmice k zrcadlu a za zrcadlem je prodloužíme o stejnou délku. Tak dostaneme body obrazu A′, B′, E′, C′, D′. Obraz je stejně daleko od zrcadla jako předmět, je stejně velký, vzpřímený a stranově převrácený. Animace: kolmice dojdou k zrcadlu, pokračují stejně daleko za něj, objeví se body a obrys obrazu a nakonec vyznačení stejné vzdálenosti a stejné velikosti.">
+<style>
+/* Animace (12 s, smyčka) podle předlohy (PDF lekce 22 Rovinné zrcadlo, str. 7 — K, zrcadlo, čárkované spojnice, K′):
+   kolmice před zrcadlem (5–18 %), značky pravého úhlu (18–20 %), pokračování za zrcadlem (20–33 %),
+   body obrazu (33–37 %), obraz K′ (38–50 %), stejně daleko (55–62 %), stejně velký (66–73 %), věta (78–82 %), zmizí (93–98 %).
+   Geometrie: zrcadlo x = 300, obraz x′ = 600 − x (stejné y). Bez animace (prefers-reduced-motion) = koncový stav. */
+.kl, .kp { stroke-dasharray: 100; }
+.kl { animation: kl 12s linear infinite; }
+.kp { animation: kp 12s linear infinite; }
+.uhel { animation: uhel 12s linear infinite; }
+.body2 { animation: body2 12s linear infinite; }
+.obraz { animation: obraz 12s linear infinite; }
+.vzd { animation: vzd 12s linear infinite; }
+.vel { animation: vel 12s linear infinite; }
+.veta { animation: veta 12s linear infinite; }
+.celek { animation: celek 12s linear infinite; }
+@keyframes kl { 0%, 5% { stroke-dashoffset: 100; } 18%, 100% { stroke-dashoffset: 0; } }
+@keyframes uhel { 0%, 18% { opacity: 0; } 20%, 100% { opacity: 1; } }
+@keyframes kp { 0%, 20% { stroke-dashoffset: 100; } 33%, 100% { stroke-dashoffset: 0; } }
+@keyframes body2 { 0%, 33% { opacity: 0; } 37%, 100% { opacity: 1; } }
+@keyframes obraz { 0%, 38% { opacity: 0; } 50%, 100% { opacity: 1; } }
+@keyframes vzd { 0%, 55% { opacity: 0; } 62%, 100% { opacity: 1; } }
+@keyframes vel { 0%, 66% { opacity: 0; } 73%, 100% { opacity: 1; } }
+@keyframes veta { 0%, 78% { opacity: 0; } 82%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 93% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .kl, .kp, .uhel, .body2, .obraz, .vzd, .vel, .veta, .celek { animation: none; } }
+</style>
+<defs>
+<!-- masky: plná čára se „kreslí“ a odkrývá čárkovanou kolmici -->
+<mask id="z2ml" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="450">
+<g fill="none" stroke="#ffffff" stroke-width="8">
+<path class="kl" pathLength="100" d="M125,110 L300,110"/>
+<path class="kl" pathLength="100" d="M150,192 L300,192"/>
+<path class="kl" pathLength="100" d="M125,250 L300,250"/>
+</g>
+</mask>
+<mask id="z2mp" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="450">
+<g fill="none" stroke="#ffffff" stroke-width="8">
+<path class="kp" pathLength="100" d="M300,110 L475,110"/>
+<path class="kp" pathLength="100" d="M300,192 L450,192"/>
+<path class="kp" pathLength="100" d="M300,250 L475,250"/>
+</g>
+</mask>
+</defs>
+<rect x="3" y="3" width="594" height="444" rx="14" fill="#fff9db" stroke="#2b2a26" stroke-width="3"/>
+
+<!-- zrcadlo: odrazná plocha vlevo, šrafy za ní -->
+<line x1="300" y1="62" x2="300" y2="290" stroke="#5f3dc4" stroke-width="5"/>
+<g stroke="#9775fa" stroke-width="2">
+<line x1="302" y1="76" x2="314" y2="64"/><line x1="302" y1="96" x2="314" y2="84"/><line x1="302" y1="116" x2="314" y2="104"/>
+<line x1="302" y1="136" x2="314" y2="124"/><line x1="302" y1="156" x2="314" y2="144"/><line x1="302" y1="176" x2="314" y2="164"/>
+<line x1="302" y1="196" x2="314" y2="184"/><line x1="302" y1="216" x2="314" y2="204"/><line x1="302" y1="236" x2="314" y2="224"/>
+<line x1="302" y1="256" x2="314" y2="244"/><line x1="302" y1="276" x2="314" y2="264"/>
+</g>
+<text x="300" y="44" font-size="22" text-anchor="middle" fill="#5f3dc4" font-weight="bold">zrcadlo</text>
+
+<!-- předmět K -->
+<polygon points="100,110 125,110 125,172 172,110 205,110 150,192 205,250 172,250 132,198 125,208 125,250 100,250" fill="#66d9e8" stroke="#343a40" stroke-width="2.5" stroke-linejoin="round"/>
+<g font-size="22" fill="#343a40" text-anchor="middle">
+<text x="125" y="96">A</text><text x="205" y="96">B</text><text x="180" y="180">E</text>
+<text x="112" y="278">C</text><text x="205" y="280">D</text>
+</g>
+<text x="152" y="44" font-size="24" text-anchor="middle" font-weight="bold" fill="#2b2a26">předmět</text>
+
+<g class="celek">
+<!-- kolmice (čárkovaně) před zrcadlem a za ním -->
+<g fill="none" stroke="#495057" stroke-width="2.5" stroke-dasharray="9 6">
+<g mask="url(#z2ml)"><path d="M125,110 L300,110"/><path d="M150,192 L300,192"/><path d="M125,250 L300,250"/></g>
+<g mask="url(#z2mp)"><path d="M300,110 L475,110"/><path d="M300,192 L450,192"/><path d="M300,250 L475,250"/></g>
+</g>
+<!-- značky pravého úhlu u zrcadla -->
+<g class="uhel" fill="none" stroke="#5f3dc4" stroke-width="2">
+<path d="M287,110 V97 H300"/><path d="M287,192 V179 H300"/><path d="M287,250 V237 H300"/>
+</g>
+
+<!-- obraz K′ (zdánlivý: čárkovaný obrys, světlejší) -->
+<g class="obraz">
+<polygon points="500,110 475,110 475,172 428,110 395,110 450,192 395,250 428,250 468,198 475,208 475,250 500,250" fill="#66d9e8" fill-opacity="0.45" stroke="#343a40" stroke-width="2.5" stroke-dasharray="7 5" stroke-linejoin="round"/>
+<text x="448" y="44" font-size="24" text-anchor="middle" font-weight="bold" fill="#2b2a26">obraz</text>
+</g>
+<g class="body2">
+<g fill="#ff8a65" stroke="#c92a2a" stroke-width="1">
+<circle cx="475" cy="110" r="5"/><circle cx="395" cy="110" r="5"/><circle cx="450" cy="192" r="5"/><circle cx="475" cy="250" r="5"/><circle cx="395" cy="250" r="5"/>
+</g>
+<g font-size="22" fill="#343a40" text-anchor="middle">
+<text x="475" y="96">A′</text><text x="395" y="96">B′</text><text x="418" y="180">E′</text>
+<text x="490" y="278">C′</text><text x="395" y="280">D′</text>
+</g>
+</g>
+
+<!-- stejně daleko: kóta od C k zrcadlu a od zrcadla k C′, stejné značky -->
+<g class="vzd">
+<g stroke="#c2255c" stroke-width="2.5" fill="none">
+<line x1="131" y1="310" x2="294" y2="310"/><line x1="306" y1="310" x2="469" y2="310"/>
+<line x1="125" y1="298" x2="125" y2="322"/><line x1="475" y1="298" x2="475" y2="322"/>
+<line x1="208" y1="302" x2="208" y2="318"/><line x1="216" y1="302" x2="216" y2="318"/>
+<line x1="384" y1="302" x2="384" y2="318"/><line x1="392" y1="302" x2="392" y2="318"/>
+</g>
+<g fill="#c2255c">
+<polygon points="128,310 140,304 140,316"/><polygon points="297,310 285,304 285,316"/>
+<polygon points="303,310 315,304 315,316"/><polygon points="472,310 460,304 460,316"/>
+</g>
+<text x="300" y="348" font-size="22" text-anchor="middle" fill="#c2255c" font-weight="bold">stejně daleko od zrcadla</text>
+</g>
+
+<!-- stejně velký: výška předmětu a obrazu, stejné značky -->
+<g class="vel">
+<g stroke="#1971c2" stroke-width="2.5" fill="none">
+<line x1="70" y1="116" x2="70" y2="244"/><line x1="530" y1="116" x2="530" y2="244"/>
+<line x1="60" y1="110" x2="80" y2="110"/><line x1="60" y1="250" x2="80" y2="250"/>
+<line x1="520" y1="110" x2="540" y2="110"/><line x1="520" y1="250" x2="540" y2="250"/>
+<line x1="62" y1="176" x2="78" y2="176"/><line x1="62" y1="184" x2="78" y2="184"/>
+<line x1="522" y1="176" x2="538" y2="176"/><line x1="522" y1="184" x2="538" y2="184"/>
+</g>
+<g fill="#1971c2">
+<polygon points="70,113 64,125 76,125"/><polygon points="70,247 64,235 76,235"/>
+<polygon points="530,113 524,125 536,125"/><polygon points="530,247 524,235 536,235"/>
+</g>
+<text x="300" y="384" font-size="22" text-anchor="middle" fill="#1971c2" font-weight="bold">stejně velký jako předmět</text>
+</g>
+
+<text class="veta" x="300" y="424" font-size="22" text-anchor="middle" fill="#2b2a26">Obraz sestrojíme osovou souměrností.</text>
+</g>
+
+<!-- body předmětu -->
+<g fill="#ff8a65" stroke="#c92a2a" stroke-width="1">
+<circle cx="125" cy="110" r="5"/><circle cx="205" cy="110" r="5"/><circle cx="150" cy="192" r="5"/><circle cx="125" cy="250" r="5"/><circle cx="205" cy="250" r="5"/>
+</g>
+</svg>
