@@ -2572,6 +2572,9 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Techmania Edu — Tání a tuhnutí', url: 'https://edu.techmania.cz/cs/encyklopedie/fyzika/skupenstvi/tani-tuhnuti' },
 						{ nazev: 'Fyzika 8. ročník, změny skupenství (Wordwall)', url: 'https://wordwall.net/cs/resource/42774194/fyzika-8-ro%C4%8Dn%C3%ADk-zm%C4%9Bny-skupenstv%C3%AD' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Bonus z NotebookLM: Tání a skupenské teplo (video rozbor, doplněk k výkladu)', cesta: '/media/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/tani/notebooklm-tani-a-skupenske-teplo.mp4' },
+					],
 				},
 				{
 					slug: 'tuhnuti',
