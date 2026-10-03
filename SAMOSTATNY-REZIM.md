@@ -6,6 +6,8 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **3. 10. 2026 — VATA dávky 1–5 HOTOVO (48 oprav distraktorů, schváleno 48/99, ~48 %; poslední commit b623883, doklady `Omega/predavka/2026-10-03/vata-schvaleni-davka1–5.md`).** ZBÝVÁ: (1) 51 zamítnutých návrhů → nový návrh (hlavní vada: „obhajitelně pravdivé“ distraktory); (2) 30 bloků „shrnuti“ (pololetní/roční shrnutí) — zápisový skript `vata-zapis-navrhy.mjs` je nenajde („blok nenalezen“), je to OPRAVA NÁSTROJE; (3) 76 položek v jiné fázi než „hotovo“.
+
 - **3. 10. 2026 odpoledne — STAV:** nasazeno 803bbe9 (simulace Var) záložně přes `npx wrangler deploy` kvůli incidentu Cloudflare Workers Builds, živě ověřeno; podrobnosti a drobnosti ve frontě („HOTOVO 3. 10. 2026 Simulace Var…“).
 - **3. 10. 2026 — STAV:** ochranné pásmo HOTOVO (1aa14db, nasazeno, živě ověřeno; doklady `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `kontrola-1aa14db.md`). Čeká na učitele: Suno písnička a video Tání (viz ❓ níže). Předávka: `Omega/predavka/2026-10-03/PRIKAZ-NOVA-SESSION.md`.
 
