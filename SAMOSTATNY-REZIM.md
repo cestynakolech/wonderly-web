@@ -671,11 +671,19 @@ Hotovo 3. 10. 2026: přestavba bloku (c706eef) + 3. kolo oprav vazeb Q1, Q5, Q10
 ### [HOTOVO 3. 10. 2026] Ochranné pásmo 400 kV ve výkladu „Účinky proudu a bezpečnost“ (1aa14db)
 HOTOVO 3. 10. 2026: pásmo opraveno z 30 m na 20–25 m (§ 46 zák. 458/2000, NV 80/1957), nasazeno a ověřeno `curl` na živé stránce (nový text, „30 metrů“ již není). Doklady: `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `Omega/predavka/2026-10-03/kontrola-1aa14db.md`.
 
-### [drobnost] Ochranné pásmo: věta o zákazu stavby nesouzní se zákonem (3. 10. 2026, `Omega/predavka/2026-10-03/kontrola-1aa14db.md`)
-Věta „kam se nesmí stavět, sázet stromy“ (`temata.ts:3212`) a vysvětlení kvízu (`kvizy.ts:5130`) nesouzní se skutečností „stavba jen se souhlasem majitele vedení“. Upravit formulaci, ne věcný údaj.
+### [HOTOVO 3. 10. 2026] Souhlas vlastníka v ochranném pásmu (5979be6)
+HOTOVO 3. 10. 2026: věta o zákazu stavby sjednocena se zákonem (`temata.ts:3212`, `kvizy.ts:5130`: „zvláštní pravidla pro stavby a pro práci kolem vedení“, stavba jen se souhlasem vlastníka, § 46 zák. 458/2000). Návrh `Omega/predavka/2026-10-03/navrh-souhlas-majitele.md`, kontroly `kontrola-navrh-souhlas-majitele.md`, `kontrola2-navrh-souhlas-majitele.md`. Commit pushnut na origin/main; nasazení `curl` na živé stránce ke 3. 10. 8:55 ještě NEpotvrzeno (živá stránka měla starou větu) — ověřit znovu.
 
-### [oprava nástroje] kontrola_uniku_mini.py čte jen jednořádkové otázky (zjištěno 3. 10. 2026)
-`Omega/skripty/kontrola_uniku_mini.py` načte jen otázky zapsané na jednom řádku; víceřádkový blok vrátí 0 otázek (tichý falešný „nic nenalezeno“). Opravit NÁSTROJ, data (kvizy.ts) nepřevádět.
+### [HOTOVO 3. 10. 2026] Oprava nástroje kontrola_uniku_mini.py (Omega 16e814c, web f675cb9)
+HOTOVO 3. 10. 2026: nástroj čte i víceřádkové otázky, přesný klíč bloku, žádné slučování, test nejednoznačnosti; 3 pokusy, kontrola PŘIJMOUT (`Omega/predavka/2026-10-03/kontrola-16e814c.md`). Položka „opravit nástroj kontrola_uniku_mini.py“ uzavřena.
+
+### [drobnost] kontrola_uniku_mini a ochranné pásmo — zbytky po opravách (3. 10. 2026)
+- (a) test `kontrola_uniku_mini` nepozná podřetězec sedící na 1 blok („odraz-svetl“ → 21).
+- (b) ostrý běh `kontrola_uniku_mini` ověřuje další blok až po práci na předchozím a výsledky se ztratí.
+- (c) ochranné pásmo: zdůvodnění odkazuje na § 46 odst. 3 a 8, účel je v odst. 1; podobné formulace se opakují v definici, větě „pravidlo pro stavby a práce“ a vysvětleních `kvizy.ts` 5126/5130.
+
+### Stav písničky Var (3. 10. 2026)
+Text prošel 2 kontrolami, generuje se v Suno.
 
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
