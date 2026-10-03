@@ -738,6 +738,7 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Drobnost: zápisový protokol davka6 uvádí #39 místo #38.
 
 ### [fronta] Fronta po 3. 10. pozdě večer (doklady v `Omega/predavka/2026-10-03/`)
+- F7: 2 podtémata přišla o odkaz Techmanie (nad úroveň) — dohledat česky vhodnou náhradu (worker-media). Doklad: `Omega/predavka/2026-10-03/oprava-odkazu-f7-f9.md`.
 - Úniky paralel (vysvětlení č. 13, 18, 19) a nakloněná rovina (vysvětlení č. 2, 12, 19) — `kontrola-vady-d1-d6.md`.
 - SVG N7 mřížka uhlíku `vnitrni-energie-obr-01` (věcná chyba); N6 bublina `pohybova-03` (`kontrola-5a9952f.md`, `kontrola-de827ed.md`).
 - SilaVektor: bílý text „bedna“, kontrast 3,6.
