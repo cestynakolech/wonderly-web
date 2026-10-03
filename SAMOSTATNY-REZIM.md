@@ -6,6 +6,7 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **3. 10. 2026 odpoledne — STAV:** nasazeno 803bbe9 (simulace Var) záložně přes `npx wrangler deploy` kvůli incidentu Cloudflare Workers Builds, živě ověřeno; podrobnosti a drobnosti ve frontě („HOTOVO 3. 10. 2026 Simulace Var…“).
 - **3. 10. 2026 — STAV:** ochranné pásmo HOTOVO (1aa14db, nasazeno, živě ověřeno; doklady `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `kontrola-1aa14db.md`). Čeká na učitele: Suno písnička a video Tání (viz ❓ níže). Předávka: `Omega/predavka/2026-10-03/PRIKAZ-NOVA-SESSION.md`.
 
 - **1. 10. 2026 večer — STAV:** nasazeno do f68189d (živě ověřeno): Codex B7/B11/B13 (F7 Archimédův zákon, F8 elektřina dávky 1–4 + bezpečnost se simulací, obrázek F9 bezpečnosti), kvízy F8 výkon+bezpečnost (3 kola, 21+21), nový ruční skript `testy/uniky-v-bloku.mjs`; 5 dílů videí na R2; pojistka `bezpecny_push` (Omega). Body 8 a 12 vráceny Codexu. **Čeká na učitele:** A3 distraktor s tyčí (`Omega/predavka/2026-10-01-vecer/opravy-kvizu-f8.md`), přerušený úkol 2 (7 videí S/J), konvence křížku u sila_na_vodic, zdvojený titulek vodic-civka-dialog2. **Fronta:** Codex bod 4 a 6 (+ opravné odevzdání 8/12), N4–N16, 6× gravitacni-sila. Drobnosti: 3 poznámky z `kontrola-f68189d-1ea2f32.md`, 3 vady videí z `kontrola-videi-5.md`. Podrobnosti: `Omega/predavka/2026-10-01-noc/PRIKAZ-NOVA-SESSION.md`.
@@ -683,7 +684,20 @@ HOTOVO 3. 10. 2026: nástroj čte i víceřádkové otázky, přesný klíč blo
 - (c) ochranné pásmo: zdůvodnění odkazuje na § 46 odst. 3 a 8, účel je v odst. 1; podobné formulace se opakují v definici, větě „pravidlo pro stavby a práce“ a vysvětleních `kvizy.ts` 5126/5130.
 
 ### Stav písničky Var (3. 10. 2026)
-Text prošel 2 kontrolami, generuje se v Suno.
+Text prošel 2 kontrolami, generuje se v Suno. (Přepsáno níže: písnička Var HOTOVO, 153d093.)
+
+### [HOTOVO 3. 10. 2026] Simulace Var, písně, video Tání, vata dávka 1, mřížka, pravidlo předlohy
+HOTOVO 3. 10. 2026: simulace Var (803bbe9, nasazena živě, `curl` 200 + `id="var-svg"` v HTML); písně Účinky proudu (3299315) a Var (153d093); video Tání (943ca06); vata dávka 1 (1f6fdb6, 9/20 schváleno); mřížka odebrána (d4935a6); pravidlo předlohy (b94e413).
+
+### Cloudflare incident a záložní nasazení wrangler (3. 10. 2026)
+Cloudflare Workers Builds mělo incident („Issues with Workers Build failing to start“, od 3. 10. 05:54Z); 803bbe9 se po ~3 min čekání sám nenasadil. Záložní cesta: `git clone --depth 1` origin/main (803bbe9) do `/tmp/wonderly-workery/2026-10-03/ci-klon-3`, `npm ci`, `npm run build` (rc 0, 490 stránek), `npx wrangler deploy` (rc 0, verze 61868597-3531-40da-8c67-474a260460c7). Doklad: `Omega/predavka/2026-10-03/diagnoza-nasazeni.md`.
+
+### [drobnost] Zbytky po dnešní práci (3. 10. 2026)
+- Šipka páry u tlakového hrnce: `src/components/skola2/VarSimulace.astro:224–228` (kontrola3).
+- Vata `teziste#17#1`: potřebuje nový návrh.
+- Zápisový skript vaty nenajde 26 bloků „shrnuti“.
+- 10 zamítnutých návrhů vaty z dávky 1 (k přepracování).
+- Další dávka vaty (20 položek) čeká na schválení učitele.
 
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
