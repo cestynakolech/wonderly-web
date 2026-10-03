@@ -2613,6 +2613,9 @@ export const temata: Record<string, Tema[]> = {
 						{ nazev: 'Pokus: Var vody — osolená vs. neosolená (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6143-pokus-var-vody' },
 						{ nazev: 'Pokus: Závislost teploty varu na tlaku (ČT edu)', url: 'https://edu.ceskatelevize.cz/video/6330-pokus-zavislost-teploty-varu-na-tlaku' },
 					],
+					materialy: [
+						{ druh: 'video', nazev: 'Píseň: Var 🎵', cesta: '/materialy/fyzika/8-rocnik/teplo-a-zmeny-skupenstvi/var/pisen-var.m4a' },
+					],
 				},
 				{
 					slug: 'kondenzace',
