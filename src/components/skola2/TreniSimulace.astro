@@ -35,14 +35,11 @@
 		</g>
 		<!-- síly: šipka vychází z hrany bedny; popisek stojí NAD šipkou, celý MIMO obrys bedny
 			(F od x 398 doprava, Ft končí na x 262) — dřív ležel v půlce krátké šipky přes obrys -->
-		<line id="treni-sipka-f" x1="390" y1="170" x2="390" y2="170" stroke="#1971c2" stroke-width="7" marker-end="url(#treni-mf)" />
-		<line id="treni-sipka-t" x1="270" y1="170" x2="270" y2="170" stroke="#c92a2a" stroke-width="7" marker-end="url(#treni-mt)" />
+		<!-- šipka = jeden tvar (dřík + hrot), její špička leží PŘESNĚ F·k od hrany bedny (oprava 3. 10. 2026, kolo 3) -->
+		<path id="treni-sipka-f" d="M390,170 Z" fill="#1971c2" visibility="hidden" />
+		<path id="treni-sipka-t" d="M270,170 Z" fill="#c92a2a" visibility="hidden" />
 		<text id="treni-pop-f" x="398" y="150" font-size="15" font-weight="bold" fill="#1971c2" text-anchor="start"></text>
 		<text id="treni-pop-t" x="262" y="150" font-size="15" font-weight="bold" fill="#c92a2a" text-anchor="end"></text>
-		<defs>
-			<marker id="treni-mf" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#1971c2" /></marker>
-			<marker id="treni-mt" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="14" refY="9" orient="auto"><path d="M0,0 L16,9 L0,18 z" fill="#c92a2a" /></marker>
-		</defs>
 		<text x="14" y="26" font-size="14" font-weight="bold" fill="#1971c2">→ tažná síla F</text>
 		<text x="14" y="46" font-size="14" font-weight="bold" fill="#c92a2a">← třecí síla Ft</text>
 	</svg>
@@ -102,16 +99,25 @@
 		document.getElementById('treni-mobil').textContent = `${F > 0 ? `F = ${F} N (modrá šipka, tažná) · ` : ''}${Ft > 0 ? `Ft = ${Ft} N (červená šipka, třecí) · ` : ''}bedna ${m} kg · ${podlahaText}`;
 		document.getElementById('treni-pohyb').setAttribute('opacity', pohyb ? '0.9' : '0');
 
-		// šipky: hrot 16 px (celý MIMO bednu) + dřík 0,55 px na newton — i nejmenší síla 5 N
-		// je vidět jako celá šipka vedle bedny, delší síla má delší šipku (stejné měřítko pro F i Ft).
-		// I nejdelší šipky (největší tažná a největší třecí síla) se vejdou do scény — hlídá test.
-		const HROT = 16, k = 0.55;
+		// šipky (oprava 3. 10. 2026, kolo 3): délka od hrany bedny po špičku je PŘÍMO úměrná síle,
+		// 0,65 px na newton, stejné měřítko pro F i Ft (80 N a 50 N dají 52 a 32,5 px, poměr 1,6), bez pevného
+		// přídavku. Hrot je dlouhý 16 px; u kratší šipky (malá síla) je hrot zkrácený na celou délku,
+		// ale zůstává 18 px vysoký, takže i 5 N je vidět jako klínek. Nulová síla = šipka skrytá.
+		// Nejdelší šipky (F 400 N → 260 px, Ft 325 N → 211 px) se vejdou do scény — hlídá test.
+		const k = 0.65;
+		const r2 = (x) => Math.round(x * 100) / 100;
+		const tvarSipky = (x0, smer, delka) => {
+			const h = Math.min(16, delka), spicka = r2(x0 + smer * delka), patka = r2(x0 + smer * (delka - h));
+			return delka > h
+				? `M${x0},166.5 L${patka},166.5 L${patka},161 L${spicka},170 L${patka},179 L${patka},173.5 L${x0},173.5 Z`
+				: `M${x0},161 L${spicka},170 L${x0},179 Z`;
+		};
 		const sipkaF = document.getElementById('treni-sipka-f');
-		sipkaF.setAttribute('x2', 390 + HROT + F * k);
+		sipkaF.setAttribute('d', tvarSipky(390, 1, F * k));
 		sipkaF.setAttribute('visibility', F > 0 ? 'visible' : 'hidden');
 		document.getElementById('treni-pop-f').textContent = F > 0 ? 'F = ' + F + ' N' : '';
 		const sipkaT = document.getElementById('treni-sipka-t');
-		sipkaT.setAttribute('x2', 270 - HROT - Ft * k);
+		sipkaT.setAttribute('d', tvarSipky(270, -1, Ft * k));
 		sipkaT.setAttribute('visibility', Ft > 0 ? 'visible' : 'hidden');
 		document.getElementById('treni-pop-t').textContent = Ft > 0 ? 'Ft = ' + Ft + ' N' : '';
 

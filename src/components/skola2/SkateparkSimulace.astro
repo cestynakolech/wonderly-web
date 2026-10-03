@@ -115,8 +115,8 @@
 		const eText = rezim === 'treni' ? `Ep + Ek + přírůstek vnitřní energie = ${E0} J` : `E = Ep + Ek = ${E0} J`;
 		document.getElementById('skate-e-text').textContent = eText;
 		document.getElementById('skate-mobil').textContent = rezim === 'treni'
-			? `${eText} · sloupce: modrý Ep (polohová), oranžový Ek (pohybová), červený vnitřní energie (o kolik vzrostla třením)`
-			: `${eText} · sloupce: modrý Ep (polohová), oranžový Ek (pohybová)`;
+			? `${eText} · Modrý sloupec = polohová energie Ep. Oranžový sloupec = pohybová energie Ek. Červený sloupec = o kolik se třením zvýšila vnitřní energie.`
+			: `${eText} · Modrý sloupec = polohová energie Ep. Oranžový sloupec = pohybová energie Ek.`;
 
 		vypocetEl.innerHTML = `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong>${rezim === 'treni' ? ` &nbsp;·&nbsp; třením přešlo do vnitřní energie <strong>${Q} J</strong>` : ''} &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`;
 

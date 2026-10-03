@@ -104,6 +104,9 @@ const aktivni = () => rezimTl.filter((b) => b.tridy.has('skate-aktivni')).map((b
 const texty = [];
 const zaznamenej = () => { for (const p of prvky.values()) for (const t of [p.textContent, p.innerHTML]) if (t) texty.push(t); };
 const vyska = (id) => +at(id, 'height');
+// legenda pro telefon celými větami pro žáka 8. ročníku (kolo 3, nález K3 — dřív „červený vnitřní energie (o kolik…)“)
+const LEG_ZAKLAD = 'Modrý sloupec = polohová energie Ep. Oranžový sloupec = pohybová energie Ek.';
+const LEG_TRENI = `${LEG_ZAKLAD} Červený sloupec = o kolik se třením zvýšila vnitřní energie.`;
 const sloupceSedi = (Ep, Ek, Q, E0) => {
 	const mer = 250 / E0;
 	return [['skate-bar-ep', Ep], ['skate-bar-ek', Ek], ['skate-bar-q', Q]].every(([id, v]) => Math.abs(vyska(id) - Math.max(v * mer, 0.5)) < 1e-9 && Math.abs(+at(id, 'y') - (310 - v * mer)) < 1e-9);
@@ -126,7 +129,7 @@ for (const m of [20, 40, 60]) for (let h = 1; h <= 5; h++) {
 		const cekSt = y === h ? 'Nahoře' : y === 0 ? 'Dole' : 'Mezi tím';
 		const dobre = vz === `Ep = ${m} × 10 × ${y} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong> &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`
 			&& el('skate-e-text').textContent === `E = Ep + Ek = ${E0} J` && st.includes(cekSt) && sloupceSedi(Ep, Ek, 0, E0)
-			&& el('skate-mobil').textContent === `E = Ep + Ek = ${E0} J · sloupce: modrý Ep (polohová), oranžový Ek (pohybová)`
+			&& el('skate-mobil').textContent === `E = Ep + Ek = ${E0} J · ${LEG_ZAKLAD}`
 			&& el('skate-out-y').textContent === `${y} m` && el('skate-out-m').textContent === `${m} kg` && el('skate-out-h').textContent === `${h} m`
 			&& Number.isInteger(Ep) && Number.isInteger(Ek) && +el('skate-slider-y').max === h;
 		if (!dobre && !chybaI) chybaI = `${m} kg, ${h} m, y ${y}: ${vz.replace(/<[^>]+>|&nbsp;/g, '')} | ${st}`;
@@ -160,7 +163,7 @@ for (const m of [20, 40, 60]) for (let h = 1; h <= 5; h++) {
 				: `Přejezd č. ${prej}: každý přejezd sebere energii odpovídající 1 m výšky (${m * 10} J) — promění se třením na VNITŘNÍ ENERGII. Skater teď vyjede už jen do ${hMax} m.`;
 		const dobre = vz === `Ep = ${m} × 10 × ${hMax} = <strong>${Ep} J</strong> &nbsp;·&nbsp; Ek = <strong>${Ek} J</strong> &nbsp;·&nbsp; třením přešlo do vnitřní energie <strong>${Q} J</strong> &nbsp;·&nbsp; součet vždy <strong>${E0} J</strong>`
 			&& el('skate-e-text').textContent === `Ep + Ek + přírůstek vnitřní energie = ${E0} J` && st.includes(cekSt) && sloupceSedi(Ep, Ek, Q, E0) && Ek === 0
-			&& el('skate-mobil').textContent === `Ep + Ek + přírůstek vnitřní energie = ${E0} J · sloupce: modrý Ep (polohová), oranžový Ek (pohybová), červený vnitřní energie (o kolik vzrostla třením)`;
+			&& el('skate-mobil').textContent === `Ep + Ek + přírůstek vnitřní energie = ${E0} J · ${LEG_TRENI}`;
 		if (!dobre && !chybaT) chybaT = `${m} kg, ${h} m, přejezd ${n}: ${vz.replace(/<[^>]+>|&nbsp;/g, '')} | ${el('skate-e-text').textContent} | ${st}`;
 		treniOk &&= dobre;
 		zaznamenej();

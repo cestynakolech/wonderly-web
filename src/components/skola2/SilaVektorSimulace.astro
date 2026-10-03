@@ -202,7 +202,8 @@
 		} else if (liftN > 0) {
 			// u šikmé síly rozhoduje o zvednutí jen její SVISLÁ část (ne celá F) — oprava 3. 10. 2026, kolo 2
 			text = !jeNula(vodorovna)
-				? `Svislá část síly ${vel('F', F)} je větší než tíha ${vel('Fg', Fg)} — bedna se zvedá a zároveň sune do strany!`
+				// bez čísla u svislé části: ta je F·sin(úhel), tedy menší než celá F (kolo 3, nález K2)
+				? `Síla ${vel('F', F)} míří šikmo nahoru a její svislá část je větší než tíha ${vel('Fg', Fg)} — bedna se zvedá a zároveň sune do strany!`
 				: `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', Fg)} — bedna se zvedá ze země!`;
 		} else {
 			text = `Bedna se rozjíždí směrem ${popisSmeru(deg)} — síla ${vel('F', F)}.`;

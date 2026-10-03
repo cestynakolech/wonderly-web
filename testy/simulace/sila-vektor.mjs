@@ -113,7 +113,7 @@ ok(scenaSedi(10, 0, 0, 0), 'výchozí scéna: bedna na místě, šipka 10 N dopr
 const nb = ' ';
 const vel = (z, n) => `${z}${nb}=${nb}${n}${nb}N`;
 const POPIS = { 0: 'doprava', 45: 'šikmo nahoru doprava', 90: 'přímo nahoru', 135: 'šikmo nahoru doleva', 180: 'doleva' };
-let stavu = 0, textyOk = true, nbspOk = true, sipkaOk = true, tihaOk = true, aktivniOk = true;
+let stavu = 0, textyOk = true, nbspOk = true, sipkaOk = true, tihaOk = true, aktivniOk = true, svislaOk = true;
 const chyba = {};
 for (const deg of [180, 135, 90, 45, 0]) {
 	klik(SMERY[deg]);
@@ -132,11 +132,15 @@ for (const deg of [180, 135, 90, 45, 0]) {
 		else if (nah > 1e-6 && zdvih === 0 && nula) cek = `Síla míří nahoru, ale není větší než tíha bedny (${vel('Fg', 30)}) — bedna zůstává na podlaze.`;
 		else if (nah > 1e-6 && zdvih === 0) cek = `Síla míří šikmo nahoru, ale její svislá část nestačí zvednout bednu (tíha ${vel('Fg', 30)}) — bedna se proto jen sune po podlaze ${vod > 0 ? 'doprava' : 'doleva'}.`;
 		// u šikmé síly rozhoduje svislá část, ne celá F (oprava 3. 10. 2026, kolo 2 — dřív „Síla F je větší než tíha“ i šikmo)
-		else if (zdvih > 0) cek = nula ? `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', 30)} — bedna se zvedá ze země!` : `Svislá část síly ${vel('F', F)} je větší než tíha ${vel('Fg', 30)} — bedna se zvedá a zároveň sune do strany!`;
+		else if (zdvih > 0) cek = nula ? `Síla (${vel('F', F)}) je větší než tíha ${vel('Fg', 30)} — bedna se zvedá ze země!` : `Síla ${vel('F', F)} míří šikmo nahoru a její svislá část je větší než tíha ${vel('Fg', 30)} — bedna se zvedá a zároveň sune do strany!`;
 		else cek = `Bedna se rozjíždí směrem ${POPIS[deg]} — síla ${vel('F', F)}.`;
 		const t = el('sv-vysledek').textContent;
 		if (t !== cek) { textyOk = false; chyba.text ||= `${deg}°, ${F} N: „${t}“ ≠ „${cek}“`; }
 		if (/\d N\b|[A-Za-z] = \d/.test(t)) { nbspOk = false; chyba.nbsp ||= `${deg}°, ${F} N: „${t}“`; }
+		// kolo 3 (nález K2): číslo hned za „svislá část (síly)“ se čte jako její velikost — smí tam být jen
+		// skutečná svislá část zaokrouhlená na celé newtony, jinak žádné číslo
+		const sv = t.match(/svislá část(?: síly)?[^—]{0,12}?(\d+) N/i);
+		if (sv && +sv[1] !== Math.round(nah)) { svislaOk = false; chyba.svisla ||= `${deg}°, ${F} N: „${t}“ (svislá část je ${Math.round(nah)} N)`; }
 		const s = obsah();
 		const car = [...s.matchAll(/<line x1="([-\d.e]+)" y1="([-\d.e]+)" x2="([-\d.e]+)" y2="([-\d.e]+)" stroke="#e03131"/g)];
 		const sedi = F === 0 ? car.length === 0 && !s.includes('F = ') : car.length === 1 && +car[0][1] === 200 && +car[0][2] === 240
@@ -148,6 +152,7 @@ for (const deg of [180, 135, 90, 45, 0]) {
 	}
 }
 ok(textyOk, `text výsledku odpovídá složkám síly ve všech ${stavu} stavech${chyba.text ? ' — ' + chyba.text : ''}`);
+ok(svislaOk, `text výsledku nepřipisuje svislé části síly jinou velikost, než skutečně má${chyba.svisla ? ' — ' + chyba.svisla : ''}`);
 ok(nbspOk, `texty výsledku nemají ve všech ${stavu} stavech obyčejnou mezeru mezi číslem a N ani kolem „=“${chyba.nbsp ? ' — ' + chyba.nbsp : ''}`);
 ok(sipkaOk, `šipka F vychází z působiště (200, 240), má 3 px na 1 N, správný směr a popisek ve všech stavech${chyba.sipka ? ' — ' + chyba.sipka : ''}`);
 ok(tihaOk, 'tíha Fg = 30 N míří dolů ze spodní hrany bedny (90 px) ve všech stavech');
