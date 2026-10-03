@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tvary čoček v pohledu z boku. Spojky jsou uprostřed nejširší a na okrajích nejtenčí, kreslíme je značkou se šipkami ven. Rozptylky jsou uprostřed nejtenčí a na okrajích nejširší, kreslíme je značkou se šipkami dovnitř.">
+<!-- Předloha: PDF lekce 25, str. 5 (Druhy čoček, 2 řady po 3 tvarech) a str. 6 (značky spojky a rozptylky). Statický stav. -->
+<defs><linearGradient id="c1s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#66d9e8" stop-opacity="0.75"/><stop offset="0.45" stop-color="#e3fafc" stop-opacity="0.8"/><stop offset="1" stop-color="#3bc9db" stop-opacity="0.7"/></linearGradient></defs>
+<rect x="3" y="3" width="594" height="614" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="42" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Tvary čoček (pohled z boku)</text>
+<rect x="20" y="62" width="560" height="262" rx="12" fill="#fff4e6" stroke="#ffd8a8" stroke-width="2"/>
+<text x="40" y="96" font-size="26" font-weight="bold" fill="#d9480f" text-anchor="start">Spojky</text><text x="40" y="124" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">uprostřed nejširší, na okrajích nejtenčí</text>
+<path d="M80,142 Q128,222 80,302 Q32,222 80,142 Z" fill="url(#c1s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M68,170 Q62,222 68,274" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<path d="M183,142 Q255,222 183,302 Z" fill="url(#c1s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M191,170 L191,274" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<path d="M302,142 Q366,222 302,302 Q330,222 302,142 Z" fill="url(#c1s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M322,174 Q332,222 322,270" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<line x1="430" y1="140" x2="430" y2="306" stroke="#ced4da" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="505" y1="150" x2="505" y2="280" stroke="#212529" stroke-width="5" stroke-linecap="round"/><path d="M485,178 L505,150 L525,178 M485,252 L505,280 L525,252" fill="none" stroke="#212529" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505" y="312" font-size="22" font-weight="normal" fill="#495057" text-anchor="middle">značka</text>
+<rect x="20" y="340" width="560" height="262" rx="12" fill="#e7f5ff" stroke="#a5d8ff" stroke-width="2"/>
+<text x="40" y="374" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="start">Rozptylky</text><text x="40" y="402" font-size="22" font-weight="normal" fill="#212529" text-anchor="start">uprostřed nejtenčí, na okrajích nejširší</text>
+<path d="M61,420 L109,420 Q69,500 109,580 L61,580 Q101,500 61,420 Z" fill="url(#c1s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M73,430 Q83,500 73,570" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<path d="M180,420 L222,420 Q182,500 222,580 L180,580 Z" fill="url(#c1s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M190,432 L190,568" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<path d="M305,420 L341,420 Q287,500 341,580 L305,580 Q281,500 305,420 Z" fill="url(#c1s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M301,436 Q289,500 301,564" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+<line x1="430" y1="418" x2="430" y2="584" stroke="#ced4da" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="505" y1="446" x2="505" y2="532" stroke="#212529" stroke-width="5" stroke-linecap="round"/><path d="M485,420 L505,446 L525,420 M485,558 L505,532 L525,558" fill="none" stroke="#212529" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="505" y="590" font-size="22" font-weight="normal" fill="#495057" text-anchor="middle">značka</text>
+</svg>

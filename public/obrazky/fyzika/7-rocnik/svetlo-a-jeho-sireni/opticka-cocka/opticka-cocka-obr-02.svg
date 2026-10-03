@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 770" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Nahoře spojka: rovnoběžný svazek paprsků se po průchodu čočkou sbíhá do ohniska F´ za čočkou a dál pokračuje. Dole rozptylka: rovnoběžné paprsky se po průchodu rozbíhají, jako by vycházely ze zdánlivého ohniska F´ před čočkou. Animace: paprsky postupně proletí čočkou, u spojky se rozsvítí ohnisko, u rozptylky se dokreslí čárkované prodloužení paprsků do zdánlivého ohniska.">
+<style>
+/* Animace 8 s, smyčka. Předloha: PDF lekce 25, str. 3 a 8 (spojka, svazek do ohniska), str. 9 (popis F, S, F´),
+   str. 4 a 15 (rozptylka, zdánlivé ohnisko F´ před čočkou).
+   paprsky 5–45 %, ohnisko spojky / čárkovaná prodloužení rozptylky 45–60 %, šipky 45–50 %, vše zmizí 92–98 %.
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.pr { stroke-dasharray: 100 100; animation: pr 8s linear infinite; }
+.po { animation: po 8s linear infinite; }
+.si { animation: si 8s linear infinite; }
+.celek { animation: celek 8s linear infinite; }
+@keyframes pr { 0%, 5% { stroke-dashoffset: 100; } 45%, 100% { stroke-dashoffset: 0; } }
+@keyframes po { 0%, 45% { opacity: 0; } 60%, 100% { opacity: 1; } }
+@keyframes si { 0%, 45% { opacity: 0; } 50%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pr, .po, .si, .celek { animation: none; } }
+</style>
+<defs><linearGradient id="c2s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#66d9e8" stop-opacity="0.75"/><stop offset="0.45" stop-color="#e3fafc" stop-opacity="0.8"/><stop offset="1" stop-color="#3bc9db" stop-opacity="0.7"/></linearGradient><radialGradient id="c2zar"><stop offset="0" stop-color="#fff3bf"/><stop offset="0.4" stop-color="#ffd43b" stop-opacity="0.9"/><stop offset="1" stop-color="#ff922b" stop-opacity="0"/></radialGradient></defs>
+<rect x="3" y="3" width="594" height="764" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#d9480f" text-anchor="middle">Spojka</text><text x="300" y="66" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">rovnoběžné paprsky se sbíhají do ohniska F´</text>
+<line x1="18" y1="228" x2="582" y2="228" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/>
+<path d="M260,110 Q308,228 260,346 Q212,228 260,110 Z" fill="url(#c2s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M248,151.3 Q242,228 248,304.7" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/><line x1="260" y1="116" x2="260" y2="340" stroke="#212529" stroke-width="5" stroke-linecap="round"/><path d="M240,144 L260,116 L280,144 M240,312 L260,340 L280,312" fill="none" stroke="#212529" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="celek">
+<path class="pr" d="M26,144 L260,144 L370,228 L548.1,364" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,186 L260,186 L370,228 L572,305.1" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,270 L260,270 L370,228 L572,150.9" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,312 L260,312 L370,228 L548.1,92" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M149,144 L137,150 L137,138 Z" fill="#e8590c"/><path d="M499.4,326.8 L486.3,324.3 L493.5,314.8 Z" fill="#e8590c"/><path d="M149,186 L137,192 L137,180 Z" fill="#e8590c"/><path d="M517,284.1 L503.7,285.5 L507.9,274.2 Z" fill="#e8590c"/><path d="M149,270 L137,276 L137,264 Z" fill="#e8590c"/><path d="M517,171.9 L507.9,181.8 L503.7,170.5 Z" fill="#e8590c"/><path d="M149,312 L137,318 L137,306 Z" fill="#e8590c"/><path d="M499.4,129.2 L493.5,141.2 L486.3,131.7 Z" fill="#e8590c"/></g>
+<g class="po"><circle cx="370" cy="228" r="26" fill="url(#c2zar)"/></g>
+</g>
+<line x1="150" y1="218" x2="150" y2="238" stroke="#212529" stroke-width="3"/><text x="148" y="262" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><line x1="370" y1="218" x2="370" y2="238" stroke="#212529" stroke-width="3"/><text x="374" y="262" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F´</text><text x="240" y="262" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text>
+<text class="po" x="370" y="184" font-size="22" font-weight="normal" fill="#d9480f" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">ohnisko</text>
+<text x="24" y="216" font-size="22" font-weight="normal" fill="#495057" text-anchor="start" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">optická osa</text>
+<g><line x1="260" y1="366" x2="370" y2="366" stroke="#495057" stroke-width="2"/><line x1="260" y1="358" x2="260" y2="374" stroke="#495057" stroke-width="2"/><line x1="370" y1="358" x2="370" y2="374" stroke="#495057" stroke-width="2"/><text x="315" y="358" font-size="24" font-weight="bold" fill="#495057" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">f</text></g>
+<line x1="20" y1="388" x2="580" y2="388" stroke="#ced4da" stroke-width="2"/>
+<text x="300" y="426" font-size="26" font-weight="bold" fill="#1864ab" text-anchor="middle">Rozptylka</text><text x="300" y="454" font-size="22" font-weight="normal" fill="#212529" text-anchor="middle">paprsky se rozbíhají, jako by vycházely z F´</text>
+<line x1="18" y1="608" x2="582" y2="608" stroke="#343a40" stroke-width="2" stroke-dasharray="16 5 3 5"/>
+<path d="M276,498 L324,498 Q284,608 324,718 L276,718 Q316,608 276,498 Z" fill="url(#c2s)" stroke="#0c8599" stroke-width="2.5" stroke-linejoin="round"/><path d="M288,508 Q298,608 288,708" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/><line x1="300" y1="524" x2="300" y2="692" stroke="#212529" stroke-width="5" stroke-linecap="round"/><path d="M280,498 L300,524 L320,498 M280,718 L300,692 L320,718" fill="none" stroke="#212529" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="celek">
+<path class="pr" d="M26,548 L300,548 L432,476" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,578 L300,578 L572,503.8" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,608 L300,608 L572,608" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,638 L300,638 L572,712.2" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="pr" d="M26,668 L300,668 L432,740" pathLength="100" fill="none" stroke="#e8590c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<g class="si"><path d="M169,548 L157,554 L157,542 Z" fill="#e8590c"/><path d="M397.7,494.7 L390,505.7 L384.3,495.2 Z" fill="#e8590c"/><path d="M169,578 L157,584 L157,572 Z" fill="#e8590c"/><path d="M496.2,524.5 L486.2,533.4 L483,521.9 Z" fill="#e8590c"/><path d="M169,608 L157,614 L157,602 Z" fill="#e8590c"/><path d="M496.4,608 L484.4,614 L484.4,602 Z" fill="#e8590c"/><path d="M169,638 L157,644 L157,632 Z" fill="#e8590c"/><path d="M496.2,691.5 L483,694.1 L486.2,682.6 Z" fill="#e8590c"/><path d="M169,668 L157,674 L157,662 Z" fill="#e8590c"/><path d="M397.7,721.3 L384.3,720.8 L390,710.3 Z" fill="#e8590c"/></g>
+<g class="po"><line x1="300" y1="548" x2="190" y2="608" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.75"/><line x1="300" y1="578" x2="190" y2="608" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.75"/><line x1="300" y1="638" x2="190" y2="608" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.75"/><line x1="300" y1="668" x2="190" y2="608" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="9 7" opacity="0.75"/><circle cx="190" cy="608" r="7" fill="none" stroke="#e8590c" stroke-width="3"/></g>
+</g>
+<line x1="190" y1="598" x2="190" y2="618" stroke="#212529" stroke-width="3"/><text x="186" y="642" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F´</text><line x1="410" y1="598" x2="410" y2="618" stroke="#212529" stroke-width="3"/><text x="412" y="642" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">F</text><text x="320" y="642" font-size="24" font-weight="bold" fill="#212529" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">S</text>
+<text class="po" x="180" y="706" font-size="22" font-weight="normal" fill="#1864ab" text-anchor="middle" paint-order="stroke" stroke="#f8f9fa" stroke-width="6" stroke-linejoin="round">zdánlivé ohnisko</text>
+</svg>
