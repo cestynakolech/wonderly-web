@@ -758,6 +758,7 @@ Cloudflare Workers Builds mělo incident („Issues with Workers Build failing t
 - Zápisový skript vaty nenajde 26 bloků „shrnuti“.
 - 10 zamítnutých návrhů vaty z dávky 1 (k přepracování).
 - Další dávka vaty (20 položek) čeká na schválení učitele.
+- paralel: vazby 19→13 a 9→1 zůstávají, dva návrhy zamítnuty pro nové úniky 18→19 a 9→8 (kontrola-uniky-paralel-vazby.md); otázky se míchají, pořadí nechrání
 
 ### [drobnost] Dočasný profil Chromu zůstane v tmp po TERM/KILL (1. 10. 2026, kontrola stash F9, nález A)
 
