@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Zákon odrazu: dopadající paprsek dopadne na zrcadlo v bodě dopadu, v něm je vztyčená kolmice dopadu. Úhel dopadu alfa je mezi dopadajícím paprskem a kolmicí, úhel odrazu alfa s čárkou mezi odraženým paprskem a kolmicí. Oba úhly jsou stejné: alfa s čárkou se rovná alfa. Animace: paprsek dopadne, objeví se kolmice a úhel dopadu, paprsek se odrazí a objeví se stejně velký úhel odrazu.">
+<style>
+/* Animace (10 s, smyčka) — pořadí podle předlohy: paprsek dopadne (5–25 %), kolmice dopadu (27–33 %),
+   úhel dopadu α (35–40 %), odražený paprsek (42–62 %), úhel odrazu α′ (64–69 %), α′ = α (72–76 %), zmizí (92–98 %).
+   Bez animace (prefers-reduced-motion) = koncový stav: atributy níže ukazují vše. */
+.pin { stroke-dasharray: 100; animation: pin 10s linear infinite; }
+.pout { stroke-dasharray: 100; animation: pout 10s linear infinite; }
+.ain, .t1 { animation: ain 10s linear infinite; }
+.aout { animation: aout 10s linear infinite; }
+.t2 { animation: t2 10s linear infinite; }
+.kol { animation: kol 10s linear infinite; }
+.ua { animation: ua 10s linear infinite; }
+.ub { animation: ub 10s linear infinite; }
+.rov { animation: rov 10s linear infinite; }
+.celek { animation: celek 10s linear infinite; }
+@keyframes pin { 0%, 5% { stroke-dashoffset: 100; } 25%, 100% { stroke-dashoffset: 0; } }
+@keyframes ain { 0%, 4% { opacity: 0; } 5%, 100% { opacity: 1; } }
+@keyframes kol { 0%, 27% { opacity: 0; } 33%, 100% { opacity: 1; } }
+@keyframes ua { 0%, 35% { opacity: 0; } 40%, 100% { opacity: 1; } }
+@keyframes t2 { 0%, 41% { opacity: 0; } 42%, 100% { opacity: 1; } }
+@keyframes pout { 0%, 42% { stroke-dashoffset: 100; } 62%, 100% { stroke-dashoffset: 0; } }
+@keyframes aout { 0%, 61% { opacity: 0; } 62%, 100% { opacity: 1; } }
+@keyframes ub { 0%, 64% { opacity: 0; } 69%, 100% { opacity: 1; } }
+@keyframes rov { 0%, 72% { opacity: 0; } 76%, 100% { opacity: 1; } }
+@keyframes celek { 0%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pin, .pout, .ain, .t1, .aout, .t2, .kol, .ua, .ub, .rov, .celek { animation: none; } }
+</style>
+<rect x="3" y="3" width="594" height="474" rx="14" fill="#fff9db" stroke="#2b2a26" stroke-width="3"/>
+<text x="300" y="38" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Zákon odrazu</text>
+
+<!-- zrcadlo (značka: čára + šrafy na straně, kam světlo neprojde); bod dopadu P = (300, 330) -->
+<line x1="60" y1="330" x2="540" y2="330" stroke="#212529" stroke-width="5"/>
+<path d="M76,332 l-12,14 M96,332 l-12,14 M116,332 l-12,14 M136,332 l-12,14 M156,332 l-12,14 M176,332 l-12,14 M196,332 l-12,14 M216,332 l-12,14 M236,332 l-12,14 M256,332 l-12,14 M276,332 l-12,14 M296,332 l-12,14 M316,332 l-12,14 M336,332 l-12,14 M356,332 l-12,14 M376,332 l-12,14 M396,332 l-12,14 M416,332 l-12,14 M436,332 l-12,14 M456,332 l-12,14 M476,332 l-12,14 M496,332 l-12,14 M516,332 l-12,14 M536,332 l-12,14" stroke="#212529" stroke-width="2"/>
+
+<g class="celek">
+<!-- kolmice dopadu -->
+<g class="kol">
+<line x1="300" y1="330" x2="300" y2="104" stroke="#1971c2" stroke-width="3" stroke-dasharray="10 7"/>
+<text x="300" y="92" font-size="22" fill="#1864ab" text-anchor="middle">kolmice dopadu</text>
+<circle cx="300" cy="330" r="6" fill="#1971c2"/>
+<line x1="300" y1="350" x2="300" y2="364" stroke="#2b2a26" stroke-width="2"/>
+<text x="300" y="386" font-size="22" fill="#212529" text-anchor="middle">bod dopadu</text>
+</g>
+<!-- úhel dopadu α: mezi dopadajícím paprskem a kolmicí (paprsek svírá s kolmicí 35°, číslo se nezobrazuje) -->
+<g class="ua">
+<path d="M300,330 L242.6,248.1 A100,100 0 0 1 300,230 Z" fill="#d0ebff" stroke="#1864ab" stroke-width="2"/>
+<text x="279" y="280" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">α</text>
+</g>
+<!-- úhel odrazu α′: mezi odraženým paprskem a kolmicí, stejně velký -->
+<g class="ub">
+<path d="M300,330 L300,230 A100,100 0 0 1 357.4,248.1 Z" fill="#d0ebff" stroke="#1864ab" stroke-width="2"/>
+<text x="323" y="280" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">α′</text>
+</g>
+<!-- paprsky -->
+<g stroke="#e8590c" stroke-width="5" stroke-linecap="round">
+<line class="pin" pathLength="100" x1="168.1" y1="141.6" x2="296.8" y2="325.4"/>
+<line class="pout" pathLength="100" x1="300" y1="330" x2="421.6" y2="156.3"/>
+</g>
+<polygon class="ain" points="300,330 283.1,319.8 296.2,310.7" fill="#e8590c"/>
+<polygon class="aout" points="431.9,141.6 428.2,160.9 415,151.8" fill="#e8590c"/>
+<g class="t1"><text x="40" y="226" font-size="22" fill="#212529">dopadající</text><text x="40" y="252" font-size="22" fill="#212529">paprsek</text></g>
+<g class="t2"><text x="446" y="226" font-size="22" fill="#212529">odražený</text><text x="446" y="252" font-size="22" fill="#212529">paprsek</text></g>
+<!-- shrnutí -->
+<g class="rov">
+<text x="40" y="426" font-size="22" fill="#212529"><tspan font-weight="bold">α</tspan> … úhel dopadu</text>
+<text x="40" y="456" font-size="22" fill="#212529"><tspan font-weight="bold">α′</tspan> … úhel odrazu</text>
+<rect x="380" y="408" width="180" height="54" rx="10" fill="#343a40"/>
+<text x="470" y="445" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">α′ = α</text>
+</g>
+</g>
+</svg>
