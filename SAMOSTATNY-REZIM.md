@@ -6,6 +6,7 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **NASAZENO a75128ae 3. 10. večer: odkazy Pohyb tělesa (aa11dd5)** — záložně `npx wrangler deploy`, živě SHA1 == dist (klid-a-pohyb-telesa e91300f52022, oba odkazy ano), doklad `Omega/predavka/2026-10-03/nasazeni-aa11dd5.md`.
 - **NASAZENO 39d4c934 3. 10. večer: odkazy F7/F9 (87b71c7, odstraněno video se zkratem), paralel B+C2 (c9815d5)** — záložně `npx wrangler deploy`, živě SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-87b71c7.md`.
 - **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
 - **NASAZENO cc9d8e88 3. 10. večer: šipka tření na podlaze, test sila-vektor (0fdba66, kontrola-0fdba66 OK)** — záložně `npx wrangler deploy`, živě SHA1 == dist (treci-sila cfaf02d0…, sila 58234329…), doklad `Omega/predavka/2026-10-03/nasazeni-0fdba66.md`.
