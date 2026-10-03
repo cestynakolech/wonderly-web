@@ -131,6 +131,8 @@ kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
 
+- **3. 10. 2026 (c) — U14 ochrana Školy ve vrátném má díry:** rozhodnutí a návrh viz `Omega/predavka/2026-10-03/CEKA-NA-UCITELE.md`.
+
 - **3. 10. 2026 (a) — písnička Suno „Účinky proudu“ čeká na poslech:** `Omega/predavka/2026-10-03/suno/ucinky-proudu-v1.mp3`. Poslechnout hlavně 1:01–1:08, 2:37–2:42 („puls nehledej“) a 1:21–1:25 („děleno dvěma tisíci ohmy“); pak nasadit.
 
 - **3. 10. 2026 (b) — video NotebookLM „Tání“ (8. ročník):** kontrola `Omega/predavka/2026-10-03/kontrola-video-tani.md` = použitelné, 2 střední vady (teploměr na snímku 2 má nesmyslnou stupnici, „L_t“ na snímku 11 s podtržítkem). Volba: **A přegenerovat (doporučeno)** / B použít tak, jak je / C nepoužít; k tomu rozhodnout licenci (podmínky použití videí z NotebookLM).
@@ -335,6 +337,9 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 
 ## 📌 Živé zadání, fronta a reference
 
+- **FRONTA:** brána `testy/uniky.mjs` při nalezeném úniku vrací exit 0, musí spadnout (`Omega/predavka/2026-10-03/kontrola-kviz-rychlost.md`).
+- **FRONTA:** do zadání agentů přidat zákaz `git stash` ve sdíleném repu (`Omega/predavka/2026-10-03/zapis-kviz-rychlost.md`).
+- **HOTOVO 3. 10. 2026:** kvíz rychlost sladěn (7082310).
 - **NotebookLM bonusová videa a Suno písničky zadávat po tématech (1–4); nejdřív inventura existujících** (inventura 2. 10. 2026: `Omega/predavka/2026-10-02/inventura-notebooklm.md`).
 - **ODLOŽENO 2. 10. 2026 večer (drobnosti z kontrol, nic nenasazeno kvůli nim):** (1) kolize slugů – drobnosti z `Omega/predavka/2026-10-02/prace/kontrola-ef35e01.md`; (2) brána poradi-moznosti – 4 drobnosti (N1–N4) z `prace/kontrola-2bae789.md` — HOTOVO (3. 10. 2026): opraveno už commitem b39b22e, ověřeno obousměrně (živá data exit 0, podvrh exit 1), doklad `Omega/predavka/2026-10-03/brana-poradi-oprava.md`; (3) Příroda Q20 – viz bod „čeká na učitele“ (Příroda Q20 + Q21); (4) F9 poznámky `Omega/predavka/2026-10-02/f9-prahy.md`; (5) Teplo Q1 + směr tepla v Q1/Q2/Q6/Q18 — HOTOVO (e262c68, b6810b3); (6) Codexovy požadavky k ročníkovým cestám (viz PRIKAZ-NOVA-SESSION 2. 10.).
 - **KVÍZY F8 tema4 (2. 10. 2026, commit 4edf442):** kvíz Skupenské změny vody v přírodě 19/21 a Tání 18/21 — doplnit na cíl 21 (nebo zapsat výjimku s důvodem).
