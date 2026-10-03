@@ -7,6 +7,7 @@
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
 - **NASAZENO 948dc1a1 3. 10. večer (commit 6e46c77, záložně přes `npx wrangler deploy`, živě 3/3 + SVG, doklad `Omega/predavka/2026-10-03/nasazeni-6e46c77.md`):** úniky, vady D1–D6, SVG, simulace (kolo 3, kontrola-6e46c77), test uniky-v-bloku.
+- **NASAZENO bd7babae 3. 10. večer: úniky paralel/rovina (c3f4aa1), SVG N7 (fbf0165, 62db738)** — záložně `npx wrangler deploy`, živě 3/3 SHA1 == dist, doklad `Omega/predavka/2026-10-03/nasazeni-c3f4aa1.md`.
 
 - **3. 10. 2026 pozdní večer (nejnovější; commity zatím BEZ pushe a nasazení, doklady `Omega/predavka/2026-10-03/`):** HOTOVO: úniky v kvízech 51 → 18 nálezů (54a1233, cdd0e0d, e2793f9; `kontrola-54a1233.md`, `kontrola-cdd0e0d.md`, `kontrola-e2793f9.md`), vady D1–D6 (ffbee08, `kontrola-vady-d1-d6.md`), vše zkontrolováno. HOTOVO: SVG tématu 2 (5a9952f, de827ed, kontrola 6/6). HOTOVO: test uniky-v-bloku bez živých dat (45bdc6d, f261481, kontrola PROŠLO). HOTOVO: brána uniky.mjs exit 1 (f7118a3, pushnuto). HOTOVO: kvíz rychlost (7082310, pushnuto). Simulace téma 2 (2145321, 92196be) — kolo 3 kontroly běží. ODLOŽENO: 18 zbylých nálezů uniky-v-bloku (hraniční/sporné). Fronta viz „Fronta po 3. 10. pozdě večer“ níže. ❓ U14 vrátný: `CEKA-NA-UCITELE.md`.
 
@@ -342,6 +343,8 @@ Nikdy kvůli tomuto nestát — jít dál na další úkol.
 ## 📌 Živé zadání, fronta a reference
 
 - **DROBNOST (kontrola-6e46c77.md):** šipka 5 N v TreniSimulace na telefonu neviditelná, legenda ji slibuje.
+- **DROBNOST (kontrola-uniky-paralel-rovina.md):** paralel: 3 starší nepřímé vazby 19→13, 10→2, 9→1.
+- **DROBNOST (opravy-simulaci-kolo4.md):** SilaVektor: chybí legenda pro 3 malé popisky.
 - **FRONTA:** brána `testy/uniky.mjs` při nalezeném úniku vrací exit 0, musí spadnout (`Omega/predavka/2026-10-03/kontrola-kviz-rychlost.md`).
 - **FRONTA:** do zadání agentů přidat zákaz `git stash` ve sdíleném repu (`Omega/predavka/2026-10-03/zapis-kviz-rychlost.md`).
 - **HOTOVO 3. 10. 2026:** kvíz rychlost sladěn (7082310).
