@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Tlumené kmitání: graf výchylky v čase. Modrá křivka kmitá nahoru a dolů, ale její výchylka se postupně zmenšuje, až se těleso téměř zastaví; šedé čárkované čáry ukazují, jak se největší výchylka zmenšuje. Vpravo nahoře malé kyvadlo, jehož kývání slábne. Animace: křivka se kreslí zleva doprava a kyvadlo zároveň kmitá se zmenšující se výchylkou, až se zastaví.">
+<style>
+/* Předloha: infografika lekce 33 (unnamed (1).png) – „Tlumené kmitání“: graf s modrou křivkou, jejíž výchylka se
+   zmenšuje mezi čárkovanými obálkami, popisek „výchylka se postupně zmenšuje vlivem tření a odporu vzduchu“.
+   Text PDF s. 4 (tlumené kmitání, tření částí tělesa a tření se vzduchem) = výklad § Perioda a frekvence, poslední odstavec.
+   Malé kyvadlo je obrázek navíc (předloha kyvadla PDF s. 2) a kmitá synchronně s grafem: jeden kyv = 40 px grafu = 5 % smyčky.
+   Smyčka 6 s: 0–70 % se křivka kreslí (zakrývací obdélník jede rovnoměrně doprava), 70–95 % stojí celá, pak znovu.
+   Bez animace (reduced-motion) = celá křivka, kyvadlo v klidu. */
+.kryt { animation: kryt 6s linear infinite; }
+@keyframes kryt { 0% { transform: translateX(0); } 70%, 100% { transform: translateX(580px); } }
+.mk { transform-origin: 590px 74px; animation: mk 6s cubic-bezier(.37,0,.63,1) infinite; }
+@keyframes mk { 0% { transform: rotate(24deg); } 5% { transform: rotate(-19.8deg); } 10% { transform: rotate(16.4deg); } 15% { transform: rotate(-13.6deg); } 20% { transform: rotate(11.2deg); } 25% { transform: rotate(-9.3deg); } 30% { transform: rotate(7.7deg); } 35% { transform: rotate(-6.3deg); } 40% { transform: rotate(5.2deg); } 45% { transform: rotate(-4.3deg); } 50% { transform: rotate(3.6deg); } 55% { transform: rotate(-3deg); } 60% { transform: rotate(2.4deg); } 65% { transform: rotate(-2deg); } 70% { transform: rotate(1.7deg); } 75%, 100% { transform: rotate(0deg); } }
+@media (prefers-reduced-motion: reduce) { .kryt, .mk { animation: none; } .kryt { opacity: 0; } }
+</style>
+<defs>
+<radialGradient id="kul" cx="38%" cy="34%" r="70%"><stop offset="0" stop-color="#fff3bf"/><stop offset=".45" stop-color="#ffd43b"/><stop offset="1" stop-color="#e67700"/></radialGradient>
+<clipPath id="graf"><rect x="81" y="60" width="600" height="280"/></clipPath>
+</defs>
+<rect x="3" y="3" width="694" height="444" rx="14" fill="#f8f9fa"/>
+<text x="350" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Tlumené kmitání</text>
+<!-- obálka -->
+<path d="M80 90L120 109.1L160 124.8L200 137.9L240 148.7L280 157.6L320 164.9L360 171L400 176L440 180.2L480 183.6L520 186.5L560 188.8L600 190.8L640 192.4M80 310L120 290.9L160 275.2L200 262.1L240 251.3L280 242.4L320 235.1L360 229L400 224L440 219.8L480 216.4L520 213.5L560 211.2L600 209.2L640 207.6" fill="none" stroke="#868e96" stroke-width="2.5" stroke-dasharray="8 7"/>
+<!-- křivka -->
+<path d="M80 90L84 97.4L88 114.3L92 138.9L96 168.5L100 200L104 230.3L108 256.6L112 276.4L116 288.1L120 290.9L124 284.8L128 270.8L132 250.5L136 226L140 200L144 174.9L148 153.2L152 136.8L156 127.2L160 124.8L164 129.9L168 141.5L172 158.3L176 178.5L180 200L184 220.7L188 238.7L192 252.2L196 260.2L200 262.1L204 258L208 248.4L212 234.5L216 217.8L220 200L224 182.9L228 168L232 156.8L236 150.2L240 148.7L244 152.1L248 160L252 171.5L256 185.3L260 200L264 214.2L268 226.4L272 235.7L276 241.1L280 242.4L284 239.6L288 233.1L292 223.6L296 212.2L300 200L304 188.3L308 178.2L312 170.5L316 166L320 164.9L324 167.3L328 172.7L332 180.5L336 190L340 200L344 209.7L348 218L352 224.4L356 228.1L360 229L364 227.1L368 222.6L372 216.1L376 208.3L380 200L384 192L388 185.1L392 179.9L396 176.8L400 176L404 177.6L408 181.3L412 186.7L416 193.1L420 200L424 206.6L428 212.3L432 216.6L436 219.2L440 219.8L444 218.5L448 215.4L452 211L456 205.7L460 200L464 194.5L468 189.8L472 186.2L476 184.1L480 183.6L484 184.7L488 187.2L492 190.9L496 195.3L500 200L504 204.5L508 208.4L512 211.4L516 213.1L520 213.5L524 212.6L528 210.5L532 207.5L536 203.9L540 200L544 196.3L548 193L552 190.6L556 189.2L560 188.8L564 189.6L568 191.3L572 193.8L576 196.8L580 200L584 203.1L588 205.8L592 207.8L596 209L600 209.2L604 208.6L608 207.2L612 205.1L616 202.6L620 200L624 197.5L628 195.2L632 193.6L636 192.6L640 192.4L650 200" fill="none" stroke="#1864ab" stroke-width="4" stroke-linejoin="round"/>
+<g clip-path="url(#graf)"><rect class="kryt" x="81" y="62" width="600" height="276" fill="#f8f9fa"/></g>
+<!-- osy -->
+<path d="M80 336V70M70 200H664" stroke="#212529" stroke-width="3"/>
+<path d="M72 74L80 58L88 74ZM660 192L676 200L660 208Z" fill="#212529"/>
+<text x="94" y="72" font-size="20" fill="#212529">výchylka</text>
+<text x="664" y="232" font-size="20" fill="#212529" text-anchor="end">čas</text>
+<text x="400" y="120" font-size="20" fill="#495057" text-anchor="middle">výchylka se zmenšuje</text>
+<!-- malé kyvadlo -->
+<path d="M560 66H620" stroke="#343a40" stroke-width="6" stroke-linecap="round"/>
+<path d="M566 62L574 54M580 62L588 54M594 62L602 54M608 62L616 54" stroke="#495057" stroke-width="2.5"/>
+<path d="M590 74V170" stroke="#adb5bd" stroke-width="2" stroke-dasharray="3 6"/>
+<g class="mk"><path d="M590 74V150" stroke="#862e9c" stroke-width="3"/><circle cx="590" cy="74" r="4" fill="#343a40"/><circle cx="590" cy="162" r="13" fill="url(#kul)" stroke="#212529" stroke-width="2.5"/></g>
+<rect x="40" y="352" width="620" height="80" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
+<text x="350" y="384" font-size="20" fill="#212529" text-anchor="middle">Výchylka se postupně zmenšuje, až se těleso zastaví.</text>
+<text x="350" y="413" font-size="20" fill="#212529" text-anchor="middle">Brzdí ho tření o vzduch i tření uvnitř tělesa.</text>
+</svg>

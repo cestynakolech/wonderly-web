@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 590" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Ruka pustí kamínek do vody. V místě dopadu se voda rozkmitá a od něj se do okolí šíří soustředné kruhové vlny. Animace: kamínek padá, dopadne na hladinu a od místa dopadu se postupně rozbíhají tři vlny.">
+<style>
+/* Předloha: infografika lekce 33 (Škola/8/6 Zvuk/33 …/unnamed (1).png) – „Mechanické vlnění“: ruka pouští kamínek
+   na hladinu, kolem soustředné kruhy. Opora ve výkladu § Vlnění (kamínek do vody, molekuly v místě dopadu se rozkmitají,
+   kmitání se šíří dál, vznikají vlny). PDF s. 5 tentýž příklad jen textem.
+   Smyčka 6 s: 0–8 % kamínek v ruce, 8–20 % pád, 20 % dopad, pak se postupně rozbíhají tři vlny (každá 50 % smyčky).
+   Bez animace (reduced-motion) = koncový stav: kamínek pod hladinou, na hladině tři vlny různě daleko od místa dopadu. */
+.km { opacity: 0; animation: km 6s infinite; }
+@keyframes km { 0%, 8% { transform: translateY(0); opacity: 1; animation-timing-function: cubic-bezier(.5,0,1,1); } 20% { transform: translateY(206px); opacity: 1; } 21%, 100% { transform: translateY(206px); opacity: 0; } }
+.vl { transform-origin: 300px 372px; }
+.v1 { transform: scale(1); opacity: .9; animation: v1 6s linear infinite; }
+.v2 { transform: scale(.66); opacity: .9; animation: v2 6s linear infinite; }
+.v3 { transform: scale(.33); opacity: .9; animation: v3 6s linear infinite; }
+@keyframes v1 { 0%, 20% { transform: scale(.04); opacity: 0; } 21% { opacity: 1; } 70% { transform: scale(1); opacity: .15; } 71%, 100% { transform: scale(1); opacity: 0; } }
+@keyframes v2 { 0%, 30% { transform: scale(.04); opacity: 0; } 31% { opacity: 1; } 80% { transform: scale(1); opacity: .15; } 81%, 100% { transform: scale(1); opacity: 0; } }
+@keyframes v3 { 0%, 40% { transform: scale(.04); opacity: 0; } 41% { opacity: 1; } 90% { transform: scale(1); opacity: .15; } 91%, 100% { transform: scale(1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .km, .v1, .v2, .v3 { animation: none; } }
+</style>
+<defs>
+<radialGradient id="voda" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#d0ebff"/><stop offset=".6" stop-color="#a5d8ff"/><stop offset="1" stop-color="#74c0fc"/></radialGradient>
+<radialGradient id="kam" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ced4da"/><stop offset=".6" stop-color="#868e96"/><stop offset="1" stop-color="#495057"/></radialGradient>
+<linearGradient id="ruk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd8b8"/><stop offset="1" stop-color="#f4b183"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="594" height="584" rx="14" fill="#f8f9fa"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kamínek dopadne do vody</text>
+<!-- hladina -->
+<ellipse cx="300" cy="380" rx="282" ry="104" fill="#1971c2" opacity=".18"/>
+<ellipse cx="300" cy="372" rx="280" ry="100" fill="url(#voda)" stroke="#1971c2" stroke-width="3"/>
+<path d="M120 330q14-5 28 0M440 420q14-5 28 0M170 430q12-4 24 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<!-- vlny -->
+<g fill="none" stroke="#1864ab" stroke-width="4">
+<ellipse class="vl v1" cx="300" cy="372" rx="240" ry="82" vector-effect="non-scaling-stroke"/>
+<ellipse class="vl v2" cx="300" cy="372" rx="240" ry="82" vector-effect="non-scaling-stroke"/>
+<ellipse class="vl v3" cx="300" cy="372" rx="240" ry="82" vector-effect="non-scaling-stroke"/>
+</g>
+<circle cx="300" cy="372" r="5" fill="#1864ab"/>
+<!-- ruka s rukávem -->
+<path d="M597 70L420 118L436 168L597 132Z" fill="#2f9e44" stroke="#1b5e2a" stroke-width="3" stroke-linejoin="round"/>
+<path d="M420 118L436 168" stroke="#1b5e2a" stroke-width="6"/>
+<path d="M424 124C398 112 366 112 344 124C330 132 320 142 312 154C318 158 326 156 332 150L344 142C352 150 360 160 372 166C392 172 414 166 432 160Z" fill="url(#ruk)" stroke="#8a5a3c" stroke-width="3" stroke-linejoin="round"/>
+<path d="M346 126C332 126 314 132 300 146C296 150 298 154 304 153C314 150 324 144 336 140" fill="url(#ruk)" stroke="#8a5a3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M372 166C380 160 392 160 400 164M388 120C394 126 396 132 394 138" fill="none" stroke="#8a5a3c" stroke-width="2.5" stroke-linecap="round"/>
+<!-- kamínek -->
+<g class="km">
+<ellipse cx="306" cy="166" rx="15" ry="11" fill="url(#kam)" stroke="#343a40" stroke-width="2.5"/>
+</g>
+<!-- popisky -->
+<path d="M150 252L292 364" stroke="#495057" stroke-width="2" stroke-dasharray="5 5"/>
+<text x="150" y="242" font-size="20" fill="#212529" text-anchor="middle">místo dopadu</text>
+<text x="520" y="250" font-size="20" font-weight="bold" fill="#1864ab" text-anchor="middle">vlny</text>
+<path d="M520 260V290" stroke="#1864ab" stroke-width="3"/><path d="M512 286L520 302L528 286Z" fill="#1864ab"/>
+<rect x="40" y="500" width="520" height="70" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
+<text x="300" y="530" font-size="20" fill="#212529" text-anchor="middle">Kmitání se šíří od místa dopadu do okolí –</text>
+<text x="300" y="557" font-size="20" fill="#212529" text-anchor="middle">vzniká <tspan font-weight="bold">vlnění</tspan>.</text>
+</svg>

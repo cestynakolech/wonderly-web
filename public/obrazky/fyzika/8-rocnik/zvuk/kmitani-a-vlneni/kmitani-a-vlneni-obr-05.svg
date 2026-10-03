@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Podélné vlnění: pruh plný částic. Každá částice kmitá jen tam a zpět ve směru šíření, proto se částice místy nahušťují (tmavší místa) a místy zřeďují (světlejší místa). Nahuštění a zředění postupují doprava. Tři červeně zvýrazněné částice mají červené vodorovné šipky. Modrá šipka ukazuje směr šíření vlnění.">
+<style>
+/* Předloha: PDF lekce 33, s. 8 (horní pruh „Podélné vlnění“: tyrkysový pruh se střídáním tmavých a světlých míst,
+   kuličky s červenými vodorovnými šipkami; rámeček: částice kmitají ve směru šíření, zředění a nahuštění, zvuk ve
+   vzduchu). Výklad § Druhy mechanického vlnění (vlnění podélné: ve směru šíření, nahuštění a zředění částic).
+   Vlnová délka 240 px, perioda 3 s, amplituda částice 14 px; sloupce částic po 20 px, zpoždění = x : 240 · 3 s
+   (dvanáct tříd p0–p11). Tmavé pásy a popisky „nahuštění“ jedou stejnou rychlostí (240 px za 3 s) a leží tam,
+   kde se částice skutečně nahušťují (x = 60 + 240 · k v čase 0).
+   Bez animace (reduced-motion) = okamžik t = 0 (částice posunuté, pásy na místě nahuštění). */
+.pas { animation: pas 3s linear infinite; }
+@keyframes pas { from { transform: translateX(0); } to { transform: translateX(240px); } }
+.p0, .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10, .p11 { animation: kx 1.5s cubic-bezier(.37,0,.63,1) infinite alternate; }
+@keyframes kx { from { transform: translateX(14px); } to { transform: translateX(-14px); } }
+.p0 { transform: translateX(-7px); animation-delay: -2s; }
+.p1 { transform: translateX(-12.1px); animation-delay: -1.75s; }
+.p2 { transform: translateX(-14px); animation-delay: -1.5s; }
+.p3 { transform: translateX(-12.1px); animation-delay: -1.25s; }
+.p4 { transform: translateX(-7px); animation-delay: -1s; }
+.p5 { transform: translateX(0); animation-delay: -.75s; }
+.p6 { transform: translateX(7px); animation-delay: -.5s; }
+.p7 { transform: translateX(12.1px); animation-delay: -.25s; }
+.p8 { transform: translateX(14px); animation-delay: 0s; }
+.p9 { transform: translateX(12.1px); animation-delay: -2.75s; }
+.p10 { transform: translateX(7px); animation-delay: -2.5s; }
+.p11 { transform: translateX(0); animation-delay: -2.25s; }
+@media (prefers-reduced-motion: reduce) { .pas, .p0, .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10, .p11 { animation: none; } }
+</style>
+<defs>
+<clipPath id="okno"><rect x="50" y="68" width="820" height="194"/></clipPath>
+<linearGradient id="hus" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e3fafc"/><stop offset=".5" stop-color="#3bc9db"/><stop offset="1" stop-color="#e3fafc"/></linearGradient>
+<linearGradient id="zl" x1="0" y1="0" x2="1" y2="0"><stop offset=".1" stop-color="#f8f9fa"/><stop offset="1" stop-color="#f8f9fa" stop-opacity="0"/></linearGradient>
+<linearGradient id="zp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f8f9fa" stop-opacity="0"/><stop offset=".9" stop-color="#f8f9fa"/></linearGradient>
+<radialGradient id="cm" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#e3fafc"/><stop offset="1" stop-color="#1098ad"/></radialGradient>
+<radialGradient id="cs" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffc9c9"/><stop offset="1" stop-color="#e03131"/></radialGradient>
+<g id="sl"><circle cy="140" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="170" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="200" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="230" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/></g>
+<g id="sc"><circle cy="140" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><path d="M-30 170H30" stroke="#c92a2a" stroke-width="4"/><path d="M-22 162L-36 170L-22 178ZM22 162L36 170L22 178Z" fill="#c92a2a"/><circle cy="170" r="9" fill="url(#cs)" stroke="#a51d1d" stroke-width="2.5"/><circle cy="200" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/><circle cy="230" r="7" fill="url(#cm)" stroke="#0b7285" stroke-width="2"/></g>
+</defs>
+<rect x="3" y="3" width="894" height="474" rx="14" fill="#f8f9fa"/>
+<text x="450" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Podélné vlnění</text>
+<rect x="50" y="112" width="820" height="148" rx="8" fill="#e3fafc"/>
+<g clip-path="url(#okno)"><g class="pas">
+<rect x="-300" y="112" width="240" height="148" fill="url(#hus)"/><rect x="-60" y="112" width="240" height="148" fill="url(#hus)"/><rect x="180" y="112" width="240" height="148" fill="url(#hus)"/><rect x="420" y="112" width="240" height="148" fill="url(#hus)"/><rect x="660" y="112" width="240" height="148" fill="url(#hus)"/>
+<g font-size="20" font-weight="bold" text-anchor="middle" fill="#0b7285"><text x="-180" y="98">nahuštění</text><text x="60" y="98">nahuštění</text><text x="300" y="98">nahuštění</text><text x="540" y="98">nahuštění</text><text x="780" y="98">nahuštění</text></g>
+<g font-size="20" text-anchor="middle" fill="#212529"><text x="-60" y="98">zředění</text><text x="180" y="98">zředění</text><text x="420" y="98">zředění</text><text x="660" y="98">zředění</text></g>
+</g></g>
+<rect x="40" y="70" width="90" height="38" fill="url(#zl)"/><rect x="790" y="70" width="90" height="38" fill="url(#zp)"/>
+<rect x="50" y="112" width="820" height="148" rx="8" fill="none" stroke="#0b7285" stroke-width="2.5"/>
+<use href="#sl" x="80" class="p0"/><use href="#sl" x="100" class="p1"/><use href="#sl" x="120" class="p2"/><use href="#sl" x="140" class="p3"/><use href="#sl" x="160" class="p4"/><use href="#sc" x="180" class="p5"/><use href="#sl" x="200" class="p6"/><use href="#sl" x="220" class="p7"/><use href="#sl" x="240" class="p8"/><use href="#sl" x="260" class="p9"/><use href="#sl" x="280" class="p10"/><use href="#sl" x="300" class="p11"/>
+<use href="#sl" x="320" class="p0"/><use href="#sl" x="340" class="p1"/><use href="#sl" x="360" class="p2"/><use href="#sl" x="380" class="p3"/><use href="#sl" x="400" class="p4"/><use href="#sc" x="420" class="p5"/><use href="#sl" x="440" class="p6"/><use href="#sl" x="460" class="p7"/><use href="#sl" x="480" class="p8"/><use href="#sl" x="500" class="p9"/><use href="#sl" x="520" class="p10"/><use href="#sl" x="540" class="p11"/>
+<use href="#sl" x="560" class="p0"/><use href="#sl" x="580" class="p1"/><use href="#sl" x="600" class="p2"/><use href="#sl" x="620" class="p3"/><use href="#sl" x="640" class="p4"/><use href="#sc" x="660" class="p5"/><use href="#sl" x="680" class="p6"/><use href="#sl" x="700" class="p7"/><use href="#sl" x="720" class="p8"/><use href="#sl" x="740" class="p9"/><use href="#sl" x="760" class="p10"/><use href="#sl" x="780" class="p11"/>
+<use href="#sl" x="800" class="p0"/><use href="#sl" x="820" class="p1"/><use href="#sl" x="840" class="p2"/>
+<!-- legenda -->
+<path d="M84 304H126" stroke="#c92a2a" stroke-width="4"/><path d="M90 296L76 304L90 312ZM120 296L134 304L120 312Z" fill="#c92a2a"/>
+<text x="150" y="311" font-size="20" fill="#212529">částice kmitá tam a zpět</text>
+<path d="M520 304H760" stroke="#1864ab" stroke-width="5"/><path d="M756 292L780 304L756 316Z" fill="#1864ab"/>
+<text x="650" y="338" font-size="20" fill="#212529" text-anchor="middle">směr šíření vlnění</text>
+<rect x="60" y="364" width="780" height="92" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
+<text x="450" y="397" font-size="20" fill="#212529" text-anchor="middle">Částice kmitají <tspan font-weight="bold">ve směru</tspan> šíření vlnění.</text>
+<text x="450" y="424" font-size="20" fill="#212529" text-anchor="middle">Vzniká nahuštěním a zředěním částic. Příklad: zvuk.</text>
+<text x="450" y="447" font-size="18" fill="#212529" text-anchor="middle">Podélné vlnění existuje ve všech skupenstvích.</text>
+</svg>

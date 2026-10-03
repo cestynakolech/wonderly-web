@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 580" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Závaží na pružině zavěšené na stropě kmitá nahoru a dolů. Čárkovaná vodorovná čára je rovnovážná poloha, čárkované obrysy závaží ukazují horní a dolní krajní polohu. Červená šipka mezi rovnovážnou a krajní polohou je amplituda. Animace: pružina se natahuje a stlačuje a závaží kmitá kolem rovnovážné polohy.">
+<style>
+/* Předloha: PDF lekce 33, s. 5 – modrá pružina zavěšená na šrafovaném stropě, dole hnědooranžové závaží (kvádr).
+   Výklad: kmitání, rovnovážná poloha, amplituda (§ Základní pojmy kmitání); infografika – „Pružina“.
+   Perioda smyčky 2,5 s, průběh blízký sinusu; pružina se protahuje stejně, jako se posouvá závaží (±40 px).
+   Bez animace (reduced-motion) = závaží v rovnovážné poloze. */
+.pr { transform-origin: 300px 72px; animation: pr 1.25s cubic-bezier(.37,0,.63,1) infinite alternate; }
+.zv { animation: zv 1.25s cubic-bezier(.37,0,.63,1) infinite alternate; }
+@keyframes pr { from { transform: scaleY(.823); } to { transform: scaleY(1.177); } }
+@keyframes zv { from { transform: translateY(-40px); } to { transform: translateY(40px); } }
+@media (prefers-reduced-motion: reduce) { .pr, .zv { animation: none; } }
+</style>
+<defs>
+<linearGradient id="med" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8590c"/><stop offset=".35" stop-color="#f08c4a"/><stop offset="1" stop-color="#a33a0b"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="594" height="574" rx="14" fill="#f8f9fa"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Závaží na pružině kmitá</text>
+<path d="M226 62L238 50M244 62L256 50M262 62L274 50M280 62L292 50M298 62L310 50M316 62L328 50M334 62L346 50M352 62L364 50M370 62L382 50" stroke="#495057" stroke-width="3"/>
+<rect x="220" y="62" width="160" height="10" rx="2" fill="#343a40"/>
+<!-- krajní polohy (čárkované obrysy) -->
+<rect x="255" y="272" width="90" height="76" rx="6" fill="none" stroke="#868e96" stroke-width="2.5" stroke-dasharray="7 6"/>
+<rect x="255" y="352" width="90" height="76" rx="6" fill="none" stroke="#868e96" stroke-width="2.5" stroke-dasharray="7 6"/>
+<text x="360" y="292" font-size="18" fill="#212529">horní krajní poloha</text>
+<text x="360" y="424" font-size="18" fill="#212529">dolní krajní poloha</text>
+<!-- rovnovážná poloha -->
+<path d="M140 350H460" stroke="#495057" stroke-width="2.5" stroke-dasharray="12 8"/>
+<text x="468" y="344" font-size="20" fill="#212529">rovnovážná</text>
+<text x="468" y="368" font-size="20" fill="#212529">poloha</text>
+<!-- amplituda -->
+<path d="M160 390H250" stroke="#868e96" stroke-width="2" stroke-dasharray="5 5"/>
+<path d="M190 360V380" stroke="#c92a2a" stroke-width="4"/><path d="M182 362L190 350L198 362ZM182 378L190 390L198 378Z" fill="#c92a2a"/>
+<text x="180" y="378" font-size="22" font-weight="bold" fill="#c92a2a" text-anchor="end">amplituda</text>
+<!-- pružina -->
+<g class="pr" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke">
+<path d="M300 72V86Q300 96 270 96M270 284Q300 288 300 300" stroke="#1c7ed6" stroke-width="5" vector-effect="non-scaling-stroke"/>
+<path d="M330 105.4C318 113.4 282 110.8 270 114.8M330 124.2C318 132.2 282 129.6 270 133.6M330 143C318 151 282 148.4 270 152.4M330 161.8C318 169.8 282 167.2 270 171.2M330 180.6C318 188.6 282 186 270 190M330 199.4C318 207.4 282 204.8 270 208.8M330 218.2C318 226.2 282 223.6 270 227.6M330 237C318 245 282 242.4 270 246.4M330 255.8C318 263.8 282 261.2 270 265.2M330 274.6C318 282.6 282 280 270 284" stroke="#74c0fc" stroke-width="4" vector-effect="non-scaling-stroke"/>
+<path d="M270 96C285 90 320 97.4 330 105.4M270 114.8C285 108.8 320 116.2 330 124.2M270 133.6C285 127.6 320 135 330 143M270 152.4C285 146.4 320 153.8 330 161.8M270 171.2C285 165.2 320 172.6 330 180.6M270 190C285 184 320 191.4 330 199.4M270 208.8C285 202.8 320 210.2 330 218.2M270 227.6C285 221.6 320 229 330 237M270 246.4C285 240.4 320 247.8 330 255.8M270 265.2C285 259.2 320 266.6 330 274.6" stroke="#1864ab" stroke-width="5" vector-effect="non-scaling-stroke"/>
+</g>
+<!-- závaží -->
+<g class="zv">
+<circle cx="300" cy="305" r="6" fill="none" stroke="#495057" stroke-width="3"/>
+<rect x="255" y="312" width="90" height="76" rx="6" fill="url(#med)" stroke="#5c2a06" stroke-width="3"/>
+<path d="M262 318H338" stroke="#ffc9a3" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+</g>
+<rect x="40" y="466" width="520" height="90" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
+<text x="300" y="503" font-size="22" fill="#212529" text-anchor="middle">Závaží kmitá nahoru a dolů</text>
+<text x="300" y="535" font-size="22" fill="#212529" text-anchor="middle">kolem <tspan font-weight="bold">rovnovážné polohy</tspan>.</text>
+</svg>

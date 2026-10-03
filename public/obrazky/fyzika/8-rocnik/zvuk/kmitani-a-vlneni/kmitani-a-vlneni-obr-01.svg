@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Kyvadlo: kulička na tyčce zavěšená na stropě kmitá. Svislá tečkovaná čára ukazuje rovnovážnou polohu, čárkovaný oblouk dráhu kuličky a dvě čárkované kuličky krajní výchylky na obou stranách. Červený oblouk od rovnovážné polohy ke krajní výchylce je amplituda. Plaketa: kmit je pohyb tam a zpět, kyv jen jedním směrem, tedy půl kmitu. Animace: kulička se kývá mezi oběma krajními výchylkami.">
+<style>
+/* Předloha: PDF lekce 33 (Škola/8/6 Zvuk/33 …/33. Kmitání a vlnění (nad rámec RVP).pdf), s. 2 – kyvadlo zavěšené
+   na šrafovaném závěsu, svislá tečkovaná rovnovážná poloha, čárkovaná dráha kuličky, žlutá kulička vychýlená vlevo;
+   pod obrázkem pojmy rovnovážná poloha a kmitání. Doplněno podle výkladu (§ Základní pojmy kmitání): krajní výchylky,
+   amplituda, kmit a kyv. Infografika (unnamed (1).png) – „Kmit vs. Kyv“.
+   Perioda smyčky 3 s (2 kyvy po 1,5 s), průběh blízký sinusu. Bez animace (reduced-motion) = kulička v rovnovážné poloze,
+   krajní výchylky ukazují čárkované kuličky. */
+.kv { transform-origin: 300px 90px; animation: kv 1.5s cubic-bezier(.37,0,.63,1) infinite alternate; }
+@keyframes kv { from { transform: rotate(24deg); } to { transform: rotate(-24deg); } }
+@media (prefers-reduced-motion: reduce) { .kv { animation: none; } }
+</style>
+<defs>
+<radialGradient id="kul" cx="38%" cy="34%" r="70%"><stop offset="0" stop-color="#fff3bf"/><stop offset=".45" stop-color="#ffd43b"/><stop offset="1" stop-color="#e67700"/></radialGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#c92a2a"/></marker>
+</defs>
+<rect x="3" y="3" width="594" height="674" rx="14" fill="#f8f9fa"/>
+<text x="300" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Kyvadlo kmitá</text>
+<!-- závěs: šrafovaný strop -->
+<path d="M236 62L250 46M256 62L270 46M276 62L290 46M296 62L310 46M316 62L330 46M336 62L350 46M356 62L370 46" stroke="#495057" stroke-width="3"/>
+<rect x="228" y="62" width="144" height="10" rx="2" fill="#343a40"/>
+<rect x="290" y="72" width="20" height="14" rx="3" fill="#495057"/>
+<!-- rovnovážná poloha -->
+<path d="M300 90V528" stroke="#495057" stroke-width="2.5" stroke-dasharray="3 7" stroke-linecap="round"/>
+<!-- dráha kuličky -->
+<path d="M135 375.8A330 330 0 0 0 465 375.8" fill="none" stroke="#862e9c" stroke-width="2.5" stroke-dasharray="10 9"/>
+<!-- krajní výchylky (čárkovaně) -->
+<path d="M300 90L165.8 391.5M300 90L434.2 391.5" stroke="#adb5bd" stroke-width="2.5" stroke-dasharray="8 8"/>
+<circle cx="165.8" cy="391.5" r="24" fill="#fff" stroke="#868e96" stroke-width="2.5" stroke-dasharray="6 5"/>
+<circle cx="434.2" cy="391.5" r="24" fill="#fff" stroke="#868e96" stroke-width="2.5" stroke-dasharray="6 5"/>
+<text x="126" y="372" font-size="20" fill="#212529" text-anchor="end">krajní</text>
+<text x="126" y="396" font-size="20" fill="#212529" text-anchor="end">výchylka</text>
+<text x="474" y="372" font-size="20" fill="#212529">krajní</text>
+<text x="474" y="396" font-size="20" fill="#212529">výchylka</text>
+<!-- amplituda -->
+<path d="M300 462A372 372 0 0 0 451.3 429.8" fill="none" stroke="#c92a2a" stroke-width="4" marker-start="url(#sip)" marker-end="url(#sip)"/>
+<text x="404" y="482" font-size="22" font-weight="bold" fill="#c92a2a">amplituda</text>
+<text x="300" y="556" font-size="20" fill="#212529" text-anchor="middle">rovnovážná poloha</text>
+<!-- kyvadlo -->
+<g class="kv">
+<path d="M300 90V396" stroke="#862e9c" stroke-width="4" stroke-linecap="round"/>
+<circle cx="300" cy="90" r="6" fill="#343a40"/>
+<circle cx="300" cy="420" r="24" fill="url(#kul)" stroke="#212529" stroke-width="3"/>
+<ellipse cx="292" cy="410" rx="8" ry="5" fill="#fff" opacity=".7"/>
+<circle cx="300" cy="420" r="3" fill="#212529"/>
+</g>
+<rect x="40" y="578" width="520" height="84" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
+<text x="300" y="611" font-size="22" fill="#212529" text-anchor="middle"><tspan font-weight="bold">Kmit:</tspan> tam a zpět.</text>
+<text x="300" y="643" font-size="22" fill="#212529" text-anchor="middle"><tspan font-weight="bold">Kyv:</tspan> jen jedním směrem – půl kmitu.</text>
+</svg>

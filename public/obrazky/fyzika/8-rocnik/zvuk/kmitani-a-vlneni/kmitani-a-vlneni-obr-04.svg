@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 530" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Příčné vlnění: řada částic na vlnité čáře. Vlna s kopečky a údolími postupuje doprava, každá částice přitom kmitá jen nahoru a dolů, kolmo na směr šíření. Tři červeně zvýrazněné částice s červenými svislými šipkami kmitají stejně; vzdálenost dvou sousedních z nich je vlnová délka λ. Modrá šipka ukazuje směr šíření vlnění.">
+<style>
+/* Předloha: PDF lekce 33, s. 8 (dolní pruh „Příčné vlnění“: vlnitá čára, na ní kuličky s červenými svislými šipkami;
+   rámeček: částice kmitají kolmo ke směru šíření, vytváří viditelné vlny s „kopečky a údolími“). Výklad § Druhy
+   mechanického vlnění a § Vlnová délka (nejmenší vzdálenost dvou bodů, které kmitají stejně).
+   Vlnová délka 240 px, perioda 3 s, vlna jede doprava rychlostí 240 px za 3 s. Částice po 30 px; zpoždění každé
+   částice = x : 240 · 3 s (osm tříd q0–q7). Červené částice (x = 180, 420, 660) jsou přesně λ od sebe → kmitají stejně.
+   Bez animace (reduced-motion) = okamžik t = 0: částice leží na nakreslené vlně. */
+.vl { animation: vl 3s linear infinite; }
+@keyframes vl { from { transform: translateX(0); } to { transform: translateX(240px); } }
+.q0, .q1, .q2, .q3, .q4, .q5, .q6, .q7 { animation: kp 1.5s cubic-bezier(.37,0,.63,1) infinite alternate; }
+@keyframes kp { from { transform: translateY(-50px); } to { transform: translateY(50px); } }
+.q0 { transform: translateY(0); animation-delay: -2.25s; }
+.q1 { transform: translateY(35.4px); animation-delay: -1.875s; }
+.q2 { transform: translateY(50px); animation-delay: -1.5s; }
+.q3 { transform: translateY(35.4px); animation-delay: -1.125s; }
+.q4 { transform: translateY(0); animation-delay: -.75s; }
+.q5 { transform: translateY(-35.4px); animation-delay: -.375s; }
+.q6 { transform: translateY(-50px); animation-delay: 0s; }
+.q7 { transform: translateY(-35.4px); animation-delay: -2.625s; }
+@media (prefers-reduced-motion: reduce) { .vl, .q0, .q1, .q2, .q3, .q4, .q5, .q6, .q7 { animation: none; } }
+</style>
+<defs>
+<clipPath id="okno"><rect x="40" y="80" width="820" height="240"/></clipPath>
+<radialGradient id="cm" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#c5f6fa"/><stop offset="1" stop-color="#22b8cf"/></radialGradient>
+<radialGradient id="cs" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffc9c9"/><stop offset="1" stop-color="#e03131"/></radialGradient>
+</defs>
+<rect x="3" y="3" width="894" height="524" rx="14" fill="#f8f9fa"/>
+<text x="450" y="40" font-size="26" font-weight="bold" fill="#212529" text-anchor="middle">Příčné vlnění</text>
+<path d="M40 200H860" stroke="#adb5bd" stroke-width="2" stroke-dasharray="6 8"/>
+<g clip-path="url(#okno)"><path class="vl" d="M-180 200L-170 212.9L-160 225L-150 235.4L-140 243.3L-130 248.3L-120 250L-110 248.3L-100 243.3L-90 235.4L-80 225L-70 212.9L-60 200L-50 187.1L-40 175L-30 164.6L-20 156.7L-10 151.7L0 150L10 151.7L20 156.7L30 164.6L40 175L50 187.1L60 200L70 212.9L80 225L90 235.4L100 243.3L110 248.3L120 250L130 248.3L140 243.3L150 235.4L160 225L170 212.9L180 200L190 187.1L200 175L210 164.6L220 156.7L230 151.7L240 150L250 151.7L260 156.7L270 164.6L280 175L290 187.1L300 200L310 212.9L320 225L330 235.4L340 243.3L350 248.3L360 250L370 248.3L380 243.3L390 235.4L400 225L410 212.9L420 200L430 187.1L440 175L450 164.6L460 156.7L470 151.7L480 150L490 151.7L500 156.7L510 164.6L520 175L530 187.1L540 200L550 212.9L560 225L570 235.4L580 243.3L590 248.3L600 250L610 248.3L620 243.3L630 235.4L640 225L650 212.9L660 200L670 187.1L680 175L690 164.6L700 156.7L710 151.7L720 150L730 151.7L740 156.7L750 164.6L760 175L770 187.1L780 200L790 212.9L800 225L810 235.4L820 243.3L830 248.3L840 250L850 248.3L860 243.3L870 235.4" fill="none" stroke="#0b7285" stroke-width="5" stroke-linejoin="round"/></g>
+<circle class="q0" cx="60" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q1" cx="90" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q2" cx="120" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q3" cx="150" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><g class="q4"><path d="M180 158V172M180 228V242" stroke="#c92a2a" stroke-width="4"/><path d="M171 162L180 148L189 162ZM171 238L180 252L189 238Z" fill="#c92a2a"/><circle cx="180" cy="200" r="12" fill="url(#cs)" stroke="#a51d1d" stroke-width="3"/></g><circle class="q5" cx="210" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q6" cx="240" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q7" cx="270" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q0" cx="300" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q1" cx="330" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q2" cx="360" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q3" cx="390" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><g class="q4"><path d="M420 158V172M420 228V242" stroke="#c92a2a" stroke-width="4"/><path d="M411 162L420 148L429 162ZM411 238L420 252L429 238Z" fill="#c92a2a"/><circle cx="420" cy="200" r="12" fill="url(#cs)" stroke="#a51d1d" stroke-width="3"/></g><circle class="q5" cx="450" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q6" cx="480" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q7" cx="510" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q0" cx="540" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q1" cx="570" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q2" cx="600" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q3" cx="630" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><g class="q4"><path d="M660 158V172M660 228V242" stroke="#c92a2a" stroke-width="4"/><path d="M651 162L660 148L669 162ZM651 238L660 252L669 238Z" fill="#c92a2a"/><circle cx="660" cy="200" r="12" fill="url(#cs)" stroke="#a51d1d" stroke-width="3"/></g><circle class="q5" cx="690" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q6" cx="720" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q7" cx="750" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q0" cx="780" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q1" cx="810" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/><circle class="q2" cx="840" cy="200" r="10" fill="url(#cm)" stroke="#0b7285" stroke-width="2.5"/>
+<!-- vlnová délka -->
+<path d="M180 314V338M420 314V338" stroke="#5f3dc4" stroke-width="2.5" stroke-dasharray="4 4"/>
+<path d="M180 326H420" stroke="#5f3dc4" stroke-width="3.5"/><path d="M194 318L180 326L194 334ZM406 318L420 326L406 334Z" fill="#5f3dc4"/>
+<text x="300" y="358" font-size="22" font-weight="bold" fill="#5f3dc4" text-anchor="middle">λ (vlnová délka)</text>
+<!-- legenda -->
+<path d="M90 384V412" stroke="#c92a2a" stroke-width="4"/><path d="M82 388L90 374L98 388ZM82 408L90 422L98 408Z" fill="#c92a2a"/>
+<text x="110" y="406" font-size="20" fill="#212529">částice kmitá nahoru a dolů</text>
+<path d="M520 398H760" stroke="#1864ab" stroke-width="5"/><path d="M756 386L780 398L756 410Z" fill="#1864ab"/>
+<text x="650" y="384" font-size="20" fill="#212529" text-anchor="middle">směr šíření vlnění</text>
+<rect x="60" y="438" width="780" height="72" rx="12" fill="#e3fafc" stroke="#0b7285" stroke-width="2.5"/>
+<text x="450" y="469" font-size="20" fill="#212529" text-anchor="middle">Částice kmitají <tspan font-weight="bold">kolmo</tspan> na směr šíření vlnění.</text>
+<text x="450" y="496" font-size="20" fill="#212529" text-anchor="middle">Vlnu je vidět jako kopečky a údolí (vlny na hladině, struna kytary).</text>
+</svg>
