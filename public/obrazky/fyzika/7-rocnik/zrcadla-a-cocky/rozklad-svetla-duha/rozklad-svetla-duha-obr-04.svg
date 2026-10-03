@@ -24,7 +24,7 @@
 </style>
 <defs>
 <linearGradient id="r4nebe" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#a5d8ff"/><stop offset="0.5" stop-color="#8fb8d8"/><stop offset="1" stop-color="#6f8598"/>
+<stop offset="0" stop-color="#a5d8ff"/><stop offset="0.35" stop-color="#8fb8d8"/><stop offset="1" stop-color="#6f8598"/>
 </linearGradient>
 <linearGradient id="r4trava" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0" stop-color="#5c8a3a"/><stop offset="1" stop-color="#3f6b26"/>
@@ -38,81 +38,86 @@
 <linearGradient id="r4mrak" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0" stop-color="#868e96"/><stop offset="1" stop-color="#495057"/>
 </linearGradient>
+<clipPath id="r4ram"><rect x="3" y="3" width="594" height="434" rx="14"/></clipPath>
 <clipPath id="r4nad"><rect x="3" y="3" width="594" height="357"/></clipPath>
-<clipPath id="r4destclip"><rect x="300" y="100" width="297" height="260"/></clipPath>
+<clipPath id="r4destclip"><rect x="128" y="78" width="469" height="282"/></clipPath>
 </defs>
 <rect x="3" y="3" width="594" height="434" rx="14" fill="url(#r4nebe)"/>
 <path d="M3,360 H597 V423 Q597,437 583,437 H17 Q3,437 3,423 Z" fill="url(#r4trava)"/>
 <path d="M3,360 Q150,350 300,358 T597,354 L597,362 L3,362 Z" fill="#6b9a45"/>
 
-<!-- Slunce (za zády pozorovatele) -->
-<circle cx="55" cy="65" r="52" fill="url(#r4zare)"/>
-<circle cx="55" cy="65" r="28" fill="url(#r4slunce)" stroke="#f59f00" stroke-width="2"/>
-<text x="95" y="38" font-size="22" font-weight="bold" fill="#5c3c00">Slunce za zády</text>
+<!-- Slunce (za zády pozorovatele, v levém horním rohu, částečně za okrajem) -->
+<g clip-path="url(#r4ram)">
+<circle cx="25" cy="75" r="52" fill="url(#r4zare)"/>
+<circle cx="25" cy="75" r="28" fill="url(#r4slunce)" stroke="#f59f00" stroke-width="2"/>
+</g>
+<text x="66" y="36" font-size="22" font-weight="bold" fill="#5c3c00">Slunce za zády</text>
 
-<!-- dešťový mrak a déšť -->
+<!-- dešťový mrak a déšť: déšť pokrývá celou oblast, kde stojí oblouky duhy (x od 128) -->
 <g fill="url(#r4mrak)">
-<ellipse cx="400" cy="85" rx="80" ry="34"/>
-<ellipse cx="480" cy="62" rx="70" ry="40"/>
-<ellipse cx="555" cy="82" rx="60" ry="34"/>
-<ellipse cx="350" cy="100" rx="50" ry="22"/>
-<rect x="340" y="80" width="257" height="40" rx="18"/>
+<ellipse cx="262" cy="60" rx="66" ry="22"/>
+<ellipse cx="365" cy="48" rx="88" ry="30"/>
+<ellipse cx="470" cy="38" rx="80" ry="32"/>
+<ellipse cx="555" cy="52" rx="60" ry="30"/>
+<rect x="200" y="46" width="397" height="34" rx="17"/>
 </g>
-<path d="M420,50 Q480,22 540,48" fill="none" stroke="#adb5bd" stroke-width="4" opacity="0.6" stroke-linecap="round"/>
+<path d="M410,26 Q470,8 530,24" fill="none" stroke="#adb5bd" stroke-width="4" opacity="0.6" stroke-linecap="round"/>
 <g clip-path="url(#r4destclip)">
-<path class="dest" d="M312,42v16M332,66v16M352,42v16M372,66v16M392,42v16M412,66v16M432,42v16M452,66v16M472,42v16M492,66v16M512,42v16M532,66v16M552,42v16M572,66v16M590,42v16M312,90v16M312,138v16M312,186v16M312,234v16M312,282v16M312,330v16M332,114v16M332,162v16M332,210v16M332,258v16M332,306v16M332,354v16M352,90v16M352,138v16M352,186v16M352,234v16M352,282v16M352,330v16M372,114v16M372,162v16M372,210v16M372,258v16M372,306v16M372,354v16M392,90v16M392,138v16M392,186v16M392,234v16M392,282v16M392,330v16M412,114v16M412,162v16M412,210v16M412,258v16M412,306v16M412,354v16M432,90v16M432,138v16M432,186v16M432,234v16M432,282v16M432,330v16M452,114v16M452,162v16M452,210v16M452,258v16M452,306v16M452,354v16M472,90v16M472,138v16M472,186v16M472,234v16M472,282v16M472,330v16M492,114v16M492,162v16M492,210v16M492,258v16M492,306v16M492,354v16M512,90v16M512,138v16M512,186v16M512,234v16M512,282v16M512,330v16M532,114v16M532,162v16M532,210v16M532,258v16M532,306v16M532,354v16M552,90v16M552,138v16M552,186v16M552,234v16M552,282v16M552,330v16M572,114v16M572,162v16M572,210v16M572,258v16M572,306v16M572,354v16M590,90v16M590,138v16M590,186v16M590,234v16M590,282v16M590,330v16" stroke="#dbe4ff" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+<path class="dest" d="M132,66v16M132,114v16M132,162v16M132,210v16M132,258v16M132,306v16M132,354v16M152,42v16M152,90v16M152,138v16M152,186v16M152,234v16M152,282v16M152,330v16M172,66v16M172,114v16M172,162v16M172,210v16M172,258v16M172,306v16M172,354v16M192,42v16M192,90v16M192,138v16M192,186v16M192,234v16M192,282v16M192,330v16M212,66v16M212,114v16M212,162v16M212,210v16M212,258v16M212,306v16M212,354v16M232,42v16M232,90v16M232,138v16M232,186v16M232,234v16M232,282v16M232,330v16M252,66v16M252,114v16M252,162v16M252,210v16M252,258v16M252,306v16M252,354v16M272,42v16M272,90v16M272,138v16M272,186v16M272,234v16M272,282v16M272,330v16M292,66v16M292,114v16M292,162v16M292,210v16M292,258v16M292,306v16M292,354v16M312,42v16M312,90v16M312,138v16M312,186v16M312,234v16M312,282v16M312,330v16M332,66v16M332,114v16M332,162v16M332,210v16M332,258v16M332,306v16M332,354v16M352,42v16M352,90v16M352,138v16M352,186v16M352,234v16M352,282v16M352,330v16M372,66v16M372,114v16M372,162v16M372,210v16M372,258v16M372,306v16M372,354v16M392,42v16M392,90v16M392,138v16M392,186v16M392,234v16M392,282v16M392,330v16M412,66v16M412,114v16M412,162v16M412,210v16M412,258v16M412,306v16M412,354v16M432,42v16M432,90v16M432,138v16M432,186v16M432,234v16M432,282v16M432,330v16M452,66v16M452,114v16M452,162v16M452,210v16M452,258v16M452,306v16M452,354v16M472,42v16M472,90v16M472,138v16M472,186v16M472,234v16M472,282v16M472,330v16M492,66v16M492,114v16M492,162v16M492,210v16M492,258v16M492,306v16M492,354v16M512,42v16M512,90v16M512,138v16M512,186v16M512,234v16M512,282v16M512,330v16M532,66v16M532,114v16M532,162v16M532,210v16M532,258v16M532,306v16M532,354v16M552,42v16M552,90v16M552,138v16M552,186v16M552,234v16M552,282v16M552,330v16M572,66v16M572,114v16M572,162v16M572,210v16M572,258v16M572,306v16M572,354v16M592,42v16M592,90v16M592,138v16M592,186v16M592,234v16M592,282v16M592,330v16" stroke="#dbe4ff" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
 </g>
-<text x="545" y="152" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">déšť</text>
+<text x="560" y="112" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">déšť</text>
 
 <g class="celek">
-<!-- duhy: schematicky (jako předloha) oblouky se středem C(366,408) pod obzorem; spodek zakryje zem.
-     Geometrie (přepočet 3. 10. 2026): C leží na antisolární přímce (prodloužení slunečních paprsků
-     okem 122,291; sklon 0,48). Úhel u oka mezi antisolárním směrem a paprskem z kapky:
-     červená 42,0° (kapka 396.7,210.4 na červeném oblouku r 200), fialová 40,0° (kapka 351,232.4 na
-     fialovém oblouku r 176). Šířka pásu barev je zvětšená, aby byla vidět; poměr poloměrů středů pásů
-     vedlejší/hlavní 224/188 = 1,19 ≈ sin 51° / sin 41° = 1,18 (vedlejší duha ~51°, hlavní ~41°). -->
+<!-- duhy: schematicky (jako předloha) oblouky se středem C(410,372) pod obzorem; spodek zakryje zem,
+     pravý konec ořízne rámeček. Geometrie (přepočet 3. 10. 2026, oprava 2): oko pozorovatele E(82,291),
+     C leží na antisolární přímce (prodloužení slunečních paprsků okem; sklon 81/328 = 0,247, stejný
+     jako sluneční paprsky). Úhel u oka mezi antisolárním směrem a paprskem z kapky: červená 42,0°
+     (kapka 363.2,140.7 na červeném oblouku r 236), fialová 40,0° (kapka 331.4,168.6 na fialovém
+     oblouku r 218). Nohy oblouků u obzoru x 147–192 — v dešti, s odstupem od pozorovatele i jeho stínu.
+     Šířka pásu barev je zvětšená, aby byla vidět. -->
 <g clip-path="url(#r4nad)" fill="none" stroke-width="5.5">
 <!-- vedlejší duha: slabší, výš, opačné pořadí (fialová venku, červená uvnitř) -->
 <g class="vd"><g opacity="0.45" stroke-width="4.5">
-<path d="M130,408 A236,236 0 0 1 602,408" stroke="#cc5de8"/>
-<path d="M134,408 A232,232 0 0 1 598,408" stroke="#5c5ce6"/>
-<path d="M138,408 A228,228 0 0 1 594,408" stroke="#339af0"/>
-<path d="M142,408 A224,224 0 0 1 590,408" stroke="#40c057"/>
-<path d="M146,408 A220,220 0 0 1 586,408" stroke="#fcc419"/>
-<path d="M150,408 A216,216 0 0 1 582,408" stroke="#fd7e14"/>
-<path d="M154,408 A212,212 0 0 1 578,408" stroke="#f03e3e"/>
+<path d="M147,372 A263,263 0 0 1 673,372" stroke="#cc5de8"/>
+<path d="M150,372 A260,260 0 0 1 670,372" stroke="#5c5ce6"/>
+<path d="M153,372 A257,257 0 0 1 667,372" stroke="#339af0"/>
+<path d="M156,372 A254,254 0 0 1 664,372" stroke="#40c057"/>
+<path d="M159,372 A251,251 0 0 1 661,372" stroke="#fcc419"/>
+<path d="M162,372 A248,248 0 0 1 658,372" stroke="#fd7e14"/>
+<path d="M165,372 A245,245 0 0 1 655,372" stroke="#f03e3e"/>
 </g></g>
 <!-- hlavní duha: červená nahoře (venku), fialová dole (uvnitř) -->
 <g class="hd">
-<path d="M166,408 A200,200 0 0 1 566,408" stroke="#f03e3e"/>
-<path d="M170,408 A196,196 0 0 1 562,408" stroke="#fd7e14"/>
-<path d="M174,408 A192,192 0 0 1 558,408" stroke="#fcc419"/>
-<path d="M178,408 A188,188 0 0 1 554,408" stroke="#40c057"/>
-<path d="M182,408 A184,184 0 0 1 550,408" stroke="#339af0"/>
-<path d="M186,408 A180,180 0 0 1 546,408" stroke="#5c5ce6"/>
-<path d="M190,408 A176,176 0 0 1 542,408" stroke="#cc5de8"/>
+<path d="M174,372 A236,236 0 0 1 646,372" stroke="#f03e3e"/>
+<path d="M177,372 A233,233 0 0 1 643,372" stroke="#fd7e14"/>
+<path d="M180,372 A230,230 0 0 1 640,372" stroke="#fcc419"/>
+<path d="M183,372 A227,227 0 0 1 637,372" stroke="#40c057"/>
+<path d="M186,372 A224,224 0 0 1 634,372" stroke="#339af0"/>
+<path d="M189,372 A221,221 0 0 1 631,372" stroke="#5c5ce6"/>
+<path d="M192,372 A218,218 0 0 1 628,372" stroke="#cc5de8"/>
 </g>
 </g>
 
-<!-- sluneční paprsky (rovnoběžné, sklon 0,48, vycházejí ze slunečního kotouče) míří přes hlavu pozorovatele do deště -->
+<!-- sluneční paprsky (rovnoběžné, sklon 0,247, vycházejí ze slunečního kotouče) míří přes hlavu pozorovatele do deště -->
 <g stroke="#fff9db" stroke-width="3" stroke-linecap="round">
-<line x1="62" y1="49.7" x2="396.7" y2="210.4" pathLength="100" class="sl"/>
-<line x1="55" y1="65" x2="430" y2="245" pathLength="100" class="sl" opacity="0.7"/>
-<line x1="60" y1="92.7" x2="351" y2="232.4" pathLength="100" class="sl"/>
+<line x1="35" y1="59.7" x2="363.2" y2="140.7" pathLength="100" class="sl"/>
+<line x1="35" y1="77.7" x2="430" y2="175.2" pathLength="100" class="sl" opacity="0.7"/>
+<line x1="35" y1="95.4" x2="331.4" y2="168.6" pathLength="100" class="sl"/>
 </g>
 <!-- dvě kapky: horní posílá k oku červenou, dolní fialovou -->
 <g class="kp" stroke="#1864ab" stroke-width="1.5">
-<path d="M396.7,202.7 Q401.7,209.7 401.7,212.7 A5,5 0 0 1 391.7,212.7 Q391.7,209.7 396.7,202.7 Z" fill="#d0ebff"/>
-<path d="M351,224.7 Q356,231.7 356,234.7 A5,5 0 0 1 346,234.7 Q346,231.7 351,224.7 Z" fill="#d0ebff"/>
+<path d="M363.2,134.5 Q367.2,140.1 367.2,142.5 A4,4 0 0 1 359.2,142.5 Q359.2,140.1 363.2,134.5 Z" fill="#d0ebff"/>
+<path d="M331.4,162.4 Q335.4,168 335.4,170.4 A4,4 0 0 1 327.4,170.4 Q327.4,168 331.4,162.4 Z" fill="#d0ebff"/>
 </g>
 <g stroke-width="3.5" stroke-linecap="round">
-<line x1="396.7" y1="210.4" x2="122" y2="291" stroke="#f03e3e" pathLength="100" class="cl"/>
-<line x1="351" y1="232.4" x2="122" y2="291" stroke="#cc5de8" pathLength="100" class="cl"/>
+<line x1="363.2" y1="140.7" x2="82" y2="291" stroke="#f03e3e" pathLength="100" class="cl"/>
+<line x1="331.4" y1="168.6" x2="82" y2="291" stroke="#cc5de8" pathLength="100" class="cl"/>
 </g>
 </g>
 
-<!-- pozorovatel (dívá se doprava, Slunce má za zády); stín míří od Slunce -->
-<ellipse cx="160" cy="368" rx="52" ry="6" fill="#2b4a1a" opacity="0.5"/>
+<!-- pozorovatel (dívá se doprava, Slunce má za zády); krátký stín míří od Slunce, končí před nohami duhy -->
+<ellipse cx="96" cy="368" rx="34" ry="6" fill="#2b4a1a" opacity="0.5"/>
+<g transform="translate(-40 0)">
 <g stroke="#212529" stroke-width="1.5" stroke-linejoin="round">
 <path d="M100,334 L97,362 L107,362 L109,336 Z" fill="#364fc7"/>
 <path d="M112,334 L114,362 L124,362 L120,334 Z" fill="#3b5bdb"/>
@@ -128,11 +133,12 @@
 </g>
 <circle cx="119" cy="287" r="2" fill="#212529"/>
 <path d="M123,289 l3,3 l-3,1" fill="none" stroke="#c08552" stroke-width="1.5"/>
+</g>
 
 <!-- popisky dole na trávě -->
-<g class="hd"><line x1="232" y1="383" x2="186" y2="363" stroke="#ffffff" stroke-width="2"/>
-<text x="236" y="400" font-size="22" font-weight="bold" fill="#ffffff">hlavní duha</text></g>
-<g class="vd"><line x1="166" y1="408" x2="146" y2="363" stroke="#ffffff" stroke-width="2"/>
+<g class="hd"><line x1="234" y1="382" x2="180" y2="363" stroke="#ffffff" stroke-width="2"/>
+<text x="238" y="400" font-size="22" font-weight="bold" fill="#ffffff">hlavní duha</text></g>
+<g class="vd"><line x1="166" y1="409" x2="152" y2="363" stroke="#ffffff" stroke-width="2"/>
 <text x="150" y="428" font-size="22" font-weight="bold" fill="#ffffff">vedlejší duha</text></g>
 <rect x="3" y="3" width="594" height="434" rx="14" fill="none" stroke="#2b2a26" stroke-width="3"/>
 </svg>
