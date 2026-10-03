@@ -70,7 +70,7 @@ const ok = (p, t) => { console.log(`${p ? '✅' : '❌'} ${t}`); if (!p) chyby++
 const klik = (id) => (prvky.get(id).posluchaci.click || []).forEach((f) => f());
 // Legenda nositelů = obrázky téže stránky (obr-02/04/05/06): elektron modrý
 // kroužek „−", díra bílý kroužek se zeleným čárkovaným obrysem a zeleným „+".
-const ZNACKA_ELEKTRONU = 'fill="#1971c2" stroke="#0b4f8a" stroke-width="2"';
+const ZNACKA_ELEKTRONU = 'fill="#1864ab" stroke="#0b4f8a" stroke-width="2"';
 const ZNACKA_DIRY = 'fill="#ffffff" stroke="#1b6b2d" stroke-width="2" stroke-dasharray="4 2"';
 const pocet = (html, co) => html.split(co).length - 1;
 // barvy typů jako na obrázcích stránky: typ N růžový, typ P béžový

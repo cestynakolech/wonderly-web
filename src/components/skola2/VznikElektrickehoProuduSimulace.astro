@@ -257,10 +257,10 @@
 			tok = `<text x="110" y="381" font-size="13" font-weight="bold" fill="#c92a2a">`
 				+ `${izolant ? 'volné částice tu nejsou — proud neprojde' : 'pohyb je neuspořádaný — výsledný přesun je nulový'}</text>`;
 		} else if (mat.kladnych > 0) {
-			tok = sipka(374, s.smer, '#1971c2', `záporné ionty míří ke svorce ${leva === '−' ? '+ vpravo' : '+ vlevo'}`)
+			tok = sipka(374, s.smer, '#1864ab', `záporné ionty míří ke svorce ${leva === '−' ? '+ vpravo' : '+ vlevo'}`)
 				+ sipka(400, -s.smer, '#c92a2a', `kladné ionty míří ke svorce ${leva === '−' ? '− vlevo' : '− vpravo'}`);
 		} else {
-			tok = sipka(381, s.smer, '#1971c2', `elektrony míří ke svorce ${leva === '−' ? '+ vpravo' : '+ vlevo'}`);
+			tok = sipka(381, s.smer, '#1864ab', `elektrony míří ke svorce ${leva === '−' ? '+ vpravo' : '+ vlevo'}`);
 		}
 		document.getElementById('vep-tok').innerHTML = tok;
 

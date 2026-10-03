@@ -76,7 +76,7 @@
 			const r = castic === 1 ? 0 : 9 + (i % 2) * 5;
 			const px = CX + r * Math.cos(a), py = CY + r * Math.sin(a);
 			const proton = i < prvek.p;
-			kruh(jadroG, px, py, 8, proton ? '#e03131' : '#868e96', '#101426');
+			kruh(jadroG, px, py, 8, proton ? '#c92a2a' : '#868e96', '#101426');
 			if (proton) {
 				const t = document.createElementNS(NS, 'text');
 				t.setAttribute('x', px); t.setAttribute('y', py + 4);
@@ -97,7 +97,7 @@
 			for (let i = 0; i < pocet; i++) {
 				// elektron = sytě modrá kulička se znaménkem −, ať se neplete s bílým neutronem
 				const g = document.createElementNS(NS, 'g');
-				kruh(g, 0, 0, 6.5, '#1971c2', '#a5d8ff');
+				kruh(g, 0, 0, 6.5, '#1864ab', '#a5d8ff');
 				const t = document.createElementNS(NS, 'text');
 				t.setAttribute('y', 4); t.setAttribute('text-anchor', 'middle');
 				t.setAttribute('font-size', '12'); t.setAttribute('font-weight', 'bold');

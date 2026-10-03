@@ -58,7 +58,7 @@
 
 		<!-- elektrody se znaménky pólů -->
 		<rect x="8" y="150" width="16" height="120" fill="#495057" />
-		<text x="16" y="142" text-anchor="middle" font-size="22" font-weight="bold" fill="#1971c2">−</text>
+		<text x="16" y="142" text-anchor="middle" font-size="22" font-weight="bold" fill="#1864ab">−</text>
 		<rect x="336" y="150" width="16" height="120" fill="#495057" />
 		<text x="344" y="142" text-anchor="middle" font-size="22" font-weight="bold" fill="#c92a2a">+</text>
 		<!-- vodiče ke vzorku -->
@@ -94,7 +94,7 @@
 
 		<!-- legenda jako na obrázcích stránky: v rámečku POD obvodem -->
 		<rect x="8" y="370" width="344" height="52" rx="8" fill="#ffffff" stroke="#adb5bd" stroke-width="2" />
-		<circle cx="40" cy="396" r="13" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" />
+		<circle cx="40" cy="396" r="13" fill="#1864ab" stroke="#0b4f8a" stroke-width="2" />
 		<text x="40" y="403" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">−</text>
 		<text x="60" y="403" font-size="19" font-weight="bold" fill="#2b2a26">elektron</text>
 		<circle cx="200" cy="396" r="13" fill="#ffffff" stroke="#1b6b2d" stroke-width="2" stroke-dasharray="4 2" />
@@ -208,7 +208,7 @@
 	// značky nositelů jako na obrázcích stránky: elektron modrý kroužek „−",
 	// díra bílý kroužek se zeleným čárkovaným obrysem a zeleným „+"
 	function elektron(x, y) {
-		return `<circle cx="${x}" cy="${y}" r="${R}" fill="#1971c2" stroke="#0b4f8a" stroke-width="2" />`
+		return `<circle cx="${x}" cy="${y}" r="${R}" fill="#1864ab" stroke="#0b4f8a" stroke-width="2" />`
 			+ `<text x="${x}" y="${y + 7}" text-anchor="middle" font-size="19" font-weight="bold" fill="#ffffff">−</text>`;
 	}
 	function dira(x, y) {
