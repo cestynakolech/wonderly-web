@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Vlevo pohled do zvukovodu: na konci je šedavý ušní bubínek, přes který prosvítá kladívko. Plaketa: bubínek kmitá, pohybuje se od 0,0001 mm do 1 mm. Vpravo zvětšený řetěz: zvuková vlna rozkmitá bubínek, ten kladívko, kladívko kovadlinku a kovadlinka třmínek. Třmínek tlačí na pružné okénko a kmity přejdou do kapaliny v hlemýždi. Animace: díly kmitají jeden po druhém a kapalina se vlní.">
+<title>Bubínek a kůstky předávají kmity</title>
+<style>
+/* Předloha: PDF lekce 35 (Škola/8/6 Zvuk/35 …/35. Vnímání zvuku, hlasitost zvuku .pdf), s. 3 – fotografie ušního
+   bubínku při pohledu do zvukovodu (šedavá blána, prosvítá kladívko) + text „Kůstky přenáší kmity z bubínku přes
+   pružné okénko do vnitřního ucha (hlemýždě); hlemýžď: kmity se přenáší do kapaliny“; s. 2 – bubínek se pohybuje
+   od 0,0001 mm do 1 mm. Fotografie nahrazena kresbou. Řetěz kůstek podle s. 1 (řez uchem).
+   Animace: díly kmitají s periodou 0,4 s, každý o 0,06 s později než předchozí (kmit se předává dál);
+   kapalina se vlní stále. Bez animace (reduced-motion) = klidový stav. */
+.vl { animation: vl 1.6s linear infinite; }
+@keyframes vl { 0% { transform: translateX(-60px); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateX(30px); opacity: 0; } }
+.k0, .k1, .k2, .k3, .k4 { animation: km .2s ease-in-out infinite alternate; }
+.k1 { animation-delay: .06s; } .k2 { animation-delay: .12s; } .k3 { animation-delay: .18s; } .k4 { animation-delay: .24s; }
+@keyframes km { from { transform: translateX(-3px); } to { transform: translateX(3px); } }
+.bp { transform-origin: 216px 300px; animation: bp .2s ease-in-out infinite alternate; }
+@keyframes bp { from { transform: scale(1); } to { transform: scale(.97); } }
+.kap { stroke-dasharray: 10 12; animation: kap 1s linear infinite; }
+@keyframes kap { to { stroke-dashoffset: -44; } }
+@media (prefers-reduced-motion: reduce) { .vl, .k0, .k1, .k2, .k3, .k4, .bp, .kap { animation: none; } }
+</style>
+<defs>
+<radialGradient id="stena" cx="50%" cy="50%" r="50%"><stop offset=".55" stop-color="#f6c1b0"/><stop offset=".85" stop-color="#e48f7a"/><stop offset="1" stop-color="#b75a48"/></radialGradient>
+<radialGradient id="blana" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#eef0f4"/><stop offset=".6" stop-color="#c3c8d3"/><stop offset="1" stop-color="#9aa1b0"/></radialGradient>
+<linearGradient id="kostg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffdf5"/><stop offset="1" stop-color="#e9dcc0"/></linearGradient>
+<marker id="sip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+<marker id="sipm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1864ab"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="594" rx="14" fill="#f8f9fa"/>
+<text x="480" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Bubínek a kůstky předávají kmity</text>
+
+<!-- LEVÁ ČÁST: pohled do zvukovodu (podle fotografie s. 3) -->
+<text x="210" y="96" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Pohled do zvukovodu</text>
+<circle cx="210" cy="292" r="168" fill="#212529"/>
+<circle cx="210" cy="292" r="160" fill="url(#stena)"/>
+<path d="M90 230C120 214 150 220 170 212M100 360C130 372 150 364 176 378M300 214C278 222 262 214 246 222M318 346C296 356 280 350 262 362" fill="none" stroke="#c2504a" stroke-width="2" opacity=".7"/>
+<g class="bp">
+<ellipse cx="216" cy="300" rx="100" ry="86" transform="rotate(-18 216 300)" fill="url(#blana)" stroke="#868e96" stroke-width="3"/>
+<!-- prosvítající kladívko -->
+<path d="M216 304L196 230" stroke="#f3e6c8" stroke-width="9" stroke-linecap="round"/>
+<path d="M216 304L196 230" stroke="#d6c4a1" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="194" cy="224" r="7" fill="#f3e6c8" stroke="#d6c4a1" stroke-width="2"/>
+<!-- světelný odlesk -->
+<path d="M220 312L250 368L272 352Z" fill="#fff" opacity=".75"/>
+</g>
+<g font-size="20" fill="#212529">
+<g stroke="#495057" stroke-width="2" fill="none" marker-end="url(#sip)"><path d="M346 146L304 236"/><path d="M84 152L184 222"/></g>
+<text x="318" y="136" font-weight="bold">ušní bubínek</text>
+<text x="34" y="140">kladívko</text>
+</g>
+<rect x="40" y="480" width="340" height="88" rx="12" fill="#fff" stroke="#1864ab" stroke-width="2.5"/>
+<text x="210" y="514" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">Bubínek kmitá:</text>
+<text x="210" y="546" font-size="20" fill="#212529" text-anchor="middle">od 0,0001 mm do 1 mm</text>
+
+<!-- PRAVÁ ČÁST: zvětšený řetěz -->
+<text x="690" y="96" font-size="22" font-weight="bold" fill="#212529" text-anchor="middle">Zvětšeno: střední a vnitřní ucho</text>
+<path d="M470 134H912" stroke="#1864ab" stroke-width="4" marker-end="url(#sipm)"/>
+<text x="690" y="124" font-size="20" fill="#1864ab" text-anchor="middle">kmity se předávají dál</text>
+<!-- zvuková vlna -->
+<g class="vl" fill="none" stroke="#1864ab" stroke-width="4" stroke-linecap="round"><path d="M452 270Q468 320 452 370"/><path d="M474 270Q490 320 474 370"/></g>
+<!-- bubínek -->
+<g class="k0"><ellipse cx="506" cy="320" rx="12" ry="92" fill="url(#blana)" stroke="#495057" stroke-width="3"/></g>
+<!-- kladívko -->
+<g class="k1" fill="url(#kostg)" stroke="#6b5a3e" stroke-width="3" stroke-linejoin="round">
+<path d="M512 330L524 332C532 290 542 256 556 232L540 224C528 252 518 290 512 330Z"/>
+<path d="M538 232L524 246L530 254L546 240Z"/>
+<ellipse cx="556" cy="206" rx="22" ry="28"/>
+</g>
+<!-- kovadlinka -->
+<g class="k2" fill="url(#kostg)" stroke="#6b5a3e" stroke-width="3" stroke-linejoin="round">
+<path d="M578 196C590 178 618 178 630 192L668 184L670 196L636 214C640 250 640 290 634 330C642 330 650 334 650 342L640 346C632 344 624 338 622 330C620 290 612 252 600 230C584 228 572 214 578 196Z"/>
+</g>
+<!-- třmínek -->
+<g class="k3">
+<path d="M648 340C668 302 702 296 722 300V380C702 384 668 378 648 344Z" fill="none" stroke="#6b5a3e" stroke-width="10" stroke-linejoin="round"/>
+<path d="M648 340C668 302 702 296 722 300V380C702 384 668 378 648 344Z" fill="none" stroke="#f5ecd9" stroke-width="4" stroke-linejoin="round"/>
+<rect x="718" y="294" width="12" height="92" rx="4" fill="url(#kostg)" stroke="#6b5a3e" stroke-width="3"/>
+</g>
+<!-- pružné okénko -->
+<g class="k4"><ellipse cx="738" cy="340" rx="7" ry="48" fill="#b197fc" stroke="#5f3dc4" stroke-width="3"/></g>
+<!-- hlemýžď s kapalinou (výřez) -->
+<path d="M744 276C800 250 880 262 912 310C934 344 922 392 884 410C840 430 790 418 744 404Z" fill="#a5d8ff" stroke="#5f3dc4" stroke-width="5"/>
+<path class="kap" d="M752 316C790 304 830 306 868 318M752 344C792 334 834 336 880 348M752 372C790 366 828 368 866 380" fill="none" stroke="#1864ab" stroke-width="3" stroke-linecap="round"/>
+
+<!-- popisky řetězu -->
+<g font-size="20" fill="#212529" text-anchor="middle">
+<g stroke="#495057" stroke-width="2" fill="none" marker-end="url(#sip)">
+<path d="M506 448L506 418"/><path d="M626 480L622 344"/><path d="M688 448L690 386"/><path d="M748 482L740 392"/><path d="M842 448L840 420"/>
+</g>
+<text x="506" y="470" font-weight="bold">bubínek</text>
+<text x="500" y="176" font-weight="bold">kladívko</text>
+<path d="M520 184L538 194" stroke="#495057" stroke-width="2" fill="none" marker-end="url(#sip)"/>
+<text x="626" y="502" font-weight="bold">kovadlinka</text>
+<text x="688" y="470" font-weight="bold">třmínek</text>
+<text x="760" y="530">pružné okénko</text>
+<text x="860" y="470" font-weight="bold">kapalina</text>
+<text x="860" y="494">v hlemýždi</text>
+</g>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" font-family="'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Stupnice hladiny intenzity zvuku v decibelech, zdola zelená, nahoře červená. 0 dB je práh slyšitelnosti, nejslabší zvuk, který slyšíme; bubínek se vychyluje nejméně. Nad 90 dB dlouhodobě hrozí trvalé poškození sluchu. 130 dB je práh bolesti, nejsilnější zvuk, který ucho snese; při překročení hrozí protržení bubínku, bubínek se vychyluje nejvíce. Plaketa: hlasitost vnímá každý jinak, hladina intenzity zvuku ji měří objektivně v decibelech. Animace: ukazatel stoupá od 0 dB ke 130 dB, bubínek u 0 dB kmitá nepatrně, u 130 dB velmi silně.">
+<title>Hladina intenzity zvuku</title>
+<style>
+/* Předloha: PDF lekce 35 (Škola/8/6 Zvuk/35 …/35. Vnímání zvuku, hlasitost zvuku .pdf), s. 5 – hladina intenzity
+   zvuku, jednotka dB; práh slyšitelnosti 0 dB (nejmenší výchylka bubínku), práh bolesti 130 dB (největší výchylka,
+   při překročení protržení bubínku); s. 6 – nad 90 dB dlouhodobě trvalé poškození sluchu. Strana PDF je bez obrázku,
+   uspořádání podle infografiky ve složce lekce (svislý pruh zelená → oranžová → červená s hodnotami 0, 90, 130 dB).
+   Měřítko pruhu: 0 dB y = 570, 130 dB y = 130, tedy 440 : 130 px na 1 dB; 90 dB y = 570 − 90 · 440 : 130 ≈ 265.
+   Animace (6 s): ukazatel vyjede od 0 dB ke 130 dB a vrátí se; bubínek u 0 dB kmitá o ±2 px, u 130 dB o ±12 px.
+   Bez animace (reduced-motion) = ukazatel u 0 dB, bubínky v klidu, výchylku ukazují dvojšipky. */
+.uk { animation: uk 6s ease-in-out infinite; }
+@keyframes uk { 0%, 10% { transform: translateY(0); } 55%, 70% { transform: translateY(-440px); } 100% { transform: translateY(0); } }
+.mal { animation: mal .25s ease-in-out infinite alternate; }
+@keyframes mal { from { transform: translateX(-2px); } to { transform: translateX(2px); } }
+.vel { animation: vel .25s ease-in-out infinite alternate; }
+@keyframes vel { from { transform: translateX(-12px); } to { transform: translateX(12px); } }
+@media (prefers-reduced-motion: reduce) { .uk, .mal, .vel { animation: none; } }
+</style>
+<defs>
+<linearGradient id="pruh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e03131"/><stop offset=".31" stop-color="#f59f00"/><stop offset="1" stop-color="#2f9e44"/></linearGradient>
+<radialGradient id="blana" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#f1f3f5"/><stop offset="1" stop-color="#adb5bd"/></radialGradient>
+<marker id="dv" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+<marker id="up" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#495057"/></marker>
+</defs>
+<rect x="3" y="3" width="954" height="644" rx="14" fill="#f8f9fa"/>
+<text x="480" y="44" font-size="28" font-weight="bold" fill="#212529" text-anchor="middle">Hladina intenzity zvuku</text>
+<text x="480" y="76" font-size="20" fill="#212529" text-anchor="middle">jednotka: decibel (dB)</text>
+
+<!-- šipka „hlasitěji“ -->
+<path d="M90 560V146" stroke="#495057" stroke-width="3" marker-end="url(#up)"/>
+<text x="76" y="360" font-size="20" fill="#212529" text-anchor="middle" transform="rotate(-90 76 360)">silnější zvuk</text>
+
+<!-- pruh -->
+<rect x="300" y="130" width="50" height="440" rx="10" fill="url(#pruh)" stroke="#495057" stroke-width="2"/>
+<g stroke="#212529" stroke-width="3"><path d="M292 130H358"/><path d="M292 265H358"/><path d="M292 570H358"/></g>
+<g font-size="30" font-weight="bold" text-anchor="end">
+<text x="250" y="141" fill="#a51d1d">130 dB</text>
+<text x="250" y="276" fill="#9c4a00">90 dB</text>
+<text x="250" y="581" fill="#237032">0 dB</text>
+</g>
+<!-- ukazatel -->
+<g class="uk"><path d="M260 556L294 570L260 584Z" fill="#212529"/></g>
+
+<!-- spojnice k plaketám -->
+<g stroke="#495057" stroke-width="2" stroke-dasharray="4 4"><path d="M358 130H390"/><path d="M358 265H390"/><path d="M358 570H390"/></g>
+
+<!-- plakety -->
+<rect x="390" y="96" width="400" height="104" rx="12" fill="#fff" stroke="#a51d1d" stroke-width="2.5"/>
+<g font-size="20" fill="#212529"><text x="408" y="126" font-weight="bold" fill="#a51d1d">Práh bolesti</text><text x="408" y="156">nejsilnější zvuk, který ucho snese;</text><text x="408" y="184">při překročení hrozí protržení bubínku</text></g>
+<rect x="390" y="228" width="400" height="76" rx="12" fill="#fff" stroke="#9c4a00" stroke-width="2.5"/>
+<g font-size="20" fill="#212529"><text x="408" y="258" font-weight="bold" fill="#9c4a00">Nad 90 dB dlouhodobě:</text><text x="408" y="288">trvalé poškození sluchu</text></g>
+<rect x="390" y="360" width="400" height="104" rx="12" fill="#fff" stroke="#868e96" stroke-width="2" stroke-dasharray="6 5"/>
+<g font-size="20" fill="#212529"><text x="408" y="390">Hlasitost vnímá každý jinak.</text><text x="408" y="420">Hladina intenzity zvuku ji měří</text><text x="408" y="448" font-weight="bold">objektivně, v decibelech.</text></g>
+<rect x="390" y="526" width="400" height="80" rx="12" fill="#fff" stroke="#237032" stroke-width="2.5"/>
+<g font-size="20" fill="#212529"><text x="408" y="558" font-weight="bold" fill="#237032">Práh slyšitelnosti</text><text x="408" y="588">nejslabší zvuk, který slyšíme</text></g>
+
+<!-- bubínky: výchylka -->
+<g transform="translate(875 150)">
+<g class="vel"><ellipse cx="0" cy="0" rx="8" ry="32" fill="url(#blana)" stroke="#343a40" stroke-width="3"/></g>
+<path d="M-30 44H30" stroke="#495057" stroke-width="2.5" marker-start="url(#dv)" marker-end="url(#dv)"/>
+</g>
+<text x="875" y="222" font-size="18" fill="#212529" text-anchor="middle">největší výchylka</text>
+<text x="875" y="244" font-size="18" fill="#212529" text-anchor="middle">bubínku</text>
+<g transform="translate(875 540)">
+<g class="mal"><ellipse cx="0" cy="0" rx="8" ry="32" fill="url(#blana)" stroke="#343a40" stroke-width="3"/></g>
+<path d="M-8 44H8" stroke="#495057" stroke-width="2.5" marker-start="url(#dv)" marker-end="url(#dv)"/>
+</g>
+<text x="875" y="610" font-size="18" fill="#212529" text-anchor="middle">nejmenší výchylka</text>
+<text x="875" y="632" font-size="18" fill="#212529" text-anchor="middle">bubínku</text>
+</svg>
