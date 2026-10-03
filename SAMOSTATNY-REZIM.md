@@ -6,6 +6,8 @@
 
 ## ⚡ ČÍM ZAČÍT — 27. 9. 2026
 
+- **3. 10. 2026 — STAV:** ochranné pásmo HOTOVO (1aa14db, nasazeno, živě ověřeno; doklady `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `kontrola-1aa14db.md`). Čeká na učitele: Suno písnička a video Tání (viz ❓ níže). Předávka: `Omega/predavka/2026-10-03/PRIKAZ-NOVA-SESSION.md`.
+
 - **1. 10. 2026 večer — STAV:** nasazeno do f68189d (živě ověřeno): Codex B7/B11/B13 (F7 Archimédův zákon, F8 elektřina dávky 1–4 + bezpečnost se simulací, obrázek F9 bezpečnosti), kvízy F8 výkon+bezpečnost (3 kola, 21+21), nový ruční skript `testy/uniky-v-bloku.mjs`; 5 dílů videí na R2; pojistka `bezpecny_push` (Omega). Body 8 a 12 vráceny Codexu. **Čeká na učitele:** A3 distraktor s tyčí (`Omega/predavka/2026-10-01-vecer/opravy-kvizu-f8.md`), přerušený úkol 2 (7 videí S/J), konvence křížku u sila_na_vodic, zdvojený titulek vodic-civka-dialog2. **Fronta:** Codex bod 4 a 6 (+ opravné odevzdání 8/12), N4–N16, 6× gravitacni-sila. Drobnosti: 3 poznámky z `kontrola-f68189d-1ea2f32.md`, 3 vady videí z `kontrola-videi-5.md`. Podrobnosti: `Omega/predavka/2026-10-01-noc/PRIKAZ-NOVA-SESSION.md`.
 - **2. 10. 2026:** předávka 2026-10-02 je splněná (7f2145f je na serveru); Příroda 21 čeká na Codex (odpověď zatím není).
 - **1. 10. 2026 — STAV TÉMATU 4 (vlna 1–2 nasazena):** commit 1cb56ef, živě 7/7: F9 Elektrická energie, F7 Pascalův zákon, Hydrostatický tlak, Tlak (text f7-tlak-b), F8 Teplo a přeměny skupenství, Tání, Tuhnutí (výklad, 48 obrázků, 7 kvízů po 21; 2 kola kontroly Claude + Codex). CI build spadl, nasazeno `wrangler deploy` zálohou (řeší se: `Omega/predavka/2026-10-01/prace/ci-selhani.md`). **Zbývá k tématu 4:** simulace Tlaku (návrh klíč simulace v `Omega/predavka/2026-10-01/prace/tema4/f7-tlak-b.json`); F9 Účinky proudu a bezpečnost (čeká na učitele, práh 2–5 vs 1–8 mA); vlna 3 texty F8 Vypařování, Var, Kondenzace, Skupenské změny vody v přírodě (píše Codex); média (písnička Suno, bonus NotebookLM, polemika s animacemi) dle OBSAH-PRAVIDLA §6.
@@ -123,6 +125,10 @@ tlaku tvrdil exit 0 bez výpočtu po čekání na zámek — ověřit; 2. kolo n
 kontroly nespuštěno pro 7/hydrostaticky-tlak a 7/naklonena-rovina.
 
 ## ❓ Otevřené dotazy na učitele (jediná sekce, oprava V8-6, 27. 9. 2026)
+
+- **3. 10. 2026 (a) — písnička Suno „Účinky proudu“ čeká na poslech:** `Omega/predavka/2026-10-03/suno/ucinky-proudu-v1.mp3`. Poslechnout hlavně 1:01–1:08, 2:37–2:42 („puls nehledej“) a 1:21–1:25 („děleno dvěma tisíci ohmy“); pak nasadit.
+
+- **3. 10. 2026 (b) — video NotebookLM „Tání“ (8. ročník):** kontrola `Omega/predavka/2026-10-03/kontrola-video-tani.md` = použitelné, 2 střední vady (teploměr na snímku 2 má nesmyslnou stupnici, „L_t“ na snímku 11 s podtržítkem). Volba: **A přegenerovat (doporučeno)** / B použít tak, jak je / C nepoužít; k tomu rozhodnout licenci (podmínky použití videí z NotebookLM).
 
 - **K2 — ROZHODNUTO 2. 10. 2026, varianta A (vločky = desublimace, tuhnutím jen kroupy; opraveno ve výkladu Tuhnutí) — [téma 4, F8] Rozpor PDF (2. 10. 2026):** Tuhnutí řadí sněhové vločky k tuhnutí, Příroda k desublimaci – výklad Tuhnutí má „ledové kroupy a sněhové vločky“. Doporučení: vločky = desublimace (fyzikálně správně), ve Tuhnutí jen kroupy.
 
@@ -662,8 +668,11 @@ Hotovo 3. 10. 2026: přestavba bloku (c706eef) + 3. kolo oprav vazeb Q1, Q5, Q10
 - Z2: správná odpověď Q10 (ohřátí 1 kg o 1 °C) napovídá jednotku v Q11 (jmenovatel kg · °C); vlastní vazba učiva, jen evidovat.
 - Z3: vysvětlení Q11 jen popisuje zápis jednotky a neříká „proč“ (OBSAH-PRAVIDLA.md:265); možná oprava bez úniku přes c = Q : (m · Δt) → J : (kg · °C).
 
-### [ověřit] Ochranné pásmo 30 m ve výkladu „Účinky proudu a bezpečnost“ (3. 10. 2026)
-Ověřit proti zákonu 458/2000 Sb. ochranné pásmo 30 m ve výkladu Účinky proudu a bezpečnost (`temata.ts` ~3212) — kontrolor Suno 3. 10. tvrdí 20 m pro 400 kV (zpaměti, neověřeno).
+### [HOTOVO 3. 10. 2026] Ochranné pásmo 400 kV ve výkladu „Účinky proudu a bezpečnost“ (1aa14db)
+HOTOVO 3. 10. 2026: pásmo opraveno z 30 m na 20–25 m (§ 46 zák. 458/2000, NV 80/1957), nasazeno a ověřeno `curl` na živé stránce (nový text, „30 metrů“ již není). Doklady: `Omega/predavka/2026-10-03/overeni2-ochranne-pasmo.md`, `Omega/predavka/2026-10-03/kontrola-1aa14db.md`.
+
+### [drobnost] Ochranné pásmo: věta o zákazu stavby nesouzní se zákonem (3. 10. 2026, `Omega/predavka/2026-10-03/kontrola-1aa14db.md`)
+Věta „kam se nesmí stavět, sázet stromy“ (`temata.ts:3212`) a vysvětlení kvízu (`kvizy.ts:5130`) nesouzní se skutečností „stavba jen se souhlasem majitele vedení“. Upravit formulaci, ne věcný údaj.
 
 ### [oprava nástroje] kontrola_uniku_mini.py čte jen jednořádkové otázky (zjištěno 3. 10. 2026)
 `Omega/skripty/kontrola_uniku_mini.py` načte jen otázky zapsané na jednom řádku; víceřádkový blok vrátí 0 otázek (tichý falešný „nic nenalezeno“). Opravit NÁSTROJ, data (kvizy.ts) nepřevádět.
